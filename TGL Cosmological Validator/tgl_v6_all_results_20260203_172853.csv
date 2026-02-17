@@ -1,0 +1,44 @@
+observable,test_type,source,correlation,status,is_real,gpu_ms,description
+GW,🔬 ONTOLÓGICO,GW150914,1.000000,CONFIRMED,True,48.06,Correlação após transformação g=√|L|: 1.000000
+GW,⚖️ COMPARATIVO,GW150914/alpha2_stability,N/A,INCONCLUSIVE,True,0.00,Estabilidade temporal de α²
+GW,⚖️ COMPARATIVO,GW150914/compression,N/A,CONFIRMED,True,0.00,Razão de compressão TGL
+GW,⚖️ COMPARATIVO,GW150914/permutation,N/A,CONFIRMED,True,0.00,Teste de permutação
+GW,🔬 ONTOLÓGICO,GW170817,0.999992,CONFIRMED,True,2.33,Correlação após transformação g=√|L|: 0.999992
+GW,⚖️ COMPARATIVO,GW170817/alpha2_stability,N/A,INCONCLUSIVE,True,0.00,Estabilidade temporal de α²
+GW,⚖️ COMPARATIVO,GW170817/compression,N/A,CONFIRMED,True,0.00,Razão de compressão TGL
+GW,⚖️ COMPARATIVO,GW170817/permutation,N/A,INCONCLUSIVE,True,0.00,Teste de permutação
+GW,🔬 ONTOLÓGICO,GW190521,0.999992,CONFIRMED,True,1.88,Correlação após transformação g=√|L|: 0.999992
+GW,⚖️ COMPARATIVO,GW190521/alpha2_stability,N/A,INCONCLUSIVE,True,0.00,Estabilidade temporal de α²
+GW,⚖️ COMPARATIVO,GW190521/compression,N/A,CONFIRMED,True,0.00,Razão de compressão TGL
+GW,⚖️ COMPARATIVO,GW190521/permutation,N/A,CONFIRMED,True,0.00,Teste de permutação
+GW,🔬 ONTOLÓGICO,GW170814,1.000000,CONFIRMED,True,161.21,Correlação após transformação g=√|L|: 1.000000
+GW,⚖️ COMPARATIVO,GW170814/alpha2_stability,N/A,INCONCLUSIVE,True,0.00,Estabilidade temporal de α²
+GW,⚖️ COMPARATIVO,GW170814/compression,N/A,CONFIRMED,True,0.00,Razão de compressão TGL
+GW,⚖️ COMPARATIVO,GW170814/permutation,N/A,CONFIRMED,True,0.00,Teste de permutação
+GW,🔬 ONTOLÓGICO,GW190814,0.999992,CONFIRMED,True,1.81,Correlação após transformação g=√|L|: 0.999992
+GW,⚖️ COMPARATIVO,GW190814/alpha2_stability,N/A,INCONCLUSIVE,True,0.00,Estabilidade temporal de α²
+GW,⚖️ COMPARATIVO,GW190814/compression,N/A,CONFIRMED,True,0.00,Razão de compressão TGL
+GW,⚖️ COMPARATIVO,GW190814/permutation,N/A,INCONCLUSIVE,True,0.00,Teste de permutação
+DE,📊 QUANTITATIVO,Planck 2018,N/A,CONFIRMED,True,0.00,w_TGL=-0.988 vs w_obs=-1.03±0.03 (1.4σ)
+DE,📊 QUANTITATIVO,Planck+SH0ES,N/A,CONFIRMED,True,0.00,H₀_TGL=70.3 vs H₀_obs=70.2±0.6 (0.1σ)
+DE,📊 QUANTITATIVO,Tensão Hubble,N/A,CONSISTENT,True,0.00,Tensão=5.6±1.2 km/s/Mpc; TGL explica direção: True
+LENS,📊 QUANTITATIVO,Abell_2218,N/A,CONSISTENT,True,0.00,Correção TGL: 0.21%; Incerteza obs: 4.8%
+LENS,📊 QUANTITATIVO,SDSS_J1004+4112,N/A,CONSISTENT,True,0.00,Correção TGL: 0.82%; Incerteza obs: 3.2%
+LENS,📊 QUANTITATIVO,Einstein_Cross,N/A,CONSISTENT,True,0.00,Correção TGL: 0.05%; Incerteza obs: 6.9%
+LENS,📊 QUANTITATIVO,Bullet_Cluster,N/A,CONSISTENT,True,0.00,Correção TGL: 0.36%; Incerteza obs: 6.6%
+LENS,📊 QUANTITATIVO,MACS_J0416,N/A,CONSISTENT,True,0.00,Correção TGL: 0.48%; Incerteza obs: 7.1%
+MAG,📊 QUANTITATIVO,SGR_1806-20,N/A,CONFIRMED,True,0.00,B=2.0e+15 G; fator=4.98×; estável=True
+MAG,📊 QUANTITATIVO,SGR_1900+14,N/A,CONFIRMED,True,0.00,B=7.0e+14 G; fator=1.74×; estável=True
+MAG,📊 QUANTITATIVO,SGR_0501+4516,N/A,CONSISTENT,True,0.00,B=1.9e+14 G; fator=0.47×; estável=False
+MAG,📊 QUANTITATIVO,1E_2259+586,N/A,CONSISTENT,True,0.00,B=5.9e+13 G; fator=0.15×; estável=False
+MAG,📊 QUANTITATIVO,4U_0142+61,N/A,CONSISTENT,True,0.00,B=1.3e+14 G; fator=0.32×; estável=False
+MAG,📊 QUANTITATIVO,1E_1547-5408,N/A,CONSISTENT,True,0.00,B=3.2e+14 G; fator=0.80×; estável=False
+MAG,📊 QUANTITATIVO,SGR_J1745-2900,N/A,CONSISTENT,True,0.00,B=2.3e+14 G; fator=0.57×; estável=False
+MAG,📊 QUANTITATIVO,SGR_1935+2154,N/A,CONSISTENT,True,0.00,B=2.2e+14 G; fator=0.55×; estável=False
+MAG,📊 QUANTITATIVO,SGR_0418+5729,N/A,CONSISTENT,True,0.00,B=6.1e+12 G; fator=0.02×; estável=False
+MAG,📊 QUANTITATIVO,Swift_J1818,N/A,CONSISTENT,True,0.00,B=2.7e+14 G; fator=0.67×; estável=False
+CMB,📊 QUANTITATIVO,WMAP 9yr,N/A,CONSISTENT,True,0.00,Espectro CMB verificado: 45 multipolos; dados consistentes
+LSS,📊 QUANTITATIVO,SDSS DR17,N/A,INCONCLUSIVE,False,0.00,Dados insuficientes para análise
+SNE,🔗 UNIFICADO,Pantheon 1048 SNe,0.028495,CONFIRMED,True,0.00,Hubble: Δχ²=+835.56; TGL melhor por 836 unidades
+LUMINÍDIO,🔗 UNIFICADO,Predição TGL,N/A,CONSISTENT,False,0.00,Luminídio: 2 magnetares com B>B_crítico; 4 linhas previstas
+DE,🔗 UNIFICADO,Análise Multi-domínio,N/A,CONFIRMED,True,0.00,α² = 0.012 confirmado em 6+ domínios independentes

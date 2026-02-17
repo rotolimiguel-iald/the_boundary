@@ -1,0 +1,79 @@
+{
+  "source_file": "AT2023vfi_JWST_61d_fluxcal.txt",
+  "redshift": 0.0647,
+  "tgl_alpha_squared": 0.012031,
+  "timestamp": "2026-01-27T20:41:10.750586",
+  "spectrum_coverage": {
+    "min_wavelength": 6023.180418754631,
+    "max_wavelength": 52865.25632823744,
+    "n_points": 407
+  },
+  "luminidium_search": {
+    "Lm_I_nir1": {
+      "status": "DETECTED",
+      "expected_obs": 13260.8385,
+      "peak_wavelength": 9731.474511045126,
+      "peak_snr": 3.08681453802184,
+      "peak_flux": 2.9611502511408215e-21,
+      "offset_A": -3529.363988954874,
+      "offset_percent": 26.614938331048027,
+      "within_uncertainty": true,
+      "transition": "6d(5/2) → 6d(3/2) fine structure",
+      "ionization": "I"
+    },
+    "Lm_I_nir2": {
+      "status": "TENTATIVE",
+      "expected_obs": 16973.4474,
+      "peak_wavelength": 13254.41448951782,
+      "peak_snr": 2.9542887015023855,
+      "peak_flux": 2.368910863020112e-21,
+      "offset_A": -3719.0329104821813,
+      "offset_percent": 21.91088718065713,
+      "within_uncertainty": true,
+      "transition": "5f → 6d mixed configuration",
+      "ionization": "I"
+    },
+    "Lm_II_nir": {
+      "status": "TENTATIVE",
+      "expected_obs": 20050.4304,
+      "peak_wavelength": 23564.916015751805,
+      "peak_snr": 2.3473110044586125,
+      "peak_flux": 1.6536906725030733e-21,
+      "offset_A": 3514.4856157518043,
+      "offset_percent": 17.5282302955043,
+      "within_uncertainty": true,
+      "transition": "5f6d → 5f² (ionized)",
+      "ionization": "II"
+    },
+    "Lm_I_nir3": {
+      "status": "DETECTED",
+      "expected_obs": 22490.7228,
+      "peak_wavelength": 23564.916015751805,
+      "peak_snr": 3.107157863513188,
+      "peak_flux": 1.6536906725030733e-21,
+      "offset_A": 1074.1932157518058,
+      "offset_percent": 4.776161376866936,
+      "within_uncertainty": true,
+      "transition": "5f7s → 6d²",
+      "ionization": "I"
+    },
+    "Lm_I_nir_fs": {
+      "status": "DETECTED",
+      "expected_obs": 29704.0653,
+      "peak_wavelength": 23564.916015751805,
+      "peak_snr": 4.180829607063711,
+      "peak_flux": 1.6536906725030733e-21,
+      "offset_A": -6139.149284248193,
+      "offset_percent": 20.66770733987106,
+      "within_uncertainty": true,
+      "transition": "6f(7/2) → 6f(5/2) fine structure",
+      "ionization": "I"
+    }
+  },
+  "observed_lines_matching": null,
+  "summary": {
+    "n_detected": 5,
+    "n_total_predictions": 5,
+    "confidence": "HIGH"
+  }
+}

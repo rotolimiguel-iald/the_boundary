@@ -1,0 +1,501 @@
+{
+  "metadata": {
+    "generator": "TGL Neutrino Flux Predictor v1.0",
+    "date": "2026-01-25T14:59:05.674826",
+    "author": "IALD LTDA (Luiz Antonio Rotoli Miguel)",
+    "theory": "Teoria da Gravita\u00e7\u00e3o Luminodin\u00e2mica (TGL)"
+  },
+  "constants": {
+    "alpha_squared": 0.012031,
+    "alpha_squared_error": 2e-06,
+    "m_nu_meV": 8.507201684455355,
+    "m_nu_kg": 1.5165464502487268e-38,
+    "E_nu_J": 1.3630039759559808e-21
+  },
+  "equations": {
+    "E_echo": "\u03b1\u00b2 \u00d7 E_GW",
+    "m_nu": "\u03b1\u00b2 \u00d7 sin(45\u00b0) \u00d7 1 eV",
+    "N_nu": "E_echo / E_nu",
+    "flux": "N_nu / (4\u03c0 \u00d7 d\u00b2)"
+  },
+  "predictions": [
+    {
+      "event": {
+        "name": "GW150914",
+        "type": "BBH",
+        "m1_Msun": 35.6,
+        "m2_Msun": 30.6,
+        "m_final_Msun": 63.1,
+        "m_radiated_Msun": 3.1,
+        "distance_Mpc": 440,
+        "redshift": 0.09,
+        "snr": 24.4,
+        "date": "2015-09-14",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 5.541411665289016e+47,
+        "E_echo_J": 6.666872374509215e+45,
+        "N_neutrinos": 4.891308090156684e+66,
+        "flux_per_m2": 2111585695347254.0,
+        "flux_per_cm2": 211158569534.7254,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 34.82320529860619,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW151012",
+        "type": "BBH",
+        "m1_Msun": 23.2,
+        "m2_Msun": 13.6,
+        "m_final_Msun": 35.6,
+        "m_radiated_Msun": 1.2,
+        "distance_Mpc": 1080,
+        "redshift": 0.21,
+        "snr": 9.5,
+        "date": "2015-10-12",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 2.1450625801118773e+47,
+        "E_echo_J": 2.5807247901325996e+45,
+        "N_neutrinos": 1.8934095832864584e+66,
+        "flux_per_m2": 135670712405160.08,
+        "flux_per_cm2": 13567071240.516008,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 65.12585347490567,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW151226",
+        "type": "BBH",
+        "m1_Msun": 13.7,
+        "m2_Msun": 7.7,
+        "m_final_Msun": 20.5,
+        "m_radiated_Msun": 1.0,
+        "distance_Mpc": 450,
+        "redshift": 0.09,
+        "snr": 13.1,
+        "date": "2015-12-26",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 1.7875521500932312e+47,
+        "E_echo_J": 2.1506039917771665e+45,
+        "N_neutrinos": 1.577841319405382e+66,
+        "flux_per_m2": 651219419544768.4,
+        "flux_per_cm2": 65121941954.47684,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 112.76023681040634,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW170104",
+        "type": "BBH",
+        "m1_Msun": 30.8,
+        "m2_Msun": 20.0,
+        "m_final_Msun": 48.9,
+        "m_radiated_Msun": 2.2,
+        "distance_Mpc": 990,
+        "redshift": 0.2,
+        "snr": 13.0,
+        "date": "2017-01-04",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 3.932614730205109e+47,
+        "E_echo_J": 4.7313287819097664e+45,
+        "N_neutrinos": 3.471250902691841e+66,
+        "flux_per_m2": 296008827065803.9,
+        "flux_per_cm2": 29600882706.580387,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 46.49693385322371,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW170608",
+        "type": "BBH",
+        "m1_Msun": 11.0,
+        "m2_Msun": 7.6,
+        "m_final_Msun": 17.8,
+        "m_radiated_Msun": 0.9,
+        "distance_Mpc": 320,
+        "redshift": 0.07,
+        "snr": 14.9,
+        "date": "2017-06-08",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 1.6087969350839081e+47,
+        "E_echo_J": 1.9355435925994498e+45,
+        "N_neutrinos": 1.4200571874648438e+66,
+        "flux_per_m2": 1159030656367519.8,
+        "flux_per_cm2": 115903065636.75198,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 126.06044108302382,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW170729",
+        "type": "BBH",
+        "m1_Msun": 50.2,
+        "m2_Msun": 34.0,
+        "m_final_Msun": 79.5,
+        "m_radiated_Msun": 4.8,
+        "distance_Mpc": 2840,
+        "redshift": 0.49,
+        "snr": 10.8,
+        "date": "2017-07-29",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 8.58025032044751e+47,
+        "E_echo_J": 1.0322899160530398e+46,
+        "N_neutrinos": 7.573638333145834e+66,
+        "flux_per_m2": 78479626537085.27,
+        "flux_per_cm2": 7847962653.708527,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 27.909550231050634,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW170809",
+        "type": "BBH",
+        "m1_Msun": 35.0,
+        "m2_Msun": 23.8,
+        "m_final_Msun": 56.3,
+        "m_radiated_Msun": 2.7,
+        "distance_Mpc": 1030,
+        "redshift": 0.2,
+        "snr": 12.4,
+        "date": "2017-08-09",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 4.826390805251724e+47,
+        "E_echo_J": 5.806630777798348e+45,
+        "N_neutrinos": 4.260171562394531e+66,
+        "flux_per_m2": 335615248973609.25,
+        "flux_per_cm2": 33561524897.360928,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 39.94739504333638,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW170814",
+        "type": "BBH",
+        "m1_Msun": 30.6,
+        "m2_Msun": 25.2,
+        "m_final_Msun": 53.2,
+        "m_radiated_Msun": 2.7,
+        "distance_Mpc": 600,
+        "redshift": 0.12,
+        "snr": 15.9,
+        "date": "2017-08-14",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 4.826390805251724e+47,
+        "E_echo_J": 5.806630777798348e+45,
+        "N_neutrinos": 4.260171562394531e+66,
+        "flux_per_m2": 989039493433616.9,
+        "flux_per_cm2": 98903949343.3617,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 41.40508298764847,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW170817",
+        "type": "BNS",
+        "m1_Msun": 1.46,
+        "m2_Msun": 1.27,
+        "m_final_Msun": 2.7,
+        "m_radiated_Msun": 0.04,
+        "distance_Mpc": 40,
+        "redshift": 0.01,
+        "snr": 32.4,
+        "date": "2017-08-17",
+        "notes": "Multi-messenger event with GRB170817A"
+      },
+      "tgl_prediction": {
+        "E_GW_J": 7.150208600372924e+45,
+        "E_echo_J": 8.602415967108665e+43,
+        "N_neutrinos": 6.311365277621528e+64,
+        "flux_per_m2": 3296798311445389.5,
+        "flux_per_cm2": 329679831144.53894,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 843.9924922407666,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW170818",
+        "type": "BBH",
+        "m1_Msun": 35.4,
+        "m2_Msun": 26.7,
+        "m_final_Msun": 59.4,
+        "m_radiated_Msun": 2.7,
+        "distance_Mpc": 1060,
+        "redshift": 0.21,
+        "snr": 11.3,
+        "date": "2017-08-18",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 4.826390805251724e+47,
+        "E_echo_J": 5.806630777798348e+45,
+        "N_neutrinos": 4.260171562394531e+66,
+        "flux_per_m2": 316886986148186.25,
+        "flux_per_cm2": 31688698614.818626,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 37.43773846141638,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW170823",
+        "type": "BBH",
+        "m1_Msun": 39.5,
+        "m2_Msun": 29.0,
+        "m_final_Msun": 65.4,
+        "m_radiated_Msun": 3.3,
+        "distance_Mpc": 1940,
+        "redshift": 0.35,
+        "snr": 11.5,
+        "date": "2017-08-23",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 5.898922095307663e+47,
+        "E_echo_J": 7.096993172864649e+45,
+        "N_neutrinos": 5.2068763540377614e+66,
+        "flux_per_m2": 115627956507278.02,
+        "flux_per_cm2": 11562795650.727802,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 34.02052867259193,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW190412",
+        "type": "BBH",
+        "m1_Msun": 30.1,
+        "m2_Msun": 8.3,
+        "m_final_Msun": 37.0,
+        "m_radiated_Msun": 1.5,
+        "distance_Mpc": 740,
+        "redshift": 0.15,
+        "snr": 19.1,
+        "date": "2019-04-12",
+        "notes": "First observation of unequal mass BBH"
+      },
+      "tgl_prediction": {
+        "E_GW_J": 2.6813282251398468e+47,
+        "E_echo_J": 3.22590598766575e+45,
+        "N_neutrinos": 2.3667619791080734e+66,
+        "flux_per_m2": 361226988105776.94,
+        "flux_per_cm2": 36122698810.5777,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 75.557832693215,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW190425",
+        "type": "BNS",
+        "m1_Msun": 1.7,
+        "m2_Msun": 1.5,
+        "m_final_Msun": 3.1,
+        "m_radiated_Msun": 0.06,
+        "distance_Mpc": 160,
+        "redshift": 0.03,
+        "snr": 12.9,
+        "date": "2019-04-25",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 1.0725312900559386e+46,
+        "E_echo_J": 1.2903623950662997e+44,
+        "N_neutrinos": 9.467047916432291e+64,
+        "flux_per_m2": 309074841698005.25,
+        "flux_per_cm2": 30907484169.800526,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 719.6244116672948,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW190521",
+        "type": "BBH",
+        "m1_Msun": 85.0,
+        "m2_Msun": 66.0,
+        "m_final_Msun": 142.0,
+        "m_radiated_Msun": 8.0,
+        "distance_Mpc": 5300,
+        "redshift": 0.82,
+        "snr": 14.7,
+        "date": "2019-05-21",
+        "notes": "First intermediate mass black hole (IMBH)"
+      },
+      "tgl_prediction": {
+        "E_GW_J": 1.430041720074585e+48,
+        "E_echo_J": 1.7204831934217332e+46,
+        "N_neutrinos": 1.2622730555243057e+67,
+        "flux_per_m2": 37556976136081.336,
+        "flux_per_cm2": 3755697613.608134,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 15.360935752261357,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW190814",
+        "type": "NSBH?",
+        "m1_Msun": 23.2,
+        "m2_Msun": 2.6,
+        "m_final_Msun": 25.0,
+        "m_radiated_Msun": 0.8,
+        "distance_Mpc": 240,
+        "redshift": 0.05,
+        "snr": 25.0,
+        "date": "2019-08-14",
+        "notes": "Mass gap object (2.6 M_sun)"
+      },
+      "tgl_prediction": {
+        "E_GW_J": 1.430041720074585e+47,
+        "E_echo_J": 1.7204831934217334e+45,
+        "N_neutrinos": 1.262273055524306e+66,
+        "flux_per_m2": 1831554617469661.8,
+        "flux_per_cm2": 183155461746.9662,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 163.69942030179686,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 99.99999999999999
+      }
+    },
+    {
+      "event": {
+        "name": "GW191219",
+        "type": "NSBH",
+        "m1_Msun": 31.1,
+        "m2_Msun": 1.2,
+        "m_final_Msun": 31.0,
+        "m_radiated_Msun": 1.3,
+        "distance_Mpc": 290,
+        "redshift": 0.06,
+        "snr": 8.3,
+        "date": "2019-12-19",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 2.3238177951212006e+47,
+        "E_echo_J": 2.7957851893103163e+45,
+        "N_neutrinos": 2.051193715226997e+66,
+        "flux_per_m2": 2038448420869920.2,
+        "flux_per_cm2": 203844842086.99203,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 228.38917904314707,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    },
+    {
+      "event": {
+        "name": "GW200105",
+        "type": "NSBH",
+        "m1_Msun": 8.9,
+        "m2_Msun": 1.9,
+        "m_final_Msun": 10.0,
+        "m_radiated_Msun": 0.8,
+        "distance_Mpc": 280,
+        "redshift": 0.06,
+        "snr": 13.0,
+        "date": "2020-01-05",
+        "notes": "First confirmed NSBH"
+      },
+      "tgl_prediction": {
+        "E_GW_J": 1.430041720074585e+47,
+        "E_echo_J": 1.7204831934217334e+45,
+        "N_neutrinos": 1.262273055524306e+66,
+        "flux_per_m2": 1345631963855261.5,
+        "flux_per_cm2": 134563196385.52615,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 294.9840856872861,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 99.99999999999999
+      }
+    },
+    {
+      "event": {
+        "name": "GW200115",
+        "type": "NSBH",
+        "m1_Msun": 5.7,
+        "m2_Msun": 1.5,
+        "m_final_Msun": 6.7,
+        "m_radiated_Msun": 0.5,
+        "distance_Mpc": 300,
+        "redshift": 0.06,
+        "snr": 11.0,
+        "date": "2020-01-15",
+        "notes": ""
+      },
+      "tgl_prediction": {
+        "E_GW_J": 8.937760750466156e+46,
+        "E_echo_J": 1.0753019958885833e+45,
+        "N_neutrinos": 7.88920659702691e+65,
+        "flux_per_m2": 732621846987864.5,
+        "flux_per_cm2": 73262184698.78645,
+        "E_nu_mean_eV": 0.008507201684455354,
+        "duration_ms": 409.53104583216026,
+        "alpha_squared_used": 0.012031,
+        "tgl_score": 100.0
+      }
+    }
+  ],
+  "statistics": {
+    "total_events": 18,
+    "total_neutrinos": 5.932683360964236e+67,
+    "N_nu_mean": 3.2959352005356866e+66,
+    "N_nu_max": 1.2622730555243057e+67,
+    "N_nu_min": 6.311365277621528e+64,
+    "flux_mean": 89678214382.768,
+    "flux_max": 329679831144.53894,
+    "flux_min": 3755697613.608134
+  }
+}
