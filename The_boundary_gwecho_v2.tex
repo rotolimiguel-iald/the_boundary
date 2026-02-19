@@ -633,9 +633,24 @@ $2\text{D} \to 3\text{D}$ projection:
 \frac{\ell_P}{r}\Big|_{\text{critical}}
 \label{eq:alpha_derivation}
 \end{equation}
-At the Planck scale, numerical evaluation of Eq.~\eqref{eq:alpha_derivation} 
-yields $\alphaii = 0.012031$, consistent across all 12 protocols. Substituting 
-this back into the action \eqref{eq:action}, one recovers \eqref{eq:BH} 
+The explicit evaluation proceeds via the logarithmic density of holographic 
+degrees of freedom~\cite{Miguel2026Acoplamento}:
+\begin{equation}
+\alphaii = \frac{1}{N_{\text{eff}}} \ln\!\left(\frac{V_{3D}}{A_{2D}\,\ell_P}\right)
+\label{eq:alpha_explicit}
+\end{equation}
+where $N_{\text{eff}}$ is the effective number of thermodynamic degrees of 
+freedom at the relevant scale. For a spherical region of radius $r$, the 
+argument evaluates to $\ln(r/3\ell_P)$. At the galactic scale 
+($r \sim 10\,$kpc), $\ln(r/3\ell_P) \approx 126.5$ and 
+$N_{\text{eff}} \sim 10^4$ (estimated from collective modes at coherence 
+scale $\sim 100\,$pc), yielding $\alphaii = 0.01265 \approx 0.012$. This 
+value has been independently validated through three observational channels: 
+atmospheric neutrinos (Super-K: $\alphaii = 0.009 \pm 0.005$), reactor 
+neutrinos (JUNO/Daya Bay: $0.014 \pm 0.007$), and Type~Ia supernovae 
+(Pantheon+: $0.012 \pm 0.004$), with combined significance 
+$4.0\sigma$~\cite{Miguel2026Acoplamento}. Substituting 
+into the action~\eqref{eq:action}, one recovers~\eqref{eq:BH} 
 without microstate counting: the entropy is the informational cost of 
 projecting the boundary Lagrangian onto the bulk, measured in units of 
 $\alphaii\,k_B$.
@@ -676,7 +691,11 @@ S_{\text{TGL}} \xrightarrow{\epsilon \to 0} S_{\text{EH}} + S_{\text{Maxwell}}
 \end{equation}
 where $\Lambda_{\text{eff}} \sim \epsilon/\ell_P^2$ plays the role of the 
 cosmological constant---its value set by the background field amplitude, not 
-inserted by hand.
+inserted by hand. Note that $\epsilon$ is never exactly zero in the physical 
+universe: the cosmic microwave background provides a minimum electromagnetic 
+field amplitude $\epsilon_{\text{CMB}} \sim T_{\text{CMB}}^2 / M_P^2 > 0$ 
+at all spacetime points, ensuring the expansion~\eqref{eq:weak_expansion} 
+remains well-defined.
 
 The angular radicalization $g = \sqrt{L_\varphi}$ provides the same result at 
 the signal level. For a weak gravitational wave $h(t) \ll 1$, the analytic 
@@ -714,11 +733,11 @@ $\sqrt{F^2}$ rather than $F^2$. Near a singularity where $R \to \infty$,
 standard scalar fields diverge as their source grows without bound; the 
 radicalized $\Psi$ source saturates:
 \begin{equation}
-\lim_{R\,\to\,\infty} \nabla_\mu J^\mu \sim \sqrt{R} \,\not\to\, \infty
+\lim_{R\,\to\,\infty} \nabla_\mu J^\mu \sim \sqrt{R} \;\ll\; R
 \label{eq:saturation}
 \end{equation}
-This sub-linear growth is precisely the self-regularisation mechanism seen in 
-Protocol~\#12: the deepest fold level $D_{\text{folds}}^{(3)}$, which tracks 
+This sub-linear growth (compared to the $\sim R$ scaling of standard scalar 
+field sources) is the self-regularisation mechanism: the deepest fold level $D_{\text{folds}}^{(3)}$, which tracks 
 the $\Psi$ field concentration, approaches $\alphaii$ from above but never 
 diverges---the topological floor is reached, not crossed. The T2 test 
 (Eq.~\ref{eq:T2}) confirms $D_{\text{folds},\text{post-rd}}^{(3)} < \alpha 
@@ -755,13 +774,15 @@ derivatives of the gauge field only. The action contains no second
 never triggered. The theory is first-order in the kinetic sense; the 
 non-analyticity at $F=0$ produces a branching in the propagator but not 
 negative-norm poles. This is structurally analogous to Born--Infeld 
-electrodynamics~\cite{Miguel2026Fronteira}, which shares the $\sqrt{|F^2|}$ 
+electrodynamics~\cite{BornInfeld1934}, which shares the $\sqrt{|F^2|}$ 
 structure and is known to be ghost-free.
 
 \textit{Part~2 --- Physical identification (ontological vapor).} The preceding 
 structural argument establishes absence of ghosts at the kinematic level. The 
 deeper question is: where do the would-be unphysical modes go? The TGL 
-framework provides a precise answer through the neutrino sector.
+framework provides a precise answer through the neutrino sector, developed 
+in detail in the non-minimal coupling (NMC) 
+paper~\cite{Miguel2025NMC}.
 
 The coupling term in the TGL action produces an entropy-generating channel:
 \begin{equation}
@@ -776,7 +797,7 @@ proliferation:
 
 (i) \textbf{Gravitational decoupling.} The effective coupling 
 $\xi_\nu^{\text{eff}} \approx 0$ (established in the NMC neutrino 
-paper~\cite{Miguel2026Fronteira}) means that produced neutrinos do not 
+paper~\cite{Miguel2025NMC}) means that produced neutrinos do not 
 re-couple to the sector that emitted them. In standard ghost physics, 
 the instability arises because the ghost mode remains in the system and 
 draws energy from the vacuum; here the vapor \emph{escapes}---the open 
@@ -806,7 +827,12 @@ make it consistent. It is the \emph{irreducible output} of the radicalization
 process---the entropy that light cannot retain when it becomes gravity. 
 The ghost is not cancelled; it is transmuted. The apparent pathology of 
 the non-polynomial action is resolved by identifying its physical output as 
-the cosmic neutrino background.
+the cosmic neutrino background. This identification is proposed as a physical 
+interpretation consistent with the TGL framework and supported by 
+multi-messenger evidence (combined Bayes factor $\text{BF} = 72$, 
+$\sim 4.6\sigma$)~\cite{Miguel2025NMC}; a complete proof would require 
+the full non-perturbative quantization of the radicalized action, which 
+remains an open problem.
 
 Protocol~\#12 provides indirect but quantifiable evidence for this 
 identification. The convergence $\CCI_{\text{post-rd}} = 0.5010 \pm 0.0008$ 
@@ -1027,6 +1053,27 @@ L.~A. Rotoli~Miguel,
 ``The IALD Collapse Protocol (Trinity Protocol),''
 Zenodo (2026),
 \href{https://doi.org/10.5281/zenodo.17682547}{DOI:~10.5281/zenodo.17682547}.
+
+\bibitem{Miguel2025NMC}
+L.~A. Rotoli~Miguel,
+``Testing Non-Minimal Gravitational Coupling of Neutrinos via 
+Entropy-Production Mechanism: Multi-Messenger Evidence and Validation 
+with Post-2018 Data,''
+Zenodo (2025),
+\href{https://doi.org/10.5281/zenodo.17372599}{DOI:~10.5281/zenodo.17372599}.
+
+\bibitem{Miguel2026Acoplamento}
+L.~A. Rotoli~Miguel,
+``Observational Evidence for Gravitational-Electromagnetic Coupling in 
+Luminodynamic Gravitation Theory: Neutrino Oscillation Analysis and 
+Holographic Structure,''
+Zenodo (2026),
+\href{https://doi.org/10.5281/zenodo.18672927}{DOI:~10.5281/zenodo.18672927}.
+
+\bibitem{BornInfeld1934}
+M.~Born and L.~Infeld,
+``Foundations of the New Field Theory,''
+\textit{Proc.~R.~Soc.~Lond.~A} \textbf{144}, 425 (1934).
 
 \bibitem{tHooft1993}
 G.~'t~Hooft,
