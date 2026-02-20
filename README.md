@@ -1,10 +1,8 @@
-# A Fronteira / The Boundary
-
 <![CDATA[# The Boundary — Computational Validation of the Theory of Luminodynamic Gravitation (TGL)
 
 > *"Let there be Light."*
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18674475.svg)](https://doi.org/10.5281/zenodo.18674475)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
 [![CUDA 12.x](https://img.shields.io/badge/CUDA-12.x-green.svg)](https://developer.nvidia.com/cuda-downloads)
 [![License: Source-Available](https://img.shields.io/badge/license-source--available-orange.svg)](#license)
@@ -665,7 +663,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
   title   = {A Fronteira: Verificação da Lei Angular TGL em Dados Reais de Ondas Gravitacionais e Ecos},
   year    = {2026},
   journal = {Zenodo},
-  doi     = {10.5281/zenodo.XXXXXXX},
+  doi     = {10.5281/zenodo.18674475},
   note    = {60+ pages, 13 computational protocols, 13,639 lines of code}
 }
 
@@ -703,7 +701,7 @@ This repository is provided as **source-available** for scientific reproducibili
 
 - Theory: [teoriadagravitacaoluminodinamica.com](https://teoriadagravitacaoluminodinamica.com)
 - GitHub: [@rotolimiguel-iald](https://github.com/rotolimiguel-iald)
-- Zenodo: [doi.org/10.5281/zenodo.XXXXXXX](https://doi.org/10.5281/zenodo.XXXXXXX)
+- Zenodo: [doi.org/10.5281/zenodo.18674475](https://doi.org/10.5281/zenodo.18674475)
 
 ### Acknowledgments
 
