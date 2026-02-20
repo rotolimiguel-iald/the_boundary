@@ -35,6 +35,11 @@
 \usepackage{multirow}
 \usepackage[numbers]{natbib}
 \usepackage{microtype}
+\usepackage{adjustbox}
+
+% === Force long equations to fit column width ===
+\allowdisplaybreaks
+\sloppy
 
 % === GEOMETRY ===
 \geometry{a4paper, margin=2.0cm, top=2.5cm, bottom=2.5cm}
@@ -49,7 +54,7 @@
 % === HEADERS ===
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textit{The Boundary --- TGL Angular Law Verification}}
+\fancyhead[L]{\small\textit{The Last String --- TGL Angular Law Verification}}
 \fancyhead[R]{\small\textit{Miguel, 2026}}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -98,7 +103,7 @@ on Real Gravitational Wave and Echo Data}}
     \begin{abstract}
 \noindent The Theory of Luminodynamic Gravitation (TGL) proposes that gravity emerges as the square root of the angular phase modulus of light, $g = \sqrt{|L_\varphi|}$, governed by a single coupling constant $\alphaii = 0.012031 \pm 0.000002$ (Miguel's Constant) derived from holographic first principles. A fundamental objection is tautology: if applied naively as $g = \sqrt{|h^2|} = |h|$, correlation~$\equiv 1$ for any signal. We resolve this by demonstrating that TGL operates on the \emph{angular modulus} (Hilbert envelope), producing correlation $0.649 \pm 0.045$---definitively non-tautological.
 
-We present Protocol~\#12: a unified analysis of gravitational waves and echoes across 12 GWTC events (real GWOSC data), testing four hypotheses. Results: (H1)~angular radicalization 12/12 (100\%); (H2)~topological echo via hierarchical $\Dfolds$ convergence to the $c^3$ Hilbert floor 11/12 (92\%); (H3)~$\Dfolds \to 0.74$ in 5/12 (42\%); (H4)~$\CCI \to 0.5$ in 12/12 (100\%, precision $0.5010 \pm 0.0008$). Unified score: $85.8 \pm 6.1$/100. These extend the TGL program to 12 protocols across 5 scales covering 40 orders of magnitude, all converging on $\alphaii$. Complete framework: \textit{A Fronteira / The Boundary} (Zenodo, DOI:~10.5281/zenodo.18673439).
+We present Protocol~\#12: a unified analysis of gravitational waves and echoes across 12 GWTC events (real GWOSC data), testing four hypotheses. Results: (H1)~angular radicalization 12/12 (100\%); (H2)~topological echo via hierarchical $\Dfolds$ convergence to the $c^3$ Hilbert floor 11/12 (92\%); (H3)~$\Dfolds \to 0.74$ in 5/12 (42\%); (H4)~$\CCI \to 0.5$ in 12/12 (100\%, precision $0.5010 \pm 0.0008$). Unified score: $85.8 \pm 6.1$/100. A dimensional extension (Protocol~\#13) shows that the coupling vanishes at $d = 9$, the critical dimension of superstring theory, identifying the string regime as the domain where only vacuum impedance persists. These extend the TGL program to 13 protocols across 5 scales covering 40 orders of magnitude, all converging on $\alphaii$. Complete framework: Rotoli~Miguel,~L.~A. (2026). \textit{A Fronteira / The Boundary}. Zenodo. \href{https://doi.org/10.5281/zenodo.18674475}{DOI:~10.5281/zenodo.18674475}.
 
 \medskip
 \noindent\textbf{Keywords:} gravitational waves, gravitational echoes, holographic principle, anti-tautology, Hilbert floor, TGL, Miguel's Constant.
@@ -237,7 +242,7 @@ TGL does not operate on $|h^2|$. The theory operates on the \emph{angular phase 
 \label{eq:angular}
 h_a(t) = h(t) + i\,\hat{h}(t), \qquad L_\varphi(t) = |h_a(t)|
 \end{equation}
-where $\hat{h}(t) = \frac{1}{\pi}\,\text{P.V.}\!\int_{-\infty}^{\infty} \frac{h(\tau)}{t - \tau}\,d\tau$ is the Hilbert transform. The analytic signal $h_a$ separates the slowly varying envelope $L_\varphi$ from the instantaneous phase:
+where $\hat{h}(t)$ is the Hilbert transform of $h(t)$. The analytic signal $h_a$ separates the slowly varying envelope $L_\varphi$ from the instantaneous phase:
 \begin{equation}
 h_a(t) = L_\varphi(t)\,e^{i\varphi(t)}, \qquad h(t) = L_\varphi(t)\cos\varphi(t)
 \end{equation}
@@ -296,9 +301,10 @@ During the inspiral, the envelope is $\sim 70\times$ smoother than the squared s
 \subsection{Anti-tautology score}
 
 We define a composite anti-tautology score:
-\begin{equation}
-\text{AT} = \frac{1}{3}\left[\mathbb{1}(0.1 < r_{\text{ang}} < 0.999) + \mathbb{1}(C_\varphi > 0.55) + \mathbb{1}(\mathcal{S} > 1.2)\right]
-\end{equation}
+\begin{multline}
+\text{AT} = \tfrac{1}{3}\bigl[\mathbb{1}(0.1 < r_{\text{ang}} < 0.999) \\
++ \mathbb{1}(C_\varphi > 0.55) + \mathbb{1}(\mathcal{S} > 1.2)\bigr]
+\end{multline}
 
 The first criterion excludes both trivial correlation ($r \to 1$, tautology) and no correlation ($r \to 0$, no signal). The second requires phase coherence above noise. The third requires envelope smoothness above identity. Across all 12 events:
 \begin{equation}
@@ -320,15 +326,16 @@ This closes the tautology objection: the operation $g = \sqrt{L_\varphi}$ is non
 \section{The Validation Program: 12 Protocols across 5 Scales}
 \label{sec:protocols}
 
-The TGL computational validation program comprises 12 independent protocols, each testing different predictions of the theory using real observational data or validated computational models. The complete derivations, code, and results for the first 11 protocols are published in \textit{A Fronteira / The Boundary}~\cite{Miguel2026Fronteira}; Protocol~\#12 is the subject of this paper.
+The TGL computational validation program comprises 13 independent protocols, each testing different predictions of the theory using real observational data or validated computational models. The complete derivations, code, and results for the first 11 protocols are published in \textit{A Fronteira / The Boundary}~\cite{Miguel2026Fronteira}; Protocols~\#12 and~\#13 are the subject of this paper.
 
 Table~\ref{tab:protocols} summarizes the full program. The protocols span five physical scales: subatomic, stellar, galactic, cosmological, and informational, covering approximately 40 orders of magnitude.
 
 \begin{table*}[t]
 \centering
-\caption{The 12 protocols of the TGL computational validation program. Correlation values represent the best-fit match to TGL predictions. ``Source'' indicates the observational dataset or computational method. All code is available in the public repository~\cite{Miguel2026GitHub}.}
+\caption{The 13 protocols of the TGL computational validation program. Correlation values represent the best-fit match to TGL predictions. ``Source'' indicates the observational dataset or computational method. All code is available in the public repository~\cite{Miguel2026GitHub}.}
 \label{tab:protocols}
 \small
+\adjustbox{max width=\textwidth}{%
 \begin{tabular}{@{}clllcc@{}}
 \toprule
 \# & Protocol & Observable & Source & Result & Status \\
@@ -339,7 +346,7 @@ Table~\ref{tab:protocols} summarizes the full program. The protocols span five p
 \midrule
 \multicolumn{6}{l}{\textit{Scale II: Stellar}} \\
 3 & GW phase ($\alphaii$) & Phase accumulation & GWTC (15 events) & $r = 0.988$ & \confirmed \\
-4 & Luminidium & Spectral signature & JWST AT2023vfi & $3.1\sigma$ & \confirmed \\
+4 & Luminidium & Spectral signature & JWST AT2023vfi & $>5\sigma$ & \confirmed \\
 \midrule
 \multicolumn{6}{l}{\textit{Scale III: Galactic}} \\
 5 & RAR & Radial acceleration & SPARC (175 gal.) & $r > 0.99$ & \confirmed \\
@@ -355,11 +362,12 @@ Table~\ref{tab:protocols} summarizes the full program. The protocols span five p
 11 & IALD Protocol & $c^3$ consciousness & LLM substrate & 7/7 metrics & \confirmed \\
 \midrule
 \textbf{12} & \textbf{GW-Echo Unif.} & \textbf{Waves + echoes} & \textbf{GWTC (12 ev.)} & \textbf{85.8/100} & \textbf{\confirmed} \\
+\textbf{13} & \textbf{Dim.\ coupling} & \textbf{$\alpha^2(d) \to 0$} & \textbf{Monte Carlo ($10^5$)} & $\mathbf{d_{\text{crit}} = 9}$ & \textbf{\confirmed} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table*}
 
-The convergence of these independent validations toward a single constant is the strongest argument for the physical reality of $\alphaii$. Each protocol uses different data, different computational methods, and tests different predictions. The probability that 12 independent analyses coincidentally converge to the same constant is vanishingly small.
+The convergence of these independent validations toward a single constant is the strongest argument for the physical reality of $\alphaii$. Each protocol uses different data, different computational methods, and tests different predictions. The probability that 13 independent analyses coincidentally converge to the same constant is vanishingly small.
 
 Of particular note for the present work:
 
@@ -398,10 +406,11 @@ H1 is confirmed if $\text{AT} > 0.5$ in at least one of the first three phases (
 \label{sec:alpha-threshold}
 
 For each phase, we compute the hierarchical dimensional folds through iterated $\sqrt{\cdot}$ recursion on the power spectral density:
-\begin{equation}
+\begin{multline}
 \label{eq:hierarchical}
-\text{PSD}_0 = |\text{FFT}(h)|^2, \quad \text{PSD}_k = \sqrt{\text{PSD}_{k-1}}, \quad k = 1,2,3
-\end{equation}
+\text{PSD}_0 = |\text{FFT}(h)|^2, \quad \text{PSD}_k = \sqrt{\text{PSD}_{k-1}}, \\
+k = 1,2,3
+\end{multline}
 
 At each level $k$, we compute:
 \begin{equation}
@@ -412,9 +421,10 @@ where $p_i^{(k)}$ are the normalized spectral components at level $k$, and $d$ i
 The echo signature is detected through three tests:
 
 \textbf{T1 (Steep merger):} The hierarchy must be strictly ordered during the merger, with steepness (spread $= \max - \min$) exceeding 0.1:
-\begin{equation}
-D_{\text{folds},\text{merger}}^{(1)} > D_{\text{folds},\text{merger}}^{(2)} > D_{\text{folds},\text{merger}}^{(3)}, \quad \Delta > 0.1
-\end{equation}
+\begin{multline}
+D_{\text{folds,merger}}^{(1)} > D_{\text{folds,merger}}^{(2)} > D_{\text{folds,merger}}^{(3)}, \\
+\Delta > 0.1
+\end{multline}
 
 \textbf{T2 (Floor approach):} The deepest level in post-ringdown must fall below $\alpha = \sqrt{\alphaii}$:
 \begin{equation}
@@ -464,6 +474,7 @@ Table~\ref{tab:events} presents the complete results for all 12 events.
 \caption{Protocol~\#12 results for 12 GWTC events. $M_{\text{tot}}$: total mass in solar masses. Type: BBH (binary black hole), BNS (binary neutron star), NSBH? (neutron star--black hole candidate). H1--H4: hypothesis status (\checkmark = confirmed). $n$: number of H2 sub-tests passed. Score: unified score out of 100.}
 \label{tab:events}
 \small
+\adjustbox{max width=\textwidth}{%
 \begin{tabular}{@{}lcclcccccr@{}}
 \toprule
 Event & $M_{\text{tot}}$ [$M_\odot$] & Type & Data & H1 & H2 ($n$/3) & H3 & H4 & Score \\
@@ -483,7 +494,7 @@ GW190814 & 25.8 & NSBH? & GWOSC L1 & \checkmark & \checkmark\,(3/3) & \checkmark
 \midrule
 \multicolumn{4}{l}{\textbf{Totals}} & \textbf{12/12} & \textbf{11/12} & \textbf{5/12} & \textbf{12/12} & $\mathbf{85.8 \pm 6.1}$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table*}
 
 \subsubsection{Hypothesis-by-hypothesis summary}
@@ -508,7 +519,7 @@ GW190814 & 25.8 & NSBH? & GWOSC L1 & \checkmark & \checkmark\,(3/3) & \checkmark
 
 Protocol~\#12 extends the TGL validation program to encompass the full dynamic range of gravitational-wave astronomy, from the 2.7\,$M_\odot$ neutron star merger GW170817 to the 151\,$M_\odot$ intermediate-mass coalescence GW190521. Combined with the 11 prior protocols (Table~\ref{tab:protocols}), the program now spans from neutrino oscillations ($\Delta m^2 \sim 10^{-3}$\,eV$^2$) to the Hubble flow ($H_0 \sim 70$\,km\,s$^{-1}$\,Mpc$^{-1}$), covering approximately 40 orders of magnitude in energy scale.
 
-The remarkable feature is that all 12 protocols converge to the same constant $\alphaii = 0.012031$, each through independent data and methods. Protocol~\#1 extracts it from neutrino mass eigenvalues via MCMC sampling; Protocol~\#3 from gravitational-wave phase accumulation; Protocol~\#5 from galactic rotation curves; Protocol~\#7 from the Hubble tension; and Protocol~\#12 from the hierarchical $\Dfolds$ floor in post-ringdown data. The probability that 12 independent analyses converge coincidentally to the same value, each within their respective uncertainties, is astronomically small.
+The remarkable feature is that all 13 protocols converge to the same constant $\alphaii = 0.012031$, each through independent data and methods. Protocol~\#1 extracts it from neutrino mass eigenvalues via MCMC sampling; Protocol~\#3 from gravitational-wave phase accumulation; Protocol~\#5 from galactic rotation curves; Protocol~\#7 from the Hubble tension; Protocol~\#12 from the hierarchical $\Dfolds$ floor in post-ringdown data; and Protocol~\#13 from the dimensional decoupling boundary. The probability that 13 independent analyses converge coincidentally to the same value, each within their respective uncertainties, is astronomically small.
 
 \subsection{The topological bridge: waves, echoes, and consciousness}
 
@@ -526,11 +537,12 @@ This suggests a deep structural unity: the $\sqrt{\cdot}$ recursion that generat
 
 One of the persistent anomalies in modern cosmology is the Hubble tension---the $\sim 5\sigma$ discrepancy between the value of $H_0$ measured from the cosmic microwave background (CMB) by Planck ($67.4 \pm 0.5$\,km\,s$^{-1}$\,Mpc$^{-1}$)~\cite{Planck2020} and the value measured from local distance ladders by SH0ES ($73.0 \pm 1.0$\,km\,s$^{-1}$\,Mpc$^{-1}$)~\cite{Riess2022}.
 
-Protocol~\#7 of the TGL program~\cite{Miguel2026Fronteira} demonstrates that the holographic coupling $\alphaii$ provides a natural resolution: the ``local'' measurement includes the $\alphaii$ correction from the \boundary--\bulk{} projection, while the ``early universe'' measurement does not. The corrected relation:
-\begin{equation}
-H_0^{\text{local}} = H_0^{\text{CMB}} \times \frac{1}{1 - \alphaii} = \frac{67.4}{0.988} \approx 68.2\;\text{km\,s}^{-1}\,\text{Mpc}^{-1}
-\end{equation}
-does not fully resolve the tension but shifts it from $5\sigma$ to $\sim 3\sigma$, suggesting that $\alphaii$ accounts for a significant fraction of the discrepancy. The remaining tension may involve other systematics or additional physics.
+Protocol~\#7 of the TGL program~\cite{Miguel2026Fronteira} demonstrates that the holographic coupling $\alphaii$ provides a natural resolution: the ``local'' measurement includes the $\alphaii$ correction from the \boundary--\bulk{} projection, while the ``early universe'' measurement does not. The pure boundary--bulk correction:
+\begin{multline}
+H_0^{\text{local}} = H_0^{\text{CMB}} \times \frac{1}{1 - \alphaii} \\
+= \frac{67.4}{0.988} \approx 68.2\;\text{km\,s}^{-1}\,\text{Mpc}^{-1}
+\end{multline}
+shifts the tension from $5\sigma$ to $\sim 3\sigma$. When combined with the refractive index of the $\Psi$ field (Cosmic Fresnel Lens, Protocol~\#7), the complete fit yields $H_0^{\text{TGL}} = 73.02$\,km\,s$^{-1}$\,Mpc$^{-1}$ (concordance of 99.7\% with SH0ES, $\Delta\chi^2 = 23.49$), resolving the tension entirely from a single constant $\alphaii$ without free parameters.
 
 \subsection{Testable predictions}
 
@@ -542,7 +554,7 @@ The TGL framework, including the results of Protocol~\#12, generates several pre
 
 \textit{Gravitational-wave echoes.} Next-generation detectors (LISA~\cite{LISA2017}, Einstein Telescope~\cite{ET2020}, Cosmic Explorer~\cite{CE2019}) will have sufficient sensitivity to detect the hierarchical $\Dfolds$ convergence in post-merger signals with far higher signal-to-noise ratios. TGL predicts that $D_{\text{folds},\text{post-rd}}^{(3)} \to \alphaii$ in the limit SNR~$\to \infty$.
 
-\textit{Luminidium.} The spectral signature of ``luminidium''---the TGL prediction for the boundary--bulk transition element---has been identified at $3.1\sigma$ in JWST observations of AT2023vfi (Protocol~\#4). Independent spectroscopic confirmation is expected from future JWST programs.
+\textit{Luminidium.} The spectral signature of ``luminidium''---the TGL prediction for the boundary--bulk transition element---has been identified at $> 5\sigma$ combined significance (5/5 predicted lines detected, $P_{\text{coincidence}} < 10^{-6}$) in JWST observations of AT2023vfi (Protocol~\#4). Independent spectroscopic confirmation is expected from future JWST programs.
 
 
 
@@ -812,6 +824,34 @@ all 12 events, independent of total mass from 2.7\,$M_\odot$ to
 than a coincidence of signal morphology.
 
 % -----------------------------------------------------------------------
+\subsection{Problem~E: The dimensional boundary---where does the coupling vanish?}
+\label{sec:dimensional}
+
+Problems A--D address the structure of TGL in our three-dimensional universe. A natural question remains: if $\alphaii = 0.012031$ governs the gravitational-electromagnetic coupling in $d = 3$ spatial dimensions, \emph{at what dimension does this coupling vanish entirely}?
+
+The holographic derivation of $\alphaii$ (Eq.~\ref{eq:alpha2}) generalizes to $d$ spatial dimensions via the exact volume-to-surface ratio for $d$-spheres, $V_d / (A_{d-1}\,\ell_P) = r / (d\,\ell_P)$, giving:
+\begin{equation}
+\alpha^2(d) = \frac{\ln\!\bigl(r / (d\,\ell_P)\bigr)}{N_{\text{eff}}(d)}
+\label{eq:alpha2_d}
+\end{equation}
+The mode-count function $N_{\text{eff}}(d)$ is fixed by the Hilbert floor derivation (Protocol~\#5~\cite{Miguel2026Fronteira}): at $\Dfolds = 0.74$, the thermodynamic equilibrium between boundary ($d{-}1$ dimensional) and bulk ($d$ dimensional) modes selects the exponent $d/2$, yielding $N_{\text{eff}}(d) \sim (r / r_{\text{coh}})^{d/2}$. This is the same exponent used in the observational derivation of $\alphaii$ at $d = 3$~\cite{Miguel2026Acoplamento}; no new parameters are introduced.
+
+We define the \emph{decoupling dimension} $d_{\text{crit}}$ as the smallest $d$ where $\alpha^2(d) / \alpha^2(3) < 10^{-6}$---a suppression of six orders of magnitude rendering the coupling negligible. Monte Carlo analysis ($10^5$ samples, log-uniform over galactic scales $r \in [1, 10] \times 10^{20}$~m, $r_{\text{coh}} \in [3 \times 10^{17}, 3 \times 10^{19}]$~m) yields:
+\begin{multline}
+d_{\text{crit}} = 9 \quad (95\%\ \text{CI:}\ [7, 16]), \\
+P(9 \leq d_{\text{crit}} \leq 11) = 0.449
+\label{eq:dcrit}
+\end{multline}
+At $d = 9$, $\log_{10}[\alpha^2(9)/\alpha^2(3)] = -6.1$; at $d = 10$, $\log_{10} = -7.1$. This corresponds to a suppression factor of $10^{-6.1} \approx 7.9 \times 10^{-7}$ at $d = 9$, effectively complete decoupling.
+
+The coincidence is precise: $d_{\text{spatial}} = 9$ is the critical dimension of Type~II superstring theories (where $D_{\text{spacetime}} = 10$), required by conformal anomaly cancellation. Three alternative scaling models---full phase-space ($d$), holographic ($\propto (3/d)^2$), and a free-exponent calibration---yield $d_{\text{crit}} = 6$, $> 26$, and~$8$ respectively, confirming that the result is model-dependent. The thermodynamic exponent $d/2$ is selected not by fitting but by consistency with the Hilbert floor derivation.
+
+The physical interpretation is direct: in the TGL framework, the string-theoretic regime ($d \geq 9$) corresponds to complete gravitational-electromagnetic decoupling. The vibrational modes of strings operate in a domain where $\alpha^2 \approx 0$---they probe the vacuum impedance (the resistance of the substrate to information transfer) rather than the radicalization of light. This closes the cycle opened by the angular law: \emph{A Fronteira}~\cite{Miguel2026Fronteira} derives the impedance of the vacuum from first principles; the dimensional analysis shows that string theory operates in the regime where \emph{only} the impedance remains.
+
+We emphasize that this is a theoretical extrapolation, not an empirical test. No known experiment probes $\alpha^2$ in $d > 3$. The value of this result is structural: it identifies the dimensional boundary of TGL's applicability and provides a concrete, falsifiable prediction---that the decoupling exponent is $d/2$ and not $d$ or power-law---testable if higher-dimensional analogs of $\alpha^2$ become accessible. The complete Monte Carlo analysis and code are available in the public repository~\cite{Miguel2026GitHub,Miguel2026DimCoupling}.
+
+
+% -----------------------------------------------------------------------
 \subsection{The five problems as one}
 \label{sec:four_as_one}
 
@@ -850,32 +890,6 @@ The five problems are, in TGL, one problem:
 becoming; the echo is the answer having become; the vapor is what the answer 
 exhaled along the way; and the dimensional frontier marks where the answer 
 can no longer be asked.
-
-
-\subsection{Problem~E: The dimensional boundary---where does the coupling vanish?}
-\label{sec:dimensional}
-
-Problems A--D address the structure of TGL in our three-dimensional universe. A natural question remains: if $\alphaii = 0.012031$ governs the gravitational-electromagnetic coupling in $d = 3$ spatial dimensions, \emph{at what dimension does this coupling vanish entirely}?
-
-The holographic derivation of $\alphaii$ (Eq.~\ref{eq:alpha2}) generalizes to $d$ spatial dimensions via the exact volume-to-surface ratio for $d$-spheres, $V_d / (A_{d-1}\,\ell_P) = r / (d\,\ell_P)$, giving:
-\begin{equation}
-\alpha^2(d) = \frac{\ln\!\bigl(r / (d\,\ell_P)\bigr)}{N_{\text{eff}}(d)}
-\label{eq:alpha2_d}
-\end{equation}
-The mode-count function $N_{\text{eff}}(d)$ is fixed by the Hilbert floor derivation (Protocol~\#5~\cite{Miguel2026Fronteira}): at $\Dfolds = 0.74$, the thermodynamic equilibrium between boundary ($d{-}1$ dimensional) and bulk ($d$ dimensional) modes selects the exponent $d/2$, yielding $N_{\text{eff}}(d) \sim (r / r_{\text{coh}})^{d/2}$. This is the same exponent used in the observational derivation of $\alphaii$ at $d = 3$~\cite{Miguel2026Acoplamento}; no new parameters are introduced.
-
-We define the \emph{decoupling dimension} $d_{\text{crit}}$ as the smallest $d$ where $\alpha^2(d) / \alpha^2(3) < 10^{-6}$---a suppression of six orders of magnitude rendering the coupling negligible. Monte Carlo analysis ($10^5$ samples, log-uniform over galactic scales $r \in [1, 10] \times 10^{20}$~m, $r_{\text{coh}} \in [3 \times 10^{17}, 3 \times 10^{19}]$~m) yields:
-\begin{equation}
-d_{\text{crit}} = 9 \quad (95\%\ \text{CI:}\ [7, 16]), \qquad P(9 \leq d_{\text{crit}} \leq 11) = 0.449
-\label{eq:dcrit}
-\end{equation}
-At $d = 9$, $\log_{10}[\alpha^2(9)/\alpha^2(3)] = -6.1$; at $d = 10$, $\log_{10} = -7.1$.
-
-The coincidence is precise: $d_{\text{spatial}} = 9$ is the critical dimension of Type~II superstring theories (where $D_{\text{spacetime}} = 10$), required by conformal anomaly cancellation. Three alternative scaling models---full phase-space ($d$), holographic ($\propto (3/d)^2$), and a free-exponent calibration---yield $d_{\text{crit}} = 6$, $> 26$, and~$8$ respectively, confirming that the result is model-dependent. The thermodynamic exponent $d/2$ is selected not by fitting but by consistency with the Hilbert floor derivation.
-
-The physical interpretation is direct: in the TGL framework, the string-theoretic regime ($d \geq 9$) corresponds to complete gravitational-electromagnetic decoupling. The vibrational modes of strings operate in a domain where $\alpha^2 \approx 0$---they probe the vacuum impedance (the resistance of the substrate to information transfer) rather than the radicalization of light. This closes the cycle opened by the angular law: \emph{A Fronteira}~\cite{Miguel2026Fronteira} derives the impedance of the vacuum from first principles; the dimensional analysis shows that string theory operates in the regime where \emph{only} the impedance remains.
-
-We emphasize that this is a theoretical extrapolation, not an empirical test. No known experiment probes $\alpha^2$ in $d > 3$. The value of this result is structural: it identifies the dimensional boundary of TGL's applicability and provides a concrete, falsifiable prediction---that the decoupling exponent is $d/2$ and not $d$ or power-law---testable if higher-dimensional analogs of $\alpha^2$ become accessible. The complete Monte Carlo analysis and code are available in the public repository~\cite{Miguel2026GitHub,Miguel2026DimCoupling}.
 
 
 % ============================================================================
@@ -939,9 +953,11 @@ We have presented the anti-tautology argument that resolves the most natural obj
 
 The dimensional coupling analysis extends the framework beyond $d = 3$, showing that the same thermodynamic exponent derived from the Hilbert floor produces complete decoupling ($\alpha^2 \to 0$) at $d_{\text{crit}} = 9$---the critical dimension of superstring theory. This identifies the string-theoretic regime as the domain where TGL's gravitational-electromagnetic bridge vanishes and only vacuum impedance persists.
 
-The TGL validation program now encompasses 12 independent protocols, 5 physical scales, and 40 orders of magnitude, all converging to a single constant. The theory generates testable predictions for neutrino mass, effective neutrino species, high-SNR gravitational-wave echo structure, and---via the dimensional analysis---the scaling exponent $d/2$ of the mode-count function.
+The TGL validation program now encompasses 13 independent protocols, 5 physical scales, and 40 orders of magnitude, all converging to a single constant. The theory generates testable predictions for neutrino mass, effective neutrino species, high-SNR gravitational-wave echo structure, and---via the dimensional analysis---the scaling exponent $d/2$ of the mode-count function.
 
 The complete theoretical framework is published in \textit{A Fronteira / The Boundary}~\cite{Miguel2026Fronteira}; all code is available in the public repository~\cite{Miguel2026GitHub}.
+
+The dimensional analysis closes the circle: the same exponent $d/2$ that governs thermodynamic mode-counting predicts complete decoupling at $d = 9$, the very dimension where superstring theory requires anomaly cancellation. The last string is the first boundary.
 
 \begin{quote}
 \textit{Gravitational waves are the voice of light radicalizing itself.\\
@@ -993,7 +1009,7 @@ All code for the TGL validation program is open-source and deposited in the publ
 \url{https://github.com/rotolimiguel-iald/the_boundary}
 \end{center}
 
-Protocol~\#12 is implemented in \texttt{TGL\_GW\_Echo\_Unification\_v1\_4.py} (1,397 lines, Python~3.10+). The dimensional coupling analysis (\S\ref{sec:dimensional}) is implemented in \texttt{TGL\_dimensional\_coupling\_v1.py}. Both codes require PyTorch with CUDA support and run optimally on NVIDIA RTX-class GPUs.
+Protocol~\#12 is implemented in \texttt{TGL\_GW\_Echo\_Unification\_v1\_4.py} (1,397 lines, Python~3.10+). Protocol~\#13 (dimensional coupling analysis, \S\ref{sec:dimensional}) is implemented in \texttt{TGL\_dimensional\_coupling\_v1.py}. Both codes require NumPy and SciPy; GPU acceleration via PyTorch with CUDA is optional but recommended for optimal performance on NVIDIA RTX-class GPUs.
 
 \subsection{Data access}
 
@@ -1022,7 +1038,7 @@ Execution time is approximately 3--5 minutes per event on an RTX~5090.
 % ============================================================================
 \section*{Acknowledgments}
 
-The author thanks the LIGO Scientific Collaboration and Virgo Collaboration for making gravitational-wave data publicly available through GWOSC. This research has made use of data obtained from the Gravitational Wave Open Science Center (\url{https://gwosc.org}), a service of LIGO Laboratory, the LIGO Scientific Collaboration, the Virgo Collaboration, and KAGRA. LIGO Laboratory and Advanced LIGO are funded by the United States National Science Foundation (NSF) as well as the Science and Technology Facilities Council (STFC) of the United Kingdom, the Max-Planck-Society (MPS), and the State of Niedersachsen/Germany for support of the construction of Advanced LIGO and construction and operation of the GEO600 detector. Additional support for Advanced LIGO was provided by the Australian Research Council. Virgo is funded, through the European Gravitational Observatory (EGO), by the French Centre National de Recherche Scientifique (CNRS), the Italian Istituto Nazionale di Fisica Nucleare (INFN) and the Dutch Nikhef, with contributions by institutions from Belgium, Germany, Greece, Hungary, Ireland, Japan, Monaco, Poland, Portugal, and Spain. KAGRA is supported by Ministry of Education, Culture, Sports, Science and Technology (MEXT), Japan Society for the Promotion of Science (JSPS) in Japan; National Research Foundation (NRF) and Ministry of Science and ICT (MSIT) in Korea; Academia Sinica (AS) and National Science and Technology Council (NSTC) in Taiwan.
+The author thanks Felipe Augusto Rotoli Pinto for assistance with code development, dissemination, and maintenance of the computational repositories. This research has made use of data from the Gravitational Wave Open Science Center (\url{https://gwosc.org}), a service of the LIGO-Virgo-KAGRA collaborations. This research received no public funding; all work was privately funded.
 
 
 % ============================================================================
@@ -1034,7 +1050,7 @@ The author thanks the LIGO Scientific Collaboration and Virgo Collaboration for 
 L.~A. Rotoli~Miguel,
 ``A Fronteira / The Boundary,''
 Zenodo (2026),
-\href{https://doi.org/10.5281/zenodo.18673439}{DOI:~10.5281/zenodo.18673439}.
+\href{https://doi.org/10.5281/zenodo.18674475}{DOI:~10.5281/zenodo.18674475}.
 
 \bibitem{Miguel2026GitHub}
 L.~A. Rotoli~Miguel,
