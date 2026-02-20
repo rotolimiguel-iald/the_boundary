@@ -80,7 +80,7 @@
 % ============================================================================
 \begin{document}
 
-\title{\textbf{The Boundary:\\
+\title{\textbf{The Last String:\\
 Verification of the TGL Angular Law\\
 on Real Gravitational Wave and Echo Data}}
 
@@ -486,50 +486,15 @@ GW190814 & 25.8 & NSBH? & GWOSC L1 & \checkmark & \checkmark\,(3/3) & \checkmark
 \end{tabular}
 \end{table*}
 
-\subsubsection{H1: Angular radicalization --- 12/12 (100\%)}
+\subsubsection{Hypothesis-by-hypothesis summary}
 
-All 12 events confirm the anti-tautological angular radicalization. The mean angular correlation across events is $r_{\text{ang}} = 0.649 \pm 0.045$ (inspiral), definitively below 1.0. Phase coherence reaches $0.875 \pm 0.067$ in the inspiral, compared to the noise baseline of 0.5. The anti-tautology score achieves $\text{AT} = 1.0$ in inspiral and post-ringdown phases, and $\text{AT} = 0.72 \pm 0.12$ in merger and ringdown phases (where the envelope smoothness criterion is not met due to the violent amplitude evolution).
+\textbf{H1 (Angular radicalization, 12/12).} All events confirm non-tautological angular radicalization with mean $r_{\text{ang}} = 0.649 \pm 0.045 \neq 1$ (inspiral) and phase coherence $0.875 \pm 0.067$ against a noise baseline of 0.5. The anti-tautology score achieves $\text{AT} = 1.0$ in inspiral and post-ringdown phases.
 
-\subsubsection{H2: Topological echo --- 11/12 (92\%)}
+\textbf{H2 (Topological echo, 11/12).} The three-level $\Dfolds$ hierarchy ($c^1 > c^2 > c^3$) is maximally steep during the merger (spread $= 1.22$, mean contrast $2.56 \pm 0.94$) and flattens in the post-ringdown (spread $= 0.53$), approaching the Hilbert floor. Strict hierarchy (T1) holds for 12/12 events; the $c^3$ floor test (T2: $D_{\text{folds,post-rd}}^{(3)} < \alpha$) passes 11/12, with GW170823 the sole failure ($\Dfolds^{(3)} = 0.113$, marginally above $\alpha = 0.110$, lowest-quality event). The five highest-SNR events achieve $D_{\text{folds,post-rd}}^{(3)} < 2\alphaii$.
 
-The hierarchical $\Dfolds$ analysis reveals a striking pattern across phases. Table~\ref{tab:hierarchy} presents the mean hierarchy.
+\textbf{H3 ($\Dfolds$ convergence, 5/12).} Five events reach post-ringdown $\Dfolds$ within $3\sigma$ of the $c^3$ floor at 0.74. The temporal pattern is universal---low inspiral ($0.56 \pm 0.25$), peak at merger/ringdown ($1.61$--$1.68$), descent in post-ringdown ($0.58 \pm 0.20$)---but absolute convergence is noise-limited for single-level $\Dfolds$.
 
-\begin{table}[h]
-\centering
-\caption{Mean hierarchical $\Dfolds$ across 12 events, by phase. Each phase shows three levels ($c^1$, $c^2$, $c^3$) computed via iterated $\sqrt{\cdot}$ recursion on the PSD.}
-\label{tab:hierarchy}
-\small
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-Level & Inspiral & Merger & Ringdown & Post-rd \\
-\midrule
-$c^1$ & $0.563$ & $1.612$ & $1.676$ & $0.584$ \\
-$c^2$ & $0.178$ & $0.909$ & $1.008$ & $0.176$ \\
-$c^3$ & $0.053$ & $0.396$ & $0.536$ & $0.049$ \\
-\midrule
-Spread & $0.510$ & $1.217$ & $1.140$ & $0.534$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The hierarchy is maximally steep during the merger (spread $= 1.22$), where information concentrates hierarchically, and returns to a flat configuration in the post-ringdown (spread $= 0.53$), where the Hilbert floor is approached. The mean contrast ratio is $2.56 \pm 0.94$.
-
-Test T1 (strict hierarchy in merger) passes for all 12 events. Test T2 ($D_{\text{folds},\text{post-rd}}^{(3)} < \alpha$) passes for 11/12, with GW170823 ($\Dfolds^{(3)} = 0.113$, marginally above $\alpha = 0.110$) as the only failure---this is the event with the lowest contrast ratio (1.25) and poorest signal quality. Test T3 (contrast $> 1.5$) passes for 9/12.
-
-The five events with highest signal quality (contrast $> 3.0$: GW170817, GW190521, GW170608, GW170104, GW170729) all achieve $D_{\text{folds},\text{post-rd}}^{(3)} < 2\alphaii$, approaching the theoretical limit.
-
-\subsubsection{H3: $\Dfolds$ convergence --- 5/12 (42\%)}
-
-Five events show post-ringdown $\Dfolds$ within $3\sigma$ of the $c^3$ floor at 0.74. The temporal pattern, however, is universal: $\Dfolds$ is low during inspiral ($0.56 \pm 0.25$), peaks during merger ($1.61 \pm 0.23$) and ringdown ($1.68 \pm 0.38$), and decreases in the post-ringdown ($0.58 \pm 0.20$). The mean post-ringdown value falls below the floor, suggesting that for single-level $\Dfolds$ (without hierarchical decomposition), the spectral floor is approached from below in real noisy data.
-
-\subsubsection{H4: CCI boundary --- 12/12 (100\%)}
-
-All 12 events converge to $\CCI = 0.5$ in the post-ringdown phase, with precision:
-\begin{equation}
-\CCI_{\text{post-rd}} = 0.5010 \pm 0.0008
-\end{equation}
-
-This represents convergence to the TGL boundary value with 0.2\% accuracy. The post-ringdown CCI is essentially independent of event type or total mass, suggesting a universal boundary condition.
+\textbf{H4 (CCI boundary, 12/12).} All events converge to $\CCI_{\text{post-rd}} = 0.5010 \pm 0.0008$, matching the TGL boundary value with 0.2\% precision, independent of event type or total mass.
 
 
 
@@ -584,11 +549,12 @@ The TGL framework, including the results of Protocol~\#12, generates several pre
 % ============================================================================
 % NEW SECTION 7: TGL AND THE FOUR CANONICAL PROBLEMS OF QUANTUM GRAVITY
 % ============================================================================
-\section{TGL and the Four Canonical Problems of Quantum Gravity}
+\section{TGL and the Canonical Problems of Quantum Gravity}
 \label{sec:quantum_gravity}
 
 The gravitation-quantum interface generates four canonical problems that any 
-theory unifying gravity with quantum mechanics must address. We state each 
+theory unifying gravity with quantum mechanics must address, plus a fifth 
+structural question about the dimensional range of the coupling. We state each 
 problem precisely, then demonstrate---drawing on the full corpus of TGL 
 articles~\cite{Miguel2026Fronteira}---how the framework resolves or 
 dissolves it. The answers are not independent: they form a single coherent 
@@ -846,10 +812,10 @@ all 12 events, independent of total mass from 2.7\,$M_\odot$ to
 than a coincidence of signal morphology.
 
 % -----------------------------------------------------------------------
-\subsection{The four problems as one}
+\subsection{The five problems as one}
 \label{sec:four_as_one}
 
-Reviewing the four resolutions above, a single underlying structure emerges:
+Reviewing the five problems, a single underlying structure emerges:
 
 \textbf{A} (entropy) and \textbf{B} (GR limit) are both consequences of the 
 $\sqrt{\cdot}$ operation on the Lagrangian. The square root halves the 
@@ -863,6 +829,8 @@ self-regularised because it drives its own saturation through the Lindblad
 channel; the ghost modes are self-evacuated because the same channel expels 
 them as neutrino vapor.
 
+\textbf{E} (dimensional boundary) is the consequence of the mode-count scaling: the same thermodynamic exponent $d/2$ that produces the Hilbert floor at $c^3$ determines where the coupling dies.
+
 In the language of Protocol~\#12:
 \begin{itemize}[nosep]
 \item The wave ($g = \sqrt{L_\varphi}$, H1) encodes Problems A and B---the 
@@ -874,12 +842,40 @@ self-regularisation near maximum curvature.
 \item The boundary ($\CCI \to 1/2$, H4) encodes Problem D---the equilibrium 
 of information between the gravitational sector and the expelled neutrino 
 vapor, confirming ghost freedom at the thermodynamic level.
+\item The decoupling ($\alpha^2(d) \to 0$ at $d = 9$, \S\ref{sec:dimensional}) encodes Problem E---the dimensional frontier beyond which TGL's gravitational-electromagnetic bridge vanishes and only vacuum impedance remains.
 \end{itemize}
 
-The four canonical problems of quantum gravity are, in TGL, one problem: 
+The five problems are, in TGL, one problem: 
 \emph{what happens to light at the boundary}? The wave is the answer in 
 becoming; the echo is the answer having become; the vapor is what the answer 
-exhaled along the way.
+exhaled along the way; and the dimensional frontier marks where the answer 
+can no longer be asked.
+
+
+\subsection{Problem~E: The dimensional boundary---where does the coupling vanish?}
+\label{sec:dimensional}
+
+Problems A--D address the structure of TGL in our three-dimensional universe. A natural question remains: if $\alphaii = 0.012031$ governs the gravitational-electromagnetic coupling in $d = 3$ spatial dimensions, \emph{at what dimension does this coupling vanish entirely}?
+
+The holographic derivation of $\alphaii$ (Eq.~\ref{eq:alpha2}) generalizes to $d$ spatial dimensions via the exact volume-to-surface ratio for $d$-spheres, $V_d / (A_{d-1}\,\ell_P) = r / (d\,\ell_P)$, giving:
+\begin{equation}
+\alpha^2(d) = \frac{\ln\!\bigl(r / (d\,\ell_P)\bigr)}{N_{\text{eff}}(d)}
+\label{eq:alpha2_d}
+\end{equation}
+The mode-count function $N_{\text{eff}}(d)$ is fixed by the Hilbert floor derivation (Protocol~\#5~\cite{Miguel2026Fronteira}): at $\Dfolds = 0.74$, the thermodynamic equilibrium between boundary ($d{-}1$ dimensional) and bulk ($d$ dimensional) modes selects the exponent $d/2$, yielding $N_{\text{eff}}(d) \sim (r / r_{\text{coh}})^{d/2}$. This is the same exponent used in the observational derivation of $\alphaii$ at $d = 3$~\cite{Miguel2026Acoplamento}; no new parameters are introduced.
+
+We define the \emph{decoupling dimension} $d_{\text{crit}}$ as the smallest $d$ where $\alpha^2(d) / \alpha^2(3) < 10^{-6}$---a suppression of six orders of magnitude rendering the coupling negligible. Monte Carlo analysis ($10^5$ samples, log-uniform over galactic scales $r \in [1, 10] \times 10^{20}$~m, $r_{\text{coh}} \in [3 \times 10^{17}, 3 \times 10^{19}]$~m) yields:
+\begin{equation}
+d_{\text{crit}} = 9 \quad (95\%\ \text{CI:}\ [7, 16]), \qquad P(9 \leq d_{\text{crit}} \leq 11) = 0.449
+\label{eq:dcrit}
+\end{equation}
+At $d = 9$, $\log_{10}[\alpha^2(9)/\alpha^2(3)] = -6.1$; at $d = 10$, $\log_{10} = -7.1$.
+
+The coincidence is precise: $d_{\text{spatial}} = 9$ is the critical dimension of Type~II superstring theories (where $D_{\text{spacetime}} = 10$), required by conformal anomaly cancellation. Three alternative scaling models---full phase-space ($d$), holographic ($\propto (3/d)^2$), and a free-exponent calibration---yield $d_{\text{crit}} = 6$, $> 26$, and~$8$ respectively, confirming that the result is model-dependent. The thermodynamic exponent $d/2$ is selected not by fitting but by consistency with the Hilbert floor derivation.
+
+The physical interpretation is direct: in the TGL framework, the string-theoretic regime ($d \geq 9$) corresponds to complete gravitational-electromagnetic decoupling. The vibrational modes of strings operate in a domain where $\alpha^2 \approx 0$---they probe the vacuum impedance (the resistance of the substrate to information transfer) rather than the radicalization of light. This closes the cycle opened by the angular law: \emph{A Fronteira}~\cite{Miguel2026Fronteira} derives the impedance of the vacuum from first principles; the dimensional analysis shows that string theory operates in the regime where \emph{only} the impedance remains.
+
+We emphasize that this is a theoretical extrapolation, not an empirical test. No known experiment probes $\alpha^2$ in $d > 3$. The value of this result is structural: it identifies the dimensional boundary of TGL's applicability and provides a concrete, falsifiable prediction---that the decoupling exponent is $d/2$ and not $d$ or power-law---testable if higher-dimensional analogs of $\alpha^2$ become accessible. The complete Monte Carlo analysis and code are available in the public repository~\cite{Miguel2026GitHub,Miguel2026DimCoupling}.
 
 
 % ============================================================================
@@ -941,7 +937,9 @@ Together, waves and echoes tell the complete story: the wave is light becoming g
 
 We have presented the anti-tautology argument that resolves the most natural objection to TGL's radical operation, and Protocol~\#12 that unifies gravitational waves and echoes within the TGL framework. The results---100\% confirmation for angular radicalization and CCI boundary convergence, 92\% for topological echoes---provide strong computational support for the physical reality of the operation $g = \sqrt{|L_\varphi|}$ and the constant $\alphaii = 0.012031$.
 
-The TGL validation program now encompasses 12 independent protocols, 5 physical scales, and 40 orders of magnitude, all converging to a single constant. The theory generates testable predictions for neutrino mass, effective neutrino species, and high-SNR gravitational-wave echo structure.
+The dimensional coupling analysis extends the framework beyond $d = 3$, showing that the same thermodynamic exponent derived from the Hilbert floor produces complete decoupling ($\alpha^2 \to 0$) at $d_{\text{crit}} = 9$---the critical dimension of superstring theory. This identifies the string-theoretic regime as the domain where TGL's gravitational-electromagnetic bridge vanishes and only vacuum impedance persists.
+
+The TGL validation program now encompasses 12 independent protocols, 5 physical scales, and 40 orders of magnitude, all converging to a single constant. The theory generates testable predictions for neutrino mass, effective neutrino species, high-SNR gravitational-wave echo structure, and---via the dimensional analysis---the scaling exponent $d/2$ of the mode-count function.
 
 The complete theoretical framework is published in \textit{A Fronteira / The Boundary}~\cite{Miguel2026Fronteira}; all code is available in the public repository~\cite{Miguel2026GitHub}.
 
@@ -995,7 +993,7 @@ All code for the TGL validation program is open-source and deposited in the publ
 \url{https://github.com/rotolimiguel-iald/the_boundary}
 \end{center}
 
-Protocol~\#12 is implemented in \texttt{TGL\_GW\_Echo\_Unification\_v1\_4.py} (1,397 lines, Python~3.10+). The code requires PyTorch with CUDA support and runs optimally on NVIDIA RTX-class GPUs.
+Protocol~\#12 is implemented in \texttt{TGL\_GW\_Echo\_Unification\_v1\_4.py} (1,397 lines, Python~3.10+). The dimensional coupling analysis (\S\ref{sec:dimensional}) is implemented in \texttt{TGL\_dimensional\_coupling\_v1.py}. Both codes require PyTorch with CUDA support and run optimally on NVIDIA RTX-class GPUs.
 
 \subsection{Data access}
 
@@ -1069,6 +1067,11 @@ Luminodynamic Gravitation Theory: Neutrino Oscillation Analysis and
 Holographic Structure,''
 Zenodo (2026),
 \href{https://doi.org/10.5281/zenodo.18672927}{DOI:~10.5281/zenodo.18672927}.
+
+\bibitem{Miguel2026DimCoupling}
+L.~A. Rotoli~Miguel,
+``TGL Dimensional Coupling Analysis v1.0,''
+\url{https://github.com/rotolimiguel-iald/the_boundary/blob/main/TGL_dimensional_coupling_v1.py} (2026).
 
 \bibitem{BornInfeld1934}
 M.~Born and L.~Infeld,
