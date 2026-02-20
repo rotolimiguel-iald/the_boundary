@@ -2,8 +2,8 @@ This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./the_last_string_v2.tex
-(the_last_string_v2.tex
+**./a_ultima_corda_v2.tex
+(a_ultima_corda_v2.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\rotol\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -101,20 +101,17 @@ Package babel Info: Configuration files are deprecated, as
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-(C:\Users\rotol\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel
--english.tex)
-Package babel Info: Importing font and identification data for english
-(babel)             from babel-en.ini. Reported on input line 4320.
+(C:\Users\rotol\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/pt\babel
+-brazilian.tex)
+Package babel Info: Importing font and identification data for brazilian
+(babel)             from babel-pt-BR.ini. Reported on input line 4320.
 
-(C:\Users\rotol\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.l
-df
-Language: english 2017/06/06 v3.3r English support from the babel system
-Package babel Info: Hyphen rules for 'canadian' set to \l@english
-(babel)             (\language0). Reported on input line 102.
-Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language73). Reported on input line 105.
-Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language73). Reported on input line 108.
+(C:\Users\rotol\AppData\Local\Programs\MiKTeX\tex/latex/babel-portuges\brazilia
+n.ldf
+Language: portuges 2026/01/24 v1.2u Portuguese support from the babel system
+Package babel Info: Hyphen rules for 'brazilian' set to \l@portuguese
+(babel)             (\language56). Reported on input line 100.
+Package babel Info: Making " an active character on input line 132.
 ))
 (C:\Users\rotol\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
@@ -698,8 +695,8 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 86
  (C:\Users\rotol\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-(the_last_string_v2.aux)
-\openout1 = `the_last_string_v2.aux'.
+No file a_ultima_corda_v2.aux.
+\openout1 = `a_ultima_corda_v2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
 LaTeX Font Info:    ... okay on input line 86.
@@ -719,7 +716,8 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
 LaTeX Font Info:    ... okay on input line 86.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
 LaTeX Font Info:    ... okay on input line 86.
-
+Package babel Info: 'brazilian' activates 'portuges' shorthands.
+(babel)             Reported on input line 86.
 
 Package siunitx Warning: Detected the "physics" package:
 (siunitx)                omitting definition of \qty.
@@ -733,12 +731,12 @@ Package siunitx Warning: Detected the "physics" package:
 
 
 (C:\Users\rotol\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\tran
-slations-basic-dictionary-english.trsl
-File: translations-basic-dictionary-english.trsl (english translation file `tra
-nslations-basic-dictionary')
+slations-basic-dictionary-brazil.trsl
+File: translations-basic-dictionary-brazil.trsl (brazil translation file `trans
+lations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 86.
+or `brazil'. on input line 86.
 
 (C:\Users\rotol\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -766,9 +764,8 @@ fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring ON on input line 86.
- (the_last_string_v2.out) (the_last_string_v2.out)
 \@outlinefile=\write3
-\openout3 = `the_last_string_v2.out'.
+\openout3 = `a_ultima_corda_v2.out'.
 
 
 *geometry* driver: auto-detecting
@@ -899,7 +896,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 Underfull \hbox (badness 10000) in paragraph at lines 115--115
-[][]\T1/lmr/m/n/10 (+20) Corresponding au-thor:
+[][]\T1/lmr/m/n/10 (+20) Autor cor-res-pon-dente:
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -908,9 +905,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 115.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 115.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -927,19 +921,83 @@ a/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <12> on input line 127.
 
-Underfull \hbox (badness 1430) in paragraph at lines 137--139
-\T1/lmr/m/n/12 (+20) dimensional uni-verse (\T1/lmr/m/it/12 (+20) bulk\T1/lmr/m
-/n/12 (+20) ), de-rived from
+
+Package natbib Warning: Citation `tHooft1993' on page 2 undefined on input line
+ 138.
+
+
+Package natbib Warning: Citation `Susskind1995' on page 2 undefined on input li
+ne 138.
+
+
+Package natbib Warning: Citation `Bekenstein1973' on page 2 undefined on input 
+line 138.
+
+
+Underfull \hbox (badness 1057) in paragraph at lines 137--139
+\T1/lmr/m/n/12 (+20) que re-pre-senta a taxa mí-nima de aco-pla-
  []
 
 
+Package natbib Warning: Citation `Miguel2026Fronteira' on page 2 undefined on i
+nput line 140.
+
+
+Package natbib Warning: Citation `Miguel2026GitHub' on page 2 undefined on inpu
+t line 140.
+
+
+LaTeX Warning: Reference `eq:radical' on page 2 undefined on input line 144.
+
+
+LaTeX Warning: Reference `sec:anti-tautology' on page 2 undefined on input line
+ 148.
+
+
+LaTeX Warning: Reference `sec:protocol12' on page 2 undefined on input line 148
+.
+
+
+LaTeX Warning: Reference `sec:anti-tautology' on page 2 undefined on input line
+ 154.
+
+
+LaTeX Warning: Reference `sec:echoes' on page 2 undefined on input line 156.
+
+
+LaTeX Warning: Reference `sec:protocol12' on page 2 undefined on input line 158
+.
+
+
+LaTeX Warning: Reference `sec:alpha-threshold' on page 2 undefined on input lin
+e 160.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [2]
+
+LaTeX Warning: Reference `sec:protocols' on page 3 undefined on input line 162.
+
+
+
+LaTeX Warning: Reference `sec:synthesis' on page 3 undefined on input line 162.
+
+
+
+Underfull \hbox (badness 3547) in paragraph at lines 184--185
+\T1/lmr/m/n/12 (+20) A cons-tante $\OML/lmm/m/it/12 []$ \T1/lmr/m/n/12 (+20) e
+merge da en-tro-pia de
+ []
+
+
+Package natbib Warning: Citation `Miguel2026Fronteira' on page 3 undefined on i
+nput line 190.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 192.
@@ -953,415 +1011,699 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 192.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--210
-[]\T1/lmr/bx/n/14.4 (+20) Gravitational waves and
+Underfull \hbox (badness 4454) in paragraph at lines 208--209
+[]\T1/lmr/m/n/12 (+20) O piso as-sin-tó-tico dessa hi-e-rar-quia é
  []
 
 
+LaTeX Warning: Reference `eq:radical' on page 3 undefined on input line 215.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [3]
+
+LaTeX Warning: Reference `eq:hierarchy' on page 4 undefined on input line 217.
+
+
+Package natbib Warning: Citation `Cardoso2016' on page 4 undefined on input lin
+e 219.
+
+
+Package natbib Warning: Citation `Abedi2017' on page 4 undefined on input line 
+219.
+
+
+Package natbib Warning: Citation `Westerweck2018' on page 4 undefined on input 
+line 219.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--225
+[]\T1/lmr/bx/n/17.28 (+20) O Ar-gu-mento Anti-
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [4]
-Underfull \hbox (badness 1924) in paragraph at lines 326--326
-\T1/lmr/bx/n/17.28 (+20) 12 Pro-to-cols across 5
- []
+
+Package natbib Warning: Citation `Miguel2026Fronteira' on page 5 undefined on i
+nput line 328.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [5]
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[6]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 446.
+LaTeX Warning: Reference `tab:protocols' on page 6 undefined on input line 330.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 446.
+
+Package natbib Warning: Citation `Miguel2026GitHub' on page 6 undefined on inpu
+t line 334.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 446.
+Package natbib Warning: Citation `Miguel2026GitHub' on page 6 undefined on inpu
+t line 334.
+
+
+Package natbib Warning: Citation `Miguel2026Fronteira' on page 6 undefined on i
+nput line 373.
+
+
+Package natbib Warning: Citation `Miguel2026Trinity' on page 6 undefined on inp
+ut line 377.
+
+
+LaTeX Warning: Reference `sec:protocol12' on page 6 undefined on input line 379
+.
+
+
+Package natbib Warning: Citation `GWOSC2023' on page 6 undefined on input line 
+390.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+Underfull \hbox (badness 1199) in paragraph at lines 398--398
+[]\T1/lmr/bx/n/12 (+20) H1: Ra-di-ca-li-za-ção an-gu-lar (a
+ []
+
+
+LaTeX Warning: Reference `sec:anti-tautology' on page 6 undefined on input line
+ 400.
+
+
+Underfull \vbox (badness 1742) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
+
+[6]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [7
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.449 \begin{equation}
-                      ]
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
-[]\T1/lmr/bx/n/12 (+20) Hypothesis-by-hypothesis sum-
+l.437 
+      ]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 445.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 445.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 445.
+
+
+LaTeX Warning: Reference `tab:events' on page 8 undefined on input line 469.
+
+
+Underfull \hbox (badness 7012) in paragraph at lines 505--506
+\T1/lmr/m/n/12 (+20) Cinco even-tos atin-gem $\OML/lmm/m/it/12 D[]$ \T1/lmr/m/n
+/12 (+20) de pós-
  []
 
 
-Underfull \hbox (badness 2150) in paragraph at lines 520--521
-\T1/lmr/m/n/12 (+20) the 151$\OML/lmm/m/it/12 M[]$ \T1/lmr/m/n/12 (+20) interme
-diate-mass co-a-les-cence
- []
+LaTeX Warning: Reference `tab:protocols' on page 8 undefined on input line 518.
+
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 524--524
-[]\T1/lmr/bx/n/14.4 (+20) The topo-log-i-cal bridge:
- []
+
+LaTeX Warning: Reference `eq:hierarchical' on page 9 undefined on input line 52
+4.
 
 
-Underfull \vbox (badness 1117) has occurred while \output is active []
-
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 536.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\alpha' on input line 536.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 536.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 536.
+Package natbib Warning: Citation `Miguel2026Fronteira' on page 9 undefined on i
+nput line 524.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [9
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.541 \begin{multline}
-                      ]
-Underfull \hbox (badness 1275) in paragraph at lines 564--564
-[]\T1/lmr/bx/n/17.28 (+20) TGL and the Canon-i-
+l.531 
+      ]
+
+LaTeX Warning: Reference `eq:radical' on page 10 undefined on input line 532.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 534.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\alpha' on input line 534.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 534.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 534.
+
+
+Package natbib Warning: Citation `Planck2020' on page 10 undefined on input lin
+e 536.
+
+
+Package natbib Warning: Citation `Riess2022' on page 10 undefined on input line
+ 536.
+
+
+Package natbib Warning: Citation `Miguel2026Fronteira' on page 10 undefined on 
+input line 538.
+
+
+Underfull \hbox (badness 2189) in paragraph at lines 542--544
+\T1/lmr/m/n/12 (+20) com-bi-nada com o ín-dice de re-fra-ção do
  []
 
 
-Overfull \hbox (2.984pt too wide) in paragraph at lines 567--575
-\T1/lmr/m/n/12 (-20) state each prob-lem pre-cisely, then demonstrate---
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 577--577
-[]\T1/lmr/bx/n/14.4 (+20) Problem A: Bekenstein--
- []
-
-
-Underfull \hbox (badness 2245) in paragraph at lines 577--577
-\T1/lmr/bx/n/14.4 (+20) Hawking en-tropy with-out
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
+Package natbib Warning: Citation `KATRIN2022' on page 10 undefined on input lin
+e 549.
+
+
+Package natbib Warning: Citation `CMBS4' on page 10 undefined on input line 551
+.
+
+
+Package natbib Warning: Citation `LISA2017' on page 10 undefined on input line 
+553.
+
+
+Package natbib Warning: Citation `ET2020' on page 10 undefined on input line 55
+3.
+
+
+Package natbib Warning: Citation `CE2019' on page 10 undefined on input line 55
+3.
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 555--556
+[]\T1/lmr/m/it/12 (+20) Luminídio. \T1/lmr/m/n/12 (+20) A as-si-na-tura es-pec-
+tral do
+ []
+
+
+Package natbib Warning: Citation `Miguel2026Fronteira' on page 10 undefined on 
+input line 568.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
+
+[10]
+Underfull \hbox (badness 1048) in paragraph at lines 574--574
+[]\T1/lmr/bx/n/14.4 (+20) Problema A: En-tro-pia de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 574--574
+\T1/lmr/bx/n/14.4 (+20) Bekenstein--Hawking sem
+ []
+
+
+Underfull \vbox (badness 7888) has occurred while \output is active []
+
+
+
+Package natbib Warning: Citation `Miguel2026Acoplamento' on page 11 undefined o
+n input line 612.
+
+
+Package natbib Warning: Citation `Miguel2026Acoplamento' on page 11 undefined o
+n input line 626.
+
+
+LaTeX Warning: Reference `eq:action' on page 11 undefined on input line 627.
+
+
+LaTeX Warning: Reference `eq:BH' on page 11 undefined on input line 627.
+
+
+LaTeX Warning: Reference `sec:protocol12' on page 11 undefined on input line 63
+3.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [11]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 690.
+LaTeX Warning: Reference `eq:action' on page 12 undefined on input line 658.
+
+
+LaTeX Warning: Reference `eq:weak_expansion' on page 12 undefined on input line
+ 670.
+
+
+LaTeX Warning: Reference `sec:protocol12' on page 12 undefined on input line 67
+9.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Psi' on input line 690.
+(hyperref)                removing `math shift' on input line 685.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 690.
+(hyperref)                removing `\Psi' on input line 685.
 
 
-Underfull \hbox (badness 3281) in paragraph at lines 705--713
-\T1/lmr/m/n/12 (+20) where $\U/msa/m/n/12 ^^C \OT1/lmr/m/n/12 (+20) = \OML/lmm/
-m/it/12 g[]\OMS/lmsy/m/n/12 r[]r[]$ \T1/lmr/m/n/12 (+20) is the co-vari-ant
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 685.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+LaTeX Warning: Reference `eq:T2' on page 12 undefined on input line 718.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [12]
-Underfull \hbox (badness 1783) in paragraph at lines 798--801
-[]\T1/lmr/m/n/12 (+20) (iii) \T1/lmr/bx/n/12 (+20) Pauli ex-clu-sion. \T1/lmr/m
-/n/12 (+20) Neu-tri-nos are
+
+Package natbib Warning: Citation `BornInfeld1934' on page 13 undefined on input
+ line 752.
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 742--754
+\T1/lmr/m/it/12 (+20) de Os-tro-gradski). \T1/lmr/m/n/12 (+20) O te-o-rema de O
+s-tro-
  []
 
 
-Underfull \vbox (badness 1762) has occurred while \output is active []
+Underfull \hbox (badness 1546) in paragraph at lines 742--754
+\T1/lmr/m/n/12 (+20) gradski aplica-se a La-gran-gi-a-nas que são
+ []
+
+
+Underfull \hbox (badness 1286) in paragraph at lines 742--754
+\T1/lmr/m/it/12 (+20) não-degeneradas \T1/lmr/m/n/12 (+20) em de-ri-va-das supe
+riores---
+ []
+
+
+Package natbib Warning: Citation `Miguel2025NMC' on page 13 undefined on input 
+line 759.
+
+
+Package natbib Warning: Citation `Miguel2025NMC' on page 13 undefined on input 
+line 773.
+
+
+LaTeX Warning: Reference `app:consciousness' on page 13 undefined on input line
+ 788.
+
+
+LaTeX Warning: Reference `eq:lindblad_ghost' on page 13 undefined on input line
+ 790.
+
+
+Package natbib Warning: Citation `Miguel2025NMC' on page 13 undefined on input 
+line 806.
+
+
+Underfull \vbox (badness 1137) has occurred while \output is active []
 
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [13]
+Underfull \hbox (badness 2698) in paragraph at lines 822--822
+[]\T1/lmr/bx/n/14.4 (+20) Problema E: A fron-teira
+ []
+
+
+LaTeX Warning: Reference `eq:alpha2' on page 14 undefined on input line 827.
+
+
+Underfull \hbox (badness 1168) in paragraph at lines 827--828
+\T1/lmr/m/n/12 (+20) a ra-zão exata volume-área para $\OML/lmm/m/it/12 d$\T1/lm
+r/m/n/12 (+20) -esferas,
+ []
+
+
+Underfull \vbox (badness 2173) has occurred while \output is active []
+
+
+
+Package natbib Warning: Citation `Miguel2026Fronteira' on page 14 undefined on 
+input line 832.
+
+
+Package natbib Warning: Citation `Miguel2026Acoplamento' on page 14 undefined o
+n input line 832.
+
+
+Package natbib Warning: Citation `Miguel2026Fronteira' on page 14 undefined on 
+input line 844.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [14]
-Underfull \hbox (badness 7047) in paragraph at lines 924--925
-[]\T1/lmr/m/it/12 (+20) GW170823. \T1/lmr/m/n/12 (+20) The sin-gle H2 fail-ure
- []
+
+Package natbib Warning: Citation `Miguel2026GitHub' on page 15 undefined on inp
+ut line 846.
+
+
+Package natbib Warning: Citation `Miguel2026DimCoupling' on page 15 undefined o
+n input line 846.
+
+
+LaTeX Warning: Reference `sec:dimensional' on page 15 undefined on input line 8
+81.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [15]
-Underfull \vbox (badness 2393) has occurred while \output is active []
-
-
-Overfull \hbox (3.2859pt too wide) in paragraph at lines 952--953
-\T1/lmr/m/n/12 (-20) echoes within the TGL frame-work. The results---
+Underfull \hbox (badness 5878) in paragraph at lines 920--921
+[]\T1/lmr/m/it/12 (+20) GW170823. \T1/lmr/m/n/12 (+20) A única fa-lha de H2
  []
 
 
+Package natbib Warning: Citation `Cardoso2016' on page 16 undefined on input li
+ne 926.
+
+
+Package natbib Warning: Citation `Abedi2017' on page 16 undefined on input line
+ 926.
+
+
+Package natbib Warning: Citation `Westerweck2018' on page 16 undefined on input
+ line 926.
+
+
+Package natbib Warning: Citation `Nielsen2019' on page 16 undefined on input li
+ne 926.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [16]
+
+Package natbib Warning: Citation `Miguel2026Fronteira' on page 17 undefined on 
+input line 954.
+
+
+Package natbib Warning: Citation `Miguel2026GitHub' on page 17 undefined on inp
+ut line 954.
+
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 976.
+(Font)              <17.28> on input line 971.
 
-Underfull \hbox (badness 10000) in paragraph at lines 976--976
-[]\T1/lmr/bx/n/17.28 (+20) Thermodynamics of
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 971.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 976.
+(hyperref)                removing `superscript' on input line 971.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 976.
+(hyperref)                removing `math shift' on input line 971.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 976.
-
-
-Underfull \hbox (badness 1019) in paragraph at lines 988--990
-\T1/lmr/m/n/12 (+20) where $\OML/lmm/m/it/12 ^^U[]$ \T1/lmr/m/n/12 (+20) are th
-e eigen-val-ues of $\OML/lmm/m/it/12 ^^Z[] \OT1/lmr/m/n/12 (+20) =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1012--1013
-[]\T1/lmr/m/n/12 (+20) Protocol #12 is im-ple-mented in
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1012--1013
-\T1/lmtt/m/n/12 TGL_GW_Echo_Unification_v1_4.py \T1/lmr/m/n/12 (+20) (1,397
- []
+Package natbib Warning: Citation `Miguel2026Fronteira' on page 17 undefined on 
+input line 974.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
 [17]
-Underfull \hbox (badness 4454) in paragraph at lines 1050--1054
-[]\T1/lmr/m/n/12 (+20) L. A. Ro-toli Miguel, ``A Fron-teira
+Underfull \hbox (badness 1931) in paragraph at lines 983--985
+\T1/lmr/m/n/12 (+20) onde $\OML/lmm/m/it/12 ^^U[]$ \T1/lmr/m/n/12 (+20) são os 
+au-to-va-lo-res de $\OML/lmm/m/it/12 ^^Z[] \OT1/lmr/m/n/12 (+20) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1050--1054
-\T1/lmr/m/n/12 (+20) / The Bound-ary,'' Zen-odo (2026),
+Package natbib Warning: Citation `Miguel2026Trinity' on page 18 undefined on in
+put line 993.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 996--996
+[]\T1/lmr/bx/n/17.28 (+20) Detalhes Com-pu-ta-ci-o-
  []
 
 
-Underfull \hbox (badness 3118) in paragraph at lines 1056--1059
-[]\T1/lmr/m/n/12 (+20) L. A. Ro-toli Miguel, ``TGL Val-i-da-
+LaTeX Warning: Reference `sec:dimensional' on page 18 undefined on input line 1
+007.
+
+
+Underfull \hbox (badness 7759) in paragraph at lines 1007--1008
+[]\T1/lmr/m/n/12 (+20) O Pro-to-colo #12 está im-ple-men-tado
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1056--1059
-\T1/lmr/m/n/12 (+20) tion Codes,'' [][]$\T1/lmtt/m/n/12 https : / / github . co
-m /
+Underfull \hbox (badness 10000) in paragraph at lines 1007--1008
+\T1/lmr/m/n/12 (+20) em \T1/lmtt/m/n/12 TGL_GW_Echo_Unification_v1_4.py
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1056--1059
+Underfull \hbox (badness 3000) in paragraph at lines 1007--1008
+\T1/lmr/m/n/12 (+20) (1.397 li-nhas, Python 3.10+). O Pro-
+ []
+
+
+Underfull \hbox (badness 4205) in paragraph at lines 1007--1008
+\T1/lmr/m/n/12 (+20) to-colo #13 (aná-lise de aco-pla-mento di-
+ []
+
+
+Underfull \hbox (badness 6236) in paragraph at lines 1007--1008
+\T1/lmr/m/n/12 (+20) men-si-o-nal, Ÿ[]) está im-ple-men-tado em
+ []
+
+
+Package natbib Warning: Citation `GWOSC2023' on page 18 undefined on input line
+ 1011.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
+
+[18]
+Underfull \hbox (badness 4454) in paragraph at lines 1045--1049
+[]\T1/lmr/m/n/12 (+20) L. A. Ro-toli Mi-guel, ``A Fron-teira
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1045--1049
+\T1/lmr/m/n/12 (+20) / The Boun-dary,'' Ze-nodo (2026),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1051--1054
+\T1/lmr/m/n/12 (+20) li-da-ção TGL,'' [][]$\T1/lmtt/m/n/12 https : / / github .
+ com /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1051--1054
 \T1/lmtt/m/n/12 rotolimiguel-[]iald / the _ boundary$[][]
  []
 
 
-Underfull \hbox (badness 2197) in paragraph at lines 1061--1064
-[]\T1/lmr/m/n/12 (+20) L. A. Ro-toli Miguel, ``Deriva-tion of
- []
+Package natbib Warning: Citation `Miguel2026Fronteira' on page 19 undefined on 
+input line 1058.
 
 
-Underfull \hbox (badness 2460) in paragraph at lines 1061--1064
-\T1/lmr/m/n/12 (+20) Holo-graphic First Prin-ci-ples,'' in [[]],
- []
-
-
-Underfull \hbox (badness 2790) in paragraph at lines 1072--1078
-[]\T1/lmr/m/n/12 (+20) L. A. Ro-toli Miguel, ``Test-ing Non-
- []
-
-
-Underfull \hbox (badness 2799) in paragraph at lines 1088--1091
-[]\T1/lmr/m/n/12 (+20) L. A. Ro-toli Miguel, ``TGL Di-men-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1091
+Underfull \hbox (badness 10000) in paragraph at lines 1079--1082
 \T1/lmtt/m/n/12 / / github . com / rotolimiguel-[]iald /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1091
+Underfull \hbox (badness 10000) in paragraph at lines 1079--1082
 \T1/lmtt/m/n/12 the _ boundary / blob / main / TGL _
  []
 
 
+Underfull \hbox (badness 1231) in paragraph at lines 1106--1110
+[]\T1/lmr/m/n/12 (+20) Colaboração Ci-en-tí-fica LIGO, Co-la-bo-
+ []
+
+
+Underfull \hbox (badness 2521) in paragraph at lines 1106--1110
+\T1/lmr/m/n/12 (+20) ra-ção Virgo e Co-la-bo-ra-ção KA-GRA,
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 1118--1122
+[]\T1/lmr/m/n/12 (+20) J. Abedi, H. Dy-kaar e N. Afshordi,
+ []
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
 
-[18]
-Underfull \hbox (badness 6641) in paragraph at lines 1144--1148
-[]\T1/lmr/m/n/12 (+20) Planck Col-lab-o-ra-tion, ``Planck 2018
+[19]
+Underfull \hbox (badness 3168) in paragraph at lines 1153--1157
+[]\T1/lmr/m/n/12 (+20) Colaboração CMB-S4, ``CMB-S4 Sci-
  []
 
 
-Underfull \hbox (badness 5548) in paragraph at lines 1144--1148
-\T1/lmr/m/it/12 (+20) As-tron. As-tro-phys. \T1/lmr/bx/n/12 (+20) 641\T1/lmr/m/
-n/12 (+20) , A6 (2020),
+Underfull \hbox (badness 10000) in paragraph at lines 1159--1163
+[]\T1/lmr/m/n/12 (+20) Consórcio LISA, ``La-ser In-ter-fe-ro-
  []
 
 
-Underfull \hbox (badness 6792) in paragraph at lines 1162--1166
-\T1/lmr/m/n/12 (+20) ence Book, First Edi-tion,'' (2016),
+Underfull \hbox (badness 5832) in paragraph at lines 1159--1163
+\T1/lmr/m/n/12 (+20) me-ter Space An-tenna,'' (2017), [][]ar-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1168--1172
-[]\T1/lmr/m/n/12 (+20) LISA Con-sor-tium, ``Laser In-ter-fer-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1168--1172
-\T1/lmr/m/n/12 (+20) om-e-ter Space An-tenna,'' (2017),
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1179--1183
+Underfull \hbox (badness 10000) in paragraph at lines 1170--1174
 \T1/lmr/m/n/12 (+20) U.S. Con-tri-bu-tion to Gravitational-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1179--1183
-\T1/lmr/m/n/12 (+20) Wave As-tron-omy be-yond LIGO,''
+Underfull \hbox (badness 10000) in paragraph at lines 1170--1174
+\T1/lmr/m/n/12 (+20) Wave As-tro-nomy beyond LIGO,''
  []
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+Package natbib Warning: There were undefined citations.
 
-[19] (the_last_string_v2.aux)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.06094pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.06094pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.06094pt}.
+
+[20
+
+] (a_ultima_corda_v2.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-Package rerunfilecheck Info: File `the_last_string_v2.out' has not changed.
-(rerunfilecheck)             Checksum: 5531272C619F4C796ACCFD82A28979E6;10494.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `a_ultima_corda_v2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `a_ultima_corda_v2.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  2311EDBC17F2607F1EAC760BAACB95B5;10845.
  ) 
 Here is how much of TeX's memory you used:
- 24204 strings out of 467871
- 458812 string characters out of 5418377
- 902578 words of memory out of 5000000
- 52259 multiletter control sequences out of 15000+600000
- 772177 words of font info for 298 fonts, out of 8000000 for 9000
+ 24331 strings out of 467871
+ 463475 string characters out of 5418377
+ 900640 words of memory out of 5000000
+ 52341 multiletter control sequences out of 15000+600000
+ 774691 words of font info for 323 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,80p,1017b,1216s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,80p,1053b,1210s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rotol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/rotol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/rotol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb
@@ -1382,9 +1724,9 @@ rs/rotol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Use
 rs/rotol/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam
 10.pfb><C:/Users/rotol/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/symbols/msbm10.pfb>
-Output written on the_last_string_v2.pdf (19 pages, 524188 bytes).
+Output written on a_ultima_corda_v2.pdf (20 pages, 500846 bytes).
 PDF statistics:
- 598 PDF objects out of 1000 (max. 8388607)
- 136 named destinations out of 1000 (max. 500000)
- 83329 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 384 PDF objects out of 1000 (max. 8388607)
+ 137 named destinations out of 1000 (max. 500000)
+ 82945 words of extra memory for PDF output out of 89155 (max. 10000000)
 
