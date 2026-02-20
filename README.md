@@ -2,7 +2,7 @@
 
 > *"Let there be Light."*
 
-[![DOI](https://https://zenodo.org/records/18673439)](https://Rotoli Miguel, L. A. (2026). A Fronteira / The Boundary (1.0). Zenodo. https://doi.org/10.5281/zenodo.18673439)
+[![DOI](https://zenodo.org/records/18673439)] (https://Rotoli Miguel, L. A. (2026). A Fronteira / The Boundary (1.0). Zenodo. https://doi.org/10.5281/zenodo.18673439)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
 [![CUDA 12.x](https://img.shields.io/badge/CUDA-12.x-green.svg)](https://developer.nvidia.com/cuda-downloads)
 [![License: Source-Available](https://img.shields.io/badge/license-source--available-orange.svg)](#license)
