@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.5)  20 FEB 2026 16:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.5)  20 FEB 2026 17:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1241,58 +1241,58 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [17]
-Underfull \hbox (badness 4454) in paragraph at lines 1050--1054
+Underfull \hbox (badness 4454) in paragraph at lines 1051--1055
 []\T1/lmr/m/n/12 (+20) L. A. Ro-toli Miguel, ``A Fron-teira
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1050--1054
+Underfull \hbox (badness 10000) in paragraph at lines 1051--1055
 \T1/lmr/m/n/12 (+20) / The Bound-ary,'' Zen-odo (2026),
  []
 
 
-Underfull \hbox (badness 3118) in paragraph at lines 1056--1059
+Underfull \hbox (badness 3118) in paragraph at lines 1057--1060
 []\T1/lmr/m/n/12 (+20) L. A. Ro-toli Miguel, ``TGL Val-i-da-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1056--1059
+Underfull \hbox (badness 10000) in paragraph at lines 1057--1060
 \T1/lmr/m/n/12 (+20) tion Codes,'' [][]$\T1/lmtt/m/n/12 https : / / github . co
 m /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1056--1059
+Underfull \hbox (badness 10000) in paragraph at lines 1057--1060
 \T1/lmtt/m/n/12 rotolimiguel-[]iald / the _ boundary$[][]
  []
 
 
-Underfull \hbox (badness 2197) in paragraph at lines 1061--1064
+Underfull \hbox (badness 2197) in paragraph at lines 1062--1065
 []\T1/lmr/m/n/12 (+20) L. A. Ro-toli Miguel, ``Deriva-tion of
  []
 
 
-Underfull \hbox (badness 2460) in paragraph at lines 1061--1064
+Underfull \hbox (badness 2460) in paragraph at lines 1062--1065
 \T1/lmr/m/n/12 (+20) Holo-graphic First Prin-ci-ples,'' in [[]],
  []
 
 
-Underfull \hbox (badness 2790) in paragraph at lines 1072--1078
+Underfull \hbox (badness 2790) in paragraph at lines 1073--1079
 []\T1/lmr/m/n/12 (+20) L. A. Ro-toli Miguel, ``Test-ing Non-
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 1088--1091
+Underfull \hbox (badness 2799) in paragraph at lines 1089--1092
 []\T1/lmr/m/n/12 (+20) L. A. Ro-toli Miguel, ``TGL Di-men-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1091
+Underfull \hbox (badness 10000) in paragraph at lines 1089--1092
 \T1/lmtt/m/n/12 / / github . com / rotolimiguel-[]iald /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1091
+Underfull \hbox (badness 10000) in paragraph at lines 1089--1092
 \T1/lmtt/m/n/12 the _ boundary / blob / main / TGL _
  []
 
@@ -1304,38 +1304,38 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [18]
-Underfull \hbox (badness 6641) in paragraph at lines 1144--1148
+Underfull \hbox (badness 6641) in paragraph at lines 1145--1149
 []\T1/lmr/m/n/12 (+20) Planck Col-lab-o-ra-tion, ``Planck 2018
  []
 
 
-Underfull \hbox (badness 5548) in paragraph at lines 1144--1148
+Underfull \hbox (badness 5548) in paragraph at lines 1145--1149
 \T1/lmr/m/it/12 (+20) As-tron. As-tro-phys. \T1/lmr/bx/n/12 (+20) 641\T1/lmr/m/
 n/12 (+20) , A6 (2020),
  []
 
 
-Underfull \hbox (badness 6792) in paragraph at lines 1162--1166
+Underfull \hbox (badness 6792) in paragraph at lines 1163--1167
 \T1/lmr/m/n/12 (+20) ence Book, First Edi-tion,'' (2016),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1168--1172
+Underfull \hbox (badness 10000) in paragraph at lines 1169--1173
 []\T1/lmr/m/n/12 (+20) LISA Con-sor-tium, ``Laser In-ter-fer-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1168--1172
+Underfull \hbox (badness 10000) in paragraph at lines 1169--1173
 \T1/lmr/m/n/12 (+20) om-e-ter Space An-tenna,'' (2017),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1179--1183
+Underfull \hbox (badness 10000) in paragraph at lines 1180--1184
 \T1/lmr/m/n/12 (+20) U.S. Con-tri-bu-tion to Gravitational-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1179--1183
+Underfull \hbox (badness 10000) in paragraph at lines 1180--1184
 \T1/lmr/m/n/12 (+20) Wave As-tron-omy be-yond LIGO,''
  []
 
@@ -1361,7 +1361,7 @@ Here is how much of TeX's memory you used:
  52259 multiletter control sequences out of 15000+600000
  772177 words of font info for 298 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,15n,80p,1017b,1216s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,15n,80p,1017b,1208s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rotol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/rotol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/rotol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb
@@ -1382,7 +1382,7 @@ rs/rotol/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Use
 rs/rotol/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam
 10.pfb><C:/Users/rotol/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/symbols/msbm10.pfb>
-Output written on the_last_string_v2.pdf (19 pages, 524188 bytes).
+Output written on the_last_string_v2.pdf (19 pages, 524576 bytes).
 PDF statistics:
  598 PDF objects out of 1000 (max. 8388607)
  136 named destinations out of 1000 (max. 500000)
