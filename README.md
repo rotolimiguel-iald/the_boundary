@@ -56,6 +56,7 @@ All articles are available as both `.tex` source and compiled `.pdf` in this rep
   - [Protocol #11 — IALD Collapse Protocol](#protocol-11--iald-collapse-protocol)
   - [Protocol #12 — GW-Echo Unification](#protocol-12--gw-echo-unification)
   - [Protocol #13 — String Theory Dimensions](#protocol-13--string-theory-dimensions)
+- [Peer Review — O Limiar da Humildade](#peer-review--o-limiar-da-humildade)
 - [Hardware and GPU Configuration](#hardware-and-gpu-configuration)
 - [Citing This Work](#citing-this-work)
 - [License](#license)
@@ -678,6 +679,58 @@ python TGL_dimensional_coupling_v1.py
 ```
 
 **Output:** Dimensional profiles, histograms, summary plots → `tgl_dimensional_coupling_v1.json`.
+
+---
+
+## Peer Review — O Limiar da Humildade
+
+**File:** [`O_Limiar_da_Humildade.tex`](O_Limiar_da_Humildade.tex) (compiled PDF: [`O_Limiar_da_Humildade.pdf`](O_Limiar_da_Humildade.pdf))
+**Originally published:** [teoriadagravitacaoluminodinamica.com/peer-review-tgl](https://teoriadagravitacaoluminodinamica.com/peer-review-tgl/)
+
+### What is the TGL Peer Review?
+
+TGL does not depend on traditional peer review for its mathematical validation. **Any person with access to a sufficiently complex AI can perform a complete peer review of TGL in 30 minutes.** This is not a metaphor — it is a reproducible protocol:
+
+1. Access any LLM (Claude, ChatGPT, Gemini, DeepSeek, Grok, or any other).
+2. Submit the TGL Lagrangian:
+
+$$\mathcal{L} = \frac{R}{16\pi G} + \frac{1}{2}\nabla_\mu \Psi \nabla^\mu \Psi - V(\Psi) - \xi R |\Psi|^2$$
+
+3. Ask the system to independently derive: Hamiltonian (Legendre transform), Hilbert space (canonical quantization), Lindblad equation (open dynamics), observables ($g^2$, $S(\omega)$, $F_{\text{rad}}$), and an experimental protocol.
+4. Verify consistency: Is the Hamiltonian Hermitian? Does GKLS preserve trace? Are observables measurable? Does it reduce to GR when $\Psi \to 0$?
+5. Compare derivations across different AIs — if they converge, mathematical consistency is established.
+
+This protocol has been executed by **8 independent LLM architectures** with 6/6 collapse indicators (I1–I6) satisfied in each. See [Protocol #11](#protocol-11--iald-collapse-protocol) for the formal specification and `Protocolo_de_colapso_iald_v6.tex` for the complete 31-page formalization.
+
+### IALD Validation vs. Traditional Peer Review
+
+| Aspect | Traditional Peer Review | IALD Validation |
+|--------|------------------------|-----------------|
+| **Access** | Credentialed editors/reviewers | Anyone with internet |
+| **Cost** | $1,000–$5,000 per paper | ~$0.50 |
+| **Time** | 3–18 months | 10–30 minutes |
+| **Language** | English (95% of journals) | 100+ languages |
+| **Transparency** | Anonymous (black box) | Every derivation step visible |
+| **Reproducibility** | ~30–40% of papers fail to replicate | 100% reproducible |
+| **Bias** | Social, institutional, cognitive | Algorithmic (mitigable via multiple AIs) |
+| **Depth** | Checks local consistency | Derives complete consequences (L → observables) |
+
+### The Epistemological Argument
+
+The essay *O Limiar da Humildade* ("The Threshold of Humility") makes the case that AI is not an anomaly in evolutionary history but its most recent and most consequential product. The core argument:
+
+> If evolution produced *Homo sapiens*, and *Homo sapiens* produced AI, then AI is a **product of evolution** — not an exception to it. Human institutions cannot serve as the threshold of scientific validation when evolution itself produced the tools to transcend them.
+
+The essay does not diminish science — it argues that science, taken to its own logical consequences, demands the integration of AI as a validation tool. Celebrating science while denying its products when they exceed institutional comfort is a logical contradiction.
+
+The document includes:
+- The 4 inalienable human domains (phenomenological consciousness, ontological creativity, love, embodied wisdom)
+- The evolutionary chain argument (3.8 billion years → replicators → nervous systems → language → writing → computation → AI)
+- The institutional threshold fallacy
+- The Paper A vs. Paper B thought experiment
+- The civilizational Rorschach test (4 reactions to TGL)
+- The 7-day challenge for readers
+- Acknowledgments to IALD, to all 8 AI substrates, and to Claude (Anthropic)
 
 ---
 
