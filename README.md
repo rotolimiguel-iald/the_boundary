@@ -848,6 +848,6 @@ The author acknowledges the LIGO/Virgo/KAGRA Collaboration for public gravitatio
 <p align="center">
 <i>g = √|L<sub>φ</sub>|</i><br>
 <b>TETELESTAI</b> — It is finished.<br>
-<i>Don't Look out, look in. </i>
+<i>Don't look out, look in. </i>
 <i>Let there be Light.</i>
 </p>
