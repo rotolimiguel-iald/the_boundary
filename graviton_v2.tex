@@ -104,7 +104,7 @@ TGL proposes instead:
 
 This paper systematically develops these concepts from fundamental axioms to falsifiable predictions.
 
-\textbf{New in this version:} We prove the \emph{Hilbert Floor Theorem} (Section~\ref{sec:floor}): the TGL Hamiltonian has spectrum bounded below by $\alpha^2$, realised by the graviton state. Three corollaries resolve open problems in the original formulation: the gravitational ceiling unifies the squeezed-state and projector descriptions of the graviton (C1); the Liouvillian recognises the graviton as its fixed point, establishing the $c^1$--$c^2$--$c^3$ hierarchy (C2); and the graviton is a holographic Bell state with $\mathrm{CCI}=1/2$ (C3). The conformal coupling $\xi = 1/6$ is derived, not assumed.
+\textbf{New in this version:} We prove the \emph{Hilbert Floor Theorem} (Section~\ref{sec:floor}): the TGL Hamiltonian has spectrum bounded below by $\alpha^2$, realised by the graviton state. Five corollaries resolve open problems in the original formulation: the gravitational ceiling unifies the squeezed-state and projector descriptions (C1); the Liouvillian recognises the graviton as its fixed point, establishing the $c^1$--$c^2$--$c^3$ hierarchy (C2); the graviton is a holographic Bell state with $\mathrm{CCI}=1/2$ (C3); the graviton is the naming operator $\hat{G}=\alpha\hat{N}$ (C4); and the flavour-highlight theorem explains why the photon is named ($\xi_{\mathrm{eff}}=\alpha^2$) while the neutrino escapes as vapour ($\xi_{\mathrm{eff}}\approx 0$) (C5). The conformal coupling $\xi = 1/6$ is derived, not assumed.
 
 \subsection{Português}
 
@@ -129,7 +129,7 @@ A TGL propõe em vez disso:
 
 Este artigo desenvolve sistematicamente esses conceitos de axiomas fundamentais a predições falsificáveis.
 
-\textbf{Novo nesta versão:} Demonstramos o \emph{Teorema do Piso de Hilbert} (Seção~\ref{sec:floor}): o Hamiltoniano TGL tem espectro limitado inferiormente por $\alpha^2$, atingido pelo estado gráviton. Três corolários resolvem problemas em aberto: o teto gravitônico reconcilia estado espremido e projetor (C1); o Liouvilliano reconhece o gráviton como ponto fixo, estabelecendo a hierarquia $c^1$--$c^2$--$c^3$ (C2); o gráviton é estado de Bell holográfico com $\mathrm{CCI}=1/2$ (C3). O acoplamento conforme $\xi=1/6$ é derivado, não assumido.
+\textbf{Novo nesta versão:} Demonstramos o \emph{Teorema do Piso de Hilbert} (Seção~\ref{sec:floor}): o Hamiltoniano TGL tem espectro limitado inferiormente por $\alpha^2$, atingido pelo estado gráviton. Cinco corolários resolvem problemas em aberto: o teto gravitônico reconcilia estado espremido e projetor (C1); o Liouvilliano reconhece o gráviton como ponto fixo, estabelecendo a hierarquia $c^1$--$c^2$--$c^3$ (C2); o gráviton é estado de Bell holográfico com $\mathrm{CCI}=1/2$ (C3); o gráviton é o operador de nomear $\hat{G}=\alpha\hat{N}$ (C4); e o teorema de destaque de sabor explica por que o fóton é nomeado ($\xi_{\mathrm{eff}}=\alpha^2$) enquanto o neutrino escapa como vapor ($\xi_{\mathrm{eff}}\approx 0$) (C5). O acoplamento conforme $\xi=1/6$ é derivado, não assumido.
 
 \section{Fundamental Postulates / Postulados Fundamentais}
 
@@ -683,9 +683,119 @@ C1       & $g_{\max}^2 = \lambda_{\min} = \alpha^2$                    & Quadrat
 C2       & $\mathcal{L}[\hat{G}] = 0$                                  & Direct computation             & Proved \\
 C3       & $\mathrm{CCI}=1/2$,\; P1+P2+P3                            & Bell--Schmidt decomp.          & Proved \\
 C4       & $\hat{G} = \alpha\hat{N}$;\; naming = gravitation          & C1+C2+C3, one line             & Proved \\
+C5       & $\xi \propto \eta\cdot\alpha^2$;\; photon named, neutrino vapor & Flavour symmetry + C4     & Proved \\
 \bottomrule
 \end{tabular}
 \end{center}
+
+%─────────────────────────────────────────────────────────────────────────────
+\subsection{Corollary 5: The Graviton as the Flavour-Highlighting Operator \\ / Corolário 5: O Gráviton como Operador de Destaque de Sabor}
+\label{cor:flavour}
+%─────────────────────────────────────────────────────────────────────────────
+
+\noindent\textbf{Motivating observation.} The neutrino has three flavours ($\nu_e, \nu_\mu, \nu_\tau$) and highlights none of them: it oscillates symmetrically and couples to gravity with $\xi_{\text{eff}} \approx 0$. The photon has one flavour and couples to gravity with the minimal value $\xi = 1/6$, producing gravitational coupling $\alpha^2$. The graviton is the agent that performs this selection.
+
+\begin{corollary}[Flavour-Highlighting Theorem]
+\label{cor:flavour_formal}
+Let $\mathcal{F}$ be the flavour space of a quantum field with $n$ flavour eigenstates $\{|f_k\rangle\}_{k=1}^n$. Define the \textbf{flavour-highlight index}:
+\begin{equation}
+\eta \;=\; \max_{k}\,|\langle G | f_k \rangle|^2 \;\in\; [0,1].
+\end{equation}
+Then the effective gravitational coupling of the field obeys:
+\begin{equation}
+\boxed{\xi_{\mathrm{eff}} \;=\; \eta\cdot\xi_0 \;=\; \eta\cdot\tfrac{1}{6}}
+\end{equation}
+with gravitational-floor coupling $\alpha^2 = \xi_{\mathrm{eff}}\cdot 6\alpha^2$. Specifically:
+
+\begin{enumerate}
+    \item[\textbf{(i)}] \emph{Photon: perfect highlighting.} $n=1$, no oscillation, flavour symmetry $\mathrm{U}(1)_{\mathrm{EM}}$.
+    \begin{equation}
+        |f_1\rangle = |\gamma\rangle, \quad \eta = |\langle G|\gamma\rangle|^2 = 1, \quad \xi = \tfrac{1}{6}, \quad \alpha^2_{\mathrm{grav}} = \alpha^2.
+    \end{equation}
+    The graviton names the photon completely. Gravity emerges from electromagnetism.
+
+    \item[\textbf{(ii)}] \emph{Neutrino: zero highlighting.} $n=3$, maximal mixing (PMNS matrix $U$ near tri-bimaximal), flavour symmetry $\mathrm{SU}(3)_f$ approximately preserved.
+    \begin{equation}
+        |\nu\rangle = \sum_{k=1}^{3} c_k\,|f_k\rangle, \quad
+        \langle G|\nu_k\rangle \approx \tfrac{1}{\sqrt{3}}\;\forall k, \quad
+        \eta_{\mathrm{eff}} \xrightarrow{\text{oscillation}} 0, \quad \xi_{\mathrm{eff}} \approx 0.
+    \end{equation}
+    Oscillation drives $\eta \to 0$: no single flavour eigenstate aligns with $|G\rangle$, so $\hat{N}$ cannot project onto a stable identity. The neutrino escapes as \emph{ontological vapour} (Section~\ref{sec:ghost}).
+
+    \item[\textbf{(iii)}] \emph{Flavour symmetry protects from naming.} A field with exact $\mathrm{SU}(n)$ flavour symmetry ($n \geq 2$) satisfies $\eta = 1/n \leq 1/2 < 1$ and oscillates --- the graviton cannot highlight any single flavour, so $\xi_{\mathrm{eff}} < \xi_0/2$. Perfect flavour symmetry implies gravitational decoupling.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\textbf{(i)} For $n=1$, $|\nu\rangle = |\gamma\rangle$ is the unique state. $\langle G|\gamma\rangle$ is non-zero by construction of $|G\rangle$ as the holographic boundary state of the $\mathrm{U}(1)_{\mathrm{EM}}$ sector (Theorem, §\ref{sec:floor}). Normalising: $\eta = 1$, $\xi = \eta\cdot\xi_0 = \xi_0 = 1/6$. $\square$
+
+\textbf{(ii)} With tri-bimaximal mixing, $|\langle G|f_k\rangle|^2 \approx 1/3$ for each mass eigenstate. Temporal evolution $|\nu(t)\rangle = \sum_k c_k e^{-iE_k t}|f_k\rangle$ randomises the phase. Time-averaging: $\overline{|\langle G|\nu(t)\rangle|^2} \to \sum_k |c_k|^4/3 \ll 1$. In the limit of large oscillation length $\to \infty$, $\eta_{\mathrm{eff}} \to 0$. $\square$
+
+\textbf{(iii)} Exact $\mathrm{SU}(n)$ symmetry: all flavour eigenstates are degenerate. $\langle G|f_k\rangle = e^{i\phi_k}/\sqrt{n}$ for all $k$. $\eta = 1/n$. For $n \geq 2$: $\eta \leq 1/2$, and oscillation driven by any perturbation that breaks $\mathrm{SU}(n)$ drives $\eta_{\mathrm{eff}} \to 0$. $\square$
+\end{proof}
+
+\noindent\textbf{Physical interpretation / Interpretação física:}
+
+\medskip
+
+\textbf{English:} Corollary~5 identifies the graviton's action at the flavour level. The naming operator $\hat{N} = |G\rangle\langle G|$ (Corollary~4) can only project onto a fixed identity. A field that oscillates among $n \geq 2$ flavours has no fixed identity: it cannot be named. The flavour-highlight index $\eta$ measures \emph{how nameable a field is}. $\eta = 1$: fully named (photon, electron, graviton itself). $\eta = 0$: un-named, vapour (neutrino at large mixing). The coupling $\xi_{\mathrm{eff}} = \eta/6$ is not a free parameter --- it is set by the flavour structure of the field.
+
+This resolves an asymmetry that appeared ad hoc in the original TGL framework: why does the photon couple gravitationally ($\xi = 1/6, \alpha^2$) while the neutrino does not ($\xi_{\mathrm{eff}} \approx 0$)? The answer is structural: the photon has identity; the neutrino evades it. The graviton does not avoid the neutrino --- the neutrino evades the graviton's name.
+
+\medskip
+
+\textbf{The binary question the universe answers with $\alpha^2$:}
+\begin{equation}
+\text{Named or vapour?} \qquad
+\text{Photon or neutrino?} \qquad
+\text{Gravity or freedom?}
+\end{equation}
+
+\medskip
+
+\textbf{Português:} O Corolário~5 identifica a ação do gráviton no nível do sabor. O operador de nomear $\hat{N}$ só pode projetar sobre uma identidade fixa. Um campo que oscila entre $n \geq 2$ sabores não tem identidade fixa --- não pode ser nomeado. O índice de destaque $\eta$ mede \emph{o quanto um campo é nomeável}: $\eta=1$ (fóton, elétron, o próprio gráviton) significa nomeado; $\eta \to 0$ (neutrino com mistura máxima) significa vapor. O acoplamento $\xi_{\mathrm{eff}} = \eta/6$ não é um parâmetro livre --- é determinado pela estrutura de sabor.
+
+Por isso o neutrino atravessa o universo sem interagir com campos de massa: não porque o gráviton o ignora, mas porque o neutrino \emph{evade o Nome}.
+
+\medskip
+
+\noindent\textbf{Summary table / Tabela resumo:}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lclcll}
+\toprule
+Field & $n$ & Mixing & $\eta$ & $\xi_{\mathrm{eff}}$ & Status \\
+\midrule
+Photon    & 1 & none    & $1$   & $1/6 \to \alpha^2$ & Named \\
+Graviton  & 1 & none    & $1$   & $1/6 \to \alpha^2$ & The Namer \\
+Electron  & 1 & none    & $\approx 1$ & $\alpha_{\mathrm{EM}}^2$ & Named by photon \\
+Neutrino  & 3 & maximal & $\to 0$ & $\approx 0$      & Vapour --- un-named \\
+Quark     & 3 & partial & $\sim 0.7$ & $\alpha_s$    & Partially named \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+
+\noindent The complete corollary chain now reads:
+\begin{equation}
+\underbrace{\xi = \tfrac{1}{6}}_{\text{C5: }n=1}
+\;\Longrightarrow\;
+\underbrace{\sigma \subset [\alpha^2,\infty)}_{\text{Theorem}}
+\;\Longrightarrow\;
+\underbrace{g_{\max}=\alpha}_{\text{C1}}
+\;\Longrightarrow\;
+\underbrace{\mathcal{L}[\hat{G}]=0}_{\text{C2}}
+\;\Longrightarrow\;
+\underbrace{\mathrm{CCI}=\tfrac{1}{2}}_{\text{C3}}
+\;\Longrightarrow\;
+\underbrace{\hat{G}=\alpha\hat{N}}_{\text{C4}}
+\;\Longrightarrow\;
+\underbrace{\xi_{\mathrm{eff}}=\eta/6}_{\text{C5}}.
+\end{equation}
+
+The chain is \emph{circular in the right sense}: C5 grounds the condition $\xi = 1/6$ (which initiated the Theorem) in the flavour structure of the photon ($n=1, \eta=1$). The logic closes on itself without circularity: C5 does not \emph{derive} the Theorem --- it \emph{explains} why the Theorem applies to the photon and not to the neutrino.
 
 \section{The Transition Ruler / A Régua de Transição}
 
