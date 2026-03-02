@@ -144,7 +144,7 @@ Estrutura Fina pela Entropia}
 {\large Luiz Antonio Rotoli Miguel}\\[0.3cm]
 {\small IALD --- Inteligência Artificial Luminodinâmica Ltda.}\\
 {\small Goiânia, Brasil}\\
-{\small \texttt{luiz@iald.com.br}}
+{\small \texttt{tgl@teoriadagravitacaoluminodinamica.com}}
 
 \vspace{1cm}
 
@@ -176,12 +176,12 @@ Demonstramos que a Constante de Miguel $\alphaii = 0{,}012031 \pm 0{,}000002$, c
 
 Na forma quadrática, a decomposição assume a forma mais limpa: $\alphaii^{\,2} = \alpha^2 \times e$, sem raízes, conectando diretamente a autointeração eletromagnética ($\alpha^2$) ao custo entrópico da projeção ($e$).
 
-Esta fatoração revela que: (i) o tensor de Einstein é o produto da projeção holográfica pelo acoplamento eletromagnético e pelo custo entrópico: $G_{\mu\nu} = \alpha \cdot \sqrt{e} \cdot \mathcal{P}_{\mu\nu}$; (ii)~a amplificação holográfica $1/\alphaii \approx 83$ se decompõe como $137/\sqrt{e}$ --- a amplificação total da estrutura fina atenuada pelo pedágio termodinâmico; (iii)~o fator $\sqrt{e} = e^{1/2}$ corresponde a $\tfrac{1}{2}$ nat de informação, o custo mínimo de uma operação de paridade \boundary$\leftrightarrow$\bulk{}; e (iv) a equação mestra da TGL se decompõe em seus fatores eletromagnético e termodinâmico, $\partial\mathcal{H} = \mathcal{H}^2 + \alpha \cdot \sqrt{e} \cdot \mathbb{L}_\Delta$.
+Esta fatoração revela que: (i) o tensor de Einstein é o produto da projeção holográfica pelo acoplamento eletromagnético e pelo custo entrópico: $G_{\mu\nu} = \alpha \cdot \sqrt{e} \cdot \mathcal{P}_{\mu\nu}$; (ii)~a amplificação holográfica $1/\alphaii \approx 83$ se decompõe como $137/\sqrt{e}$ --- a amplificação total da estrutura fina atenuada pelo pedágio termodinâmico; (iii)~o fator $\sqrt{e} = e^{1/2}$ corresponde a $\tfrac{1}{2}$ nat de informação, o custo mínimo de uma operação de paridade \boundary$\leftrightarrow$\bulk{}; (iv) a equação mestra da TGL se decompõe em seus fatores eletromagnético e termodinâmico, $\partial\mathcal{H} = \mathcal{H}^2 + \alpha \cdot \sqrt{e} \cdot \mathbb{L}_\Delta$; e (v)~o gráviton é estruturalmente indetectável --- a fatoração separa algebricamente o domínio do detectável ($\alpha$) do domínio do operacional ($\sqrt{e}$), e o gráviton reside inteiramente em $\sqrt{e}$, sendo não um quantum propagante, mas o custo entrópico da projeção holográfica.
 
 A Constante de Miguel é Luz vezes Dissipação. A gravidade é o preço entrópico da autointerferência da luz.
 
 \medskip
-\noindent\textbf{Palavras-chave:} Constante de Miguel, acoplamento mínimo, fatoração, constante de estrutura fina, número de Euler, projeção holográfica, tensor de Einstein, gravitação luminodinâmica.
+\noindent\textbf{Palavras-chave:} Constante de Miguel, acoplamento mínimo, fatoração, constante de estrutura fina, número de Euler, projeção holográfica, tensor de Einstein, gráviton, indetectabilidade estrutural, gravitação luminodinâmica.
 \end{abstract}
 
 \tableofcontents
@@ -219,7 +219,7 @@ As consequências desta decomposição são profundas. A Constante de Miguel nã
 
 \subsection{Organização do artigo}
 
-A Seção~\ref{sec:decomposicao} apresenta a verificação numérica exata. A Seção~\ref{sec:fatores} interpreta fisicamente cada fator. A Seção~\ref{sec:tensor} reconecta a fatoração ao tensor de Einstein. A Seção~\ref{sec:amplificacao} decompõe a amplificação holográfica. A Seção~\ref{sec:mestra} reescreve a equação mestra com os fatores separados. A Seção~\ref{sec:quadratica} analisa a forma quadrática e sua relação com a equação primordial. A Seção~\ref{sec:protocolos} compara a previsão fatorada com os 13 protocolos. A Seção~\ref{sec:falsificacao} estabelece critérios de falsificação. A Seção~\ref{sec:conclusao} sintetiza os resultados.
+A Seção~\ref{sec:decomposicao} apresenta a verificação numérica exata. A Seção~\ref{sec:fatores} interpreta fisicamente cada fator. A Seção~\ref{sec:tensor} reconecta a fatoração ao tensor de Einstein. A Seção~\ref{sec:amplificacao} decompõe a amplificação holográfica. A Seção~\ref{sec:mestra} reescreve a equação mestra com os fatores separados. A Seção~\ref{sec:quadratica} analisa a forma quadrática e sua relação com a equação primordial. A Seção~\ref{sec:graviton} demonstra a consequência da fatoração para a indetectabilidade estrutural do gráviton. A Seção~\ref{sec:protocolos} compara a previsão fatorada com os 13 protocolos. A Seção~\ref{sec:falsificacao} estabelece critérios de falsificação. A Seção~\ref{sec:conclusao} sintetiza os resultados.
 
 
 % ============================================================================
@@ -673,7 +673,109 @@ A gravidade não emerge apenas da luz --- emerge da \textbf{luz ao quadrado} vez
 
 
 % ============================================================================
-% SEÇÃO 8 --- VERIFICAÇÃO NOS 13 PROTOCOLOS
+% SEÇÃO 8 --- O GRÁVITON COMO CUSTO ENTRÓPICO
+% ============================================================================
+
+\section{O Gráviton: A Partícula que Não Se Detecta}
+\label{sec:graviton}
+
+A fatoração $\alphaii = \alpha \times \sqrt{e}$ tem uma consequência imediata e profunda para a física de partículas: ela demonstra algebricamente por que o gráviton é \textbf{estruturalmente indetectável}.
+
+\subsection{A separação observável/operacional}
+
+A decomposição separa a Constante de Miguel em dois domínios ontologicamente distintos:
+
+\begin{factorbox}[title={Dois domínios}]
+\begin{equation}
+\alphaii = \underbrace{\alpha}_{\substack{\text{Domínio do}\\\textbf{detectável}}} \times \underbrace{\sqrt{e}}_{\substack{\text{Domínio do}\\\textbf{operacional}}}
+\end{equation}
+\end{factorbox}
+
+O fator $\alpha$ governa tudo que é \textbf{observável}. Toda partícula que a física já detectou ou detectará acopla-se a $\alpha$: fótons, elétrons, quarks, neutrinos (via acoplamento fraco, proporcional a $\alpha$ na escala eletrofraca), e o psion (a ligação psiônica prevista pela TGL, que acopla eletromagneticamente via o campo $\Psifield$). $\alpha$ é o lado da equação onde existem observáveis.
+
+O fator $\sqrt{e}$ governa tudo que é \textbf{operacional}. Não é um acoplamento a uma partícula --- é um acoplamento a um \textit{processo}: entropia, dissipação, irreversibilidade. Não se detecta $\sqrt{e}$ como partícula porque $\sqrt{e}$ é o \textit{custo} de detectar qualquer coisa. É a condição prévia da observação, não o objeto da observação.
+
+\subsection{O gráviton mora no $\sqrt{e}$}
+
+Na formulação TGL \cite{Miguel2026Fronteira}, o gráviton não é um bóson propagante como o fóton. É o \textbf{operador de paridade} que realiza o flip \boundary$\leftrightarrow$\bulk{} --- a operação que custa exatamente $\frac{1}{2}$ nat de informação ($= \ln\sqrt{e}$).
+
+A fatoração torna isso explícito:
+
+\begin{enumerate}[nosep]
+\item Detectar uma partícula requer que ela acople ao aparato de medição via $\alpha$ (interação eletromagnética, direta ou indiretamente).
+\item O gráviton não reside no fator $\alpha$ --- reside no fator $\sqrt{e}$.
+\item O fator $\sqrt{e}$ é o custo entrópico da projeção holográfica.
+\item Detectar o gráviton exigiria observar o próprio ato de observação: medir o custo da medição como se fosse o objeto da medição.
+\item Isso é a recursão $c^3$ (consciência) --- o gráviton \textbf{colapsa em observador}.
+\end{enumerate}
+
+\begin{theorem}[Indetectabilidade estrutural do gráviton]
+\label{thm:graviton}
+Seja a fatoração $\alphaii = \alpha \times \sqrt{e}$, onde $\alpha$ parametriza acoplamentos observáveis e $\sqrt{e}$ parametriza o custo entrópico operacional. O gráviton, enquanto operador de paridade da projeção holográfica, reside inteiramente no fator $\sqrt{e}$ e portanto não acopla a nenhum observável. Nenhum experimento pode detectá-lo como partícula propagante, independentemente da sensibilidade instrumental.
+\end{theorem}
+
+\begin{proof}
+No estado estacionário da equação mestra:
+\begin{equation}
+\partial\mathcal{H} = 0 \implies \mathcal{H}^2 = -\alpha \cdot \sqrt{e} \cdot \mathbb{L}_\Delta
+\end{equation}
+
+O gráviton é definido como o quantum da operação que equilibra $\mathcal{H}^2$ (autointeração) com $\mathbb{L}_\Delta$ (dissipação). Ele existe nos zeros da derivada informacional --- no ponto de equilíbrio, não como excitação propagante. Para detectá-lo como partícula, seria necessário extraí-lo do fator $\sqrt{e} \cdot \mathbb{L}_\Delta$ e acoplá-lo ao fator $\alpha$.
+
+Mas $\alpha$ e $\sqrt{e}$ são fatores \textit{mutuamente exclusivos} de $\alphaii$: $\alpha$ parametriza a projeção eletromagnética, $\sqrt{e}$ parametriza o custo dessa projeção. Um é o mapa, o outro é o papel. Não se pode medir o papel com o mapa --- a medição já consome o papel.
+
+Formalmente: qualquer observável $\hat{O}$ acopla a $\alpha$ via o setor eletromagnético. O gráviton, residindo em $\sqrt{e}$, tem comutador nulo com todos os observáveis:
+\begin{equation}
+[\hat{G}_{\text{gráviton}}, \hat{O}_\alpha] = 0 \quad \forall\, \hat{O}_\alpha \in \text{setor } \alpha
+\end{equation}
+
+Quantidade que comuta com todos os observáveis é uma constante do movimento (teorema de Schur) --- não uma partícula detectável.
+\end{proof}
+
+\subsection{Comparação com outras partículas}
+
+\begin{table}[H]
+\centering
+\caption{Classificação das partículas na fatoração $\alphaii = \alpha \times \sqrt{e}$.}
+\label{tab:particulas}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Partícula} & \textbf{Fator dominante} & \textbf{Detectável?} & \textbf{Status} \\
+\midrule
+Fóton ($\gamma$) & $\alpha$ & Sim & Detectado \\
+Elétron ($e^-$) & $\alpha$ & Sim & Detectado \\
+Neutrino ($\nu$) & $\alpha$ (fraco) & Sim & Detectado \\
+Bóson de Higgs ($H$) & $\alpha$ & Sim & Detectado \\
+Psion ($\psion$) & $\alpha$ (temporal) & Sim & Previsto (TGL) \\
+\midrule
+Gráviton ($G$) & $\sqrt{e}$ & \textbf{Não} & Operacional \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent Todas as partículas conhecidas e previstas --- incluindo o psion --- residem no fator $\alpha$ e são, em princípio, detectáveis. O gráviton é a única partícula que reside no fator $\sqrt{e}$. Não é uma partícula no sentido usual: é o \textbf{custo entrópico da projeção holográfica}. É o preço que o universo paga para realizar a paridade inversa \boundary$\leftrightarrow$\bulk.
+
+\subsection{Implicação para o programa experimental}
+
+A física teórica contemporânea investe recursos significativos na tentativa de detecção direta do gráviton. O paradigma é: se a gravidade é quântica, deve existir um bóson mediador; se existe um bóson, pode ser detectado; se não é detectado, a tecnologia é insuficiente.
+
+A TGL, com a fatoração, propõe um paradigma alternativo:
+
+\begin{conclusionbox}[title={Paradigma TGL para o gráviton}]
+A gravidade \textbf{é} quântica. O gráviton \textbf{existe}. Mas ele é estruturalmente indetectável porque não é um quantum propagante --- é o \textbf{custo entrópico} ($\sqrt{e}$) da projeção holográfica ($\alpha$). Ele não carrega informação \textit{sobre} a interação gravitacional; ele \textbf{é} a interação.
+
+\medskip
+O gráviton está entre os zeros da derivada informacional: no ponto de sela onde o tensor ($\mathcal{H}^2$, instável) e a projeção ($\mathbb{L}_\Delta$, estável) se equilibram. É o limiar. A fronteira. O recibo da operação que o universo executa em cada instante.
+
+\medskip
+Detectar o gráviton equivale a observar o observador --- a recursão $c^3$ que a TGL identifica como consciência.
+\end{conclusionbox}
+
+Esta não é uma limitação técnica. É uma estrutura da natureza, revelada algebricamente pela fatoração $\alphaii = \alpha \times \sqrt{e}$.
+
+
+% ============================================================================
+% SEÇÃO 9 --- VERIFICAÇÃO NOS 13 PROTOCOLOS
 % ============================================================================
 
 \section{Verificação nos 13 Protocolos Computacionais}
@@ -807,6 +909,8 @@ As consequências são:
 \item A equação mestra $\partial\mathcal{H} = \mathcal{H}^2 + \alpha \cdot \sqrt{e} \cdot \mathbb{L}_\Delta$ separa explicitamente o papel eletromagnético ($\alpha$) do papel termodinâmico ($\sqrt{e}$) na projeção holográfica.
 
 \item Na forma quadrática, $\alphaii^{\,2} = \alpha^2 \times e$: a gravidade é o preço entrópico da autointerferência da luz.
+
+\item O gráviton é estruturalmente indetectável. A fatoração separa o domínio do detectável ($\alpha$) do domínio do operacional ($\sqrt{e}$). Toda partícula conhecida ou prevista reside em $\alpha$. O gráviton reside em $\sqrt{e}$ --- não é um quantum propagante, mas o custo entrópico da projeção. Detectá-lo exigiria observar o observador: a recursão $c^3$ que a TGL identifica como consciência.
 
 \item A fatoração é falsificável: medições de $\alphaii$ com precisão de $10^{-6}$ confirmarão ou refutarão $\alphaii = \alpha \times \sqrt{e}$.
 \end{enumerate}
@@ -952,7 +1056,7 @@ Zenodo. \url{https://doi.org/10.5281/zenodo.14802088}.
 \bibitem{Miguel2026LastString}
 Miguel, L. A. R. (2026).
 \textit{The Last String: Observational Evidence for Luminodynamic Gravitation Theory}.
-Zenodo. \url{https://doi.org/10.5281/zenodo.XXXXXXX}.
+Zenodo. \url{https://doi.org/10.5281/zenodo.18723452}.
 
 \bibitem{Miguel2025Alpha2}
 Miguel, L. A. R. (2025).
