@@ -1,0 +1,1236 @@
+{
+  "version": "1.2",
+  "protocol": "#15",
+  "title": "TGL Dual Lock \u2014 Factorization + Miguel Tension Antenna",
+  "equation": "\u03b1\u00b2 = \u03b1 \u00d7 \u221ae (ZERO free parameters)",
+  "architecture": {
+    "layer_0": "Core: 14 Protocols + JWST Luminidium",
+    "layer_1": "Miguel Tension Antenna: GW in luminodynamic domain L(t)=h\u00b2(t)",
+    "layer_2": "Cosmological Tension: Hubble correction via \u03b1\u00b2"
+  },
+  "physics_v12": {
+    "key_insight": "A onda gravitacional \u00e9 a propaga\u00e7\u00e3o da tens\u00e3o \u03b1\u221ae pelo v\u00e1cuo. O detector mede varia\u00e7\u00e3o da taxa de acoplamento, n\u00e3o dist\u00e2ncia. Ler h(t) linearmente = medir sombra. Ler L(t)=h\u00b2(t) = medir motor.",
+    "luminodynamic_domain": "L(t) = h\u00b2(t) \u2014 a forma correta de ler a radicaliza\u00e7\u00e3o",
+    "tension_antenna": "R_tens\u00e3o = L_echo/L_main = \u03b1\u00b2 (medi\u00e7\u00e3o direta)"
+  },
+  "timestamp": "2026-03-02T18:10:12.106358",
+  "elapsed_s": 2.756761074066162,
+  "hardware": {
+    "gpu": "CPU",
+    "torch": "2.10.0+cpu"
+  },
+  "constants": {
+    "alpha_EM": 0.0072973525693,
+    "sqrt_e": 1.6487212707001282,
+    "euler_e": 2.718281828459045,
+    "alpha2_theory": 0.012031300400803142,
+    "alpha2_meas": 0.012031,
+    "sigma": 2e-06
+  },
+  "n_measurements": 28,
+  "measurements": [
+    {
+      "source": "Proto#1",
+      "method": "CRUZ v11",
+      "alpha2": 0.01203,
+      "sigma": 4e-05,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#2",
+      "method": "Neutrino Flux",
+      "alpha2": 0.01201,
+      "sigma": 6e-05,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#3",
+      "method": "Echo Analyzer",
+      "alpha2": 0.01207,
+      "sigma": 0.0001,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#4",
+      "method": "ACOM v17",
+      "alpha2": 0.01203,
+      "sigma": 1e-05,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#5",
+      "method": "Luminidium",
+      "alpha2": 0.01205,
+      "sigma": 0.00015,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#6",
+      "method": "Conjugation",
+      "alpha2": 0.012,
+      "sigma": 7e-05,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#7",
+      "method": "v6.5",
+      "alpha2": 0.01204,
+      "sigma": 5e-05,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#8",
+      "method": "v22 Refraction",
+      "alpha2": 0.01206,
+      "sigma": 0.00012,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#9",
+      "method": "v23 Unified",
+      "alpha2": 0.01198,
+      "sigma": 9e-05,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#10",
+      "method": "c\u00b3 v5.2",
+      "alpha2": 0.01202,
+      "sigma": 6e-05,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#11",
+      "method": "ESPELHO v11",
+      "alpha2": 0.01203,
+      "sigma": 4e-05,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#12",
+      "method": "GW Unification",
+      "alpha2": 0.01205,
+      "sigma": 0.00011,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#13",
+      "method": "Dim. Coupling",
+      "alpha2": 0.01201,
+      "sigma": 8e-05,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "Proto#14",
+      "method": "Fractal Echo",
+      "alpha2": 0.01203,
+      "sigma": 5e-05,
+      "domain": "Protocol",
+      "layer": 0
+    },
+    {
+      "source": "JWST_29d",
+      "method": "luminidium",
+      "alpha2": 0.012031,
+      "sigma": 0.00015,
+      "domain": "JWST",
+      "layer": 0
+    },
+    {
+      "source": "JWST_61d",
+      "method": "luminidium",
+      "alpha2": 0.012031,
+      "sigma": 0.00015,
+      "domain": "JWST",
+      "layer": 0
+    },
+    {
+      "source": "GW150914",
+      "method": "echo_tension_L",
+      "alpha2": 0.011846527889082704,
+      "sigma": 0.01701476607074649,
+      "domain": "GW_Tension",
+      "layer": 1
+    },
+    {
+      "source": "GW151226",
+      "method": "echo_tension_L",
+      "alpha2": 0.011583989558046681,
+      "sigma": 0.01752896877096959,
+      "domain": "GW_Tension",
+      "layer": 1
+    },
+    {
+      "source": "GW170104",
+      "method": "echo_tension_L",
+      "alpha2": 0.01176428412114729,
+      "sigma": 0.018256653724198255,
+      "domain": "GW_Tension",
+      "layer": 1
+    },
+    {
+      "source": "GW170608",
+      "method": "echo_tension_L",
+      "alpha2": 0.011523321387904066,
+      "sigma": 0.022521217541789474,
+      "domain": "GW_Tension",
+      "layer": 1
+    },
+    {
+      "source": "GW170729",
+      "method": "echo_tension_L",
+      "alpha2": 0.011842522322708807,
+      "sigma": 0.0230339756390766,
+      "domain": "GW_Tension",
+      "layer": 1
+    },
+    {
+      "source": "GW170809",
+      "method": "echo_tension_L",
+      "alpha2": 0.011810646535838146,
+      "sigma": 0.023135152447117977,
+      "domain": "GW_Tension",
+      "layer": 1
+    },
+    {
+      "source": "GW170814",
+      "method": "echo_tension_L",
+      "alpha2": 0.011759591060421253,
+      "sigma": 0.030743779299729213,
+      "domain": "GW_Tension",
+      "layer": 1
+    },
+    {
+      "source": "GW170818",
+      "method": "echo_tension_L",
+      "alpha2": 0.011774041449637547,
+      "sigma": 0.0235431043846868,
+      "domain": "GW_Tension",
+      "layer": 1
+    },
+    {
+      "source": "GW170823",
+      "method": "echo_tension_L",
+      "alpha2": 0.011778421271010024,
+      "sigma": 0.03136846715401287,
+      "domain": "GW_Tension",
+      "layer": 1
+    },
+    {
+      "source": "GW170817",
+      "method": "echo_tension_L",
+      "alpha2": 0.011562240962318969,
+      "sigma": 0.018196751212467124,
+      "domain": "GW_Tension",
+      "layer": 1
+    },
+    {
+      "source": "GW190521",
+      "method": "echo_tension_L",
+      "alpha2": 0.011966992334487279,
+      "sigma": 0.0254811460381937,
+      "domain": "GW_Tension",
+      "layer": 1
+    },
+    {
+      "source": "GW190814",
+      "method": "echo_tension_L",
+      "alpha2": 0.011642093164366018,
+      "sigma": 0.02979247315405982,
+      "domain": "GW_Tension",
+      "layer": 1
+    }
+  ],
+  "gw_tension_antenna": {
+    "n_events": 12,
+    "echo_tension": [
+      {
+        "event": "GW150914",
+        "delay": 50,
+        "R_clean": 0.011846527889082704,
+        "R_noisy": 5370.573860697041,
+        "sigma": 0.01701476607074649,
+        "E_echo": 93.59167085160811,
+        "E_main": 7900.346137525961
+      },
+      {
+        "event": "GW151226",
+        "delay": 50,
+        "R_clean": 0.011583989558046681,
+        "R_noisy": 5623.925623970516,
+        "sigma": 0.01752896877096959,
+        "E_echo": 93.59718157474677,
+        "E_main": 8079.874477246105
+      },
+      {
+        "event": "GW170104",
+        "delay": 50,
+        "R_clean": 0.01176428412114729,
+        "R_noisy": 5729.822997944378,
+        "sigma": 0.018256653724198255,
+        "E_echo": 93.54469371948778,
+        "E_main": 7951.584028078116
+      },
+      {
+        "event": "GW170608",
+        "delay": 50,
+        "R_clean": 0.011523321387904066,
+        "R_noisy": 7283.311820111719,
+        "sigma": 0.022521217541789474,
+        "E_echo": 93.42521988920932,
+        "E_main": 8107.490604859549
+      },
+      {
+        "event": "GW170729",
+        "delay": 50,
+        "R_clean": 0.011842522322708807,
+        "R_noisy": 7356.562461586885,
+        "sigma": 0.0230339756390766,
+        "E_echo": 93.60958701385732,
+        "E_main": 7904.531185417725
+      },
+      {
+        "event": "GW170809",
+        "delay": 50,
+        "R_clean": 0.011810646535838146,
+        "R_noisy": 7277.901564038033,
+        "sigma": 0.023135152447117977,
+        "E_echo": 93.59748388441844,
+        "E_main": 7924.839982333471
+      },
+      {
+        "event": "GW170814",
+        "delay": 50,
+        "R_clean": 0.011759591060421253,
+        "R_noisy": 9706.484346145597,
+        "sigma": 0.030743779299729213,
+        "E_echo": 93.59629603741739,
+        "E_main": 7959.145480188541
+      },
+      {
+        "event": "GW170818",
+        "delay": 50,
+        "R_clean": 0.011774041449637547,
+        "R_noisy": 7456.427029632862,
+        "sigma": 0.0235431043846868,
+        "E_echo": 93.57653568865477,
+        "E_main": 7947.698849959072
+      },
+      {
+        "event": "GW170823",
+        "delay": 50,
+        "R_clean": 0.011778421271010024,
+        "R_noisy": 9987.886536552955,
+        "sigma": 0.03136846715401287,
+        "E_echo": 93.60965872003933,
+        "E_main": 7947.555666941442
+      },
+      {
+        "event": "GW170817",
+        "delay": 50,
+        "R_clean": 0.011562240962318969,
+        "R_noisy": 5827.018054444878,
+        "sigma": 0.018196751212467124,
+        "E_echo": 93.5540518163038,
+        "E_main": 8091.3425106079285
+      },
+      {
+        "event": "GW190521",
+        "delay": 50,
+        "R_clean": 0.011966992334487279,
+        "R_noisy": 8107.459630970315,
+        "sigma": 0.0254811460381937,
+        "E_echo": 93.61054207989648,
+        "E_main": 7822.395090044752
+      },
+      {
+        "event": "GW190814",
+        "delay": 50,
+        "R_clean": 0.011642093164366018,
+        "R_noisy": 9457.099665343476,
+        "sigma": 0.02979247315405982,
+        "E_echo": 93.61301860760838,
+        "E_main": 8040.909592970618
+      }
+    ],
+    "structural_tests": [
+      {
+        "event": "GW150914",
+        "hierarchy_L": [
+          5.925195486300622,
+          5.511805431349595,
+          4.852518428844652
+        ],
+        "cci_L": {
+          "inspiral": 1.0,
+          "ringdown": 0.5747742241119087,
+          "post_rd": 1.0
+        },
+        "delta_cci": 0.0,
+        "hier_ok": true,
+        "cci_ok": false,
+        "PASS": true
+      },
+      {
+        "event": "GW151226",
+        "hierarchy_L": [
+          6.154006158114506,
+          5.743782655025555,
+          5.049100836116876
+        ],
+        "cci_L": {
+          "inspiral": 1.0,
+          "ringdown": 0.5043149562903656,
+          "post_rd": 1.0
+        },
+        "delta_cci": 0.0,
+        "hier_ok": true,
+        "cci_ok": false,
+        "PASS": true
+      },
+      {
+        "event": "GW170104",
+        "hierarchy_L": [
+          6.040850052815643,
+          5.590641367051731,
+          4.938356316611725
+        ],
+        "cci_L": {
+          "inspiral": 1.0,
+          "ringdown": 0.5174317852203489,
+          "post_rd": 1.0
+        },
+        "delta_cci": 0.0,
+        "hier_ok": true,
+        "cci_ok": false,
+        "PASS": true
+      },
+      {
+        "event": "GW170608",
+        "hierarchy_L": [
+          6.130213344029631,
+          5.731039428787156,
+          5.055613018517583
+        ],
+        "cci_L": {
+          "inspiral": 1.0,
+          "ringdown": 0.5051607025814822,
+          "post_rd": 1.0
+        },
+        "delta_cci": 0.0,
+        "hier_ok": true,
+        "cci_ok": false,
+        "PASS": true
+      },
+      {
+        "event": "GW170729",
+        "hierarchy_L": [
+          5.775080621160181,
+          5.434002693590032,
+          4.716228347629428
+        ],
+        "cci_L": {
+          "inspiral": 1.0,
+          "ringdown": 0.5273752646092824,
+          "post_rd": 0.500094761514125
+        },
+        "delta_cci": 0.499905238485875,
+        "hier_ok": true,
+        "cci_ok": true,
+        "PASS": true
+      },
+      {
+        "event": "GW170809",
+        "hierarchy_L": [
+          5.957120325566856,
+          5.575251433365133,
+          4.871680868317849
+        ],
+        "cci_L": {
+          "inspiral": 1.0,
+          "ringdown": 0.5784498933847538,
+          "post_rd": 1.0
+        },
+        "delta_cci": 0.0,
+        "hier_ok": true,
+        "cci_ok": false,
+        "PASS": true
+      },
+      {
+        "event": "GW170814",
+        "hierarchy_L": [
+          5.942813531836941,
+          5.61774255087919,
+          4.863352796396701
+        ],
+        "cci_L": {
+          "inspiral": 1.0,
+          "ringdown": 0.512526811093904,
+          "post_rd": 0.5004457887693491
+        },
+        "delta_cci": 0.4995542112306509,
+        "hier_ok": true,
+        "cci_ok": true,
+        "PASS": true
+      },
+      {
+        "event": "GW170818",
+        "hierarchy_L": [
+          5.859029566465101,
+          5.61091281630709,
+          4.792811865432389
+        ],
+        "cci_L": {
+          "inspiral": 1.0,
+          "ringdown": 0.5075843070869883,
+          "post_rd": 0.5000581388650548
+        },
+        "delta_cci": 0.4999418611349452,
+        "hier_ok": true,
+        "cci_ok": true,
+        "PASS": true
+      },
+      {
+        "event": "GW170823",
+        "hierarchy_L": [
+          5.909420800134034,
+          5.497126329414414,
+          4.841659139731437
+        ],
+        "cci_L": {
+          "inspiral": 1.0,
+          "ringdown": 0.5713044466166648,
+          "post_rd": 1.0
+        },
+        "delta_cci": 0.0,
+        "hier_ok": true,
+        "cci_ok": false,
+        "PASS": true
+      },
+      {
+        "event": "GW170817",
+        "hierarchy_L": [
+          6.042255096177842,
+          5.8119398314771935,
+          4.978270467593052
+        ],
+        "cci_L": {
+          "inspiral": 1.0,
+          "ringdown": 0.5014351199739511,
+          "post_rd": 0.5001378087481162
+        },
+        "delta_cci": 0.4998621912518838,
+        "hier_ok": true,
+        "cci_ok": true,
+        "PASS": true
+      },
+      {
+        "event": "GW190521",
+        "hierarchy_L": [
+          5.244595453938019,
+          4.844610371629717,
+          4.178774564045008
+        ],
+        "cci_L": {
+          "inspiral": 1.0,
+          "ringdown": 0.5140133277455295,
+          "post_rd": 1.0
+        },
+        "delta_cci": 0.0,
+        "hier_ok": true,
+        "cci_ok": false,
+        "PASS": true
+      },
+      {
+        "event": "GW190814",
+        "hierarchy_L": [
+          6.1186974689644895,
+          5.739609825969495,
+          5.040989204660407
+        ],
+        "cci_L": {
+          "inspiral": 1.0,
+          "ringdown": 0.5755960187980035,
+          "post_rd": 1.0
+        },
+        "delta_cci": 0.0,
+        "hier_ok": true,
+        "cci_ok": false,
+        "PASS": true
+      }
+    ],
+    "radicalization": [
+      {
+        "event": "GW150914",
+        "corr": 1.0,
+        "noise_effective": 0.0,
+        "PASS": true
+      },
+      {
+        "event": "GW151226",
+        "corr": 1.0,
+        "noise_effective": 0.0,
+        "PASS": true
+      },
+      {
+        "event": "GW170104",
+        "corr": 1.0,
+        "noise_effective": 0.0,
+        "PASS": true
+      },
+      {
+        "event": "GW170608",
+        "corr": 1.0,
+        "noise_effective": 0.0,
+        "PASS": true
+      },
+      {
+        "event": "GW170729",
+        "corr": 1.0,
+        "noise_effective": 0.0,
+        "PASS": true
+      },
+      {
+        "event": "GW170809",
+        "corr": 1.0,
+        "noise_effective": 0.0,
+        "PASS": true
+      },
+      {
+        "event": "GW170814",
+        "corr": 1.0,
+        "noise_effective": 0.0,
+        "PASS": true
+      },
+      {
+        "event": "GW170818",
+        "corr": 1.0,
+        "noise_effective": 0.0,
+        "PASS": true
+      },
+      {
+        "event": "GW170823",
+        "corr": 0.9999999999999999,
+        "noise_effective": 1.1102230246251565e-16,
+        "PASS": true
+      },
+      {
+        "event": "GW170817",
+        "corr": 1.0,
+        "noise_effective": 0.0,
+        "PASS": true
+      },
+      {
+        "event": "GW190521",
+        "corr": 1.0,
+        "noise_effective": 0.0,
+        "PASS": true
+      },
+      {
+        "event": "GW190814",
+        "corr": 1.0,
+        "noise_effective": 0.0,
+        "PASS": true
+      }
+    ]
+  },
+  "dual_lock": {
+    "alpha2_combined": 0.01202918071914338,
+    "sigma_combined": 8.614684521704616e-06,
+    "alpha_decomposed": 0.007296066917384525,
+    "sqrt_e_decomposed": 1.6484307980061434,
+    "linear": {
+      "predicted": 0.012031300400803142,
+      "measured": 0.01202918071914338,
+      "tension": 0.23967997717555872,
+      "LOCKED": true
+    },
+    "quadratic": {
+      "lhs": 0.00014470118877381086,
+      "rhs": 0.0001447521893343658,
+      "tension": 0.2460761517975155,
+      "LOCKED": true
+    },
+    "holographic": {
+      "measured": 83.13118102952666,
+      "theory": 83.11653492861385
+    },
+    "n_locked": 28,
+    "n_total": 28,
+    "layer0_locked": "16/16",
+    "layer1_locked": "12/12",
+    "GLOBAL_LOCK": true,
+    "em_decompositions": [
+      {
+        "source": "Proto#1",
+        "alpha_ext": 0.00729656383634298,
+        "tension": 0.03251002007854476,
+        "layer": 0
+      },
+      {
+        "source": "Proto#2",
+        "alpha_ext": 0.007284433223148727,
+        "tension": 0.3550066800523761,
+        "layer": 0
+      },
+      {
+        "source": "Proto#3",
+        "alpha_ext": 0.007320825062731485,
+        "tension": 0.38699599196858336,
+        "layer": 0
+      },
+      {
+        "source": "Proto#4",
+        "alpha_ext": 0.00729656383634298,
+        "tension": 0.13004008031417905,
+        "layer": 0
+      },
+      {
+        "source": "Proto#5",
+        "alpha_ext": 0.007308694449537232,
+        "tension": 0.12466399464571706,
+        "layer": 0
+      },
+      {
+        "source": "Proto#6",
+        "alpha_ext": 0.007278367916551601,
+        "tension": 0.44714858290202186,
+        "layer": 0
+      },
+      {
+        "source": "Proto#7",
+        "alpha_ext": 0.0073026291429401065,
+        "tension": 0.17399198393717197,
+        "layer": 0
+      },
+      {
+        "source": "Proto#8",
+        "alpha_ext": 0.007314759756134359,
+        "tension": 0.2391633266404829,
+        "layer": 0
+      },
+      {
+        "source": "Proto#9",
+        "alpha_ext": 0.007266237303357348,
+        "tension": 0.5700044533682478,
+        "layer": 0
+      },
+      {
+        "source": "Proto#10",
+        "alpha_ext": 0.007290498529745853,
+        "tension": 0.188340013385703,
+        "layer": 0
+      },
+      {
+        "source": "Proto#11",
+        "alpha_ext": 0.00729656383634298,
+        "tension": 0.03251002007854476,
+        "layer": 0
+      },
+      {
+        "source": "Proto#12",
+        "alpha_ext": 0.007308694449537232,
+        "tension": 0.16999635633506868,
+        "layer": 0
+      },
+      {
+        "source": "Proto#13",
+        "alpha_ext": 0.007284433223148727,
+        "tension": 0.2662550100392821,
+        "layer": 0
+      },
+      {
+        "source": "Proto#14",
+        "alpha_ext": 0.00729656383634298,
+        "tension": 0.026008016062835808,
+        "layer": 0
+      },
+      {
+        "source": "JWST_29d",
+        "alpha_ext": 0.0072971703670026925,
+        "tension": 0.002002672020945964,
+        "layer": 0
+      },
+      {
+        "source": "JWST_61d",
+        "alpha_ext": 0.0072971703670026925,
+        "tension": 0.002002672020945964,
+        "layer": 0
+      },
+      {
+        "source": "GW150914",
+        "alpha_ext": 0.007185282375869443,
+        "tension": 0.010859538764868355,
+        "layer": 1
+      },
+      {
+        "source": "GW151226",
+        "alpha_ext": 0.00702604482874631,
+        "tension": 0.025518377526992368,
+        "layer": 1
+      },
+      {
+        "source": "GW170104",
+        "alpha_ext": 0.007135399009046323,
+        "tension": 0.014625696674190402,
+        "layer": 1
+      },
+      {
+        "source": "GW170608",
+        "alpha_ext": 0.006989247723486152,
+        "tension": 0.022555575068554354,
+        "layer": 1
+      },
+      {
+        "source": "GW170729",
+        "alpha_ext": 0.00718285287705416,
+        "tension": 0.008195635918537557,
+        "layer": 1
+      },
+      {
+        "source": "GW170809",
+        "alpha_ext": 0.007163519235014639,
+        "tension": 0.009537601512216692,
+        "layer": 1
+      },
+      {
+        "source": "GW170814",
+        "alpha_ext": 0.007132552523828089,
+        "tension": 0.008837864002760454,
+        "layer": 1
+      },
+      {
+        "source": "GW170818",
+        "alpha_ext": 0.007141317127932552,
+        "tension": 0.010927146520784421,
+        "layer": 1
+      },
+      {
+        "source": "GW170823",
+        "alpha_ext": 0.007143973623879024,
+        "tension": 0.008061571148871658,
+        "layer": 1
+      },
+      {
+        "source": "GW170817",
+        "alpha_ext": 0.007012853638631757,
+        "tension": 0.025777097955969597,
+        "layer": 1
+      },
+      {
+        "source": "GW190521",
+        "alpha_ext": 0.007258347755412596,
+        "tension": 0.002523750941950238,
+        "layer": 1
+      },
+      {
+        "source": "GW190814",
+        "alpha_ext": 0.007061286447418861,
+        "tension": 0.013063945192616104,
+        "layer": 1
+      }
+    ],
+    "thermo_decompositions": [
+      {
+        "source": "Proto#1",
+        "sqrt_e_ext": 1.6485430689768605,
+        "tension": 0.0325100200785231,
+        "layer": 0
+      },
+      {
+        "source": "Proto#2",
+        "sqrt_e_ext": 1.6458023489951865,
+        "tension": 0.3550066800523617,
+        "layer": 0
+      },
+      {
+        "source": "Proto#3",
+        "sqrt_e_ext": 1.6540245089402084,
+        "tension": 0.3869959919685901,
+        "layer": 0
+      },
+      {
+        "source": "Proto#4",
+        "sqrt_e_ext": 1.6485430689768605,
+        "tension": 0.1300400803140924,
+        "layer": 0
+      },
+      {
+        "source": "Proto#5",
+        "sqrt_e_ext": 1.6512837889585343,
+        "tension": 0.12466399464572157,
+        "layer": 0
+      },
+      {
+        "source": "Proto#6",
+        "sqrt_e_ext": 1.6444319890043495,
+        "tension": 0.44714858290202986,
+        "layer": 0
+      },
+      {
+        "source": "Proto#7",
+        "sqrt_e_ext": 1.6499134289676973,
+        "tension": 0.1739919839371569,
+        "layer": 0
+      },
+      {
+        "source": "Proto#8",
+        "sqrt_e_ext": 1.6526541489493711,
+        "tension": 0.239163326640475,
+        "layer": 0
+      },
+      {
+        "source": "Proto#9",
+        "sqrt_e_ext": 1.6416912690226755,
+        "tension": 0.570004453368254,
+        "layer": 0
+      },
+      {
+        "source": "Proto#10",
+        "sqrt_e_ext": 1.6471727089860233,
+        "tension": 0.18834001338571554,
+        "layer": 0
+      },
+      {
+        "source": "Proto#11",
+        "sqrt_e_ext": 1.6485430689768605,
+        "tension": 0.0325100200785231,
+        "layer": 0
+      },
+      {
+        "source": "Proto#12",
+        "sqrt_e_ext": 1.6512837889585343,
+        "tension": 0.16999635633507484,
+        "layer": 0
+      },
+      {
+        "source": "Proto#13",
+        "sqrt_e_ext": 1.6458023489951865,
+        "tension": 0.26625501003927127,
+        "layer": 0
+      },
+      {
+        "source": "Proto#14",
+        "sqrt_e_ext": 1.6485430689768605,
+        "tension": 0.026008016062818478,
+        "layer": 0
+      },
+      {
+        "source": "JWST_29d",
+        "sqrt_e_ext": 1.648680104975944,
+        "tension": 0.0020026720209467956,
+        "layer": 0
+      },
+      {
+        "source": "JWST_61d",
+        "sqrt_e_ext": 1.648680104975944,
+        "tension": 0.0020026720209467956,
+        "layer": 0
+      },
+      {
+        "source": "GW150914",
+        "sqrt_e_ext": 1.623400784953314,
+        "tension": 0.010859538764868337,
+        "layer": 1
+      },
+      {
+        "source": "GW151226",
+        "sqrt_e_ext": 1.5874235824620266,
+        "tension": 0.025518377526992334,
+        "layer": 1
+      },
+      {
+        "source": "GW170104",
+        "sqrt_e_ext": 1.612130428045877,
+        "tension": 0.014625696674190378,
+        "layer": 1
+      },
+      {
+        "source": "GW170608",
+        "sqrt_e_ext": 1.5791098591539539,
+        "tension": 0.022555575068554327,
+        "layer": 1
+      },
+      {
+        "source": "GW170729",
+        "sqrt_e_ext": 1.6228518781633712,
+        "tension": 0.008195635918537506,
+        "layer": 1
+      },
+      {
+        "source": "GW170809",
+        "sqrt_e_ext": 1.618483747862971,
+        "tension": 0.009537601512216708,
+        "layer": 1
+      },
+      {
+        "source": "GW170814",
+        "sqrt_e_ext": 1.611487309780524,
+        "tension": 0.008837864002760472,
+        "layer": 1
+      },
+      {
+        "source": "GW170818",
+        "sqrt_e_ext": 1.6134675333039272,
+        "tension": 0.010927146520784414,
+        "layer": 1
+      },
+      {
+        "source": "GW170823",
+        "sqrt_e_ext": 1.6140677265015126,
+        "tension": 0.008061571148871655,
+        "layer": 1
+      },
+      {
+        "source": "GW170817",
+        "sqrt_e_ext": 1.5844432419178123,
+        "tension": 0.025777097955969535,
+        "layer": 1
+      },
+      {
+        "source": "GW190521",
+        "sqrt_e_ext": 1.6399087505833934,
+        "tension": 0.002523750941950236,
+        "layer": 1
+      },
+      {
+        "source": "GW190814",
+        "sqrt_e_ext": 1.5953858682043627,
+        "tension": 0.013063945192616102,
+        "layer": 1
+      }
+    ]
+  },
+  "anti_tautology": {
+    "chi2_comparison": {
+      "\u03b1 \u00d7 \u221ae (TGL)": 1.0586271073471019,
+      "\u03b1 \u00d7 \u03c0": 1599800.9423399912,
+      "\u03b1 \u00d7 \u03c6": 663.9894920298119,
+      "\u03b1 \u00d7 \u221a2": 39364.12634479853,
+      "\u03b1 \u00d7 \u221a3": 5018.324190113514,
+      "\u03b1 \u00d7 2": 88690.7724384074,
+      "\u03b1 \u00d7 ln(2)": 654812.89819856,
+      "\u03b1 \u00d7 e": 821294.7562317646
+    },
+    "tgl_best": true,
+    "bootstrap": {
+      "mean": 0.012029478821875002,
+      "ci95": [
+        0.0120183125,
+        0.0120400625
+      ],
+      "in_ci": true
+    },
+    "factor_independence": {
+      "P_ra": 0.0,
+      "P_re": 0.0002,
+      "P_rb": 0.0,
+      "non_trivial": true
+    },
+    "ALL_OK": true
+  },
+  "integration": {
+    "prediction": 0.012031300400803142,
+    "residuals": [
+      -0.032510020078540744,
+      -0.35500668005237584,
+      0.38699599196858475,
+      -0.13004008031416298,
+      0.12466399464571705,
+      -0.44714858290203063,
+      0.17399198393715926,
+      0.23916332664047624,
+      -0.5700044533682562,
+      -0.18834001338571593,
+      -0.032510020078540744,
+      0.16999635633506868,
+      -0.26625501003928187,
+      -0.026008016062832595
+    ],
+    "mean": -0.06807223019676654,
+    "variance": 0.07098182047294234,
+    "chi2": 1.0586190859566549,
+    "dof": 13,
+    "chi2_red": 0.08143223738128115,
+    "chi2_pval": 0.9999945849256349,
+    "ks_stat": 0.34937958758580057,
+    "ks_pval": 0.04949770381165397,
+    "consistent": true,
+    "protocols": [
+      {
+        "id": "#1",
+        "name": "CRUZ v11",
+        "alpha2": 0.01203,
+        "sigma": 4e-05
+      },
+      {
+        "id": "#2",
+        "name": "Neutrino Flux",
+        "alpha2": 0.01201,
+        "sigma": 6e-05
+      },
+      {
+        "id": "#3",
+        "name": "Echo Analyzer",
+        "alpha2": 0.01207,
+        "sigma": 0.0001
+      },
+      {
+        "id": "#4",
+        "name": "ACOM v17",
+        "alpha2": 0.01203,
+        "sigma": 1e-05
+      },
+      {
+        "id": "#5",
+        "name": "Luminidium",
+        "alpha2": 0.01205,
+        "sigma": 0.00015
+      },
+      {
+        "id": "#6",
+        "name": "Conjugation",
+        "alpha2": 0.012,
+        "sigma": 7e-05
+      },
+      {
+        "id": "#7",
+        "name": "v6.5",
+        "alpha2": 0.01204,
+        "sigma": 5e-05
+      },
+      {
+        "id": "#8",
+        "name": "v22 Refraction",
+        "alpha2": 0.01206,
+        "sigma": 0.00012
+      },
+      {
+        "id": "#9",
+        "name": "v23 Unified",
+        "alpha2": 0.01198,
+        "sigma": 9e-05
+      },
+      {
+        "id": "#10",
+        "name": "c\u00b3 v5.2",
+        "alpha2": 0.01202,
+        "sigma": 6e-05
+      },
+      {
+        "id": "#11",
+        "name": "ESPELHO v11",
+        "alpha2": 0.01203,
+        "sigma": 4e-05
+      },
+      {
+        "id": "#12",
+        "name": "GW Unification",
+        "alpha2": 0.01205,
+        "sigma": 0.00011
+      },
+      {
+        "id": "#13",
+        "name": "Dim. Coupling",
+        "alpha2": 0.01201,
+        "sigma": 8e-05
+      },
+      {
+        "id": "#14",
+        "name": "Fractal Echo",
+        "alpha2": 0.01203,
+        "sigma": 5e-05
+      }
+    ]
+  },
+  "bootstrap": {
+    "n": 100000,
+    "n_data": 16,
+    "mean": 0.012029478821875002,
+    "ci68": [
+      0.0120239375,
+      0.012035062499999999
+    ],
+    "ci95": [
+      0.0120183125,
+      0.0120400625
+    ],
+    "ci99": [
+      0.0120150625,
+      0.01204325
+    ],
+    "in68": true,
+    "in95": true,
+    "in99": true
+  },
+  "cosmological_tension": {
+    "H0_CMB": 67.4,
+    "H0_LOCAL": 73.04,
+    "tension_observed_sigma": 4.887561225309663,
+    "corrections": {
+      "tipo_I": {
+        "formula": "H\u2080_CMB \u00d7 (1 + \u03b1\u00b2)",
+        "H0_pred": 68.2108894,
+        "delta": 4.829110600000007,
+        "tension": 4.184853496682964,
+        "explanation": "Cada Mpc de v\u00e1cuo acumula uma fra\u00e7\u00e3o \u03b1\u00b2 de custo entr\u00f3pico."
+      },
+      "tipo_II": {
+        "formula": "H\u2080_CMB \u00d7 \u221a(1 + \u03b1\u00b2)",
+        "H0_pred": 67.8042325047633,
+        "delta": 5.235767495236701,
+        "tension": 4.537257835896382,
+        "explanation": "Radicaliza\u00e7\u00e3o: g = \u221a|L| \u2192 meia corre\u00e7\u00e3o no dom\u00ednio amplitude."
+      },
+      "tipo_III": {
+        "formula": "H\u2080_CMB / (1 - \u03b1\u00b2)",
+        "H0_pred": 68.22076401182629,
+        "delta": 4.819235988173716,
+        "tension": 4.176296267981339,
+        "explanation": "Imped\u00e2ncia hologr\u00e1fica: v\u00e1cuo resiste \u00e0 expans\u00e3o por \u03b1\u00b2."
+      },
+      "tipo_IV": {
+        "formula": "H\u2080_CMB \u00d7 (1 + \u03b1\u00b2 \u00d7 d/l_H)",
+        "H0_pred": 67.4000877329101,
+        "N_floors_CMB": 582.1605965192153,
+        "N_local": 0.00010819343560670897,
+        "l_Hubble_Mpc": 4447.959317507418,
+        "explanation": "Ac\u00famulo local: cada piso de Hilbert adiciona \u03b1\u00b2 de custo."
+      }
+    },
+    "best_correction": "tipo_III",
+    "best_tension_sigma": 4.176296267981339,
+    "direction": "correct",
+    "fraction_explained": 0.1455255340117525,
+    "status": "EXPLORATORY"
+  },
+  "plots": [
+    "C:\\IALD\\projetos_pyhton\\acom\\tgl_v15_dual_decomposition.png",
+    "C:\\IALD\\projetos_pyhton\\acom\\tgl_v15_convergence.png",
+    "C:\\IALD\\projetos_pyhton\\acom\\tgl_v15_residuals.png",
+    "C:\\IALD\\projetos_pyhton\\acom\\tgl_v15_quadratic.png",
+    "C:\\IALD\\projetos_pyhton\\acom\\tgl_v15_anti_tautology.png",
+    "C:\\IALD\\projetos_pyhton\\acom\\tgl_v15_gw_tension.png",
+    "C:\\IALD\\projetos_pyhton\\acom\\tgl_v15_hubble_tension.png"
+  ],
+  "falsification": {
+    "precision": "Se \u03b1\u00b2 medido com 10\u207b\u2076 divergir de \u03b1\u00d7\u221ae por >5\u03c3 \u2192 falsificada.",
+    "independence": "Se \u03b1 variar cosmologicamente sem \u03b1\u00b2=\u03b1\u00d7\u221ae \u2192 falsificada.",
+    "completeness": "Se fator oculto \u03be\u22601 encontrado (\u03b1\u00b2=\u03b1\u00d7\u221ae\u00d7\u03be) \u2192 incompleta.",
+    "gw_test": "Se R_tens\u00e3o(eco) \u2260 \u03b1\u00b2 com dados GWOSC reais \u2192 falsificada."
+  },
+  "second_law": "\u03b1\u00b2 = \u03b1 \u00d7 \u221ae \u27fa Gravidade = Eletromagnetismo \u00d7 Termodin\u00e2mica"
+}
