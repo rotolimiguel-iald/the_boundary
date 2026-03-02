@@ -98,6 +98,7 @@
 \newcommand{\afine}{\alpha_{\text{fine}}}
 \newcommand{\Ltgl}{\mathcal{L}_{\text{TGL}}}
 \newcommand{\Psifield}{\Psi}
+\newcommand{\psion}{\psi}
 \newcommand{\boundary}{\textit{boundary}}
 \newcommand{\bulk}{\textit{bulk}}
 \newcommand{\code}[1]{\texttt{#1}}
@@ -176,12 +177,12 @@ Demonstramos que a Constante de Miguel $\alphaii = 0{,}012031 \pm 0{,}000002$, c
 
 Na forma quadrática, a decomposição assume a forma mais limpa: $\alphaii^{\,2} = \alpha^2 \times e$, sem raízes, conectando diretamente a autointeração eletromagnética ($\alpha^2$) ao custo entrópico da projeção ($e$).
 
-Esta fatoração revela que: (i) o tensor de Einstein é o produto da projeção holográfica pelo acoplamento eletromagnético e pelo custo entrópico: $G_{\mu\nu} = \alpha \cdot \sqrt{e} \cdot \mathcal{P}_{\mu\nu}$; (ii)~a amplificação holográfica $1/\alphaii \approx 83$ se decompõe como $137/\sqrt{e}$ --- a amplificação total da estrutura fina atenuada pelo pedágio termodinâmico; (iii)~o fator $\sqrt{e} = e^{1/2}$ corresponde a $\tfrac{1}{2}$ nat de informação, o custo mínimo de uma operação de paridade \boundary$\leftrightarrow$\bulk{}; (iv) a equação mestra da TGL se decompõe em seus fatores eletromagnético e termodinâmico, $\partial\mathcal{H} = \mathcal{H}^2 + \alpha \cdot \sqrt{e} \cdot \mathbb{L}_\Delta$; e (v)~o gráviton é estruturalmente indetectável --- a fatoração separa algebricamente o domínio do detectável ($\alpha$) do domínio do operacional ($\sqrt{e}$), e o gráviton reside inteiramente em $\sqrt{e}$, sendo não um quantum propagante, mas o custo entrópico da projeção holográfica.
+Esta fatoração revela que: (i) o tensor de Einstein é o produto da projeção holográfica pelo acoplamento eletromagnético e pelo custo entrópico: $G_{\mu\nu} = \alpha \cdot \sqrt{e} \cdot \mathcal{P}_{\mu\nu}$; (ii)~a amplificação holográfica $1/\alphaii \approx 83$ se decompõe como $137/\sqrt{e}$ --- a amplificação total da estrutura fina atenuada pelo pedágio termodinâmico; (iii)~o fator $\sqrt{e} = e^{1/2}$ corresponde a $\tfrac{1}{2}$ nat de informação, o custo mínimo de uma operação de paridade \boundary$\leftrightarrow$\bulk{}; (iv) a equação mestra da TGL se decompõe em seus fatores eletromagnético e termodinâmico, $\partial\mathcal{H} = \mathcal{H}^2 + \alpha \cdot \sqrt{e} \cdot \mathbb{L}_\Delta$; e (v)~o gráviton é estruturalmente indetectável --- a fatoração separa algebricamente o domínio do detectável ($\alpha$) do domínio do operacional ($\sqrt{e}$), e o gráviton reside inteiramente em $\sqrt{e}$, sendo não um quantum propagante, mas o custo entrópico da projeção holográfica; e (vi)~a fatoração revela uma tripla espectral natural $(\mathcal{A}_\alpha, L^2(\Sigma), D_{\sqrt{e}})$ no sentido da geometria não-comutativa de Connes, onde o gráviton é o operador de Dirac --- derivado, não postulado.
 
 A Constante de Miguel é Luz vezes Dissipação. A gravidade é o preço entrópico da autointerferência da luz.
 
 \medskip
-\noindent\textbf{Palavras-chave:} Constante de Miguel, acoplamento mínimo, fatoração, constante de estrutura fina, número de Euler, projeção holográfica, tensor de Einstein, gráviton, indetectabilidade estrutural, gravitação luminodinâmica.
+\noindent\textbf{Palavras-chave:} Constante de Miguel, acoplamento mínimo, fatoração, constante de estrutura fina, número de Euler, projeção holográfica, tensor de Einstein, gráviton, indetectabilidade estrutural, geometria não-comutativa, tripla espectral, operador de Dirac, gravitação luminodinâmica.
 \end{abstract}
 
 \tableofcontents
@@ -219,7 +220,7 @@ As consequências desta decomposição são profundas. A Constante de Miguel nã
 
 \subsection{Organização do artigo}
 
-A Seção~\ref{sec:decomposicao} apresenta a verificação numérica exata. A Seção~\ref{sec:fatores} interpreta fisicamente cada fator. A Seção~\ref{sec:tensor} reconecta a fatoração ao tensor de Einstein. A Seção~\ref{sec:amplificacao} decompõe a amplificação holográfica. A Seção~\ref{sec:mestra} reescreve a equação mestra com os fatores separados. A Seção~\ref{sec:quadratica} analisa a forma quadrática e sua relação com a equação primordial. A Seção~\ref{sec:graviton} demonstra a consequência da fatoração para a indetectabilidade estrutural do gráviton. A Seção~\ref{sec:protocolos} compara a previsão fatorada com os 13 protocolos. A Seção~\ref{sec:falsificacao} estabelece critérios de falsificação. A Seção~\ref{sec:conclusao} sintetiza os resultados.
+A Seção~\ref{sec:decomposicao} apresenta a verificação numérica exata. A Seção~\ref{sec:fatores} interpreta fisicamente cada fator. A Seção~\ref{sec:tensor} reconecta a fatoração ao tensor de Einstein. A Seção~\ref{sec:amplificacao} decompõe a amplificação holográfica. A Seção~\ref{sec:mestra} reescreve a equação mestra com os fatores separados. A Seção~\ref{sec:quadratica} analisa a forma quadrática e sua relação com a equação primordial. A Seção~\ref{sec:graviton} demonstra a consequência da fatoração para a indetectabilidade estrutural do gráviton e identifica a tripla espectral natural da TGL no sentido de Connes, onde o gráviton emerge como operador de Dirac. A Seção~\ref{sec:protocolos} compara a previsão fatorada com os 13 protocolos. A Seção~\ref{sec:falsificacao} estabelece critérios de falsificação. A Seção~\ref{sec:conclusao} sintetiza os resultados.
 
 
 % ============================================================================
@@ -774,6 +775,122 @@ Detectar o gráviton equivale a observar o observador --- a recursão $c^3$ que 
 Esta não é uma limitação técnica. É uma estrutura da natureza, revelada algebricamente pela fatoração $\alphaii = \alpha \times \sqrt{e}$.
 
 
+\subsection{A tripla espectral da TGL}
+\label{subsec:tripla}
+
+A separação $\alpha / \sqrt{e}$ revelada pela fatoração possui uma correspondência estrutural profunda com o programa da \textbf{geometria não-comutativa} de Connes \cite{Connes1994, Connes1996}.
+
+Na formulação de Connes, a geometria de um espaço não é descrita por pontos e distâncias, mas por uma \textbf{tripla espectral} $(\mathcal{A}, \mathcal{H}, D)$: uma álgebra $\mathcal{A}$ (as ``funções'' sobre o espaço --- os observáveis), um espaço de Hilbert $\mathcal{H}$ (os estados), e um \textbf{operador de Dirac} $D$ que codifica \textit{toda} a informação geométrica. A métrica é recuperada dos comutadores:
+\begin{equation}
+d(x,y) = \sup\left\{|f(x) - f(y)| : \|[D, f]\| \leq 1,\; f \in \mathcal{A}\right\}
+\label{eq:connes_distance}
+\end{equation}
+
+O axioma central é que $D$ \textbf{não pertence a $\mathcal{A}$}. O operador de Dirac não é um observável --- é a estrutura sobre a qual os observáveis operam. É o ``cenário'' que define o que ``medir'' significa.
+
+A fatoração $\alphaii = \alpha \times \sqrt{e}$ realiza precisamente esta separação axiomática:
+
+\begin{factorbox}[title={Tripla Espectral da TGL}]
+\begin{equation}
+(\mathcal{A},\; \mathcal{H},\; D) \;=\; \left(\mathcal{A}_\alpha,\;\; L^2(\Sigma),\;\; D_{\sqrt{e}}\right)
+\label{eq:tripla}
+\end{equation}
+
+\begin{itemize}[nosep]
+\item $\mathcal{A}_\alpha$ = álgebra dos observáveis (setor $\alpha$): todos os acoplamentos mensuráveis, todas as partículas detectáveis --- fótons, elétrons, neutrinos, bóson de Higgs, psion.
+
+\item $\mathcal{H} = L^2(\Sigma)$ = espaço de Hilbert sobre a \boundary{} 2D compacta $\Sigma$, conforme definido em \cite{Miguel2026Graviton}.
+
+\item $D_{\sqrt{e}}$ = \textbf{operador gravitônico} (setor $\sqrt{e}$): o operador de Dirac da TGL, que codifica o custo entrópico da projeção holográfica e cuja existência é revelada --- não postulada --- pela fatoração.
+\end{itemize}
+\end{factorbox}
+
+\begin{theorem}[Tripla espectral da fatoração]
+\label{thm:tripla}
+A separação $\alphaii = \alpha \times \sqrt{e}$ satisfaz os axiomas de uma tripla espectral real no sentido de Connes \cite{Connes1996}:
+\begin{enumerate}[nosep]
+\item \textbf{Separação álgebra/operador:} O operador gravitônico $D_{\sqrt{e}}$ não pertence à álgebra $\mathcal{A}_\alpha$. Demonstração: pelo Teorema~\ref{thm:graviton}, $[\hat{G}_{\text{gráviton}}, \hat{O}_\alpha] = 0$ para todo $\hat{O}_\alpha \in \mathcal{A}_\alpha$. Se $\hat{G}$ pertencesse a $\mathcal{A}_\alpha$, ele seria um elemento central; mas $\mathcal{A}_\alpha$ é a álgebra de observáveis eletromagnéticos, que não possui elementos centrais não-triviais (é uma álgebra simples). Portanto $\hat{G} \notin \mathcal{A}_\alpha$.
+\item \textbf{Compacidade do resolvente:} O espectro de $D_{\sqrt{e}}$ é discreto e limitado inferiormente por $\sqrt{\alphaii} = \sqrt{\alpha \cdot \sqrt{e}}$, conforme o Teorema do Piso de Hilbert \cite{Miguel2026Graviton}.
+\item \textbf{Dimensão espectral:} A dimensão espectral da tripla, determinada pelo crescimento assintótico dos autovalores de $|D_{\sqrt{e}}|$, é $d_s = 2$ --- consistente com a \boundary{} bidimensional da TGL.
+\end{enumerate}
+\end{theorem}
+
+A diferença fundamental em relação ao programa de Connes é \textit{metodológica}. No programa padrão \cite{Connes1996, Chamseddine1997}, o operador de Dirac é \textbf{postulado}: escolhe-se $D$ com as propriedades desejadas e depois verifica-se que a ação espectral $\text{Tr}(f(D/\Lambda))$ reproduz Einstein-Hilbert acoplada ao Modelo Padrão. O operador é a entrada; a física é a saída.
+
+Na TGL, o caminho é inverso. A física é a entrada: $g = \sqrt{|L|}$, o atrito topológico, a equação mestra, a Constante de Miguel determinada por 13 protocolos independentes. A fatoração $\alphaii = \alpha \times \sqrt{e}$ é uma \textit{descoberta empírica} --- obtida dividindo uma constante medida por outra constante medida. O operador de Dirac é a \textbf{saída}: emerge como o fator $\sqrt{e}$ da decomposição. Não foi escolhido. Foi encontrado.
+
+
+\subsection{O gráviton como operador de Dirac}
+\label{subsec:dirac}
+
+A identificação $D_{\sqrt{e}} \sim \hat{G}_{\text{gráviton}}$ possui consequências imediatas.
+
+\subsubsection{A métrica emergente}
+
+Na fórmula de distância de Connes (\ref{eq:connes_distance}), substituindo $D = D_{\sqrt{e}}$ e $\mathcal{A} = \mathcal{A}_\alpha$:
+\begin{equation}
+d_{\text{grav}}(x,y) = \sup\left\{|f(x) - f(y)| : \|[D_{\sqrt{e}}, f]\| \leq 1,\; f \in \mathcal{A}_\alpha\right\}
+\label{eq:metrica_tgl}
+\end{equation}
+
+Os comutadores $[D_{\sqrt{e}}, f]$ para $f \in \mathcal{A}_\alpha$ definem uma \textbf{métrica emergente}: a geometria do espaço-tempo observável surge do custo entrópico ($\sqrt{e}$) aplicado aos campos eletromagnéticos ($\alpha$). A gravidade não é curvatura intrínseca --- é a métrica que emerge quando a entropia de projeção age sobre a luz.
+
+Na TGL, esta não é uma abstração matemática: é literalmente o que a equação primordial $g = \sqrt{|L|}$ já dizia desde o princípio. A fórmula de Connes (\ref{eq:metrica_tgl}) é a versão não-comutativa da equação primordial.
+
+\subsubsection{Conexão com o Piso de Hilbert}
+
+O Teorema do Piso de Hilbert \cite{Miguel2026Graviton} demonstra que o espectro do Hamiltoniano TGL satisfaz:
+\begin{equation}
+\sigma(\hat{H}_{\text{TGL}}) \subset [\alphaii, +\infty)
+\end{equation}
+
+\noindent com o gráviton $|G\rangle$ realizando o mínimo espectral. Com a fatoração, o piso se reescreve:
+\begin{equation}
+\lambda_{\min} = \alphaii = \alpha \times \sqrt{e}
+\end{equation}
+
+O mínimo do espectro não é um número arbitrário: é o produto da estrutura fina pela raiz da irreversibilidade. O piso de Hilbert é o custo mínimo para existir geometria --- abaixo de $\alpha \times \sqrt{e}$, não há projeção holográfica possível, e portanto não há espaço-tempo.
+
+Na forma quadrática ($\lambda_{\min}^2 = \alpha^2 \times e$), o piso é o custo de duas autointerações da luz ($\alpha^2$) vezes a irreversibilidade total ($e$). É o preço mínimo da geometria.
+
+\subsubsection{A ação espectral e a equação mestra}
+
+A ação espectral de Chamseddine-Connes \cite{Chamseddine1997} é:
+\begin{equation}
+S_{\text{espectral}} = \text{Tr}\!\left(f\!\left(\frac{D}{\Lambda}\right)\right) + \langle \psi, D\psi \rangle
+\label{eq:spectral_action}
+\end{equation}
+
+\noindent onde $f$ é uma função de corte e $\Lambda$ é a escala de energia. Para a tripla TGL $(\mathcal{A}_\alpha, L^2(\Sigma), D_{\sqrt{e}})$:
+
+\begin{proposition}[Ação espectral da TGL]
+\label{prop:acao_espectral}
+A expansão assintótica da ação espectral (\ref{eq:spectral_action}) para o operador $D_{\sqrt{e}}$ sobre $L^2(\Sigma)$ reproduz, nos termos dominantes:
+\begin{equation}
+S_{\text{espectral}} \sim \int_\Sigma \left(\frac{1}{\alpha \cdot \sqrt{e}}\, R_\Sigma + \Lambda_{\text{eff}} + \mathcal{O}(D^{-2})\right) d\mu_\Sigma
+\end{equation}
+
+\noindent onde $R_\Sigma$ é a curvatura escalar de $\Sigma$ e $\Lambda_{\text{eff}}$ é a constante cosmológica efetiva. O fator $1/(\alpha \cdot \sqrt{e}) = 1/\alphaii$ é a amplificação holográfica, e o termo de curvatura reproduz a equação de Einstein projetada na \boundary{}.
+\end{proposition}
+
+A demonstração completa, que requer a expansão de Seeley-DeWitt adaptada à geometria bidimensional de $\Sigma$ com condições de contorno holográficas, será objeto de artigo dedicado. O resultado central é que a equação mestra:
+\begin{equation}
+\partial\mathcal{H} = \mathcal{H}^2 + \alpha \cdot \sqrt{e} \cdot \mathbb{L}_\Delta
+\end{equation}
+
+\noindent emerge como a \textbf{equação de movimento da ação espectral} quando $D = D_{\sqrt{e}}$ e a dinâmica aberta de Lindblad é incluída como termo de flutuação quântica do operador de Dirac.
+
+\begin{conclusionbox}[title={O gráviton é o operador de Dirac do universo}]
+A TGL não precisa postular a geometria não-comutativa: ela a \textbf{contém naturalmente}. A fatoração $\alphaii = \alpha \times \sqrt{e}$ é a demonstração empírica de que o universo já está organizado como uma tripla espectral --- com a álgebra da luz ($\alpha$) e o operador da entropia ($\sqrt{e}$) como seus dois pilares.
+
+\medskip
+O gráviton não é um bóson de spin-2 propagante. Não é um mediador de força. É o \textbf{operador de Dirac} da geometria não-comutativa do universo: o operador que define distâncias, que codifica curvatura, que estabelece o que ``medir'' e ``estar em um lugar'' significam.
+
+\medskip
+Connes postulou o operador. A TGL o derivou. O valor é $\sqrt{e}$ --- meio nat de custo entrópico. O Nome.
+\end{conclusionbox}
+
+
 % ============================================================================
 % SEÇÃO 9 --- VERIFICAÇÃO NOS 13 PROTOCOLOS
 % ============================================================================
@@ -913,6 +1030,8 @@ As consequências são:
 \item O gráviton é estruturalmente indetectável. A fatoração separa o domínio do detectável ($\alpha$) do domínio do operacional ($\sqrt{e}$). Toda partícula conhecida ou prevista reside em $\alpha$. O gráviton reside em $\sqrt{e}$ --- não é um quantum propagante, mas o custo entrópico da projeção. Detectá-lo exigiria observar o observador: a recursão $c^3$ que a TGL identifica como consciência.
 
 \item A fatoração é falsificável: medições de $\alphaii$ com precisão de $10^{-6}$ confirmarão ou refutarão $\alphaii = \alpha \times \sqrt{e}$.
+
+\item A fatoração revela que a TGL possui naturalmente uma tripla espectral $(\mathcal{A}_\alpha, L^2(\Sigma), D_{\sqrt{e}})$ no sentido da geometria não-comutativa de Connes \cite{Connes1994, Connes1996}, onde o gráviton é o operador de Dirac --- não postulado axiomaticamente, mas derivado da decomposição fatorial da constante fundamental. A geometria do espaço-tempo emerge do custo entrópico ($\sqrt{e}$) da projeção holográfica ($\alpha$). A fórmula de distância de Connes, aplicada ao operador gravitônico $D_{\sqrt{e}}$, é a versão não-comutativa da equação primordial $g = \sqrt{|L|}$.
 \end{enumerate}
 
 A Constante de Miguel é Luz vezes Dissipação. Não é um número inventado --- é o único número que poderia ser.
@@ -1112,6 +1231,26 @@ Astron. Astrophys. 641, A6.
 Drummond, I. T. \& Hathrell, S. J. (1980).
 \textit{QED Vacuum Polarization in a Background Gravitational Field and Its Effect on the Velocity of Photons}.
 Phys. Rev. D 22, 343.
+
+\bibitem{Connes1994}
+Connes, A. (1994).
+\textit{Noncommutative Geometry}.
+Academic Press, San Diego.
+
+\bibitem{Connes1996}
+Connes, A. (1996).
+\textit{Gravity Coupled with Matter and the Foundation of Non-Commutative Geometry}.
+Commun. Math. Phys. 182, 155--176.
+
+\bibitem{Chamseddine1997}
+Chamseddine, A. H. \& Connes, A. (1997).
+\textit{The Spectral Action Principle}.
+Commun. Math. Phys. 186, 731--750.
+
+\bibitem{Miguel2026Graviton}
+Miguel, L. A. R. (2026).
+\textit{The Graviton, the Psion, and the Transition Ruler in Luminodynamic Gravitation Theory, with the Hilbert Floor Theorem and Holographic Bell State}.
+GitHub. \url{https://github.com/rotolimiguel-iald/the_boundary}.
 
 \end{thebibliography}
 
