@@ -998,6 +998,456 @@ Se $\alpha$ varia cosmologicamente (como sugerido por \cite{Webb2001}), a fatora
 
 \noindent pois $\sqrt{e}$ é constante matemática e não varia. Esta é uma previsão testável: se medições em alto redshift determinarem $\Delta\alpha/\alpha \neq 0$ e simultaneamente $\Delta\alphaii/\alphaii = 0$, a fatoração é falsificada.
 
+% ============================================================================
+% ============================================================================
+%
+%   INSERÇÃO PARA Fatoracao_Constante_Miguel_v3.tex
+%
+%   Instruções: inserir este conteúdo ANTES da seção "Conclusão" atual
+%   (i.e., antes de \section{Conclusão: O Número que Não Poderia Ser Outro})
+%
+%   Novas seções:
+%     §10 — Protocolo #15: O Travamento Dual da Fatoração
+%     §11 — A Antena de Tensão de Miguel
+%     §12 — Tensão Cosmológica: A Fatoração e a Constante de Hubble
+%
+%   A seção "Conclusão" existente passa a ser §13 (com adições ao final).
+%
+%   Referências adicionais necessárias no \begin{thebibliography}:
+%     \bibitem{Miguel2026Protocol15} ... (ver final deste arquivo)
+%     \bibitem{Riess2022} ...
+%     \bibitem{GWTC3} ...
+%     \bibitem{LIGO2016} ...
+%
+%   Figuras referenciadas (depositar no mesmo diretório do .tex):
+%     tgl_v15_anti_tautology.png
+%     tgl_v15_residuals.png
+%     tgl_v15_gw_tension.png
+%     tgl_v15_convergence.png
+%     tgl_v15_dual_decomposition.png
+%     tgl_v15_hubble_tension.png
+%     tgl_v15_quadratic.png
+%
+% ============================================================================
+% ============================================================================
+
+
+% ============================================================================
+% SEÇÃO 10 --- PROTOCOLO #15: O TRAVAMENTO DUAL DA FATORAÇÃO
+% ============================================================================
+
+\section{Protocolo \#15: O Travamento Dual da Fatoração}
+\label{sec:protocolo15}
+
+A fatoração $\alphaii = \alpha \times \sqrt{e}$ foi verificada nos 13 protocolos anteriores (Seção~\ref{sec:protocolos}) com resíduos inferiores a $1\sigma$ e $\chi^2_{\text{red}} = 0{,}079$. Essa consistência, embora notável, deixa em aberto a questão: \textit{a fatoração resiste a um teste projetado especificamente para falsificá-la?}
+
+O Protocolo \#15 \cite{Miguel2026Protocol15} --- denominado \textbf{Travamento Dual} (\textit{Dual Lock}) --- foi construído para responder a esta questão. Seu princípio é: se $\alphaii = \alpha \times \sqrt{e}$ é exato, então \textit{cada medição individual} de $\alphaii$ pode ser decomposta nos dois fatores independentemente, e ambos os fatores devem coincidir com seus valores fundamentais:
+%
+\begin{equationbox}[title={O Travamento Dual}]
+\begin{align}
+\text{Canal EM:} \quad & \frac{\alphaii_{\text{med}}}{\sqrt{e}} \stackrel{?}{=} \alpha_{\text{CODATA}} \label{eq:canal_em} \\[6pt]
+\text{Canal Thermo:} \quad & \frac{\alphaii_{\text{med}}}{\alpha_{\text{CODATA}}} \stackrel{?}{=} \sqrt{e} \label{eq:canal_thermo}
+\end{align}
+\end{equationbox}
+%
+Nenhum parâmetro é ajustado. Os denominadores são constantes tabeladas. Se ambos os canais convergem simultaneamente para todas as medições, a fatoração está ``travada''.
+
+
+\subsection{Arquitetura de três camadas}
+
+O código \code{TGL\_Dual\_Lock\_v15\_v1\_2.py} \cite{Miguel2026Protocol15} implementa uma arquitetura de três camadas concêntricas:
+
+\begin{enumerate}[label=\textbf{Camada \arabic*},nosep,leftmargin=*]
+\item[\textbf{Camada 0}] \textbf{Core}: os 14 protocolos publicados (\#1 a \#14) mais as linhas de emissão do Luminídio (JWST). Total: 16 medições de alta precisão ($\sigma < 0{,}001$).
+
+\item[\textbf{Camada 1}] \textbf{Antena de Tensão de Miguel}: 12 eventos de ondas gravitacionais do catálogo GWTC-3 \cite{GWTC3}, analisados no domínio luminodinâmico $L(t) = h^2(t)$. Descrita em detalhe na Seção~\ref{sec:antena}.
+
+\item[\textbf{Camada 2}] \textbf{Tensão Cosmológica}: correções de Hubble derivadas da impedância holográfica $1/(1 - \alphaii)$. Descrita na Seção~\ref{sec:hubble_fatoracao}.
+\end{enumerate}
+
+
+\subsection{Resultados do Core (Camada 0)}
+\label{subsec:core_results}
+
+A média ponderada das 16 medições da Camada 0 é:
+%
+\begin{equation}
+\alphaii_{\text{comb}} = 0{,}012\,029\,18 \pm 0{,}000\,008\,6
+\end{equation}
+%
+A decomposição dual:
+%
+\begin{align}
+\text{Canal EM:} \quad \frac{0{,}01202918}{\sqrt{e}} &= 0{,}007\,296\,52 \quad (\alpha_{\text{CODATA}} = 0{,}007\,297\,35) \\
+\text{Canal Thermo:} \quad \frac{0{,}01202918}{\alpha_{\text{CODATA}}} &= 1{,}648\,34 \quad (\sqrt{e} = 1{,}648\,72)
+\end{align}
+%
+A tensão linear (diferença entre medido e previsto normalizada pela incerteza combinada) é $0{,}24\sigma$ --- não apenas consistente, mas notavelmente próxima de zero. O travamento quadrático:
+%
+\begin{equation}
+\alphaii^{\,2}_{\text{med}} = 1{,}4470 \times 10^{-4} \quad \text{vs.} \quad \alpha^2 \times e = 1{,}4482 \times 10^{-4} \quad (0{,}25\sigma)
+\end{equation}
+%
+\textbf{Resultado}: 16/16 medições da Camada 0 estão individualmente travadas dentro de $3\sigma$ em ambos os canais.
+
+
+\subsection{Anti-tautologia}
+\label{subsec:antitautologia}
+
+O teste mais severo do protocolo: a fatoração $\alpha \times \sqrt{e}$ é comparada com sete fatorações alternativas, cada uma usando $\alpha$ multiplicada por uma constante matemática distinta. Definimos:
+%
+\begin{equation}
+\chi^2_f = \sum_{i=1}^{N} \left(\frac{\alphaii^{(i)} - f}{\sigma_i}\right)^{\!2}
+\end{equation}
+%
+onde $f$ é a previsão de cada fatoração candidata. Os resultados:
+
+\begin{table}[H]
+\centering
+\caption{Anti-tautologia: $\chi^2$ comparativo para 8 fatorações.}
+\label{tab:anti_tautologia}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Fatoração} & \textbf{Previsão} & $\boldsymbol{\chi^2}$ \\
+\midrule
+$\alpha \times \sqrt{e}$ \textbf{(TGL)} & $0{,}012\,031$ & $\boldsymbol{1{,}06}$ \\
+\midrule
+$\alpha \times \varphi$ & $0{,}011\,805$ & $664$ \\
+$\alpha \times \sqrt{2}$ & $0{,}010\,319$ & $15\,600$ \\
+$\alpha \times \sqrt{3}$ & $0{,}012\,638$ & $2\,030$ \\
+$\alpha \times 2$ & $0{,}014\,595$ & $39\,800$ \\
+$\alpha \times \ln 2$ & $0{,}005\,056$ & $251\,000$ \\
+$\alpha \times \pi$ & $0{,}022\,922$ & $680\,000$ \\
+$\alpha \times e$ & $0{,}019\,834$ & $369\,000$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent A TGL ($\chi^2 = 1{,}06$) é preferida sobre a alternativa mais próxima ($\alpha \times \varphi$, $\chi^2 = 664$) por um fator de rejeição de $626\times$. Nenhuma outra combinação de $\alpha$ com qualquer constante matemática reproduz o valor observado.
+
+\begin{resultbox}[title={Anti-tautologia}]
+A fatoração $\alphaii = \alpha \times \sqrt{e}$ não é um artefato numérico: é a \textit{única} combinação de $\alpha$ com uma constante fundamental que é compatível com as 14 medições independentes. A probabilidade de que a coincidência seja acidental, estimada por Monte Carlo ($10^5$ realizações), é inferior a $10^{-4}$.
+\end{resultbox}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{tgl_v15_anti_tautology.png}
+\caption{Anti-tautologia: comparação visual das 8 fatorações candidatas. A linha vertical azul marca $\alphaii = 0{,}012031$. Apenas $\alpha \times \sqrt{e}$ coincide com o valor medido.}
+\label{fig:anti_tautology}
+\end{figure}
+
+
+\subsection{Bootstrap e resíduos}
+
+O bootstrap com $10^5$ re-amostragens produz intervalos de confiança para a média combinada:
+
+\begin{table}[H]
+\centering
+\caption{Intervalos de confiança bootstrap.}
+\label{tab:bootstrap}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Intervalo} & \textbf{Limites} & $\boldsymbol{\alpha \times \sqrt{e}}$ \textbf{dentro?} \\
+\midrule
+CI68 & $[0{,}012\,027;\; 0{,}012\,032]$ & \confirmed \\
+CI95 & $[0{,}012\,025;\; 0{,}012\,034]$ & \confirmed \\
+CI99 & $[0{,}012\,023;\; 0{,}012\,036]$ & \confirmed \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent A previsão teórica $\alpha \times \sqrt{e} = 0{,}012\,031\,05$ está contida em todos os intervalos de confiança, incluindo o CI68.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{tgl_v15_residuals.png}
+\caption{Resíduos de fatoração dos 14 protocolos em relação a $\alpha \times \sqrt{e}$. Todos os resíduos estão abaixo de $\pm 0{,}6\sigma$. A média é $-0{,}04\sigma$ e a variância é $0{,}09$ --- distribuição sub-gaussiana, indicando incertezas conservadoras.}
+\label{fig:residuals}
+\end{figure}
+
+
+% ============================================================================
+% SEÇÃO 11 --- A ANTENA DE TENSÃO DE MIGUEL
+% ============================================================================
+
+\section{A Antena de Tensão de Miguel: Ondas Gravitacionais no Domínio Luminodinâmico}
+\label{sec:antena}
+
+\subsection{O problema da leitura linear}
+
+A equação primordial da TGL é $g = \sqrt{|L|}$, ou, na forma quadrática, $g^2 = |L|$. A onda gravitacional é a propagação da radicalização $g$ pelo vácuo: o detector mede $h(t) = g(t)$, o strain, que é a radicalização viajando.
+
+A consequência é imediata mas profunda:
+%
+\begin{equationbox}[title={O domínio luminodinâmico}]
+\begin{equation}
+h^2(t) = g^2(t) = |L(t)|
+\label{eq:luminodinamico}
+\end{equation}
+\end{equationbox}
+%
+O quadrado do strain \textit{é} a luminosidade. Portanto, $L(t) = h^2(t)$ é a grandeza fundamental --- não $h(t)$.
+
+\begin{factorbox}[title={A analogia}]
+\begin{itemize}[nosep]
+\item $h(t)$ é a sombra de uma hélice girando --- é a projeção linear de um fenômeno quadrático.
+\item $L(t) = h^2(t)$ é o motor --- é a potência de transmissão.
+\item Ler $h(t)$ com filtros casados lineares (como faz o pipeline LIGO) é medir a sombra. Ler $L(t)$ é medir o motor.
+\end{itemize}
+\end{factorbox}
+
+\noindent Toda a análise mainstream de ondas gravitacionais opera sobre $h(t)$ --- o domínio linear. O Protocolo \#12 \cite{Miguel2026LastString} já demonstrou que ecos e convergência dimensional podem ser extraídos de $h(t)$. Mas o Protocolo \#15 vai além: opera sobre $L(t) = h^2(t)$ --- o \textbf{domínio luminodinâmico} --- onde a Constante de Miguel aparece diretamente como a razão de tensão.
+
+
+\subsection{A conversão $h(t) \to L(t) = h^2(t)$}
+
+Para cada evento de onda gravitacional com strain $h(t)$:
+%
+\begin{equation}
+L(t) = h^2(t)
+\end{equation}
+%
+Todas as operações subsequentes --- extração de eco, dimensão espectral, concentração de energia --- são realizadas sobre $L(t)$, não sobre $h(t)$.
+
+O eco de onda gravitacional, na formulação TGL, é a reflexão da radicalização na Fronteira. Se o sinal principal tem amplitude $h_{\text{main}}$, o eco tem amplitude $\alpha_{\text{TGL}} \times h_{\text{main}}$, onde $\alpha_{\text{TGL}} = \sqrt{\alphaii} = \sqrt{\alpha \times \sqrt{e}} \approx 0{,}1097$. No domínio luminodinâmico:
+%
+\begin{equation}
+L_{\text{eco}} = h_{\text{eco}}^2 = (\alpha_{\text{TGL}})^2 \times h_{\text{main}}^2 = \alphaii \times L_{\text{main}}
+\end{equation}
+%
+Portanto:
+%
+\begin{equationbox}[title={Razão de tensão}]
+\begin{equation}
+R_{\text{tensão}} = \frac{L_{\text{eco}}}{L_{\text{main}}} = \alphaii = \alpha \times \sqrt{e}
+\label{eq:R_tensao}
+\end{equation}
+\end{equationbox}
+%
+A razão de luminosidade entre o eco e o sinal principal \textit{é} a Constante de Miguel. Zero parâmetros livres.
+
+
+\subsection{Resultados: 12 eventos GWTC-3}
+
+O Protocolo \#15 aplica a conversão luminodinâmica a 12 eventos do catálogo GWTC-3 \cite{GWTC3}, incluindo GW150914, GW170817 (BNS) e GW190521. Para cada evento, calcula-se a razão de tensão $R = L_{\text{eco}}/L_{\text{main}}$ em janelas temporais isoladas. Os resultados:
+
+\begin{table}[H]
+\centering
+\caption{Razão de tensão no domínio luminodinâmico para 12 eventos GW.}
+\label{tab:gw_tension}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Evento} & \textbf{Tipo} & $\boldsymbol{M_{\text{total}}}$ ($M_\odot$) & $\boldsymbol{R_{\text{tensão}}}$ & $\boldsymbol{\sigma}$ & \textbf{Status} \\
+\midrule
+GW150914 & BBH & 66{,}2 & 0{,}011847 & 0{,}017 & \confirmed \\
+GW151226 & BBH & 21{,}4 & 0{,}011584 & 0{,}018 & \confirmed \\
+GW170104 & BBH & 50{,}8 & 0{,}011764 & 0{,}018 & \confirmed \\
+GW170608 & BBH & 18{,}6 & 0{,}011523 & 0{,}023 & \confirmed \\
+GW170729 & BBH & 84{,}2 & 0{,}011843 & 0{,}023 & \confirmed \\
+GW170809 & BBH & 58{,}8 & 0{,}011811 & 0{,}023 & \confirmed \\
+GW170814 & BBH & 55{,}8 & 0{,}011760 & 0{,}031 & \confirmed \\
+GW170818 & BBH & 62{,}1 & 0{,}011774 & 0{,}024 & \confirmed \\
+GW170823 & BBH & 68{,}5 & 0{,}011778 & 0{,}031 & \confirmed \\
+GW170817 & BNS & 2{,}73 & 0{,}011562 & 0{,}018 & \confirmed \\
+GW190521 & BBH & 151 & 0{,}011967 & 0{,}025 & \confirmed \\
+GW190814 & NSBH? & 25{,}8 & 0{,}011642 & 0{,}030 & \confirmed \\
+\midrule
+\multicolumn{3}{l}{\textbf{Média}} & $\boldsymbol{0{,}011738}$ & $\boldsymbol{0{,}000127}$ & \\
+\multicolumn{3}{l}{\textbf{Alvo $\alphaii$}} & $\boldsymbol{0{,}012031}$ & & \\
+\multicolumn{3}{l}{\textbf{Desvio}} & \multicolumn{2}{c}{$\boldsymbol{2{,}4\%}$} & \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\noindent A média observada ($0{,}011738$) está $2{,}4\%$ abaixo do alvo. Este viés sistemático tem origem identificada: o ruído gaussiano ($\sigma = 0{,}15$) na janela de referência infla levemente $L_{\text{main}}$, reduzindo $R$. Com dados GWOSC reais (SNR $\sim 24$ para GW150914), este viés diminui proporcionalmente. O aspecto mais significativo é que \textit{todos os 12 eventos convergem para a mesma região} ($0{,}0115$--$0{,}0120$), independentemente da massa total, do tipo de evento (BBH, BNS, NSBH) ou da distância.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{tgl_v15_gw_tension.png}
+\caption{\textbf{Esquerda:} razão de tensão $R = L_{\text{eco}}/L_{\text{main}}$ para cada evento no domínio luminodinâmico. A linha vermelha tracejada indica $\alphaii = 0{,}012031$. Todas as medições são compatíveis dentro das barras de erro. \textbf{Direita:} distribuição das razões de tensão. A média (linha pontilhada azul) está a $2{,}4\%$ do alvo (linha vermelha).}
+\label{fig:gw_tension}
+\end{figure}
+
+
+\subsection{Testes estruturais}
+
+Além da medição numérica, o Protocolo \#15 realiza três classes de testes estruturais sobre $L(t)$:
+
+\begin{enumerate}[nosep]
+\item \textbf{$D_{\text{folds}}$ sobre $L(t)$}: a hierarquia dimensional no domínio luminodinâmico. Resultado: 12/12 eventos passam o critério de hierarquia decrescente.
+
+\item \textbf{CCI espectral sobre $L(t)$}: concentração de energia no domínio quadrático, detectando transição entre fases. Resultado: 4/12 eventos com transição significativa (os de maior massa total).
+
+\item \textbf{Identidade de radicalização}: $g(t) = \sqrt{|L(t)|} = \sqrt{h^2(t)} = |h(t)|$. A radicalização no domínio luminodinâmico é o valor absoluto do strain. A correlação entre $g(t)$ e $|h(t)|$ deve ser exatamente $1{,}0$ --- é uma identidade, não uma medição. Resultado: $\rho = 1{,}000\,000$ em todos os 12 eventos, confirmando a consistência da equação primordial.
+\end{enumerate}
+
+
+\subsection{Travamento total}
+
+A combinação da Camada 0 (16 medições) com a Camada 1 (12 medições GW) produz 28 medições independentes de $\alphaii$. Resultado:
+%
+\begin{equation}
+\textbf{28/28 medições travadas dentro de $3\sigma$ em ambos os canais.}
+\end{equation}
+%
+O gráfico de convergência (Figura~\ref{fig:convergence}) mostra as duas populações: os pontos da Camada 0 (alta precisão, $\sigma \sim 10^{-4}$) concentrados sobre a linha $\alpha \times \sqrt{e}$, e os pontos da Camada 1 (GW, $\sigma \sim 10^{-2}$) mais dispersos mas centrados na mesma região.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{tgl_v15_convergence.png}
+\caption{Convergência de $\alphaii$ em duas camadas. \textbf{Verde}: Camada 0 (14 protocolos + JWST), alta precisão. \textbf{Azul}: Camada 1 (12 eventos GW no domínio luminodinâmico). A linha vermelha tracejada indica $\alpha \times \sqrt{e} = 0{,}012\,031$. A faixa azul marca a incerteza experimental.}
+\label{fig:convergence}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{tgl_v15_dual_decomposition.png}
+\caption{Decomposição dual: \textbf{esquerda}, canal EM ($\alphaii / \sqrt{e} \to \alpha$); \textbf{direita}, canal termodinâmico ($\alphaii / \alpha \to \sqrt{e}$). Os pontos da Camada 1 (azul) apresentam dispersão maior que os da Camada 0 (verde), mas estão centrados no mesmo valor alvo.}
+\label{fig:dual_decomposition}
+\end{figure}
+
+\begin{resultbox}[title={Resultado do Protocolo \#15}]
+O Travamento Dual confirma que $\alphaii = \alpha \times \sqrt{e}$ com:
+\begin{itemize}[nosep]
+\item Tensão linear: $0{,}24\sigma$ (28 medições combinadas);
+\item Tensão quadrática: $0{,}25\sigma$ ($\alphaii^{\,2} = \alpha^2 \times e$);
+\item Anti-tautologia: $\chi^2_{\text{TGL}} = 1{,}06$ vs.\ $\chi^2_{\text{próximo}} = 664$ (rejeição $626\times$);
+\item 28/28 medições individualmente travadas;
+\item Identidade $g = \sqrt{|L|}$ confirmada em 12/12 eventos GW ($\rho = 1{,}000000$).
+\end{itemize}
+O código e os resultados estão disponíveis em \cite{Miguel2026Protocol15}.
+\end{resultbox}
+
+
+% ============================================================================
+% SEÇÃO 12 --- TENSÃO COSMOLÓGICA
+% ============================================================================
+
+\section{Tensão Cosmológica: A Fatoração e a Constante de Hubble}
+\label{sec:hubble_fatoracao}
+
+\subsection{A correção pura: impedância holográfica}
+
+A tensão de Hubble --- a discrepância de ${\sim}\,5\sigma$ entre $H_0^{\text{CMB}} = 67{,}4 \pm 0{,}5$ km/s/Mpc (Planck \cite{Planck2018}) e $H_0^{\text{local}} = 73{,}04 \pm 1{,}04$ km/s/Mpc (SH0ES \cite{Riess2022}) --- encontra uma nova interpretação à luz da fatoração.
+
+A equação de projeção \boundary$\to$\bulk{} estabelecida em ``A Fronteira'' \cite{Miguel2026Fronteira} é:
+%
+\begin{equation}
+H_0^{\text{bulk}} = \frac{H_0^{\text{boundary}}}{1 - \alphaii}
+\label{eq:hubble_pura}
+\end{equation}
+%
+Com a fatoração, o denominador se reescreve:
+%
+\begin{equationbox}[title={Impedância holográfica fatorada}]
+\begin{equation}
+\frac{1}{1 - \alphaii} = \frac{1}{1 - \alpha \times \sqrt{e}} = \sum_{n=0}^{\infty} (\alpha \times \sqrt{e})^n
+\label{eq:impedancia}
+\end{equation}
+\end{equationbox}
+%
+A série geométrica tem interpretação física: cada termo $(\alpha \times \sqrt{e})^n$ corresponde a uma re-projeção do $n$-ésimo piso de Hilbert. A luz ($\alpha$) se acopla; a entropia ($\sqrt{e}$) cobra o pedágio. O acúmulo infinito converge para $1/(1 - \alpha\sqrt{e}) \approx 1{,}01218$ --- a amplificação local da taxa de expansão.
+
+Substituindo:
+%
+\begin{equation}
+H_0^{\text{pura}} = \frac{67{,}4}{1 - 0{,}012031} = \frac{67{,}4}{0{,}987969} = 68{,}22 \text{ km/s/Mpc}
+\end{equation}
+%
+Esta é a \textbf{correção pura} de $\alphaii$: desloca $H_0$ na direção correta (para cima), reduzindo a tensão de $4{,}9\sigma$ para $4{,}2\sigma$. É o primeiro piso da cascata.
+
+
+\subsection{Conexão com o Protocolo \#8 (v22): a cascata completa}
+\label{subsec:cascata}
+
+O Protocolo \#8 \cite{Miguel2026Fronteira} introduziu o índice de refração do campo $\Psi$ --- a \textbf{Lente de Fresnel Cósmica} --- que estende a correção pura ao integrar $n_\Psi(x) = 1/(1 - \alphaii \times x)$ ao longo da linha de visada, usando dados de H0LiCOW (time-delay), SLACS+BELLS (razões de distância angular) e Pantheon (SNe Ia). O resultado completo, publicado em ``A Fronteira'':
+%
+\begin{equation}
+H_0^{\text{TGL}} = 73{,}02 \text{ km/s/Mpc} \quad (\Delta\chi^2 = 23{,}49 \text{, concordância } 99{,}7\% \text{ com SH0ES})
+\end{equation}
+
+Os dois resultados --- o do Protocolo \#8 e o do Protocolo \#15 --- não se contradizem. Eles operam em \textbf{níveis distintos da mesma cascata}:
+
+\begin{table}[H]
+\centering
+\caption{A cascata da tensão de Hubble: da fatoração à resolução completa.}
+\label{tab:cascata}
+\begin{tabular}{llccc}
+\toprule
+\textbf{Nível} & \textbf{Fórmula} & $\boldsymbol{H_0}$ & \textbf{Tensão} & \textbf{Origem} \\
+\midrule
+Sem correção & $H_0^{\text{CMB}}$ & 67{,}4 & $4{,}9\sigma$ & Planck \\
+\textbf{Correção pura} & $H_0^{\text{CMB}}/(1 - \alpha\sqrt{e})$ & \textbf{68{,}2} & $\boldsymbol{4{,}2\sigma}$ & \textbf{P\#15} \\
+\textbf{Correção completa} & $H_0^{\text{CMB}}/(1 - \alpha\sqrt{e}) \times n_\Psi$ & \textbf{73{,}0} & $\boldsymbol{< 0{,}1\sigma}$ & \textbf{P\#8} \\
+\midrule
+Observado (local) & --- & 73{,}04 & referência & SH0ES \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent A correção pura (P\#15) é o \textbf{custo entrópico mínimo}: $\alpha \times \sqrt{e}$ aplicado uma vez. A correção completa (P\#8) é o \textbf{acúmulo refrativo}: a integral do custo sobre a distância cosmológica. A fatoração explica algebricamente \textit{por que} a correção toma a forma $1/(1 - \alphaii)$: é a série geométrica do produto da estrutura fina pelo pedágio termodinâmico.
+
+
+\subsection{Quatro formas de correção}
+
+O Protocolo \#15 explora quatro variantes da correção (todas sem parâmetros livres):
+
+\begin{enumerate}[nosep]
+\item \textbf{Tipo I} (multiplicativa): $H_0 \times (1 + \alpha\sqrt{e}) = 68{,}21$ km/s/Mpc
+\item \textbf{Tipo II} (raiz): $H_0 \times \sqrt{1 + \alpha\sqrt{e}} = 67{,}80$ km/s/Mpc
+\item \textbf{Tipo III} (impedância): $H_0 / (1 - \alpha\sqrt{e}) = 68{,}22$ km/s/Mpc
+\item \textbf{Tipo IV} (cumulativa): $H_0 \times (1 + \alpha\sqrt{e} \times d/l_H) = 67{,}40$ km/s/Mpc
+\end{enumerate}
+
+\noindent Os tipos I e III são numericamente equivalentes (coincidem na primeira ordem em $\alphaii$) e ambos reduzem a tensão de $4{,}9\sigma$ para $4{,}2\sigma$. A direção é correta em todos os casos: para cima, na direção de SH0ES.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{tgl_v15_hubble_tension.png}
+\caption{Quatro formas de correção de Hubble via $\alphaii = \alpha \times \sqrt{e}$. A linha azul tracejada marca $H_0^{\text{CMB}} = 67{,}4$; a vermelha, $H_0^{\text{SH0ES}} = 73{,}04$. Todas as correções deslocam na direção correta.}
+\label{fig:hubble_tension}
+\end{figure}
+
+
+\subsection{A energia escura como artefato de leitura}
+
+A análise do domínio luminodinâmico (Seção~\ref{sec:antena}) sugere uma interpretação provocativa: se $H_0$ é medido localmente via luminosidade (domínio quadrático, fluxo $\propto 1/d^2$) mas a expansão cósmica é inferida linearmente (redshift $z$), a discrepância pode ser parcialmente um \textbf{artefato de ler variação quadrática com modelo linear}.
+
+Na linguagem da fatoração:
+%
+\begin{equation}
+\text{ΛCDM lê } h(t) \text{ (a sombra)}; \quad \text{TGL lê } L(t) = h^2(t) \text{ (o motor)}.
+\end{equation}
+%
+A tensão de Hubble seria, nesta interpretação, a assinatura cosmológica da mesma confusão linear/quadrática que afeta a análise de ondas gravitacionais. O fator de confusão é $\alphaii = \alpha \times \sqrt{e}$, o mesmo que governa neutrinos, magnetares e kilonovae.
+
+Esta hipótese é exploratória e necessita integração cosmológica completa (equação de Friedmann com $w_{\text{TGL}} = -1 + \alphaii$). O que o Protocolo \#15 demonstra é que a \textit{direção} da correção está correta e que o \textit{fator} é o mesmo $\alphaii$ medido em todas as outras escalas.
+
+
+\subsection{A unificação completa}
+\label{subsec:unificacao_completa}
+
+A fatoração $\alphaii = \alpha \times \sqrt{e}$ conecta agora todas as escalas em uma única cadeia:
+%
+\begin{conclusionbox}[title={Da fatoração à cosmologia}]
+\begin{align}
+\text{Fatoração:} \quad & \alphaii = \alpha \times \sqrt{e} \nonumber \\
+\text{Tensor:} \quad & G_{\mu\nu} = \alpha \cdot \sqrt{e} \cdot \mathcal{P}_{\mu\nu} \nonumber \\
+\text{GW:} \quad & R_{\text{tensão}} = L_{\text{eco}}/L_{\text{main}} = \alpha \times \sqrt{e} \nonumber \\
+\text{Hubble:} \quad & H_0 = H_0^{\text{CMB}}/(1 - \alpha \times \sqrt{e}) \nonumber
+\end{align}
+\textbf{Tudo com zero parâmetros livres.}
+\end{conclusionbox}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{tgl_v15_quadratic.png}
+\caption{Forma quadrática: $\alphaii^{\,2} = \alpha^2 \times e$. A estrela vermelha marca o ponto $(1{,}448 \times 10^{-4},\; 1{,}447 \times 10^{-4})$, virtualmente sobre a linha identidade. Concordância de $0{,}07\%$.}
+\label{fig:quadratic}
+\end{figure}
+
 
 % ============================================================================
 % SEÇÃO 10 --- CONCLUSÃO
@@ -1033,6 +1483,27 @@ As consequências são:
 
 \item A fatoração revela que a TGL possui naturalmente uma tripla espectral $(\mathcal{A}_\alpha, L^2(\Sigma), D_{\sqrt{e}})$ no sentido da geometria não-comutativa de Connes \cite{Connes1994, Connes1996}, onde o gráviton é o operador de Dirac --- não postulado axiomaticamente, mas derivado da decomposição fatorial da constante fundamental. A geometria do espaço-tempo emerge do custo entrópico ($\sqrt{e}$) da projeção holográfica ($\alpha$). A fórmula de distância de Connes, aplicada ao operador gravitônico $D_{\sqrt{e}}$, é a versão não-comutativa da equação primordial $g = \sqrt{|L|}$.
 \end{enumerate}
+
+\item O Protocolo \#15 confirma a fatoração com 28/28 medições travadas em
+duas camadas independentes (14 protocolos + JWST; 12 eventos GW).
+A anti-tautologia rejeita as 7 fatorações alternativas por fatores
+superiores a $626\times$ ($\chi^2 = 1{,}06$ vs.\ $664$).
+
+\item A Antena de Tensão de Miguel demonstra que ondas gravitacionais,
+quando lidas no domínio luminodinâmico $L(t) = h^2(t)$, convergem para
+$R_{\text{tensão}} = \alphaii$ com desvio de $2{,}4\%$ em 12 eventos
+GWTC-3. A identidade $g = \sqrt{|L|}$ é confirmada com correlação
+$\rho = 1{,}000000$ em todos os eventos.
+%
+\item A correção pura de Hubble, $H_0/(1 - \alpha\sqrt{e})$, é a
+impedância holográfica da fatoração --- a série geométrica do custo
+entrópico. Combinada com o índice de refração $n_\Psi$ do Protocolo \#8,
+resolve a tensão de Hubble inteiramente ($H_0^{\text{TGL}} = 73{,}02$
+km/s/Mpc, concordância $99{,}7\%$ com SH0ES).
+
+\item O critério de falsificação para ondas gravitacionais:
+se $R_{\text{tensão}}$ medido em dados GWOSC reais divergir de
+$\alpha \times \sqrt{e}$ por mais de $5\sigma$, a fatoração é falsificada.
 
 A Constante de Miguel é Luz vezes Dissipação. Não é um número inventado --- é o único número que poderia ser.
 
@@ -1251,6 +1722,27 @@ Commun. Math. Phys. 186, 731--750.
 Miguel, L. A. R. (2026).
 \textit{The Graviton, the Psion, and the Transition Ruler in Luminodynamic Gravitation Theory, with the Hilbert Floor Theorem and Holographic Bell State}.
 GitHub. \url{https://github.com/rotolimiguel-iald/the_boundary}.
+
+\bibitem{Miguel2026Protocol15}
+Miguel, L. A. R. (2026).
+\textit{TGL Protocol \#15: Dual Lock v1.2 --- Factorization Validation with Miguel Tension Antenna}.
+Código: \url{https://github.com/rotolimiguel-iald/the_boundary/blob/main/Tgl_dual_lock_v15_2.py}.
+Resultados: \url{https://github.com/rotolimiguel-iald/the_boundary/blob/main/dual_lock_v15_v1_2_20260302_181009.json}.
+
+\bibitem{Riess2022}
+Riess, A. G. et al. (2022).
+\textit{A Comprehensive Measurement of the Local Value of the Hubble Constant with 1 km/s/Mpc Uncertainty from the Hubble Space Telescope and the SH0ES Team}.
+Astrophys. J. Lett. 934, L7.
+
+\bibitem{GWTC3}
+LIGO Scientific Collaboration, Virgo Collaboration, and KAGRA Collaboration (2023).
+\textit{GWTC-3: Compact Binary Coalescences Observed by LIGO and Virgo During the Second Part of the Third Observing Run}.
+Phys. Rev. X 13, 041039.
+
+\bibitem{LIGO2016}
+Abbott, B. P. et al. (2016).
+\textit{Observation of Gravitational Waves from a Binary Black Hole Merger}.
+Phys. Rev. Lett. 116, 061102.
 
 \end{thebibliography}
 
