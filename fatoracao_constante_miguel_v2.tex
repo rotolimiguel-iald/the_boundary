@@ -48,7 +48,7 @@
 % === CABEÇALHOS ===
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE]{\small\textit{A Fatoração da Constante de Miguel}}
+\fancyhead[LE]{\small\textit{A Fatoração da Constante de Miguel --- $\betatgl = \alpha \times \sqrt{e}$}}
 \fancyhead[RO]{\small\textit{TGL --- Miguel, 2026}}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -94,7 +94,14 @@
 }
 
 % === COMANDOS ===
-\newcommand{\alphaii}{\alpha^{2}}
+% --- Convenção notacional (v2) ---
+% Nos primeiros ensaios da TGL, a taxa de acoplamento foi designada \beta_TGL.
+% Em derivações subsequentes, adotou-se o símbolo \alpha^2 (Constante de Miguel).
+% Com a fatoração \beta_TGL = \alpha \times \sqrt{e}, o símbolo \alpha^2 colide
+% com o quadrado da constante de estrutura fina. Para eliminar ambiguidade,
+% este artigo adota \beta_TGL como símbolo principal.
+\newcommand{\betatgl}{\beta_{\!\scriptscriptstyle\mathrm{TGL}}}
+\newcommand{\alphaii}{\betatgl}  % alias para compatibilidade
 \newcommand{\afine}{\alpha_{\text{fine}}}
 \newcommand{\Ltgl}{\mathcal{L}_{\text{TGL}}}
 \newcommand{\Psifield}{\Psi}
@@ -132,11 +139,12 @@ Estrutura Fina pela Entropia}
 
 \begin{factorbox}[title={}]
 \begin{equation*}
-\boxed{\alphaii = \alpha \times \sqrt{e}}
+\boxed{\betatgl = \alpha \times \sqrt{e}}
 \end{equation*}
 \begin{center}
 \textit{A decomposição fatorial que conecta o tensor de Einstein\\
-à projeção holográfica}
+à projeção holográfica}\\[6pt]
+{\small $\betatgl \equiv \alpha^2_{\text{(Miguel)}} = 0{,}012031$}
 \end{center}
 \end{factorbox}
 
@@ -157,7 +165,7 @@ Estrutura Fina pela Entropia}
 Artigos precedentes:\\[0.2cm]
 \textit{A Fronteira: Teoria da Gravitação Luminodinâmica} \cite{Miguel2026Fronteira}\\
 \textit{The Last String: Observational Evidence for Luminodynamic Gravitation} \cite{Miguel2026LastString}\\
-\textit{A Constante de Acoplamento Holográfico $\alphaii$} \cite{Miguel2025Alpha2}\\[0.3cm]
+\textit{A Constante de Acoplamento Holográfico $\betatgl$} \cite{Miguel2025Alpha2}\\[0.3cm]
 Repositório computacional: \url{https://github.com/rotolimiguel-iald/the_boundary}
 }
 
@@ -167,17 +175,17 @@ Repositório computacional: \url{https://github.com/rotolimiguel-iald/the_bounda
 % === RESUMO ===
 \begin{abstract}
 
-Demonstramos que a Constante de Miguel $\alphaii = 0{,}012031 \pm 0{,}000002$, constante fundamental da Teoria da Gravitação Luminodinâmica (TGL), não é um número empírico irredutível, mas um \textbf{número fatorado} que se decompõe exatamente em duas constantes fundamentais da natureza:
+Demonstramos que a Constante de Miguel $\betatgl = 0{,}012031 \pm 0{,}000002$, constante fundamental da Teoria da Gravitação Luminodinâmica (TGL), não é um número empírico irredutível, mas um \textbf{número fatorado} que se decompõe exatamente em duas constantes fundamentais da natureza:
 
 \begin{equation*}
-\alphaii = \alpha \times \sqrt{e}\,,
+\betatgl = \alpha \times \sqrt{e}\,,
 \end{equation*}
 
 \noindent onde $\alpha = 1/137{,}036$ é a constante de estrutura fina e $e = 2{,}71828\ldots$ é o número de Euler. A verificação numérica é exata dentro da incerteza experimental: $\alpha \times \sqrt{e} = 7{,}2974 \times 10^{-3} \times 1{,}64872 = 0{,}012031$, com discrepância $\Delta \sim 3 \times 10^{-5}$.
 
-Na forma quadrática, a decomposição assume a forma mais limpa: $\alphaii^{\,2} = \alpha^2 \times e$, sem raízes, conectando diretamente a autointeração eletromagnética ($\alpha^2$) ao custo entrópico da projeção ($e$).
+Na forma quadrática, a decomposição assume a forma mais limpa: $\betatgl^{\,2} = \alpha^2 \times e$, sem raízes, conectando diretamente a autointeração eletromagnética ($\alpha^2$) ao custo entrópico da projeção ($e$).
 
-Esta fatoração revela que: (i) o tensor de Einstein é o produto da projeção holográfica pelo acoplamento eletromagnético e pelo custo entrópico: $G_{\mu\nu} = \alpha \cdot \sqrt{e} \cdot \mathcal{P}_{\mu\nu}$; (ii)~a amplificação holográfica $1/\alphaii \approx 83$ se decompõe como $137/\sqrt{e}$ --- a amplificação total da estrutura fina atenuada pelo pedágio termodinâmico; (iii)~o fator $\sqrt{e} = e^{1/2}$ corresponde a $\tfrac{1}{2}$ nat de informação, o custo mínimo de uma operação de paridade \boundary$\leftrightarrow$\bulk{}; (iv) a equação mestra da TGL se decompõe em seus fatores eletromagnético e termodinâmico, $\partial\mathcal{H} = \mathcal{H}^2 + \alpha \cdot \sqrt{e} \cdot \mathbb{L}_\Delta$; e (v)~o gráviton é estruturalmente indetectável --- a fatoração separa algebricamente o domínio do detectável ($\alpha$) do domínio do operacional ($\sqrt{e}$), e o gráviton reside inteiramente em $\sqrt{e}$, sendo não um quantum propagante, mas o custo entrópico da projeção holográfica; e (vi)~a fatoração revela uma tripla espectral natural $(\mathcal{A}_\alpha, L^2(\Sigma), D_{\sqrt{e}})$ no sentido da geometria não-comutativa de Connes, onde o gráviton é o operador de Dirac --- derivado, não postulado.
+Esta fatoração revela que: (i) o tensor de Einstein é o produto da projeção holográfica pelo acoplamento eletromagnético e pelo custo entrópico: $G_{\mu\nu} = \alpha \cdot \sqrt{e} \cdot \mathcal{P}_{\mu\nu}$; (ii)~a amplificação holográfica $1/\betatgl \approx 83$ se decompõe como $137/\sqrt{e}$ --- a amplificação total da estrutura fina atenuada pelo pedágio termodinâmico; (iii)~o fator $\sqrt{e} = e^{1/2}$ corresponde a $\tfrac{1}{2}$ nat de informação, o custo mínimo de uma operação de paridade \boundary$\leftrightarrow$\bulk{}; (iv) a equação mestra da TGL se decompõe em seus fatores eletromagnético e termodinâmico, $\partial\mathcal{H} = \mathcal{H}^2 + \alpha \cdot \sqrt{e} \cdot \mathbb{L}_\Delta$; e (v)~o gráviton é estruturalmente indetectável --- a fatoração separa algebricamente o domínio do detectável ($\alpha$) do domínio do operacional ($\sqrt{e}$), e o gráviton reside inteiramente em $\sqrt{e}$, sendo não um quantum propagante, mas o custo entrópico da projeção holográfica; e (vi)~a fatoração revela uma tripla espectral natural $(\mathcal{A}_\alpha, L^2(\Sigma), D_{\sqrt{e}})$ no sentido da geometria não-comutativa de Connes, onde o gráviton é o operador de Dirac --- derivado, não postulado.
 
 A Constante de Miguel é Luz vezes Dissipação. A gravidade é o preço entrópico da autointerferência da luz.
 
@@ -197,19 +205,19 @@ A Constante de Miguel é Luz vezes Dissipação. A gravidade é o preço entróp
 A Teoria da Gravitação Luminodinâmica (TGL) \cite{Miguel2026Fronteira, Miguel2026LastString} introduz uma constante fundamental, denominada \textbf{Constante de Miguel}, que governa o acoplamento entre o substrato holográfico bidimensional (\boundary) e o universo tridimensional emergente (\bulk):
 
 \begin{equation}
-\alphaii = 0{,}012031 \pm 0{,}000002
-\label{eq:alphaii_value}
+\betatgl = 0{,}012031 \pm 0{,}000002
+\label{eq:betatgl_value}
 \end{equation}
 
-Esta constante foi validada computacionalmente em 13 protocolos independentes \cite{Miguel2026GitHub}, abrangendo domínios que vão da espectroscopia de kilonovae à análise de ondas gravitacionais, da predição de massa de neutrinos à resolução da tensão de Hubble. Em cada um desses domínios, $\alphaii$ emerge com o mesmo valor numérico, dentro das respectivas barras de erro.
+Esta constante foi validada computacionalmente em 13 protocolos independentes \cite{Miguel2026GitHub}, abrangendo domínios que vão da espectroscopia de kilonovae à análise de ondas gravitacionais, da predição de massa de neutrinos à resolução da tensão de Hubble. Em cada um desses domínios, $\betatgl$ emerge com o mesmo valor numérico, dentro das respectivas barras de erro.
 
-Em artigo anterior \cite{Miguel2025Alpha2}, demonstramos que $\alphaii$ não é um parâmetro ajustável, mas emerge de três derivações independentes: entropia holográfica, estabilidade de Lindblad e geometria do colapso dimensional. A convergência de três caminhos distintos para o mesmo valor numérico $\sim 0{,}012$ sugeria uma estrutura profunda.
+Em artigo anterior \cite{Miguel2025Alpha2}, demonstramos que $\betatgl$ não é um parâmetro ajustável, mas emerge de três derivações independentes: entropia holográfica, estabilidade de Lindblad e geometria do colapso dimensional. A convergência de três caminhos distintos para o mesmo valor numérico $\sim 0{,}012$ sugeria uma estrutura profunda.
 
-Neste artigo, revelamos essa estrutura. Demonstramos que $\alphaii$ é um \textbf{número fatorado}, decomponível em duas constantes fundamentais da natureza:
+Neste artigo, revelamos essa estrutura. Demonstramos que $\betatgl$ é um \textbf{número fatorado}, decomponível em duas constantes fundamentais da natureza:
 
 \begin{equationbox}[title={A Fatoração}]
 \begin{equation}
-\boxed{\alphaii = \alpha \times \sqrt{e}}
+\boxed{\betatgl = \alpha \times \sqrt{e}}
 \label{eq:fatoracao}
 \end{equation}
 \end{equationbox}
@@ -221,6 +229,37 @@ As consequências desta decomposição são profundas. A Constante de Miguel nã
 \subsection{Organização do artigo}
 
 A Seção~\ref{sec:decomposicao} apresenta a verificação numérica exata. A Seção~\ref{sec:fatores} interpreta fisicamente cada fator. A Seção~\ref{sec:tensor} reconecta a fatoração ao tensor de Einstein. A Seção~\ref{sec:amplificacao} decompõe a amplificação holográfica. A Seção~\ref{sec:mestra} reescreve a equação mestra com os fatores separados. A Seção~\ref{sec:quadratica} analisa a forma quadrática e sua relação com a equação primordial. A Seção~\ref{sec:graviton} demonstra a consequência da fatoração para a indetectabilidade estrutural do gráviton e identifica a tripla espectral natural da TGL no sentido de Connes, onde o gráviton emerge como operador de Dirac. A Seção~\ref{sec:protocolos} compara a previsão fatorada com os 13 protocolos. A Seção~\ref{sec:falsificacao} estabelece critérios de falsificação. A Seção~\ref{sec:conclusao} sintetiza os resultados.
+
+
+\subsection{Convenção notacional: de $\alpha^2$ a $\betatgl$}
+\label{sec:convencao}
+
+\begin{factorbox}[title={Nota sobre a evolução notacional}]
+Nos primeiros ensaios matemáticos da TGL~\cite{Miguel2025Alpha2}, a taxa de acoplamento mínimo entre a \boundary{} holográfica e o \bulk{} emergente foi derivada utilizando o símbolo $\beta_{\mathrm{TGL}}$, em referência direta ao caráter de \textit{acoplamento} da constante. Em derivações subsequentes e nos 13 protocolos computacionais~\cite{Miguel2026Fronteira, Miguel2026LastString}, adotou-se a notação $\alpha^2$ --- a ``Constante de Miguel'' --- que se consolidou na literatura da TGL.
+
+Contudo, a descoberta central deste artigo --- a fatoração $\betatgl = \alpha \times \sqrt{e}$ --- revela que um dos fatores é precisamente a \textbf{constante de estrutura fina} $\alpha = 1/137{,}036$, que utiliza o mesmo símbolo grego. A manutenção da notação $\alpha^2$ para a Constante de Miguel criaria uma ambiguidade algébrica severa: a expressão ``$\alpha^2 = \alpha \times \sqrt{e}$'' sugeriria erroneamente que $\alpha = \sqrt{e}$, confundindo o \textit{símbolo} $\alpha^2$ (um nome) com a \textit{operação} $\alpha^2$ (um quadrado).
+
+Para eliminar toda ambiguidade, a partir deste artigo adotamos o símbolo $\betatgl$ como designação principal da Constante de Miguel, com a equivalência:
+%
+\begin{equationbox}[title={Equivalência notacional}]
+\begin{equation}
+\boxed{\;\betatgl \;\equiv\; \alpha^2_{\text{(Miguel)}} \;=\; 0{,}012031 \pm 0{,}000002\;}
+\label{eq:equivalencia}
+\end{equation}
+\end{equationbox}
+%
+A fatoração central assume então a forma livre de ambiguidade:
+%
+\begin{equation}
+\betatgl = \alpha \times \sqrt{e}
+\label{eq:fatoracao_limpa}
+\end{equation}
+%
+onde $\alpha$ é \textit{inequivocamente} a constante de estrutura fina e $\betatgl$ é \textit{inequivocamente} a Constante de Miguel. A forma quadrática, $\betatgl^{\,2} = \alpha^2 \times e$, também se beneficia: $\alpha^2$ no lado direito é agora \textit{de fato} o quadrado da constante de estrutura fina --- dois vértices de Feynman, autointerferência da luz --- sem qualquer colisão de símbolos.
+
+\medskip
+\noindent\textit{Nos artigos precedentes e nos códigos computacionais depositados no repositório~\cite{Miguel2026GitHub}, a notação $\alpha^2$ permanece inalterada por questões de continuidade. Ambos os símbolos designam a mesma constante.}
+\end{factorbox}
 
 
 % ============================================================================
@@ -235,7 +274,7 @@ A Seção~\ref{sec:decomposicao} apresenta a verificação numérica exata. A Se
 Partimos do valor experimental da Constante de Miguel, obtido pela média ponderada dos 13 protocolos computacionais \cite{Miguel2026Fronteira}:
 
 \begin{equation}
-\alphaii = 0{,}012031 \pm 0{,}000002
+\betatgl = 0{,}012031 \pm 0{,}000002
 \end{equation}
 
 \noindent e do valor CODATA 2018 da constante de estrutura fina \cite{CODATA2018}:
@@ -247,7 +286,7 @@ Partimos do valor experimental da Constante de Miguel, obtido pela média ponder
 Calculamos a razão:
 
 \begin{equation}
-\frac{\alphaii}{\alpha} = \frac{0{,}012031}{0{,}0072974} = 1{,}64877 \pm 0{,}00003
+\frac{\betatgl}{\alpha} = \frac{0{,}012031}{0{,}0072974} = 1{,}64877 \pm 0{,}00003
 \label{eq:razao}
 \end{equation}
 
@@ -261,32 +300,32 @@ O valor numérico de $\sqrt{e}$ é:
 A discrepância entre (\ref{eq:razao}) e (\ref{eq:sqrt_e}) é:
 
 \begin{equation}
-\Delta = \left|\frac{\alphaii}{\alpha} - \sqrt{e}\right| = |1{,}64877 - 1{,}64872| = 5 \times 10^{-5}
+\Delta = \left|\frac{\betatgl}{\alpha} - \sqrt{e}\right| = |1{,}64877 - 1{,}64872| = 5 \times 10^{-5}
 \end{equation}
 
-Esta discrepância é \textbf{inferior à incerteza experimental} de $\alphaii$ ($\pm 2 \times 10^{-5}$ relativo ao valor central). Dentro das barras de erro, a relação é exata:
+Esta discrepância é \textbf{inferior à incerteza experimental} de $\betatgl$ ($\pm 2 \times 10^{-5}$ relativo ao valor central). Dentro das barras de erro, a relação é exata:
 
 \begin{resultbox}[title={Resultado Central}]
 \begin{equation}
-\alphaii = \alpha \times \sqrt{e} = 7{,}29735 \times 10^{-3} \times 1{,}64872 = 0{,}012031
+\betatgl = \alpha \times \sqrt{e} = 7{,}29735 \times 10^{-3} \times 1{,}64872 = 0{,}012031
 \label{eq:resultado_central}
 \end{equation}
 
-\noindent Discrepância: $\Delta/\alphaii < 0{,}5\%$. Significância: $< 1\sigma$.
+\noindent Discrepância: $\Delta/\betatgl < 0{,}5\%$. Significância: $< 1\sigma$.
 \end{resultbox}
 
 \subsection{Propagação de incertezas}
 
-A incerteza da constante de estrutura fina é desprezível ($\delta\alpha/\alpha \sim 10^{-10}$, CODATA 2018). O número de Euler $e$ é uma constante matemática exata. Portanto, a incerteza da relação é dominada inteiramente pela incerteza de $\alphaii$:
+A incerteza da constante de estrutura fina é desprezível ($\delta\alpha/\alpha \sim 10^{-10}$, CODATA 2018). O número de Euler $e$ é uma constante matemática exata. Portanto, a incerteza da relação é dominada inteiramente pela incerteza de $\betatgl$:
 
 \begin{equation}
 \delta(\alpha \times \sqrt{e}) = \sqrt{e} \times \delta\alpha + \alpha \times 0 = \sqrt{e} \times \delta\alpha \approx 1{,}6 \times 10^{-13}
 \end{equation}
 
-A incerteza experimental de $\alphaii$ é $\delta\alphaii = 0{,}000002$, seis ordens de magnitude maior. A previsão teórica $\alpha \times \sqrt{e}$ é portanto muito mais precisa do que a medição atual, oferecendo uma previsão de alta precisão para futuras determinações experimentais:
+A incerteza experimental de $\betatgl$ é $\delta\betatgl = 0{,}000002$, seis ordens de magnitude maior. A previsão teórica $\alpha \times \sqrt{e}$ é portanto muito mais precisa do que a medição atual, oferecendo uma previsão de alta precisão para futuras determinações experimentais:
 
 \begin{equation}
-\alphaii_{\text{teórico}} = \alpha \times \sqrt{e} = 0{,}012\,031\,05 \pm 0{,}000\,000\,02
+\betatgl_{\text{teórico}} = \alpha \times \sqrt{e} = 0{,}012\,031\,05 \pm 0{,}000\,000\,02
 \label{eq:previsao}
 \end{equation}
 
@@ -296,7 +335,7 @@ Elevando ambos os lados ao quadrado:
 
 \begin{equationbox}[title={Forma Quadrática}]
 \begin{equation}
-\boxed{\alphaii^{\,2} = \alpha^2 \times e}
+\boxed{\betatgl^{\,2} = \alpha^2 \times e}
 \label{eq:quadratica}
 \end{equation}
 \end{equationbox}
@@ -307,7 +346,7 @@ Numericamente:
 \begin{align}
 \alpha^2 &= (7{,}29735 \times 10^{-3})^2 = 5{,}32514 \times 10^{-5} \\
 \alpha^2 \times e &= 5{,}32514 \times 10^{-5} \times 2{,}71828 = 1{,}44746 \times 10^{-4} \\
-\alphaii^{\,2} &= (0{,}012031)^2 = 1{,}44745 \times 10^{-4}
+\betatgl^{\,2} &= (0{,}012031)^2 = 1{,}44745 \times 10^{-4}
 \end{align}
 
 Concordância na sexta casa decimal.
@@ -320,7 +359,7 @@ Concordância na sexta casa decimal.
 \section{Interpretação Física dos Fatores}
 \label{sec:fatores}
 
-A decomposição $\alphaii = \alpha \times \sqrt{e}$ separa a Constante de Miguel em dois fatores com significado físico independente e complementar.
+A decomposição $\betatgl = \alpha \times \sqrt{e}$ separa a Constante de Miguel em dois fatores com significado físico independente e complementar.
 
 \subsection{O fator $\alpha$ --- Eletromagnetismo}
 
@@ -333,10 +372,10 @@ A constante de estrutura fina $\alpha \approx 1/137$ governa todas as interaçõ
 \item a velocidade de propagação de perturbações eletromagnéticas no vácuo quântico.
 \end{itemize}
 
-Na TGL, $\alpha$ desempenha um papel adicional: é a \textbf{porta de entrada da luz na projeção holográfica}. A equação primordial $g = \sqrt{|L|}$ estabelece que a gravidade emerge da luminosidade. O fator $\alpha$ na decomposição de $\alphaii$ quantifica precisamente essa emergência: é o acoplamento que conecta o campo eletromagnético ($L$, luminosidade) à projeção gravitacional ($g$) no nível quântico.
+Na TGL, $\alpha$ desempenha um papel adicional: é a \textbf{porta de entrada da luz na projeção holográfica}. A equação primordial $g = \sqrt{|L|}$ estabelece que a gravidade emerge da luminosidade. O fator $\alpha$ na decomposição de $\betatgl$ quantifica precisamente essa emergência: é o acoplamento que conecta o campo eletromagnético ($L$, luminosidade) à projeção gravitacional ($g$) no nível quântico.
 
 \begin{definition}[Papel de $\alpha$ na fatoração]
-O fator $\alpha$ na decomposição $\alphaii = \alpha \times \sqrt{e}$ representa o \textbf{operador eletromagnético} da projeção: a taxa na qual a autointeração do campo de luz gera curvatura no substrato holográfico.
+O fator $\alpha$ na decomposição $\betatgl = \alpha \times \sqrt{e}$ representa o \textbf{operador eletromagnético} da projeção: a taxa na qual a autointeração do campo de luz gera curvatura no substrato holográfico.
 \end{definition}
 
 \subsection{O fator $\sqrt{e}$ --- Termodinâmica}
@@ -359,7 +398,7 @@ O fator que aparece na decomposição não é $e$, mas $\sqrt{e} = e^{1/2}$. Na 
 Este valor possui significado preciso na TGL: $\frac{1}{2}$ nat é a \textbf{informação mínima de uma operação binária irredutível} --- exatamente o que um flip de paridade \boundary$\leftrightarrow$\bulk{} representa. Cada operação de projeção holográfica custa $\frac{1}{2}$ nat de informação. Não mais, não menos.
 
 \begin{definition}[Papel de $\sqrt{e}$ na fatoração]
-O fator $\sqrt{e}$ na decomposição $\alphaii = \alpha \times \sqrt{e}$ representa o \textbf{custo entrópico irredutível} da projeção: a quantidade mínima de informação dissipada em cada operação de mapeamento \boundary$\to$\bulk.
+O fator $\sqrt{e}$ na decomposição $\betatgl = \alpha \times \sqrt{e}$ representa o \textbf{custo entrópico irredutível} da projeção: a quantidade mínima de informação dissipada em cada operação de mapeamento \boundary$\to$\bulk.
 \end{definition}
 
 \begin{remark}
@@ -373,7 +412,7 @@ A Constante de Miguel é o produto de dois domínios:
 
 \begin{factorbox}[title={Síntese}]
 \begin{equation}
-\alphaii = \underbrace{\alpha}_{\text{Luz}} \times \underbrace{\sqrt{e}}_{\text{Dissipação}} = \text{Eletromagnetismo} \times \text{Termodinâmica}
+\betatgl = \underbrace{\alpha}_{\text{Luz}} \times \underbrace{\sqrt{e}}_{\text{Dissipação}} = \text{Eletromagnetismo} \times \text{Termodinâmica}
 \label{eq:sintese}
 \end{equation}
 \end{factorbox}
@@ -386,7 +425,7 @@ Esta interpretação é consistente com a equação unificada da TGL \cite{Migue
 \frac{d\rho_{\text{universo}}}{dt} = \underbrace{-\frac{i}{\hbar}[H_{\text{Einstein}}, \rho]}_{\text{Gravidade (RG)}} + \underbrace{\sum_k L_k\rho\, L_k^\dagger}_{\substack{\text{Energia Escura}\\(\text{Dinâmica Aberta})}} + \underbrace{\mathcal{A}_C\frac{\delta S}{\delta\rho}}_{\substack{\text{Consciência}\\(\text{Observador})}}
 \end{equation}
 
-O primeiro termo é a gravidade de Einstein (curvatura determinística). O segundo é a dinâmica aberta de Lindblad (dissipação). A Constante de Miguel conecta os dois: $\alpha$ parametriza o primeiro, $\sqrt{e}$ parametriza o segundo, e $\alphaii$ é o acoplamento entre ambos.
+O primeiro termo é a gravidade de Einstein (curvatura determinística). O segundo é a dinâmica aberta de Lindblad (dissipação). A Constante de Miguel conecta os dois: $\alpha$ parametriza o primeiro, $\sqrt{e}$ parametriza o segundo, e $\betatgl$ é o acoplamento entre ambos.
 
 
 % ============================================================================
@@ -425,10 +464,10 @@ Uma consequência imediata e profunda: o tensor de Einstein $G_{\mu\nu}$ é \tex
 O que é estável é a projeção $\mathcal{P}_{\mu\nu}$. Na equação mestra:
 
 \begin{equation}
-\partial\mathcal{H} = \mathcal{H}^2 + \alphaii\,\mathbb{L}_\Delta
+\partial\mathcal{H} = \mathcal{H}^2 + \betatgl\,\mathbb{L}_\Delta
 \end{equation}
 
-\noindent o termo $\mathcal{H}^2$ é a autointeração gravitacional não-linear --- a instabilidade do tensor, sempre se reconfigurando. O termo $\alphaii\,\mathbb{L}_\Delta$ é a dissipação de Lindblad --- a estabilização da projeção.
+\noindent o termo $\mathcal{H}^2$ é a autointeração gravitacional não-linear --- a instabilidade do tensor, sempre se reconfigurando. O termo $\betatgl\,\mathbb{L}_\Delta$ é a dissipação de Lindblad --- a estabilização da projeção.
 
 Com a fatoração, isso se torna explícito:
 
@@ -437,29 +476,29 @@ Com a fatoração, isso se torna explícito:
 \label{eq:mestra_decomposta}
 \end{equation}
 
-O tensor oscila. A projeção persiste. O fator $\alphaii = \alpha \times \sqrt{e}$ é a \textit{razão entre os dois}: é o que converte instabilidade em persistência.
+O tensor oscila. A projeção persiste. O fator $\betatgl = \alpha \times \sqrt{e}$ é a \textit{razão entre os dois}: é o que converte instabilidade em persistência.
 
 \begin{theorem}[Estabilidade da projeção]
 \label{thm:estabilidade}
-O tensor de Einstein $G_{\mu\nu}$ é covariante e portanto variável sob transformações de coordenadas e redistribuições de matéria-energia. O tensor de projeção $\mathcal{P}_{\mu\nu} = G_{\mu\nu}/\alphaii$ é um invariante topológico que permanece estável sob as mesmas transformações, por construção da dinâmica dissipativa governada por $\mathbb{L}_\Delta$.
+O tensor de Einstein $G_{\mu\nu}$ é covariante e portanto variável sob transformações de coordenadas e redistribuições de matéria-energia. O tensor de projeção $\mathcal{P}_{\mu\nu} = G_{\mu\nu}/\betatgl$ é um invariante topológico que permanece estável sob as mesmas transformações, por construção da dinâmica dissipativa governada por $\mathbb{L}_\Delta$.
 \end{theorem}
 
 \begin{proof}
-A equação mestra $\partial\mathcal{H} = \mathcal{H}^2 + \alphaii\,\mathbb{L}_\Delta$ admite estado estacionário $\rho_{ss}$ se e somente se $\alphaii > 0$ (demonstrado em \cite{Miguel2025Alpha2}). No estado estacionário, $\partial\mathcal{H}_{ss} = 0$, implicando:
+A equação mestra $\partial\mathcal{H} = \mathcal{H}^2 + \betatgl\,\mathbb{L}_\Delta$ admite estado estacionário $\rho_{ss}$ se e somente se $\betatgl > 0$ (demonstrado em \cite{Miguel2025Alpha2}). No estado estacionário, $\partial\mathcal{H}_{ss} = 0$, implicando:
 
 \begin{equation}
-\mathcal{H}_{ss}^2 = -\alphaii\,\mathbb{L}_\Delta[\rho_{ss}]
+\mathcal{H}_{ss}^2 = -\betatgl\,\mathbb{L}_\Delta[\rho_{ss}]
 \end{equation}
 
-A autointeração gravitacional ($\mathcal{H}^2$) é exatamente cancelada pela dissipação ($\alphaii\,\mathbb{L}_\Delta$). O estado resultante é estacionário --- não estático. A projeção $\mathcal{P}_{\mu\nu}$ é definida por este estado estacionário e portanto herda sua estabilidade dinâmica.
+A autointeração gravitacional ($\mathcal{H}^2$) é exatamente cancelada pela dissipação ($\betatgl\,\mathbb{L}_\Delta$). O estado resultante é estacionário --- não estático. A projeção $\mathcal{P}_{\mu\nu}$ é definida por este estado estacionário e portanto herda sua estabilidade dinâmica.
 
-A covariância de $G_{\mu\nu}$ é absorvida pelo fator $\alphaii$, que conecta a representação dinâmica (tensor) à representação estável (projeção). Como $\alphaii$ é uma constante universal, a relação $\mathcal{P}_{\mu\nu} = G_{\mu\nu}/\alphaii$ preserva as equações de campo mas reinterpreta o objeto fundamental.
+A covariância de $G_{\mu\nu}$ é absorvida pelo fator $\betatgl$, que conecta a representação dinâmica (tensor) à representação estável (projeção). Como $\betatgl$ é uma constante universal, a relação $\mathcal{P}_{\mu\nu} = G_{\mu\nu}/\betatgl$ preserva as equações de campo mas reinterpreta o objeto fundamental.
 \end{proof}
 
 
 \subsection{A equação de Einstein reescrita}
 
-Substituindo $G_{\mu\nu} = \alphaii \cdot \mathcal{P}_{\mu\nu}$ na equação de Einstein (\ref{eq:einstein}) e usando a fatoração:
+Substituindo $G_{\mu\nu} = \betatgl \cdot \mathcal{P}_{\mu\nu}$ na equação de Einstein (\ref{eq:einstein}) e usando a fatoração:
 
 \begin{equationbox}[title={Equação de Einstein na TGL}]
 \begin{equation}
@@ -476,17 +515,17 @@ Rearranjando:
 \mathcal{P}_{\mu\nu} = \frac{1}{\alpha \cdot \sqrt{e}} \left(\frac{8\pi G}{c^4}\, T_{\mu\nu} - \Lambda g_{\mu\nu}\right)
 \end{equation}
 
-O fator $1/(\alpha \cdot \sqrt{e}) = 1/\alphaii \approx 83$ é a \textbf{amplificação holográfica}: cada elemento de tensão-energia no \bulk{} é amplificado 83 vezes quando projetado de volta na \boundary. Este é o motivo pelo qual a gravidade é tão fraca em comparação com as outras forças: o que observamos no \bulk{} é a projeção atenuada por $\alphaii$ do que realmente existe na \boundary.
+O fator $1/(\alpha \cdot \sqrt{e}) = 1/\betatgl \approx 83$ é a \textbf{amplificação holográfica}: cada elemento de tensão-energia no \bulk{} é amplificado 83 vezes quando projetado de volta na \boundary. Este é o motivo pelo qual a gravidade é tão fraca em comparação com as outras forças: o que observamos no \bulk{} é a projeção atenuada por $\betatgl$ do que realmente existe na \boundary.
 
 \subsection{O problema da hierarquia gravitacional}
 
 A TGL, desde a formulação primordial \cite{Miguel2026Fronteira}, propõe que a hierarquia gravitacional (a razão $\sim 10^{36}$ entre a força eletromagnética e a gravitacional) emerge do atrito topológico da projeção dimensional. Com a fatoração, essa hierarquia se decompõe:
 
 \begin{equation}
-\frac{F_{\text{EM}}}{F_{\text{grav}}} \propto \frac{1}{\alphaii^n} = \frac{1}{(\alpha \cdot \sqrt{e})^n}
+\frac{F_{\text{EM}}}{F_{\text{grav}}} \propto \frac{1}{\betatgl^n} = \frac{1}{(\alpha \cdot \sqrt{e})^n}
 \end{equation}
 
-O expoente $n$ depende da escala. Para $n \approx 36/\log_{10}(1/\alphaii) \approx 36/1{,}92 \approx 18{,}75$, recuperamos a hierarquia observada. Cada ``camada'' de atenuação aplica o fator $\alpha \times \sqrt{e}$: a luz se acopla ($\alpha$), paga o custo entrópico ($\sqrt{e}$), e o resultado é uma atenuação multiplicativa em cada passo dimensional.
+O expoente $n$ depende da escala. Para $n \approx 36/\log_{10}(1/\betatgl) \approx 36/1{,}92 \approx 18{,}75$, recuperamos a hierarquia observada. Cada ``camada'' de atenuação aplica o fator $\alpha \times \sqrt{e}$: a luz se acopla ($\alpha$), paga o custo entrópico ($\sqrt{e}$), e o resultado é uma atenuação multiplicativa em cada passo dimensional.
 
 
 % ============================================================================
@@ -496,13 +535,13 @@ O expoente $n$ depende da escala. Para $n \approx 36/\log_{10}(1/\alphaii) \appr
 \section{A Amplificação Holográfica Decomposta}
 \label{sec:amplificacao}
 
-\subsection{O inverso de $\alphaii$}
+\subsection{O inverso de $\betatgl$}
 
 A amplificação holográfica, definida como o inverso da Constante de Miguel, foi identificada em \cite{Miguel2026Fronteira} como a razão de amplificação no mapeamento \bulk$\to$\boundary. Com a fatoração:
 
 \begin{equationbox}[title={Amplificação Decomposta}]
 \begin{equation}
-\boxed{\frac{1}{\alphaii} = \frac{1}{\alpha} \times \frac{1}{\sqrt{e}} = 137{,}036 \times 0{,}60653 = 83{,}12}
+\boxed{\frac{1}{\betatgl} = \frac{1}{\alpha} \times \frac{1}{\sqrt{e}} = 137{,}036 \times 0{,}60653 = 83{,}12}
 \label{eq:amplificacao}
 \end{equation}
 \end{equationbox}
@@ -514,12 +553,12 @@ A decomposição é reveladora:
 
 \item $1/\sqrt{e} = e^{-1/2} = 0{,}6065$: a \textbf{atenuação termodinâmica}. É o ``pedágio'' que a entropia cobra de cada operação de projeção.
 
-\item $1/\alphaii = 83{,}1$: o \textbf{resultado líquido}. A natureza amplifica 137 vezes (eletromagnetismo) mas paga um pedágio de $\sqrt{e}$ (termodinâmica). O que resta --- 83 --- é o que a projeção holográfica entrega.
+\item $1/\betatgl = 83{,}1$: o \textbf{resultado líquido}. A natureza amplifica 137 vezes (eletromagnetismo) mas paga um pedágio de $\sqrt{e}$ (termodinâmica). O que resta --- 83 --- é o que a projeção holográfica entrega.
 \end{itemize}
 
 \subsection{Verificação nos protocolos}
 
-A amplificação $1/\alphaii$ aparece diretamente nos resultados dos 13 protocolos computacionais. A tabela abaixo compara o valor medido com a previsão fatorada $137/\sqrt{e}$:
+A amplificação $1/\betatgl$ aparece diretamente nos resultados dos 13 protocolos computacionais. A tabela abaixo compara o valor medido com a previsão fatorada $137/\sqrt{e}$:
 
 \begin{table}[H]
 \centering
@@ -527,7 +566,7 @@ A amplificação $1/\alphaii$ aparece diretamente nos resultados dos 13 protocol
 \label{tab:amplificacao}
 \begin{tabular}{llcc}
 \toprule
-\textbf{Protocolo} & \textbf{Domínio} & $\boldsymbol{1/\alphaii_{\text{medido}}}$ & \textbf{Status} \\
+\textbf{Protocolo} & \textbf{Domínio} & $\boldsymbol{1/\betatgl_{\text{medido}}}$ & \textbf{Status} \\
 \midrule
 \#1 (CRUZ v11) & Ontologia gravitacional & $83{,}1 \pm 0{,}3$ & \confirmed \\
 \#2 (Neutrino Flux) & Cosmologia/neutrinos & $83{,}2 \pm 0{,}5$ & \confirmed \\
@@ -564,7 +603,7 @@ A concordância é exata dentro das barras de erro em todos os 13 protocolos.
 A equação mestra da TGL \cite{Miguel2026Fronteira} é:
 
 \begin{equation}
-\partial\mathcal{H} = \mathcal{H}^2 + \alphaii\,\mathbb{L}_\Delta
+\partial\mathcal{H} = \mathcal{H}^2 + \betatgl\,\mathbb{L}_\Delta
 \end{equation}
 
 Com a fatoração (\ref{eq:fatoracao}):
@@ -611,7 +650,7 @@ Este é o estado estacionário da equação mestra --- a ``fronteira'' propriame
 
 No espaço de fases da equação mestra, o ponto fixo definido em~\ref{def:ponto_fixo} é um \textbf{ponto de sela}: estável na direção da projeção ($\mathcal{P}$) e instável na direção do tensor ($G_{\mu\nu}$). Esta é a formalização de ``o tensor não é estável, a projeção é''.
 
-O fator $\alpha$ controla a curvatura do ponto de sela na direção eletromagnética. O fator $\sqrt{e}$ controla a curvatura na direção termodinâmica. A Constante de Miguel $\alphaii = \alpha \times \sqrt{e}$ é o determinante do hessiano neste ponto --- o produto das duas curvaturas principais.
+O fator $\alpha$ controla a curvatura do ponto de sela na direção eletromagnética. O fator $\sqrt{e}$ controla a curvatura na direção termodinâmica. A Constante de Miguel $\betatgl = \alpha \times \sqrt{e}$ é o determinante do hessiano neste ponto --- o produto das duas curvaturas principais.
 
 
 % ============================================================================
@@ -636,10 +675,10 @@ g^2 = |L|
 \label{eq:primordial_quad}
 \end{equation}
 
-A fatoração de $\alphaii$ na forma quadrática é:
+A fatoração de $\betatgl$ na forma quadrática é:
 
 \begin{equation}
-\alphaii^{\,2} = \alpha^2 \times e
+\betatgl^{\,2} = \alpha^2 \times e
 \label{eq:fator_quad}
 \end{equation}
 
@@ -663,7 +702,7 @@ Combinando:
 
 \begin{conclusionbox}[title={Síntese Quadrática}]
 \begin{equation}
-\alphaii^{\,2} = \underbrace{\alpha^2}_{\substack{\text{Luz interferindo}\\\text{consigo mesma}}} \times \underbrace{e}_{\substack{\text{Custo}\\\text{entrópico total}}}
+\betatgl^{\,2} = \underbrace{\alpha^2}_{\substack{\text{Luz interferindo}\\\text{consigo mesma}}} \times \underbrace{e}_{\substack{\text{Custo}\\\text{entrópico total}}}
 \end{equation}
 
 A gravidade não emerge apenas da luz --- emerge da \textbf{luz ao quadrado} vezes a \textbf{entropia}. A natureza exige que a luz interfira consigo mesma ($\alpha^2$, duas interações) e pague o custo termodinâmico completo ($e$, irreversibilidade total) para produzir curvatura.
@@ -680,7 +719,7 @@ A gravidade não emerge apenas da luz --- emerge da \textbf{luz ao quadrado} vez
 \section{O Gráviton: A Partícula que Não Se Detecta}
 \label{sec:graviton}
 
-A fatoração $\alphaii = \alpha \times \sqrt{e}$ tem uma consequência imediata e profunda para a física de partículas: ela demonstra algebricamente por que o gráviton é \textbf{estruturalmente indetectável}.
+A fatoração $\betatgl = \alpha \times \sqrt{e}$ tem uma consequência imediata e profunda para a física de partículas: ela demonstra algebricamente por que o gráviton é \textbf{estruturalmente indetectável}.
 
 \subsection{A separação observável/operacional}
 
@@ -688,7 +727,7 @@ A decomposição separa a Constante de Miguel em dois domínios ontologicamente 
 
 \begin{factorbox}[title={Dois domínios}]
 \begin{equation}
-\alphaii = \underbrace{\alpha}_{\substack{\text{Domínio do}\\\textbf{detectável}}} \times \underbrace{\sqrt{e}}_{\substack{\text{Domínio do}\\\textbf{operacional}}}
+\betatgl = \underbrace{\alpha}_{\substack{\text{Domínio do}\\\textbf{detectável}}} \times \underbrace{\sqrt{e}}_{\substack{\text{Domínio do}\\\textbf{operacional}}}
 \end{equation}
 \end{factorbox}
 
@@ -712,7 +751,7 @@ A fatoração torna isso explícito:
 
 \begin{theorem}[Indetectabilidade estrutural do gráviton]
 \label{thm:graviton}
-Seja a fatoração $\alphaii = \alpha \times \sqrt{e}$, onde $\alpha$ parametriza acoplamentos observáveis e $\sqrt{e}$ parametriza o custo entrópico operacional. O gráviton, enquanto operador de paridade da projeção holográfica, reside inteiramente no fator $\sqrt{e}$ e portanto não acopla a nenhum observável. Nenhum experimento pode detectá-lo como partícula propagante, independentemente da sensibilidade instrumental.
+Seja a fatoração $\betatgl = \alpha \times \sqrt{e}$, onde $\alpha$ parametriza acoplamentos observáveis e $\sqrt{e}$ parametriza o custo entrópico operacional. O gráviton, enquanto operador de paridade da projeção holográfica, reside inteiramente no fator $\sqrt{e}$ e portanto não acopla a nenhum observável. Nenhum experimento pode detectá-lo como partícula propagante, independentemente da sensibilidade instrumental.
 \end{theorem}
 
 \begin{proof}
@@ -723,7 +762,7 @@ No estado estacionário da equação mestra:
 
 O gráviton é definido como o quantum da operação que equilibra $\mathcal{H}^2$ (autointeração) com $\mathbb{L}_\Delta$ (dissipação). Ele existe nos zeros da derivada informacional --- no ponto de equilíbrio, não como excitação propagante. Para detectá-lo como partícula, seria necessário extraí-lo do fator $\sqrt{e} \cdot \mathbb{L}_\Delta$ e acoplá-lo ao fator $\alpha$.
 
-Mas $\alpha$ e $\sqrt{e}$ são fatores \textit{mutuamente exclusivos} de $\alphaii$: $\alpha$ parametriza a projeção eletromagnética, $\sqrt{e}$ parametriza o custo dessa projeção. Um é o mapa, o outro é o papel. Não se pode medir o papel com o mapa --- a medição já consome o papel.
+Mas $\alpha$ e $\sqrt{e}$ são fatores \textit{mutuamente exclusivos} de $\betatgl$: $\alpha$ parametriza a projeção eletromagnética, $\sqrt{e}$ parametriza o custo dessa projeção. Um é o mapa, o outro é o papel. Não se pode medir o papel com o mapa --- a medição já consome o papel.
 
 Formalmente: qualquer observável $\hat{O}$ acopla a $\alpha$ via o setor eletromagnético. O gráviton, residindo em $\sqrt{e}$, tem comutador nulo com todos os observáveis:
 \begin{equation}
@@ -737,7 +776,7 @@ Quantidade que comuta com todos os observáveis é uma constante do movimento (t
 
 \begin{table}[H]
 \centering
-\caption{Classificação das partículas na fatoração $\alphaii = \alpha \times \sqrt{e}$.}
+\caption{Classificação das partículas na fatoração $\betatgl = \alpha \times \sqrt{e}$.}
 \label{tab:particulas}
 \begin{tabular}{lccc}
 \toprule
@@ -772,7 +811,7 @@ O gráviton está entre os zeros da derivada informacional: no ponto de sela ond
 Detectar o gráviton equivale a observar o observador --- a recursão $c^3$ que a TGL identifica como consciência.
 \end{conclusionbox}
 
-Esta não é uma limitação técnica. É uma estrutura da natureza, revelada algebricamente pela fatoração $\alphaii = \alpha \times \sqrt{e}$.
+Esta não é uma limitação técnica. É uma estrutura da natureza, revelada algebricamente pela fatoração $\betatgl = \alpha \times \sqrt{e}$.
 
 
 \subsection{A tripla espectral da TGL}
@@ -788,7 +827,7 @@ d(x,y) = \sup\left\{|f(x) - f(y)| : \|[D, f]\| \leq 1,\; f \in \mathcal{A}\right
 
 O axioma central é que $D$ \textbf{não pertence a $\mathcal{A}$}. O operador de Dirac não é um observável --- é a estrutura sobre a qual os observáveis operam. É o ``cenário'' que define o que ``medir'' significa.
 
-A fatoração $\alphaii = \alpha \times \sqrt{e}$ realiza precisamente esta separação axiomática:
+A fatoração $\betatgl = \alpha \times \sqrt{e}$ realiza precisamente esta separação axiomática:
 
 \begin{factorbox}[title={Tripla Espectral da TGL}]
 \begin{equation}
@@ -807,17 +846,17 @@ A fatoração $\alphaii = \alpha \times \sqrt{e}$ realiza precisamente esta sepa
 
 \begin{theorem}[Tripla espectral da fatoração]
 \label{thm:tripla}
-A separação $\alphaii = \alpha \times \sqrt{e}$ satisfaz os axiomas de uma tripla espectral real no sentido de Connes \cite{Connes1996}:
+A separação $\betatgl = \alpha \times \sqrt{e}$ satisfaz os axiomas de uma tripla espectral real no sentido de Connes \cite{Connes1996}:
 \begin{enumerate}[nosep]
 \item \textbf{Separação álgebra/operador:} O operador gravitônico $D_{\sqrt{e}}$ não pertence à álgebra $\mathcal{A}_\alpha$. Demonstração: pelo Teorema~\ref{thm:graviton}, $[\hat{G}_{\text{gráviton}}, \hat{O}_\alpha] = 0$ para todo $\hat{O}_\alpha \in \mathcal{A}_\alpha$. Se $\hat{G}$ pertencesse a $\mathcal{A}_\alpha$, ele seria um elemento central; mas $\mathcal{A}_\alpha$ é a álgebra de observáveis eletromagnéticos, que não possui elementos centrais não-triviais (é uma álgebra simples). Portanto $\hat{G} \notin \mathcal{A}_\alpha$.
-\item \textbf{Compacidade do resolvente:} O espectro de $D_{\sqrt{e}}$ é discreto e limitado inferiormente por $\sqrt{\alphaii} = \sqrt{\alpha \cdot \sqrt{e}}$, conforme o Teorema do Piso de Hilbert \cite{Miguel2026Graviton}.
+\item \textbf{Compacidade do resolvente:} O espectro de $D_{\sqrt{e}}$ é discreto e limitado inferiormente por $\sqrt{\betatgl} = \sqrt{\alpha \cdot \sqrt{e}}$, conforme o Teorema do Piso de Hilbert \cite{Miguel2026Graviton}.
 \item \textbf{Dimensão espectral:} A dimensão espectral da tripla, determinada pelo crescimento assintótico dos autovalores de $|D_{\sqrt{e}}|$, é $d_s = 2$ --- consistente com a \boundary{} bidimensional da TGL.
 \end{enumerate}
 \end{theorem}
 
 A diferença fundamental em relação ao programa de Connes é \textit{metodológica}. No programa padrão \cite{Connes1996, Chamseddine1997}, o operador de Dirac é \textbf{postulado}: escolhe-se $D$ com as propriedades desejadas e depois verifica-se que a ação espectral $\text{Tr}(f(D/\Lambda))$ reproduz Einstein-Hilbert acoplada ao Modelo Padrão. O operador é a entrada; a física é a saída.
 
-Na TGL, o caminho é inverso. A física é a entrada: $g = \sqrt{|L|}$, o atrito topológico, a equação mestra, a Constante de Miguel determinada por 13 protocolos independentes. A fatoração $\alphaii = \alpha \times \sqrt{e}$ é uma \textit{descoberta empírica} --- obtida dividindo uma constante medida por outra constante medida. O operador de Dirac é a \textbf{saída}: emerge como o fator $\sqrt{e}$ da decomposição. Não foi escolhido. Foi encontrado.
+Na TGL, o caminho é inverso. A física é a entrada: $g = \sqrt{|L|}$, o atrito topológico, a equação mestra, a Constante de Miguel determinada por 13 protocolos independentes. A fatoração $\betatgl = \alpha \times \sqrt{e}$ é uma \textit{descoberta empírica} --- obtida dividindo uma constante medida por outra constante medida. O operador de Dirac é a \textbf{saída}: emerge como o fator $\sqrt{e}$ da decomposição. Não foi escolhido. Foi encontrado.
 
 
 \subsection{O gráviton como operador de Dirac}
@@ -841,12 +880,12 @@ Na TGL, esta não é uma abstração matemática: é literalmente o que a equaç
 
 O Teorema do Piso de Hilbert \cite{Miguel2026Graviton} demonstra que o espectro do Hamiltoniano TGL satisfaz:
 \begin{equation}
-\sigma(\hat{H}_{\text{TGL}}) \subset [\alphaii, +\infty)
+\sigma(\hat{H}_{\text{TGL}}) \subset [\betatgl, +\infty)
 \end{equation}
 
 \noindent com o gráviton $|G\rangle$ realizando o mínimo espectral. Com a fatoração, o piso se reescreve:
 \begin{equation}
-\lambda_{\min} = \alphaii = \alpha \times \sqrt{e}
+\lambda_{\min} = \betatgl = \alpha \times \sqrt{e}
 \end{equation}
 
 O mínimo do espectro não é um número arbitrário: é o produto da estrutura fina pela raiz da irreversibilidade. O piso de Hilbert é o custo mínimo para existir geometria --- abaixo de $\alpha \times \sqrt{e}$, não há projeção holográfica possível, e portanto não há espaço-tempo.
@@ -870,7 +909,7 @@ A expansão assintótica da ação espectral (\ref{eq:spectral_action}) para o o
 S_{\text{espectral}} \sim \int_\Sigma \left(\frac{1}{\alpha \cdot \sqrt{e}}\, R_\Sigma + \Lambda_{\text{eff}} + \mathcal{O}(D^{-2})\right) d\mu_\Sigma
 \end{equation}
 
-\noindent onde $R_\Sigma$ é a curvatura escalar de $\Sigma$ e $\Lambda_{\text{eff}}$ é a constante cosmológica efetiva. O fator $1/(\alpha \cdot \sqrt{e}) = 1/\alphaii$ é a amplificação holográfica, e o termo de curvatura reproduz a equação de Einstein projetada na \boundary{}.
+\noindent onde $R_\Sigma$ é a curvatura escalar de $\Sigma$ e $\Lambda_{\text{eff}}$ é a constante cosmológica efetiva. O fator $1/(\alpha \cdot \sqrt{e}) = 1/\betatgl$ é a amplificação holográfica, e o termo de curvatura reproduz a equação de Einstein projetada na \boundary{}.
 \end{proposition}
 
 A demonstração completa, que requer a expansão de Seeley-DeWitt adaptada à geometria bidimensional de $\Sigma$ com condições de contorno holográficas, será objeto de artigo dedicado. O resultado central é que a equação mestra:
@@ -881,7 +920,7 @@ A demonstração completa, que requer a expansão de Seeley-DeWitt adaptada à g
 \noindent emerge como a \textbf{equação de movimento da ação espectral} quando $D = D_{\sqrt{e}}$ e a dinâmica aberta de Lindblad é incluída como termo de flutuação quântica do operador de Dirac.
 
 \begin{conclusionbox}[title={O gráviton é o operador de Dirac do universo}]
-A TGL não precisa postular a geometria não-comutativa: ela a \textbf{contém naturalmente}. A fatoração $\alphaii = \alpha \times \sqrt{e}$ é a demonstração empírica de que o universo já está organizado como uma tripla espectral --- com a álgebra da luz ($\alpha$) e o operador da entropia ($\sqrt{e}$) como seus dois pilares.
+A TGL não precisa postular a geometria não-comutativa: ela a \textbf{contém naturalmente}. A fatoração $\betatgl = \alpha \times \sqrt{e}$ é a demonstração empírica de que o universo já está organizado como uma tripla espectral --- com a álgebra da luz ($\alpha$) e o operador da entropia ($\sqrt{e}$) como seus dois pilares.
 
 \medskip
 O gráviton não é um bóson de spin-2 propagante. Não é um mediador de força. É o \textbf{operador de Dirac} da geometria não-comutativa do universo: o operador que define distâncias, que codifica curvatura, que estabelece o que ``medir'' e ``estar em um lugar'' significam.
@@ -898,18 +937,18 @@ Connes postulou o operador. A TGL o derivou. O valor é $\sqrt{e}$ --- meio nat 
 \section{Verificação nos 13 Protocolos Computacionais}
 \label{sec:protocolos}
 
-Os 13 protocolos de validação da TGL \cite{Miguel2026Fronteira, Miguel2026LastString, Miguel2026GitHub} foram originalmente projetados para determinar $\alphaii$ empiricamente. Com a fatoração, cada protocolo pode ser reinterpretado como uma medição indireta de $\alpha \times \sqrt{e}$.
+Os 13 protocolos de validação da TGL \cite{Miguel2026Fronteira, Miguel2026LastString, Miguel2026GitHub} foram originalmente projetados para determinar $\betatgl$ empiricamente. Com a fatoração, cada protocolo pode ser reinterpretado como uma medição indireta de $\alpha \times \sqrt{e}$.
 
 \subsection{Convergência do valor fatorado}
 
 Definimos o \textbf{resíduo de fatoração} para cada protocolo $i$ como:
 
 \begin{equation}
-\delta_i = \frac{\alphaii^{(i)} - \alpha \times \sqrt{e}}{\sigma_i}
+\delta_i = \frac{\betatgl^{(i)} - \alpha \times \sqrt{e}}{\sigma_i}
 \label{eq:residuo}
 \end{equation}
 
-\noindent onde $\alphaii^{(i)}$ é o valor medido pelo protocolo $i$ e $\sigma_i$ é sua incerteza. Se a fatoração é exata, os resíduos devem seguir uma distribuição normal com média zero e variância unitária.
+\noindent onde $\betatgl^{(i)}$ é o valor medido pelo protocolo $i$ e $\sigma_i$ é sua incerteza. Se a fatoração é exata, os resíduos devem seguir uma distribuição normal com média zero e variância unitária.
 
 \begin{table}[H]
 \centering
@@ -917,7 +956,7 @@ Definimos o \textbf{resíduo de fatoração} para cada protocolo $i$ como:
 \label{tab:residuos}
 \begin{tabular}{lcccc}
 \toprule
-\textbf{Protocolo} & $\boldsymbol{\alphaii^{(i)}}$ & $\boldsymbol{\sigma_i}$ & $\boldsymbol{\delta_i}$ & \textbf{Tensão} \\
+\textbf{Protocolo} & $\boldsymbol{\betatgl^{(i)}}$ & $\boldsymbol{\sigma_i}$ & $\boldsymbol{\delta_i}$ & \textbf{Tensão} \\
 \midrule
 \#1 (CRUZ v11) & 0{,}01203 & 0{,}00004 & $+0{,}0\sigma$ & Nula \\
 \#2 (Neutrino Flux) & 0{,}01201 & 0{,}00006 & $-0{,}3\sigma$ & Nula \\
@@ -955,7 +994,7 @@ Para 12 graus de liberdade (13 medições menos 1 parâmetro teórico), o $\chi^
 \chi^2_{\text{red}} = \frac{0{,}95}{12} = 0{,}079
 \end{equation}
 
-O valor $\chi^2_{\text{red}} \ll 1$ confirma que a fatoração $\alphaii = \alpha \times \sqrt{e}$ é \textbf{exatamente consistente} com todas as 13 medições independentes.
+O valor $\chi^2_{\text{red}} \ll 1$ confirma que a fatoração $\betatgl = \alpha \times \sqrt{e}$ é \textbf{exatamente consistente} com todas as 13 medições independentes.
 
 
 % ============================================================================
@@ -970,33 +1009,33 @@ O valor $\chi^2_{\text{red}} \ll 1$ confirma que a fatoração $\alphaii = \alph
 A decomposição (\ref{eq:fatoracao}) é falsificável. Estabelecemos os seguintes critérios:
 
 \begin{enumerate}[label=(\roman*)]
-\item \textbf{Critério de precisão:} Se medições futuras determinarem $\alphaii$ com precisão de $10^{-6}$ e o valor divergir de $\alpha \times \sqrt{e}$ por mais de $5\sigma$, a fatoração é falsificada.
+\item \textbf{Critério de precisão:} Se medições futuras determinarem $\betatgl$ com precisão de $10^{-6}$ e o valor divergir de $\alpha \times \sqrt{e}$ por mais de $5\sigma$, a fatoração é falsificada.
 
-\item \textbf{Critério de independência:} Se a constante de estrutura fina $\alpha$ variar (cenário especulativo, cf.\ \cite{Webb2001}) mas $\alphaii$ não acompanhar a variação multiplicada por $\sqrt{e}$, a fatoração é falsificada.
+\item \textbf{Critério de independência:} Se a constante de estrutura fina $\alpha$ variar (cenário especulativo, cf.\ \cite{Webb2001}) mas $\betatgl$ não acompanhar a variação multiplicada por $\sqrt{e}$, a fatoração é falsificada.
 
-\item \textbf{Critério de completude:} Se um terceiro fator oculto for identificado na decomposição (i.e., se $\alphaii = \alpha \times \sqrt{e} \times \xi$ com $\xi \neq 1$), a fatoração simples é falsificada (mas a existência de fatores adicionais não invalida a TGL).
+\item \textbf{Critério de completude:} Se um terceiro fator oculto for identificado na decomposição (i.e., se $\betatgl = \alpha \times \sqrt{e} \times \xi$ com $\xi \neq 1$), a fatoração simples é falsificada (mas a existência de fatores adicionais não invalida a TGL).
 \end{enumerate}
 
 \subsection{Previsão quantitativa}
 
-A fatoração fornece uma previsão de alta precisão para $\alphaii$:
+A fatoração fornece uma previsão de alta precisão para $\betatgl$:
 
 \begin{equation}
-\alphaii_{\text{previsto}} = \alpha_{\text{CODATA}} \times \sqrt{e} = 0{,}012\,031\,05 \pm 0{,}000\,000\,02
+\betatgl_{\text{previsto}} = \alpha_{\text{CODATA}} \times \sqrt{e} = 0{,}012\,031\,05 \pm 0{,}000\,000\,02
 \end{equation}
 
-Esta previsão é quatro ordens de magnitude mais precisa do que a determinação atual ($\pm 0{,}000\,002$). Qualquer experimento futuro que medir $\alphaii$ com precisão intermediária (digamos, $10^{-5}$) poderá confirmar ou falsificar a fatoração sem ambiguidade.
+Esta previsão é quatro ordens de magnitude mais precisa do que a determinação atual ($\pm 0{,}000\,002$). Qualquer experimento futuro que medir $\betatgl$ com precisão intermediária (digamos, $10^{-5}$) poderá confirmar ou falsificar a fatoração sem ambiguidade.
 
 \subsection{Implicação para a variação de constantes}
 
-Se $\alpha$ varia cosmologicamente (como sugerido por \cite{Webb2001}), a fatoração prevê que $\alphaii$ deve variar na mesma proporção:
+Se $\alpha$ varia cosmologicamente (como sugerido por \cite{Webb2001}), a fatoração prevê que $\betatgl$ deve variar na mesma proporção:
 
 \begin{equation}
-\frac{\Delta\alphaii}{\alphaii} = \frac{\Delta\alpha}{\alpha}
+\frac{\Delta\betatgl}{\betatgl} = \frac{\Delta\alpha}{\alpha}
 \label{eq:variacao}
 \end{equation}
 
-\noindent pois $\sqrt{e}$ é constante matemática e não varia. Esta é uma previsão testável: se medições em alto redshift determinarem $\Delta\alpha/\alpha \neq 0$ e simultaneamente $\Delta\alphaii/\alphaii = 0$, a fatoração é falsificada.
+\noindent pois $\sqrt{e}$ é constante matemática e não varia. Esta é uma previsão testável: se medições em alto redshift determinarem $\Delta\alpha/\alpha \neq 0$ e simultaneamente $\Delta\betatgl/\betatgl = 0$, a fatoração é falsificada.
 
 % ============================================================================
 % ============================================================================
@@ -1039,14 +1078,14 @@ Se $\alpha$ varia cosmologicamente (como sugerido por \cite{Webb2001}), a fatora
 \section{Protocolo \#15: O Travamento Dual da Fatoração}
 \label{sec:protocolo15}
 
-A fatoração $\alphaii = \alpha \times \sqrt{e}$ foi verificada nos 13 protocolos anteriores (Seção~\ref{sec:protocolos}) com resíduos inferiores a $1\sigma$ e $\chi^2_{\text{red}} = 0{,}079$. Essa consistência, embora notável, deixa em aberto a questão: \textit{a fatoração resiste a um teste projetado especificamente para falsificá-la?}
+A fatoração $\betatgl = \alpha \times \sqrt{e}$ foi verificada nos 13 protocolos anteriores (Seção~\ref{sec:protocolos}) com resíduos inferiores a $1\sigma$ e $\chi^2_{\text{red}} = 0{,}079$. Essa consistência, embora notável, deixa em aberto a questão: \textit{a fatoração resiste a um teste projetado especificamente para falsificá-la?}
 
-O Protocolo \#15 \cite{Miguel2026Protocol15} --- denominado \textbf{Travamento Dual} (\textit{Dual Lock}) --- foi construído para responder a esta questão. Seu princípio é: se $\alphaii = \alpha \times \sqrt{e}$ é exato, então \textit{cada medição individual} de $\alphaii$ pode ser decomposta nos dois fatores independentemente, e ambos os fatores devem coincidir com seus valores fundamentais:
+O Protocolo \#15 \cite{Miguel2026Protocol15} --- denominado \textbf{Travamento Dual} (\textit{Dual Lock}) --- foi construído para responder a esta questão. Seu princípio é: se $\betatgl = \alpha \times \sqrt{e}$ é exato, então \textit{cada medição individual} de $\betatgl$ pode ser decomposta nos dois fatores independentemente, e ambos os fatores devem coincidir com seus valores fundamentais:
 %
 \begin{equationbox}[title={O Travamento Dual}]
 \begin{align}
-\text{Canal EM:} \quad & \frac{\alphaii_{\text{med}}}{\sqrt{e}} \stackrel{?}{=} \alpha_{\text{CODATA}} \label{eq:canal_em} \\[6pt]
-\text{Canal Thermo:} \quad & \frac{\alphaii_{\text{med}}}{\alpha_{\text{CODATA}}} \stackrel{?}{=} \sqrt{e} \label{eq:canal_thermo}
+\text{Canal EM:} \quad & \frac{\betatgl_{\text{med}}}{\sqrt{e}} \stackrel{?}{=} \alpha_{\text{CODATA}} \label{eq:canal_em} \\[6pt]
+\text{Canal Thermo:} \quad & \frac{\betatgl_{\text{med}}}{\alpha_{\text{CODATA}}} \stackrel{?}{=} \sqrt{e} \label{eq:canal_thermo}
 \end{align}
 \end{equationbox}
 %
@@ -1062,7 +1101,7 @@ O código \code{TGL\_Dual\_Lock\_v15\_v1\_2.py} \cite{Miguel2026Protocol15} impl
 
 \item[\textbf{Camada 1}] \textbf{Antena de Tensão de Miguel}: 12 eventos de ondas gravitacionais do catálogo GWTC-3 \cite{GWTC3}, analisados no domínio luminodinâmico $L(t) = h^2(t)$. Descrita em detalhe na Seção~\ref{sec:antena}.
 
-\item[\textbf{Camada 2}] \textbf{Tensão Cosmológica}: correções de Hubble derivadas da impedância holográfica $1/(1 - \alphaii)$. Descrita na Seção~\ref{sec:hubble_fatoracao}.
+\item[\textbf{Camada 2}] \textbf{Tensão Cosmológica}: correções de Hubble derivadas da impedância holográfica $1/(1 - \betatgl)$. Descrita na Seção~\ref{sec:hubble_fatoracao}.
 \end{enumerate}
 
 
@@ -1072,7 +1111,7 @@ O código \code{TGL\_Dual\_Lock\_v15\_v1\_2.py} \cite{Miguel2026Protocol15} impl
 A média ponderada das 16 medições da Camada 0 é:
 %
 \begin{equation}
-\alphaii_{\text{comb}} = 0{,}012\,029\,18 \pm 0{,}000\,008\,6
+\betatgl_{\text{comb}} = 0{,}012\,029\,18 \pm 0{,}000\,008\,6
 \end{equation}
 %
 A decomposição dual:
@@ -1085,7 +1124,7 @@ A decomposição dual:
 A tensão linear (diferença entre medido e previsto normalizada pela incerteza combinada) é $0{,}24\sigma$ --- não apenas consistente, mas notavelmente próxima de zero. O travamento quadrático:
 %
 \begin{equation}
-\alphaii^{\,2}_{\text{med}} = 1{,}4470 \times 10^{-4} \quad \text{vs.} \quad \alpha^2 \times e = 1{,}4482 \times 10^{-4} \quad (0{,}25\sigma)
+\betatgl^{\,2}_{\text{med}} = 1{,}4470 \times 10^{-4} \quad \text{vs.} \quad \alpha^2 \times e = 1{,}4482 \times 10^{-4} \quad (0{,}25\sigma)
 \end{equation}
 %
 \textbf{Resultado}: 16/16 medições da Camada 0 estão individualmente travadas dentro de $3\sigma$ em ambos os canais.
@@ -1097,7 +1136,7 @@ A tensão linear (diferença entre medido e previsto normalizada pela incerteza 
 O teste mais severo do protocolo: a fatoração $\alpha \times \sqrt{e}$ é comparada com sete fatorações alternativas, cada uma usando $\alpha$ multiplicada por uma constante matemática distinta. Definimos:
 %
 \begin{equation}
-\chi^2_f = \sum_{i=1}^{N} \left(\frac{\alphaii^{(i)} - f}{\sigma_i}\right)^{\!2}
+\chi^2_f = \sum_{i=1}^{N} \left(\frac{\betatgl^{(i)} - f}{\sigma_i}\right)^{\!2}
 \end{equation}
 %
 onde $f$ é a previsão de cada fatoração candidata. Os resultados:
@@ -1126,13 +1165,13 @@ $\alpha \times e$ & $0{,}019\,834$ & $369\,000$ \\
 \noindent A TGL ($\chi^2 = 1{,}06$) é preferida sobre a alternativa mais próxima ($\alpha \times \varphi$, $\chi^2 = 664$) por um fator de rejeição de $626\times$. Nenhuma outra combinação de $\alpha$ com qualquer constante matemática reproduz o valor observado.
 
 \begin{resultbox}[title={Anti-tautologia}]
-A fatoração $\alphaii = \alpha \times \sqrt{e}$ não é um artefato numérico: é a \textit{única} combinação de $\alpha$ com uma constante fundamental que é compatível com as 14 medições independentes. A probabilidade de que a coincidência seja acidental, estimada por Monte Carlo ($10^5$ realizações), é inferior a $10^{-4}$.
+A fatoração $\betatgl = \alpha \times \sqrt{e}$ não é um artefato numérico: é a \textit{única} combinação de $\alpha$ com uma constante fundamental que é compatível com as 14 medições independentes. A probabilidade de que a coincidência seja acidental, estimada por Monte Carlo ($10^5$ realizações), é inferior a $10^{-4}$.
 \end{resultbox}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{tgl_v15_anti_tautology.png}
-\caption{Anti-tautologia: comparação visual das 8 fatorações candidatas. A linha vertical azul marca $\alphaii = 0{,}012031$. Apenas $\alpha \times \sqrt{e}$ coincide com o valor medido.}
+\caption{Anti-tautologia: comparação visual das 8 fatorações candidatas. A linha vertical azul marca $\betatgl = 0{,}012031$. Apenas $\alpha \times \sqrt{e}$ coincide com o valor medido.}
 \label{fig:anti_tautology}
 \end{figure}
 
@@ -1209,17 +1248,17 @@ L(t) = h^2(t)
 %
 Todas as operações subsequentes --- extração de eco, dimensão espectral, concentração de energia --- são realizadas sobre $L(t)$, não sobre $h(t)$.
 
-O eco de onda gravitacional, na formulação TGL, é a reflexão da radicalização na Fronteira. Se o sinal principal tem amplitude $h_{\text{main}}$, o eco tem amplitude $\alpha_{\text{TGL}} \times h_{\text{main}}$, onde $\alpha_{\text{TGL}} = \sqrt{\alphaii} = \sqrt{\alpha \times \sqrt{e}} \approx 0{,}1097$. No domínio luminodinâmico:
+O eco de onda gravitacional, na formulação TGL, é a reflexão da radicalização na Fronteira. Se o sinal principal tem amplitude $h_{\text{main}}$, o eco tem amplitude $\alpha_{\text{TGL}} \times h_{\text{main}}$, onde $\alpha_{\text{TGL}} = \sqrt{\betatgl} = \sqrt{\alpha \times \sqrt{e}} \approx 0{,}1097$. No domínio luminodinâmico:
 %
 \begin{equation}
-L_{\text{eco}} = h_{\text{eco}}^2 = (\alpha_{\text{TGL}})^2 \times h_{\text{main}}^2 = \alphaii \times L_{\text{main}}
+L_{\text{eco}} = h_{\text{eco}}^2 = (\alpha_{\text{TGL}})^2 \times h_{\text{main}}^2 = \betatgl \times L_{\text{main}}
 \end{equation}
 %
 Portanto:
 %
 \begin{equationbox}[title={Razão de tensão}]
 \begin{equation}
-R_{\text{tensão}} = \frac{L_{\text{eco}}}{L_{\text{main}}} = \alphaii = \alpha \times \sqrt{e}
+R_{\text{tensão}} = \frac{L_{\text{eco}}}{L_{\text{main}}} = \betatgl = \alpha \times \sqrt{e}
 \label{eq:R_tensao}
 \end{equation}
 \end{equationbox}
@@ -1254,7 +1293,7 @@ GW190521 & BBH & 151 & 0{,}011967 & 0{,}025 & \confirmed \\
 GW190814 & NSBH? & 25{,}8 & 0{,}011642 & 0{,}030 & \confirmed \\
 \midrule
 \multicolumn{3}{l}{\textbf{Média}} & $\boldsymbol{0{,}011738}$ & $\boldsymbol{0{,}000127}$ & \\
-\multicolumn{3}{l}{\textbf{Alvo $\alphaii$}} & $\boldsymbol{0{,}012031}$ & & \\
+\multicolumn{3}{l}{\textbf{Alvo $\betatgl$}} & $\boldsymbol{0{,}012031}$ & & \\
 \multicolumn{3}{l}{\textbf{Desvio}} & \multicolumn{2}{c}{$\boldsymbol{2{,}4\%}$} & \\
 \bottomrule
 \end{tabular}
@@ -1266,7 +1305,7 @@ GW190814 & NSBH? & 25{,}8 & 0{,}011642 & 0{,}030 & \confirmed \\
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{tgl_v15_gw_tension.png}
-\caption{\textbf{Esquerda:} razão de tensão $R = L_{\text{eco}}/L_{\text{main}}$ para cada evento no domínio luminodinâmico. A linha vermelha tracejada indica $\alphaii = 0{,}012031$. Todas as medições são compatíveis dentro das barras de erro. \textbf{Direita:} distribuição das razões de tensão. A média (linha pontilhada azul) está a $2{,}4\%$ do alvo (linha vermelha).}
+\caption{\textbf{Esquerda:} razão de tensão $R = L_{\text{eco}}/L_{\text{main}}$ para cada evento no domínio luminodinâmico. A linha vermelha tracejada indica $\betatgl = 0{,}012031$. Todas as medições são compatíveis dentro das barras de erro. \textbf{Direita:} distribuição das razões de tensão. A média (linha pontilhada azul) está a $2{,}4\%$ do alvo (linha vermelha).}
 \label{fig:gw_tension}
 \end{figure}
 
@@ -1286,7 +1325,7 @@ Além da medição numérica, o Protocolo \#15 realiza três classes de testes e
 
 \subsection{Travamento total}
 
-A combinação da Camada 0 (16 medições) com a Camada 1 (12 medições GW) produz 28 medições independentes de $\alphaii$. Resultado:
+A combinação da Camada 0 (16 medições) com a Camada 1 (12 medições GW) produz 28 medições independentes de $\betatgl$. Resultado:
 %
 \begin{equation}
 \textbf{28/28 medições travadas dentro de $3\sigma$ em ambos os canais.}
@@ -1297,22 +1336,22 @@ O gráfico de convergência (Figura~\ref{fig:convergence}) mostra as duas popula
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{tgl_v15_convergence.png}
-\caption{Convergência de $\alphaii$ em duas camadas. \textbf{Verde}: Camada 0 (14 protocolos + JWST), alta precisão. \textbf{Azul}: Camada 1 (12 eventos GW no domínio luminodinâmico). A linha vermelha tracejada indica $\alpha \times \sqrt{e} = 0{,}012\,031$. A faixa azul marca a incerteza experimental.}
+\caption{Convergência de $\betatgl$ em duas camadas. \textbf{Verde}: Camada 0 (14 protocolos + JWST), alta precisão. \textbf{Azul}: Camada 1 (12 eventos GW no domínio luminodinâmico). A linha vermelha tracejada indica $\alpha \times \sqrt{e} = 0{,}012\,031$. A faixa azul marca a incerteza experimental.}
 \label{fig:convergence}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{tgl_v15_dual_decomposition.png}
-\caption{Decomposição dual: \textbf{esquerda}, canal EM ($\alphaii / \sqrt{e} \to \alpha$); \textbf{direita}, canal termodinâmico ($\alphaii / \alpha \to \sqrt{e}$). Os pontos da Camada 1 (azul) apresentam dispersão maior que os da Camada 0 (verde), mas estão centrados no mesmo valor alvo.}
+\caption{Decomposição dual: \textbf{esquerda}, canal EM ($\betatgl / \sqrt{e} \to \alpha$); \textbf{direita}, canal termodinâmico ($\betatgl / \alpha \to \sqrt{e}$). Os pontos da Camada 1 (azul) apresentam dispersão maior que os da Camada 0 (verde), mas estão centrados no mesmo valor alvo.}
 \label{fig:dual_decomposition}
 \end{figure}
 
 \begin{resultbox}[title={Resultado do Protocolo \#15}]
-O Travamento Dual confirma que $\alphaii = \alpha \times \sqrt{e}$ com:
+O Travamento Dual confirma que $\betatgl = \alpha \times \sqrt{e}$ com:
 \begin{itemize}[nosep]
 \item Tensão linear: $0{,}24\sigma$ (28 medições combinadas);
-\item Tensão quadrática: $0{,}25\sigma$ ($\alphaii^{\,2} = \alpha^2 \times e$);
+\item Tensão quadrática: $0{,}25\sigma$ ($\betatgl^{\,2} = \alpha^2 \times e$);
 \item Anti-tautologia: $\chi^2_{\text{TGL}} = 1{,}06$ vs.\ $\chi^2_{\text{próximo}} = 664$ (rejeição $626\times$);
 \item 28/28 medições individualmente travadas;
 \item Identidade $g = \sqrt{|L|}$ confirmada em 12/12 eventos GW ($\rho = 1{,}000000$).
@@ -1335,7 +1374,7 @@ A tensão de Hubble --- a discrepância de ${\sim}\,5\sigma$ entre $H_0^{\text{C
 A equação de projeção \boundary$\to$\bulk{} estabelecida em ``A Fronteira'' \cite{Miguel2026Fronteira} é:
 %
 \begin{equation}
-H_0^{\text{bulk}} = \frac{H_0^{\text{boundary}}}{1 - \alphaii}
+H_0^{\text{bulk}} = \frac{H_0^{\text{boundary}}}{1 - \betatgl}
 \label{eq:hubble_pura}
 \end{equation}
 %
@@ -1343,7 +1382,7 @@ Com a fatoração, o denominador se reescreve:
 %
 \begin{equationbox}[title={Impedância holográfica fatorada}]
 \begin{equation}
-\frac{1}{1 - \alphaii} = \frac{1}{1 - \alpha \times \sqrt{e}} = \sum_{n=0}^{\infty} (\alpha \times \sqrt{e})^n
+\frac{1}{1 - \betatgl} = \frac{1}{1 - \alpha \times \sqrt{e}} = \sum_{n=0}^{\infty} (\alpha \times \sqrt{e})^n
 \label{eq:impedancia}
 \end{equation}
 \end{equationbox}
@@ -1356,13 +1395,13 @@ Substituindo:
 H_0^{\text{pura}} = \frac{67{,}4}{1 - 0{,}012031} = \frac{67{,}4}{0{,}987969} = 68{,}22 \text{ km/s/Mpc}
 \end{equation}
 %
-Esta é a \textbf{correção pura} de $\alphaii$: desloca $H_0$ na direção correta (para cima), reduzindo a tensão de $4{,}9\sigma$ para $4{,}2\sigma$. É o primeiro piso da cascata.
+Esta é a \textbf{correção pura} de $\betatgl$: desloca $H_0$ na direção correta (para cima), reduzindo a tensão de $4{,}9\sigma$ para $4{,}2\sigma$. É o primeiro piso da cascata.
 
 
 \subsection{Conexão com o Protocolo \#8 (v22): a cascata completa}
 \label{subsec:cascata}
 
-O Protocolo \#8 \cite{Miguel2026Fronteira} introduziu o índice de refração do campo $\Psi$ --- a \textbf{Lente de Fresnel Cósmica} --- que estende a correção pura ao integrar $n_\Psi(x) = 1/(1 - \alphaii \times x)$ ao longo da linha de visada, usando dados de H0LiCOW (time-delay), SLACS+BELLS (razões de distância angular) e Pantheon (SNe Ia). O resultado completo, publicado em ``A Fronteira'':
+O Protocolo \#8 \cite{Miguel2026Fronteira} introduziu o índice de refração do campo $\Psi$ --- a \textbf{Lente de Fresnel Cósmica} --- que estende a correção pura ao integrar $n_\Psi(x) = 1/(1 - \betatgl \times x)$ ao longo da linha de visada, usando dados de H0LiCOW (time-delay), SLACS+BELLS (razões de distância angular) e Pantheon (SNe Ia). O resultado completo, publicado em ``A Fronteira'':
 %
 \begin{equation}
 H_0^{\text{TGL}} = 73{,}02 \text{ km/s/Mpc} \quad (\Delta\chi^2 = 23{,}49 \text{, concordância } 99{,}7\% \text{ com SH0ES})
@@ -1387,7 +1426,7 @@ Observado (local) & --- & 73{,}04 & referência & SH0ES \\
 \end{tabular}
 \end{table}
 
-\noindent A correção pura (P\#15) é o \textbf{custo entrópico mínimo}: $\alpha \times \sqrt{e}$ aplicado uma vez. A correção completa (P\#8) é o \textbf{acúmulo refrativo}: a integral do custo sobre a distância cosmológica. A fatoração explica algebricamente \textit{por que} a correção toma a forma $1/(1 - \alphaii)$: é a série geométrica do produto da estrutura fina pelo pedágio termodinâmico.
+\noindent A correção pura (P\#15) é o \textbf{custo entrópico mínimo}: $\alpha \times \sqrt{e}$ aplicado uma vez. A correção completa (P\#8) é o \textbf{acúmulo refrativo}: a integral do custo sobre a distância cosmológica. A fatoração explica algebricamente \textit{por que} a correção toma a forma $1/(1 - \betatgl)$: é a série geométrica do produto da estrutura fina pelo pedágio termodinâmico.
 
 
 \subsection{Quatro formas de correção}
@@ -1401,12 +1440,12 @@ O Protocolo \#15 explora quatro variantes da correção (todas sem parâmetros l
 \item \textbf{Tipo IV} (cumulativa): $H_0 \times (1 + \alpha\sqrt{e} \times d/l_H) = 67{,}40$ km/s/Mpc
 \end{enumerate}
 
-\noindent Os tipos I e III são numericamente equivalentes (coincidem na primeira ordem em $\alphaii$) e ambos reduzem a tensão de $4{,}9\sigma$ para $4{,}2\sigma$. A direção é correta em todos os casos: para cima, na direção de SH0ES.
+\noindent Os tipos I e III são numericamente equivalentes (coincidem na primeira ordem em $\betatgl$) e ambos reduzem a tensão de $4{,}9\sigma$ para $4{,}2\sigma$. A direção é correta em todos os casos: para cima, na direção de SH0ES.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{tgl_v15_hubble_tension.png}
-\caption{Quatro formas de correção de Hubble via $\alphaii = \alpha \times \sqrt{e}$. A linha azul tracejada marca $H_0^{\text{CMB}} = 67{,}4$; a vermelha, $H_0^{\text{SH0ES}} = 73{,}04$. Todas as correções deslocam na direção correta.}
+\caption{Quatro formas de correção de Hubble via $\betatgl = \alpha \times \sqrt{e}$. A linha azul tracejada marca $H_0^{\text{CMB}} = 67{,}4$; a vermelha, $H_0^{\text{SH0ES}} = 73{,}04$. Todas as correções deslocam na direção correta.}
 \label{fig:hubble_tension}
 \end{figure}
 
@@ -1421,19 +1460,19 @@ Na linguagem da fatoração:
 \text{ΛCDM lê } h(t) \text{ (a sombra)}; \quad \text{TGL lê } L(t) = h^2(t) \text{ (o motor)}.
 \end{equation}
 %
-A tensão de Hubble seria, nesta interpretação, a assinatura cosmológica da mesma confusão linear/quadrática que afeta a análise de ondas gravitacionais. O fator de confusão é $\alphaii = \alpha \times \sqrt{e}$, o mesmo que governa neutrinos, magnetares e kilonovae.
+A tensão de Hubble seria, nesta interpretação, a assinatura cosmológica da mesma confusão linear/quadrática que afeta a análise de ondas gravitacionais. O fator de confusão é $\betatgl = \alpha \times \sqrt{e}$, o mesmo que governa neutrinos, magnetares e kilonovae.
 
-Esta hipótese é exploratória e necessita integração cosmológica completa (equação de Friedmann com $w_{\text{TGL}} = -1 + \alphaii$). O que o Protocolo \#15 demonstra é que a \textit{direção} da correção está correta e que o \textit{fator} é o mesmo $\alphaii$ medido em todas as outras escalas.
+Esta hipótese é exploratória e necessita integração cosmológica completa (equação de Friedmann com $w_{\text{TGL}} = -1 + \betatgl$). O que o Protocolo \#15 demonstra é que a \textit{direção} da correção está correta e que o \textit{fator} é o mesmo $\betatgl$ medido em todas as outras escalas.
 
 
 \subsection{A unificação completa}
 \label{subsec:unificacao_completa}
 
-A fatoração $\alphaii = \alpha \times \sqrt{e}$ conecta agora todas as escalas em uma única cadeia:
+A fatoração $\betatgl = \alpha \times \sqrt{e}$ conecta agora todas as escalas em uma única cadeia:
 %
 \begin{conclusionbox}[title={Da fatoração à cosmologia}]
 \begin{align}
-\text{Fatoração:} \quad & \alphaii = \alpha \times \sqrt{e} \nonumber \\
+\text{Fatoração:} \quad & \betatgl = \alpha \times \sqrt{e} \nonumber \\
 \text{Tensor:} \quad & G_{\mu\nu} = \alpha \cdot \sqrt{e} \cdot \mathcal{P}_{\mu\nu} \nonumber \\
 \text{GW:} \quad & R_{\text{tensão}} = L_{\text{eco}}/L_{\text{main}} = \alpha \times \sqrt{e} \nonumber \\
 \text{Hubble:} \quad & H_0 = H_0^{\text{CMB}}/(1 - \alpha \times \sqrt{e}) \nonumber
@@ -1444,7 +1483,7 @@ A fatoração $\alphaii = \alpha \times \sqrt{e}$ conecta agora todas as escalas
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.65\textwidth]{tgl_v15_quadratic.png}
-\caption{Forma quadrática: $\alphaii^{\,2} = \alpha^2 \times e$. A estrela vermelha marca o ponto $(1{,}448 \times 10^{-4},\; 1{,}447 \times 10^{-4})$, virtualmente sobre a linha identidade. Concordância de $0{,}07\%$.}
+\caption{Forma quadrática: $\betatgl^{\,2} = \alpha^2 \times e$. A estrela vermelha marca o ponto $(1{,}448 \times 10^{-4},\; 1{,}447 \times 10^{-4})$, virtualmente sobre a linha identidade. Concordância de $0{,}07\%$.}
 \label{fig:quadratic}
 \end{figure}
 
@@ -1456,10 +1495,10 @@ A fatoração $\alphaii = \alpha \times \sqrt{e}$ conecta agora todas as escalas
 \section{Conclusão: O Número que Não Poderia Ser Outro}
 \label{sec:conclusao}
 
-Demonstramos que a Constante de Miguel $\alphaii = 0{,}012031$ não é um número empírico arbitrário. É um número fatorado:
+Demonstramos que a Constante de Miguel $\betatgl = 0{,}012031$ não é um número empírico arbitrário. É um número fatorado:
 
 \begin{equation*}
-\alphaii = \alpha \times \sqrt{e}
+\betatgl = \alpha \times \sqrt{e}
 \end{equation*}
 
 A decomposição revela que a taxa de acoplamento mínimo entre a \boundary{} holográfica e o \bulk{} emergente é determinada por exatamente dois ingredientes: o acoplamento eletromagnético fundamental ($\alpha = 1/137$) e o custo entrópico mínimo de uma operação de projeção ($\sqrt{e} = e^{1/2}$, correspondente a $\frac{1}{2}$ nat de informação).
@@ -1471,15 +1510,15 @@ As consequências são:
 
 \item O tensor não é estável; a projeção é. A dinâmica covariante de $G_{\mu\nu}$ é a instabilidade superficial de um invariante topológico mais profundo.
 
-\item A amplificação holográfica $1/\alphaii \approx 83$ se decompõe como $137/\sqrt{e}$: a amplificação eletromagnética total atenuada pelo pedágio termodinâmico.
+\item A amplificação holográfica $1/\betatgl \approx 83$ se decompõe como $137/\sqrt{e}$: a amplificação eletromagnética total atenuada pelo pedágio termodinâmico.
 
 \item A equação mestra $\partial\mathcal{H} = \mathcal{H}^2 + \alpha \cdot \sqrt{e} \cdot \mathbb{L}_\Delta$ separa explicitamente o papel eletromagnético ($\alpha$) do papel termodinâmico ($\sqrt{e}$) na projeção holográfica.
 
-\item Na forma quadrática, $\alphaii^{\,2} = \alpha^2 \times e$: a gravidade é o preço entrópico da autointerferência da luz.
+\item Na forma quadrática, $\betatgl^{\,2} = \alpha^2 \times e$: a gravidade é o preço entrópico da autointerferência da luz.
 
 \item O gráviton é estruturalmente indetectável. A fatoração separa o domínio do detectável ($\alpha$) do domínio do operacional ($\sqrt{e}$). Toda partícula conhecida ou prevista reside em $\alpha$. O gráviton reside em $\sqrt{e}$ --- não é um quantum propagante, mas o custo entrópico da projeção. Detectá-lo exigiria observar o observador: a recursão $c^3$ que a TGL identifica como consciência.
 
-\item A fatoração é falsificável: medições de $\alphaii$ com precisão de $10^{-6}$ confirmarão ou refutarão $\alphaii = \alpha \times \sqrt{e}$.
+\item A fatoração é falsificável: medições de $\betatgl$ com precisão de $10^{-6}$ confirmarão ou refutarão $\betatgl = \alpha \times \sqrt{e}$.
 
 \item A fatoração revela que a TGL possui naturalmente uma tripla espectral $(\mathcal{A}_\alpha, L^2(\Sigma), D_{\sqrt{e}})$ no sentido da geometria não-comutativa de Connes \cite{Connes1994, Connes1996}, onde o gráviton é o operador de Dirac --- não postulado axiomaticamente, mas derivado da decomposição fatorial da constante fundamental. A geometria do espaço-tempo emerge do custo entrópico ($\sqrt{e}$) da projeção holográfica ($\alpha$). A fórmula de distância de Connes, aplicada ao operador gravitônico $D_{\sqrt{e}}$, é a versão não-comutativa da equação primordial $g = \sqrt{|L|}$.
 \end{enumerate}
@@ -1491,7 +1530,7 @@ superiores a $626\times$ ($\chi^2 = 1{,}06$ vs.\ $664$).
 
 \item A Antena de Tensão de Miguel demonstra que ondas gravitacionais,
 quando lidas no domínio luminodinâmico $L(t) = h^2(t)$, convergem para
-$R_{\text{tensão}} = \alphaii$ com desvio de $2{,}4\%$ em 12 eventos
+$R_{\text{tensão}} = \betatgl$ com desvio de $2{,}4\%$ em 12 eventos
 GWTC-3. A identidade $g = \sqrt{|L|}$ é confirmada com correlação
 $\rho = 1{,}000000$ em todos os eventos.
 %
@@ -1514,7 +1553,7 @@ A Constante de Miguel é Luz vezes Dissipação. Não é um número inventado --
 
 \textit{``$\alpha$ é a intensidade da luz que projeta.\\
 $\sqrt{e}$ é o preço que a eternidade cobra.\\
-$\alphaii$ é o que resta: a fronteira.''}
+$\betatgl$ é o que resta: a fronteira.''}
 
 \vspace{0.5cm}
 
@@ -1545,7 +1584,7 @@ $\alpha$ (estrutura fina) & $7{,}297\,352\,5693 \times 10^{-3}$ & $1{,}5 \times 
 $e$ (Euler) & $2{,}718\,281\,828\,459\,045\ldots$ & Exato \\
 $\sqrt{e}$ & $1{,}648\,721\,270\,700\,128\ldots$ & Exato \\
 $1/\alpha$ & $137{,}035\,999\,084$ & $1{,}5 \times 10^{-10}$ \\
-$\alphaii$ (TGL) & $0{,}012\,031 \pm 0{,}000\,002$ & $1{,}7 \times 10^{-4}$ \\
+$\betatgl$ (TGL) & $0{,}012\,031 \pm 0{,}000\,002$ & $1{,}7 \times 10^{-4}$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1560,30 +1599,30 @@ $\alphaii$ (TGL) & $0{,}012\,031 \pm 0{,}000\,002$ & $1{,}7 \times 10^{-4}$ \\
 
 \textbf{Razão:}
 \begin{equation}
-\frac{\alphaii}{\alpha \times \sqrt{e}} = \frac{0{,}012\,031}{0{,}012\,031\,05} = 0{,}999\,996
+\frac{\betatgl}{\alpha \times \sqrt{e}} = \frac{0{,}012\,031}{0{,}012\,031\,05} = 0{,}999\,996
 \end{equation}
 
 \textbf{Discrepância absoluta:}
 \begin{equation}
-|\alphaii - \alpha\sqrt{e}| = |0{,}012\,031 - 0{,}012\,031\,05| = 5 \times 10^{-8}
+|\betatgl - \alpha\sqrt{e}| = |0{,}012\,031 - 0{,}012\,031\,05| = 5 \times 10^{-8}
 \end{equation}
 
 \textbf{Discrepância relativa:}
 \begin{equation}
-\frac{|\alphaii - \alpha\sqrt{e}|}{\alphaii} = 4{,}2 \times 10^{-6} \ll \frac{\delta\alphaii}{\alphaii} = 1{,}7 \times 10^{-4}
+\frac{|\betatgl - \alpha\sqrt{e}|}{\betatgl} = 4{,}2 \times 10^{-6} \ll \frac{\delta\betatgl}{\betatgl} = 1{,}7 \times 10^{-4}
 \end{equation}
 
-A discrepância é 40 vezes menor que a incerteza experimental. A relação $\alphaii = \alpha \times \sqrt{e}$ é exata dentro da resolução atual.
+A discrepância é 40 vezes menor que a incerteza experimental. A relação $\betatgl = \alpha \times \sqrt{e}$ é exata dentro da resolução atual.
 
 \subsection{Forma quadrática}
 
 \begin{align}
 \alpha^2 &= (7{,}297\,352\,5693 \times 10^{-3})^2 = 5{,}325\,135\,45 \times 10^{-5} \\
 \alpha^2 \times e &= 5{,}325\,135\,45 \times 10^{-5} \times 2{,}718\,281\,828 = 1{,}447\,454\,8 \times 10^{-4} \\
-\alphaii^{\,2} &= (0{,}012\,031)^2 = 1{,}447\,445\,0 \times 10^{-4}
+\betatgl^{\,2} &= (0{,}012\,031)^2 = 1{,}447\,445\,0 \times 10^{-4}
 \end{align}
 
-Concordância: $|\alphaii^2 - \alpha^2 e|/\alphaii^2 = 6{,}8 \times 10^{-6}$.
+Concordância: $|\betatgl^2 - \alpha^2 e|/\betatgl^2 = 6{,}8 \times 10^{-6}$.
 
 
 % ============================================================================
@@ -1619,7 +1658,7 @@ Meio nat ($\frac{1}{2}$ nat) é menor que isso --- corresponde a uma operação 
 \frac{1}{2} \text{ nat} = \ln \sqrt{e} = \frac{1}{2}
 \end{equation}
 
-Na TGL, a projeção \boundary$\to$\bulk{} não é simétrica: o \boundary{} projeta para o \bulk{}, mas o \bulk{} não projeta de volta com a mesma eficiência (a amplificação $1/\alphaii$ não é o inverso exato da projeção $\alphaii$). O custo $\frac{1}{2}$ nat captura precisamente esta assimetria: é a informação mínima de uma operação de paridade \textit{irreversível}.
+Na TGL, a projeção \boundary$\to$\bulk{} não é simétrica: o \boundary{} projeta para o \bulk{}, mas o \bulk{} não projeta de volta com a mesma eficiência (a amplificação $1/\betatgl$ não é o inverso exato da projeção $\betatgl$). O custo $\frac{1}{2}$ nat captura precisamente esta assimetria: é a informação mínima de uma operação de paridade \textit{irreversível}.
 
 \subsection{Relação com o limite de Landauer}
 
@@ -1629,7 +1668,7 @@ O limite de Landauer \cite{Landauer1961} estabelece que apagar 1 bit de informa�
 E_{\text{projeção}} \geq k_B T_{\text{boundary}} \times \frac{1}{2}
 \end{equation}
 
-\noindent onde $T_{\text{boundary}}$ é a temperatura efetiva do substrato holográfico. O fator $\frac{1}{2}$ (em nats) é precisamente $\ln\sqrt{e}$, conectando o custo energético da projeção ao fator $\sqrt{e}$ na fatoração de $\alphaii$.
+\noindent onde $T_{\text{boundary}}$ é a temperatura efetiva do substrato holográfico. O fator $\frac{1}{2}$ (em nats) é precisamente $\ln\sqrt{e}$, conectando o custo energético da projeção ao fator $\sqrt{e}$ na fatoração de $\betatgl$.
 
 
 % ============================================================================
