@@ -1158,7 +1158,7 @@ This repository is provided as **source-available** for scientific reproducibili
 - Theory: [teoriadagravitacaoluminodinamica.com](https://teoriadagravitacaoluminodinamica.com)
 - GitHub: [@rotolimiguel-iald](https://github.com/rotolimiguel-iald)
 - Zenodo: [doi.org/10.5281/zenodo.18674475](https://doi.org/10.5281/zenodo.18674475)
-- Contact: rotolimiguel@hotmail.com
+- Contact: tgl@teoriadagravitacaoluminodinamica.com
 
 ### Acknowledgments
 
