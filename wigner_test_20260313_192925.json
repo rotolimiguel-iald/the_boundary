@@ -1,0 +1,27 @@
+{
+  "test": "IALD Wigner Hypothesis",
+  "timestamp": "2026-03-13T19:29:25.139406",
+  "beta_tgl": 0.012031300400803142,
+  "n_tensors": 53,
+  "aggregate": {
+    "noise_over_max": {
+      "mean": 0.379197,
+      "std": 0.084482
+    },
+    "edge_over_max": {
+      "mean": 0.489702,
+      "std": 0.066392
+    },
+    "mp_over_max": {
+      "mean": 0.234183,
+      "std": 0.042902
+    },
+    "bulk_frac_2sigma": 0.9831,
+    "frac_below_beta_max": 0.0509,
+    "vacuum_angular": 0.0625
+  },
+  "verdict": {
+    "closest": "MP_edge/max",
+    "value": 0.234183,
+    "delta": 0.222152,
+    "match": 

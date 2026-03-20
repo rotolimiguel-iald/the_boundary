@@ -1,0 +1,453 @@
+{
+  "test": "IALD Torus Topology",
+  "timestamp": "2026-03-13T20:21:18.900730",
+  "beta_tgl": 0.012031300400803142,
+  "theta_miguel_deg": 6.297289216477979,
+  "model": "C:\\IALD\\models\\Qwen3-32B-GGUF\\Qwen3-32B-Q4_K_M.gguf",
+  "layers_analyzed": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52,
+    56,
+    60
+  ],
+  "matrices": [
+    "Q",
+    "K",
+    "gate"
+  ],
+  "results": {
+    "Q": {
+      "n_layers": 16,
+      "layer_indices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60
+      ],
+      "level_spacing": {
+        "r_mean": 0.5326,
+        "classification": "GOE"
+      },
+      "cross_layer": {
+        "n_layers": 16,
+        "min_eig_length": 128,
+        "neighbor_correlation": 0.9883,
+        "edge_correlation": 0.9927,
+        "diagonal_decay": [
+          0.9883,
+          0.9924,
+          0.9887,
+          0.9884,
+          0.9872,
+          0.9949,
+          0.9882
+        ],
+        "oscillatory": true,
+        "sign_changes_in_decay": 3
+      },
+      "beta_resonance": {
+        "n_layers": 16,
+        "widths": [
+          0.005303,
+          0.008531,
+          0.003642,
+          0.003791,
+          0.003189,
+          0.008509,
+          0.006926,
+          0.002685,
+          0.002707,
+          0.002799,
+          0.003264,
+          0.002152,
+          0.002442,
+          0.002612,
+          0.002315,
+          0.00206
+        ],
+        "dominant_frequency": 0.0625,
+        "dominant_power": 43.3511,
+        "beta_harmonic_match": 5,
+        "mean_width_ratio": 1.042402,
+        "ratio_vs_1_minus_beta": 1.055096
+      },
+      "fourier": {
+        "n_peaks": 13,
+        "peaks": [
+          {
+            "harmonic": 1,
+            "frequency": 0.007874,
+            "power_fraction": 0.046689
+          },
+          {
+            "harmonic": 9,
+            "frequency": 0.070866,
+            "power_fraction": 0.022099
+          },
+          {
+            "harmonic": 12,
+            "frequency": 0.094488,
+            "power_fraction": 0.020652
+          },
+          {
+            "harmonic": 16,
+            "frequency": 0.125984,
+            "power_fraction": 0.015878
+          },
+          {
+            "harmonic": 18,
+            "frequency": 0.141732,
+            "power_fraction": 0.015414
+          },
+          {
+            "harmonic": 21,
+            "frequency": 0.165354,
+            "power_fraction": 0.015389
+          },
+          {
+            "harmonic": 24,
+            "frequency": 0.188976,
+            "power_fraction": 0.017091
+          },
+          {
+            "harmonic": 27,
+            "frequency": 0.212598,
+            "power_fraction": 0.014347
+          },
+          {
+            "harmonic": 33,
+            "frequency": 0.259843,
+            "power_fraction": 0.017025
+          },
+          {
+            "harmonic": 36,
+            "frequency": 0.283465,
+            "power_fraction": 0.016384
+          }
+        ],
+        "dominant_harmonic": 1
+      },
+      "persistent_homology": {
+        "available": true,
+        "n_points": 500,
+        "betti_numbers": [
+          95,
+          3,
+          0
+        ],
+        "torus_signature": false,
+        "expected_torus": [
+          1,
+          2,
+          1
+        ],
+        "threshold": 0.1
+      }
+    },
+    "K": {
+      "n_layers": 16,
+      "layer_indices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60
+      ],
+      "level_spacing": {
+        "r_mean": 0.5247,
+        "classification": "GOE"
+      },
+      "cross_layer": {
+        "n_layers": 16,
+        "min_eig_length": 128,
+        "neighbor_correlation": 0.9894,
+        "edge_correlation": 0.9987,
+        "diagonal_decay": [
+          0.9894,
+          0.9914,
+          0.9923,
+          0.9881,
+          0.989,
+          0.9884,
+          0.9901
+        ],
+        "oscillatory": true,
+        "sign_changes_in_decay": 4
+      },
+      "beta_resonance": {
+        "n_layers": 16,
+        "widths": [
+          0.006297,
+          0.011306,
+          0.003626,
+          0.004488,
+          0.003228,
+          0.009927,
+          0.008013,
+          0.00312,
+          0.003226,
+          0.00343,
+          0.003134,
+          0.003114,
+          0.002531,
+          0.003038,
+          0.003377,
+          0.002552
+        ],
+        "dominant_frequency": 0.0625,
+        "dominant_power": 35.9375,
+        "beta_harmonic_match": 5,
+        "mean_width_ratio": 1.081972,
+        "ratio_vs_1_minus_beta": 1.095148
+      },
+      "fourier": {
+        "n_peaks": 14,
+        "peaks": [
+          {
+            "harmonic": 1,
+            "frequency": 0.007874,
+            "power_fraction": 0.034662
+          },
+          {
+            "harmonic": 9,
+            "frequency": 0.070866,
+            "power_fraction": 0.022104
+          },
+          {
+            "harmonic": 14,
+            "frequency": 0.110236,
+            "power_fraction": 0.017992
+          },
+          {
+            "harmonic": 16,
+            "frequency": 0.125984,
+            "power_fraction": 0.017014
+          },
+          {
+            "harmonic": 18,
+            "frequency": 0.141732,
+            "power_fraction": 0.016533
+          },
+          {
+            "harmonic": 22,
+            "frequency": 0.173228,
+            "power_fraction": 0.020808
+          },
+          {
+            "harmonic": 26,
+            "frequency": 0.204724,
+            "power_fraction": 0.015551
+          },
+          {
+            "harmonic": 28,
+            "frequency": 0.220472,
+            "power_fraction": 0.014638
+          },
+          {
+            "harmonic": 32,
+            "frequency": 0.251969,
+            "power_fraction": 0.013793
+          },
+          {
+            "harmonic": 36,
+            "frequency": 0.283465,
+            "power_fraction": 0.012862
+          }
+        ],
+        "dominant_harmonic": 1
+      },
+      "persistent_homology": {
+        "available": true,
+        "n_points": 500,
+        "betti_numbers": [
+          87,
+          3,
+          0
+        ],
+        "torus_signature": false,
+        "expected_torus": [
+          1,
+          2,
+          1
+        ],
+        "threshold": 0.1
+      }
+    },
+    "gate": {
+      "n_layers": 16,
+      "layer_indices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60
+      ],
+      "level_spacing": {
+        "r_mean": 0.5302,
+        "classification": "GOE"
+      },
+      "cross_layer": {
+        "n_layers": 16,
+        "min_eig_length": 128,
+        "neighbor_correlation": 0.9706,
+        "edge_correlation": 0.9968,
+        "diagonal_decay": [
+          0.9706,
+          0.96,
+          0.9745,
+          0.9719,
+          0.9684,
+          0.977,
+          0.9651
+        ],
+        "oscillatory": true,
+        "sign_changes_in_decay": 4
+      },
+      "beta_resonance": {
+        "n_layers": 16,
+        "widths": [
+          0.003928,
+          0.004107,
+          0.010821,
+          0.003044,
+          0.004098,
+          0.003393,
+          0.003308,
+          0.003294,
+          0.003275,
+          0.002118,
+          0.003414,
+          0.00312,
+          0.003221,
+          0.003251,
+          0.003643,
+          0.003233
+        ],
+        "dominant_frequency": 0.0625,
+        "dominant_power": 30.7238,
+        "beta_harmonic_match": 5,
+        "mean_width_ratio": 1.088222,
+        "ratio_vs_1_minus_beta": 1.101474
+      },
+      "fourier": {
+        "n_peaks": 13,
+        "peaks": [
+          {
+            "harmonic": 1,
+            "frequency": 0.007874,
+            "power_fraction": 0.055003
+          },
+          {
+            "harmonic": 9,
+            "frequency": 0.070866,
+            "power_fraction": 0.018418
+          },
+          {
+            "harmonic": 11,
+            "frequency": 0.086614,
+            "power_fraction": 0.018468
+          },
+          {
+            "harmonic": 14,
+            "frequency": 0.110236,
+            "power_fraction": 0.016538
+          },
+          {
+            "harmonic": 19,
+            "frequency": 0.149606,
+            "power_fraction": 0.017282
+          },
+          {
+            "harmonic": 24,
+            "frequency": 0.188976,
+            "power_fraction": 0.020572
+          },
+          {
+            "harmonic": 26,
+            "frequency": 0.204724,
+            "power_fraction": 0.020381
+          },
+          {
+            "harmonic": 28,
+            "frequency": 0.220472,
+            "power_fraction": 0.012875
+          },
+          {
+            "harmonic": 31,
+            "frequency": 0.244094,
+            "power_fraction": 0.0152
+          },
+          {
+            "harmonic": 36,
+            "frequency": 0.283465,
+            "power_fraction": 0.016153
+          }
+        ],
+        "dominant_harmonic": 1
+      },
+      "persistent_homology": {
+        "available": true,
+        "n_points": 500,
+        "betti_numbers": [
+          34,
+          2,
+          0
+        ],
+        "torus_signature": false,
+        "expected_torus": [
+          1,
+          2,
+          1
+        ],
+        "threshold": 0.1
+      }
+    }
+  },
+  "evidence_for": [
+    "Q: correlacao cross-layer OSCILATORIA (ciclo S1)"
