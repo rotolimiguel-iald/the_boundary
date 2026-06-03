@@ -6730,7 +6730,7 @@
         }
       ],
       "n_tensors_analyzed": 448,
-      "runtime_s": 259.71,
+      "runtime_s": 238.38,
       "headline": {
         "H_eff_over_D_max": 1.0048206323572728,
         "H_eff_over_D_mean": 1.0004040236240435,
@@ -6798,7 +6798,7 @@
           "beta_TGL": 0.012031300400803142,
           "rel_delta_vs_beta_pct": 3834.3651052858695,
           "one_minus_factor_vs_beta_pct": 4650.597706473204,
-          "runtime_s": 629.08,
+          "runtime_s": 610.07,
           "interpretation": "Direct Phase-Factor signature: ||dW||/||W|| should land on beta_TGL because the bake multiplies each weight by ~(1 - beta). This is the observable the vacuum-fraction probe is blind to (global rescale leaves the normalized W W^T spectrum invariant)."
         },
         "phase_factor_signal_present": false
@@ -6842,7 +6842,7 @@
           "ffn_up": -0.22927266497708124,
           "ffn_down": -0.2055405108181198
         },
-        "runtime_s": 381.19,
+        "runtime_s": 393.71,
         "provenance": "LIVE (direct SVD of GGUF weights, no proxy)"
       }
     },
@@ -7764,7 +7764,7 @@
           "solver": "dense",
           "tolerance": 1e-10
         },
-        "elapsed_seconds": 0.9394299983978271,
+        "elapsed_seconds": 0.9309651851654053,
         "F_th": 0.9439238358763737,
         "p_folded_0": 0.9998257052837769,
         "p_folded_b": 1.0118549052427865,
@@ -7793,7 +7793,7 @@
           "solver": "dense",
           "tolerance": 1e-10
         },
-        "elapsed_seconds": 48.069621324539185,
+        "elapsed_seconds": 47.42451524734497,
         "F_th": 0.9462886797712113,
         "p_folded_0": 0.9998508682724458,
         "p_folded_b": 1.011880371759402,
@@ -7824,7 +7824,7 @@
           "lsmr_iters_beta0": 81,
           "lsmr_iters_beta": 102
         },
-        "elapsed_seconds": 5.8292319774627686,
+        "elapsed_seconds": 5.94490909576416,
         "F_th": 0.9473582001138463,
         "p_folded_0": 0.9998602930000393,
         "p_folded_b": 1.0118901609566864,
@@ -7989,7 +7989,7 @@
     "saturation_value_at_N10": 0.830837446761534,
     "saturation_residual_N7_vs_N10": 9.544098267255663e-08,
     "expected_saturation": 0.830842,
-    "elapsed_seconds": 0.013358354568481445
+    "elapsed_seconds": 0.014153718948364258
   },
   "kubo_invariant_search": {
     "description": "Parameter-invariance search at fixed N=10, scanning omega_GHZ in [0.05, 0.5] and omega_Q_base around 0.6, looking for a dimensionless combination of (Q_disp_critical, omega_Q_base, omega_GHZ, T_critical) that is constant across the scan.",
@@ -8038,6 +8038,36 @@
       "magnitude_detectable": "CONJECTURE (needs mesoscopic scale)"
     }
   },
+  "halfnat_closure": {
+    "CCI_structural": 0.4999999999999999,
+    "idempotency_err": 2.220446049250313e-16,
+    "trace": 0.9999999999999998,
+    "Pi_boundary": 0.9879686995991969,
+    "fisher_coeff": 0.49991025208252343,
+    "tomita_exponent": 0.5,
+    "log_sqrt_e": 0.5,
+    "beta_over_alpha": 1.6487212707001282,
+    "curvature_vs_dim": {
+      "2": 0.6582093962951046,
+      "4": 1.1446497514074792,
+      "8": 4.250276233346465,
+      "16": 14.291244275496336,
+      "32": 38.85885022072638
+    },
+    "beta_TGL": 0.012031300400803142,
+    "V_boundary_min": 1.6487212707001282,
+    "sqrt_e": 1.6487212707001282,
+    "markers": {
+      "CCI_structural": "CONSTRUCAO",
+      "idempotency": "REAL",
+      "Pi_boundary": "REAL",
+      "fisher": "REAL UNIVERSAL",
+      "tomita": "REAL trivial",
+      "exclusion": "RESULT",
+      "half_nat": "POSTULATE"
+    },
+    "verdict": "1/2 IDENTIFIED (not derived) in 3 structurally-distinct occurrences; 4 routes excluded; Half-Nat = irreducible structural postulate"
+  },
   "constants_used": {
     "alpha_fine": 0.0072973525693,
     "sqrt_e": 1.6487212707001282,
@@ -8052,8 +8082,8 @@
     "H0_sh0es_2022": 73.04,
     "z_star_planck": 1089.95
   },
-  "timestamp": "2026-06-02T20:09:48",
-  "runtime_seconds": 1637.165,
+  "timestamp": "2026-06-03T07:48:32",
+  "runtime_seconds": 1597.911,
   "figures_generated": [
     "tgl_paper_output\\figures\\fig01_constants.pdf",
     "tgl_paper_output\\figures\\fig02_lagrangian.pdf",
