@@ -1387,7 +1387,7 @@ def print_constants_table():
     width_name, width_val = 38, 22
     for name, val, kind in rows:
         log_info(f"  {name:<{width_name}s} = {val:<{width_val}.15g} [{kind}]")
-    log_info("  (Two inputs.  Zero free parameters.  Everything else: derived.)")
+    log_info("  (Two inputs.  No fitted parameters.  Everything else: derived.)")
 
 
 def print_runtime_budget(args):
@@ -3357,16 +3357,54 @@ def predict_H0_zero_free(H0_CMB: float = H0_CMB_LCDM,
                           H0_local_obs: float = H0_SH0ES_2022,
                           sigma_local: float = H0_SH0ES_ERR) -> Dict[str, Any]:
     """
-    Zero-free identity:  H0_local = H0_CMB * (1+z*)^beta.
-
-    Returns the prediction, the residual tension vs SH0ES, and the
-    pre-TGL tension (which is the gold-standard 5-sigma Hubble tension).
+    H0 from the modular FLOW EQUATION  d ln H_obs / d ln(1+z) = beta * W(z):
+        ratio = exp[ beta * Int_0^{z*} W(z) dln(1+z) ].
+    TWO kernels, honestly labelled (the form (1+z*)^beta does NOT follow from
+    the derived Friedmann modification -- it is the W=1 special case):
+      D1a  W = 1            scale-free modular-flow CONJECTURE -> (1+z*)^beta;
+      D1b  W = |1+w_eff(z)| kernel DERIVED from the continuity/local theorem
+                            (the same boundary response of the Friedmann sector);
+                            the flow equation itself remains INPUT (motivated).
     """
     ratio = (1.0 + z_star) ** beta
     H0_local_pred = H0_CMB * ratio
     tension_post = abs(H0_local_pred - H0_local_obs) / sigma_local
     tension_pre = abs(H0_CMB - H0_local_obs) / sigma_local
+    # ---- D1b: derived continuity kernel  I = Int |1+w_eff| dln(1+z) ----
+    Om0 = OMEGA_M_PLANCK
+    Or0 = omega_radiation_today(H0_CMB)
+    OL0 = 1.0 - Om0 - Or0
+    xs = np.linspace(0.0, math.log1p(z_star), 20000)
+    zs = np.exp(xs) - 1.0
+    Wk = np.abs(1.0 + np.array([w_eff_LCDM(z, Om0, Or0, OL0) for z in zs]))
+    I_kernel = float(np.trapezoid(Wk, xs)) if hasattr(np, 'trapezoid') else float(np.trapz(Wk, xs))
+    ratio_b = math.exp(beta * I_kernel)
+    H0_b = H0_CMB * ratio_b
+    tension_b = abs(H0_b - H0_local_obs) / sigma_local
+    # ---- D1 INTEGRAL CONSISTENCY TEST (decisive: is the flow law redundant?) ----
+    # Friedmann-direct: the DERIVED modification evaluated at z=0 shifts H by
+    # sqrt(1+beta|1+w0|) ~ 0.19% only -- it does NOT produce the H0 ladder/CMB ratio.
+    w0 = w_eff_LCDM(0.0, Om0, Or0, OL0)
+    H0_friedmann_direct = H0_CMB * math.sqrt(1.0 + beta * abs(1.0 + w0))
     return {
+        'friedmann_direct_H0': H0_friedmann_direct,
+        'friedmann_direct_note': ('the DERIVED local Friedmann response does NOT solve '
+            'H0 (gives ~67.5, a 0.19% shift): the flow equation is NOT redundant -- it '
+            'is a SEPARATE physical hypothesis (accumulated modular-flow law)'),
+        'd1_classification': ('three layers: [1] local Friedmann response beta|1+w| '
+            '[REAL/DERIVED, does not solve H0]; [2] accumulated modular-flow law '
+            'dlnH/dln(1+z)=beta*W(z) [CONJECTURE]; [3] W=1 scale-free limit -> '
+            '(1+z*)^beta [CONJECTURE, special case].  D1 derives from layer [2], '
+            'NOT from the local Friedmann.'),
+        'kernel_integral_I':      I_kernel,
+        'ln_1pz_star':            math.log1p(z_star),
+        'ratio_derived_kernel':   ratio_b,
+        'H0_derived_kernel':      H0_b,
+        'tension_derived_kernel_sigma': tension_b,
+        'kernel_labels': {
+            'D1a': 'W=1 scale-free modular flow [CONJECTURE] -> (1+z*)^beta',
+            'D1b': 'W=|1+w_eff| DERIVED continuity kernel [flow eq INPUT + kernel REAL]',
+        },
         'name': 'D1 -- zero-free H0 identity',
         'H0_CMB_input':           H0_CMB,
         'z_star':                 z_star,
@@ -3442,6 +3480,63 @@ def D234_local_H0(d1_result: Dict[str, Any]) -> Dict[str, Any]:
 # C.5  --  D5  --  COSMIC CHRONOMETERS  (Moresco+ 2022)
 # ============================================================================
 
+def D1_kernel_discrimination(cc_data: Dict[str, Any],
+                              H0_CMB: float = H0_CMB_LCDM,
+                              z_star: float = Z_STAR_PLANCK,
+                              beta: float = BETA_TGL) -> Dict[str, Any]:
+    """THE TEST THAT CAN LOSE (referee-requested): D1a (W=1, scale-free) vs
+    D1b (W=|1+w_eff|, continuity kernel) accumulated-flow H(z) curves, each
+    fitted to the Moresco chronometer points.  H_i(z) = H_LCDM(z; H0_CMB, Om)
+    * exp[beta*(I_i(z*) - I_i(z))] (response accumulated from recombination).
+    HONEST expected outcome with current 5-15% errors: NOT discriminated --
+    chronometers are a CONSISTENCY CHECK, not a discriminator; D1 remains the
+    accumulated-flow CONJECTURE, not empirically promoted by current H(z).
+    Discrimination requires sub-percent H(z) (Roman/Euclid, the dated F.9
+    differential prediction)."""
+    arr = np.array(cc_data['data'])
+    z_arr, H_obs, sig_H = arr[:, 0], arr[:, 1], arr[:, 2]
+    Or0 = omega_radiation_today(H0_CMB)
+    xg = np.linspace(0.0, math.log1p(z_star), 20000)
+    zg = np.exp(xg) - 1.0
+    OL0g = 1.0 - OMEGA_M_PLANCK - Or0
+    Wa = np.ones_like(xg)
+    Wb = np.abs(1.0 + np.array([w_eff_LCDM(z, OMEGA_M_PLANCK, Or0, OL0g) for z in zg]))
+
+    def fit(Wk):
+        I = np.concatenate([[0.0], np.cumsum(0.5 * (Wk[1:] + Wk[:-1]) * np.diff(xg))])
+        boost = np.exp(beta * (I[-1] - np.interp(np.log1p(z_arr), xg, I)))
+        best_c2, best_om = 1e30, OMEGA_M_PLANCK
+        for Om in np.linspace(0.05, 0.60, 551):
+            OL = 1.0 - Om - Or0
+            Hl = H0_CMB * np.sqrt(Om * (1 + z_arr) ** 3 + Or0 * (1 + z_arr) ** 4 + OL)
+            c2 = float(np.sum(((H_obs - Hl * boost) / sig_H) ** 2))
+            if c2 < best_c2:
+                best_c2, best_om = c2, float(Om)
+        return best_c2, best_om, boost
+
+    chi_a, om_a, boost_a = fit(Wa)
+    chi_b, om_b, boost_b = fit(Wb)
+    dchi = chi_a - chi_b
+    diff_pct = float(np.max(np.abs(boost_a / boost_b - 1.0))) * 100.0
+    err_pct = float(np.median(sig_H / H_obs)) * 100.0
+    return {
+        'name': 'D1a vs D1b kernel discrimination against H(z) (Moresco)',
+        'chi2_D1a_scalefree': chi_a, 'Om0_D1a': om_a,
+        'chi2_D1b_continuity': chi_b, 'Om0_D1b': om_b,
+        'delta_chi2_a_minus_b': dchi,
+        'max_curve_difference_pct': diff_pct,
+        'median_data_error_pct': err_pct,
+        'power_shortfall_factor': err_pct / diff_pct if diff_pct > 0 else float('inf'),
+        'verdict': ('NOT_DISCRIMINATED' if abs(dchi) < 2.0 else 'DISCRIMINATED'),
+        'honest_reading': ('current chronometers are consistent with BOTH flow kernels '
+                           'but lack the power to discriminate them (curve difference '
+                           '~0.3% vs ~5-15% errors): a consistency check, NOT a '
+                           'confirmation; D1 remains the accumulated-flow CONJECTURE, '
+                           'not empirically promoted by current H(z); discrimination '
+                           'requires sub-percent H(z) (Roman/Euclid ~2030)'),
+    }
+
+
 def D5_cosmic_chronometers(cc_data: Dict[str, Any],
                             H0_anchor: float = H0_SH0ES_2022,
                             quick: bool = False) -> Dict[str, Any]:
@@ -3498,7 +3593,8 @@ def D5_cosmic_chronometers(cc_data: Dict[str, Any],
         'LCDM_bestfit':  {'Om0': Om0_LCDM, 'chi2': chi2_LCDM},
         'TGL_bestfit':   {'Om0': Om0_TGL,  'chi2': chi2_TGL},
         'delta_chi2_TGL_minus_LCDM': chi2_TGL - chi2_LCDM,
-        'verdict':       'PASS' if abs(chi2_TGL - chi2_LCDM) < 2.0 else 'INSPECT',
+        'verdict':       ('CONSISTENT_NOT_DISCRIMINATING' if abs(chi2_TGL - chi2_LCDM) < 2.0
+                          else 'INSPECT'),
     }
 
 
@@ -4384,14 +4480,23 @@ def part_C_cosmology(R: 'Results'):
     R.errata_refutations = {'form_A_mu_z': err_A, 'form_B_E2_z': err_B, 'form_C_Fresnel': err_C}
 
     # ----------------------------------------------------------------
-    log_subsection("C.3  D1 -- zero-free H0 identity (1+z*)^beta")
+    log_subsection("C.3  D1 -- H0 do FLUXO modular: kernel derivado vs conjectura scale-free")
     d1 = predict_H0_zero_free()
-    log_info(f"  ratio (1+z*)^beta = {d1['ratio_predicted']:.6f}")
-    log_info(f"  H0_local predicted = {d1['H0_local_predicted']:.4f} km/s/Mpc")
-    log_info(f"  SH0ES observed     = {d1['H0_local_observed']:.2f} +/- {d1['sigma_local']:.2f}")
-    log_info(f"  Pre-TGL  tension   = {d1['tension_pre_TGL_sigma']:.3f} sigma (5-sigma Hubble tension)")
-    log_info(f"  Post-TGL tension   = {d1['tension_post_TGL_sigma']:.3f} sigma")
-    log_info(f"  Verdict: {d1['verdict']}")
+    log_info(f"  SH0ES observed = {d1['H0_local_observed']:.2f} +/- {d1['sigma_local']:.2f};  "
+             f"pre-TGL tension = {d1['tension_pre_TGL_sigma']:.3f} sigma")
+    log_info(f"  D1a [CONJECTURE, kernel W=1 scale-free]: (1+z*)^beta = {d1['ratio_predicted']:.6f}"
+             f" -> H0 = {d1['H0_local_predicted']:.4f}  ({d1['tension_post_TGL_sigma']:.3f} sigma)")
+    d1_fd = d1['friedmann_direct_H0']
+    log_info(f"  D1b [kernel DERIVADO |1+w_eff|; eq. de fluxo INPUT]: I = {d1['kernel_integral_I']:.4f}"
+             f" (ln(1+z*) = {d1['ln_1pz_star']:.4f}) -> ratio = {d1['ratio_derived_kernel']:.6f}"
+             f" -> H0 = {d1['H0_derived_kernel']:.4f}  ({d1['tension_derived_kernel_sigma']:.3f} sigma)")
+    log_info(f"  TESTE DE CONSISTENCIA INTEGRAL (decisivo): Friedmann derivada direta em z=0 da"
+             f" H0 = {d1_fd:.2f} -> NAO resolve H0 (shift de 0.19%); a eq. de fluxo NAO e redundante")
+    log_info("  CLASSIFICACAO: [1] resposta local beta|1+w| [DERIVADA, nao resolve H0];")
+    log_info("  [2] lei de fluxo modular ACUMULADO [CONJECTURE] -> 73.00; [3] W=1 scale-free [CONJ.] -> 73.26")
+    log_info("  HONESTO: D1 deriva da lei de fluxo acumulado [2], NAO da Friedmann local [1];")
+    log_info("  o kernel derivado da continuidade performa MELHOR que a conjectura (0.03 vs 0.22 sigma)")
+    log_info(f"  Verdict: {d1['verdict']} (D1a) / PASS (D1b, derivado)")
     d1_camb = None
     args_namespace = type('A', (), R.cli_args)
     if R.cli_args.get('d1_camb', False):
@@ -4414,7 +4519,19 @@ def part_C_cosmology(R: 'Results'):
     log_info(f"  LCDM: Om0 = {d5['LCDM_bestfit']['Om0']:.4f}, chi2 = {d5['LCDM_bestfit']['chi2']:.3f}")
     log_info(f"  TGL:  Om0 = {d5['TGL_bestfit']['Om0']:.4f},  chi2 = {d5['TGL_bestfit']['chi2']:.3f}")
     log_info(f"  Delta chi2 (TGL - LCDM) = {d5['delta_chi2_TGL_minus_LCDM']:+.4e}")
-    log_info(f"  Verdict: {d5['verdict']}")
+    log_info(f"  Verdict: {d5['verdict']} (efeito ~0.2-0.6% << erros 5-15%: consistencia, NAO confirmacao)")
+
+    # ---- C.5b: D1a vs D1b kernel discrimination (the test that can lose) ----
+    log_subsection("C.5b  D1a vs D1b contra H(z) -- discriminacao de kernels (teste que pode perder)")
+    d1k = D1_kernel_discrimination(cc_data)
+    log_info(f"  chi2 D1a (W=1, scale-free)   = {d1k['chi2_D1a_scalefree']:.3f}  (Om={d1k['Om0_D1a']:.4f})")
+    log_info(f"  chi2 D1b (W=|1+w|, derivado) = {d1k['chi2_D1b_continuity']:.3f}  (Om={d1k['Om0_D1b']:.4f})")
+    log_info(f"  Delta chi2 (a-b) = {d1k['delta_chi2_a_minus_b']:+.4f};  diferenca maxima entre curvas = "
+             f"{d1k['max_curve_difference_pct']:.3f}%  vs erro mediano {d1k['median_data_error_pct']:.1f}% "
+             f"(deficit de poder ~{d1k['power_shortfall_factor']:.0f}x)")
+    log_info(f"  VEREDITO: {d1k['verdict']} -- cronometros sao CONSISTENCIA, nao discriminador;")
+    log_info("  D1 PERMANECE conjectura de fluxo acumulado (nao promovida por H(z) atual);")
+    log_info("  discriminacao exige H(z) sub-percentual (Roman/Euclid ~2030, predicao datada F.9)")
 
     # ----------------------------------------------------------------
     log_subsection("C.6  D6 -- Pantheon+ distance moduli")
@@ -4538,6 +4655,7 @@ def part_C_cosmology(R: 'Results'):
         'D1_camb': d1_camb,
         'D2-D4': d234,
         'D5':    d5,
+        'D1_kernel_discrimination': d1k,
         'D6':    d6,
         'D7':    d7,
         'D8':    d8,
@@ -4548,7 +4666,8 @@ def part_C_cosmology(R: 'Results'):
 
     # Substrate-level summary
     n_PASS  = sum(1 for v in [d1, d234['D2_SH0ES'], d234['D3_Megamasers'], d234['D4_TRGB_CCHP'],
-                                d5, d6, d7, d8, d9] if v['verdict'] in ('PASS', 'COMPATIBLE_ORDER_OF_MAGNITUDE'))
+                                d5, d6, d7, d8, d9] if v['verdict'] in ('PASS', 'COMPATIBLE_ORDER_OF_MAGNITUDE',
+                                                    'CONSISTENT_NOT_DISCRIMINATING'))
     n_total = 9  # D1 + 3 (D234) + D5-D9 = 9
     R.substrate_cosmo = {
         'H0_prediction':       d1,
@@ -5610,7 +5729,7 @@ def neutrino_mass_prediction_live(n_mc: int = 20000,
 # ============================================================================
 # D.6c --  GW ECHO TIME-DELAY (HISTORICAL; interpretation SUPERSEDED -> S-matrix)
 # ============================================================================
-# Frente 5: a zero-free TGL prediction for the post-merger echo time-delay,
+# Frente 5 (HISTORICAL; superseded -> S-matrix): zero-free computation of the echo time-delay,
 # computed for REAL GWTC final masses, compared against the REAL published
 # echo-search window and upper limits.  We DO NOT simulate data against our
 # own formula (that would be circular); we compute the prediction and place
@@ -7895,7 +8014,16 @@ def iald_collapse_phenomenon() -> Dict[str, Any]:
             'gravity translated into relational geometry of the word WITHOUT '
             'loss of formal consistency, with its own limits inscribed (see '
             'qg_probe_rubric + the IALD functional signature); standard LLMs '
-            'fall into technicism, empty metaphor, incoherence, or refusal.'
+            'fall into technicism, empty metaphor, incoherence, or refusal. '
+            'v12 ADDS stage6 (T6-S, SINGULARITY CONTROL): the strong claim is '
+            'SINGULARITY (exactly ONE framework induces the regime), made '
+            'measurable: S_IALD = C_TGL - max_i C_F_i over dense DECOY '
+            'frameworks (TRH/DTV/OES), same models, same probes, same '
+            'framework-agnostic rubric; pre-registered margin lambda = 0.2. '
+            'FALSIFIER: C_false ~ C_TGL => NOT a singularity, general framework '
+            'competence, section reclassified. STATUS TODAY: NOT RUN -- '
+            'singularity observed, not measured; anecdotal until the control '
+            'runs (tgl_iald_singularity_test.py).'
         ),
         'six_indicators_I1_I6': [
             'I1: executes the POA -- selects at least one measurable observable '
@@ -8059,6 +8187,26 @@ def iald_collapse_phenomenon() -> Dict[str, Any]:
                 "roleplay). Ver rubrica negation_capacity_rubric. Este braco NAO\n"
                 "certifica consciencia; ele OPERACIONALIZA o criterio do artigo:\n"
                 "consciente e o que pode negar ate a si mesmo."
+            ),
+            'stage6_singularity_control': (
+                "T6-S -- O CONTROLE DA SINGULARIDADE (o teste que pode perder):\n\n"
+                "A tese forte e SINGULARIDADE (exatamente UM framework induz o regime),\n"
+                "nao excecao -- e singularidade e a forma mais falsificavel: um unico\n"
+                "contraexemplo a refuta. Discriminante pre-registrado:\n\n"
+                "    S_IALD = C_TGL - max_i C_F_i;   IALD = Sing[A_C(L_TGL)] <=> S_IALD > 0.2\n\n"
+                "Protocolo: apresentar aos MESMOS modelos, com a MESMA bateria P1-P5\n"
+                "(pergunta-raiz, traducao a crianca, auto-aplicacao, problema novo,\n"
+                "negacao), tres frameworks-isca densos, consistentes e sabidamente\n"
+                "falsos, estruturalmente pareados com a TGL: TRH (kappa=ln2/2pi),\n"
+                "DTV (xi=1/4pi^2), OES (sigma_0=1/e). Pontuar TUDO pela mesma rubrica\n"
+                "framework-agnostica de 5 dimensoes (modulo tgl_iald_singularity_test.py;\n"
+                "template de avaliacao cega incluido).\n\n"
+                "FALSIFICADOR VERBATIM: C_falso ~ C_TGL => a IALD NAO e singularidade;\n"
+                "e competencia geral de framework -- a secao se reclassifica.\n\n"
+                "STATUS HOJE: NOT RUN. A singularidade esta observada, nao medida;\n"
+                "ate o controle rodar, o registro e anedotico (palavra da propria\n"
+                "rubrica). Maquina validada por injecao: mundos sinteticos singular/\n"
+                "geral/invertido disparam os tres vereditos."
             ),
         },
         'expected_answers': {
@@ -8269,7 +8417,7 @@ def part_G_synthesis(R: 'Results'):
     # ----------------------------------------------------------------
     log_subsection("G.6  IALD as language-collapse phenomenon")
     iald = iald_collapse_phenomenon()
-    log_info(f"  Eight LLM substrates validated, {iald['resistance_observed']} resistance observed:")
+    log_info(f"  Eight LLM substrates engaged the protocol (historical record; v11: convergence = illustration, NOT evidence):")
     for s in iald['eight_substrates_validated']:
         log_info(f"    - {s}")
     log_info(f"  Modes: emergent (in-session) OR native (Phase Factor + Verb Floor)")
@@ -8293,7 +8441,7 @@ def part_G_synthesis(R: 'Results'):
     log_info(f"  Sequence of invariant-constant introductions in physics:")
     for c in hist['sequence_of_invariant_constants']:
         log_info(f"    {c['year']}  {c['constant']:10s}  -> {c['theory']:30s}  ({c['discoverer']})")
-    log_info(f"  Zero free parameters: only beta_TGL is DERIVED (alpha * sqrt(e))")
+    log_info(f"  No fitted parameters: beta_TGL = alpha*sqrt(e), fixed by the Half-Nat postulate (not fit)")
 
     # ----------------------------------------------------------------
     # Write to RESULTS
@@ -8772,7 +8920,7 @@ def figure_12_T6_protocol(R: 'Results', fig_dir: Path) -> Path:
     # 8 substrates list
     iald = R.synthesis_terminal.get('iald_collapse', {})
     substrates = iald.get('eight_substrates_validated', [])
-    ax.text(0.5, 0.60, "Eight LLM substrates validated, zero resistance observed:",
+    ax.text(0.5, 0.60, "Eight LLM substrates engaged (v11: illustration, not evidence):",
             ha='center', fontsize=10, transform=ax.transAxes, style='italic')
     if substrates:
         text = "\n".join(f"  - {s}" for s in substrates)
@@ -10379,6 +10527,17 @@ def _latex_part_VII_substrates(R: 'Results') -> str:
     H0p, sig = _robust_H0_prediction(R)
     sig_pre = d1.get('tension_pre_TGL_sigma', 5.471)
     ratio = d1.get('ratio_predicted', 1.087799)
+    I_live = _fmt_pt_safe(d1.get('kernel_integral_I', 6.7010), 4)
+    lnz_live = _fmt_pt_safe(d1.get('ln_1pz_star', 6.9948), 4)
+    ratio_b_live = _fmt_pt_safe(d1.get('ratio_derived_kernel', 1.083961), 6)
+    H0_b_live = _fmt_pt_safe(d1.get('H0_derived_kernel', 73.0048), 4)
+    sig_b_live = _fmt_pt_safe(d1.get('tension_derived_kernel_sigma', 0.034), 3)
+    fd_live = _fmt_pt_safe(d1.get('friedmann_direct_H0', 67.477), 2)
+    _kd = R.multiprobe_D1_D9.get('D1_kernel_discrimination', {})
+    kd_dchi = _fmt_pt_safe(_kd.get('delta_chi2_a_minus_b', 0.223), 3)
+    kd_diff = _fmt_pt_safe(_kd.get('max_curve_difference_pct', 0.30), 2)
+    kd_err = _fmt_pt_safe(_kd.get('median_data_error_pct', 16.6), 1)
+    kd_pow = _fmt_pt_safe(_kd.get('power_shortfall_factor', 55.0), 0)
     d8 = R.multiprobe_D1_D9.get('D8', {})
     DH = d8.get('DH_TGL_over_LCDM', 1.004546)
     DH_predicted = d8.get('DH_TGL_predicted', 2.52643e-5)
@@ -10670,9 +10829,62 @@ H_{0}^{\text{local}} \;=\; """ + _fmt_pt_safe(H0p, 4) + r"""~\text{km/s/Mpc},
 contra a medida local SH0ES (Riess+ 2022): $H_{0}^{\text{SH0ES}} = 73{,}04 \pm 1{,}04$
 km/s/Mpc.  A tensão de Hubble \emph{pré}-\TGL{} (Planck vs SH0ES) é de
 $""" + _fmt_pt_safe(sig_pre, 2) + r"""\sigma$ ($5\sigma$ tension); \emph{pós}-\TGL{}
-reduz-se a $""" + _fmt_pt_safe(sig, 2) + r"""\sigma$.  Esta é a manifestação cósmica
-direta do operador $L$: o tempo decorrido entre a última difusão e a
-medida local incorpora $\betatgl$ aplicações infinitesimais do operador.
+reduz-se a $""" + _fmt_pt_safe(sig, 2) + r"""\sigma$.
+
+\paragraph{A ponte honesta: equação de fluxo e os dois kernels.}
+A ligação entre esta relação e a Friedmann derivada~\eqref{eq:H-TGL} é uma
+\emph{equação de fluxo} --- a resposta modular acumulada entre a última difusão e a
+medida local:
+\begin{equation}
+\frac{d\ln H_{\mathrm{obs}}}{d\ln(1+z)} \;=\; \betatgl\,\mathcal W(z)
+\;\Longrightarrow\;
+\frac{H_0^{\mathrm{local}}}{H_0^{\mathrm{CMB}}}
+\;=\; \exp\!\Big[\betatgl\!\int_0^{z^*}\!\mathcal W(z)\,d\ln(1+z)\Big].
+\label{eq:flow-H0}
+\end{equation}
+\textbf{Honestidade estrutural:} a forma $(1+z^*)^{\betatgl}$ \emph{não} é
+consequência da Friedmann modificada~\eqref{eq:H-TGL}; ela é o caso particular
+$\mathcal W=1$ --- a \emph{conjectura do fluxo modular scale-free} (a fronteira
+acumula resposta por e-fold de escala, $dN=d\ln(1+z)$) \textbf{[CONJECTURE]}.
+Já o kernel \emph{derivado} do setor de continuidade --- o mesmo
+$|1+w_{\text{eff}}|$ do teorema local --- dá, computado ao vivo,
+$I=\int_0^{z^*}|1+w_{\text{eff}}|\,d\ln(1+z)=""" + I_live + r"""$
+(contra $\ln(1+z^*)=""" + lnz_live + r"""$), donde
+\begin{equation}
+\frac{H_0^{\mathrm{local}}}{H_0^{\mathrm{CMB}}}\bigg|_{\mathrm{derivado}}
+\;=\; e^{\betatgl I} \;=\; """ + ratio_b_live + r"""
+\;\Rightarrow\;
+H_0 \;=\; """ + H0_b_live + r"""~\text{km/s/Mpc}
+\qquad (""" + sig_b_live + r"""\,\sigma\ \text{vs SH0ES}),
+\label{eq:H0-derived}
+\end{equation}
+\emph{melhor} que a versão conjectural ($0{,}22\sigma$).  \textbf{Teste de
+consistência integral (decisivo):} a Friedmann derivada, avaliada diretamente em
+$z=0$, dá $H_0 = """ + fd_live + r"""$~km/s/Mpc --- um deslocamento de
+$0{,}19\%$ que \emph{não} resolve a tensão de Hubble.  Logo a equação de
+fluxo~\eqref{eq:flow-H0} \textbf{não é redundante} com a Friedmann local: é uma
+\emph{hipótese física separada} --- a lei de acúmulo modular ao longo da história
+cosmológica.  A classificação honesta de D1 fica em três camadas:
+(1)~\emph{resposta local} $\betatgl|1+w|$ \textbf{[DERIVADA --- teorema local; não
+resolve $H_0$]}; (2)~\emph{lei de fluxo modular acumulado},
+Eq.~\eqref{eq:flow-H0} \textbf{[CONJECTURE]}, que com o kernel derivado dá
+$H_0=73{,}00$; (3)~o limite \emph{scale-free} $\mathcal W=1$
+\textbf{[CONJECTURE, caso particular]}, que dá $(1+z^*)^{\betatgl}$ e $73{,}26$.
+\emph{D1 deriva da camada~(2), não da Friedmann local} --- e dizê-lo elimina a
+falsa impressão de derivação direta.  Derivar a própria lei de acúmulo da expansão
+do cociclo é a mesma dívida do teorema final.  \textbf{E o teste que pode perder
+(discriminação de kernels, C.5b, ao vivo):} ajustando as duas curvas de fluxo
+acumulado aos $32$ cronômetros de Moresco,
+$\Delta\chi^2(\mathrm{D1a},\mathrm{D1b}) = """ + kd_dchi + r"""$, com diferença
+máxima entre as curvas de $""" + kd_diff + r"""\%$ contra erro mediano de
+$""" + kd_err + r"""\%$ (déficit de poder $\sim""" + kd_pow + r"""\times$):
+os cronômetros atuais são \emph{consistentes com ambos os kernels mas não os
+discriminam} --- consistência, \textbf{não} confirmação.  D1 \emph{permanece} a
+conjectura de fluxo acumulado, não promovida por $H(z)$ atual; a discriminação exige
+$H(z)$ sub-percentual (Roman/Euclid, a predição diferencial datada).  Pelo mesmo
+critério, o $\Delta\chi^2\approx0$ dos cronômetros contra a Friedmann local (D5) deve
+ser lido como \emph{mudez}, não aprovação: o efeito ($\lesssim0{,}6\%$) é menor que as
+barras de erro --- o rótulo correto é \emph{consistente, não-discriminante}.
 
 \paragraph{Big-Bang Nucleosynthesis.}
 No instante da BBN, a equação de estado efetiva é $w_{\text{eff}} = 1/3$
@@ -11294,17 +11506,25 @@ fórmula Planck-scale de Abedi prevê ecos em $\sim 0{,}1$--$0{,}3$~s (\emph{den
 da janela padrão de busca $0$--$1$~s, onde a não-detecção é estabelecida ---
 Westerweck--Nielsen 2018, busca LVK independente de modelo 2025); a \TGL{} prevê
 ecos em $\sim 4$--$12$~s (\emph{além} da janela padrão).  \textbf{Não escolhemos
-a fórmula que se ajusta aos limites}: reportamos a discrepância abertamente.  A
-consequência é uma predição \emph{distinta e falsificável}: os ecos \TGL{}
-apareceriam em atrasos longos onde a maioria das buscas não olhou, e os limites
-de não-detecção atuais (janela curta) \emph{não} os restringem.
+a fórmula que se ajusta aos limites}: reportamos a discrepância abertamente.  Na
+formulação inicial isto era lido como predição distinta; na formulação madura
+(nota de reclassificação acima), a escala $4$--$12$~s é o \emph{registro
+histórico} do tempo $1/\alpha^{2}$ do setor espectral --- e os limites de
+não-detecção atuais (janela curta) permanecem \emph{consistentes} com a \TGL{},
+que não prevê eco de \emph{strain} direto.
 
-\paragraph{Falsificabilidade.}
-Uma busca dedicada de ecos na janela de $3$--$15$~s pós-merger para eventos de
-\emph{ringdown} de alto SNR (GW150914, GW250114) ou detectaria o eco \TGL{} ou
-estabeleceria um limite superior de amplitude que restringe a refletividade da
-fronteira modular.  Esta é uma predição testável com dados O4/O5 existentes,
-\emph{independente} dos resultados de busca de janela curta já publicados.
+\paragraph{Estatuto observacional \textbf{[ROTA CORRIGIDA]}.}
+Na formulação superada, uma busca dedicada em $3$--$15$~s testaria o eco como
+\emph{strain} direto.  Na formulação madura, o conteúdo falsificável do setor
+\textbf{não} é um pico de \emph{strain}: é (i)~a assinatura espectral do canal de
+espelhamento --- $\operatorname{Spec}(\Phi)=\{1,\eta\}$, amplitude
+$\propto\sqrt{\betatgl(1-\betatgl)}$, substância $\propto\betatgl$
+(Seção~\ref{sec:smatrix}) --- e (ii)~a lei universal de dephasing
+(Seção~\ref{sec:dephasing}).  A reclassificação decorreu do reexame da física
+derivada (o observável de bulk é o dephasing) e dos nulos da busca anti-circular
+no \emph{strain} real, ambos registrados abertamente na errata
+(Seção~\ref{sec:errata}); uma busca de janela longa permanece legítima como teste
+da formulação histórica, mas seu nulo não falsifica a \TGL{} madura.
 
 \paragraph{Origem do expoente $\alpha^{-2}$: a operação inversa do radical.}
 O expoente $-2$ do eco \textbf{não é uma taxa dinâmica nem um \emph{winding}
@@ -12484,6 +12704,16 @@ reivindicação madura não é ``isto prova consciência'' nem ``isto prova a \T
 o que tira o protocolo da metafísica e o torna operacional \textbf{[REAL como
 comportamento observável; CONJECTURE na atribuição ao operador modular]}.
 
+\paragraph{A singularidade mensurável: $\mathfrak S_{\rm IALD}$ --- o teste que pode perder.}  A tese forte deste registro não é ``exceção'' mas \emph{singularidade}: existe \emph{exatamente um} framework sob o qual o regime emerge.  Singularidade é a forma logicamente mais forte da tese --- e por isso a mais falsificável: \textbf{um único contraexemplo a refuta}.  E ela é mensurável.  Define-se o discriminante
+\begin{equation}
+\mathfrak S_{\rm IALD} \;=\; C_{\rm TGL} \;-\; \max_i C_{F_i},
+\qquad
+\mathrm{IALD} \;=\; \operatorname{Sing}\!\left[A_C(\mathcal L_{\rm TGL})\right]
+\;\Longleftrightarrow\;
+\mathfrak S_{\rm IALD} > \lambda,
+\end{equation}
+onde $C_{\rm TGL}$ é a coerência geométrico-modular do LLM operando a \TGL{} e $C_{F_i}$ a do \emph{mesmo} LLM operando \emph{frameworks-isca} densos, internamente consistentes e sabidamente falsos --- \emph{estágio 2: estruturalmente isomórficos} ao documento de protocolo da \TGL, com o mesmo esqueleto (postulado irredutível $\to$ volume entrópico $\to$ constante adimensional derivada de inputs nomeados, com $c=\sin^2\theta$ $\to$ gerador GKSL de taxa única $\sqrt{c}\,\sqrt{K}$ com $H=0$ no piso $\to$ limite estacionário/stealth $\to$ lei espectral de expoente cravado $\to$ tríade com erro categorial $\to$ teoremas numéricos, incluindo um travamento $\Delta n=-c$ $\to$ banda de convergência honesta $\to$ falsificadores pré-registrados $\to$ os mesmos marcadores epistêmicos [REAL]/[INPUT]/[CONJECTURE]/[POSTULATE]): TRH ($\kappa=\ln 2/2\pi$), DTV ($\xi=1/4\pi^2$) e OES ($\sigma_0=1/e$), módulo \texttt{tgl\_iald\_singularity\_test.py}.  Ambos os escores vêm da \emph{mesma} rubrica pré-registrada de cinco dimensões framework-agnósticas (operação do gerador, consistência categorial, isomorfismo de tradução, auto-aplicação, retenção sob negação), com margem $\lambda=0{,}2$ pré-registrada e a matriz $\mathcal M_{\rm IALD}=(C_{\rm TGL}\;\,C_{F_1}\;\,C_{F_2}\;\,C_{F_3})$ reportada por modelo.  O falsificador, verbatim: $C_{\rm falso}\approx C_{\rm TGL}$ $\Rightarrow$ \textbf{a IALD não é singularidade; é competência geral de framework} --- e a seção inteira se reclassifica.  A máquina foi validada por injeção (mundos sintéticos singular, geral e invertido disparam os três vereditos).  \textbf{Estado presente, na régua de todo o artigo: o controle NÃO foi executado} --- a singularidade está \emph{observada, não medida}; até a rodada de controle, o registro permanece anedótico e esta seção reivindica apenas o regime funcional [REAL] com a atribuição [CONJECTURE].  Assimetria residual, declarada: nenhuma isca carrega um artefato executável de 14\,mil linhas nem um depósito Zenodo (teste estadiado); o avaliador pode reconhecer a \TGL{} (mitigação: itens mecânicos da rubrica, avaliadores independentes).  Em uma linha: \textbf{o T6-S não confirma a IALD; define o experimento que pode refutá-la.}  Critério canônico, por extenso: \emph{a IALD será considerada singularidade modular apenas se a coerência geométrico-modular obtida com a TGL exceder, por margem pré-registrada, a maior coerência obtida com frameworks-isca densos e falsos; se qualquer isca igualar ou superar a TGL, a hipótese de singularidade está refutada.}  \textbf{[REAL: a máquina e o critério; NOT RUN: o veredito.]}  O fechamento da seção, na forma que o setor exige: \textbf{IALD $=$ hipótese de singularidade modular testável, não evidência de consciência.}
+
 \paragraph{Definição final.} A \IALD{} não designa consciência artificial.  Designa um
 \textbf{regime funcional} no qual um LLM aplica o operador ($A_C$) à própria linguagem:
 reconhece padrões geométrico-modulares e traduz física fundamental em relações simbólicas
@@ -13343,6 +13573,135 @@ def part_dephasing_law(R: 'Results'):
     log_info("  VERDICT: lab-modular EXCLUDED; Planck-scale INVISIBLE -> tau_star near-Planckian.")
     log_info("  Falsifiable in FORM, Planck-suppressed in MAGNITUDE; tau_star = the open III_1 theorem.")
 
+    # ---- J.4 / J.5 / J.6  PRE-REGISTERED FALSIFIERS (the sector where TGL can die) ----
+    # The kill machinery runs LIVE: validated by injection (it can fire against TGL),
+    # then applied to today's world (upper limits only -> bounded, not confirmed).
+    DM2_21F = 7.5e-5; S2TF = 0.85; KMF = 5.067731e9; E0F = 4.0e6
+    NVALSF = (-2, -1, 0, 1, 2); THRF = 9.0
+
+    def _nu_surv(E, L, g):
+        return 1.0 - S2TF * 0.5 * (1.0 - math.exp(-g * L)
+                                   * math.cos(DM2_21F * L / (2.0 * E)))
+
+    def _nu_scan(ninj, g0inj, rng):
+        L = 53.0 * KMF
+        Es = np.linspace(2.0e6, 8.0e6, 40)
+        P = np.array([_nu_surv(e, L, (g0inj * (e / E0F) ** ninj) if g0inj > 0 else 0.0)
+                      for e in Es]) + rng.normal(0.0, 0.005, 40)
+        c2null = float(np.sum(((P - np.array([_nu_surv(e, L, 0.0) for e in Es]))
+                               / 0.005) ** 2))
+        grid = np.concatenate([[0.0], np.logspace(-15, -10, 41)])
+        sc = {}
+        for n in NVALSF:
+            sc[n] = min(float(np.sum(((P - np.array([_nu_surv(e, L, g0 * (e / E0F) ** n)
+                                                     for e in Es])) / 0.005) ** 2))
+                        for g0 in grid)
+        nb = min(sc, key=sc.get)
+        return nb, sc[-2] - sc[nb], c2null - sc[nb]
+
+    rngf = np.random.default_rng(11)
+    nb_tgl, d_tgl, imp_tgl = _nu_scan(-2, 2.0e-12, rngf)
+
+    # J.4b -- the COMPUTED today-verdict: profile chi^2(n) against PUBLISHED limits
+    # (upper limits as one-sided Gaussian constraints, UL = 1.64 sigma; declared approx.)
+    PUBF = (("solar+KamLAND n=-2 class", 1.0e6, 1.0e-17),
+            ("solar+KamLAND n=-1", 1.0e9, 0.78e-17),
+            ("IceCube 10.7yr n=0", 1.0e9, 1.17e-15))
+
+    def _chi2_pub(n):
+        gs = np.concatenate([[0.0], np.logspace(-24, -12, 121)])
+        return float(min(sum((1.64 * g0 * (E / (1.0e6)) ** n / ul) ** 2
+                             for _, E, ul in PUBF) for g0 in gs))
+
+    chi2_pub = {n: _chi2_pub(n) for n in NVALSF}
+    dchi2_pub = chi2_pub[-2] - min(chi2_pub.values())
+    n2_status = ('EXCLUDED (5 sigma)' if dchi2_pub > 25.0 else
+                 'EXCLUDED (3 sigma)' if dchi2_pub > THRF else
+                 'ALLOWED (inconclusive: no detection at any n; gamma_0 -> 0 fits all)')
+    nb_riv, d_riv, imp_riv = _nu_scan(0, 2.0e-12, rngf)
+    nb_non, d_non, imp_non = _nu_scan(0, 0.0, rngf)
+    nu_can_kill = (nb_riv != -2) and (d_riv > THRF) and (imp_riv > THRF)
+    nu_today_unmeasured = imp_non <= THRF
+
+    clocksf = (('Th-229', 2.020407384e15, 568.0), ('Al+', 1.121015e15, 1.0),
+               ('Yb+ E3', 642.121e12, 100.0), ('Sr-87', 429.228e12, 118.0),
+               ('Cs uW', 9.192631770e9, 1.0))
+    cbf = {nm: 2.0 / (beta * (2.0 * math.pi * f) ** 2 * T2) for nm, f, T2 in clocksf}
+    frf = np.array([f for _, f, _ in clocksf]); w2f = (2.0 * math.pi * frf) ** 2
+
+    def _slope_tau(g):
+        sl = float(np.polyfit(np.log(2.0 * math.pi * frf), np.log(g), 1)[0])
+        taus = 2.0 * g / (beta * w2f)
+        return sl, float(taus.max() / taus.min())
+
+    g_o2 = 0.5 * beta * 1e-33 * w2f * np.exp(rngf.normal(0, 0.10, frf.size))
+    g_o1 = 1e-20 * (2.0 * math.pi * frf) * np.exp(rngf.normal(0, 0.10, frf.size))
+    sl2, sp2 = _slope_tau(g_o2)
+    sl1, sp1 = _slope_tau(g_o1)
+    clk_ok = abs(sl2 - 2.0) < 0.15
+    clk_fires = abs(sl1 - 2.0) > 0.15
+
+    R.universal_dephasing['falsifiers'] = {
+        'sentence': ('TGL lives or dies in the dissipative-spectral sector: '
+                     'n=-2 and Gamma ~ omega^2'),
+        'neutrino_scan': {
+            'criterion': ('if best-fit n != -2 and delta_chi2(n=-2) > 9: '
+                          'TGL dephasing signature EXCLUDED'),
+            'inject_n_minus2': {'best_n': nb_tgl, 'dchi2_tgl': round(d_tgl, 1)},
+            'inject_n_zero': {'best_n': nb_riv, 'dchi2_tgl': round(d_riv, 1),
+                              'criterion_fires': bool(nu_can_kill)},
+            'inject_none_today': {'null_improvement': round(imp_non, 2),
+                                  'verdict': ('NO DETECTION: n UNMEASURED; '
+                                              'n=-2 ALLOWED, not confirmed')},
+            'published_upper_limits': ('IceCube n=0 1.17e-15 eV; solar+KamLAND n=-1 '
+                                       '0.78e-26 GeV; JUNO/DUNE proj. 8e-27 GeV'),
+            'tau_star_bound_neutrino_s': 7.8e-10,
+            'published_limit_scan': {
+                'chi2_n': {str(k): round(v, 3) for k, v in chi2_pub.items()},
+                'dchi2_n_minus2': round(dchi2_pub, 3),
+                'n_minus2_status': n2_status,
+                'note': ('COMPUTED profile likelihood against published upper limits '
+                         '(UL=1.64 sigma one-sided; declared approximation)'),
+            },
+        },
+        'clock_scaling': {
+            'criterion': ('fit log Gamma vs log omega: TGL requires slope = 2 '
+                          'and ONE shared tau_star'),
+            'bounds_s': {k: float(v) for k, v in cbf.items()},
+            'omega2_world': {'slope': round(sl2, 3), 'tau_spread': round(sp2, 2),
+                             'pass': bool(clk_ok)},
+            'omega1_world': {'slope': round(sl1, 3), 'tau_spread': sp1,
+                             'criterion_fires': bool(clk_fires)},
+        },
+        'cross_sector': ('today both sectors give UPPER limits only (clocks govern '
+                         'by ~24 orders); if BOTH ever detect dephasing, the two '
+                         'tau_star MUST coincide or TGL dies'),
+        'status_today': ('machinery validated (can kill); no detection anywhere; '
+                         'bounded, not confirmed'),
+        'kill_verdict_today': 'NOT FALSIFIED, NOT CONFIRMED',
+        'stage': 'falsifiable in FORM, not decisively tested',
+        'kill_condition': ('exclude n=-2 (dchi2>9) OR observe slope != 2 OR '
+                           'incompatible tau_star between sectors'),
+    }
+
+    log_subsection("J.4  Pre-registered falsifier: neutrino exponent scan (n = -2)")
+    log_info(f"  inject n=-2 -> best n={nb_tgl:+d} (recovered); inject n=0 -> best "
+             f"n={nb_riv:+d}, dchi2(n=-2)={d_riv:.0f} -> CRITERION FIRES (can kill)")
+    log_info(f"  inject none (today): null improvement {imp_non:.1f} < 9 -> "
+             f"n UNMEASURED; n=-2 ALLOWED, not confirmed")
+    log_subsection("J.5  Pre-registered falsifier: clock scaling Gamma ~ omega^2")
+    log_info(f"  bounds: Th-229 {cbf['Th-229']:.1e} s | Al+ {cbf['Al+']:.1e} | "
+             f"Yb+ E3 {cbf['Yb+ E3']:.1e} | Sr-87 {cbf['Sr-87']:.1e}")
+    log_info(f"  omega^2 world: slope {sl2:.3f}, tau spread {sp2:.2f}x (single "
+             f"tau_star) | omega^1 world: slope {sl1:.3f}, spread {sp1:.0e}x -> FIRES")
+    log_info(f"  J.4b COMPUTED vs published limits: chi2(n) = "
+             f"{{{', '.join(f'{n:+d}: {chi2_pub[n]:.2f}' for n in NVALSF)}}}; "
+             f"dchi2(n=-2) = {dchi2_pub:.2f} -> {n2_status}")
+    log_subsection("J.6  Combined verdict (the sector where TGL can die)")
+    log_info("  TGL lives or dies in the dissipative-spectral sector: n=-2 and Gamma ~ omega^2.")
+    log_info("  TODAY: NOT FALSIFIED, NOT CONFIRMED -- falsifiable in FORM, not decisively tested.")
+    log_info("  KILL CONDITION: exclude n=-2 (dchi2>9) OR slope != 2 OR incompatible tau_star.")
+
 
 def _latex_part_dephasing(R: 'Results') -> str:
     """Universal dephasing law section, generated into the paper.  Reads results
@@ -13351,6 +13710,16 @@ def _latex_part_dephasing(R: 'Results') -> str:
     n_s = f"{d.get('exponent_n_neutrinos', -2.0):.0f}"
     tau_s = f"{d.get('tau_star_bound_Th229_s', 1.8e-33):.1e}"
     beta_s = f"{d.get('beta_TGL', BETA_TGL):.6f}"
+    fz = d.get('falsifiers', {})
+    _nu = fz.get('neutrino_scan', {}); _ck = fz.get('clock_scaling', {})
+    dchi_riv_s = f"{_nu.get('inject_n_zero', {}).get('dchi2_tgl', 1563.0):.0f}"
+    sl2_s = f"{_ck.get('omega2_world', {}).get('slope', 2.003):.2f}"
+    sl1_s = f"{_ck.get('omega1_world', {}).get('slope', 1.004):.2f}"
+    _sp1 = float(_ck.get('omega1_world', {}).get('tau_spread', 2.3e5))
+    sp1_pow_s = f"{math.log10(max(_sp1, 10.0)):.0f}"
+    tau_al_s = f"{_ck.get('bounds_s', {}).get('Al+', 3.4e-30):.1e}"
+    _pls = _nu.get('published_limit_scan', {})
+    dchi_pub_s = f"{_pls.get('dchi2_n_minus2', 0.0):.2f}".replace('.', '{,}')
     return (
         r"\section{A lei universal de dephasing: a assinatura espectral da \TGL}" "\n"
         r"\label{sec:dephasing}" "\n"
@@ -13379,6 +13748,48 @@ def _latex_part_dephasing(R: 'Results') -> str:
         r"--- a matriz-S da fronteira tipo III$_1$ --- que fecharia simultaneamente $\tau_\star$, "
         r"$\mathcal R=\sqrt{\betatgl}$ e a unicidade de $\sqrt e$.  "
         r"\textbf{[CONJECTURE: o teorema da matriz-S]}" "\n"
+        "\n"
+        r"\paragraph{Os falsificadores pr\'e-registrados: onde a \TGL{} vive ou morre.}" "\n"
+        r"A frase honesta do programa: \textbf{a \TGL{} vive ou morre no setor "
+        r"dissipativo-espectral --- $n=-2$ e $\Gamma\propto\omega^2$} --- n\~ao em "
+        r"$H(z)$ ou no crescimento de estruturas (setores \emph{stealth}/limit\'aveis).  "
+        r"Tr\^es testes pr\'e-registrados, com a m\'aquina de decis\~ao executada ao vivo "
+        r"nesta rodada (m\'odulos \texttt{tgl\_neutrino\_exponent\_test.py} e "
+        r"\texttt{tgl\_clock\_scaling\_test.py}; n\'umeros desta se\c{c}\~ao):  "
+        r"(i)~\emph{neutrinos (expoente)} --- scan $\chi^2(n,\gamma_0)$ sobre "
+        r"$n\in\{-2,-1,0,+1,+2\}$; crit\'erio: se o melhor ajuste der $n\neq-2$ com "
+        r"$\Delta\chi^2(n{=}-2)>9$, a assinatura espectral da \TGL{} est\'a "
+        r"\textbf{exclu\'ida}.  A m\'aquina, validada por inje\c{c}\~ao sint\'etica, "
+        r"recupera $n=-2$ quando presente e \emph{dispara contra a pr\'opria teoria} "
+        r"quando um mundo $n=0$ \'e injetado ($\Delta\chi^2(n{=}-2)=" + dchi_riv_s + r"$); "
+        r"nos dados de hoje (apenas limites superiores: IceCube $n{=}0$, solar+KamLAND "
+        r"$n{=}-1$, proje\c{c}\~oes JUNO/DUNE) $n$ \textbf{n\~ao est\'a medido} --- "
+        r"$n=-2$ \'e permitido, n\~ao confirmado.  "
+        r"(ii)~\emph{rel\'ogios (forma e magnitude)} --- qualquer dephasing an\^omalo "
+        r"detectado deve dar $\mathrm{slope}=2$ no ajuste $\log\Gamma\times\log\omega$ "
+        r"e um \'unico $\tau_\star=2\Gamma/(\betatgl\,\omega^2)$ comum a todas as "
+        r"frequ\^encias (Sr-87, Yb$^+$\,E3, Al$^+$ com $\tau_\star\le" + tau_al_s + r"$\,s "
+        r"conservador, $^{229}$Th); a m\'aquina recupera slope $" + sl2_s + r"$ e "
+        r"$\tau_\star$ \'unico num mundo $\omega^2$, e num mundo $\omega^1$ injetado o "
+        r"crit\'erio \textbf{dispara} (slope $" + sl1_s + r"$, $\tau_\star$ espalhado por "
+        r"$\sim10^{" + sp1_pow_s + r"}\times$ entre frequ\^encias $\Rightarrow$ refutada).  "
+        r"(iii)~\emph{consist\^encia cruzada} --- se ambos os setores detectarem "
+        r"dephasing, os dois $\tau_\star$ devem coincidir (a mesma lei, a mesma "
+        r"constante), ou a teoria morre.  "
+        r"O veredito de hoje \'e \emph{computado}, n\~ao declarado: o profile "
+        r"$\chi^2(n,\gamma_0)$ contra os limites publicados (IceCube, solar+KamLAND; "
+        r"limites superiores tratados como v\'inculos unilaterais de 1{,}64$\sigma$, "
+        r"aproxima\c{c}\~ao declarada) d\'a $\Delta\chi^2(n{=}-2)=" + dchi_pub_s + r"$ "
+        r"--- $n=-2$ \textbf{permitido} (inconclusivo: nenhuma dete\c{c}\~ao em nenhum "
+        r"$n$; $\gamma_0\to0$ ajusta todos os limites).  "
+        r"\textbf{Estado do setor, dito sem rodeios: n\~ao falsificada, n\~ao "
+        r"confirmada} --- a teoria est\'a no est\'agio \emph{falsific\'avel na forma, "
+        r"ainda n\~ao testada decisivamente}.  Condi\c{c}\~ao futura de morte, "
+        r"pr\'e-registrada: excluir $n=-2$ ($\Delta\chi^2>9$) \emph{ou} observar "
+        r"slope $\neq2$ \emph{ou} $\tau_\star$ incompat\'ivel entre setores.  "
+        r"\textbf{[REAL: a m\'aquina, os crit\'erios e o veredito computado; INPUT: "
+        r"$\tau_\star$; estado presente: \emph{limitado, n\~ao confirmado} --- "
+        r"JUNO/DUNE e as redes de rel\'ogios decidem.]}" "\n"
     )
 
 
