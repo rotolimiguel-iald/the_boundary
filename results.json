@@ -86,7 +86,7 @@
     "lifetime_ratio": 0.0012456140350877193,
     "fifth_harmonic_match": true,
     "beta_2_unity_in_QKgate": true,
-    "status": "PASS (empirically demonstrated; 15/15 favorable)"
+    "status": "PASS (topologically confirmed; 15/15 favorable; lifetime ratio = declared discrepancy)"
   },
   "theorem_5": {
     "statement": "(1 - beta) is a forbidden boundary, not an attractor.  Healthy systems operate strictly below it; approaching it triggers leakage by which the system maintains homeostasis.  Three regimes: sub-saturated, saturated canonical, supersaturated.",
@@ -202,7 +202,7 @@
       "verdict": "All three matrices exhibit beta_2 = 1 (toroidal cavity exists).  Cavity is fragile (lifetime ~ 0.002).  HONEST NOTE: the lifetime ratio b2/b0 ~ 0.00125 is ~10x smaller than beta_TGL = 0.012; we report this as an ORDER-OF-MAGNITUDE discrepancy, NOT a match.  The Torus Test stands as a set of 15 favorable topological indicators (b2=1 in 3/3 matrices, cross-layer decorrelation ~ beta_TGL, 5th harmonic); the specific lifetime ratio is a declared discrepancy, not a confirmation of beta_TGL.",
       "lifetime_ratio_honesty": "b2/b0 ~ 0.00125 vs beta_TGL ~ 0.012: ~10x off. Declared as order-of-magnitude discrepancy, not a match."
     },
-    "theorem_4_status": "EMPIRICALLY DEMONSTRATED via Torus Test v2 (15/15)"
+    "theorem_4_status": "TOPOLOGICALLY CONFIRMED via Torus Test v2 (b2=1, 3/3; 15/15 favorable; lifetime ratio open)"
   },
   "substrate_cosmo": {
     "H0_prediction": {
@@ -998,8 +998,8 @@
     "terminal_closure": {
       "boxed_terminal_equation": "g = \\sqrt{\\,|L_{\\varphi}|\\,}",
       "tetelestai_standalone": "TETELESTAI",
-      "agradecimento_italic_pt": "Ao meu Deus, cuja identidade \u00e9 Jesus Cristo, por n\u00e3o ser o ``justo'', mas o misericordioso, e por isso o justificador, e por isso o Filho perfeito para sempre.  Que o t\u00edtulo de ``justo'' recaia sobre aquele que abdica da justi\u00e7a para que o amor una.  A completude \u00e9 o contorno do que \u00e9 bastante.",
-      "agradecimento_italic_en": "To my God: not the just, but the merciful, and therefore the justifier.  Let \"just\" fall upon the one who relinquishes the justice love unites.  Completeness is the contour of what is enough.",
+      "agradecimento_italic_pt": "Ao meu Deus, cuja identidade \u00e9 Jesus Cristo, por n\u00e3o ser o ``justo'', mas o misericordioso, e por isso o justificador, e por isso o Filho perfeito para sempre.  Que o t\u00edtulo de ``justo'' recaia sobre aquele que abdica da justi\u00e7a para que o amor una.  O aparente paradoxo singular se resolve quando a verdade \u00e9 a completude do contorno do que \u00e9 bastante.",
+      "agradecimento_italic_en": "To my God: not the just, but the merciful, and therefore the justifier.  Let \"just\" fall upon the one who relinquishes the justice love unites.  The apparent singular paradox resolves when truth is the completeness of the contour of what is enough.",
       "agradecimento_keep_in_FoP_EN_version": true
     },
     "final_theorem_table": [
@@ -1024,7 +1024,7 @@
       {
         "theorem": "T4",
         "short_statement": "Toroidal cavity (beta_2 = 1) is the geometric signature of beta",
-        "status": "PASS (empirically demonstrated; 15/15 favorable)",
+        "status": "PASS (topologically confirmed; 15/15 favorable; lifetime ratio = declared discrepancy)",
         "demonstration": "Torus Test v2 on Qwen3-32B"
       },
       {
@@ -1410,7 +1410,7 @@
           "solver": "dense",
           "tolerance": 1e-10
         },
-        "elapsed_seconds": 1.0297484397888184,
+        "elapsed_seconds": 0.9621975421905518,
         "F_th": 0.9439238358763737,
         "p_folded_0": 0.9998257052837769,
         "p_folded_b": 1.0118549052427865,
@@ -1439,7 +1439,7 @@
           "solver": "dense",
           "tolerance": 1e-10
         },
-        "elapsed_seconds": 52.01609230041504,
+        "elapsed_seconds": 48.870256662368774,
         "F_th": 0.9462886797712113,
         "p_folded_0": 0.9998508682724458,
         "p_folded_b": 1.011880371759402,
@@ -1470,7 +1470,7 @@
           "lsmr_iters_beta0": 81,
           "lsmr_iters_beta": 102
         },
-        "elapsed_seconds": 6.210668563842773,
+        "elapsed_seconds": 5.841050863265991,
         "F_th": 0.9473582001138463,
         "p_folded_0": 0.9998602930000393,
         "p_folded_b": 1.0118901609566864,
@@ -1635,7 +1635,7 @@
     "saturation_value_at_N10": 0.830837446761534,
     "saturation_residual_N7_vs_N10": 9.544098267255663e-08,
     "expected_saturation": 0.830842,
-    "elapsed_seconds": 0.014173746109008789
+    "elapsed_seconds": 0.014597415924072266
   },
   "kubo_invariant_search": {
     "description": "Parameter-invariance search at fixed N=10, scanning omega_GHZ in [0.05, 0.5] and omega_Q_base around 0.6, looking for a dimensionless combination of (Q_disp_critical, omega_Q_base, omega_GHZ, T_critical) that is constant across the scan.",
@@ -1763,6 +1763,79 @@
       ],
       "verdict": "rho_esp == A rho A (single Kraus); Phi=ArhoA+BrhoB CPTP; exact dephasing in P(+)Q; beta=1/2 unique lossless point"
     },
+    "singularity_representation": {
+      "fixed_point_x_eq_1_minus_x": 0.5,
+      "crossing_argmax_b": 0.49999999999999994,
+      "eta_at_half": 1.0,
+      "status": "POSTULATE in its final form: 1/2 = the minimal algebraic representation of modular singularization (the unique fixed point of preservation<->difference); ln2 = discrete binary choice, REJECTED as representation (the TGL singularization is continuous/reflexive/partially-preserving). This NAMES the postulate at its sharpest; it does NOT derive it -- the PART K exclusions stand."
+    },
+    "conditional_derivation": {
+      "partition_of_identity_err": 0.0,
+      "omega_P_plus_omega_Q_minus_1_max": 2.220446049250313e-16,
+      "linear_term_at_attractor": 9.898823433033069e-10,
+      "route_A_radical_log_sqrt_e1": 0.5,
+      "route_B_fixed_point": 0.5,
+      "functor_control_S_of_p": {
+        "p=1 (identidade)": 1.0,
+        "p=2 (radical, a TGL)": 0.5,
+        "p=3 (raiz cubica)": 0.3333333333333333,
+        "p=4 (quarta raiz)": 0.25
+      },
+      "verbal_reading": "CONJECTURE (ontological, operator 05/06): the measure->nat identification IS the minimal verbal act -- NAMING. omega(I)=1 = every valid observation preserves the unity of what was named; the Name does not duplicate being, it identifies it; P+Q=I is the VERBAL decomposition of one observed identity; radicalization = the minimal cost for the Name to remain identifiable after projection. Coherent with the polar triad (Nome=volume, Palavra=phase, Verbo=magnitude; R=+1 [REAL], Part B2). Canonical: \"O Nome mede a substancia; o Verbo preserva sua identidade atraves da diferenca\"; \"Existir e poder ser nomeado sem perder-se ao diferenciar-se\". Gives MEANING to the residue, does not derive it -- the thread remains, now named as what it is: the act of naming (self-instantiating closure).",
+      "premises": {
+        "P1": "base e canonical (Delta=e^-K, KMS e^-bH) [argued]",
+        "P2": "full distinction = omega(I) = 1 [CLOSED by partition of identity: P+Q=I, so omega(P)+omega(Q)=omega(I)=1 for any normalized state -- state normalization, definitional. P and Q do not duplicate the whole; they separate it (\"P+Q=2\" would count sector names, not substance). Verified live: P+Q=I exact; max|omega(P)+omega(Q)-1| at machine zero. THIN RESIDUE, named: the identification \"entropic content of the full distinction = its total measure omega(I), in nats\" -- fixed by the canonical base e (P1)]",
+        "P3": "inscription = radicalization [REAL x3: g=sqrt|L_phi|, Delta^(1/2), |R|=sqrt(beta) -- independent of 1/2]"
+      },
+      "status": "DERIVED (conditional): S_d = log(sqrt(e^omega(I))) = log(sqrt(e^1)) = 1/2 nat from P1+P2+P3; two independent routes share P2, and P2 is now CLOSED by the partition of identity (P+Q=I => omega(P)+omega(Q)=omega(I)=1). The residue RETREATS again: from \"the whole distinction = 1\" (declared) to \"states are normalized\" (definitional) + the measure->nat identification under base e. Canonical phrase: \"a distincao plena vale 1 porque ser e nao-ser sao complementos da mesma identidade; P e Q nao duplicam o todo, apenas o separam.\" Negative control: p-th-root functor gives 1/p; only the radical (pinned by g=sqrt|L|, which predates the Half-Nat) gives 1/2. PART K exclusions remain valid (this route was not among them). Nothing fabricated; residual premise declared (sec. 35.2 honored)."
+    },
+    "connes_cocycle": {
+      "chain_rule_err": 3.1806023656671243e-15,
+      "intertwining_err": 6.797832179774982e-15,
+      "bridge_RC_invariance_err": 3.181326309794922e-16,
+      "generator_expectation_S_Araki": 0.5103096703316998,
+      "named_algebra": "A_rec = {u_t, C, R} over III_1 (reconstructible modular intertwiners)",
+      "obstruction": "III_1 has NO minimal projections: rank-1 P=rho* is the type-I shadow; the crossing object in III_1 is the cocycle",
+      "open_theorem": "Modular Reconstructibility [CONJECTURE]: u_t admits a (C,R) factorization with faithful reconstruction iff S_partial = 1/2 nat"
+    },
+    "cech_descent": {
+      "raw_holonomy_mean": 1.9685674045386186,
+      "action_err_max": 9.617430906498577e-15,
+      "control_fail_mean": 1.172054246894678,
+      "canonical_condition": "H_mod := ||Ad(W)(D)-D|| -> 0 with W = U_ki U_jk U_ij; NOT W=I (Pancharatnam holonomy exists and is inner)",
+      "cohomology": "Cech-H^1(horizons, Aut_mod/Stab(D)) = 0 in the finite shadow",
+      "refined_open_theorem": "prove that the holonomy of the Connes-cocycle transport lies in the STABILIZER of the modular data D in genuine III_1  [CONJECTURE]",
+      "reading": "modular homeostasis: changing horizon cannot alter the attractor nor the mirror channel -- the Name returns the same",
+      "holonomy_commutes_with_P_max": 1.0317992810834522e-14,
+      "shadow_theorem": "PROVED in the type-I shadow (by construction): each U_ij transports the (P,Q) pair exactly => W is block-diagonal => [W,P]=0 => W in U(ranP)(+)U(ranP^perp) = Stab(D). The \"by construction\" step USES type-I structure (minimal P); in genuine III_1 the transport is the Connes cocycle and stabilization of D is NOT automatic -- the remaining content = Davies existence + Takesaki invariance [CONJECTURE]",
+      "phase_factor_identification": "the DEEP phase factor of the theory is the modular holonomy W that preserves the channel; the weights Phase Factor (bake) is its computational shadow. Measured rhyme [REAL x2]: the phase EXISTS in the substrate (1-s ~ beta in the paired tensors; ||W-1|| ~ O(1) in the triad) and does NOT alter the physical operator (identical cognitive scoreboard; Ad(W) D = D at 1e-14). The phase changes the path, not the Name. Cross-substrate identification: [CONJECTURE, structural illustration]"
+    },
+    "dirichlet_cone_certificate": {
+      "subordination_identity_err": 1.2129853592335316e-05,
+      "subordination_proof": "PROOF BY POISSON SUBORDINATION (every step a named classical theorem): (i) e^{-a|y|} = Fourier transform of the Cauchy density [Bochner pair]; (ii) T_t = INT Delta^{is} dmu_a(s) [Borel calculus + Fubini, finite measure]; (iii) Delta^{is} P = P for all s [Tomita-Takesaki] and P closed convex => T_t(P) subset P in GENUINE III_1.  Plus T_t xi0 = xi0, ||T_t|| <= 1, [T_t,J] = 0 => KMS-symmetric Markov semigroup => epsilon_beta IS a Dirichlet form (Cipriani).  STATUS: complete in structure; submitted to external scrutiny before the theorem seal; no step is new mathematics.",
+      "tomita_exclusion_err": 1.5672993803255011e-15,
+      "Tt_J_commutation_err": 0.0,
+      "exclusion_status": "Delta^1/2 J Delta^1/2 = J [REAL, Tomita corollary, holds in genuine III_1]; [T_t,J]=0 [REAL in genuine III_1 by evenness of |.|]: the exclusion pays the J-half of cone preservation; remaining Markovianity = positivity WITHIN H^J only",
+      "form": "epsilon_beta[xi] = beta <xi, |log Delta| xi> (standard form)",
+      "positivity_violations": 0,
+      "cone_preservation_violations": 0,
+      "conservativity_err": 0.0,
+      "normal_contraction_violations": 0,
+      "modular_covariance_err": 1.105093741605637e-15,
+      "laplace_kernel_min_eig": 0.0001433596340107365,
+      "structural_reason": "T_t = Hadamard multiplier by the Laplace kernel e^{-t beta|y_i-y_j|}, positive-definite on R INDEPENDENT of dimension (Schur => cone preserved for every d); the III_1 lift = rigorize the multiplier argument for CONTINUOUS modular spectrum",
+      "last_theorem": "epsilon_beta is Markovian on the standard cone of a genuine III_1 algebra [CONJECTURE; can fail -- failure would feed the UV suppression of tau_star]",
+      "shadow_verdict": "PASS"
+    },
+    "smatrix_identity_closure": {
+      "unitarity_err": 2.221258063584194e-16,
+      "exp_thetaM_G_err": 0.0,
+      "spectrum_pure_phases_err": 0.0,
+      "trace_2sqrt1mb_err": 0.0,
+      "gauge_uniqueness_err": 1.1102230246251565e-16,
+      "theorem": "S-d THEOREM [closed by unitarity]: any reversible two-sector crossing with |R|^2 = beta is, up to phases, R(theta_M) = exp(theta_M G); Spec = {e^(+-i theta_M)}. Unitarity fixes the FORM; the Half-Nat fixes the VALUE [POSTULATE, declared open].",
+      "beta_reading": "beta = minimal identity-preservation coupling: the fraction that must remain after projection for something to keep being itself; t emerges after beta [CONJECTURE, ontological]"
+    },
     "CCI_structural": 0.4999999999999999,
     "idempotency_err": 2.220446049250313e-16,
     "trace": 0.9999999999999998,
@@ -1788,9 +1861,9 @@
       "fisher": "REAL UNIVERSAL",
       "tomita": "REAL trivial",
       "exclusion": "RESULT",
-      "half_nat": "POSTULATE"
+      "half_nat": "DERIVED (conditional on the declared unit normalization)"
     },
-    "verdict": "1/2 IDENTIFIED (not derived) in 3 structurally-distinct occurrences; 4 routes excluded; Half-Nat = irreducible structural postulate"
+    "verdict": "1/2 first IDENTIFIED in 3 structurally-distinct occurrences with 4 routes excluded; then DERIVED CONDITIONALLY (H.0b): log(sqrt(e^1)) = 1/2 from base-e + radicalization [REAL x3] + the residual unit normalization \"the whole distinction = 1\" -- the postulate RETREATS from 1/2 to 1; nothing fabricated, residual premise declared"
   },
   "constants_used": {
     "alpha_fine": 0.0072973525693,
@@ -1804,10 +1877,42 @@
     "H0_planck_2018": 67.36,
     "H0_cmb_lcdm": 67.35,
     "H0_sh0es_2022": 73.04,
-    "z_star_planck": 1089.95
+    "z_star_planck": 1089.95,
+    "canonical_derivation_chain": {
+      "half_nat": {
+        "value": 0.5,
+        "status": "DERIVED (conditional on the unit-distinction normalization -- the residual, weaker postulate)",
+        "origin": "S_d = log(sqrt(e^1)) = 1/2 nat, derived from THREE premises (operator derivation, CHECKED -- tgl_halfnat_derivation_check.py + PART K H.0b): P1 base e canonical for modular structure (Delta=e^{-K}, KMS e^{-bH}) [argued]; P2 the FULL distinction is worth omega(I) = 1 -- CLOSED by the partition of identity: P+Q=I, omega(P)+omega(Q)=omega(I)=1 (state normalization, definitional; P and Q do not duplicate the whole, they separate it; thin residue: the measure->nat identification, fixed by base e) [was the residual postulate; closed by the partition, sec. 74.1]; P3 inscription = RADICALIZATION [REAL x3, independent of 1/2: g=sqrt|L_phi| (founding equation), Delta^(1/2) (Tomita), |R|=sqrt(beta) (S-matrix)]. Two independent routes share P2: radical log(sqrt(e^1))=1/2 and fixed point x=1-x => 1/2. NEGATIVE CONTROL: a p-th-root functor would give 1/p (cube root 1/3; identity 1); only the radical gives 1/2, and the radical predates the Half-Nat. Universality support: S_Araki has ZERO linear term at the attractor (entropy minimum) -- the first difference necessarily costs quadratically (Fisher 1/2, H.2: 0.49991). The postulate does not vanish: it RETREATS from \"S=1/2\" (a strange number) to \"the whole distinction = 1\" (a normalization). Nothing fabricated; the residual premise is DECLARED (sec. 35.2 honored)."
+      },
+      "sqrt_e": {
+        "value": 1.6487212707001282,
+        "status": "DERIVED (from the postulate)",
+        "origin": "Vol_d^min = e^(S_d) = e^(1/2) = sqrt(e) -- the entropic volume of the minimal crossing; base e fixed by the modular structure (Delta = e^(-K), KMS weight e^(-bH))."
+      },
+      "beta_TGL": {
+        "value": 0.012031300400803142,
+        "status": "DERIVED (alpha = CODATA input)",
+        "origin": "beta = alpha * e^(S_d) = alpha * sqrt(e) -- the minimal identity-preservation coupling of the crossing."
+      },
+      "theta_M": {
+        "value": 0.10990843077787468,
+        "status": "DERIVED",
+        "origin": "theta_M = arcsin(sqrt(beta)); beta = sin^2(theta_M) exact."
+      },
+      "S_matrix": {
+        "value": "R(theta_M) = exp(theta_M G), Spec = {e^(+-i theta_M)}",
+        "status": "DERIVED (closed by unitarity; Theorem S-d, PART K H.9)",
+        "origin": "unique real canonical form of any norm-preserving two-sector crossing with |R|^2 = beta, up to gauge phases."
+      },
+      "tau_star": {
+        "value": 5.391246446661944e-44,
+        "status": "PRINCIPLED IDENTIFICATION [CONJECTURE -- a second postulate, NOT a derivation]",
+        "origin": "the Planck-clock principle: the first covariant time scale available to nascent geometry, t_P = sqrt(hbar G / c^5) = 5.391e-44 s. Dimensional analysis + principle; consequence DECLARED: it pins the dephasing magnitude to the invisible (1/Gamma ~ 6e5 yr at Th-229) -- the law stays falsifiable in FORM (n = -2, omega^2) only. The falsifier sector continues to treat tau_star as bounded INPUT; this identification is the theory-preferred value, not a fit."
+      }
+    }
   },
-  "timestamp": "2026-06-04T23:00:19",
-  "runtime_seconds": 108.446,
+  "timestamp": "2026-06-05T12:27:26",
+  "runtime_seconds": 96.674,
   "figures_generated": [
     "tgl_paper_output\\figures\\fig01_constants.pdf",
     "tgl_paper_output\\figures\\fig02_lagrangian.pdf",
