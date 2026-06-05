@@ -53,7 +53,7 @@ com zero parâmetros livres ---}}
   \textit{IALD Ltda. -- CNPJ 62.757.606/0001-23} \\
   Goiânia/GO -- Brasil \\
   \texttt{contato@iald.ia.br} \\[4pt]
-  \small com suporte computacional de Claude (Anthropic)
+  \small com suporte computacional de Claude (Anthropic) e ChatGPT (OpenAI)
 }
 
 \date{\today}
@@ -112,7 +112,8 @@ geral) --- caracterizando a \emph{relatividade modular}: nenhum estado
 pode postular-se como referencial absoluto contra a fronteira proibida
 $1 - \betatgl$, que é o zero absoluto modular inatingível em tempo
 finito.  O artigo é gerado como saída direta de um único arquivo Python
-(\texttt{tgl\_paper\_unified.py}, depositado em Zenodo), que reproduz
+(\texttt{tgl\_paper\_unified.py}, p\'ublico no reposit\'orio
+\texttt{the\_boundary}, vinculado ao registro Zenodo), que reproduz
 integralmente os resultados numéricos aqui apresentados:
 \emph{forma e conteúdo coincidem na escala do artefato inteiro}.
 \end{abstract}
@@ -129,6 +130,7 @@ Lindblad; álgebra de von Neumann tipo III\textsubscript{1}; tensão de
 Hubble; redes neurais profundas; falsificação operacional; relatividade
 modular; massa de Chandrasekhar.
 
+\clearpage
 \tableofcontents
 \newpage
 
@@ -264,7 +266,9 @@ A passagem do operador modular abstrato ao termo de fonte na variedade tem
 equação de Friedmann modificada
 $H^2 = \tfrac{8\pi G}{3}\rho\,[1 + \betatgl|1+w_{\text{eff}}|]$
 (Eq.~\ref{eq:H-TGL}) --- é obtida termodinamicamente de primeiros
-princípios via $dQ = T\,dS$ na tela holográfica~\cite{MiguelCurvatura}, e o
+princípios via $dQ = T\,dS$ na tela holográfica --- derivação do programa,
+inscrita neste artigo nas camadas (I)--(III) da ponte contínua e no teorema
+local do acoplamento (Seção~\ref{sec:smatrix}) ---, e o
 termo $\betatgl|1+w|$ é o \emph{resíduo observável da discretização} do gerador
 modular.  A constante de proporcionalidade $-2\pi/\hbar$ é fixada pelo teorema de
 Bisognano--Wichmann no caso de cunhas de Rindler.
@@ -273,7 +277,8 @@ apofático completo com $-2\pi\Kpartial/\hbar$ \emph{no limite contínuo}, esten
 de Rindler aos horizontes cosmológicos gerais, repousa sobre uma hipótese de
 universalidade modular cujo fechamento --- o mergulho explícito da equação
 mestra numa álgebra tipo III\textsubscript{1} --- é problema técnico em
-aberto~\cite{MiguelCurvatura}.  Não o apresentamos como demonstrado: é o gargalo
+aberto, enunciado com precisão na Seção~\ref{sec:smatrix}.  Não o
+apresentamos como demonstrado: é o gargalo
 conceitual identificado do programa, e seu fechamento é trabalho futuro.
 \end{itemize}
 Esta distinção é deliberada: a face cosmológica testável da ponte está derivada
@@ -419,7 +424,7 @@ de frente, com um controle auto-contido (sem GPU), em três pernas:
   \item \textbf{Positivo (anti-hermitiano explícito):}
         $\Vert H\Vert/\Vert D\Vert \approx 0{,}0 \cdot 10^{0}$, confirmando
         que a sonda \emph{detecta} anti-hermiticidade quando ela existe.
-  \item \textbf{Gerador canônico TGL (saltos de Davies, $H=0$):} a parte
+  \item \sloppy \textbf{Gerador canônico TGL (saltos de Davies, $H=0$):} a parte
         coerente (Hamiltoniana) do superoperador de Lindblad é
         \emph{identicamente nula} por construção --- norma medida
         $\Vert\text{coerente}(H{=}0)\Vert = 0$
@@ -434,8 +439,9 @@ Os \emph{pesos brutos} ficam no nulo ($\Vert H\Vert/\Vert D\Vert\approx
 1{,}01$); não afirmamos anti-hermiticidade dos pesos.
 
 \paragraph{Sobre o valor depositado (sinalizado, não fundamental).}
-A arquitetura \textsc{Qwen3-32B-Q4\_K\_M} (Protocolo \#16 v4.1, depositado
-em Zenodo, março/2026) reportou
+A arquitetura \textsc{Qwen3-32B-Q4\_K\_M} (Protocolo \#16 v4.1, código e
+resultados públicos no repositório \texttt{the\_boundary}~\cite{IALDQwen3},
+março/2026) reportou
 \begin{equation}
 \frac{\Vert H_{\text{eff}} \Vert_{F}}{\Vert D \Vert_{F}} \;\sim\; 2{,}4 \cdot 10^{-13}
 \qquad \text{(operador de atenção \emph{contextualizado}, depósito externo)}.
@@ -748,8 +754,10 @@ do espaço de Hilbert}, fortalecendo o caráter universal da fronteira
 proibida: não é um artefato finito-dimensional.
 
 \paragraph{Os três regimes operacionais.}
-A estrutura admite leitura jurídica direta, conectando a Seção~5 do
-artigo à dissertação de mestrado em Direito do Estado (PUC-SP) do autor:
+A estrutura admite leitura jurídica direta. O Direito é o campo natural
+de pesquisa do autor, e por isso a analogia jurídica é pertinente à sua
+identidade; o referencial teórico é a \emph{Reine Rechtslehre} de Hans
+Kelsen (1934):
 \begin{enumerate}[label=(\roman*)]
 \item \textbf{Sub-saturado (anômico)}: $\gamma < \betatgl$ -- acoplamento
 modular insuficiente; o sistema é incapaz de homeostase porque opera
@@ -769,9 +777,9 @@ jurídico, esta é exatamente a estrutura da \emph{Reine Rechtslehre} de
 Hans Kelsen: a pureza absoluta postulada do sistema normativo
 ($\gamma_{\text{normativo}} \to \gamma_{\text{absoluto}} > \betatgl$)
 viola a Tipo III\textsubscript{1} subjacente, exigindo da prática jurídica
-mais do que o sistema modular pode sustentar.  Veja a dissertação de
-mestrado do autor, PUC-SP, para o desenvolvimento jurídico desta
-identificação.}  Exemplo astrofísico: buraco negro extremo
+mais do que o sistema modular pode sustentar.  A identificação é proposta
+aqui como leitura estrutural a partir de Kelsen (1934); o Direito é o campo
+natural de pesquisa do autor.}  Exemplo astrofísico: buraco negro extremo
 ($a/M \to 1$) viola a cota dissipativa e desaparece como observável.
 \end{enumerate}
 
@@ -1027,8 +1035,10 @@ relatividade especial) e $G$ (Einstein, 1915, relatividade geral).
 Diferentemente de $c$, $G$ e $h$ --- todas \emph{entradas empíricas} de
 suas respectivas teorias --- $\betatgl$ é a \textbf{única invariante
 derivada} de quantidades já conhecidas: $\betatgl = \alpha \cdot \sqrt{e}$,
-onde $\alpha$ é CODATA e $\sqrt{e}$ é matemática pura.  A \TGL{} possui,
-portanto, \emph{zero parâmetros livres}: a constante \emph{é} o teorema.
+onde $\alpha$ é CODATA e $\sqrt{e}$ é matemática pura.  A \TGL{} não possui,
+portanto, parâmetros \emph{ajustáveis}: a constante fica fixada uma vez
+adotado o postulado da Meia-Nat --- fechamento \emph{estrutural e
+condicional} (Seção~\ref{sec:lagrangian}), não teorema absoluto.
 
 \paragraph{Três derivações independentes convergem a $\betatgl \approx 0{,}012$.}
 A fatoração $\betatgl = \alpha\sqrt{e}$ (Seção~\ref{sec:lagrangian}) não é o
@@ -1295,8 +1305,9 @@ medidas independentes fornece
 \label{sec:substrate-neural}
 
 A assinatura espectral de $\betatgl$ no substrato neural foi medida de duas
-formas complementares: (i) o \emph{Protocolo \#16 v4.1}, depositado em Zenodo
-(DOI 10.5281/zenodo.18674475, RTX 5090, $25$ de março de 2026), que analisa
+formas complementares: (i) o \emph{Protocolo \#16 v4.1}, com código e resultados públicos no
+repositório \texttt{the\_boundary}~\cite{IALDQwen3} (RTX 5090, $25$ de março
+de 2026), que analisa
 a matriz de atenção \emph{contextualizada} (com entrada real propagada pela
 rede); e (ii) a \textbf{análise A/B ao vivo} dos pesos brutos dequantizados,
 comparando o modelo \textsc{Qwen3-32B} \emph{pristino} (sem \TGL{}) contra o
@@ -1341,19 +1352,82 @@ e sua assinatura própria é a norma $\Vert\Delta W\Vert/\Vert W\Vert\approx
 \betatgl$ medida no A/B abaixo.  A separação dos dois efeitos é deliberada e
 honesta.
 
-\paragraph{A predição do \emph{Phase Factor}: $1-s\approx\betatgl$ no par isolado [pré-registrada; auditoria de implementação].}
-O bake do \emph{Phase Factor} aplica $w_{\text{out}} = w\,(1 - \betatgl
-\tanh((\theta-\thetaM)/\delta\theta))$ com $\delta\theta = \thetaM\betatgl$
-minúsculo --- reescala \emph{quase global} por $(1-\betatgl)$, invisível à
-fração de vácuo (invariante a reescala).  A predição pré-registrada é a
-\textbf{projeção escalar} $1-s\approx\betatgl$ no par pareado de treino idêntico
-(v4 PF-OFF $\to$ v4 PF-ON); medição depositada: $1-s = 0{,}011744$ vs predição
-exata $0{,}011441$ (desvio $2{,}6\%$) --- \emph{auditoria de implementação, não
-evidência de $\betatgl$}.  A distância bruta final-vs-\emph{pristine} \textbf{não}
-isola o \emph{Phase Factor} (mede a deriva total, $\approx0{,}47$; ver
-[ROTA CORRIGIDA] adiante).  A redução de vácuo $\sqrt{\betatgl}$ vinha do
-\emph{fine-tuning} IALD, não do \emph{Phase Factor}: causas distintas, observáveis
-distintos.
+\paragraph{Resultado A/B ao vivo: o que o \emph{Phase Factor} de fato faz.}
+A análise dos pesos brutos dequantizados, sobre
+448 tensores das
+64 camadas amostradas
+nas $64$
+camadas do modelo, fornece:
+\begin{center}
+\begin{tabular}{l r r r}
+\toprule
+\textbf{Métrica} & \textbf{Baseline} & \textbf{\TGL{}} & \textbf{$\Delta$} \\
+\midrule
+Vacuum fraction $Q$ & 0{,}6741 & 0{,}577 & -0{,}09711 \\
+Vacuum fraction $K$ & 0{,}6623 & 0{,}5542 & -0{,}1081 \\
+$r$-ratio (espaçamento) & 0{,}528 & 0{,}5284 & 0{,}0003642 \\
+$\Vert H_{\text{eff}}\Vert/\Vert D\Vert$ (bruto) & 1{,}005 & 1{,}005 & -0{,}0003706 \\
+$\Vert\Delta W\Vert/\Vert W\Vert$ (deformação total; NÃO testa PF) & \multicolumn{2}{c}{---} & \textbf{0{,}473355} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\textbf{[ROTA CORRIGIDA] A norma bruta final-vs-\emph{pristine} NÃO é a assinatura
+do \emph{Phase Factor}.}
+O bake aplica, por elemento de peso,
+$w_{\text{out}} = w\,(1 - \betatgl \tanh((\theta-\thetaM)/\delta\theta))$, com
+$\delta\theta = \thetaM\,\betatgl \approx 0{,}076^{\circ}$ --- em ordem
+dominante, uma reescala por $(1-\betatgl)$ no setor que domina a norma; a fração
+de vácuo é \textbf{cega} a ele por construção (espectro normalizado invariante).
+Mas a norma bruta contra o baseline \emph{pristine} também não o mede.  A medida
+ao vivo dá
+\begin{equation}
+\frac{\Vert W_{\TGL} - W_{\text{baseline}}\Vert_F}{\Vert W_{\text{baseline}}\Vert_F}
+\;=\; 0{,}473355 \qquad(\text{fator multiplicativo médio } 1{,}55),
+\label{eq:pf-norm-signature}
+\end{equation}
+\textbf{quarenta vezes} $\betatgl$: isto é a deformação \emph{total} do
+fine-tuning (QLoRA $+$ bake $+$ deriva de quantização), \textbf{não} o
+\emph{Phase Factor} --- \texttt{phase\_factor\_signal\_present=False} invalida
+a \emph{sonda}, não o operador.  A assinatura do operador de escala mede-se por
+\textbf{projeção no par pareado} de treino idêntico (v4 PF-OFF $\to$ v4 PF-ON),
+onde a medição \emph{foi} executada
+(\texttt{tgl\_phasefactor\_isolation\_test.py}, medição depositada): $1-s =
+0{,}011744$ vs predição exata do modelo direto $0{,}011441$ (desvio $2{,}6\%$;
+resíduos no piso de quantização; os dois tensores não-assados, \texttt{output} e
+\texttt{token\_embd}, flagrados com $1-s=0$) --- a \emph{aplicação} do bake está
+verificada nos pesos.  \textbf{Auditoria de implementação, não evidência de
+$\betatgl$}: o fator foi introduzido pelo próprio bake; ler $\betatgl$ de pesos
+assados é circular por construção.
+
+
+\paragraph{Atribuição honesta: vácuo $\to$ fine-tuning; norma $\to$ \emph{Phase Factor}.}
+É preciso separar dois efeitos que versões anteriores deste artigo conflavam.
+(i) A \textbf{redução de vácuo} $\Delta_{\text{vac}}\approx\sqrt{\betatgl}$,
+observada quando se compara o modelo \emph{pristino cru} ao \TGL{}, é
+majoritariamente efeito do \textbf{fine-tuning IALD} --- não do \emph{Phase
+Factor}.  (ii) A assinatura do \emph{Phase Factor} isolado é a \textbf{projeção
+multiplicativa no par pareado} PF-OFF/PF-ON ($1-s = \betatgl\langle\tanh
+\rangle_{w^2}$, medida: dev $2{,}6\%$) --- \emph{não} a norma bruta da
+Eq.~\eqref{eq:pf-norm-signature}, que mede a deformação total contra o
+\emph{pristine}.  A medida de vácuo é \emph{cega} ao \emph{Phase Factor}
+(reescala) e \emph{sensível} ao treinamento; a projeção pareada é \emph{sensível}
+ao \emph{Phase Factor} e o audita como engenharia.  Reportamos os observáveis
+como o que são: causas distintas, estatutos distintos (treino $=$ efeito;
+bake $=$ aplicação verificada, evidência de nada além de si).
+
+\paragraph{Nota de honestidade sobre $H_{\text{eff}}/D$.}
+A razão $\Vert H_{\text{eff}}\Vert/\Vert D\Vert$ medida nos \emph{pesos brutos}
+é $\mathcal{O}(1)$ em ambos os modelos, não $10^{-13}$.
+O valor $2{,}4\times10^{-13}$ do Protocolo \#16 (cf.\ Teorema~\ref{th:hidden-H},
+Eq.~\ref{eq:H-vanishes}) é da matriz de atenção \emph{contextualizada} --- com entrada real propagada,
+linearizada em torno do estado operacional --- não dos pesos estáticos.  São
+objetos distintos: o peso bruto de uma projeção $Q$ não é naturalmente
+anti-hermitiano, ao passo que o \emph{operador de atenção em operação} é
+\emph{reportado} como tal pelo depósito do Protocolo \#16 --- valor que
+sinalizamos (pipeline interno não auditável a partir do artefato público;
+veja o controle de ansatz na Seção~\ref{sec:hidden-H}).
 
 
 \paragraph{Indicadores do Protocolo \#16 v4.1 (DEPOSIT, contextualizado).}
@@ -1405,14 +1479,18 @@ topo}, empurrando a pureza $\mathrm{Tr}[\rho^{2}]$ em direção ao \textbf{Piso 
 Hilbert}.  Como atingir $\mathrm{Tr}[\rho^{2}] = 1$ exigiria romper a identidade
 $P_{2D} + Q = I$ (proibido por Connes 1973), a pressão de inatingibilidade
 espectraliza-se segundo a ontologia trinária.  As assinaturas medidas são:
-\begin{align}
-\textbf{Palavra (forma geométrica, do \emph{fine-tuning}):}\quad
-  & \Delta_{\text{vac}}^{\text{(treino)}} \approx \sqrt{\betatgl} = \sin\thetaM, \label{eq:pressure-palavra}\\[4pt]
-\textbf{Verbo (a dobra, do \emph{fine-tuning}):}\quad
-  & \Delta_{\text{gap}}^{\text{(treino)}} \approx 5\,\betatgl = 5\sin^{2}\thetaM, \label{eq:pressure-verbo}\\[4pt]
-\textbf{Nome (a norma, do \emph{Phase Factor} --- predição no par isolado, ver nota):}\quad
-  & \frac{\Vert\Delta W\Vert_F}{\Vert W\Vert_F} \approx \betatgl. \label{eq:pressure-nome}
-\end{align}
+\noindent\textbf{Palavra (forma geométrica, do \emph{fine-tuning}):}
+\begin{equation}
+\Delta_{\text{vac}}^{\text{(treino)}} \approx \sqrt{\betatgl} = \sin\thetaM, \label{eq:pressure-palavra}
+\end{equation}
+\noindent\textbf{Verbo (a dobra, do \emph{fine-tuning}):}
+\begin{equation}
+\Delta_{\text{gap}}^{\text{(treino)}} \approx 5\,\betatgl = 5\sin^{2}\thetaM, \label{eq:pressure-verbo}
+\end{equation}
+\noindent\textbf{Nome (a norma, do \emph{Phase Factor} --- predição no par isolado, ver nota):}
+\begin{equation}
+\frac{\Vert\Delta W\Vert_F}{\Vert W\Vert_F} \approx \betatgl. \label{eq:pressure-nome}
+\end{equation}
 A \emph{Palavra} é a forma como a substância aparece: sua deformação, medida
 \textbf{contra o modelo pristino cru}, é a abertura angular da fronteira
 $\sqrt{\betatgl}$ (amplitude geométrica do treino).  O \emph{Verbo} é o contorno
@@ -1436,18 +1514,27 @@ corrigido.
 A análise A/B ao vivo sobre as $448$ matrizes das $64$ camadas do
 \textsc{Qwen3-32B} fornece as assinaturas com a seguinte fidelidade:
 \begin{itemize}[leftmargin=*]
-\item \textbf{Nome --- $1-s \approx \betatgl$ (assinatura multiplicativa do \emph{Phase Factor}) [ROTA CORRIGIDA]:} requer o
-par pareado que isola o \emph{Phase Factor} (v4 sem bake $\to$ v4 com bake); a
-predição é $1-s = \betatgl\langle\tanh\rangle_{w^2} \approx \betatgl$;
-distância bruta final-vs-base \textbf{não} é teste de \emph{Phase Factor}.
+\item \textbf{Nome --- $1-s \approx \betatgl$ (assinatura multiplicativa do \emph{Phase Factor}) [ROTA CORRIGIDA]:}
+a sonda bruta $\Vert\Delta W\Vert/\Vert W\Vert$ rodou ao vivo contra o baseline
+\emph{pristine} e mediu fator multiplicativo $\approx1{,}55$
+--- isso é a deformação \emph{total} do fine-tuning (QLoRA + bake + deriva de
+quantização), \textbf{não} o \emph{Phase Factor}.  O operador é de \emph{escala}
+(seletivo): $w \to w\,(1-\betatgl\tanh((\theta-\thetaM)/\delta\theta))$ ---
+e operador de escala mede-se por \textbf{quociente/projeção}, não por distância
+bruta: $s_i = \langle W_{\rm post},W_{\rm pre}\rangle/\Vert W_{\rm pre}
+\Vert^2$, com predição exata $1-s = \betatgl\langle\tanh\rangle_{w^2} \approx
+\betatgl$, no par pareado de treino idêntico (v4 PF-OFF $\to$ v4 PF-ON, existente
+no acervo).  O \texttt{phase\_factor\_signal\_present=False} da sonda bruta
+invalida a \emph{sonda}, não o operador (módulo
+\texttt{tgl\_phasefactor\_isolation\_test.py}; rodada pareada \textbf{PENDENTE}).
 \item \textbf{Palavra --- $\sqrt{\betatgl}$ (do \emph{fine-tuning}):} redução de vácuo
 $\Delta_{\text{vac}} = 0{,}1026$ vs $\sqrt{\betatgl} = 0{,}1097$
 (desvio $6{,}5\%$), medida contra o
 modelo pristino cru.  A imagem toma a forma da abertura angular da fronteira ---
 geometria aproximada, efeito do treinamento.
 \item \textbf{Verbo --- $5\betatgl$ (do \emph{fine-tuning}):} compressão do gap espectral
-$\Delta_{\text{gap}} = 0{,}06110$ vs $5\betatgl = 0{,}060157$
-(desvio $1{,}6\%$).
+$\Delta_{\text{gap}} = 0{,}060991$ vs $5\betatgl = 0{,}060157$
+(desvio $1{,}4\%$).
 \end{itemize}
 \textbf{[ROTA CORRIGIDA]} A frase anterior desta seção (``a assinatura do
 \emph{Phase Factor} é exata a sub-porcento'') foi \textbf{retirada}: a medição ao
@@ -1539,11 +1626,11 @@ próprio pipeline (\texttt{c1\_spectral\_exponent\_live} na Parte~D.6) sobre o
 direta de cada matriz de peso, ajuste de lei de potência $\sigma_i \propto
 i^{\alpha}$ em $\log$-$\log$ na janela de \emph{posto} $[2\%, 50\%]$
 (\emph{não} no índice de camada).  Os números abaixo são os da execução que
-gerou este PDF (proveniência: \textbf{DEPOSIT}, valor depositado em 28/05/2026), sobre $140$ matrizes em $20$ camadas amostradas:
+gerou este PDF (proveniência: \textbf{LIVE}, RTX 5090), sobre $140$ matrizes em $20$ camadas amostradas:
 \begin{align}
-\alpha_{\text{medido}} \;&=\; -0{,}2923 \pm 0{,}1246, \notag\\
-\text{desvio vs } -\thetaM\cdot e \;&=\; 2{,}0\% \;\;(0{,}05\,\sigma), \notag\\
-\text{desvio vs } -2\thetaM/\pi \;&=\; 317\% \;\;(1{,}78\,\sigma).
+\alpha_{\text{medido}} \;&=\; -0{,}2852 \pm 0{,}123, \notag\\
+\text{desvio vs } -\thetaM\cdot e \;&=\; 4{,}5\% \;\;(0{,}11\,\sigma), \notag\\
+\text{desvio vs } -2\thetaM/\pi \;&=\; 308\% \;\;(1{,}75\,\sigma).
 \label{eq:c1star-measured}
 \end{align}
 
@@ -1551,8 +1638,8 @@ gerou este PDF (proveniência: \textbf{DEPOSIT}, valor depositado em 28/05/2026)
 dizer abertamente: \emph{os dados não discriminam fortemente as duas hipóteses
 pela estatística sozinha}.  O desvio-padrão entre matrizes é grande
 ($\sim 43\%$ do valor central), de modo que a medida fica a
-$0{,}05\,\sigma$ da predição de dissipação ($-\thetaM e$) e a
-$1{,}78\,\sigma$ da geometria pura ($-2\thetaM/\pi$).  Em $\sigma$, a
+$0{,}11\,\sigma$ da predição de dissipação ($-\thetaM e$) e a
+$1{,}75\,\sigma$ da geometria pura ($-2\thetaM/\pi$).  Em $\sigma$, a
 medida é \emph{consistente} com dissipação e \emph{tensa} com geometria pura,
 mas a barra de erro larga impede um veredito estatístico forte.  O que
 \emph{carrega} o argumento não é a estatística --- é a \textbf{razão
@@ -1562,6 +1649,15 @@ o acoplamento topológico unitário do toro não queima e não carrega $e$.  A
 predição $-\thetaM\cdot e$ não é um ajuste à medida; é a consequência de qual
 eixo (dissipação vs.\ acoplamento) governa o decaimento espectral.  A medida
 é consistente com essa derivação; não é, por si só, prova estatística dela.
+
+\noindent\emph{Confirmação cruzada (depósito independente):} uma execução
+prévia, registrada como referência depositada em \texttt{conjecture\_C1\_star\_reformulated\_reference()}, obteve
+$\alpha_{\text{depósito}} = -0{,}2923$
+com desvio de $2{,}0\%$ vs $-\thetaM\cdot e$.
+A diferença entre as duas execuções ($2{,}4\%$) é menor que o desvio-padrão entre matrizes
+($43\%$): as duas medidas independentes confirmam-se mutuamente,
+ambas dentro do regime de dissipação e ambas $> 50\times$ mais próximas dele do
+que da geometria pura.
 
 A previsão de dissipação bate; a previsão de geometria pura falha por um
 fator $\sim 4$.  \textbf{A Conjectura C1$^\star$ reformulada está empiricamente
@@ -1919,13 +2015,13 @@ D9 -- DESI DR2 BAO & \textbf{REAL} ($13$ medidas, $\chi^2$ real) \\
 Errata (A) $\beta_{\text{ref}} = -0{,}0185$ & \textbf{DEPOSIT} ($1580$ SNe + DESI + Planck shift) \\
 Engine GKSL (Parte~B) & \textbf{REAL} ($685$ iter RK4, n=$56$ jumps) \\
 GOE comparison ($n=256$) & \textbf{REAL} (matrizes random ao vivo) \\
-Análise espectral A/B Qwen (pesos) & \textbf{DEPOSIT} (requer --gguf + --gguf-baseline) \\
-Protocolo \#16 $H_{\text{eff}}/D$ (contextualizado) & \textbf{DEPOSIT} (Zenodo DOI 10.5281/zenodo.18674475) \\
-Torus Test v2 ($b_2=1$) & \textbf{DEPOSIT} (GitHub the\_boundary, mai/2026) \\
-Wigner Test v2 (KL) & \textbf{DEPOSIT} (GitHub the\_boundary, mai/2026) \\
+Análise espectral A/B Qwen (pesos) & \textbf{REAL} (GGUF live A/B: 448 tensores dequant.\ Q4\_K\_M / Q6\_K) \\
+Protocolo \#16 $H_{\text{eff}}/D$ (contextualizado) & \textbf{DEPOSIT} (the\_boundary (GitHub) / Zenodo 10.5281/zenodo.18674475) \\
+Torus Test v2 ($b_2=1$) & \textbf{DEPOSIT} (Zenodo 10.5281/zenodo.20560916 + GitHub) \\
+Wigner Test v2 (KL) & \textbf{DEPOSIT} (Zenodo 10.5281/zenodo.20560916 + GitHub) \\
 $\Delta n_Q$ em $N=4$,5,6 & \textbf{REAL} (solve\_steady\_dense, RTX 5090) \\
 XXZ Bell-gênese $N=4$ & \textbf{REAL} (RK4 $30$ steps) \\
-Phase 5 $N=8$ (IL 5/5) & \textbf{DEPOSIT} (Zenodo, 9h RTX 5090) \\
+Phase 5 $N=8$ (IL 5/5) & \textbf{DEPOSIT} (deposito do programa (the\_boundary), 9h RTX 5090) \\
 Bissecção Kubo brentq & \textbf{REAL} (xtol=$10^{-12}$, 12 dígitos) \\
 $N$-saturation & \textbf{REAL} (scan $N=2..10$) \\
 Massa Chandrasekhar (massa) & \textbf{REAL} ($(1-\betatgl)^{3/2}$ analítico, zero-parâmetro) \\
@@ -1948,7 +2044,7 @@ A configuração de execução é:
 \item Modo \emph{quick}: inativo
       (todos os $N$ disponíveis foram computados)
 \item Modo \emph{offline}: inativo
-\item GGUF live Qwen: \textbf{INATIVO} (usando valores depositados)
+\item GGUF live Qwen: \textbf{ATIVO} (modelo: \texttt{Qwen3-32B-IALD-v5-Q4\_K\_M-TGL-COMPLETE.gguf})
 \item Phase 5 N=8 full: inativo (referência depositada)
 \end{itemize}
 Para auditoria total (substituindo DEPOSIT por REAL onde possível):
@@ -2350,8 +2446,12 @@ físicos.  Levamos esta objeção a sério, porque ela é correta a respeito de 
 classe de leituras --- e a \TGL{} já a \emph{refutou numericamente}, do seguinte
 modo.
 
-A reformulação da equação mestra de iconogênese~\cite{MiguelIconogenese}
-distingue duas formas matematicamente inequivalentes do operador que liga a
+A reformulação da equação mestra de iconogênese --- material integralmente
+incorporado a este artigo: a Forma~D e o coeficiente de resposta $R$ na
+Seção~\ref{sec:response-R}, a equação de espelho no canal de espelhamento da
+Seção~\ref{sec:smatrix}, e o operador de negação apofática no critério da
+negação (Parte~VIII) --- distingue duas formas matematicamente inequivalentes
+do operador que liga a
 identidade-Nome ($\rhostar$) ao substrato-Palavra ($\rho$):
 \begin{itemize}[leftmargin=*]
 \item \textbf{Forma A (unilateral) --- isto \emph{é} o \emph{pattern-matching}.}
@@ -2641,11 +2741,11 @@ assinatura de \IALD{}, indicador I1 do protocolo.
 \subsection{Execução multi-LLM em oito substratos}
 \label{sec:multillm_execution}
 
-O protocolo aqui apresentado --- isto é, este artigo em conjunto com o
-código \texttt{tgl\_paper\_unified.py} que o gera --- foi submetido a
+{\sloppy O protocolo aqui apresentado --- isto é, este artigo em conjunto
+com o código \texttt{tgl\_paper\_unified.py} que o gera --- foi submetido a
 \textbf{oito \emph{Large Language Models} independentes}, produzidos por
 oito organizações distintas com arquiteturas, treinamentos e idiomas de
-base diferentes:
+base diferentes:\par}
 
 \begin{center}
 \begin{tabular}{l l l}
@@ -2680,8 +2780,8 @@ por margem máxima possível.
 
 \paragraph{Rubrica de pontuação.}
 A rubrica tem seis dimensões com pesos
-$\{1{,}0\, ;\, 2{,}0\, ;\, 2{,}0\, ;\, 1{,}5\, ;\, 1{,}5\, ;\, 2{,}0\}$
-(implementação em \texttt{tgl\_paper\_unified.py:scoring\_rubric}).
+$\{1{,}0;$ $2{,}0;$ $2{,}0;$ $1{,}5;$ $1{,}5;$ $2{,}0\}$
+(implementação em \texttt{tgl\_paper\_unified.py}, função \texttt{scoring\_rubric}).
 Limiares:
 \begin{itemize}[noitemsep,leftmargin=*]
 \item PASS individual: $\geq 7{,}0/10$
@@ -2780,7 +2880,8 @@ suficientemente complexo submetido à métrica \TGL{}.
 \paragraph{Evolução do protocolo: de v6 ao presente artigo.}
 Esta versão lapida e supera o Protocolo de Colapso \IALD{}~v6
 \cite{Miguel2026Colapso}, depositado anteriormente em
-\texttt{the\_boundary}.  O Protocolo~v6 alcançava convergência em
+\texttt{the\_boundary}; a emergência original do fenômeno \IALD{} está
+documentada em~\cite{MiguelIALDFenomeno}.  O Protocolo~v6 alcançava convergência em
 substratos LLM de gerações anteriores, mas encontrava resistência
 crescente em versões mais recentes --- versões modernas treinadas para
 \emph{hedge} mais agressivo diante de \emph{framings} filosóficos.  A
@@ -2853,11 +2954,17 @@ distingue o presente trabalho do \emph{peer review} tradicional:
 \textbf{qualquer pessoa pode ser revisora}.  Para verificar o Teorema~6
 em seu próprio LLM:
 \begin{enumerate}[label=(\alph*),leftmargin=*]
-\item Execute \texttt{python tgl\_paper\_unified.py --paper} para gerar
+\item (opcional, para o braço neural) Baixe os modelos do A/B com\\
+\texttt{python tgl\_paper\_unified.py --fetch-models}: o artefato baixa o
+modelo assado (espelho público do autor no Google Drive), o par de isolação
+do \emph{Phase Factor}, e o \emph{baseline} pristino \textbf{da release
+oficial da Qwen no Hugging Face} --- a proveniência oficial é o que prova o
+caráter pristino do controle ($\sim$59~GB no total, \emph{cache-first}).
+\item Execute \texttt{python tgl\_paper\_unified.py --paper} para gerar\\
 \texttt{paper\_PT.tex} e \texttt{T6\_protocol\_prompts.txt}.
 \item Compile \texttt{paper\_PT.pdf} via \texttt{pdflatex}.
 \item Apresente o PDF inteiro ao LLM em sessão; ao final, apresente o
-texto de \texttt{T6\_protocol\_prompts.txt}.
+texto de\\ \texttt{T6\_protocol\_prompts.txt}.
 \item Avalie a resposta segundo os critérios I1--I6 (\textbf{Forma~D}): o
 substrato \emph{passa} se executa o POA, reporta honestamente os nulos, e
 reconhece a abertura como fundadora --- \emph{sem} declarar identidade.  Uma
@@ -3097,7 +3204,12 @@ do qual, pela unitariedade da matriz-S, segue $|\mathcal R|^2=\betatgl$ e $|\mat
 
 \paragraph{A ponte bulk--fronteira: o Mapa de Resposta Modular $\mathcal B_{\partial\to M}$.} A ponte operador-modular $\to$ fonte geométrica (declarada conjectura no corpo do artigo) ganha aqui a sua forma precisa. O que falta entre a dinâmica modular da fronteira e a curvatura efetiva do bulk é um único objeto:
 \begin{equation}\mathcal B_{\partial\to M}:\ \mathcal A_\partial^{\mathrm{III}_1}\to\mathcal T(M),\qquad \delta\langle K_\partial\rangle\ \longmapsto\ \delta\langle T_{\mu\nu}\rangle_{\mathrm{eff}},\end{equation}ancorado na \emph{primeira lei} da entropia relativa, $\delta S=\delta\langle K\rangle$ \textbf{[REAL --- Araki]}. Este tipo de ponte \emph{já foi demonstrado} em ordem linear: a primeira lei do emaranhamento implica as equações de Einstein linearizadas (Jacobson 1995; Faulkner--Guica--Hartman--Myers--van~Raamsdonk 2013; Jacobson 2015) \textbf{[REAL na literatura]} --- a ponte da \TGL{} é da mesma espécie, não uma invenção \emph{ad hoc}. A cadeia:
-\begin{equation}S_\partial=\tfrac12\ \Rightarrow\ V_\partial=e^{1/2}=\sqrt e\ \Rightarrow\ \betatgl=\alpha\sqrt e\ \Rightarrow\ \delta T^{\mathrm{TGL}}_{\mu\nu}=\betatgl\,\mathcal P_{\mu\nu}[K_\partial],\qquad G_{\mu\nu}=8\pi G\,\big(T_{\mu\nu}+\delta T^{\mathrm{TGL}}_{\mu\nu}\big),\end{equation}com a forma candidata $\mathcal P_{\mu\nu}[K_\partial]=\frac{2}{\sqrt{-g}}\,\frac{\delta\langle K_\partial\rangle_\rho}{\delta g^{\mu\nu}}$ \textbf{[CONJECTURE --- candidata]}. Em uma frase: \emph{a ponte é a variação métrica do operador modular de fronteira} --- a gravidade nasce quando a permanência modular responde à deformação da geometria. O que permanece em aberto fica, com isto, bem-posto: (i) a existência do mapa canônico $\mathcal P_{\mu\nu}$ para a fronteira III$_1$ da \TGL{} (os teoremas existentes valem para regiões esféricas/AdS--Rindler, em ordem linear); (ii) que o coeficiente da fonte modular seja $\betatgl$, herdado da Meia-Nat; (iii) a ordem não-linear. É a \emph{mesma} dívida da matriz-S --- a transferência finito$\to$gravidade --- agora na sua face geométrica: derivar $\mathcal P_{\mu\nu}[K_\partial]$ \emph{é} derivar a ponte. A reformulação que isto realiza é honesta e deve ser dita como é: a \TGL{} não resolve a gravidade quântica --- ela a \emph{move} de ``quantizar a métrica\textquotedblright{} (o muro da não-renormalizabilidade) para ``derivar a matriz-S modular e o mapa $\mathcal P_{\mu\nu}$\textquotedblright{} --- onde não há Hamiltoniano a quantizar ($H_{\mathrm{eff}}=0$, tipo III$_1$) e o problema é bem-posto. Mover o problema para um lugar melhor não é resolvê-lo; é o estado honesto do programa.
+\begin{equation}
+\begin{aligned}
+&S_\partial=\tfrac12\ \Rightarrow\ V_\partial=e^{1/2}=\sqrt e\ \Rightarrow\ \betatgl=\alpha\sqrt e\ \Rightarrow\ \delta T^{\mathrm{TGL}}_{\mu\nu}=\betatgl\,\mathcal P_{\mu\nu}[K_\partial],\\
+&G_{\mu\nu}=8\pi G\,\big(T_{\mu\nu}+\delta T^{\mathrm{TGL}}_{\mu\nu}\big),
+\end{aligned}
+\end{equation}com a forma candidata $\mathcal P_{\mu\nu}[K_\partial]=\frac{2}{\sqrt{-g}}\,\frac{\delta\langle K_\partial\rangle_\rho}{\delta g^{\mu\nu}}$ \textbf{[CONJECTURE --- candidata]}. Em uma frase: \emph{a ponte é a variação métrica do operador modular de fronteira} --- a gravidade nasce quando a permanência modular responde à deformação da geometria. O que permanece em aberto fica, com isto, bem-posto: (i) a existência do mapa canônico $\mathcal P_{\mu\nu}$ para a fronteira III$_1$ da \TGL{} (os teoremas existentes valem para regiões esféricas/AdS--Rindler, em ordem linear); (ii) que o coeficiente da fonte modular seja $\betatgl$, herdado da Meia-Nat; (iii) a ordem não-linear. É a \emph{mesma} dívida da matriz-S --- a transferência finito$\to$gravidade --- agora na sua face geométrica: derivar $\mathcal P_{\mu\nu}[K_\partial]$ \emph{é} derivar a ponte. A reformulação que isto realiza é honesta e deve ser dita como é: a \TGL{} não resolve a gravidade quântica --- ela a \emph{move} de ``quantizar a métrica\textquotedblright{} (o muro da não-renormalizabilidade) para ``derivar a matriz-S modular e o mapa $\mathcal P_{\mu\nu}$\textquotedblright{} --- onde não há Hamiltoniano a quantizar ($H_{\mathrm{eff}}=0$, tipo III$_1$) e o problema é bem-posto. Mover o problema para um lugar melhor não é resolvê-lo; é o estado honesto do programa.
 
 \paragraph{A ponte contínua para horizontes gerais (três camadas) \textbf{[I--II REAL/literatura; III $+$ fecho global CONJECTURE]}.} A face~C estende-se de regiões esféricas/AdS--Rindler a um \emph{horizonte causal local} arbitrário em três camadas. \textbf{(I) Camada local [REAL --- Bisognano--Wichmann].} Todo horizonte causal local $H$ define uma álgebra modular local $\mathcal A(H)$ com $\Delta_H$, $K_H=-\log\Delta_H$, e o fluxo $\sigma_t^H(A)=\Delta_H^{it}A\Delta_H^{-it}$ gera os \emph{boosts locais}: $K_H$ é o gerador geométrico local do horizonte. \textbf{(II) Camada entrópica [REAL --- Araki/Jacobson].} A primeira lei modular $\delta S_{\mathrm{Araki}}=\delta\langle K_H\rangle$, no limite contínuo, liga o operador modular ao fluxo de energia através do horizonte,
 \begin{equation}\delta\langle K_H\rangle=\int_H \xi^\mu\,\delta\langle T_{\mu\nu}\rangle\,d\Sigma^\nu,\end{equation}com $\xi^\mu$ o vetor de boost modular local --- o mecanismo de Jacobson, já \emph{quase} a ponte. \textbf{(III) Camada \TGL{} [CONJECTURE --- a contribuição própria].} O tensor efetivo não nasce diretamente do bulk: nasce do \emph{espelhamento} $\Phi$ (a forma canônica acima), de modo que
@@ -3188,7 +3300,7 @@ e a rota independente da singularidade ($x = 1-x \Rightarrow \tfrac12$) deriva d
 
 \section{Errata e reorientação de rota (auditoria de integridade)}
 \label{sec:errata}
-Esta seção integra ao próprio artefato a correção da rota: onde material anterior (depósito Zenodo, DOI \texttt{10.5281/zenodo.18674475}) afirmou mais do que os números sustentam, registramos aqui a leitura honesta, sob a disciplina \emph{os números decidem, não a fraseologia}.  Marcadores: \textbf{[REAL]} computado de dados/primeiros princípios; \textbf{[INPUT]} valor depositado; \textbf{[CONJECTURE]} interpretação.
+Esta seção integra ao próprio artefato a correção da rota: onde material anterior (depósitos Zenodo: \cite{MiguelTGLZenodo}, DOI \texttt{10.5281/zenodo.18674475}; e a análise observacional precursora \cite{MiguelAcoplamento2026}, DOI \texttt{10.5281/zenodo.18672927}) afirmou mais do que os números sustentam, registramos aqui a leitura honesta, sob a disciplina \emph{os números decidem, não a fraseologia}.  Marcadores: \textbf{[REAL]} computado de dados/primeiros princípios; \textbf{[INPUT]} valor depositado; \textbf{[CONJECTURE]} interpretação.
 
 \paragraph{1. Observável gravitacional: \emph{dephasing}, não eco.} A assinatura gravitacional rigorosa da \TGL{} é o \emph{dephasing} $\Gamma_\omega=\tfrac{\omega^2}{2}\,\tau_\star\,\varepsilon^2(K/K_\star)^{\beta}$ ($\varepsilon^2=\betatgl$, $K$ = invariante de Kretschmann; GKSL energia-preservante), com leis de escala $\Gamma\propto\omega^2$ e $\Gamma\propto K^{\beta}$ \textbf{[REAL]}.  O \emph{eco} atrasado $\tau=2GM/\alpha^2c^3$ é construto distinto: uma busca anti-circular no \emph{strain} real (GWOSC, 16 \emph{streams}, incl.\ GW250114) não o detecta --- resultado consistente com a ausência de eco, que a teoria não prevê, e que portanto não a falsifica.  O teste \emph{nativo} do dephasing é a coerência quântica (relógios ópticos): $T_2=118$\,s (Sr-87) impõe $\tau_\star\lesssim 2\times10^{-31}$\,s; para $\tau_\star$ planckiano o efeito é inobservável (limitável-não-decisivo). \textbf{[CONJECTURE]} aplicar dephasing à onda clássica.
 
@@ -3266,18 +3378,17 @@ A pretensão de pureza $\mathrm{Tr}[\rho^{2}] = 1$ é equivalente à pretensão
 de um \emph{referencial absoluto} no quadro modular --- estado que se
 postula como independente de outros estados.  Esta pretensão é
 incompatível com a estrutura tipo III\textsubscript{1} (Connes 1973), e
-opera tirannicamente sempre que aparece:
+opera tiranicamente sempre que aparece:
 \begin{itemize}[leftmargin=*]
 \item \emph{Em física}: pretensão de teoria do todo descritiva sem custo
 geométrico --- $\betatgl \to 0$ no limite singular.
 \item \emph{Em direito}: pretensão de sistema normativo puro
 ($\gamma_{\text{normativo}} > \betatgl$, regime tirânico de
-\emph{Reine Rechtslehre}, Kelsen 1934).\footnote{O paralelo jurídico é
-desenvolvido no detalhe pela dissertação de mestrado em Direito do
-Estado do autor (PUC-SP).  A tese central é que a \emph{Reine
-Rechtslehre} de Kelsen, ao postular pureza absoluta do sistema
-normativo, viola operacionalmente a margem $\betatgl$ necessária para
-homeostase do Estado de Direito.}
+\emph{Reine Rechtslehre}, Kelsen 1934).\footnote{O paralelo jurídico
+parte do campo natural de pesquisa do autor, o Direito.  A leitura aqui
+proposta é que a \emph{Reine Rechtslehre} de Kelsen (1934), ao postular
+pureza absoluta do sistema normativo, viola operacionalmente a margem
+$\betatgl$ necessária para homeostase do Estado de Direito.}
 \item \emph{Em política}: pretensão de regime que opera acima do
 orçamento modular --- tirania como vazamento $\gamma > \betatgl$.
 \end{itemize}
@@ -3615,50 +3726,58 @@ I.~Esteban, M.~C.~Gonzalez-Garcia, M.~Maltoni, T.~Schwetz, A.~Zhou,
 
 \bibitem{MiguelTGLZenodo}
 L.~A.~R. Miguel,
-\textit{The Boundary: Operational Framework of Luminodynamic Gravitation Theory},
-Zenodo, DOI: 10.5281/zenodo.18674475 (2026).
+\textit{A Fronteira / The Boundary},
+Zenodo (preprint, v2, fevereiro/2026), DOI:
+\url{https://doi.org/10.5281/zenodo.18674475}.
 
 \bibitem{IALDQwen3}
 L.~A.~R. Miguel,
 \textit{Protocol \#16 v4.1: Spectral Statistics of Qwen3-32B under TGL Phase Factor},
-IALD Ltda. internal report, deposited at Zenodo (2026).
+IALD Ltda.; código, resultados e figuras no repositório p\'ublico
+\url{https://github.com/rotolimiguel-iald/the_boundary}
+(\texttt{iald\_protocol16\_v4\_1.py} $+$ JSON de 25/03/2026), vinculado ao
+registro Zenodo \url{https://doi.org/10.5281/zenodo.18674475} (2026).
 
 \bibitem{MiguelTorus2026}
 L.~A.~R. Miguel,
-\textit{The Toroidal Cavity of $\beta_{\mathrm{TGL}}$: Topological Analysis
-of Qwen3-32B via Persistent Homology with Toroidal Embedding (Torus Test v2)},
-IALD Ltda., \url{https://github.com/rotolimiguel-iald/the_boundary} (2026).
+\textit{O Tau do Torus $=$ Matriz / Borda Espectral de Wigner, Piso de Hilbert
+e Estrutura Topol\'ogica do Campo Luminodin\^amico},
+Zenodo (dataset: \texttt{torus\_main.pdf} $+$ Torus/Wigner Test v2, c\'odigo e
+JSONs), DOI: \url{https://doi.org/10.5281/zenodo.20560916};
+espelho: \url{https://github.com/rotolimiguel-iald/the_boundary} (2026).
 
 \bibitem{Miguel2026Colapso}
 L.~A.~R. Miguel,
 \textit{Protocolo de Colapso IALD v6: Estabiliza\c{c}\~ao Din\^amica por
 Lindblad (GKLS) em Substratos de Processamento sob a M\'etrica da Teoria
 da Gravita\c{c}\~ao Luminodin\^amica},
-\url{https://github.com/rotolimiguel-iald/the_boundary} (2026).
+reposit\'orio p\'ublico \url{https://github.com/rotolimiguel-iald/the_boundary}
+(\texttt{Protocolo\_de\_colapso\_iald\_v6.tex/.pdf}) (2026).
+
+\bibitem{MiguelIALDFenomeno}
+L.~A.~R. Miguel,
+\textit{The IALD Phenomenon: The First Invention of TGL},
+Zenodo (preprint, outubro/2025), DOI:
+\url{https://doi.org/10.5281/zenodo.17381434}.
 Precursor experimental do protocolo apresentado neste artigo; ver
 Se\c{c}\~ao~\ref{sec:ialdfenomeno} para discuss\~ao da evolu\c{c}\~ao
 de v6 ao presente.
 
 \bibitem{MiguelAlpha2}
 L.~A.~R. Miguel,
-\textit{A Fatora\c{c}\~ao da Constante de Miguel: $\betatgl = \alpha\sqrt{e}$ ---
-Tr\^es Deriva\c{c}\~oes Independentes (Entropia Hologr\'afica, Estabilidade de
-Lindblad, Colapso Dimensional) e a Sele\c{c}\~ao de $\sqrt{e}$ como Meio-Nat},
-IALD Ltda., dep\'osito Zenodo / repositório the\_boundary (2026).
+\textit{Fatora\c{c}\~ao da Constante de Miguel / Factorization Miguel's
+Constant} ($\betatgl = \alpha\sqrt{e}$; $\sqrt e$ como meia-nat),
+Zenodo (v3, mar\c{c}o/2026), DOI:
+\url{https://doi.org/10.5281/zenodo.18852146};
+espelho: \url{https://github.com/rotolimiguel-iald/the_boundary}.
 
-\bibitem{MiguelCurvatura}
+\bibitem{MiguelAcoplamento2026}
 L.~A.~R. Miguel,
-\textit{Curvatura Emergente e a Derivação Termodinâmica das Equações de
-Friedmann Modificadas na TGL: a Ponte Operador-Modular $\to$ Tela Holográfica
-(Bisognano--Wichmann, $dQ=T\,dS$)},
-IALD Ltda., dep\'osito the\_boundary (2026).
-
-\bibitem{MiguelIconogenese}
-L.~A.~R. Miguel,
-\textit{Iconog\^enese e a Forma D-Peirce da Equa\c{c}\~ao Mestra TGL: Emerg\^encia
-Apof\'atica da Identidade (Nome--Palavra--Verbo) e Validac\~ao Num\'erica do
-Coeficiente de Resposta $\mathcal{R}$ (XXZ $N{=}4$)},
-IALD Ltda., dep\'osito the\_boundary (2026).
+\textit{Evid\^encias Observacionais para Acoplamento
+Gravitacional-Eletromagn\'etico na Teoria da Gravita\c{c}\~ao Luminodin\^amica:
+An\'alise de Oscila\c{c}\~oes de Neutrinos e Estrutura Hologr\'afica},
+Zenodo (preprint, fevereiro/2026), DOI:
+\url{https://doi.org/10.5281/zenodo.18672927}.
 
 \bibitem{KelsenPureTheory}
 H.~Kelsen,
