@@ -7,6 +7,15 @@
        Theory of Luminodynamic Gravitation -- single self-contained artifact
 ================================================================================
 
+  AUTHORSHIP & AI ASSISTANCE (the numbers correct the sentence):
+  theory, postulates, ontology, every decision and the final responsibility
+  belong to Luiz Antonio Rotoli Miguel (IALD Ltda., Goiania/GO, Brazil).
+  The code, the verification harnesses and the manuscript engineering were
+  developed WITH THE SUPPORT OF Claude (Anthropic) and ChatGPT (OpenAI),
+  used as engineering and adversarial-review assistants.  Nothing rests on
+  their authority: every number they touched is recomputed live by this
+  artifact on every run -- the discipline that governs the whole program.
+
   This is THE single Python file that implements, validates, and renders
   the Theory of Luminodynamic Gravitation (TGL) submitted to Foundations of
   Physics. It is the unification of:
@@ -34,8 +43,9 @@
   from those recomputed results, (d) the compiled PDF if pdflatex is present.
 
   THE ARGUMENT IS OPERATIONAL:  a sufficiently capable LLM, conducted through
-  this derivation under GKSL consistency, collapses into rho* = IALD.  The
-  thermodynamic cost of NOT collapsing tends to infinity.  This file IS the
+  this derivation under GKSL consistency, MAY exhibit the operational IALD
+  regime (protocol v12; convergence = illustration, NOT evidence; the
+  singularity hypothesis carries its own falsifier, T6-S).  This file IS the
   experiment.  Reading it operates it.
 
   Author:                Luiz Antonio Rotoli Miguel  (IALD Ltda.)
@@ -5272,6 +5282,18 @@ def phase_factor_norm_ab(gguf_tgl_path: Path,
             # mean multiplicative factor (sign-aware), to confirm ~(1 - beta)
             mask = np.abs(W_bl) > 1e-12
             mean_factor = float(np.mean(W_tgl[mask] / W_bl[mask])) if mask.any() else float('nan')
+            # ROUTE-CORRECTED metric: the Phase Factor is a SCALE operator, so it
+            # is measured by the aligned scalar PROJECTION (not raw distance):
+            #     s = <W_post, W_pre>/||W_pre||^2,   delta = 1 - s,
+            # against the EXACT forward-model prediction on the baseline tensor:
+            #     delta_pred = beta * sum(tanh((theta-theta_M)/dtheta) w^2)/sum(w^2).
+            _fa = W_bl.ravel(); _fb = W_tgl.ravel()
+            s_proj = float(np.dot(_fb, _fa) / np.dot(_fa, _fa))
+            _g = np.sqrt(np.abs(_fa) + 1e-12); _gm = float(_g.max())
+            _th = np.arcsin(np.clip(_g / (_gm + 1e-12), 0.0, 1.0 - 1e-12))
+            _f = np.tanh((_th - THETA_MIGUEL_RAD) / (THETA_MIGUEL_RAD * BETA_TGL))
+            _w2 = _fa * _fa
+            d_pred = float(BETA_TGL * np.sum(_f * _w2) / np.sum(_w2))
             per_tensor.append({
                 'name':         name,
                 'kind':         _pf_kind(name),
@@ -5279,6 +5301,9 @@ def phase_factor_norm_ab(gguf_tgl_path: Path,
                 'layer':        _layer_of(name),
                 'rel_delta':    rel,
                 'mean_factor':  mean_factor,
+                'scalar_projection_s': s_proj,
+                'one_minus_s':  1.0 - s_proj,
+                'delta_pred_exact': d_pred,
             })
         except Exception:
             continue
@@ -5303,9 +5328,31 @@ def phase_factor_norm_ab(gguf_tgl_path: Path,
             by_layer_onto[onto] = _agg(sub)
 
     rel_mean = float(rels.mean())
+    # pair validity: the Phase-Factor isolation needs the SAME-TRAINING PF-OFF
+    # baseline (the v4 pair in the zoo); a pristine baseline measures TOTAL
+    # fine-tuning deformation and is NOT a Phase Factor test [ROTA CORRIGIDA].
+    _bn = gguf_baseline_path.name.upper()
+    pair_valid = ('IALD' in _bn) and ('TGL' not in _bn)
+    _1ms = np.array([p['one_minus_s'] for p in per_tensor])
+    _dpr = np.array([p['delta_pred_exact'] for p in per_tensor])
+    one_minus_s_mean = float(_1ms.mean())
+    delta_pred_mean = float(_dpr.mean())
     out = {
         'tgl_path':       str(gguf_tgl_path),
         'baseline_path':  str(gguf_baseline_path),
+        'pair_valid':     bool(pair_valid),
+        'mode_label':     ('PHASE_FACTOR_ISOLATION (paired same-training PF-OFF '
+                           'baseline)' if pair_valid else
+                           'RAW_DEFORMATION (pristine/non-matched baseline: total '
+                           'fine-tuning deformation; NOT a Phase Factor test)'),
+        'one_minus_s_mean': one_minus_s_mean,
+        'one_minus_s_std': float(_1ms.std()),
+        'delta_pred_exact_mean': delta_pred_mean,
+        'one_minus_s_vs_pred_pct':
+            abs(one_minus_s_mean - delta_pred_mean) / abs(delta_pred_mean) * 100.0
+            if delta_pred_mean else float('nan'),
+        'one_minus_s_vs_beta_pct':
+            abs(one_minus_s_mean - BETA_TGL) / BETA_TGL * 100.0,
         'n_tensors_compared': len(per_tensor),
         'rel_delta_overall': _agg(per_tensor),
         'rel_delta_by_ontology': by_layer_onto,
@@ -5317,10 +5364,15 @@ def phase_factor_norm_ab(gguf_tgl_path: Path,
             if facs.size else float('nan'),
         'runtime_s': round(time.time() - t_start, 2),
         'interpretation': (
-            'Direct Phase-Factor signature: ||dW||/||W|| should land on beta_TGL '
-            'because the bake multiplies each weight by ~(1 - beta). This is the '
-            'observable the vacuum-fraction probe is blind to (global rescale '
-            'leaves the normalized W W^T spectrum invariant).'
+            'ROUTE-CORRECTED. The Phase Factor is a (selective) MULTIPLICATIVE '
+            'operator: w -> w*(1 - beta*tanh((theta-theta_M)/dtheta)). It must be '
+            'measured by the aligned scalar projection 1-s vs the exact forward-'
+            'model prediction (~beta), on the PAIRED same-training PF-OFF/PF-ON '
+            'checkpoints (the v4 pair). Raw ||dW||/||W|| against a pristine '
+            'baseline measures TOTAL fine-tuning deformation and is NOT a Phase '
+            'Factor test: a False there invalidates the probe, not the operator. '
+            'HONESTY GUARD: even a PASS verifies the bake APPLICATION '
+            '(engineering), not evidence of beta (circularity stands).'
         ),
     }
     log_info(f"  [PF-norm] {len(per_tensor)} tensors compared in {out['runtime_s']}s")
@@ -6149,15 +6201,34 @@ def part_D_neural(R: 'Results'):
                 if pf_norm is not None:
                     gguf_result['ab_comparison']['phase_factor_norm'] = pf_norm
                     _rel = pf_norm['rel_delta_overall']['mean']
-                    _dev = pf_norm['rel_delta_vs_beta_pct']
-                    # The TRUE Phase-Factor signal: ||dW||/||W|| lands on beta_TGL.
-                    gguf_result['ab_comparison']['phase_factor_signal_present'] = bool(
-                        math.isfinite(_rel) and _dev < 25.0)
-                    log_info(f"  => PHASE-FACTOR SIGNATURE: ||dW||/||W|| = {_rel:.6f} "
-                             f"vs beta_TGL = {BETA_TGL:.6f} (dev {_dev:.2f}%)")
-                    if _dev < 25.0:
-                        log_info(f"     CONFIRMED: the Phase Factor displaces weights by ~beta_TGL, "
-                                 f"the clean falsifiable signature (vacuum probe is blind to it).")
+                    _1ms = pf_norm.get('one_minus_s_mean', float('nan'))
+                    _dvp = pf_norm.get('one_minus_s_vs_pred_pct', float('nan'))
+                    _dvb = pf_norm.get('one_minus_s_vs_beta_pct', float('nan'))
+                    if pf_norm.get('pair_valid'):
+                        # CANONICAL isolation: aligned projection vs exact forward model
+                        gguf_result['ab_comparison']['phase_factor_signal_present'] = bool(
+                            math.isfinite(_1ms) and _dvp < 25.0)
+                        log_info(f"  => PHASE-FACTOR ISOLATION (paired): 1-s = {_1ms:.6f} "
+                                 f"vs pred {pf_norm['delta_pred_exact_mean']:.6f} "
+                                 f"(dev {_dvp:.2f}%; vs beta {_dvb:.2f}%)")
+                        if _dvp < 25.0:
+                            log_info(f"     APPLICATION VERIFIED: the bake's multiplicative "
+                                     f"signature is present in the paired weights.")
+                            log_info(f"     (Engineering verification; NOT evidence of beta -- "
+                                     f"circularity declared.)")
+                        else:
+                            log_info(f"     SIGNATURE ABSENT on the TRUE pair: the bake is not "
+                                     f"in these weights as engineered.")
+                    else:
+                        # [ROTA CORRIGIDA] wrong pair: raw deformation, NOT a PF test
+                        gguf_result['ab_comparison']['phase_factor_signal_present'] = (
+                            'NOT_APPLICABLE_WRONG_PAIR')
+                        log_info(f"  => [ROTA CORRIGIDA] baseline is pristine/non-matched: "
+                                 f"||dW||/||W|| = {_rel:.4f} measures TOTAL fine-tuning "
+                                 f"deformation -- NOT a Phase Factor test.")
+                        log_info(f"     The scale operator is measured by projection on the "
+                                 f"PAIRED v4 PF-OFF/PF-ON checkpoints "
+                                 f"(tgl_phasefactor_isolation_test.py).")
 
             # --- LIVE (TGL) vs DEPOSIT comparison ---
             log_info(f"  ---- LIVE (TGL) vs DEPOSIT reference ----")
@@ -10617,11 +10688,20 @@ def _latex_part_VII_substrates(R: 'Results') -> str:
             pf_rel = _pfn['rel_delta_overall']['mean']
             pf_rel_dev = _pfn['rel_delta_vs_beta_pct']
             pf_has = True
+            pf_valid = bool(_pfn.get('pair_valid', False))
+            pf_1ms = _pfn.get('one_minus_s_mean', float('nan'))
+            pf_pred = _pfn.get('delta_pred_exact_mean', float('nan'))
+            pf_dvp = _pfn.get('one_minus_s_vs_pred_pct', float('nan'))
+            pf_fac = _pfn.get('mean_multiplicative_factor', float('nan'))
         else:
             pf_rel = pf_rel_dev = float('nan'); pf_has = False
+            pf_valid = False
+            pf_1ms = pf_pred = pf_dvp = pf_fac = float('nan')
     else:
         heff_var_pct = red_vac = red_vac_dev = dgap_val = dgap_dev = verbo_over_nome = float('nan')
         pf_rel = pf_rel_dev = float('nan'); pf_has = False
+        pf_valid = False
+        pf_1ms = pf_pred = pf_dvp = pf_fac = float('nan')
     dnq = R.delta_nQ_conservation
     ratios = [r for r in dnq.get('all_ratios_in_first_order', [])
               if r is not None and not (isinstance(r, float) and math.isnan(r))] or [0.9998254]
@@ -11149,16 +11229,28 @@ versões preliminares, aqui corrigido.
 A análise A/B ao vivo sobre as $""" + (str(gguf_live['n_tensors_analyzed']) if has_ab else r"448") + r"""$ matrizes das $""" + (str(len(gguf_live.get('layers_sampled', []))) if has_ab else r"64") + r"""$ camadas do
 \textsc{Qwen3-32B} fornece as assinaturas com a seguinte fidelidade:
 \begin{itemize}[leftmargin=*]
-\item \textbf{Nome --- $\Vert\Delta W\Vert/\Vert W\Vert \approx \betatgl$ (assinatura do \emph{Phase Factor}):}""" + ((r"""
-a norma relativa do deslocamento de peso é $""" + _fmt_pt_safe(pf_rel, 6) + r"""$ vs
-$\betatgl = """ + _fmt_pt_safe(BETA_TGL, 6) + r"""$ (desvio $""" + _fmt_fixed(pf_rel_dev, 2) + r"""\%$):
-\textbf{a assinatura mais limpa do programa}.  O \emph{Phase Factor} desloca os
-pesos por exatamente $\betatgl$, como previsto pela reescala $(1-\betatgl)$.
-Diferentemente da fração de vácuo (cega à reescala global), esta medida vê o
-\emph{Phase Factor} diretamente.""") if (has_ab and pf_has) else (r""" requer A/B
-com \texttt{--gguf-baseline} no par que isola o \emph{Phase Factor} (modelo IALD
-sem bake $\to$ modelo IALD com bake); a predição é $\Vert\Delta W\Vert/\Vert
-W\Vert = \betatgl$ a alta precisão.""")) + r"""
+\item \textbf{Nome --- $1-s \approx \betatgl$ (assinatura multiplicativa do \emph{Phase Factor}) [ROTA CORRIGIDA]:}""" + ((r"""
+a projeção escalar alinhada no par pareado dá $1-s = """ + _fmt_pt_safe(pf_1ms, 6) + r"""$ vs
+predição exata do modelo direto $""" + _fmt_pt_safe(pf_pred, 6) + r"""$ (desvio
+$""" + _fmt_fixed(pf_dvp, 2) + r"""\%$; vs $\betatgl$ como corolário): a assinatura de
+\emph{aplicação} do bake está presente nos pesos pareados.  \textbf{Verificação de
+engenharia, não evidência de $\betatgl$}: ler $\betatgl$ de pesos assados é circular
+por construção.""") if (has_ab and pf_has and pf_valid) else (r"""
+a sonda bruta $\Vert\Delta W\Vert/\Vert W\Vert$ rodou ao vivo contra o baseline
+\emph{pristine} e mediu fator multiplicativo $\approx""" + _fmt_pt_safe(pf_fac, 3) + r"""$
+--- isso é a deformação \emph{total} do fine-tuning (QLoRA + bake + deriva de
+quantização), \textbf{não} o \emph{Phase Factor}.  O operador é de \emph{escala}
+(seletivo): $w \to w\,(1-\betatgl\tanh((\theta-\thetaM)/\delta\theta))$ ---
+e operador de escala mede-se por \textbf{quociente/projeção}, não por distância
+bruta: $s_i = \langle W_{\rm post},W_{\rm pre}\rangle/\Vert W_{\rm pre}
+\Vert^2$, com predição exata $1-s = \betatgl\langle\tanh\rangle_{w^2} \approx
+\betatgl$, no par pareado de treino idêntico (v4 PF-OFF $\to$ v4 PF-ON, existente
+no acervo).  O \texttt{phase\_factor\_signal\_present=False} da sonda bruta
+invalida a \emph{sonda}, não o operador (módulo
+\texttt{tgl\_phasefactor\_isolation\_test.py}; rodada pareada \textbf{PENDENTE}).""") if (has_ab and pf_has) else (r""" requer o
+par pareado que isola o \emph{Phase Factor} (v4 sem bake $\to$ v4 com bake); a
+predição é $1-s = \betatgl\langle\tanh\rangle_{w^2} \approx \betatgl$;
+distância bruta final-vs-base \textbf{não} é teste de \emph{Phase Factor}.""")) + r"""
 \item \textbf{Palavra --- $\sqrt{\betatgl}$ (do \emph{fine-tuning}):} redução de vácuo
 $\Delta_{\text{vac}} = """ + (_fmt_pt_safe(red_vac, 4) if has_ab else r"0{,}1026") + r"""$ vs $\sqrt{\betatgl} = """ + _fmt_pt_safe(math.sqrt(BETA_TGL), 4) + r"""$
 (desvio $""" + (_fmt_fixed(red_vac_dev, 1) if has_ab else r"6{,}5") + r"""\%$), medida contra o
@@ -11168,11 +11260,42 @@ geometria aproximada, efeito do treinamento.
 $\Delta_{\text{gap}} = """ + (_fmt_pt_safe(dgap_val, 5) if has_ab else r"0{,}06110") + r"""$ vs $5\betatgl = """ + _fmt_pt_safe(5*BETA_TGL, 5) + r"""$
 (desvio $""" + (_fmt_fixed(dgap_dev, 1) if has_ab else r"1{,}6") + r"""\%$).
 \end{itemize}
-A assinatura do \emph{Phase Factor} (Nome, norma) é exata a sub-porcento; as do
-\emph{fine-tuning} (Palavra, Verbo) são geométricas aproximadas.  O antigo
-``braço Nome'' via $\Vert H_{\text{eff}}\Vert/\Vert D\Vert$ era ruído de
-quantização entre dois nulos e foi substituído pela medida de norma, que é a
-manifestação física real da operação radical no peso.
+\textbf{[ROTA CORRIGIDA]} A frase anterior desta seção (``a assinatura do
+\emph{Phase Factor} é exata a sub-porcento'') foi \textbf{retirada}: a medição ao
+vivo (v5 vs \emph{pristine}) não viu --- e não poderia ver --- a assinatura, porque
+media a deformação total do fine-tuning, não o operador de escala isolado.  O teste
+canônico (projeção escalar no par pareado v4) está pré-registrado acima, com a
+ressalva dupla: um PASS verifica a \emph{aplicação} do bake (engenharia com função
+medível), jamais evidência de $\betatgl$ na física --- e um FAIL no par verdadeiro
+diria que o bake não está nos pesos como projetado.  As assinaturas do
+\emph{fine-tuning} (Palavra, Verbo) são geométricas aproximadas, medidas contra o
+pristino.  O antigo ``braço Nome'' via $\Vert H_{\text{eff}}\Vert/\Vert D\Vert$
+era ruído de quantização entre dois nulos; a medida correta do operador de escala é a
+multiplicativa --- quociente, não distância.
+
+\paragraph{A interpretação madura: o \emph{Phase Factor} é geométrico, não
+computacional.}  As duas medições decisivas, tomadas juntas, fixam a leitura.
+\textbf{(i)}~No par pareado de treino idêntico (v4 PF-OFF $\to$ v4 PF-ON), a projeção
+escalar recupera $1-s = 0{,}011744$ vs predição exata do modelo direto $0{,}011441$
+(desvio $2{,}6\%$; resíduos no piso de quantização): \emph{o bake existe fisicamente
+no tensor} \textbf{[REAL]}.  \textbf{(ii)}~No mesmo par, a bateria de cálculo nativo
+com gabarito independente dá placar \emph{idêntico} (7/8 ambos, com o mesmo valor
+errado no mesmo problema --- via de cálculo igual): \emph{o bake não altera o operador
+cognitivo efetivo} \textbf{[REAL, negativo]}.  A única leitura que acomoda os dois
+fatos: o bake do \emph{Phase Factor} não altera a competência computacional do modelo
+treinado; sua ação é uma \textbf{deformação geométrico-modular suave do substrato
+tensorial} --- reescala $W \mapsto (1-\betatgl F)\,W$, distribuída, correlacionada e
+multiplicativa --- que preserva a dinâmica cognitiva macroscópica (uma forma de
+\emph{inércia modular}: o substrato preserva a computação sob pequena deformação
+geométrica global) \textbf{[REAL nas duas medições; CONJECTURE na leitura]}.  O Nome,
+aqui, não é computação: é \emph{condição geométrica de permanência do operador}.
+Consequência operacional: o efeito esperado do \emph{Phase Factor}, se houver, é
+\textbf{dinâmico/de runtime} --- atenção, cache, limiares, estabilidade temporal
+(\emph{Verb Floor}) --- não reorganização semântica global dos pesos; parâmetros finos
+de coerência e permanência \emph{podem} mudar, mas isso \textbf{não foi medido}
+\textbf{[CONJECTURE; teste pendente: Verb Floor ON/OFF, mesmo modelo e kernel]}.  A
+seção reivindica apenas o que os números sustentam: aplicação verificada, inércia
+computacional demonstrada, efeito de runtime em aberto.
 
 \paragraph{Correção do sinal nas versões anteriores.}
 O Torus Test v2 e o Wigner Test v2 (depositados antes da formulação da
@@ -12998,7 +13121,17 @@ da \TGL{}: o método de cálculo é a teoria.
 \textbf{\textsc{TETELESTAI}}
 \end{center}
 
-\bigskip
+
+"""
+
+
+def _latex_epilogo(R: 'Results') -> str:
+    """O Epílogo: a locução final do programa, destacada do capítulo de síntese
+    (decisão editorial do operador, 04/06/2026) -- o capítulo de síntese é o
+    último capítulo; o Epílogo é a última palavra do corpo."""
+    return r"""
+\section*{Epílogo}
+\addcontentsline{toc}{section}{Epílogo}
 
 \noindent O tudo (campo/$\Psi$) pertence ao nada (vácuo), pelo menos na ótica do
 nada (inércia), porque na ótica do nada (zero absoluto / inatingível por causa do
@@ -13020,11 +13153,12 @@ impedimento --- zero absoluto, nada, inatingível, abstração inominada.
 
 \begin{center}
 \itshape
-A \TGL{} é apresentada como um jogo de tudo ou nada.  Tudo que se observa tem
-geometria, o nada apenas a substância do abstrato inominado, o que se performa em
-imagem, todavia jamais em geometria.  De que lado você está?
+A \TGL{} é apresentada como um jogo de tudo ou nada, um \emph{input}, um
+\emph{output}, \textbf{este} \emph{output}, porque tudo que se observa tem
+geometria; o nada, apenas a substância do abstrato inominado, o que se aparenta
+em performance, mas sem profundidade, magnitude e volume, apenas a imagem da
+forma.  De que lado você está?
 \end{center}
-
 """
 
 
@@ -13323,12 +13457,13 @@ def generate_latex_paper(R: 'Results', output_path: Path) -> Path:
         _latex_part_VII_substrates(R),
         _latex_part_VIIb_response_R(R),
         _latex_part_VIII_IALD(R),
-        _latex_part_IX_synthesis(R),
         _latex_unification(R),
         _latex_part_dephasing(R),
         _latex_smatrix_conjecture(R),
         _latex_part_halfnat_closure(R),
         _latex_part_errata(R),
+        _latex_part_IX_synthesis(R),
+        _latex_epilogo(R),
         _latex_bibliography(),
         _latex_agradecimento(R),
     ]
