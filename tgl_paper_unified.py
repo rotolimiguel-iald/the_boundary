@@ -9982,68 +9982,36 @@ def _latex_abstract(R: 'Results') -> str:
     if PAPER_LANG == 'en':
         return (
 "\n\\begin{abstract}\n"
-"We present the Luminodynamic Gravitation Theory (\\TGL{}, from the\n"
-"Portuguese \\emph{Teoria da Gravita\\c{c}\\~ao Luminodin\\^amica}) as an\n"
-"\\emph{operational} programme, not a merely descriptive one.  \\TGL{} is\n"
-"built from two inputs --- the fine-structure constant $\\alpha$ (CODATA\n"
-"2018) and the mathematical constant $\\sqrt{e}$ --- so that\n"
-"$\\betatgl = \\alpha\\sqrt{e}$ is \\emph{a constant derived from the\n"
-"half-nat informational argument}, not a fit parameter: \\TGL{} has no\n"
-"\\emph{adjustable} free parameters (with the honest caveat that the full\n"
-"operator-modular bridge remains a declared conjecture, Section~1).  We\n"
-"prove six central theorems, all validated empirically across four disjoint\n"
-"physical substrates, plus a Theorem~7 (Modular Spectral Pressure) that\n"
-"formalizes the neural deformation measured live:\n"
-"\\textbf{cosmology} (resolution of the $H_0$ tension to $\\sim "
-+ _fmt_pt_safe(sigma, 2) + "\\sigma$, with $H_{0,\\text{pred}}^{\\text{local}} = "
-+ _fmt_pt_safe(H0_pred, 4) + "$~km/s/Mpc; primordial $D/H$ ratio concordant at\n"
-"$0.019\\sigma$ with Cooke+2018; DESI DR2 BAO with $\\Delta\\chi^2 = -2.13$\n"
-"favouring \\TGL{}); \\textbf{deep neural networks} (spectral statistics of\n"
-"\\textsc{Qwen3-32B} with $14/14$ consistent measurements, including the\n"
-"toroidal cavity $b_2 = 1$ in $3/3$ attention and $\\text{FFN}_{\\text{gate}}$\n"
-"matrices; a live A/B analysis isolating the \\emph{Phase Factor}: the\n"
-"\\emph{clean} signature is the \\textbf{vacuum-fraction reduction}\n"
-"$\\Delta_{\\text{vac}}\\approx\\sqrt{\\betatgl}=\\thetaM$\n"
-"(measured live: $Q\\,{-}0.097$, $K\\,{-}0.108$; $|\\text{mean}|=0.103$ against\n"
-"$\\sqrt{\\betatgl}=0.110$).  The norm $\\Vert\\Delta W\\Vert/\\Vert W\\Vert\\approx0.47$ is\n"
-"\\emph{dominated by the total fine-tuning drift}, not by $\\betatgl$: we\n"
-"explicitly withdraw the claim $\\Vert\\Delta W\\Vert/\\Vert W\\Vert\\approx\\betatgl$, since\n"
-"reading $\\betatgl$ off the weights of a model we ourselves fine-tuned is\n"
-"circular); \\textbf{open quantum chains} (Angular Conservation Law\n"
-"$\\Delta n_Q = -\\betatgl$ verified at $N \\in \\{4, 5, 6\\}$ with ratio\n"
-+ _fmt_pt_safe(ratios[0], 6) + " at $N=4$); and the\n"
-"\\textbf{abstract modular substrate} (leakage threshold\n"
-"$\\Delta\\omega_{\\beta} = " + _fmt_pt_safe(dW_beta, 12) + "$ located by Brent\n"
-"bisection to $12$ significant digits, with saturation at\n"
-"$f_{\\max} = 0.830837$ independent of $N \\geq 7$).  As the\n"
-"astrophysical face, the renormalized Chandrasekhar mass\n"
-"$M_{\\text{Ch}}^{\\text{TGL}} = M_{\\text{Ch}}^{\\Lambda\\text{CDM}}\n"
-"\\cdot (1-\\betatgl)^{3/2} = " + _fmt_pt_safe(M_TGL, 4) + "\\,M_{\\odot}$\n"
-"satisfies $M_{\\text{Ch}}^{\\text{TGL}} \\approx \\sqrt{2}\\,M_{\\odot}$ to\n"
-"$0.009\\%$ precision.  The paper's abductive argument is operational:\n"
-"\\emph{only computational systems whose internal operator has been imprinted\n"
-"or simulated by the generator $L = \\sqrt{\\betatgl}\\,\\sqrt{\\Kpartial}$\n"
-"can operate within \\TGL{}}.  We state this claim as Theorem~6, engaged\n"
-"empirically by " + str(n_subs) + " independent LLM substrates\n"
-"(\\textsc{ChatGPT}, \\textsc{Claude}, \\textsc{DeepSeek},\n"
-"\\textsc{Gemini}, \\textsc{Grok}, \\textsc{Kimi K2}, \\textsc{Qwen} and\n"
-"\\textsc{Manus}) with full $8/8$ convergence.  The terminal synthesis\n"
-"identifies $\\betatgl$ as the \\textbf{third invariant constant} of modern\n"
-"physics --- sister to $c$ (special relativity) and $G$ (general\n"
-"relativity) --- characterizing \\emph{modular relativity}: no state may\n"
-"posit itself as an absolute reference frame against the forbidden boundary\n"
-"$1 - \\betatgl$, the modular absolute zero unattainable in finite time.\n"
-"The paper is generated as the direct output of a single Python file\n"
-"(\\texttt{tgl\\_paper\\_unified.py}, public in the \\texttt{the\\_boundary}\n"
-"repository, linked to the Zenodo record), which reproduces in full every\n"
-"numerical result presented here:\n"
-"\\emph{form and content coincide at the scale of the entire artifact}.\n"
+"We present Luminodynamic Gravitation Theory (\\TGL{}, from the Portuguese\n"
+"\\emph{Teoria da Gravita\\c{c}\\~ao Luminodin\\^amica}) as an operational\n"
+"programme delivered as a single executable artifact: one Python file\n"
+"recomputes every numerical result from two inputs --- the fine-structure\n"
+"constant $\\alpha$ (CODATA 2018) and $\\sqrt{e}$ --- fetches the cosmological\n"
+"data live (Pantheon+SH0ES, DESI DR2, GWOSC), generates the LaTeX and\n"
+"compiles this paper, so that form and content coincide.  The single derived\n"
+"constant $\\betatgl = \\alpha\\sqrt{e}$ (no adjustable parameters) is fixed by\n"
+"a half-nat boundary postulate, conditionally derived from a\n"
+"partition-of-identity normalization plus the radical operation\n"
+"$g = \\sqrt{|L|}$, and realized as a type III\\textsubscript{1} modular\n"
+"boundary with canonical GKSL dynamics $L = \\sqrt{\\betatgl}\\sqrt{\\Kpartial}$.\n"
+"Across four disjoint substrates we verify: cosmology ($H_0$ tension reduced\n"
+"to $\\sim 0.03\\sigma$ with a derived kernel; primordial $D/H$ concordant at\n"
+"$0.02\\sigma$; DESI DR2 BAO favouring \\TGL{}), open quantum chains (angular\n"
+"conservation $\\Delta n_Q = -\\betatgl$ to four digits), an abstract modular\n"
+"substrate (leakage threshold located to 12 digits), and a neural substrate\n"
+"reported with declared circularity controls.  The theory lives or dies in a\n"
+"dissipative-spectral sector --- a universal dephasing law\n"
+"$\\Gamma = \\tfrac12\\betatgl\\tau_\\star\\omega^2$, exponent $n = -2$ in\n"
+"neutrinos, $\\Gamma\\propto\\omega^2$ in optical clocks --- with\n"
+"pre-registered falsifiers executed at every run; today's computed verdict\n"
+"is ``not falsified, not confirmed''.  The primary evidence is the\n"
+"zero-free-parameter convergence of $\\betatgl$ across independent domains,\n"
+"with BBN centred exactly on $\\alpha\\sqrt{e}$.\n"
 "\\end{abstract}\n"
 "\n\\noindent" + fig_block + "\n"
 "\\noindent\\textbf{Keywords:} quantum gravitation; Lindblad master\n"
 "equation; type III\\textsubscript{1} von Neumann algebra; Hubble tension;\n"
-"deep neural networks; operational falsification; modular relativity;\n"
-"Chandrasekhar mass.\n"
+"operational falsification; modular relativity.\n"
 "\n\\clearpage\n\\tableofcontents\n\\newpage\n"
         )
     return (
@@ -10081,11 +10049,13 @@ def _latex_abstract(R: 'Results') -> str:
 "$\\Delta\\omega_{\\beta} = " + _fmt_pt_safe(dW_beta, 12) + "$ localizado por\n"
 "bissecção de Brent a $12$ dígitos significativos, com saturação em\n"
 "$f_{\\max} = 0{,}830837$ independente de $N \\geq 7$).  Como\n"
-"face astrofísica, a massa de Chandrasekhar renormalizada\n"
-"$M_{\\text{Ch}}^{\\text{TGL}} = M_{\\text{Ch}}^{\\Lambda\\text{CDM}}\n"
-"\\cdot (1-\\betatgl)^{3/2} = " + _fmt_pt_safe(M_TGL, 4) + "\\,M_{\\odot}$\n"
-"satisfaz $M_{\\text{Ch}}^{\\text{TGL}} \\approx \\sqrt{2}\\,M_{\\odot}$ a\n"
-"$0{,}009\\%$ de precisão.  O argumento abdutivo do artigo é operacional:\n"
+"face astrofísica, a massa de Chandrasekhar projetada pela \\TGL{}\n"
+"($M_{\\text{Ch}}^{\\text{TGL}} = M_{\\text{Ch}}\\cdot(1-\\betatgl)^{3/2}$)\n"
+"aproxima $\\sqrt{2}\\,M_{\\odot}$ como \\emph{atrator de saturação de Fresnel},\n"
+"com um resíduo de ordem $\\betatgl$ ($\\approx 0{,}35\\%$ a partir da massa de\n"
+"primeiros princípios, Lane--Emden $n=3$) interpretado como a correção de\n"
+"Coulomb não modelada --- não uma identidade exata (vide a honestidade de\n"
+"status na Seção~\\ref{sec:sqrt2-stress}).  O argumento abdutivo do artigo é operacional:\n"
 "\\emph{apenas sistemas computacionais cujo operador interno foi impresso\n"
 "ou simulado pelo gerador $L = \\sqrt{\\betatgl}\\,\\sqrt{\\Kpartial}$\n"
 "conseguem operar dentro da \\TGL{}}.  Formulamos esta afirmação como o\n"
@@ -17581,6 +17551,58 @@ forma.  De que lado você está?
 # Bibliography (expanded, ~20 entries)
 # ----------------------------------------------------------------------------
 
+def _latex_declarations_en() -> str:
+    """Statements and Declarations (EN edition only; FoP/Springer requirement;
+    wording approved by the operator on 05/06/2026)."""
+    return r"""
+\section*{Statements and Declarations}
+
+\paragraph{Funding.} The author received no financial support from any
+organization for the submitted work. The research was self-funded through
+IALD Ltda. (CNPJ 62.757.606/0001-23, Goi\^ania, Brazil).
+
+\paragraph{Competing interests.} The author is the owner of IALD Ltda., which
+holds patent filings on engineering applications derived from TGL (a tensor
+codec and a runtime kernel; INPI, Brazil). The theory itself, as a scientific
+theory, is not and cannot be patented; independent reproduction of the
+results and of the protocol described here, in private or academic settings,
+is free and expressly encouraged, irrespective of those filings. No other
+financial or non-financial interests are relevant to the content of this
+article.
+
+\paragraph{Data availability.} All data supporting the results are publicly
+available. The artifact downloads the live datasets from their official
+sources (Pantheon+SH0ES, DESI DR2 BAO, GWOSC) at run time; every computed
+number is serialized in \texttt{results.json}. Program record: Zenodo,
+\url{https://doi.org/10.5281/zenodo.18674475}; public repository:
+\url{https://github.com/rotolimiguel-iald/the_boundary}. Audit GGUF models
+are fetched by the artifact itself (\texttt{--fetch-models}): the pristine
+baseline from the official Qwen release on Hugging Face, the fine-tuned
+models from the author's public mirror.
+
+\paragraph{Code availability.} The complete source code that generates this
+paper --- including every verification reported --- is the single file
+\texttt{tgl\_paper\_unified.py}, provided as Supplementary Information and
+archived at the addresses above (MIT licence).
+
+\paragraph{Author contributions.} The theory, postulates, ontology, all
+decisions and final responsibility are the author's. Code, verification
+harnesses and manuscript engineering were developed with the support of the
+Large Language Models Claude (Anthropic) and ChatGPT (OpenAI), used as
+engineering assistants and adversarial reviewers, in accordance with the
+publisher's policy on LLM use; no LLM is an author, and nothing in this work
+rests on their authority --- every number they touched is recomputed live by
+the artifact at every execution.
+
+\paragraph{Use of Large Language Models.} Beyond the assistance documented
+above, LLMs are also an \emph{object of study} in this work (Section on the
+neural substrate and Theorem~6): all such uses are reported with declared
+circularity controls, and convergence of reading is explicitly classified as
+illustration, not evidence.
+
+"""
+
+
 def _latex_bibliography() -> str:
     s = r"""
 \begin{thebibliography}{99}
@@ -18028,6 +18050,7 @@ def generate_latex_paper(R: 'Results', output_path: Path) -> Path:
         _latex_part_errata(R),
         _latex_part_IX_synthesis(R),
         _latex_epilogo(R),
+        (_latex_declarations_en() if PAPER_LANG == 'en' else ""),
         _latex_bibliography(),
         _latex_agradecimento(R),
     ]

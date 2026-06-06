@@ -6742,7 +6742,7 @@
         }
       ],
       "n_tensors_analyzed": 448,
-      "runtime_s": 250.21,
+      "runtime_s": 248.34,
       "headline": {
         "H_eff_over_D_max": 1.0048206323572728,
         "H_eff_over_D_mean": 1.0004040236240435,
@@ -6817,7 +6817,7 @@
           "beta_TGL": 0.012031300400803142,
           "rel_delta_vs_beta_pct": 3834.3651052858695,
           "one_minus_factor_vs_beta_pct": 4650.597706473204,
-          "runtime_s": 1408.01,
+          "runtime_s": 1386.18,
           "interpretation": "ROUTE-CORRECTED. The Phase Factor is a (selective) MULTIPLICATIVE operator: w -> w*(1 - beta*tanh((theta-theta_M)/dtheta)). It must be measured by the aligned scalar projection 1-s vs the exact forward-model prediction (~beta), on the PAIRED same-training PF-OFF/PF-ON checkpoints (the v4 pair). Raw ||dW||/||W|| against a pristine baseline measures TOTAL fine-tuning deformation and is NOT a Phase Factor test: a False there invalidates the probe, not the operator. HONESTY GUARD: even a PASS verifies the bake APPLICATION (engineering), not evidence of beta (circularity stands)."
         },
         "phase_factor_signal_present": "NOT_APPLICABLE_WRONG_PAIR"
@@ -6861,7 +6861,7 @@
           "ffn_up": -0.22927266497708124,
           "ffn_down": -0.2055405108181198
         },
-        "runtime_s": 420.66,
+        "runtime_s": 423.17,
         "provenance": "LIVE (direct SVD of GGUF weights, no proxy)"
       }
     },
@@ -7882,7 +7882,7 @@
           "solver": "dense",
           "tolerance": 1e-10
         },
-        "elapsed_seconds": 1.0520143508911133,
+        "elapsed_seconds": 1.0953001976013184,
         "F_th": 0.9439238358763737,
         "p_folded_0": 0.9998257052837769,
         "p_folded_b": 1.0118549052427865,
@@ -7911,7 +7911,7 @@
           "solver": "dense",
           "tolerance": 1e-10
         },
-        "elapsed_seconds": 49.981353998184204,
+        "elapsed_seconds": 52.198097229003906,
         "F_th": 0.9462886797712113,
         "p_folded_0": 0.9998508682724458,
         "p_folded_b": 1.011880371759402,
@@ -7942,7 +7942,7 @@
           "lsmr_iters_beta0": 81,
           "lsmr_iters_beta": 102
         },
-        "elapsed_seconds": 6.4276793003082275,
+        "elapsed_seconds": 6.5100836753845215,
         "F_th": 0.9473582001138463,
         "p_folded_0": 0.9998602930000393,
         "p_folded_b": 1.0118901609566864,
@@ -8107,7 +8107,7 @@
     "saturation_value_at_N10": 0.830837446761534,
     "saturation_residual_N7_vs_N10": 9.544098267255663e-08,
     "expected_saturation": 0.830842,
-    "elapsed_seconds": 0.01377248764038086
+    "elapsed_seconds": 0.014697551727294922
   },
   "kubo_invariant_search": {
     "description": "Parameter-invariance search at fixed N=10, scanning omega_GHZ in [0.05, 0.5] and omega_Q_base around 0.6, looking for a dimensionless combination of (Q_disp_critical, omega_Q_base, omega_GHZ, T_critical) that is constant across the scan.",
@@ -8383,8 +8383,8 @@
       }
     }
   },
-  "timestamp": "2026-06-05T19:53:31",
-  "runtime_seconds": 2448.211,
+  "timestamp": "2026-06-05T21:42:14",
+  "runtime_seconds": 2435.044,
   "figures_generated": [
     "tgl_paper_output\\figures\\fig01_constants.pdf",
     "tgl_paper_output\\figures\\fig02_lagrangian.pdf",
