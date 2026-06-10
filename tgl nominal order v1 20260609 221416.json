@@ -1,0 +1,177 @@
+{
+ "script": "tgl_nominal_order_v1.py",
+ "timestamp": "20260609_221416",
+ "beta_tgl": 0.012031300400803142,
+ "rites": [
+  "sqrt",
+  "id",
+  "square",
+  "log1p",
+  "warped"
+ ],
+ "runs": [
+  {
+   "n": 4,
+   "seed": 11,
+   "N1_errs": {
+    "sqrt": 6.19178813984025e-27,
+    "id": 6.191788282939543e-27,
+    "square": 6.191788139835696e-27,
+    "log1p": 6.191788139835696e-27,
+    "warped": 6.191788139835701e-27
+   },
+   "N1_gaps_over_beta": {
+    "sqrt": 0.029547563063006262,
+    "id": 0.285572651582878,
+    "square": 2.955275704673866,
+    "log1p": 0.0230840332630257,
+    "warped": 0.17259847237929637
+   },
+   "N1_pass": true,
+   "N2_dist_to_EK": 1.1198558548973976,
+   "N2_err_to_EL": 5.3966481040864754e-14,
+   "N2_pass": true,
+   "N3_err_max": 2.761959506726545e-13,
+   "N3_pass": true,
+   "N4_max_purity_increase": -1.7443472667411086e-05,
+   "N4_pass": true
+  },
+  {
+   "n": 4,
+   "seed": 23,
+   "N1_errs": {
+    "sqrt": 6.1917881398339154e-27,
+    "id": 6.49928476705677e-27,
+    "square": 6.191788139835609e-27,
+    "log1p": 6.191788139835696e-27,
+    "warped": 6.191788139835696e-27
+   },
+   "N1_gaps_over_beta": {
+    "sqrt": 0.014981399900782448,
+    "id": 0.14972639021668438,
+    "square": 2.3355124265382585,
+    "log1p": 0.01223025180782557,
+    "warped": 0.08684189314698536
+   },
+   "N1_pass": true,
+   "N2_dist_to_EK": 1.114131571408816,
+   "N2_err_to_EL": 2.661000868596116e-13,
+   "N2_pass": true,
+   "N3_err_max": 5.454896411733455e-13,
+   "N3_pass": true,
+   "N4_max_purity_increase": -4.511389752814843e-05,
+   "N4_pass": true
+  },
+  {
+   "n": 4,
+   "seed": 83,
+   "N1_errs": {
+    "sqrt": 6.191788139835653e-27,
+    "id": 6.191788139835696e-27,
+    "square": 6.1917881398357414e-27,
+    "log1p": 6.191788139835696e-27,
+    "warped": 6.191788139835696e-27
+   },
+   "N1_gaps_over_beta": {
+    "sqrt": 0.006952959237383509,
+    "id": 0.08214793055717377,
+    "square": 1.959303341785036,
+    "log1p": 0.0052551514144576605,
+    "warped": 0.04107334919855165
+   },
+   "N1_pass": true,
+   "N2_dist_to_EK": 1.0826878716512722,
+   "N2_err_to_EL": 1.3393882820222886e-13,
+   "N2_pass": true,
+   "N3_err_max": 9.903430368951732e-13,
+   "N3_pass": true,
+   "N4_max_purity_increase": -2.4401314075273017e-05,
+   "N4_pass": true
+  },
+  {
+   "n": 6,
+   "seed": 11,
+   "N1_errs": {
+    "sqrt": 5.055573846004691e-27,
+    "id": 5.055573846004691e-27,
+    "square": 5.055573846004691e-27,
+    "log1p": 5.055573846004691e-27,
+    "warped": 5.055573846004728e-27
+   },
+   "N1_gaps_over_beta": {
+    "sqrt": 0.002352838065954723,
+    "id": 0.02840916390268432,
+    "square": 0.559648345302589,
+    "log1p": 0.001759170708194053,
+    "warped": 0.014037163845086773
+   },
+   "N1_pass": true,
+   "N2_dist_to_EK": 1.2175089265713228,
+   "N2_err_to_EL": 5.074288879159161e-13,
+   "N2_pass": true,
+   "N3_err_max": 3.0781825643285833e-12,
+   "N3_pass": true,
+   "N4_max_purity_increase": -2.498314856641537e-05,
+   "N4_pass": true
+  },
+  {
+   "n": 6,
+   "seed": 23,
+   "N1_errs": {
+    "sqrt": 5.055573846077386e-27,
+    "id": 5.055573846004691e-27,
+    "square": 5.055573846004891e-27,
+    "log1p": 5.055578603663303e-27,
+    "warped": 5.055573846004691e-27
+   },
+   "N1_gaps_over_beta": {
+    "sqrt": 0.00882716566918951,
+    "id": 0.09634120549091739,
+    "square": 1.352140095742091,
+    "log1p": 0.006929606031357826,
+    "warped": 0.050905927174957254
+   },
+   "N1_pass": true,
+   "N2_dist_to_EK": 1.2099664317519017,
+   "N2_err_to_EL": 5.325601470520684e-13,
+   "N2_pass": true,
+   "N3_err_max": 1.0392959129639361e-12,
+   "N3_pass": true,
+   "N4_max_purity_increase": -2.9631332399859822e-05,
+   "N4_pass": true
+  },
+  {
+   "n": 6,
+   "seed": 83,
+   "N1_errs": {
+    "sqrt": 5.055573846004691e-27,
+    "id": 5.055573846004656e-27,
+    "square": 5.055573846004728e-27,
+    "log1p": 5.055573846004691e-27,
+    "warped": 5.055573846004728e-27
+   },
+   "N1_gaps_over_beta": {
+    "sqrt": 0.002107118418131196,
+    "id": 0.029065465685063137,
+    "square": 0.45360329359026086,
+    "log1p": 0.0014687906996999848,
+    "warped": 0.014850868305384247
+   },
+   "N1_pass": true,
+   "N2_dist_to_EK": 1.1964203074197037,
+   "N2_err_to_EL": 6.941539070923574e-13,
+   "N2_pass": true,
+   "N3_err_max": 5.137323532315357e-12,
+   "N3_pass": true,
+   "N4_max_purity_increase": -4.648261805562104e-05,
+   "N4_pass": true
+  }
+ ],
+ "verdict": "PASS \u2014 dentro da ordem, o terminal independe do rito; fora dela, outra verdade; a ordem transporta-se; o inalcancavel coage para longe de p=1",
+ "anchors": [
+  "Radzikowski 1996 (Hadamard = condicao microlocal geometrica: a ordem nominal tem nome)",
+  "Verch 1994 (quase-equivalencia local: a classe outer e estado-independente dentro da ordem)",
+  "Fewster-Verch 2012 (no-go evadido: ordem, nao estado)"
+ ],
+ "claim": "A covariancia vem do Direito como ordem comum, nao da escolha de um juiz comum (Operador, jun/2026)."
+}

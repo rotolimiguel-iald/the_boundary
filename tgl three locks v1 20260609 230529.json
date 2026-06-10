@@ -1,0 +1,47 @@
+{
+ "script": "tgl_three_locks_v1.py",
+ "timestamp": "20260609_230529",
+ "beta_tgl": 0.012031300400803142,
+ "results": {
+  "L1_identity_err_max": 4.042879669004346e-16,
+  "L1_pass": true,
+  "L2": {
+   "L2a_eig_rel_errs": [
+    2.727812614482193e-15,
+    2.9226563726594922e-15,
+    9.742187908864973e-16,
+    8.378281601623878e-15
+   ],
+   "L2b_weyl_dims": [
+    0.9828441529298336,
+    0.9786670401885351,
+    0.985839694520135,
+    0.9944142161373619
+   ],
+   "L2c_comm_rel_errs": [
+    0.0011326608169917967,
+    0.00029198591980695226,
+    7.413528673547039e-05,
+    1.8678507009828533e-05
+   ],
+   "pass": true
+  },
+  "L3": {
+   "L3_ratios": [
+    0.9772114286441925,
+    0.9885003962282375,
+    0.9942244499747043,
+    0.997105920823951
+   ],
+   "pass": true
+  }
+ },
+ "verdict": "PASS \u2014 T1 bem-posto pela representacao integral no fluxo do radical (produto cruzado/CLPW); a tripla-limite e a do circulo canonico (axiomas REAL) com convergencia verificada; o levantamento GH e truncamento espectral (Connes-van Suijlekom)",
+ "anchors": [
+  "Takesaki (produto cruzado II_inf) + CLPW 2022-23 (o produto cruzado e o lar fisico)",
+  "tripla canonica de S^1 (axiomas de Connes, REAL)",
+  "Rieffel (comutativo: qGH = GH)",
+  "Connes-van Suijlekom (truncamentos espectrais de S^1 convergem em qGH)"
+ ],
+ "identity": "e^{tL} = Int V_s (.) V_s* dnu_t,  V_s = exp(i s sqrt(K)), nu_t gaussiana var beta t"
+}

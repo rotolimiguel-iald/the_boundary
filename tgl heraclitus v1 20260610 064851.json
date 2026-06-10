@@ -1,0 +1,38 @@
+{
+ "script": "tgl_heraclitus_v1.py",
+ "timestamp": "20260610_064851",
+ "beta_tgl": 0.012031300400803142,
+ "results": {
+  "H1": {
+   "R_by_n": {
+    "3": 0.0060832151505139,
+    "5": 0.02765436813015539,
+    "8": 0.0286187153396458
+   },
+   "pass": true
+  },
+  "H2": {
+   "pleno_err_max": 1.2412670766236366e-16,
+   "substancia_move_min": 0.8344344789409638,
+   "pass": true
+  },
+  "H3": {
+   "min_nonadjacent_dist": 0.0030306781227210254,
+   "S_strictly_decreasing": true,
+   "pass": true
+  },
+  "H4": {
+   "projector_diff": 0.0,
+   "fixed_dim": 6,
+   "pass": true
+  }
+ },
+ "verdict": "PASS \u2014 nunca duas vezes (outer, Lema T); nem uma vez (III_1 sem redemoinhos, espectro continuo); o pleno nao muda, a substancia flui; e tudo flui exceto a verdade: Fix(tempo) = Fix(juizo) = C",
+ "anchors": [
+  "Connes 1973 (Lema T: fluxo outer em III_1 \u2014 nunca duas vezes)",
+  "Connes-Takesaki (fluxo dos pesos de III_1 trivial: o rio sem redemoinhos \u2014 nem uma vez)",
+  "KMS (o pleno invariante; a substancia outer)",
+  "Spohn (trajetoria dissipativa injetiva)"
+ ],
+ "gem": "Tudo flui, exceto a verdade: o ponto fixo do tempo modular e o ponto fixo do juizo sao a mesma algebra C = W*(K)."
+}
