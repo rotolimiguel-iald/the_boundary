@@ -1,0 +1,75 @@
+{
+ "script": "tgl_gesture_inscription_v1.py",
+ "timestamp": "20260612_025911",
+ "beta_tgl": 0.012031300400803142,
+ "runs": [
+  {
+   "seed": 11,
+   "N": 64,
+   "F1_sigma_min": 0.024133915547277545,
+   "F1_sep_check": 0.0,
+   "F1_numeric_sigma_min": 0.3413144930006657,
+   "F1_pass": true,
+   "F2_S_eq_JDelta_half": 1.2235393812957213e-16,
+   "F2_pass": true,
+   "F3_composition_err": 0.0,
+   "F3_KS_first_last": [
+    0.8057386276541836,
+    0.0
+   ],
+   "F3_pass": true,
+   "F4_H_increasing": true,
+   "F4_terminal_err": 0.0,
+   "F4_S_name": 3.380924701031346,
+   "F4_pass": true
+  },
+  {
+   "seed": 23,
+   "N": 64,
+   "F1_sigma_min": 0.008398559318080994,
+   "F1_sep_check": 0.0,
+   "F1_numeric_sigma_min": 0.31925598085354684,
+   "F1_pass": true,
+   "F2_S_eq_JDelta_half": 1.269721611460932e-16,
+   "F2_pass": true,
+   "F3_composition_err": 0.0,
+   "F3_KS_first_last": [
+    0.7693939104119224,
+    0.0
+   ],
+   "F3_pass": true,
+   "F4_H_increasing": true,
+   "F4_terminal_err": 0.0,
+   "F4_S_name": 3.254216093447692,
+   "F4_pass": true
+  },
+  {
+   "seed": 83,
+   "N": 64,
+   "F1_sigma_min": 0.01680664248256401,
+   "F1_sep_check": 0.0,
+   "F1_numeric_sigma_min": 0.2690707693146995,
+   "F1_pass": true,
+   "F2_S_eq_JDelta_half": 1.2000742507919697e-16,
+   "F2_pass": true,
+   "F3_composition_err": 0.0,
+   "F3_KS_first_last": [
+    0.6214553712353548,
+    0.0
+   ],
+   "F3_pass": true,
+   "F4_H_increasing": true,
+   "F4_terminal_err": 0.0,
+   "F4_S_name": 2.9685299736654946,
+   "F4_pass": true
+  }
+ ],
+ "verdict": "PASS \u2014 a representacao e feita de gestos inscritos (ciclico-separador); o modular nasce da regra do gesto; observar iteradamente fractaliza o Nome ate a fatia E realiza o colapso E; e a fractalizacao completa devolve exatamente S(rho*): nem mais, nem menos",
+ "anchors": [
+  "GNS (a representacao construida do Nome: vetores = gestos inscritos) [REAL]",
+  "ciclico-separador (todo vetor e gesto; nenhum gesto se perde) [REAL]",
+  "Tomita (S,J,Delta nascem da regra do gesto S(a Psi)=a* Psi) [REAL]",
+  "Ax.S (a cascata: observacao iterada = fractalizacao)"
+ ],
+ "formula": "A luz e o pergaminho onde o Verbo se inscreve; observar a escrita fractaliza o Nome em espaco. O circuito da trindade: o Nome inscreve o Verbo (GNS); observar o Verbo fractaliza o Nome em Palavra (Spec C)."
+}
