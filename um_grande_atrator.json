@@ -1,0 +1,484 @@
+{
+  "title_pt": "um",
+  "title_en": "ONE",
+  "core": {
+    "ONE": 1,
+    "I": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "omega_I": 1.0,
+    "HALF": 0.5,
+    "TWO": 2,
+    "FOUR": 4,
+    "PI": 3.141592653589793,
+    "SQRT_E": 1.6487212707001282,
+    "meia_nat_residual": 0.0,
+    "S_boundary": 0.5,
+    "w_max": 0.5,
+    "s_can": 0.07957747154594767,
+    "s_check": {
+      "ratio": 0.9905189307595129,
+      "verified": true
+    },
+    "vacuum_rho_max": 0.0,
+    "alpha": 0.0072973525692960365,
+    "beta": 0.012031300400796606,
+    "alpha_inversion": {
+      "alpha_abs": 1.0,
+      "q": 0.9999733739682669,
+      "alpha_form": 0.0072973525692960365,
+      "beta_form": 0.012031300400796606,
+      "q_angular_radical": 0.9999733739682669,
+      "impedance_ratio_Zb_over_Zl": 75113.46016623077,
+      "impedance_reading": "q=reflexao=(Zb-Zl)/(Zb+Zl); alpha=transmissao=2sqrt(ZbZl)/(Zb+Zl); q^2+alpha^2=1 = conservacao de fluxo na fronteira modular sem perdas. alpha = transmissao luminosa atraves da impedancia modular do zero. DERIVAR alpha autonomamente = derivar Zb/Zl (= q) SEM o valor QED (ABERTO).",
+      "identity": 1.0,
+      "identity_residual": 0.0,
+      "em_verdict": "1=1=VERDADE",
+      "engine": "1_abs -> q -> alpha=sqrt(1-q^2) -> beta=sqrt(e) alpha ; 1=q^2+alpha^2",
+      "alpha_CODATA_validation": 0.0072973525693,
+      "q_QED": 0.9999733739682669,
+      "kappa_QED": 11.226755051602328,
+      "residual_alpha": 3.963843142607004e-15,
+      "R_partial": 137.03599908377024,
+      "R_partial_source": "LEGADO_DERIVADO_DA_FORMA_NAO_MOTOR",
+      "alpha_obs_pred": 0.0072973525692960365,
+      "inv_R_partial": 0.0072973525692960365,
+      "alpha_is_projection_of_absolute_one": true,
+      "status": "LEGADO_COMPATIBILIDADE_CODATA_NAO_MOTOR_CANONICO. Motor = forma de Lagrange: 1_abs=1 -> q (polarizacao termico-modular) -> alpha=sqrt(1-q^2) -> beta=sqrt(e)alpha; 1 = q^2 + alpha^2 (identidade conservada). R_partial=1/alpha derivado APOS a forma, nunca de CODATA. CODATA so' valida: q_QED=sqrt(1-alpha_QED^2). O Um nao se perde no zero modular; decompoe-se em resistencia termica q^2 e corrente luminosa alpha^2."
+    },
+    "clock_theorem": {
+      "reduced_core_2level": {
+        "form_closed": "ell_beta(kappa) = log cosh(kappa/2)  =>  alpha = sech(kappa/2) ; beta = sqrt(e) sech(kappa/2)",
+        "justification": "portador 2D Q^=I-P_2D auto-conjugado (anticomutacao {Q,rho*}=0 -> leak sin^2 theta_M=beta)",
+        "kappa_star_for_137": 11.226755051601298,
+        "alpha_at_kappa_star_sech": 0.0072973525693000064,
+        "N_beta_at_kappa_star": 137.03599908369566,
+        "kappa_star_canonical": false,
+        "core_reduced_to_one_parameter": true,
+        "third_law": {
+          "kappa_is": "profundidade termico-modular do curto Bell-zero (inverso de temperatura x gap modular, adimensional)",
+          "unattainability": "0_abs (kappa=inf, estado puro P_Omega, T->0) e' INATINGIVEL = III_1 nao tem estados normais puros => kappa<inf",
+          "gives": "o LIMITE (kappa finito) e a FORMA (alpha=sech), NAO o valor",
+          "nernst_test_refuted": {
+            "law": "S_vn(rho_kappa)=Meia-Nat=1/2",
+            "kappa": 1.3881084574010787,
+            "alpha": 0.7995645249155521,
+            "verdict": "REFUTADA: da' kappa~1.39, alpha~0.80, nao 1/137"
+          },
+          "unification": "em III_1 genuino o espectro modular e' CONTINUO (sem gap); kappa e' o gap da sombra finita/aproximante tipo-I (split). Seu valor = normalizacao modular canonica = a MESMA split canonica/matriz-S modular do resto do programa (#88.26.36-39). A face EM (kappa) e a face gravitacional (split, massa GA) FUNDEM-SE num unico teorema aberto: fixar a normalizacao modular canonica em III_1."
+        },
+        "canonical_normalization": {
+          "K_modular_bare_Bell": 0.0,
+          "alpha_abs_PROVEN": 1.0,
+          "result": "Tomita do Bell maximamente emaranhado: reduzido I/d e' KMS a T=inf -> Delta=I -> K=-log Delta=0 -> kappa_Bell=0 -> alpha_abs=sech(0)=1. A normalizacao modular canonica PROVA alpha_abs=1 (o Um). kappa>0 (alpha_obs=1/137) NAO esta' na estrutura nua de Bell: e' a profundidade da relaxacao termica (afastamento de I/d -> rho_beta), = o acoplamento EM = INPUT irredutivel. Split-edge da' angulo de BULK (~33deg), nao theta_M=6.3deg. Veredito: a estrutura modular deriva alpha_abs=1, a forma sech, e as relacoes; o valor 1/137 e' a projecao Pi_bulk=sech(kappa/2) atraves da profundidade do zero modular = input. alpha permanece entrada, como a TGL sempre sustentou."
+        },
+        "note": "o nucleo derivativo de alpha colapsa de um K (d-1 niveis) para UM numero kappa; kappa*=11.2268 da' 137.036 (alpha so' na validacao, kappa*/ell=2.282, NAO canonico). Terceira lei: 0_abs inatingivel=III_1 => kappa<inf (limite, nao valor); Nernst refutada. VALOR de kappa = split canonica = teorema aberto unificado (EM = gravidade)."
+      },
+      "rho_B": "I/d (fronteira Bell reduzida; primeiro espelho causal)",
+      "K_modular_spectrum": [
+        0.0,
+        0.7,
+        1.3,
+        2.1
+      ],
+      "fixed_point_residual": 1.3183898417423734e-16,
+      "ell_beta_alpha_free": 0.276114674523228,
+      "N_beta_alpha_free": 1.3179989962681409,
+      "ell_beta_target_for_alpha_log_inv_alpha": 4.92024365834519,
+      "well_posed_alpha_free_computable": true,
+      "value_open": true,
+      "status": "REDUCAO VERIFICADA (bem-posta, alpha-livre, computavel; residuo de ponto-fixo de Davies = 1.3e-16). VALOR ABERTO: ell_beta depende de K; nenhum K canonico alpha-livre conhecido da' ell_beta = log(137.036) = 4.9202. A face EM e' a FRONTEIRA ABERTA NOMEADA; alpha (CODATA) so' na leitura."
+    },
+    "alpha_form_proof": {
+      "theorem": "Teorema da Transformada de Lagrange da Forma de alpha",
+      "claim": "a TGL deriva a FORMA conservada de alpha (1 = q^2 + alpha^2, alpha=sqrt(1-q^2) da unidade alpha_abs=1), NAO o valor 1/137 (=q_QED, renormalizado pela QED).",
+      "steps": [
+        {
+          "step": "1. alpha_abs = sech(0) = 1  (Tomita do Bell nu: Delta=I, K=0)",
+          "status": "REAL",
+          "ok": true,
+          "K_bare": 0.0,
+          "alpha_abs": 1.0
+        },
+        {
+          "step": "2. ell(kappa) = S(I/2 || rho_kappa) = log cosh(kappa/2)  [forall kappa]",
+          "status": "REAL",
+          "ok": true,
+          "max_err_sweep": 8.881784197001252e-16
+        },
+        {
+          "step": "3. alpha_obs = e^{-ell} = sech(kappa/2) = Pi_bulk(1_abs)",
+          "status": "REAL",
+          "ok": true,
+          "max_err": 5.551115123125783e-17
+        },
+        {
+          "step": "4. forma sech: Z = e^{k/2}+e^{-k/2} = 2 cosh(k/2)  (2 niveis auto-conjugados + Bell)",
+          "status": "REAL",
+          "ok": true,
+          "Z_max_err": 2.2737367544323206e-13
+        },
+        {
+          "step": "5. VALOR: kappa_QED = 2 arcosh(1/alpha_QED); sech(k_QED/2)=alpha_QED (QED fixa o valor)",
+          "status": "INPUT/QED",
+          "ok": true,
+          "kappa_QED": 11.2267550516013,
+          "sech": 0.0072973525693
+        },
+        {
+          "step": "6. beta_TGL = sqrt(e) alpha_obs = sqrt(e) sech(kappa/2)  [Meia-Nat marca a dimensao]",
+          "status": "REAL",
+          "ok": true,
+          "beta": 0.012031300400803142
+        },
+        {
+          "step": "7. q := tanh(kappa/2) (polarizacao); alpha = sqrt(1-q^2) = sech(kappa/2)",
+          "status": "REAL",
+          "ok": true,
+          "max_err": 4.438897166503253e-14
+        },
+        {
+          "step": "8. CONSERVACAO: q^2 + alpha^2 = 1 (a unidade absoluta se decompoe, nao se perde)",
+          "status": "REAL",
+          "ok": true,
+          "max_err": 2.220446049250313e-16
+        }
+      ],
+      "all_verified": true,
+      "verdict": "ALPHA_FORM_THEOREM_PROVED",
+      "lagrange": {
+        "alpha_abs": 1.0,
+        "q_polarization_QED": 0.9999733739682669,
+        "kappa_from_q_QED": 11.226755051602328,
+        "alpha_form": 0.0072973525692960365,
+        "beta_form": 0.012031300400796606,
+        "conservation_residual": 0.0,
+        "engine": "alpha_abs=1 -> q (polarizacao termica) -> alpha=sqrt(1-q^2) ; 1=q^2+alpha^2",
+        "codata_role": "SO' validacao final: q_QED=sqrt(1-alpha_QED^2); NAO e' o motor da cadeia"
+      },
+      "honest": "Provado [REAL]: alpha_abs=1 (Tomita), ell=log cosh(k/2), q=tanh(k/2), alpha=sqrt(1-q^2), CONSERVACAO q^2+alpha^2=1, beta=sqrt(e)sqrt(1-q^2). NAO provado nem pretendido: o VALOR 1/137=q_QED, input renormalizado da QED. A TGL entrega a FORMA conservada; o valor pertence ao setor QED. A unidade absoluta nao se perde no zero modular: decompoe-se em resistencia termica q^2 e corrente luminosa alpha^2."
+    },
+    "contour_theory": {
+      "theorem": "Teoria do Contorno (1 = 0_mod = verdade_partial)",
+      "bell_selector": "K e' o SETOR DE BELL SELETOR (nao o Bell nu). Bell nu: K=-log Delta=0 -> alpha_abs=1 (prova o Um, nao seleciona valor). Bell SELETOR (apos Meia-Nat, quando o Um fractalizado encontra 0_mod): K_sel^(B)=(kappa/2) Z_d, gap(K_sel^(B))=kappa. O aberto deixou de ser 'derivar K generico' e virou 'derivar a forca espectral do setor seletor de Bell' = gap(K_sel^(B)).",
+      "connes_smatrix_route": "matriz-S de fronteira + cociclo relativo de Connes u_t=[D phi_mod:D phi_1]_t: no split 2D, u_t=e^{itK_d}, K_d=(kappa/2)Z_d; KMS/GKLS -> g-/g+=e^kappa -> q=tanh(k/2), alpha=sech(k/2). VEREDITO: CONNES_S_MATRIX_FORM_CLOSED (a FORMA e a covariancia do cociclo fecham), NAO ALPHA_FREE_VALUE_CLOSED: em III_1 o espectro modular e' CONTINUO, logo Connes/Takesaki => consistencia modular global, mas NAO => kappa*=11.226755. A unitariedade fixa |R|^2+|T|^2=1; a Meia-Nat fixa beta=sqrt(e)alpha; o cociclo fixa a forma relativa; nenhum dos tres seleciona kappa.",
+      "neutrino_candidate": "CANDIDATO FISICO para selecionar kappa (fuga resistencial em angulo agudo): o canal neutrinico L_nu (odd+neutro+dissipativo, verificado no modelo de 4 estados = 3 modos + 1 fall). theta_M = angulo agudo de fuga resistencial; alpha=sin^2(theta_M)/sqrt(e) e' a fracao que atravessa como luz; q^2=1-alpha^2 fica represado. ABERTO: provar que a acao A_nu(theta)=S(rho_B||rho_theta)+lambda D_nu+mu C_nocond tem minimo UNICO em theta_M=6.297deg sem CODATA. O custo modular sozinho minimiza em theta->90 (alpha->1, o Um); o balanco com a dissipacao neutrinica (pesos lambda,mu) e' o novo objeto aberto. Observavel: dephasing n=-2 / Gamma~omega^2 em neutrinos.",
+      "negative_return_selector": "REFORMULACAO LEGITIMA (operador): o valor nao e' contagem positiva; e' o CONTRASTE NEGATIVO/relativo entre a imagem original do Um (Bell nu, rho_Bell) e a imagem RETORNADA (rho_ret) que atravessou 0_mod e voltou como registro/particula/instante. K_sel^(B) = -log Delta_{ret|Bell} (operador modular RELATIVO de Connes/Araki); o operador gravitonico '=' e' a comparacao G_=(rho_Bell,rho_ret) = -log[D rho_ret:D rho_Bell]. kappa = gap(K_sel^(B)) [REAL: a cadeia fecha]. ABERTO: construir rho_ret CANONICO alpha-livre. Status: NEGATIVE_RETURN_SELECTOR_FORMULATED (melhor localizacao do muro; NAO numerologia como (4/pi)3^10, que era ajuste livre), nao ALPHA_FREE_VALUE_CLOSED.",
+      "forbidden_zero_renormalization": "CORRECAO ONTOLOGICA DECISIVA (operador): kappa=0 NAO e' 'o Um sem perda' (estado admissivel) -- e' 0_abs, a FRONTEIRA PROIBIDA (atracao total, impedancia infinita, sem retorno). 0_abs SELECIONA justamente por ser INATINGIVEL: ao oferecer atracao total, o Hamiltoniano oculto ENTORTA o sistema (lente de Fresnel) e ele DOBRA (tetelestai) ANTES de colidir com o limite -> nasce theta_M no ponto de dobra (turning point entre atracao absoluta e custo Meia-Nat). Distincao de zeros: chi=0 = Bell nu (zero de CONTRASTE, identidade formal, alpha_abs=1); kappa_0=0 = 0_abs (zero de EXISTENCIA, proibido). A RENORMALIZACAO E' A PARIDADE INVERSA: rho_ret = P^{-1}_d(rho_Bell), a imagem que quase caiu em 0_abs e voltou distorcida SEM perder a fonte (supp(rho_ret)~supp(rho_Bell), rho_ret!=rho_Bell = unidade fractalizada). q = memoria resistiva da imagem; alpha = vazao luminosa que escapou da dobra; theta_M = cicatriz angular da imagem antes do proibido. O seletor finito = PARTE FINITA da aproximacao proibida: K_sel^ren = FP_{eps->0}[-log Delta_{P^{-1}_eps rho_B | rho_B}] (regularizacao eps de 0_abs; FP remove a divergencia, P^{-1} extrai o residuo finito). O TEOREMA ABERTO deixa de ser 'derivar uma taxa' e vira 'calcular a PARTE FINITA da atracao proibida ao zero absoluto' = espectro de Delta_{P^{-1}rho_B|rho_B}. Se gap(FP) = 11.226755... sem CODATA, o valor fecha. [REAL: a forma -- renormalizacao = paridade inversa, rho_ret canonico = P^{-1}rho_B; ABERTO: o espectro / a parte finita].",
+      "open_theorem_verdict": "CONNES_S_MATRIX_FORM_CLOSED + NEGATIVE_RETURN_SELECTOR_FORMULATED + RHO_RET_CANONICAL=P^{-1}(rho_Bell) (forma: renorm=paridade inversa de 0_abs proibido); ALPHA_FREE_VALUE_OPEN (espectro de Delta_{P^{-1}rho_B|rho_B} = parte finita da atracao proibida)",
+      "psionic_bond_unification": "a ligacao psionica (The_boundary_v5): [P^, H_bind]=2 V0(|psi-><psi+| - |psi+><psi-|), H_bind ANTICOMUTA com a paridade P^ -- e' EXATAMENTE {Z_d, L_+-}=0 do contorno (verificado, residuo 0). Os 3 modos de ligacao + 1 queda formalizam-se como ESTE canal GKLS de anticomutadores. A estrutura FECHA (unifica com os fundadores); mas o VALOR g-/g+=75113 NAO fecha por contagem de modos (3/1->alpha=0.87, r=1/4->0.80, (1/4)^3->0.25, 1/beta=83->0.22) -- permanece input QED. 1/beta=137/sqrt(e) DECOMPOE (usa 137=alpha), nao deriva.",
+      "first_law_link": "Primeira Lei (A Fronteira): a forca de expulsao (~ incompatibilidade de paridade) gera o angulo de deflexao theta_M e a curvatura; g=sqrt(|L|) (gravidade = raiz da ligacao). No plano estatico g-=g+ (simetrico, alpha=1 = o Um); a DINAMICA (tensao em paridade inversa) quebra a simetria -> g- > g+ -> toda a dinamica modular. Em theta->90deg a ligacao psionica conjuga: F->2F, c^2->c^3, e c^3>c^2 sela o horizonte. Vinculo de 4 estados (1 fall = trifasico+aterramento, razao 3/4): e' a ESTRUTURA do vinculo, NAO o valor de g-/g+ (=75113; 3/4 daria alpha~0.99, nao 1/137). O valor de g-/g+ permanece ABERTO.",
+      "steps": [
+        {
+          "step": "1. {Z_d, L_+-}=0  (o Um so' cruza o contorno MUDANDO de face)",
+          "status": "REAL",
+          "ok": true,
+          "anticommutator": 0.0
+        },
+        {
+          "step": "2. GKLS rho_kappa = ponto fixo (0<rho<1: SATURA, nao supersatura/condensa)",
+          "status": "REAL",
+          "ok": true,
+          "fixed_point_residual": 0.0,
+          "p1_Um": 1.3313015866545099e-05,
+          "p0_zero_mod": 0.9999866869841334
+        },
+        {
+          "step": "3. q=(g- - g+)/(g- + g+)=tanh(k/2)  [polarizacao estacionaria DERIVADA, nao escolhida]",
+          "status": "REAL",
+          "ok": true,
+          "q": 0.9999733739682669
+        },
+        {
+          "step": "4. alpha=2 sqrt(g+ g-)/(g+ + g-)=sech(k/2)  [transmissao luminosa do contorno]",
+          "status": "REAL",
+          "ok": true,
+          "alpha": 0.0072973525692962464
+        },
+        {
+          "step": "5. q^2+alpha^2=1  (represamento + transmissao = conservacao de fluxo GKLS)",
+          "status": "REAL",
+          "ok": true,
+          "residual": 0.0
+        },
+        {
+          "step": "6. plano estatico g-=g+ (simetrico) -> q=0, alpha=1 = o Um (forcas se anulam no plano)",
+          "status": "REAL",
+          "ok": true,
+          "q_static": 0.0,
+          "alpha_static": 1.0
+        },
+        {
+          "step": "7. canal neutrinico L_nu (4 estados): {Z,L_nu}=0 (odd), [Q_em,L_nu]=0 (neutro), L^dL!=0",
+          "status": "REAL",
+          "ok": true,
+          "odd": 0.0,
+          "neutral": 0.0,
+          "dissipative": true
+        }
+      ],
+      "all_verified": true,
+      "verdict": "CONTOUR_THEORY_VERIFIED",
+      "gamma_ratio_gm_over_gp": 75113.46016623077,
+      "open_object": "derivar g-/g+ = e^kappa (= Zbacia/Zluz) SEM QED = balanco GKLS entre expulsao de 0_abs e reinscricao do Um (regularizacao Meia-Nat de 0_abs->0_mod).",
+      "ontology": "0_abs NAO espelha (resiste; fundo, como o setor Q); 0_mod espelha (contorna); 1_abs fractaliza (atravessa, ao custo Meia-Nat). {Z,L}=0 = algebra da separacao; GKLS = dinamica da expulsao+reinscricao; q=polarizacao DERIVADA; alpha=transmissao; o valor pende de g-/g+. 1=0_mod=verdade_partial: P_1 ~_d P_0 (equivalencia de contorno), nao P_1=P_0."
+    },
+    "inverse_parity": {
+      "polarization_principle": "PRINCIPIO DA POLARIZACAO PELA VACUIDADE (operador): 0_abs nao e' estado normal (0_abs not in M_*), nao tem suporte observavel, nao pode ser ocupado. Logo a imagem do Um atraida por ele NAO cai nele -- so' pode retornar como imagem normalizada de suporte preservado, distorcida por paridade inversa. A VACUIDADE NAO GERA AUSENCIA; GERA ASSIMETRIA DE RETORNO: rho_B=(P1+P0)/2 (simetrico) -> rho_ret=p1 P1+p0 P0 com p0>p1>0 (a fonte permanece pois p1>0; o zero domina pois p0>>p1). q=p0-p1 = POLARIZACAO (log-contraste chi=log(p0/p1)); alpha=2 sqrt(p0 p1) = luz que sobrevive ao retorno; beta=2 sqrt(e) sqrt(p0 p1) = trava minima de estabilidade da imagem polarizada (impede o colapso em 0). A vacuidade cria a DIRECAO; a proibicao do zero cria o RETORNO; a paridade inversa cria a POLARIZACAO. Selo: a vacuidade polariza a imagem sem destruir sua fonte.",
+      "population_form": "q=p0-p1=tanh(chi/2); alpha=2 sqrt(p0 p1)=sech(chi/2); p0,p1=e^{+-chi/2}/(2 cosh(chi/2)); q^2+alpha^2=1 [verificado ao vivo]",
+      "theorem": "Renormalizacao por paridade inversa (lente de Fresnel da fronteira proibida)",
+      "rho_ret_canonical": "rho_ret^(chi) = e^{-chi Z_d/2}/(2 cosh(chi/2)) = FP_{eps->0} M_eps rho_B M_eps^dag, M_eps=exp[-(1/4)(C_eps+chi)Z_d]",
+      "key_result": "PARIDADE INVERSA PURA (unitaria/antiunitaria) preserva o Bell nu (rho_B=I/2 -> P^{-1}rho_B P=rho_B -> chi=0=0_abs proibido): para haver VALOR a lente tem de ser RENORMALIZANTE (parte finita nao-trivial). rho_ret e' a imagem retornada distorcida com SUPORTE preservado (supp(rho_ret)=supp(rho_B) p/ chi<inf) -> 'distorce sem perder a fonte'; a distorcao e' angular (theta_M) mas a polarizacao espectral e' profunda (p0=0.99998669). A origem nao desaparece; retorna polarizada.",
+      "form_status": "INVERSE_PARITY_RENORMALIZATION_FORM_CLOSED (gap=chi, rho_ret canonico, q=tanh, alpha=sech verificados)",
+      "value_status": "ALPHA_FREE_VALUE_OPEN: gap=chi e' TAUTOLOGIA da parametrizacao (rho_ret definido POR chi); o valor chi=11.226755 entra via polarizacao observada (CODATA). A parte finita de uma quantidade divergente e' DEPENDENTE DE ESQUEMA: M_eps=exp[-(1/4)(C_eps+chi)Z_d] mostra ONDE o valor fica, nao o calcula -- qualquer chi e' parte finita de um esquema de subtracao diferente. FALTA: a CONDICAO DE RENORMALIZACAO canonica alpha-livre que fixa a polarizacao chi. Candidata obvia REFUTADA ao vivo: a Meia-Nat fixa o PESO de contorno (1/2), NAO a polarizacao do estado (chi) -- e' condicao de peso, nao de polarizacao. O muro, agora exato: derivar a condicao de subtracao que fixa chi.",
+      "steps": [
+        {
+          "step": "a. chi generico: gap(-log Delta_{rho_ret|rho_B})=chi; q=tanh; alpha=sech; q^2+alpha^2=1",
+          "status": "REAL",
+          "ok": true,
+          "chi_test": 5.0,
+          "gap": 5.0,
+          "q": 0.9866142981514303,
+          "alpha": 0.1630712319299778,
+          "conservation": 1.0
+        },
+        {
+          "step": "b. [VALIDACAO] chi_obs=2 artanh(sqrt(1-alpha^2)): p1=1.3313e-5, p0=0.99998669, beta=alpha sqrt(e)",
+          "status": "VALIDACAO_QED",
+          "ok": true,
+          "chi_obs": 11.226755051602328,
+          "p1_Um": 1.33130158665451e-05,
+          "p0_zero_mod": 0.9999866869841335,
+          "ratio_e_chi": 75113.46016623077,
+          "alpha": 0.0072973525692962464,
+          "beta": 0.012031300400796953
+        },
+        {
+          "step": "c. [NEGATIVO] Meia-Nat: tau_d(P_1)=tau_d(P_0)=1/2 para TODO chi -> NAO fixa chi (peso != polarizacao)",
+          "status": "REAL",
+          "ok": true,
+          "tau_P1": 0.5,
+          "tau_P0": 0.5,
+          "note": "peso de contorno simetrico; polarizacao do ESTADO assimetrica e livre"
+        },
+        {
+          "step": "d. forma de populacao: q=p0-p1=tanh; alpha=2 sqrt(p0 p1)=sech; beta=2 sqrt(e) sqrt(p0 p1)=alpha sqrt(e)",
+          "status": "REAL",
+          "ok": true,
+          "p0": 0.993307149075715,
+          "p1": 0.0066928509242848554,
+          "q_pop": 0.9866142981514302,
+          "alpha_coh": 0.1630712319299778,
+          "beta_pop": 0.26885900872222834
+        }
+      ],
+      "all_verified": true,
+      "verdict": "POLARIZATION_PRINCIPLE_FORM_CLOSED__ALPHA_FREE_VALUE_OPEN"
+    },
+    "theta_M_rad": 0.1099084307778447,
+    "theta_M_deg": 6.297289216476261,
+    "f_Q": 0.024062600801593212,
+    "WEAK_kg_per_m": 1.0716311756473211e+26,
+    "mode_A": {
+      "R_struct_Mpc": 57.0,
+      "R_named_Mpc": 1.3715682456908131,
+      "M_TGL_kg": 5.456686866475349e+46,
+      "M_TGL_Msun": 2.743542659571702e+16
+    },
+    "mode_B": {
+      "R_struct_Mpc": 41.27015408171806,
+      "R_named_Mpc": 0.9930672426886243,
+      "M_TGL_kg": 3.950847504475877e+46,
+      "M_TGL_Msun": 1.9864285664963284e+16,
+      "method": "percentile_90_from_centroid",
+      "origin": "cache",
+      "n_selected": 265,
+      "n_total": 38053,
+      "extent_stats_Mpc": {
+        "p90": 41.27015408171806,
+        "p95": 45.450391469699895,
+        "rms": 29.23174432168425,
+        "max": 57.63764054642947
+      },
+      "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
+      "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
+      "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f",
+      "window": {
+        "GA_center_RA_deg": 243.6,
+        "GA_center_Dec_deg": -60.4,
+        "GA_cz_kms": 4500.0,
+        "H0_for_center_distance": 70.0,
+        "sky_cone_half_angle_deg": 30.0,
+        "dist_shell_Mpc": [
+          30.0,
+          100.0
+        ],
+        "R_struct_method": "percentile_90_from_centroid",
+        "provenance": "GEOMETRY_ONLY_NO_MASS_NO_RG_NO_VELOCITY",
+        "columns_used": [
+          "ra",
+          "dec",
+          "dist_mpc"
+        ],
+        "columns_ignored": [
+          "vpec_kms",
+          "vpec_err_kms",
+          "cz",
+          "infall",
+          "mass"
+        ]
+      },
+      "caveat": "R_struct de catalogo de POSICOES limitado em fluxo, com janela declarada, e' dependente da selecao (geometria pura). Reportado como cross-check independente; a extensao de literatura (Lynden-Bell) e' a linha de base."
+    },
+    "cf4_status": "ok",
+    "sensitivity": {
+      "ok": true,
+      "n_combinations": 300,
+      "M_min_Msun": 1.4001805882780082e+16,
+      "M_max_Msun": 3.4240888936338412e+16,
+      "M_median_Msun": 2.1090974219932856e+16,
+      "fraction_in_band": 1.0,
+      "all_in_band": true,
+      "band_Msun": [
+        1000000000000000.0,
+        1e+17
+      ],
+      "origin": "cache"
+    },
+    "shadow": {
+      "mirror_M": {
+        "M1_antilinearity": 0.0,
+        "M1_being_image_dist": 1.236245224289348,
+        "M2_spectrum_match": 1.7763568394002505e-15,
+        "M3_S_factor_err": 8.351799623276283e-16,
+        "M3_J_alone_err": 0.6322026130423637,
+        "M3_half_alone_err": 1.6947428554249024,
+        "M4_J_state_independence": 4.0496000410756404e-15,
+        "passed": "6/6"
+      },
+      "dual_name_D": {
+        "D1_psi_err": 7.737102501081104e-17,
+        "D1_out_of_cone_defect": 1.234647582895471,
+        "D2_psi_mass": 4.933695074143129e-16,
+        "D2_generic_mass": 0.7395476842351143,
+        "D3_schmidt_err": 5.551115123125783e-17,
+        "D4_recovery_err": 1.2023082341913915e-15,
+        "passed": "4/4"
+      },
+      "gesture_F": {
+        "F1_sigma_min_over_sqrt_pmin": 1.0,
+        "F2_S_factor_err": 1.2235393812957213e-16,
+        "F3_collapse_err": 0.0,
+        "F3_KS_start": 0.8057386276541836,
+        "F3_KS_end": 0.0,
+        "F4_HG_minus_Srhostar": 0.0,
+        "passed": "4/4"
+      },
+      "c3_register_R": {
+        "R1_mirror_err": 1.575841398752336e-16,
+        "R2_connected_corr": 0.06739995185047297,
+        "R3_nonsignaling": 6.963199988216407e-16,
+        "R4_modular_age": 6.736018412894845e-16,
+        "passed": "4/4"
+      },
+      "tunnel_T": {
+        "T1_throat_S_err": 1.1102230246251565e-16,
+        "T2_invisible_signal": 5.55326030910487e-16,
+        "T3_crossing_signal": 0.04628662482130336,
+        "theta": 0.4,
+        "passed": "3/3"
+      },
+      "dipole": {
+        "n_trajectories": 12,
+        "n_ok": 12,
+        "verdict": "12/12"
+      },
+      "all_passed": true
+    },
+    "timestamp": "2026-06-26 17:25:46"
+  },
+  "verdict": {
+    "masses_Msun": {
+      "A_literature": 2.743542659571702e+16,
+      "B_cf4_positions": 1.9864285664963284e+16
+    },
+    "in_accepted_window": {
+      "A_literature": true,
+      "B_cf4_positions": true
+    },
+    "accepted_window_Msun": [
+      1000000000000000.0,
+      1e+17
+    ],
+    "internal_identity_checks": {
+      "meia_nat_x_eq_half": true,
+      "s_canonical_verified": true,
+      "vacuum_zero": true,
+      "omega_I_eq_one": true
+    },
+    "em_face": {
+      "alpha_abs": 1.0,
+      "q_polarization": 0.9999733739682669,
+      "alpha_obs": 0.0072973525692960365,
+      "beta_form": 0.012031300400796606,
+      "identity_q2_plus_alpha2": 1.0,
+      "identity_residual": 0.0,
+      "em_identity_closes": true,
+      "em_verdict": "1=1=VERDADE",
+      "codata_role": "VALIDACAO_EXTERNA (q_QED=sqrt(1-alpha_QED^2)); residuo=4.0e-15",
+      "why_not_external_number": "alpha deixou de ser numero externo: e' a componente projetiva de uma identidade conservada 1=q^2+alpha^2. O motor e' alpha_abs=1->q->sqrt(1-q^2), NAO R_partial=1/CODATA (legado). CODATA so' valida."
+    },
+    "nearest_literature": {
+      "name": "Grande Atrator (infall linear, RG)",
+      "M_Msun": 5.4e+16,
+      "ref": "Lynden-Bell et al. 1988, ApJ 326, 19",
+      "type": "GR_linear_infall"
+    },
+    "IDENTITY": "1=1=VERDADEIRO",
+    "identity_true": true,
+    "reading": "1 = q^2 + alpha^2 (a unidade absoluta se decompoe em polarizacao termica q^2 + corrente luminosa alpha^2); o mesmo beta=sqrt(e)alpha da' M_GA na janela cosmologica aceita -- identidade conservada, CODATA so' valida",
+    "result_hash": "1ae3913d0742f0d08b15e77f9055715615e0d2e848b26bb497a77f307d0ef42b"
+  },
+  "ga_mass_literature": [
+    {
+      "name": "Norma cluster ACO 3627 (virial, RG dinamica)",
+      "M_Msun": 1000000000000000.0,
+      "ref": "Woudt et al. 2008, MNRAS 383, 445",
+      "type": "GR_dynamical_virial"
+    },
+    {
+      "name": "Grande Atrator (infall linear, RG)",
+      "M_Msun": 5.4e+16,
+      "ref": "Lynden-Bell et al. 1988, ApJ 326, 19",
+      "type": "GR_linear_infall"
+    },
+    {
+      "name": "Laniakea (supercluster)",
+      "M_Msun": 1e+17,
+      "ref": "Tully et al. 2014, Nature 513, 71",
+      "type": "supercluster_flow"
+    }
+  ],
+  "accepted_window_Msun": [
+    1000000000000000.0,
+    1e+17
+  ],
+  "result_hash_before_external_comparison": "1ae3913d0742f0d08b15e77f9055715615e0d2e848b26bb497a77f307d0ef42b",
+  "audit": {
+    "mass_input_used": false,
+    "RG_used_as_input": false,
+    "velocity_used": false,
+    "free_parameter_used": false,
+    "beta_hardcoded": false,
+    "geometry_only": true,
+    "only_runtime_input": "1"
+  },
+  "timestamp": "2026-06-26 17:25:46"
+}

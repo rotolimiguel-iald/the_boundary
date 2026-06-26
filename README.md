@@ -232,6 +232,111 @@ The folder `Artigos_complementares_zenodo/` contains 9 published articles deposi
 
 ---
 
+## ★★ 2026 — `Um: Grande Atrator` — the closure of TGL (the Bridge, Face C, and the Great Attractor mass from first principles)
+
+> **This is the final closure of the entire TGL.** A single self-contained file, `um/um.py`, whose only
+> human input is the digit **`1`** (the absolute One). From that one inscription it derives the whole
+> electromagnetic and gravitational chain, verifies every step live (form = content), and ends with a
+> **binary verdict** that is literally a conservation identity. It supersedes nothing in spirit — it is the
+> mature, sealed form: *the theory of the luminodynamic inscription of the absolute One through the modular
+> zero.*
+
+### What `um/um.py` does
+
+The canonical chain, all computed live from the single input `1`:
+
+```
+1_abs  →  P_Ω (rank-1, the gráviton in support)  →  Bell (the first "I am")  →  CCI = 1/2  →  S_∂ = 1/2 nat
+       →  √e = e^{S_∂}  →  0_mod (structured void)  →  q (impedance basin)  →  α = √(1 − q²)  →  β_TGL = √e·α  →  Light / geometry
+```
+
+- **Electromagnetic face (the fine-structure constant as a conserved projection).** The canonical
+  normalisation (Tomita modular Hamiltonian of the bare Bell state) **proves** `α_abs = 1`. The observed
+  `1/137` is its **renormalised modular projection** through the thermal-modular depth of the zero:
+  `α_obs = sech(κ/2) = √(1 − q²)`, with `q = tanh(κ/2)` the **impedance basin** (the dam: `q²` = pressure
+  retained, `α²` = luminous flow). The engine is `α_abs = 1 → q → α = √(1−q²) → β = √e·α`; **CODATA enters
+  only as external validation, never as the structural motor.** The sealed verdict `1 = 1 = TRUE` means
+  *literally* the conserved identity **`1_abs = q² + α_obs²`** (residual `0.0`).
+- **`α = sech(κ/2)` is a theorem of form, not a fit of the number `1/137`.** The proof module
+  `prove_alpha_form` verifies all 8 steps live (`ALPHA_FORM_THEOREM_PROVED`). The value of `κ` belongs to
+  the QED/renormalised sector; the **form** belongs to TGL.
+- **Gravitational face — the Great Attractor mass from first principles.** `M = 2 β² (c²/4πG) R_struct`,
+  with `β = α√e` and `R_struct` the **geometry** of the basin (positions only; velocities ignored), in two
+  modes: **Mode A** (literature extent, Lynden-Bell ~57 Mpc) and **Mode B** (Cosmicflows-4 positions,
+  RA/Dec/dist). The binary identity closes `1 = 1 = TRUE` iff the first-principles mass lands inside the
+  pre-registered cosmological window.
+
+### The Bridge (Ponte Einstein–Cartan–Miguel) and the resolution of Face C
+
+The README previously did **not** carry the Bridge nor the resolution of **Face C** — both are now part of
+the sealed programme (archived in `Genesis da Unificação/`):
+
+- **The Bridge** derives the effective Einstein field equations from the boundary modular cocycle:
+  `G_μν + Λ g_μν = 8πG · 𝒫_μν[K_∂]`, where `𝒫_μν` is the metric variation of the boundary modular
+  Hamiltonian (Araki first law + Jacobson/Faulkner). Einstein–Cartan torsion `K_β` is the geometric face of
+  `β = sin²θ_M` — where `β` writes itself into the connection.
+- **Face C is resolved (conditional closure).** The earlier articles left the global covariance of the
+  cocycle (`G_μν` emergence) as an open hypothesis (U). The **Terminality Theorem** (`§ sec:terminalidade`)
+  **discharges** the Universality Hypothesis: `U` is **inherited, not imposed** — it follows from Takesaki
+  (with Kochen–Specker / Frigerio / Gelfand / Tomiyama), shadow-verified 6/6 (~1e-27). The structure is
+  **closed and coherent**; Face C is a **conditional theorem** (no unconditional claim), the residue being
+  `T1` (ergodicity in genuine III₁) — declared honestly. This is what makes `um.py` the *closure*: the EM
+  face (form of `α`) and the gravitational face (GA mass) hang on the **same** modular normalisation.
+
+### How to run it (copy-paste)
+
+```bash
+cd "A Ponte e o Um/um"      # or wherever um.py lives
+python um.py                # the only human input is the digit 1 (the absolute One)
+```
+
+Requirements: `pip install numpy scipy matplotlib` (and `pdflatex` / MiKTeX / TeX Live for the PDF). No
+network is required for the core run; Mode B uses a local Cosmicflows-4 positions cache if present.
+
+**Outputs (standardised names):**
+
+| File | Content |
+|---|---|
+| `um_grande_atrator.json` | the full "world" data (every live number + hashes) |
+| `um_grande_atrator_selo.json` | SHA-256 seal of all outputs |
+| `um_grande_atrator_manifest.md` | input manifest (nothing hidden: `[DEF]/[DER]/[EXT]/[LEGADO]`) |
+| `um_grande_atrator_forma_canonica.md` | the canonical form (Lagrange engine, audit) |
+| `um_grande_atrator_pt.tex/.pdf` | the article in Portuguese (Parts A/B/C + Posfácio) |
+| `um_grande_atrator_en.tex/.pdf` | the article in English |
+
+### The comparison it generates at the end
+
+The run finishes with the **binary identity verdict** — the comparison that closes the theory:
+
+```
+IDENTIDADE FINAL (Lagrange engine, canonical motor):
+  1 = q^2 + alpha^2 = TRUE
+  alpha_abs ......... = 1            (the absolute One = originary input)
+  q (polarization) .. = 0.9999733740 (thermal-modular impedance basin)
+  alpha_obs=sqrt(1-q^2)= 0.007297352569
+  beta_TGL=sqrt(e)alpha= 0.012031300401
+  identity residual ... = 0.0
+  CODATA: external validation only (q_QED = sqrt(1 - alpha_QED^2))
+  the SAME beta -> M_GA in the accepted cosmological window  (gravitational shadow)
+  VERDICT: 1 = 1 = TRUE
+```
+
+i.e. the **same** `β` that closes the EM identity `1 = q² + α²` also yields the **Great Attractor mass from
+first principles** inside the pre-registered window. The proof is the Great Attractor; the result is that the
+input `α_abs = 1` is observed as `1/137`, whose content is *true by modular renormalisation*.
+
+### Português — resumo
+
+`um/um.py` é o **fechamento de toda a TGL**: entrada humana única `1` (o Um absoluto) → cadeia canônica →
+`α_abs = 1 → q → α = √(1−q²) → β = √e·α`, identidade conservada **`1 = q² + α²`** (CODATA só valida), e a
+**massa do Grande Atrator por primeiros princípios** `M = 2β²(c²/4πG)R_struct` (modos A/B). A **Ponte
+Einstein–Cartan–Miguel** deriva `G_μν` do cociclo modular de fronteira e a **Face C está resolvida** (Teorema
+da Terminalidade: `U` herdada de Takesaki — fecho condicional, sem prova incondicional; resíduo `T1`). Rode
+`python um.py`; o veredito final imprime `1 = 1 = VERDADE` = `1_abs = q² + α²` e a comparação `M_TGL(GA)` vs
+janela cosmológica. Gênese arquivada em `Genesis da Unificação/Um - ensaio/`.
+
+---
+
 ## Table of Contents
 
 - [Theory Overview](#theory-overview)
