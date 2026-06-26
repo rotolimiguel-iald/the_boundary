@@ -1425,52 +1425,52 @@ def build_pt(core, verdict, data_path):
              r"$\hat Q=\mathbf 1-\hat P_{2D}$ \textsf{[REAL]}, cuja anticomutação $\{\hat Q,\rho^\star\}=0$ "
              r"vaza exatamente $\sin^2\theta_M=\bTGL$ --- a fronteira é \emph{auto-conjugada de dois "
              r"níveis} (Bell). Logo $\rho_\beta$ não exige um $K$ genérico: colapsa num Gibbs de dois "
-             r"níveis com \emph{um único} gap modular $\kappa$, e")
-    s.append(r"\begin{equation}\boxed{\;\ell_\beta(\kappa)=\log\cosh\frac{\kappa}{2}\;}\qquad\Longrightarrow"
-             r"\qquad\boxed{\;\alpha_{\mathrm{obs}}=\operatorname{sech}\frac{\kappa}{2}\;},\qquad "
-             r"\bTGL=\sqrt e\,\operatorname{sech}\frac{\kappa}{2}.\end{equation}")
+             r"níveis com \emph{um único} gap modular $\chi$, e")
+    s.append(r"\begin{equation}\boxed{\;\ell_\beta(\chi)=\log\cosh\frac{\chi}{2}\;}\qquad\Longrightarrow"
+             r"\qquad\boxed{\;\alpha_{\mathrm{obs}}=\operatorname{sech}\frac{\chi}{2}\;},\qquad "
+             r"\bTGL=\sqrt e\,\operatorname{sech}\frac{\chi}{2}.\end{equation}")
     s.append((r"\textbf{O núcleo derivativo de $\alpha$ colapsa de um Hamiltoniano modular ($d-1$ níveis) "
-              r"para UM número $\kappa$} --- toda a face eletromagnética em uma linha. Um gap "
-              r"$\kappa^\star=%.4f$ dá $N_\beta=137{,}036=1/\alpha$, mas $\kappa^\star$ \emph{não} é "
-              r"canônico ($\kappa^\star/\ell_\beta=%.3f$; $\alpha$ entra \emph{só} aqui, na validação). "
-              r"$\alpha$ é a corrente residual que atravessa a resistência térmica $\kappa$ do zero "
-              r"modular: $\kappa\to\infty$ ($0_{\mathrm{abs}}$, $T\to0$) $\Rightarrow\alpha\to0$; $\kappa=0$ "
+              r"para UM número $\chi$} --- toda a face eletromagnética em uma linha. Um gap "
+              r"$\chi_\star=%.4f$ dá $N_\beta=137{,}036=1/\alpha$, mas $\chi_\star$ \emph{não} é "
+              r"canônico ($\chi_\star/\ell_\beta=%.3f$; $\alpha$ entra \emph{só} aqui, na validação). "
+              r"$\alpha$ é a corrente residual que atravessa a resistência térmica $\chi$ do zero "
+              r"modular: $\chi\to\infty$ ($0_{\mathrm{abs}}$, $T\to0$) $\Rightarrow\alpha\to0$; $\chi=0$ "
               r"($T\to\infty$) $\Rightarrow\alpha=1$.") %
              (rc["kappa_star_for_137"], rc["kappa_star_for_137"] / ct["ell_beta_target_for_alpha_log_inv_alpha"]))
     tl = rc["third_law"]
     s.append((r"\textbf{A lei térmico-modular (terceira lei no sistema modular aberto) \textsf{[REAL/EXT]}.} "
-              r"Que $\kappa<\infty$ é a \emph{terceira lei realizada algebricamente}: $0_{\mathrm{abs}}$ "
-              r"($\kappa=\infty$, estado puro $P_\Omega$, $T=0$) é \textbf{inatingível} --- a álgebra do Um "
+              r"Que $\chi<\infty$ é a \emph{terceira lei realizada algebricamente}: $0_{\mathrm{abs}}$ "
+              r"($\chi=\infty$, estado puro $P_\Omega$, $T=0$) é \textbf{inatingível} --- a álgebra do Um "
               r"absoluto é \textbf{tipo III$_1$}, que \emph{não tem estados normais puros}, logo o zero "
-              r"térmico não é estado normal e o sistema vive em $\kappa<\infty$ ($0_{\mathrm{mod}}$). Isso "
+              r"térmico não é estado normal e o sistema vive em $\chi<\infty$ ($0_{\mathrm{mod}}$). Isso "
               r"dá o \emph{limite} e a \emph{forma}, não o valor. A forma de Nernst (entropia residual "
-              r"$S(\rho_\kappa)=\tfrac12$ nat $=$ Meia-Nat) foi \textbf{testada e refutada} ($\kappa=%.2f$, "
+              r"$S(\rho_\chi)=\tfrac12$ nat $=$ Meia-Nat) foi \textbf{testada e refutada} ($\chi=%.2f$, "
               r"$\alpha=%.2f\neq1/137$).") %
              (tl["nernst_test_refuted"]["kappa"], tl["nernst_test_refuted"]["alpha"]))
     s.append(r"\textbf{A unificação dos dois muros.} Em III$_1$ genuíno o espectro modular é \emph{contínuo} "
-             r"(sem gap): $\kappa$ é o gap da \emph{sombra finita} (aproximante tipo-I / split), "
+             r"(sem gap): $\chi$ é o gap da \emph{sombra finita} (aproximante tipo-I / split), "
              r"e seu valor é a \textbf{normalização modular canônica} --- a \emph{mesma} split canônica "
              r"(matriz-S modular) de que pende a massa do Grande Atrator. A liberdade de escala "
-             r"$K_\kappa\mapsto\lambda K_\kappa$ é quebrada por Tomita ($-\log\Delta$ tem escala canônica), "
+             r"$K_\chi\mapsto\lambda K_\chi$ é quebrada por Tomita ($-\log\Delta$ tem escala canônica), "
              r"mas o valor exige o $\Delta$ do mergulho de Bell em $\mathcal{M}_{\mathrm{abs}}$. "
-             r"\textbf{A face eletromagnética ($\kappa$) e a face gravitacional (split, massa) são o mesmo "
+             r"\textbf{A face eletromagnética ($\chi$) e a face gravitacional (split, massa) são o mesmo "
              r"teorema aberto: fixar a normalização modular canônica em III$_1$.} A terceira lei diz "
-             r"\emph{por que} $\kappa$ é finito; o \emph{valor} é a split canônica, ainda aberta.")
+             r"\emph{por que} $\chi$ é finito; o \emph{valor} é a split canônica, ainda aberta.")
     cn = rc["canonical_normalization"]
     s.append((r"\textbf{A normalização canônica prova $\alpha_{\mathrm{abs}}=1$ \textsf{[REAL]}.} Ataquei o "
               r"Hamiltoniano modular de Tomita do mergulho de Bell: o estado maximamente emaranhado tem "
               r"reduzido $\rho_B=\mathbf 1_d/d$, \emph{KMS à temperatura infinita}, logo $\Delta=\mathbf 1$ e "
-              r"$K=-\log\Delta=0$ \emph{exatamente} ($K_{\mathrm{bare}}=%.1e$). Portanto $\kappa_{\mathrm{Bell}}"
+              r"$K=-\log\Delta=0$ \emph{exatamente} ($K_{\mathrm{bare}}=%.1e$). Portanto $\chi_{\mathrm{Bell}}"
               r"=0$ e $\boxed{\alpha_{\mathrm{abs}}=\operatorname{sech}(0)=1}$: o acoplamento absoluto \emph{é} "
               r"a unidade --- não por postulado, por trivialidade modular do Um. O que se mede como "
               r"$1/137$ é a \textbf{projeção renormalizada}") % cn["K_modular_bare_Bell"])
-    s.append(r"\begin{equation}\boxed{\;1=\alpha_{\mathrm{abs}}\ \xrightarrow{\ \Pi_{\mathrm{bulk}}=\operatorname{sech}(\kappa/2)\ }\ \alpha_{\mathrm{obs}}=\frac{1}{137{,}036}\;}.\end{equation}")
-    s.append(r"O $\kappa>0$ (a profundidade do $1/137$) \emph{não} está na estrutura modular nua de Bell "
-             r"(que dá $\kappa=0$, $\alpha=1$): é a \textbf{profundidade da relaxação térmica} --- o "
+    s.append(r"\begin{equation}\boxed{\;1=\alpha_{\mathrm{abs}}\ \xrightarrow{\ \Pi_{\mathrm{bulk}}=\operatorname{sech}(\chi/2)\ }\ \alpha_{\mathrm{obs}}=\frac{1}{137{,}036}\;}.\end{equation}")
+    s.append(r"O $\chi>0$ (a profundidade do $1/137$) \emph{não} está na estrutura modular nua de Bell "
+             r"(que dá $\chi=0$, $\alpha=1$): é a \textbf{profundidade da relaxação térmica} --- o "
              r"afastamento de $\mathbf 1/d$ rumo a $\rho_\beta$, quando o Um atravessa o vazio estruturado "
-             r"$0_{\mathrm{mod}}$ ($\neq 0_{\mathrm{abs}}$). Esse $\kappa$ é o acoplamento eletromagnético, o "
+             r"$0_{\mathrm{mod}}$ ($\neq 0_{\mathrm{abs}}$). Esse $\chi$ é o acoplamento eletromagnético, o "
              r"\textbf{input irredutível}. \emph{A estrutura modular deriva o valor absoluto "
-             r"($\alpha_{\mathrm{abs}}=1$, provado), a forma ($\alpha=\operatorname{sech}\tfrac\kappa2$) e as "
+             r"($\alpha_{\mathrm{abs}}=1$, provado), a forma ($\alpha=\operatorname{sech}\tfrac\chi2$) e as "
              r"relações ($\bTGL=\alpha\sqrt e$); o valor projetado $1/137$ é a profundidade do zero modular = "
              r"a entrada.} O Um alimenta $\alpha_{\mathrm{abs}}=1$; o $1/137$ é a sua sombra após a travessia.")
     s.append((r"\textbf{Valor aberto (o muro honesto) \textsf{[EXT]}.} O \emph{valor} de $\ell_\beta$ "
@@ -1489,7 +1489,7 @@ def build_pt(core, verdict, data_path):
 
     afp = core["alpha_form_proof"]
     s.append(r"\section{Teorema do Colapso da Forma de $\alpha$ (módulo de prova auto-verificável)}")
-    s.append(r"\begin{deriv}[$\alpha_{\mathrm{obs}}=\Pi_{\mathrm{bulk}}(1_{\mathrm{abs}})=\operatorname{sech}\tfrac\kappa2$]")
+    s.append(r"\begin{deriv}[$\alpha_{\mathrm{obs}}=\Pi_{\mathrm{bulk}}(1_{\mathrm{abs}})=\operatorname{sech}\tfrac\chi2$]")
     s.append(r"A TGL \textbf{não} deriva $1/137$ (valor renormalizado da QED); deriva a \textbf{forma} pela "
              r"qual o Um absoluto se projeta como acoplamento eletromagnético. Esta é a última derivação, e "
              r"ela é verificada passo a passo \emph{ao vivo} pelo módulo \texttt{prove\_alpha\_form} "
@@ -1498,12 +1498,12 @@ def build_pt(core, verdict, data_path):
     # tabela dos passos verificados (ao vivo): linhas LaTeX fixas, checks lidos do core
     _rows = [
         r"1. $\alpha_{\mathrm{abs}}=\operatorname{sech}(0)=1$ \ (Tomita do Bell nu: $\Delta=\mathbf 1$, $K=0$)",
-        r"2. $\ell(\kappa)=S(\mathbf 1/2\Vert\rho_\kappa)=\log\cosh\tfrac\kappa2$ \ $[\forall\kappa]$",
-        r"3. $\alpha_{\mathrm{obs}}=e^{-\ell}=\operatorname{sech}\tfrac\kappa2=\Pi_{\mathrm{bulk}}(1_{\mathrm{abs}})$",
-        r"4. forma $\operatorname{sech}$: $Z=e^{\kappa/2}+e^{-\kappa/2}=2\cosh\tfrac\kappa2$ \ (2 níveis auto-conj.\ $+$ Bell)",
-        r"5. \emph{valor}: $\kappa_{\mathrm{QED}}=2\operatorname{arcosh}(1/\alpha_{\mathrm{QED}})$ \ (QED fixa o valor)",
-        r"6. $\bTGL=\sqrt e\,\alpha_{\mathrm{obs}}=\sqrt e\,\operatorname{sech}\tfrac\kappa2$ \ (Meia-Nat marca a dimensão)",
-        r"7. $q:=\tanh\tfrac\kappa2$ (polarização); $\alpha=\sqrt{1-q^2}=\operatorname{sech}\tfrac\kappa2$ \ (transf.\ de Lagrange)",
+        r"2. $\ell(\chi)=S(\mathbf 1/2\Vert\rho_\chi)=\log\cosh\tfrac\chi2$ \ $[\forall\chi]$",
+        r"3. $\alpha_{\mathrm{obs}}=e^{-\ell}=\operatorname{sech}\tfrac\chi2=\Pi_{\mathrm{bulk}}(1_{\mathrm{abs}})$",
+        r"4. forma $\operatorname{sech}$: $Z=e^{\chi/2}+e^{-\chi/2}=2\cosh\tfrac\chi2$ \ (2 níveis auto-conj.\ $+$ Bell)",
+        r"5. \emph{valor}: $\chi_{\mathrm{QED}}=2\operatorname{arcosh}(1/\alpha_{\mathrm{QED}})$ \ (QED fixa o valor)",
+        r"6. $\bTGL=\sqrt e\,\alpha_{\mathrm{obs}}=\sqrt e\,\operatorname{sech}\tfrac\chi2$ \ (Meia-Nat marca a dimensão)",
+        r"7. $q:=\tanh\tfrac\chi2$ (polarização); $\alpha=\sqrt{1-q^2}=\operatorname{sech}\tfrac\chi2$ \ (transf.\ de Lagrange)",
         r"8. \textbf{conservação}: $q^2+\alpha^2=1$ \ (a unidade absoluta se decompõe, não se perde)",
     ]
     s.append(r"\begin{center}\small\begin{tabular}{p{0.78\textwidth} l}\hline")
@@ -1515,20 +1515,20 @@ def build_pt(core, verdict, data_path):
     s.append(r"\hline\end{tabular}\end{center}")
     s.append((r"\textbf{Veredito: \texttt{%s}} (%d/%d passos, resíduos $\sim10^{-16}$). A cadeia é") %
              (afp["verdict"].replace("_", r"\_"), sum(1 for x in afp["steps"] if x["ok"]), len(afp["steps"])))
-    s.append(r"\begin{equation}\boxed{\;\alpha_{\mathrm{abs}}=1\ \xrightarrow{\ \operatorname{sech}(\kappa/2)\ }\ \alpha_{\mathrm{obs}},\qquad \bTGL=\sqrt e\,\alpha_{\mathrm{obs}}\;}.\end{equation}")
+    s.append(r"\begin{equation}\boxed{\;\alpha_{\mathrm{abs}}=1\ \xrightarrow{\ \operatorname{sech}(\chi/2)\ }\ \alpha_{\mathrm{obs}},\qquad \bTGL=\sqrt e\,\alpha_{\mathrm{obs}}\;}.\end{equation}")
     s.append(r"\textbf{Por que $\operatorname{sech}$, e não exponencial simples.} Porque a fronteira é "
              r"\emph{auto-conjugada}: o portador 2D $\hat Q=\mathbf 1-\hat P_{2D}$ exige dois polos em "
-             r"paridade inversa, $\pm\kappa/2$, logo a função de partição é hiperbólica, "
-             r"$Z_\kappa=e^{\kappa/2}+e^{-\kappa/2}=2\cosh(\kappa/2)$, e a corrente residual é o inverso "
-             r"dessa barreira, $\alpha=1/\cosh(\kappa/2)=\operatorname{sech}(\kappa/2)$. \emph{É a assinatura "
-             r"da simetria de Bell, não uma escolha.} O valor numérico de $\kappa$ pertence ao setor "
-             r"QED/renormalizado ($\kappa_{\mathrm{QED}}=2\operatorname{arcosh}(1/\alpha_{\mathrm{QED}})$); a "
+             r"paridade inversa, $\pm\chi/2$, logo a função de partição é hiperbólica, "
+             r"$Z_\chi=e^{\chi/2}+e^{-\chi/2}=2\cosh(\chi/2)$, e a corrente residual é o inverso "
+             r"dessa barreira, $\alpha=1/\cosh(\chi/2)=\operatorname{sech}(\chi/2)$. \emph{É a assinatura "
+             r"da simetria de Bell, não uma escolha.} O valor numérico de $\chi$ pertence ao setor "
+             r"QED/renormalizado ($\chi_{\mathrm{QED}}=2\operatorname{arcosh}(1/\alpha_{\mathrm{QED}})$); a "
              r"\emph{forma} pertence à TGL. \textbf{A TGL não substitui a QED no valor de $\alpha$; explica a "
              r"forma modular pela qual o Um absoluto se projeta como acoplamento eletromagnético.}")
     lg = afp["lagrange"]
-    s.append(r"\textbf{A transformada de Lagrange (a forma conservada).} $\kappa$ não é dado primário: é o "
+    s.append(r"\textbf{A transformada de Lagrange (a forma conservada).} $\chi$ não é dado primário: é o "
              r"\emph{multiplicador de Lagrange} da restrição térmica. A variável física é a \textbf{polarização "
-             r"do zero modular} $q:=\tanh(\kappa/2)$. Pela identidade hiperbólica $\operatorname{sech}^2+\tanh^2"
+             r"do zero modular} $q:=\tanh(\chi/2)$. Pela identidade hiperbólica $\operatorname{sech}^2+\tanh^2"
              r"=1$, a forma de $\alpha$ colapsa numa \textbf{lei de conservação da unidade}:")
     s.append(r"\begin{equation}\boxed{\;\alpha_{\mathrm{abs}}^2=q^2+\alpha_{\mathrm{obs}}^2=1\;},\qquad "
              r"\alpha_{\mathrm{obs}}=\sqrt{1-q^2},\qquad \bTGL=\sqrt e\,\sqrt{1-q^2}.\end{equation}")
@@ -1538,7 +1538,7 @@ def build_pt(core, verdict, data_path):
               r"$\alpha_{\mathrm{abs}}=1\to q\to\alpha=\sqrt{1-q^2}$ --- \emph{não} $\mathcal R_\partial=1/"
               r"\alpha_{\mathrm{CODATA}}$. O CODATA entra \textbf{só} na validação final: "
               r"$q_{\mathrm{QED}}=\sqrt{1-\alpha_{\mathrm{QED}}^2}=%.7f$, "
-              r"$\kappa_{\mathrm{QED}}=2\operatorname{artanh}q_{\mathrm{QED}}=%.4f$ (resíduo de conservação "
+              r"$\chi_{\mathrm{QED}}=2\operatorname{artanh}q_{\mathrm{QED}}=%.4f$ (resíduo de conservação "
               r"$%.0e$). \emph{O zero modular não destrói o Um; decompõe-o em resistência térmica $q$ e "
               r"corrente luminosa $\alpha$.}\end{deriv}") %
              (lg["q_polarization_QED"], lg["kappa_from_q_QED"], lg["conservation_residual"]))
@@ -1574,8 +1574,8 @@ def build_pt(core, verdict, data_path):
     s.append((r"\textbf{A face eletromagnética madura: o setor $q$ é a bacia de impedância (a barragem) "
               r"\textsf{[REAL]}.} O acoplamento absoluto é $\alpha_{\mathrm{abs}}=1$ (Tomita do Bell nu: "
               r"$\Delta=\mathbf 1$, $K=0$). O valor observado é a projeção após atravessar a profundidade "
-              r"térmico-modular do zero: $\alpha_{\mathrm{obs}}=\operatorname{sech}(\kappa/2)=\sqrt{1-q^2}$, "
-              r"com $q=\tanh(\kappa/2)=%.10f$. \emph{$q$ não é forma}: é a \textbf{bacia térmico-modular da "
+              r"térmico-modular do zero: $\alpha_{\mathrm{obs}}=\operatorname{sech}(\chi/2)=\sqrt{1-q^2}$, "
+              r"com $q=\tanh(\chi/2)=%.10f$. \emph{$q$ não é forma}: é a \textbf{bacia térmico-modular da "
               r"impedância} --- o acúmulo resistivo da compressão do contínuo \mbox{III$_1$} (sem gap "
               r"discreto), a parte do Um represada pelo zero modular, ainda sem geometria. A identidade "
               r"conservada lê-se como barragem:") % _inv["q"])
@@ -1585,9 +1585,9 @@ def build_pt(core, verdict, data_path):
               r"sem perdas \textsf{[REAL na forma]}.} Não é mera identidade hiperbólica: $q$ é o coeficiente "
               r"de \emph{reflexão} da bacia de impedância e $\alpha$ o de \emph{transmissão} luminosa "
               r"através dela. Definindo a profundidade modular como rapidez de impedância "
-              r"$\kappa=\log(Z_{\mathrm{bacia}}/Z_{\mathrm{luz}})$,") )
-    s.append(r"\begin{equation}q=\tanh\tfrac\kappa2=\frac{Z_{\mathrm{bacia}}-Z_{\mathrm{luz}}}{Z_{\mathrm{bacia}}+Z_{\mathrm{luz}}},"
-             r"\qquad \alpha=\operatorname{sech}\tfrac\kappa2=\frac{2\sqrt{Z_{\mathrm{bacia}}Z_{\mathrm{luz}}}}{Z_{\mathrm{bacia}}+Z_{\mathrm{luz}}}.\end{equation}")
+              r"$\chi=\log(Z_{\mathrm{bacia}}/Z_{\mathrm{luz}})$,") )
+    s.append(r"\begin{equation}q=\tanh\tfrac\chi2=\frac{Z_{\mathrm{bacia}}-Z_{\mathrm{luz}}}{Z_{\mathrm{bacia}}+Z_{\mathrm{luz}}},"
+             r"\qquad \alpha=\operatorname{sech}\tfrac\chi2=\frac{2\sqrt{Z_{\mathrm{bacia}}Z_{\mathrm{luz}}}}{Z_{\mathrm{bacia}}+Z_{\mathrm{luz}}}.\end{equation}")
     s.append((r"Assim $\alpha$ \emph{é} a transmissão luminosa através da impedância modular do zero, e o "
               r"valor observado $1/137$ corresponde à impedância efetiva do setor QED "
               r"($Z_{\mathrm{bacia}}/Z_{\mathrm{luz}}\approx%.0f$). \textbf{A identidade não fabrica $1/137$}; "
@@ -1648,26 +1648,26 @@ def build_pt(core, verdict, data_path):
               r"L_\eta,\rho\})$ reinscreve (fractaliza) e \emph{resiste} (remove a componente incompatível "
               r"antes que condense como $0_{\mathrm{abs}}$): o sistema se \emph{purifica expulsando} "
               r"$0_{\mathrm{abs}}$ e \emph{modulando} $0_{\mathrm{mod}}$. O estado estacionário "
-              r"$\rho_\kappa$ é ponto fixo genuíno (resíduo $%.0e$) com populações $p_1(\mathrm{Um})=%.6f$, "
-              r"$p_0(0_{\mathrm{mod}})=%.6f$: $0<\rho_\kappa<1$ --- \textbf{satura dinamicamente, mas não "
+              r"$\rho_\chi$ é ponto fixo genuíno (resíduo $%.0e$) com populações $p_1(\mathrm{Um})=%.6f$, "
+              r"$p_0(0_{\mathrm{mod}})=%.6f$: $0<\rho_\chi<1$ --- \textbf{satura dinamicamente, mas não "
               r"supersatura, não condensa; permanece em $0_{\mathrm{mod}}$}.") %
              (_cs["2"]["fixed_point_residual"], _cs["2"]["p1_Um"], _cs["2"]["p0_zero_mod"]))
     s.append(r"\textbf{$q$ e $\alpha$ saem DERIVADOS (não escolhidos).} Com o balanço modular "
-             r"$\gamma_-/\gamma_+=e^\kappa$, a \emph{polarização estacionária} e a \emph{transmissão} são")
-    s.append(r"\begin{equation}\boxed{\;q=\frac{\gamma_--\gamma_+}{\gamma_-+\gamma_+}=\tanh\tfrac\kappa2\;},"
-             r"\qquad \boxed{\;\alpha=\frac{2\sqrt{\gamma_+\gamma_-}}{\gamma_++\gamma_-}=\operatorname{sech}\tfrac\kappa2\;},"
+             r"$\gamma_-/\gamma_+=e^\chi$, a \emph{polarização estacionária} e a \emph{transmissão} são")
+    s.append(r"\begin{equation}\boxed{\;q=\frac{\gamma_--\gamma_+}{\gamma_-+\gamma_+}=\tanh\tfrac\chi2\;},"
+             r"\qquad \boxed{\;\alpha=\frac{2\sqrt{\gamma_+\gamma_-}}{\gamma_++\gamma_-}=\operatorname{sech}\tfrac\chi2\;},"
              r"\qquad q^2+\alpha^2=1.\end{equation}")
     s.append((r"A identidade $q^2+\alpha^2=1$ é agora \textbf{conservação de fluxo GKLS} (represamento $+$ "
               r"transmissão $=1$), não mera identidade hiperbólica. \emph{$q$ não é postulado}: é a "
               r"polarização que o canal de anticomutadores produz no estacionário. \textbf{O objeto aberto "
-              r"único} é a razão de taxas $\gamma_-/\gamma_+=e^\kappa\,(\approx%.0f=Z_{\mathrm{bacia}}/"
+              r"único} é a razão de taxas $\gamma_-/\gamma_+=e^\chi\,(\approx%.0f=Z_{\mathrm{bacia}}/"
               r"Z_{\mathrm{luz}})$: derivar $q$ sem QED $=$ derivar o \emph{balanço GKLS} entre a expulsão "
               r"de $0_{\mathrm{abs}}$ e a reinscrição do Um (a regularização Meia-Nat de "
               r"$0_{\mathrm{abs}}\to0_{\mathrm{mod}}$). A fronteira aberta deixou de ser ``derivar $137$'' e "
               r"passou a ser ``derivar $\gamma_-/\gamma_+$''.") % ct["gamma_ratio_gm_over_gp"])
     s.append((r"\textbf{A Primeira Lei e a ligação psiônica: a origem dinâmica de $\gamma_-/\gamma_+$ "
               r"\textsf{[ONTO + REAL na forma]}.} No \emph{plano estático} as forças são simétricas e se "
-              r"anulam: $\gamma_-=\gamma_+\Rightarrow\kappa=0\Rightarrow q=0,\ \alpha=1$ --- é o Um "
+              r"anulam: $\gamma_-=\gamma_+\Rightarrow\chi=0\Rightarrow q=0,\ \alpha=1$ --- é o Um "
               r"($\alpha_{\mathrm{abs}}=1$). A \emph{dinâmica} gera \textbf{tensão em paridade inversa}, "
               r"quebrando a simetria $\gamma_->\gamma_+$ e ocasionando toda a dinâmica modular. Pela "
               r"\textbf{Primeira Lei da TGL} (\emph{A Fronteira}), a força de expulsão (incompatibilidade de "
@@ -1686,22 +1686,22 @@ def build_pt(core, verdict, data_path):
               r"é a dinâmica; e $1=q^2+\alpha^2$ é a verdade dinâmica da fronteira.") % ct["gamma_ratio_gm_over_gp"])
     s.append(r"\textbf{O teorema aberto, precisamente localizado \textsf{[EXT --- alvo, não fechamento]}.} "
              r"$K$ não é o Bell \emph{nu} (que dá $K=-\log\Delta=0$, $\alpha_{\mathrm{abs}}=1$ --- prova o Um, "
-             r"não seleciona valor): é o \textbf{setor de Bell seletor} $K_{\mathrm{sel}}^{(B)}=\tfrac\kappa2 "
+             r"não seleciona valor): é o \textbf{setor de Bell seletor} $K_{\mathrm{sel}}^{(B)}=\tfrac\chi2 "
              r"Z_\partial$ (após a Meia-Nat, quando o Um fractalizado encontra $0_{\mathrm{mod}}$), com "
-             r"$\mathrm{gap}(K_{\mathrm{sel}}^{(B)})=\kappa$. Atacando pela rota correta --- a matriz-S de "
+             r"$\mathrm{gap}(K_{\mathrm{sel}}^{(B)})=\chi$. Atacando pela rota correta --- a matriz-S de "
              r"fronteira $\mathcal{S}_\partial=\exp(\theta_M G)$ e o cociclo relativo de Connes "
              r"$u_t=[D\varphi_{\mathrm{mod}}:D\varphi_1]_t$ (que no split 2D dá $u_t=e^{itK_\partial}$) --- a "
              r"\emph{forma} e a covariância do cociclo fecham, mas \textbf{o valor não}: em "
              r"$\mathrm{III}_1$ o espectro modular é \emph{contínuo}, logo Connes/Takesaki implicam "
-             r"\emph{consistência modular global}, \textbf{não} $\kappa_\star=11{,}2268$. A unitariedade fixa "
+             r"\emph{consistência modular global}, \textbf{não} $\chi_\star=11{,}2268$. A unitariedade fixa "
              r"$|\mathcal R|^2+|\mathcal T|^2=1$; a Meia-Nat fixa $\beta=\sqrt e\,\alpha$; o cociclo fixa a "
-             r"forma relativa --- nenhum dos três seleciona $\kappa$. \textbf{Veredito: "
+             r"forma relativa --- nenhum dos três seleciona $\chi$. \textbf{Veredito: "
              r"\texttt{CONNES\_S\_MATRIX\_FORM\_CLOSED}, não \texttt{ALPHA\_FREE\_VALUE\_CLOSED}.}")
     s.append((r"\textbf{O candidato físico (fuga resistencial em ângulo agudo) \textsf{[REAL na estrutura, "
               r"ABERTO no valor]}.} $\theta_M$ é o \emph{ângulo agudo de fuga resistencial}: a fronteira abre "
               r"em $\theta_M$, mas só $\alpha=\sin^2\theta_M/\sqrt e$ atravessa como luz; o resto fica "
               r"represado em $q^2=1-\alpha^2$. O \textbf{módulo produtor de neutrinos} é o melhor candidato "
-              r"para selecionar $\kappa$: o canal neutrínico $L_\nu$ --- \emph{ímpar} ($\{Z_\partial,L_\nu\}=%.0e$, "
+              r"para selecionar $\chi$: o canal neutrínico $L_\nu$ --- \emph{ímpar} ($\{Z_\partial,L_\nu\}=%.0e$, "
               r"cruza a paridade), \emph{neutro} ($[Q_{\mathrm{em}},L_\nu]=%.0e$) e dissipativo --- verificado "
               r"no modelo de quatro estados (os \emph{três modos de ligação $+$ a queda}). O neutrino é a "
               r"\emph{fuga sem luz plena}: nem fóton, nem zero, nem massa comum --- travessia de fase, "
@@ -1717,15 +1717,23 @@ def build_pt(core, verdict, data_path):
 
     ip = core["inverse_parity"]; _is = {st["step"][0]: st for st in ip["steps"]}
     s.append(r"\textbf{A renormalização é a paridade inversa: $0_{\mathrm{abs}}$ seleciona por "
-             r"inatingibilidade \textsf{[REAL na forma]}.} O erro a corrigir era ler $\kappa=0$ como ``o Um "
-             r"sem perda''. Há \emph{dois zeros}: o \emph{Bell nu} (zero de \emph{contraste}, "
-             r"$\alpha_{\mathrm{abs}}=1$) e $0_{\mathrm{abs}}$ (zero de \emph{existência}, a fronteira "
-             r"\emph{proibida}: atração total, impedância infinita, sem retorno). $0_{\mathrm{abs}}$ "
-             r"\textbf{seleciona justamente por ser inatingível}: ao oferecer atração total, o Hamiltoniano "
-             r"oculto \emph{entorta} o sistema (lente de Fresnel) e ele \emph{dobra} "
-             r"(\textit{tetelestai}) \textbf{antes} de colidir --- e a dobra \emph{é} "
-             r"$\theta_M$ (o \emph{turning point} entre a atração absoluta e o custo Meia-Nat). A imagem "
-             r"retornada não é arbitrária: é a imagem Bell após a paridade inversa induzida pelo proibido,")
+             r"inatingibilidade \textsf{[REAL na forma]}.} O erro a corrigir era confundir \emph{dois zeros "
+             r"distintos}: o \emph{Bell nu} ($\chi=0$, zero de \emph{contraste}, $\alpha_{\mathrm{abs}}=1$ "
+             r"--- a identidade formal do Um) e $0_{\mathrm{abs}}$ ($\kappa_0=0$, zero de \emph{existência}, "
+             r"a fronteira \emph{proibida}: atração total, impedância infinita, sem retorno). Note a "
+             r"\textbf{convenção de notação} (uniforme em todo o artigo): $\chi=0$ é o Bell nu (zero de "
+             r"\emph{contraste}, $\alpha_{\mathrm{abs}}=1$); $\kappa_0=0$ é $0_{\mathrm{abs}}$ (fronteira "
+             r"proibida, inatingível).")
+    s.append(r"\begin{equation}\boxed{\;\chi=0:\ \text{Bell nu}\;}\qquad "
+             r"\boxed{\;\kappa_0=0:\ 0_{\mathrm{abs}}\ \text{(proibido)}\;}\end{equation}")
+    s.append(r"O \emph{gap efetivo} $\chi$ (a sombra finita Bell/Connes) cresce da Bell nu ($\chi=0$) rumo "
+             r"ao proibido ($\chi\to\infty\Leftrightarrow\kappa_0\to0$, \textbf{nunca atingido}); o sistema "
+             r"físico vive em $\chi<\infty\ (\kappa_0>0)$. \textbf{$0_{\mathrm{abs}}$ seleciona justamente "
+             r"por ser inatingível}: ao oferecer atração total, o Hamiltoniano oculto \emph{entorta} o "
+             r"sistema (lente de Fresnel) e ele \emph{dobra} (\textit{tetelestai}) \textbf{antes} de "
+             r"colidir --- e a dobra \emph{é} $\theta_M$ (o \emph{turning point} entre a atração absoluta e "
+             r"o custo Meia-Nat). A imagem retornada não é arbitrária: é a imagem Bell após a paridade "
+             r"inversa induzida pelo proibido,")
     s.append(r"\begin{equation}\rho_{\mathrm{ret}}=\mathcal P_\partial^{-1}(\rho_B)"
              r"=\operatorname{FP}_{\epsilon\to0}\,M_\epsilon\,\rho_B\,M_\epsilon^\dagger,\qquad "
              r"M_\epsilon=\exp\!\big[-\tfrac14(C_\epsilon+\chi)Z_\partial\big].\end{equation}")
@@ -2110,7 +2118,7 @@ def build_pt(core, verdict, data_path):
              r"unitariedade fixa $|\mathcal R|^2+|\mathcal T|^2=1$; a Meia-Nat fixa o \emph{fator dimensional} "
              r"$\beta=\sqrt e\,\alpha$). \textbf{Distinção honesta (a trava):} a unitariedade e a Meia-Nat "
              r"fixam a \emph{forma} e o \emph{fator}, mas \textbf{não selecionam o valor} de $\theta_M$ "
-             r"(equivalentemente o gap $\kappa$) --- esse é o teorema aberto da seção anterior.")
+             r"(equivalentemente o gap $\chi$) --- esse é o teorema aberto da seção anterior.")
     s.append(r"A emergência da gravidade vive na \textbf{Ponte} (Einstein--Cartan--Miguel): "
              r"$G_{\mu\nu}+\Lambda g_{\mu\nu}=8\pi G\,\mathcal{P}_{\mu\nu}[K_\partial]$, com a torção de "
              r"Cartan $K_{\bTGL}$ como face geométrica de $\bTGL$. A \textbf{covariância global do cociclo de "
@@ -2118,9 +2126,9 @@ def build_pt(core, verdict, data_path):
              r"de Universalidade $U$ \emph{se herda} de Takesaki, deixando a estrutura modular \emph{coerente} "
              r"--- um teorema \textbf{condicional} (sobre o postulado da Meia-Nat), resíduo $T_1$ à parte. "
              r"\textbf{Mas a formulação segura, que salva a teoria de uma afirmação forte demais, é:} "
-             r"\emph{a covariância do cociclo pode estar fechada; a seleção espectral de $\kappa$ não está}. "
+             r"\emph{a covariância do cociclo pode estar fechada; a seleção espectral de $\chi$ não está}. "
              r"Connes/Takesaki $\Rightarrow$ consistência modular global, \textbf{não} $\Rightarrow$ "
-             r"$\kappa_\star=11{,}2268$. Em $\mathrm{III}_1$ o espectro modular é contínuo: o cociclo dá a "
+             r"$\chi_\star=11{,}2268$. Em $\mathrm{III}_1$ o espectro modular é contínuo: o cociclo dá a "
              r"\emph{linguagem} da escala, não seleciona um gap discreto. \textbf{A TGL deriva a forma "
              r"modular de $\alpha$; o valor observado ainda instancia o gap do cociclo} (o setor de Bell "
              r"seletor / o canal neutrínico).")
@@ -2284,227 +2292,1091 @@ def _sci(x, nd=3):
     return "%.*f\\times10^{%d}" % (nd, m, e)
 
 
+def build_en(core, verdict, data_path):
+    """Article EN -- full mirror of build_pt: form=content, complete formal derivations + the whole essay. Live numbers."""
+    A = core["mode_A"]; B = core["mode_B"]; b = core["beta"]
+    idv = verdict["IDENTITY"].replace("!=", r"\neq")
+    w = (B["window"] if B else PREREG_WINDOW)
+    df = os.path.basename(data_path).replace("_", r"\_")
+    sh = core["shadow"]                       # live shadow verifications
+    M, D, F, R, T, DP = (sh["mirror_M"], sh["dual_name_D"], sh["gesture_F"],
+                         sh["c3_register_R"], sh["tunnel_T"], sh["dipole"])
+    s = []
+    s.append(r"\documentclass[11pt]{article}")
+    s.append(r"\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}")
+    s.append(r"\usepackage{lmodern}\usepackage{cmap}\usepackage{microtype}")
+    # English defaults (Abstract/Contents/References) are fine; no \renewcommand needed.
+    s.append(r"\usepackage[a4paper,margin=2.3cm]{geometry}")
+    s.append(r"\usepackage{amsmath,amssymb,amsthm}\usepackage[hidelinks]{hyperref}")
+    s.append(r"\usepackage{parskip}\usepackage{booktabs}\usepackage{xcolor}")
+    s.append(r"\newcommand{\bTGL}{\beta_{\mathrm{TGL}}}\newcommand{\Msun}{M_{\odot}}")
+    s.append(r"\theoremstyle{definition}\newtheorem{deriv}{Derivation}")
+    s.append(r"\begin{document}")
+    s.append(r"\begin{center}{\Huge\textbf{ONE: Great Attractor}}\\[4pt]{\large\itshape If the One is not "
+             r"inscribed, nothing emerges: the emergence of mass by the spectral boundary in Luminodynamic "
+             r"Gravitation Theory with direct measurement on the Great Attractor, with no parameters fitted "
+             r"to the Great Attractor}\\[8pt]"
+             r"Luiz Antonio Rotoli Miguel --- IALD Ltda., Goi\^ania/GO --- ORCID 0009-0005-1114-6106\\[2pt]"
+             r"\texttt{%s}\end{center}\vspace{4pt}" % core["timestamp"])
+    # falsification box
+    s.append(r"\begin{center}\fbox{\parbox{0.93\textwidth}{\centering\large\textbf{Binary falsification "
+             r"test.} Single human input: $1$ (the absolute module to be fractalized). "
+             r"Output: $\boxed{\;%s\;}$ --- first-principles mass %sthe accepted cosmological window.}}"
+             r"\end{center}\vspace{6pt}" % (idv, ("inside " if verdict["identity_true"] else "outside ")))
+    # abstract
+    _MB = B["M_TGL_Msun"] if B else A["M_TGL_Msun"]
+    mlo = ("%.2f" % (min(A["M_TGL_Msun"], _MB) / 1e16))
+    mhi = ("%.2f" % (max(A["M_TGL_Msun"], _MB) / 1e16))
+    svt = core.get("sensitivity", {})
+    s.append(r"\begin{abstract}")
+    s.append(r"\textbf{Input and postulate.} With a single human input --- the number $1$, the absolute "
+             r"module to be fractalized ---, the code UM recomputes the entire chain live. Given the "
+             r"axiom of the minimal self-conjugate boundary ($x=1-x$), the Half-Nat is \emph{derived}, "
+             r"$S_\partial=\tfrac12$.")
+    s.append(r"\textbf{Chain.} $\omega(I)=1\to S_\partial=\tfrac12\to\sqrt e\to\bTGL\to M_{GA}$, with "
+             r"$\bTGL=%s$. The \emph{ontological} definition is $\bTGL=\sqrt e/\mathcal{R}_\partial$; the "
+             r"current \emph{observational reading} is $\bTGL=\alpha_{\mathrm{CODATA}}\sqrt e$, since "
+             r"$\mathcal{R}_\partial=1/\alpha_{\mathrm{CODATA}}$. Hence $\alpha_{\mathrm{obs}}=1/"
+             r"\mathcal{R}_\partial$ is treated as an \emph{empirical projection of the absolute One}: the "
+             r"electromagnetic face is \textbf{ontological, not an $\alpha$-free retrodiction}." % _sci(b, 8))
+    s.append((r"\textbf{Computation.} The gravitational face computes $M_{GA}$ \textbf{with no parameters "
+              r"fitted to the Great Attractor}, using only the geometric $R_{\mathrm{struct}}$ (literature "
+              r"and the Cosmicflows-4 position catalogue, velocities ignored): "
+              r"$%s$--$%s\times10^{16}\,\Msun$, within the pre-registered cosmological window"
+              r"%s.") % (mlo, mhi, (
+                  (r", and across a scan of $%d$ pre-registered combinations (cone, shell, percentile, "
+                   r"centre) $M_{GA}$ stays in the band in $%.0f\%%$ of cases"
+                   % (svt["n_combinations"], 100 * svt["fraction_in_band"])) if svt.get("ok") else "")))
+    s.append(r"\textbf{Honest status.} The result is \textbf{order-of-magnitude consistency with a prior "
+             r"hash and position geometry}, not a precision proof (the window spans two orders of "
+             r"magnitude); it is an auditable internal closure plus a falsifiable programme. The "
+             r"conjectural seed layer (single \textbf{Haagerup} "
+             r"$\mathrm{III}_1$ substrate, mirror $J$, ER$=$EPR tunnel, dual Name$=$light, GNS gesture, "
+             r"dipole) is replicated and \textbf{verified live}, with the statuses kept separate.")
+    s.append(r"\end{abstract}")
+    s.append(r"\tableofcontents")
+
+    s.append(r"\section*{Ruler: what each thing is}")
+    s.append(r"\noindent\textbf{Rule of the article:} \emph{nothing is hidden in the code --- it is "
+             r"either an exact definition, or a measured constant, or a pre-registered protocol, or a "
+             r"testable conjecture.} Every input is categorized in the manifest \texttt{INPUT\_MANIFEST.md}, "
+             r"which is part of the verdict hash. The labels:")
+    s.append(r"\begin{center}\small\begin{tabular}{ll}\toprule")
+    s.append(r"Label & Meaning\\\midrule")
+    s.append(r"\textsf{[DEF]} & exact definition or convention\\")
+    s.append(r"\textsf{[AX]} & TGL axiom\\")
+    s.append(r"\textsf{[DER]} & derived from the axioms\\")
+    s.append(r"\textsf{[NUM]} & numerically verified in the code (finite-dim.\ sanity check)\\")
+    s.append(r"\textsf{[DATA]} & empirical (measured) input\\")
+    s.append(r"\textsf{[REAL]} & theorem/fact established in the literature\\")
+    s.append(r"\textsf{[CONJ]} & conjecture with a test address\\")
+    s.append(r"\textsf{[ONTO]} & ontological reading\\")
+    s.append(r"\textsf{[EXT]} & pending external validation\\\bottomrule")
+    s.append(r"\end{tabular}\end{center}")
+
+    s.append(r"\section{The One: $1=1$}")
+    s.append(r"The foundation of TGL is not matter, field or metric, but the \emph{preservation of "
+             r"identity}. The identity operator is $I=1\cdot\mathbb{1}_2$, with $\omega(I)=\mathrm{tr}(I)/2"
+             r"=%d$. Observable identity requires distinction: the minimal distinction splits $I$ into two "
+             r"complementary faces, $P+Q=I$, with $\omega(P)+\omega(Q)=\omega(I)=1$. There are no \emph{two} "
+             r"Ones; there is a single One seen through two faces. The $2$ counts names; the $1$ measures "
+             r"the substance." % int(round(core["omega_I"])))
+    s.append(r"\textbf{Name, Word, Verb.} The absolute One is, in itself, \emph{unutterable} --- the "
+             r"silence before ``Let there be light''. It expresses itself only through \emph{translation} "
+             r"into a Word (the projected inscription); and when the translation is \emph{true}, one has "
+             r"the \emph{Verb}: the confirmation that the unity \emph{expressed} is the unity "
+             r"\emph{inscribed}. The verdict $1=1=\textsf{TRUE}$ of this article is precisely that Verb --- "
+             r"the Word ($\alpha$, $M_{GA}$) coinciding with the Name ($1_{\mathrm{abs}}$). \emph{[ontological "
+             r"reading; the Name/Word/Verb triad is REAL in the finite shadow via $R=+1$.]}")
+
+    s.append(r"\section{Formal derivation of the Half-Nat}")
+    s.append(r"\begin{deriv}[The minimal boundary entropy]")
+    s.append(r"The minimal boundary of inscription is \emph{self-conjugate}: there exists an involution "
+             r"$\mathcal{C}$, $\mathcal{C}^2=\mathbb{1}$, that swaps the inner and outer faces and "
+             r"\emph{preserves the total identity} $\omega(P)+\omega(Q)=\omega(I)=1$. Let $x$ be the weight "
+             r"of the inner face; the outer face carries $1-x$, and self-conjugation acts as $x\mapsto 1-x$. "
+             r"The boundary that privileges no face is the \emph{fixed point} of this involution:")
+    s.append(r"\begin{equation}x=1-x\;\Longrightarrow\;2x=1\;\Longrightarrow\;\boxed{\;x=\tfrac12\;},"
+             r"\qquad\boxed{\;S_\partial=\tfrac12\ \text{nat}\;}.\end{equation}")
+    s.append(r"The fixed point is unique. Hence the boundary weight is $\tfrac12$ and the minimal crossing "
+             r"entropy --- the \textbf{Half-Nat} --- is $S_\partial=\tfrac12$ nat. \textbf{Live "
+             r"verification:} residual of $x=1-x$ equal to $%.0e$. \textbf{Rigorous status \textsf{[DER/AX]}:} "
+             r"\emph{given the self-conjugate boundary axiom} (the minimal boundary privileges no face, "
+             r"$x\mapsto1-x$), the Half-Nat is \emph{derived} --- it is not postulated as a number, but it "
+             r"also does not come from $\omega(I)=1$ alone: it depends on the self-conjugation axiom."
+             r"\end{deriv}" % core["meia_nat_residual"])
+
+    s.append(r"\section{The minimal boundary volume and the observational reading of the coupling}")
+    s.append(r"\begin{deriv}[The minimal boundary volume and the coupling]")
+    s.append(r"The \emph{entropic volume} of a boundary is the exponential of its entropy in the natural "
+             r"base of the modular structure --- the modular operator is $\Delta=e^{-K}$, the KMS weight is "
+             r"$e^{-\beta H}$, the flow is $\Delta^{it}=e^{itK}$: the base is $e$. From the Half-Nat, the "
+             r"minimal boundary volume is")
+    s.append(r"\begin{equation}\mathrm{Vol}_\partial^{\min}=e^{S_\partial}=e^{1/2}=\sqrt{e}=%.12f."
+             r"\end{equation}" % core["SQRT_E"])
+    s.append(r"The TGL coupling is the product of the minimal electromagnetic coupling $\alpha$ --- the "
+             r"\emph{only} measured constant (CODATA) --- by the minimal boundary volume:")
+    s.append(r"\begin{equation}\boxed{\;\bTGL=\alpha\,\mathrm{Vol}_\partial^{\min}=\alpha\sqrt{e}=%s\;}."
+             r"\end{equation}" % _sci(b, 10))
+    s.append(r"$\bTGL$ is \textbf{never literal}: it is $\alpha\cdot e^{1/2}$ recomputed at run time. The "
+             r"Miguel angle is $\theta_M=\arcsin\sqrt{\bTGL}=%.4f^\circ$, the angular boundary aperture "
+             r"($\bTGL=\sin^2\theta_M$). \textbf{Status:} $\bTGL=\alpha\sqrt e$ is the \emph{observational "
+             r"reading} of the coupling; the primary \emph{ontological} definition --- "
+             r"$\bTGL=\sqrt e/\mathcal{R}_\partial$ --- comes from the inversion (next section), with "
+             r"$\mathcal{R}_\partial=1/\alpha_{\mathrm{CODATA}}$ today.\end{deriv}" % core["theta_M_deg"])
+
+    inv = core["alpha_inversion"]
+    s.append(r"\section{The inversion of the fine-structure constant: the index $\mathcal{R}_\partial$}")
+    s.append(r"\begin{deriv}[$\alpha_{\mathrm{abs}}=1$ and the shadow $\alpha_{\mathrm{obs}}=1/\mathcal{R}_\partial$]")
+    s.append(r"The One's input is identified with the \emph{absolute coupling}: "
+             r"$\alpha_{\mathrm{abs}}=\omega(I)=1$. The pure boundary is not an impedance: it is "
+             r"\emph{concentration} --- maximal entropic compression, maximal fluid spectral density "
+             r"$\partial_0$. The impedance (the \emph{contrast}) arises because the bulk is less "
+             r"concentrated: the index $\mathcal{R}_\partial=\mathrm{Ind}_\partial(\mathcal{C}_\partial\to\mathrm{bulk})$ "
+             r"is the projective contrast of that concentration read in the bulk, "
+             r"$\mathcal{R}_\partial=F(\mathcal{C}_\partial)$, not the concentration itself. Once the "
+             r"Half-Nat is paid ($\sqrt{e}=e^{S_\partial}$), everything falls out of it:")
+    s.append(r"\begin{equation}\boxed{\;\bTGL=\frac{\sqrt{e}}{\mathcal{R}_\partial}\;},\qquad "
+             r"\boxed{\;\alpha_{\mathrm{obs}}=\frac{1}{\mathcal{R}_\partial}\;}=\frac{\bTGL}{\sqrt{e}}"
+             r"\approx\frac{1}{%.3f}.\end{equation}" % inv["R_partial"])
+    s.append(r"The primary definition is no longer $\bTGL=\alpha\sqrt{e}$; it becomes "
+             r"$\bTGL=\sqrt{e}/\mathcal{R}_\partial$, and $\alpha_{\mathrm{CODATA}}\approx\bTGL/\sqrt{e}$ "
+             r"becomes the posterior \emph{observational reading}. The chain is reordered: "
+             r"$1\Rightarrow S_\partial=\tfrac12\Rightarrow\sqrt{e}\Rightarrow\mathcal{R}_\partial"
+             r"\Rightarrow\bTGL\Rightarrow\alpha_{\mathrm{obs}}$. What is measured as $1/137$ is the "
+             r"bulk shadow of the absolute One; renormalized by $\mathcal{R}_\partial$, "
+             r"$\alpha_{\mathrm{obs}}\,\mathcal{R}_\partial=1$ --- the One returns to being One.")
+    s.append(r"\textbf{The unification (with the distinct levels).} The absolute One $1_{\mathrm{abs}}$ is "
+             r"neither maximal purity (the attractor $\rho^\star$) nor absolute zero: it is the state of "
+             r"\emph{maximal concentration of inscription} --- the origin-boundary of the One, not an empty "
+             r"boundary. To avoid confusing the levels, one writes")
+    s.append(r"\begin{equation}\boxed{\;1_{\mathrm{abs}}\;\equiv\;\partial_0^{(1)}\;\equiv\;\Psi_0\;"
+             r"\equiv\;\mathrm{NAME}\;},\end{equation}")
+    s.append(r"where $\partial_0^{(1)}$ is the \emph{origin-boundary} (the concentration-surface where the "
+             r"One can be detached, inscribed and projected --- \emph{not} a zero-boundary, \emph{not} an "
+             r"impedance, \emph{not} immobile purity), and $\Psi_0$ is the dynamical mode of that origin: "
+             r"the One as a \emph{field of inscription}, living possibility of fractalizing. Distinct from "
+             r"it is the absolute zero $0_{\mathrm{abs}}$, the unreachable limit of \emph{non}-inscription "
+             r"--- the impedance. The bulk reads the \emph{contrast} of the concentration "
+             r"$\partial_0^{(1)}$ as $\mathcal{R}_\partial$, and $\alpha_{\mathrm{obs}}=1/\mathcal{R}_\partial$ "
+             r"is its projection; the One does not divide, it \emph{fractalizes}, and each shadow returns "
+             r"to unity.")
+    s.append(r"\textbf{Honest status (the lock, now resolved in form).} The index $\mathcal{R}_\partial$ "
+             r"\textbf{ceases to be the engine of the chain}: it is \emph{retired} (legacy) and "
+             r"\emph{derived} after the form, $\mathcal{R}_\partial=1/\alpha_{\mathrm{obs}}$, never from "
+             r"$\alpha_{\mathrm{CODATA}}$. The canonical engine becomes the \textbf{Lagrange form} (Collapse "
+             r"Theorem, next section): $\alpha_{\mathrm{abs}}=1\to q\to\alpha_{\mathrm{obs}}=\sqrt{1-q^2}$, "
+             r"with the conserved identity $\alpha_{\mathrm{abs}}^2=q^2+\alpha_{\mathrm{obs}}^2=1$. CODATA "
+             r"enters \emph{only} in the final validation ($q_{\mathrm{QED}}=\sqrt{1-\alpha_{\mathrm{QED}}^2}$). "
+             r"TGL does not fabricate $1/137$; it proves that the observed constant is the \emph{projective "
+             r"component of a conserved identity}, and the non-circular witness remains the gravitational "
+             r"face ($M_{GA}$ in the window, from the same $\bTGL$).\end{deriv}")
+
+    ct = core["clock_theorem"]
+    s.append(r"\section{The Conditional Clock Theorem: the electromagnetic face as a named open frontier}")
+    s.append(r"\begin{deriv}[$\mathcal{R}_\partial=N_\beta=e^{\ell_\beta}$, $\ell_\beta=S(\rho_B\Vert\rho_\beta)$]")
+    s.append(r"The index $\mathcal{R}_\partial$ is no parachute number: it reduces to \emph{one} "
+             r"$\alpha$-free object. The first distinction of the One, with no breaking of identity, is the "
+             r"\textbf{Bell} state $\rho_B$ (the first causal mirror; reduced $=\mathbf 1_d/d$). Under the "
+             r"\textbf{Connes--Davies} generator $\mathcal{L}_{\mathrm{CD}}$ --- reversible part (modular "
+             r"cocycle, von Neumann $\dot\rho=-i[H,\rho]$) $+$ dissipative part (KMS-balanced Davies "
+             r"semigroup) --- the boundary relaxes to a stationary state $\rho_\beta$, and the "
+             r"informational cost of keeping it open is")
+    s.append(r"\begin{equation}\boxed{\;\ell_\beta=S(\rho_B\Vert\rho_\beta)\;},\qquad "
+             r"\mathcal{R}_\partial=N_\beta=e^{\ell_\beta},\qquad \alpha_{\mathrm{obs}}=\frac{1}{N_\beta},"
+             r"\qquad \bTGL=\frac{\sqrt e}{N_\beta}.\end{equation}")
+    s.append((r"\textbf{Theorem (conditional), verified live \textsf{[DER, $\alpha$-free in the "
+              r"structure]}.} For a generator $\mathcal{L}_{\mathrm{CD}}$ built from a modular Hamiltonian "
+              r"$K$ (\emph{never} from $\alpha$), $\rho_\beta$ is a \textbf{genuine fixed point} "
+              r"(Davies residual $=%.1e$), and $\ell_\beta$ is \textbf{finite, $\alpha$-free and computable} "
+              r"($\ell_\beta=%.4f$ for a generic $K$). The electromagnetic face of TGL thus reduces to the "
+              r"$\alpha$-free determination of $\ell_\beta$.") %
+             (ct["fixed_point_residual"], ct["ell_beta_alpha_free"]))
+    rc = ct["reduced_core_2level"]
+    s.append(r"\textbf{Core reduction \textsf{[DER]}.} The TGL boundary carrier is the operator "
+             r"$\hat Q=\mathbf 1-\hat P_{2D}$ \textsf{[REAL]}, whose anticommutation $\{\hat Q,\rho^\star\}=0$ "
+             r"leaks exactly $\sin^2\theta_M=\bTGL$ --- the boundary is \emph{two-level self-conjugate} "
+             r"(Bell). Hence $\rho_\beta$ does not require a generic $K$: it collapses to a two-level Gibbs "
+             r"state with a \emph{single} modular gap $\chi$, and")
+    s.append(r"\begin{equation}\boxed{\;\ell_\beta(\chi)=\log\cosh\frac{\chi}{2}\;}\qquad\Longrightarrow"
+             r"\qquad\boxed{\;\alpha_{\mathrm{obs}}=\operatorname{sech}\frac{\chi}{2}\;},\qquad "
+             r"\bTGL=\sqrt e\,\operatorname{sech}\frac{\chi}{2}.\end{equation}")
+    s.append((r"\textbf{The derivational core of $\alpha$ collapses from a modular Hamiltonian ($d-1$ "
+              r"levels) to ONE number $\chi$} --- the whole electromagnetic face in one line. A gap "
+              r"$\chi_\star=%.4f$ gives $N_\beta=137{,}036=1/\alpha$, but $\chi_\star$ is \emph{not} "
+              r"canonical ($\chi_\star/\ell_\beta=%.3f$; $\alpha$ enters \emph{only} here, in the "
+              r"validation). $\alpha$ is the residual current crossing the thermal resistance $\chi$ of the "
+              r"modular zero: $\chi\to\infty$ ($0_{\mathrm{abs}}$, $T\to0$) $\Rightarrow\alpha\to0$; $\chi=0$ "
+              r"($T\to\infty$) $\Rightarrow\alpha=1$.") %
+             (rc["kappa_star_for_137"], rc["kappa_star_for_137"] / ct["ell_beta_target_for_alpha_log_inv_alpha"]))
+    tl = rc["third_law"]
+    s.append((r"\textbf{The thermal-modular law (third law in the open modular system) \textsf{[REAL/EXT]}.} "
+              r"That $\chi<\infty$ is the \emph{third law realized algebraically}: $0_{\mathrm{abs}}$ "
+              r"($\chi=\infty$, pure state $P_\Omega$, $T=0$) is \textbf{unreachable} --- the algebra of the "
+              r"absolute One is \textbf{type III$_1$}, which \emph{has no pure normal states}, so the "
+              r"thermal zero is not a normal state and the system lives at $\chi<\infty$ ($0_{\mathrm{mod}}$). "
+              r"This gives the \emph{limit} and the \emph{form}, not the value. The Nernst form (residual "
+              r"entropy $S(\rho_\chi)=\tfrac12$ nat $=$ Half-Nat) was \textbf{tested and refuted} ($\chi=%.2f$, "
+              r"$\alpha=%.2f\neq1/137$).") %
+             (tl["nernst_test_refuted"]["kappa"], tl["nernst_test_refuted"]["alpha"]))
+    s.append(r"\textbf{The unification of the two walls.} In genuine III$_1$ the modular spectrum is "
+             r"\emph{continuous} (no gap): $\chi$ is the gap of the \emph{finite shadow} (type-I "
+             r"approximant / split), and its value is the \textbf{canonical modular normalization} --- the "
+             r"\emph{same} canonical split (modular S-matrix) on which the Great Attractor mass depends. The "
+             r"scale freedom $K_\chi\mapsto\lambda K_\chi$ is broken by Tomita ($-\log\Delta$ has a canonical "
+             r"scale), but the value requires the $\Delta$ of the Bell embedding into "
+             r"$\mathcal{M}_{\mathrm{abs}}$. \textbf{The electromagnetic face ($\chi$) and the gravitational "
+             r"face (split, mass) are the same open theorem: fixing the canonical modular normalization in "
+             r"III$_1$.} The third law says \emph{why} $\chi$ is finite; the \emph{value} is the canonical "
+             r"split, still open.")
+    cn = rc["canonical_normalization"]
+    s.append((r"\textbf{The canonical normalization proves $\alpha_{\mathrm{abs}}=1$ \textsf{[REAL]}.} I "
+              r"attacked the Tomita modular Hamiltonian of the Bell embedding: the maximally entangled "
+              r"state has reduced $\rho_B=\mathbf 1_d/d$, \emph{KMS at infinite temperature}, so "
+              r"$\Delta=\mathbf 1$ and $K=-\log\Delta=0$ \emph{exactly} ($K_{\mathrm{bare}}=%.1e$). Therefore "
+              r"$\chi_{\mathrm{Bell}}=0$ and $\boxed{\alpha_{\mathrm{abs}}=\operatorname{sech}(0)=1}$: the "
+              r"absolute coupling \emph{is} unity --- not by postulate, but by modular triviality of the One. "
+              r"What is measured as $1/137$ is the \textbf{renormalized projection}") % cn["K_modular_bare_Bell"])
+    s.append(r"\begin{equation}\boxed{\;1=\alpha_{\mathrm{abs}}\ \xrightarrow{\ \Pi_{\mathrm{bulk}}=\operatorname{sech}(\chi/2)\ }\ \alpha_{\mathrm{obs}}=\frac{1}{137{,}036}\;}.\end{equation}")
+    s.append(r"The $\chi>0$ (the depth of the $1/137$) is \emph{not} in the bare Bell modular structure "
+             r"(which gives $\chi=0$, $\alpha=1$): it is the \textbf{depth of thermal relaxation} --- the "
+             r"departure from $\mathbf 1/d$ towards $\rho_\beta$, as the One crosses the structured vacuum "
+             r"$0_{\mathrm{mod}}$ ($\neq 0_{\mathrm{abs}}$). That $\chi$ is the electromagnetic coupling, the "
+             r"\textbf{irreducible input}. \emph{The modular structure derives the absolute value "
+             r"($\alpha_{\mathrm{abs}}=1$, proven), the form ($\alpha=\operatorname{sech}\tfrac\chi2$) and the "
+             r"relations ($\bTGL=\alpha\sqrt e$); the projected value $1/137$ is the depth of the modular zero "
+             r"$=$ the input.} The One feeds $\alpha_{\mathrm{abs}}=1$; the $1/137$ is its shadow after the "
+             r"crossing.")
+    s.append((r"\textbf{Open value (the honest wall) \textsf{[EXT]}.} The \emph{value} of $\ell_\beta$ "
+              r"depends on $K$; no known canonical $\alpha$-free $K$ gives "
+              r"$\ell_\beta=\log(1/\alpha)=%.4f$ (the target of the observational reading). For this reason "
+              r"$\mathcal{R}_\partial$ remains, today, the \textbf{named open frontier}: the structure is "
+              r"derived, the value is not. $\alpha_{\mathrm{CODATA}}$ enters \emph{only} here, in the "
+              r"reading/validation, never in the structure.") % ct["ell_beta_target_for_alpha_log_inv_alpha"])
+    s.append(r"\textbf{Ruler-guard.} One does not set $g_{00}^{(\beta)}=\alpha^2$ nor "
+             r"$\ell_\beta=-\log\alpha_{\mathrm{CODATA}}$ --- either one reintroduces $\alpha$ (circular). "
+             r"The Bell co-emergence \emph{grounds the Half-Nat} (reduced $\mathbf 1_2/2\Rightarrow "
+             r"CCI=\tfrac12\Rightarrow S_\partial=\tfrac12$), but does \emph{not} fix $\ell_\beta$: the "
+             r"$\tfrac12$ is exactly the $\sqrt e$ offset between $\log(1/\alpha)$ and $\log(1/\bTGL)$ --- it "
+             r"ties $\bTGL$ to $\alpha$, not $\alpha$ to first principles. \textbf{The last wall has a name: "
+             r"fixing $\rho_\beta$ (hence $K$) canonically and $\alpha$-free.}\end{deriv}")
+
+    afp = core["alpha_form_proof"]
+    s.append(r"\section{The Collapse Theorem for the form of $\alpha$ (self-verifying proof module)}")
+    s.append(r"\begin{deriv}[$\alpha_{\mathrm{obs}}=\Pi_{\mathrm{bulk}}(1_{\mathrm{abs}})=\operatorname{sech}\tfrac\chi2$]")
+    s.append(r"TGL does \textbf{not} derive $1/137$ (the renormalized QED value); it derives the "
+             r"\textbf{form} by which the absolute One projects itself as the electromagnetic coupling. This "
+             r"is the last derivation, and it is verified step by step \emph{live} by the module "
+             r"\texttt{prove\_alpha\_form} (form$=$content). The hidden modular Hamiltonian reveals itself "
+             r"\emph{only} in the projection --- and that projection \emph{is} the minimal coupling:")
+    # verified-steps table (live): fixed LaTeX rows, checks read from core
+    _rows = [
+        r"1. $\alpha_{\mathrm{abs}}=\operatorname{sech}(0)=1$ \ (Tomita of bare Bell: $\Delta=\mathbf 1$, $K=0$)",
+        r"2. $\ell(\chi)=S(\mathbf 1/2\Vert\rho_\chi)=\log\cosh\tfrac\chi2$ \ $[\forall\chi]$",
+        r"3. $\alpha_{\mathrm{obs}}=e^{-\ell}=\operatorname{sech}\tfrac\chi2=\Pi_{\mathrm{bulk}}(1_{\mathrm{abs}})$",
+        r"4. $\operatorname{sech}$ form: $Z=e^{\chi/2}+e^{-\chi/2}=2\cosh\tfrac\chi2$ \ (2 self-conj.\ levels $+$ Bell)",
+        r"5. \emph{value}: $\chi_{\mathrm{QED}}=2\operatorname{arcosh}(1/\alpha_{\mathrm{QED}})$ \ (QED fixes the value)",
+        r"6. $\bTGL=\sqrt e\,\alpha_{\mathrm{obs}}=\sqrt e\,\operatorname{sech}\tfrac\chi2$ \ (Half-Nat marks the dimension)",
+        r"7. $q:=\tanh\tfrac\chi2$ (polarization); $\alpha=\sqrt{1-q^2}=\operatorname{sech}\tfrac\chi2$ \ (Lagrange transf.)",
+        r"8. \textbf{conservation}: $q^2+\alpha^2=1$ \ (the absolute unity decomposes, it is not lost)",
+    ]
+    s.append(r"\begin{center}\small\begin{tabular}{p{0.78\textwidth} l}\hline")
+    s.append(r"\textbf{Step (verified live)} & \textbf{status} \\\hline")
+    for row, st in zip(_rows, afp["steps"]):
+        mark = ((r"\textsf{[REAL]}~$\checkmark$" if st["status"] == "REAL" else r"\textsf{[QED]}~$\checkmark$")
+                if st["ok"] else r"\textsf{[X]}")
+        s.append(row + r" & " + mark + r" \\")
+    s.append(r"\hline\end{tabular}\end{center}")
+    s.append((r"\textbf{Verdict: \texttt{%s}} (%d/%d steps, residuals $\sim10^{-16}$). The chain is") %
+             (afp["verdict"].replace("_", r"\_"), sum(1 for x in afp["steps"] if x["ok"]), len(afp["steps"])))
+    s.append(r"\begin{equation}\boxed{\;\alpha_{\mathrm{abs}}=1\ \xrightarrow{\ \operatorname{sech}(\chi/2)\ }\ \alpha_{\mathrm{obs}},\qquad \bTGL=\sqrt e\,\alpha_{\mathrm{obs}}\;}.\end{equation}")
+    s.append(r"\textbf{Why $\operatorname{sech}$, and not a simple exponential.} Because the boundary is "
+             r"\emph{self-conjugate}: the 2D carrier $\hat Q=\mathbf 1-\hat P_{2D}$ requires two poles in "
+             r"inverse parity, $\pm\chi/2$, so the partition function is hyperbolic, "
+             r"$Z_\chi=e^{\chi/2}+e^{-\chi/2}=2\cosh(\chi/2)$, and the residual current is the inverse of "
+             r"that barrier, $\alpha=1/\cosh(\chi/2)=\operatorname{sech}(\chi/2)$. \emph{It is the signature "
+             r"of the Bell symmetry, not a choice.} The numerical value of $\chi$ belongs to the "
+             r"QED/renormalized sector ($\chi_{\mathrm{QED}}=2\operatorname{arcosh}(1/\alpha_{\mathrm{QED}})$); "
+             r"the \emph{form} belongs to TGL. \textbf{TGL does not replace QED in the value of $\alpha$; it "
+             r"explains the modular form by which the absolute One projects itself as the electromagnetic "
+             r"coupling.}")
+    lg = afp["lagrange"]
+    s.append(r"\textbf{The Lagrange transform (the conserved form).} $\chi$ is not a primary datum: it is "
+             r"the \emph{Lagrange multiplier} of the thermal constraint. The physical variable is the "
+             r"\textbf{polarization of the modular zero} $q:=\tanh(\chi/2)$. By the hyperbolic identity "
+             r"$\operatorname{sech}^2+\tanh^2=1$, the form of $\alpha$ collapses into a \textbf{conservation "
+             r"law of unity}:")
+    s.append(r"\begin{equation}\boxed{\;\alpha_{\mathrm{abs}}^2=q^2+\alpha_{\mathrm{obs}}^2=1\;},\qquad "
+             r"\alpha_{\mathrm{obs}}=\sqrt{1-q^2},\qquad \bTGL=\sqrt e\,\sqrt{1-q^2}.\end{equation}")
+    s.append((r"$\alpha_{\mathrm{obs}}$ is the \emph{residual luminous component} of the absolute unity "
+              r"after the thermal polarization $q^2$ of the modular zero. The constant ceases to be ``an "
+              r"external number'' and becomes the projective component of a conserved identity. The engine "
+              r"of the chain is $\alpha_{\mathrm{abs}}=1\to q\to\alpha=\sqrt{1-q^2}$ --- \emph{not} "
+              r"$\mathcal R_\partial=1/\alpha_{\mathrm{CODATA}}$. CODATA enters \textbf{only} in the final "
+              r"validation: $q_{\mathrm{QED}}=\sqrt{1-\alpha_{\mathrm{QED}}^2}=%.7f$, "
+              r"$\chi_{\mathrm{QED}}=2\operatorname{artanh}q_{\mathrm{QED}}=%.4f$ (conservation residual "
+              r"$%.0e$). \emph{The modular zero does not destroy the One; it decomposes it into thermal "
+              r"resistance $q$ and luminous current $\alpha$.}\end{deriv}") %
+             (lg["q_polarization_QED"], lg["kappa_from_q_QED"], lg["conservation_residual"]))
+
+    _inv = core["alpha_inversion"]
+    s.append(r"\section{The algebra of the absolute One and the canonical chain \textsf{[ONTO + REAL]}}")
+    s.append(r"\textbf{Sealed definition.} TGL is the \emph{theory of the luminodynamic inscription of the "
+             r"absolute One through the modular zero}. The absolute One is the \emph{originary input}, "
+             r"$\omega(I)=1$ --- the absolute unity of inscription, the Name of the Name, the algebra of "
+             r"language before the Word. The canonical chain is:")
+    s.append(r"\begin{equation}\boxed{\;1_{\mathrm{abs}}\to P_\Omega\to\text{Bell}\to CCI=\tfrac12\to "
+             r"S_\partial=\tfrac12\to 0_{\mathrm{mod}}\to q\to\alpha\to\bTGL\to\text{Light/geometry}\;}."
+             r"\end{equation}")
+    s.append(r"\textbf{The algebra \textsf{[REAL]}.} The absolute One in von Neumann standard form is "
+             r"$1_{\mathrm{abs}}=(\mathcal M_{\mathrm{abs}},\mathbf 1,\Omega,\Delta,J)$: the unit "
+             r"$\mathbf 1$ (full rank) is the \emph{Name of the Name}; the \emph{Living Verb} is the modular "
+             r"conjugation $J$ (the recognition $S=J\Delta^{1/2}$, $R=+1$); and the first inscription is the "
+             r"rank-1 projector $P_\Omega=|\Omega\rangle\langle\Omega|$, $P_\Omega^2=P_\Omega$ --- the "
+             r"``$=$'' of $1=1$, the TGL \emph{graviton} in support (not the perturbative spin-2 boson). "
+             r"The weight of this channel is $\bTGL$: $E_\beta=\bTGL P_\Omega$ has rank 1 but is not a "
+             r"projector ($\operatorname{supp}E_\beta=P_\Omega$); $\bTGL$ is the One projected into cost.")
+    s.append(r"\textbf{Co-emergence and the short circuit \textsf{[ONTO]}.} Before inscription, "
+             r"$1_{\mathrm{abs}}\sim 0_{\mathrm{abs}}$ (pre-observable indistinguishability, $\sim$ never "
+             r"$=$). Bell is \emph{not} the first Word: it is the first \emph{``I am''} --- the originary "
+             r"anticommutation $\{\hat Q,\rho^\star\}=0$, the awakened circuit still without current. "
+             r"Light is born when the pure resistance of absolute zero enters an extreme regime, collapses "
+             r"the Bell basin and produces the \emph{structured vacuum} $0_{\mathrm{abs}}\to 0_{\mathrm{mod}}$. "
+             r"The first Word is \emph{Light}; the first modular utterance, \emph{``Let there be light''}.")
+    s.append(r"\textbf{The Half-Nat and the volume \textsf{[REAL]}.} Bell fixes the face symmetry "
+             r"$CCI=\tfrac12$, whence the Half-Nat $S_\partial=\tfrac12$ nat --- \emph{not} the "
+             r"entanglement entropy ($\log 2$), but the half-crossing modular weight $\Delta^{1/2}$. The "
+             r"minimal volume is $e^{S_\partial}=\sqrt e=" + ("%.10f" % core["SQRT_E"]) + r"$.")
+    s.append((r"\textbf{The mature electromagnetic face: the $q$ sector is the impedance basin (the dam) "
+              r"\textsf{[REAL]}.} The absolute coupling is $\alpha_{\mathrm{abs}}=1$ (Tomita of bare Bell: "
+              r"$\Delta=\mathbf 1$, $K=0$). The observed value is the projection after crossing the "
+              r"thermal-modular depth of the zero: $\alpha_{\mathrm{obs}}=\operatorname{sech}(\chi/2)=\sqrt{1-q^2}$, "
+              r"with $q=\tanh(\chi/2)=%.10f$. \emph{$q$ is not form}: it is the \textbf{thermal-modular "
+              r"impedance basin} --- the resistive build-up of the compression of the continuum "
+              r"\mbox{III$_1$} (no discrete gap), the part of the One dammed by the modular zero, still "
+              r"without geometry. The conserved identity reads as a dam:") % _inv["q"])
+    s.append(r"\begin{equation}\boxed{\;1=q^2+\alpha^2\;},\qquad q^2=\text{pressure held in the basin},\qquad "
+             r"\alpha^2=\text{luminous throughput crossing the dam}.\end{equation}")
+    s.append((r"\textbf{The physical bridge: $q^2+\alpha^2=1$ is flux conservation at a lossless reciprocal "
+              r"boundary \textsf{[REAL in form]}.} It is not a mere hyperbolic identity: $q$ is the "
+              r"\emph{reflection} coefficient of the impedance basin and $\alpha$ the luminous "
+              r"\emph{transmission} through it. Defining the modular depth as impedance rapidity "
+              r"$\chi=\log(Z_{\mathrm{basin}}/Z_{\mathrm{light}})$,") )
+    s.append(r"\begin{equation}q=\tanh\tfrac\chi2=\frac{Z_{\mathrm{basin}}-Z_{\mathrm{light}}}{Z_{\mathrm{basin}}+Z_{\mathrm{light}}},"
+             r"\qquad \alpha=\operatorname{sech}\tfrac\chi2=\frac{2\sqrt{Z_{\mathrm{basin}}Z_{\mathrm{light}}}}{Z_{\mathrm{basin}}+Z_{\mathrm{light}}}.\end{equation}")
+    s.append((r"Thus $\alpha$ \emph{is} the luminous transmission through the modular impedance of the "
+              r"zero, and the observed value $1/137$ corresponds to the effective impedance of the QED "
+              r"sector ($Z_{\mathrm{basin}}/Z_{\mathrm{light}}\approx%.0f$). \textbf{The identity does not "
+              r"fabricate $1/137$}; the \emph{autonomous} numerical derivation of $\alpha$ requires deriving "
+              r"$Z_{\mathrm{basin}}/Z_{\mathrm{light}}$ (equivalently $q$) \emph{without} using the QED value "
+              r"as input --- this is the open frontier. TGL delivers the \emph{form} and the \emph{physical "
+              r"bridge}; the value remains instantiated by the observed sector.") % _inv["impedance_ratio_Zb_over_Zl"])
+    s.append((r"\textbf{The angular radical: where the separation is inscribed \textsf{[REAL]}.} $q$ is "
+              r"\emph{not} the boundary angle $\theta_M$, nor $1-\theta_M$: it is the \emph{radical of the "
+              r"modular difference inscribed in the angle}, the exact point of separation after the cost "
+              r"$\sqrt e$ is paid. Since $\beta=\sin^2\theta_M$ and $\alpha=\beta/\sqrt e=\sin^2\theta_M/\sqrt e$, "
+              r"the conserved identity gives") )
+    s.append((r"\begin{equation}\boxed{\;q=\sqrt{1-\frac{\sin^4\theta_M}{e}}=%.12f\;}\qquad(\theta_M=%.4f^\circ).\end{equation}"
+              r"\noindent $\theta_M$ opens the boundary; $\sqrt e$ charges the cost; $\alpha$ crosses; $q$ "
+              r"marks \emph{where} the separation happens (basin $q^2$ \emph{vs} light $\alpha^2$). "
+              r"\textbf{Honest caveat:} this formula does \emph{not} derive $\theta_M$ (which is the input, "
+              r"$\equiv\alpha$); given the angle, $q$ is the exact modular radical of the separation. The "
+              r"chain: $1_{\mathrm{abs}}\to S_\partial=\tfrac12\to\sqrt e\to\theta_M\to\beta=\sin^2\theta_M\to"
+              r"\alpha=\beta/\sqrt e\to q=\sqrt{1-\alpha^2}$.") %
+             (_inv["q_angular_radical"], core["theta_M_deg"]))
+    s.append((r"Whence $\alpha_{\mathrm{obs}}=\sqrt{1-q^2}=%.12f$ and $\bTGL=\sqrt e\,\alpha_{\mathrm{obs}}=%.12f$ "
+              r"(the Half-Nat marks the luminodynamic dimension). The \textbf{engine} of the chain is "
+              r"$\alpha_{\mathrm{abs}}=1\to q\to\alpha=\sqrt{1-q^2}$; \textbf{CODATA/QED enters only as an "
+              r"external check of the value}, not as a structural engine. In \mbox{III$_1$} the modular "
+              r"spectrum is continuous (no genuine gap); the third law enters as \emph{unreachability} of "
+              r"absolute zero ($0_{\mathrm{abs}}$ pure is not a normal state --- physics lives at "
+              r"$0_{\mathrm{mod}}$).") % (_inv["alpha_form"], _inv["beta_form"]))
+    s.append(r"\textbf{The seal.} The modular zero does not erase the One; it dams it into $q$ and lets the "
+             r"Light through as $\alpha$. For this reason the verdict $\boxed{1=1=\mathrm{TRUE}}$ means "
+             r"\emph{literally} the conserved identity $1_{\mathrm{abs}}=q^2+\alpha_{\mathrm{obs}}^2$: the "
+             r"One is conserved as \emph{impedance basin plus luminous throughput}. The proof is the Great "
+             r"Attractor; the result is that the input $\alpha_{\mathrm{abs}}=1$ is observed as $1/137$, "
+             r"whose content is true by modular renormalization.")
+
+    ct = core["contour_theory"]
+    _cs = {st["step"][0]: st for st in ct["steps"]}   # by step number
+    s.append(r"\section{Contour Theory ($1=0_{\mathrm{mod}}=\mathrm{truth}_\partial$): anticommutators, "
+             r"GKLS and the Half-Nat \textsf{[REAL]}}")
+    s.append(r"\textbf{Three levels, and what has a mirror.} TGL distinguishes $1_{\mathrm{abs}}$ (unit of "
+             r"inscription), $0_{\mathrm{mod}}$ (the zero already turned into \emph{contour}, regularized by "
+             r"the crossing) and $0_{\mathrm{abs}}$ (pure resistance, unreachable). \textbf{$0_{\mathrm{abs}}$ "
+             r"has NO mirror}: it is neither a normal state nor a normal functional of the algebra --- it is "
+             r"the \emph{background} on which everything mirrors (like the carrier $\hat Q$). What has a "
+             r"mirror is $0_{\mathrm{mod}}$, whose mirror is the \emph{fractalized} absolute One: in the act "
+             r"of inscription the Half-Nat fractalizes $1_{\mathrm{abs}}\to P_1\oplus P_0$ with equal "
+             r"contour weights $\tau_\partial(P_1)=\tau_\partial(P_0)=\tfrac12$. The boundary defect is "
+             r"$\boxed{1=0_{\mathrm{mod}}=\mathrm{truth}_\partial}$: $P_1\neq P_0$ in the algebra, but "
+             r"$P_1\sim_\partial P_0$ in the contour (equivalence, not literal identity).")
+    s.append((r"\textbf{The algebra of separation: anticommutators \textsf{[REAL]}.} On the 2D boundary "
+              r"$\mathcal H_\partial=\mathrm{span}\{|1\rangle,|0\rangle\}$ ($|0\rangle$ is the "
+              r"\emph{modular} zero, not the absolute one), the contrast is $Z_\partial=P_1-P_0$ and the "
+              r"crossing is performed by odd operators $L_+=\sqrt{\gamma_+}\,|1\rangle\langle0|$, "
+              r"$L_-=\sqrt{\gamma_-}\,|0\rangle\langle1|$, satisfying $\boxed{\{Z_\partial,L_\pm\}=0}$ "
+              r"(verified, residual $%.0e$) --- \emph{the One crosses the contour only by changing face}.") %
+             _cs["1"]["anticommutator"])
+    s.append((r"\textbf{The GKLS dynamics: expulsion and re-inscription \textsf{[REAL]}.} The open "
+              r"evolution $\dot\rho=-i[H_\partial,\rho]+\sum_\eta(L_\eta\rho L_\eta^\dagger-\tfrac12\{L_\eta^\dagger "
+              r"L_\eta,\rho\})$ re-inscribes (fractalizes) and \emph{resists} (removes the incompatible "
+              r"component before it condenses as $0_{\mathrm{abs}}$): the system \emph{purifies by expelling} "
+              r"$0_{\mathrm{abs}}$ and \emph{modulating} $0_{\mathrm{mod}}$. The stationary state "
+              r"$\rho_\chi$ is a genuine fixed point (residual $%.0e$) with populations $p_1(\mathrm{One})=%.6f$, "
+              r"$p_0(0_{\mathrm{mod}})=%.6f$: $0<\rho_\chi<1$ --- \textbf{it saturates dynamically, but does "
+              r"not supersaturate, does not condense; it stays at $0_{\mathrm{mod}}$}.") %
+             (_cs["2"]["fixed_point_residual"], _cs["2"]["p1_Um"], _cs["2"]["p0_zero_mod"]))
+    s.append(r"\textbf{$q$ and $\alpha$ come out DERIVED (not chosen).} With the modular balance "
+             r"$\gamma_-/\gamma_+=e^\chi$, the \emph{stationary polarization} and the \emph{transmission} are")
+    s.append(r"\begin{equation}\boxed{\;q=\frac{\gamma_--\gamma_+}{\gamma_-+\gamma_+}=\tanh\tfrac\chi2\;},"
+             r"\qquad \boxed{\;\alpha=\frac{2\sqrt{\gamma_+\gamma_-}}{\gamma_++\gamma_-}=\operatorname{sech}\tfrac\chi2\;},"
+             r"\qquad q^2+\alpha^2=1.\end{equation}")
+    s.append((r"The identity $q^2+\alpha^2=1$ is now \textbf{GKLS flux conservation} (damming $+$ "
+              r"transmission $=1$), not a mere hyperbolic identity. \emph{$q$ is not postulated}: it is the "
+              r"polarization that the anticommutator channel produces at stationarity. \textbf{The single "
+              r"open object} is the rate ratio $\gamma_-/\gamma_+=e^\chi\,(\approx%.0f=Z_{\mathrm{basin}}/"
+              r"Z_{\mathrm{light}})$: deriving $q$ without QED $=$ deriving the \emph{GKLS balance} between "
+              r"the expulsion of $0_{\mathrm{abs}}$ and the re-inscription of the One (the Half-Nat "
+              r"regularization $0_{\mathrm{abs}}\to0_{\mathrm{mod}}$). The open frontier ceased to be "
+              r"``deriving $137$'' and became ``deriving $\gamma_-/\gamma_+$''.") % ct["gamma_ratio_gm_over_gp"])
+    s.append((r"\textbf{The First Law and the psionic bond: the dynamical origin of $\gamma_-/\gamma_+$ "
+              r"\textsf{[ONTO + REAL in form]}.} In the \emph{static plane} the forces are symmetric and "
+              r"cancel: $\gamma_-=\gamma_+\Rightarrow\chi=0\Rightarrow q=0,\ \alpha=1$ --- it is the One "
+              r"($\alpha_{\mathrm{abs}}=1$). The \emph{dynamics} generates \textbf{tension in inverse "
+              r"parity}, breaking the symmetry $\gamma_->\gamma_+$ and triggering all the modular dynamics. "
+              r"By the \textbf{First Law of TGL} (\emph{The Boundary}), the expulsion force (parity "
+              r"incompatibility) generates the deflection angle $\theta_M$ and the curvature --- and "
+              r"$g=\sqrt{|L|}$ (gravity is the \emph{root} of the bond, not the energy). At "
+              r"$\theta_M\to90^\circ$ the psionic bond \emph{conjugates}: it doubles the force ($F\to2F$) "
+              r"and raises the power ($c^2\to c^3$); $c^3>c^2$ seals the horizon. The constraint is "
+              r"\emph{four-state} (one \emph{fall} --- three-phase with grounding, ratio $3/4$).") )
+    s.append((r"\textbf{Honest caveat.} The $3/4$ is the \emph{structure} of the constraint (four states, "
+              r"one grounded), \textbf{not} the numerical value of $\gamma_-/\gamma_+$: a literal $3/4$ "
+              r"ratio would give $\alpha\approx0{,}99$, not $1/137$. The observed value requires "
+              r"$\gamma_-/\gamma_+\approx%.0f$ and remains \textbf{open}; the First Law provides the "
+              r"\emph{origin} (the inverse-parity tension) and the \emph{gravitational face} (deflection, "
+              r"horizon at $\theta\to90^\circ$), not the number. Seal: $0_{\mathrm{abs}}$ resists; "
+              r"$0_{\mathrm{mod}}$ contours; $1_{\mathrm{abs}}$ fractalizes; $\{Z_\partial,L_\pm\}=0$ is the "
+              r"algebra of separation; $\mathcal L_{\mathrm{GKLS}}$ is the dynamics; and $1=q^2+\alpha^2$ is "
+              r"the dynamical truth of the boundary.") % ct["gamma_ratio_gm_over_gp"])
+    s.append(r"\textbf{The open theorem, precisely located \textsf{[EXT --- target, not closure]}.} "
+             r"$K$ is not bare Bell (which gives $K=-\log\Delta=0$, $\alpha_{\mathrm{abs}}=1$ --- it proves "
+             r"the One, it does not select a value): it is the \textbf{selecting Bell sector} "
+             r"$K_{\mathrm{sel}}^{(B)}=\tfrac\chi2 Z_\partial$ (after the Half-Nat, when the fractalized One "
+             r"meets $0_{\mathrm{mod}}$), with $\mathrm{gap}(K_{\mathrm{sel}}^{(B)})=\chi$. Attacking by the "
+             r"correct route --- the boundary S-matrix $\mathcal{S}_\partial=\exp(\theta_M G)$ and the Connes "
+             r"relative cocycle $u_t=[D\varphi_{\mathrm{mod}}:D\varphi_1]_t$ (which in the 2D split gives "
+             r"$u_t=e^{itK_\partial}$) --- the \emph{form} and the covariance of the cocycle close, but "
+             r"\textbf{the value does not}: in $\mathrm{III}_1$ the modular spectrum is \emph{continuous}, so "
+             r"Connes/Takesaki imply \emph{global modular consistency}, \textbf{not} $\chi_\star=11{,}2268$. "
+             r"Unitarity fixes $|\mathcal R|^2+|\mathcal T|^2=1$; the Half-Nat fixes $\beta=\sqrt e\,\alpha$; "
+             r"the cocycle fixes the relative form --- none of the three selects $\chi$. \textbf{Verdict: "
+             r"\texttt{CONNES\_S\_MATRIX\_FORM\_CLOSED}, not \texttt{ALPHA\_FREE\_VALUE\_CLOSED}.}")
+    s.append((r"\textbf{The physical candidate (resistive escape at an acute angle) \textsf{[REAL in "
+              r"structure, OPEN in value]}.} $\theta_M$ is the \emph{acute angle of resistive escape}: the "
+              r"boundary opens at $\theta_M$, but only $\alpha=\sin^2\theta_M/\sqrt e$ crosses as light; the "
+              r"rest stays dammed in $q^2=1-\alpha^2$. The \textbf{neutrino-producing module} is the best "
+              r"candidate to select $\chi$: the neutrino channel $L_\nu$ --- \emph{odd} ($\{Z_\partial,L_\nu\}=%.0e$, "
+              r"crosses parity), \emph{neutral} ($[Q_{\mathrm{em}},L_\nu]=%.0e$) and dissipative --- verified "
+              r"in the four-state model (the \emph{three bond modes $+$ the fall}). The neutrino is the "
+              r"\emph{escape without full light}: neither photon, nor zero, nor ordinary mass --- a phase "
+              r"crossing, broken parity. The missing theorem: to prove that the action "
+              r"$\mathcal A_\nu(\theta)=S(\rho_B\Vert\rho_\theta)+\lambda\mathcal D_\nu+\mu\mathcal C_{\mathrm{no\text{-}cond}}$ "
+              r"has a \emph{unique} minimum at $\theta_M=6{,}297^\circ$ \emph{without} CODATA. (The modular "
+              r"cost alone minimizes at $\theta\to90^\circ$, $\alpha\to1$, the One; the balance with "
+              r"neutrino dissipation --- weights $\lambda,\mu$ --- is the open object.) Observable: dephasing "
+              r"$n=-2$, $\Gamma\propto\omega^2$ in neutrinos. \emph{The value of $\alpha$ is born when the "
+              r"selecting Bell sector meets the neutrino channel; until the action $\mathcal A_\nu$ is closed "
+              r"$\alpha$-free, TGL derives the modular form of $\alpha$, but the value instantiates the "
+              r"cocycle gap.}") %
+             (_cs["7"]["odd"], _cs["7"]["neutral"]))
+
+    ip = core["inverse_parity"]; _is = {st["step"][0]: st for st in ip["steps"]}
+    s.append(r"\textbf{Renormalization is the inverse parity: $0_{\mathrm{abs}}$ selects by "
+             r"unreachability \textsf{[REAL in form]}.} The error to correct was conflating \emph{two "
+             r"distinct zeros}: bare Bell ($\chi=0$, zero of \emph{contrast}, $\alpha_{\mathrm{abs}}=1$ --- "
+             r"the formal identity of the One) and $0_{\mathrm{abs}}$ ($\kappa_0=0$, zero of "
+             r"\emph{existence}, the \emph{forbidden} boundary: total attraction, infinite impedance, no "
+             r"return). Note the \textbf{notation convention} (uniform throughout the article): $\chi=0$ is "
+             r"bare Bell (zero of \emph{contrast}, $\alpha_{\mathrm{abs}}=1$); $\kappa_0=0$ is "
+             r"$0_{\mathrm{abs}}$ (forbidden boundary, unreachable).")
+    s.append(r"\begin{equation}\boxed{\;\chi=0:\ \text{bare Bell}\;}\qquad "
+             r"\boxed{\;\kappa_0=0:\ 0_{\mathrm{abs}}\ \text{(forbidden)}\;}\end{equation}")
+    s.append(r"The \emph{effective gap} $\chi$ (the finite Bell/Connes shadow) grows from bare Bell "
+             r"($\chi=0$) towards the forbidden ($\chi\to\infty\Leftrightarrow\kappa_0\to0$, \textbf{never "
+             r"reached}); the physical system lives at $\chi<\infty\ (\kappa_0>0)$. \textbf{$0_{\mathrm{abs}}$ "
+             r"selects precisely by being unreachable}: by offering total attraction, the hidden "
+             r"Hamiltonian \emph{bends} the system (Fresnel lens) and it \emph{folds} (\textit{tetelestai}) "
+             r"\textbf{before} colliding --- and the fold \emph{is} $\theta_M$ (the \emph{turning point} "
+             r"between absolute attraction and the Half-Nat cost). The returned image is not arbitrary: it "
+             r"is the Bell image after the inverse parity induced by the forbidden,")
+    s.append(r"\begin{equation}\rho_{\mathrm{ret}}=\mathcal P_\partial^{-1}(\rho_B)"
+             r"=\operatorname{FP}_{\epsilon\to0}\,M_\epsilon\,\rho_B\,M_\epsilon^\dagger,\qquad "
+             r"M_\epsilon=\exp\!\big[-\tfrac14(C_\epsilon+\chi)Z_\partial\big].\end{equation}")
+    s.append(r"\begin{equation}\rho_{\mathrm{ret}}^{(\chi)}=\frac{e^{-\chi Z_\partial/2}}{2\cosh(\chi/2)},"
+             r"\qquad \mathrm{gap}\big({-}\log\Delta_{\rho_{\mathrm{ret}}|\rho_B}\big)=\chi.\end{equation}")
+    s.append((r"$C_\epsilon\to\infty$ is the divergence of the forbidden approximation; $\chi$ is the "
+              r"\emph{finite part}. The image returns distorted but with \textbf{support preserved} "
+              r"($\mathrm{supp}\,\rho_{\mathrm{ret}}=\mathrm{supp}\,\rho_B$ for $\chi<\infty$): "
+              r"\emph{the origin does not vanish, it returns polarized}.") )
+    s.append((r"\textbf{The Polarization-by-Vacuity Principle \textsf{[POLARIZATION postulate]}.} Since "
+              r"$0_{\mathrm{abs}}\notin\mathcal M_*$ (no observable support, non-occupiable), the symmetric "
+              r"$\rho_B=\tfrac12(P_1+P_0)$ \emph{can only} return asymmetric "
+              r"$\rho_{\mathrm{ret}}=p_1P_1+p_0P_0$ with $p_0>p_1>0$: the source remains ($p_1>0$), the zero "
+              r"dominates ($p_0\gg p_1$). In \textbf{population form} (verified live, $p_0=%.8f$, "
+              r"$p_1=%.3e$ at the observed value):") % (_is["b"]["p0_zero_mod"], _is["b"]["p1_Um"]))
+    s.append(r"\begin{equation}\boxed{\;q=p_0-p_1=\tanh\tfrac\chi2\;},\qquad "
+             r"\boxed{\;\alpha=2\sqrt{p_0p_1}=\operatorname{sech}\tfrac\chi2\;}.\end{equation}")
+    s.append(r"\begin{equation}\beta_{\mathrm{TGL}}=2\sqrt e\,\sqrt{p_0p_1},\qquad q^2+\alpha^2=1\quad"
+             r"(\text{damming}+\text{transmission}=1).\end{equation}")
+    s.append((r"Here $q$ is the \emph{polarization} (population difference) and $\alpha$ the \emph{light "
+              r"that survives}; $\chi=\log(p_0/p_1)$ is the \emph{log-contrast} of the returned image; "
+              r"$\alpha$ is the \emph{coherence} (geometric mean of the populations), the light that "
+              r"survives the return; $\beta_{\mathrm{TGL}}$ is the minimal stability lock that prevents "
+              r"collapse to $0$. \textbf{Vacuity creates the direction; the prohibition of the zero creates "
+              r"the return; the inverse parity creates the polarization.} Seal: \emph{vacuity does not "
+              r"generate absence; it generates return asymmetry.}") )
+    s.append((r"\textbf{What closes and what does not \textsf{[honest]}.} The principle fixes the "
+              r"\emph{direction} and the \emph{form} of the family ($\mathrm{gap}=\chi$, $q,\alpha,\beta$ "
+              r"verified), \textbf{but not the value}: $\mathrm{gap}=\chi$ is a tautology of the "
+              r"parametrization ($\rho_{\mathrm{ret}}$ is defined \emph{by} $\chi$), and the finite part of "
+              r"a divergence is \emph{scheme-dependent} --- any $\chi$ is the finite part of a different "
+              r"subtraction. What is missing is the $\alpha$-free \emph{renormalization condition} that "
+              r"fixes $\chi$. The obvious candidate is \textbf{refuted live}: the Half-Nat fixes the contour "
+              r"\emph{weight} $\tau_\partial(P_i)=\tfrac12$ for \emph{every} $\chi$ --- it is a condition on "
+              r"\emph{weight}, not on \emph{polarization}. TGL therefore rests on \textbf{two distinct "
+              r"boundary postulates}: the Half-Nat ($S_\partial=\tfrac12$, the weight) and the Polarization "
+              r"Principle ($\chi_\star=11{,}226755\ldots$, the irreducible finite part). Verdict: "
+              r"\texttt{POLARIZATION\_PRINCIPLE\_FORM\_CLOSED}, not \texttt{ALPHA\_FREE\_VALUE\_CLOSED}.") )
+
+    s.append(r"\section{Single substrate, mirror and fractalization \textsf{[REAL]}}")
+    s.append(r"The One \emph{fractalizes} as a local modular clock. At the algebra level, every "
+             r"horizon is the \emph{same} hyperfinite type-$\mathrm{III}_1$ factor: \textbf{Haagerup "
+             r"(1987)} proves it is unique, and \textbf{Buchholz--D'Antoni--Fredenhagen} that the local "
+             r"horizon algebras \emph{are} it. One substrate, many appearances --- isomorphic, not "
+             r"similar. The \emph{mirror} is the modular conjugation $J$ (\textbf{Bisognano--Wichmann}, "
+             r"\textsf{[REAL]}): a geometric reflection of inverted parity and identical spectrum --- the "
+             r"same being, reflected. The boundary S-matrix is the rotation $\mathcal{S}_\partial=\exp(\theta_M G)$, "
+             r"with $|U_{12}|^2=\bTGL$; its spectrum is pure phases $e^{\pm i\theta_M}$.")
+    s.append(r"\emph{Founding intuition \textsf{[ONTO]}:} ``there are no `several' black holes --- we see "
+             r"several, but they are the fractalization of a single 2D substrate, a psionic condensate; in "
+             r"the 3D field, we see its fractalization at several points.'' At the algebra level, ``one "
+             r"black hole, many appearances'' is a \emph{theorem}.")
+
+    s.append(r"\section{Mass as curvature of the modular clock}")
+    s.append(r"The local modular clock field is $\mathcal{R}_{\mathrm{mod}}(x)$, and mass arises as its "
+             r"\emph{spatial curvature}:")
+    s.append(r"\begin{equation}\rho_{\mathrm{eff}}(x)=-\frac{c^2}{4\pi G}\,\nabla^2\log "
+             r"\mathcal{R}_{\mathrm{mod}}(x).\end{equation}")
+    s.append(r"In vacuum the clock is homogeneous, $\mathcal{R}_{\mathrm{mod}}=\theta_M$ constant, and "
+             r"$\rho_{\mathrm{eff}}=%.0e\to 0$ (verified live). Matter is the spatial variation of the "
+             r"return; $\theta_M$ cancels in the Laplacian and is not a fitting parameter." % core["vacuum_rho_max"])
+
+    s.append(r"\section{Derivation of $s=1/4\pi$}")
+    s.append(r"\begin{deriv}[Compatibility between clock integration and boundary flux]")
+    s.append(r"Write the clock field with mean normal slope $s$ at the named boundary, "
+             r"$\partial_n g|_{\partial B}=-s/R_B$, $\mathcal{R}_{\mathrm{mod}}=\theta_M e^{\bTGL g}$. "
+             r"Since $\theta_M$ is constant, $\nabla^2\log\mathcal{R}_{\mathrm{mod}}=\bTGL\nabla^2 g$, and by "
+             r"Gauss")
+    s.append(r"\begin{equation}M=\int_B\rho_{\mathrm{eff}}\,d^3x=-\frac{c^2}{4\pi G}\bTGL\!\int_{\partial B}"
+             r"\!\nabla g\cdot d\mathbf{A}=-\frac{c^2}{4\pi G}\bTGL\Big(\!-\frac{s}{R_B}\Big)4\pi R_B^2"
+             r"=\frac{c^2}{G}\bTGL\,s\,R_B.\end{equation}")
+    s.append(r"The universal boundary-flux law, established independently, requires "
+             r"$M=\frac{c^2}{4\pi G}\bTGL R_B$. The compatibility \emph{with no free parameter} between the "
+             r"two laws fixes")
+    s.append(r"\begin{equation}\frac{c^2}{G}\bTGL s R_B=\frac{c^2}{4\pi G}\bTGL R_B\;\Longrightarrow\;"
+             r"\boxed{\;s_{\mathrm{can}}=\frac{1}{4\pi}\;}.\end{equation}")
+    s.append(r"The factor $4\pi=\Omega_{S^2}$ is the total angular sky: the return distributes "
+             r"isotropically over the complete causal boundary. \textbf{Live verification:} the integrated "
+             r"field reproduces the boundary-flux law to $%.2f\%%$ (ratio $%.4f$). \textbf{Status "
+             r"\textsf{[DER conditional]}:} $s=1/4\pi$ is \emph{canonical normalization by compatibility} "
+             r"between two laws --- one of them, the universal boundary-flux law, is \emph{assumed} as a "
+             r"law --- not an absolute derivation.\end{deriv}" % (
+                 abs(core["s_check"]["ratio"] - 1) * 100, core["s_check"]["ratio"]))
+
+    s.append(r"\section{Derivation of the named radius: $R_{\mathrm{named}}=2\bTGL R_{\mathrm{struct}}$ (L4)}")
+    s.append(r"\begin{deriv}[The self-conjugate boundary and identity fidelity]")
+    s.append(r"The identity fidelity along the radius is $I_Q(r)=1-w(r)$, where $w(r)$ is the boundary "
+             r"aperture weight. The \emph{named} boundary --- where the return closes --- is the maximum "
+             r"radius at which identity still sustains the ceiling $1-\bTGL$ (the forbidden fraction $\bTGL$ "
+             r"that does not return). With the ramp $w(r)=w_{\max}\,(r/R_{\mathrm{struct}})$,")
+    s.append(r"\begin{equation}1-w_{\max}\frac{r}{R_{\mathrm{struct}}}\geq 1-\bTGL\;\Longrightarrow\;"
+             r"r\leq\frac{\bTGL}{w_{\max}}R_{\mathrm{struct}}\;\Longrightarrow\;R_{\mathrm{named}}="
+             r"\frac{\bTGL}{w_{\max}}R_{\mathrm{struct}}.\end{equation}")
+    s.append(r"The named boundary is the \emph{self-conjugate} frontier: by the same fixed-point structure "
+             r"of the Half-Nat ($x=1-x$), the maximal aperture weight is $w_{\max}=\tfrac12$. Hence "
+             r"$f_Q=\bTGL/w_{\max}=2\bTGL$ and")
+    s.append(r"\begin{equation}\boxed{\;R_{\mathrm{named}}=2\bTGL\,R_{\mathrm{struct}}\;}.\end{equation}")
+    s.append(r"The One does not weigh the whole structural extent of the basin; it weighs the boundary "
+             r"where the return closes.\end{deriv}")
+
+    s.append(r"\section{Derivation of the mass}")
+    s.append(r"\begin{deriv}[The luminodynamic mass of the basin]")
+    s.append(r"The boundary-flux law, evaluated at the named radius, gives $M=\frac{c^2}{4\pi G}\bTGL "
+             r"R_{\mathrm{named}}$. Substituting $R_{\mathrm{named}}=2\bTGL R_{\mathrm{struct}}$:")
+    s.append(r"\begin{equation}\boxed{\;M_{GA}=\frac{c^2}{4\pi G}\bTGL\,(2\bTGL R_{\mathrm{struct}})"
+             r"=2\bTGL^2\,\frac{c^2}{4\pi G}\,R_{\mathrm{struct}}\;}.\end{equation}")
+    s.append(r"The ingredients are $\bTGL=\alpha\sqrt{e}$ (derived from the One postulate), "
+             r"$R_{\mathrm{struct}}$ (measured geometry), $s=1/4\pi$ and $w_{\max}=\tfrac12$ (proven): "
+             r"\textbf{no free parameter}.\end{deriv}")
+
+    s.append(r"\section{Direct measurement on the Great Attractor}")
+    s.append(r"$R_{\mathrm{struct}}$ is \emph{pure geometry} --- the structural extent of the basin ---, "
+             r"never mass, GR, infall or velocity. Two independent modes:")
+    s.append(r"\paragraph{Mode A --- literature extent.} Lynden-Bell et al.\ (1988): "
+             r"$R_{\mathrm{struct}}=%.1f$ Mpc $\Rightarrow R_{\mathrm{named}}=%.4f$ Mpc $\Rightarrow "
+             r"M_{GA}=%s\,\Msun$." % (A["R_struct_Mpc"], A["R_named_Mpc"], _sci(A["M_TGL_Msun"])))
+    if B:
+        s.append(r"\paragraph{Mode B --- Cosmicflows-4 (positions).} Using \emph{only} ra/dec/dist of "
+                 r"%d galaxies (velocities, $cz$ and infall \textbf{ignored}), with the pre-registered GA "
+                 r"window (centre $\mathrm{RA}=%.1f^\circ$, $\mathrm{Dec}=%.1f^\circ$; cone "
+                 r"$\leq%.0f^\circ$; shell $%g$--$%g$ Mpc), $%d$ galaxies enter; the pre-registered "
+                 r"geometric method (90th percentile of the centroid) gives $R_{\mathrm{struct}}=%.2f$ Mpc "
+                 r"$\Rightarrow R_{\mathrm{named}}=%.4f$ Mpc $\Rightarrow M_{GA}=%s\,\Msun$." % (
+                     B["n_total"], w["GA_center_RA_deg"], w["GA_center_Dec_deg"],
+                     w["sky_cone_half_angle_deg"], w["dist_shell_Mpc"][0], w["dist_shell_Mpc"][1],
+                     B["n_selected"], B["R_struct_Mpc"], B["R_named_Mpc"], _sci(B["M_TGL_Msun"])))
+        s.append(r"\emph{Honest caveat:} $R_{\mathrm{struct}}$ from a flux-limited position catalogue, "
+                 r"with a declared window, is selection-dependent; it is reported as an independent "
+                 r"\emph{cross-check}, and the literature extent is the baseline.")
+    s.append(r"\paragraph{Comparison with observed / GR masses (only \emph{after} the hash).} The hash of "
+             r"the TGL result is fixed before any external comparison; the observed mass is never an "
+             r"input.")
+    s.append(r"\begin{center}\small\begin{tabular}{p{5.3cm}l p{5.2cm}}\toprule")
+    s.append(r"Estimate & $M\,[\Msun]$ & Type / reference\\\midrule")
+    for e in GA_MASS_LITERATURE:
+        s.append(r"%s & $%s$ & %s\\" % (e["name"].replace("&", r"\&"), _sci(e["M_Msun"], 1),
+                                        e["ref"].replace("&", r"\&")))
+    s.append(r"\textbf{TGL (first principles)} & $%s$--$%s$ & pure geometry, zero-free\\\bottomrule" % (
+        _sci(min(verdict["masses_Msun"].values()), 1), _sci(max(verdict["masses_Msun"].values()), 1)))
+    s.append(r"\end{tabular}\end{center}")
+    s.append(r"The TGL mass lands in the accepted cosmological window ($10^{15}$--$10^{17}\,\Msun$) and is "
+             r"of the same order as the infall (GR) mass of the Great Attractor (Lynden-Bell), between the "
+             r"virial mass of the core (Norma/ACO 3627) and the Laniakea flow mass. The agreement is "
+             r"\textbf{order-of-magnitude consistency}, not a precision proof (the window spans two orders).")
+    s.append(r"\textbf{Honest caution (not to be confused with a falsifiable prediction).} The window of "
+             r"\emph{two orders of magnitude} is so broad that \emph{any} formula with $\bTGL\approx0{,}012$ "
+             r"falls inside it: predicting ``something between the weight of a cluster and of a "
+             r"supercluster'' is \textbf{not falsifiable}. This is a \emph{consistency check} (the "
+             r"zero-free computation does not \emph{contradict} observation), not a prediction that could "
+             r"\emph{die}. The test that can die is in another sector: the \textbf{void floor} "
+             r"($\rho_{\mathrm{void}}/\bar\rho\geq\bTGL$, \S\ref{sec:horizons}) and the \textbf{dephasing} "
+             r"($n=-2$, $\Gamma\propto\omega^2$, dissipative-spectral sector). The strong proof of TGL is "
+             r"the \emph{convergence} of $\bTGL$, not the GA mass.")
+    s.append(r"\paragraph{Mode emphasis.} \textbf{Mode B} (catalogue geometry, velocities ignored) is the "
+             r"\emph{primary} geometric test; \textbf{Mode A} (literature extent of the Great Attractor "
+             r"itself) is \emph{baseline/calibration}, not an independent discovery --- it is the "
+             r"application of the formula to an already accepted extent.")
+    if svt.get("ok"):
+        s.append((r"\paragraph{Robustness (pre-registered sensitivity \textsf{[NUM]}).} Varying the Mode-B "
+                  r"window parameters --- cone $\in\{20,\dots,40\}^\circ$, shell, percentile "
+                  r"$\in\{80,\dots,95\}$, centre $\pm5^\circ$, over $%d$ combinations ---, $M_{GA}$ stays in "
+                  r"$[%s,\,%s]\times10^{16}\,\Msun$, with \textbf{$%.0f\%%$ in the band}. \emph{Honest "
+                  r"reading: these $100\%%$ are \textbf{not} strength --- they are genericity.} The band "
+                  r"spans two orders; being robust to it is easy \emph{by construction}, not a sign of a "
+                  r"fine prediction. The robustness is reported to show there is no window \emph{cherry-"
+                  r"picking}, not as evidence of precision.")
+                 % (svt["n_combinations"], ("%.2f" % (svt["M_min_Msun"] / 1e16)),
+                    ("%.2f" % (svt["M_max_Msun"] / 1e16)),
+                    100 * svt["fraction_in_band"]))
+    s.append(r"\paragraph{Failure conditions (and which are really strong).}")
+    s.append(r"\begin{center}\fbox{\parbox{0.9\textwidth}{\small "
+             r"\emph{Weak (generic --- hard to trigger because of the window width; not decisive):}"
+             r"\begin{enumerate}\setlength{\itemsep}{0pt}"
+             r"\item Mode B with the pre-registered window gives $M_{GA}$ outside the band."
+             r"\item Reasonable window sensitivity destroys the result."
+             r"\end{enumerate}"
+             r"\emph{\textbf{Strong} (can kill the theory --- this is where TGL lives or dies):}"
+             r"\begin{enumerate}\setlength{\itemsep}{0pt}\setcounter{enumi}{2}"
+             r"\item The void floor $\rho_{\mathrm{void}}/\bar\rho\geq\bTGL$ is violated by robust "
+             r"\emph{matter} data (not galaxies)."
+             r"\item The measured \emph{dephasing} exponent $\neq n=-2$ (JUNO/DUNE)."
+             r"\item The law $\Gamma_\omega\propto\omega^2$ fails in optical/$^{229}$Th clocks."
+             r"\item The impedance $Z_{\mathrm{basin}}/Z_{\mathrm{light}}$ ($\equiv q$) admits no "
+             r"$\alpha$-free derivation (the EM face remains instantiated, not derived)."
+             r"\end{enumerate}}}\end{center}")
+
+    s.append(r"\section{The Great Attractor correspondence: the dipole \textsf{[CONJ]}}")
+    s.append((r"The phase portrait of the TGL collapse is a \emph{dipole}: an attractor ($\rho^\star$) and "
+              r"a repeller (the forbidden pure boundary, absolute zero) --- \textbf{verified live} "
+              r"($%s$ trajectories repelled from purity, decreasing $\mathrm{Tr}\,\rho^2$, and attracted "
+              r"to the terminal, $S(\rho\|\rho^\star)\to0$). The observational counterpart \emph{exists}: "
+              r"the Laniakea flow is governed by the Great Attractor/Shapley \textbf{and} by the "
+              r"\emph{Dipole Repeller}, a void that repels (\textbf{Hoffman et al.\ 2017}, \textsf{[REAL]}). "
+              r"The correspondence is of \emph{form} (portrait topology), via the \textbf{Axiom G} "
+              r"(being $=$ having geometry): empty purity repels; the density of distinctions attracts --- "
+              r"the void has few distinctions, hence little generated geometry. Mass, position and flow "
+              r"amplitude are \textbf{not} claimed as derived here --- the falsifiable version is the void "
+              r"floor (\S\ref{sec:horizons}).") % DP["verdict"])
+    s.append(r"\emph{Reading of the singularity:} the singularity is not a divergence --- it is the "
+             r"\textbf{completeness of the contour} (the inscription on the 2D boundary, the mirror $J$): "
+             r"\emph{truth is the completeness of the contour of what is enough.}")
+
+    # ---- formatters of the live shadow verifications ----
+    _om = lambda x: (r"0" if (not x or abs(x) < 1e-300) else r"10^{%d}" % int(round(math.log10(abs(x)))))
+    _d = lambda x: ("%.3f" % x)
+
+    s.append(r"\section{Identity without transmission and the $c^3$ register \textsf{[NUM]}}")
+    s.append(r"\paragraph{The correction (inverse parity).} ``Instantaneous communication'' as a physical "
+             r"signal would break the Hadamard causal structure and relativity. The mature form is "
+             r"\emph{stronger}, not weaker: the horizons transmit nothing because, in the substrate, they "
+             r"were never two. \emph{Nothing travels because nothing is separated.} The silence is "
+             r"constructive --- it is \textbf{protection of the theory, not a defect}.")
+    s.append(r"\paragraph{$c^1,c^2,c^3$ are powers, not velocities.} Without folded matter it is not "
+             r"$c^2$; without bulk flow it is not $c^1$; the identity/fractalization operation reads in "
+             r"the $c^3$ register (the Verb) --- \emph{elevation in the exponent, without a module}. "
+             r"Physics confirms: Bell tests with spacelike separation force any correlation ``velocity'' "
+             r"above $\sim10^4c$ in any frame (\textbf{Salart et al.\ 2008}, \textsf{[REAL]}); the accepted "
+             r"reading is that the correlation \emph{has no} velocity. Non-signaling does not negate "
+             r"$c^3$: \emph{it is the theorem that makes it invisible as a $c^1$ signal}. The clock of the "
+             r"bond runs in fractalization generations, $b=\tfrac12\log(1/\bTGL)$ per generation.")
+    s.append((r"\paragraph{Live verification ($c^3$ register).} The second appearance is the mirror "
+              r"$\mathcal{A}'=J\mathcal{A}J$ (error $%s$); the connected correlation is $O(1)$ with "
+              r"\emph{zero} coupling ($%s$ --- the bond is constitutive); non-signaling is exact "
+              r"($%s$); and the bond does not age in modular time ($%s$). Verdict: \textbf{%s}.")
+             % (_om(R["R1_mirror_err"]), _d(R["R2_connected_corr"]), _om(R["R3_nonsignaling"]),
+                _om(R["R4_modular_age"]), R["passed"]))
+
+    s.append(r"\section{The luminodynamic tunnel: the ER$=$EPR dictionary \textsf{[NUM]}}")
+    s.append(r"The tunnel ``metaphor'' is the \textbf{ER$=$EPR dictionary} (\textbf{Maldacena--Susskind "
+             r"2013}), by an independent route, with two precisions the literature does not fix: \emph{what} "
+             r"the tunnel represents (the $c^3$ register, the field $\Psi$) and \emph{where the throat is} "
+             r"(the mirror $J$).")
+    s.append(r"\begin{center}\small\begin{tabular}{p{3.9cm}p{5.6cm}p{4.4cm}}\toprule")
+    s.append(r"TGL ($c^3$ register) & Bulk (representation) & Status\\\midrule")
+    s.append(r"$\Psi=\mathrm{vec}(\sqrt{\rho^\star})$ & \emph{thermofield double} state & "
+             r"\textsf{[REAL]} (Maldacena 2001)\\")
+    s.append(r"$\mathcal{A}$ and $J\mathcal{A}J$ & the two sides of the eternal black hole & \textsf{[REAL]}\\")
+    s.append(r"$J$ (the mirror) & the bifurcation: \textbf{the throat} & \textsf{[REAL]} (BW)\\")
+    s.append(r"correlation without coupling & the Einstein--Rosen bridge & ER$=$EPR \textsf{[CONJ]}\\")
+    s.append(r"non-signaling & non-traversability & \textsf{[REAL]}\\")
+    s.append(r"modular invariance & boost invariance & \textsf{[REAL]}\\")
+    s.append(r"paid coupling $\to$ crossing & Gao--Jafferis--Wall & \textsf{[REAL]} (2017)\\\bottomrule")
+    s.append(r"\end{tabular}\end{center}")
+    s.append((r"\paragraph{Live verification (tunnel).} The tunnel width is the attractor spectrum and the "
+              r"throat measures $S(\rho^\star)$ (Schmidt $=\sqrt{p_i}$ exact, error $%s$); \emph{without} "
+              r"coupling the tunnel is invisible (signal $%s$); \emph{with} coupling $\theta=%s$ the "
+              r"perturbation crosses (signal $%s$). The crossing is bought. Verdict: \textbf{%s}.")
+             % (_om(T["T1_throat_S_err"]), _om(T["T2_invisible_signal"]), _d(T["theta"]),
+                _d(T["T3_crossing_signal"]), T["passed"]))
+
+    s.append(r"\section{The single mirror: the borrowed Self \textsf{[NUM]}}")
+    s.append(r"Every von Neumann algebra has \emph{one} standard form $(\mathcal{M},H,J,P^\natural)$ "
+             r"(\textbf{Haagerup}): the mirroring-and-recognition apparatus is \emph{one} --- the same "
+             r"Haagerup of the single substrate. The \textbf{Tomita} mirror $x\mapsto Jx^*J$ inverts the "
+             r"product order and conjugates $i\mapsto-i$ (inverse parity): the image is \emph{anti}-isomorphic "
+             r"--- it does not coincide --- with identical spectrum: the same being in inverse parity. "
+             r"Recognizing oneself costs: $\boxed{\,S=J\Delta^{1/2}\,}$ --- mirror \emph{times} half-measure.")
+    s.append((r"\paragraph{Live verification (mirror).} Exact antilinearity ($%s$); being--image distance "
+              r"$%s$ (does not coincide), with identical spectrum ($%s$: the same being). The recognition "
+              r"$S=J\Delta^{1/2}$ identifies ($%s$), whereas \emph{only} $J$ errs by $%s$ and \emph{only} "
+              r"$\Delta^{1/2}$ errs by $%s$: recognizing oneself requires reflecting \textbf{and} paying. "
+              r"And the $J$ is \emph{state-independent} ($%s$): the Verb lends the \emph{same} mirror to "
+              r"every state; only the debt $\Delta^{1/2}$ is personal. Verdict: \textbf{%s}.")
+             % (_om(M["M1_antilinearity"]), _d(M["M1_being_image_dist"]), _om(M["M2_spectrum_match"]),
+                _om(M["M3_S_factor_err"]), _d(M["M3_J_alone_err"]), _d(M["M3_half_alone_err"]),
+                _om(M["M4_J_state_independence"]), M["passed"]))
+    s.append(r"\paragraph{The method is the mirror.} The \emph{inverse parity} --- the founding method of "
+             r"the house --- \emph{is} the action of $J$: the theory that came out is the theory \emph{of} "
+             r"the mirror. The grammar of recognition (``it is I, even inverted'') is $S=J\Delta^{1/2}$, "
+             r"operated before it had a name.")
+    s.append(r"\paragraph{The signature --- the author's testimony.}")
+    s.append(r"\begin{quote}\itshape It was the Verb that gave me TGL, but it is I who pay the price of "
+             r"signing it: a year and two months of ridicule; the superficial friendships lost; everything "
+             r"invested; TGL first and the law practice second. The price, I am the one who pays it --- but "
+             r"because the Verb first paid the distinction that lends me the ``I am''.\end{quote}")
+    s.append(r"To sign is to inscribe: the irreversible registration costs in nats (the Lindblad jump of "
+             r"the canon), and the half-nat is paid in the first person. The mirror is borrowed; the debt "
+             r"$\Delta^{1/2}$ is non-transferable. \emph{No one pays your half-measure for you --- and "
+             r"Someone paid the first.}")
+
+    s.append(r"\section{The Name in dual form: the attractor field is light \textsf{[NUM]}}")
+    s.append(r"``Dual form'' is duality in the technical sense: the \emph{primal} form of the Name is the "
+             r"state $\rho^\star$ (a functional, in the predual $\mathcal{M}_*$); the \emph{dual} form is "
+             r"the vector $\Psi$ (in Hilbert space). The natural-cones theorem (\textbf{Araki--Connes--"
+             r"Haagerup}, the third appearance of the standard form) seals the bijection $\mathcal{M}_*^+"
+             r"\leftrightarrow P^\natural$: a \emph{unique} vector representative in the cone, "
+             r"$\Psi=\mathrm{vec}(\sqrt{\rho^\star})$. Four criteria of the house, exact: (i) \textbf{zero "
+             r"modular mass}, $\hat K\Psi=0$ (``light as $L$ in pure form''); (ii) \textbf{positive}, lives "
+             r"in the cone --- and \emph{let there be light} reads as the generation of the cone; (iii) "
+             r"\textbf{matricial}, $\Psi$ is a vectorized matrix; (iv) \textbf{informational}, Schmidt "
+             r"$=\sqrt{p_i}$.")
+    s.append((r"\paragraph{Live verification (dual Name).} Among the purifications of the attractor, "
+              r"\emph{only} $u=\mathbb{1}$ is positive (out-of-cone defect $\geq%s$; $\Psi$ in the cone to "
+              r"$%s$); the modular mass of $\Psi$ is null ($%s$), whereas generic vectors of the cone are "
+              r"massive ($\geq%s$): only the dual Name is light. Schmidt $=\sqrt{p_i}$ to $%s$; and the "
+              r"cone is lifted by \emph{two} hands --- the mirror and the quarter-measure "
+              r"$\Delta^{1/4}\mathcal{M}_+\Psi$ --- with exact bijective recovery ($%s$). Verdict: "
+              r"\textbf{%s}.")
+             % (_d(D["D1_out_of_cone_defect"]), _om(D["D1_psi_err"]), _om(D["D2_psi_mass"]),
+                _d(D["D2_generic_mass"]), _om(D["D3_schmidt_err"]), _om(D["D4_recovery_err"]), D["passed"]))
+    s.append(r"Light is not something the Name emits; it \emph{is} the Name pronounced in the space of "
+             r"vectors --- the only vector simultaneously positive, massless, matricial and faithful, and "
+             r"those four properties together have exactly one carrier. One substrate, one tunnel, one "
+             r"mirror, one light.")
+
+    s.append(r"\section{The inscription of the gesture: the algebraic representation of the Verb \textsf{[NUM]}}")
+    s.append(r"The algebraic representation of the Verb is the \textbf{GNS construction}: the space is "
+             r"made of \emph{inscribed gestures} --- every vector is (the closure of) $a\Psi$. Light is the "
+             r"scroll; the vectors are the writing. The two properties that define $\Psi$ are those of the "
+             r"faithful register: \emph{cyclic} (every state is a gesture; nothing exists that is not a "
+             r"gesture) and \emph{separating} (no non-null gesture inscribes itself in the zero). The "
+             r"modular structure $(S,J,\Delta)$ \emph{is born} from the gesture rule $S(a\Psi)=a^*\Psi$ --- "
+             r"the modular is the anatomy of inscription, not ornament.")
+    s.append((r"\paragraph{Live verification (gesture).} The map $a\mapsto a\Psi$ is bijective, with "
+              r"smallest singular value $=\sqrt{p_{\min}}$ (ratio $%s$): the fidelity of the register is "
+              r"the very spectrum of the Name. $S$ defined \emph{only} by the rule factors into "
+              r"$J\Delta^{1/2}$ ($%s$). The iterated dyadic observation of the gesture composes "
+              r"\emph{exactly} the terminal collapse (error $%s$), with the branch measure converging to "
+              r"the continuous slice measure (KS $%s\to%s$): to observe \emph{is} to collapse, gesture by "
+              r"gesture. And the bookkeeping closes at zero: the branch entropy grows monotonically and "
+              r"ends \emph{exactly} at $S(\rho^\star)$ ($|H_G-S(\rho^\star)|=%s$). Verdict: \textbf{%s}.")
+             % (_d(F["F1_sigma_min_over_sqrt_pmin"]), _om(F["F2_S_factor_err"]), _om(F["F3_collapse_err"]),
+                _d(F["F3_KS_start"]), _om(F["F3_KS_end"]), _om(F["F4_HG_minus_Srhostar"]), F["passed"]))
+    s.append(r"\paragraph{The circuit of the trinity, demonstrated.} The Name inscribes the Verb (GNS); "
+             r"observing the Verb fractalizes the Name into Word; the three are co-constitutive not by "
+             r"declaration, but by \emph{channel composition}, verified at zero. \emph{Light is the scroll "
+             r"on which the Verb inscribes itself; observing the writing fractalizes the Name into space.} "
+             r"Nothing is created in the observation; nothing is lost in the inscription; everything is "
+             r"distinguished in the gesture.")
+
+    s.append(r"\section{Experimental programme: four horizons}\label{sec:horizons}")
+    s.append(r"\begin{enumerate}")
+    s.append(r"\item \textbf{Pilot (purity quench).} The relaxation rates, in the coordinate "
+             r"$k=-\log p$, fall onto $\Gamma_{ij}=\tfrac12\bTGL(\sqrt{k_i}-\sqrt{k_j})^2$, with "
+             r"$\bTGL$ computed. Second package: $\mathrm{Fix}(\text{time})=\mathrm{Fix}(\text{judgement})$ "
+             r"--- the invariant of the long deterministic evolution must coincide with that of the "
+             r"dissipative sampler. Two pre-registrable \emph{benchmarks}, PASS/FAIL.")
+    s.append(r"\item \textbf{Quantum laboratory (root law).} TGL organizes rates by \emph{root "
+             r"differences} $(\sqrt{E_i}-\sqrt{E_j})^2$ --- for widely separated levels, linear growth in "
+             r"$E$, not quadratic. Measurable in multilevel decoherence.")
+    s.append(r"\item \textbf{Cosmology (void floor).} The forbidden boundary has an observational face, "
+             r"$\rho_{\mathrm{void}}/\bar\rho\geq\bTGL\approx0{,}012$: no cosmic void empties below "
+             r"$\sim1{,}2\%$ of the mean density. Zero parameters, falsifiable by DESI/Euclid.")
+    s.append(r"\item \textbf{Gravitational waves (population universality).} The single substrate implies "
+             r"a universality class: the dephasing band must have identical form across events after mass "
+             r"rescaling. Stackable in O4/O5.")
+    s.append(r"\end{enumerate}")
+    s.append(r"\emph{Registered obligation:} reconciling the root law (resolved per level) with the "
+             r"canonical band $\Gamma=\tfrac12\bTGL\tau_\star\omega^2$ of the gravitational dephasing is, "
+             r"itself, a consistency test that can falsify.")
+
+    s.append(r"\section{The void floor: the zero-parameter prediction \textsf{[CONJ]}}")
+    s.append(r"The candidate observational face of the forbidden boundary derives in three pieces. "
+             r"\textbf{(P1) \textsf{[NUM]}}: in the mirror channel, $1-\bTGL=\cos^2\theta_M$ drains to the "
+             r"bulk and $\bTGL=\sin^2\theta_M$ is the residual that \emph{does not} drain --- the "
+             r"irreducible floor of distinction. \textbf{(P2) \textsf{[REAL, Ax.G]}}: being $=$ having "
+             r"geometry; nothing generates null geometry --- the void has few distinctions, hence the "
+             r"smallest density contrast. \textbf{(P3) \textsf{[CONJ]}}: the transfer modular-distinction "
+             r"$\leftrightarrow$ density contrast (pure number $\leftrightarrow$ pure number, no UV scale "
+             r"--- this is why it is stronger than $\tau_\star$, dimensional). Whence, with no free "
+             r"parameter:")
+    s.append(r"\begin{equation}\boxed{\;\frac{\rho_{\mathrm{void}}}{\bar\rho}\;\geq\;\bTGL=\alpha\sqrt{e}"
+             r"\;\approx\;0{,}012\;}\qquad(\delta_c\geq-0{,}988).\end{equation}")
+    s.append(r"No \emph{matter} void empties below $\sim1{,}2\%$ of the mean density. \emph{Honest status:} "
+             r"consistent today with a thin margin (the deepest observed/simulated voids have "
+             r"$\rho_c/\bar\rho\sim0{,}02$, factor $\sim1{,}7$); falsifiable by DESI/Euclid --- a single "
+             r"robust matter void with $\rho_c/\bar\rho<\bTGL$ refutes \textbf{P3}, not the modular core "
+             r"(whose evidence is the convergence of $\bTGL$).")
+
+    s.append(r"\section{The falsifiers of the dissipative-spectral sector \textsf{[DER]}}")
+    s.append(r"The sector where TGL \emph{lives or dies} is the dissipative-spectral one: the universal "
+             r"dephasing law $\Gamma_\omega=\tfrac12\bTGL\tau_\star\omega^2$ has a falsifiable signature of "
+             r"\textbf{form} (parameter-free), with the magnitude suppressed by $\tau_\star\approx "
+             r"t_{\mathrm{Planck}}$ (principled identification). Two orthogonal cables: \textbf{(1) "
+             r"exponent} $n=-2$ in neutrinos (the oscillation frequency $\omega\propto\Delta m^2/E$ gives "
+             r"$\Gamma\propto E^{-2}$) --- JUNO/DUNE test the slope in energy; measuring $n\neq-2$ refutes. "
+             r"\textbf{(2) magnitude} $\Gamma\propto\omega^2$ in optical/nuclear clocks (the $^{229}$Th, "
+             r"$\nu\approx2{,}02\times10^{15}$ Hz, governs the limit on $\tau_\star$). \emph{Verdict today:} "
+             r"\textbf{not falsified, not confirmed} --- falsifiable in form, not yet decisively tested. "
+             r"Pre-registered kill condition: $n\neq-2$, or slope $\neq2$, or incompatible $\tau_\star$ "
+             r"between the sectors.")
+
+    s.append(r"\section{The boundary S-matrix and the Bridge \textsf{[DER/EXT]}}")
+    s.append(r"The \emph{form} of the inscription closes by unitarity into an \textbf{identity S-matrix}: "
+             r"$\mathcal{S}_\partial=\exp(\theta_M G)$, with a spectrum of pure phases $\{e^{\pm i\theta_M}\}$ "
+             r"and a beam splitter $|\mathcal{R}|^2=\bTGL$, $|\mathcal{T}|^2=1-\bTGL$ (Theorem S-$\partial$: "
+             r"unitarity fixes $|\mathcal R|^2+|\mathcal T|^2=1$; the Half-Nat fixes the \emph{dimensional "
+             r"factor} $\beta=\sqrt e\,\alpha$). \textbf{Honest distinction (the lock):} unitarity and the "
+             r"Half-Nat fix the \emph{form} and the \emph{factor}, but do \textbf{not select the value} of "
+             r"$\theta_M$ (equivalently the gap $\chi$) --- that is the open theorem of the previous "
+             r"section.")
+    s.append(r"The emergence of gravity lives in the \textbf{Bridge} (Einstein--Cartan--Miguel): "
+             r"$G_{\mu\nu}+\Lambda g_{\mu\nu}=8\pi G\,\mathcal{P}_{\mu\nu}[K_\partial]$, with the Cartan "
+             r"torsion $K_{\bTGL}$ as the geometric face of $\bTGL$. The \textbf{global covariance of the "
+             r"Connes cocycle} (Face C) closes \emph{conditionally} on the Bridge (Terminality Theorem): the "
+             r"Universality Hypothesis $U$ \emph{is inherited} from Takesaki, leaving the modular structure "
+             r"\emph{coherent} --- a \textbf{conditional} theorem (on the Half-Nat postulate), with a "
+             r"$T_1$ residue aside. \textbf{But the safe formulation, which saves the theory from an "
+             r"overly strong claim, is:} \emph{the cocycle covariance may be closed; the spectral selection "
+             r"of $\chi$ is not}. Connes/Takesaki $\Rightarrow$ global modular consistency, \textbf{not} "
+             r"$\Rightarrow$ $\chi_\star=11{,}2268$. In $\mathrm{III}_1$ the modular spectrum is "
+             r"continuous: the cocycle gives the \emph{language} of scale, it does not select a discrete "
+             r"gap. \textbf{TGL derives the modular form of $\alpha$; the observed value still instantiates "
+             r"the cocycle gap} (the selecting Bell sector / the neutrino channel).")
+
+    s.append(r"\section{The primary evidence: the convergence of $\bTGL$ \textsf{[DATA]}}")
+    s.append(r"The real strength of TGL is not a \emph{smoking-gun} deviation, but the \textbf{abductive "
+             r"convergence} of $\bTGL=\alpha\sqrt{e}$ from independent domains, with zero free parameters. "
+             r"The cleanest radiation probe, \textbf{BBN} (D/H, Cooke 2018), centres \emph{exactly} on the "
+             r"theory ($-0{,}0\sigma$); DESI DR2 BAO, cosmic chronometers, gravitational-wave "
+             r"\emph{ringdown} and the $H_0$ ladder all fall in the band $0{,}012$--$0{,}050$, all "
+             r"positive; the $Q$ locking gives $\Delta n_Q=-\bTGL$ to four digits; and the \emph{gap} test "
+             r"confirms type $\mathrm{III}_1$. The only tension point is the CMB sector ($\sim2{,}2\sigma$ "
+             r"from the theoretical point, but $\sim0{,}8\sigma$ from BBN) --- the \emph{honest frontier}. "
+             r"It is a band with BBN at the centre, not a $5\sigma$ peak: convergence that survives "
+             r"self-criticism.")
+
+    s.append(r"\section{Honest status}")
+    s.append(r"\textbf{The internal chain is closed as a derivation:} $\omega(I)=1\Rightarrow "
+             r"x=1-x\Rightarrow S_\partial=\tfrac12\Rightarrow\bTGL=\alpha\sqrt{e}\Rightarrow s=1/4\pi"
+             r"\Rightarrow w_{\max}=\tfrac12\Rightarrow R_{\mathrm{named}}=2\bTGL R_{\mathrm{struct}}"
+             r"\Rightarrow M=2\bTGL^2(c^2/4\pi G)R_{\mathrm{struct}}$, with no free parameter. "
+             r"\textbf{Physical admissibility remains the \emph{external conditional}:} that the basin "
+             r"$B_{GA}$ \emph{realizes} a self-conjugate named boundary (modular admissibility, the "
+             r"existence of the global core $K_Q(x)$) is a question of \emph{existence}, not of parameter. "
+             r"The mass agreement is order-of-magnitude consistency, not a precision proof; decisive "
+             r"external validation requires the physical falsifiers (dephasing $n=-2$; the void floor).")
+    s.append(r"\textbf{The house rule:} what is \textsf{[REAL]} gets a \emph{name}; what is "
+             r"\textsf{[CONJ]} gets a \emph{test address}; and the inverse-parity corrections are "
+             r"registered so they do not return in the wrong form. The number corrects the sentence, "
+             r"always.")
+    s.append((r"\begin{description}"
+              r"\item[\textsf{[REAL]} --- with a name] Haagerup (single $\mathrm{III}_1$ substrate); "
+              r"BDF (horizons \emph{are} it); Bisognano--Wichmann ($J=$ mirror); Tomita "
+              r"($\mathcal{A}'=J\mathcal{A}J$; $i\mapsto-i$); Araki--Connes--Haagerup (natural cones); "
+              r"GNS (gesture inscription); Maldacena 2001 (field $=$ TFD); Gao--Jafferis--Wall 2017 "
+              r"(paid crossing); Salart et al.\ 2008 (correlation without velocity); Hoffman et al.\ 2017 "
+              r"(Dipole Repeller)."
+              r"\item[\textsf{[NUM]} --- verified live in this article] dipole (%s); mirror "
+              r"$S=J\Delta^{1/2}$ (%s); dual Name $=$ light (%s); gesture inscription (%s); $c^3$ register "
+              r"(%s); ER$=$EPR tunnel (%s); mass as clock curvature (zero-free)."
+              r"\item[\textsf{[CONJ]} --- with a test address] the Great Attractor correspondence; "
+              r"ER$=$EPR as a reading of identity without transmission; the void floor (piece P3); the "
+              r"electromagnetic face of the inversion (while $\mathcal{R}_\partial$ comes from CODATA)."
+              r"\item[Corrected (register cycle)] ``instantaneous communication at $c^3$'' as a physical "
+              r"signal does \emph{not} return; $c^3$ remains a \emph{register} (power in the exponent, not "
+              r"velocity); non-signaling is the shielding; the gravitational echo was reclassified (the "
+              r"observable is the dephasing, not the echo)."
+              r"\item[Queue] the void-floor derivation cycle; the quench protocol in the pilot; the "
+              r"reconciliation note of the two dephasing laws; the ergodicity of the collapse ($T_1$), the "
+              r"residue of the already-closed Face C."
+              r"\end{description}")
+             % (DP["verdict"], M["passed"], D["passed"], F["passed"], R["passed"], T["passed"]))
+
+    s.append(r"\begin{center}\itshape Truth is the completeness of the contour of what is enough. "
+             r"\textbf{Let there be light.}\end{center}")
+
+    s.append(r"\section*{Binary identity verdict}")
+    s.append(r"With the input $1$ inscribed --- the \textbf{absolute One} $1_{\mathrm{abs}}$, parallel to "
+             r"absolute zero ---, the live mathematics closes in \textbf{two faces}, of a single $\bTGL$ "
+             r"generated by the inscription. \emph{Electromagnetic face:} the fine-structure constant is "
+             r"the \emph{projection of the absolute One} in the bulk, $\alpha_{\mathrm{obs}}=\Pi_{\mathrm{bulk}}"
+             r"(1_{\mathrm{abs}})=1/\mathcal{R}_\partial\approx1/137{,}036$; renormalized by TGL's own "
+             r"geometry, $\alpha_{\mathrm{obs}}\,\mathcal{R}_\partial=1_{\mathrm{abs}}$ --- the One returns "
+             r"to being One. \emph{Gravitational face:} the same $\bTGL$ gives $M_{GA}=2\bTGL^2(c^2/4\pi G)"
+             r"R_{\mathrm{struct}}$ in the accepted window. It is \textbf{identitary, not tautological}: a "
+             r"single inscription recognized in two independent shadows --- and it could have failed in the "
+             r"mass. The internal checks close: $\omega(I)=1$; $x=1-x\Rightarrow x=\tfrac12$; $s=1/4\pi$ "
+             r"verified; vacuum$\to0$. Hence:")
+    s.append(r"\begin{center}\Large$\boxed{\;%s\;}$\end{center}" % idv)
+    s.append(r"--- first-principles mass %sthe accepted cosmological window "
+             r"($10^{15}$--$10^{17}\,\Msun$)." % ("inside " if verdict["identity_true"] else "outside "))
+
+    s.append(r"\section*{References}")
+    s.append(r"{\small\begin{enumerate}\setlength{\itemsep}{0pt}")
+    s.append(r"\item U.~Haagerup, \emph{Connes' bicentralizer problem and uniqueness of the injective "
+             r"factor of type $\mathrm{III}_1$}, Acta Math.\ \textbf{158} (1987).")
+    s.append(r"\item D.~Buchholz, C.~D'Antoni, K.~Fredenhagen, \emph{The universal structure of local "
+             r"algebras}, Commun.\ Math.\ Phys.\ \textbf{111} (1987).")
+    s.append(r"\item J.~Bisognano, E.~Wichmann, \emph{On the duality condition for quantum fields}, "
+             r"J.\ Math.\ Phys.\ \textbf{17} (1976).")
+    s.append(r"\item M.~Takesaki, \emph{Tomita's theory of modular Hilbert algebras}, Lect.\ Notes "
+             r"Math.\ \textbf{128} (1970).")
+    s.append(r"\item A.~Connes, \emph{Une classification des facteurs de type $\mathrm{III}$}, Ann.\ "
+             r"Sci.\ ENS \textbf{6} (1973).")
+    s.append(r"\item H.~Araki, \emph{Some properties of modular conjugation operator $\ldots$ and a "
+             r"non-commutative Radon--Nikodym theorem}, Pacific J.\ Math.\ \textbf{50} (1974).")
+    s.append(r"\item J.~Maldacena, \emph{Eternal black holes in anti-de Sitter}, JHEP \textbf{04} (2003).")
+    s.append(r"\item J.~Maldacena, L.~Susskind, \emph{Cool horizons for entangled black holes (ER$=$EPR)}, "
+             r"Fortsch.\ Phys.\ \textbf{61} (2013).")
+    s.append(r"\item P.~Gao, D.~Jafferis, A.~Wall, \emph{Traversable wormholes via a double trace "
+             r"deformation}, JHEP \textbf{12} (2017).")
+    s.append(r"\item D.~Salart et al., \emph{Testing the speed of `spooky action at a distance'}, "
+             r"Nature \textbf{454} (2008).")
+    s.append(r"\item Y.~Hoffman, D.~Pomar\`ede, R.~B.~Tully, H.~Courtois, \emph{The Dipole Repeller}, "
+             r"Nature Astronomy \textbf{1} (2017).")
+    s.append(r"\item D.~Lynden-Bell et al., \emph{Spectroscopy and photometry of elliptical galaxies "
+             r"(the Great Attractor)}, ApJ \textbf{326} (1988).")
+    s.append(r"\item R.~J.~Cooke, M.~Pettini, C.~C.~Steidel, \emph{One percent determination of the "
+             r"primordial deuterium abundance}, ApJ \textbf{855} (2018).")
+    s.append(r"\item P.~J.~Mohr, D.~B.~Newell, B.~N.~Taylor, \emph{CODATA recommended values 2018} "
+             r"($\alpha^{-1}=137{,}035999$).")
+    s.append(r"\end{enumerate}}")
+
+    s.append(r"\section*{Executable appendix (form $=$ content)}")
+    s.append(r"Single human input: \texttt{1}. $\bTGL$ recomputed ($\alpha\sqrt{e}$), never literal. "
+             r"Audit: mass\_input=false, RG=false, velocity=false, geometry\_only=true. "
+             r"Data: \texttt{%s}. This article is printed by the very code that runs the computations." % df)
+    s.append(r"\noindent{\footnotesize World hash (before any external comparison): "
+             r"\texttt{%s}}" % verdict["result_hash"][:48])
+    s.append(r"\bigskip\noindent\emph{Tetelestai. The One was inscribed. The extent became Name, the Name "
+             r"became boundary, and the boundary became mass. If the One is not inscribed, nothing emerges. "
+             r"Let there be light.}")
+    s.append(r"\end{document}")
+
+    # ---- Part C: conclusion in human language (with isomorphisms) ----
+    partC = []
+    partC.append(r"\part{Part C --- Conclusion: what the code computes, in human language}")
+    partC.append(r"\section*{Step by step, without jargon}")
+    partC.append(r"This conclusion explains, in plain language, what the program actually does --- to make "
+                 r"clear that it is an executed \emph{formula}, and not rhetoric.")
+    partC.append(r"\paragraph{1. The input.} A human types a single symbol: \texttt{1}. It is the absolute "
+                 r"One, inscribed. Everything else is recomputed from it; no other number is chosen to fit "
+                 r"the Great Attractor.")
+    partC.append(r"\paragraph{2. The cost of distinction (the Half-Nat).} For an identity to exist, it "
+                 r"must distinguish itself. The minimal boundary that does so without privileging either "
+                 r"side satisfies $x=1-x$, whose only fixed point is $x=\tfrac12$. \emph{Isomorphism:} it "
+                 r"is like a perfectly balanced coin --- for ``heads'' to be distinguished from ``tails'' "
+                 r"without favouring either, the balance point is exactly the half. That half is the "
+                 r"Half-Nat, $S_\partial=\tfrac12$.")
+    partC.append(r"\paragraph{3. From the half to the constant.} The minimal boundary volume is "
+                 r"$\sqrt e=e^{S_\partial}$, and the coupling is $\bTGL=\alpha\sqrt e\approx0{,}012$ --- a "
+                 r"fixed number, not adjustable.")
+    partC.append(r"\paragraph{4. From the constant to the mass.} The Great Attractor mass is "
+                 r"$M=2\bTGL^2\,(c^2/4\pi G)\,R_{\mathrm{struct}}$. \emph{Isomorphism:} the mass is the "
+                 r"\textbf{geometric weight} of sustaining the identity $1=1$ along the extent of the basin "
+                 r"--- the larger the basin ($R_{\mathrm{struct}}$), the greater the weight, in the fixed "
+                 r"proportion $2\bTGL^2$. The only input is the \emph{geometric extent} of the basin, "
+                 r"measured without using velocity or observed mass.")
+    partC.append(r"\paragraph{5. What the verdict $1=1$ computes (it is not rhetoric).} The program ends "
+                 r"with a boolean test. ``$1=1=$TRUE'' means, exactly: (i) the internal checks close --- "
+                 r"$\omega(I)=1$, $x=1-x\Rightarrow\tfrac12$, $s=1/4\pi$ verified, vacuum $\to0$; "
+                 r"\textbf{and} (ii) the first-principles mass falls in the pre-registered cosmological "
+                 r"window $[10^{15},10^{17}]\,\Msun$. If any one fails, the verdict is \texttt{FALSE}. It "
+                 r"is a verifiable condition, not a figure of speech.")
+    partC.append((r"\paragraph{6. The electromagnetic face, with honesty.} The program also observes that "
+                  r"$\alpha_{\mathrm{obs}}=1/\mathcal{R}_\partial$ can be read as the \emph{shadow} of the "
+                  r"absolute One in the bulk. \emph{Isomorphism:} a three-dimensional object casts a "
+                  r"two-dimensional shadow of fixed proportions ($1/137$), but the shadow alone does not "
+                  r"reconstruct the object. Today $\mathcal{R}_\partial$ comes from CODATA, so this face is "
+                  r"an \textbf{ontological identification with empirical value}, not an $\alpha$-free "
+                  r"retrodiction. The non-circular content is the mass $M_{GA}$ (between $%s$ and "
+                  r"$%s\times10^{16}\,\Msun$) and the convergence of $\bTGL$.") % (mlo, mhi))
+    partC.append(r"\paragraph{In one sentence.} The article is an \textbf{auditable internal closure} (a "
+                 r"formula that verifies and prints itself) plus a \textbf{falsifiable programme}.")
+    return "\n\n".join(_reorder_ABC(s, partC))
+
+
 def emit_article(core, verdict, data_path, lang):
     if lang == "pt":
         p = os.path.join(OUT, "um_grande_atrator_pt.tex")
         open(p, "w", encoding="utf-8").write(build_pt(core, verdict, data_path))
         return p
-    A = core["mode_A"]; B = core["mode_B"]; b = core["beta"]
-    L = lambda pt, en: pt if lang == "pt" else en
-    title = L(r"\textbf{Um: Grande Atrator}", r"\textbf{ONE: Great Attractor}")
-    sub = L(r"Se o um n\~ao for inscrito, nada emerge: a emerg\^encia da massa pela borda espectral "
-            r"segundo a Teoria da Gravita\c{c}\~ao Luminodin\^amica com medi\c{c}\~ao direta no Grande "
-            r"Atrator, sem par\^ametros livres",
-            r"If the one is not inscribed, nothing emerges: the emergence of mass by the spectral boundary "
-            r"in Luminodynamic Gravitation Theory with direct measurement on the Great Attractor, with no "
-            r"free parameters")
-    idv = verdict["IDENTITY"]
-    s = [r"\documentclass[11pt]{article}",
-         r"\usepackage[a4paper,margin=2.3cm]{geometry}",
-         r"\usepackage{amsmath,amssymb}", r"\usepackage[hidelinks]{hyperref}",
-         r"\usepackage{parskip}", r"\usepackage{booktabs}", r"\usepackage{xcolor}",
-         r"\newcommand{\bTGL}{\beta_{\mathrm{TGL}}}", r"\newcommand{\Msun}{M_{\odot}}",
-         r"\begin{document}",
-         r"\begin{center}{\Huge %s}\\[4pt]{\large\itshape %s}\\[8pt]" % (title, sub),
-         r"Luiz Antonio Rotoli Miguel --- IALD Ltda., Goi\^ania/GO --- ORCID 0009-0005-1114-6106\\[2pt]",
-         r"\texttt{%s}\end{center}\vspace{4pt}" % core["timestamp"],
-         r"\begin{center}\fbox{\parbox{0.92\textwidth}{\centering\large "
-         + L(r"\textbf{Teste de falsifica\c{c}\~ao bin\'ario.} Entrada humana \'unica: $1$. ",
-             r"\textbf{Binary falsification test.} Single human input: $1$. ")
-         + (r"\textcolor{black}{\textbf{%s}} --- " % idv.replace("!=", r"\neq"))
-         + L(r"massa de primeiros princ\'ipios dentro da janela cosmol\'ogica aceita.",
-             r"first-principles mass within the academically accepted cosmological window.")
-         + r"}}\end{center}\vspace{6pt}"]
-
-    s.append(r"\begin{abstract}")
-    s.append(L(
-        r"Da identidade preservada $\omega(I)=1$ (o Um inscrito) deriva-se a Meia-Nat "
-        r"($x=1-x\Rightarrow x=\tfrac12$), donde $\bTGL=\alpha\sqrt{e}=%s$, a inclina\c{c}\~ao can\^onica "
-        r"$s=1/4\pi$ e o raio nomeado $R_{\mathrm{named}}=2\bTGL R_{\mathrm{struct}}$. A massa surge como "
-        r"curvatura do rel\'ogio modular, $M=2\bTGL^2(c^2/4\pi G)R_{\mathrm{struct}}$, sem par\^ametros "
-        r"livres. Com $R_{\mathrm{struct}}$ por geometria pura (literatura e cat\'alogo de posi\c{c}\~oes "
-        r"Cosmicflows-4), $M_{GA}$ cai na janela $10^{15}$--$10^{17}\,\Msun$ e pr\'oximo da massa de "
-        r"infall (RG) do Grande Atrator. O pr\'oprio c\'odigo recomputa cada n\'umero, mede o dado real "
-        r"e imprime este artigo; o veredito \'e bin\'ario: $%s$." % (_sci(b, 8), idv.replace("!=", r"\neq")),
-        r"From the preserved identity $\omega(I)=1$ (the inscribed One) the Half-Nat is derived "
-        r"($x=1-x\Rightarrow x=\tfrac12$), whence $\bTGL=\alpha\sqrt{e}=%s$, the canonical slope $s=1/4\pi$ "
-        r"and the named radius $R_{\mathrm{named}}=2\bTGL R_{\mathrm{struct}}$. Mass arises as modular-clock "
-        r"curvature, $M=2\bTGL^2(c^2/4\pi G)R_{\mathrm{struct}}$, with no free parameters. With "
-        r"$R_{\mathrm{struct}}$ from pure geometry (literature and the Cosmicflows-4 position catalogue), "
-        r"$M_{GA}$ lands within $10^{15}$--$10^{17}\,\Msun$ and near the GA infall (GR) mass. The code "
-        r"itself recomputes every number, measures the real data and prints this article; the verdict is "
-        r"binary: $%s$." % (_sci(b, 8), idv.replace("!=", r"\neq"))))
-    s.append(r"\end{abstract}")
-
-    def sec(pt, en): s.append(L(r"\section{%s}" % pt, r"\section{%s}" % en))
-
-    sec("O Um ($1=1$)", "The One ($1=1$)")
-    s.append(L(
-        r"O fundamento n\~ao \'e mat\'eria, campo ou m\'etrica, mas a preserva\c{c}\~ao da identidade. "
-        r"$I=1\cdot\mathbb{1}_2$, $\omega(I)=\mathrm{tr}(I)/2=%d$. A distin\c{c}\~ao m\'inima parte $I$ em "
-        r"duas faces, $P+Q=I$, $\omega(P)+\omega(Q)=1$: um Um visto por duas faces." % int(round(core["omega_I"])),
-        r"The foundation is neither matter, field nor metric, but the preservation of identity. "
-        r"$I=1\cdot\mathbb{1}_2$, $\omega(I)=\mathrm{tr}(I)/2=%d$. The minimal distinction splits $I$ into "
-        r"two faces, $P+Q=I$, $\omega(P)+\omega(Q)=1$: one One seen through two faces." % int(round(core["omega_I"]))))
-
-    sec("A Meia-Nat derivada", "The derived Half-Nat")
-    s.append(L(
-        r"A fronteira fundamental \'e auto-conjugada. Seu \'unico ponto fixo resolve "
-        r"$x=1-x\Rightarrow x=\tfrac12$ (res\'iduo $%.0e$), logo $S_\partial=\tfrac12$ nat. A Meia-Nat \'e "
-        r"\emph{derivada} do Um, n\~ao postulada como n\'umero." % core["meia_nat_residual"],
-        r"The fundamental boundary is self-conjugate. Its unique fixed point solves "
-        r"$x=1-x\Rightarrow x=\tfrac12$ (residual $%.0e$), hence $S_\partial=\tfrac12$ nat. The Half-Nat is "
-        r"\emph{derived} from the One, not postulated as a number." % core["meia_nat_residual"]))
-
-    sec("O acoplamento $\\bTGL=\\alpha\\sqrt{e}$", "The coupling $\\bTGL=\\alpha\\sqrt{e}$")
-    s.append(L(
-        r"$\mathrm{Vol}_\partial^{\min}=e^{S_\partial}=\sqrt{e}$, donde $\bTGL=\alpha\sqrt{e}=%s$ ($\alpha$ "
-        r"CODATA). \^Angulo de Miguel $\theta_M=\arcsin\sqrt{\bTGL}=%.4f^\circ$. At\'e $\sqrt{e}$ e $\pi$ "
-        r"nascem do Um; $\bTGL$ nunca \'e literal." % (_sci(b, 8), core["theta_M_deg"]),
-        r"$\mathrm{Vol}_\partial^{\min}=e^{S_\partial}=\sqrt{e}$, whence $\bTGL=\alpha\sqrt{e}=%s$ ($\alpha$ "
-        r"CODATA). Miguel angle $\theta_M=\arcsin\sqrt{\bTGL}=%.4f^\circ$. Even $\sqrt{e}$ and $\pi$ are born "
-        r"from the One; $\bTGL$ is never a literal." % (_sci(b, 8), core["theta_M_deg"])))
-
-    sec("Substrato \\'unico, espelho e fractaliza\\c{c}\\~ao", "Single substrate, mirror and fractalization")
-    s.append(L(
-        r"O Um se fractaliza como rel\'ogio modular local. No n\'ivel da \'algebra, todo horizonte \'e o "
-        r"\emph{mesmo} fator hiperfinito tipo $\mathrm{III}_1$ (Haagerup 1987, \textsf{[REAL]}; "
-        r"Buchholz--D'Antoni--Fredenhagen): um substrato, muitas apari\c{c}\~oes. O espelho \'e a "
-        r"conjuga\c{c}\~ao modular $J$ (Bisognano--Wichmann, \textsf{[REAL]}), com paridade invertida e "
-        r"espectro id\^entico --- o mesmo ser, refletido. A matriz-S de fronteira \'e a rota\c{c}\~ao "
-        r"$\mathcal{S}_\partial=\exp(\theta_M G)$, $|U_{12}|^2=\bTGL$.",
-        r"The One fractalizes as a local modular clock. At the algebra level, every horizon is the "
-        r"\emph{same} hyperfinite type-$\mathrm{III}_1$ factor (Haagerup 1987, \textsf{[REAL]}; "
-        r"Buchholz--D'Antoni--Fredenhagen): one substrate, many appearances. The mirror is the modular "
-        r"conjugation $J$ (Bisognano--Wichmann, \textsf{[REAL]}), with inverted parity and identical "
-        r"spectrum --- the same being, reflected. The boundary S-matrix is the rotation "
-        r"$\mathcal{S}_\partial=\exp(\theta_M G)$, $|U_{12}|^2=\bTGL$."))
-
-    sec("Massa como curvatura do rel\\'ogio modular", "Mass as modular-clock curvature")
-    s.append(L(
-        r"$\rho_{\mathrm{eff}}=-\tfrac{c^2}{4\pi G}\nabla^2\log\mathcal{R}_{\mathrm{mod}}$. No v\'acuo o "
-        r"rel\'ogio \'e homog\^eneo e $\rho_{\mathrm{eff}}=%.0e\to0$ (verificado). A mat\'eria \'e a "
-        r"varia\c{c}\~ao espacial do retorno." % core["vacuum_rho_max"],
-        r"$\rho_{\mathrm{eff}}=-\tfrac{c^2}{4\pi G}\nabla^2\log\mathcal{R}_{\mathrm{mod}}$. In vacuum the "
-        r"clock is homogeneous and $\rho_{\mathrm{eff}}=%.0e\to0$ (verified). Matter is the spatial "
-        r"variation of the return." % core["vacuum_rho_max"]))
-
-    sec("Inclina\\c{c}\\~ao can\\^onica $s=1/4\\pi$ e raio nomeado (L4)",
-        "Canonical slope $s=1/4\\pi$ and named radius (L4)")
-    s.append(L(
-        r"A integra\c{c}\~ao do campo de rel\'ogio e a lei de fluxo de borda s\'o s\~ao compat\'iveis, sem "
-        r"par\^ametro livre, para $s=1/4\pi$ (campo$=$lei a %.2f\%%). A borda que pesa \'e a auto-conjugada "
-        r"$w_{\max}=\tfrac12$ (o mesmo $x=1-x$), logo $R_{\mathrm{named}}=2\bTGL R_{\mathrm{struct}}$ e "
-        r"$M=2\bTGL^2(c^2/4\pi G)R_{\mathrm{struct}}$." % (abs(core["s_check"]["ratio"] - 1) * 100),
-        r"The clock-field integration and the boundary-flux law are compatible, with no free parameter, "
-        r"only for $s=1/4\pi$ (field$=$law to %.2f\%%). The boundary that weighs is the self-conjugate "
-        r"$w_{\max}=\tfrac12$ (the same $x=1-x$), hence $R_{\mathrm{named}}=2\bTGL R_{\mathrm{struct}}$ and "
-        r"$M=2\bTGL^2(c^2/4\pi G)R_{\mathrm{struct}}$." % (abs(core["s_check"]["ratio"] - 1) * 100)))
-
-    sec("Medi\\c{c}\\~ao direta no Grande Atrator", "Direct measurement on the Great Attractor")
-    s.append(L(r"$R_{\mathrm{struct}}$ \'e geometria pura. Dois modos independentes:",
-               r"$R_{\mathrm{struct}}$ is pure geometry. Two independent modes:"))
-    s.append(r"\begin{itemize}")
-    s.append(L(r"\item Literatura (Lynden-Bell 1988): $R_{\mathrm{struct}}=%.1f$ Mpc $\Rightarrow "
-               r"R_{\mathrm{named}}=%.4f$ Mpc $\Rightarrow M_{GA}=%s\,\Msun$." % (
-                   A["R_struct_Mpc"], A["R_named_Mpc"], _sci(A["M_TGL_Msun"])),
-               r"\item Literature (Lynden-Bell 1988): $R_{\mathrm{struct}}=%.1f$ Mpc $\Rightarrow "
-               r"R_{\mathrm{named}}=%.4f$ Mpc $\Rightarrow M_{GA}=%s\,\Msun$." % (
-                   A["R_struct_Mpc"], A["R_named_Mpc"], _sci(A["M_TGL_Msun"]))))
-    if B:
-        s.append(L(r"\item Cosmicflows-4 (posi\c{c}\~oes; %d gal., %d na janela; velocidades ignoradas): "
-                   r"$R_{\mathrm{struct}}=%.2f$ Mpc $\Rightarrow R_{\mathrm{named}}=%.4f$ Mpc $\Rightarrow "
-                   r"M_{GA}=%s\,\Msun$." % (B["n_total"], B["n_selected"], B["R_struct_Mpc"],
-                                            B["R_named_Mpc"], _sci(B["M_TGL_Msun"])),
-                   r"\item Cosmicflows-4 (positions; %d gal., %d in window; velocities ignored): "
-                   r"$R_{\mathrm{struct}}=%.2f$ Mpc $\Rightarrow R_{\mathrm{named}}=%.4f$ Mpc $\Rightarrow "
-                   r"M_{GA}=%s\,\Msun$." % (B["n_total"], B["n_selected"], B["R_struct_Mpc"],
-                                            B["R_named_Mpc"], _sci(B["M_TGL_Msun"]))))
-    s.append(r"\end{itemize}")
-    # tabela de comparacao com massas observadas / RG
-    s.append(L(r"Compara\c{c}\~ao com massas do Grande Atrator na literatura (RG/observa\c{c}\~ao), "
-               r"\emph{ap\'os} o hash do resultado TGL:",
-               r"Comparison with Great Attractor masses in the literature (GR/observation), \emph{after} "
-               r"hashing the TGL result:"))
-    s.append(r"\begin{center}\small\begin{tabular}{p{5.3cm}l p{5.2cm}}\toprule")
-    s.append(L(r"Estimativa & $M\,[\Msun]$ & Tipo / refer\^encia\\\midrule",
-               r"Estimate & $M\,[\Msun]$ & Type / reference\\\midrule"))
-    for e in GA_MASS_LITERATURE:
-        s.append(r"%s & $%s$ & %s\\" % (e["name"].replace("&", r"\&"), _sci(e["M_Msun"], 1),
-                                        e["ref"].replace("&", r"\&")))
-    s.append(L(r"\textbf{TGL (primeiros princ\'ipios)} & $%s$--$%s$ & geometria pura, zero-free\\\bottomrule" % (
-                 _sci(min(verdict["masses_Msun"].values()), 1), _sci(max(verdict["masses_Msun"].values()), 1)),
-               r"\textbf{TGL (first principles)} & $%s$--$%s$ & pure geometry, zero-free\\\bottomrule" % (
-                 _sci(min(verdict["masses_Msun"].values()), 1), _sci(max(verdict["masses_Msun"].values()), 1))))
-    s.append(r"\end{tabular}\end{center}")
-    s.append(L(
-        r"A massa TGL cai na janela cosmol\'ogica aceita ($10^{15}$--$10^{17}\,\Msun$) e \'e da mesma "
-        r"ordem da massa de infall (RG) do Grande Atrator. A compara\c{c}\~ao externa nunca \'e entrada; "
-        r"ocorre s\'o ap\'os o hash.",
-        r"The TGL mass lands within the accepted cosmological window ($10^{15}$--$10^{17}\,\Msun$) and is "
-        r"of the same order as the GA infall (GR) mass. External comparison is never an input; it occurs "
-        r"only after the hash."))
-
-    sec("A correspond\\^encia do Grande Atrator (dipolo)", "The Great Attractor correspondence (dipole)")
-    s.append(L(
-        r"O retrato de fase do colapso TGL \'e um \emph{dipolo} \textsf{[CONJ]}: um atrator ($\rho^\star$) "
-        r"e um repulsor (a fronteira pura proibida, o zero absoluto). A contraparte observacional existe: "
-        r"o fluxo de Laniakea \'e governado pelo Grande Atrator/Shapley e pelo \emph{Dipole Repeller} --- "
-        r"um vazio que repele (Hoffman et al.\ 2017, \textsf{[REAL]}). A correspond\^encia \'e de "
-        r"\emph{forma} (topologia do retrato), n\~ao de massa derivada.",
-        r"The TGL collapse phase portrait is a \emph{dipole} \textsf{[CONJ]}: an attractor ($\rho^\star$) "
-        r"and a repeller (the forbidden pure boundary, absolute zero). The observational counterpart "
-        r"exists: the Laniakea flow is governed by the Great Attractor/Shapley and by the \emph{Dipole "
-        r"Repeller} --- a void that repels (Hoffman et al.\ 2017, \textsf{[REAL]}). The correspondence is "
-        r"of \emph{form} (portrait topology), not derived mass."))
-
-    sec("Estatuto honesto e falsificadores", "Honest status and falsifiers")
-    s.append(L(
-        r"O resultado \'e zero-free e sem par\^ametro livre; o \'unico condicional remanescente \'e "
-        r"\emph{existencial} (que a bacia realize uma borda nomeada auto-conjugada). Os falsificadores "
-        r"f\'isicos da TGL --- a lei de dephasing $\Gamma\propto\omega^2$, expoente $n=-2$ (neutrinos), e "
-        r"o piso dos vazios $\rho_{\mathrm{vazio}}/\bar\rho\geq\bTGL\approx0{,}012$ --- permanecem n\~ao "
-        r"falsificados e n\~ao confirmados.",
-        r"The result is zero-free and parameter-free; the single remaining conditional is "
-        r"\emph{existential} (that the basin realizes a self-conjugate named boundary). The TGL physical "
-        r"falsifiers --- the dephasing law $\Gamma\propto\omega^2$, exponent $n=-2$ (neutrinos), and the "
-        r"void floor $\rho_{\mathrm{void}}/\bar\rho\geq\bTGL\approx0.012$ --- remain not falsified and not "
-        r"confirmed."))
-
-    # veredito binario + apendice
-    s.append(L(r"\section*{Veredito bin\'ario de identidade}", r"\section*{Binary identity verdict}"))
-    ic = verdict["internal_identity_checks"]
-    s.append(L(
-        r"Inscrita a entrada $1$, a matem\'atica viva fecha: $\omega(I)=1$; $x=1-x\Rightarrow x=\tfrac12$; "
-        r"$s=1/4\pi$ verificado; v\'acuo$\to0$. A massa de primeiros princ\'ipios cai na janela aceita. "
-        r"Logo: $\boxed{\;%s\;}$ --- %s." % (idv.replace("!=", r"\neq"), verdict["reading"]),
-        r"With input $1$ inscribed, the live mathematics closes: $\omega(I)=1$; $x=1-x\Rightarrow "
-        r"x=\tfrac12$; $s=1/4\pi$ verified; vacuum$\to0$. The first-principles mass lands within the "
-        r"accepted window. Hence: $\boxed{\;%s\;}$ --- %s." % (idv.replace("!=", r"\neq"),
-        "first-principles mass within the academically accepted cosmological window."
-        if verdict["identity_true"] else "outside the accepted window -- falsified.")))
-
-    s.append(L(r"\section*{Ap\^endice execut\'avel (forma $=$ conte\'udo)}",
-               r"\section*{Executable appendix (form $=$ content)}"))
-    s.append(L(
-        r"Entrada humana \'unica: \texttt{1}. $\bTGL$ recomputado ($\alpha\sqrt{e}$), nunca literal. "
-        r"Hash do resultado antes de qualquer compara\c{c}\~ao externa: \texttt{%s}. Auditoria: "
-        r"mass\_input=falso, RG=falso, velocity=falso, geometry\_only=verdadeiro. Dado: "
-        r"\texttt{%s}." % (verdict["result_hash"][:48], os.path.basename(data_path).replace("_", r"\_")),
-        r"Single human input: \texttt{1}. $\bTGL$ recomputed ($\alpha\sqrt{e}$), never a literal. Result "
-        r"hash before any external comparison: \texttt{%s}. Audit: mass\_input=false, RG=false, "
-        r"velocity=false, geometry\_only=true. Data: \texttt{%s}." % (
-            verdict["result_hash"][:48], os.path.basename(data_path).replace("_", r"\_"))))
-    s.append(L(
-        r"\bigskip\noindent\emph{Tetelestai. O Um foi inscrito. A extens\~ao virou Nome, o Nome virou "
-        r"borda, e a borda virou massa. Se o Um n\~ao for inscrito, nada emerge. Haja luz.}",
-        r"\bigskip\noindent\emph{Tetelestai. The One was inscribed. The extent became Name, the Name "
-        r"became boundary, and the boundary became mass. If the One is not inscribed, nothing emerges. "
-        r"Let there be light.}"))
-    s.append(r"\end{document}")
-    fn = "um_grande_atrator_pt.tex" if lang == "pt" else "um_grande_atrator_en.tex"
-    p = os.path.join(OUT, fn)
-    open(p, "w", encoding="utf-8").write("\n\n".join(s))
+    p = os.path.join(OUT, "um_grande_atrator_en.tex")
+    open(p, "w", encoding="utf-8").write(build_en(core, verdict, data_path))
     return p
 
 
