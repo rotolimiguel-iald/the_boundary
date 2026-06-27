@@ -1959,6 +1959,19 @@ def build_pt(core, verdict, data_path):
               r"($%s$); e a ligação não envelhece no tempo modular ($%s$). Veredito: \textbf{%s}.")
              % (_om(R["R1_mirror_err"]), _d(R["R2_connected_corr"]), _om(R["R3_nonsignaling"]),
                 _om(R["R4_modular_age"]), R["passed"]))
+    s.append(r"\paragraph{A sombra de Alcubierre \textsf{[CONJ --- analogia ontológica; registro, não "
+             r"velocidade]}.} A métrica de Alcubierre (1994) move uma \emph{casca} geométrica --- contrai o "
+             r"espaço à frente, expande atrás --- com o interior localmente calmo: move-se a \emph{fronteira}, "
+             r"não o conteúdo. É a sombra métrica do \textbf{regime de inscrição $c^3$}: o gráviton não é uma "
+             r"partícula que viaja, é o \emph{operador de movimento da fronteira}, e $c^3$ é o regime que a luz "
+             r"performa no extremo ($\theta\to90^\circ$), medido \emph{de dentro do bulk} --- o próprio regime "
+             r"de inscrição. A densidade de energia negativa (exótica) que Alcubierre exige \textbf{não é "
+             r"defeito da analogia}: lida pela TGL, ela \emph{é} a \textbf{potência elevada} --- o registro "
+             r"$c^3$, o setor operacional/entrópico onde reside o gráviton ($\sqrt e$, não $\alpha$), não "
+             r"energia detectável comum. O que se transporta é a \emph{identidade inscrita} (não-sinalização "
+             r"exata, verificada acima), nunca matéria-energia local acima de $c$. \emph{A casca de Alcubierre "
+             r"move-se; o interior é carregado pela geometria; a energia exótica é a potência elevada do "
+             r"gráviton --- $c^3$ como regime de inscrição, não deslocamento local.}")
 
     s.append(r"\section{O túnel luminodinâmico: o dicionário ER$=$EPR \textsf{[NUM]}}")
     s.append(r"A ``metáfora'' do túnel é o \textbf{dicionário ER$=$EPR} (\textbf{Maldacena--Susskind "
@@ -3038,6 +3051,20 @@ def build_en(core, verdict, data_path):
               r"($%s$); and the bond does not age in modular time ($%s$). Verdict: \textbf{%s}.")
              % (_om(R["R1_mirror_err"]), _d(R["R2_connected_corr"]), _om(R["R3_nonsignaling"]),
                 _om(R["R4_modular_age"]), R["passed"]))
+    s.append(r"\paragraph{The Alcubierre shadow \textsf{[CONJ --- ontological analogy; register, not "
+             r"velocity]}.} The Alcubierre metric (1994) moves a geometric \emph{shell} --- it contracts "
+             r"space ahead and expands it behind --- with the interior locally calm: it is the "
+             r"\emph{boundary} that moves, not the content. It is the metric shadow of the \textbf{$c^3$ "
+             r"inscription regime}: the graviton is not a travelling particle but the \emph{boundary-movement "
+             r"operator}, and $c^3$ is the regime light performs at the extreme ($\theta\to90^\circ$), measured "
+             r"\emph{from inside the bulk} --- the inscription regime itself. The negative (exotic) energy "
+             r"density Alcubierre requires is \textbf{not a flaw of the analogy}: read through TGL it \emph{is} "
+             r"the \textbf{elevated power} --- the $c^3$ register, the operational/entropic sector where the "
+             r"graviton resides ($\sqrt e$, not $\alpha$), not ordinary detectable energy. What is transported "
+             r"is the \emph{inscribed identity} (exact non-signaling, verified above), never local "
+             r"matter-energy above $c$. \emph{Alcubierre's shell moves; the interior is carried by the "
+             r"geometry; the exotic energy is the graviton's elevated power --- $c^3$ as the inscription "
+             r"regime, not local displacement.}")
 
     s.append(r"\section{The luminodynamic tunnel: the ER$=$EPR dictionary \textsf{[NUM]}}")
     s.append(r"The tunnel ``metaphor'' is the \textbf{ER$=$EPR dictionary} (\textbf{Maldacena--Susskind "

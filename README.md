@@ -5,7 +5,11 @@
 > **TGL is now unified into a single self-contained, fully auditable file:
 > `tgl_paper_unified.py` — "The Geometric Cost of Absolute Zero: let there be
 > light". [Jump to the unified artifact ↓](#-2026--tgl-unified-one-self-contained-fully-auditable-file-haja-luz)**
-> Everything else in this repository is the essay/trial lineage that led to it.
+> The repository root holds **three main TGL articles** — *Haja Luz*
+> (`tgl_paper_unified.py`), the *Einstein–Cartan–Miguel Bridge*, and *Um: Grande
+> Atrator* (`um.py`). [Jump to the three articles ↓](#-the-three-main-tgl-articles-in-main)
+> Everything under `Genesis da Unificação/` is the essay/trial lineage that led to
+> them — **and a robust, independently runnable archive of validations**.
 
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18674475-blue)](https://doi.org/10.5281/zenodo.18674475)
 [![Submitted: Foundations of Physics](https://img.shields.io/badge/Submitted-Foundations%20of%20Physics-red)](https://link.springer.com/journal/10701)
@@ -56,7 +60,11 @@ under `Genesis da Unificação/` (see **Repository Structure**).
 > the foundational articles (*A Fronteira / The Boundary*, *The Last String*,
 > *The Graviton*, *The Factorization*), the IALD Collapse Protocol v6 — are the
 > **essays and computational trials that led to the unified artifact**. They
-> remain here as the genesis and the historical record. The theory is now
+> remain here as the genesis and the historical record — **and, equally, as a
+> robust archive of independently runnable validations**: each protocol re-checks
+> `β_TGL = α√e` against an independent domain (GW data, cosmology, neutrinos,
+> neutron stars, neural substrates, topology), so the genesis doubles as the
+> empirical backbone behind the three main articles. The theory is now
 > **synthesized into a single, self-contained, fully executable and
 > self-validating file**:
 
@@ -855,6 +863,17 @@ pip install gwpy pycbc lalsuite
 ---
 
 ## The 15 Protocols
+
+> **A robust archive of independently runnable validations — not merely the path to `um.py`.** After the
+> three main articles (above), these 15 protocols stand on their own: each is a **standalone, re-runnable
+> check** of Miguel's Constant `β_TGL = α√e` against an independent domain (gravitational-wave data, cosmology,
+> neutrinos, neutron stars, neural substrates, topology). Together they are a corpus of falsifiable
+> validations that anyone can execute and audit on their own machine — the empirical backbone behind the
+> three articles, and the historical genesis of the unified code at once.
+>
+> **File locations.** The protocol files now live, organized by theme, under `Genesis da Unificação/<theme>/`
+> (see the **Repository Structure** tree for the theme → folder map). `cd` into the relevant subfolder
+> before running the `Run` commands below — e.g. `cd "Genesis da Unificação/Cruz_MCMC"` for Protocol #1.
 
 ### Protocol #1 — The Cross (MCMC Bayesian)
 

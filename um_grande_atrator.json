@@ -402,7 +402,7 @@
       },
       "all_passed": true
     },
-    "timestamp": "2026-06-26 18:18:36"
+    "timestamp": "2026-06-27 10:59:02"
   },
   "verdict": {
     "masses_Msun": {
@@ -444,7 +444,7 @@
     "IDENTITY": "1=1=VERDADEIRO",
     "identity_true": true,
     "reading": "1 = q^2 + alpha^2 (a unidade absoluta se decompoe em polarizacao termica q^2 + corrente luminosa alpha^2); o mesmo beta=sqrt(e)alpha da' M_GA na janela cosmologica aceita -- identidade conservada, CODATA so' valida",
-    "result_hash": "4522d7b3a499f66cf3ce766f7685b43840c87dc5a100ea39ebc762f1bfcf4bd3"
+    "result_hash": "87eaf2a557721b3a3e4da3c30e65e27b5b9f74354463cc10004938f161c87b77"
   },
   "ga_mass_literature": [
     {
@@ -470,7 +470,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "4522d7b3a499f66cf3ce766f7685b43840c87dc5a100ea39ebc762f1bfcf4bd3",
+  "result_hash_before_external_comparison": "87eaf2a557721b3a3e4da3c30e65e27b5b9f74354463cc10004938f161c87b77",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -480,5 +480,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-06-26 18:18:36"
+  "timestamp": "2026-06-27 10:59:02"
 }
