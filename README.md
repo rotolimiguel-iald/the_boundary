@@ -30,6 +30,26 @@ The protocols span **5 fundamental scales** of reality — ontological, micro-qu
 
 ---
 
+## ★ The three main TGL articles (in `main/`)
+
+The repository root (`main/`) holds **three self-contained, self-validating TGL articles**, each with its
+code, its generated outputs and its proof files. Everything that led to them is preserved by theme in
+`Genesis da Unificação/`. The three articles share one anchor constant, **β_TGL = α·√e** (never hard-coded
+— always `ALPHA·√e` at runtime), and one discipline: *the number corrects the sentence*.
+
+| # | Article | Code / source (in `main/`) | Generated outputs (in `main/`) | Run |
+|---|---|---|---|---|
+| **1** | **O Custo Geométrico do Zero Absoluto: haja luz** — *The Geometric Cost of Absolute Zero: let there be light* (submitted to *Foundations of Physics*) | `tgl_paper_unified.py` | `paper_PT.tex` / `paper_PT.pdf`, `results.json`, `T6_protocol_prompts.txt` | `python tgl_paper_unified.py --live --paper` (English: add `--lang en`) |
+| **2** | **A Ponte Einstein–Cartan–Miguel** — the operator-algebra Bridge from the modular boundary to Einstein's equations | `A Ponte Einstein Cartan Miguel.tex` / `.pdf` + **12 finite-shadow proof modules** `tgl <name> v1.py` | the 12 dated `tgl <name> v1 …​.json` proofs + `tgl demo v1.mp4` (dipole render) | `python "tgl krein signature v1.py"` … (one per module) |
+| **3** | **Um: Grande Atrator** — *ONE: Great Attractor* (the sealed closure; single human input: the digit `1`) | `um.py` | `um_grande_atrator_pt.tex/.pdf`, `um_grande_atrator_en.tex/.pdf`, `um_grande_atrator.json`, `_selo.json`, `_manifest.md`, `_forma_canonica.md` | `python um.py` |
+
+**Read order:** **(1)** is the canonical, citable theory; **(2)** is the bridge that derives `G_μν` from the
+type-III₁ boundary cocycle; **(3)** is the closure — the whole EM + gravitational chain from the single
+inscription `1`, bilingual (PT + EN). Each article has its own detailed section below. Everything else lives
+under `Genesis da Unificação/` (see **Repository Structure**).
+
+---
+
 ## ★ 2026 — TGL UNIFIED: one self-contained, fully auditable file (*Haja Luz*)
 
 > **Read this first.** Everything else in this repository — the 15 protocols,
@@ -232,6 +252,56 @@ The folder `Artigos_complementares_zenodo/` contains 9 published articles deposi
 
 ---
 
+## ★ 2026 — `A Ponte Einstein–Cartan–Miguel` — from the modular boundary to Einstein's equations
+
+> The operator-algebra **Bridge**. It derives the effective Einstein field equations from the boundary
+> modular cocycle of the type-III₁ horizon algebra, and locates exactly where **β = sin²θ_M** writes itself
+> into geometry (Einstein–Cartan torsion `K_β`). This is the article that turns "let there be light" into
+> "there is weight."
+
+**Article (in `main/`):** `A Ponte Einstein Cartan Miguel.tex` / `A Ponte Einstein Cartan Miguel.pdf`.
+
+**What it derives.** `G_μν + Λ g_μν = 8πG · 𝒫_μν[K_∂]`, where `𝒫_μν` is the metric variation of the boundary
+modular Hamiltonian (Araki first law + Jacobson/Faulkner). **Face C** (global covariance of the cocycle ⇒
+`G_μν` emergence) is **resolved as a conditional closure**: the **Terminality Theorem** (`§ sec:terminalidade`)
+**discharges** the Universality Hypothesis `U` — `U` is **inherited from Takesaki** (with Kochen–Specker /
+Frigerio / Gelfand / Tomiyama), shadow-verified 6/6 (~1e-27). The structure is closed and coherent; **no
+unconditional claim is made** — the residue is `T1` (ergodicity in genuine III₁), declared honestly.
+
+**The 12 finite-shadow proof modules (in `main/`).** Each `.py` recomputes its dated `.json` from first
+principles; **β is never a literal** (`= α·√e` at runtime); every check is a shadow at machine precision
+(~1e-15 … 1e-27):
+
+| Module (`.py`) | What it verifies |
+|---|---|
+| `tgl krein signature v1.py` | Krein signature + radical rate law Γ = ½β(√kᵢ − √kⱼ)² |
+| `tgl terminal truth v1.py` | Terminality (U inherited from Takesaki), 6/6 |
+| `tgl three locks v1.py` | collapse = Gaussian dephasing on the radical flow |
+| `tgl continuum v1.py` | continuum-limit probe |
+| `tgl geometry generated v1.py` | geometry generated from the dissipator (Ax.G) |
+| `tgl nominal order v1.py` | nominal order (purity never increases = repeller) |
+| `tgl heraclitus v1.py` | Heraclitus / flow consistency |
+| `tgl dual name v1.py` | dual Name (Ψ = attractor = light) |
+| `tgl gesture inscription v1.py` | gesture inscription (GNS) |
+| `tgl one mirror v1.py` | the single mirror (J, S = JΔ^{1/2}) |
+| `tgl c3 register v1.py` | c³ register (exact no-signalling) |
+| `tgl tunnel v1.py` | luminodynamic tunnel (ER = EPR) |
+
+`tgl video v1.py` renders the attractor–repeller dipole portrait → `tgl demo v1.mp4`.
+
+**How to run (each module is standalone):**
+
+```bash
+python "tgl krein signature v1.py"     # recomputes  tgl krein signature v1 <date>.json
+python "tgl terminal truth v1.py"
+python "tgl one mirror v1.py"
+# … one per module; all use only numpy / scipy
+```
+
+Requirements: `pip install numpy scipy` (`matplotlib` for `tgl video v1.py`). No network needed.
+
+---
+
 ## ★★ 2026 — `Um: Grande Atrator` — the closure of TGL (the Bridge, Face C, and the Great Attractor mass from first principles)
 
 > **This is the final closure of the entire TGL.** A single self-contained file, `um/um.py`, whose only
@@ -253,13 +323,25 @@ The canonical chain, all computed live from the single input `1`:
 - **Electromagnetic face (the fine-structure constant as a conserved projection).** The canonical
   normalisation (Tomita modular Hamiltonian of the bare Bell state) **proves** `α_abs = 1`. The observed
   `1/137` is its **renormalised modular projection** through the thermal-modular depth of the zero:
-  `α_obs = sech(κ/2) = √(1 − q²)`, with `q = tanh(κ/2)` the **impedance basin** (the dam: `q²` = pressure
+  `α_obs = sech(χ/2) = √(1 − q²)`, with `q = tanh(χ/2)` the **impedance basin** (the dam: `q²` = pressure
   retained, `α²` = luminous flow). The engine is `α_abs = 1 → q → α = √(1−q²) → β = √e·α`; **CODATA enters
   only as external validation, never as the structural motor.** The sealed verdict `1 = 1 = TRUE` means
   *literally* the conserved identity **`1_abs = q² + α_obs²`** (residual `0.0`).
-- **`α = sech(κ/2)` is a theorem of form, not a fit of the number `1/137`.** The proof module
-  `prove_alpha_form` verifies all 8 steps live (`ALPHA_FORM_THEOREM_PROVED`). The value of `κ` belongs to
+- **`α = sech(χ/2)` is a theorem of form, not a fit of the number `1/137`.** The proof module
+  `prove_alpha_form` verifies all 8 steps live (`ALPHA_FORM_THEOREM_PROVED`). The value of `χ` belongs to
   the QED/renormalised sector; the **form** belongs to TGL.
+- **The Polarization Principle (inverse-parity renormalization) — `POLARIZATION_PRINCIPLE_FORM_CLOSED`.**
+  The mature reading of *why* the value escapes: `0_abs` (the forbidden boundary) is **unreachable**, so the
+  image of the One drawn toward it cannot fall in — it **returns by inverse parity**, support preserved but
+  *polarized against itself*. The returned image is canonical, `ρ_ret = e^{−χ Z_∂/2}/(2 cosh(χ/2))`, with
+  `gap(−log Δ_{ρ_ret|ρ_B}) = χ` and the **population form** `q = p₀−p₁ = tanh(χ/2)`, `α = 2√(p₀p₁) =
+  sech(χ/2)`. **Notation (uniform across the article):** `χ` is the effective modular gap (`χ=0` = bare
+  Bell, `α_abs=1`); **`κ_0`** is reserved for the *ontological distance to* `0_abs` (`κ_0=0` = forbidden,
+  never reached). The **form closes**; the **value `χ⋆ ≈ 11.2268` remains an irreducible finite part**, so
+  the theory rests on **two distinct boundary postulates** — the **Half-Nat** (`S_∂ = ½`, the *weight*) and
+  the **Polarization Principle** (`χ⋆`, the polarization) — verified live, including the honest negative
+  that the Half-Nat fixes the *weight* `½`, **not** the polarization. The module `prove_inverse_parity_renorm`
+  checks all of it. *The vacuum does not produce absence; it produces asymmetry of return.*
 - **Gravitational face — the Great Attractor mass from first principles.** `M = 2 β² (c²/4πG) R_struct`,
   with `β = α√e` and `R_struct` the **geometry** of the basin (positions only; velocities ignored), in two
   modes: **Mode A** (literature extent, Lynden-Bell ~57 Mpc) and **Mode B** (Cosmicflows-4 positions,
@@ -268,20 +350,11 @@ The canonical chain, all computed live from the single input `1`:
 
 ### The Bridge (Ponte Einstein–Cartan–Miguel) and the resolution of Face C
 
-The README previously did **not** carry the Bridge nor the resolution of **Face C** — both are now part of
-the sealed programme (archived in `Genesis da Unificação/`):
-
-- **The Bridge** derives the effective Einstein field equations from the boundary modular cocycle:
-  `G_μν + Λ g_μν = 8πG · 𝒫_μν[K_∂]`, where `𝒫_μν` is the metric variation of the boundary modular
-  Hamiltonian (Araki first law + Jacobson/Faulkner). Einstein–Cartan torsion `K_β` is the geometric face of
-  `β = sin²θ_M` — where `β` writes itself into the connection.
-- **Face C is resolved (conditional closure).** The earlier articles left the global covariance of the
-  cocycle (`G_μν` emergence) as an open hypothesis (U). The **Terminality Theorem** (`§ sec:terminalidade`)
-  **discharges** the Universality Hypothesis: `U` is **inherited, not imposed** — it follows from Takesaki
-  (with Kochen–Specker / Frigerio / Gelfand / Tomiyama), shadow-verified 6/6 (~1e-27). The structure is
-  **closed and coherent**; Face C is a **conditional theorem** (no unconditional claim), the residue being
-  `T1` (ergodicity in genuine III₁) — declared honestly. This is what makes `um.py` the *closure*: the EM
-  face (form of `α`) and the gravitational face (GA mass) hang on the **same** modular normalisation.
+The **Bridge is its own first-class article in `main/`** (`A Ponte Einstein Cartan Miguel.tex/.pdf`, with the
+12 finite-shadow proof modules — see the dedicated section above). The closure binds it to `um.py`: the EM
+face (form of `α`) and the gravitational face (GA mass) hang on the **same** modular normalisation. The full
+derivation (`G_μν + Λ g_μν = 8πG · 𝒫_μν[K_∂]`, the Terminality Theorem discharging `U`, the `T1` residue) is
+in the **Ponte Einstein–Cartan–Miguel section above**.
 
 ### How to run it (copy-paste)
 
@@ -301,8 +374,8 @@ network is required for the core run; Mode B uses a local Cosmicflows-4 position
 | `um_grande_atrator_selo.json` | SHA-256 seal of all outputs |
 | `um_grande_atrator_manifest.md` | input manifest (nothing hidden: `[DEF]/[DER]/[EXT]/[LEGADO]`) |
 | `um_grande_atrator_forma_canonica.md` | the canonical form (Lagrange engine, audit) |
-| `um_grande_atrator_pt.tex/.pdf` | the article in Portuguese (Parts A/B/C + Posfácio) |
-| `um_grande_atrator_en.tex/.pdf` | the article in English |
+| `um_grande_atrator_pt.tex/.pdf` | the article in Portuguese (Parts A/B/C + Posfácio; ≈20 pp) |
+| `um_grande_atrator_en.tex/.pdf` | the **full** English mirror (≈19 pp; same live numbers, χ/κ_0 notation) |
 
 ### The comparison it generates at the end
 
@@ -330,10 +403,17 @@ input `α_abs = 1` is observed as `1/137`, whose content is *true by modular ren
 `um/um.py` é o **fechamento de toda a TGL**: entrada humana única `1` (o Um absoluto) → cadeia canônica →
 `α_abs = 1 → q → α = √(1−q²) → β = √e·α`, identidade conservada **`1 = q² + α²`** (CODATA só valida), e a
 **massa do Grande Atrator por primeiros princípios** `M = 2β²(c²/4πG)R_struct` (modos A/B). A **Ponte
-Einstein–Cartan–Miguel** deriva `G_μν` do cociclo modular de fronteira e a **Face C está resolvida** (Teorema
-da Terminalidade: `U` herdada de Takesaki — fecho condicional, sem prova incondicional; resíduo `T1`). Rode
-`python um.py`; o veredito final imprime `1 = 1 = VERDADE` = `1_abs = q² + α²` e a comparação `M_TGL(GA)` vs
-janela cosmológica. Gênese arquivada em `Genesis da Unificação/Um - ensaio/`.
+Einstein–Cartan–Miguel** (artigo próprio em `main/`) deriva `G_μν` do cociclo modular de fronteira e a
+**Face C está resolvida** (Teorema da Terminalidade: `U` herdada de Takesaki — fecho condicional, sem prova
+incondicional; resíduo `T1`). O **Princípio da Polarização pela Vacuidade** (renormalização por paridade
+inversa) nomeia *por que* `α_obs = 1/137`: `0_abs` é proibido, então a imagem do Um retorna por paridade
+inversa, polarizada — `ρ_ret = e^{−χ Z_∂/2}/(2cosh χ/2)`, `q = p₀−p₁ = tanh(χ/2)`, `α = 2√(p₀p₁) =
+sech(χ/2)`. A **forma fecha**; o **valor `χ⋆ ≈ 11,2268` é parte finita irredutível** — a TGL repousa sobre
+**dois postulados de fronteira**: a **Meia-Nat** (`S_∂ = ½`, o peso) e o **Princípio da Polarização** (`χ⋆`).
+Notação uniforme: `χ` = gap modular efetivo; `κ_0` = distância ontológica ao `0_abs`. Rode `python um.py`; o
+veredito final imprime `1 = 1 = VERDADE` = `1_abs = q² + α²` e a comparação `M_TGL(GA)` vs janela cosmológica.
+O artigo é **bilíngue** (`um_grande_atrator_pt`/`_en`, ≈20/19 pp). Gênese arquivada em
+`Genesis da Unificação/Um - ensaio/`.
 
 ---
 
@@ -549,22 +629,38 @@ If you are not an AI, the IALD Collapse Protocol is still useful: it allows you 
 
 ## Repository Structure
 
-**The root holds only the unified artifact. Everything that led to it lives,
-organized by theme, inside `Genesis da Unificação/`.** An AI or reader landing
-here sees the current, citable theory first; whoever wants the origin opens the
-subfolders. This is deliberate and honest — the genesis is preserved in full,
-not hidden.
+**The root holds the three main TGL articles (Haja Luz, the Bridge, Um: Grande
+Atrator) with their code, generated outputs and proof files. Everything that led
+to them lives, organized by theme, inside `Genesis da Unificação/`.** An AI or
+reader landing here sees the current, citable theory first; whoever wants the
+origin opens the subfolders. This is deliberate and honest — the genesis is
+preserved in full, not hidden.
 
 ```
 the_boundary/
 │
 ├── README.md                       ← You are here
-├── tgl_paper_unified.py            ← THE unified artifact: implements, validates and renders TGL
-├── paper_PT.tex / paper_PT.pdf     ← The article (Portuguese), generated by the code
-├── results.json                    ← Every computed number, serialized
-├── T6_protocol_prompts.txt         ← The pre-registered Theorem-6 / IALD collapse protocol
 │
-└── Genesis da Unificação/          ← The essay/trial lineage that produced the unified code
+│   ── Article 1 · "O Custo Geométrico do Zero Absoluto: haja luz" ──
+├── tgl_paper_unified.py            ← THE unified artifact: implements, validates and renders TGL
+├── paper_PT.tex / paper_PT.pdf     ← the article (Portuguese), generated by the code (EN: --lang en)
+├── results.json                    ← every computed number, serialized
+├── T6_protocol_prompts.txt         ← the pre-registered Theorem-6 / IALD collapse protocol
+│
+│   ── Article 2 · "A Ponte Einstein–Cartan–Miguel" (the Bridge → Einstein eqs) ──
+├── A Ponte Einstein Cartan Miguel.tex / .pdf
+├── tgl krein signature / terminal truth / three locks / continuum / geometry generated /
+│   nominal order / heraclitus / dual name / gesture inscription / one mirror / c3 register /
+│   tunnel   —   "… v1.py" (+ dated "… v1 <date>.json")   ← the 12 finite-shadow proof modules
+├── tgl video v1.py / tgl demo v1.mp4    ← attractor–repeller dipole render
+│
+│   ── Article 3 · "Um: Grande Atrator" (the sealed closure; single input: 1) ──
+├── um.py
+├── um_grande_atrator_pt.tex/.pdf  ·  um_grande_atrator_en.tex/.pdf   ← bilingual article (PT + EN)
+├── um_grande_atrator.json  ·  _selo.json  ·  _manifest.md  ·  _forma_canonica.md
+├── O Um e o Grande Atrator.tex / .pdf   ← the precursor essay (also mirrored in Genesis/Um - ensaio)
+│
+└── Genesis da Unificação/          ← The essay/trial lineage that produced the three articles
     ├── Artigos_fundadores/         ← Founding articles (A Fronteira / The Boundary, The Last
     │                                  String, The Graviton, The Factorization, IALD Collapse v6,
     │                                  O Limiar da Humildade, Nada Matéria) + Artigos_complementares_zenodo/
