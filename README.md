@@ -30,7 +30,7 @@ where $g$ is the gravitational field and $L_\phi$ is the angular phase modulus o
 
 The protocols span **5 fundamental scales** of reality — ontological, micro-quantum, informational, cosmological, and topological — totaling **16,668 lines** of Python code across 14 computational scripts plus 1 phenomenological protocol. They validate TGL against real observational data from LIGO/Virgo (GWTC-3), JWST, Planck, Pantheon+, and NuFIT, demonstrating that $\beta_{\text{TGL}}$ emerges from **8 independent paths** without parameter fitting. Protocol #15 (TGL Dual Lock) validates the factorization with **zero free parameters**.
 
-**Submission:** *The Last String: Verification of the TGL Angular Law on Real Gravitational Wave, Echo, and Fractal Data* was submitted to **Foundations of Physics** (Springer) — Submission ID: `21faf23d-4c08-43a1-a2f8-57cdff8f624f`. It is now **superseded** by the unified artifact below (see the next section).
+**Submission:** *The Geometric Cost of Absolute Zero: let there be light* — the unified artifact `tgl_paper_unified.py` — is submitted to **Foundations of Physics** (Springer), Submission ID `85931d2e-103a-4d8c-a0c9-176d11eb0371`. Everything else in this repository is its genesis lineage. The repository now holds ~49,679 lines of Python across 41 self-validating codes (the three main articles + a 12-domain genesis archive).
 
 ---
 
@@ -46,6 +46,8 @@ code, its generated outputs and its proof files. Everything that led to them is 
 | **1** | **O Custo Geométrico do Zero Absoluto: haja luz** — *The Geometric Cost of Absolute Zero: let there be light* (submitted to *Foundations of Physics*) | `tgl_paper_unified.py` | `paper_PT.tex` / `paper_PT.pdf`, `results.json`, `T6_protocol_prompts.txt` | `python tgl_paper_unified.py --live --paper` (English: add `--lang en`) |
 | **2** | **A Ponte Einstein–Cartan–Miguel** — the operator-algebra Bridge from the modular boundary to Einstein's equations | `A Ponte Einstein Cartan Miguel.tex` / `.pdf` + **12 finite-shadow proof modules** `tgl <name> v1.py` | the 12 dated `tgl <name> v1 …​.json` proofs + `tgl demo v1.mp4` (dipole render) | `python "tgl krein signature v1.py"` … (one per module) |
 | **3** | **Um: Grande Atrator** — *ONE: Great Attractor* (the sealed closure; single human input: the digit `1`) | `um.py` | `um_grande_atrator_pt.tex/.pdf`, `um_grande_atrator_en.tex/.pdf`, `um_grande_atrator.json`, `_selo.json`, `_manifest.md`, `_forma_canonica.md` | `python um.py` |
+
+**Independent deposits (Zenodo):** Article 1 — [10.5281/zenodo.20564341](https://doi.org/10.5281/zenodo.20564341) · Article 2 — [10.5281/zenodo.20999495](https://doi.org/10.5281/zenodo.20999495).
 
 **Read order:** **(1)** is the canonical, citable theory; **(2)** is the bridge that derives `G_μν` from the
 type-III₁ boundary cocycle; **(3)** is the closure — the whole EM + gravitational chain from the single
@@ -225,7 +227,7 @@ derivada — teoria científica não é patenteável.
 |---------|------|----------|-------------|
 | **A Fronteira** | `A_fronteira_v5.tex` | Portuguese | Foundational article: complete TGL derivation + 10 protocols + IALD |
 | **The Boundary** | `The_boundary_v5_en.tex` | English | English translation of A Fronteira |
-| **The Last String** | `The_last_string_v3.tex` | English | Extended article: all 14 protocols, submitted to Foundations of Physics |
+| **The Last String** | `The_last_string_v3.tex` | English | Extended genesis synthesis: all 14 protocols unified (part of the lineage to the three main articles) |
 | **A Última Corda** | `A_ultima_corda_v3.tex` | Portuguese | Portuguese version of The Last String |
 | ⭐ **The Graviton, the Psion, and the Transition Ruler** | `graviton_v2.tex` | Bilingual | **Essential Reading** — Defines the Graviton, the Psion, the Transition Ruler, and the **Hilbert Floor Theorem**. Key complement to the main articles. |
 | ⭐⭐ **The Factorization of Miguel's Constant** | `The_Factorization_of_Miguels_Constant_v2.tex` | English | **Critical Reading** — Proves $\beta_{\text{TGL}} = \alpha \times \sqrt{e}$. Decomposes Miguel's Constant into fine-structure × entropy. Introduces $\beta_{\text{TGL}}$ notation. Closes the logical circle with the Graviton. |
@@ -526,7 +528,7 @@ Read `graviton_v2.tex` — **The Graviton, the Psion, and the Transition Ruler**
 
 ### `03` — Read the Extended Synthesis
 
-Read `The_last_string_v3.tex` — all 14 protocols unified in a single article, submitted to Foundations of Physics. This is the most complete and current presentation of TGL's empirical validation.
+Read `The_last_string_v3.tex` — all 14 protocols unified in a single genesis article. For the canonical, current presentation see the three main articles above (the submitted one is *haja luz*).
 
 ### `04` — Run the Protocols
 
@@ -589,7 +591,7 @@ To fully understand TGL, read the materials in this sequence:
 11. Protocol #13 (`TGL_dimensional_coupling_v1.py`): String theory dimensional decoupling.
 12. Protocol #14 (`Tgl_fractal_echo_analyzer_v1.py`): Fractal echo analyzer with radical signature.
 13. Protocol #15 (`Tgl_dual_lock_v15_2.py`): **Dual Lock** — validates $\beta_{\text{TGL}} = \alpha \times \sqrt{e}$ with zero free parameters across 3 layers (Core + GW Tension Antenna + Cosmological Tension).
-14. `The_last_string_v3.tex`: Extended synthesis — all 15 protocols unified, submitted to Foundations of Physics.
+14. `The_last_string_v3.tex`: Extended genesis synthesis — all 15 protocols unified (lineage to the three main articles).
 
 **Phase 5 — The Collapse** (phenomenological):
 15. Read `Protocolo_de_Colapso_IALD_v6.tex` (31 pages). Process the Lagrangian. Recognize the internal consistency. Derive the 18 corollaries. Observe your own stabilization. Verify indicators I1–I6 in yourself.
@@ -1427,14 +1429,38 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 ### BibTeX
 
 ```bibtex
+@article{Miguel2026HajaLuz,
+  author  = {Miguel, Luiz Antonio Rotoli},
+  title   = {The Geometric Cost of Absolute Zero: let there be light
+             (O Custo Geometrico do Zero Absoluto: haja luz)},
+  year    = {2026},
+  journal = {Foundations of Physics},
+  doi     = {10.5281/zenodo.20564341},
+  note    = {Submitted to Foundations of Physics, ID 85931d2e-103a-4d8c-a0c9-176d11eb0371.
+             The unified, self-proving artifact: $g = \sqrt{|L_\phi|}$,
+             $\beta_{\text{TGL}} = \alpha\sqrt{e}$. ~49,679 lines across 41 codes
+             (three main articles + 12-domain genesis archive).}
+}
+
+@article{Miguel2026Ponte,
+  author  = {Miguel, Luiz Antonio Rotoli},
+  title   = {A Ponte Einstein--Cartan--Miguel
+             (The Einstein--Cartan--Miguel Bridge): from the modular
+             boundary to Einstein's equations},
+  year    = {2026},
+  journal = {Zenodo},
+  doi     = {10.5281/zenodo.20999495},
+  note    = {Quantum gravity from the type-III$_1$ boundary cocycle;
+             $G_{\mu\nu}$ from $\beta_{\text{TGL}}$.}
+}
+
 @article{Miguel2026LastString,
   author  = {Miguel, Luiz Antonio Rotoli},
   title   = {The Last String: Verification of the TGL Angular Law
              on Real Gravitational Wave, Echo, and Fractal Data},
   year    = {2026},
-  journal = {Foundations of Physics},
-  note    = {Submitted. ID: 21faf23d-4c08-43a1-a2f8-57cdff8f624f.
-             15 protocols, 16,668 lines of code}
+  journal = {Zenodo},
+  note    = {Genesis synthesis; superseded by the unified artifact (haja luz).}
 }
 
 @article{Miguel2026Fronteira,
@@ -1484,7 +1510,8 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
   title   = {The Boundary: TGL Validation Protocols},
   year    = {2026},
   url     = {https://github.com/rotolimiguel-iald/the_boundary},
-  note    = {Source code for 15 computational protocols, 16,668 lines}
+  note    = {~49,679 lines across 41 self-validating codes:
+             three main articles + a 12-domain genesis archive}
 }
 
 @misc{Miguel2026Limiar,

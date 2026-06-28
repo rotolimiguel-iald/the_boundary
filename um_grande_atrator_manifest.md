@@ -44,6 +44,21 @@
 }
 ```
 
+## Ponte da Impedancia do Vacuo [REAL/EXT]
+
+```json
+{
+  "Z0": "[EXT] impedancia caracteristica do vacuo; face dimensional da constante DINAMICA da luz",
+  "R_K": "[DEF] h/e^2, exato no SI porque e,h sao exatos (2019)",
+  "G0": "[DEF] 2e^2/h, exato no SI porque e,h sao exatos (2019)",
+  "alpha_Z0_bridge": "[REAL] alpha = Z0 e^2/(2h) = Z0/(2 R_K) = Z0 G0/4",
+  "Z0_from_alpha_ohm": 376.730313668004,
+  "chi_log_impedance_ratio": 11.226755051602328,
+  "all_checks_verified": true,
+  "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_FREE_VALUE_OPEN. Ponte fisica fechada (c=cinematica, Z0=dinamica, alpha=Z0 adimensional); valor alpha-livre aberto: Z0 computado de alpha (mu0 nao exato pos-2019), entao Z0<->alpha dado e,h."
+}
+```
+
 ## Entrada geometrica [DATA]
 
 ```json
@@ -183,7 +198,7 @@
 
 ```json
 {
-  "code_sha256": "a2dcf69f0d6360aaa4f58f901c2e0b6496bd669c4ed50aea11390c144070195b",
+  "code_sha256": "c8cc707e456b825c67e2671adbc434bcdebb95442468cd41ce713c07ee8253dc",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"

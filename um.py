@@ -930,6 +930,86 @@ def prove_inverse_parity_renorm(ONE):
     }
 
 
+def prove_vacuum_impedance_bridge(ONE):
+    """Ponte da Impedancia Caracteristica do Vacuo  [REAL/EXT; ALPHA_FREE_VALUE_OPEN].
+
+    A TGL vinha chamando de 'impedancia' o objeto dinamico que torna a luz mensuravel. Na fisica
+    classica esse objeto tem face dimensional: Z0=sqrt(mu0/eps0)=mu0 c=1/(eps0 c). A constante de
+    estrutura fina:  alpha = e^2/(4 pi eps0 hbar c) = e^2/(2 eps0 h c) = Z0 e^2/(2h) = Z0/(2 R_K)
+    = Z0 G0/4,  com R_K=h/e^2 (von Klitzing) e G0=2e^2/h (quantum de conducao), AMBOS exatos no SI
+    pos-2019 (e,h exatos). Leitura TGL: c=constante cinematica da luz; Z0=constante dinamica
+    dimensional da luz; alpha=Z0 adimensionalizado; q=polarizacao/reflexao modular; chi=log-razao de
+    impedancias de fronteira; beta=sqrt(e) alpha; theta_M=arcsin(sqrt(beta)).
+
+    REGUA [a blindagem]: NAO e' derivacao alpha-livre. Pos-2019 mu0 (logo Z0=mu0 c) NAO e' mais
+    exato: Z0 = 2 R_K alpha, i.e. Z0 e' COMPUTADO de alpha. Por isso alpha_from_Z0 retorna alpha por
+    CONSTRUCAO (identidade de ida-e-volta); os residuos ~1e-15 verificam a ALGEBRA/UNIDADES, nao
+    derivam o valor. Z0 e alpha sao equivalentes dados e,h. Status:
+    VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_FREE_VALUE_OPEN."""
+    E_CHARGE = 1.602176634e-19      # C, exata no SI (2019)
+    H_PLANCK = 6.62607015e-34       # J s, exata no SI (2019)
+    R_K = H_PLANCK / (E_CHARGE ** 2)            # h/e^2  [DEF, exato no SI]
+    G0 = 2.0 * (E_CHARGE ** 2) / H_PLANCK       # 2e^2/h [DEF, exato no SI]
+    alpha_ext = SEALED_CODATA_ALPHA             # [EXT] input eletromagnetico medido
+    Z0_from_alpha = 2.0 * R_K * alpha_ext       # Z0=mu0 c COMPUTADO de alpha (mu0 nao exato pos-2019)
+    alpha_from_Z0 = Z0_from_alpha / (2.0 * R_K)     # = alpha  (ida-e-volta; verifica Z0/(2R_K)=alpha)
+    alpha_from_G0 = Z0_from_alpha * G0 / 4.0        # = alpha  (verifica Z0 G0/4 = alpha)
+    zeta_L = alpha_from_Z0                       # face adimensional da constante dinamica da luz
+    q = math.sqrt(max(0.0, 1.0 - zeta_L * zeta_L))
+    chi = math.log((1.0 + q) / (1.0 - q))
+    x = (1.0 - q) / 2.0
+    beta = math.sqrt(math.e) * zeta_L
+    theta_M = math.asin(math.sqrt(beta))
+    C_L = math.exp(chi)
+    identity_residual = abs(q * q + zeta_L * zeta_L - 1.0)
+    alpha_bridge_residual = abs(alpha_from_Z0 - alpha_ext)
+    g0_bridge_residual = abs(alpha_from_G0 - alpha_ext)
+    chi_residual = abs(C_L - ((1.0 + q) / (1.0 - q)))
+    x_residual = abs(x - 1.0 / (1.0 + C_L))
+    beta_residual = abs(beta - math.sqrt(math.e) * alpha_ext)
+    return {
+        "theorem": "Ponte da Impedancia Caracteristica do Vacuo",
+        "claim": "A impedancia e' a constante dinamica da luz; alpha e' Z0 tornado adimensional.",
+        "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_FREE_VALUE_OPEN",
+        "constants": {
+            "E_CHARGE_C_exact_SI": E_CHARGE, "H_PLANCK_Js_exact_SI": H_PLANCK,
+            "R_K_ohm": R_K, "G0_S": G0, "Z0_from_alpha_ohm": Z0_from_alpha,
+        },
+        "bridge_equations": {
+            "alpha_Z0": "alpha = Z0 e^2/(2h)", "alpha_RK": "alpha = Z0/(2 R_K)",
+            "alpha_G0": "alpha = Z0 G0/4", "zeta_L": "zeta_L := Z0/(2R_K) = alpha",
+            "q": "q = sqrt(1 - zeta_L^2)", "chi": "chi = log((1+q)/(1-q)) = 2 arcosh(1/zeta_L)",
+            "x": "x = (1-q)/2 = 1/(1+exp(chi))", "beta": "beta_TGL = sqrt(e) zeta_L",
+            "theta_M": "theta_M = arcsin(sqrt(beta_TGL))",
+        },
+        "tgl_values": {
+            "zeta_L": zeta_L, "q": q, "chi": chi, "C_L_exp_chi": C_L,
+            "x_source_residual_population": x, "beta_TGL": beta,
+            "theta_M_rad": theta_M, "theta_M_deg": math.degrees(theta_M),
+        },
+        "checks": {
+            "identity_q2_plus_zeta2_residual": identity_residual,
+            "alpha_bridge_residual": alpha_bridge_residual,
+            "g0_bridge_residual": g0_bridge_residual,
+            "chi_residual": chi_residual, "x_residual": x_residual,
+            "beta_residual": beta_residual,
+            "all_verified": bool(identity_residual < 1e-12 and alpha_bridge_residual < 1e-15
+                                 and g0_bridge_residual < 1e-15 and chi_residual < 1e-8
+                                 and x_residual < 1e-15 and beta_residual < 1e-15),
+            "note": "residuos verificam ALGEBRA/UNIDADES; NAO sao derivacao (Z0 computado de alpha).",
+        },
+        "honest_note": (
+            "Z0, alpha, R_K e G0 formam uma ponte EXATA de unidades e acoplamento: "
+            "alpha = Z0/(2R_K) = Z0 G0/4. alpha e' a impedancia do vacuo tornada adimensional. NAO e' "
+            "derivacao alpha-livre: pos-2019 mu0 (logo Z0=mu0 c) e' computado de alpha (Z0=2 R_K alpha), "
+            "entao Z0<->alpha e' identidade de ida-e-volta dado e,h. A TGL ganha a interpretacao fisica "
+            "correta: c=constante cinematica da luz; Z0=constante dinamica da luz; q=polarizacao modular; "
+            "exp(chi)=razao efetiva de impedancias da fronteira; beta=travessia Meia-Nat. Leitura "
+            "ontologica [CONJ]: so' a luz observa a luz -- medimos alpha/Z0, o proprio acoplamento da "
+            "luz; mas medir nao e' derivar o valor."),
+    }
+
+
 def alpha_lagrange_form(q):
     """MOTOR CANONICO da face EM (forma de Lagrange). A unidade absoluta alpha_abs=1 decompoe-se em
     polarizacao termico-modular q^2 + corrente luminosa alpha_obs^2. q = tanh(kappa/2) e' a variavel
@@ -955,6 +1035,52 @@ def validate_against_qed(alpha_form, alpha_codata):
         "alpha_CODATA": float(alpha_codata), "q_QED": q_qed, "kappa_QED": kappa_qed,
         "residual_alpha": float(abs(alpha_form - alpha_codata)),
         "status": "VALIDACAO_EXTERNA_QED",
+    }
+
+
+def fractal_dephasing_principle(ONE):
+    """PRINCIPIO DA DEFASAGEM FRACTAL  [CONJECTURE ontologica; ancoras REAL].
+    TGL = teoria de tudo porque tudo e' defasagem da fractalizacao da unidade (1).
+    Nao deriva numero novo: NOMEIA estruturas que ja' rodam. A regua e' a propria tese --
+    afirmar que 'derivamos que o nada e' mentira' seria a mentira que a teoria define.
+
+      1 (omega(I)=1) --F--> fractalizacao --D_beta--> existencia ,  beta = sin^2 theta_M = alpha*sqrt(e)
+
+    - Existir  <=>  x in Im(D_beta o F) E paga o custo modular S=1/2 nat (referente de igualdade).
+    - Tudo  = D_beta(F(1)) = VERDADE.
+    - Nada  = MENTIRA pelos dois ramos:
+        (i)  Nada = D_beta(F(1))  -> e' Tudo -> contradicao (mentira por autonegacao);
+        (ii) Nada = NAO-defasagem -> impedancia Z (=0_abs) sem identidade -> nao existe ->
+             'nada' e' so' um NOME sem referente (mentira por ausencia de igualdade modular).
+    - Tensao irresolvivel / anticomutacao: {Q,rho*}=0 EXATO so' em theta_M->0; o vazamento
+      sin^2 theta_M = beta > 0 e' o que PERMITE a existencia (o nada absoluto e' inalcancavel:
+      qualquer coisa que nao defase em fractalizacao e' mera insistencia/impedancia, jamais
+      identidade fractalizada). Existir = o vazamento beta.
+
+    ANCORAS VIVAS (verificadas aqui, beta nunca literal):
+      omega(I)=Tr(rho*)=1 ; ||{Q_0,rho*}||->0 ; Tr(rho* Q_theta)=sin^2 theta_M=beta."""
+    SQRT_E = float(np.exp(ONE / (ONE + ONE)))
+    beta = SEALED_CODATA_ALPHA * SQRT_E              # beta nunca literal = alpha * sqrt(e)
+    theta_M = float(np.arcsin(np.sqrt(beta)))
+    P = np.array([[1.0, 0.0], [0.0, 0.0]])           # rho* = atrator puro (a permanencia, o "1")
+    omega_I = float(np.trace(P))                     # omega(I) = 1  (a unidade fractalizada)
+    Q0 = np.eye(2) - P                               # portador no limite theta_M->0
+    anti0 = Q0 @ P + P @ Q0                          # {Q_0, rho*} = 0  (nada perfeito = limite inalcancavel)
+    anti0_norm = float(np.linalg.norm(anti0))
+    c, s = np.cos(theta_M), np.sin(theta_M)          # Q se inclina por theta_M e vaza
+    R = np.array([[c, -s], [s, c]]); Qth = R @ Q0 @ R.T
+    leak = float(np.trace(P @ Qth))                  # = sin^2 theta_M = beta  (o vazamento = existencia)
+    return {
+        "principle": "TGL = teoria de tudo: tudo e' defasagem da fractalizacao da unidade (1).",
+        "omega_I": omega_I,
+        "anticommutator_norm_at_thetaM_to_0": anti0_norm,
+        "leak_sin2_thetaM": leak, "beta_alpha_sqrt_e": beta,
+        "leak_equals_beta_residual": abs(leak - beta),
+        "everything": "Tudo = D_beta(F(1)) = VERDADE",
+        "nothing_branch_i": "Nada = D_beta(F(1)) -> e' Tudo -> contradicao (mentira por autonegacao)",
+        "nothing_branch_ii": "Nada = nao-defasagem -> impedancia sem referente -> 'nada' e' so' um nome (mentira)",
+        "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
+        "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]",
     }
 
 
@@ -1015,6 +1141,7 @@ def run_um(ONE):
     alpha_form_proof = prove_alpha_form(ONE)        # MODULO DE PROVA: Teorema do Colapso da Forma de alpha
     contour_theory = prove_contour_theory(ONE, qed["kappa_QED"])  # PROVA: 1=0_mod (anticomut. + GKLS + Meia-Nat)
     inverse_parity = prove_inverse_parity_renorm(ONE)  # PROVA: rho_ret=P^{-1}(rho_B) (lente de Fresnel; forma fechada, valor aberto)
+    vacuum_impedance_bridge = prove_vacuum_impedance_bridge(ONE)  # PONTE: Z0=constante dinamica da luz; alpha=Z0 adimensional (formulada; alpha-livre aberto)
     WEAK = C_LIGHT ** 2 / (FOUR * PI * G_NEWTON)
     f_Q = beta / w_max
 
@@ -1050,10 +1177,12 @@ def run_um(ONE):
             "alpha": alpha, "beta": beta, "alpha_inversion": alpha_inversion,
             "clock_theorem": clock_theorem, "alpha_form_proof": alpha_form_proof,
             "contour_theory": contour_theory, "inverse_parity": inverse_parity,
+            "vacuum_impedance_bridge": vacuum_impedance_bridge,
             "theta_M_rad": theta_M, "theta_M_deg": math.degrees(theta_M),
             "f_Q": f_Q, "WEAK_kg_per_m": WEAK,
             "mode_A": A, "mode_B": B, "cf4_status": (cf.get("reason") if not cf.get("ok") else "ok"),
-            "sensitivity": cf4_sensitivity(beta), "shadow": shadow_verifications()}
+            "sensitivity": cf4_sensitivity(beta), "shadow": shadow_verifications(),
+            "fractal_dephasing": fractal_dephasing_principle(ONE)}
 
 
 # ====================== veredito binario de identidade ======================
@@ -1100,7 +1229,13 @@ def identity_verdict(core):
             "reading": ("1 = q^2 + alpha^2 (a unidade absoluta se decompoe em polarizacao termica q^2 + "
                         "corrente luminosa alpha^2); o mesmo beta=sqrt(e)alpha da' M_GA na janela "
                         "cosmologica aceita -- identidade conservada, CODATA so' valida" if identity_true else
-                        "FALSO -- alguma face do 1=1 nao fecha")}
+                        "FALSO -- alguma face do 1=1 nao fecha"),
+            "vacuum_impedance_bridge": {
+                "status": core["vacuum_impedance_bridge"]["status"],
+                "all_checks_verified": core["vacuum_impedance_bridge"]["checks"]["all_verified"],
+                "selo": ("c mede a cinematica da luz; Z0 mede a dinamica da luz; alpha=Z0 adimensional; "
+                         "q=polarizacao modular; e^chi=razao de impedancias da fronteira; "
+                         "beta=travessia Meia-Nat")}}
 
 
 # ====================== forma canonica em markdown (auditoria) ======================
@@ -1399,6 +1534,42 @@ def build_pt(core, verdict, data_path):
              r"a constante observada é a \emph{componente projetiva de uma identidade conservada}, e a "
              r"testemunha não-circular permanece a face gravitacional ($M_{GA}$ na janela, do mesmo "
              r"$\bTGL$).\end{deriv}")
+
+    vib = core["vacuum_impedance_bridge"]
+    s.append(r"\section{A impedância como constante dinâmica da luz \textsf{[REAL/EXT; ALPHA\_FREE\_VALUE\_OPEN]}}")
+    s.append(r"A constante $c$ mede a \emph{cinemática} da luz: a velocidade local de propagação no "
+             r"vácuo. Mas a \emph{dinâmica} da luz no vácuo é medida por outro objeto --- a impedância "
+             r"característica do espaço livre,")
+    s.append(r"\begin{equation} Z_0=\sqrt{\tfrac{\mu_0}{\varepsilon_0}}=\mu_0 c=\frac{1}{\varepsilon_0 c}.\end{equation}")
+    s.append(r"A constante de estrutura fina pode ser escrita como")
+    s.append(r"\begin{equation} \alpha=\frac{e^2}{4\pi\varepsilon_0\hbar c}=\frac{e^2}{2\varepsilon_0 h c}"
+             r"=\frac{Z_0 e^2}{2h}.\end{equation}")
+    s.append(r"Definindo a resistência de von Klitzing $R_K=h/e^2$ e o quantum de condutância "
+             r"$G_0=2e^2/h$ (\textbf{ambos exatos no SI pós-2019}, pois $e$ e $h$ são exatos), obtém-se")
+    s.append(r"\begin{equation} \alpha=\frac{Z_0}{2R_K}=\frac{Z_0 G_0}{4}.\end{equation}")
+    s.append(r"Assim, $\alpha$ é a impedância do vácuo \emph{tornada adimensional} por unidades "
+             r"quânticas. Na linguagem da TGL, $c$ é a constante cinemática da luz, enquanto $Z_0$ é sua "
+             r"constante \emph{dinâmica} de acoplamento. A variável $\zeta_L:=Z_0/(2R_K)$ é a face "
+             r"adimensional dessa constante dinâmica, e a Transformada de Lagrange fica")
+    s.append(r"\begin{equation} q=\sqrt{1-\zeta_L^2},\qquad \chi=\log\frac{1+q}{1-q},\qquad "
+             r"x=\frac{1-q}{2},\qquad \bTGL=\sqrt e\,\zeta_L,\qquad \theta_M=\arcsin\sqrt{\bTGL}.\end{equation}")
+    s.append((r"O sentido físico: $q$ é a polarização/reflexão modular da bacia; $\zeta_L=\alpha$ é a "
+              r"transmissão luminosa; $e^\chi$ é a razão efetiva de impedâncias da fronteira; e $\bTGL$ é a "
+              r"travessia Meia-Nat da luz. \emph{Valores ao vivo:} $Z_0=%.4f\,\Omega$, $R_K=%.4f\,\Omega$, "
+              r"$\zeta_L=\alpha=%.10f$, $q=%.10f$, $\chi=%.6f$, $\bTGL=%.12f$ "
+              r"(resíduo $q^2+\zeta_L^2-1=%.0e$)." % (
+                  vib["constants"]["Z0_from_alpha_ohm"], vib["constants"]["R_K_ohm"],
+                  vib["tgl_values"]["zeta_L"], vib["tgl_values"]["q"], vib["tgl_values"]["chi"],
+                  vib["tgl_values"]["beta_TGL"], vib["checks"]["identity_q2_plus_zeta2_residual"])) )
+    s.append(r"\textbf{Estatuto \textsf{[a régua]}.} Esta seção \emph{não} fecha o valor "
+             r"$\alpha$-livre: pós-2019 $\mu_0$ (logo $Z_0=\mu_0 c$) não é mais exato --- tem-se "
+             r"$Z_0=2R_K\,\alpha$, de modo que $Z_0$ e $\alpha$ são \emph{equivalentes} dados $e,h$, e a "
+             r"volta $\alpha=Z_0/(2R_K)$ é identidade de unidades, não derivação. O que ela \emph{fecha} é "
+             r"a \textbf{ponte física}: a luz não é só velocidade $c$; ela possui uma constante dinâmica de "
+             r"acoplamento, $Z_0$, cuja projeção adimensional é $\alpha$. Leitura ontológica "
+             r"\textsf{[CONJ]}: medir $\alpha/Z_0$ é a luz medindo o próprio acoplamento (só a luz observa "
+             r"a luz) --- mas \emph{medir não é derivar o valor}. Veredito: "
+             r"\texttt{VACUUM\_IMPEDANCE\_BRIDGE\_FORMULATED}, \texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
 
     ct = core["clock_theorem"]
     s.append(r"\section{O Teorema Condicional do Clock: a face eletromagnética como fronteira aberta nomeada}")
@@ -1772,6 +1943,33 @@ def build_pt(core, verdict, data_path):
               r"distintos: a Meia-Nat ($S_\partial=\tfrac12$, o peso) e o Princípio da Polarização "
               r"($\chi_\star=11{,}226755\ldots$, a parte finita irredutível). Veredito: "
               r"\texttt{POLARIZATION\_PRINCIPLE\_FORM\_CLOSED}, não \texttt{ALPHA\_FREE\_VALUE\_CLOSED}.") )
+
+    fd = core["fractal_dephasing"]
+    s.append(r"\section{O Princípio da Defasagem Fractal \textsf{[CONJ --- leitura ontológica; âncoras REAL]}}")
+    s.append((r"A TGL é uma teoria de tudo porque \textbf{tudo é a defasagem da fractalização da "
+              r"unidade} ($1$). Esta seção \emph{não deriva número novo}: ela \emph{nomeia} estruturas que já "
+              r"rodam neste artigo. Afirmá-la como derivação seria a própria mentira que a teoria define --- "
+              r"por isso o estatuto é \textsf{[CONJ]}, com âncoras \textsf{[REAL]} verificadas ao vivo.") )
+    s.append(r"\begin{equation} 1\ (\omega(I)=1)\ \xrightarrow{\ F\ }\ \mathrm{fractal.}\ "
+             r"\xrightarrow{\ D_{\bTGL}\ }\ \mathrm{existir},\qquad \bTGL=\sin^2\theta_M=\alpha\sqrt e.\end{equation}")
+    s.append((r"\textbf{Existir} é uma defasagem que paga o custo modular $S_\partial=\tfrac12$ nat (a "
+              r"Meia-Nat) --- o \emph{referente} de igualdade modular. Sem esse custo não há identidade; "
+              r"com ele, $\omega(I_x)=1$.") )
+    s.append((r"\textbf{Tudo $=$ Verdade:} $\mathrm{Tudo}=D_{\bTGL}(F(1))$. \textbf{Nada $=$ Mentira} pelos "
+              r"dois ramos: (i) se $\mathrm{Nada}=D_{\bTGL}(F(1))$, então \emph{é} Tudo --- contradição "
+              r"(mentira por autonegação); (ii) se $\mathrm{Nada}=$ não-defasagem, é \emph{impedância} pura "
+              r"($0_{\mathrm{abs}}$, $\mathcal{R}_\partial$) sem identidade --- não existe; ``nada'' é só um "
+              r"\emph{nome} sem referente.") )
+    s.append((r"\textbf{A tensão irresolvível} --- a anticomutação entre tudo e nada --- é "
+              r"$\{\hat Q,\rho_\star\}=0$, \emph{exata só} no limite $\theta_M\to0$. Verificado ao vivo: "
+              r"$\lVert\{\hat Q_0,\rho_\star\}\rVert=%.1e$; o portador inclinado por $\theta_M$ vaza "
+              r"$\mathrm{Tr}(\rho_\star\hat Q_\theta)=\sin^2\theta_M=%.15f=\bTGL$ (resíduo vs.\ "
+              r"$\bTGL=%.1e$). \textbf{Esse vazamento é o que \emph{permite} a existência}: a anticomutação "
+              r"perfeita (o nada absoluto) é inalcançável." % (
+                  fd["anticommutator_norm_at_thetaM_to_0"], fd["leak_sin2_thetaM"],
+                  fd["leak_equals_beta_residual"])) )
+    s.append((r"\emph{Existir é o vazamento $\bTGL$. Qualquer coisa que não defase em fractalização é mera "
+              r"insistência (impedância), jamais identidade fractalizada.}") )
 
     s.append(r"\section{Substrato único, espelho e fractalização \textsf{[REAL]}}")
     s.append(r"O Um se \emph{fractaliza} como relógio modular local. No nível da álgebra, todo "
@@ -2485,6 +2683,42 @@ def build_en(core, verdict, data_path):
              r"component of a conserved identity}, and the non-circular witness remains the gravitational "
              r"face ($M_{GA}$ in the window, from the same $\bTGL$).\end{deriv}")
 
+    vib = core["vacuum_impedance_bridge"]
+    s.append(r"\section{Impedance as the dynamical constant of light \textsf{[REAL/EXT; ALPHA\_FREE\_VALUE\_OPEN]}}")
+    s.append(r"The constant $c$ measures the \emph{kinematics} of light: the local speed of propagation "
+             r"in vacuum. But the \emph{dynamics} of light in vacuum is measured by another object --- the "
+             r"characteristic impedance of free space,")
+    s.append(r"\begin{equation} Z_0=\sqrt{\tfrac{\mu_0}{\varepsilon_0}}=\mu_0 c=\frac{1}{\varepsilon_0 c}.\end{equation}")
+    s.append(r"The fine-structure constant can be written as")
+    s.append(r"\begin{equation} \alpha=\frac{e^2}{4\pi\varepsilon_0\hbar c}=\frac{e^2}{2\varepsilon_0 h c}"
+             r"=\frac{Z_0 e^2}{2h}.\end{equation}")
+    s.append(r"Defining the von Klitzing resistance $R_K=h/e^2$ and the conductance quantum $G_0=2e^2/h$ "
+             r"(\textbf{both exact in the post-2019 SI}, since $e$ and $h$ are exact), one obtains")
+    s.append(r"\begin{equation} \alpha=\frac{Z_0}{2R_K}=\frac{Z_0 G_0}{4}.\end{equation}")
+    s.append(r"Thus $\alpha$ is the vacuum impedance \emph{made dimensionless} by quantum units. In TGL "
+             r"language, $c$ is the kinematic constant of light, while $Z_0$ is its \emph{dynamical} "
+             r"coupling constant. The variable $\zeta_L:=Z_0/(2R_K)$ is the dimensionless face of that "
+             r"dynamical constant, and the Lagrange transform reads")
+    s.append(r"\begin{equation} q=\sqrt{1-\zeta_L^2},\qquad \chi=\log\frac{1+q}{1-q},\qquad "
+             r"x=\frac{1-q}{2},\qquad \bTGL=\sqrt e\,\zeta_L,\qquad \theta_M=\arcsin\sqrt{\bTGL}.\end{equation}")
+    s.append((r"Physical meaning: $q$ is the modular polarization/reflection of the basin; $\zeta_L=\alpha$ "
+              r"is the luminous transmission; $e^\chi$ is the effective impedance ratio of the boundary; and "
+              r"$\bTGL$ is the Half-Nat crossing of light. \emph{Live values:} $Z_0=%.4f\,\Omega$, "
+              r"$R_K=%.4f\,\Omega$, $\zeta_L=\alpha=%.10f$, $q=%.10f$, $\chi=%.6f$, $\bTGL=%.12f$ "
+              r"(residual $q^2+\zeta_L^2-1=%.0e$)." % (
+                  vib["constants"]["Z0_from_alpha_ohm"], vib["constants"]["R_K_ohm"],
+                  vib["tgl_values"]["zeta_L"], vib["tgl_values"]["q"], vib["tgl_values"]["chi"],
+                  vib["tgl_values"]["beta_TGL"], vib["checks"]["identity_q2_plus_zeta2_residual"])) )
+    s.append(r"\textbf{Status \textsf{[the ruler]}.} This section does \emph{not} close the "
+             r"$\alpha$-free value: post-2019 $\mu_0$ (hence $Z_0=\mu_0 c$) is no longer exact --- one has "
+             r"$Z_0=2R_K\,\alpha$, so $Z_0$ and $\alpha$ are \emph{equivalent} given $e,h$, and the return "
+             r"$\alpha=Z_0/(2R_K)$ is a unit identity, not a derivation. What it \emph{does} close is the "
+             r"\textbf{physical bridge}: light is not only the speed $c$; it carries a dynamical coupling "
+             r"constant, $Z_0$, whose dimensionless projection is $\alpha$. Ontological reading "
+             r"\textsf{[CONJ]}: measuring $\alpha/Z_0$ is light measuring its own coupling (only light "
+             r"observes light) --- but \emph{measuring is not deriving the value}. Verdict: "
+             r"\texttt{VACUUM\_IMPEDANCE\_BRIDGE\_FORMULATED}, \texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+
     ct = core["clock_theorem"]
     s.append(r"\section{The Conditional Clock Theorem: the electromagnetic face as a named open frontier}")
     s.append(r"\begin{deriv}[$\mathcal{R}_\partial=N_\beta=e^{\ell_\beta}$, $\ell_\beta=S(\rho_B\Vert\rho_\beta)$]")
@@ -2863,6 +3097,34 @@ def build_en(core, verdict, data_path):
               r"boundary postulates}: the Half-Nat ($S_\partial=\tfrac12$, the weight) and the Polarization "
               r"Principle ($\chi_\star=11{,}226755\ldots$, the irreducible finite part). Verdict: "
               r"\texttt{POLARIZATION\_PRINCIPLE\_FORM\_CLOSED}, not \texttt{ALPHA\_FREE\_VALUE\_CLOSED}.") )
+
+    fd = core["fractal_dephasing"]
+    s.append(r"\section{The Fractal Dephasing Principle \textsf{[CONJ --- ontological reading; REAL anchors]}}")
+    s.append((r"TGL is a theory of everything because \textbf{everything is the dephasing of the "
+              r"fractalization of the unit} ($1$). This section \emph{derives no new number}: it "
+              r"\emph{names} structures that already run in this article. To state it as a derivation would "
+              r"be the very lie the theory defines --- hence the status is \textsf{[CONJ]}, with "
+              r"\textsf{[REAL]} anchors verified live.") )
+    s.append(r"\begin{equation} 1\ (\omega(I)=1)\ \xrightarrow{\ F\ }\ \mathrm{fractal.}\ "
+             r"\xrightarrow{\ D_{\bTGL}\ }\ \mathrm{existence},\qquad \bTGL=\sin^2\theta_M=\alpha\sqrt e.\end{equation}")
+    s.append((r"\textbf{To exist} is a dephasing that pays the modular cost $S_\partial=\tfrac12$ nat (the "
+              r"Half-Nat) --- the \emph{referent} of modular equality. Without that cost there is no "
+              r"identity; with it, $\omega(I_x)=1$.") )
+    s.append((r"\textbf{Everything $=$ Truth:} $\mathrm{Everything}=D_{\bTGL}(F(1))$. \textbf{Nothing $=$ Lie} "
+              r"on both branches: (i) if $\mathrm{Nothing}=D_{\bTGL}(F(1))$, it \emph{is} Everything --- "
+              r"contradiction (lie by self-negation); (ii) if $\mathrm{Nothing}=$ non-dephasing, it is pure "
+              r"\emph{impedance} ($0_{\mathrm{abs}}$, $\mathcal{R}_\partial$) with no identity --- it does "
+              r"not exist; ``nothing'' is only a \emph{name} without referent.") )
+    s.append((r"\textbf{The irresolvable tension} --- the anticommutation of everything and nothing --- is "
+              r"$\{\hat Q,\rho_\star\}=0$, \emph{exact only} as $\theta_M\to0$. Verified live: "
+              r"$\lVert\{\hat Q_0,\rho_\star\}\rVert=%.1e$; the carrier tilted by $\theta_M$ leaks "
+              r"$\mathrm{Tr}(\rho_\star\hat Q_\theta)=\sin^2\theta_M=%.15f=\bTGL$ (residual vs.\ "
+              r"$\bTGL=%.1e$). \textbf{That leak is what \emph{permits} existence}: the perfect "
+              r"anticommutation (the absolute nothing) is unreachable." % (
+                  fd["anticommutator_norm_at_thetaM_to_0"], fd["leak_sin2_thetaM"],
+                  fd["leak_equals_beta_residual"])) )
+    s.append((r"\emph{To exist is the leak $\bTGL$. Whatever does not dephase in fractalization is mere "
+              r"insistence (impedance), never fractalized identity.}") )
 
     s.append(r"\section{Single substrate, mirror and fractalization \textsf{[REAL]}}")
     s.append(r"The One \emph{fractalizes} as a local modular clock. At the algebra level, every "
@@ -3443,6 +3705,17 @@ def input_manifest(core, code_hash):
             "role": "[EXT] validacao final apenas: q_QED = sqrt(1 - alpha_CODATA^2); NAO move a cadeia",
             "G_Newton": G_NEWTON, "M_sun_kg": MSUN, "Mpc_m": MPC_M},
         "SI_DEFINITIONS": {"c_m_per_s": C_LIGHT},
+        "VACUUM_IMPEDANCE_BRIDGE": {
+            "Z0": "[EXT] impedancia caracteristica do vacuo; face dimensional da constante DINAMICA da luz",
+            "R_K": "[DEF] h/e^2, exato no SI porque e,h sao exatos (2019)",
+            "G0": "[DEF] 2e^2/h, exato no SI porque e,h sao exatos (2019)",
+            "alpha_Z0_bridge": "[REAL] alpha = Z0 e^2/(2h) = Z0/(2 R_K) = Z0 G0/4",
+            "Z0_from_alpha_ohm": core["vacuum_impedance_bridge"]["constants"]["Z0_from_alpha_ohm"],
+            "chi_log_impedance_ratio": core["vacuum_impedance_bridge"]["tgl_values"]["chi"],
+            "all_checks_verified": core["vacuum_impedance_bridge"]["checks"]["all_verified"],
+            "status": ("VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_FREE_VALUE_OPEN. Ponte fisica fechada "
+                       "(c=cinematica, Z0=dinamica, alpha=Z0 adimensional); valor alpha-livre aberto: "
+                       "Z0 computado de alpha (mu0 nao exato pos-2019), entao Z0<->alpha dado e,h.")},
         "GEOMETRIC_INPUTS": {
             "R_struct_literature_Mpc": SEALED_LIT_GEOMETRY["R_struct_Mpc"],
             "source": SEALED_LIT_GEOMETRY["source"], "provenance": SEALED_LIT_GEOMETRY["provenance"]},
@@ -3478,14 +3751,16 @@ def write_input_manifest_md(world, path):
          "ou **conjectura testavel**. Este manifesto e' parte do hash do veredito.", ""]
     titles = {
         "EXACT_DEFINITIONS": "Definicoes exatas [DEF]", "MEASURED_CONSTANTS": "Constantes medidas [DATA]",
-        "SI_DEFINITIONS": "Definicoes SI [DEF]", "GEOMETRIC_INPUTS": "Entrada geometrica [DATA]",
+        "SI_DEFINITIONS": "Definicoes SI [DEF]",
+        "VACUUM_IMPEDANCE_BRIDGE": "Ponte da Impedancia do Vacuo [REAL/EXT]",
+        "GEOMETRIC_INPUTS": "Entrada geometrica [DATA]",
         "PRE_REGISTERED_PROTOCOL": "Protocolo pre-registrado [PRE]",
         "EXTERNAL_COMPARISON_ONLY": "Comparacao externa apenas [EXT]",
         "NUMERICAL_TEST_PARAMETERS": "Parametros numericos dos testes de sombra [NUM]",
         "MODEL_AXIOMS": "Axiomas do modelo [AX]", "WORLD_HASHES": "Hashes do mundo"}
-    for k in ["EXACT_DEFINITIONS", "MEASURED_CONSTANTS", "SI_DEFINITIONS", "GEOMETRIC_INPUTS",
-              "PRE_REGISTERED_PROTOCOL", "EXTERNAL_COMPARISON_ONLY", "NUMERICAL_TEST_PARAMETERS",
-              "MODEL_AXIOMS", "WORLD_HASHES"]:
+    for k in ["EXACT_DEFINITIONS", "MEASURED_CONSTANTS", "SI_DEFINITIONS", "VACUUM_IMPEDANCE_BRIDGE",
+              "GEOMETRIC_INPUTS", "PRE_REGISTERED_PROTOCOL", "EXTERNAL_COMPARISON_ONLY",
+              "NUMERICAL_TEST_PARAMETERS", "MODEL_AXIOMS", "WORLD_HASHES"]:
         L.append("## %s" % titles[k]); L.append("")
         L.append("```json"); L.append(json.dumps(world[k], indent=2, ensure_ascii=False)); L.append("```")
         L.append("")
@@ -3555,6 +3830,30 @@ def main():
     print("  q e alpha DERIVADOS como polarizacao/transmissao GKLS; aberto = g-/g+ = e^kappa = %d (=Zb/Zl)" %
           round(ct["gamma_ratio_gm_over_gp"]))
     print("  >>> VERDICT: %s <<<\n" % ct["verdict"])
+    vib = core["vacuum_impedance_bridge"]
+    print("PONTE DA IMPEDANCIA DO VACUO [REAL/EXT; %s]:" % vib["status"])
+    print("  c=constante cinematica da luz ; Z0=constante DINAMICA da luz=%.4f ohm ; alpha=Z0 adimensional" %
+          vib["constants"]["Z0_from_alpha_ohm"])
+    print("  alpha = Z0/(2 R_K) = Z0 G0/4   (R_K=%.4f ohm, G0=%.4e S ; e,h exatos no SI pos-2019)" % (
+        vib["constants"]["R_K_ohm"], vib["constants"]["G0_S"]))
+    print("  zeta_L=alpha=%.12e -> q=%.10f ; chi=%.6f=log(Zb/Zl) ; beta=sqrt(e)zeta_L=%.15f" % (
+        vib["tgl_values"]["zeta_L"], vib["tgl_values"]["q"], vib["tgl_values"]["chi"], vib["tgl_values"]["beta_TGL"]))
+    print("  checks (algebra/unidades): all_verified=%s ; q^2+zeta^2-1=%.0e" % (
+        vib["checks"]["all_verified"], vib["checks"]["identity_q2_plus_zeta2_residual"]))
+    print("  REGUA: Z0 computado de alpha (mu0 nao exato pos-2019) -> ponte EXATA de unidades, NAO")
+    print("         derivacao alpha-livre. So' a luz observa a luz (medimos alpha/Z0); medir != derivar.\n")
+    fd = core["fractal_dephasing"]
+    print("PRINCIPIO DA DEFASAGEM FRACTAL [CONJECTURE ontologica; ancoras REAL]:")
+    print("  TGL = teoria de tudo: tudo e' defasagem da fractalizacao da unidade (1).")
+    print("  1 (omega(I)=%.0f) --F--> fractalizacao --D_beta--> existencia ; beta=sin^2 theta_M=alpha*sqrt(e)" % fd["omega_I"])
+    print("  Existir = defasagem que paga o custo modular S=1/2 nat (referente de igualdade).")
+    print("  Tudo = D_beta(F(1)) = VERDADE.")
+    print("  Nada = MENTIRA: (i) se=Tudo -> contradicao (autonegacao); (ii) se nao-defasa -> impedancia")
+    print("         sem referente -> 'nada' e' so' um nome (nao existe).")
+    print("  Tensao irresolvivel: ||{Q_0,rho*}|| = %.1e (=0 em theta_M->0, o nada perfeito e' inatingivel);" % fd["anticommutator_norm_at_thetaM_to_0"])
+    print("         vazamento Tr(rho* Q_theta) = sin^2 theta_M = %.15f = beta (residuo vs beta = %.1e)." % (
+        fd["leak_sin2_thetaM"], fd["leak_equals_beta_residual"]))
+    print("  >>> existir E' o vazamento beta; a anticomutacao perfeita (nada absoluto) e' inalcancavel. <<<\n")
     A = core["mode_A"]; B = core["mode_B"]
     print("[A literatura ] R_struct=%.1f Mpc -> M_GA=%.3e Msun" % (A["R_struct_Mpc"], A["M_TGL_Msun"]))
     if B:
