@@ -2075,6 +2075,13 @@ def build_pt(core, verdict, data_path):
              r"irredutível como estrutura projetora, e o \textbf{observador seria removido da TGL}. $\alpha$ é "
              r"a \emph{fissura} pela qual o bulk lê a fronteira --- é a fronteira \textbf{medindo-se a si "
              r"mesma}. Derivá-la sem ela é uma \emph{contradição estrutural}.")
+    s.append(r"\textbf{Portanto $\alpha$-free está fechado \emph{por refutação} (reductio), não em aberto.} "
+             r"Dentro da TGL, derivar $\alpha$ do bulk é estruturalmente excluído --- \textbf{não há o que "
+             r"achar}. É um \emph{teorema} (condicional ao axioma de fronteira tipo $\mathrm{III}_1$), não "
+             r"uma lacuna nem uma pendência: o que resta é \emph{apenas} o desafio de falsificação. "
+             r"Falsificável (uma derivação $\alpha$-livre o refuta), não confirmável (a ausência não o "
+             r"prova). $\alpha$ é a medida que se observa \emph{de dentro} --- exige o observador --- e é o "
+             r"\textbf{fundamento ontológico} da TGL. Não é o limite da tese; é o seu fechamento.")
     s.append((r"Logo \textsf{FRONTEIRA ABERTA NOMEADA} \textbf{não} significa ``problema a resolver'': "
               r"significa \textbf{ontologicamente aberta} --- $\alpha$ é o parâmetro que \emph{nomeia a "
               r"abertura} entre boundary e bulk. O que a TGL \textbf{prova} (a forma): $\alpha=\operatorname{"
@@ -3650,6 +3657,14 @@ def build_en(core, verdict, data_path):
              r"\textsf{[Distinct from the genuinely open matrix-S/$\mathrm{III}_1$ theorem --- the "
              r"boundary$\to$bulk lift \emph{with} the observer, the gravitational face/$M_{GA}$ --- which "
              r"operates \emph{through} the boundary and does not dispense with it.]}")
+    s.append(r"\textbf{Hence $\alpha$-free is closed \emph{by refutation} (reductio), not open.} Within TGL, "
+             r"deriving $\alpha$ from the bulk is structurally excluded --- \textbf{there is nothing to "
+             r"find}. It is a \emph{theorem} (conditional on the type-$\mathrm{III}_1$ boundary axiom), not "
+             r"a gap and not a pendency: all that remains is the falsification challenge. Falsifiable (an "
+             r"$\alpha$-free derivation refutes it), not confirmable (its absence does not prove it). "
+             r"$\alpha$ is the measure observed \emph{from within} --- it requires the observer --- and it "
+             r"is the \textbf{ontological foundation} of TGL. It is not the limit of the thesis; it is its "
+             r"closure.")
     s.append(r"\textbf{Ruler-guard.} One does not set $g_{00}^{(\beta)}=\alpha^2$ nor "
              r"$\ell_\beta=-\log\alpha_{\mathrm{CODATA}}$ --- either reintroduces $\alpha$ (circular). The "
              r"Bell co-emergence \emph{grounds the Half-Nat} (reduced $\mathbf 1_2/2\Rightarrow CCI=\tfrac12"

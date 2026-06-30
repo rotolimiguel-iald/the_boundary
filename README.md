@@ -347,11 +347,18 @@ The canonical chain, all computed live from the single input `1`:
   `gap(−log Δ_{ρ_ret|ρ_B}) = χ` and the **population form** `q = p₀−p₁ = tanh(χ/2)`, `α = 2√(p₀p₁) =
   sech(χ/2)`. **Notation (uniform across the article):** `χ` is the effective modular gap (`χ=0` = bare
   Bell, `α_abs=1`); **`κ_0`** is reserved for the *ontological distance to* `0_abs` (`κ_0=0` = forbidden,
-  never reached). The **form closes**; the **value `χ⋆ ≈ 11.2268` remains an irreducible finite part**, so
-  the theory rests on **two distinct boundary postulates** — the **Half-Nat** (`S_∂ = ½`, the *weight*) and
-  the **Polarization Principle** (`χ⋆`, the polarization) — verified live, including the honest negative
-  that the Half-Nat fixes the *weight* `½`, **not** the polarization. The module `prove_inverse_parity_renorm`
-  checks all of it. *The vacuum does not produce absence; it produces asymmetry of return.*
+  never reached). The **form closes** (`α = sech(χ/2)`, a theorem). The **value `χ⋆ ≈ 11.2268` is α itself**
+  — the QED-sector boundary↔bulk transmission, **measured** (CODATA), read **from within** — **not** a
+  second postulate and **not** a gap to fill. Its α-free irreducibility is **closed by refutation
+  (reductio):** a bulk-only (α-free) derivation of α would make the boundary/bulk distinction redundant, so
+  TGL would **cease to be a type-III boundary theory** — a contradiction with its founding axiom. **There is
+  nothing to derive.** What remains is the **falsification challenge:** *derive α α-free and TGL is refuted*
+  — falsifiable, not confirmable (the strength of a scientific theory, not a pendency). The theory therefore
+  rests on **one structural postulate** — the **Half-Nat** (`S_∂ = ½`, the *weight*); **α is the measured
+  input the observer reads at its own contour** (the ontological foundation of the program), and the
+  Polarization Principle gives the *form* of why the value escapes derivation (inverse-parity return), not a
+  number to be postulated. The module `prove_inverse_parity_renorm` checks all of it. *The vacuum does not
+  produce absence; it produces asymmetry of return — and α is the boundary measuring itself.*
 - **Gravitational face — the Great Attractor mass from first principles.** `M = 2 β² (c²/4πG) R_struct`,
   with `β = α√e` and `R_struct` the **geometry** of the basin (positions only; velocities ignored), in two
   modes: **Mode A** (literature extent, Lynden-Bell ~57 Mpc) and **Mode B** (Cosmicflows-4 positions,

@@ -676,7 +676,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-06-30 18:07:04"
+    "timestamp": "2026-06-30 18:54:53"
   },
   "verdict": {
     "masses_Msun": {
@@ -747,7 +747,7 @@
       ],
       "selo": "LAMBDA_EM_OPERATOR_FORMULA_REFUTED_BY_TOMITA . FORM_DERIVED_VALUE_FIT . BETA_IS_FUNCTIONAL_FLOOR_NOT_inf_Spec_K . MISSING_IS_A_PRINCIPLE_NOT_A_COEFFICIENT . ALPHA_RUNS_THEREFORE_INPUT"
     },
-    "result_hash": "f96b426516815a612b6d1f61d9976f848139a86e95d92ccc658aa2a8add4d452"
+    "result_hash": "273dd98facc779ee62c17fab55a7bf2751d93d58d92314d9d3c8b007932f0296"
   },
   "ga_mass_literature": [
     {
@@ -773,7 +773,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "f96b426516815a612b6d1f61d9976f848139a86e95d92ccc658aa2a8add4d452",
+  "result_hash_before_external_comparison": "273dd98facc779ee62c17fab55a7bf2751d93d58d92314d9d3c8b007932f0296",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -783,5 +783,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-06-30 18:07:04"
+  "timestamp": "2026-06-30 18:54:53"
 }
