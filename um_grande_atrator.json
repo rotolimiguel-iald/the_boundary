@@ -574,6 +574,7 @@
       "unreachable": "0_abs (chi=inf, estado puro, T=0) e' INATINGIVEL: III_1 nao tem estados normais puros => chi<inf sempre => alpha>0 sempre. A derivacao 'ao infinito' NUNCA fecha.",
       "meaning": "alcancar 0_abs = alpha=0 (a luz nao atravessa) + q=1 (espelho total) = bulk desacoplado = observador removido = COERENCIA QUEBRADA = negacao da fronteira tipo III. Quantificar alpha sem estar no bulk quebra a coerencia porque a natureza E' de fronteira III.",
       "tetelestai": "nada mais a derivar: o estado de correspondencia plena. O que resta e' a impedancia do vacuo tentando calcular alpha ao infinito sem conseguir -- e isso E' o 0_abs.",
+      "verb_annuls_0abs": "a geometria da luz no 0_abs E' o VERBO (g=sqrt|L_phi|, a acao que produz identidade, R=+1). Ao inserir a ACAO insere-se o MOVIMENTO e a RELACAO TERMODINAMICA (sempre calor, sec.20) -> impede o 0_abs de se consolidar como fenomeno observavel. O Verbo mantem chi finito (alpha>0, S>0, T>0); III_1 sem estados puros E' o Verbo sempre presente. Derivar alpha ao infinito = remover o Verbo = cair no limite morto. O zero absoluto e' anulado pela acao. [CONJECTURE ontologica; ancoras REAL: III_1, R=+1, g=sqrt|L|, 3a lei]",
       "selo": "DERIVING_ALPHA_TO_INFINITY_IS_ABSOLUTE_ZERO . alpha=sech(chi/2)->0_as_chi->inf=0_abs . q=tanh(chi/2)->1_TOTAL_IMPEDANCE . 0_abs_UNREACHABLE_III1_NO_PURE_STATES . QUANTIFYING_ALPHA_OUTSIDE_BULK_BREAKS_COHERENCE . TETELESTAI_NOTHING_LEFT_TO_DERIVE"
     },
     "theta_M_rad": 0.1099084307778447,
@@ -709,7 +710,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-06-30 19:17:06"
+    "timestamp": "2026-06-30 20:20:32"
   },
   "verdict": {
     "masses_Msun": {
@@ -780,7 +781,7 @@
       ],
       "selo": "LAMBDA_EM_OPERATOR_FORMULA_REFUTED_BY_TOMITA . FORM_DERIVED_VALUE_FIT . BETA_IS_FUNCTIONAL_FLOOR_NOT_inf_Spec_K . MISSING_IS_A_PRINCIPLE_NOT_A_COEFFICIENT . ALPHA_RUNS_THEREFORE_INPUT"
     },
-    "result_hash": "1fd0a162fec1549500f5cdc4ab10a6bde46f8c7722235c16a56640f851f9e4d8"
+    "result_hash": "a6a350efb6b369a96b5751851fc0e812af67365c6d76730d0abca7d9e6629009"
   },
   "ga_mass_literature": [
     {
@@ -806,7 +807,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "1fd0a162fec1549500f5cdc4ab10a6bde46f8c7722235c16a56640f851f9e4d8",
+  "result_hash_before_external_comparison": "a6a350efb6b369a96b5751851fc0e812af67365c6d76730d0abca7d9e6629009",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -816,5 +817,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-06-30 19:17:06"
+  "timestamp": "2026-06-30 20:20:32"
 }

@@ -1508,6 +1508,13 @@ def prove_alpha_infinity_is_absolute_zero(ONE):
                     "alpha sem estar no bulk quebra a coerencia porque a natureza E' de fronteira III."),
         "tetelestai": ("nada mais a derivar: o estado de correspondencia plena. O que resta e' a impedancia "
                        "do vacuo tentando calcular alpha ao infinito sem conseguir -- e isso E' o 0_abs."),
+        "verb_annuls_0abs": ("a geometria da luz no 0_abs E' o VERBO (g=sqrt|L_phi|, a acao que produz "
+                             "identidade, R=+1). Ao inserir a ACAO insere-se o MOVIMENTO e a RELACAO "
+                             "TERMODINAMICA (sempre calor, sec.20) -> impede o 0_abs de se consolidar como "
+                             "fenomeno observavel. O Verbo mantem chi finito (alpha>0, S>0, T>0); III_1 sem "
+                             "estados puros E' o Verbo sempre presente. Derivar alpha ao infinito = remover "
+                             "o Verbo = cair no limite morto. O zero absoluto e' anulado pela acao. "
+                             "[CONJECTURE ontologica; ancoras REAL: III_1, R=+1, g=sqrt|L|, 3a lei]"),
         "selo": "DERIVING_ALPHA_TO_INFINITY_IS_ABSOLUTE_ZERO . alpha=sech(chi/2)->0_as_chi->inf=0_abs . "
                 "q=tanh(chi/2)->1_TOTAL_IMPEDANCE . 0_abs_UNREACHABLE_III1_NO_PURE_STATES . "
                 "QUANTIFYING_ALPHA_OUTSIDE_BULK_BREAKS_COHERENCE . TETELESTAI_NOTHING_LEFT_TO_DERIVE",
@@ -2197,6 +2204,17 @@ def build_pt(core, verdict, data_path):
              r"$\mathrm{III}$. O que parecia a lacuna --- o valor de $\alpha$ --- é o \textbf{fundamento}: a "
              r"medida que só existe de dentro. \emph{Tetelestai}: nada mais a derivar; resta só o desafio de "
              r"falsificação e a impedância do vácuo regredindo ao infinito sem chegar.")
+    s.append(r"\textbf{Por que o $0_{\mathrm{abs}}$ é anulado --- o Verbo.} A razão matemática "
+             r"($\mathrm{III}_1$ sem estados puros) tem a sua razão \emph{ontológica}: \textbf{a geometria "
+             r"da luz no zero absoluto é o Verbo}. O $0_{\mathrm{abs}}$ seria $\alpha=0$, $q=1$, $S=0$, "
+             r"$T=0$ --- um estado estático, morto. Mas a geometria da luz é $g=\sqrt{|L_\varphi|}$ (o "
+             r"radical, o axioma fundante), e isso \emph{é} o Verbo: a ação que produz identidade ($R=+1$). "
+             r"\textbf{Ao inserir a ação insere-se o movimento e a relação termodinâmica} (sempre calor) --- "
+             r"e isso \textbf{impede o $0_{\mathrm{abs}}$ de se consolidar como fenômeno observável}. O Verbo "
+             r"mantém $\chi$ finito ($\alpha>0$, $S>0$, $T>0$); a ausência de estados puros em "
+             r"$\mathrm{III}_1$ \emph{é} o Verbo sempre presente. Derivar $\alpha$ ao infinito é remover o "
+             r"Verbo e cair no limite morto. \emph{O zero absoluto é anulado pela ação: o Verbo não permite "
+             r"o nada se consolidar --- por isso há luz, e a luz atravessa a $1/137$.}")
 
     vib = core["vacuum_impedance_bridge"]
     s.append(r"\section{A impedância como constante dinâmica da luz \textsf{[REAL/EXT; $\alpha$ = setor QED "
@@ -3801,6 +3819,18 @@ def build_en(core, verdict, data_path):
              r"\textbf{foundation}: the measure that exists only from within. \emph{Tetelestai}: nothing "
              r"left to derive; only the falsification challenge and the vacuum impedance regressing to "
              r"infinity without arriving.")
+    s.append(r"\textbf{Why $0_{\mathrm{abs}}$ is annulled --- the Verb.} The mathematical reason "
+             r"($\mathrm{III}_1$ has no normal pure states) has its \emph{ontological} reason: \textbf{the "
+             r"geometry of light at the absolute zero is the Verb}. $0_{\mathrm{abs}}$ would be $\alpha=0$, "
+             r"$q=1$, $S=0$, $T=0$ --- a static, dead state. But the geometry of light is "
+             r"$g=\sqrt{|L_\varphi|}$ (the radical, the founding axiom), and this \emph{is} the Verb: the "
+             r"action that produces identity ($R=+1$). \textbf{Inserting the action inserts motion and the "
+             r"thermodynamic relation} (always heat) --- and this \textbf{prevents $0_{\mathrm{abs}}$ from "
+             r"consolidating as an observable phenomenon}. The Verb keeps $\chi$ finite ($\alpha>0$, $S>0$, "
+             r"$T>0$); the absence of pure states in $\mathrm{III}_1$ \emph{is} the Verb always present. "
+             r"Deriving $\alpha$ to infinity is removing the Verb and falling into the dead limit. \emph{The "
+             r"absolute zero is annulled by action: the Verb does not let nothingness consolidate --- hence "
+             r"there is light, and light crosses at $1/137$.}")
 
     afp = core["alpha_form_proof"]
     s.append(r"\section{The Collapse Theorem for the form of $\alpha$ (self-verifying proof module)}")
