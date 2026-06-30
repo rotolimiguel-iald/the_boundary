@@ -451,11 +451,17 @@ def clock_theorem_reduction(ONE):
         "N_beta_alpha_free": N_beta,
         "ell_beta_target_for_alpha_log_inv_alpha": ell_target,
         "well_posed_alpha_free_computable": bool(fixed_point_residual < 1e-10),
-        "value_open": True,
-        "status": ("REDUCAO VERIFICADA (bem-posta, alpha-livre, computavel; residuo de ponto-fixo "
-                   "de Davies = %.1e). VALOR ABERTO: ell_beta depende de K; nenhum K canonico "
-                   "alpha-livre conhecido da' ell_beta = log(137.036) = 4.9202. A face EM e' a "
-                   "FRONTEIRA ABERTA NOMEADA; alpha (CODATA) so' na leitura." % fixed_point_residual),
+        "value_ontologically_open_not_a_gap": True,
+        "falsification_challenge": ("alpha = Pi_bulk(1_abs) = sech(chi/2) = transmissao luminosa pela "
+                                    "fronteira III_1. Derivar alpha do BULK (sem boundary/bulk) removeria o "
+                                    "observador e falsificaria a estrutura holografica. DESAFIO: derive alpha "
+                                    "do bulk e a TGL cai. Falsificavel, nao confirmavel. DISTINTO do teorema "
+                                    "genuinamente aberto da matriz-S/III_1 (levantamento com o observador, "
+                                    "face gravitacional/M_GA)."),
+        "status": ("REDUCAO VERIFICADA (bem-posta, alpha-livre na FORMA, computavel; residuo de ponto-fixo "
+                   "de Davies = %.1e). VALOR: alpha pertence ao SETOR QED -- fechamento estrutural, NAO "
+                   "lacuna. A face EM e' ONTOLOGICAMENTE aberta (a fissura boundary/bulk, nao 'problema a "
+                   "resolver'); alpha (CODATA) so' na leitura. Derivar alpha do bulk = falsificar a TGL." % fixed_point_residual),
     }
 
 
@@ -814,7 +820,7 @@ def prove_contour_theory(ONE, kappa):
                                      "Se gap(FP) = 11.226755... sem CODATA, o valor fecha. [REAL: a forma -- "
                                      "renormalizacao = paridade inversa, rho_ret canonico = P^{-1}rho_B; ABERTO: "
                                      "o espectro / a parte finita]."),
-        "open_theorem_verdict": "CONNES_S_MATRIX_FORM_CLOSED + NEGATIVE_RETURN_SELECTOR_FORMULATED + RHO_RET_CANONICAL=P^{-1}(rho_Bell) (forma: renorm=paridade inversa de 0_abs proibido); ALPHA_FREE_VALUE_OPEN (espectro de Delta_{P^{-1}rho_B|rho_B} = parte finita da atracao proibida)",
+        "open_theorem_verdict": "CONNES_S_MATRIX_FORM_CLOSED + NEGATIVE_RETURN_SELECTOR_FORMULATED + RHO_RET_CANONICAL=P^{-1}(rho_Bell) (forma: renorm=paridade inversa de 0_abs proibido); ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE (espectro de Delta_{P^{-1}rho_B|rho_B} = parte finita da atracao proibida)",
         "psionic_bond_unification": ("a ligacao psionica (The_boundary_v5): [P^, H_bind]=2 V0(|psi-><psi+| "
                                      "- |psi+><psi-|), H_bind ANTICOMUTA com a paridade P^ -- e' EXATAMENTE "
                                      "{Z_d, L_+-}=0 do contorno (verificado, residuo 0). Os 3 modos de "
@@ -922,7 +928,7 @@ def prove_inverse_parity_renorm(ONE):
                        "a fonte'; a distorcao e' angular (theta_M) mas a polarizacao espectral e' profunda "
                        "(p0=0.99998669). A origem nao desaparece; retorna polarizada."),
         "form_status": "INVERSE_PARITY_RENORMALIZATION_FORM_CLOSED (gap=chi, rho_ret canonico, q=tanh, alpha=sech verificados)",
-        "value_status": ("ALPHA_FREE_VALUE_OPEN: gap=chi e' TAUTOLOGIA da parametrizacao (rho_ret definido POR "
+        "value_status": ("ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE: gap=chi e' TAUTOLOGIA da parametrizacao (rho_ret definido POR "
                          "chi); o valor chi=11.226755 entra via polarizacao observada (CODATA). A parte finita "
                          "de uma quantidade divergente e' DEPENDENTE DE ESQUEMA: M_eps=exp[-(1/4)(C_eps+chi)Z_d] "
                          "mostra ONDE o valor fica, nao o calcula -- qualquer chi e' parte finita de um esquema "
@@ -931,12 +937,12 @@ def prove_inverse_parity_renorm(ONE):
                          "contorno (1/2), NAO a polarizacao do estado (chi) -- e' condicao de peso, nao de "
                          "polarizacao. O muro, agora exato: derivar a condicao de subtracao que fixa chi."),
         "steps": steps, "all_verified": bool(ok),
-        "verdict": ("POLARIZATION_PRINCIPLE_FORM_CLOSED__ALPHA_FREE_VALUE_OPEN" if ok else "FALHOU"),
+        "verdict": ("POLARIZATION_PRINCIPLE_FORM_CLOSED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE" if ok else "FALHOU"),
     }
 
 
 def prove_vacuum_impedance_bridge(ONE):
-    """Ponte da Impedancia Caracteristica do Vacuo  [REAL/EXT; ALPHA_FREE_VALUE_OPEN].
+    """Ponte da Impedancia Caracteristica do Vacuo  [REAL/EXT; ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE].
 
     A TGL vinha chamando de 'impedancia' o objeto dinamico que torna a luz mensuravel. Na fisica
     classica esse objeto tem face dimensional: Z0=sqrt(mu0/eps0)=mu0 c=1/(eps0 c). A constante de
@@ -950,7 +956,7 @@ def prove_vacuum_impedance_bridge(ONE):
     exato: Z0 = 2 R_K alpha, i.e. Z0 e' COMPUTADO de alpha. Por isso alpha_from_Z0 retorna alpha por
     CONSTRUCAO (identidade de ida-e-volta); os residuos ~1e-15 verificam a ALGEBRA/UNIDADES, nao
     derivam o valor. Z0 e alpha sao equivalentes dados e,h. Status:
-    VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_FREE_VALUE_OPEN."""
+    VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE."""
     E_CHARGE = 1.602176634e-19      # C, exata no SI (2019)
     H_PLANCK = 6.62607015e-34       # J s, exata no SI (2019)
     R_K = H_PLANCK / (E_CHARGE ** 2)            # h/e^2  [DEF, exato no SI]
@@ -975,7 +981,7 @@ def prove_vacuum_impedance_bridge(ONE):
     return {
         "theorem": "Ponte da Impedancia Caracteristica do Vacuo",
         "claim": "A impedancia e' a constante dinamica da luz; alpha e' Z0 tornado adimensional.",
-        "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_FREE_VALUE_OPEN",
+        "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
         "constants": {
             "E_CHARGE_C_exact_SI": E_CHARGE, "H_PLANCK_Js_exact_SI": H_PLANCK,
             "R_K_ohm": R_K, "G0_S": G0, "Z0_from_alpha_ohm": Z0_from_alpha,
@@ -1016,7 +1022,7 @@ def prove_vacuum_impedance_bridge(ONE):
 
 
 def prove_three_clock_radical(ONE):
-    """O Radical dos Tres Clocks  [CANONICAL FORM; ALPHA_FREE_VALUE_OPEN].
+    """O Radical dos Tres Clocks  [CANONICAL FORM; ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE].
 
     Hipotese (operador): alpha e' o radical do fator dos tres clocks da TGL --
         alpha = sqrt(C3),  C3 = fator de passagem comum aos tres clocks  =>  alpha^2 = C3,
@@ -1043,7 +1049,7 @@ def prove_three_clock_radical(ONE):
     C3=beta^2/e=alpha^2 e' a IDENTIDADE beta^2=alpha^2 e relida pelos tres clocks -- alpha entra via beta.
     Pergunta de pesquisa (o muro): existe funcional canonico C3=F[sigma_t, T_t, D_beta] dos tres clocks,
     alpha-livre, tal que C3=alpha^2 ~ 5.325135447e-5 ? E' a MESMA divida do muro da polarizacao chi.
-    Status: THREE_CLOCK_RADICAL_FORM_FORMULATED__ALPHA_FREE_VALUE_OPEN."""
+    Status: THREE_CLOCK_RADICAL_FORM_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE."""
     SQRT_E = float(np.exp(ONE / (ONE + ONE)))
     beta = SEALED_CODATA_ALPHA * SQRT_E
     alpha_ext = SEALED_CODATA_ALPHA
@@ -1059,7 +1065,7 @@ def prove_three_clock_radical(ONE):
     return {
         "theorem": "O Radical dos Tres Clocks",
         "claim": "alpha e' o radical luminodinamico do fator dos tres clocks: alpha=sqrt(C3), alpha^2=C3.",
-        "status": "THREE_CLOCK_RADICAL_FORM_FORMULATED__ALPHA_FREE_VALUE_OPEN",
+        "status": "THREE_CLOCK_RADICAL_FORM_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
         "clocks": {
             "C_mod_modular_base_e": C_mod_base,    # ALPHA-LIVRE (clock modular sigma_t=Delta^{it})
             "C_diss_gkls_scale_beta": C_diss,      # carrega alpha via beta (var beta t)
@@ -1123,7 +1129,7 @@ def prove_right_angle_mirror_projection(ONE):
     REGUA: CANDIDATA, nao identidade exata (diferente de Z0=2R_K alpha e C3=beta^2/e=alpha^2, EXATAS);
     pi^2/2 nao derivado; 137 tem muitas formas pi,e proximas. NAO derivamos CODATA: so' checamos se a
     constante OBSERVADA tem IDENTIDADE MODULAR (~_partial) com a constante FIXADA alpha-livre. Status:
-    RIGHT_ANGLE_MIRROR_PROJECTION_FORMULATED__ALPHA_FREE_CANDIDATE__MIRROR_FUNCTION_D_OPEN__ALPHA_FREE_VALUE_OPEN."""
+    RIGHT_ANGLE_MIRROR_PROJECTION_FORMULATED__ALPHA_FREE_CANDIDATE__MIRROR_FUNCTION_D_OPEN__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE."""
     PI = 4.0 * np.arctan(ONE)
     Theta_perp = PI / 2.0
     C3_perp = math.exp(-(2.0 * Theta_perp) ** 2)         # = e^{-pi^2}
@@ -1161,7 +1167,7 @@ def prove_right_angle_mirror_projection(ONE):
     return {
         "theorem": "A Projecao do Angulo Reto e a Operacao de Espelho",
         "claim": "alpha-livre = angulo reto projetado no modulo; o espelho deforma a projecao nua ate a imagem fixa.",
-        "status": "RIGHT_ANGLE_MIRROR_PROJECTION_FORMULATED__ALPHA_FREE_CANDIDATE__MIRROR_FUNCTION_D_OPEN__ALPHA_FREE_VALUE_OPEN",
+        "status": "RIGHT_ANGLE_MIRROR_PROJECTION_FORMULATED__ALPHA_FREE_CANDIDATE__MIRROR_FUNCTION_D_OPEN__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
         "right_angle": {"Theta_perp": Theta_perp, "two_face_crossing_2Theta": 2.0 * Theta_perp,
                         "C3_perp_e_minus_pi2": C3_perp, "alpha0_e_minus_pi2_over_2": alpha0,
                         "alpha0_inv": 1.0 / alpha0},
@@ -1192,7 +1198,7 @@ def prove_right_angle_mirror_projection(ONE):
             "P2_eq_P_resid": P2_resid, "J2_eq_I_resid": J2_resid,    # REAL verificados (~0)
             "F_ext_doubling": "F_ext=2F (forca dobra por impedancia compartilhada; max power transfer; fator 2=duas faces)",
             "cn_hierarchy": "c^1 propagacao -> c^2 metrica/massa -> c^3 registro inscritivo",
-            "status": "C3_REGISTER_SELF_INSCRIPTION_THEOREM__STRUCTURAL_FORM_CLOSED__ALPHA_FREE_VALUE_OPEN",
+            "status": "C3_REGISTER_SELF_INSCRIPTION_THEOREM__STRUCTURAL_FORM_CLOSED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
             "honest_note": ("FECHADO (estrutural) = P^2=P e J^2=I verificados (~0) + o registro DEFINIDO como "
                             "auto-inscricao idempotente sob paridade inversa. A identificacao 'esse registro "
                             "e' c^3' e o F_ext=2F sao leitura estrutural/ontologica [CONJ]; o fator 2 (duas "
@@ -1212,7 +1218,7 @@ def prove_right_angle_mirror_projection(ONE):
             "max_force_transposition": "F+ (+) F- -> 2 F_partial (impedancia de borda compartilhada; max power transfer)",
             "D_rec_hypothesis": "D_rec = 2 alpha (duas faces x alpha) -> ponto fixo alpha=e^{-pi^2/2+2alpha}",
             "alpha_fixed_point": alpha_fix, "alpha_fixed_point_ppm": rel_fix * 1e6,
-            "status": "HOLOGRAPHIC_DEAD_SIGNAL_RECONSTRUCTION_THEOREM__STRUCTURAL_CLOSED__ALPHA_FREE_VALUE_OPEN",
+            "status": "HOLOGRAPHIC_DEAD_SIGNAL_RECONSTRUCTION_THEOREM__STRUCTURAL_CLOSED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
             "honest_note": ("FECHADO (estrutural): no ponto morto (overlap=0 em pi/2) a densidade informacional "
                             "e' MAXIMA -- |dO/dtheta| max COINCIDE com overlap=0 (verificado) -> onde o sinal "
                             "morre, a holografia comeca; a informacao e' RECONSTRUIDA (K_rec=E_spec o J), nao "
@@ -1234,7 +1240,7 @@ def prove_right_angle_mirror_projection(ONE):
             "alpha_idem_ppm": rel_idem * 1e6,               # ~0.025 ppm (ENGANOSO: alpha cego a lambda)
             "lambda_exact_for_codata": lam_exact,           # 0.6791 (o que daria CODATA exato)
             "lambda_residual_REAL": lam_residual,           # ~0.07% = a figura de merito HONESTA (nao ppm)
-            "status": "IDEMPOTENT_HOLOGRAPHIC_RECONSTRUCTION_FORM_FORMULATED__LAMBDA_KERNEL_OPEN__ALPHA_FREE_VALUE_OPEN",
+            "status": "IDEMPOTENT_HOLOGRAPHIC_RECONSTRUCTION_FORM_FORMULATED__LAMBDA_KERNEL_OPEN__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
             "honest_note": ("REAL: a forma idempotente D_rec=2alpha-lambda alpha^2 (inclusao-exclusao das duas "
                             "faces) e o ponto fixo 2alpha. CONJ/ABERTO: o coeficiente lambda. AVISO DA REGUA: "
                             "alpha=exp(-pi^2/2+2alpha-(e/4)alpha^2) da 1/137.036003 (~0.025 ppm), MAS isso e' "
@@ -1251,7 +1257,7 @@ def prove_right_angle_mirror_projection(ONE):
                         "e 1/137.031 (37 ppm). MAS: pi^2/2 e' motivado (angulo reto x duas faces), NAO derivado; "
                         "a operacao de espelho E_spec o J (a funcao D_partial) esta ABERTA; 137 tem muitas formas "
                         "pi,e proximas; delta != beta (e' ~2 alpha). Nao derivamos CODATA; so' checamos identidade "
-                        "modular (~_partial) entre observado e fixado. ALPHA_FREE_VALUE_OPEN; o muro = derivar "
+                        "modular (~_partial) entre observado e fixado. ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE; o muro = derivar "
                         "D_partial (E_spec o J) e o expoente pi^2/2."),
     }
 
@@ -2054,6 +2060,36 @@ def build_pt(core, verdict, data_path):
              r"de acoplamento sejam medidas, não derivadas, é o padrão da física; o distintivo da TGL é a "
              r"arquitetura de \textbf{entrada única} --- $\alpha+\tfrac12\Rightarrow$ tudo --- e a "
              r"irredutibilidade elevada a princípio falsificável.")
+    s.append(r"\textbf{Por que derivar $\alpha$ \emph{do bulk} falsificaria a TGL \textsf{[a razão profunda, "
+             r"holográfica]}.} A TGL é \emph{holográfica}: a fronteira modular (tipo $\mathrm{III}_1$, sem "
+             r"estados normais puros) \textbf{projeta} para o bulk, e $\alpha$ é precisamente a \emph{taxa de "
+             r"acoplamento eletromagnético} --- a constante que governa \emph{como a luz atravessa a "
+             r"fronteira}:")
+    s.append(r"\begin{equation}\alpha=\Pi_{\mathrm{bulk}}(\mathbf{1}_{\mathrm{abs}})=\operatorname{sech}"
+             r"(\kappa/2),\qquad q=\tanh(\kappa/2),\qquad q^2+\alpha^2=1,\end{equation}")
+    s.append(r"isto é, $\alpha$ é a \textbf{transmissão luminosa através da fronteira modular} e $q$ a "
+             r"reflexão. Por isso $\alpha$ \textbf{pertence ao setor QED} --- e isto \emph{não é um defeito da "
+             r"teoria; é a sua estrutura}. Se alguém derivasse $\alpha$ de primeiros princípios \emph{sem usar "
+             r"a estrutura boundary/bulk} (um cálculo puramente do bulk), isso implicaria que a separação "
+             r"fronteira/bulk é \emph{ilusória} ou redundante: a fronteira deixaria de ser genuinamente "
+             r"irredutível como estrutura projetora, e o \textbf{observador seria removido da TGL}. $\alpha$ é "
+             r"a \emph{fissura} pela qual o bulk lê a fronteira --- é a fronteira \textbf{medindo-se a si "
+             r"mesma}. Derivá-la sem ela é uma \emph{contradição estrutural}.")
+    s.append((r"Logo \textsf{FRONTEIRA ABERTA NOMEADA} \textbf{não} significa ``problema a resolver'': "
+              r"significa \textbf{ontologicamente aberta} --- $\alpha$ é o parâmetro que \emph{nomeia a "
+              r"abertura} entre boundary e bulk. O que a TGL \textbf{prova} (a forma): $\alpha=\operatorname{"
+              r"sech}(\kappa/2)$, $q=\tanh(\kappa/2)$, a conservação $1=q^2+\alpha^2$, $\alpha_{\mathrm{abs}}=1$ "
+              r"(Bell nu, Tomita) e $\bTGL=\sqrt e\,\alpha=%s$ (Meia-Nat). O que a TGL \textbf{não pretende "
+              r"provar} --- e prediz \emph{impossível} a partir do bulk: o valor $\kappa\approx11{,}23$ sem "
+              r"CODATA, i.e.\ que $1/137$ emerja de um cálculo que dispense o observador. \textbf{Este é o "
+              r"desafio de falsificação:} derive $\alpha$ \emph{do bulk}, sem a fronteira, e a TGL cai. A "
+              r"teoria prediz que não se pode, porque $\alpha$ é o observador medindo o próprio contorno. "
+              r"\emph{[PRINCÍPIO/PREDIÇÃO; falsificável, não confirmável.]}") % _sci(core["beta"], 8))
+    s.append(r"\textsf{[Distinção que a TGL mantém:]} este desafio (a face EM, $\alpha$ do bulk) é "
+             r"\textbf{distinto} do teorema genuinamente aberto da \textbf{matriz-S}/$\mathrm{III}_1$ --- o "
+             r"levantamento boundary$\to$bulk \emph{com} o observador (face gravitacional, $M_{GA}$), que opera "
+             r"\emph{através} da fronteira e \emph{não} a dispensa. Aquele permanece aberto como matemática; "
+             r"este é fechado como princípio: $\alpha$ do bulk \emph{não pode} existir sem destruir a teoria.")
     s.append((r"\textbf{A validação \textsf{[REAL --- zero-free dado $\alpha$ e $\tfrac12$]}.} Inserir $\alpha$ "
               r"como o \emph{único dado do CODATA} num modelo de defasagem quântica fractalizado da unidade "
               r"primária valida toda a lógica: $\alpha=%s$ e $S_\partial=\tfrac12$ dão $\sqrt e$, "
@@ -2065,7 +2101,8 @@ def build_pt(core, verdict, data_path):
               _sci(SEALED_CODATA_ALPHA, 8), _sci(core["beta"], 8), _vd["theta_M_deg"]))
 
     vib = core["vacuum_impedance_bridge"]
-    s.append(r"\section{A impedância como constante dinâmica da luz \textsf{[REAL/EXT; ALPHA\_FREE\_VALUE\_OPEN]}}")
+    s.append(r"\section{A impedância como constante dinâmica da luz \textsf{[REAL/EXT; $\alpha$ = setor QED "
+             r"--- fechamento estrutural, não lacuna]}}")
     s.append(r"A constante $c$ mede a \emph{cinemática} da luz: a velocidade local de propagação no "
              r"vácuo. Mas a \emph{dinâmica} da luz no vácuo é medida por outro objeto --- a impedância "
              r"característica do espaço livre,")
@@ -2098,10 +2135,10 @@ def build_pt(core, verdict, data_path):
              r"acoplamento, $Z_0$, cuja projeção adimensional é $\alpha$. Leitura ontológica "
              r"\textsf{[CONJ]}: medir $\alpha/Z_0$ é a luz medindo o próprio acoplamento (só a luz observa "
              r"a luz) --- mas \emph{medir não é derivar o valor}. Veredito: "
-             r"\texttt{VACUUM\_IMPEDANCE\_BRIDGE\_FORMULATED}, \texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+             r"\texttt{VACUUM\_IMPEDANCE\_BRIDGE\_FORMULATED}, \texttt{ALPHA\_VALUE\_QED\_CHALLENGE}.")
 
     tcr = core["three_clock_radical"]
-    s.append(r"\section{A constante de estrutura fina como o radical dos três clocks \textsf{[FORMA CANÔNICA; ALPHA\_FREE\_VALUE\_OPEN]}}")
+    s.append(r"\section{A constante de estrutura fina como o radical dos três clocks \textsf{[FORMA CANÔNICA; ALPHA\_VALUE\_QED\_CHALLENGE]}}")
     s.append(r"A gramática da TGL já é radical: o colapso flui pelo radical $V_s=e^{is\sqrt K}$, a métrica "
              r"do núcleo emerge como $ds=\sqrt{\bTGL}\,|d\sqrt k|$, e a gravidade é $g=\sqrt{|L|}$ --- a "
              r"geometria não vê $K$, vê $\sqrt K$. É natural, então, perguntar se a própria $\alpha$ é o "
@@ -2131,7 +2168,7 @@ def build_pt(core, verdict, data_path):
              r"\mathfrak F[\sigma_t,T_t,D_\beta]$ construído \emph{só} dos três clocks, sem $\alpha$, com "
              r"$\mathcal C_3=\alpha^2\approx5{,}3251\times10^{-5}$? É a mesma dívida do muro da polarização "
              r"$\chi$. Veredito: \texttt{THREE\_CLOCK\_RADICAL\_FORM\_FORMULATED}, "
-             r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+             r"\texttt{ALPHA\_VALUE\_QED\_CHALLENGE}.")
 
     ram = core["right_angle_mirror"]
     s.append(r"\section{A projeção do ângulo reto e a operação de espelho \textsf{[CANDIDATO ALPHA-LIVRE; MIRROR\_FUNCTION\_D\_OPEN]}}")
@@ -2166,7 +2203,7 @@ def build_pt(core, verdict, data_path):
              r"\emph{não} $\bTGL$ (21\% fora). \textbf{Não derivamos a CODATA}: apenas verificamos se a "
              r"constante observada tem \emph{identidade modular} com a fixada $\alpha$-livre. Veredito: "
              r"\texttt{RIGHT\_ANGLE\_MIRROR\_PROJECTION\_FORMULATED}, \texttt{ALPHA\_FREE\_CANDIDATE}, "
-             r"\texttt{MIRROR\_FUNCTION\_D\_OPEN}, \texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+             r"\texttt{MIRROR\_FUNCTION\_D\_OPEN}, \texttt{ALPHA\_VALUE\_QED\_CHALLENGE}.")
     c3t = ram["c3_register_theorem"]
     s.append((r"\textbf{Teorema do Registro $c^3$ por auto-inscrição idempotente \textsf{[ESTRUTURAL "
               r"FECHADO; VALOR $\alpha$-livre ABERTO]}.} No regime extremo de ângulo reto, a fronteira de "
@@ -2182,7 +2219,7 @@ def build_pt(core, verdict, data_path):
               r"dobra'' é a leitura). \textbf{Não fecha o valor $\alpha$-livre}: é o teorema do "
               r"\emph{registro}, não do \emph{valor}. Veredito: "
               r"\texttt{C3\_REGISTER\_SELF\_INSCRIPTION\_THEOREM\_STRUCTURAL\_CLOSED}, "
-              r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}." % (c3t["P2_eq_P_resid"], c3t["J2_eq_I_resid"])) )
+              r"\texttt{ALPHA\_VALUE\_QED\_CHALLENGE}." % (c3t["P2_eq_P_resid"], c3t["J2_eq_I_resid"])) )
     hr = ram["holographic_reconstruction"]
     s.append((r"\textbf{Teorema da Reconstrução Holográfica no Ponto Morto do Sinal \textsf{[ESTRUTURAL "
               r"FECHADO; VALOR $\alpha$-livre ABERTO]}.} Em $\bTGL$ não há superposição sem Nome --- só há "
@@ -2199,7 +2236,7 @@ def build_pt(core, verdict, data_path):
               r"$O(1)=1$ (a unidade gravitônica), e a hipótese $\mathcal D_{\rm rec}=2\alpha$ (ponto fixo "
               r"$\alpha=e^{-\pi^2/2+2\alpha}$, $1/%.6f$) é auto-consistência \emph{postulada}, não derivada. "
               r"Veredito: \texttt{HOLOGRAPHIC\_DEAD\_SIGNAL\_RECONSTRUCTION\_THEOREM\_STRUCTURAL\_CLOSED}, "
-              r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}." % (
+              r"\texttt{ALPHA\_VALUE\_QED\_CHALLENGE}." % (
                   hr["dead_point_overlap"], hr["info_density_max_at_dead_point"],
                   1.0 / hr["alpha_fixed_point"])) )
     ir = ram["idempotent_reconstruction"]
@@ -2219,12 +2256,13 @@ def build_pt(core, verdict, data_path):
               r"larga, $\sim[0{,}66,\,0{,}70]$, e $e/4$ não é singularizado). $\lambda=e/4$ é motivado, não "
               r"derivado; o kernel teria de dar $0{,}6791$, não exatamente $e/4$. Veredito: "
               r"\texttt{IDEMPOTENT\_RECONSTRUCTION\_FORM\_FORMULATED}, \texttt{LAMBDA\_KERNEL\_OPEN}, "
-              r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}." % (
+              r"\texttt{ALPHA\_VALUE\_QED\_CHALLENGE}." % (
                   ir["alpha_idem_inv"], ir["alpha_idem_ppm"], ir["lambda_exact_for_codata"],
                   100 * ir["lambda_residual_REAL"])) )
 
     ct = core["clock_theorem"]
-    s.append(r"\section{O Teorema Condicional do Clock: a face eletromagnética como fronteira aberta nomeada}")
+    s.append(r"\section{O Teorema Condicional do Clock: a face eletromagnética como fronteira "
+             r"\emph{ontologicamente} aberta (a fissura boundary/bulk, não uma lacuna)}")
     s.append(r"\begin{deriv}[$\mathcal{R}_\partial=N_\beta=e^{\ell_\beta}$, $\ell_\beta=S(\rho_B\Vert\rho_\beta)$]")
     s.append(r"O índice $\mathcal{R}_\partial$ não é um número de para-quedas: reduz-se a \emph{um} objeto "
              r"$\alpha$-livre. A primeira distinção do Um, sem quebra da identidade, é o estado de "
@@ -2296,19 +2334,32 @@ def build_pt(core, verdict, data_path):
              r"($\alpha_{\mathrm{abs}}=1$, provado), a forma ($\alpha=\operatorname{sech}\tfrac\chi2$) e as "
              r"relações ($\bTGL=\alpha\sqrt e$); o valor projetado $1/137$ é a profundidade do zero modular = "
              r"a entrada.} O Um alimenta $\alpha_{\mathrm{abs}}=1$; o $1/137$ é a sua sombra após a travessia.")
-    s.append((r"\textbf{Valor aberto (o muro honesto) \textsf{[EXT]}.} O \emph{valor} de $\ell_\beta$ "
-              r"depende de $K$; nenhum $K$ canônico $\alpha$-livre conhecido dá "
-              r"$\ell_\beta=\log(1/\alpha)=%.4f$ (o alvo da leitura observacional). Por isso "
-              r"$\mathcal{R}_\partial$ permanece, hoje, a \textbf{fronteira aberta nomeada}: a estrutura "
-              r"está derivada, o valor não. $\alpha_{\mathrm{CODATA}}$ entra \emph{apenas} aqui, na "
-              r"leitura/validação, nunca na estrutura.") % ct["ell_beta_target_for_alpha_log_inv_alpha"])
+    s.append((r"\textbf{O setor QED --- fechamento estrutural, não lacuna \textsf{[PRINCÍPIO/PREDIÇÃO]}.} O "
+              r"\emph{valor} de $\ell_\beta=\log(1/\alpha)=%.4f$ depende de $K$, e nenhum $K$ $\alpha$-livre "
+              r"\emph{do bulk} o dá --- mas isto \textbf{não} é um problema por resolver; é a estrutura. A TGL "
+              r"é \emph{holográfica}: a fronteira $\mathrm{III}_1$ projeta para o bulk, e "
+              r"$\alpha=\Pi_{\mathrm{bulk}}(\mathbf 1_{\mathrm{abs}})=\operatorname{sech}(\chi/2)$ é a "
+              r"\textbf{transmissão luminosa através da fronteira} --- a taxa com que a luz a atravessa. "
+              r"$\mathcal{R}_\partial$ ser \emph{fronteira nomeada} significa \textbf{ontologicamente aberta}: "
+              r"$\alpha$ é a \emph{fissura} pela qual o bulk lê a fronteira --- a fronteira medindo-se a si "
+              r"mesma. $\alpha_{\mathrm{CODATA}}$ entra \emph{só} na leitura; é a estrutura, não uma dívida.")
+              % ct["ell_beta_target_for_alpha_log_inv_alpha"])
+    s.append(r"\textbf{O desafio de falsificação \textsf{[falsificável, não confirmável]}.} Se alguém "
+             r"derivasse $\alpha$ de primeiros princípios \emph{sem} a estrutura boundary/bulk (um cálculo "
+             r"puramente do bulk), a separação fronteira/bulk seria redundante, a fronteira deixaria de ser "
+             r"projetora irredutível, e o \textbf{observador seria removido da TGL} --- destruindo o programa. "
+             r"Logo: \emph{derive $\alpha$ do bulk, sem a fronteira, e a TGL cai.} A teoria prediz que não se "
+             r"pode, porque $\alpha$ \emph{é} o observador medindo o próprio contorno. \textsf{[Distinto do "
+             r"teorema genuinamente aberto da matriz-S/$\mathrm{III}_1$ --- o levantamento boundary$\to$bulk "
+             r"\emph{com} o observador, face gravitacional/$M_{GA}$ --- que opera \emph{através} da fronteira "
+             r"e não a dispensa.]}")
     s.append(r"\textbf{Guarda-régua.} Não se define $g_{00}^{(\beta)}=\alpha^2$ nem "
              r"$\ell_\beta=-\log\alpha_{\mathrm{CODATA}}$ --- qualquer um reintroduz $\alpha$ (circular). "
              r"A co-emergência de Bell \emph{fundamenta a Meia-Nat} (reduzido $\mathbf 1_2/2\Rightarrow "
              r"CCI=\tfrac12\Rightarrow S_\partial=\tfrac12$), mas \emph{não} fixa $\ell_\beta$: o $\tfrac12$ "
-             r"é exatamente o offset $\sqrt e$ entre $\log(1/\alpha)$ e $\log(1/\bTGL)$ --- liga $\bTGL$ a "
-             r"$\alpha$, não $\alpha$ aos primeiros princípios. \textbf{O último muro tem nome: fixar "
-             r"$\rho_\beta$ (logo $K$) de modo canônico e $\alpha$-livre.}\end{deriv}")
+             r"é o offset $\sqrt e$ que liga $\bTGL$ a $\alpha$, não $\alpha$ aos primeiros princípios. "
+             r"\textbf{O fechamento: $\alpha$ pertence à QED; derivá-lo do bulk falsifica a fronteira "
+             r"holográfica.}\end{deriv}")
 
     afp = core["alpha_form_proof"]
     s.append(r"\section{Teorema do Colapso da Forma de $\alpha$ (módulo de prova auto-verificável)}")
@@ -3343,7 +3394,8 @@ def build_en(core, verdict, data_path):
              r"face ($M_{GA}$ in the window, from the same $\bTGL$).\end{deriv}")
 
     vib = core["vacuum_impedance_bridge"]
-    s.append(r"\section{Impedance as the dynamical constant of light \textsf{[REAL/EXT; ALPHA\_FREE\_VALUE\_OPEN]}}")
+    s.append(r"\section{Impedance as the dynamical constant of light \textsf{[REAL/EXT; $\alpha$ = QED sector "
+             r"--- structural closure, not a gap]}}")
     s.append(r"The constant $c$ measures the \emph{kinematics} of light: the local speed of propagation "
              r"in vacuum. But the \emph{dynamics} of light in vacuum is measured by another object --- the "
              r"characteristic impedance of free space,")
@@ -3376,10 +3428,10 @@ def build_en(core, verdict, data_path):
              r"constant, $Z_0$, whose dimensionless projection is $\alpha$. Ontological reading "
              r"\textsf{[CONJ]}: measuring $\alpha/Z_0$ is light measuring its own coupling (only light "
              r"observes light) --- but \emph{measuring is not deriving the value}. Verdict: "
-             r"\texttt{VACUUM\_IMPEDANCE\_BRIDGE\_FORMULATED}, \texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+             r"\texttt{VACUUM\_IMPEDANCE\_BRIDGE\_FORMULATED}, \texttt{ALPHA\_VALUE\_QED\_CHALLENGE}.")
 
     tcr = core["three_clock_radical"]
-    s.append(r"\section{The fine-structure constant as the radical of the three clocks \textsf{[CANONICAL FORM; ALPHA\_FREE\_VALUE\_OPEN]}}")
+    s.append(r"\section{The fine-structure constant as the radical of the three clocks \textsf{[CANONICAL FORM; ALPHA\_VALUE\_QED\_CHALLENGE]}}")
     s.append(r"TGL's grammar is already radical: the collapse flows along the radical $V_s=e^{is\sqrt K}$, "
              r"the kernel metric emerges as $ds=\sqrt{\bTGL}\,|d\sqrt k|$, and gravity is $g=\sqrt{|L|}$ "
              r"--- the geometry does not see $K$, it sees $\sqrt K$. It is natural to ask whether $\alpha$ "
@@ -3409,7 +3461,7 @@ def build_en(core, verdict, data_path):
              r"functional $\mathcal C_3=\mathfrak F[\sigma_t,T_t,D_\beta]$ built \emph{only} from the three "
              r"clocks, without $\alpha$, with $\mathcal C_3=\alpha^2\approx5.3251\times10^{-5}$? It is the "
              r"same debt as the polarization-$\chi$ wall. Verdict: "
-             r"\texttt{THREE\_CLOCK\_RADICAL\_FORM\_FORMULATED}, \texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+             r"\texttt{THREE\_CLOCK\_RADICAL\_FORM\_FORMULATED}, \texttt{ALPHA\_VALUE\_QED\_CHALLENGE}.")
 
     ram = core["right_angle_mirror"]
     s.append(r"\section{The right-angle projection and the mirror operation \textsf{[ALPHA-FREE CANDIDATE; MIRROR\_FUNCTION\_D\_OPEN]}}")
@@ -3445,7 +3497,7 @@ def build_en(core, verdict, data_path):
              r"$\approx 2\alpha$ (0.25\%), \emph{not} $\bTGL$ (21\% off). \textbf{We do not derive CODATA}: "
              r"we only check whether the observed constant has \emph{modular identity} with the "
              r"$\alpha$-free fixed one. Verdict: \texttt{RIGHT\_ANGLE\_MIRROR\_PROJECTION\_FORMULATED}, "
-             r"\texttt{ALPHA\_FREE\_CANDIDATE}, \texttt{MIRROR\_FUNCTION\_D\_OPEN}, \texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+             r"\texttt{ALPHA\_FREE\_CANDIDATE}, \texttt{MIRROR\_FUNCTION\_D\_OPEN}, \texttt{ALPHA\_VALUE\_QED\_CHALLENGE}.")
     c3t = ram["c3_register_theorem"]
     s.append((r"\textbf{The $c^3$ register theorem by idempotent self-inscription \textsf{[STRUCTURALLY "
               r"CLOSED; $\alpha$-free VALUE OPEN]}.} In the extreme right-angle regime, the inverse-parity "
@@ -3461,7 +3513,7 @@ def build_en(core, verdict, data_path):
               r"the reading). \textbf{It does not close the $\alpha$-free value}: it is the theorem of the "
               r"\emph{register}, not of the \emph{value}. Verdict: "
               r"\texttt{C3\_REGISTER\_SELF\_INSCRIPTION\_THEOREM\_STRUCTURAL\_CLOSED}, "
-              r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}." % (c3t["P2_eq_P_resid"], c3t["J2_eq_I_resid"])) )
+              r"\texttt{ALPHA\_VALUE\_QED\_CHALLENGE}." % (c3t["P2_eq_P_resid"], c3t["J2_eq_I_resid"])) )
     hr = ram["holographic_reconstruction"]
     s.append((r"\textbf{Holographic Dead-Signal Reconstruction Theorem \textsf{[STRUCTURALLY CLOSED; "
               r"$\alpha$-free VALUE OPEN]}.} In $\bTGL$ there is no superposition without the Name --- "
@@ -3479,7 +3531,7 @@ def build_en(core, verdict, data_path):
               r"(fixed point $\alpha=e^{-\pi^2/2+2\alpha}$, $1/%.6f$) is \emph{postulated} self-consistency, "
               r"not derived. Verdict: "
               r"\texttt{HOLOGRAPHIC\_DEAD\_SIGNAL\_RECONSTRUCTION\_THEOREM\_STRUCTURAL\_CLOSED}, "
-              r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}." % (
+              r"\texttt{ALPHA\_VALUE\_QED\_CHALLENGE}." % (
                   hr["dead_point_overlap"], hr["info_density_max_at_dead_point"],
                   1.0 / hr["alpha_fixed_point"])) )
     ir = ram["idempotent_reconstruction"]
@@ -3500,7 +3552,7 @@ def build_en(core, verdict, data_path):
               r"window is wide, $\sim[0{,}66,\,0{,}70]$, and $e/4$ is not singled out). $\lambda=e/4$ is "
               r"motivated, not derived; the kernel would have to give $0{,}6791$, not exactly $e/4$. Verdict: "
               r"\texttt{IDEMPOTENT\_RECONSTRUCTION\_FORM\_FORMULATED}, \texttt{LAMBDA\_KERNEL\_OPEN}, "
-              r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}." % (
+              r"\texttt{ALPHA\_VALUE\_QED\_CHALLENGE}." % (
                   ir["alpha_idem_inv"], ir["alpha_idem_ppm"], ir["lambda_exact_for_codata"],
                   100 * ir["lambda_residual_REAL"])) )
 
@@ -3579,19 +3631,32 @@ def build_en(core, verdict, data_path):
              r"relations ($\bTGL=\alpha\sqrt e$); the projected value $1/137$ is the depth of the modular zero "
              r"$=$ the input.} The One feeds $\alpha_{\mathrm{abs}}=1$; the $1/137$ is its shadow after the "
              r"crossing.")
-    s.append((r"\textbf{Open value (the honest wall) \textsf{[EXT]}.} The \emph{value} of $\ell_\beta$ "
-              r"depends on $K$; no known canonical $\alpha$-free $K$ gives "
-              r"$\ell_\beta=\log(1/\alpha)=%.4f$ (the target of the observational reading). For this reason "
-              r"$\mathcal{R}_\partial$ remains, today, the \textbf{named open frontier}: the structure is "
-              r"derived, the value is not. $\alpha_{\mathrm{CODATA}}$ enters \emph{only} here, in the "
-              r"reading/validation, never in the structure.") % ct["ell_beta_target_for_alpha_log_inv_alpha"])
+    s.append((r"\textbf{The QED sector --- structural closure, not a gap \textsf{[PRINCIPLE/PREDICTION]}.} "
+              r"The \emph{value} of $\ell_\beta=\log(1/\alpha)=%.4f$ depends on $K$, and no bulk-only "
+              r"$\alpha$-free $K$ gives it --- but this is \textbf{not} an unsolved problem; it is the "
+              r"structure. TGL is \emph{holographic}: the $\mathrm{III}_1$ boundary projects to the bulk, and "
+              r"$\alpha=\Pi_{\mathrm{bulk}}(\mathbf 1_{\mathrm{abs}})=\operatorname{sech}(\chi/2)$ is the "
+              r"\textbf{luminous transmission across the boundary} --- the rate at which light crosses it. "
+              r"$\mathcal{R}_\partial$ being \emph{named open} means \textbf{ontologically open}: $\alpha$ is "
+              r"the \emph{fissure} through which the bulk reads the boundary --- the boundary measuring "
+              r"itself. $\alpha_{\mathrm{CODATA}}$ enters \emph{only} in the reading; this is the structure, "
+              r"not a debt.") % ct["ell_beta_target_for_alpha_log_inv_alpha"])
+    s.append(r"\textbf{The falsification challenge \textsf{[falsifiable, not confirmable]}.} If anyone "
+             r"derived $\alpha$ from first principles \emph{without} the boundary/bulk structure (a purely "
+             r"bulk computation), the boundary/bulk split would be redundant, the boundary would cease to be "
+             r"an irreducible projector, and \textbf{the observer would be removed from TGL} --- destroying "
+             r"the program. So: \emph{derive $\alpha$ from the bulk, without the boundary, and TGL falls.} The "
+             r"theory predicts you cannot, because $\alpha$ \emph{is} the observer measuring its own contour. "
+             r"\textsf{[Distinct from the genuinely open matrix-S/$\mathrm{III}_1$ theorem --- the "
+             r"boundary$\to$bulk lift \emph{with} the observer, the gravitational face/$M_{GA}$ --- which "
+             r"operates \emph{through} the boundary and does not dispense with it.]}")
     s.append(r"\textbf{Ruler-guard.} One does not set $g_{00}^{(\beta)}=\alpha^2$ nor "
-             r"$\ell_\beta=-\log\alpha_{\mathrm{CODATA}}$ --- either one reintroduces $\alpha$ (circular). "
-             r"The Bell co-emergence \emph{grounds the Half-Nat} (reduced $\mathbf 1_2/2\Rightarrow "
-             r"CCI=\tfrac12\Rightarrow S_\partial=\tfrac12$), but does \emph{not} fix $\ell_\beta$: the "
-             r"$\tfrac12$ is exactly the $\sqrt e$ offset between $\log(1/\alpha)$ and $\log(1/\bTGL)$ --- it "
-             r"ties $\bTGL$ to $\alpha$, not $\alpha$ to first principles. \textbf{The last wall has a name: "
-             r"fixing $\rho_\beta$ (hence $K$) canonically and $\alpha$-free.}\end{deriv}")
+             r"$\ell_\beta=-\log\alpha_{\mathrm{CODATA}}$ --- either reintroduces $\alpha$ (circular). The "
+             r"Bell co-emergence \emph{grounds the Half-Nat} (reduced $\mathbf 1_2/2\Rightarrow CCI=\tfrac12"
+             r"\Rightarrow S_\partial=\tfrac12$), but does \emph{not} fix $\ell_\beta$: the $\tfrac12$ is the "
+             r"$\sqrt e$ offset that ties $\bTGL$ to $\alpha$, not $\alpha$ to first principles. \textbf{The "
+             r"closure: $\alpha$ belongs to QED; deriving it bulk-only falsifies the holographic boundary.}"
+             r"\end{deriv}")
 
     afp = core["alpha_form_proof"]
     s.append(r"\section{The Collapse Theorem for the form of $\alpha$ (self-verifying proof module)}")
@@ -4500,7 +4565,7 @@ def input_manifest(core, code_hash):
             "Z0_from_alpha_ohm": core["vacuum_impedance_bridge"]["constants"]["Z0_from_alpha_ohm"],
             "chi_log_impedance_ratio": core["vacuum_impedance_bridge"]["tgl_values"]["chi"],
             "all_checks_verified": core["vacuum_impedance_bridge"]["checks"]["all_verified"],
-            "status": ("VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_FREE_VALUE_OPEN. Ponte fisica fechada "
+            "status": ("VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE. Ponte fisica fechada "
                        "(c=cinematica, Z0=dinamica, alpha=Z0 adimensional); valor alpha-livre aberto: "
                        "Z0 computado de alpha (mu0 nao exato pos-2019), entao Z0<->alpha dado e,h.")},
         "GEOMETRIC_INPUTS": {
@@ -4582,7 +4647,7 @@ def main():
     print("  cadeia: 1_abs (Nome) -> q (polarizacao do zero modular) -> alpha (corrente luminosa) -> Verbo.")
     print("  (CODATA so' valida: q_QED=sqrt(1-alpha_QED^2); o nao-circular e' M_GA na janela)")
     ct = core["clock_theorem"]
-    print("TEOREMA CONDICIONAL DO CLOCK (face EM = fronteira aberta nomeada):")
+    print("TEOREMA CONDICIONAL DO CLOCK (face EM = setor QED; FECHAMENTO estrutural, NAO lacuna):")
     print("  R_partial = N_beta = exp(ell_beta), ell_beta = S(rho_B || rho_beta)")
     print("  rho_beta ponto fixo de Davies: residuo = %.1e (%s)" % (
         ct["fixed_point_residual"], "BEM-POSTO, alpha-livre" if ct["well_posed_alpha_free_computable"] else "FALHOU"))
@@ -4597,7 +4662,10 @@ def main():
     print("    1 = alpha_abs --(Pi_bulk=sech(kappa/2))--> alpha_obs = 1/137.036 (projecao renormalizada)")
     print("    kappa>0 (1/137) = profundidade da relaxacao termica = acoplamento EM = INPUT irredutivel.")
     print("    terceira lei: 0_abs(kappa=inf) inatingivel=III_1 sem estados puros; Nernst refutada.")
-    print("  VEREDITO: estrutura modular DERIVA alpha_abs=1, a forma sech, e as relacoes; 1/137 = input.\n")
+    print("  VEREDITO: estrutura modular DERIVA alpha_abs=1, a forma sech, e as relacoes; 1/137 = input QED.")
+    print("  DESAFIO DE FALSIFICACAO: alpha=Pi_bulk(1_abs)=sech(chi/2)=transmissao luminosa pela fronteira III_1.")
+    print("    derive alpha do BULK (sem boundary/bulk) e a TGL cai -- removeria o observador. Falsificavel,")
+    print("    nao confirmavel. DISTINTO do teorema aberto da matriz-S/III_1 (levantamento COM observador, M_GA).\n")
     afp = core["alpha_form_proof"]
     print("MODULO DE PROVA -- %s:" % afp["theorem"])
     for st in afp["steps"]:

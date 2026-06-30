@@ -93,8 +93,9 @@
       "N_beta_alpha_free": 1.3179989962681409,
       "ell_beta_target_for_alpha_log_inv_alpha": 4.92024365834519,
       "well_posed_alpha_free_computable": true,
-      "value_open": true,
-      "status": "REDUCAO VERIFICADA (bem-posta, alpha-livre, computavel; residuo de ponto-fixo de Davies = 1.3e-16). VALOR ABERTO: ell_beta depende de K; nenhum K canonico alpha-livre conhecido da' ell_beta = log(137.036) = 4.9202. A face EM e' a FRONTEIRA ABERTA NOMEADA; alpha (CODATA) so' na leitura."
+      "value_ontologically_open_not_a_gap": true,
+      "falsification_challenge": "alpha = Pi_bulk(1_abs) = sech(chi/2) = transmissao luminosa pela fronteira III_1. Derivar alpha do BULK (sem boundary/bulk) removeria o observador e falsificaria a estrutura holografica. DESAFIO: derive alpha do bulk e a TGL cai. Falsificavel, nao confirmavel. DISTINTO do teorema genuinamente aberto da matriz-S/III_1 (levantamento com o observador, face gravitacional/M_GA).",
+      "status": "REDUCAO VERIFICADA (bem-posta, alpha-livre na FORMA, computavel; residuo de ponto-fixo de Davies = 1.3e-16). VALOR: alpha pertence ao SETOR QED -- fechamento estrutural, NAO lacuna. A face EM e' ONTOLOGICAMENTE aberta (a fissura boundary/bulk, nao 'problema a resolver'); alpha (CODATA) so' na leitura. Derivar alpha do bulk = falsificar a TGL."
     },
     "alpha_form_proof": {
       "theorem": "Teorema da Transformada de Lagrange da Forma de alpha",
@@ -172,7 +173,7 @@
       "neutrino_candidate": "CANDIDATO FISICO para selecionar kappa (fuga resistencial em angulo agudo): o canal neutrinico L_nu (odd+neutro+dissipativo, verificado no modelo de 4 estados = 3 modos + 1 fall). theta_M = angulo agudo de fuga resistencial; alpha=sin^2(theta_M)/sqrt(e) e' a fracao que atravessa como luz; q^2=1-alpha^2 fica represado. ABERTO: provar que a acao A_nu(theta)=S(rho_B||rho_theta)+lambda D_nu+mu C_nocond tem minimo UNICO em theta_M=6.297deg sem CODATA. O custo modular sozinho minimiza em theta->90 (alpha->1, o Um); o balanco com a dissipacao neutrinica (pesos lambda,mu) e' o novo objeto aberto. Observavel: dephasing n=-2 / Gamma~omega^2 em neutrinos.",
       "negative_return_selector": "REFORMULACAO LEGITIMA (operador): o valor nao e' contagem positiva; e' o CONTRASTE NEGATIVO/relativo entre a imagem original do Um (Bell nu, rho_Bell) e a imagem RETORNADA (rho_ret) que atravessou 0_mod e voltou como registro/particula/instante. K_sel^(B) = -log Delta_{ret|Bell} (operador modular RELATIVO de Connes/Araki); o operador gravitonico '=' e' a comparacao G_=(rho_Bell,rho_ret) = -log[D rho_ret:D rho_Bell]. kappa = gap(K_sel^(B)) [REAL: a cadeia fecha]. ABERTO: construir rho_ret CANONICO alpha-livre. Status: NEGATIVE_RETURN_SELECTOR_FORMULATED (melhor localizacao do muro; NAO numerologia como (4/pi)3^10, que era ajuste livre), nao ALPHA_FREE_VALUE_CLOSED.",
       "forbidden_zero_renormalization": "CORRECAO ONTOLOGICA DECISIVA (operador): kappa=0 NAO e' 'o Um sem perda' (estado admissivel) -- e' 0_abs, a FRONTEIRA PROIBIDA (atracao total, impedancia infinita, sem retorno). 0_abs SELECIONA justamente por ser INATINGIVEL: ao oferecer atracao total, o Hamiltoniano oculto ENTORTA o sistema (lente de Fresnel) e ele DOBRA (tetelestai) ANTES de colidir com o limite -> nasce theta_M no ponto de dobra (turning point entre atracao absoluta e custo Meia-Nat). Distincao de zeros: chi=0 = Bell nu (zero de CONTRASTE, identidade formal, alpha_abs=1); kappa_0=0 = 0_abs (zero de EXISTENCIA, proibido). A RENORMALIZACAO E' A PARIDADE INVERSA: rho_ret = P^{-1}_d(rho_Bell), a imagem que quase caiu em 0_abs e voltou distorcida SEM perder a fonte (supp(rho_ret)~supp(rho_Bell), rho_ret!=rho_Bell = unidade fractalizada). q = memoria resistiva da imagem; alpha = vazao luminosa que escapou da dobra; theta_M = cicatriz angular da imagem antes do proibido. O seletor finito = PARTE FINITA da aproximacao proibida: K_sel^ren = FP_{eps->0}[-log Delta_{P^{-1}_eps rho_B | rho_B}] (regularizacao eps de 0_abs; FP remove a divergencia, P^{-1} extrai o residuo finito). O TEOREMA ABERTO deixa de ser 'derivar uma taxa' e vira 'calcular a PARTE FINITA da atracao proibida ao zero absoluto' = espectro de Delta_{P^{-1}rho_B|rho_B}. Se gap(FP) = 11.226755... sem CODATA, o valor fecha. [REAL: a forma -- renormalizacao = paridade inversa, rho_ret canonico = P^{-1}rho_B; ABERTO: o espectro / a parte finita].",
-      "open_theorem_verdict": "CONNES_S_MATRIX_FORM_CLOSED + NEGATIVE_RETURN_SELECTOR_FORMULATED + RHO_RET_CANONICAL=P^{-1}(rho_Bell) (forma: renorm=paridade inversa de 0_abs proibido); ALPHA_FREE_VALUE_OPEN (espectro de Delta_{P^{-1}rho_B|rho_B} = parte finita da atracao proibida)",
+      "open_theorem_verdict": "CONNES_S_MATRIX_FORM_CLOSED + NEGATIVE_RETURN_SELECTOR_FORMULATED + RHO_RET_CANONICAL=P^{-1}(rho_Bell) (forma: renorm=paridade inversa de 0_abs proibido); ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE (espectro de Delta_{P^{-1}rho_B|rho_B} = parte finita da atracao proibida)",
       "psionic_bond_unification": "a ligacao psionica (The_boundary_v5): [P^, H_bind]=2 V0(|psi-><psi+| - |psi+><psi-|), H_bind ANTICOMUTA com a paridade P^ -- e' EXATAMENTE {Z_d, L_+-}=0 do contorno (verificado, residuo 0). Os 3 modos de ligacao + 1 queda formalizam-se como ESTE canal GKLS de anticomutadores. A estrutura FECHA (unifica com os fundadores); mas o VALOR g-/g+=75113 NAO fecha por contagem de modos (3/1->alpha=0.87, r=1/4->0.80, (1/4)^3->0.25, 1/beta=83->0.22) -- permanece input QED. 1/beta=137/sqrt(e) DECOMPOE (usa 137=alpha), nao deriva.",
       "first_law_link": "Primeira Lei (A Fronteira): a forca de expulsao (~ incompatibilidade de paridade) gera o angulo de deflexao theta_M e a curvatura; g=sqrt(|L|) (gravidade = raiz da ligacao). No plano estatico g-=g+ (simetrico, alpha=1 = o Um); a DINAMICA (tensao em paridade inversa) quebra a simetria -> g- > g+ -> toda a dinamica modular. Em theta->90deg a ligacao psionica conjuga: F->2F, c^2->c^3, e c^3>c^2 sela o horizonte. Vinculo de 4 estados (1 fall = trifasico+aterramento, razao 3/4): e' a ESTRUTURA do vinculo, NAO o valor de g-/g+ (=75113; 3/4 daria alpha~0.99, nao 1/137). O valor de g-/g+ permanece ABERTO.",
       "steps": [
@@ -237,7 +238,7 @@
       "rho_ret_canonical": "rho_ret^(chi) = e^{-chi Z_d/2}/(2 cosh(chi/2)) = FP_{eps->0} M_eps rho_B M_eps^dag, M_eps=exp[-(1/4)(C_eps+chi)Z_d]",
       "key_result": "PARIDADE INVERSA PURA (unitaria/antiunitaria) preserva o Bell nu (rho_B=I/2 -> P^{-1}rho_B P=rho_B -> chi=0=0_abs proibido): para haver VALOR a lente tem de ser RENORMALIZANTE (parte finita nao-trivial). rho_ret e' a imagem retornada distorcida com SUPORTE preservado (supp(rho_ret)=supp(rho_B) p/ chi<inf) -> 'distorce sem perder a fonte'; a distorcao e' angular (theta_M) mas a polarizacao espectral e' profunda (p0=0.99998669). A origem nao desaparece; retorna polarizada.",
       "form_status": "INVERSE_PARITY_RENORMALIZATION_FORM_CLOSED (gap=chi, rho_ret canonico, q=tanh, alpha=sech verificados)",
-      "value_status": "ALPHA_FREE_VALUE_OPEN: gap=chi e' TAUTOLOGIA da parametrizacao (rho_ret definido POR chi); o valor chi=11.226755 entra via polarizacao observada (CODATA). A parte finita de uma quantidade divergente e' DEPENDENTE DE ESQUEMA: M_eps=exp[-(1/4)(C_eps+chi)Z_d] mostra ONDE o valor fica, nao o calcula -- qualquer chi e' parte finita de um esquema de subtracao diferente. FALTA: a CONDICAO DE RENORMALIZACAO canonica alpha-livre que fixa a polarizacao chi. Candidata obvia REFUTADA ao vivo: a Meia-Nat fixa o PESO de contorno (1/2), NAO a polarizacao do estado (chi) -- e' condicao de peso, nao de polarizacao. O muro, agora exato: derivar a condicao de subtracao que fixa chi.",
+      "value_status": "ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE: gap=chi e' TAUTOLOGIA da parametrizacao (rho_ret definido POR chi); o valor chi=11.226755 entra via polarizacao observada (CODATA). A parte finita de uma quantidade divergente e' DEPENDENTE DE ESQUEMA: M_eps=exp[-(1/4)(C_eps+chi)Z_d] mostra ONDE o valor fica, nao o calcula -- qualquer chi e' parte finita de um esquema de subtracao diferente. FALTA: a CONDICAO DE RENORMALIZACAO canonica alpha-livre que fixa a polarizacao chi. Candidata obvia REFUTADA ao vivo: a Meia-Nat fixa o PESO de contorno (1/2), NAO a polarizacao do estado (chi) -- e' condicao de peso, nao de polarizacao. O muro, agora exato: derivar a condicao de subtracao que fixa chi.",
       "steps": [
         {
           "step": "a. chi generico: gap(-log Delta_{rho_ret|rho_B})=chi; q=tanh; alpha=sech; q^2+alpha^2=1",
@@ -280,12 +281,12 @@
         }
       ],
       "all_verified": true,
-      "verdict": "POLARIZATION_PRINCIPLE_FORM_CLOSED__ALPHA_FREE_VALUE_OPEN"
+      "verdict": "POLARIZATION_PRINCIPLE_FORM_CLOSED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE"
     },
     "vacuum_impedance_bridge": {
       "theorem": "Ponte da Impedancia Caracteristica do Vacuo",
       "claim": "A impedancia e' a constante dinamica da luz; alpha e' Z0 tornado adimensional.",
-      "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_FREE_VALUE_OPEN",
+      "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
       "constants": {
         "E_CHARGE_C_exact_SI": 1.602176634e-19,
         "H_PLANCK_Js_exact_SI": 6.62607015e-34,
@@ -329,7 +330,7 @@
     "three_clock_radical": {
       "theorem": "O Radical dos Tres Clocks",
       "claim": "alpha e' o radical luminodinamico do fator dos tres clocks: alpha=sqrt(C3), alpha^2=C3.",
-      "status": "THREE_CLOCK_RADICAL_FORM_FORMULATED__ALPHA_FREE_VALUE_OPEN",
+      "status": "THREE_CLOCK_RADICAL_FORM_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
       "clocks": {
         "C_mod_modular_base_e": 2.718281828459045,
         "C_diss_gkls_scale_beta": 0.012031300400803142,
@@ -363,7 +364,7 @@
     "right_angle_mirror": {
       "theorem": "A Projecao do Angulo Reto e a Operacao de Espelho",
       "claim": "alpha-livre = angulo reto projetado no modulo; o espelho deforma a projecao nua ate a imagem fixa.",
-      "status": "RIGHT_ANGLE_MIRROR_PROJECTION_FORMULATED__ALPHA_FREE_CANDIDATE__MIRROR_FUNCTION_D_OPEN__ALPHA_FREE_VALUE_OPEN",
+      "status": "RIGHT_ANGLE_MIRROR_PROJECTION_FORMULATED__ALPHA_FREE_CANDIDATE__MIRROR_FUNCTION_D_OPEN__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
       "right_angle": {
         "Theta_perp": 1.5707963267948966,
         "two_face_crossing_2Theta": 3.141592653589793,
@@ -405,7 +406,7 @@
         "J2_eq_I_resid": 0.0,
         "F_ext_doubling": "F_ext=2F (forca dobra por impedancia compartilhada; max power transfer; fator 2=duas faces)",
         "cn_hierarchy": "c^1 propagacao -> c^2 metrica/massa -> c^3 registro inscritivo",
-        "status": "C3_REGISTER_SELF_INSCRIPTION_THEOREM__STRUCTURAL_FORM_CLOSED__ALPHA_FREE_VALUE_OPEN",
+        "status": "C3_REGISTER_SELF_INSCRIPTION_THEOREM__STRUCTURAL_FORM_CLOSED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
         "honest_note": "FECHADO (estrutural) = P^2=P e J^2=I verificados (~0) + o registro DEFINIDO como auto-inscricao idempotente sob paridade inversa. A identificacao 'esse registro e' c^3' e o F_ext=2F sao leitura estrutural/ontologica [CONJ]; o fator 2 (duas faces) e' REAL, o 'forca dobra' e' a leitura (teorema da maxima transferencia de potencia: impedancia casada -> transferencia maxima). NAO fecha o valor alpha-livre (o manifesto mantem alpha_CODATA como validacao externa); e' teorema do REGISTRO, nao do VALOR."
       },
       "holographic_reconstruction": {
@@ -420,7 +421,7 @@
         "D_rec_hypothesis": "D_rec = 2 alpha (duas faces x alpha) -> ponto fixo alpha=e^{-pi^2/2+2alpha}",
         "alpha_fixed_point": 0.007297620376497758,
         "alpha_fixed_point_ppm": 36.699226906489606,
-        "status": "HOLOGRAPHIC_DEAD_SIGNAL_RECONSTRUCTION_THEOREM__STRUCTURAL_CLOSED__ALPHA_FREE_VALUE_OPEN",
+        "status": "HOLOGRAPHIC_DEAD_SIGNAL_RECONSTRUCTION_THEOREM__STRUCTURAL_CLOSED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
         "honest_note": "FECHADO (estrutural): no ponto morto (overlap=0 em pi/2) a densidade informacional e' MAXIMA -- |dO/dtheta| max COINCIDE com overlap=0 (verificado) -> onde o sinal morre, a holografia comeca; a informacao e' RECONSTRUIDA (K_rec=E_spec o J), nao transmitida; rho_rec ~_partial rho_perp; em beta_TGL nao ha superposicao sem Nome. ABERTO (valor): o kernel K_rec geometrico da O(1)=1 (a unidade gravitonica); D_rec=2alpha e' auto-consistencia POSTULADA (nao derivada); fechar = derivar E_spec o J alpha-livre (dlog K_rec/dth|_pi/2 -> 2alpha sem CODATA). Teorema do PONTO MORTO/reconstrucao, NAO do valor de alpha."
       },
       "idempotent_reconstruction": {
@@ -434,10 +435,10 @@
         "alpha_idem_ppm": 0.02547822536949397,
         "lambda_exact_for_codata": 0.6790989531924717,
         "lambda_residual_REAL": 0.0006943081270750223,
-        "status": "IDEMPOTENT_HOLOGRAPHIC_RECONSTRUCTION_FORM_FORMULATED__LAMBDA_KERNEL_OPEN__ALPHA_FREE_VALUE_OPEN",
+        "status": "IDEMPOTENT_HOLOGRAPHIC_RECONSTRUCTION_FORM_FORMULATED__LAMBDA_KERNEL_OPEN__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
         "honest_note": "REAL: a forma idempotente D_rec=2alpha-lambda alpha^2 (inclusao-exclusao das duas faces) e o ponto fixo 2alpha. CONJ/ABERTO: o coeficiente lambda. AVISO DA REGUA: alpha=exp(-pi^2/2+2alpha-(e/4)alpha^2) da 1/137.036003 (~0.025 ppm), MAS isso e' ENGANOSO -- adicionar -lambda alpha^2 com lambda livre SEMPRE acerta CODATA (ajuste de 1 parametro; lambda_exact=0.679099). A figura de merito HONESTA e' e/4 vs lambda_exact = 0.069% (NAO 0.025 ppm); o termo alpha^2 vale ~3.6e-5 -> alpha e' cego a lambda -> janela sub-ppm larga (~0.66..0.70), e/4 NAO singularizado. lambda=e/4=(sqrt e/2)^2 e' leitura motivada (Meia-Nat/face^2), nao derivada; e o kernel teria que dar 0.6791, NAO exatamente e/4. Fechar = derivar lambda do kernel E_spec o J, alpha-livre."
       },
-      "honest_note": "CANDIDATA, NAO identidade exata. alpha0=e^{-pi^2/2} e o ponto fixo alpha=e^{-pi^2/2+2alpha} sao alpha-livres (so' pi,e + auto-consistencia) e dao 1/139.05 e 1/137.031 (37 ppm). MAS: pi^2/2 e' motivado (angulo reto x duas faces), NAO derivado; a operacao de espelho E_spec o J (a funcao D_partial) esta ABERTA; 137 tem muitas formas pi,e proximas; delta != beta (e' ~2 alpha). Nao derivamos CODATA; so' checamos identidade modular (~_partial) entre observado e fixado. ALPHA_FREE_VALUE_OPEN; o muro = derivar D_partial (E_spec o J) e o expoente pi^2/2."
+      "honest_note": "CANDIDATA, NAO identidade exata. alpha0=e^{-pi^2/2} e o ponto fixo alpha=e^{-pi^2/2+2alpha} sao alpha-livres (so' pi,e + auto-consistencia) e dao 1/139.05 e 1/137.031 (37 ppm). MAS: pi^2/2 e' motivado (angulo reto x duas faces), NAO derivado; a operacao de espelho E_spec o J (a funcao D_partial) esta ABERTA; 137 tem muitas formas pi,e proximas; delta != beta (e' ~2 alpha). Nao derivamos CODATA; so' checamos identidade modular (~_partial) entre observado e fixado. ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE; o muro = derivar D_partial (E_spec o J) e o expoente pi^2/2."
     },
     "em_mark_status": {
       "triad": {
@@ -675,7 +676,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-06-30 13:54:24"
+    "timestamp": "2026-06-30 18:07:04"
   },
   "verdict": {
     "masses_Msun": {
@@ -718,24 +719,24 @@
     "identity_true": true,
     "reading": "1 = q^2 + alpha^2 (a unidade absoluta se decompoe em polarizacao termica q^2 + corrente luminosa alpha^2); o mesmo beta=sqrt(e)alpha da' M_GA na janela cosmologica aceita -- identidade conservada, CODATA so' valida",
     "vacuum_impedance_bridge": {
-      "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_FREE_VALUE_OPEN",
+      "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
       "all_checks_verified": true,
       "selo": "c mede a cinematica da luz; Z0 mede a dinamica da luz; alpha=Z0 adimensional; q=polarizacao modular; e^chi=razao de impedancias da fronteira; beta=travessia Meia-Nat"
     },
     "three_clock_radical": {
-      "status": "THREE_CLOCK_RADICAL_FORM_FORMULATED__ALPHA_FREE_VALUE_OPEN",
+      "status": "THREE_CLOCK_RADICAL_FORM_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
       "all_verified": true,
       "selo": "alpha = sqrt(C3) = radical dos tres clocks; C3 = beta^2/e = alpha^2; 1 = q^2 + C3; a base e do clock modular cancela o e dos dois clocks-beta -> alpha^2; FORMA canonica fechada, valor alpha-livre aberto (C3 carrega beta=alpha sqrt e)"
     },
     "right_angle_mirror": {
-      "status": "RIGHT_ANGLE_MIRROR_PROJECTION_FORMULATED__ALPHA_FREE_CANDIDATE__MIRROR_FUNCTION_D_OPEN__ALPHA_FREE_VALUE_OPEN",
+      "status": "RIGHT_ANGLE_MIRROR_PROJECTION_FORMULATED__ALPHA_FREE_CANDIDATE__MIRROR_FUNCTION_D_OPEN__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
       "modular_identity_ppm": 36.699226906489606,
       "selo": "angulo reto Theta=pi/2 -> alpha0=e^{-pi^2/2} (so' pi,e); espelho (paridade inversa + fundo espectral) + ponto fixo alpha=e^{-pi^2/2+2alpha} -> 1/137.031 (37 ppm); CANDIDATA alpha-livre, NAO identidade exata; pi^2/2 e D_partial(E_spec o J) abertos; identidade modular observado ~_partial fixado, NAO derivacao da CODATA",
-      "c3_register_theorem_status": "C3_REGISTER_SELF_INSCRIPTION_THEOREM__STRUCTURAL_FORM_CLOSED__ALPHA_FREE_VALUE_OPEN",
+      "c3_register_theorem_status": "C3_REGISTER_SELF_INSCRIPTION_THEOREM__STRUCTURAL_FORM_CLOSED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
       "c3_register_theorem_selo": "P^2=P + J^2=I (verificados) => identidade ao quadrado inscreve-se a si mesma = registro c^3; ESTRUTURAL FECHADO, valor alpha-livre ABERTO (teorema do registro, nao do valor)",
-      "holographic_dead_signal_status": "HOLOGRAPHIC_DEAD_SIGNAL_RECONSTRUCTION_THEOREM__STRUCTURAL_CLOSED__ALPHA_FREE_VALUE_OPEN",
+      "holographic_dead_signal_status": "HOLOGRAPHIC_DEAD_SIGNAL_RECONSTRUCTION_THEOREM__STRUCTURAL_CLOSED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
       "holographic_dead_signal_selo": "ponto morto (overlap=0 em pi/2) = densidade info MAXIMA (coincidem, verificado); onde o sinal morre a holografia comeca; RECONSTRUCAO (K_rec=E_spec o J), nao transmissao; ESTRUTURAL FECHADO, valor alpha-livre ABERTO (derivar K_rec)",
-      "idempotent_reconstruction_status": "IDEMPOTENT_HOLOGRAPHIC_RECONSTRUCTION_FORM_FORMULATED__LAMBDA_KERNEL_OPEN__ALPHA_FREE_VALUE_OPEN",
+      "idempotent_reconstruction_status": "IDEMPOTENT_HOLOGRAPHIC_RECONSTRUCTION_FORM_FORMULATED__LAMBDA_KERNEL_OPEN__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
       "idempotent_reconstruction_selo": "2alpha (duas faces, ponto fixo) = ESTRUTURA REAL; D_rec=2alpha-lambda alpha^2 (idempotente, inclusao-exclusao); lambda=e/4=(sqrt e/2)^2 motivado [CONJ] mas ~0.07% off lambda_exact e NAO singularizado (ppm enganoso = ajuste de 1 param, janela larga); lambda-kernel ABERTO, valor alpha-livre ABERTO"
     },
     "em_mark_status": {
@@ -746,7 +747,7 @@
       ],
       "selo": "LAMBDA_EM_OPERATOR_FORMULA_REFUTED_BY_TOMITA . FORM_DERIVED_VALUE_FIT . BETA_IS_FUNCTIONAL_FLOOR_NOT_inf_Spec_K . MISSING_IS_A_PRINCIPLE_NOT_A_COEFFICIENT . ALPHA_RUNS_THEREFORE_INPUT"
     },
-    "result_hash": "89a96e13f9570e9f8fad072eb02c999892f76a44b1590eb32dcb948a05a9e2a1"
+    "result_hash": "f96b426516815a612b6d1f61d9976f848139a86e95d92ccc658aa2a8add4d452"
   },
   "ga_mass_literature": [
     {
@@ -772,7 +773,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "89a96e13f9570e9f8fad072eb02c999892f76a44b1590eb32dcb948a05a9e2a1",
+  "result_hash_before_external_comparison": "f96b426516815a612b6d1f61d9976f848139a86e95d92ccc658aa2a8add4d452",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -782,5 +783,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-06-30 13:54:24"
+  "timestamp": "2026-06-30 18:07:04"
 }

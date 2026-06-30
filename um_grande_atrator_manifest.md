@@ -55,7 +55,7 @@
   "Z0_from_alpha_ohm": 376.730313668004,
   "chi_log_impedance_ratio": 11.226755051602328,
   "all_checks_verified": true,
-  "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_FREE_VALUE_OPEN. Ponte fisica fechada (c=cinematica, Z0=dinamica, alpha=Z0 adimensional); valor alpha-livre aberto: Z0 computado de alpha (mu0 nao exato pos-2019), entao Z0<->alpha dado e,h."
+  "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE. Ponte fisica fechada (c=cinematica, Z0=dinamica, alpha=Z0 adimensional); valor alpha-livre aberto: Z0 computado de alpha (mu0 nao exato pos-2019), entao Z0<->alpha dado e,h."
 }
 ```
 
@@ -198,7 +198,7 @@
 
 ```json
 {
-  "code_sha256": "2fdd5c5ba702dbe07468bd24e66be8c9fc6c55fb125491c4f1a21edbb2be4543",
+  "code_sha256": "bf7a092d807bd5970d06bca7a8045a360cc931c05b37b428eefd2d74b521b10e",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"

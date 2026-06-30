@@ -1,15 +1,15 @@
 {
-  "timestamp": "2026-06-30 13:54:24",
-  "result_hash": "89a96e13f9570e9f8fad072eb02c999892f76a44b1590eb32dcb948a05a9e2a1",
+  "timestamp": "2026-06-30 18:07:04",
+  "result_hash": "f96b426516815a612b6d1f61d9976f848139a86e95d92ccc658aa2a8add4d452",
   "identity": "1=1=VERDADEIRO",
   "sha256": {
-    "um.py": "2fdd5c5ba702dbe07468bd24e66be8c9fc6c55fb125491c4f1a21edbb2be4543",
-    "um_grande_atrator_manifest.md": "d59290d46d9c944dc9b68355d40302f9707ab32ba77108b4d7d03d3ee314f014",
-    "um_grande_atrator.json": "11117c3cd641537ec1059dca56634c68c42432133e9f8e23277431501100906e",
+    "um.py": "bf7a092d807bd5970d06bca7a8045a360cc931c05b37b428eefd2d74b521b10e",
+    "um_grande_atrator_manifest.md": "385feeaafc207819feac1e4a743ba1ced2f6e38940ec5f2dc5fab9c3ab22e299",
+    "um_grande_atrator.json": "7c846f551f7c960cc26bf4d1b97681b57f716ecfdbd11236c0684cbf3528704a",
     "um_grande_atrator_forma_canonica.md": "e1dc1fa6fc5c01472fab01362beb35b619671ebf766bf02cf657cb1b36321f0c",
-    "um_grande_atrator_pt.tex": "cf49a845c4108cb78946c7db67067c34e4861f0f36f3757c007847971f54bbda",
-    "um_grande_atrator_en.tex": "ccf43f8975fcc1d50a47ea4316ce2df68c0faae4be1201f724bbe4b1f5662234",
-    "um_grande_atrator_pt.pdf": "59b460739bb6051a308bec98aca782ac7fe09a0a7a2662f188f3692aca1ca5dd",
-    "um_grande_atrator_en.pdf": "d5db6b3d656232e6fc28d1cbd571aebabd0cc57c9c8e2bc8bd458fe3a7ee11b6"
+    "um_grande_atrator_pt.tex": "59a923547863adaf5bc814875ad55f69256d88fa323f44952cced1fbd3109abe",
+    "um_grande_atrator_en.tex": "dae0c2e119d9dff75549ac570528c13c810846564d56e443246672cf202f71e7",
+    "um_grande_atrator_pt.pdf": "379b07bb53068e58d1eedf97be36badcc92c1a62ea9ce12409fd1dcff010c34b",
+    "um_grande_atrator_en.pdf": "7b77cc0915b8c891fd14decfd54ea94cbcc428600ce769e43f95df916627628d"
   }
 }
