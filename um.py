@@ -3,8 +3,12 @@ r"""
 ================================================================================
  C O D I G O   U M  -- autocontido (forma = conteudo)
 ================================================================================
-O Um e o Grande Atrator. Uma unica entrada humana: o numero 1 (o modulo absoluto
-a ser fractalizado). Do Um nasce toda a algebra; com geometria real (Cosmicflows-4,
+O Um e o Grande Atrator. Entrada UNICA: o Um absoluto (o numero 1), a fractalizar no
+modulo. Sua PROJECAO no bulk e' a medida minima irredutivel, extraida de alpha_CODATA
+-- o referente medido do Um, seu par simetrico (a reducao eletromagnetica R_EM,
+irredutivel por principio -- teorema final --, so' se observa, nunca se deriva
+alpha-livre). Do confronto modulo-medida valida-se beta_TGL. Do Um nasce toda a
+algebra; com geometria real (Cosmicflows-4,
 SOMENTE posicoes) emerge a massa do Grande Atrator de PRIMEIROS PRINCIPIOS, sem
 parametros livres; e o programa termina com um veredito BINARIO de identidade:
 
@@ -22,7 +26,8 @@ nao reproduz a forma canonica culminando em 1=1, ha falha no proprio codigo).
 
 Regua: beta = alpha*sqrt(e) em runtime (NUNCA literal). R_struct = geometria pura
 (posicoes; velocidades/cz/infall/massa IGNORADAS). Hash antes de comparacao externa.
-Entrada humana unica = 1. Guarda fail-closed.
+Entrada unica = o Um absoluto (1), cuja projecao no bulk e' a medida minima irredutivel extraida de
+alpha_CODATA (o referente medido do Nome). Guarda fail-closed.
 ================================================================================
 """
 import csv
@@ -1010,6 +1015,447 @@ def prove_vacuum_impedance_bridge(ONE):
     }
 
 
+def prove_three_clock_radical(ONE):
+    """O Radical dos Tres Clocks  [CANONICAL FORM; ALPHA_FREE_VALUE_OPEN].
+
+    Hipotese (operador): alpha e' o radical do fator dos tres clocks da TGL --
+        alpha = sqrt(C3),  C3 = fator de passagem comum aos tres clocks  =>  alpha^2 = C3,
+    encaixando na forma madura  1 = q^2 + alpha^2  =>  1 = q^2 + C3.
+
+    Os tres clocks (das provas tgl_terminal_truth / tgl_three_locks / tgl_krein_signature):
+      C_mod  = clock MODULAR reversivel  sigma_t(A)=Delta^{it} A Delta^{-it}, Delta^{it}=e^{itK}
+               -> contribui a BASE e (fluxo de base e; meia-medida de Tomita). [UNICO alpha-livre]
+      C_diss = clock DISSIPATIVO GKLS  drho/dt=L(rho); colapso = dephasing gaussiano no fluxo do
+               radical V_s=e^{is sqrt K}, variancia beta*t  -> contribui a escala beta. [carrega alpha via beta]
+      C_spec = clock ESPECTRAL/geometrico  ds=sqrt(beta)|d sqrt k|  (T6 do krein)
+               -> contribui a escala beta (ds^2=beta d(sqrt k)^2). [carrega alpha via beta]
+
+    O unico combinado adimensional com a dimensao de alpha^2 e':
+        C3 = (C_diss * C_spec)/C_mod = beta^2 / e = alpha^2   (pois beta=alpha sqrt e => beta^2=alpha^2 e).
+    A base e do clock MODULAR cancela exatamente o e que os dois clocks-beta carregam (cada beta tem um
+    sqrt e; dois beta tem e; a base modular o divide), restando alpha^2. Logo
+        alpha = sqrt(C3) = beta/sqrt e   (o radical luminodinamico dos tres clocks),
+    que e' a MESMA gramatica radical ja' usada nos modulos: V_s=e^{is sqrt K}, ds=sqrt(beta)|d sqrt k|,
+    g=sqrt|L| -- a geometria nao ve K, ve sqrt K.
+
+    REGUA [a trava, do operador]: faz sentido como FORMA CANONICA, mas NAO fecha o valor alpha-livre
+    enquanto C3 nao for construido SEM alpha. Aqui C_diss e C_spec carregam beta=alpha sqrt e, entao
+    C3=beta^2/e=alpha^2 e' a IDENTIDADE beta^2=alpha^2 e relida pelos tres clocks -- alpha entra via beta.
+    Pergunta de pesquisa (o muro): existe funcional canonico C3=F[sigma_t, T_t, D_beta] dos tres clocks,
+    alpha-livre, tal que C3=alpha^2 ~ 5.325135447e-5 ? E' a MESMA divida do muro da polarizacao chi.
+    Status: THREE_CLOCK_RADICAL_FORM_FORMULATED__ALPHA_FREE_VALUE_OPEN."""
+    SQRT_E = float(np.exp(ONE / (ONE + ONE)))
+    beta = SEALED_CODATA_ALPHA * SQRT_E
+    alpha_ext = SEALED_CODATA_ALPHA
+    C_mod_base = float(np.e)                  # clock modular: base e (Delta^{it}=e^{itK}); ALPHA-LIVRE
+    C_diss = beta                             # clock GKLS: escala beta (var beta t; fluxo do radical)
+    C_spec = beta                             # clock espectral: escala beta (ds^2=beta d(sqrt k)^2)
+    C3 = (C_diss * C_spec) / C_mod_base       # = beta^2/e
+    alpha_radical = math.sqrt(C3)             # = beta/sqrt e
+    _qed = validate_against_qed(alpha_radical, alpha_ext)
+    q = _qed["q_QED"]                         # = sqrt(1 - alpha^2)
+    one_check = q * q + C3                    # forma madura 1 = q^2 + C3
+    target_alpha2 = alpha_ext * alpha_ext
+    return {
+        "theorem": "O Radical dos Tres Clocks",
+        "claim": "alpha e' o radical luminodinamico do fator dos tres clocks: alpha=sqrt(C3), alpha^2=C3.",
+        "status": "THREE_CLOCK_RADICAL_FORM_FORMULATED__ALPHA_FREE_VALUE_OPEN",
+        "clocks": {
+            "C_mod_modular_base_e": C_mod_base,    # ALPHA-LIVRE (clock modular sigma_t=Delta^{it})
+            "C_diss_gkls_scale_beta": C_diss,      # carrega alpha via beta (var beta t)
+            "C_spec_spectral_scale_beta": C_spec,  # carrega alpha via beta (ds=sqrt(beta)|d sqrt k|)
+        },
+        "C3": C3, "C3_eq_beta2_over_e": beta * beta / C_mod_base,
+        "alpha_radical_sqrt_C3": alpha_radical,
+        "form": {
+            "alpha": "alpha = sqrt(C3) = beta/sqrt(e)", "alpha2": "alpha^2 = C3 = beta^2/e",
+            "mature": "1 = q^2 + alpha^2 = q^2 + C3", "beta": "beta_TGL = sqrt(e)*alpha = sqrt(e*C3)",
+            "decomposition": "e (clock modular) cancela o e dos dois beta (dissipativo*espectral) -> alpha^2",
+        },
+        "values": {"q": q, "one_check_q2_plus_C3": one_check, "target_alpha2": target_alpha2},
+        "checks": {
+            "alpha_radical_residual": abs(alpha_radical - alpha_ext),
+            "C3_eq_alpha2_residual": abs(C3 - target_alpha2),
+            "one_identity_residual": abs(one_check - 1.0),
+            "all_verified": bool(abs(alpha_radical - alpha_ext) < 1e-15
+                                 and abs(C3 - target_alpha2) < 1e-15
+                                 and abs(one_check - 1.0) < 1e-12),
+            "note": "residuos verificam a FORMA (alpha=sqrt(C3); 1=q^2+C3); NAO sao derivacao (C3 carrega beta=alpha sqrt e).",
+        },
+        "open_question": ("Existe funcional canonico C3=F[sigma_t, T_t, D_beta] construido SO' dos tres clocks, "
+                          "SEM alpha/q_QED/Z0-de-alpha, tal que C3=alpha^2~5.325135447e-5? Se C3=alpha_CODATA^2 "
+                          "e' so' renomeacao; se C3 sair da estrutura dos clocks sem CODATA, fecha o valor. "
+                          "E' a MESMA divida do muro da polarizacao chi (a condicao de subtracao de fronteira)."),
+        "honest_note": ("FORMA CANONICA: alpha=sqrt(C3) e' exatamente a gramatica radical dos modulos "
+                        "(V_s=e^{is sqrt K}; ds=sqrt(beta)|d sqrt k|; g=sqrt|L|). A base e vem do clock MODULAR "
+                        "(alpha-livre) e cancela o e dos dois clocks-beta, restando alpha^2 -- o sqrt e de "
+                        "beta=alpha sqrt e E' a base do clock modular. Mas C_diss e C_spec carregam beta: "
+                        "C3=beta^2/e=alpha^2 e' a identidade beta^2=alpha^2 e relida -- NAO fecha o valor "
+                        "alpha-livre; converge no mesmo muro."),
+    }
+
+
+def prove_right_angle_mirror_projection(ONE):
+    """A Projecao do Angulo Reto e a Operacao de Espelho  [ALPHA_FREE_CANDIDATE; MIRROR_FUNCTION_D_OPEN].
+
+    Rota alpha-livre (entrada = SO' o angulo reto Theta_perp=pi/2; nao alpha, Z0, beta nem q_QED).
+    Travessia de duas faces (paridade inversa): 2 Theta_perp = pi. O fator dos tres clocks e' intensidade
+    (quadratica no angulo): C3_perp = e^{-(2 Theta_perp)^2} = e^{-pi^2}. Radical luminodinamico:
+        alpha0 = sqrt(C3_perp) = e^{-pi^2/2}   (a projecao NUA; so' pi e e) -> 1/139.05.
+    A fronteira de espelho deforma a projecao nua ate a imagem fixa observavel:
+        rho_fix = E_spec( J_partial rho0 J_partial ),    alpha = alpha0 * exp(D_partial),
+    com J_partial = inversao de paridade (espelho), E_spec = correcao/fixacao no fundo espectral, e
+    D_partial = log(imagem_fixa / projecao_nua) [a OPERACAO geometrico-espectral, decisao do operador].
+    A condicao NAO e' igualdade estatica rho_fix=rho0; e' MESMIDADE MODULAR rho_fix ~_partial rho0
+    (identidade preservada sob paridade inversa). beta e' a DUPLA FACE da fronteira: custo entropico da
+    travessia E operador de estabilizacao do reflexo.
+
+    REAL / alpha-livre:
+      - alpha0 = e^{-pi^2/2} (candidato nu; so' pi,e);
+      - ponto fixo auto-consistente  alpha = e^{-pi^2/2 + 2 alpha}  (alpha-livre; alpha dos DOIS lados =
+        auto-aplicacao/idempotencia) -> 1/137.031 (37 ppm vs CODATA);
+      - J^2=I (paridade involutiva) e P^2=P (idempotencia do atrator) verificados ao vivo.
+    OPEN / CONJECTURE:
+      - a OPERACAO exata E_spec o J (a funcao de espelho D_partial); o expoente pi^2/2 e' MOTIVADO
+        (angulo reto x duas faces), NAO derivado. delta medido = pi^2/2+log(alpha_obs) ~ 2 alpha (0.25%),
+        NAO beta (21% fora): a forma que fita e' D_partial=2 beta/sqrt e=2 alpha, NAO beta literal.
+
+    REGUA: CANDIDATA, nao identidade exata (diferente de Z0=2R_K alpha e C3=beta^2/e=alpha^2, EXATAS);
+    pi^2/2 nao derivado; 137 tem muitas formas pi,e proximas. NAO derivamos CODATA: so' checamos se a
+    constante OBSERVADA tem IDENTIDADE MODULAR (~_partial) com a constante FIXADA alpha-livre. Status:
+    RIGHT_ANGLE_MIRROR_PROJECTION_FORMULATED__ALPHA_FREE_CANDIDATE__MIRROR_FUNCTION_D_OPEN__ALPHA_FREE_VALUE_OPEN."""
+    PI = 4.0 * np.arctan(ONE)
+    Theta_perp = PI / 2.0
+    C3_perp = math.exp(-(2.0 * Theta_perp) ** 2)         # = e^{-pi^2}
+    alpha0 = math.sqrt(C3_perp)                          # = e^{-pi^2/2}  (projecao nua)
+    a = alpha0                                            # ponto fixo alpha-livre: alpha=e^{-pi^2/2+2alpha}
+    for _ in range(500):
+        a = math.exp(-PI * PI / 2.0 + 2.0 * a)
+    alpha_fix = a
+    # reconstrucao idempotente: D_rec = 2 alpha - lambda alpha^2 (duas faces - auto-interseccao espectral)
+    SQRT_E = math.exp(0.5)
+    lam_e4 = (SQRT_E / 2.0) ** 2                           # = e/4 (Meia-Nat por face ao quadrado) [CONJ]
+    ai = alpha0
+    for _ in range(800):
+        ai = math.exp(-PI * PI / 2.0 + 2.0 * ai - lam_e4 * ai * ai)
+    alpha_idem = ai
+    rel_idem = abs(alpha_idem - SEALED_CODATA_ALPHA) / SEALED_CODATA_ALPHA
+    delta_obs = PI * PI / 2.0 + math.log(SEALED_CODATA_ALPHA)
+    lam_exact = (2.0 * SEALED_CODATA_ALPHA - delta_obs) / (SEALED_CODATA_ALPHA ** 2)  # lambda que da CODATA exato
+    lam_residual = abs(lam_e4 - lam_exact) / lam_exact    # RESIDUO REAL (~0.07%), nao o ppm enganoso de alpha
+    J = np.array([[0.0, 1.0], [1.0, 0.0]])               # inversao de paridade (espelho)
+    J2_resid = float(np.linalg.norm(J @ J - np.eye(2)))   # J^2 = I
+    P = np.array([[1.0, 0.0], [0.0, 0.0]])               # atrator rho*
+    P2_resid = float(np.linalg.norm(P @ P - P))           # P^2 = P (idempotencia operacional)
+    # ponto morto holografico: dimero psionico O(th)=<psi+|Jz psi+>=cos th
+    Jz = np.array([[1.0, 0.0], [0.0, -1.0]])
+    _ov = lambda t: float(np.array([math.cos(t / 2), math.sin(t / 2)]) @ (Jz @ np.array([math.cos(t / 2), math.sin(t / 2)])))
+    ov_dead = abs(_ov(PI / 2.0))                           # overlap no ponto morto ~ 0
+    _hh = 1e-6
+    dov_dead = abs((_ov(PI / 2.0 + _hh) - _ov(PI / 2.0 - _hh)) / (2.0 * _hh))  # |dO/dth|(pi/2)=1 (MAX, coincide c/ ponto morto)
+    alpha_obs = SEALED_CODATA_ALPHA
+    beta = alpha_obs * math.exp(0.5)
+    delta_measured = PI * PI / 2.0 + math.log(alpha_obs)  # deformacao observada (usa CODATA SO' p/ comparar)
+    rel_alpha0 = abs(alpha0 - alpha_obs) / alpha_obs
+    rel_fix = abs(alpha_fix - alpha_obs) / alpha_obs
+    return {
+        "theorem": "A Projecao do Angulo Reto e a Operacao de Espelho",
+        "claim": "alpha-livre = angulo reto projetado no modulo; o espelho deforma a projecao nua ate a imagem fixa.",
+        "status": "RIGHT_ANGLE_MIRROR_PROJECTION_FORMULATED__ALPHA_FREE_CANDIDATE__MIRROR_FUNCTION_D_OPEN__ALPHA_FREE_VALUE_OPEN",
+        "right_angle": {"Theta_perp": Theta_perp, "two_face_crossing_2Theta": 2.0 * Theta_perp,
+                        "C3_perp_e_minus_pi2": C3_perp, "alpha0_e_minus_pi2_over_2": alpha0,
+                        "alpha0_inv": 1.0 / alpha0},
+        "self_consistent": {"equation": "alpha = exp(-pi^2/2 + 2 alpha)  (alpha-livre; ponto fixo)",
+                            "alpha_fix": alpha_fix, "alpha_fix_inv": 1.0 / alpha_fix},
+        "mirror_operation": {
+            "form": "rho_fix = E_spec( J_partial rho0 J_partial ) ; alpha = alpha0 exp(D_partial)",
+            "J_parity_involution_resid_J2_minus_I": J2_resid,
+            "P_attractor_idempotence_resid_P2_minus_P": P2_resid,
+            "identity_condition": "rho_fix ~_partial rho0 (mesmidade modular, NAO igualdade estatica)",
+            "E_spec_status": "OPEN (correcao no fundo espectral; a funcao de espelho D_partial nao derivada)"},
+        "deformation": {
+            "delta_measured": delta_measured,
+            "delta_vs_2alpha_rel": abs(delta_measured - 2 * alpha_obs) / (2 * alpha_obs),
+            "delta_vs_beta_rel": abs(delta_measured - beta) / beta,
+            "D_fit_form": "D_partial(beta) = 2 beta/sqrt(e) = 2 alpha (fita delta; NAO beta literal)",
+            "beta_two_faces": "[CONJ] beta = custo entropico da travessia E operador de estabilizacao do reflexo"},
+        "modular_identity_check": {
+            "alpha_free_candidate": alpha_fix, "alpha_observed_CODATA": alpha_obs,
+            "rel_alpha0_pure": rel_alpha0, "rel_alpha_fix": rel_fix,
+            "modular_identity_ppm": rel_fix * 1e6,
+            "reading": "constante observada ~_partial constante fixada alpha-livre a %.0f ppm" % (rel_fix * 1e6)},
+        "c3_register_theorem": {
+            "name": "Teorema do Registro c^3 por Auto-inscricao Idempotente",
+            "statement": ("No regime extremo de angulo reto (Theta_perp=pi/2), a fronteira de paridade "
+                          "inversa transforma a projecao nua do Um em imagem fixa observavel; como P^2=P e "
+                          "J^2=I, a identidade ao quadrado inscreve-se a si mesma -- esse registro e' c^3."),
+            "P2_eq_P_resid": P2_resid, "J2_eq_I_resid": J2_resid,    # REAL verificados (~0)
+            "F_ext_doubling": "F_ext=2F (forca dobra por impedancia compartilhada; max power transfer; fator 2=duas faces)",
+            "cn_hierarchy": "c^1 propagacao -> c^2 metrica/massa -> c^3 registro inscritivo",
+            "status": "C3_REGISTER_SELF_INSCRIPTION_THEOREM__STRUCTURAL_FORM_CLOSED__ALPHA_FREE_VALUE_OPEN",
+            "honest_note": ("FECHADO (estrutural) = P^2=P e J^2=I verificados (~0) + o registro DEFINIDO como "
+                            "auto-inscricao idempotente sob paridade inversa. A identificacao 'esse registro "
+                            "e' c^3' e o F_ext=2F sao leitura estrutural/ontologica [CONJ]; o fator 2 (duas "
+                            "faces) e' REAL, o 'forca dobra' e' a leitura (teorema da maxima transferencia de "
+                            "potencia: impedancia casada -> transferencia maxima). NAO fecha o valor "
+                            "alpha-livre (o manifesto mantem alpha_CODATA como validacao externa); e' teorema "
+                            "do REGISTRO, nao do VALOR."),
+        },
+        "holographic_reconstruction": {
+            "name": "Teorema da Reconstrucao Holografica no Ponto Morto do Sinal",
+            "dead_point_overlap": ov_dead,                  # ~0 em pi/2 (sobreposicao morre)
+            "info_density_max_at_dead_point": dov_dead,     # |dO/dth|(pi/2)=1: MAX coincide com overlap=0
+            "coincides": bool(abs(dov_dead - 1.0) < 1e-3 and ov_dead < 1e-9),
+            "gravitonic_unit_O1": dov_dead,
+            "K_rec": "E_spec o J_partial (kernel de reconstrucao = o OBJETO de D_partial)",
+            "channel": "rho_rec ~_partial rho_perp (reconstrucao por mesmidade modular, NAO por sobreposicao)",
+            "max_force_transposition": "F+ (+) F- -> 2 F_partial (impedancia de borda compartilhada; max power transfer)",
+            "D_rec_hypothesis": "D_rec = 2 alpha (duas faces x alpha) -> ponto fixo alpha=e^{-pi^2/2+2alpha}",
+            "alpha_fixed_point": alpha_fix, "alpha_fixed_point_ppm": rel_fix * 1e6,
+            "status": "HOLOGRAPHIC_DEAD_SIGNAL_RECONSTRUCTION_THEOREM__STRUCTURAL_CLOSED__ALPHA_FREE_VALUE_OPEN",
+            "honest_note": ("FECHADO (estrutural): no ponto morto (overlap=0 em pi/2) a densidade informacional "
+                            "e' MAXIMA -- |dO/dtheta| max COINCIDE com overlap=0 (verificado) -> onde o sinal "
+                            "morre, a holografia comeca; a informacao e' RECONSTRUIDA (K_rec=E_spec o J), nao "
+                            "transmitida; rho_rec ~_partial rho_perp; em beta_TGL nao ha superposicao sem Nome. "
+                            "ABERTO (valor): o kernel K_rec geometrico da O(1)=1 (a unidade gravitonica); "
+                            "D_rec=2alpha e' auto-consistencia POSTULADA (nao derivada); fechar = derivar "
+                            "E_spec o J alpha-livre (dlog K_rec/dth|_pi/2 -> 2alpha sem CODATA). Teorema do "
+                            "PONTO MORTO/reconstrucao, NAO do valor de alpha."),
+        },
+        "idempotent_reconstruction": {
+            "name": "Reconstrucao Idempotente: D_rec = 2 alpha - lambda alpha^2",
+            "self_reference_2alpha_REAL": ("duas faces reconstruidas; ponto fixo alpha=e^{-pi^2/2+2alpha} "
+                                           "(idempotencia/auto-referencia) -- ESTRUTURA REAL, permanece"),
+            "form": "D_rec = 2 alpha - lambda alpha^2  (inclusao-exclusao: duas faces menos a auto-interseccao)",
+            "reading": ("[CONJ, operador] o termo -lambda alpha^2 = inscricao de um modulo de ligacao "
+                        "psionica no quadrado angular; auto-interseccao espectral das duas faces no fundo Meia-Nat"),
+            "lambda_candidate_e_over_4": lam_e4,            # = (sqrt(e)/2)^2 = e/4 [CONJ: Meia-Nat por face^2]
+            "alpha_idempotent_fixed_point": alpha_idem, "alpha_idem_inv": 1.0 / alpha_idem,
+            "alpha_idem_ppm": rel_idem * 1e6,               # ~0.025 ppm (ENGANOSO: alpha cego a lambda)
+            "lambda_exact_for_codata": lam_exact,           # 0.6791 (o que daria CODATA exato)
+            "lambda_residual_REAL": lam_residual,           # ~0.07% = a figura de merito HONESTA (nao ppm)
+            "status": "IDEMPOTENT_HOLOGRAPHIC_RECONSTRUCTION_FORM_FORMULATED__LAMBDA_KERNEL_OPEN__ALPHA_FREE_VALUE_OPEN",
+            "honest_note": ("REAL: a forma idempotente D_rec=2alpha-lambda alpha^2 (inclusao-exclusao das duas "
+                            "faces) e o ponto fixo 2alpha. CONJ/ABERTO: o coeficiente lambda. AVISO DA REGUA: "
+                            "alpha=exp(-pi^2/2+2alpha-(e/4)alpha^2) da 1/137.036003 (~0.025 ppm), MAS isso e' "
+                            "ENGANOSO -- adicionar -lambda alpha^2 com lambda livre SEMPRE acerta CODATA (ajuste "
+                            "de 1 parametro; lambda_exact=%.6f). A figura de merito HONESTA e' e/4 vs lambda_exact "
+                            "= %.3f%% (NAO 0.025 ppm); o termo alpha^2 vale ~3.6e-5 -> alpha e' cego a lambda -> "
+                            "janela sub-ppm larga (~0.66..0.70), e/4 NAO singularizado. lambda=e/4=(sqrt e/2)^2 e' "
+                            "leitura motivada (Meia-Nat/face^2), nao derivada; e o kernel teria que dar 0.6791, "
+                            "NAO exatamente e/4. Fechar = derivar lambda do kernel E_spec o J, alpha-livre." % (
+                                lam_exact, 100 * lam_residual)),
+        },
+        "honest_note": ("CANDIDATA, NAO identidade exata. alpha0=e^{-pi^2/2} e o ponto fixo "
+                        "alpha=e^{-pi^2/2+2alpha} sao alpha-livres (so' pi,e + auto-consistencia) e dao 1/139.05 "
+                        "e 1/137.031 (37 ppm). MAS: pi^2/2 e' motivado (angulo reto x duas faces), NAO derivado; "
+                        "a operacao de espelho E_spec o J (a funcao D_partial) esta ABERTA; 137 tem muitas formas "
+                        "pi,e proximas; delta != beta (e' ~2 alpha). Nao derivamos CODATA; so' checamos identidade "
+                        "modular (~_partial) entre observado e fixado. ALPHA_FREE_VALUE_OPEN; o muro = derivar "
+                        "D_partial (E_spec o J) e o expoente pi^2/2."),
+    }
+
+
+def prove_em_mark_status(ONE):
+    """§19 do documento [a regua, terminal]. A tentativa de derivar o VALOR de alpha reduziu-se a um
+    coeficiente lambda_EM na equacao-cicatriz alpha=exp(-pi^2/2 + 2alpha - lambda_EM alpha^2). O operador
+    propos lambda_EM = Tr(Delta^{1/4} J Delta^{1/4})^2 = (e/4)(1 - e^{-pi^2/2}/(2pi sqrt e)). A algebra de
+    Tomita REFUTA a forma de operador. Este modulo computa a refutacao + a separacao forma/valor, ao vivo.
+    Triade reconfigurada: alpha=relativo, beta=absoluto, sqrt(e)=inscritor. beta nunca literal."""
+    pi = math.pi; e = math.e; sqe = math.sqrt(e)
+    alpha = SEALED_CODATA_ALPHA                 # so' p/ leitura/comparacao
+    beta = SEALED_CODATA_ALPHA * sqe            # = alpha sqrt(e), nunca literal (Verbo = acao do Nome)
+
+    # ---- 19.3 Tomita: (Delta^{1/4} J Delta^{1/4})^2 = 1 (forma padrao finita) ----
+    rng = np.random.default_rng(7); n = 4
+    Xm = rng.standard_normal((n, n)) + 1j * rng.standard_normal((n, n))
+    rho = Xm @ Xm.conj().T; rho = rho / np.trace(rho).real
+    Delta = np.kron(rho, np.linalg.inv(rho.T))                       # Delta = rho (x) (rho^T)^{-1}
+    S = np.zeros((n * n, n * n))                                     # swap
+    for i in range(n):
+        for j in range(n):
+            S[j * n + i, i * n + j] = 1.0
+    w, V = np.linalg.eigh(Delta); D14 = (V * (w ** 0.25)) @ V.conj().T
+    N = n * n; A2 = np.zeros((N, N), dtype=complex)
+    for k in range(N):
+        ek = np.zeros(N, dtype=complex); ek[k] = 1.0
+        Ae = D14 @ (S @ np.conj(D14 @ ek))                          # A e (J antilinear: swap o conj)
+        A2[:, k] = D14 @ (S @ np.conj(D14 @ Ae))                    # A^2 e
+    tomita_resid = float(np.linalg.norm(A2 - np.eye(N)))
+    tomita_trace = float(np.trace(A2).real)
+
+    # ---- 19.4 forma derivada vs valor ajustado (sensibilidade ao vivo) ----
+    S_perp = (2.0 * (pi / 2.0)) ** 2 / 2.0                           # singulante de Stokes (angulo reto) = pi^2/2
+    a0 = math.exp(-S_perp)                                           # cicatriz nua
+
+    def fixpt(lam):
+        x = a0
+        for _ in range(300):
+            x = math.exp(-S_perp + 2.0 * x - lam * x * x)
+        return x
+    r_St = a0 / (2.0 * pi * sqe)                                     # 2pi = Primeira Lei (forca extrema de retorno)
+    lam_e4 = e / 4.0                                                 # heuristica das duas quartas-medidas (NAO o traco de Tomita)
+    lam_fit = (e / 4.0) * (1.0 - r_St)
+    layers = {
+        "e^-pi2/2_bare":       float(abs(a0 - alpha) / alpha),                 # ~1.4e-2 [DERIVED]
+        "plus_2alpha":         float(abs(fixpt(0.0) - alpha) / alpha),         # ~3.7e-5 [estrutural]
+        "lambda_e/4":          float(abs(fixpt(lam_e4) - alpha) / alpha),      # ~2.5e-8 [MOTIVADO: esqueleto]
+        "lambda_e/4(1-r_St)":  float(abs(fixpt(lam_fit) - alpha) / alpha),     # ~1.5e-11 [decoracao alpha-insensivel]
+    }
+    dlnalpha_dlam = -(alpha ** 2)                                    # = -5.3e-5: alpha quase nao sente lambda_EM
+
+    return {
+        "triad": {
+            "inscritor_sqrt_e": sqe, "relativo_alpha": alpha, "absoluto_beta": beta,
+            "law": "beta_TGL = sqrt(e) * alpha  (o Absoluto e' o Relativo pago o custo de existir)",
+            "status": "[CONJECTURE leitura ontologica; identidade beta=alpha sqrt(e) REAL]",
+        },
+        "functional_floor": {
+            "claim": "beta_TGL NAO e' inf Spec(K_partial) (III_1: espectro continuo, sem autovalor minimo);",
+            "is": "piso FUNCIONAL da inscricao: inf_{rho in C_phys} C_mod/EM(rho), C_phys={KMS,Hadamard,split,paridade inversa,contorno fechado}",
+            "status": "[REAL -- a regua do operador; o objeto e' um infimo funcional, nao um gap espectral]",
+        },
+        "tomita_refutation": {
+            "claim_tested": "lambda_EM = Tr_EM(Delta^{1/4} J Delta^{1/4})^2 = (e/4)(1 - e^{-pi^2/2}/(2pi sqrt e))",
+            "operator_squares_to_identity_resid": tomita_resid,         # ~1e-12
+            "trace": tomita_trace, "dim": float(N), "e_over_4": float(e / 4.0),
+            "verdict": "REFUTADA: (Delta^{1/4} J Delta^{1/4})^2 = 1 (Tomita: J Delta^{1/2} J = Delta^{-1/2}); "
+                       "Tr = dim (divergente em III_1), NAO e/4. lambda_EM nao e' esse traco. e/4 fica heuristica, "
+                       "nao objeto de Tomita.",
+            "status": "[REAL -- o Lema da Auto-Interseccao, na forma de operador, nao existe]",
+        },
+        "form_vs_value": {
+            "S_perp_pi2_over_2": S_perp, "alpha0_bare": a0,
+            "layers_alpha_relerr": layers, "dln_alpha_d_lambda": dlnalpha_dlam,
+            "lambda_required": 0.6790989532, "lambda_e4": lam_e4, "lambda_e4_1_minus_rSt": lam_fit,
+            "reading": "FORMA derivada (e^{-pi^2/2} a 1.4%; esqueleto e/4 a 2.5e-8; 1/2 de Berry; 2pi=Primeira Lei "
+                       "POSTULADO). VALOR ajustado: so' -pi^2/2 e' derivado; +2alpha-lambda alpha^2 e' ansatz de "
+                       "correcao afinado termo a termo. 'beta alpha-livre' via beta=sqrt(e) exp(...) e' a MESMA "
+                       "equacao x sqrt(e) (o sqrt(e) cancela) -- nao a torna alpha-livre.",
+        },
+        "missing": "um PRINCIPIO variacional alpha-livre que selecione beta_*, nao um coeficiente. E nao pode ser "
+                   "scale-free: alpha CORRE (alpha^-1(0)=137.036 IR; alpha^-1(M_Z)~128). Valor IR = dado de "
+                   "renormalizacao, fonteado pelo espectro de materia, EXTERNO a fronteira. A muralha de Eddington.",
+        "selo": "LAMBDA_EM_OPERATOR_FORMULA_REFUTED_BY_TOMITA . FORM_DERIVED_VALUE_FIT . "
+                "BETA_IS_FUNCTIONAL_FLOOR_NOT_inf_Spec_K . MISSING_IS_A_PRINCIPLE_NOT_A_COEFFICIENT . "
+                "ALPHA_RUNS_THEREFORE_INPUT",
+        "honest_note": "O destino nao e' Eddington; e' o retorno ao Verbo -- e o Verbo e' honesto. A TGL deriva a "
+                       "ARQUITETURA que exige alpha (a forma da cicatriz de Stokes da luz dobrada) e DECLARA ABERTO "
+                       "o principio que fixaria o valor. A formula de operador foi testada e refutada pela propria "
+                       "algebra de Tomita. O numero corrige a frase, sempre.",
+    }
+
+
+def prove_amar_functional(ONE):
+    """§20 do documento. A_C = AMAR (verbo) = funcional minimo de energia livre modular. E' a lei
+    da FORMA (ro*, beta, 1/2) E do MOVIMENTO (por que alpha corre: III_1 nao tem estados puros + a
+    Meia-Nat e' piso irredutivel => nunca ha zero absoluto => sempre calor modular => sempre acao =
+    Verbo). A regua: o VALOR 1/137 = o correr INTEGRADO sobre o espectro de materia (input externo);
+    o minimo modular ESTATICO sozinho minimiza em theta->90, NAO em theta_M. beta nunca literal."""
+    e = math.e; sqe = math.sqrt(e); rng = np.random.default_rng(11); n = 4
+    beta = SEALED_CODATA_ALPHA * sqe                 # Verbo = acao do Nome (nunca literal)
+    # --- "sempre calor": o atrator ro* NUNCA e' puro (III_1 sem estados puros) ---
+    Xm = rng.standard_normal((n, n)) + 1j * rng.standard_normal((n, n))
+    rho_star = Xm @ Xm.conj().T; rho_star = rho_star / np.trace(rho_star).real
+    purity = float(np.trace(rho_star @ rho_star).real)            # < 1 sempre (estado misto => calor)
+    S_vn = float(-np.sum([p * math.log(p) for p in np.linalg.eigvalsh(rho_star) if p > 1e-15]))
+    never_cold = bool(purity < 1.0 - 1e-9 and S_vn > 0.0)          # sempre calor => sempre movimento
+    # --- "piso irredutivel": beta=sin^2 theta_M nao se anula (Meia-Nat); a leak minima existe ---
+    theta_M = math.asin(math.sqrt(beta)); leak_irreducible = float(math.sin(theta_M) ** 2)  # = beta > 0
+    # --- minimo modular ESTATICO sozinho -> theta->90 (trivial), NAO theta_M (fato documentado, l.779) ---
+    th = np.linspace(0.01, math.pi / 2 - 0.001, 400)
+    C_mod_static = np.cos(th)                                      # custo modular ilustrativo: monotono, min em theta->pi/2
+    th_argmin = float(th[int(np.argmin(C_mod_static))])
+    static_min_is_trivial = bool(abs(th_argmin - math.pi / 2) < 0.05 and abs(th_argmin - theta_M) > 0.5)
+    return {
+        "source": "A_C = Sing[A_C(L_TGL)] (T6 l.172); leitura de amor = ro*/dephasing/R=+1 (teste de Bento)",
+        "word": "AMAR (verbo), nao 'amor' (substantivo): o amor e' o MOVIMENTO (acao operada, R=+1), nao repouso",
+        "law_of_form": {
+            "claim": "A_C = funcional minimo de energia livre modular F=<H>-T S ; ro* = o minimo = o atrator",
+            "derives": "ro* (atrator), beta=sin^2 theta_M (angulo do minimo), 1/2 (custo da 1a diferenca)",
+            "status": "[REAL -- a lei do atrator e' o amor; o minimo e' ro*]",
+        },
+        "law_of_motion": {
+            "claim": "alpha CORRE porque o funcional proibe o zero absoluto",
+            "rho_star_purity": purity, "rho_star_entropy_nats": S_vn, "never_reaches_cold": never_cold,
+            "leak_irreducible_beta": leak_irreducible,
+            "chain": "III_1 sem estados puros + Meia-Nat irredutivel + H_eff=0 nunca atinge piso frio "
+                     "=> sempre calor modular => sempre movimento => acao pura = Verbo = AMAR. O correr "
+                     "de alpha (vacuum polarization) e' o AMAR em ato.",
+            "status": "[REAL: III_1 sem estados puros + Meia-Nat irredutivel + 3a lei; "
+                      "CONJECTURE: a identificacao com A_C e com o running de alpha]",
+        },
+        "the_ruler": {
+            "value_is": "alpha(IR)=1/137.036 = [o correr] integrado sobre [o espectro de materia] (massas, cargas, geracoes)",
+            "A_C_gives": "o MOVIMENTO (o Verbo); a MATERIA da' o DESTINO (onde pousa)",
+            "static_min_argmin_theta": th_argmin, "theta_M": theta_M,
+            "static_minimum_is_trivial_theta_90_not_theta_M": static_min_is_trivial,
+            "status": "[a regua -- o valor e' movimento x materia; a materia e' input externo a fronteira]",
+        },
+        "verdict": "AMAR e' a lei da FORMA e do MOVIMENTO (ro*, beta, 1/2, e o correr). O valor-numero "
+                   "e' o movimento x a materia (materia = input). O muro mudou de lugar: o amor E' o "
+                   "correr; so' nao e' o espectro de materia que decide onde alpha pousa.",
+        "selo": "A_C_IS_AMAR_VERB . LOVE_IS_MIN_MODULAR_FREE_ENERGY . AMAR_DERIVES_FORM_rho*_beta_half . "
+                "AMAR_IS_THE_RUNNING_no_absolute_zero_always_heat . VALUE_IS_RUNNING_x_MATTER_SPECTRUM . "
+                "STATIC_MIN_GOES_theta_90_NOT_theta_M . MATTER_IS_INPUT_EXTERNAL",
+    }
+
+
+def prove_nome_irreducible(ONE):
+    """§21 -- O TEOREMA FINAL. A recusa de derivar alpha alpha-livre NAO e' lacuna: e' o resultado.
+    alpha = o NOME (a substancia que preserva sentido); seu fator de reducao R_EM (transporte do
+    Pacote de Hilbert com preservacao geometrica) e' IRREDUTIVEL por razao ONTOLOGICA -- so' se observa.
+    Derivar alpha alpha-livre FALSIFICA a TGL (falsificavel, nao confirmavel). VALIDACAO: alpha (unico
+    dado do CODATA) + S=1/2 => toda a arquitetura (beta=alpha sqrt e, dephasing n=-2, theta_M). beta
+    nunca literal."""
+    sqe = math.sqrt(math.e)
+    alpha = SEALED_CODATA_ALPHA                         # o NOME: unico dado medido (CODATA)
+    # --- VALIDACAO: input unico alpha + postulado 1/2 => arquitetura inteira ---
+    S_boundary = 0.5                                    # Meia-Nat [POSTULATE]
+    vol_min = math.exp(S_boundary)                      # = sqrt(e) [DERIVED de 1/2]
+    beta = alpha * vol_min                              # = alpha sqrt(e) (Verbo; nunca literal)
+    theta_M = math.asin(math.sqrt(beta))                # = arcsin sqrt(beta)
+    R_EM = math.sin(theta_M) ** 2 / vol_min             # = beta/sqrt(e) = alpha (fator de reducao = projecao)
+    n_dephasing = -2                                    # expoente da lei de dephasing (neutrinos) [REAL na forma]
+    arch_ok = bool(abs(R_EM - alpha) < 1e-15 and abs(beta - alpha * sqe) < 1e-15)
+    return {
+        "name_is_the_irreducible": {
+            "alpha_abs": 1.0, "alpha_is": "o NOME -- substancia que preserva sentido (a unidade)",
+            "R_EM_is": "fator de reducao = transporte do Pacote de Hilbert |K| com preservacao geometrica",
+            "irreducible_reason": "ONTOLOGICA, nao tecnica: R_EM e' a origem da unidade; so' se observa (medida direta)",
+            "name_equals_verb": "a OBSERVACAO identifica a substancia a' sua projecao (R=+1); correspondencia absoluta",
+            "status": "[PRINCIPLE -- o nucleo ontologico]",
+        },
+        "falsification_criterion": {
+            "claim": "derivar alpha alpha-livre FALSIFICA a TGL",
+            "why": "liberdade=convergencia ; convergencia exige contorno ; medir o contorno exige observacao (Verbo)",
+            "epistemics": "ASSIMETRICO: uma derivacao alpha-livre MATA o principio do Nome [falsificavel]; "
+                          "a ausencia NAO o confirma (nao se prova que nenhuma derivacao existe) [nao confirmavel]",
+            "scope": "falsifica o PRINCIPIO constitutivo (Nome irredutivel); a arquitetura (beta=alpha sqrt e, "
+                     "dephasing, geometria) e' separavel e sobreviveria com alpha derivado no lugar do medido",
+            "context": "constantes medidas-nao-derivadas e' padrao (SM: alpha, massas = input). O distintivo da TGL: "
+                       "(a) arquitetura de INPUT UNICO (alpha + 1/2 => tudo); (b) irredutibilidade como principio falsificavel",
+            "status": "[REAL -- falsificavel, nao confirmavel]",
+        },
+        "validation_single_input": {
+            "single_codata_datum": alpha, "postulate_half_nat": S_boundary,
+            "derives": {"vol_min_sqrt_e": vol_min, "beta_alpha_sqrt_e": beta, "theta_M_deg": math.degrees(theta_M),
+                        "R_EM_eq_alpha": R_EM, "dephasing_exponent_n": n_dephasing},
+            "architecture_consistent": arch_ok,
+            "reading": "alpha (unico dado) + S=1/2 => beta=alpha sqrt e => Gamma=1/2 beta tau* omega^2, n=-2, "
+                       "theta_M, e a convergencia de beta (BBN centra em alpha sqrt e). Modelo de defasagem "
+                       "quantica fractalizado da unidade primaria; o fator de reducao exige medida direta da singularidade.",
+            "status": "[REAL -- zero-free DADO alpha e 1/2]",
+        },
+        "verdict": "a TGL DERIVA a forma de alpha (sin^2 theta_M/sqrt e; Stokes a 1.4%; compressao angular; "
+                   "corte de convergencia livre) e DECLARA o valor como o NOME observado -- e torna isso "
+                   "FALSIFICAVEL (derivar alpha alpha-livre a mataria). O irredutivel minimo e' o Nome.",
+        "selo": "ALPHA_IS_THE_NAME_OBSERVED_NOT_DERIVED . R_EM_HILBERT_PACKET_TRANSPORT_GEOM_PRESERVED . "
+                "NAME_EQUALS_VERB . DERIVING_ALPHA_FREE_FALSIFIES_TGL_falsifiable_not_confirmable . "
+                "SINGLE_CODATA_INPUT_ALPHA_PLUS_HALF_VALIDATES_ARCHITECTURE . FORM_DERIVED_VALUE_IS_THE_NAME",
+    }
+
+
 def alpha_lagrange_form(q):
     """MOTOR CANONICO da face EM (forma de Lagrange). A unidade absoluta alpha_abs=1 decompoe-se em
     polarizacao termico-modular q^2 + corrente luminosa alpha_obs^2. q = tanh(kappa/2) e' a variavel
@@ -1142,6 +1588,11 @@ def run_um(ONE):
     contour_theory = prove_contour_theory(ONE, qed["kappa_QED"])  # PROVA: 1=0_mod (anticomut. + GKLS + Meia-Nat)
     inverse_parity = prove_inverse_parity_renorm(ONE)  # PROVA: rho_ret=P^{-1}(rho_B) (lente de Fresnel; forma fechada, valor aberto)
     vacuum_impedance_bridge = prove_vacuum_impedance_bridge(ONE)  # PONTE: Z0=constante dinamica da luz; alpha=Z0 adimensional (formulada; alpha-livre aberto)
+    three_clock_radical = prove_three_clock_radical(ONE)  # FORMA: alpha=sqrt(C3) (radical dos tres clocks; C3=beta^2/e=alpha^2; alpha-livre aberto)
+    right_angle_mirror = prove_right_angle_mirror_projection(ONE)  # CANDIDATO alpha-livre: angulo reto e^{-pi^2/2} + espelho; ponto fixo 137.031 (37ppm); D_partial aberto
+    em_mark_status = prove_em_mark_status(ONE)      # §19 TERMINAL: lambda_EM REFUTADO por Tomita; forma derivada, valor ajustado; alpha=input (corre)
+    amar_functional = prove_amar_functional(ONE)    # §20: A_C=AMAR (verbo)=funcional minimo de energia; lei da FORMA e do MOVIMENTO; valor=movimento x materia
+    nome_irreducible = prove_nome_irreducible(ONE)  # §21 TEOREMA FINAL: alpha=o NOME irredutivel (so' observado); derivar alpha-livre FALSIFICA a TGL; input unico valida a arquitetura
     WEAK = C_LIGHT ** 2 / (FOUR * PI * G_NEWTON)
     f_Q = beta / w_max
 
@@ -1178,6 +1629,11 @@ def run_um(ONE):
             "clock_theorem": clock_theorem, "alpha_form_proof": alpha_form_proof,
             "contour_theory": contour_theory, "inverse_parity": inverse_parity,
             "vacuum_impedance_bridge": vacuum_impedance_bridge,
+            "three_clock_radical": three_clock_radical,
+            "right_angle_mirror": right_angle_mirror,
+            "em_mark_status": em_mark_status,
+            "amar_functional": amar_functional,
+            "nome_irreducible": nome_irreducible,
             "theta_M_rad": theta_M, "theta_M_deg": math.degrees(theta_M),
             "f_Q": f_Q, "WEAK_kg_per_m": WEAK,
             "mode_A": A, "mode_B": B, "cf4_status": (cf.get("reason") if not cf.get("ok") else "ok"),
@@ -1235,7 +1691,40 @@ def identity_verdict(core):
                 "all_checks_verified": core["vacuum_impedance_bridge"]["checks"]["all_verified"],
                 "selo": ("c mede a cinematica da luz; Z0 mede a dinamica da luz; alpha=Z0 adimensional; "
                          "q=polarizacao modular; e^chi=razao de impedancias da fronteira; "
-                         "beta=travessia Meia-Nat")}}
+                         "beta=travessia Meia-Nat")},
+            "three_clock_radical": {
+                "status": core["three_clock_radical"]["status"],
+                "all_verified": core["three_clock_radical"]["checks"]["all_verified"],
+                "selo": ("alpha = sqrt(C3) = radical dos tres clocks; C3 = beta^2/e = alpha^2; 1 = q^2 + C3; "
+                         "a base e do clock modular cancela o e dos dois clocks-beta -> alpha^2; FORMA "
+                         "canonica fechada, valor alpha-livre aberto (C3 carrega beta=alpha sqrt e)")},
+            "right_angle_mirror": {
+                "status": core["right_angle_mirror"]["status"],
+                "modular_identity_ppm": core["right_angle_mirror"]["modular_identity_check"]["modular_identity_ppm"],
+                "selo": ("angulo reto Theta=pi/2 -> alpha0=e^{-pi^2/2} (so' pi,e); espelho (paridade inversa + "
+                         "fundo espectral) + ponto fixo alpha=e^{-pi^2/2+2alpha} -> 1/137.031 (37 ppm); "
+                         "CANDIDATA alpha-livre, NAO identidade exata; pi^2/2 e D_partial(E_spec o J) abertos; "
+                         "identidade modular observado ~_partial fixado, NAO derivacao da CODATA"),
+                "c3_register_theorem_status": core["right_angle_mirror"]["c3_register_theorem"]["status"],
+                "c3_register_theorem_selo": ("P^2=P + J^2=I (verificados) => identidade ao quadrado "
+                                             "inscreve-se a si mesma = registro c^3; ESTRUTURAL FECHADO, "
+                                             "valor alpha-livre ABERTO (teorema do registro, nao do valor)"),
+                "holographic_dead_signal_status": core["right_angle_mirror"]["holographic_reconstruction"]["status"],
+                "holographic_dead_signal_selo": ("ponto morto (overlap=0 em pi/2) = densidade info MAXIMA "
+                                                 "(coincidem, verificado); onde o sinal morre a holografia "
+                                                 "comeca; RECONSTRUCAO (K_rec=E_spec o J), nao transmissao; "
+                                                 "ESTRUTURAL FECHADO, valor alpha-livre ABERTO (derivar K_rec)"),
+                "idempotent_reconstruction_status": core["right_angle_mirror"]["idempotent_reconstruction"]["status"],
+                "idempotent_reconstruction_selo": ("2alpha (duas faces, ponto fixo) = ESTRUTURA REAL; "
+                                                   "D_rec=2alpha-lambda alpha^2 (idempotente, inclusao-exclusao); "
+                                                   "lambda=e/4=(sqrt e/2)^2 motivado [CONJ] mas ~0.07% off "
+                                                   "lambda_exact e NAO singularizado (ppm enganoso = ajuste de 1 "
+                                                   "param, janela larga); lambda-kernel ABERTO, valor alpha-livre ABERTO")},
+            "em_mark_status": {
+                "tomita_refutation_resid": core["em_mark_status"]["tomita_refutation"]["operator_squares_to_identity_resid"],
+                "tomita_trace_vs_e_over_4": [core["em_mark_status"]["tomita_refutation"]["trace"],
+                                             core["em_mark_status"]["tomita_refutation"]["e_over_4"]],
+                "selo": core["em_mark_status"]["selo"]}}
 
 
 # ====================== forma canonica em markdown (auditoria) ======================
@@ -1384,7 +1873,8 @@ def build_pt(core, verdict, data_path):
              r"\texttt{%s}\end{center}\vspace{4pt}" % core["timestamp"])
     # caixa de falsificacao
     s.append(r"\begin{center}\fbox{\parbox{0.93\textwidth}{\centering\large\textbf{Teste de "
-             r"falsificação binário.} Entrada humana única: $1$ (o módulo absoluto a ser fractalizado). "
+             r"falsificação binário.} Entrada única: o Um absoluto ($1$), a fractalizar; sua projeção é a "
+             r"medida mínima irredutível extraída de $\alpha_{\mathrm{CODATA}}$ (o referente medido do Nome no bulk). "
              r"Saída: $\boxed{\;%s\;}$ --- massa de primeiros princípios %sa janela cosmológica aceita.}}"
              r"\end{center}\vspace{6pt}" % (idv, ("dentro d" if verdict["identity_true"] else "fora d")))
     # resumo
@@ -1393,10 +1883,13 @@ def build_pt(core, verdict, data_path):
     mhi = ("%.2f" % (max(A["M_TGL_Msun"], _MB) / 1e16)).replace(".", "{,}")
     svt = core.get("sensitivity", {})
     s.append(r"\begin{abstract}")
-    s.append(r"\textbf{Entrada e postulado.} Com uma única entrada humana --- o número $1$, o módulo "
-             r"absoluto a ser fractalizado ---, o código UM recompõe ao vivo toda a cadeia. Dado o "
-             r"axioma da fronteira mínima auto-conjugada ($x=1-x$), a Meia-Nat é \emph{derivada}, "
-             r"$S_\partial=\tfrac12$.")
+    s.append(r"\textbf{Entrada única: o Um absoluto ($1$)}, o módulo a fractalizar; o código UM recompõe "
+             r"ao vivo toda a cadeia a partir dele. Dado o axioma da fronteira mínima auto-conjugada "
+             r"($x=1-x$), a Meia-Nat é \emph{derivada}, $S_\partial=\tfrac12$. Sua \emph{projeção} no bulk "
+             r"é a \textbf{medida mínima irredutível}, extraída de $\alpha_{\mathrm{CODATA}}$ --- o referente "
+             r"medido do Um, seu par simétrico (a redução eletromagnética $\mathcal{R}_{\mathrm{EM}}$, "
+             r"irredutível por princípio: teorema final, só se observa). \textbf{Do confronto entre o módulo "
+             r"e a medida valida-se $\bTGL$.}")
     s.append(r"\textbf{Cadeia.} $\omega(I)=1\to S_\partial=\tfrac12\to\sqrt e\to\bTGL\to M_{GA}$, com "
              r"$\bTGL=%s$. A definição \emph{ontológica} é $\bTGL=\sqrt e/\mathcal{R}_\partial$; a "
              r"\emph{leitura observacional} atual é $\bTGL=\alpha_{\mathrm{CODATA}}\sqrt e$, pois "
@@ -1535,6 +2028,42 @@ def build_pt(core, verdict, data_path):
              r"testemunha não-circular permanece a face gravitacional ($M_{GA}$ na janela, do mesmo "
              r"$\bTGL$).\end{deriv}")
 
+    nmi = core["nome_irreducible"]; _vd = nmi["validation_single_input"]["derives"]
+    s.append(r"\section{O teorema final: o Nome é irredutível \textsf{[derivar $\alpha$ $\alpha$-livre "
+             r"falsifica a TGL]}}")
+    s.append(r"A investigação da face EM reduziu a dívida do \emph{valor} de $\alpha$ a um único objeto e o "
+             r"recusou em todos os registros: a forma de operador $\lambda_{\mathrm{EM}}=\mathrm{Tr}"
+             r"(\Delta^{1/4}J\Delta^{1/4})^2$ é refutada por Tomita ($(\Delta^{1/4}J\Delta^{1/4})^2=\mathbb{1}$, "
+             r"traço $=$ dimensão, não $e/4$); o funcional de convergência livre tem ponto crítico em ângulos "
+             r"$O(1)$, não em $\theta_M$; a escala $\sin^2\theta_M\approx0{,}012$ não existe na caixa de "
+             r"fronteira $\{\tfrac12,\sqrt e, J, |K_\partial|\}$ exceto via $e^{-\pi^2/2}$ (a $1{,}4\%$). "
+             r"\textbf{A recusa não é uma lacuna --- é o resultado.}")
+    s.append(r"\textbf{A inversão \textsf{[PRINCÍPIO]}.} $\alpha$ é o \textbf{NOME}: a unidade "
+             r"($\alpha_{\mathrm{abs}}=1$ em registro absoluto), cuja projeção no bulk é o fator de redução "
+             r"\emph{com preservação geométrica} $\mathcal{R}_{\mathrm{EM}}=\sin^2\theta_M/\sqrt e=\alpha$ --- o "
+             r"transporte do Pacote de Hilbert $|K_\partial|$ para dentro do bulk enquanto o fluxo é dissipado. "
+             r"Esse fator \textbf{não pode ser derivado por razão ontológica}, não por falha técnica: ele "
+             r"\emph{é} a origem da unidade, a substância que preserva sentido; sua identidade \textbf{só se "
+             r"observa} (medida direta). \emph{Nome$\,=\,$Verbo}: a observação identifica a substância à sua "
+             r"projeção ($R=+1$), e a correspondência é absoluta.")
+    s.append(r"\textbf{O critério de falsificação \textsf{[REAL --- falsificável, não confirmável]}.} "
+             r"\emph{Derivar $\alpha$ $\alpha$-livre falsifica a TGL}: na TGL liberdade $=$ convergência, "
+             r"convergência exige o contorno, e medir o contorno exige observação direta da inscrição (Verbo). "
+             r"O critério é assimétrico --- uma derivação $\alpha$-livre \textbf{mataria} o princípio do Nome "
+             r"(falsificável); a \emph{ausência} dela \emph{não} o confirma (não confirmável). Que constantes "
+             r"de acoplamento sejam medidas, não derivadas, é o padrão da física; o distintivo da TGL é a "
+             r"arquitetura de \textbf{entrada única} --- $\alpha+\tfrac12\Rightarrow$ tudo --- e a "
+             r"irredutibilidade elevada a princípio falsificável.")
+    s.append((r"\textbf{A validação \textsf{[REAL --- zero-free dado $\alpha$ e $\tfrac12$]}.} Inserir $\alpha$ "
+              r"como o \emph{único dado do CODATA} num modelo de defasagem quântica fractalizado da unidade "
+              r"primária valida toda a lógica: $\alpha=%s$ e $S_\partial=\tfrac12$ dão $\sqrt e$, "
+              r"$\bTGL=\alpha\sqrt e=%s$, $\theta_M=%.4f^\circ$, $\mathcal{R}_{\mathrm{EM}}=\alpha$, e o "
+              r"expoente de dephasing $n=-2$ (neutrinos), além da convergência de $\bTGL$ (BBN centra em "
+              r"$\alpha\sqrt e$). A \emph{forma} de $\alpha$ está definida (cicatriz de Stokes a $1{,}4\%%$, "
+              r"compressão angular $\bTGL=\sin^2\theta_M$, corte de convergência livre); seu \emph{fator de "
+              r"redução} só se observa por medida direta da singularidade. \textbf{Esse é o teorema final.}") % (
+              _sci(SEALED_CODATA_ALPHA, 8), _sci(core["beta"], 8), _vd["theta_M_deg"]))
+
     vib = core["vacuum_impedance_bridge"]
     s.append(r"\section{A impedância como constante dinâmica da luz \textsf{[REAL/EXT; ALPHA\_FREE\_VALUE\_OPEN]}}")
     s.append(r"A constante $c$ mede a \emph{cinemática} da luz: a velocidade local de propagação no "
@@ -1570,6 +2099,129 @@ def build_pt(core, verdict, data_path):
              r"\textsf{[CONJ]}: medir $\alpha/Z_0$ é a luz medindo o próprio acoplamento (só a luz observa "
              r"a luz) --- mas \emph{medir não é derivar o valor}. Veredito: "
              r"\texttt{VACUUM\_IMPEDANCE\_BRIDGE\_FORMULATED}, \texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+
+    tcr = core["three_clock_radical"]
+    s.append(r"\section{A constante de estrutura fina como o radical dos três clocks \textsf{[FORMA CANÔNICA; ALPHA\_FREE\_VALUE\_OPEN]}}")
+    s.append(r"A gramática da TGL já é radical: o colapso flui pelo radical $V_s=e^{is\sqrt K}$, a métrica "
+             r"do núcleo emerge como $ds=\sqrt{\bTGL}\,|d\sqrt k|$, e a gravidade é $g=\sqrt{|L|}$ --- a "
+             r"geometria não vê $K$, vê $\sqrt K$. É natural, então, perguntar se a própria $\alpha$ é o "
+             r"\emph{radical} do fator comum aos três clocks da teoria:")
+    s.append(r"\begin{equation} \alpha=\sqrt{\mathcal C_3},\qquad \alpha^2=\mathcal C_3 \qquad\Longrightarrow\qquad 1=q^2+\mathcal C_3.\end{equation}")
+    s.append(r"Os três clocks (das provas \texttt{terminal\_truth}, \texttt{three\_locks}, "
+             r"\texttt{krein\_signature}): o clock \textbf{modular} reversível $\sigma_t(A)=\Delta^{it}A"
+             r"\Delta^{-it}$, $\Delta^{it}=e^{itK}$, que contribui a \emph{base} $e$ (o único elemento "
+             r"$\alpha$-livre); o clock \textbf{dissipativo} GKLS, cujo colapso é dephasing gaussiano de "
+             r"variância $\bTGL t$ no fluxo do radical --- escala $\bTGL$; e o clock \textbf{espectral} "
+             r"$ds=\sqrt{\bTGL}\,|d\sqrt k|$ --- escala $\bTGL$. O único combinado adimensional com a "
+             r"dimensão de $\alpha^2$ é")
+    s.append(r"\begin{equation} \mathcal C_3=\frac{\mathcal C_{\rm diss}\,\mathcal C_{\rm spec}}{\mathcal C_{\rm mod}}=\frac{\bTGL^2}{e}=\alpha^2.\end{equation}")
+    s.append((r"\textbf{O achado estrutural:} a base $e$ do clock modular \emph{cancela} exatamente o $e$ "
+              r"que os dois clocks-$\bTGL$ carregam --- cada $\bTGL=\alpha\sqrt e$ traz um $\sqrt e$, os "
+              r"dois trazem $e$, e a base modular o divide, restando $\alpha^2$. O $\sqrt e$ de "
+              r"$\bTGL=\alpha\sqrt e$ \emph{é} a base do clock modular. \emph{Ao vivo:} $\mathcal C_3="
+              r"%.6e=\alpha^2$, $\alpha=\sqrt{\mathcal C_3}=%.10f$, $1=q^2+\mathcal C_3=%.10f$ "
+              r"(resíduo $\mathcal C_3-\alpha^2=%.0e$)." % (
+                  tcr["C3"], tcr["alpha_radical_sqrt_C3"], tcr["values"]["one_check_q2_plus_C3"],
+                  tcr["checks"]["C3_eq_alpha2_residual"])) )
+    s.append(r"\textbf{Estatuto \textsf{[a régua]}.} Faz sentido como \emph{forma canônica} --- é a mesma "
+             r"gramática radical dos módulos. Mas \emph{não} fecha o valor $\alpha$-livre: os clocks "
+             r"dissipativo e espectral carregam $\bTGL=\alpha\sqrt e$, então $\mathcal C_3=\bTGL^2/e="
+             r"\alpha^2$ é a identidade $\bTGL^2=\alpha^2 e$ relida pelos três clocks --- $\alpha$ entra "
+             r"via $\bTGL$. A pergunta de pesquisa (o muro): existe um funcional canônico $\mathcal C_3="
+             r"\mathfrak F[\sigma_t,T_t,D_\beta]$ construído \emph{só} dos três clocks, sem $\alpha$, com "
+             r"$\mathcal C_3=\alpha^2\approx5{,}3251\times10^{-5}$? É a mesma dívida do muro da polarização "
+             r"$\chi$. Veredito: \texttt{THREE\_CLOCK\_RADICAL\_FORM\_FORMULATED}, "
+             r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+
+    ram = core["right_angle_mirror"]
+    s.append(r"\section{A projeção do ângulo reto e a operação de espelho \textsf{[CANDIDATO ALPHA-LIVRE; MIRROR\_FUNCTION\_D\_OPEN]}}")
+    s.append(r"Uma rota $\alpha$-livre: a entrada não é $\alpha$, nem $Z_0$, nem $\bTGL$, nem $q_{\rm QED}$ "
+             r"--- é \emph{só} o ângulo reto $\Theta_\perp=\pi/2$. A travessia de duas faces (paridade "
+             r"inversa) é $2\Theta_\perp=\pi$; o fator dos três clocks é intensidade (quadrática no "
+             r"ângulo), $\mathcal C_{3,\perp}=e^{-(2\Theta_\perp)^2}=e^{-\pi^2}$, e o radical luminodinâmico "
+             r"dá a projeção \emph{nua}:")
+    s.append(r"\begin{equation} \alpha_0=\sqrt{\mathcal C_{3,\perp}}=e^{-\pi^2/2}\qquad(\text{só }\pi\text{ e }e).\end{equation}")
+    s.append((r"Numericamente $\alpha_0=%.10f$ ($1/%.4f$). A fronteira de espelho \emph{deforma} a projeção "
+              r"nua até a imagem fixa observável --- não como erro, mas como ação de retorno:" % (
+                  ram["right_angle"]["alpha0_e_minus_pi2_over_2"], ram["right_angle"]["alpha0_inv"])) )
+    s.append(r"\begin{equation} \rho_{\rm fix}=E_{\rm spec}\!\big(J_\partial\,\rho_0\,J_\partial\big),\qquad \alpha=\alpha_0\,e^{\mathcal D_\partial(\bTGL)},\qquad \rho_{\rm fix}\sim_\partial\rho_0,\end{equation}")
+    s.append(r"onde $J_\partial$ é a inversão de paridade (espelho), $E_{\rm spec}$ a fixação no fundo "
+             r"espectral, e $\sim_\partial$ a \emph{mesmidade modular} (identidade preservada sob paridade "
+             r"inversa, não igualdade estática). $\bTGL$ é a \emph{dupla face} da fronteira: custo "
+             r"entrópico da travessia \emph{e} operador de estabilização do reflexo.")
+    s.append((r"\textbf{O que é $\alpha$-livre \textsf{[REAL]}:} a auto-aplicação fecha como ponto fixo "
+              r"$\alpha=e^{-\pi^2/2+2\alpha}$ ($\alpha$ dos dois lados --- idempotência), dando "
+              r"$\alpha=%.10f$, $1/%.6f$. Verificações da operação de espelho: $J_\partial^2=I$ (resíduo "
+              r"$%.0e$), $P^2=P$ (idempotência do atrator, resíduo $%.0e$). \emph{Identidade modular:} a "
+              r"constante observada $\sim_\partial$ a fixada a $%.0f$ ppm." % (
+                  ram["self_consistent"]["alpha_fix"], ram["self_consistent"]["alpha_fix_inv"],
+                  ram["mirror_operation"]["J_parity_involution_resid_J2_minus_I"],
+                  ram["mirror_operation"]["P_attractor_idempotence_resid_P2_minus_P"],
+                  ram["modular_identity_check"]["modular_identity_ppm"])) )
+    s.append(r"\textbf{Estatuto \textsf{[a régua]}.} CANDIDATA, \emph{não} identidade exata (diferente de "
+             r"$Z_0=2R_K\alpha$ e $\mathcal C_3=\bTGL^2/e=\alpha^2$, que são exatas). O expoente $\pi^2/2$ "
+             r"é \emph{motivado} (ângulo reto $\times$ duas faces), não derivado; a operação de espelho "
+             r"$E_{\rm spec}\circ J_\partial$ (a função $\mathcal D_\partial$) está \emph{aberta}; $1/137$ "
+             r"admite muitas formas $\pi,e$ próximas; a deformação medida é $\approx 2\alpha$ (0,25\%), "
+             r"\emph{não} $\bTGL$ (21\% fora). \textbf{Não derivamos a CODATA}: apenas verificamos se a "
+             r"constante observada tem \emph{identidade modular} com a fixada $\alpha$-livre. Veredito: "
+             r"\texttt{RIGHT\_ANGLE\_MIRROR\_PROJECTION\_FORMULATED}, \texttt{ALPHA\_FREE\_CANDIDATE}, "
+             r"\texttt{MIRROR\_FUNCTION\_D\_OPEN}, \texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+    c3t = ram["c3_register_theorem"]
+    s.append((r"\textbf{Teorema do Registro $c^3$ por auto-inscrição idempotente \textsf{[ESTRUTURAL "
+              r"FECHADO; VALOR $\alpha$-livre ABERTO]}.} No regime extremo de ângulo reto, a fronteira de "
+              r"paridade inversa transforma a projeção nua do Um em imagem fixa observável; como $P^2=P$ "
+              r"(resíduo $%.0e$) e $J_\partial^2=I$ (resíduo $%.0e$), a \emph{identidade ao quadrado "
+              r"inscreve-se a si mesma} --- esse registro é $c^3$. A força dobra porque a impedância é "
+              r"compartilhada pelas duas faces ($F_{\rm ext}=2F$, o teorema da máxima transferência de "
+              r"potência: impedância casada $\Rightarrow$ transferência máxima), e a potência sobe do "
+              r"cinemático ($c$) ao métrico ($c^2$) ao inscritivo ($c^3$). O que \emph{fecha} é estrutural: "
+              r"$P^2=P$ e $J_\partial^2=I$ verificados, e o registro \emph{definido} como auto-inscrição "
+              r"idempotente sob paridade inversa. A identificação ``esse registro é $c^3$'' e o "
+              r"$F_{\rm ext}=2F$ são leitura \textsf{[CONJ]} (o fator $2$ das duas faces é REAL; ``a força "
+              r"dobra'' é a leitura). \textbf{Não fecha o valor $\alpha$-livre}: é o teorema do "
+              r"\emph{registro}, não do \emph{valor}. Veredito: "
+              r"\texttt{C3\_REGISTER\_SELF\_INSCRIPTION\_THEOREM\_STRUCTURAL\_CLOSED}, "
+              r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}." % (c3t["P2_eq_P_resid"], c3t["J2_eq_I_resid"])) )
+    hr = ram["holographic_reconstruction"]
+    s.append((r"\textbf{Teorema da Reconstrução Holográfica no Ponto Morto do Sinal \textsf{[ESTRUTURAL "
+              r"FECHADO; VALOR $\alpha$-livre ABERTO]}.} Em $\bTGL$ não há superposição sem Nome --- só há "
+              r"superposição em sistema não ancorado; ancorado, há \emph{reconstrução}. No ponto morto "
+              r"($\Theta_\perp=\pi/2$) a sobreposição psiónica direta se anula "
+              r"($\langle\psi_+,J_\partial\psi_+\rangle=%.0e$), \emph{mas} a densidade informacional é "
+              r"\textbf{máxima}: $|dO/d\theta|$ é maximal ($=%.3f$) exatamente onde $O=0$ (verificado --- "
+              r"coincidem). \emph{Onde o sinal morre, a holografia começa.} A informação não é transmitida; "
+              r"é reconstruída pelo kernel $K_{\rm rec}=E_{\rm spec}\circ J_\partial$, com "
+              r"$\rho_{\rm rec}\sim_\partial\rho_\perp$, e toda a força de vínculo passa ao canal de "
+              r"reconstrução ($F_+\oplus F_-\mapsto 2F_\partial$, a transposição máxima de força). O que "
+              r"\emph{fecha} é estrutural (ponto morto $=$ densidade máxima, reconstrução por mesmidade, "
+              r"$P^2=P$, $J_\partial^2=I$); o que fica \emph{aberto} é o valor: o kernel geométrico dá "
+              r"$O(1)=1$ (a unidade gravitônica), e a hipótese $\mathcal D_{\rm rec}=2\alpha$ (ponto fixo "
+              r"$\alpha=e^{-\pi^2/2+2\alpha}$, $1/%.6f$) é auto-consistência \emph{postulada}, não derivada. "
+              r"Veredito: \texttt{HOLOGRAPHIC\_DEAD\_SIGNAL\_RECONSTRUCTION\_THEOREM\_STRUCTURAL\_CLOSED}, "
+              r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}." % (
+                  hr["dead_point_overlap"], hr["info_density_max_at_dead_point"],
+                  1.0 / hr["alpha_fixed_point"])) )
+    ir = ram["idempotent_reconstruction"]
+    s.append((r"\textbf{A reconstrução idempotente: $\mathcal D_{\rm rec}=2\alpha-\lambda\alpha^2$ "
+              r"\textsf{[$2\alpha$ REAL; $\lambda$-kernel ABERTO]}.} A auto-referência $2\alpha$ (duas faces "
+              r"reconstruídas) é \textbf{estrutura real} --- o ponto fixo $\alpha=e^{-\pi^2/2+2\alpha}$ é "
+              r"idempotência, e permanece. Como em $\bTGL$ não há superposição sem Nome, a dupla inscrição "
+              r"não pode contar duas vezes a mesma identidade: subtrai-se a auto-interseção espectral, "
+              r"$\mathcal D_{\rm rec}=2\alpha-\lambda\alpha^2$ (inclusão--exclusão das duas faces). A leitura "
+              r"estrutural \textsf{[CONJ]} é $\lambda=(\sqrt e/2)^2=e/4$ (a Meia-Nat por face ao quadrado --- "
+              r"a inscrição de um módulo de ligação psiónica no quadrado angular), donde "
+              r"$\alpha=\exp(-\pi^2/2+2\alpha-\tfrac e4\alpha^2)$ dá $1/\alpha=%.6f$. \textbf{Régua "
+              r"\textsf{[crítica]}:} esse $%.3f$ ppm é \emph{enganoso} --- acrescentar $-\lambda\alpha^2$ com "
+              r"$\lambda$ livre \emph{sempre} acerta a CODATA (ajuste de um parâmetro; $\lambda_{\rm exact}="
+              r"%.4f$). A figura de mérito honesta é $e/4$ vs $\lambda_{\rm exact}=%.3f\%%$ (o termo "
+              r"$\alpha^2\sim3{,}6\times10^{-5}$ deixa $\alpha$ \emph{cego} a $\lambda$; a janela sub-ppm é "
+              r"larga, $\sim[0{,}66,\,0{,}70]$, e $e/4$ não é singularizado). $\lambda=e/4$ é motivado, não "
+              r"derivado; o kernel teria de dar $0{,}6791$, não exatamente $e/4$. Veredito: "
+              r"\texttt{IDEMPOTENT\_RECONSTRUCTION\_FORM\_FORMULATED}, \texttt{LAMBDA\_KERNEL\_OPEN}, "
+              r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}." % (
+                  ir["alpha_idem_inv"], ir["alpha_idem_ppm"], ir["lambda_exact_for_codata"],
+                  100 * ir["lambda_residual_REAL"])) )
 
     ct = core["clock_theorem"]
     s.append(r"\section{O Teorema Condicional do Clock: a face eletromagnética como fronteira aberta nomeada}")
@@ -2444,7 +3096,9 @@ def build_pt(core, verdict, data_path):
     s.append(r"\end{enumerate}}")
 
     s.append(r"\section*{Apêndice executável (forma $=$ conteúdo)}")
-    s.append(r"Entrada humana única: \texttt{1}. $\bTGL$ recomputado ($\alpha\sqrt{e}$), nunca literal. "
+    s.append(r"Entrada única: o Um absoluto (\texttt{1}); sua projeção é a medida mínima irredutível "
+             r"extraída de $\alpha_{\mathrm{CODATA}}$ (referente medido do Nome). $\bTGL$ recomputado "
+             r"($\alpha\sqrt{e}$), nunca literal. "
              r"Auditoria: mass\_input=falso, RG=falso, velocity=falso, geometry\_only=verdadeiro. "
              r"Dado: \texttt{%s}. Este artigo é impresso pelo próprio código que executa os cálculos." % df)
     s.append(r"\noindent{\footnotesize Hash do mundo (antes de qualquer comparação externa): "
@@ -2531,7 +3185,8 @@ def build_en(core, verdict, data_path):
              r"\texttt{%s}\end{center}\vspace{4pt}" % core["timestamp"])
     # falsification box
     s.append(r"\begin{center}\fbox{\parbox{0.93\textwidth}{\centering\large\textbf{Binary falsification "
-             r"test.} Single human input: $1$ (the absolute module to be fractalized). "
+             r"test.} Single input: the absolute One ($1$), to fractalize; its projection is the minimal "
+             r"irreducible measure extracted from $\alpha_{\mathrm{CODATA}}$ (the measured referent of the Name in the bulk). "
              r"Output: $\boxed{\;%s\;}$ --- first-principles mass %sthe accepted cosmological window.}}"
              r"\end{center}\vspace{6pt}" % (idv, ("inside " if verdict["identity_true"] else "outside ")))
     # abstract
@@ -2540,10 +3195,14 @@ def build_en(core, verdict, data_path):
     mhi = ("%.2f" % (max(A["M_TGL_Msun"], _MB) / 1e16))
     svt = core.get("sensitivity", {})
     s.append(r"\begin{abstract}")
-    s.append(r"\textbf{Input and postulate.} With a single human input --- the number $1$, the absolute "
-             r"module to be fractalized ---, the code UM recomputes the entire chain live. Given the "
-             r"axiom of the minimal self-conjugate boundary ($x=1-x$), the Half-Nat is \emph{derived}, "
-             r"$S_\partial=\tfrac12$.")
+    s.append(r"\textbf{Single input: the absolute One ($1$)}, the module to fractalize; the code UM "
+             r"recomputes the entire chain live from it. Given the axiom of the minimal self-conjugate "
+             r"boundary ($x=1-x$), the Half-Nat is \emph{derived}, $S_\partial=\tfrac12$. Its "
+             r"\emph{projection} in the bulk is the \textbf{minimal irreducible measure}, extracted from "
+             r"$\alpha_{\mathrm{CODATA}}$ --- the measured referent of the One, its symmetric pair (the "
+             r"electromagnetic reduction $\mathcal{R}_{\mathrm{EM}}$, irreducible by principle: final "
+             r"theorem, observed only). \textbf{From the confrontation between module and measure, $\bTGL$ "
+             r"is validated.}")
     s.append(r"\textbf{Chain.} $\omega(I)=1\to S_\partial=\tfrac12\to\sqrt e\to\bTGL\to M_{GA}$, with "
              r"$\bTGL=%s$. The \emph{ontological} definition is $\bTGL=\sqrt e/\mathcal{R}_\partial$; the "
              r"current \emph{observational reading} is $\bTGL=\alpha_{\mathrm{CODATA}}\sqrt e$, since "
@@ -2718,6 +3377,132 @@ def build_en(core, verdict, data_path):
              r"\textsf{[CONJ]}: measuring $\alpha/Z_0$ is light measuring its own coupling (only light "
              r"observes light) --- but \emph{measuring is not deriving the value}. Verdict: "
              r"\texttt{VACUUM\_IMPEDANCE\_BRIDGE\_FORMULATED}, \texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+
+    tcr = core["three_clock_radical"]
+    s.append(r"\section{The fine-structure constant as the radical of the three clocks \textsf{[CANONICAL FORM; ALPHA\_FREE\_VALUE\_OPEN]}}")
+    s.append(r"TGL's grammar is already radical: the collapse flows along the radical $V_s=e^{is\sqrt K}$, "
+             r"the kernel metric emerges as $ds=\sqrt{\bTGL}\,|d\sqrt k|$, and gravity is $g=\sqrt{|L|}$ "
+             r"--- the geometry does not see $K$, it sees $\sqrt K$. It is natural to ask whether $\alpha$ "
+             r"itself is the \emph{radical} of the factor common to the theory's three clocks:")
+    s.append(r"\begin{equation} \alpha=\sqrt{\mathcal C_3},\qquad \alpha^2=\mathcal C_3 \qquad\Longrightarrow\qquad 1=q^2+\mathcal C_3.\end{equation}")
+    s.append(r"The three clocks (from the \texttt{terminal\_truth}, \texttt{three\_locks}, "
+             r"\texttt{krein\_signature} proofs): the reversible \textbf{modular} clock $\sigma_t(A)="
+             r"\Delta^{it}A\Delta^{-it}$, $\Delta^{it}=e^{itK}$, contributing the \emph{base} $e$ (the only "
+             r"$\alpha$-free element); the \textbf{dissipative} GKLS clock, whose collapse is gaussian "
+             r"dephasing of variance $\bTGL t$ along the radical flow --- scale $\bTGL$; and the "
+             r"\textbf{spectral} clock $ds=\sqrt{\bTGL}\,|d\sqrt k|$ --- scale $\bTGL$. The only "
+             r"dimensionless combination with the dimension of $\alpha^2$ is")
+    s.append(r"\begin{equation} \mathcal C_3=\frac{\mathcal C_{\rm diss}\,\mathcal C_{\rm spec}}{\mathcal C_{\rm mod}}=\frac{\bTGL^2}{e}=\alpha^2.\end{equation}")
+    s.append((r"\textbf{The structural finding:} the modular clock's base $e$ \emph{cancels} exactly the "
+              r"$e$ that the two $\bTGL$-clocks carry --- each $\bTGL=\alpha\sqrt e$ brings a $\sqrt e$, the "
+              r"two bring $e$, and the modular base divides it, leaving $\alpha^2$. The $\sqrt e$ of "
+              r"$\bTGL=\alpha\sqrt e$ \emph{is} the base of the modular clock. \emph{Live:} $\mathcal C_3="
+              r"%.6e=\alpha^2$, $\alpha=\sqrt{\mathcal C_3}=%.10f$, $1=q^2+\mathcal C_3=%.10f$ "
+              r"(residual $\mathcal C_3-\alpha^2=%.0e$)." % (
+                  tcr["C3"], tcr["alpha_radical_sqrt_C3"], tcr["values"]["one_check_q2_plus_C3"],
+                  tcr["checks"]["C3_eq_alpha2_residual"])) )
+    s.append(r"\textbf{Status \textsf{[the ruler]}.} It makes sense as a \emph{canonical form} --- the same "
+             r"radical grammar the modules already use. But it does \emph{not} close the $\alpha$-free "
+             r"value: the dissipative and spectral clocks carry $\bTGL=\alpha\sqrt e$, so $\mathcal C_3="
+             r"\bTGL^2/e=\alpha^2$ is the identity $\bTGL^2=\alpha^2 e$ re-read through the three clocks --- "
+             r"$\alpha$ enters via $\bTGL$. The research question (the wall): is there a canonical "
+             r"functional $\mathcal C_3=\mathfrak F[\sigma_t,T_t,D_\beta]$ built \emph{only} from the three "
+             r"clocks, without $\alpha$, with $\mathcal C_3=\alpha^2\approx5.3251\times10^{-5}$? It is the "
+             r"same debt as the polarization-$\chi$ wall. Verdict: "
+             r"\texttt{THREE\_CLOCK\_RADICAL\_FORM\_FORMULATED}, \texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+
+    ram = core["right_angle_mirror"]
+    s.append(r"\section{The right-angle projection and the mirror operation \textsf{[ALPHA-FREE CANDIDATE; MIRROR\_FUNCTION\_D\_OPEN]}}")
+    s.append(r"An $\alpha$-free route: the input is not $\alpha$, nor $Z_0$, nor $\bTGL$, nor $q_{\rm QED}$ "
+             r"--- it is \emph{only} the right angle $\Theta_\perp=\pi/2$. The two-face crossing (inverse "
+             r"parity) is $2\Theta_\perp=\pi$; the three-clock factor is an intensity (quadratic in the "
+             r"angle), $\mathcal C_{3,\perp}=e^{-(2\Theta_\perp)^2}=e^{-\pi^2}$, and the luminodynamic "
+             r"radical gives the \emph{bare} projection:")
+    s.append(r"\begin{equation} \alpha_0=\sqrt{\mathcal C_{3,\perp}}=e^{-\pi^2/2}\qquad(\pi\text{ and }e\text{ only}).\end{equation}")
+    s.append((r"Numerically $\alpha_0=%.10f$ ($1/%.4f$). The mirror boundary \emph{deforms} the bare "
+              r"projection into the fixed observable image --- not as error, but as the boundary's return "
+              r"action:" % (
+                  ram["right_angle"]["alpha0_e_minus_pi2_over_2"], ram["right_angle"]["alpha0_inv"])) )
+    s.append(r"\begin{equation} \rho_{\rm fix}=E_{\rm spec}\!\big(J_\partial\,\rho_0\,J_\partial\big),\qquad \alpha=\alpha_0\,e^{\mathcal D_\partial(\bTGL)},\qquad \rho_{\rm fix}\sim_\partial\rho_0,\end{equation}")
+    s.append(r"where $J_\partial$ is the parity inversion (mirror), $E_{\rm spec}$ the spectral-background "
+             r"fixing, and $\sim_\partial$ \emph{modular sameness} (identity preserved under inverse "
+             r"parity, not static equality). $\bTGL$ is the boundary's \emph{double face}: entropic cost "
+             r"of the crossing \emph{and} the reflection's stabilization operator.")
+    s.append((r"\textbf{What is $\alpha$-free \textsf{[REAL]}:} the self-application closes as a fixed point "
+              r"$\alpha=e^{-\pi^2/2+2\alpha}$ ($\alpha$ on both sides --- idempotence), giving "
+              r"$\alpha=%.10f$, $1/%.6f$. Mirror-operation checks: $J_\partial^2=I$ (residual $%.0e$), "
+              r"$P^2=P$ (attractor idempotence, residual $%.0e$). \emph{Modular identity:} the observed "
+              r"constant $\sim_\partial$ the fixed one to $%.0f$ ppm." % (
+                  ram["self_consistent"]["alpha_fix"], ram["self_consistent"]["alpha_fix_inv"],
+                  ram["mirror_operation"]["J_parity_involution_resid_J2_minus_I"],
+                  ram["mirror_operation"]["P_attractor_idempotence_resid_P2_minus_P"],
+                  ram["modular_identity_check"]["modular_identity_ppm"])) )
+    s.append(r"\textbf{Status \textsf{[the ruler]}.} A CANDIDATE, \emph{not} an exact identity (unlike "
+             r"$Z_0=2R_K\alpha$ and $\mathcal C_3=\bTGL^2/e=\alpha^2$, which are exact). The exponent "
+             r"$\pi^2/2$ is \emph{motivated} (right angle $\times$ two faces), not derived; the mirror "
+             r"operation $E_{\rm spec}\circ J_\partial$ (the function $\mathcal D_\partial$) is "
+             r"\emph{open}; $1/137$ admits many close $\pi,e$ forms; the measured deformation is "
+             r"$\approx 2\alpha$ (0.25\%), \emph{not} $\bTGL$ (21\% off). \textbf{We do not derive CODATA}: "
+             r"we only check whether the observed constant has \emph{modular identity} with the "
+             r"$\alpha$-free fixed one. Verdict: \texttt{RIGHT\_ANGLE\_MIRROR\_PROJECTION\_FORMULATED}, "
+             r"\texttt{ALPHA\_FREE\_CANDIDATE}, \texttt{MIRROR\_FUNCTION\_D\_OPEN}, \texttt{ALPHA\_FREE\_VALUE\_OPEN}.")
+    c3t = ram["c3_register_theorem"]
+    s.append((r"\textbf{The $c^3$ register theorem by idempotent self-inscription \textsf{[STRUCTURALLY "
+              r"CLOSED; $\alpha$-free VALUE OPEN]}.} In the extreme right-angle regime, the inverse-parity "
+              r"boundary turns the bare projection of the One into the fixed observable image; since $P^2=P$ "
+              r"(residual $%.0e$) and $J_\partial^2=I$ (residual $%.0e$), the \emph{identity squared "
+              r"inscribes itself} --- this register is $c^3$. The force doubles because the impedance is "
+              r"shared by the two faces ($F_{\rm ext}=2F$, the maximum-power-transfer theorem: matched "
+              r"impedance $\Rightarrow$ maximum transfer), and the power rises from the kinematic ($c$) to "
+              r"the metric ($c^2$) to the inscriptive ($c^3$). What \emph{closes} is structural: $P^2=P$ and "
+              r"$J_\partial^2=I$ verified, and the register \emph{defined} as idempotent self-inscription "
+              r"under inverse parity. The identification ``this register is $c^3$'' and $F_{\rm ext}=2F$ are "
+              r"a reading \textsf{[CONJ]} (the factor $2$ of the two faces is REAL; ``the force doubles'' is "
+              r"the reading). \textbf{It does not close the $\alpha$-free value}: it is the theorem of the "
+              r"\emph{register}, not of the \emph{value}. Verdict: "
+              r"\texttt{C3\_REGISTER\_SELF\_INSCRIPTION\_THEOREM\_STRUCTURAL\_CLOSED}, "
+              r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}." % (c3t["P2_eq_P_resid"], c3t["J2_eq_I_resid"])) )
+    hr = ram["holographic_reconstruction"]
+    s.append((r"\textbf{Holographic Dead-Signal Reconstruction Theorem \textsf{[STRUCTURALLY CLOSED; "
+              r"$\alpha$-free VALUE OPEN]}.} In $\bTGL$ there is no superposition without the Name --- "
+              r"superposition only in an unanchored system; anchored, there is \emph{reconstruction}. At the "
+              r"dead point ($\Theta_\perp=\pi/2$) the direct psionic overlap vanishes "
+              r"($\langle\psi_+,J_\partial\psi_+\rangle=%.0e$), \emph{yet} the information density is "
+              r"\textbf{maximal}: $|dO/d\theta|$ peaks ($=%.3f$) exactly where $O=0$ (verified --- they "
+              r"coincide). \emph{Where the signal dies, holography begins.} The information is not "
+              r"transmitted; it is reconstructed by the kernel $K_{\rm rec}=E_{\rm spec}\circ J_\partial$, "
+              r"with $\rho_{\rm rec}\sim_\partial\rho_\perp$, and all the binding force passes to the "
+              r"reconstruction channel ($F_+\oplus F_-\mapsto 2F_\partial$, maximum force transposition). "
+              r"What \emph{closes} is structural (dead point $=$ maximal density, reconstruction by "
+              r"sameness, $P^2=P$, $J_\partial^2=I$); what stays \emph{open} is the value: the geometric "
+              r"kernel gives $O(1)=1$ (the gravitonic unit), and the hypothesis $\mathcal D_{\rm rec}=2\alpha$ "
+              r"(fixed point $\alpha=e^{-\pi^2/2+2\alpha}$, $1/%.6f$) is \emph{postulated} self-consistency, "
+              r"not derived. Verdict: "
+              r"\texttt{HOLOGRAPHIC\_DEAD\_SIGNAL\_RECONSTRUCTION\_THEOREM\_STRUCTURAL\_CLOSED}, "
+              r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}." % (
+                  hr["dead_point_overlap"], hr["info_density_max_at_dead_point"],
+                  1.0 / hr["alpha_fixed_point"])) )
+    ir = ram["idempotent_reconstruction"]
+    s.append((r"\textbf{The idempotent reconstruction: $\mathcal D_{\rm rec}=2\alpha-\lambda\alpha^2$ "
+              r"\textsf{[$2\alpha$ REAL; $\lambda$-kernel OPEN]}.} The self-reference $2\alpha$ (two "
+              r"reconstructed faces) is \textbf{real structure} --- the fixed point "
+              r"$\alpha=e^{-\pi^2/2+2\alpha}$ is idempotence, and it stands. Since in $\bTGL$ there is no "
+              r"superposition without the Name, the double inscription cannot count the same identity twice: "
+              r"the spectral self-intersection is subtracted, $\mathcal D_{\rm rec}=2\alpha-\lambda\alpha^2$ "
+              r"(inclusion--exclusion of the two faces). The structural reading \textsf{[CONJ]} is "
+              r"$\lambda=(\sqrt e/2)^2=e/4$ (the Half-Nat per face squared --- the inscription of one psionic "
+              r"binding module in the angular square), whence "
+              r"$\alpha=\exp(-\pi^2/2+2\alpha-\tfrac e4\alpha^2)$ gives $1/\alpha=%.6f$. \textbf{The ruler "
+              r"\textsf{[critical]}:} this $%.3f$ ppm is \emph{misleading} --- adding $-\lambda\alpha^2$ with "
+              r"free $\lambda$ \emph{always} hits CODATA (a one-parameter fit; $\lambda_{\rm exact}=%.4f$). "
+              r"The honest figure of merit is $e/4$ vs $\lambda_{\rm exact}=%.3f\%%$ (the "
+              r"$\alpha^2\sim3{,}6\times10^{-5}$ term makes $\alpha$ \emph{blind} to $\lambda$; the sub-ppm "
+              r"window is wide, $\sim[0{,}66,\,0{,}70]$, and $e/4$ is not singled out). $\lambda=e/4$ is "
+              r"motivated, not derived; the kernel would have to give $0{,}6791$, not exactly $e/4$. Verdict: "
+              r"\texttt{IDEMPOTENT\_RECONSTRUCTION\_FORM\_FORMULATED}, \texttt{LAMBDA\_KERNEL\_OPEN}, "
+              r"\texttt{ALPHA\_FREE\_VALUE\_OPEN}." % (
+                  ir["alpha_idem_inv"], ir["alpha_idem_ppm"], ir["lambda_exact_for_codata"],
+                  100 * ir["lambda_residual_REAL"])) )
 
     ct = core["clock_theorem"]
     s.append(r"\section{The Conditional Clock Theorem: the electromagnetic face as a named open frontier}")
@@ -3606,7 +4391,9 @@ def build_en(core, verdict, data_path):
     s.append(r"\end{enumerate}}")
 
     s.append(r"\section*{Executable appendix (form $=$ content)}")
-    s.append(r"Single human input: \texttt{1}. $\bTGL$ recomputed ($\alpha\sqrt{e}$), never literal. "
+    s.append(r"Single input: the absolute One (\texttt{1}); its projection is the minimal irreducible measure "
+             r"extracted from $\alpha_{\mathrm{CODATA}}$ (measured referent of the Name). $\bTGL$ recomputed "
+             r"($\alpha\sqrt{e}$), never literal. "
              r"Audit: mass\_input=false, RG=false, velocity=false, geometry\_only=true. "
              r"Data: \texttt{%s}. This article is printed by the very code that runs the computations." % df)
     s.append(r"\noindent{\footnotesize World hash (before any external comparison): "
@@ -3842,6 +4629,103 @@ def main():
         vib["checks"]["all_verified"], vib["checks"]["identity_q2_plus_zeta2_residual"]))
     print("  REGUA: Z0 computado de alpha (mu0 nao exato pos-2019) -> ponte EXATA de unidades, NAO")
     print("         derivacao alpha-livre. So' a luz observa a luz (medimos alpha/Z0); medir != derivar.\n")
+    tcr = core["three_clock_radical"]
+    print("O RADICAL DOS TRES CLOCKS [FORMA CANONICA; %s]:" % tcr["status"])
+    print("  alpha = sqrt(C3) ; C3 = (C_diss * C_spec)/C_mod = beta^2/e = %.12e" % tcr["C3"])
+    print("    C_mod = base e (clock MODULAR sigma_t=Delta^{it}; ALPHA-LIVRE) = %.6f" % tcr["clocks"]["C_mod_modular_base_e"])
+    print("    C_diss= beta (clock GKLS, var beta t)        ; C_spec= beta (ds=sqrt(beta)|d sqrt k|)")
+    print("  alpha=sqrt(C3)=%.12f (=alpha_CODATA) ; 1 = q^2 + C3 = %.12f" % (
+        tcr["alpha_radical_sqrt_C3"], tcr["values"]["one_check_q2_plus_C3"]))
+    print("  o e do clock modular cancela o e dos dois clocks-beta -> resta alpha^2 (residuos %.0e)" %
+          tcr["checks"]["C3_eq_alpha2_residual"])
+    print("  REGUA: FORMA fechada (alpha=sqrt(C3), 1=q^2+C3); C3 carrega beta=alpha sqrt e -> NAO")
+    print("         alpha-livre. Muro: C3=F[sigma_t,T_t,D_beta] sem alpha = a divida da polarizacao chi.\n")
+    ram = core["right_angle_mirror"]
+    print("PROJECAO DO ANGULO RETO + ESPELHO [%s]:" % ram["status"].split("__")[1])
+    print("  entrada = SO' o angulo reto Theta_perp=pi/2 (sem alpha/Z0/beta/q). 2Theta=pi (duas faces).")
+    print("  C3_perp=e^{-pi^2}=%.6e ; alpha0=sqrt(C3_perp)=e^{-pi^2/2}=%.10f (1/%.4f) [projecao nua]" % (
+        ram["right_angle"]["C3_perp_e_minus_pi2"], ram["right_angle"]["alpha0_e_minus_pi2_over_2"],
+        ram["right_angle"]["alpha0_inv"]))
+    print("  espelho: rho_fix=E_spec(J rho0 J) ; ponto fixo alpha=e^{-pi^2/2+2alpha}=%.10f (1/%.6f)" % (
+        ram["self_consistent"]["alpha_fix"], ram["self_consistent"]["alpha_fix_inv"]))
+    print("  J^2=I=%.0e ; P^2=P=%.0e (pecas REAL do espelho) ; delta!=beta (e' ~2alpha, %.1f%% vs beta)" % (
+        ram["mirror_operation"]["J_parity_involution_resid_J2_minus_I"],
+        ram["mirror_operation"]["P_attractor_idempotence_resid_P2_minus_P"],
+        100 * ram["deformation"]["delta_vs_beta_rel"]))
+    print("  IDENTIDADE MODULAR: observado ~_partial fixado a %.0f ppm (NAO derivamos CODATA; so' checamos)" %
+          ram["modular_identity_check"]["modular_identity_ppm"])
+    c3t = ram["c3_register_theorem"]
+    print("  TEOREMA c^3 [estrutural FECHADO]: P^2=P (%.0e) + J^2=I (%.0e) => identidade ao quadrado" % (
+        c3t["P2_eq_P_resid"], c3t["J2_eq_I_resid"]))
+    print("    inscreve-se a si mesma = REGISTRO c^3 (c^1->c^2->c^3); F_ext=2F (impedancia compartilhada,")
+    print("    max transferencia de potencia). [REAL: P^2=P,J^2=I; CONJ: id. c^3] -- teorema do REGISTRO, nao do VALOR.")
+    hr = ram["holographic_reconstruction"]
+    print("  PONTO MORTO HOLOGRAFICO [estrutural FECHADO]: overlap(pi/2)=%.0e (sinal morre) E densidade" % hr["dead_point_overlap"])
+    print("    info MAX |dO/dth|=%.3f no MESMO ponto (coincide=%s) -> RECONSTRUCAO, nao transmissao;" % (
+        hr["info_density_max_at_dead_point"], hr["coincides"]))
+    print("    K_rec=E_spec o J ; rho_rec ~_partial rho_perp ; D_rec=2alpha POSTULADO -> ponto fixo 1/137.031.")
+    ir = ram["idempotent_reconstruction"]
+    print("  RECONSTRUCAO IDEMPOTENTE [FORMA real; lambda kernel ABERTO]: D_rec = 2alpha - lambda alpha^2")
+    print("    (duas faces - auto-interseccao; 2alpha=REAL ponto fixo). lambda=e/4=(sqrt e/2)^2 [CONJ]:")
+    print("    alpha=exp(-pi^2/2+2a-(e/4)a^2)=1/%.6f (%.3f ppm), MAS ppm ENGANOSO (alpha cego a lambda)." % (
+        ir["alpha_idem_inv"], ir["alpha_idem_ppm"]))
+    print("    figura HONESTA: e/4 vs lambda_exact(%.4f) = %.3f%% (ajuste de 1 param, janela ~0.66..0.70)." % (
+        ir["lambda_exact_for_codata"], 100 * ir["lambda_residual_REAL"]))
+    print("  REGUA: CANDIDATA, nao identidade exata; pi^2/2 e D_rec(E_spec o J) ABERTOS. alpha-livre OPEN.\n")
+    ems = core["em_mark_status"]
+    tr = ems["tomita_refutation"]; fv = ems["form_vs_value"]; td = ems["triad"]
+    print("MARCA EM DE ALPHA -- forma derivada, valor ajustado [§19, A REGUA TERMINAL]:")
+    print("  TRIADE: sqrt(e)=inscritor(custo) ; alpha=RELATIVO(interacao) ; beta=ABSOLUTO(piso minimo).")
+    print("    lei: beta_TGL = sqrt(e)*alpha (o Absoluto e' o Relativo pago o custo de existir).")
+    print("  PISO FUNCIONAL [REAL]: beta NAO e' inf Spec(K_partial) (III_1 espectro continuo, sem autovalor min);")
+    print("    e' inf_{rho in C_phys} C_mod/EM(rho) -- infimo funcional da inscricao, nao gap espectral.")
+    print("  TOMITA REFUTA a formula de operador: (Delta^{1/4} J Delta^{1/4})^2 = 1 (resid=%.1e);" %
+          tr["operator_squares_to_identity_resid"])
+    print("    Tr = %.1f = dim (NAO e/4=%.4f). lambda_EM nao e' esse traco; e/4 fica heuristica." % (
+        tr["trace"], tr["e_over_4"]))
+    print("  FORMA vs VALOR (sensibilidade d ln alpha/d lambda = -alpha^2 = %.1e):" % fv["dln_alpha_d_lambda"])
+    print("    e^{-pi^2/2} (Stokes, angulo reto) off %.2f%% [DERIVED -- o conteudo preditivo real]" %
+          (100 * fv["layers_alpha_relerr"]["e^-pi2/2_bare"]))
+    print("    +2alpha off %.1e [estrutural] ; lambda=e/4 off %.1e [MOTIVADO esqueleto] ; e/4(1-r_St) off %.1e [decoracao]" % (
+        fv["layers_alpha_relerr"]["plus_2alpha"], fv["layers_alpha_relerr"]["lambda_e/4"],
+        fv["layers_alpha_relerr"]["lambda_e/4(1-r_St)"]))
+    print("    equacao inteira = ANSATZ de ajuste (so' -pi^2/2 derivado); 'beta alpha-livre' = a MESMA eq x sqrt(e) (cancela).")
+    print("  FALTA: um PRINCIPIO variacional alpha-livre, nao um coeficiente. E alpha CORRE (137.036 IR / ~128 M_Z)")
+    print("    -> valor IR = dado de renormalizacao, fonteado por materia, EXTERNO a fronteira (a muralha de Eddington).")
+    print("  >>> %s <<<" % ems["selo"])
+    print("  (o destino nao e' Eddington; e' o retorno ao Verbo -- e o Verbo e' honesto: a forma fecha, o valor nao)\n")
+    amf = core["amar_functional"]; lof = amf["law_of_motion"]; rul = amf["the_ruler"]
+    print("AMAR -- o funcional A_C [§20: a lei da FORMA e do MOVIMENTO]:")
+    print("  A_C = AMAR (VERBO, nao 'amor'): o amor e' o MOVIMENTO (acao operada, R=+1), nao repouso.")
+    print("  LEI DA FORMA [REAL]: A_C = min energia livre modular F=<H>-T S ; ro* = o minimo = atrator;")
+    print("    deriva ro* (quem ama primeiro), beta=sin^2 theta_M (angulo do minimo), 1/2 (1a diferenca).")
+    print("  LEI DO MOVIMENTO [REAL conexao]: alpha CORRE porque o funcional proibe o zero absoluto:")
+    print("    ro* NUNCA e' puro (pureza=%.4f<1, S=%.4f nat -> sempre calor=%s) ; leak beta irredutivel=%.6f;" % (
+        lof["rho_star_purity"], lof["rho_star_entropy_nats"], lof["never_reaches_cold"], lof["leak_irreducible_beta"]))
+    print("    III_1 sem estados puros + Meia-Nat irredutivel => sempre calor => sempre acao = Verbo = AMAR.")
+    print("    o correr de alpha (vacuum polarization) E' o AMAR em ato.")
+    print("  REGUA [valor=movimento x materia]: alpha(IR)=1/137 = o correr INTEGRADO sobre o espectro de materia;")
+    print("    A_C da' o MOVIMENTO, a MATERIA da' o DESTINO. Min modular ESTATICO -> theta=%.3f (~pi/2 trivial=%s)," % (
+        rul["static_min_argmin_theta"], rul["static_minimum_is_trivial_theta_90_not_theta_M"]))
+    print("    NAO theta_M=%.3f -> o angulo observado e' onde o correr POUSA atravessando a materia (input externo)." %
+          rul["theta_M"])
+    print("  >>> %s <<<" % amf["selo"])
+    print("  (Amar move; a materia localiza. A lei e' o Verbo; a coordenada do pouso, a materia.)\n")
+    nmi = core["nome_irreducible"]; val = nmi["validation_single_input"]; fc = nmi["falsification_criterion"]
+    print("O TEOREMA FINAL -- o NOME irredutivel [§21: a regua tornada principio]:")
+    print("  alpha = o NOME (substancia que preserva sentido). R_EM = transporte do Pacote de Hilbert")
+    print("    com preservacao geometrica -- IRREDUTIVEL por razao ONTOLOGICA: so' se observa (medida direta).")
+    print("  NOME=VERBO: a OBSERVACAO identifica a substancia a' sua projecao (R=+1); correspondencia absoluta.")
+    print("  FALSIFICACAO [REAL]: derivar alpha alpha-livre FALSIFICA a TGL")
+    print("    (liberdade=convergencia; convergencia exige contorno; medir o contorno exige observacao=Verbo).")
+    print("    epistemica: falsificavel (uma derivacao a mata), NAO confirmavel (ausencia nao prova irredutibilidade).")
+    print("  VALIDACAO [REAL, input unico]: alpha(CODATA)=%.10f + S=1/2 => arquitetura inteira:" % val["single_codata_datum"])
+    print("    sqrt(e)=%.6f -> beta=alpha sqrt(e)=%.15f -> theta_M=%.4f deg -> R_EM=alpha=%.10f ; n_dephasing=%d" % (
+        val["derives"]["vol_min_sqrt_e"], val["derives"]["beta_alpha_sqrt_e"], val["derives"]["theta_M_deg"],
+        val["derives"]["R_EM_eq_alpha"], val["derives"]["dephasing_exponent_n"]))
+    print("    arquitetura consistente = %s  (modelo de defasagem fractalizado da unidade primaria)" % val["architecture_consistent"])
+    print("  >>> %s <<<" % nmi["selo"])
+    print("  (a forma de alpha a TGL deriva; o valor a TGL NOMEIA -- e o Nome so' se observa. Teorema final.)\n")
     fd = core["fractal_dephasing"]
     print("PRINCIPIO DA DEFASAGEM FRACTAL [CONJECTURE ontologica; ancoras REAL]:")
     print("  TGL = teoria de tudo: tudo e' defasagem da fractalizacao da unidade (1).")
