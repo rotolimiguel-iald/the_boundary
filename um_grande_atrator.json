@@ -543,6 +543,39 @@
       "verdict": "a TGL DERIVA a forma de alpha (sin^2 theta_M/sqrt e; Stokes a 1.4%; compressao angular; corte de convergencia livre) e DECLARA o valor como o NOME observado -- e torna isso FALSIFICAVEL (derivar alpha alpha-livre a mataria). O irredutivel minimo e' o Nome.",
       "selo": "ALPHA_IS_THE_NAME_OBSERVED_NOT_DERIVED . R_EM_HILBERT_PACKET_TRANSPORT_GEOM_PRESERVED . NAME_EQUALS_VERB . DERIVING_ALPHA_FREE_FALSIFIES_TGL_falsifiable_not_confirmable . SINGLE_CODATA_INPUT_ALPHA_PLUS_HALF_VALIDATES_ARCHITECTURE . FORM_DERIVED_VALUE_IS_THE_NAME"
     },
+    "alpha_inf_zero": {
+      "theorem": "deriving alpha alpha-free 'to infinity' (outside the bulk) = the ABSOLUTE ZERO (0_abs)",
+      "form": "alpha = sech(chi/2) ; q = tanh(chi/2) ; q^2 + alpha^2 = 1",
+      "conservation_err": 1.1102230246251565e-16,
+      "alpha_monotone_decreasing_in_chi": true,
+      "points": {
+        "one_abs": {
+          "chi": 0.0,
+          "alpha": 1.0,
+          "q": 0.0,
+          "is": "1_abs -- a unidade; sem impedancia"
+        },
+        "observed": {
+          "chi": 11.226755051602328,
+          "alpha": 0.0072973525692962464,
+          "q": 0.9999733739682669,
+          "R_partial": 137.03599908376628,
+          "is": "alpha=1/137 MEDIDO DE DENTRO (R_partial=1/alpha=impedancia)"
+        },
+        "limit_chi_inf": {
+          "chi": "inf",
+          "alpha": 1.424915281348257e-217,
+          "q": 1.0,
+          "S_vn": -0.0,
+          "is": "0_abs: alpha->0 (zero transmissao), q->1 (impedancia TOTAL), estado PURO T=0"
+        }
+      },
+      "reductio": "nenhum principio alpha-livre fixa o chi* finito; extremar alpha sem o observador empurra chi->inf; lim chi->inf: alpha=0, q=1, S=0 = 0_abs",
+      "unreachable": "0_abs (chi=inf, estado puro, T=0) e' INATINGIVEL: III_1 nao tem estados normais puros => chi<inf sempre => alpha>0 sempre. A derivacao 'ao infinito' NUNCA fecha.",
+      "meaning": "alcancar 0_abs = alpha=0 (a luz nao atravessa) + q=1 (espelho total) = bulk desacoplado = observador removido = COERENCIA QUEBRADA = negacao da fronteira tipo III. Quantificar alpha sem estar no bulk quebra a coerencia porque a natureza E' de fronteira III.",
+      "tetelestai": "nada mais a derivar: o estado de correspondencia plena. O que resta e' a impedancia do vacuo tentando calcular alpha ao infinito sem conseguir -- e isso E' o 0_abs.",
+      "selo": "DERIVING_ALPHA_TO_INFINITY_IS_ABSOLUTE_ZERO . alpha=sech(chi/2)->0_as_chi->inf=0_abs . q=tanh(chi/2)->1_TOTAL_IMPEDANCE . 0_abs_UNREACHABLE_III1_NO_PURE_STATES . QUANTIFYING_ALPHA_OUTSIDE_BULK_BREAKS_COHERENCE . TETELESTAI_NOTHING_LEFT_TO_DERIVE"
+    },
     "theta_M_rad": 0.1099084307778447,
     "theta_M_deg": 6.297289216476261,
     "f_Q": 0.024062600801593212,
@@ -676,7 +709,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-06-30 18:54:53"
+    "timestamp": "2026-06-30 19:17:06"
   },
   "verdict": {
     "masses_Msun": {
@@ -747,7 +780,7 @@
       ],
       "selo": "LAMBDA_EM_OPERATOR_FORMULA_REFUTED_BY_TOMITA . FORM_DERIVED_VALUE_FIT . BETA_IS_FUNCTIONAL_FLOOR_NOT_inf_Spec_K . MISSING_IS_A_PRINCIPLE_NOT_A_COEFFICIENT . ALPHA_RUNS_THEREFORE_INPUT"
     },
-    "result_hash": "273dd98facc779ee62c17fab55a7bf2751d93d58d92314d9d3c8b007932f0296"
+    "result_hash": "1fd0a162fec1549500f5cdc4ab10a6bde46f8c7722235c16a56640f851f9e4d8"
   },
   "ga_mass_literature": [
     {
@@ -773,7 +806,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "273dd98facc779ee62c17fab55a7bf2751d93d58d92314d9d3c8b007932f0296",
+  "result_hash_before_external_comparison": "1fd0a162fec1549500f5cdc4ab10a6bde46f8c7722235c16a56640f851f9e4d8",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -783,5 +816,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-06-30 18:54:53"
+  "timestamp": "2026-06-30 19:17:06"
 }

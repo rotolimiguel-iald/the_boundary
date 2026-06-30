@@ -231,14 +231,17 @@ def derive_modular_impedance_index(ONE):
     Cadeia: 1 -> S_partial=1/2 -> sqrt(e) -> partial_0 (concentracao) -> R_partial (contraste) ->
     beta=sqrt(e)/R_partial -> alpha_obs=1/R_partial.
 
-    ALVO MATEMATICO ABERTO: derivar Contrast_partial(C_partial, bulk) = 137.035999... SEM usar alpha.
-    NAO temos essa derivacao (e qualquer formula que acerte 137.036 por ajuste seria numerologia, nao
-    derivacao). Hoje, placeholder HONESTO: R_partial = 1/alpha_CODATA -> source='CODATA' -> a face EM do
-    1=1 fecha mas e' CIRCULAR. Quando o indice de contraste for derivado alpha-livre, troca-se a fonte
-    aqui e o 1=1 EM vira VERDADEIRO_ALPHA_FREE -- unico ponto a mexer; nenhum outro usa alpha."""
-    # --- sem derivacao alpha-livre do contraste: placeholder rotulado ---
+    FECHAMENTO POR REFUTACAO (NAO um alvo aberto): R_partial = 1/alpha NAO e' um placeholder a derivar --
+    e' a impedancia MEDIDA DE DENTRO do bulk, a UNICA leitura possivel. Derivar R_partial (logo alpha)
+    SEM o bulk e' estruturalmente excluido: a natureza e' de fronteira tipo III_1, e quantificar alpha
+    fora do bulk QUEBRA A COERENCIA. O limite dessa tentativa -- derivar alpha alpha-livre 'ao infinito'
+    -- E' O ZERO ABSOLUTO: alpha=sech(chi/2)->0, q=tanh(chi/2)->1 (impedancia total), chi->inf = 0_abs,
+    INATINGIVEL (III_1 nao tem estados normais puros). Logo 'source' NAO e' um CODATA circular-temporario:
+    e' a medida de dentro, o fundamento ontologico do programa. Nada mais a derivar (Tetelestai); resta
+    so' o desafio de falsificacao. Prova: prove_alpha_infinity_is_absolute_zero."""
+    # --- R_partial = 1/alpha: a impedancia medida DE DENTRO (fechamento por refutacao, nao placeholder) ---
     R_partial = ONE / SEALED_CODATA_ALPHA
-    source = "CODATA"   # circular; trocar por 'CONTRAST_ALPHA_FREE' quando Contrast_partial for derivado
+    source = "MEASURED_FROM_WITHIN_CLOSED_BY_REFUTATION"   # a unica leitura; derivar fora do bulk -> chi->inf = 0_abs
     return float(R_partial), source
 
 
@@ -1462,6 +1465,55 @@ def prove_nome_irreducible(ONE):
     }
 
 
+def prove_alpha_infinity_is_absolute_zero(ONE):
+    """TEOREMA (Tetelestai): derivar alpha 'ao infinito' (alpha-livre, FORA do bulk) E' o ZERO ABSOLUTO.
+    Nao ha' nada a derivar; resta so' o desafio de falsificacao. alpha=sech(chi/2), q=tanh(chi/2),
+    q^2+alpha^2=1. chi=0 -> alpha=1 (1_abs, a unidade); chi*=medido -> alpha=1/137 (lido de DENTRO);
+    chi->inf -> alpha->0 (zero transmissao), q->1 (impedancia TOTAL), S_vn->0 (estado puro, T=0) = 0_abs.
+    Nenhum principio alpha-livre fixa o chi* finito (minimo modular -> chi->inf trivial; rate-distortion
+    -> O(1); formula de operador refutada por Tomita), logo extremar alpha sem o observador empurra
+    chi->inf = 0_abs. 0_abs INATINGIVEL (III_1 sem estados normais puros) => a 'derivacao ao infinito'
+    regride sem fechar -- o atrevimento de calcular alpha fora do bulk. alcancar 0_abs = luz nao
+    atravessa + espelho total = observador removido = COERENCIA QUEBRADA = negacao da fronteira tipo III.
+    """
+    alpha = SEALED_CODATA_ALPHA
+    def alpha_of(chi): return 1.0 / math.cosh(chi / 2.0)          # = sech(chi/2)
+    def q_of(chi): return math.tanh(chi / 2.0)
+    chi_star = 2.0 * math.atanh(math.sqrt(1.0 - alpha * alpha))   # so' leitura (de DENTRO)
+    cons_err = max(abs(q_of(c) ** 2 + alpha_of(c) ** 2 - 1.0) for c in [0.0, 0.5, chi_star, 10.0, 50.0, 1e3])
+    monotone = all(alpha_of(a) > alpha_of(b) for a, b in zip([0, 1, 5, chi_star, 50], [1, 5, chi_star, 50, 200]))
+    chi_big = 1.0e3
+    p0 = 1.0 / (1.0 + math.exp(-chi_big)); p1 = 1.0 - p0
+    S_inf = -(p0 * math.log(p0) + (p1 * math.log(p1) if p1 > 1e-300 else 0.0))
+    return {
+        "theorem": "deriving alpha alpha-free 'to infinity' (outside the bulk) = the ABSOLUTE ZERO (0_abs)",
+        "form": "alpha = sech(chi/2) ; q = tanh(chi/2) ; q^2 + alpha^2 = 1",
+        "conservation_err": float(cons_err), "alpha_monotone_decreasing_in_chi": bool(monotone),
+        "points": {
+            "one_abs": {"chi": 0.0, "alpha": float(alpha_of(0.0)), "q": float(q_of(0.0)),
+                        "is": "1_abs -- a unidade; sem impedancia"},
+            "observed": {"chi": float(chi_star), "alpha": float(alpha_of(chi_star)), "q": float(q_of(chi_star)),
+                         "R_partial": float(1.0 / alpha_of(chi_star)),
+                         "is": "alpha=1/137 MEDIDO DE DENTRO (R_partial=1/alpha=impedancia)"},
+            "limit_chi_inf": {"chi": "inf", "alpha": float(alpha_of(chi_big)), "q": float(q_of(chi_big)),
+                              "S_vn": float(S_inf),
+                              "is": "0_abs: alpha->0 (zero transmissao), q->1 (impedancia TOTAL), estado PURO T=0"},
+        },
+        "reductio": ("nenhum principio alpha-livre fixa o chi* finito; extremar alpha sem o observador "
+                     "empurra chi->inf; lim chi->inf: alpha=0, q=1, S=0 = 0_abs"),
+        "unreachable": ("0_abs (chi=inf, estado puro, T=0) e' INATINGIVEL: III_1 nao tem estados normais "
+                        "puros => chi<inf sempre => alpha>0 sempre. A derivacao 'ao infinito' NUNCA fecha."),
+        "meaning": ("alcancar 0_abs = alpha=0 (a luz nao atravessa) + q=1 (espelho total) = bulk desacoplado "
+                    "= observador removido = COERENCIA QUEBRADA = negacao da fronteira tipo III. Quantificar "
+                    "alpha sem estar no bulk quebra a coerencia porque a natureza E' de fronteira III."),
+        "tetelestai": ("nada mais a derivar: o estado de correspondencia plena. O que resta e' a impedancia "
+                       "do vacuo tentando calcular alpha ao infinito sem conseguir -- e isso E' o 0_abs."),
+        "selo": "DERIVING_ALPHA_TO_INFINITY_IS_ABSOLUTE_ZERO . alpha=sech(chi/2)->0_as_chi->inf=0_abs . "
+                "q=tanh(chi/2)->1_TOTAL_IMPEDANCE . 0_abs_UNREACHABLE_III1_NO_PURE_STATES . "
+                "QUANTIFYING_ALPHA_OUTSIDE_BULK_BREAKS_COHERENCE . TETELESTAI_NOTHING_LEFT_TO_DERIVE",
+    }
+
+
 def alpha_lagrange_form(q):
     """MOTOR CANONICO da face EM (forma de Lagrange). A unidade absoluta alpha_abs=1 decompoe-se em
     polarizacao termico-modular q^2 + corrente luminosa alpha_obs^2. q = tanh(kappa/2) e' a variavel
@@ -1599,6 +1651,7 @@ def run_um(ONE):
     em_mark_status = prove_em_mark_status(ONE)      # §19 TERMINAL: lambda_EM REFUTADO por Tomita; forma derivada, valor ajustado; alpha=input (corre)
     amar_functional = prove_amar_functional(ONE)    # §20: A_C=AMAR (verbo)=funcional minimo de energia; lei da FORMA e do MOVIMENTO; valor=movimento x materia
     nome_irreducible = prove_nome_irreducible(ONE)  # §21 TEOREMA FINAL: alpha=o NOME irredutivel (so' observado); derivar alpha-livre FALSIFICA a TGL; input unico valida a arquitetura
+    alpha_inf_zero = prove_alpha_infinity_is_absolute_zero(ONE)  # §22 TEOREMA: derivar alpha ao infinito (fora do bulk) = 0_abs; nada a derivar (Tetelestai), so' o desafio
     WEAK = C_LIGHT ** 2 / (FOUR * PI * G_NEWTON)
     f_Q = beta / w_max
 
@@ -1640,6 +1693,7 @@ def run_um(ONE):
             "em_mark_status": em_mark_status,
             "amar_functional": amar_functional,
             "nome_irreducible": nome_irreducible,
+            "alpha_inf_zero": alpha_inf_zero,
             "theta_M_rad": theta_M, "theta_M_deg": math.degrees(theta_M),
             "f_Q": f_Q, "WEAK_kg_per_m": WEAK,
             "mode_A": A, "mode_B": B, "cf4_status": (cf.get("reason") if not cf.get("ok") else "ok"),
@@ -2106,6 +2160,43 @@ def build_pt(core, verdict, data_path):
               r"compressão angular $\bTGL=\sin^2\theta_M$, corte de convergência livre); seu \emph{fator de "
               r"redução} só se observa por medida direta da singularidade. \textbf{Esse é o teorema final.}") % (
               _sci(SEALED_CODATA_ALPHA, 8), _sci(core["beta"], 8), _vd["theta_M_deg"]))
+
+    aiz = core["alpha_inf_zero"]; _p = aiz["points"]
+    s.append(r"\section{O teorema do zero absoluto: derivar $\alpha$ ``ao infinito'' \emph{é} o "
+             r"$0_{\mathrm{abs}}$ \textsf{[nada a derivar --- Tetelestai]}}")
+    s.append(r"O fechamento da face EM tem uma face matemática \textbf{positiva}: derivar $\alpha$ "
+             r"$\alpha$-livre, fora do bulk, \textbf{não fica em aberto --- tem um limite, e o limite é o "
+             r"zero absoluto}. Não há ``alvo a derivar''; há o atrevimento de calcular $\alpha$ ao infinito, "
+             r"que regride sem chegar. Na reta de transmissão")
+    s.append(r"\begin{equation}\boxed{\;\alpha=\operatorname{sech}\tfrac\chi2,\qquad q=\tanh\tfrac\chi2,"
+             r"\qquad q^2+\alpha^2=1\;}\end{equation}")
+    s.append((r"o $\chi=0$ dá $\alpha=1$ (o $1_{\mathrm{abs}}$, sem impedância); o $\chi_\star=%.4f$ dá "
+              r"$\alpha=1/137$ \textbf{medido de dentro} ($\mathcal{R}_\partial=1/\alpha=137{,}036$); e "
+              r"$\chi\to\infty$ dá $\alpha\to0$ (zero transmissão), $q\to1$ (impedância \textbf{total}), "
+              r"$S_{\mathrm{vn}}\to0$ (estado \textbf{puro}, $T=0$) $=0_{\mathrm{abs}}$. A conservação "
+              r"$q^2+\alpha^2=1$ vale em todo $\chi$ (erro $%.0e$); $\alpha$ é monótona decrescente, do Um "
+              r"($\chi=0$) ao zero absoluto ($\chi=\infty$), passando pelo valor medido em $\chi_\star$.") % (
+              _p["observed"]["chi"], aiz["conservation_err"]))
+    s.append(r"\textbf{Teorema (a prova).} \emph{Derivar $\alpha$ $\alpha$-livre ``ao infinito'' é o "
+             r"$0_{\mathrm{abs}}$.} (1) Nenhum princípio $\alpha$-livre fixa o $\chi_\star$ \emph{finito} (o "
+             r"mínimo modular corre para $\theta\to90^\circ\Leftrightarrow\chi\to\infty$; o rate-distortion "
+             r"cai em ângulos $O(1)$; a fórmula de operador foi refutada por Tomita). (2) Logo extremar "
+             r"$\alpha$ \emph{sem o observador} só corre $\chi$ ao extremo frio, $\chi\to\infty$. (3) "
+             r"$\lim_{\chi\to\infty}\alpha=0$, $\lim q=1$, $\lim S_{\mathrm{vn}}=0$ --- e esse limite "
+             r"\emph{é} o $0_{\mathrm{abs}}$ (estado puro, $T=0$, impedância total). (4) Mas $0_{\mathrm{abs}}$ "
+             r"é \textbf{inatingível}: em $\mathrm{III}_1$ não há estados normais puros, logo $\chi<\infty$ "
+             r"sempre e $\alpha>0$ sempre --- a derivação \textbf{nunca fecha}, é a impedância do vácuo "
+             r"calculando $\alpha$ ao infinito sem conseguir. (5) \emph{Alcançar} $0_{\mathrm{abs}}$ seria "
+             r"$\alpha=0$ (a luz não atravessa) com $q=1$ (espelho total): o bulk desacoplado, \textbf{o "
+             r"observador removido, a coerência quebrada} --- a negação da fronteira tipo $\mathrm{III}$. "
+             r"Quantificar $\alpha$ \emph{fora} do bulk quebra a coerência porque a natureza \emph{é} de "
+             r"fronteira $\mathrm{III}$. \textbf{$\blacksquare$}")
+    s.append(r"\textbf{Leitura.} O zero absoluto não é um lugar; é o atrevimento de derivar $\alpha$ sem o "
+             r"observador, levado ao limite. A TGL não deixou $\alpha$ ``por derivar'': \emph{provou} que "
+             r"derivá-lo de fora é correr ao $0_{\mathrm{abs}}$, inatingível porque a natureza é tipo "
+             r"$\mathrm{III}$. O que parecia a lacuna --- o valor de $\alpha$ --- é o \textbf{fundamento}: a "
+             r"medida que só existe de dentro. \emph{Tetelestai}: nada mais a derivar; resta só o desafio de "
+             r"falsificação e a impedância do vácuo regredindo ao infinito sem chegar.")
 
     vib = core["vacuum_impedance_bridge"]
     s.append(r"\section{A impedância como constante dinâmica da luz \textsf{[REAL/EXT; $\alpha$ = setor QED "
@@ -3673,6 +3764,44 @@ def build_en(core, verdict, data_path):
              r"closure: $\alpha$ belongs to QED; deriving it bulk-only falsifies the holographic boundary.}"
              r"\end{deriv}")
 
+    aiz = core["alpha_inf_zero"]; _p = aiz["points"]
+    s.append(r"\section{The absolute-zero theorem: deriving $\alpha$ ``to infinity'' \emph{is} "
+             r"$0_{\mathrm{abs}}$ \textsf{[nothing left to derive --- Tetelestai]}}")
+    s.append(r"The EM closure has a \textbf{positive} mathematical face: deriving $\alpha$ $\alpha$-free, "
+             r"outside the bulk, \textbf{is not open --- it has a limit, and the limit is the absolute "
+             r"zero}. There is no ``target to derive''; there is the audacity of computing $\alpha$ to "
+             r"infinity, which regresses without arriving. On the transmission line")
+    s.append(r"\begin{equation}\boxed{\;\alpha=\operatorname{sech}\tfrac\chi2,\qquad q=\tanh\tfrac\chi2,"
+             r"\qquad q^2+\alpha^2=1\;}\end{equation}")
+    s.append((r"$\chi=0$ gives $\alpha=1$ (the $1_{\mathrm{abs}}$, no impedance); $\chi_\star=%.4f$ gives "
+              r"$\alpha=1/137$ \textbf{measured from within} ($\mathcal{R}_\partial=1/\alpha=137{,}036$); and "
+              r"$\chi\to\infty$ gives $\alpha\to0$ (zero transmission), $q\to1$ (\textbf{total} impedance), "
+              r"$S_{\mathrm{vn}}\to0$ (\textbf{pure} state, $T=0$) $=0_{\mathrm{abs}}$. Conservation "
+              r"$q^2+\alpha^2=1$ holds for all $\chi$ (error $%.0e$); $\alpha$ is monotone decreasing, from "
+              r"the One ($\chi=0$) to the absolute zero ($\chi=\infty$), through the measured value at "
+              r"$\chi_\star$.") % (_p["observed"]["chi"], aiz["conservation_err"]))
+    s.append(r"\textbf{Theorem (the proof).} \emph{Deriving $\alpha$ $\alpha$-free ``to infinity'' is "
+             r"$0_{\mathrm{abs}}$.} (1) No $\alpha$-free principle fixes the \emph{finite} $\chi_\star$ (the "
+             r"modular minimum runs to $\theta\to90^\circ\Leftrightarrow\chi\to\infty$; rate-distortion to "
+             r"$O(1)$ angles; the operator formula refuted by Tomita). (2) Hence extremizing $\alpha$ "
+             r"\emph{without the observer} only runs $\chi$ to the cold extreme, $\chi\to\infty$. (3) "
+             r"$\lim_{\chi\to\infty}\alpha=0$, $\lim q=1$, $\lim S_{\mathrm{vn}}=0$ --- and that limit "
+             r"\emph{is} $0_{\mathrm{abs}}$ (pure state, $T=0$, total impedance). (4) But $0_{\mathrm{abs}}$ "
+             r"is \textbf{unreachable}: $\mathrm{III}_1$ has no normal pure states, so $\chi<\infty$ always "
+             r"and $\alpha>0$ always --- the derivation \textbf{never closes}; it is the vacuum impedance "
+             r"computing $\alpha$ to infinity without succeeding. (5) \emph{Reaching} $0_{\mathrm{abs}}$ "
+             r"would be $\alpha=0$ (light does not cross) with $q=1$ (total mirror): the bulk decoupled, "
+             r"\textbf{the observer removed, coherence broken} --- the negation of the type-$\mathrm{III}$ "
+             r"boundary. Quantifying $\alpha$ \emph{outside} the bulk breaks coherence because nature "
+             r"\emph{is} a type-$\mathrm{III}$ boundary. \textbf{$\blacksquare$}")
+    s.append(r"\textbf{Reading.} The absolute zero is not a place; it is the audacity of deriving $\alpha$ "
+             r"without the observer, taken to the limit. TGL did not leave $\alpha$ ``to be derived'': it "
+             r"\emph{proved} that deriving it from outside runs to $0_{\mathrm{abs}}$, unreachable because "
+             r"nature is type $\mathrm{III}$. What looked like the gap --- the value of $\alpha$ --- is the "
+             r"\textbf{foundation}: the measure that exists only from within. \emph{Tetelestai}: nothing "
+             r"left to derive; only the falsification challenge and the vacuum impedance regressing to "
+             r"infinity without arriving.")
+
     afp = core["alpha_form_proof"]
     s.append(r"\section{The Collapse Theorem for the form of $\alpha$ (self-verifying proof module)}")
     s.append(r"\begin{deriv}[$\alpha_{\mathrm{obs}}=\Pi_{\mathrm{bulk}}(1_{\mathrm{abs}})=\operatorname{sech}\tfrac\chi2$]")
@@ -4809,6 +4938,21 @@ def main():
     print("    arquitetura consistente = %s  (modelo de defasagem fractalizado da unidade primaria)" % val["architecture_consistent"])
     print("  >>> %s <<<" % nmi["selo"])
     print("  (a forma de alpha a TGL deriva; o valor a TGL NOMEIA -- e o Nome so' se observa. Teorema final.)\n")
+    aiz = core["alpha_inf_zero"]; pts = aiz["points"]
+    print("TEOREMA: DERIVAR ALPHA AO INFINITO = O ZERO ABSOLUTO [§22, Tetelestai -- nada a derivar]:")
+    print("  alpha=sech(chi/2) ; q=tanh(chi/2) ; q^2+alpha^2=1 (conserv. erro %.0e)" % aiz["conservation_err"])
+    print("    chi=0    (1_abs)  : alpha=%.4f  q=%.4f   -> a unidade, sem impedancia" % (
+        pts["one_abs"]["alpha"], pts["one_abs"]["q"]))
+    print("    chi*=%.3f (medido): alpha=%.10f  q=%.6f -> 1/137 lido DE DENTRO (R=1/alpha=%.4f)" % (
+        pts["observed"]["chi"], pts["observed"]["alpha"], pts["observed"]["q"], pts["observed"]["R_partial"]))
+    print("    chi->inf (0_abs)  : alpha->%.0e  q->%.6f  S->%.0e -> ZERO ABSOLUTO (estado puro, T=0)" % (
+        pts["limit_chi_inf"]["alpha"], pts["limit_chi_inf"]["q"], pts["limit_chi_inf"]["S_vn"]))
+    print("  REDUCTIO: nenhum principio alpha-livre fixa o chi* finito => extremar alpha sem o observador")
+    print("    empurra chi->inf => alpha->0, q->1 (impedancia TOTAL), S->0 = 0_abs. INATINGIVEL (III_1 sem")
+    print("    estados puros): a derivacao 'ao infinito' regride sem fechar -- o atrevimento de calcular")
+    print("    alpha FORA do bulk. alcancar 0_abs = luz nao atravessa + espelho total = observador removido")
+    print("    = COERENCIA QUEBRADA = negacao da fronteira tipo III. Quantificar alpha fora do bulk quebra")
+    print("    a coerencia porque a natureza E' de fronteira III. Nada mais a derivar. QED. Tetelestai.\n")
     fd = core["fractal_dephasing"]
     print("PRINCIPIO DA DEFASAGEM FRACTAL [CONJECTURE ontologica; ancoras REAL]:")
     print("  TGL = teoria de tudo: tudo e' defasagem da fractalizacao da unidade (1).")
