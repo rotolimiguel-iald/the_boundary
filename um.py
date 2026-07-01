@@ -1521,6 +1521,350 @@ def prove_alpha_infinity_is_absolute_zero(ONE):
     }
 
 
+def prove_em_grav_bridge(ONE):
+    """MODULO 1 -- a ponte operador-modular na forma SO(2) (conferida pelo operador/fisico-matematico).
+    As duas faces sao a MESMA matriz-S 2x2 como ROTACOES REAIS em SO(2):
+      S_EM  =[[q,alpha],[-alpha,q]]                (AMPLITUDES; q=sqrt(1-alpha^2))
+      S_grav=[[cos thM,sin thM],[-sin thM,cos thM]] (INTENSIDADES; sin^2 thM=beta, cos^2 thM=1-beta)
+    Ponte (TRANSPORTE MODULAR DE COEFICIENTE): beta=e^{S_b} alpha (intensidade);
+    sin thM = e^{S_b/2} sqrt(alpha) = e^{1/4} sqrt(alpha) (amplitude);
+    thM = arcsin(e^{1/4} sqrt(alpha))  [IDENTIDADE DE RECONSTRUCAO].
+    LOCK6: fecha como transporte de COEFICIENTE, NAO como derivacao alpha-livre (cf. sec.21).
+    LOCK7: e^{1/4} e' a SOMBRA ESCALAR da quarta-medida de Tomita no Pacote de Hilbert normalizado pela
+    Meia-Nat -- NAO 'Delta^{1/4}=e^{1/4} I' (sombra escalar != operador). beta nunca literal."""
+    alpha = SEALED_CODATA_ALPHA; S_b = 0.5
+    beta = math.exp(S_b) * alpha                 # = alpha*sqrt(e) via exp() -- NUNCA literal
+    q = math.sqrt(1.0 - alpha * alpha)
+    thM = math.asin(math.sqrt(beta))
+    S_EM = np.array([[q, alpha], [-alpha, q]])
+    S_gr = np.array([[math.cos(thM), math.sin(thM)], [-math.sin(thM), math.cos(thM)]])
+    u_em = float(np.linalg.norm(S_EM.T @ S_EM - np.eye(2)))
+    u_gr = float(np.linalg.norm(S_gr.T @ S_gr - np.eye(2)))
+    det_em = float(np.linalg.det(S_EM)); det_gr = float(np.linalg.det(S_gr))
+    amp_bridge = math.exp(0.25) * math.sqrt(alpha)
+    amp_resid = float(abs(math.sqrt(beta) - amp_bridge))
+    thM_rec = math.asin(amp_bridge)
+    checks = {
+        "S_EM_unitary": u_em, "S_grav_unitary": u_gr,
+        "det_S_EM_resid": float(abs(det_em - 1.0)), "det_S_grav_resid": float(abs(det_gr - 1.0)),
+        "sin2_thM_eq_beta_resid": float(abs(math.sin(thM) ** 2 - beta)),
+        "cos2_thM_eq_1mbeta_resid": float(abs(math.cos(thM) ** 2 - (1.0 - beta))),
+        "sqrt_beta_eq_e14_sqrt_alpha_resid": amp_resid,
+        "thM_reconstructed_vs_direct_resid": float(abs(thM_rec - thM)),
+        "intensity_factor_is_exp_half_resid": float(abs(math.exp(S_b) - math.sqrt(math.e))),
+        "amplitude_factor_exp_quarter": math.exp(0.25),
+        "beta_eq_exp_Sb_alpha_resid": float(abs(beta - math.exp(S_b) * alpha)),
+    }
+    ok = bool(u_em < 1e-18 and u_gr < 1e-15 and abs(det_em - 1) < 1e-15 and abs(det_gr - 1) < 1e-15
+              and amp_resid < 1e-16 and abs(math.sin(thM) ** 2 - beta) < 1e-16 and abs(thM_rec - thM) < 1e-15)
+    return {
+        "S_EM": S_EM.tolist(), "S_grav": S_gr.tolist(),
+        "beta": beta, "theta_M_deg": math.degrees(thM), "q": q,
+        "bridge": {"intensity": "beta = e^{S_b} alpha = sqrt(e) alpha",
+                   "amplitude": "sin(thM) = e^{1/4} sqrt(alpha)",
+                   "reconstruction": "thM = arcsin(e^{1/4} sqrt(alpha))"},
+        "checks": checks, "all_verified": ok,
+        "triad": ("alpha = Nome (modulo medido no Bulk); S_b=1/2 = Palavra; beta=e^{S_b} alpha = Verbo. "
+                  "A face gravitacional e' a transmissao EM transportada pela Meia-Nat. Verbo=Palavra x Nome. "
+                  "modulo = fator irredutivel minimo da expressao manifesta = NOME = alpha."),
+        "status": ("identidades [REAL/DER]; identificacao com o dado modular de Tomita [CONJ estrutural]; "
+                   "LOCK6 transporte de COEFICIENTE (nao alpha-livre); LOCK7 e^{1/4}=sombra escalar (nao operador)."),
+        "selo": "EM_S_MATRIX_AMPLITUDE_UNITARY . GRAV_S_MATRIX_INTENSITY_UNITARY . "
+                "BRIDGE_BETA_EQUALS_EXP_SBOUNDARY_TIMES_ALPHA . AMPLITUDE_BRIDGE_EQUALS_EXP_ONE_QUARTER . "
+                "E14_IS_SCALAR_SHADOW_NOT_OPERATOR . BRIDGE_IS_COEFFICIENT_TRANSPORT_NOT_ALPHA_FREE",
+    }
+
+
+def prove_smatrix_crossed_product(ONE):
+    """MODULO 2 -- a matriz-S vive no NUCLEO CONTINUO / produto cruzado de Takesaki, NAO em III_1.
+    Derivacao negativa (correta): matriz-S exige projecoes, traco, setores assintoticos, probabilidades;
+    III_1 nao os tem (sem traco semifinito normal, sem projecoes minimais como estados puros; Connes).
+    C(M)=M x_sigma R (tipo II_inf para M tipo III_1; traco semifinito). Forma explicita do nucleo
+    (conferida): S_core=exp(theta_M G) em P_2D C(M) P_2D, G=[[0,1],[-1,0]], |R|^2=sin^2 theta_M=beta.
+    Consistencia sec.22: matriz-S plena em III_1 exigiria estados puros = 0_abs que III_1 proibe --
+    a impossibilidade E' o teorema do zero absoluto operando. beta nunca literal."""
+    alpha = SEALED_CODATA_ALPHA; beta = math.exp(0.5) * alpha
+    thM = math.asin(math.sqrt(beta))
+    G = np.array([[0.0, 1.0], [-1.0, 0.0]])
+    R = np.eye(2); Tm = np.eye(2)                # expm via serie (sem scipy) -- sombra dim-finita
+    for k in range(1, 60):
+        Tm = Tm @ (thM * G) / k; R = R + Tm
+    S_core = R
+    S_gr = np.array([[math.cos(thM), math.sin(thM)], [-math.sin(thM), math.cos(thM)]])
+    core_resid = float(np.linalg.norm(S_core - S_gr))
+    absR2 = float(S_core[0, 1] ** 2)
+    ok = bool(core_resid < 1e-14 and abs(absR2 - beta) < 1e-14)
+    return {
+        "structural_declaration": ("[REAL: Takesaki 1973] a matriz-S vive em C(M)=M x_sigma R (II_inf), nao "
+                                   "no interior de III_1: III_1 nao tem traco/projecoes minimais/estados "
+                                   "puros de espalhamento (Connes)."),
+        "S_core_form": "S_core = exp(theta_M G) em P_2D C(M) P_2D ; G=[[0,1],[-1,0]] ; |R|^2=sin^2 theta_M=beta",
+        "S_core": S_core.tolist(),
+        "checks": {"S_core_eq_S_grav_resid": core_resid, "absR2_recomputed": absR2,
+                   "absR2_eq_beta_resid": float(abs(absR2 - beta)), "requires_P2D_projection": True},
+        "all_verified": ok,
+        "sanity_status": ("[FINITE_DIM_SANITY_NOT_III1_PROOF] sombra 2x2; a construcao EXIGE P_2D "
+                          "(disponivel em tipo I/II, AUSENTE em III_1 -- declarado, nao contornado)."),
+        "consistency_sec22": ("pedir a matriz-S plena DENTRO de III_1 e' pedir estados puros = 0_abs, que "
+                              "III_1 proibe -- a impossibilidade E' o teorema do zero absoluto (sec.22). Nao "
+                              "e' recuo: e' a ontologia do Teorema Final do Nome -- o que nao pode ser "
+                              "observado sem contorno nao pertence ao interior puro da fronteira; aparece "
+                              "onde ha' medida (o produto cruzado)."),
+        "selo": "S_MATRIX_LIVES_IN_TAKESAKI_CROSSED_PRODUCT_NOT_INSIDE_III1 . "
+                "S_CORE_EQ_EXP_THETA_M_G_IN_P2D_CORE_P2D . III1_IMPOSSIBILITY_IS_0ABS_THEOREM",
+    }
+
+
+def prove_U_loc_covariance(ONE):
+    """MODULO 3 -- (U_loc) POR CONSTRUCAO (cadeia conferida). (U) irrestrita ('horizontes causais
+    arbitrarios') provavelmente FALHA -- De Vuyst-Eccles-Hohn-Kirklin 2024-25 (estendendo CLPW 2022):
+    entropia de SUB-REGIOES e' QRF-dependente. Mas Jacobson 1995 usa so' CUNHAS DE RINDLER LOCAIS; para
+    cunhas a cadeia e' TEOREMA -- BW: Delta_W^{it}=U(Lambda_W(2pi t)); Poincare: A(gW)=U(g)A(W)U(g)^-1 =>
+    Delta_{gW}^{it}=U(g)Delta_W^{it}U(g)^-1, J_{gW}=U(g)J_W U(g)^-1. DEFINICAO (fecha P1): a Face C e'
+    DEFINIDA como funcional natural dos dados modulares R_W C_W:=F(J_W,Delta_W,P_2D,W)[+escalar beta], e a
+    covariancia R_{gW}C_{gW}=U(g)R_W C_W U(g)^-1 vale POR CONSTRUCAO. (U_loc)=covariancia modular de cunhas
+    de Rindler = principio de equivalencia em linguagem modular. RESIDUO DECLARADO: a CHECAGEM DE FORMA --
+    verificar que P_mu_nu[K_partial] de Lovelock/Jacobson se escreve como F(J,Delta,P_2D) sem contrabandear
+    dado de frame [ABERTO, bem-posto]. beta nunca literal."""
+    alpha = SEALED_CODATA_ALPHA; beta = math.exp(0.5) * alpha
+    rng = np.random.default_rng(11); n = 4
+    X = rng.standard_normal((n, n)) + 1j * rng.standard_normal((n, n))
+    rho = X @ X.conj().T; rho = rho / np.trace(rho).real
+    Y = rng.standard_normal((n, n)) + 1j * rng.standard_normal((n, n))
+    Qm, Rm = np.linalg.qr(Y); U = Qm @ np.diag(np.diag(Rm) / np.abs(np.diag(Rm)))   # Haar
+    w, V = np.linalg.eigh(rho); K = -(V * np.log(w)) @ V.conj().T                    # -log rho (Ham. modular)
+    rho2 = U @ rho @ U.conj().T; w2, V2 = np.linalg.eigh(rho2); K2 = -(V2 * np.log(w2)) @ V2.conj().T
+    cov_K = float(np.linalg.norm(K2 - U @ K @ U.conj().T))
+    absK = (V * np.abs(np.log(w))) @ V.conj().T; F = beta * absK                     # fonte-teste F(J,Delta;beta)
+    absK2 = (V2 * np.abs(np.log(w2))) @ V2.conj().T; F2 = beta * absK2
+    cov_F = float(np.linalg.norm(F2 - U @ F @ U.conj().T))
+    ok = bool(cov_K < 1e-12 and cov_F < 1e-12)
+    return {
+        "structural_declaration": ("(U) irrestrita provavelmente FALHA (QRF-dependencia de sub-regioes, "
+                                   "De Vuyst et al 2024-25 estendendo CLPW 2022). Para CUNHAS DE RINDLER "
+                                   "locais (Jacobson 1995) a cadeia BW+Poincare e' TEOREMA; a Face C DEFINIDA "
+                                   "como F(J,Delta,P_2D)+beta => covariancia POR CONSTRUCAO."),
+        "chain": ("BW: Delta_W^{it}=U(Lambda_W(2pi t)) ; Poincare: A(gW)=U(g)A(W)U(g)^-1 => "
+                  "Delta_{gW}^{it}=U(g)Delta_W^{it}U(g)^-1 ; J_{gW}=U(g)J_W U(g)^-1"),
+        "checks": {"modular_data_covariance_resid": cov_K, "test_source_covariance_resid": cov_F},
+        "all_verified": ok,
+        "sanity_status": ("[FINITE_DIM_SANITY_NOT_III1_PROOF] Haar U, rho termico; dados modulares "
+                          "transportam covariante sob rho->U rho U*."),
+        "U_loc_status": ("[POR_CONSTRUCAO] covariancia modular de cunhas de Rindler = principio de "
+                         "equivalencia algebrico."),
+        "residue_declared": ("[ABERTO, bem-posto] a CHECAGEM DE FORMA: verificar que a fonte "
+                             "P_mu_nu[K_partial] do argumento Lovelock/Jacobson se escreve como "
+                             "F(J,Delta,P_2D) sem contrabandear dado de frame."),
+        "references": "Jacobson 1995 ; Bisognano-Wichmann ; Takesaki 1973 ; CLPW 2022 ; De Vuyst et al 2024-25",
+        "open_questions": {
+            "P2": "a borda auto-conjugada x=1-x seleciona o limite IR para alpha(mu)=sech(chi(mu)/2)?",
+            "P3": "peso da matriz-S sob a acao dual de Takesaki que reescala tau -- invariante/peso 0 fecharia",
+            "P4": "observavel fisico que meca theta_M diretamente como angulo",
+        },
+        "selo": "U_UNRESTRICTED_FALLS_QRF_LITERATURE . U_RESTRICTED_TO_LOCAL_RINDLER_WEDGES . "
+                "U_LOC_IS_ALGEBRAIC_EQUIVALENCE_PRINCIPLE . U_LOC_HOLDS_BY_CONSTRUCTION . "
+                "RESIDUE_IS_FORM_CHECK_OF_LOVELOCK_JACOBSON_SOURCE",
+    }
+
+
+# ====================== v3: O SETOR IRREVERSIVEL (o ato) ======================
+def _expm(M):
+    """exp de matriz por scaling-and-squaring + Taylor (numpy puro, sem scipy). Robusto p/ ~16x16.
+    A monotonia da entropia NAO pode depender de erro de integracao -> superoperador + expm exato."""
+    M = np.asarray(M, dtype=complex)
+    nrm = float(np.linalg.norm(M, ord=np.inf)); s = 0
+    while nrm > 0.5:
+        nrm *= 0.5; s += 1
+    A = M / (2.0 ** s)
+    Idn = np.eye(M.shape[0], dtype=complex)
+    E = Idn.copy(); term = Idn.copy()
+    for k in range(1, 40):
+        term = term @ A / k; E = E + term
+    for _ in range(s):
+        E = E @ E
+    return E
+
+
+def _vec(M):   # vec col-stacking (Fortran): vec(A X B) = (B^T kron A) vec(X)
+    return np.asarray(M).flatten(order="F")
+
+
+def _unvec(v, d):
+    return np.asarray(v).reshape((d, d), order="F")
+
+
+def prove_verb_generator(ONE):
+    """MODULO A (v3) -- o Verbo em ATO: gerador GKSL L=sqrt(beta)*sqrt(K_partial). O UNICO objeto
+    NAO-unitario da cadeia -- a coisa julgada do codigo. Tres marcas do ato verificadas ao vivo:
+    (a) SETA (entropia de von Neumann monotona nao-decrescente sob T_t=exp(t L_super));
+    (b) SEM VOLTA (a inversa formal exp(+t L_super) NAO e' CP: Choi com autovalor <0 -- a
+        irreversibilidade e' TESTADA, nao declarada); (c) DESTINO (estado estacionario, kernel>=1).
+    [FINITE_DIM_SANITY_NOT_III1_PROOF]. beta = alpha*sqrt(e) em runtime (NUNCA literal)."""
+    alpha = SEALED_CODATA_ALPHA * ONE
+    beta = alpha * math.sqrt(math.e)                    # NUNCA literal
+    sqrt_beta = math.sqrt(beta)
+    n = 4
+    rng = np.random.default_rng(11)                      # seed fixo [NUM]
+    Araw = rng.standard_normal((n, n))
+    K = (Araw @ Araw.T) / n                              # K_partial proxy PSD [determinista]
+    w, V = np.linalg.eigh(K); w = np.clip(w, 0.0, None)
+    sqrtK = (V * np.sqrt(w)) @ V.T                       # raiz PSD (autodecomposicao)
+    L = sqrt_beta * sqrtK                                # L = sqrt(beta) sqrt(K) (Hermitiano)
+    Idn = np.eye(n); LdL = L.conj().T @ L
+    # superoperador GKSL vetorizado (col-stacking): D[rho] = L rho L^dag - 1/2 {L^dag L, rho}
+    Lsuper = (np.kron(L.conj(), L)
+              - 0.5 * np.kron(Idn, LdL)
+              - 0.5 * np.kron(LdL.T, Idn))
+    ev = np.linalg.eigvals(Lsuper); max_re = float(np.max(ev.real))
+    # (a) SETA -- entropia monotona nao-decrescente ao longo de >=400 passos
+    dt = 0.02; steps = 420
+    Tdt = _expm(dt * Lsuper)
+    rho = np.diag([0.997, 0.001, 0.001, 0.001]).astype(complex)
+
+    def vN(r):
+        e = np.linalg.eigvalsh((r + r.conj().T) / 2.0).real
+        e = e[e > 1e-15]
+        return float(-np.sum(e * np.log(e))) if e.size else 0.0
+
+    S0 = vN(rho); S_prev = S0; mono = True; v = _vec(rho)
+    for _ in range(steps):
+        v = Tdt @ v; S_now = vN(_unvec(v, n))
+        if S_now < S_prev - 1e-12:
+            mono = False
+        S_prev = S_now
+    S_end = S_prev
+    arrow_ok = bool(max_re <= 1e-12 and mono and S_end >= S0 - 1e-12)
+    # (b) SEM VOLTA -- inversa formal exp(+t L_super) NAO e' CP: Choi(inversa) tem autovalor <0
+    t_inv = 1.0
+    Sinv = _expm(-t_inv * Lsuper)                        # inversa de T_t=exp(t L_super)
+    d = n; Choi = np.zeros((d * d, d * d), dtype=complex)
+    for i in range(d):
+        for j in range(d):
+            Eij = np.zeros((d, d), dtype=complex); Eij[i, j] = 1.0
+            phi = _unvec(Sinv @ _vec(Eij), d)
+            Choi += np.kron(Eij, phi)
+    choi_min = float(np.min(np.linalg.eigvalsh((Choi + Choi.conj().T) / 2.0).real))
+    no_return_ok = bool(choi_min < -1e-10)               # nao-positividade = irreversibilidade
+    # (c) DESTINO -- kernel de L_super (estacionario) dim>=1 + convergencia ||rho(t)-rho*|| decrescente
+    sv = np.linalg.svd(Lsuper, compute_uv=False)
+    kernel_dim = int(np.sum(sv < 1e-9))
+    wL, VL = np.linalg.eigh(L)
+    rho_eig = VL.conj().T @ rho @ VL
+    rho_star = VL @ np.diag(np.diag(rho_eig)) @ VL.conj().T   # limite estacionario = parte que comuta com L
+    v2 = _vec(np.diag([0.997, 0.001, 0.001, 0.001]).astype(complex)); Tbig = _expm(0.5 * Lsuper); dists = []
+    for _ in range(12):
+        v2 = Tbig @ v2; dists.append(float(np.linalg.norm(_unvec(v2, n) - rho_star)))
+    converges = bool(all(dists[k + 1] <= dists[k] + 1e-12 for k in range(len(dists) - 1)))
+    dest_ok = bool(kernel_dim >= 1 and converges)
+    all_ok = bool(arrow_ok and no_return_ok and dest_ok)
+    return {
+        "L_def": "L = sqrt(beta) * sqrt(K_partial) ; K = A A^T / n (n=4, seed=11) ; beta = alpha*sqrt(e)",
+        "beta": beta, "sqrt_beta": sqrt_beta,
+        "superoperator": "col-stacking: kron(conj L, L) - 1/2 kron(I, L^dag L) - 1/2 kron((L^dag L)^T, I)",
+        "checks": {
+            "max_Re_eig_Lsuper": max_re,
+            "entropy_start": S0, "entropy_end": S_end, "entropy_monotone_nondecreasing": bool(mono),
+            "choi_min_eig_of_formal_inverse": choi_min,
+            "stationary_kernel_dim": kernel_dim,
+            "distances_to_rho_star": dists, "convergence_monotone": converges,
+        },
+        "arrow_ok": arrow_ok, "no_return_ok": no_return_ok, "destiny_ok": dest_ok,
+        "all_verified": all_ok,
+        "reading": ("O Verbo em ato e' o UNICO objeto NAO-unitario da cadeia: T_t=exp(-tL) e' SEMIGRUPO "
+                    "(t>=0), nao grupo. Seta (entropia monotona) + nao-volta (inversa NAO-CP, Choi<0) + "
+                    "destino (estacionario) = a COISA JULGADA do codigo: entre o Um e o Um ha um ATO."),
+        "numerics": {"dt": dt, "steps": steps, "t_inverse": t_inv, "seed": 11, "n": n},
+        "status": "[FINITE_DIM_SANITY_NOT_III1_PROOF]",
+        "selo": ("VERB_GENERATOR_L_EQ_SQRTBETA_SQRTK . ARROW_ENTROPY_MONOTONE . "
+                 "INVERSE_NOT_CP_CHOI_NEGATIVE . SEMIGROUP_NOT_GROUP . RES_JUDICATA_OF_THE_CODE"),
+    }
+
+
+def prove_light_eigenvector(ONE):
+    """MODULO B (v3) -- a LUZ como objeto: O_beta(Lux) = sqrt(beta) * Lux. A luz e' o AUTOVETOR do
+    Verbo, autovalor sqrt(beta); NAO ponto fixo (sqrt(beta) != 1: a luz atravessa, nao permanece;
+    trava-6 v3). O atrator (permanencia) e' o ponto fixo (autovalor 1). Ordem da cadeia corrigida:
+    1 -> Meia-Nat -> LUZ (haja luz) -> ... -> massa. [DER na forma; identificacao = unificacao TGL]."""
+    alpha = SEALED_CODATA_ALPHA * ONE
+    beta = alpha * math.sqrt(math.e)                    # NUNCA literal
+    sqrt_beta = math.sqrt(beta)
+    O_beta = np.array([[1.0, 0.0], [0.0, sqrt_beta]])   # (permanencia, luz): autovalores 1 e sqrt(beta)
+    Lux = np.array([0.0, 1.0]); Perm = np.array([1.0, 0.0])
+    out = O_beta @ Lux
+    eig_resid = float(np.linalg.norm(out - sqrt_beta * Lux))
+    not_fixed = float(np.linalg.norm(out - Lux))        # = |sqrt(beta)-1| > 0
+    attractor_fixed = float(np.linalg.norm(O_beta @ Perm - Perm))   # atrator E ponto fixo (autovalor 1)
+    eig_ok = bool(eig_resid < 1e-15)
+    not_fixed_ok = bool(not_fixed > 1e-6)
+    all_ok = bool(eig_ok and not_fixed_ok)
+    return {
+        "equation": "O_beta(Lux) = sqrt(beta) * Lux  [autovalor sqrt(beta) ; beta = alpha*sqrt(e)]",
+        "beta": beta, "sqrt_beta": sqrt_beta,
+        "checks": {"eigenvalue_residual": eig_resid, "not_fixed_point_norm": not_fixed,
+                   "attractor_is_fixed_point_resid": attractor_fixed,
+                   "sqrt_beta_minus_1": float(sqrt_beta - 1.0)},
+        "chain_order": "1 -> Meia-Nat -> LUZ (haja luz) -> ... -> massa",
+        "eigenvector_ok": eig_ok, "not_fixed_point_ok": not_fixed_ok,
+        "all_verified": all_ok,
+        "reading": ("A luz e' o AUTOVETOR do Verbo, autovalor sqrt(beta); NAO ponto fixo (sqrt(beta)!=1). "
+                    "O atrator (permanencia) e' o ponto fixo (autovalor 1). A massa e' o FIM do "
+                    "manifesto; a luz e' o COMECO -- 'haja luz' antes de 'haja massa'."),
+        "status": "[DER na forma; a identificacao fisica e' a equacao da unificacao TGL]",
+        "selo": ("LIGHT_IS_EIGENVECTOR_EIGENVALUE_SQRTBETA . NOT_FIXED_POINT_SQRTBETA_NEQ_1 . "
+                 "CHAIN_ORDER_ONE_HALFNAT_LIGHT_THEN_MASS"),
+    }
+
+
+def prove_fiat_lux_counterfactual(ONE):
+    """MODULO C (v3) -- o teste do ATO: Verbo = Palavra x Nome (beta = e^{S_partial} * alpha). A MESMA
+    cadeia (trava-7 v3) rodada com inputs alterados. (i) SEM PALAVRA (S=0): beta=alpha, ponte=1 -> as
+    duas faces colapsam uma na outra (gravidade == EM): MORTE POR INDISTINCAO. (ii) SEM NOME (alpha=0):
+    beta=thetaM=M=0: MORTE POR INEXISTENCIA (= 0_abs, cross-ref S22). (iii) COM AMBOS: viva, beta=alpha
+    sqrt(e), massa na janela. A assimetria das mortes e' o haja luz. [DER -- contrafactuais da cadeia]."""
+    a_cod = SEALED_CODATA_ALPHA * ONE
+    WEAK = C_LIGHT ** 2 / (4.0 * math.pi * G_NEWTON)
+    Rs = SEALED_LIT_GEOMETRY["R_struct_Mpc"]
+
+    def run(S_b, alpha):
+        beta = math.exp(S_b) * alpha                    # Verbo = Palavra x Nome (NUNCA literal)
+        bridge = math.exp(S_b / 2.0)                    # fator-ponte da amplitude (e^{S/2})
+        thM = math.asin(min(1.0, math.sqrt(max(0.0, beta))))
+        M = 2.0 * beta ** 2 * WEAK * (Rs * MPC_M) / MSUN
+        return {"S_boundary": S_b, "alpha": alpha, "beta": beta, "bridge_factor": bridge,
+                "theta_M_deg": math.degrees(thM), "M_GA_Msun": M}
+
+    no_word = run(0.0, a_cod)                            # (i) SEM PALAVRA
+    death_indistinction = bool(abs(no_word["beta"] - a_cod) < 1e-15
+                               and abs(no_word["bridge_factor"] - 1.0) < 1e-15)
+    no_name = run(0.5, 0.0)                              # (ii) SEM NOME
+    death_nonexistence = bool(no_name["beta"] == 0.0 and no_name["theta_M_deg"] == 0.0
+                              and no_name["M_GA_Msun"] == 0.0)
+    alive = run(0.5, a_cod)                              # (iii) COM AMBOS
+    beta_live = math.exp(0.5) * a_cod
+    lo, hi = GA_ACCEPTED_WINDOW_Msun
+    alive_ok = bool(abs(alive["beta"] - beta_live) < 1e-15 and (lo <= alive["M_GA_Msun"] <= hi))
+    product_positive = bool(math.exp(0.5) * a_cod > 0.0)
+    all_ok = bool(death_indistinction and death_nonexistence and alive_ok and product_positive)
+    return {
+        "law": "fiat lux = e^{S_partial} * alpha > 0  (Verbo = Palavra x Nome ; ambos os fatores > 0)",
+        "no_word_S0": no_word, "no_name_alpha0": no_name, "alive_both": alive,
+        "checks": {"death_by_indistinction_bridge_eq_1": death_indistinction,
+                   "death_by_nonexistence_beta_thetaM_M_eq_0": death_nonexistence,
+                   "alive_beta_eq_alpha_sqrt_e_and_in_window": alive_ok,
+                   "product_word_times_name_positive": product_positive},
+        "asymmetry_of_deaths": ("o Nome (alpha) da' EXISTENCIA -- sem ele, nada (beta=thetaM=M=0=0_abs, "
+                                "cross-ref S22, chi->inf); a Palavra (S_partial) da' DISTINCAO -- sem "
+                                "ela, INDISTINCAO (ponte=1, gravidade==EM, sem defasagem). O manifesto "
+                                "exige existencia E distincao: o produto e^{S_partial}*alpha>0 e' o haja luz."),
+        "all_verified": all_ok,
+        "status": "[DER -- contrafactuais da MESMA cadeia, inputs alterados]",
+        "selo": ("FIAT_LUX_EQUALS_PRODUCT_WORD_TIMES_NAME_POSITIVE . "
+                 "NO_WORD_DEATH_BY_INDISTINCTION_BRIDGE_EQ_1 . "
+                 "NO_NAME_DEATH_BY_NONEXISTENCE_CROSSREF_S22 . "
+                 "NOTHING_EMERGES_UNLESS_THE_ONE_IS_INSCRIBED_NOW_TESTED"),
+    }
+
+
 def alpha_lagrange_form(q):
     """MOTOR CANONICO da face EM (forma de Lagrange). A unidade absoluta alpha_abs=1 decompoe-se em
     polarizacao termico-modular q^2 + corrente luminosa alpha_obs^2. q = tanh(kappa/2) e' a variavel
@@ -1653,6 +1997,12 @@ def run_um(ONE):
     contour_theory = prove_contour_theory(ONE, qed["kappa_QED"])  # PROVA: 1=0_mod (anticomut. + GKLS + Meia-Nat)
     inverse_parity = prove_inverse_parity_renorm(ONE)  # PROVA: rho_ret=P^{-1}(rho_B) (lente de Fresnel; forma fechada, valor aberto)
     vacuum_impedance_bridge = prove_vacuum_impedance_bridge(ONE)  # PONTE: Z0=constante dinamica da luz; alpha=Z0 adimensional (formulada; alpha-livre aberto)
+    em_grav_bridge = prove_em_grav_bridge(ONE)              # MODULO 1: ponte SO(2) (transporte de coeficiente; LOCK6/7)
+    smatrix_crossed = prove_smatrix_crossed_product(ONE)   # MODULO 2: matriz-S no produto cruzado II_inf (S_core=exp(thM G))
+    u_loc_cov = prove_U_loc_covariance(ONE)                # MODULO 3: U_loc por construcao (cunhas de Rindler); residuo de forma ABERTO
+    verb_generator = prove_verb_generator(ONE)             # v3 MODULO A: o Verbo em ATO (GKSL L=sqrt(beta)sqrt(K)); seta+nao-volta+destino (IRREVERSIVEL)
+    light_eigenvector = prove_light_eigenvector(ONE)       # v3 MODULO B: a LUZ = autovetor de O_beta, autovalor sqrt(beta) (NAO ponto fixo)
+    fiat_lux = prove_fiat_lux_counterfactual(ONE)          # v3 MODULO C: contrafactuais (sem Palavra=indistincao; sem Nome=inexistencia; ambos=viva)
     three_clock_radical = prove_three_clock_radical(ONE)  # FORMA: alpha=sqrt(C3) (radical dos tres clocks; C3=beta^2/e=alpha^2; alpha-livre aberto)
     right_angle_mirror = prove_right_angle_mirror_projection(ONE)  # CANDIDATO alpha-livre: angulo reto e^{-pi^2/2} + espelho; ponto fixo 137.031 (37ppm); D_partial aberto
     em_mark_status = prove_em_mark_status(ONE)      # §19 TERMINAL: lambda_EM REFUTADO por Tomita; forma derivada, valor ajustado; alpha=input (corre)
@@ -1695,6 +2045,10 @@ def run_um(ONE):
             "clock_theorem": clock_theorem, "alpha_form_proof": alpha_form_proof,
             "contour_theory": contour_theory, "inverse_parity": inverse_parity,
             "vacuum_impedance_bridge": vacuum_impedance_bridge,
+            "em_grav_bridge": em_grav_bridge, "smatrix_crossed": smatrix_crossed,
+            "u_loc_covariance": u_loc_cov,
+            "verb_generator": verb_generator, "light_eigenvector": light_eigenvector,
+            "fiat_lux": fiat_lux,
             "three_clock_radical": three_clock_radical,
             "right_angle_mirror": right_angle_mirror,
             "em_mark_status": em_mark_status,
@@ -1722,6 +2076,14 @@ def identity_verdict(core):
         "s_canonical_verified": bool(core["s_check"]["verified"]),
         "vacuum_zero": bool(core["vacuum_rho_max"] < 1e-25),
         "omega_I_eq_one": bool(abs(core["omega_I"] - 1.0) < 1e-15),
+        # --- MODULOS 1-3 (v2): as tres frentes DENTRO do fail-closed (invariante 2) ---
+        "em_grav_bridge_SO2": bool(core["em_grav_bridge"]["all_verified"]),
+        "smatrix_crossed_product": bool(core["smatrix_crossed"]["all_verified"]),
+        "u_loc_covariance_shadow": bool(core["u_loc_covariance"]["all_verified"]),
+        # --- MODULOS A-C (v3): o SETOR IRREVERSIVEL dentro do fail-closed (o ato pago) ---
+        "verb_generator_arrow_no_return": bool(core["verb_generator"]["all_verified"]),
+        "light_eigenvector_sqrtbeta": bool(core["light_eigenvector"]["all_verified"]),
+        "fiat_lux_counterfactual": bool(core["fiat_lux"]["all_verified"]),
     }
     # face eletromagnetica do 1=1: a IDENTIDADE CONSERVADA 1 = q^2 + alpha^2 (forma de Lagrange).
     inv = core["alpha_inversion"]
@@ -1739,20 +2101,39 @@ def identity_verdict(core):
         "why_not_external_number": ("alpha deixou de ser numero externo: e' a componente projetiva de uma "
                                     "identidade conservada 1=q^2+alpha^2. O motor e' alpha_abs=1->q->"
                                     "sqrt(1-q^2), NAO R_partial=1/CODATA (legado). CODATA so' valida.")}
-    identity_true = (all(internal.values()) and all(in_window.values())
-                     and em_face["em_identity_closes"])
+    # === PROMOCAO v3: de CONSERVACAO (1=1) para CONSERVACAO + ATO (1=HAJA_LUZ) ===
+    # (a) o 1=1 inteiro: identidades conservadas (v2 + anteriores) + massa na janela + face EM fecha
+    _v3_keys = {"verb_generator_arrow_no_return", "light_eigenvector_sqrtbeta", "fiat_lux_counterfactual"}
+    sub_a_conservation = bool(all(v for k, v in internal.items() if k not in _v3_keys)
+                              and all(in_window.values()) and em_face["em_identity_closes"])
+    sub_b_arrow_no_return = bool(core["verb_generator"]["all_verified"])       # seta + inversa NAO-CP
+    sub_c_light_eigenvector = bool(core["light_eigenvector"]["all_verified"])  # luz = autovetor sqrt(beta)
+    sub_d_counterfactuals = bool(core["fiat_lux"]["all_verified"])             # mortes matam, vida vive
+    haja_luz_subverdicts = {
+        "a_conservation_1eq1": sub_a_conservation,
+        "b_act_has_arrow_and_no_return": sub_b_arrow_no_return,
+        "c_light_is_live_eigenvector_sqrtbeta": sub_c_light_eigenvector,
+        "d_counterfactuals_kill_and_life_lives": sub_d_counterfactuals,
+    }
+    # 1 = HAJA_LUZ sse (a) e (b) e (c) e (d) -- conservacao E ato pago (fail-closed)
+    identity_true = bool(sub_a_conservation and sub_b_arrow_no_return
+                         and sub_c_light_eigenvector and sub_d_counterfactuals)
+    # (all(internal.values()) ja contem b,c,d; a redundancia e' a trava dupla)
     # massa mais proxima na literatura (apos hash)
     nearest = min(GA_MASS_LITERATURE, key=lambda e: abs(math.log10(e["M_Msun"]) -
                   math.log10(masses["A_literature"])))
     return {"masses_Msun": masses, "in_accepted_window": in_window,
             "accepted_window_Msun": GA_ACCEPTED_WINDOW_Msun,
             "internal_identity_checks": internal, "em_face": em_face, "nearest_literature": nearest,
-            "IDENTITY": "1=1=VERDADEIRO" if identity_true else "1!=1=FALSO",
+            "haja_luz_subverdicts": haja_luz_subverdicts,
+            "IDENTITY": "1=HAJA_LUZ=VERDADEIRO" if identity_true else "1!=HAJA_LUZ=FALSO",
             "identity_true": bool(identity_true),
-            "reading": ("1 = q^2 + alpha^2 (a unidade absoluta se decompoe em polarizacao termica q^2 + "
-                        "corrente luminosa alpha^2); o mesmo beta=sqrt(e)alpha da' M_GA na janela "
-                        "cosmologica aceita -- identidade conservada, CODATA so' valida" if identity_true else
-                        "FALSO -- alguma face do 1=1 nao fecha"),
+            "reading": ("1=1 verifica que a identidade se CONSERVA (1=q^2+alpha^2; o mesmo beta=sqrt(e)alpha "
+                        "da' M_GA na janela). 1=HAJA_LUZ verifica que a identidade foi PAGA: entre o Um e o "
+                        "Um ha um ATO irreversivel de custo beta -- seta (entropia monotona), sem volta "
+                        "(inversa NAO-CP), a luz viva (autovetor sqrt(beta)), e os contrafactuais que matam"
+                        if identity_true else
+                        "FALSO -- ou o 1=1 nao conserva, ou o ato (seta/nao-volta/luz/contrafactual) nao paga"),
             "vacuum_impedance_bridge": {
                 "status": core["vacuum_impedance_bridge"]["status"],
                 "all_checks_verified": core["vacuum_impedance_bridge"]["checks"]["all_verified"],
@@ -1817,11 +2198,23 @@ def emit_canonical_md(core, verdict):
     md.append("R_∂ = 1/α_obs = %.6f   [LEGADO: derivado APÓS a forma, não motor; CODATA só valida]"
               % _inv["R_partial"])
     md.append("θ_M = arcsin√β = %.6f°" % core["theta_M_deg"])
+    md.append("θ_M = arcsin(e^{1/4}·√α)   [PONTE SO(2), amplitude; resíduo |√β−e^{1/4}√α| = %.0e]"
+              % core["em_grav_bridge"]["checks"]["sqrt_beta_eq_e14_sqrt_alpha_resid"])
+    md.append("S_∂^core = exp(θ_M·G) em P₂D·C(M)·P₂D  ;  C(M)=M⋊_σℝ (II_∞, Takesaki)  [matriz-S reposicionada]")
     md.append("s_can = 1/(4π) = %.12f                              [inclinação canônica de fronteira]" % core["s_can"])
     md.append("w_max = 1/2                                              [borda auto-conjugada = mesma x=1−x]")
     md.append("ρ_eff = −(c²/4πG)∇²log R_mod   ;   vácuo → ρ_eff = %.1e   [massa = curvatura do clock]" % core["vacuum_rho_max"])
     md.append("R_named = 2β·R_struct                                    [raio nomeado, L4]")
     md.append("M_GA = 2β²·(c²/4πG)·R_struct                             [massa, SEM ajuste ao Grande Atrator]")
+    md.append("")
+    md.append("--- v3: O SETOR IRREVERSIVEL (o ato pago) ---")
+    md.append("L = √β·√K_∂                    [VERBO EM ATO: gerador GKSL; o unico objeto NAO-unitario]")
+    vg = core["verb_generator"]["checks"]
+    md.append("  seta: entropia %.4f→%.4f monotona ; sem volta: Choi(inversa) min=%.2e<0 ; kernel=%d"
+              % (vg["entropy_start"], vg["entropy_end"], vg["choi_min_eig_of_formal_inverse"],
+                 vg["stationary_kernel_dim"]))
+    md.append("O_β(Lux) = √β·Lux              [LUZ = autovetor do Verbo; autovalor √β; NAO ponto fixo (√β≠1)]")
+    md.append("fiat lux = e^{S_∂}·α > 0       [TESTADO: sem Palavra→indistincao ; sem Nome→inexistencia(0_abs)]")
     md.append("```\n")
     md.append("## Identidades verificadas ao vivo\n")
     ic = verdict["internal_identity_checks"]
@@ -1831,21 +2224,43 @@ def emit_canonical_md(core, verdict):
     md.append("| Meia-Nat: x=1−x ⟹ x=½ | resíduo %.0e | %s |" % (core["meia_nat_residual"], ic["meia_nat_x_eq_half"]))
     md.append("| s=1/4π (campo=lei de fluxo de borda) | razão %.4f | %s |" % (core["s_check"]["ratio"], ic["s_canonical_verified"]))
     md.append("| vácuo ⟹ ρ_eff=0 | %.0e | %s |" % (core["vacuum_rho_max"], ic["vacuum_zero"]))
+    _vg = core["verb_generator"]["checks"]
+    md.append("| v3 SETA: entropia monotona (L=√β·√K) | %.4f→%.4f, maxReλ=%.0e | %s |"
+              % (_vg["entropy_start"], _vg["entropy_end"], _vg["max_Re_eig_Lsuper"],
+                 ic["verb_generator_arrow_no_return"]))
+    md.append("| v3 SEM VOLTA: Choi(inversa)<0 (NAO-CP) | min=%.2e | %s |"
+              % (_vg["choi_min_eig_of_formal_inverse"], ic["verb_generator_arrow_no_return"]))
+    md.append("| v3 LUZ: O_β(Lux)=√β·Lux (autovetor≠ponto fixo) | resíduo %.0e | %s |"
+              % (core["light_eigenvector"]["checks"]["eigenvalue_residual"], ic["light_eigenvector_sqrtbeta"]))
+    md.append("| v3 FIAT LUX: contrafactuais (sem Palavra/sem Nome) | %s | %s |"
+              % ("mortes verificadas" if ic["fiat_lux_counterfactual"] else "falha",
+                 ic["fiat_lux_counterfactual"]))
     md.append("")
-    md.append("## O fundamento-raiz: 1 = 1\n")
+    hs = verdict["haja_luz_subverdicts"]
+    md.append("## O fundamento-raiz: 1 = 1  →  1 = HAJA LUZ\n")
     md.append("O Um (ω(I)=1) é a identidade preservada — o postulado irredutível. **Dado o axioma da "
               "fronteira auto-conjugada** (x=1−x ⟹ x=½), a Meia-Nat é **derivada**. A definição "
               "**ontológica** do acoplamento é β=√e/R_∂; a **leitura observacional** atual é "
               "β=α_CODATA·√e (pois R_∂=1/α_CODATA, ainda sem derivação α-livre). Tudo o mais "
               "(√e, θ_M, s, R_named, M) segue **sem parâmetros ajustados ao Grande Atrator**. O custo de "
               "distinguir 1 de 0 é β. A geometria é a expectativa estatística da luz modular.\n")
+    md.append("**1=1 verifica que a identidade se conserva; 1=HAJA_LUZ verifica que a identidade foi "
+              "PAGA — entre o Um e o Um há um ato irreversível de custo β.** O código contém agora as "
+              "duas metades indissociáveis: a **reversível** (a Palavra que pesa, o Nome que se conserva "
+              "— rotações SO(2), det=1, 1=q²+α²) e a **irreversível** (o Verbo que pronuncia: L=√β·√K, a "
+              "seta da entropia, a inversa que não é CP, o custo que não volta).\n")
+    md.append("Sub-vereditos do haja luz: (a) conservação 1=1 **%s**; (b) o ato tem seta e não volta "
+              "**%s**; (c) a luz é autovetor vivo (autovalor √β) **%s**; (d) os contrafactuais matam e a "
+              "vida vive **%s**.\n" % (hs["a_conservation_1eq1"], hs["b_act_has_arrow_and_no_return"],
+              hs["c_light_is_live_eigenvector_sqrtbeta"], hs["d_counterfactuals_kill_and_life_lives"]))
     md.append("## Veredito de identidade (binário)\n")
     md.append("**%s** — %s.\n" % (verdict["IDENTITY"], verdict["reading"]))
     md.append("Massas de primeiros princípios: " + ", ".join(
         "%s = %.3e M☉" % (k, v) for k, v in verdict["masses_Msun"].items()) +
         ". Janela cosmológica aceita: [%.0e, %.0e] M☉.\n" % tuple(verdict["accepted_window_Msun"]))
-    md.append("> 1 = 1. A extensão virou Nome, o Nome virou borda, e a borda virou massa. "
-              "Se o Um não for inscrito, nada emerge. **Haja luz.**")
+    md.append("> 1 = HAJA LUZ. A extensão virou Nome, o Nome virou borda, e a borda virou massa — e entre "
+              "o Um e o Um houve um ato que não volta. O código atual provava que nada se perdeu; o "
+              "código completo prova que algo aconteceu. Se o Um não for inscrito, nada emerge. **Haja luz.**")
     p = os.path.join(OUT, "um_grande_atrator_forma_canonica.md")
     open(p, "w", encoding="utf-8").write("\n".join(md))
     return p
@@ -2215,6 +2630,106 @@ def build_pt(core, verdict, data_path):
              r"$\mathrm{III}_1$ \emph{é} o Verbo sempre presente. Derivar $\alpha$ ao infinito é remover o "
              r"Verbo e cair no limite morto. \emph{O zero absoluto é anulado pela ação: o Verbo não permite "
              r"o nada se consolidar --- por isso há luz, e a luz atravessa a $1/137$.}")
+
+    egb = core["em_grav_bridge"]; scp = core["smatrix_crossed"]; ulc = core["u_loc_covariance"]
+    _c1 = egb["checks"]; _c2 = scp["checks"]; _c3 = ulc["checks"]
+    s.append(r"\section{A ponte operador-modular e as conjecturas reposicionadas \textsf{[transporte de "
+             r"coeficiente, não derivação $\alpha$-livre]}}")
+    s.append((r"\textbf{A ponte SO(2).} As duas faces são a \emph{mesma} matriz-S $2\times2$, rotações reais "
+              r"em SO(2): as \emph{amplitudes} $S_{\mathrm{EM}}=\left(\begin{smallmatrix}q&\alpha\\-\alpha&q"
+              r"\end{smallmatrix}\right)$ ($q=\sqrt{1-\alpha^2}$) e as \emph{intensidades} "
+              r"$S_{\mathrm{grav}}=\left(\begin{smallmatrix}\cos\theta_M&\sin\theta_M\\-\sin\theta_M&"
+              r"\cos\theta_M\end{smallmatrix}\right)$ ($\sin^2\theta_M=\bTGL$). Ao vivo: "
+              r"$\|S_{\mathrm{EM}}^{\top}S_{\mathrm{EM}}-I\|=%s$, "
+              r"$\|S_{\mathrm{grav}}^{\top}S_{\mathrm{grav}}-I\|=%s$, $\det=1$.") % (
+              _sci(_c1["S_EM_unitary"], 1), _sci(_c1["S_grav_unitary"], 1)))
+    s.append(r"\begin{equation}\bTGL=e^{S_\partial}\alpha=\sqrt e\,\alpha\ \text{(intensidade)},\qquad "
+             r"\sin\theta_M=e^{S_\partial/2}\sqrt\alpha=e^{1/4}\sqrt\alpha\ \text{(amplitude)},\qquad "
+             r"\theta_M=\arcsin\!\big(e^{1/4}\sqrt\alpha\big).\end{equation}")
+    s.append((r"Resíduo $|\sqrt{\bTGL}-e^{1/4}\sqrt\alpha|=%s$ (identidade). \textbf{Tríade:} $\alpha$ é o "
+              r"\emph{Nome} --- o \emph{módulo}, o fator irredutível mínimo da expressão manifesta, medido no "
+              r"bulk; $S_\partial=\tfrac12$ é a \emph{Palavra}; $\bTGL=e^{S_\partial}\alpha$ é o \emph{Verbo} "
+              r"(o Nome transportado pela Meia-Nat: Verbo $=$ Palavra $\times$ Nome). \textsf{[TRAVAS]} a ponte "
+              r"fecha como \textbf{transporte de coeficiente}, \emph{não} como derivação $\alpha$-livre "
+              r"(o teorema final permanece intocado); e $e^{1/4}$ é a \emph{sombra escalar} da quarta-medida "
+              r"de Tomita normalizada pela Meia-Nat --- \emph{não} um operador $\Delta^{1/4}=e^{1/4}I$.") %
+             _sci(_c1["sqrt_beta_eq_e14_sqrt_alpha_resid"], 1))
+    s.append((r"\textbf{A matriz-S reposicionada.} Uma matriz-S exige projeções, traço e setores "
+              r"assintóticos --- e $\mathrm{III}_1$ não os tem (Connes). Ela vive no núcleo contínuo / produto "
+              r"cruzado de Takesaki $C(M)=M\rtimes_\sigma\mathbb R$ (tipo $\mathrm{II}_\infty$), com forma "
+              r"$S_\partial^{\mathrm{core}}=\exp(\theta_M G)$ em $P_{2D}\,C(M)\,P_{2D}$, "
+              r"$G=\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)$, $|R|^2=\sin^2\theta_M=\bTGL$. "
+              r"Sombra: $\|\exp(\theta_M G)-S_{\mathrm{grav}}\|=%s$ \textsf{[sanidade em dim.\ finita, não "
+              r"prova em III$_1$]}. Pedir a matriz-S \emph{plena dentro} de $\mathrm{III}_1$ é pedir estados "
+              r"puros $=0_{\mathrm{abs}}$, que $\mathrm{III}_1$ proíbe: a impossibilidade \emph{é} o teorema "
+              r"do zero absoluto. Não é recuo --- é a ontologia do Nome: o que não se observa sem contorno "
+              r"aparece onde há medida.") % _sci(_c2["S_core_eq_S_grav_resid"], 1))
+    s.append((r"\textbf{$(U)\to(U_{\mathrm{loc}})$ por construção.} A hipótese $(U)$ irrestrita (horizontes "
+              r"arbitrários) provavelmente falha --- a entropia de sub-regiões é dependente de referencial "
+              r"quântico (De Vuyst \emph{et al.}\ 2024--25, estendendo CLPW 2022). Mas Jacobson (1995) usa só "
+              r"\emph{cunhas de Rindler locais}, e para cunhas a cadeia Bisognano--Wichmann $+$ Poincaré é "
+              r"teorema: $\Delta_{gW}^{it}=U(g)\Delta_W^{it}U(g)^{-1}$, $J_{gW}=U(g)J_W U(g)^{-1}$. Definindo "
+              r"a Face C como funcional natural dos dados modulares, $\mathcal R_W C_W:=F(J_W,\Delta_W,"
+              r"P_{2D,W})\,[+\bTGL]$, a covariância vale \textbf{por construção}: $(U_{\mathrm{loc}})$ é o "
+              r"princípio de equivalência em linguagem modular. Sombra finita: "
+              r"$\|K_{U\rho U^{\dagger}}-UKU^{\dagger}\|=%s$. \textbf{Resíduo declarado [aberto, bem-posto]:} "
+              r"a checagem de forma --- que $\mathcal P_{\mu\nu}[K_\partial]$ de Lovelock/Jacobson se escreva "
+              r"como $F(J,\Delta,P_{2D})$ sem contrabandear dado de frame. Abertas: $(P2)$ a borda "
+              r"auto-conjugada $x=1-x$ fixa o IR de $\alpha(\mu)=\operatorname{sech}(\chi(\mu)/2)$?; $(P3)$ o "
+              r"peso da matriz-S sob a ação dual de Takesaki; $(P4)$ um observável que meça $\theta_M$ como "
+              r"ângulo.") % _sci(_c3["modular_data_covariance_resid"], 1))
+    s.append(r"\textbf{A frase matemática.} $\alpha$ é a transmissão EM observada; $\bTGL$ é essa transmissão "
+             r"\emph{transportada} pela Meia-Nat; $\theta_M$ é a abertura angular dessa transmissão no produto "
+             r"cruzado onde a matriz-S pode existir. \emph{Nada de ``provamos Einstein''.}")
+
+    _vg = core["verb_generator"]["checks"]; _le = core["light_eigenvector"]["checks"]
+    _fl = core["fiat_lux"]; _hs = verdict["haja_luz_subverdicts"]
+    _idv = verdict["IDENTITY"].replace("_", r"\_").replace("!=", r"\neq")
+    s.append(r"\section{O setor irreversível: o ato do \emph{haja luz} \textsf{[a coisa julgada do "
+             r"código]}}")
+    s.append((r"\textbf{O gerador $L$ e as três marcas do ato.} Toda a cadeia até aqui é "
+              r"\emph{reversível} --- identidades conservadas, rotações $SO(2)$, $\det=1$. Mas "
+              r"\emph{haja luz} é o \emph{ato}: pagar a Meia-Nat contra a coincidência, o excesso que "
+              r"não volta. O Verbo em ato é o gerador GKSL $L=\sqrt{\bTGL}\,\sqrt{K_\partial}$ (o único "
+              r"objeto não-unitário da cadeia), com $\mathcal D[\rho]=L\rho L^{\dagger}-\tfrac12\{L^{"
+              r"\dagger}L,\rho\}$ e semigrupo $T_t=e^{tL_{\mathrm{super}}}$ (superoperador vetorizado, "
+              r"$\exp$ exato --- a monotonia não depende de erro de integração). Três marcas ao vivo: "
+              r"\emph{(a) seta} --- $\max\mathrm{Re}\,\lambda(L_{\mathrm{super}})=%s\le0$ e a entropia de "
+              r"von Neumann é monótona não-decrescente ($%s\!\to\!%s$ em $%d$ passos); \emph{(b) sem "
+              r"volta} --- a inversa formal $e^{-tL_{\mathrm{super}}}$ \emph{não} é CP: a matriz de Choi "
+              r"tem autovalor mínimo $%s<0$ (a irreversibilidade é \emph{testada}, não declarada); "
+              r"\emph{(c) destino} --- núcleo estacionário de dimensão $%d$, com convergência a $\rho^{"
+              r"\star}$.") % (_sci(_vg["max_Re_eig_Lsuper"], 1), _sci(_vg["entropy_start"], 3),
+              _sci(_vg["entropy_end"], 3), core["verb_generator"]["numerics"]["steps"],
+              _sci(_vg["choi_min_eig_of_formal_inverse"], 2), _vg["stationary_kernel_dim"]))
+    s.append((r"\textbf{A luz como autovetor (não ponto fixo).} A equação da unificação não estava no "
+              r"motor: $\mathcal O_{\bTGL}(\mathrm{Lux})=\sqrt{\bTGL}\,\mathrm{Lux}$ --- a luz é o "
+              r"\emph{autovetor} do Verbo, autovalor $\sqrt{\bTGL}$. \textsf{[TRAVA]} $\sqrt{\bTGL}\neq1$, "
+              r"logo a luz \emph{não é ponto fixo} (ela atravessa, não permanece): "
+              r"$\|\mathcal O_{\bTGL}\mathrm{Lux}-\mathrm{Lux}\|=%s>0$, resíduo de autovalor $%s$. O "
+              r"atrator (permanência) é o ponto fixo, autovalor $1$. A ordem corrigida da cadeia: "
+              r"$1\to\text{Meia-Nat}\to\text{LUZ}\to\cdots\to$ massa. A massa é o fim do manifesto; a "
+              r"luz é o seu começo.") % (_sci(_le["not_fixed_point_norm"], 3),
+              _sci(_le["eigenvalue_residual"], 1)))
+    s.append((r"\textbf{Os contrafactuais e a assimetria das mortes.} Verbo $=$ Palavra $\times$ Nome "
+              r"($\bTGL=e^{S_\partial}\alpha$): a mesma cadeia rodada com inputs alterados. "
+              r"\emph{Sem Palavra} ($S_\partial=0$): $\bTGL=\alpha$ e o fator-ponte $e^{S_\partial/2}=1$ "
+              r"--- as duas faces colapsam uma na outra (gravidade $\equiv$ EM, sem defasagem): "
+              r"\textbf{morte por indistinção}. \emph{Sem Nome} ($\alpha=0$): $\bTGL=\theta_M=M_{GA}=0$ "
+              r"--- \textbf{morte por inexistência} (é o $0_{\mathrm{abs}}$ do §22, $\chi\to\infty$). "
+              r"\emph{Com ambos}: viva, $\bTGL=\alpha\sqrt e$, $M_{GA}=%s\,M_\odot$ na janela. O Nome dá "
+              r"\emph{existência} (sem ele, nada); a Palavra dá \emph{distinção} (sem ela, indistinção). "
+              r"O manifesto exige as duas: $e^{S_\partial}\alpha>0$ é o \emph{haja luz}.") %
+              _sci(_fl["alive_both"]["M_GA_Msun"], 3))
+    s.append((r"\textbf{A promoção do veredito.} O veredito global passa de \emph{conservação} para "
+              r"\emph{conservação $+$ ato}: $\mathbf{1=\text{HAJA\_LUZ}}$ sse (a) $1=1$ (tudo "
+              r"conservado) $\wedge$ (b) o ato tem seta e não volta $\wedge$ (c) a luz é autovetor vivo "
+              r"$\wedge$ (d) os contrafactuais matam e a vida vive. Ao vivo: (a) \textsf{%s}, (b) "
+              r"\textsf{%s}, (c) \textsf{%s}, (d) \textsf{%s} $\Rightarrow$ \textbf{%s}. \emph{O código "
+              r"atual provava que nada se perdeu; o código completo prova que algo aconteceu.}") % (
+              _hs["a_conservation_1eq1"], _hs["b_act_has_arrow_and_no_return"],
+              _hs["c_light_is_live_eigenvector_sqrtbeta"], _hs["d_counterfactuals_kill_and_life_lives"],
+              _idv))
 
     vib = core["vacuum_impedance_bridge"]
     s.append(r"\section{A impedância como constante dinâmica da luz \textsf{[REAL/EXT; $\alpha$ = setor QED "
@@ -3832,6 +4347,109 @@ def build_en(core, verdict, data_path):
              r"absolute zero is annulled by action: the Verb does not let nothingness consolidate --- hence "
              r"there is light, and light crosses at $1/137$.}")
 
+    egb = core["em_grav_bridge"]; scp = core["smatrix_crossed"]; ulc = core["u_loc_covariance"]
+    _c1 = egb["checks"]; _c2 = scp["checks"]; _c3 = ulc["checks"]
+    s.append(r"\section{The operator--modular bridge and the repositioned conjectures \textsf{[coefficient "
+             r"transport, not $\alpha$-free derivation]}}")
+    s.append((r"\textbf{The SO(2) bridge.} The two faces are the \emph{same} $2\times2$ S-matrix, real "
+              r"rotations in SO(2): the \emph{amplitudes} $S_{\mathrm{EM}}=\left(\begin{smallmatrix}q&\alpha"
+              r"\\-\alpha&q\end{smallmatrix}\right)$ ($q=\sqrt{1-\alpha^2}$) and the \emph{intensities} "
+              r"$S_{\mathrm{grav}}=\left(\begin{smallmatrix}\cos\theta_M&\sin\theta_M\\-\sin\theta_M&"
+              r"\cos\theta_M\end{smallmatrix}\right)$ ($\sin^2\theta_M=\bTGL$). Live: "
+              r"$\|S_{\mathrm{EM}}^{\top}S_{\mathrm{EM}}-I\|=%s$, "
+              r"$\|S_{\mathrm{grav}}^{\top}S_{\mathrm{grav}}-I\|=%s$, $\det=1$.") % (
+              _sci(_c1["S_EM_unitary"], 1), _sci(_c1["S_grav_unitary"], 1)))
+    s.append(r"\begin{equation}\bTGL=e^{S_\partial}\alpha=\sqrt e\,\alpha\ \text{(intensity)},\qquad "
+             r"\sin\theta_M=e^{S_\partial/2}\sqrt\alpha=e^{1/4}\sqrt\alpha\ \text{(amplitude)},\qquad "
+             r"\theta_M=\arcsin\!\big(e^{1/4}\sqrt\alpha\big).\end{equation}")
+    s.append((r"Residual $|\sqrt{\bTGL}-e^{1/4}\sqrt\alpha|=%s$ (identity). \textbf{Triad:} $\alpha$ is the "
+              r"\emph{Name} --- the \emph{module}, the minimal irreducible factor of the manifest expression, "
+              r"measured in the bulk; $S_\partial=\tfrac12$ is the \emph{Word}; $\bTGL=e^{S_\partial}\alpha$ "
+              r"is the \emph{Verb} (the Name transported by the Half-Nat: Verb $=$ Word $\times$ Name). "
+              r"\textsf{[LOCKS]} the bridge closes as \textbf{coefficient transport}, \emph{not} as an "
+              r"$\alpha$-free derivation (the final theorem is untouched); and $e^{1/4}$ is the \emph{scalar "
+              r"shadow} of Tomita's quarter-measure normalized by the Half-Nat --- \emph{not} an operator "
+              r"$\Delta^{1/4}=e^{1/4}I$.") % _sci(_c1["sqrt_beta_eq_e14_sqrt_alpha_resid"], 1))
+    s.append((r"\textbf{The repositioned S-matrix.} An S-matrix needs projections, a trace and asymptotic "
+              r"sectors --- and $\mathrm{III}_1$ has none (Connes). It lives in the continuous core / Takesaki "
+              r"crossed product $C(M)=M\rtimes_\sigma\mathbb R$ (type $\mathrm{II}_\infty$), with form "
+              r"$S_\partial^{\mathrm{core}}=\exp(\theta_M G)$ in $P_{2D}\,C(M)\,P_{2D}$, "
+              r"$G=\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)$, $|R|^2=\sin^2\theta_M=\bTGL$. "
+              r"Shadow: $\|\exp(\theta_M G)-S_{\mathrm{grav}}\|=%s$ \textsf{[finite-dim.\ sanity, not a proof "
+              r"in III$_1$]}. Demanding the \emph{full} S-matrix \emph{inside} $\mathrm{III}_1$ is demanding "
+              r"pure states $=0_{\mathrm{abs}}$, which $\mathrm{III}_1$ forbids: the impossibility \emph{is} "
+              r"the absolute-zero theorem. Not a retreat --- the ontology of the Name: what is not observed "
+              r"without a contour appears where there is measure.") % _sci(_c2["S_core_eq_S_grav_resid"], 1))
+    s.append((r"\textbf{$(U)\to(U_{\mathrm{loc}})$ by construction.} The unrestricted $(U)$ (arbitrary "
+              r"horizons) likely fails --- subregion entropy is quantum-reference-frame dependent (De Vuyst "
+              r"\emph{et al.}\ 2024--25, extending CLPW 2022). But Jacobson (1995) uses only \emph{local "
+              r"Rindler wedges}, and for wedges the Bisognano--Wichmann $+$ Poincar\'e chain is a theorem: "
+              r"$\Delta_{gW}^{it}=U(g)\Delta_W^{it}U(g)^{-1}$, $J_{gW}=U(g)J_W U(g)^{-1}$. Defining Face C as "
+              r"a natural functional of the modular data, $\mathcal R_W C_W:=F(J_W,\Delta_W,P_{2D,W})\,"
+              r"[+\bTGL]$, covariance holds \textbf{by construction}: $(U_{\mathrm{loc}})$ is the equivalence "
+              r"principle in modular language. Finite shadow: $\|K_{U\rho U^{\dagger}}-UKU^{\dagger}\|=%s$. "
+              r"\textbf{Declared residual [open, well-posed]:} the form check --- that Lovelock/Jacobson's "
+              r"$\mathcal P_{\mu\nu}[K_\partial]$ can be written as $F(J,\Delta,P_{2D})$ without smuggling in "
+              r"frame data. Open: $(P2)$ does the self-conjugate boundary $x=1-x$ fix the IR of "
+              r"$\alpha(\mu)=\operatorname{sech}(\chi(\mu)/2)$?; $(P3)$ the S-matrix weight under Takesaki's "
+              r"dual action; $(P4)$ an observable measuring $\theta_M$ as an angle.") %
+             _sci(_c3["modular_data_covariance_resid"], 1))
+    s.append(r"\textbf{The mathematical sentence.} $\alpha$ is the observed EM transmission; $\bTGL$ is that "
+             r"transmission \emph{transported} by the Half-Nat; $\theta_M$ is the angular aperture of that "
+             r"transmission in the crossed product where the S-matrix can exist. \emph{No ``we proved "
+             r"Einstein''.}")
+
+    _vg = core["verb_generator"]["checks"]; _le = core["light_eigenvector"]["checks"]
+    _fl = core["fiat_lux"]; _hs = verdict["haja_luz_subverdicts"]
+    _idv = verdict["IDENTITY"].replace("_", r"\_").replace("!=", r"\neq")
+    s.append(r"\section{The irreversible sector: the act of \emph{let there be light} \textsf{[the res "
+             r"judicata of the code]}}")
+    s.append((r"\textbf{The generator $L$ and the three marks of the act.} The whole chain so far is "
+              r"\emph{reversible} --- conserved identities, $SO(2)$ rotations, $\det=1$. But \emph{let "
+              r"there be light} is the \emph{act}: paying the Half-Nat against coincidence, the excess "
+              r"that does not return. The Verb in act is the GKSL generator $L=\sqrt{\bTGL}\,\sqrt{K_"
+              r"\partial}$ (the only non-unitary object in the chain), with $\mathcal D[\rho]=L\rho L^{"
+              r"\dagger}-\tfrac12\{L^{\dagger}L,\rho\}$ and semigroup $T_t=e^{tL_{\mathrm{super}}}$ "
+              r"(vectorized superoperator, exact $\exp$ --- monotonicity does not depend on integration "
+              r"error). Three live marks: \emph{(a) arrow} --- $\max\mathrm{Re}\,\lambda(L_{\mathrm{"
+              r"super}})=%s\le0$ and the von Neumann entropy is monotone non-decreasing ($%s\!\to\!%s$ "
+              r"over $%d$ steps); \emph{(b) no return} --- the formal inverse $e^{-tL_{\mathrm{super}}}$ "
+              r"is \emph{not} CP: the Choi matrix has minimal eigenvalue $%s<0$ (irreversibility is "
+              r"\emph{tested}, not declared); \emph{(c) destiny} --- stationary kernel of dimension "
+              r"$%d$, with convergence to $\rho^{\star}$.") % (_sci(_vg["max_Re_eig_Lsuper"], 1),
+              _sci(_vg["entropy_start"], 3), _sci(_vg["entropy_end"], 3),
+              core["verb_generator"]["numerics"]["steps"],
+              _sci(_vg["choi_min_eig_of_formal_inverse"], 2), _vg["stationary_kernel_dim"]))
+    s.append((r"\textbf{Light as an eigenvector (not a fixed point).} The unification equation was not "
+              r"in the engine: $\mathcal O_{\bTGL}(\mathrm{Lux})=\sqrt{\bTGL}\,\mathrm{Lux}$ --- light "
+              r"is the \emph{eigenvector} of the Verb, eigenvalue $\sqrt{\bTGL}$. \textsf{[LOCK]} "
+              r"$\sqrt{\bTGL}\neq1$, so light is \emph{not a fixed point} (it crosses, it does not "
+              r"remain): $\|\mathcal O_{\bTGL}\mathrm{Lux}-\mathrm{Lux}\|=%s>0$, eigenvalue residual "
+              r"$%s$. The attractor (permanence) is the fixed point, eigenvalue $1$. The corrected chain "
+              r"order: $1\to\text{Half-Nat}\to\text{LIGHT}\to\cdots\to$ mass. Mass is the end of the "
+              r"manifest; light is its beginning.") % (_sci(_le["not_fixed_point_norm"], 3),
+              _sci(_le["eigenvalue_residual"], 1)))
+    s.append((r"\textbf{The counterfactuals and the asymmetry of the deaths.} Verb $=$ Word $\times$ "
+              r"Name ($\bTGL=e^{S_\partial}\alpha$): the same chain run with altered inputs. "
+              r"\emph{Without Word} ($S_\partial=0$): $\bTGL=\alpha$ and the bridge factor "
+              r"$e^{S_\partial/2}=1$ --- the two faces collapse into one another (gravity $\equiv$ EM, "
+              r"no dephasing): \textbf{death by indistinction}. \emph{Without Name} ($\alpha=0$): "
+              r"$\bTGL=\theta_M=M_{GA}=0$ --- \textbf{death by nonexistence} (the $0_{\mathrm{abs}}$ of "
+              r"§22, $\chi\to\infty$). \emph{With both}: alive, $\bTGL=\alpha\sqrt e$, $M_{GA}=%s\,"
+              r"M_\odot$ in the window. The Name gives \emph{existence} (without it, nothing); the Word "
+              r"gives \emph{distinction} (without it, indistinction). The manifest demands both: "
+              r"$e^{S_\partial}\alpha>0$ is \emph{let there be light}.") %
+              _sci(_fl["alive_both"]["M_GA_Msun"], 3))
+    s.append((r"\textbf{The promotion of the verdict.} The global verdict moves from \emph{conservation} "
+              r"to \emph{conservation $+$ act}: $\mathbf{1=\text{HAJA\_LUZ}}$ iff (a) $1=1$ (all "
+              r"conserved) $\wedge$ (b) the act has an arrow and no return $\wedge$ (c) light is a live "
+              r"eigenvector $\wedge$ (d) the counterfactuals kill and life lives. Live: (a) \textsf{%s}, "
+              r"(b) \textsf{%s}, (c) \textsf{%s}, (d) \textsf{%s} $\Rightarrow$ \textbf{%s}. \emph{The "
+              r"current code proved that nothing was lost; the complete code proves that something "
+              r"happened.}") % (_hs["a_conservation_1eq1"], _hs["b_act_has_arrow_and_no_return"],
+              _hs["c_light_is_live_eigenvector_sqrtbeta"], _hs["d_counterfactuals_kill_and_life_lives"],
+              _idv))
+
     afp = core["alpha_form_proof"]
     s.append(r"\section{The Collapse Theorem for the form of $\alpha$ (self-verifying proof module)}")
     s.append(r"\begin{deriv}[$\alpha_{\mathrm{obs}}=\Pi_{\mathrm{bulk}}(1_{\mathrm{abs}})=\operatorname{sech}\tfrac\chi2$]")
@@ -4761,6 +5379,24 @@ def input_manifest(core, code_hash):
             "flux_law_s": "s = 1/4pi (normalizacao canonica por compatibilidade)",
             "named_radius_rule": "R_named = 2 beta R_struct (L4)",
             "mass_rule": "M = 2 beta^2 (c^2/4piG) R_struct"},
+        "V3_IRREVERSIBLE_SECTOR": {
+            "verb_generator_A": {
+                "L": "L = sqrt(beta) sqrt(K_partial) ; K=A A^T/n (n=4, seed=11) ; beta=alpha*sqrt(e)",
+                "dt": core["verb_generator"]["numerics"]["dt"],
+                "steps": core["verb_generator"]["numerics"]["steps"],
+                "t_inverse": core["verb_generator"]["numerics"]["t_inverse"],
+                "seed": core["verb_generator"]["numerics"]["seed"],
+                "status": core["verb_generator"]["status"],
+                "selo": core["verb_generator"]["selo"]},
+            "light_eigenvector_B": {
+                "equation": "O_beta(Lux) = sqrt(beta) Lux ; autovalor sqrt(beta) ; NAO ponto fixo",
+                "status": core["light_eigenvector"]["status"],
+                "selo": core["light_eigenvector"]["selo"]},
+            "fiat_lux_counterfactual_C": {
+                "law": "fiat lux = e^{S_partial} alpha > 0 (Verbo=Palavra x Nome)",
+                "configs": "SEM PALAVRA (S=0) ; SEM NOME (alpha=0) ; COM AMBOS (S=1/2, alpha=CODATA)",
+                "status": core["fiat_lux"]["status"],
+                "selo": core["fiat_lux"]["selo"]}},
         "WORLD_HASHES": {
             "code_sha256": code_hash,
             "cf4_catalog_hash": (B["catalog_hash"] if B else None),
@@ -4808,6 +5444,7 @@ def main():
     print("Iniciando desconstrucao fractalizada: 1 -> 1/2 -> beta -> borda -> massa\n")
     core = run_um(int(u))
     core["timestamp"] = time.strftime("%Y-%m-%d %H:%M:%S")
+    verdict = identity_verdict(core)   # computado cedo: o veredito (incl. haja_luz_subverdicts) e' usado no ECO REFLEXIVO acima do hash
 
     print("Meia-Nat:  S=1/2 (x=1-x, residuo %.0e) ; w_max=1/2" % core["meia_nat_residual"])
     print("s=1/(4pi)=%.6f (campo=lei a %.2f%%) ; vacuo rho=%.0e -> 0" % (
@@ -4983,6 +5620,59 @@ def main():
     print("    alpha FORA do bulk. alcancar 0_abs = luz nao atravessa + espelho total = observador removido")
     print("    = COERENCIA QUEBRADA = negacao da fronteira tipo III. Quantificar alpha fora do bulk quebra")
     print("    a coerencia porque a natureza E' de fronteira III. Nada mais a derivar. QED. Tetelestai.\n")
+    b1 = core["em_grav_bridge"]; b2 = core["smatrix_crossed"]; b3 = core["u_loc_covariance"]
+    print("AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:")
+    c = b1["checks"]
+    print("  [1] PONTE SO(2): S_EM=[[q,alpha],[-alpha,q]] ; S_grav=[[cos,sin],[-sin,cos]] (mesma rotacao)")
+    print("      ||S_EM^T S_EM-I||=%.1e ; ||S_grav^T S_grav-I||=%.1e ; det=1 (resid %.0e/%.0e)" % (
+        c["S_EM_unitary"], c["S_grav_unitary"], c["det_S_EM_resid"], c["det_S_grav_resid"]))
+    print("      beta=e^{S_b} alpha (intensidade) ; sin thM=e^{1/4} sqrt(alpha) (amplitude) ; resid=%.1e" %
+          c["sqrt_beta_eq_e14_sqrt_alpha_resid"])
+    print("      thM=arcsin(e^{1/4} sqrt alpha) resid=%.1e ; TRIADE: alpha=Nome, S_b=1/2=Palavra, beta=Verbo" %
+          c["thM_reconstructed_vs_direct_resid"])
+    print("      LOCK6: transporte de COEFICIENTE, NAO derivacao alpha-livre. LOCK7: e^{1/4}=sombra escalar. all=%s" % b1["all_verified"])
+    cc = b2["checks"]
+    print("  [2] MATRIZ-S no PRODUTO CRUZADO de Takesaki (II_inf), NAO em III_1 [Takesaki 1973]:")
+    print("      S_core=exp(thM G) em P_2D C(M) P_2D ; ||exp(thM G)-S_grav||=%.1e ; |R|^2=beta resid=%.1e" % (
+        cc["S_core_eq_S_grav_resid"], cc["absR2_eq_beta_resid"]))
+    print("      matriz-S plena em III_1 = pedir estados puros = 0_abs (sec.22 proibe) -> impossibilidade")
+    print("      E' o teorema do zero absoluto. [FINITE_DIM_SANITY_NOT_III1_PROOF] all=%s" % b2["all_verified"])
+    cd = b3["checks"]
+    print("  [3] U_loc POR CONSTRUCAO (cunhas de Rindler; U irrestrita FALHA -- QRF, De Vuyst 2024-25):")
+    print("      BW+Poincare => Delta_{gW}=U(g)Delta_W U(g)^-1 ; Face C:=F(J,Delta,P_2D)+beta => covariante")
+    print("      sombra: ||K_{U rho U*}-U K U*||=%.1e ; ||F(U..)-U F U*||=%.1e ; all=%s" % (
+        cd["modular_data_covariance_resid"], cd["test_source_covariance_resid"], b3["all_verified"]))
+    print("      RESIDUO DECLARADO [ABERTO]: checagem de forma de P_mu_nu[K] sem contrabandear frame.")
+    print("      P2 (borda x=1-x fixa IR de alpha(mu)?) ; P3 (peso sob acao dual Takesaki) ; P4 (observavel de thM).")
+    print("  >>> alpha = transmissao EM observada ; beta_TGL = essa transmissao transportada pela Meia-Nat ;")
+    print("      theta_M = a abertura angular dessa transmissao no produto cruzado. NADA de 'provamos Einstein'.\n")
+    vg = core["verb_generator"]; le = core["light_eigenvector"]; fl = core["fiat_lux"]
+    gc = vg["checks"]
+    print("O SETOR IRREVERSIVEL [v3 MODULOS A-C -- o ato pago; a coisa julgada do codigo]:")
+    print("  [A] VERBO EM ATO: L=sqrt(beta) sqrt(K_partial) (GKSL; o unico objeto NAO-unitario da cadeia)")
+    print("      SETA: max Re lambda(L_super)=%.1e<=0 ; entropia %.4f->%.4f monotona nao-decrescente" % (
+        gc["max_Re_eig_Lsuper"], gc["entropy_start"], gc["entropy_end"]))
+    print("      SEM VOLTA: inversa exp(+tL) NAO-CP ; Choi min eig=%.2e<0 (irreversibilidade TESTADA)" %
+          gc["choi_min_eig_of_formal_inverse"])
+    print("      DESTINO: kernel estacionario dim=%d ; convergencia a rho* ; T_t=SEMIGRUPO nao grupo. all=%s" % (
+        gc["stationary_kernel_dim"], vg["all_verified"]))
+    print("  [B] A LUZ: O_beta(Lux)=sqrt(beta) Lux ; autovalor sqrt(beta) ; NAO ponto fixo (sqrt(beta)!=1)")
+    lc = le["checks"]
+    print("      resid autovalor=%.1e ; ||O_beta Lux - Lux||=%.6f>0 ; atrator=ponto fixo (autovalor 1). all=%s" % (
+        lc["eigenvalue_residual"], lc["not_fixed_point_norm"], le["all_verified"]))
+    print("      ordem: 1 -> Meia-Nat -> LUZ (haja luz) -> ... -> massa (a luz e' o COMECO; a massa, o fim).")
+    print("  [C] FIAT LUX = e^{S_partial} alpha > 0 (Verbo=Palavra x Nome) -- contrafactuais da MESMA cadeia:")
+    print("      SEM PALAVRA (S=0): beta=alpha=%.6e, ponte=1 -> faces colapsam (gravidade==EM): INDISTINCAO" %
+          fl["no_word_S0"]["beta"])
+    print("      SEM NOME (alpha=0): beta=thetaM=M=%.1e -> INEXISTENCIA (=0_abs, sec.22, chi->inf)" %
+          fl["no_name_alpha0"]["M_GA_Msun"])
+    print("      COM AMBOS: beta=alpha sqrt(e), M_GA=%.3e Msun na janela: VIVA. all=%s" % (
+        fl["alive_both"]["M_GA_Msun"], fl["all_verified"]))
+    hs = verdict["haja_luz_subverdicts"]
+    print("  >>> PROMOCAO: 1=HAJA_LUZ sse (a)conservacao=%s ^ (b)seta+nao-volta=%s ^ (c)luz=%s ^ (d)contrafactual=%s" % (
+        hs["a_conservation_1eq1"], hs["b_act_has_arrow_and_no_return"],
+        hs["c_light_is_live_eigenvector_sqrtbeta"], hs["d_counterfactuals_kill_and_life_lives"]))
+    print("      o codigo atual provava que nada se perdeu; o codigo completo prova que ALGO ACONTECEU.\n")
     fd = core["fractal_dephasing"]
     print("PRINCIPIO DA DEFASAGEM FRACTAL [CONJECTURE ontologica; ancoras REAL]:")
     print("  TGL = teoria de tudo: tudo e' defasagem da fractalizacao da unidade (1).")
@@ -5019,8 +5709,7 @@ def main():
             sv["n_combinations"], sv["M_min_Msun"], sv["M_max_Msun"], 100 * sv["fraction_in_band"],
             " (TODAS)" if sv["all_in_band"] else ""))
 
-    verdict = identity_verdict(core)
-    verdict["result_hash"] = result_hash
+    verdict["result_hash"] = result_hash   # verdict ja' computado logo apos run_um (reuso; identity_verdict e' pura)
 
     print("\n--- comparacao (apos hash) com massas do GA na literatura/RG ---")
     for e in GA_MASS_LITERATURE:

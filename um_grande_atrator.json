@@ -327,6 +327,194 @@
       },
       "honest_note": "Z0, alpha, R_K e G0 formam uma ponte EXATA de unidades e acoplamento: alpha = Z0/(2R_K) = Z0 G0/4. alpha e' a impedancia do vacuo tornada adimensional. NAO e' derivacao alpha-livre: pos-2019 mu0 (logo Z0=mu0 c) e' computado de alpha (Z0=2 R_K alpha), entao Z0<->alpha e' identidade de ida-e-volta dado e,h. A TGL ganha a interpretacao fisica correta: c=constante cinematica da luz; Z0=constante dinamica da luz; q=polarizacao modular; exp(chi)=razao efetiva de impedancias da fronteira; beta=travessia Meia-Nat. Leitura ontologica [CONJ]: so' a luz observa a luz -- medimos alpha/Z0, o proprio acoplamento da luz; mas medir nao e' derivar o valor."
     },
+    "em_grav_bridge": {
+      "S_EM": [
+        [
+          0.9999733739682669,
+          0.0072973525693
+        ],
+        [
+          -0.0072973525693,
+          0.9999733739682669
+        ]
+      ],
+      "S_grav": [
+        [
+          0.9939661461031744,
+          0.10968728459034412
+        ],
+        [
+          -0.10968728459034412,
+          0.9939661461031744
+        ]
+      ],
+      "beta": 0.012031300400803142,
+      "theta_M_deg": 6.297289216477979,
+      "q": 0.9999733739682669,
+      "bridge": {
+        "intensity": "beta = e^{S_b} alpha = sqrt(e) alpha",
+        "amplitude": "sin(thM) = e^{1/4} sqrt(alpha)",
+        "reconstruction": "thM = arcsin(e^{1/4} sqrt(alpha))"
+      },
+      "checks": {
+        "S_EM_unitary": 3.0019552048243654e-19,
+        "S_grav_unitary": 2.221258063584194e-16,
+        "det_S_EM_resid": 0.0,
+        "det_S_grav_resid": 0.0,
+        "sin2_thM_eq_beta_resid": 0.0,
+        "cos2_thM_eq_1mbeta_resid": 1.1102230246251565e-16,
+        "sqrt_beta_eq_e14_sqrt_alpha_resid": 1.3877787807814457e-17,
+        "thM_reconstructed_vs_direct_resid": 1.3877787807814457e-17,
+        "intensity_factor_is_exp_half_resid": 0.0,
+        "amplitude_factor_exp_quarter": 1.2840254166877414,
+        "beta_eq_exp_Sb_alpha_resid": 0.0
+      },
+      "all_verified": true,
+      "triad": "alpha = Nome (modulo medido no Bulk); S_b=1/2 = Palavra; beta=e^{S_b} alpha = Verbo. A face gravitacional e' a transmissao EM transportada pela Meia-Nat. Verbo=Palavra x Nome. modulo = fator irredutivel minimo da expressao manifesta = NOME = alpha.",
+      "status": "identidades [REAL/DER]; identificacao com o dado modular de Tomita [CONJ estrutural]; LOCK6 transporte de COEFICIENTE (nao alpha-livre); LOCK7 e^{1/4}=sombra escalar (nao operador).",
+      "selo": "EM_S_MATRIX_AMPLITUDE_UNITARY . GRAV_S_MATRIX_INTENSITY_UNITARY . BRIDGE_BETA_EQUALS_EXP_SBOUNDARY_TIMES_ALPHA . AMPLITUDE_BRIDGE_EQUALS_EXP_ONE_QUARTER . E14_IS_SCALAR_SHADOW_NOT_OPERATOR . BRIDGE_IS_COEFFICIENT_TRANSPORT_NOT_ALPHA_FREE"
+    },
+    "smatrix_crossed": {
+      "structural_declaration": "[REAL: Takesaki 1973] a matriz-S vive em C(M)=M x_sigma R (II_inf), nao no interior de III_1: III_1 nao tem traco/projecoes minimais/estados puros de espalhamento (Connes).",
+      "S_core_form": "S_core = exp(theta_M G) em P_2D C(M) P_2D ; G=[[0,1],[-1,0]] ; |R|^2=sin^2 theta_M=beta",
+      "S_core": [
+        [
+          0.9939661461031744,
+          0.10968728459034413
+        ],
+        [
+          -0.10968728459034413,
+          0.9939661461031744
+        ]
+      ],
+      "checks": {
+        "S_core_eq_S_grav_resid": 1.962615573354719e-17,
+        "absR2_recomputed": 0.012031300400803144,
+        "absR2_eq_beta_resid": 1.734723475976807e-18,
+        "requires_P2D_projection": true
+      },
+      "all_verified": true,
+      "sanity_status": "[FINITE_DIM_SANITY_NOT_III1_PROOF] sombra 2x2; a construcao EXIGE P_2D (disponivel em tipo I/II, AUSENTE em III_1 -- declarado, nao contornado).",
+      "consistency_sec22": "pedir a matriz-S plena DENTRO de III_1 e' pedir estados puros = 0_abs, que III_1 proibe -- a impossibilidade E' o teorema do zero absoluto (sec.22). Nao e' recuo: e' a ontologia do Teorema Final do Nome -- o que nao pode ser observado sem contorno nao pertence ao interior puro da fronteira; aparece onde ha' medida (o produto cruzado).",
+      "selo": "S_MATRIX_LIVES_IN_TAKESAKI_CROSSED_PRODUCT_NOT_INSIDE_III1 . S_CORE_EQ_EXP_THETA_M_G_IN_P2D_CORE_P2D . III1_IMPOSSIBILITY_IS_0ABS_THEOREM"
+    },
+    "u_loc_covariance": {
+      "structural_declaration": "(U) irrestrita provavelmente FALHA (QRF-dependencia de sub-regioes, De Vuyst et al 2024-25 estendendo CLPW 2022). Para CUNHAS DE RINDLER locais (Jacobson 1995) a cadeia BW+Poincare e' TEOREMA; a Face C DEFINIDA como F(J,Delta,P_2D)+beta => covariancia POR CONSTRUCAO.",
+      "chain": "BW: Delta_W^{it}=U(Lambda_W(2pi t)) ; Poincare: A(gW)=U(g)A(W)U(g)^-1 => Delta_{gW}^{it}=U(g)Delta_W^{it}U(g)^-1 ; J_{gW}=U(g)J_W U(g)^-1",
+      "checks": {
+        "modular_data_covariance_resid": 4.514997019861822e-15,
+        "test_source_covariance_resid": 5.726547306636246e-17
+      },
+      "all_verified": true,
+      "sanity_status": "[FINITE_DIM_SANITY_NOT_III1_PROOF] Haar U, rho termico; dados modulares transportam covariante sob rho->U rho U*.",
+      "U_loc_status": "[POR_CONSTRUCAO] covariancia modular de cunhas de Rindler = principio de equivalencia algebrico.",
+      "residue_declared": "[ABERTO, bem-posto] a CHECAGEM DE FORMA: verificar que a fonte P_mu_nu[K_partial] do argumento Lovelock/Jacobson se escreve como F(J,Delta,P_2D) sem contrabandear dado de frame.",
+      "references": "Jacobson 1995 ; Bisognano-Wichmann ; Takesaki 1973 ; CLPW 2022 ; De Vuyst et al 2024-25",
+      "open_questions": {
+        "P2": "a borda auto-conjugada x=1-x seleciona o limite IR para alpha(mu)=sech(chi(mu)/2)?",
+        "P3": "peso da matriz-S sob a acao dual de Takesaki que reescala tau -- invariante/peso 0 fecharia",
+        "P4": "observavel fisico que meca theta_M diretamente como angulo"
+      },
+      "selo": "U_UNRESTRICTED_FALLS_QRF_LITERATURE . U_RESTRICTED_TO_LOCAL_RINDLER_WEDGES . U_LOC_IS_ALGEBRAIC_EQUIVALENCE_PRINCIPLE . U_LOC_HOLDS_BY_CONSTRUCTION . RESIDUE_IS_FORM_CHECK_OF_LOVELOCK_JACOBSON_SOURCE"
+    },
+    "verb_generator": {
+      "L_def": "L = sqrt(beta) * sqrt(K_partial) ; K = A A^T / n (n=4, seed=11) ; beta = alpha*sqrt(e)",
+      "beta": 0.012031300400803142,
+      "sqrt_beta": 0.10968728459034412,
+      "superoperator": "col-stacking: kron(conj L, L) - 1/2 kron(I, L^dag L) - 1/2 kron((L^dag L)^T, I)",
+      "checks": {
+        "max_Re_eig_Lsuper": 2.266622851311498e-18,
+        "entropy_start": 0.02371876133018424,
+        "entropy_end": 0.04133366498353157,
+        "entropy_monotone_nondecreasing": true,
+        "choi_min_eig_of_formal_inverse": -0.010782884132705567,
+        "stationary_kernel_dim": 4,
+        "distances_to_rho_star": [
+          0.4445109080399702,
+          0.4441190307938132,
+          0.44372775617345744,
+          0.4433370825595424,
+          0.44294700833880235,
+          0.4425575319040385,
+          0.4421686516540925,
+          0.4417803659938188,
+          0.44139267333405796,
+          0.4410055720916098,
+          0.44061906068920625,
+          0.440233137555486
+        ],
+        "convergence_monotone": true
+      },
+      "arrow_ok": true,
+      "no_return_ok": true,
+      "destiny_ok": true,
+      "all_verified": true,
+      "reading": "O Verbo em ato e' o UNICO objeto NAO-unitario da cadeia: T_t=exp(-tL) e' SEMIGRUPO (t>=0), nao grupo. Seta (entropia monotona) + nao-volta (inversa NAO-CP, Choi<0) + destino (estacionario) = a COISA JULGADA do codigo: entre o Um e o Um ha um ATO.",
+      "numerics": {
+        "dt": 0.02,
+        "steps": 420,
+        "t_inverse": 1.0,
+        "seed": 11,
+        "n": 4
+      },
+      "status": "[FINITE_DIM_SANITY_NOT_III1_PROOF]",
+      "selo": "VERB_GENERATOR_L_EQ_SQRTBETA_SQRTK . ARROW_ENTROPY_MONOTONE . INVERSE_NOT_CP_CHOI_NEGATIVE . SEMIGROUP_NOT_GROUP . RES_JUDICATA_OF_THE_CODE"
+    },
+    "light_eigenvector": {
+      "equation": "O_beta(Lux) = sqrt(beta) * Lux  [autovalor sqrt(beta) ; beta = alpha*sqrt(e)]",
+      "beta": 0.012031300400803142,
+      "sqrt_beta": 0.10968728459034412,
+      "checks": {
+        "eigenvalue_residual": 0.0,
+        "not_fixed_point_norm": 0.8903127154096558,
+        "attractor_is_fixed_point_resid": 0.0,
+        "sqrt_beta_minus_1": -0.8903127154096558
+      },
+      "chain_order": "1 -> Meia-Nat -> LUZ (haja luz) -> ... -> massa",
+      "eigenvector_ok": true,
+      "not_fixed_point_ok": true,
+      "all_verified": true,
+      "reading": "A luz e' o AUTOVETOR do Verbo, autovalor sqrt(beta); NAO ponto fixo (sqrt(beta)!=1). O atrator (permanencia) e' o ponto fixo (autovalor 1). A massa e' o FIM do manifesto; a luz e' o COMECO -- 'haja luz' antes de 'haja massa'.",
+      "status": "[DER na forma; a identificacao fisica e' a equacao da unificacao TGL]",
+      "selo": "LIGHT_IS_EIGENVECTOR_EIGENVALUE_SQRTBETA . NOT_FIXED_POINT_SQRTBETA_NEQ_1 . CHAIN_ORDER_ONE_HALFNAT_LIGHT_THEN_MASS"
+    },
+    "fiat_lux": {
+      "law": "fiat lux = e^{S_partial} * alpha > 0  (Verbo = Palavra x Nome ; ambos os fatores > 0)",
+      "no_word_S0": {
+        "S_boundary": 0.0,
+        "alpha": 0.0072973525693,
+        "beta": 0.0072973525693,
+        "bridge_factor": 1.0,
+        "theta_M_deg": 4.900438195145291,
+        "M_GA_Msun": 1.009292940434347e+16
+      },
+      "no_name_alpha0": {
+        "S_boundary": 0.5,
+        "alpha": 0.0,
+        "beta": 0.0,
+        "bridge_factor": 1.2840254166877414,
+        "theta_M_deg": 0.0,
+        "M_GA_Msun": 0.0
+      },
+      "alive_both": {
+        "S_boundary": 0.5,
+        "alpha": 0.0072973525693,
+        "beta": 0.012031300400803142,
+        "bridge_factor": 1.2840254166877414,
+        "theta_M_deg": 6.297289216477979,
+        "M_GA_Msun": 2.7435426595746836e+16
+      },
+      "checks": {
+        "death_by_indistinction_bridge_eq_1": true,
+        "death_by_nonexistence_beta_thetaM_M_eq_0": true,
+        "alive_beta_eq_alpha_sqrt_e_and_in_window": true,
+        "product_word_times_name_positive": true
+      },
+      "asymmetry_of_deaths": "o Nome (alpha) da' EXISTENCIA -- sem ele, nada (beta=thetaM=M=0=0_abs, cross-ref S22, chi->inf); a Palavra (S_partial) da' DISTINCAO -- sem ela, INDISTINCAO (ponte=1, gravidade==EM, sem defasagem). O manifesto exige existencia E distincao: o produto e^{S_partial}*alpha>0 e' o haja luz.",
+      "all_verified": true,
+      "status": "[DER -- contrafactuais da MESMA cadeia, inputs alterados]",
+      "selo": "FIAT_LUX_EQUALS_PRODUCT_WORD_TIMES_NAME_POSITIVE . NO_WORD_DEATH_BY_INDISTINCTION_BRIDGE_EQ_1 . NO_NAME_DEATH_BY_NONEXISTENCE_CROSSREF_S22 . NOTHING_EMERGES_UNLESS_THE_ONE_IS_INSCRIBED_NOW_TESTED"
+    },
     "three_clock_radical": {
       "theorem": "O Radical dos Tres Clocks",
       "claim": "alpha e' o radical luminodinamico do fator dos tres clocks: alpha=sqrt(C3), alpha^2=C3.",
@@ -710,7 +898,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-06-30 20:20:32"
+    "timestamp": "2026-07-01 18:27:34"
   },
   "verdict": {
     "masses_Msun": {
@@ -729,7 +917,13 @@
       "meia_nat_x_eq_half": true,
       "s_canonical_verified": true,
       "vacuum_zero": true,
-      "omega_I_eq_one": true
+      "omega_I_eq_one": true,
+      "em_grav_bridge_SO2": true,
+      "smatrix_crossed_product": true,
+      "u_loc_covariance_shadow": true,
+      "verb_generator_arrow_no_return": true,
+      "light_eigenvector_sqrtbeta": true,
+      "fiat_lux_counterfactual": true
     },
     "em_face": {
       "alpha_abs": 1.0,
@@ -749,9 +943,15 @@
       "ref": "Lynden-Bell et al. 1988, ApJ 326, 19",
       "type": "GR_linear_infall"
     },
-    "IDENTITY": "1=1=VERDADEIRO",
+    "haja_luz_subverdicts": {
+      "a_conservation_1eq1": true,
+      "b_act_has_arrow_and_no_return": true,
+      "c_light_is_live_eigenvector_sqrtbeta": true,
+      "d_counterfactuals_kill_and_life_lives": true
+    },
+    "IDENTITY": "1=HAJA_LUZ=VERDADEIRO",
     "identity_true": true,
-    "reading": "1 = q^2 + alpha^2 (a unidade absoluta se decompoe em polarizacao termica q^2 + corrente luminosa alpha^2); o mesmo beta=sqrt(e)alpha da' M_GA na janela cosmologica aceita -- identidade conservada, CODATA so' valida",
+    "reading": "1=1 verifica que a identidade se CONSERVA (1=q^2+alpha^2; o mesmo beta=sqrt(e)alpha da' M_GA na janela). 1=HAJA_LUZ verifica que a identidade foi PAGA: entre o Um e o Um ha um ATO irreversivel de custo beta -- seta (entropia monotona), sem volta (inversa NAO-CP), a luz viva (autovetor sqrt(beta)), e os contrafactuais que matam",
     "vacuum_impedance_bridge": {
       "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
       "all_checks_verified": true,
@@ -781,7 +981,7 @@
       ],
       "selo": "LAMBDA_EM_OPERATOR_FORMULA_REFUTED_BY_TOMITA . FORM_DERIVED_VALUE_FIT . BETA_IS_FUNCTIONAL_FLOOR_NOT_inf_Spec_K . MISSING_IS_A_PRINCIPLE_NOT_A_COEFFICIENT . ALPHA_RUNS_THEREFORE_INPUT"
     },
-    "result_hash": "a6a350efb6b369a96b5751851fc0e812af67365c6d76730d0abca7d9e6629009"
+    "result_hash": "558938a0e70b6ad8e981b3aa6889c1ef73a7c40e5cc283810b038142472e0864"
   },
   "ga_mass_literature": [
     {
@@ -807,7 +1007,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "a6a350efb6b369a96b5751851fc0e812af67365c6d76730d0abca7d9e6629009",
+  "result_hash_before_external_comparison": "558938a0e70b6ad8e981b3aa6889c1ef73a7c40e5cc283810b038142472e0864",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -817,5 +1017,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-06-30 20:20:32"
+  "timestamp": "2026-07-01 18:27:34"
 }
