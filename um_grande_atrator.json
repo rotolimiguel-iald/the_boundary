@@ -587,17 +587,97 @@
       "n_antipode_cone": 323,
       "density_ratio_antipode_over_GA": 1.2188679245283018,
       "bootstrap": {
-        "median": 1.213115842004672,
-        "ci90": [
-          1.0711156583629893,
-          1.3962341872232762
+        "median": 1.2159276063469782,
+        "ci95": [
+          1.0318618159781319,
+          1.4382822159637314
         ],
         "seed": 11,
-        "B": 500
+        "B": 1000
       },
       "antipode_underdense": false,
       "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
       "caveat": "catalogo limitado em fluxo + Zona de Evitamento; a comparacao de contagem de POSICOES e' um teste geometrico bruto, nao mapa de densidade de materia. Reportado como pre-registro geometrico; nao e' confirmacao."
+    },
+    "dipole_antipode_masked": {
+      "protocol_preregistered": {
+        "completeness_mask": "|b_galactic| > 10 deg (MESMO corte nos dois cones; equatorial->galactica J2000)",
+        "controls": "8 cones de mesma abertura (30 deg) e mesma casca em ceu limpo |b|>30 deg",
+        "control_centers_RA_Dec_deg": [
+          [
+            46.285,
+            -0.083
+          ],
+          [
+            25.351,
+            -47.77
+          ],
+          [
+            341.398,
+            14.109
+          ],
+          [
+            241.33,
+            1.419
+          ],
+          [
+            353.129,
+            -36.227
+          ],
+          [
+            199.343,
+            -1.877
+          ],
+          [
+            312.24,
+            -47.943
+          ],
+          [
+            168.146,
+            -26.469
+          ]
+        ],
+        "criterion": "razao(anti/GA) mascarada < 1 E fora do IC90 da dispersao dos controles => REPULSOR SUB-DENSO INDICADO; dentro da dispersao => NAO-INFORMATIVO (CF4 posicoes pode nao bastar; endereco final: catalogos com mascara de completeza publicada)",
+        "bootstrap": "B=1000, IC95, seed=11",
+        "statute": "[PRE]",
+        "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY"
+      },
+      "GA_b_deg": -6.792945081298402,
+      "antipode_b_deg": 6.792945081298405,
+      "status": "[PRE + DATA geometria; POSICOES apenas; controle de completeza]",
+      "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY",
+      "ok": true,
+      "origin": "cache",
+      "n_GA_masked": 247,
+      "n_antipode_masked": 279,
+      "ratio_masked_antipode_over_GA": 1.1295546558704452,
+      "control_counts": [
+        716,
+        269,
+        776,
+        457,
+        359,
+        892,
+        407,
+        556
+      ],
+      "control_ratio_CI90": [
+        0.39577435679033995,
+        2.5289372585973013
+      ],
+      "ratio_percentile_in_controls": 53.57142857142857,
+      "ratio_outside_control_CI90": false,
+      "bootstrap": {
+        "median": 1.1252530364372468,
+        "ci95": [
+          0.9406597222222223,
+          1.3565448658649397
+        ],
+        "seed": 11,
+        "B": 1000
+      },
+      "verdict_P5prime": "NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)",
+      "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a"
     },
     "dephasing_crossover": {
       "reconciliation": "UMA lei-raiz Gamma=(1/2)beta(sqrt k_i - sqrt k_j)^2 (a coerencia do gerador v3 L=sqrt(beta)sqrt(K)); IR (k_i~k_j)=> quadratica=canonica; UV (k grande)=> linear=root.",
@@ -1088,7 +1168,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-01 19:09:38"
+    "timestamp": "2026-07-01 19:27:57"
   },
   "verdict": {
     "masses_Msun": {
@@ -1159,8 +1239,15 @@
       },
       "P5_dipole_antipode": {
         "ok": true,
+        "antipode_underdense_raw": false,
         "status": "[PRE + DATA geometria pura; POSICOES apenas -- velocidades/massas IGNORADAS]",
         "selo": "GA_ANTIPODE_UNDERDENSITY_PREREGISTERED_POSITIONS_ONLY . DIPOLE_GEOMETRY_NO_VELOCITIES"
+      },
+      "P5prime_masked": {
+        "ok": true,
+        "verdict": "NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)",
+        "GA_b_deg": -6.792945081298402,
+        "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY"
       },
       "P6_dephasing_crossover": {
         "all_verified": true,
@@ -1206,7 +1293,7 @@
       ],
       "selo": "LAMBDA_EM_OPERATOR_FORMULA_REFUTED_BY_TOMITA . FORM_DERIVED_VALUE_FIT . BETA_IS_FUNCTIONAL_FLOOR_NOT_inf_Spec_K . MISSING_IS_A_PRINCIPLE_NOT_A_COEFFICIENT . ALPHA_RUNS_THEREFORE_INPUT"
     },
-    "result_hash": "e0e7abbd808a476b96fdcb37e262b31ee8ef520f286561da7b81c372942271a9"
+    "result_hash": "8511c50d490265dc76cf7d784bff2420518d34833ba178fdce590fc95f269050"
   },
   "ga_mass_literature": [
     {
@@ -1232,7 +1319,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "e0e7abbd808a476b96fdcb37e262b31ee8ef520f286561da7b81c372942271a9",
+  "result_hash_before_external_comparison": "8511c50d490265dc76cf7d784bff2420518d34833ba178fdce590fc95f269050",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -1242,5 +1329,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-01 19:09:38"
+  "timestamp": "2026-07-01 19:27:57"
 }

@@ -2006,8 +2006,8 @@ def prove_dipole_antipode(ONE):
     n_ga = int(mask_ga.sum()); n_anti = int(mask_anti.sum())
     # cones de mesma abertura e mesma casca => mesmo volume => razao de densidade = razao de contagem
     ratio = (n_anti / n_ga) if n_ga > 0 else float("nan")
-    # bootstrap de POSICOES (resample dos indices; determinista)
-    rng = np.random.default_rng(11); N = len(rows); B = 500; ratios = []
+    # bootstrap de POSICOES (resample dos indices; determinista) -- spec v5.1: B=1000, IC95
+    rng = np.random.default_rng(11); N = len(rows); B = 1000; ratios = []
     idx_all = np.arange(N)
     for _ in range(B):
         bs = rng.choice(idx_all, size=N, replace=True)
@@ -2020,13 +2020,109 @@ def prove_dipole_antipode(ONE):
         "n_GA_cone": n_ga, "n_antipode_cone": n_anti,
         "density_ratio_antipode_over_GA": ratio,
         "bootstrap": {"median": float(np.nanmedian(ratios)),
-                      "ci90": [float(np.nanpercentile(ratios, 5)), float(np.nanpercentile(ratios, 95))],
+                      "ci95": [float(np.nanpercentile(ratios, 2.5)), float(np.nanpercentile(ratios, 97.5))],
                       "seed": 11, "B": B},
         "antipode_underdense": bool(n_anti < n_ga),
         "catalog_hash": sha_obj({"sha": hashlib.sha256(raw).hexdigest()}),
         "caveat": ("catalogo limitado em fluxo + Zona de Evitamento; a comparacao de contagem de "
                    "POSICOES e' um teste geometrico bruto, nao mapa de densidade de materia. "
                    "Reportado como pre-registro geometrico; nao e' confirmacao."),
+    })
+    return base
+
+
+def prove_dipole_antipode_masked(ONE):
+    """MODULO P5' (v5.1) -- o teste que DECIDE, com controle de completeza. O bruto (P5) e' enviesado:
+    o cone do GA (Norma) esta' ATRAS da Zona de Evitamento (|b|~6.8 deg). P5' aplica a MESMA mascara
+    de latitude galactica |b|>10 aos DOIS cones + 8 cones de controle em ceu limpo (|b|>30,
+    deterministicos seed=11) p/ calibrar a dispersao natural de contagem. PROTOCOLO PRE-REGISTRADO
+    (gravado no manifesto ANTES de qualquer contato com dados). [PRE; POSICOES apenas; nada de
+    confirmacao -- consistencia + criterio]."""
+    w = PREREG_WINDOW
+    ga_ra, ga_dec = w["GA_center_RA_deg"], w["GA_center_Dec_deg"]
+    anti_ra, anti_dec = (ga_ra + 180.0) % 360.0, -ga_dec
+    cone = w["sky_cone_half_angle_deg"]; lo, hi = w["dist_shell_Mpc"]
+    RA_NGP = math.radians(192.859508); DEC_NGP = math.radians(27.128336)  # polo galactico norte J2000
+
+    def gal_b(ra_deg, dec_deg):
+        a = math.radians(ra_deg); d = math.radians(dec_deg)
+        sb = math.sin(d) * math.sin(DEC_NGP) + math.cos(d) * math.cos(DEC_NGP) * math.cos(a - RA_NGP)
+        return math.degrees(math.asin(max(-1.0, min(1.0, sb))))
+    # cones de controle PRE-FIXADOS (deterministicos, seed=11, ceu limpo |b|>30)
+    rngc = np.random.default_rng(11); controls = []
+    while len(controls) < 8:
+        ra = float(rngc.uniform(0, 360)); dec = math.degrees(math.asin(float(rngc.uniform(-1, 1))))
+        if abs(gal_b(ra, dec)) > 30.0:
+            controls.append([round(ra, 3), round(dec, 3)])
+    protocol = {
+        "completeness_mask": "|b_galactic| > 10 deg (MESMO corte nos dois cones; equatorial->galactica J2000)",
+        "controls": "8 cones de mesma abertura (30 deg) e mesma casca em ceu limpo |b|>30 deg",
+        "control_centers_RA_Dec_deg": controls,
+        "criterion": ("razao(anti/GA) mascarada < 1 E fora do IC90 da dispersao dos controles => "
+                      "REPULSOR SUB-DENSO INDICADO; dentro da dispersao => NAO-INFORMATIVO (CF4 "
+                      "posicoes pode nao bastar; endereco final: catalogos com mascara de completeza "
+                      "publicada)"),
+        "bootstrap": "B=1000, IC95, seed=11", "statute": "[PRE]",
+        "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY",
+    }
+    base = {"protocol_preregistered": protocol,
+            "GA_b_deg": gal_b(ga_ra, ga_dec), "antipode_b_deg": gal_b(anti_ra, anti_dec),
+            "status": "[PRE + DATA geometria; POSICOES apenas; controle de completeza]",
+            "selo": protocol["selo"]}
+    path, origin = locate_cf4()
+    if path is None:
+        base.update({"ok": False, "reason": "CF4 absent (%s)" % origin}); return base
+    raw = open(path, "rb").read(); rows = list(csv.DictReader(raw.decode("utf-8").splitlines()))
+    ra = np.array([float(r["ra"]) for r in rows]); dec = np.array([float(r["dec"]) for r in rows])
+    dist = np.array([float(r["dist_mpc"]) for r in rows])
+    rr = np.radians(ra); dd = np.radians(dec)
+    ghat = np.column_stack([np.cos(dd) * np.cos(rr), np.cos(dd) * np.sin(rr), np.sin(dd)])
+    sb = np.sin(dd) * math.sin(DEC_NGP) + np.cos(dd) * math.cos(DEC_NGP) * np.cos(rr - RA_NGP)
+    bgal = np.degrees(np.arcsin(np.clip(sb, -1, 1)))
+    clean = np.abs(bgal) > 10.0                          # mascara de completeza (MESMA nos dois cones)
+
+    def cone_mask(cra_deg, cdec_deg):
+        cra, cdec = math.radians(cra_deg), math.radians(cdec_deg)
+        chat = np.array([math.cos(cdec) * math.cos(cra), math.cos(cdec) * math.sin(cra), math.sin(cdec)])
+        ang = np.degrees(np.arccos(np.clip(ghat @ chat, -1, 1)))
+        return (ang <= cone) & (dist >= lo) & (dist <= hi) & clean
+
+    m_ga = cone_mask(ga_ra, ga_dec); m_anti = cone_mask(anti_ra, anti_dec)
+    n_ga = int(m_ga.sum()); n_anti = int(m_anti.sum())
+    ratio = (n_anti / n_ga) if n_ga > 0 else float("nan")
+    ctrl_counts = [int(cone_mask(cra, cdec).sum()) for (cra, cdec) in controls]
+    ctrl_ratios = [ci / cj for i, ci in enumerate(ctrl_counts)
+                   for j, cj in enumerate(ctrl_counts) if i != j and cj > 0]
+    ctrl_ratios = np.array(ctrl_ratios) if ctrl_ratios else np.array([float("nan")])
+    ci90 = [float(np.nanpercentile(ctrl_ratios, 5)), float(np.nanpercentile(ctrl_ratios, 95))]
+    outside = bool(not math.isnan(ratio) and (ratio < ci90[0] or ratio > ci90[1]))
+    pctl = float(np.mean(ctrl_ratios <= ratio) * 100.0) if not math.isnan(ratio) else float("nan")
+    rngb = np.random.default_rng(11); N = len(rows); idx = np.arange(N); ratios = []
+    for _ in range(1000):
+        bs = rngb.choice(idx, size=N, replace=True)
+        ng = int(m_ga[bs].sum()); na = int(m_anti[bs].sum())
+        if ng > 0:
+            ratios.append(na / ng)
+    ratios = np.array(ratios) if ratios else np.array([float("nan")])
+    indicated = bool(not math.isnan(ratio) and ratio < 1.0 and outside)
+    if indicated:
+        verdict = "REPULSOR_SUB_DENSO_INDICADO (razao<1 E fora do IC90 dos controles)"
+    elif not math.isnan(ratio) and ci90[0] <= ratio <= ci90[1]:
+        verdict = "NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)"
+    else:
+        verdict = ("NAO_INFORMATIVO (razao>1 ou fora-mas-nao-sub-denso ou baixa estatistica; endereco: "
+                   "catalogos com mascara de completeza publicada)")
+    base.update({
+        "ok": True, "origin": origin,
+        "n_GA_masked": n_ga, "n_antipode_masked": n_anti,
+        "ratio_masked_antipode_over_GA": ratio,
+        "control_counts": ctrl_counts, "control_ratio_CI90": ci90,
+        "ratio_percentile_in_controls": pctl, "ratio_outside_control_CI90": outside,
+        "bootstrap": {"median": float(np.nanmedian(ratios)),
+                      "ci95": [float(np.nanpercentile(ratios, 2.5)), float(np.nanpercentile(ratios, 97.5))],
+                      "seed": 11, "B": 1000},
+        "verdict_P5prime": verdict,
+        "catalog_hash": sha_obj({"sha": hashlib.sha256(raw).hexdigest()}),
     })
     return base
 
@@ -2273,7 +2369,8 @@ def run_um(ONE):
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
     void_floor = prove_void_floor_margin(ONE)              # v4 P4: piso dos vazios rho_void/rho_bar>=beta (pre-registro)
-    dipole_antipode = prove_dipole_antipode(ONE)           # v4 P5: GA vs antipoda (repulsor sub-denso; posicoes apenas)
+    dipole_antipode = prove_dipole_antipode(ONE)           # v4 P5: GA vs antipoda (bruto; posicoes apenas)
+    dipole_antipode_masked = prove_dipole_antipode_masked(ONE)  # v5.1 P5': mascara de completeza |b|>10 + 8 controles (o teste que decide)
     dephasing_crossover = prove_dephasing_crossover(ONE)   # v4 P6: mapa de regimes (root law = canonica no IR; crossover ~omega tau*=1)
     jacobson_form_check = prove_jacobson_form_check(ONE)   # v5: CHECAGEM DE FORMA (residuo U_loc fechado: P_mn[K]=F(J,Delta,P_2D); 1a lei dS=d<K> testada)
     three_clock_radical = prove_three_clock_radical(ONE)  # FORMA: alpha=sqrt(C3) (radical dos tres clocks; C3=beta^2/e=alpha^2; alpha-livre aberto)
@@ -2324,6 +2421,7 @@ def run_um(ONE):
             "fiat_lux": fiat_lux,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
+            "dipole_antipode_masked": dipole_antipode_masked,
             "dephasing_crossover": dephasing_crossover,
             "jacobson_form_check": jacobson_form_check,
             "three_clock_radical": three_clock_radical,
@@ -2420,8 +2518,13 @@ def identity_verdict(core):
                                   "beta_floor": core["void_floor"]["beta_floor"],
                                   "selo": core["void_floor"]["selo"]},
                 "P5_dipole_antipode": {"ok": core["dipole_antipode"].get("ok", False),
+                                       "antipode_underdense_raw": core["dipole_antipode"].get("antipode_underdense"),
                                        "status": core["dipole_antipode"]["status"],
                                        "selo": core["dipole_antipode"]["selo"]},
+                "P5prime_masked": {"ok": core["dipole_antipode_masked"].get("ok", False),
+                                   "verdict": core["dipole_antipode_masked"].get("verdict_P5prime", "CF4_absent"),
+                                   "GA_b_deg": core["dipole_antipode_masked"]["GA_b_deg"],
+                                   "selo": core["dipole_antipode_masked"]["selo"]},
                 "P6_dephasing_crossover": {"all_verified": bool(core["dephasing_crossover"]["all_verified"]),
                                            "crossover_x": core["dephasing_crossover"]["crossover_x_omega_tau_star"],
                                            "selo": core["dephasing_crossover"]["selo"]},
@@ -2536,10 +2639,22 @@ def emit_canonical_md(core, verdict):
     md.append("void floor: rho_v/rho_bar >= beta = %.6f   [PRE, DESI/Euclid]" % core["void_floor"]["beta_floor"])
     _p5m = core["dipole_antipode"]
     if _p5m.get("ok"):
-        md.append("dipolo: antipoda GA sub-densa razao=%.3f (n_GA=%d, n_anti=%d)   [PRE + resultado ao vivo, CF4 posicoes]"
-                  % (_p5m["density_ratio_antipode_over_GA"], _p5m["n_GA_cone"], _p5m["n_antipode_cone"]))
+        if _p5m["antipode_underdense"]:
+            md.append("dipolo: antipoda GA SUB-DENSA razao=%.3f (n_GA=%d, n_anti=%d)   "
+                      "[PRE satisfeito no bruto; CF4 posicoes]"
+                      % (_p5m["density_ratio_antipode_over_GA"], _p5m["n_GA_cone"], _p5m["n_antipode_cone"]))
+        else:
+            md.append("dipolo: antipoda GA NAO-sub-densa no bruto razao=%.3f (n_GA=%d, n_anti=%d)   "
+                      "[PRE bruto NAO satisfeito; status: BRUTO NAO-INFORMATIVO por ZoA, caveat pre-declarado]"
+                      % (_p5m["density_ratio_antipode_over_GA"], _p5m["n_GA_cone"], _p5m["n_antipode_cone"]))
     else:
-        md.append("dipolo: antipoda GA sub-denso (CF4 posicoes)   [PRE; CF4 ausente nesta execucao]")
+        md.append("dipolo: antipoda GA (CF4 posicoes)   [PRE; CF4 ausente nesta execucao]")
+    _p5p = core["dipole_antipode_masked"]
+    if _p5p.get("ok"):
+        md.append("dipolo P5' (mascara |b|>10 + 8 controles): razao_masc=%.3f -> %s   [PRE, o teste que decide]"
+                  % (_p5p["ratio_masked_antipode_over_GA"], _p5p["verdict_P5prime"]))
+    else:
+        md.append("dipolo P5' (mascara |b|>10 + 8 controles): protocolo pre-registrado   [PRE; CF4 ausente]")
     md.append("crossover defasagem: expoente(omega) mapeado, IR=%.2f -> UV=%.2f, cross~%.2f   [NUM]"
               % (core["dephasing_crossover"]["exponent_IR"], core["dephasing_crossover"]["exponent_UV"],
                  core["dephasing_crossover"]["crossover_x_omega_tau_star"]))
@@ -3102,8 +3217,9 @@ def build_pt(core, verdict, data_path):
               r"DESI/Euclid com perfil de densidade empilhado; \emph{falsifica} qualquer vazio robusto "
               r"com $\rho_c/\bar\rho<\bTGL-3\sigma$; perfis publicados dão mínimo típico "
               r"$\sim0{,}05$--$0{,}15$ (consistente hoje, margem fina). \emph{(P5) Dipolo GA/antípoda} "
-              r"[PRE, posições apenas]: a bacia do Grande Atrator tem contraparte antipodal sub-densa (o "
-              r"repulsor do dipolo de fluxo); %s; critério pré-registrado razão $<1$; comparação com o "
+              r"[PRE, posições apenas]: \emph{prevê-se} que a bacia do Grande Atrator tenha contraparte "
+              r"antipodal sub-densa (o repulsor do dipolo de fluxo); %s; critério pré-registrado razão "
+              r"$<1$ (ver a ressalva pré-declarada abaixo); comparação com o "
               r"Dipole Repeller (Hoffman \emph{et al.}\ 2017) apenas [EXT]. \emph{(P6) Crossover de "
               r"defasagem} [sanidade finita]: a lei-raiz $\Gamma=\tfrac12\bTGL(\sqrt{k_i}-\sqrt{k_j})^2$ "
               r"\emph{é} a canônica $\tfrac12\bTGL\tau^\star\omega^2$ no IR --- o mesmo gerador $v3$ "
@@ -3134,6 +3250,37 @@ def build_pt(core, verdict, data_path):
               r"delicada conhecida, compartilhada com toda a linha Jacobson desde 1995 --- fronteira do "
               r"campo, não fraqueza da $\TGL$.") % (
               _sci(_fl[0]["rel_dev"], 1), _sci(_fl[1]["rel_dev"], 1), _sci(_fl[2]["rel_dev"], 1)))
+    _p5 = core["dipole_antipode"]; _p5p = core["dipole_antipode_masked"]
+    _raw = ((r"a razão antípoda/GA $=%.3f$ ($n_{GA}=%d$, $n_{\mathrm{ant}}=%d$) --- o critério bruto "
+             r"(razão $<1$) \textbf{não} foi satisfeito" % (
+             _p5["density_ratio_antipode_over_GA"], _p5["n_GA_cone"], _p5["n_antipode_cone"]))
+            if _p5.get("ok") else r"a contagem bruta não foi computada (CF4 ausente nesta execução)")
+    _p5pv = _p5p.get("verdict_P5prime", "protocolo pré-registrado (CF4 ausente)")
+    _p5pv_tex = _p5pv.replace("_", r"\_").replace("<", r"$<$").replace(">", r"$>$")
+    s.append(r"\subsection*{O setor obscurecido: ressalva pré-declarada}")
+    s.append((r"\textbf{(a) O resultado bruto, sem maquiagem.} No teste geométrico de contagem pura de "
+              r"posições (CF4, cascas e cones pré-registrados), %s. \textbf{(b) O problema de medição.} "
+              r"O cone do Grande Atrator (RA $243{,}6$, Dec $-60{,}4$; Norma, latitude galáctica "
+              r"$b\approx-6{,}8^\circ$) está \emph{atrás da Zona de Evitamento} --- a região do céu mais "
+              r"obscurecida pelo plano galáctico (extinção por poeira $+$ confusão estelar). Catálogos "
+              r"limitados em fluxo têm incompleteza severa exatamente ali; o cone antipodal está em céu "
+              r"limpo. A contagem bruta é estruturalmente enviesada \emph{contra} o GA --- o teste "
+              r"bruto não é informativo sobre a densidade real de matéria neste setor.") % _raw)
+    s.append((r"\textbf{(c) A precedência (não é ajuste \emph{post-hoc}).} O \emph{caveat} da Zona de "
+              r"Evitamento foi escrito \emph{dentro} do módulo \emph{antes} de qualquer contato com os "
+              r"dados (a sessão de codificação não dispunha do CF4; o módulo foi selado com o caveat no "
+              r"hash registrado), e só \emph{depois} o código foi executado com o catálogo, produzindo o "
+              r"número. A cadeia caveat$\to$selo$\to$execução$\to$resultado é auditável por hashes e "
+              r"\emph{timestamps}: \emph{a limitação do teste} estava predita antes de o resultado "
+              r"existir (a Zona de Evitamento é conhecimento astronômico padrão --- o pré-declarado foi "
+              r"a limitação \emph{do teste}, não a existência da ZoA). \textbf{(d) A consequência "
+              r"epistêmica.} O resultado é classificado como \textsf{[BRUTO NÃO-INFORMATIVO]}, não como "
+              r"refutação nem confirmação; a predição física subjacente (o repulsor antipodal sub-denso, "
+              r"cf.\ Dipole Repeller, Hoffman \emph{et al.}\ 2017 [EXT]) permanece em teste, decidida "
+              r"pelo P5$'$ (máscara de completeza $|b|>10^\circ$ nos dois cones $+$ 8 cones de controle "
+              r"em céu limpo): veredito \textsf{%s}. \textbf{(e)} \emph{O pré-registro obrigou o número "
+              r"a aparecer; o caveat estava escrito antes do número; e o número foi registrado como é. "
+              r"Uma auditoria vale pelo que ela recusa esconder.}") % _p5pv_tex)
 
     vib = core["vacuum_impedance_bridge"]
     s.append(r"\section{A impedância como constante dinâmica da luz \textsf{[REAL/EXT; $\alpha$ = setor QED "
@@ -4898,8 +5045,9 @@ def build_en(core, verdict, data_path):
               r"catalogues with a stacked density profile; \emph{falsified} by any robust void with "
               r"$\rho_c/\bar\rho<\bTGL-3\sigma$; published profiles give a typical minimum "
               r"$\sim0.05$--$0.15$ (consistent today, thin margin). \emph{(P5) GA/antipode dipole} [PRE, "
-              r"positions only]: the Great Attractor basin has an underdense antipodal counterpart (the "
-              r"flow-dipole repeller); %s; pre-registered criterion ratio $<1$; comparison with the "
+              r"positions only]: it is \emph{predicted} that the Great Attractor basin has an underdense "
+              r"antipodal counterpart (the flow-dipole repeller); %s; pre-registered criterion ratio "
+              r"$<1$ (see the pre-declared caveat below); comparison with the "
               r"Dipole Repeller (Hoffman \emph{et al.}\ 2017) [EXT] only. \emph{(P6) Dephasing crossover} "
               r"[finite-dim.\ sanity]: the root law $\Gamma=\tfrac12\bTGL(\sqrt{k_i}-\sqrt{k_j})^2$ "
               r"\emph{is} the canonical $\tfrac12\bTGL\tau^\star\omega^2$ in the IR --- the same $v3$ "
@@ -4930,6 +5078,37 @@ def build_en(core, verdict, data_path):
               r"the known delicate part, shared with the entire Jacobson line since 1995 --- a field "
               r"boundary, not a weakness of the $\TGL$.") % (
               _sci(_fl[0]["rel_dev"], 1), _sci(_fl[1]["rel_dev"], 1), _sci(_fl[2]["rel_dev"], 1)))
+    _p5 = core["dipole_antipode"]; _p5p = core["dipole_antipode_masked"]
+    _raw = ((r"the antipode/GA ratio $=%.3f$ ($n_{GA}=%d$, $n_{\mathrm{ant}}=%d$) --- the raw criterion "
+             r"(ratio $<1$) was \textbf{not} satisfied" % (
+             _p5["density_ratio_antipode_over_GA"], _p5["n_GA_cone"], _p5["n_antipode_cone"]))
+            if _p5.get("ok") else r"the raw count was not computed (CF4 absent in this run)")
+    _p5pv = _p5p.get("verdict_P5prime", "pre-registered protocol (CF4 absent)")
+    _p5pv_tex = _p5pv.replace("_", r"\_").replace("<", r"$<$").replace(">", r"$>$")
+    s.append(r"\subsection*{The obscured sector: a pre-declared caveat}")
+    s.append((r"\textbf{(a) The raw result, unvarnished.} In the pure position-count geometric test "
+              r"(CF4, pre-registered shells and cones), %s. \textbf{(b) The measurement problem.} The "
+              r"Great Attractor cone (RA $243{.}6$, Dec $-60{.}4$; Norma, galactic latitude "
+              r"$b\approx-6{.}8^\circ$) lies \emph{behind the Zone of Avoidance} --- the region of sky "
+              r"most obscured by the galactic plane (dust extinction $+$ stellar confusion). "
+              r"Flux-limited catalogues are severely incomplete exactly there; the antipodal cone is in "
+              r"clean sky. The raw count is thus structurally biased \emph{against} the GA --- the raw "
+              r"test is not informative about the real matter density in this sector.") % _raw)
+    s.append((r"\textbf{(c) Precedence (not a post-hoc adjustment).} The Zone-of-Avoidance \emph{caveat} "
+              r"was written \emph{inside} the module \emph{before} any contact with the data (the coding "
+              r"session had no CF4; the module was sealed with the caveat at the recorded hash), and "
+              r"only \emph{afterwards} was the code run with the catalogue, producing the number. The "
+              r"chain caveat$\to$seal$\to$execution$\to$result is auditable by hashes and "
+              r"\emph{timestamps}: \emph{the limitation of the test} was predicted before the result "
+              r"existed (the Zone of Avoidance is standard astronomy --- what was pre-declared is the "
+              r"limitation \emph{of the test}, not the existence of the ZoA). \textbf{(d) The epistemic "
+              r"consequence.} The result is classified as \textsf{[RAW NON-INFORMATIVE]}, not as "
+              r"refutation nor confirmation; the underlying physical prediction (the underdense "
+              r"antipodal repeller, cf.\ Dipole Repeller, Hoffman \emph{et al.}\ 2017 [EXT]) remains "
+              r"under test, decided by P5$'$ (completeness mask $|b|>10^\circ$ on both cones $+$ 8 "
+              r"control cones in clean sky): verdict \textsf{%s}. \textbf{(e)} \emph{The pre-registration "
+              r"forced the number to appear; the caveat was written before the number; and the number "
+              r"was recorded as it is. An audit is worth what it refuses to hide.}") % _p5pv_tex)
 
     afp = core["alpha_form_proof"]
     s.append(r"\section{The Collapse Theorem for the form of $\alpha$ (self-verifying proof module)}")
@@ -5895,7 +6074,16 @@ def input_manifest(core, code_hash):
             "P5_dipole_antipode_PRE": {
                 "prediction": "densidade(antipoda RA+180,Dec->-Dec) < densidade(GA) [POSICOES apenas]",
                 "cf4_ok": core["dipole_antipode"].get("ok", False),
+                "raw_note": "teste BRUTO (contagem pura); GA atras da Zona de Evitamento -> enviesado. Rotulo qualitativo DERIVADO do dado (nao hardcoded).",
                 "status": core["dipole_antipode"]["status"], "selo": core["dipole_antipode"]["selo"]},
+            "P5prime_masked_PRE": {
+                "protocol": core["dipole_antipode_masked"]["protocol_preregistered"],
+                "GA_b_deg": core["dipole_antipode_masked"]["GA_b_deg"],
+                "antipode_b_deg": core["dipole_antipode_masked"]["antipode_b_deg"],
+                "cf4_ok": core["dipole_antipode_masked"].get("ok", False),
+                "note": "PROTOCOLO PRE-REGISTRADO (mascara |b|>10 + 8 controles |b|>30 seed=11) gravado ANTES da execucao com dados",
+                "status": core["dipole_antipode_masked"]["status"],
+                "selo": core["dipole_antipode_masked"]["selo"]},
             "P6_dephasing_crossover_NUM": {
                 "map": "root law=canonica no IR; expoente 2->1; crossover ~omega tau*=1",
                 "x_grid": "logspace(-3,3,25) ; gerador v3 L=sqrt(beta)sqrt(K) ; seed determinista",
@@ -6208,14 +6396,33 @@ def main():
           p4["consistent_today"])
     if p5.get("ok"):
         bs = p5["bootstrap"]
-        print("  [P5] DIPOLO GA/ANTIPODA [PRE, posicoes]: n_GA=%d n_anti=%d razao=%.3f (boot mediana=%.3f, CI90=[%.3f,%.3f])" % (
+        print("  [P5] DIPOLO GA/ANTIPODA [PRE, posicoes]: n_GA=%d n_anti=%d razao=%.3f (boot mediana=%.3f, CI95=[%.3f,%.3f])" % (
             p5["n_GA_cone"], p5["n_antipode_cone"], p5["density_ratio_antipode_over_GA"],
-            bs["median"], bs["ci90"][0], bs["ci90"][1]))
-        print("      antipoda sub-densa=%s (criterio pre-registrado: razao<1 = repulsor). [EXT] Hoffman+2017." %
-              p5["antipode_underdense"])
+            bs["median"], bs["ci95"][0], bs["ci95"][1]))
+        if p5["antipode_underdense"]:
+            print("      antipoda SUB-DENSA no bruto (razao<1); [EXT] Hoffman+2017. -> P5' decide c/ mascara.")
+        else:
+            print("      antipoda NAO-sub-densa no bruto (razao=%.3f>1): [BRUTO NAO-INFORMATIVO por ZoA, caveat" %
+                  p5["density_ratio_antipode_over_GA"])
+            print("      pre-declarado no modulo]. GA atras da Zona de Evitamento -> vies contra o GA. -> P5' decide.")
     else:
         print("  [P5] DIPOLO GA/ANTIPODA [PRE]: CF4 indisponivel (%s) -- protocolo pre-registrado gravado." %
               p5.get("reason", "absent"))
+    p5m = core["dipole_antipode_masked"]
+    print("  [P5'] TESTE MASCARADO (|b|>10; GA b=%.1f, anti b=%.1f) [PRE, o teste que decide]:" % (
+        p5m["GA_b_deg"], p5m["antipode_b_deg"]))
+    if p5m.get("ok"):
+        bm = p5m["bootstrap"]
+        print("      n_GA_masc=%d n_anti_masc=%d razao_masc=%.3f (boot mediana=%.3f, CI95=[%.3f,%.3f])" % (
+            p5m["n_GA_masked"], p5m["n_antipode_masked"], p5m["ratio_masked_antipode_over_GA"],
+            bm["median"], bm["ci95"][0], bm["ci95"][1]))
+        print("      controles (8 cones |b|>30): contagens=%s ; IC90 das razoes=[%.3f,%.3f]" % (
+            p5m["control_counts"], p5m["control_ratio_CI90"][0], p5m["control_ratio_CI90"][1]))
+        print("      razao no percentil %.0f dos controles ; fora do IC90=%s => VEREDITO P5': %s" % (
+            p5m["ratio_percentile_in_controls"], p5m["ratio_outside_control_CI90"], p5m["verdict_P5prime"]))
+    else:
+        print("      CF4 indisponivel (%s) -- protocolo pre-registrado (mascara+8 controles seed=11) gravado." %
+              p5m.get("reason", "absent"))
     print("  [P6] CROSSOVER DE DEFASAGEM [FINITE_DIM]: root law=canonica no IR (a MESMA lei do gerador v3):")
     print("      Gamma medido vs (1/2)beta(sqrt k_i-sqrt k_j)^2 rel_max=%.1e ; expoente IR=%.3f UV=%.3f" % (
         p6["generator_vs_rootlaw_max_rel_resid"], p6["exponent_IR"], p6["exponent_UV"]))

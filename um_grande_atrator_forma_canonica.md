@@ -36,7 +36,8 @@ S_core: peso 0 sob acao dual de Takesaki (condicional P_2D)   [P3; resid 0e+00]
 1a lei modular: dS = d<K> (testada; elo Jacobson)   [CHECAGEM DE FORMA OK; 1a ordem holds=True]
 P_mn[K] = F(J, Delta, P_2D) ; P_2D = plano de bifurcacao = corner da matriz-S   [U_loc: residuo fechado]
 void floor: rho_v/rho_bar >= beta = 0.012031   [PRE, DESI/Euclid]
-dipolo: antipoda GA sub-densa razao=1.219 (n_GA=265, n_anti=323)   [PRE + resultado ao vivo, CF4 posicoes]
+dipolo: antipoda GA NAO-sub-densa no bruto razao=1.219 (n_GA=265, n_anti=323)   [PRE bruto NAO satisfeito; status: BRUTO NAO-INFORMATIVO por ZoA, caveat pre-declarado]
+dipolo P5' (mascara |b|>10 + 8 controles): razao_masc=1.130 -> NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)   [PRE, o teste que decide]
 crossover defasagem: expoente(omega) mapeado, IR=2.00 -> UV=1.04, cross~3.16   [NUM]
 ```
 
