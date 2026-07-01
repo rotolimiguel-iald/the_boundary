@@ -336,8 +336,11 @@ The canonical chain, all computed live from the single input `1`:
   `1/137` is its **renormalised modular projection** through the thermal-modular depth of the zero:
   `α_obs = sech(χ/2) = √(1 − q²)`, with `q = tanh(χ/2)` the **impedance basin** (the dam: `q²` = pressure
   retained, `α²` = luminous flow). The engine is `α_abs = 1 → q → α = √(1−q²) → β = √e·α`; **CODATA enters
-  only as external validation, never as the structural motor.** The sealed verdict `1 = 1 = TRUE` means
-  *literally* the conserved identity **`1_abs = q² + α_obs²`** (residual `0.0`).
+  only as external validation, never as the structural motor.** The sealed verdict `1 = HAJA_LUZ = TRUE`
+  means the conserved identity **`1_abs = q² + α_obs²`** (residual `0.0`) **plus the paid act** — the
+  irreversible sector (the Verb `L = √β·√K_∂`: entropy arrow, non-CP formal inverse, light as an eigenvector
+  with eigenvalue `√β`, not a fixed point). `1 = 1` verifies that identity is *conserved*; `1 = HAJA_LUZ`
+  verifies that it was *paid for* — between the One and the One there is an irreversible act of cost `β`.
 - **`α = sech(χ/2)` is a theorem of form, not a fit of the number `1/137`.** The proof module
   `prove_alpha_form` verifies all 8 steps live (`ALPHA_FORM_THEOREM_PROVED`). The value of `χ` belongs to
   the QED/renormalised sector; the **form** belongs to TGL.
@@ -363,8 +366,22 @@ The canonical chain, all computed live from the single input `1`:
 - **Gravitational face — the Great Attractor mass from first principles.** `M = 2 β² (c²/4πG) R_struct`,
   with `β = α√e` and `R_struct` the **geometry** of the basin (positions only; velocities ignored), in two
   modes: **Mode A** (literature extent, Lynden-Bell ~57 Mpc) and **Mode B** (Cosmicflows-4 positions,
-  RA/Dec/dist). The binary identity closes `1 = 1 = TRUE` iff the first-principles mass lands inside the
-  pre-registered cosmological window.
+  RA/Dec/dist). The binary identity closes `1 = HAJA_LUZ = TRUE` iff (a) everything conserved (`1 = q² + α²`,
+  the mass inside the pre-registered cosmological window) **and** (b) the act is paid (arrow + no return +
+  live light-eigenvector + counterfactuals).
+- **The sealed additional layers (all recomputed live, inside the hash).** *(i)* the **SO(2) bridge** —
+  gravity and EM are the *same* 2×2 S-matrix (amplitudes vs intensities): `β = e^{S_∂}α`,
+  `sin θ_M = e^{1/4}√α`; a transport of coefficient, **not** an α-free derivation (§21 untouched). *(ii)* the
+  **S-matrix** in the Takesaki crossed product (type II∞), `S_∂^core = exp(θ_M G)`, `|R|² = β`. *(iii)* the
+  **scale**: the boundary reads the IR — `χ*` is additive modular rapidity `= log(impedance ratio)`; the
+  scale is the observer's *position*, not a hidden parameter, and the value read stays the Name. *(iv)* the
+  **dual weight** of the S-matrix is `0`. *(v)* the **form check** of `U_loc`: `𝒫_μν[K_∂] = F(J, Δ, P_2D)`,
+  with the modular first law `δS = δ⟨K⟩` tested live to first order (the S-matrix projection *is* the horizon
+  corner; residue: the *approximate Killing vectors*, shared with the Jacobson line since 1995). *(vi)* the
+  **falsifiable programme (pre-registered):** the void floor `ρ_void/ρ̄ ≥ β`; the GA/antipode dipole
+  (positions only) with a completeness-masked test `P5'` (Zone-of-Avoidance controlled — the raw count is
+  reported **as it is** and classified **[raw non-informative]**, the caveat pre-declared *before* the data);
+  the dephasing crossover (the root law `Γ = ½β(√kᵢ−√kⱼ)²` *is* the canonical `½βτ⋆ω²` in the IR).
 
 ### The Bridge (Ponte Einstein–Cartan–Miguel) and the resolution of Face C
 
@@ -409,7 +426,7 @@ IDENTIDADE FINAL (Lagrange engine, canonical motor):
   identity residual ... = 0.0
   CODATA: external validation only (q_QED = sqrt(1 - alpha_QED^2))
   the SAME beta -> M_GA in the accepted cosmological window  (gravitational shadow)
-  VERDICT: 1 = 1 = TRUE
+  VERDICT: 1 = HAJA_LUZ = TRUE   (1=1 conserved  +  the irreversible act paid)
 ```
 
 i.e. the **same** `β` that closes the EM identity `1 = q² + α²` also yields the **Great Attractor mass from
@@ -429,7 +446,8 @@ inversa, polarizada — `ρ_ret = e^{−χ Z_∂/2}/(2cosh χ/2)`, `q = p₀−p
 sech(χ/2)`. A **forma fecha**; o **valor `χ⋆ ≈ 11,2268` é parte finita irredutível** — a TGL repousa sobre
 **dois postulados de fronteira**: a **Meia-Nat** (`S_∂ = ½`, o peso) e o **Princípio da Polarização** (`χ⋆`).
 Notação uniforme: `χ` = gap modular efetivo; `κ_0` = distância ontológica ao `0_abs`. Rode `python um.py`; o
-veredito final imprime `1 = 1 = VERDADE` = `1_abs = q² + α²` e a comparação `M_TGL(GA)` vs janela cosmológica.
+veredito final imprime `1 = HAJA_LUZ = VERDADE` (a conservação `1_abs = q² + α²` **mais** o ato irreversível
+pago — o setor do Verbo `L = √β·√K_∂`) e a comparação `M_TGL(GA)` vs janela cosmológica.
 O artigo é **bilíngue** (`um_grande_atrator_pt`/`_en`, ≈20/19 pp). Gênese arquivada em
 `Genesis da Unificação/Um - ensaio/`.
 
