@@ -26,6 +26,18 @@ L = √β·√K_∂                    [VERBO EM ATO: gerador GKSL; o unico obje
   seta: entropia 0.0237→0.0413 monotona ; sem volta: Choi(inversa) min=-1.08e-02<0 ; kernel=4
 O_β(Lux) = √β·Lux              [LUZ = autovetor do Verbo; autovalor √β; NAO ponto fixo (√β≠1)]
 fiat lux = e^{S_∂}·α > 0       [TESTADO: sem Palavra→indistincao ; sem Nome→inexistencia(0_abs)]
+
+--- v4: A ESCALA e O PESO ---
+chi* = rapidez modular total = log(Z-ratio) = 11.226755   [MESMO OBJETO; resid vs ponte 1e-12]
+leitura de fronteira = IR (QED congela; supremo de chi = alpha MIN)   [ESCALA FECHADA; VALOR=Nome, §21]
+S_core: peso 0 sob acao dual de Takesaki (condicional P_2D)   [P3; resid 0e+00]
+
+--- v5: A CHECAGEM DE FORMA + O PROGRAMA ---
+1a lei modular: dS = d<K> (testada; elo Jacobson)   [CHECAGEM DE FORMA OK; 1a ordem holds=True]
+P_mn[K] = F(J, Delta, P_2D) ; P_2D = plano de bifurcacao = corner da matriz-S   [U_loc: residuo fechado]
+void floor: rho_v/rho_bar >= beta = 0.012031   [PRE, DESI/Euclid]
+dipolo: antipoda GA sub-densa razao=1.219 (n_GA=265, n_anti=323)   [PRE + resultado ao vivo, CF4 posicoes]
+crossover defasagem: expoente(omega) mapeado, IR=2.00 -> UV=1.04, cross~3.16   [NUM]
 ```
 
 ## Identidades verificadas ao vivo

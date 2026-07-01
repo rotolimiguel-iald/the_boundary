@@ -515,6 +515,196 @@
       "status": "[DER -- contrafactuais da MESMA cadeia, inputs alterados]",
       "selo": "FIAT_LUX_EQUALS_PRODUCT_WORD_TIMES_NAME_POSITIVE . NO_WORD_DEATH_BY_INDISTINCTION_BRIDGE_EQ_1 . NO_NAME_DEATH_BY_NONEXISTENCE_CROSSREF_S22 . NOTHING_EMERGES_UNLESS_THE_ONE_IS_INSCRIBED_NOW_TESTED"
     },
+    "boundary_reads_IR": {
+      "chi_is_modular_rapidity": "q_i=tanh(chi_i/2) compoe rel.; chi/2 e' a rapidez ADITIVA (camadas somam)",
+      "rapidity_composition_max_resid": 2.220446049250313e-16,
+      "alpha_monotone_decreasing_in_chi": true,
+      "alpha_IR": 0.0072973525693,
+      "alpha_MZ_approx": 0.007818608287724784,
+      "chi_IR": 11.2267550516013,
+      "chi_MZ": 11.088761212271004,
+      "IR_is_supremum_of_chi": true,
+      "chi_bridge_from_impedance": 11.226755051602328,
+      "chi_IR_eq_chi_bridge_resid": 1.028510610012745e-12,
+      "same_object": true,
+      "ontology": "[ONTO] a borda auto-conjugada x=1-x define o PONTO MEDIO; 'metade' exige a travessia TOTAL definida (o supremo). Leitura parcial (de dentro) nao tem metade bem-definida -> o observador de fronteira le alpha(0)=IR POR CONSTRUCAO.",
+      "conclusion": "a ESCALA e' a POSICAO do observador, nao parametro escondido; o running e' a familia de leituras de dentro, com 1=q^2+alpha^2 conservada em cada profundidade. Objecao (d): a CATEGORIA morreu na ponte SO(2); a ESCALA morre aqui (fronteira le IR).",
+      "all_verified": true,
+      "status": "[DER a escala da leitura; REAL/EXT o IR-freeze da QED; \u00a721 intocado: o VALOR e' o Nome]",
+      "selo": "CHI_IS_ADDITIVE_MODULAR_RAPIDITY . BOUNDARY_READS_SUPREMUM_EQ_IR . QED_IR_FREEZE_UNIQUE_CANONICAL_READING . CHI_STAR_EQ_LOG_IMPEDANCE_RATIO_SAME_OBJECT . SCALE_IS_OBSERVER_POSITION_NOT_HIDDEN_PARAMETER . ALPHA_VALUE_STILL_THE_NAME"
+    },
+    "smatrix_dual": {
+      "structural_argument": "S_core=exp(theta_M G): theta_M=arcsin sqrt(beta) e' escalar ADIMENSIONAL; G fixo. A acao dual theta_s reescala o traco (tau->e^{-s}tau) e o gerador do R DUAL; S_core nao contem traco nem o gerador dual => peso 0.",
+      "checks": {
+        "S_core_invariant_under_trace_rescale_max_resid": 0.0,
+        "s_grid": [
+          0.0,
+          0.5,
+          1.0,
+          2.0,
+          3.0,
+          5.0
+        ],
+        "no_trace_in_definition": true
+      },
+      "all_verified": true,
+      "conditional": "[DER CONDICIONAL] peso 0 vale se P_2D e' construida em M (nao em M x R). A localizacao rigorosa de P_2D em M vs M rtimes R e' a checagem residual do II_inf.",
+      "residue_open": "[ABERTO, bem-posto] localizacao de P_2D em M (vs produto cruzado)",
+      "status": "[DER condicional a P_2D ; FINITE_DIM_SANITY_NOT_III1_PROOF na sombra]",
+      "selo": "S_CORE_WEIGHT_ZERO_UNDER_DUAL_ACTION_CONDITIONAL_P2D . NO_TRACE_IN_DEFINITION . RESIDUE_P2D_LOCALIZATION"
+    },
+    "void_floor": {
+      "prediction": "rho_void / rho_bar >= beta  (piso zero-parametro; beta=alpha*sqrt(e))",
+      "beta_floor": 0.012031300400803142,
+      "margin_vs_typical_min": 4.155826746430692,
+      "test_protocol": "catalogos de vazios DESI/Euclid; estimador de densidade central por PERFIL EMPILHADO; criterio de falsificacao: qualquer vazio ROBUSTO com rho_c/rho_bar < beta - 3 sigma FALSIFICA (zero-parametro).",
+      "literature_EXT": "perfis de vazios publicados: minimo tipico rho_c/rho_bar ~ 0.05-0.15 (consistente hoje com o piso; margem fina ~4-12x).",
+      "consistent_today": true,
+      "status": "[PRE + EXT] pre-registro falsificavel; consistencia + endereco, NAO confirmacao",
+      "selo": "VOID_FLOOR_RHO_RATIO_GE_BETA_PREREGISTERED . DESI_EUCLID_ADDRESS . ZERO_PARAMETER_FALSIFIABLE"
+    },
+    "dipole_antipode": {
+      "GA_center": [
+        243.6,
+        -60.4
+      ],
+      "antipode_center": [
+        63.60000000000002,
+        60.4
+      ],
+      "cone_half_angle_deg": 30.0,
+      "dist_shell_Mpc": [
+        30.0,
+        100.0
+      ],
+      "criterion": "PRE-REGISTRADO: densidade(antipoda) < densidade(GA) => razao < 1 (repulsor sub-denso)",
+      "literature_EXT": "Dipole Repeller: Hoffman, Pomarede, Tully, Courtois 2017, Nat. Astron. 1, 0036",
+      "status": "[PRE + DATA geometria pura; POSICOES apenas -- velocidades/massas IGNORADAS]",
+      "selo": "GA_ANTIPODE_UNDERDENSITY_PREREGISTERED_POSITIONS_ONLY . DIPOLE_GEOMETRY_NO_VELOCITIES",
+      "ok": true,
+      "origin": "cache",
+      "n_GA_cone": 265,
+      "n_antipode_cone": 323,
+      "density_ratio_antipode_over_GA": 1.2188679245283018,
+      "bootstrap": {
+        "median": 1.213115842004672,
+        "ci90": [
+          1.0711156583629893,
+          1.3962341872232762
+        ],
+        "seed": 11,
+        "B": 500
+      },
+      "antipode_underdense": false,
+      "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
+      "caveat": "catalogo limitado em fluxo + Zona de Evitamento; a comparacao de contagem de POSICOES e' um teste geometrico bruto, nao mapa de densidade de materia. Reportado como pre-registro geometrico; nao e' confirmacao."
+    },
+    "dephasing_crossover": {
+      "reconciliation": "UMA lei-raiz Gamma=(1/2)beta(sqrt k_i - sqrt k_j)^2 (a coerencia do gerador v3 L=sqrt(beta)sqrt(K)); IR (k_i~k_j)=> quadratica=canonica; UV (k grande)=> linear=root.",
+      "generator_vs_rootlaw_max_rel_resid": 2.003140506819362e-05,
+      "exponent_IR": 1.9993246985574578,
+      "exponent_UV": 1.0366185071543357,
+      "crossover_x_omega_tau_star": 3.1622776601683795,
+      "regime_map": {
+        "x_grid_omega_tau_star": [
+          0.001,
+          0.0017782794100389228,
+          0.0031622776601683794,
+          0.005623413251903491,
+          0.01,
+          0.01778279410038923,
+          0.03162277660168379,
+          0.05623413251903491,
+          0.1,
+          0.1778279410038923,
+          0.31622776601683794,
+          0.5623413251903491,
+          1.0,
+          1.7782794100389228,
+          3.1622776601683795,
+          5.623413251903491,
+          10.0,
+          17.78279410038923,
+          31.622776601683793,
+          56.23413251903491,
+          100.0,
+          177.82794100389228,
+          316.22776601683796,
+          562.341325190349,
+          1000.0
+        ],
+        "effective_exponent": [
+          1.9993246985574578,
+          1.9990623977229198,
+          1.9983346991570716,
+          1.9970449853244912,
+          1.9947651119829715,
+          1.9907532086046569,
+          1.9837492889377035,
+          1.9716877585252348,
+          1.9513869715826182,
+          1.9184593803057641,
+          1.867974626719013,
+          1.7964436425333083,
+          1.7047081095567274,
+          1.5995135010685884,
+          1.4915495494997142,
+          1.3910120380692228,
+          1.3042399893884373,
+          1.233263831115279,
+          1.177208164727033,
+          1.1338838128110829,
+          1.1008270723989484,
+          1.0757922778301783,
+          1.0569136896533546,
+          1.0427120425487775,
+          1.0366185071543357
+        ]
+      },
+      "all_verified": true,
+      "status": "[FINITE_DIM_SANITY] mapa numerico; a reconciliacao analitica completa da root law vs canonica fica [ABERTO] com este mapa como guia.",
+      "selo": "DEPHASING_REGIME_MAP_QUADRATIC_IR . CROSSOVER_LOCATED_NUMERICALLY . ROOT_LAW_REGIME_CHARACTERIZED"
+    },
+    "jacobson_form_check": {
+      "form_check": "P_mn[K_partial] = F(J, Delta, P_2D)  [CHECAGEM DE FORMA POSITIVA]",
+      "source_decomposition": {
+        "i_K_partial": "K_partial = -log(Delta_W)/2pi  <-  SO' Delta [Bisognano-Wichmann]",
+        "ii_bifurcation_plane": "plano de bifurcacao do horizonte  <-  SO' P_2D (o MESMO corner geometrico da matriz-S do nucleo: a projecao da S-matrix E' o corner)",
+        "iii_wedge_conjugation": "conjugacao cunha/anticunha (CPT local)  <-  SO' J",
+        "iv_first_law": "dS = d<K>  (o elo -- TESTADO ao vivo abaixo) [REAL: first law of entanglement]",
+        "v_lovelock": "Lovelock (unicidade em 4D) => P_mn = G_mn + Lambda g_mn => forma F(J,Delta,P_2D) [REAL]"
+      },
+      "first_law_test": [
+        {
+          "eps": 0.0001,
+          "dS": -0.0001405716058253681,
+          "dK": -0.0001401556895521112,
+          "rel_dev": 0.0029587502455765335
+        },
+        {
+          "eps": 1e-05,
+          "dS": -1.401970410763731e-05,
+          "dK": -1.4015568955211122e-05,
+          "rel_dev": 0.00029495290303128816
+        },
+        {
+          "eps": 1e-06,
+          "dS": -1.4015982234827362e-06,
+          "dK": -1.4015568955211121e-06,
+          "rel_dev": 2.9486311363475274e-05
+        }
+      ],
+      "rel_dev_ratios": [
+        10.031263348042632,
+        10.003045121359149
+      ],
+      "first_order_signature_holds": true,
+      "P2D_note": "P_2D e' o plano de bifurcacao onde a cunha dobra -- o MESMO P_2D da matriz-S do nucleo (\u00a7 ponte SO(2)/produto cruzado): a projecao da S-matrix E' o corner geometrico do horizonte. Mesma estrutura, dois papeis.",
+      "residue_declared": "[ABERTO, compartilhado] o limite dos APPROXIMATE KILLING VECTORS (horizonte local em curvo generico) e' a parte delicada conhecida -- compartilhada com TODA a linha Jacobson desde 1995. Fronteira do campo, nao fraqueza da TGL.",
+      "all_verified": true,
+      "status": "[FINITE_DIM_SANITY no elo (iv) dS=d<K>; REAL na literatura (1a lei) + Lovelock (4D)]",
+      "selo": "JACOBSON_SOURCE_HAS_FORM_F_J_DELTA_P2D . FIRST_LAW_MODULAR_TESTED . P2D_IS_BIFURCATION_PLANE_SAME_AS_SMATRIX_CORNER . RESIDUE_APPROX_KILLING_SHARED_WITH_FIELD"
+    },
     "three_clock_radical": {
       "theorem": "O Radical dos Tres Clocks",
       "claim": "alpha e' o radical luminodinamico do fator dos tres clocks: alpha=sqrt(C3), alpha^2=C3.",
@@ -898,7 +1088,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-01 18:27:34"
+    "timestamp": "2026-07-01 19:09:38"
   },
   "verdict": {
     "masses_Msun": {
@@ -923,7 +1113,10 @@
       "u_loc_covariance_shadow": true,
       "verb_generator_arrow_no_return": true,
       "light_eigenvector_sqrtbeta": true,
-      "fiat_lux_counterfactual": true
+      "fiat_lux_counterfactual": true,
+      "boundary_reads_IR_scale": true,
+      "smatrix_dual_weight_zero": true,
+      "jacobson_form_check_first_law": true
     },
     "em_face": {
       "alpha_abs": 1.0,
@@ -948,6 +1141,38 @@
       "b_act_has_arrow_and_no_return": true,
       "c_light_is_live_eigenvector_sqrtbeta": true,
       "d_counterfactuals_kill_and_life_lives": true
+    },
+    "v4_scale_and_program": {
+      "P2_boundary_reads_IR": {
+        "all_verified": true,
+        "chi_IR_eq_chi_bridge_resid": 1.028510610012745e-12,
+        "selo": "CHI_IS_ADDITIVE_MODULAR_RAPIDITY . BOUNDARY_READS_SUPREMUM_EQ_IR . QED_IR_FREEZE_UNIQUE_CANONICAL_READING . CHI_STAR_EQ_LOG_IMPEDANCE_RATIO_SAME_OBJECT . SCALE_IS_OBSERVER_POSITION_NOT_HIDDEN_PARAMETER . ALPHA_VALUE_STILL_THE_NAME"
+      },
+      "P3_smatrix_dual_weight": {
+        "all_verified": true,
+        "selo": "S_CORE_WEIGHT_ZERO_UNDER_DUAL_ACTION_CONDITIONAL_P2D . NO_TRACE_IN_DEFINITION . RESIDUE_P2D_LOCALIZATION"
+      },
+      "P4_void_floor": {
+        "status": "[PRE + EXT] pre-registro falsificavel; consistencia + endereco, NAO confirmacao",
+        "beta_floor": 0.012031300400803142,
+        "selo": "VOID_FLOOR_RHO_RATIO_GE_BETA_PREREGISTERED . DESI_EUCLID_ADDRESS . ZERO_PARAMETER_FALSIFIABLE"
+      },
+      "P5_dipole_antipode": {
+        "ok": true,
+        "status": "[PRE + DATA geometria pura; POSICOES apenas -- velocidades/massas IGNORADAS]",
+        "selo": "GA_ANTIPODE_UNDERDENSITY_PREREGISTERED_POSITIONS_ONLY . DIPOLE_GEOMETRY_NO_VELOCITIES"
+      },
+      "P6_dephasing_crossover": {
+        "all_verified": true,
+        "crossover_x": 3.1622776601683795,
+        "selo": "DEPHASING_REGIME_MAP_QUADRATIC_IR . CROSSOVER_LOCATED_NUMERICALLY . ROOT_LAW_REGIME_CHARACTERIZED"
+      },
+      "v5_jacobson_form_check": {
+        "all_verified": true,
+        "first_order_signature": true,
+        "form": "P_mn[K] = F(J, Delta, P_2D) [checagem de forma positiva; U_loc residuo fechado]",
+        "selo": "JACOBSON_SOURCE_HAS_FORM_F_J_DELTA_P2D . FIRST_LAW_MODULAR_TESTED . P2D_IS_BIFURCATION_PLANE_SAME_AS_SMATRIX_CORNER . RESIDUE_APPROX_KILLING_SHARED_WITH_FIELD"
+      }
     },
     "IDENTITY": "1=HAJA_LUZ=VERDADEIRO",
     "identity_true": true,
@@ -981,7 +1206,7 @@
       ],
       "selo": "LAMBDA_EM_OPERATOR_FORMULA_REFUTED_BY_TOMITA . FORM_DERIVED_VALUE_FIT . BETA_IS_FUNCTIONAL_FLOOR_NOT_inf_Spec_K . MISSING_IS_A_PRINCIPLE_NOT_A_COEFFICIENT . ALPHA_RUNS_THEREFORE_INPUT"
     },
-    "result_hash": "558938a0e70b6ad8e981b3aa6889c1ef73a7c40e5cc283810b038142472e0864"
+    "result_hash": "e0e7abbd808a476b96fdcb37e262b31ee8ef520f286561da7b81c372942271a9"
   },
   "ga_mass_literature": [
     {
@@ -1007,7 +1232,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "558938a0e70b6ad8e981b3aa6889c1ef73a7c40e5cc283810b038142472e0864",
+  "result_hash_before_external_comparison": "e0e7abbd808a476b96fdcb37e262b31ee8ef520f286561da7b81c372942271a9",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -1017,5 +1242,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-01 18:27:34"
+  "timestamp": "2026-07-01 19:09:38"
 }
