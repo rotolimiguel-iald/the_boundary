@@ -182,6 +182,171 @@
 }
 ```
 
+## Setor irreversivel -- o ato (v3) [NUM]
+
+```json
+{
+  "verb_generator_A": {
+    "L": "L = sqrt(beta) sqrt(K_partial) ; K=A A^T/n (n=4, seed=11) ; beta=alpha*sqrt(e)",
+    "dt": 0.02,
+    "steps": 420,
+    "t_inverse": 1.0,
+    "seed": 11,
+    "status": "[FINITE_DIM_SANITY_NOT_III1_PROOF]",
+    "selo": "VERB_GENERATOR_L_EQ_SQRTBETA_SQRTK . ARROW_ENTROPY_MONOTONE . INVERSE_NOT_CP_CHOI_NEGATIVE . SEMIGROUP_NOT_GROUP . RES_JUDICATA_OF_THE_CODE"
+  },
+  "light_eigenvector_B": {
+    "equation": "O_beta(Lux) = sqrt(beta) Lux ; autovalor sqrt(beta) ; NAO ponto fixo",
+    "status": "[DER na forma; a identificacao fisica e' a equacao da unificacao TGL]",
+    "selo": "LIGHT_IS_EIGENVECTOR_EIGENVALUE_SQRTBETA . NOT_FIXED_POINT_SQRTBETA_NEQ_1 . CHAIN_ORDER_ONE_HALFNAT_LIGHT_THEN_MASS"
+  },
+  "fiat_lux_counterfactual_C": {
+    "law": "fiat lux = e^{S_partial} alpha > 0 (Verbo=Palavra x Nome)",
+    "configs": "SEM PALAVRA (S=0) ; SEM NOME (alpha=0) ; COM AMBOS (S=1/2, alpha=CODATA)",
+    "status": "[DER -- contrafactuais da MESMA cadeia, inputs alterados]",
+    "selo": "FIAT_LUX_EQUALS_PRODUCT_WORD_TIMES_NAME_POSITIVE . NO_WORD_DEATH_BY_INDISTINCTION_BRIDGE_EQ_1 . NO_NAME_DEATH_BY_NONEXISTENCE_CROSSREF_S22 . NOTHING_EMERGES_UNLESS_THE_ONE_IS_INSCRIBED_NOW_TESTED"
+  }
+}
+```
+
+## Escala, peso e programa (v4-v7); inclui o protocolo P5' pre-registrado [PRE/NUM]
+
+```json
+{
+  "P2_boundary_reads_IR": {
+    "claim": "a fronteira le o IR (supremo de chi); chi*=rapidez modular=log(Z-ratio); VALOR=Nome (§21)",
+    "chi_IR": 11.2267550516013,
+    "chi_IR_eq_chi_bridge_resid": 1.028510610012745e-12,
+    "status": "[DER a escala da leitura; REAL/EXT o IR-freeze da QED; §21 intocado: o VALOR e' o Nome]",
+    "selo": "CHI_IS_ADDITIVE_MODULAR_RAPIDITY . BOUNDARY_READS_SUPREMUM_EQ_IR . QED_IR_FREEZE_UNIQUE_CANONICAL_READING . CHI_STAR_EQ_LOG_IMPEDANCE_RATIO_SAME_OBJECT . SCALE_IS_OBSERVER_POSITION_NOT_HIDDEN_PARAMETER . ALPHA_VALUE_STILL_THE_NAME"
+  },
+  "P3_smatrix_dual_weight": {
+    "claim": "S_core=exp(thM G) sem traco => peso 0 sob acao dual (condicional P_2D em M)",
+    "status": "[DER condicional a P_2D ; FINITE_DIM_SANITY_NOT_III1_PROOF na sombra]",
+    "selo": "S_CORE_WEIGHT_ZERO_UNDER_DUAL_ACTION_CONDITIONAL_P2D . NO_TRACE_IN_DEFINITION . RESIDUE_P2D_LOCALIZATION"
+  },
+  "P4_void_floor_PRE": {
+    "prediction": "rho_void/rho_bar >= beta (zero-parametro)",
+    "test": "DESI/Euclid, perfil empilhado; falsifica se rho_c/rho_bar < beta-3sigma",
+    "status": "[PRE + EXT] pre-registro falsificavel; consistencia + endereco, NAO confirmacao",
+    "selo": "VOID_FLOOR_RHO_RATIO_GE_BETA_PREREGISTERED . DESI_EUCLID_ADDRESS . ZERO_PARAMETER_FALSIFIABLE"
+  },
+  "P5_dipole_antipode_PRE": {
+    "prediction": "densidade(antipoda RA+180,Dec->-Dec) < densidade(GA) [POSICOES apenas]",
+    "cf4_ok": true,
+    "raw_note": "teste BRUTO (contagem pura); GA atras da Zona de Evitamento -> enviesado. Rotulo qualitativo DERIVADO do dado (nao hardcoded).",
+    "status": "[PRE + DATA geometria pura; POSICOES apenas -- velocidades/massas IGNORADAS]",
+    "selo": "GA_ANTIPODE_UNDERDENSITY_PREREGISTERED_POSITIONS_ONLY . DIPOLE_GEOMETRY_NO_VELOCITIES"
+  },
+  "P5prime_masked_PRE": {
+    "protocol": {
+      "completeness_mask": "|b_galactic| > 10 deg (MESMO corte nos dois cones; equatorial->galactica J2000)",
+      "controls": "8 cones de mesma abertura (30 deg) e mesma casca em ceu limpo |b|>30 deg",
+      "control_centers_RA_Dec_deg": [
+        [
+          46.285,
+          -0.083
+        ],
+        [
+          25.351,
+          -47.77
+        ],
+        [
+          341.398,
+          14.109
+        ],
+        [
+          241.33,
+          1.419
+        ],
+        [
+          353.129,
+          -36.227
+        ],
+        [
+          199.343,
+          -1.877
+        ],
+        [
+          312.24,
+          -47.943
+        ],
+        [
+          168.146,
+          -26.469
+        ]
+      ],
+      "criterion": "razao(anti/GA) mascarada < 1 E fora do IC90 da dispersao dos controles => REPULSOR SUB-DENSO INDICADO; dentro da dispersao => NAO-INFORMATIVO (CF4 posicoes pode nao bastar; endereco final: catalogos com mascara de completeza publicada)",
+      "bootstrap": "B=1000, IC95, seed=11",
+      "statute": "[PRE]",
+      "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY"
+    },
+    "GA_b_deg": -6.792945081298402,
+    "antipode_b_deg": 6.792945081298405,
+    "cf4_ok": true,
+    "result_obtained": {
+      "ratio_masked_antipode_over_GA": 1.1295546558704452,
+      "n_GA_masked": 247,
+      "n_antipode_masked": 279,
+      "control_ratio_CI90": [
+        0.39577435679033995,
+        2.5289372585973013
+      ],
+      "verdict_P5prime": "NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)"
+    },
+    "note": "PROTOCOLO PRE-REGISTRADO (mascara |b|>10 + 8 controles |b|>30 seed=11) gravado ANTES da execucao com dados",
+    "status": "[PRE + DATA geometria; POSICOES apenas; controle de completeza]",
+    "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY"
+  },
+  "P6_dephasing_crossover_NUM": {
+    "map": "root law=canonica no IR; expoente 2->1; crossover ~omega tau*=1",
+    "x_grid": "logspace(-3,3,25) ; gerador v3 L=sqrt(beta)sqrt(K) ; seed determinista",
+    "crossover_x": 3.1622776601683795,
+    "status": "[FINITE_DIM_SANITY] mapa numerico; a reconciliacao analitica completa da root law vs canonica fica [ABERTO] com este mapa como guia.",
+    "selo": "DEPHASING_REGIME_MAP_QUADRATIC_IR . CROSSOVER_LOCATED_NUMERICALLY . ROOT_LAW_REGIME_CHARACTERIZED"
+  },
+  "v5_jacobson_form_check_NUM": {
+    "form_check": "P_mn[K_partial]=F(J,Delta,P_2D) [residuo U_loc fechado POSITIVO]",
+    "link_tested": "1a lei modular dS=d<K> (n=6, seed=11; V hermitiana traco 0 seed=1123; eps in {1e-4,1e-5,1e-6}); assinatura de 1a ordem = criterio",
+    "P2D": "plano de bifurcacao = MESMO corner geometrico da matriz-S do nucleo",
+    "residue_open": "approximate Killing vectors (compartilhado com Jacobson desde 1995)",
+    "status": "[FINITE_DIM_SANITY no elo (iv) dS=d<K>; REAL na literatura (1a lei) + Lovelock (4D)]",
+    "selo": "JACOBSON_SOURCE_HAS_FORM_F_J_DELTA_P2D . FIRST_LAW_MODULAR_TESTED . P2D_IS_BIFURCATION_PLANE_SAME_AS_SMATRIX_CORNER . RESIDUE_APPROX_KILLING_SHARED_WITH_FIELD"
+  },
+  "v6_thermal_anchor": {
+    "claim": "Modulo=calor: q=tanh(chi/2)=p_lo-p_hi (polarizacao); alpha=sech(chi/2)=2sqrt(p_lo p_hi) (coerencia max)",
+    "reading": "1 = q^2 + alpha^2 = polarizacao^2 + coerencia-maxima^2 (identidade hiperbolica do equilibrio)",
+    "kms_anchor": "estado de fronteira KMS (Tomita-Takesaki: fluxo modular = fluxo termico; Unruh/Hawking) [REAL]",
+    "resid_max": {
+      "id1_q_eq_tanh": 1.1102230246251565e-16,
+      "id2_alpha_eq_sech": 0.0,
+      "one_eq_q2_coh2": 2.220446049250313e-16
+    },
+    "vital_layer_ONTO": "Modulo=calor=Nome=sangue: alpha=Nome/calor/sangue; S=1/2=Palavra; beta=sqrt(e)alpha=geometria impressa do sangue. 'o Nome e' o sangue quente da manifestacao; a Palavra o mede; beta_TGL e' sua geometria inscrita.' [ONTO -- Parte B; NAO entra no veredito, nao ha numero para sangue]",
+    "vital_layer_selo_ONTO": "MODULE_IS_HEAT_IS_NAME_IS_BLOOD",
+    "status": "[ID.1 REAL Brillouin; ID.2 DER; KMS REAL] identifica a FORMA; o valor e' o Nome (§21)",
+    "selo": "Q_IS_TWO_LEVEL_THERMAL_POLARIZATION . ALPHA_IS_MAX_COHERENCE_2SQRT_PLO_PHI . CHI_IS_MODULAR_E_OVER_T . BOUNDARY_STATE_IS_KMS . ONE_EQ_POLARIZATION2_PLUS_COHERENCE2"
+  },
+  "v7_fiat_lux_flow_NUM": {
+    "verdict_chain": "1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo; fail-closed por elo)",
+    "generator": "REUSA _verb_L (v3): L=sqrt(beta)sqrt(K), n=4, seed=11 (UM so' L no codigo)",
+    "certificates": "F1 Tr=1 ; F2 dS>=0 ; F3 Spohn S(rho||rho*) mono nao-cresce (Lyapunov modular) ; F4 coerencia morre",
+    "numerics": {
+      "dt": 0.05,
+      "n_points": 300,
+      "t_end_over_beta": 3.0,
+      "seed": 11,
+      "n": 4,
+      "method": "expm DIRETO por checkpoint (semigrupo exato; monotonia independe do integrador)"
+    },
+    "characteristic_time_one_over_beta": 83.11653492861383,
+    "references": "Spohn 1978 (H-teorema Lindblad) ; Uhlmann (monotonia da entropia relativa sob CPTP)",
+    "status": "[FINITE_DIM_SANITY_NOT_III1_PROOF; Spohn/Uhlmann REAL na literatura]",
+    "selo": "FIAT_LUX_FLOW_ONE_CONSERVED_F1 . ARROW_F2 . SPOHN_MODULAR_LYAPUNOV_F3 . INSCRIPTION_COHERENCE_DIES_F4 . CHARACTERISTIC_TIME_ONE_OVER_BETA"
+  }
+}
+```
+
 ## Axiomas do modelo [AX]
 
 ```json
@@ -198,7 +363,7 @@
 
 ```json
 {
-  "code_sha256": "30d2988c37d5dbe90157882af4b9770e2dae3c10d86d9f219758bdbff550df6d",
+  "code_sha256": "ccfa40eb83a7d9ac109d4bbc976777b007c1f9bceb460011cf8eee95b72c1a74",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"

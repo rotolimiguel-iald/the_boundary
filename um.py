@@ -1693,6 +1693,49 @@ def _unvec(v, d):
     return np.asarray(v).reshape((d, d), order="F")
 
 
+def prove_thermal_two_level_identity(ONE):
+    """MODULO v6 -- A ANCORA TERMICA (Modulo=calor=Nome=sangue). O motor de Lagrange q=tanh(chi/2),
+    alpha=sech(chi/2) E' a termodinamica EXATA de dois niveis em equilibrio de Gibbs (energias +-E/2,
+    chi=E/T): [ID.1 REAL, Brillouin spin-1/2] q = tanh(chi/2) = p_lo - p_hi (POLARIZACAO termica);
+    [ID.2 DER] alpha = sech(chi/2) = 2 sqrt(p_lo p_hi) (COERENCIA MAXIMA permitida pela positividade
+    |rho01|<=sqrt(p0 p1) -- a janela que o calor deixa aberta); 1 = q^2 + alpha^2 = polarizacao^2 +
+    coerencia-maxima^2 (identidade hiperbolica do equilibrio). ANCORA KMS [REAL, Tomita-Takesaki:
+    fluxo modular = fluxo termico; Unruh/Hawking]: 'modulo=calor' e' identificacao de FORMA funcional,
+    nao metafora. TRAVA §21: identifica a FORMA; o VALOR de chi*/alpha e' o Nome. beta=alpha*sqrt(e)."""
+    alpha = SEALED_CODATA_ALPHA * ONE
+    chi_star = 2.0 * math.atanh(math.sqrt(1.0 - alpha * alpha))    # gap modular do runtime (=2 acosh(1/alpha))
+    rows = []; r1_max = 0.0; r2_max = 0.0; rc_max = 0.0
+    for chi in (chi_star, 1.0, 5.0):
+        Z = 2.0 * math.cosh(chi / 2.0)                             # funcao de particao (2 niveis)
+        p_lo = math.exp(chi / 2.0) / Z; p_hi = math.exp(-chi / 2.0) / Z   # populacoes de Gibbs
+        q = p_lo - p_hi                                            # polarizacao termica
+        coh = 2.0 * math.sqrt(p_lo * p_hi)                         # coerencia maxima do equilibrio
+        r1 = abs(q - math.tanh(chi / 2.0))                         # IDENTIDADE 1
+        r2 = abs(coh - (1.0 / math.cosh(chi / 2.0)))              # IDENTIDADE 2 (= sech = alpha)
+        rc = abs(q * q + coh * coh - 1.0)                         # 1 = q^2 + coerencia^2
+        r1_max = max(r1_max, r1); r2_max = max(r2_max, r2); rc_max = max(rc_max, rc)
+        rows.append({"chi": chi, "Z": Z, "p_lo": p_lo, "p_hi": p_hi, "q": q, "coh_max": coh,
+                     "resid_q_eq_tanh": r1, "resid_alpha_eq_sech_eq_2sqrt_plophi": r2,
+                     "resid_one_eq_q2_plus_coh2": rc})
+    coh_at_star = rows[0]["coh_max"]; resid_alpha_star = abs(coh_at_star - alpha)   # coh(chi*) == alpha (o Nome)
+    ok = bool(r1_max < 1e-15 and r2_max < 1e-15 and rc_max < 1e-15)
+    return {
+        "identity_1": "q = tanh(chi/2) = p_lo - p_hi   [POLARIZACAO termica; Brillouin spin-1/2, REAL]",
+        "identity_2": "alpha = sech(chi/2) = 2 sqrt(p_lo p_hi)   [COERENCIA MAXIMA do equilibrio; DER]",
+        "reading": "1 = q^2 + alpha^2 = polarizacao^2 + coerencia-maxima^2 (identidade hiperbolica do equilibrio)",
+        "kms_anchor": "estado de fronteira KMS (Tomita-Takesaki: fluxo modular = fluxo termico; Unruh/Hawking)",
+        "chi_star_from_runtime": chi_star, "rows": rows,
+        "coh_max_at_chi_star_eq_alpha_resid": resid_alpha_star,
+        "resid_max": {"id1_q_eq_tanh": r1_max, "id2_alpha_eq_sech": r2_max, "one_eq_q2_coh2": rc_max},
+        "bridge_to_v7": ("o dephasing do FLUXO (v7) e o equilibrio de dois niveis sao o MESMO banho: "
+                         "o calor que polariza (q) e o calor que inscreve (F3/F4) sao o mesmo calor."),
+        "all_verified": ok,
+        "status": "[ID.1 REAL Brillouin; ID.2 DER; KMS REAL] identifica a FORMA; o valor e' o Nome (§21)",
+        "selo": ("Q_IS_TWO_LEVEL_THERMAL_POLARIZATION . ALPHA_IS_MAX_COHERENCE_2SQRT_PLO_PHI . "
+                 "CHI_IS_MODULAR_E_OVER_T . BOUNDARY_STATE_IS_KMS . ONE_EQ_POLARIZATION2_PLUS_COHERENCE2"),
+    }
+
+
 def _verb_L(ONE):
     """Gerador do Verbo (v3) FATORADO para reuso UNICO (v7 reusa este mesmo L; nao duplica):
     L=sqrt(beta)*sqrt(K_partial), K=A A^T/n (n=4, seed=11). Retorna L, o superoperador GKSL
@@ -2453,6 +2496,7 @@ def run_um(ONE):
     light_eigenvector = prove_light_eigenvector(ONE)       # v3 MODULO B: a LUZ = autovetor de O_beta, autovalor sqrt(beta) (NAO ponto fixo)
     fiat_lux = prove_fiat_lux_counterfactual(ONE)          # v3 MODULO C: contrafactuais (sem Palavra=indistincao; sem Nome=inexistencia; ambos=viva)
     fiat_lux_flow = prove_fiat_lux_flow(ONE)               # v7: o VEREDITO COMO FLUXO (forma dinamica; F1-F4: Um conservado, seta, Spohn, inscricao)
+    thermal_two_level = prove_thermal_two_level_identity(ONE)  # v6: A ANCORA TERMICA (q=tanh=polarizacao, alpha=sech=coerencia maxima; Gibbs 2 niveis; KMS)
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
     void_floor = prove_void_floor_margin(ONE)              # v4 P4: piso dos vazios rho_void/rho_bar>=beta (pre-registro)
@@ -2506,6 +2550,7 @@ def run_um(ONE):
             "u_loc_covariance": u_loc_cov,
             "verb_generator": verb_generator, "light_eigenvector": light_eigenvector,
             "fiat_lux": fiat_lux, "fiat_lux_flow": fiat_lux_flow,
+            "thermal_two_level": thermal_two_level,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
             "dipole_antipode_masked": dipole_antipode_masked,
@@ -2551,6 +2596,8 @@ def identity_verdict(core):
         "smatrix_dual_weight_zero": bool(core["smatrix_dual"]["all_verified"]),
         # --- MODULO v5: CHECAGEM DE FORMA (1a lei modular dS=d<K>, assinatura de 1a ordem) ---
         "jacobson_form_check_first_law": bool(core["jacobson_form_check"]["all_verified"]),
+        # --- MODULO v6: ANCORA TERMICA (q=tanh, alpha=sech=2sqrt(p_lo p_hi); 1=q^2+alpha^2) ---
+        "thermal_two_level_identity": bool(core["thermal_two_level"]["all_verified"]),
     }
     # face eletromagnetica do 1=1: a IDENTIDADE CONSERVADA 1 = q^2 + alpha^2 (forma de Lagrange).
     inv = core["alpha_inversion"]
@@ -2790,6 +2837,17 @@ def emit_canonical_md(core, verdict):
               % (core["dephasing_crossover"]["exponent_IR"], core["dephasing_crossover"]["exponent_UV"],
                  core["dephasing_crossover"]["crossover_x_omega_tau_star"]))
     md.append("")
+    md.append("--- v6: A ANCORA TERMICA (Modulo=calor=Nome=sangue) ---")
+    _th = core["thermal_two_level"]; _thr = _th["resid_max"]
+    md.append("q = tanh(chi/2) = p_lo - p_hi (Gibbs 2 niveis) [POLARIZACAO termica; resid %.0e]"
+              % _thr["id1_q_eq_tanh"])
+    md.append("alpha = sech(chi/2) = 2 sqrt(p_lo p_hi) = coerencia maxima do equilibrio [DER; resid %.0e; KMS]"
+              % _thr["id2_alpha_eq_sech"])
+    md.append("1 = q^2 + alpha^2 = polarizacao^2 + coerencia-maxima^2 [identidade hiperbolica; resid %.0e]"
+              % _thr["one_eq_q2_coh2"])
+    md.append("  ponte com o v7: o dephasing do fluxo e o equilibrio de 2 niveis sao o MESMO banho -- o")
+    md.append("  calor que polariza (q) e o calor que inscreve (F3/F4) sao o mesmo calor.")
+    md.append("")
     md.append("--- v7: O VEREDITO COMO FLUXO (haja luz dinamico) ---")
     _fl = core["fiat_lux_flow"]; _ct = _fl["characteristic_time"]; _sat = _ct["S_rel_at_t_beta_1_2_3"]
     md.append("FLUXO: Tr(rho(t))=1 em todo t [F1: max %.0e]; dS>=0 [F2]; S(rho(t)||rho*) mono decresc -> 0"
@@ -2857,7 +2915,8 @@ def _reorder_ABC(s, part_c):
     so' reordena a lista (robusto)."""
     onto_keys = ["álgebra do Um absoluto", "Teoria do Contorno", "Substrato único", "o dipolo",
                  "registro $c^3$", "túnel luminodinâmico", "espelho único", "Nome em forma dual",
-                 "inscrição do gesto", "matriz-S de fronteira"]
+                 "inscrição do gesto", "matriz-S de fronteira",
+                 "camada vital do Nome", "vital layer of the Name"]   # v6: o calor e o sangue (Parte B, ONTO)
     testimony = ["testemunho do autor", "Foi o Verbo que me deu", "Ninguém paga a sua meia-medida",
                  "Assinar é inscrever"]
     fm_keys = ["Régua"]
@@ -4554,6 +4613,29 @@ def build_pt(core, verdict, data_path):
                   r"$%s\times10^{16}\,\Msun$) e a convergência de $\bTGL$.") % (mlo, mhi))
     partC.append(r"\paragraph{Em uma frase.} O artigo é um \textbf{fechamento interno auditável} (uma "
                  r"fórmula que se verifica e se imprime) mais um \textbf{programa falsificável}.")
+    # v6 -- A CAMADA VITAL (Parte B; [ONTO]; NAO participa do veredito)
+    s.append(r"\section{O calor e o sangue: a camada vital do Nome \textsf{[ONTO]}}")
+    s.append(r"\textbf{A tríade.} $\alpha$ é o \emph{Nome} --- o módulo, o \emph{calor}, o \emph{sangue} "
+             r"da manifestação; $S_\partial=\tfrac12$ é a \emph{Palavra} que o mede; "
+             r"$\bTGL=\sqrt e\,\alpha$ é a \emph{geometria impressa do sangue}. Esta é a fundação "
+             r"interpretativa da \textbf{camada vital do Nome} --- lida na Parte~B, marcada "
+             r"\textsf{[ONTO]}, e que \emph{não} participa do veredito binário (não há número para o "
+             r"sangue).")
+    s.append(r"\textbf{Por que não é arbitrário.} $\alpha$ governa todo o eletromagnetismo, logo toda "
+             r"ligação química, logo toda bioquímica --- o \emph{sangue literal} circula porque $\alpha$ "
+             r"vale o que vale. $\alpha$ é o \emph{fator vital irredutível} que permite circulação, "
+             r"relação e sentido: mudar $\alpha$ é desfazer a química da vida.")
+    s.append(r"\textbf{A ponte técnica (a âncora térmica).} A identidade $\alpha=\operatorname{sech}"
+             r"(\chi/2)=2\sqrt{p_{\mathrm{lo}}\,p_{\mathrm{hi}}}$ mostra que $\alpha$ é exatamente a "
+             r"\emph{coerência máxima que o calor permite} num equilíbrio de dois níveis (Gibbs; estado "
+             r"KMS): o calor mínimo da manifestação tem \emph{forma funcional exata} [REAL/DER]. O calor "
+             r"que polariza ($q=\tanh(\chi/2)$) e o calor que inscreve (o fluxo do Verbo) são o mesmo "
+             r"banho.")
+    s.append(r"\begin{center}\itshape ``O Nome é o sangue quente da manifestação; a Palavra o mede; "
+             r"$\bTGL$ é sua geometria inscrita.''\end{center}")
+    s.append(r"\noindent\textsf{[ONTO]} esta leitura é ontológica, ancorada em resultados "
+             r"\textsf{[REAL/DER]} (a âncora térmica, o motor de Lagrange), e \emph{fora} do veredito. "
+             r"\textsf{MODULE\_IS\_HEAT\_IS\_NAME\_IS\_BLOOD.}")
     return "\n\n".join(_reorder_ABC(s, partC))
 
 
@@ -6168,6 +6250,29 @@ def build_en(core, verdict, data_path):
                   r"$%s\times10^{16}\,\Msun$) and the convergence of $\bTGL$.") % (mlo, mhi))
     partC.append(r"\paragraph{In one sentence.} The article is an \textbf{auditable internal closure} (a "
                  r"formula that verifies and prints itself) plus a \textbf{falsifiable programme}.")
+    # v6 -- THE VITAL LAYER (Part B; [ONTO]; does NOT enter the verdict)
+    s.append(r"\section{Heat and the blood: the vital layer of the Name \textsf{[ONTO]}}")
+    s.append(r"\textbf{The triad.} $\alpha$ is the \emph{Name} --- the module, the \emph{heat}, the "
+             r"\emph{blood} of manifestation; $S_\partial=\tfrac12$ is the \emph{Word} that measures it; "
+             r"$\bTGL=\sqrt e\,\alpha$ is the \emph{imprinted geometry of the blood}. This is the "
+             r"interpretive foundation of the \textbf{vital layer of the Name} --- read in Part~B, marked "
+             r"\textsf{[ONTO]}, and which does \emph{not} enter the binary verdict (there is no number "
+             r"for blood).")
+    s.append(r"\textbf{Why it is not arbitrary.} $\alpha$ governs all electromagnetism, hence all "
+             r"chemical bonding, hence all biochemistry --- the \emph{literal blood} circulates because "
+             r"$\alpha$ is what it is. $\alpha$ is the \emph{irreducible vital factor} that allows "
+             r"circulation, relation and meaning: to change $\alpha$ is to undo the chemistry of life.")
+    s.append(r"\textbf{The technical bridge (the thermal anchor).} The identity $\alpha="
+             r"\operatorname{sech}(\chi/2)=2\sqrt{p_{\mathrm{lo}}\,p_{\mathrm{hi}}}$ shows that $\alpha$ "
+             r"is exactly the \emph{maximum coherence heat allows} in a two-level equilibrium (Gibbs; KMS "
+             r"state): the minimal heat of manifestation has an \emph{exact functional form} [REAL/DER]. "
+             r"The heat that polarizes ($q=\tanh(\chi/2)$) and the heat that inscribes (the Verb's flow) "
+             r"are the same bath.")
+    s.append(r"\begin{center}\itshape ``The Name is the warm blood of manifestation; the Word measures "
+             r"it; $\bTGL$ is its inscribed geometry.''\end{center}")
+    s.append(r"\noindent\textsf{[ONTO]} this reading is ontological, anchored in \textsf{[REAL/DER]} "
+             r"results (the thermal anchor, the Lagrange engine), and \emph{outside} the verdict. "
+             r"\textsf{MODULE\_IS\_HEAT\_IS\_NAME\_IS\_BLOOD.}")
     return "\n\n".join(_reorder_ABC(s, partC))
 
 
@@ -6289,6 +6394,12 @@ def input_manifest(core, code_hash):
                 "GA_b_deg": core["dipole_antipode_masked"]["GA_b_deg"],
                 "antipode_b_deg": core["dipole_antipode_masked"]["antipode_b_deg"],
                 "cf4_ok": core["dipole_antipode_masked"].get("ok", False),
+                "result_obtained": ({"ratio_masked_antipode_over_GA": core["dipole_antipode_masked"].get("ratio_masked_antipode_over_GA"),
+                                     "n_GA_masked": core["dipole_antipode_masked"].get("n_GA_masked"),
+                                     "n_antipode_masked": core["dipole_antipode_masked"].get("n_antipode_masked"),
+                                     "control_ratio_CI90": core["dipole_antipode_masked"].get("control_ratio_CI90"),
+                                     "verdict_P5prime": core["dipole_antipode_masked"].get("verdict_P5prime")}
+                                    if core["dipole_antipode_masked"].get("ok") else "CF4 ausente nesta execucao"),
                 "note": "PROTOCOLO PRE-REGISTRADO (mascara |b|>10 + 8 controles |b|>30 seed=11) gravado ANTES da execucao com dados",
                 "status": core["dipole_antipode_masked"]["status"],
                 "selo": core["dipole_antipode_masked"]["selo"]},
@@ -6304,6 +6415,17 @@ def input_manifest(core, code_hash):
                 "P2D": "plano de bifurcacao = MESMO corner geometrico da matriz-S do nucleo",
                 "residue_open": "approximate Killing vectors (compartilhado com Jacobson desde 1995)",
                 "status": core["jacobson_form_check"]["status"], "selo": core["jacobson_form_check"]["selo"]},
+            "v6_thermal_anchor": {
+                "claim": "Modulo=calor: q=tanh(chi/2)=p_lo-p_hi (polarizacao); alpha=sech(chi/2)=2sqrt(p_lo p_hi) (coerencia max)",
+                "reading": "1 = q^2 + alpha^2 = polarizacao^2 + coerencia-maxima^2 (identidade hiperbolica do equilibrio)",
+                "kms_anchor": "estado de fronteira KMS (Tomita-Takesaki: fluxo modular = fluxo termico; Unruh/Hawking) [REAL]",
+                "resid_max": core["thermal_two_level"]["resid_max"],
+                "vital_layer_ONTO": ("Modulo=calor=Nome=sangue: alpha=Nome/calor/sangue; S=1/2=Palavra; "
+                                     "beta=sqrt(e)alpha=geometria impressa do sangue. 'o Nome e' o sangue "
+                                     "quente da manifestacao; a Palavra o mede; beta_TGL e' sua geometria "
+                                     "inscrita.' [ONTO -- Parte B; NAO entra no veredito, nao ha numero para sangue]"),
+                "vital_layer_selo_ONTO": "MODULE_IS_HEAT_IS_NAME_IS_BLOOD",
+                "status": core["thermal_two_level"]["status"], "selo": core["thermal_two_level"]["selo"]},
             "v7_fiat_lux_flow_NUM": {
                 "verdict_chain": "1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo; fail-closed por elo)",
                 "generator": "REUSA _verb_L (v3): L=sqrt(beta)sqrt(K), n=4, seed=11 (UM so' L no codigo)",
@@ -6334,10 +6456,15 @@ def write_input_manifest_md(world, path):
         "PRE_REGISTERED_PROTOCOL": "Protocolo pre-registrado [PRE]",
         "EXTERNAL_COMPARISON_ONLY": "Comparacao externa apenas [EXT]",
         "NUMERICAL_TEST_PARAMETERS": "Parametros numericos dos testes de sombra [NUM]",
+        "V3_IRREVERSIBLE_SECTOR": "Setor irreversivel -- o ato (v3) [NUM]",
+        "V4_SCALE_AND_PROGRAM": "Escala, peso e programa (v4-v7); inclui o protocolo P5' pre-registrado [PRE/NUM]",
         "MODEL_AXIOMS": "Axiomas do modelo [AX]", "WORLD_HASHES": "Hashes do mundo"}
     for k in ["EXACT_DEFINITIONS", "MEASURED_CONSTANTS", "SI_DEFINITIONS", "VACUUM_IMPEDANCE_BRIDGE",
               "GEOMETRIC_INPUTS", "PRE_REGISTERED_PROTOCOL", "EXTERNAL_COMPARISON_ONLY",
-              "NUMERICAL_TEST_PARAMETERS", "MODEL_AXIOMS", "WORLD_HASHES"]:
+              "NUMERICAL_TEST_PARAMETERS", "V3_IRREVERSIBLE_SECTOR", "V4_SCALE_AND_PROGRAM",
+              "MODEL_AXIOMS", "WORLD_HASHES"]:
+        if k not in world:
+            continue
         L.append("## %s" % titles[k]); L.append("")
         L.append("```json"); L.append(json.dumps(world[k], indent=2, ensure_ascii=False)); L.append("```")
         L.append("")
@@ -6659,6 +6786,14 @@ def main():
           jf["all_verified"])
     print("  RESIDUO DECLARADO [ABERTO, compartilhado]: approximate Killing vectors (Jacobson desde 1995;")
     print("    fronteira do campo, nao fraqueza da TGL). NAO e' 'prova de Einstein' -- e' checagem de forma.\n")
+    th = core["thermal_two_level"]; thr = th["resid_max"]
+    print("A ANCORA TERMICA [v6 -- Modulo=calor=Nome=sangue; Gibbs 2 niveis; KMS]:")
+    print("  [ID.1 REAL] q = tanh(chi/2) = p_lo - p_hi (POLARIZACAO termica) ; resid=%.0e" % thr["id1_q_eq_tanh"])
+    print("  [ID.2 DER ] alpha = sech(chi/2) = 2 sqrt(p_lo p_hi) (COERENCIA MAXIMA do equilibrio) ; resid=%.0e" % thr["id2_alpha_eq_sech"])
+    print("  1 = q^2 + alpha^2 = polarizacao^2 + coerencia-maxima^2 ; resid=%.0e ; coh(chi*)=alpha resid=%.0e" % (
+        thr["one_eq_q2_coh2"], th["coh_max_at_chi_star_eq_alpha_resid"]))
+    print("  KMS: fluxo modular = fluxo termico (Tomita-Takesaki; Unruh/Hawking). 'modulo=calor' = FORMA, nao metafora.")
+    print("  ponte v6<->v7: o calor que polariza (q) e o calor que inscreve (fluxo F3/F4) sao o MESMO banho. all=%s\n" % th["all_verified"])
     fl = core["fiat_lux_flow"]; ct = fl["characteristic_time"]
     print("O VEREDITO COMO FLUXO [v7 -- a forma DINAMICA do haja luz; reusa o L unico do Verbo]:")
     print("  [F1] Um conservado no fluxo: max_t|Tr rho(t)-1|=%.2e (<1e-14) -- o Um nao vaza. ok=%s" % (

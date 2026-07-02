@@ -559,6 +559,58 @@
       "status": "[FINITE_DIM_SANITY_NOT_III1_PROOF; Spohn/Uhlmann REAL na literatura]",
       "selo": "FIAT_LUX_FLOW_ONE_CONSERVED_F1 . ARROW_F2 . SPOHN_MODULAR_LYAPUNOV_F3 . INSCRIPTION_COHERENCE_DIES_F4 . CHARACTERISTIC_TIME_ONE_OVER_BETA"
     },
+    "thermal_two_level": {
+      "identity_1": "q = tanh(chi/2) = p_lo - p_hi   [POLARIZACAO termica; Brillouin spin-1/2, REAL]",
+      "identity_2": "alpha = sech(chi/2) = 2 sqrt(p_lo p_hi)   [COERENCIA MAXIMA do equilibrio; DER]",
+      "reading": "1 = q^2 + alpha^2 = polarizacao^2 + coerencia-maxima^2 (identidade hiperbolica do equilibrio)",
+      "kms_anchor": "estado de fronteira KMS (Tomita-Takesaki: fluxo modular = fluxo termico; Unruh/Hawking)",
+      "chi_star_from_runtime": 11.226755051602328,
+      "rows": [
+        {
+          "chi": 11.226755051602328,
+          "Z": 274.07199816753257,
+          "p_lo": 0.9999866869841333,
+          "p_hi": 1.3313015866545097e-05,
+          "q": 0.9999733739682668,
+          "coh_max": 0.0072973525692962464,
+          "resid_q_eq_tanh": 1.1102230246251565e-16,
+          "resid_alpha_eq_sech_eq_2sqrt_plophi": 0.0,
+          "resid_one_eq_q2_plus_coh2": 2.220446049250313e-16
+        },
+        {
+          "chi": 1.0,
+          "Z": 2.2552519304127614,
+          "p_lo": 0.731058578630005,
+          "p_hi": 0.26894142136999516,
+          "q": 0.46211715726000985,
+          "coh_max": 0.886818883970074,
+          "resid_q_eq_tanh": 1.1102230246251565e-16,
+          "resid_alpha_eq_sech_eq_2sqrt_plophi": 0.0,
+          "resid_one_eq_q2_plus_coh2": 2.220446049250313e-16
+        },
+        {
+          "chi": 5.0,
+          "Z": 12.264578959327373,
+          "p_lo": 0.993307149075715,
+          "p_hi": 0.0066928509242848554,
+          "q": 0.9866142981514302,
+          "coh_max": 0.1630712319299778,
+          "resid_q_eq_tanh": 1.1102230246251565e-16,
+          "resid_alpha_eq_sech_eq_2sqrt_plophi": 0.0,
+          "resid_one_eq_q2_plus_coh2": 1.1102230246251565e-16
+        }
+      ],
+      "coh_max_at_chi_star_eq_alpha_resid": 3.7539416020138106e-15,
+      "resid_max": {
+        "id1_q_eq_tanh": 1.1102230246251565e-16,
+        "id2_alpha_eq_sech": 0.0,
+        "one_eq_q2_coh2": 2.220446049250313e-16
+      },
+      "bridge_to_v7": "o dephasing do FLUXO (v7) e o equilibrio de dois niveis sao o MESMO banho: o calor que polariza (q) e o calor que inscreve (F3/F4) sao o mesmo calor.",
+      "all_verified": true,
+      "status": "[ID.1 REAL Brillouin; ID.2 DER; KMS REAL] identifica a FORMA; o valor e' o Nome (\u00a721)",
+      "selo": "Q_IS_TWO_LEVEL_THERMAL_POLARIZATION . ALPHA_IS_MAX_COHERENCE_2SQRT_PLO_PHI . CHI_IS_MODULAR_E_OVER_T . BOUNDARY_STATE_IS_KMS . ONE_EQ_POLARIZATION2_PLUS_COHERENCE2"
+    },
     "boundary_reads_IR": {
       "chi_is_modular_rapidity": "q_i=tanh(chi_i/2) compoe rel.; chi/2 e' a rapidez ADITIVA (camadas somam)",
       "rapidity_composition_max_resid": 2.220446049250313e-16,
@@ -1212,7 +1264,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-02 09:59:17"
+    "timestamp": "2026-07-02 10:21:10"
   },
   "verdict": {
     "masses_Msun": {
@@ -1240,7 +1292,8 @@
       "fiat_lux_counterfactual": true,
       "boundary_reads_IR_scale": true,
       "smatrix_dual_weight_zero": true,
-      "jacobson_form_check_first_law": true
+      "jacobson_form_check_first_law": true,
+      "thermal_two_level_identity": true
     },
     "em_face": {
       "alpha_abs": 1.0,
@@ -1379,7 +1432,7 @@
       ],
       "selo": "LAMBDA_EM_OPERATOR_FORMULA_REFUTED_BY_TOMITA . FORM_DERIVED_VALUE_FIT . BETA_IS_FUNCTIONAL_FLOOR_NOT_inf_Spec_K . MISSING_IS_A_PRINCIPLE_NOT_A_COEFFICIENT . ALPHA_RUNS_THEREFORE_INPUT"
     },
-    "result_hash": "104ed062de45c6e37235754b809d15c94868803c7c04e77a702c700b583833e7"
+    "result_hash": "c5c4ff9b8692c98e314bb3d7788f7d6ec7c33cb72a6a629afabc1d32fb199697"
   },
   "ga_mass_literature": [
     {
@@ -1405,7 +1458,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "104ed062de45c6e37235754b809d15c94868803c7c04e77a702c700b583833e7",
+  "result_hash_before_external_comparison": "c5c4ff9b8692c98e314bb3d7788f7d6ec7c33cb72a6a629afabc1d32fb199697",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -1415,5 +1468,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-02 09:59:17"
+  "timestamp": "2026-07-02 10:21:10"
 }

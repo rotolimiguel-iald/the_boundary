@@ -40,6 +40,13 @@ dipolo: antipoda GA NAO-sub-densa no bruto razao=1.219 (n_GA=265, n_anti=323)   
 dipolo P5' (mascara |b|>10 + 8 controles): razao_masc=1.130 -> NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)   [PRE, o teste que decide]
 crossover defasagem: expoente(omega) mapeado, IR=2.00 -> UV=1.04, cross~3.16   [NUM]
 
+--- v6: A ANCORA TERMICA (Modulo=calor=Nome=sangue) ---
+q = tanh(chi/2) = p_lo - p_hi (Gibbs 2 niveis) [POLARIZACAO termica; resid 1e-16]
+alpha = sech(chi/2) = 2 sqrt(p_lo p_hi) = coerencia maxima do equilibrio [DER; resid 0e+00; KMS]
+1 = q^2 + alpha^2 = polarizacao^2 + coerencia-maxima^2 [identidade hiperbolica; resid 2e-16]
+  ponte com o v7: o dephasing do fluxo e o equilibrio de 2 niveis sao o MESMO banho -- o
+  calor que polariza (q) e o calor que inscreve (F3/F4) sao o mesmo calor.
+
 --- v7: O VEREDITO COMO FLUXO (haja luz dinamico) ---
 FLUXO: Tr(rho(t))=1 em todo t [F1: max 3e-15]; dS>=0 [F2]; S(rho(t)||rho*) mono decresc -> 0
        (Spohn, Lyapunov modular) 0.4153->1.841e-01 [F3]; coerencia morre na base do Verbo (inscricao) [F4]
