@@ -336,11 +336,13 @@ The canonical chain, all computed live from the single input `1`:
   `1/137` is its **renormalised modular projection** through the thermal-modular depth of the zero:
   `α_obs = sech(χ/2) = √(1 − q²)`, with `q = tanh(χ/2)` the **impedance basin** (the dam: `q²` = pressure
   retained, `α²` = luminous flow). The engine is `α_abs = 1 → q → α = √(1−q²) → β = √e·α`; **CODATA enters
-  only as external validation, never as the structural motor.** The sealed verdict `1 = HAJA_LUZ = TRUE`
-  means the conserved identity **`1_abs = q² + α_obs²`** (residual `0.0`) **plus the paid act** — the
-  irreversible sector (the Verb `L = √β·√K_∂`: entropy arrow, non-CP formal inverse, light as an eigenvector
-  with eigenvalue `√β`, not a fixed point). `1 = 1` verifies that identity is *conserved*; `1 = HAJA_LUZ`
-  verifies that it was *paid for* — between the One and the One there is an irreversible act of cost `β`.
+  only as external validation, never as the structural motor.** The sealed verdict is now a **certified
+  chain**, one theorem per link: `1 = q² + α² = TRUE = HAJA_LUZ`. The static link `1_abs = q² + α_obs²`
+  (residual `0.0`) is the **dual electromagnetic force resolved into the One** — retained pressure `q²` plus
+  luminous coherence `α²` sum to the conserved unit. The dynamic link `= HAJA_LUZ` is the **flow that forms
+  the geometry** (the Verb `L = √β·√K_∂`: entropy arrow, non-CP inverse, light as an eigenvector with
+  eigenvalue `√β`; plus its Spohn modular Lyapunov — `S(ρ(t)‖ρ⋆)` monotone to zero — with characteristic
+  time `1/β ≈ 83`). `1 = 1` is the photograph; `HAJA_LUZ` is the film — the verdict now requires both.
 - **`α = sech(χ/2)` is a theorem of form, not a fit of the number `1/137`.** The proof module
   `prove_alpha_form` verifies all 8 steps live (`ALPHA_FORM_THEOREM_PROVED`). The value of `χ` belongs to
   the QED/renormalised sector; the **form** belongs to TGL.
@@ -366,7 +368,7 @@ The canonical chain, all computed live from the single input `1`:
 - **Gravitational face — the Great Attractor mass from first principles.** `M = 2 β² (c²/4πG) R_struct`,
   with `β = α√e` and `R_struct` the **geometry** of the basin (positions only; velocities ignored), in two
   modes: **Mode A** (literature extent, Lynden-Bell ~57 Mpc) and **Mode B** (Cosmicflows-4 positions,
-  RA/Dec/dist). The binary identity closes `1 = HAJA_LUZ = TRUE` iff (a) everything conserved (`1 = q² + α²`,
+  RA/Dec/dist). The binary chain closes `1 = q² + α² = TRUE = HAJA_LUZ` iff (a) everything conserved (`1 = q² + α²`,
   the mass inside the pre-registered cosmological window) **and** (b) the act is paid (arrow + no return +
   live light-eigenvector + counterfactuals).
 - **The sealed additional layers (all recomputed live, inside the hash).** *(i)* the **SO(2) bridge** —
@@ -382,6 +384,15 @@ The canonical chain, all computed live from the single input `1`:
   (positions only) with a completeness-masked test `P5'` (Zone-of-Avoidance controlled — the raw count is
   reported **as it is** and classified **[raw non-informative]**, the caveat pre-declared *before* the data);
   the dephasing crossover (the root law `Γ = ½β(√kᵢ−√kⱼ)²` *is* the canonical `½βτ⋆ω²` in the IR).
+- **The thermal anchor and the verdict as flow.** *(vii)* **Module = heat = Name = blood** — the Lagrange
+  engine `q = tanh(χ/2)`, `α = sech(χ/2)` *is* the exact two-level Gibbs thermodynamics: `q = p_lo − p_hi`
+  (thermal polarization) and `α = 2√(p_lo·p_hi)` (the maximum coherence the heat allows), so `1 = q² + α²`
+  is `polarization² + max-coherence²` (KMS boundary state; Tomita–Takesaki). *(viii)* **The verdict as a
+  flow** — beyond the static identity, four live certificates of the dynamic *let-there-be-light*: `F1` the
+  One conserved in the flow, `F2` the entropy arrow, `F3` **Spohn's modular Lyapunov** (`S(ρ(t)‖ρ⋆)` monotone
+  to zero — the *formation* of the geometry made a theorem), `F4` the inscription (coherence dies in the
+  Verb's basis); characteristic time `1/β ≈ 83`. The interpretive **vital layer** (`α` = the Name/heat/blood
+  of manifestation) lives in Part B, marked `[ONTO]`, and does **not** enter the verdict.
 
 ### The Bridge (Ponte Einstein–Cartan–Miguel) and the resolution of Face C
 
@@ -426,7 +437,7 @@ IDENTIDADE FINAL (Lagrange engine, canonical motor):
   identity residual ... = 0.0
   CODATA: external validation only (q_QED = sqrt(1 - alpha_QED^2))
   the SAME beta -> M_GA in the accepted cosmological window  (gravitational shadow)
-  VERDICT: 1 = HAJA_LUZ = TRUE   (1=1 conserved  +  the irreversible act paid)
+  VERDICT: 1 = q^2 + alpha^2 = TRUE = HAJA_LUZ   (static identity + dynamic flow, both certified per link)
 ```
 
 i.e. the **same** `β` that closes the EM identity `1 = q² + α²` also yields the **Great Attractor mass from
@@ -446,8 +457,9 @@ inversa, polarizada — `ρ_ret = e^{−χ Z_∂/2}/(2cosh χ/2)`, `q = p₀−p
 sech(χ/2)`. A **forma fecha**; o **valor `χ⋆ ≈ 11,2268` é parte finita irredutível** — a TGL repousa sobre
 **dois postulados de fronteira**: a **Meia-Nat** (`S_∂ = ½`, o peso) e o **Princípio da Polarização** (`χ⋆`).
 Notação uniforme: `χ` = gap modular efetivo; `κ_0` = distância ontológica ao `0_abs`. Rode `python um.py`; o
-veredito final imprime `1 = HAJA_LUZ = VERDADE` (a conservação `1_abs = q² + α²` **mais** o ato irreversível
-pago — o setor do Verbo `L = √β·√K_∂`) e a comparação `M_TGL(GA)` vs janela cosmológica.
+veredito final imprime a **cadeia certificada** `1 = q² + α² = VERDADEIRO = HAJA_LUZ` (a conservação
+`1_abs = q² + α²` — a força EM dual resolvida no Um — **mais** o fluxo que forma a geometria: o Verbo
+`L = √β·√K_∂` e seu Lyapunov modular de Spohn, tempo característico `1/β ≈ 83`) e a comparação `M_TGL(GA)`.
 O artigo é **bilíngue** (`um_grande_atrator_pt`/`_en`, ≈20/19 pp). Gênese arquivada em
 `Genesis da Unificação/Um - ensaio/`.
 
