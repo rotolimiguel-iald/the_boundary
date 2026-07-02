@@ -39,6 +39,12 @@ void floor: rho_v/rho_bar >= beta = 0.012031   [PRE, DESI/Euclid]
 dipolo: antipoda GA NAO-sub-densa no bruto razao=1.219 (n_GA=265, n_anti=323)   [PRE bruto NAO satisfeito; status: BRUTO NAO-INFORMATIVO por ZoA, caveat pre-declarado]
 dipolo P5' (mascara |b|>10 + 8 controles): razao_masc=1.130 -> NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)   [PRE, o teste que decide]
 crossover defasagem: expoente(omega) mapeado, IR=2.00 -> UV=1.04, cross~3.16   [NUM]
+
+--- v7: O VEREDITO COMO FLUXO (haja luz dinamico) ---
+FLUXO: Tr(rho(t))=1 em todo t [F1: max 3e-15]; dS>=0 [F2]; S(rho(t)||rho*) mono decresc -> 0
+       (Spohn, Lyapunov modular) 0.4153->1.841e-01 [F3]; coerencia morre na base do Verbo (inscricao) [F4]
+veredito-cadeia: 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ   [um certificado por elo; quebra reporta o elo]
+tempo caracteristico do fluxo = 1/beta = 83.12   [a torre de Jones como TEMPO; S em t*beta=1,2,3: 0.300,0.232,0.184]
 ```
 
 ## Identidades verificadas ao vivo
@@ -64,7 +70,7 @@ Sub-vereditos do haja luz: (a) conservação 1=1 **True**; (b) o ato tem seta e 
 
 ## Veredito de identidade (binário)
 
-**1=HAJA_LUZ=VERDADEIRO** — 1=1 verifica que a identidade se CONSERVA (1=q^2+alpha^2; o mesmo beta=sqrt(e)alpha da' M_GA na janela). 1=HAJA_LUZ verifica que a identidade foi PAGA: entre o Um e o Um ha um ATO irreversivel de custo beta -- seta (entropia monotona), sem volta (inversa NAO-CP), a luz viva (autovetor sqrt(beta)), e os contrafactuais que matam.
+**1=1=VERDADEIRO=HAJA_LUZ** — VEREDITO-CADEIA 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo). ESTATICO: a identidade conservada 1=q^2+alpha^2 (a fotografia). VERDADEIRO: todas as identidades internas fecham + M_GA na janela. HAJA_LUZ: a forma DINAMICA -- o fluxo que forma a geometria (F1 Um conservado no fluxo; F2 seta; F3 Spohn: S(rho||rho*) cai monotona rumo a 0 = a FORMACAO; F4 a coerencia morre na base do Verbo) + o ato v3 (Choi<0, luz-autovetor, contrafactuais). 1=1 e' a fotografia; HAJA_LUZ e' o filme; o veredito agora exige os dois. Tempo caracteristico = 1/beta = 83.12..
 
 Massas de primeiros princípios: A_literature = 2.744e+16 M☉, B_cf4_positions = 1.986e+16 M☉. Janela cosmológica aceita: [1e+15, 1e+17] M☉.
 

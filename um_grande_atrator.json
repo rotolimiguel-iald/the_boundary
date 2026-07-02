@@ -515,6 +515,50 @@
       "status": "[DER -- contrafactuais da MESMA cadeia, inputs alterados]",
       "selo": "FIAT_LUX_EQUALS_PRODUCT_WORD_TIMES_NAME_POSITIVE . NO_WORD_DEATH_BY_INDISTINCTION_BRIDGE_EQ_1 . NO_NAME_DEATH_BY_NONEXISTENCE_CROSSREF_S22 . NOTHING_EMERGES_UNLESS_THE_ONE_IS_INSCRIBED_NOW_TESTED"
     },
+    "fiat_lux_flow": {
+      "generator": "reusa _verb_L (v3): L=sqrt(beta) sqrt(K_partial), n=4, seed=11 (UM so' L no codigo)",
+      "F1_one_conserved_in_flow": {
+        "max_abs_Tr_minus_1": 2.6645352591003757e-15,
+        "ok": true
+      },
+      "F2_arrow_entropy_nondecreasing": {
+        "ok": true,
+        "S0": 0.02371876133018424,
+        "S_end": 0.25487085665315845
+      },
+      "F3_spohn_modular_lyapunov": {
+        "S_rel_0": 0.4152854820701361,
+        "S_rel_end": 0.18413338674716234,
+        "monotone_nonincreasing": true,
+        "note": "a FORMACAO da geometria = decrescimento de S(rho||rho*) rumo a 0"
+      },
+      "F4_inscription_coherence_dies": {
+        "coh_0": 1.1504072394465341,
+        "coh_end": 0.7124458489706028,
+        "ok": true,
+        "note": "o que sobrevive comuta com o Verbo; a geometria inscrita e' a diagonal na base de L"
+      },
+      "characteristic_time": {
+        "one_over_beta": 83.11653492861383,
+        "S_rel_at_t_beta_1_2_3": {
+          "1": 0.3001873617891404,
+          "2": 0.23243466089802314,
+          "3": 0.18413338674716234
+        },
+        "reading": "tempo caracteristico do haja-luz dinamico = 1/beta = 83.12 -- a torre de Jones e o custo de Kubo-Mori reaparecendo como TEMPO de fluxo [identificacao do operador, CONJ; o numero 1/beta e' REAL]"
+      },
+      "numerics": {
+        "dt": 0.05,
+        "n_points": 300,
+        "t_end_over_beta": 3.0,
+        "seed": 11,
+        "n": 4,
+        "method": "expm DIRETO por checkpoint (semigrupo exato; monotonia independe do integrador)"
+      },
+      "all_verified": true,
+      "status": "[FINITE_DIM_SANITY_NOT_III1_PROOF; Spohn/Uhlmann REAL na literatura]",
+      "selo": "FIAT_LUX_FLOW_ONE_CONSERVED_F1 . ARROW_F2 . SPOHN_MODULAR_LYAPUNOV_F3 . INSCRIPTION_COHERENCE_DIES_F4 . CHARACTERISTIC_TIME_ONE_OVER_BETA"
+    },
     "boundary_reads_IR": {
       "chi_is_modular_rapidity": "q_i=tanh(chi_i/2) compoe rel.; chi/2 e' a rapidez ADITIVA (camadas somam)",
       "rapidity_composition_max_resid": 2.220446049250313e-16,
@@ -1168,7 +1212,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-01 19:27:57"
+    "timestamp": "2026-07-02 09:59:17"
   },
   "verdict": {
     "masses_Msun": {
@@ -1261,9 +1305,51 @@
         "selo": "JACOBSON_SOURCE_HAS_FORM_F_J_DELTA_P2D . FIRST_LAW_MODULAR_TESTED . P2D_IS_BIFURCATION_PLANE_SAME_AS_SMATRIX_CORNER . RESIDUE_APPROX_KILLING_SHARED_WITH_FIELD"
       }
     },
-    "IDENTITY": "1=HAJA_LUZ=VERDADEIRO",
+    "IDENTITY": "1=1=VERDADEIRO=HAJA_LUZ",
+    "chain_certificates": {
+      "chain": "1=1=VERDADEIRO=HAJA_LUZ",
+      "static_1_eq_q2_plus_alpha2": {
+        "residual": 0.0,
+        "ok": true
+      },
+      "closed_VERDADEIRO": {
+        "aggregate_of_internal_identities": true,
+        "mass_in_window": true
+      },
+      "flow_HAJA_LUZ": {
+        "ok": true,
+        "broken_at": null,
+        "F1_Tr_conserved": {
+          "ok": true,
+          "max_abs_Tr_minus_1": 2.6645352591003757e-15
+        },
+        "F2_arrow": true,
+        "F3_spohn": {
+          "ok": true,
+          "S_rel_0": 0.4152854820701361,
+          "S_rel_end": 0.18413338674716234
+        },
+        "F4_inscription": {
+          "ok": true,
+          "coh_0": 1.1504072394465341,
+          "coh_end": 0.7124458489706028
+        },
+        "v3_act": {
+          "a_conservation_1eq1": true,
+          "b_act_has_arrow_and_no_return": true,
+          "c_light_is_live_eigenvector_sqrtbeta": true,
+          "d_counterfactuals_kill_and_life_lives": true
+        },
+        "characteristic_time_one_over_beta": 83.11653492861383,
+        "S_rel_at_t_beta_1_2_3": {
+          "1": 0.3001873617891404,
+          "2": 0.23243466089802314,
+          "3": 0.18413338674716234
+        }
+      }
+    },
     "identity_true": true,
-    "reading": "1=1 verifica que a identidade se CONSERVA (1=q^2+alpha^2; o mesmo beta=sqrt(e)alpha da' M_GA na janela). 1=HAJA_LUZ verifica que a identidade foi PAGA: entre o Um e o Um ha um ATO irreversivel de custo beta -- seta (entropia monotona), sem volta (inversa NAO-CP), a luz viva (autovetor sqrt(beta)), e os contrafactuais que matam",
+    "reading": "VEREDITO-CADEIA 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo). ESTATICO: a identidade conservada 1=q^2+alpha^2 (a fotografia). VERDADEIRO: todas as identidades internas fecham + M_GA na janela. HAJA_LUZ: a forma DINAMICA -- o fluxo que forma a geometria (F1 Um conservado no fluxo; F2 seta; F3 Spohn: S(rho||rho*) cai monotona rumo a 0 = a FORMACAO; F4 a coerencia morre na base do Verbo) + o ato v3 (Choi<0, luz-autovetor, contrafactuais). 1=1 e' a fotografia; HAJA_LUZ e' o filme; o veredito agora exige os dois. Tempo caracteristico = 1/beta = 83.12.",
     "vacuum_impedance_bridge": {
       "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
       "all_checks_verified": true,
@@ -1293,7 +1379,7 @@
       ],
       "selo": "LAMBDA_EM_OPERATOR_FORMULA_REFUTED_BY_TOMITA . FORM_DERIVED_VALUE_FIT . BETA_IS_FUNCTIONAL_FLOOR_NOT_inf_Spec_K . MISSING_IS_A_PRINCIPLE_NOT_A_COEFFICIENT . ALPHA_RUNS_THEREFORE_INPUT"
     },
-    "result_hash": "8511c50d490265dc76cf7d784bff2420518d34833ba178fdce590fc95f269050"
+    "result_hash": "104ed062de45c6e37235754b809d15c94868803c7c04e77a702c700b583833e7"
   },
   "ga_mass_literature": [
     {
@@ -1319,7 +1405,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "8511c50d490265dc76cf7d784bff2420518d34833ba178fdce590fc95f269050",
+  "result_hash_before_external_comparison": "104ed062de45c6e37235754b809d15c94868803c7c04e77a702c700b583833e7",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -1329,5 +1415,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-01 19:27:57"
+  "timestamp": "2026-07-02 09:59:17"
 }

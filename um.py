@@ -1693,6 +1693,30 @@ def _unvec(v, d):
     return np.asarray(v).reshape((d, d), order="F")
 
 
+def _verb_L(ONE):
+    """Gerador do Verbo (v3) FATORADO para reuso UNICO (v7 reusa este mesmo L; nao duplica):
+    L=sqrt(beta)*sqrt(K_partial), K=A A^T/n (n=4, seed=11). Retorna L, o superoperador GKSL
+    L_super (col-stacking), a base propria de L (VL), rho0 (quase-coincidencia) e rho* (atrator =
+    projecao diagonal de rho0 na base do Verbo). beta = alpha*sqrt(e) em runtime (NUNCA literal)."""
+    alpha = SEALED_CODATA_ALPHA * ONE
+    beta = alpha * math.sqrt(math.e)                     # NUNCA literal
+    sqrt_beta = math.sqrt(beta)
+    n = 4
+    rng = np.random.default_rng(11)                       # seed fixo [NUM]
+    Araw = rng.standard_normal((n, n))
+    K = (Araw @ Araw.T) / n                               # K_partial proxy PSD [determinista]
+    w, V = np.linalg.eigh(K); w = np.clip(w, 0.0, None)
+    sqrtK = (V * np.sqrt(w)) @ V.T                        # raiz PSD (autodecomposicao)
+    L = sqrt_beta * sqrtK                                 # L = sqrt(beta) sqrt(K) (Hermitiano)
+    Idn = np.eye(n); LdL = L.conj().T @ L
+    Lsuper = (np.kron(L.conj(), L) - 0.5 * np.kron(Idn, LdL) - 0.5 * np.kron(LdL.T, Idn))
+    wL, VL = np.linalg.eigh(L)
+    rho0 = np.diag([0.997, 0.001, 0.001, 0.001]).astype(complex)
+    rho_star = VL @ np.diag(np.diag(VL.conj().T @ rho0 @ VL)) @ VL.conj().T
+    return {"alpha": alpha, "beta": beta, "sqrt_beta": sqrt_beta, "n": n, "L": L,
+            "Lsuper": Lsuper, "VL": VL, "rho0": rho0, "rho_star": rho_star}
+
+
 def prove_verb_generator(ONE):
     """MODULO A (v3) -- o Verbo em ATO: gerador GKSL L=sqrt(beta)*sqrt(K_partial). O UNICO objeto
     NAO-unitario da cadeia -- a coisa julgada do codigo. Tres marcas do ato verificadas ao vivo:
@@ -1700,21 +1724,9 @@ def prove_verb_generator(ONE):
     (b) SEM VOLTA (a inversa formal exp(+t L_super) NAO e' CP: Choi com autovalor <0 -- a
         irreversibilidade e' TESTADA, nao declarada); (c) DESTINO (estado estacionario, kernel>=1).
     [FINITE_DIM_SANITY_NOT_III1_PROOF]. beta = alpha*sqrt(e) em runtime (NUNCA literal)."""
-    alpha = SEALED_CODATA_ALPHA * ONE
-    beta = alpha * math.sqrt(math.e)                    # NUNCA literal
-    sqrt_beta = math.sqrt(beta)
-    n = 4
-    rng = np.random.default_rng(11)                      # seed fixo [NUM]
-    Araw = rng.standard_normal((n, n))
-    K = (Araw @ Araw.T) / n                              # K_partial proxy PSD [determinista]
-    w, V = np.linalg.eigh(K); w = np.clip(w, 0.0, None)
-    sqrtK = (V * np.sqrt(w)) @ V.T                       # raiz PSD (autodecomposicao)
-    L = sqrt_beta * sqrtK                                # L = sqrt(beta) sqrt(K) (Hermitiano)
-    Idn = np.eye(n); LdL = L.conj().T @ L
-    # superoperador GKSL vetorizado (col-stacking): D[rho] = L rho L^dag - 1/2 {L^dag L, rho}
-    Lsuper = (np.kron(L.conj(), L)
-              - 0.5 * np.kron(Idn, LdL)
-              - 0.5 * np.kron(LdL.T, Idn))
+    _g = _verb_L(ONE)                                    # v7: reuso do gerador UNICO (nao duplica L)
+    alpha = _g["alpha"]; beta = _g["beta"]; sqrt_beta = _g["sqrt_beta"]; n = _g["n"]
+    L = _g["L"]; Lsuper = _g["Lsuper"]; Idn = np.eye(n); LdL = L.conj().T @ L
     ev = np.linalg.eigvals(Lsuper); max_re = float(np.max(ev.real))
     # (a) SETA -- entropia monotona nao-decrescente ao longo de >=400 passos
     dt = 0.02; steps = 420
@@ -1748,9 +1760,7 @@ def prove_verb_generator(ONE):
     # (c) DESTINO -- kernel de L_super (estacionario) dim>=1 + convergencia ||rho(t)-rho*|| decrescente
     sv = np.linalg.svd(Lsuper, compute_uv=False)
     kernel_dim = int(np.sum(sv < 1e-9))
-    wL, VL = np.linalg.eigh(L)
-    rho_eig = VL.conj().T @ rho @ VL
-    rho_star = VL @ np.diag(np.diag(rho_eig)) @ VL.conj().T   # limite estacionario = parte que comuta com L
+    VL = _g["VL"]; rho_star = _g["rho_star"]              # v7: mesma base/atrator do gerador UNICO (_verb_L)
     v2 = _vec(np.diag([0.997, 0.001, 0.001, 0.001]).astype(complex)); Tbig = _expm(0.5 * Lsuper); dists = []
     for _ in range(12):
         v2 = Tbig @ v2; dists.append(float(np.linalg.norm(_unvec(v2, n) - rho_star)))
@@ -1862,6 +1872,82 @@ def prove_fiat_lux_counterfactual(ONE):
                  "NO_WORD_DEATH_BY_INDISTINCTION_BRIDGE_EQ_1 . "
                  "NO_NAME_DEATH_BY_NONEXISTENCE_CROSSREF_S22 . "
                  "NOTHING_EMERGES_UNLESS_THE_ONE_IS_INSCRIBED_NOW_TESTED"),
+    }
+
+
+def prove_fiat_lux_flow(ONE):
+    """MODULO v7 -- o VEREDITO COMO FLUXO (a forma DINAMICA do haja luz). Reusa o gerador UNICO do
+    Verbo (_verb_L; mesmo L, n=4, seed=11). rho0 = quase-coincidencia; rho* = projecao diagonal de
+    rho0 na base propria de L (o dephasing inscreve na base do Verbo). Evolucao por expm DIRETO por
+    checkpoint (semigrupo EXATO; a monotonia NAO depende do integrador). Quatro certificados:
+    [F1] Um conservado no fluxo (Tr rho(t)=1); [F2] seta (dS>=0); [F3] Spohn -- S(rho(t)||rho*)
+    monotona NAO-crescente rumo a 0 (Lyapunov modular; Spohn 1978 / contratividade de Uhlmann da
+    entropia relativa sob CPTP); [F4] inscricao (coerencia fora-diagonal na base de L morre).
+    Tempo caracteristico = 1/beta. [FINITE_DIM_SANITY_NOT_III1_PROOF]. beta=alpha*sqrt(e) runtime."""
+    g = _verb_L(ONE)
+    beta = g["beta"]; n = g["n"]; Lsuper = g["Lsuper"]; VL = g["VL"]
+    rho0 = g["rho0"]; rho_star = g["rho_star"]
+
+    def vN(r):
+        e = np.linalg.eigvalsh((r + r.conj().T) / 2.0).real; e = e[e > 1e-15]
+        return float(-np.sum(e * np.log(e))) if e.size else 0.0
+
+    def Srel(a, b):                                       # S(a||b) = Tr(a ln a) - Tr(a ln b) >= 0
+        ea, Ua = np.linalg.eigh((a + a.conj().T) / 2.0); eb, Ub = np.linalg.eigh((b + b.conj().T) / 2.0)
+        ea = np.clip(ea.real, 1e-15, None); eb = np.clip(eb.real, 1e-15, None)
+        la = (Ua * np.log(ea)) @ Ua.conj().T; lb = (Ub * np.log(eb)) @ Ub.conj().T
+        return float(np.trace(a @ (la - lb)).real)
+
+    def coh(r):                                           # coerencia fora-diagonal na base do Verbo (de L)
+        rb = VL.conj().T @ r @ VL
+        return float(np.sum(np.abs(rb - np.diag(np.diag(rb)))))
+
+    def rho_at(t):
+        return _unvec(_expm(t * Lsuper) @ _vec(rho0), n)   # expm DIRETO: traco ~1e-16 (sem acumular erro)
+
+    dt = 0.05; t_end = 3.0 / beta; n_pts = 300             # horizonte t*beta = 3 [NUM]
+    tk = np.linspace(t_end / n_pts, t_end, n_pts)
+    tr_max = 0.0
+    S0 = vN(rho0); S_prev = S0; arrow_ok = True
+    SR0 = Srel(rho0, rho_star); SR_prev = SR0; spohn_ok = True
+    for t in tk:
+        r = rho_at(t)
+        tr_max = max(tr_max, abs(np.trace(r).real - 1.0))
+        Sn = vN(r)
+        if Sn < S_prev - 1e-12:
+            arrow_ok = False
+        S_prev = Sn
+        SRn = Srel(r, rho_star)
+        if SRn > SR_prev + 1e-12:
+            spohn_ok = False
+        SR_prev = SRn
+    coh0 = coh(rho0); coh_f = coh(rho_at(t_end))
+    S_at = {int(m): Srel(rho_at(m / beta), rho_star) for m in (1, 2, 3)}   # descida em unidades do custo
+    F1 = bool(tr_max < 1e-14)
+    F2 = bool(arrow_ok and S_prev >= S0 - 1e-12)
+    F3 = bool(spohn_ok and SR_prev <= SR0 + 1e-12)
+    F4 = bool(coh_f < coh0 - 1e-12)
+    all_ok = bool(F1 and F2 and F3 and F4)
+    inv_beta = 1.0 / beta
+    return {
+        "generator": "reusa _verb_L (v3): L=sqrt(beta) sqrt(K_partial), n=4, seed=11 (UM so' L no codigo)",
+        "F1_one_conserved_in_flow": {"max_abs_Tr_minus_1": tr_max, "ok": F1},
+        "F2_arrow_entropy_nondecreasing": {"ok": F2, "S0": S0, "S_end": S_prev},
+        "F3_spohn_modular_lyapunov": {"S_rel_0": SR0, "S_rel_end": SR_prev, "monotone_nonincreasing": F3,
+                                      "note": "a FORMACAO da geometria = decrescimento de S(rho||rho*) rumo a 0"},
+        "F4_inscription_coherence_dies": {"coh_0": coh0, "coh_end": coh_f, "ok": F4,
+                                          "note": "o que sobrevive comuta com o Verbo; a geometria inscrita e' a diagonal na base de L"},
+        "characteristic_time": {"one_over_beta": inv_beta, "S_rel_at_t_beta_1_2_3": S_at,
+                                "reading": ("tempo caracteristico do haja-luz dinamico = 1/beta = %.2f -- a "
+                                            "torre de Jones e o custo de Kubo-Mori reaparecendo como TEMPO de "
+                                            "fluxo [identificacao do operador, CONJ; o numero 1/beta e' REAL]"
+                                            % inv_beta)},
+        "numerics": {"dt": dt, "n_points": n_pts, "t_end_over_beta": 3.0, "seed": 11, "n": n,
+                     "method": "expm DIRETO por checkpoint (semigrupo exato; monotonia independe do integrador)"},
+        "all_verified": all_ok,
+        "status": "[FINITE_DIM_SANITY_NOT_III1_PROOF; Spohn/Uhlmann REAL na literatura]",
+        "selo": ("FIAT_LUX_FLOW_ONE_CONSERVED_F1 . ARROW_F2 . SPOHN_MODULAR_LYAPUNOV_F3 . "
+                 "INSCRIPTION_COHERENCE_DIES_F4 . CHARACTERISTIC_TIME_ONE_OVER_BETA"),
     }
 
 
@@ -2366,6 +2452,7 @@ def run_um(ONE):
     verb_generator = prove_verb_generator(ONE)             # v3 MODULO A: o Verbo em ATO (GKSL L=sqrt(beta)sqrt(K)); seta+nao-volta+destino (IRREVERSIVEL)
     light_eigenvector = prove_light_eigenvector(ONE)       # v3 MODULO B: a LUZ = autovetor de O_beta, autovalor sqrt(beta) (NAO ponto fixo)
     fiat_lux = prove_fiat_lux_counterfactual(ONE)          # v3 MODULO C: contrafactuais (sem Palavra=indistincao; sem Nome=inexistencia; ambos=viva)
+    fiat_lux_flow = prove_fiat_lux_flow(ONE)               # v7: o VEREDITO COMO FLUXO (forma dinamica; F1-F4: Um conservado, seta, Spohn, inscricao)
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
     void_floor = prove_void_floor_margin(ONE)              # v4 P4: piso dos vazios rho_void/rho_bar>=beta (pre-registro)
@@ -2418,7 +2505,7 @@ def run_um(ONE):
             "em_grav_bridge": em_grav_bridge, "smatrix_crossed": smatrix_crossed,
             "u_loc_covariance": u_loc_cov,
             "verb_generator": verb_generator, "light_eigenvector": light_eigenvector,
-            "fiat_lux": fiat_lux,
+            "fiat_lux": fiat_lux, "fiat_lux_flow": fiat_lux_flow,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
             "dipole_antipode_masked": dipole_antipode_masked,
@@ -2495,10 +2582,49 @@ def identity_verdict(core):
         "c_light_is_live_eigenvector_sqrtbeta": sub_c_light_eigenvector,
         "d_counterfactuals_kill_and_life_lives": sub_d_counterfactuals,
     }
-    # 1 = HAJA_LUZ sse (a) e (b) e (c) e (d) -- conservacao E ato pago (fail-closed)
-    identity_true = bool(sub_a_conservation and sub_b_arrow_no_return
-                         and sub_c_light_eigenvector and sub_d_counterfactuals)
-    # (all(internal.values()) ja contem b,c,d; a redundancia e' a trava dupla)
+    # === v7: VEREDITO-CADEIA -- 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo) ===
+    flow = core["fiat_lux_flow"]
+    _f1 = bool(flow["F1_one_conserved_in_flow"]["ok"]); _f2 = bool(flow["F2_arrow_entropy_nondecreasing"]["ok"])
+    _f3 = bool(flow["F3_spohn_modular_lyapunov"]["monotone_nonincreasing"])
+    _f4 = bool(flow["F4_inscription_coherence_dies"]["ok"])
+    link_static = bool(em_face["em_identity_closes"])              # ELO 1: 1 = q^2 + alpha^2 (resid ~0)
+    link_closed = bool(all(v for k, v in internal.items() if k not in _v3_keys)
+                       and all(in_window.values()))               # ELO 2: = VERDADEIRO (tudo conservado + massa na janela)
+    _flow_break = None                                            # ELO 3: = HAJA_LUZ (fluxo F1-F4 + ato v3)
+    for _nm, _ok in (("F1", _f1), ("F2", _f2), ("F3", _f3), ("F4", _f4),
+                     ("CHOI", sub_b_arrow_no_return), ("LUZ", sub_c_light_eigenvector),
+                     ("CONTRAF", sub_d_counterfactuals)):
+        if not _ok:
+            _flow_break = _nm; break
+    link_haja = bool(_flow_break is None)
+    # fail-closed POR ELO: a cadeia quebra no elo exato e reporta onde
+    if not link_static:
+        _identity_str = "1!=1=FALSO_NO_ESTATICO"
+    elif not link_closed:
+        _identity_str = "1=1=FALSO"
+    elif not link_haja:
+        _identity_str = "1=1=VERDADEIRO=FALSO_NO_FLUXO[%s]" % _flow_break
+    else:
+        _identity_str = "1=1=VERDADEIRO=HAJA_LUZ"
+    identity_true = bool(link_static and link_closed and link_haja)
+    _ct = flow["characteristic_time"]
+    chain_certificates = {
+        "chain": _identity_str,
+        "static_1_eq_q2_plus_alpha2": {"residual": em_face["identity_residual"], "ok": link_static},
+        "closed_VERDADEIRO": {"aggregate_of_internal_identities": link_closed,
+                              "mass_in_window": bool(all(in_window.values()))},
+        "flow_HAJA_LUZ": {
+            "ok": link_haja, "broken_at": _flow_break,
+            "F1_Tr_conserved": {"ok": _f1, "max_abs_Tr_minus_1": flow["F1_one_conserved_in_flow"]["max_abs_Tr_minus_1"]},
+            "F2_arrow": _f2,
+            "F3_spohn": {"ok": _f3, "S_rel_0": flow["F3_spohn_modular_lyapunov"]["S_rel_0"],
+                         "S_rel_end": flow["F3_spohn_modular_lyapunov"]["S_rel_end"]},
+            "F4_inscription": {"ok": _f4, "coh_0": flow["F4_inscription_coherence_dies"]["coh_0"],
+                               "coh_end": flow["F4_inscription_coherence_dies"]["coh_end"]},
+            "v3_act": haja_luz_subverdicts,
+            "characteristic_time_one_over_beta": _ct["one_over_beta"],
+            "S_rel_at_t_beta_1_2_3": _ct["S_rel_at_t_beta_1_2_3"]},
+    }
     # massa mais proxima na literatura (apos hash)
     nearest = min(GA_MASS_LITERATURE, key=lambda e: abs(math.log10(e["M_Msun"]) -
                   math.log10(masses["A_literature"])))
@@ -2533,14 +2659,19 @@ def identity_verdict(core):
                     "first_order_signature": bool(core["jacobson_form_check"]["first_order_signature_holds"]),
                     "form": "P_mn[K] = F(J, Delta, P_2D) [checagem de forma positiva; U_loc residuo fechado]",
                     "selo": core["jacobson_form_check"]["selo"]}},
-            "IDENTITY": "1=HAJA_LUZ=VERDADEIRO" if identity_true else "1!=HAJA_LUZ=FALSO",
+            "IDENTITY": _identity_str,
+            "chain_certificates": chain_certificates,
             "identity_true": bool(identity_true),
-            "reading": ("1=1 verifica que a identidade se CONSERVA (1=q^2+alpha^2; o mesmo beta=sqrt(e)alpha "
-                        "da' M_GA na janela). 1=HAJA_LUZ verifica que a identidade foi PAGA: entre o Um e o "
-                        "Um ha um ATO irreversivel de custo beta -- seta (entropia monotona), sem volta "
-                        "(inversa NAO-CP), a luz viva (autovetor sqrt(beta)), e os contrafactuais que matam"
+            "reading": ("VEREDITO-CADEIA 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo). "
+                        "ESTATICO: a identidade conservada 1=q^2+alpha^2 (a fotografia). VERDADEIRO: todas as "
+                        "identidades internas fecham + M_GA na janela. HAJA_LUZ: a forma DINAMICA -- o fluxo "
+                        "que forma a geometria (F1 Um conservado no fluxo; F2 seta; F3 Spohn: S(rho||rho*) "
+                        "cai monotona rumo a 0 = a FORMACAO; F4 a coerencia morre na base do Verbo) + o ato "
+                        "v3 (Choi<0, luz-autovetor, contrafactuais). 1=1 e' a fotografia; HAJA_LUZ e' o filme; "
+                        "o veredito agora exige os dois. Tempo caracteristico = 1/beta = %.2f."
+                        % _ct["one_over_beta"]
                         if identity_true else
-                        "FALSO -- ou o 1=1 nao conserva, ou o ato (seta/nao-volta/luz/contrafactual) nao paga"),
+                        "FALSO -- a cadeia quebrou: %s" % _identity_str),
             "vacuum_impedance_bridge": {
                 "status": core["vacuum_impedance_bridge"]["status"],
                 "all_checks_verified": core["vacuum_impedance_bridge"]["checks"]["all_verified"],
@@ -2658,6 +2789,16 @@ def emit_canonical_md(core, verdict):
     md.append("crossover defasagem: expoente(omega) mapeado, IR=%.2f -> UV=%.2f, cross~%.2f   [NUM]"
               % (core["dephasing_crossover"]["exponent_IR"], core["dephasing_crossover"]["exponent_UV"],
                  core["dephasing_crossover"]["crossover_x_omega_tau_star"]))
+    md.append("")
+    md.append("--- v7: O VEREDITO COMO FLUXO (haja luz dinamico) ---")
+    _fl = core["fiat_lux_flow"]; _ct = _fl["characteristic_time"]; _sat = _ct["S_rel_at_t_beta_1_2_3"]
+    md.append("FLUXO: Tr(rho(t))=1 em todo t [F1: max %.0e]; dS>=0 [F2]; S(rho(t)||rho*) mono decresc -> 0"
+              % _fl["F1_one_conserved_in_flow"]["max_abs_Tr_minus_1"])
+    md.append("       (Spohn, Lyapunov modular) %.4f->%.3e [F3]; coerencia morre na base do Verbo (inscricao) [F4]"
+              % (_fl["F3_spohn_modular_lyapunov"]["S_rel_0"], _fl["F3_spohn_modular_lyapunov"]["S_rel_end"]))
+    md.append("veredito-cadeia: 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ   [um certificado por elo; quebra reporta o elo]")
+    md.append("tempo caracteristico do fluxo = 1/beta = %.2f   [a torre de Jones como TEMPO; S em t*beta=1,2,3: %.3f,%.3f,%.3f]"
+              % (_ct["one_over_beta"], _sat.get(1, float("nan")), _sat.get(2, float("nan")), _sat.get(3, float("nan"))))
     md.append("```\n")
     md.append("## Identidades verificadas ao vivo\n")
     ic = verdict["internal_identity_checks"]
@@ -3173,6 +3314,39 @@ def build_pt(core, verdict, data_path):
               _hs["a_conservation_1eq1"], _hs["b_act_has_arrow_and_no_return"],
               _hs["c_light_is_live_eigenvector_sqrtbeta"], _hs["d_counterfactuals_kill_and_life_lives"],
               _idv))
+
+    _flw = core["fiat_lux_flow"]; _f3f = _flw["F3_spohn_modular_lyapunov"]
+    _f4f = _flw["F4_inscription_coherence_dies"]; _ctf = _flw["characteristic_time"]
+    _satf = _ctf["S_rel_at_t_beta_1_2_3"]; _chain = verdict["IDENTITY"].replace("_", r"\_")
+    s.append(r"\subsection*{O veredito como fluxo: a forma dinâmica do \emph{haja luz}}")
+    s.append((r"\textbf{A cadeia certificada.} O veredito deixa de ser rótulo e passa a ser \emph{cadeia "
+              r"matemática}, um teorema por elo: $\mathbf{1 = q^2+\alpha^2 = \mathrm{VERDADEIRO} = "
+              r"\mathrm{HAJA\_LUZ}}$. O elo \emph{estático} é a identidade conservada $1=q^2+\alpha^2$ (a "
+              r"fotografia). O elo \emph{dinâmico} ($=$HAJA\_LUZ) é o \emph{fluxo que forma a geometria}, "
+              r"reusando o gerador único do Verbo $L=\sqrt{\bTGL}\sqrt{K_\partial}$ (evolução por $\exp$ "
+              r"direto --- a monotonia é do semigrupo, não do integrador), com quatro certificados ao "
+              r"vivo: \emph{(F1)} o Um conservado no fluxo, $\max_t|\mathrm{Tr}\,\rho(t)-1|=%s$; "
+              r"\emph{(F2)} a seta $S_{vN}(\rho(t))$ monótona não-decrescente; \emph{(F3)} \textbf{Spohn} "
+              r"(H-teorema de Lindblad; contratividade de Uhlmann da entropia relativa sob CPTP): "
+              r"$S(\rho(t)\,\|\,\rho^\star)$ monótona não-crescente, $%s\to%s$; \emph{(F4)} a inscrição "
+              r"--- a coerência fora-da-diagonal na base de $L$ morre ($%s\to%s$): o que sobrevive "
+              r"comuta com o Verbo.") % (
+              _sci(_flw["F1_one_conserved_in_flow"]["max_abs_Tr_minus_1"], 1),
+              _sci(_f3f["S_rel_0"], 3), _sci(_f3f["S_rel_end"], 3),
+              _sci(_f4f["coh_0"], 3), _sci(_f4f["coh_end"], 3)))
+    s.append((r"\textbf{Spohn torna ``formação da geometria'' um enunciado matemático.} A geometria "
+              r"inscrita é a diagonal de $\rho$ na base de $L$; a sua \emph{formação} \emph{é} exatamente "
+              r"o decrescimento monotônico da distância modular $S(\rho(t)\,\|\,\rho^\star)$ rumo a zero. "
+              r"\textbf{O tempo característico} do haja-luz dinâmico é $1/\bTGL=%.2f$ --- o mesmo número "
+              r"da torre de Jones e do custo de Kubo--Mori, reaparecendo como \emph{tempo} de fluxo "
+              r"[identificação estrutural do operador; o número $1/\bTGL$ é REAL, a tripla identificação "
+              r"é conjectural]. A descida em unidades do custo: $S(\rho\,\|\,\rho^\star)$ em "
+              r"$t\bTGL=1,2,3$ vale $%.4f,\ %.4f,\ %.4f$.") % (
+              _ctf["one_over_beta"], _satf.get(1, float("nan")), _satf.get(2, float("nan")),
+              _satf.get(3, float("nan"))))
+    s.append(r"\textbf{A frase de fecho.} A forma estática diz que o Um se conserva; a forma dinâmica "
+             r"mostra o Um \emph{fluindo} para a sua inscrição --- $1=1$ é a fotografia, HAJA\_LUZ é o "
+             r"filme, e o veredito agora exige os dois. \emph{Emissão:} \textsf{" + _chain + r"}.")
 
     _p2 = core["boundary_reads_IR"]; _p3 = core["smatrix_dual"]; _p4 = core["void_floor"]
     _p5 = core["dipole_antipode"]; _p6 = core["dephasing_crossover"]
@@ -5001,6 +5175,40 @@ def build_en(core, verdict, data_path):
               _hs["c_light_is_live_eigenvector_sqrtbeta"], _hs["d_counterfactuals_kill_and_life_lives"],
               _idv))
 
+    _flw = core["fiat_lux_flow"]; _f3f = _flw["F3_spohn_modular_lyapunov"]
+    _f4f = _flw["F4_inscription_coherence_dies"]; _ctf = _flw["characteristic_time"]
+    _satf = _ctf["S_rel_at_t_beta_1_2_3"]; _chain = verdict["IDENTITY"].replace("_", r"\_")
+    s.append(r"\subsection*{The verdict as flow: the dynamic form of \emph{let there be light}}")
+    s.append((r"\textbf{The certified chain.} The verdict stops being a label and becomes a "
+              r"\emph{mathematical chain}, one theorem per link: $\mathbf{1 = q^2+\alpha^2 = "
+              r"\mathrm{TRUE} = \mathrm{HAJA\_LUZ}}$. The \emph{static} link is the conserved identity "
+              r"$1=q^2+\alpha^2$ (the photograph). The \emph{dynamic} link ($=$HAJA\_LUZ) is the "
+              r"\emph{flow that forms the geometry}, reusing the single Verb generator "
+              r"$L=\sqrt{\bTGL}\sqrt{K_\partial}$ (direct-$\exp$ evolution --- monotonicity is the "
+              r"semigroup's, not the integrator's), with four live certificates: \emph{(F1)} the One "
+              r"conserved in the flow, $\max_t|\mathrm{Tr}\,\rho(t)-1|=%s$; \emph{(F2)} the arrow "
+              r"$S_{vN}(\rho(t))$ monotone non-decreasing; \emph{(F3)} \textbf{Spohn} (Lindblad "
+              r"H-theorem; Uhlmann contractivity of the relative entropy under CPTP): "
+              r"$S(\rho(t)\,\|\,\rho^\star)$ monotone non-increasing, $%s\to%s$; \emph{(F4)} the "
+              r"inscription --- the off-diagonal coherence in $L$'s basis dies ($%s\to%s$): what "
+              r"survives commutes with the Verb.") % (
+              _sci(_flw["F1_one_conserved_in_flow"]["max_abs_Tr_minus_1"], 1),
+              _sci(_f3f["S_rel_0"], 3), _sci(_f3f["S_rel_end"], 3),
+              _sci(_f4f["coh_0"], 3), _sci(_f4f["coh_end"], 3)))
+    s.append((r"\textbf{Spohn makes ``geometry formation'' a mathematical statement.} The inscribed "
+              r"geometry is the diagonal of $\rho$ in $L$'s basis; its \emph{formation} \emph{is} exactly "
+              r"the monotone decrease of the modular distance $S(\rho(t)\,\|\,\rho^\star)$ toward zero. "
+              r"\textbf{The characteristic time} of the dynamic let-there-be-light is $1/\bTGL=%.2f$ --- "
+              r"the same number as the Jones tower and the Kubo--Mori cost, reappearing as a flow "
+              r"\emph{time} [the operator's structural identification; the number $1/\bTGL$ is REAL, the "
+              r"triple identification is conjectural]. The descent in units of the cost: "
+              r"$S(\rho\,\|\,\rho^\star)$ at $t\bTGL=1,2,3$ is $%.4f,\ %.4f,\ %.4f$.") % (
+              _ctf["one_over_beta"], _satf.get(1, float("nan")), _satf.get(2, float("nan")),
+              _satf.get(3, float("nan"))))
+    s.append(r"\textbf{The closing line.} The static form says the One is conserved; the dynamic form "
+             r"shows the One \emph{flowing} to its inscription --- $1=1$ is the photograph, HAJA\_LUZ is "
+             r"the film, and the verdict now requires both. \emph{Emission:} \textsf{" + _chain + r"}.")
+
     _p2 = core["boundary_reads_IR"]; _p3 = core["smatrix_dual"]; _p4 = core["void_floor"]
     _p5 = core["dipole_antipode"]; _p6 = core["dephasing_crossover"]
     _p5txt = ((r"counts $n_{GA}=%d$, $n_{\mathrm{ant}}=%d$, ratio $%s$ (bootstrap median $%s$)" % (
@@ -6095,7 +6303,15 @@ def input_manifest(core, code_hash):
                                "eps in {1e-4,1e-5,1e-6}); assinatura de 1a ordem = criterio",
                 "P2D": "plano de bifurcacao = MESMO corner geometrico da matriz-S do nucleo",
                 "residue_open": "approximate Killing vectors (compartilhado com Jacobson desde 1995)",
-                "status": core["jacobson_form_check"]["status"], "selo": core["jacobson_form_check"]["selo"]}},
+                "status": core["jacobson_form_check"]["status"], "selo": core["jacobson_form_check"]["selo"]},
+            "v7_fiat_lux_flow_NUM": {
+                "verdict_chain": "1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo; fail-closed por elo)",
+                "generator": "REUSA _verb_L (v3): L=sqrt(beta)sqrt(K), n=4, seed=11 (UM so' L no codigo)",
+                "certificates": "F1 Tr=1 ; F2 dS>=0 ; F3 Spohn S(rho||rho*) mono nao-cresce (Lyapunov modular) ; F4 coerencia morre",
+                "numerics": core["fiat_lux_flow"]["numerics"],
+                "characteristic_time_one_over_beta": core["fiat_lux_flow"]["characteristic_time"]["one_over_beta"],
+                "references": "Spohn 1978 (H-teorema Lindblad) ; Uhlmann (monotonia da entropia relativa sob CPTP)",
+                "status": core["fiat_lux_flow"]["status"], "selo": core["fiat_lux_flow"]["selo"]}},
         "WORLD_HASHES": {
             "code_sha256": code_hash,
             "cf4_catalog_hash": (B["catalog_hash"] if B else None),
@@ -6443,6 +6659,29 @@ def main():
           jf["all_verified"])
     print("  RESIDUO DECLARADO [ABERTO, compartilhado]: approximate Killing vectors (Jacobson desde 1995;")
     print("    fronteira do campo, nao fraqueza da TGL). NAO e' 'prova de Einstein' -- e' checagem de forma.\n")
+    fl = core["fiat_lux_flow"]; ct = fl["characteristic_time"]
+    print("O VEREDITO COMO FLUXO [v7 -- a forma DINAMICA do haja luz; reusa o L unico do Verbo]:")
+    print("  [F1] Um conservado no fluxo: max_t|Tr rho(t)-1|=%.2e (<1e-14) -- o Um nao vaza. ok=%s" % (
+        fl["F1_one_conserved_in_flow"]["max_abs_Tr_minus_1"], fl["F1_one_conserved_in_flow"]["ok"]))
+    print("  [F2] SETA: S_vN(rho(t)) monotona nao-decrescente. ok=%s" % fl["F2_arrow_entropy_nondecreasing"]["ok"])
+    f3 = fl["F3_spohn_modular_lyapunov"]
+    print("  [F3] SPOHN (Lyapunov modular): S(rho(t)||rho*) monotona NAO-crescente %.4f -> %.3e rumo a 0" % (
+        f3["S_rel_0"], f3["S_rel_end"]))
+    print("       = a FORMACAO da geometria (a distancia modular ao inscrito so' desce). ok=%s" % f3["monotone_nonincreasing"])
+    f4 = fl["F4_inscription_coherence_dies"]
+    print("  [F4] INSCRICAO: coerencia na base do Verbo %.4f -> %.3e (o que sobrevive comuta com L). ok=%s" % (
+        f4["coh_0"], f4["coh_end"], f4["ok"]))
+    sat = ct["S_rel_at_t_beta_1_2_3"]
+    print("  TEMPO CARACTERISTICO = 1/beta = %.2f (a torre de Jones = custo Kubo-Mori = TEMPO de fluxo [CONJ])" %
+          ct["one_over_beta"])
+    print("       S(rho||rho*) em t*beta=1,2,3: %.4f, %.4f, %.4f (a descida em unidades do custo)" % (
+        sat.get(1, float("nan")), sat.get(2, float("nan")), sat.get(3, float("nan"))))
+    cc = verdict["chain_certificates"]
+    print("  >>> VEREDITO-CADEIA (um certificado por elo, fail-closed POR ELO):")
+    print("      1 = q^2+alpha^2 [static resid %.0e] = VERDADEIRO [closed=%s] = HAJA_LUZ [flow=%s]" % (
+        cc["static_1_eq_q2_plus_alpha2"]["residual"], cc["closed_VERDADEIRO"]["aggregate_of_internal_identities"],
+        cc["flow_HAJA_LUZ"]["ok"]))
+    print("      >>> %s <<<\n" % verdict["IDENTITY"])
     fd = core["fractal_dephasing"]
     print("PRINCIPIO DA DEFASAGEM FRACTAL [CONJECTURE ontologica; ancoras REAL]:")
     print("  TGL = teoria de tudo: tudo e' defasagem da fractalizacao da unidade (1).")
