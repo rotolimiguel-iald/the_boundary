@@ -611,6 +611,84 @@
       "status": "[ID.1 REAL Brillouin; ID.2 DER; KMS REAL] identifica a FORMA; o valor e' o Nome (\u00a721)",
       "selo": "Q_IS_TWO_LEVEL_THERMAL_POLARIZATION . ALPHA_IS_MAX_COHERENCE_2SQRT_PLO_PHI . CHI_IS_MODULAR_E_OVER_T . BOUNDARY_STATE_IS_KMS . ONE_EQ_POLARIZATION2_PLUS_COHERENCE2"
     },
+    "tetelestai_pruning": {
+      "a_vector64": {
+        "rank_before": 64,
+        "rank_after": 56,
+        "kept_ratio": 0.9883319366044676,
+        "tail_ratio": 0.011668063395532391,
+        "ok": true,
+        "note": "guloso por maiores pesos = OTIMO p/ menor-suporte (nao heuristica); caso degenerado"
+      },
+      "b_uniform1000": {
+        "rank_before": 1000,
+        "rank_after": 988,
+        "kept_ratio": 0.988,
+        "tail_ratio": 0.01200000000000001,
+        "ok": true,
+        "note": "guloso por maiores pesos = OTIMO p/ menor-suporte (nao heuristica); caso degenerado"
+      },
+      "c_density_binary": {
+        "n_1abs": 3,
+        "n_0mod": 1,
+        "n_0abs": 2,
+        "n_absent": 4,
+        "tail_ratio": 5.6493983390769426e-05,
+        "tail_le_beta": true,
+        "idempotence_residual": 6.740831934336383e-16,
+        "trace_after": 1.0,
+        "pops_preserved": true
+      },
+      "d_motor_inversion": {
+        "chi_star": 11.226755051602328,
+        "p_lo": 0.9999866869841333,
+        "p_hi": 1.3313015866545097e-05,
+        "class_p_lo": "1_abs",
+        "class_p_hi": "0_mod",
+        "p_hi_is_0mod_KEPT": true,
+        "coherence_cut": 1,
+        "pops_preserved": true
+      },
+      "e_paragraph22_and_4class": {
+        "purity_pure": 1.0,
+        "class_pure": "0_abs",
+        "pure_is_distinct": true,
+        "distinct_is_purity_is_paragraph22": true,
+        "binary_prune": {
+          "kept": [
+            [
+              0.95,
+              "1_abs"
+            ],
+            [
+              0.008,
+              "0_mod"
+            ]
+          ],
+          "cut": [
+            [
+              0.005,
+              "0_abs"
+            ]
+          ],
+          "ignored": [
+            [
+              0.0,
+              "absent"
+            ]
+          ],
+          "tail_only_0abs": 0.00519210799584626,
+          "tail_le_beta": true
+        }
+      },
+      "DO_NOT_PRUNE_MODULAR_ZERO": true,
+      "beta": 0.012031300400803142,
+      "all_verified": true,
+      "reading": "o zero modular e' diferenca (0_mod, retorna); o zero absoluto e' distincao sem retorno (0_abs, pagou pra sair). Tetelestai poda o DISTINTO dentro do orcamento beta, IGNORA o ausente, e PRESERVA o Nome e o zero vivo. Consumado sem cortar o Um.",
+      "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE",
+      "status": "[DER + NUM] modulo de PROVA (nenhuma identidade exata passa pela poda; \u00a721/\u00a722 intactos)",
+      "verdict": "TETELESTAI_PRUNING_VERIFIED"
+    },
     "boundary_reads_IR": {
       "chi_is_modular_rapidity": "q_i=tanh(chi_i/2) compoe rel.; chi/2 e' a rapidez ADITIVA (camadas somam)",
       "rapidity_composition_max_resid": 2.220446049250313e-16,
@@ -1264,7 +1342,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-02 10:21:10"
+    "timestamp": "2026-07-03 12:16:28"
   },
   "verdict": {
     "masses_Msun": {
@@ -1293,7 +1371,8 @@
       "boundary_reads_IR_scale": true,
       "smatrix_dual_weight_zero": true,
       "jacobson_form_check_first_law": true,
-      "thermal_two_level_identity": true
+      "thermal_two_level_identity": true,
+      "tetelestai_pruning_verified": true
     },
     "em_face": {
       "alpha_abs": 1.0,
@@ -1432,7 +1511,30 @@
       ],
       "selo": "LAMBDA_EM_OPERATOR_FORMULA_REFUTED_BY_TOMITA . FORM_DERIVED_VALUE_FIT . BETA_IS_FUNCTIONAL_FLOOR_NOT_inf_Spec_K . MISSING_IS_A_PRINCIPLE_NOT_A_COEFFICIENT . ALPHA_RUNS_THEREFORE_INPUT"
     },
-    "result_hash": "c5c4ff9b8692c98e314bb3d7788f7d6ec7c33cb72a6a629afabc1d32fb199697"
+    "tetelestai_pruning": {
+      "all_verified": true,
+      "verdict": "TETELESTAI_PRUNING_VERIFIED",
+      "vector64_rank": [
+        64,
+        56
+      ],
+      "vector64_tail": 0.011668063395532391,
+      "uniform1000_rank_after": 988,
+      "density_classes": {
+        "n_1abs": 3,
+        "n_0mod": 1,
+        "n_0abs": 2,
+        "n_absent": 4
+      },
+      "density_tail_le_beta": true,
+      "density_idempotence_residual": 6.740831934336383e-16,
+      "motor_p_hi_is_0mod_KEPT": true,
+      "pure_is_distinct_para22": true,
+      "DO_NOT_PRUNE_MODULAR_ZERO": true,
+      "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
+      "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
+    },
+    "result_hash": "898cb4ccd1a7efd55ea07eec1c234dd70dc7015911b00222be953b2ac50a9c02"
   },
   "ga_mass_literature": [
     {
@@ -1458,7 +1560,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "c5c4ff9b8692c98e314bb3d7788f7d6ec7c33cb72a6a629afabc1d32fb199697",
+  "result_hash_before_external_comparison": "898cb4ccd1a7efd55ea07eec1c234dd70dc7015911b00222be953b2ac50a9c02",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -1468,5 +1570,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-02 10:21:10"
+  "timestamp": "2026-07-03 12:16:28"
 }

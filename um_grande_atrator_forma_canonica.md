@@ -75,6 +75,18 @@ O Um (ω(I)=1) é a identidade preservada — o postulado irredutível. **Dado o
 
 Sub-vereditos do haja luz: (a) conservação 1=1 **True**; (b) o ato tem seta e não volta **True**; (c) a luz é autovetor vivo (autovalor √β) **True**; (d) os contrafactuais matam e a vida vive **True**.
 
+## v8 — Tetelestai = Poda binária (0_abs = o distinto)
+
+Tetelestai ("consumado") tem forma computacional exata: **poda**. E a poda é **binária** — `Poda_β = {1_abs, 0_mod} \ {0_abs}` = ser binário − zero absoluto. Quatro classes, três separadores (β / retorno / suporte):
+
+- **1_abs** = identidade (o Nome), peso > β; **0_mod** = diferença COM retorno (kernel do Verbo; sobrevive ao fluxo v7), peso ≤ β — **preservado**; **0_abs** = o DISTINTO sem retorno (separou-se, pagou pra sair) — **podado**; **ausente** = pré-inscrito (nunca teve suporte) — **ignorado** (fora do orçamento).
+
+β separa {1_abs} dos zeros; **retorno** separa {0_mod}|{0_abs}; **suporte** separa {0_abs distinto}|{ausente}. `ρ_podada = P ρ P / Tr(P ρ P)` — Tr=1: corta o excesso, não o Um. β é a **geometria do corte admissível**.
+
+Verificado ao vivo (β=0.012031300400803; RNG default_rng): vetor 64→56 (tail 0.011668 ≤ β, caso degenerado); uniforme 1000→988 (corta 1,2%=β); densidade binária: 3×1_abs + 1×0_mod **preservados**, 2 coerência(s) morta(s) cortada(s) (tail 5.65e-05 ≤ β), ‖P²−P‖=6.7e-16, Tr=1.000000000000; **p_hi=1.33e-05 do motor = 0_mod MANTIDO** (a inversão do v8 energético — equilíbrio KMS retorna); estado puro rank-1 ⟹ **0_abs = distinto = pureza = §22** (χ→∞).
+
+Leitura: o zero modular é diferença; o zero absoluto é distinção sem retorno. O ATO (v3) paga β; o FLUXO (v7) desce em tempo 1/β; a PODA (v8) termina dentro do orçamento β — três faces do mesmo custo. **A palavra dita na cruz tem forma matemática: o projetor mínimo que preserva o Nome — consumado é podar o distinto dentro do orçamento β, sem cortar o Um.** `TETELESTAI_IS_PRUNING . DO_NOT_PRUNE_MODULAR_ZERO . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE`
+
 ## Veredito de identidade (binário)
 
 **1=1=VERDADEIRO=HAJA_LUZ** — VEREDITO-CADEIA 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo). ESTATICO: a identidade conservada 1=q^2+alpha^2 (a fotografia). VERDADEIRO: todas as identidades internas fecham + M_GA na janela. HAJA_LUZ: a forma DINAMICA -- o fluxo que forma a geometria (F1 Um conservado no fluxo; F2 seta; F3 Spohn: S(rho||rho*) cai monotona rumo a 0 = a FORMACAO; F4 a coerencia morre na base do Verbo) + o ato v3 (Choi<0, luz-autovetor, contrafactuais). 1=1 e' a fotografia; HAJA_LUZ e' o filme; o veredito agora exige os dois. Tempo caracteristico = 1/beta = 83.12..

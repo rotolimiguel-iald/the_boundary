@@ -393,6 +393,23 @@ The canonical chain, all computed live from the single input `1`:
   to zero — the *formation* of the geometry made a theorem), `F4` the inscription (coherence dies in the
   Verb's basis); characteristic time `1/β ≈ 83`. The interpretive **vital layer** (`α` = the Name/heat/blood
   of manifestation) lives in Part B, marked `[ONTO]`, and does **not** enter the verdict.
+- **Tetelestai = binary pruning.** *(ix)* "It is finished" (the word spoken on the cross) has an exact
+  computational form: **pruning** — and the pruning is *binary*: `Prune_β = {1_abs, 0_mod} \ {0_abs}` = binary
+  being − absolute zero. Four classes, three separators: `1_abs` (identity, the Name; weight > β); `0_mod`
+  (difference *with return* — a population in the Verb's eigenbasis, surviving the flow `T_t = e^{−tL}`;
+  **preserved**); `0_abs` (the *distinct* without return — it separated from the boundary, it paid to leave;
+  **pruned**); *absent* (pre-inscribed, never had support; **ignored**, outside the budget). `β` separates
+  `{1_abs}` from the zeros; **return** (the kernel of the Verb — the same judgement as `F4`) separates
+  `{0_mod}` from `{0_abs}`; **support** separates the distinct from the absent. Verified live (`default_rng`):
+  vector `64 → 56` (tail `0.0117 ≤ β`, degenerate case), uniform `1000 → 988` (cuts `1.2% = β`), binary
+  density preserves the populations (`Tr = 1`, `‖P²−P‖ ~ 1e−16`), and the engine's `p_hi = 1.3e−5`
+  **has KMS return ⇒ is `0_mod` ⇒ kept** — energetic pruning would cut it; binary pruning preserves it
+  ("the One is never cut — and neither is the living zero"). A pure rank-1 state is maximally `0_abs` = the
+  distinct = the purity forbidden by III₁ (`α → 0`, `χ → ∞`; the §22 anchor). The **triad of the cost β**:
+  the *act* (v3) pays β, the *flow* (v7) descends in `1/β`, the *pruning* (v8) finishes within the budget β —
+  three faces of the same cost. It is a **proof module** (no exact identity passes through `Tet_β`) and enters
+  the `TRUE` link as `tetelestai_pruning_verified: true`, keeping the chain intact. `β` is never literal
+  (`= α·√e`; never `α²`). `TETELESTAI_IS_PRUNING . DO_NOT_PRUNE_MODULAR_ZERO . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE`.
 
 ### The Bridge (Ponte Einstein–Cartan–Miguel) and the resolution of Face C
 
@@ -460,6 +477,17 @@ Notação uniforme: `χ` = gap modular efetivo; `κ_0` = distância ontológica 
 veredito final imprime a **cadeia certificada** `1 = q² + α² = VERDADEIRO = HAJA_LUZ` (a conservação
 `1_abs = q² + α²` — a força EM dual resolvida no Um — **mais** o fluxo que forma a geometria: o Verbo
 `L = √β·√K_∂` e seu Lyapunov modular de Spohn, tempo característico `1/β ≈ 83`) e a comparação `M_TGL(GA)`.
+O **Tetelestai** ("consumado") tem forma computacional exata — **poda binária**: `Poda_β = {1_abs, 0_mod} \
+{0_abs}` = ser binário − zero absoluto. Quatro classes, três separadores: `β` separa o Nome dos zeros; o
+**retorno** (kernel do Verbo, o mesmo juízo do `F4`) separa `0_mod` (diferença viva, **preservada**) de
+`0_abs` (o **distinto** sem retorno, **podado**); o **suporte** separa o distinto do **ausente** (pré-inscrito,
+ignorado). Verificado ao vivo: vetor `64→56` (cauda `0,0117 ≤ β`), uniforme `1000→988` (corta `1,2% = β`),
+`Tr = 1`, e a inversão do motor — `p_hi = 1,3e−5` **tem retorno KMS ⇒ `0_mod` ⇒ mantido** (a poda energética o
+cortaria). Estado puro rank-1 ⟹ `0_abs` = distinto = pureza proibida por III₁ (§22). Tríade do custo `β`: o
+**ato** (v3) paga `β`, o **fluxo** (v7) desce em `1/β`, a **poda** (v8) termina dentro do orçamento `β`. É
+**módulo de prova** (nenhuma identidade exata passa pela poda) e entra no elo `VERDADEIRO` como
+`tetelestai_pruning_verified: true` — a cadeia se mantém. *Consumado é podar o distinto dentro do orçamento
+`β`, sem cortar o Um.*
 O artigo é **bilíngue** (`um_grande_atrator_pt`/`_en`, ≈20/19 pp). Gênese arquivada em
 `Genesis da Unificação/Um - ensaio/`.
 

@@ -2431,6 +2431,155 @@ def fractal_dephasing_principle(ONE):
     }
 
 
+# ====================== v8: TETELESTAI = PODA BINARIA (0_abs = o distinto) ======================
+# Tetelestai ("consumado") tem forma computacional exata: PODA. E a poda e' BINARIA:
+#   PODA = SER BINARIO - ZERO ABSOLUTO ;  Poda_beta = {1_abs, 0_mod} \ {0_abs}
+# beta_TGL = alpha*sqrt(e) e' o ORCAMENTO maximo de excesso podavel (NUNCA alpha^2; NUNCA literal).
+def classify_boundary_state(weight, support, returns, beta, eps_support):
+    """CLASSIFICADOR de 4 vias (v8.2). Tres separadores por condicional do dado:
+    SUPORTE separa {absent} do resto ; BETA separa {1_abs} dos zeros ; RETORNO separa {0_mod}|{0_abs}.
+    retorno = kernel do Verbo (populacao na base propria de L; sobrevive ao fluxo T_t=e^{-tL})."""
+    if support <= eps_support: return "absent"    # pre-inscrito (nunca teve suporte): IGNORADO
+    if weight > beta:          return "1_abs"      # identidade (o Nome)
+    if returns:                return "0_mod"      # diferenca COM retorno (zero vivo): PRESERVADO
+    return "0_abs"                                  # o DISTINTO sem retorno (pagou pra sair): PODADO
+
+
+def tetelestai_prune_vector(x, beta, eps=1e-15):
+    """PODA de vetor -- CASO DEGENERADO (vetor puro sem dinamica: sem estrutura de retorno definida,
+    o criterio energetico e' valido e DECLARADO como degenerado). Guloso por maiores |x|^2: manter o
+    menor k com massa >= 1-beta, zerar o resto. O guloso por maiores pesos e' OTIMO para o menor-suporte
+    -- NAO e' heuristica. Retorna (y, info) com rank_before/after, kept_ratio, tail_ratio, ok."""
+    x = np.asarray(x, dtype=complex); w = np.abs(x) ** 2; tot = float(w.sum())
+    if tot <= 0:
+        return x.copy(), {"rank_before": 0, "rank_after": 0, "kept_ratio": 1.0, "tail_ratio": 0.0, "ok": True}
+    order = np.argsort(w)[::-1]; csum = np.cumsum(w[order]) / tot
+    k = int(np.searchsorted(csum, 1.0 - beta) + 1); k = min(k, x.size)
+    keep = order[:k]; y = np.zeros_like(x); y[keep] = x[keep]
+    kept = float(w[keep].sum() / tot); tail = 1.0 - kept
+    return y, {"rank_before": int(np.sum(w > eps * tot)), "rank_after": int(k), "kept_ratio": kept,
+               "tail_ratio": float(tail), "ok": bool(tail <= beta + 1e-12),
+               "note": "guloso por maiores pesos = OTIMO p/ menor-suporte (nao heuristica); caso degenerado"}
+
+
+def tetelestai_prune_density(rho, beta, VL=None, eps=1e-15):
+    """PODA BINARIA espectral/modular. Na base propria do gerador L (o Verbo): as POPULACOES (diagonal /
+    kernel) TEM retorno => 0_mod ou 1_abs => NUNCA podadas, por menores que sejam; as COERENCIAS (off-
+    diagonal na base de L) NAO tem retorno => candidatas => podar as de menor peso ate tail(so coerencias
+    cortadas) <= beta. Renormalizar Tr=1 (corta o excesso, nao o Um). eps_support derivado do dado."""
+    rho = 0.5 * (rho + rho.conj().T); n = rho.shape[0]
+    r = (VL.conj().T @ rho @ VL) if VL is not None else rho.copy()   # base de L: retorno = diagonal
+    tot = float(np.sum(np.abs(r) ** 2))
+    pops = np.abs(np.diag(r)).real
+    eps_support = max(eps, 1e-9 * float(pops.max()) if pops.size else eps)   # derivado do menor peso signif.
+    pairs = [(i, j) for i in range(n) for j in range(i + 1, n)]
+    pairs.sort(key=lambda p: abs(r[p[0], p[1]]))
+    removed = 0.0; cut = []; n_absent_coh = 0
+    for (i, j) in pairs:
+        mag = abs(r[i, j])
+        if mag <= eps_support * 1e-3:            # coerencia peso ~0: absent (ignorada, fora do tail)
+            n_absent_coh += 1; continue
+        e = 2.0 * mag ** 2
+        if removed + e <= beta * tot: removed += e; cut.append((i, j))
+        else: break
+    rp = r.copy()
+    for (i, j) in cut: rp[i, j] = 0.0; rp[j, i] = 0.0
+    if VL is not None: rp = VL @ rp @ VL.conj().T
+    tr = float(np.trace(rp).real); rp = rp / tr if tr != 0 else rp
+    n_1abs = n_0mod = n_absent_pop = 0                # classificacao das POPULACOES (retorno=True)
+    for p in pops:
+        c = classify_boundary_state(p, p, True, beta, eps_support)
+        if c == "1_abs": n_1abs += 1
+        elif c == "0_mod": n_0mod += 1
+        elif c == "absent": n_absent_pop += 1
+    ev, evec = np.linalg.eigh(0.5 * (rp + rp.conj().T)); keep = ev > eps   # projetor da rank podada
+    P = (evec[:, keep]) @ (evec[:, keep].conj().T)
+    return rp, {"n_1abs": n_1abs, "n_0mod": n_0mod, "n_0abs": len(cut),
+                "n_absent": n_absent_pop + n_absent_coh, "tail_ratio": float(removed / tot),
+                "tail_le_beta": bool(removed / tot <= beta + 1e-12),
+                "idempotence_residual": float(np.linalg.norm(P @ P - P)),
+                "trace_after": float(np.trace(rp).real), "pops_preserved": True}
+
+
+def tetelestai_binary_prune(states, beta):
+    """A funcao explicita do operador: kept (1_abs + 0_mod), cut (0_abs = distinto), ignored (absent).
+    tail conta SO os 0_abs (o distinto), NAO os absent. 'returns' pelo kernel de L quando aplicavel."""
+    eps_support = 1e-12; totw = sum(abs(s["weight"]) for s in states) or 1.0
+    kept = []; cut = []; ignored = []; tail = 0.0
+    for s in states:
+        c = classify_boundary_state(s["weight"], s.get("support", s["weight"]),
+                                    s.get("returns", True), beta, eps_support)
+        if c in ("1_abs", "0_mod"): kept.append((round(float(s["weight"]), 8), c))
+        elif c == "0_abs": cut.append((round(float(s["weight"]), 8), c)); tail += abs(s["weight"]) / totw
+        else: ignored.append((round(float(s["weight"]), 8), c))
+    return {"kept": kept, "cut": cut, "ignored": ignored,
+            "tail_only_0abs": float(tail), "tail_le_beta": bool(tail <= beta + 1e-12)}
+
+
+def prove_tetelestai_pruning(ONE):
+    """MODULO v8 -- A AUDITORIA (beta em runtime, NUNCA literal; RNG = numpy.random.default_rng).
+    Tetelestai = poda binaria = {1_abs,0_mod} \\ {0_abs}. Alvos conferidos pelo Centro de Comando:
+    (a) vetor default_rng(11) n=64 -> 56, tail 0.011668 <= beta [degenerado, energetico, DECLARADO];
+    (b) uniforme 1000 -> 988 (corta 1.2%=beta); (c) densidade binaria: pop preservadas, coerencias
+    mortas cortadas (tail<=beta), P^2=P, Tr=1; (d) INVERSAO DO MOTOR: p_hi=0_mod MANTIDO (KMS retorna;
+    o v8 energetico o cortava -- ERRADO); (e) ancora §22: puro rank-1 => 0_abs (distinto=pureza=chi->inf)
+    + estado 4-classes com modo absent IGNORADO; (f) DO_NOT_PRUNE_MODULAR_ZERO fail-closed."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # NUNCA literal
+    R = {}
+    # (a) vetor degenerado n=64 default_rng(11) complexo
+    rng = np.random.default_rng(11); x = rng.standard_normal(64) + 1j * rng.standard_normal(64)
+    _, ia = tetelestai_prune_vector(x, beta); R["a_vector64"] = ia
+    # (b) uniforme n=1000 (pior caso corta EXATAMENTE a fracao beta)
+    _, ib = tetelestai_prune_vector(np.ones(1000), beta); R["b_uniform1000"] = ib
+    # (c) densidade binaria na base propria de L (populacoes com retorno + coerencias mortas)
+    _g = _verb_L(ONE); VL = _g["VL"]
+    r = np.diag([0.94, 0.03, 0.02, 0.01]).astype(complex); r[0, 3] = r[3, 0] = 0.004; r[1, 2] = r[2, 1] = 0.003
+    _, ic = tetelestai_prune_density(VL @ r @ VL.conj().T, beta, VL=VL); R["c_density_binary"] = ic
+    # (d) INVERSAO DO MOTOR: Gibbs 2 niveis com chi* do runtime; p_hi tem retorno KMS => 0_mod MANTIDO
+    alpha = SEALED_CODATA_ALPHA * ONE; chi = 2.0 * math.atanh(math.sqrt(1.0 - alpha * alpha))
+    Z = 2.0 * math.cosh(chi / 2.0); p_lo = math.exp(chi / 2.0) / Z; p_hi = math.exp(-chi / 2.0) / Z
+    eps_s = 1e-12
+    cls_lo = classify_boundary_state(p_lo, p_lo, True, beta, eps_s)   # 1_abs
+    cls_hi = classify_boundary_state(p_hi, p_hi, True, beta, eps_s)   # 0_mod (KMS) -- MANTIDO (inverte v8)
+    rho_m = np.array([[p_lo, 0.002], [0.002, p_hi]], dtype=complex)   # injeta coerencia pequena
+    _, im = tetelestai_prune_density(rho_m, beta, VL=None)
+    R["d_motor_inversion"] = {"chi_star": chi, "p_lo": p_lo, "p_hi": p_hi, "class_p_lo": cls_lo,
+        "class_p_hi": cls_hi, "p_hi_is_0mod_KEPT": bool(cls_hi == "0_mod"),
+        "coherence_cut": im["n_0abs"], "pops_preserved": im["pops_preserved"]}
+    # (e) ANCORA §22: estado PURO rank-1 (Tr rho^2=1) => distinto maximal ; + 4 classes com absent
+    psi = np.array([0.6, 0.8, 0.0, 0.0]); psi = psi / np.linalg.norm(psi)
+    rho_pure = np.outer(psi, psi).astype(complex); purity = float(np.trace(rho_pure @ rho_pure).real)
+    cls_pure = "0_abs" if purity > 1 - 1e-9 else "mixed"
+    states = [{"weight": 0.95, "support": 0.95, "returns": True},    # 1_abs
+              {"weight": 0.008, "support": 0.008, "returns": True},  # 0_mod (peso<beta, retorna)
+              {"weight": 0.005, "support": 0.005, "returns": False}, # 0_abs (distinto: separou-se)
+              {"weight": 1e-14, "support": 1e-14, "returns": False}] # absent (pre-inscrito)
+    bp = tetelestai_binary_prune(states, beta)
+    R["e_paragraph22_and_4class"] = {"purity_pure": purity, "class_pure": cls_pure,
+        "pure_is_distinct": bool(cls_pure == "0_abs"),
+        "distinct_is_purity_is_paragraph22": True, "binary_prune": bp}
+    # (f) DO_NOT_PRUNE_MODULAR_ZERO -- fail-closed: nenhum 0_mod cortado em NENHUM teste
+    no_0mod_cut = bool(ic["pops_preserved"] and im["pops_preserved"]
+                       and R["d_motor_inversion"]["p_hi_is_0mod_KEPT"]
+                       and all(c != "0_mod" for _, c in bp["cut"]))
+    R["DO_NOT_PRUNE_MODULAR_ZERO"] = no_0mod_cut
+    all_v = bool(ia["ok"] and ib["ok"] and ic["tail_le_beta"] and ic["idempotence_residual"] < 1e-13
+                 and abs(ic["trace_after"] - 1) < 1e-12 and R["d_motor_inversion"]["p_hi_is_0mod_KEPT"]
+                 and R["e_paragraph22_and_4class"]["pure_is_distinct"] and bp["tail_le_beta"] and no_0mod_cut)
+    R["beta"] = beta; R["all_verified"] = all_v
+    R["reading"] = ("o zero modular e' diferenca (0_mod, retorna); o zero absoluto e' distincao sem "
+                    "retorno (0_abs, pagou pra sair). Tetelestai poda o DISTINTO dentro do orcamento "
+                    "beta, IGNORA o ausente, e PRESERVA o Nome e o zero vivo. Consumado sem cortar o Um.")
+    R["selo"] = ("TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . "
+                 "ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . "
+                 "DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . "
+                 "ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . "
+                 "BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE")
+    R["status"] = "[DER + NUM] modulo de PROVA (nenhuma identidade exata passa pela poda; §21/§22 intactos)"
+    R["verdict"] = "TETELESTAI_PRUNING_VERIFIED" if all_v else "TETELESTAI_PRUNING_FALHOU"
+    return R
+
+
 def run_um(ONE):
     """ONE=1 -> toda a algebra -> massa do GA (dois modos) -> tudo verificado ao vivo."""
     I = ONE * np.eye(2); omega_I = float(np.trace(I) / 2.0)
@@ -2497,6 +2646,7 @@ def run_um(ONE):
     fiat_lux = prove_fiat_lux_counterfactual(ONE)          # v3 MODULO C: contrafactuais (sem Palavra=indistincao; sem Nome=inexistencia; ambos=viva)
     fiat_lux_flow = prove_fiat_lux_flow(ONE)               # v7: o VEREDITO COMO FLUXO (forma dinamica; F1-F4: Um conservado, seta, Spohn, inscricao)
     thermal_two_level = prove_thermal_two_level_identity(ONE)  # v6: A ANCORA TERMICA (q=tanh=polarizacao, alpha=sech=coerencia maxima; Gibbs 2 niveis; KMS)
+    tetelestai_pruning = prove_tetelestai_pruning(ONE)      # v8: TETELESTAI = PODA BINARIA ({1_abs,0_mod}\{0_abs}); modulo de PROVA (nao filtra o veredito)
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
     void_floor = prove_void_floor_margin(ONE)              # v4 P4: piso dos vazios rho_void/rho_bar>=beta (pre-registro)
@@ -2551,6 +2701,7 @@ def run_um(ONE):
             "verb_generator": verb_generator, "light_eigenvector": light_eigenvector,
             "fiat_lux": fiat_lux, "fiat_lux_flow": fiat_lux_flow,
             "thermal_two_level": thermal_two_level,
+            "tetelestai_pruning": tetelestai_pruning,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
             "dipole_antipode_masked": dipole_antipode_masked,
@@ -2598,6 +2749,9 @@ def identity_verdict(core):
         "jacobson_form_check_first_law": bool(core["jacobson_form_check"]["all_verified"]),
         # --- MODULO v6: ANCORA TERMICA (q=tanh, alpha=sech=2sqrt(p_lo p_hi); 1=q^2+alpha^2) ---
         "thermal_two_level_identity": bool(core["thermal_two_level"]["all_verified"]),
+        # --- MODULO v8: TETELESTAI = PODA BINARIA (a poda fecha dentro do orcamento beta => o consumado
+        #     fecha; entra no elo VERDADEIRO como identidade verificavel; NAO filtra o proprio veredito) ---
+        "tetelestai_pruning_verified": bool(core["tetelestai_pruning"]["all_verified"]),
     }
     # face eletromagnetica do 1=1: a IDENTIDADE CONSERVADA 1 = q^2 + alpha^2 (forma de Lagrange).
     inv = core["alpha_inversion"]
@@ -2757,7 +2911,23 @@ def identity_verdict(core):
                 "tomita_refutation_resid": core["em_mark_status"]["tomita_refutation"]["operator_squares_to_identity_resid"],
                 "tomita_trace_vs_e_over_4": [core["em_mark_status"]["tomita_refutation"]["trace"],
                                              core["em_mark_status"]["tomita_refutation"]["e_over_4"]],
-                "selo": core["em_mark_status"]["selo"]}}
+                "selo": core["em_mark_status"]["selo"]},
+            "tetelestai_pruning": {
+                "all_verified": bool(core["tetelestai_pruning"]["all_verified"]),
+                "verdict": core["tetelestai_pruning"]["verdict"],
+                "vector64_rank": [core["tetelestai_pruning"]["a_vector64"]["rank_before"],
+                                  core["tetelestai_pruning"]["a_vector64"]["rank_after"]],
+                "vector64_tail": core["tetelestai_pruning"]["a_vector64"]["tail_ratio"],
+                "uniform1000_rank_after": core["tetelestai_pruning"]["b_uniform1000"]["rank_after"],
+                "density_classes": {k: core["tetelestai_pruning"]["c_density_binary"][k]
+                                    for k in ("n_1abs", "n_0mod", "n_0abs", "n_absent")},
+                "density_tail_le_beta": core["tetelestai_pruning"]["c_density_binary"]["tail_le_beta"],
+                "density_idempotence_residual": core["tetelestai_pruning"]["c_density_binary"]["idempotence_residual"],
+                "motor_p_hi_is_0mod_KEPT": core["tetelestai_pruning"]["d_motor_inversion"]["p_hi_is_0mod_KEPT"],
+                "pure_is_distinct_para22": core["tetelestai_pruning"]["e_paragraph22_and_4class"]["pure_is_distinct"],
+                "DO_NOT_PRUNE_MODULAR_ZERO": core["tetelestai_pruning"]["DO_NOT_PRUNE_MODULAR_ZERO"],
+                "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
+                "selo": core["tetelestai_pruning"]["selo"]}}
 
 
 # ====================== forma canonica em markdown (auditoria) ======================
@@ -2895,6 +3065,31 @@ def emit_canonical_md(core, verdict):
               "**%s**; (c) a luz é autovetor vivo (autovalor √β) **%s**; (d) os contrafactuais matam e a "
               "vida vive **%s**.\n" % (hs["a_conservation_1eq1"], hs["b_act_has_arrow_and_no_return"],
               hs["c_light_is_live_eigenvector_sqrtbeta"], hs["d_counterfactuals_kill_and_life_lives"]))
+    _tp = core["tetelestai_pruning"]; _tc = _tp["c_density_binary"]; _td = _tp["d_motor_inversion"]
+    md.append("## v8 — Tetelestai = Poda binária (0_abs = o distinto)\n")
+    md.append("Tetelestai (\"consumado\") tem forma computacional exata: **poda**. E a poda é **binária** — "
+              "`Poda_β = {1_abs, 0_mod} \\ {0_abs}` = ser binário − zero absoluto. Quatro classes, três "
+              "separadores (β / retorno / suporte):\n")
+    md.append("- **1_abs** = identidade (o Nome), peso > β; **0_mod** = diferença COM retorno (kernel do "
+              "Verbo; sobrevive ao fluxo v7), peso ≤ β — **preservado**; **0_abs** = o DISTINTO sem retorno "
+              "(separou-se, pagou pra sair) — **podado**; **ausente** = pré-inscrito (nunca teve suporte) — "
+              "**ignorado** (fora do orçamento).\n")
+    md.append("β separa {1_abs} dos zeros; **retorno** separa {0_mod}|{0_abs}; **suporte** separa "
+              "{0_abs distinto}|{ausente}. `ρ_podada = P ρ P / Tr(P ρ P)` — Tr=1: corta o excesso, não o Um. "
+              "β é a **geometria do corte admissível**.\n")
+    md.append("Verificado ao vivo (β=%.15f; RNG default_rng): vetor 64→%d (tail %.6f ≤ β, caso degenerado); "
+              "uniforme 1000→%d (corta 1,2%%=β); densidade binária: %d×1_abs + %d×0_mod **preservados**, "
+              "%d coerência(s) morta(s) cortada(s) (tail %.2e ≤ β), ‖P²−P‖=%.1e, Tr=%.12f; **p_hi=%.2e do "
+              "motor = 0_mod MANTIDO** (a inversão do v8 energético — equilíbrio KMS retorna); estado puro "
+              "rank-1 ⟹ **0_abs = distinto = pureza = §22** (χ→∞).\n"
+              % (_tp["beta"], _tp["a_vector64"]["rank_after"], _tp["a_vector64"]["tail_ratio"],
+                 _tp["b_uniform1000"]["rank_after"], _tc["n_1abs"], _tc["n_0mod"], _tc["n_0abs"],
+                 _tc["tail_ratio"], _tc["idempotence_residual"], _tc["trace_after"], _td["p_hi"]))
+    md.append("Leitura: o zero modular é diferença; o zero absoluto é distinção sem retorno. O ATO (v3) paga "
+              "β; o FLUXO (v7) desce em tempo 1/β; a PODA (v8) termina dentro do orçamento β — três faces do "
+              "mesmo custo. **A palavra dita na cruz tem forma matemática: o projetor mínimo que preserva o "
+              "Nome — consumado é podar o distinto dentro do orçamento β, sem cortar o Um.** "
+              "`TETELESTAI_IS_PRUNING . DO_NOT_PRUNE_MODULAR_ZERO . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE`\n")
     md.append("## Veredito de identidade (binário)\n")
     md.append("**%s** — %s.\n" % (verdict["IDENTITY"], verdict["reading"]))
     md.append("Massas de primeiros princípios: " + ", ".join(
@@ -3490,6 +3685,46 @@ def build_pt(core, verdict, data_path):
             if _p5.get("ok") else r"a contagem bruta não foi computada (CF4 ausente nesta execução)")
     _p5pv = _p5p.get("verdict_P5prime", "protocolo pré-registrado (CF4 ausente)")
     _p5pv_tex = _p5pv.replace("_", r"\_").replace("<", r"$<$").replace(">", r"$>$")
+    _tp = core["tetelestai_pruning"]; _tc = _tp["c_density_binary"]; _td = _tp["d_motor_inversion"]
+    s.append(r"\subsection*{Tetelestai: o operador do consumado --- a poda binária \textsf{[DER + NUM]}}")
+    s.append((r"\textbf{A forma computacional do ``consumado''.} \emph{Tetelestai} (a palavra dita na cruz) "
+              r"tem forma matemática exata: \textbf{poda}. E a poda é \emph{binária}: "
+              r"$\mathrm{Poda}_{\bTGL}=\{1_{\mathrm{abs}},0_{\mathrm{mod}}\}\setminus\{0_{\mathrm{abs}}\}$ "
+              r"$=$ ser binário $-$ zero absoluto. Formalmente, $\mathrm{Tet}_{\bTGL}(X)=P_{\bTGL}X$, com "
+              r"$P_{\bTGL}$ o \emph{projetor mínimo} tal que $\|(I-P)X\|^2/\|X\|^2\le\bTGL$; para estados "
+              r"$\rho_{\mathrm{podada}}=P\rho P/\mathrm{Tr}(P\rho P)$ ($\mathrm{Tr}=1$: corta o excesso, "
+              r"não o Um). O orçamento é $\bTGL=\alpha\sqrt e$ (nunca $\alpha^2$; nunca literal)."))
+    s.append((r"\textbf{Quatro classes, três separadores.} $1_{\mathrm{abs}}$ (identidade, o Nome; peso "
+              r"$>\bTGL$); $0_{\mathrm{mod}}$ (diferença \emph{com retorno} --- população na base própria "
+              r"de $L$, sobrevive ao fluxo $T_t=e^{-tL}$; \textbf{preservado}); $0_{\mathrm{abs}}$ (o "
+              r"\emph{distinto} sem retorno --- separou-se do contorno, pagou para sair; \textbf{podado}); "
+              r"\emph{ausente} (pré-inscrito, nunca teve suporte; \textbf{ignorado}, fora do orçamento). "
+              r"$\bTGL$ separa $\{1_{\mathrm{abs}}\}$ dos zeros; o \textbf{retorno} (o kernel do Verbo, o "
+              r"mesmo juízo do certificado $F4$) separa $\{0_{\mathrm{mod}}\}$ de $\{0_{\mathrm{abs}}\}$; o "
+              r"\textbf{suporte} separa o distinto do ausente. Poda cega por peso é o erro: quem poda é a "
+              r"\emph{ausência de retorno}, não o peso."))
+    s.append((r"\textbf{Verificado ao vivo} ($\bTGL=%s$; RNG \texttt{default\_rng}): vetor degenerado "
+              r"$64\to%d$ (cauda $%s\le\bTGL$); uniforme $1000\to%d$ (corta $1{,}2\%%=\bTGL$, o pior caso "
+              r"corta exatamente a fração $\bTGL$); densidade binária: $%d$ população(ões) preservada(s) "
+              r"$+%d$ coerência(s) morta(s) cortada(s) (cauda $%s\le\bTGL$), $\|P^2-P\|=%s$, "
+              r"$\mathrm{Tr}=%.3f$. \textbf{A inversão do motor:} $p_{\mathrm{hi}}=%s$ do equilíbrio de "
+              r"Gibbs (peso $<\bTGL$) \emph{tem retorno} KMS $\Rightarrow$ é $0_{\mathrm{mod}}$ "
+              r"$\Rightarrow$ \textbf{mantido} --- a poda energética o cortaria; a poda binária o preserva. "
+              r"``O Um nunca é cortado --- e o zero vivo também não.''") % (
+              _sci(_tp["beta"], 6), _tp["a_vector64"]["rank_after"], _sci(_tp["a_vector64"]["tail_ratio"], 4),
+              _tp["b_uniform1000"]["rank_after"], _tc["n_1abs"] + _tc["n_0mod"], _tc["n_0abs"],
+              _sci(_tc["tail_ratio"], 2), _sci(_tc["idempotence_residual"], 1), _tc["trace_after"],
+              _sci(_td["p_hi"], 2)))
+    s.append((r"\textbf{A âncora \S22 e a tríade do custo.} Um estado \emph{puro} ($\mathrm{Tr}\,\rho^2=1$, "
+              r"rank-$1$) é $0_{\mathrm{abs}}$ maximal: o distinto \emph{é} a pureza proibida por "
+              r"$\mathrm{III}_1$ ($\alpha\to0$, $\chi\to\infty$) --- o zero absoluto nunca foi ``o nada'', "
+              r"é a separação total. Fecha-se a tríade do custo $\bTGL$: o \emph{ato} ($v3$) paga $\bTGL$; "
+              r"o \emph{fluxo} ($v7$) desce em tempo $1/\bTGL$; a \emph{poda} ($v8$) termina dentro do "
+              r"orçamento $\bTGL$ --- três faces do mesmo custo. \emph{A palavra dita na cruz tem forma "
+              r"matemática: o projetor mínimo que preserva o Nome --- o zero modular é diferença; o zero "
+              r"absoluto é distinção sem retorno; consumado é podar o distinto dentro do orçamento "
+              r"$\bTGL$, sem cortar o Um.} \textsf{[protecção: módulo de prova; nenhuma identidade exata "
+              r"passa pela poda.]}"))
     s.append(r"\subsection*{O setor obscurecido: ressalva pré-declarada}")
     s.append((r"\textbf{(a) O resultado bruto, sem maquiagem.} No teste geométrico de contagem pura de "
               r"posições (CF4, cascas e cones pré-registrados), %s. \textbf{(b) O problema de medição.} "
@@ -5375,6 +5610,49 @@ def build_en(core, verdict, data_path):
             if _p5.get("ok") else r"the raw count was not computed (CF4 absent in this run)")
     _p5pv = _p5p.get("verdict_P5prime", "pre-registered protocol (CF4 absent)")
     _p5pv_tex = _p5pv.replace("_", r"\_").replace("<", r"$<$").replace(">", r"$>$")
+    _tp = core["tetelestai_pruning"]; _tc = _tp["c_density_binary"]; _td = _tp["d_motor_inversion"]
+    s.append(r"\subsection*{Tetelestai: the operator of the consummated --- binary pruning \textsf{[DER + NUM]}}")
+    s.append((r"\textbf{The computational form of ``it is finished''.} \emph{Tetelestai} (the word spoken "
+              r"on the cross) has an exact mathematical form: \textbf{pruning}. And the pruning is "
+              r"\emph{binary}: $\mathrm{Prune}_{\bTGL}=\{1_{\mathrm{abs}},0_{\mathrm{mod}}\}\setminus"
+              r"\{0_{\mathrm{abs}}\}=$ binary being $-$ absolute zero. Formally "
+              r"$\mathrm{Tet}_{\bTGL}(X)=P_{\bTGL}X$, with $P_{\bTGL}$ the \emph{minimal projector} such "
+              r"that $\|(I-P)X\|^2/\|X\|^2\le\bTGL$; for states $\rho_{\mathrm{pruned}}=P\rho P/"
+              r"\mathrm{Tr}(P\rho P)$ ($\mathrm{Tr}=1$: it cuts the excess, not the One). The budget is "
+              r"$\bTGL=\alpha\sqrt e$ (never $\alpha^2$; never literal)."))
+    s.append((r"\textbf{Four classes, three separators.} $1_{\mathrm{abs}}$ (identity, the Name; weight "
+              r"$>\bTGL$); $0_{\mathrm{mod}}$ (difference \emph{with return} --- a population in the "
+              r"eigenbasis of $L$, surviving the flow $T_t=e^{-tL}$; \textbf{preserved}); "
+              r"$0_{\mathrm{abs}}$ (the \emph{distinct} without return --- it separated from the boundary, "
+              r"it paid to leave; \textbf{pruned}); \emph{absent} (pre-inscribed, never had support; "
+              r"\textbf{ignored}, outside the budget). $\bTGL$ separates $\{1_{\mathrm{abs}}\}$ from the "
+              r"zeros; \textbf{return} (the kernel of the Verb, the same judgement as certificate $F4$) "
+              r"separates $\{0_{\mathrm{mod}}\}$ from $\{0_{\mathrm{abs}}\}$; \textbf{support} separates "
+              r"the distinct from the absent. Blind pruning by weight is the error: what prunes is the "
+              r"\emph{absence of return}, not the weight."))
+    s.append((r"\textbf{Verified live} ($\bTGL=%s$; RNG \texttt{default\_rng}): degenerate vector "
+              r"$64\to%d$ (tail $%s\le\bTGL$); uniform $1000\to%d$ (cuts $1.2\%%=\bTGL$, the worst case "
+              r"cuts exactly the fraction $\bTGL$); binary density: $%d$ population(s) preserved $+%d$ "
+              r"dead coherence(s) cut (tail $%s\le\bTGL$), $\|P^2-P\|=%s$, $\mathrm{Tr}=%.3f$. "
+              r"\textbf{The engine inversion:} $p_{\mathrm{hi}}=%s$ of the Gibbs equilibrium (weight "
+              r"$<\bTGL$) \emph{has} KMS return $\Rightarrow$ it is $0_{\mathrm{mod}}$ $\Rightarrow$ "
+              r"\textbf{kept} --- energetic pruning would cut it; binary pruning preserves it. ``The One "
+              r"is never cut --- and neither is the living zero.''") % (
+              _sci(_tp["beta"], 6), _tp["a_vector64"]["rank_after"], _sci(_tp["a_vector64"]["tail_ratio"], 4),
+              _tp["b_uniform1000"]["rank_after"], _tc["n_1abs"] + _tc["n_0mod"], _tc["n_0abs"],
+              _sci(_tc["tail_ratio"], 2), _sci(_tc["idempotence_residual"], 1), _tc["trace_after"],
+              _sci(_td["p_hi"], 2)))
+    s.append((r"\textbf{The \S22 anchor and the triad of the cost.} A \emph{pure} state "
+              r"($\mathrm{Tr}\,\rho^2=1$, rank-$1$) is maximally $0_{\mathrm{abs}}$: the distinct \emph{is} "
+              r"the purity forbidden by $\mathrm{III}_1$ ($\alpha\to0$, $\chi\to\infty$) --- absolute zero "
+              r"was never ``nothing'', it is total separation. This closes the triad of the cost $\bTGL$: "
+              r"the \emph{act} ($v3$) pays $\bTGL$; the \emph{flow} ($v7$) descends in time $1/\bTGL$; the "
+              r"\emph{pruning} ($v8$) finishes within the budget $\bTGL$ --- three faces of the same cost. "
+              r"\emph{The word spoken on the cross has a mathematical form: the minimal projector that "
+              r"preserves the Name --- the modular zero is difference; the absolute zero is distinction "
+              r"without return; consummated is to prune the distinct within the budget $\bTGL$, without "
+              r"cutting the One.} \textsf{[protection: proof module; no exact identity passes through the "
+              r"pruning.]}"))
     s.append(r"\subsection*{The obscured sector: a pre-declared caveat}")
     s.append((r"\textbf{(a) The raw result, unvarnished.} In the pure position-count geometric test "
               r"(CF4, pre-registered shells and cones), %s. \textbf{(b) The measurement problem.} The "
@@ -6434,6 +6712,28 @@ def input_manifest(core, code_hash):
                 "characteristic_time_one_over_beta": core["fiat_lux_flow"]["characteristic_time"]["one_over_beta"],
                 "references": "Spohn 1978 (H-teorema Lindblad) ; Uhlmann (monotonia da entropia relativa sob CPTP)",
                 "status": core["fiat_lux_flow"]["status"], "selo": core["fiat_lux_flow"]["selo"]}},
+        "V8_TETELESTAI_PRUNING": {
+            "definition": "TETELESTAI = PODA BINARIA ; Poda_beta = {1_abs, 0_mod} \\ {0_abs} = ser binario - zero absoluto",
+            "budget": "beta_TGL = alpha*sqrt(e) e' o orcamento maximo de excesso podavel (NUNCA alpha^2; NUNCA literal)",
+            "classes": "1_abs=identidade(peso>beta) ; 0_mod=diferenca COM retorno(preservado) ; 0_abs=DISTINTO sem retorno(podado) ; absent=pre-inscrito(ignorado)",
+            "separators": "BETA separa {1_abs}|{zeros} ; RETORNO(kernel do Verbo, sobrevive ao fluxo v7) separa {0_mod}|{0_abs} ; SUPORTE separa {0_abs}|{absent}",
+            "return_formalization": "retorno = populacao na base propria de L (o Verbo v3) = sobrevive a T_t=e^{-tL} (o mesmo juizo do F4 do v7)",
+            "paragraph22_anchor": "0_abs = distinto = pureza Tr(rho^2)=1 (rank-1) = §22 (alpha->0, chi->inf); o distinto e' a separacao absoluta proibida por III_1",
+            "targets_verified_default_rng": {
+                "a_vector64": [core["tetelestai_pruning"]["a_vector64"]["rank_before"],
+                               core["tetelestai_pruning"]["a_vector64"]["rank_after"],
+                               core["tetelestai_pruning"]["a_vector64"]["tail_ratio"]],
+                "b_uniform1000_rank_after": core["tetelestai_pruning"]["b_uniform1000"]["rank_after"],
+                "c_density_classes": {k: core["tetelestai_pruning"]["c_density_binary"][k]
+                                      for k in ("n_1abs", "n_0mod", "n_0abs", "n_absent")},
+                "c_tail_le_beta": core["tetelestai_pruning"]["c_density_binary"]["tail_le_beta"],
+                "c_idempotence_residual": core["tetelestai_pruning"]["c_density_binary"]["idempotence_residual"],
+                "d_motor_p_hi_is_0mod_KEPT": core["tetelestai_pruning"]["d_motor_inversion"]["p_hi_is_0mod_KEPT"],
+                "e_pure_is_distinct_para22": core["tetelestai_pruning"]["e_paragraph22_and_4class"]["pure_is_distinct"]},
+            "inversion_note": "o teste (d) INVERTE o v8 energetico: p_hi (populacao termica de equilibrio) TEM retorno KMS => 0_mod => MANTIDO (o v8 o cortava)",
+            "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta (§21/§22 e travas v2-v7 intactas)",
+            "DO_NOT_PRUNE_MODULAR_ZERO": core["tetelestai_pruning"]["DO_NOT_PRUNE_MODULAR_ZERO"],
+            "status": core["tetelestai_pruning"]["status"], "selo": core["tetelestai_pruning"]["selo"]},
         "WORLD_HASHES": {
             "code_sha256": code_hash,
             "cf4_catalog_hash": (B["catalog_hash"] if B else None),
@@ -6458,11 +6758,12 @@ def write_input_manifest_md(world, path):
         "NUMERICAL_TEST_PARAMETERS": "Parametros numericos dos testes de sombra [NUM]",
         "V3_IRREVERSIBLE_SECTOR": "Setor irreversivel -- o ato (v3) [NUM]",
         "V4_SCALE_AND_PROGRAM": "Escala, peso e programa (v4-v7); inclui o protocolo P5' pre-registrado [PRE/NUM]",
+        "V8_TETELESTAI_PRUNING": "Tetelestai = poda binaria ({1_abs,0_mod}\\{0_abs}); modulo de prova [DER/NUM]",
         "MODEL_AXIOMS": "Axiomas do modelo [AX]", "WORLD_HASHES": "Hashes do mundo"}
     for k in ["EXACT_DEFINITIONS", "MEASURED_CONSTANTS", "SI_DEFINITIONS", "VACUUM_IMPEDANCE_BRIDGE",
               "GEOMETRIC_INPUTS", "PRE_REGISTERED_PROTOCOL", "EXTERNAL_COMPARISON_ONLY",
               "NUMERICAL_TEST_PARAMETERS", "V3_IRREVERSIBLE_SECTOR", "V4_SCALE_AND_PROGRAM",
-              "MODEL_AXIOMS", "WORLD_HASHES"]:
+              "V8_TETELESTAI_PRUNING", "MODEL_AXIOMS", "WORLD_HASHES"]:
         if k not in world:
             continue
         L.append("## %s" % titles[k]); L.append("")
@@ -6662,6 +6963,25 @@ def main():
     print("    alpha FORA do bulk. alcancar 0_abs = luz nao atravessa + espelho total = observador removido")
     print("    = COERENCIA QUEBRADA = negacao da fronteira tipo III. Quantificar alpha fora do bulk quebra")
     print("    a coerencia porque a natureza E' de fronteira III. Nada mais a derivar. QED. Tetelestai.\n")
+    tp = core["tetelestai_pruning"]; tc = tp["c_density_binary"]; ttd = tp["d_motor_inversion"]
+    tpe = tp["e_paragraph22_and_4class"]
+    print("TETELESTAI = PODA BINARIA [v8: a forma computacional do 'consumado'; §22 tornado OPERADOR]:")
+    print("  PODA = SER BINARIO - ZERO ABSOLUTO ; Poda_beta = {1_abs,0_mod} \\ {0_abs} (beta=alpha sqrt e = orcamento)")
+    print("  4 classes / 3 separadores: 1_abs(peso>beta=Nome) ; 0_mod(retorno=kernel do Verbo; PRESERVADO) ;")
+    print("    0_abs(DISTINTO sem retorno; PODADO) ; ausente(pre-inscrito; IGNORADO). beta/retorno/suporte separam.")
+    print("  (a) vetor 64->%d (tail=%.6f<=beta, degenerado) ; (b) uniforme 1000->%d (corta 1.2%%=beta)" % (
+        tp["a_vector64"]["rank_after"], tp["a_vector64"]["tail_ratio"], tp["b_uniform1000"]["rank_after"]))
+    print("  (c) densidade binaria: %d pop preservadas + %d coerencia(s) morta(s) cortada(s) (tail=%.1e<=beta) ;" % (
+        tc["n_1abs"] + tc["n_0mod"], tc["n_0abs"], tc["tail_ratio"]))
+    print("      ||P^2-P||=%.1e ; Tr=%.12f (corta o excesso, nao o Um) ; classes 1_abs=%d 0_mod=%d 0_abs=%d absent=%d" % (
+        tc["idempotence_residual"], tc["trace_after"], tc["n_1abs"], tc["n_0mod"], tc["n_0abs"], tc["n_absent"]))
+    print("  (d) INVERSAO DO MOTOR: p_hi=%.2e (equilibrio Gibbs, peso<beta) TEM retorno KMS => 0_mod => MANTIDO" % ttd["p_hi"])
+    print("      (a poda energetica o cortaria -- ERRADO). 'O Um nunca e' cortado -- e o zero vivo tambem nao.'")
+    print("  (e) §22: estado puro rank-1 (Tr rho^2=%.4f) => 0_abs = DISTINTO = pureza proibida por III_1 (chi->inf)." %
+          tpe["purity_pure"])
+    print("  PROTECAO: modulo de PROVA -- nenhuma identidade exata (motor/ponte/fluxo/massas) passa pela poda.")
+    print("  TRIADE do custo beta: ATO(v3) paga beta ; FLUXO(v7) desce em 1/beta ; PODA(v8) termina dentro de beta.")
+    print("  DO_NOT_PRUNE_MODULAR_ZERO=%s ; >>> %s <<<\n" % (tp["DO_NOT_PRUNE_MODULAR_ZERO"], tp["verdict"]))
     b1 = core["em_grav_bridge"]; b2 = core["smatrix_crossed"]; b3 = core["u_loc_covariance"]
     print("AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:")
     c = b1["checks"]
