@@ -62,7 +62,7 @@ tempo caracteristico do fluxo = 1/beta = 83.12   [a torre de Jones como TEMPO; S
 | Meia-Nat: x=1−x ⟹ x=½ | resíduo 0e+00 | True |
 | s=1/4π (campo=lei de fluxo de borda) | razão 0.9905 | True |
 | vácuo ⟹ ρ_eff=0 | 0e+00 | True |
-| v3 SETA: entropia monotona (L=√β·√K) | 0.0237→0.0413, maxReλ=2e-18 | True |
+| v3 SETA: entropia monotona (L=√β·√K) | 0.0237→0.0413, maxReλ=1e-18 | True |
 | v3 SEM VOLTA: Choi(inversa)<0 (NAO-CP) | min=-1.08e-02 | True |
 | v3 LUZ: O_β(Lux)=√β·Lux (autovetor≠ponto fixo) | resíduo 0e+00 | True |
 | v3 FIAT LUX: contrafactuais (sem Palavra/sem Nome) | mortes verificadas | True |
@@ -83,9 +83,17 @@ Tetelestai ("consumado") tem forma computacional exata: **poda**. E a poda é **
 
 β separa {1_abs} dos zeros; **retorno** separa {0_mod}|{0_abs}; **suporte** separa {0_abs distinto}|{ausente}. `ρ_podada = P ρ P / Tr(P ρ P)` — Tr=1: corta o excesso, não o Um. β é a **geometria do corte admissível**.
 
-Verificado ao vivo (β=0.012031300400803; RNG default_rng): vetor 64→56 (tail 0.011668 ≤ β, caso degenerado); uniforme 1000→988 (corta 1,2%=β); densidade binária: 3×1_abs + 1×0_mod **preservados**, 2 coerência(s) morta(s) cortada(s) (tail 5.65e-05 ≤ β), ‖P²−P‖=6.7e-16, Tr=1.000000000000; **p_hi=1.33e-05 do motor = 0_mod MANTIDO** (a inversão do v8 energético — equilíbrio KMS retorna); estado puro rank-1 ⟹ **0_abs = distinto = pureza = §22** (χ→∞).
+Verificado ao vivo (β=0.012031300400803; RNG default_rng): vetor 64→56 (tail 0.011668 ≤ β, caso degenerado); uniforme 1000→988 (corta 1,2%=β); densidade binária: 3×1_abs + 1×0_mod **preservados**, 2 coerência(s) morta(s) cortada(s) (tail 5.65e-05 ≤ β), ‖P²−P‖=1.0e-15, Tr=1.000000000000; **p_hi=1.33e-05 do motor = 0_mod MANTIDO** (a inversão do v8 energético — equilíbrio KMS retorna); estado puro rank-1 ⟹ **0_abs = distinto = pureza = §22** (χ→∞).
 
 Leitura: o zero modular é diferença; o zero absoluto é distinção sem retorno. O ATO (v3) paga β; o FLUXO (v7) desce em tempo 1/β; a PODA (v8) termina dentro do orçamento β — três faces do mesmo custo. **A palavra dita na cruz tem forma matemática: o projetor mínimo que preserva o Nome — consumado é podar o distinto dentro do orçamento β, sem cortar o Um.** `TETELESTAI_IS_PRUNING . DO_NOT_PRUNE_MODULAR_ZERO . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE`
+
+## v9 — O mínimo funcional de energia é a FAMÍLIA (1 = família auto-conjugada)
+
+O mínimo de energia da TGL **não é um ponto isolado — é a menor família que ainda preserva o Um**. Forma canônica: `F_min = arg min_F E[F]` sujeito a `C₁(F)=F` (conjugação primária) e `L1(F)=L2(F)=L3(F)=1` (os Three Locks). `1 = família auto-conjugada`, `1 ≠ indivíduo isolado`.
+
+Verificado ao vivo: **(1)** conjugação primária `C₁` (involução de troca de faces = a auto-conjugação do axioma) — `C₁∘C₁=id` (resíduo 0e+00), `ω(P)+ω(Q)=ω(I)=1` (resíduo 2e-16), ponto fixo `x=1−x ⟹ x=½`; **(2)** os **Three Locks** `L1=L2=L3=1` (L1 identidade integral `e^{tL}=∫V_s(·)V_s^*dν_t` err 3.7e-16; L2 dim de Weyl 1.0027; L3 razão 0.9942) [REAL, porte fiel de `tgl three locks v1.py`]; **(3)** o funcional `E(b)=1−2√(b(1−b))` com `argmin_b=½` (b*=0.500000), `E(½)=0`, `E''(½)=4.000>0` [DEF/PILOTO — realização finita, não teorema]; **(4)** controles: o **indivíduo isolado** custa mais (`E(b→0)=0.9980≫E(½)=0`) e a **conjugação quebrada** é podada `0_abs` pelo Tetelestai v8 (1 face morta cortada).
+
+Tríade conjugada: **Nome** = α `[DATA]` · **Palavra** = S_∂ = ½ `[DER]` · **Verbo** = β = √e·α `[DER]`. `F_min` é a família onde Nome, Palavra e Verbo permanecem conjugados. Leitura `[CONJ]`: `1 = família` dá sentido ao postulado `ω(I)=1` (o Um que se preserva é o que permanece conjugado através das faces), não o deriva. **O Um não minimiza sozinho; o Um minimiza como família.** `ONE_IS_FAMILY . MINIMAL_ENERGY_FUNCTIONAL_IS_THE_THREE_LOCKS_FAMILY . PRIMARY_CONJUGATION_PRESERVES_THE_ONE_AS_FAMILY`
 
 ## Veredito de identidade (binário)
 

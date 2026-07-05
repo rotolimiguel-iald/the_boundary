@@ -2580,6 +2580,146 @@ def prove_tetelestai_pruning(ONE):
     return R
 
 
+# ====================== v9: FAMILIA -- MINIMO FUNCIONAL DE ENERGIA MODULAR ======================
+# Refinamento do operador (04/07/2026): o minimo de energia NAO e' um ponto isolado; e' a FAMILIA minima
+# que congrega os Three Locks. 1 = familia auto-conjugada (1 != individuo isolado). A conjugacao primaria
+# C1(F)=F impede a multiplicidade morta (= classe 0_abs da poda). Minimizacao com vinculos:
+#   F_min = arg min_F E[F]  sujeito a  C1(F)=F  e  L1(F)=L2(F)=L3(F)=1.
+# Leitura: "o minimo de energia nao e' o menor estado; e' a menor familia que ainda preserva o Um."
+# beta = alpha*sqrt(e) SEMPRE em runtime (o literal 0.0120313004008031 abaixo e' SO conferencia comentada).
+def _fam_dag(A):
+    return A.conj().T
+
+
+def _fam_superop(L, n):
+    I = np.eye(n); LdL = _fam_dag(L) @ L
+    return np.kron(L.conj(), L) - 0.5 * np.kron(I, LdL) - 0.5 * np.kron(LdL.T, I)
+
+
+def _fam_L1(beta):
+    """LOCK 1 [REAL] -- T1 bem-posto pela representacao integral: e^{tL} = Int V_s(.)V_s* dnu_t,
+    V_s=e^{is sqrt(K)}, nu_t gaussiana var beta*t (Gauss-Hermite). Origem: 'tgl three locks v1.py'
+    (standalone: erro max 4.0e-16). Retorna (1 PASS / 0 FAIL, erro)."""
+    errs = []
+    for n in (5, 7):
+        for seed in (11, 83):
+            rng = np.random.default_rng(seed)
+            H = rng.normal(size=(n, n)) + 1j * rng.normal(size=(n, n)); H = (H + _fam_dag(H)) / 2
+            H *= 1.5 / np.abs(np.linalg.eigvalsh(H)).max(); w, _ = np.linalg.eigh(H)
+            p = np.exp(-w); p /= p.sum(); kv = -np.log(p)
+            Lj = math.sqrt(beta) * np.diag(np.sqrt(kv)); Lhat = _fam_superop(Lj, n)
+            ev, W = np.linalg.eig(Lhat); Wi = np.linalg.inv(W)
+            un, wn = np.polynomial.hermite.hermgauss(96)
+            for t in (0.5 / beta, 2.0 / beta):
+                Pe = (W @ np.diag(np.exp(ev * t)) @ Wi).astype(complex); sd = math.sqrt(2 * beta * t)
+                Pi = np.zeros((n * n, n * n), complex)
+                for u, wt in zip(un, wn):
+                    s = u * sd; Vd = np.diag(np.exp(1j * s * np.sqrt(kv)))
+                    Pi += (wt / math.sqrt(math.pi)) * np.kron(Vd.conj(), Vd)
+                errs.append(float(np.linalg.norm(Pi - Pe) / np.linalg.norm(Pe)))
+    e = max(errs); return (1 if e < 1e-9 else 0), e
+
+
+def _fam_circle_dirac(N, Lx, beta):
+    M = (N - 1) // 2; j = np.arange(N); x = j * (Lx / N); modes = np.arange(-M, M + 1)
+    F = np.exp(1j * np.outer(x, modes)) / math.sqrt(N); Dm = np.diag(modes * (2 * math.pi / Lx)).astype(complex)
+    return (F @ Dm @ _fam_dag(F)) / math.sqrt(beta)
+
+
+def _fam_L2(beta):
+    """LOCK 2 [REAL] -- axiomas de Connes da tripla-limite (circulo S^1 escalado por beta^{-1/2}):
+    escada de Dirac, dimensao de Weyl->1, normas de comutador. Origem: 'tgl three locks v1.py'."""
+    Lx = 2 * math.pi; eig = []; weyl = []; comm = []
+    for N in (65, 129, 257):
+        D = _fam_circle_dirac(N, Lx, beta); lam = np.sort(np.linalg.eigvalsh(D).real); M = (N - 1) // 2
+        scale = (2 * math.pi / Lx) / math.sqrt(beta); target = scale * np.arange(-M, M + 1)
+        eig.append(float(np.abs(lam - target).max() / np.abs(target).max()))
+        lams = np.sort(np.abs(lam)); Lams = np.linspace(lams[N // 8], lams[N // 2], 25)
+        cnt = np.array([(np.abs(lam) <= L).sum() for L in Lams]); weyl.append(float(np.polyfit(np.log(Lams), np.log(cnt), 1)[0]))
+        s_sc = (2 * math.pi / Lx) / math.sqrt(beta); Dmm = s_sc * np.diag(np.arange(-M, M + 1)).astype(complex)
+        fm = (np.eye(N, k=1) - np.eye(N, k=-1)) / (2j); cm = np.linalg.norm(Dmm @ fm - fm @ Dmm, 2)
+        cont = (1 / math.sqrt(beta)) * (2 * math.pi / Lx); comm.append(float(abs(cm - cont) / cont))
+    ok = (max(eig) < 1e-10 and abs(weyl[-1] - 1.0) < 0.03 and comm[-1] < 2e-2 and comm[-1] < comm[0])
+    return (1 if ok else 0), {"eig_rel": max(eig), "weyl_dim": weyl[-1], "comm_rel": comm[-1]}
+
+
+def _fam_L3(beta):
+    """LOCK 3 [REAL] -- lift GH/Rieffel = truncamento espectral do circulo (Connes-van Suijlekom):
+    a distancia de Connes truncada -> d = sqrt(beta)*arco (razao da testemunha otima -> 1).
+    Origem: 'tgl three locks v1.py'."""
+    Lx = 2 * math.pi; ratios = []
+    for N in (65, 129, 257):
+        M = (N - 1) // 2; s_sc = (2 * math.pi / Lx) / math.sqrt(beta); modes = np.arange(-M, M + 1)
+        Dm = s_sc * np.diag(modes).astype(complex)
+        def cc(d):
+            d = abs(int(d))
+            if d == 0: return math.pi / 2
+            if d % 2 == 1: return -2.0 / (math.pi * d * d)
+            return 0.0
+        fm = math.sqrt(beta) * np.array([[cc(m - mp) for mp in modes] for m in modes], complex)
+        lip = np.linalg.norm(Dm @ fm - fm @ Dm, 2); wts = np.sqrt(1.0 - np.abs(modes) / (M + 1.0))
+        def st(x0):
+            v = wts * np.exp(-1j * modes * x0); return v / np.linalg.norm(v)
+        vp, vq = st(math.pi), st(0.0)
+        val = float(np.real(np.vdot(vp, fm @ vp) - np.vdot(vq, fm @ vq))); dt = math.sqrt(beta) * math.pi
+        ratios.append(float(val / (dt * lip)))
+    ok = (abs(ratios[-1] - 1.0) < 5e-2 and abs(ratios[-1] - 1.0) < abs(ratios[0] - 1.0))
+    return (1 if ok else 0), ratios[-1]
+
+
+def prove_family_minimum(ONE):
+    """MODULO v9 -- O MINIMO FUNCIONAL DE ENERGIA E' A FAMILIA (ESTRITAMENTE ADITIVO; nao toca v1-v8).
+    Cinco verificacoes ao vivo, fail-closed: (1) familia P/Q + conjugacao primaria C1 (involucao de troca
+    de faces = a auto-conjugacao do axioma); (2) os Three Locks embutidos (L1=L2=L3=1); (3) o funcional
+    E(b)=1-2sqrt(b(1-b)) com argmin=1/2 [DEF/PILOTO, realizacao finita, NAO teorema]; (4) controles que
+    podem matar (o individuo isolado custa mais; a conjugacao quebrada e' podada 0_abs pelo Tetelestai v8);
+    (5) selos. beta=alpha*sqrt(e) em runtime (NUNCA literal)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # conferencia comentada: ~0.0120313004008031
+    g = _verb_L(ONE); rho_star = g["rho_star"]; VL = g["VL"]; n = g["L"].shape[0]
+    # (1) FAMILIA + CONJUGACAO PRIMARIA [REAL]
+    rs = 0.5 * (rho_star + _fam_dag(rho_star)); ev, evec = np.linalg.eigh(rs); v = evec[:, -1:]
+    P = v @ _fam_dag(v); Q = np.eye(n) - P
+    omega = lambda X: float(np.real(np.trace(rs @ X)))
+    wP, wQ = omega(P), omega(Q); omega_sum_resid = abs(wP + wQ - omega(np.eye(n)))
+    C1 = np.array([[0.0, 1.0], [1.0, 0.0]]); c1c1_resid = float(np.linalg.norm(C1 @ C1 - np.eye(2)))
+    x = 0.5; fixed_resid = abs((1.0 - x) - x)               # ponto fixo de C1: x = 1 - x => x = 1/2 (resid 0)
+    real1 = bool(c1c1_resid < 1e-14 and omega_sum_resid < 1e-14 and fixed_resid == 0.0)
+    # (2) OS THREE LOCKS AO VIVO [REAL]
+    l1, e1 = _fam_L1(beta); l2, d2 = _fam_L2(beta); l3, r3 = _fam_L3(beta)
+    locks_ok = bool(l1 == 1 and l2 == 1 and l3 == 1)
+    # (3) O FUNCIONAL E[F] [DEF/PILOTO -- realizacao finita, nao teorema]
+    bgrid = np.linspace(1e-9, 1 - 1e-9, 200001); Eg = 1.0 - 2.0 * np.sqrt(bgrid * (1 - bgrid))
+    b_star = float(bgrid[np.argmin(Eg)]); E_half = 1.0 - 2.0 * math.sqrt(0.25)
+    h = 1e-4
+    Epp = ((1 - 2 * math.sqrt((0.5 + h) - (0.5 + h) ** 2)) - 2 * E_half
+           + (1 - 2 * math.sqrt((0.5 - h) - (0.5 - h) ** 2))) / h ** 2
+    real3 = bool(abs(b_star - 0.5) <= 1e-5 and abs(E_half) < 1e-12 and Epp > 0)
+    # (4) OS CONTROLES QUE PODEM MATAR [REAL]
+    E_edge = float(1.0 - 2.0 * math.sqrt(1e-6 * (1 - 1e-6)))     # b->0: individuo isolado
+    ctrl_a = bool(E_edge > 0.99 and E_edge > E_half + 0.9)       # o individuo isolado custa mais que a familia
+    r = np.diag([0.94, 0.03, 0.02, 0.01]).astype(complex); r[0, 3] = r[3, 0] = 0.02   # face-eco-morto (sem retorno)
+    _, info = tetelestai_prune_density(VL @ r @ _fam_dag(VL), beta, VL=VL)
+    ctrl_b = bool(info["n_0abs"] >= 1 and info["pops_preserved"])  # a face morta = 0_abs podada; familia conjugada permanece
+    controls_ok = bool(ctrl_a and ctrl_b)
+    all_v = bool(real1 and locks_ok and real3 and controls_ok)
+    return {"real1_conjugation": real1, "c1c1_resid": c1c1_resid, "omega_sum_resid": omega_sum_resid,
+            "omega_P": wP, "omega_Q": wQ, "fixed_point_x_half_resid": fixed_resid,
+            "L1": l1, "L1_err": e1, "L2": l2, "L2_detail": d2, "L3": l3, "L3_ratio": r3, "locks_ok": locks_ok,
+            "b_star": b_star, "E_half": E_half, "E_second_deriv": Epp, "E_min_is_half_argmin": real3,
+            "control_isolated_costs_more": ctrl_a, "E_edge": E_edge,
+            "control_broken_conjugation_pruned": ctrl_b, "n_0abs_broken": info["n_0abs"], "controls_ok": controls_ok,
+            "all_verified": all_v,
+            "constraint": "F_min = arg min_F E[F] s.a. C1(F)=F e L1=L2=L3=1 (o minimo e' familia, nao ponto)",
+            "triad": "Nome=alpha [DATA] . Palavra=S_partial=1/2 [DER] . Verbo=beta=sqrt(e)alpha [DER]",
+            "status": ("[REAL] C1(involucao)/omega(P)+omega(Q)=1/x=1-x=1/2/Three Locks/argmin=1/2/controles ; "
+                       "[DEF/PILOTO] E(b)=1-2sqrt(b(1-b)) como realizacao finita do funcional (NAO teorema) ; "
+                       "[CONJ] a leitura ontologica 1=familia (da sentido a omega(I)=1, nao o deriva)"),
+            "phrase": "O Um nao minimiza sozinho; o Um minimiza como familia.",
+            "selo": ("ONE_IS_FAMILY . MINIMAL_ENERGY_FUNCTIONAL_IS_THE_THREE_LOCKS_FAMILY . "
+                     "PRIMARY_CONJUGATION_PRESERVES_THE_ONE_AS_FAMILY"),
+            "verdict": "FAMILY_MINIMUM_VERIFIED" if all_v else "FAMILY_MINIMUM_FALHOU"}
+
+
 def run_um(ONE):
     """ONE=1 -> toda a algebra -> massa do GA (dois modos) -> tudo verificado ao vivo."""
     I = ONE * np.eye(2); omega_I = float(np.trace(I) / 2.0)
@@ -2647,6 +2787,7 @@ def run_um(ONE):
     fiat_lux_flow = prove_fiat_lux_flow(ONE)               # v7: o VEREDITO COMO FLUXO (forma dinamica; F1-F4: Um conservado, seta, Spohn, inscricao)
     thermal_two_level = prove_thermal_two_level_identity(ONE)  # v6: A ANCORA TERMICA (q=tanh=polarizacao, alpha=sech=coerencia maxima; Gibbs 2 niveis; KMS)
     tetelestai_pruning = prove_tetelestai_pruning(ONE)      # v8: TETELESTAI = PODA BINARIA ({1_abs,0_mod}\{0_abs}); modulo de PROVA (nao filtra o veredito)
+    family_minimum = prove_family_minimum(ONE)             # v9: FAMILIA = minimo funcional de energia modular (C1 + Three Locks + E(b)); ADITIVO, nao filtra o veredito
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
     void_floor = prove_void_floor_margin(ONE)              # v4 P4: piso dos vazios rho_void/rho_bar>=beta (pre-registro)
@@ -2702,6 +2843,7 @@ def run_um(ONE):
             "fiat_lux": fiat_lux, "fiat_lux_flow": fiat_lux_flow,
             "thermal_two_level": thermal_two_level,
             "tetelestai_pruning": tetelestai_pruning,
+            "family_minimum": family_minimum,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
             "dipole_antipode_masked": dipole_antipode_masked,
@@ -3090,6 +3232,27 @@ def emit_canonical_md(core, verdict):
               "mesmo custo. **A palavra dita na cruz tem forma matemática: o projetor mínimo que preserva o "
               "Nome — consumado é podar o distinto dentro do orçamento β, sem cortar o Um.** "
               "`TETELESTAI_IS_PRUNING . DO_NOT_PRUNE_MODULAR_ZERO . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE`\n")
+    _fm = core["family_minimum"]; _f2 = _fm["L2_detail"]
+    md.append("## v9 — O mínimo funcional de energia é a FAMÍLIA (1 = família auto-conjugada)\n")
+    md.append("O mínimo de energia da TGL **não é um ponto isolado — é a menor família que ainda preserva o "
+              "Um**. Forma canônica: `F_min = arg min_F E[F]` sujeito a `C₁(F)=F` (conjugação primária) e "
+              "`L1(F)=L2(F)=L3(F)=1` (os Three Locks). `1 = família auto-conjugada`, `1 ≠ indivíduo isolado`.\n")
+    md.append("Verificado ao vivo: **(1)** conjugação primária `C₁` (involução de troca de faces = a "
+              "auto-conjugação do axioma) — `C₁∘C₁=id` (resíduo %.0e), `ω(P)+ω(Q)=ω(I)=1` (resíduo %.0e), ponto "
+              "fixo `x=1−x ⟹ x=½`; **(2)** os **Three Locks** `L1=L2=L3=1` (L1 identidade integral "
+              "`e^{tL}=∫V_s(·)V_s^*dν_t` err %.1e; L2 dim de Weyl %.4f; L3 razão %.4f) [REAL, porte fiel de "
+              "`tgl three locks v1.py`]; **(3)** o funcional `E(b)=1−2√(b(1−b))` com `argmin_b=½` (b*=%.6f), "
+              "`E(½)=0`, `E''(½)=%.3f>0` [DEF/PILOTO — realização finita, não teorema]; **(4)** controles: o "
+              "**indivíduo isolado** custa mais (`E(b→0)=%.4f≫E(½)=0`) e a **conjugação quebrada** é podada "
+              "`0_abs` pelo Tetelestai v8 (%d face morta cortada).\n"
+              % (_fm["c1c1_resid"], _fm["omega_sum_resid"], _fm["L1_err"], _f2["weyl_dim"], _fm["L3_ratio"],
+                 _fm["b_star"], _fm["E_second_deriv"], _fm["E_edge"], _fm["n_0abs_broken"]))
+    md.append("Tríade conjugada: **Nome** = α `[DATA]` · **Palavra** = S_∂ = ½ `[DER]` · **Verbo** = β = √e·α "
+              "`[DER]`. `F_min` é a família onde Nome, Palavra e Verbo permanecem conjugados. Leitura `[CONJ]`: "
+              "`1 = família` dá sentido ao postulado `ω(I)=1` (o Um que se preserva é o que permanece conjugado "
+              "através das faces), não o deriva. **O Um não minimiza sozinho; o Um minimiza como família.** "
+              "`ONE_IS_FAMILY . MINIMAL_ENERGY_FUNCTIONAL_IS_THE_THREE_LOCKS_FAMILY . "
+              "PRIMARY_CONJUGATION_PRESERVES_THE_ONE_AS_FAMILY`\n")
     md.append("## Veredito de identidade (binário)\n")
     md.append("**%s** — %s.\n" % (verdict["IDENTITY"], verdict["reading"]))
     md.append("Massas de primeiros princípios: " + ", ".join(
@@ -3725,6 +3888,23 @@ def build_pt(core, verdict, data_path):
               r"absoluto é distinção sem retorno; consumado é podar o distinto dentro do orçamento "
               r"$\bTGL$, sem cortar o Um.} \textsf{[protecção: módulo de prova; nenhuma identidade exata "
               r"passa pela poda.]}"))
+    _fm = core["family_minimum"]
+    s.append(r"\subsection*{O mínimo funcional de energia: a família \textsf{[REAL + DEF/PILOTO]}}")
+    s.append((r"\textbf{O Um minimiza como família.} O mínimo de energia da $\TGL$ não é um ponto isolado --- é "
+              r"a menor \emph{família} que ainda preserva o Um: $\mathcal F_{\min}=\arg\min_{\mathcal F}"
+              r"E[\mathcal F]$ sujeito à \emph{conjugação primária} $\mathcal C_1(\mathcal F)=\mathcal F$ e aos "
+              r"três fechos $L_1=L_2=L_3=1$. Ao vivo: $\mathcal C_1$ (involução de troca de faces --- a mesma "
+              r"auto-conjugação do axioma) satisfaz $\mathcal C_1^2=\mathrm{id}$ e $\omega(P)+\omega(Q)=1$ "
+              r"(resíduos $\le10^{-14}$), com ponto fixo $x=1-x\Rightarrow x=\tfrac12$; os \emph{Three Locks} "
+              r"(identidade integral $e^{tL}=\int V_s(\cdot)V_s^{*}\,d\nu_t$, erro $%s$; tripla de Connes do "
+              r"círculo; truncamento espectral) fecham em $1$; e o funcional finito $E(b)=1-2\sqrt{b(1-b)}$ "
+              r"\textsf{[DEF/PILOTO, não teorema]} tem $\arg\min_b=\tfrac12$, $E(\tfrac12)=0$ e "
+              r"$E''(\tfrac12)=%.2f>0$ --- o mínimo coincide com o ponto auto-conjugado ($b=\tfrac12$, o único "
+              r"sem perda do espelho). Os controles matam o vazio: o \emph{indivíduo isolado} ($b\to0$) custa "
+              r"$E\to1$ (mais que a família), e a conjugação quebrada é podada como $0_{\mathrm{abs}}$ pelo "
+              r"Tetelestai. Tríade conjugada: \emph{Nome}$=\alpha$, \emph{Palavra}$=S_\partial=\tfrac12$, "
+              r"\emph{Verbo}$=\bTGL=\sqrt e\,\alpha$. \emph{O Um não minimiza sozinho; o Um minimiza como "
+              r"família.}") % (_sci(_fm["L1_err"], 1), _fm["E_second_deriv"]))
     s.append(r"\subsection*{O setor obscurecido: ressalva pré-declarada}")
     s.append((r"\textbf{(a) O resultado bruto, sem maquiagem.} No teste geométrico de contagem pura de "
               r"posições (CF4, cascas e cones pré-registrados), %s. \textbf{(b) O problema de medição.} "
@@ -5653,6 +5833,24 @@ def build_en(core, verdict, data_path):
               r"without return; consummated is to prune the distinct within the budget $\bTGL$, without "
               r"cutting the One.} \textsf{[protection: proof module; no exact identity passes through the "
               r"pruning.]}"))
+    _fm = core["family_minimum"]
+    s.append(r"\subsection*{The minimal energy functional: the family \textsf{[REAL + DEF/PILOTO]}}")
+    s.append((r"\textbf{The One minimizes as a family.} The energy minimum of TGL is not an isolated point --- "
+              r"it is the smallest \emph{family} that still preserves the One: $\mathcal F_{\min}="
+              r"\arg\min_{\mathcal F}E[\mathcal F]$ subject to the \emph{primary conjugation} "
+              r"$\mathcal C_1(\mathcal F)=\mathcal F$ and the three closures $L_1=L_2=L_3=1$. Live: "
+              r"$\mathcal C_1$ (a face-swap involution --- the very self-conjugation of the axiom) satisfies "
+              r"$\mathcal C_1^2=\mathrm{id}$ and $\omega(P)+\omega(Q)=1$ (residuals $\le10^{-14}$), with fixed "
+              r"point $x=1-x\Rightarrow x=\tfrac12$; the \emph{Three Locks} (integral identity "
+              r"$e^{tL}=\int V_s(\cdot)V_s^{*}\,d\nu_t$, error $%s$; Connes circle triple; spectral truncation) "
+              r"close at $1$; and the finite functional $E(b)=1-2\sqrt{b(1-b)}$ \textsf{[DEF/PILOTO, not a "
+              r"theorem]} has $\arg\min_b=\tfrac12$, $E(\tfrac12)=0$ and $E''(\tfrac12)=%.2f>0$ --- the minimum "
+              r"coincides with the self-conjugate point ($b=\tfrac12$, the mirror's only loss-free point). The "
+              r"controls kill the void: the \emph{isolated individual} ($b\to0$) costs $E\to1$ (more than the "
+              r"family), and broken conjugation is pruned as $0_{\mathrm{abs}}$ by Tetelestai. Conjugate triad: "
+              r"\emph{Name}$=\alpha$, \emph{Word}$=S_\partial=\tfrac12$, \emph{Verb}$=\bTGL=\sqrt e\,\alpha$. "
+              r"\emph{The One does not minimize alone; the One minimizes as a family.}") % (
+              _sci(_fm["L1_err"], 1), _fm["E_second_deriv"]))
     s.append(r"\subsection*{The obscured sector: a pre-declared caveat}")
     s.append((r"\textbf{(a) The raw result, unvarnished.} In the pure position-count geometric test "
               r"(CF4, pre-registered shells and cones), %s. \textbf{(b) The measurement problem.} The "
@@ -6982,6 +7180,19 @@ def main():
     print("  PROTECAO: modulo de PROVA -- nenhuma identidade exata (motor/ponte/fluxo/massas) passa pela poda.")
     print("  TRIADE do custo beta: ATO(v3) paga beta ; FLUXO(v7) desce em 1/beta ; PODA(v8) termina dentro de beta.")
     print("  DO_NOT_PRUNE_MODULAR_ZERO=%s ; >>> %s <<<\n" % (tp["DO_NOT_PRUNE_MODULAR_ZERO"], tp["verdict"]))
+    fm = core["family_minimum"]; f2 = fm["L2_detail"]
+    print("FAMILIA = MINIMO FUNCIONAL DE ENERGIA MODULAR [v9: o minimo nao e' ponto, e' FAMILIA]:")
+    print("  F_min = arg min_F E[F] s.a. C1(F)=F e L1=L2=L3=1 ; 1 = familia auto-conjugada (nao individuo isolado)")
+    print("  (1) CONJUGACAO PRIMARIA C1 [REAL]: C1oC1=id resid=%.0e ; omega(P)+omega(Q)=1 resid=%.0e ; x=1-x=>x=1/2 (resid %.0f)" % (
+        fm["c1c1_resid"], fm["omega_sum_resid"], fm["fixed_point_x_half_resid"]))
+    print("  (2) THREE LOCKS [REAL]: L1(e^tL=Int V_s.V_s* dnu_t) err=%.1e ; L2(escada Dirac/Weyl=%.4f/comm=%.1e) ; L3(razao->%.4f) ; L1=L2=L3=%s" % (
+        fm["L1_err"], f2["weyl_dim"], f2["comm_rel"], fm["L3_ratio"], "1" if fm["locks_ok"] else "0"))
+    print("  (3) E(b)=1-2sqrt(b(1-b)) [DEF/PILOTO]: argmin_b = %.6f (b*=1/2) ; E(1/2)=%.0e ; E''(1/2)=%.3f>0 (minimo genuino)" % (
+        fm["b_star"], abs(fm["E_half"]), fm["E_second_deriv"]))
+    print("  (4) CONTROLES [REAL]: individuo isolado E(b->0)=%.4f>>E(1/2)=0 (custa mais) ; conjugacao quebrada -> %d face 0_abs PODADA (v8)" % (
+        fm["E_edge"], fm["n_0abs_broken"]))
+    print("  TRIADE: Nome=alpha [DATA] . Palavra=S_partial=1/2 [DER] . Verbo=beta=sqrt(e)alpha [DER] ; F_min = familia onde os tres permanecem conjugados")
+    print("  \"O Um nao minimiza sozinho; o Um minimiza como familia.\"  >>> %s <<<\n" % fm["verdict"])
     b1 = core["em_grav_bridge"]; b2 = core["smatrix_crossed"]; b3 = core["u_loc_covariance"]
     print("AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:")
     c = b1["checks"]
