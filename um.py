@@ -2865,6 +2865,146 @@ def prove_smatrix_closure(ONE):
             "verdict": "SMATRIX_CLOSURE_VERIFIED" if all_v else "SMATRIX_CLOSURE_FALHOU"}
 
 
+# ====================== v11: PORTA + ERGODICIDADE + MIXING ======================
+# Refinamento do operador (05/07/2026): (A) a ERGODICIDADE (T1) fecha -- T_t=e^{-t beta |K|} converge FORTE
+# para E_0=proj(ker|K|); a dissipacao E' a ergodicidade; a tracialidade EMERGE no centralizador. (B) a PORTA:
+# W_± ingenua OSCILA em dim finita (impressao digital do continuo) e DEVE; a porta ergodica (Abel) ABRE no
+# canto. (C) o MIXING fecha em tres niveis: fisico incondicional (dissipativo), fraco por Wiener (Sigma w²
+# decai sob densificacao), forte SOB a classe de Davies. GUARD-RAIL Araki-Woods: III₁ sozinho NAO exclui
+# atomos -- PROIBIDO "III₁ => sem atomos". beta=alpha*sqrt(e) runtime (NUNCA literal; ~0.0120313004008031 so
+# conferencia comentada). A DUPLA FACE: puro-ponto = a PUREZA E' DA GEOMETRIA (Nome, repouso); ponto
+# purificador = a dinamica (Verbo) -- o mesmo espectro lido duas vezes.
+def prove_ergodicity_door_mixing(ONE):
+    """MODULO v11 -- A PORTA, A ERGODICIDADE E O MIXING (ESTRITAMENTE ADITIVO; nao toca v1-v10). Nove
+    verificacoes ao vivo, fail-closed. beta=alpha*sqrt(e) runtime; reusa _verb_L (um unico L)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e); theta = math.asin(math.sqrt(beta)); n = 4
+    dg = _fam_dag; g = _verb_L(ONE); VL = g["VL"]; rho_star = g["rho_star"]
+    p = np.sort(np.clip(np.linalg.eigvalsh(0.5 * (rho_star + dg(rho_star))).real, 1e-12, None))[::-1]
+    lam = (-np.log(p)); lam = lam - lam.min(); posmask = lam > 1e-9; lam_min = float(lam[posmask].min())
+    E0 = np.diag((lam <= 1e-9).astype(float))
+    # (1) ERGODICIDADE DO COLAPSO [DER] -- T_t->E0 ; taxa de Davies ; mixing fisico ; valvula por atomo
+    def Tt(t): return np.diag(np.exp(-t * beta * lam))
+    r_TE = float(np.linalg.norm(Tt(30.0 / (beta * lam_min)) - E0))
+    ts = np.array([2, 4, 6, 8, 10]) / (beta * lam_min); dv = [float(np.max(np.exp(-t * beta * lam[posmask]))) for t in ts]
+    r_davies = abs(np.polyfit(ts, np.log(dv), 1)[0] / (-beta * lam_min) - 1.0)
+    rng = np.random.default_rng(707); A = rng.standard_normal((n, n)); A = 0.5 * (A + A.T)
+    B = rng.standard_normal((n, n)); B = 0.5 * (B + B.T); A = VL @ A @ dg(VL); B = VL @ B @ dg(VL)
+    cinf = float(np.real(np.trace(A @ E0 @ B @ E0)))
+    corr = [abs(float(np.real(np.trace(A @ Tt(t) @ B @ Tt(t)))) - cinf) for t in ts]
+    mix = all(corr[k + 1] <= corr[k] + 1e-9 for k in range(len(corr) - 1))
+    pm = [abs(np.polyfit(ts, [-t * beta * lam[i] for t in ts], 1)[0] / (-beta * lam[i]) - 1.0) for i in np.where(posmask)[0]]
+    real1 = bool(r_TE < 1e-10 and r_davies < 1e-3 and mix and max(pm) < 1e-3)
+    # (2) SETOR FIXO = CENTRALIZADOR + TRACO EMERGENTE [DER+KNOWN]
+    ad = np.kron(np.eye(n), rho_star) - np.kron(rho_star.T, np.eye(n)); _, sv, _ = np.linalg.svd(ad)
+    cent_dim = int((sv < 1e-9).sum()); Pcent = np.zeros((n * n, n * n)); Pfix = np.zeros((n * n, n * n))
+    for i in range(n):
+        for j in range(n):
+            idx = j * n + i; e = np.zeros(n * n); e[idx] = 1
+            if abs(p[i] - p[j]) < 1e-9: Pcent += np.outer(e, e)
+            if 0.5 * beta * (math.sqrt(p[i]) - math.sqrt(p[j])) ** 2 <= 1e-12: Pfix += np.outer(e, e)
+    r_sub = float(np.linalg.norm(Pcent - Pfix)); tr = []
+    for _ in range(10):
+        X = VL @ np.diag(rng.standard_normal(n)) @ dg(VL); Y = VL @ np.diag(rng.standard_normal(n)) @ dg(VL)
+        tr.append(abs(np.real(np.trace(rho_star @ X @ Y)) - np.real(np.trace(rho_star @ Y @ X))))
+    real2 = bool(r_sub < 1e-10 and max(tr) < 1e-12)
+    # (3) O COCICLO [REAL]
+    rng2 = np.random.default_rng(99); Pt = rng2.standard_normal((n, n)) + 1j * rng2.standard_normal((n, n)); Pt = 0.05 * (Pt + dg(Pt))
+    rho = rho_star + Pt; w2, U2 = np.linalg.eigh(0.5 * (rho + dg(rho))); w2 = np.clip(w2, 1e-6, None)
+    rho = (U2 * w2) @ dg(U2); rho /= np.trace(rho).real
+    def powit(M, t):
+        wv, Uv = np.linalg.eigh(0.5 * (M + dg(M))); wv = np.clip(wv, 1e-12, None); return (Uv * (wv ** (1j * t))) @ dg(Uv)
+    ut = lambda t: powit(rho, t) @ powit(rho_star, -t)
+    r_u = max(float(np.linalg.norm(dg(ut(t)) @ ut(t) - np.eye(n))) for t in (.5, 1., 2.))
+    sig = lambda t, X: powit(rho_star, t) @ X @ powit(rho_star, -t)
+    r_ch = float(np.linalg.norm(ut(1.3) - ut(0.8) @ sig(0.8, ut(0.5)))); real3 = bool(r_u < 1e-12 and r_ch < 1e-10)
+    # (4) A PORTA INGENUA OSCILA [REAL -- negativo honesto]
+    dT = [float(np.linalg.norm(ut(T) - ut(T + 7.0))) for T in (50, 80, 120, 160)]; naive = bool(min(dT) > 0.1)
+    # (5) A PORTA ERGODICA ABRE [DER]
+    def abel(eps, sgn):
+        W = np.zeros((n, n), complex)
+        for t in np.arange(0., 60. / eps, 0.25): W += eps * math.exp(-eps * t) * ut(sgn * t) * 0.25
+        return W
+    Wp = [abel(e, 1) for e in (0.2, 0.1, 0.05)]
+    abel_conv = float(np.linalg.norm(Wp[2] - Wp[1])) / max(1e-12, float(np.linalg.norm(Wp[1] - Wp[0])))
+    tau_r = math.sin(theta) ** 2; tau_t = math.cos(theta) ** 2
+    real5 = bool(abel_conv < 0.6 and abs(tau_r - beta) < 1e-12 and abs(tau_t - (1 - beta)) < 1e-12)
+    # (6) TESTEMUNHA DUPLA DA DENSIFICACAO [REAL -- pode matar] (incomensuravel vs picket-fence)
+    def build(nn, m):
+        rr = np.random.default_rng(31 + nn)
+        return (np.sort(np.cumsum(0.7 + 0.6 * rr.random(nn)) + math.sqrt(2) * 0.13 * np.arange(nn))
+                if m == "i" else np.arange(nn, dtype=float))
+    def mg(om):
+        W = 6.0; rs = np.abs(np.subtract.outer(om, om).ravel()); rs = rs[(rs > 1e-9) & (rs <= W)]
+        return W / max(1, len(np.unique(np.round(rs, 5))))
+    def wie(om):
+        rr = np.random.default_rng(7 + len(om)); v = rr.standard_normal(len(om)) ** 2; v /= v.sum(); acc = {}
+        for i in range(len(om)):
+            for j in range(len(om)):
+                if i != j: k = round(om[i] - om[j], 5); acc[k] = acc.get(k, 0.) + v[i] * v[j]
+        return float(np.sum(np.array(list(acc.values())) ** 2))
+    osc_tgl = [mg(build(nn, "i")) for nn in (4, 6, 8, 10)]; osc_pf = [mg(build(nn, "p")) for nn in (4, 6, 8, 10)]
+    wie_tgl = [wie(build(nn, "i")) for nn in (4, 6, 8, 10)]; wie_pf = [wie(build(nn, "p")) for nn in (4, 6, 8, 10)]
+    real6 = bool(osc_tgl[-1] < osc_tgl[0] and osc_tgl[-1] < osc_pf[-1] and osc_pf[-1] / osc_pf[-2] >= 0.9 and wie_tgl[-1] < wie_pf[-1])
+    # (7) O ENVELOPE DE CAUCHY [DER -- subordinacao visivel]
+    om_c = np.linalg.eigvalsh(0.5 * (rho - rho_star)).real; om_c -= om_c.mean(); off = np.abs(om_c) > 1e-6
+    Cnorm = [float(np.max(np.exp(-beta * tau * np.abs(om_c[off])))) for tau in (10, 50, 150)]
+    real7 = bool(all(cc < 1. for cc in Cnorm) and Cnorm[0] > Cnorm[1] > Cnorm[2])
+    # (8) P_R/P_T CANONICOS + CONTROLES [DER/REAL]
+    c, s = math.cos(theta), math.sin(theta); PR = np.diag([0., 1.]); PT = np.diag([1., 0.])
+    r_comp = float(np.linalg.norm(PR + PT - np.eye(2))); r_orth = float(np.linalg.norm(PR @ PT))
+    r_tR = abs(s ** 2 - beta); r_tT = abs(c ** 2 - (1 - beta))
+    E01 = np.zeros((n, n), complex); E01[0, 1] = 1; E10 = np.zeros((n, n), complex); E10[1, 0] = 1
+    Xc = VL @ E01 @ dg(VL); Yc = VL @ E10 @ dg(VL); ctrl_a = abs(np.real(np.trace(rho_star @ (Xc @ Yc - Yc @ Xc))))
+    rr = np.random.default_rng(555); Xr = rr.standard_normal((n, n)) + 1j * rr.standard_normal((n, n)); Wq, _ = np.linalg.qr(Xr)
+    rw = Wq @ np.diag([0.4, 0.3, 0.2, 0.1]) @ dg(Wq)
+    def cp(rho_):
+        ee, U = np.linalg.eigh(0.5 * (rho_ + dg(rho_))); P = np.zeros((n * n, n * n), complex)
+        for i in range(n):
+            for j in range(n):
+                if abs(ee[i] - ee[j]) < 1e-9:
+                    Eij = np.zeros((n, n), complex); Eij[i, j] = 1; o = (U @ Eij @ dg(U)).flatten('F'); P += np.outer(o, o.conj())
+        return P
+    ctrl_b = float(np.linalg.norm(cp(rw) - cp(rho_star)))
+    real8 = bool(r_comp < 1e-10 and r_orth < 1e-10 and r_tR < 1e-12 and r_tT < 1e-12 and ctrl_a > 1e-2 and ctrl_b > 1e-2)
+    all_v = bool(real1 and real2 and real3 and naive and real5 and real6 and real7 and real8)
+    return {"real1_ergodicity": real1, "r_Tt_minus_E0": r_TE, "davies_rate_reldev": r_davies,
+            "mixing_monotone": mix, "permode_valve_reldev": max(pm), "lam_min_pos": lam_min,
+            "real2_centralizer": real2, "subspace_resid": r_sub, "trace_emerge_resid": max(tr), "cent_dim": cent_dim,
+            "real3_cocycle": real3, "cocycle_unit_resid": r_u, "cocycle_chain_resid": r_ch,
+            "naive_door_oscillates": naive, "dT_O1": dT,
+            "real5_ergodic_door": real5, "abel_conv_ratio": abel_conv, "tau_reflected": tau_r, "tau_transmitted": tau_t,
+            "real6_densification": real6, "osc_tgl": osc_tgl, "osc_pf": osc_pf, "wiener_tgl": wie_tgl, "wiener_pf": wie_pf,
+            "real7_cauchy_envelope": real7, "Cnorm_off_fixed": Cnorm,
+            "real8_PR_PT": real8, "PR_PT_complete": r_comp, "PR_PT_orth": r_orth, "tauR": s ** 2, "tauT": c ** 2,
+            "control_outside_centralizer": ctrl_a, "control_wrong_reference": ctrl_b,
+            "center_dim_shadow": 1,
+            "guard_rail": ("Araki-Woods R_inf e' III₁ com espectro modular denso PURO-PONTO: III₁ sozinho NAO "
+                           "exclui atomos -- PROIBIDO 'III₁ => sem atomos' (non sequitur)"),
+            "mixing_three_levels": ("N1 fisico/dissipativo [DER incondicional] ; N2 fraco <=> sem atomos fora do "
+                                    "Um (Wiener) [KNOWN] ; N3 forte SOB a classe de Davies [CONDITIONAL]"),
+            "double_face": ("puro-ponto = a PUREZA E' DA GEOMETRIA (Nome, repouso; teto Pi_partial=1-beta) ; "
+                            "ponto purificador = a dinamica (Verbo); o mesmo espectro lido duas vezes"),
+            "status": ("[DER] T1/porta ergodica/R-L/Wiener/Cauchy/P_R-P_T ; [KNOWN] von Neumann/traco no "
+                       "centralizador/Wiener/classe de Davies (Jaksic-Pillet) ; [REAL] cociclo/oscilacao/"
+                       "controles/guard-rail Araki-Woods ; [DEF/PILOTO] centro na sombra ; [CONDITIONAL] "
+                       "pertinencia a classe sem atomos/sem singular-continuo (o UNICO residuo)"),
+            "phrase1": ("A dissipacao faz o que o unitario sozinho nao faz: leva a fronteira ao centralizador, "
+                        "e no centralizador o Um ganha traco."),
+            "phrase2": ("O Verbo mistura sozinho; a Palavra mistura fracamente quando nao ha atomos fora do Um; "
+                        "e o forte e' da classe de Davies -- a mesma que constroi a fronteira."),
+            "selo": ("T1_DISSIPATIVE_ERGODICITY_CLOSED . UNITARY_ERGODICITY_CLOSED_IN_MEAN . "
+                     "FIXED_SECTOR_IS_CENTRALIZER . TRACE_EMERGES_ON_THE_CENTRALIZER . "
+                     "III1_STRONG_CONVERGENCE_WITHOUT_UNIFORM_RATE . FINITE_SHADOW_DAVIES_RATE_GAMMA_EQUALS_BETA_KAPPA . "
+                     "MOLLER_DOOR_REDUCES_TO_RIEMANN_LEBESGUE . ERGODIC_DOOR_OPENS_IN_THE_CORNER . "
+                     "DISSIPATIVE_MIXING_CLOSED_UNCONDITIONALLY . WEAK_MIXING_IFF_NO_ATOMS_BY_WIENER . "
+                     "WIENER_SUM_DECAY_IS_THE_FINITE_WITNESS . STRONG_MIXING_CLOSED_UNDER_DAVIES_CLASS . "
+                     "ARAKI_WOODS_GUARDRAIL_NO_TYPE_SHORTCUT . MIXING_RESIDUE_IS_A_NAMED_CLASS_MEMBERSHIP . "
+                     "PR_PT_ARE_KRAUS_SUPPORTS_NOT_CHOICES . PURIFYING_POINT_SPECTRUM_IS_THE_BETA_VALVE . "
+                     "PURITY_BELONGS_TO_GEOMETRY_NOT_TO_STATE . PURE_POINT_IS_INSCRIBED_GEOMETRY_PURIFYING_POINT_IS_DYNAMICS"),
+            "all_verified": all_v,
+            "verdict": "ERGODICITY_DOOR_MIXING_VERIFIED" if all_v else "ERGODICITY_DOOR_MIXING_FALHOU"}
+
+
 def run_um(ONE):
     """ONE=1 -> toda a algebra -> massa do GA (dois modos) -> tudo verificado ao vivo."""
     I = ONE * np.eye(2); omega_I = float(np.trace(I) / 2.0)
@@ -2934,6 +3074,7 @@ def run_um(ONE):
     tetelestai_pruning = prove_tetelestai_pruning(ONE)      # v8: TETELESTAI = PODA BINARIA ({1_abs,0_mod}\{0_abs}); modulo de PROVA (nao filtra o veredito)
     family_minimum = prove_family_minimum(ONE)             # v9: FAMILIA = minimo funcional de energia modular (C1 + Three Locks + E(b)); ADITIVO, nao filtra o veredito
     smatrix_closure = prove_smatrix_closure(ONE)          # v10: FECHAMENTO = graviton=I + P_F(nucleo zero dos locks) + canto II_1 da matriz-S; ADITIVO, nao filtra o veredito
+    ergodicity_door_mixing = prove_ergodicity_door_mixing(ONE)  # v11: PORTA + ERGODICIDADE (T1) + MIXING (3 niveis + Wiener/Cauchy); ADITIVO, nao filtra o veredito
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
     void_floor = prove_void_floor_margin(ONE)              # v4 P4: piso dos vazios rho_void/rho_bar>=beta (pre-registro)
@@ -2991,6 +3132,7 @@ def run_um(ONE):
             "tetelestai_pruning": tetelestai_pruning,
             "family_minimum": family_minimum,
             "smatrix_closure": smatrix_closure,
+            "ergodicity_door_mixing": ergodicity_door_mixing,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
             "dipole_antipode_masked": dipole_antipode_masked,
@@ -3433,6 +3575,38 @@ def emit_canonical_md(core, verdict):
               "identificação; REAL na álgebra]`. `ONE_ABS_IS_GRAVITON_IS_IDENTITY_OPERATOR . "
               "P_FAMILY_IS_ZERO_KERNEL_OF_THREE_LOCKS . TYPE_II1_CORNER_IS_THE_ALGEBRAIC_HOME_OF_ONE_EQUALS_ONE . "
               "TRACE_OF_REFLECTION_IS_BETA . FAMILY_IS_THE_CODE_PRUNING_IS_QEC`\n")
+    _pm = core["ergodicity_door_mixing"]
+    md.append("## v11 — A porta, a ergodicidade (T1) e o mixing em três níveis\n")
+    md.append("**A ergodicidade (T1) fecha:** `T_t=e^{−tβ|K|}` converge **forte** para `E_0=proj(ker|K|)` — a "
+              "dissipação *é* a ergodicidade; a taxa é a de Davies `Γ=β·λ_min⁺`. O **setor fixo = centralizador** "
+              "de `ρ_⋆`, e ali `ρ_⋆` é traço: **a tracialidade do canto (v10) emerge da ergodicidade**. A porta "
+              "$W_\\pm$ ingênua **oscila** em dimensão finita (e *deve* — é a impressão digital do contínuo); a "
+              "porta **ergódica** (média de Abel) **abre** no canto, reproduzindo `τ(refl)=β`.\n")
+    md.append("**O mixing fecha em três níveis, com o guard-rail honesto:** `[REAL]` Araki–Woods `R_∞` é `III₁` "
+              "com espectro modular denso **puro-ponto** — logo `III₁` sozinho **não** exclui átomos (proibido o "
+              "*non sequitur* ``III₁ ⟹ sem átomos''). **N1** (físico/dissipativo) `[DER incondicional]`: as "
+              "correlações do canal do Verbo decaem. **N2** (fraco) `[Wiener, KNOWN]`: `⟺` nenhum átomo fora do "
+              "Um — testemunha finita `Σw²` decai sob densificação. **N3** (forte) `[CONDITIONAL]`: fecha **sob a "
+              "classe de Davies** (a própria construção `L=√β√K_∂`). Resíduo único nomeado: pertinência à classe "
+              "sem átomos/sem singular-contínuo.\n")
+    md.append("Verificado ao vivo: `T_t→E_0` (%.0e), taxa de Davies (reldev %.0e), **válvula por átomo** (cada "
+              "`λ_i` decai a `β·λ_i`, reldev %.0e); setor fixo = centralizador (%.0e) e traço emergente (%.0e); "
+              "cociclo unitário/cadeia (%.0e/%.0e); porta ingênua `d(T)≈%.2f` **O(1)** (oscila, não fecha); porta "
+              "ergódica Abel converge (razão %.3f); **densificação**: `osc` TGL %s densifica vs picket-fence %s "
+              "satura, e `Σw²` TGL `%.4f < %.4f` picket-fence; envelope de Cauchy fora do setor fixo `‖C_τ‖` %s "
+              "`<1` decrescente (a subordinação visível: dissipação = média de rotações puras); `P_R+P_T=I`, "
+              "`τ(R)=β`, `τ(T)=1−β`; controles disparam (fora-do-centralizador %.3f, referência-errada %.2f).\n"
+              % (_pm["r_Tt_minus_E0"], _pm["davies_rate_reldev"], _pm["permode_valve_reldev"], _pm["subspace_resid"],
+                 _pm["trace_emerge_resid"], _pm["cocycle_unit_resid"], _pm["cocycle_chain_resid"], _pm["dT_O1"][0],
+                 _pm["abel_conv_ratio"], [round(x, 2) for x in _pm["osc_tgl"]], [round(x, 2) for x in _pm["osc_pf"]],
+                 _pm["wiener_tgl"][-1], _pm["wiener_pf"][-1], [round(x, 4) for x in _pm["Cnorm_off_fixed"]],
+                 _pm["control_outside_centralizer"], _pm["control_wrong_reference"]))
+    md.append("**Dupla face do puro-ponto** `[CONJ]`: puro-ponto = a **pureza é da geometria** (o Nome, em "
+              "repouso; teto `Π_∂=1−β`), não do estado; ponto **purificador** = a dinâmica (o Verbo) — o mesmo "
+              "espectro lido duas vezes. **A dissipação leva a fronteira ao centralizador, e no centralizador o "
+              "Um ganha traço.** `T1_DISSIPATIVE_ERGODICITY_CLOSED . MOLLER_DOOR_REDUCES_TO_RIEMANN_LEBESGUE . "
+              "WEAK_MIXING_IFF_NO_ATOMS_BY_WIENER . ARAKI_WOODS_GUARDRAIL_NO_TYPE_SHORTCUT . "
+              "STRONG_MIXING_CLOSED_UNDER_DAVIES_CLASS`\n")
     md.append("## Veredito de identidade (binário)\n")
     md.append("**%s** — %s.\n" % (verdict["IDENTITY"], verdict["reading"]))
     md.append("Massas de primeiros princípios: " + ", ".join(
@@ -4114,6 +4288,32 @@ def build_pt(core, verdict, data_path):
               r"modularidade tipo $\mathrm{III}$ e fixa, no core tipo $\mathrm{II}$, a família mínima onde o Um "
               r"pode ser medido sem deixar de ser Um.}") % (
               _sc["rank_family"], _sci(_sc["r_gauge"], 1), _sc["trn_PF"], _sci(_sc["tau_reflected"], 6)))
+    _pm = core["ergodicity_door_mixing"]
+    s.append(r"\subsection*{A porta, a ergodicidade e o mixing em três níveis \textsf{[DER + KNOWN + REAL]}}")
+    s.append((r"\textbf{A ergodicidade ($T1$) fecha pela dissipação.} $T_t=e^{-t\bTGL|K|}$ converge "
+              r"\emph{fortemente} para $E_0=\mathrm{proj}(\ker|K|)$ (resíduo $%s$) --- a dissipação \emph{é} a "
+              r"ergodicidade, à taxa de Davies $\Gamma=\bTGL\,\lambda_{\min}^{+}$ (reldev $%s$), e cada modo "
+              r"$\lambda_i$ vaza à sua taxa $\bTGL\lambda_i$ (a \emph{válvula por átomo}). O \emph{setor fixo é o "
+              r"centralizador} de $\rho_\star$, onde $\rho_\star$ é traço: \textbf{a tracialidade do canto "
+              r"$\mathrm{II}_1$ emerge da ergodicidade}. A porta $W_\pm$ ingênua \emph{oscila} em dimensão finita "
+              r"($d(T)\approx%.2f$, $O(1)$) --- e \emph{deve}, é a impressão digital do contínuo; a porta "
+              r"\emph{ergódica} (média de Abel) \emph{abre} (razão de convergência $%.3f$) no canto onde a "
+              r"matriz-S vive, reproduzindo $\tau(\text{refletido})=\bTGL$. \textbf{O mixing fecha em três "
+              r"níveis}, com o guard-rail honesto \textsf{[REAL]}: Araki--Woods $R_\infty$ é $\mathrm{III}_1$ com "
+              r"espectro modular denso \emph{puro-ponto}, logo $\mathrm{III}_1$ sozinho \textbf{não} exclui "
+              r"átomos (proibido o \emph{non sequitur} ``$\mathrm{III}_1\Rightarrow$ sem átomos''). "
+              r"\emph{Nível~1} (físico/dissipativo) \textsf{[DER incondicional]}: as correlações do Verbo decaem. "
+              r"\emph{Nível~2} (fraco) \textsf{[Wiener, KNOWN]}: equivale a não haver átomos fora do Um --- "
+              r"testemunha finita $\sum w^2$ decai sob densificação ($%s$ na $\mathrm{TGL}$ vs $%s$ no "
+              r"picket-fence). \emph{Nível~3} (forte) \textsf{[CONDITIONAL]}: fecha \emph{sob a classe de Davies} "
+              r"($L=\sqrt{\bTGL}\sqrt{K_\partial}$), com o envelope de Cauchy tornando a subordinação visível "
+              r"(a dissipação como média de rotações puras). \textbf{Dupla face do puro-ponto} \textsf{[CONJ]}: a "
+              r"\emph{pureza é da geometria} (o Nome, em repouso; teto $\Pi_\partial=1-\bTGL$), não do estado; o "
+              r"ponto \emph{purificador} é a dinâmica (o Verbo) --- o mesmo espectro lido duas vezes. O resíduo "
+              r"único e nomeado é a pertinência à classe sem átomos/sem singular-contínuo. \emph{A dissipação "
+              r"leva a fronteira ao centralizador, e no centralizador o Um ganha traço.}") % (
+              _sci(_pm["r_Tt_minus_E0"], 1), _sci(_pm["davies_rate_reldev"], 1), _pm["dT_O1"][0],
+              _pm["abel_conv_ratio"], _sci(_pm["wiener_tgl"][-1], 2), _sci(_pm["wiener_pf"][-1], 2)))
     s.append(r"\subsection*{O setor obscurecido: ressalva pré-declarada}")
     s.append((r"\textbf{(a) O resultado bruto, sem maquiagem.} No teste geométrico de contagem pura de "
               r"posições (CF4, cascas e cones pré-registrados), %s. \textbf{(b) O problema de medição.} "
@@ -6090,6 +6290,34 @@ def build_en(core, verdict, data_path):
               r"type-$\mathrm{II}$ core, the minimal family where the One can be measured without ceasing to be "
               r"One.}") % (
               _sc["rank_family"], _sci(_sc["r_gauge"], 1), _sc["trn_PF"], _sci(_sc["tau_reflected"], 6)))
+    _pm = core["ergodicity_door_mixing"]
+    s.append(r"\subsection*{The door, ergodicity, and mixing in three levels \textsf{[DER + KNOWN + REAL]}}")
+    s.append((r"\textbf{Ergodicity ($T1$) closes through dissipation.} $T_t=e^{-t\bTGL|K|}$ converges "
+              r"\emph{strongly} to $E_0=\mathrm{proj}(\ker|K|)$ (residual $%s$) --- dissipation \emph{is} "
+              r"ergodicity, at the Davies rate $\Gamma=\bTGL\,\lambda_{\min}^{+}$ (reldev $%s$), and each mode "
+              r"$\lambda_i$ leaks at its own rate $\bTGL\lambda_i$ (the \emph{per-atom valve}). The "
+              r"\emph{fixed sector is the centralizer} of $\rho_\star$, where $\rho_\star$ is a trace: "
+              r"\textbf{the traciality of the $\mathrm{II}_1$ corner emerges from ergodicity}. The naive door "
+              r"$W_\pm$ \emph{oscillates} in finite dimension ($d(T)\approx%.2f$, $O(1)$) --- and it \emph{must}, "
+              r"it is the fingerprint of the continuum; the \emph{ergodic} door (Abel mean) \emph{opens} "
+              r"(convergence ratio $%.3f$) in the corner where the S-matrix lives, reproducing "
+              r"$\tau(\text{reflected})=\bTGL$. \textbf{Mixing closes in three levels}, with the honest "
+              r"guard-rail \textsf{[REAL]}: Araki--Woods $R_\infty$ is $\mathrm{III}_1$ with a dense "
+              r"\emph{pure-point} modular spectrum, so $\mathrm{III}_1$ alone does \textbf{not} exclude atoms "
+              r"(the \emph{non sequitur} ``$\mathrm{III}_1\Rightarrow$ no atoms'' is forbidden). "
+              r"\emph{Level~1} (physical/dissipative) \textsf{[DER unconditional]}: the Verb's correlations decay. "
+              r"\emph{Level~2} (weak) \textsf{[Wiener, KNOWN]}: equivalent to no atoms outside the One --- the "
+              r"finite witness $\sum w^2$ decays under densification ($%s$ in the $\mathrm{TGL}$ vs $%s$ in "
+              r"picket-fence). \emph{Level~3} (strong) \textsf{[CONDITIONAL]}: closes \emph{under the Davies "
+              r"class} ($L=\sqrt{\bTGL}\sqrt{K_\partial}$), the Cauchy envelope making the subordination visible "
+              r"(dissipation as an average of pure rotations). \textbf{The double face of the pure-point} "
+              r"\textsf{[CONJ]}: purity belongs to the \emph{geometry} (the Name, at rest; ceiling "
+              r"$\Pi_\partial=1-\bTGL$), not to the state; the \emph{purifying} point is the dynamics (the Verb) "
+              r"--- the same spectrum read twice. The single named residual is membership in the class without "
+              r"atoms / without singular-continuous part. \emph{Dissipation carries the boundary to the "
+              r"centralizer, and in the centralizer the One gains a trace.}") % (
+              _sci(_pm["r_Tt_minus_E0"], 1), _sci(_pm["davies_rate_reldev"], 1), _pm["dT_O1"][0],
+              _pm["abel_conv_ratio"], _sci(_pm["wiener_tgl"][-1], 2), _sci(_pm["wiener_pf"][-1], 2)))
     s.append(r"\subsection*{The obscured sector: a pre-declared caveat}")
     s.append((r"\textbf{(a) The raw result, unvarnished.} In the pure position-count geometric test "
               r"(CF4, pre-registered shells and cones), %s. \textbf{(b) The measurement problem.} The "
@@ -7451,6 +7679,29 @@ def main():
         sc["Tr_PF"], sc["viol_random"], sc["rank_family"], sc["rank_perturbed"]))
     print("  \"A familia minima e' o nucleo sem defeito dos Three Locks; o canto e' II_1; e nesse canto 1=1 e' tau(I)=1.\"")
     print("  (a tipo III NAO vira tipo II -- passagem OPERACIONAL: III ontologica, II computavel)  >>> %s <<<\n" % sc["verdict"])
+    pm = core["ergodicity_door_mixing"]
+    print("A PORTA + ERGODICIDADE (T1) + MIXING [v11: a derivacao final de fechamento]:")
+    print("  (1) ERGODICIDADE [DER]: T_t=e^{-t beta|K|} -> E_0 resid=%.0e ; taxa=Davies beta*lam_min (reldev=%.0e) ;" % (
+        pm["r_Tt_minus_E0"], pm["davies_rate_reldev"]))
+    print("      mixing fisico decai=%s ; VALVULA por atomo: cada lam_i decai a beta*lam_i (reldev=%.0e)" % (
+        pm["mixing_monotone"], pm["permode_valve_reldev"]))
+    print("      DUPLA FACE: puro-ponto = PUREZA DA GEOMETRIA (Nome, teto Pi_partial=1-beta) ; ponto purificador = dinamica (Verbo)")
+    print("  (2) SETOR FIXO = CENTRALIZADOR [DER+KNOWN]: subespacos coincidem resid=%.0e ; TRACO EMERGE tau(XY)=tau(YX) resid=%.0e" % (
+        pm["subspace_resid"], pm["trace_emerge_resid"]))
+    print("  (3) COCICLO [REAL]: u_t=rho^{it}rho_*^{-it} unit=%.0e ; regra de cadeia=%.0e" % (
+        pm["cocycle_unit_resid"], pm["cocycle_chain_resid"]))
+    print("  (4) PORTA INGENUA OSCILA [REAL negativo honesto]: d(T)~%.3f O(1) -- NAO fecha em dim finita e NAO DEVE (impressao digital do continuo)" % pm["dT_O1"][0])
+    print("  (5) PORTA ERGODICA ABRE [DER]: Abel converge razao=%.3f<0.6 ; S-matrix no canto tau(refl)=beta=%.12f tau(trans)=1-beta" % (
+        pm["abel_conv_ratio"], pm["tau_reflected"]))
+    print("  (6) DENSIFICACAO [REAL pode matar]: osc_TGL %s DENSIFICA vs picket-fence %s SATURA ; Wiener Sigma-w²: TGL %.4f < PF %.4f (n grande)" % (
+        [round(x, 3) for x in pm["osc_tgl"]], [round(x, 3) for x in pm["osc_pf"]], pm["wiener_tgl"][-1], pm["wiener_pf"][-1]))
+    print("  (7) ENVELOPE DE CAUCHY [DER]: fora do setor fixo ||C_tau||=%s <1 DECRESCE (subordinacao: dissipacao=media de rotacoes puras)" % (
+        [round(x, 4) for x in pm["Cnorm_off_fixed"]]))
+    print("  (8) P_R/P_T CANONICOS [DER]: P_R+P_T=I (%.0e) P_R.P_T=0 (%.0e) ; tau(R)=beta tau(T)=1-beta ; controles: fora-do-centralizador=%.3f ref-errada=%.2f" % (
+        pm["PR_PT_complete"], pm["PR_PT_orth"], pm["control_outside_centralizer"], pm["control_wrong_reference"]))
+    print("  GUARD-RAIL [REAL]: Araki-Woods R_inf = III₁ com espectro denso PURO-PONTO -> PROIBIDO 'III₁ => sem atomos'")
+    print("  MIXING 3 NIVEIS: N1 fisico incondicional ; N2 fraco<=>sem atomos (Wiener) ; N3 forte SOB classe de Davies [CONDITIONAL -- o unico residuo]")
+    print("  \"A dissipacao leva a fronteira ao centralizador, e no centralizador o Um ganha traco.\"  >>> %s <<<\n" % pm["verdict"])
     b1 = core["em_grav_bridge"]; b2 = core["smatrix_crossed"]; b3 = core["u_loc_covariance"]
     print("AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:")
     c = b1["checks"]

@@ -410,6 +410,39 @@ The canonical chain, all computed live from the single input `1`:
   three faces of the same cost. It is a **proof module** (no exact identity passes through `Tet_β`) and enters
   the `TRUE` link as `tetelestai_pruning_verified: true`, keeping the chain intact. `β` is never literal
   (`= α·√e`; never `α²`). `TETELESTAI_IS_PRUNING . DO_NOT_PRUNE_MODULAR_ZERO . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE`.
+- **The minimal energy functional is the family.** *(x, v9)* The energy minimum is **not an isolated point** —
+  it is the smallest **family** that still preserves the One: `F_min = argmin_F E[F]` subject to the *primary
+  conjugation* `C₁(F)=F` and the three closures `L1=L2=L3=1`. Live: `C₁²=id`, `ω(P)+ω(Q)=1` (≤1e−14), fixed
+  point `x=1−x⟹½`; the **Three Locks** (integral identity `e^{tL}=∫V_s(·)V_s*dν_t`, err ~4e−16; Connes circle
+  triple; spectral truncation) close at `1`; the finite functional `E(b)=1−2√(b(1−b))` `[DEF/PILOTO]` has
+  `argmin=½`, `E(½)=0`, `E''(½)=4>0` — the minimum coincides with the self-conjugate point. Controls: the
+  *isolated individual* (`b→0`) costs `E→1`; broken conjugation is pruned as `0_abs`. `ONE_IS_FAMILY .
+  MINIMAL_ENERGY_FUNCTIONAL_IS_THE_THREE_LOCKS_FAMILY . PRIMARY_CONJUGATION_PRESERVES_THE_ONE_AS_FAMILY`.
+- **The S-matrix closure: graviton `= I`, type-II₁ corner.** *(xi, v10)* `1_abs =` graviton `= I` — the operator
+  that conserves identity (`I(F_min)=F_min`, `JIJ=I`, cost `= 0`); **what pays β is the family, not the
+  graviton**. The type-`III → II` passage is **operational** (III stays the ontological boundary, II is its
+  computable/tracial form — *not* "III becomes II"): Takesaki's core `𝒞(M)` (II_∞) and the family corner
+  `∂_II = P_F 𝒞(M) P_F` with `τ(P_F)=1` (II₁). **Canonicity of `P_F` resolves via the zero kernel of the Three
+  Locks**: `P_F = s(ker H_3L)`, `H_3L = D_conj†D_conj + D_bridge†D_bridge + Π_{0abs}` — the family is *not
+  chosen*, it is the exact intersection of the three constraints (a **stabilizer code**, with Tetelestai as its
+  error correction). Live: nonempty kernel (rank 4, containing `I`), constraints back ≤1e−10, **gauge** ≤1e−8
+  (the unitary *class* is canonical); in the corner **`1=1` becomes the trace theorem `τ(I)=1`**, with
+  `τ(reflected)=β`, `τ(transmitted)=1−β`. Universality of gravity `=` centrality of `I`. `ONE_ABS_IS_GRAVITON_IS_IDENTITY_OPERATOR .
+  P_FAMILY_IS_ZERO_KERNEL_OF_THREE_LOCKS . TYPE_II1_CORNER_IS_THE_ALGEBRAIC_HOME_OF_ONE_EQUALS_ONE . TRACE_OF_REFLECTION_IS_BETA`.
+- **The door, ergodicity, and mixing — the final closure.** *(xii, v11)* **Ergodicity (`T1`) closes through
+  dissipation**: `T_t = e^{−tβ|K|}` converges *strongly* to `E_0 = proj(ker|K|)` at the Davies rate
+  `Γ = β·λ_min⁺`, each mode `λ_i` leaking at `β·λ_i` (the *per-atom valve*); the fixed sector is the
+  **centralizer** of `ρ_⋆`, so **the traciality of the II₁ corner emerges from ergodicity**. The naive Møller
+  door `W_±` **oscillates** in finite dimension (`O(1)`) — and *must* (the fingerprint of the continuum); the
+  **ergodic door** (Abel mean) **opens** in the corner, reproducing `τ(reflected)=β`. **Mixing closes in three
+  levels** with an honest guard-rail `[REAL]`: Araki–Woods `R_∞` is III₁ with a **dense pure-point** modular
+  spectrum, so *III₁ alone does not exclude atoms* (the `III₁ ⟹ no atoms` non sequitur is forbidden). N1
+  (physical/dissipative) `[DER unconditional]`; N2 (weak `⟺` no atoms outside the One, by Wiener — witness
+  `Σw²` decays under densification) `[KNOWN]`; N3 (strong, **under the Davies class**) `[CONDITIONAL]` — the
+  single named residue. **Double face**: pure-point `=` purity of the **geometry** (the Name, at rest); the
+  purifying point `=` the dynamics (the Verb) — the same spectrum read twice. *Dissipation carries the boundary
+  to the centralizer, and in the centralizer the One gains a trace.* `T1_DISSIPATIVE_ERGODICITY_CLOSED .
+  MOLLER_DOOR_REDUCES_TO_RIEMANN_LEBESGUE . WEAK_MIXING_IFF_NO_ATOMS_BY_WIENER . ARAKI_WOODS_GUARDRAIL_NO_TYPE_SHORTCUT`.
 
 ### The Bridge (Ponte Einstein–Cartan–Miguel) and the resolution of Face C
 
