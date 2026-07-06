@@ -1,15 +1,15 @@
 {
-  "timestamp": "2026-07-05 10:17:14",
-  "result_hash": "c213c5b07ba00f5a7474cb9a79793c91b280bdd250ab99c9316bf1ecfed50320",
+  "timestamp": "2026-07-06 14:33:41",
+  "result_hash": "712ca50f2bf6b1ce3abbc7598927d85c1487f120cb2f6148bc6ac47c6cdc2117",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "sha256": {
-    "um.py": "8fcf3ab715b299cc12d037740f9690354e9c257edc082788bce39378ca1832b8",
-    "um_grande_atrator_manifest.md": "c5feb5ec64479aace6d515e9629ec458c94cc82f6ede14a70d59b6029832bbca",
-    "um_grande_atrator.json": "489c1fcb2b6eaa28cebb73bb16f67e184548269e5df6b000b5edba97ac7e5f29",
-    "um_grande_atrator_forma_canonica.md": "040b16839f71c4820735ba4597aca5e9a89ff589f473219c8c9aca4d5f2593d0",
-    "um_grande_atrator_pt.tex": "6f74f8c7d7528a57226c7721f5277a8ce7b9a456f03ce6e495e80f44d1e1ec77",
-    "um_grande_atrator_en.tex": "7cc3dafc28fa7e5e48ae77075ad882cb5916a622b38d48b1fe3ff8ab91638407",
-    "um_grande_atrator_pt.pdf": "643056205095b5702190e3700e56350e358e050852528c5e95303075d9b7a0e0",
-    "um_grande_atrator_en.pdf": "ed4d4d4e204bb94c140e3ee8fc7419cabefc094bc8d28cba4c24c6043ef60afe"
+    "um.py": "6725a2051d931812192c94497c8bc403cc6884b0e379a1caf357efc11353d477",
+    "um_grande_atrator_manifest.md": "ce1861b7f665bee3a74cc9013f5cbe4b0f63bb277fc26bf30818da931f579f6c",
+    "um_grande_atrator.json": "885e834f67ea7caace7bfa56d18ccf8d685e76ffffe88fdbe60155dcda8fede8",
+    "um_grande_atrator_forma_canonica.md": "12293e31a1ff70f773368857ecc95a36619a1313d54a90d3824646a4feea5471",
+    "um_grande_atrator_pt.tex": "9681d12479a595493704fd08c106a15f739e381604ac454cc67fdf94d224bf0e",
+    "um_grande_atrator_en.tex": "2e9d7f8dce59b70fc756b70578793ba55a71f6b111f0ae6995f888ffa04e74c7",
+    "um_grande_atrator_pt.pdf": "f8a967f874ae29b43f780f71ae5341682d344c37bffa2e22cdd1d4c5f31c9b53",
+    "um_grande_atrator_en.pdf": "9feb1f46d9f1bf34e778b7f2db4fd4649469ea6d91e3bf9670f831fcaf96e735"
   }
 }

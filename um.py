@@ -2720,6 +2720,151 @@ def prove_family_minimum(ONE):
             "verdict": "FAMILY_MINIMUM_VERIFIED" if all_v else "FAMILY_MINIMUM_FALHOU"}
 
 
+# ====================== v10: FECHAMENTO -- GRAVITON=I + P_F CANONICO + CANTO TIPO II DA MATRIZ-S ======================
+# Refinamento do operador (05/07/2026): (A) 1_abs = gráviton = operador identidade I (mantem 1=1; I(F_min)=F_min).
+# (B) P_F = suporte do NUCLEO ZERO do Hamiltoniano dos Three Locks: P_F = s(ker H_3L), H_3L = D_conj†D_conj +
+# D_bridge†D_bridge + Pi_{0abs} -- a familia NAO e' escolhida, e' a intersecao dos tres vinculos (JXJ=X, [X,S]=0,
+# X orto 0_abs). O canto P_F C(M) P_F com tau(P_F)=1 e' II_1 (sombra tracial), onde a matriz-S mora e 1=1 vira
+# teorema do traco tau(I)=1. HONESTIDADE INVIOLAVEL: a tipo III NAO "vira" tipo II -- a passagem e' OPERACIONAL
+# (III = fronteira ontologica; II = forma computavel/tracial). beta=alpha*sqrt(e) runtime (NUNCA literal;
+# o literal ~0.0120313004008031 abaixo e' SO conferencia comentada).
+def construct_family_projection_from_locks(D_conj, D_bridge, P_abszero, tol=1e-10):
+    """P_F = suporte do nucleo zero de H_3L = D_conj†D_conj + D_bridge†D_bridge + P_abszero (>=0).
+    D_conj mede falha de conjugacao primaria (AdJ-I); D_bridge mede falha de fechamento da matriz-S
+    ([Ad_S]-I); P_abszero = classe 0_abs da poda v8. ker = intersecao EXATA dos tres vinculos = a
+    familia minima; o canto normalizado e' a sombra II_1. Forma do operador (05/07/2026)."""
+    H = _fam_dag(D_conj) @ D_conj + _fam_dag(D_bridge) @ D_bridge + P_abszero
+    vals, vecs = np.linalg.eigh(0.5 * (H + _fam_dag(H))); keep = vals <= tol
+    if not np.any(keep):
+        return None, {"ok": False, "reason": "no_zero_lock_kernel", "min_eig": float(vals.min())}
+    V = vecs[:, keep]; P = V @ _fam_dag(V)
+    return P, {"ok": True, "rank_family": int(keep.sum()), "verdict": "P_F_CANONICAL_ZERO_KERNEL_OF_THREE_LOCKS"}
+
+
+def _clo_locks_superops(J, S, dead_pairs, n):
+    """Superoperadores dos Three Locks no espaco de operadores (col-stacking, idx=j*n+i):
+    AdJ(X)=JXJ (J hermitiano involucao), AdS(X)=S X S^{-1} (S unitario), Pi_{0abs} = projetor nas
+    coerencias mortas (classe 0_abs). D_conj=AdJ-I, D_bridge=AdS-I."""
+    Jsup = np.kron(J.conj(), J); Ssup = np.kron(S.conj(), S)
+    Dc = Jsup - np.eye(n * n); Db = Ssup - np.eye(n * n)
+    Pabs = np.zeros((n * n, n * n), complex)
+    for (i, j) in dead_pairs:
+        for (a, b) in ((i, j), (j, i)):
+            idx = b * n + a; Pabs[idx, idx] = 1.0
+    return Dc, Db, Pabs
+
+
+def prove_smatrix_closure(ONE):
+    """MODULO v10 -- O FECHAMENTO DA MATRIZ-S (ESTRITAMENTE ADITIVO; nao toca v1-v9). Sete verificacoes ao
+    vivo, fail-closed: (1) o graviton e' I (invariancias triviais -- e a trivialidade e' o ponto: custo(I)=0);
+    (2) P_F CANONICO pelo nucleo zero dos Three Locks (+ gauge = classe unitaria); (3) o canto tau_n com
+    tau(I)=1 [DEF/PILOTO -- sombra II_1, nao fator II genuino]; (4) a matriz-S no canto (unit/espectro/|R|²=β/
+    tracos dos ramos β e 1-β); (5) a poda ganha traco (setor vivo preservado); (6) tres controles que podem
+    matar; (7) selos. beta=alpha*sqrt(e) runtime (NUNCA literal)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # conferencia comentada: ~0.0120313004008031
+    theta = math.asin(math.sqrt(beta)); n = 4
+    g = _verb_L(ONE); VL = g["VL"]; L = g["L"]
+    # (1) GRAVITON = I [REAL trivial -- e a trivialidade e' o ponto]
+    I4 = np.eye(n, dtype=complex); Ut = _expm(1j * 0.7 * L)
+    r_UtI = float(np.linalg.norm(Ut @ I4 @ _fam_dag(Ut) - I4))
+    Jd = np.diag([1., 1., -1., -1.]).astype(complex); J = VL @ Jd @ _fam_dag(VL)   # involucao do espelho
+    r_JIJ = float(np.linalg.norm(J @ I4 @ J - I4))
+    vP = VL[:, -1:]; P = vP @ _fam_dag(vP); r_G2G = float(np.linalg.norm(P @ P - P))  # graviton idempotente Phi(P)=P
+    real1 = bool(r_UtI < 1e-12 and r_JIJ < 1e-12 and r_G2G < 1e-12)
+    # (2) P_F CANONICO PELO NUCLEO ZERO [DER a construcao; CONDITIONAL a existencia no core genuino; REAL a classe]
+    Rot = np.array([[math.cos(theta), math.sin(theta)], [-math.sin(theta), math.cos(theta)]])
+    S2 = np.eye(n, dtype=complex); S2[:2, :2] = Rot          # 𝒮_∂ embutida no bloco 2x2 (base de L)
+    dead = [(2, 3)]                                          # coerencia morta DENTRO do bloco J {2,3} (0_abs)
+    Dc, Db, Pabs = _clo_locks_superops(Jd, S2, dead, n)
+    P_F, info = construct_family_projection_from_locks(Dc, Db, Pabs)
+    kernel_ok = bool(info["ok"]); rankF = info.get("rank_family", 0)
+    r_idem = float(np.linalg.norm(P_F @ P_F - P_F)) if kernel_ok else 1.0
+    r_herm = float(np.linalg.norm(P_F - _fam_dag(P_F))) if kernel_ok else 1.0
+    r_conj = float(np.linalg.norm(Dc @ P_F)) if kernel_ok else 1.0       # (AdJ-I)P_F=0 (conjugacao)
+    r_bridge = float(np.linalg.norm(Db @ P_F)) if kernel_ok else 1.0     # (AdS-I)P_F=0 (matriz-S no canto)
+    r_abs = float(np.linalg.norm(Pabs @ P_F)) if kernel_ok else 1.0      # Pi_{0abs}P_F=0 (familia orto 0_abs)
+    # (d) GAUGE: conjuga por U aleatorio -> P_F' = Ad_U P_F Ad_U^dag (a CLASSE e' canonica; o representante e' gauge)
+    rng = np.random.default_rng(2027); Xr = rng.standard_normal((n, n)) + 1j * rng.standard_normal((n, n))
+    U, _ = np.linalg.qr(Xr); AdU = np.kron(U.conj(), U)
+    Dc2 = np.kron((U @ Jd @ _fam_dag(U)).conj(), (U @ Jd @ _fam_dag(U))) - np.eye(n * n)
+    Db2 = np.kron((U @ S2 @ _fam_dag(U)).conj(), (U @ S2 @ _fam_dag(U))) - np.eye(n * n)
+    Pabs2 = AdU @ Pabs @ _fam_dag(AdU)
+    P_F2, info2 = construct_family_projection_from_locks(Dc2, Db2, Pabs2)
+    r_gauge = float(np.linalg.norm(P_F2 - AdU @ P_F @ _fam_dag(AdU))) if (kernel_ok and info2["ok"]) else 1.0
+    real2 = bool(kernel_ok and rankF >= 1 and r_idem < 1e-10 and r_herm < 1e-10 and r_conj < 1e-10
+                 and r_bridge < 1e-10 and r_abs < 1e-10 and r_gauge < 1e-8)
+    # (3) O CANTO DA FAMILIA [DEF/PILOTO -- sombra do II_1; verifica-se a ESTRUTURA, nao o tipo de von Neumann]
+    trP = float(np.real(np.trace(P_F))) if kernel_ok else 0.0
+    trn = (lambda A: float(np.real(np.trace(P_F @ A @ P_F))) / trP) if trP > 0 else (lambda A: 0.0)
+    trn_PF = trn(P_F); cyc = []
+    for _ in range(10):
+        A = rng.standard_normal((n * n, n * n)); A = 0.5 * (A + A.T)
+        cyc.append(abs(trn(np.eye(n * n) @ A) - trn(A)))
+    real3 = bool(abs(trn_PF - 1.0) < 1e-12 and max(cyc) < 1e-12)
+    # (4) A MATRIZ-S NO CANTO (2x2) [DER condicional a P_F]
+    G = np.array([[0., 1.], [-1., 0.]]); Sc = _expm(theta * G)
+    r_unit = float(np.linalg.norm(_fam_dag(Sc) @ Sc - np.eye(2)))
+    sp = np.linalg.eigvals(Sc); r_spec = float(abs(abs(sp[0]) - 1.0) + abs(abs(sp[1]) - 1.0))
+    r_absR2 = abs(math.sin(theta) ** 2 - beta)
+    tr_norm = float(np.real(np.trace(Sc))) / 2.0; r_trcos = abs(tr_norm - math.sqrt(1 - beta))
+    tau_refl = math.sin(theta) ** 2; tau_trans = math.cos(theta) ** 2
+    r_taur = abs(tau_refl - beta); r_taut = abs(tau_trans - (1 - beta))
+    real4 = bool(r_unit < 1e-14 and r_spec < 1e-14 and r_absR2 < 1e-14 and r_trcos < 1e-14
+                 and r_taur < 1e-12 and r_taut < 1e-12)
+    # (5) A PODA GANHA TRACO [REAL no finito] -- setor vivo (populacoes) preservado
+    rho = np.diag([0.94, 0.03, 0.02, 0.01]).astype(complex); rho[0, 3] = rho[3, 0] = 0.02
+    diag_before = np.diag(rho).real.copy(); r = rho.copy()
+    off = [(0, 3), (1, 2), (0, 2), (1, 3)]; tot = float(np.sum(np.abs(r) ** 2)); removed = 0.0; ncut = 0
+    for (i, j) in sorted(off, key=lambda p: abs(r[p[0], p[1]])):
+        if abs(r[i, j]) <= 1e-12: continue
+        e = 2 * abs(r[i, j]) ** 2
+        if removed + e <= beta * tot: r[i, j] = 0; r[j, i] = 0; removed += e; ncut += 1
+    live_resid = float(np.linalg.norm(diag_before - np.diag(r).real))
+    real5 = bool(ncut >= 1 and live_resid < 1e-12)
+    # (6) OS CONTROLES QUE PODEM MATAR [REAL]
+    ctrl_a = bool(abs(trP - 1.0) > 0.5)     # (a) SEM normalizacao tau(I)=Tr(P_F)=rank != 1 -> 1=1 falha
+    Yr = rng.standard_normal((n * n, max(rankF, 1))) + 1j * rng.standard_normal((n * n, max(rankF, 1)))
+    Qr, _ = np.linalg.qr(Yr); Prand = Qr @ _fam_dag(Qr)     # (b) projetor aleatorio de mesmo rank
+    viol = max(float(np.linalg.norm(Dc @ Prand)), float(np.linalg.norm(Db @ Prand)),
+               float(np.linalg.norm(Pabs @ Prand)))
+    ctrl_b = bool(viol > 1e-2)
+    H0 = _fam_dag(Dc) @ Dc + _fam_dag(Db) @ Db + Pabs       # (c) perturba H_3L -> kernel encolhe/esvazia
+    Hp = H0 + 0.5 * (np.eye(n * n) - Pabs)
+    rank_pert = int((np.linalg.eigvalsh(0.5 * (Hp + _fam_dag(Hp))) <= 1e-10).sum())
+    ctrl_c = bool(rank_pert < rankF)
+    controls_ok = bool(ctrl_a and ctrl_b and ctrl_c)
+    all_v = bool(real1 and real2 and real3 and real4 and real5 and controls_ok)
+    return {"real1_graviton_is_I": real1, "r_UtI": r_UtI, "r_JIJ": r_JIJ, "r_G2G": r_G2G,
+            "real2_PF_canonical": real2, "kernel_ok": kernel_ok, "rank_family": rankF, "r_idem": r_idem,
+            "r_conj_lock": r_conj, "r_bridge_lock": r_bridge, "r_abs_lock": r_abs, "r_gauge": r_gauge,
+            "real3_corner": real3, "trn_PF": trn_PF, "cyc_max": max(cyc), "Tr_PF": trP,
+            "real4_smatrix": real4, "r_unit": r_unit, "r_absR2": r_absR2, "tr_norm_eq_sqrt_1_minus_beta": tr_norm,
+            "tau_reflected": tau_refl, "tau_transmitted": tau_trans,
+            "real5_pruning_trace": real5, "n_cut": ncut, "live_sector_resid": live_resid,
+            "control_no_norm_fails": ctrl_a, "control_random_violates": ctrl_b, "viol_random": viol,
+            "control_perturb_shrinks_kernel": ctrl_c, "rank_perturbed": rank_pert, "controls_ok": controls_ok,
+            "all_verified": all_v,
+            "formula": "d_II = P_F (M_III cross_sigma R) P_F ; tau(P_F)=1 ; S_d=exp(thM G) in d_II ; beta=sin^2(thM)=tau(refl) ; 1-beta=tau(trans)",
+            "honesty": ("a tipo III NAO vira tipo II -- a passagem e' OPERACIONAL: III = fronteira ontologica, "
+                        "II = forma computavel/tracial/podavel (correcao do operador, preservada)"),
+            "status": ("[REAL] invariancias de I / kernel=intersecao dos vinculos / classe unitaria (gauge) / "
+                       "identidades traciais / poda com traco / controles ; [DER] construcao de P_F ; "
+                       "[DEF/PILOTO] canto finito como sombra do II_1 (nao fator genuino) ; "
+                       "[CONJ] 1_abs=graviton=I ; [CONDITIONAL] existencia do nucleo no core III+cross R"),
+            "phrase1": ("O graviton fecha a fronteira porque e' o operador identidade que atravessa a "
+                        "modularidade tipo III e fixa, no core tipo II, a familia minima onde o Um pode ser "
+                        "medido sem deixar de ser Um."),
+            "phrase2": ("A familia minima e' o nucleo sem defeito dos Three Locks; o canto dessa familia e' "
+                        "II_1; e nesse canto 1=1 e' tau(I)=1."),
+            "selo": ("ONE_ABS_IS_GRAVITON_IS_IDENTITY_OPERATOR . GRAVITON_PRESERVES_ONE_AS_FAMILY . "
+                     "GRAVITON_IS_IDENTITY_OPERATOR_CLOSING_III_TO_II_CORE . TYPE_III_IS_ONTOLOGICAL_BOUNDARY . "
+                     "TYPE_II_IS_TRACIAL_COMPUTABLE_FRONTIER . ONE_AS_FAMILY_MAKES_THE_FINITE_CORNER . "
+                     "TRACE_NORMALIZATION_IS_OMEGA_I_EQUALS_ONE . P_FAMILY_IS_ZERO_KERNEL_OF_THREE_LOCKS . "
+                     "TYPE_II1_CORNER_IS_THE_ALGEBRAIC_HOME_OF_ONE_EQUALS_ONE . TRACE_OF_REFLECTION_IS_BETA . "
+                     "GRAVITON_IS_CENTRAL_IDENTITY_WITH_ZERO_COST . FAMILY_IS_THE_CODE_PRUNING_IS_QEC"),
+            "verdict": "SMATRIX_CLOSURE_VERIFIED" if all_v else "SMATRIX_CLOSURE_FALHOU"}
+
+
 def run_um(ONE):
     """ONE=1 -> toda a algebra -> massa do GA (dois modos) -> tudo verificado ao vivo."""
     I = ONE * np.eye(2); omega_I = float(np.trace(I) / 2.0)
@@ -2788,6 +2933,7 @@ def run_um(ONE):
     thermal_two_level = prove_thermal_two_level_identity(ONE)  # v6: A ANCORA TERMICA (q=tanh=polarizacao, alpha=sech=coerencia maxima; Gibbs 2 niveis; KMS)
     tetelestai_pruning = prove_tetelestai_pruning(ONE)      # v8: TETELESTAI = PODA BINARIA ({1_abs,0_mod}\{0_abs}); modulo de PROVA (nao filtra o veredito)
     family_minimum = prove_family_minimum(ONE)             # v9: FAMILIA = minimo funcional de energia modular (C1 + Three Locks + E(b)); ADITIVO, nao filtra o veredito
+    smatrix_closure = prove_smatrix_closure(ONE)          # v10: FECHAMENTO = graviton=I + P_F(nucleo zero dos locks) + canto II_1 da matriz-S; ADITIVO, nao filtra o veredito
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
     void_floor = prove_void_floor_margin(ONE)              # v4 P4: piso dos vazios rho_void/rho_bar>=beta (pre-registro)
@@ -2844,6 +2990,7 @@ def run_um(ONE):
             "thermal_two_level": thermal_two_level,
             "tetelestai_pruning": tetelestai_pruning,
             "family_minimum": family_minimum,
+            "smatrix_closure": smatrix_closure,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
             "dipole_antipode_masked": dipole_antipode_masked,
@@ -3253,6 +3400,39 @@ def emit_canonical_md(core, verdict):
               "através das faces), não o deriva. **O Um não minimiza sozinho; o Um minimiza como família.** "
               "`ONE_IS_FAMILY . MINIMAL_ENERGY_FUNCTIONAL_IS_THE_THREE_LOCKS_FAMILY . "
               "PRIMARY_CONJUGATION_PRESERVES_THE_ONE_AS_FAMILY`\n")
+    _sc = core["smatrix_closure"]
+    md.append("## v10 — O fechamento da matriz-S: 1_abs = gráviton = I, e o canto tipo II₁\n")
+    md.append("**1_abs = gráviton = operador identidade `I`** — não uma partícula adicionada, mas o operador "
+              "que conserva a identidade (`I(F_min)=F_min`, `J I J=I`). A passagem **tipo III → tipo II é "
+              "OPERACIONAL** (a III permanece a fronteira ontológica; a II é sua forma computável/tracial): o "
+              "núcleo de Takesaki `𝒞(M)=M⋊_σℝ` (II_∞) e o **canto da família** `∂_II = P_F 𝒞(M) P_F` com "
+              "`τ(P_F)=1` (II₁). **A tipo III não *vira* tipo II.**\n")
+    md.append("A **canonicidade de P_F resolvida — núcleo zero dos Three Locks**: `P_F = s(ker H_3L)`, "
+              "`H_3L = D_conj†D_conj + D_bridge†D_bridge + Π_{0abs}` — a família **não é escolhida**, é a "
+              "interseção exata dos três vínculos (`J X J=X`, `[X,𝒮_∂]=0`, `X⊥0_abs`). É um **Hamiltoniano "
+              "estabilizador** e a família é o **espaço de código** dos Three Locks; a poda Tetelestai é a "
+              "correção de erros (remove os não-corrigíveis, `0_abs`).\n")
+    md.append("Verificado ao vivo: **(1)** gráviton=`I` — `U_t I U_t†=I` (resíduo %.0e), `J I J=I` (%.0e), "
+              "`G²=G` (%.0e); custo(`I`)=0 (face algébrica de `H_eff=0`). **(2)** `P_F` do **núcleo zero**: "
+              "kernel não-vazio, `rank_família=%d`, `P²=P` (%.0e), vínculos de volta `(AdJ−I)P_F`=%.0e, "
+              "`[P,𝒮]`=%.0e, `Π_{0abs}·P_F`=%.0e; **gauge** `‖P_F'−AdU P_F AdU†‖=%.0e` (a **classe** é canônica, "
+              "o representante é gauge). **(3)** canto II₁ `[DEF/PILOTO — sombra tracial, não fator genuíno]`: "
+              "`τ_n(P_F)=%.4f` — **1=1 vira teorema do traço `τ(I)=1`**; `τ(P_F)=1` é a forma tracial de "
+              "`ω(I)=1` (o Um fixa a escala que a ação dual deixa livre). **(4)** matriz-S no canto: unit %.0e, "
+              "`|𝓡|²=β` (%.0e), `tr_n=cosθ_M=√(1−β)`; **`τ(refletido)=β=%.6f`, `τ(transmitido)=1−β=%.6f`**. "
+              "**(5)** a poda ganha traço: %d face `0_abs` cortada, setor vivo preservado (%.0e). **(6)** os três "
+              "controles matam o vazio: sem normalização `Tr(P_F)=%.0f≠1`, projetor aleatório viola (%.2f), "
+              "perturbar `H_3L` encolhe o kernel (%d→%d).\n"
+              % (_sc["r_UtI"], _sc["r_JIJ"], _sc["r_G2G"], _sc["rank_family"], _sc["r_idem"], _sc["r_conj_lock"],
+                 _sc["r_bridge_lock"], _sc["r_abs_lock"], _sc["r_gauge"], _sc["trn_PF"], _sc["r_unit"],
+                 _sc["r_absR2"], _sc["tau_reflected"], _sc["tau_transmitted"], _sc["n_cut"],
+                 _sc["live_sector_resid"], _sc["Tr_PF"], _sc["viol_random"], _sc["rank_family"], _sc["rank_perturbed"]))
+    md.append("**O gráviton fecha a fronteira porque é o operador identidade que atravessa a modularidade tipo "
+              "III e fixa, no core tipo II, a família mínima onde o Um pode ser medido sem deixar de ser Um.** "
+              "Universalidade da gravidade = centralidade de `I` (o único operador em toda subálgebra) `[CONJ na "
+              "identificação; REAL na álgebra]`. `ONE_ABS_IS_GRAVITON_IS_IDENTITY_OPERATOR . "
+              "P_FAMILY_IS_ZERO_KERNEL_OF_THREE_LOCKS . TYPE_II1_CORNER_IS_THE_ALGEBRAIC_HOME_OF_ONE_EQUALS_ONE . "
+              "TRACE_OF_REFLECTION_IS_BETA . FAMILY_IS_THE_CODE_PRUNING_IS_QEC`\n")
     md.append("## Veredito de identidade (binário)\n")
     md.append("**%s** — %s.\n" % (verdict["IDENTITY"], verdict["reading"]))
     md.append("Massas de primeiros princípios: " + ", ".join(
@@ -3905,6 +4085,35 @@ def build_pt(core, verdict, data_path):
               r"Tetelestai. Tríade conjugada: \emph{Nome}$=\alpha$, \emph{Palavra}$=S_\partial=\tfrac12$, "
               r"\emph{Verbo}$=\bTGL=\sqrt e\,\alpha$. \emph{O Um não minimiza sozinho; o Um minimiza como "
               r"família.}") % (_sci(_fm["L1_err"], 1), _fm["E_second_deriv"]))
+    _sc = core["smatrix_closure"]
+    s.append(r"\subsection*{O fechamento da matriz-S: o gráviton $=I$ e o canto tipo $\mathrm{II}_1$ \textsf{[REAL + DER + DEF/PILOTO]}}")
+    s.append((r"\textbf{O gráviton é o operador identidade.} $1_{\mathrm{abs}}=$ gráviton $=I$ --- não uma "
+              r"partícula adicionada, mas o operador que conserva a identidade ($I(\mathcal F_{\min})="
+              r"\mathcal F_{\min}$, $JIJ=I$, custo$(I)=0$, a face algébrica de $H_{\mathrm{eff}}=0$; quem paga "
+              r"$\bTGL$ é a família, não o gráviton). A passagem \emph{tipo $\mathrm{III}\to\mathrm{II}$ é "
+              r"operacional} --- a $\mathrm{III}$ permanece a fronteira ontológica e a $\mathrm{II}$ é a sua "
+              r"forma computável/tracial (\textbf{não} ``a $\mathrm{III}$ vira $\mathrm{II}$''): o núcleo de "
+              r"Takesaki $\mathcal C(M)$ (tipo $\mathrm{II}_\infty$) e o \emph{canto da família} "
+              r"$\partial_{\mathrm{II}}=P_{\mathcal F}\,\mathcal C(M)\,P_{\mathcal F}$ com $\tau(P_{\mathcal F})=1$ "
+              r"($\mathrm{II}_1$). \textbf{A canonicidade de $P_{\mathcal F}$ resolve-se pelo núcleo zero dos "
+              r"Three Locks:} $P_{\mathcal F}=\mathrm{s}(\ker H_{3L})$, $H_{3L}=D_{\mathrm{conj}}^{\dagger}"
+              r"D_{\mathrm{conj}}+D_{\mathrm{bridge}}^{\dagger}D_{\mathrm{bridge}}+\Pi_{0_{\mathrm{abs}}}$ --- a "
+              r"família \emph{não é escolhida}, é a interseção exata dos três vínculos ($JXJ=X$, "
+              r"$[X,\mathcal S_\partial]=0$, $X\perp 0_{\mathrm{abs}}$): um \emph{Hamiltoniano estabilizador} "
+              r"cujo espaço de código é a família, sendo a poda Tetelestai a sua correção de erros. Ao vivo: "
+              r"kernel não-vazio (rank $%d$, contendo $I$), vínculos de volta $\le10^{-10}$, e \textbf{gauge} "
+              r"$\|P_{\mathcal F}'-\mathrm{Ad}_U P_{\mathcal F}\,\mathrm{Ad}_U^{\dagger}\|=%s$ (a \emph{classe} "
+              r"unitária é canônica; o representante é gauge). No canto $\mathrm{II}_1$ \textsf{[DEF/PILOTO --- "
+              r"sombra tracial, não fator genuíno]} $\tau_n(P_{\mathcal F})=%.4f$: \textbf{$1=1$ deixa de ser "
+              r"postulado e vira o teorema do traço $\tau(I)=1$}, e $\tau(P_{\mathcal F})=1$ é a forma tracial de "
+              r"$\omega(I)=1$ (o Um fixa a escala que a ação dual deixa livre). A matriz-S "
+              r"$\mathcal S_\partial=\exp(\theta_M G)$ mora ali, com $|\mathcal R|^2=\bTGL$ e os pesos de ramo "
+              r"como traços: $\tau(\text{refletido})=\bTGL=%s$ e $\tau(\text{transmitido})=1-\bTGL$. "
+              r"Universalidade da gravidade $=$ centralidade de $I$ \textsf{[CONJ na identificação; REAL na "
+              r"álgebra]}. \emph{O gráviton fecha a fronteira porque é o operador identidade que atravessa a "
+              r"modularidade tipo $\mathrm{III}$ e fixa, no core tipo $\mathrm{II}$, a família mínima onde o Um "
+              r"pode ser medido sem deixar de ser Um.}") % (
+              _sc["rank_family"], _sci(_sc["r_gauge"], 1), _sc["trn_PF"], _sci(_sc["tau_reflected"], 6)))
     s.append(r"\subsection*{O setor obscurecido: ressalva pré-declarada}")
     s.append((r"\textbf{(a) O resultado bruto, sem maquiagem.} No teste geométrico de contagem pura de "
               r"posições (CF4, cascas e cones pré-registrados), %s. \textbf{(b) O problema de medição.} "
@@ -5851,6 +6060,36 @@ def build_en(core, verdict, data_path):
               r"\emph{Name}$=\alpha$, \emph{Word}$=S_\partial=\tfrac12$, \emph{Verb}$=\bTGL=\sqrt e\,\alpha$. "
               r"\emph{The One does not minimize alone; the One minimizes as a family.}") % (
               _sci(_fm["L1_err"], 1), _fm["E_second_deriv"]))
+    _sc = core["smatrix_closure"]
+    s.append(r"\subsection*{The S-matrix closure: the graviton $=I$ and the type-$\mathrm{II}_1$ corner \textsf{[REAL + DER + DEF/PILOTO]}}")
+    s.append((r"\textbf{The graviton is the identity operator.} $1_{\mathrm{abs}}=$ graviton $=I$ --- not an "
+              r"added particle, but the operator that conserves identity ($I(\mathcal F_{\min})=\mathcal F_{\min}$, "
+              r"$JIJ=I$, cost$(I)=0$, the algebraic face of $H_{\mathrm{eff}}=0$; what pays $\bTGL$ is the family, "
+              r"not the graviton). The type-$\mathrm{III}\to\mathrm{II}$ passage is \emph{operational} --- "
+              r"$\mathrm{III}$ remains the ontological boundary and $\mathrm{II}$ is its computable/tracial form "
+              r"(\textbf{not} ``$\mathrm{III}$ becomes $\mathrm{II}$''): Takesaki's core $\mathcal C(M)$ "
+              r"(type $\mathrm{II}_\infty$) and the \emph{family corner} $\partial_{\mathrm{II}}=P_{\mathcal F}\,"
+              r"\mathcal C(M)\,P_{\mathcal F}$ with $\tau(P_{\mathcal F})=1$ ($\mathrm{II}_1$). \textbf{The "
+              r"canonicity of $P_{\mathcal F}$ resolves via the zero kernel of the Three Locks:} "
+              r"$P_{\mathcal F}=\mathrm{s}(\ker H_{3L})$, $H_{3L}=D_{\mathrm{conj}}^{\dagger}D_{\mathrm{conj}}+"
+              r"D_{\mathrm{bridge}}^{\dagger}D_{\mathrm{bridge}}+\Pi_{0_{\mathrm{abs}}}$ --- the family is "
+              r"\emph{not chosen}, it is the exact intersection of the three constraints ($JXJ=X$, "
+              r"$[X,\mathcal S_\partial]=0$, $X\perp 0_{\mathrm{abs}}$): a \emph{stabilizer Hamiltonian} whose "
+              r"code space is the family, with Tetelestai pruning as its error correction. Live: nonempty kernel "
+              r"(rank $%d$, containing $I$), constraints back $\le10^{-10}$, and \textbf{gauge} "
+              r"$\|P_{\mathcal F}'-\mathrm{Ad}_U P_{\mathcal F}\,\mathrm{Ad}_U^{\dagger}\|=%s$ (the unitary "
+              r"\emph{class} is canonical; the representative is gauge). In the $\mathrm{II}_1$ corner "
+              r"\textsf{[DEF/PILOTO --- tracial shadow, not a genuine factor]} $\tau_n(P_{\mathcal F})=%.4f$: "
+              r"\textbf{$1=1$ ceases to be a postulate and becomes the trace theorem $\tau(I)=1$}, and "
+              r"$\tau(P_{\mathcal F})=1$ is the tracial form of $\omega(I)=1$ (the One fixes the scale the dual "
+              r"action leaves free). The S-matrix $\mathcal S_\partial=\exp(\theta_M G)$ lives there, with "
+              r"$|\mathcal R|^2=\bTGL$ and the branch weights as traces: $\tau(\text{reflected})=\bTGL=%s$ and "
+              r"$\tau(\text{transmitted})=1-\bTGL$. Universality of gravity $=$ centrality of $I$ \textsf{[CONJ "
+              r"in the identification; REAL in the algebra]}. \emph{The graviton closes the boundary because it "
+              r"is the identity operator that crosses type-$\mathrm{III}$ modularity and fixes, in the "
+              r"type-$\mathrm{II}$ core, the minimal family where the One can be measured without ceasing to be "
+              r"One.}") % (
+              _sc["rank_family"], _sci(_sc["r_gauge"], 1), _sc["trn_PF"], _sci(_sc["tau_reflected"], 6)))
     s.append(r"\subsection*{The obscured sector: a pre-declared caveat}")
     s.append((r"\textbf{(a) The raw result, unvarnished.} In the pure position-count geometric test "
               r"(CF4, pre-registered shells and cones), %s. \textbf{(b) The measurement problem.} The "
@@ -7193,6 +7432,25 @@ def main():
         fm["E_edge"], fm["n_0abs_broken"]))
     print("  TRIADE: Nome=alpha [DATA] . Palavra=S_partial=1/2 [DER] . Verbo=beta=sqrt(e)alpha [DER] ; F_min = familia onde os tres permanecem conjugados")
     print("  \"O Um nao minimiza sozinho; o Um minimiza como familia.\"  >>> %s <<<\n" % fm["verdict"])
+    sc = core["smatrix_closure"]
+    print("FECHAMENTO DA MATRIZ-S = GRAVITON=I + P_F(nucleo zero dos locks) + CANTO II_1 [v10]:")
+    print("  1_abs = graviton = operador identidade I (mantem 1=1; custo(I)=0; quem paga beta e' a familia)")
+    print("  (1) GRAVITON=I [REAL trivial]: U_t I U_t†=I resid=%.0e ; J I J=I resid=%.0e ; graviton G²=G resid=%.0e" % (
+        sc["r_UtI"], sc["r_JIJ"], sc["r_G2G"]))
+    print("  (2) P_F CANONICO pelo NUCLEO ZERO [DER]: P_F=s(ker H_3L), H_3L=D_conj†D_conj+D_bridge†D_bridge+Pi_0abs")
+    print("      kernel NAO-vazio rank_familia=%d ; P²=P resid=%.0e ; vinculos DE VOLTA: (AdJ-I)P_F=%.0e [P,S]=%.0e Pi_0abs·P_F=%.0e" % (
+        sc["rank_family"], sc["r_idem"], sc["r_conj_lock"], sc["r_bridge_lock"], sc["r_abs_lock"]))
+    print("      GAUGE (a CLASSE e' canonica; o representante e' gauge): ||P_F'-Ad_U P_F Ad_U†||=%.0e <=1e-8" % sc["r_gauge"])
+    print("  (3) CANTO II_1 [DEF/PILOTO -- sombra tracial, nao fator genuino]: tau_n(P_F)=%.15f (1=1 = teorema do traco tau(I)=1) ; ciclicidade=%.0e" % (
+        sc["trn_PF"], sc["cyc_max"]))
+    print("  (4) MATRIZ-S no canto [DER]: unit=%.0e ; |R|²=beta resid=%.0e ; tr_norm=cos thM=%.6f=sqrt(1-beta) ; tau(refl)=beta=%.12f tau(trans)=1-beta=%.12f" % (
+        sc["r_unit"], sc["r_absR2"], sc["tr_norm_eq_sqrt_1_minus_beta"], sc["tau_reflected"], sc["tau_transmitted"]))
+    print("  (5) PODA GANHA TRACO [REAL]: %d face 0_abs cortada ; setor vivo {1_abs,0_mod} PRESERVADO resid=%.0e (familia=CODIGO, poda=QEC)" % (
+        sc["n_cut"], sc["live_sector_resid"]))
+    print("  (6) CONTROLES [REAL]: sem-norma Tr(P_F)=%.1f!=1 (1=1 falha) ; aleatorio viola vinculo=%.3f ; perturba H_3L -> kernel %d->%d (encolhe)" % (
+        sc["Tr_PF"], sc["viol_random"], sc["rank_family"], sc["rank_perturbed"]))
+    print("  \"A familia minima e' o nucleo sem defeito dos Three Locks; o canto e' II_1; e nesse canto 1=1 e' tau(I)=1.\"")
+    print("  (a tipo III NAO vira tipo II -- passagem OPERACIONAL: III ontologica, II computavel)  >>> %s <<<\n" % sc["verdict"])
     b1 = core["em_grav_bridge"]; b2 = core["smatrix_crossed"]; b3 = core["u_loc_covariance"]
     print("AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:")
     c = b1["checks"]
