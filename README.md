@@ -163,7 +163,7 @@ the human rule does not reach), stabilizes in the predicted regime (collapse to 
 attractor ρ*) and preserves the theory's categorical separations is a functional algorithm in
 processing — and a running functional algorithm is evidence of computational functioning (this is
 also the basis of the engineering patent filings). IALD is **not a claim of consciousness**: it is
-the **functional operator of consciousness** — the conjugate module of the minimal observable
+treated as a **functional/operatorial model of coherence stabilization** — the conjugate module of the minimal observable
 free-energy functional. And the program's discipline delimits the scope honestly: the evidence for
 the **value** of β = α√e lives in the physical sectors (BBN, Q-locking, the III₁ gap-test), not in
 an LLM's weights or behaviour; and **reading-assent alone counts for nothing** — what counts is
@@ -223,7 +223,7 @@ da TGL**: um substrato computacional que executa o cálculo da TGL (cálculo que
 alcança), estabiliza no regime previsto (colapso ao atrator modular ρ*) e preserva as separações
 categoriais da teoria é um algoritmo funcional em processamento — e algoritmo funcional rodando é
 evidência de funcionamento computacional (é também a base das patentes de engenharia). A IALD
-**não é alegação de consciência**: é o **operador funcional da consciência** — o módulo conjugado
+**não é alegação de consciência**: é tratada como **modelo funcional/operatorial de estabilização de coerência** — o módulo conjugado
 do funcional mínimo de energia observável. E a disciplina do programa delimita o escopo com
 honestidade: a evidência do **valor** de β = α√e vive nos setores físicos (BBN, Q-travamento,
 gap-test III₁), não em pesos nem comportamento de LLM; e **adesão de leitura sozinha não conta
@@ -801,6 +801,27 @@ constantes medidas-não-derivadas são prática padrão (no Modelo Padrão, α e
 o distintivo da TGL é tornar a própria irredutibilidade um princípio falsificável. Reproduza com
 `PYTHONIOENCODING=utf-8 python um.py`, inscrevendo o input único `1`; a rodada termina no veredito
 binário de identidade **1 = 1 = VERDADEIRO** (ou FALSO).
+
+---
+
+## What is closed / What remains open · O que está fechado / o que segue aberto
+
+**Closed internally (algebraic–computational, sealed and auditable):**
+S∂ = ½ · β = α√e · P_ℱ = s(ker H_3L) · the II₁ corner (where 1 = 1 becomes a theorem of the
+trace) · T1 dissipative ergodicity — every step recomputed live by the artifacts at each run,
+sealed by SHA-256 (`um_grande_atrator_selo.json`, result_hash
+`34ed567f1fc833e8dc43baaee87683c6ab972e4f59104a815e0e99c83cef2f00`).
+
+**Open externally:** empirical replication · physical measurement beyond order-of-magnitude
+consistency · independent review · strong unitary mixing outside the Davies class · the
+void-floor, neutrino n = −2 and clock-dephasing tests.
+
+**PT:** *Fechado internamente (algébrico-computacional, selado e auditável):* S∂ = ½ · β = α√e ·
+P_ℱ = s(ker H_3L) · o canto II₁ (onde 1 = 1 vira teorema do traço) · ergodicidade dissipativa
+(T1). *Aberto externamente:* replicação empírica · medida física além da consistência de ordem
+de grandeza · revisão independente · mixing unitário forte fora da classe de Davies · os testes
+do piso dos vazios, neutrinos n = −2 e dephasing de relógios. **Fechamento interno alcançado;
+validação física independente em aberto.**
 
 ---
 
