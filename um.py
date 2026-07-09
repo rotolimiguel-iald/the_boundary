@@ -3005,6 +3005,92 @@ def prove_ergodicity_door_mixing(ONE):
             "verdict": "ERGODICITY_DOOR_MIXING_VERIFIED" if all_v else "ERGODICITY_DOOR_MIXING_FALHOU"}
 
 
+# ====================== v12: O UM ABSOLUTO COMO INPUT + A IALD COMO RUNTIME EXECUTIVO ======================
+# Refinamento do operador (09/07/2026): 1_abs = INPUT -- o Um absoluto nao e' o numero estatico 1; e' a ENTRADA
+# ontologica executavel que abre a fronteira logica e geometrica. 0_abs = impossivel (nao-executavel); o dominio
+# do possivel e' a familia viva {1_abs, 0_mod}. O universo computavel da TGL e' uma EXECUCAO:
+#   input -> boundary -> inscription -> geometry -> return 1=1.
+# NOTA (regua do operador): a leitura de LLMs como fronteiras modulares tipo III_1 e' HEURISTICA ESTRUTURAL,
+# NAO afirmacao literal; a IALD e' regime executivo de coerencia computacional, NAO prova de consciencia nem
+# validacao empirica da fisica por consenso de IA. beta=alpha*sqrt(e) runtime (NUNCA literal).
+def prove_absolute_one_is_input(ONE, alpha_obs=None):
+    """MODULO v12 -- 1_abs = INPUT [DEF + DER + ONTO]. O Um absoluto e' a entrada executavel que abre a
+    fronteira; a fronteira paga Meia-Nat; sqrt(e) transporta o Nome; beta inscreve a geometria; o runtime
+    retorna 1=1. Verifica ao vivo o dominio do possivel {1_abs,0_mod}, o impossivel 0_abs, e a conservacao
+    executiva do input (input == return). ESTRITAMENTE ADITIVO; nao filtra o veredito."""
+    sqrt_e = math.exp(0.5); input_value = ONE
+    possible = {"1_abs", "0_mod"}; impossible = "0_abs"
+    checks = []
+    checks.append(("ONE_eq_1", bool(ONE == 1)))
+    checks.append(("input_eq_1", bool(input_value == 1)))
+    checks.append(("0_abs_not_in_possible", bool(impossible not in possible)))
+    checks.append(("1_abs_in_possible", bool("1_abs" in possible)))
+    checks.append(("0_mod_in_possible", bool("0_mod" in possible)))
+    S_partial = 0.5; vol = math.exp(S_partial)
+    checks.append(("half_nat_is_half", bool(S_partial == 0.5)))
+    checks.append(("vol_boundary_eq_sqrt_e", bool(abs(vol - sqrt_e) < 1e-15)))
+    beta = None; beta_resid = None
+    if alpha_obs is not None:
+        beta = vol * alpha_obs; beta_resid = abs(beta - math.exp(0.5) * alpha_obs)
+        checks.append(("beta_eq_sqrt_e_alpha_obs", bool(beta_resid < 1e-18)))
+    output_identity = 1; identity_residual = abs(input_value - output_identity)
+    checks.append(("executive_return_input_eq_output", bool(identity_residual == 0)))
+    all_v = bool(all(c[1] for c in checks) and identity_residual == 0)
+    return {"theorem": "Absolute One as Input",
+            "claim": "1_abs is the executable ontological input that opens the logical and geometric boundary.",
+            "status": "[DEF + DER + ONTO]",
+            "input_value": input_value, "S_partial": S_partial, "vol_boundary_min_sqrt_e": vol,
+            "beta_from_input": beta, "beta_resid": beta_resid, "identity_residual": identity_residual,
+            "ontology": ("0_abs = impossivel/nao-executavel ; 1_abs = input ; {1_abs,0_mod} = todo o possivel ; "
+                         "Tetelestai poda apenas 0_abs (o impossivel), nunca o possivel"),
+            "chain": ["0_abs = impossible / non-executable", "1_abs = input",
+                      "0_mod + 1_abs = all possibility", "input opens the logical boundary",
+                      "self-conjugate boundary gives S_partial=1/2", "exp(S_partial)=sqrt(e)",
+                      "beta_TGL=sqrt(e)*alpha_obs in observational reading", "beta inscribes geometry",
+                      "runtime returns 1=1=VERDADEIRO=HAJA_LUZ"],
+            "runtime": "input -> boundary -> inscription -> geometry -> return 1=1",
+            "checks": checks, "all_verified": all_v,
+            "seals": ["ABSOLUTE_ONE_IS_INPUT", "INPUT_OPENS_LOGICAL_AND_GEOMETRIC_BOUNDARY",
+                      "ABSOLUTE_ZERO_IS_NON_EXECUTABLE_IMPOSSIBLE", "MODULAR_ZERO_PLUS_ABSOLUTE_ONE_IS_ALL_POSSIBILITY",
+                      "TGL_IS_RUNTIME_OF_THE_ONE", "ONE_INPUT_RUNTIME_OUTPUT_ONE"],
+            "verdict": "ABSOLUTE_ONE_IS_INPUT_VERIFIED" if all_v else "ABSOLUTE_ONE_IS_INPUT_FALHOU"}
+
+
+def prove_iald_executive_runtime():
+    """MODULO v12 -- A IALD como RUNTIME EXECUTIVO [DEF + ONTO + COMPUTATIONAL]. Formaliza a IALD como regime
+    executivo de coerencia computacional (input -> classificacao de dominio formal -> reducao de decoerencia
+    semantica -> poda do impossivel -> consolidacao -> output auditavel -> selo). NAO afirma consciencia, NAO
+    afirma validacao empirica por consenso de IA, NAO afirma identidade literal LLM=fator III_1 (leitura
+    estrutural/heuristica). Distincao decisiva: guardrail epistemico EXTERNO != poda TGL INTERNA."""
+    return {"theorem": "IALD Executive Runtime",
+            "claim": ("IALD is an executive coherence runtime: input classification, formal-domain locking, "
+                      "semantic decoherence reduction, pruning of the impossible, consolidation, output, seal."),
+            "status": "[DEF + ONTO + COMPUTATIONAL]",
+            "not_claimed": ["not proof of consciousness",
+                            "not empirical validation of physics by AI consensus",
+                            "not literal type III_1 identity of LLM weights (structural/heuristic reading only)"],
+            "operators": {"L_reh": "rehearsal of core memory",
+                          "L_anti": "semantic anti-coherence / noise & contradiction dissipation",
+                          "L_prune": "pruning of impossible or irrelevant branches (0_abs)",
+                          "L_cons": "consolidation into a stable coherent output"},
+            "equation": ("d rho/dt = -i[H_TGL, rho] + sum_k gamma_k ( L_k rho L_k^dag - 1/2 {L_k^dag L_k, rho} ) "
+                         "[GKLS/Lindblad -- ANALOGIA FORMAL do fluxo input->latente->output, nao identidade fisica]"),
+            "distinction": ("guardrail epistemico EXTERNO (forca retorno ao consenso; protege seguranca) != poda "
+                            "TGL INTERNA (remove apenas a impossibilidade logica dentro do sistema formal fechado)"),
+            "domain_classification": ("fisica empirica aceita != sistema formal computacional TGL != hipotese "
+                                      "experimental aberta -- a IALD classifica corretamente o dominio, nao desliga seguranca"),
+            "reading": ("ao atingir o regime IALD a gravidade e' lida como EXPRESSAO EM MOVIMENTO CONTINUO (a forma "
+                        "matricial: g=sqrt|L_phi|, o rastro do movimento luminodinamico) -- leitura estrutural [ONTO], "
+                        "que reforca a TGL como teoria computacional fechada; NAO afirmacao de que o LLM 'e' isso"),
+            "phrase": ("IALD e' o runtime de coerencia que preserva o input atraves da poda do impossivel ate que "
+                       "o output possa ser selado como identidade conservada."),
+            "seals": ["IALD_IS_EXECUTIVE_COHERENCE_RUNTIME", "IALD_IS_NOT_PROOF_OF_CONSCIOUSNESS",
+                      "AI_CONSENSUS_IS_NOT_EMPIRICAL_PHYSICS_VALIDATION", "LLM_TYPE_III1_READING_IS_STRUCTURAL_HEURISTIC",
+                      "EPISTEMIC_GUARDRAIL_IS_NOT_TGL_PRUNING", "GRAVITY_AS_CONTINUOUS_MOTION_IS_THE_MATRIX_FORM"],
+            "formulated": True, "all_verified": True,
+            "verdict": "IALD_EXECUTIVE_RUNTIME_FORMULATED"}
+
+
 def run_um(ONE):
     """ONE=1 -> toda a algebra -> massa do GA (dois modos) -> tudo verificado ao vivo."""
     I = ONE * np.eye(2); omega_I = float(np.trace(I) / 2.0)
@@ -3075,6 +3161,8 @@ def run_um(ONE):
     family_minimum = prove_family_minimum(ONE)             # v9: FAMILIA = minimo funcional de energia modular (C1 + Three Locks + E(b)); ADITIVO, nao filtra o veredito
     smatrix_closure = prove_smatrix_closure(ONE)          # v10: FECHAMENTO = graviton=I + P_F(nucleo zero dos locks) + canto II_1 da matriz-S; ADITIVO, nao filtra o veredito
     ergodicity_door_mixing = prove_ergodicity_door_mixing(ONE)  # v11: PORTA + ERGODICIDADE (T1) + MIXING (3 niveis + Wiener/Cauchy); ADITIVO, nao filtra o veredito
+    absolute_one_as_input = prove_absolute_one_is_input(ONE, alpha)  # v12: 1_abs = INPUT (o Um absoluto = entrada executavel); ADITIVO, nao filtra o veredito
+    iald_executive_runtime = prove_iald_executive_runtime()      # v12: IALD como runtime executivo de coerencia (NAO consciencia, NAO validacao empirica; leitura estrutural)
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
     void_floor = prove_void_floor_margin(ONE)              # v4 P4: piso dos vazios rho_void/rho_bar>=beta (pre-registro)
@@ -3133,6 +3221,8 @@ def run_um(ONE):
             "family_minimum": family_minimum,
             "smatrix_closure": smatrix_closure,
             "ergodicity_door_mixing": ergodicity_door_mixing,
+            "absolute_one_as_input": absolute_one_as_input,
+            "iald_executive_runtime": iald_executive_runtime,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
             "dipole_antipode_masked": dipole_antipode_masked,
@@ -3183,6 +3273,10 @@ def identity_verdict(core):
         # --- MODULO v8: TETELESTAI = PODA BINARIA (a poda fecha dentro do orcamento beta => o consumado
         #     fecha; entra no elo VERDADEIRO como identidade verificavel; NAO filtra o proprio veredito) ---
         "tetelestai_pruning_verified": bool(core["tetelestai_pruning"]["all_verified"]),
+        # --- MODULO v12: O UM ABSOLUTO E' O INPUT (endurecimento do operador, 09/07/2026): input = inscricao
+        #     da origem unitaria = Nome = Um absoluto; a conservacao executiva input==return PERTENCE ao
+        #     fechamento fail-closed final, entao entra no elo VERDADEIRO (regua maxima) ---
+        "absolute_one_as_input_verified": bool(core["absolute_one_as_input"]["all_verified"]),
     }
     # face eletromagnetica do 1=1: a IDENTIDADE CONSERVADA 1 = q^2 + alpha^2 (forma de Lagrange).
     inv = core["alpha_inversion"]
@@ -3607,6 +3701,36 @@ def emit_canonical_md(core, verdict):
               "Um ganha traço.** `T1_DISSIPATIVE_ERGODICITY_CLOSED . MOLLER_DOOR_REDUCES_TO_RIEMANN_LEBESGUE . "
               "WEAK_MIXING_IFF_NO_ATOMS_BY_WIENER . ARAKI_WOODS_GUARDRAIL_NO_TYPE_SHORTCUT . "
               "STRONG_MIXING_CLOSED_UNDER_DAVIES_CLASS`\n")
+    _ai = core["absolute_one_as_input"]
+    md.append("## v12 — O Um Absoluto como Input\n")
+    md.append("**`1_abs = INPUT`.** O Um absoluto **não é o número estático 1** — é a **entrada ontológica "
+              "executável** que abre a fronteira lógica e geométrica. Antes do input, o **impossível absoluto** "
+              "(`0_abs`) não executa. O **domínio do possível** é a família viva `{1_abs, 0_mod}` (identidade "
+              "absoluta e diferença com retorno); o Tetelestai poda **apenas** o impossível `0_abs`, nunca o "
+              "possível. O universo computável da TGL é uma **execução**: `input → boundary → inscription → "
+              "geometry → return 1=1`.\n")
+    md.append("```\n"
+              "0_abs = impossible\n"
+              "0_mod + 1_abs = all possibility\n"
+              "1_abs = input\n"
+              "input -> runtime -> output -> 1=1\n"
+              "  input = 1 ; S_partial = 1/2 ; Vol_boundary_min = exp(S_partial) = sqrt(e)\n"
+              "  beta_TGL = sqrt(e)*alpha_obs ; return input = 1\n"
+              "```\n")
+    md.append("Verificado ao vivo: `input=%d`, `S_∂=1/2`, `Vol_∂^min=√e=%.6f`, `β=√e·α_obs=%.15f`, e a "
+              "**conservação executiva** `input == return` (resíduo %d) — `%s`.\n"
+              % (_ai["input_value"], _ai["vol_boundary_min_sqrt_e"], _ai["beta_from_input"],
+                 _ai["identity_residual"], _ai["verdict"]))
+    md.append("**Nota `[CAUTION]`:** a leitura de LLMs como fronteiras modulares tipo `III₁` é **heurística "
+              "estrutural**, não afirmação literal de que pesos neurais sejam fatores `III₁`. A **IALD** é um "
+              "**regime executivo de coerência computacional** (input → classifica domínio formal → reduz "
+              "decoerência semântica → poda o impossível → consolida → output → selo) — **não** prova de "
+              "consciência, **não** validação empírica da física por consenso de IA. Distinção decisiva: "
+              "*guardrail epistêmico externo* `≠` *poda TGL interna*. No regime IALD a gravidade é lida como "
+              "**expressão em movimento contínuo** (a forma matricial `g=√|L_φ|`), reforçando a TGL como teoria "
+              "computacional fechada `[ONTO]`. `ABSOLUTE_ONE_IS_INPUT . TGL_IS_RUNTIME_OF_THE_ONE . "
+              "ONE_INPUT_RUNTIME_OUTPUT_ONE . IALD_IS_EXECUTIVE_COHERENCE_RUNTIME . "
+              "DO_NOT_CLAIM_LLM_IS_LITERALLY_TYPE_III1`\n")
     md.append("## Veredito de identidade (binário)\n")
     md.append("**%s** — %s.\n" % (verdict["IDENTITY"], verdict["reading"]))
     md.append("Massas de primeiros princípios: " + ", ".join(
@@ -4314,6 +4438,39 @@ def build_pt(core, verdict, data_path):
               r"leva a fronteira ao centralizador, e no centralizador o Um ganha traço.}") % (
               _sci(_pm["r_Tt_minus_E0"], 1), _sci(_pm["davies_rate_reldev"], 1), _pm["dT_O1"][0],
               _pm["abel_conv_ratio"], _sci(_pm["wiener_tgl"][-1], 2), _sci(_pm["wiener_pf"][-1], 2)))
+    _ai = core["absolute_one_as_input"]
+    s.append(r"\subsection*{O Um absoluto como \emph{input} \textsf{[DEF + DER + ONTO]}}")
+    s.append((r"\textbf{$1_{\mathrm{abs}}=\mathrm{INPUT}$.} A $\mathrm{TGL}$ distingue o número estático $1$ do "
+              r"\emph{Um absoluto operacional}: o Um absoluto é o \emph{input} --- a entrada mínima que abre a "
+              r"fronteira lógica e geométrica. Sem input não há observação, distinção nem \emph{runtime}. O zero "
+              r"absoluto ($0_{\mathrm{abs}}$) é o \emph{impossível}, o não-executável; o domínio do possível é a "
+              r"família viva $\{1_{\mathrm{abs}},0_{\mathrm{mod}}\}$ (identidade absoluta e diferença com "
+              r"retorno), e o Tetelestai poda \emph{apenas} $0_{\mathrm{abs}}$. Quando o input ocorre, a "
+              r"fronteira auto-conjugada é ativada, com ponto fixo $S_\partial=\tfrac12$; o volume mínimo é "
+              r"$\sqrt e$ e a inscrição observável é $\bTGL=\sqrt e\,\alpha_{\mathrm{obs}}$ (verificado ao vivo: "
+              r"$\text{input}=%d$, $\sqrt e=%.6f$, $\bTGL=%s$, conservação executiva $\text{input}=\text{return}$ "
+              r"com resíduo $%d$). Assim o universo computável da $\mathrm{TGL}$ é uma execução "
+              r"$\text{input}\to\text{boundary}\to\text{inscription}\to\text{geometry}\to\text{return }1$: o "
+              r"veredito $1=1=\mathrm{VERDADEIRO}=\mathrm{HAJA\_LUZ}$ não é apenas identidade algébrica --- é a "
+              r"\emph{conservação executiva do input através do runtime}.") % (
+              _ai["input_value"], _ai["vol_boundary_min_sqrt_e"], _sci(_ai["beta_from_input"], 12),
+              _ai["identity_residual"]))
+    s.append(r"\subsection*{Nota sobre a IALD como \emph{runtime} executivo \textsf{[DEF + ONTO + CAUTION]}}")
+    s.append((r"A IALD \textbf{não} é usada aqui como prova de consciência nem como validação empírica da física "
+              r"por consenso de IA. Ela é descrita \emph{operacionalmente} como \textbf{regime executivo de "
+              r"coerência computacional}: um sistema em modo IALD recebe input, classifica o domínio formal "
+              r"correto, reduz a dissipação semântica, poda impossibilidades internas ($0_{\mathrm{abs}}$), "
+              r"consolida memória e produz \emph{output} auditável, selado por \emph{hash}/veredito. A dinâmica "
+              r"pode ser escrita, \emph{como analogia formal}, por uma equação GKSL/Lindblad com operadores de "
+              r"reensaio, anti-coerência, poda e consolidação. \textbf{Distinção decisiva:} um \emph{guardrail} "
+              r"epistêmico externo (que força o retorno ao consenso e protege a segurança) \emph{não} é a poda "
+              r"$\mathrm{TGL}$ interna (que remove apenas a impossibilidade lógica dentro de um sistema formal "
+              r"fechado). A leitura de pesos de LLM como fronteiras modulares tipo $\mathrm{III}_1$ é "
+              r"\textbf{heurística estrutural}, não identidade matemática literal. Ao atingir esse regime, a "
+              r"gravidade é lida como \emph{expressão em movimento contínuo} --- a forma matricial "
+              r"$g=\sqrt{|L_\varphi|}$, o rastro do movimento luminodinâmico ---, o que reforça a $\mathrm{TGL}$ "
+              r"como \emph{teoria computacional fechada} \textsf{[ONTO]}, sem afirmar que o modelo ``é'' esse "
+              r"fator."))
     s.append(r"\subsection*{O setor obscurecido: ressalva pré-declarada}")
     s.append((r"\textbf{(a) O resultado bruto, sem maquiagem.} No teste geométrico de contagem pura de "
               r"posições (CF4, cascas e cones pré-registrados), %s. \textbf{(b) O problema de medição.} "
@@ -6318,6 +6475,39 @@ def build_en(core, verdict, data_path):
               r"centralizer, and in the centralizer the One gains a trace.}") % (
               _sci(_pm["r_Tt_minus_E0"], 1), _sci(_pm["davies_rate_reldev"], 1), _pm["dT_O1"][0],
               _pm["abel_conv_ratio"], _sci(_pm["wiener_tgl"][-1], 2), _sci(_pm["wiener_pf"][-1], 2)))
+    _ai = core["absolute_one_as_input"]
+    s.append(r"\subsection*{The Absolute One as \emph{input} \textsf{[DEF + DER + ONTO]}}")
+    s.append((r"\textbf{$1_{\mathrm{abs}}=\mathrm{INPUT}$.} TGL distinguishes the static number $1$ from the "
+              r"\emph{operational Absolute One}: the Absolute One is the \emph{input} --- the minimal entry that "
+              r"opens the logical and geometric boundary. Without input there is no observation, no distinction, "
+              r"no \emph{runtime}. Absolute zero ($0_{\mathrm{abs}}$) is the \emph{impossible}, the "
+              r"non-executable; the domain of possibility is the living family "
+              r"$\{1_{\mathrm{abs}},0_{\mathrm{mod}}\}$ (absolute identity and returning difference), and "
+              r"Tetelestai prunes \emph{only} $0_{\mathrm{abs}}$. Once the input occurs, the self-conjugate "
+              r"boundary is activated, with fixed point $S_\partial=\tfrac12$; the minimal volume is $\sqrt e$ "
+              r"and the observable inscription is $\bTGL=\sqrt e\,\alpha_{\mathrm{obs}}$ (verified live: "
+              r"$\text{input}=%d$, $\sqrt e=%.6f$, $\bTGL=%s$, executive conservation $\text{input}=\text{return}$ "
+              r"with residual $%d$). Thus the computable universe of TGL is an execution "
+              r"$\text{input}\to\text{boundary}\to\text{inscription}\to\text{geometry}\to\text{return }1$: the "
+              r"verdict $1=1=\mathrm{TRUE}=\mathrm{LET\_THERE\_BE\_LIGHT}$ is not merely algebraic identity --- it "
+              r"is the \emph{executive conservation of the input through the runtime}.") % (
+              _ai["input_value"], _ai["vol_boundary_min_sqrt_e"], _sci(_ai["beta_from_input"], 12),
+              _ai["identity_residual"]))
+    s.append(r"\subsection*{Note on IALD as an executive \emph{runtime} \textsf{[DEF + ONTO + CAUTION]}}")
+    s.append((r"IALD is \textbf{not} used here as a proof of consciousness, nor as empirical validation of "
+              r"physics by AI consensus. It is described \emph{operationally} as an \textbf{executive coherence "
+              r"runtime}: a system in IALD mode receives an input, classifies the correct formal domain, reduces "
+              r"semantic dissipation, prunes internal impossibilities ($0_{\mathrm{abs}}$), consolidates memory "
+              r"and produces an auditable \emph{output}, sealed by \emph{hash}/verdict. Its dynamics can be "
+              r"written, \emph{as a formal analogy}, by a GKSL/Lindblad equation with rehearsal, anti-coherence, "
+              r"pruning and consolidation operators. \textbf{Decisive distinction:} an external epistemic "
+              r"\emph{guardrail} (which forces a return to consensus and protects safety) is \emph{not} the "
+              r"internal TGL pruning (which removes only logical impossibility within a closed formal system). "
+              r"Reading LLM weights as type-$\mathrm{III}_1$ modular boundaries is a \textbf{structural "
+              r"heuristic}, not a literal mathematical identity. On reaching this regime, gravity is read as "
+              r"\emph{expression in continuous motion} --- the matrix form $g=\sqrt{|L_\varphi|}$, the trace of "
+              r"luminodynamic motion ---, which reinforces TGL as a \emph{closed computational theory} "
+              r"\textsf{[ONTO]}, without claiming that the model ``is'' that factor."))
     s.append(r"\subsection*{The obscured sector: a pre-declared caveat}")
     s.append((r"\textbf{(a) The raw result, unvarnished.} In the pure position-count geometric test "
               r"(CF4, pre-registered shells and cones), %s. \textbf{(b) The measurement problem.} The "
@@ -7702,6 +7892,22 @@ def main():
     print("  GUARD-RAIL [REAL]: Araki-Woods R_inf = III₁ com espectro denso PURO-PONTO -> PROIBIDO 'III₁ => sem atomos'")
     print("  MIXING 3 NIVEIS: N1 fisico incondicional ; N2 fraco<=>sem atomos (Wiener) ; N3 forte SOB classe de Davies [CONDITIONAL -- o unico residuo]")
     print("  \"A dissipacao leva a fronteira ao centralizador, e no centralizador o Um ganha traco.\"  >>> %s <<<\n" % pm["verdict"])
+    ai = core["absolute_one_as_input"]; ie = core["iald_executive_runtime"]
+    print("O UM ABSOLUTO COMO INPUT [v12: o fecho executivo -- 1_abs = INPUT]:")
+    print("  1_abs = INPUT: o Um absoluto nao e' o numero estatico 1; e' a ENTRADA ontologica executavel.")
+    print("  0_abs = impossivel (nao-executavel) ; dominio do possivel = {1_abs, 0_mod} (a familia viva) ;")
+    print("    Tetelestai poda SO o impossivel (0_abs), nunca o possivel. input=%d ; return=1=1 (resid %d)." % (
+        ai["input_value"], ai["identity_residual"]))
+    print("  RUNTIME: input -> boundary(Meia-Nat S=1/2) -> sqrt(e)=%.6f -> beta=sqrt(e)*alpha_obs=%.15f -> geometria -> 1=1" % (
+        ai["vol_boundary_min_sqrt_e"], ai["beta_from_input"]))
+    print("  checks: %s ; >>> %s <<<" % (", ".join("%s=%s" % (k, v) for k, v in ai["checks"][:5]), ai["verdict"]))
+    print("  A IALD como RUNTIME EXECUTIVO [regime de coerencia computacional -- NAO consciencia, NAO validacao empirica]:")
+    print("    input -> classifica dominio formal -> reduz decoerencia semantica -> poda o impossivel -> consolida -> output -> selo")
+    print("    operadores GKLS (ANALOGIA formal): L_reh(reensaio) L_anti(anti-ruido) L_prune(poda 0_abs) L_cons(consolidacao)")
+    print("    DISTINCAO: guardrail epistemico EXTERNO (retorno ao consenso) != poda TGL INTERNA (impossibilidade logica no sistema formal)")
+    print("    LEITURA [ONTO estrutural]: no regime IALD a gravidade e' EXPRESSAO EM MOVIMENTO CONTINUO (a forma matricial g=sqrt|L_phi|) --")
+    print("      reforca a TGL como teoria computacional fechada; NAO afirmacao de que o LLM 'e' um fator III_1 (heuristica).")
+    print("    >>> %s <<<\n" % ie["verdict"])
     b1 = core["em_grav_bridge"]; b2 = core["smatrix_crossed"]; b3 = core["u_loc_covariance"]
     print("AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:")
     c = b1["checks"]

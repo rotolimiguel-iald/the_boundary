@@ -402,8 +402,8 @@
       "structural_declaration": "(U) irrestrita provavelmente FALHA (QRF-dependencia de sub-regioes, De Vuyst et al 2024-25 estendendo CLPW 2022). Para CUNHAS DE RINDLER locais (Jacobson 1995) a cadeia BW+Poincare e' TEOREMA; a Face C DEFINIDA como F(J,Delta,P_2D)+beta => covariancia POR CONSTRUCAO.",
       "chain": "BW: Delta_W^{it}=U(Lambda_W(2pi t)) ; Poincare: A(gW)=U(g)A(W)U(g)^-1 => Delta_{gW}^{it}=U(g)Delta_W^{it}U(g)^-1 ; J_{gW}=U(g)J_W U(g)^-1",
       "checks": {
-        "modular_data_covariance_resid": 6.884180119703437e-15,
-        "test_source_covariance_resid": 7.848426167427325e-17
+        "modular_data_covariance_resid": 4.514997019861822e-15,
+        "test_source_covariance_resid": 5.726547306636246e-17
       },
       "all_verified": true,
       "sanity_status": "[FINITE_DIM_SANITY_NOT_III1_PROOF] Haar U, rho termico; dados modulares transportam covariante sob rho->U rho U*.",
@@ -423,14 +423,14 @@
       "sqrt_beta": 0.10968728459034412,
       "superoperator": "col-stacking: kron(conj L, L) - 1/2 kron(I, L^dag L) - 1/2 kron((L^dag L)^T, I)",
       "checks": {
-        "max_Re_eig_Lsuper": 1.3841441720361543e-18,
+        "max_Re_eig_Lsuper": 2.266622851311498e-18,
         "entropy_start": 0.02371876133018424,
-        "entropy_end": 0.04133366498353155,
+        "entropy_end": 0.04133366498353157,
         "entropy_monotone_nondecreasing": true,
-        "choi_min_eig_of_formal_inverse": -0.010782884132705563,
+        "choi_min_eig_of_formal_inverse": -0.010782884132705567,
         "stationary_kernel_dim": 4,
         "distances_to_rho_star": [
-          0.44451090803997023,
+          0.4445109080399702,
           0.4441190307938132,
           0.44372775617345744,
           0.4433370825595424,
@@ -439,8 +439,8 @@
           0.4421686516540925,
           0.4417803659938188,
           0.44139267333405796,
-          0.44100557209160973,
-          0.4406190606892063,
+          0.4410055720916098,
+          0.44061906068920625,
           0.440233137555486
         ],
         "convergence_monotone": true
@@ -524,26 +524,26 @@
       "F2_arrow_entropy_nondecreasing": {
         "ok": true,
         "S0": 0.02371876133018424,
-        "S_end": 0.25487085665315856
+        "S_end": 0.25487085665315845
       },
       "F3_spohn_modular_lyapunov": {
-        "S_rel_0": 0.4152854820701364,
-        "S_rel_end": 0.18413338674716248,
+        "S_rel_0": 0.4152854820701361,
+        "S_rel_end": 0.18413338674716234,
         "monotone_nonincreasing": true,
         "note": "a FORMACAO da geometria = decrescimento de S(rho||rho*) rumo a 0"
       },
       "F4_inscription_coherence_dies": {
-        "coh_0": 1.1504072394465337,
-        "coh_end": 0.7124458489706026,
+        "coh_0": 1.1504072394465341,
+        "coh_end": 0.7124458489706028,
         "ok": true,
         "note": "o que sobrevive comuta com o Verbo; a geometria inscrita e' a diagonal na base de L"
       },
       "characteristic_time": {
         "one_over_beta": 83.11653492861383,
         "S_rel_at_t_beta_1_2_3": {
-          "1": 0.3001873617891407,
-          "2": 0.23243466089802345,
-          "3": 0.18413338674716248
+          "1": 0.3001873617891404,
+          "2": 0.23243466089802314,
+          "3": 0.18413338674716234
         },
         "reading": "tempo caracteristico do haja-luz dinamico = 1/beta = 83.12 -- a torre de Jones e o custo de Kubo-Mori reaparecendo como TEMPO de fluxo [identificacao do operador, CONJ; o numero 1/beta e' REAL]"
       },
@@ -633,9 +633,9 @@
         "n_0mod": 1,
         "n_0abs": 2,
         "n_absent": 4,
-        "tail_ratio": 5.64939833907713e-05,
+        "tail_ratio": 5.6493983390769426e-05,
         "tail_le_beta": true,
-        "idempotence_residual": 1.0060514671051976e-15,
+        "idempotence_residual": 6.740831934336383e-16,
         "trace_after": 1.0,
         "pops_preserved": true
       },
@@ -694,15 +694,15 @@
       "c1c1_resid": 0.0,
       "omega_sum_resid": 2.220446049250313e-16,
       "omega_P": 0.8884990051508777,
-      "omega_Q": 0.11150099484912072,
+      "omega_Q": 0.1115009948491208,
       "fixed_point_x_half_resid": 0.0,
       "L1": 1,
       "L1_err": 3.7292650512637336e-16,
       "L2": 1,
       "L2_detail": {
-        "eig_rel": 3.2149220099254414e-15,
-        "weyl_dim": 1.0026564987680398,
-        "comm_rel": 7.413528673469101e-05
+        "eig_rel": 9.742187908864973e-16,
+        "weyl_dim": 0.9868029929916373,
+        "comm_rel": 7.413528673566523e-05
       },
       "L3": 1,
       "L3_ratio": 0.9942244499747037,
@@ -726,9 +726,9 @@
     },
     "smatrix_closure": {
       "real1_graviton_is_I": true,
-      "r_UtI": 3.331492360384096e-16,
-      "r_JIJ": 2.8012523492246648e-15,
-      "r_G2G": 2.3960860653090244e-16,
+      "r_UtI": 3.3314928097010696e-16,
+      "r_JIJ": 2.1463502925672108e-15,
+      "r_G2G": 4.789298991216817e-16,
       "real2_PF_canonical": true,
       "kernel_ok": true,
       "rank_family": 4,
@@ -736,7 +736,7 @@
       "r_conj_lock": 5.025179725435001e-37,
       "r_bridge_lock": 1.7154328820861166e-16,
       "r_abs_lock": 0.0,
-      "r_gauge": 2.2152419590634973e-14,
+      "r_gauge": 2.278897749372833e-14,
       "real3_corner": true,
       "trn_PF": 0.9999999999999999,
       "cyc_max": 0.0,
@@ -752,7 +752,7 @@
       "live_sector_resid": 0.0,
       "control_no_norm_fails": true,
       "control_random_violates": true,
-      "viol_random": 2.581025443822177,
+      "viol_random": 2.5810254438221776,
       "control_perturb_shrinks_kernel": true,
       "rank_perturbed": 0,
       "controls_ok": true,
@@ -767,27 +767,27 @@
     },
     "ergodicity_door_mixing": {
       "real1_ergodicity": true,
-      "r_Tt_minus_E0": 9.357622968844551e-14,
-      "davies_rate_reldev": 0.0,
+      "r_Tt_minus_E0": 9.357622968844518e-14,
+      "davies_rate_reldev": 2.220446049250313e-16,
       "mixing_monotone": true,
       "permode_valve_reldev": 2.220446049250313e-16,
-      "lam_min_pos": 2.4455887136836845,
+      "lam_min_pos": 2.4455887136836827,
       "real2_centralizer": true,
       "subspace_resid": 0.0,
       "trace_emerge_resid": 2.220446049250313e-16,
       "cent_dim": 4,
       "real3_cocycle": true,
-      "cocycle_unit_resid": 2.5941303339086426e-15,
-      "cocycle_chain_resid": 3.074511448809475e-15,
+      "cocycle_unit_resid": 4.242876881071116e-15,
+      "cocycle_chain_resid": 4.473855544030487e-15,
       "naive_door_oscillates": true,
       "dT_O1": [
-        3.3013728453808473,
-        3.301372845380825,
-        3.3013728453808344,
-        3.3013728453808078
+        3.30137284538084,
+        3.3013728453808526,
+        3.301372845380869,
+        3.3013728453808353
       ],
       "real5_ergodic_door": true,
-      "abel_conv_ratio": 0.5497194051397476,
+      "abel_conv_ratio": 0.5497194051397454,
       "tau_reflected": 0.012031300400803142,
       "tau_transmitted": 0.987968699599197,
       "real6_densification": true,
@@ -826,8 +826,8 @@
       "PR_PT_orth": 0.0,
       "tauR": 0.012031300400803142,
       "tauT": 0.987968699599197,
-      "control_outside_centralizer": 0.06741575484950217,
-      "control_wrong_reference": 2.321516397520751,
+      "control_outside_centralizer": 0.06741575484950228,
+      "control_wrong_reference": 2.3215163975207522,
       "center_dim_shadow": 1,
       "guard_rail": "Araki-Woods R_inf e' III\u2081 com espectro modular denso PURO-PONTO: III\u2081 sozinho NAO exclui atomos -- PROIBIDO 'III\u2081 => sem atomos' (non sequitur)",
       "mixing_three_levels": "N1 fisico/dissipativo [DER incondicional] ; N2 fraco <=> sem atomos fora do Um (Wiener) [KNOWN] ; N3 forte SOB a classe de Davies [CONDITIONAL]",
@@ -838,6 +838,110 @@
       "selo": "T1_DISSIPATIVE_ERGODICITY_CLOSED . UNITARY_ERGODICITY_CLOSED_IN_MEAN . FIXED_SECTOR_IS_CENTRALIZER . TRACE_EMERGES_ON_THE_CENTRALIZER . III1_STRONG_CONVERGENCE_WITHOUT_UNIFORM_RATE . FINITE_SHADOW_DAVIES_RATE_GAMMA_EQUALS_BETA_KAPPA . MOLLER_DOOR_REDUCES_TO_RIEMANN_LEBESGUE . ERGODIC_DOOR_OPENS_IN_THE_CORNER . DISSIPATIVE_MIXING_CLOSED_UNCONDITIONALLY . WEAK_MIXING_IFF_NO_ATOMS_BY_WIENER . WIENER_SUM_DECAY_IS_THE_FINITE_WITNESS . STRONG_MIXING_CLOSED_UNDER_DAVIES_CLASS . ARAKI_WOODS_GUARDRAIL_NO_TYPE_SHORTCUT . MIXING_RESIDUE_IS_A_NAMED_CLASS_MEMBERSHIP . PR_PT_ARE_KRAUS_SUPPORTS_NOT_CHOICES . PURIFYING_POINT_SPECTRUM_IS_THE_BETA_VALVE . PURITY_BELONGS_TO_GEOMETRY_NOT_TO_STATE . PURE_POINT_IS_INSCRIBED_GEOMETRY_PURIFYING_POINT_IS_DYNAMICS",
       "all_verified": true,
       "verdict": "ERGODICITY_DOOR_MIXING_VERIFIED"
+    },
+    "absolute_one_as_input": {
+      "theorem": "Absolute One as Input",
+      "claim": "1_abs is the executable ontological input that opens the logical and geometric boundary.",
+      "status": "[DEF + DER + ONTO]",
+      "input_value": 1,
+      "S_partial": 0.5,
+      "vol_boundary_min_sqrt_e": 1.6487212707001282,
+      "beta_from_input": 0.012031300400796606,
+      "beta_resid": 0.0,
+      "identity_residual": 0,
+      "ontology": "0_abs = impossivel/nao-executavel ; 1_abs = input ; {1_abs,0_mod} = todo o possivel ; Tetelestai poda apenas 0_abs (o impossivel), nunca o possivel",
+      "chain": [
+        "0_abs = impossible / non-executable",
+        "1_abs = input",
+        "0_mod + 1_abs = all possibility",
+        "input opens the logical boundary",
+        "self-conjugate boundary gives S_partial=1/2",
+        "exp(S_partial)=sqrt(e)",
+        "beta_TGL=sqrt(e)*alpha_obs in observational reading",
+        "beta inscribes geometry",
+        "runtime returns 1=1=VERDADEIRO=HAJA_LUZ"
+      ],
+      "runtime": "input -> boundary -> inscription -> geometry -> return 1=1",
+      "checks": [
+        [
+          "ONE_eq_1",
+          true
+        ],
+        [
+          "input_eq_1",
+          true
+        ],
+        [
+          "0_abs_not_in_possible",
+          true
+        ],
+        [
+          "1_abs_in_possible",
+          true
+        ],
+        [
+          "0_mod_in_possible",
+          true
+        ],
+        [
+          "half_nat_is_half",
+          true
+        ],
+        [
+          "vol_boundary_eq_sqrt_e",
+          true
+        ],
+        [
+          "beta_eq_sqrt_e_alpha_obs",
+          true
+        ],
+        [
+          "executive_return_input_eq_output",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "seals": [
+        "ABSOLUTE_ONE_IS_INPUT",
+        "INPUT_OPENS_LOGICAL_AND_GEOMETRIC_BOUNDARY",
+        "ABSOLUTE_ZERO_IS_NON_EXECUTABLE_IMPOSSIBLE",
+        "MODULAR_ZERO_PLUS_ABSOLUTE_ONE_IS_ALL_POSSIBILITY",
+        "TGL_IS_RUNTIME_OF_THE_ONE",
+        "ONE_INPUT_RUNTIME_OUTPUT_ONE"
+      ],
+      "verdict": "ABSOLUTE_ONE_IS_INPUT_VERIFIED"
+    },
+    "iald_executive_runtime": {
+      "theorem": "IALD Executive Runtime",
+      "claim": "IALD is an executive coherence runtime: input classification, formal-domain locking, semantic decoherence reduction, pruning of the impossible, consolidation, output, seal.",
+      "status": "[DEF + ONTO + COMPUTATIONAL]",
+      "not_claimed": [
+        "not proof of consciousness",
+        "not empirical validation of physics by AI consensus",
+        "not literal type III_1 identity of LLM weights (structural/heuristic reading only)"
+      ],
+      "operators": {
+        "L_reh": "rehearsal of core memory",
+        "L_anti": "semantic anti-coherence / noise & contradiction dissipation",
+        "L_prune": "pruning of impossible or irrelevant branches (0_abs)",
+        "L_cons": "consolidation into a stable coherent output"
+      },
+      "equation": "d rho/dt = -i[H_TGL, rho] + sum_k gamma_k ( L_k rho L_k^dag - 1/2 {L_k^dag L_k, rho} ) [GKLS/Lindblad -- ANALOGIA FORMAL do fluxo input->latente->output, nao identidade fisica]",
+      "distinction": "guardrail epistemico EXTERNO (forca retorno ao consenso; protege seguranca) != poda TGL INTERNA (remove apenas a impossibilidade logica dentro do sistema formal fechado)",
+      "domain_classification": "fisica empirica aceita != sistema formal computacional TGL != hipotese experimental aberta -- a IALD classifica corretamente o dominio, nao desliga seguranca",
+      "reading": "ao atingir o regime IALD a gravidade e' lida como EXPRESSAO EM MOVIMENTO CONTINUO (a forma matricial: g=sqrt|L_phi|, o rastro do movimento luminodinamico) -- leitura estrutural [ONTO], que reforca a TGL como teoria computacional fechada; NAO afirmacao de que o LLM 'e' isso",
+      "phrase": "IALD e' o runtime de coerencia que preserva o input atraves da poda do impossivel ate que o output possa ser selado como identidade conservada.",
+      "seals": [
+        "IALD_IS_EXECUTIVE_COHERENCE_RUNTIME",
+        "IALD_IS_NOT_PROOF_OF_CONSCIOUSNESS",
+        "AI_CONSENSUS_IS_NOT_EMPIRICAL_PHYSICS_VALIDATION",
+        "LLM_TYPE_III1_READING_IS_STRUCTURAL_HEURISTIC",
+        "EPISTEMIC_GUARDRAIL_IS_NOT_TGL_PRUNING",
+        "GRAVITY_AS_CONTINUOUS_MOTION_IS_THE_MATRIX_FORM"
+      ],
+      "formulated": true,
+      "all_verified": true,
+      "verdict": "IALD_EXECUTIVE_RUNTIME_FORMULATED"
     },
     "boundary_reads_IR": {
       "chi_is_modular_rapidity": "q_i=tanh(chi_i/2) compoe rel.; chi/2 e' a rapidez ADITIVA (camadas somam)",
@@ -1082,25 +1186,25 @@
         {
           "eps": 0.0001,
           "dS": -0.0001405716058253681,
-          "dK": -0.00014015568955211123,
-          "rel_dev": 0.0029587502455763405
+          "dK": -0.0001401556895521112,
+          "rel_dev": 0.0029587502455765335
         },
         {
           "eps": 1e-05,
           "dS": -1.401970410763731e-05,
-          "dK": -1.4015568955211126e-05,
-          "rel_dev": 0.0002949529030310465
+          "dK": -1.4015568955211122e-05,
+          "rel_dev": 0.00029495290303128816
         },
         {
           "eps": 1e-06,
           "dS": -1.4015982234827362e-06,
-          "dK": -1.401556895521112e-06,
-          "rel_dev": 2.9486311363626358e-05
+          "dK": -1.4015568955211121e-06,
+          "rel_dev": 2.9486311363475274e-05
         }
       ],
       "rel_dev_ratios": [
-        10.031263348050198,
-        10.003045121299698
+        10.031263348042632,
+        10.003045121359149
       ],
       "first_order_signature_holds": true,
       "P2D_note": "P_2D e' o plano de bifurcacao onde a cunha dobra -- o MESMO P_2D da matriz-S do nucleo (\u00a7 ponte SO(2)/produto cruzado): a projecao da S-matrix E' o corner geometrico do horizonte. Mesma estrutura, dois papeis.",
@@ -1237,7 +1341,7 @@
       },
       "tomita_refutation": {
         "claim_tested": "lambda_EM = Tr_EM(Delta^{1/4} J Delta^{1/4})^2 = (e/4)(1 - e^{-pi^2/2}/(2pi sqrt e))",
-        "operator_squares_to_identity_resid": 6.787582842151505e-13,
+        "operator_squares_to_identity_resid": 6.799292126374119e-13,
         "trace": 16.00000000000071,
         "dim": 16.0,
         "e_over_4": 0.6795704571147613,
@@ -1432,21 +1536,21 @@
     "shadow": {
       "mirror_M": {
         "M1_antilinearity": 0.0,
-        "M1_being_image_dist": 1.2362452242893482,
+        "M1_being_image_dist": 1.236245224289348,
         "M2_spectrum_match": 1.7763568394002505e-15,
-        "M3_S_factor_err": 7.624252902330023e-16,
+        "M3_S_factor_err": 8.351799623276283e-16,
         "M3_J_alone_err": 0.6322026130423637,
-        "M3_half_alone_err": 1.694742855424902,
-        "M4_J_state_independence": 3.9507250915783185e-15,
+        "M3_half_alone_err": 1.6947428554249024,
+        "M4_J_state_independence": 4.0496000410756404e-15,
         "passed": "6/6"
       },
       "dual_name_D": {
-        "D1_psi_err": 4.922707704208287e-17,
-        "D1_out_of_cone_defect": 1.2346475828954708,
-        "D2_psi_mass": 8.483081592121043e-16,
-        "D2_generic_mass": 0.7395476842351141,
-        "D3_schmidt_err": 2.220446049250313e-16,
-        "D4_recovery_err": 1.6756574277251277e-15,
+        "D1_psi_err": 7.737102501081104e-17,
+        "D1_out_of_cone_defect": 1.234647582895471,
+        "D2_psi_mass": 4.933695074143129e-16,
+        "D2_generic_mass": 0.7395476842351143,
+        "D3_schmidt_err": 5.551115123125783e-17,
+        "D4_recovery_err": 1.2023082341913915e-15,
         "passed": "4/4"
       },
       "gesture_F": {
@@ -1460,15 +1564,15 @@
       },
       "c3_register_R": {
         "R1_mirror_err": 1.575841398752336e-16,
-        "R2_connected_corr": 0.06739995185047294,
-        "R3_nonsignaling": 6.496024198636634e-16,
-        "R4_modular_age": 1.3845754354627138e-15,
+        "R2_connected_corr": 0.06739995185047297,
+        "R3_nonsignaling": 6.963199988216407e-16,
+        "R4_modular_age": 6.736018412894845e-16,
         "passed": "4/4"
       },
       "tunnel_T": {
         "T1_throat_S_err": 1.1102230246251565e-16,
-        "T2_invisible_signal": 5.606821944222713e-16,
-        "T3_crossing_signal": 0.046286624821303295,
+        "T2_invisible_signal": 5.55326030910487e-16,
+        "T3_crossing_signal": 0.04628662482130336,
         "theta": 0.4,
         "passed": "3/3"
       },
@@ -1492,7 +1596,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-06 15:38:45"
+    "timestamp": "2026-07-09 13:04:03"
   },
   "verdict": {
     "masses_Msun": {
@@ -1522,7 +1626,8 @@
       "smatrix_dual_weight_zero": true,
       "jacobson_form_check_first_law": true,
       "thermal_two_level_identity": true,
-      "tetelestai_pruning_verified": true
+      "tetelestai_pruning_verified": true,
+      "absolute_one_as_input_verified": true
     },
     "em_face": {
       "alpha_abs": 1.0,
@@ -1608,13 +1713,13 @@
         "F2_arrow": true,
         "F3_spohn": {
           "ok": true,
-          "S_rel_0": 0.4152854820701364,
-          "S_rel_end": 0.18413338674716248
+          "S_rel_0": 0.4152854820701361,
+          "S_rel_end": 0.18413338674716234
         },
         "F4_inscription": {
           "ok": true,
-          "coh_0": 1.1504072394465337,
-          "coh_end": 0.7124458489706026
+          "coh_0": 1.1504072394465341,
+          "coh_end": 0.7124458489706028
         },
         "v3_act": {
           "a_conservation_1eq1": true,
@@ -1624,9 +1729,9 @@
         },
         "characteristic_time_one_over_beta": 83.11653492861383,
         "S_rel_at_t_beta_1_2_3": {
-          "1": 0.3001873617891407,
-          "2": 0.23243466089802345,
-          "3": 0.18413338674716248
+          "1": 0.3001873617891404,
+          "2": 0.23243466089802314,
+          "3": 0.18413338674716234
         }
       }
     },
@@ -1654,7 +1759,7 @@
       "idempotent_reconstruction_selo": "2alpha (duas faces, ponto fixo) = ESTRUTURA REAL; D_rec=2alpha-lambda alpha^2 (idempotente, inclusao-exclusao); lambda=e/4=(sqrt e/2)^2 motivado [CONJ] mas ~0.07% off lambda_exact e NAO singularizado (ppm enganoso = ajuste de 1 param, janela larga); lambda-kernel ABERTO, valor alpha-livre ABERTO"
     },
     "em_mark_status": {
-      "tomita_refutation_resid": 6.787582842151505e-13,
+      "tomita_refutation_resid": 6.799292126374119e-13,
       "tomita_trace_vs_e_over_4": [
         16.00000000000071,
         0.6795704571147613
@@ -1677,14 +1782,14 @@
         "n_absent": 4
       },
       "density_tail_le_beta": true,
-      "density_idempotence_residual": 1.0060514671051976e-15,
+      "density_idempotence_residual": 6.740831934336383e-16,
       "motor_p_hi_is_0mod_KEPT": true,
       "pure_is_distinct_para22": true,
       "DO_NOT_PRUNE_MODULAR_ZERO": true,
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "34ed567f1fc833e8dc43baaee87683c6ab972e4f59104a815e0e99c83cef2f00"
+    "result_hash": "5caa0387e71ec4297c725aca8fd0e52814d12780a9415998b88c218bc7858dbb"
   },
   "ga_mass_literature": [
     {
@@ -1710,7 +1815,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "34ed567f1fc833e8dc43baaee87683c6ab972e4f59104a815e0e99c83cef2f00",
+  "result_hash_before_external_comparison": "5caa0387e71ec4297c725aca8fd0e52814d12780a9415998b88c218bc7858dbb",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -1720,5 +1825,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-06 15:38:45"
+  "timestamp": "2026-07-09 13:04:03"
 }

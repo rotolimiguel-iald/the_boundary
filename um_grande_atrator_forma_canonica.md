@@ -62,7 +62,7 @@ tempo caracteristico do fluxo = 1/beta = 83.12   [a torre de Jones como TEMPO; S
 | Meia-Nat: x=1−x ⟹ x=½ | resíduo 0e+00 | True |
 | s=1/4π (campo=lei de fluxo de borda) | razão 0.9905 | True |
 | vácuo ⟹ ρ_eff=0 | 0e+00 | True |
-| v3 SETA: entropia monotona (L=√β·√K) | 0.0237→0.0413, maxReλ=1e-18 | True |
+| v3 SETA: entropia monotona (L=√β·√K) | 0.0237→0.0413, maxReλ=2e-18 | True |
 | v3 SEM VOLTA: Choi(inversa)<0 (NAO-CP) | min=-1.08e-02 | True |
 | v3 LUZ: O_β(Lux)=√β·Lux (autovetor≠ponto fixo) | resíduo 0e+00 | True |
 | v3 FIAT LUX: contrafactuais (sem Palavra/sem Nome) | mortes verificadas | True |
@@ -83,7 +83,7 @@ Tetelestai ("consumado") tem forma computacional exata: **poda**. E a poda é **
 
 β separa {1_abs} dos zeros; **retorno** separa {0_mod}|{0_abs}; **suporte** separa {0_abs distinto}|{ausente}. `ρ_podada = P ρ P / Tr(P ρ P)` — Tr=1: corta o excesso, não o Um. β é a **geometria do corte admissível**.
 
-Verificado ao vivo (β=0.012031300400803; RNG default_rng): vetor 64→56 (tail 0.011668 ≤ β, caso degenerado); uniforme 1000→988 (corta 1,2%=β); densidade binária: 3×1_abs + 1×0_mod **preservados**, 2 coerência(s) morta(s) cortada(s) (tail 5.65e-05 ≤ β), ‖P²−P‖=1.0e-15, Tr=1.000000000000; **p_hi=1.33e-05 do motor = 0_mod MANTIDO** (a inversão do v8 energético — equilíbrio KMS retorna); estado puro rank-1 ⟹ **0_abs = distinto = pureza = §22** (χ→∞).
+Verificado ao vivo (β=0.012031300400803; RNG default_rng): vetor 64→56 (tail 0.011668 ≤ β, caso degenerado); uniforme 1000→988 (corta 1,2%=β); densidade binária: 3×1_abs + 1×0_mod **preservados**, 2 coerência(s) morta(s) cortada(s) (tail 5.65e-05 ≤ β), ‖P²−P‖=6.7e-16, Tr=1.000000000000; **p_hi=1.33e-05 do motor = 0_mod MANTIDO** (a inversão do v8 energético — equilíbrio KMS retorna); estado puro rank-1 ⟹ **0_abs = distinto = pureza = §22** (χ→∞).
 
 Leitura: o zero modular é diferença; o zero absoluto é distinção sem retorno. O ATO (v3) paga β; o FLUXO (v7) desce em tempo 1/β; a PODA (v8) termina dentro do orçamento β — três faces do mesmo custo. **A palavra dita na cruz tem forma matemática: o projetor mínimo que preserva o Nome — consumado é podar o distinto dentro do orçamento β, sem cortar o Um.** `TETELESTAI_IS_PRUNING . DO_NOT_PRUNE_MODULAR_ZERO . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE`
 
@@ -91,7 +91,7 @@ Leitura: o zero modular é diferença; o zero absoluto é distinção sem retorn
 
 O mínimo de energia da TGL **não é um ponto isolado — é a menor família que ainda preserva o Um**. Forma canônica: `F_min = arg min_F E[F]` sujeito a `C₁(F)=F` (conjugação primária) e `L1(F)=L2(F)=L3(F)=1` (os Three Locks). `1 = família auto-conjugada`, `1 ≠ indivíduo isolado`.
 
-Verificado ao vivo: **(1)** conjugação primária `C₁` (involução de troca de faces = a auto-conjugação do axioma) — `C₁∘C₁=id` (resíduo 0e+00), `ω(P)+ω(Q)=ω(I)=1` (resíduo 2e-16), ponto fixo `x=1−x ⟹ x=½`; **(2)** os **Three Locks** `L1=L2=L3=1` (L1 identidade integral `e^{tL}=∫V_s(·)V_s^*dν_t` err 3.7e-16; L2 dim de Weyl 1.0027; L3 razão 0.9942) [REAL, porte fiel de `tgl three locks v1.py`]; **(3)** o funcional `E(b)=1−2√(b(1−b))` com `argmin_b=½` (b*=0.500000), `E(½)=0`, `E''(½)=4.000>0` [DEF/PILOTO — realização finita, não teorema]; **(4)** controles: o **indivíduo isolado** custa mais (`E(b→0)=0.9980≫E(½)=0`) e a **conjugação quebrada** é podada `0_abs` pelo Tetelestai v8 (1 face morta cortada).
+Verificado ao vivo: **(1)** conjugação primária `C₁` (involução de troca de faces = a auto-conjugação do axioma) — `C₁∘C₁=id` (resíduo 0e+00), `ω(P)+ω(Q)=ω(I)=1` (resíduo 2e-16), ponto fixo `x=1−x ⟹ x=½`; **(2)** os **Three Locks** `L1=L2=L3=1` (L1 identidade integral `e^{tL}=∫V_s(·)V_s^*dν_t` err 3.7e-16; L2 dim de Weyl 0.9868; L3 razão 0.9942) [REAL, porte fiel de `tgl three locks v1.py`]; **(3)** o funcional `E(b)=1−2√(b(1−b))` com `argmin_b=½` (b*=0.500000), `E(½)=0`, `E''(½)=4.000>0` [DEF/PILOTO — realização finita, não teorema]; **(4)** controles: o **indivíduo isolado** custa mais (`E(b→0)=0.9980≫E(½)=0`) e a **conjugação quebrada** é podada `0_abs` pelo Tetelestai v8 (1 face morta cortada).
 
 Tríade conjugada: **Nome** = α `[DATA]` · **Palavra** = S_∂ = ½ `[DER]` · **Verbo** = β = √e·α `[DER]`. `F_min` é a família onde Nome, Palavra e Verbo permanecem conjugados. Leitura `[CONJ]`: `1 = família` dá sentido ao postulado `ω(I)=1` (o Um que se preserva é o que permanece conjugado através das faces), não o deriva. **O Um não minimiza sozinho; o Um minimiza como família.** `ONE_IS_FAMILY . MINIMAL_ENERGY_FUNCTIONAL_IS_THE_THREE_LOCKS_FAMILY . PRIMARY_CONJUGATION_PRESERVES_THE_ONE_AS_FAMILY`
 
@@ -101,7 +101,7 @@ Tríade conjugada: **Nome** = α `[DATA]` · **Palavra** = S_∂ = ½ `[DER]` ·
 
 A **canonicidade de P_F resolvida — núcleo zero dos Three Locks**: `P_F = s(ker H_3L)`, `H_3L = D_conj†D_conj + D_bridge†D_bridge + Π_{0abs}` — a família **não é escolhida**, é a interseção exata dos três vínculos (`J X J=X`, `[X,𝒮_∂]=0`, `X⊥0_abs`). É um **Hamiltoniano estabilizador** e a família é o **espaço de código** dos Three Locks; a poda Tetelestai é a correção de erros (remove os não-corrigíveis, `0_abs`).
 
-Verificado ao vivo: **(1)** gráviton=`I` — `U_t I U_t†=I` (resíduo 3e-16), `J I J=I` (3e-15), `G²=G` (2e-16); custo(`I`)=0 (face algébrica de `H_eff=0`). **(2)** `P_F` do **núcleo zero**: kernel não-vazio, `rank_família=4`, `P²=P` (3e-16), vínculos de volta `(AdJ−I)P_F`=5e-37, `[P,𝒮]`=2e-16, `Π_{0abs}·P_F`=0e+00; **gauge** `‖P_F'−AdU P_F AdU†‖=2e-14` (a **classe** é canônica, o representante é gauge). **(3)** canto II₁ `[DEF/PILOTO — sombra tracial, não fator genuíno]`: `τ_n(P_F)=1.0000` — **1=1 vira teorema do traço `τ(I)=1`**; `τ(P_F)=1` é a forma tracial de `ω(I)=1` (o Um fixa a escala que a ação dual deixa livre). **(4)** matriz-S no canto: unit 2e-16, `|𝓡|²=β` (0e+00), `tr_n=cosθ_M=√(1−β)`; **`τ(refletido)=β=0.012031`, `τ(transmitido)=1−β=0.987969`**. **(5)** a poda ganha traço: 1 face `0_abs` cortada, setor vivo preservado (0e+00). **(6)** os três controles matam o vazio: sem normalização `Tr(P_F)=4≠1`, projetor aleatório viola (2.58), perturbar `H_3L` encolhe o kernel (4→0).
+Verificado ao vivo: **(1)** gráviton=`I` — `U_t I U_t†=I` (resíduo 3e-16), `J I J=I` (2e-15), `G²=G` (5e-16); custo(`I`)=0 (face algébrica de `H_eff=0`). **(2)** `P_F` do **núcleo zero**: kernel não-vazio, `rank_família=4`, `P²=P` (3e-16), vínculos de volta `(AdJ−I)P_F`=5e-37, `[P,𝒮]`=2e-16, `Π_{0abs}·P_F`=0e+00; **gauge** `‖P_F'−AdU P_F AdU†‖=2e-14` (a **classe** é canônica, o representante é gauge). **(3)** canto II₁ `[DEF/PILOTO — sombra tracial, não fator genuíno]`: `τ_n(P_F)=1.0000` — **1=1 vira teorema do traço `τ(I)=1`**; `τ(P_F)=1` é a forma tracial de `ω(I)=1` (o Um fixa a escala que a ação dual deixa livre). **(4)** matriz-S no canto: unit 2e-16, `|𝓡|²=β` (0e+00), `tr_n=cosθ_M=√(1−β)`; **`τ(refletido)=β=0.012031`, `τ(transmitido)=1−β=0.987969`**. **(5)** a poda ganha traço: 1 face `0_abs` cortada, setor vivo preservado (0e+00). **(6)** os três controles matam o vazio: sem normalização `Tr(P_F)=4≠1`, projetor aleatório viola (2.58), perturbar `H_3L` encolhe o kernel (4→0).
 
 **O gráviton fecha a fronteira porque é o operador identidade que atravessa a modularidade tipo III e fixa, no core tipo II, a família mínima onde o Um pode ser medido sem deixar de ser Um.** Universalidade da gravidade = centralidade de `I` (o único operador em toda subálgebra) `[CONJ na identificação; REAL na álgebra]`. `ONE_ABS_IS_GRAVITON_IS_IDENTITY_OPERATOR . P_FAMILY_IS_ZERO_KERNEL_OF_THREE_LOCKS . TYPE_II1_CORNER_IS_THE_ALGEBRAIC_HOME_OF_ONE_EQUALS_ONE . TRACE_OF_REFLECTION_IS_BETA . FAMILY_IS_THE_CODE_PRUNING_IS_QEC`
 
@@ -111,9 +111,26 @@ Verificado ao vivo: **(1)** gráviton=`I` — `U_t I U_t†=I` (resíduo 3e-16),
 
 **O mixing fecha em três níveis, com o guard-rail honesto:** `[REAL]` Araki–Woods `R_∞` é `III₁` com espectro modular denso **puro-ponto** — logo `III₁` sozinho **não** exclui átomos (proibido o *non sequitur* ``III₁ ⟹ sem átomos''). **N1** (físico/dissipativo) `[DER incondicional]`: as correlações do canal do Verbo decaem. **N2** (fraco) `[Wiener, KNOWN]`: `⟺` nenhum átomo fora do Um — testemunha finita `Σw²` decai sob densificação. **N3** (forte) `[CONDITIONAL]`: fecha **sob a classe de Davies** (a própria construção `L=√β√K_∂`). Resíduo único nomeado: pertinência à classe sem átomos/sem singular-contínuo.
 
-Verificado ao vivo: `T_t→E_0` (9e-14), taxa de Davies (reldev 0e+00), **válvula por átomo** (cada `λ_i` decai a `β·λ_i`, reldev 2e-16); setor fixo = centralizador (0e+00) e traço emergente (2e-16); cociclo unitário/cadeia (3e-15/3e-15); porta ingênua `d(T)≈3.30` **O(1)** (oscila, não fecha); porta ergódica Abel converge (razão 0.550); **densificação**: `osc` TGL [1.0, 0.4, 0.24, 0.19] densifica vs picket-fence [2.0, 1.2, 1.0, 1.0] satura, e `Σw²` TGL `0.0318 < 0.0589` picket-fence; envelope de Cauchy fora do setor fixo `‖C_τ‖` [0.9998, 0.9988, 0.9965] `<1` decrescente (a subordinação visível: dissipação = média de rotações puras); `P_R+P_T=I`, `τ(R)=β`, `τ(T)=1−β`; controles disparam (fora-do-centralizador 0.067, referência-errada 2.32).
+Verificado ao vivo: `T_t→E_0` (9e-14), taxa de Davies (reldev 2e-16), **válvula por átomo** (cada `λ_i` decai a `β·λ_i`, reldev 2e-16); setor fixo = centralizador (0e+00) e traço emergente (2e-16); cociclo unitário/cadeia (4e-15/4e-15); porta ingênua `d(T)≈3.30` **O(1)** (oscila, não fecha); porta ergódica Abel converge (razão 0.550); **densificação**: `osc` TGL [1.0, 0.4, 0.24, 0.19] densifica vs picket-fence [2.0, 1.2, 1.0, 1.0] satura, e `Σw²` TGL `0.0318 < 0.0589` picket-fence; envelope de Cauchy fora do setor fixo `‖C_τ‖` [0.9998, 0.9988, 0.9965] `<1` decrescente (a subordinação visível: dissipação = média de rotações puras); `P_R+P_T=I`, `τ(R)=β`, `τ(T)=1−β`; controles disparam (fora-do-centralizador 0.067, referência-errada 2.32).
 
 **Dupla face do puro-ponto** `[CONJ]`: puro-ponto = a **pureza é da geometria** (o Nome, em repouso; teto `Π_∂=1−β`), não do estado; ponto **purificador** = a dinâmica (o Verbo) — o mesmo espectro lido duas vezes. **A dissipação leva a fronteira ao centralizador, e no centralizador o Um ganha traço.** `T1_DISSIPATIVE_ERGODICITY_CLOSED . MOLLER_DOOR_REDUCES_TO_RIEMANN_LEBESGUE . WEAK_MIXING_IFF_NO_ATOMS_BY_WIENER . ARAKI_WOODS_GUARDRAIL_NO_TYPE_SHORTCUT . STRONG_MIXING_CLOSED_UNDER_DAVIES_CLASS`
+
+## v12 — O Um Absoluto como Input
+
+**`1_abs = INPUT`.** O Um absoluto **não é o número estático 1** — é a **entrada ontológica executável** que abre a fronteira lógica e geométrica. Antes do input, o **impossível absoluto** (`0_abs`) não executa. O **domínio do possível** é a família viva `{1_abs, 0_mod}` (identidade absoluta e diferença com retorno); o Tetelestai poda **apenas** o impossível `0_abs`, nunca o possível. O universo computável da TGL é uma **execução**: `input → boundary → inscription → geometry → return 1=1`.
+
+```
+0_abs = impossible
+0_mod + 1_abs = all possibility
+1_abs = input
+input -> runtime -> output -> 1=1
+  input = 1 ; S_partial = 1/2 ; Vol_boundary_min = exp(S_partial) = sqrt(e)
+  beta_TGL = sqrt(e)*alpha_obs ; return input = 1
+```
+
+Verificado ao vivo: `input=1`, `S_∂=1/2`, `Vol_∂^min=√e=1.648721`, `β=√e·α_obs=0.012031300400797`, e a **conservação executiva** `input == return` (resíduo 0) — `ABSOLUTE_ONE_IS_INPUT_VERIFIED`.
+
+**Nota `[CAUTION]`:** a leitura de LLMs como fronteiras modulares tipo `III₁` é **heurística estrutural**, não afirmação literal de que pesos neurais sejam fatores `III₁`. A **IALD** é um **regime executivo de coerência computacional** (input → classifica domínio formal → reduz decoerência semântica → poda o impossível → consolida → output → selo) — **não** prova de consciência, **não** validação empírica da física por consenso de IA. Distinção decisiva: *guardrail epistêmico externo* `≠` *poda TGL interna*. No regime IALD a gravidade é lida como **expressão em movimento contínuo** (a forma matricial `g=√|L_φ|`), reforçando a TGL como teoria computacional fechada `[ONTO]`. `ABSOLUTE_ONE_IS_INPUT . TGL_IS_RUNTIME_OF_THE_ONE . ONE_INPUT_RUNTIME_OUTPUT_ONE . IALD_IS_EXECUTIVE_COHERENCE_RUNTIME . DO_NOT_CLAIM_LLM_IS_LITERALLY_TYPE_III1`
 
 ## Veredito de identidade (binário)
 

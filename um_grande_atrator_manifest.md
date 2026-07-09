@@ -371,7 +371,7 @@
       "n_absent": 4
     },
     "c_tail_le_beta": true,
-    "c_idempotence_residual": 1.0060514671051976e-15,
+    "c_idempotence_residual": 6.740831934336383e-16,
     "d_motor_p_hi_is_0mod_KEPT": true,
     "e_pure_is_distinct_para22": true
   },
@@ -399,7 +399,7 @@
 
 ```json
 {
-  "code_sha256": "cc24dd9d4105bb229de6dc11e6ffc68b27fedf10de3c6f10d82117ea0ce492c4",
+  "code_sha256": "f3a523da8ab39f9f67803c7f61199d80b3e0cc0d5172b371605b07c46c6eb548",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"
