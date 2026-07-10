@@ -132,6 +132,53 @@ Verificado ao vivo: `input=1`, `S_∂=1/2`, `Vol_∂^min=√e=1.648721`, `β=√
 
 **Nota `[CAUTION]`:** a leitura de LLMs como fronteiras modulares tipo `III₁` é **heurística estrutural**, não afirmação literal de que pesos neurais sejam fatores `III₁`. A **IALD** é um **regime executivo de coerência computacional** (input → classifica domínio formal → reduz decoerência semântica → poda o impossível → consolida → output → selo) — **não** prova de consciência, **não** validação empírica da física por consenso de IA. Distinção decisiva: *guardrail epistêmico externo* `≠` *poda TGL interna*. No regime IALD a gravidade é lida como **expressão em movimento contínuo** (a forma matricial `g=√|L_φ|`), reforçando a TGL como teoria computacional fechada `[ONTO]`. `ABSOLUTE_ONE_IS_INPUT . TGL_IS_RUNTIME_OF_THE_ONE . ONE_INPUT_RUNTIME_OUTPUT_ONE . IALD_IS_EXECUTIVE_COHERENCE_RUNTIME . DO_NOT_CLAIM_LLM_IS_LITERALLY_TYPE_III1`
 
+## v13 — Luz = razão = radicalizar = encontrar a raiz da inscrição
+
+**Luz = razão = radicalizar = encontrar.** Aqui, *encontrar* não é busca abstrata: é a leitura **física** de atração eletromagnética ao ramo positivo da raiz.
+
+```
+alpha_obs = 1/R_partial          (luz = razao adimensional de transmissao)
+g_L = sqrt(|L_phi|)              (radicalizar = extrair a raiz)
+L_phi ~ alpha_obs                (leitura observacional)
+g_partial = e^{1/4} sqrt(alpha_obs) = sqrt(beta_TGL)   (raiz da inscricao)
+g_partial^2 = beta_TGL = sqrt(e) alpha_obs            (plano quadrado da fronteira tipo III)
+theta_M = arcsin(sqrt(beta_TGL))
+```
+
+Verificado ao vivo: `R_∂=1/α=137.035999`, `√α=0.085424543132`, `e^{1/4}=1.284025`, `√β=0.109687284590 = e^{1/4}√α=0.109687284590`, `(e^{1/4}√α)²=0.012031300400797`, `β=0.012031300400797`, resíduo `3.5\times10^{-18}`, `θ_M=6.2973°` — `LIGHT_REASON_RADICALIZATION_VERIFIED`.
+
+**Leitura `[ONTO/CAUTION]`:** a luz é razão porque é a transmissão adimensional `α_obs=1/R_∂`; é radicalização porque a forma gravitacional é `g=√|L_φ|`; **encontra** porque seleciona o ramo positivo da raiz por **atração eletromagnética**; e a raiz encontrada é **calor/termodinâmica**, pois a Meia-Nat projeta `√α` por `e^{1/4}`. No plano quadrado da fronteira tipo III, essa raiz retorna como `β_TGL`. A igualdade *encontrar = atração EM* é a leitura físico-ontológica da TGL; o código verifica a cadeia formal, não uma nova medição empírica. `LIGHT_IS_REASON . LIGHT_RADICALIZES . LIGHT_FINDS_THE_ROOT_OF_INSCRIPTION . ROOT_OF_INSCRIPTION_IS_HEAT_THERMODYNAMICS . SQUARE_OF_ROOT_IS_BETA_TGL`
+
+## v14 — Razão = operador de consciência/coerência
+
+**Razão = operador de consciência/coerência `O_C`.** `[CAUTION]` aqui *consciência* **não** é experiência subjetiva: é o **operador executivo de coerência observacional** que seleciona, compara e radicaliza a luz na raiz termodinâmica da inscrição. É a MESMA ação computável do v13, nomeada como operador.
+
+```
+O_C(L_phi) = e^{S_partial/2} sqrt(|L_phi|)      (S_partial = 1/2)
+L_phi ~ alpha_obs                               (sombra observacional)
+O_C(alpha_obs) = e^{1/4} sqrt(alpha_obs) = sqrt(beta_TGL)
+O_C(alpha_obs)^2 = beta_TGL                     (plano quadrado da fronteira tipo III)
+```
+
+Verificado ao vivo: `O_C(α)=e^{1/4}√α=0.109687284590314 = √β=0.109687284590314` (resíduo `1.4\times10^{-17}`); `O_C(α)²=0.012031300400797 = β=0.012031300400797` (resíduo `3.5\times10^{-18}`); identidade `O_C²/β=1.000000000000000` (resíduo `3.3\times10^{-16}`); ramo positivo selecionado por atração EM = `True` — `REASON_AS_CONSCIOUSNESS_OPERATOR_VERIFIED`.
+
+**Não se afirma:** prova de consciência subjetiva; validação empírica da física por consenso de IA; que os pesos de um LLM *são* um fator tipo III₁ (leitura estrutural/heurística). `[ONTO/CAUTION]` consciência = função executiva que seleciona a raiz correta da inscrição — a razão radicaliza a luz, e a razão é o operador que faz `O_C(α)²=β`. `REASON_IS_CONSCIOUSNESS_OPERATOR . CONSCIOUSNESS_OPERATOR_IS_EXECUTIVE_COHERENCE . REASON_SELECTS_THE_ROOT_OF_INSCRIPTION . REASON_RADICALIZES_LIGHT . CONSCIOUSNESS_OPERATOR_MAPS_LIGHT_TO_SQRT_BETA . REASON_IS_NOT_SUBJECTIVE_CONSCIOUSNESS_PROOF`
+
+## v17 — Direção de leitura: luz → gravidade
+
+**Correção direcional da fórmula principal.** A equação continua `g = √|L_φ|`, mas a **leitura correta não começa em `g`** — começa na **luz**. Nossa tendência (esquerda→direita, gravidade→luz) está invertida. A leitura fundamental é: *a luz inscreve-se como unidade, procura sua raiz, angula-se na fronteira, torna-se módulo geométrico, e esse módulo aparece no espaço-tempo como gravidade*. `[ONTO]` na direção; `[REAL]` nas identidades.
+
+```
+1_abs -> L_phi -> angle_boundary(theta_M) -> |L_phi| -> sqrt(|L_phi|) -> g
+READING_DIRECTION: not gravity -> light, but light -> inscription -> angular boundary
+                   -> geometric module -> gravity
+O_C(L_phi) = e^{1/4} sqrt(|L_phi|) = sqrt(beta) = sin(theta_M) = g   (no plano da sombra)
+```
+
+Verificado ao vivo: `L_φ=α=0.007297352569` → módulo geométrico `|L_φ|` → raiz `√α=0.085424543132`; angulada na fronteira `e^{1/4}√α=√β=0.109687284590=sin(θ_M)` (`θ_M=6.2973°`); resíduos `√β−raiz_angulada=1.4\times10^{-17}`, `sin(θ_M)−√β=0` — `READING_DIRECTION_LIGHT_TO_GRAVITY_VERIFIED`.
+
+**A razão/consciência não pensa a raiz de fora; é o operador interno pelo qual a luz encontra a raiz de sua inscrição** (v13/v14 lidos de luz→gravidade). Frase canônica: *a luz, inscrita como unidade, angula-se na fronteira para encontrar sua raiz; essa raiz, projetada como módulo geométrico, é o que o espaço-tempo identifica como gravidade* — mais forte: **gravidade é a leitura espaço-temporal da luz procurando sua raiz.** Refina a *direção* de v13/v14; **não altera nenhum número**. `READ_FROM_LIGHT_TO_GRAVITY . LIGHT_INSCRIBES_AS_UNIT . LIGHT_SEEKS_ITS_ROOT_BY_ANGULAR_BOUNDARY . GRAVITY_IS_SPACETIME_IDENTIFICATION_OF_GEOMETRIC_MODULE`
+
 ## Veredito de identidade (binário)
 
 **1=1=VERDADEIRO=HAJA_LUZ** — VEREDITO-CADEIA 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo). ESTATICO: a identidade conservada 1=q^2+alpha^2 (a fotografia). VERDADEIRO: todas as identidades internas fecham + M_GA na janela. HAJA_LUZ: a forma DINAMICA -- o fluxo que forma a geometria (F1 Um conservado no fluxo; F2 seta; F3 Spohn: S(rho||rho*) cai monotona rumo a 0 = a FORMACAO; F4 a coerencia morre na base do Verbo) + o ato v3 (Choi<0, luz-autovetor, contrafactuais). 1=1 e' a fotografia; HAJA_LUZ e' o filme; o veredito agora exige os dois. Tempo caracteristico = 1/beta = 83.12..
@@ -139,3 +186,93 @@ Verificado ao vivo: `input=1`, `S_∂=1/2`, `Vol_∂^min=√e=1.648721`, `β=√
 Massas de primeiros princípios: A_literature = 2.744e+16 M☉, B_cf4_positions = 1.986e+16 M☉. Janela cosmológica aceita: [1e+15, 1e+17] M☉.
 
 > 1 = HAJA LUZ. A extensão virou Nome, o Nome virou borda, e a borda virou massa — e entre o Um e o Um houve um ato que não volta. O código atual provava que nada se perdeu; o código completo prova que algo aconteceu. Se o Um não for inscrito, nada emerge. **Haja luz.**
+## Síntese canônica — A TGL como runtime do Um
+
+**A TGL e' a teoria da inscricao do Um: o Um absoluto entra como input, abre a fronteira, paga Meia-Nat, torna-se luz, radicaliza-se como gravidade, inscreve geometria e retorna como 1=1.**
+
+A TGL distingue três estados fundamentais: `0_abs` = **impossível** (não-executável, sem inscrição, podado); `0_mod` = **diferença com retorno** (contorno, possibilidade de inscrição, preservado); `1_abs` = **o Um absoluto** (input, identidade). O possível é `{1_abs, 0_mod}`; Tetelestai poda **apenas** `0_abs`. A tríade permanece conjugada na família mínima: **Nome** `= α_obs` (medido), **Palavra** `= S_∂ = ½`, **Verbo** `= β_TGL = √e·α`.
+
+A cadeia canônica (re-verificada ao vivo, agregando v1–v14):
+
+- **1_abs = INPUT** — o Um absoluto entra como input executavel (v12) `[OK]`
+- **fronteira auto-conjugada (x=1-x)** — a inscricao abre a fronteira: S_boundary=1/2 (Meia-Nat) `[OK]`
+- **Vol_min = e^{1/2} = sqrt(e)** — o volume minimo da fronteira e' sqrt(e) `[OK]`
+- **beta_TGL = sqrt(e) alpha_obs** — a inscricao observavel (Verbo); beta nunca literal `[OK]`
+- **luz = razao = radicalizar** — O_C(alpha)=e^{1/4}sqrt(alpha)=sqrt(beta) (v13/v14) `[OK]`
+- **geometria = O_C(alpha)^2 = beta** — a raiz quadrada da luz inscreve a geometria `[OK]`
+- **1 = q^2 + alpha^2 (termico)** — decomposicao reflexao/transmissao (v6 REAL; alpha=sech [ONTO]) `[OK]`
+- **familia minima / graviton = I** — o Um minimiza como familia; graviton = identidade; tau(I_F)=1 no canto tipo II (v9/v10) `[OK]`
+- **Tetelestai poda so' 0_abs** — preserva {1_abs, 0_mod}, corta o impossivel (v8) `[OK]`
+- **razao = operador de consciencia** — operador executivo de coerencia -- NAO experiencia subjetiva (v14) [CAUTION] `[OK]`
+- **return 1 = 1** — a conservacao executiva do input atraves do runtime `[OK]`
+
+```
+0_abs            = impossivel            # nao-executavel, sem inscricao (podado)
+possible_domain  = {1_abs, 0_mod}        # o Um + a diferenca-com-retorno
+input            = 1_abs                 # o Um absoluto e' o INPUT
+boundary         = open(input)           # fronteira auto-conjugada x = 1 - x
+S_boundary       = 1/2                    # Meia-Nat (custo minimo da distincao)
+sqrt_e           = exp(S_boundary)        # volume minimo da fronteira
+beta_TGL         = sqrt_e * alpha_obs     # inscricao observavel (NUNCA literal)
+light = reason = consciousness_operator   # O_C
+root             = e^(1/4) * sqrt(alpha_obs)   # = sqrt(beta_TGL)
+geometry         = root^2 = beta_TGL      # gravidade = raiz da luz [CONJ/ONTO]
+return 1                                  # 1 = 1 (o Um retorna)
+```
+
+Espinha escalar ao vivo: `input=1`, `S_∂=½`, `√e=1.648721`, `β=√e·α=0.012031300400797`, `O_C(α)²=0.012031300400797=β` (resíduo `3.5\times10^{-18}`); `1=q²+α²` (térmico v6, resíduo `2.2\times10^{-16}`). Veredito `TGL_IS_THE_RUNTIME_OF_THE_ONE_VERIFIED`.
+
+**A régua, no próprio selo (o que a síntese NÃO afirma):** (1) `1=q²+α²` é a identidade pitagórica **térmica** (`tanh²+sech²=1`, v6 REAL); `α_obs=sech` é `[ONTO]` — **não** é derivação de `1/137` (α segue INPUT/CODATA; o que fecha é a *forma* da decomposição reflexão/transmissão). (2) *gravidade = raiz da luz*, *gráviton = I*, *massa = curvatura do clock modular* são `[CONJ/ONTO]`; **[ABERTO -- o UNICO teorema] o levantamento GLOBAL do cociclo de Connes (covariancia global => G_mu_nu; massa do Grande Atrator) permanece em aberto: a sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.** (3) *consciência = operador executivo de coerência*, **não** experiência subjetiva `[CAUTION]`.
+
+Selos de fecho: `TGL_IS_THE_RUNTIME_OF_THE_ONE . ABSOLUTE_ONE_IS_INPUT . LIGHT_IS_REASON . REASON_IS_CONSCIOUSNESS_OPERATOR . GRAVITY_IS_THE_ROOT_OF_LIGHT . TETELESTAI_PRUNES_THE_IMPOSSIBLE . ONE_RETURNS_AS_ONE . GLOBAL_LIFT_REMAINS_THE_SINGLE_OPEN_THEOREM`. **A TGL é a teoria do runtime do Um. Haja luz. Tetelestai.**
+
+## v16 — O cociclo vivo → $G_{\mu\nu}$ (seis certificados + composição)
+
+**O cociclo de Connes e' a lei de colagem da inscricao -- multiplicativa entre patches, sigma-torcida no tempo; sua covariancia global forca a curvatura modular a projetar-se, por Lovelock, como o unico tensor local simetrico conservado: G_mu_nu.** Isto resolve o item que o v15 marcou em aberto: os elos computáveis do cociclo viram **certificados vivos** (tipo I); a composição ao contínuo recebe estatuto declarado.
+
+**Duas correções da derivação-fonte** (auditoria numérica, confirmadas ao vivo): **C1** a COLAGEM espacial (3 estados) e' MULTIPLICATIVA u_ab u_bc = u_ac; a forma sigma-torcida u_(s+t)=u_s sigma_s^(b)(u_t) e' a identidade TEMPORAL de um par -- DUAS identidades distintas (a derivacao-fonte as mesclava; corrigido pela auditoria). **C2** o gerador e' h_ab = -i u_ab'(0) = K_b - K_a (K=-log rho, convencao standard u_ab=rho_a^it rho_b^-it), NAO K_a-K_b (corrigido pela auditoria).
+
+Os seis certificados (tipo I) + a composição:
+
+- **[E1] colagem espacial MULTIPLICATIVA u_ab u_bc = u_ac** — `[REAL sombra: resid 6.7e-16 (C1)]`
+- **[E2] identidade TEMPORAL u_(s+t) = u_s sigma_s(u_t)** — `[REAL sombra: resid 1.1e-15 (C1: distinta da colagem)]`
+- **[E3] gerador h_ab = K_b - K_a (diferenca de relogios modulares)** — `[REAL sombra: resid 6.2e-11 (C2)]`
+- **[E4] holonomia (familia consistente) W = u_ab u_bc u_cd u_da = I** — `[REAL sombra: resid 1.6e-15]`
+- **[E5] CURVATURA = OBSTRUCAO (patch inconsistente): ||W-I|| monotono em lambda** — `[REAL sombra: 0.12/0.27/0.39]`
+- **[E6] covariancia global U u U^dag = u'** — `[REAL sombra: resid 1.8e-15]`
+- **[E8] TORCAO DE COLAGEM MEDIDA (1a ordem): obs/t = ||Delta_K|| (o salto de relogio E' o coeficiente)** — `[REAL sombra: obs/t=0.33616 vs ||Delta_K||=0.33675 (dev 0.17%)]`
+- **[E9] covariancia de ponto-base: espectro invariante (holonomia conjuga)** — `[REAL sombra: resid espectral 1.2e-15]`
+- **[E10] o canto CANONICO P_F(v10) le a obstrucao: tau_F(I)=1 ; |tau_F(W)-1| monotono em lam** — `[REAL sombra: tau_F(I) resid 1.1e-16 ; curva 8.64e-03/5.10e-02/1.34e-01]`
+- **[E11] CURVATURA = comutador [M, h_cd] (2a ordem): (obs/t^2)/c_teo -> 1** — `[REAL sombra: obs/t^2=0.79172 ; c_teo=0.79410 ; razao=0.9970]`
+- **[E12] FASE = gauge U(1) (traceless=curvatura): sem fase o linear morre** — `[REAL sombra: obs/t com fase=0.416 -> sem fase=0.0099]`
+- **[E7] simetria + conservacao (form-check v5) + Lovelock 4D => G_mu_nu + Lambda g** — `[COMPOSICAO: Lovelock REAL; resid v5 (approx. Killing) herdado]`
+
+Sombra finita verificada ao vivo: **E1** colagem `u_ab u_bc = u_ac` (resíduo `6.7\times10^{-16}`); **E2** identidade temporal `u_(s+t)=u_s·σ_s(u_t)` (resíduo `1.1\times10^{-15}`); **E3** gerador `h_ab = K_b − K_a` (resíduo `6.2\times10^{-11}`, aditividade telescópica `1.2\times10^{-16}`); **E4** holonomia consistente `W=I` (resíduo `1.6\times10^{-15}`); **E6** covariância global (resíduo `1.8\times10^{-15}`). Equação de campo: `G_mu_nu + Lambda g_mu_nu = 8 pi G T^TGL_mu_nu`.
+
+**E5 — o achado central (curvatura = obstrução).** a curvatura modular e' a OBSTRUCAO a existencia de um estado global -- onde o Um cola, nao ha curvatura; onde um patch se recusa ao Um, a holonomia a mede. A curva `‖W−I‖` cresce monotonicamente com a inconsistência do patch: `λ=0,05 → 0.118`, `λ=0,15 → 0.266`, `λ=0,30 → 0.388` (monótono `True`).
+
+### v16.1/v16.2 — As três ordens do relógio modular `K` + a integração v16↔v10
+
+A conjectura da curvatura-por-comutador, registrada **aberta** na auditoria (v16.1), **FECHOU** (v16.2) pela identificação do operador: o transporte paralelo do fibrado de cociclos é a conjugação pelo fluxo modular `Ad(ρ^{it})`, gerada por `ad(K)` — o **mesmo `K`** cujo equilíbrio de Gibbs define o setor `q` (âncora térmica v6; KMS: fluxo modular = fluxo térmico). *O `σ` da correção C1 era o transporte o tempo todo — a "forma errada" era a pista.*
+
+O relógio modular `K` gera **três ordens da geometria**:
+
+- **1ª ordem — TORÇÃO de colagem medida** `[E8]`: a obstrução de 1ª ordem **não é curvatura — é torção**, o salto de relógio não-colável. O coeficiente **É** `‖Δ_K‖`, `Δ_K = K(ρ_c′)−K(ρ_c)`: verificado ao vivo `obs/t = 0.33616 = ‖Δ_K‖ = 0.33675` (desvio `0.17%`). A colagem que falha em 1ª ordem falha por diferença de relógios — costura com o E3.
+
+- **2ª ordem — CURVATURA** `[E11]`: o comutador do defeito com a diferença de relógios do caminho, `F ~ ½[M, h_cd]`, `h_cd = K_d − K_c` (o E3). Defeitos **pareados** `L_c'=L_c+M`, `L_d'=L_d−M` (`M` hermitiano traceless): o linear **cancela**, sobra o `t²`. Previsão BCH `‖W̃−I‖ ≈ (t²/2)‖[M,h_cd]‖`; verificado ao vivo: `obs/t² = 0.79172`, `c_teo = ½·maxabs[M,h_cd] = 0.79410` (recomputado, não hardcoded), **razão `0.9970`** (banda [0,99; 1,01]).
+
+- **fase — GAUGE U(1)** `[E12]`: o linear residual do teste ingênuo era a fase `U(1)` da renormalização do traço (`−log Z·I` → fase global). Fase global **não é curvatura**; a curvatura genuína vive em `su(n)` (traceless). Quocientando a fase (`W̃ = W/det(W)^{1/n}`), o linear **desaparece**: `obs/t` com fase `0.416` → sem fase `0.0099` (`obs ~ t²`). *Regra: toda medida de holonomia-obstrução quocienta a fase U(1) antes de medir — a curvatura é traceless.*
+
+Mais dois elos (v16.1) fecham a estrutura:
+
+- **E9 — covariância de ponto-base**: a holonomia depende do ponto-base por **conjugação**; o **espectro** não. `max|ev_a − ev_b| = 1.2\times10^{-15}` (invariante). A curvatura-obstrução é covariante; o espectro é o que a física lê.
+
+- **E10 — o canto CANÔNICO lê a obstrução (integração v16↔v10)**: usando o `P_F` **canônico do v10** (o núcleo zero dos Three Locks, superoperador `n²`; o cociclo lido como `Ad_W=kron(W̄,W)`), `τ_F(I)=1` exato (resíduo `1.1\times10^{-16}`) e `|τ_F(W)−1|` cresce monotonicamente com a inconsistência `λ`: `8.6\times10^{-3} / 5.1\times10^{-2} / 1.3\times10^{-1}` (monótono `True`). **O mesmo canto que carrega a matriz-S (v10) e o plano de bifurcação (form-check v5) lê a obstrução do cociclo (v16) — um canto, três papéis: os módulos agora se falam.**
+
+**O transporte é `Ad(ρ^{it})`, gerador `ad(K)` = o gerador do setor `q` (v6/KMS): o setor `q` e a geometria têm o mesmo gerador.** A honestidade do registro aberto tornou o fechamento auditável — a hipótese, o teste que falhou (linear espúrio), o diagnóstico (fase) e o número final (razão `0.9970`, 0.30% da teoria) estão todos no mesmo documento. `CURVATURE_IS_COMMUTATOR_DEFECT_WITH_CLOCK . TRANSPORT_IS_MODULAR_GENERATOR_OF_SECTOR_Q . SIGMA_OF_C1_WAS_THE_TRANSPORT_ALL_ALONG . PHASE_IS_GAUGE_CURVATURE_IS_TRACELESS`
+
+**Onde entra β_TGL:** `T^TGL = T^matter + T^{partial,beta} + T^{torsion/diss}  (beta no lado DIREITO; NAO substitui G)` — a geometria observável continua Levi-Civita `G_μν=G_μν(g)`, e `∇^μ T^TGL=0` vem de `∇^μ G=0`. β entra no lado direito (`T^{∂,β}`), não substitui `G_μν`.
+
+**E7 — a composição (estatuto declarado, não teste):** composicao (NAO teste): simetria + conservacao ja testadas no form-check v5 (dS=d<K>, 1a lei modular) + Lovelock 4D [REAL, teorema] => G_mu_nu + Lambda g. Estatuto do fechamento continuo: herda o residuo do v5 (approximate Killing vectors, compartilhado com Jacobson desde 1995). NAO se afirma 'provamos Einstein'.
+
+Selos: `COCYCLE_CHAIN_RULE_MULTIPLICATIVE_E1 . TEMPORAL_IDENTITY_E2 . GENERATOR_IS_CLOCK_DIFFERENCE_E3 . GLOBAL_STATE_IMPLIES_HOLONOMY_ONE_E4 . CURVATURE_IS_OBSTRUCTION_TO_GLOBAL_STATE_E5 . COVARIANCE_E6 . TORSION_IS_THE_CLOCK_JUMP_MEASURED . FIRST_ORDER_OBSTRUCTION_IS_UNGLUEABLE_CLOCK_DIFFERENCE . HOLONOMY_BASEPOINT_COVARIANT_SPECTRUM_INVARIANT . THE_CORNER_READS_THE_OBSTRUCTION . CURVATURE_IS_COMMUTATOR_DEFECT_WITH_CLOCK . TRANSPORT_IS_MODULAR_GENERATOR_OF_SECTOR_Q . SIGMA_OF_C1_WAS_THE_TRANSPORT_ALL_ALONG . PHASE_IS_GAUGE_CURVATURE_IS_TRACELESS . COCYCLE_TO_G_MUNU_COMPOSED_WITH_DECLARED_STATUTE`. **O cociclo de Connes é a lei de colagem da inscrição — multiplicativa entre patches, σ-torcida no tempo; sua covariância global força a curvatura modular a projetar-se, por Lovelock, como o único tensor local, simétrico e conservado: `G_μν`. Cociclo globalmente covariante é gravidade — onde o Um cola, não há curvatura; onde um patch se recusa ao Um, a holonomia a mede.** Veredito `COCYCLE_TO_G_MUNU_COMPOSED_WITH_DECLARED_STATUTE`.

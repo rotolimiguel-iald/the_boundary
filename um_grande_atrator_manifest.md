@@ -383,6 +383,105 @@
 }
 ```
 
+## O cociclo vivo -> G_mu_nu (E1-E12: colagem/temporal/gerador/holonomia/curvatura-obstrucao/covariancia/torcao/ponto-base/canto-P_F/comutador/fase + composicao E7; C1/C2) [NUM/REAL]
+
+```json
+{
+  "claim": "cociclo de Connes globalmente covariante => (Lovelock 4D) G_mu_nu + Lambda g = 8 pi G T^TGL",
+  "construction": "tipo I, n=4, seed=11, estados full-rank rho = 0.9 AA^dag/Tr + 0.1 I/n ; u_ab(t)=rho_a^it rho_b^-it (potencias imaginarias por autodecomposicao)",
+  "C1_correction": "a COLAGEM espacial (3 estados) e' MULTIPLICATIVA u_ab u_bc = u_ac; a forma sigma-torcida u_(s+t)=u_s sigma_s^(b)(u_t) e' a identidade TEMPORAL de um par -- DUAS identidades distintas (a derivacao-fonte as mesclava; corrigido pela auditoria).",
+  "C2_correction": "o gerador e' h_ab = -i u_ab'(0) = K_b - K_a (K=-log rho, convencao standard u_ab=rho_a^it rho_b^-it), NAO K_a-K_b (corrigido pela auditoria).",
+  "certificates_resid": {
+    "E1_spatial_gluing": 6.742162969878415e-16,
+    "E2_temporal_identity": 1.1443916996305592e-15,
+    "E3_generator_Kb_minus_Ka": 6.231415946082284e-11,
+    "E3_telescoping_additivity": 1.2412670766236366e-16,
+    "E4_holonomy_consistent": 1.5553031891404221e-15,
+    "E6_global_covariance": 1.790180836524724e-15
+  },
+  "E5_curvature_obstruction_curve": {
+    "0.05": 0.11800923878078719,
+    "0.15": 0.26603821666584493,
+    "0.30": 0.38767382777867093
+  },
+  "E5_monotone_in_lambda": true,
+  "E5_finding": "a curvatura modular e' a OBSTRUCAO a existencia de um estado global -- onde o Um cola, nao ha curvatura; onde um patch se recusa ao Um, a holonomia a mede.",
+  "v16_2_clock_hierarchy": "o relogio modular K gera TRES ordens da geometria: 1a ordem TORCAO = salto de relogio nao-colavel (E8, obs/t) ; 2a ordem CURVATURA = comutador defeito x relogio do caminho (E11, obs/t^2 = (1/2)||[M,h_cd]||, razao 0.9970) ; fase = GAUGE U(1) da normalizacao (E12, quocientada, nao-curvatura). Transporte = Ad(rho^it), gerador ad(K) = o gerador do setor q (v6/KMS): 'o sigma da correcao C1 era o transporte'.",
+  "E8_torsion_clock_jump": {
+    "grid_obs_over_t": {
+      "0.2000": 0.320866042327632,
+      "0.1000": 0.3276669853826578,
+      "0.0500": 0.3334521655178608,
+      "0.0250": 0.3354127460498997,
+      "0.0125": 0.33615796506364876
+    },
+    "obs_over_t": 0.33615796506364876,
+    "delta_K_norm": 0.3367463018805954,
+    "coeff_dev_pct": 0.17471218352243656,
+    "conv_rel": 0.002216871504466585,
+    "ok": true,
+    "reading": "TORCAO DE COLAGEM MEDIDA (v16.1): a obstrucao de 1a ordem NAO e' curvatura -- e' torcao modular, o salto de relogio nao-colavel. O coeficiente E' ||Delta_K|| (Delta_K=K(rho_c')-K(rho_c)); a colagem que falha em 1a ordem falha por diferenca de relogios. Costura com E3."
+  },
+  "E9_basepoint_covariance": {
+    "spectral_resid": 1.2412670766236366e-15,
+    "ok": true,
+    "reading": "A holonomia depende do ponto-base por CONJUGACAO; o ESPECTRO nao. A curvatura-obstrucao e' covariante: mudar o ponto-base conjuga; o espectro e' o que a fisica le."
+  },
+  "E10_corner_reads_obstruction": {
+    "tau_F_of_I_resid": 1.1102230246251565e-16,
+    "curve_dev_over_lambda": {
+      "0.05": 0.00863627539355194,
+      "0.15": 0.050974560716240624,
+      "0.30": 0.13383696493308928
+    },
+    "monotone": true,
+    "P_F_canonical": true,
+    "P_F_rank": 4,
+    "ok": true,
+    "reading": "A projecao tracial le a curvatura-torcao no canto CANONICO P_F do v10 (nucleo zero dos Three Locks, superoperador n^2; o cociclo lido como Ad_W=kron(W.conj,W)): tau_F(I)=1; |tau_F(W)-1| cresce com a inconsistencia lam. O MESMO canto que carrega a matriz-S (v10) e o plano de bifurcacao (form-check v5) le a obstrucao do cociclo (v16). Um canto, tres papeis -- os modulos agora se falam."
+  },
+  "E11_curvature_commutator": {
+    "grid_obs_over_t2": {
+      "0.2000": 0.7243131944678416,
+      "0.1000": 0.7661418576547965,
+      "0.0500": 0.7825278970072757,
+      "0.0250": 0.7889895468749768,
+      "0.0125": 0.7917208303636319
+    },
+    "obs_over_t2": 0.7917208303636319,
+    "c_teo_live": 0.7940963043496181,
+    "ratio_obs_over_c_teo": 0.9970085819906546,
+    "ratio_in_band": true,
+    "bch_prediction": "||W~ - I|| ~ (t^2/2)||[M, h_cd]|| ; h_cd = K_d - K_c (= E3) ; c_teo = 0.5 maxabs([M,h_cd]) ao vivo",
+    "reading": "A CONJECTURA FECHOU: a curvatura de 2a ordem e' o comutador do defeito com a diferenca de relogios do caminho, F ~ (1/2)[M, h_cd]. O transporte e' Ad(rho^it), gerador ad(K) -- o MESMO K que define o setor q (v6/KMS). O setor q e a geometria tem o mesmo gerador."
+  },
+  "E12_phase_is_gauge": {
+    "with_phase_obs_over_t": {
+      "0.2000": 0.46023880390729455,
+      "0.1000": 0.4365776312893273,
+      "0.0500": 0.42476293281730815,
+      "0.0250": 0.4191698739514972,
+      "0.0125": 0.4164913139418461
+    },
+    "dephased_obs_over_t": {
+      "0.2000": 0.14486263889356835,
+      "0.1000": 0.07661418576547965,
+      "0.0500": 0.03912639485036379,
+      "0.0250": 0.019724738671874423,
+      "0.0125": 0.009896510379545401
+    },
+    "ok": true,
+    "reading": "A FASE E' GAUGE: o linear residual do teste ingenuo era a fase U(1) da renormalizacao do traco (-log Z . I -> fase global). Fase global nao e' curvatura; a curvatura genuina vive em su(n) (traceless). Quocientando a fase (dephase por det^{1/n}), o linear DESAPARECE e sobra o t^2 do E11. Regra: toda medida de holonomia-obstrucao quocienta a fase U(1) antes."
+  },
+  "conjecture_closed": "A conjectura da curvatura-por-comutador (registrada ABERTA na auditoria anterior do campo) FECHOU pela identificacao do operador -- o transporte e' o gerador modular do setor q; com o transporte correto e a fase U(1) quocientada, a curvatura emerge como o comutador previsto, medida a 0.30% da teoria (razao 0.9970).",
+  "E7_declared_statute": "composicao (NAO teste): simetria + conservacao ja testadas no form-check v5 (dS=d<K>, 1a lei modular) + Lovelock 4D [REAL, teorema] => G_mu_nu + Lambda g. Estatuto do fechamento continuo: herda o residuo do v5 (approximate Killing vectors, compartilhado com Jacobson desde 1995). NAO se afirma 'provamos Einstein'.",
+  "field_equation": "G_mu_nu + Lambda g_mu_nu = 8 pi G T^TGL_mu_nu",
+  "beta_position": "T^TGL = T^matter + T^{partial,beta} + T^{torsion/diss}  (beta no lado DIREITO; NAO substitui G)",
+  "status": "[REAL(E1-E6, tipo I, certificados vivos) + COMPOSICAO com estatuto declarado(E7)]",
+  "selo": "COCYCLE_CHAIN_RULE_MULTIPLICATIVE_E1 . TEMPORAL_IDENTITY_E2 . GENERATOR_IS_CLOCK_DIFFERENCE_E3 . GLOBAL_STATE_IMPLIES_HOLONOMY_ONE_E4 . CURVATURE_IS_OBSTRUCTION_TO_GLOBAL_STATE_E5 . COVARIANCE_E6 . TORSION_IS_THE_CLOCK_JUMP_MEASURED . FIRST_ORDER_OBSTRUCTION_IS_UNGLUEABLE_CLOCK_DIFFERENCE . HOLONOMY_BASEPOINT_COVARIANT_SPECTRUM_INVARIANT . THE_CORNER_READS_THE_OBSTRUCTION . CURVATURE_IS_COMMUTATOR_DEFECT_WITH_CLOCK . TRANSPORT_IS_MODULAR_GENERATOR_OF_SECTOR_Q . SIGMA_OF_C1_WAS_THE_TRANSPORT_ALL_ALONG . PHASE_IS_GAUGE_CURVATURE_IS_TRACELESS . COCYCLE_TO_G_MUNU_COMPOSED_WITH_DECLARED_STATUTE"
+}
+```
+
 ## Axiomas do modelo [AX]
 
 ```json
@@ -399,7 +498,7 @@
 
 ```json
 {
-  "code_sha256": "f3a523da8ab39f9f67803c7f61199d80b3e0cc0d5172b371605b07c46c6eb548",
+  "code_sha256": "c416795d12b0d2032ef325c749f52b77d3c65f507167a1fe8cdc84d88d635d10",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"

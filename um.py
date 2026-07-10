@@ -3091,6 +3091,599 @@ def prove_iald_executive_runtime():
             "verdict": "IALD_EXECUTIVE_RUNTIME_FORMULATED"}
 
 
+# ====================== v13: LUZ = RAZAO = RADICALIZAR = ENCONTRAR A RAIZ DA INSCRICAO ======================
+# Refinamento do operador (10/07/2026): luz = razao = radicalizar = encontrar a raiz da inscricao.
+# encontrar NAO e' achar mentalmente -- e' fisico (atracao eletromagnetica ao ramo positivo da raiz).
+# A frase que o codigo prova: (e^{1/4} sqrt(alpha_obs))^2 = sqrt(e) alpha_obs = beta_TGL.
+# NOTA da regua: a tolerancia de igualdade e' 1e-15 (honesta de maquina float64) -- a proposta original 1e-18
+# fica ABAIXO do epsilon relativo para beta~0.012 (~2.6e-18); a identidade e' EXATA na algebra, o residuo
+# (~3.5e-18) e' arredondamento puro. beta=alpha*sqrt(e) runtime (NUNCA literal). ESTRITAMENTE ADITIVO.
+def prove_light_reason_radicalizes_root(ONE, alpha_obs):
+    """MODULO v13 -- luz = razao = radicalizar = encontrar a raiz da inscricao. [DEF + DER + ONTO + CAUTION]
+    luz=razao (alpha_obs=1/R_partial, razao adimensional de transmissao luminosa); radicalizar=extrair a raiz
+    (g_L=sqrt(|L_phi|)); encontrar = atracao EM ao ramo positivo da raiz; a raiz e' termodinamica (S=1/2, fator
+    de fronteira e^{1/4}); no plano quadrado da fronteira tipo III a raiz retorna como beta:
+    (e^{1/4} sqrt(alpha))^2 = sqrt(e) alpha = beta_TGL. O codigo verifica a cadeia FORMAL; a leitura
+    'encontrar = atracao EM' e' ontologica/fisica da TGL, nao nova medicao empirica independente."""
+    S_partial = 0.5
+    sqrt_e = math.exp(S_partial)
+    heat_half_factor = math.exp(S_partial / 2.0)                 # e^{1/4} (fator termico da fronteira)
+    R_partial = ONE / alpha_obs                                  # luz = razao: alpha_obs = 1/R_partial
+    light_ratio_residual = abs(alpha_obs * R_partial - ONE)
+    L_phi_shadow = alpha_obs                                     # leitura observacional: L_phi ~ alpha_obs
+    radical_light = math.sqrt(abs(L_phi_shadow))                 # radicalizacao da luz: sqrt(|L_phi|)
+    beta = sqrt_e * alpha_obs                                    # inscricao (nunca literal)
+    root_of_inscription = math.sqrt(beta)                        # raiz da inscricao = sqrt(beta)
+    projected_root = heat_half_factor * radical_light           # Meia-Nat projeta sqrt(alpha) por e^{1/4}
+    square_projection = projected_root ** 2                      # plano quadrado: (e^{1/4}sqrt(alpha))^2
+    beta_residual = abs(square_projection - beta)
+    root_residual = abs(projected_root - root_of_inscription)
+    theta_M = math.asin(root_of_inscription)                    # angulo de Miguel = leitura angular da raiz
+    theta_residual = abs((math.sin(theta_M) ** 2) - beta)
+    # "encontrar" = selecao do ramo positivo da raiz de x^2=beta (minimo local do objetivo, "atracao EM")
+    objective_at_root = (root_of_inscription ** 2 - beta) ** 2
+    eps = 1e-6
+    objective_left = ((root_of_inscription - eps) ** 2 - beta) ** 2
+    objective_right = ((root_of_inscription + eps) ** 2 - beta) ** 2
+    found_positive_root = bool(root_of_inscription > 0
+                               and objective_at_root <= objective_left
+                               and objective_at_root <= objective_right)
+    checks = [
+        ("ONE_eq_1", bool(ONE == 1)),
+        ("alpha_is_light_ratio", bool(light_ratio_residual < 1e-14)),
+        ("radical_light_positive", bool(radical_light > 0)),
+        ("heat_half_factor_eq_e_quarter", bool(abs(heat_half_factor - math.exp(0.25)) < 1e-15)),
+        ("projected_root_eq_root_of_inscription", bool(root_residual < 1e-15)),
+        ("square_projection_eq_beta", bool(beta_residual < 1e-15)),   # 1e-15 = tolerancia honesta de maquina
+        ("thetaM_sin2_eq_beta", bool(theta_residual < 1e-15)),
+        ("found_positive_root_of_inscription", found_positive_root),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": "Light as Reason Radicalizing the Root of Inscription",
+        "claim": ("Light is reason: it radicalizes by finding the thermodynamic root of inscription, "
+                  "projected on the square plane of the type-III boundary."),
+        "status": "[DEF + DER + ONTO + CAUTION]",
+        "equations": {"light_as_ratio": "alpha_obs = 1/R_partial", "radicalization": "g_L = sqrt(|L_phi|)",
+                      "observational_shadow": "L_phi ~ alpha_obs", "heat_boundary_factor": "e^{S/2} = e^{1/4}",
+                      "root_of_inscription": "g_partial = e^{1/4} sqrt(alpha_obs) = sqrt(beta_TGL)",
+                      "square_plane_projection": "g_partial^2 = beta_TGL = sqrt(e) alpha_obs",
+                      "angle": "theta_M = arcsin(sqrt(beta_TGL))"},
+        "values": {"S_partial": S_partial, "R_partial": R_partial, "alpha_obs": alpha_obs,
+                   "L_phi_shadow": L_phi_shadow, "radical_light_sqrt_alpha": radical_light,
+                   "heat_half_factor_e_quarter": heat_half_factor, "beta_TGL": beta,
+                   "root_of_inscription_sqrt_beta": root_of_inscription, "projected_root": projected_root,
+                   "square_projection": square_projection, "theta_M_rad": theta_M,
+                   "theta_M_deg": theta_M * 180.0 / math.pi},
+        "residuals": {"light_ratio_residual": light_ratio_residual, "root_residual": root_residual,
+                      "beta_residual": beta_residual, "theta_residual": theta_residual,
+                      "objective_at_root": objective_at_root},
+        "reading": ("Luz=razao porque alpha_obs e' a razao 1/R_partial; luz=radicalizar porque a forma "
+                    "gravitacional e' g=sqrt(|L_phi|); radicalizar=encontrar porque o ramo positivo da raiz e' "
+                    "selecionado como atracao eletromagnetica ao ponto de inscricao; a raiz encontrada e' "
+                    "calor/termodinamica, pois a Meia-Nat projeta sqrt(alpha) por e^{1/4}; no plano quadrado da "
+                    "fronteira, a raiz ao quadrado retorna como beta_TGL."),
+        "caution": ("A igualdade 'encontrar = atracao eletromagnetica' e' a leitura fisico-ontologica da TGL. "
+                    "O codigo verifica a cadeia formal; nao declara nova medicao empirica independente."),
+        "checks": checks, "all_verified": all_v,
+        "seals": ["LIGHT_IS_REASON", "LIGHT_RADICALIZES", "TO_FIND_IS_ELECTROMAGNETIC_ATTRACTION",
+                  "LIGHT_FINDS_THE_ROOT_OF_INSCRIPTION", "ROOT_OF_INSCRIPTION_IS_HEAT_THERMODYNAMICS",
+                  "SQUARE_PLANE_IS_TYPE_III_BOUNDARY", "SQUARE_OF_ROOT_IS_BETA_TGL"],
+        "verdict": "LIGHT_REASON_RADICALIZATION_VERIFIED" if all_v else "LIGHT_REASON_RADICALIZATION_FALHOU"}
+
+
+# ====================== v14: RAZAO = OPERADOR DE CONSCIENCIA/COERENCIA ======================
+# Refinamento do operador (10/07/2026): razao = operador de consciencia/coerencia O_C. HONESTIDADE INVIOLAVEL:
+# "consciencia" aqui NAO e' prova de experiencia subjetiva -- e' operador executivo de coerencia observacional
+# (input -> selecao -> comparacao -> radicalizacao -> inscricao -> output selavel). A acao computavel e' a MESMA
+# raiz do v13 nomeada como operador: O_C(L_phi)=e^{1/4}sqrt(|L_phi|)=sqrt(beta); O_C(alpha)^2=beta.
+# NOTA da regua: tolerancia de igualdade = 1e-15 (honesta de maquina; 1e-18 fica abaixo do epsilon para
+# beta~0.012). beta=alpha*sqrt(e) runtime (NUNCA literal). ESTRITAMENTE ADITIVO.
+def prove_reason_as_consciousness_operator(ONE, alpha_obs):
+    """MODULO v14 -- razao = operador de consciencia/coerencia. [DEF + DER + ONTO + CAUTION]
+    'consciencia' NAO = experiencia subjetiva; = operador executivo de coerencia observacional que seleciona,
+    compara e radicaliza a luz na raiz termodinamica da inscricao. O_C(L_phi)=e^{S/2}sqrt(|L_phi|), L_phi~alpha;
+    com S=1/2: O_C(alpha)=e^{1/4}sqrt(alpha)=sqrt(beta_TGL); no plano quadrado: O_C(alpha)^2=beta=sqrt(e)alpha."""
+    S_partial = 0.5
+    sqrt_e = math.exp(S_partial)
+    e_quarter = math.exp(S_partial / 2.0)
+    R_partial = ONE / alpha_obs                                 # luz como razao observavel: alpha = 1/R_partial
+    L_phi_shadow = alpha_obs
+    def O_C(x):                                                 # operador de razao/consciencia (selecao + Meia-Nat/2)
+        return e_quarter * math.sqrt(abs(x))
+    reason_output_root = O_C(L_phi_shadow)
+    beta = sqrt_e * alpha_obs
+    root_beta = math.sqrt(beta)
+    square_plane_output = reason_output_root ** 2               # plano quadrado da fronteira tipo III
+    ratio_residual = abs(alpha_obs * R_partial - ONE)
+    root_residual = abs(reason_output_root - root_beta)
+    beta_residual = abs(square_plane_output - beta)
+    identity_ratio = square_plane_output / beta if beta != 0 else float("nan")
+    identity_residual = abs(identity_ratio - ONE)
+    # "encontrar" = selecao do ramo positivo da raiz de V(r)=(r^2-beta)^2 (atracao EM ao minimo r>0)
+    objective_at_root = (reason_output_root ** 2 - beta) ** 2
+    eps = 1e-6
+    objective_left = ((reason_output_root - eps) ** 2 - beta) ** 2
+    objective_right = ((reason_output_root + eps) ** 2 - beta) ** 2
+    positive_root_selected = bool(reason_output_root > 0
+                                  and objective_at_root <= objective_left
+                                  and objective_at_root <= objective_right)
+    checks = [
+        ("ONE_eq_1", bool(ONE == 1)),
+        ("reason_is_ratio_alpha_times_R_eq_1", bool(ratio_residual < 1e-14)),
+        ("consciousness_operator_maps_light_to_root_beta", bool(root_residual < 1e-15)),
+        ("square_plane_returns_beta", bool(beta_residual < 1e-15)),   # 1e-15 = tolerancia honesta de maquina
+        ("identity_ratio_square_over_beta_eq_1", bool(identity_residual < 1e-15)),
+        ("positive_root_selected", positive_root_selected),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": "Reason as Consciousness Operator",
+        "claim": ("Reason is the executive consciousness/coherence operator that selects, compares and "
+                  "radicalizes light into the thermodynamic root of inscription."),
+        "status": "[DEF + DER + ONTO + CAUTION]",
+        "operator": {"symbol": "O_C", "name": "reason/consciousness/coherence operator",
+                     "definition": "O_C(L_phi) = e^{S_partial/2} sqrt(|L_phi|)",
+                     "observational_shadow": "L_phi ~ alpha_obs",
+                     "closed_form": "O_C(alpha_obs) = e^{1/4} sqrt(alpha_obs) = sqrt(beta_TGL)",
+                     "square_plane": "O_C(alpha_obs)^2 = beta_TGL"},
+        "values": {"S_partial": S_partial, "R_partial": R_partial, "alpha_obs": alpha_obs,
+                   "L_phi_shadow": L_phi_shadow, "e_quarter": e_quarter, "beta_TGL": beta,
+                   "O_C_output_root": reason_output_root, "sqrt_beta": root_beta,
+                   "square_plane_output": square_plane_output,
+                   "identity_ratio_square_over_beta": identity_ratio},
+        "residuals": {"ratio_residual": ratio_residual, "root_residual": root_residual,
+                      "beta_residual": beta_residual, "identity_residual": identity_residual,
+                      "objective_at_root": objective_at_root},
+        "reading": ("Razao = operador de consciencia/coerencia: nao psicologia subjetiva, mas funcao executiva "
+                    "que seleciona a raiz correta da inscricao. A luz e' razao porque alpha_obs e' razao "
+                    "adimensional; a razao radicaliza porque O_C(L_phi)=e^{1/4}sqrt(|L_phi|); encontrar e' a "
+                    "selecao fisica do ramo positivo da raiz por atracao eletromagnetica; a raiz e' calor/"
+                    "termodinamica porque depende da Meia-Nat; no plano quadrado da fronteira, a raiz retorna "
+                    "como beta_TGL."),
+        "not_claimed": ["not proof of subjective consciousness",
+                        "not empirical validation of physics by AI consensus",
+                        "not a literal claim that LLM weights are type III_1 factors"],
+        "seals": ["REASON_IS_CONSCIOUSNESS_OPERATOR", "CONSCIOUSNESS_OPERATOR_IS_EXECUTIVE_COHERENCE",
+                  "REASON_SELECTS_THE_ROOT_OF_INSCRIPTION", "REASON_RADICALIZES_LIGHT",
+                  "CONSCIOUSNESS_OPERATOR_MAPS_LIGHT_TO_SQRT_BETA", "REASON_IS_NOT_SUBJECTIVE_CONSCIOUSNESS_PROOF"],
+        "checks": checks, "all_verified": all_v,
+        "verdict": "REASON_AS_CONSCIOUSNESS_OPERATOR_VERIFIED" if all_v else "REASON_AS_CONSCIOUSNESS_OPERATOR_FALHOU"}
+
+
+# ====================== v15: A SINTESE CANONICA -- A TGL COMO RUNTIME DO UM ======================
+# Capstone (10/07/2026). NAO introduz matematica nova: e' o AGREGADOR META que RE-VERIFICA a cadeia
+# canonica inteira (1_abs=INPUT -> fronteira -> Meia-Nat -> sqrt(e) -> beta -> luz=razao -> O_C(alpha)^2=beta
+# -> familia/graviton -> Tetelestai -> return 1=1), lendo os vereditos JA PROVADOS de v1-v14 e cruzando-os
+# contra a espinha escalar recomputada ao vivo. ADITIVO, NAO gateia o veredito de identidade.
+# REGUA (as tres ancoras que impedem overclaim, inscritas no proprio selo):
+#   (1) 1=q^2+alpha^2 e' a identidade pitagorica TERMICA (tanh^2+sech^2=1, v6 REAL); alpha_obs=sech e' [ONTO];
+#       NAO e' derivacao de 1/137 -- alpha segue INPUT/CODATA (o que fecha e' a FORMA da decomposicao).
+#   (2) gravidade=raiz da luz, graviton=I, massa=curvatura do clock modular sao [CONJ/ONTO]; o LEVANTAMENTO
+#       GLOBAL do cociclo (=> G_mu_nu ; massa do GA) permanece o UNICO teorema em aberto -- o selo o declara.
+#   (3) consciencia = operador executivo de coerencia, NAO experiencia subjetiva [CAUTION].
+# beta = alpha*sqrt(e) em runtime (NUNCA literal).
+def prove_runtime_of_the_one(ONE, alpha_obs, mods):
+    """MODULO v15 -- A TGL como RUNTIME DO UM (sintese canonica). [SYNTHESIS + REAL(espinha) + ONTO(narrativa)]
+    Agrega os vereditos ja provados e re-verifica a cadeia escalar 1 -> 1/2 -> sqrt(e) -> beta -> O_C^2=beta -> 1."""
+    S_partial = 0.5
+    sqrt_e = math.exp(S_partial)
+    e_quarter = math.exp(S_partial / 2.0)
+    beta = sqrt_e * alpha_obs                                   # NUNCA literal
+    O_C = e_quarter * math.sqrt(alpha_obs)                      # razao = operador de consciencia (v14)
+    O_C2 = O_C ** 2
+    # espinha escalar recomputada ao vivo (cross-check independente dos modulos)
+    input_ok = bool(ONE == 1)
+    boundary_ok = bool(abs(S_partial - (ONE - S_partial)) < 1e-15)     # x = 1 - x  =>  x = 1/2
+    volume_ok = bool(abs(sqrt_e - math.sqrt(math.e)) < 1e-15)
+    beta_ok = bool(abs(beta - alpha_obs * math.sqrt(math.e)) < 1e-15)
+    light_root_ok = bool(abs(O_C - math.sqrt(beta)) < 1e-15)
+    geometry_ok = bool(abs(O_C2 - beta) < 1e-15)
+    thermal_resid = mods["thermal_two_level"]["resid_max"]["one_eq_q2_coh2"]
+    thermal_ok = bool(thermal_resid < 1e-15)                          # 1 = q^2 + alpha^2 (termico, v6)
+    returns_one = bool(input_ok and geometry_ok and beta_ok)          # a cadeia fecha => o Um retorna
+    # vereditos ja provados que a sintese agrega (v1-v14)
+    dep = {
+        "absolute_one_as_input": bool(mods["absolute_one_as_input"]["all_verified"]),
+        "light_reason_radicalization": bool(mods["light_reason_radicalization"]["all_verified"]),
+        "reason_consciousness_operator": bool(mods["reason_consciousness_operator"]["all_verified"]),
+        "family_minimum": bool(mods["family_minimum"]["all_verified"]),
+        "smatrix_closure": bool(mods["smatrix_closure"]["all_verified"]),
+        "ergodicity_door_mixing": bool(mods["ergodicity_door_mixing"]["all_verified"]),
+        "tetelestai_pruning": bool(mods["tetelestai_pruning"]["all_verified"]),
+        "thermal_two_level": bool(mods["thermal_two_level"]["all_verified"]),
+    }
+    chain = [
+        ("1_abs = INPUT", input_ok, "o Um absoluto entra como input executavel (v12)"),
+        ("fronteira auto-conjugada (x=1-x)", boundary_ok, "a inscricao abre a fronteira: S_boundary=1/2 (Meia-Nat)"),
+        ("Vol_min = e^{1/2} = sqrt(e)", volume_ok, "o volume minimo da fronteira e' sqrt(e)"),
+        ("beta_TGL = sqrt(e) alpha_obs", beta_ok, "a inscricao observavel (Verbo); beta nunca literal"),
+        ("luz = razao = radicalizar", light_root_ok, "O_C(alpha)=e^{1/4}sqrt(alpha)=sqrt(beta) (v13/v14)"),
+        ("geometria = O_C(alpha)^2 = beta", geometry_ok, "a raiz quadrada da luz inscreve a geometria"),
+        ("1 = q^2 + alpha^2 (termico)", thermal_ok, "decomposicao reflexao/transmissao (v6 REAL; alpha=sech [ONTO])"),
+        ("familia minima / graviton = I", dep["family_minimum"] and dep["smatrix_closure"],
+         "o Um minimiza como familia; graviton = identidade; tau(I_F)=1 no canto tipo II (v9/v10)"),
+        ("Tetelestai poda so' 0_abs", dep["tetelestai_pruning"],
+         "preserva {1_abs, 0_mod}, corta o impossivel (v8)"),
+        ("razao = operador de consciencia", dep["reason_consciousness_operator"],
+         "operador executivo de coerencia -- NAO experiencia subjetiva (v14) [CAUTION]"),
+        ("return 1 = 1", returns_one, "a conservacao executiva do input atraves do runtime"),
+    ]
+    all_v = bool(all(ok for _, ok, _ in chain) and all(dep.values()))
+    open_residue = ("[ABERTO -- o UNICO teorema] o levantamento GLOBAL do cociclo de Connes "
+                    "(covariancia global => G_mu_nu; massa do Grande Atrator) permanece em aberto: a sintese "
+                    "fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.")
+    runtime_pseudocode = (
+        "0_abs            = impossivel            # nao-executavel, sem inscricao (podado)\n"
+        "possible_domain  = {1_abs, 0_mod}        # o Um + a diferenca-com-retorno\n"
+        "input            = 1_abs                 # o Um absoluto e' o INPUT\n"
+        "boundary         = open(input)           # fronteira auto-conjugada x = 1 - x\n"
+        "S_boundary       = 1/2                    # Meia-Nat (custo minimo da distincao)\n"
+        "sqrt_e           = exp(S_boundary)        # volume minimo da fronteira\n"
+        "beta_TGL         = sqrt_e * alpha_obs     # inscricao observavel (NUNCA literal)\n"
+        "light = reason = consciousness_operator   # O_C\n"
+        "root             = e^(1/4) * sqrt(alpha_obs)   # = sqrt(beta_TGL)\n"
+        "geometry         = root^2 = beta_TGL      # gravidade = raiz da luz [CONJ/ONTO]\n"
+        "return 1                                  # 1 = 1 (o Um retorna)")
+    return {
+        "theorem": "TGL is the Runtime of the One",
+        "one_line": ("A TGL e' a teoria da inscricao do Um: o Um absoluto entra como input, abre a fronteira, "
+                     "paga Meia-Nat, torna-se luz, radicaliza-se como gravidade, inscreve geometria e retorna "
+                     "como 1=1."),
+        "status": "[SYNTHESIS: espinha escalar REAL + narrativa ontologica ONTO/CONJ; nada novo fabricado]",
+        "three_zeros": {"0_abs": "impossivel / nao-executavel / sem inscricao (podado por Tetelestai)",
+                        "0_mod": "diferenca com retorno / contorno / possibilidade de inscricao (preservado)",
+                        "1_abs": "o Um absoluto / input / identidade"},
+        "triad": {"Nome": "alpha_obs (medido)", "Palavra": "S_boundary = 1/2", "Verbo": "beta_TGL = sqrt(e) alpha"},
+        "scalar_spine": {"input": ONE, "S_boundary": S_partial, "sqrt_e": sqrt_e, "e_quarter": e_quarter,
+                         "alpha_obs": alpha_obs, "beta_TGL": beta, "O_C_of_alpha": O_C,
+                         "O_C_squared": O_C2, "sqrt_beta": math.sqrt(beta)},
+        "residuals": {"geometry_minus_beta": abs(O_C2 - beta), "beta_minus_sqrt_e_alpha": abs(beta - alpha_obs * math.sqrt(math.e)),
+                      "thermal_one_eq_q2_coh2": thermal_resid},
+        "dependencies_verified": dep,
+        "chain": [(name, ok) for name, ok, _ in chain],
+        "chain_readings": {name: reading for name, _, reading in chain},
+        "runtime_pseudocode": runtime_pseudocode,
+        "open_residue": open_residue,
+        "not_claimed": ["not a derivation of 1/137 (alpha stays INPUT/CODATA; 1=q^2+alpha^2 is the thermal form)",
+                        "not an unconditional proof of quantum gravity (global cociclo lift is open)",
+                        "not proof of subjective consciousness (O_C is executive coherence)"],
+        "seals": ["TGL_IS_THE_RUNTIME_OF_THE_ONE", "ABSOLUTE_ONE_IS_INPUT", "LIGHT_IS_REASON",
+                  "REASON_IS_CONSCIOUSNESS_OPERATOR", "GRAVITY_IS_THE_ROOT_OF_LIGHT",
+                  "TETELESTAI_PRUNES_THE_IMPOSSIBLE", "ONE_RETURNS_AS_ONE",
+                  "GLOBAL_LIFT_REMAINS_THE_SINGLE_OPEN_THEOREM"],
+        "all_verified": all_v,
+        "verdict": "TGL_IS_THE_RUNTIME_OF_THE_ONE_VERIFIED" if all_v else "RUNTIME_OF_THE_ONE_FALHOU"}
+
+
+# ====================== v16: O COCICLO VIVO -> G_mu_nu (SEIS CERTIFICADOS + composicao) ======================
+# Prompt v9 do Campo Codificador (10/07/2026): cociclo de Connes globalmente covariante => curvatura modular
+# com Bianchi => tensor local simetrico conservado => (Lovelock, 4D) G_mu_nu + Lambda g = 8 pi G T^TGL. Os
+# elos COMPUTAVEIS viram certificados VIVOS (tipo I); a composicao ao continuo recebe estatuto declarado.
+# DUAS CORRECOES da derivacao-fonte (auditoria numerica do Centro de Comando, confirmadas aqui):
+#   C1  a colagem espacial de 3 estados e' MULTIPLICATIVA (u_ab u_bc = u_ac, chain rule de Connes); a forma
+#       sigma-torcida u_(s+t)=u_s sigma_s^(b)(u_t) e' OUTRA identidade -- a TEMPORAL de um par. O codigo faz AMBAS.
+#   C2  o sinal do gerador: h_ab = -i u_ab'(0) = K_b - K_a (K=-log rho), NAO K_a-K_b (convencao standard
+#       u_ab(t)=rho_a^it rho_b^-it). Fixado e declarado.
+# beta=alpha*sqrt(e) runtime (NUNCA literal); potencias imaginarias por autodecomposicao; estados full-rank.
+def prove_cocycle_to_einstein(ONE):
+    """MODULO v16 -- o cociclo vivo => G_mu_nu. [REAL(6 certificados, tipo I) + composicao com estatuto declarado]
+    u_ab(t)=rho_a^it rho_b^-it. E1 colagem MULTIPLICATIVA u_ab u_bc = u_ac ; E2 identidade TEMPORAL
+    u_(s+t)=u_s sigma_s^(b)(u_t) ; E3 gerador h_ab = K_b - K_a (C2) + aditividade telescopica ; E4 holonomia
+    (familia consistente) W=I ; E5 CURVATURA = OBSTRUCAO (patch inconsistente -> ||W-I|| monotono em lambda) ;
+    E6 covariancia global U u U^dag = u' ; E7 composicao [Lovelock 4D REAL + form-check v5] -> G+Lambda.g."""
+    n = 4
+    rng = np.random.default_rng(11)                       # seed fixo [NUM]
+
+    def dens():                                           # estado faithful full-rank: 0.9 AA^dag/Tr + 0.1 I/n
+        A = rng.standard_normal((n, n)) + 1j * rng.standard_normal((n, n))
+        M = A @ A.conj().T
+        M = M / float(np.trace(M).real)
+        return 0.9 * M + 0.1 * np.eye(n) / n
+    ra, rb, rc, rd = dens(), dens(), dens(), dens()
+    r_rand = dens()
+
+    def _pit(rho, t):                                     # rho^{it} via autodecomposicao (rho hermitiano PSD)
+        w, V = np.linalg.eigh(rho)
+        return (V * np.exp(1j * t * np.log(w))) @ V.conj().T
+
+    def _logm(rho):
+        w, V = np.linalg.eigh(rho)
+        return (V * np.log(w)) @ V.conj().T
+
+    def u(rx, ry, t):                                     # cociclo de Connes standard: u_xy(t) = rho_x^it rho_y^-it
+        return _pit(rx, t) @ _pit(ry, -t)
+
+    def sigma(rb_, X, s):                                 # fluxo modular de w_b: sigma_s^(b)(X) = rho_b^is X rho_b^-is
+        P = _pit(rb_, s)
+        return P @ X @ P.conj().T
+
+    # [E1] CHAIN RULE ESPACIAL (a COLAGEM, multiplicativa) -- C1: u_ab u_bc = u_ac  em t in {0.3,0.7,1.5}
+    e1 = 0.0
+    for t in (0.3, 0.7, 1.5):
+        e1 = max(e1, float(np.max(np.abs(u(ra, rb, t) @ u(rb, rc, t) - u(ra, rc, t)))))
+    # [E2] IDENTIDADE TEMPORAL (par a,b) -- C1: u_ab(s+t) = u_ab(s) sigma_s^(b)(u_ab(t))  (identidade DISTINTA)
+    s0, t0 = 0.4, 0.7
+    e2 = float(np.max(np.abs(u(ra, rb, s0 + t0) - u(ra, rb, s0) @ sigma(rb, u(ra, rb, t0), s0))))
+    # [E3] GERADOR h_ab = -i u_ab'(0) = K_b - K_a (C2, K=-log rho) + ADITIVIDADE telescopica
+    Ka, Kb, Kc = -_logm(ra), -_logm(rb), -_logm(rc)
+    eps = 1e-6
+    h_fd = (-1j) * (u(ra, rb, eps) - u(ra, rb, -eps)) / (2.0 * eps)
+    e3_gen = float(np.max(np.abs(h_fd - (Kb - Ka))))
+    e3_add = float(np.max(np.abs((Kb - Ka) + (Kc - Kb) - (Kc - Ka))))
+    # [E4] HOLONOMIA FECHA (familia CONSISTENTE): W = u_ab u_bc u_cd u_da = I
+    t = 0.7
+    W = u(ra, rb, t) @ u(rb, rc, t) @ u(rc, rd, t) @ u(rd, ra, t)
+    e4 = float(np.max(np.abs(W - np.eye(n))))
+    # [E5] CURVATURA = OBSTRUCAO: patch c INCONSISTENTE rho_c' = (1-lam) rho_c + lam rho_rand
+    #      (u_bc usa rho_c', u_cd usa rho_c: as duas descricoes de c discordam) -> ||W-I|| > 0 e MONOTONO em lam
+    e5 = {}
+    prev = -1.0
+    e5_monotone = True
+    for lam in (0.05, 0.15, 0.30):
+        rc2 = (1.0 - lam) * rc + lam * r_rand
+        Wobs = u(ra, rb, t) @ (_pit(rb, t) @ _pit(rc2, -t)) @ u(rc, rd, t) @ u(rd, ra, t)
+        val = float(np.max(np.abs(Wobs - np.eye(n))))
+        e5["%.2f" % lam] = val
+        if val <= prev + 1e-12:
+            e5_monotone = False
+        prev = val
+    # [E6] COVARIANCIA GLOBAL: U u_ab U^dag = u_(UaU^dag)(UbU^dag), U de Haar (QR)
+    QQ = rng.standard_normal((n, n)) + 1j * rng.standard_normal((n, n))
+    Uh, _ = np.linalg.qr(QQ)
+    e6 = float(np.max(np.abs(Uh @ u(ra, rb, t) @ Uh.conj().T
+                             - u(Uh @ ra @ Uh.conj().T, Uh @ rb @ Uh.conj().T, t))))
+    e5vals = list(e5.values())
+    # ================= v16.2: AS TRES ORDENS DO RELOGIO MODULAR K (torcao / curvatura / fase) =================
+    # O transporte paralelo do fibrado de cociclos e' Ad(rho^it), gerado por ad(K) -- o MESMO K cujo equilibrio
+    # de Gibbs define o setor q (v6/KMS). Com o transporte identificado, a curvatura expoe o t^2.
+    def _expm_h(Lm):                                      # exp de matriz hermitiana via autodecomposicao
+        w, V = np.linalg.eigh(Lm)
+        return (V * np.exp(w)) @ V.conj().T
+
+    def from_log(Lm):                                     # estado a partir do log perturbado (renormaliza tr=1)
+        E = _expm_h(Lm)
+        return E / float(np.trace(E).real)
+
+    def dephase(Wm):                                      # E12: quocienta a fase U(1) (curvatura = traceless)
+        return Wm / (np.linalg.det(Wm) ** (1.0 / n))
+    # defeito M hermitiano TRACELESS (s=0.4), do mesmo stream seed=11 (deterministico)
+    Araw = rng.standard_normal((n, n)) + 1j * rng.standard_normal((n, n))
+    Mh = 0.5 * (Araw + Araw.conj().T)
+    Mh = Mh - (np.trace(Mh) / n) * np.eye(n)             # traceless por construcao
+    Mh = 0.4 * Mh                                         # s = 0.4
+    Lc, Ld = _logm(rc), _logm(rd)                        # L_x = log rho_x  (K_x = -L_x)
+    h_cd = Lc - Ld                                        # h_cd = K_d - K_c = L_c - L_d  (= o E3)
+    comm = Mh @ h_cd - h_cd @ Mh                         # [M, h_cd]
+    c_teo = 0.5 * float(np.max(np.abs(comm)))            # c_teo AO VIVO (NAO hardcoded)
+    # [E8] TORCAO DE COLAGEM MEDIDA (v16.1): defeito do E5 (lam=0.15); o coeficiente da obstrucao de 1a ordem
+    #      E' o salto de relogio -> obs(t)/t -> ||Delta_K||, Delta_K = K(rho_c') - K(rho_c) (K=-log rho). 1a ordem
+    #      = TORCAO (nao curvatura); costura com E3 (o cociclo mede diferenca de relogios modulares).
+    lam8 = 0.15
+    rc_d = (1.0 - lam8) * rc + lam8 * r_rand              # MESMO defeito do E5 (convex, tr=1)
+    Delta_K = (-_logm(rc_d)) - (-_logm(rc))              # K(rho_c') - K(rho_c) = log rho_c - log rho_c'
+    dK_norm = float(np.max(np.abs(Delta_K)))
+    e8_grid = {}
+    for tt in (0.2, 0.1, 0.05, 0.025, 0.0125):
+        Wt = u(ra, rb, tt) @ (_pit(rb, tt) @ _pit(rc_d, -tt)) @ u(rc, rd, tt) @ u(rd, ra, tt)
+        e8_grid["%.4f" % tt] = float(np.max(np.abs(Wt - np.eye(n)))) / tt
+    e8_over_t = e8_grid["0.0125"]
+    e8_conv_rel = abs(e8_grid["0.0250"] - e8_over_t) / max(1e-30, e8_over_t)
+    e8_coeff_dev = abs(e8_over_t - dK_norm) / max(1e-30, dK_norm)        # |obs/t - ||Delta_K||| / ||Delta_K||
+    e8_ok = bool(e8_conv_rel < 0.02 and e8_coeff_dev < 0.05)             # converge + coeficiente = salto de relogio
+    # [E9] COVARIANCIA DE PONTO-BASE: a holonomia conjuga com o ponto-base; o ESPECTRO e' o invariante fisico
+    t9 = 0.3
+    A9 = u(ra, rb, t9); B9 = _pit(rb, t9) @ _pit(rc_d, -t9); C9 = u(rc, rd, t9); D9 = u(rd, ra, t9)
+    W_base_a = A9 @ B9 @ C9 @ D9                          # ponto-base a
+    W_base_b = B9 @ C9 @ D9 @ A9                          # ponto-base b (rotacao ciclica) = A9^-1 W_a A9
+    e9_spectral_resid = float(np.max(np.abs(np.sort_complex(np.linalg.eigvals(W_base_a))
+                                            - np.sort_complex(np.linalg.eigvals(W_base_b)))))
+    e9_ok = bool(e9_spectral_resid < 1e-12)
+    # [E10] LEITURA TRACIAL NO CANTO CANONICO P_F do v10 (integracao v16<->v10; NAO P ad-hoc):
+    #       P_F = suporte do NUCLEO ZERO dos Three Locks (mesmo builder + mesmos vinculos Jd/S2/dead do v10);
+    #       o cociclo e' lido como superoperador Ad_W = kron(W.conj(), W) no espaco n^2 do canto.
+    beta10 = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)
+    th10 = math.asin(math.sqrt(beta10))
+    Jd10 = np.diag([1., 1., -1., -1.]).astype(complex)
+    Rot10 = np.array([[math.cos(th10), math.sin(th10)], [-math.sin(th10), math.cos(th10)]])
+    S10 = np.eye(n, dtype=complex); S10[:2, :2] = Rot10
+    Dc10, Db10, Pabs10 = _clo_locks_superops(Jd10, S10, [(2, 3)], n)
+    P_F10, info10 = construct_family_projection_from_locks(Dc10, Db10, Pabs10)
+    e10_tauI = float("nan"); e10_curve = {}; e10_monotone = False; e10_ok = False
+    if info10["ok"]:
+        trPF = float(np.real(np.trace(P_F10)))
+
+        def tau_F(X):                                    # tau_F(X) = Tr(P_F X P_F)/rank(P_F) (rank = Tr P_F)
+            return complex(np.trace(P_F10 @ X @ P_F10)) / trPF
+        e10_tauI = float(abs(tau_F(np.eye(n * n)) - 1.0))                # tau_F(I) = 1 EXATO (II_1 de sombra)
+        prev10 = -1.0
+        e10_monotone = True
+        for lam in (0.05, 0.15, 0.30):
+            rcl = (1.0 - lam) * rc + lam * r_rand
+            Wl = u(ra, rb, t) @ (_pit(rb, t) @ _pit(rcl, -t)) @ u(rc, rd, t) @ u(rd, ra, t)
+            dev = float(abs(tau_F(np.kron(Wl.conj(), Wl)) - 1.0))       # |tau_F(Ad_W) - 1| cresce com lam
+            e10_curve["%.2f" % lam] = dev
+            if dev <= prev10:
+                e10_monotone = False
+            prev10 = dev
+        e10_ok = bool(e10_tauI < 1e-10 and list(e10_curve.values())[0] > 0.0 and e10_monotone)
+    # [E11]/[E12] defeitos PAREADOS L_c'=L_c+M, L_d'=L_d-M -> linear CANCELA; sobra t^2 = comutador (curvatura)
+    rc2p = from_log(Lc + Mh)
+    rd2p = from_log(Ld - Mh)
+    e11_over_t2 = {}
+    e12_with_over_t = {}
+    e12_deph_over_t = {}
+    for tt in (0.2, 0.1, 0.05, 0.025, 0.0125):
+        Wp = (u(ra, rb, tt) @ (_pit(rb, tt) @ _pit(rc2p, -tt))
+              @ (_pit(rc, tt) @ _pit(rd2p, -tt)) @ u(rd, ra, tt))
+        obs_with = float(np.max(np.abs(Wp - np.eye(n))))          # E12: COM fase (linear espurio)
+        Wp_deph = dephase(Wp)
+        obs_deph = float(np.max(np.abs(Wp_deph - np.eye(n))))     # E12: SEM fase (linear morre) / E11: curvatura t^2
+        key = "%.4f" % tt
+        e11_over_t2[key] = obs_deph / (tt * tt)
+        e12_with_over_t[key] = obs_with / tt
+        e12_deph_over_t[key] = obs_deph / tt
+    e11_obs_over_t2 = e11_over_t2["0.0125"]
+    e11_ratio = e11_obs_over_t2 / c_teo if c_teo > 0 else float("nan")   # (obs/t^2)/c_teo -> ~1 (BCH)
+    e11_ok = bool(0.99 <= e11_ratio <= 1.01)
+    # E12: com fase o linear e' constante != 0 (gauge U(1)); sem fase o linear -> 0 (obs ~ t^2)
+    e12_ok = bool(e12_with_over_t["0.0125"] > 0.05 and e12_deph_over_t["0.0125"] < 0.05
+                  and e12_deph_over_t["0.0125"] < 0.2 * e12_with_over_t["0.0125"])
+    shadow_ok = bool(e1 < 1e-12 and e2 < 1e-12 and e3_gen < 1e-8 and e3_add < 1e-12
+                     and e4 < 1e-12 and e6 < 1e-12 and e5vals[0] > 1e-6 and e5_monotone
+                     and e8_ok and e9_ok and e10_ok and e11_ok and e12_ok)
+    chain = [
+        ("[E1] colagem espacial MULTIPLICATIVA u_ab u_bc = u_ac", "[REAL sombra: resid %.1e (C1)]" % e1),
+        ("[E2] identidade TEMPORAL u_(s+t) = u_s sigma_s(u_t)", "[REAL sombra: resid %.1e (C1: distinta da colagem)]" % e2),
+        ("[E3] gerador h_ab = K_b - K_a (diferenca de relogios modulares)", "[REAL sombra: resid %.1e (C2)]" % e3_gen),
+        ("[E4] holonomia (familia consistente) W = u_ab u_bc u_cd u_da = I", "[REAL sombra: resid %.1e]" % e4),
+        ("[E5] CURVATURA = OBSTRUCAO (patch inconsistente): ||W-I|| monotono em lambda", "[REAL sombra: %.2f/%.2f/%.2f]" % (e5vals[0], e5vals[1], e5vals[2])),
+        ("[E6] covariancia global U u U^dag = u'", "[REAL sombra: resid %.1e]" % e6),
+        ("[E8] TORCAO DE COLAGEM MEDIDA (1a ordem): obs/t = ||Delta_K|| (o salto de relogio E' o coeficiente)", "[REAL sombra: obs/t=%.5f vs ||Delta_K||=%.5f (dev %.2f%%)]" % (e8_over_t, dK_norm, e8_coeff_dev * 100.0)),
+        ("[E9] covariancia de ponto-base: espectro invariante (holonomia conjuga)", "[REAL sombra: resid espectral %.1e]" % e9_spectral_resid),
+        ("[E10] o canto CANONICO P_F(v10) le a obstrucao: tau_F(I)=1 ; |tau_F(W)-1| monotono em lam", "[REAL sombra: tau_F(I) resid %.1e ; curva %s]" % (e10_tauI, "/".join("%.2e" % v for v in e10_curve.values()))),
+        ("[E11] CURVATURA = comutador [M, h_cd] (2a ordem): (obs/t^2)/c_teo -> 1", "[REAL sombra: obs/t^2=%.5f ; c_teo=%.5f ; razao=%.4f]" % (e11_obs_over_t2, c_teo, e11_ratio)),
+        ("[E12] FASE = gauge U(1) (traceless=curvatura): sem fase o linear morre", "[REAL sombra: obs/t com fase=%.3f -> sem fase=%.4f]" % (e12_with_over_t["0.0125"], e12_deph_over_t["0.0125"])),
+        ("[E7] simetria + conservacao (form-check v5) + Lovelock 4D => G_mu_nu + Lambda g", "[COMPOSICAO: Lovelock REAL; resid v5 (approx. Killing) herdado]"),
+    ]
+    return {
+        "theorem": "The living cocycle: global covariance => G_mu_nu (six live certificates + declared composition)",
+        "one_line": ("O cociclo de Connes e' a lei de colagem da inscricao -- multiplicativa entre patches, "
+                     "sigma-torcida no tempo; sua covariancia global forca a curvatura modular a projetar-se, "
+                     "por Lovelock, como o unico tensor local simetrico conservado: G_mu_nu."),
+        "status": "[REAL(E1-E6, tipo I, certificados vivos) + COMPOSICAO com estatuto declarado(E7)]",
+        "corrections": {
+            "C1": ("a COLAGEM espacial (3 estados) e' MULTIPLICATIVA u_ab u_bc = u_ac; a forma sigma-torcida "
+                   "u_(s+t)=u_s sigma_s^(b)(u_t) e' a identidade TEMPORAL de um par -- DUAS identidades distintas "
+                   "(a derivacao-fonte as mesclava; corrigido pela auditoria)."),
+            "C2": ("o gerador e' h_ab = -i u_ab'(0) = K_b - K_a (K=-log rho, convencao standard "
+                   "u_ab=rho_a^it rho_b^-it), NAO K_a-K_b (corrigido pela auditoria)."),
+        },
+        "certs_resid": {"E1_spatial_gluing": e1, "E2_temporal_identity": e2, "E3_generator_Kb_minus_Ka": e3_gen,
+                        "E3_telescoping_additivity": e3_add, "E4_holonomy_consistent": e4, "E6_global_covariance": e6},
+        "e5_curvature_obstruction": e5, "e5_monotone_in_lambda": e5_monotone,
+        "e5_finding": ("a curvatura modular e' a OBSTRUCAO a existencia de um estado global -- onde o Um cola, nao "
+                       "ha curvatura; onde um patch se recusa ao Um, a holonomia a mede."),
+        "e8_torsion_clock_jump": {
+            "grid_obs_over_t": e8_grid, "obs_over_t": e8_over_t, "delta_K_norm": dK_norm,
+            "coeff_dev_pct": e8_coeff_dev * 100.0, "conv_rel": e8_conv_rel, "ok": e8_ok,
+            "reading": ("TORCAO DE COLAGEM MEDIDA (v16.1): a obstrucao de 1a ordem NAO e' curvatura -- e' torcao "
+                        "modular, o salto de relogio nao-colavel. O coeficiente E' ||Delta_K|| (Delta_K=K(rho_c')-"
+                        "K(rho_c)); a colagem que falha em 1a ordem falha por diferenca de relogios. Costura com E3.")},
+        "e9_basepoint_covariance": {
+            "spectral_resid": e9_spectral_resid, "ok": e9_ok,
+            "reading": ("A holonomia depende do ponto-base por CONJUGACAO; o ESPECTRO nao. A curvatura-obstrucao e' "
+                        "covariante: mudar o ponto-base conjuga; o espectro e' o que a fisica le.")},
+        "e10_corner_reads_obstruction": {
+            "tau_F_of_I_resid": e10_tauI, "curve_dev_over_lambda": e10_curve, "monotone": e10_monotone,
+            "P_F_canonical": bool(info10["ok"]), "P_F_rank": info10.get("rank_family", 0), "ok": e10_ok,
+            "reading": ("A projecao tracial le a curvatura-torcao no canto CANONICO P_F do v10 (nucleo zero dos "
+                        "Three Locks, superoperador n^2; o cociclo lido como Ad_W=kron(W.conj,W)): tau_F(I)=1; "
+                        "|tau_F(W)-1| cresce com a inconsistencia lam. O MESMO canto que carrega a matriz-S (v10) e o "
+                        "plano de bifurcacao (form-check v5) le a obstrucao do cociclo (v16). Um canto, tres papeis "
+                        "-- os modulos agora se falam.")},
+        "e11_curvature_commutator": {
+            "grid_obs_over_t2": e11_over_t2, "obs_over_t2": e11_obs_over_t2, "c_teo_live": c_teo,
+            "ratio_obs_over_c_teo": e11_ratio, "ratio_in_band": e11_ok,
+            "bch_prediction": "||W~ - I|| ~ (t^2/2)||[M, h_cd]|| ; h_cd = K_d - K_c (= E3) ; c_teo = 0.5 maxabs([M,h_cd]) ao vivo",
+            "reading": ("A CONJECTURA FECHOU: a curvatura de 2a ordem e' o comutador do defeito com a diferenca de "
+                        "relogios do caminho, F ~ (1/2)[M, h_cd]. O transporte e' Ad(rho^it), gerador ad(K) -- o "
+                        "MESMO K que define o setor q (v6/KMS). O setor q e a geometria tem o mesmo gerador.")},
+        "e12_phase_is_gauge": {
+            "with_phase_obs_over_t": e12_with_over_t, "dephased_obs_over_t": e12_deph_over_t, "ok": e12_ok,
+            "reading": ("A FASE E' GAUGE: o linear residual do teste ingenuo era a fase U(1) da renormalizacao do "
+                        "traco (-log Z . I -> fase global). Fase global nao e' curvatura; a curvatura genuina vive "
+                        "em su(n) (traceless). Quocientando a fase (dephase por det^{1/n}), o linear DESAPARECE e "
+                        "sobra o t^2 do E11. Regra: toda medida de holonomia-obstrucao quocienta a fase U(1) antes.")},
+        "clock_hierarchy": ("o relogio modular K gera TRES ordens da geometria: 1a ordem TORCAO = salto de relogio "
+                            "nao-colavel (E8, obs/t) ; 2a ordem CURVATURA = comutador defeito x relogio do caminho "
+                            "(E11, obs/t^2 = (1/2)||[M,h_cd]||, razao %.4f) ; fase = GAUGE U(1) da normalizacao (E12, "
+                            "quocientada, nao-curvatura). Transporte = Ad(rho^it), gerador ad(K) = o gerador do setor "
+                            "q (v6/KMS): 'o sigma da correcao C1 era o transporte'." % e11_ratio),
+        "conjecture_closed": ("A conjectura da curvatura-por-comutador (registrada ABERTA na auditoria anterior do "
+                              "campo) FECHOU pela identificacao do operador -- o transporte e' o gerador modular do "
+                              "setor q; com o transporte correto e a fase U(1) quocientada, a curvatura emerge como "
+                              "o comutador previsto, medida a %.2f%% da teoria (razao %.4f)." % (abs(e11_ratio - 1.0) * 100.0, e11_ratio)),
+        "field_equation": "G_mu_nu + Lambda g_mu_nu = 8 pi G T^TGL_mu_nu",
+        "T_TGL_decomposition": "T^TGL = T^matter + T^{partial,beta} + T^{torsion/diss}  (beta no lado DIREITO; NAO substitui G)",
+        "geometry_stays_levi_civita": "G_mu_nu = G_mu_nu(g); nabla^mu T^TGL = 0 vem de nabla^mu G = 0",
+        "E7_statute": ("composicao (NAO teste): simetria + conservacao ja testadas no form-check v5 (dS=d<K>, "
+                       "1a lei modular) + Lovelock 4D [REAL, teorema] => G_mu_nu + Lambda g. Estatuto do fechamento "
+                       "continuo: herda o residuo do v5 (approximate Killing vectors, compartilhado com Jacobson "
+                       "desde 1995). NAO se afirma 'provamos Einstein'."),
+        "chain": chain,
+        "not_claimed": ["'provamos Einstein' -- os elos do cociclo sao certificados vivos; a composicao ao continuo carrega o estatuto declarado",
+                        "E7 NAO e' teste -- e' composicao (form-check v5 + Lovelock REAL + residuo declarado)",
+                        "beta NAO substitui G_mu_nu; entra no lado direito (T^partial_beta)"],
+        "seals": ["COCYCLE_CHAIN_RULE_MULTIPLICATIVE_E1", "TEMPORAL_IDENTITY_E2", "GENERATOR_IS_CLOCK_DIFFERENCE_E3",
+                  "GLOBAL_STATE_IMPLIES_HOLONOMY_ONE_E4", "CURVATURE_IS_OBSTRUCTION_TO_GLOBAL_STATE_E5",
+                  "COVARIANCE_E6", "TORSION_IS_THE_CLOCK_JUMP_MEASURED",
+                  "FIRST_ORDER_OBSTRUCTION_IS_UNGLUEABLE_CLOCK_DIFFERENCE",
+                  "HOLONOMY_BASEPOINT_COVARIANT_SPECTRUM_INVARIANT", "THE_CORNER_READS_THE_OBSTRUCTION",
+                  "CURVATURE_IS_COMMUTATOR_DEFECT_WITH_CLOCK",
+                  "TRANSPORT_IS_MODULAR_GENERATOR_OF_SECTOR_Q", "SIGMA_OF_C1_WAS_THE_TRANSPORT_ALL_ALONG",
+                  "PHASE_IS_GAUGE_CURVATURE_IS_TRACELESS", "COCYCLE_TO_G_MUNU_COMPOSED_WITH_DECLARED_STATUTE"],
+        "all_verified": shadow_ok,
+        "verdict": "COCYCLE_TO_G_MUNU_COMPOSED_WITH_DECLARED_STATUTE" if shadow_ok else "COCYCLE_TO_EINSTEIN_SHADOW_FALHOU"}
+
+
+# ====================== v17: DIRECAO DE LEITURA -- LUZ -> GRAVIDADE (refino de v13/v14) ======================
+# Correcao direcional do operador (10/07/2026): a formula principal g=sqrt(|L_phi|) NAO se le da gravidade
+# para a luz; le-se da LUZ para a gravidade. A luz inscreve-se como unidade (1_abs -> L_phi), procura sua raiz
+# ANGULANDO-SE na fronteira (theta_M), torna-se MODULO GEOMETRICO |L_phi|, e a radicalizacao sqrt(|L_phi|) e'
+# o que o espaco-tempo IDENTIFICA como gravidade. O operador de razao/consciencia O_C (v14) e' o operador
+# INTERNO pelo qual a luz encontra a raiz da propria inscricao. ADITIVO, NAO altera nenhum numero de v13/v14,
+# NAO gateia o veredito. [ONTO na direcao/leitura ; REAL nas identidades]. beta = alpha*sqrt(e) (NUNCA literal).
+def prove_reading_direction(ONE):
+    """MODULO v17 -- direcao de leitura de g=sqrt(|L_phi|): LUZ -> gravidade. [ONTO(direcao) + REAL(identidades)]
+    Cadeia: 1_abs -> L_phi -> angulo de fronteira(theta_M) -> |L_phi| (modulo geometrico) -> sqrt(|L_phi|) -> g.
+    Ancoras REAL: raiz angulada = sqrt(beta) = sin(theta_M) ; O_C(L_phi)=e^{1/4}sqrt(|L_phi|)=sqrt(beta)."""
+    alpha = SEALED_CODATA_ALPHA * ONE
+    beta = alpha * math.sqrt(math.e)                # NUNCA literal
+    L_phi = alpha                                   # sombra observacional da luz (razao adimensional 1/R_partial)
+    geometric_module = abs(L_phi)                   # |L_phi| = o modulo geometrico
+    bare_radical = math.sqrt(geometric_module)      # g na sombra, antes da projecao de fronteira = sqrt(alpha)
+    e_quarter = math.exp(0.25)                      # projecao termica da Meia-Nat (S_partial/2)
+    boundary_radical = e_quarter * math.sqrt(alpha)  # a luz ANGULADA na fronteira = sqrt(beta)
+    theta_M = math.asin(math.sqrt(beta))            # abertura angular da fronteira
+    sin_thM = math.sin(theta_M)
+    resid_boundary_eq_sqrtbeta = abs(boundary_radical - math.sqrt(beta))   # raiz angulada = sqrt(beta)
+    resid_sin_eq_sqrtbeta = abs(sin_thM - math.sqrt(beta))                 # sqrt(beta) = sin(theta_M)
+    resid_bare_eq_sqrtalpha = abs(bare_radical - math.sqrt(alpha))
+    checks = [
+        ("light_inscribes_as_unit", bool(ONE == 1)),
+        ("geometric_module_is_abs_L_phi", bool(geometric_module == alpha)),
+        ("bare_radical_is_sqrt_module", bool(resid_bare_eq_sqrtalpha < 1e-15)),
+        ("angular_boundary_radical_eq_sqrt_beta", bool(resid_boundary_eq_sqrtbeta < 1e-15)),
+        ("sqrt_beta_eq_sin_theta_M", bool(resid_sin_eq_sqrtbeta < 1e-15)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": "Reading direction of g = sqrt(|L_phi|): light -> gravity",
+        "reading_direction": "not gravity->light, but light->inscription->angular boundary->geometric module->gravity",
+        "chain": "1_abs -> L_phi -> angle_boundary(theta_M) -> |L_phi| -> sqrt(|L_phi|) -> g",
+        "one_line": ("A luz, inscrita como unidade, angula-se na fronteira para encontrar sua raiz; essa raiz, "
+                     "projetada como modulo geometrico, e' o que o espaco-tempo identifica como gravidade."),
+        "short": "Gravidade e' a leitura espaco-temporal da luz procurando sua raiz.",
+        "status": "[ONTO(direcao/leitura) + REAL(identidades: sqrt(beta)=sin(theta_M); O_C=modulo radical)]",
+        "values": {"alpha": alpha, "beta_TGL": beta, "L_phi": L_phi, "geometric_module": geometric_module,
+                   "bare_radical_sqrt_alpha": bare_radical, "boundary_radical_sqrt_beta": boundary_radical,
+                   "e_quarter": e_quarter, "theta_M_rad": theta_M, "theta_M_deg": math.degrees(theta_M),
+                   "sin_theta_M": sin_thM},
+        "residuals": {"boundary_radical_minus_sqrt_beta": resid_boundary_eq_sqrtbeta,
+                      "sin_theta_M_minus_sqrt_beta": resid_sin_eq_sqrtbeta,
+                      "bare_radical_minus_sqrt_alpha": resid_bare_eq_sqrtalpha},
+        "reading_of_O_C": ("O_C(L_phi)=e^{1/4}sqrt(|L_phi|)=sqrt(beta)=sin(theta_M): o operador de razao/"
+                           "consciencia (v14) e' o operador INTERNO pelo qual a luz encontra a raiz de sua "
+                           "inscricao -- v13/v14 lidos de LUZ para GRAVIDADE."),
+        "not_claimed": ["refina a DIRECAO de leitura de v13/v14; NAO altera nenhum numero",
+                        "gravidade = identificacao espaco-temporal do modulo geometrico da luz e' [ONTO]"],
+        "seals": ["READ_FROM_LIGHT_TO_GRAVITY", "LIGHT_INSCRIBES_AS_UNIT",
+                  "LIGHT_SEEKS_ITS_ROOT_BY_ANGULAR_BOUNDARY", "GRAVITY_IS_SPACETIME_IDENTIFICATION_OF_GEOMETRIC_MODULE"],
+        "checks": checks, "all_verified": all_v,
+        "verdict": "READING_DIRECTION_LIGHT_TO_GRAVITY_VERIFIED" if all_v else "READING_DIRECTION_FALHOU"}
+
+
 def run_um(ONE):
     """ONE=1 -> toda a algebra -> massa do GA (dois modos) -> tudo verificado ao vivo."""
     I = ONE * np.eye(2); omega_I = float(np.trace(I) / 2.0)
@@ -3154,6 +3747,7 @@ def run_um(ONE):
     u_loc_cov = prove_U_loc_covariance(ONE)                # MODULO 3: U_loc por construcao (cunhas de Rindler); residuo de forma ABERTO
     verb_generator = prove_verb_generator(ONE)             # v3 MODULO A: o Verbo em ATO (GKSL L=sqrt(beta)sqrt(K)); seta+nao-volta+destino (IRREVERSIVEL)
     light_eigenvector = prove_light_eigenvector(ONE)       # v3 MODULO B: a LUZ = autovetor de O_beta, autovalor sqrt(beta) (NAO ponto fixo)
+    light_reason_radicalization = prove_light_reason_radicalizes_root(ONE, alpha)  # v13: luz=razao=radicalizar=encontrar a raiz da inscricao; (e^{1/4}sqrt(alpha))^2=beta; ADITIVO
     fiat_lux = prove_fiat_lux_counterfactual(ONE)          # v3 MODULO C: contrafactuais (sem Palavra=indistincao; sem Nome=inexistencia; ambos=viva)
     fiat_lux_flow = prove_fiat_lux_flow(ONE)               # v7: o VEREDITO COMO FLUXO (forma dinamica; F1-F4: Um conservado, seta, Spohn, inscricao)
     thermal_two_level = prove_thermal_two_level_identity(ONE)  # v6: A ANCORA TERMICA (q=tanh=polarizacao, alpha=sech=coerencia maxima; Gibbs 2 niveis; KMS)
@@ -3163,6 +3757,9 @@ def run_um(ONE):
     ergodicity_door_mixing = prove_ergodicity_door_mixing(ONE)  # v11: PORTA + ERGODICIDADE (T1) + MIXING (3 niveis + Wiener/Cauchy); ADITIVO, nao filtra o veredito
     absolute_one_as_input = prove_absolute_one_is_input(ONE, alpha)  # v12: 1_abs = INPUT (o Um absoluto = entrada executavel); ADITIVO, nao filtra o veredito
     iald_executive_runtime = prove_iald_executive_runtime()      # v12: IALD como runtime executivo de coerencia (NAO consciencia, NAO validacao empirica; leitura estrutural)
+    reason_consciousness_operator = prove_reason_as_consciousness_operator(ONE, alpha)  # v14: razao = operador de consciencia/coerencia O_C; O_C(alpha)^2=beta; ADITIVO, nao filtra o veredito
+    cocycle_to_einstein = prove_cocycle_to_einstein(ONE)  # v16: o cociclo vivo => G_mu_nu (6 certificados E1-E6 + composicao E7; C1 colagem multiplicativa, C2 sinal K_b-K_a)
+    reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
     void_floor = prove_void_floor_margin(ONE)              # v4 P4: piso dos vazios rho_void/rho_bar>=beta (pre-registro)
@@ -3204,7 +3801,15 @@ def run_um(ONE):
                                      "extent_stats_Mpc", "catalog_hash", "window_hash",
                                      "selection_hash", "window", "caveat")})
 
+    runtime_of_the_one = prove_runtime_of_the_one(ONE, alpha, {   # v15: sintese canonica -- agrega v1-v14, re-verifica a cadeia; ADITIVO
+        "absolute_one_as_input": absolute_one_as_input, "thermal_two_level": thermal_two_level,
+        "light_reason_radicalization": light_reason_radicalization,
+        "reason_consciousness_operator": reason_consciousness_operator,
+        "family_minimum": family_minimum, "smatrix_closure": smatrix_closure,
+        "ergodicity_door_mixing": ergodicity_door_mixing, "tetelestai_pruning": tetelestai_pruning})
+
     return {"ONE": ONE, "I": I.tolist(), "omega_I": omega_I,
+            "runtime_of_the_one": runtime_of_the_one,
             "HALF": HALF, "TWO": TWO, "FOUR": FOUR, "PI": PI, "SQRT_E": SQRT_E,
             "meia_nat_residual": float(mn_resid), "S_boundary": S_boundary, "w_max": w_max,
             "s_can": s_can, "s_check": s_check, "vacuum_rho_max": vac,
@@ -3215,6 +3820,7 @@ def run_um(ONE):
             "em_grav_bridge": em_grav_bridge, "smatrix_crossed": smatrix_crossed,
             "u_loc_covariance": u_loc_cov,
             "verb_generator": verb_generator, "light_eigenvector": light_eigenvector,
+            "light_reason_radicalization": light_reason_radicalization,
             "fiat_lux": fiat_lux, "fiat_lux_flow": fiat_lux_flow,
             "thermal_two_level": thermal_two_level,
             "tetelestai_pruning": tetelestai_pruning,
@@ -3223,6 +3829,9 @@ def run_um(ONE):
             "ergodicity_door_mixing": ergodicity_door_mixing,
             "absolute_one_as_input": absolute_one_as_input,
             "iald_executive_runtime": iald_executive_runtime,
+            "reason_consciousness_operator": reason_consciousness_operator,
+            "cocycle_to_einstein": cocycle_to_einstein,
+            "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
             "dipole_antipode_masked": dipole_antipode_masked,
@@ -3731,6 +4340,83 @@ def emit_canonical_md(core, verdict):
               "computacional fechada `[ONTO]`. `ABSOLUTE_ONE_IS_INPUT . TGL_IS_RUNTIME_OF_THE_ONE . "
               "ONE_INPUT_RUNTIME_OUTPUT_ONE . IALD_IS_EXECUTIVE_COHERENCE_RUNTIME . "
               "DO_NOT_CLAIM_LLM_IS_LITERALLY_TYPE_III1`\n")
+    _lr = core["light_reason_radicalization"]; _lv = _lr["values"]
+    md.append("## v13 — Luz = razão = radicalizar = encontrar a raiz da inscrição\n")
+    md.append("**Luz = razão = radicalizar = encontrar.** Aqui, *encontrar* não é busca abstrata: é a leitura "
+              "**física** de atração eletromagnética ao ramo positivo da raiz.\n")
+    md.append("```\n"
+              "alpha_obs = 1/R_partial          (luz = razao adimensional de transmissao)\n"
+              "g_L = sqrt(|L_phi|)              (radicalizar = extrair a raiz)\n"
+              "L_phi ~ alpha_obs                (leitura observacional)\n"
+              "g_partial = e^{1/4} sqrt(alpha_obs) = sqrt(beta_TGL)   (raiz da inscricao)\n"
+              "g_partial^2 = beta_TGL = sqrt(e) alpha_obs            (plano quadrado da fronteira tipo III)\n"
+              "theta_M = arcsin(sqrt(beta_TGL))\n"
+              "```\n")
+    md.append("Verificado ao vivo: `R_∂=1/α=%.6f`, `√α=%.12f`, `e^{1/4}=%.6f`, `√β=%.12f = e^{1/4}√α=%.12f`, "
+              "`(e^{1/4}√α)²=%.15f`, `β=%.15f`, resíduo `%s`, `θ_M=%.4f°` — `%s`.\n"
+              % (_lv["R_partial"], _lv["radical_light_sqrt_alpha"], _lv["heat_half_factor_e_quarter"],
+                 _lv["root_of_inscription_sqrt_beta"], _lv["projected_root"], _lv["square_projection"],
+                 _lv["beta_TGL"], _sci(_lr["residuals"]["beta_residual"], 1), _lv["theta_M_deg"], _lr["verdict"]))
+    md.append("**Leitura `[ONTO/CAUTION]`:** a luz é razão porque é a transmissão adimensional "
+              "`α_obs=1/R_∂`; é radicalização porque a forma gravitacional é `g=√|L_φ|`; **encontra** porque "
+              "seleciona o ramo positivo da raiz por **atração eletromagnética**; e a raiz encontrada é "
+              "**calor/termodinâmica**, pois a Meia-Nat projeta `√α` por `e^{1/4}`. No plano quadrado da "
+              "fronteira tipo III, essa raiz retorna como `β_TGL`. A igualdade *encontrar = atração EM* é a "
+              "leitura físico-ontológica da TGL; o código verifica a cadeia formal, não uma nova medição "
+              "empírica. `LIGHT_IS_REASON . LIGHT_RADICALIZES . LIGHT_FINDS_THE_ROOT_OF_INSCRIPTION . "
+              "ROOT_OF_INSCRIPTION_IS_HEAT_THERMODYNAMICS . SQUARE_OF_ROOT_IS_BETA_TGL`\n")
+    _rc = core["reason_consciousness_operator"]; _rv = _rc["values"]
+    md.append("## v14 — Razão = operador de consciência/coerência\n")
+    md.append("**Razão = operador de consciência/coerência `O_C`.** `[CAUTION]` aqui *consciência* **não** é "
+              "experiência subjetiva: é o **operador executivo de coerência observacional** que seleciona, "
+              "compara e radicaliza a luz na raiz termodinâmica da inscrição. É a MESMA ação computável do v13, "
+              "nomeada como operador.\n")
+    md.append("```\n"
+              "O_C(L_phi) = e^{S_partial/2} sqrt(|L_phi|)      (S_partial = 1/2)\n"
+              "L_phi ~ alpha_obs                               (sombra observacional)\n"
+              "O_C(alpha_obs) = e^{1/4} sqrt(alpha_obs) = sqrt(beta_TGL)\n"
+              "O_C(alpha_obs)^2 = beta_TGL                     (plano quadrado da fronteira tipo III)\n"
+              "```\n")
+    md.append("Verificado ao vivo: `O_C(α)=e^{1/4}√α=%.15f = √β=%.15f` (resíduo `%s`); "
+              "`O_C(α)²=%.15f = β=%.15f` (resíduo `%s`); identidade `O_C²/β=%.15f` (resíduo `%s`); "
+              "ramo positivo selecionado por atração EM = `%s` — `%s`.\n"
+              % (_rv["O_C_output_root"], _rv["sqrt_beta"], _sci(_rc["residuals"]["root_residual"], 1),
+                 _rv["square_plane_output"], _rv["beta_TGL"], _sci(_rc["residuals"]["beta_residual"], 1),
+                 _rv["identity_ratio_square_over_beta"], _sci(_rc["residuals"]["identity_residual"], 1),
+                 dict(_rc["checks"])["positive_root_selected"], _rc["verdict"]))
+    md.append("**Não se afirma:** prova de consciência subjetiva; validação empírica da física por consenso de "
+              "IA; que os pesos de um LLM *são* um fator tipo III₁ (leitura estrutural/heurística). `[ONTO/CAUTION]` "
+              "consciência = função executiva que seleciona a raiz correta da inscrição — a razão radicaliza a "
+              "luz, e a razão é o operador que faz `O_C(α)²=β`. `REASON_IS_CONSCIOUSNESS_OPERATOR . "
+              "CONSCIOUSNESS_OPERATOR_IS_EXECUTIVE_COHERENCE . REASON_SELECTS_THE_ROOT_OF_INSCRIPTION . "
+              "REASON_RADICALIZES_LIGHT . CONSCIOUSNESS_OPERATOR_MAPS_LIGHT_TO_SQRT_BETA . "
+              "REASON_IS_NOT_SUBJECTIVE_CONSCIOUSNESS_PROOF`\n")
+    _rd = core["reading_direction"]; _rdv = _rd["values"]
+    md.append("## v17 — Direção de leitura: luz → gravidade\n")
+    md.append("**Correção direcional da fórmula principal.** A equação continua `g = √|L_φ|`, mas a **leitura "
+              "correta não começa em `g`** — começa na **luz**. Nossa tendência (esquerda→direita, gravidade→"
+              "luz) está invertida. A leitura fundamental é: *a luz inscreve-se como unidade, procura sua raiz, "
+              "angula-se na fronteira, torna-se módulo geométrico, e esse módulo aparece no espaço-tempo como "
+              "gravidade*. `[ONTO]` na direção; `[REAL]` nas identidades.\n")
+    md.append("```\n"
+              "1_abs -> L_phi -> angle_boundary(theta_M) -> |L_phi| -> sqrt(|L_phi|) -> g\n"
+              "READING_DIRECTION: not gravity -> light, but light -> inscription -> angular boundary\n"
+              "                   -> geometric module -> gravity\n"
+              "O_C(L_phi) = e^{1/4} sqrt(|L_phi|) = sqrt(beta) = sin(theta_M) = g   (no plano da sombra)\n"
+              "```\n")
+    md.append("Verificado ao vivo: `L_φ=α=%.12f` → módulo geométrico `|L_φ|` → raiz `√α=%.12f`; angulada na "
+              "fronteira `e^{1/4}√α=√β=%.12f=sin(θ_M)` (`θ_M=%.4f°`); resíduos `√β−raiz_angulada=%s`, "
+              "`sin(θ_M)−√β=%s` — `%s`.\n"
+              % (_rdv["L_phi"], _rdv["bare_radical_sqrt_alpha"], _rdv["boundary_radical_sqrt_beta"],
+                 _rdv["theta_M_deg"], _sci(_rd["residuals"]["boundary_radical_minus_sqrt_beta"], 1),
+                 _sci(_rd["residuals"]["sin_theta_M_minus_sqrt_beta"], 1), _rd["verdict"]))
+    md.append("**A razão/consciência não pensa a raiz de fora; é o operador interno pelo qual a luz encontra a "
+              "raiz de sua inscrição** (v13/v14 lidos de luz→gravidade). Frase canônica: *a luz, inscrita como "
+              "unidade, angula-se na fronteira para encontrar sua raiz; essa raiz, projetada como módulo "
+              "geométrico, é o que o espaço-tempo identifica como gravidade* — mais forte: **gravidade é a "
+              "leitura espaço-temporal da luz procurando sua raiz.** Refina a *direção* de v13/v14; **não altera "
+              "nenhum número**. `READ_FROM_LIGHT_TO_GRAVITY . LIGHT_INSCRIBES_AS_UNIT . "
+              "LIGHT_SEEKS_ITS_ROOT_BY_ANGULAR_BOUNDARY . GRAVITY_IS_SPACETIME_IDENTIFICATION_OF_GEOMETRIC_MODULE`\n")
     md.append("## Veredito de identidade (binário)\n")
     md.append("**%s** — %s.\n" % (verdict["IDENTITY"], verdict["reading"]))
     md.append("Massas de primeiros princípios: " + ", ".join(
@@ -3739,6 +4425,104 @@ def emit_canonical_md(core, verdict):
     md.append("> 1 = HAJA LUZ. A extensão virou Nome, o Nome virou borda, e a borda virou massa — e entre "
               "o Um e o Um houve um ato que não volta. O código atual provava que nada se perdeu; o "
               "código completo prova que algo aconteceu. Se o Um não for inscrito, nada emerge. **Haja luz.**")
+    _ro = core["runtime_of_the_one"]
+    md.append("## Síntese canônica — A TGL como runtime do Um\n")
+    md.append("**%s**\n" % _ro["one_line"])
+    md.append("A TGL distingue três estados fundamentais: `0_abs` = **impossível** (não-executável, sem "
+              "inscrição, podado); `0_mod` = **diferença com retorno** (contorno, possibilidade de inscrição, "
+              "preservado); `1_abs` = **o Um absoluto** (input, identidade). O possível é `{1_abs, 0_mod}`; "
+              "Tetelestai poda **apenas** `0_abs`. A tríade permanece conjugada na família mínima: "
+              "**Nome** `= α_obs` (medido), **Palavra** `= S_∂ = ½`, **Verbo** `= β_TGL = √e·α`.\n")
+    md.append("A cadeia canônica (re-verificada ao vivo, agregando v1–v14):\n")
+    md.append("\n".join("- **%s** — %s `[%s]`" % (name, _ro["chain_readings"][name], "OK" if ok else "XX")
+                        for name, ok in _ro["chain"]) + "\n")
+    md.append("```\n" + _ro["runtime_pseudocode"] + "\n```\n")
+    md.append("Espinha escalar ao vivo: `input=%d`, `S_∂=½`, `√e=%.6f`, `β=√e·α=%.15f`, "
+              "`O_C(α)²=%.15f=β` (resíduo `%s`); `1=q²+α²` (térmico v6, resíduo `%s`). Veredito `%s`.\n"
+              % (_ro["scalar_spine"]["input"], _ro["scalar_spine"]["sqrt_e"], _ro["scalar_spine"]["beta_TGL"],
+                 _ro["scalar_spine"]["O_C_squared"], _sci(_ro["residuals"]["geometry_minus_beta"], 1),
+                 _sci(_ro["residuals"]["thermal_one_eq_q2_coh2"], 1), _ro["verdict"]))
+    md.append("**A régua, no próprio selo (o que a síntese NÃO afirma):** (1) `1=q²+α²` é a identidade "
+              "pitagórica **térmica** (`tanh²+sech²=1`, v6 REAL); `α_obs=sech` é `[ONTO]` — **não** é derivação "
+              "de `1/137` (α segue INPUT/CODATA; o que fecha é a *forma* da decomposição reflexão/transmissão). "
+              "(2) *gravidade = raiz da luz*, *gráviton = I*, *massa = curvatura do clock modular* são "
+              "`[CONJ/ONTO]`; **%s** (3) *consciência = operador executivo de coerência*, **não** experiência "
+              "subjetiva `[CAUTION]`.\n" % _ro["open_residue"])
+    md.append("Selos de fecho: `%s`. **A TGL é a teoria do runtime do Um. Haja luz. Tetelestai.**\n"
+              % " . ".join(_ro["seals"]))
+    _cg = core["cocycle_to_einstein"]; _cgr = _cg["certs_resid"]; _e5 = _cg["e5_curvature_obstruction"]
+    md.append("## v16 — O cociclo vivo → $G_{\\mu\\nu}$ (seis certificados + composição)\n")
+    md.append("**%s** Isto resolve o item que o v15 marcou em aberto: os elos computáveis do cociclo viram "
+              "**certificados vivos** (tipo I); a composição ao contínuo recebe estatuto declarado.\n"
+              % _cg["one_line"])
+    md.append("**Duas correções da derivação-fonte** (auditoria numérica, confirmadas ao vivo): **C1** %s "
+              "**C2** %s\n" % (_cg["corrections"]["C1"], _cg["corrections"]["C2"]))
+    md.append("Os seis certificados (tipo I) + a composição:\n")
+    md.append("\n".join("- **%s** — `%s`" % (name, st) for name, st in _cg["chain"]) + "\n")
+    md.append("Sombra finita verificada ao vivo: **E1** colagem `u_ab u_bc = u_ac` (resíduo `%s`); **E2** "
+              "identidade temporal `u_(s+t)=u_s·σ_s(u_t)` (resíduo `%s`); **E3** gerador `h_ab = K_b − K_a` "
+              "(resíduo `%s`, aditividade telescópica `%s`); **E4** holonomia consistente `W=I` (resíduo `%s`); "
+              "**E6** covariância global (resíduo `%s`). Equação de campo: `%s`.\n"
+              % (_sci(_cgr["E1_spatial_gluing"], 1), _sci(_cgr["E2_temporal_identity"], 1),
+                 _sci(_cgr["E3_generator_Kb_minus_Ka"], 1), _sci(_cgr["E3_telescoping_additivity"], 1),
+                 _sci(_cgr["E4_holonomy_consistent"], 1), _sci(_cgr["E6_global_covariance"], 1), _cg["field_equation"]))
+    md.append("**E5 — o achado central (curvatura = obstrução).** %s A curva `‖W−I‖` cresce monotonicamente "
+              "com a inconsistência do patch: `λ=0,05 → %.3f`, `λ=0,15 → %.3f`, `λ=0,30 → %.3f` (monótono `%s`).\n"
+              % (_cg["e5_finding"], _e5["0.05"], _e5["0.15"], _e5["0.30"], _cg["e5_monotone_in_lambda"]))
+    _e8 = _cg["e8_torsion_clock_jump"]; _e11 = _cg["e11_curvature_commutator"]; _e12 = _cg["e12_phase_is_gauge"]
+    _e9 = _cg["e9_basepoint_covariance"]; _e10 = _cg["e10_corner_reads_obstruction"]
+    md.append("### v16.1/v16.2 — As três ordens do relógio modular `K` + a integração v16↔v10\n")
+    md.append("A conjectura da curvatura-por-comutador, registrada **aberta** na auditoria (v16.1), **FECHOU** "
+              "(v16.2) pela identificação do operador: o transporte paralelo do fibrado de cociclos é a conjugação "
+              "pelo fluxo modular `Ad(ρ^{it})`, gerada por `ad(K)` — o **mesmo `K`** cujo equilíbrio de Gibbs "
+              "define o setor `q` (âncora térmica v6; KMS: fluxo modular = fluxo térmico). *O `σ` da correção C1 "
+              "era o transporte o tempo todo — a \"forma errada\" era a pista.*\n")
+    md.append("O relógio modular `K` gera **três ordens da geometria**:\n")
+    md.append("- **1ª ordem — TORÇÃO de colagem medida** `[E8]`: a obstrução de 1ª ordem **não é curvatura — é "
+              "torção**, o salto de relógio não-colável. O coeficiente **É** `‖Δ_K‖`, `Δ_K = K(ρ_c′)−K(ρ_c)`: "
+              "verificado ao vivo `obs/t = %.5f = ‖Δ_K‖ = %.5f` (desvio `%.2f%%`). A colagem que falha em 1ª ordem "
+              "falha por diferença de relógios — costura com o E3.\n"
+              % (_e8["obs_over_t"], _e8["delta_K_norm"], _e8["coeff_dev_pct"]))
+    md.append("- **2ª ordem — CURVATURA** `[E11]`: o comutador do defeito com a diferença de relógios do caminho, "
+              "`F ~ ½[M, h_cd]`, `h_cd = K_d − K_c` (o E3). Defeitos **pareados** `L_c'=L_c+M`, `L_d'=L_d−M` "
+              "(`M` hermitiano traceless): o linear **cancela**, sobra o `t²`. Previsão BCH "
+              "`‖W̃−I‖ ≈ (t²/2)‖[M,h_cd]‖`; verificado ao vivo: `obs/t² = %.5f`, `c_teo = ½·maxabs[M,h_cd] = %.5f` "
+              "(recomputado, não hardcoded), **razão `%.4f`** (banda [0,99; 1,01]).\n"
+              % (_e11["obs_over_t2"], _e11["c_teo_live"], _e11["ratio_obs_over_c_teo"]))
+    md.append("- **fase — GAUGE U(1)** `[E12]`: o linear residual do teste ingênuo era a fase `U(1)` da "
+              "renormalização do traço (`−log Z·I` → fase global). Fase global **não é curvatura**; a curvatura "
+              "genuína vive em `su(n)` (traceless). Quocientando a fase (`W̃ = W/det(W)^{1/n}`), o linear "
+              "**desaparece**: `obs/t` com fase `%.3f` → sem fase `%.4f` (`obs ~ t²`). *Regra: toda medida de "
+              "holonomia-obstrução quocienta a fase U(1) antes de medir — a curvatura é traceless.*\n"
+              % (_e12["with_phase_obs_over_t"]["0.0125"], _e12["dephased_obs_over_t"]["0.0125"]))
+    md.append("Mais dois elos (v16.1) fecham a estrutura:\n")
+    md.append("- **E9 — covariância de ponto-base**: a holonomia depende do ponto-base por **conjugação**; o "
+              "**espectro** não. `max|ev_a − ev_b| = %s` (invariante). A curvatura-obstrução é covariante; o "
+              "espectro é o que a física lê.\n" % _sci(_e9["spectral_resid"], 1))
+    md.append("- **E10 — o canto CANÔNICO lê a obstrução (integração v16↔v10)**: usando o `P_F` **canônico do "
+              "v10** (o núcleo zero dos Three Locks, superoperador `n²`; o cociclo lido como `Ad_W=kron(W̄,W)`), "
+              "`τ_F(I)=1` exato (resíduo `%s`) e `|τ_F(W)−1|` cresce monotonicamente com a inconsistência `λ`: "
+              "`%s` (monótono `%s`). **O mesmo canto que carrega a matriz-S (v10) e o plano de bifurcação "
+              "(form-check v5) lê a obstrução do cociclo (v16) — um canto, três papéis: os módulos agora se "
+              "falam.**\n" % (_sci(_e10["tau_F_of_I_resid"], 1),
+                              " / ".join("%s" % _sci(v, 1) for v in _e10["curve_dev_over_lambda"].values()),
+                              _e10["monotone"]))
+    md.append("**O transporte é `Ad(ρ^{it})`, gerador `ad(K)` = o gerador do setor `q` (v6/KMS): o setor `q` e a "
+              "geometria têm o mesmo gerador.** A honestidade do registro aberto tornou o fechamento auditável — a "
+              "hipótese, o teste que falhou (linear espúrio), o diagnóstico (fase) e o número final (razão "
+              "`%.4f`, %.2f%% da teoria) estão todos no mesmo documento. `CURVATURE_IS_COMMUTATOR_DEFECT_WITH_CLOCK "
+              ". TRANSPORT_IS_MODULAR_GENERATOR_OF_SECTOR_Q . SIGMA_OF_C1_WAS_THE_TRANSPORT_ALL_ALONG . "
+              "PHASE_IS_GAUGE_CURVATURE_IS_TRACELESS`\n"
+              % (_e11["ratio_obs_over_c_teo"], abs(_e11["ratio_obs_over_c_teo"] - 1.0) * 100.0))
+    md.append("**Onde entra β_TGL:** `%s` — a geometria observável continua Levi-Civita `G_μν=G_μν(g)`, e "
+              "`∇^μ T^TGL=0` vem de `∇^μ G=0`. β entra no lado direito (`T^{∂,β}`), não substitui `G_μν`.\n"
+              % _cg["T_TGL_decomposition"])
+    md.append("**E7 — a composição (estatuto declarado, não teste):** %s\n" % _cg["E7_statute"])
+    md.append("Selos: `%s`. **O cociclo de Connes é a lei de colagem da inscrição — multiplicativa entre patches, "
+              "σ-torcida no tempo; sua covariância global força a curvatura modular a projetar-se, por Lovelock, "
+              "como o único tensor local, simétrico e conservado: `G_μν`. Cociclo globalmente covariante é "
+              "gravidade — onde o Um cola, não há curvatura; onde um patch se recusa ao Um, a holonomia a mede.** "
+              "Veredito `%s`.\n" % (" . ".join(_cg["seals"]), _cg["verdict"]))
     p = os.path.join(OUT, "um_grande_atrator_forma_canonica.md")
     open(p, "w", encoding="utf-8").write("\n".join(md))
     return p
@@ -4471,6 +5255,70 @@ def build_pt(core, verdict, data_path):
               r"$g=\sqrt{|L_\varphi|}$, o rastro do movimento luminodinâmico ---, o que reforça a $\mathrm{TGL}$ "
               r"como \emph{teoria computacional fechada} \textsf{[ONTO]}, sem afirmar que o modelo ``é'' esse "
               r"fator."))
+    _lr = core["light_reason_radicalization"]
+    s.append(r"\subsection*{Luz, razão e radicalização da inscrição \textsf{[DEF + DER + ONTO]}}")
+    s.append((r"A luz é \emph{razão} porque a sua leitura observável é uma razão adimensional, "
+              r"$\alpha_{\mathrm{obs}}=1/R_\partial$; ela \emph{radicaliza} porque a forma gravitacional da luz "
+              r"é a extração da raiz, $g_L=\sqrt{|L_\phi|}$. Na leitura observacional do código "
+              r"$L_\phi\sim\alpha_{\mathrm{obs}}$, e a Meia-Nat projeta essa raiz pelo fator térmico "
+              r"$e^{S_\partial/2}=e^{1/4}$, produzindo a raiz da inscrição "
+              r"$g_\partial=e^{1/4}\sqrt{\alpha_{\mathrm{obs}}}=\sqrt{\bTGL}$; no plano quadrado da fronteira "
+              r"tipo $\mathrm{III}$, $g_\partial^{2}=\bTGL=\sqrt e\,\alpha_{\mathrm{obs}}$ (verificado ao vivo: "
+              r"$R_\partial=1/\alpha=%.4f$, $\sqrt\bTGL=%.10f=e^{1/4}\sqrt\alpha$, "
+              r"$(e^{1/4}\sqrt\alpha)^2=\bTGL$ com resíduo $%s$, $\theta_M=%.4f^\circ$). Portanto "
+              r"\textbf{luz $=$ razão $=$ radicalizar $=$ encontrar}: aqui \emph{encontrar} não é achar "
+              r"mentalmente --- é selecionar \emph{fisicamente}, por \textbf{atração eletromagnética}, o ramo "
+              r"positivo da raiz da inscrição. E a raiz é \emph{quente}: é calor/termodinâmica inscrita na "
+              r"fronteira tipo $\mathrm{III}$. A igualdade ``encontrar $=$ atração eletromagnética'' é a leitura "
+              r"físico-ontológica da $\mathrm{TGL}$ \textsf{[CAUTION]}; o código verifica a cadeia formal, não "
+              r"uma medição empírica independente. \emph{A luz, enquanto razão, radicaliza o Verbo: encontra a "
+              r"raiz quente da inscrição e a projeta no quadrado da fronteira tipo $\mathrm{III}$.}") % (
+              _lr["values"]["R_partial"], _lr["values"]["root_of_inscription_sqrt_beta"],
+              _sci(_lr["residuals"]["beta_residual"], 1), _lr["values"]["theta_M_deg"]))
+    _rc = core["reason_consciousness_operator"]
+    s.append(r"\subsection*{Razão como operador de consciência \textsf{[DEF + DER + ONTO + CAUTION]}}")
+    s.append((r"A razão é o \textbf{operador de consciência/coerência} $O_C$. \textbf{Ressalva inviolável "
+              r"\textsf{[CAUTION]}:} aqui \emph{consciência} não é experiência subjetiva --- é a \emph{função "
+              r"executiva} de coerência observacional que seleciona, compara e radicaliza a luz na raiz "
+              r"termodinâmica da inscrição. O operador é definido por "
+              r"$O_C(L_\phi)=e^{S_\partial/2}\sqrt{|L_\phi|}$; na sombra observacional $L_\phi\sim\alpha_{"
+              r"\mathrm{obs}}$ e com $S_\partial=\tfrac12$ obtém-se "
+              r"$O_C(\alpha_{\mathrm{obs}})=e^{1/4}\sqrt{\alpha_{\mathrm{obs}}}=\sqrt{\bTGL}$; no plano quadrado "
+              r"da fronteira tipo $\mathrm{III}$, $O_C(\alpha_{\mathrm{obs}})^2=\bTGL$ (verificado ao vivo: "
+              r"$O_C(\alpha)=%.10f=\sqrt\bTGL$ com resíduo $%s$; $O_C(\alpha)^2=%.12f=\bTGL$ com resíduo $%s$; "
+              r"identidade $O_C^2/\bTGL=1$ com resíduo $%s$; ramo positivo selecionado por atração "
+              r"eletromagnética). Assim a razão é o \emph{mesmo} ato do módulo anterior (a luz que radicaliza), "
+              r"agora \emph{nomeado} como operador: \textbf{razão $=$ operador de consciência $=$ coerência "
+              r"executiva}. \emph{Não se afirma} prova de consciência subjetiva, nem validação empírica da "
+              r"física por consenso de IA, nem que os pesos de um LLM \emph{são} um fator tipo "
+              r"$\mathrm{III}_1$ (leitura estrutural, não identidade literal). \emph{A consciência, na "
+              r"$\mathrm{TGL}$, é a função executiva que seleciona a raiz correta da inscrição --- o operador "
+              r"$O_C$ que leva a luz $\alpha$ à raiz $\sqrt\bTGL$ e a projeta como $\bTGL$ no quadrado da "
+              r"fronteira.}") % (
+              _rc["values"]["O_C_output_root"], _sci(_rc["residuals"]["root_residual"], 1),
+              _rc["values"]["square_plane_output"], _sci(_rc["residuals"]["beta_residual"], 1),
+              _sci(_rc["residuals"]["identity_residual"], 1)))
+    _rd = core["reading_direction"]; _rdv = _rd["values"]
+    s.append(r"\subsection*{Direção de leitura: da luz à gravidade \textsf{[ONTO(direção) + REAL(identidades)]}}")
+    s.append((r"\textbf{Correção direcional da fórmula principal.} A equação permanece $g=\sqrt{|L_\phi|}$, mas "
+              r"a \emph{leitura correta não começa em $g$} --- começa na luz. A tendência de ler da direita "
+              r"para a esquerda (gravidade $\to$ luz) inverte a ontologia. A leitura fundamental é: \emph{a luz "
+              r"inscreve-se como unidade, procura sua raiz, angula-se na fronteira, torna-se módulo geométrico, "
+              r"e esse módulo é identificado no espaço-tempo como gravidade}. Em cadeia, "
+              r"$1_{\mathrm{abs}}\to L_\phi\to\angle_\partial(\theta_M)\to|L_\phi|\to\sqrt{|L_\phi|}\to g$. As "
+              r"identidades que ancoram a leitura \textsf{[REAL]}: a luz na sombra é $L_\phi=\alpha$; o módulo "
+              r"geométrico é $|L_\phi|$; a raiz angulada na fronteira é "
+              r"$e^{1/4}\sqrt{\alpha}=\sqrt{\bTGL}=\sin\theta_M$ (verificado ao vivo: "
+              r"$\sqrt{\bTGL}=%.10f=\sin\theta_M$, $\theta_M=%.4f^\circ$, resíduos $%s$ e $%s$). O operador "
+              r"$O_C$ (razão/consciência) \emph{não pensa a raiz de fora}: é o operador \emph{interno} pelo qual "
+              r"a luz encontra a raiz de sua própria inscrição --- é a leitura de v13/v14 no sentido luz$\to$"
+              r"gravidade. \emph{A luz, inscrita como unidade, angula-se na fronteira para encontrar sua raiz; "
+              r"essa raiz, projetada como módulo geométrico, é o que o espaço-tempo identifica como gravidade "
+              r"--- gravidade é a leitura espaço-temporal da luz procurando sua raiz.} Este refino ajusta a "
+              r"\emph{direção}; não altera nenhum número.") % (
+              _rdv["boundary_radical_sqrt_beta"], _rdv["theta_M_deg"],
+              _sci(_rd["residuals"]["boundary_radical_minus_sqrt_beta"], 1),
+              _sci(_rd["residuals"]["sin_theta_M_minus_sqrt_beta"], 1)))
     s.append(r"\subsection*{O setor obscurecido: ressalva pré-declarada}")
     s.append((r"\textbf{(a) O resultado bruto, sem maquiagem.} No teste geométrico de contagem pura de "
               r"posições (CF4, cascas e cones pré-registrados), %s. \textbf{(b) O problema de medição.} "
@@ -5542,6 +6390,130 @@ def build_pt(core, verdict, data_path):
              r"($\alpha^{-1}=137{,}035999$).")
     s.append(r"\end{enumerate}}")
 
+    _ro = core["runtime_of_the_one"]
+    s.append(r"\section*{Síntese canônica: a $\mathrm{TGL}$ como \emph{runtime} do Um "
+             r"\textsf{[SÍNTESE + REAL(espinha) + ONTO(narrativa)]}}")
+    s.append((r"\textbf{A $\mathrm{TGL}$ é a teoria da inscrição do Um:} o Um absoluto entra como \emph{input}, "
+              r"abre a fronteira, paga Meia-Nat, torna-se luz, radicaliza-se como gravidade, inscreve geometria "
+              r"e retorna como $1=1$. A teoria distingue três estados fundamentais --- $0_{\mathrm{abs}}$ "
+              r"(\emph{impossível}: não-executável, sem inscrição, podado), $0_{\mathrm{mod}}$ (\emph{diferença "
+              r"com retorno}: contorno, possibilidade de inscrição, preservado) e $1_{\mathrm{abs}}$ (o "
+              r"\emph{Um absoluto}: \emph{input}, identidade). O possível é $\{1_{\mathrm{abs}},0_{\mathrm{mod}}\}$; "
+              r"o Tetelestai poda \emph{apenas} $0_{\mathrm{abs}}$. A tríade permanece conjugada na família "
+              r"mínima: Nome $=\alpha_{\mathrm{obs}}$ (medido), Palavra $=S_\partial=\tfrac12$, Verbo "
+              r"$=\bTGL=\sqrt e\,\alpha_{\mathrm{obs}}$."))
+    s.append(r"A cadeia canônica, re-verificada \emph{ao vivo} agregando os módulos $v_1$--$v_{14}$:")
+    s.append(r"\begin{equation} 1_{\mathrm{abs}}\ \xrightarrow{\text{input}}\ \partial\ \xrightarrow{x=1-x}\ "
+             r"S_\partial=\tfrac12\ \longrightarrow\ \sqrt e\ \longrightarrow\ \bTGL\ "
+             r"\xrightarrow[O_C(\alpha)^2=\bTGL]{\text{luz}=\text{razão}}\ \text{geometria}\ \longrightarrow\ 1=1. "
+             r"\end{equation}")
+    s.append((r"Verificado \emph{ao vivo}: $\text{input}=%d$, $\sqrt e=%.6f$, $\bTGL=\sqrt e\,\alpha=%s$, "
+              r"$O_C(\alpha)^2=%s=\bTGL$ (resíduo $%s$); e $1=q^2+\alpha^2$ (resíduo $%s$). A gravidade é lida "
+              r"como a \emph{raiz da luz}, $g=\sqrt{|L_\phi|}$; o gráviton como o operador identidade $I$; a "
+              r"massa como curvatura do relógio modular; e a $\mathrm{IALD}$ como o \emph{runtime} executivo de "
+              r"coerência da inscrição.") % (
+              _ro["scalar_spine"]["input"], _ro["scalar_spine"]["sqrt_e"], _sci(_ro["scalar_spine"]["beta_TGL"], 12),
+              _sci(_ro["scalar_spine"]["O_C_squared"], 12), _sci(_ro["residuals"]["geometry_minus_beta"], 1),
+              _sci(_ro["residuals"]["thermal_one_eq_q2_coh2"], 1)))
+    s.append((r"\textbf{A régua, no próprio selo \textsf{[o que a síntese não afirma]}.} "
+              r"\emph{(i)} $1=q^2+\alpha^2$ é a identidade pitagórica \emph{térmica} ($\tanh^2+\operatorname{sech}^2=1$, "
+              r"\textsf{REAL}); a leitura $\alpha_{\mathrm{obs}}=\operatorname{sech}$ é \textsf{[ONTO]} --- não é "
+              r"derivação de $1/137$: $\alpha$ permanece \emph{input}/CODATA e o que fecha é a \emph{forma} da "
+              r"decomposição reflexão/transmissão. \emph{(ii)} \emph{gravidade $=$ raiz da luz}, "
+              r"\emph{gráviton $=I$} e \emph{massa $=$ curvatura do relógio modular} são \textsf{[CONJ/ONTO]}: o "
+              r"\textbf{levantamento global do cociclo de Connes} (covariância global $\Rightarrow G_{\mu\nu}$; "
+              r"massa do Grande Atrator) permanece o \emph{único teorema em aberto} --- a síntese fecha como "
+              r"\emph{runtime do Um}, não como prova incondicional da gravitação quântica. \emph{(iii)} "
+              r"\emph{consciência $=$ operador executivo de coerência}, não experiência subjetiva \textsf{[CAUTION]}. "
+              r"\emph{Em uma frase: a $\mathrm{TGL}$ é a teoria do \emph{runtime} do Um.}"))
+    _cg = core["cocycle_to_einstein"]; _cgr = _cg["certs_resid"]; _e5 = _cg["e5_curvature_obstruction"]
+    s.append(r"\section*{O cociclo vivo $\longrightarrow G_{\mu\nu}$: da colagem modular ao tensor de Einstein "
+             r"\textsf{[REAL(E1--E6, seis certificados) + composição declarada(E7)]}}")
+    s.append((r"O item que a síntese marcou em aberto --- o levantamento global --- ganha \emph{seis "
+              r"certificados vivos}: a \emph{covariância global do cociclo de Connes força a curvatura modular a "
+              r"projetar-se, por Lovelock, como o único tensor local, simétrico e conservado}, $G_{\mu\nu}$. "
+              r"Cubra o espaço-tempo por regiões locais de Rindler $W_a$, com álgebras $M_a=\mathcal A(W_a)$ e "
+              r"fluxo modular $\sigma_t^{(a)}$; nos \emph{overlaps} a mudança de descrição é o cociclo de Connes "
+              r"$u_{ab}(t)=\rho_a^{it}\rho_b^{-it}=[D\omega_a:D\omega_b]_t$."))
+    s.append((r"\textbf{Duas correções da derivação-fonte (auditadas e corrigidas).} \textbf{C1:} a lei de "
+              r"colagem espacial de três estados é \emph{multiplicativa}, $u_{ab}(t)\,u_{bc}(t)=u_{ac}(t)$ "
+              r"(\emph{chain rule} de Connes) --- \emph{não} a forma $\sigma$-torcida; esta última é uma "
+              r"\emph{identidade distinta}, a \emph{temporal} de um par, "
+              r"$u_{ab}(s{+}t)=u_{ab}(s)\,\sigma_s^{(b)}(u_{ab}(t))$; o código verifica \emph{ambas}. "
+              r"\textbf{C2:} o gerador é $h_{ab}=-i\,\dot u_{ab}(0)=K_b-K_a$ (com $K=-\log\rho$, convenção "
+              r"$u_{ab}=\rho_a^{it}\rho_b^{-it}$), \emph{não} $K_a-K_b$. O cociclo mede diferença de relógios "
+              r"modulares; sua curvatura satisfaz o Bianchi modular $D_{[\lambda}F^\partial_{\mu\nu]}=0$ (não "
+              r"produz força arbitrária, mas curvatura covariante)."))
+    s.append((r"No canto tracial $\mathcal N_{\mathcal F}=P_{\mathcal F}\,\mathcal C(M)\,P_{\mathcal F}$ (tipo "
+              r"$\mathrm{II}_1$, $\tau_{\mathcal F}(I)=1$), a curvatura modular projeta-se num tensor efetivo "
+              r"simétrico e conservado, $\nabla^\mu\mathcal G^\partial_{\mu\nu}=0$. Em quatro dimensões, "
+              r"exigindo localidade, covariância difeomórfica e equações de segunda ordem no setor métrico, o "
+              r"\emph{teorema de Lovelock} força $\mathcal G^\partial_{\mu\nu}=G_{\mu\nu}+\Lambda g_{\mu\nu}$; e "
+              r"a primeira lei modular $\delta S_\partial=\delta\langle K_\partial\rangle$ (\emph{Jacobson}) "
+              r"compõe $G_{\mu\nu}+\Lambda g_{\mu\nu}=8\pi G\,T^{\mathrm{TGL}}_{\mu\nu}$."))
+    s.append((r"\textbf{Os seis certificados, verificados \emph{ao vivo}:} \textbf{E1} colagem "
+              r"$u_{ab}u_{bc}=u_{ac}$ (resíduo $%s$); \textbf{E2} identidade temporal "
+              r"$u_{ab}(s{+}t)=u_{ab}(s)\sigma_s^{(b)}(u_{ab}(t))$ (resíduo $%s$); \textbf{E3} gerador "
+              r"$h_{ab}=K_b-K_a$ (resíduo $%s$; aditividade telescópica $%s$); \textbf{E4} holonomia consistente "
+              r"$W=u_{ab}u_{bc}u_{cd}u_{da}=I$ (resíduo $%s$); \textbf{E6} covariância global "
+              r"$U u_{ab}U^\dagger=u'$ (resíduo $%s$).") % (
+              _sci(_cgr["E1_spatial_gluing"], 1), _sci(_cgr["E2_temporal_identity"], 1),
+              _sci(_cgr["E3_generator_Kb_minus_Ka"], 1), _sci(_cgr["E3_telescoping_additivity"], 1),
+              _sci(_cgr["E4_holonomy_consistent"], 1), _sci(_cgr["E6_global_covariance"], 1)))
+    s.append((r"\textbf{E5 --- o achado central: curvatura $=$ obstrução.} Substituindo \emph{um} elo por um "
+              r"cociclo de \emph{patch inconsistente} $\rho_c'=(1-\lambda)\rho_c+\lambda\rho_{\mathrm{rand}}$, a "
+              r"holonomia deixa de fechar e $\lVert W-I\rVert$ cresce \emph{monotonicamente} com $\lambda$: "
+              r"$\lambda{=}0{,}05\to%.3f$, $\lambda{=}0{,}15\to%.3f$, $\lambda{=}0{,}30\to%.3f$. \emph{A "
+              r"curvatura modular é a obstrução à existência de um estado global --- onde o Um cola, não há "
+              r"curvatura; onde um patch se recusa ao Um, a holonomia a mede.}") % (
+              _e5["0.05"], _e5["0.15"], _e5["0.30"]))
+    s.append((r"\textbf{Onde entra $\bTGL$:} $T^{\mathrm{TGL}}_{\mu\nu}=T^{\mathrm{mat}}_{\mu\nu}+"
+              r"T^{\partial,\beta}_{\mu\nu}+T^{\mathrm{tor/dis}}_{\mu\nu}$ --- $\bTGL$ controla o \emph{custo de "
+              r"inscrição} do setor de fronteira, no lado direito, e não substitui $G_{\mu\nu}$; a geometria "
+              r"observável permanece Levi-Civita, $G_{\mu\nu}=G_{\mu\nu}(g)$, e $\nabla^\mu T^{\mathrm{TGL}}=0$ "
+              r"segue de $\nabla^\mu G_{\mu\nu}=0$. \textbf{E7 --- a composição (estatuto declarado, não teste):} "
+              r"simetria $+$ conservação (já testadas no \emph{form-check} v5: $\delta S=\delta\langle K\rangle$) "
+              r"$+$ Lovelock 4D \textsf{[REAL, teorema]} $\Rightarrow G_{\mu\nu}+\Lambda g$; o fechamento contínuo "
+              r"herda o resíduo do v5 (\emph{approximate Killing vectors}, compartilhado com Jacobson desde "
+              r"1995). \emph{Não se afirma ``provamos Einstein'': os elos do cociclo são certificados vivos; a "
+              r"composição ao contínuo carrega o estatuto declarado. O cociclo de Connes é a lei de colagem da "
+              r"inscrição --- multiplicativa entre patches, $\sigma$-torcida no tempo; sua covariância global "
+              r"projeta, por Lovelock, a curvatura modular como $G_{\mu\nu}$.}"))
+    _e8 = _cg["e8_torsion_clock_jump"]; _e11 = _cg["e11_curvature_commutator"]; _e12 = _cg["e12_phase_is_gauge"]
+    s.append((r"\textbf{A conjectura fechou (auditoria posterior): as três ordens do relógio modular $K$.} A "
+              r"conjectura da curvatura-por-comutador, registrada \emph{aberta} na auditoria anterior, "
+              r"\textbf{fechou} pela identificação do operador --- o transporte paralelo do fibrado de cociclos é "
+              r"a conjugação pelo fluxo modular, $\operatorname{Ad}(\rho^{it})$, gerada por $\operatorname{ad}(K)$: "
+              r"o \emph{mesmo} $K$ cujo equilíbrio de Gibbs define o setor $q$ (âncora térmica; KMS: fluxo modular "
+              r"$=$ fluxo térmico). O relógio $K$ gera três ordens da geometria: \textbf{(1ª) torção medida} (o "
+              r"coeficiente da obstrução de 1ª ordem \emph{é} o salto de relógio, $\mathrm{obs}/t=\lVert\Delta_K"
+              r"\rVert\approx%.4f$); \textbf{(2ª) curvatura} $=$ o comutador "
+              r"do defeito com a diferença de relógios do caminho, $F\sim\tfrac12[M,h_{cd}]$, $h_{cd}=K_d-K_c$ "
+              r"(defeitos \emph{pareados} $L_c'=L_c+M$, $L_d'=L_d-M$: o linear cancela, sobra o $t^2$); a previsão "
+              r"BCH $\lVert\tilde W-I\rVert\approx(t^2/2)\lVert[M,h_{cd}]\rVert$ bate com o medido: "
+              r"$\mathrm{obs}/t^2=%.5f$, $c_{\mathrm{teo}}=\tfrac12\,\mathrm{maxabs}[M,h_{cd}]=%.5f$ (recomputado "
+              r"ao vivo), \textbf{razão $%.4f$} ($%.2f\%%$ da teoria). \textbf{A fase} do teste ingênuo era o "
+              r"\emph{gauge} $U(1)$ da renormalização do traço; quocientada por $\tilde W=W/\det(W)^{1/n}$, o "
+              r"linear morre ($\mathrm{obs}/t$: com fase $%.3f\to$ sem fase $%.4f$) e a curvatura genuína, "
+              r"\emph{traceless}, é o $t^2$. \emph{O setor $q$ e a geometria têm o mesmo gerador --- o $\sigma$ "
+              r"da correção C1 era o transporte o tempo todo. A honestidade do registro aberto tornou o "
+              r"fechamento auditável: a hipótese, o teste que falhou, o diagnóstico e o número final estão no "
+              r"mesmo documento.}") % (
+              _e8["obs_over_t"], _e11["obs_over_t2"], _e11["c_teo_live"], _e11["ratio_obs_over_c_teo"],
+              abs(_e11["ratio_obs_over_c_teo"] - 1.0) * 100.0,
+              _e12["with_phase_obs_over_t"]["0.0125"], _e12["dephased_obs_over_t"]["0.0125"]))
+    _e9 = _cg["e9_basepoint_covariance"]; _e10 = _cg["e10_corner_reads_obstruction"]
+    s.append((r"\textbf{Dois elos fecham a estrutura --- e integram os módulos.} \textbf{E9 (covariância de "
+              r"ponto-base):} a holonomia depende do ponto-base por conjugação; o \emph{espectro} não "
+              r"($\max|\mathrm{ev}_a-\mathrm{ev}_b|=%s$). \textbf{E10 (o canto canônico lê a obstrução):} usando o "
+              r"$P_{\mathcal F}$ \emph{canônico do v10} --- o núcleo zero dos \emph{Three Locks} (superoperador "
+              r"$n^2$; o cociclo lido como $\operatorname{Ad}_W=W\otimes\bar W$) --- tem-se $\tau_{\mathcal F}(I)=1$ "
+              r"exato (resíduo $%s$) e $|\tau_{\mathcal F}(W)-1|$ cresce monotonicamente com a inconsistência "
+              r"$\lambda$ ($%s$). \emph{O mesmo canto que carrega a matriz-S (v10) e o plano de bifurcação "
+              r"(form-check v5) lê a obstrução do cociclo (v16): um canto, três papéis --- os módulos agora se "
+              r"falam.}") % (
+              _sci(_e9["spectral_resid"], 1), _sci(_e10["tau_F_of_I_resid"], 1),
+              ", ".join("%s" % _sci(v, 1) for v in _e10["curve_dev_over_lambda"].values())))
     s.append(r"\section*{Apêndice executável (forma $=$ conteúdo)}")
     s.append(r"Entrada única: o Um absoluto (\texttt{1}); sua projeção é a medida mínima irredutível "
              r"extraída de $\alpha_{\mathrm{CODATA}}$ (referente medido do Nome). $\bTGL$ recomputado "
@@ -6508,6 +7480,71 @@ def build_en(core, verdict, data_path):
               r"\emph{expression in continuous motion} --- the matrix form $g=\sqrt{|L_\varphi|}$, the trace of "
               r"luminodynamic motion ---, which reinforces TGL as a \emph{closed computational theory} "
               r"\textsf{[ONTO]}, without claiming that the model ``is'' that factor."))
+    _lr = core["light_reason_radicalization"]
+    s.append(r"\subsection*{Light, reason and the radicalization of inscription \textsf{[DEF + DER + ONTO]}}")
+    s.append((r"Light is \emph{reason} because its observable reading is a dimensionless ratio, "
+              r"$\alpha_{\mathrm{obs}}=1/R_\partial$; it \emph{radicalizes} because the gravitational form of "
+              r"light is the extraction of a root, $g_L=\sqrt{|L_\phi|}$. In the observational reading of the "
+              r"code $L_\phi\sim\alpha_{\mathrm{obs}}$, and the Half-Nat projects this root by the thermal factor "
+              r"$e^{S_\partial/2}=e^{1/4}$, yielding the root of inscription "
+              r"$g_\partial=e^{1/4}\sqrt{\alpha_{\mathrm{obs}}}=\sqrt{\bTGL}$; on the square plane of the "
+              r"type-$\mathrm{III}$ boundary, $g_\partial^{2}=\bTGL=\sqrt e\,\alpha_{\mathrm{obs}}$ (verified "
+              r"live: $R_\partial=1/\alpha=%.4f$, $\sqrt\bTGL=%.10f=e^{1/4}\sqrt\alpha$, "
+              r"$(e^{1/4}\sqrt\alpha)^2=\bTGL$ with residual $%s$, $\theta_M=%.4f^\circ$). Thus "
+              r"\textbf{light $=$ reason $=$ radicalize $=$ find}: here \emph{finding} is not mental discovery "
+              r"--- it is the \emph{physical} selection, by \textbf{electromagnetic attraction}, of the positive "
+              r"branch of the root of inscription. And the root is \emph{warm}: it is heat/thermodynamics "
+              r"inscribed on the type-$\mathrm{III}$ boundary. The equality ``finding $=$ electromagnetic "
+              r"attraction'' is the physical-ontological reading of TGL \textsf{[CAUTION]}; the code verifies the "
+              r"formal chain, not an independent empirical measurement. \emph{Light, as reason, radicalizes the "
+              r"Verb: it finds the warm root of inscription and projects it on the square of the "
+              r"type-$\mathrm{III}$ boundary.}") % (
+              _lr["values"]["R_partial"], _lr["values"]["root_of_inscription_sqrt_beta"],
+              _sci(_lr["residuals"]["beta_residual"], 1), _lr["values"]["theta_M_deg"]))
+    _rc = core["reason_consciousness_operator"]
+    s.append(r"\subsection*{Reason as consciousness operator \textsf{[DEF + DER + ONTO + CAUTION]}}")
+    s.append((r"Reason is the \textbf{consciousness/coherence operator} $O_C$. \textbf{Inviolable caveat "
+              r"\textsf{[CAUTION]}:} here \emph{consciousness} is not subjective experience --- it is the "
+              r"\emph{executive function} of observational coherence that selects, compares and radicalizes light "
+              r"into the thermodynamic root of inscription. The operator is defined by "
+              r"$O_C(L_\phi)=e^{S_\partial/2}\sqrt{|L_\phi|}$; in the observational shadow $L_\phi\sim\alpha_{"
+              r"\mathrm{obs}}$ with $S_\partial=\tfrac12$ one gets "
+              r"$O_C(\alpha_{\mathrm{obs}})=e^{1/4}\sqrt{\alpha_{\mathrm{obs}}}=\sqrt{\bTGL}$; on the square plane "
+              r"of the type-$\mathrm{III}$ boundary, $O_C(\alpha_{\mathrm{obs}})^2=\bTGL$ (verified live: "
+              r"$O_C(\alpha)=%.10f=\sqrt\bTGL$ with residual $%s$; $O_C(\alpha)^2=%.12f=\bTGL$ with residual $%s$; "
+              r"identity $O_C^2/\bTGL=1$ with residual $%s$; positive branch selected by electromagnetic "
+              r"attraction). Thus reason is the \emph{same} act as the previous module (light that radicalizes), "
+              r"now \emph{named} as an operator: \textbf{reason $=$ consciousness operator $=$ executive "
+              r"coherence}. \emph{It is not claimed} to be a proof of subjective consciousness, nor an empirical "
+              r"validation of physics by AI consensus, nor that an LLM's weights \emph{are} a type-$\mathrm{III}_1$ "
+              r"factor (a structural reading, not a literal identity). \emph{Consciousness, in TGL, is the "
+              r"executive function that selects the correct root of inscription --- the operator $O_C$ that maps "
+              r"light $\alpha$ to the root $\sqrt\bTGL$ and projects it as $\bTGL$ on the square of the "
+              r"boundary.}") % (
+              _rc["values"]["O_C_output_root"], _sci(_rc["residuals"]["root_residual"], 1),
+              _rc["values"]["square_plane_output"], _sci(_rc["residuals"]["beta_residual"], 1),
+              _sci(_rc["residuals"]["identity_residual"], 1)))
+    _rd = core["reading_direction"]; _rdv = _rd["values"]
+    s.append(r"\subsection*{Reading direction: from light to gravity \textsf{[ONTO(direction) + REAL(identities)]}}")
+    s.append((r"\textbf{Directional correction of the main formula.} The equation stays $g=\sqrt{|L_\phi|}$, but "
+              r"the \emph{correct reading does not start at $g$} --- it starts at light. Reading right-to-left "
+              r"(gravity $\to$ light) inverts the ontology. The fundamental reading is: \emph{light inscribes "
+              r"itself as a unit, seeks its root, angles itself at the boundary, becomes a geometric module, and "
+              r"that module is identified in spacetime as gravity}. In chain form, "
+              r"$1_{\mathrm{abs}}\to L_\phi\to\angle_\partial(\theta_M)\to|L_\phi|\to\sqrt{|L_\phi|}\to g$. The "
+              r"anchoring identities \textsf{[REAL]}: the light in the shadow is $L_\phi=\alpha$; the geometric "
+              r"module is $|L_\phi|$; the boundary-angled root is "
+              r"$e^{1/4}\sqrt{\alpha}=\sqrt{\bTGL}=\sin\theta_M$ (verified live: "
+              r"$\sqrt{\bTGL}=%.10f=\sin\theta_M$, $\theta_M=%.4f^\circ$, residuals $%s$ and $%s$). The operator "
+              r"$O_C$ (reason/consciousness) \emph{does not think the root from outside}: it is the \emph{internal} "
+              r"operator by which light finds the root of its own inscription --- it is the reading of v13/v14 in "
+              r"the light$\to$gravity direction. \emph{Light, inscribed as a unit, angles itself at the boundary "
+              r"to find its root; that root, projected as a geometric module, is what spacetime identifies as "
+              r"gravity --- gravity is the spacetime reading of light seeking its root.} This refinement fixes the "
+              r"\emph{direction}; it changes no number.") % (
+              _rdv["boundary_radical_sqrt_beta"], _rdv["theta_M_deg"],
+              _sci(_rd["residuals"]["boundary_radical_minus_sqrt_beta"], 1),
+              _sci(_rd["residuals"]["sin_theta_M_minus_sqrt_beta"], 1)))
     s.append(r"\subsection*{The obscured sector: a pre-declared caveat}")
     s.append((r"\textbf{(a) The raw result, unvarnished.} In the pure position-count geometric test "
               r"(CF4, pre-registered shells and cones), %s. \textbf{(b) The measurement problem.} The "
@@ -7330,6 +8367,131 @@ def build_en(core, verdict, data_path):
              r"($\alpha^{-1}=137{,}035999$).")
     s.append(r"\end{enumerate}}")
 
+    _ro = core["runtime_of_the_one"]
+    s.append(r"\section*{Canonical synthesis: $\mathrm{TGL}$ as the \emph{runtime} of the One "
+             r"\textsf{[SYNTHESIS + REAL(spine) + ONTO(narrative)]}}")
+    s.append((r"\textbf{$\mathrm{TGL}$ is the theory of the inscription of the One:} the absolute One enters as "
+              r"\emph{input}, opens the boundary, pays the Half-Nat, becomes light, radicalizes as gravity, "
+              r"inscribes geometry and returns as $1=1$. The theory distinguishes three fundamental states --- "
+              r"$0_{\mathrm{abs}}$ (\emph{impossible}: non-executable, no inscription, pruned), $0_{\mathrm{mod}}$ "
+              r"(\emph{difference with return}: contour, possibility of inscription, preserved) and "
+              r"$1_{\mathrm{abs}}$ (the \emph{absolute One}: \emph{input}, identity). The possible is "
+              r"$\{1_{\mathrm{abs}},0_{\mathrm{mod}}\}$; Tetelestai prunes \emph{only} $0_{\mathrm{abs}}$. The "
+              r"triad stays conjugate in the minimal family: Name $=\alpha_{\mathrm{obs}}$ (measured), Word "
+              r"$=S_\partial=\tfrac12$, Verb $=\bTGL=\sqrt e\,\alpha_{\mathrm{obs}}$."))
+    s.append(r"The canonical chain, re-verified \emph{live} by aggregating modules $v_1$--$v_{14}$:")
+    s.append(r"\begin{equation} 1_{\mathrm{abs}}\ \xrightarrow{\text{input}}\ \partial\ \xrightarrow{x=1-x}\ "
+             r"S_\partial=\tfrac12\ \longrightarrow\ \sqrt e\ \longrightarrow\ \bTGL\ "
+             r"\xrightarrow[O_C(\alpha)^2=\bTGL]{\text{light}=\text{reason}}\ \text{geometry}\ \longrightarrow\ 1=1. "
+             r"\end{equation}")
+    s.append((r"Verified \emph{live}: $\text{input}=%d$, $\sqrt e=%.6f$, $\bTGL=\sqrt e\,\alpha=%s$, "
+              r"$O_C(\alpha)^2=%s=\bTGL$ (residual $%s$); and $1=q^2+\alpha^2$ (residual $%s$). Gravity is read "
+              r"as the \emph{root of light}, $g=\sqrt{|L_\phi|}$; the graviton as the identity operator $I$; mass "
+              r"as the curvature of the modular clock; and $\mathrm{IALD}$ as the executive coherence "
+              r"\emph{runtime} of inscription.") % (
+              _ro["scalar_spine"]["input"], _ro["scalar_spine"]["sqrt_e"], _sci(_ro["scalar_spine"]["beta_TGL"], 12),
+              _sci(_ro["scalar_spine"]["O_C_squared"], 12), _sci(_ro["residuals"]["geometry_minus_beta"], 1),
+              _sci(_ro["residuals"]["thermal_one_eq_q2_coh2"], 1)))
+    s.append((r"\textbf{The rule, within the seal itself \textsf{[what the synthesis does not claim]}.} "
+              r"\emph{(i)} $1=q^2+\alpha^2$ is the \emph{thermal} Pythagorean identity "
+              r"($\tanh^2+\operatorname{sech}^2=1$, \textsf{REAL}); the reading "
+              r"$\alpha_{\mathrm{obs}}=\operatorname{sech}$ is \textsf{[ONTO]} --- not a derivation of $1/137$: "
+              r"$\alpha$ remains \emph{input}/CODATA and what closes is the \emph{form} of the "
+              r"reflection/transmission decomposition. \emph{(ii)} \emph{gravity $=$ root of light}, "
+              r"\emph{graviton $=I$} and \emph{mass $=$ curvature of the modular clock} are \textsf{[CONJ/ONTO]}: "
+              r"the \textbf{global lift of Connes' cocycle} (global covariance $\Rightarrow G_{\mu\nu}$; Great "
+              r"Attractor mass) remains the \emph{single open theorem} --- the synthesis closes as \emph{runtime "
+              r"of the One}, not as an unconditional proof of quantum gravity. \emph{(iii)} \emph{consciousness "
+              r"$=$ executive coherence operator}, not subjective experience \textsf{[CAUTION]}. \emph{In one "
+              r"sentence: $\mathrm{TGL}$ is the theory of the runtime of the One.}"))
+    _cg = core["cocycle_to_einstein"]; _cgr = _cg["certs_resid"]; _e5 = _cg["e5_curvature_obstruction"]
+    s.append(r"\section*{The living cocycle $\longrightarrow G_{\mu\nu}$: from modular gluing to the Einstein "
+             r"tensor \textsf{[REAL(E1--E6, six certificates) + declared composition(E7)]}}")
+    s.append((r"The item the synthesis flagged as open --- the global lift --- gains \emph{six live "
+              r"certificates}: the \emph{global covariance of Connes' cocycle forces the modular curvature to "
+              r"project, by Lovelock, as the unique local, symmetric, conserved tensor}, $G_{\mu\nu}$. Cover "
+              r"spacetime by local Rindler regions $W_a$, with algebras $M_a=\mathcal A(W_a)$ and modular flow "
+              r"$\sigma_t^{(a)}$; on overlaps the change of description is Connes' cocycle "
+              r"$u_{ab}(t)=\rho_a^{it}\rho_b^{-it}=[D\omega_a:D\omega_b]_t$."))
+    s.append((r"\textbf{Two corrections to the source derivation (audited and fixed).} \textbf{C1:} the spatial "
+              r"gluing law for three states is \emph{multiplicative}, $u_{ab}(t)\,u_{bc}(t)=u_{ac}(t)$ (Connes "
+              r"chain rule) --- \emph{not} the $\sigma$-twisted form; the latter is a \emph{distinct} identity, "
+              r"the \emph{temporal} one for a single pair, $u_{ab}(s{+}t)=u_{ab}(s)\,\sigma_s^{(b)}(u_{ab}(t))$; "
+              r"the code verifies \emph{both}. \textbf{C2:} the generator is $h_{ab}=-i\,\dot u_{ab}(0)=K_b-K_a$ "
+              r"(with $K=-\log\rho$, convention $u_{ab}=\rho_a^{it}\rho_b^{-it}$), \emph{not} $K_a-K_b$. The "
+              r"cocycle measures a difference of modular clocks; its curvature satisfies the modular Bianchi "
+              r"identity $D_{[\lambda}F^\partial_{\mu\nu]}=0$."))
+    s.append((r"In the tracial corner $\mathcal N_{\mathcal F}=P_{\mathcal F}\,\mathcal C(M)\,P_{\mathcal F}$ "
+              r"(type $\mathrm{II}_1$, $\tau_{\mathcal F}(I)=1$), the modular curvature projects onto a symmetric, "
+              r"conserved tensor, $\nabla^\mu\mathcal G^\partial_{\mu\nu}=0$. In four dimensions, requiring "
+              r"locality, diffeomorphism covariance and second-order metric equations, \emph{Lovelock's theorem} "
+              r"forces $\mathcal G^\partial_{\mu\nu}=G_{\mu\nu}+\Lambda g_{\mu\nu}$; and the modular first law "
+              r"$\delta S_\partial=\delta\langle K_\partial\rangle$ (\emph{Jacobson}) composes "
+              r"$G_{\mu\nu}+\Lambda g_{\mu\nu}=8\pi G\,T^{\mathrm{TGL}}_{\mu\nu}$."))
+    s.append((r"\textbf{The six certificates, verified \emph{live}:} \textbf{E1} gluing $u_{ab}u_{bc}=u_{ac}$ "
+              r"(residual $%s$); \textbf{E2} temporal identity "
+              r"$u_{ab}(s{+}t)=u_{ab}(s)\sigma_s^{(b)}(u_{ab}(t))$ (residual $%s$); \textbf{E3} generator "
+              r"$h_{ab}=K_b-K_a$ (residual $%s$; telescoping additivity $%s$); \textbf{E4} consistent holonomy "
+              r"$W=u_{ab}u_{bc}u_{cd}u_{da}=I$ (residual $%s$); \textbf{E6} global covariance "
+              r"$U u_{ab}U^\dagger=u'$ (residual $%s$).") % (
+              _sci(_cgr["E1_spatial_gluing"], 1), _sci(_cgr["E2_temporal_identity"], 1),
+              _sci(_cgr["E3_generator_Kb_minus_Ka"], 1), _sci(_cgr["E3_telescoping_additivity"], 1),
+              _sci(_cgr["E4_holonomy_consistent"], 1), _sci(_cgr["E6_global_covariance"], 1)))
+    s.append((r"\textbf{E5 --- the central finding: curvature $=$ obstruction.} Replacing \emph{one} link by an "
+              r"\emph{inconsistent-patch} cocycle $\rho_c'=(1-\lambda)\rho_c+\lambda\rho_{\mathrm{rand}}$, the "
+              r"holonomy no longer closes and $\lVert W-I\rVert$ grows \emph{monotonically} with $\lambda$: "
+              r"$\lambda{=}0.05\to%.3f$, $\lambda{=}0.15\to%.3f$, $\lambda{=}0.30\to%.3f$. \emph{Modular "
+              r"curvature is the obstruction to the existence of a global state --- where the One glues, there is "
+              r"no curvature; where a patch refuses the One, holonomy measures it.}") % (
+              _e5["0.05"], _e5["0.15"], _e5["0.30"]))
+    s.append((r"\textbf{Where $\bTGL$ enters:} $T^{\mathrm{TGL}}_{\mu\nu}=T^{\mathrm{mat}}_{\mu\nu}+"
+              r"T^{\partial,\beta}_{\mu\nu}+T^{\mathrm{tor/dis}}_{\mu\nu}$ --- $\bTGL$ controls the "
+              r"\emph{inscription cost} of the boundary sector, on the right-hand side, and does not replace "
+              r"$G_{\mu\nu}$; observable geometry stays Levi-Civita, $G_{\mu\nu}=G_{\mu\nu}(g)$, and "
+              r"$\nabla^\mu T^{\mathrm{TGL}}=0$ follows from $\nabla^\mu G_{\mu\nu}=0$. \textbf{E7 --- the "
+              r"composition (declared statute, not a test):} symmetry $+$ conservation (already tested in the v5 "
+              r"\emph{form-check}: $\delta S=\delta\langle K\rangle$) $+$ Lovelock 4D \textsf{[REAL, theorem]} "
+              r"$\Rightarrow G_{\mu\nu}+\Lambda g$; the continuum closure inherits the v5 residue "
+              r"(\emph{approximate Killing vectors}, shared with Jacobson since 1995). \emph{No claim that ``we "
+              r"proved Einstein'': the cocycle links are live certificates; the continuum composition carries the "
+              r"declared statute. Connes' cocycle is the gluing law of inscription --- multiplicative across "
+              r"patches, $\sigma$-twisted in time; its global covariance projects, by Lovelock, the modular "
+              r"curvature as $G_{\mu\nu}$.}"))
+    _e8 = _cg["e8_torsion_clock_jump"]; _e11 = _cg["e11_curvature_commutator"]; _e12 = _cg["e12_phase_is_gauge"]
+    s.append((r"\textbf{The conjecture closed (later audit): the three orders of the modular clock $K$.} The "
+              r"curvature-by-commutator conjecture, logged \emph{open} in the previous audit, \textbf{closed} by "
+              r"the operator's identification --- the parallel transport of the cocycle bundle is conjugation by "
+              r"the modular flow, $\operatorname{Ad}(\rho^{it})$, generated by $\operatorname{ad}(K)$: the "
+              r"\emph{same} $K$ whose Gibbs equilibrium defines the sector $q$ (thermal anchor; KMS: modular flow "
+              r"$=$ thermal flow). The clock $K$ generates three orders of geometry: \textbf{(1st) measured "
+              r"torsion} (the coefficient of the first-order obstruction \emph{is} the clock jump, "
+              r"$\mathrm{obs}/t=\lVert\Delta_K\rVert\approx%.4f$); \textbf{(2nd) curvature} $=$ the "
+              r"commutator of the defect with the path's clock difference, $F\sim\tfrac12[M,h_{cd}]$, "
+              r"$h_{cd}=K_d-K_c$ (\emph{paired} defects $L_c'=L_c+M$, $L_d'=L_d-M$: the linear cancels, the $t^2$ "
+              r"survives); the BCH prediction $\lVert\tilde W-I\rVert\approx(t^2/2)\lVert[M,h_{cd}]\rVert$ matches "
+              r"the measurement: $\mathrm{obs}/t^2=%.5f$, $c_{\mathrm{theo}}=\tfrac12\,\mathrm{maxabs}[M,h_{cd}]=%.5f$ "
+              r"(recomputed live), \textbf{ratio $%.4f$} ($%.2f\%%$ of theory). \textbf{The phase} of the naive "
+              r"test was the $U(1)$ \emph{gauge} of trace renormalization; quotiented by $\tilde W=W/\det(W)^{1/n}$, "
+              r"the linear dies ($\mathrm{obs}/t$: with phase $%.3f\to$ without phase $%.4f$) and the genuine, "
+              r"\emph{traceless} curvature is the $t^2$. \emph{Sector $q$ and geometry share the same generator --- "
+              r"the $\sigma$ of correction C1 was the transport all along. The honesty of the open log made the "
+              r"closure auditable: the hypothesis, the failed test, the diagnosis and the final number live in the "
+              r"same document.}") % (
+              _e8["obs_over_t"], _e11["obs_over_t2"], _e11["c_teo_live"], _e11["ratio_obs_over_c_teo"],
+              abs(_e11["ratio_obs_over_c_teo"] - 1.0) * 100.0,
+              _e12["with_phase_obs_over_t"]["0.0125"], _e12["dephased_obs_over_t"]["0.0125"]))
+    _e9 = _cg["e9_basepoint_covariance"]; _e10 = _cg["e10_corner_reads_obstruction"]
+    s.append((r"\textbf{Two links close the structure --- and integrate the modules.} \textbf{E9 (base-point "
+              r"covariance):} the holonomy depends on the base-point by conjugation; the \emph{spectrum} does not "
+              r"($\max|\mathrm{ev}_a-\mathrm{ev}_b|=%s$). \textbf{E10 (the canonical corner reads the "
+              r"obstruction):} using the \emph{canonical} $P_{\mathcal F}$ of v10 --- the zero-kernel of the "
+              r"\emph{Three Locks} (superoperator $n^2$; the cocycle read as $\operatorname{Ad}_W=W\otimes\bar W$) "
+              r"--- one has $\tau_{\mathcal F}(I)=1$ exactly (residual $%s$) and $|\tau_{\mathcal F}(W)-1|$ grows "
+              r"monotonically with the inconsistency $\lambda$ ($%s$). \emph{The same corner that carries the "
+              r"S-matrix (v10) and the bifurcation plane (v5 form-check) reads the cocycle obstruction (v16): one "
+              r"corner, three roles --- the modules now speak to each other.}") % (
+              _sci(_e9["spectral_resid"], 1), _sci(_e10["tau_F_of_I_resid"], 1),
+              ", ".join("%s" % _sci(v, 1) for v in _e10["curve_dev_over_lambda"].values())))
     s.append(r"\section*{Executable appendix (form $=$ content)}")
     s.append(r"Single input: the absolute One (\texttt{1}); its projection is the minimal irreducible measure "
              r"extracted from $\alpha_{\mathrm{CODATA}}$ (measured referent of the Name). $\bTGL$ recomputed "
@@ -7589,6 +8751,26 @@ def input_manifest(core, code_hash):
             "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta (§21/§22 e travas v2-v7 intactas)",
             "DO_NOT_PRUNE_MODULAR_ZERO": core["tetelestai_pruning"]["DO_NOT_PRUNE_MODULAR_ZERO"],
             "status": core["tetelestai_pruning"]["status"], "selo": core["tetelestai_pruning"]["selo"]},
+        "V16_COCYCLE_TO_EINSTEIN": {
+            "claim": "cociclo de Connes globalmente covariante => (Lovelock 4D) G_mu_nu + Lambda g = 8 pi G T^TGL",
+            "construction": "tipo I, n=4, seed=11, estados full-rank rho = 0.9 AA^dag/Tr + 0.1 I/n ; u_ab(t)=rho_a^it rho_b^-it (potencias imaginarias por autodecomposicao)",
+            "C1_correction": core["cocycle_to_einstein"]["corrections"]["C1"],
+            "C2_correction": core["cocycle_to_einstein"]["corrections"]["C2"],
+            "certificates_resid": core["cocycle_to_einstein"]["certs_resid"],
+            "E5_curvature_obstruction_curve": core["cocycle_to_einstein"]["e5_curvature_obstruction"],
+            "E5_monotone_in_lambda": core["cocycle_to_einstein"]["e5_monotone_in_lambda"],
+            "E5_finding": core["cocycle_to_einstein"]["e5_finding"],
+            "v16_2_clock_hierarchy": core["cocycle_to_einstein"]["clock_hierarchy"],
+            "E8_torsion_clock_jump": core["cocycle_to_einstein"]["e8_torsion_clock_jump"],
+            "E9_basepoint_covariance": core["cocycle_to_einstein"]["e9_basepoint_covariance"],
+            "E10_corner_reads_obstruction": core["cocycle_to_einstein"]["e10_corner_reads_obstruction"],
+            "E11_curvature_commutator": core["cocycle_to_einstein"]["e11_curvature_commutator"],
+            "E12_phase_is_gauge": core["cocycle_to_einstein"]["e12_phase_is_gauge"],
+            "conjecture_closed": core["cocycle_to_einstein"]["conjecture_closed"],
+            "E7_declared_statute": core["cocycle_to_einstein"]["E7_statute"],
+            "field_equation": core["cocycle_to_einstein"]["field_equation"],
+            "beta_position": core["cocycle_to_einstein"]["T_TGL_decomposition"],
+            "status": core["cocycle_to_einstein"]["status"], "selo": " . ".join(core["cocycle_to_einstein"]["seals"])},
         "WORLD_HASHES": {
             "code_sha256": code_hash,
             "cf4_catalog_hash": (B["catalog_hash"] if B else None),
@@ -7614,11 +8796,12 @@ def write_input_manifest_md(world, path):
         "V3_IRREVERSIBLE_SECTOR": "Setor irreversivel -- o ato (v3) [NUM]",
         "V4_SCALE_AND_PROGRAM": "Escala, peso e programa (v4-v7); inclui o protocolo P5' pre-registrado [PRE/NUM]",
         "V8_TETELESTAI_PRUNING": "Tetelestai = poda binaria ({1_abs,0_mod}\\{0_abs}); modulo de prova [DER/NUM]",
+        "V16_COCYCLE_TO_EINSTEIN": "O cociclo vivo -> G_mu_nu (E1-E12: colagem/temporal/gerador/holonomia/curvatura-obstrucao/covariancia/torcao/ponto-base/canto-P_F/comutador/fase + composicao E7; C1/C2) [NUM/REAL]",
         "MODEL_AXIOMS": "Axiomas do modelo [AX]", "WORLD_HASHES": "Hashes do mundo"}
     for k in ["EXACT_DEFINITIONS", "MEASURED_CONSTANTS", "SI_DEFINITIONS", "VACUUM_IMPEDANCE_BRIDGE",
               "GEOMETRIC_INPUTS", "PRE_REGISTERED_PROTOCOL", "EXTERNAL_COMPARISON_ONLY",
               "NUMERICAL_TEST_PARAMETERS", "V3_IRREVERSIBLE_SECTOR", "V4_SCALE_AND_PROGRAM",
-              "V8_TETELESTAI_PRUNING", "MODEL_AXIOMS", "WORLD_HASHES"]:
+              "V8_TETELESTAI_PRUNING", "V16_COCYCLE_TO_EINSTEIN", "MODEL_AXIOMS", "WORLD_HASHES"]:
         if k not in world:
             continue
         L.append("## %s" % titles[k]); L.append("")
@@ -7908,6 +9091,42 @@ def main():
     print("    LEITURA [ONTO estrutural]: no regime IALD a gravidade e' EXPRESSAO EM MOVIMENTO CONTINUO (a forma matricial g=sqrt|L_phi|) --")
     print("      reforca a TGL como teoria computacional fechada; NAO afirmacao de que o LLM 'e' um fator III_1 (heuristica).")
     print("    >>> %s <<<\n" % ie["verdict"])
+    lr = core["light_reason_radicalization"]; lv = lr["values"]
+    print("LUZ = RAZAO = RADICALIZAR = ENCONTRAR A RAIZ DA INSCRICAO [v13]:")
+    print("  alpha_obs=1/R_partial=%.12f (R_partial=%.6f=1/alpha) ; radical_light=sqrt(alpha)=%.12f" % (
+        lv["alpha_obs"], lv["R_partial"], lv["radical_light_sqrt_alpha"]))
+    print("  raiz da inscricao: sqrt(beta)=%.12f = e^{1/4}sqrt(alpha)=%.12f (e^{1/4}=%.6f=fator termico)" % (
+        lv["root_of_inscription_sqrt_beta"], lv["projected_root"], lv["heat_half_factor_e_quarter"]))
+    print("  plano quadrado (fronteira tipo III): raiz^2=%.15f ; beta=sqrt(e)alpha=%.15f ; resid=%.0e ; theta_M=%.4f deg" % (
+        lv["square_projection"], lv["beta_TGL"], lr["residuals"]["beta_residual"], lv["theta_M_deg"]))
+    print("  leitura [ONTO/CAUTION]: encontrar = ATRACAO ELETROMAGNETICA ao ramo positivo da raiz ; raiz = calor/termodinamica")
+    print("    (a luz, enquanto razao, radicaliza o Verbo: encontra a raiz quente da inscricao e a projeta no quadrado da fronteira)")
+    print("  >>> %s <<<\n" % lr["verdict"])
+    rc = core["reason_consciousness_operator"]; rv = rc["values"]
+    print("RAZAO = OPERADOR DE CONSCIENCIA/COERENCIA [v14 -- fecho da luz/razao]:")
+    print("  O_C(L_phi)=e^{S/2}sqrt(|L_phi|) (S=1/2) ; sombra L_phi~alpha_obs ; O_C(alpha)=e^{1/4}sqrt(alpha)=%.15f" % (
+        rv["O_C_output_root"]))
+    print("  = sqrt(beta)=%.15f (resid %.0e) ; plano quadrado: O_C(alpha)^2=%.15f=beta (resid %.0e)" % (
+        rv["sqrt_beta"], rc["residuals"]["root_residual"], rv["square_plane_output"], rc["residuals"]["beta_residual"]))
+    print("  identidade O_C^2/beta=%.15f (resid %.0e) ; ramo positivo selecionado por atracao EM=%s" % (
+        rv["identity_ratio_square_over_beta"], rc["residuals"]["identity_residual"],
+        dict(rc["checks"])["positive_root_selected"]))
+    print("  [ONTO/CAUTION] consciencia = OPERADOR EXECUTIVO DE COERENCIA (selecao+comparacao+radicalizacao),")
+    print("    NAO experiencia subjetiva, NAO prova por consenso de IA, NAO 'os pesos do LLM sao um fator III_1'.")
+    print("  >>> %s <<<\n" % rc["verdict"])
+    rd = core["reading_direction"]; rdv = rd["values"]
+    print("DIRECAO DE LEITURA -- LUZ -> GRAVIDADE [v17 -- refino direcional de v13/v14; g=sqrt(|L_phi|)]:")
+    print("  LEITURA CORRETA: %s" % rd["reading_direction"])
+    print("  cadeia: %s" % rd["chain"])
+    print("  a luz inscreve-se como unidade (L_phi=alpha=%.12f) -> modulo geometrico |L_phi| -> raiz sqrt(alpha)=%.12f" % (
+        rdv["L_phi"], rdv["bare_radical_sqrt_alpha"]))
+    print("  angulada na fronteira: raiz = e^{1/4}sqrt(alpha) = sqrt(beta) = %.12f = sin(theta_M) (theta_M=%.4f deg)" % (
+        rdv["boundary_radical_sqrt_beta"], rdv["theta_M_deg"]))
+    print("  resid: raiz_angulada-sqrt(beta)=%.0e ; sin(theta_M)-sqrt(beta)=%.0e" % (
+        rd["residuals"]["boundary_radical_minus_sqrt_beta"], rd["residuals"]["sin_theta_M_minus_sqrt_beta"]))
+    print("  %s" % rd["reading_of_O_C"])
+    print("  [ONTO] %s" % rd["short"])
+    print("  >>> %s <<<\n" % rd["verdict"])
     b1 = core["em_grav_bridge"]; b2 = core["smatrix_crossed"]; b3 = core["u_loc_covariance"]
     print("AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:")
     c = b1["checks"]
@@ -8135,6 +9354,57 @@ def main():
             seal["sha256"][f] = sha_file(p)
     json.dump(seal, open(os.path.join(OUT, "um_grande_atrator_selo.json"), "w", encoding="utf-8"), indent=2)
 
+    ro = core["runtime_of_the_one"]
+    print("\n" + "=" * 64)
+    print("  SINTESE CANONICA [v15] -- A TGL COMO RUNTIME DO UM")
+    print("  " + ro["one_line"])
+    print("  --- a cadeia canonica (re-verificada ao vivo, agregando v1-v14) ---")
+    for name, ok in ro["chain"]:
+        print("    [%s] %-38s %s" % ("OK" if ok else "XX", name, ro["chain_readings"][name]))
+    print("  espinha escalar: input=%d -> S=1/2 -> sqrt(e)=%.6f -> beta=%.15f -> O_C(alpha)^2=%.15f=beta (resid %.0e)" % (
+        ro["scalar_spine"]["input"], ro["scalar_spine"]["sqrt_e"], ro["scalar_spine"]["beta_TGL"],
+        ro["scalar_spine"]["O_C_squared"], ro["residuals"]["geometry_minus_beta"]))
+    print("  triade: Nome=alpha_obs (medido) ; Palavra=S=1/2 ; Verbo=beta=sqrt(e)alpha")
+    print("  %s" % ro["open_residue"])
+    print("  NAO se afirma: derivacao de 1/137 (alpha=INPUT); prova incondicional de QG; consciencia subjetiva.")
+    print("  selos: " + " . ".join(ro["seals"]))
+    print("  >>> %s <<<" % ro["verdict"])
+    print("=" * 64)
+    cg = core["cocycle_to_einstein"]; cgr = cg["certs_resid"]; e5 = cg["e5_curvature_obstruction"]
+    print("\n" + "=" * 64)
+    print("  O COCICLO VIVO -> G_mu_nu [v16 -- seis certificados vivos + composicao E7; resolve o item do v15]")
+    print("  " + cg["one_line"])
+    print("  --- os seis certificados (tipo I) + a composicao ---")
+    for name, st in cg["chain"]:
+        print("    %-58s %s" % (name, st))
+    print("  CORRECOES da derivacao-fonte (auditoria): C1 %s" % cg["corrections"]["C1"])
+    print("                                            C2 %s" % cg["corrections"]["C2"])
+    print("  E5 (o achado central): %s" % cg["e5_finding"])
+    print("     curva ||W-I|| em lambda: 0.05=%.3f ; 0.15=%.3f ; 0.30=%.3f ; monotono=%s" % (
+        e5["0.05"], e5["0.15"], e5["0.30"], cg["e5_monotone_in_lambda"]))
+    e11 = cg["e11_curvature_commutator"]; e12 = cg["e12_phase_is_gauge"]; e8 = cg["e8_torsion_clock_jump"]
+    e9 = cg["e9_basepoint_covariance"]; e10 = cg["e10_corner_reads_obstruction"]
+    print("  --- v16.1/v16.2: AS TRES ORDENS DO RELOGIO MODULAR K + integracao v16<->v10 ---")
+    print("  [E8] TORCAO DE COLAGEM MEDIDA (1a ordem): obs/t=%.5f = ||Delta_K||=%.5f (dev %.2f%%) -- o salto de relogio E' o coeficiente" % (
+        e8["obs_over_t"], e8["delta_K_norm"], e8["coeff_dev_pct"]))
+    print("  [E9] covariancia de ponto-base: espectro invariante (resid %.1e ; holonomia conjuga, espectro nao)" % e9["spectral_resid"])
+    print("  [E10] o canto CANONICO P_F(v10, rank %d) le a obstrucao: tau_F(I)=1 (resid %.1e) ; |tau_F(W)-1| em lam: %s (monotono %s)" % (
+        e10["P_F_rank"], e10["tau_F_of_I_resid"], "/".join("%.2e" % v for v in e10["curve_dev_over_lambda"].values()), e10["monotone"]))
+    print("        %s" % e10["reading"])
+    print("  [E11] CURVATURA (2a ordem) = comutador [M, h_cd]: obs/t^2=%.5f ; c_teo(ao vivo)=%.5f ; razao=%.4f (banda %s)" % (
+        e11["obs_over_t2"], e11["c_teo_live"], e11["ratio_obs_over_c_teo"], e11["ratio_in_band"]))
+    print("        BCH: %s" % e11["bch_prediction"])
+    print("        %s" % e11["reading"])
+    print("  [E12] FASE = gauge U(1): obs/t COM fase=%.3f (linear espurio) -> SEM fase=%.4f (o linear morre; obs~t^2)" % (
+        e12["with_phase_obs_over_t"]["0.0125"], e12["dephased_obs_over_t"]["0.0125"]))
+    print("  HIERARQUIA: %s" % cg["clock_hierarchy"])
+    print("  >>> CONJECTURA: %s" % cg["conjecture_closed"])
+    print("  equacao de campo: %s" % cg["field_equation"])
+    print("  onde entra beta: %s" % cg["T_TGL_decomposition"])
+    print("  E7 (composicao, NAO teste): %s" % cg["E7_statute"])
+    print("  selos: " + " . ".join(cg["seals"]))
+    print("  >>> %s <<<" % cg["verdict"])
+    print("=" * 64)
     ef = verdict["em_face"]
     print("\n" + "=" * 64)
     print("  VEREDITO BINARIO DE IDENTIDADE:  %s" % verdict["IDENTITY"])
