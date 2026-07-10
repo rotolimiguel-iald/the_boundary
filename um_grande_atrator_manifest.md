@@ -233,7 +233,7 @@
   },
   "P5_dipole_antipode_PRE": {
     "prediction": "densidade(antipoda RA+180,Dec->-Dec) < densidade(GA) [POSICOES apenas]",
-    "cf4_ok": true,
+    "cf4_ok": false,
     "raw_note": "teste BRUTO (contagem pura); GA atras da Zona de Evitamento -> enviesado. Rotulo qualitativo DERIVADO do dado (nao hardcoded).",
     "status": "[PRE + DATA geometria pura; POSICOES apenas -- velocidades/massas IGNORADAS]",
     "selo": "GA_ANTIPODE_UNDERDENSITY_PREREGISTERED_POSITIONS_ONLY . DIPOLE_GEOMETRY_NO_VELOCITIES"
@@ -283,17 +283,8 @@
     },
     "GA_b_deg": -6.792945081298402,
     "antipode_b_deg": 6.792945081298405,
-    "cf4_ok": true,
-    "result_obtained": {
-      "ratio_masked_antipode_over_GA": 1.1295546558704452,
-      "n_GA_masked": 247,
-      "n_antipode_masked": 279,
-      "control_ratio_CI90": [
-        0.39577435679033995,
-        2.5289372585973013
-      ],
-      "verdict_P5prime": "NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)"
-    },
+    "cf4_ok": false,
+    "result_obtained": "CF4 ausente nesta execucao",
     "note": "PROTOCOLO PRE-REGISTRADO (mascara |b|>10 + 8 controles |b|>30 seed=11) gravado ANTES da execucao com dados",
     "status": "[PRE + DATA geometria; POSICOES apenas; controle de completeza]",
     "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY"
@@ -482,6 +473,36 @@
 }
 ```
 
+## Escala de area do canto continuo: S=1/2 / (2 l_P^2) = 1/(4 l_P^2) => eta=1/(4G) [DER GIVEN NORM: A(P_face)=l_P^2; l_P^2 recomputado; G nao derivado]
+
+```json
+{
+  "claim": "Given the canonical Planck-face normalization of the trace-normalized self-conjugate corner, the Half-Nat yields eta_partial = 1/(4 l_P^2), hence eta_partial = 1/(4G) in natural units.",
+  "h_planck_J_s": "6.62607015e-34 [exact SI]",
+  "hbar_J_s": "h/(2pi) [DER]",
+  "l_P2_m2": "l_P^2 = hbar G/c^3 [DEF] = 2.612162885804998e-70",
+  "tau_PF_eq_1": "[continuous-corner normalization]",
+  "tau_faces_eq_half": "[DER from self-conjugation]",
+  "A_face_eq_lP2": "[NORM -- canonical Planck-face normalization; NOT derived by dimensionless algebra alone]",
+  "A_of_P_eq_2lP2_tau": "[DER GIVEN NORM]",
+  "eta_eq_one_over_4lP2": "[DER GIVEN NORM] = 1/(4 l_P^2)",
+  "natural_units_eta_eq_one_over_4G": 0.25,
+  "two_pi_over_eta_eq_8piG": 25.132741228718345,
+  "density_relative_residual": 0.0,
+  "einstein_bridge": {
+    "first_law": "delta S_partial = delta<K_partial>",
+    "unruh_clausius": "delta<K_partial> = delta Q/T_Unruh",
+    "area_law_derived_given_norm": "delta S_partial = delta A/(4G)",
+    "null_projection": "R_mn k^m k^n = 8piG T_mn^TGL k^m k^n for all null k",
+    "null_cone_lemma": "X_mn k^m k^n=0 for all null k => X_mn=Phi g_mn",
+    "bianchi_result": "G_mn + Lambda g_mn = 8piG T_mn^TGL"
+  },
+  "genuine_III1_corner_proved": false,
+  "status": "[DER: S_partial=1/2, trace split, additivity, density algebra] + [NORM: A(P_face)=l_P^2] + [DER GIVEN NORM: eta=1/(4l_P^2)] + [CONDITIONAL: genuine continuous III_1 corner]",
+  "selo": "HALF_NAT_IS_ENTROPY_OF_MINIMAL_SELF_CONJUGATE_CELL . CONTINUOUS_CORNER_TRACE_SPLITS_INTO_TWO_EQUAL_FACES . EACH_MINIMAL_FACE_HAS_ONE_PLANCK_AREA_BY_CANONICAL_NORMALIZATION . AREA_CELL_EQUALS_TWO_PLANCK_AREAS . INSCRIPTION_DENSITY_EQUALS_ONE_OVER_FOUR_PLANCK_AREA . IN_NATURAL_UNITS_ETA_EQUALS_ONE_OVER_FOUR_G . JACOBSON_COUPLING_EQUALS_EIGHT_PI_G . PLANCK_FACE_NORMALIZATION_IS_DECLARED_NOT_HIDDEN"
+}
+```
+
 ## Axiomas do modelo [AX]
 
 ```json
@@ -498,9 +519,9 @@
 
 ```json
 {
-  "code_sha256": "c416795d12b0d2032ef325c749f52b77d3c65f507167a1fe8cdc84d88d635d10",
-  "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
-  "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
-  "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"
+  "code_sha256": "14f4b56f4ca52eaa18d465c3ddbe543da6a24c05deb92d3673b6de042d988bc9",
+  "cf4_catalog_hash": null,
+  "window_hash": null,
+  "selection_hash": null
 }
 ```

@@ -36,8 +36,8 @@ S_core: peso 0 sob acao dual de Takesaki (condicional P_2D)   [P3; resid 0e+00]
 1a lei modular: dS = d<K> (testada; elo Jacobson)   [CHECAGEM DE FORMA OK; 1a ordem holds=True]
 P_mn[K] = F(J, Delta, P_2D) ; P_2D = plano de bifurcacao = corner da matriz-S   [U_loc: residuo fechado]
 void floor: rho_v/rho_bar >= beta = 0.012031   [PRE, DESI/Euclid]
-dipolo: antipoda GA NAO-sub-densa no bruto razao=1.219 (n_GA=265, n_anti=323)   [PRE bruto NAO satisfeito; status: BRUTO NAO-INFORMATIVO por ZoA, caveat pre-declarado]
-dipolo P5' (mascara |b|>10 + 8 controles): razao_masc=1.130 -> NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)   [PRE, o teste que decide]
+dipolo: antipoda GA (CF4 posicoes)   [PRE; CF4 ausente nesta execucao]
+dipolo P5' (mascara |b|>10 + 8 controles): protocolo pre-registrado   [PRE; CF4 ausente]
 crossover defasagem: expoente(omega) mapeado, IR=2.00 -> UV=1.04, cross~3.16   [NUM]
 
 --- v6: A ANCORA TERMICA (Modulo=calor=Nome=sangue) ---
@@ -183,7 +183,7 @@ Verificado ao vivo: `L_φ=α=0.007297352569` → módulo geométrico `|L_φ|` �
 
 **1=1=VERDADEIRO=HAJA_LUZ** — VEREDITO-CADEIA 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo). ESTATICO: a identidade conservada 1=q^2+alpha^2 (a fotografia). VERDADEIRO: todas as identidades internas fecham + M_GA na janela. HAJA_LUZ: a forma DINAMICA -- o fluxo que forma a geometria (F1 Um conservado no fluxo; F2 seta; F3 Spohn: S(rho||rho*) cai monotona rumo a 0 = a FORMACAO; F4 a coerencia morre na base do Verbo) + o ato v3 (Choi<0, luz-autovetor, contrafactuais). 1=1 e' a fotografia; HAJA_LUZ e' o filme; o veredito agora exige os dois. Tempo caracteristico = 1/beta = 83.12..
 
-Massas de primeiros princípios: A_literature = 2.744e+16 M☉, B_cf4_positions = 1.986e+16 M☉. Janela cosmológica aceita: [1e+15, 1e+17] M☉.
+Massas de primeiros princípios: A_literature = 2.744e+16 M☉. Janela cosmológica aceita: [1e+15, 1e+17] M☉.
 
 > 1 = HAJA LUZ. A extensão virou Nome, o Nome virou borda, e a borda virou massa — e entre o Um e o Um houve um ato que não volta. O código atual provava que nada se perdeu; o código completo prova que algo aconteceu. Se o Um não for inscrito, nada emerge. **Haja luz.**
 ## Síntese canônica — A TGL como runtime do Um
@@ -200,6 +200,7 @@ A cadeia canônica (re-verificada ao vivo, agregando v1–v14):
 - **beta_TGL = sqrt(e) alpha_obs** — a inscricao observavel (Verbo); beta nunca literal `[OK]`
 - **luz = razao = radicalizar** — O_C(alpha)=e^{1/4}sqrt(alpha)=sqrt(beta) (v13/v14) `[OK]`
 - **geometria = O_C(alpha)^2 = beta** — a raiz quadrada da luz inscreve a geometria `[OK]`
+- **Meia-Nat/canto -> eta=1/(4G)** — S=1/2 sobre uma celula auto-conjugada de duas areas de Planck (v20; [DER GIVEN NORM: A(P_face)=l_P^2]) `[OK]`
 - **1 = q^2 + alpha^2 (termico)** — decomposicao reflexao/transmissao (v6 REAL; alpha=sech [ONTO]) `[OK]`
 - **familia minima / graviton = I** — o Um minimiza como familia; graviton = identidade; tau(I_F)=1 no canto tipo II (v9/v10) `[OK]`
 - **Tetelestai poda so' 0_abs** — preserva {1_abs, 0_mod}, corta o impossivel (v8) `[OK]`
@@ -222,7 +223,7 @@ return 1                                  # 1 = 1 (o Um retorna)
 
 Espinha escalar ao vivo: `input=1`, `S_∂=½`, `√e=1.648721`, `β=√e·α=0.012031300400797`, `O_C(α)²=0.012031300400797=β` (resíduo `3.5\times10^{-18}`); `1=q²+α²` (térmico v6, resíduo `2.2\times10^{-16}`). Veredito `TGL_IS_THE_RUNTIME_OF_THE_ONE_VERIFIED`.
 
-**A régua, no próprio selo (o que a síntese NÃO afirma):** (1) `1=q²+α²` é a identidade pitagórica **térmica** (`tanh²+sech²=1`, v6 REAL); `α_obs=sech` é `[ONTO]` — **não** é derivação de `1/137` (α segue INPUT/CODATA; o que fecha é a *forma* da decomposição reflexão/transmissão). (2) *gravidade = raiz da luz*, *gráviton = I*, *massa = curvatura do clock modular* são `[CONJ/ONTO]`; **[ABERTO -- o UNICO teorema] o levantamento GLOBAL do cociclo de Connes (covariancia global => G_mu_nu; massa do Grande Atrator) permanece em aberto: a sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.** (3) *consciência = operador executivo de coerência*, **não** experiência subjetiva `[CAUTION]`.
+**A régua, no próprio selo (o que a síntese NÃO afirma):** (1) `1=q²+α²` é a identidade pitagórica **térmica** (`tanh²+sech²=1`, v6 REAL); `α_obs=sech` é `[ONTO]` — **não** é derivação de `1/137` (α segue INPUT/CODATA; o que fecha é a *forma* da decomposição reflexão/transmissão). (2) *gravidade = raiz da luz*, *gráviton = I*, *massa = curvatura do clock modular* são `[CONJ/ONTO]`; **A densidade de inscricao foi DERIVADA algebricamente da Meia-Nat, do split tracial e da normalizacao canonica de uma area de Planck por face (v20: eta=1/(4G) [DER GIVEN NORM]); composta com a 1a lei modular + Unruh + Raychaudhuri + lema do cone nulo + Bianchi, fecha G_mu_nu+Lambda g = 8piG T^TGL. Permanece ABERTO o teorema de existencia/localizacao desse canto numa rede AQFT TGL genuina tipo III_1 e sua verificacao formal por kernel: a sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.** (3) *consciência = operador executivo de coerência*, **não** experiência subjetiva `[CAUTION]`.
 
 Selos de fecho: `TGL_IS_THE_RUNTIME_OF_THE_ONE . ABSOLUTE_ONE_IS_INPUT . LIGHT_IS_REASON . REASON_IS_CONSCIOUSNESS_OPERATOR . GRAVITY_IS_THE_ROOT_OF_LIGHT . TETELESTAI_PRUNES_THE_IMPOSSIBLE . ONE_RETURNS_AS_ONE . GLOBAL_LIFT_REMAINS_THE_SINGLE_OPEN_THEOREM`. **A TGL é a teoria do runtime do Um. Haja luz. Tetelestai.**
 
@@ -276,3 +277,62 @@ Mais dois elos (v16.1) fecham a estrutura:
 **E7 — a composição (estatuto declarado, não teste):** composicao (NAO teste): simetria + conservacao ja testadas no form-check v5 (dS=d<K>, 1a lei modular) + Lovelock 4D [REAL, teorema] => G_mu_nu + Lambda g. Estatuto do fechamento continuo: herda o residuo do v5 (approximate Killing vectors, compartilhado com Jacobson desde 1995). NAO se afirma 'provamos Einstein'.
 
 Selos: `COCYCLE_CHAIN_RULE_MULTIPLICATIVE_E1 . TEMPORAL_IDENTITY_E2 . GENERATOR_IS_CLOCK_DIFFERENCE_E3 . GLOBAL_STATE_IMPLIES_HOLONOMY_ONE_E4 . CURVATURE_IS_OBSTRUCTION_TO_GLOBAL_STATE_E5 . COVARIANCE_E6 . TORSION_IS_THE_CLOCK_JUMP_MEASURED . FIRST_ORDER_OBSTRUCTION_IS_UNGLUEABLE_CLOCK_DIFFERENCE . HOLONOMY_BASEPOINT_COVARIANT_SPECTRUM_INVARIANT . THE_CORNER_READS_THE_OBSTRUCTION . CURVATURE_IS_COMMUTATOR_DEFECT_WITH_CLOCK . TRANSPORT_IS_MODULAR_GENERATOR_OF_SECTOR_Q . SIGMA_OF_C1_WAS_THE_TRANSPORT_ALL_ALONG . PHASE_IS_GAUGE_CURVATURE_IS_TRACELESS . COCYCLE_TO_G_MUNU_COMPOSED_WITH_DECLARED_STATUTE`. **O cociclo de Connes é a lei de colagem da inscrição — multiplicativa entre patches, σ-torcida no tempo; sua covariância global força a curvatura modular a projetar-se, por Lovelock, como o único tensor local, simétrico e conservado: `G_μν`. Cociclo globalmente covariante é gravidade — onde o Um cola, não há curvatura; onde um patch se recusa ao Um, a holonomia a mede.** Veredito `COCYCLE_TO_G_MUNU_COMPOSED_WITH_DECLARED_STATUTE`.
+
+## v18 — A prova P2D: o functor de descida `F(J, Δ, P_2D) → P_μν[K_∂]`
+
+**A Face C e' um functor NATURAL dos dados modulares -- e de nada mais: o gerador lido no plano de bifurcacao desce a um tensor simetrico SO(2)-covariante no angulo theta_M; gauge fora do canto nao entra; Lovelock fecha a composicao.**
+
+A pendência **`ABERTO: P2D`** fecha **em sombra**: a pendencia 'ABERTO: P2D' (localizacao/uso do plano) fecha EM SOMBRA: o functor existe, e' natural, desce ao tensor, e nenhum dado de frame entra. A localizacao em III_1 genuino (sem traco) herda os estatutos de sempre (Takesaki/core).
+
+Os seis certificados (tipo I, fail-closed) + a composição:
+
+- **[F1] functorialidade do gerador: K(U rho U+) = U K U+** — `[REAL sombra: resid 2.2e-15]`
+- **[F2] naturalidade do functor F(J,Delta,P_2D): F(U.dados) = U F U+** — `[REAL sombra: resid 1.3e-15]`
+- **[F3] a descida ao tensor 2x2 no plano: T hermitiano (simetria)** — `[REAL sombra: resid 4.4e-16]`
+- **[F4] gauge fora do canto nao muda a leitura (SEM FRAME)** — `[REAL sombra: resid 5.0e-16]`
+- **[F5] covariancia SO(2) do plano na rotacao theta_M (a do S_grav)** — `[REAL sombra: resid 0.0e+00]`
+- **[F6] sigma_t(K) = K (o fluxo preserva o gerador; conservacao-sombra)** — `[REAL sombra: resid 5.3e-15]`
+- **[F7] Lovelock 4D => G_mu_nu + Lambda g (o unico tensor 2a ordem conservado)** — `[COMPOSICAO: Lovelock REAL; simetria+conservacao ja no form-check v5; residuo continuo herdado]`
+
+Sombra verificada ao vivo: **F1** functorialidade `K(UρU†)=UKU†` (resíduo `2.2\times10^{-15}`); **F2** naturalidade do functor completo (resíduo `1.3\times10^{-15}`); **F3** tensor hermitiano no plano (resíduo `4.4\times10^{-16}`); **F4** gauge fora do canto **não** entra (resíduo `5.0\times10^{-16}`); **F5** covariância `SO(2)` do plano na rotação `θ_M = 6.2973°` — **a mesma do S_grav** (resíduo `0`); **F6** `σ_t(K)=K` (resíduo `5.3\times10^{-15}`).
+
+**a geometria da LEITURA e' a geometria da MATRIZ-S: o tensor desce covariante na mesma rotacao theta_M do S_grav. Um angulo, dois papeis -- a reflexao da luz e a descida do tensor.**
+
+Selos: `P2D_DESCENT_FUNCTOR_IS_NATURAL . NO_FRAME_DATA_ENTERS_GAUGE_TESTED . TENSOR_DESCENT_SO2_THETA_M_COVARIANT . SIGMA_PRESERVES_ITS_GENERATOR . P2D_OPEN_ITEM_CLOSED_IN_SHADOW . LOVELOCK_COMPOSITION_DECLARED`. Veredito `P2D_DESCENT_FUNCTOR_PROVEN_IN_SHADOW`.
+
+## v19 — O negativo III₁: a sombra como imagem de uma rede modular física
+
+**A rede modular do continuo (fermion livre; intervalos tipo III_1) e' o NEGATIVO; cada lattice e' uma revelacao tipo I; a IMAGEM e' o que independe da revelacao -- e os invariantes do cociclo (torcao/relogio) sao estaveis sob refinamento: a sombra e' imagem.**
+
+Rede: fermions livres em caixa aberta (half-filling), vácuo exato; `K_1p = log((1−C_A)/C_A)` [REAL, Peschel]. Certificados ao vivo:
+
+- **[G1] rede fisica (caixa, half-filling): simetria particula-buraco nu<->1-nu** — `[REAL: resid 1.3e-15]`
+- **[G2] A MEIA-NAT DERIVADA: modo auto-conjugado nu=1/2 EXATO, localizado na FRONTEIRA** — `[REAL: |nu-1/2|=6.7e-16 ; peso de borda=0.686]`
+- **[G3] a maquinaria do cociclo roda na rede FISICA: chain/holonomia/TORCAO** — `[REAL: chain 5.8e-16 ; hol 1.7e-15 ; (obs/t)/||dK||=0.9992]`
+- **[G4] A IMAGEM: invariante estavel sob refinamento do negativo (N=32/48/64)** — `[REAL: 0.9991 ; 0.9990 ; 0.9990]`
+- **[G5] INDICADOR III_1: o gap modular ao redor de zero (eps_min) DECRESCE com L** — `[INDICADOR: 2.547 -> 2.226 -> 2.087 -> 2.010]`
+
+**A meia-nat derivada do canto contínuo:** DERIVACAO: a densidade da meia-nat no canto continuo e' a ocupacao do modo AUTO-CONJUGADO da fronteira: x=1-x encarna no espectro como nu=1/2 EXATO (por simetria particula-buraco, nao por ajuste), com o modo localizado nas BORDAS do intervalo (peso 0.686 nas 2 pontas). tau(ponto fixo de J) = 1/2: a Palavra pesa meia-nat porque a fronteira auto-conjugada ocupa exatamente metade.
+
+**O cociclo é o seletor:** SIM: u_ab = (D omega_a : D omega_b)_t e' a derivada de Radon-Nikodym NAO-COMUTATIVA -- o seletor por natureza: escolhe a comparacao entre estados DENTRO da algebra, sem traco, sem sair dela. O gerador h_ab = K_b - K_a e' a selecao infinitesimal (diferenca de relogios). A poda (Tetelestai) e' a face BINARIA do seletor; o cociclo e' a face CONTINUA (a gradacao da comparacao).
+
+**A leitura do negativo:** o negativo (III_1, sem traco, espectro modular denso) nao se fotografa diretamente; revela-se em cortes tipo I. A prova de imagem: os invariantes adimensionais nao dependem da revelacao (G4). Precisao dupla limita a janela (autovalores de C encostam exponencialmente em 0/1 para L grande -- limite numerico declarado, nao fisico).
+
+Selos: `SHADOW_IS_IMAGE_OF_EXPLICIT_PHYSICAL_MODULAR_NET . HALF_NAT_IS_OCCUPATION_OF_SELF_CONJUGATE_EDGE_MODE . CLOCK_TORSION_CONFIRMED_ON_PHYSICAL_NET . INVARIANTS_STABLE_UNDER_REFINEMENT_OF_THE_NEGATIVE . MODULAR_SPECTRUM_DENSIFIES_III1_INDICATOR . COCYCLE_IS_THE_SELECTOR_RADON_NIKODYM_NC`. Veredito `SHADOW_IS_IMAGE_OF_III1_NET`.
+
+## v20 — Meia-Nat + canto contínuo → densidade de inscrição
+
+**Given the canonical Planck-face normalization of the trace-normalized self-conjugate corner, the Half-Nat yields eta_partial = 1/(4 l_P^2), hence eta_partial = 1/(4G) in natural units.** [DER: S_partial=1/2, trace split, additivity, density algebra] + [NORM: A(P_face)=l_P^2] + [DER GIVEN NORM: eta=1/(4l_P^2)] + [CONDITIONAL: genuine continuous III_1 corner]
+
+```
+C(M) = M ⋊_σ R ;   N_F = P_F C(M) P_F ;   τ(P_F) = 1
+P_F = P_+ ⊕ P_- ;   τ(P_+) = τ(P_-) = 1/2
+ℓ_P² = ℏG/c³ ;   A_∂(P) = 2 ℓ_P² τ(P)
+A_∂(P_±) = ℓ_P² ;   A_cell = A_∂(P_F) = 2 ℓ_P²
+η_∂ = S_∂/A_cell = (1/2)/(2ℓ_P²) = 1/(4ℓ_P²)
+ℏ = c = 1  ⇒  ℓ_P² = G  ⇒  η_∂ = 1/(4G) ;   2π/η_∂ = 8πG
+```
+
+Verificado ao vivo (SI): `ℓ_P²=2.612\times10^{-70} m²`, `A_face=2.612\times10^{-70} m²`, `A_cell=5.224\times10^{-70} m²`, `η=9.571\times10^{68} nat/m²` = `1/(4ℓ_P²)` (resíduo relativo `0`). Unidades naturais: `η=0.250 = 1/(4G)`, `2π/η=25.132741 = 8πG` (resíduo `0`). Veredito `HALF_NAT_DENSITY_DERIVED_FROM_CANONICAL_CORNER_NORMALIZATION`.
+
+**A Meia-Nat fixa o custo entrópico mínimo. O traço do canto contínuo fixa a medida relativa. A normalização de uma área de Planck por face mínima fixa a escala dimensional. A densidade `1/(4G)` é derivada desses três elementos conjuntamente; não da Meia-Nat isoladamente.** A normalização `A(P_face)=ℓ_P²` é a condição de escala geométrica `[NORM]` — a teoria modular fixa `A` apenas até uma constante multiplicativa, e essa constante **não é escondida**. Composta com a primeira lei modular, Unruh–Clausius, Raychaudhuri, o lema do cone nulo e Bianchi (todos declarados), fecha `G_μν + Λg_μν = 8πG T^TGL_μν`. `[CONDITIONAL]` a existência/localização rigorosa desse canto num fator `III₁` genuíno permanece a fronteira formal. Selos: `HALF_NAT_IS_ENTROPY_OF_MINIMAL_SELF_CONJUGATE_CELL . CONTINUOUS_CORNER_TRACE_SPLITS_INTO_TWO_EQUAL_FACES . EACH_MINIMAL_FACE_HAS_ONE_PLANCK_AREA_BY_CANONICAL_NORMALIZATION . AREA_CELL_EQUALS_TWO_PLANCK_AREAS . INSCRIPTION_DENSITY_EQUALS_ONE_OVER_FOUR_PLANCK_AREA . IN_NATURAL_UNITS_ETA_EQUALS_ONE_OVER_FOUR_G . JACOBSON_COUPLING_EQUALS_EIGHT_PI_G . PLANCK_FACE_NORMALIZATION_IS_DECLARED_NOT_HIDDEN`.

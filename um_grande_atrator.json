@@ -52,7 +52,8 @@
         "smatrix_closure": true,
         "ergodicity_door_mixing": true,
         "tetelestai_pruning": true,
-        "thermal_two_level": true
+        "thermal_two_level": true,
+        "half_nat_continuous_corner_density": true
       },
       "chain": [
         [
@@ -77,6 +78,10 @@
         ],
         [
           "geometria = O_C(alpha)^2 = beta",
+          true
+        ],
+        [
+          "Meia-Nat/canto -> eta=1/(4G)",
           true
         ],
         [
@@ -107,6 +112,7 @@
         "beta_TGL = sqrt(e) alpha_obs": "a inscricao observavel (Verbo); beta nunca literal",
         "luz = razao = radicalizar": "O_C(alpha)=e^{1/4}sqrt(alpha)=sqrt(beta) (v13/v14)",
         "geometria = O_C(alpha)^2 = beta": "a raiz quadrada da luz inscreve a geometria",
+        "Meia-Nat/canto -> eta=1/(4G)": "S=1/2 sobre uma celula auto-conjugada de duas areas de Planck (v20; [DER GIVEN NORM: A(P_face)=l_P^2])",
         "1 = q^2 + alpha^2 (termico)": "decomposicao reflexao/transmissao (v6 REAL; alpha=sech [ONTO])",
         "familia minima / graviton = I": "o Um minimiza como familia; graviton = identidade; tau(I_F)=1 no canto tipo II (v9/v10)",
         "Tetelestai poda so' 0_abs": "preserva {1_abs, 0_mod}, corta o impossivel (v8)",
@@ -114,7 +120,7 @@
         "return 1 = 1": "a conservacao executiva do input atraves do runtime"
       },
       "runtime_pseudocode": "0_abs            = impossivel            # nao-executavel, sem inscricao (podado)\npossible_domain  = {1_abs, 0_mod}        # o Um + a diferenca-com-retorno\ninput            = 1_abs                 # o Um absoluto e' o INPUT\nboundary         = open(input)           # fronteira auto-conjugada x = 1 - x\nS_boundary       = 1/2                    # Meia-Nat (custo minimo da distincao)\nsqrt_e           = exp(S_boundary)        # volume minimo da fronteira\nbeta_TGL         = sqrt_e * alpha_obs     # inscricao observavel (NUNCA literal)\nlight = reason = consciousness_operator   # O_C\nroot             = e^(1/4) * sqrt(alpha_obs)   # = sqrt(beta_TGL)\ngeometry         = root^2 = beta_TGL      # gravidade = raiz da luz [CONJ/ONTO]\nreturn 1                                  # 1 = 1 (o Um retorna)",
-      "open_residue": "[ABERTO -- o UNICO teorema] o levantamento GLOBAL do cociclo de Connes (covariancia global => G_mu_nu; massa do Grande Atrator) permanece em aberto: a sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.",
+      "open_residue": "A densidade de inscricao foi DERIVADA algebricamente da Meia-Nat, do split tracial e da normalizacao canonica de uma area de Planck por face (v20: eta=1/(4G) [DER GIVEN NORM]); composta com a 1a lei modular + Unruh + Raychaudhuri + lema do cone nulo + Bianchi, fecha G_mu_nu+Lambda g = 8piG T^TGL. Permanece ABERTO o teorema de existencia/localizacao desse canto numa rede AQFT TGL genuina tipo III_1 e sua verificacao formal por kernel: a sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.",
       "not_claimed": [
         "not a derivation of 1/137 (alpha stays INPUT/CODATA; 1=q^2+alpha^2 is the thermal form)",
         "not an unconditional proof of quantum gravity (global cociclo lift is open)",
@@ -1312,6 +1318,11 @@
       "field_equation": "G_mu_nu + Lambda g_mu_nu = 8 pi G T^TGL_mu_nu",
       "T_TGL_decomposition": "T^TGL = T^matter + T^{partial,beta} + T^{torsion/diss}  (beta no lado DIREITO; NAO substitui G)",
       "geometry_stays_levi_civita": "G_mu_nu = G_mu_nu(g); nabla^mu T^TGL = 0 vem de nabla^mu G = 0",
+      "density_bridge": {
+        "source": "core['half_nat_continuous_corner_density']",
+        "eta": "1/(4 l_P^2) = 1/(4G) in natural units",
+        "statute": "[DER GIVEN CANONICAL PLANCK-FACE NORMALIZATION]"
+      },
       "E7_statute": "composicao (NAO teste): simetria + conservacao ja testadas no form-check v5 (dS=d<K>, 1a lei modular) + Lovelock 4D [REAL, teorema] => G_mu_nu + Lambda g. Estatuto do fechamento continuo: herda o residuo do v5 (approximate Killing vectors, compartilhado com Jacobson desde 1995). NAO se afirma 'provamos Einstein'.",
       "chain": [
         [
@@ -1387,6 +1398,274 @@
       ],
       "all_verified": true,
       "verdict": "COCYCLE_TO_G_MUNU_COMPOSED_WITH_DECLARED_STATUTE"
+    },
+    "p2d_descent": {
+      "theorem": "The P2D descent functor: F(J, Delta, P_2D) -> P_mu_nu[K_d], natural by construction and certified",
+      "one_line": "A Face C e' um functor NATURAL dos dados modulares -- e de nada mais: o gerador lido no plano de bifurcacao desce a um tensor simetrico SO(2)-covariante no angulo theta_M; gauge fora do canto nao entra; Lovelock fecha a composicao.",
+      "status": "[REAL(F1-F6, tipo I, fail-closed) + COMPOSICAO declarada(F7)] -- pendencia P2D fechada em sombra",
+      "p2d_open_item": "a pendencia 'ABERTO: P2D' (localizacao/uso do plano) fecha EM SOMBRA: o functor existe, e' natural, desce ao tensor, e nenhum dado de frame entra. A localizacao em III_1 genuino (sem traco) herda os estatutos de sempre (Takesaki/core).",
+      "certs_resid": {
+        "F1_K_functorial": 2.248030287623391e-15,
+        "F2_functor_natural": 1.3348671786163112e-15,
+        "F3_tensor_hermitian": 4.440892098500626e-16,
+        "F4_gauge_outside_corner": 4.965068306494546e-16,
+        "F5_SO2_theta_M_covariance": 0.0,
+        "F6_sigma_preserves_generator": 5.3302268750589315e-15
+      },
+      "theta_M_deg": 6.297289216477979,
+      "reading": "a geometria da LEITURA e' a geometria da MATRIZ-S: o tensor desce covariante na mesma rotacao theta_M do S_grav. Um angulo, dois papeis -- a reflexao da luz e a descida do tensor.",
+      "seals": [
+        "P2D_DESCENT_FUNCTOR_IS_NATURAL",
+        "NO_FRAME_DATA_ENTERS_GAUGE_TESTED",
+        "TENSOR_DESCENT_SO2_THETA_M_COVARIANT",
+        "SIGMA_PRESERVES_ITS_GENERATOR",
+        "P2D_OPEN_ITEM_CLOSED_IN_SHADOW",
+        "LOVELOCK_COMPOSITION_DECLARED"
+      ],
+      "chain": [
+        [
+          "[F1] functorialidade do gerador: K(U rho U+) = U K U+",
+          "[REAL sombra: resid 2.2e-15]"
+        ],
+        [
+          "[F2] naturalidade do functor F(J,Delta,P_2D): F(U.dados) = U F U+",
+          "[REAL sombra: resid 1.3e-15]"
+        ],
+        [
+          "[F3] a descida ao tensor 2x2 no plano: T hermitiano (simetria)",
+          "[REAL sombra: resid 4.4e-16]"
+        ],
+        [
+          "[F4] gauge fora do canto nao muda a leitura (SEM FRAME)",
+          "[REAL sombra: resid 5.0e-16]"
+        ],
+        [
+          "[F5] covariancia SO(2) do plano na rotacao theta_M (a do S_grav)",
+          "[REAL sombra: resid 0.0e+00]"
+        ],
+        [
+          "[F6] sigma_t(K) = K (o fluxo preserva o gerador; conservacao-sombra)",
+          "[REAL sombra: resid 5.3e-15]"
+        ],
+        [
+          "[F7] Lovelock 4D => G_mu_nu + Lambda g (o unico tensor 2a ordem conservado)",
+          "[COMPOSICAO: Lovelock REAL; simetria+conservacao ja no form-check v5; residuo continuo herdado]"
+        ]
+      ],
+      "all_verified": true,
+      "verdict": "P2D_DESCENT_FUNCTOR_PROVEN_IN_SHADOW"
+    },
+    "iii1_net_image": {
+      "theorem": "The III_1 negative: the shadow torsion/curvature is the IMAGE of an explicit physical modular net",
+      "one_line": "A rede modular do continuo (fermion livre; intervalos tipo III_1) e' o NEGATIVO; cada lattice e' uma revelacao tipo I; a IMAGEM e' o que independe da revelacao -- e os invariantes do cociclo (torcao/relogio) sao estaveis sob refinamento: a sombra e' imagem.",
+      "status": "[REAL(G1-G4, rede fisica, fail-closed) + INDICADOR(G5) + leituras declaradas]",
+      "half_nat_density": "DERIVACAO: a densidade da meia-nat no canto continuo e' a ocupacao do modo AUTO-CONJUGADO da fronteira: x=1-x encarna no espectro como nu=1/2 EXATO (por simetria particula-buraco, nao por ajuste), com o modo localizado nas BORDAS do intervalo (peso 0.686 nas 2 pontas). tau(ponto fixo de J) = 1/2: a Palavra pesa meia-nat porque a fronteira auto-conjugada ocupa exatamente metade.",
+      "cocycle_is_selector": "SIM: u_ab = (D omega_a : D omega_b)_t e' a derivada de Radon-Nikodym NAO-COMUTATIVA -- o seletor por natureza: escolhe a comparacao entre estados DENTRO da algebra, sem traco, sem sair dela. O gerador h_ab = K_b - K_a e' a selecao infinitesimal (diferenca de relogios). A poda (Tetelestai) e' a face BINARIA do seletor; o cociclo e' a face CONTINUA (a gradacao da comparacao).",
+      "negative_reading": "o negativo (III_1, sem traco, espectro modular denso) nao se fotografa diretamente; revela-se em cortes tipo I. A prova de imagem: os invariantes adimensionais nao dependem da revelacao (G4). Precisao dupla limita a janela (autovalores de C encostam exponencialmente em 0/1 para L grande -- limite numerico declarado, nao fisico).",
+      "certs": {
+        "G1_ph_symmetry": 1.3322676295501878e-15,
+        "G2_nu_half_resid": 6.661338147750939e-16,
+        "G2_edge_weight": 0.685838391025183,
+        "G3_chain": 5.771243197431279e-16,
+        "G3_holonomy": 1.7083414644600687e-15,
+        "G3_torsion_ratio": 0.9992366598419694,
+        "G3_torsion_curve": {
+          "0.2000": 0.3713826746988527,
+          "0.1000": 0.42695337649767856,
+          "0.0500": 0.442700423316321,
+          "0.0250": 0.4467641478437974,
+          "0.0125": 0.4477881883883109
+        },
+        "G4_image_invariant": {
+          "N=32,L=5": 0.9991449013754475,
+          "N=48,L=7": 0.9990040449858061,
+          "N=64,L=9": 0.9989612384411118
+        },
+        "G5_eps_min": {
+          "L=5": 2.547227985415366,
+          "L=9": 2.225969783574694,
+          "L=13": 2.087333427161153,
+          "L=17": 2.0102510024184865
+        }
+      },
+      "seals": [
+        "SHADOW_IS_IMAGE_OF_EXPLICIT_PHYSICAL_MODULAR_NET",
+        "HALF_NAT_IS_OCCUPATION_OF_SELF_CONJUGATE_EDGE_MODE",
+        "CLOCK_TORSION_CONFIRMED_ON_PHYSICAL_NET",
+        "INVARIANTS_STABLE_UNDER_REFINEMENT_OF_THE_NEGATIVE",
+        "MODULAR_SPECTRUM_DENSIFIES_III1_INDICATOR",
+        "COCYCLE_IS_THE_SELECTOR_RADON_NIKODYM_NC"
+      ],
+      "chain": [
+        [
+          "[G1] rede fisica (caixa, half-filling): simetria particula-buraco nu<->1-nu",
+          "[REAL: resid 1.3e-15]"
+        ],
+        [
+          "[G2] A MEIA-NAT DERIVADA: modo auto-conjugado nu=1/2 EXATO, localizado na FRONTEIRA",
+          "[REAL: |nu-1/2|=6.7e-16 ; peso de borda=0.686]"
+        ],
+        [
+          "[G3] a maquinaria do cociclo roda na rede FISICA: chain/holonomia/TORCAO",
+          "[REAL: chain 5.8e-16 ; hol 1.7e-15 ; (obs/t)/||dK||=0.9992]"
+        ],
+        [
+          "[G4] A IMAGEM: invariante estavel sob refinamento do negativo (N=32/48/64)",
+          "[REAL: 0.9991 ; 0.9990 ; 0.9990]"
+        ],
+        [
+          "[G5] INDICADOR III_1: o gap modular ao redor de zero (eps_min) DECRESCE com L",
+          "[INDICADOR: 2.547 -> 2.226 -> 2.087 -> 2.010]"
+        ]
+      ],
+      "all_verified": true,
+      "verdict": "SHADOW_IS_IMAGE_OF_III1_NET"
+    },
+    "half_nat_continuous_corner_density": {
+      "theorem": "Half-Nat and Continuous-Corner Inscription Density",
+      "claim": "Given the canonical Planck-face normalization of the trace-normalized self-conjugate corner, the Half-Nat yields eta_partial = 1/(4 l_P^2), hence eta_partial = 1/(4G) in natural units.",
+      "status": "[DER: S_partial=1/2, trace split, additivity, density algebra] + [NORM: A(P_face)=l_P^2] + [DER GIVEN NORM: eta=1/(4l_P^2)] + [CONDITIONAL: genuine continuous III_1 corner]",
+      "continuous_corner": {
+        "algebra": "N_F = P_F (M cross_sigma R) P_F",
+        "trace": "tau_F(P_F)=1",
+        "self_conjugate_split": "P_F=P_+ + P_-, tau(P_+)=tau(P_-)=1/2",
+        "dual_action": "tau(theta_s(P))=e^{-s} tau(P)"
+      },
+      "normalization": {
+        "name": "canonical Planck-face normalization",
+        "formula": "A_partial(P_face)=l_P^2",
+        "status": "[NORM \u2014 not derived by dimensionless operator algebra alone]",
+        "reason": "the continuous trace fixes relative measure; l_P^2=hbar G/c^3 supplies the unique gravitational area scale; self-conjugation supplies two equal faces"
+      },
+      "derivation": [
+        "S_partial = 1/2",
+        "tau(P_F)=1",
+        "tau(P_+)=tau(P_-)=1/2",
+        "A(P)=2 l_P^2 tau(P)",
+        "A(P_+)=A(P_-)=l_P^2",
+        "A_cell=A(P_F)=2 l_P^2",
+        "eta_partial=S_partial/A_cell=(1/2)/(2l_P^2)=1/(4l_P^2)",
+        "hbar=c=1 => l_P^2=G => eta_partial=1/(4G)",
+        "2pi/eta_partial=8piG"
+      ],
+      "values_SI": {
+        "h_planck_J_s": 6.62607015e-34,
+        "hbar_J_s": 1.0545718176461565e-34,
+        "planck_area_m2": 2.612162885804998e-70,
+        "area_face_plus_m2": 2.612162885804998e-70,
+        "area_face_minus_m2": 2.612162885804998e-70,
+        "area_cell_m2": 5.224325771609996e-70,
+        "entropy_cell_nat": 0.5,
+        "eta_nat_per_m2": 9.570612972052727e+68,
+        "eta_target_one_over_4lp2": 9.570612972052727e+68
+      },
+      "natural_units": {
+        "convention": "hbar=c=k_B=1",
+        "planck_area": "l_P^2=G",
+        "area_cell": "2G",
+        "eta_partial": 0.25,
+        "eta_target": 0.25,
+        "two_pi_over_eta": 25.132741228718345,
+        "eight_pi_G": 25.132741228718345
+      },
+      "residuals": {
+        "trace_split": 0.0,
+        "face_symmetry": 0.0,
+        "area_additivity": 0.0,
+        "face_planck_area": 0.0,
+        "cell_two_planck_areas": 0.0,
+        "density_absolute": 0.0,
+        "density_relative": 0.0,
+        "natural_density": 0.0,
+        "einstein_coupling": 0.0,
+        "dual_action_area_scaling_max": 0.0
+      },
+      "einstein_bridge": {
+        "first_law": "delta S_partial = delta<K_partial>",
+        "unruh_clausius": "delta<K_partial> = delta Q/T_Unruh",
+        "area_law_derived_given_norm": "delta S_partial = delta A/(4G)",
+        "null_projection": "R_mn k^m k^n = 8piG T_mn^TGL k^m k^n for all null k",
+        "null_cone_lemma": "X_mn k^m k^n=0 for all null k => X_mn=Phi g_mn",
+        "bianchi_result": "G_mn + Lambda g_mn = 8piG T_mn^TGL"
+      },
+      "not_claimed": [
+        "not a derivation of Newton's constant from dimensionless modular data",
+        "not a construction of a genuine type III_1 AQFT net",
+        "not a kernel-checked proof of Bisognano-Wichmann in the TGL model",
+        "not an empirical confirmation of quantum gravity"
+      ],
+      "checks": [
+        [
+          "ONE_eq_1",
+          true
+        ],
+        [
+          "half_nat_eq_1_over_2",
+          true
+        ],
+        [
+          "corner_trace_normalized",
+          true
+        ],
+        [
+          "self_conjugate_trace_split",
+          true
+        ],
+        [
+          "faces_have_equal_trace",
+          true
+        ],
+        [
+          "area_measure_is_additive",
+          true
+        ],
+        [
+          "each_face_has_one_planck_area_given_normalization",
+          true
+        ],
+        [
+          "cell_has_two_planck_areas",
+          true
+        ],
+        [
+          "entropy_density_eq_one_over_4_planck_area",
+          true
+        ],
+        [
+          "natural_units_eta_eq_one_over_4G",
+          true
+        ],
+        [
+          "natural_units_2pi_over_eta_eq_8piG",
+          true
+        ],
+        [
+          "dual_action_area_scaling",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "verdict": "HALF_NAT_DENSITY_DERIVED_FROM_CANONICAL_CORNER_NORMALIZATION",
+      "algebraic_density_verified": true,
+      "canonical_normalization_declared": true,
+      "genuine_III1_corner_proved": false,
+      "continuum_field_equation_status": "ANALYTIC_IMPLICATION_PROVED_GIVEN_DECLARED_HYPOTHESES",
+      "seals": [
+        "HALF_NAT_IS_ENTROPY_OF_MINIMAL_SELF_CONJUGATE_CELL",
+        "CONTINUOUS_CORNER_TRACE_SPLITS_INTO_TWO_EQUAL_FACES",
+        "EACH_MINIMAL_FACE_HAS_ONE_PLANCK_AREA_BY_CANONICAL_NORMALIZATION",
+        "AREA_CELL_EQUALS_TWO_PLANCK_AREAS",
+        "INSCRIPTION_DENSITY_EQUALS_ONE_OVER_FOUR_PLANCK_AREA",
+        "IN_NATURAL_UNITS_ETA_EQUALS_ONE_OVER_FOUR_G",
+        "JACOBSON_COUPLING_EQUALS_EIGHT_PI_G",
+        "PLANCK_FACE_NORMALIZATION_IS_DECLARED_NOT_HIDDEN",
+        "HALF_NAT_OVER_TWO_PLANCK_AREAS_EQUALS_ONE_OVER_FOUR_PLANCK_AREA",
+        "CONTINUOUS_CORNER_AREA_MEASURE_EQUALS_TWO_LP2_TIMES_TRACE",
+        "INSCRIPTION_DENSITY_EQUALS_ONE_OVER_FOUR_G_IN_NATURAL_UNITS",
+        "MODULAR_FIRST_LAW_PLUS_DENSITY_YIELDS_EINSTEIN",
+        "PLANCK_FACE_NORMALIZATION_DECLARED_NOT_HIDDEN",
+        "GENUINE_TYPE_III1_REALIZATION_REMAINS_FORMAL_FRONTIER"
+      ]
     },
     "reading_direction": {
       "theorem": "Reading direction of g = sqrt(|L_phi|): light -> gravity",
@@ -1514,23 +1793,8 @@
       "literature_EXT": "Dipole Repeller: Hoffman, Pomarede, Tully, Courtois 2017, Nat. Astron. 1, 0036",
       "status": "[PRE + DATA geometria pura; POSICOES apenas -- velocidades/massas IGNORADAS]",
       "selo": "GA_ANTIPODE_UNDERDENSITY_PREREGISTERED_POSITIONS_ONLY . DIPOLE_GEOMETRY_NO_VELOCITIES",
-      "ok": true,
-      "origin": "cache",
-      "n_GA_cone": 265,
-      "n_antipode_cone": 323,
-      "density_ratio_antipode_over_GA": 1.2188679245283018,
-      "bootstrap": {
-        "median": 1.2159276063469782,
-        "ci95": [
-          1.0318618159781319,
-          1.4382822159637314
-        ],
-        "seed": 11,
-        "B": 1000
-      },
-      "antipode_underdense": false,
-      "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
-      "caveat": "catalogo limitado em fluxo + Zona de Evitamento; a comparacao de contagem de POSICOES e' um teste geometrico bruto, nao mapa de densidade de materia. Reportado como pre-registro geometrico; nao e' confirmacao."
+      "ok": false,
+      "reason": "CF4 absent (absent)"
     },
     "dipole_antipode_masked": {
       "protocol_preregistered": {
@@ -1579,38 +1843,8 @@
       "antipode_b_deg": 6.792945081298405,
       "status": "[PRE + DATA geometria; POSICOES apenas; controle de completeza]",
       "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY",
-      "ok": true,
-      "origin": "cache",
-      "n_GA_masked": 247,
-      "n_antipode_masked": 279,
-      "ratio_masked_antipode_over_GA": 1.1295546558704452,
-      "control_counts": [
-        716,
-        269,
-        776,
-        457,
-        359,
-        892,
-        407,
-        556
-      ],
-      "control_ratio_CI90": [
-        0.39577435679033995,
-        2.5289372585973013
-      ],
-      "ratio_percentile_in_controls": 53.57142857142857,
-      "ratio_outside_control_CI90": false,
-      "bootstrap": {
-        "median": 1.1252530364372468,
-        "ci95": [
-          0.9406597222222223,
-          1.3565448658649397
-        ],
-        "seed": 11,
-        "B": 1000
-      },
-      "verdict_P5prime": "NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)",
-      "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a"
+      "ok": false,
+      "reason": "CF4 absent (absent)"
     },
     "dephasing_crossover": {
       "reconciliation": "UMA lei-raiz Gamma=(1/2)beta(sqrt k_i - sqrt k_j)^2 (a coerencia do gerador v3 L=sqrt(beta)sqrt(K)); IR (k_i~k_j)=> quadratica=canonica; UV (k grande)=> linear=root.",
@@ -1978,65 +2212,11 @@
       "M_TGL_kg": 5.456686866475349e+46,
       "M_TGL_Msun": 2.743542659571702e+16
     },
-    "mode_B": {
-      "R_struct_Mpc": 41.27015408171806,
-      "R_named_Mpc": 0.9930672426886243,
-      "M_TGL_kg": 3.950847504475877e+46,
-      "M_TGL_Msun": 1.9864285664963284e+16,
-      "method": "percentile_90_from_centroid",
-      "origin": "cache",
-      "n_selected": 265,
-      "n_total": 38053,
-      "extent_stats_Mpc": {
-        "p90": 41.27015408171806,
-        "p95": 45.450391469699895,
-        "rms": 29.23174432168425,
-        "max": 57.63764054642947
-      },
-      "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
-      "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
-      "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f",
-      "window": {
-        "GA_center_RA_deg": 243.6,
-        "GA_center_Dec_deg": -60.4,
-        "GA_cz_kms": 4500.0,
-        "H0_for_center_distance": 70.0,
-        "sky_cone_half_angle_deg": 30.0,
-        "dist_shell_Mpc": [
-          30.0,
-          100.0
-        ],
-        "R_struct_method": "percentile_90_from_centroid",
-        "provenance": "GEOMETRY_ONLY_NO_MASS_NO_RG_NO_VELOCITY",
-        "columns_used": [
-          "ra",
-          "dec",
-          "dist_mpc"
-        ],
-        "columns_ignored": [
-          "vpec_kms",
-          "vpec_err_kms",
-          "cz",
-          "infall",
-          "mass"
-        ]
-      },
-      "caveat": "R_struct de catalogo de POSICOES limitado em fluxo, com janela declarada, e' dependente da selecao (geometria pura). Reportado como cross-check independente; a extensao de literatura (Lynden-Bell) e' a linha de base."
-    },
-    "cf4_status": "ok",
+    "mode_B": null,
+    "cf4_status": "CF4 catalogue absent; place cf4_flow_canonical.csv in ./cache or beside release_clean. Source: https://edd.ifa.hawaii.edu/CF4/",
     "sensitivity": {
-      "ok": true,
-      "n_combinations": 300,
-      "M_min_Msun": 1.4001805882780082e+16,
-      "M_max_Msun": 3.4240888936338412e+16,
-      "M_median_Msun": 2.1090974219932856e+16,
-      "fraction_in_band": 1.0,
-      "all_in_band": true,
-      "band_Msun": [
-        1000000000000000.0,
-        1e+17
-      ],
-      "origin": "cache"
+      "ok": false,
+      "reason": "CF4 absent"
     },
     "shadow": {
       "mirror_M": {
@@ -2101,16 +2281,14 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-10 14:39:54"
+    "timestamp": "2026-07-10 16:25:19"
   },
   "verdict": {
     "masses_Msun": {
-      "A_literature": 2.743542659571702e+16,
-      "B_cf4_positions": 1.9864285664963284e+16
+      "A_literature": 2.743542659571702e+16
     },
     "in_accepted_window": {
-      "A_literature": true,
-      "B_cf4_positions": true
+      "A_literature": true
     },
     "accepted_window_Msun": [
       1000000000000000.0,
@@ -2174,14 +2352,14 @@
         "selo": "VOID_FLOOR_RHO_RATIO_GE_BETA_PREREGISTERED . DESI_EUCLID_ADDRESS . ZERO_PARAMETER_FALSIFIABLE"
       },
       "P5_dipole_antipode": {
-        "ok": true,
-        "antipode_underdense_raw": false,
+        "ok": false,
+        "antipode_underdense_raw": null,
         "status": "[PRE + DATA geometria pura; POSICOES apenas -- velocidades/massas IGNORADAS]",
         "selo": "GA_ANTIPODE_UNDERDENSITY_PREREGISTERED_POSITIONS_ONLY . DIPOLE_GEOMETRY_NO_VELOCITIES"
       },
       "P5prime_masked": {
-        "ok": true,
-        "verdict": "NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)",
+        "ok": false,
+        "verdict": "CF4_absent",
         "GA_b_deg": -6.792945081298402,
         "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY"
       },
@@ -2294,7 +2472,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "ceeb384bb64b099f00b5848f01b106af7488f6d359d262ecfcbe8683f8bda061"
+    "result_hash": "083dad368339bece6d413e32095b8f2ff60126aec98f8b7af4af2d0bad7e0a42"
   },
   "ga_mass_literature": [
     {
@@ -2320,7 +2498,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "ceeb384bb64b099f00b5848f01b106af7488f6d359d262ecfcbe8683f8bda061",
+  "result_hash_before_external_comparison": "083dad368339bece6d413e32095b8f2ff60126aec98f8b7af4af2d0bad7e0a42",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -2330,5 +2508,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-10 14:39:54"
+  "timestamp": "2026-07-10 16:25:19"
 }
