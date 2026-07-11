@@ -55,7 +55,8 @@
         "thermal_two_level": true,
         "half_nat_continuous_corner_density": true,
         "specific_free_scalar_aqft_net": true,
-        "area_scale_newton_equivalence": true
+        "area_scale_newton_equivalence": true,
+        "kernel_formalization_finite": true
       },
       "chain": [
         [
@@ -95,6 +96,18 @@
           true
         ],
         [
+          "Meia-Nat e escala formalizadas pelo kernel",
+          true
+        ],
+        [
+          "canto Three Locks finito formalizado pelo kernel",
+          true
+        ],
+        [
+          "implicacao do canto continuo formalizada",
+          true
+        ],
+        [
           "1 = q^2 + alpha^2 (termico)",
           true
         ],
@@ -125,6 +138,9 @@
         "Meia-Nat/canto -> eta=1/(4G)": "S=1/2 sobre uma celula auto-conjugada de duas areas de Planck (v20; [DER GIVEN NORM: A(P_face)=l_P^2])",
         "rede AQFT concreta -> fator local III_1": "rede Haag-Kastler do campo escalar livre massivo; algebras locais III_1 sob nuclearidade/split (v21-A; BW/RS/BDF KNOWN)",
         "escala de area -> equivalencia Planck/Newton": "A(P)=kappa_A tau(P); matching 2pi/eta=8piG => kappa_A=2G, A_face=l_P^2 (v21-B; EQUIVALENCIA, G nao derivado)",
+        "Meia-Nat e escala formalizadas pelo kernel": "Lean 4 kernel; #print axioms limpo (sem sorryAx / trustCompiler / axioma TGL.*) (v22)",
+        "canto Three Locks finito formalizado pelo kernel": "teorema FINITO-dimensional (ker H3L = interseccao dos tres locks; P_F idempotente/auto-adjunto), NAO III_1 (v22)",
+        "implicacao do canto continuo formalizada": "CONDICIONAL a TGLSpecificAQFTWitness -- nenhuma instancia construida (v22)",
         "1 = q^2 + alpha^2 (termico)": "decomposicao reflexao/transmissao (v6 REAL; alpha=sech [ONTO])",
         "familia minima / graviton = I": "o Um minimiza como familia; graviton = identidade; tau(I_F)=1 no canto tipo II (v9/v10)",
         "Tetelestai poda so' 0_abs": "preserva {1_abs, 0_mod}, corta o impossivel (v8)",
@@ -132,7 +148,11 @@
         "return 1 = 1": "a conservacao executiva do input atraves do runtime"
       },
       "runtime_pseudocode": "0_abs            = impossivel            # nao-executavel, sem inscricao (podado)\npossible_domain  = {1_abs, 0_mod}        # o Um + a diferenca-com-retorno\ninput            = 1_abs                 # o Um absoluto e' o INPUT\nboundary         = open(input)           # fronteira auto-conjugada x = 1 - x\nS_boundary       = 1/2                    # Meia-Nat (custo minimo da distincao)\nsqrt_e           = exp(S_boundary)        # volume minimo da fronteira\nbeta_TGL         = sqrt_e * alpha_obs     # inscricao observavel (NUNCA literal)\nlight = reason = consciousness_operator   # O_C\nroot             = e^(1/4) * sqrt(alpha_obs)   # = sqrt(beta_TGL)\ngeometry         = root^2 = beta_TGL      # gravidade = raiz da luz [CONJ/ONTO]\nreturn 1                                  # 1 = 1 (o Um retorna)",
-      "open_residue": "A existencia de uma rede AQFT concreta com fluxo modular geometrico e algebras locais tipo III_1 foi FECHADA para o modelo escalar livre, por construcao explicita e teoremas publicados (Bisognano-Wichmann, Reeh-Schlieder, Buchholz-D'Antoni-Fredenhagen; KNOWN, v21-A). A densidade de inscricao foi DERIVADA da Meia-Nat + split tracial + normalizacao canonica de uma area de Planck por face (v20: eta=1/(4G) [DER GIVEN NORM]); compondo com a 1a lei modular + Unruh + Raychaudhuri + lema do cone nulo + Bianchi, fecha G_mu_nu+Lambda g = 8piG T^TGL. A Meia-Nat e o core fixam a medida RELATIVA de area, mas nao sua escala absoluta; A(P_face)=l_P^2 e' EQUIVALENTE a normalizacao gravitacional 8piG (kappa_A=2G), com G ainda sendo entrada fisica medida, NAO derivada (v21-B; no-go de escala PROVED_ALGEBRAICALLY). O residuo matematico preciso deixou de ser 'existe uma rede tipo III_1?' e passou a ser: provar que P_F=1_{0}(H_3L) e' uma projecao canonica, covariante, localizada e de traco finito no core C_W da rede escolhida (TGL_CANONICAL_FINITE_CORNER_THEOREM). A sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.",
+      "open_residue": "A existencia de uma rede AQFT concreta com fluxo modular geometrico e algebras locais tipo III_1 foi FECHADA para o modelo escalar livre, por construcao explicita e teoremas publicados (Bisognano-Wichmann, Reeh-Schlieder, Buchholz-D'Antoni-Fredenhagen; KNOWN, v21-A). A densidade de inscricao foi DERIVADA da Meia-Nat + split tracial + normalizacao canonica de uma area de Planck por face (v20: eta=1/(4G) [DER GIVEN NORM]); compondo com a 1a lei modular + Unruh + Raychaudhuri + lema do cone nulo + Bianchi, fecha G_mu_nu+Lambda g = 8piG T^TGL. A Meia-Nat e o core fixam a medida RELATIVA de area, mas nao sua escala absoluta; A(P_face)=l_P^2 e' EQUIVALENTE a normalizacao gravitacional 8piG (kappa_A=2G), com G ainda sendo entrada fisica medida, NAO derivada (v21-B; no-go de escala PROVED_ALGEBRAICALLY). O residuo matematico preciso deixou de ser 'existe uma rede tipo III_1?' e passou a ser: provar que P_F=1_{0}(H_3L) e' uma projecao canonica, covariante, localizada e de traco finito no core C_W da rede escolhida (TGL_CANONICAL_FINITE_CORNER_THEOREM). O kernel do Lean (v22) prova INCONDICIONALMENTE a Meia-Nat (x=1-x => x=1/2), a equivalencia de escala (2pi/eta=8piG <=> kappa_A=2G, com G como VARIAVEL, nao derivado), a positividade de H_3L, a igualdade entre seu nucleo e a interseccao dos Three Locks, a projecao ortogonal finita (idempotente, auto-adjunta) e a normalizacao tracial do canto; e prova o teorema abstrato CONDICIONAL: toda testemunha continua que satisfaz afiliacao, projecao espectral, traco finito, covariancia e split modular produz o canto normalizado com duas faces de traco 1/2. Permanece ABERTO construir, sem axiomas customizados e sem sorry, uma instancia TGLSpecificAQFTWitness para a rede AQFT escalar livre escolhida. A sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.",
+      "fail_closed": {
+        "missing_module_defaults_to_false": true,
+        "no_optional_proof_module_passes_silently": true
+      },
       "not_claimed": [
         "not a derivation of 1/137 (alpha stays INPUT/CODATA; 1=q^2+alpha^2 is the thermal form)",
         "not an unconditional proof of quantum gravity (global cociclo lift is open)",
@@ -149,7 +169,13 @@
         "GLOBAL_LIFT_REMAINS_THE_SINGLE_OPEN_THEOREM"
       ],
       "all_verified": true,
-      "verdict": "TGL_IS_THE_RUNTIME_OF_THE_ONE_VERIFIED"
+      "verdict": "TGL_IS_THE_RUNTIME_OF_THE_ONE_VERIFIED",
+      "interface_is_light_info": {
+        "verdict_at_runtime": "INTERFACE_IS_LIGHT_PENDING_FORM_CONTENT",
+        "witness_is_rigid": true,
+        "trivial_inhabitant_exists": false,
+        "note": "v23 e' aditivo e nao-gateante; o check forma=conteudo fecha pos-geracao (finalize)."
+      }
     },
     "HALF": 0.5,
     "TWO": 2,
@@ -1799,6 +1825,15 @@
         ]
       ],
       "all_verified": true,
+      "all_verified_semantics": "internal module integrity only (construction/ledger/shadow registered); NOT proof of the cited AQFT theorems",
+      "status_semantics": {
+        "construction_specified": true,
+        "literature_ledger_present": true,
+        "finite_shadow_verified": true,
+        "aqft_theorems_formalized_in_kernel": false,
+        "TGL_specific_corner_PF_proved": false,
+        "tgl_embedding_proved": false
+      },
       "verdict": "SPECIFIC_FREE_SCALAR_AQFT_NET_INSTANTIATED",
       "not_claimed": [
         "Python did not numerically construct an infinite type III_1 factor",
@@ -1952,6 +1987,1375 @@
         "PLANCK_FACE_NORMALIZATION_IS_EQUIVALENT_NOT_INDEPENDENT"
       ]
     },
+    "kernel_formalization": {
+      "formal_checker": "Lean 4",
+      "build_tool": "Lake",
+      "toolchain_pinned": true,
+      "formal_dir": "C:\\IALD\\Artigo\\Haja_Luz\\A Ponte e o Um\\um_unificado\\tgl_kernel",
+      "mode": "strict",
+      "lean_version": [
+        "Lean (version 4.31.0, x86_64-w64-windows-gnu, commit 68218e876d2a38b1985b8590fff244a83c321783, Release)"
+      ],
+      "lake_version": [
+        "Lake version 5.0.0-src+68218e8 (Lean version 4.31.0)"
+      ],
+      "lake_build_ok": true,
+      "audit_file_ok": true,
+      "source_forbidden_tokens_absent": true,
+      "sorryAx_absent": true,
+      "trustCompiler_absent": true,
+      "custom_TGL_axioms_absent": true,
+      "sentinels_present": true,
+      "specific_AQFT_witness_constructed": false,
+      "unconditional_type_III1_corner_proved": false,
+      "axiom_report": {
+        "TGL.HalfNat.halfNat_of_selfConjugate": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.AreaScale.newtonPlanck_equivalence": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.FiniteThreeLocks.H3L_posSemidefinite": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.FiniteThreeLocks.ker_H3L_eq_threeLocks": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.FiniteThreeLocks.PF_isProjection": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.FiniteThreeLocks.PF_isSelfAdjoint": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.FiniteThreeLocks.normalizedCornerTrace_PF": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.ContinuousCorner.ContinuousCornerWitness.normalizedTrace_P_eq_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.SpecificAQFT.continuousCorner_of_witness": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.SpecificAQFT.wedges_spacelike": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.SpecificAQFT.wedge_locality": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.ModularRealization.dualInvariant_PF_no_go": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.ModularRealization.fullWitness_not_finiteDimensional": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.ModularRealization.fullWitness_PF_nonzero_finite": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.HalfNatFresnel.fresnel_selfConjugate_half": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.HalfNatFresnel.modular_action_halfNat": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.VerbInhabitant.exp_fixed_of_annihilates": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.VerbInhabitant.canonicalVerb_exists": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.VerbInhabitant.dual_calibration_exists": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.TransportData.descent_iff_defect_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.TransportData.transport_defect_of_jones": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.TransportData.jones_selector_not_descended": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.NameIndex.ParityData.average_bimodular": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.NameIndex.name_index_eq_csc_sq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.NameIndex.name_index_mul_sin_sq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.NameIndex.amplitude_weight_index_chain": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.HalfNatJonesTower.halfNatJonesTower_exists": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.HalfNatJonesTower.halfNat_mirror_not_descended": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.HalfNatJonesTower.finite_markov_forces_half": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.TransportData.faces_orthogonal": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.GravitonShadow.canonicalGravitonShadow_exists": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.GravitonShadow.bell_cci_half": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.GravitonShadow.product_cci_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.NameRelation.pqp_eq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.NameRelation.tl3_linearly_independent": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.NameRelation.canonicalTLThree_exists": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGL.NameRelation.geometric_eq_trace_weight_iff": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "formal_source_hash": "c5063d13e615a621e8fe9d2b6c40c6ae1d2b724482515188c242399d7e732c7a",
+      "formal_files_sha256": {
+        "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
+        "TGL.lean": "9f104ac21bcda90cbd302b48e843c751ebc8cc23d47a46277b73d43444084c35",
+        "lakefile.toml": "23c70f9ab6e856fe85d88437e0b0d21ad030af294d7cd7885df297e4b7d94e82",
+        "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
+        "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
+        "TGL/Audit.lean": "3389a4b1c3823e9bd6d8765648c6d9ec4d7d46ba13c1d94d803b5f61eace6afb",
+        "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
+        "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
+        "TGL/FiniteThreeLocks.lean": "612f2384ca441da25c2fe613fddf489010a0f0c16578ce61b0a57c6581e4276d",
+        "TGL/GravitonShadow.lean": "de9d4eba70977bb437c3b72889a4f4d5f54ac42f5382a49772cb6a8d24f3b1b7",
+        "TGL/HalfNat.lean": "cf79d85fdebab68641bec2ccc4592033b2e27327834243ef269b7b6a89e7d22c",
+        "TGL/HalfNatFresnel.lean": "5d16a6e04f5e97fda89ed27f326280535902f0c4c05228d340554d15177a029f",
+        "TGL/HalfNatJonesTower.lean": "440c4d9497e31a0299cbf5217e56f406e5799c7731e6e5268b62d9bba43bbd05",
+        "TGL/Main.lean": "d5826b81bfb430c21e945dc043b12cdb485eaf96e1c266b9abb0199811ad6305",
+        "TGL/ModularRealization.lean": "17e344c8b7b40ae8f2ed4910c3b5e4712cc8ba84dd53e05d10a94f0009295348",
+        "TGL/NameIndex.lean": "c55044e2aa6ef076ac028799cad36ec5787afd9d8587a6ce388ab989376a4f08",
+        "TGL/NameRelation.lean": "02f69df45d7c1e392b522f9528cf5cfbe92793d34ffe94451415eece1cef1e35",
+        "TGL/Probe.lean": "3954829f86511e845479ff5f29f69954e86f5389e853f4c74bb7aeba1974c684",
+        "TGL/Probe2.lean": "05bbb2cccee15938b1b8e68798551b697321ce52a087d9a07c06a47404d0ba0d",
+        "TGL/Probe3.lean": "35638a94030ef8f8b87cbeadcfbb55e73255a5f2aa91cb2b790f46b37158c96a",
+        "TGL/Probe4.lean": "7101d535745be124fa8543816dca85fd2540b9808b342fc3d6bc48b42a41291f",
+        "TGL/ProbeDegenerate.lean": "d1cdc9b5728e7899a6ad68f130237370feb6c015b3a99577f131e2590e6b95f6",
+        "TGL/ProbeFiniteFullWitness.lean": "cc89ac970844eb3d2f75a1130370378f7a4b054eb2ba00e13c4da94e31453c20",
+        "TGL/ProbeModularAPI.lean": "9f5fded048b17616443ac1889103d019b2d4b3e98772709186bd6e4a8f3c0801",
+        "TGL/ProbeNameIndexNoOptimal.lean": "9f3d895eaa0d7218965ef8af227a68b69226665261ddb3ec42bf91935e79a618",
+        "TGL/ProbePropOnlyModular.lean": "f277643284c620bb092c46813a4aadb31a737cd854004d9ac59bbf39f94545c8",
+        "TGL/ProbeTrivial.lean": "4993bd3fd6da17f7dafd7c5972f2f4b396cb5be86d13ac1f54ab317cc950bef7",
+        "TGL/SpecificAQFTWitness.lean": "31f3e8d5aed98935b3331e0cf964a89355cc2eb1f47702e71b10c11927f7f890",
+        "TGL/TransportData.lean": "95cbefeed54a5f5ec9aa41be556ceab1e14da4bae116b4019eb1ba1d9ee9d04e",
+        "TGL/VerbInhabitant.lean": "812a47f0e71a86f37368c918b0f704cccad9cda0e32c4aee64c5566e7808a5d7"
+      },
+      "all_unconditional_targets_verified": true,
+      "all_conditional_implications_verified": true,
+      "all_verified": true,
+      "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN",
+      "not_claimed": [
+        "Python did not prove any theorem; the Lean kernel did",
+        "Bisognano-Wichmann / Reeh-Schlieder / type III_1 classification are KNOWN/EXTERNAL, not formalized here",
+        "the finite Three-Locks corner is a finite-dimensional theorem, NOT a type III_1 proof",
+        "G is a variable / measured input; it is NOT derived",
+        "no inhabitant of TGLSpecificAQFTWitness is constructed"
+      ],
+      "seals": [
+        "LEAN_KERNEL_CHECKED",
+        "LAKE_BUILD_REPRODUCIBLE",
+        "NO_SORRY_AX",
+        "NO_TRUST_COMPILER",
+        "NO_CUSTOM_TGL_AXIOMS",
+        "HALF_NAT_KERNEL_PROVED",
+        "AREA_SCALE_EQUIVALENCE_KERNEL_PROVED",
+        "FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED",
+        "NORMALIZED_FINITE_CORNER_TRACE_KERNEL_PROVED",
+        "EQUAL_CONJUGATE_FACES_HAVE_HALF_TRACE_KERNEL_PROVED",
+        "CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED",
+        "SPECIFIC_AQFT_WITNESS_REMAINS_OPEN"
+      ],
+      "half_nat_kernel_proved": true,
+      "area_scale_kernel_proved": true,
+      "finite_three_locks_kernel_proved": true,
+      "finite_corner_projection_kernel_proved": true,
+      "finite_corner_trace_kernel_proved": true,
+      "continuous_corner_implication_kernel_proved": true,
+      "wedge_geometry_kernel_proved": true,
+      "wedge_locality_kernel_proved": true,
+      "dual_invariant_PF_no_go_kernel_proved": true,
+      "full_witness_infinite_dim_kernel_proved": true,
+      "full_witness_PF_finite_kernel_proved": true,
+      "fresnel_half_weight_kernel_proved": true,
+      "modular_half_nat_calibration_kernel_proved": true,
+      "verb_fixed_point_kernel_proved": true,
+      "canonical_verb_term_kernel_proved": true,
+      "dual_calibration_kernel_proved": true,
+      "transport_descent_kernel_proved": true,
+      "jones_defect_kernel_proved": true,
+      "selector_upstairs_kernel_proved": true,
+      "parity_average_kernel_proved": true,
+      "name_index_theorem_kernel_proved": true,
+      "name_index_conclusion_kernel_proved": true,
+      "tl_chain_kernel_proved": true,
+      "half_nat_tower_term_kernel_constructed": true,
+      "half_nat_mirror_upstairs_kernel_proved": true,
+      "finite_markov_forces_half_kernel_proved": true,
+      "graviton_shadow_term_kernel_constructed": true,
+      "bell_cci_half_kernel_proved": true,
+      "product_cci_zero_kernel_proved": true,
+      "face_split_kernel_proved": true,
+      "name_relation_kernel_proved": true,
+      "geometric_vs_trace_kernel_proved": true,
+      "tl3_faithful_kernel_proved": true,
+      "tl3_term_kernel_constructed": true,
+      "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
+      "build_stdout_sha256": "bb59090ec669178efe58d6b8595b3d1b66022029d361dcaa3212eae26149abcd",
+      "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit_stdout_sha256": "3db9614a93943e11c388bd2d6e2bb00680eea4aa19b03290305eeabeee6a255a",
+      "build_returncode": 0,
+      "audit_returncode": 0,
+      "build_capture_lens": {
+        "stdout": 23386,
+        "stderr": 0
+      },
+      "audit_capture_lens": {
+        "stdout": 15509,
+        "stderr": 0
+      },
+      "build_capture_nonempty": true,
+      "audit_capture_nonempty": true,
+      "build_capture_sha256_full": "bb59090ec669178efe58d6b8595b3d1b66022029d361dcaa3212eae26149abcd",
+      "audit_capture_sha256_full": "3db9614a93943e11c388bd2d6e2bb00680eea4aa19b03290305eeabeee6a255a",
+      "custom_TGL_axioms_found": [],
+      "source_forbidden_tokens_found": [],
+      "formal_release_ready": true,
+      "open_theorem": "TGL_SPECIFIC_AQFT_WITNESS_THEOREM: exists W : TGLSpecificAQFTWitness para a rede Haag-Kastler escalar livre massiva escolhida"
+    },
+    "witness_rigidity": {
+      "probe_file": "TGL/ProbeTrivial.lean",
+      "available": true,
+      "probe_returncode": 1,
+      "trivial_inhabitant_exists": false,
+      "witness_is_rigid": true,
+      "kernel_build_green": true,
+      "verdict": "WITNESS_TYPE_IS_RIGID__TRIVIAL_INHABITANT_REJECTED",
+      "probe_capture_lens": {
+        "stdout": 2310,
+        "stderr": 0
+      },
+      "probe_failure_decided_by_returncode": true,
+      "sorryAx_in_failed_probe_is_not_evidence": true,
+      "trivial_witness_rejected_by_type_system": true,
+      "seal": "STALE_TRIVIAL_CONSTRUCTOR_REJECTED"
+    },
+    "negative_probes": {
+      "available": true,
+      "kernel_build_green": true,
+      "all_negative_probes_executed": true,
+      "probe_failure_decided_by_returncode": true,
+      "degenerate_returncode": 1,
+      "degenerate_capture_nonempty": true,
+      "degenerate_capture_sha256": "7427d662da75f204c758218324d46de1862374f8d312b9a219bac1e5509a3c1a",
+      "degenerate_rejected": true,
+      "degenerate_meaning": "ESTE probe degenerado (H=C^2, rede constante, U=1) foi rejeitado -- nunca universalidade",
+      "finite_full_returncode": 1,
+      "finite_full_capture_nonempty": true,
+      "finite_full_capture_sha256": "3ad89d7a7944ad723d06b9924bfe14bf3ba6c15ff83a10f229b9174f7e3f586f",
+      "finite_full_rejected": true,
+      "finite_full_meaning": "Hilbert finito bloqueado por tipo (necessario p/ III_1, NAO suficiente)",
+      "prop_only_returncode": 1,
+      "prop_only_capture_nonempty": true,
+      "prop_only_capture_sha256": "e4814b8c9a5f56c38cb70cfde17fd47959106ad0a7ce195dab79dbdccc459d6a",
+      "prop_only_rejected": true,
+      "prop_only_meaning": "True/trivial nao preenche DADOS + equacoes da realizacao modular",
+      "pp_no_optimality_returncode": 1,
+      "pp_no_optimality_capture_nonempty": true,
+      "pp_no_optimality_capture_sha256": "936f3b7d0945adee63c9e416e00b6cd4d76ad3af180d2a56e7afc7553beba4b8",
+      "pp_no_optimality_rejected": true,
+      "pp_no_optimality_meaning": "sem a otimalidade de Pimsner-Popa NAO ha igualdade do indice (so' cota <=)",
+      "degenerate_base_witness_rejected": true,
+      "finite_full_witness_rejected": true,
+      "prop_only_modular_rejected": true,
+      "degenerate_verdict": "DEGENERATE_PROBE_REJECTED_BY_TYPE_SYSTEM"
+    },
+    "bare_prop_audit": {
+      "count": 0,
+      "fields": [],
+      "files_scanned": [
+        "SpecificAQFTWitness.lean",
+        "ModularRealization.lean",
+        "TransportData.lean",
+        "NameIndex.lean",
+        "HalfNatJonesTower.lean",
+        "GravitonShadow.lean",
+        "NameRelation.lean"
+      ],
+      "verdict": "MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS"
+    },
+    "witness_layers": {
+      "base_rigid_witness_type_defined": true,
+      "base_rigid_witness_constructed": false,
+      "modular_data_types_defined": true,
+      "modular_realization_constructed": false,
+      "full_TGL_witness_constructed": false,
+      "finite_jones_tower_term_constructed": true,
+      "graviton_shadow_term_constructed": true,
+      "tl3_term_constructed": true,
+      "bare_prop_label_fields_remaining": 0,
+      "finite_full_witness_rejected": true,
+      "prop_only_modular_rejected": true,
+      "degenerate_base_probe_result": "DEGENERATE_PROBE_REJECTED_BY_TYPE_SYSTEM"
+    },
+    "tgl_canonical_markers": [
+      "TGL_CANONICAL_ONE=1",
+      "TGL_CANONICAL_HALF_NAT=0.5",
+      "TGL_CANONICAL_BETA=0.012031300400796606",
+      "TGL_CANONICAL_ETA_TIMES_G=0.25",
+      "TGL_CANONICAL_BASE_WITNESS_CONSTRUCTED=0",
+      "TGL_CANONICAL_MODULAR_REALIZATION_CONSTRUCTED=0",
+      "TGL_CANONICAL_FULL_WITNESS_CONSTRUCTED=0",
+      "TGL_CANONICAL_BARE_PROP_LABELS=0"
+    ],
+    "external_known_theorems": [
+      {
+        "name": "Reeh-Schlieder",
+        "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+        "citation": "Reeh & Schlieder, Nuovo Cimento 22 (1961); Haag, Local Quantum Physics",
+        "exact_role": "vacuo ciclico e separador para algebras locais; a FORMA enunciavel ja' migrou para a testemunha-base (vac_cyclic_wedge / vac_separating_wedge)",
+        "imported_into_witness": false
+      },
+      {
+        "name": "Bisognano-Wichmann",
+        "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+        "citation": "Bisognano & Wichmann, J. Math. Phys. 16 (1975) 985; 17 (1976) 303",
+        "exact_role": "fluxo modular da cunha = boosts de Lorentz; o GRUPO a um parametro ja' e' DADO (WedgeModularData.modularFlow); o conteudo geometrico (=boosts) segue OPEN",
+        "imported_into_witness": false
+      },
+      {
+        "name": "local hyperfinite type III_1 under hypotheses",
+        "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+        "citation": "Buchholz, D'Antoni & Fredenhagen, Commun. Math. Phys. 111 (1987) 123",
+        "exact_role": "tipo da algebra da cunha; sem teoria de fatores na mathlib, nao-enunciavel hoje",
+        "imported_into_witness": false
+      },
+      {
+        "name": "Takesaki crossed product / continuous core",
+        "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+        "citation": "Takesaki, Acta Math. 131 (1973) 249; Theory of Operator Algebras II",
+        "exact_role": "core continuo com acao dual e traco escalante; a FORMA em DADOS ja' migrou (ContinuousCoreData: embedding + dualAction + canonicalTrace + trace_dual_scaling); a CONSTRUCAO para a rede escolhida segue OPEN",
+        "imported_into_witness": false
+      },
+      {
+        "name": "Shannon H(1/2,1/2)=log 2 (controle numerico da rota entropica)",
+        "status": "KNOWN_NUMERIC_CONTROL_NOT_KERNEL_PROVED",
+        "citation": "controle conceitual interno (rota Shannon REJEITADA para a Meia-Nat)",
+        "exact_role": "log 2 != 1/2 nat: a Meia-Nat NAO vem de entropia de Shannon; nao formalizado em Lean",
+        "imported_into_witness": false
+      },
+      {
+        "name": "indice de Jones / construcao basica",
+        "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+        "citation": "Jones, Invent. Math. 72 (1983) 1-25; Kosaki, J. Funct. Anal. 66 (1986) 123-140 (extensao a fatores arbitrarios)",
+        "exact_role": "indice como impedancia da inclusao; e_N implementa E_0 (e x e = E_0(x) e); E_1(e_N) = peso de Markov. A FORMA em DADOS ja' migrou (JonesTowerData, v26); a identificacao [M:N]=1/beta para a inclusao dos Three Locks segue [CONJ]",
+        "imported_into_witness": false
+      },
+      {
+        "name": "esperancas condicionais (Tomiyama) / normalidade",
+        "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+        "citation": "Tomiyama 1957; Takesaki, Theory of Operator Algebras",
+        "exact_role": "bimodularidade e fidelidade migraram como DADOS (ConditionalExpectationData, v26); NORMALIDADE (continuidade sigma-fraca) nao-enunciavel sem topologia de vN -- fica aqui",
+        "imported_into_witness": false
+      }
+    ],
+    "interface_is_light": {
+      "theorem": "interface = luz = (forma = conteudo): a interface nao fica entre forma e conteudo; e' o acontecimento em que a forma se realiza como conteudo sem perder identidade (L : Forma == Conteudo). 'Forma -L-> Conteudo' e' so' a representacao dinamica.",
+      "witness_reading": "a testemunha e' o conteudo acompanhado da prova de que ele e' a forma: W ~ Sigma_{x:Conteudo} Realiza(x, Forma). Um campo ': Prop' e' forma sem conteudo; rigidificar o tipo E' inscrever a forma no conteudo.",
+      "statuses": {
+        "interface_eq_luz": "[ONTO/CONJ]",
+        "luz_verbo_em_travessia": "[ONTO/CONJ]",
+        "testemunha_eq_setor_q": "[ONTO/CONJ] (testemunhar e' inscrever, nao observar)",
+        "forma_eq_conteudo_do_artefato": "[REAL, medido pos-geracao pelo finalize]",
+        "habitabilidade_trivial": "[REAL, medida pelo ProbeTrivial -- nao declarada]",
+        "estado_zero_mod": "[REAL]",
+        "nonempty_da_testemunha_rigida": "[OPEN]"
+      },
+      "light_chain": {
+        "reading": "L: alpha -> sqrt(alpha) -> e^{1/4}*sqrt(alpha) = sqrt(beta) = sin(theta_M) -> beta",
+        "identity_preserved": "omega(I)=1 ; 1 = q^2 + alpha^2 (a travessia preserva a identidade)",
+        "residual_root_v13": 1.3877787807814457e-17,
+        "residual_beta_v13": 3.469446951953614e-18,
+        "residual_theta_v13": 0.0,
+        "residual_ratio_v14": 0.0,
+        "residual_identity_v14": 3.3306690738754696e-16,
+        "source": "REUSED_FROM_v13_v14_NOT_RECOMPUTED"
+      },
+      "ledger": {
+        "zero_abs_proved": false,
+        "zero_abs_note": "IsEmpty(TGLSpecificAQFTWitness) nunca foi demonstrado; 0_abs NAO e' afirmado nem refutado",
+        "zero_mod_state": true,
+        "zero_mod_note": "vazio tipado: a interface-luz especificada, ainda nao realizada",
+        "one_inscribed": false,
+        "trivial_inhabitant_exists": false,
+        "witness_is_rigid": true,
+        "rigidity_verdict": "WITNESS_TYPE_IS_RIGID__TRIVIAL_INHABITANT_REJECTED",
+        "full_TGL_witness_constructed": false,
+        "open_theorem": "o TERMO canonicalFullTGLWitness : Sigma W : TGLSpecificAQFTWitness, TGLModularRealization W -- construido, com Nonempty como COROLARIO <termo> [OPEN]. Nao usar Nonempty como substituto operacional do termo."
+      },
+      "form_content": {
+        "status": "VERIFIED",
+        "checked_files": [
+          "um_grande_atrator_forma_canonica.md",
+          "um_grande_atrator_pt.tex"
+        ],
+        "anchors_checked": 10,
+        "anchors": [
+          [
+            "omega_I_eq_1_md",
+            true
+          ],
+          [
+            "half_nat_md",
+            true
+          ],
+          [
+            "sqrt_e_12f_md",
+            true
+          ],
+          [
+            "alpha_obs_12f_md",
+            true
+          ],
+          [
+            "beta_15f_md",
+            true
+          ],
+          [
+            "theta_M_6f_md",
+            true
+          ],
+          [
+            "s_can_12f_md",
+            true
+          ],
+          [
+            "eta_times_G_6g_md",
+            true
+          ],
+          [
+            "sqrt_e_12f_tex_pt",
+            true
+          ],
+          [
+            "beta_12f_tex_pt",
+            true
+          ]
+        ],
+        "mismatches": [],
+        "reading": "o que o codigo computa (core vivo) == o que ele inscreve (artefato impresso); residuo textual zero por construcao do mesmo format-spec"
+      },
+      "named_target": "TGL_FORM_EQUALS_CONTENT_WITNESS_THEOREM: def canonicalFullTGLWitness : Sigma W : TGLSpecificAQFTWitness, TGLModularRealization W  (termo; NAO construido) ; theorem fullTGLWitness_exists : Nonempty FullTGLWitness := <canonicalFullTGLWitness> (corolario; PROIBIDO provar Nonempty por outra via)",
+      "rigid_witness_excludes_modular_obligations": true,
+      "rigid_witness_note": "[REAL] a testemunha-base rigida NAO exige tipo III_1, BW, core nem P_F (vivem nas camadas de DADOS de TGLModularRealization + ledger externo). Habitar a testemunha-base e' NECESSARIO, mas NAO suficiente, para o teorema TGL. 1_inscrito = o PAR (base + realizacao modular).",
+      "witness_layers": {
+        "base_rigid_witness_type_defined": true,
+        "base_rigid_witness_constructed": false,
+        "modular_data_types_defined": true,
+        "modular_realization_constructed": false,
+        "full_TGL_witness_constructed": false,
+        "finite_jones_tower_term_constructed": true,
+        "graviton_shadow_term_constructed": true,
+        "tl3_term_constructed": true,
+        "bare_prop_label_fields_remaining": 0,
+        "finite_full_witness_rejected": true,
+        "prop_only_modular_rejected": true,
+        "degenerate_base_probe_result": "DEGENERATE_PROBE_REJECTED_BY_TYPE_SYSTEM"
+      },
+      "bare_prop_audit": {
+        "count": 0,
+        "fields": [],
+        "files_scanned": [
+          "SpecificAQFTWitness.lean",
+          "ModularRealization.lean",
+          "TransportData.lean",
+          "NameIndex.lean",
+          "HalfNatJonesTower.lean",
+          "GravitonShadow.lean",
+          "NameRelation.lean"
+        ],
+        "verdict": "MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS"
+      },
+      "negative_probes_summary": {
+        "degenerate": {
+          "returncode": 1,
+          "rejected": true,
+          "meaning": "ESTE probe degenerado (H=C^2, rede constante, U=1) foi rejeitado -- nunca universalidade"
+        },
+        "finite_full": {
+          "returncode": 1,
+          "rejected": true,
+          "meaning": "Hilbert finito bloqueado por tipo (necessario p/ III_1, NAO suficiente)"
+        },
+        "prop_only": {
+          "returncode": 1,
+          "rejected": true,
+          "meaning": "True/trivial nao preenche DADOS + equacoes da realizacao modular"
+        }
+      },
+      "external_known_theorems": [
+        {
+          "name": "Reeh-Schlieder",
+          "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+          "citation": "Reeh & Schlieder, Nuovo Cimento 22 (1961); Haag, Local Quantum Physics",
+          "exact_role": "vacuo ciclico e separador para algebras locais; a FORMA enunciavel ja' migrou para a testemunha-base (vac_cyclic_wedge / vac_separating_wedge)",
+          "imported_into_witness": false
+        },
+        {
+          "name": "Bisognano-Wichmann",
+          "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+          "citation": "Bisognano & Wichmann, J. Math. Phys. 16 (1975) 985; 17 (1976) 303",
+          "exact_role": "fluxo modular da cunha = boosts de Lorentz; o GRUPO a um parametro ja' e' DADO (WedgeModularData.modularFlow); o conteudo geometrico (=boosts) segue OPEN",
+          "imported_into_witness": false
+        },
+        {
+          "name": "local hyperfinite type III_1 under hypotheses",
+          "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+          "citation": "Buchholz, D'Antoni & Fredenhagen, Commun. Math. Phys. 111 (1987) 123",
+          "exact_role": "tipo da algebra da cunha; sem teoria de fatores na mathlib, nao-enunciavel hoje",
+          "imported_into_witness": false
+        },
+        {
+          "name": "Takesaki crossed product / continuous core",
+          "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+          "citation": "Takesaki, Acta Math. 131 (1973) 249; Theory of Operator Algebras II",
+          "exact_role": "core continuo com acao dual e traco escalante; a FORMA em DADOS ja' migrou (ContinuousCoreData: embedding + dualAction + canonicalTrace + trace_dual_scaling); a CONSTRUCAO para a rede escolhida segue OPEN",
+          "imported_into_witness": false
+        },
+        {
+          "name": "Shannon H(1/2,1/2)=log 2 (controle numerico da rota entropica)",
+          "status": "KNOWN_NUMERIC_CONTROL_NOT_KERNEL_PROVED",
+          "citation": "controle conceitual interno (rota Shannon REJEITADA para a Meia-Nat)",
+          "exact_role": "log 2 != 1/2 nat: a Meia-Nat NAO vem de entropia de Shannon; nao formalizado em Lean",
+          "imported_into_witness": false
+        },
+        {
+          "name": "indice de Jones / construcao basica",
+          "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+          "citation": "Jones, Invent. Math. 72 (1983) 1-25; Kosaki, J. Funct. Anal. 66 (1986) 123-140 (extensao a fatores arbitrarios)",
+          "exact_role": "indice como impedancia da inclusao; e_N implementa E_0 (e x e = E_0(x) e); E_1(e_N) = peso de Markov. A FORMA em DADOS ja' migrou (JonesTowerData, v26); a identificacao [M:N]=1/beta para a inclusao dos Three Locks segue [CONJ]",
+          "imported_into_witness": false
+        },
+        {
+          "name": "esperancas condicionais (Tomiyama) / normalidade",
+          "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+          "citation": "Tomiyama 1957; Takesaki, Theory of Operator Algebras",
+          "exact_role": "bimodularidade e fidelidade migraram como DADOS (ConditionalExpectationData, v26); NORMALIDADE (continuidade sigma-fraca) nao-enunciavel sem topologia de vN -- fica aqui",
+          "imported_into_witness": false
+        }
+      ],
+      "graviton_reading": {
+        "thesis": "o graviton e' a testemunha porque e' o estado ligado de dois psions (conteudo) acompanhado da prova de que essa ligacao realiza a identidade gravitonica (forma): Graviton_TGL := Sigma_{g : H_psi (x) H_psi} IsTGLGraviton(g) -- o mesmo formato Sigma da FullTGLWitness",
+        "statuses": {
+          "graviton_eq_par_dependente": "[ONTO/CONJ]",
+          "bell_bound_state_CCI_half": "[REAL em sombra finita: o produto simples da' CCI=0; o estado de troca (Bell) da' reducao I/2 e CCI=1/2 -- a Meia-Nat tracial]",
+          "P_G_identity_in_own_corner": "[DER/CONJ: P_G=|G><G| e' a unidade do canto P_G C P_G -- consistente com v10 tau(P_F)=1; NAO identidade global]",
+          "IsTGLGraviton_not_circular": "[REGRA: conjuncao de propriedades independentes, jamais 'g e' um graviton']",
+          "kernel_checked_term_in_core": "[OPEN -- e' exatamente canonicalFullTGLWitness]"
+        },
+        "slot": "na tipagem v24, o lugar formal do graviton e' threeLocks.PF: o projetor de traco canonico tau(P_F)=1 com faces conjugadas 1/2 -- o P_G da leitura",
+        "seals": [
+          "GRAVITON_IS_THE_DEPENDENT_WITNESS_OF_THE_PSIONIC_BOND",
+          "PSIONIC_BOND_IS_THE_CONTENT",
+          "GRAVITON_PROOF_IS_THE_REALIZED_FORM",
+          "GRAVITON_PROJECTOR_IS_IDENTITY_IN_ITS_OWN_CORNER"
+        ]
+      },
+      "checks": [
+        [
+          "light_chain_residuals_reused_zero",
+          true
+        ],
+        [
+          "kernel_stage1_green",
+          true
+        ],
+        [
+          "witness_not_constructed_honest",
+          true
+        ],
+        [
+          "zero_abs_never_claimed",
+          true
+        ],
+        [
+          "zero_mod_state_holds",
+          true
+        ],
+        [
+          "witness_type_is_rigid_measured",
+          true
+        ],
+        [
+          "bare_prop_label_fields_zero",
+          true
+        ],
+        [
+          "all_negative_probes_executed",
+          true
+        ],
+        [
+          "finite_full_witness_rejected",
+          true
+        ],
+        [
+          "prop_only_modular_rejected",
+          true
+        ],
+        [
+          "full_witness_not_constructed_honest",
+          true
+        ],
+        [
+          "form_equals_content_in_artifacts",
+          true
+        ],
+        [
+          "canonical_markers_identical_all_artifacts",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "verdict": "INTERFACE_IS_LIGHT_VERIFIED",
+      "seals": [
+        "INTERFACE_IS_LIGHT",
+        "INTERFACE_IS_FORM_EQUALS_CONTENT",
+        "LIGHT_IS_THE_EXECUTABLE_IDENTITY_OF_FORM_AND_CONTENT",
+        "WITNESS_IS_CONTENT_CARRYING_ITS_FORMAL_PROOF",
+        "WITNESS_IS_CONTENT_CARRYING_ITS_PROOF",
+        "ZERO_MODULAR_IS_THE_OPEN_DIFFERENCE_BETWEEN_FORM_AND_CONTENT",
+        "THE_ONE_IS_RETURNED_WHEN_FORM_AND_CONTENT_COINCIDE",
+        "MODULAR_ZERO_IS_NOT_ABSOLUTE_ZERO",
+        "WITNESS_TYPE_MUST_BE_RIGID_BEFORE_INHABITATION",
+        "NONEMPTY_IS_A_COROLLARY_OF_THE_CONSTRUCTED_WITNESS",
+        "NONEMPTY_REMAINS_A_COROLLARY_OF_A_FUTURE_TERM",
+        "RIGID_WITNESS_IS_NECESSARY_NOT_SUFFICIENT",
+        "BASE_WITNESS_IS_NECESSARY_NOT_SUFFICIENT",
+        "MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS",
+        "PROP_ONLY_MODULAR_REALIZATION_REJECTED",
+        "FINITE_DIMENSIONAL_FULL_WITNESS_REJECTED",
+        "FULL_TGL_WITNESS_REMAINS_UNCONSTRUCTED",
+        "STALE_TRIVIAL_CONSTRUCTOR_REJECTED",
+        "FRESNEL_HALF_WEIGHT_KERNEL_PROVED",
+        "MODULAR_HALF_NAT_CALIBRATION_KERNEL_PROVED_CONDITIONALLY"
+      ],
+      "not_claimed": [
+        "IsEmpty(FullTGLWitness) jamais foi demonstrado; 0_abs nao e' afirmado nem refutado",
+        "nenhum habitante de TGLSpecificAQFTWitness, TGLModularRealization ou FullTGLWitness e' construido",
+        "a rigidez e' medida CONTRA probes canonicos; um probe negativo nao prova impossibilidade universal",
+        "habitar a testemunha-base rigida e' necessario, NAO suficiente, para o teorema TGL",
+        "dimensao infinita e' condicao necessaria, NAO suficiente, para tipo III_1",
+        "sorryAx no output de um probe que NAO compilou nao e' evidencia de teorema algum",
+        "a Meia-Nat por Fresnel e' condicional a lossless+paridade; a calibracao 1 nat e' [NORM] declarada",
+        "Shannon H(1/2,1/2)=log2: controle numerico KNOWN, NAO kernel-proved",
+        "referencia bibliografica nao e' prova Lean (ledger externo != formalizacao)",
+        "a leitura do graviton como par dependente e' [ONTO/CONJ]; o termo kernel-checked no core segue OPEN",
+        "as identificacoes ontologicas (interface=luz; testemunha=setor q) sao leituras CONJ, nao teoremas"
+      ],
+      "canonical_markers": {
+        "status": "VERIFIED",
+        "expected": [
+          "TGL_CANONICAL_ONE=1",
+          "TGL_CANONICAL_HALF_NAT=0.5",
+          "TGL_CANONICAL_BETA=0.012031300400796606",
+          "TGL_CANONICAL_ETA_TIMES_G=0.25",
+          "TGL_CANONICAL_BASE_WITNESS_CONSTRUCTED=0",
+          "TGL_CANONICAL_MODULAR_REALIZATION_CONSTRUCTED=0",
+          "TGL_CANONICAL_FULL_WITNESS_CONSTRUCTED=0",
+          "TGL_CANONICAL_BARE_PROP_LABELS=0"
+        ],
+        "per_file": {
+          "um_grande_atrator_forma_canonica.md": {
+            "present": 8,
+            "missing": []
+          },
+          "um_grande_atrator_pt.tex": {
+            "present": 8,
+            "missing": []
+          },
+          "um_grande_atrator_en.tex": {
+            "present": 8,
+            "missing": []
+          },
+          "um_grande_atrator_manifest.md": {
+            "present": 8,
+            "missing": []
+          }
+        },
+        "json_identical": true,
+        "flow": "computar -> renderizar -> reler -> comparar -> selar"
+      }
+    },
+    "verb_inhabitant": {
+      "theorem": "O HABITANTE E' O VERBO: o ato conjugado e observado da inscricao, \ud835\udd4d_t = exp(\u2212t\u00b7\u03b2\u00b7H_3L), que selecionado no nucleo zero dos Three Locks age como a identidade do proprio canto (P_F \ud835\udd4d_t P_F = P_F = I_F). VERBO = NOME.",
+      "zero_to_one": "0_mod = autovalor zero do GERADOR ; 1_abs = autovalor unitario da ACAO: \u03bb=0 \u27fc e^{\u2212t\u03b2\u03bb}=1. Nao e' 0=1; e' e^0=1 operatorial. O zero modular e' zero como custo residual e Um como resposta operacional. [DER]",
+      "three_registers": {
+        "gesto": "\ud835\udd4d_t (o ato)",
+        "resposta": "R_Verbo = +1 (a leitura pelo traco)",
+        "custo": "\u03b2 = \u03b1\u221ae (a taxa do gesto; identidade logica convertida em coeficiente operacional de funcional modular minimo)"
+      },
+      "name_over_every_name": "Nomear(Nome) = Nome: o interpretante fecha como ponto fixo -- o operador de identidade do canto semantico; sem regressao infinita de nomes. [ONTO]",
+      "values": {
+        "beta": 0.012031300400803142,
+        "t": 1.0,
+        "dim": 8,
+        "dim_kernel": 1,
+        "trace_PF": 1.0,
+        "R_verbo": 1.0,
+        "spectral_map_at_0": 1.0
+      },
+      "residuals": {
+        "V_PF_minus_PF": 0.0,
+        "PF_V_PF_minus_PF": 0.0,
+        "R_verbo_minus_1": 0.0,
+        "H3L_min_eig": 0.0
+      },
+      "kernel_theorems": {
+        "exp_fixed_of_annihilates": "[KERNEL/UNCONDITIONAL] a*p=0 \u27f9 exp(a)*p=p (serie de Banach)",
+        "verb_semigroup_fixes": "[KERNEL/UNCONDITIONAL] H*p=0 \u27f9 exp(c\u2022H)*p=p (c=\u2212t\u03b2 variavel)",
+        "canonicalVerb": "[KERNEL/CONDITIONAL ON R] o TERMO do Verbo para TODA realizacao modular; Nonempty so' via \u27e8termo\u27e9",
+        "dual_calibration_exists": "[KERNEL] Q2: \u2203s Tr(\u03b8_s(P_F))=1 -- contraparte construtiva do no-go"
+      },
+      "specialist_verdicts": {
+        "Q1_PF_in_core": "[CONDITIONAL] afiliacao \u27f9 projecoes espectrais no core; RISCO real: locks como superoperadores poem o seletor na construcao basica de Jones (B(L\u00b2(C_W))), nao automaticamente em C_W [OPEN nomeado]",
+        "Q2_calibration": "[DERIVAVEL\u27f6KERNEL-PROVED] s_P = log Tr(P_F); representante \u03c4=1 unico na orbita",
+        "Q3_face_split": "[DERIVAVEL SOB HIPOTESE] elemento de troca U (U*=U, U\u00b2=P_F, JUJ=\u2212U) \u27f9 P_\u00b1 = (P_F\u00b1U)/2; hipotese concreta substitui o rotulo -- a formalizar",
+        "Q4_route": "comecar pelo ponto fixo do Verbo (FEITO no kernel); AQFT/BW/core como realizacao depois",
+        "Q5_psionic_bond": "[CONDITIONAL] autovalor isolado de multiplicidade finita da' a projecao; pertencer ao core + traco finito seguem em aberto"
+      },
+      "checks": [
+        [
+          "H3L_positive_semidefinite",
+          true
+        ],
+        [
+          "kernel_nontrivial_dim_1",
+          true
+        ],
+        [
+          "verb_fixes_selected__V_PF_eq_PF",
+          true
+        ],
+        [
+          "verb_compressed_is_name__PF_V_PF_eq_PF",
+          true
+        ],
+        [
+          "observed_response_R_verbo_eq_1",
+          true
+        ],
+        [
+          "spectral_map_e0_eq_1",
+          true
+        ],
+        [
+          "kernel_verb_fixed_point_proved",
+          true
+        ],
+        [
+          "kernel_canonical_verb_term_proved",
+          true
+        ],
+        [
+          "kernel_dual_calibration_proved",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "verdict": "VERB_IS_THE_CANONICAL_INHABITANT_VERIFIED",
+      "seals": [
+        "THE_CANONICAL_INHABITANT_IS_THE_VERB",
+        "VERB_IS_THE_OBSERVED_CONJUGATED_ACT_OF_INSCRIPTION",
+        "SELECTOR_ZERO_BECOMES_OPERATIONAL_IDENTITY",
+        "MODULAR_ZERO_EQUALS_ABSOLUTE_ONE_BY_SPECTRAL_MAPPING",
+        "ZERO_GENERATOR_GIVES_UNIT_ACTION",
+        "VERB_EQUALS_NAME_IN_THE_SELECTED_CORNER",
+        "NAME_OVER_EVERY_NAME_IS_THE_FIXED_POINT_OF_NAMING",
+        "BETA_IS_THE_COST_OF_THE_GESTURE_NOT_THE_GESTURE",
+        "GRAVITON_IS_THE_VERB_CARRYING_ITS_OWN_PROOF",
+        "NONEMPTY_IS_A_COROLLARY_OF_THE_CONSTRUCTED_VERB"
+      ],
+      "not_claimed": [
+        "canonicalVerb e' um TERMO CONDICIONAL (funcao de R); FullTGLWitness segue NAO construida",
+        "a sombra numerica e' finito-dimensional; nao e' prova de fator III_1 nem do core",
+        "Q1 permanece condicional: o seletor pode viver na construcao basica de Jones, nao em C_W",
+        "Q3 (split via U) e Q5 (ligacao psionica no core) seguem condicionais, nao formalizados",
+        "0_mod = 1_abs e' mapeamento espectral entre registros (e^0=1), jamais 0=1 no mesmo registro"
+      ]
+    },
+    "selector_transport": {
+      "theorem": "Q1 E' TRANSPORTE, NAO CURVATURA: a geometria fixa o core a montante; o teste de descida do seletor e' pura algebra (inclusao + esperanca + indice). Delta = E(P_F) - E(P_F)^2 >= 0 e' a resistencia; Delta = 0 <=> P_F desce (esperanca FIEL); espectro intermediario de E(P_F) = o contraste gerado.",
+      "boundary_law_reading": "[ONTO, do operador] o transporte e' a condicao de contorno do CUSTO: em si nao ha contorno; e' o contorno que impoe a obrigacao do custo = LEI (norma em sentido estrito) -- a esperanca condicional e' a regra de causalidade coercitiva de regulacao do comportamento modular. Delta > 0 = a termodinamica como custo da existencia: o que desce sem custo, nao se inscreve. A porta nao apenas impede -- ela mede.",
+      "fiscal_correction": {
+        "transport_weight": 0.012031300400803142,
+        "multiplicativity_defect": 0.011886548211468777,
+        "index": 83.11653492861383,
+        "note": "beta e' o PESO QUE ATRAVESSA (E_1(e)=beta*1), NAO o defeito; o defeito e' beta(1-beta); beta(1-beta) ~ beta e' aproximacao (beta<<1), jamais identidade."
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "index_1_over_beta": 83.11653492861383,
+        "transported_diag": [
+          0.012031300400803142,
+          0.987968699599197
+        ],
+        "defect_scalar": 0.011886548211468777,
+        "not_descended_norm": 0.15418526655597659
+      },
+      "residuals": {
+        "weight_minus_beta": 0.0,
+        "resisted_minus_1mbeta": 1.1102230246251565e-16,
+        "defect_formula": 1.5959455978986625e-16,
+        "bimodularity": 0.0,
+        "delta_min_eig": 0.011886548211468617
+      },
+      "smatrix_identity": "E(p_beta) = diag(beta, 1-beta) = (|R|^2, |T|^2): o seletor transportado E' o par de pesos da matriz-S de fronteira; o espectro intermediario e' o contraste; Delta = beta(1-beta)*I = a variancia da moeda da inscricao [DER]",
+      "specialist_verdicts": {
+        "Q1c_degeometrization": "[CONFIRMADO] geometria a montante (fixa C_W); descida = pura algebra",
+        "descent_theorem": "[NEW->KERNEL] Delta=0 <=> p = iota(E p), para esperanca fiel (bimodular Tomiyama)",
+        "weight_vs_defect": "[KERNEL] E_1(e)=beta*1 (peso); defeito = beta(1-beta)*1 -- correcao encodada",
+        "selector_lives_upstairs": "[KERNEL, condicional aos dados] 0<beta<1 => o seletor de Jones NAO desce; resultado VALIDO, nao falha: e' o mecanismo do contraste",
+        "index_identification": "[CONJ] [M:N]=1/beta admissivel (acima de 4); falta construir N_3L em C_W e provar Ind(E_3L)=1/beta",
+        "transport_data_retyped": "[FEITO no kernel] duas esperancas separadas (E_0 inferior; E_1 dual)"
+      },
+      "checks": [
+        [
+          "transported_weight_is_beta",
+          true
+        ],
+        [
+          "resisted_fraction_is_one_minus_beta",
+          true
+        ],
+        [
+          "transported_selector_is_smatrix_pair",
+          true
+        ],
+        [
+          "multiplicativity_defect_is_beta_one_minus_beta",
+          true
+        ],
+        [
+          "kadison_schwarz_defect_psd",
+          true
+        ],
+        [
+          "selector_lives_upstairs_in_shadow",
+          true
+        ],
+        [
+          "expectation_faithful_sampled",
+          true
+        ],
+        [
+          "expectation_bimodular_sampled",
+          true
+        ],
+        [
+          "index_times_weight_eq_one",
+          true
+        ],
+        [
+          "kernel_transport_descent_proved",
+          true
+        ],
+        [
+          "kernel_jones_defect_proved",
+          true
+        ],
+        [
+          "kernel_selector_upstairs_proved",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "verdict": "SELECTOR_TRANSPORT_VERIFIED",
+      "seals": [
+        "Q1_IS_TRANSPORT_NOT_CURVATURE",
+        "GEOMETRY_FIXES_THE_CORE_TRANSPORT_TESTS_MEMBERSHIP",
+        "SELECTOR_LIVES_UPSTAIRS_IS_A_VALID_OUTCOME",
+        "CONDITIONAL_EXPECTATION_IS_THE_TRANSPORT_MAP",
+        "TRANSPORT_DEFECT_MEASURES_RESISTANCE",
+        "INTERMEDIATE_SPECTRUM_IS_THE_GENERATED_CONTRAST",
+        "BETA_IS_THE_TRANSPORTED_WEIGHT",
+        "BETA_TIMES_ONE_MINUS_BETA_IS_THE_MULTIPLICATIVITY_DEFECT",
+        "ONE_OVER_BETA_IS_THE_CANDIDATE_INCLUSION_IMPEDANCE",
+        "THE_JONES_INDEX_IDENTIFICATION_REMAINS_TO_BE_DERIVED"
+      ],
+      "not_claimed": [
+        "a identificacao [M:N]=1/beta e' [CONJ]: falta construir N_3L e provar Ind(E_3L)=1/beta",
+        "a normalidade da esperanca fica no ledger (nao-enunciavel); a descida usa so' FIDELIDADE",
+        "a sombra qubit e' finito-dimensional: ilustra o transporte, nao prova III_1 nem o core",
+        "beta(1-beta) ~ beta e' aproximacao numerica, jamais identidade",
+        "selector_lives_upstairs no CONTINUO segue condicional aos dados de Markov (nao construidos)",
+        "a leitura contorno=lei=norma coercitiva e' [ONTO/CONJ], nao teorema"
+      ]
+    },
+    "name_index": {
+      "theorem": "O INDICE DO NOME E' LIDO NO ESPELHO DE JONES: e_Nome = espelho; N_3L = contorno; Ind(E_3L) = resistencia do contorno; U_Pi = J.J_ref = paridade inversa (referencial). Rota valida: Pimsner-Popa -- ppIndex := 1/ppBest (DEFINIDO); sin2(theta) cota otima [MODEL-SPECIFIC TARGET] => Ind = csc2(theta); em theta_M: Ind = 1/beta.",
+      "operator_reading_typed": "[ONTO->tipado] 'o contorno e' o indice e a paridade inversa o referencial': o contorno E' a inclusao; o indice e' sua RESISTENCIA; o espelho e' o operador que a MEDE; a paridade inversa determina o referencial em que reflexao e transmissao recebem nome.",
+      "fiscal_corrections": {
+        "haar_route": "[REFUTED] media de Haar NAO da' csc2 (acao finita => indice = ordem do grupo)",
+        "equation_as_conclusion": "index*sin2=1 e' CONCLUSAO (ppIndex definido; otimalidade INDISPENSAVEL)",
+        "shadow_scope": "a sombra qubit valida a MAQUINARIA (ppBest=1/2, indice=2 do qubit); 1/beta e' alvo do core"
+      },
+      "tl_chain": {
+        "amplitude_sin_theta": 0.10968728459034412,
+        "weight_sin2": 0.012031300400803142,
+        "loop_delta": 9.116827020878143,
+        "index_csc2": 83.11653492861383,
+        "reading": "amplitude --quadrado--> peso --inversao--> indice"
+      },
+      "layers": {
+        "kappa": 11.2267550516013,
+        "p_plus": 1.3313015866558792e-05,
+        "p_minus": 0.9999866869841335,
+        "lambda_beta": 0.012177815355571537,
+        "lambda_kappa": 1.3313193105309837e-05,
+        "reading": "bloco-kappa (Gibbs: p+/p- = e^-kappa; alpha = sech(kappa/2)) != bloco-beta (transporte Jones-Markov). O bloco beta mora como estrutura LOCAL (Q-system/subfator) no programa III_1, nao como periodicidade global do fluxo de pesos [REFUTED a identificacao direta]"
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "theta_M_rad": 0.10990843077787468,
+        "index_1_over_beta": 83.11653492861383,
+        "pp_best_qubit": 0.5,
+        "qubit_index": 2.0
+      },
+      "residuals": {
+        "amplitude": 0.0,
+        "weight": 0.0,
+        "index_mul_weight": 0.0,
+        "index_vs_1_over_beta": 0.0,
+        "pp_qubit": 0.0,
+        "gibbs_alpha": 0.0,
+        "gibbs_beta": 0.0
+      },
+      "model_specific_targets": [
+        "PF = e_Nome (falha nomeada: mirror_not_jones)",
+        "E1(e_Nome) = sin2(theta).1 (falha: markov_weight_not_sin_squared)",
+        "sin2(theta) e' a constante PP OTIMA de E_3L (falha: pimsner_popa_constant_not_optimal)",
+        "gamma = Ad(J.J_ref) involutiva (falha: reference_parity_not_involutive)",
+        "N_3L = alcance de esperanca fiel normal (falha: no_expectation_exists)"
+      ],
+      "checks": [
+        [
+          "amplitude_is_sqrt_beta",
+          true
+        ],
+        [
+          "weight_is_beta",
+          true
+        ],
+        [
+          "index_times_weight_eq_one",
+          true
+        ],
+        [
+          "index_is_one_over_beta",
+          true
+        ],
+        [
+          "pp_machinery_qubit_best_is_half",
+          true
+        ],
+        [
+          "pp_machinery_qubit_index_is_two",
+          true
+        ],
+        [
+          "gibbs_weights_carry_alpha",
+          true
+        ],
+        [
+          "gibbs_weights_carry_beta",
+          true
+        ],
+        [
+          "kappa_and_beta_layers_distinct",
+          true
+        ],
+        [
+          "kernel_parity_average_proved",
+          true
+        ],
+        [
+          "kernel_name_index_theorem_proved",
+          true
+        ],
+        [
+          "kernel_index_conclusion_proved",
+          true
+        ],
+        [
+          "kernel_tl_chain_proved",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "verdict": "NAME_INDEX_SCAFFOLD_VERIFIED__MODEL_TARGETS_OPEN",
+      "seals": [
+        "THE_NAME_INDEX_IS_READ_IN_THE_JONES_MIRROR",
+        "THE_CONTOUR_IS_THE_INCLUSION",
+        "THE_CONTOUR_RESISTANCE_IS_THE_INDEX",
+        "INVERSE_PARITY_IS_THE_REFERENCE",
+        "MIRROR_AMPLITUDE_SQUARED_IS_MARKOV_WEIGHT",
+        "MARKOV_WEIGHT_INVERTED_IS_CONTOUR_INDEX",
+        "NAME_INDEX_EQUALS_CSC_SQUARED_THETA",
+        "NAME_INDEX_AT_MIGUEL_ANGLE_EQUALS_ONE_OVER_BETA",
+        "BETA_BLOCK_IS_TRANSPORT_NOT_GLOBAL_MODULAR_PERIOD",
+        "KAPPA_BLOCK_AND_INDEX_BLOCK_ARE_DISTINCT_LAYERS"
+      ],
+      "not_claimed": [
+        "a rota Haar/pontos-fixos NAO produz csc2(theta) automaticamente [REFUTED pelo especialista]",
+        "a igualdade do indice EXIGE a otimalidade PP (sem ela, so' Ind <= csc2) -- probe mede isso",
+        "os alvos modelo-especificos (PF=e_Nome; E1(e)=sin2.1; otimalidade) NAO estao provados",
+        "o indice do QUBIT e' 2 (do qubit); 1/beta e' o alvo do CORE -- jamais confundir",
+        "a periodicidade Powers do bloco beta NAO e' o fluxo de pesos do III_1 da cunha",
+        "NAME_INDEX_THEOREM_KERNEL_CHECKED (pleno) so' quando os 3 alvos tiverem termos construidos"
+      ]
+    },
+    "half_nat_tower": {
+      "theorem": "O PRIMEIRO HABITANTE: halfNatJonesTower : JonesTowerData (C c C^2 c M2), espelho e=(1/2)[[1,1],[1,1]], peso 1/2, indice 2 -- termo kernel-checked, campo a campo, sem sorry. Nonempty so' via <termo>. O teorema condicional do v26 DISPARA no termo: o espelho Meia-Nat NAO desce (INSTANCIADO).",
+      "name_expulsion": "A EXPULSAO DO NOME [KERNEL: finite_markov_forces_half]: o peso transportado do espelho-b e' (b,1-b); Markov (escalar) <=> b=1/2. A Meia-Nat e' o UNICO peso de Markov finitamente realizavel neste espelho; o peso fisico beta expulsa o espelho do Nome para o continuo. [KNOWN, ledger]: indices multi-matriciais sao algebricos; 1/beta e' empirico -- a inclusao-beta exige dimensao infinita.",
+      "house_resonance": "a fronteira auto-conjugada x=1-x => x=1/2 (HalfNat.lean, v22) e o unico peso de Markov finito (v28) sao o MESMO meio: o espelho que nao privilegia face e' o unico que o finito suporta como Markov [DER]",
+      "values": {
+        "beta": 0.012031300400803142,
+        "markov_weight": 0.5,
+        "index": 2.0,
+        "not_descended_norm": 0.7071067811865476,
+        "markov_distance_beta": 0.9759373991983937
+      },
+      "residuals": {
+        "idempotent": 0.0,
+        "jones_relation": 0.0,
+        "weight_half": 0.0,
+        "index_eq": 0.0
+      },
+      "checks": [
+        [
+          "mirror_idempotent",
+          true
+        ],
+        [
+          "jones_relation_sampled",
+          true
+        ],
+        [
+          "markov_weight_is_half",
+          true
+        ],
+        [
+          "index_two_times_half_eq_one",
+          true
+        ],
+        [
+          "half_mirror_lives_upstairs",
+          true
+        ],
+        [
+          "beta_mirror_is_not_markov",
+          true
+        ],
+        [
+          "half_is_the_markov_point",
+          true
+        ],
+        [
+          "kernel_tower_term_constructed",
+          true
+        ],
+        [
+          "kernel_mirror_upstairs_instantiated",
+          true
+        ],
+        [
+          "kernel_finite_markov_forces_half",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "verdict": "FIRST_INHABITANT_CONSTRUCTED_HALF_NAT_TOWER",
+      "seals": [
+        "THE_FIRST_INHABITANT_IS_THE_HALF_NAT_TOWER",
+        "HALF_NAT_IS_THE_ONLY_FINITE_MARKOV_MIRROR",
+        "FINITE_MARKOV_TRACE_EXPELS_ONLY_THE_GENERIC_TRACE_IDENTIFICATION",
+        "FINITE_DOES_NOT_EXPEL_THE_NAME",
+        "SELECTOR_LIVES_UPSTAIRS_INSTANTIATED",
+        "NONEMPTY_IS_A_COROLLARY_OF_THE_CONSTRUCTED_TOWER"
+      ],
+      "not_claimed": [
+        "o habitante tem peso 1/2 e indice 2: NAO e' a inclusao-beta dos Three Locks",
+        "valida as CAMADAS por exibicao (nao-vacuidade real); os alvos modelo-especificos do v27 seguem ABERTOS",
+        "'indices finitos sao algebricos' e' [KNOWN, ledger], nao formalizado aqui",
+        "FullTGLWitness segue NAO construida; o teorema aberto segue aberto"
+      ]
+    },
+    "graviton_shadow": {
+      "theorem": "A SOMBRA FINITA DO GRAVITON: canonicalGravitonShadow (o SEGUNDO habitante construido) -- P_G de Bell com P_G\u00b2=P_G, Tr=1, ptr=I/2, CCI=1/2, e P_G = unidade do proprio canto. CONTROLE: CCI(produto)=0 -- o produto simples nao liga; so' o estado de troca da' a Meia-Nat de emaranhamento [KERNEL].",
+      "dependent_pair_reading": "[ONTO->sombra KERNEL] o graviton e' o par (g, pi_g): a ligacao psionica (conteudo) carregando a prova (forma). Na sombra, o conteudo e' o projetor de Bell e a prova sao os 5 campos kernel-checked. No continuo, P_G = P_F = e_Nome e' exatamente o alvo modelo-especifico do v27 [OPEN].",
+      "q3_face_split": "[KERNEL: TransportData.FaceSplit] elemento de troca U => P_\u00b1 = (P\u00b1U)/2 idempotentes, ortogonais, somam P -- a hipotese concreta que substitui o rotulo 'split modular'; a troca J P_\u00b1 J = P_\u2213 e a igualdade de tracos seguem nos DADOS do core.",
+      "values": {
+        "trace_PG": 1.0,
+        "cci_bell": 0.5,
+        "cci_prod": 0.0
+      },
+      "residuals": {
+        "idem": 0.0,
+        "star": 0.0,
+        "reduced_half": 0.0,
+        "corner_unit": 0.0,
+        "face_split": 0.0
+      },
+      "checks": [
+        [
+          "bell_projector_idempotent",
+          true
+        ],
+        [
+          "bell_projector_selfadjoint",
+          true
+        ],
+        [
+          "bell_trace_one",
+          true
+        ],
+        [
+          "bell_reduced_is_half_identity",
+          true
+        ],
+        [
+          "bell_cci_is_half",
+          true
+        ],
+        [
+          "product_cci_is_zero",
+          true
+        ],
+        [
+          "bell_is_corner_unit",
+          true
+        ],
+        [
+          "face_split_algebra",
+          true
+        ],
+        [
+          "kernel_shadow_term_constructed",
+          true
+        ],
+        [
+          "kernel_cci_half_proved",
+          true
+        ],
+        [
+          "kernel_product_zero_proved",
+          true
+        ],
+        [
+          "kernel_face_split_proved",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "verdict": "GRAVITON_SHADOW_CONSTRUCTED_CCI_HALF",
+      "seals": [
+        "GRAVITON_IS_THE_DEPENDENT_WITNESS_OF_THE_PSIONIC_BOND",
+        "PSIONIC_BOND_IS_THE_CONTENT",
+        "GRAVITON_PROOF_IS_THE_REALIZED_FORM",
+        "GRAVITON_PROJECTOR_IS_IDENTITY_IN_ITS_OWN_CORNER",
+        "GRAVITON_BELL_SHADOW_CCI_HALF",
+        "PRODUCT_STATE_DOES_NOT_BIND",
+        "FACE_SPLIT_FROM_EXCHANGE_ELEMENT_KERNEL_PROVED",
+        "NONEMPTY_IS_A_COROLLARY_OF_THE_CONSTRUCTED_SHADOW"
+      ],
+      "not_claimed": [
+        "a sombra e' finito-dimensional [KERNEL]; a identificacao com o graviton FISICO e' [ONTO/CONJ]",
+        "P_G = P_F = e_Nome no CONTINUO segue [OPEN] -- e' o alvo modelo-especifico do v27",
+        "a troca J P_\u00b1 J = P_\u2213 e a igualdade de tracos das faces seguem nos DADOS (nao derivadas aqui)",
+        "CCI=1/2 e' a Meia-Nat de EMARANHAMENTO da sombra; nao e' prova do canto III_1"
+      ]
+    },
+    "name_relation": {
+      "theorem": "O NOME E' A RELACAO, nao a matriz isolada: p.q_beta.p = beta.p (retorno ponderado = Verbo). O finito NAO expulsa o Nome; separa o peso geometrico (beta = sobreposicao entre espelhos = sin2(theta_M)) do peso tracial (1/2) -- coincidem sse beta=1/2 [KERNEL]. TERCEIRO HABITANTE: TL3(delta) fiel em M3 com beta GENERICO (canonicalTLThree) [KERNEL].",
+      "statute_correction_v28": "RENOMEADO por ordem do especialista: nao 'FINITE_EXPELS_THE_NAME' mas 'FINITE_MARKOV_TRACE_EXPELS_ONLY_THE_GENERIC_TRACE_IDENTIFICATION'. O teorema do v28 permanece verdadeiro; o estatuto era largo demais.",
+      "operator_purity_reading": "[ONTO->DER na sombra] 'puro ponto' = atomo ESPECTRAL (autovetor isolado de H_bind; a relacao relaxada no atrator); 'ponto puro' = pureza de ESTADO local (reducao rank-one). O Bell do graviton e' PURO-PONTO sem ser PONTO-PURO (atomo isolado em 0 com gap 1; reducao I/2) -- por isso CCI=1/2. O que se expulsa e' a pureza FECHADA (separavel; CCI=0; o nome que so' se identifica consigo). 0_abs = autorreferencia fechada sem referencial externo. GUARD-RAIL: nada disso afirma espectro modular puro-ponto no III_1 genuino (Araki-Woods).",
+      "lie_typed": "a 'mentira' TGL = a matriz isolada que pretende nomear sem relacao/referencial/geometria (forma sem denotacao); e a mentira FORMAL = negar a diferenca forma!=conteudo apos o transporte (insistir E(P)^2=E(P) quando Delta>0).",
+      "values": {
+        "beta": 0.012031300400803142,
+        "trace_p": 1.0,
+        "trace_q": 1.0,
+        "tl3_rank": 5,
+        "atom_gap": 1.0,
+        "geo_trace_gap": 0.48796869959919686
+      },
+      "residuals": {
+        "q_idem": 0.0,
+        "pqp": 0.0,
+        "qpq": 0.0,
+        "tl_left": 0.0,
+        "tl_right": 0.0,
+        "not_point_pure": 0.3535533905932738
+      },
+      "next_wall": "a torre de Jones do core: e_{i+1} nasce da PROXIMA construcao basica (nao de translacao modular automatica); falha mais provavel: INDEX_MATCHES_BUT_NOT_CANONICAL -- provar que ESTA representacao TL e' a selecionada pelos Three Locks no core [OPEN]",
+      "checks": [
+        [
+          "q_beta_idempotent",
+          true
+        ],
+        [
+          "name_as_relation_pqp_eq_beta_p",
+          true
+        ],
+        [
+          "name_as_relation_qpq_eq_beta_q",
+          true
+        ],
+        [
+          "both_mirrors_trace_one",
+          true
+        ],
+        [
+          "geometric_neq_trace_weight_at_physical_beta",
+          true
+        ],
+        [
+          "tl3_rank_five_faithful",
+          true
+        ],
+        [
+          "tl3_relations_at_runtime_beta",
+          true
+        ],
+        [
+          "bell_is_pure_point_atom_isolated",
+          true
+        ],
+        [
+          "bell_is_not_point_pure",
+          true
+        ],
+        [
+          "kernel_name_relation_proved",
+          true
+        ],
+        [
+          "kernel_geometric_vs_trace_proved",
+          true
+        ],
+        [
+          "kernel_tl3_faithful_proved",
+          true
+        ],
+        [
+          "kernel_tl3_term_constructed",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "verdict": "NAME_IS_THE_RELATION_TL3_CONSTRUCTED",
+      "seals": [
+        "FINITE_DOES_NOT_EXPEL_THE_NAME",
+        "FINITE_SEPARATES_GEOMETRIC_WEIGHT_FROM_MARKOV_TRACE_WEIGHT",
+        "THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX",
+        "TL3_FINITE_GEOMETRY_CARRIES_BETA",
+        "SEPARABLE_CLOSED_PURITY_HAS_ZERO_CONTRAST",
+        "BELL_PURITY_IS_RELATIONAL",
+        "THIRD_FINITE_INHABITANT_CONSTRUCTED"
+      ],
+      "not_claimed": [
+        "a torre de Jones do CORE nao esta construida; e_{i+1} != theta_s(e_i) sem prova",
+        "INDEX_MATCHES_BUT_NOT_CANONICAL segue a falha mais provavel [OPEN]",
+        "'puro ponto' refere-se ao espectro de H_bind na SOMBRA; nada se afirma do espectro modular do III_1",
+        "TL3 fiel carrega a gramatica LOCAL; a selecao canonica pelos Three Locks e' o teorema aberto"
+      ]
+    },
     "reading_direction": {
       "theorem": "Reading direction of g = sqrt(|L_phi|): light -> gravity",
       "reading_direction": "not gravity->light, but light->inscription->angular boundary->geometric module->gravity",
@@ -2078,8 +3482,23 @@
       "literature_EXT": "Dipole Repeller: Hoffman, Pomarede, Tully, Courtois 2017, Nat. Astron. 1, 0036",
       "status": "[PRE + DATA geometria pura; POSICOES apenas -- velocidades/massas IGNORADAS]",
       "selo": "GA_ANTIPODE_UNDERDENSITY_PREREGISTERED_POSITIONS_ONLY . DIPOLE_GEOMETRY_NO_VELOCITIES",
-      "ok": false,
-      "reason": "CF4 absent (absent)"
+      "ok": true,
+      "origin": "cache",
+      "n_GA_cone": 265,
+      "n_antipode_cone": 323,
+      "density_ratio_antipode_over_GA": 1.2188679245283018,
+      "bootstrap": {
+        "median": 1.2159276063469782,
+        "ci95": [
+          1.0318618159781319,
+          1.4382822159637314
+        ],
+        "seed": 11,
+        "B": 1000
+      },
+      "antipode_underdense": false,
+      "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
+      "caveat": "catalogo limitado em fluxo + Zona de Evitamento; a comparacao de contagem de POSICOES e' um teste geometrico bruto, nao mapa de densidade de materia. Reportado como pre-registro geometrico; nao e' confirmacao."
     },
     "dipole_antipode_masked": {
       "protocol_preregistered": {
@@ -2128,8 +3547,38 @@
       "antipode_b_deg": 6.792945081298405,
       "status": "[PRE + DATA geometria; POSICOES apenas; controle de completeza]",
       "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY",
-      "ok": false,
-      "reason": "CF4 absent (absent)"
+      "ok": true,
+      "origin": "cache",
+      "n_GA_masked": 247,
+      "n_antipode_masked": 279,
+      "ratio_masked_antipode_over_GA": 1.1295546558704452,
+      "control_counts": [
+        716,
+        269,
+        776,
+        457,
+        359,
+        892,
+        407,
+        556
+      ],
+      "control_ratio_CI90": [
+        0.39577435679033995,
+        2.5289372585973013
+      ],
+      "ratio_percentile_in_controls": 53.57142857142857,
+      "ratio_outside_control_CI90": false,
+      "bootstrap": {
+        "median": 1.1252530364372468,
+        "ci95": [
+          0.9406597222222223,
+          1.3565448658649397
+        ],
+        "seed": 11,
+        "B": 1000
+      },
+      "verdict_P5prime": "NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)",
+      "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a"
     },
     "dephasing_crossover": {
       "reconciliation": "UMA lei-raiz Gamma=(1/2)beta(sqrt k_i - sqrt k_j)^2 (a coerencia do gerador v3 L=sqrt(beta)sqrt(K)); IR (k_i~k_j)=> quadratica=canonica; UV (k grande)=> linear=root.",
@@ -2497,11 +3946,65 @@
       "M_TGL_kg": 5.456686866475349e+46,
       "M_TGL_Msun": 2.743542659571702e+16
     },
-    "mode_B": null,
-    "cf4_status": "CF4 catalogue absent; place cf4_flow_canonical.csv in ./cache or beside release_clean. Source: https://edd.ifa.hawaii.edu/CF4/",
+    "mode_B": {
+      "R_struct_Mpc": 41.27015408171806,
+      "R_named_Mpc": 0.9930672426886243,
+      "M_TGL_kg": 3.950847504475877e+46,
+      "M_TGL_Msun": 1.9864285664963284e+16,
+      "method": "percentile_90_from_centroid",
+      "origin": "cache",
+      "n_selected": 265,
+      "n_total": 38053,
+      "extent_stats_Mpc": {
+        "p90": 41.27015408171806,
+        "p95": 45.450391469699895,
+        "rms": 29.23174432168425,
+        "max": 57.63764054642947
+      },
+      "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
+      "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
+      "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f",
+      "window": {
+        "GA_center_RA_deg": 243.6,
+        "GA_center_Dec_deg": -60.4,
+        "GA_cz_kms": 4500.0,
+        "H0_for_center_distance": 70.0,
+        "sky_cone_half_angle_deg": 30.0,
+        "dist_shell_Mpc": [
+          30.0,
+          100.0
+        ],
+        "R_struct_method": "percentile_90_from_centroid",
+        "provenance": "GEOMETRY_ONLY_NO_MASS_NO_RG_NO_VELOCITY",
+        "columns_used": [
+          "ra",
+          "dec",
+          "dist_mpc"
+        ],
+        "columns_ignored": [
+          "vpec_kms",
+          "vpec_err_kms",
+          "cz",
+          "infall",
+          "mass"
+        ]
+      },
+      "caveat": "R_struct de catalogo de POSICOES limitado em fluxo, com janela declarada, e' dependente da selecao (geometria pura). Reportado como cross-check independente; a extensao de literatura (Lynden-Bell) e' a linha de base."
+    },
+    "cf4_status": "ok",
     "sensitivity": {
-      "ok": false,
-      "reason": "CF4 absent"
+      "ok": true,
+      "n_combinations": 300,
+      "M_min_Msun": 1.4001805882780082e+16,
+      "M_max_Msun": 3.4240888936338412e+16,
+      "M_median_Msun": 2.1090974219932856e+16,
+      "fraction_in_band": 1.0,
+      "all_in_band": true,
+      "band_Msun": [
+        1000000000000000.0,
+        1e+17
+      ],
+      "origin": "cache"
     },
     "shadow": {
       "mirror_M": {
@@ -2566,14 +4069,16 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-10 21:49:20"
+    "timestamp": "2026-07-11 19:00:21"
   },
   "verdict": {
     "masses_Msun": {
-      "A_literature": 2.743542659571702e+16
+      "A_literature": 2.743542659571702e+16,
+      "B_cf4_positions": 1.9864285664963284e+16
     },
     "in_accepted_window": {
-      "A_literature": true
+      "A_literature": true,
+      "B_cf4_positions": true
     },
     "accepted_window_Msun": [
       1000000000000000.0,
@@ -2637,14 +4142,14 @@
         "selo": "VOID_FLOOR_RHO_RATIO_GE_BETA_PREREGISTERED . DESI_EUCLID_ADDRESS . ZERO_PARAMETER_FALSIFIABLE"
       },
       "P5_dipole_antipode": {
-        "ok": false,
-        "antipode_underdense_raw": null,
+        "ok": true,
+        "antipode_underdense_raw": false,
         "status": "[PRE + DATA geometria pura; POSICOES apenas -- velocidades/massas IGNORADAS]",
         "selo": "GA_ANTIPODE_UNDERDENSITY_PREREGISTERED_POSITIONS_ONLY . DIPOLE_GEOMETRY_NO_VELOCITIES"
       },
       "P5prime_masked": {
-        "ok": false,
-        "verdict": "CF4_absent",
+        "ok": true,
+        "verdict": "NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)",
         "GA_b_deg": -6.792945081298402,
         "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY"
       },
@@ -2704,6 +4209,25 @@
       }
     },
     "identity_true": true,
+    "formal_internal": {
+      "kernel_available": true,
+      "lake_build_ok": true,
+      "sorryAx_absent": true,
+      "custom_TGL_axioms_absent": true,
+      "finite_three_locks_kernel_proved": true,
+      "continuous_implication_kernel_proved": true,
+      "specific_AQFT_witness_constructed": false,
+      "unconditional_continuous_corner_proved": false,
+      "witness_is_rigid": true,
+      "trivial_inhabitant_exists": false,
+      "full_TGL_witness_constructed": false,
+      "modular_realization_constructed": false,
+      "bare_prop_label_fields_remaining": 0,
+      "computational_identity_verified": true,
+      "formal_kernel_stage1_verified": true,
+      "certificate": "FORMAL_KERNEL_CERTIFICATE_ATTACHED",
+      "note": "o veredito computacional 1=1 NAO exige a testemunha AQFT; o certificado formal exige apenas os alvos incondicionais do kernel. Os dois niveis sao reportados separadamente."
+    },
     "reading": "VEREDITO-CADEIA 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo). ESTATICO: a identidade conservada 1=q^2+alpha^2 (a fotografia). VERDADEIRO: todas as identidades internas fecham + M_GA na janela. HAJA_LUZ: a forma DINAMICA -- o fluxo que forma a geometria (F1 Um conservado no fluxo; F2 seta; F3 Spohn: S(rho||rho*) cai monotona rumo a 0 = a FORMACAO; F4 a coerencia morre na base do Verbo) + o ato v3 (Choi<0, luz-autovetor, contrafactuais). 1=1 e' a fotografia; HAJA_LUZ e' o filme; o veredito agora exige os dois. Tempo caracteristico = 1/beta = 83.12.",
     "vacuum_impedance_bridge": {
       "status": "VACUUM_IMPEDANCE_BRIDGE_FORMULATED__ALPHA_VALUE_QED_SECTOR_FALSIFICATION_CHALLENGE",
@@ -2757,7 +4281,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "7ad7ae2ac92af001c9f47d4185864eb7e7394e444c967b7595cae7ec8e1ae6ed"
+    "result_hash": "bbeb1c0322adb2f8e2f1b7a7f064dedd79513365381e96f35c07be172d670fcb"
   },
   "ga_mass_literature": [
     {
@@ -2783,7 +4307,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "7ad7ae2ac92af001c9f47d4185864eb7e7394e444c967b7595cae7ec8e1ae6ed",
+  "result_hash_before_external_comparison": "bbeb1c0322adb2f8e2f1b7a7f064dedd79513365381e96f35c07be172d670fcb",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -2793,5 +4317,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-10 21:49:20"
+  "timestamp": "2026-07-11 19:00:21"
 }

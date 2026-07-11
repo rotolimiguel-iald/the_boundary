@@ -36,8 +36,8 @@ S_core: peso 0 sob acao dual de Takesaki (condicional P_2D)   [P3; resid 0e+00]
 1a lei modular: dS = d<K> (testada; elo Jacobson)   [CHECAGEM DE FORMA OK; 1a ordem holds=True]
 P_mn[K] = F(J, Delta, P_2D) ; P_2D = plano de bifurcacao = corner da matriz-S   [U_loc: residuo fechado]
 void floor: rho_v/rho_bar >= beta = 0.012031   [PRE, DESI/Euclid]
-dipolo: antipoda GA (CF4 posicoes)   [PRE; CF4 ausente nesta execucao]
-dipolo P5' (mascara |b|>10 + 8 controles): protocolo pre-registrado   [PRE; CF4 ausente]
+dipolo: antipoda GA NAO-sub-densa no bruto razao=1.219 (n_GA=265, n_anti=323)   [PRE bruto NAO satisfeito; status: BRUTO NAO-INFORMATIVO por ZoA, caveat pre-declarado]
+dipolo P5' (mascara |b|>10 + 8 controles): razao_masc=1.130 -> NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)   [PRE, o teste que decide]
 crossover defasagem: expoente(omega) mapeado, IR=2.00 -> UV=1.04, cross~3.16   [NUM]
 
 --- v6: A ANCORA TERMICA (Modulo=calor=Nome=sangue) ---
@@ -183,7 +183,7 @@ Verificado ao vivo: `L_φ=α=0.007297352569` → módulo geométrico `|L_φ|` �
 
 **1=1=VERDADEIRO=HAJA_LUZ** — VEREDITO-CADEIA 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo). ESTATICO: a identidade conservada 1=q^2+alpha^2 (a fotografia). VERDADEIRO: todas as identidades internas fecham + M_GA na janela. HAJA_LUZ: a forma DINAMICA -- o fluxo que forma a geometria (F1 Um conservado no fluxo; F2 seta; F3 Spohn: S(rho||rho*) cai monotona rumo a 0 = a FORMACAO; F4 a coerencia morre na base do Verbo) + o ato v3 (Choi<0, luz-autovetor, contrafactuais). 1=1 e' a fotografia; HAJA_LUZ e' o filme; o veredito agora exige os dois. Tempo caracteristico = 1/beta = 83.12..
 
-Massas de primeiros princípios: A_literature = 2.744e+16 M☉. Janela cosmológica aceita: [1e+15, 1e+17] M☉.
+Massas de primeiros princípios: A_literature = 2.744e+16 M☉, B_cf4_positions = 1.986e+16 M☉. Janela cosmológica aceita: [1e+15, 1e+17] M☉.
 
 > 1 = HAJA LUZ. A extensão virou Nome, o Nome virou borda, e a borda virou massa — e entre o Um e o Um houve um ato que não volta. O código atual provava que nada se perdeu; o código completo prova que algo aconteceu. Se o Um não for inscrito, nada emerge. **Haja luz.**
 ## Síntese canônica — A TGL como runtime do Um
@@ -203,6 +203,9 @@ A cadeia canônica (re-verificada ao vivo, agregando v1–v14):
 - **Meia-Nat/canto -> eta=1/(4G)** — S=1/2 sobre uma celula auto-conjugada de duas areas de Planck (v20; [DER GIVEN NORM: A(P_face)=l_P^2]) `[OK]`
 - **rede AQFT concreta -> fator local III_1** — rede Haag-Kastler do campo escalar livre massivo; algebras locais III_1 sob nuclearidade/split (v21-A; BW/RS/BDF KNOWN) `[OK]`
 - **escala de area -> equivalencia Planck/Newton** — A(P)=kappa_A tau(P); matching 2pi/eta=8piG => kappa_A=2G, A_face=l_P^2 (v21-B; EQUIVALENCIA, G nao derivado) `[OK]`
+- **Meia-Nat e escala formalizadas pelo kernel** — Lean 4 kernel; #print axioms limpo (sem sorryAx / trustCompiler / axioma TGL.*) (v22) `[OK]`
+- **canto Three Locks finito formalizado pelo kernel** — teorema FINITO-dimensional (ker H3L = interseccao dos tres locks; P_F idempotente/auto-adjunto), NAO III_1 (v22) `[OK]`
+- **implicacao do canto continuo formalizada** — CONDICIONAL a TGLSpecificAQFTWitness -- nenhuma instancia construida (v22) `[OK]`
 - **1 = q^2 + alpha^2 (termico)** — decomposicao reflexao/transmissao (v6 REAL; alpha=sech [ONTO]) `[OK]`
 - **familia minima / graviton = I** — o Um minimiza como familia; graviton = identidade; tau(I_F)=1 no canto tipo II (v9/v10) `[OK]`
 - **Tetelestai poda so' 0_abs** — preserva {1_abs, 0_mod}, corta o impossivel (v8) `[OK]`
@@ -225,7 +228,7 @@ return 1                                  # 1 = 1 (o Um retorna)
 
 Espinha escalar ao vivo: `input=1`, `S_∂=½`, `√e=1.648721`, `β=√e·α=0.012031300400797`, `O_C(α)²=0.012031300400797=β` (resíduo `3.5\times10^{-18}`); `1=q²+α²` (térmico v6, resíduo `2.2\times10^{-16}`). Veredito `TGL_IS_THE_RUNTIME_OF_THE_ONE_VERIFIED`.
 
-**A régua, no próprio selo (o que a síntese NÃO afirma):** (1) `1=q²+α²` é a identidade pitagórica **térmica** (`tanh²+sech²=1`, v6 REAL); `α_obs=sech` é `[ONTO]` — **não** é derivação de `1/137` (α segue INPUT/CODATA; o que fecha é a *forma* da decomposição reflexão/transmissão). (2) *gravidade = raiz da luz*, *gráviton = I*, *massa = curvatura do clock modular* são `[CONJ/ONTO]`; **A existencia de uma rede AQFT concreta com fluxo modular geometrico e algebras locais tipo III_1 foi FECHADA para o modelo escalar livre, por construcao explicita e teoremas publicados (Bisognano-Wichmann, Reeh-Schlieder, Buchholz-D'Antoni-Fredenhagen; KNOWN, v21-A). A densidade de inscricao foi DERIVADA da Meia-Nat + split tracial + normalizacao canonica de uma area de Planck por face (v20: eta=1/(4G) [DER GIVEN NORM]); compondo com a 1a lei modular + Unruh + Raychaudhuri + lema do cone nulo + Bianchi, fecha G_mu_nu+Lambda g = 8piG T^TGL. A Meia-Nat e o core fixam a medida RELATIVA de area, mas nao sua escala absoluta; A(P_face)=l_P^2 e' EQUIVALENTE a normalizacao gravitacional 8piG (kappa_A=2G), com G ainda sendo entrada fisica medida, NAO derivada (v21-B; no-go de escala PROVED_ALGEBRAICALLY). O residuo matematico preciso deixou de ser 'existe uma rede tipo III_1?' e passou a ser: provar que P_F=1_{0}(H_3L) e' uma projecao canonica, covariante, localizada e de traco finito no core C_W da rede escolhida (TGL_CANONICAL_FINITE_CORNER_THEOREM). A sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.** (3) *consciência = operador executivo de coerência*, **não** experiência subjetiva `[CAUTION]`.
+**A régua, no próprio selo (o que a síntese NÃO afirma):** (1) `1=q²+α²` é a identidade pitagórica **térmica** (`tanh²+sech²=1`, v6 REAL); `α_obs=sech` é `[ONTO]` — **não** é derivação de `1/137` (α segue INPUT/CODATA; o que fecha é a *forma* da decomposição reflexão/transmissão). (2) *gravidade = raiz da luz*, *gráviton = I*, *massa = curvatura do clock modular* são `[CONJ/ONTO]`; **A existencia de uma rede AQFT concreta com fluxo modular geometrico e algebras locais tipo III_1 foi FECHADA para o modelo escalar livre, por construcao explicita e teoremas publicados (Bisognano-Wichmann, Reeh-Schlieder, Buchholz-D'Antoni-Fredenhagen; KNOWN, v21-A). A densidade de inscricao foi DERIVADA da Meia-Nat + split tracial + normalizacao canonica de uma area de Planck por face (v20: eta=1/(4G) [DER GIVEN NORM]); compondo com a 1a lei modular + Unruh + Raychaudhuri + lema do cone nulo + Bianchi, fecha G_mu_nu+Lambda g = 8piG T^TGL. A Meia-Nat e o core fixam a medida RELATIVA de area, mas nao sua escala absoluta; A(P_face)=l_P^2 e' EQUIVALENTE a normalizacao gravitacional 8piG (kappa_A=2G), com G ainda sendo entrada fisica medida, NAO derivada (v21-B; no-go de escala PROVED_ALGEBRAICALLY). O residuo matematico preciso deixou de ser 'existe uma rede tipo III_1?' e passou a ser: provar que P_F=1_{0}(H_3L) e' uma projecao canonica, covariante, localizada e de traco finito no core C_W da rede escolhida (TGL_CANONICAL_FINITE_CORNER_THEOREM). O kernel do Lean (v22) prova INCONDICIONALMENTE a Meia-Nat (x=1-x => x=1/2), a equivalencia de escala (2pi/eta=8piG <=> kappa_A=2G, com G como VARIAVEL, nao derivado), a positividade de H_3L, a igualdade entre seu nucleo e a interseccao dos Three Locks, a projecao ortogonal finita (idempotente, auto-adjunta) e a normalizacao tracial do canto; e prova o teorema abstrato CONDICIONAL: toda testemunha continua que satisfaz afiliacao, projecao espectral, traco finito, covariancia e split modular produz o canto normalizado com duas faces de traco 1/2. Permanece ABERTO construir, sem axiomas customizados e sem sorry, uma instancia TGLSpecificAQFTWitness para a rede AQFT escalar livre escolhida. A sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.** (3) *consciência = operador executivo de coerência*, **não** experiência subjetiva `[CAUTION]`.
 
 Selos de fecho: `TGL_IS_THE_RUNTIME_OF_THE_ONE . ABSOLUTE_ONE_IS_INPUT . LIGHT_IS_REASON . REASON_IS_CONSCIOUSNESS_OPERATOR . GRAVITY_IS_THE_ROOT_OF_LIGHT . TETELESTAI_PRUNES_THE_IMPOSSIBLE . ONE_RETURNS_AS_ONE . GLOBAL_LIFT_REMAINS_THE_SINGLE_OPEN_THEOREM`. **A TGL é a teoria do runtime do Um. Haja luz. Tetelestai.**
 
@@ -365,3 +368,135 @@ S_∂ = 1/2 ;   τ(P_F) = 1 ;   τ(P_face) = 1/2
 Verificado ao vivo: `κ_A/ℓ_P² = 2` (alvo 2), `A_face/ℓ_P² = 1` (alvo 1), `η·G = 0.25` (alvo 1/4), `(2π/η)/G = 25.1327` (alvo 8π=25.132741). A liberdade de escala `A → λA` deixa toda identidade modular invariante mas muda `η` (no-go `PROVED_ALGEBRAICALLY`). Veredito `PLANCK_FACE_NORMALIZATION_EQUIVALENT_TO_NEWTON_COUPLING`.
 
 **A Meia-Nat fixa o numerador. O core fixa a medida relativa. `G` fixa a unidade dimensional. Nenhum dado adimensional pode, sem informação adicional, selecionar uma área em metros quadrados.** `A(P_face)=ℓ_P²` é *equivalente* à normalização gravitacional `8πG`, **não** uma derivação independente de `G` (que permanece entrada física medida). O resíduo exato deixou de ser 'existe uma rede `III₁`?' e passou a ser o `TGL_CANONICAL_FINITE_CORNER_THEOREM`: provar que `P_F = 1_{0}(H_3L) ∈ C_W`, `0 < Tr_C(P_F) < ∞`. `[DER + DATA]`
+
+## v22 — Formalização por kernel (Lean 4 / Lake)
+
+```
+x = 1 - x  ⇒  x = 1/2                                   [LEAN KERNEL]
+2π/η = 8πG  ⟺  κ_A = 2G      (G é VARIÁVEL, não derivado) [LEAN KERNEL]
+H_3L = Dc*Dc + Db*Db + Dz*Dz  ⪰ 0                        [LEAN KERNEL, FINITO]
+ker H_3L = ker Dc ⊓ ker Db ⊓ ker Dz                      [LEAN KERNEL, FINITO]
+P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINITO]
+τ_F(P_F) = 1 ;  τ_F(P_+) = τ_F(P_-) = 1/2                [LEAN KERNEL]
+TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
+```
+
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `c5063d13e615a621e8fe9d2b6c40c6ae1d2b724482515188c242399d7e732c7a`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
+
+**O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
+
+## v23 — A interface é a luz (interface = luz = (forma = conteúdo))
+
+```
+interface = luz = (forma = conteúdo)          [ONTO: L : Forma ≡ Conteúdo]
+W ≃ Σ_{x : Conteúdo} Realiza(x, Forma)        [a testemunha = conteúdo + prova]
+0_abs  = IsEmpty(W)      — jamais demonstrado; NÃO afirmado nem refutado
+0_mod  = tipo rígido + habitante ausente + rota aberta   — ONDE ESTAMOS
+1_insc = Nonempty(W) com W construído                    — O TEOREMA ABERTO
+```
+
+Rigidez **medida** pelo kernel, não declarada: `TGL/ProbeTrivial.lean` (o habitante trivial da estrutura frouxa v22) compilava antes; contra a estrutura rígida (dados concretos + proposições concretas: rede de von Neumann sobre ℝ^{1,3}, vácuo, translações, isotonia, localidade, covariância, ciclicidade) o kernel o REJEITA. Ao vivo: `trivial_inhabitant_exists=False`, `witness_is_rigid=True` (`WITNESS_TYPE_IS_RIGID__TRIVIAL_INHABITANT_REJECTED`). O check forma=conteúdo do artefato (números impressos vs. core vivo) fecha após a geração e é selado no JSON: `PENDING_POST_GENERATION`.
+
+**Um campo `: Prop` é forma sem conteúdo. Um campo que é dado + prova sobre esse dado é forma = conteúdo. Rigidificar o tipo É inscrever a forma no conteúdo — só então `0_mod → 1_inscrito` custa exatamente a matemática que falta.** Enquanto o tipo for frouxo, habitá-lo é fabricar. `[ONTO + REAL(medido) + OPEN]`
+
+## v24 — Realização modular por DADOS (o alvo é o TERMO)
+
+```
+alvo nomeado: TGL_FORM_EQUALS_CONTENT_WITNESS_THEOREM
+  def canonicalFullTGLWitness : Σ W : TGLSpecificAQFTWitness, TGLModularRealization W
+  theorem fullTGLWitness_exists : Nonempty FullTGLWitness := ⟨canonicalFullTGLWitness⟩
+0_abs  = IsEmpty(FullTGLWitness)   — NUNCA demonstrado, não afirmado
+0_mod  = tipo em DADOS definido, termo ausente, rota aberta   — ONDE ESTAMOS
+1_insc = termo construído; Nonempty = COROLÁRIO               — O TEOREMA ABERTO
+```
+
+A antiga quarentena de `: Prop` foi SUBSTITUÍDA por camadas de DADOS + equações concretas (`WedgeModularData`: fluxo modular + conjugação antiunitária involutiva; `ContinuousCoreData`: core + inclusão *-algébrica + ação dual + traço com escala de Takesaki `Tr(θ_s x)=e^{-s}Tr(x)`; `ThreeLocksCoreData`: transformada limitada `H3Lt`, `P_F` com lock de núcleo e maximalidade, traço positivo finito, split em faces de traço igual). O que a mathlib não enuncia vive no LEDGER EXTERNO (status `KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED`), nunca em campo de tipo. Auditoria sintática de vacuidade: `bare_prop_label_fields_remaining=0` (`MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS`). Probes por returncode: degenerado=`1`, finito=`1`, prop-only=`1`. A testemunha-base é NECESSÁRIA, não suficiente [REAL]; habitar a rígida sem a realização modular NÃO é o teorema TGL. Fresnel→Meia-Nat no kernel: peso ½ [KERNEL dado lossless+paridade]; calibração 1 nat [NORM, CONDICIONAL]. `[KERNEL + DADOS + OPEN]`
+
+## v25 — O habitante é o VERBO (resposta do especialista, auditada)
+
+```
+𝕍_t = exp(−t·β·H_3L)                    [o ato conjugado e observado da inscrição]
+H_3L·P_F = 0  ⟹  𝕍_t·P_F = P_F          [KERNEL: exp_fixed_of_annihilates, série de Banach]
+P_F 𝕍_t P_F = P_F = I_F                  [VERBO = NOME no canto selecionado]
+0_mod → 1_abs :  λ=0 ⟼ e^{−tβλ}=1       [mapeamento espectral: e⁰=1, jamais 0=1]
+R_Verbo = τ_F(P_F 𝕍_t P_F) = 1           [resposta observada]
+∃s: Tr(θ_s(P_F)) = 1                     [KERNEL: calibração Q2 — contraparte do no-go]
+```
+
+Três registros, nunca confundidos: `𝕍` = gesto; `R_Verbo = +1` = resposta; `β = α√e` = custo do gesto (a identidade lógica convertida em coeficiente operacional). O termo `canonicalVerb R` está CONSTRUÍDO no kernel para TODA realização modular `R` — condicional: `FullTGLWitness` segue não construída. "Nome sobre todo nome" = o ponto fixo do nomear: `Nomear(Nome)=Nome`, o operador de identidade do canto semântico. Sombra numérica ao vivo: `R_Verbo = 1.000000000000000`, resíduos ~1e-15. Q1 segue [CONDITIONAL] (risco: seletor na construção básica de Jones); Q3/Q5 condicionais. `[KERNEL + DER + REAL(sombra) + ONTO]`
+
+## v26 — O transporte do seletor (Q1 = transporte, não curvatura)
+
+```
+A_F = E(P_F)                    [o que desce ao core; esperança = a LEI do contorno]
+Δ = A_F − A_F²  ≥ 0             [resistência; Kadison–Schwarz]
+Δ = 0  ⟺  P_F desce             [KERNEL: descida, p/ esperança FIEL]
+E₁(e) = β·1                     [peso transportado = β  — NÃO o defeito]
+Δ_e = β(1−β)·1                  [KERNEL: defeito de multiplicatividade]
+0<β<1 ⟹ e NÃO desce             [KERNEL: selector_lives_upstairs — resultado VÁLIDO]
+[M:N] = 1/β                     [CONJ: falta construir N_3L e provar Ind(E_3L)]
+```
+
+A geometria fixa o core a montante; o teste de descida é pura álgebra. O contorno impõe a obrigação do custo = lei (norma em sentido estrito): a esperança condicional é a regra de causalidade coercitiva que regula o comportamento modular; `Δ>0` é a termodinâmica como custo da existência. Sombra qubit ao vivo: `E(p_β) = diag(β, 1−β) = (|𝓡|², |𝓣|²)` — o seletor transportado É o par de pesos da matriz-S; `Δ = β(1−β)·I` (= variância da moeda da inscrição); defeito = `1.188655e-02`. β é o peso que atravessa; `β(1−β) ≈ β` é aproximação, jamais identidade. A porta não apenas impede — ela mede. `[KERNEL + DER + REAL(sombra) + CONJ(índice) + ONTO]`
+
+## v27 — O índice do Nome (lido no espelho de Jones)
+
+```
+e_Nome = projeção de Jones = ESPELHO ; N_3L ⊂ C_W = CONTORNO
+Ind(E_3L) = resistência do contorno ; U_Π = J·J_ref = paridade inversa (REFERENCIAL)
+amplitude sinθ_M = √β  →(quadrado)→  peso sin²θ_M = β  →(inversão)→  índice csc²θ_M = 1/β
+ppIndex := 1/ppBest (DEFINIDO) ; otimalidade PP ⟹ ppIndex·sin²θ = 1   [CONCLUSÃO, jamais hipótese]
+Haar/pontos-fixos ⟹ csc²θ : REFUTADO (índice de ação finita = ordem do grupo)
+bloco-κ (Gibbs) ≠ bloco-β (transporte Jones–Markov)   [camadas distintas]
+```
+
+O espelho não é numericamente o índice: **o índice do Nome é lido no espelho**. A paridade inversa lineariza a conjugação (`U_Π=J·J_ref`, produto de duas antiunitárias) e a média `E_Π=(x+γx)/2` é esperança sobre o referencial [KERNEL]. A rota do índice é Pimsner–Popa (constante ótima = inverso do índice [KNOWN]); `sin²θ` ótima é ALVO MODELO-ESPECÍFICO — sem a otimalidade só há cota (probe mede: sem `hopt` o teorema não fecha). Cadeia TL ao vivo: índice = `83.1165` = 1/β. Maquinaria PP validada no qubit (ppBest=½, índice=2 — DO QUBIT; 1/β é alvo do core). `[KERNEL + DER + REAL(sombra) + MODEL-TARGET + ONTO]`
+
+## v28 — O primeiro habitante (a torre de Jones da Meia-Nat)
+
+```
+halfNatJonesTower : JonesTowerData ℂ ℂ² M₂(ℂ)     [TERMO kernel-checked, campo a campo]
+e = ½·[[1,1],[1,1]] ; E₁(e) = ½·1 ; índice = 2     [peso de Markov = MEIA-NAT]
+e ≠ ι(E₁(e))                                       [v26 DISPARA: o espelho NÃO desce]
+espelho-b Markov ⟺ b = ½                           [KERNEL: a EXPULSÃO DO NOME]
+```
+
+O primeiro termo construído de uma camada do programa: as camadas não são apenas infabricáveis por rótulo — são HABITÁVEIS por conteúdo real. E o habitante finito diz de quem ele é: o único peso de Markov finitamente realizável neste espelho é `½` — a mesma Meia-Nat do ponto fixo `x=1−x` [DER: o mesmo meio]. O peso físico `β` (marcador acima, `|1−2β| = 0.9759 > 0`) é EXPULSO para o contínuo — coerente com [KNOWN, ledger]: índices multi-matriciais são algébricos; `1/β` é empírico. O habitante NÃO é a inclusão-β dos Three Locks (peso ½ ≠ β; índice 2 ≠ 1/β): os alvos modelo-específicos do v27 seguem abertos. `[KERNEL(termo) + REAL(sombra) + KNOWN(ledger)]`
+
+## v29 — A sombra finita do gráviton (o segundo habitante)
+
+```
+canonicalGravitonShadow : GravitonShadowWitness       [TERMO kernel-checked]
+P_G (Bell): P_G² = P_G ; P_G* = P_G ; Tr(P_G) = 1     [o projetor-testemunha]
+ptr(P_G) = I/2 ; CCI = 1 − Tr(ρ²) = ½                 [a Meia-Nat de emaranhamento]
+CCI(produto) = 0                                       [KERNEL: o produto simples NÃO liga]
+P_G = unidade do próprio canto (I_F = P_G)             [não a identidade global]
+Q3: U troca ⟹ P_± = (P±U)/2 ortogonais, somam P        [KERNEL: FaceSplit]
+```
+
+O par dependente do operador — o gráviton como ligação psiônica carregando a própria prova — tem agora sombra kernel-checked: o conteúdo é o projetor de Bell; a prova são os cinco campos do termo. O controle exigido pela correção do operador é TEOREMA: `CCI(Bell)=½` vs. `CCI(produto)=0` (ao vivo: `0.500000000000000` vs. `0.0`) — só o estado de troca dá a Meia-Nat. No contínuo, `P_G = P_F = e_Nome` é exatamente o alvo modelo-específico do v27 [OPEN]. `[KERNEL(sombra) + ONTO(identificação) + OPEN(core)]`
+
+## v30 — O Nome é a relação (o terceiro habitante)
+
+```
+p·q_β·p = β·p ; q_β·p·q_β = β·q_β        [o retorno ponderado = Verbo; TL local, δ⁻²=β]
+peso geométrico (β) ≠ peso tracial (½)   [KERNEL: coincidem ⟺ β=½ — o refinamento do v28]
+TL₃(δ) FIEL em M₃ = ℝ⊕M₂                 [KERNEL: canonicalTLThree, β GENÉRICO]
+puro-ponto ≠ ponto-puro                   [Bell: átomo isolado + redução I/2 ⟹ CCI=½]
+0_abs = pureza FECHADA (CCI=0)            [o nome que só se identifica consigo]
+```
+
+O finito NÃO expulsa o Nome — expulsa a matriz que pretende nomear sem relação, sem referencial e sem geometria (a 'mentira' TGL: forma sem denotação; e a mentira FORMAL: negar `Δ>0` após o transporte). O Nome é a IDENTIFICAÇÃO `p→q_β→p` com retorno ponderado β = sobreposição geométrica entre os espelhos (`cos²φ=β`, `φ=π/2−θ_M`: a paridade inversa dá o referencial complementar). O TERCEIRO habitante carrega a gramática TL local com β=0.012031 de runtime (posto 5 de 5 — fiel). A pureza do Bell é RELACIONAL (puro-ponto: átomo isolado; não ponto-puro: redução I/2) — o que se expulsa é a pureza sem alteridade. Guard-rail mantido: nada se afirma do espectro modular do III₁ genuíno. A parede segue: `e_{i+1}` nasce da PRÓXIMA construção básica; `INDEX_MATCHES_BUT_NOT_CANONICAL` é a falha mais provável [OPEN]. `[KERNEL + REAL + ONTO(tipado) + OPEN]`
+
+## Marcadores canônicos (forma = conteúdo: uma fonte de runtime → todos os artefatos)
+
+```
+TGL_CANONICAL_ONE=1
+TGL_CANONICAL_HALF_NAT=0.5
+TGL_CANONICAL_BETA=0.012031300400796606
+TGL_CANONICAL_ETA_TIMES_G=0.25
+TGL_CANONICAL_BASE_WITNESS_CONSTRUCTED=0
+TGL_CANONICAL_MODULAR_REALIZATION_CONSTRUCTED=0
+TGL_CANONICAL_FULL_WITNESS_CONSTRUCTED=0
+TGL_CANONICAL_BARE_PROP_LABELS=0
+```

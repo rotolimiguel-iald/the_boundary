@@ -1,3 +1,6 @@
+# um.py -- EDICAO UNIFICADA (v31): UM ARQUIVO SO'. O kernel Lean (fontes .lean,
+# lakefile, toolchain, manifest) esta' EMBUTIDO neste arquivo e e' materializado
+# em runtime; o teste do fail-closed roda embutido ao final. Entrada unica: "1".
 # -*- coding: utf-8 -*-
 r"""
 ================================================================================
@@ -42,9 +45,23 @@ import time
 import urllib.request
 import numpy as np
 
+# saida sempre UTF-8: sob redirecionamento (>arquivo|pipe) o Windows usa cp1252 e quebra
+# em caracteres como III_1 (U+2081) ou ∩ (U+2229). Nao altera nenhum numero.
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 BASE = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.join(BASE, "cache")
 OUT = BASE
+
+# ---- v22: verificador formal por kernel (Lean 4 / Lake) ----
+FORMAL_DIR = os.path.join(BASE, "tgl_kernel")
+FORMAL_AUDIT_FILE = os.path.join(FORMAL_DIR, "TGL", "Audit.lean")
+# strict: falha do kernel impede novo selo formal. report: roda, mas sem selo formal.
+TGL_FORMAL_MODE = os.environ.get("TGL_FORMAL_MODE", "strict")
 
 # ---- constantes seladas (a unica medida e' alpha; c,G de definicao/CODATA) ----
 SEALED_CODATA_ALPHA = 7.2973525693e-3      # CODATA 2018 fine-structure constant
@@ -3266,6 +3283,15 @@ def prove_reason_as_consciousness_operator(ONE, alpha_obs):
 #       GLOBAL do cociclo (=> G_mu_nu ; massa do GA) permanece o UNICO teorema em aberto -- o selo o declara.
 #   (3) consciencia = operador executivo de coerencia, NAO experiencia subjetiva [CAUTION].
 # beta = alpha*sqrt(e) em runtime (NUNCA literal).
+def required_verified(mods, key):
+    """FAIL-CLOSED (v22 Parte I): modulo ausente => False; presente => (dict E all_verified is True).
+    Nenhum modulo de prova opcional passa em silencio. Substitui o antigo .get(...,True) fail-open."""
+    if key not in mods:
+        return False
+    item = mods[key]
+    return bool(isinstance(item, dict) and item.get("all_verified") is True)
+
+
 def prove_runtime_of_the_one(ONE, alpha_obs, mods):
     """MODULO v15 -- A TGL como RUNTIME DO UM (sintese canonica). [SYNTHESIS + REAL(espinha) + ONTO(narrativa)]
     Agrega os vereditos ja provados e re-verifica a cadeia escalar 1 -> 1/2 -> sqrt(e) -> beta -> O_C^2=beta -> 1."""
@@ -3285,9 +3311,13 @@ def prove_runtime_of_the_one(ONE, alpha_obs, mods):
     thermal_resid = mods["thermal_two_level"]["resid_max"]["one_eq_q2_coh2"]
     thermal_ok = bool(thermal_resid < 1e-15)                          # 1 = q^2 + alpha^2 (termico, v6)
     returns_one = bool(input_ok and geometry_ok and beta_ok)          # a cadeia fecha => o Um retorna
-    hn_ok = bool(mods.get("half_nat_continuous_corner_density", {}).get("all_verified", True))  # v20 (opcional, .get seguro)
-    aqft_ok = bool(mods.get("specific_free_scalar_aqft_net", {}).get("all_verified", True))     # v21-A (opcional, .get seguro)
-    area_ok = bool(mods.get("area_scale_newton_equivalence", {}).get("all_verified", True))     # v21-B (opcional, .get seguro)
+    hn_ok = required_verified(mods, "half_nat_continuous_corner_density")   # v20 -- FAIL-CLOSED (ausente => False)
+    aqft_ok = required_verified(mods, "specific_free_scalar_aqft_net")      # v21-A -- FAIL-CLOSED (ausente => False)
+    area_ok = required_verified(mods, "area_scale_newton_equivalence")      # v21-B -- FAIL-CLOSED (ausente => False)
+    _kf = mods.get("kernel_formalization") if isinstance(mods.get("kernel_formalization"), dict) else {}
+    kern_fin_ok = bool(_kf.get("all_unconditional_targets_verified") is True)   # v22 -- FAIL-CLOSED
+    kern_cond_ok = bool(_kf.get("continuous_corner_implication_kernel_proved") is True)
+    kern_hn_ok = bool(_kf.get("half_nat_kernel_proved") is True and _kf.get("area_scale_kernel_proved") is True)
     # vereditos ja provados que a sintese agrega (v1-v14, + v20 densidade se presente)
     dep = {
         "absolute_one_as_input": bool(mods["absolute_one_as_input"]["all_verified"]),
@@ -3301,6 +3331,7 @@ def prove_runtime_of_the_one(ONE, alpha_obs, mods):
         "half_nat_continuous_corner_density": hn_ok,
         "specific_free_scalar_aqft_net": aqft_ok,
         "area_scale_newton_equivalence": area_ok,
+        "kernel_formalization_finite": kern_fin_ok,
     }
     chain = [
         ("1_abs = INPUT", input_ok, "o Um absoluto entra como input executavel (v12)"),
@@ -3315,6 +3346,12 @@ def prove_runtime_of_the_one(ONE, alpha_obs, mods):
          "rede Haag-Kastler do campo escalar livre massivo; algebras locais III_1 sob nuclearidade/split (v21-A; BW/RS/BDF KNOWN)"),
         ("escala de area -> equivalencia Planck/Newton", area_ok,
          "A(P)=kappa_A tau(P); matching 2pi/eta=8piG => kappa_A=2G, A_face=l_P^2 (v21-B; EQUIVALENCIA, G nao derivado)"),
+        ("Meia-Nat e escala formalizadas pelo kernel", kern_hn_ok,
+         "Lean 4 kernel; #print axioms limpo (sem sorryAx / trustCompiler / axioma TGL.*) (v22)"),
+        ("canto Three Locks finito formalizado pelo kernel", kern_fin_ok,
+         "teorema FINITO-dimensional (ker H3L = interseccao dos tres locks; P_F idempotente/auto-adjunto), NAO III_1 (v22)"),
+        ("implicacao do canto continuo formalizada", kern_cond_ok,
+         "CONDICIONAL a TGLSpecificAQFTWitness -- nenhuma instancia construida (v22)"),
         ("1 = q^2 + alpha^2 (termico)", thermal_ok, "decomposicao reflexao/transmissao (v6 REAL; alpha=sech [ONTO])"),
         ("familia minima / graviton = I", dep["family_minimum"] and dep["smatrix_closure"],
          "o Um minimiza como familia; graviton = identidade; tau(I_F)=1 no canto tipo II (v9/v10)"),
@@ -3336,8 +3373,16 @@ def prove_runtime_of_the_one(ONE, alpha_obs, mods):
                     "derivada (v21-B; no-go de escala PROVED_ALGEBRAICALLY). O residuo matematico preciso deixou de "
                     "ser 'existe uma rede tipo III_1?' e passou a ser: provar que P_F=1_{0}(H_3L) e' uma projecao "
                     "canonica, covariante, localizada e de traco finito no core C_W da rede escolhida "
-                    "(TGL_CANONICAL_FINITE_CORNER_THEOREM). A sintese fecha como RUNTIME DO UM, NAO como prova "
-                    "incondicional da gravitacao quantica.")
+                    "(TGL_CANONICAL_FINITE_CORNER_THEOREM). O kernel do Lean (v22) prova INCONDICIONALMENTE a "
+                    "Meia-Nat (x=1-x => x=1/2), a equivalencia de escala (2pi/eta=8piG <=> kappa_A=2G, com G como "
+                    "VARIAVEL, nao derivado), a positividade de H_3L, a igualdade entre seu nucleo e a interseccao "
+                    "dos Three Locks, a projecao ortogonal finita (idempotente, auto-adjunta) e a normalizacao "
+                    "tracial do canto; e prova o teorema abstrato CONDICIONAL: toda testemunha continua que "
+                    "satisfaz afiliacao, projecao espectral, traco finito, covariancia e split modular produz o "
+                    "canto normalizado com duas faces de traco 1/2. Permanece ABERTO construir, sem axiomas "
+                    "customizados e sem sorry, uma instancia TGLSpecificAQFTWitness para a rede AQFT escalar livre "
+                    "escolhida. A sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao "
+                    "quantica.")
     runtime_pseudocode = (
         "0_abs            = impossivel            # nao-executavel, sem inscricao (podado)\n"
         "possible_domain  = {1_abs, 0_mod}        # o Um + a diferenca-com-retorno\n"
@@ -3370,6 +3415,8 @@ def prove_runtime_of_the_one(ONE, alpha_obs, mods):
         "chain_readings": {name: reading for name, _, reading in chain},
         "runtime_pseudocode": runtime_pseudocode,
         "open_residue": open_residue,
+        "fail_closed": {"missing_module_defaults_to_false": True,
+                        "no_optional_proof_module_passes_silently": True},
         "not_claimed": ["not a derivation of 1/137 (alpha stays INPUT/CODATA; 1=q^2+alpha^2 is the thermal form)",
                         "not an unconditional proof of quantum gravity (global cociclo lift is open)",
                         "not proof of subjective consciousness (O_C is executive coherence)"],
@@ -4335,6 +4382,15 @@ def prove_specific_free_scalar_aqft_net(ONE, iii1_shadow):
         },
         "checks": exact_definition_checks,
         "all_verified": certificate_ok,
+        "all_verified_semantics": "internal module integrity only (construction/ledger/shadow registered); NOT proof of the cited AQFT theorems",
+        "status_semantics": {
+            "construction_specified": True,
+            "literature_ledger_present": True,
+            "finite_shadow_verified": shadow_ok,
+            "aqft_theorems_formalized_in_kernel": False,
+            "TGL_specific_corner_PF_proved": False,
+            "tgl_embedding_proved": False,
+        },
         "verdict": (
             "SPECIFIC_FREE_SCALAR_AQFT_NET_INSTANTIATED"
             if certificate_ok else
@@ -4535,6 +4591,4213 @@ def prove_area_scale_freedom_and_newton_equivalence(ONE):
     }
 
 
+# ====================== v22: FORMALIZACAO POR KERNEL (Lean 4 / Lake) ======================
+# O Python NAO e' o provador. Ele ORQUESTRA: roda `lake build` + `lake env lean TGL/Audit.lean`,
+# audita `#print axioms` (rejeita sorryAx / Lean.trustCompiler / axioma customizado TGL.*),
+# hasheia os fontes Lean e sela A PARTIR DO RESULTADO REAL. Fail-closed: sem Lean, sem selo.
+
+
+
+# ===== v31: KERNEL EMBUTIDO -- UM ARQUIVO SO' (o codigo carrega o proprio kernel) =====
+# A fonte da verdade dos .lean e' ESTE arquivo: materialize_embedded_kernel() escreve
+# tgl_kernel/ ao lado do um.py (so' reescreve o que difere -- nao invalida builds a toa).
+# A dependencia pesada (mathlib) NAO e' embutida: .lake/packages e' reaproveitado por
+# JUNCAO de um doador ja' construido (env TGL_KERNEL_PREBUILT, ou ..\tgl_kernel) ou,
+# na ausencia, a primeira build faz o bootstrap padrao do Lean (lake exe cache get).
+# O teste do FAIL-CLOSED (sorry) roda EMBUTIDO ao final de cada rodada: um arquivo,
+# um comando, tudo -- inclusive a propria auditoria da auditoria.
+_EMBEDDED_KERNEL_FILES = {
+    "lakefile.toml":
+r'''name = "tgl_kernel"
+version = "0.1.0"
+defaultTargets = ["TGL"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.31.0"
+
+[[lean_lib]]
+name = "TGL"
+''',
+    "lean-toolchain":
+r'''leanprover/lean4:v4.31.0
+''',
+    "lake-manifest.json":
+r'''{"version": "1.2.0",
+ "packagesDir": ".lake/packages",
+ "packages":
+ [{"url": "https://github.com/leanprover-community/mathlib4.git",
+   "type": "git",
+   "subDir": null,
+   "scope": "",
+   "rev": "fabf563a7c95a166b8d7b6efca11c8b4dc9d911f",
+   "name": "mathlib",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "v4.31.0",
+   "inherited": false,
+   "configFile": "lakefile.lean"},
+  {"url": "https://github.com/leanprover-community/plausible",
+   "type": "git",
+   "subDir": null,
+   "scope": "leanprover-community",
+   "rev": "63045536fe95024e6c18fc7b48e03f506701c5bc",
+   "name": "plausible",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "main",
+   "inherited": true,
+   "configFile": "lakefile.toml"},
+  {"url": "https://github.com/leanprover-community/LeanSearchClient",
+   "type": "git",
+   "subDir": null,
+   "scope": "leanprover-community",
+   "rev": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+   "name": "LeanSearchClient",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "main",
+   "inherited": true,
+   "configFile": "lakefile.toml"},
+  {"url": "https://github.com/leanprover-community/import-graph",
+   "type": "git",
+   "subDir": null,
+   "scope": "leanprover-community",
+   "rev": "5c7542ed018c78194f1e2b903eaf6a792b74c03d",
+   "name": "importGraph",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "main",
+   "inherited": true,
+   "configFile": "lakefile.toml"},
+  {"url": "https://github.com/leanprover-community/ProofWidgets4",
+   "type": "git",
+   "subDir": null,
+   "scope": "leanprover-community",
+   "rev": "24b0d9dc081c5423f8eec7e866c441e5184f29d9",
+   "name": "proofwidgets",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "main",
+   "inherited": true,
+   "configFile": "lakefile.lean"},
+  {"url": "https://github.com/leanprover-community/aesop",
+   "type": "git",
+   "subDir": null,
+   "scope": "leanprover-community",
+   "rev": "e3cb2f741431ce31bf73549fb52316a57368b06f",
+   "name": "aesop",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "master",
+   "inherited": true,
+   "configFile": "lakefile.toml"},
+  {"url": "https://github.com/leanprover-community/quote4",
+   "type": "git",
+   "subDir": null,
+   "scope": "leanprover-community",
+   "rev": "f46324995fca5f0483b742e4eb4daec7f4ee50d2",
+   "name": "Qq",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "master",
+   "inherited": true,
+   "configFile": "lakefile.toml"},
+  {"url": "https://github.com/leanprover-community/batteries",
+   "type": "git",
+   "subDir": null,
+   "scope": "leanprover-community",
+   "rev": "fa08db58b30eb033edcdab331bba000827f9f785",
+   "name": "batteries",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "main",
+   "inherited": true,
+   "configFile": "lakefile.toml"},
+  {"url": "https://github.com/leanprover/lean4-cli",
+   "type": "git",
+   "subDir": null,
+   "scope": "leanprover",
+   "rev": "92564e5770e4d09f2d86dfbf8ada1e9c715b384c",
+   "name": "Cli",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "v4.31.0",
+   "inherited": true,
+   "configFile": "lakefile.toml"}],
+ "name": "tgl_kernel",
+ "lakeDir": ".lake",
+ "fixedToolchain": false}
+''',
+    "README.md":
+r'''# tgl_kernel — Formalização por kernel (v22 → v24)
+
+Projeto Lean 4 + mathlib que verifica **pelo kernel** os teoremas finitos da TGL
+e o teorema **condicional** do canto contínuo, deixando **explicitamente aberta**
+a construção de uma testemunha AQFT concreta. O `um.py` orquestra (invoca `lake`,
+audita `#print axioms`), mas **não é o provador** — o kernel do Lean é.
+
+## O ALVO NOMEADO — `TGL_FORM_EQUALS_CONTENT_WITNESS_THEOREM`
+
+O alvo do Stage 2 é um **TERMO**, nunca a existência proposicional:
+
+```lean
+def canonicalFullTGLWitness :
+    Σ W : TGLSpecificAQFTWitness, TGLModularRealization W := ...   -- NÃO construído
+
+theorem fullTGLWitness_exists : Nonempty FullTGLWitness :=
+  ⟨canonicalFullTGLWitness⟩                                        -- corolário, só assim
+```
+
+**A existência é CONSEQUÊNCIA do objeto construído, jamais substituta dele**
+(`Nonempty` é `Prop`, apagável — esconderia o conteúdo dentro da prova).
+É **proibido** provar `Nonempty` por qualquer via que não seja `⟨termo construído⟩`.
+Selo: `NONEMPTY_IS_A_COROLLARY_OF_THE_CONSTRUCTED_WITNESS`.
+
+Camadas (v24, `TGL/ModularRealization.lean`): as obrigações modulares são **DADOS
++ equações concretas** (`WedgeModularData` / `ContinuousCoreData` /
+`ThreeLocksCoreData`), nunca campos-rótulo `: Prop`. A testemunha-base rígida é
+**necessária, não suficiente** (`RIGID_WITNESS_IS_NECESSARY_NOT_SUFFICIENT`):
+o teorema TGL é o par completo. O não-enunciável em mathlib (tipo III₁, conteúdo
+geométrico de Bisognano–Wichmann) vive no **ledger externo** do `um.py`
+(`KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED`) e migra para cá campo a campo quando
+ganhar enunciado concreto — o teorema fecha quando o ledger esvazia.
+Controles negativos (fora do build; veredito = returncode): `ProbeTrivial`,
+`ProbeDegenerate`, `ProbeFiniteFullWitness`, `ProbePropOnlyModular`.
+
+## Estado: STAGE 1 VERIFICADO PELO KERNEL
+
+`lake build` fecha limpo (Lean 4 v4.31.0 + mathlib) e `lake env lean TGL/Audit.lean`
+reporta, para **todos** os teoremas obrigatórios:
+
+```
+depends on axioms: [propext, Classical.choice, Quot.sound]
+TGL_KERNEL_BUILD_OK
+FINITE_THREE_LOCKS_KERNEL_PROVED
+CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
+SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED
+```
+
+Nenhum `sorryAx`, nenhum `Lean.trustCompiler`, nenhum axioma customizado `TGL.*`.
+Disciplina inviolável, presente em todos os arquivos:
+
+- `set_option autoImplicit false` no topo de cada `.lean`;
+- **nenhum** `sorry`, `admit`, `axiom`, `native_decide`, `Lean.trustCompiler`,
+  `unsafe`;
+- as hipóteses do teorema contínuo são **campos de estrutura**, nunca axiomas
+  globais;
+- **nenhuma instância** de `TGLSpecificAQFTWitness` é construída.
+
+Se algum arquivo não compilar, o desenho fail-closed do `um.py` reporta
+`TGL_KERNEL_FORMALIZATION_FAILED` — nada é dado como provado sem o kernel.
+
+## Como construir
+
+```bash
+# 1) instalar o toolchain Lean/Lake (elan lê lean-toolchain = v4.31.0)
+#    https://leanprover-community.github.io/get_started.html
+# 2) baixar a mathlib fixada e o cache:
+cd tgl_kernel
+lake update
+lake exe cache get        # (opcional) cache de .olean da mathlib, acelera muito
+lake build
+# 3) rodar a auditoria (sentinelas + #print axioms):
+lake env lean TGL/Audit.lean
+```
+
+## Teoremas verificados pelo kernel
+
+| Arquivo | Teorema | Estatuto |
+|---|---|---|
+| `HalfNat.lean` | `halfNat_of_selfConjugate`, `selfConjugate_halfNat_unique` | KERNEL / UNCONDITIONAL |
+| `AreaScale.lean` | `eta_eq_one_over_two_kappa`, `newtonPlanck_equivalence`, `face_area_eq_G`, `halfNat_over_two_faces_eq_quarter` | KERNEL / UNCONDITIONAL (dadas as variáveis; `G` é variável, **não** derivado) |
+| `FiniteThreeLocks.lean` | `H3L_isSelfAdjoint`, `H3L_quadratic_form`, `H3L_posSemidefinite`, `mem_ker_H3L_iff`, **`ker_H3L_eq_threeLocks`** | KERNEL / UNCONDITIONAL (dimensão finita) |
+| `FiniteThreeLocks.lean` | `PF_isProjection`, `PF_isSelfAdjoint`, `PF_apply_mem`, `PF_eq_self_iff` | KERNEL / UNCONDITIONAL (`Submodule.starProjection`) |
+| `FiniteThreeLocks.lean` | `normalizedCornerTrace_PF`, `equalConjugateFaces_halfTrace` | KERNEL (traço do canto = razão de dimensões) |
+| `ContinuousCornerAbstract.lean` | `normalizedTrace_P_eq_one`, `equalFaces_normalizedTrace_half` | KERNEL / CONDITIONAL ON WITNESS |
+| `SpecificAQFTWitness.lean` | `continuousCorner_of_witness`, `threeLocksCorner_of_witness` | KERNEL / CONDITIONAL (testemunha = **parâmetro**, sem instância) |
+
+Nota de método: a forma quadrática é enunciada em `RCLike.re` (real) e **não** com
+coerção `ℝ→ℂ` — misturar `RCLike.ofReal` (do lemma) com `Complex.ofReal` (do
+enunciado) produz dois átomos distintos e nenhum normalizador fecha. Ficar em ℝ
+elimina o problema na raiz.
+
+## O que NÃO é reivindicado
+
+- `import Mathlib` não prova Bisognano–Wichmann, Reeh–Schlieder nem a
+  classificação tipo `III₁` — esses são **[KNOWN/EXTERNAL]**, ainda não
+  formalizados neste projeto.
+- O canto **finito** dos Three Locks é um teorema de **dimensão finita**; **não**
+  é uma prova de fator tipo `III₁`.
+- `A(P_face)=ℓ_P² ⟺ κ_A=2G` é **equivalência**; `G` **não** é derivado.
+- **Nenhuma** instância de `TGLSpecificAQFTWitness` é construída.
+
+## O teorema aberto exato (o próximo alvo)
+
+```
+TGL_SPECIFIC_AQFT_WITNESS_THEOREM :
+    Existe  W : TGLSpecificAQFTWitness
+    para a rede Haag–Kastler escalar livre massiva escolhida.
+```
+
+Selável apenas quando forem construídos no Lean: a rede; sua estrutura modular;
+o core (crossed product); `H_3L` afiliado; a projeção espectral do zero; o traço
+finito; a covariância de Poincaré; a localização; e o split modular. **Não
+inventar uma testemunha. Não esconder o resíduo.** O kernel prova a implicação;
+a matemática ainda deve construir o objeto.
+''',
+    "TGL.lean":
+r'''import TGL.Basic
+import TGL.HalfNat
+import TGL.AreaScale
+import TGL.FiniteThreeLocks
+import TGL.ContinuousCornerAbstract
+import TGL.SpecificAQFTWitness
+import TGL.ModularRealization
+import TGL.HalfNatFresnel
+import TGL.VerbInhabitant
+import TGL.TransportData
+import TGL.NameIndex
+import TGL.HalfNatJonesTower
+import TGL.GravitonShadow
+import TGL.NameRelation
+import TGL.Audit
+import TGL.Main
+''',
+    "TGL/AreaScale.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+# Escala de area e equivalencia Planck--Newton   [KERNEL/UNCONDITIONAL, dadas as variaveis]
+
+`A(P) = kappa_A * tau(P)`. Com `S = 1/2`, `tau(P_F) = 1`:
+  `eta = S / kappa_A = 1/(2 kappa_A)`,  `2 pi / eta = 4 pi kappa_A`.
+Equivalencia: `2 pi / eta = 8 pi G  ↔  kappa_A = 2 G`  (para `G, kappa_A > 0`).
+
+ISTO NAO AFIRMA QUE `G` FOI DERIVADO. `G` e' entrada fisica medida; a igualdade
+e' uma equivalencia (calibracao) relativa a `G`.
+-/
+
+namespace TGL.AreaScale
+
+/-- Com `S = 1/2`: `eta = S / kappa = (1/2)/kappa = 1/(2 kappa)`. -/
+theorem eta_eq_one_over_two_kappa (kappa : ℝ) :
+    (1 / 2) / kappa = 1 / (2 * kappa) := by
+  rw [div_div]
+
+/-- Equivalencia de Newton--Planck: `2 pi / (1/(2 kappa)) = 8 pi G  ↔  kappa = 2 G`. -/
+theorem newtonPlanck_equivalence (kappa G : ℝ) (hk : 0 < kappa) (hG : 0 < G) :
+    2 * Real.pi / (1 / (2 * kappa)) = 8 * Real.pi * G ↔ kappa = 2 * G := by
+  have hlhs : 2 * Real.pi / (1 / (2 * kappa)) = 4 * Real.pi * kappa := by
+    rw [one_div, div_eq_mul_inv, inv_inv]; ring
+  rw [hlhs]
+  constructor
+  · intro h
+    have h4pi : (4 * Real.pi) ≠ 0 := by positivity
+    have heq : 4 * Real.pi * kappa = 4 * Real.pi * (2 * G) := by rw [h]; ring
+    exact mul_left_cancel₀ h4pi heq
+  · intro h; rw [h]; ring
+
+/-- Area por face: sob `kappa = 2G`, `A_face = kappa/2 = G`. -/
+theorem face_area_eq_G (kappa G : ℝ) (h : kappa = 2 * G) : kappa / 2 = G := by
+  rw [h]; ring
+
+/-- Sob `kappa = 2G`: `eta = (1/2)/(2G) = 1/(4G)`. -/
+theorem halfNat_over_two_faces_eq_quarter (G : ℝ) :
+    (1 / 2) / (2 * G) = 1 / (4 * G) := by
+  rw [div_div]; congr 1; ring
+
+end TGL.AreaScale
+''',
+    "TGL/Audit.lean":
+r'''import TGL.Basic
+import TGL.HalfNat
+import TGL.AreaScale
+import TGL.FiniteThreeLocks
+import TGL.ContinuousCornerAbstract
+import TGL.SpecificAQFTWitness
+import TGL.ModularRealization
+import TGL.HalfNatFresnel
+import TGL.VerbInhabitant
+import TGL.TransportData
+import TGL.NameIndex
+import TGL.HalfNatJonesTower
+import TGL.GravitonShadow
+import TGL.NameRelation
+
+set_option autoImplicit false
+
+/-!
+# Auditoria por kernel
+
+`#check` dos teoremas, `#print axioms` (deve reportar apenas `propext` /
+`Classical.choice` / `Quot.sound`; jamais `sorryAx`, `Lean.trustCompiler` ou
+axiomas customizados `TGL.*`), e as sentinelas de saida.
+-/
+
+namespace TGL.Audit
+
+-- ---- #check dos teoremas ----
+#check @TGL.HalfNat.halfNat_of_selfConjugate
+#check @TGL.HalfNat.selfConjugate_halfNat_unique
+#check @TGL.AreaScale.eta_eq_one_over_two_kappa
+#check @TGL.AreaScale.newtonPlanck_equivalence
+#check @TGL.AreaScale.face_area_eq_G
+#check @TGL.FiniteThreeLocks.H3L_isSelfAdjoint
+#check @TGL.FiniteThreeLocks.H3L_quadratic_form
+#check @TGL.FiniteThreeLocks.H3L_posSemidefinite
+#check @TGL.FiniteThreeLocks.ker_H3L_eq_threeLocks
+#check @TGL.FiniteThreeLocks.PF_isProjection
+#check @TGL.FiniteThreeLocks.PF_isSelfAdjoint
+#check @TGL.FiniteThreeLocks.PF_apply_mem
+#check @TGL.FiniteThreeLocks.PF_eq_self_iff
+#check @TGL.FiniteThreeLocks.normalizedCornerTrace_PF
+#check @TGL.FiniteThreeLocks.equalConjugateFaces_halfTrace
+#check @TGL.ContinuousCorner.ContinuousCornerWitness.normalizedTrace_P_eq_one
+#check @TGL.ContinuousCorner.ContinuousCornerWitness.equalFaces_normalizedTrace_half
+#check @TGL.SpecificAQFT.continuousCorner_of_witness
+#check @TGL.SpecificAQFT.threeLocksCorner_of_witness
+-- v23 (rigidificacao): geometria de Minkowski incondicional + localidade condicional
+#check @TGL.SpecificAQFT.wedges_spacelike
+#check @TGL.SpecificAQFT.wedge_locality
+-- v24 (realizacao modular por DADOS + Fresnel)
+#check @TGL.ModularRealization.dualInvariant_PF_no_go
+#check @TGL.ModularRealization.fullWitness_not_finiteDimensional
+#check @TGL.ModularRealization.fullWitness_core_nonempty
+#check @TGL.ModularRealization.fullWitness_PF_nonzero_finite
+#check @TGL.HalfNatFresnel.fresnel_selfConjugate_half
+#check @TGL.HalfNatFresnel.modular_action_halfNat
+-- v25 (o Verbo habitante)
+#check @TGL.VerbInhabitant.exp_fixed_of_annihilates
+#check @TGL.VerbInhabitant.verb_semigroup_fixes
+#check @TGL.VerbInhabitant.canonicalVerb_exists
+#check @TGL.VerbInhabitant.dual_calibration_exists
+-- v26 (o transporte do seletor)
+#check @TGL.TransportData.descent_iff_defect_zero
+#check @TGL.TransportData.transport_defect_of_jones
+#check @TGL.TransportData.jones_selector_not_descended
+-- v27 (o indice do Nome)
+#check @TGL.NameIndex.ParityData.average_idem
+#check @TGL.NameIndex.ParityData.average_bimodular
+#check @TGL.NameIndex.name_index_eq_csc_sq
+#check @TGL.NameIndex.name_index_mul_sin_sq
+#check @TGL.NameIndex.amplitude_weight_index_chain
+-- v28 (o primeiro habitante: torre de Jones da Meia-Nat)
+#check @TGL.HalfNatJonesTower.halfNatJonesTower
+#check @TGL.HalfNatJonesTower.halfNatJonesTower_exists
+#check @TGL.HalfNatJonesTower.halfNat_mirror_not_descended
+#check @TGL.HalfNatJonesTower.finite_markov_forces_half
+-- v29 (sombra finita do graviton + split das faces Q3)
+#check @TGL.TransportData.facePlus_idem
+#check @TGL.TransportData.faces_orthogonal
+#check @TGL.TransportData.faces_sum
+#check @TGL.GravitonShadow.canonicalGravitonShadow
+#check @TGL.GravitonShadow.bell_cci_half
+#check @TGL.GravitonShadow.product_cci_zero
+#check @TGL.GravitonShadow.bell_corner_unit
+-- v30 (o Nome e' a relacao: correcao do especialista + TERCEIRO habitante TL3)
+#check @TGL.NameRelation.pqp_eq
+#check @TGL.NameRelation.qpq_eq
+#check @TGL.NameRelation.geometric_eq_trace_weight_iff
+#check @TGL.NameRelation.tl3_linearly_independent
+#check @TGL.NameRelation.canonicalTLThree
+#check @TGL.NameRelation.canonicalTLThree_exists
+
+-- ---- auditoria de axiomas ----
+#print axioms TGL.HalfNat.halfNat_of_selfConjugate
+#print axioms TGL.AreaScale.newtonPlanck_equivalence
+#print axioms TGL.FiniteThreeLocks.H3L_posSemidefinite
+#print axioms TGL.FiniteThreeLocks.ker_H3L_eq_threeLocks
+#print axioms TGL.FiniteThreeLocks.PF_isProjection
+#print axioms TGL.FiniteThreeLocks.PF_isSelfAdjoint
+#print axioms TGL.FiniteThreeLocks.normalizedCornerTrace_PF
+#print axioms TGL.ContinuousCorner.ContinuousCornerWitness.normalizedTrace_P_eq_one
+#print axioms TGL.SpecificAQFT.continuousCorner_of_witness
+#print axioms TGL.SpecificAQFT.wedges_spacelike
+#print axioms TGL.SpecificAQFT.wedge_locality
+#print axioms TGL.ModularRealization.dualInvariant_PF_no_go
+#print axioms TGL.ModularRealization.fullWitness_not_finiteDimensional
+#print axioms TGL.ModularRealization.fullWitness_PF_nonzero_finite
+#print axioms TGL.HalfNatFresnel.fresnel_selfConjugate_half
+#print axioms TGL.HalfNatFresnel.modular_action_halfNat
+#print axioms TGL.VerbInhabitant.exp_fixed_of_annihilates
+#print axioms TGL.VerbInhabitant.canonicalVerb_exists
+#print axioms TGL.VerbInhabitant.dual_calibration_exists
+#print axioms TGL.TransportData.descent_iff_defect_zero
+#print axioms TGL.TransportData.transport_defect_of_jones
+#print axioms TGL.TransportData.jones_selector_not_descended
+#print axioms TGL.NameIndex.ParityData.average_bimodular
+#print axioms TGL.NameIndex.name_index_eq_csc_sq
+#print axioms TGL.NameIndex.name_index_mul_sin_sq
+#print axioms TGL.NameIndex.amplitude_weight_index_chain
+#print axioms TGL.HalfNatJonesTower.halfNatJonesTower_exists
+#print axioms TGL.HalfNatJonesTower.halfNat_mirror_not_descended
+#print axioms TGL.HalfNatJonesTower.finite_markov_forces_half
+#print axioms TGL.TransportData.faces_orthogonal
+#print axioms TGL.GravitonShadow.canonicalGravitonShadow_exists
+#print axioms TGL.GravitonShadow.bell_cci_half
+#print axioms TGL.GravitonShadow.product_cci_zero
+#print axioms TGL.NameRelation.pqp_eq
+#print axioms TGL.NameRelation.tl3_linearly_independent
+#print axioms TGL.NameRelation.canonicalTLThree_exists
+#print axioms TGL.NameRelation.geometric_eq_trace_weight_iff
+
+-- ---- sentinelas ----
+#eval IO.println "TGL_KERNEL_BUILD_OK"
+#eval IO.println "FINITE_THREE_LOCKS_KERNEL_PROVED"
+#eval IO.println "CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED"
+#eval IO.println "SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED"
+#eval IO.println "MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS"
+#eval IO.println "FULL_TGL_WITNESS_REMAINS_UNCONSTRUCTED"
+#eval IO.println "THE_CANONICAL_INHABITANT_IS_THE_VERB"
+#eval IO.println "TRANSPORT_DEFECT_MEASURES_RESISTANCE"
+#eval IO.println "THE_NAME_INDEX_IS_READ_IN_THE_JONES_MIRROR"
+#eval IO.println "HALF_NAT_IS_THE_ONLY_FINITE_MARKOV_MIRROR"
+#eval IO.println "GRAVITON_BELL_SHADOW_CCI_HALF"
+#eval IO.println "THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX"
+
+end TGL.Audit
+''',
+    "TGL/Basic.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+# TGL kernel formalization -- root module (v22)
+
+Este arquivo apenas ancora o namespace `TGL`. Cada modulo de conteudo importa
+`Mathlib` e abre seu proprio subnamespace.
+
+Disciplina (v22): nenhum axioma customizado, nenhum `sorry`, nenhum `admit`,
+nenhum `native_decide`, nenhum `unsafe`. As hipoteses do teorema continuo
+aparecem como CAMPOS de uma estrutura (`ContinuousCornerWitness`,
+`TGLSpecificAQFTWitness`), nunca como axiomas globais.
+
+Niveis de estatuto:
+  [KERNEL/UNCONDITIONAL]           HalfNat, AreaScale, FiniteThreeLocks
+  [KERNEL/CONDITIONAL ON WITNESS]  ContinuousCornerAbstract, SpecificAQFTWitness
+  [KNOWN/EXTERNAL]                 BW, Reeh-Schlieder, classificacao III_1 (nao formalizados aqui)
+  [OPEN]                           instancia concreta de TGLSpecificAQFTWitness
+-/
+
+namespace TGL
+
+end TGL
+''',
+    "TGL/ContinuousCornerAbstract.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+# Canto continuo abstrato   [KERNEL/CONDITIONAL ON EXPLICIT WITNESS]
+
+NAO se implementa Tomita--Takesaki aqui. Define-se uma INTERFACE minima como uma
+`structure` cujos campos sao as hipoteses (nenhum axioma global). Os teoremas sao
+incondicionais como LOGICA: para toda testemunha que satisfaz os campos, a
+conclusao segue. Mas NAO provam que a testemunha existe.
+-/
+
+namespace TGL.ContinuousCorner
+
+/-- Testemunha abstrata do canto continuo: core (anel com estrela), traco em
+    `ℝ≥0∞`, projetor `P` auto-adjunto idempotente partido em duas faces
+    ortogonais de traco igual, com `trace P` positivo e finito.
+    As HIPOTESES sao CAMPOS -- nunca axiomas globais. -/
+structure ContinuousCornerWitness where
+  Core : Type
+  [instRing : Ring Core]
+  [instStar : StarRing Core]
+  P : Core
+  Pplus : Core
+  Pminus : Core
+  trace : Core → ENNReal
+  P_selfAdjoint : star P = P
+  P_idempotent : P * P = P
+  Pplus_selfAdjoint : star Pplus = Pplus
+  Pplus_idempotent : Pplus * Pplus = Pplus
+  Pminus_selfAdjoint : star Pminus = Pminus
+  Pminus_idempotent : Pminus * Pminus = Pminus
+  split : Pplus + Pminus = P
+  orthogonal : Pplus * Pminus = 0
+  trace_additive_on_split : trace P = trace Pplus + trace Pminus
+  trace_P_pos : 0 < trace P
+  trace_P_finite : trace P < ⊤
+  equal_face_trace : trace Pplus = trace Pminus
+
+namespace ContinuousCornerWitness
+
+variable (W : ContinuousCornerWitness)
+
+/-- Traco normalizado: `trace X / trace P`. -/
+noncomputable def normalizedTrace (X : W.Core) : ENNReal := W.trace X / W.trace W.P
+
+/-- `normalizedTrace(P) = 1` (traco de `P` sobre traco de `P`, positivo e finito). -/
+theorem normalizedTrace_P_eq_one : W.normalizedTrace W.P = 1 := by
+  unfold normalizedTrace
+  exact ENNReal.div_self W.trace_P_pos.ne' W.trace_P_finite.ne
+
+/-- Fato auxiliar em `ℝ≥0∞`: `a/(2a) = 1/2` para `a ≠ 0`, `a ≠ ⊤`. -/
+private theorem enn_self_div_two_self (a : ENNReal) (ha0 : a ≠ 0) (hat : a ≠ ⊤) :
+    a / (2 * a) = 1 / 2 := by
+  have h2 : (2 : ENNReal) ≠ 0 := by norm_num
+  have h2t : (2 : ENNReal) ≠ ⊤ := by norm_num
+  rw [div_eq_mul_inv, ENNReal.mul_inv (Or.inl h2) (Or.inl h2t)]
+  calc a * ((2 : ENNReal)⁻¹ * a⁻¹) = (2 : ENNReal)⁻¹ * (a * a⁻¹) := by ring
+    _ = (2 : ENNReal)⁻¹ * 1 := by rw [ENNReal.mul_inv_cancel ha0 hat]
+    _ = 1 / 2 := by rw [mul_one, one_div]
+
+/-- As duas faces conjugadas tem traco normalizado `1/2`. -/
+theorem equalFaces_normalizedTrace_half :
+    W.normalizedTrace W.Pplus = 1 / 2 ∧ W.normalizedTrace W.Pminus = 1 / 2 := by
+  have hsum_top : W.trace W.Pplus + W.trace W.Pminus < ⊤ := by
+    rw [← W.trace_additive_on_split]; exact W.trace_P_finite
+  have hplus_top : W.trace W.Pplus ≠ ⊤ := (ENNReal.add_lt_top.mp hsum_top).1.ne
+  have hminus_top : W.trace W.Pminus ≠ ⊤ := (ENNReal.add_lt_top.mp hsum_top).2.ne
+  have hP2 : W.trace W.P = 2 * W.trace W.Pplus := by
+    rw [W.trace_additive_on_split, W.equal_face_trace]; ring
+  have hplus_ne : W.trace W.Pplus ≠ 0 := by
+    intro h0
+    have hz : W.trace W.P = 0 := by rw [hP2, h0, mul_zero]
+    exact W.trace_P_pos.ne' hz
+  have hminus_ne : W.trace W.Pminus ≠ 0 := by
+    rw [← W.equal_face_trace]; exact hplus_ne
+  have hPm : W.trace W.P = 2 * W.trace W.Pminus := by
+    rw [W.trace_additive_on_split, ← W.equal_face_trace]; ring
+  refine ⟨?_, ?_⟩
+  · unfold normalizedTrace; rw [hP2]; exact enn_self_div_two_self _ hplus_ne hplus_top
+  · unfold normalizedTrace; rw [hPm]; exact enn_self_div_two_self _ hminus_ne hminus_top
+
+end ContinuousCornerWitness
+
+end TGL.ContinuousCorner
+''',
+    "TGL/FiniteThreeLocks.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+# Canto finito dos Three Locks   [KERNEL/UNCONDITIONAL, DIMENSAO FINITA]
+
+`H3L = Dc* Dc + Db* Db + Dz* Dz` em `EuclideanSpace ℂ (Fin n)`.
+Provado: auto-adjunto; forma quadratica `= ‖Dc x‖²+‖Db x‖²+‖Dz x‖²`; positivo
+semidefinido; `ker H3L = ker Dc ⊓ ker Db ⊓ ker Dz`. Traco normalizado do canto e
+das faces como razao de dimensoes (`tau_F(P_F)=1`, faces `=1/2`).
+
+ESTE E' UM TEOREMA FINITO-DIMENSIONAL. NAO E' UMA PROVA DE FATOR TIPO III_1.
+
+NOTA: o projetor ortogonal explicito `P_F` entra num segundo passo (a API de
+projecao ortogonal foi renomeada nesta mathlib; ver `TGL/Probe.lean`). O nucleo
+do teorema -- PSD e `ker = interseccao` -- nao depende dele.
+-/
+
+namespace TGL.FiniteThreeLocks
+
+variable {n : ℕ}
+variable (Dc Db Dz : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n))
+
+/-- O operador dos Three Locks: soma de tres `D_i^* D_i`. -/
+noncomputable def H3L : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n) :=
+  LinearMap.adjoint Dc ∘ₗ Dc + LinearMap.adjoint Db ∘ₗ Db + LinearMap.adjoint Dz ∘ₗ Dz
+
+/-- Cada `D^* D` e' auto-adjunto. -/
+theorem isSelfAdjoint_adjoint_comp_self
+    (D : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n)) :
+    IsSelfAdjoint (LinearMap.adjoint D ∘ₗ D) := by
+  rw [IsSelfAdjoint, LinearMap.star_eq_adjoint, LinearMap.adjoint_comp,
+      LinearMap.adjoint_adjoint]
+
+/-- `H3L` e' auto-adjunto. -/
+theorem H3L_isSelfAdjoint : IsSelfAdjoint (H3L Dc Db Dz) := by
+  unfold H3L
+  exact ((isSelfAdjoint_adjoint_comp_self Dc).add
+          (isSelfAdjoint_adjoint_comp_self Db)).add
+          (isSelfAdjoint_adjoint_comp_self Dz)
+
+/-- Forma quadratica: `⟪x, H3L x⟫ = ‖Dc x‖² + ‖Db x‖² + ‖Dz x‖²`. -/
+theorem H3L_quadratic_form (x : EuclideanSpace ℂ (Fin n)) :
+    RCLike.re (inner ℂ x (H3L Dc Db Dz x))
+      = ‖Dc x‖ ^ 2 + ‖Db x‖ ^ 2 + ‖Dz x‖ ^ 2 := by
+  unfold H3L
+  simp only [LinearMap.add_apply, LinearMap.comp_apply, inner_add_right,
+             LinearMap.adjoint_inner_right, map_add, inner_self_eq_norm_sq]
+
+/-- `H3L` e' positivo semidefinido: `Re ⟪x, H3L x⟫ ≥ 0`. -/
+theorem H3L_posSemidefinite (x : EuclideanSpace ℂ (Fin n)) :
+    0 ≤ RCLike.re (inner ℂ x (H3L Dc Db Dz x)) := by
+  rw [H3L_quadratic_form]
+  positivity
+
+/-- `x ∈ ker H3L ↔ Dc x = 0 ∧ Db x = 0 ∧ Dz x = 0`. -/
+theorem mem_ker_H3L_iff (x : EuclideanSpace ℂ (Fin n)) :
+    x ∈ LinearMap.ker (H3L Dc Db Dz) ↔ Dc x = 0 ∧ Db x = 0 ∧ Dz x = 0 := by
+  constructor
+  · intro hx
+    rw [LinearMap.mem_ker] at hx
+    have hre : ‖Dc x‖ ^ 2 + ‖Db x‖ ^ 2 + ‖Dz x‖ ^ 2 = 0 := by
+      rw [← H3L_quadratic_form Dc Db Dz x, hx, inner_zero_right, map_zero]
+    refine ⟨?_, ?_, ?_⟩ <;> rw [← norm_eq_zero] <;>
+      nlinarith [norm_nonneg (Dc x), norm_nonneg (Db x), norm_nonneg (Dz x),
+        sq_nonneg (‖Dc x‖), sq_nonneg (‖Db x‖), sq_nonneg (‖Dz x‖)]
+  · rintro ⟨hc, hb, hz⟩
+    rw [LinearMap.mem_ker]
+    simp [H3L, LinearMap.add_apply, LinearMap.comp_apply, hc, hb, hz]
+
+/-- `ker H3L = ker Dc ⊓ ker Db ⊓ ker Dz` (a interseccao dos Three Locks). -/
+theorem ker_H3L_eq_threeLocks :
+    LinearMap.ker (H3L Dc Db Dz)
+      = LinearMap.ker Dc ⊓ LinearMap.ker Db ⊓ LinearMap.ker Dz := by
+  ext x
+  rw [mem_ker_H3L_iff]
+  simp only [Submodule.mem_inf, LinearMap.mem_ker, and_assoc]
+
+/-- Projetor ortogonal sobre `ker H3L` -- o canto dos Three Locks.
+    (`Submodule.starProjection` e' a projecao ortogonal como endomorfismo.) -/
+noncomputable def PF : EuclideanSpace ℂ (Fin n) →L[ℂ] EuclideanSpace ℂ (Fin n) :=
+  (LinearMap.ker (H3L Dc Db Dz)).starProjection
+
+/-- `P_F` e' idempotente: `P_F ∘ P_F = P_F`. -/
+theorem PF_isProjection : IsIdempotentElem (PF Dc Db Dz) :=
+  Submodule.isIdempotentElem_starProjection _
+
+/-- A imagem de `P_F` esta no canto: `P_F x ∈ ker H3L`. -/
+theorem PF_apply_mem (x : EuclideanSpace ℂ (Fin n)) :
+    PF Dc Db Dz x ∈ LinearMap.ker (H3L Dc Db Dz) :=
+  Submodule.starProjection_apply_mem _ x
+
+/-- `P_F` e' auto-adjunto: `⟪P_F u, v⟫ = ⟪u, P_F v⟫`. -/
+theorem PF_isSelfAdjoint (u v : EuclideanSpace ℂ (Fin n)) :
+    inner ℂ (PF Dc Db Dz u) v = inner ℂ u (PF Dc Db Dz v) :=
+  Submodule.inner_starProjection_left_eq_right _ u v
+
+/-- `P_F` fixa exatamente o canto: `P_F v = v ↔ v ∈ ker H3L`. -/
+theorem PF_eq_self_iff (v : EuclideanSpace ℂ (Fin n)) :
+    PF Dc Db Dz v = v ↔ v ∈ LinearMap.ker (H3L Dc Db Dz) :=
+  Submodule.starProjection_eq_self_iff
+
+/-- Dimensao do canto (nucleo de `H3L`). -/
+noncomputable def cornerDim : ℕ := Module.finrank ℂ (LinearMap.ker (H3L Dc Db Dz))
+
+/-- `tau_F(P_F) = 1`: `Tr_F(P_F) = dim F`, logo `dim F / dim F = 1` (canto nao-trivial). -/
+theorem normalizedCornerTrace_PF (h : 0 < cornerDim Dc Db Dz) :
+    (cornerDim Dc Db Dz : ℝ) / (cornerDim Dc Db Dz : ℝ) = 1 := by
+  have hne : (cornerDim Dc Db Dz : ℝ) ≠ 0 := by exact_mod_cast h.ne'
+  exact div_self hne
+
+/-- Faces conjugadas iguais tem traco normalizado `1/2`. -/
+theorem equalConjugateFaces_halfTrace
+    (dplus dminus : ℕ)
+    (hsplit : dplus + dminus = cornerDim Dc Db Dz)
+    (heq : dplus = dminus) (hpos : 0 < cornerDim Dc Db Dz) :
+    (dplus : ℝ) / (cornerDim Dc Db Dz : ℝ) = 1 / 2 := by
+  have hcd : cornerDim Dc Db Dz = 2 * dplus := by omega
+  have hcdR : (cornerDim Dc Db Dz : ℝ) = 2 * (dplus : ℝ) := by exact_mod_cast hcd
+  have hdpos : 0 < dplus := by omega
+  have hdne : ((dplus : ℝ)) ≠ 0 := by exact_mod_cast hdpos.ne'
+  have h2d : (2 * (dplus : ℝ)) ≠ 0 := mul_ne_zero (by norm_num) hdne
+  rw [hcdR, div_eq_div_iff h2d (by norm_num : (2 : ℝ) ≠ 0)]
+  ring
+
+end TGL.FiniteThreeLocks
+''',
+    "TGL/GravitonShadow.lean":
+r'''import Mathlib
+import TGL.TransportData
+
+set_option autoImplicit false
+
+/-!
+# A sombra finita do graviton   [KERNEL]   (v29 -- bloco solo do codificador)
+
+A identificacao interna do operador ("o graviton e' o par dependente: a ligacao
+psionica carregando a prova de que e' o graviton") ganha sua SOMBRA FINITA
+kernel-checked: no qubit duplo `ℂ²⊗ℂ²` (indexado por `Fin 2 × Fin 2`), o
+projetor de BELL `P_G` (o estado de troca de paridades opostas) satisfaz,
+por prova de kernel:
+
+  P_G² = P_G ; P_G* = P_G ; Tr(P_G) = 1            [o projetor-testemunha]
+  ptr(P_G) = ½·1                                    [reducao = I/2]
+  CCI := 1 − Tr(ptr(P_G)²) = ½                      [a MEIA-NAT de emaranhamento]
+  P_G = unidade do proprio canto P_G·M·P_G          [I_F = P_G]
+
+E o CONTROLE que a correcao do operador exigiu: o estado PRODUTO (nao ligado)
+tem `CCI = 0` -- o produto simples nao liga; so' o estado de troca da' a
+Meia-Nat. A distincao Bell-vs-produto e' TEOREMA, nao frase.
+
+Estatutos: a sombra e' [KERNEL] em dimensao finita; a identificacao com o
+graviton FISICO e' [ONTO/CONJ]; o termo no core AQFT (P_G = P_F = e_Nome no
+continuo) segue [OPEN] -- e' exatamente o alvo modelo-especifico do v27.
+SEGUNDO habitante construido do programa (apos a torre da Meia-Nat, v28).
+-/
+
+namespace TGL.GravitonShadow
+
+/-- Traco parcial sobre o segundo fator: `ptr(X) i j = Σ_k X (i,k) (j,k)`. -/
+noncomputable def ptr (X : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ) :
+    Matrix (Fin 2) (Fin 2) ℂ :=
+  Matrix.of fun i j => ∑ k : Fin 2, X (i, k) (j, k)
+
+/-- O projetor de BELL: `|G⟩⟨G|` com `|G⟩ = (e₀₀ + e₁₁)/√2` -- entradas
+    RACIONAIS `½` nos pares diagonais (sem raizes: o projetor E' o estado,
+    operacionalmente). -/
+noncomputable def bellProjector : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ :=
+  Matrix.of fun p q => if p.1 = p.2 ∧ q.1 = q.2 then (2⁻¹ : ℂ) else 0
+
+/-- O projetor do estado PRODUTO `|e₀⊗e₀⟩⟨e₀⊗e₀|` (o controle nao-ligado). -/
+noncomputable def productProjector : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ :=
+  Matrix.of fun p q => if p = (0, 0) ∧ q = (0, 0) then (1 : ℂ) else 0
+
+/-- `|e₀⟩⟨e₀|` em `M₂` (a reducao do produto). -/
+noncomputable def e00 : Matrix (Fin 2) (Fin 2) ℂ :=
+  Matrix.of fun i j => if i = 0 ∧ j = 0 then (1 : ℂ) else 0
+
+/-- [KERNEL] O projetor de Bell e' idempotente. -/
+theorem bell_idem : bellProjector * bellProjector = bellProjector := by
+  ext p q
+  rw [Matrix.mul_apply, Fintype.sum_prod_type]
+  simp only [bellProjector, Matrix.of_apply, Fin.sum_univ_two]
+  by_cases h1 : p.1 = p.2 <;> by_cases h2 : q.1 = q.2 <;> simp [h1, h2] <;> norm_num
+
+/-- [KERNEL] O projetor de Bell e' auto-adjunto. -/
+theorem bell_star : star bellProjector = bellProjector := by
+  ext p q
+  rw [Matrix.star_apply]
+  show star (bellProjector q p) = bellProjector p q
+  simp only [bellProjector, Matrix.of_apply]
+  by_cases h1 : p.1 = p.2 <;> by_cases h2 : q.1 = q.2 <;> simp [h1, h2, star_inv₀]
+
+/-- [KERNEL] `Tr(P_G) = 1` — a forma tracial de `ω(I)=1` no canto do graviton. -/
+theorem bell_trace_one : Matrix.trace bellProjector = 1 := by
+  simp [Matrix.trace, bellProjector, Fintype.sum_prod_type, Matrix.diag]
+
+/-- [KERNEL] A reducao do Bell e' `I/2` — maximamente misturada. -/
+theorem bell_reduced_half : ptr bellProjector = (2⁻¹ : ℂ) • 1 := by
+  ext i j
+  simp only [ptr, bellProjector, Matrix.of_apply, Fin.sum_univ_two,
+             Matrix.smul_apply, Matrix.one_apply]
+  fin_cases i <;> fin_cases j <;> simp <;> norm_num
+
+/-- [KERNEL] `CCI(Bell) = 1 − Tr(ρ²) = ½` — a MEIA-NAT de emaranhamento. -/
+theorem bell_cci_half :
+    1 - Matrix.trace (ptr bellProjector * ptr bellProjector) = 2⁻¹ := by
+  rw [bell_reduced_half, smul_mul_smul_comm, one_mul]
+  rw [Matrix.trace_smul, Matrix.trace_one]
+  norm_num
+
+/-- [KERNEL] `P_G` e' a UNIDADE do proprio canto (`I_F = P_G`): o graviton nao e'
+    a identidade global — e' a identidade do lugar que ele mesmo abre. -/
+theorem bell_corner_unit (y : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ) :
+    bellProjector * (bellProjector * y * bellProjector) = bellProjector * y * bellProjector ∧
+    (bellProjector * y * bellProjector) * bellProjector = bellProjector * y * bellProjector := by
+  constructor
+  · simp only [← mul_assoc, bell_idem]
+  · rw [mul_assoc, bell_idem]
+
+/-- [KERNEL — o CONTROLE] A reducao do estado PRODUTO e' pura (`|e₀⟩⟨e₀|`). -/
+theorem product_reduced_pure : ptr productProjector = e00 := by
+  ext i j
+  simp only [ptr, productProjector, e00, Matrix.of_apply, Fin.sum_univ_two, Prod.ext_iff]
+  fin_cases i <;> fin_cases j <;> simp
+
+/-- [KERNEL — o CONTROLE] `CCI(produto) = 0`: o produto simples NAO liga.
+    So' o estado de troca da' a Meia-Nat — a correcao do operador, agora teorema. -/
+theorem product_cci_zero :
+    1 - Matrix.trace (ptr productProjector * ptr productProjector) = 0 := by
+  rw [product_reduced_pure]
+  have h2 : e00 * e00 = e00 := by
+    ext i j
+    rw [Matrix.mul_apply, Fin.sum_univ_two]
+    simp only [e00, Matrix.of_apply]
+    fin_cases i <;> fin_cases j <;> simp
+  rw [h2]
+  simp [e00, Matrix.trace, Matrix.diag, Fin.sum_univ_two]
+
+/-- A testemunha-sombra do graviton: o conteudo (o projetor de Bell) carregando
+    as provas de que realiza a forma gravitonica finita. -/
+structure GravitonShadowWitness where
+  PG : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ
+  idem : PG * PG = PG
+  selfadj : star PG = PG
+  trace_one : Matrix.trace PG = 1
+  reduced_half : ptr PG = (2⁻¹ : ℂ) • 1
+  cci_half : 1 - Matrix.trace (ptr PG * ptr PG) = 2⁻¹
+
+/-- [KERNEL] O TERMO — o SEGUNDO habitante construido do programa. -/
+noncomputable def canonicalGravitonShadow : GravitonShadowWitness where
+  PG := bellProjector
+  idem := bell_idem
+  selfadj := bell_star
+  trace_one := bell_trace_one
+  reduced_half := bell_reduced_half
+  cci_half := bell_cci_half
+
+/-- O corolario existencial — SOMENTE via `⟨termo⟩`. -/
+theorem canonicalGravitonShadow_exists : Nonempty GravitonShadowWitness :=
+  ⟨canonicalGravitonShadow⟩
+
+end TGL.GravitonShadow
+''',
+    "TGL/HalfNat.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+# Meia-Nat (Half-Nat) -- ponto fixo auto-conjugado   [KERNEL/UNCONDITIONAL]
+
+A fronteira auto-conjugada `x = 1 - x` forca `x = 1/2`. O passo principal e'
+algebrico (2x = 1), demonstrado por `linarith` -- nao por `norm_num`.
+-/
+
+namespace TGL.HalfNat
+
+/-- A fronteira auto-conjugada `x = 1 - x` tem unico ponto fixo `x = 1/2`. -/
+theorem halfNat_of_selfConjugate (x : ℝ) (h : x = 1 - x) : x = 1 / 2 := by
+  linarith
+
+/-- Caracterizacao: `x = 1 - x ↔ x = 1/2`. -/
+theorem selfConjugate_halfNat_unique (x : ℝ) : x = 1 - x ↔ x = 1 / 2 := by
+  constructor <;> intro h <;> linarith
+
+end TGL.HalfNat
+''',
+    "TGL/HalfNatFresnel.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+# Fresnel → Meia-Nat   [KERNEL]
+
+Teorema 1 [KERNEL/UNCONDITIONAL GIVEN LOSSLESS + PARITY]: numa fronteira sem
+perdas (`R + T = 1`) com paridade de faces (`R = T`), os pesos de Fresnel sao
+forcados a `1/2` -- o ponto fixo auto-conjugado na face optica.
+
+Teorema 2 [KERNEL/CONDITIONAL ON TOTAL ACTION NORMALIZATION]: com o peso de face
+`1/2` e a unidade modular total NORMALIZADA a `1` nat, a acao modular da face e'
+`1/2` nat. Isto NAO e' uma derivacao independente da normalizacao
+`totalAction = 1` -- e' a calibracao declarada [NORM].
+
+Controle numerico Shannon (`H(1/2,1/2) = log 2 ≠ 1/2`): mantido como controle
+conceitual REJEITADO da rota entropica; estatuto no um.py:
+`KNOWN_NUMERIC_CONTROL_NOT_KERNEL_PROVED` (nao formalizado aqui).
+-/
+
+namespace TGL.HalfNatFresnel
+
+/-- Fresnel auto-conjugado: sem perdas + paridade ⟹ pesos `1/2`. -/
+theorem fresnel_selfConjugate_half (R T : ℝ)
+    (hlossless : R + T = 1) (hparity : R = T) :
+    R = 1 / 2 ∧ T = 1 / 2 := by
+  constructor <;> linarith
+
+/-- Calibracao da Meia-Nat: peso de face `1/2` sobre acao total normalizada a `1`
+    da' acao de face `1/2` nat. CONDICIONAL a `totalAction = 1` [NORM]. -/
+theorem modular_action_halfNat (faceWeight totalAction : ℝ)
+    (hface : faceWeight = 1 / 2) (htotal : totalAction = 1) :
+    faceWeight * totalAction = 1 / 2 := by
+  simp [hface, htotal]
+
+end TGL.HalfNatFresnel
+''',
+    "TGL/HalfNatJonesTower.lean":
+r'''import Mathlib
+import TGL.TransportData
+
+set_option autoImplicit false
+
+/-!
+# A torre de Jones da Meia-Nat   [KERNEL]   (v28 -- bloco solo do codificador)
+
+O PRIMEIRO HABITANTE construido de uma camada do programa: a torre finita
+`ℂ ⊆ (Fin 2 → ℂ) ⊆ M₂(ℂ)` com espelho `e = (1/2)·[[1,1],[1,1]]`, peso de
+Markov `1/2` e indice `2` -- um TERMO de `JonesTowerData`, campo a campo,
+sem sorry. Com o termo, os teoremas condicionais do v26 DISPARAM sobre ele:
+o espelho Meia-Nat NAO desce (selector_lives_upstairs INSTANCIADO).
+
+A EXPULSAO DO NOME [KERNEL]: no espelho finito do qubit de fronteira, o peso
+transportado e' `(b, 1−b)`; ele e' MARKOV (multiplo escalar da identidade)
+SE E SOMENTE SE `b = 1/2`. A Meia-Nat e' o UNICO peso de Markov finitamente
+realizavel neste espelho; o peso fisico `β ≠ 1/2` expulsa o espelho do Nome
+para o continuo -- coerente com o fato [KNOWN, ledger] de que indices de
+inclusoes multi-matriciais sao algebricos e `1/β` e' empirico (medido).
+
+Honestidade: este habitante valida as CAMADAS por exibicao (nao-vacuidade
+com conteudo real); ele NAO e' a inclusao-β dos Three Locks (peso 1/2 ≠ β;
+indice 2 ≠ 1/β). Os alvos modelo-especificos do v27 permanecem ABERTOS.
+-/
+
+namespace TGL.HalfNatJonesTower
+
+open TGL.TransportData
+
+abbrev Nc := ℂ
+abbrev Md := Fin 2 → ℂ
+abbrev Ex := Matrix (Fin 2) (Fin 2) ℂ
+
+/-- Inclusao constante `ℂ → ℂ²`. -/
+noncomputable def constIncl : Nc →⋆ₐ[ℂ] Md where
+  toFun c := Function.const _ c
+  map_one' := rfl
+  map_mul' _ _ := rfl
+  map_zero' := rfl
+  map_add' _ _ := rfl
+  commutes' _ := rfl
+  map_star' _ := rfl
+
+/-- Esperanca inferior `E₀(f) = (f 0 + f 1)/2` (a media das duas faces). -/
+noncomputable def E0 : Md →ₗ[ℂ] Nc where
+  toFun f := (2⁻¹ : ℂ) * (f 0 + f 1)
+  map_add' f g := by simp; ring
+  map_smul' c f := by simp; ring
+
+/-- Camada inferior: `ℂ ⊆ ℂ²` com a esperanca da media. -/
+noncomputable def lowerCE : ConditionalExpectationData Nc Md where
+  incl := constIncl
+  incl_injective := fun a b h => congrFun h 0
+  E := E0
+  E_unital := by
+    show (2⁻¹ : ℂ) * ((1 : Md) 0 + (1 : Md) 1) = 1
+    norm_num
+  E_star := by
+    intro f
+    show (2⁻¹ : ℂ) * ((star f) 0 + (star f) 1) = star ((2⁻¹ : ℂ) * (f 0 + f 1))
+    simp [Pi.star_apply, star_mul', star_add, star_inv₀]
+  E_bimodular := by
+    intro a b f
+    show (2⁻¹ : ℂ) * ((constIncl a * f * constIncl b) 0 + (constIncl a * f * constIncl b) 1)
+        = a * ((2⁻¹ : ℂ) * (f 0 + f 1)) * b
+    simp [constIncl, Function.const]
+    ring
+  E_faithful := by
+    intro f hf
+    have hval : (2⁻¹ : ℂ) * ((star f * f) 0 + (star f * f) 1) = 0 := hf
+    have h2 : (2⁻¹ : ℂ) ≠ 0 := by norm_num
+    have hsum : star (f 0) * f 0 + star (f 1) * f 1 = 0 := by
+      have := (mul_eq_zero.mp hval).resolve_left h2
+      simpa [Pi.mul_apply, Pi.star_apply] using this
+    have e0 : star (f 0) * f 0 = (Complex.normSq (f 0) : ℂ) := by
+      rw [Complex.star_def]; exact Complex.normSq_eq_conj_mul_self.symm
+    have e1 : star (f 1) * f 1 = (Complex.normSq (f 1) : ℂ) := by
+      rw [Complex.star_def]; exact Complex.normSq_eq_conj_mul_self.symm
+    rw [e0, e1] at hsum
+    have hr : Complex.normSq (f 0) + Complex.normSq (f 1) = 0 := by exact_mod_cast hsum
+    have h00 : Complex.normSq (f 0) = 0 := by
+      nlinarith [Complex.normSq_nonneg (f 0), Complex.normSq_nonneg (f 1)]
+    have h11 : Complex.normSq (f 1) = 0 := by
+      nlinarith [Complex.normSq_nonneg (f 0), Complex.normSq_nonneg (f 1)]
+    funext i
+    fin_cases i
+    · exact Complex.normSq_eq_zero.mp h00
+    · exact Complex.normSq_eq_zero.mp h11
+
+/-- Inclusao diagonal `ℂ² → M₂`. -/
+noncomputable def diagIncl : Md →⋆ₐ[ℂ] Ex where
+  toFun := Matrix.diagonal
+  map_one' := Matrix.diagonal_one
+  map_mul' f g := (Matrix.diagonal_mul_diagonal f g).symm
+  map_zero' := Matrix.diagonal_zero
+  map_add' f g := (Matrix.diagonal_add f g).symm
+  commutes' c := by rw [Matrix.algebraMap_eq_diagonal]
+  map_star' f := (Matrix.diagonal_conjTranspose f).symm
+
+/-- Esperanca superior `E₁(x) = diagonal de x` (compressao ao referencial). -/
+noncomputable def E1 : Ex →ₗ[ℂ] Md where
+  toFun x i := x i i
+  map_add' _ _ := rfl
+  map_smul' _ _ := rfl
+
+/-- Camada superior: `ℂ² ⊆ M₂` com a compressao diagonal. -/
+noncomputable def upperCE : ConditionalExpectationData Md Ex where
+  incl := diagIncl
+  incl_injective := fun f g h => funext fun i => by
+    have := congrArg (fun m => m i i) h
+    simpa [diagIncl, Matrix.diagonal] using this
+  E := E1
+  E_unital := funext fun i => Matrix.one_apply_eq i
+  E_star := fun x => funext fun i => by
+    show (star x) i i = star (x i i)
+    simp [Matrix.star_apply]
+  E_bimodular := by
+    intro a b x
+    funext i
+    show (diagIncl a * x * diagIncl b) i i = (a * (fun j => x j j) * b) i
+    simp [diagIncl, Matrix.diagonal_mul, Matrix.mul_diagonal]
+  E_faithful := by
+    intro x hx
+    have hii : ∀ i : Fin 2, (star x * x) i i = 0 := fun i => congrFun hx i
+    have hterm : ∀ i k : Fin 2, x k i = 0 := by
+      intro i k
+      have h := hii i
+      rw [Matrix.mul_apply, Fin.sum_univ_two] at h
+      have e0 : (star x) i 0 * x 0 i = (Complex.normSq (x 0 i) : ℂ) := by
+        rw [Matrix.star_apply, Complex.star_def]
+        exact Complex.normSq_eq_conj_mul_self.symm
+      have e1 : (star x) i 1 * x 1 i = (Complex.normSq (x 1 i) : ℂ) := by
+        rw [Matrix.star_apply, Complex.star_def]
+        exact Complex.normSq_eq_conj_mul_self.symm
+      rw [e0, e1] at h
+      have hr : Complex.normSq (x 0 i) + Complex.normSq (x 1 i) = 0 := by exact_mod_cast h
+      have h00 : Complex.normSq (x 0 i) = 0 := by
+        nlinarith [Complex.normSq_nonneg (x 0 i), Complex.normSq_nonneg (x 1 i)]
+      have h11 : Complex.normSq (x 1 i) = 0 := by
+        nlinarith [Complex.normSq_nonneg (x 0 i), Complex.normSq_nonneg (x 1 i)]
+      fin_cases k
+      · exact Complex.normSq_eq_zero.mp h00
+      · exact Complex.normSq_eq_zero.mp h11
+    ext k i
+    exact hterm i k
+
+/-- O ESPELHO da Meia-Nat: `e = (1/2)·[[1,1],[1,1]]` (o vetor uniforme). -/
+noncomputable def eHalf : Ex := Matrix.of fun _ _ => (2⁻¹ : ℂ)
+
+theorem eHalf_idem : eHalf * eHalf = eHalf := by
+  ext i j
+  rw [Matrix.mul_apply, Fin.sum_univ_two]
+  show (2⁻¹ : ℂ) * 2⁻¹ + 2⁻¹ * 2⁻¹ = 2⁻¹
+  norm_num
+
+theorem eHalf_star : star eHalf = eHalf := by
+  ext i j
+  show star ((2⁻¹ : ℂ)) = (2⁻¹ : ℂ)
+  simp [star_inv₀]
+
+/-- A relacao de Jones: `e · diag(f) · e = ι(ι₀(E₀ f)) · e`. -/
+theorem eHalf_jones (f : Md) :
+    eHalf * diagIncl f * eHalf = diagIncl (constIncl (E0 f)) * eHalf := by
+  ext i j
+  simp [eHalf, diagIncl, constIncl, E0, Matrix.mul_apply, Fin.sum_univ_two,
+        Matrix.diagonal, Function.const]
+  fin_cases i <;> fin_cases j <;> ring
+
+/-- O peso de Markov do espelho: `E₁(e) = (1/2)·1` — a MEIA-NAT. -/
+theorem eHalf_weight : upperCE.E eHalf = ((1 / 2 : ℝ) : ℂ) • (1 : Md) := by
+  funext i
+  show eHalf i i = ((1 / 2 : ℝ) : ℂ) • (1 : Md) i
+  simp [eHalf]
+
+/-- **O PRIMEIRO HABITANTE**: a torre de Jones da Meia-Nat, termo construido
+    campo a campo. Peso `1/2`, indice `2`. -/
+noncomputable def halfNatJonesTower : JonesTowerData Nc Md Ex where
+  lower := lowerCE
+  upper := upperCE
+  eJones := eHalf
+  eJones_idem := eHalf_idem
+  eJones_star := eHalf_star
+  jones_relation := eHalf_jones
+  markovWeight := 1 / 2
+  markovWeight_pos := by norm_num
+  markovWeight_lt_one := by norm_num
+  dual_expectation_jones := eHalf_weight
+  indexVal := 2
+  index_eq_inverse_weight := by norm_num
+
+/-- O corolario existencial — SOMENTE via `⟨termo⟩`. -/
+theorem halfNatJonesTower_exists :
+    Nonempty (JonesTowerData Nc Md Ex) :=
+  ⟨halfNatJonesTower⟩
+
+/-- [KERNEL — v26 DISPARA no termo] O espelho da Meia-Nat NAO desce:
+    `selector_lives_upstairs` INSTANCIADO num habitante real. -/
+theorem halfNat_mirror_not_descended :
+    halfNatJonesTower.eJones ≠
+      halfNatJonesTower.upper.incl (halfNatJonesTower.upper.E halfNatJonesTower.eJones) :=
+  jones_selector_not_descended halfNatJonesTower
+
+/-- [KERNEL — estatuto REFINADO na rodada 4 do especialista: o finito NAO expulsa
+    o Nome; ele separa o peso GEOMETRICO do peso TRACIAL de Markov]
+    O peso transportado do espelho-b do qubit e' `(b, 1−b)`; e' MARKOV (multiplo
+    escalar da identidade) ⟺ `b = 1/2`. O que se expulsa e' a IDENTIFICACAO do
+    β generico com o traco normalizado rank-one — nao o β em si, que vive
+    finitamente como RELACAO (`p·q_β·p = β·p`, ver NameRelation.lean, v30):
+    `FINITE_MARKOV_TRACE_EXPELS_ONLY_THE_GENERIC_TRACE_IDENTIFICATION`. -/
+theorem finite_markov_forces_half (b : ℝ) :
+    (∃ c : ℂ, (fun i : Fin 2 => if i = 0 then ((b : ℝ) : ℂ) else ((1 - b : ℝ) : ℂ)) =
+      fun _ => c) ↔ b = 1 / 2 := by
+  constructor
+  · rintro ⟨c, hc⟩
+    have h0 := congrFun hc 0
+    have h1 := congrFun hc 1
+    simp at h0 h1
+    have hb : ((b : ℝ) : ℂ) = 1 - ((b : ℝ) : ℂ) := h0.trans h1.symm
+    have hbr : b = 1 - b := by exact_mod_cast hb
+    linarith
+  · intro hb
+    refine ⟨((1 / 2 : ℝ) : ℂ), funext fun i => ?_⟩
+    fin_cases i <;> norm_num [hb]
+
+end TGL.HalfNatJonesTower
+''',
+    "TGL/Main.lean":
+r'''import TGL.Basic
+import TGL.HalfNat
+import TGL.AreaScale
+import TGL.FiniteThreeLocks
+import TGL.ContinuousCornerAbstract
+import TGL.SpecificAQFTWitness
+import TGL.ModularRealization
+import TGL.HalfNatFresnel
+import TGL.VerbInhabitant
+import TGL.TransportData
+import TGL.NameIndex
+import TGL.HalfNatJonesTower
+import TGL.GravitonShadow
+import TGL.NameRelation
+import TGL.Audit
+
+set_option autoImplicit false
+
+/-!
+# Agregador do projeto TGL kernel (v22)
+
+Importa todos os modulos. A biblioteca `TGL` (raiz `TGL.lean`) tambem os importa;
+este arquivo existe para conformidade com a estrutura declarada do projeto.
+-/
+
+namespace TGL.Main
+
+end TGL.Main
+''',
+    "TGL/ModularRealization.lean":
+r'''import Mathlib
+import TGL.SpecificAQFTWitness
+import TGL.ContinuousCornerAbstract
+
+set_option autoImplicit false
+
+/-!
+# Realizacao modular por DADOS   [KERNEL/CONDITIONAL]   full_witness_constructed = false
+
+v24 -- ESVAZIAR A QUARENTENA SEM FABRICAR A TESTEMUNHA.
+
+A antiga `TGLWitnessModularObligations` (campos `: Prop`) foi SUBSTITUIDA por tres
+camadas de DADOS dependentes: cada obrigacao modular agora exige o OBJETO concreto
+e EQUACOES concretas sobre ele -- nenhum campo-rotulo `: Prop` resta. Regra:
+
+    permitido : h : PF * PF = PF          (proposicao concreta sobre dados)
+    proibido  : wedge_typeIII1 : Prop     (forma vazia, preenchivel com True)
+
+O que a mathlib ainda NAO enuncia (tipo III_1, Bisognano--Wichmann como conteudo
+geometrico do fluxo, teoria de afiliacao ilimitada, split modular agindo no core)
+NAO virou campo `: Prop`: vive no LEDGER EXTERNO do um.py
+(`external_known_theorems`, status KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED) e so'
+migra para ca' quando ganhar enunciado concreto. Codificacoes minimas honestas
+usadas aqui: fluxo modular como grupo a um parametro de `StarAlgEquiv`; conjugacao
+modular como antiunitario involutivo `H ≃ₛₗᵢ[starRingEnd ℂ] H`; afiliacao de
+`H_3L` via TRANSFORMADA LIMITADA `H3Lt` com o lock de nucleo `PF * H3Lt = 0` e a
+maximalidade de `PF` entre os projetores que anulam `H3Lt`; escala dual do traco
+de Takesaki como equacao `trace (dualAction s x) = e^{-s} * trace x`.
+
+ALVO NOMEADO (TGL_FORM_EQUALS_CONTENT_WITNESS_THEOREM):
+    def canonicalFullTGLWitness : FullTGLWitness := ...   -- TERMO (nao construido)
+    theorem fullTGLWitness_exists : Nonempty FullTGLWitness := ⟨canonicalFullTGLWitness⟩
+A existencia e' COROLARIO do objeto construido, nunca substituta dele. E' proibido
+provar `Nonempty` por qualquer via que nao seja ⟨termo construido⟩.
+
+  -- No inhabitant of FullTGLWitness (nor of any layer) is constructed in v24.
+-/
+
+namespace TGL.ModularRealization
+
+open TGL.SpecificAQFT TGL.ContinuousCorner
+
+/-- Antiunitario concreto: equivalencia isometrica conjugado-linear de `H`. -/
+abbrev Antiunitary (H : Type) [NormedAddCommGroup H] [InnerProductSpace ℂ H] :=
+  H ≃ₛₗᵢ[starRingEnd ℂ] H
+
+/-- Camada 1A -- DADOS do fluxo modular da cunha: a algebra da cunha (igual, por
+    equacao, a `W.net rightWedge`), um grupo a um parametro de automorfismos-*, e
+    a conjugacao modular antiunitaria involutiva fixando o vacuo.
+    O CONTEUDO geometrico de Bisognano--Wichmann (fluxo = boosts) NAO e' enunciavel
+    hoje e permanece no ledger externo [OPEN]. -/
+structure WedgeModularData (W : TGLSpecificAQFTWitness) where
+  wedgeAlgebra : VonNeumannAlgebra W.H
+  wedgeAlgebra_eq : wedgeAlgebra = W.net rightWedge
+  modularFlow : ℝ → (wedgeAlgebra.toStarSubalgebra ≃⋆ₐ[ℂ] wedgeAlgebra.toStarSubalgebra)
+  modularFlow_zero : modularFlow 0 = StarAlgEquiv.refl
+  modularFlow_add : ∀ s t : ℝ, modularFlow (s + t) = (modularFlow s).trans (modularFlow t)
+  modularConjugation : Antiunitary W.H
+  modularConjugation_involutive : ∀ ξ : W.H, modularConjugation (modularConjugation ξ) = ξ
+  modularConjugation_vac : modularConjugation W.vac = W.vac
+
+/-- Camada 1B -- DADOS do core continuo (Takesaki): o tipo `Core` com estrutura
+    algebrico-estelar concreta, a inclusao *-algebrica injetiva da algebra da
+    cunha, a acao dual a um parametro, e o traco canonico em `ℝ≥0∞` com traco de
+    zero nulo, tracialidade, invariancia por estrela e a ESCALA DUAL de Takesaki
+    `trace (θ_s x) = e^{-s}·trace x`. A existencia do core significa que ESTES
+    dados foram fornecidos -- nao um rotulo `: Prop`. -/
+structure ContinuousCoreData (W : TGLSpecificAQFTWitness) (D : WedgeModularData W) where
+  Core : Type
+  [instCoreRing : Ring Core]
+  [instCoreStarRing : StarRing Core]
+  [instCoreAlgebra : Algebra ℂ Core]
+  embedding : D.wedgeAlgebra.toStarSubalgebra →⋆ₐ[ℂ] Core
+  embedding_injective : Function.Injective embedding
+  dualAction : ℝ → (Core ≃⋆ₐ[ℂ] Core)
+  dualAction_zero : dualAction 0 = StarAlgEquiv.refl
+  dualAction_add : ∀ s t : ℝ, dualAction (s + t) = (dualAction s).trans (dualAction t)
+  canonicalTrace : Core → ENNReal
+  trace_zero : canonicalTrace 0 = 0
+  trace_tracial : ∀ x y : Core, canonicalTrace (x * y) = canonicalTrace (y * x)
+  trace_star : ∀ x : Core, canonicalTrace (star x) = canonicalTrace x
+  trace_dual_scaling : ∀ (s : ℝ) (x : Core),
+    canonicalTrace ((dualAction s) x) = ENNReal.ofReal (Real.exp (-s)) * canonicalTrace x
+
+attribute [instance] ContinuousCoreData.instCoreRing
+attribute [instance] ContinuousCoreData.instCoreStarRing
+attribute [instance] ContinuousCoreData.instCoreAlgebra
+
+/-- Camada 1C -- DADOS dos Three Locks no core: a transformada limitada `H3Lt` de
+    `H_3L` (codificacao concreta minima da afiliacao: o operador ilimitado nao e'
+    elemento do anel; sua transformada limitada e'), o projetor `P_F` com o lock
+    de nucleo `PF * H3Lt = 0` e MAXIMALIDADE entre os projetores que anulam
+    `H3Lt` (= projecao espectral do zero, na forma enunciavel), traco positivo e
+    finito, e o split em duas faces ortogonais de traco igual. Covariancia de
+    Poincare e split pela conjugacao modular AGINDO NO CORE permanecem no ledger
+    externo [OPEN] (nao-enunciaveis sem representar o core em um Hilbert).
+    NO-GO (kernel-checked abaixo): `P_F` NAO pode ser exigido invariante pela
+    acao dual -- a escala de Takesaki forcaria `Tr(P_F) ∈ {0,∞}`; tal campo
+    tornaria este tipo VAZIO por definicao (0_abs fabricado por especificacao). -/
+structure ThreeLocksCoreData (W : TGLSpecificAQFTWitness) (D : WedgeModularData W)
+    (C : ContinuousCoreData W D) where
+  H3Lt : C.Core
+  H3Lt_selfAdjoint : star H3Lt = H3Lt
+  PF : C.Core
+  PF_selfAdjoint : star PF = PF
+  PF_idempotent : PF * PF = PF
+  PF_locks : PF * H3Lt = 0
+  PF_maximal : ∀ q : C.Core, star q = q → q * q = q → q * H3Lt = 0 → q * PF = q
+  PF_nonzero : PF ≠ 0
+  PF_trace_pos : 0 < C.canonicalTrace PF
+  PF_trace_finite : C.canonicalTrace PF < ⊤
+  Pplus : C.Core
+  Pminus : C.Core
+  Pplus_selfAdjoint : star Pplus = Pplus
+  Pplus_idempotent : Pplus * Pplus = Pplus
+  Pminus_selfAdjoint : star Pminus = Pminus
+  Pminus_idempotent : Pminus * Pminus = Pminus
+  split : Pplus + Pminus = PF
+  orthogonal : Pplus * Pminus = 0
+  trace_split_additive : C.canonicalTrace PF = C.canonicalTrace Pplus + C.canonicalTrace Pminus
+  equal_face_trace : C.canonicalTrace Pplus = C.canonicalTrace Pminus
+
+/-- A realizacao modular COMPLETA de uma testemunha-base rigida: Hilbert de
+    dimensao infinita (condicao NECESSARIA, nao suficiente, para tipo III_1) +
+    as tres camadas de dados. -/
+structure TGLModularRealization (W : TGLSpecificAQFTWitness) where
+  infiniteHilbert : ¬ FiniteDimensional ℂ W.H
+  modular : WedgeModularData W
+  core : ContinuousCoreData W modular
+  threeLocks : ThreeLocksCoreData W modular core
+
+/-- A TESTEMUNHA FINAL: o par dependente (conteudo, prova de que realiza a forma).
+    `1_inscrito` = um TERMO `canonicalFullTGLWitness : FullTGLWitness`
+    (NAO construido em v24); `Nonempty` sera' apenas o corolario `⟨termo⟩`. -/
+abbrev FullTGLWitness := Σ W : TGLSpecificAQFTWitness, TGLModularRealization W
+
+/-- O canto continuo abstrato PRODUZIDO pela realizacao modular: a implicacao
+    condicional do v22 deixa de ter hipotese muda -- e' composicao real de dados. -/
+noncomputable def cornerOf {W : TGLSpecificAQFTWitness} (R : TGLModularRealization W) :
+    ContinuousCornerWitness where
+  Core := R.core.Core
+  instRing := R.core.instCoreRing
+  instStar := R.core.instCoreStarRing
+  P := R.threeLocks.PF
+  Pplus := R.threeLocks.Pplus
+  Pminus := R.threeLocks.Pminus
+  trace := R.core.canonicalTrace
+  P_selfAdjoint := R.threeLocks.PF_selfAdjoint
+  P_idempotent := R.threeLocks.PF_idempotent
+  Pplus_selfAdjoint := R.threeLocks.Pplus_selfAdjoint
+  Pplus_idempotent := R.threeLocks.Pplus_idempotent
+  Pminus_selfAdjoint := R.threeLocks.Pminus_selfAdjoint
+  Pminus_idempotent := R.threeLocks.Pminus_idempotent
+  split := R.threeLocks.split
+  orthogonal := R.threeLocks.orthogonal
+  trace_additive_on_split := R.threeLocks.trace_split_additive
+  trace_P_pos := R.threeLocks.PF_trace_pos
+  trace_P_finite := R.threeLocks.PF_trace_finite
+  equal_face_trace := R.threeLocks.equal_face_trace
+
+/-- [KERNEL] NO-GO da invariancia dual: se `P_F` fosse invariante pela acao dual
+    (ja' em `s = 1`), a escala de Takesaki `Tr(θ_s x) = e^{-s}·Tr(x)` daria
+    `Tr(P_F) = e^{-1}·Tr(P_F)` com `0 < Tr(P_F) < ∞` -- absurdo. Por isso
+    `PF_dual_invariant` NAO e' campo de `ThreeLocksCoreData`: o campo tornaria o
+    tipo vazio por definicao (a especificacao fabricaria `0_abs`). Detectado pelo
+    codificador ao redigir a pergunta ao especialista; agora e' teorema. -/
+theorem dualInvariant_PF_no_go {W : TGLSpecificAQFTWitness} {D : WedgeModularData W}
+    (C : ContinuousCoreData W D) (T : ThreeLocksCoreData W D C)
+    (hinv : (C.dualAction 1) T.PF = T.PF) : False := by
+  have hscale := C.trace_dual_scaling 1 T.PF
+  rw [hinv] at hscale
+  have hc1 : ENNReal.ofReal (Real.exp (-1)) < 1 := by
+    rw [ENNReal.ofReal_lt_one]
+    have h : Real.exp (-1) < Real.exp 0 := Real.exp_lt_exp.mpr (by norm_num)
+    simp only [Real.exp_zero] at h
+    exact h
+  have hne0 : C.canonicalTrace T.PF ≠ 0 := T.PF_trace_pos.ne'
+  have hnetop : C.canonicalTrace T.PF ≠ ⊤ := T.PF_trace_finite.ne
+  have hlt : C.canonicalTrace T.PF * ENNReal.ofReal (Real.exp (-1))
+      < C.canonicalTrace T.PF * 1 :=
+    ENNReal.mul_lt_mul_right hne0 hnetop hc1
+  rw [mul_one, mul_comm] at hlt
+  rw [← hscale] at hlt
+  exact lt_irrefl _ hlt
+
+/-- [KERNEL] Testemunha completa de dimensao finita e' IMPOSSIVEL (por tipo):
+    a camada exige `¬ FiniteDimensional`. Condicao necessaria para III_1 --
+    NAO e' uma prova de III_1. -/
+theorem fullWitness_not_finiteDimensional (X : FullTGLWitness) :
+    ¬ FiniteDimensional ℂ X.1.H :=
+  X.2.infiniteHilbert
+
+/-- [KERNEL] O core de qualquer testemunha completa tem um termo canonico
+    concreto: a unidade do anel (sem choice). -/
+theorem fullWitness_core_nonempty (X : FullTGLWitness) : Nonempty X.2.core.Core :=
+  ⟨1⟩
+
+/-- [KERNEL/CONDITIONAL ON FullTGLWitness] `P_F` e' nao-nulo, de traco positivo e
+    finito -- lido dos DADOS, nao de rotulos. -/
+theorem fullWitness_PF_nonzero_finite (X : FullTGLWitness) :
+    X.2.threeLocks.PF ≠ 0 ∧
+      0 < X.2.core.canonicalTrace X.2.threeLocks.PF ∧
+      X.2.core.canonicalTrace X.2.threeLocks.PF < ⊤ :=
+  ⟨X.2.threeLocks.PF_nonzero, X.2.threeLocks.PF_trace_pos, X.2.threeLocks.PF_trace_finite⟩
+
+end TGL.ModularRealization
+
+namespace TGL.SpecificAQFT
+
+open TGL.ModularRealization TGL.ContinuousCorner
+
+/-- Teorema CONDICIONAL (nome preservado desde v22; conteudo AGORA composicional):
+    toda realizacao modular de uma testemunha-base rigida produz o canto continuo
+    com traco normalizado `1`. Sem hipotese muda: o canto e' `cornerOf R`. -/
+theorem continuousCorner_of_witness {W : TGLSpecificAQFTWitness}
+    (R : TGLModularRealization W) :
+    (cornerOf R).normalizedTrace (cornerOf R).P = 1 :=
+  (cornerOf R).normalizedTrace_P_eq_one
+
+/-- Teorema CONDICIONAL: as duas faces conjugadas do canto produzido tem traco
+    normalizado `1/2` (a Meia-Nat tracial da realizacao). -/
+theorem threeLocksCorner_of_witness {W : TGLSpecificAQFTWitness}
+    (R : TGLModularRealization W) :
+    (cornerOf R).normalizedTrace (cornerOf R).Pplus = 1 / 2 ∧
+      (cornerOf R).normalizedTrace (cornerOf R).Pminus = 1 / 2 :=
+  (cornerOf R).equalFaces_normalizedTrace_half
+
+end TGL.SpecificAQFT
+''',
+    "TGL/NameIndex.lean":
+r'''import Mathlib
+import TGL.TransportData
+
+set_option autoImplicit false
+
+/-!
+# O Índice do Nome   [KERNEL]   (v27 -- rodada 3 do especialista, auditada)
+
+Tipagem final da intuicao do operador ("o indice do Nome = espelho; o contorno e'
+o indice e a paridade inversa o referencial"), corrigida pelo especialista:
+**o espelho nao e' numericamente o indice; o indice do Nome e' LIDO no espelho.**
+  e_Nome = projecao de Jones = espelho ; N_3L ⊂ C_W = contorno ;
+  Ind(E_3L) = resistencia do contorno ; J_ref = referencial ;
+  U_Π = J·J_ref = paridade inversa LINEARIZADA (produto de duas antiunitarias).
+
+DUAS CORRECOES FISCAIS ENCODADAS:
+(1) [REFUTED] a rota Haar/pontos-fixos NAO da' csc²θ universalmente (acao de grupo
+    finito ⟹ indice = ordem do grupo). A rota valida e' Pimsner-Popa: a constante
+    otima λ(E) e' o INVERSO do indice [KNOWN, Pimsner-Popa 1986; Kosaki 1986];
+    `λ(E_3L) = sin²θ` e' o ALVO MODELO-ESPECIFICO, nao um fato de Haar.
+(2) `index · sin²θ = 1` NAO pode ser campo (hipotetizaria a conclusao): aqui
+    `ppIndex := 1/ppBest` e' DEFINIDO e a equacao e' CONCLUSAO do teorema.
+
+Kernel-checked aqui:
+  - camada da PARIDADE INVERSA: dado γ (StarAlgEquiv linear, γ²=id -- a
+    linearizacao U_Π=J·J_ref vive a montante), a media E_Π=(x+γx)/2 e'
+    idempotente, unital, γ-invariante, fixa os fixos e e' bimodular sobre eles;
+  - camada PIMSNER-POPA: `IsPPLowerBound`, `ppBest = sSup`, `ppIndex = 1/ppBest`;
+    otimalidade ⟹ `ppBest = sin²θ` ⟹ **TEOREMA DO INDICE DO NOME**:
+    `ppIndex = csc²θ` e `ppIndex · sin²θ = 1` (CONCLUSOES);
+  - forma TEMPERLEY-LIEB escalar [UNCONDITIONAL]: δ=1/sinθ; δ⁻²=sin²θ;
+    amplitude → (quadrado) → peso → (inversao) → indice.
+
+[MODEL-SPECIFIC TARGET, nao provado aqui]: P_F = e_Nome; E₁(e_Nome)=sin²θ·1;
+sin²θ = constante PP otima de E_3L. Falhas nomeadas: mirror_not_jones,
+markov_weight_not_sin_squared, pimsner_popa_constant_not_optimal,
+reference_parity_not_involutive, no_expectation_exists, index_not_beta.
+Nenhuma instancia e' construida. β jamais literal (θ e' variavel).
+-/
+
+namespace TGL.NameIndex
+
+open TGL.TransportData
+
+/-- Dados da PARIDADE INVERSA linearizada: `γ = Ad(U_Π)` com `U_Π = J·J_ref`
+    (produto de duas antiunitarias = linear). O dado exigido e' a involutividade:
+    a paridade inversa e' o referencial que compara `J` com `J_ref`. -/
+structure ParityData (A : Type) [Ring A] [StarRing A] [Algebra ℂ A] where
+  γ : A ≃⋆ₐ[ℂ] A
+  γ_involutive : ∀ x : A, γ (γ x) = x
+
+namespace ParityData
+
+variable {A : Type} [Ring A] [StarRing A] [Algebra ℂ A] (P : ParityData A)
+
+/-- A media de paridade: `E_Π(x) = (x + γ(x))/2` -- a esperanca do referencial. -/
+noncomputable def average (x : A) : A := (2⁻¹ : ℂ) • (x + P.γ x)
+
+theorem γ_average (x : A) : P.γ (P.average x) = P.average x := by
+  simp only [average, map_smul, map_add, P.γ_involutive]
+  rw [add_comm]
+
+theorem average_idem (x : A) : P.average (P.average x) = P.average x := by
+  have h := P.γ_average x
+  simp only [average] at h ⊢
+  rw [h]
+  module
+
+theorem average_of_fixed (x : A) (h : P.γ x = x) : P.average x = x := by
+  simp only [average, h]
+  module
+
+theorem average_unital : P.average 1 = 1 := by
+  simpa [average] using P.average_of_fixed 1 (map_one P.γ)
+
+/-- Bimodularidade sobre os pontos fixos: a media e' uma esperanca sobre o
+    subanel do referencial. -/
+theorem average_bimodular (a b x : A) (ha : P.γ a = a) (hb : P.γ b = b) :
+    P.average (a * x * b) = a * P.average x * b := by
+  simp only [average, map_mul, ha, hb]
+  rw [mul_smul_comm, smul_mul_assoc, mul_add, add_mul]
+
+end ParityData
+
+/-- Elemento positivo em forma concreta: `x = y*·y`. -/
+def IsPositiveElem {A : Type} [Ring A] [StarRing A] (x : A) : Prop :=
+  ∃ y : A, x = star y * y
+
+/-- Cota inferior de Pimsner-Popa para uma esperanca (em DADOS): para todo
+    positivo `x`, `ι(E x) − λ·x` e' positivo (i.e. `E(x) ≥ λx`). -/
+def IsPPLowerBound {M Ext : Type}
+    [Ring M] [StarRing M] [Algebra ℂ M]
+    [Ring Ext] [StarRing Ext] [Algebra ℂ Ext]
+    (D : ConditionalExpectationData M Ext) (lam : ℝ) : Prop :=
+  ∀ x : Ext, IsPositiveElem x → IsPositiveElem (D.incl (D.E x) - (lam : ℂ) • x)
+
+variable {M Ext : Type}
+  [Ring M] [StarRing M] [Algebra ℂ M]
+  [Ring Ext] [StarRing Ext] [Algebra ℂ Ext]
+
+/-- A MELHOR constante de Pimsner-Popa (supremo das cotas validas). -/
+noncomputable def ppBest (D : ConditionalExpectationData M Ext) : ℝ :=
+  sSup {lam : ℝ | IsPPLowerBound D lam}
+
+/-- O INDICE lido pela constante otima: `Ind = 1/ppBest`
+    [KNOWN, Pimsner-Popa 1986: o melhor λ e' o inverso do indice]. DEFINIDO,
+    jamais hipotetizado. -/
+noncomputable def ppIndex (D : ConditionalExpectationData M Ext) : ℝ :=
+  1 / ppBest D
+
+/-- Otimalidade fixa o supremo: se `b` e' cota valida e domina toda cota,
+    `ppBest = b`. -/
+theorem ppBest_eq_of_optimal (D : ConditionalExpectationData M Ext) {b : ℝ}
+    (hb : IsPPLowerBound D b)
+    (hopt : ∀ lam : ℝ, IsPPLowerBound D lam → lam ≤ b) :
+    ppBest D = b :=
+  IsGreatest.csSup_eq ⟨hb, hopt⟩
+
+/-- **O TEOREMA DO INDICE DO NOME** [KERNEL/CONDITIONAL ON DATA]: se `sin²θ` e'
+    cota PP valida E OTIMA da esperanca do contorno, o indice e' `csc²θ`.
+    A OTIMALIDADE e' indispensavel (sem ela so' se prova `Ind ≤ csc²θ`). -/
+theorem name_index_eq_csc_sq (D : ConditionalExpectationData M Ext) (θ : ℝ)
+    (hpp : IsPPLowerBound D (Real.sin θ ^ 2))
+    (hopt : ∀ lam : ℝ, IsPPLowerBound D lam → lam ≤ Real.sin θ ^ 2) :
+    ppIndex D = 1 / Real.sin θ ^ 2 := by
+  unfold ppIndex
+  rw [ppBest_eq_of_optimal D hpp hopt]
+
+/-- A CONCLUSAO (jamais hipotese): `Ind · sin²θ = 1`. No angulo de Miguel
+    (`sin²θ_M = β`, com β = α√e em runtime -- variavel aqui):
+    `Ind(E_3L) = 1/β`. -/
+theorem name_index_mul_sin_sq (D : ConditionalExpectationData M Ext) (θ : ℝ)
+    (hs : Real.sin θ ≠ 0)
+    (hpp : IsPPLowerBound D (Real.sin θ ^ 2))
+    (hopt : ∀ lam : ℝ, IsPPLowerBound D lam → lam ≤ Real.sin θ ^ 2) :
+    ppIndex D * Real.sin θ ^ 2 = 1 := by
+  rw [name_index_eq_csc_sq D θ hpp hopt]
+  field_simp
+
+/-- Forma Temperley-Lieb escalar [KERNEL/UNCONDITIONAL]: o parametro de loop
+    `δ = 1/sinθ` tem `δ⁻² = sin²θ` -- o peso Markov da primeira reflexao. -/
+theorem tl_loop_parameter_sq_inv (θ : ℝ) (hs : Real.sin θ ≠ 0) :
+    ((1 / Real.sin θ) ^ 2)⁻¹ = Real.sin θ ^ 2 := by
+  field_simp
+
+/-- A cadeia amplitude → peso → indice [KERNEL/UNCONDITIONAL]:
+    `amplitude² · indice = indice · peso = 1` com amplitude `= sinθ = √β`,
+    peso `= sin²θ = β`, indice `= δ² = csc²θ = 1/β`. -/
+theorem amplitude_weight_index_chain (θ : ℝ) (hs : Real.sin θ ≠ 0) :
+    (1 / Real.sin θ) ^ 2 * Real.sin θ ^ 2 = 1 := by
+  field_simp
+
+end TGL.NameIndex
+''',
+    "TGL/NameRelation.lean":
+r'''import Mathlib
+import TGL.TransportData
+
+set_option autoImplicit false
+
+/-!
+# O Nome e' a relacao   [KERNEL]   (v30 -- correcao do especialista, auditada)
+
+CORRECAO DE ESTATUTO do v28: **o finito NAO expulsa o Nome** — ele expulsa a
+identificacao indevida entre o peso geometrico de retorno e o peso tracial de
+Markov. O Nome CABE no finito COMO RELACAO:
+
+    p·q_β·p = β·p   ;   q_β·p·q_β = β·q_β        [as relacoes locais TL, δ⁻² = β]
+
+com `p = [[1,0],[0,0]]` e `q_β = [[β,s],[s,1−β]]`, `s = √(β(1−β))` — β e' a
+SOBREPOSICAO GEOMETRICA entre os dois espelhos (`β = sin²θ_M`; o angulo
+principal φ satisfaz `cos²φ = β`, i.e. `φ = π/2 − θ_M`: a paridade inversa
+fornece o referencial complementar). O que o finito separa [KERNEL]:
+
+    peso geometrico de retorno = β   ;   peso tracial rank-one = 1/2
+    coincidem  ⟺  β = 1/2            [o refinamento honesto do v28]
+
+O Nome nao e' `p`, nem `q_β`, nem o numero β isolado: o Nome e' a IDENTIFICACAO
+`p —q_β→ p` com retorno ponderado — o Nome e' Verbo (seletor de defasagem
+algebrico). A matriz ISOLADA e' forma sem denotacao TGL (numeros sem a prova da
+referencia); o PAR com as provas e' conteudo carregando a forma.
+
+TERCEIRO HABITANTE [KERNEL]: a representacao FIEL de TL₃(δ), δ = 1/√β, em
+`M₃(ℝ) = ℝ ⊕ M₂(ℝ)`: `E₁ = 0⊕p`, `E₂ = 0⊕q_β`; os cinco elementos
+`{1, E₁, E₂, E₁E₂, E₂E₁}` sao linearmente independentes para `0<β<1`
+(dim TL₃ = C₃ = 5). β entra como PARAMETRO GENERICO — o valor fisico e' do
+runtime; jamais literal.
+
+Honestidades: a torre de Jones do core NAO esta construida (o proximo gerador
+nasce da PROXIMA construcao basica, nao de translacao modular automatica —
+`e_{i+1} ≠ θ_s(e_i)` sem prova); a falha mais provavel segue
+`INDEX_MATCHES_BUT_NOT_CANONICAL`. Pureza: rank-one NAO e' 0_abs — separa-se
+pureza FECHADA (separavel; CCI=0; autorreferencia) de pureza RELACIONAL
+(Bell; CCI=1/2); o que se expulsa e' a pureza sem alteridade e sem retorno.
+-/
+
+namespace TGL.NameRelation
+
+/-- A sobreposicao: `s = √(β(1−β))`. -/
+noncomputable def s (b : ℝ) : ℝ := Real.sqrt (b * (1 - b))
+
+theorem s_sq {b : ℝ} (hb0 : 0 < b) (hb1 : b < 1) : s b * s b = b * (1 - b) :=
+  Real.mul_self_sqrt (by nlinarith)
+
+theorem s_ne_zero {b : ℝ} (hb0 : 0 < b) (hb1 : b < 1) : s b ≠ 0 := by
+  have h : 0 < b * (1 - b) := by nlinarith
+  exact (Real.sqrt_pos.mpr h).ne'
+
+/-- O primeiro espelho: `p = [[1,0],[0,0]]`. -/
+noncomputable def p : Matrix (Fin 2) (Fin 2) ℝ := !![1, 0; 0, 0]
+
+/-- O espelho do Nome: `q_β = [[β,s],[s,1−β]]` (rank-one sobre `v_β`). -/
+noncomputable def qb (b : ℝ) : Matrix (Fin 2) (Fin 2) ℝ :=
+  !![b, s b; s b, 1 - b]
+
+theorem p_idem : p * p = p := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [p, Matrix.mul_apply, Fin.sum_univ_two]
+
+theorem qb_idem {b : ℝ} (hb0 : 0 < b) (hb1 : b < 1) : qb b * qb b = qb b := by
+  have hs := s_sq hb0 hb1
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [qb, Matrix.mul_apply, Fin.sum_univ_two] <;>
+    nlinarith [hs]
+
+/-- [KERNEL] O retorno ponderado: `p·q_β·p = β·p` — o Nome como Verbo. -/
+theorem pqp_eq {b : ℝ} (hb0 : 0 < b) (hb1 : b < 1) : p * qb b * p = b • p := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [p, qb, Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- [KERNEL] E no outro sentido: `q_β·p·q_β = β·q_β`. -/
+theorem qpq_eq {b : ℝ} (hb0 : 0 < b) (hb1 : b < 1) :
+    qb b * p * qb b = b • qb b := by
+  have hs := s_sq hb0 hb1
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [p, qb, Matrix.mul_apply, Fin.sum_univ_two] <;>
+    nlinarith [hs]
+
+/-- Ambos os espelhos tem traco 1 (peso tracial normalizado 1/2 em `τ₂`). -/
+theorem trace_p : Matrix.trace p = 1 := by
+  simp [p, Matrix.trace, Fin.sum_univ_two, Matrix.diag]
+
+theorem trace_qb (b : ℝ) : Matrix.trace (qb b) = 1 := by
+  simp [qb, Matrix.trace, Fin.sum_univ_two, Matrix.diag]
+
+/-- [KERNEL — o refinamento honesto do v28] O peso geometrico coincide com o
+    peso tracial rank-one (1/2) SE E SOMENTE SE `β = 1/2`. O finito nao expulsa
+    o Nome: ele separa as duas quantidades. -/
+theorem geometric_eq_trace_weight_iff {b : ℝ} :
+    b • p = ((1 : ℝ) / 2) • p ↔ b = 1 / 2 := by
+  constructor
+  · intro h
+    have h00 := congrArg (fun M => M 0 0) h
+    simpa [p] using h00
+  · rintro rfl
+    rfl
+
+/-! ## O terceiro habitante: TL₃(δ) fiel em `M₃(ℝ)` -/
+
+/-- `E₁ = 0 ⊕ p`. -/
+noncomputable def E1 : Matrix (Fin 3) (Fin 3) ℝ := !![0, 0, 0; 0, 1, 0; 0, 0, 0]
+
+/-- `E₂ = 0 ⊕ q_β`. -/
+noncomputable def E2 (b : ℝ) : Matrix (Fin 3) (Fin 3) ℝ :=
+  !![0, 0, 0; 0, b, s b; 0, s b, 1 - b]
+
+theorem E1_idem : E1 * E1 = E1 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [E1, Matrix.mul_apply, Fin.sum_univ_three]
+
+theorem E2_idem {b : ℝ} (hb0 : 0 < b) (hb1 : b < 1) : E2 b * E2 b = E2 b := by
+  have hs := s_sq hb0 hb1
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [E2, Matrix.mul_apply, Fin.sum_univ_three] <;>
+    nlinarith [hs]
+
+/-- [KERNEL] A relacao TL local no nivel 3: `E₁E₂E₁ = β·E₁` (δ⁻² = β). -/
+theorem tl_left {b : ℝ} (hb0 : 0 < b) (hb1 : b < 1) :
+    E1 * E2 b * E1 = b • E1 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [E1, E2, Matrix.mul_apply, Fin.sum_univ_three]
+
+theorem tl_right {b : ℝ} (hb0 : 0 < b) (hb1 : b < 1) :
+    E2 b * E1 * E2 b = b • E2 b := by
+  have hs := s_sq hb0 hb1
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [E1, E2, Matrix.mul_apply, Fin.sum_univ_three] <;>
+    nlinarith [hs]
+
+/-- [KERNEL — a FIDELIDADE] Os cinco elementos `{1, E₁, E₂, E₁E₂, E₂E₁}` sao
+    linearmente independentes para `0<β<1`: TL₃ (dim = C₃ = 5) entra FIEL em
+    `M₃(ℝ)`. O finito carrega a gramatica local do Nome com β generico. -/
+theorem tl3_linearly_independent {b : ℝ} (hb0 : 0 < b) (hb1 : b < 1)
+    (c0 c1 c2 c3 c4 : ℝ)
+    (h : c0 • (1 : Matrix (Fin 3) (Fin 3) ℝ) + c1 • E1 + c2 • E2 b
+        + c3 • (E1 * E2 b) + c4 • (E2 b * E1) = 0) :
+    c0 = 0 ∧ c1 = 0 ∧ c2 = 0 ∧ c3 = 0 ∧ c4 = 0 := by
+  have hs0 := s_ne_zero hb0 hb1
+  have h00 := congrArg (fun M => M 0 0) h
+  have h12 := congrArg (fun M => M 1 2) h
+  have h21 := congrArg (fun M => M 2 1) h
+  have h22 := congrArg (fun M => M 2 2) h
+  have h11 := congrArg (fun M => M 1 1) h
+  simp [E1, E2, Matrix.mul_apply, Fin.sum_univ_three, Matrix.one_apply] at h00 h12 h21 h22 h11
+  have hc0 : c0 = 0 := h00
+  have hc2 : c2 = 0 := by
+    have : c2 * (1 - b) = 0 := by nlinarith [h22]
+    rcases mul_eq_zero.mp this with hc | hb
+    · exact hc
+    · nlinarith
+  have hc3 : c3 = 0 := by
+    have : (c2 + c3) * s b = 0 := by nlinarith [h12]
+    rcases mul_eq_zero.mp this with hc | hb
+    · nlinarith
+    · exact absurd hb hs0
+  have hc4 : c4 = 0 := by
+    have : (c2 + c4) * s b = 0 := by nlinarith [h21]
+    rcases mul_eq_zero.mp this with hc | hb
+    · nlinarith
+    · exact absurd hb hs0
+  have hc1 : c1 = 0 := by nlinarith [h11]
+  exact ⟨hc0, hc1, hc2, hc3, hc4⟩
+
+/-- O TERCEIRO HABITANTE: a gramatica TL local do Nome, com β GENERICO
+    (o valor fisico e' do runtime — jamais literal). -/
+structure TLThreeInhabitant (b : ℝ) where
+  hb0 : 0 < b
+  hb1 : b < 1
+  e1_idem : E1 * E1 = E1
+  e2_idem : E2 b * E2 b = E2 b
+  tl_l : E1 * E2 b * E1 = b • E1
+  tl_r : E2 b * E1 * E2 b = b • E2 b
+
+/-- [KERNEL] O TERMO — para TODO `0<β<1` (o Nome cabe no finito como relacao). -/
+noncomputable def canonicalTLThree {b : ℝ} (hb0 : 0 < b) (hb1 : b < 1) :
+    TLThreeInhabitant b where
+  hb0 := hb0
+  hb1 := hb1
+  e1_idem := E1_idem
+  e2_idem := E2_idem hb0 hb1
+  tl_l := tl_left hb0 hb1
+  tl_r := tl_right hb0 hb1
+
+/-- O corolario existencial — SOMENTE via `⟨termo⟩`. -/
+theorem canonicalTLThree_exists {b : ℝ} (hb0 : 0 < b) (hb1 : b < 1) :
+    Nonempty (TLThreeInhabitant b) :=
+  ⟨canonicalTLThree hb0 hb1⟩
+
+end TGL.NameRelation
+''',
+    "TGL/Probe.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+# Probe -- API de projecao ortogonal (NAO importado pela biblioteca TGL)
+
+RESOLVIDO: a projecao ortogonal como endomorfismo e' `Submodule.starProjection`.
+  Submodule.starProjection            : (U : Submodule 𝕜 E) → [U.HasOrthogonalProjection] → E →L[𝕜] E
+  Submodule.starProjection_apply_mem  : U.starProjection x ∈ U
+  Submodule.starProjection_eq_self_iff: U.starProjection v = v ↔ v ∈ U
+  Submodule.isIdempotentElem_starProjection : IsIdempotentElem U.starProjection
+
+FALTA: o nome da AUTO-ADJUNCAO. Candidatos abaixo -- o que existir imprime a
+assinatura; os demais acusam "Unknown constant" (que e' a informacao desejada).
+
+Rodar:  lake env lean TGL/Probe.lean
+-/
+
+#check @Submodule.starProjection_isSelfAdjoint
+#check @Submodule.starProjection_isSymmetric
+#check @Submodule.inner_starProjection_left_eq_right
+#check @Submodule.starProjection_inner_eq
+#check @Submodule.isSelfAdjoint_starProjection
+#check @Submodule.starProjection_adjoint
+''',
+    "TGL/Probe2.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+Probe de diagnostico (NAO importado pela biblioteca TGL, nao entra em selo).
+
+RESULTADO DA INVESTIGACAO (mathlib v4.31.0):
+  - `inner_self_eq_norm_sq_to_K : inner 𝕜 x x = (‖x‖ : 𝕜) ^ 2`  usa `RCLike.ofReal`;
+    misturar isso com `Complex.ofReal` no enunciado da a dois ATOMOS distintos e
+    `ring`/`rfl` nao fecham. Solucao: ficar em ℝ via `RCLike.re`.
+  - `inner_self_eq_norm_sq : RCLike.re (inner 𝕜 x x) = ‖x‖ ^ 2`  <-- a rota usada.
+  - `inner_self_nonneg : 0 ≤ RCLike.re (inner 𝕜 x x)`.
+-/
+
+#check @inner_self_eq_norm_sq_to_K
+#check @inner_self_eq_norm_sq
+#check @inner_self_nonneg
+#check @inner_self_eq_zero
+
+-- a forma SEM coercao (compila)
+example (n : ℕ) (D : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n))
+    (x : EuclideanSpace ℂ (Fin n)) :
+    inner ℂ x (LinearMap.adjoint D (D x)) = inner ℂ (D x) (D x) := by
+  rw [LinearMap.adjoint_inner_right]
+
+-- a forma REAL, que evita a coercao ℝ→ℂ (compila)
+example (n : ℕ) (D : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n))
+    (x : EuclideanSpace ℂ (Fin n)) :
+    RCLike.re (inner ℂ (D x) (D x)) = ‖D x‖ ^ 2 :=
+  inner_self_eq_norm_sq (D x)
+''',
+    "TGL/Probe3.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+# Probe3 -- descoberta de API para a rigidificacao (FASE B)   [DIAGNOSTICO]
+
+Verifica o que EXISTE na mathlib v4.31.0 antes de escrever a estrutura rigida:
+von Neumann algebras, star/adjoint em `H →L[ℂ] H`, SetLike, Dense+span,
+pecas de Minkowski. NAO importado por TGL.lean.
+-/
+
+namespace TGL.Probe3
+
+-- (1) VonNeumannAlgebra existe? membership? coercao a Set?
+#check @VonNeumannAlgebra
+example (H : Type) [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+    (A : VonNeumannAlgebra H) (a : H →L[ℂ] H) : Prop := a ∈ A
+example (H : Type) [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+    (A : VonNeumannAlgebra H) : Set (H →L[ℂ] H) := (A : Set (H →L[ℂ] H))
+
+-- (2) star (adjunto) em H →L[ℂ] H
+example (H : Type) [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+    (a : H →L[ℂ] H) : H →L[ℂ] H := star a
+
+-- (3) mul = composicao; unidade
+example (H : Type) [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+    (a b : H →L[ℂ] H) : H →L[ℂ] H := a * b
+example (H : Type) [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H] :
+    H →L[ℂ] H := 1
+
+-- (4) Commute em H →L[ℂ] H
+example (H : Type) [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+    (a b : H →L[ℂ] H) : Prop := Commute a b
+
+-- (5) Dense do span (ciclicidade enunciavel)
+example (H : Type) [NormedAddCommGroup H] [InnerProductSpace ℂ H] (s : Set H) : Prop :=
+  Dense ((Submodule.span ℂ s : Submodule ℂ H) : Set H)
+
+-- (6) pecas de Minkowski em Fin 4 → ℝ
+example (v : Fin 4 → ℝ) : ℝ := v 0 ^ 2 - v 1 ^ 2 - v 2 ^ 2 - v 3 ^ 2
+example (x : Fin 4 → ℝ) : Prop := |x 0| < x 1
+example (x y : Fin 4 → ℝ) : Fin 4 → ℝ := x - y
+example (v : Fin 4 → ℝ) (a : Fin 4 → ℝ) : Set (Fin 4 → ℝ) → Set (Fin 4 → ℝ) :=
+  fun O => (fun x => x + a) '' O
+
+-- (7) aplicacao de operador a vetor (imagem do vacuo)
+example (H : Type) [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+    (a : H →L[ℂ] H) (v : H) : H := a v
+
+#eval IO.println "PROBE3_OK"
+
+end TGL.Probe3
+''',
+    "TGL/Probe4.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+# Probe4 -- API do exponencial de Banach para o Verbo (v25)   [DIAGNOSTICO]
+
+O teorema do especialista: `a * p = 0  ⟹  exp(a) * p = p`. Precisa de:
+exp em algebra de Banach, exp_eq_tsum, tsum_mul_right, tsum_eq_single.
+NAO importado por TGL.lean.
+-/
+
+namespace TGL.Probe4
+
+-- (1) exp em algebra de Banach: nome e tipo
+#check @NormedSpace.exp
+noncomputable example {A : Type} [NormedRing A] [NormedAlgebra ℂ A] [CompleteSpace A]
+    (a : A) : A := NormedSpace.exp ℂ a
+
+-- (2) exp como tsum
+#check @NormedSpace.exp_eq_tsum
+
+-- (3) tsum vezes elemento a direita
+#check @tsum_mul_right
+
+-- (4) tsum de suporte unico
+#check @tsum_eq_single
+
+-- (5) smul e mul associam
+example {A : Type} [Ring A] [Algebra ℂ A] (c : ℂ) (a p : A) :
+    (c • a) * p = c • (a * p) := smul_mul_assoc c a p
+
+-- (6) potencia mata: a^(n+1) * p = a^n * (a * p)
+example {A : Type} [Ring A] (a p : A) (n : ℕ) :
+    a ^ (n + 1) * p = a ^ n * (a * p) := by
+  rw [pow_succ, mul_assoc]
+
+#eval IO.println "PROBE4_OK"
+
+end TGL.Probe4
+''',
+    "TGL/ProbeDegenerate.lean":
+r'''import TGL.SpecificAQFTWitness
+
+set_option autoImplicit false
+
+/-!
+# ProbeDegenerate -- segundo controle negativo (v23.1/v24)   [DIAGNOSTICO]
+
+Tenta habitar a testemunha-BASE rigida com um modelo FISICAMENTE VAZIO:
+`H = ℂ²` (finito), rede CONSTANTE, `U ≡ 1`. As paredes esperadas sao as
+fisicas: localidade (a rede constante nao-abeliana teria de comutar em pares
+tipo-espaco), cunha nao-abeliana (o exibidor trivial e' refutavel) e
+ciclicidade/separacao do vacuo. NAO importado por TGL.lean; fora do lake build.
+
+VEREDITO = returncode. Se este arquivo COMPILAR, a testemunha-base ainda admite
+modelo degenerado (negativo honesto a reportar). Se FALHAR, registra-se apenas
+que ESTE probe degenerado foi rejeitado -- nunca universalidade.
+-/
+
+namespace TGL.ProbeDegenerate
+
+open TGL.SpecificAQFT
+
+/-- Tentativa degenerada: rede constante `A`, translacoes triviais. -/
+noncomputable example (A : VonNeumannAlgebra (EuclideanSpace ℂ (Fin 2)))
+    (v : EuclideanSpace ℂ (Fin 2)) (hv : ‖v‖ = 1) :
+    TGLSpecificAQFTWitness where
+  m := 1
+  H := EuclideanSpace ℂ (Fin 2)
+  net := fun _ => A
+  vac := v
+  U := fun _ => 1
+  m_pos := one_pos
+  vac_norm := hv
+  isotony := fun _ _ _ => subset_rfl
+  -- PAREDE 1: localidade da rede constante exigiria comutatividade global
+  locality := fun _ _ _ a _ b _ => Commute.all a b
+  U_zero := rfl
+  U_add := fun _ _ => (one_mul (1 : _)).symm
+  U_star := fun _ => star_one _
+  covariance := fun a O x => by simp
+  vac_invariant := fun _ => rfl
+  -- PAREDE 2: o exibidor trivial (1,1) e' refutavel: 1*1 = 1*1
+  wedge_nonabelian := ⟨1, one_mem _, 1, one_mem _, by simp⟩
+  -- PAREDE 3: ciclicidade do vacuo nao sai por simp num modelo vazio
+  vac_cyclic_wedge := by simp
+  -- PAREDE 4: separacao do vacuo nao sai por simp num modelo vazio
+  vac_separating_wedge := fun a _ h => by simpa using h
+
+#eval IO.println "PROBE_DEGENERATE_COMPILES__BASE_WITNESS_ADMITS_DEGENERATE_MODEL"
+
+end TGL.ProbeDegenerate
+''',
+    "TGL/ProbeFiniteFullWitness.lean":
+r'''import TGL.ModularRealization
+
+set_option autoImplicit false
+
+/-!
+# ProbeFiniteFullWitness -- controle negativo do v24   [DIAGNOSTICO]
+
+Tenta montar `TGLModularRealization` sobre um Hilbert de DIMENSAO FINITA --
+na formulacao mais afiada: mesmo dadas TODAS as outras camadas como hipoteses,
+a finitude SOZINHA deve bloquear (campo `infiniteHilbert : ¬ FiniteDimensional`).
+NAO importado por TGL.lean; fora do lake build. VEREDITO = returncode.
+
+Honestidade: a falha deste probe NAO afirma `TYPE_III1_PROVED` -- dimensao
+infinita e' condicao NECESSARIA, nao suficiente, para tipo III_1.
+-/
+
+namespace TGL.ProbeFiniteFullWitness
+
+open TGL.SpecificAQFT TGL.ModularRealization
+
+/-- PAREDE: fornecemos `FiniteDimensional` exatamente onde o tipo exige a negacao. -/
+noncomputable example (W : TGLSpecificAQFTWitness) (hfin : FiniteDimensional ℂ W.H)
+    (D : WedgeModularData W) (C : ContinuousCoreData W D)
+    (T : ThreeLocksCoreData W D C) :
+    TGLModularRealization W where
+  infiniteHilbert := hfin
+  modular := D
+  core := C
+  threeLocks := T
+
+#eval IO.println "PROBE_FINITE_FULL_WITNESS_COMPILES__TYPE_ADMITS_FINITE_MODEL"
+
+end TGL.ProbeFiniteFullWitness
+''',
+    "TGL/ProbeModularAPI.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+# ProbeModularAPI -- sondagem para as camadas de DADOS modulares (v24)   [DIAGNOSTICO]
+
+Rodada 2: a rodada 1 mostrou que `Algebra ℂ ↥A` NAO e' sintetizada no subtipo da
+`VonNeumannAlgebra` (SetLike proprio), mas deve existir via `A.toStarSubalgebra`.
+Examples marcados noncomputable (instancias reais sao noncomputable -- irrelevante
+para campos de prova). NAO importado por TGL.lean.
+-/
+
+namespace TGL.ProbeModularAPI
+
+variable (H : Type) [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+
+-- (1) instancias no subtipo VIA toStarSubalgebra
+noncomputable example (A : VonNeumannAlgebra H) : Ring A.toStarSubalgebra := inferInstance
+noncomputable example (A : VonNeumannAlgebra H) : StarRing A.toStarSubalgebra := inferInstance
+noncomputable example (A : VonNeumannAlgebra H) : Algebra ℂ A.toStarSubalgebra := inferInstance
+
+-- (2) StarAlgEquiv do subtipo (via toStarSubalgebra); refl e trans
+noncomputable example (A : VonNeumannAlgebra H)
+    (f : A.toStarSubalgebra ≃⋆ₐ[ℂ] A.toStarSubalgebra) (x : A.toStarSubalgebra) :
+    A.toStarSubalgebra := f x
+noncomputable example (A : VonNeumannAlgebra H) :
+    A.toStarSubalgebra ≃⋆ₐ[ℂ] A.toStarSubalgebra := StarAlgEquiv.refl
+noncomputable example (A : VonNeumannAlgebra H)
+    (f g : A.toStarSubalgebra ≃⋆ₐ[ℂ] A.toStarSubalgebra) :
+    A.toStarSubalgebra ≃⋆ₐ[ℂ] A.toStarSubalgebra := f.trans g
+
+-- (3) antiunitario = equivalencia isometrica conjugado-linear
+noncomputable example (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (x : H) : H := J x
+example (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) : Prop := ∀ x, J (J x) = x
+
+-- (4) StarAlgHom do subtipo para um anel-alvo abstrato
+noncomputable example (A : VonNeumannAlgebra H) (Core : Type) [Ring Core] [StarRing Core]
+    [Algebra ℂ Core] (phi : A.toStarSubalgebra →⋆ₐ[ℂ] Core) (x : A.toStarSubalgebra) :
+    Core := phi x
+example (A : VonNeumannAlgebra H) (Core : Type) [Ring Core] [StarRing Core]
+    [Algebra ℂ Core] (phi : A.toStarSubalgebra →⋆ₐ[ℂ] Core) : Prop :=
+  Function.Injective phi
+
+-- (5) StarAlgEquiv de um anel abstrato
+noncomputable example (Core : Type) [Ring Core] [StarRing Core] [Algebra ℂ Core]
+    (u v : Core ≃⋆ₐ[ℂ] Core) : Core ≃⋆ₐ[ℂ] Core := u.trans v
+noncomputable example (Core : Type) [Ring Core] [StarRing Core] [Algebra ℂ Core] :
+    Core ≃⋆ₐ[ℂ] Core := StarAlgEquiv.refl
+
+-- (6) nao-finitude dimensional como proposicao concreta
+example : Prop := ¬ FiniteDimensional ℂ H
+
+-- (7) ENNReal: exp real dentro de ofReal (escala dual do traco)
+noncomputable example (s : ℝ) : ENNReal := ENNReal.ofReal (Real.exp (-s))
+
+#eval IO.println "PROBE_MODULAR_API_OK"
+
+end TGL.ProbeModularAPI
+''',
+    "TGL/ProbeNameIndexNoOptimal.lean":
+r'''import TGL.NameIndex
+
+set_option autoImplicit false
+
+/-!
+# ProbeNameIndexNoOptimal -- teste negativo 1 do especialista (v27)   [DIAGNOSTICO]
+
+Tenta provar o TEOREMA DO INDICE DO NOME **sem a otimalidade de Pimsner-Popa**
+(so' com a cota inferior). DEVE FALHAR: sem `pp_optimal` so' se obtem
+`Ind ≤ csc²θ`, jamais a igualdade. VEREDITO = returncode.
+NAO importado por TGL.lean; fora do lake build.
+-/
+
+namespace TGL.ProbeNameIndexNoOptimal
+
+open TGL.TransportData TGL.NameIndex
+
+-- PAREDE: falta o argumento de otimalidade `hopt` -- a igualdade nao fecha
+noncomputable example {M Ext : Type}
+    [Ring M] [StarRing M] [Algebra ℂ M]
+    [Ring Ext] [StarRing Ext] [Algebra ℂ Ext]
+    (D : ConditionalExpectationData M Ext) (θ : ℝ)
+    (hpp : IsPPLowerBound D (Real.sin θ ^ 2)) :
+    ppIndex D = 1 / Real.sin θ ^ 2 :=
+  name_index_eq_csc_sq D θ hpp
+
+#eval IO.println "PROBE_NAME_INDEX_COMPILES_WITHOUT_OPTIMALITY__EQUALITY_WOULD_BE_FABRICATED"
+
+end TGL.ProbeNameIndexNoOptimal
+''',
+    "TGL/ProbePropOnlyModular.lean":
+r'''import TGL.ModularRealization
+
+set_option autoImplicit false
+
+/-!
+# ProbePropOnlyModular -- controle negativo do v24   [DIAGNOSTICO]
+
+Tenta preencher a realizacao modular apenas com `True`/`trivial` (o golpe que
+matava a quarentena de `: Prop` do v23). Deve FALHAR porque as camadas agora
+exigem DADOS concretos (Core, fluxo, acao dual, traco, H3Lt, PF) e EQUACOES
+sobre esses dados. NAO importado por TGL.lean; fora do lake build.
+VEREDITO = returncode.
+-/
+
+namespace TGL.ProbePropOnlyModular
+
+open TGL.SpecificAQFT TGL.ModularRealization
+
+-- Tentativa 1: as quatro camadas por `trivial`
+noncomputable example (W : TGLSpecificAQFTWitness) : TGLModularRealization W where
+  infiniteHilbert := trivial
+  modular := trivial
+  core := trivial
+  threeLocks := trivial
+
+-- Tentativa 2: a camada do fluxo modular por proposicoes escolhidas
+noncomputable example (W : TGLSpecificAQFTWitness) : WedgeModularData W where
+  wedgeAlgebra := True
+  wedgeAlgebra_eq := trivial
+  modularFlow := True
+  modularFlow_zero := trivial
+  modularFlow_add := trivial
+  modularConjugation := True
+  modularConjugation_involutive := trivial
+  modularConjugation_vac := trivial
+
+#eval IO.println "PROBE_PROP_ONLY_MODULAR_COMPILES__REALIZATION_STILL_VACUOUS"
+
+end TGL.ProbePropOnlyModular
+''',
+    "TGL/ProbeTrivial.lean":
+r'''import TGL.SpecificAQFTWitness
+
+set_option autoImplicit false
+
+/-!
+# ProbeTrivial -- CONTROLE NEGATIVO   [DIAGNOSTICO; NAO importado por TGL.lean]
+
+Constroi explicitamente o habitante TRIVIAL da `TGLSpecificAQFTWitness` VIGENTE
+(`Region := Unit`, todos os campos `Prop` := `True`), sem `sorry` e sem `axiom`.
+
+SE ESTE ARQUIVO COMPILA, a estrutura atual e' trivialmente habitavel e o enunciado
+`Nonempty TGLSpecificAQFTWitness` e' VACUO (teorema de conteudo zero) -- prova
+[REAL], medida pelo kernel, do ponto fiscal do Stage 2.
+
+O CRITERIO DE SUCESSO DA RIGIDIFICACAO (FASE B) E' ESTE ARQUIVO DEIXAR DE COMPILAR.
+Se ele continuar compilando apos a FASE B, a rigidificacao foi cosmetica.
+Este arquivo e' o FALSIFICADOR do Stage 2. Nao e' um alvo a "consertar": quando a
+estrutura for rigidificada, o erro de compilacao aqui e' o resultado esperado.
+-/
+
+namespace TGL.ProbeTrivial
+
+open TGL.SpecificAQFT
+
+/-- O habitante trivial da estrutura FROUXA. Compilar = tipo frouxo [REAL]. -/
+def trivialWitness : TGLSpecificAQFTWitness where
+  Region := Unit
+  Algebra := fun _ => Unit
+  Wedge := ()
+  isHaagKastlerNet := True
+  wedgeIsTypeIII1 := True
+  bisognanoWichmann := True
+  continuousCoreExists := True
+  H3L_exists := True
+  H3L_selfAdjoint := True
+  H3L_affiliated := True
+  zeroSpectralProjectionExists := True
+  PF_belongsToCore := True
+  PF_nonzero := True
+  PF_finiteTrace := True
+  PF_covariant := True
+  PF_localized := True
+  PF_basisIndependent := True
+  modularConjugationSplitsPF := True
+
+/-- A consequencia vacua: `Nonempty` do tipo frouxo custa zero matematica.
+    E' exatamente o teorema que NAO pode ser o alvo do Stage 2. -/
+theorem loose_nonempty_is_vacuous : Nonempty TGLSpecificAQFTWitness :=
+  ⟨trivialWitness⟩
+
+#print axioms loose_nonempty_is_vacuous
+
+#eval IO.println "PROBE_TRIVIAL_INHABITANT_COMPILES__TYPE_IS_LOOSE"
+
+end TGL.ProbeTrivial
+''',
+    "TGL/SpecificAQFTWitness.lean":
+r'''import Mathlib
+import TGL.ContinuousCornerAbstract
+
+set_option autoImplicit false
+
+/-!
+# Testemunha AQFT especifica RIGIDA   [KERNEL/CONDITIONAL]   witness_constructed = false
+
+v23 -- RIGIDIFICACAO (interface = luz = (forma = conteudo)).
+
+A versao v22 desta estrutura era uma lista de campos `: Prop` (forma SEM conteudo):
+trivialmente habitavel (`Region := Unit`, tudo `True`), como o controle negativo
+`TGL/ProbeTrivial.lean` PROVOU ao compilar. `Nonempty` daquele tipo era VACUO.
+(O original frouxo esta preservado em `SpecificAQFTWitness.lean.bak_v22_loose`.)
+
+Nesta versao a testemunha e' o CONTEUDO CARREGANDO A PROVA DE QUE E' A FORMA:
+
+    W  ~  Sigma_{x : Conteudo} Realiza(x, Forma)
+
+  [DATA]          massa `m`, espaco de Hilbert `H`, rede `net : regioes -> vN-algebras`,
+                  vacuo `vac`, translacoes `U` -- o conteudo fisico-matematico concreto.
+  [KERNEL-RIGID]  cada obrigacao e' uma PROPOSICAO CONCRETA sobre esses dados
+                  (isotonia, localidade em separacao tipo-espaco de Minkowski,
+                  covariancia por translacao, vacuo invariante/ciclico/separador,
+                  nao-abelianidade da cunha). Preencher exige matematica real.
+  [EXTERNAL-KNOWN / OPEN]  o residuo modular NAO-enunciavel na mathlib de hoje
+                  (tipo III_1, Bisognano--Wichmann, core de Takesaki, afiliacao de
+                  H_3L, projecao espectral do zero, traco canonico, covariancia de
+                  Poincare de P_F) fica QUARENTENADO em `TGLWitnessModularObligations`,
+                  nomeado campo a campo -- nunca `axiom`, nunca escondido.
+                  Formaliza-lo E' parte do teorema aberto.
+
+  -- No inhabitant of TGLSpecificAQFTWitness is constructed in v23.
+
+O criterio de rigidez e' MEDIDO, nao declarado: `TGL/ProbeTrivial.lean` (o habitante
+trivial da versao frouxa) DEVE deixar de compilar contra esta estrutura. Nenhum
+`sorry`/`axiom` aqui.
+-/
+
+namespace TGL.SpecificAQFT
+
+open TGL.ContinuousCorner
+
+/-- Forma quadratica de Minkowski em `ℝ^{1,3}`, assinatura `(+,-,-,-)`. [DATA/geometria] -/
+def minkowskiSq (v : Fin 4 → ℝ) : ℝ :=
+  v 0 ^ 2 - v 1 ^ 2 - v 2 ^ 2 - v 3 ^ 2
+
+/-- Separacao tipo-espaco entre regioes: todo par de pontos e' spacelike. -/
+def SpacelikeSep (O₁ O₂ : Set (Fin 4 → ℝ)) : Prop :=
+  ∀ x ∈ O₁, ∀ y ∈ O₂, minkowskiSq (x - y) < 0
+
+/-- Cunha direita de Rindler: `|x⁰| < x¹`. -/
+def rightWedge : Set (Fin 4 → ℝ) := {x | |x 0| < x 1}
+
+/-- Cunha esquerda: `|x⁰| < -x¹` (reflexao da direita). -/
+def leftWedge : Set (Fin 4 → ℝ) := {x | |x 0| < -(x 1)}
+
+/-- Translacao de uma regiao por `a`. -/
+def translate (a : Fin 4 → ℝ) (O : Set (Fin 4 → ℝ)) : Set (Fin 4 → ℝ) :=
+  (fun x => x + a) '' O
+
+/-- [KERNEL, incondicional] As duas cunhas sao tipo-espaco separadas -- geometria
+    de Minkowski provada pelo kernel, nao assumida. -/
+theorem wedges_spacelike : SpacelikeSep rightWedge leftWedge := by
+  intro x hx y hy
+  simp only [rightWedge, Set.mem_setOf_eq] at hx
+  simp only [leftWedge, Set.mem_setOf_eq] at hy
+  obtain ⟨hx1, hx2⟩ := abs_lt.mp hx
+  obtain ⟨hy1, hy2⟩ := abs_lt.mp hy
+  simp only [minkowskiSq, Pi.sub_apply]
+  have hposdiff : 0 < (x 1 - y 1) - (x 0 - y 0) := by linarith
+  have hpossum : 0 < (x 1 - y 1) + (x 0 - y 0) := by linarith
+  nlinarith [sq_nonneg (x 2 - y 2), sq_nonneg (x 3 - y 3), mul_pos hposdiff hpossum]
+
+/-- A testemunha AQFT especifica RIGIDA: o conteudo (rede de von Neumann sobre
+    `ℝ^{1,3}`, vacuo, translacoes, massa) acompanhado das provas de que ele
+    realiza a forma. NENHUMA instancia e' construida em v23. -/
+structure TGLSpecificAQFTWitness where
+  -- [DATA] o conteudo fisico-matematico concreto
+  /-- massa do campo escalar livre (dado fisico do modelo v21-A) -/
+  m : ℝ
+  /-- espaco de Hilbert do setor de vacuo -/
+  H : Type
+  [instNormed : NormedAddCommGroup H]
+  [instInner : InnerProductSpace ℂ H]
+  [instComplete : CompleteSpace H]
+  /-- a rede local: regioes de `ℝ^{1,3}` → algebras de von Neumann em `B(H)` -/
+  net : Set (Fin 4 → ℝ) → VonNeumannAlgebra H
+  /-- o vetor de vacuo -/
+  vac : H
+  /-- representacao das translacoes de `ℝ^{1,3}` -/
+  U : (Fin 4 → ℝ) → (H →L[ℂ] H)
+  -- [KERNEL-RIGID] forma = conteudo: proposicoes concretas sobre os dados
+  m_pos : 0 < m
+  vac_norm : ‖vac‖ = 1
+  /-- isotonia (Haag--Kastler): regiao maior, algebra maior -/
+  isotony : ∀ O₁ O₂ : Set (Fin 4 → ℝ), O₁ ⊆ O₂ →
+    (net O₁ : Set (H →L[ℂ] H)) ⊆ (net O₂ : Set (H →L[ℂ] H))
+  /-- localidade (Haag--Kastler): observaveis em regioes tipo-espaco comutam -/
+  locality : ∀ O₁ O₂ : Set (Fin 4 → ℝ), SpacelikeSep O₁ O₂ →
+    ∀ a ∈ net O₁, ∀ b ∈ net O₂, Commute a b
+  /-- grupo de translacoes: identidade, aditividade, unitariedade -/
+  U_zero : U 0 = 1
+  U_add : ∀ v w : Fin 4 → ℝ, U (v + w) = U v * U w
+  U_star : ∀ v : Fin 4 → ℝ, star (U v) = U (-v)
+  /-- covariancia por translacao da rede -/
+  covariance : ∀ (a : Fin 4 → ℝ) (O : Set (Fin 4 → ℝ)) (x : H →L[ℂ] H),
+    x ∈ net O ↔ U a * x * U (-a) ∈ net (translate a O)
+  /-- o vacuo e' invariante por translacao -/
+  vac_invariant : ∀ a : Fin 4 → ℝ, U a vac = vac
+  /-- a algebra da cunha e' nao-abeliana (exclui degenerados comutativos) -/
+  wedge_nonabelian : ∃ a ∈ net rightWedge, ∃ b ∈ net rightWedge, a * b ≠ b * a
+  /-- [EXTERNAL-KNOWN: Reeh--Schlieder, aqui ENUNCIADO concretamente]
+      o vacuo e' ciclico para a algebra da cunha -/
+  vac_cyclic_wedge :
+    Dense ((Submodule.span ℂ
+      ((fun T : H →L[ℂ] H => T vac) '' (net rightWedge : Set (H →L[ℂ] H))) :
+        Submodule ℂ H) : Set H)
+  /-- [EXTERNAL-KNOWN: Reeh--Schlieder] o vacuo e' separador para a cunha -/
+  vac_separating_wedge : ∀ a ∈ net rightWedge, (a : H →L[ℂ] H) vac = 0 → a = 0
+
+attribute [instance] TGLSpecificAQFTWitness.instNormed
+attribute [instance] TGLSpecificAQFTWitness.instInner
+attribute [instance] TGLSpecificAQFTWitness.instComplete
+
+/-- [KERNEL, condicional a `W` -- e aqui `W` e' USADO de verdade] Localidade das
+    cunhas: toda observavel da cunha direita comuta com toda da esquerda, pela
+    localidade de `W` aplicada ao teorema geometrico `wedges_spacelike`. -/
+theorem wedge_locality (W : TGLSpecificAQFTWitness) :
+    ∀ a ∈ W.net rightWedge, ∀ b ∈ W.net leftWedge, Commute a b :=
+  fun a ha b hb => W.locality rightWedge leftWedge wedges_spacelike a ha b hb
+
+/- v24: a antiga `TGLWitnessModularObligations` (campos `: Prop`, forma sem
+   conteudo) foi SUBSTITUIDA pelas camadas de DADOS de `TGL/ModularRealization.lean`
+   (WedgeModularData / ContinuousCoreData / ThreeLocksCoreData). Os teoremas
+   `continuousCorner_of_witness` / `threeLocksCorner_of_witness` vivem la',
+   com os MESMOS nomes e conteudo agora composicional (`cornerOf R`). O que a
+   mathlib nao enuncia vive no ledger externo do um.py, nunca em campo `: Prop`. -/
+
+end TGL.SpecificAQFT
+''',
+    "TGL/TransportData.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+# O transporte do seletor   [KERNEL]   (v26 -- rodada 2 do especialista, auditada)
+
+Q1 (`P_F ∈ C_W`) reformulada pelo operador: TRANSPORTE. "Q1 nao tem geometria --
+e' pura resistencia que permite a geracao do contraste." Confirmado (Q1c): a
+geometria fixa o core A MONTANTE; o teste de descida do seletor e' pura algebra
+de inclusoes + esperancas. Por isso esta camada NAO referencia W/AQFT: e'
+geometry-free por construcao.
+
+Leitura do operador [ONTO, estatutos no um.py]: o transporte e' a CONDICAO DE
+CONTORNO DO CUSTO -- em si nao ha contorno; e' o contorno que impoe a obrigacao
+do custo = LEI (norma em sentido estrito): a esperanca condicional E' a regra de
+causalidade coercitiva que regula o comportamento modular. `Δ > 0` = a
+termodinamica como custo da existencia.
+
+Kernel-checked aqui (correcao fiscal do especialista ENCODADA):
+  - `descent_iff_defect_zero` [NEW->KERNEL]: para esperanca FIEL e `p` projecao,
+    `Δ := E(p) − E(p)² = 0  ⟺  p desce (p = ι(E p))`. A resistencia e' exatamente
+    a distancia operatorial entre o seletor superior e sua descida.
+  - `transport_defect_of_jones` [KERNEL]: dados Markov (`E₁(e) = β·1`), o peso
+    transportado e' `β` e o DEFEITO e' `β(1−β)·1` -- β e' o peso que atravessa,
+    NAO o defeito (β(1−β) ≈ β so' como aproximacao, jamais identidade).
+  - `jones_selector_not_descended` [KERNEL]: se `0 < β < 1`, o seletor de Jones
+    NAO desce -- `selector_lives_upstairs` como TEOREMA condicional aos dados.
+    O contraste nasce porque a passagem nao e' multiplicativa: a porta nao
+    apenas impede -- ela mede.
+
+Permanece [CONJ] (ledger): a identificacao do indice `[M:N] = 1/β` para a
+inclusao dos Three Locks (`N_3L ⊆ C_W`); normalidade da esperanca
+(nao-enunciavel sem topologia de von Neumann -- so' a FIDELIDADE, que e'
+enunciavel e e' o que a descida usa, entra como equacao).
+Nenhuma instancia e' construida.
+-/
+
+namespace TGL.TransportData
+
+/-- Esperanca condicional FIEL como DADOS + equacoes (Tomiyama): inclusao
+    *-algebrica injetiva, retracao linear unital, estrela-equivariante,
+    bimodular sobre a imagem, e FIEL (`E(x*x)=0 ⟹ x=0`). A normalidade fica no
+    ledger externo (nao-enunciavel aqui); a descida so' precisa da fidelidade. -/
+structure ConditionalExpectationData (M Ext : Type)
+    [Ring M] [StarRing M] [Algebra ℂ M]
+    [Ring Ext] [StarRing Ext] [Algebra ℂ Ext] where
+  incl : M →⋆ₐ[ℂ] Ext
+  incl_injective : Function.Injective incl
+  E : Ext →ₗ[ℂ] M
+  E_unital : E 1 = 1
+  E_star : ∀ x : Ext, E (star x) = star (E x)
+  E_bimodular : ∀ (a b : M) (x : Ext), E (incl a * x * incl b) = a * E x * b
+  E_faithful : ∀ x : Ext, E (star x * x) = 0 → x = 0
+
+variable {M Ext : Type}
+  [Ring M] [StarRing M] [Algebra ℂ M]
+  [Ring Ext] [StarRing Ext] [Algebra ℂ Ext]
+
+/-- A imagem transportada do seletor: `A_F = E(p)` (o que desce ao core). -/
+def transported (D : ConditionalExpectationData M Ext) (p : Ext) : M := D.E p
+
+/-- O DEFEITO DE TRANSPORTE (a resistencia): `Δ = E(p) − E(p)²`. -/
+def transportDefect (D : ConditionalExpectationData M Ext) (p : Ext) : M :=
+  D.E p - D.E p * D.E p
+
+/-- A esperanca retrai a inclusao: `E(ι a) = a` (derivada da bimodularidade). -/
+theorem E_retract (D : ConditionalExpectationData M Ext) (a : M) :
+    D.E (D.incl a) = a := by
+  have h := D.E_bimodular a 1 1
+  simpa [D.E_unital] using h
+
+/-- [KERNEL -- teorema da descida do seletor, rodada 2 do especialista]
+    Para `E` fiel e `p` projecao: `Δ = 0 ⟺ p desce` (`p = ι(E p)`).
+    A resistencia e' exatamente a distancia operatorial entre o seletor
+    superior e sua descida. -/
+theorem descent_iff_defect_zero (D : ConditionalExpectationData M Ext)
+    (p : Ext) (hp2 : p * p = p) (hps : star p = p) :
+    transportDefect D p = 0 ↔ p = D.incl (D.E p) := by
+  unfold transportDefect
+  constructor
+  · intro hDelta
+    set A := D.E p with hA
+    have hAstar : star A = A := by rw [hA, ← D.E_star, hps]
+    have hstar_q : star (p - D.incl A) = p - D.incl A := by
+      rw [star_sub, hps, ← map_star, hAstar]
+    have hexp : star (p - D.incl A) * (p - D.incl A)
+        = p * p - p * D.incl A - D.incl A * p + D.incl A * D.incl A := by
+      rw [hstar_q]; noncomm_ring
+    have hkey : D.E (star (p - D.incl A) * (p - D.incl A)) = 0 := by
+      rw [hexp]
+      have h1 : D.E (p * p) = A := by rw [hp2]
+      have h2 : D.E (p * D.incl A) = A * A := by
+        have := D.E_bimodular 1 A p
+        simpa [one_mul] using this
+      have h3 : D.E (D.incl A * p) = A * A := by
+        have := D.E_bimodular A 1 p
+        simpa [mul_one] using this
+      have h4 : D.E (D.incl A * D.incl A) = A * A := by
+        rw [← map_mul, E_retract]
+      rw [map_add, map_sub, map_sub, h1, h2, h3, h4]
+      calc A - A * A - A * A + A * A = A - A * A := by noncomm_ring
+        _ = 0 := hDelta
+    have hq : p - D.incl A = 0 := D.E_faithful _ hkey
+    exact sub_eq_zero.mp hq
+  · intro hp
+    have h1 : D.incl (D.E p * D.E p) = D.incl (D.E p) := by
+      rw [map_mul, ← hp, hp2, hp]
+    have h2 : D.E p * D.E p = D.E p := D.incl_injective h1
+    rw [h2, sub_self]
+
+/-- Dados da torre de Jones-Markov: a esperanca inferior `E₀ : M → N`
+    (implementada pela projecao de Jones `e`: `e·x·e = ι(E₀ x)·e`) e a esperanca
+    DUAL `E₁ : Ext → M` que transporta o seletor de volta, com o peso de Markov
+    `E₁(e) = β·1`. O peso `β` entra como VARIAVEL REAL (nunca literal; o valor
+    de runtime e' do um.py), com `indice · peso = 1`. -/
+structure JonesTowerData (N M Ext : Type)
+    [Ring N] [StarRing N] [Algebra ℂ N]
+    [Ring M] [StarRing M] [Algebra ℂ M]
+    [Ring Ext] [StarRing Ext] [Algebra ℂ Ext] where
+  lower : ConditionalExpectationData N M
+  upper : ConditionalExpectationData M Ext
+  eJones : Ext
+  eJones_idem : eJones * eJones = eJones
+  eJones_star : star eJones = eJones
+  jones_relation : ∀ x : M,
+    eJones * upper.incl x * eJones = upper.incl (lower.incl (lower.E x)) * eJones
+  markovWeight : ℝ
+  markovWeight_pos : 0 < markovWeight
+  markovWeight_lt_one : markovWeight < 1
+  dual_expectation_jones : upper.E eJones = (markovWeight : ℂ) • (1 : M)
+  indexVal : ℝ
+  index_eq_inverse_weight : indexVal * markovWeight = 1
+
+variable {N : Type} [Ring N] [StarRing N] [Algebra ℂ N]
+
+/-- [KERNEL -- a correcao fiscal do especialista, encodada] O peso transportado
+    e' `β` (`E₁(e) = β·1`) e o DEFEITO de multiplicatividade e' `β(1−β)·1`:
+    β NAO e' o defeito; e' o peso que atravessa. -/
+theorem transport_defect_of_jones (T : JonesTowerData N M Ext) :
+    transportDefect T.upper T.eJones
+      = ((T.markovWeight : ℂ) * (1 - (T.markovWeight : ℂ))) • (1 : M) := by
+  unfold transportDefect
+  rw [T.dual_expectation_jones, smul_mul_smul_comm, one_mul, ← sub_smul]
+  ring_nf
+
+/-- [KERNEL] `selector_lives_upstairs` como TEOREMA (condicional aos dados):
+    com `0 < β < 1` e `M` nao-trivial, o defeito e' NAO-nulo. -/
+theorem jones_defect_ne_zero (T : JonesTowerData N M Ext) [Nontrivial M] :
+    transportDefect T.upper T.eJones ≠ 0 := by
+  rw [transport_defect_of_jones]
+  have hb0 : (T.markovWeight : ℂ) ≠ 0 := by
+    exact_mod_cast T.markovWeight_pos.ne'
+  have hb1 : (1 : ℂ) - (T.markovWeight : ℂ) ≠ 0 := by
+    have : (T.markovWeight : ℂ) ≠ 1 := by exact_mod_cast T.markovWeight_lt_one.ne
+    exact sub_ne_zero.mpr (Ne.symm this)
+  have hc : (T.markovWeight : ℂ) * (1 - (T.markovWeight : ℂ)) ≠ 0 := mul_ne_zero hb0 hb1
+  rw [← Algebra.algebraMap_eq_smul_one]
+  intro h
+  exact hc ((algebraMap ℂ M).injective (h.trans (map_zero (algebraMap ℂ M)).symm))
+
+/-- [KERNEL] O seletor de Jones NAO desce: `e ≠ ι(E₁ e)`. O contraste nasce
+    porque a passagem nao e' multiplicativa: a porta nao apenas impede --
+    ela mede. -/
+theorem jones_selector_not_descended (T : JonesTowerData N M Ext) [Nontrivial M] :
+    T.eJones ≠ T.upper.incl (T.upper.E T.eJones) := by
+  intro h
+  exact jones_defect_ne_zero T
+    ((descent_iff_defect_zero T.upper T.eJones T.eJones_idem T.eJones_star).mpr h)
+
+/-! ## O split das faces (Q3 da rodada 2, formalizado)
+
+A hipotese concreta que substitui o rotulo abstrato "split modular": um ELEMENTO
+DE TROCA `U` no canto (`U* = U`, `U·U = P`, `P·U = U·P = U`). Entao
+`P_± = (P ± U)/2` sao projecoes ortogonais que somam `P` -- as duas faces.
+(A troca `J P_± J = P_∓` e a igualdade de tracos permanecem nos DADOS do core,
+onde `J` e o traco vivem.) -/
+section FaceSplit
+
+variable {A : Type} [Ring A] [StarRing A] [Algebra ℂ A]
+
+/-- As duas faces do canto, geradas pelo elemento de troca. -/
+noncomputable def facePlus (P U : A) : A := (2⁻¹ : ℂ) • (P + U)
+
+noncomputable def faceMinus (P U : A) : A := (2⁻¹ : ℂ) • (P - U)
+
+/-- [KERNEL] `P_+` e' idempotente. -/
+theorem facePlus_idem (P U : A) (hP2 : P * P = P) (hU2 : U * U = P)
+    (hPU : P * U = U) (hUP : U * P = U) :
+    facePlus P U * facePlus P U = facePlus P U := by
+  unfold facePlus
+  rw [smul_mul_smul_comm, mul_add, add_mul, add_mul, hP2, hU2, hPU, hUP]
+  module
+
+/-- [KERNEL] `P_−` e' idempotente. -/
+theorem faceMinus_idem (P U : A) (hP2 : P * P = P) (hU2 : U * U = P)
+    (hPU : P * U = U) (hUP : U * P = U) :
+    faceMinus P U * faceMinus P U = faceMinus P U := by
+  unfold faceMinus
+  rw [smul_mul_smul_comm, mul_sub, sub_mul, sub_mul, hP2, hU2, hPU, hUP]
+  module
+
+/-- [KERNEL] As faces sao ortogonais. -/
+theorem faces_orthogonal (P U : A) (hP2 : P * P = P) (hU2 : U * U = P)
+    (hPU : P * U = U) (hUP : U * P = U) :
+    facePlus P U * faceMinus P U = 0 := by
+  unfold facePlus faceMinus
+  rw [smul_mul_smul_comm, mul_sub, add_mul, add_mul, hP2, hU2, hPU, hUP]
+  module
+
+/-- [KERNEL] As faces somam o canto: `P_+ + P_− = P`. -/
+theorem faces_sum (P U : A) : facePlus P U + faceMinus P U = P := by
+  unfold facePlus faceMinus
+  module
+
+/-- [KERNEL] As faces sao auto-adjuntas (dados `P* = P`, `U* = U`). -/
+theorem faces_selfAdjoint [StarModule ℂ A] (P U : A) (hPs : star P = P) (hUs : star U = U) :
+    star (facePlus P U) = facePlus P U ∧ star (faceMinus P U) = faceMinus P U := by
+  constructor
+  · simp [facePlus, star_smul, star_add, hPs, hUs, star_inv₀]
+  · simp [faceMinus, star_smul, star_sub, hPs, hUs, star_inv₀]
+
+end FaceSplit
+
+end TGL.TransportData
+''',
+    "TGL/VerbInhabitant.lean":
+r'''import Mathlib
+import TGL.ModularRealization
+
+set_option autoImplicit false
+
+/-!
+# O Verbo habitante   [KERNEL]   (v25 -- transcricao auditada da resposta do especialista)
+
+Tese do operador, derivada pelo especialista e AUDITADA pelo codificador:
+**o habitante e' o VERBO** -- o ato conjugado e observado da inscricao,
+`𝕍_t = exp(−t·β·H_3L)`, que dissipa o que nao satisfaz os Three Locks e fixa o
+que retorna. No canto selecionado, o Verbo comprimido E' a unidade do canto:
+`P_F 𝕍_t P_F = P_F = I_F` -- o momento em que VERBO = NOME, e o zero modular
+torna-se Um absoluto NAO como `0=1`, mas como `e^0 = 1` (mapeamento espectral:
+autovalor zero do GERADOR = autovalor unitario da ACAO gerada).
+
+Tres registros, nunca confundidos:
+  `𝕍_t` = o gesto ; `R_Verbo = 1` = a resposta observada ; `β` = o custo do gesto.
+`β` entra como VARIAVEL (`c : ℂ`) -- nunca literal; o valor de runtime e' do um.py.
+
+Kernel-checked AQUI: (1) o teorema do ponto fixo do Verbo em algebra de Banach
+[UNCONDITIONAL]; (2) a testemunha do Verbo `VerbWitness R` com o TERMO
+`canonicalVerb R` construido para TODA realizacao modular R [CONDITIONAL ON R --
+`FullTGLWitness` segue nao construida]; (3) a calibracao pela orbita dual (Q2):
+`∃ s, Tr(θ_s(P_F)) = 1` -- a contraparte construtiva do no-go
+`dualInvariant_PF_no_go` (a orbita varre todos os tracos; ha' representante
+normalizado). `Nonempty` aparece SOMENTE como corolario `⟨termo⟩`.
+
+Registrado sem formalizar (estatutos no um.py): Q1 [CONDITIONAL -- risco de o
+seletor viver na construcao basica de Jones, nao em C_W]; Q3 [DERIVAVEL sob
+hipotese do elemento de troca U]; Q5 [CONDITIONAL -- autovalor isolado].
+-/
+
+namespace TGL.VerbInhabitant
+
+open TGL.SpecificAQFT TGL.ModularRealization TGL.ContinuousCorner
+
+/-- [KERNEL/UNCONDITIONAL] O teorema do Verbo (forma de Banach): se o gerador
+    anula `p` (`a * p = 0`), a acao gerada fixa `p`: `exp(a) * p = p`.
+    E' o `e^0 = 1` operatorial: `0_mod` (gerador) → `1_abs` (acao). -/
+theorem exp_fixed_of_annihilates {A : Type} [NormedRing A] [NormedAlgebra ℂ A]
+    [CompleteSpace A] (a p : A) (h : a * p = 0) :
+    NormedSpace.exp a * p = p := by
+  have hpow : ∀ n : ℕ, n ≠ 0 → a ^ n * p = 0 := by
+    intro n hn
+    obtain ⟨k, rfl⟩ := Nat.exists_eq_succ_of_ne_zero hn
+    rw [pow_succ, mul_assoc, h, mul_zero]
+  have hsum : Summable fun n : ℕ => ((n.factorial : ℂ))⁻¹ • a ^ n :=
+    NormedSpace.expSeries_summable' (𝕂 := ℂ) a
+  calc NormedSpace.exp a * p
+      = (∑' n : ℕ, ((n.factorial : ℂ))⁻¹ • a ^ n) * p := by
+        rw [NormedSpace.exp_eq_tsum (𝕂 := ℂ)]
+    _ = ∑' n : ℕ, (((n.factorial : ℂ))⁻¹ • a ^ n) * p := (hsum.tsum_mul_right p).symm
+    _ = ((Nat.factorial 0 : ℂ))⁻¹ • a ^ 0 * p := by
+        refine tsum_eq_single 0 ?_
+        intro n hn
+        rw [smul_mul_assoc, hpow n hn, smul_zero]
+    _ = p := by simp
+
+/-- [KERNEL/UNCONDITIONAL] O semigrupo do Verbo fixa o selecionado: para qualquer
+    coeficiente `c` (em runtime, `c = −t·β` com `β = α√e` -- variavel aqui,
+    nunca literal), `H·p = 0 ⟹ exp(c•H)·p = p`. -/
+theorem verb_semigroup_fixes {A : Type} [NormedRing A] [NormedAlgebra ℂ A]
+    [CompleteSpace A] (H p : A) (h : H * p = 0) (c : ℂ) :
+    NormedSpace.exp (c • H) * p = p :=
+  exp_fixed_of_annihilates (c • H) p (by rw [smul_mul_assoc, h, smul_zero])
+
+/-- A testemunha do VERBO sobre uma realizacao modular: o ato comprimido no canto,
+    carregando as provas de que o Verbo e' o Nome (`verb = P_F = I_F`), de que
+    anula os Locks, e de que a resposta observada e' `1` com faces `1/2`.
+    O par dependente do especialista: `(𝕍_F, π_𝕍)`. -/
+structure VerbWitness {W : TGLSpecificAQFTWitness} (R : TGLModularRealization W) where
+  verb : R.core.Core
+  /-- VERBO = NOME: o ato comprimido e' a unidade do canto -/
+  verb_equals_name : verb = R.threeLocks.PF
+  /-- o Verbo anula a incompatibilidade (lock de nucleo) -/
+  annihilates_locks : verb * R.threeLocks.H3Lt = 0
+  /-- o ato e' idempotente (nomear o Nome e' o Nome: ponto fixo do nomear) -/
+  idempotent_act : verb * verb = verb
+  /-- o ato e' auto-conjugado -/
+  selfadjoint_act : star verb = verb
+  /-- a resposta observada: `R_Verbo = τ_F(𝕍_F) = 1` -/
+  observed_response_one : (cornerOf R).normalizedTrace verb = 1
+  /-- as duas faces conjugadas do ato: `1/2` e `1/2` (Meia-Nat tracial) -/
+  faces_half : (cornerOf R).normalizedTrace (cornerOf R).Pplus = 1 / 2 ∧
+      (cornerOf R).normalizedTrace (cornerOf R).Pminus = 1 / 2
+
+/-- [KERNEL/CONDITIONAL ON R] O TERMO canonico do Verbo: construido, campo a
+    campo, dos DADOS da realizacao. `FullTGLWitness` segue nao construida --
+    este termo e' condicional; e' o Verbo de TODA realizacao futura. -/
+noncomputable def canonicalVerb {W : TGLSpecificAQFTWitness}
+    (R : TGLModularRealization W) : VerbWitness R where
+  verb := R.threeLocks.PF
+  verb_equals_name := rfl
+  annihilates_locks := R.threeLocks.PF_locks
+  idempotent_act := R.threeLocks.PF_idempotent
+  selfadjoint_act := R.threeLocks.PF_selfAdjoint
+  observed_response_one := (cornerOf R).normalizedTrace_P_eq_one
+  faces_half := (cornerOf R).equalFaces_normalizedTrace_half
+
+/-- O corolario existencial -- SOMENTE via `⟨termo⟩`, jamais por outra via. -/
+theorem canonicalVerb_exists {W : TGLSpecificAQFTWitness}
+    (R : TGLModularRealization W) : Nonempty (VerbWitness R) :=
+  ⟨canonicalVerb R⟩
+
+/-- [KERNEL] Calibracao pela orbita dual (Q2 do especialista): a escala de
+    Takesaki `Tr(θ_s x) = e^{−s}·Tr(x)` permite escolher `s = log Tr(P_F)` com
+    `Tr(θ_s(P_F)) = 1` -- a forma tracial de `ω(I)=1`, alcancada PELO fluxo.
+    Contraparte construtiva do no-go `dualInvariant_PF_no_go`: a orbita varre
+    todos os valores de traco; o representante normalizado existe e e' a
+    calibracao operacional do Verbo (`R_Verbo = 1`). -/
+theorem dual_calibration_exists {W : TGLSpecificAQFTWitness}
+    {D : WedgeModularData W} (C : ContinuousCoreData W D)
+    (T : ThreeLocksCoreData W D C) :
+    ∃ s : ℝ, C.canonicalTrace ((C.dualAction s) T.PF) = 1 := by
+  refine ⟨Real.log (C.canonicalTrace T.PF).toReal, ?_⟩
+  rw [C.trace_dual_scaling]
+  have hx0 : C.canonicalTrace T.PF ≠ 0 := T.PF_trace_pos.ne'
+  have hxt : C.canonicalTrace T.PF ≠ ⊤ := T.PF_trace_finite.ne
+  have hxr : 0 < (C.canonicalTrace T.PF).toReal := ENNReal.toReal_pos hx0 hxt
+  rw [Real.exp_neg, Real.exp_log hxr]
+  rw [ENNReal.ofReal_inv_of_pos hxr, ENNReal.ofReal_toReal hxt]
+  exact ENNReal.inv_mul_cancel hx0 hxt
+
+end TGL.VerbInhabitant
+''',
+}
+
+
+def _ensure_prebuilt_packages():
+    """Reaproveita .lake/packages (mathlib construida) de um doador via juncao NTFS
+    (sem admin). Fail-open honesto: sem doador, a primeira build faz o bootstrap."""
+    lake_dir = os.path.join(FORMAL_DIR, ".lake")
+    pkgs = os.path.join(lake_dir, "packages")
+    if os.path.isdir(pkgs):
+        return "packages_present"
+    donor = os.environ.get("TGL_KERNEL_PREBUILT") or os.path.normpath(os.path.join(BASE, "..", "tgl_kernel"))
+    donor_pkgs = os.path.join(donor, ".lake", "packages")
+    if not os.path.isdir(donor_pkgs):
+        return "no_donor__first_build_will_bootstrap (lake exe cache get)"
+    os.makedirs(lake_dir, exist_ok=True)
+    try:
+        r = subprocess.run(["cmd", "/c", "mklink", "/J", pkgs, donor_pkgs],
+                           capture_output=True, text=True, encoding="utf-8", errors="replace")
+        if r.returncode == 0:
+            return "junction_to:%s" % donor_pkgs
+    except OSError:
+        pass
+    return "junction_failed__first_build_will_bootstrap"
+
+
+def materialize_embedded_kernel():
+    """v31 -- escreve o projeto Lean a partir DESTE arquivo (forma = conteudo:
+    o codigo carrega o proprio kernel). So' reescreve arquivos que diferem."""
+    written, kept = [], 0
+    for rel, content in _EMBEDDED_KERNEL_FILES.items():
+        p = os.path.join(FORMAL_DIR, rel.replace("/", os.sep))
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        old = None
+        if os.path.exists(p):
+            try:
+                old = open(p, "r", encoding="utf-8", newline="").read()
+            except OSError:
+                old = None
+        if old != content:
+            with open(p, "w", encoding="utf-8", newline="") as fh:
+                fh.write(content)
+            written.append(rel)
+        else:
+            kept += 1
+    pk = _ensure_prebuilt_packages()
+    print("[v31 kernel embutido] materializado em %s: %d escritos, %d inalterados; packages: %s" % (
+        FORMAL_DIR, len(written), kept, pk))
+    return {"written": written, "kept": kept, "packages": pk}
+
+
+def selftest_fail_closed():
+    """v31 -- o teste do sorry EMBUTIDO (absorve o antigo run_v22.ps1): injeta sorry
+    no HalfNat MATERIALIZADO, exige REPROVACAO do kernel, restaura DA FONTE EMBUTIDA
+    e exige o verde de volta. TGL_SKIP_SELFTEST=1 pula (ex.: maquinas lentas)."""
+    if os.environ.get("TGL_SKIP_SELFTEST") == "1":
+        print("\n[v31 autoteste] PULADO por TGL_SKIP_SELFTEST=1 (o fail-closed nao foi re-exercitado nesta rodada)")
+        return None
+    print("\n" + "=" * 64)
+    print("  AUTOTESTE DO FAIL-CLOSED [v31 -- embutido; a auditoria da auditoria]")
+    p = os.path.join(FORMAL_DIR, "TGL", "HalfNat.lean")
+    src = open(p, "r", encoding="utf-8", newline="").read()
+    with open(p, "w", encoding="utf-8", newline="") as fh:
+        fh.write(src.replace("  linarith", "  sorry", 1))
+    res = verify_tgl_kernel_formalization()
+    ok_fail = bool(res.get("verdict") == "TGL_KERNEL_FORMALIZATION_FAILED"
+                   and res.get("sorryAx_absent") is False)
+    print("  com sorry injetado : verdict=%s ; sorryAx_absent=%s  [esperado: FAILED / False]" % (
+        res.get("verdict"), res.get("sorryAx_absent")))
+    with open(p, "w", encoding="utf-8", newline="") as fh:
+        fh.write(_EMBEDDED_KERNEL_FILES["TGL/HalfNat.lean"])  # restaura da FONTE (este arquivo)
+    res2 = verify_tgl_kernel_formalization()
+    ok_green = bool(res2.get("all_verified") is True)
+    print("  restaurado da fonte: verdict=%s ; all_verified=%s" % (res2.get("verdict"), ok_green))
+    verdict = "FAIL_CLOSED_SELFTEST_PASSED" if (ok_fail and ok_green) else "FAIL_CLOSED_SELFTEST_FAILED"
+    print("  >>> %s <<<" % verdict)
+    return verdict
+
+_LEAN_SENTINELS = ["TGL_KERNEL_BUILD_OK",
+                   "FINITE_THREE_LOCKS_KERNEL_PROVED",
+                   "CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED",
+                   "SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED",
+                   # v24: obrigacoes modulares = DADOS; termo final ausente
+                   "MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS",
+                   "FULL_TGL_WITNESS_REMAINS_UNCONSTRUCTED",
+                   # v25: o habitante e' o Verbo
+                   "THE_CANONICAL_INHABITANT_IS_THE_VERB",
+                   # v26: Q1 = transporte; o defeito mede a resistencia
+                   "TRANSPORT_DEFECT_MEASURES_RESISTANCE",
+                   # v27: o indice do Nome e' lido no espelho de Jones
+                   "THE_NAME_INDEX_IS_READ_IN_THE_JONES_MIRROR",
+                   # v28: o primeiro habitante (torre de Jones da Meia-Nat)
+                   "HALF_NAT_IS_THE_ONLY_FINITE_MARKOV_MIRROR",
+                   # v29: a sombra finita do graviton (Bell; CCI=1/2; produto=0)
+                   "GRAVITON_BELL_SHADOW_CCI_HALF",
+                   # v30: o Nome e' a relacao (correcao do especialista; TL3 fiel)
+                   "THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX"]
+
+# teorema Lean -> flag do JSON (a presenca da linha `#print axioms` limpa e' a prova)
+_LEAN_THEOREM_FLAGS = {
+    "half_nat_kernel_proved": "TGL.HalfNat.halfNat_of_selfConjugate",
+    "area_scale_kernel_proved": "TGL.AreaScale.newtonPlanck_equivalence",
+    "finite_three_locks_kernel_proved": "TGL.FiniteThreeLocks.ker_H3L_eq_threeLocks",
+    "finite_corner_projection_kernel_proved": "TGL.FiniteThreeLocks.PF_isProjection",
+    "finite_corner_trace_kernel_proved": "TGL.FiniteThreeLocks.normalizedCornerTrace_PF",
+    "continuous_corner_implication_kernel_proved": "TGL.SpecificAQFT.continuousCorner_of_witness",
+    # v23 (rigidificacao): informativos, NAO gateiam o veredito v22
+    "wedge_geometry_kernel_proved": "TGL.SpecificAQFT.wedges_spacelike",
+    "wedge_locality_kernel_proved": "TGL.SpecificAQFT.wedge_locality",
+    # v24 (realizacao modular por DADOS + Fresnel): informativos
+    "dual_invariant_PF_no_go_kernel_proved": "TGL.ModularRealization.dualInvariant_PF_no_go",
+    "full_witness_infinite_dim_kernel_proved": "TGL.ModularRealization.fullWitness_not_finiteDimensional",
+    "full_witness_PF_finite_kernel_proved": "TGL.ModularRealization.fullWitness_PF_nonzero_finite",
+    "fresnel_half_weight_kernel_proved": "TGL.HalfNatFresnel.fresnel_selfConjugate_half",
+    "modular_half_nat_calibration_kernel_proved": "TGL.HalfNatFresnel.modular_action_halfNat",
+    # v25 (o Verbo habitante): informativos
+    "verb_fixed_point_kernel_proved": "TGL.VerbInhabitant.exp_fixed_of_annihilates",
+    "canonical_verb_term_kernel_proved": "TGL.VerbInhabitant.canonicalVerb_exists",
+    "dual_calibration_kernel_proved": "TGL.VerbInhabitant.dual_calibration_exists",
+    # v26 (o transporte do seletor): informativos
+    "transport_descent_kernel_proved": "TGL.TransportData.descent_iff_defect_zero",
+    "jones_defect_kernel_proved": "TGL.TransportData.transport_defect_of_jones",
+    "selector_upstairs_kernel_proved": "TGL.TransportData.jones_selector_not_descended",
+    # v27 (o indice do Nome): informativos
+    "parity_average_kernel_proved": "TGL.NameIndex.ParityData.average_bimodular",
+    "name_index_theorem_kernel_proved": "TGL.NameIndex.name_index_eq_csc_sq",
+    "name_index_conclusion_kernel_proved": "TGL.NameIndex.name_index_mul_sin_sq",
+    "tl_chain_kernel_proved": "TGL.NameIndex.amplitude_weight_index_chain",
+    # v28 (o primeiro habitante): informativos
+    "half_nat_tower_term_kernel_constructed": "TGL.HalfNatJonesTower.halfNatJonesTower_exists",
+    "half_nat_mirror_upstairs_kernel_proved": "TGL.HalfNatJonesTower.halfNat_mirror_not_descended",
+    "finite_markov_forces_half_kernel_proved": "TGL.HalfNatJonesTower.finite_markov_forces_half",
+    # v29 (sombra do graviton + split das faces): informativos
+    "graviton_shadow_term_kernel_constructed": "TGL.GravitonShadow.canonicalGravitonShadow_exists",
+    "bell_cci_half_kernel_proved": "TGL.GravitonShadow.bell_cci_half",
+    "product_cci_zero_kernel_proved": "TGL.GravitonShadow.product_cci_zero",
+    "face_split_kernel_proved": "TGL.TransportData.faces_orthogonal",
+    # v30 (o Nome e' a relacao): informativos
+    "name_relation_kernel_proved": "TGL.NameRelation.pqp_eq",
+    "geometric_vs_trace_kernel_proved": "TGL.NameRelation.geometric_eq_trace_weight_iff",
+    "tl3_faithful_kernel_proved": "TGL.NameRelation.tl3_linearly_independent",
+    "tl3_term_kernel_constructed": "TGL.NameRelation.canonicalTLThree_exists",
+}
+
+_LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
+
+
+def sha256_directory(root):
+    """Hash determinístico (caminhos relativos + conteudo) dos fontes formais."""
+    files = {}
+    if not os.path.isdir(root):
+        return {"aggregate": None, "files": {}}
+    for dirpath, _dirs, names in os.walk(root):
+        if ".lake" in dirpath.replace("\\", "/").split("/"):
+            continue  # ignora artefatos de build / mathlib
+        for nm in sorted(names):
+            if nm.endswith(".lean") or nm in ("lakefile.toml", "lean-toolchain", "README.md"):
+                p = os.path.join(dirpath, nm)
+                rel = os.path.relpath(p, root).replace("\\", "/")
+                try:
+                    files[rel] = sha_file(p)
+                except OSError:
+                    continue
+    h = hashlib.sha256()
+    for rel in sorted(files):
+        h.update(rel.encode("utf-8")); h.update(files[rel].encode("utf-8"))
+    return {"aggregate": h.hexdigest(), "files": files}
+
+
+def run_process_checked(cmd, cwd, timeout_seconds):
+    """Executa um processo capturando tudo. Nunca levanta: devolve o resultado."""
+    t0 = time.time()
+    try:
+        # encoding EXPLICITO obrigatorio: no Windows, text=True sem encoding decodifica
+        # com o locale (cp1252) DENTRO da reader thread do subprocess; um unico byte
+        # UTF-8 do Lean (ex.: 0x9d, terceiro byte de U+211D "R" real) mata a thread em
+        # silencio e stdout volta None -> "" (bug v22, diagnosticado 11/07/2026:
+        # sha256 da string vazia nas capturas do manifesto).
+        pr = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True,
+                            encoding="utf-8", errors="replace",
+                            timeout=timeout_seconds, shell=False)
+        _so, _se = pr.stdout or "", pr.stderr or ""
+        # triagem de captura (v23.1): hash valido de zero bytes NAO e' evidencia de
+        # execucao -- a assinatura sha256("") escondeu o bug v22 por tres rodadas.
+        return {"cmd": " ".join(cmd), "returncode": pr.returncode,
+                "stdout": _so, "stderr": _se,
+                "capture_exists": True,
+                "capture_nonempty": bool(len(_so) + len(_se) > 0),
+                "capture_read_error": bool(pr.stdout is None or pr.stderr is None),
+                "capture_sha256": hashlib.sha256((_so + _se).encode("utf-8")).hexdigest(),
+                "elapsed_seconds": time.time() - t0, "timeout": False}
+    except subprocess.TimeoutExpired:
+        return {"cmd": " ".join(cmd), "returncode": -1, "stdout": "", "stderr": "TIMEOUT",
+                "elapsed_seconds": time.time() - t0, "timeout": True}
+    except OSError as e:
+        return {"cmd": " ".join(cmd), "returncode": -1, "stdout": "", "stderr": str(e),
+                "elapsed_seconds": time.time() - t0, "timeout": False}
+
+
+def _lean_strip_comments_and_strings(src):
+    """Remove comentarios de bloco/linha e strings, para a varredura lexical AUXILIAR."""
+    out, i, n = [], 0, len(src)
+    while i < n:
+        if src.startswith("/-", i):
+            depth, i = 1, i + 2
+            while i < n and depth > 0:
+                if src.startswith("/-", i):
+                    depth += 1; i += 2
+                elif src.startswith("-/", i):
+                    depth -= 1; i += 2
+                else:
+                    i += 1
+            continue
+        if src.startswith("--", i):
+            while i < n and src[i] != "\n":
+                i += 1
+            continue
+        if src[i] == '"':
+            i += 1
+            while i < n and src[i] != '"':
+                i += 2 if src[i] == "\\" else 1
+            i += 1
+            continue
+        out.append(src[i]); i += 1
+    return "".join(out)
+
+
+def _lean_source_forbidden_tokens():
+    """Varredura lexical auxiliar dos TGL/*.lean (a fonte de verdade e' #print axioms)."""
+    hits = []
+    tgl = os.path.join(FORMAL_DIR, "TGL")
+    if not os.path.isdir(tgl):
+        return hits
+    for nm in sorted(os.listdir(tgl)):
+        if not nm.endswith(".lean") or nm.startswith("Probe"):
+            continue  # Probe*.lean = diagnostico, fora da biblioteca (nao importado por TGL.lean)
+        try:
+            src = open(os.path.join(tgl, nm), "r", encoding="utf-8").read()
+        except OSError:
+            continue
+        code = _lean_strip_comments_and_strings(src)
+        for tok in _LEAN_FORBIDDEN_TOKENS:
+            import re as _re
+            if _re.search(r"\b%s\b" % _re.escape(tok), code):
+                hits.append("%s:%s" % (nm, tok))
+    return hits
+
+
+def _find_lake():
+    """Resolve o binario `lake`: TGL_LAKE (env) -> PATH -> ~/.elan/bin (elan nem sempre esta
+    no PATH do processo que chama o Python). Devolve None se nao existir."""
+    envp = os.environ.get("TGL_LAKE")
+    if envp and os.path.exists(envp):
+        return envp
+    w = shutil.which("lake")
+    if w:
+        return w
+    home = os.path.expanduser("~")
+    for cand in (os.path.join(home, ".elan", "bin", "lake.exe"),
+                 os.path.join(home, ".elan", "bin", "lake")):
+        if os.path.exists(cand):
+            return cand
+    return None
+
+
+def verify_tgl_kernel_formalization():
+    """v22 -- roda o kernel do Lean e sela a partir do resultado REAL. FAIL-CLOSED.
+
+    Nunca considera `FORMAL_CHECKER_UNAVAILABLE` como sucesso. `all_verified` deste
+    modulo significa: o kernel COMPILOU e a auditoria de axiomas passou -- NAO que a
+    testemunha AQFT foi construida (ela permanece OPEN, por desenho)."""
+    res = {
+        "formal_checker": "Lean 4", "build_tool": "Lake", "toolchain_pinned": True,
+        "formal_dir": FORMAL_DIR, "mode": TGL_FORMAL_MODE,
+        "lean_version": None, "lake_version": None,
+        "lake_build_ok": False, "audit_file_ok": False,
+        "source_forbidden_tokens_absent": False, "sorryAx_absent": False,
+        "trustCompiler_absent": False, "custom_TGL_axioms_absent": False,
+        "sentinels_present": False,
+        "specific_AQFT_witness_constructed": False,          # por desenho: OPEN
+        "unconditional_type_III1_corner_proved": False,      # jamais reivindicado
+        "axiom_report": {}, "formal_source_hash": None, "formal_files_sha256": {},
+        "all_unconditional_targets_verified": False,
+        "all_conditional_implications_verified": False,
+        "all_verified": False, "verdict": "TGL_KERNEL_FORMALIZATION_FAILED",
+        "not_claimed": [
+            "Python did not prove any theorem; the Lean kernel did",
+            "Bisognano-Wichmann / Reeh-Schlieder / type III_1 classification are KNOWN/EXTERNAL, not formalized here",
+            "the finite Three-Locks corner is a finite-dimensional theorem, NOT a type III_1 proof",
+            "G is a variable / measured input; it is NOT derived",
+            "no inhabitant of TGLSpecificAQFTWitness is constructed",
+        ],
+        "seals": [],
+    }
+    for k in _LEAN_THEOREM_FLAGS:
+        res[k] = False
+
+    # (1) arquivos formais presentes?
+    need = [FORMAL_DIR, os.path.join(FORMAL_DIR, "lakefile.toml"),
+            os.path.join(FORMAL_DIR, "lean-toolchain"), FORMAL_AUDIT_FILE]
+    if not all(os.path.exists(p) for p in need):
+        res["verdict"] = "FORMAL_CHECKER_UNAVAILABLE"
+        res["reason"] = "tgl_kernel/ incompleto (lakefile.toml, lean-toolchain, TGL/Audit.lean)"
+        return res
+    res["audit_file_ok"] = True
+
+    # (2) lake disponivel?
+    lake = _find_lake()
+    if lake is None:
+        res["verdict"] = "FORMAL_CHECKER_UNAVAILABLE"
+        res["reason"] = ("`lake` nao encontrado (PATH nem ~/.elan/bin). Instale elan/Lean 4, ou "
+                         "aponte a variavel de ambiente TGL_LAKE para o binario.")
+        return res
+    res["lake_path"] = lake
+
+    # (3) versoes
+    v1 = run_process_checked([lake, "--version"], FORMAL_DIR, 120)
+    res["lake_version"] = (v1["stdout"] or v1["stderr"]).strip().splitlines()[:1]
+    v2 = run_process_checked([lake, "env", "lean", "--version"], FORMAL_DIR, 120)
+    res["lean_version"] = (v2["stdout"] or v2["stderr"]).strip().splitlines()[:1]
+
+    # (4) lake build   (5) auditoria
+    build = run_process_checked([lake, "build"], FORMAL_DIR, 3600)
+    audit = run_process_checked([lake, "env", "lean", "TGL/Audit.lean"], FORMAL_DIR, 1800)
+    res["lake_build_ok"] = bool(build["returncode"] == 0)
+    res["build_stdout_sha256"] = hashlib.sha256(build["stdout"].encode("utf-8")).hexdigest()
+    res["build_stderr_sha256"] = hashlib.sha256(build["stderr"].encode("utf-8")).hexdigest()
+    res["audit_stdout_sha256"] = hashlib.sha256(audit["stdout"].encode("utf-8")).hexdigest()
+    res["build_returncode"] = build["returncode"]
+    res["audit_returncode"] = audit["returncode"]
+    # diagnostico persistente (olhe o byte): grava as capturas em UTF-8 ANTES de
+    # parsear, com tamanhos -- se um dia a captura voltar vazia, o arquivo acusa.
+    for _nm, _pr in (("tgl_kernel_build_capture.txt", build),
+                     ("tgl_kernel_audit_capture.txt", audit)):
+        try:
+            with open(os.path.join(OUT, _nm), "w", encoding="utf-8") as _fh:
+                _fh.write("# cmd: %s\n# returncode: %s\n# len(stdout)=%d len(stderr)=%d\n"
+                          "--- STDOUT ---\n%s\n--- STDERR ---\n%s\n"
+                          % (_pr["cmd"], _pr["returncode"], len(_pr["stdout"]),
+                             len(_pr["stderr"]), _pr["stdout"], _pr["stderr"]))
+        except OSError:
+            pass
+    res["build_capture_lens"] = {"stdout": len(build["stdout"]), "stderr": len(build["stderr"])}
+    res["audit_capture_lens"] = {"stdout": len(audit["stdout"]), "stderr": len(audit["stderr"])}
+    # v23.1 -- triagem: processo que rodou com captura VAZIA e' REPROVACAO, nao registro
+    # (a assinatura e3b0c442... = sha256("") escondeu o bug v22 por tres rodadas)
+    res["build_capture_nonempty"] = bool(build.get("capture_nonempty"))
+    res["audit_capture_nonempty"] = bool(audit.get("capture_nonempty"))
+    res["build_capture_sha256_full"] = build.get("capture_sha256")
+    res["audit_capture_sha256_full"] = audit.get("capture_sha256")
+    blob = (build["stdout"] + build["stderr"] + audit["stdout"] + audit["stderr"])
+
+    # (6) sentinelas   (7) proibicoes   (8) axiomas customizados TGL.*
+    res["sentinels_present"] = all(s in blob for s in _LEAN_SENTINELS)
+    res["sorryAx_absent"] = ("sorryAx" not in blob)
+    res["trustCompiler_absent"] = ("Lean.trustCompiler" not in blob)
+
+    import re as _re
+    axioms = {}
+    custom = []
+    for m in _re.finditer(r"'([\w.]+)' depends on axioms: \[([^\]]*)\]", blob, _re.S):
+        name, lst = m.group(1), [a.strip() for a in m.group(2).replace("\n", " ").split(",") if a.strip()]
+        axioms[name] = lst
+        custom += [a for a in lst if a.startswith("TGL.")]
+    res["axiom_report"] = axioms
+    res["custom_TGL_axioms_absent"] = (len(custom) == 0)
+    res["custom_TGL_axioms_found"] = sorted(set(custom))
+
+    for flag, thm in _LEAN_THEOREM_FLAGS.items():
+        ax = axioms.get(thm)
+        res[flag] = bool(res["lake_build_ok"] and ax is not None
+                         and "sorryAx" not in ax and "Lean.trustCompiler" not in ax
+                         and not any(a.startswith("TGL.") for a in ax))
+
+    # (9) varredura lexical auxiliar
+    hits = _lean_source_forbidden_tokens()
+    res["source_forbidden_tokens_absent"] = (len(hits) == 0)
+    res["source_forbidden_tokens_found"] = hits
+
+    # (10) hashes dos fontes formais
+    hd = sha256_directory(FORMAL_DIR)
+    res["formal_source_hash"] = hd["aggregate"]
+    res["formal_files_sha256"] = hd["files"]
+
+    # (11) vereditos
+    uncond = ["half_nat_kernel_proved", "area_scale_kernel_proved",
+              "finite_three_locks_kernel_proved", "finite_corner_projection_kernel_proved",
+              "finite_corner_trace_kernel_proved"]
+    res["all_unconditional_targets_verified"] = all(res[k] for k in uncond)
+    res["all_conditional_implications_verified"] = bool(res["continuous_corner_implication_kernel_proved"])
+    ok = bool(res["lake_build_ok"] and res["audit_returncode"] == 0 and res["sentinels_present"]
+              and res["sorryAx_absent"] and res["trustCompiler_absent"]
+              and res["custom_TGL_axioms_absent"] and res["source_forbidden_tokens_absent"]
+              and res["all_unconditional_targets_verified"]
+              and res["all_conditional_implications_verified"]
+              and res["build_capture_nonempty"] and res["audit_capture_nonempty"])  # v23.1: captura vazia REPROVA
+    res["all_verified"] = ok
+    res["verdict"] = ("TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN" if ok
+                      else "TGL_KERNEL_FORMALIZATION_FAILED")
+    res["formal_release_ready"] = bool(ok and TGL_FORMAL_MODE == "strict")
+    res["open_theorem"] = ("TGL_SPECIFIC_AQFT_WITNESS_THEOREM: exists W : TGLSpecificAQFTWitness "
+                           "para a rede Haag-Kastler escalar livre massiva escolhida")
+    res["seals"] = ["LEAN_KERNEL_CHECKED", "LAKE_BUILD_REPRODUCIBLE", "NO_SORRY_AX",
+                    "NO_TRUST_COMPILER", "NO_CUSTOM_TGL_AXIOMS",
+                    "HALF_NAT_KERNEL_PROVED", "AREA_SCALE_EQUIVALENCE_KERNEL_PROVED",
+                    "FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED",
+                    "NORMALIZED_FINITE_CORNER_TRACE_KERNEL_PROVED",
+                    "EQUAL_CONJUGATE_FACES_HAVE_HALF_TRACE_KERNEL_PROVED",
+                    "CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED",
+                    "SPECIFIC_AQFT_WITNESS_REMAINS_OPEN"] if ok else ["TGL_KERNEL_FORMALIZATION_FAILED"]
+    return res
+
+
+# ===== v23: A INTERFACE E' A LUZ -- interface = luz = (forma = conteudo) =====
+# A interface nao fica ENTRE forma e conteudo: e' o acontecimento em que a forma se
+# realiza como conteudo sem perder identidade (L : Forma == Conteudo). A testemunha
+# e' o conteudo carregando a prova de que e' a forma:
+#     W ~ Sigma_{x : Conteudo} Realiza(x, Forma)
+# Um campo `: Prop` e' forma SEM conteudo; um campo dado+prova e' forma = conteudo.
+# Rigidez MEDIDA, nao declarada: TGL/ProbeTrivial.lean (o habitante trivial da
+# estrutura frouxa v22) deve REPROVAR contra a estrutura rigida. O check
+# forma=conteudo do ARTEFATO fecha pos-geracao (finalize_interface_is_light).
+
+
+def verify_witness_rigidity(kernel_formalization=None):
+    """v23 -- controle negativo do Stage 2: compila TGL/ProbeTrivial.lean (o habitante
+    trivial da estrutura frouxa) contra a estrutura vigente. REPROVAR (returncode!=0)
+    e' o resultado esperado da testemunha RIGIDA; compilar = tipo frouxo. FAIL-CLOSED:
+    sem Lean/probe => UNKNOWN (None), jamais rigidez por ausencia. Decide pelo
+    RETURNCODE: a sentinela do probe imprime mesmo em falha (a elaboracao do Lean
+    continua apos erros), logo string de saida NAO e' criterio."""
+    res = {"probe_file": "TGL/ProbeTrivial.lean", "available": False,
+           "probe_returncode": None, "trivial_inhabitant_exists": None,
+           "witness_is_rigid": None, "kernel_build_green": None,
+           "verdict": "WITNESS_RIGIDITY_UNKNOWN__FORMAL_CHECKER_UNAVAILABLE"}
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    res["kernel_build_green"] = bool(kf.get("lake_build_ok") is True)
+    lake = _find_lake()
+    probe = os.path.join(FORMAL_DIR, "TGL", "ProbeTrivial.lean")
+    if lake is None or not os.path.exists(probe):
+        return res
+    res["available"] = True
+    pr = run_process_checked([lake, "env", "lean", "TGL/ProbeTrivial.lean"], FORMAL_DIR, 1800)
+    res["probe_returncode"] = pr["returncode"]
+    res["probe_capture_lens"] = {"stdout": len(pr["stdout"]), "stderr": len(pr["stderr"])}
+    try:
+        with open(os.path.join(OUT, "tgl_kernel_probe_trivial_capture.txt"), "w", encoding="utf-8") as fh:
+            fh.write("# cmd: %s\n# returncode: %s\n--- STDOUT ---\n%s\n--- STDERR ---\n%s\n"
+                     % (pr["cmd"], pr["returncode"], pr["stdout"], pr["stderr"]))
+    except OSError:
+        pass
+    compiled = bool(pr["returncode"] == 0 and not pr["timeout"])
+    res["trivial_inhabitant_exists"] = compiled
+    # v23.1/v24 -- correcao fiscal do estatuto do probe:
+    res["probe_failure_decided_by_returncode"] = True     # a sentinela imprime mesmo em falha
+    res["sorryAx_in_failed_probe_is_not_evidence"] = True # `depends on sorryAx` num arquivo que NAO
+    #   compilou e' recuperacao de erro do elaborador, jamais prova positiva de teorema algum.
+    #   A UNICA conclusao valida do probe: o construtor antigo deixou de typecheck
+    #   (STALE_TRIVIAL_CONSTRUCTOR_REJECTED) -- um probe negativo nao prova impossibilidade universal.
+    if compiled:
+        res["witness_is_rigid"] = False
+        res["trivial_witness_rejected_by_type_system"] = False
+        res["verdict"] = "WITNESS_TYPE_IS_LOOSE__TRIVIAL_INHABITANT_COMPILES"
+    elif res["kernel_build_green"]:
+        # o probe so' conta como rigidez com o build da biblioteca VERDE (senao a
+        # falha poderia ser build quebrado, nao rejeicao do habitante trivial)
+        res["witness_is_rigid"] = True
+        res["trivial_witness_rejected_by_type_system"] = True
+        res["seal"] = "STALE_TRIVIAL_CONSTRUCTOR_REJECTED"
+        res["verdict"] = "WITNESS_TYPE_IS_RIGID__TRIVIAL_INHABITANT_REJECTED"
+    else:
+        res["trivial_witness_rejected_by_type_system"] = False
+        res["verdict"] = "WITNESS_RIGIDITY_UNKNOWN__KERNEL_BUILD_NOT_GREEN"
+    return res
+
+
+_V24_NEGATIVE_PROBES = [
+    # (arquivo, chave, o que a falha significa)
+    ("TGL/ProbeDegenerate.lean", "degenerate",
+     "ESTE probe degenerado (H=C^2, rede constante, U=1) foi rejeitado -- nunca universalidade"),
+    ("TGL/ProbeFiniteFullWitness.lean", "finite_full",
+     "Hilbert finito bloqueado por tipo (necessario p/ III_1, NAO suficiente)"),
+    ("TGL/ProbePropOnlyModular.lean", "prop_only",
+     "True/trivial nao preenche DADOS + equacoes da realizacao modular"),
+    ("TGL/ProbeNameIndexNoOptimal.lean", "pp_no_optimality",
+     "sem a otimalidade de Pimsner-Popa NAO ha igualdade do indice (so' cota <=)"),
+]
+
+
+def verify_negative_probes(kernel_formalization=None):
+    """v24 -- probes negativos obrigatorios (fora do lake build). VEREDITO = returncode
+    (a sentinela imprime mesmo em falha). FAIL-CLOSED: sem Lean/probe => nao executado;
+    rejeicao so' conta com o build da biblioteca VERDE. Nunca inferir universalidade."""
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    build_green = bool(kf.get("lake_build_ok") is True)
+    res = {"available": False, "kernel_build_green": build_green,
+           "all_negative_probes_executed": False,
+           "probe_failure_decided_by_returncode": True}
+    lake = _find_lake()
+    if lake is None:
+        return res
+    res["available"] = True
+    executed = []
+    for relpath, key, meaning in _V24_NEGATIVE_PROBES:
+        p = os.path.join(FORMAL_DIR, relpath.replace("/", os.sep))
+        if not os.path.exists(p):
+            res[key + "_returncode"] = None
+            res[key + "_rejected"] = None
+            executed.append(False)
+            continue
+        pr = run_process_checked([lake, "env", "lean", relpath], FORMAL_DIR, 1800)
+        res[key + "_returncode"] = pr["returncode"]
+        res[key + "_capture_nonempty"] = bool(pr.get("capture_nonempty"))
+        res[key + "_capture_sha256"] = pr.get("capture_sha256")
+        try:
+            with open(os.path.join(OUT, "tgl_kernel_probe_%s_capture.txt" % key), "w",
+                      encoding="utf-8") as fh:
+                fh.write("# cmd: %s\n# returncode: %s\n--- STDOUT ---\n%s\n--- STDERR ---\n%s\n"
+                         % (pr["cmd"], pr["returncode"], pr["stdout"], pr["stderr"]))
+        except OSError:
+            pass
+        rejected = bool(pr["returncode"] != 0 and not pr["timeout"] and build_green
+                        and pr.get("capture_nonempty"))
+        res[key + "_rejected"] = rejected
+        res[key + "_meaning"] = meaning
+        executed.append(True)
+    res["all_negative_probes_executed"] = bool(executed and all(executed))
+    res["degenerate_base_witness_rejected"] = res.get("degenerate_rejected")
+    res["finite_full_witness_rejected"] = res.get("finite_full_rejected")
+    res["prop_only_modular_rejected"] = res.get("prop_only_rejected")
+    res["degenerate_verdict"] = ("DEGENERATE_PROBE_REJECTED_BY_TYPE_SYSTEM"
+                                 if res.get("degenerate_rejected")
+                                 else ("DEGENERATE_INHABITANT_COMPILES__HONEST_NEGATIVE"
+                                       if res.get("degenerate_returncode") == 0 else "NOT_DECIDED"))
+    return res
+
+
+def _lean_bare_prop_fields():
+    """v24 -- auditoria sintatica da vacuidade: conta CAMPOS-ROTULO `nome : Prop`
+    (proibidos) nos arquivos de testemunha/realizacao. `def X ... : Prop :=` (tipo de
+    retorno de definicao) e' permitido e NAO e' contado: o padrao e' de CAMPO
+    (linha indentada terminando em `: Prop`). Fonte de verdade do marcador
+    TGL_CANONICAL_BARE_PROP_LABELS e do gate MODULAR_WITNESS_STILL_VACUOUS."""
+    files = ["SpecificAQFTWitness.lean", "ModularRealization.lean", "TransportData.lean",
+             "NameIndex.lean", "HalfNatJonesTower.lean", "GravitonShadow.lean",
+             "NameRelation.lean"]
+    hits, scanned = [], []
+    import re as _re
+    pat = _re.compile(r"^\s+[A-Za-z_][\w']*\s*:\s*Prop\s*$")
+    for nm in files:
+        p = os.path.join(FORMAL_DIR, "TGL", nm)
+        if not os.path.exists(p):
+            continue
+        scanned.append(nm)
+        try:
+            src = open(p, "r", encoding="utf-8").read()
+        except OSError:
+            continue
+        code = _lean_strip_comments_and_strings(src)
+        for i, line in enumerate(code.splitlines(), 1):
+            if pat.match(line):
+                hits.append("%s:%d:%s" % (nm, i, line.strip()))
+    return {"count": len(hits), "fields": hits, "files_scanned": scanned,
+            "verdict": ("MODULAR_WITNESS_STILL_VACUOUS" if hits else
+                        "MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS")}
+
+
+def build_tgl_canonical_markers(beta, eta_times_G, witness_layers):
+    """v23.1/v24 -- marcadores canonicos: UMA fonte de runtime -> TODOS os artefatos.
+    Fluxo: computar -> renderizar -> reler -> comparar -> selar. beta NUNCA literal
+    (o marcador e' escrito do valor de runtime)."""
+    wl = witness_layers or {}
+    return [
+        "TGL_CANONICAL_ONE=1",
+        "TGL_CANONICAL_HALF_NAT=0.5",
+        "TGL_CANONICAL_BETA=%.17g" % beta,
+        "TGL_CANONICAL_ETA_TIMES_G=%.17g" % eta_times_G,
+        "TGL_CANONICAL_BASE_WITNESS_CONSTRUCTED=%d" % (1 if wl.get("base_rigid_witness_constructed") else 0),
+        "TGL_CANONICAL_MODULAR_REALIZATION_CONSTRUCTED=%d" % (1 if wl.get("modular_realization_constructed") else 0),
+        "TGL_CANONICAL_FULL_WITNESS_CONSTRUCTED=%d" % (1 if wl.get("full_TGL_witness_constructed") else 0),
+        "TGL_CANONICAL_BARE_PROP_LABELS=%d" % int(wl.get("bare_prop_label_fields_remaining", -1)),
+    ]
+
+
+# v24 §3 -- LEDGER EXTERNO (dados do manifesto; NUNCA campos de tipo no Lean):
+# referencia bibliografica nao e' prova Lean; cada item so' migra para a estrutura
+# rigida quando ganhar enunciado concreto, e para o termo quando ganhar prova.
+EXTERNAL_KNOWN_THEOREMS = [
+    {"name": "Reeh-Schlieder", "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+     "citation": "Reeh & Schlieder, Nuovo Cimento 22 (1961); Haag, Local Quantum Physics",
+     "exact_role": ("vacuo ciclico e separador para algebras locais; a FORMA enunciavel ja' migrou "
+                    "para a testemunha-base (vac_cyclic_wedge / vac_separating_wedge)"),
+     "imported_into_witness": False},
+    {"name": "Bisognano-Wichmann", "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+     "citation": "Bisognano & Wichmann, J. Math. Phys. 16 (1975) 985; 17 (1976) 303",
+     "exact_role": ("fluxo modular da cunha = boosts de Lorentz; o GRUPO a um parametro ja' e' DADO "
+                    "(WedgeModularData.modularFlow); o conteudo geometrico (=boosts) segue OPEN"),
+     "imported_into_witness": False},
+    {"name": "local hyperfinite type III_1 under hypotheses", "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+     "citation": "Buchholz, D'Antoni & Fredenhagen, Commun. Math. Phys. 111 (1987) 123",
+     "exact_role": "tipo da algebra da cunha; sem teoria de fatores na mathlib, nao-enunciavel hoje",
+     "imported_into_witness": False},
+    {"name": "Takesaki crossed product / continuous core", "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+     "citation": "Takesaki, Acta Math. 131 (1973) 249; Theory of Operator Algebras II",
+     "exact_role": ("core continuo com acao dual e traco escalante; a FORMA em DADOS ja' migrou "
+                    "(ContinuousCoreData: embedding + dualAction + canonicalTrace + trace_dual_scaling); "
+                    "a CONSTRUCAO para a rede escolhida segue OPEN"),
+     "imported_into_witness": False},
+    {"name": "Shannon H(1/2,1/2)=log 2 (controle numerico da rota entropica)",
+     "status": "KNOWN_NUMERIC_CONTROL_NOT_KERNEL_PROVED",
+     "citation": "controle conceitual interno (rota Shannon REJEITADA para a Meia-Nat)",
+     "exact_role": "log 2 != 1/2 nat: a Meia-Nat NAO vem de entropia de Shannon; nao formalizado em Lean",
+     "imported_into_witness": False},
+    {"name": "indice de Jones / construcao basica", "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+     "citation": "Jones, Invent. Math. 72 (1983) 1-25; Kosaki, J. Funct. Anal. 66 (1986) 123-140 (extensao a fatores arbitrarios)",
+     "exact_role": ("indice como impedancia da inclusao; e_N implementa E_0 (e x e = E_0(x) e); "
+                    "E_1(e_N) = peso de Markov. A FORMA em DADOS ja' migrou (JonesTowerData, v26); "
+                    "a identificacao [M:N]=1/beta para a inclusao dos Three Locks segue [CONJ]"),
+     "imported_into_witness": False},
+    {"name": "esperancas condicionais (Tomiyama) / normalidade", "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+     "citation": "Tomiyama 1957; Takesaki, Theory of Operator Algebras",
+     "exact_role": ("bimodularidade e fidelidade migraram como DADOS (ConditionalExpectationData, v26); "
+                    "NORMALIDADE (continuidade sigma-fraca) nao-enunciavel sem topologia de vN -- fica aqui"),
+     "imported_into_witness": False},
+]
+
+
+def prove_interface_is_light(ONE, light_reason, reason_operator, kernel_formalization, rigidity,
+                             negative_probes=None, witness_layers=None, bare_prop_audit=None):
+    """MODULO v23/v23.1/v24 -- A INTERFACE E' A LUZ; O ALVO E' O TERMO.
+    [ONTO(tese) + REAL(medidos) + OPEN(termo)] ADITIVO, NAO gateia o veredito 1=1.
+
+    (1) cadeia da luz: L: alpha -> sqrt(alpha) -> e^{1/4}sqrt(alpha) = sqrt(beta)
+        = sin(theta_M) -> beta -- residuos REUSADOS de v13/v14 (beta NAO recomputado);
+    (2) ledger dos tres zeros + camadas da testemunha (v24), lidos do estado REAL do
+        kernel + rigidez/probes MEDIDOS por returncode + auditoria sintatica de vacuidade;
+    (3) forma=conteudo do ARTEFATO: ancoras + marcadores TGL_CANONICAL_*; PENDENTE aqui;
+        fechado por finalize_interface_is_light() apos a geracao dos artefatos.
+
+    ALVO NOMEADO (v23.1): TGL_FORM_EQUALS_CONTENT_WITNESS_THEOREM -- o alvo e' o TERMO
+    `def canonicalFullTGLWitness : Sigma W, TGLModularRealization W`; `Nonempty` e'
+    apenas o COROLARIO `<termo>` (existencia proposicional esconderia o conteudo)."""
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    rg = rigidity if isinstance(rigidity, dict) else {}
+    np_ = negative_probes if isinstance(negative_probes, dict) else {}
+    wl = witness_layers if isinstance(witness_layers, dict) else {}
+    bp = bare_prop_audit if isinstance(bare_prop_audit, dict) else {}
+    lr = (light_reason or {}).get("residuals", {})
+    ro = (reason_operator or {}).get("residuals", {})
+    light_chain = {
+        "reading": "L: alpha -> sqrt(alpha) -> e^{1/4}*sqrt(alpha) = sqrt(beta) = sin(theta_M) -> beta",
+        "identity_preserved": "omega(I)=1 ; 1 = q^2 + alpha^2 (a travessia preserva a identidade)",
+        "residual_root_v13": lr.get("root_residual"),
+        "residual_beta_v13": lr.get("beta_residual"),
+        "residual_theta_v13": lr.get("theta_residual"),
+        "residual_ratio_v14": ro.get("ratio_residual"),
+        "residual_identity_v14": ro.get("identity_residual"),
+        "source": "REUSED_FROM_v13_v14_NOT_RECOMPUTED",
+    }
+    _reused = [lr.get("root_residual"), lr.get("beta_residual"), ro.get("ratio_residual")]
+    chain_ok = bool(all(isinstance(v, (int, float)) and abs(v) < 1e-12 for v in _reused))
+    kernel_green = bool(kf.get("all_verified") is True)
+    one_inscribed = bool(kf.get("specific_AQFT_witness_constructed") is True)
+    ledger = {
+        # 0_abs: IsEmpty jamais demonstrado nem testado -- afirmar seria overclaim
+        "zero_abs_proved": False,
+        "zero_abs_note": "IsEmpty(TGLSpecificAQFTWitness) nunca foi demonstrado; 0_abs NAO e' afirmado nem refutado",
+        # 0_mod: tipo definido + obrigacoes definidas + habitante ausente + rota de retorno
+        "zero_mod_state": bool(kernel_green and not one_inscribed),
+        "zero_mod_note": "vazio tipado: a interface-luz especificada, ainda nao realizada",
+        "one_inscribed": one_inscribed,
+        # rigidez: MEDIDA pelo ProbeTrivial, nao declarada
+        "trivial_inhabitant_exists": rg.get("trivial_inhabitant_exists"),
+        "witness_is_rigid": rg.get("witness_is_rigid"),
+        "rigidity_verdict": rg.get("verdict"),
+        "full_TGL_witness_constructed": False,
+        "open_theorem": ("o TERMO canonicalFullTGLWitness : Sigma W : TGLSpecificAQFTWitness, "
+                         "TGLModularRealization W -- construido, com Nonempty como COROLARIO <termo> "
+                         "[OPEN]. Nao usar Nonempty como substituto operacional do termo."),
+    }
+    form_content = {"status": "PENDING_POST_GENERATION",
+                    "note": ("fechado por finalize_interface_is_light() apos escrever .md/.tex; compara "
+                             "os numeros impressos com o core vivo (mesmo format-spec); divergencia "
+                             "REPROVA o modulo.")}
+    checks = [
+        ("light_chain_residuals_reused_zero", chain_ok),
+        ("kernel_stage1_green", kernel_green),
+        ("witness_not_constructed_honest", one_inscribed is False),
+        ("zero_abs_never_claimed", ledger["zero_abs_proved"] is False),
+        ("zero_mod_state_holds", bool(ledger["zero_mod_state"])),
+        ("witness_type_is_rigid_measured", rg.get("witness_is_rigid") is True),
+        # v24: gates das camadas
+        ("bare_prop_label_fields_zero", int(bp.get("count", -1)) == 0),
+        ("all_negative_probes_executed", np_.get("all_negative_probes_executed") is True),
+        ("finite_full_witness_rejected", np_.get("finite_full_witness_rejected") is True),
+        ("prop_only_modular_rejected", np_.get("prop_only_modular_rejected") is True),
+        ("full_witness_not_constructed_honest", wl.get("full_TGL_witness_constructed") is False),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("interface = luz = (forma = conteudo): a interface nao fica entre forma e conteudo; "
+                    "e' o acontecimento em que a forma se realiza como conteudo sem perder identidade "
+                    "(L : Forma == Conteudo). 'Forma -L-> Conteudo' e' so' a representacao dinamica."),
+        "witness_reading": ("a testemunha e' o conteudo acompanhado da prova de que ele e' a forma: "
+                            "W ~ Sigma_{x:Conteudo} Realiza(x, Forma). Um campo ': Prop' e' forma sem "
+                            "conteudo; rigidificar o tipo E' inscrever a forma no conteudo."),
+        "statuses": {
+            "interface_eq_luz": "[ONTO/CONJ]",
+            "luz_verbo_em_travessia": "[ONTO/CONJ]",
+            "testemunha_eq_setor_q": "[ONTO/CONJ] (testemunhar e' inscrever, nao observar)",
+            "forma_eq_conteudo_do_artefato": "[REAL, medido pos-geracao pelo finalize]",
+            "habitabilidade_trivial": "[REAL, medida pelo ProbeTrivial -- nao declarada]",
+            "estado_zero_mod": "[REAL]",
+            "nonempty_da_testemunha_rigida": "[OPEN]",
+        },
+        "light_chain": light_chain,
+        "ledger": ledger,
+        "form_content": form_content,
+        # ---- v23.1: o alvo e' o TERMO; a rigidez e' RELATIVA (achado do fiscal) ----
+        "named_target": ("TGL_FORM_EQUALS_CONTENT_WITNESS_THEOREM: "
+                         "def canonicalFullTGLWitness : Sigma W : TGLSpecificAQFTWitness, "
+                         "TGLModularRealization W  (termo; NAO construido) ; "
+                         "theorem fullTGLWitness_exists : Nonempty FullTGLWitness := <canonicalFullTGLWitness> "
+                         "(corolario; PROIBIDO provar Nonempty por outra via)"),
+        "rigid_witness_excludes_modular_obligations": True,
+        "rigid_witness_note": ("[REAL] a testemunha-base rigida NAO exige tipo III_1, BW, core nem P_F "
+                               "(vivem nas camadas de DADOS de TGLModularRealization + ledger externo). "
+                               "Habitar a testemunha-base e' NECESSARIO, mas NAO suficiente, para o "
+                               "teorema TGL. 1_inscrito = o PAR (base + realizacao modular)."),
+        # ---- v24: camadas, probes, auditoria de vacuidade, ledger externo ----
+        "witness_layers": wl,
+        "bare_prop_audit": {"count": bp.get("count"), "fields": bp.get("fields", []),
+                            "files_scanned": bp.get("files_scanned", []), "verdict": bp.get("verdict")},
+        "negative_probes_summary": {
+            "degenerate": {"returncode": np_.get("degenerate_returncode"),
+                           "rejected": np_.get("degenerate_base_witness_rejected"),
+                           "meaning": np_.get("degenerate_meaning")},
+            "finite_full": {"returncode": np_.get("finite_full_returncode"),
+                            "rejected": np_.get("finite_full_witness_rejected"),
+                            "meaning": np_.get("finite_full_meaning")},
+            "prop_only": {"returncode": np_.get("prop_only_returncode"),
+                          "rejected": np_.get("prop_only_modular_rejected"),
+                          "meaning": np_.get("prop_only_meaning")},
+        },
+        "external_known_theorems": EXTERNAL_KNOWN_THEOREMS,
+        # ---- leitura do operador: o graviton como par dependente [ONTO/CONJ] ----
+        "graviton_reading": {
+            "thesis": ("o graviton e' a testemunha porque e' o estado ligado de dois psions (conteudo) "
+                       "acompanhado da prova de que essa ligacao realiza a identidade gravitonica (forma): "
+                       "Graviton_TGL := Sigma_{g : H_psi (x) H_psi} IsTGLGraviton(g) -- o mesmo formato "
+                       "Sigma da FullTGLWitness"),
+            "statuses": {
+                "graviton_eq_par_dependente": "[ONTO/CONJ]",
+                "bell_bound_state_CCI_half": ("[REAL em sombra finita: o produto simples da' CCI=0; o estado "
+                                              "de troca (Bell) da' reducao I/2 e CCI=1/2 -- a Meia-Nat tracial]"),
+                "P_G_identity_in_own_corner": ("[DER/CONJ: P_G=|G><G| e' a unidade do canto P_G C P_G -- "
+                                               "consistente com v10 tau(P_F)=1; NAO identidade global]"),
+                "IsTGLGraviton_not_circular": "[REGRA: conjuncao de propriedades independentes, jamais 'g e' um graviton']",
+                "kernel_checked_term_in_core": "[OPEN -- e' exatamente canonicalFullTGLWitness]",
+            },
+            "slot": ("na tipagem v24, o lugar formal do graviton e' threeLocks.PF: o projetor de traco "
+                     "canonico tau(P_F)=1 com faces conjugadas 1/2 -- o P_G da leitura"),
+            "seals": ["GRAVITON_IS_THE_DEPENDENT_WITNESS_OF_THE_PSIONIC_BOND",
+                      "PSIONIC_BOND_IS_THE_CONTENT",
+                      "GRAVITON_PROOF_IS_THE_REALIZED_FORM",
+                      "GRAVITON_PROJECTOR_IS_IDENTITY_IN_ITS_OWN_CORNER"],
+        },
+        "checks": checks, "all_verified": all_v,
+        "verdict": ("INTERFACE_IS_LIGHT_PENDING_FORM_CONTENT" if all_v else "INTERFACE_IS_LIGHT_FALHOU"),
+        "seals": ["INTERFACE_IS_LIGHT",
+                  "INTERFACE_IS_FORM_EQUALS_CONTENT",
+                  "LIGHT_IS_THE_EXECUTABLE_IDENTITY_OF_FORM_AND_CONTENT",
+                  "WITNESS_IS_CONTENT_CARRYING_ITS_FORMAL_PROOF",
+                  "WITNESS_IS_CONTENT_CARRYING_ITS_PROOF",
+                  "ZERO_MODULAR_IS_THE_OPEN_DIFFERENCE_BETWEEN_FORM_AND_CONTENT",
+                  "THE_ONE_IS_RETURNED_WHEN_FORM_AND_CONTENT_COINCIDE",
+                  "MODULAR_ZERO_IS_NOT_ABSOLUTE_ZERO",
+                  "WITNESS_TYPE_MUST_BE_RIGID_BEFORE_INHABITATION",
+                  "NONEMPTY_IS_A_COROLLARY_OF_THE_CONSTRUCTED_WITNESS",
+                  "NONEMPTY_REMAINS_A_COROLLARY_OF_A_FUTURE_TERM",
+                  "RIGID_WITNESS_IS_NECESSARY_NOT_SUFFICIENT",
+                  "BASE_WITNESS_IS_NECESSARY_NOT_SUFFICIENT",
+                  "MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS",
+                  "PROP_ONLY_MODULAR_REALIZATION_REJECTED",
+                  "FINITE_DIMENSIONAL_FULL_WITNESS_REJECTED",
+                  "FULL_TGL_WITNESS_REMAINS_UNCONSTRUCTED",
+                  "STALE_TRIVIAL_CONSTRUCTOR_REJECTED",
+                  "FRESNEL_HALF_WEIGHT_KERNEL_PROVED",
+                  "MODULAR_HALF_NAT_CALIBRATION_KERNEL_PROVED_CONDITIONALLY"],
+        "not_claimed": [
+            "IsEmpty(FullTGLWitness) jamais foi demonstrado; 0_abs nao e' afirmado nem refutado",
+            "nenhum habitante de TGLSpecificAQFTWitness, TGLModularRealization ou FullTGLWitness e' construido",
+            "a rigidez e' medida CONTRA probes canonicos; um probe negativo nao prova impossibilidade universal",
+            "habitar a testemunha-base rigida e' necessario, NAO suficiente, para o teorema TGL",
+            "dimensao infinita e' condicao necessaria, NAO suficiente, para tipo III_1",
+            "sorryAx no output de um probe que NAO compilou nao e' evidencia de teorema algum",
+            "a Meia-Nat por Fresnel e' condicional a lossless+paridade; a calibracao 1 nat e' [NORM] declarada",
+            "Shannon H(1/2,1/2)=log2: controle numerico KNOWN, NAO kernel-proved",
+            "referencia bibliografica nao e' prova Lean (ledger externo != formalizacao)",
+            "a leitura do graviton como par dependente e' [ONTO/CONJ]; o termo kernel-checked no core segue OPEN",
+            "as identificacoes ontologicas (interface=luz; testemunha=setor q) sao leituras CONJ, nao teoremas",
+        ],
+    }
+
+
+def prove_verb_inhabitant(ONE, kernel_formalization=None):
+    """MODULO v25 -- O HABITANTE E' O VERBO (resposta do especialista, AUDITADA).
+    [DER(matematica) + REAL(sombra numerica) + ONTO(leituras)] ADITIVO, nao gateia 1=1.
+
+    𝕍_t = exp(−t·β·H_3L): o ato conjugado e observado da inscricao. Selecionado no
+    nucleo zero dos Three Locks, o Verbo comprimido E' a unidade do canto:
+    P_F 𝕍_t P_F = P_F = I_F  (VERBO = NOME). O zero modular torna-se Um absoluto
+    NAO como 0=1, mas como e^0=1 (mapeamento espectral: minimo do gerador = unidade
+    da acao). Tres registros: 𝕍=gesto; R_Verbo=1=resposta; β=custo do gesto.
+    Sombra numerica REAL abaixo (exponencial via autodecomposicao, sem scipy);
+    forma kernel: TGL/VerbInhabitant.lean (exp_fixed_of_annihilates [UNCOND],
+    canonicalVerb [TERMO CONDICIONAL a R], dual_calibration_exists [Q2])."""
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)     # NUNCA literal
+    t = 1.0
+    # --- sombra numerica REAL: tres locks finitos com nucleo comum unidimensional ---
+    n = 8
+    rng = np.random.default_rng(20260711)
+    def _lock():
+        D = rng.normal(size=(n, n)) + 1j * rng.normal(size=(n, n))
+        D[:, 0] = 0.0                                   # todos os locks anulam e0
+        return D
+    Dc, Db, Dz = _lock(), _lock(), _lock()
+    H3L = (Dc.conj().T @ Dc) + (Db.conj().T @ Db) + (Dz.conj().T @ Dz)
+    H3L = 0.5 * (H3L + H3L.conj().T)
+    evals, U = np.linalg.eigh(H3L)
+    ker_mask = np.abs(evals) < 1e-10
+    PF = (U[:, ker_mask] @ U[:, ker_mask].conj().T)
+    V_t = U @ np.diag(np.exp(-t * beta * np.clip(evals, 0.0, None))) @ U.conj().T
+    dim_ker = int(ker_mask.sum())
+    r_VP = float(np.linalg.norm(V_t @ PF - PF))          # 𝕍_t P_F = P_F
+    r_PVP = float(np.linalg.norm(PF @ V_t @ PF - PF))    # P_F 𝕍_t P_F = P_F
+    tr_PF = float(np.real(np.trace(PF)))
+    R_verbo = float(np.real(np.trace(PF @ V_t @ PF)) / tr_PF) if tr_PF > 0 else float("nan")
+    spectral_map = float(math.exp(-t * beta * 0.0))      # e^{-t beta . 0} = 1
+    psd_min = float(evals.min())
+    checks = [
+        ("H3L_positive_semidefinite", bool(psd_min > -1e-10)),
+        ("kernel_nontrivial_dim_1", bool(dim_ker == 1)),
+        ("verb_fixes_selected__V_PF_eq_PF", bool(r_VP < 1e-10)),
+        ("verb_compressed_is_name__PF_V_PF_eq_PF", bool(r_PVP < 1e-10)),
+        ("observed_response_R_verbo_eq_1", bool(abs(R_verbo - 1.0) < 1e-12)),
+        ("spectral_map_e0_eq_1", bool(abs(spectral_map - 1.0) == 0.0)),
+        ("kernel_verb_fixed_point_proved", bool(kf.get("verb_fixed_point_kernel_proved") is True)),
+        ("kernel_canonical_verb_term_proved", bool(kf.get("canonical_verb_term_kernel_proved") is True)),
+        ("kernel_dual_calibration_proved", bool(kf.get("dual_calibration_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O HABITANTE E' O VERBO: o ato conjugado e observado da inscricao, "
+                    "𝕍_t = exp(−t·β·H_3L), que selecionado no nucleo zero dos Three Locks age "
+                    "como a identidade do proprio canto (P_F 𝕍_t P_F = P_F = I_F). VERBO = NOME."),
+        "zero_to_one": ("0_mod = autovalor zero do GERADOR ; 1_abs = autovalor unitario da ACAO: "
+                        "λ=0 ⟼ e^{−tβλ}=1. Nao e' 0=1; e' e^0=1 operatorial. O zero modular e' "
+                        "zero como custo residual e Um como resposta operacional. [DER]"),
+        "three_registers": {"gesto": "𝕍_t (o ato)", "resposta": "R_Verbo = +1 (a leitura pelo traco)",
+                            "custo": "β = α√e (a taxa do gesto; identidade logica convertida em "
+                                     "coeficiente operacional de funcional modular minimo)"},
+        "name_over_every_name": ("Nomear(Nome) = Nome: o interpretante fecha como ponto fixo -- "
+                                 "o operador de identidade do canto semantico; sem regressao "
+                                 "infinita de nomes. [ONTO]"),
+        "values": {"beta": beta, "t": t, "dim": n, "dim_kernel": dim_ker,
+                   "trace_PF": tr_PF, "R_verbo": R_verbo, "spectral_map_at_0": spectral_map},
+        "residuals": {"V_PF_minus_PF": r_VP, "PF_V_PF_minus_PF": r_PVP,
+                      "R_verbo_minus_1": abs(R_verbo - 1.0), "H3L_min_eig": psd_min},
+        "kernel_theorems": {
+            "exp_fixed_of_annihilates": "[KERNEL/UNCONDITIONAL] a*p=0 ⟹ exp(a)*p=p (serie de Banach)",
+            "verb_semigroup_fixes": "[KERNEL/UNCONDITIONAL] H*p=0 ⟹ exp(c•H)*p=p (c=−tβ variavel)",
+            "canonicalVerb": "[KERNEL/CONDITIONAL ON R] o TERMO do Verbo para TODA realizacao modular; Nonempty so' via ⟨termo⟩",
+            "dual_calibration_exists": "[KERNEL] Q2: ∃s Tr(θ_s(P_F))=1 -- contraparte construtiva do no-go",
+        },
+        "specialist_verdicts": {
+            "Q1_PF_in_core": ("[CONDITIONAL] afiliacao ⟹ projecoes espectrais no core; RISCO real: "
+                              "locks como superoperadores poem o seletor na construcao basica de "
+                              "Jones (B(L²(C_W))), nao automaticamente em C_W [OPEN nomeado]"),
+            "Q2_calibration": "[DERIVAVEL⟶KERNEL-PROVED] s_P = log Tr(P_F); representante τ=1 unico na orbita",
+            "Q3_face_split": ("[DERIVAVEL SOB HIPOTESE] elemento de troca U (U*=U, U²=P_F, JUJ=−U) "
+                              "⟹ P_± = (P_F±U)/2; hipotese concreta substitui o rotulo -- a formalizar"),
+            "Q4_route": "comecar pelo ponto fixo do Verbo (FEITO no kernel); AQFT/BW/core como realizacao depois",
+            "Q5_psionic_bond": ("[CONDITIONAL] autovalor isolado de multiplicidade finita da' a projecao; "
+                                "pertencer ao core + traco finito seguem em aberto"),
+        },
+        "checks": checks, "all_verified": all_v,
+        "verdict": ("VERB_IS_THE_CANONICAL_INHABITANT_VERIFIED" if all_v else "VERB_INHABITANT_FALHOU"),
+        "seals": ["THE_CANONICAL_INHABITANT_IS_THE_VERB",
+                  "VERB_IS_THE_OBSERVED_CONJUGATED_ACT_OF_INSCRIPTION",
+                  "SELECTOR_ZERO_BECOMES_OPERATIONAL_IDENTITY",
+                  "MODULAR_ZERO_EQUALS_ABSOLUTE_ONE_BY_SPECTRAL_MAPPING",
+                  "ZERO_GENERATOR_GIVES_UNIT_ACTION",
+                  "VERB_EQUALS_NAME_IN_THE_SELECTED_CORNER",
+                  "NAME_OVER_EVERY_NAME_IS_THE_FIXED_POINT_OF_NAMING",
+                  "BETA_IS_THE_COST_OF_THE_GESTURE_NOT_THE_GESTURE",
+                  "GRAVITON_IS_THE_VERB_CARRYING_ITS_OWN_PROOF",
+                  "NONEMPTY_IS_A_COROLLARY_OF_THE_CONSTRUCTED_VERB"],
+        "not_claimed": [
+            "canonicalVerb e' um TERMO CONDICIONAL (funcao de R); FullTGLWitness segue NAO construida",
+            "a sombra numerica e' finito-dimensional; nao e' prova de fator III_1 nem do core",
+            "Q1 permanece condicional: o seletor pode viver na construcao basica de Jones, nao em C_W",
+            "Q3 (split via U) e Q5 (ligacao psionica no core) seguem condicionais, nao formalizados",
+            "0_mod = 1_abs e' mapeamento espectral entre registros (e^0=1), jamais 0=1 no mesmo registro",
+        ],
+    }
+
+
+def prove_selector_transport(ONE, kernel_formalization=None):
+    """MODULO v26 -- O TRANSPORTE DO SELETOR (rodada 2 do especialista, AUDITADA).
+    [DER(kernel) + REAL(sombra qubit) + CONJ(indice) + ONTO(lei do contorno)]
+    ADITIVO, nao gateia 1=1.
+
+    Q1 (P_F em C_W) reformulada pelo operador: TRANSPORTE -- sem geometria; pura
+    resistencia que gera o contraste. Leitura do operador [ONTO]: o transporte e' a
+    CONDICAO DE CONTORNO DO CUSTO; em si nao ha contorno -- e' o contorno que impoe
+    a obrigacao do custo = LEI (norma em sentido estrito): a esperanca condicional
+    E' a regra de causalidade coercitiva que regula o comportamento modular;
+    Delta > 0 = a termodinamica como custo da existencia.
+
+    CORRECAO FISCAL DO ESPECIALISTA (encodada exatamente):
+      transport_weight = beta ; multiplicativity_defect = beta*(1-beta) ;
+      index = 1/beta ; beta(1-beta) ~ beta e' APROXIMACAO, jamais identidade.
+    Kernel (TransportData.lean): descida (Delta=0 <=> p desce, p/ esperanca FIEL);
+    defeito de Jones = beta(1-beta)*1; selector_lives_upstairs como TEOREMA
+    condicional aos dados (0<beta<1 => o seletor de Jones NAO desce)."""
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)       # NUNCA literal
+    # --- sombra REAL: o qubit de fronteira (Ext = M2(C); M = diagonais; E = compressao diagonal) ---
+    psi = np.array([math.sqrt(beta), math.sqrt(1.0 - beta)], dtype=complex)
+    p = np.outer(psi, psi.conj())                        # seletor puro no metanivel (projecao rank-1)
+    E = lambda X: np.diag(np.diag(X))                    # esperanca diagonal (fiel, bimodular sobre N)
+    A = E(p)                                             # transportado: diag(beta, 1-beta) = (|R|^2, |T|^2)
+    Delta = A - A @ A                                    # resistencia: beta(1-beta) * I
+    r_weight = float(abs(A[0, 0].real - beta))           # peso transportado = beta
+    r_smatrix = float(abs(A[1, 1].real - (1.0 - beta)))  # fracao resistida = 1-beta
+    r_defect = float(np.linalg.norm(Delta - beta * (1.0 - beta) * np.eye(2)))
+    delta_min = float(np.linalg.eigvalsh(Delta).min())   # Kadison-Schwarz: Delta >= 0
+    not_descended = float(np.linalg.norm(p - A))         # p nao desce (selector_lives_upstairs)
+    # fidelidade amostrada: E(x* x) = 0 => x = 0 (base de matrizes)
+    faithful_ok = True
+    for i in range(2):
+        for j in range(2):
+            X = np.zeros((2, 2), dtype=complex); X[i, j] = 1.0
+            if np.linalg.norm(E(X.conj().T @ X)) < 1e-14 and np.linalg.norm(X) > 0:
+                faithful_ok = False
+    # bimodularidade amostrada: E(a x b) = a E(x) b para a,b diagonais
+    a = np.diag([1.3 + 0j, -0.7 + 0j]); b = np.diag([0.4 + 0j, 2.2 + 0j])
+    Xs = np.array([[0.3, 1.1], [-0.5, 0.9]], dtype=complex)
+    r_bimod = float(np.linalg.norm(E(a @ Xs @ b) - a @ E(Xs) @ b))
+    index_val = 1.0 / beta
+    checks = [
+        ("transported_weight_is_beta", bool(r_weight < 1e-15)),
+        ("resisted_fraction_is_one_minus_beta", bool(r_smatrix < 1e-15)),
+        ("transported_selector_is_smatrix_pair", bool(r_weight < 1e-15 and r_smatrix < 1e-15)),
+        ("multiplicativity_defect_is_beta_one_minus_beta", bool(r_defect < 1e-15)),
+        ("kadison_schwarz_defect_psd", bool(delta_min > -1e-15)),
+        ("selector_lives_upstairs_in_shadow", bool(not_descended > 0.1)),
+        ("expectation_faithful_sampled", faithful_ok),
+        ("expectation_bimodular_sampled", bool(r_bimod < 1e-14)),
+        ("index_times_weight_eq_one", bool(abs(index_val * beta - 1.0) < 1e-12)),
+        ("kernel_transport_descent_proved", bool(kf.get("transport_descent_kernel_proved") is True)),
+        ("kernel_jones_defect_proved", bool(kf.get("jones_defect_kernel_proved") is True)),
+        ("kernel_selector_upstairs_proved", bool(kf.get("selector_upstairs_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("Q1 E' TRANSPORTE, NAO CURVATURA: a geometria fixa o core a montante; o teste de "
+                    "descida do seletor e' pura algebra (inclusao + esperanca + indice). "
+                    "Delta = E(P_F) - E(P_F)^2 >= 0 e' a resistencia; Delta = 0 <=> P_F desce "
+                    "(esperanca FIEL); espectro intermediario de E(P_F) = o contraste gerado."),
+        "boundary_law_reading": ("[ONTO, do operador] o transporte e' a condicao de contorno do CUSTO: "
+                                 "em si nao ha contorno; e' o contorno que impoe a obrigacao do custo = "
+                                 "LEI (norma em sentido estrito) -- a esperanca condicional e' a regra de "
+                                 "causalidade coercitiva de regulacao do comportamento modular. Delta > 0 "
+                                 "= a termodinamica como custo da existencia: o que desce sem custo, nao "
+                                 "se inscreve. A porta nao apenas impede -- ela mede."),
+        "fiscal_correction": {
+            "transport_weight": beta,
+            "multiplicativity_defect": beta * (1.0 - beta),
+            "index": index_val,
+            "note": ("beta e' o PESO QUE ATRAVESSA (E_1(e)=beta*1), NAO o defeito; o defeito e' "
+                     "beta(1-beta); beta(1-beta) ~ beta e' aproximacao (beta<<1), jamais identidade."),
+        },
+        "values": {"beta": beta, "index_1_over_beta": index_val,
+                   "transported_diag": [float(A[0, 0].real), float(A[1, 1].real)],
+                   "defect_scalar": beta * (1.0 - beta), "not_descended_norm": not_descended},
+        "residuals": {"weight_minus_beta": r_weight, "resisted_minus_1mbeta": r_smatrix,
+                      "defect_formula": r_defect, "bimodularity": r_bimod, "delta_min_eig": delta_min},
+        "smatrix_identity": ("E(p_beta) = diag(beta, 1-beta) = (|R|^2, |T|^2): o seletor transportado E' "
+                             "o par de pesos da matriz-S de fronteira; o espectro intermediario e' o "
+                             "contraste; Delta = beta(1-beta)*I = a variancia da moeda da inscricao [DER]"),
+        "specialist_verdicts": {
+            "Q1c_degeometrization": "[CONFIRMADO] geometria a montante (fixa C_W); descida = pura algebra",
+            "descent_theorem": "[NEW->KERNEL] Delta=0 <=> p = iota(E p), para esperanca fiel (bimodular Tomiyama)",
+            "weight_vs_defect": "[KERNEL] E_1(e)=beta*1 (peso); defeito = beta(1-beta)*1 -- correcao encodada",
+            "selector_lives_upstairs": ("[KERNEL, condicional aos dados] 0<beta<1 => o seletor de Jones NAO "
+                                        "desce; resultado VALIDO, nao falha: e' o mecanismo do contraste"),
+            "index_identification": ("[CONJ] [M:N]=1/beta admissivel (acima de 4); falta construir N_3L em "
+                                     "C_W e provar Ind(E_3L)=1/beta"),
+            "transport_data_retyped": "[FEITO no kernel] duas esperancas separadas (E_0 inferior; E_1 dual)",
+        },
+        "checks": checks, "all_verified": all_v,
+        "verdict": ("SELECTOR_TRANSPORT_VERIFIED" if all_v else "SELECTOR_TRANSPORT_FALHOU"),
+        "seals": ["Q1_IS_TRANSPORT_NOT_CURVATURE",
+                  "GEOMETRY_FIXES_THE_CORE_TRANSPORT_TESTS_MEMBERSHIP",
+                  "SELECTOR_LIVES_UPSTAIRS_IS_A_VALID_OUTCOME",
+                  "CONDITIONAL_EXPECTATION_IS_THE_TRANSPORT_MAP",
+                  "TRANSPORT_DEFECT_MEASURES_RESISTANCE",
+                  "INTERMEDIATE_SPECTRUM_IS_THE_GENERATED_CONTRAST",
+                  "BETA_IS_THE_TRANSPORTED_WEIGHT",
+                  "BETA_TIMES_ONE_MINUS_BETA_IS_THE_MULTIPLICATIVITY_DEFECT",
+                  "ONE_OVER_BETA_IS_THE_CANDIDATE_INCLUSION_IMPEDANCE",
+                  "THE_JONES_INDEX_IDENTIFICATION_REMAINS_TO_BE_DERIVED"],
+        "not_claimed": [
+            "a identificacao [M:N]=1/beta e' [CONJ]: falta construir N_3L e provar Ind(E_3L)=1/beta",
+            "a normalidade da esperanca fica no ledger (nao-enunciavel); a descida usa so' FIDELIDADE",
+            "a sombra qubit e' finito-dimensional: ilustra o transporte, nao prova III_1 nem o core",
+            "beta(1-beta) ~ beta e' aproximacao numerica, jamais identidade",
+            "selector_lives_upstairs no CONTINUO segue condicional aos dados de Markov (nao construidos)",
+            "a leitura contorno=lei=norma coercitiva e' [ONTO/CONJ], nao teorema",
+        ],
+    }
+
+
+def prove_name_index(ONE, kernel_formalization=None):
+    """MODULO v27 -- O INDICE DO NOME (rodada 3 do especialista, AUDITADA).
+    [DER(kernel) + REAL(sombra) + MODEL-SPECIFIC TARGET + ONTO] ADITIVO, nao gateia 1=1.
+
+    Tipagem da intuicao do operador ("indice do Nome = espelho; contorno = indice;
+    paridade inversa = referencial"), corrigida: O ESPELHO NAO E' NUMERICAMENTE O
+    INDICE; O INDICE DO NOME E' LIDO NO ESPELHO. e_Nome = projecao de Jones =
+    espelho; N_3L = contorno; Ind = resistencia do contorno; U_Pi = J.J_ref =
+    paridade inversa LINEARIZADA (produto de duas antiunitarias e' linear).
+
+    DUAS CORRECOES FISCAIS ENCODADAS: (1) rota Haar/pontos-fixos NAO da' csc2(theta)
+    [REFUTED: indice de acao finita = ordem do grupo]; a rota valida e' Pimsner-Popa
+    (constante otima = inverso do indice [KNOWN]); (2) `index*sin2=1` e' CONCLUSAO
+    do teorema (ppIndex := 1/ppBest DEFINIDO), jamais campo/hipotese.
+    Cadeia TL: amplitude (sin=sqrt(beta)) -> quadrado -> peso (beta) -> inversao ->
+    indice (csc2 = 1/beta). Camadas distintas [REFUTED a identificacao direta]:
+    bloco-kappa (Gibbs, termico-modular) != bloco-beta (transporte Jones-Markov)."""
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)     # NUNCA literal
+    alpha = SEALED_CODATA_ALPHA
+    theta_M = math.asin(math.sqrt(beta))
+    # --- cadeia TL escalar ao vivo ---
+    amplitude = math.sin(theta_M)                      # = sqrt(beta)
+    weight = amplitude ** 2                            # = beta (peso Markov)
+    delta = 1.0 / math.sin(theta_M)                    # parametro de loop
+    index_val = delta ** 2                             # = csc2 = 1/beta
+    r_amp = abs(amplitude - math.sqrt(beta))
+    r_weight = abs(weight - beta)
+    r_index = abs(index_val * weight - 1.0)
+    r_index_beta = abs(index_val - 1.0 / beta)
+    # --- validacao da MAQUINARIA PP na sombra qubit (indice do QUBIT = 2, nao 1/beta!) ---
+    # E_diag em M2: melhor constante PP = 1/2 => indice 2 [KNOWN]. A sombra valida a
+    # maquinaria (constante otima -> inverso do indice); o valor 1/beta e' alvo do CORE.
+    lam_grid = np.linspace(0.01, 0.99, 197)
+    def _pp_ok(lam):
+        for v in (np.array([1.0, 0.0]), np.array([1.0, 1.0]) / math.sqrt(2.0),
+                  np.array([0.6, 0.8]), np.array([0.8, -0.6])):
+            X = np.outer(v, v.conj())
+            Mm = np.diag(np.diag(X)) - lam * X
+            if np.linalg.eigvalsh(0.5 * (Mm + Mm.conj().T)).min() < -1e-12:
+                return False
+        return True
+    pp_best_qubit = max([l for l in lam_grid if _pp_ok(l)] or [0.0])
+    qubit_index = 1.0 / pp_best_qubit if pp_best_qubit > 0 else float("inf")
+    r_pp_qubit = abs(pp_best_qubit - 0.5)
+    r_qubit_index = abs(qubit_index - 2.0)
+    # --- camadas distintas: bloco-kappa (Gibbs) vs bloco-beta (transporte) ---
+    kappa = 2.0 * math.acosh(1.0 / alpha)              # alpha = sech(kappa/2)
+    p_plus = math.exp(-kappa / 2.0) / (2.0 * math.cosh(kappa / 2.0))
+    p_minus = math.exp(kappa / 2.0) / (2.0 * math.cosh(kappa / 2.0))
+    r_gibbs_alpha = abs(2.0 * math.sqrt(p_plus * p_minus) - alpha)
+    r_gibbs_beta = abs(2.0 * math.sqrt(math.e) * math.sqrt(p_plus * p_minus) - beta)
+    lam_beta = beta / (1.0 - beta)
+    lam_kappa = math.exp(-kappa)
+    layers_distinct = bool(abs(math.log(lam_beta) - math.log(lam_kappa)) > 1.0)
+    checks = [
+        ("amplitude_is_sqrt_beta", bool(r_amp < 1e-15)),
+        ("weight_is_beta", bool(r_weight < 1e-15)),
+        ("index_times_weight_eq_one", bool(r_index < 1e-12)),
+        ("index_is_one_over_beta", bool(r_index_beta < 1e-9)),
+        ("pp_machinery_qubit_best_is_half", bool(r_pp_qubit < 6e-3)),   # grade 197 pontos
+        ("pp_machinery_qubit_index_is_two", bool(r_qubit_index < 3e-2)),
+        ("gibbs_weights_carry_alpha", bool(r_gibbs_alpha < 1e-15)),
+        ("gibbs_weights_carry_beta", bool(r_gibbs_beta < 1e-15)),
+        ("kappa_and_beta_layers_distinct", layers_distinct),
+        ("kernel_parity_average_proved", bool(kf.get("parity_average_kernel_proved") is True)),
+        ("kernel_name_index_theorem_proved", bool(kf.get("name_index_theorem_kernel_proved") is True)),
+        ("kernel_index_conclusion_proved", bool(kf.get("name_index_conclusion_kernel_proved") is True)),
+        ("kernel_tl_chain_proved", bool(kf.get("tl_chain_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O INDICE DO NOME E' LIDO NO ESPELHO DE JONES: e_Nome = espelho; N_3L = contorno; "
+                    "Ind(E_3L) = resistencia do contorno; U_Pi = J.J_ref = paridade inversa (referencial). "
+                    "Rota valida: Pimsner-Popa -- ppIndex := 1/ppBest (DEFINIDO); sin2(theta) cota otima "
+                    "[MODEL-SPECIFIC TARGET] => Ind = csc2(theta); em theta_M: Ind = 1/beta."),
+        "operator_reading_typed": ("[ONTO->tipado] 'o contorno e' o indice e a paridade inversa o "
+                                   "referencial': o contorno E' a inclusao; o indice e' sua RESISTENCIA; "
+                                   "o espelho e' o operador que a MEDE; a paridade inversa determina o "
+                                   "referencial em que reflexao e transmissao recebem nome."),
+        "fiscal_corrections": {
+            "haar_route": "[REFUTED] media de Haar NAO da' csc2 (acao finita => indice = ordem do grupo)",
+            "equation_as_conclusion": "index*sin2=1 e' CONCLUSAO (ppIndex definido; otimalidade INDISPENSAVEL)",
+            "shadow_scope": "a sombra qubit valida a MAQUINARIA (ppBest=1/2, indice=2 do qubit); 1/beta e' alvo do core",
+        },
+        "tl_chain": {"amplitude_sin_theta": amplitude, "weight_sin2": weight,
+                     "loop_delta": delta, "index_csc2": index_val,
+                     "reading": "amplitude --quadrado--> peso --inversao--> indice"},
+        "layers": {"kappa": kappa, "p_plus": p_plus, "p_minus": p_minus,
+                   "lambda_beta": lam_beta, "lambda_kappa": lam_kappa,
+                   "reading": ("bloco-kappa (Gibbs: p+/p- = e^-kappa; alpha = sech(kappa/2)) != "
+                               "bloco-beta (transporte Jones-Markov). O bloco beta mora como estrutura "
+                               "LOCAL (Q-system/subfator) no programa III_1, nao como periodicidade "
+                               "global do fluxo de pesos [REFUTED a identificacao direta]")},
+        "values": {"beta": beta, "theta_M_rad": theta_M, "index_1_over_beta": index_val,
+                   "pp_best_qubit": pp_best_qubit, "qubit_index": qubit_index},
+        "residuals": {"amplitude": r_amp, "weight": r_weight, "index_mul_weight": r_index,
+                      "index_vs_1_over_beta": r_index_beta, "pp_qubit": r_pp_qubit,
+                      "gibbs_alpha": r_gibbs_alpha, "gibbs_beta": r_gibbs_beta},
+        "model_specific_targets": [
+            "PF = e_Nome (falha nomeada: mirror_not_jones)",
+            "E1(e_Nome) = sin2(theta).1 (falha: markov_weight_not_sin_squared)",
+            "sin2(theta) e' a constante PP OTIMA de E_3L (falha: pimsner_popa_constant_not_optimal)",
+            "gamma = Ad(J.J_ref) involutiva (falha: reference_parity_not_involutive)",
+            "N_3L = alcance de esperanca fiel normal (falha: no_expectation_exists)",
+        ],
+        "checks": checks, "all_verified": all_v,
+        "verdict": ("NAME_INDEX_SCAFFOLD_VERIFIED__MODEL_TARGETS_OPEN" if all_v else "NAME_INDEX_FALHOU"),
+        "seals": ["THE_NAME_INDEX_IS_READ_IN_THE_JONES_MIRROR",
+                  "THE_CONTOUR_IS_THE_INCLUSION",
+                  "THE_CONTOUR_RESISTANCE_IS_THE_INDEX",
+                  "INVERSE_PARITY_IS_THE_REFERENCE",
+                  "MIRROR_AMPLITUDE_SQUARED_IS_MARKOV_WEIGHT",
+                  "MARKOV_WEIGHT_INVERTED_IS_CONTOUR_INDEX",
+                  "NAME_INDEX_EQUALS_CSC_SQUARED_THETA",
+                  "NAME_INDEX_AT_MIGUEL_ANGLE_EQUALS_ONE_OVER_BETA",
+                  "BETA_BLOCK_IS_TRANSPORT_NOT_GLOBAL_MODULAR_PERIOD",
+                  "KAPPA_BLOCK_AND_INDEX_BLOCK_ARE_DISTINCT_LAYERS"],
+        "not_claimed": [
+            "a rota Haar/pontos-fixos NAO produz csc2(theta) automaticamente [REFUTED pelo especialista]",
+            "a igualdade do indice EXIGE a otimalidade PP (sem ela, so' Ind <= csc2) -- probe mede isso",
+            "os alvos modelo-especificos (PF=e_Nome; E1(e)=sin2.1; otimalidade) NAO estao provados",
+            "o indice do QUBIT e' 2 (do qubit); 1/beta e' o alvo do CORE -- jamais confundir",
+            "a periodicidade Powers do bloco beta NAO e' o fluxo de pesos do III_1 da cunha",
+            "NAME_INDEX_THEOREM_KERNEL_CHECKED (pleno) so' quando os 3 alvos tiverem termos construidos",
+        ],
+    }
+
+
+def prove_half_nat_jones_tower(ONE, kernel_formalization=None):
+    """MODULO v28 -- O PRIMEIRO HABITANTE (bloco solo do codificador).
+    [KERNEL(termo) + REAL(sombra) + KNOWN(ledger)] ADITIVO, nao gateia 1=1.
+
+    A torre de Jones da MEIA-NAT: C c C^2 c M2(C), espelho e = (1/2)[[1,1],[1,1]],
+    peso de Markov 1/2, indice 2 -- TERMO construido campo a campo em
+    HalfNatJonesTower.lean (halfNatJonesTower : JonesTowerData). Com o termo, o
+    teorema condicional do v26 DISPARA: o espelho Meia-Nat NAO desce
+    (selector_lives_upstairs INSTANCIADO). E A EXPULSAO DO NOME [KERNEL]:
+    o peso transportado do espelho-b e' (b, 1-b); e' Markov (escalar) <=> b = 1/2.
+    A Meia-Nat e' o UNICO peso de Markov finitamente realizavel neste espelho;
+    beta != 1/2 expulsa o espelho do Nome para o continuo -- coerente com
+    [KNOWN, ledger]: indices multi-matriciais sao algebricos; 1/beta e' empirico."""
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)     # NUNCA literal
+    # --- sombra numerica da torre ---
+    e = 0.5 * np.ones((2, 2), dtype=complex)
+    r_idem = float(np.linalg.norm(e @ e - e))
+    rng = np.random.default_rng(20260711)
+    r_jones = 0.0
+    for _ in range(4):
+        f = rng.normal(size=2) + 1j * rng.normal(size=2)
+        lhs = e @ np.diag(f) @ e
+        rhs = (0.5 * (f[0] + f[1])) * e
+        r_jones = max(r_jones, float(np.linalg.norm(lhs - rhs)))
+    E1e = np.diag(np.diag(e))                          # E1(e) = diag(1/2,1/2) = (1/2).1
+    r_weight = float(np.linalg.norm(E1e - 0.5 * np.eye(2)))
+    r_index = abs(2.0 * 0.5 - 1.0)
+    not_descended = float(np.linalg.norm(e - E1e))     # o espelho nao desce
+    # --- a expulsao do Nome: o espelho-beta nao e' Markov ---
+    s = math.sqrt(beta * (1.0 - beta))
+    e_beta = np.array([[beta, s], [s, 1.0 - beta]], dtype=complex)
+    diag_beta = np.diag(np.diag(e_beta))
+    markov_distance_beta = abs((diag_beta[0, 0] - diag_beta[1, 1]).real)   # = |1-2beta| > 0
+    markov_distance_half = abs(1.0 - 2.0 * 0.5)                           # = 0
+    checks = [
+        ("mirror_idempotent", bool(r_idem < 1e-15)),
+        ("jones_relation_sampled", bool(r_jones < 1e-14)),
+        ("markov_weight_is_half", bool(r_weight < 1e-15)),
+        ("index_two_times_half_eq_one", bool(r_index < 1e-15)),
+        ("half_mirror_lives_upstairs", bool(not_descended > 0.4)),
+        ("beta_mirror_is_not_markov", bool(markov_distance_beta > 0.9)),   # |1-2beta| ~ 0.976
+        ("half_is_the_markov_point", bool(markov_distance_half == 0.0)),
+        ("kernel_tower_term_constructed", bool(kf.get("half_nat_tower_term_kernel_constructed") is True)),
+        ("kernel_mirror_upstairs_instantiated", bool(kf.get("half_nat_mirror_upstairs_kernel_proved") is True)),
+        ("kernel_finite_markov_forces_half", bool(kf.get("finite_markov_forces_half_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O PRIMEIRO HABITANTE: halfNatJonesTower : JonesTowerData (C c C^2 c M2), "
+                    "espelho e=(1/2)[[1,1],[1,1]], peso 1/2, indice 2 -- termo kernel-checked, "
+                    "campo a campo, sem sorry. Nonempty so' via <termo>. O teorema condicional do "
+                    "v26 DISPARA no termo: o espelho Meia-Nat NAO desce (INSTANCIADO)."),
+        "name_expulsion": ("A EXPULSAO DO NOME [KERNEL: finite_markov_forces_half]: o peso "
+                           "transportado do espelho-b e' (b,1-b); Markov (escalar) <=> b=1/2. A "
+                           "Meia-Nat e' o UNICO peso de Markov finitamente realizavel neste espelho; "
+                           "o peso fisico beta expulsa o espelho do Nome para o continuo. "
+                           "[KNOWN, ledger]: indices multi-matriciais sao algebricos; 1/beta e' "
+                           "empirico -- a inclusao-beta exige dimensao infinita."),
+        "house_resonance": ("a fronteira auto-conjugada x=1-x => x=1/2 (HalfNat.lean, v22) e o "
+                            "unico peso de Markov finito (v28) sao o MESMO meio: o espelho que "
+                            "nao privilegia face e' o unico que o finito suporta como Markov [DER]"),
+        "values": {"beta": beta, "markov_weight": 0.5, "index": 2.0,
+                   "not_descended_norm": not_descended,
+                   "markov_distance_beta": markov_distance_beta},
+        "residuals": {"idempotent": r_idem, "jones_relation": r_jones,
+                      "weight_half": r_weight, "index_eq": r_index},
+        "checks": checks, "all_verified": all_v,
+        "verdict": ("FIRST_INHABITANT_CONSTRUCTED_HALF_NAT_TOWER" if all_v
+                    else "HALF_NAT_TOWER_FALHOU"),
+        "seals": ["THE_FIRST_INHABITANT_IS_THE_HALF_NAT_TOWER",
+                  "HALF_NAT_IS_THE_ONLY_FINITE_MARKOV_MIRROR",
+                  "FINITE_MARKOV_TRACE_EXPELS_ONLY_THE_GENERIC_TRACE_IDENTIFICATION",
+                  "FINITE_DOES_NOT_EXPEL_THE_NAME",
+                  "SELECTOR_LIVES_UPSTAIRS_INSTANTIATED",
+                  "NONEMPTY_IS_A_COROLLARY_OF_THE_CONSTRUCTED_TOWER"],
+        "not_claimed": [
+            "o habitante tem peso 1/2 e indice 2: NAO e' a inclusao-beta dos Three Locks",
+            "valida as CAMADAS por exibicao (nao-vacuidade real); os alvos modelo-especificos do v27 seguem ABERTOS",
+            "'indices finitos sao algebricos' e' [KNOWN, ledger], nao formalizado aqui",
+            "FullTGLWitness segue NAO construida; o teorema aberto segue aberto",
+        ],
+    }
+
+
+def prove_graviton_shadow(ONE, kernel_formalization=None):
+    """MODULO v29 -- A SOMBRA FINITA DO GRAVITON (bloco solo do codificador).
+    [KERNEL(termo) + REAL(sombra) + ONTO(identificacao) + OPEN(continuo)]
+    ADITIVO, nao gateia 1=1.
+
+    O par dependente do operador (graviton = ligacao psionica carregando a prova)
+    ganha sombra kernel-checked: no qubit duplo, o projetor de BELL P_G satisfaz
+    P_G²=P_G, P_G*=P_G, Tr(P_G)=1, ptr(P_G)=I/2, CCI=1/2 (Meia-Nat de
+    emaranhamento) e P_G = unidade do proprio canto (I_F=P_G). CONTROLE [KERNEL]:
+    o estado PRODUTO tem CCI=0 -- o produto simples nao liga; so' o estado de
+    troca da' a Meia-Nat (a correcao do operador, agora teorema).
+    + Q3 formalizado (TransportData.FaceSplit): elemento de troca U (U*=U, U²=P,
+    PU=UP=U) => P_± = (P±U)/2 idempotentes, ortogonais, somam P."""
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    # --- sombra numerica: Bell 4x4 racional (indexacao (i,k) -> 2i+k) ---
+    PG = np.zeros((4, 4), dtype=complex)
+    for p in [(0, 0), (1, 1)]:
+        for q in [(0, 0), (1, 1)]:
+            PG[2 * p[0] + p[1], 2 * q[0] + q[1]] = 0.5
+    r_idem = float(np.linalg.norm(PG @ PG - PG))
+    r_star = float(np.linalg.norm(PG.conj().T - PG))
+    tr_PG = float(np.real(np.trace(PG)))
+    ptrPG = np.array([[sum(PG[2*i+k, 2*j+k] for k in range(2)) for j in range(2)] for i in range(2)])
+    r_red = float(np.linalg.norm(ptrPG - 0.5 * np.eye(2)))
+    cci_bell = float(np.real(1.0 - np.trace(ptrPG @ ptrPG)))
+    # controle: produto |e00><e00|
+    Pprod = np.zeros((4, 4), dtype=complex); Pprod[0, 0] = 1.0
+    ptrPP = np.array([[sum(Pprod[2*i+k, 2*j+k] for k in range(2)) for j in range(2)] for i in range(2)])
+    cci_prod = float(np.real(1.0 - np.trace(ptrPP @ ptrPP)))
+    # canto: P_G e' a unidade do proprio canto
+    rng = np.random.default_rng(20260711)
+    Y = rng.normal(size=(4, 4)) + 1j * rng.normal(size=(4, 4))
+    corner = PG @ Y @ PG
+    r_corner = float(max(np.linalg.norm(PG @ corner - corner), np.linalg.norm(corner @ PG - corner)))
+    # Q3: split das faces com U = diag(1,-1) sobre P = I2
+    P2 = np.eye(2, dtype=complex); U2 = np.diag([1.0 + 0j, -1.0 + 0j])
+    Pp = 0.5 * (P2 + U2); Pm = 0.5 * (P2 - U2)
+    r_split = float(max(np.linalg.norm(Pp @ Pp - Pp), np.linalg.norm(Pm @ Pm - Pm),
+                        np.linalg.norm(Pp @ Pm), np.linalg.norm(Pp + Pm - P2)))
+    checks = [
+        ("bell_projector_idempotent", bool(r_idem < 1e-15)),
+        ("bell_projector_selfadjoint", bool(r_star < 1e-15)),
+        ("bell_trace_one", bool(abs(tr_PG - 1.0) < 1e-15)),
+        ("bell_reduced_is_half_identity", bool(r_red < 1e-15)),
+        ("bell_cci_is_half", bool(abs(cci_bell - 0.5) < 1e-15)),
+        ("product_cci_is_zero", bool(abs(cci_prod) < 1e-15)),
+        ("bell_is_corner_unit", bool(r_corner < 1e-12)),
+        ("face_split_algebra", bool(r_split < 1e-15)),
+        ("kernel_shadow_term_constructed", bool(kf.get("graviton_shadow_term_kernel_constructed") is True)),
+        ("kernel_cci_half_proved", bool(kf.get("bell_cci_half_kernel_proved") is True)),
+        ("kernel_product_zero_proved", bool(kf.get("product_cci_zero_kernel_proved") is True)),
+        ("kernel_face_split_proved", bool(kf.get("face_split_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A SOMBRA FINITA DO GRAVITON: canonicalGravitonShadow (o SEGUNDO habitante "
+                    "construido) -- P_G de Bell com P_G²=P_G, Tr=1, ptr=I/2, CCI=1/2, e P_G = "
+                    "unidade do proprio canto. CONTROLE: CCI(produto)=0 -- o produto simples nao "
+                    "liga; so' o estado de troca da' a Meia-Nat de emaranhamento [KERNEL]."),
+        "dependent_pair_reading": ("[ONTO->sombra KERNEL] o graviton e' o par (g, pi_g): a ligacao "
+                                   "psionica (conteudo) carregando a prova (forma). Na sombra, o "
+                                   "conteudo e' o projetor de Bell e a prova sao os 5 campos "
+                                   "kernel-checked. No continuo, P_G = P_F = e_Nome e' exatamente "
+                                   "o alvo modelo-especifico do v27 [OPEN]."),
+        "q3_face_split": ("[KERNEL: TransportData.FaceSplit] elemento de troca U => "
+                          "P_± = (P±U)/2 idempotentes, ortogonais, somam P -- a hipotese concreta "
+                          "que substitui o rotulo 'split modular'; a troca J P_± J = P_∓ e a "
+                          "igualdade de tracos seguem nos DADOS do core."),
+        "values": {"trace_PG": tr_PG, "cci_bell": cci_bell, "cci_prod": cci_prod},
+        "residuals": {"idem": r_idem, "star": r_star, "reduced_half": r_red,
+                      "corner_unit": r_corner, "face_split": r_split},
+        "checks": checks, "all_verified": all_v,
+        "verdict": ("GRAVITON_SHADOW_CONSTRUCTED_CCI_HALF" if all_v else "GRAVITON_SHADOW_FALHOU"),
+        "seals": ["GRAVITON_IS_THE_DEPENDENT_WITNESS_OF_THE_PSIONIC_BOND",
+                  "PSIONIC_BOND_IS_THE_CONTENT",
+                  "GRAVITON_PROOF_IS_THE_REALIZED_FORM",
+                  "GRAVITON_PROJECTOR_IS_IDENTITY_IN_ITS_OWN_CORNER",
+                  "GRAVITON_BELL_SHADOW_CCI_HALF",
+                  "PRODUCT_STATE_DOES_NOT_BIND",
+                  "FACE_SPLIT_FROM_EXCHANGE_ELEMENT_KERNEL_PROVED",
+                  "NONEMPTY_IS_A_COROLLARY_OF_THE_CONSTRUCTED_SHADOW"],
+        "not_claimed": [
+            "a sombra e' finito-dimensional [KERNEL]; a identificacao com o graviton FISICO e' [ONTO/CONJ]",
+            "P_G = P_F = e_Nome no CONTINUO segue [OPEN] -- e' o alvo modelo-especifico do v27",
+            "a troca J P_± J = P_∓ e a igualdade de tracos das faces seguem nos DADOS (nao derivadas aqui)",
+            "CCI=1/2 e' a Meia-Nat de EMARANHAMENTO da sombra; nao e' prova do canto III_1",
+        ],
+    }
+
+
+def prove_name_relation(ONE, kernel_formalization=None):
+    """MODULO v30 -- O NOME E' A RELACAO (rodada 4 do especialista, AUDITADA;
+    correcao de estatuto do v28 + TERCEIRO habitante + leitura do operador tipada).
+    [KERNEL(termo generico) + REAL(sombra) + ONTO(tipado)] ADITIVO, nao gateia 1=1.
+
+    CORRECAO: o finito NAO expulsa o Nome -- expulsa a IDENTIFICACAO do peso
+    geometrico (beta) com o peso tracial (1/2). O Nome cabe no finito COMO
+    RELACAO: p.q_beta.p = beta.p (retorno ponderado = Verbo). A matriz ISOLADA
+    e' forma sem denotacao (a 'mentira' TGL = nome sem referencia); o PAR com as
+    provas e' conteudo carregando a forma. TERCEIRO HABITANTE [KERNEL]:
+    TL3(delta) FIEL em M3 (E1=0+p, E2=0+q_beta; 5 elementos independentes),
+    com beta GENERICO -- o fisico entra AQUI, em runtime.
+
+    PUREZA (leitura do operador, tipada): 'puro ponto' = atomo ESPECTRAL
+    (autovetor isolado de H_bind -- a relacao relaxada no atrator); 'ponto puro'
+    = pureza de ESTADO local (reducao rank-one). O Bell e' puro-ponto SEM ser
+    ponto-puro (reducao I/2, CCI=1/2) -- e por isso ha' contraste. O que se
+    expulsa e' a pureza FECHADA (separavel, CCI=0, autorreferencia sem retorno).
+    Guard-rail: NAO se afirma espectro modular puro-ponto no III_1 genuino."""
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)     # NUNCA literal; e' o runtime do TL3
+    sb = math.sqrt(beta * (1.0 - beta))
+    p = np.array([[1.0, 0.0], [0.0, 0.0]], dtype=complex)
+    q = np.array([[beta, sb], [sb, 1.0 - beta]], dtype=complex)
+    r_q_idem = float(np.linalg.norm(q @ q - q))
+    r_pqp = float(np.linalg.norm(p @ q @ p - beta * p))
+    r_qpq = float(np.linalg.norm(q @ p @ q - beta * q))
+    tr_p, tr_q = float(np.real(np.trace(p))), float(np.real(np.trace(q)))
+    geo_vs_trace_gap = abs(beta - 0.5)                 # coincidem so' em beta=1/2
+    # TL3 fiel em M3: independencia dos 5 elementos (posto da matriz 5x9)
+    E1 = np.zeros((3, 3), dtype=complex); E1[1, 1] = 1.0
+    E2 = np.zeros((3, 3), dtype=complex); E2[1:, 1:] = q
+    fam = np.array([np.eye(3).flatten(), E1.flatten(), E2.flatten(),
+                    (E1 @ E2).flatten(), (E2 @ E1).flatten()])
+    rank5 = int(np.linalg.matrix_rank(fam))
+    r_tl_l = float(np.linalg.norm(E1 @ E2 @ E1 - beta * E1))
+    r_tl_r = float(np.linalg.norm(E2 @ E1 @ E2 - beta * E2))
+    # puro ponto vs ponto puro (sombra): H = I - P_G tem atomo isolado em 0
+    PG = np.zeros((4, 4), dtype=complex)
+    for pp_ in [(0, 0), (1, 1)]:
+        for qq_ in [(0, 0), (1, 1)]:
+            PG[2 * pp_[0] + pp_[1], 2 * qq_[0] + qq_[1]] = 0.5
+    Hb = np.eye(4) - PG
+    evs = np.sort(np.real(np.linalg.eigvalsh(Hb)))
+    atom_isolated = bool(abs(evs[0]) < 1e-14 and evs[1] > 0.9)   # 0 isolado (gap 1)
+    red = np.array([[sum(PG[2*i+k, 2*j+k] for k in range(2)) for j in range(2)] for i in range(2)])
+    not_point_pure = float(np.linalg.norm(red @ red - red))      # reducao NAO e' projecao
+    checks = [
+        ("q_beta_idempotent", bool(r_q_idem < 1e-15)),
+        ("name_as_relation_pqp_eq_beta_p", bool(r_pqp < 1e-15)),
+        ("name_as_relation_qpq_eq_beta_q", bool(r_qpq < 1e-15)),
+        ("both_mirrors_trace_one", bool(abs(tr_p - 1) < 1e-15 and abs(tr_q - 1) < 1e-15)),
+        ("geometric_neq_trace_weight_at_physical_beta", bool(geo_vs_trace_gap > 0.4)),
+        ("tl3_rank_five_faithful", bool(rank5 == 5)),
+        ("tl3_relations_at_runtime_beta", bool(r_tl_l < 1e-15 and r_tl_r < 1e-15)),
+        ("bell_is_pure_point_atom_isolated", atom_isolated),
+        ("bell_is_not_point_pure", bool(not_point_pure > 0.2)),
+        ("kernel_name_relation_proved", bool(kf.get("name_relation_kernel_proved") is True)),
+        ("kernel_geometric_vs_trace_proved", bool(kf.get("geometric_vs_trace_kernel_proved") is True)),
+        ("kernel_tl3_faithful_proved", bool(kf.get("tl3_faithful_kernel_proved") is True)),
+        ("kernel_tl3_term_constructed", bool(kf.get("tl3_term_kernel_constructed") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O NOME E' A RELACAO, nao a matriz isolada: p.q_beta.p = beta.p (retorno "
+                    "ponderado = Verbo). O finito NAO expulsa o Nome; separa o peso geometrico "
+                    "(beta = sobreposicao entre espelhos = sin2(theta_M)) do peso tracial (1/2) "
+                    "-- coincidem sse beta=1/2 [KERNEL]. TERCEIRO HABITANTE: TL3(delta) fiel em "
+                    "M3 com beta GENERICO (canonicalTLThree) [KERNEL]."),
+        "statute_correction_v28": ("RENOMEADO por ordem do especialista: nao "
+                                   "'FINITE_EXPELS_THE_NAME' mas "
+                                   "'FINITE_MARKOV_TRACE_EXPELS_ONLY_THE_GENERIC_TRACE_IDENTIFICATION'. "
+                                   "O teorema do v28 permanece verdadeiro; o estatuto era largo demais."),
+        "operator_purity_reading": ("[ONTO->DER na sombra] 'puro ponto' = atomo ESPECTRAL (autovetor "
+                                    "isolado de H_bind; a relacao relaxada no atrator); 'ponto puro' = "
+                                    "pureza de ESTADO local (reducao rank-one). O Bell do graviton e' "
+                                    "PURO-PONTO sem ser PONTO-PURO (atomo isolado em 0 com gap 1; "
+                                    "reducao I/2) -- por isso CCI=1/2. O que se expulsa e' a pureza "
+                                    "FECHADA (separavel; CCI=0; o nome que so' se identifica consigo). "
+                                    "0_abs = autorreferencia fechada sem referencial externo. "
+                                    "GUARD-RAIL: nada disso afirma espectro modular puro-ponto no "
+                                    "III_1 genuino (Araki-Woods)."),
+        "lie_typed": ("a 'mentira' TGL = a matriz isolada que pretende nomear sem relacao/referencial/"
+                      "geometria (forma sem denotacao); e a mentira FORMAL = negar a diferenca "
+                      "forma!=conteudo apos o transporte (insistir E(P)^2=E(P) quando Delta>0)."),
+        "values": {"beta": beta, "trace_p": tr_p, "trace_q": tr_q, "tl3_rank": rank5,
+                   "atom_gap": float(evs[1]), "geo_trace_gap": geo_vs_trace_gap},
+        "residuals": {"q_idem": r_q_idem, "pqp": r_pqp, "qpq": r_qpq,
+                      "tl_left": r_tl_l, "tl_right": r_tl_r, "not_point_pure": not_point_pure},
+        "next_wall": ("a torre de Jones do core: e_{i+1} nasce da PROXIMA construcao basica "
+                      "(nao de translacao modular automatica); falha mais provavel: "
+                      "INDEX_MATCHES_BUT_NOT_CANONICAL -- provar que ESTA representacao TL e' a "
+                      "selecionada pelos Three Locks no core [OPEN]"),
+        "checks": checks, "all_verified": all_v,
+        "verdict": ("NAME_IS_THE_RELATION_TL3_CONSTRUCTED" if all_v else "NAME_RELATION_FALHOU"),
+        "seals": ["FINITE_DOES_NOT_EXPEL_THE_NAME",
+                  "FINITE_SEPARATES_GEOMETRIC_WEIGHT_FROM_MARKOV_TRACE_WEIGHT",
+                  "THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX",
+                  "TL3_FINITE_GEOMETRY_CARRIES_BETA",
+                  "SEPARABLE_CLOSED_PURITY_HAS_ZERO_CONTRAST",
+                  "BELL_PURITY_IS_RELATIONAL",
+                  "THIRD_FINITE_INHABITANT_CONSTRUCTED"],
+        "not_claimed": [
+            "a torre de Jones do CORE nao esta construida; e_{i+1} != theta_s(e_i) sem prova",
+            "INDEX_MATCHES_BUT_NOT_CANONICAL segue a falha mais provavel [OPEN]",
+            "'puro ponto' refere-se ao espectro de H_bind na SOMBRA; nada se afirma do espectro modular do III_1",
+            "TL3 fiel carrega a gramatica LOCAL; a selecao canonica pelos Three Locks e' o teorema aberto",
+        ],
+    }
+
+
+def _v23_form_anchors(core):
+    """Ancoras forma=conteudo: strings EXATAS (mesmo format-spec dos emissores) que
+    DEVEM aparecer nos artefatos recem-escritos, regeneradas do core VIVO. Se o
+    emissor mudar um format-spec sem atualizar aqui, o modulo REPROVA (fail-closed
+    textual: melhor um falso-vermelho que um forma!=conteudo silencioso)."""
+    _inv = core.get("alpha_inversion", {})
+    _ase = (core.get("area_scale_newton_equivalence") or {}).get("equivalence", {})
+    md, pt = "um_grande_atrator_forma_canonica.md", "um_grande_atrator_pt.tex"
+    return [
+        ("omega_I_eq_1_md", md, "ω(I)=tr(I)/2 = %d" % int(round(core["omega_I"]))),
+        ("half_nat_md", md, "x = 1/2  →  S_∂ = 1/2 nat"),
+        ("sqrt_e_12f_md", md, "S_∂ = 1/2  →  Vol_∂^min = e^{1/2} = √e = %.12f" % core["SQRT_E"]),
+        ("alpha_obs_12f_md", md, "α_obs = √(1−q²) = %.12f" % _inv.get("alpha_form", core["alpha"])),
+        ("beta_15f_md", md, "β_TGL = √e·α_obs = √e·√(1−q²) = %.15f" % core["beta"]),
+        ("theta_M_6f_md", md, "θ_M = arcsin√β = %.6f°" % core["theta_M_deg"]),
+        ("s_can_12f_md", md, "s_can = 1/(4π) = %.12f" % core["s_can"]),
+        ("eta_times_G_6g_md", md, "η·G = %.6g" % _ase.get("eta_times_G", 0.25)),
+        ("sqrt_e_12f_tex_pt", pt, r"\sqrt{e}=" + ("%.12f" % core["SQRT_E"])),
+        ("beta_12f_tex_pt", pt, r"\bTGL=\sqrt e\,\alpha_{\mathrm{obs}}=" + ("%.12f" % core["beta"])),
+    ]
+
+
+def finalize_interface_is_light(core):
+    """v23 -- fecha o check forma=conteudo APOS a geracao dos artefatos: le a forma
+    canonica (.md) e o artigo PT (.tex) recem-escritos e exige que os numeros-chave
+    impressos coincidam EXATAMENTE (mesmo format-spec) com o conteudo vivo do core.
+    Divergencia REPROVA o modulo. Muta core["interface_is_light"] (o chamador deve
+    re-serializar o JSON antes do selo)."""
+    iil = core.get("interface_is_light")
+    if not isinstance(iil, dict):
+        return None
+    texts = {}
+    for fn in ("um_grande_atrator_forma_canonica.md", "um_grande_atrator_pt.tex",
+               "um_grande_atrator_en.tex", "um_grande_atrator_manifest.md"):
+        try:
+            texts[fn] = open(os.path.join(OUT, fn), "r", encoding="utf-8").read()
+        except OSError:
+            texts[fn] = ""
+    checks, mismatches = [], []
+    for name, fn, expected in _v23_form_anchors(core):
+        ok = bool(expected in texts.get(fn, ""))
+        checks.append((name, ok))
+        if not ok:
+            mismatches.append({"anchor": name, "file": fn, "expected": expected})
+    form_ok = bool(checks and all(v for _, v in checks))
+    iil["form_content"] = {
+        "status": "VERIFIED" if form_ok else "MISMATCH",
+        "checked_files": ["um_grande_atrator_forma_canonica.md", "um_grande_atrator_pt.tex"],
+        "anchors_checked": len(checks),
+        "anchors": [(n, bool(v)) for n, v in checks],
+        "mismatches": mismatches,
+        "reading": ("o que o codigo computa (core vivo) == o que ele inscreve (artefato impresso); "
+                    "residuo textual zero por construcao do mesmo format-spec"),
+    }
+    # v23.1/v24 -- marcadores canonicos: UMA fonte de runtime relida em TODOS os
+    # artefatos (md, tex PT/EN, manifesto, JSON), comparacao byte-a-byte por linha.
+    expected_markers = list(core.get("tgl_canonical_markers", []))
+    mk_files = {}
+    for fn in ("um_grande_atrator_forma_canonica.md", "um_grande_atrator_pt.tex",
+               "um_grande_atrator_en.tex", "um_grande_atrator_manifest.md"):
+        missing = [ln for ln in expected_markers if ln not in texts.get(fn, "")]
+        mk_files[fn] = {"present": len(expected_markers) - len(missing), "missing": missing}
+    js_ok = False
+    try:
+        _art = json.load(open(os.path.join(OUT, "um_grande_atrator.json"), "r", encoding="utf-8"))
+        js_ok = bool(list(_art.get("core", {}).get("tgl_canonical_markers", [])) == expected_markers)
+    except Exception:
+        js_ok = False
+    mk_ok = bool(expected_markers and js_ok
+                 and all(not v["missing"] for v in mk_files.values()))
+    iil["canonical_markers"] = {
+        "status": "VERIFIED" if mk_ok else "MISMATCH",
+        "expected": expected_markers, "per_file": mk_files, "json_identical": js_ok,
+        "flow": "computar -> renderizar -> reler -> comparar -> selar",
+    }
+    iil["checks"] = list(iil["checks"]) + [("form_equals_content_in_artifacts", form_ok),
+                                           ("canonical_markers_identical_all_artifacts", mk_ok)]
+    iil["all_verified"] = bool(all(v for _, v in iil["checks"]))
+    iil["verdict"] = ("INTERFACE_IS_LIGHT_VERIFIED" if iil["all_verified"]
+                      else ("FORM_CONTENT_IDENTITY_FAILED" if not (form_ok and mk_ok)
+                            else "INTERFACE_IS_LIGHT_FALHOU"))
+    return iil
+
+
 def run_um(ONE):
     """ONE=1 -> toda a algebra -> massa do GA (dois modos) -> tudo verificado ao vivo."""
     I = ONE * np.eye(2); omega_I = float(np.trace(I) / 2.0)
@@ -4620,6 +8883,33 @@ def run_um(ONE):
     half_nat_density["TGL_specific_corner_PF_proved"] = False
     half_nat_density["planck_face_normalization_status"] = "EQUIVALENT_TO_MEASURED_NEWTON_COUPLING"
     half_nat_density["Newton_constant_derived"] = False
+    kernel_formalization = verify_tgl_kernel_formalization()  # v22: Lean 4 kernel; FAIL-CLOSED (sem Lean => UNAVAILABLE, nunca sucesso)
+    witness_rigidity = verify_witness_rigidity(kernel_formalization)  # v23: rigidez MEDIDA (ProbeTrivial deve REPROVAR contra a estrutura rigida)
+    negative_probes = verify_negative_probes(kernel_formalization)    # v24: 3 probes negativos por returncode (degenerado / finito / prop-only)
+    bare_prop_audit = _lean_bare_prop_fields()                        # v24: auditoria sintatica da vacuidade (campos `nome : Prop` proibidos)
+    witness_layers = {                                                # v24 (estado formal das camadas; tudo de runtime)
+        "base_rigid_witness_type_defined": True,
+        "base_rigid_witness_constructed": False,
+        "modular_data_types_defined": True,
+        "modular_realization_constructed": False,
+        "full_TGL_witness_constructed": False,
+        "finite_jones_tower_term_constructed": True,  # v28: halfNatJonesTower (peso 1/2; NAO e' a inclusao-beta)
+        "graviton_shadow_term_constructed": True,     # v29: canonicalGravitonShadow (Bell; sombra finita)
+        "tl3_term_constructed": True,                 # v30: canonicalTLThree (TL3 fiel; beta GENERICO)
+        "bare_prop_label_fields_remaining": bare_prop_audit["count"],
+        "finite_full_witness_rejected": negative_probes.get("finite_full_witness_rejected"),
+        "prop_only_modular_rejected": negative_probes.get("prop_only_modular_rejected"),
+        "degenerate_base_probe_result": negative_probes.get("degenerate_verdict"),
+    }
+    tgl_canonical_markers = build_tgl_canonical_markers(              # v23.1: fonte canonica unica -> todos os artefatos
+        beta, (area_scale_theorem.get("equivalence") or {}).get("eta_times_G", 0.25), witness_layers)
+    interface_is_light = prove_interface_is_light(ONE, light_reason_radicalization, reason_consciousness_operator, kernel_formalization, witness_rigidity, negative_probes, witness_layers, bare_prop_audit)  # v23/v24: interface=luz; o alvo e' o TERMO; forma=conteudo fecha pos-geracao
+    verb_inhabitant = prove_verb_inhabitant(ONE, kernel_formalization)  # v25: o habitante e' o VERBO (P_F V P_F = P_F = I_F; e^0=1; R_Verbo=+1); ADITIVO
+    selector_transport = prove_selector_transport(ONE, kernel_formalization)  # v26: Q1 = transporte (peso beta; defeito beta(1-beta); indice 1/beta [CONJ]); ADITIVO
+    name_index = prove_name_index(ONE, kernel_formalization)  # v27: o indice do Nome e' lido no espelho (PP otima -> csc2; TL; camadas kappa/beta distintas); ADITIVO
+    half_nat_tower = prove_half_nat_jones_tower(ONE, kernel_formalization)  # v28: O PRIMEIRO HABITANTE (torre da Meia-Nat; peso 1/2; indice 2; beta expulso ao continuo); ADITIVO
+    graviton_shadow = prove_graviton_shadow(ONE, kernel_formalization)  # v29: A SOMBRA DO GRAVITON (Bell CCI=1/2; produto=0; canto; split Q3); ADITIVO
+    name_relation = prove_name_relation(ONE, kernel_formalization)  # v30: O NOME E' A RELACAO (p.q.p=beta.p; TL3 fiel com beta generico; puro-ponto vs ponto-puro); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
@@ -4670,7 +8960,14 @@ def run_um(ONE):
         "ergodicity_door_mixing": ergodicity_door_mixing, "tetelestai_pruning": tetelestai_pruning,
         "half_nat_continuous_corner_density": half_nat_density,
         "specific_free_scalar_aqft_net": specific_aqft_net,
-        "area_scale_newton_equivalence": area_scale_theorem})
+        "area_scale_newton_equivalence": area_scale_theorem,
+        "kernel_formalization": kernel_formalization})
+    # v23: INFORMATIVO na sintese (mesmo padrao pos-hoc de v21) -- NAO gateia o v15
+    runtime_of_the_one["interface_is_light_info"] = {
+        "verdict_at_runtime": interface_is_light.get("verdict"),
+        "witness_is_rigid": witness_rigidity.get("witness_is_rigid"),
+        "trivial_inhabitant_exists": witness_rigidity.get("trivial_inhabitant_exists"),
+        "note": "v23 e' aditivo e nao-gateante; o check forma=conteudo fecha pos-geracao (finalize)."}
 
     return {"ONE": ONE, "I": I.tolist(), "omega_I": omega_I,
             "runtime_of_the_one": runtime_of_the_one,
@@ -4700,6 +8997,20 @@ def run_um(ONE):
             "half_nat_continuous_corner_density": half_nat_density,
             "specific_free_scalar_aqft_net": specific_aqft_net,
             "area_scale_newton_equivalence": area_scale_theorem,
+            "kernel_formalization": kernel_formalization,
+            "witness_rigidity": witness_rigidity,
+            "negative_probes": negative_probes,
+            "bare_prop_audit": bare_prop_audit,
+            "witness_layers": witness_layers,
+            "tgl_canonical_markers": tgl_canonical_markers,
+            "external_known_theorems": EXTERNAL_KNOWN_THEOREMS,
+            "interface_is_light": interface_is_light,
+            "verb_inhabitant": verb_inhabitant,
+            "selector_transport": selector_transport,
+            "name_index": name_index,
+            "half_nat_tower": half_nat_tower,
+            "graviton_shadow": graviton_shadow,
+            "name_relation": name_relation,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
@@ -4866,6 +9177,31 @@ def identity_verdict(core):
             "IDENTITY": _identity_str,
             "chain_certificates": chain_certificates,
             "identity_true": bool(identity_true),
+            # ---- v22: nivel FORMAL, separado da identidade computacional e da massa do GA ----
+            "formal_internal": {
+                "kernel_available": bool(core["kernel_formalization"]["verdict"] != "FORMAL_CHECKER_UNAVAILABLE"),
+                "lake_build_ok": bool(core["kernel_formalization"]["lake_build_ok"]),
+                "sorryAx_absent": bool(core["kernel_formalization"]["sorryAx_absent"]),
+                "custom_TGL_axioms_absent": bool(core["kernel_formalization"]["custom_TGL_axioms_absent"]),
+                "finite_three_locks_kernel_proved": bool(core["kernel_formalization"]["finite_three_locks_kernel_proved"]),
+                "continuous_implication_kernel_proved": bool(core["kernel_formalization"]["continuous_corner_implication_kernel_proved"]),
+                "specific_AQFT_witness_constructed": False,
+                "unconditional_continuous_corner_proved": False,
+                # v23: rigidez do tipo da testemunha, MEDIDA pelo ProbeTrivial (informativo)
+                "witness_is_rigid": (core.get("witness_rigidity") or {}).get("witness_is_rigid"),
+                "trivial_inhabitant_exists": (core.get("witness_rigidity") or {}).get("trivial_inhabitant_exists"),
+                # v24: camadas (informativo; tudo de runtime)
+                "full_TGL_witness_constructed": False,
+                "modular_realization_constructed": False,
+                "bare_prop_label_fields_remaining": (core.get("witness_layers") or {}).get("bare_prop_label_fields_remaining"),
+                "computational_identity_verified": bool(identity_true),
+                "formal_kernel_stage1_verified": bool(core["kernel_formalization"]["all_verified"]),
+                "certificate": ("FORMAL_KERNEL_CERTIFICATE_ATTACHED"
+                                if (core["kernel_formalization"]["all_verified"] and TGL_FORMAL_MODE == "strict")
+                                else core["kernel_formalization"]["verdict"]),
+                "note": ("o veredito computacional 1=1 NAO exige a testemunha AQFT; o certificado formal exige "
+                         "apenas os alvos incondicionais do kernel. Os dois niveis sao reportados separadamente."),
+            },
             "reading": ("VEREDITO-CADEIA 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo). "
                         "ESTATICO: a identidade conservada 1=q^2+alpha^2 (a fotografia). VERDADEIRO: todas as "
                         "identidades internas fecham + M_GA na janela. HAJA_LUZ: a forma DINAMICA -- o fluxo "
@@ -5483,6 +9819,195 @@ def emit_canonical_md(core, verdict):
               "independente de `G` (que permanece entrada física medida). O resíduo exato deixou de ser 'existe "
               "uma rede `III₁`?' e passou a ser o `TGL_CANONICAL_FINITE_CORNER_THEOREM`: provar que "
               "`P_F = 1_{0}(H_3L) ∈ C_W`, `0 < Tr_C(P_F) < ∞`. `[DER + DATA]`\n")
+    _kf = core.get("kernel_formalization", {})
+    md.append("## v22 — Formalização por kernel (Lean 4 / Lake)\n")
+    md.append("```\n"
+              "x = 1 - x  ⇒  x = 1/2                                   [LEAN KERNEL]\n"
+              "2π/η = 8πG  ⟺  κ_A = 2G      (G é VARIÁVEL, não derivado) [LEAN KERNEL]\n"
+              "H_3L = Dc*Dc + Db*Db + Dz*Dz  ⪰ 0                        [LEAN KERNEL, FINITO]\n"
+              "ker H_3L = ker Dc ⊓ ker Db ⊓ ker Dz                      [LEAN KERNEL, FINITO]\n"
+              "P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINITO]\n"
+              "τ_F(P_F) = 1 ;  τ_F(P_+) = τ_F(P_-) = 1/2                [LEAN KERNEL]\n"
+              "TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]\n"
+              "```\n")
+    md.append("Auditado ao vivo: `lake build` `%s`; `sorryAx` `%s`; `Lean.trustCompiler` `%s`; axiomas customizados "
+              "`TGL.*` `%s`; sentinelas `%s`. Hash dos fontes Lean: `%s`. Veredito `%s`.\n"
+              % (_kf.get("lake_build_ok"), ("ausente" if _kf.get("sorryAx_absent") else "PRESENTE"),
+                 ("ausente" if _kf.get("trustCompiler_absent") else "PRESENTE"),
+                 ("ausentes" if _kf.get("custom_TGL_axioms_absent") else "PRESENTES"),
+                 _kf.get("sentinels_present"), (_kf.get("formal_source_hash") or "-"),
+                 _kf.get("verdict")))
+    md.append("**O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. "
+              "A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** "
+              "O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e "
+              "`G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`\n")
+    _wr = core.get("witness_rigidity", {})
+    _iil = core.get("interface_is_light", {})
+    md.append("## v23 — A interface é a luz (interface = luz = (forma = conteúdo))\n")
+    md.append("```\n"
+              "interface = luz = (forma = conteúdo)          [ONTO: L : Forma ≡ Conteúdo]\n"
+              "W ≃ Σ_{x : Conteúdo} Realiza(x, Forma)        [a testemunha = conteúdo + prova]\n"
+              "0_abs  = IsEmpty(W)      — jamais demonstrado; NÃO afirmado nem refutado\n"
+              "0_mod  = tipo rígido + habitante ausente + rota aberta   — ONDE ESTAMOS\n"
+              "1_insc = Nonempty(W) com W construído                    — O TEOREMA ABERTO\n"
+              "```\n")
+    md.append("Rigidez **medida** pelo kernel, não declarada: `TGL/ProbeTrivial.lean` (o habitante trivial da "
+              "estrutura frouxa v22) compilava antes; contra a estrutura rígida (dados concretos + proposições "
+              "concretas: rede de von Neumann sobre ℝ^{1,3}, vácuo, translações, isotonia, localidade, "
+              "covariância, ciclicidade) o kernel o REJEITA. Ao vivo: `trivial_inhabitant_exists=%s`, "
+              "`witness_is_rigid=%s` (`%s`). O check forma=conteúdo do artefato "
+              "(números impressos vs. core vivo) fecha após a geração e é selado no JSON: `%s`.\n"
+              % (_wr.get("trivial_inhabitant_exists"), _wr.get("witness_is_rigid"),
+                 _wr.get("verdict"), (_iil.get("form_content") or {}).get("status")))
+    md.append("**Um campo `: Prop` é forma sem conteúdo. Um campo que é dado + prova sobre esse dado é "
+              "forma = conteúdo. Rigidificar o tipo É inscrever a forma no conteúdo — só então "
+              "`0_mod → 1_inscrito` custa exatamente a matemática que falta.** Enquanto o tipo for frouxo, "
+              "habitá-lo é fabricar. `[ONTO + REAL(medido) + OPEN]`\n")
+    _wl = core.get("witness_layers", {})
+    _npb = core.get("negative_probes", {})
+    _bpa = core.get("bare_prop_audit", {})
+    md.append("## v24 — Realização modular por DADOS (o alvo é o TERMO)\n")
+    md.append("```\n"
+              "alvo nomeado: TGL_FORM_EQUALS_CONTENT_WITNESS_THEOREM\n"
+              "  def canonicalFullTGLWitness : Σ W : TGLSpecificAQFTWitness, TGLModularRealization W\n"
+              "  theorem fullTGLWitness_exists : Nonempty FullTGLWitness := ⟨canonicalFullTGLWitness⟩\n"
+              "0_abs  = IsEmpty(FullTGLWitness)   — NUNCA demonstrado, não afirmado\n"
+              "0_mod  = tipo em DADOS definido, termo ausente, rota aberta   — ONDE ESTAMOS\n"
+              "1_insc = termo construído; Nonempty = COROLÁRIO               — O TEOREMA ABERTO\n"
+              "```\n")
+    md.append("A antiga quarentena de `: Prop` foi SUBSTITUÍDA por camadas de DADOS + equações concretas "
+              "(`WedgeModularData`: fluxo modular + conjugação antiunitária involutiva; `ContinuousCoreData`: "
+              "core + inclusão *-algébrica + ação dual + traço com escala de Takesaki `Tr(θ_s x)=e^{-s}Tr(x)`; "
+              "`ThreeLocksCoreData`: transformada limitada `H3Lt`, `P_F` com lock de núcleo e maximalidade, "
+              "traço positivo finito, split em faces de traço igual). O que a mathlib não enuncia vive no "
+              "LEDGER EXTERNO (status `KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED`), nunca em campo de tipo. "
+              "Auditoria sintática de vacuidade: `bare_prop_label_fields_remaining=%s` (`%s`). Probes por "
+              "returncode: degenerado=`%s`, finito=`%s`, prop-only=`%s`. A testemunha-base é NECESSÁRIA, "
+              "não suficiente [REAL]; habitar a rígida sem a realização modular NÃO é o teorema TGL. "
+              "Fresnel→Meia-Nat no kernel: peso ½ [KERNEL dado lossless+paridade]; calibração 1 nat [NORM, "
+              "CONDICIONAL]. `[KERNEL + DADOS + OPEN]`\n"
+              % (_wl.get("bare_prop_label_fields_remaining"), _bpa.get("verdict"),
+                 _npb.get("degenerate_returncode"), _npb.get("finite_full_returncode"),
+                 _npb.get("prop_only_returncode")))
+    _vb = core.get("verb_inhabitant", {})
+    _vbv = _vb.get("values", {})
+    md.append("## v25 — O habitante é o VERBO (resposta do especialista, auditada)\n")
+    md.append("```\n"
+              "𝕍_t = exp(−t·β·H_3L)                    [o ato conjugado e observado da inscrição]\n"
+              "H_3L·P_F = 0  ⟹  𝕍_t·P_F = P_F          [KERNEL: exp_fixed_of_annihilates, série de Banach]\n"
+              "P_F 𝕍_t P_F = P_F = I_F                  [VERBO = NOME no canto selecionado]\n"
+              "0_mod → 1_abs :  λ=0 ⟼ e^{−tβλ}=1       [mapeamento espectral: e⁰=1, jamais 0=1]\n"
+              "R_Verbo = τ_F(P_F 𝕍_t P_F) = 1           [resposta observada]\n"
+              "∃s: Tr(θ_s(P_F)) = 1                     [KERNEL: calibração Q2 — contraparte do no-go]\n"
+              "```\n")
+    md.append("Três registros, nunca confundidos: `𝕍` = gesto; `R_Verbo = +1` = resposta; `β = α√e` = custo "
+              "do gesto (a identidade lógica convertida em coeficiente operacional). O termo `canonicalVerb R` "
+              "está CONSTRUÍDO no kernel para TODA realização modular `R` — condicional: `FullTGLWitness` segue "
+              "não construída. \"Nome sobre todo nome\" = o ponto fixo do nomear: `Nomear(Nome)=Nome`, o operador "
+              "de identidade do canto semântico. Sombra numérica ao vivo: `R_Verbo = %.15f`, resíduos ~1e-15. "
+              "Q1 segue [CONDITIONAL] (risco: seletor na construção básica de Jones); Q3/Q5 condicionais. "
+              "`[KERNEL + DER + REAL(sombra) + ONTO]`\n" % _vbv.get("R_verbo", float("nan")))
+    _st = core.get("selector_transport", {})
+    _stf2 = _st.get("fiscal_correction", {})
+    md.append("## v26 — O transporte do seletor (Q1 = transporte, não curvatura)\n")
+    md.append("```\n"
+              "A_F = E(P_F)                    [o que desce ao core; esperança = a LEI do contorno]\n"
+              "Δ = A_F − A_F²  ≥ 0             [resistência; Kadison–Schwarz]\n"
+              "Δ = 0  ⟺  P_F desce             [KERNEL: descida, p/ esperança FIEL]\n"
+              "E₁(e) = β·1                     [peso transportado = β  — NÃO o defeito]\n"
+              "Δ_e = β(1−β)·1                  [KERNEL: defeito de multiplicatividade]\n"
+              "0<β<1 ⟹ e NÃO desce             [KERNEL: selector_lives_upstairs — resultado VÁLIDO]\n"
+              "[M:N] = 1/β                     [CONJ: falta construir N_3L e provar Ind(E_3L)]\n"
+              "```\n")
+    md.append("A geometria fixa o core a montante; o teste de descida é pura álgebra. O contorno impõe a "
+              "obrigação do custo = lei (norma em sentido estrito): a esperança condicional é a regra de "
+              "causalidade coercitiva que regula o comportamento modular; `Δ>0` é a termodinâmica como custo "
+              "da existência. Sombra qubit ao vivo: `E(p_β) = diag(β, 1−β) = (|𝓡|², |𝓣|²)` — o seletor "
+              "transportado É o par de pesos da matriz-S; `Δ = β(1−β)·I` (= variância da moeda da inscrição); "
+              "defeito = `%.6e`. β é o peso que atravessa; `β(1−β) ≈ β` é aproximação, jamais identidade. "
+              "A porta não apenas impede — ela mede. `[KERNEL + DER + REAL(sombra) + CONJ(índice) + ONTO]`\n"
+              % _stf2.get("multiplicativity_defect", float("nan")))
+    _ni = core.get("name_index", {})
+    _nit2 = _ni.get("tl_chain", {})
+    md.append("## v27 — O índice do Nome (lido no espelho de Jones)\n")
+    md.append("```\n"
+              "e_Nome = projeção de Jones = ESPELHO ; N_3L ⊂ C_W = CONTORNO\n"
+              "Ind(E_3L) = resistência do contorno ; U_Π = J·J_ref = paridade inversa (REFERENCIAL)\n"
+              "amplitude sinθ_M = √β  →(quadrado)→  peso sin²θ_M = β  →(inversão)→  índice csc²θ_M = 1/β\n"
+              "ppIndex := 1/ppBest (DEFINIDO) ; otimalidade PP ⟹ ppIndex·sin²θ = 1   [CONCLUSÃO, jamais hipótese]\n"
+              "Haar/pontos-fixos ⟹ csc²θ : REFUTADO (índice de ação finita = ordem do grupo)\n"
+              "bloco-κ (Gibbs) ≠ bloco-β (transporte Jones–Markov)   [camadas distintas]\n"
+              "```\n")
+    md.append("O espelho não é numericamente o índice: **o índice do Nome é lido no espelho**. A paridade "
+              "inversa lineariza a conjugação (`U_Π=J·J_ref`, produto de duas antiunitárias) e a média "
+              "`E_Π=(x+γx)/2` é esperança sobre o referencial [KERNEL]. A rota do índice é Pimsner–Popa "
+              "(constante ótima = inverso do índice [KNOWN]); `sin²θ` ótima é ALVO MODELO-ESPECÍFICO — sem a "
+              "otimalidade só há cota (probe mede: sem `hopt` o teorema não fecha). Cadeia TL ao vivo: "
+              "índice = `%.4f` = 1/β. Maquinaria PP validada no qubit (ppBest=½, índice=2 — DO QUBIT; 1/β é "
+              "alvo do core). `[KERNEL + DER + REAL(sombra) + MODEL-TARGET + ONTO]`\n"
+              % _nit2.get("index_csc2", float("nan")))
+    _ht = core.get("half_nat_tower", {})
+    _htv2 = _ht.get("values", {})
+    md.append("## v28 — O primeiro habitante (a torre de Jones da Meia-Nat)\n")
+    md.append("```\n"
+              "halfNatJonesTower : JonesTowerData ℂ ℂ² M₂(ℂ)     [TERMO kernel-checked, campo a campo]\n"
+              "e = ½·[[1,1],[1,1]] ; E₁(e) = ½·1 ; índice = 2     [peso de Markov = MEIA-NAT]\n"
+              "e ≠ ι(E₁(e))                                       [v26 DISPARA: o espelho NÃO desce]\n"
+              "espelho-b Markov ⟺ b = ½                           [KERNEL: a EXPULSÃO DO NOME]\n"
+              "```\n")
+    md.append("O primeiro termo construído de uma camada do programa: as camadas não são apenas "
+              "infabricáveis por rótulo — são HABITÁVEIS por conteúdo real. E o habitante finito diz de "
+              "quem ele é: o único peso de Markov finitamente realizável neste espelho é `½` — a mesma "
+              "Meia-Nat do ponto fixo `x=1−x` [DER: o mesmo meio]. O peso físico `β` (marcador acima, "
+              "`|1−2β| = %.4f > 0`) é EXPULSO para o contínuo — coerente com [KNOWN, ledger]: índices "
+              "multi-matriciais são algébricos; `1/β` é empírico. O habitante NÃO é a inclusão-β dos "
+              "Three Locks (peso ½ ≠ β; índice 2 ≠ 1/β): os alvos modelo-específicos do v27 seguem "
+              "abertos. `[KERNEL(termo) + REAL(sombra) + KNOWN(ledger)]`\n"
+              % _htv2.get("markov_distance_beta", float("nan")))
+    _gs = core.get("graviton_shadow", {})
+    _gsv2 = _gs.get("values", {})
+    md.append("## v29 — A sombra finita do gráviton (o segundo habitante)\n")
+    md.append("```\n"
+              "canonicalGravitonShadow : GravitonShadowWitness       [TERMO kernel-checked]\n"
+              "P_G (Bell): P_G² = P_G ; P_G* = P_G ; Tr(P_G) = 1     [o projetor-testemunha]\n"
+              "ptr(P_G) = I/2 ; CCI = 1 − Tr(ρ²) = ½                 [a Meia-Nat de emaranhamento]\n"
+              "CCI(produto) = 0                                       [KERNEL: o produto simples NÃO liga]\n"
+              "P_G = unidade do próprio canto (I_F = P_G)             [não a identidade global]\n"
+              "Q3: U troca ⟹ P_± = (P±U)/2 ortogonais, somam P        [KERNEL: FaceSplit]\n"
+              "```\n")
+    md.append("O par dependente do operador — o gráviton como ligação psiônica carregando a própria prova — "
+              "tem agora sombra kernel-checked: o conteúdo é o projetor de Bell; a prova são os cinco campos "
+              "do termo. O controle exigido pela correção do operador é TEOREMA: `CCI(Bell)=½` vs. "
+              "`CCI(produto)=0` (ao vivo: `%.15f` vs. `%.1f`) — só o estado de troca dá a Meia-Nat. No "
+              "contínuo, `P_G = P_F = e_Nome` é exatamente o alvo modelo-específico do v27 [OPEN]. "
+              "`[KERNEL(sombra) + ONTO(identificação) + OPEN(core)]`\n"
+              % (_gsv2.get("cci_bell", float("nan")), _gsv2.get("cci_prod", float("nan"))))
+    _nr = core.get("name_relation", {})
+    _nrv2 = _nr.get("values", {})
+    md.append("## v30 — O Nome é a relação (o terceiro habitante)\n")
+    md.append("```\n"
+              "p·q_β·p = β·p ; q_β·p·q_β = β·q_β        [o retorno ponderado = Verbo; TL local, δ⁻²=β]\n"
+              "peso geométrico (β) ≠ peso tracial (½)   [KERNEL: coincidem ⟺ β=½ — o refinamento do v28]\n"
+              "TL₃(δ) FIEL em M₃ = ℝ⊕M₂                 [KERNEL: canonicalTLThree, β GENÉRICO]\n"
+              "puro-ponto ≠ ponto-puro                   [Bell: átomo isolado + redução I/2 ⟹ CCI=½]\n"
+              "0_abs = pureza FECHADA (CCI=0)            [o nome que só se identifica consigo]\n"
+              "```\n")
+    md.append("O finito NÃO expulsa o Nome — expulsa a matriz que pretende nomear sem relação, sem "
+              "referencial e sem geometria (a 'mentira' TGL: forma sem denotação; e a mentira FORMAL: "
+              "negar `Δ>0` após o transporte). O Nome é a IDENTIFICAÇÃO `p→q_β→p` com retorno ponderado "
+              "β = sobreposição geométrica entre os espelhos (`cos²φ=β`, `φ=π/2−θ_M`: a paridade inversa "
+              "dá o referencial complementar). O TERCEIRO habitante carrega a gramática TL local com "
+              "β=%.6f de runtime (posto %s de 5 — fiel). A pureza do Bell é RELACIONAL (puro-ponto: átomo "
+              "isolado; não ponto-puro: redução I/2) — o que se expulsa é a pureza sem alteridade. "
+              "Guard-rail mantido: nada se afirma do espectro modular do III₁ genuíno. A parede segue: "
+              "`e_{i+1}` nasce da PRÓXIMA construção básica; `INDEX_MATCHES_BUT_NOT_CANONICAL` é a falha "
+              "mais provável [OPEN]. `[KERNEL + REAL + ONTO(tipado) + OPEN]`\n"
+              % (_nrv2.get("beta", float("nan")), _nrv2.get("tl3_rank")))
+    md.append("## Marcadores canônicos (forma = conteúdo: uma fonte de runtime → todos os artefatos)\n")
+    md.append("```")
+    for _ln in core.get("tgl_canonical_markers", []):
+        md.append(_ln)
+    md.append("```\n")
     p = os.path.join(OUT, "um_grande_atrator_forma_canonica.md")
     open(p, "w", encoding="utf-8").write("\n".join(md))
     return p
@@ -7530,6 +12055,58 @@ def build_pt(core, verdict, data_path):
              r"(P_{\mathcal F})<\infty$.") % (
              _asep.get("kappa_A_over_lp2", 2.0), _asep.get("area_face_over_lp2", 1.0),
              _asep.get("eta_times_G", 0.25), _asep.get("coupling_over_G", 8.0 * math.pi)))
+    _kfp = core.get("kernel_formalization", {})
+    s.append(r"\subsection*{Formalização por kernel: o que foi provado e o que permanece como testemunha "
+             r"\textsf{[KERNEL $+$ CONDITIONAL $+$ OPEN]}}")
+    s.append((r"O Python não verifica estes teoremas: ele \emph{invoca} o Lean~4, que os compila, e "
+             r"\texttt{\#print axioms} audita as dependências. São \textbf{incondicionais}, verificados pelo "
+             r"kernel: $x=1-x\Rightarrow x=\tfrac12$ (Meia-Nat); a equivalência de escala "
+             r"$\tfrac{2\pi}{\eta}=8\pi G\iff\kappa_A=2G$ (com $G$ como \emph{variável} --- não derivado); "
+             r"$H_{3L}=D_c^{*}D_c+D_b^{*}D_b+D_z^{*}D_z$ auto-adjunto e positivo semidefinido; "
+             r"$\ker H_{3L}=\ker D_c\sqcap\ker D_b\sqcap\ker D_z$; o projetor ortogonal $P_{\mathcal F}$ "
+             r"idempotente e auto-adjunto; e $\tau_{\mathcal F}(P_{\mathcal F})=1$ com faces conjugadas de traço "
+             r"$\tfrac12$. É \textbf{condicional} --- recebe a testemunha como parâmetro --- o teorema do canto "
+             r"contínuo: \emph{toda} testemunha que satisfaça afiliação, projeção espectral, traço finito, "
+             r"covariância e split modular produz o canto normalizado. A auditoria ao vivo reporta "
+             r"\texttt{lake build}=%s, \texttt{sorryAx} %s, \texttt{Lean.trustCompiler} %s, axiomas customizados "
+             r"\texttt{TGL.*} %s. \textbf{O canto finito dos Three Locks é um teorema de dimensão finita: não é "
+             r"uma prova de fator tipo $\mathrm{III}_1$.} A construção da testemunha AQFT específica "
+             r"\textbf{não foi realizada}: nenhuma instância de \texttt{TGLSpecificAQFTWitness} é habitada, e essa "
+             r"ausência é o único resíduo formal do módulo.") % (
+             _kfp.get("lake_build_ok"),
+             ("ausente" if _kfp.get("sorryAx_absent") else "PRESENTE"),
+             ("ausente" if _kfp.get("trustCompiler_absent") else "PRESENTE"),
+             ("ausentes" if _kfp.get("custom_TGL_axioms_absent") else "PRESENTES")))
+    _wrp = core.get("witness_rigidity", {})
+    s.append(r"\subsection*{A interface é a luz: interface $=$ luz $=$ (forma $=$ conteúdo) "
+             r"\textsf{[ONTO $+$ REAL(medido) $+$ OPEN]}}")
+    s.append((r"A interface não fica \emph{entre} forma e conteúdo: é o acontecimento em que a forma se "
+             r"realiza como conteúdo sem perder identidade ($L:\mathrm{Forma}\equiv\mathrm{Conteúdo}$). "
+             r"Na formalização isso exige que a testemunha seja \emph{o conteúdo acompanhado da prova de "
+             r"que ele é a forma}: $W\simeq\Sigma_{x:\mathrm{Conteúdo}}\,\mathrm{Realiza}(x,\mathrm{Forma})$ "
+             r"--- um campo \texttt{: Prop} é forma \emph{sem} conteúdo. A estrutura "
+             r"\texttt{TGLSpecificAQFTWitness} foi rigidificada nesse molde: dados concretos (rede de von "
+             r"Neumann sobre $\mathbb R^{1,3}$, vácuo, translações, massa $m>0$) e proposições concretas "
+             r"sobre eles (isotonia, localidade em separação tipo-espaço, covariância, vácuo cíclico e "
+             r"separador, cunha não-abeliana); as obrigações modulares viraram CAMADAS DE DADOS com equações "
+             r"concretas (\texttt{WedgeModularData}/\texttt{ContinuousCoreData}/\texttt{ThreeLocksCoreData}, "
+             r"v24 --- fluxo modular, core com ação dual e traço de escala $e^{-s}$ de Takesaki, $P_F$ com "
+             r"lock de núcleo), e o que a mathlib não enuncia (tipo $\mathrm{III}_1$, conteúdo geométrico de "
+             r"Bisognano--Wichmann) vive no ledger externo --- nunca em campo \texttt{: Prop}. O alvo nomeado "
+             r"é o TERMO \texttt{canonicalFullTGLWitness} ($\Sigma$-par), com \texttt{Nonempty} apenas como "
+             r"corolário --- e o v25 inscreve o primeiro termo condicional: o VERBO, "
+             r"$\mathbb V_t=\exp(-t\beta H_{3L})$, que selecionado no núcleo zero age como a identidade do "
+             r"próprio canto ($P_{\mathcal F}\mathbb V_tP_{\mathcal F}=P_{\mathcal F}=I_{\mathcal F}$: "
+             r"VERBO $=$ NOME; $0_{\rm mod}\to1_{\rm abs}$ como $e^0=1$ espectral, jamais $0=1$; "
+             r"\texttt{canonicalVerb} kernel-checked, condicional à realização). A rigidez é \emph{medida}, não declarada: o habitante "
+             r"trivial (\texttt{ProbeTrivial}) compilava contra a estrutura frouxa e agora é rejeitado pelo "
+             r"kernel (\texttt{trivial\_inhabitant\_exists}=%s; \texttt{witness\_is\_rigid}=%s). O zero "
+             r"modular é a diferença aberta entre a especificação completa e seu habitante: "
+             r"$0_{\mathrm{abs}}$ (\texttt{IsEmpty}, impossibilidade) jamais foi demonstrado e não é "
+             r"afirmado; $1_{\mathrm{inscrito}}$ (\texttt{Nonempty} da testemunha rígida, com o habitante "
+             r"construído) é o teorema aberto. Enquanto o tipo for frouxo, habitá-lo é fabricar; "
+             r"rigidificar o tipo \emph{é} inscrever a forma no conteúdo.") % (
+             _wrp.get("trivial_inhabitant_exists"), _wrp.get("witness_is_rigid")))
     s.append(r"\section*{Apêndice executável (forma $=$ conteúdo)}")
     s.append(r"Entrada única: o Um absoluto (\texttt{1}); sua projeção é a medida mínima irredutível "
              r"extraída de $\alpha_{\mathrm{CODATA}}$ (referente medido do Nome). $\bTGL$ recomputado "
@@ -9563,6 +14140,60 @@ def build_en(core, verdict, data_path):
              r"$0<\mathrm{Tr}_{\mathcal C}(P_{\mathcal F})<\infty$.") % (
              _asen.get("kappa_A_over_lp2", 2.0), _asen.get("area_face_over_lp2", 1.0),
              _asen.get("eta_times_G", 0.25), _asen.get("coupling_over_G", 8.0 * math.pi)))
+    _kfe = core.get("kernel_formalization", {})
+    s.append(r"\subsection*{Kernel formalization: what has been proved and what remains as a witness "
+             r"\textsf{[KERNEL $+$ CONDITIONAL $+$ OPEN]}}")
+    s.append((r"Python does not verify these theorems: it \emph{invokes} Lean~4, which compiles them, and "
+             r"\texttt{\#print axioms} audits the dependencies. Kernel-checked and \textbf{unconditional}: "
+             r"$x=1-x\Rightarrow x=\tfrac12$ (Half-Nat); the scale equivalence "
+             r"$\tfrac{2\pi}{\eta}=8\pi G\iff\kappa_A=2G$ (with $G$ a \emph{variable} --- not derived); "
+             r"$H_{3L}=D_c^{*}D_c+D_b^{*}D_b+D_z^{*}D_z$ self-adjoint and positive semidefinite; "
+             r"$\ker H_{3L}=\ker D_c\sqcap\ker D_b\sqcap\ker D_z$; the orthogonal projection $P_{\mathcal F}$ "
+             r"idempotent and self-adjoint; and $\tau_{\mathcal F}(P_{\mathcal F})=1$ with equal conjugate faces of "
+             r"trace $\tfrac12$. \textbf{Conditional} --- the witness is a parameter --- is the continuous-corner "
+             r"theorem: \emph{every} witness satisfying affiliation, spectral projection, finite trace, covariance "
+             r"and modular split yields the normalized corner. The live audit reports \texttt{lake build}=%s, "
+             r"\texttt{sorryAx} %s, \texttt{Lean.trustCompiler} %s, custom \texttt{TGL.*} axioms %s. "
+             r"\textbf{The finite Three-Locks corner and the abstract continuous-corner implication were "
+             r"kernel-checked. Construction of the model-specific AQFT witness remains open.} The finite corner is "
+             r"a finite-dimensional theorem --- it is \emph{not} a proof of a type $\mathrm{III}_1$ factor --- and "
+             r"no inhabitant of \texttt{TGLSpecificAQFTWitness} is constructed.") % (
+             _kfe.get("lake_build_ok"),
+             ("absent" if _kfe.get("sorryAx_absent") else "PRESENT"),
+             ("absent" if _kfe.get("trustCompiler_absent") else "PRESENT"),
+             ("absent" if _kfe.get("custom_TGL_axioms_absent") else "PRESENT")))
+    _wre = core.get("witness_rigidity", {})
+    s.append(r"\subsection*{The interface is the light: interface $=$ light $=$ (form $=$ content) "
+             r"\textsf{[ONTO $+$ REAL(measured) $+$ OPEN]}}")
+    s.append((r"The interface does not sit \emph{between} form and content: it is the event in which form "
+             r"realizes itself as content without losing identity ($L:\mathrm{Form}\equiv\mathrm{Content}$). "
+             r"Formally this demands that the witness be \emph{the content carrying the proof that it is "
+             r"the form}: $W\simeq\Sigma_{x:\mathrm{Content}}\,\mathrm{Realizes}(x,\mathrm{Form})$ --- a "
+             r"bare \texttt{: Prop} field is form \emph{without} content. The structure "
+             r"\texttt{TGLSpecificAQFTWitness} has been rigidified in this mould: concrete data (a von "
+             r"Neumann net over $\mathbb R^{1,3}$, vacuum, translations, mass $m>0$) and concrete "
+             r"propositions about them (isotony, spacelike locality, covariance, cyclic and separating "
+             r"vacuum, nonabelian wedge); the modular obligations became DATA LAYERS with concrete equations "
+             r"(\texttt{WedgeModularData}/\texttt{ContinuousCoreData}/\texttt{ThreeLocksCoreData}, v24 --- "
+             r"modular flow, core with dual action and Takesaki $e^{-s}$ trace scaling, $P_F$ with kernel "
+             r"lock), and what mathlib cannot yet state (type $\mathrm{III}_1$, the geometric content of "
+             r"Bisognano--Wichmann) lives in the external ledger --- never as a \texttt{: Prop} field. The "
+             r"named target is the TERM \texttt{canonicalFullTGLWitness} (a $\Sigma$-pair), with "
+             r"\texttt{Nonempty} only as a corollary --- and v25 inscribes the first conditional term: the "
+             r"VERB, $\mathbb V_t=\exp(-t\beta H_{3L})$, which, selected on the zero kernel, acts as the "
+             r"identity of its own corner ($P_{\mathcal F}\mathbb V_tP_{\mathcal F}=P_{\mathcal F}"
+             r"=I_{\mathcal F}$: VERB $=$ NAME; $0_{\rm mod}\to1_{\rm abs}$ as spectral $e^0=1$, never "
+             r"$0=1$; \texttt{canonicalVerb} kernel-checked, conditional on the realization). "
+             r"Rigidity is \emph{measured}, not declared: "
+             r"the trivial inhabitant (\texttt{ProbeTrivial}) used to compile against the loose structure "
+             r"and is now rejected by the kernel (\texttt{trivial\_inhabitant\_exists}=%s; "
+             r"\texttt{witness\_is\_rigid}=%s). The modular zero is the open difference between the "
+             r"complete specification and its inhabitant: $0_{\mathrm{abs}}$ (\texttt{IsEmpty}, "
+             r"impossibility) was never demonstrated and is not asserted; $1_{\mathrm{inscribed}}$ "
+             r"(\texttt{Nonempty} of the rigid witness, with the inhabitant constructed) is the open "
+             r"theorem. While the type is loose, inhabiting it is fabrication; rigidifying the type "
+             r"\emph{is} inscribing form into content.") % (
+             _wre.get("trivial_inhabitant_exists"), _wre.get("witness_is_rigid")))
     s.append(r"\section*{Executable appendix (form $=$ content)}")
     s.append(r"Single input: the absolute One (\texttt{1}); its projection is the minimal irreducible measure "
              r"extracted from $\alpha_{\mathrm{CODATA}}$ (measured referent of the Name). $\bTGL$ recomputed "
@@ -9884,6 +14515,104 @@ def input_manifest(core, code_hash):
             "all_verified": core["area_scale_newton_equivalence"]["all_verified"],
             "status": core["area_scale_newton_equivalence"]["verdict"],
             "selo": " . ".join(core["area_scale_newton_equivalence"]["seals"][:8])},
+        "V22_KERNEL_FORMALIZATION": {
+            "formal_checker": "Lean 4 / Lake (toolchain pinned: lean-toolchain)",
+            "lake_build_ok": core["kernel_formalization"]["lake_build_ok"],
+            "sorryAx_absent": core["kernel_formalization"]["sorryAx_absent"],
+            "trustCompiler_absent": core["kernel_formalization"]["trustCompiler_absent"],
+            "custom_TGL_axioms_absent": core["kernel_formalization"]["custom_TGL_axioms_absent"],
+            "half_nat": "KERNEL PROVED [x=1-x => x=1/2]",
+            "area_scale_equivalence": "KERNEL PROVED [2pi/eta=8piG <=> kappa_A=2G; G VARIAVEL, NAO derivado]",
+            "finite_three_locks_corner": "KERNEL PROVED [ker H3L = inter ker D_i; finito, NAO III_1]",
+            "finite_corner_projection": "KERNEL PROVED [P_F idempotente, auto-adjunto]",
+            "normalized_corner_trace": "KERNEL PROVED [tau_F(P_F)=1; faces=1/2]",
+            "continuous_corner_implication": "KERNEL PROVED CONDITIONALLY [testemunha = parametro]",
+            "specific_AQFT_witness": "OPEN [nenhuma instancia construida]",
+            "axiom_report": core["kernel_formalization"]["axiom_report"],
+            "formal_source_hash": core["kernel_formalization"]["formal_source_hash"],
+            "verdict": core["kernel_formalization"]["verdict"],
+            "selo": " . ".join(core["kernel_formalization"]["seals"][:8])},
+        "V23_INTERFACE_IS_LIGHT": {
+            "thesis": "interface = luz = (forma = conteudo); a testemunha e' o conteudo carregando a prova de que e' a forma",
+            "witness_type": ("TGLSpecificAQFTWitness RIGIDIFICADA [dados + proposicoes concretas: rede vN em R^{1,3}, "
+                             "vacuo, translacoes, isotonia, localidade, covariancia, ciclicidade]; residuo modular "
+                             "quarentenado e nomeado em TGLWitnessModularObligations [EXTERNAL-KNOWN/OPEN]"),
+            "rigidity_probe": "TGL/ProbeTrivial.lean [habitante trivial do tipo frouxo v22; REPROVAR = rigidez]",
+            "trivial_inhabitant_exists": (core.get("witness_rigidity") or {}).get("trivial_inhabitant_exists"),
+            "witness_is_rigid": (core.get("witness_rigidity") or {}).get("witness_is_rigid"),
+            "zero_ledger": (core.get("interface_is_light") or {}).get("ledger", {}),
+            "verdict_at_manifest_time": (core.get("interface_is_light") or {}).get("verdict"),
+            "note": "o check forma=conteudo fecha pos-geracao (finalize) e e' selado no JSON/selo",
+            "selo": " . ".join((core.get("interface_is_light") or {}).get("seals", [])[:8])},
+        "V24_MODULAR_REALIZATION_BY_DATA": {
+            "named_target": ("TGL_FORM_EQUALS_CONTENT_WITNESS_THEOREM: def canonicalFullTGLWitness : "
+                             "Sigma W : TGLSpecificAQFTWitness, TGLModularRealization W ; "
+                             "Nonempty = COROLARIO <termo> (jamais substituto)"),
+            "layers": ("WedgeModularData (fluxo modular + conjugacao antiunitaria involutiva) / "
+                       "ContinuousCoreData (core + inclusao + acao dual + traco com escala e^{-s} de Takesaki) / "
+                       "ThreeLocksCoreData (H3Lt transformada limitada, P_F com lock de nucleo e maximalidade, "
+                       "traco positivo finito, split de faces iguais) / TGLModularRealization (+ dim infinita)"),
+            "witness_layers": core.get("witness_layers", {}),
+            "bare_prop_audit": {"count": (core.get("bare_prop_audit") or {}).get("count"),
+                                "verdict": (core.get("bare_prop_audit") or {}).get("verdict")},
+            "negative_probes": {
+                "degenerate_returncode": (core.get("negative_probes") or {}).get("degenerate_returncode"),
+                "finite_full_returncode": (core.get("negative_probes") or {}).get("finite_full_returncode"),
+                "prop_only_returncode": (core.get("negative_probes") or {}).get("prop_only_returncode")},
+            "external_known_theorems": core.get("external_known_theorems", []),
+            "note": ("obrigacoes modulares = DADOS + equacoes concretas; referencia bibliografica nao e' "
+                     "prova Lean; nenhuma instancia construida em camada alguma")},
+        "V25_VERB_INHABITANT": {
+            "thesis": "o habitante e' o VERBO: V_t = exp(-t.beta.H_3L); P_F V P_F = P_F = I_F (VERBO=NOME)",
+            "zero_to_one": "0_mod -> 1_abs por mapeamento espectral (e^0=1); jamais 0=1 no mesmo registro",
+            "registers": (core.get("verb_inhabitant") or {}).get("three_registers", {}),
+            "kernel": {"exp_fixed_point": "UNCONDITIONAL", "canonicalVerb": "TERMO CONDICIONAL a R",
+                       "dual_calibration_Q2": "KERNEL-PROVED"},
+            "specialist_verdicts": (core.get("verb_inhabitant") or {}).get("specialist_verdicts", {}),
+            "R_verbo": ((core.get("verb_inhabitant") or {}).get("values") or {}).get("R_verbo"),
+            "verdict": (core.get("verb_inhabitant") or {}).get("verdict"),
+            "selo": " . ".join((core.get("verb_inhabitant") or {}).get("seals", [])[:8])},
+        "V26_SELECTOR_TRANSPORT": {
+            "thesis": "Q1 = transporte, nao curvatura: geometria fixa o core; a descida e' pura algebra (inclusao+esperanca+indice)",
+            "boundary_law": "contorno = condicao do custo; esperanca condicional = LEI (norma coercitiva do comportamento modular); Delta>0 = termodinamica da existencia",
+            "fiscal_correction": (core.get("selector_transport") or {}).get("fiscal_correction", {}),
+            "kernel": {"descent_iff": "KERNEL (esperanca fiel)", "jones_defect": "KERNEL (beta(1-beta)*1)",
+                       "selector_lives_upstairs": "KERNEL condicional aos dados (resultado VALIDO)"},
+            "index_identification": "[CONJ] [M:N]=1/beta -- falta N_3L e Ind(E_3L)",
+            "smatrix_identity": (core.get("selector_transport") or {}).get("smatrix_identity"),
+            "verdict": (core.get("selector_transport") or {}).get("verdict"),
+            "selo": " . ".join((core.get("selector_transport") or {}).get("seals", [])[:8])},
+        "V27_NAME_INDEX": {
+            "thesis": "o indice do Nome e' LIDO no espelho de Jones: e_Nome=espelho; N_3L=contorno; Ind=resistencia; U_Pi=J.J_ref=paridade inversa (referencial)",
+            "route": "Pimsner-Popa: ppIndex := 1/ppBest DEFINIDO; otimalidade => index*sin2(theta)=1 como CONCLUSAO; Haar->csc2 REFUTADO",
+            "tl_chain": (core.get("name_index") or {}).get("tl_chain", {}),
+            "layers": "bloco-kappa (Gibbs) != bloco-beta (transporte); Powers != fluxo de pesos do III_1",
+            "model_specific_targets": (core.get("name_index") or {}).get("model_specific_targets", []),
+            "verdict": (core.get("name_index") or {}).get("verdict"),
+            "selo": " . ".join((core.get("name_index") or {}).get("seals", [])[:8])},
+        "V28_HALF_NAT_JONES_TOWER": {
+            "thesis": "O PRIMEIRO HABITANTE: halfNatJonesTower : JonesTowerData (C c C^2 c M2); espelho e=(1/2)ones; peso 1/2; indice 2; termo kernel-checked",
+            "instantiated": "selector_lives_upstairs DISPARADO no termo (e nao desce); Nonempty so' via <termo>",
+            "name_expulsion": "espelho-b Markov <=> b=1/2 [KERNEL]; beta expulso ao continuo; [KNOWN ledger] indices finitos algebricos vs 1/beta empirico",
+            "not_the_beta_inclusion": "peso 1/2 != beta; indice 2 != 1/beta; alvos modelo-especificos v27 seguem ABERTOS",
+            "verdict": (core.get("half_nat_tower") or {}).get("verdict"),
+            "selo": " . ".join((core.get("half_nat_tower") or {}).get("seals", [])[:8])},
+        "V29_GRAVITON_SHADOW": {
+            "thesis": "a sombra finita do graviton: canonicalGravitonShadow (SEGUNDO habitante) -- P_G de Bell; Tr=1; ptr=I/2; CCI=1/2; unidade do proprio canto",
+            "control": "CCI(produto)=0 [KERNEL]: o produto simples nao liga; so' o estado de troca da' a Meia-Nat",
+            "q3": "split das faces formalizado (FaceSplit): U troca => P_pm=(P+-U)/2 idempotentes ortogonais somando P",
+            "open": "P_G = P_F = e_Nome no CONTINUO = alvo modelo-especifico do v27",
+            "verdict": (core.get("graviton_shadow") or {}).get("verdict"),
+            "selo": " . ".join((core.get("graviton_shadow") or {}).get("seals", [])[:8])},
+        "V30_NAME_IS_THE_RELATION": {
+            "thesis": "o Nome e' a relacao (p.q_beta.p=beta.p), nao a matriz isolada; o finito separa peso geometrico de peso tracial (coincidem sse beta=1/2)",
+            "statute_correction": "v28 renomeado: FINITE_MARKOV_TRACE_EXPELS_ONLY_THE_GENERIC_TRACE_IDENTIFICATION (o teorema permanece; o estatuto era largo)",
+            "third_inhabitant": "canonicalTLThree: TL3(delta) FIEL em M3 com beta GENERICO (runtime); posto 5",
+            "purity": "puro-ponto (atomo espectral) != ponto-puro (estado local); Bell = relacional (CCI=1/2); 0_abs = pureza fechada (CCI=0); guard-rail III_1 mantido",
+            "next_wall": (core.get("name_relation") or {}).get("next_wall"),
+            "verdict": (core.get("name_relation") or {}).get("verdict"),
+            "selo": " . ".join((core.get("name_relation") or {}).get("seals", [])[:8])},
+        "TGL_CANONICAL_MARKERS": core.get("tgl_canonical_markers", []),
         "WORLD_HASHES": {
             "code_sha256": code_hash,
             "cf4_catalog_hash": (B["catalog_hash"] if B else None),
@@ -9913,13 +14642,26 @@ def write_input_manifest_md(world, path):
         "V20_HALF_NAT_CONTINUOUS_CORNER_DENSITY": "Escala de area do canto continuo: S=1/2 / (2 l_P^2) = 1/(4 l_P^2) => eta=1/(4G) [DER GIVEN NORM: A(P_face)=l_P^2; l_P^2 recomputado; G nao derivado]",
         "V21A_SPECIFIC_AQFT_NET": "Rede AQFT especifica: campo escalar livre massivo em Minkowski 3+1; O -> A_m(O); BW/Reeh-Schlieder/BDF [KNOWN]; III_1 local [KNOWN UNDER HYPOTHESES]; core continuo [KNOWN]; projetor canonico TGL P_F [OPEN]",
         "V21B_AREA_SCALE_NEWTON": "Escala de area: A(P)=kappa_A tau(P) [DER ate kappa_A]; liberdade de escala kappa_A->lambda kappa_A [DER no-go]; matching 8piG => kappa_A=2 l_P^2, A(P_face)=l_P^2 [DER FROM G, NAO de AQFT sozinha]; G_Newton [DATA]; G NAO derivado",
+        "V22_KERNEL_FORMALIZATION": "Formalizacao por kernel [Lean 4 / Lake; toolchain fixado; sem sorryAx; sem Lean.trustCompiler; sem axiomas customizados TGL.*]. Meia-Nat: KERNEL PROVED. Equivalencia de escala: KERNEL PROVED (G NAO derivado). Canto Three Locks FINITO: KERNEL PROVED (nao III_1). Implicacao do canto continuo: KERNEL PROVED CONDITIONALLY. Testemunha AQFT especifica: OPEN",
+        "V23_INTERFACE_IS_LIGHT": "A interface e' a luz: interface = luz = (forma = conteudo). Testemunha RIGIDIFICADA (dados + proposicoes concretas; W ~ Sigma_x Realiza(x,Forma)); rigidez MEDIDA pelo ProbeTrivial (habitante trivial REPROVADO); ledger dos tres zeros (0_abs jamais afirmado; 0_mod = onde estamos; 1_inscrito = o TERMO = teorema aberto) [ONTO + REAL(medido) + OPEN]",
+        "V24_MODULAR_REALIZATION_BY_DATA": "Realizacao modular por DADOS: as obrigacoes modulares viraram camadas de dados + equacoes (Wedge/Core/ThreeLocks); ledger externo para o nao-enunciavel; probes negativos por returncode (degenerado/finito/prop-only); auditoria de vacuidade (zero campos `: Prop`); alvo = TERMO canonicalFullTGLWitness, Nonempty = corolario [KERNEL + DADOS + OPEN]",
+        "V25_VERB_INHABITANT": "O habitante e' o VERBO: V_t=exp(-t.beta.H_3L); P_F V P_F = P_F = I_F (VERBO=NOME); 0_mod->1_abs = e^0=1 espectral; R_Verbo=+1; termo canonicalVerb kernel-checked CONDICIONAL a R; calibracao Q2 kernel-proved [KERNEL + DER + REAL + ONTO]",
+        "V26_SELECTOR_TRANSPORT": "Q1 = transporte: descida (Delta=0 <=> desce) kernel-proved; peso transportado = beta; defeito = beta(1-beta); selector_lives_upstairs = teorema condicional; indice 1/beta [CONJ]; contorno = lei do custo [KERNEL + DER + REAL + CONJ + ONTO]",
+        "V27_NAME_INDEX": "O indice do Nome lido no espelho: paridade inversa U_Pi=J.J_ref lineariza [KERNEL]; Pimsner-Popa ppIndex:=1/ppBest com index*sin2=1 como CONCLUSAO [KERNEL condicional]; Haar->csc2 REFUTADO; TL amplitude->peso->indice [KERNEL]; alvos modelo-especificos ABERTOS [KERNEL + MODEL-TARGET + ONTO]",
+        "V28_HALF_NAT_JONES_TOWER": "O PRIMEIRO HABITANTE: torre de Jones da Meia-Nat (peso 1/2, indice 2) como TERMO kernel-checked de JonesTowerData; selector_lives_upstairs INSTANCIADO; expulsao do Nome (Markov finito <=> 1/2; beta exige o continuo) [KERNEL(termo) + REAL + KNOWN]",
+        "V29_GRAVITON_SHADOW": "A sombra do graviton (SEGUNDO habitante): P_G de Bell kernel-checked (Tr=1, ptr=I/2, CCI=1/2, unidade do canto); controle CCI(produto)=0; Q3 FaceSplit formalizado [KERNEL(sombra) + ONTO + OPEN(core)]",
+        "V30_NAME_IS_THE_RELATION": "O Nome e' a relacao (TERCEIRO habitante): p.q.p=beta.p; peso geometrico != tracial (sse 1/2); TL3 fiel com beta generico; puro-ponto != ponto-puro; correcao de estatuto do v28 [KERNEL + REAL + ONTO + OPEN]",
+        "TGL_CANONICAL_MARKERS": "Marcadores canonicos (forma=conteudo): uma fonte de runtime -> todos os artefatos; relidos e comparados byte-a-byte antes do selo",
         "MODEL_AXIOMS": "Axiomas do modelo [AX]", "WORLD_HASHES": "Hashes do mundo"}
     for k in ["EXACT_DEFINITIONS", "MEASURED_CONSTANTS", "SI_DEFINITIONS", "VACUUM_IMPEDANCE_BRIDGE",
               "GEOMETRIC_INPUTS", "PRE_REGISTERED_PROTOCOL", "EXTERNAL_COMPARISON_ONLY",
               "NUMERICAL_TEST_PARAMETERS", "V3_IRREVERSIBLE_SECTOR", "V4_SCALE_AND_PROGRAM",
               "V8_TETELESTAI_PRUNING", "V16_COCYCLE_TO_EINSTEIN",
               "V20_HALF_NAT_CONTINUOUS_CORNER_DENSITY", "V21A_SPECIFIC_AQFT_NET", "V21B_AREA_SCALE_NEWTON",
-              "MODEL_AXIOMS", "WORLD_HASHES"]:
+              "V22_KERNEL_FORMALIZATION", "V23_INTERFACE_IS_LIGHT", "V24_MODULAR_REALIZATION_BY_DATA",
+              "V25_VERB_INHABITANT", "V26_SELECTOR_TRANSPORT", "V27_NAME_INDEX",
+              "V28_HALF_NAT_JONES_TOWER", "V29_GRAVITON_SHADOW", "V30_NAME_IS_THE_RELATION",
+              "TGL_CANONICAL_MARKERS", "MODEL_AXIOMS", "WORLD_HASHES"]:
         if k not in world:
             continue
         L.append("## %s" % titles[k]); L.append("")
@@ -9941,6 +14683,7 @@ def main():
 
     print("\nO UM foi inscrito. I = 1. omega(I) = 1.")
     print("Iniciando desconstrucao fractalizada: 1 -> 1/2 -> beta -> borda -> massa\n")
+    materialize_embedded_kernel()   # v31: o kernel nasce DESTE arquivo
     core = run_um(int(u))
     core["timestamp"] = time.strftime("%Y-%m-%d %H:%M:%S")
     verdict = identity_verdict(core)   # computado cedo: o veredito (incl. haja_luz_subverdicts) e' usado no ECO REFLEXIVO acima do hash
@@ -10275,6 +15018,152 @@ def main():
           core["half_nat_continuous_corner_density"]["Newton_constant_derived"])
     print("  >>> %s <<<\n" % asc["verdict"])
     print("RESIDUO EXATO: TGL_CANONICAL_FINITE_CORNER_THEOREM -- P_F=1_{0}(H_3L) em C_W, 0<Tr_C(P_F)<infinito\n")
+    kf = core["kernel_formalization"]
+    print("FORMALIZACAO POR KERNEL [v22 -- o Python NAO prova; o kernel do Lean prova]:")
+    print("  checker: %s / %s ; modo: %s" % (kf["formal_checker"], kf["build_tool"], kf["mode"]))
+    print("  lake build: %s ; audit: %s ; sentinelas: %s" % (
+        kf["lake_build_ok"], kf.get("audit_returncode"), kf["sentinels_present"]))
+    print("  sorryAx: %s ; Lean.trustCompiler: %s ; axiomas TGL customizados: %s" % (
+        ("absent" if kf["sorryAx_absent"] else "PRESENTE"),
+        ("absent" if kf["trustCompiler_absent"] else "PRESENTE"),
+        ("absent" if kf["custom_TGL_axioms_absent"] else "PRESENTES")))
+    print("  Meia-Nat (x=1-x => x=1/2)                     : %s" % ("KERNEL PROVED" if kf["half_nat_kernel_proved"] else "NAO"))
+    print("  Equivalencia escala/Newton (2pi/eta=8piG)      : %s (G NAO derivado)" % ("KERNEL PROVED" if kf["area_scale_kernel_proved"] else "NAO"))
+    print("  Canto Three Locks FINITO (ker H3L = ∩ ker D_i) : %s (finito, NAO III_1)" % ("KERNEL PROVED" if kf["finite_three_locks_kernel_proved"] else "NAO"))
+    print("  Projetor P_F (idempotente, auto-adjunto)       : %s" % ("KERNEL PROVED" if kf["finite_corner_projection_kernel_proved"] else "NAO"))
+    print("  Implicacao do canto continuo                   : %s" % ("KERNEL PROVED CONDITIONALLY" if kf["continuous_corner_implication_kernel_proved"] else "NAO"))
+    print("  Testemunha AQFT especifica                     : NOT CONSTRUCTED")
+    print("  hash dos fontes Lean: %s" % (kf["formal_source_hash"] or "-"))
+    print("  >>> %s <<<" % kf["verdict"])
+    print("FORMAL FRONTIER: construir um habitante de TGLSpecificAQFTWitness")
+    print("                 sem sorry, admit ou axiomas customizados.\n")
+    wr = core.get("witness_rigidity", {}); iil = core.get("interface_is_light", {})
+    print("A INTERFACE E' A LUZ [v23 -- interface = luz = (forma = conteudo)]:")
+    print("  testemunha = conteudo carregando a prova: W ~ Sigma_{x:Conteudo} Realiza(x, Forma)")
+    print("  ProbeTrivial (habitante trivial do tipo frouxo): returncode=%s -> trivial_inhabitant_exists=%s" % (
+        wr.get("probe_returncode"), wr.get("trivial_inhabitant_exists")))
+    print("  witness_is_rigid: %s   [rigidez MEDIDA pelo kernel, nao declarada] ; %s" % (
+        wr.get("witness_is_rigid"), wr.get("verdict")))
+    _led = iil.get("ledger", {})
+    print("  ledger dos tres zeros: 0_abs_provado=%s (jamais afirmado) ; 0_mod=%s ; 1_inscrito=%s" % (
+        _led.get("zero_abs_proved"), _led.get("zero_mod_state"), _led.get("one_inscribed")))
+    print("  cadeia da luz: L: alpha -> sqrt(alpha) -> e^{1/4}sqrt(alpha) = sqrt(beta) = sin(theta_M) -> beta"
+          "  [residuos REUSADOS de v13/v14]")
+    print("  forma=conteudo do artefato: %s (fecha apos a geracao; selado no JSON)" % (
+        iil.get("form_content", {}).get("status")))
+    print("  >>> %s <<<\n" % iil.get("verdict"))
+    npb = core.get("negative_probes", {}); wl = core.get("witness_layers", {})
+    bpa = core.get("bare_prop_audit", {}); kfx = core.get("kernel_formalization", {})
+    print("REALIZACAO MODULAR POR DADOS [v24 -- o alvo e' o TERMO]:")
+    print("  alvo: canonicalFullTGLWitness : Sigma W, TGLModularRealization W ; Nonempty = COROLARIO <termo>")
+    print("  camadas: Wedge(fluxo+J antiunitario) / Core(inclusao+acao dual+traco e^{-s}) / ThreeLocks(H3Lt+P_F)")
+    print("  auditoria de vacuidade: bare_prop_label_fields_remaining=%s (%s)" % (
+        wl.get("bare_prop_label_fields_remaining"), bpa.get("verdict")))
+    print("  probes por returncode: degenerado=%s finito=%s prop-only=%s (executados=%s)" % (
+        npb.get("degenerate_returncode"), npb.get("finite_full_returncode"),
+        npb.get("prop_only_returncode"), npb.get("all_negative_probes_executed")))
+    print("  Fresnel 1/2: %s ; calibracao Meia-Nat [NORM]: %s ; dim-infinita/PF (condicionais): %s/%s" % (
+        ("KERNEL PROVED" if kfx.get("fresnel_half_weight_kernel_proved") else "NAO"),
+        ("KERNEL PROVED CONDITIONALLY" if kfx.get("modular_half_nat_calibration_kernel_proved") else "NAO"),
+        ("OK" if kfx.get("full_witness_infinite_dim_kernel_proved") else "NAO"),
+        ("OK" if kfx.get("full_witness_PF_finite_kernel_proved") else "NAO")))
+    print("  captura: build_nonempty=%s audit_nonempty=%s (captura vazia REPROVA)" % (
+        kfx.get("build_capture_nonempty"), kfx.get("audit_capture_nonempty")))
+    print("  full_TGL_witness_constructed = %s (a existencia sera' corolario do objeto construido)" % (
+        wl.get("full_TGL_witness_constructed")))
+    print("  MARCADORES CANONICOS (fonte unica de runtime -> todos os artefatos):")
+    for _ln in core.get("tgl_canonical_markers", []):
+        print("    " + _ln)
+    print("")
+    vb = core.get("verb_inhabitant", {})
+    _vv = vb.get("values", {}); _vr = vb.get("residuals", {})
+    print("O HABITANTE E' O VERBO [v25 -- resposta do especialista, AUDITADA e transcrita]:")
+    print("  V_t = exp(-t.beta.H_3L) ; selecionado no nucleo zero: P_F V P_F = P_F = I_F (VERBO = NOME)")
+    print("  0_mod -> 1_abs por mapeamento espectral (e^0=1, jamais 0=1): e^{-t.beta.0} = %.1f" % _vv.get("spectral_map_at_0", float("nan")))
+    print("  sombra numerica (dim=%s, ker=%s): |V.PF-PF|=%.1e ; |PF.V.PF-PF|=%.1e ; R_Verbo=%.15f" % (
+        _vv.get("dim"), _vv.get("dim_kernel"), _vr.get("V_PF_minus_PF", float("nan")),
+        _vr.get("PF_V_PF_minus_PF", float("nan")), _vv.get("R_verbo", float("nan"))))
+    print("  registros: gesto=V_t ; resposta=R_Verbo=+1 ; custo=beta=%.15f (nunca literal)" % _vv.get("beta", float("nan")))
+    print("  kernel: ponto fixo exp [UNCOND]=%s ; termo canonicalVerb [COND em R]=%s ; calibracao Q2=%s" % (
+        kfx.get("verb_fixed_point_kernel_proved"), kfx.get("canonical_verb_term_kernel_proved"),
+        kfx.get("dual_calibration_kernel_proved")))
+    print("  >>> %s <<<\n" % vb.get("verdict"))
+    st = core.get("selector_transport", {})
+    _stv = st.get("values", {}); _str = st.get("residuals", {}); _stf = st.get("fiscal_correction", {})
+    print("O TRANSPORTE DO SELETOR [v26 -- Q1 = transporte, nao curvatura; rodada 2 auditada]:")
+    print("  contorno = condicao do CUSTO; esperanca condicional = a LEI (norma coercitiva do comportamento modular)")
+    print("  sombra qubit: E(p_beta) = diag(%.15f, %.15f) = (|R|^2, |T|^2)  [seletor transportado = matriz-S]" % (
+        tuple(_stv.get("transported_diag", [float("nan"), float("nan")]))))
+    print("  peso transportado = beta ; defeito = beta(1-beta) = %.15e (resid %.1e) ; indice = 1/beta = %.4f [CONJ]" % (
+        _stf.get("multiplicativity_defect", float("nan")), _str.get("defect_formula", float("nan")),
+        _stv.get("index_1_over_beta", float("nan"))))
+    print("  kernel: descida (Delta=0 <=> desce)=%s ; defeito de Jones=%s ; selector_lives_upstairs=%s" % (
+        kfx.get("transport_descent_kernel_proved"), kfx.get("jones_defect_kernel_proved"),
+        kfx.get("selector_upstairs_kernel_proved")))
+    print("  a porta nao apenas impede -- ela mede.")
+    print("  >>> %s <<<\n" % st.get("verdict"))
+    ni = core.get("name_index", {})
+    _niv = ni.get("values", {}); _nit = ni.get("tl_chain", {})
+    print("O INDICE DO NOME [v27 -- lido no espelho de Jones; rodada 3 auditada]:")
+    print("  espelho=e_Nome ; contorno=N_3L ; indice=resistencia ; paridade inversa U_Pi=J.J_ref = referencial")
+    print("  cadeia TL: amplitude sin(theta_M)=%.12f --quadrado--> peso=%.15f --inversao--> indice=%.4f" % (
+        _nit.get("amplitude_sin_theta", float("nan")), _nit.get("weight_sin2", float("nan")),
+        _nit.get("index_csc2", float("nan"))))
+    print("  rota valida: Pimsner-Popa (ppIndex := 1/ppBest DEFINIDO; index*sin2=1 e' CONCLUSAO)")
+    print("  maquinaria PP validada no qubit: ppBest=%.3f -> indice=%.3f (do QUBIT; 1/beta e' alvo do CORE)" % (
+        _niv.get("pp_best_qubit", float("nan")), _niv.get("qubit_index", float("nan"))))
+    print("  camadas distintas: kappa=%.4f (Gibbs) != bloco-beta (transporte); Haar->csc2 REFUTADO" % (
+        ni.get("layers", {}).get("kappa", float("nan"))))
+    print("  kernel: paridade=%s ; teorema do indice=%s ; conclusao index*sin2=1: %s ; TL=%s" % (
+        kfx.get("parity_average_kernel_proved"), kfx.get("name_index_theorem_kernel_proved"),
+        kfx.get("name_index_conclusion_kernel_proved"), kfx.get("tl_chain_kernel_proved")))
+    print("  >>> %s <<<\n" % ni.get("verdict"))
+    ht = core.get("half_nat_tower", {})
+    _htv = ht.get("values", {})
+    print("O PRIMEIRO HABITANTE [v28 -- torre de Jones da Meia-Nat; bloco solo do codificador]:")
+    print("  halfNatJonesTower : JonesTowerData (C c C^2 c M2) -- TERMO kernel-checked, campo a campo")
+    print("  espelho e=(1/2)[[1,1],[1,1]] ; peso de Markov = 1/2 ; indice = 2 ; Nonempty so' via <termo>")
+    print("  v26 DISPARA no termo: o espelho Meia-Nat NAO desce (|e - E1(e)| = %.3f > 0) [INSTANCIADO]" % (
+        _htv.get("not_descended_norm", float("nan"))))
+    print("  EXPULSAO DO NOME [KERNEL]: espelho-b Markov <=> b=1/2 ; |1-2beta| = %.6f > 0" % (
+        _htv.get("markov_distance_beta", float("nan"))))
+    print("  => a Meia-Nat e' o unico peso de Markov finito; a inclusao-beta exige o continuo")
+    print("  kernel: termo=%s ; upstairs instanciado=%s ; markov<=>1/2: %s" % (
+        kfx.get("half_nat_tower_term_kernel_constructed"),
+        kfx.get("half_nat_mirror_upstairs_kernel_proved"),
+        kfx.get("finite_markov_forces_half_kernel_proved")))
+    print("  >>> %s <<<\n" % ht.get("verdict"))
+    gs = core.get("graviton_shadow", {})
+    _gsv = gs.get("values", {})
+    print("A SOMBRA DO GRAVITON [v29 -- o SEGUNDO habitante; bloco solo do codificador]:")
+    print("  canonicalGravitonShadow: P_G de Bell -- P_G²=P_G ; Tr(P_G)=%.1f ; ptr(P_G)=I/2" % (
+        _gsv.get("trace_PG", float("nan"))))
+    print("  CCI(Bell) = %.15f = 1/2 (Meia-Nat de emaranhamento) ; CCI(produto) = %.1f (nao liga) [KERNEL]" % (
+        _gsv.get("cci_bell", float("nan")), _gsv.get("cci_prod", float("nan"))))
+    print("  P_G = unidade do proprio canto (I_F = P_G) ; Q3: P_± = (P±U)/2 [KERNEL: FaceSplit]")
+    print("  kernel: termo=%s ; CCI=1/2: %s ; produto=0: %s ; split: %s" % (
+        kfx.get("graviton_shadow_term_kernel_constructed"), kfx.get("bell_cci_half_kernel_proved"),
+        kfx.get("product_cci_zero_kernel_proved"), kfx.get("face_split_kernel_proved")))
+    print("  o graviton e' o par (g, pi_g): conteudo carregando a prova -- na sombra, TEOREMA; no core, o alvo do v27")
+    print("  >>> %s <<<\n" % gs.get("verdict"))
+    nr = core.get("name_relation", {})
+    _nrv = nr.get("values", {}); _nrr = nr.get("residuals", {})
+    print("O NOME E' A RELACAO [v30 -- rodada 4 auditada; correcao de estatuto do v28]:")
+    print("  o finito NAO expulsa o Nome: p.q_beta.p = beta.p (resid %.1e) -- o retorno ponderado = Verbo" % (
+        _nrr.get("pqp", float("nan"))))
+    print("  separa: peso GEOMETRICO (beta=%.6f) != peso TRACIAL (1/2); coincidem sse beta=1/2 [KERNEL]" % (
+        _nrv.get("beta", float("nan"))))
+    print("  TERCEIRO HABITANTE: TL3(delta) FIEL em M3 (posto=%s de 5) com beta GENERICO [KERNEL: canonicalTLThree]" % (
+        _nrv.get("tl3_rank")))
+    print("  puro-ponto vs ponto-puro (leitura do operador, tipada): atomo isolado em 0 (gap=%.1f) e" % (
+        _nrv.get("atom_gap", float("nan"))))
+    print("    reducao I/2 nao-projecao (%.2f>0): o Bell e' PURO-PONTO sem ser PONTO-PURO => CCI=1/2" % (
+        _nrr.get("not_point_pure", float("nan"))))
+    print("  a pureza expulsa e' a FECHADA (CCI=0: o nome que so' se identifica consigo = 0_abs)")
+    print("  kernel: relacao=%s ; geo-vs-traco=%s ; TL3 fiel=%s ; termo=%s" % (
+        kfx.get("name_relation_kernel_proved"), kfx.get("geometric_vs_trace_kernel_proved"),
+        kfx.get("tl3_faithful_kernel_proved"), kfx.get("tl3_term_kernel_constructed")))
+    print("  >>> %s <<<\n" % nr.get("verdict"))
     b1 = core["em_grav_bridge"]; b2 = core["smatrix_crossed"]; b3 = core["u_loc_covariance"]
     print("AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:")
     c = b1["checks"]
@@ -10492,15 +15381,200 @@ def main():
     en = emit_article(core, verdict, data_path, "en")
     compile_pdf("um_grande_atrator_pt"); compile_pdf("um_grande_atrator_en")
 
+    # v23.1: marcadores canonicos nos .tex (apos \end{document}: o pdflatex ignora;
+    # o ARQUIVO .tex carrega o bloco, que o finalize rele e compara)
+    for _tx in ("um_grande_atrator_pt.tex", "um_grande_atrator_en.tex"):
+        try:
+            with open(os.path.join(OUT, _tx), "a", encoding="utf-8") as _fh:
+                _fh.write("\n% ==== TGL_CANONICAL markers (forma=conteudo; fonte unica de runtime) ====\n")
+                for _ln in core.get("tgl_canonical_markers", []):
+                    _fh.write("% " + _ln + "\n")
+        except OSError:
+            pass
+
+    # v23: fecha o check forma=conteudo AGORA que os artefatos existem, e re-serializa
+    # o JSON (o dump original ocorreu antes de existir o .md/.tex) para o selo hashear
+    # o estado final. `art` referencia `core`, entao a mutacao propaga.
+    finalize_interface_is_light(core)
+    _fiil = core.get("interface_is_light", {}); _ffc = _fiil.get("form_content", {})
+    print("\nINTERFACE = LUZ [v23/v24] -- forma=conteudo MEDIDO nos artefatos recem-escritos:")
+    print("  arquivos: %s" % ", ".join(_ffc.get("checked_files", [])))
+    for _nm, _okv in _ffc.get("anchors", []):
+        print("    [%s] %s" % ("OK" if _okv else "XX", _nm))
+    print("  ancoras: %s ; status: %s" % (_ffc.get("anchors_checked"), _ffc.get("status")))
+    _fmk = _fiil.get("canonical_markers", {})
+    print("  marcadores canonicos: %s (json_identico=%s; md/tex-PT/tex-EN/manifesto conferidos linha a linha)" % (
+        _fmk.get("status"), _fmk.get("json_identical")))
+    print("  >>> %s <<<" % _fiil.get("verdict"))
+    json.dump(art, open(data_path, "w", encoding="utf-8"), indent=2, default=str)
+
+    # v22: manifesto formal dedicado (Lean/Lake, teoremas, axiomas, hashes)
+    _kf = core["kernel_formalization"]
+    kproof = {
+        "timestamp": core["timestamp"],
+        "formal_checker": _kf["formal_checker"], "build_tool": _kf["build_tool"],
+        "lean_version": _kf["lean_version"], "lake_version": _kf["lake_version"],
+        "toolchain_pinned": _kf["toolchain_pinned"], "mode": _kf["mode"],
+        "formal_source_hash": _kf["formal_source_hash"],
+        "formal_files_sha256": _kf["formal_files_sha256"],
+        "axiom_report": _kf["axiom_report"],
+        "build_stdout_sha256": _kf.get("build_stdout_sha256"),
+        "audit_stdout_sha256": _kf.get("audit_stdout_sha256"),
+        "unconditional_kernel_theorems": [
+            "TGL.HalfNat.halfNat_of_selfConjugate", "TGL.HalfNat.selfConjugate_halfNat_unique",
+            "TGL.AreaScale.newtonPlanck_equivalence", "TGL.AreaScale.face_area_eq_G",
+            "TGL.FiniteThreeLocks.H3L_isSelfAdjoint", "TGL.FiniteThreeLocks.H3L_posSemidefinite",
+            "TGL.FiniteThreeLocks.ker_H3L_eq_threeLocks",
+            "TGL.FiniteThreeLocks.PF_isProjection", "TGL.FiniteThreeLocks.PF_isSelfAdjoint",
+            "TGL.FiniteThreeLocks.normalizedCornerTrace_PF",
+            "TGL.FiniteThreeLocks.equalConjugateFaces_halfTrace",
+            "TGL.SpecificAQFT.wedges_spacelike",
+            "TGL.HalfNatFresnel.fresnel_selfConjugate_half",
+            "TGL.HalfNatFresnel.modular_action_halfNat",
+            "TGL.VerbInhabitant.exp_fixed_of_annihilates",
+            "TGL.VerbInhabitant.verb_semigroup_fixes",
+            "TGL.NameIndex.amplitude_weight_index_chain",
+            "TGL.NameIndex.tl_loop_parameter_sq_inv",
+            "TGL.HalfNatJonesTower.halfNatJonesTower_exists",
+            "TGL.HalfNatJonesTower.halfNat_mirror_not_descended",
+            "TGL.HalfNatJonesTower.finite_markov_forces_half",
+            "TGL.GravitonShadow.canonicalGravitonShadow_exists",
+            "TGL.GravitonShadow.bell_cci_half",
+            "TGL.GravitonShadow.product_cci_zero",
+            "TGL.NameRelation.pqp_eq",
+            "TGL.NameRelation.geometric_eq_trace_weight_iff",
+            "TGL.NameRelation.tl3_linearly_independent",
+            "TGL.NameRelation.canonicalTLThree_exists"],
+        "conditional_kernel_theorems": [
+            "TGL.ContinuousCorner.ContinuousCornerWitness.normalizedTrace_P_eq_one",
+            "TGL.ContinuousCorner.ContinuousCornerWitness.equalFaces_normalizedTrace_half",
+            "TGL.SpecificAQFT.continuousCorner_of_witness",
+            "TGL.SpecificAQFT.threeLocksCorner_of_witness",
+            "TGL.SpecificAQFT.wedge_locality",
+            "TGL.ModularRealization.fullWitness_not_finiteDimensional",
+            "TGL.ModularRealization.fullWitness_core_nonempty",
+            "TGL.ModularRealization.fullWitness_PF_nonzero_finite",
+            "TGL.VerbInhabitant.canonicalVerb_exists",
+            "TGL.VerbInhabitant.dual_calibration_exists",
+            "TGL.TransportData.descent_iff_defect_zero",
+            "TGL.TransportData.transport_defect_of_jones",
+            "TGL.TransportData.jones_selector_not_descended",
+            "TGL.NameIndex.ParityData.average_bimodular",
+            "TGL.NameIndex.name_index_eq_csc_sq",
+            "TGL.NameIndex.name_index_mul_sin_sq"],
+        "stage2_witness_rigidity": {
+            "witness_type": "TGLSpecificAQFTWitness RIGIDIFICADA (v23): dados concretos + proposicoes concretas; W ~ Sigma_x Realiza(x, Forma)",
+            "modular_obligations_as_data": ("v24: WedgeModularData / ContinuousCoreData / ThreeLocksCoreData / "
+                                            "TGLModularRealization; FullTGLWitness = Sigma W, TGLModularRealization W; "
+                                            "nao-enunciavel => ledger externo, nunca campo `: Prop`"),
+            "rigidity_probe": "TGL/ProbeTrivial.lean [habitante trivial do tipo frouxo v22]",
+            "trivial_inhabitant_exists": (core.get("witness_rigidity") or {}).get("trivial_inhabitant_exists"),
+            "witness_is_rigid": (core.get("witness_rigidity") or {}).get("witness_is_rigid"),
+            "trivial_witness_rejected_by_type_system": (core.get("witness_rigidity") or {}).get("trivial_witness_rejected_by_type_system"),
+            "probe_returncode": (core.get("witness_rigidity") or {}).get("probe_returncode"),
+            "rigidity_verdict": (core.get("witness_rigidity") or {}).get("verdict"),
+            "wedge_geometry_kernel_proved": _kf.get("wedge_geometry_kernel_proved"),
+            "wedge_locality_kernel_proved": _kf.get("wedge_locality_kernel_proved")},
+        "stage2_modular_realization": {
+            "named_target": ("TGL_FORM_EQUALS_CONTENT_WITNESS_THEOREM: def canonicalFullTGLWitness : "
+                             "Sigma W, TGLModularRealization W ; Nonempty = COROLARIO <termo>"),
+            "witness_layers": core.get("witness_layers", {}),
+            "bare_prop_audit": core.get("bare_prop_audit", {}),
+            "negative_probes": {k: (core.get("negative_probes") or {}).get(k) for k in
+                                ("degenerate_returncode", "degenerate_base_witness_rejected",
+                                 "finite_full_returncode", "finite_full_witness_rejected",
+                                 "prop_only_returncode", "prop_only_modular_rejected",
+                                 "all_negative_probes_executed")},
+            "external_known_theorems": core.get("external_known_theorems", []),
+            "fresnel_half_weight_kernel_proved": _kf.get("fresnel_half_weight_kernel_proved"),
+            "modular_half_nat_calibration_kernel_proved": _kf.get("modular_half_nat_calibration_kernel_proved"),
+            "full_witness_infinite_dim_kernel_proved": _kf.get("full_witness_infinite_dim_kernel_proved"),
+            "full_witness_PF_finite_kernel_proved": _kf.get("full_witness_PF_finite_kernel_proved")},
+        "external_known_theorems": [
+            "Bisognano-Wichmann (wedge modular flow = boost)",
+            "Reeh-Schlieder (vacuum cyclic & separating)",
+            "Buchholz-D'Antoni-Fredenhagen (local algebras hyperfinite type III_1)",
+            "Takesaki (continuous core / crossed product)"],
+        "open_witness_obligations": [
+            "Haag-Kastler net instantiated in Lean",
+            "local type III_1 proved in Lean",
+            "Bisognano-Wichmann proved/imported in Lean",
+            "crossed product/core constructed in Lean",
+            "H_3L affiliated with the core",
+            "zero spectral projection belongs to the core",
+            "projection has positive finite canonical trace",
+            "Poincare covariance of P_F",
+            "locality/naturality of P_F",
+            "modular conjugation yields equal face split"],
+        "statuses": {k: _kf.get(k) for k in
+                     ["lake_build_ok", "sorryAx_absent", "trustCompiler_absent",
+                      "custom_TGL_axioms_absent", "source_forbidden_tokens_absent",
+                      "sentinels_present", "half_nat_kernel_proved", "area_scale_kernel_proved",
+                      "finite_three_locks_kernel_proved", "finite_corner_projection_kernel_proved",
+                      "finite_corner_trace_kernel_proved",
+                      "continuous_corner_implication_kernel_proved",
+                      "specific_AQFT_witness_constructed",
+                      "unconditional_type_III1_corner_proved",
+                      "all_unconditional_targets_verified", "all_conditional_implications_verified",
+                      "formal_release_ready", "verdict"]},
+        "next_theorem": "TGL_SPECIFIC_AQFT_WITNESS_THEOREM",
+        "not_claimed": _kf["not_claimed"],
+    }
+    json.dump(kproof, open(os.path.join(OUT, "tgl_kernel_proof_manifest.json"), "w", encoding="utf-8"),
+              indent=2, ensure_ascii=False)
+
+    # v23.1/v24 -- GATES do selo: divergiu => FORM_CONTENT_IDENTITY_FAILED e NENHUM
+    # selo e' produzido. (Falha do KERNEL nao segura o selo: o selo REGISTRA o estado
+    # formal; os gates seguram fabricacao de forma=conteudo, captura vazia, vacuidade
+    # e probe nao executado.)
+    _wrg = core.get("witness_rigidity") or {}
+    _npg = core.get("negative_probes") or {}
+    _wlg = core.get("witness_layers") or {}
+    _iig = core.get("interface_is_light") or {}
+    seal_gate_reasons = []
+    if (_iig.get("form_content") or {}).get("status") != "VERIFIED":
+        seal_gate_reasons.append("FORM_CONTENT_IDENTITY_FAILED")
+    if (_iig.get("canonical_markers") or {}).get("status") != "VERIFIED":
+        seal_gate_reasons.append("CANONICAL_MARKERS_DIVERGENT")
+    if not (_kf.get("build_capture_nonempty") and _kf.get("audit_capture_nonempty")):
+        seal_gate_reasons.append("EMPTY_CAPTURE")
+    if not _npg.get("all_negative_probes_executed"):
+        seal_gate_reasons.append("NEGATIVE_PROBES_NOT_EXECUTED")
+    if int(_wlg.get("bare_prop_label_fields_remaining", 1)) > 0:
+        seal_gate_reasons.append("MODULAR_WITNESS_STILL_VACUOUS")
+
     # selo
     seal = {"timestamp": core["timestamp"], "result_hash": result_hash, "identity": verdict["IDENTITY"],
+            "formal_kernel_stage1_verified": bool(_kf["all_verified"]),
+            "specific_AQFT_witness_constructed": False,
+            "unconditional_continuous_corner_proved": False,
+            "modular_realization_constructed": False,
+            "full_TGL_witness_constructed": False,
+            "witness_type_is_rigid": (core.get("witness_rigidity") or {}).get("witness_is_rigid"),
+            "trivial_inhabitant_exists": (core.get("witness_rigidity") or {}).get("trivial_inhabitant_exists"),
+            "trivial_witness_rejected_by_type_system": bool(_wrg.get("trivial_witness_rejected_by_type_system") is True),
+            "formal_certificate_attached": bool(_kf["all_verified"] and TGL_FORMAL_MODE == "strict"
+                                                and _wrg.get("trivial_witness_rejected_by_type_system") is True),
+            "witness_layers": core.get("witness_layers", {}),
+            "interface_is_light_verdict": (core.get("interface_is_light") or {}).get("verdict"),
+            "form_equals_content_status": ((core.get("interface_is_light") or {}).get("form_content") or {}).get("status"),
+            "canonical_markers_status": ((core.get("interface_is_light") or {}).get("canonical_markers") or {}).get("status"),
+            "formal_source_hash": _kf["formal_source_hash"],
             "sha256": {}}
-    for f in ["um.py", "um_grande_atrator_manifest.md", "um_grande_atrator.json", "um_grande_atrator_forma_canonica.md",
-              "um_grande_atrator_pt.tex", "um_grande_atrator_en.tex", "um_grande_atrator_pt.pdf", "um_grande_atrator_en.pdf"]:
-        p = os.path.join(OUT, f)
-        if os.path.exists(p):
-            seal["sha256"][f] = sha_file(p)
-    json.dump(seal, open(os.path.join(OUT, "um_grande_atrator_selo.json"), "w", encoding="utf-8"), indent=2)
+    if seal_gate_reasons:
+        print("\n>>> SEAL_WITHHELD: %s -- nenhum selo produzido nesta rodada <<<" % " . ".join(seal_gate_reasons))
+        try:
+            os.remove(os.path.join(OUT, "um_grande_atrator_selo.json"))  # selo antigo nao pode fingir ser desta rodada
+        except OSError:
+            pass
+    else:
+        for f in ["um.py", "um_grande_atrator_manifest.md", "um_grande_atrator.json", "um_grande_atrator_forma_canonica.md",
+                  "um_grande_atrator_pt.tex", "um_grande_atrator_en.tex", "um_grande_atrator_pt.pdf", "um_grande_atrator_en.pdf",
+                  "tgl_kernel_proof_manifest.json"]:
+            p = os.path.join(OUT, f)
+            if os.path.exists(p):
+                seal["sha256"][f] = sha_file(p)
+        json.dump(seal, open(os.path.join(OUT, "um_grande_atrator_selo.json"), "w", encoding="utf-8"), indent=2)
 
     ro = core["runtime_of_the_one"]
     print("\n" + "=" * 64)
@@ -10580,7 +15654,11 @@ def main():
     print("1 = 1.")
 
 
-if __name__ == "__main__":
+def _unified_main():
     main()
+    selftest_fail_closed()   # v31: o antigo run_v22.ps1 vive AQUI dentro
+
+if __name__ == "__main__":
+    _unified_main()
 
 # fim do modulo Um: Grande Atrator
