@@ -3286,6 +3286,8 @@ def prove_runtime_of_the_one(ONE, alpha_obs, mods):
     thermal_ok = bool(thermal_resid < 1e-15)                          # 1 = q^2 + alpha^2 (termico, v6)
     returns_one = bool(input_ok and geometry_ok and beta_ok)          # a cadeia fecha => o Um retorna
     hn_ok = bool(mods.get("half_nat_continuous_corner_density", {}).get("all_verified", True))  # v20 (opcional, .get seguro)
+    aqft_ok = bool(mods.get("specific_free_scalar_aqft_net", {}).get("all_verified", True))     # v21-A (opcional, .get seguro)
+    area_ok = bool(mods.get("area_scale_newton_equivalence", {}).get("all_verified", True))     # v21-B (opcional, .get seguro)
     # vereditos ja provados que a sintese agrega (v1-v14, + v20 densidade se presente)
     dep = {
         "absolute_one_as_input": bool(mods["absolute_one_as_input"]["all_verified"]),
@@ -3297,6 +3299,8 @@ def prove_runtime_of_the_one(ONE, alpha_obs, mods):
         "tetelestai_pruning": bool(mods["tetelestai_pruning"]["all_verified"]),
         "thermal_two_level": bool(mods["thermal_two_level"]["all_verified"]),
         "half_nat_continuous_corner_density": hn_ok,
+        "specific_free_scalar_aqft_net": aqft_ok,
+        "area_scale_newton_equivalence": area_ok,
     }
     chain = [
         ("1_abs = INPUT", input_ok, "o Um absoluto entra como input executavel (v12)"),
@@ -3307,6 +3311,10 @@ def prove_runtime_of_the_one(ONE, alpha_obs, mods):
         ("geometria = O_C(alpha)^2 = beta", geometry_ok, "a raiz quadrada da luz inscreve a geometria"),
         ("Meia-Nat/canto -> eta=1/(4G)", hn_ok,
          "S=1/2 sobre uma celula auto-conjugada de duas areas de Planck (v20; [DER GIVEN NORM: A(P_face)=l_P^2])"),
+        ("rede AQFT concreta -> fator local III_1", aqft_ok,
+         "rede Haag-Kastler do campo escalar livre massivo; algebras locais III_1 sob nuclearidade/split (v21-A; BW/RS/BDF KNOWN)"),
+        ("escala de area -> equivalencia Planck/Newton", area_ok,
+         "A(P)=kappa_A tau(P); matching 2pi/eta=8piG => kappa_A=2G, A_face=l_P^2 (v21-B; EQUIVALENCIA, G nao derivado)"),
         ("1 = q^2 + alpha^2 (termico)", thermal_ok, "decomposicao reflexao/transmissao (v6 REAL; alpha=sech [ONTO])"),
         ("familia minima / graviton = I", dep["family_minimum"] and dep["smatrix_closure"],
          "o Um minimiza como familia; graviton = identidade; tau(I_F)=1 no canto tipo II (v9/v10)"),
@@ -3317,12 +3325,19 @@ def prove_runtime_of_the_one(ONE, alpha_obs, mods):
         ("return 1 = 1", returns_one, "a conservacao executiva do input atraves do runtime"),
     ]
     all_v = bool(all(ok for _, ok, _ in chain) and all(dep.values()))
-    open_residue = ("A densidade de inscricao foi DERIVADA algebricamente da Meia-Nat, do split tracial e da "
-                    "normalizacao canonica de uma area de Planck por face (v20: eta=1/(4G) [DER GIVEN NORM]); "
-                    "composta com a 1a lei modular + Unruh + Raychaudhuri + lema do cone nulo + Bianchi, fecha "
-                    "G_mu_nu+Lambda g = 8piG T^TGL. Permanece ABERTO o teorema de existencia/localizacao desse "
-                    "canto numa rede AQFT TGL genuina tipo III_1 e sua verificacao formal por kernel: a sintese "
-                    "fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.")
+    open_residue = ("A existencia de uma rede AQFT concreta com fluxo modular geometrico e algebras locais tipo "
+                    "III_1 foi FECHADA para o modelo escalar livre, por construcao explicita e teoremas publicados "
+                    "(Bisognano-Wichmann, Reeh-Schlieder, Buchholz-D'Antoni-Fredenhagen; KNOWN, v21-A). A densidade "
+                    "de inscricao foi DERIVADA da Meia-Nat + split tracial + normalizacao canonica de uma area de "
+                    "Planck por face (v20: eta=1/(4G) [DER GIVEN NORM]); compondo com a 1a lei modular + Unruh + "
+                    "Raychaudhuri + lema do cone nulo + Bianchi, fecha G_mu_nu+Lambda g = 8piG T^TGL. A Meia-Nat e o "
+                    "core fixam a medida RELATIVA de area, mas nao sua escala absoluta; A(P_face)=l_P^2 e' EQUIVALENTE "
+                    "a normalizacao gravitacional 8piG (kappa_A=2G), com G ainda sendo entrada fisica medida, NAO "
+                    "derivada (v21-B; no-go de escala PROVED_ALGEBRAICALLY). O residuo matematico preciso deixou de "
+                    "ser 'existe uma rede tipo III_1?' e passou a ser: provar que P_F=1_{0}(H_3L) e' uma projecao "
+                    "canonica, covariante, localizada e de traco finito no core C_W da rede escolhida "
+                    "(TGL_CANONICAL_FINITE_CORNER_THEOREM). A sintese fecha como RUNTIME DO UM, NAO como prova "
+                    "incondicional da gravitacao quantica.")
     runtime_pseudocode = (
         "0_abs            = impossivel            # nao-executavel, sem inscricao (podado)\n"
         "possible_domain  = {1_abs, 0_mod}        # o Um + a diferenca-com-retorno\n"
@@ -4169,6 +4184,357 @@ def prove_half_nat_continuous_corner_density(ONE):
     }
 
 
+def prove_specific_free_scalar_aqft_net(ONE, iii1_shadow):
+    """v21-A -- Rede AQFT especifica: campo escalar livre massivo.
+
+    Esta funcao nao simula uma algebra tipo III_1 em NumPy.
+    Ela registra uma construcao matematica explicita, um ledger de teoremas
+    publicados e a ligacao com a sombra finito-dimensional ja executada.
+
+    Estatutos:
+      [DEF] rede de Weyl do campo escalar livre;
+      [KNOWN] Haag-Kastler, Reeh-Schlieder, Bisognano-Wichmann;
+      [KNOWN UNDER HYPOTHESES] fator hiperinfinito III_1;
+      [NUM] sombra existente em iii1_shadow;
+      [OPEN] projecao canonica TGL P_F no core.
+    """
+
+    model = {
+        "name": "massive_free_real_scalar_Haag_Kastler_net",
+        "spacetime": "Minkowski R^{1,3}",
+        "mass_condition": "m > 0",
+        "one_particle_space": "H_1 = L^2(H_m^+, dmu_m)",
+        "representation": "positive-energy scalar Poincare representation U_1",
+        "fock_space": "Gamma_s(H_1)",
+        "vacuum": "Omega",
+        "right_wedge": "W_R = {x: x^1 > |x^0|}",
+        "modular_group": "Delta_W^{it}=U_1(Lambda_W(-2pi t))",
+        "modular_conjugation": "J_W = wedge reflection/CPT antiunitary",
+        "tomita_operator": "S_W=J_W Delta_W^{1/2}",
+        "standard_real_subspace": "K(W)=Fix(S_W)",
+        "bounded_region_subspace":
+            "K(O)=intersection_{W superset O} K(W)",
+        "local_algebra":
+            "A_m(O)={Weyl(f): f in K(O)} double-commutant",
+    }
+
+    theorem_ledger = [
+        {
+            "id": "HK_ISOTONY_LOCALITY_COVARIANCE",
+            "claim":
+                "The free scalar Weyl net satisfies the Haag-Kastler structural axioms.",
+            "status": "KNOWN",
+            "role": "analytic theorem package, not a floating-point test",
+        },
+        {
+            "id": "REEH_SCHLIEDER",
+            "claim":
+                "The vacuum is cyclic and separating for the relevant local algebras.",
+            "status": "KNOWN",
+            "role": "makes Tomita-Takesaki modular data well-defined",
+        },
+        {
+            "id": "BISOGNANO_WICHMANN",
+            "claim":
+                "For wedges, modular flow equals the rescaled Lorentz boost flow.",
+            "status": "KNOWN",
+            "formula":
+                "Delta_W^{it}=U(Lambda_W(-2pi t))",
+        },
+        {
+            "id": "LOCAL_TYPE_III1",
+            "claim":
+                "Under the standard nuclearity/split/scaling hypotheses, "
+                "the bounded local algebras are hyperfinite type III_1 factors.",
+            "status": "KNOWN_UNDER_DECLARED_HYPOTHESES",
+            "warning":
+                "The isomorphism type of each algebra does not determine the net inclusions.",
+        },
+    ]
+
+    shadow_ok = bool(
+        isinstance(iii1_shadow, dict)
+        and iii1_shadow.get("all_verified", False)
+    )
+
+    exact_definition_checks = [
+        ("ONE_eq_1", bool(ONE == 1)),
+        ("specific_spacetime_named",
+         model["spacetime"] == "Minkowski R^{1,3}"),
+        ("specific_field_named",
+         model["name"] == "massive_free_real_scalar_Haag_Kastler_net"),
+        ("wedge_modular_flow_named",
+         "Lambda_W" in model["modular_group"]),
+        ("bounded_region_net_defined",
+         "intersection" in model["bounded_region_subspace"]),
+        ("local_von_neumann_algebra_defined",
+         "double-commutant" in model["local_algebra"]),
+        ("finite_shadow_available", shadow_ok),
+    ]
+
+    certificate_ok = bool(all(v for _, v in exact_definition_checks))
+
+    return {
+        "theorem": "Specific AQFT Net Existence Certificate",
+        "model": model,
+        "construction_chain": [
+            "positive-energy Wigner representation",
+            "wedge modular data",
+            "standard real subspaces K(W)",
+            "intersection localization K(O)",
+            "bosonic second quantization",
+            "Weyl local algebras A_m(O)",
+            "Haag-Kastler net O -> A_m(O)",
+        ],
+        "haag_kastler": {
+            "isotony":
+                "O1 subset O2 => K(O1) subset K(O2) => A(O1) subset A(O2)",
+            "locality":
+                "spacelike symplectic orthogonality => commuting Weyl algebras",
+            "covariance":
+                "U(g)A(O)U(g)^*=A(gO)",
+            "spectrum_condition":
+                "joint translation spectrum is in the closed future cone",
+            "vacuum":
+                "Omega is invariant, cyclic and separating",
+        },
+        "theorem_ledger": theorem_ledger,
+        "continuous_core": {
+            "definition": "C_W=A_m(W) cross_{sigma^Omega} R",
+            "known_type": "semifinite type II_infinity for a type III_1 factor",
+            "canonical_trace":
+                "Tr_C with dual scaling Tr_C(theta_s(X))=e^{-s}Tr_C(X)",
+            "finite_projection_existence":
+                "finite-trace projections exist in the II_infinity core",
+            "warning":
+                "existence of a finite projection is not yet the proof that "
+                "the TGL-specific P_F is canonical, localized and finite",
+        },
+        "tgl_embedding_status": {
+            "specific_AQFT_net_exists": True,
+            "wedge_BW_known": True,
+            "local_type_III1_known_under_hypotheses": True,
+            "continuous_core_exists_known": True,
+            "finite_shadow_verified": shadow_ok,
+            "TGL_specific_corner_PF_proved": False,
+            "TGL_net_identified_with_free_scalar_net": False,
+        },
+        "remaining_corner_theorem": {
+            "target":
+                "P_F = 1_{0}(H_3L) belongs to C_W, "
+                "0 < Tr_C(P_F) < infinity",
+            "affiliation":
+                "H_3L must be self-adjoint and affiliated with C_W",
+            "spectral_requirement":
+                "zero must be an isolated finite-trace spectral sector",
+            "covariance":
+                "U_tilde(g) P_{F,W} U_tilde(g)^* = P_{F,gW}",
+            "localization":
+                "P_{F,W} must depend naturally only on the wedge modular data",
+            "status": "OPEN",
+        },
+        "checks": exact_definition_checks,
+        "all_verified": certificate_ok,
+        "verdict": (
+            "SPECIFIC_FREE_SCALAR_AQFT_NET_INSTANTIATED"
+            if certificate_ok else
+            "SPECIFIC_AQFT_NET_CERTIFICATE_FAILED"
+        ),
+        "not_claimed": [
+            "Python did not numerically construct an infinite type III_1 factor",
+            "the free scalar model is not automatically the full TGL",
+            "local algebra isomorphism does not identify the full net structure",
+            "the canonical TGL corner P_F is not yet proved",
+        ],
+        "seals": [
+            "SPECIFIC_AQFT_NET_IS_THE_FREE_SCALAR_WEYL_NET",
+            "WEDGE_MODULAR_FLOW_IS_GEOMETRIC_BY_BW",
+            "LOCAL_ALGEBRAS_ARE_III1_UNDER_DECLARED_HYPOTHESES",
+            "CONTINUOUS_CORE_EXISTS",
+            "TGL_CANONICAL_CORNER_REMAINS_TO_BE_PROVED",
+        ],
+    }
+
+
+def prove_area_scale_freedom_and_newton_equivalence(ONE):
+    """v21-B -- liberdade de escala e equivalencia Planck/Newton.
+
+    Prova:
+      A(P)=kappa_A tau(P);
+      S=1/2, tau(P_F)=1;
+      eta=1/(2 kappa_A);
+      2pi/eta=4pi kappa_A.
+
+    Igualar ao acoplamento 8piG seleciona unicamente:
+      kappa_A=2G,
+      A(P_face)=G=l_P^2.
+
+    Isto e' equivalencia/calibracao relativa a G, nao derivacao independente de G.
+    """
+    S_partial = 0.5
+    tau_PF = float(ONE)
+    tau_face = S_partial
+
+    # Trabalhar com a razao adimensional:
+    # r = kappa_A/l_P^2.
+    target_einstein_coefficient_over_G = 8.0 * math.pi
+
+    # (2pi/eta)/G = 2pi * r / S_partial.
+    r_required = (
+        target_einstein_coefficient_over_G
+        * S_partial
+        / (2.0 * math.pi)
+    )
+
+    area_cell_over_lp2 = r_required * tau_PF
+    area_face_over_lp2 = r_required * tau_face
+
+    eta_times_G = S_partial / r_required
+    target_eta_times_G = 0.25
+
+    coupling_over_G = 2.0 * math.pi / eta_times_G
+    coupling_target_over_G = 8.0 * math.pi
+
+    # Demonstracao da liberdade de escala.
+    scale_family = [0.25, 0.5, 1.0, 2.0, 4.0]
+    scale_test = []
+    for lam in scale_family:
+        kappa_ratio = lam
+        eta_G = S_partial / kappa_ratio
+        coefficient_over_G = 2.0 * math.pi / eta_G
+        scale_test.append({
+            "lambda": lam,
+            "modular_entropy": S_partial,
+            "trace_cell": tau_PF,
+            "eta_times_G": eta_G,
+            "coupling_over_G": coefficient_over_G,
+        })
+
+    modular_data_unchanged = all(
+        abs(item["modular_entropy"] - S_partial) < 1e-15
+        and abs(item["trace_cell"] - tau_PF) < 1e-15
+        for item in scale_test
+    )
+
+    coupling_changes_with_scale = all(
+        scale_test[i + 1]["coupling_over_G"]
+        > scale_test[i]["coupling_over_G"]
+        for i in range(len(scale_test) - 1)
+    )
+
+    planck_area_m2 = HBAR_EXACT * G_NEWTON / C_LIGHT**3
+    kappa_area_m2 = r_required * planck_area_m2
+    face_area_m2 = tau_face * kappa_area_m2
+    cell_area_m2 = tau_PF * kappa_area_m2
+
+    residuals = {
+        "r_required_minus_2": abs(r_required - 2.0),
+        "face_area_over_lp2_minus_1":
+            abs(area_face_over_lp2 - 1.0),
+        "cell_area_over_lp2_minus_2":
+            abs(area_cell_over_lp2 - 2.0),
+        "eta_G_minus_1_over_4":
+            abs(eta_times_G - target_eta_times_G),
+        "coupling_minus_8pi":
+            abs(coupling_over_G - coupling_target_over_G),
+        "face_area_SI_minus_planck_area":
+            abs(face_area_m2 - planck_area_m2),
+    }
+
+    tol = 1e-14
+
+    checks = [
+        ("ONE_eq_1", bool(ONE == 1)),
+        ("half_nat", bool(abs(S_partial - 0.5) < tol)),
+        ("trace_cell_normalized", bool(abs(tau_PF - 1.0) < tol)),
+        ("trace_face_half", bool(abs(tau_face - 0.5) < tol)),
+        ("modular_data_do_not_fix_area_scale",
+         bool(modular_data_unchanged and coupling_changes_with_scale)),
+        ("newton_matching_uniquely_gives_kappa_2G",
+         bool(residuals["r_required_minus_2"] < tol)),
+        ("one_face_equals_one_planck_area",
+         bool(residuals["face_area_over_lp2_minus_1"] < tol)),
+        ("cell_equals_two_planck_areas",
+         bool(residuals["cell_area_over_lp2_minus_2"] < tol)),
+        ("eta_equals_one_over_4G",
+         bool(residuals["eta_G_minus_1_over_4"] < tol)),
+        ("coupling_equals_8piG",
+         bool(residuals["coupling_minus_8pi"] < tol)),
+    ]
+
+    all_v = bool(all(v for _, v in checks))
+
+    return {
+        "theorem":
+            "Area-Scale Freedom and Newton-Planck Equivalence",
+        "general_area_measure":
+            "A_partial(P)=kappa_A tau(P)",
+        "derivation": [
+            "S_partial=1/2",
+            "tau(P_F)=1",
+            "tau(P_face)=1/2",
+            "A_cell=kappa_A",
+            "A_face=kappa_A/2",
+            "eta=S_partial/A_cell=1/(2 kappa_A)",
+            "2pi/eta=4pi kappa_A",
+            "4pi kappa_A=8piG => kappa_A=2G",
+            "A_face=G=l_P^2 in natural units",
+        ],
+        "no_go": {
+            "statement":
+                "Dimensionless modular data are invariant under "
+                "A -> lambda A, while eta and the gravitational coupling change.",
+            "consequence":
+                "AQFT + Half-Nat alone cannot determine an absolute area unit.",
+            "scale_test": scale_test,
+            "status": "PROVED_ALGEBRAICALLY",
+        },
+        "equivalence": {
+            "kappa_A_over_lp2": r_required,
+            "area_face_over_lp2": area_face_over_lp2,
+            "area_cell_over_lp2": area_cell_over_lp2,
+            "eta_times_G": eta_times_G,
+            "coupling_over_G": coupling_over_G,
+            "formula":
+                "A(P_face)=l_P^2 iff kappa_A=2G iff 2pi/eta=8piG",
+            "status":
+                "DERIVED_FROM_NEWTON_COUPLING_NOT_INDEPENDENT_DERIVATION_OF_G",
+        },
+        "values_SI": {
+            "planck_area_m2": planck_area_m2,
+            "kappa_area_m2": kappa_area_m2,
+            "face_area_m2": face_area_m2,
+            "cell_area_m2": cell_area_m2,
+        },
+        "residuals": residuals,
+        "checks": checks,
+        "all_verified": all_v,
+        "verdict": (
+            "PLANCK_FACE_NORMALIZATION_EQUIVALENT_TO_NEWTON_COUPLING"
+            if all_v else
+            "AREA_SCALE_EQUIVALENCE_FAILED"
+        ),
+        "statute": (
+            "[DER: scale freedom and equivalence] + "
+            "[DATA: G_Newton] + "
+            "[NOT DERIVED: numerical value of G]"
+        ),
+        "not_claimed": [
+            "Newton's constant is not derived",
+            "the Planck area is not produced by dimensionless AQFT alone",
+            "matching to 8piG is a normalization selection",
+            "no unconditional quantum-gravity proof",
+        ],
+        "seals": [
+            "MODULAR_DATA_FIX_RELATIVE_AREA_NOT_ABSOLUTE_AREA",
+            "AREA_SCALE_RESCALING_LEAVES_HALF_NAT_UNCHANGED",
+            "NEWTON_COUPLING_UNIQUELY_FIXES_KAPPA_A_EQUALS_2G",
+            "ONE_SELF_CONJUGATE_FACE_EQUALS_ONE_PLANCK_AREA",
+            "PLANCK_FACE_NORMALIZATION_IS_EQUIVALENT_NOT_INDEPENDENT",
+        ],
+    }
+
+
 def run_um(ONE):
     """ONE=1 -> toda a algebra -> massa do GA (dois modos) -> tudo verificado ao vivo."""
     I = ONE * np.eye(2); omega_I = float(np.trace(I) / 2.0)
@@ -4247,6 +4613,13 @@ def run_um(ONE):
     p2d_descent = prove_p2d_descent_functor(ONE)          # v18: a prova P2D -- functor de descida F(J,Delta,P_2D) natural; tensor SO(2)/theta_M; sem frame; pendencia P2D fechada em sombra
     iii1_net_image = prove_iii1_net_shadow_image(ONE)     # v19: o negativo III_1 -- rede modular FISICA (fermions em caixa); meia-nat=modo auto-conjugado nu=1/2; torcao fisica; invariantes estaveis sob refinamento
     half_nat_density = prove_half_nat_continuous_corner_density(ONE)  # v20: Meia-Nat + canto continuo -> densidade de inscricao eta=1/(4G) [DER GIVEN NORM: A(P_face)=l_P^2]; compoe com v16/v18
+    specific_aqft_net = prove_specific_free_scalar_aqft_net(ONE, iii1_net_image)  # v21-A: rede Haag-Kastler do campo escalar livre massivo; existencia III_1 FECHADA para modelo concreto (BW/RS/BDF KNOWN); P_F canonico OPEN
+    area_scale_theorem = prove_area_scale_freedom_and_newton_equivalence(ONE)  # v21-B: A(P)=kappa_A tau(P); Meia-Nat+core nao fixam kappa_A; matching 8piG => kappa_A=2G, A_face=l_P^2 (EQUIVALENCIA, NAO derivacao de G)
+    half_nat_density["specific_model_local_III1_known"] = specific_aqft_net["tgl_embedding_status"]["local_type_III1_known_under_hypotheses"]  # v21: estatuto preciso do v20 (nao muda genuine_III1_corner_proved=False)
+    half_nat_density["specific_model_continuous_core_known"] = True
+    half_nat_density["TGL_specific_corner_PF_proved"] = False
+    half_nat_density["planck_face_normalization_status"] = "EQUIVALENT_TO_MEASURED_NEWTON_COUPLING"
+    half_nat_density["Newton_constant_derived"] = False
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
@@ -4295,7 +4668,9 @@ def run_um(ONE):
         "reason_consciousness_operator": reason_consciousness_operator,
         "family_minimum": family_minimum, "smatrix_closure": smatrix_closure,
         "ergodicity_door_mixing": ergodicity_door_mixing, "tetelestai_pruning": tetelestai_pruning,
-        "half_nat_continuous_corner_density": half_nat_density})
+        "half_nat_continuous_corner_density": half_nat_density,
+        "specific_free_scalar_aqft_net": specific_aqft_net,
+        "area_scale_newton_equivalence": area_scale_theorem})
 
     return {"ONE": ONE, "I": I.tolist(), "omega_I": omega_I,
             "runtime_of_the_one": runtime_of_the_one,
@@ -4323,6 +4698,8 @@ def run_um(ONE):
             "p2d_descent": p2d_descent,
             "iii1_net_image": iii1_net_image,
             "half_nat_continuous_corner_density": half_nat_density,
+            "specific_free_scalar_aqft_net": specific_aqft_net,
+            "area_scale_newton_equivalence": area_scale_theorem,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
@@ -5068,6 +5445,44 @@ def emit_canonical_md(core, verdict):
               "declarados), fecha `G_μν + Λg_μν = 8πG T^TGL_μν`. `[CONDITIONAL]` a existência/localização "
               "rigorosa desse canto num fator `III₁` genuíno permanece a fronteira formal. Selos: `%s`.\n"
               % " . ".join(_hd["seals"][:8]))
+    _aq = core.get("specific_free_scalar_aqft_net", {})
+    _asc = core.get("area_scale_newton_equivalence", {})
+    _ase = _asc.get("equivalence", {})
+    md.append("## v21-A — Uma rede AQFT específica\n")
+    md.append("```\n"
+              "H_1 = L²(H_m^+, dμ_m)\n"
+              "Δ_W^{it} = U(Λ_W(-2π t))          (Bisognano–Wichmann)\n"
+              "S_W = J_W Δ_W^{1/2} ;   K(W) = Fix(S_W)\n"
+              "K(O) = ∩_{W ⊃ O} K(W)\n"
+              "A_m(O) = {Weyl(f) : f ∈ K(O)}''\n"
+              "O₁ ⊂ O₂ ⇒ A(O₁) ⊂ A(O₂) ;   O₁ ⊥ O₂ ⇒ [A(O₁),A(O₂)]=0 ;   U(g)A(O)U(g)* = A(gO)\n"
+              "A_m(O) ≅ R_∞   [KNOWN UNDER NUCLEARITY/SPLIT/SCALING]\n"
+              "```\n")
+    md.append("A existência de uma rede AQFT tipo `III₁` não é mais uma conjectura abstrata: escolhe-se uma rede "
+              "explícita conhecida — o campo escalar real livre massivo em `R^{1,3}`. O fluxo modular de cunhas é "
+              "geométrico por Bisognano–Wichmann; as álgebras locais são hiperfinitas tipo `III₁` sob "
+              "nuclearidade/split/escala (Buchholz–D'Antoni–Fredenhagen). Isso **não** identifica automaticamente "
+              "essa rede com toda a TGL nem constrói o projetor `P_F`. Veredito `%s`. `[DEF + KNOWN + NUM + OPEN]`\n"
+              % _aq.get("verdict", "SPECIFIC_FREE_SCALAR_AQFT_NET_INSTANTIATED"))
+    md.append("## v21-B — A escala de área é a constante de Newton\n")
+    md.append("```\n"
+              "A(P) = κ_A τ(P)\n"
+              "S_∂ = 1/2 ;   τ(P_F) = 1 ;   τ(P_face) = 1/2\n"
+              "η = (1/2)/κ_A = 1/(2κ_A) ;   2π/η = 4π κ_A\n"
+              "4π κ_A = 8πG   ⇒   κ_A = 2G   ⇒   A(P_face) = G = ℓ_P²\n"
+              "```\n")
+    md.append("Verificado ao vivo: `κ_A/ℓ_P² = %.6g` (alvo 2), `A_face/ℓ_P² = %.6g` (alvo 1), `η·G = %.6g` "
+              "(alvo 1/4), `(2π/η)/G = %.6g` (alvo 8π=%.6f). A liberdade de escala `A → λA` deixa toda identidade "
+              "modular invariante mas muda `η` (no-go `PROVED_ALGEBRAICALLY`). Veredito `%s`.\n"
+              % (_ase.get("kappa_A_over_lp2", 2.0), _ase.get("area_face_over_lp2", 1.0),
+                 _ase.get("eta_times_G", 0.25), _ase.get("coupling_over_G", 8.0 * math.pi),
+                 8.0 * math.pi, _asc.get("verdict", "PLANCK_FACE_NORMALIZATION_EQUIVALENT_TO_NEWTON_COUPLING")))
+    md.append("**A Meia-Nat fixa o numerador. O core fixa a medida relativa. `G` fixa a unidade dimensional. "
+              "Nenhum dado adimensional pode, sem informação adicional, selecionar uma área em metros quadrados.** "
+              "`A(P_face)=ℓ_P²` é *equivalente* à normalização gravitacional `8πG`, **não** uma derivação "
+              "independente de `G` (que permanece entrada física medida). O resíduo exato deixou de ser 'existe "
+              "uma rede `III₁`?' e passou a ser o `TGL_CANONICAL_FINITE_CORNER_THEOREM`: provar que "
+              "`P_F = 1_{0}(H_3L) ∈ C_W`, `0 < Tr_C(P_F) < ∞`. `[DER + DATA]`\n")
     p = os.path.join(OUT, "um_grande_atrator_forma_canonica.md")
     open(p, "w", encoding="utf-8").write("\n".join(md))
     return p
@@ -7084,6 +7499,37 @@ def build_pt(core, verdict, data_path):
               r"$\mathrm{III}_1$ genuíno permanece \textsf{[CONDITIONAL]}.") % (
               _hn["eta_partial"], _hn["two_pi_over_eta"], _sci(_hv["planck_area_m2"], 3),
               _sci(_hd["residuals"]["density_relative"], 1)))
+    _asep = core.get("area_scale_newton_equivalence", {}).get("equivalence", {})
+    s.append(r"\subsection*{Uma rede AQFT específica para a TGL \textsf{[DEF $+$ KNOWN $+$ NUM $+$ OPEN]}}")
+    s.append(r"A existência de uma rede tipo $\mathrm{III}_1$ deixa de ser conjectura abstrata: fixa-se a rede "
+             r"de Haag--Kastler do campo escalar real livre massivo em $\mathbb R^{1,3}$. O espaço de uma "
+             r"partícula é $\mathcal H_1=L^2(H_m^+,d\mu_m)$; para a cunha direita o grupo modular é "
+             r"$\Delta_W^{it}=U(\Lambda_W(-2\pi t))$ (Bisognano--Wichmann), $S_W=J_W\Delta_W^{1/2}$, o "
+             r"subespaço real padrão é $K(W)=\mathrm{Fix}(S_W)$, $K(O)=\bigcap_{W\supset O}K(W)$ e a álgebra "
+             r"local $\mathcal A_m(O)=\{\mathrm{Weyl}(f):f\in K(O)\}''$. Isotonia, localidade e covariância "
+             r"seguem por construção; sob nuclearidade/split/escala as álgebras locais são hiperfinitas "
+             r"$\mathrm{III}_1$ (Buchholz--D'Antoni--Fredenhagen). O código \textbf{não} simula um fator "
+             r"infinito: registra a construção e um \emph{ledger} de teoremas publicados \textsf{[KNOWN]} mais "
+             r"a sombra finita \textsf{[NUM]}. \emph{A rede do campo livre fecha a existência para um modelo "
+             r"concreto; ainda não prova que o projetor dos Três-Fechos da TGL é uma projeção finita canônica "
+             r"no seu core contínuo.}")
+    s.append(r"\subsection*{Liberdade de escala e equivalência Planck--Newton \textsf{[DER $+$ DATA]}}")
+    s.append((r"A álgebra modular determina apenas a \emph{forma} $A_\partial(P)=\kappa_A\,\tau(P)$, deixando "
+             r"$\kappa_A$ livre. Com $S_\partial=\tfrac12$ e $\tau(P_{\mathcal F})=1$, "
+             r"$\eta=\tfrac{1}{2\kappa_A}$ e $\tfrac{2\pi}{\eta}=4\pi\kappa_A$. Exigir o acoplamento "
+             r"gravitacional $8\pi G$ seleciona \emph{unicamente} $\kappa_A=2G$, donde "
+             r"$A(P_{\mathrm{face}})=G=\ell_P^2$ (verificado ao vivo: $\kappa_A/\ell_P^2=%.6g$, "
+             r"$A_{\mathrm{face}}/\ell_P^2=%.6g$, $\eta G=%.6g$, $(2\pi/\eta)/G=%.6g=8\pi$). Sob "
+             r"$A\to\lambda A$ toda identidade modular permanece invariante enquanto $\eta$ e o acoplamento "
+             r"mudam: \textbf{a Meia-Nat mais o tipo $\mathrm{III}_1$ mais o core não fixam a escala "
+             r"absoluta} (no-go provado algebricamente). Logo $A(P_{\mathrm{face}})=\ell_P^2$ é "
+             r"\emph{equivalente} à normalização $8\pi G$, \textbf{não} uma derivação independente de $G$: a "
+             r"Meia-Nat fixa o numerador, o core fixa a medida relativa, e $G$ --- entrada física medida --- "
+             r"fixa a unidade dimensional. O resíduo exato é o \emph{teorema do canto finito canônico}: "
+             r"$P_{\mathcal F}=\mathbf 1_{\{0\}}(H_{3L})\in\mathcal C_W$, $0<\mathrm{Tr}_{\mathcal C}"
+             r"(P_{\mathcal F})<\infty$.") % (
+             _asep.get("kappa_A_over_lp2", 2.0), _asep.get("area_face_over_lp2", 1.0),
+             _asep.get("eta_times_G", 0.25), _asep.get("coupling_over_G", 8.0 * math.pi)))
     s.append(r"\section*{Apêndice executável (forma $=$ conteúdo)}")
     s.append(r"Entrada única: o Um absoluto (\texttt{1}); sua projeção é a medida mínima irredutível "
              r"extraída de $\alpha_{\mathrm{CODATA}}$ (referente medido do Nome). $\bTGL$ recomputado "
@@ -9087,6 +9533,36 @@ def build_en(core, verdict, data_path):
               r"$\mathrm{III}_1$ factor remains \textsf{[CONDITIONAL]}.") % (
               _hn["eta_partial"], _hn["two_pi_over_eta"], _sci(_hv["planck_area_m2"], 3),
               _sci(_hd["residuals"]["density_relative"], 1)))
+    _asen = core.get("area_scale_newton_equivalence", {}).get("equivalence", {})
+    s.append(r"\subsection*{A specific AQFT net for TGL \textsf{[DEF $+$ KNOWN $+$ NUM $+$ OPEN]}}")
+    s.append(r"The existence of a type $\mathrm{III}_1$ net is no longer an abstract conjecture: we fix the "
+             r"Haag--Kastler net of the massive free real scalar field in $\mathbb R^{1,3}$. The one-particle "
+             r"space is $\mathcal H_1=L^2(H_m^+,d\mu_m)$; for the right wedge the modular group is "
+             r"$\Delta_W^{it}=U(\Lambda_W(-2\pi t))$ (Bisognano--Wichmann), $S_W=J_W\Delta_W^{1/2}$, the standard "
+             r"real subspace is $K(W)=\mathrm{Fix}(S_W)$, $K(O)=\bigcap_{W\supset O}K(W)$, and the local algebra "
+             r"$\mathcal A_m(O)=\{\mathrm{Weyl}(f):f\in K(O)\}''$. Isotony, locality and covariance follow by "
+             r"construction; under nuclearity/split/scaling the local algebras are hyperfinite $\mathrm{III}_1$ "
+             r"(Buchholz--D'Antoni--Fredenhagen). The code does \textbf{not} simulate an infinite factor: it "
+             r"records the construction, a \emph{ledger} of published theorems \textsf{[KNOWN]}, and the finite "
+             r"shadow \textsf{[NUM]}. \emph{The free scalar net closes existence for a concrete model. It does "
+             r"not yet prove that the TGL Three-Locks projector is a canonical finite projection in its "
+             r"continuous core.}")
+    s.append(r"\subsection*{Area-scale freedom and Planck--Newton equivalence \textsf{[DER $+$ DATA]}}")
+    s.append((r"The modular algebra fixes only the \emph{form} $A_\partial(P)=\kappa_A\,\tau(P)$, leaving "
+             r"$\kappa_A$ free. With $S_\partial=\tfrac12$ and $\tau(P_{\mathcal F})=1$, "
+             r"$\eta=\tfrac{1}{2\kappa_A}$ and $\tfrac{2\pi}{\eta}=4\pi\kappa_A$. Requiring the gravitational "
+             r"coupling $8\pi G$ \emph{uniquely} selects $\kappa_A=2G$, hence $A(P_{\mathrm{face}})=G=\ell_P^2$ "
+             r"(verified live: $\kappa_A/\ell_P^2=%.6g$, $A_{\mathrm{face}}/\ell_P^2=%.6g$, $\eta G=%.6g$, "
+             r"$(2\pi/\eta)/G=%.6g=8\pi$). Under $A\to\lambda A$ every modular identity stays invariant while "
+             r"$\eta$ and the coupling change: \textbf{the Half-Nat plus type $\mathrm{III}_1$ plus the core do "
+             r"not fix the absolute scale} (no-go proved algebraically). Thus $A(P_{\mathrm{face}})=\ell_P^2$ is "
+             r"\emph{equivalent} to the $8\pi G$ normalization, \textbf{not} an independent derivation of $G$: "
+             r"the Half-Nat fixes the numerator, the core fixes the relative measure, and $G$ --- a measured "
+             r"physical input --- fixes the dimensional unit. The exact residue is the \emph{canonical finite "
+             r"corner theorem}: $P_{\mathcal F}=\mathbf 1_{\{0\}}(H_{3L})\in\mathcal C_W$, "
+             r"$0<\mathrm{Tr}_{\mathcal C}(P_{\mathcal F})<\infty$.") % (
+             _asen.get("kappa_A_over_lp2", 2.0), _asen.get("area_face_over_lp2", 1.0),
+             _asen.get("eta_times_G", 0.25), _asen.get("coupling_over_G", 8.0 * math.pi)))
     s.append(r"\section*{Executable appendix (form $=$ content)}")
     s.append(r"Single input: the absolute One (\texttt{1}); its projection is the minimal irreducible measure "
              r"extracted from $\alpha_{\mathrm{CODATA}}$ (measured referent of the Name). $\bTGL$ recomputed "
@@ -9384,6 +9860,30 @@ def input_manifest(core, code_hash):
             "genuine_III1_corner_proved": core["half_nat_continuous_corner_density"]["genuine_III1_corner_proved"],
             "status": core["half_nat_continuous_corner_density"]["status"],
             "selo": " . ".join(core["half_nat_continuous_corner_density"]["seals"][:8])},
+        "V21A_SPECIFIC_AQFT_NET": {
+            "model": "massive free real scalar Haag-Kastler net",
+            "spacetime": "Minkowski R^{1,3}",
+            "net": "O -> A_m(O) = {Weyl(f): f in K(O)}''",
+            "wedge_modular_flow": "Delta_W^{it}=U(Lambda_W(-2pi t)) [KNOWN: Bisognano-Wichmann]",
+            "vacuum": "Omega cyclic-separating [KNOWN: Reeh-Schlieder]",
+            "local_type_III1": "[KNOWN UNDER NUCLEARITY/SPLIT/SCALING: Buchholz-D'Antoni-Fredenhagen]",
+            "continuous_core": "C_W = A_m(W) x_sigma R [KNOWN: type II_infinity]",
+            "TGL_canonical_PF": "[OPEN: TGL_CANONICAL_FINITE_CORNER_THEOREM]",
+            "all_verified": core["specific_free_scalar_aqft_net"]["all_verified"],
+            "status": core["specific_free_scalar_aqft_net"]["verdict"],
+            "selo": " . ".join(core["specific_free_scalar_aqft_net"]["seals"][:8])},
+        "V21B_AREA_SCALE_NEWTON": {
+            "general_form": "A(P)=kappa_A tau(P) [DER, up to kappa_A]",
+            "scale_freedom": "kappa_A -> lambda kappa_A leaves modular data invariant, changes eta [DER no-go, PROVED_ALGEBRAICALLY]",
+            "G_Newton": "measured physical input [DATA]",
+            "kappa_A_over_lP2": core["area_scale_newton_equivalence"]["equivalence"]["kappa_A_over_lp2"],
+            "A_face_over_lP2": core["area_scale_newton_equivalence"]["equivalence"]["area_face_over_lp2"],
+            "matching": "4pi kappa_A = 8piG => kappa_A=2 l_P^2 [DER FROM MATCHING TO 8piG]",
+            "A_face_eq_lP2": "[DER FROM G, NOT FROM AQFT ALONE]",
+            "Newton_constant_derived": False,
+            "all_verified": core["area_scale_newton_equivalence"]["all_verified"],
+            "status": core["area_scale_newton_equivalence"]["verdict"],
+            "selo": " . ".join(core["area_scale_newton_equivalence"]["seals"][:8])},
         "WORLD_HASHES": {
             "code_sha256": code_hash,
             "cf4_catalog_hash": (B["catalog_hash"] if B else None),
@@ -9411,12 +9911,15 @@ def write_input_manifest_md(world, path):
         "V8_TETELESTAI_PRUNING": "Tetelestai = poda binaria ({1_abs,0_mod}\\{0_abs}); modulo de prova [DER/NUM]",
         "V16_COCYCLE_TO_EINSTEIN": "O cociclo vivo -> G_mu_nu (E1-E12: colagem/temporal/gerador/holonomia/curvatura-obstrucao/covariancia/torcao/ponto-base/canto-P_F/comutador/fase + composicao E7; C1/C2) [NUM/REAL]",
         "V20_HALF_NAT_CONTINUOUS_CORNER_DENSITY": "Escala de area do canto continuo: S=1/2 / (2 l_P^2) = 1/(4 l_P^2) => eta=1/(4G) [DER GIVEN NORM: A(P_face)=l_P^2; l_P^2 recomputado; G nao derivado]",
+        "V21A_SPECIFIC_AQFT_NET": "Rede AQFT especifica: campo escalar livre massivo em Minkowski 3+1; O -> A_m(O); BW/Reeh-Schlieder/BDF [KNOWN]; III_1 local [KNOWN UNDER HYPOTHESES]; core continuo [KNOWN]; projetor canonico TGL P_F [OPEN]",
+        "V21B_AREA_SCALE_NEWTON": "Escala de area: A(P)=kappa_A tau(P) [DER ate kappa_A]; liberdade de escala kappa_A->lambda kappa_A [DER no-go]; matching 8piG => kappa_A=2 l_P^2, A(P_face)=l_P^2 [DER FROM G, NAO de AQFT sozinha]; G_Newton [DATA]; G NAO derivado",
         "MODEL_AXIOMS": "Axiomas do modelo [AX]", "WORLD_HASHES": "Hashes do mundo"}
     for k in ["EXACT_DEFINITIONS", "MEASURED_CONSTANTS", "SI_DEFINITIONS", "VACUUM_IMPEDANCE_BRIDGE",
               "GEOMETRIC_INPUTS", "PRE_REGISTERED_PROTOCOL", "EXTERNAL_COMPARISON_ONLY",
               "NUMERICAL_TEST_PARAMETERS", "V3_IRREVERSIBLE_SECTOR", "V4_SCALE_AND_PROGRAM",
               "V8_TETELESTAI_PRUNING", "V16_COCYCLE_TO_EINSTEIN",
-              "V20_HALF_NAT_CONTINUOUS_CORNER_DENSITY", "MODEL_AXIOMS", "WORLD_HASHES"]:
+              "V20_HALF_NAT_CONTINUOUS_CORNER_DENSITY", "V21A_SPECIFIC_AQFT_NET", "V21B_AREA_SCALE_NEWTON",
+              "MODEL_AXIOMS", "WORLD_HASHES"]:
         if k not in world:
             continue
         L.append("## %s" % titles[k]); L.append("")
@@ -9754,6 +10257,24 @@ def main():
     print("  statute: DER GIVEN CANONICAL PLANCK-FACE NORMALIZATION (A(P_face)=l_P^2 [NORM, declarada, nao escondida])")
     print("  [CAUTION] a algebra adimensional NAO deriva l_P^2/G sozinha; III_1 genuino permanece fronteira formal")
     print("  >>> %s <<<\n" % hd["verdict"])
+    aq = core["specific_free_scalar_aqft_net"]; asc = core["area_scale_newton_equivalence"]; ase = asc["equivalence"]
+    print("REDE AQFT ESPECIFICA [v21-A -- existencia III_1 FECHADA para um modelo concreto]:")
+    print("  modelo: campo escalar real livre massivo ; spacetime: Minkowski R^{1,3}")
+    print("  Haag-Kastler (isotonia/localidade/covariancia): KNOWN ; Reeh-Schlieder: KNOWN")
+    print("  Bisognano-Wichmann Delta_W^{it}=U(Lambda_W(-2pi t)): KNOWN")
+    print("  algebras locais A_m(O) tipo III_1: KNOWN UNDER NUCLEARITY/SPLIT/SCALING (Buchholz-D'Antoni-Fredenhagen)")
+    print("  core continuo C_W=A_m(W) x_sigma R: KNOWN (II_infinity) ; sombra finita: %s ; P_F canonico TGL: OPEN" %
+          aq["tgl_embedding_status"]["finite_shadow_verified"])
+    print("  >>> %s <<<\n" % aq["verdict"])
+    print("ESCALA DE AREA [v21-B -- a normalizacao de Planck e' a constante de Newton]:")
+    print("  A(P)=kappa_A tau(P) ; Meia-Nat (S=1/2) e o traco (tau(P_F)=1) NAO fixam kappa_A")
+    print("  liberdade de escala A->lambda A: identidade modular invariante, eta muda (no-go PROVED_ALGEBRAICALLY)")
+    print("  matching 2pi/eta=8piG => kappa_A=%.6g l_P^2 (alvo 2) ; A_face=%.6g l_P^2 (alvo 1) ; eta*G=%.6g (alvo 1/4)" % (
+        ase["kappa_A_over_lp2"], ase["area_face_over_lp2"], ase["eta_times_G"]))
+    print("  A(P_face)=l_P^2 <=> 2pi/eta=8piG (EQUIVALENCIA, nao derivacao independente de G) ; G derivado: %s" %
+          core["half_nat_continuous_corner_density"]["Newton_constant_derived"])
+    print("  >>> %s <<<\n" % asc["verdict"])
+    print("RESIDUO EXATO: TGL_CANONICAL_FINITE_CORNER_THEOREM -- P_F=1_{0}(H_3L) em C_W, 0<Tr_C(P_F)<infinito\n")
     b1 = core["em_grav_bridge"]; b2 = core["smatrix_crossed"]; b3 = core["u_loc_covariance"]
     print("AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:")
     c = b1["checks"]

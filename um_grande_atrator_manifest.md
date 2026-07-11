@@ -503,6 +503,42 @@
 }
 ```
 
+## Rede AQFT especifica: campo escalar livre massivo em Minkowski 3+1; O -> A_m(O); BW/Reeh-Schlieder/BDF [KNOWN]; III_1 local [KNOWN UNDER HYPOTHESES]; core continuo [KNOWN]; projetor canonico TGL P_F [OPEN]
+
+```json
+{
+  "model": "massive free real scalar Haag-Kastler net",
+  "spacetime": "Minkowski R^{1,3}",
+  "net": "O -> A_m(O) = {Weyl(f): f in K(O)}''",
+  "wedge_modular_flow": "Delta_W^{it}=U(Lambda_W(-2pi t)) [KNOWN: Bisognano-Wichmann]",
+  "vacuum": "Omega cyclic-separating [KNOWN: Reeh-Schlieder]",
+  "local_type_III1": "[KNOWN UNDER NUCLEARITY/SPLIT/SCALING: Buchholz-D'Antoni-Fredenhagen]",
+  "continuous_core": "C_W = A_m(W) x_sigma R [KNOWN: type II_infinity]",
+  "TGL_canonical_PF": "[OPEN: TGL_CANONICAL_FINITE_CORNER_THEOREM]",
+  "all_verified": true,
+  "status": "SPECIFIC_FREE_SCALAR_AQFT_NET_INSTANTIATED",
+  "selo": "SPECIFIC_AQFT_NET_IS_THE_FREE_SCALAR_WEYL_NET . WEDGE_MODULAR_FLOW_IS_GEOMETRIC_BY_BW . LOCAL_ALGEBRAS_ARE_III1_UNDER_DECLARED_HYPOTHESES . CONTINUOUS_CORE_EXISTS . TGL_CANONICAL_CORNER_REMAINS_TO_BE_PROVED"
+}
+```
+
+## Escala de area: A(P)=kappa_A tau(P) [DER ate kappa_A]; liberdade de escala kappa_A->lambda kappa_A [DER no-go]; matching 8piG => kappa_A=2 l_P^2, A(P_face)=l_P^2 [DER FROM G, NAO de AQFT sozinha]; G_Newton [DATA]; G NAO derivado
+
+```json
+{
+  "general_form": "A(P)=kappa_A tau(P) [DER, up to kappa_A]",
+  "scale_freedom": "kappa_A -> lambda kappa_A leaves modular data invariant, changes eta [DER no-go, PROVED_ALGEBRAICALLY]",
+  "G_Newton": "measured physical input [DATA]",
+  "kappa_A_over_lP2": 2.0,
+  "A_face_over_lP2": 1.0,
+  "matching": "4pi kappa_A = 8piG => kappa_A=2 l_P^2 [DER FROM MATCHING TO 8piG]",
+  "A_face_eq_lP2": "[DER FROM G, NOT FROM AQFT ALONE]",
+  "Newton_constant_derived": false,
+  "all_verified": true,
+  "status": "PLANCK_FACE_NORMALIZATION_EQUIVALENT_TO_NEWTON_COUPLING",
+  "selo": "MODULAR_DATA_FIX_RELATIVE_AREA_NOT_ABSOLUTE_AREA . AREA_SCALE_RESCALING_LEAVES_HALF_NAT_UNCHANGED . NEWTON_COUPLING_UNIQUELY_FIXES_KAPPA_A_EQUALS_2G . ONE_SELF_CONJUGATE_FACE_EQUALS_ONE_PLANCK_AREA . PLANCK_FACE_NORMALIZATION_IS_EQUIVALENT_NOT_INDEPENDENT"
+}
+```
+
 ## Axiomas do modelo [AX]
 
 ```json
@@ -519,7 +555,7 @@
 
 ```json
 {
-  "code_sha256": "14f4b56f4ca52eaa18d465c3ddbe543da6a24c05deb92d3673b6de042d988bc9",
+  "code_sha256": "0167a809c7c18b41e600936b20b5b6ccbeea0bf6147c82221f40788455f5afef",
   "cf4_catalog_hash": null,
   "window_hash": null,
   "selection_hash": null

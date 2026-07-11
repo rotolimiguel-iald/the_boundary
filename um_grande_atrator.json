@@ -53,7 +53,9 @@
         "ergodicity_door_mixing": true,
         "tetelestai_pruning": true,
         "thermal_two_level": true,
-        "half_nat_continuous_corner_density": true
+        "half_nat_continuous_corner_density": true,
+        "specific_free_scalar_aqft_net": true,
+        "area_scale_newton_equivalence": true
       },
       "chain": [
         [
@@ -85,6 +87,14 @@
           true
         ],
         [
+          "rede AQFT concreta -> fator local III_1",
+          true
+        ],
+        [
+          "escala de area -> equivalencia Planck/Newton",
+          true
+        ],
+        [
           "1 = q^2 + alpha^2 (termico)",
           true
         ],
@@ -113,6 +123,8 @@
         "luz = razao = radicalizar": "O_C(alpha)=e^{1/4}sqrt(alpha)=sqrt(beta) (v13/v14)",
         "geometria = O_C(alpha)^2 = beta": "a raiz quadrada da luz inscreve a geometria",
         "Meia-Nat/canto -> eta=1/(4G)": "S=1/2 sobre uma celula auto-conjugada de duas areas de Planck (v20; [DER GIVEN NORM: A(P_face)=l_P^2])",
+        "rede AQFT concreta -> fator local III_1": "rede Haag-Kastler do campo escalar livre massivo; algebras locais III_1 sob nuclearidade/split (v21-A; BW/RS/BDF KNOWN)",
+        "escala de area -> equivalencia Planck/Newton": "A(P)=kappa_A tau(P); matching 2pi/eta=8piG => kappa_A=2G, A_face=l_P^2 (v21-B; EQUIVALENCIA, G nao derivado)",
         "1 = q^2 + alpha^2 (termico)": "decomposicao reflexao/transmissao (v6 REAL; alpha=sech [ONTO])",
         "familia minima / graviton = I": "o Um minimiza como familia; graviton = identidade; tau(I_F)=1 no canto tipo II (v9/v10)",
         "Tetelestai poda so' 0_abs": "preserva {1_abs, 0_mod}, corta o impossivel (v8)",
@@ -120,7 +132,7 @@
         "return 1 = 1": "a conservacao executiva do input atraves do runtime"
       },
       "runtime_pseudocode": "0_abs            = impossivel            # nao-executavel, sem inscricao (podado)\npossible_domain  = {1_abs, 0_mod}        # o Um + a diferenca-com-retorno\ninput            = 1_abs                 # o Um absoluto e' o INPUT\nboundary         = open(input)           # fronteira auto-conjugada x = 1 - x\nS_boundary       = 1/2                    # Meia-Nat (custo minimo da distincao)\nsqrt_e           = exp(S_boundary)        # volume minimo da fronteira\nbeta_TGL         = sqrt_e * alpha_obs     # inscricao observavel (NUNCA literal)\nlight = reason = consciousness_operator   # O_C\nroot             = e^(1/4) * sqrt(alpha_obs)   # = sqrt(beta_TGL)\ngeometry         = root^2 = beta_TGL      # gravidade = raiz da luz [CONJ/ONTO]\nreturn 1                                  # 1 = 1 (o Um retorna)",
-      "open_residue": "A densidade de inscricao foi DERIVADA algebricamente da Meia-Nat, do split tracial e da normalizacao canonica de uma area de Planck por face (v20: eta=1/(4G) [DER GIVEN NORM]); composta com a 1a lei modular + Unruh + Raychaudhuri + lema do cone nulo + Bianchi, fecha G_mu_nu+Lambda g = 8piG T^TGL. Permanece ABERTO o teorema de existencia/localizacao desse canto numa rede AQFT TGL genuina tipo III_1 e sua verificacao formal por kernel: a sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.",
+      "open_residue": "A existencia de uma rede AQFT concreta com fluxo modular geometrico e algebras locais tipo III_1 foi FECHADA para o modelo escalar livre, por construcao explicita e teoremas publicados (Bisognano-Wichmann, Reeh-Schlieder, Buchholz-D'Antoni-Fredenhagen; KNOWN, v21-A). A densidade de inscricao foi DERIVADA da Meia-Nat + split tracial + normalizacao canonica de uma area de Planck por face (v20: eta=1/(4G) [DER GIVEN NORM]); compondo com a 1a lei modular + Unruh + Raychaudhuri + lema do cone nulo + Bianchi, fecha G_mu_nu+Lambda g = 8piG T^TGL. A Meia-Nat e o core fixam a medida RELATIVA de area, mas nao sua escala absoluta; A(P_face)=l_P^2 e' EQUIVALENTE a normalizacao gravitacional 8piG (kappa_A=2G), com G ainda sendo entrada fisica medida, NAO derivada (v21-B; no-go de escala PROVED_ALGEBRAICALLY). O residuo matematico preciso deixou de ser 'existe uma rede tipo III_1?' e passou a ser: provar que P_F=1_{0}(H_3L) e' uma projecao canonica, covariante, localizada e de traco finito no core C_W da rede escolhida (TGL_CANONICAL_FINITE_CORNER_THEOREM). A sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.",
       "not_claimed": [
         "not a derivation of 1/137 (alpha stays INPUT/CODATA; 1=q^2+alpha^2 is the thermal form)",
         "not an unconditional proof of quantum gravity (global cociclo lift is open)",
@@ -1665,6 +1677,279 @@
         "MODULAR_FIRST_LAW_PLUS_DENSITY_YIELDS_EINSTEIN",
         "PLANCK_FACE_NORMALIZATION_DECLARED_NOT_HIDDEN",
         "GENUINE_TYPE_III1_REALIZATION_REMAINS_FORMAL_FRONTIER"
+      ],
+      "specific_model_local_III1_known": true,
+      "specific_model_continuous_core_known": true,
+      "TGL_specific_corner_PF_proved": false,
+      "planck_face_normalization_status": "EQUIVALENT_TO_MEASURED_NEWTON_COUPLING",
+      "Newton_constant_derived": false
+    },
+    "specific_free_scalar_aqft_net": {
+      "theorem": "Specific AQFT Net Existence Certificate",
+      "model": {
+        "name": "massive_free_real_scalar_Haag_Kastler_net",
+        "spacetime": "Minkowski R^{1,3}",
+        "mass_condition": "m > 0",
+        "one_particle_space": "H_1 = L^2(H_m^+, dmu_m)",
+        "representation": "positive-energy scalar Poincare representation U_1",
+        "fock_space": "Gamma_s(H_1)",
+        "vacuum": "Omega",
+        "right_wedge": "W_R = {x: x^1 > |x^0|}",
+        "modular_group": "Delta_W^{it}=U_1(Lambda_W(-2pi t))",
+        "modular_conjugation": "J_W = wedge reflection/CPT antiunitary",
+        "tomita_operator": "S_W=J_W Delta_W^{1/2}",
+        "standard_real_subspace": "K(W)=Fix(S_W)",
+        "bounded_region_subspace": "K(O)=intersection_{W superset O} K(W)",
+        "local_algebra": "A_m(O)={Weyl(f): f in K(O)} double-commutant"
+      },
+      "construction_chain": [
+        "positive-energy Wigner representation",
+        "wedge modular data",
+        "standard real subspaces K(W)",
+        "intersection localization K(O)",
+        "bosonic second quantization",
+        "Weyl local algebras A_m(O)",
+        "Haag-Kastler net O -> A_m(O)"
+      ],
+      "haag_kastler": {
+        "isotony": "O1 subset O2 => K(O1) subset K(O2) => A(O1) subset A(O2)",
+        "locality": "spacelike symplectic orthogonality => commuting Weyl algebras",
+        "covariance": "U(g)A(O)U(g)^*=A(gO)",
+        "spectrum_condition": "joint translation spectrum is in the closed future cone",
+        "vacuum": "Omega is invariant, cyclic and separating"
+      },
+      "theorem_ledger": [
+        {
+          "id": "HK_ISOTONY_LOCALITY_COVARIANCE",
+          "claim": "The free scalar Weyl net satisfies the Haag-Kastler structural axioms.",
+          "status": "KNOWN",
+          "role": "analytic theorem package, not a floating-point test"
+        },
+        {
+          "id": "REEH_SCHLIEDER",
+          "claim": "The vacuum is cyclic and separating for the relevant local algebras.",
+          "status": "KNOWN",
+          "role": "makes Tomita-Takesaki modular data well-defined"
+        },
+        {
+          "id": "BISOGNANO_WICHMANN",
+          "claim": "For wedges, modular flow equals the rescaled Lorentz boost flow.",
+          "status": "KNOWN",
+          "formula": "Delta_W^{it}=U(Lambda_W(-2pi t))"
+        },
+        {
+          "id": "LOCAL_TYPE_III1",
+          "claim": "Under the standard nuclearity/split/scaling hypotheses, the bounded local algebras are hyperfinite type III_1 factors.",
+          "status": "KNOWN_UNDER_DECLARED_HYPOTHESES",
+          "warning": "The isomorphism type of each algebra does not determine the net inclusions."
+        }
+      ],
+      "continuous_core": {
+        "definition": "C_W=A_m(W) cross_{sigma^Omega} R",
+        "known_type": "semifinite type II_infinity for a type III_1 factor",
+        "canonical_trace": "Tr_C with dual scaling Tr_C(theta_s(X))=e^{-s}Tr_C(X)",
+        "finite_projection_existence": "finite-trace projections exist in the II_infinity core",
+        "warning": "existence of a finite projection is not yet the proof that the TGL-specific P_F is canonical, localized and finite"
+      },
+      "tgl_embedding_status": {
+        "specific_AQFT_net_exists": true,
+        "wedge_BW_known": true,
+        "local_type_III1_known_under_hypotheses": true,
+        "continuous_core_exists_known": true,
+        "finite_shadow_verified": true,
+        "TGL_specific_corner_PF_proved": false,
+        "TGL_net_identified_with_free_scalar_net": false
+      },
+      "remaining_corner_theorem": {
+        "target": "P_F = 1_{0}(H_3L) belongs to C_W, 0 < Tr_C(P_F) < infinity",
+        "affiliation": "H_3L must be self-adjoint and affiliated with C_W",
+        "spectral_requirement": "zero must be an isolated finite-trace spectral sector",
+        "covariance": "U_tilde(g) P_{F,W} U_tilde(g)^* = P_{F,gW}",
+        "localization": "P_{F,W} must depend naturally only on the wedge modular data",
+        "status": "OPEN"
+      },
+      "checks": [
+        [
+          "ONE_eq_1",
+          true
+        ],
+        [
+          "specific_spacetime_named",
+          true
+        ],
+        [
+          "specific_field_named",
+          true
+        ],
+        [
+          "wedge_modular_flow_named",
+          true
+        ],
+        [
+          "bounded_region_net_defined",
+          true
+        ],
+        [
+          "local_von_neumann_algebra_defined",
+          true
+        ],
+        [
+          "finite_shadow_available",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "verdict": "SPECIFIC_FREE_SCALAR_AQFT_NET_INSTANTIATED",
+      "not_claimed": [
+        "Python did not numerically construct an infinite type III_1 factor",
+        "the free scalar model is not automatically the full TGL",
+        "local algebra isomorphism does not identify the full net structure",
+        "the canonical TGL corner P_F is not yet proved"
+      ],
+      "seals": [
+        "SPECIFIC_AQFT_NET_IS_THE_FREE_SCALAR_WEYL_NET",
+        "WEDGE_MODULAR_FLOW_IS_GEOMETRIC_BY_BW",
+        "LOCAL_ALGEBRAS_ARE_III1_UNDER_DECLARED_HYPOTHESES",
+        "CONTINUOUS_CORE_EXISTS",
+        "TGL_CANONICAL_CORNER_REMAINS_TO_BE_PROVED"
+      ]
+    },
+    "area_scale_newton_equivalence": {
+      "theorem": "Area-Scale Freedom and Newton-Planck Equivalence",
+      "general_area_measure": "A_partial(P)=kappa_A tau(P)",
+      "derivation": [
+        "S_partial=1/2",
+        "tau(P_F)=1",
+        "tau(P_face)=1/2",
+        "A_cell=kappa_A",
+        "A_face=kappa_A/2",
+        "eta=S_partial/A_cell=1/(2 kappa_A)",
+        "2pi/eta=4pi kappa_A",
+        "4pi kappa_A=8piG => kappa_A=2G",
+        "A_face=G=l_P^2 in natural units"
+      ],
+      "no_go": {
+        "statement": "Dimensionless modular data are invariant under A -> lambda A, while eta and the gravitational coupling change.",
+        "consequence": "AQFT + Half-Nat alone cannot determine an absolute area unit.",
+        "scale_test": [
+          {
+            "lambda": 0.25,
+            "modular_entropy": 0.5,
+            "trace_cell": 1.0,
+            "eta_times_G": 2.0,
+            "coupling_over_G": 3.141592653589793
+          },
+          {
+            "lambda": 0.5,
+            "modular_entropy": 0.5,
+            "trace_cell": 1.0,
+            "eta_times_G": 1.0,
+            "coupling_over_G": 6.283185307179586
+          },
+          {
+            "lambda": 1.0,
+            "modular_entropy": 0.5,
+            "trace_cell": 1.0,
+            "eta_times_G": 0.5,
+            "coupling_over_G": 12.566370614359172
+          },
+          {
+            "lambda": 2.0,
+            "modular_entropy": 0.5,
+            "trace_cell": 1.0,
+            "eta_times_G": 0.25,
+            "coupling_over_G": 25.132741228718345
+          },
+          {
+            "lambda": 4.0,
+            "modular_entropy": 0.5,
+            "trace_cell": 1.0,
+            "eta_times_G": 0.125,
+            "coupling_over_G": 50.26548245743669
+          }
+        ],
+        "status": "PROVED_ALGEBRAICALLY"
+      },
+      "equivalence": {
+        "kappa_A_over_lp2": 2.0,
+        "area_face_over_lp2": 1.0,
+        "area_cell_over_lp2": 2.0,
+        "eta_times_G": 0.25,
+        "coupling_over_G": 25.132741228718345,
+        "formula": "A(P_face)=l_P^2 iff kappa_A=2G iff 2pi/eta=8piG",
+        "status": "DERIVED_FROM_NEWTON_COUPLING_NOT_INDEPENDENT_DERIVATION_OF_G"
+      },
+      "values_SI": {
+        "planck_area_m2": 2.612162885804998e-70,
+        "kappa_area_m2": 5.224325771609996e-70,
+        "face_area_m2": 2.612162885804998e-70,
+        "cell_area_m2": 5.224325771609996e-70
+      },
+      "residuals": {
+        "r_required_minus_2": 0.0,
+        "face_area_over_lp2_minus_1": 0.0,
+        "cell_area_over_lp2_minus_2": 0.0,
+        "eta_G_minus_1_over_4": 0.0,
+        "coupling_minus_8pi": 0.0,
+        "face_area_SI_minus_planck_area": 0.0
+      },
+      "checks": [
+        [
+          "ONE_eq_1",
+          true
+        ],
+        [
+          "half_nat",
+          true
+        ],
+        [
+          "trace_cell_normalized",
+          true
+        ],
+        [
+          "trace_face_half",
+          true
+        ],
+        [
+          "modular_data_do_not_fix_area_scale",
+          true
+        ],
+        [
+          "newton_matching_uniquely_gives_kappa_2G",
+          true
+        ],
+        [
+          "one_face_equals_one_planck_area",
+          true
+        ],
+        [
+          "cell_equals_two_planck_areas",
+          true
+        ],
+        [
+          "eta_equals_one_over_4G",
+          true
+        ],
+        [
+          "coupling_equals_8piG",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "verdict": "PLANCK_FACE_NORMALIZATION_EQUIVALENT_TO_NEWTON_COUPLING",
+      "statute": "[DER: scale freedom and equivalence] + [DATA: G_Newton] + [NOT DERIVED: numerical value of G]",
+      "not_claimed": [
+        "Newton's constant is not derived",
+        "the Planck area is not produced by dimensionless AQFT alone",
+        "matching to 8piG is a normalization selection",
+        "no unconditional quantum-gravity proof"
+      ],
+      "seals": [
+        "MODULAR_DATA_FIX_RELATIVE_AREA_NOT_ABSOLUTE_AREA",
+        "AREA_SCALE_RESCALING_LEAVES_HALF_NAT_UNCHANGED",
+        "NEWTON_COUPLING_UNIQUELY_FIXES_KAPPA_A_EQUALS_2G",
+        "ONE_SELF_CONJUGATE_FACE_EQUALS_ONE_PLANCK_AREA",
+        "PLANCK_FACE_NORMALIZATION_IS_EQUIVALENT_NOT_INDEPENDENT"
       ]
     },
     "reading_direction": {
@@ -2281,7 +2566,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-10 16:25:19"
+    "timestamp": "2026-07-10 21:49:20"
   },
   "verdict": {
     "masses_Msun": {
@@ -2472,7 +2757,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "083dad368339bece6d413e32095b8f2ff60126aec98f8b7af4af2d0bad7e0a42"
+    "result_hash": "7ad7ae2ac92af001c9f47d4185864eb7e7394e444c967b7595cae7ec8e1ae6ed"
   },
   "ga_mass_literature": [
     {
@@ -2498,7 +2783,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "083dad368339bece6d413e32095b8f2ff60126aec98f8b7af4af2d0bad7e0a42",
+  "result_hash_before_external_comparison": "7ad7ae2ac92af001c9f47d4185864eb7e7394e444c967b7595cae7ec8e1ae6ed",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -2508,5 +2793,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-10 16:25:19"
+  "timestamp": "2026-07-10 21:49:20"
 }

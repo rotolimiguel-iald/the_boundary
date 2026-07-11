@@ -1,0 +1,87 @@
+{
+ "script": "tgl_continuum_v1.py",
+ "timestamp": "20260710_164643",
+ "beta_tgl": 0.012031300400803142,
+ "runs": [
+  {
+   "seed": 11,
+   "C1_h_first_last": [
+    0.04935927806565486,
+    9.640483997199187e-05
+   ],
+   "C1_rate_per_gen": 0.5000000000000056,
+   "C1_R2": 1.0,
+   "C1_pass": true,
+   "C2_cross_first_last": [
+    0.02931973543710053,
+    0.0007062854344955303
+   ],
+   "C2_KS_first_last": [
+    0.14850164237664243,
+    0.021877496755838
+   ],
+   "C2_pass": true,
+   "C3_identity_err": 6.202646647949557e-16,
+   "C3_min_eig_rel": 0.1651658522015388,
+   "C3_pass": true
+  },
+  {
+   "seed": 23,
+   "C1_h_first_last": [
+    0.04935927806565486,
+    9.640483997199187e-05
+   ],
+   "C1_rate_per_gen": 0.5000000000000056,
+   "C1_R2": 1.0,
+   "C1_pass": true,
+   "C2_cross_first_last": [
+    0.027929102636005634,
+    0.000759285083390062
+   ],
+   "C2_KS_first_last": [
+    0.14145822087823057,
+    0.018403227497093444
+   ],
+   "C2_pass": true,
+   "C3_identity_err": 2.1008390455745596e-15,
+   "C3_min_eig_rel": 0.13648905600840577,
+   "C3_pass": true
+  },
+  {
+   "seed": 83,
+   "C1_h_first_last": [
+    0.04935927806565486,
+    9.640483997199187e-05
+   ],
+   "C1_rate_per_gen": 0.5000000000000056,
+   "C1_R2": 1.0,
+   "C1_pass": true,
+   "C2_cross_first_last": [
+    0.02548779451249661,
+    0.0005266632647767158
+   ],
+   "C2_KS_first_last": [
+    0.20539514032375483,
+    0.018022339681995514
+   ],
+   "C2_pass": true,
+   "C3_identity_err": 9.558967245603489e-16,
+   "C3_min_eig_rel": 0.10681994920335613,
+   "C3_pass": true
+  }
+ ],
+ "verdict": "PASS \u2014 a cascata e GH-Cauchy ao intervalo continuo (hiperfinitude em acao); o limite e canonico (independe do esquema) e carrega a medida (C=L^inf); a positividade de reflexao e automatica: a meia-nat fatora em duas quartas-medidas \u2014 a travessia e um quadrado",
+ "anchors": [
+  "Haagerup 1987 (unicidade do fator hiperfinito III_1; hiperfinitude = sombras densas)",
+  "Buchholz-D'Antoni-Fredenhagen (algebras locais sao hiperfinitas III_1)",
+  "Classificacao abeliana (C = L^inf(Sigma,mu))",
+  "Rieffel (convergencia Gromov-Hausdorff quantica)",
+  "Connes 2008 (reconstrucao: dado espectral => variedade suave)",
+  "Osterwalder-Schrader + Tomita (positividade de reflexao automatica: M = Gram(Delta^{1/4}aOmega))"
+ ],
+ "conditional_on": [
+  "T1 (ergodicidade do colapso em III_1)",
+  "axiomas de Connes para a tripla-limite (suportados por P3: dim->1, flexoes C-inf)",
+  "convergencia GH em III_1 genuina (provada na sombra; conjecturada no continuo via Rieffel)"
+ ]
+}

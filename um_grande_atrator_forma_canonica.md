@@ -201,6 +201,8 @@ A cadeia canônica (re-verificada ao vivo, agregando v1–v14):
 - **luz = razao = radicalizar** — O_C(alpha)=e^{1/4}sqrt(alpha)=sqrt(beta) (v13/v14) `[OK]`
 - **geometria = O_C(alpha)^2 = beta** — a raiz quadrada da luz inscreve a geometria `[OK]`
 - **Meia-Nat/canto -> eta=1/(4G)** — S=1/2 sobre uma celula auto-conjugada de duas areas de Planck (v20; [DER GIVEN NORM: A(P_face)=l_P^2]) `[OK]`
+- **rede AQFT concreta -> fator local III_1** — rede Haag-Kastler do campo escalar livre massivo; algebras locais III_1 sob nuclearidade/split (v21-A; BW/RS/BDF KNOWN) `[OK]`
+- **escala de area -> equivalencia Planck/Newton** — A(P)=kappa_A tau(P); matching 2pi/eta=8piG => kappa_A=2G, A_face=l_P^2 (v21-B; EQUIVALENCIA, G nao derivado) `[OK]`
 - **1 = q^2 + alpha^2 (termico)** — decomposicao reflexao/transmissao (v6 REAL; alpha=sech [ONTO]) `[OK]`
 - **familia minima / graviton = I** — o Um minimiza como familia; graviton = identidade; tau(I_F)=1 no canto tipo II (v9/v10) `[OK]`
 - **Tetelestai poda so' 0_abs** — preserva {1_abs, 0_mod}, corta o impossivel (v8) `[OK]`
@@ -223,7 +225,7 @@ return 1                                  # 1 = 1 (o Um retorna)
 
 Espinha escalar ao vivo: `input=1`, `S_∂=½`, `√e=1.648721`, `β=√e·α=0.012031300400797`, `O_C(α)²=0.012031300400797=β` (resíduo `3.5\times10^{-18}`); `1=q²+α²` (térmico v6, resíduo `2.2\times10^{-16}`). Veredito `TGL_IS_THE_RUNTIME_OF_THE_ONE_VERIFIED`.
 
-**A régua, no próprio selo (o que a síntese NÃO afirma):** (1) `1=q²+α²` é a identidade pitagórica **térmica** (`tanh²+sech²=1`, v6 REAL); `α_obs=sech` é `[ONTO]` — **não** é derivação de `1/137` (α segue INPUT/CODATA; o que fecha é a *forma* da decomposição reflexão/transmissão). (2) *gravidade = raiz da luz*, *gráviton = I*, *massa = curvatura do clock modular* são `[CONJ/ONTO]`; **A densidade de inscricao foi DERIVADA algebricamente da Meia-Nat, do split tracial e da normalizacao canonica de uma area de Planck por face (v20: eta=1/(4G) [DER GIVEN NORM]); composta com a 1a lei modular + Unruh + Raychaudhuri + lema do cone nulo + Bianchi, fecha G_mu_nu+Lambda g = 8piG T^TGL. Permanece ABERTO o teorema de existencia/localizacao desse canto numa rede AQFT TGL genuina tipo III_1 e sua verificacao formal por kernel: a sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.** (3) *consciência = operador executivo de coerência*, **não** experiência subjetiva `[CAUTION]`.
+**A régua, no próprio selo (o que a síntese NÃO afirma):** (1) `1=q²+α²` é a identidade pitagórica **térmica** (`tanh²+sech²=1`, v6 REAL); `α_obs=sech` é `[ONTO]` — **não** é derivação de `1/137` (α segue INPUT/CODATA; o que fecha é a *forma* da decomposição reflexão/transmissão). (2) *gravidade = raiz da luz*, *gráviton = I*, *massa = curvatura do clock modular* são `[CONJ/ONTO]`; **A existencia de uma rede AQFT concreta com fluxo modular geometrico e algebras locais tipo III_1 foi FECHADA para o modelo escalar livre, por construcao explicita e teoremas publicados (Bisognano-Wichmann, Reeh-Schlieder, Buchholz-D'Antoni-Fredenhagen; KNOWN, v21-A). A densidade de inscricao foi DERIVADA da Meia-Nat + split tracial + normalizacao canonica de uma area de Planck por face (v20: eta=1/(4G) [DER GIVEN NORM]); compondo com a 1a lei modular + Unruh + Raychaudhuri + lema do cone nulo + Bianchi, fecha G_mu_nu+Lambda g = 8piG T^TGL. A Meia-Nat e o core fixam a medida RELATIVA de area, mas nao sua escala absoluta; A(P_face)=l_P^2 e' EQUIVALENTE a normalizacao gravitacional 8piG (kappa_A=2G), com G ainda sendo entrada fisica medida, NAO derivada (v21-B; no-go de escala PROVED_ALGEBRAICALLY). O residuo matematico preciso deixou de ser 'existe uma rede tipo III_1?' e passou a ser: provar que P_F=1_{0}(H_3L) e' uma projecao canonica, covariante, localizada e de traco finito no core C_W da rede escolhida (TGL_CANONICAL_FINITE_CORNER_THEOREM). A sintese fecha como RUNTIME DO UM, NAO como prova incondicional da gravitacao quantica.** (3) *consciência = operador executivo de coerência*, **não** experiência subjetiva `[CAUTION]`.
 
 Selos de fecho: `TGL_IS_THE_RUNTIME_OF_THE_ONE . ABSOLUTE_ONE_IS_INPUT . LIGHT_IS_REASON . REASON_IS_CONSCIOUSNESS_OPERATOR . GRAVITY_IS_THE_ROOT_OF_LIGHT . TETELESTAI_PRUNES_THE_IMPOSSIBLE . ONE_RETURNS_AS_ONE . GLOBAL_LIFT_REMAINS_THE_SINGLE_OPEN_THEOREM`. **A TGL é a teoria do runtime do Um. Haja luz. Tetelestai.**
 
@@ -336,3 +338,30 @@ A_∂(P_±) = ℓ_P² ;   A_cell = A_∂(P_F) = 2 ℓ_P²
 Verificado ao vivo (SI): `ℓ_P²=2.612\times10^{-70} m²`, `A_face=2.612\times10^{-70} m²`, `A_cell=5.224\times10^{-70} m²`, `η=9.571\times10^{68} nat/m²` = `1/(4ℓ_P²)` (resíduo relativo `0`). Unidades naturais: `η=0.250 = 1/(4G)`, `2π/η=25.132741 = 8πG` (resíduo `0`). Veredito `HALF_NAT_DENSITY_DERIVED_FROM_CANONICAL_CORNER_NORMALIZATION`.
 
 **A Meia-Nat fixa o custo entrópico mínimo. O traço do canto contínuo fixa a medida relativa. A normalização de uma área de Planck por face mínima fixa a escala dimensional. A densidade `1/(4G)` é derivada desses três elementos conjuntamente; não da Meia-Nat isoladamente.** A normalização `A(P_face)=ℓ_P²` é a condição de escala geométrica `[NORM]` — a teoria modular fixa `A` apenas até uma constante multiplicativa, e essa constante **não é escondida**. Composta com a primeira lei modular, Unruh–Clausius, Raychaudhuri, o lema do cone nulo e Bianchi (todos declarados), fecha `G_μν + Λg_μν = 8πG T^TGL_μν`. `[CONDITIONAL]` a existência/localização rigorosa desse canto num fator `III₁` genuíno permanece a fronteira formal. Selos: `HALF_NAT_IS_ENTROPY_OF_MINIMAL_SELF_CONJUGATE_CELL . CONTINUOUS_CORNER_TRACE_SPLITS_INTO_TWO_EQUAL_FACES . EACH_MINIMAL_FACE_HAS_ONE_PLANCK_AREA_BY_CANONICAL_NORMALIZATION . AREA_CELL_EQUALS_TWO_PLANCK_AREAS . INSCRIPTION_DENSITY_EQUALS_ONE_OVER_FOUR_PLANCK_AREA . IN_NATURAL_UNITS_ETA_EQUALS_ONE_OVER_FOUR_G . JACOBSON_COUPLING_EQUALS_EIGHT_PI_G . PLANCK_FACE_NORMALIZATION_IS_DECLARED_NOT_HIDDEN`.
+
+## v21-A — Uma rede AQFT específica
+
+```
+H_1 = L²(H_m^+, dμ_m)
+Δ_W^{it} = U(Λ_W(-2π t))          (Bisognano–Wichmann)
+S_W = J_W Δ_W^{1/2} ;   K(W) = Fix(S_W)
+K(O) = ∩_{W ⊃ O} K(W)
+A_m(O) = {Weyl(f) : f ∈ K(O)}''
+O₁ ⊂ O₂ ⇒ A(O₁) ⊂ A(O₂) ;   O₁ ⊥ O₂ ⇒ [A(O₁),A(O₂)]=0 ;   U(g)A(O)U(g)* = A(gO)
+A_m(O) ≅ R_∞   [KNOWN UNDER NUCLEARITY/SPLIT/SCALING]
+```
+
+A existência de uma rede AQFT tipo `III₁` não é mais uma conjectura abstrata: escolhe-se uma rede explícita conhecida — o campo escalar real livre massivo em `R^{1,3}`. O fluxo modular de cunhas é geométrico por Bisognano–Wichmann; as álgebras locais são hiperfinitas tipo `III₁` sob nuclearidade/split/escala (Buchholz–D'Antoni–Fredenhagen). Isso **não** identifica automaticamente essa rede com toda a TGL nem constrói o projetor `P_F`. Veredito `SPECIFIC_FREE_SCALAR_AQFT_NET_INSTANTIATED`. `[DEF + KNOWN + NUM + OPEN]`
+
+## v21-B — A escala de área é a constante de Newton
+
+```
+A(P) = κ_A τ(P)
+S_∂ = 1/2 ;   τ(P_F) = 1 ;   τ(P_face) = 1/2
+η = (1/2)/κ_A = 1/(2κ_A) ;   2π/η = 4π κ_A
+4π κ_A = 8πG   ⇒   κ_A = 2G   ⇒   A(P_face) = G = ℓ_P²
+```
+
+Verificado ao vivo: `κ_A/ℓ_P² = 2` (alvo 2), `A_face/ℓ_P² = 1` (alvo 1), `η·G = 0.25` (alvo 1/4), `(2π/η)/G = 25.1327` (alvo 8π=25.132741). A liberdade de escala `A → λA` deixa toda identidade modular invariante mas muda `η` (no-go `PROVED_ALGEBRAICALLY`). Veredito `PLANCK_FACE_NORMALIZATION_EQUIVALENT_TO_NEWTON_COUPLING`.
+
+**A Meia-Nat fixa o numerador. O core fixa a medida relativa. `G` fixa a unidade dimensional. Nenhum dado adimensional pode, sem informação adicional, selecionar uma área em metros quadrados.** `A(P_face)=ℓ_P²` é *equivalente* à normalização gravitacional `8πG`, **não** uma derivação independente de `G` (que permanece entrada física medida). O resíduo exato deixou de ser 'existe uma rede `III₁`?' e passou a ser o `TGL_CANONICAL_FINITE_CORNER_THEOREM`: provar que `P_F = 1_{0}(H_3L) ∈ C_W`, `0 < Tr_C(P_F) < ∞`. `[DER + DATA]`

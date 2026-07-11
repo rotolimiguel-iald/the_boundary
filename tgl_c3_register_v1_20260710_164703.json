@@ -1,0 +1,86 @@
+{
+ "script": "tgl_c3_register_v1.py",
+ "timestamp": "20260710_164703",
+ "beta_tgl": 0.012031300400803142,
+ "runs": [
+  {
+   "n": 4,
+   "seed": 11,
+   "R1_mirror_err": 1.575841398752336e-16,
+   "R1_pass": true,
+   "R2_connected_corr_min": 0.06739995185047297,
+   "R2_pass": true,
+   "R3_signal": 6.963199988216407e-16,
+   "R3_pass": true,
+   "R4_aging": 6.736018412894845e-16,
+   "R4_pass": true
+  },
+  {
+   "n": 4,
+   "seed": 23,
+   "R1_mirror_err": 1.2989409723945456e-16,
+   "R1_pass": true,
+   "R2_connected_corr_min": 0.04737690628000191,
+   "R2_pass": true,
+   "R3_signal": 6.673583837475351e-16,
+   "R3_pass": true,
+   "R4_aging": 2.0655843273363803e-15,
+   "R4_pass": true
+  },
+  {
+   "n": 4,
+   "seed": 83,
+   "R1_mirror_err": 1.2852875498246463e-16,
+   "R1_pass": true,
+   "R2_connected_corr_min": 0.06838155230053952,
+   "R2_pass": true,
+   "R3_signal": 4.444533194722368e-16,
+   "R3_pass": true,
+   "R4_aging": 2.7140781714628515e-15,
+   "R4_pass": true
+  },
+  {
+   "n": 6,
+   "seed": 11,
+   "R1_mirror_err": 1.4885085164530112e-16,
+   "R1_pass": true,
+   "R2_connected_corr_min": 0.05263226001987846,
+   "R2_pass": true,
+   "R3_signal": 1.4368364099224804e-15,
+   "R3_pass": true,
+   "R4_aging": 3.271542591452158e-15,
+   "R4_pass": true
+  },
+  {
+   "n": 6,
+   "seed": 23,
+   "R1_mirror_err": 1.7303457581381288e-16,
+   "R1_pass": true,
+   "R2_connected_corr_min": 0.00871438228430939,
+   "R2_pass": true,
+   "R3_signal": 9.091132683174653e-16,
+   "R3_pass": true,
+   "R4_aging": 6.571165373276051e-15,
+   "R4_pass": true
+  },
+  {
+   "n": 6,
+   "seed": 83,
+   "R1_mirror_err": 1.66883995803594e-16,
+   "R1_pass": true,
+   "R2_connected_corr_min": 0.04991313788925687,
+   "R2_pass": true,
+   "R3_signal": 8.442522371969248e-16,
+   "R3_pass": true,
+   "R4_aging": 4.254878650532117e-15,
+   "R4_pass": true
+  }
+ ],
+ "verdict": "PASS \u2014 a segunda aparicao e a imagem-espelho (A'=JAJ); a ligacao e constitutiva (correlacao O(1) sem acoplamento), nao-sinalizante (exato) e nao envelhece no tempo modular: potencia elevada no EXPOENTE, modulo nenhum",
+ "anchors": [
+  "Tomita (comutante = J A J: o espelho cria a segunda aparicao) [REAL]",
+  "No-signaling (o registro c^3 e invisivel como sinal c^1: a blindagem) [REAL]",
+  "Salart et al. 2008 (limite >10^4 c para qualquer 'velocidade' de correlacao: a correlacao nao tem velocidade) [REAL]"
+ ],
+ "thesis": "c^1/c^2/c^3 sao potencias (registros), nao velocidades num mesmo eixo. A ligacao do substrato opera no registro c^3: elevacao no expoente, nao no modulo. O relogio da fractalizacao e o do Verbo (geracoes da cascata, b = (1/2)log(1/beta)), nao o do bulk."
+}
