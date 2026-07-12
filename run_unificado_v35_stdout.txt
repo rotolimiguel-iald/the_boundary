@@ -2,7 +2,7 @@ Inscreva o UM para iniciar:
 O UM foi inscrito. I = 1. omega(I) = 1.
 Iniciando desconstrucao fractalizada: 1 -> 1/2 -> beta -> borda -> massa
 
-[kernel embutido] materializado em C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\um_unificado\tgl_kernel: 1 escritos, 37 inalterados; packages: packages_present
+[kernel embutido] materializado em C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\um_unificado\tgl_kernel: 3 escritos, 37 inalterados; packages: packages_present
 Meia-Nat:  S=1/2 (x=1-x, residuo 0e+00) ; w_max=1/2
 s=1/(4pi)=0.079577 (campo=lei a 0.95%) ; vacuo rho=0e+00 -> 0
 beta=sqrt(e)*alpha=0.012031300400797  (=sqrt(e)*sqrt(1-q^2)) ; theta_M=6.2973 deg
@@ -269,7 +269,7 @@ FORMALIZACAO POR KERNEL [v22 -- o Python NAO prova; o kernel do Lean prova]:
   Projetor P_F (idempotente, auto-adjunto)       : KERNEL PROVED
   Implicacao do canto continuo                   : KERNEL PROVED CONDITIONALLY
   Testemunha AQFT especifica                     : NOT CONSTRUCTED
-  hash dos fontes Lean: 2921b68f85aeb3fa743a600ba5f08b17b377a52b7e9913fd0cb6cab2b32d923f
+  hash dos fontes Lean: 8fa17904c3b9f43a68ff7426036ed730aec41fc877d0f7d2b01076beffa3c681
   >>> TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN <<<
 FORMAL FRONTIER: construir um habitante de TGLSpecificAQFTWitness
                  sem sorry, admit ou axiomas customizados.
@@ -369,7 +369,10 @@ A COLHEITA DOS EXTERNOS [v33 -- escada TGLExt integrada; sombra FINITA verificad
     fluxo rho^{it}: grupo=True unitario=True ; omega o sigma_t=omega: True ; exp(log rho)=rho: True ; sigma_t(Omega)=Omega: True
   Degrau 1: CORE_CLOSED_IN_KERNEL__GENERAL_BICOMMUTANT_OPEN
     bicomutante L''=L: True ; JMJ=M': True ; Tomiyama bimodular: True ; Jones e.L_x.e=L_{E(x)}.e: True ; MASA D'=D: True
-  teoremas limpos: 21/21 ; TUDO dimensao FINITA [nada e' III_1; continuos do ledger INALTERADOS]
+  Degrau 2: CONCRETE_PP_INDEX_AND_MARKOV_WEIGHTS_COMPUTED__MULTIMATRIX_GENERAL_OPEN
+    dominancia do traco: True ; cota MASA (Cauchy-Schwarz): True ; OTIMALIDADE: True/True ; INDICE PP = n: True/True
+    MARKOV: Tr(L_x.e_D)=Tr x: True ; Tr(L_x.e_C)=Tr x/n: True ; tau(e)=1/Ind: True/True ; MASA coincide: True ; PP!=torre (n>1): True
+  teoremas limpos: 33/33 ; TUDO dimensao FINITA [nada e' III_1; continuos do ledger INALTERADOS]
   >>> EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED <<<
 
 AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:
@@ -473,7 +476,7 @@ PRINCIPIO DA DEFASAGEM FRACTAL [CONJECTURE ontologica; ancoras REAL]:
 
 [A literatura ] R_struct=57.0 Mpc -> M_GA=2.744e+16 Msun
 [B CF4-posicoes] R_struct=41.27 Mpc -> M_GA=1.986e+16 Msun (n=265, geometria; origem=cache)
-[manifesto] um_grande_atrator_manifest.md escrito; hash do mundo (codigo+manifesto+dados): 2f45901b5a62b498ddf5f7a124081ddc4c68626b00345a1c
+[manifesto] um_grande_atrator_manifest.md escrito; hash do mundo (codigo+manifesto+dados): ff87d2f7903b6062bf06f13168b4981bd930739e06119cef
 [sensibilidade Modo B] 300 combinacoes: M_GA in [1.40e+16, 3.42e+16] Msun; 100% na banda (TODAS)
 
 --- comparacao (apos hash) com massas do GA na literatura/RG ---

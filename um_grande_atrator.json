@@ -2283,6 +2283,66 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.trace_smul_one_sub_posSemidef": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.card_smul_diagExpect_sub_posSemidef": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.isGreatest_ppBound_trExpect": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.isGreatest_ppBound_diagExpect": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.ppIndexTr_eq_card": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.ppIndexDiag_eq_card": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.trace_Lmul_eD": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.trace_Lmul_eTr": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tau_eD": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tau_eTr": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.masa_tower_weight_eq_ppBest": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.pp_ne_tower_for_scalars": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "TGLExt.J_deltaHalf": [
           "propext",
           "Classical.choice",
@@ -2339,15 +2399,15 @@
           "Quot.sound"
         ]
       },
-      "formal_source_hash": "2921b68f85aeb3fa743a600ba5f08b17b377a52b7e9913fd0cb6cab2b32d923f",
+      "formal_source_hash": "8fa17904c3b9f43a68ff7426036ed730aec41fc877d0f7d2b01076beffa3c681",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "cab57e39b7cd2a8ac4f69950ffdfb543eca1efa98f00a831241f2848310fdf99",
+        "TGLExt.lean": "b9a2e6f48f973e446a5f5077b2332b804f27bcc894ecfeecc31396da5d0c9324",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "86782a45e912ac65c9fca0fa8921e72ff6f8e1c97054aee96a0b34e271fc603c",
+        "TGL/Audit.lean": "45a7f3d97dc635417f803df58f9fe23d7774cfebb20c2a188219ac1194b914f2",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -2377,7 +2437,9 @@
         "TGLExt/CondExpect.lean": "33e0eecd498ec326d8f5bf699b3a5b5aae4a388fa049564bfd8619b096737ede",
         "TGLExt/FiniteTomita.lean": "f845a71a81bb02585020f5da224a9407b4dd36b1408cccab37ea1b69cfb6647e",
         "TGLExt/LeftRight.lean": "fd127e4d3b361423c66683d5de9bee95ed5c947013ab169d7bfad5a66951bb4a",
-        "TGLExt/ModularFlow.lean": "62cfa753d4b40a9091aafb383a8edd588a542dddf5e97ee39906ec31c59826b9"
+        "TGLExt/MarkovTower.lean": "5b542018622975c4b2c498d1727ca20f7280ad108bfc25d0a587958097e2e74b",
+        "TGLExt/ModularFlow.lean": "62cfa753d4b40a9091aafb383a8edd588a542dddf5e97ee39906ec31c59826b9",
+        "TGLExt/PPIndex.lean": "7f6dc10d57b4852440308ce1c096cbc8e6403d1ac24d0d099e98cb204802060a"
       },
       "all_unconditional_targets_verified": true,
       "all_conditional_implications_verified": true,
@@ -2463,24 +2525,36 @@
       "ext_delta_fixes_omega_kernel_proved": true,
       "ext_flow_automorphism_kernel_proved": true,
       "ext_jones_scalar_kernel_proved": true,
+      "ext_pp_trace_dominance_kernel_proved": true,
+      "ext_pp_masa_bound_kernel_proved": true,
+      "ext_pp_optimal_scalars_kernel_proved": true,
+      "ext_pp_optimal_masa_kernel_proved": true,
+      "ext_pp_index_scalars_kernel_proved": true,
+      "ext_pp_index_masa_kernel_proved": true,
+      "ext_markov_trace_masa_kernel_proved": true,
+      "ext_markov_trace_scalars_kernel_proved": true,
+      "ext_mirror_weight_masa_kernel_proved": true,
+      "ext_mirror_weight_scalars_kernel_proved": true,
+      "ext_masa_indices_coincide_kernel_proved": true,
+      "ext_pp_vs_tower_distinct_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "1051f37d76285bddff4533d4647d2670d5c9acc43cfd0dcefdeab90709399614",
+      "build_stdout_sha256": "a69701c208f53cf32f7135ab17c7b4a207b766e882786e7d0a87fc9a73613d89",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "97d56cb02ba6128b3b5c320114c188018fc5e24f0b0128cddb144155b961ac17",
+      "audit_stdout_sha256": "0b581d7e05dcfe5830b2aea0b0d75c6969c4ac10144df17cb110ab9224929213",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 35642,
+        "stdout": 39506,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 24801,
+        "stdout": 27850,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "1051f37d76285bddff4533d4647d2670d5c9acc43cfd0dcefdeab90709399614",
-      "audit_capture_sha256_full": "97d56cb02ba6128b3b5c320114c188018fc5e24f0b0128cddb144155b961ac17",
+      "build_capture_sha256_full": "a69701c208f53cf32f7135ab17c7b4a207b766e882786e7d0a87fc9a73613d89",
+      "audit_capture_sha256_full": "0b581d7e05dcfe5830b2aea0b0d75c6969c4ac10144df17cb110ab9224929213",
       "custom_TGL_axioms_found": [],
       "source_forbidden_tokens_found": [],
       "formal_release_ready": true,
@@ -3667,7 +3741,7 @@
       "ladder": {
         "degrau_0_finite_tomita_takesaki": "CLOSED_IN_KERNEL",
         "degrau_1_von_neumann_basics": "CORE_CLOSED_IN_KERNEL__GENERAL_BICOMMUTANT_OPEN",
-        "degrau_2_finite_jones_index": "OPEN__BLOCKS_IN_PLACE (esperancas + relacoes de Jones)",
+        "degrau_2_finite_jones_index": "CONCRETE_PP_INDEX_AND_MARKOV_WEIGHTS_COMPUTED__MULTIMATRIX_GENERAL_OPEN",
         "degrau_3_continuum_III1_BW": "OPEN__RESEARCH (documentado; nada reivindicado)"
       },
       "per_theorem": {
@@ -3691,10 +3765,22 @@
         "ext_polar_square_kernel_proved": true,
         "ext_delta_fixes_omega_kernel_proved": true,
         "ext_flow_automorphism_kernel_proved": true,
-        "ext_jones_scalar_kernel_proved": true
+        "ext_jones_scalar_kernel_proved": true,
+        "ext_pp_trace_dominance_kernel_proved": true,
+        "ext_pp_masa_bound_kernel_proved": true,
+        "ext_pp_optimal_scalars_kernel_proved": true,
+        "ext_pp_optimal_masa_kernel_proved": true,
+        "ext_pp_index_scalars_kernel_proved": true,
+        "ext_pp_index_masa_kernel_proved": true,
+        "ext_markov_trace_masa_kernel_proved": true,
+        "ext_markov_trace_scalars_kernel_proved": true,
+        "ext_mirror_weight_masa_kernel_proved": true,
+        "ext_mirror_weight_scalars_kernel_proved": true,
+        "ext_masa_indices_coincide_kernel_proved": true,
+        "ext_pp_vs_tower_distinct_kernel_proved": true
       },
-      "n_theorems_clean": 21,
-      "n_theorems_expected": 21,
+      "n_theorems_clean": 33,
+      "n_theorems_expected": 33,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -3717,6 +3803,10 @@
         ],
         [
           "degrau1_core_closed_in_kernel",
+          true
+        ],
+        [
+          "degrau2_concrete_pp_index_computed",
           true
         ]
       ],
@@ -4436,7 +4526,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-12 07:21:00"
+    "timestamp": "2026-07-12 12:18:57"
   },
   "verdict": {
     "masses_Msun": {
@@ -4648,7 +4738,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "2f45901b5a62b498ddf5f7a124081ddc4c68626b00345a1c8b7c0e27b1fa7ac7"
+    "result_hash": "ff87d2f7903b6062bf06f13168b4981bd930739e06119cefe10a886ef4268200"
   },
   "ga_mass_literature": [
     {
@@ -4674,7 +4764,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "2f45901b5a62b498ddf5f7a124081ddc4c68626b00345a1c8b7c0e27b1fa7ac7",
+  "result_hash_before_external_comparison": "ff87d2f7903b6062bf06f13168b4981bd930739e06119cefe10a886ef4268200",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -4684,5 +4774,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-12 07:21:00"
+  "timestamp": "2026-07-12 12:18:57"
 }

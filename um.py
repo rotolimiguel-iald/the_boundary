@@ -4866,6 +4866,8 @@ import TGLExt.LeftRight
 import TGLExt.FiniteTomita
 import TGLExt.ModularFlow
 import TGLExt.CondExpect
+import TGLExt.PPIndex
+import TGLExt.MarkovTower
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5042,6 +5044,20 @@ namespace TGL.Audit
 #check @TGLExt.eTr_Lmul_eTr
 #check @TGLExt.eD_Lmul_eD
 #check @TGLExt.commutant_range_diagonal
+-- v34 (Degrau 2: o indice de Pimsner-Popa COMPUTADO = n para C c M_n e D c M_n)
+#check @TGLExt.trace_smul_one_sub_posSemidef
+#check @TGLExt.card_smul_diagExpect_sub_posSemidef
+#check @TGLExt.isGreatest_ppBound_trExpect
+#check @TGLExt.isGreatest_ppBound_diagExpect
+#check @TGLExt.ppIndexTr_eq_card
+#check @TGLExt.ppIndexDiag_eq_card
+-- v35 (Degrau 2, parte 2: tracos de Markov das torres; PP vs torre como teorema)
+#check @TGLExt.trace_Lmul_eD
+#check @TGLExt.trace_Lmul_eTr
+#check @TGLExt.tau_eD
+#check @TGLExt.tau_eTr
+#check @TGLExt.masa_tower_weight_eq_ppBest
+#check @TGLExt.pp_ne_tower_for_scalars
 
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
@@ -5101,6 +5117,20 @@ namespace TGL.Audit
 #print axioms TGLExt.sigma_sigma
 #print axioms TGLExt.frob_trExpect_symm
 #print axioms TGLExt.eTr_Lmul_eTr
+-- v34 (Degrau 2: indice PP computado)
+#print axioms TGLExt.trace_smul_one_sub_posSemidef
+#print axioms TGLExt.card_smul_diagExpect_sub_posSemidef
+#print axioms TGLExt.isGreatest_ppBound_trExpect
+#print axioms TGLExt.isGreatest_ppBound_diagExpect
+#print axioms TGLExt.ppIndexTr_eq_card
+#print axioms TGLExt.ppIndexDiag_eq_card
+-- v35 (tracos de Markov)
+#print axioms TGLExt.trace_Lmul_eD
+#print axioms TGLExt.trace_Lmul_eTr
+#print axioms TGLExt.tau_eD
+#print axioms TGLExt.tau_eTr
+#print axioms TGLExt.masa_tower_weight_eq_ppBest
+#print axioms TGLExt.pp_ne_tower_for_scalars
 #print axioms TGLExt.J_deltaHalf
 #print axioms TGLExt.frob_delta_nonneg
 #print axioms TGLExt.gibbs_kms
@@ -8109,6 +8139,237 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/MarkovTower.lean":
+r'''import TGLExt.PPIndex
+
+set_option autoImplicit false
+
+/-!
+# Os traços de Markov das duas torres   [TGLExt — Degrau 2, parte 2]
+
+O traço normalizado `tr₁ = Tr_End/n²` de `End(H)`, `H = Mₙ(ℂ)`, computado
+sobre os espelhos de Jones das duas inclusões da casa:
+
+* `Tr_End(L_x·e_D) = Tr x` — peso de Markov da torre da MASA:
+  `tr₁(L_x·e_D) = (1/n)·τ(x)`, e `τ₁(e_D) = 1/n = 1/Ind_PP` (COINCIDEM);
+* `Tr_End(L_x·e_ℂ) = Tr x / n` — peso da torre escalar:
+  `tr₁(L_x·e_ℂ) = (1/n²)·τ(x)`, e `τ₁(e_ℂ) = 1/n² = 1/‖Λ‖²`;
+* O PAR HONESTO como teorema: para a MASA o índice de Pimsner–Popa e o
+  peso da torre dão o MESMO n; para `ℂ ⊆ Mₙ` divergem (1/n ≠ 1/n² se
+  n > 1) — o índice probabilístico e o índice da torre são objetos
+  distintos em inclusões não-irredutíveis.
+
+"O peso do espelho é o inverso do índice" (v27) — agora computado.
+Tudo dimensão FINITA; β NÃO entra. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## Funcionais-coordenada e decomposições posto-um dos espelhos -/
+
+/-- O funcional-coordenada diagonal `y ↦ y k k`. -/
+def diagCoord (k : n) : Matrix n n ℂ →ₗ[ℂ] ℂ where
+  toFun y := y k k
+  map_add' _ _ := rfl
+  map_smul' _ _ := rfl
+
+omit [Fintype n] [DecidableEq n] in
+@[simp] theorem diagCoord_apply (k : n) (y : Matrix n n ℂ) :
+    diagCoord k y = y k k := rfl
+
+/-- O funcional do traço normalizado `y ↦ Tr y / n`. -/
+def trCoord : Matrix n n ℂ →ₗ[ℂ] ℂ where
+  toFun y := y.trace / (Fintype.card n : ℂ)
+  map_add' a b := by simp [trace_add, add_div]
+  map_smul' c a := by simp [trace_smul, smul_eq_mul, mul_div_assoc]
+
+omit [DecidableEq n] in
+@[simp] theorem trCoord_apply (y : Matrix n n ℂ) :
+    trCoord y = y.trace / (Fintype.card n : ℂ) := rfl
+
+omit [Fintype n] in
+/-- `c • E_kk = single k k c` (a matriz-unidade absorve o escalar). -/
+theorem smul_single_one (k : n) (c : ℂ) :
+    c • Matrix.single k k (1 : ℂ) = Matrix.single k k c := by
+  ext i j
+  rw [Matrix.smul_apply, smul_eq_mul]
+  by_cases hi : k = i
+  · subst hi
+    by_cases hj : k = j
+    · subst hj
+      rw [Matrix.single_apply_same, Matrix.single_apply_same, mul_one]
+    · rw [Matrix.single_apply_of_col_ne _ _ hj, Matrix.single_apply_of_col_ne _ _ hj,
+        mul_zero]
+  · rw [Matrix.single_apply_of_row_ne hi, Matrix.single_apply_of_row_ne hi, mul_zero]
+
+/-- A diagonal como soma de matrizes-unidade: `diagonal d = Σₖ single k k (d k)`. -/
+theorem diagonal_eq_sum_single (d : n → ℂ) :
+    diagonal d = ∑ k, Matrix.single k k (d k) := by
+  ext i j
+  rw [Matrix.sum_apply]
+  by_cases h : i = j
+  · subst h
+    rw [Matrix.diagonal_apply_eq,
+      Finset.sum_eq_single i
+        (fun m _ hm => Matrix.single_apply_of_row_ne hm _ _ _)
+        (fun hmem => absurd (Finset.mem_univ i) hmem),
+      Matrix.single_apply_same]
+  · rw [Matrix.diagonal_apply_ne _ h]
+    refine (Finset.sum_eq_zero fun m _ => ?_).symm
+    by_cases hm : m = i
+    · subst hm
+      exact Matrix.single_apply_of_col_ne _ _ h _
+    · exact Matrix.single_apply_of_row_ne hm _ _ _
+
+/-- A entrada diagonal da compressão pela matriz-unidade: `(x·E_kk) k k = x k k`. -/
+theorem mul_single_diag (x : Matrix n n ℂ) (k : n) :
+    Matrix.diag (x * Matrix.single k k (1 : ℂ)) k = x k k := by
+  rw [Matrix.diag_apply, Matrix.mul_apply,
+    Finset.sum_eq_single k
+      (fun m _ hm => by rw [Matrix.single_apply_of_row_ne (Ne.symm hm), mul_zero])
+      (fun hmem => absurd (Finset.mem_univ k) hmem),
+    Matrix.single_apply_same, mul_one]
+
+/-- [KERNEL] O espelho diagonal é soma de posto-uns: `e_D = Σₖ ⟨δₖ,·⟩·E_kk`. -/
+theorem eD_eq_sum_smulRight :
+    (eD : Module.End ℂ (Matrix n n ℂ))
+      = ∑ k : n, (diagCoord k).smulRight (Matrix.single k k 1) := by
+  refine LinearMap.ext fun y => ?_
+  rw [LinearMap.sum_apply, eD_apply]
+  show diagonal y.diag = _
+  rw [diagonal_eq_sum_single]
+  refine Finset.sum_congr rfl fun k _ => ?_
+  rw [LinearMap.smulRight_apply, diagCoord_apply, smul_single_one, Matrix.diag_apply]
+
+/-- [KERNEL] O espelho escalar é posto-um: `e_ℂ = ⟨Tr/n,·⟩·1`. -/
+theorem eTr_eq_smulRight :
+    (eTr : Module.End ℂ (Matrix n n ℂ)) = trCoord.smulRight 1 := by
+  refine LinearMap.ext fun y => ?_
+  rw [LinearMap.smulRight_apply, trCoord_apply, eTr_apply]
+  rfl
+
+/-! ## Os traços dos espelhos comprimidos -/
+
+/-- [KERNEL] `Tr_End(L_x·e_D) = Tr x` — o traço da torre da MASA. -/
+theorem trace_Lmul_eD (x : Matrix n n ℂ) :
+    LinearMap.trace ℂ (Matrix n n ℂ) (Lmul x * eD) = x.trace := by
+  have hdec : (Lmul x * eD : Module.End ℂ (Matrix n n ℂ))
+      = ∑ k : n, (diagCoord k).smulRight (x * Matrix.single k k 1) := by
+    rw [eD_eq_sum_smulRight, Finset.mul_sum]
+    refine Finset.sum_congr rfl fun k _ => LinearMap.ext fun y => ?_
+    rw [Module.End.mul_apply, LinearMap.smulRight_apply, LinearMap.smulRight_apply,
+      diagCoord_apply, Lmul_apply, Matrix.mul_smul]
+  rw [hdec, map_sum, Matrix.trace]
+  refine Finset.sum_congr rfl fun k _ => ?_
+  rw [LinearMap.trace_smulRight, diagCoord_apply]
+  exact mul_single_diag x k
+
+/-- [KERNEL] `Tr_End(L_x·e_ℂ) = Tr x / n` — o traço da torre escalar. -/
+theorem trace_Lmul_eTr (x : Matrix n n ℂ) :
+    LinearMap.trace ℂ (Matrix n n ℂ) (Lmul x * eTr)
+      = x.trace / (Fintype.card n : ℂ) := by
+  have hdec : (Lmul x * eTr : Module.End ℂ (Matrix n n ℂ))
+      = trCoord.smulRight x := by
+    rw [eTr_eq_smulRight]
+    refine LinearMap.ext fun y => ?_
+    rw [Module.End.mul_apply, LinearMap.smulRight_apply, LinearMap.smulRight_apply,
+      Lmul_apply, Matrix.mul_smul, mul_one]
+  rw [hdec, LinearMap.trace_smulRight, trCoord_apply]
+
+theorem Lmul_one_eq_one :
+    (Lmul (1 : Matrix n n ℂ)) = (1 : Module.End ℂ (Matrix n n ℂ)) := by
+  rw [Lmul, LinearMap.mulLeft_one]; rfl
+
+/-- [KERNEL] `Tr_End(e_D) = n` (o posto do espelho diagonal). -/
+theorem trace_eD :
+    LinearMap.trace ℂ (Matrix n n ℂ) (eD (n := n)) = (Fintype.card n : ℂ) := by
+  have h := trace_Lmul_eD (1 : Matrix n n ℂ)
+  rwa [Lmul_one_eq_one, one_mul, Matrix.trace_one] at h
+
+/-- [KERNEL] `Tr_End(e_ℂ) = 1` (o espelho escalar é posto-um). -/
+theorem trace_eTr [Nonempty n] :
+    LinearMap.trace ℂ (Matrix n n ℂ) (eTr (n := n)) = 1 := by
+  have h := trace_Lmul_eTr (1 : Matrix n n ℂ)
+  rw [Lmul_one_eq_one, one_mul, Matrix.trace_one] at h
+  rw [h, div_self]
+  exact Nat.cast_ne_zero.mpr Fintype.card_ne_zero
+
+omit [DecidableEq n] in
+/-- [KERNEL] `Tr_End(1) = n²` — a dimensão do palco. -/
+theorem trace_end_one :
+    LinearMap.trace ℂ (Matrix n n ℂ) (1 : Module.End ℂ (Matrix n n ℂ))
+      = ((Fintype.card n : ℂ))^2 := by
+  rw [LinearMap.trace_one, Module.finrank_matrix, Module.finrank_self]
+  push_cast
+  ring
+
+/-! ## Os pesos de Markov normalizados -/
+
+/-- O traço normalizado de `End(H)`: `tr₁ = Tr_End/n²` (com `tr₁(1)=1`). -/
+def trOne (f : Module.End ℂ (Matrix n n ℂ)) : ℂ :=
+  LinearMap.trace ℂ (Matrix n n ℂ) f / (Fintype.card n : ℂ)^2
+
+/-- [KERNEL] PESO DE MARKOV DA MASA: `tr₁(L_x·e_D) = (1/n)·τ(x)` —
+    o módulo da torre é `1/n` = `1/Ind_PP` (os dois índices COINCIDEM). -/
+theorem markov_weight_eD [Nonempty n] (x : Matrix n n ℂ) :
+    trOne (Lmul x * eD)
+      = (1 / (Fintype.card n : ℂ)) * (x.trace / (Fintype.card n : ℂ)) := by
+  have hc : (Fintype.card n : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr Fintype.card_ne_zero
+  rw [trOne, trace_Lmul_eD]
+  field_simp
+
+/-- [KERNEL] PESO DE MARKOV ESCALAR: `tr₁(L_x·e_ℂ) = (1/n²)·τ(x)` —
+    o módulo da torre escalar é `1/n² = 1/‖Λ‖²`. -/
+theorem markov_weight_eTr [Nonempty n] (x : Matrix n n ℂ) :
+    trOne (Lmul x * eTr)
+      = (1 / (Fintype.card n : ℂ)^2) * (x.trace / (Fintype.card n : ℂ)) := by
+  have hc : (Fintype.card n : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr Fintype.card_ne_zero
+  rw [trOne, trace_Lmul_eTr]
+  field_simp
+
+/-- [KERNEL] `τ₁(e_D) = 1/n` — o peso do espelho é o inverso do índice (v27). -/
+theorem tau_eD [Nonempty n] : trOne (eD (n := n)) = 1 / (Fintype.card n : ℂ) := by
+  have hc : (Fintype.card n : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr Fintype.card_ne_zero
+  rw [trOne, trace_eD]
+  field_simp
+
+/-- [KERNEL] `τ₁(e_ℂ) = 1/n²` — o peso do espelho escalar é `1/‖Λ‖²`. -/
+theorem tau_eTr [Nonempty n] : trOne (eTr (n := n)) = 1 / (Fintype.card n : ℂ)^2 := by
+  rw [trOne, trace_eTr, one_div]
+
+/-! ## O par honesto: PP vs torre -/
+
+/-- [KERNEL] Para a MASA os DOIS índices COINCIDEM: o peso da torre é
+    exatamente `ppBestDiag = 1/n`. -/
+theorem masa_tower_weight_eq_ppBest [Nonempty n] :
+    trOne (eD (n := n)) = ((ppBestDiag (n := n) : ℝ) : ℂ) := by
+  rw [tau_eD, ppBestDiag_eq_one_div_card]
+  push_cast
+  ring
+
+omit [DecidableEq n] in
+/-- [KERNEL] Para `ℂ ⊆ Mₙ` (n>1) os índices DIVERGEM: `1/n ≠ 1/n²` — o
+    índice probabilístico (PP) e o índice da torre são objetos DISTINTOS
+    em inclusões não-irredutíveis. Documentado como TEOREMA, não nota. -/
+theorem pp_ne_tower_for_scalars (h : 1 < Fintype.card n) :
+    (1 : ℝ) / (Fintype.card n : ℝ) ≠ 1 / (Fintype.card n : ℝ)^2 := by
+  have hc : (0 : ℝ) < (Fintype.card n : ℝ) := by
+    exact_mod_cast Nat.lt_of_lt_of_le Nat.zero_lt_one h.le
+  have hc1 : (1 : ℝ) < (Fintype.card n : ℝ) := by exact_mod_cast h
+  intro heq
+  rw [div_eq_div_iff hc.ne' (by positivity)] at heq
+  nlinarith [heq]
+
+end
+
+end TGLExt
+''',
     "TGLExt/ModularFlow.lean":
 r'''import TGLExt.FiniteTomita
 
@@ -8273,6 +8534,398 @@ theorem omega_comm_modPow (t : ℝ) : Commute (Omega ρ) (modPow ρ t) := by
 theorem sigma_omega (t : ℝ) :
     modPow ρ t * Omega ρ * modPow ρ (-t) = Omega ρ := by
   rw [← (omega_comm_modPow ρ t).eq, mul_assoc, modPow_mul_neg, mul_one]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/PPIndex.lean":
+r'''import TGLExt.CondExpect
+
+set_option autoImplicit false
+
+/-!
+# O índice de Pimsner–Popa de `Mₙ(ℂ)`   [TGLExt — Degrau 2]
+
+A COTA DE PIMSNER–POPA para as duas esperanças condicionais canônicas de
+`Mₙ(ℂ)` (`trExpect`, sobre os escalares; `diagExpect`, sobre a MASA
+diagonal), com otimalidade e o ÍNDICE COMPUTADO:
+
+* (P1) DOMINÂNCIA DO TRAÇO: `x ⪰ 0 ⟹ (Tr x)·1 − x ⪰ 0` — nenhum estado
+  excede seu peso total (decomposição rank-um + Cauchy–Schwarz);
+* (P2) COTA DA MASA: `x ⪰ 0 ⟹ n·E_D(x) − x ⪰ 0` — Cauchy–Schwarz com
+  peso `n` (`sq_sum_le_card_mul_sum_sq`);
+* (P3) OTIMALIDADE: para todo `c > 1/n` existe testemunha psd que refuta a
+  cota — para `E_ℂ` a matriz unidade `E_{i₀i₀}`, para `E_D` a matriz de
+  uns `J = vecMulVec 1 1`;
+* (P4) `IsGreatest {c | IsPPBound E c} (1/n)` para ambas as esperanças,
+  `ppBest = 1/n` via `IsGreatest.csSup_eq`, e o índice
+  `ppIndex = 1/ppBest = n` — o índice de Pimsner–Popa das inclusões
+  `ℂ ⊆ Mₙ(ℂ)` e `D ⊆ Mₙ(ℂ)` em dimensão finita.
+
+Espelha `TGL.NameIndex` do kernel da casa (`ppBest = sSup`,
+`ppIndex = 1/ppBest`, otimalidade por `IsGreatest`) em versão concreta
+matricial, sem acoplar os projetos Lake. β NÃO entra: infraestrutura pura.
+Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped ComplexOrder
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## Auxiliares: valores quadráticos e Cauchy–Schwarz real -/
+
+omit [DecidableEq n] in
+/-- `⟨y,y⟩ = Σᵢ |yᵢ|²` como coerção real. -/
+theorem star_dotProduct_self (y : n → ℂ) :
+    star y ⬝ᵥ y = ((∑ i, Complex.normSq (y i) : ℝ) : ℂ) := by
+  push_cast
+  simp only [dotProduct, Pi.star_apply, Complex.star_def]
+  exact Finset.sum_congr rfl fun i _ => Complex.normSq_eq_conj_mul_self.symm
+
+omit [DecidableEq n] in
+/-- A conjugação troca a ordem do produto escalar: `⟨w,y⟩ = ⟨y,w⟩*`. -/
+theorem star_dotProduct_rev (w y : n → ℂ) :
+    star w ⬝ᵥ y = star (star y ⬝ᵥ w) := by
+  simp only [dotProduct, star_sum, star_mul, star_star, Pi.star_apply]
+
+omit [DecidableEq n] in
+/-- [KERNEL] O valor quadrático do projetor rank-um: `⟨y, w w⋆ y⟩ = |⟨y,w⟩|²`. -/
+theorem star_dotProduct_vecMulVec_mulVec (w y : n → ℂ) :
+    star y ⬝ᵥ (vecMulVec w (star w) *ᵥ y)
+      = ((Complex.normSq (star y ⬝ᵥ w) : ℝ) : ℂ) := by
+  rw [vecMulVec_mulVec, op_smul_eq_smul, dotProduct_smul, smul_eq_mul,
+    star_dotProduct_rev, Complex.star_def, ← Complex.normSq_eq_conj_mul_self]
+
+/-- O valor quadrático da parte diagonal de `w w⋆`. -/
+theorem star_dotProduct_diagonal_normSq_mulVec (w y : n → ℂ) :
+    star y ⬝ᵥ (diagonal (fun i => ((Complex.normSq (w i) : ℝ) : ℂ)) *ᵥ y)
+      = ((∑ i, Complex.normSq (w i) * Complex.normSq (y i) : ℝ) : ℂ) := by
+  push_cast
+  simp only [dotProduct, mulVec_diagonal, Pi.star_apply, Complex.star_def]
+  refine Finset.sum_congr rfl fun i _ => ?_
+  rw [mul_comm ((starRingEnd ℂ) (y i)), mul_assoc, Complex.mul_conj]
+
+omit [DecidableEq n] in
+/-- A desigualdade triangular do produto escalar, termo a termo. -/
+theorem norm_star_dotProduct_le (y w : n → ℂ) :
+    ‖star y ⬝ᵥ w‖ ≤ ∑ i, ‖w i‖ * ‖y i‖ := by
+  simp only [dotProduct, Pi.star_apply]
+  refine (norm_sum_le _ _).trans (le_of_eq (Finset.sum_congr rfl fun i _ => ?_))
+  rw [norm_mul, norm_star, mul_comm]
+
+omit [DecidableEq n] in
+/-- [KERNEL] CAUCHY–SCHWARZ: `|⟨y,w⟩|² ≤ ‖w‖²·‖y‖²` (forma real, por somas). -/
+theorem normSq_star_dotProduct_le (y w : n → ℂ) :
+    Complex.normSq (star y ⬝ᵥ w)
+      ≤ (∑ i, Complex.normSq (w i)) * ∑ i, Complex.normSq (y i) := by
+  have h1 := norm_star_dotProduct_le y w
+  have h2 := Finset.sum_mul_sq_le_sq_mul_sq Finset.univ
+    (fun i => ‖w i‖) (fun i => ‖y i‖)
+  have h3 : ‖star y ⬝ᵥ w‖ ^ 2 ≤ (∑ i, ‖w i‖ * ‖y i‖) ^ 2 :=
+    pow_le_pow_left₀ (norm_nonneg _) h1 2
+  calc Complex.normSq (star y ⬝ᵥ w)
+      = ‖star y ⬝ᵥ w‖ ^ 2 := Complex.normSq_eq_norm_sq _
+    _ ≤ (∑ i, ‖w i‖ * ‖y i‖) ^ 2 := h3
+    _ ≤ (∑ i, ‖w i‖ ^ 2) * ∑ i, ‖y i‖ ^ 2 := h2
+    _ = (∑ i, Complex.normSq (w i)) * ∑ i, Complex.normSq (y i) := by
+        simp only [Complex.normSq_eq_norm_sq]
+
+omit [DecidableEq n] in
+/-- [KERNEL] CAUCHY–SCHWARZ com peso `n` — a forma exata da cota da MASA:
+    `|⟨y,w⟩|² ≤ n·Σᵢ |wᵢ|²|yᵢ|²`. -/
+theorem normSq_star_dotProduct_le_card (y w : n → ℂ) :
+    Complex.normSq (star y ⬝ᵥ w)
+      ≤ (Fintype.card n : ℝ) * ∑ i, Complex.normSq (w i) * Complex.normSq (y i) := by
+  have h1 := norm_star_dotProduct_le y w
+  have h2 : (∑ i, ‖w i‖ * ‖y i‖) ^ 2
+      ≤ (Fintype.card n : ℝ) * ∑ i, (‖w i‖ * ‖y i‖) ^ 2 := by
+    simpa using sq_sum_le_card_mul_sum_sq
+      (s := (Finset.univ : Finset n)) (f := fun i => ‖w i‖ * ‖y i‖)
+  have h3 : ‖star y ⬝ᵥ w‖ ^ 2 ≤ (∑ i, ‖w i‖ * ‖y i‖) ^ 2 :=
+    pow_le_pow_left₀ (norm_nonneg _) h1 2
+  calc Complex.normSq (star y ⬝ᵥ w)
+      = ‖star y ⬝ᵥ w‖ ^ 2 := Complex.normSq_eq_norm_sq _
+    _ ≤ (∑ i, ‖w i‖ * ‖y i‖) ^ 2 := h3
+    _ ≤ (Fintype.card n : ℝ) * ∑ i, (‖w i‖ * ‖y i‖) ^ 2 := h2
+    _ = (Fintype.card n : ℝ) * ∑ i, Complex.normSq (w i) * Complex.normSq (y i) := by
+        simp only [mul_pow, Complex.normSq_eq_norm_sq]
+
+/-! ## P1: dominância do traço -/
+
+/-- [KERNEL] Caso rank-um de P1: `(Tr w w⋆)·1 − w w⋆ ⪰ 0` (Cauchy–Schwarz). -/
+theorem trace_smul_one_sub_vecMulVec_posSemidef (w : n → ℂ) :
+    ((vecMulVec w (star w)).trace • (1 : Matrix n n ℂ)
+      - vecMulVec w (star w)).PosSemidef := by
+  have htr : (vecMulVec w (star w)).trace
+      = ((∑ i, Complex.normSq (w i) : ℝ) : ℂ) := by
+    rw [trace_vecMulVec]
+    push_cast
+    simp only [dotProduct, Pi.star_apply, Complex.star_def, Complex.mul_conj]
+  rw [htr]
+  refine PosSemidef.of_dotProduct_mulVec_nonneg ?_ fun y => ?_
+  · have hsc : (0 : ℂ) ≤ ((∑ i, Complex.normSq (w i) : ℝ) : ℂ) := by
+      rw [Complex.zero_le_real]
+      exact Finset.sum_nonneg fun i _ => Complex.normSq_nonneg _
+    exact (Matrix.PosSemidef.one.smul hsc).1.sub
+      (posSemidef_vecMulVec_self_star w).1
+  · rw [sub_mulVec, dotProduct_sub, smul_mulVec, one_mulVec, dotProduct_smul,
+      smul_eq_mul, star_dotProduct_self, star_dotProduct_vecMulVec_mulVec]
+    have h0 : (0 : ℝ) ≤ (∑ i, Complex.normSq (w i)) * (∑ i, Complex.normSq (y i))
+        - Complex.normSq (star y ⬝ᵥ w) :=
+      sub_nonneg.mpr (normSq_star_dotProduct_le y w)
+    exact_mod_cast h0
+
+/-- [KERNEL] P1 — DOMINÂNCIA DO TRAÇO: `x ⪰ 0 ⟹ (Tr x)·1 − x ⪰ 0`. Na ordem
+    de Loewner lê-se `x ≤ (Tr x)·1`: os autovalores de um psd somam ao traço,
+    logo nenhum deles o excede. Rota rank-um: `x = Σ vₖvₖ⋆` + Cauchy–Schwarz
+    termo a termo. -/
+theorem trace_smul_one_sub_posSemidef {x : Matrix n n ℂ} (hx : x.PosSemidef) :
+    (x.trace • (1 : Matrix n n ℂ) - x).PosSemidef := by
+  obtain ⟨m, v, rfl⟩ := posSemidef_iff_eq_sum_vecMulVec.mp hx
+  rw [trace_sum, Finset.sum_smul, ← Finset.sum_sub_distrib]
+  exact posSemidef_sum _ fun k _ => trace_smul_one_sub_vecMulVec_posSemidef (v k)
+
+/-! ## P2: a cota de Pimsner–Popa da MASA diagonal -/
+
+/-- [KERNEL] Caso rank-um de P2: `n·E_D(w w⋆) − w w⋆ ⪰ 0` — Cauchy–Schwarz
+    com peso `n` na diagonal. -/
+theorem card_smul_diagExpect_sub_vecMulVec_posSemidef (w : n → ℂ) :
+    ((Fintype.card n : ℂ) • diagExpect (vecMulVec w (star w))
+      - vecMulVec w (star w)).PosSemidef := by
+  have hdiag : diagExpect (vecMulVec w (star w))
+      = diagonal (fun i => ((Complex.normSq (w i) : ℝ) : ℂ)) := by
+    have hfun : (vecMulVec w (star w)).diag
+        = fun i => ((Complex.normSq (w i) : ℝ) : ℂ) := by
+      funext i
+      simp only [diag_vecMulVec, Pi.mul_apply, Pi.star_apply, Complex.star_def,
+        Complex.mul_conj]
+    simp only [diagExpect, hfun]
+  rw [hdiag]
+  refine PosSemidef.of_dotProduct_mulVec_nonneg ?_ fun y => ?_
+  · have hdpsd : (diagonal (fun i => ((Complex.normSq (w i) : ℝ) : ℂ))).PosSemidef :=
+      posSemidef_diagonal_iff.mpr fun i => by
+        show (0 : ℂ) ≤ ((Complex.normSq (w i) : ℝ) : ℂ)
+        rw [Complex.zero_le_real]
+        exact Complex.normSq_nonneg _
+    have hcard : (0 : ℂ) ≤ (Fintype.card n : ℂ) := by
+      exact_mod_cast Nat.zero_le (Fintype.card n)
+    exact (hdpsd.smul hcard).1.sub (posSemidef_vecMulVec_self_star w).1
+  · rw [sub_mulVec, dotProduct_sub, smul_mulVec, dotProduct_smul, smul_eq_mul,
+      star_dotProduct_diagonal_normSq_mulVec, star_dotProduct_vecMulVec_mulVec]
+    have h0 : (0 : ℝ) ≤ (Fintype.card n : ℝ)
+          * (∑ i, Complex.normSq (w i) * Complex.normSq (y i))
+        - Complex.normSq (star y ⬝ᵥ w) :=
+      sub_nonneg.mpr (normSq_star_dotProduct_le_card y w)
+    exact_mod_cast h0
+
+/-- [KERNEL] P2 — A COTA DE PIMSNER–POPA DA MASA: `x ⪰ 0 ⟹ n·E_D(x) − x ⪰ 0`.
+    A esperança diagonal comprime no máximo por um fator `n`: é a
+    desigualdade `E(x) ≥ λ·x` com `λ = 1/n`, a assinatura métrica da
+    inclusão `D ⊆ Mₙ(ℂ)`. -/
+theorem card_smul_diagExpect_sub_posSemidef {x : Matrix n n ℂ} (hx : x.PosSemidef) :
+    ((Fintype.card n : ℂ) • diagExpect x - x).PosSemidef := by
+  obtain ⟨m, v, rfl⟩ := posSemidef_iff_eq_sum_vecMulVec.mp hx
+  have hsplit : diagExpect (∑ k, vecMulVec (v k) (star (v k)))
+      = ∑ k, diagExpect (vecMulVec (v k) (star (v k))) := by
+    have h := map_sum (eD (n := n)) (fun k => vecMulVec (v k) (star (v k)))
+      Finset.univ
+    simp only [eD_apply] at h
+    exact h
+  rw [hsplit, Finset.smul_sum, ← Finset.sum_sub_distrib]
+  exact posSemidef_sum _ fun k _ =>
+    card_smul_diagExpect_sub_vecMulVec_posSemidef (v k)
+
+/-! ## P3: otimalidade — testemunhas que refutam qualquer `c > 1/n` -/
+
+/-- [KERNEL] OTIMALIDADE para `E_ℂ`: se `c > 1/n`, a matriz unidade
+    `E_{i₀i₀}` é psd mas `E_ℂ(E_{i₀i₀}) − c·E_{i₀i₀}` NÃO é — o valor
+    quadrático no vetor `e_{i₀}` é `1/n − c < 0`. -/
+theorem exists_witness_trExpect [Nonempty n] {c : ℝ}
+    (hc : 1 / (Fintype.card n : ℝ) < c) :
+    ∃ w : Matrix n n ℂ, w.PosSemidef ∧ ¬(trExpect w - (c : ℂ) • w).PosSemidef := by
+  have i0 : n := Classical.arbitrary n
+  have hstar : star (Pi.single i0 1 : n → ℂ) = (Pi.single i0 1 : n → ℂ) := by
+    rw [Pi.star_single, star_one]
+  refine ⟨Matrix.single i0 i0 1, ?_, fun hpsd => ?_⟩
+  · rw [single_eq_single_vecMulVec_single]
+    nth_rw 2 [← hstar]
+    exact posSemidef_vecMulVec_self_star _
+  · have hval := hpsd.dotProduct_mulVec_nonneg (Pi.single i0 (1 : ℂ))
+    have hw : Matrix.single i0 i0 (1 : ℂ) *ᵥ Pi.single i0 (1 : ℂ)
+        = Pi.single i0 (1 : ℂ) := by
+      rw [single_mulVec_eq]
+      simp
+    have htrE : trExpect (Matrix.single i0 i0 (1 : ℂ))
+        = ((1 : ℂ) / (Fintype.card n : ℂ)) • (1 : Matrix n n ℂ) := by
+      simp only [trExpect, trace_single_eq_same]
+    have hcompute : star (Pi.single i0 (1 : ℂ)) ⬝ᵥ
+        ((trExpect (Matrix.single i0 i0 1) - (c : ℂ) • Matrix.single i0 i0 1)
+          *ᵥ Pi.single i0 (1 : ℂ))
+        = ((1 / (Fintype.card n : ℝ) - c : ℝ) : ℂ) := by
+      rw [hstar, htrE, sub_mulVec, smul_mulVec, smul_mulVec, one_mulVec, hw,
+        dotProduct_sub, dotProduct_smul, dotProduct_smul, smul_eq_mul,
+        smul_eq_mul, dotProduct_single, Pi.single_eq_same]
+      push_cast
+      ring
+    rw [hcompute, Complex.zero_le_real] at hval
+    linarith
+
+/-- [KERNEL] OTIMALIDADE para `E_D`: se `c > 1/n`, a matriz de uns
+    `J = vecMulVec 1 1` é psd mas `E_D(J) − c·J` NÃO é — o valor quadrático
+    no vetor constante `1` é `n·(1 − c·n) < 0`. -/
+theorem exists_witness_diagExpect [Nonempty n] {c : ℝ}
+    (hc : 1 / (Fintype.card n : ℝ) < c) :
+    ∃ w : Matrix n n ℂ, w.PosSemidef ∧ ¬(diagExpect w - (c : ℂ) • w).PosSemidef := by
+  have hstar1 : star (1 : n → ℂ) = 1 := star_one _
+  refine ⟨vecMulVec 1 1, ?_, fun hpsd => ?_⟩
+  · nth_rw 2 [← hstar1]
+    exact posSemidef_vecMulVec_self_star _
+  · have hval := hpsd.dotProduct_mulVec_nonneg (1 : n → ℂ)
+    have hd : diagExpect (vecMulVec (1 : n → ℂ) 1) = 1 := by
+      have hfun : (vecMulVec (1 : n → ℂ) 1).diag = 1 := by
+        funext i
+        simp only [diag_vecMulVec, Pi.mul_apply, Pi.one_apply, mul_one]
+      simp only [diagExpect, hfun, diagonal_one']
+    have hJ : vecMulVec (1 : n → ℂ) 1 *ᵥ (1 : n → ℂ)
+        = (Fintype.card n : ℂ) • 1 := by
+      rw [vecMulVec_mulVec, op_smul_eq_smul, one_dotProduct_one]
+    have hcompute : star (1 : n → ℂ) ⬝ᵥ
+        ((diagExpect (vecMulVec 1 1) - (c : ℂ) • vecMulVec 1 1) *ᵥ (1 : n → ℂ))
+        = (((Fintype.card n : ℝ) * (1 - c * (Fintype.card n : ℝ)) : ℝ) : ℂ) := by
+      rw [hstar1, hd, sub_mulVec, smul_mulVec, hJ, one_mulVec, dotProduct_sub,
+        dotProduct_smul, dotProduct_smul, one_dotProduct_one, smul_eq_mul,
+        smul_eq_mul]
+      push_cast
+      ring
+    rw [hcompute, Complex.zero_le_real] at hval
+    have hcard : (0 : ℝ) < (Fintype.card n : ℝ) := by
+      exact_mod_cast Fintype.card_pos
+    have h1 : (1 : ℝ) < c * (Fintype.card n : ℝ) := (div_lt_iff₀ hcard).mp hc
+    have hneg : (Fintype.card n : ℝ) * (1 - c * (Fintype.card n : ℝ)) < 0 :=
+      mul_neg_of_pos_of_neg hcard (by linarith)
+    linarith
+
+/-! ## P4: `IsGreatest`, `ppBest` e o índice computado -/
+
+/-- [KERNEL] `c` é COTA DE PIMSNER–POPA de `E` quando `E(x) − c·x ⪰ 0` para
+    todo `x ⪰ 0` — a desigualdade `E(x) ≥ c·x` de Pimsner–Popa, em versão
+    concreta matricial (espelha `IsPPLowerBound` do kernel da casa). -/
+def IsPPBound (E : Matrix n n ℂ → Matrix n n ℂ) (c : ℝ) : Prop :=
+  ∀ x : Matrix n n ℂ, x.PosSemidef → (E x - (c : ℂ) • x).PosSemidef
+
+/-- [KERNEL] `1/n` é cota de Pimsner–Popa de `E_ℂ` (P1 reescalado). -/
+theorem isPPBound_trExpect [Nonempty n] :
+    IsPPBound (trExpect (n := n)) (1 / (Fintype.card n : ℝ)) := by
+  intro x hx
+  have key : trExpect x - (((1 / (Fintype.card n : ℝ)) : ℝ) : ℂ) • x
+      = (((1 / (Fintype.card n : ℝ)) : ℝ) : ℂ)
+          • (x.trace • (1 : Matrix n n ℂ) - x) := by
+    have hsc : (((1 / (Fintype.card n : ℝ)) : ℝ) : ℂ)
+        = 1 / (Fintype.card n : ℂ) := by
+      push_cast
+      ring
+    rw [hsc]
+    simp only [trExpect, smul_sub, smul_smul]
+    rw [show x.trace / (Fintype.card n : ℂ)
+        = 1 / (Fintype.card n : ℂ) * x.trace by ring]
+  rw [key]
+  refine (trace_smul_one_sub_posSemidef hx).smul ?_
+  rw [Complex.zero_le_real]
+  positivity
+
+/-- [KERNEL] `1/n` é cota de Pimsner–Popa de `E_D` (P2 reescalado). -/
+theorem isPPBound_diagExpect [Nonempty n] :
+    IsPPBound (diagExpect (n := n)) (1 / (Fintype.card n : ℝ)) := by
+  intro x hx
+  have hcard0 : ((Fintype.card n : ℂ)) ≠ 0 :=
+    Nat.cast_ne_zero.mpr Fintype.card_ne_zero
+  have key : diagExpect x - (((1 / (Fintype.card n : ℝ)) : ℝ) : ℂ) • x
+      = (((1 / (Fintype.card n : ℝ)) : ℝ) : ℂ)
+          • ((Fintype.card n : ℂ) • diagExpect x - x) := by
+    have hsc : (((1 / (Fintype.card n : ℝ)) : ℝ) : ℂ)
+        = 1 / (Fintype.card n : ℂ) := by
+      push_cast
+      ring
+    rw [hsc, smul_sub, smul_smul, one_div, inv_mul_cancel₀ hcard0, one_smul]
+  rw [key]
+  refine (card_smul_diagExpect_sub_posSemidef hx).smul ?_
+  rw [Complex.zero_le_real]
+  positivity
+
+/-- Nenhuma cota de `E_ℂ` excede `1/n` (contrapositiva de P3). -/
+theorem le_of_isPPBound_trExpect [Nonempty n] {c : ℝ}
+    (hc : IsPPBound (trExpect (n := n)) c) : c ≤ 1 / (Fintype.card n : ℝ) := by
+  by_contra hlt
+  rw [not_le] at hlt
+  obtain ⟨w, hw, hnot⟩ := exists_witness_trExpect hlt
+  exact hnot (hc w hw)
+
+/-- Nenhuma cota de `E_D` excede `1/n` (contrapositiva de P3). -/
+theorem le_of_isPPBound_diagExpect [Nonempty n] {c : ℝ}
+    (hc : IsPPBound (diagExpect (n := n)) c) : c ≤ 1 / (Fintype.card n : ℝ) := by
+  by_contra hlt
+  rw [not_le] at hlt
+  obtain ⟨w, hw, hnot⟩ := exists_witness_diagExpect hlt
+  exact hnot (hc w hw)
+
+/-- [KERNEL] `1/n` é a MAIOR cota de Pimsner–Popa de `E_ℂ`. -/
+theorem isGreatest_ppBound_trExpect [Nonempty n] :
+    IsGreatest {c : ℝ | IsPPBound (trExpect (n := n)) c}
+      (1 / (Fintype.card n : ℝ)) :=
+  ⟨isPPBound_trExpect, fun _ hc => le_of_isPPBound_trExpect hc⟩
+
+/-- [KERNEL] `1/n` é a MAIOR cota de Pimsner–Popa de `E_D`. -/
+theorem isGreatest_ppBound_diagExpect [Nonempty n] :
+    IsGreatest {c : ℝ | IsPPBound (diagExpect (n := n)) c}
+      (1 / (Fintype.card n : ℝ)) :=
+  ⟨isPPBound_diagExpect, fun _ hc => le_of_isPPBound_diagExpect hc⟩
+
+variable (n) in
+/-- A MELHOR COTA de Pimsner–Popa de `E_ℂ` (espelha `ppBest` do kernel:
+    supremo do conjunto das cotas). -/
+def ppBestTr : ℝ := sSup {c : ℝ | IsPPBound (trExpect (n := n)) c}
+
+variable (n) in
+/-- A MELHOR COTA de Pimsner–Popa de `E_D`. -/
+def ppBestDiag : ℝ := sSup {c : ℝ | IsPPBound (diagExpect (n := n)) c}
+
+/-- [KERNEL] `ppBestTr = 1/n` — via `IsGreatest.csSup_eq`. -/
+theorem ppBestTr_eq_one_div_card [Nonempty n] :
+    ppBestTr n = 1 / (Fintype.card n : ℝ) :=
+  isGreatest_ppBound_trExpect.csSup_eq
+
+/-- [KERNEL] `ppBestDiag = 1/n` — via `IsGreatest.csSup_eq`. -/
+theorem ppBestDiag_eq_one_div_card [Nonempty n] :
+    ppBestDiag n = 1 / (Fintype.card n : ℝ) :=
+  isGreatest_ppBound_diagExpect.csSup_eq
+
+variable (n) in
+/-- O ÍNDICE de Pimsner–Popa de `E_ℂ`: `1/ppBest` (espelha `ppIndex` do
+    kernel). -/
+def ppIndexTr : ℝ := 1 / ppBestTr n
+
+variable (n) in
+/-- O ÍNDICE de Pimsner–Popa de `E_D`: `1/ppBest`. -/
+def ppIndexDiag : ℝ := 1 / ppBestDiag n
+
+/-- [KERNEL] O ÍNDICE COMPUTADO: `[Mₙ(ℂ) : ℂ]_PP = 1/ppBestTr = n`. -/
+theorem ppIndexTr_eq_card [Nonempty n] : ppIndexTr n = (Fintype.card n : ℝ) := by
+  unfold ppIndexTr
+  rw [ppBestTr_eq_one_div_card, one_div_one_div]
+
+/-- [KERNEL] O ÍNDICE COMPUTADO: `[Mₙ(ℂ) : D]_PP = 1/ppBestDiag = n` — o
+    índice da MASA diagonal é a dimensão, o mesmo valor da inclusão escalar:
+    duas leituras do mesmo `n`. -/
+theorem ppIndexDiag_eq_card [Nonempty n] :
+    ppIndexDiag n = (Fintype.card n : ℝ) := by
+  unfold ppIndexDiag
+  rw [ppBestDiag_eq_one_div_card, one_div_one_div]
 
 end
 
@@ -8451,6 +9104,20 @@ _LEAN_THEOREM_FLAGS = {
     "ext_delta_fixes_omega_kernel_proved": "TGLExt.delta_omega",
     "ext_flow_automorphism_kernel_proved": "TGLExt.sigma_mul",
     "ext_jones_scalar_kernel_proved": "TGLExt.eTr_Lmul_eTr",
+    # v34 (Degrau 2: o indice de Pimsner-Popa COMPUTADO): informativos
+    "ext_pp_trace_dominance_kernel_proved": "TGLExt.trace_smul_one_sub_posSemidef",
+    "ext_pp_masa_bound_kernel_proved": "TGLExt.card_smul_diagExpect_sub_posSemidef",
+    "ext_pp_optimal_scalars_kernel_proved": "TGLExt.isGreatest_ppBound_trExpect",
+    "ext_pp_optimal_masa_kernel_proved": "TGLExt.isGreatest_ppBound_diagExpect",
+    "ext_pp_index_scalars_kernel_proved": "TGLExt.ppIndexTr_eq_card",
+    "ext_pp_index_masa_kernel_proved": "TGLExt.ppIndexDiag_eq_card",
+    # v35 (tracos de Markov das torres; PP vs torre como teorema): informativos
+    "ext_markov_trace_masa_kernel_proved": "TGLExt.trace_Lmul_eD",
+    "ext_markov_trace_scalars_kernel_proved": "TGLExt.trace_Lmul_eTr",
+    "ext_mirror_weight_masa_kernel_proved": "TGLExt.tau_eD",
+    "ext_mirror_weight_scalars_kernel_proved": "TGLExt.tau_eTr",
+    "ext_masa_indices_coincide_kernel_proved": "TGLExt.masa_tower_weight_eq_ppBest",
+    "ext_pp_vs_tower_distinct_kernel_proved": "TGLExt.pp_ne_tower_for_scalars",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -9814,6 +10481,14 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_tomita_involutive_kernel_proved", "ext_polar_square_kernel_proved",
         "ext_delta_fixes_omega_kernel_proved", "ext_flow_automorphism_kernel_proved",
         "ext_jones_scalar_kernel_proved",
+        # v34: Degrau 2 -- o indice de Pimsner-Popa computado (cotas + otimalidade + indice)
+        "ext_pp_trace_dominance_kernel_proved", "ext_pp_masa_bound_kernel_proved",
+        "ext_pp_optimal_scalars_kernel_proved", "ext_pp_optimal_masa_kernel_proved",
+        "ext_pp_index_scalars_kernel_proved", "ext_pp_index_masa_kernel_proved",
+        # v35: Degrau 2 parte 2 -- tracos de Markov; PP vs torre como teorema
+        "ext_markov_trace_masa_kernel_proved", "ext_markov_trace_scalars_kernel_proved",
+        "ext_mirror_weight_masa_kernel_proved", "ext_mirror_weight_scalars_kernel_proved",
+        "ext_masa_indices_coincide_kernel_proved", "ext_pp_vs_tower_distinct_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -9828,13 +10503,21 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     degrau1_keys = ["ext_bicommutant_concrete_kernel_proved", "ext_jmj_commutant_kernel_proved",
                     "ext_tomiyama_bimodular_kernel_proved", "ext_jones_relation_kernel_proved",
                     "ext_masa_diagonal_kernel_proved", "ext_jones_scalar_kernel_proved"]
+    degrau2_keys = ["ext_pp_trace_dominance_kernel_proved", "ext_pp_masa_bound_kernel_proved",
+                    "ext_pp_optimal_scalars_kernel_proved", "ext_pp_optimal_masa_kernel_proved",
+                    "ext_pp_index_scalars_kernel_proved", "ext_pp_index_masa_kernel_proved",
+                    "ext_markov_trace_masa_kernel_proved", "ext_markov_trace_scalars_kernel_proved",
+                    "ext_mirror_weight_masa_kernel_proved", "ext_mirror_weight_scalars_kernel_proved",
+                    "ext_masa_indices_coincide_kernel_proved", "ext_pp_vs_tower_distinct_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
+    d2 = all(per_theorem[k] for k in degrau2_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
         ("degrau0_closed_in_kernel", d0),
         ("degrau1_core_closed_in_kernel", d1),
+        ("degrau2_concrete_pp_index_computed", d2),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -9845,7 +10528,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
             "degrau_0_finite_tomita_takesaki": ("CLOSED_IN_KERNEL" if d0 else "NOT_VERIFIED_THIS_RUN"),
             "degrau_1_von_neumann_basics": ("CORE_CLOSED_IN_KERNEL__GENERAL_BICOMMUTANT_OPEN" if d1
                                             else "NOT_VERIFIED_THIS_RUN"),
-            "degrau_2_finite_jones_index": "OPEN__BLOCKS_IN_PLACE (esperancas + relacoes de Jones)",
+            "degrau_2_finite_jones_index": ("CONCRETE_PP_INDEX_AND_MARKOV_WEIGHTS_COMPUTED__MULTIMATRIX_GENERAL_OPEN" if d2
+                                            else "NOT_VERIFIED_THIS_RUN"),
             "degrau_3_continuum_III1_BW": "OPEN__RESEARCH (documentado; nada reivindicado)",
         },
         "per_theorem": per_theorem,
@@ -16508,6 +17192,15 @@ def main():
         _elp.get("ext_bicommutant_concrete_kernel_proved"), _elp.get("ext_jmj_commutant_kernel_proved"),
         _elp.get("ext_tomiyama_bimodular_kernel_proved"), _elp.get("ext_jones_relation_kernel_proved"),
         _elp.get("ext_masa_diagonal_kernel_proved")))
+    print("  Degrau 2: %s" % _ell.get("degrau_2_finite_jones_index"))
+    print("    dominancia do traco: %s ; cota MASA (Cauchy-Schwarz): %s ; OTIMALIDADE: %s/%s ; INDICE PP = n: %s/%s" % (
+        _elp.get("ext_pp_trace_dominance_kernel_proved"), _elp.get("ext_pp_masa_bound_kernel_proved"),
+        _elp.get("ext_pp_optimal_scalars_kernel_proved"), _elp.get("ext_pp_optimal_masa_kernel_proved"),
+        _elp.get("ext_pp_index_scalars_kernel_proved"), _elp.get("ext_pp_index_masa_kernel_proved")))
+    print("    MARKOV: Tr(L_x.e_D)=Tr x: %s ; Tr(L_x.e_C)=Tr x/n: %s ; tau(e)=1/Ind: %s/%s ; MASA coincide: %s ; PP!=torre (n>1): %s" % (
+        _elp.get("ext_markov_trace_masa_kernel_proved"), _elp.get("ext_markov_trace_scalars_kernel_proved"),
+        _elp.get("ext_mirror_weight_masa_kernel_proved"), _elp.get("ext_mirror_weight_scalars_kernel_proved"),
+        _elp.get("ext_masa_indices_coincide_kernel_proved"), _elp.get("ext_pp_vs_tower_distinct_kernel_proved")))
     print("  teoremas limpos: %s/%s ; TUDO dimensao FINITA [nada e' III_1; continuos do ledger INALTERADOS]" % (
         el.get("n_theorems_clean"), el.get("n_theorems_expected")))
     print("  >>> %s <<<\n" % el.get("verdict"))
