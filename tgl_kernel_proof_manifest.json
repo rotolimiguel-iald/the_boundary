@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-11 19:00:21",
+  "timestamp": "2026-07-11 20:34:57",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,22 +10,23 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "c5063d13e615a621e8fe9d2b6c40c6ae1d2b724482515188c242399d7e732c7a",
+  "formal_source_hash": "3d7533471b48e7859404b3fecfa6251028014568407df10b9441b5561574bd98",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
-    "TGL.lean": "9f104ac21bcda90cbd302b48e843c751ebc8cc23d47a46277b73d43444084c35",
+    "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
     "lakefile.toml": "23c70f9ab6e856fe85d88437e0b0d21ad030af294d7cd7885df297e4b7d94e82",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "3389a4b1c3823e9bd6d8765648c6d9ec4d7d46ba13c1d94d803b5f61eace6afb",
+    "TGL/Audit.lean": "be965f2e6f67c856a1ad5bd07553f21f2af38ab4ba1a31579e193cc5c49640e7",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
+    "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
     "TGL/FiniteThreeLocks.lean": "612f2384ca441da25c2fe613fddf489010a0f0c16578ce61b0a57c6581e4276d",
     "TGL/GravitonShadow.lean": "de9d4eba70977bb437c3b72889a4f4d5f54ac42f5382a49772cb6a8d24f3b1b7",
     "TGL/HalfNat.lean": "cf79d85fdebab68641bec2ccc4592033b2e27327834243ef269b7b6a89e7d22c",
     "TGL/HalfNatFresnel.lean": "5d16a6e04f5e97fda89ed27f326280535902f0c4c05228d340554d15177a029f",
     "TGL/HalfNatJonesTower.lean": "440c4d9497e31a0299cbf5217e56f406e5799c7731e6e5268b62d9bba43bbd05",
-    "TGL/Main.lean": "d5826b81bfb430c21e945dc043b12cdb485eaf96e1c266b9abb0199811ad6305",
+    "TGL/Main.lean": "05266e573d3f476f68be6b8380a61db785dacf52524be6107b6ade8d8658aaa9",
     "TGL/ModularRealization.lean": "17e344c8b7b40ae8f2ed4910c3b5e4712cc8ba84dd53e05d10a94f0009295348",
     "TGL/NameIndex.lean": "c55044e2aa6ef076ac028799cad36ec5787afd9d8587a6ce388ab989376a4f08",
     "TGL/NameRelation.lean": "02f69df45d7c1e392b522f9528cf5cfbe92793d34ffe94451415eece1cef1e35",
@@ -228,10 +229,30 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGL.CoreSupport.support_maximal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGL.CoreSupport.threeLocksFromSupport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGL.CoreSupport.realizationFromSupport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGL.CoreSupport.transport_defect_gauge_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "bb59090ec669178efe58d6b8595b3d1b66022029d361dcaa3212eae26149abcd",
-  "audit_stdout_sha256": "3db9614a93943e11c388bd2d6e2bb00680eea4aa19b03290305eeabeee6a255a",
+  "build_stdout_sha256": "5aa70a00ffab8c632379e7066d67d69796bd14f88207a92dc046ee84f84d77ec",
+  "audit_stdout_sha256": "5325cd459e50a1caab6bd8e9eeed1c674a5a22c64b748557f6ce8bcff4703573",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",
@@ -260,7 +281,11 @@
     "TGL.NameRelation.pqp_eq",
     "TGL.NameRelation.geometric_eq_trace_weight_iff",
     "TGL.NameRelation.tl3_linearly_independent",
-    "TGL.NameRelation.canonicalTLThree_exists"
+    "TGL.NameRelation.canonicalTLThree_exists",
+    "TGL.CoreSupport.support_maximal",
+    "TGL.CoreSupport.threeLocksFromSupport",
+    "TGL.CoreSupport.realizationFromSupport",
+    "TGL.CoreSupport.transport_defect_gauge_invariant"
   ],
   "conditional_kernel_theorems": [
     "TGL.ContinuousCorner.ContinuousCornerWitness.normalizedTrace_P_eq_one",
@@ -303,6 +328,9 @@
       "finite_jones_tower_term_constructed": true,
       "graviton_shadow_term_constructed": true,
       "tl3_term_constructed": true,
+      "mathematical_external_full_witness_exists": true,
+      "lean_kernel_full_witness_constructed": false,
+      "physical_covariant_representative_selected": false,
       "bare_prop_label_fields_remaining": 0,
       "finite_full_witness_rejected": true,
       "prop_only_modular_rejected": true,
@@ -318,7 +346,8 @@
         "NameIndex.lean",
         "HalfNatJonesTower.lean",
         "GravitonShadow.lean",
-        "NameRelation.lean"
+        "NameRelation.lean",
+        "CoreSupport.lean"
       ],
       "verdict": "MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS"
     },

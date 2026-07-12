@@ -749,9 +749,29 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGL.CoreSupport.support_maximal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGL.CoreSupport.threeLocksFromSupport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGL.CoreSupport.realizationFromSupport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGL.CoreSupport.transport_defect_gauge_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "formal_source_hash": "c5063d13e615a621e8fe9d2b6c40c6ae1d2b724482515188c242399d7e732c7a",
+  "formal_source_hash": "3d7533471b48e7859404b3fecfa6251028014568407df10b9441b5561574bd98",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -799,6 +819,9 @@
     "finite_jones_tower_term_constructed": true,
     "graviton_shadow_term_constructed": true,
     "tl3_term_constructed": true,
+    "mathematical_external_full_witness_exists": true,
+    "lean_kernel_full_witness_constructed": false,
+    "physical_covariant_representative_selected": false,
     "bare_prop_label_fields_remaining": 0,
     "finite_full_witness_rejected": true,
     "prop_only_modular_rejected": true,
@@ -987,6 +1010,30 @@
 }
 ```
 
+## O FECHAMENTO por separacao de tipos: suporte != espelho; H3L_min=1-q_F [KERNEL]; construtores de habitabilidade [KERNEL]; existencia matematica [KNOWN-COMPOSED]; gauge do Nome [DEF/AX]; o que fica fora tem nome (Lean externo/representante fisico/experimento/curvo) [KERNEL + KNOWN + DEF/AX + OPEN]
+
+```json
+{
+  "thesis": "fechamento por separacao de tipos: q_F (suporte, core) != e_Nome (espelho, extensao); E1(e)=beta.q_F; H3L_min=1-q_F",
+  "constructors": "threeLocksFromSupport / realizationFromSupport [KERNEL]: dado o suporte, habitavel; gap TIPADO em 4 entradas [KNOWN-COMPOSED]",
+  "tower": "TL_beta contida no invariante basta [KNOWN]; TLJ puro nao exigido",
+  "gauge": "Principio de Gauge do Nome [DEF/AX]: classe = mesmo indice + mesmo peso; invariantes (peso/indice/defeito) [KERNEL]",
+  "statuses": {
+    "mathematical_external_full_witness_exists": true,
+    "lean_kernel_full_witness_constructed": false,
+    "physical_covariant_representative_selected": false
+  },
+  "what_remains_named": {
+    "certificacao_formal": "[OPEN] formalizar em Lean os teoremas externos (Tomita-Takesaki, BW, produto cruzado, indice de Jones) -- escala mathlib, anos; o gap esta' TIPADO nas 4 entradas do construtor",
+    "realizacao_fisica": "[GAUGE] escolha localizada/covariante do representante de N_beta -- nao e' fechavel por matematica; e' a realizacao fisica da classe",
+    "experimento": "[INPUT futuro] validacao experimental (dephasing n=-2; piso dos vazios; etc.)",
+    "extensao_geometrica": "[OPEN] levantamento completo ao espaco-tempo curvo (o velho GLOBAL_LIFT)"
+  },
+  "verdict": "TGL_CLOSED_AS_INTERNAL_MATHEMATICAL_ARCHITECTURE",
+  "selo": "CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR . SELECTOR_LIVES_UPSTAIRS_SUPPORT_LIVES_IN_CORE . H3L_MINIMAL_REPRESENTATIVE_IS_ONE_MINUS_SUPPORT . THE_NAME_IS_THE_JONES_INDEX_CLASS . EVERY_NAME_TOWER_CONTAINS_THE_TL_BETA_GRAMMAR . PURE_TLJ_STANDARD_INVARIANT_IS_NOT_REQUIRED . MATHEMATICAL_TGL_WITNESS_EXISTS_BY_KNOWN_THEOREMS . KERNEL_CERTIFICATION_REMAINS_SEPARATE"
+}
+```
+
 ## Marcadores canonicos (forma=conteudo): uma fonte de runtime -> todos os artefatos; relidos e comparados byte-a-byte antes do selo
 
 ```json
@@ -1018,7 +1065,7 @@
 
 ```json
 {
-  "code_sha256": "7d11938b1b6b1fdfce770d9ffc943b94a0279e101fb41abd383c31aeafc1b91f",
+  "code_sha256": "5499f52f43bcbc57747dec88f508b286876bee6d1d141c7e73b31c6c30584f01",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"

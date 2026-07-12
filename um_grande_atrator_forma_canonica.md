@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `c5063d13e615a621e8fe9d2b6c40c6ae1d2b724482515188c242399d7e732c7a`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `3d7533471b48e7859404b3fecfa6251028014568407df10b9441b5561574bd98`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -487,6 +487,20 @@ puro-ponto ≠ ponto-puro                   [Bell: átomo isolado + redução I/
 ```
 
 O finito NÃO expulsa o Nome — expulsa a matriz que pretende nomear sem relação, sem referencial e sem geometria (a 'mentira' TGL: forma sem denotação; e a mentira FORMAL: negar `Δ>0` após o transporte). O Nome é a IDENTIFICAÇÃO `p→q_β→p` com retorno ponderado β = sobreposição geométrica entre os espelhos (`cos²φ=β`, `φ=π/2−θ_M`: a paridade inversa dá o referencial complementar). O TERCEIRO habitante carrega a gramática TL local com β=0.012031 de runtime (posto 5 de 5 — fiel). A pureza do Bell é RELACIONAL (puro-ponto: átomo isolado; não ponto-puro: redução I/2) — o que se expulsa é a pureza sem alteridade. Guard-rail mantido: nada se afirma do espectro modular do III₁ genuíno. A parede segue: `e_{i+1}` nasce da PRÓXIMA construção básica; `INDEX_MATCHES_BUT_NOT_CANONICAL` é a falha mais provável [OPEN]. `[KERNEL + REAL + ONTO(tipado) + OPEN]`
+
+## v32 — O fechamento da TGL por separação de tipos
+
+```
+q_F ∈ C_W (SUPORTE: desce, unidade do canto)  ≠  e_Nome ∈ ⟨R_F,e⟩ (ESPELHO: não desce)
+E₁(e_Nome) = β·q_F                             [a inscrição transportada]
+H₃L^min = 1 − q_F                              [KERNEL: aniquilação + MAXIMALIDADE]
+threeLocksFromSupport / realizationFromSupport [KERNEL: construtores — dado o suporte, habitável]
+gap pleno TIPADO em 4 entradas                 [KNOWN-COMPOSED: BW + Takesaki + II∞ + Jones≥4]
+TL_β ⊆ invariante (TLJ puro NÃO exigido)       [KNOWN, automático da construção básica]
+Nome-equivalência = mesmo índice + mesmo peso  [DEF/AX: gauge do Nome; invariantes KERNEL]
+```
+
+**A TGL fecha como arquitetura matemática interna** [KNOWN-COMPOSED + KERNEL]: existe modelo matemático completo por composição de teoremas publicados, e as camadas são habitáveis dado o suporte (construtores kernel-checked). O que fica fora, com nome e estatuto: certificação formal Lean dos teoremas externos [OPEN — o gap está tipado]; escolha física localizada/covariante do representante [GAUGE — a classe é o físico]; validação experimental [INPUT futuro]; espaço-tempo curvo [OPEN — extensão geométrica]. `mathematical_external_full_witness_exists=True` ; `lean_kernel_full_witness_constructed=False` (INALTERÁVEL até termo pleno) ; `physical_covariant_representative_selected=False`. *O Nome não precisava de uma matriz única; precisava de um contorno, um espelho e uma lei de transporte.* `[KERNEL + KNOWN-COMPOSED + DEF/AX + OPEN]`
 
 ## Marcadores canônicos (forma = conteúdo: uma fonte de runtime → todos os artefatos)
 

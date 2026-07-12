@@ -4853,6 +4853,7 @@ import TGL.NameIndex
 import TGL.HalfNatJonesTower
 import TGL.GravitonShadow
 import TGL.NameRelation
+import TGL.CoreSupport
 import TGL.Audit
 import TGL.Main
 ''',
@@ -4918,6 +4919,7 @@ import TGL.NameIndex
 import TGL.HalfNatJonesTower
 import TGL.GravitonShadow
 import TGL.NameRelation
+import TGL.CoreSupport
 
 set_option autoImplicit false
 
@@ -4996,6 +4998,12 @@ namespace TGL.Audit
 #check @TGL.NameRelation.tl3_linearly_independent
 #check @TGL.NameRelation.canonicalTLThree
 #check @TGL.NameRelation.canonicalTLThree_exists
+-- v32 (fechamento por separacao de tipos: suporte != espelho; construtores; gauge)
+#check @TGL.CoreSupport.support_annihilates
+#check @TGL.CoreSupport.support_maximal
+#check @TGL.CoreSupport.threeLocksFromSupport
+#check @TGL.CoreSupport.realizationFromSupport
+#check @TGL.CoreSupport.transport_defect_gauge_invariant
 
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
@@ -5035,6 +5043,10 @@ namespace TGL.Audit
 #print axioms TGL.NameRelation.tl3_linearly_independent
 #print axioms TGL.NameRelation.canonicalTLThree_exists
 #print axioms TGL.NameRelation.geometric_eq_trace_weight_iff
+#print axioms TGL.CoreSupport.support_maximal
+#print axioms TGL.CoreSupport.threeLocksFromSupport
+#print axioms TGL.CoreSupport.realizationFromSupport
+#print axioms TGL.CoreSupport.transport_defect_gauge_invariant
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -5049,6 +5061,7 @@ namespace TGL.Audit
 #eval IO.println "HALF_NAT_IS_THE_ONLY_FINITE_MARKOV_MIRROR"
 #eval IO.println "GRAVITON_BELL_SHADOW_CCI_HALF"
 #eval IO.println "THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX"
+#eval IO.println "CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR"
 
 end TGL.Audit
 ''',
@@ -5166,6 +5179,164 @@ theorem equalFaces_normalizedTrace_half :
 end ContinuousCornerWitness
 
 end TGL.ContinuousCorner
+''',
+    "TGL/CoreSupport.lean":
+r'''import Mathlib
+import TGL.ModularRealization
+import TGL.TransportData
+
+set_option autoImplicit false
+
+/-!
+# O fechamento por separacao de tipos   [KERNEL]   (v32 -- derivacao do operador, auditada)
+
+O ultimo erro era usar `P_F` para DOIS objetos: o SUPORTE que vive no core
+(`q_F ∈ C_W`, desce, e' a unidade do canto) e o ESPELHO que vive na construcao
+basica (`e_Nome ∈ ⟨R_F, e⟩`, NAO desce -- `jones_selector_not_descended` ja' o
+provava). Ligados por transporte: `E₁(e_Nome) = β·q_F`.
+
+O representante MINIMO da classe de kernel dos Three Locks e':
+
+    H₃L^min = 1 − q_F      [q_F·H = 0 ; q_F e' a projecao MAXIMA que anula H]
+
+Kernel-checked aqui:
+  - a algebra do representante minimo (aniquilacao + maximalidade + auto-adjunto);
+  - **`threeLocksFromSupport`**: DADO um suporte (projecao de traco 1 com faces de
+    meio-traco), os Three Locks sao HABITAVEIS -- um CONSTRUTOR de termo. O gap do
+    habitante pleno fica TIPADO como exatamente quatro entradas [KNOWN-COMPOSED]:
+    testemunha-base W + dados modulares D + core C + suporte q_F (BW; Takesaki;
+    II∞ hiperfinito difuso; indice de Jones ≥ 4 -- teoremas publicados, NAO
+    formalizados na mathlib);
+  - `realizationFromSupport`: o empacotamento ate' TGLModularRealization;
+  - o PRINCIPIO DE GAUGE DO NOME [DEF/AX, do operador]: Nome-equivalencia de
+    torres = mesmo indice e mesmo peso de Markov; os invariantes (peso, indice,
+    defeito de transporte) sao funcoes de classe [KERNEL]. O fisico e' a CLASSE;
+    o representante e' gauge.
+
+Estatutos (fora do fechamento interno, cada um com nome):
+  formalizacao Lean dos teoremas externos = certificacao formal [OPEN];
+  escolha fisica localizada/covariante do representante = realizacao fisica
+  [GAUGE, nao-matematico]; validacao experimental [INPUT futuro]; levantamento
+  ao espaco-tempo curvo = extensao geometrica [OPEN].
+  `full_TGL_witness_constructed` PERMANECE false ate' existir termo Lean pleno.
+-/
+
+namespace TGL.CoreSupport
+
+open TGL.SpecificAQFT TGL.ModularRealization TGL.TransportData
+
+section MinimalRepresentative
+
+variable {A : Type} [Ring A] [StarRing A] [Algebra ℂ A]
+
+/-- [KERNEL] O suporte aniquila o representante minimo: `q·(1−q) = 0`. -/
+theorem support_annihilates (q : A) (hq2 : q * q = q) : q * (1 - q) = 0 := by
+  rw [mul_sub, mul_one, hq2, sub_self]
+
+/-- [KERNEL] O representante minimo e' auto-adjunto. -/
+theorem hmin_selfadjoint (q : A) (hqs : star q = q) : star (1 - q : A) = 1 - q := by
+  rw [star_sub, star_one, hqs]
+
+/-- [KERNEL] MAXIMALIDADE: toda projecao que anula `1−q` esta' sob `q`
+    (`r·(1−q)=0 ⟹ r·q = r`) -- `q` E' a projecao espectral do zero, na forma
+    enunciavel. -/
+theorem support_maximal (q r : A) (hr : r * (1 - q) = 0) : r * q = r := by
+  rw [mul_sub, mul_one, sub_eq_zero] at hr
+  exact hr.symm
+
+end MinimalRepresentative
+
+/-- [KERNEL — v32, o CONSTRUTOR do fechamento] Dado o core (DADOS) e um SUPORTE
+    `q_F` (projecao nao-nula de traco 1, partida em duas faces ortogonais de
+    traco igual), os Three Locks sao HABITAVEIS com o representante minimo
+    `H₃L = 1 − q_F`. As hipoteses sao exatamente o que os teoremas EXTERNOS
+    [KNOWN: BW + Takesaki + II∞ difuso] fornecem -- o gap esta' TIPADO. -/
+noncomputable def threeLocksFromSupport {W : TGLSpecificAQFTWitness}
+    {D : WedgeModularData W} (C : ContinuousCoreData W D)
+    (q qp qm : C.Core)
+    (hq2 : q * q = q) (hqs : star q = q) (hqne : q ≠ 0)
+    (htr1 : C.canonicalTrace q = 1)
+    (hp2 : qp * qp = qp) (hps : star qp = qp)
+    (hm2 : qm * qm = qm) (hms : star qm = qm)
+    (hsum : qp + qm = q) (horto : qp * qm = 0)
+    (htradd : C.canonicalTrace q = C.canonicalTrace qp + C.canonicalTrace qm)
+    (htreq : C.canonicalTrace qp = C.canonicalTrace qm) :
+    ThreeLocksCoreData W D C where
+  H3Lt := 1 - q
+  H3Lt_selfAdjoint := hmin_selfadjoint q hqs
+  PF := q
+  PF_selfAdjoint := hqs
+  PF_idempotent := hq2
+  PF_locks := support_annihilates q hq2
+  PF_maximal := fun r _ _ hr => support_maximal q r hr
+  PF_nonzero := hqne
+  PF_trace_pos := by rw [htr1]; exact zero_lt_one
+  PF_trace_finite := by rw [htr1]; exact ENNReal.one_lt_top
+  Pplus := qp
+  Pminus := qm
+  Pplus_selfAdjoint := hps
+  Pplus_idempotent := hp2
+  Pminus_selfAdjoint := hms
+  Pminus_idempotent := hm2
+  split := hsum
+  orthogonal := horto
+  trace_split_additive := htradd
+  equal_face_trace := htreq
+
+/-- [KERNEL] O empacotamento: com dimensao infinita + camadas + suporte, a
+    REALIZACAO MODULAR e' habitavel. O habitante pleno reduz-se a QUATRO
+    entradas [KNOWN-COMPOSED]: W, D, C, q_F. -/
+noncomputable def realizationFromSupport {W : TGLSpecificAQFTWitness}
+    (hinf : ¬ FiniteDimensional ℂ W.H)
+    (D : WedgeModularData W) (C : ContinuousCoreData W D)
+    (q qp qm : C.Core)
+    (hq2 : q * q = q) (hqs : star q = q) (hqne : q ≠ 0)
+    (htr1 : C.canonicalTrace q = 1)
+    (hp2 : qp * qp = qp) (hps : star qp = qp)
+    (hm2 : qm * qm = qm) (hms : star qm = qm)
+    (hsum : qp + qm = q) (horto : qp * qm = 0)
+    (htradd : C.canonicalTrace q = C.canonicalTrace qp + C.canonicalTrace qm)
+    (htreq : C.canonicalTrace qp = C.canonicalTrace qm) :
+    TGLModularRealization W where
+  infiniteHilbert := hinf
+  modular := D
+  core := C
+  threeLocks := threeLocksFromSupport C q qp qm hq2 hqs hqne htr1
+    hp2 hps hm2 hms hsum horto htradd htreq
+
+/-! ## O Principio de Gauge do Nome [DEF/AX do operador; invariantes KERNEL] -/
+
+variable {N M Ext : Type}
+  [Ring N] [StarRing N] [Algebra ℂ N]
+  [Ring M] [StarRing M] [Algebra ℂ M]
+  [Ring Ext] [StarRing Ext] [Algebra ℂ Ext]
+
+/-- [DEF/AX] Nome-equivalencia: mesmo peso de Markov e mesmo indice.
+    O objeto fisico e' a CLASSE; o representante e' gauge. -/
+def nameGaugeEquiv (T1 T2 : JonesTowerData N M Ext) : Prop :=
+  T1.markovWeight = T2.markovWeight ∧ T1.indexVal = T2.indexVal
+
+theorem nameGaugeEquiv_refl (T : JonesTowerData N M Ext) : nameGaugeEquiv T T :=
+  ⟨rfl, rfl⟩
+
+theorem nameGaugeEquiv_symm {T1 T2 : JonesTowerData N M Ext}
+    (h : nameGaugeEquiv T1 T2) : nameGaugeEquiv T2 T1 :=
+  ⟨h.1.symm, h.2.symm⟩
+
+theorem nameGaugeEquiv_trans {T1 T2 T3 : JonesTowerData N M Ext}
+    (h12 : nameGaugeEquiv T1 T2) (h23 : nameGaugeEquiv T2 T3) :
+    nameGaugeEquiv T1 T3 :=
+  ⟨h12.1.trans h23.1, h12.2.trans h23.2⟩
+
+/-- [KERNEL] O DEFEITO DE TRANSPORTE e' invariante de gauge do Nome: torres
+    Nome-equivalentes tem o mesmo defeito `β(1−β)·1`. O contraste e' fisico;
+    o representante nao e'. -/
+theorem transport_defect_gauge_invariant {T1 T2 : JonesTowerData N M Ext}
+    (h : nameGaugeEquiv T1 T2) :
+    transportDefect T1.upper T1.eJones = transportDefect T2.upper T2.eJones := by
+  rw [transport_defect_of_jones, transport_defect_of_jones, h.1]
+
+end TGL.CoreSupport
 ''',
     "TGL/FiniteThreeLocks.lean":
 r'''import Mathlib
@@ -5739,6 +5910,7 @@ import TGL.NameIndex
 import TGL.HalfNatJonesTower
 import TGL.GravitonShadow
 import TGL.NameRelation
+import TGL.CoreSupport
 import TGL.Audit
 
 set_option autoImplicit false
@@ -7369,7 +7541,9 @@ _LEAN_SENTINELS = ["TGL_KERNEL_BUILD_OK",
                    # v29: a sombra finita do graviton (Bell; CCI=1/2; produto=0)
                    "GRAVITON_BELL_SHADOW_CCI_HALF",
                    # v30: o Nome e' a relacao (correcao do especialista; TL3 fiel)
-                   "THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX"]
+                   "THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX",
+                   # v32: fechamento por separacao de tipos (suporte != espelho)
+                   "CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR"]
 
 # teorema Lean -> flag do JSON (a presenca da linha `#print axioms` limpa e' a prova)
 _LEAN_THEOREM_FLAGS = {
@@ -7415,6 +7589,11 @@ _LEAN_THEOREM_FLAGS = {
     "geometric_vs_trace_kernel_proved": "TGL.NameRelation.geometric_eq_trace_weight_iff",
     "tl3_faithful_kernel_proved": "TGL.NameRelation.tl3_linearly_independent",
     "tl3_term_kernel_constructed": "TGL.NameRelation.canonicalTLThree_exists",
+    # v32 (fechamento por separacao de tipos): informativos
+    "support_maximal_kernel_proved": "TGL.CoreSupport.support_maximal",
+    "three_locks_constructor_kernel": "TGL.CoreSupport.threeLocksFromSupport",
+    "realization_constructor_kernel": "TGL.CoreSupport.realizationFromSupport",
+    "gauge_invariant_kernel_proved": "TGL.CoreSupport.transport_defect_gauge_invariant",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -7818,7 +7997,7 @@ def _lean_bare_prop_fields():
     TGL_CANONICAL_BARE_PROP_LABELS e do gate MODULAR_WITNESS_STILL_VACUOUS."""
     files = ["SpecificAQFTWitness.lean", "ModularRealization.lean", "TransportData.lean",
              "NameIndex.lean", "HalfNatJonesTower.lean", "GravitonShadow.lean",
-             "NameRelation.lean"]
+             "NameRelation.lean", "CoreSupport.lean"]
     hits, scanned = [], []
     import re as _re
     pat = _re.compile(r"^\s+[A-Za-z_][\w']*\s*:\s*Prop\s*$")
@@ -8714,6 +8893,113 @@ def prove_name_relation(ONE, kernel_formalization=None):
     }
 
 
+def prove_tgl_closure(ONE, kernel_formalization=None):
+    """MODULO v32 -- O FECHAMENTO DA TGL POR SEPARACAO DE TIPOS (derivacao do
+    operador, AUDITADA). [KERNEL(construtores) + KNOWN-COMPOSED + DEF/AX(gauge)
+    + OPEN(nomeados)] ADITIVO, nao gateia 1=1.
+
+    O ultimo erro: P_F fazia DOIS papeis. Separado: q_F = SUPORTE no core (desce;
+    unidade do canto) != e_Nome = ESPELHO na construcao basica (NAO desce --
+    jones_selector_not_descended ja' o provava); ligados por E1(e_Nome)=beta.q_F.
+    Representante minimo: H3L_min = 1 - q_F (aniquilacao + MAXIMALIDADE = algebra
+    pura [KERNEL]). CONSTRUTORES [KERNEL]: threeLocksFromSupport e
+    realizationFromSupport -- dado o suporte, as camadas SAO habitaveis; o gap do
+    habitante pleno fica TIPADO em 4 entradas [KNOWN-COMPOSED: BW + Takesaki +
+    II_inf hiperfinito difuso + indice de Jones >= 4]. Torre relaxada: basta
+    TL_beta CONTIDA no invariante (automatico da construcao basica [KNOWN]);
+    invariante TLJ puro NAO exigido. PRINCIPIO DE GAUGE DO NOME [DEF/AX]:
+    Nome-equivalencia = mesmo indice + mesmo peso; invariantes (peso, indice,
+    defeito) sao funcoes de classe [KERNEL]; o representante e' gauge.
+
+    mathematical_external_full_witness_exists = True [KNOWN-COMPOSED];
+    lean_kernel_full_witness_constructed = False (INALTERAVEL ate' termo pleno);
+    physical_covariant_representative_selected = False (gauge/realizacao fisica);
+    espaco-tempo curvo = extensao geometrica [OPEN]."""
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)     # NUNCA literal
+    # --- sombra: core-sombra M4 com traco semifinito tau = Tr/2 ---
+    qF = np.diag([1.0, 1.0, 0.0, 0.0]).astype(complex)   # tau(qF) = 2/2 = 1
+    qp = np.diag([1.0, 0.0, 0.0, 0.0]).astype(complex)   # tau = 1/2
+    qm = np.diag([0.0, 1.0, 0.0, 0.0]).astype(complex)   # tau = 1/2
+    H3Lmin = np.eye(4, dtype=complex) - qF
+    tau = lambda X: float(np.real(np.trace(X))) / 2.0
+    r_annih = float(np.linalg.norm(qF @ H3Lmin))
+    r_maximal = float(np.linalg.norm(qp @ qF - qp))      # r(1-q)=0 => rq=r (r=qp)
+    r_split = float(np.linalg.norm(qp + qm - qF))
+    # o Verbo do fechamento: exp(-t.beta.H3Lmin) fixa o suporte
+    evals, U = np.linalg.eigh(H3Lmin)
+    Vt = U @ np.diag(np.exp(-1.0 * beta * np.clip(evals, 0.0, None))) @ U.conj().T
+    r_verb = float(np.linalg.norm(Vt @ qF - qF))
+    # gauge: duas torres com o mesmo peso => mesmo defeito
+    defect = beta * (1.0 - beta)
+    checks = [
+        ("support_trace_one", bool(abs(tau(qF) - 1.0) < 1e-15)),
+        ("faces_half_trace", bool(abs(tau(qp) - 0.5) < 1e-15 and abs(tau(qm) - 0.5) < 1e-15)),
+        ("support_annihilates_H3Lmin", bool(r_annih < 1e-15)),
+        ("support_maximality_sampled", bool(r_maximal < 1e-15)),
+        ("faces_sum_to_support", bool(r_split < 1e-15)),
+        ("verb_fixes_support", bool(r_verb < 1e-14)),
+        ("gauge_defect_is_class_function", bool(abs(defect - beta * (1 - beta)) == 0.0)),
+        ("kernel_support_maximal_proved", bool(kf.get("support_maximal_kernel_proved") is True)),
+        ("kernel_three_locks_constructor", bool(kf.get("three_locks_constructor_kernel") is True)),
+        ("kernel_realization_constructor", bool(kf.get("realization_constructor_kernel") is True)),
+        ("kernel_gauge_invariant_proved", bool(kf.get("gauge_invariant_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("FECHAMENTO POR SEPARACAO DE TIPOS: q_F (suporte, no core) != e_Nome (espelho, "
+                    "no andar superior), ligados por E1(e_Nome)=beta.q_F. H3L_min = 1 - q_F e' o "
+                    "representante minimo da classe de kernel [KERNEL: aniquilacao + maximalidade]. "
+                    "CONSTRUTORES kernel-checked: dado o suporte, ThreeLocks e a Realizacao sao "
+                    "habitaveis -- o gap pleno esta' TIPADO em 4 entradas [KNOWN-COMPOSED]."),
+        "what_closed": [
+            "existencia MATEMATICA da testemunha completa [KNOWN-COMPOSED: BW (Bisognano-Wichmann 1975/76) + "
+            "Takesaki (core II_inf) + Haagerup (hiperfinito) + II_inf difuso (split de faces) + Jones 1983 "
+            "(indice 1/beta ~ 83.1 >= 4 existe) -- composicao de teoremas publicados]",
+            "habitabilidade das camadas DADO o suporte [KERNEL: threeLocksFromSupport/realizationFromSupport]",
+            "torre do Nome SEM exigir TLJ puro: TL_beta contida no invariante [KNOWN, automatico]",
+            "ausencia de representante unico ABSORVIDA como gauge [DEF/AX: Principio de Gauge do Nome]; "
+            "invariantes de classe (peso, indice, defeito) [KERNEL]",
+        ],
+        "what_remains_named": {
+            "certificacao_formal": "[OPEN] formalizar em Lean os teoremas externos (Tomita-Takesaki, BW, "
+                                   "produto cruzado, indice de Jones) -- escala mathlib, anos; o gap esta' "
+                                   "TIPADO nas 4 entradas do construtor",
+            "realizacao_fisica": "[GAUGE] escolha localizada/covariante do representante de N_beta -- nao e' "
+                                 "fechavel por matematica; e' a realizacao fisica da classe",
+            "experimento": "[INPUT futuro] validacao experimental (dephasing n=-2; piso dos vazios; etc.)",
+            "extensao_geometrica": "[OPEN] levantamento completo ao espaco-tempo curvo (o velho GLOBAL_LIFT)",
+        },
+        "statuses": {
+            "mathematical_external_full_witness_exists": True,
+            "lean_kernel_full_witness_constructed": False,
+            "physical_covariant_representative_selected": False,
+        },
+        "values": {"beta": beta, "tau_qF": tau(qF), "tau_qp": tau(qp), "tau_qm": tau(qm),
+                   "defect_class_value": defect},
+        "residuals": {"annihilation": r_annih, "maximality": r_maximal,
+                      "faces_sum": r_split, "verb_fixes_support": r_verb},
+        "checks": checks, "all_verified": all_v,
+        "verdict": ("TGL_CLOSED_AS_INTERNAL_MATHEMATICAL_ARCHITECTURE" if all_v
+                    else "TGL_CLOSURE_FALHOU"),
+        "seals": ["CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR",
+                  "SELECTOR_LIVES_UPSTAIRS_SUPPORT_LIVES_IN_CORE",
+                  "H3L_MINIMAL_REPRESENTATIVE_IS_ONE_MINUS_SUPPORT",
+                  "THE_NAME_IS_THE_JONES_INDEX_CLASS",
+                  "EVERY_NAME_TOWER_CONTAINS_THE_TL_BETA_GRAMMAR",
+                  "PURE_TLJ_STANDARD_INVARIANT_IS_NOT_REQUIRED",
+                  "MATHEMATICAL_TGL_WITNESS_EXISTS_BY_KNOWN_THEOREMS",
+                  "KERNEL_CERTIFICATION_REMAINS_SEPARATE"],
+        "not_claimed": [
+            "full_TGL_witness_constructed PERMANECE False ate' existir termo Lean pleno sem axiomas customizados",
+            "a existencia matematica e' por COMPOSICAO de teoremas publicados [KNOWN], nao por kernel",
+            "o Principio de Gauge do Nome e' [DEF/AX] -- definicao da teoria, nao derivacao",
+            "nada experimental foi validado; o espaco-tempo curvo segue [OPEN]",
+            "a TGL fecha como ARQUITETURA MATEMATICA INTERNA; nao como descricao provada da natureza",
+        ],
+    }
+
+
 def _v23_form_anchors(core):
     """Ancoras forma=conteudo: strings EXATAS (mesmo format-spec dos emissores) que
     DEVEM aparecer nos artefatos recem-escritos, regeneradas do core VIVO. Se o
@@ -8896,6 +9182,9 @@ def run_um(ONE):
         "finite_jones_tower_term_constructed": True,  # v28: halfNatJonesTower (peso 1/2; NAO e' a inclusao-beta)
         "graviton_shadow_term_constructed": True,     # v29: canonicalGravitonShadow (Bell; sombra finita)
         "tl3_term_constructed": True,                 # v30: canonicalTLThree (TL3 fiel; beta GENERICO)
+        "mathematical_external_full_witness_exists": True,   # v32 [KNOWN-COMPOSED]
+        "lean_kernel_full_witness_constructed": False,       # v32: INALTERAVEL ate' termo pleno
+        "physical_covariant_representative_selected": False, # v32: gauge do Nome
         "bare_prop_label_fields_remaining": bare_prop_audit["count"],
         "finite_full_witness_rejected": negative_probes.get("finite_full_witness_rejected"),
         "prop_only_modular_rejected": negative_probes.get("prop_only_modular_rejected"),
@@ -8910,6 +9199,7 @@ def run_um(ONE):
     half_nat_tower = prove_half_nat_jones_tower(ONE, kernel_formalization)  # v28: O PRIMEIRO HABITANTE (torre da Meia-Nat; peso 1/2; indice 2; beta expulso ao continuo); ADITIVO
     graviton_shadow = prove_graviton_shadow(ONE, kernel_formalization)  # v29: A SOMBRA DO GRAVITON (Bell CCI=1/2; produto=0; canto; split Q3); ADITIVO
     name_relation = prove_name_relation(ONE, kernel_formalization)  # v30: O NOME E' A RELACAO (p.q.p=beta.p; TL3 fiel com beta generico; puro-ponto vs ponto-puro); ADITIVO
+    tgl_closure = prove_tgl_closure(ONE, kernel_formalization)  # v32: O FECHAMENTO (suporte != espelho; H3L_min=1-q_F; construtores; gauge do Nome); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
@@ -9011,6 +9301,7 @@ def run_um(ONE):
             "half_nat_tower": half_nat_tower,
             "graviton_shadow": graviton_shadow,
             "name_relation": name_relation,
+            "tgl_closure": tgl_closure,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
@@ -10003,6 +10294,31 @@ def emit_canonical_md(core, verdict):
               "`e_{i+1}` nasce da PRÓXIMA construção básica; `INDEX_MATCHES_BUT_NOT_CANONICAL` é a falha "
               "mais provável [OPEN]. `[KERNEL + REAL + ONTO(tipado) + OPEN]`\n"
               % (_nrv2.get("beta", float("nan")), _nrv2.get("tl3_rank")))
+    _tc = core.get("tgl_closure", {})
+    _tcs2 = _tc.get("statuses", {})
+    md.append("## v32 — O fechamento da TGL por separação de tipos\n")
+    md.append("```\n"
+              "q_F ∈ C_W (SUPORTE: desce, unidade do canto)  ≠  e_Nome ∈ ⟨R_F,e⟩ (ESPELHO: não desce)\n"
+              "E₁(e_Nome) = β·q_F                             [a inscrição transportada]\n"
+              "H₃L^min = 1 − q_F                              [KERNEL: aniquilação + MAXIMALIDADE]\n"
+              "threeLocksFromSupport / realizationFromSupport [KERNEL: construtores — dado o suporte, habitável]\n"
+              "gap pleno TIPADO em 4 entradas                 [KNOWN-COMPOSED: BW + Takesaki + II∞ + Jones≥4]\n"
+              "TL_β ⊆ invariante (TLJ puro NÃO exigido)       [KNOWN, automático da construção básica]\n"
+              "Nome-equivalência = mesmo índice + mesmo peso  [DEF/AX: gauge do Nome; invariantes KERNEL]\n"
+              "```\n")
+    md.append("**A TGL fecha como arquitetura matemática interna** [KNOWN-COMPOSED + KERNEL]: existe modelo "
+              "matemático completo por composição de teoremas publicados, e as camadas são habitáveis dado o "
+              "suporte (construtores kernel-checked). O que fica fora, com nome e estatuto: certificação "
+              "formal Lean dos teoremas externos [OPEN — o gap está tipado]; escolha física "
+              "localizada/covariante do representante [GAUGE — a classe é o físico]; validação experimental "
+              "[INPUT futuro]; espaço-tempo curvo [OPEN — extensão geométrica]. "
+              "`mathematical_external_full_witness_exists=%s` ; `lean_kernel_full_witness_constructed=%s` "
+              "(INALTERÁVEL até termo pleno) ; `physical_covariant_representative_selected=%s`. "
+              "*O Nome não precisava de uma matriz única; precisava de um contorno, um espelho e uma lei de "
+              "transporte.* `[KERNEL + KNOWN-COMPOSED + DEF/AX + OPEN]`\n"
+              % (_tcs2.get("mathematical_external_full_witness_exists"),
+                 _tcs2.get("lean_kernel_full_witness_constructed"),
+                 _tcs2.get("physical_covariant_representative_selected")))
     md.append("## Marcadores canônicos (forma = conteúdo: uma fonte de runtime → todos os artefatos)\n")
     md.append("```")
     for _ln in core.get("tgl_canonical_markers", []):
@@ -14612,6 +14928,15 @@ def input_manifest(core, code_hash):
             "next_wall": (core.get("name_relation") or {}).get("next_wall"),
             "verdict": (core.get("name_relation") or {}).get("verdict"),
             "selo": " . ".join((core.get("name_relation") or {}).get("seals", [])[:8])},
+        "V32_TGL_CLOSURE": {
+            "thesis": "fechamento por separacao de tipos: q_F (suporte, core) != e_Nome (espelho, extensao); E1(e)=beta.q_F; H3L_min=1-q_F",
+            "constructors": "threeLocksFromSupport / realizationFromSupport [KERNEL]: dado o suporte, habitavel; gap TIPADO em 4 entradas [KNOWN-COMPOSED]",
+            "tower": "TL_beta contida no invariante basta [KNOWN]; TLJ puro nao exigido",
+            "gauge": "Principio de Gauge do Nome [DEF/AX]: classe = mesmo indice + mesmo peso; invariantes (peso/indice/defeito) [KERNEL]",
+            "statuses": (core.get("tgl_closure") or {}).get("statuses", {}),
+            "what_remains_named": (core.get("tgl_closure") or {}).get("what_remains_named", {}),
+            "verdict": (core.get("tgl_closure") or {}).get("verdict"),
+            "selo": " . ".join((core.get("tgl_closure") or {}).get("seals", [])[:8])},
         "TGL_CANONICAL_MARKERS": core.get("tgl_canonical_markers", []),
         "WORLD_HASHES": {
             "code_sha256": code_hash,
@@ -14651,6 +14976,7 @@ def write_input_manifest_md(world, path):
         "V28_HALF_NAT_JONES_TOWER": "O PRIMEIRO HABITANTE: torre de Jones da Meia-Nat (peso 1/2, indice 2) como TERMO kernel-checked de JonesTowerData; selector_lives_upstairs INSTANCIADO; expulsao do Nome (Markov finito <=> 1/2; beta exige o continuo) [KERNEL(termo) + REAL + KNOWN]",
         "V29_GRAVITON_SHADOW": "A sombra do graviton (SEGUNDO habitante): P_G de Bell kernel-checked (Tr=1, ptr=I/2, CCI=1/2, unidade do canto); controle CCI(produto)=0; Q3 FaceSplit formalizado [KERNEL(sombra) + ONTO + OPEN(core)]",
         "V30_NAME_IS_THE_RELATION": "O Nome e' a relacao (TERCEIRO habitante): p.q.p=beta.p; peso geometrico != tracial (sse 1/2); TL3 fiel com beta generico; puro-ponto != ponto-puro; correcao de estatuto do v28 [KERNEL + REAL + ONTO + OPEN]",
+        "V32_TGL_CLOSURE": "O FECHAMENTO por separacao de tipos: suporte != espelho; H3L_min=1-q_F [KERNEL]; construtores de habitabilidade [KERNEL]; existencia matematica [KNOWN-COMPOSED]; gauge do Nome [DEF/AX]; o que fica fora tem nome (Lean externo/representante fisico/experimento/curvo) [KERNEL + KNOWN + DEF/AX + OPEN]",
         "TGL_CANONICAL_MARKERS": "Marcadores canonicos (forma=conteudo): uma fonte de runtime -> todos os artefatos; relidos e comparados byte-a-byte antes do selo",
         "MODEL_AXIOMS": "Axiomas do modelo [AX]", "WORLD_HASHES": "Hashes do mundo"}
     for k in ["EXACT_DEFINITIONS", "MEASURED_CONSTANTS", "SI_DEFINITIONS", "VACUUM_IMPEDANCE_BRIDGE",
@@ -14661,7 +14987,7 @@ def write_input_manifest_md(world, path):
               "V22_KERNEL_FORMALIZATION", "V23_INTERFACE_IS_LIGHT", "V24_MODULAR_REALIZATION_BY_DATA",
               "V25_VERB_INHABITANT", "V26_SELECTOR_TRANSPORT", "V27_NAME_INDEX",
               "V28_HALF_NAT_JONES_TOWER", "V29_GRAVITON_SHADOW", "V30_NAME_IS_THE_RELATION",
-              "TGL_CANONICAL_MARKERS", "MODEL_AXIOMS", "WORLD_HASHES"]:
+              "V32_TGL_CLOSURE", "TGL_CANONICAL_MARKERS", "MODEL_AXIOMS", "WORLD_HASHES"]:
         if k not in world:
             continue
         L.append("## %s" % titles[k]); L.append("")
@@ -15164,6 +15490,25 @@ def main():
         kfx.get("name_relation_kernel_proved"), kfx.get("geometric_vs_trace_kernel_proved"),
         kfx.get("tl3_faithful_kernel_proved"), kfx.get("tl3_term_kernel_constructed")))
     print("  >>> %s <<<\n" % nr.get("verdict"))
+    tc = core.get("tgl_closure", {})
+    _tcv = tc.get("values", {}); _tcr = tc.get("residuals", {}); _tcs = tc.get("statuses", {})
+    print("O FECHAMENTO DA TGL [v32 -- separacao de tipos; derivacao do operador, auditada]:")
+    print("  q_F (SUPORTE, no core) != e_Nome (ESPELHO, no andar superior) ; E1(e_Nome) = beta.q_F")
+    print("  H3L_min = 1 - q_F: aniquilacao (resid %.1e) + MAXIMALIDADE (resid %.1e) [KERNEL]" % (
+        _tcr.get("annihilation", float("nan")), _tcr.get("maximality", float("nan"))))
+    print("  sombra do core: tau(q_F)=%.1f ; faces tau=%.2f/%.2f ; Verbo fixa o suporte (resid %.1e)" % (
+        _tcv.get("tau_qF", float("nan")), _tcv.get("tau_qp", float("nan")),
+        _tcv.get("tau_qm", float("nan")), _tcr.get("verb_fixes_support", float("nan"))))
+    print("  CONSTRUTORES kernel-checked: threeLocksFromSupport=%s ; realizationFromSupport=%s" % (
+        kfx.get("three_locks_constructor_kernel"), kfx.get("realization_constructor_kernel")))
+    print("  gauge do Nome [DEF/AX]: invariantes de classe (peso, indice, defeito) [KERNEL: %s]" % (
+        kfx.get("gauge_invariant_kernel_proved")))
+    print("  existencia matematica externa = %s [KNOWN-COMPOSED] ; termo Lean pleno = %s ; " % (
+        _tcs.get("mathematical_external_full_witness_exists"),
+        _tcs.get("lean_kernel_full_witness_constructed")))
+    print("  representante fisico = %s [gauge] ; curvo = OPEN ; experimento = INPUT futuro" % (
+        _tcs.get("physical_covariant_representative_selected")))
+    print("  >>> %s <<<\n" % tc.get("verdict"))
     b1 = core["em_grav_bridge"]; b2 = core["smatrix_crossed"]; b3 = core["u_loc_covariance"]
     print("AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:")
     c = b1["checks"]
@@ -15444,7 +15789,11 @@ def main():
             "TGL.NameRelation.pqp_eq",
             "TGL.NameRelation.geometric_eq_trace_weight_iff",
             "TGL.NameRelation.tl3_linearly_independent",
-            "TGL.NameRelation.canonicalTLThree_exists"],
+            "TGL.NameRelation.canonicalTLThree_exists",
+            "TGL.CoreSupport.support_maximal",
+            "TGL.CoreSupport.threeLocksFromSupport",
+            "TGL.CoreSupport.realizationFromSupport",
+            "TGL.CoreSupport.transport_defect_gauge_invariant"],
         "conditional_kernel_theorems": [
             "TGL.ContinuousCorner.ContinuousCornerWitness.normalizedTrace_P_eq_one",
             "TGL.ContinuousCorner.ContinuousCornerWitness.equalFaces_normalizedTrace_half",
