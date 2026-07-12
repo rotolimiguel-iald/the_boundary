@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=18191 len(stderr)=0
+# len(stdout)=24801 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -184,6 +184,59 @@ GravitonShadow.bell_corner_unit : ∀ (y : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin
   [inst_7 : StarRing Ext] [inst_8 : Algebra ℂ Ext] {T1 T2 : TransportData.JonesTowerData N M Ext},
   CoreSupport.nameGaugeEquiv T1 T2 →
     TransportData.transportDefect T1.upper T1.eJones = TransportData.transportDefect T2.upper T2.eJones
+@TGLExt.commutant_triple : ∀ {A : Type} [inst : Ring A] (S : Set A),
+  TGLExt.commutantSet (TGLExt.commutantSet (TGLExt.commutantSet S)) = TGLExt.commutantSet S
+@TGLExt.bicommutant_range_Lmul : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n],
+  TGLExt.commutantSet (TGLExt.commutantSet (Set.range TGLExt.Lmul)) = Set.range TGLExt.Lmul
+@TGLExt.frob_Jconj_Jconj : ∀ {n : Type} [inst : Fintype n] (x y : Matrix n n ℂ),
+  TGLExt.frob (TGLExt.Jconj x) (TGLExt.Jconj y) = TGLExt.frob y x
+@TGLExt.Jconj_Lmul_Jconj : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (a z : Matrix n n ℂ),
+  TGLExt.Jconj ((TGLExt.Lmul a) (TGLExt.Jconj z)) = (TGLExt.Rmul a.conjTranspose) z
+@TGLExt.omega_cyclic : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef → ∀ (y : Matrix n n ℂ), ∃ x, (TGLExt.Lmul x) (TGLExt.Omega ρ) = y
+@TGLExt.omega_separating : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef → ∀ (x : Matrix n n ℂ), (TGLExt.Lmul x) (TGLExt.Omega ρ) = 0 → x = 0
+@TGLExt.Sop_tomita : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef →
+    ∀ (x : Matrix n n ℂ),
+      TGLExt.Sop ρ ((TGLExt.Lmul x) (TGLExt.Omega ρ)) = (TGLExt.Lmul x.conjTranspose) (TGLExt.Omega ρ)
+@TGLExt.Sop_involutive : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef → ∀ (y : Matrix n n ℂ), TGLExt.Sop ρ (TGLExt.Sop ρ y) = y
+@TGLExt.J_deltaHalf : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ y : Matrix n n ℂ),
+  TGLExt.Jconj (TGLExt.DeltaHalf ρ y) = TGLExt.Sop ρ y
+@TGLExt.deltaHalf_deltaHalf : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef → ∀ (y : Matrix n n ℂ), TGLExt.DeltaHalf ρ (TGLExt.DeltaHalf ρ y) = TGLExt.Delta ρ y
+@TGLExt.delta_omega : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef → TGLExt.Delta ρ (TGLExt.Omega ρ) = TGLExt.Omega ρ
+@TGLExt.frob_delta_nonneg : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef → ∀ (y : Matrix n n ℂ), 0 ≤ TGLExt.frob y (TGLExt.Delta ρ y)
+@TGLExt.gibbs_kms : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef → ∀ (a b : Matrix n n ℂ), TGLExt.gibbs ρ (a * b) = TGLExt.gibbs ρ (b * TGLExt.Delta ρ a)
+@TGLExt.modPow_add : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ) (s t : ℝ),
+  TGLExt.modPow ρ (s + t) = TGLExt.modPow ρ s * TGLExt.modPow ρ t
+@TGLExt.modPow_mem_unitary : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ) (t : ℝ),
+  TGLExt.modPow ρ t ∈ unitary (Matrix n n ℂ)
+@TGLExt.sigma_mul : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ) (t : ℝ)
+  (a b : Matrix n n ℂ), TGLExt.sigma ρ t (a * b) = TGLExt.sigma ρ t a * TGLExt.sigma ρ t b
+@TGLExt.sigma_sigma : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ) (s t : ℝ)
+  (a : Matrix n n ℂ), TGLExt.sigma ρ s (TGLExt.sigma ρ t a) = TGLExt.sigma ρ (s + t) a
+@TGLExt.gibbs_sigma : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ) (t : ℝ)
+  (a : Matrix n n ℂ), TGLExt.gibbs ρ (TGLExt.sigma ρ t a) = TGLExt.gibbs ρ a
+@TGLExt.exp_logRho : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef → NormedSpace.exp (TGLExt.logRho ρ) = ρ
+@TGLExt.sigma_omega : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ) (t : ℝ),
+  TGLExt.modPow ρ t * TGLExt.Omega ρ * TGLExt.modPow ρ (-t) = TGLExt.Omega ρ
+@TGLExt.diagExpect_bimod : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (d d' : n → ℂ) (x : Matrix n n ℂ),
+  TGLExt.diagExpect (Matrix.diagonal d * x * Matrix.diagonal d') =
+    Matrix.diagonal d * TGLExt.diagExpect x * Matrix.diagonal d'
+@TGLExt.diagExpect_posSemidef : ∀ {n : Type} [inst : DecidableEq n] {x : Matrix n n ℂ},
+  x.PosSemidef → (TGLExt.diagExpect x).PosSemidef
+@TGLExt.eTr_Lmul_eTr : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (x : Matrix n n ℂ),
+  TGLExt.eTr * TGLExt.Lmul x * TGLExt.eTr = (x.trace / ↑(Fintype.card n)) • TGLExt.eTr
+@TGLExt.eD_Lmul_eD : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (x : Matrix n n ℂ),
+  TGLExt.eD * TGLExt.Lmul x * TGLExt.eD = TGLExt.Lmul (TGLExt.diagExpect x) * TGLExt.eD
+@TGLExt.commutant_range_diagonal : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n],
+  TGLExt.commutantSet (Set.range Matrix.diagonal) = Set.range Matrix.diagonal
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -227,6 +280,31 @@ GravitonShadow.bell_corner_unit : ∀ (y : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin
 'TGL.CoreSupport.threeLocksFromSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.CoreSupport.realizationFromSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.CoreSupport.transport_defect_gauge_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.commutant_triple' depends on axioms: [propext, Quot.sound]
+'TGLExt.bicommutant_range_Lmul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Jconj_Lmul_Jconj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.omega_cyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.omega_separating' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Sop_tomita' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Sop_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.deltaHalf_deltaHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.delta_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.J_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.sigma_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.sigma_sigma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.frob_trExpect_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.eTr_Lmul_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.J_deltaHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.frob_delta_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.gibbs_kms' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.modPow_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.modPow_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.gibbs_sigma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.exp_logRho' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.sigma_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.diagExpect_bimod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.eD_Lmul_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.commutant_range_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
@@ -240,6 +318,7 @@ HALF_NAT_IS_THE_ONLY_FINITE_MARKOV_MIRROR
 GRAVITON_BELL_SHADOW_CCI_HALF
 THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX
 CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR
+FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED
 
 --- STDERR ---
 

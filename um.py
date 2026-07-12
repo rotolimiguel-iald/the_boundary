@@ -1,6 +1,6 @@
-# um.py -- EDICAO UNIFICADA (v31): UM ARQUIVO SO'. O kernel Lean (fontes .lean,
-# lakefile, toolchain, manifest) esta' EMBUTIDO neste arquivo e e' materializado
-# em runtime; o teste do fail-closed roda embutido ao final. Entrada unica: "1".
+# um.py -- EDICAO UNIFICADA (v33): UM ARQUIVO SO'. O kernel Lean (fontes .lean das
+# libs TGL e TGLExt, lakefile, toolchain, manifest) esta' EMBUTIDO neste arquivo e e'
+# materializado em runtime; o teste do fail-closed roda embutido ao final. Entrada: "1".
 # -*- coding: utf-8 -*-
 r"""
 ================================================================================
@@ -4610,7 +4610,7 @@ _EMBEDDED_KERNEL_FILES = {
     "lakefile.toml":
 r'''name = "tgl_kernel"
 version = "0.1.0"
-defaultTargets = ["TGL"]
+defaultTargets = ["TGL", "TGLExt"]
 
 [[require]]
 name = "mathlib"
@@ -4619,6 +4619,9 @@ rev = "v4.31.0"
 
 [[lean_lib]]
 name = "TGL"
+
+[[lean_lib]]
+name = "TGLExt"
 ''',
     "lean-toolchain":
 r'''leanprover/lean4:v4.31.0
@@ -4857,6 +4860,13 @@ import TGL.CoreSupport
 import TGL.Audit
 import TGL.Main
 ''',
+    "TGLExt.lean":
+r'''import TGLExt.Commutant
+import TGLExt.LeftRight
+import TGLExt.FiniteTomita
+import TGLExt.ModularFlow
+import TGLExt.CondExpect
+''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
 
@@ -4920,6 +4930,7 @@ import TGL.HalfNatJonesTower
 import TGL.GravitonShadow
 import TGL.NameRelation
 import TGL.CoreSupport
+import TGLExt
 
 set_option autoImplicit false
 
@@ -5004,6 +5015,33 @@ namespace TGL.Audit
 #check @TGL.CoreSupport.threeLocksFromSupport
 #check @TGL.CoreSupport.realizationFromSupport
 #check @TGL.CoreSupport.transport_defect_gauge_invariant
+-- v33 (a colheita dos externos: escada TGLExt integrada -- Degrau 0 FECHADO,
+--      Degrau 1 quase; tudo FINITO-dimensional, nada e' III_1)
+#check @TGLExt.commutant_triple
+#check @TGLExt.bicommutant_range_Lmul
+#check @TGLExt.frob_Jconj_Jconj
+#check @TGLExt.Jconj_Lmul_Jconj
+#check @TGLExt.omega_cyclic
+#check @TGLExt.omega_separating
+#check @TGLExt.Sop_tomita
+#check @TGLExt.Sop_involutive
+#check @TGLExt.J_deltaHalf
+#check @TGLExt.deltaHalf_deltaHalf
+#check @TGLExt.delta_omega
+#check @TGLExt.frob_delta_nonneg
+#check @TGLExt.gibbs_kms
+#check @TGLExt.modPow_add
+#check @TGLExt.modPow_mem_unitary
+#check @TGLExt.sigma_mul
+#check @TGLExt.sigma_sigma
+#check @TGLExt.gibbs_sigma
+#check @TGLExt.exp_logRho
+#check @TGLExt.sigma_omega
+#check @TGLExt.diagExpect_bimod
+#check @TGLExt.diagExpect_posSemidef
+#check @TGLExt.eTr_Lmul_eTr
+#check @TGLExt.eD_Lmul_eD
+#check @TGLExt.commutant_range_diagonal
 
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
@@ -5047,6 +5085,33 @@ namespace TGL.Audit
 #print axioms TGL.CoreSupport.threeLocksFromSupport
 #print axioms TGL.CoreSupport.realizationFromSupport
 #print axioms TGL.CoreSupport.transport_defect_gauge_invariant
+-- v33 (escada TGLExt) -- v33.1: cobertura ampliada apos painel adversarial
+-- (o veredito 'COMPLETO' exige #print axioms de TODOS os teoremas citados nele)
+#print axioms TGLExt.commutant_triple
+#print axioms TGLExt.bicommutant_range_Lmul
+#print axioms TGLExt.Jconj_Lmul_Jconj
+#print axioms TGLExt.omega_cyclic
+#print axioms TGLExt.omega_separating
+#print axioms TGLExt.Sop_tomita
+#print axioms TGLExt.Sop_involutive
+#print axioms TGLExt.deltaHalf_deltaHalf
+#print axioms TGLExt.delta_omega
+#print axioms TGLExt.J_omega
+#print axioms TGLExt.sigma_mul
+#print axioms TGLExt.sigma_sigma
+#print axioms TGLExt.frob_trExpect_symm
+#print axioms TGLExt.eTr_Lmul_eTr
+#print axioms TGLExt.J_deltaHalf
+#print axioms TGLExt.frob_delta_nonneg
+#print axioms TGLExt.gibbs_kms
+#print axioms TGLExt.modPow_add
+#print axioms TGLExt.modPow_mem_unitary
+#print axioms TGLExt.gibbs_sigma
+#print axioms TGLExt.exp_logRho
+#print axioms TGLExt.sigma_omega
+#print axioms TGLExt.diagExpect_bimod
+#print axioms TGLExt.eD_Lmul_eD
+#print axioms TGLExt.commutant_range_diagonal
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -5062,6 +5127,7 @@ namespace TGL.Audit
 #eval IO.println "GRAVITON_BELL_SHADOW_CCI_HALF"
 #eval IO.println "THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX"
 #eval IO.println "CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR"
+#eval IO.println "FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED"
 
 end TGL.Audit
 ''',
@@ -7446,6 +7512,772 @@ theorem dual_calibration_exists {W : TGLSpecificAQFTWitness}
 
 end TGL.VerbInhabitant
 ''',
+    "TGLExt/Commutant.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+
+/-!
+# Comutante: a semente do Degrau 1   [TGLExt -- frente experimental]
+
+O comutante de um conjunto de operadores, com os fatos básicos que a mathlib
+não empacota nesta forma: e' subálgebra unital fechada por estrela (quando o
+conjunto e' fechado por estrela), a antitonia, e a inclusão no bicomutante
+`S ⊆ S′′`. Puramente algébrico -- vale em qualquer anel-* (em particular nas
+álgebras de matrizes e em B(H)). E' o primeiro tijolo do bicomutante finito
+(Degrau 1) e, adiante, do Tomita-Takesaki finito (Degrau 0).
+Sem sorry, sem axiom. Negativo honesto e' resultado.
+-/
+
+namespace TGLExt
+
+variable {A : Type} [Ring A]
+
+/-- O comutante de um conjunto: tudo que comuta com todos os elementos. -/
+def commutantSet (S : Set A) : Set A := {x : A | ∀ s ∈ S, s * x = x * s}
+
+theorem mem_commutantSet {S : Set A} {x : A} :
+    x ∈ commutantSet S ↔ ∀ s ∈ S, s * x = x * s := Iff.rfl
+
+/-- [KERNEL] `1` está em todo comutante. -/
+theorem one_mem_commutant (S : Set A) : (1 : A) ∈ commutantSet S :=
+  fun s _ => by rw [mul_one, one_mul]
+
+/-- [KERNEL] `0` está em todo comutante. -/
+theorem zero_mem_commutant (S : Set A) : (0 : A) ∈ commutantSet S :=
+  fun s _ => by rw [mul_zero, zero_mul]
+
+/-- [KERNEL] O comutante é fechado por soma. -/
+theorem add_mem_commutant {S : Set A} {x y : A}
+    (hx : x ∈ commutantSet S) (hy : y ∈ commutantSet S) :
+    x + y ∈ commutantSet S :=
+  fun s hs => by rw [mul_add, add_mul, hx s hs, hy s hs]
+
+/-- [KERNEL] O comutante é fechado por produto. -/
+theorem mul_mem_commutant {S : Set A} {x y : A}
+    (hx : x ∈ commutantSet S) (hy : y ∈ commutantSet S) :
+    x * y ∈ commutantSet S := by
+  intro s hs
+  rw [← mul_assoc, hx s hs, mul_assoc, hy s hs, ← mul_assoc]
+
+/-- [KERNEL] O comutante é fechado por negação. -/
+theorem neg_mem_commutant {S : Set A} {x : A} (hx : x ∈ commutantSet S) :
+    -x ∈ commutantSet S :=
+  fun s hs => by rw [mul_neg, neg_mul, hx s hs]
+
+/-- [KERNEL] Se `S` é fechado por estrela, o comutante também é
+    (o primeiro passo rumo a `S′` como álgebra de von Neumann). -/
+theorem star_mem_commutant [StarRing A] {S : Set A} (hS : ∀ s ∈ S, star s ∈ S)
+    {x : A} (hx : x ∈ commutantSet S) :
+    star x ∈ commutantSet S := by
+  intro s hs
+  have h := hx (star s) (hS s hs)
+  calc s * star x = star (x * star s) := by rw [star_mul, star_star]
+    _ = star (star s * x) := by rw [h]
+    _ = star x * s := by rw [star_mul, star_star]
+
+/-- [KERNEL] ANTITONIA: conjunto maior, comutante menor. -/
+theorem commutant_antitone {S T : Set A} (h : S ⊆ T) :
+    commutantSet T ⊆ commutantSet S :=
+  fun _ hx s hs => hx s (h hs)
+
+/-- [KERNEL] `S ⊆ S′′`: todo elemento comuta com o que comuta com ele.
+    O primeiro meio-passo do bicomutante. -/
+theorem subset_bicommutant (S : Set A) :
+    S ⊆ commutantSet (commutantSet S) :=
+  fun s hs _ hx => (hx s hs).symm
+
+/-- [KERNEL] `S′ = S′′′`: o comutante estabiliza no terceiro passo.
+    (Consequência formal de antitonia + `S ⊆ S′′` — o fecho de Galois.) -/
+theorem commutant_triple (S : Set A) :
+    commutantSet (commutantSet (commutantSet S)) = commutantSet S := by
+  apply Set.Subset.antisymm
+  · exact commutant_antitone (subset_bicommutant S)
+  · exact subset_bicommutant (commutantSet S)
+
+/-- [KERNEL] Ponte para a mathlib: nosso comutante É `Set.centralizer`, na
+    mesma ordem `s * x = x * s`. Auditoria honesta (recon 11/07/2026): os dez
+    teoremas acima têm análogos em `Set.*_centralizer`; o que a mathlib NÃO
+    tem é o teorema do bicomutante como TEOREMA (em `VonNeumannAlgebra` ele é
+    campo estrutural) — essa é a contribuição-alvo desta frente. -/
+theorem commutantSet_eq_centralizer (S : Set A) :
+    commutantSet S = Set.centralizer S := rfl
+
+end TGLExt
+''',
+    "TGLExt/CondExpect.lean":
+r'''import TGLExt.LeftRight
+
+set_option autoImplicit false
+
+/-!
+# Tomiyama finito: esperanças condicionais + relação de Jones + MASA
+  [TGLExt — Degrau 1 (fecho parcial) → entrada do Degrau 2]
+
+As duas esperanças condicionais canônicas de `Mₙ(ℂ)` como teoremas de kernel:
+
+* `E_ℂ = trExpect` (sobre os escalares): unital, idempotente, preserva o
+  traço, autoadjunta na forma de Frobenius — e a RELAÇÃO DE JONES ESCALAR
+  `e·L_x·e = (Tr x / n)·e`;
+* `E_D = diagExpect` (sobre a subálgebra diagonal): unital, idempotente,
+  D-bimodular, preserva traço, autoadjunta em Frobenius, POSITIVA — e a
+  RELAÇÃO DE JONES `e_D·L_x·e_D = L_{E_D(x)}·e_D`: a compressão pelo
+  espelho É a esperança condicional (a lei do transporte do seletor, v26
+  da casa, agora como teorema externo em dimensão finita);
+* MASA: `D′ = D` — a diagonal é maximal abeliana (o comutante DENTRO da
+  álgebra, primeiro uso do `commutantSet` em `Mₙ` em vez de `End`).
+
+β NÃO entra: infraestrutura pura. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped ComplexOrder
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## C1: a esperança condicional tracial E_ℂ -/
+
+/-- `E_ℂ(x) = (Tr x / n)·1` — a esperança condicional sobre os escalares. -/
+def trExpect (x : Matrix n n ℂ) : Matrix n n ℂ :=
+  (x.trace / (Fintype.card n : ℂ)) • (1 : Matrix n n ℂ)
+
+theorem trExpect_one [Nonempty n] : trExpect (1 : Matrix n n ℂ) = 1 := by
+  simp [trExpect]
+
+/-- [KERNEL] `E_ℂ` preserva o traço (traço de Markov). -/
+theorem trace_trExpect [Nonempty n] (x : Matrix n n ℂ) :
+    (trExpect x).trace = x.trace := by
+  have hc : ((Fintype.card n : ℂ)) ≠ 0 := Nat.cast_ne_zero.mpr Fintype.card_ne_zero
+  simp [trExpect, div_mul_cancel₀ _ hc]
+
+theorem trExpect_idem [Nonempty n] (x : Matrix n n ℂ) :
+    trExpect (trExpect x) = trExpect x := by
+  rw [show trExpect (trExpect x)
+      = ((trExpect x).trace / (Fintype.card n : ℂ)) • (1 : Matrix n n ℂ) from rfl,
+    trace_trExpect]
+  rfl
+
+/-- [KERNEL] `E_ℂ` é autoadjunta na forma de Frobenius: projeção ORTOGONAL. -/
+theorem frob_trExpect_symm (x y : Matrix n n ℂ) :
+    frob (trExpect x) y = frob x (trExpect y) := by
+  simp only [frob, trExpect, conjTranspose_smul, conjTranspose_one, Matrix.smul_mul,
+    Matrix.one_mul, Matrix.mul_smul, Matrix.mul_one, trace_smul, smul_eq_mul,
+    trace_conjTranspose, star_div₀, star_natCast]
+  ring
+
+/-! ## C2: eTr como endomorfismo e a relação de Jones escalar -/
+
+/-- `E_ℂ` empacotada como endomorfismo de `H = Mₙ(ℂ)`. -/
+def eTr : Module.End ℂ (Matrix n n ℂ) where
+  toFun := trExpect
+  map_add' x y := by simp [trExpect, add_div, add_smul]
+  map_smul' c x := by simp [trExpect, smul_smul, mul_div_assoc]
+
+@[simp] theorem eTr_apply (x : Matrix n n ℂ) : eTr x = trExpect x := rfl
+
+/-- [KERNEL] RELAÇÃO DE JONES ESCALAR: `e·L_x·e = (Tr x/n)·e` — comprimir
+    pelo projetor tracial devolve o peso do estado. -/
+theorem eTr_Lmul_eTr (x : Matrix n n ℂ) :
+    eTr * Lmul x * eTr = (x.trace / (Fintype.card n : ℂ)) • eTr := by
+  refine LinearMap.ext fun y => ?_
+  simp only [Module.End.mul_apply, LinearMap.smul_apply, eTr_apply, Lmul_apply,
+    trExpect, Matrix.mul_smul, Matrix.mul_one, trace_smul, smul_eq_mul, smul_smul]
+  congr 1
+  ring
+
+/-! ## C3: a esperança condicional diagonal E_D -/
+
+/-- `E_D(x) = diag(x)` — a esperança condicional sobre a subálgebra diagonal. -/
+def diagExpect (x : Matrix n n ℂ) : Matrix n n ℂ := diagonal x.diag
+
+omit [Fintype n] in
+theorem diagExpect_one : diagExpect (1 : Matrix n n ℂ) = 1 := by
+  simp [diagExpect]
+
+omit [Fintype n] in
+theorem diagExpect_idem (x : Matrix n n ℂ) :
+    diagExpect (diagExpect x) = diagExpect x := by
+  simp [diagExpect]
+
+omit [Fintype n] in
+theorem diagExpect_diagonal (d : n → ℂ) : diagExpect (diagonal d) = diagonal d := by
+  simp [diagExpect]
+
+/-- [KERNEL] `E_D` é D-BIMODULAR: a lei da esperança condicional
+    (Tomiyama finito — o dado central de `ConditionalExpectationData` da
+    casa, agora teorema externo). -/
+theorem diagExpect_bimod (d d' : n → ℂ) (x : Matrix n n ℂ) :
+    diagExpect (diagonal d * x * diagonal d')
+      = diagonal d * diagExpect x * diagonal d' := by
+  ext i j
+  by_cases h : i = j
+  · subst h; simp [diagExpect]
+  · simp [diagExpect, h]
+
+/-- [KERNEL] `E_D` preserva o traço. -/
+theorem trace_diagExpect (x : Matrix n n ℂ) : (diagExpect x).trace = x.trace := by
+  simp [diagExpect, Matrix.trace]
+
+/-- [KERNEL] `E_D` é autoadjunta na forma de Frobenius: projeção ORTOGONAL. -/
+theorem frob_diagExpect_symm (x y : Matrix n n ℂ) :
+    frob (diagExpect x) y = frob x (diagExpect y) := by
+  simp [frob, diagExpect, Matrix.trace, Matrix.mul_apply, diagonal_apply,
+    conjTranspose_apply, Finset.sum_ite_eq, apply_ite]
+
+omit [Fintype n] in
+/-- [KERNEL] `E_D` é POSITIVA: leva psd em psd (esperança condicional genuína). -/
+theorem diagExpect_posSemidef {x : Matrix n n ℂ} (hx : x.PosSemidef) :
+    (diagExpect x).PosSemidef :=
+  posSemidef_diagonal_iff.mpr fun _ => hx.diag_nonneg
+
+/-! ## C4: eD como endomorfismo e a relação de Jones -/
+
+/-- `E_D` empacotada como endomorfismo de `H = Mₙ(ℂ)` (o projetor de Jones
+    da inclusão `D ⊆ Mₙ` agindo no GNS do traço). -/
+def eD : Module.End ℂ (Matrix n n ℂ) where
+  toFun := diagExpect
+  map_add' x y := by simp [diagExpect]
+  map_smul' c x := by simp [diagExpect]
+
+omit [Fintype n] in
+@[simp] theorem eD_apply (x : Matrix n n ℂ) : eD x = diagExpect x := rfl
+
+/-- [KERNEL] A RELAÇÃO DE JONES: `e_D·L_x·e_D = L_{E_D(x)}·e_D` — a
+    compressão pelo espelho É a esperança condicional. A lei do transporte
+    do seletor (v26 da casa), como teorema de kernel em dimensão finita. -/
+theorem eD_Lmul_eD (x : Matrix n n ℂ) :
+    eD * Lmul x * eD = Lmul (diagExpect x) * eD := by
+  refine LinearMap.ext fun y => ?_
+  simp only [Module.End.mul_apply, eD_apply, Lmul_apply]
+  ext i j
+  by_cases h : i = j
+  · subst h; simp [diagExpect]
+  · simp [diagExpect, h]
+
+/-! ## C5: a MASA diagonal -/
+
+/-- [KERNEL] MASA: `D′ = D` — o comutante da subálgebra diagonal DENTRO de
+    `Mₙ(ℂ)` é ela mesma (maximal abeliana). A prova mata `x i j` (i≠j)
+    testando contra o indicador `diagonal (Pi.single i 1)`. -/
+theorem commutant_range_diagonal :
+    commutantSet (Set.range (diagonal : (n → ℂ) → Matrix n n ℂ))
+      = Set.range (diagonal : (n → ℂ) → Matrix n n ℂ) := by
+  apply Set.Subset.antisymm
+  · intro x hx
+    refine ⟨x.diag, Matrix.ext fun i j => ?_⟩
+    by_cases h : i = j
+    · subst h; simp
+    · have h1 := Matrix.ext_iff.mpr
+        (hx (diagonal (Pi.single i 1)) ⟨Pi.single i 1, rfl⟩) i j
+      simp only [diagonal_mul, mul_diagonal, Pi.single_eq_same, one_mul,
+        Pi.single_eq_of_ne (Ne.symm h), mul_zero] at h1
+      simp [diagonal_apply_ne _ h, h1]
+  · rintro _ ⟨d, rfl⟩ _ ⟨d', rfl⟩
+    exact (commute_diagonal d' d).eq
+
+end
+
+end TGLExt
+''',
+    "TGLExt/FiniteTomita.lean":
+r'''import TGLExt.LeftRight
+
+set_option autoImplicit false
+
+/-!
+# Tomita–Takesaki finito-dimensional   [TGLExt — Degrau 0]
+
+O núcleo algébrico do teorema de Tomita–Takesaki em `H = Mₙ(ℂ)` com a forma
+de Frobenius, para um estado de Gibbs `ρ` positivo-definido:
+
+* `Ω := √ρ` (CFC) é cíclico e separador para a multiplicação à esquerda;
+* `S(xΩ) = xᴴΩ` com `S y = Ω⁻¹ yᴴ Ω`, e `S² = id`;
+* decomposição polar `S = J ∘ Δ^{1/2}` com `J z = zᴴ` (LeftRight.lean) e
+  `Δ^{1/2} y = Ω y Ω⁻¹`, `Δ y = ρ y ρ⁻¹`;
+* `Δ ≥ 0` na forma de Frobenius; `ΔΩ = Ω`; `JΩ = Ω`;
+* KMS na forma de Gibbs: `ω(ab) = ω(b·Δ(a))` — a continuação analítica
+  `t = −i` do fluxo modular, SEM potências imaginárias (`ρ^{it}` fica para
+  a pedra futura `ModularFlow.lean`).
+
+β NÃO entra aqui: isto é infraestrutura pura, ρ genérico. Sem sorry, sem
+axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped ComplexOrder MatrixOrder
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n] (ρ : Matrix n n ℂ)
+
+/-- O vetor GNS do estado de Gibbs: `Ω = √ρ` (raiz psd via cálculo funcional). -/
+def Omega : Matrix n n ℂ := CFC.sqrt ρ
+
+/-- O operador de Tomita `S y = Ω⁻¹ yᴴ Ω` (a extensão total de `xΩ ↦ xᴴΩ`). -/
+def Sop (y : Matrix n n ℂ) : Matrix n n ℂ := (Omega ρ)⁻¹ * yᴴ * Omega ρ
+
+/-- A raiz do operador modular: `Δ^{1/2} y = Ω y Ω⁻¹`. -/
+def DeltaHalf (y : Matrix n n ℂ) : Matrix n n ℂ := Omega ρ * y * (Omega ρ)⁻¹
+
+/-- O operador modular: `Δ y = ρ y ρ⁻¹`. -/
+def Delta (y : Matrix n n ℂ) : Matrix n n ℂ := ρ * y * ρ⁻¹
+
+/-- O estado de Gibbs `ω(a) = Tr(ρ a)`. -/
+def gibbs (a : Matrix n n ℂ) : ℂ := (ρ * a).trace
+
+/-! ## Bloco 0 — fatos sobre Ω (a régua: cada fato compila antes do seguinte) -/
+
+omit [Fintype n] [DecidableEq n] in
+theorem rho_nonneg (hρ : ρ.PosDef) : (0 : Matrix n n ℂ) ≤ ρ :=
+  hρ.posSemidef.nonneg
+
+/-- [KERNEL] `Ω · Ω = ρ`: a raiz é raiz. -/
+theorem omega_mul_self (hρ : ρ.PosDef) : Omega ρ * Omega ρ = ρ :=
+  CFC.sqrt_mul_sqrt_self ρ (rho_nonneg ρ hρ)
+
+/-- [KERNEL] `Ωᴴ = Ω`: a raiz psd é hermitiana. -/
+theorem omega_conjTranspose : (Omega ρ)ᴴ = Omega ρ :=
+  (CFC.sqrt_nonneg ρ).posSemidef.isHermitian
+
+/-- [KERNEL] `Ω` é positiva-definida quando `ρ` o é. -/
+theorem omega_posDef (hρ : ρ.PosDef) : (Omega ρ).PosDef :=
+  (CFC.sqrt_nonneg ρ).posSemidef.posDef_iff_isUnit.mpr
+    ((CFC.isUnit_sqrt_iff ρ (rho_nonneg ρ hρ)).mpr hρ.isUnit)
+
+theorem omega_det_isUnit (hρ : ρ.PosDef) : IsUnit (Omega ρ).det :=
+  (Omega ρ).isUnit_iff_isUnit_det.mp (omega_posDef ρ hρ).isUnit
+
+theorem rho_det_isUnit (hρ : ρ.PosDef) : IsUnit ρ.det :=
+  ρ.isUnit_iff_isUnit_det.mp hρ.isUnit
+
+/-- [KERNEL] `ρ` comuta com sua raiz (pura álgebra: `ρΩ = ΩΩΩ = Ωρ`). -/
+theorem rho_comm_omega (hρ : ρ.PosDef) : ρ * Omega ρ = Omega ρ * ρ := by
+  have h := omega_mul_self ρ hρ
+  calc ρ * Omega ρ = Omega ρ * Omega ρ * Omega ρ := by rw [h]
+    _ = Omega ρ * (Omega ρ * Omega ρ) := mul_assoc _ _ _
+    _ = Omega ρ * ρ := by rw [h]
+
+/-- [KERNEL] `ρ⁻¹ = Ω⁻¹ Ω⁻¹`. -/
+theorem rho_inv_eq (hρ : ρ.PosDef) : ρ⁻¹ = (Omega ρ)⁻¹ * (Omega ρ)⁻¹ := by
+  have h := omega_mul_self ρ hρ
+  calc ρ⁻¹ = (Omega ρ * Omega ρ)⁻¹ := by rw [h]
+    _ = (Omega ρ)⁻¹ * (Omega ρ)⁻¹ := Matrix.mul_inv_rev _ _
+
+/-- [KERNEL] `(Ω⁻¹)ᴴ = Ω⁻¹`. -/
+theorem omega_inv_conjTranspose : ((Omega ρ)⁻¹)ᴴ = (Omega ρ)⁻¹ := by
+  rw [Matrix.conjTranspose_nonsing_inv, omega_conjTranspose]
+
+/-! ## Ω é cíclico e separador -/
+
+/-- [KERNEL] Ω é CÍCLICO: todo vetor de H é `xΩ` (dimensão finita + Ω invertível). -/
+theorem omega_cyclic (hρ : ρ.PosDef) (y : Matrix n n ℂ) :
+    ∃ x, Lmul x (Omega ρ) = y :=
+  ⟨y * (Omega ρ)⁻¹, by
+    simp only [Lmul_apply]
+    rw [mul_assoc, Matrix.nonsing_inv_mul _ (omega_det_isUnit ρ hρ), mul_one]⟩
+
+/-- [KERNEL] Ω é SEPARADOR: `xΩ = 0 ⟹ x = 0`. -/
+theorem omega_separating (hρ : ρ.PosDef) (x : Matrix n n ℂ)
+    (h : Lmul x (Omega ρ) = 0) : x = 0 := by
+  simp only [Lmul_apply] at h
+  have h2 : x * Omega ρ * (Omega ρ)⁻¹ = 0 * (Omega ρ)⁻¹ := by rw [h]
+  rwa [Matrix.mul_nonsing_inv_cancel_right _ _ (omega_det_isUnit ρ hρ), zero_mul] at h2
+
+/-! ## O operador de Tomita e a decomposição polar -/
+
+/-- [KERNEL] A EQUAÇÃO DE TOMITA: `S(xΩ) = xᴴΩ` — o operador que troca
+    a face interna pela externa sobre o vetor GNS. -/
+theorem Sop_tomita (hρ : ρ.PosDef) (x : Matrix n n ℂ) :
+    Sop ρ (Lmul x (Omega ρ)) = Lmul xᴴ (Omega ρ) := by
+  simp only [Sop, Lmul_apply, conjTranspose_mul, omega_conjTranspose]
+  rw [Matrix.nonsing_inv_mul_cancel_left _ _ (omega_det_isUnit ρ hρ)]
+
+/-- [KERNEL] `S` é involutivo: `S² = id`. -/
+theorem Sop_involutive (hρ : ρ.PosDef) (y : Matrix n n ℂ) :
+    Sop ρ (Sop ρ y) = y := by
+  simp only [Sop, conjTranspose_mul, Matrix.conjTranspose_nonsing_inv,
+    omega_conjTranspose, conjTranspose_conjTranspose]
+  rw [Matrix.nonsing_inv_mul_cancel_left _ _ (omega_det_isUnit ρ hρ),
+    mul_assoc, Matrix.nonsing_inv_mul _ (omega_det_isUnit ρ hρ), mul_one]
+
+/-- [KERNEL] DECOMPOSIÇÃO POLAR: `J ∘ Δ^{1/2} = S` — a conjugação de
+    LeftRight.lean composta com a raiz modular É o operador de Tomita. -/
+theorem J_deltaHalf (y : Matrix n n ℂ) : Jconj (DeltaHalf ρ y) = Sop ρ y := by
+  simp only [Jconj, DeltaHalf, Sop, conjTranspose_mul,
+    Matrix.conjTranspose_nonsing_inv, omega_conjTranspose, mul_assoc]
+
+/-- [KERNEL] `Δ^{1/2} ∘ Δ^{1/2} = Δ` (não usa invertibilidade!). -/
+theorem deltaHalf_deltaHalf (hρ : ρ.PosDef) (y : Matrix n n ℂ) :
+    DeltaHalf ρ (DeltaHalf ρ y) = Delta ρ y := by
+  calc DeltaHalf ρ (DeltaHalf ρ y)
+      = Omega ρ * (Omega ρ * y * (Omega ρ)⁻¹) * (Omega ρ)⁻¹ := rfl
+    _ = Omega ρ * Omega ρ * y * ((Omega ρ)⁻¹ * (Omega ρ)⁻¹) := by
+        simp only [mul_assoc]
+    _ = ρ * y * ρ⁻¹ := by rw [omega_mul_self ρ hρ, ← rho_inv_eq ρ hρ, mul_assoc]
+
+/-- [KERNEL] `ΔΩ = Ω`: o vetor GNS é ponto fixo do operador modular. -/
+theorem delta_omega (hρ : ρ.PosDef) : Delta ρ (Omega ρ) = Omega ρ := by
+  show ρ * Omega ρ * ρ⁻¹ = Omega ρ
+  rw [rho_comm_omega ρ hρ, Matrix.mul_nonsing_inv_cancel_right _ _ (rho_det_isUnit ρ hρ)]
+
+/-- [KERNEL] `JΩ = Ω`: o vetor GNS é ponto fixo da conjugação. -/
+theorem J_omega : Jconj (Omega ρ) = Omega ρ :=
+  omega_conjTranspose ρ
+
+/-! ## Positividade de Δ -/
+
+/-- [KERNEL] `⟨y, Δy⟩ = ⟨Δ^{1/2}y, Δ^{1/2}y⟩`: Δ é o quadrado da sua raiz
+    também na forma de Frobenius. -/
+theorem frob_delta_eq (hρ : ρ.PosDef) (y : Matrix n n ℂ) :
+    frob y (Delta ρ y) = frob (DeltaHalf ρ y) (DeltaHalf ρ y) := by
+  have hS : (DeltaHalf ρ y)ᴴ = (Omega ρ)⁻¹ * yᴴ * Omega ρ := J_deltaHalf ρ y
+  simp only [frob]
+  rw [hS]
+  simp only [Delta, DeltaHalf, mul_assoc]
+  conv_rhs => rw [Matrix.trace_mul_comm]
+  simp only [mul_assoc]
+  rw [← mul_assoc (Omega ρ) (Omega ρ), omega_mul_self ρ hρ, ← rho_inv_eq ρ hρ]
+
+/-- [KERNEL] POSITIVIDADE do operador modular: `0 ≤ ⟨y, Δy⟩` (ordem de ℂ). -/
+theorem frob_delta_nonneg (hρ : ρ.PosDef) (y : Matrix n n ℂ) :
+    0 ≤ frob y (Delta ρ y) := by
+  rw [frob_delta_eq ρ hρ y]
+  exact (Matrix.posSemidef_conjTranspose_mul_self (DeltaHalf ρ y)).trace_nonneg
+
+/-- [KERNEL] A mesma positividade em partes real/imaginária explícitas. -/
+theorem frob_delta_re_im (hρ : ρ.PosDef) (y : Matrix n n ℂ) :
+    0 ≤ (frob y (Delta ρ y)).re ∧ (frob y (Delta ρ y)).im = 0 := by
+  have h := frob_delta_nonneg ρ hρ y
+  rw [Complex.nonneg_iff] at h
+  exact ⟨h.1, h.2.symm⟩
+
+/-! ## KMS na forma de Gibbs -/
+
+/-- [KERNEL] KMS: `ω(ab) = ω(b·Δ(a))` — a condição de equilíbrio modular
+    na forma algébrica (a continuação `t = −i` do fluxo, sem `ρ^{it}`).
+    Pura ciclicidade do traço + cancelamento não-singular. -/
+theorem gibbs_kms (hρ : ρ.PosDef) (a b : Matrix n n ℂ) :
+    gibbs ρ (a * b) = gibbs ρ (b * Delta ρ a) := by
+  simp only [gibbs, Delta]
+  conv_rhs => rw [Matrix.trace_mul_comm]
+  simp only [mul_assoc]
+  rw [Matrix.nonsing_inv_mul _ (rho_det_isUnit ρ hρ), mul_one]
+  conv_rhs => rw [Matrix.trace_mul_comm]
+  simp only [mul_assoc]
+
+/-- `ω(1) = 1` sse `Tr ρ = 1` — a normalização de estado é EXTERNA aos
+    teoremas 3–6 (nota honesta: nenhum deles a usa). -/
+theorem gibbs_one (hτ : ρ.trace = 1) : gibbs ρ 1 = 1 := by
+  simp only [gibbs, mul_one, hτ]
+
+/-- [KERNEL] `ω(a) = ⟨Ω, aΩ⟩`: o estado de Gibbs é o estado vetorial do
+    vetor GNS — a ponte entre LeftRight.lean e este arquivo. -/
+theorem gibbs_eq_frob_omega (hρ : ρ.PosDef) (a : Matrix n n ℂ) :
+    gibbs ρ a = frob (Omega ρ) (Lmul a (Omega ρ)) := by
+  simp only [gibbs, frob, Lmul_apply, omega_conjTranspose]
+  conv_rhs => rw [Matrix.trace_mul_comm]
+  rw [mul_assoc, omega_mul_self ρ hρ, Matrix.trace_mul_comm]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/LeftRight.lean":
+r'''import TGLExt.Commutant
+
+set_option autoImplicit false
+
+/-!
+# Esquerda/Direita: o bicomutante concreto e a conjugação J   [TGLExt — Degraus 1→0]
+
+O palco do Tomita–Takesaki finito: `H = Mₙ(ℂ)` com a forma de Frobenius
+`⟨x,y⟩ = Tr(xᴴ y)`. A álgebra `M = Mₙ(ℂ)` age em H por multiplicação à
+esquerda (`Lmul`); provamos que o comutante é EXATAMENTE a multiplicação
+à direita (`Rmul`) — a forma concreta do teorema do bicomutante para a
+representação padrão — e que a conjugação `J z = zᴴ` é antiunitária e
+realiza `J M J = M′` (a metade algébrica do teorema de Tomita).
+Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-- Multiplicação à esquerda: a representação padrão de `Mₙ(ℂ)` em `H = Mₙ(ℂ)`. -/
+def Lmul (a : Matrix n n ℂ) : Module.End ℂ (Matrix n n ℂ) := LinearMap.mulLeft ℂ a
+
+/-- Multiplicação à direita: a representação oposta (o candidato a comutante). -/
+def Rmul (a : Matrix n n ℂ) : Module.End ℂ (Matrix n n ℂ) := LinearMap.mulRight ℂ a
+
+@[simp] theorem Lmul_apply (a x : Matrix n n ℂ) : Lmul a x = a * x := rfl
+@[simp] theorem Rmul_apply (a x : Matrix n n ℂ) : Rmul a x = x * a := rfl
+
+/-- [KERNEL] `Lmul` e `Rmul` comutam (associatividade — a raiz de tudo). -/
+theorem lmul_mul_rmul_comm (a b : Matrix n n ℂ) :
+    Lmul a * Rmul b = Rmul b * Lmul a :=
+  LinearMap.ext fun x => by simp [Module.End.mul_apply, mul_assoc]
+
+/-- [KERNEL] O COMUTANTE CONCRETO: `L(Mₙ)′ = R(Mₙ)`.
+    (Se `T` comuta com toda `Lmul a`, então `T = Rmul (T 1)`.) -/
+theorem commutant_range_Lmul :
+    commutantSet (Set.range (Lmul (n := n))) = Set.range (Rmul (n := n)) := by
+  apply Set.Subset.antisymm
+  · intro T hT
+    refine ⟨T 1, LinearMap.ext fun x => ?_⟩
+    have h := LinearMap.congr_fun (hT (Lmul x) ⟨x, rfl⟩) 1
+    simpa [Module.End.mul_apply] using h
+  · rintro _ ⟨b, rfl⟩ _ ⟨a, rfl⟩
+    exact lmul_mul_rmul_comm a b
+
+/-- [KERNEL] O simétrico: `R(Mₙ)′ = L(Mₙ)`. -/
+theorem commutant_range_Rmul :
+    commutantSet (Set.range (Rmul (n := n))) = Set.range (Lmul (n := n)) := by
+  apply Set.Subset.antisymm
+  · intro T hT
+    refine ⟨T 1, LinearMap.ext fun x => ?_⟩
+    have h := LinearMap.congr_fun (hT (Rmul x) ⟨x, rfl⟩) 1
+    simpa [Module.End.mul_apply] using h
+  · rintro _ ⟨b, rfl⟩ _ ⟨a, rfl⟩
+    exact (lmul_mul_rmul_comm b a).symm
+
+/-- [KERNEL] O TEOREMA DO BICOMUTANTE (forma concreta): `L(Mₙ)′′ = L(Mₙ)`.
+    A representação padrão da álgebra plena é seu próprio bicomutante —
+    o caso concreto do teorema de von Neumann; o caso geral (subálgebras-*
+    próprias de `Mₙ`) é a próxima pedra do Degrau 1. -/
+theorem bicommutant_range_Lmul :
+    commutantSet (commutantSet (Set.range (Lmul (n := n)))) =
+      Set.range (Lmul (n := n)) := by
+  rw [commutant_range_Lmul, commutant_range_Rmul]
+
+/-! ## A conjugação modular J do traço -/
+
+/-- A conjugação modular do estado tracial: `J z = zᴴ` (antilinear, involutiva). -/
+def Jconj (z : Matrix n n ℂ) : Matrix n n ℂ := zᴴ
+
+omit [Fintype n] [DecidableEq n] in
+@[simp] theorem Jconj_Jconj (z : Matrix n n ℂ) : Jconj (Jconj z) = z :=
+  conjTranspose_conjTranspose z
+
+omit [Fintype n] [DecidableEq n] in
+theorem Jconj_add (x y : Matrix n n ℂ) : Jconj (x + y) = Jconj x + Jconj y :=
+  conjTranspose_add x y
+
+omit [Fintype n] [DecidableEq n] in
+/-- `J` é ANTIlinear: `J(c • z) = c̄ • J z`. -/
+theorem Jconj_smul (c : ℂ) (z : Matrix n n ℂ) :
+    Jconj (c • z) = star c • Jconj z := by
+  simp [Jconj]
+
+/-- A forma de Frobenius `⟨x,y⟩ = Tr(xᴴ y)` — o produto interno GNS do traço. -/
+def frob (x y : Matrix n n ℂ) : ℂ := (xᴴ * y).trace
+
+omit [DecidableEq n] in
+theorem frob_conj_symm (x y : Matrix n n ℂ) : frob y x = star (frob x y) := by
+  show (yᴴ * x).trace = star ((xᴴ * y).trace)
+  rw [← trace_conjTranspose, conjTranspose_mul, conjTranspose_conjTranspose]
+
+omit [DecidableEq n] in
+/-- [KERNEL] `J` é ANTIUNITÁRIO para a forma de Frobenius: `⟨Jx, Jy⟩ = ⟨y, x⟩`. -/
+theorem frob_Jconj_Jconj (x y : Matrix n n ℂ) :
+    frob (Jconj x) (Jconj y) = frob y x := by
+  simp only [frob, Jconj, conjTranspose_conjTranspose]
+  exact trace_mul_comm x yᴴ
+
+/-- [KERNEL] `J L_a J = R_{aᴴ}`: a conjugação leva a álgebra ao comutante.
+    A metade algébrica do TEOREMA DE TOMITA, em dimensão finita. -/
+theorem Jconj_Lmul_Jconj (a z : Matrix n n ℂ) :
+    Jconj (Lmul a (Jconj z)) = Rmul aᴴ z := by
+  simp [Jconj, conjTranspose_mul]
+
+/-- [KERNEL] `J M J = M′` na forma existencial: todo elemento de `M′ = R(Mₙ)`
+    é conjugação `J (·) J` de um elemento de `M = L(Mₙ)`. -/
+theorem exists_Jconj_conj_Lmul (b : Matrix n n ℂ) :
+    ∃ a, ∀ z, Jconj (Lmul a (Jconj z)) = Rmul b z :=
+  ⟨bᴴ, fun z => by simp [Jconj, conjTranspose_mul]⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ModularFlow.lean":
+r'''import TGLExt.FiniteTomita
+
+set_option autoImplicit false
+
+/-!
+# O fluxo modular σₜ = Ad(ρ^{it})   [TGLExt — fecho do Degrau 0]
+
+O grupo unitário a um parâmetro do Tomita–Takesaki finito:
+`ρ^{it} := exp(it·log ρ)` com `log ρ = cfc Real.log ρ`. Provamos:
+
+* lei de grupo `ρ^{i(s+t)} = ρ^{is}·ρ^{it}` e `ρ^{i0} = 1`;
+* unitariedade `(ρ^{it})ᴴ = ρ^{-it}` (pertence a `unitary`);
+* `σₜ(a) = ρ^{it} a ρ^{-it}` é *-automorfismo com lei de grupo;
+* invariância do estado de Gibbs `ω(σₜ(a)) = ω(a)` — KMS dinâmico;
+* ancoragem `exp(log ρ) = ρ` (ρ positiva-definida);
+* `σₜ` fixa o vetor GNS: `σₜ(Ω) = Ω`.
+
+Com isto o Degrau 0 fecha por inteiro: S, Δ, J, S=J∘Δ^{1/2}, KMS-Gibbs
+(FiniteTomita.lean) + o fluxo σₜ (aqui). β NÃO entra: ρ genérico.
+Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix NormedSpace
+open scoped ComplexOrder MatrixOrder
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n] (ρ : Matrix n n ℂ)
+
+/-- O gerador modular: `log ρ` via cálculo funcional real. -/
+def logRho : Matrix n n ℂ := cfc Real.log ρ
+
+/-- `ρ^{it} := exp(it · log ρ)` — o unitário do fluxo modular. -/
+def modPow (t : ℝ) : Matrix n n ℂ := exp (((t : ℂ) * Complex.I) • logRho ρ)
+
+/-- O fluxo modular `σₜ(a) = ρ^{it} a ρ^{-it}`. -/
+def sigma (t : ℝ) (a : Matrix n n ℂ) : Matrix n n ℂ :=
+  modPow ρ t * a * modPow ρ (-t)
+
+/-! ## O gerador é autoadjunto -/
+
+theorem logRho_isSelfAdjoint : IsSelfAdjoint (logRho ρ) := cfc_predicate Real.log ρ
+
+theorem logRho_conjTranspose : (logRho ρ)ᴴ = logRho ρ := logRho_isSelfAdjoint ρ
+
+/-! ## F1–F2: identidade e lei de grupo -/
+
+@[simp] theorem modPow_zero : modPow ρ 0 = 1 := by
+  simp [modPow]
+
+/-- [KERNEL] LEI DE GRUPO: `ρ^{i(s+t)} = ρ^{is}·ρ^{it}`. -/
+theorem modPow_add (s t : ℝ) : modPow ρ (s + t) = modPow ρ s * modPow ρ t := by
+  unfold modPow
+  rw [Complex.ofReal_add, add_mul, add_smul]
+  exact Matrix.exp_add_of_commute _ _
+    (((Commute.refl (logRho ρ)).smul_left _).smul_right _)
+
+theorem modPow_mul_neg (t : ℝ) : modPow ρ t * modPow ρ (-t) = 1 := by
+  rw [← modPow_add, add_neg_cancel, modPow_zero]
+
+theorem modPow_neg_mul (t : ℝ) : modPow ρ (-t) * modPow ρ t = 1 := by
+  rw [← modPow_add, neg_add_cancel, modPow_zero]
+
+/-! ## F3: unitariedade -/
+
+/-- [KERNEL] `(ρ^{it})ᴴ = ρ^{-it}`: a adjunta do fluxo é o fluxo reverso. -/
+theorem modPow_conjTranspose (t : ℝ) : (modPow ρ t)ᴴ = modPow ρ (-t) := by
+  have hstar : star ((t : ℂ) * Complex.I) = -((t : ℂ) * Complex.I) := by
+    simp
+  have hneg : ((-t : ℝ) : ℂ) * Complex.I = -((t : ℂ) * Complex.I) := by
+    push_cast; ring
+  unfold modPow
+  rw [← Matrix.exp_conjTranspose, Matrix.conjTranspose_smul,
+      logRho_conjTranspose, hstar, hneg]
+
+/-- [KERNEL] `ρ^{it}` é UNITÁRIO. -/
+theorem modPow_mem_unitary (t : ℝ) : modPow ρ t ∈ unitary (Matrix n n ℂ) := by
+  rw [Unitary.mem_iff]
+  constructor <;> rw [Matrix.star_eq_conjTranspose, modPow_conjTranspose]
+  · exact modPow_neg_mul ρ t
+  · exact modPow_mul_neg ρ t
+
+/-! ## F4: σₜ é *-automorfismo com lei de grupo -/
+
+theorem sigma_one (t : ℝ) : sigma ρ t 1 = 1 := by
+  simp only [sigma, mul_one]; exact modPow_mul_neg ρ t
+
+/-- [KERNEL] `σₜ` é multiplicativo. -/
+theorem sigma_mul (t : ℝ) (a b : Matrix n n ℂ) :
+    sigma ρ t (a * b) = sigma ρ t a * sigma ρ t b := by
+  simp only [sigma]
+  calc modPow ρ t * (a * b) * modPow ρ (-t)
+      = modPow ρ t * a * ((modPow ρ (-t) * modPow ρ t) * (b * modPow ρ (-t))) := by
+        rw [modPow_neg_mul, one_mul]; simp only [mul_assoc]
+    _ = modPow ρ t * a * modPow ρ (-t) * (modPow ρ t * b * modPow ρ (-t)) := by
+        simp only [mul_assoc]
+
+/-- [KERNEL] `σₜ` respeita a estrela: *-automorfismo. -/
+theorem sigma_conjTranspose (t : ℝ) (a : Matrix n n ℂ) :
+    sigma ρ t aᴴ = (sigma ρ t a)ᴴ := by
+  simp only [sigma, conjTranspose_mul, modPow_conjTranspose, neg_neg, mul_assoc]
+
+/-- [KERNEL] LEI DE GRUPO DO FLUXO: `σₛ∘σₜ = σ_{s+t}`. -/
+theorem sigma_sigma (s t : ℝ) (a : Matrix n n ℂ) :
+    sigma ρ s (sigma ρ t a) = sigma ρ (s + t) a := by
+  simp only [sigma]
+  rw [modPow_add, neg_add_rev, modPow_add]
+  simp only [mul_assoc]
+
+/-! ## F5: invariância do estado (KMS dinâmico) -/
+
+theorem rho_comm_logRho : Commute ρ (logRho ρ) := by
+  unfold logRho
+  exact ((Commute.refl ρ).cfc_real Real.log).symm
+
+theorem rho_comm_modPow (t : ℝ) : Commute ρ (modPow ρ t) := by
+  unfold modPow
+  exact ((rho_comm_logRho ρ).smul_right _).exp_right
+
+/-- [KERNEL] INVARIÂNCIA DO ESTADO: `ω(σₜ(a)) = ω(a)` — o estado de Gibbs
+    é estacionário sob seu próprio fluxo modular (a face dinâmica do KMS
+    algébrico `gibbs_kms` de FiniteTomita.lean). -/
+theorem gibbs_sigma (t : ℝ) (a : Matrix n n ℂ) :
+    gibbs ρ (sigma ρ t a) = gibbs ρ a := by
+  have hc : ρ * modPow ρ t = modPow ρ t * ρ := (rho_comm_modPow ρ t).eq
+  simp only [gibbs, sigma]
+  rw [← mul_assoc, ← mul_assoc, hc, mul_assoc (modPow ρ t) ρ a,
+      Matrix.trace_mul_cycle, modPow_neg_mul, one_mul]
+
+/-! ## F6: ancoragem exp(log ρ) = ρ -/
+
+section Anchor
+open scoped Matrix.Norms.L2Operator
+
+/-- [KERNEL] ANCORAGEM: `exp(log ρ) = ρ` para ρ positiva-definida —
+    o gerador logRho é DE FATO o logaritmo de ρ. -/
+theorem exp_logRho (hρ : ρ.PosDef) : exp (logRho ρ) = ρ := by
+  have h : logRho ρ = CFC.log ρ := rfl
+  rw [h]
+  exact CFC.exp_log ρ hρ.isStrictlyPositive
+
+end Anchor
+
+/-! ## F7: o fluxo fixa o vetor GNS -/
+
+theorem omega_comm_modPow (t : ℝ) : Commute (Omega ρ) (modPow ρ t) := by
+  have h1 : Commute ρ (Omega ρ) := by
+    unfold Omega
+    rw [CFC.sqrt_eq_cfc]
+    exact ((Commute.refl ρ).cfc_nnreal NNReal.sqrt).symm
+  have h2 : Commute (logRho ρ) (Omega ρ) := by
+    unfold logRho
+    exact h1.cfc_real Real.log
+  unfold modPow
+  exact (h2.symm.smul_right _).exp_right
+
+/-- [KERNEL] O FLUXO FIXA Ω: `σₜ(Ω) = Ω` — o vetor GNS é o ponto
+    estacionário do movimento modular (com ΔΩ=Ω e JΩ=Ω, o tripé completo). -/
+theorem sigma_omega (t : ℝ) :
+    modPow ρ t * Omega ρ * modPow ρ (-t) = Omega ρ := by
+  rw [← (omega_comm_modPow ρ t).eq, mul_assoc, modPow_mul_neg, mul_one]
+
+end
+
+end TGLExt
+''',
 }
 
 
@@ -7491,7 +8323,7 @@ def materialize_embedded_kernel():
         else:
             kept += 1
     pk = _ensure_prebuilt_packages()
-    print("[v31 kernel embutido] materializado em %s: %d escritos, %d inalterados; packages: %s" % (
+    print("[kernel embutido] materializado em %s: %d escritos, %d inalterados; packages: %s" % (
         FORMAL_DIR, len(written), kept, pk))
     return {"written": written, "kept": kept, "packages": pk}
 
@@ -7543,7 +8375,9 @@ _LEAN_SENTINELS = ["TGL_KERNEL_BUILD_OK",
                    # v30: o Nome e' a relacao (correcao do especialista; TL3 fiel)
                    "THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX",
                    # v32: fechamento por separacao de tipos (suporte != espelho)
-                   "CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR"]
+                   "CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR",
+                   # v33: a colheita dos externos (escada TGLExt; Tomita finito completo)
+                   "FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED"]
 
 # teorema Lean -> flag do JSON (a presenca da linha `#print axioms` limpa e' a prova)
 _LEAN_THEOREM_FLAGS = {
@@ -7594,6 +8428,29 @@ _LEAN_THEOREM_FLAGS = {
     "three_locks_constructor_kernel": "TGL.CoreSupport.threeLocksFromSupport",
     "realization_constructor_kernel": "TGL.CoreSupport.realizationFromSupport",
     "gauge_invariant_kernel_proved": "TGL.CoreSupport.transport_defect_gauge_invariant",
+    # v33 (a colheita dos externos -- lib TGLExt; TUDO finito-dimensional): informativos
+    "ext_bicommutant_concrete_kernel_proved": "TGLExt.bicommutant_range_Lmul",
+    "ext_jmj_commutant_kernel_proved": "TGLExt.Jconj_Lmul_Jconj",
+    "ext_tomita_equation_kernel_proved": "TGLExt.Sop_tomita",
+    "ext_polar_decomposition_kernel_proved": "TGLExt.J_deltaHalf",
+    "ext_delta_positivity_kernel_proved": "TGLExt.frob_delta_nonneg",
+    "ext_kms_gibbs_kernel_proved": "TGLExt.gibbs_kms",
+    "ext_modular_flow_group_kernel_proved": "TGLExt.modPow_add",
+    "ext_modular_flow_unitary_kernel_proved": "TGLExt.modPow_mem_unitary",
+    "ext_state_invariance_kernel_proved": "TGLExt.gibbs_sigma",
+    "ext_exp_log_anchor_kernel_proved": "TGLExt.exp_logRho",
+    "ext_flow_fixes_omega_kernel_proved": "TGLExt.sigma_omega",
+    "ext_tomiyama_bimodular_kernel_proved": "TGLExt.diagExpect_bimod",
+    "ext_jones_relation_kernel_proved": "TGLExt.eD_Lmul_eD",
+    "ext_masa_diagonal_kernel_proved": "TGLExt.commutant_range_diagonal",
+    # v33.1 (painel adversarial: 'COMPLETO' exige auditar TODOS os teoremas citados)
+    "ext_omega_cyclic_kernel_proved": "TGLExt.omega_cyclic",
+    "ext_omega_separating_kernel_proved": "TGLExt.omega_separating",
+    "ext_tomita_involutive_kernel_proved": "TGLExt.Sop_involutive",
+    "ext_polar_square_kernel_proved": "TGLExt.deltaHalf_deltaHalf",
+    "ext_delta_fixes_omega_kernel_proved": "TGLExt.delta_omega",
+    "ext_flow_automorphism_kernel_proved": "TGLExt.sigma_mul",
+    "ext_jones_scalar_kernel_proved": "TGLExt.eTr_Lmul_eTr",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -7680,23 +8537,37 @@ def _lean_strip_comments_and_strings(src):
 
 
 def _lean_source_forbidden_tokens():
-    """Varredura lexical auxiliar dos TGL/*.lean (a fonte de verdade e' #print axioms)."""
+    """Varredura lexical auxiliar de TODOS os fontes das bibliotecas (TGL/ + TGLExt/ +
+    raizes .lean). A fonte de verdade e' #print axioms; esta rede pega o que os
+    axiomas nao denunciam (native_decide -> Lean.ofReduceBool; axiom fora de
+    namespace). v33.1: cobertura estendida a TGLExt apos achado do painel adversarial
+    (a defesa que existia para TGL/*.lean nao havia sido estendida a nova lib)."""
     hits = []
-    tgl = os.path.join(FORMAL_DIR, "TGL")
-    if not os.path.isdir(tgl):
-        return hits
-    for nm in sorted(os.listdir(tgl)):
-        if not nm.endswith(".lean") or nm.startswith("Probe"):
-            continue  # Probe*.lean = diagnostico, fora da biblioteca (nao importado por TGL.lean)
+    scan_dirs = [("TGL", os.path.join(FORMAL_DIR, "TGL")),
+                 ("TGLExt", os.path.join(FORMAL_DIR, "TGLExt"))]
+    scan_files = [("", os.path.join(FORMAL_DIR, "TGL.lean")),
+                  ("", os.path.join(FORMAL_DIR, "TGLExt.lean"))]
+    targets = []
+    for label, d in scan_dirs:
+        if not os.path.isdir(d):
+            continue
+        for nm in sorted(os.listdir(d)):
+            if not nm.endswith(".lean") or nm.startswith("Probe"):
+                continue  # Probe*.lean = diagnostico, fora da biblioteca
+            targets.append(("%s/%s" % (label, nm), os.path.join(d, nm)))
+    for label, p in scan_files:
+        if os.path.exists(p):
+            targets.append((os.path.basename(p), p))
+    for rel, p in targets:
         try:
-            src = open(os.path.join(tgl, nm), "r", encoding="utf-8").read()
+            src = open(p, "r", encoding="utf-8").read()
         except OSError:
             continue
         code = _lean_strip_comments_and_strings(src)
         for tok in _LEAN_FORBIDDEN_TOKENS:
             import re as _re
             if _re.search(r"\b%s\b" % _re.escape(tok), code):
-                hits.append("%s:%s" % (nm, tok))
+                hits.append("%s:%s" % (rel, tok))
     return hits
 
 
@@ -7815,7 +8686,7 @@ def verify_tgl_kernel_formalization():
     for m in _re.finditer(r"'([\w.]+)' depends on axioms: \[([^\]]*)\]", blob, _re.S):
         name, lst = m.group(1), [a.strip() for a in m.group(2).replace("\n", " ").split(",") if a.strip()]
         axioms[name] = lst
-        custom += [a for a in lst if a.startswith("TGL.")]
+        custom += [a for a in lst if a.startswith("TGL.") or a.startswith("TGLExt.")]
     res["axiom_report"] = axioms
     res["custom_TGL_axioms_absent"] = (len(custom) == 0)
     res["custom_TGL_axioms_found"] = sorted(set(custom))
@@ -7824,7 +8695,7 @@ def verify_tgl_kernel_formalization():
         ax = axioms.get(thm)
         res[flag] = bool(res["lake_build_ok"] and ax is not None
                          and "sorryAx" not in ax and "Lean.trustCompiler" not in ax
-                         and not any(a.startswith("TGL.") for a in ax))
+                         and not any(a.startswith("TGL.") or a.startswith("TGLExt.") for a in ax))
 
     # (9) varredura lexical auxiliar
     hits = _lean_source_forbidden_tokens()
@@ -8075,7 +8946,17 @@ EXTERNAL_KNOWN_THEOREMS = [
      "citation": "Tomiyama 1957; Takesaki, Theory of Operator Algebras",
      "exact_role": ("bimodularidade e fidelidade migraram como DADOS (ConditionalExpectationData, v26); "
                     "NORMALIDADE (continuidade sigma-fraca) nao-enunciavel sem topologia de vN -- fica aqui"),
-     "imported_into_witness": False},
+     "imported_into_witness": False,
+     "finite_version_kernel_proved": "TGLExt.diagExpect_bimod / eD_Lmul_eD (v33; dimensao FINITA, nao substitui o continuo)"},
+    {"name": "Tomita-Takesaki (teoria modular)", "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+     "citation": "Tomita 1967; Takesaki, Lecture Notes in Math. 128 (1970); Bratteli-Robinson I",
+     "exact_role": ("S=J.Delta^{1/2}, sigma_t=Ad(Delta^{it}), KMS -- o fundamento de TODA a cadeia modular; "
+                    "no CONTINUO segue externo (sem teoria de vN na mathlib). A VERSAO FINITO-DIMENSIONAL "
+                    "COMPLETA (S, Delta, J, polar, KMS algebraico+dinamico, fluxo unitario, pontos fixos, "
+                    "bicomutante concreto, JMJ=M', MASA) e' KERNEL PROVED na lib TGLExt (v33) -- "
+                    "sombra finita verificada, NAO o teorema III_1"),
+     "imported_into_witness": False,
+     "finite_version_kernel_proved": "TGLExt.Sop_tomita / J_deltaHalf / gibbs_kms / sigma_* (v33)"},
 ]
 
 
@@ -8893,6 +9774,95 @@ def prove_name_relation(ONE, kernel_formalization=None):
     }
 
 
+def prove_external_ladder(ONE, kernel_formalization=None):
+    """MODULO v33 -- A COLHEITA DOS EXTERNOS: a escada TGLExt integrada ao kernel.
+    [KERNEL(finito) + KNOWN-EXTERNAL(continuo, INALTERADO)] ADITIVO, nao gateia 1=1.
+
+    A frente experimental tgl_externos (aberta 11/07/2026, sem compromisso de
+    fechar) fechou o DEGRAU 0 por inteiro e quase todo o Degrau 1; a colheita
+    foi integrada como lib TGLExt do proprio tgl_kernel (lakefile: defaultTargets
+    TGL+TGLExt; Audit.lean audita ambas). O que o kernel agora prova, TUDO em
+    dimensao FINITA (H = M_n(C), forma de Frobenius, rho PosDef GENERICO --
+    beta NAO entra nestes arquivos):
+      - Degrau 0 (Tomita-Takesaki finito COMPLETO): Omega=sqrt(rho) ciclico e
+        separador; equacao de Tomita S(x.Omega)=x^H.Omega; S^2=id; decomposicao
+        polar S = J o Delta^{1/2}; Delta >= 0; KMS-Gibbs omega(ab)=omega(b.Delta(a));
+        fluxo rho^{it}=exp(it.log rho): lei de grupo, UNITARIEDADE, sigma_t
+        *-automorfismo, invariancia omega o sigma_t = omega, ancoragem
+        exp(log rho)=rho, sigma_t(Omega)=Omega (tripe de pontos fixos completo).
+      - Degrau 1 (quase): bicomutante CONCRETO L(M_n)''=L(M_n); J antiunitario
+        com J.L_a.J=R_{a^H} (JMJ=M'); Tomiyama finito (E_C e E_D completas,
+        E_D positiva); RELACOES DE JONES e.L_x.e=(Tr x/n).e e
+        e_D.L_x.e_D=L_{E_D(x)}.e_D (a lei do transporte v26 como teorema);
+        MASA D'=D dentro de M_n.
+    HONESTIDADES: nada aqui e' III_1; os teoremas continuos do ledger
+    EXTERNAL_KNOWN_THEOREMS permanecem KNOWN_EXTERNAL (a sombra finita nao os
+    substitui); lean_kernel_full_witness_constructed segue False; as 4 entradas
+    [KNOWN-COMPOSED] dos construtores v32 seguem externas. O que a escada faz
+    e' construir POR BAIXO as versoes finitas dessas entradas."""
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    ext_flags = [
+        "ext_bicommutant_concrete_kernel_proved", "ext_jmj_commutant_kernel_proved",
+        "ext_tomita_equation_kernel_proved", "ext_polar_decomposition_kernel_proved",
+        "ext_delta_positivity_kernel_proved", "ext_kms_gibbs_kernel_proved",
+        "ext_modular_flow_group_kernel_proved", "ext_modular_flow_unitary_kernel_proved",
+        "ext_state_invariance_kernel_proved", "ext_exp_log_anchor_kernel_proved",
+        "ext_flow_fixes_omega_kernel_proved", "ext_tomiyama_bimodular_kernel_proved",
+        "ext_jones_relation_kernel_proved", "ext_masa_diagonal_kernel_proved",
+        # v33.1: painel adversarial -- todos os teoremas citados no 'COMPLETO'
+        "ext_omega_cyclic_kernel_proved", "ext_omega_separating_kernel_proved",
+        "ext_tomita_involutive_kernel_proved", "ext_polar_square_kernel_proved",
+        "ext_delta_fixes_omega_kernel_proved", "ext_flow_automorphism_kernel_proved",
+        "ext_jones_scalar_kernel_proved",
+    ]
+    per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
+    n_ok = sum(1 for v in per_theorem.values() if v)
+    degrau0_keys = ["ext_tomita_equation_kernel_proved", "ext_polar_decomposition_kernel_proved",
+                    "ext_delta_positivity_kernel_proved", "ext_kms_gibbs_kernel_proved",
+                    "ext_modular_flow_group_kernel_proved", "ext_modular_flow_unitary_kernel_proved",
+                    "ext_state_invariance_kernel_proved", "ext_exp_log_anchor_kernel_proved",
+                    "ext_flow_fixes_omega_kernel_proved",
+                    "ext_omega_cyclic_kernel_proved", "ext_omega_separating_kernel_proved",
+                    "ext_tomita_involutive_kernel_proved", "ext_polar_square_kernel_proved",
+                    "ext_delta_fixes_omega_kernel_proved", "ext_flow_automorphism_kernel_proved"]
+    degrau1_keys = ["ext_bicommutant_concrete_kernel_proved", "ext_jmj_commutant_kernel_proved",
+                    "ext_tomiyama_bimodular_kernel_proved", "ext_jones_relation_kernel_proved",
+                    "ext_masa_diagonal_kernel_proved", "ext_jones_scalar_kernel_proved"]
+    d0 = all(per_theorem[k] for k in degrau0_keys)
+    d1 = all(per_theorem[k] for k in degrau1_keys)
+    checks = [
+        ("kernel_round_green", bool(kf.get("all_verified") is True)),
+        ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
+        ("degrau0_closed_in_kernel", d0),
+        ("degrau1_core_closed_in_kernel", d1),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A ESCADA DOS EXTERNOS (sombra finita): Tomita-Takesaki finito-dimensional "
+                    "COMPLETO + bicomutante concreto + Tomiyama + relacoes de Jones + MASA, "
+                    "todos verificados pelo kernel na lib TGLExt (mesma auditoria fail-closed)."),
+        "ladder": {
+            "degrau_0_finite_tomita_takesaki": ("CLOSED_IN_KERNEL" if d0 else "NOT_VERIFIED_THIS_RUN"),
+            "degrau_1_von_neumann_basics": ("CORE_CLOSED_IN_KERNEL__GENERAL_BICOMMUTANT_OPEN" if d1
+                                            else "NOT_VERIFIED_THIS_RUN"),
+            "degrau_2_finite_jones_index": "OPEN__BLOCKS_IN_PLACE (esperancas + relacoes de Jones)",
+            "degrau_3_continuum_III1_BW": "OPEN__RESEARCH (documentado; nada reivindicado)",
+        },
+        "per_theorem": per_theorem,
+        "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
+        "statuses": {
+            "finite_dimensional_only": True,
+            "nothing_here_is_III1": True,
+            "continuous_external_theorems_unchanged_in_ledger": True,
+            "beta_absent_from_ext_files_by_design": True,
+            "lean_kernel_full_witness_constructed": False,
+        },
+        "checks": checks, "all_verified": all_v,
+        "verdict": ("EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED" if all_v
+                    else "EXTERNAL_LADDER_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
 def prove_tgl_closure(ONE, kernel_formalization=None):
     """MODULO v32 -- O FECHAMENTO DA TGL POR SEPARACAO DE TIPOS (derivacao do
     operador, AUDITADA). [KERNEL(construtores) + KNOWN-COMPOSED + DEF/AX(gauge)
@@ -9189,6 +10159,17 @@ def run_um(ONE):
         "finite_full_witness_rejected": negative_probes.get("finite_full_witness_rejected"),
         "prop_only_modular_rejected": negative_probes.get("prop_only_modular_rejected"),
         "degenerate_base_probe_result": negative_probes.get("degenerate_verdict"),
+        # v33: a escada dos externos (sombra FINITA; nao muda nenhum status acima)
+        "finite_tomita_takesaki_ladder_kernel_proved": bool(
+            kernel_formalization.get("ext_tomita_equation_kernel_proved") is True
+            and kernel_formalization.get("ext_polar_decomposition_kernel_proved") is True
+            and kernel_formalization.get("ext_kms_gibbs_kernel_proved") is True
+            and kernel_formalization.get("ext_modular_flow_group_kernel_proved") is True
+            and kernel_formalization.get("ext_state_invariance_kernel_proved") is True),
+        "finite_jones_relation_kernel_proved": bool(
+            kernel_formalization.get("ext_jones_relation_kernel_proved") is True),
+        "finite_masa_kernel_proved": bool(
+            kernel_formalization.get("ext_masa_diagonal_kernel_proved") is True),
     }
     tgl_canonical_markers = build_tgl_canonical_markers(              # v23.1: fonte canonica unica -> todos os artefatos
         beta, (area_scale_theorem.get("equivalence") or {}).get("eta_times_G", 0.25), witness_layers)
@@ -9200,6 +10181,7 @@ def run_um(ONE):
     graviton_shadow = prove_graviton_shadow(ONE, kernel_formalization)  # v29: A SOMBRA DO GRAVITON (Bell CCI=1/2; produto=0; canto; split Q3); ADITIVO
     name_relation = prove_name_relation(ONE, kernel_formalization)  # v30: O NOME E' A RELACAO (p.q.p=beta.p; TL3 fiel com beta generico; puro-ponto vs ponto-puro); ADITIVO
     tgl_closure = prove_tgl_closure(ONE, kernel_formalization)  # v32: O FECHAMENTO (suporte != espelho; H3L_min=1-q_F; construtores; gauge do Nome); ADITIVO
+    external_ladder = prove_external_ladder(ONE, kernel_formalization)  # v33: A COLHEITA DOS EXTERNOS (escada TGLExt: Tomita finito COMPLETO + Tomiyama + Jones + MASA); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
@@ -9302,6 +10284,7 @@ def run_um(ONE):
             "graviton_shadow": graviton_shadow,
             "name_relation": name_relation,
             "tgl_closure": tgl_closure,
+            "external_ladder": external_ladder,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
@@ -15509,6 +16492,25 @@ def main():
     print("  representante fisico = %s [gauge] ; curvo = OPEN ; experimento = INPUT futuro" % (
         _tcs.get("physical_covariant_representative_selected")))
     print("  >>> %s <<<\n" % tc.get("verdict"))
+    el = core.get("external_ladder", {})
+    _elp = el.get("per_theorem", {}); _ell = el.get("ladder", {})
+    print("A COLHEITA DOS EXTERNOS [v33 -- escada TGLExt integrada; sombra FINITA verificada]:")
+    print("  Degrau 0 (Tomita-Takesaki finito COMPLETO): %s" % _ell.get("degrau_0_finite_tomita_takesaki"))
+    print("    S(x.Omega)=x^H.Omega: %s ; polar S=J.Delta^{1/2}: %s ; Delta>=0: %s ; KMS-Gibbs: %s" % (
+        _elp.get("ext_tomita_equation_kernel_proved"), _elp.get("ext_polar_decomposition_kernel_proved"),
+        _elp.get("ext_delta_positivity_kernel_proved"), _elp.get("ext_kms_gibbs_kernel_proved")))
+    print("    fluxo rho^{it}: grupo=%s unitario=%s ; omega o sigma_t=omega: %s ; exp(log rho)=rho: %s ; sigma_t(Omega)=Omega: %s" % (
+        _elp.get("ext_modular_flow_group_kernel_proved"), _elp.get("ext_modular_flow_unitary_kernel_proved"),
+        _elp.get("ext_state_invariance_kernel_proved"), _elp.get("ext_exp_log_anchor_kernel_proved"),
+        _elp.get("ext_flow_fixes_omega_kernel_proved")))
+    print("  Degrau 1: %s" % _ell.get("degrau_1_von_neumann_basics"))
+    print("    bicomutante L''=L: %s ; JMJ=M': %s ; Tomiyama bimodular: %s ; Jones e.L_x.e=L_{E(x)}.e: %s ; MASA D'=D: %s" % (
+        _elp.get("ext_bicommutant_concrete_kernel_proved"), _elp.get("ext_jmj_commutant_kernel_proved"),
+        _elp.get("ext_tomiyama_bimodular_kernel_proved"), _elp.get("ext_jones_relation_kernel_proved"),
+        _elp.get("ext_masa_diagonal_kernel_proved")))
+    print("  teoremas limpos: %s/%s ; TUDO dimensao FINITA [nada e' III_1; continuos do ledger INALTERADOS]" % (
+        el.get("n_theorems_clean"), el.get("n_theorems_expected")))
+    print("  >>> %s <<<\n" % el.get("verdict"))
     b1 = core["em_grav_bridge"]; b2 = core["smatrix_crossed"]; b3 = core["u_loc_covariance"]
     print("AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:")
     c = b1["checks"]

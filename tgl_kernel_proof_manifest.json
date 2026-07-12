@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-11 20:34:57",
+  "timestamp": "2026-07-12 07:21:00",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,14 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "3d7533471b48e7859404b3fecfa6251028014568407df10b9441b5561574bd98",
+  "formal_source_hash": "2921b68f85aeb3fa743a600ba5f08b17b377a52b7e9913fd0cb6cab2b32d923f",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "lakefile.toml": "23c70f9ab6e856fe85d88437e0b0d21ad030af294d7cd7885df297e4b7d94e82",
+    "TGLExt.lean": "cab57e39b7cd2a8ac4f69950ffdfb543eca1efa98f00a831241f2848310fdf99",
+    "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "be965f2e6f67c856a1ad5bd07553f21f2af38ab4ba1a31579e193cc5c49640e7",
+    "TGL/Audit.lean": "86782a45e912ac65c9fca0fa8921e72ff6f8e1c97054aee96a0b34e271fc603c",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -42,7 +43,12 @@
     "TGL/ProbeTrivial.lean": "4993bd3fd6da17f7dafd7c5972f2f4b396cb5be86d13ac1f54ab317cc950bef7",
     "TGL/SpecificAQFTWitness.lean": "31f3e8d5aed98935b3331e0cf964a89355cc2eb1f47702e71b10c11927f7f890",
     "TGL/TransportData.lean": "95cbefeed54a5f5ec9aa41be556ceab1e14da4bae116b4019eb1ba1d9ee9d04e",
-    "TGL/VerbInhabitant.lean": "812a47f0e71a86f37368c918b0f704cccad9cda0e32c4aee64c5566e7808a5d7"
+    "TGL/VerbInhabitant.lean": "812a47f0e71a86f37368c918b0f704cccad9cda0e32c4aee64c5566e7808a5d7",
+    "TGLExt/Commutant.lean": "114782c4fb991da15ae22e3e053ecf6a8c4a5f68e7152afd40102a66c44db19a",
+    "TGLExt/CondExpect.lean": "33e0eecd498ec326d8f5bf699b3a5b5aae4a388fa049564bfd8619b096737ede",
+    "TGLExt/FiniteTomita.lean": "f845a71a81bb02585020f5da224a9407b4dd36b1408cccab37ea1b69cfb6647e",
+    "TGLExt/LeftRight.lean": "fd127e4d3b361423c66683d5de9bee95ed5c947013ab169d7bfad5a66951bb4a",
+    "TGLExt/ModularFlow.lean": "62cfa753d4b40a9091aafb383a8edd588a542dddf5e97ee39906ec31c59826b9"
   },
   "axiom_report": {
     "TGL.HalfNat.halfNat_of_selfConjugate": [
@@ -249,10 +255,134 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.commutant_triple": [
+      "propext",
+      "Quot.sound"
+    ],
+    "TGLExt.bicommutant_range_Lmul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Jconj_Lmul_Jconj": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.omega_cyclic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.omega_separating": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Sop_tomita": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Sop_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.deltaHalf_deltaHalf": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.delta_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.J_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.sigma_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.sigma_sigma": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.frob_trExpect_symm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.eTr_Lmul_eTr": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.J_deltaHalf": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.frob_delta_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gibbs_kms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.modPow_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.modPow_mem_unitary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gibbs_sigma": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.exp_logRho": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.sigma_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.diagExpect_bimod": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.eD_Lmul_eD": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.commutant_range_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "5aa70a00ffab8c632379e7066d67d69796bd14f88207a92dc046ee84f84d77ec",
-  "audit_stdout_sha256": "5325cd459e50a1caab6bd8e9eeed1c674a5a22c64b748557f6ce8bcff4703573",
+  "build_stdout_sha256": "1051f37d76285bddff4533d4647d2670d5c9acc43cfd0dcefdeab90709399614",
+  "audit_stdout_sha256": "97d56cb02ba6128b3b5c320114c188018fc5e24f0b0128cddb144155b961ac17",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",
@@ -334,7 +464,10 @@
       "bare_prop_label_fields_remaining": 0,
       "finite_full_witness_rejected": true,
       "prop_only_modular_rejected": true,
-      "degenerate_base_probe_result": "DEGENERATE_PROBE_REJECTED_BY_TYPE_SYSTEM"
+      "degenerate_base_probe_result": "DEGENERATE_PROBE_REJECTED_BY_TYPE_SYSTEM",
+      "finite_tomita_takesaki_ladder_kernel_proved": true,
+      "finite_jones_relation_kernel_proved": true,
+      "finite_masa_kernel_proved": true
     },
     "bare_prop_audit": {
       "count": 0,
@@ -408,7 +541,16 @@
         "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
         "citation": "Tomiyama 1957; Takesaki, Theory of Operator Algebras",
         "exact_role": "bimodularidade e fidelidade migraram como DADOS (ConditionalExpectationData, v26); NORMALIDADE (continuidade sigma-fraca) nao-enunciavel sem topologia de vN -- fica aqui",
-        "imported_into_witness": false
+        "imported_into_witness": false,
+        "finite_version_kernel_proved": "TGLExt.diagExpect_bimod / eD_Lmul_eD (v33; dimensao FINITA, nao substitui o continuo)"
+      },
+      {
+        "name": "Tomita-Takesaki (teoria modular)",
+        "status": "KNOWN_EXTERNAL_NOT_KERNEL_FORMALIZED",
+        "citation": "Tomita 1967; Takesaki, Lecture Notes in Math. 128 (1970); Bratteli-Robinson I",
+        "exact_role": "S=J.Delta^{1/2}, sigma_t=Ad(Delta^{it}), KMS -- o fundamento de TODA a cadeia modular; no CONTINUO segue externo (sem teoria de vN na mathlib). A VERSAO FINITO-DIMENSIONAL COMPLETA (S, Delta, J, polar, KMS algebraico+dinamico, fluxo unitario, pontos fixos, bicomutante concreto, JMJ=M', MASA) e' KERNEL PROVED na lib TGLExt (v33) -- sombra finita verificada, NAO o teorema III_1",
+        "imported_into_witness": false,
+        "finite_version_kernel_proved": "TGLExt.Sop_tomita / J_deltaHalf / gibbs_kms / sigma_* (v33)"
       }
     ],
     "fresnel_half_weight_kernel_proved": true,
