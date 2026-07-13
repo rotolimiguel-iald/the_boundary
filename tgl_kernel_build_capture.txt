@@ -510,7 +510,7 @@ info: TGL/Audit.lean:258:0: GRAVITON_BELL_SHADOW_CCI_HALF
 info: TGL/Audit.lean:259:0: THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX
 info: TGL/Audit.lean:260:0: CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR
 info: TGL/Audit.lean:261:0: FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED
-✔ [8584/8586] Built TGL.Main (11s)
+✔ [8584/8586] Built TGL.Main (12s)
 ✔ [8585/8586] Built TGL (12s)
 Build completed successfully (8586 jobs).
 

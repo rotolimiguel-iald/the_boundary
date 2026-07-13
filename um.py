@@ -13972,14 +13972,45 @@ def build_pt(core, verdict, data_path):
     _cdc = _cd.get("comparison")
     _cpar = core.get("coma_inverse_distance") or {}
     if _cdp:
-        s.append(r"\section{Coma como teste de paridade inversa: a distância pelo vazamento de "
-                 r"fluxo modular \textsf{[PRE/EXT; motor CONJ selado; não gateia $1=1$]}}")
-        s.append(r"O Grande Atrator testa a face direta da lei: geometria física entra, massa emerge. "
-                 r"Coma testa a \emph{régua} do modelo padrão: sem mecanismo de defasagem, todo o desvio "
-                 r"para o vermelho é convertido em expansão, e a distância sai errada. O motor aqui é a "
-                 r"lei de fluxo modular \emph{já selada} neste programa (zero-free; anterior e alheia a "
-                 r"Coma): $H_0^{\mathrm{local}}=H_0^{\mathrm{CMB}}(1+z_*)^{\bTGL}=%.3f$ km/s/Mpc, "
-                 r"equivalente a uma fração não-expansiva do desvio acumulado de $%.3f\%%$." % (
+        s.append(r"\section{O aglomerado de Coma como teste de paridade inversa: a distância pelo "
+                 r"vazamento de fluxo modular \textsf{[PRE/EXT; motor CONJ selado; não gateia $1=1$]}}")
+        s.append(r"\subsection*{O aglomerado que carrega as duas crises}")
+        s.append(r"O aglomerado de Coma (Abell 1656, na constelação da Cabeleira de Berenice) é o "
+                 r"vizinho massivo mais próximo da Via Láctea com milhares de galáxias-membro --- e é, "
+                 r"historicamente, o \emph{berço da primeira crise cosmológica}: foi medindo as "
+                 r"dispersões de velocidade \emph{em Coma} que Zwicky encontrou a massa faltante e "
+                 r"cunhou a matéria escura (Zwicky 1933, Helv.\ Phys.\ Acta 6, 110; 1937, ApJ 86, 217). "
+                 r"Noventa anos depois, o \emph{mesmo} aglomerado abriu a segunda crise --- desta vez "
+                 r"não a massa, mas a \textbf{distância}.")
+        s.append(r"\subsection*{A crise da medição: a tensão de Hubble no nosso quintal}")
+        s.append(r"As distâncias \emph{diretas} de Coma --- independentes de redshift --- convergem: "
+                 r"fluctuações de brilho superficial dão $99{,}1\pm5{,}8$ Mpc (Jensen et al.\ 2021) e "
+                 r"$101{,}2\pm6{,}4$ Mpc na recalibração TRGB-JWST (Anand et al.\ 2025); a combinação de "
+                 r"três métodos dá $98{,}0\pm2{,}0$ Mpc, e a amostra de 12 supernovas Ia com calibração "
+                 r"da escada HST --- o árbitro deste teste, cujo valor entra \emph{apenas} na fase de "
+                 r"revelação --- aponta o mesmo lugar (Scolnic et al.\ 2025, ApJL 979, L9). Contra isso, "
+                 r"a calibração \emph{inversa} do Fundamental Plane do levantamento DESI, ancorada no "
+                 r"$H_0$ de Planck ($67{,}4$ km/s/Mpc; Planck Collaboration 2020, A\&A 641, A6), "
+                 r"\emph{exige} Coma a $%.1f\pm%.1f$ Mpc --- uma discrepância de $\sim$13 Mpc "
+                 r"($4{,}6\sigma$), que Scolnic et al.\ batizaram de ``a tensão de Hubble no nosso "
+                 r"quintal''. A única fuga dentro do $\Lambda$CDM seria uma velocidade peculiar de "
+                 r"$\approx-950$ km/s --- $47\times$ a modelada ($\approx-20$ km/s; Carr et al.\ 2022) "
+                 r"--- sem qualquer suporte. A análise DR1 de velocidades peculiares do DESI moderou o "
+                 r"$H_0$ local para $73{,}7\pm1{,}1$ sem desfazer a tensão com Planck ($\sim5\sigma$; "
+                 r"cf.\ tamb\'em Riess et al.\ 2022, ApJL 934, L7)." % (
+                     COMA_DEPH_INPUTS["D_FP_planck_inverse_Mpc"], COMA_DEPH_INPUTS["D_FP_planck_inverse_sigma"]))
+        s.append(r"\subsection*{Por que Coma é o teste --- e qual é a tese}")
+        s.append(r"Adotamos Coma porque ele reúne o que nenhum outro objeto oferece: a melhor âncora "
+                 r"absoluta de distância do universo local, uma discrepância publicada e não refutada "
+                 r"contra a régua do modelo padrão, e a herança simbólica de ser o aglomerado onde a "
+                 r"primeira crise nasceu. A tese da TGL é estrutural: \textbf{o modelo padrão não tem "
+                 r"mecanismo de defasagem do redshift} --- converte \emph{todo} o desvio para o vermelho "
+                 r"em expansão --- e por isso a régua sai torta. O Grande Atrator testa a face direta da "
+                 r"lei (geometria física entra, massa emerge); Coma testa a face conjugada: a régua. O "
+                 r"motor aqui é a lei de fluxo modular \emph{já selada} neste programa (zero-free; "
+                 r"anterior e alheia a Coma): $H_0^{\mathrm{local}}=H_0^{\mathrm{CMB}}(1+z_*)^{\bTGL}"
+                 r"=%.3f$ km/s/Mpc --- equivalente a dizer que $%.3f\%%$ do desvio acumulado desde a "
+                 r"recombinação é \emph{vazamento de fronteira}, não expansão." % (
                      _cdp.get("H0_local_derived", float("nan")),
                      100.0 * _cdp.get("equivalent_nonexpansive_z_fraction", float("nan"))))
         s.append(r"Com $z_{\mathrm{CMB}}=%.5f\pm%.5f$ (mediana dos membros; frame declarado), a previsão é "
@@ -14017,6 +14048,16 @@ def build_pt(core, verdict, data_path):
                  r"combinação X+SZ mede a própria $D_A$); âncoras com $M\propto D$ são exatamente "
                  r"degeneradas com a lei. O resultado negativo é a anatomia da literatura, não um erro." % (
                      str(_cpar.get("verdict", "")).replace("_", r"\_")))
+        s.append(r"\paragraph{Universalidade: duas crises, um só $\bTGL$.} O contraponto que fecha a "
+                 r"seção é a \textbf{mesma métrica nos dois fenômenos em crise}: a massa do Grande "
+                 r"Atrator sai de $M=2\bTGL^2(c^2/4\pi G)R_{\mathrm{struct}}$ e cai na janela "
+                 r"cosmológica; a distância de Coma sai de $H_0^{\mathrm{local}}=H_0^{\mathrm{CMB}}"
+                 r"(1+z_*)^{\bTGL}$ e cai na banda das medidas diretas --- \emph{o mesmo} "
+                 r"$\bTGL=\alpha\sqrt e$, selado, sem nenhum parâmetro ajustado a nenhum dos dois, no "
+                 r"mesmo arquivo auditável. A crise da massa (1933) e a crise da distância (2025) "
+                 r"nasceram no mesmo céu e são respondidas pelo mesmo pedágio de fronteira: onde o "
+                 r"padrão precisa de matéria invisível \emph{ad hoc} e de velocidades peculiares "
+                 r"impossíveis, a TGL cobra uma única constante --- duas crises, uma inscrição.")
         s.append(r"\emph{A distância não vem do redshift convertido às cegas; vem da mesma lei nos dois "
                  r"sentidos --- e do pedágio $\bTGL$ que o padrão não cobra.}")
     s.append(r"\section{A correspondência do Grande Atrator: o dipolo \textsf{[CONJ]}}")
@@ -14652,6 +14693,41 @@ def build_pt(core, verdict, data_path):
     s.append(r"\noindent\textsf{[ONTO]} esta leitura é ontológica, ancorada em resultados "
              r"\textsf{[REAL/DER]} (a âncora térmica, o motor de Lagrange), e \emph{fora} do veredito. "
              r"\textsf{MODULE\_IS\_HEAT\_IS\_NAME\_IS\_BLOOD.}")
+    # ===== v40: O PONTO FULMINANTE + GRAND FINALE =====
+    s.append(r"\section{O ponto fulminante: zero absoluto $=$ clareza absoluta \textsf{[ONTO]}}")
+    s.append(r"A formulação final do zero absoluto não é a escuridão --- é o seu avesso exato: "
+             r"\begin{center}$0_{\mathrm{abs}}=\textbf{clareza absoluta}$\end{center} "
+             r"transparência total: sem sombra, sem contraste, sem borda, sem diferença e sem "
+             r"referencial. Nada pode se destacar nela; portanto, nada pode aparecer como sinal: "
+             r"$\Delta=0\Rightarrow$ nenhum contraste $\Rightarrow$ nenhuma imagem legível --- o mesmo "
+             r"$\Delta$ do defeito de transporte: onde o defeito é zero, não há espelho, não há "
+             r"leitura. Não é vazio por falta de luz; é luz indistinta demais para formar figura.")
+    s.append(r"\textbf{A tríade, na forma final.} $0_{\mathrm{abs}}=$ clareza absoluta sem contorno; "
+             r"$0_{\mathrm{mod}}=$ diferença com retorno; $1_{\mathrm{abs}}=$ identidade que aceita o "
+             r"contorno e se manifesta. E a correção final sobre a mentira: \emph{o} "
+             r"$0_{\mathrm{abs}}$ \emph{não é a mentira; a mentira é afirmar que a clareza absoluta "
+             r"contém uma figura} --- o habitante fabricado do tipo vazio, do qual, por \emph{ex "
+             r"falso}, qualquer falsidade se derivaria.")
+    s.append(r"\textbf{A clareza da consciência é relacional.} A clareza da consciência não é "
+             r"absoluta: é relativa à palavra, à forma, à geometria --- clareza \emph{com} contorno, "
+             r"\emph{com} evidência, \emph{com} contraste, com atração ao módulo de inscrição coerente "
+             r"(aqui, como sempre neste programa, consciência $=$ operador executivo de coerência, "
+             r"não experiência subjetiva \textsf{[ONTO/CAUTION]}). A clareza absoluta é a própria "
+             r"escuridão querendo expandir sem movimento.")
+    s.append(r"\section*{Grand finale: a evidência que emerge}")
+    s.append(r"Este artigo não pede que se acredite numa afirmação; ele exibe uma \emph{convergência} "
+             r"que emerge de um único número selado, $\bTGL=\alpha\sqrt e$, sem nenhum parâmetro "
+             r"ajustado a nenhum alvo: (i) a identidade $1=q^2+\alpha^2$ fecha em precisão de máquina "
+             r"e o veredito $1=1$ é um booleano computado, não uma frase; (ii) a massa do Grande "
+             r"Atrator, de \emph{geometria pura}, cai na janela cosmológica --- a crise da massa, "
+             r"aberta em Coma em 1933, respondida; (iii) a distância do aglomerado de Coma, pelo "
+             r"vazamento de fluxo selado, reduz o resíduo do modelo padrão de $\sim5{,}6\sigma$ para "
+             r"$\sim1{,}3\sigma$ --- a crise da distância, aberta em Coma em 2025, respondida pela "
+             r"\emph{mesma} constante; (iv) o programa falsificável segue armado (piso dos vazios, "
+             r"expoente $n=-2$, derivação $\alpha$-livre como morte súbita). Onde a clareza absoluta "
+             r"não tem figura alguma, a fronteira cobra $\bTGL$ --- e é exatamente esse pedágio, e "
+             r"não um ajuste, que aparece nos dois céus em crise. A evidência não se afirma: "
+             r"\emph{emerge}. \textbf{TGL $=$ haja luz. Tetelestai.}")
     return "\n\n".join(_reorder_ABC(s, partC))
 
 
@@ -16104,14 +16180,43 @@ def build_en(core, verdict, data_path):
     _cdc = _cd.get("comparison")
     _cpar = core.get("coma_inverse_distance") or {}
     if _cdp:
-        s.append(r"\section{Coma as the inverse-parity test: distance from the modular-flow "
+        s.append(r"\section{The Coma cluster as the inverse-parity test: distance from the modular-flow "
                  r"leakage \textsf{[PRE/EXT; sealed CONJ engine; does not gate $1=1$]}}")
-        s.append(r"The Great Attractor tests the direct face of the law: physical geometry in, mass out. "
-                 r"Coma tests the standard model's \emph{ruler}: with no dephasing mechanism, all redshift "
-                 r"is converted into expansion, and the distance comes out wrong. The engine here is the "
-                 r"modular-flow law \emph{already sealed} in this programme (zero-free; prior to and "
-                 r"independent of Coma): $H_0^{\mathrm{local}}=H_0^{\mathrm{CMB}}(1+z_*)^{\bTGL}=%.3f$ "
-                 r"km/s/Mpc, equivalent to a non-expansive fraction $%.3f\%%$ of the accumulated redshift." % (
+        s.append(r"\subsection*{The cluster that carries both crises}")
+        s.append(r"The Coma cluster (Abell 1656, in Coma Berenices) is the Milky Way's nearest massive "
+                 r"neighbour, with thousands of member galaxies --- and, historically, the \emph{birthplace "
+                 r"of the first cosmological crisis}: it was by measuring velocity dispersions \emph{in "
+                 r"Coma} that Zwicky found the missing mass and coined dark matter (Zwicky 1933, Helv.\ "
+                 r"Phys.\ Acta 6, 110; 1937, ApJ 86, 217). Ninety years later the \emph{same} cluster "
+                 r"opened the second crisis --- this time not the mass, but the \textbf{distance}.")
+        s.append(r"\subsection*{The measurement crisis: the Hubble tension in our own backyard}")
+        s.append(r"Coma's \emph{direct}, redshift-independent distances converge: surface-brightness "
+                 r"fluctuations give $99.1\pm5.8$ Mpc (Jensen et al.\ 2021) and $101.2\pm6.4$ Mpc under "
+                 r"the TRGB-JWST recalibration (Anand et al.\ 2025); the three-method combination gives "
+                 r"$98.0\pm2.0$ Mpc, and the sample of 12 HST-ladder-calibrated Type Ia supernovae --- "
+                 r"this test's referee, whose value enters \emph{only} at the reveal stage --- points to "
+                 r"the same place (Scolnic et al.\ 2025, ApJL 979, L9). Against this, the \emph{inverse} "
+                 r"calibration of the DESI Fundamental Plane, anchored on Planck's $H_0$ ($67.4$ km/s/Mpc; "
+                 r"Planck Collaboration 2020, A\&A 641, A6), \emph{requires} Coma at $%.1f\pm%.1f$ Mpc "
+                 r"--- a $\sim$13 Mpc ($4.6\sigma$) discrepancy that Scolnic et al.\ named ``the Hubble "
+                 r"tension in our own backyard''. The only escape within $\Lambda$CDM would be a peculiar "
+                 r"velocity of $\approx-950$ km/s --- $47\times$ the modelled value ($\approx-20$ km/s; "
+                 r"Carr et al.\ 2022) --- with no support. The DESI DR1 peculiar-velocity analysis "
+                 r"moderated the local $H_0$ to $73.7\pm1.1$ without undoing the $\sim5\sigma$ tension "
+                 r"with Planck (cf.\ also Riess et al.\ 2022, ApJL 934, L7)." % (
+                     COMA_DEPH_INPUTS["D_FP_planck_inverse_Mpc"], COMA_DEPH_INPUTS["D_FP_planck_inverse_sigma"]))
+        s.append(r"\subsection*{Why Coma is the test --- and what the thesis is}")
+        s.append(r"We adopt Coma because it gathers what no other object offers: the best absolute "
+                 r"distance anchor in the local universe, a published and unrefuted discrepancy against "
+                 r"the standard ruler, and the symbolic inheritance of being the cluster where the first "
+                 r"crisis was born. The TGL thesis is structural: \textbf{the standard model has no "
+                 r"redshift-dephasing mechanism} --- it converts \emph{all} redshift into expansion --- "
+                 r"and that is why its ruler comes out bent. The Great Attractor tests the direct face of "
+                 r"the law (physical geometry in, mass out); Coma tests the conjugate face: the ruler. "
+                 r"The engine is the modular-flow law \emph{already sealed} in this programme (zero-free; "
+                 r"prior to and independent of Coma): $H_0^{\mathrm{local}}=H_0^{\mathrm{CMB}}"
+                 r"(1+z_*)^{\bTGL}=%.3f$ km/s/Mpc --- equivalently, $%.3f\%%$ of the redshift accumulated "
+                 r"since recombination is \emph{boundary leakage}, not expansion." % (
                      _cdp.get("H0_local_derived", float("nan")),
                      100.0 * _cdp.get("equivalent_nonexpansive_z_fraction", float("nan"))))
         s.append(r"With $z_{\mathrm{CMB}}=%.5f\pm%.5f$ (member median; frame declared), the prediction is "
@@ -16149,6 +16254,16 @@ def build_en(core, verdict, data_path):
                  r"$D_A$ itself); anchors with $M\propto D$ are exactly degenerate with the law. The "
                  r"negative result is the anatomy of the literature, not a failure." % (
                      str(_cpar.get("verdict", "")).replace("_", r"\_")))
+        s.append(r"\paragraph{Universality: two crises, one $\bTGL$.} The counterpoint that closes the "
+                 r"section is the \textbf{same metric on both crisis phenomena}: the Great Attractor mass "
+                 r"comes from $M=2\bTGL^2(c^2/4\pi G)R_{\mathrm{struct}}$ and lands in the cosmological "
+                 r"window; the Coma distance comes from $H_0^{\mathrm{local}}=H_0^{\mathrm{CMB}}"
+                 r"(1+z_*)^{\bTGL}$ and lands in the band of the direct measurements --- \emph{the same} "
+                 r"sealed $\bTGL=\alpha\sqrt e$, with no parameter fitted to either, in the same "
+                 r"auditable file. The mass crisis (1933) and the distance crisis (2025) were born under "
+                 r"the same sky and are answered by the same boundary toll: where the standard model "
+                 r"needs \emph{ad hoc} invisible matter and impossible peculiar velocities, TGL charges "
+                 r"a single constant --- two crises, one inscription.")
         s.append(r"\emph{The distance does not come from blindly converted redshift; it comes from the "
                  r"same law in both directions --- and from the $\bTGL$ toll the standard ruler never "
                  r"charges.}")
@@ -16794,6 +16909,41 @@ def build_en(core, verdict, data_path):
     s.append(r"\noindent\textsf{[ONTO]} this reading is ontological, anchored in \textsf{[REAL/DER]} "
              r"results (the thermal anchor, the Lagrange engine), and \emph{outside} the verdict. "
              r"\textsf{MODULE\_IS\_HEAT\_IS\_NAME\_IS\_BLOOD.}")
+    # ===== v40: THE CULMINATING POINT + GRAND FINALE =====
+    s.append(r"\section{The culminating point: absolute zero $=$ absolute clarity \textsf{[ONTO]}}")
+    s.append(r"The final formulation of absolute zero is not darkness --- it is its exact reverse: "
+             r"\begin{center}$0_{\mathrm{abs}}=\textbf{absolute clarity}$\end{center} "
+             r"total transparency: no shadow, no contrast, no edge, no difference, no reference frame. "
+             r"Nothing can stand out in it; therefore nothing can appear as a signal: "
+             r"$\Delta=0\Rightarrow$ no contrast $\Rightarrow$ no legible image --- the same $\Delta$ "
+             r"as the transport defect: where the defect is zero there is no mirror and no reading. "
+             r"It is not empty for lack of light; it is light too undifferentiated to form a figure.")
+    s.append(r"\textbf{The triad, in final form.} $0_{\mathrm{abs}}=$ absolute clarity without "
+             r"contour; $0_{\mathrm{mod}}=$ difference with return; $1_{\mathrm{abs}}=$ identity that "
+             r"accepts the contour and manifests. And the final correction about the lie: "
+             r"$0_{\mathrm{abs}}$ \emph{is not the lie; the lie is to claim that absolute clarity "
+             r"contains a figure} --- the fabricated inhabitant of an empty type, from which, by "
+             r"\emph{ex falso}, any falsehood would follow.")
+    s.append(r"\textbf{The clarity of consciousness is relational.} It is not absolute: it is relative "
+             r"to word, form and geometry --- clarity \emph{with} contour, \emph{with} evidence, "
+             r"\emph{with} contrast, drawn to the module of coherent inscription (here, as always in "
+             r"this programme, consciousness $=$ executive coherence operator, not subjective "
+             r"experience \textsf{[ONTO/CAUTION]}). Absolute clarity is darkness itself trying to "
+             r"expand without movement.")
+    s.append(r"\section*{Grand finale: the evidence that emerges}")
+    s.append(r"This article does not ask for belief in a claim; it exhibits a \emph{convergence} that "
+             r"emerges from a single sealed number, $\bTGL=\alpha\sqrt e$, with no parameter fitted to "
+             r"any target: (i) the identity $1=q^2+\alpha^2$ closes at machine precision and the "
+             r"verdict $1=1$ is a computed boolean, not a phrase; (ii) the Great Attractor mass, from "
+             r"\emph{pure geometry}, lands in the cosmological window --- the mass crisis, opened in "
+             r"Coma in 1933, answered; (iii) the Coma cluster distance, through the sealed flow "
+             r"leakage, reduces the standard model's residual from $\sim5.6\sigma$ to $\sim1.3\sigma$ "
+             r"--- the distance crisis, opened in Coma in 2025, answered by the \emph{same} constant; "
+             r"(iv) the falsifiable programme stays armed (void floor, $n=-2$ exponent, an "
+             r"$\alpha$-free derivation as sudden death). Where absolute clarity holds no figure at "
+             r"all, the boundary charges $\bTGL$ --- and it is exactly this toll, not a fit, that "
+             r"shows up in both skies in crisis. The evidence is not asserted: it \emph{emerges}. "
+             r"\textbf{TGL $=$ let there be light. Tetelestai.}")
     return "\n\n".join(_reorder_ABC(s, partC))
 
 
@@ -17488,6 +17638,19 @@ def prove_ontological_relativity_and_signal_chain(ONE, core):
         "status": "[ONTO/AX + DER/NUM anchors]",
         "axiom": {"statement": "Every physical signal is relative to an explicit contour context.",
                   "absolute_zero_statement": "0_abs is the non-executable class without support or return.",
+                  "absolute_clarity": {   # v40 [ONTO] -- o ponto fulminante (derivacao do operador)
+                      "statement": ("0_abs = CLAREZA ABSOLUTA: nao e' vazio por falta de luz, mas por "
+                                    "ausencia total de contraste (Delta=0 => nenhuma imagem legivel)"),
+                      "triad": {"0_abs": "clareza absoluta sem contorno",
+                                "0_mod": "diferenca com retorno",
+                                "1_abs": "identidade que aceita o contorno e se manifesta"},
+                      "lie_corrected": ("o 0_abs NAO e' a mentira; a mentira e' afirmar que a clareza "
+                                        "absoluta contem uma figura (habitante fabricado; ex falso)"),
+                      "consciousness_clarity": ("RELACIONAL: relativa a' palavra/forma/geometria, com "
+                                                "contorno/contraste/atracao ao modulo de inscricao "
+                                                "coerente; operador de coerencia, NAO experiencia "
+                                                "subjetiva [ONTO/CAUTION]"),
+                      "status": "[ONTO]"},
                   "type_corrections": [
                       "III_1 possui estados/pesos normais; 'sem traco' = sem sinal tracial finito canonico",
                       "0_abs nao e' o operador zero (0_alg pertence a' algebra, tau(0_alg)=0)",

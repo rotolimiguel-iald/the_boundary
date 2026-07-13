@@ -4584,7 +4584,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-13 13:29:13",
+    "timestamp": "2026-07-13 14:05:31",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -4592,6 +4592,17 @@
       "axiom": {
         "statement": "Every physical signal is relative to an explicit contour context.",
         "absolute_zero_statement": "0_abs is the non-executable class without support or return.",
+        "absolute_clarity": {
+          "statement": "0_abs = CLAREZA ABSOLUTA: nao e' vazio por falta de luz, mas por ausencia total de contraste (Delta=0 => nenhuma imagem legivel)",
+          "triad": {
+            "0_abs": "clareza absoluta sem contorno",
+            "0_mod": "diferenca com retorno",
+            "1_abs": "identidade que aceita o contorno e se manifesta"
+          },
+          "lie_corrected": "o 0_abs NAO e' a mentira; a mentira e' afirmar que a clareza absoluta contem uma figura (habitante fabricado; ex falso)",
+          "consciousness_clarity": "RELACIONAL: relativa a' palavra/forma/geometria, com contorno/contraste/atracao ao modulo de inscricao coerente; operador de coerencia, NAO experiencia subjetiva [ONTO/CAUTION]",
+          "status": "[ONTO]"
+        },
         "type_corrections": [
           "III_1 possui estados/pesos normais; 'sem traco' = sem sinal tracial finito canonico",
           "0_abs nao e' o operador zero (0_alg pertence a' algebra, tau(0_alg)=0)",
@@ -4823,7 +4834,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-13 13:29:13",
+        "prediction_timestamp": "2026-07-13 14:05:31",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -4859,7 +4870,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "39e4ce2d1329abc7d101a16926a3e10587e559fb141d02b4ff1892624f203d23"
+        "prediction_hash": "cbde5a9696d602fd9b2695a519da55cefe6c21f6d1d11f3833932537a8cfd72e"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -5161,7 +5172,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "66fd493419ba5e9431e68ddfc27abd79316d8093eb4b0e90deaa2168be6472a5"
+    "result_hash": "545ff6b9dcf41771c238a2187b58fd3400143d9eb58a42a21e272376817eebaf"
   },
   "ga_mass_literature": [
     {
@@ -5187,7 +5198,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "66fd493419ba5e9431e68ddfc27abd79316d8093eb4b0e90deaa2168be6472a5",
+  "result_hash_before_external_comparison": "545ff6b9dcf41771c238a2187b58fd3400143d9eb58a42a21e272376817eebaf",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -5197,5 +5208,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-13 13:29:13"
+  "timestamp": "2026-07-13 14:05:31"
 }
