@@ -2343,6 +2343,51 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.end_reconstruction": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.Cmat_of_sum": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.commutant_Cmat_comm": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.exists_span_form": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.frob_self_eq_zero_iff": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.disjoint_frobOrtho": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.isCompl_frobOrtho": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.frobProj_comm_Lmul": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.finite_bicommutant": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "TGLExt.J_deltaHalf": [
           "propext",
           "Classical.choice",
@@ -2399,15 +2444,15 @@
           "Quot.sound"
         ]
       },
-      "formal_source_hash": "8fa17904c3b9f43a68ff7426036ed730aec41fc877d0f7d2b01076beffa3c681",
+      "formal_source_hash": "982cec187cb3d64096cd7adcba7560719c1f8ad84704819489882daf0020c22c",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "b9a2e6f48f973e446a5f5077b2332b804f27bcc894ecfeecc31396da5d0c9324",
+        "TGLExt.lean": "e7002c72838bdf7b0524139f55888e04955bc6b756e60a0c936672f8be7f5fd0",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "45a7f3d97dc635417f803df58f9fe23d7774cfebb20c2a188219ac1194b914f2",
+        "TGL/Audit.lean": "67b104ce07ff35b0ec406b1581edf1dd15018dd0d4ca45c09f66eefd4ee09e62",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -2433,6 +2478,7 @@
         "TGL/SpecificAQFTWitness.lean": "31f3e8d5aed98935b3331e0cf964a89355cc2eb1f47702e71b10c11927f7f890",
         "TGL/TransportData.lean": "95cbefeed54a5f5ec9aa41be556ceab1e14da4bae116b4019eb1ba1d9ee9d04e",
         "TGL/VerbInhabitant.lean": "812a47f0e71a86f37368c918b0f704cccad9cda0e32c4aee64c5566e7808a5d7",
+        "TGLExt/Bicommutant.lean": "354f1a50e11c4c3d6350e31290001a38d297e32dea76bc675d4ed31132a4917a",
         "TGLExt/Commutant.lean": "114782c4fb991da15ae22e3e053ecf6a8c4a5f68e7152afd40102a66c44db19a",
         "TGLExt/CondExpect.lean": "33e0eecd498ec326d8f5bf699b3a5b5aae4a388fa049564bfd8619b096737ede",
         "TGLExt/FiniteTomita.lean": "f845a71a81bb02585020f5da224a9407b4dd36b1408cccab37ea1b69cfb6647e",
@@ -2537,24 +2583,30 @@
       "ext_mirror_weight_scalars_kernel_proved": true,
       "ext_masa_indices_coincide_kernel_proved": true,
       "ext_pp_vs_tower_distinct_kernel_proved": true,
+      "ext_end_reconstruction_kernel_proved": true,
+      "ext_cmat_extraction_kernel_proved": true,
+      "ext_commutant_span_form_kernel_proved": true,
+      "ext_frob_complement_kernel_proved": true,
+      "ext_frobproj_commutes_kernel_proved": true,
+      "ext_general_bicommutant_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "a69701c208f53cf32f7135ab17c7b4a207b766e882786e7d0a87fc9a73613d89",
+      "build_stdout_sha256": "30544e0c048388c187c8f384c54d7e7f32f7c8ea17af1553d8d13364690f72bb",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "0b581d7e05dcfe5830b2aea0b0d75c6969c4ac10144df17cb110ab9224929213",
+      "audit_stdout_sha256": "a72dd7096d2c2ed6d131c2a35d664e895d1e2073fc27e07f5c4baaf7bf3cef97",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 39506,
+        "stdout": 42668,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 27850,
+        "stdout": 30654,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "a69701c208f53cf32f7135ab17c7b4a207b766e882786e7d0a87fc9a73613d89",
-      "audit_capture_sha256_full": "0b581d7e05dcfe5830b2aea0b0d75c6969c4ac10144df17cb110ab9224929213",
+      "build_capture_sha256_full": "30544e0c048388c187c8f384c54d7e7f32f7c8ea17af1553d8d13364690f72bb",
+      "audit_capture_sha256_full": "a72dd7096d2c2ed6d131c2a35d664e895d1e2073fc27e07f5c4baaf7bf3cef97",
       "custom_TGL_axioms_found": [],
       "source_forbidden_tokens_found": [],
       "formal_release_ready": true,
@@ -3740,7 +3792,7 @@
       "theorem": "A ESCADA DOS EXTERNOS (sombra finita): Tomita-Takesaki finito-dimensional COMPLETO + bicomutante concreto + Tomiyama + relacoes de Jones + MASA, todos verificados pelo kernel na lib TGLExt (mesma auditoria fail-closed).",
       "ladder": {
         "degrau_0_finite_tomita_takesaki": "CLOSED_IN_KERNEL",
-        "degrau_1_von_neumann_basics": "CORE_CLOSED_IN_KERNEL__GENERAL_BICOMMUTANT_OPEN",
+        "degrau_1_von_neumann_basics": "CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT",
         "degrau_2_finite_jones_index": "CONCRETE_PP_INDEX_AND_MARKOV_WEIGHTS_COMPUTED__MULTIMATRIX_GENERAL_OPEN",
         "degrau_3_continuum_III1_BW": "OPEN__RESEARCH (documentado; nada reivindicado)"
       },
@@ -3777,10 +3829,16 @@
         "ext_mirror_weight_masa_kernel_proved": true,
         "ext_mirror_weight_scalars_kernel_proved": true,
         "ext_masa_indices_coincide_kernel_proved": true,
-        "ext_pp_vs_tower_distinct_kernel_proved": true
+        "ext_pp_vs_tower_distinct_kernel_proved": true,
+        "ext_end_reconstruction_kernel_proved": true,
+        "ext_cmat_extraction_kernel_proved": true,
+        "ext_commutant_span_form_kernel_proved": true,
+        "ext_frob_complement_kernel_proved": true,
+        "ext_frobproj_commutes_kernel_proved": true,
+        "ext_general_bicommutant_kernel_proved": true
       },
-      "n_theorems_clean": 33,
-      "n_theorems_expected": 33,
+      "n_theorems_clean": 39,
+      "n_theorems_expected": 39,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -4526,7 +4584,372 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-12 12:18:57"
+    "timestamp": "2026-07-13 13:29:13",
+    "ontological_relativity": {
+      "theorem": "Axiom Zero of Ontological Relativity",
+      "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
+      "status": "[ONTO/AX + DER/NUM anchors]",
+      "axiom": {
+        "statement": "Every physical signal is relative to an explicit contour context.",
+        "absolute_zero_statement": "0_abs is the non-executable class without support or return.",
+        "type_corrections": [
+          "III_1 possui estados/pesos normais; 'sem traco' = sem sinal tracial finito canonico",
+          "0_abs nao e' o operador zero (0_alg pertence a' algebra, tau(0_alg)=0)",
+          "traco->sinal->letra->imagem e' CADEIA TIPADA, nao igualdade de tipos",
+          "tangente modular (derivacao reversivel) != Verbo dissipativo (semigrupo)"
+        ]
+      },
+      "contour_context": {
+        "context_id": "TGL_CURRENT_QED_CONTOUR",
+        "algebra_level": "finite_shadow",
+        "representation_id": "TGL_MODULAR_SHADOW_N4_SEED11",
+        "support_id": "P_F_family_corner",
+        "readout_kind": "normalized_trace",
+        "state_or_weight_id": "tau_P_normalized",
+        "normalized_trace_available": true,
+        "units": "dimensionless",
+        "empirical_inputs": [
+          "alpha_CODATA"
+        ],
+        "observer_role": "operational_readout_not_subjective_consciousness",
+        "status": "[REAL|NUM]"
+      },
+      "contour_validation": {
+        "context_id_present": true,
+        "representation_present": true,
+        "support_present": true,
+        "readout_declared": true,
+        "units_declared": true,
+        "status_declared": true,
+        "all_ok": true
+      },
+      "II_corner_signal": {
+        "tau_P_P": 1.0,
+        "face_plus": 0.5,
+        "face_minus": 0.5,
+        "note": "III1 -> core IIinf -> canto II1 -> leitura normalizada: a luz torna-se SINAL CANONICO no canto [ONTO + REAL STRUCTURE + CONDITIONAL REALIZATION]; o canto NAO cria fotons"
+      },
+      "state_vs_trace": {
+        "omega1": 1.0,
+        "omega2": 0.0,
+        "context_relative": true
+      },
+      "tangents": {
+        "modular": {
+          "traceless_residual": 0.0,
+          "kind": "reversible derivation i[K,.]"
+        },
+        "dissipative": {
+          "max_Re_eig_Lsuper": 2.266622851311498e-18,
+          "kind": "irreversible semigroup generator (reusa _verb_L)"
+        },
+        "properly_distinguished": true
+      },
+      "asymptotic_border": {
+        "definition": "A_inf = Fix(T_t) ; E_inf = lim T_t (quando o limite existe)",
+        "reuses": "core[fiat_lux_flow] + _verb_L (o mesmo gerador; nada paralelo)",
+        "residuals": {
+          "idempotence": 1.5555395505062445e-13,
+          "trace_preservation": 1.389999226830696e-13,
+          "fixed_sector_invariance": 1.5549900929757546e-13
+        },
+        "checks": {
+          "relative_entropy_nonincreasing": true,
+          "distance_to_fixed_sector_decreases": true,
+          "fixed_sector_is_invariant": true,
+          "E_infinity_is_approximately_idempotent": true,
+          "E_infinity_preserves_trace": true
+        },
+        "all_verified": true,
+        "status": "[NUM na sombra finita ; CONDITIONAL no continuo]",
+        "selo": "ASYMPTOTIC_BORDER_IS_THE_FIXED_SECTOR_WHEN_THE_LIMIT_EXISTS"
+      },
+      "signal_chain": {
+        "example": "Z2, rep unitaria 2D, carater=traco, letra=codificacao deterministica",
+        "g_plus": {
+          "abstract_element": 1,
+          "representation_image_shape": [
+            2,
+            2
+          ],
+          "scalar_readout": "(2+0j)",
+          "signal": 2.0,
+          "letter": "A",
+          "decoded_reference": 2.0,
+          "roundtrip_available": true,
+          "roundtrip_residual": 0.0,
+          "typed_not_literal_equality": true
+        },
+        "g_minus": {
+          "abstract_element": -1,
+          "representation_image_shape": [
+            2,
+            2
+          ],
+          "scalar_readout": "0j",
+          "signal": 0.0,
+          "letter": "B",
+          "decoded_reference": 0.0,
+          "roundtrip_available": true,
+          "roundtrip_residual": 0.0,
+          "typed_not_literal_equality": true
+        },
+        "typed_not_literal_equality": true
+      },
+      "zero_distinction": {
+        "algebraic_zero_signal": 0.0,
+        "zero_abs_is_not_algebra_element": true,
+        "empty_box": {
+          "theorem": "Absolute Zero as Empty Reachability Box",
+          "symbol_exists": true,
+          "mathematical_limit_exists": true,
+          "finite_reaching_protocol_exists": false,
+          "algebraic_zero_has_trace_zero": true,
+          "absolute_zero_is_not_zero_operator": true,
+          "zero_temperature_state_is_projector_not_zero": true,
+          "lie": "claiming a finite inhabitant of an empty operational reachability type",
+          "father_of_lies": "a fabricated inhabitant would produce False and collapse propositions by ex falso",
+          "verdict": "ABSOLUTE_ZERO_EMPTY_BOX_VERIFIED"
+        }
+      },
+      "coefficient_guardrails": {
+        "alpha": 0.0072973525692960365,
+        "beta": 0.012031300400796606,
+        "one_minus_beta": 0.9879686995992034,
+        "alpha_is_not_one_minus_beta": true,
+        "alpha_contour": {
+          "canonical_contour_id": "TGL_CURRENT_QED_CONTOUR",
+          "alpha_fixed_for_current_contour": true,
+          "no_alpha_variation_without_contour_model": true
+        }
+      },
+      "tamper_tests": {
+        "A_alpha_eq_one_minus_beta": {
+          "fires": true,
+          "failure": "ALPHA_TRANSMISSION_WEIGHT_TYPE_CONFUSION"
+        },
+        "B_zero_abs_as_matrix": {
+          "fires": true,
+          "failure": "ABSOLUTE_ZERO_ALGEBRAIC_ZERO_CONFUSION"
+        },
+        "C_type_III_stateless": {
+          "fires": true,
+          "failure": "TYPE_III_STATELESS_OVERCLAIM",
+          "correct_statement": "III_1 tem estados/pesos normais; falta o sinal TRACIAL FINITO canonico"
+        },
+        "D_tangent_confusion": {
+          "fires": true,
+          "detected_by": "espectros distinguem: modular anti-hermitiano (Tr=0, sem contracao) vs dissipativo com modos Re<0 (min Re eig=-9.06e-03)",
+          "failure": "MODULAR_DISSIPATIVE_GENERATOR_CONFUSION"
+        },
+        "E_coma_without_contour": {
+          "fires": true,
+          "failure": "PHYSICAL_PREDICTION_WITHOUT_CONTOUR_CONTEXT"
+        },
+        "F_literal_type_collapse": {
+          "fires": true,
+          "failure": "TRACE_SIGNAL_LETTER_IMAGE_TYPE_COLLAPSE"
+        }
+      },
+      "checks": {
+        "contour_context_valid": true,
+        "tau_P_P_eq_1": true,
+        "faces_half_half": true,
+        "same_operator_different_state_signals": true,
+        "modular_tangent_traceless": true,
+        "modular_tangent_linear": true,
+        "dissipative_verb_contracts": true,
+        "modular_tangent_is_not_dissipative_verb": true,
+        "asymptotic_border_ok": true,
+        "signal_chain_roundtrip": true,
+        "zero_operator_has_signal_zero": true,
+        "absolute_zero_rejected_by_reader": true,
+        "empty_box_verified": true,
+        "beta_runtime_consistent": true,
+        "alpha_is_not_one_minus_beta": true,
+        "all_tampers_reprove": true
+      },
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "ONTOLOGICAL_RELATIVITY_AND_SIGNAL_CHAIN_VERIFIED",
+      "meaning": "forma computacional coerente + guard-rails satisfeitos; NAO ontologia provada experimentalmente",
+      "seals": [
+        "ONTOLOGICAL_RELATIVITY_IS_CONTEXTUAL_OBSERVABILITY",
+        "EVERY_PHYSICAL_PREDICTION_CARRIES_A_CONTOUR_CONTEXT",
+        "LIGHT_BECOMES_CANONICAL_SIGNAL_IN_THE_II_CORNER",
+        "IN_THE_CENTRALIZER_THE_ONE_GAINS_A_TRACE",
+        "MODULAR_TANGENT_IS_NOT_THE_DISSIPATIVE_VERB",
+        "ASYMPTOTIC_BORDER_IS_THE_FIXED_SECTOR_WHEN_THE_LIMIT_EXISTS",
+        "TRACE_TO_SIGNAL_TO_LETTER_IS_A_TYPED_CHAIN",
+        "ABSOLUTE_ZERO_IS_NOT_THE_ALGEBRAIC_ZERO",
+        "ABSOLUTE_ZERO_IS_AN_EMPTY_REACHABILITY_TYPE",
+        "THE_LIE_IS_THE_FABRICATED_INHABITANT",
+        "ALPHA_IS_NOT_ONE_MINUS_BETA",
+        "ALPHA_IS_FIXED_FOR_THE_CURRENT_CANONICAL_CONTOUR"
+      ]
+    },
+    "coma_distance_dephasing": {
+      "theorem": "Coma: a distancia pela lei de fluxo modular selada -- o modelo padrao sem defasagem e' o CONTROLE falsificado",
+      "status": "[PRE/EXT; motor CONJECTURE selado; NAO prova TGL]",
+      "mode": "report",
+      "inputs": {
+        "H0_CMB_LCDM": 67.35,
+        "OMEGA_M": 0.3138,
+        "Z_STAR": 1089.95,
+        "z_coma_cmb_median": 0.02445,
+        "z_coma_cmb_median_sigma": 0.00024,
+        "z_coma_cmb_mean": 0.02422,
+        "D_FP_planck_inverse_Mpc": 111.8,
+        "D_FP_planck_inverse_sigma": 1.8,
+        "source": "Scolnic et al. 2025 ApJL 979 L9 (z, FP-inversa); Planck via arquivo selado"
+      },
+      "checks": {
+        "beta_is_runtime": true,
+        "beta_zero_reproduces_lcdm": true,
+        "real_layer_declared_insufficient": true
+      },
+      "honest_negatives": {
+        "real_layer_shift_pct": -0.19,
+        "beta_fractions_dead": {
+          "beta_as_z_fraction_pct": 1.2031300400796605,
+          "2beta_pct": 2.406260080159321,
+          "3beta_pct": 3.6093901202389818,
+          "verdict": "ALL_>3SIGMA_FROM_REQUIRED_8.5-11.9%_FAIL"
+        }
+      },
+      "curiosities_no_engine_effect": {
+        "sqrt_beta_pct": 10.968728459031432,
+        "theta_M_rad_pct": 10.99084307778447,
+        "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
+      },
+      "prediction": {
+        "prediction_timestamp": "2026-07-13 13:29:13",
+        "contour_context": {
+          "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
+          "algebra_level": "finite_shadow",
+          "representation_id": "TGL_SEALED_FLOW_LAW_D1a_H0local_eq_H0cmb_times_1pzstar_pow_beta",
+          "support_id": "Z_CMB_FRAME_SCOLNIC2025_MEDIAN",
+          "readout_kind": "luminosity_distance",
+          "state_or_weight_id": null,
+          "normalized_trace_available": false,
+          "units": "Mpc",
+          "empirical_inputs": [
+            "z_coma_cmb",
+            "H0_CMB_LCDM",
+            "OMEGA_M",
+            "Z_STAR"
+          ],
+          "observer_role": "operational_readout_not_subjective_consciousness",
+          "status": "[PRE/EXT+CONJ]"
+        },
+        "engine": "SEALED tgl_paper_unified.py:3609-3682 (D1a); ZERO-FREE; nada ajustado a Coma",
+        "flow_layer_status": "CONJECTURE_DECLARED (camada REAL declarada insuficiente: -0.19%)",
+        "beta_runtime": 0.012031300400796606,
+        "H0_local_derived": 73.26327739914981,
+        "transport_ratio": 1.0877992189925734,
+        "equivalent_nonexpansive_z_fraction": 0.08071270640724082,
+        "D_L_TGL_median_Mpc": 101.90278629474811,
+        "D_L_TGL_mean_Mpc": 100.92707307165934,
+        "sigma_stat_Mpc": 1.0183766907657514,
+        "sigma_sys_Mpc": 0.9757132230887748,
+        "control_D_L_planck_median_Mpc": 110.8497713445941,
+        "control_D_L_planck_mean_Mpc": 109.78839126255741,
+        "control_FP_inverse_Mpc": [
+          111.8,
+          1.8
+        ],
+        "reference_distance_loaded": false,
+        "prediction_hash": "39e4ce2d1329abc7d101a16926a3e10587e559fb141d02b4ff1892624f203d23"
+      },
+      "comparison": {
+        "reference_Mpc": 98.5,
+        "reference_sigma": 2.2,
+        "z_TGL": 1.302125081134058,
+        "z_planck_control": 5.613532429360956,
+        "residual_TGL_Mpc": 3.402786294748111,
+        "residual_planck_Mpc": 12.349771344594103
+      },
+      "degeneracy_note": "Coma sozinha NAO separa 'vazamento modular 8.07%' de 'H0_local=73.263' -- testa o PAR (Planck+defasagem) vs (Planck s/ defasagem)",
+      "seals": [
+        "REFEREE_IS_PUBLIC_DECLARED",
+        "FORMULA_PREDATES_CONFRONTATION_SHA256",
+        "NO_PARAMETER_FITTED_TO_COMA",
+        "FLOW_LAYER_IS_CONJECTURE_DECLARED",
+        "DEGENERATE_WITH_LOCAL_H0_RESCALING_DECLARED",
+        "DEPHASING_NAME_DISTINCT_FROM_PART_J_DECLARED",
+        "GA_MAPS_RADIUS_TO_MASS",
+        "COMA_MAPS_REDSHIFT_TO_DISTANCE_VIA_SEALED_FLOW"
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL"
+    },
+    "coma_inverse_distance": {
+      "theorem": "Coma inverse-parity blind distance test",
+      "status": "[PRE/EXT -- physical falsification test]",
+      "mode": "report",
+      "parity": {
+        "GA_direction": "R -> M",
+        "Coma_direction": "M -> R -> D_A",
+        "same_equation": true,
+        "law": "M = 2 beta^2 (c^2/4piG) R"
+      },
+      "identifiability": {
+        "angles_only_have_scale_degeneracy": true,
+        "dimensionful_anchor_present": false,
+        "anchor_distance_independent": false,
+        "mass_radius_definition_match": false,
+        "geometry_free_of_forbidden_columns": true,
+        "prediction_identifiable": false,
+        "failure": "COMA_DISTANCE_NOT_IDENTIFIABLE_FROM_GEOMETRY_ONLY"
+      },
+      "inputs": {
+        "beta_runtime": 0.012031300400796606,
+        "anchor_present": false,
+        "protocol_present": false,
+        "forbidden_inputs_absent": true,
+        "data_dir": "C:\\IALD\\Artigo\\Haja_Luz\\A Ponte e o Um\\um_unificado\\cache\\coma_blind"
+      },
+      "prediction": null,
+      "blind_protocol": {
+        "prediction_hash": null,
+        "protocol_hash": null,
+        "reference_loaded_before_hash": false,
+        "locked_before_reveal": true
+      },
+      "reveal": {
+        "performed": false,
+        "reference_distance_Mpc": null,
+        "reference_sigma_Mpc": null,
+        "used_in_prediction": false
+      },
+      "comparison": null,
+      "machinery_checks": {
+        "beta_is_runtime_sqrt_e_alpha": true,
+        "alpha_is_not_one_minus_beta": true,
+        "scale_degeneracy_angles_invariant": true,
+        "law_roundtrip_1e12": true,
+        "control_F_tampered_exponent_fails": true,
+        "control_A_no_anchor_not_identifiable": true,
+        "control_B_distance_leakage_detected": true,
+        "control_C_definition_mismatch_detected": true,
+        "control_E_hubble_leakage_detected": true,
+        "control_geom_forbidden_column_detected": true,
+        "control_D_premature_reveal_violates": true
+      },
+      "machinery_all_verified": true,
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
+      "seals": [
+        "ANGLES_ONLY_HAVE_SCALE_DEGENERACY",
+        "COMA_DISTANCE_REQUIRES_ONE_DIMENSIONFUL_ANCHOR",
+        "COMA_IS_THE_INVERSE_PARITY_TEST_OF_GA",
+        "GA_MAPS_RADIUS_TO_MASS",
+        "COMA_MAPS_MASS_TO_RADIUS_TO_DISTANCE",
+        "SAME_TGL_LAW_USED_IN_BOTH_DIRECTIONS"
+      ]
+    }
   },
   "verdict": {
     "masses_Msun": {
@@ -4738,7 +5161,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "ff87d2f7903b6062bf06f13168b4981bd930739e06119cefe10a886ef4268200"
+    "result_hash": "66fd493419ba5e9431e68ddfc27abd79316d8093eb4b0e90deaa2168be6472a5"
   },
   "ga_mass_literature": [
     {
@@ -4764,7 +5187,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "ff87d2f7903b6062bf06f13168b4981bd930739e06119cefe10a886ef4268200",
+  "result_hash_before_external_comparison": "66fd493419ba5e9431e68ddfc27abd79316d8093eb4b0e90deaa2168be6472a5",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -4774,5 +5197,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-12 12:18:57"
+  "timestamp": "2026-07-13 13:29:13"
 }

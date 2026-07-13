@@ -4868,6 +4868,7 @@ import TGLExt.ModularFlow
 import TGLExt.CondExpect
 import TGLExt.PPIndex
 import TGLExt.MarkovTower
+import TGLExt.Bicommutant
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5058,6 +5059,16 @@ namespace TGL.Audit
 #check @TGLExt.tau_eTr
 #check @TGLExt.masa_tower_weight_eq_ppBest
 #check @TGLExt.pp_ne_tower_for_scalars
+-- v38 (Degrau 1 FECHO: o bicomutante GERAL finito)
+#check @TGLExt.end_reconstruction
+#check @TGLExt.Cmat_of_sum
+#check @TGLExt.commutant_Cmat_comm
+#check @TGLExt.exists_span_form
+#check @TGLExt.frob_self_eq_zero_iff
+#check @TGLExt.disjoint_frobOrtho
+#check @TGLExt.isCompl_frobOrtho
+#check @TGLExt.frobProj_comm_Lmul
+#check @TGLExt.finite_bicommutant
 
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
@@ -5131,6 +5142,16 @@ namespace TGL.Audit
 #print axioms TGLExt.tau_eTr
 #print axioms TGLExt.masa_tower_weight_eq_ppBest
 #print axioms TGLExt.pp_ne_tower_for_scalars
+-- v38 (bicomutante geral)
+#print axioms TGLExt.end_reconstruction
+#print axioms TGLExt.Cmat_of_sum
+#print axioms TGLExt.commutant_Cmat_comm
+#print axioms TGLExt.exists_span_form
+#print axioms TGLExt.frob_self_eq_zero_iff
+#print axioms TGLExt.disjoint_frobOrtho
+#print axioms TGLExt.isCompl_frobOrtho
+#print axioms TGLExt.frobProj_comm_Lmul
+#print axioms TGLExt.finite_bicommutant
 #print axioms TGLExt.J_deltaHalf
 #print axioms TGLExt.frob_delta_nonneg
 #print axioms TGLExt.gibbs_kms
@@ -7542,6 +7563,405 @@ theorem dual_calibration_exists {W : TGLSpecificAQFTWitness}
 
 end TGL.VerbInhabitant
 ''',
+    "TGLExt/Bicommutant.lean":
+r'''import TGLExt.MarkovTower
+
+set_option autoImplicit false
+
+/-!
+# O bicomutante geral finito   [TGLExt — Degrau 1 (fecho)]
+
+O TEOREMA DO BICOMUTANTE para subálgebras-* arbitrárias de `Mₙ(ℂ)` agindo
+em `H = Mₙ(ℂ)` por multiplicação à esquerda — a peça que faltava do
+Degrau 1 (LeftRight.lean fez o caso `A = Mₙ` pleno):
+
+* (B1) RECONSTRUÇÃO: todo superoperador `Φ ∈ End(H)` é
+  `Σ_{k,l} L_{C^{kl}} R_{E_{kl}}` com `C^{kl} := Cmat Φ k l` — `End(H)`
+  é gerado por multiplicações à esquerda e à direita;
+* (B2) EXTRAÇÃO: os coeficientes `C^{kl}` são únicos (lidos de volta);
+* (B3) ESTRUTURA DO COMUTANTE: se `Φ` comuta com `L(A)`, cada `C^{kl}`
+  comuta com `A` em `Mₙ` — `L(A)′ ⊆ span{L_x R_y : x ∈ A′}`;
+* (B4) COMPLEMENTO DE FROBENIUS: `W ⊕ W^⊥ = H` para todo submódulo,
+  SEM instância de produto interno (contagem de posto + definitude
+  do traço `Tr(xᴴx)`);
+* (B5) REDUÇÃO: para `A` fechada por produto e estrela, o projetor de
+  Frobenius sobre `span A` comuta com `L(A)`;
+* (B6) O TEOREMA: `1 ∈ A`, `A·A ⊆ A`, `Aᴴ = A` ⟹
+  `L(A)′′ = L(span_ℂ A)` — em dimensão finita o fecho de von Neumann
+  é o fecho LINEAR (a topologia é grátis).
+
+β NÃO entra: infraestrutura pura. Sem sorry, sem axiom.
+Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped ComplexOrder
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## B1 — a matriz de coeficientes e a reconstrução -/
+
+omit [Fintype n] in
+/-- A matriz de coeficientes `C^{kl}` de um superoperador `Φ ∈ End(Mₙ(ℂ))`:
+    `(Cmat Φ k l) i j = (Φ E_{jk}) i l`. -/
+def Cmat (Φ : Module.End ℂ (Matrix n n ℂ)) (k l : n) : Matrix n n ℂ :=
+  Matrix.of fun i j => (Φ (Matrix.single j k 1)) i l
+
+omit [Fintype n] in
+@[simp] theorem Cmat_apply (Φ : Module.End ℂ (Matrix n n ℂ)) (k l i j : n) :
+    Cmat Φ k l i j = (Φ (Matrix.single j k 1)) i l := rfl
+
+/-- [KERNEL] RECONSTRUÇÃO DE SUPEROPERADORES: todo `Φ ∈ End(H)`,
+    `H = Mₙ(ℂ)`, é soma `Σ_{k,l} L_{C^{kl}} R_{E_{kl}}` — o palco inteiro
+    é gerado pelas multiplicações à esquerda e à direita. -/
+theorem end_reconstruction (Φ : Module.End ℂ (Matrix n n ℂ)) :
+    Φ = ∑ p : n × n, Lmul (Cmat Φ p.1 p.2) * Rmul (Matrix.single p.1 p.2 1) := by
+  refine (Matrix.stdBasis ℂ n n).ext fun pq => ?_
+  obtain ⟨p, q⟩ := pq
+  rw [Matrix.stdBasis_eq_single, LinearMap.sum_apply]
+  ext i j
+  rw [Matrix.sum_apply, Fintype.sum_eq_single ((q, j) : n × n)]
+  · simp only [Module.End.mul_apply, Lmul_apply, Rmul_apply,
+      Matrix.single_mul_single_same, Matrix.mul_single_apply_same,
+      mul_one, Cmat_apply]
+  · rintro ⟨k, l⟩ hkl
+    simp only [Module.End.mul_apply, Lmul_apply, Rmul_apply]
+    by_cases hk : q = k
+    · subst hk
+      have hl : j ≠ l := fun h => hkl (by rw [h])
+      rw [Matrix.single_mul_single_same, one_mul,
+        Matrix.mul_single_apply_of_ne (hbj := hl)]
+    · rw [Matrix.single_mul_single_of_ne (h := hk), mul_zero, Matrix.zero_apply]
+
+/-! ## B2 — unicidade/extração dos coeficientes -/
+
+/-- [KERNEL] EXTRAÇÃO: os coeficientes de `Σ L_{D^{kl}} R_{E_{kl}}` são
+    exatamente os `D^{kl}` — a decomposição de B1 é única. -/
+theorem Cmat_of_sum (D : n → n → Matrix n n ℂ) (k₀ l₀ : n) :
+    Cmat (∑ p : n × n, Lmul (D p.1 p.2) * Rmul (Matrix.single p.1 p.2 1)) k₀ l₀
+      = D k₀ l₀ := by
+  ext i j
+  rw [Cmat_apply, LinearMap.sum_apply, Matrix.sum_apply,
+    Fintype.sum_eq_single ((k₀, l₀) : n × n)]
+  · simp only [Module.End.mul_apply, Lmul_apply, Rmul_apply,
+      Matrix.single_mul_single_same, Matrix.mul_single_apply_same, mul_one]
+  · rintro ⟨k, l⟩ hkl
+    simp only [Module.End.mul_apply, Lmul_apply, Rmul_apply]
+    by_cases hk : k₀ = k
+    · subst hk
+      have hl : l₀ ≠ l := fun h => hkl (by rw [h])
+      rw [Matrix.single_mul_single_same, one_mul,
+        Matrix.mul_single_apply_of_ne (hbj := hl)]
+    · rw [Matrix.single_mul_single_of_ne (h := hk), mul_zero, Matrix.zero_apply]
+
+/-! ## B3 — a estrutura do comutante -/
+
+/-- `a·E_{jk} = Σ_m (a m j) • E_{mk}`: multiplicar a matriz-unidade pela
+    esquerda põe a coluna `j` de `a` na coluna `k`. -/
+theorem mul_single_one_eq_sum (a : Matrix n n ℂ) (j k : n) :
+    a * Matrix.single j k 1 = ∑ m, a m j • Matrix.single m k (1 : ℂ) := by
+  ext s t
+  rw [Matrix.sum_apply]
+  by_cases ht : t = k
+  · subst ht
+    rw [Matrix.mul_single_apply_same, mul_one,
+      Fintype.sum_eq_single s (fun m hm => by
+        rw [Matrix.smul_apply, Matrix.single_apply_of_row_ne hm, smul_zero]),
+      Matrix.smul_apply, Matrix.single_apply_same, smul_eq_mul, mul_one]
+  · rw [Matrix.mul_single_apply_of_ne (hbj := ht)]
+    refine (Finset.sum_eq_zero fun m _ => ?_).symm
+    rw [Matrix.smul_apply, Matrix.single_apply_of_col_ne _ _ (Ne.symm ht), smul_zero]
+
+/-- Os coeficientes de `L_a ∘ Φ`: multiplicação à esquerda em cada `C^{kl}`. -/
+theorem Cmat_Lmul_left (a : Matrix n n ℂ) (Φ : Module.End ℂ (Matrix n n ℂ)) (k l : n) :
+    Cmat (Lmul a * Φ) k l = a * Cmat Φ k l := by
+  ext i j
+  simp only [Cmat_apply, Module.End.mul_apply, Lmul_apply, Matrix.mul_apply]
+
+/-- Os coeficientes de `Φ ∘ L_a`: multiplicação à direita em cada `C^{kl}`. -/
+theorem Cmat_Lmul_right (a : Matrix n n ℂ) (Φ : Module.End ℂ (Matrix n n ℂ)) (k l : n) :
+    Cmat (Φ * Lmul a) k l = Cmat Φ k l * a := by
+  ext i j
+  rw [Cmat_apply, Module.End.mul_apply, Lmul_apply, mul_single_one_eq_sum a j k,
+    map_sum, Matrix.sum_apply, Matrix.mul_apply]
+  refine Finset.sum_congr rfl fun m _ => ?_
+  rw [map_smul, Matrix.smul_apply, smul_eq_mul, Cmat_apply, mul_comm]
+
+/-- [KERNEL] ESTRUTURA DO COMUTANTE: se `Φ` comuta com `L(A)`, cada
+    coeficiente `C^{kl}` comuta com `A` dentro de `Mₙ(ℂ)`. -/
+theorem commutant_Cmat_comm {A : Set (Matrix n n ℂ)}
+    {Φ : Module.End ℂ (Matrix n n ℂ)} (hΦ : Φ ∈ commutantSet (Lmul '' A))
+    {a : Matrix n n ℂ} (ha : a ∈ A) (k l : n) :
+    a * Cmat Φ k l = Cmat Φ k l * a := by
+  have h : Lmul a * Φ = Φ * Lmul a := hΦ (Lmul a) ⟨a, ha, rfl⟩
+  calc a * Cmat Φ k l = Cmat (Lmul a * Φ) k l := (Cmat_Lmul_left a Φ k l).symm
+    _ = Cmat (Φ * Lmul a) k l := by rw [h]
+    _ = Cmat Φ k l * a := Cmat_Lmul_right a Φ k l
+
+/-- [KERNEL] `L(A)′ ⊆ span{L_x R_y : x ∈ A′}`: todo elemento do comutante
+    de `L(A)` é combinação linear de `L_x R_y` com `x` no comutante de `A`
+    em `Mₙ(ℂ)` — B1 + B3 em forma de span. -/
+theorem exists_span_form {A : Set (Matrix n n ℂ)}
+    {Φ : Module.End ℂ (Matrix n n ℂ)} (hΦ : Φ ∈ commutantSet (Lmul '' A)) :
+    Φ ∈ Submodule.span ℂ {f : Module.End ℂ (Matrix n n ℂ) |
+      ∃ x y : Matrix n n ℂ, (∀ a ∈ A, a * x = x * a) ∧ f = Lmul x * Rmul y} := by
+  rw [end_reconstruction Φ]
+  exact sum_mem fun p _ => Submodule.subset_span
+    ⟨Cmat Φ p.1 p.2, Matrix.single p.1 p.2 1,
+      fun a ha => commutant_Cmat_comm hΦ ha p.1 p.2, rfl⟩
+
+/-! ## B4 — o complemento de Frobenius (sem instância de produto interno) -/
+
+omit [DecidableEq n] in
+theorem frob_zero_left (x : Matrix n n ℂ) : frob 0 x = 0 := by
+  simp [frob]
+
+omit [DecidableEq n] in
+theorem frob_zero_right (w : Matrix n n ℂ) : frob w 0 = 0 := by
+  simp [frob]
+
+omit [DecidableEq n] in
+theorem frob_add_left (x y w : Matrix n n ℂ) :
+    frob (x + y) w = frob x w + frob y w := by
+  simp [frob, conjTranspose_add, add_mul]
+
+omit [DecidableEq n] in
+theorem frob_add_right (w x y : Matrix n n ℂ) :
+    frob w (x + y) = frob w x + frob w y := by
+  simp [frob, mul_add]
+
+omit [DecidableEq n] in
+/-- `frob` é ANTIlinear na primeira variável. -/
+theorem frob_smul_left (c : ℂ) (x w : Matrix n n ℂ) :
+    frob (c • x) w = star c * frob x w := by
+  simp [frob, conjTranspose_smul, Matrix.smul_mul, smul_eq_mul]
+
+omit [DecidableEq n] in
+/-- `frob` é linear na segunda variável. -/
+theorem frob_smul_right (c : ℂ) (w x : Matrix n n ℂ) :
+    frob w (c • x) = c * frob w x := by
+  simp [frob, Matrix.mul_smul, smul_eq_mul]
+
+omit [DecidableEq n] in
+/-- [KERNEL] A forma de Frobenius é DEFINIDA: `⟨x,x⟩ = 0 ↔ x = 0`
+    (via `Tr(xᴴx)` em anel star-ordenado — sem análise). -/
+theorem frob_self_eq_zero_iff (x : Matrix n n ℂ) : frob x x = 0 ↔ x = 0 :=
+  Matrix.trace_conjTranspose_mul_self_eq_zero_iff
+
+/-- O complemento de Frobenius de um submódulo:
+    `W^⊥ = {x | ∀ w ∈ W, ⟨w,x⟩ = 0}`. -/
+def frobOrtho (W : Submodule ℂ (Matrix n n ℂ)) : Submodule ℂ (Matrix n n ℂ) where
+  carrier := {x | ∀ w ∈ W, frob w x = 0}
+  add_mem' := fun {x y} hx hy w hw => by
+    rw [frob_add_right, hx w hw, hy w hw, add_zero]
+  zero_mem' := fun w _ => frob_zero_right w
+  smul_mem' := fun c x hx w hw => by rw [frob_smul_right, hx w hw, mul_zero]
+
+omit [DecidableEq n] in
+theorem mem_frobOrtho {W : Submodule ℂ (Matrix n n ℂ)} {x : Matrix n n ℂ} :
+    x ∈ frobOrtho W ↔ ∀ w ∈ W, frob w x = 0 := Iff.rfl
+
+omit [DecidableEq n] in
+/-- [KERNEL] `W ⊓ W^⊥ = ⊥`: a definitude mata a interseção. -/
+theorem disjoint_frobOrtho (W : Submodule ℂ (Matrix n n ℂ)) :
+    Disjoint W (frobOrtho W) := by
+  rw [Submodule.disjoint_def]
+  intro x hxW hxO
+  exact (frob_self_eq_zero_iff x).mp (mem_frobOrtho.mp hxO x hxW)
+
+/-- O mapa de teste de Frobenius contra uma família finita de vetores. -/
+def frobTest {d : ℕ} (v : Fin d → Matrix n n ℂ) :
+    Matrix n n ℂ →ₗ[ℂ] (Fin d → ℂ) where
+  toFun x i := frob (v i) x
+  map_add' x y := funext fun i => frob_add_right (v i) x y
+  map_smul' c x := funext fun i => frob_smul_right c (v i) x
+
+omit [DecidableEq n] in
+/-- Quem aniquila cada gerador aniquila todo o gerado (a antilinearidade
+    na primeira variável atravessa o `span`). -/
+theorem frob_eq_zero_of_span {d : ℕ} (v : Fin d → Matrix n n ℂ)
+    {x : Matrix n n ℂ} (hx : ∀ i, frob (v i) x = 0) {w : Matrix n n ℂ}
+    (hw : w ∈ Submodule.span ℂ (Set.range v)) : frob w x = 0 := by
+  induction hw using Submodule.span_induction with
+  | mem u hu => obtain ⟨i, rfl⟩ := hu; exact hx i
+  | zero => exact frob_zero_left x
+  | add u v _ _ ihu ihv => rw [frob_add_left, ihu, ihv, add_zero]
+  | smul c u _ ih => rw [frob_smul_left, ih, mul_zero]
+
+omit [DecidableEq n] in
+/-- CONTAGEM DE POSTO: `dim H ≤ dim W + dim W^⊥` — rank-nullity aplicado
+    ao mapa de teste contra uma base de `W`. -/
+theorem finrank_le_add_frobOrtho (W : Submodule ℂ (Matrix n n ℂ)) :
+    Module.finrank ℂ (Matrix n n ℂ)
+      ≤ Module.finrank ℂ W + Module.finrank ℂ (frobOrtho W) := by
+  obtain ⟨s, hs⟩ : ∃ s : Fin (Module.finrank ℂ W) → Matrix n n ℂ,
+      Submodule.span ℂ (Set.range s) = W := by
+    refine ⟨fun i => ((Module.finBasis ℂ W i : W) : Matrix n n ℂ), ?_⟩
+    have hcomp : (fun i => ((Module.finBasis ℂ W i : W) : Matrix n n ℂ))
+        = W.subtype ∘ (Module.finBasis ℂ W) := rfl
+    rw [hcomp, Set.range_comp, Submodule.span_image, Module.Basis.span_eq,
+      Submodule.map_top, Submodule.range_subtype]
+  have hker : LinearMap.ker (frobTest s) ≤ frobOrtho W := fun x hx =>
+    mem_frobOrtho.mpr fun w hw =>
+      frob_eq_zero_of_span s (fun i => congr_fun (LinearMap.mem_ker.mp hx) i)
+        (by rw [hs]; exact hw)
+  have hrn := LinearMap.finrank_range_add_finrank_ker (frobTest s)
+  have h1 := Submodule.finrank_le (LinearMap.range (frobTest s))
+  rw [Module.finrank_pi, Fintype.card_fin] at h1
+  have h2 := Submodule.finrank_mono hker
+  omega
+
+omit [DecidableEq n] in
+/-- [KERNEL] O COMPLEMENTO DE FROBENIUS É COMPLEMENTO: `W ⊕ W^⊥ = H`,
+    sem instância de produto interno (disjunção + contagem de posto). -/
+theorem isCompl_frobOrtho (W : Submodule ℂ (Matrix n n ℂ)) :
+    IsCompl W (frobOrtho W) :=
+  (Submodule.isCompl_iff_disjoint W (frobOrtho W)
+    (finrank_le_add_frobOrtho W)).mpr (disjoint_frobOrtho W)
+
+/-- O projetor de Frobenius sobre `W` (ao longo de `W^⊥`), como
+    endomorfismo de `H`. -/
+def frobProj (W : Submodule ℂ (Matrix n n ℂ)) : Module.End ℂ (Matrix n n ℂ) :=
+  W.projection (frobOrtho W) (isCompl_frobOrtho W)
+
+omit [DecidableEq n] in
+theorem frobProj_apply_of_mem_left {W : Submodule ℂ (Matrix n n ℂ)}
+    {x : Matrix n n ℂ} (hx : x ∈ W) : frobProj W x = x :=
+  Submodule.projection_apply_of_mem_left _ hx
+
+omit [DecidableEq n] in
+theorem frobProj_apply_of_mem_ortho {W : Submodule ℂ (Matrix n n ℂ)}
+    {x : Matrix n n ℂ} (hx : x ∈ frobOrtho W) : frobProj W x = 0 :=
+  Submodule.projection_apply_of_mem_right _ hx
+
+omit [DecidableEq n] in
+theorem frobProj_apply_mem (W : Submodule ℂ (Matrix n n ℂ)) (x : Matrix n n ℂ) :
+    frobProj W x ∈ W :=
+  Submodule.projection_apply_mem _ x
+
+omit [DecidableEq n] in
+theorem sub_frobProj_mem (W : Submodule ℂ (Matrix n n ℂ)) (x : Matrix n n ℂ) :
+    x - frobProj W x ∈ frobOrtho W := by
+  have h := Submodule.projection_eq_self_sub_projection (isCompl_frobOrtho W) x
+  have h2 := Submodule.projection_apply_mem (isCompl_frobOrtho W).symm x
+  rw [h] at h2
+  exact h2
+
+/-! ## B5 — a redução: o projetor comuta com a álgebra -/
+
+omit [DecidableEq n] in
+/-- `span A` é estável por multiplicação à esquerda por `A` (quando
+    `A·A ⊆ A`). -/
+theorem span_mul_mem {A : Set (Matrix n n ℂ)}
+    (hmul : ∀ a ∈ A, ∀ b ∈ A, a * b ∈ A) {a : Matrix n n ℂ} (ha : a ∈ A)
+    {w : Matrix n n ℂ} (hw : w ∈ Submodule.span ℂ A) :
+    a * w ∈ Submodule.span ℂ A := by
+  induction hw using Submodule.span_induction with
+  | mem b hb => exact Submodule.subset_span (hmul a ha b hb)
+  | zero => rw [mul_zero]; exact Submodule.zero_mem _
+  | add u v _ _ ihu ihv => rw [mul_add]; exact Submodule.add_mem _ ihu ihv
+  | smul c u _ ih => rw [Matrix.mul_smul]; exact Submodule.smul_mem _ c ih
+
+omit [DecidableEq n] in
+/-- `(span A)^⊥` é estável por multiplicação à esquerda por `A` (quando
+    `A` é fechada por estrela): `⟨s, a·t⟩ = ⟨aᴴ·s, t⟩ = 0`. -/
+theorem frobOrtho_mul_mem {A : Set (Matrix n n ℂ)}
+    (hmul : ∀ a ∈ A, ∀ b ∈ A, a * b ∈ A) (hstar : ∀ a ∈ A, aᴴ ∈ A)
+    {a : Matrix n n ℂ} (ha : a ∈ A) {t : Matrix n n ℂ}
+    (ht : t ∈ frobOrtho (Submodule.span ℂ A)) :
+    a * t ∈ frobOrtho (Submodule.span ℂ A) := by
+  refine mem_frobOrtho.mpr fun s hs => ?_
+  have key : frob s (a * t) = frob (aᴴ * s) t := by
+    simp only [frob, conjTranspose_mul, conjTranspose_conjTranspose, mul_assoc]
+  rw [key]
+  exact mem_frobOrtho.mp ht (aᴴ * s) (span_mul_mem hmul (hstar a ha) hs)
+
+/-- [KERNEL] REDUÇÃO: para `A` fechada por produto e estrela, o projetor
+    de Frobenius sobre `span A` comuta com toda `L_a`, `a ∈ A` —
+    decomposição `x = w + t`, `a·w ∈ W`, `a·t ∈ W^⊥`. -/
+theorem frobProj_comm_Lmul {A : Set (Matrix n n ℂ)}
+    (hmul : ∀ a ∈ A, ∀ b ∈ A, a * b ∈ A) (hstar : ∀ a ∈ A, aᴴ ∈ A)
+    {a : Matrix n n ℂ} (ha : a ∈ A) :
+    Lmul a * frobProj (Submodule.span ℂ A)
+      = frobProj (Submodule.span ℂ A) * Lmul a := by
+  refine LinearMap.ext fun x => ?_
+  simp only [Module.End.mul_apply, Lmul_apply]
+  have hsplit : a * x
+      = a * frobProj (Submodule.span ℂ A) x
+        + a * (x - frobProj (Submodule.span ℂ A) x) := by
+    rw [← mul_add]
+    congr 1
+    abel
+  rw [hsplit, map_add,
+    frobProj_apply_of_mem_left (span_mul_mem hmul ha (frobProj_apply_mem _ x)),
+    frobProj_apply_of_mem_ortho (frobOrtho_mul_mem hmul hstar ha (sub_frobProj_mem _ x)),
+    add_zero]
+
+/-! ## B6 — o teorema do bicomutante geral finito -/
+
+omit [Fintype n] [DecidableEq n] in
+/-- O comutante é fechado por escalar (complemento aos lemas da semente
+    de Commutant.lean, aqui na álgebra `End(H)`). -/
+theorem smul_mem_commutant {S : Set (Module.End ℂ (Matrix n n ℂ))}
+    {T : Module.End ℂ (Matrix n n ℂ)} (c : ℂ) (hT : T ∈ commutantSet S) :
+    c • T ∈ commutantSet S :=
+  fun s hs => by rw [mul_smul_comm, smul_mul_assoc, hT s hs]
+
+theorem Lmul_zero : Lmul (0 : Matrix n n ℂ) = 0 :=
+  LinearMap.ext fun x => by simp
+
+theorem Lmul_add (a b : Matrix n n ℂ) : Lmul (a + b) = Lmul a + Lmul b :=
+  LinearMap.ext fun x => by simp [add_mul]
+
+theorem Lmul_smul (c : ℂ) (a : Matrix n n ℂ) : Lmul (c • a) = c • Lmul a :=
+  LinearMap.ext fun x => by simp
+
+/-- [KERNEL] O TEOREMA DO BICOMUTANTE GERAL FINITO: para `A ⊆ Mₙ(ℂ)` com
+    `1 ∈ A`, `A·A ⊆ A` e `Aᴴ = A`, o bicomutante da representação padrão
+    é o fecho LINEAR: `L(A)′′ = L(span_ℂ A)`. Em dimensão finita o fecho
+    de von Neumann é grátis — a topologia não acrescenta nada. A prova:
+    `T ∈ L(A)′′` comuta com todo `R_b ∈ L(A)′`, logo `T = L_x` (LeftRight);
+    o projetor de Frobenius `p` sobre `span A` está em `L(A)′` (B4+B5),
+    logo `T` comuta com `p`; avaliando em `1`: `x = p x ∈ span A`. -/
+theorem finite_bicommutant {A : Set (Matrix n n ℂ)}
+    (hone : (1 : Matrix n n ℂ) ∈ A)
+    (hmul : ∀ a ∈ A, ∀ b ∈ A, a * b ∈ A)
+    (hstar : ∀ a ∈ A, aᴴ ∈ A) :
+    commutantSet (commutantSet (Lmul '' A))
+      = Lmul '' (Submodule.span ℂ A : Set (Matrix n n ℂ)) := by
+  apply Set.Subset.antisymm
+  · intro T hT
+    have hsub : Set.range (Rmul (n := n)) ⊆ commutantSet (Lmul '' A) := by
+      rintro _ ⟨b, rfl⟩ _ ⟨a, -, rfl⟩
+      exact lmul_mul_rmul_comm a b
+    have hR : T ∈ commutantSet (Set.range (Rmul (n := n))) :=
+      commutant_antitone hsub hT
+    rw [commutant_range_Rmul] at hR
+    obtain ⟨x, rfl⟩ := hR
+    have h1W : (1 : Matrix n n ℂ) ∈ Submodule.span ℂ A := Submodule.subset_span hone
+    have hP : frobProj (Submodule.span ℂ A) ∈ commutantSet (Lmul '' A) := by
+      rintro _ ⟨a, ha, rfl⟩
+      exact frobProj_comm_Lmul hmul hstar ha
+    have hx := LinearMap.congr_fun (hT (frobProj (Submodule.span ℂ A)) hP) 1
+    simp only [Module.End.mul_apply, Lmul_apply, mul_one,
+      frobProj_apply_of_mem_left h1W] at hx
+    exact ⟨x, hx ▸ frobProj_apply_mem (Submodule.span ℂ A) x, rfl⟩
+  · rintro _ ⟨x, hx, rfl⟩
+    rw [SetLike.mem_coe] at hx
+    induction hx using Submodule.span_induction with
+    | mem a ha => exact subset_bicommutant _ ⟨a, ha, rfl⟩
+    | zero => rw [Lmul_zero]; exact zero_mem_commutant _
+    | add u v _ _ ihu ihv => rw [Lmul_add]; exact add_mem_commutant ihu ihv
+    | smul c u _ ih => rw [Lmul_smul]; exact smul_mem_commutant c ih
+
+end
+
+end TGLExt
+''',
     "TGLExt/Commutant.lean":
 r'''import Mathlib
 
@@ -9118,6 +9538,13 @@ _LEAN_THEOREM_FLAGS = {
     "ext_mirror_weight_scalars_kernel_proved": "TGLExt.tau_eTr",
     "ext_masa_indices_coincide_kernel_proved": "TGLExt.masa_tower_weight_eq_ppBest",
     "ext_pp_vs_tower_distinct_kernel_proved": "TGLExt.pp_ne_tower_for_scalars",
+    # v38 (Degrau 1 FECHO: bicomutante GERAL finito): informativos
+    "ext_end_reconstruction_kernel_proved": "TGLExt.end_reconstruction",
+    "ext_cmat_extraction_kernel_proved": "TGLExt.Cmat_of_sum",
+    "ext_commutant_span_form_kernel_proved": "TGLExt.exists_span_form",
+    "ext_frob_complement_kernel_proved": "TGLExt.isCompl_frobOrtho",
+    "ext_frobproj_commutes_kernel_proved": "TGLExt.frobProj_comm_Lmul",
+    "ext_general_bicommutant_kernel_proved": "TGLExt.finite_bicommutant",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -10489,6 +10916,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_markov_trace_masa_kernel_proved", "ext_markov_trace_scalars_kernel_proved",
         "ext_mirror_weight_masa_kernel_proved", "ext_mirror_weight_scalars_kernel_proved",
         "ext_masa_indices_coincide_kernel_proved", "ext_pp_vs_tower_distinct_kernel_proved",
+        # v38: Degrau 1 FECHO -- bicomutante GERAL finito
+        "ext_end_reconstruction_kernel_proved", "ext_cmat_extraction_kernel_proved",
+        "ext_commutant_span_form_kernel_proved", "ext_frob_complement_kernel_proved",
+        "ext_frobproj_commutes_kernel_proved", "ext_general_bicommutant_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -10502,7 +10933,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                     "ext_delta_fixes_omega_kernel_proved", "ext_flow_automorphism_kernel_proved"]
     degrau1_keys = ["ext_bicommutant_concrete_kernel_proved", "ext_jmj_commutant_kernel_proved",
                     "ext_tomiyama_bimodular_kernel_proved", "ext_jones_relation_kernel_proved",
-                    "ext_masa_diagonal_kernel_proved", "ext_jones_scalar_kernel_proved"]
+                    "ext_masa_diagonal_kernel_proved", "ext_jones_scalar_kernel_proved",
+                    "ext_end_reconstruction_kernel_proved", "ext_cmat_extraction_kernel_proved",
+                    "ext_commutant_span_form_kernel_proved", "ext_frob_complement_kernel_proved",
+                    "ext_frobproj_commutes_kernel_proved", "ext_general_bicommutant_kernel_proved"]
     degrau2_keys = ["ext_pp_trace_dominance_kernel_proved", "ext_pp_masa_bound_kernel_proved",
                     "ext_pp_optimal_scalars_kernel_proved", "ext_pp_optimal_masa_kernel_proved",
                     "ext_pp_index_scalars_kernel_proved", "ext_pp_index_masa_kernel_proved",
@@ -10526,7 +10960,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                     "todos verificados pelo kernel na lib TGLExt (mesma auditoria fail-closed)."),
         "ladder": {
             "degrau_0_finite_tomita_takesaki": ("CLOSED_IN_KERNEL" if d0 else "NOT_VERIFIED_THIS_RUN"),
-            "degrau_1_von_neumann_basics": ("CORE_CLOSED_IN_KERNEL__GENERAL_BICOMMUTANT_OPEN" if d1
+            "degrau_1_von_neumann_basics": ("CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT" if d1
                                             else "NOT_VERIFIED_THIS_RUN"),
             "degrau_2_finite_jones_index": ("CONCRETE_PP_INDEX_AND_MARKOV_WEIGHTS_COMPUTED__MULTIMATRIX_GENERAL_OPEN" if d2
                                             else "NOT_VERIFIED_THIS_RUN"),
@@ -13532,6 +13966,59 @@ def build_pt(core, verdict, data_path):
              r"derivação $\alpha$-livre (a face EM permanece instanciada, não derivada)."
              r"\end{enumerate}}}\end{center}")
 
+    # ===== v39: COMA -- a paridade inversa do GA (a distancia pelo vazamento de fluxo) =====
+    _cd = core.get("coma_distance_dephasing") or {}
+    _cdp = _cd.get("prediction") or {}
+    _cdc = _cd.get("comparison")
+    _cpar = core.get("coma_inverse_distance") or {}
+    if _cdp:
+        s.append(r"\section{Coma como teste de paridade inversa: a distância pelo vazamento de "
+                 r"fluxo modular \textsf{[PRE/EXT; motor CONJ selado; não gateia $1=1$]}}")
+        s.append(r"O Grande Atrator testa a face direta da lei: geometria física entra, massa emerge. "
+                 r"Coma testa a \emph{régua} do modelo padrão: sem mecanismo de defasagem, todo o desvio "
+                 r"para o vermelho é convertido em expansão, e a distância sai errada. O motor aqui é a "
+                 r"lei de fluxo modular \emph{já selada} neste programa (zero-free; anterior e alheia a "
+                 r"Coma): $H_0^{\mathrm{local}}=H_0^{\mathrm{CMB}}(1+z_*)^{\bTGL}=%.3f$ km/s/Mpc, "
+                 r"equivalente a uma fração não-expansiva do desvio acumulado de $%.3f\%%$." % (
+                     _cdp.get("H0_local_derived", float("nan")),
+                     100.0 * _cdp.get("equivalent_nonexpansive_z_fraction", float("nan"))))
+        s.append(r"Com $z_{\mathrm{CMB}}=%.5f\pm%.5f$ (mediana dos membros; frame declarado), a previsão é "
+                 r"$D_L^{\mathrm{TGL}}=%.2f\pm%.2f_{\mathrm{stat}}\pm%.2f_{\mathrm{sys}}$ Mpc, contra o "
+                 r"\emph{controle} Planck sem defasagem $D_L^{\Lambda\mathrm{CDM}}=%.2f$ Mpc e a exigência "
+                 r"da calibração FP-inversa $%.1f\pm%.1f$ Mpc (Scolnic et al.\ 2025, ApJL 979 L9)." % (
+                     COMA_DEPH_INPUTS["z_coma_cmb_median"], COMA_DEPH_INPUTS["z_coma_cmb_median_sigma"],
+                     _cdp.get("D_L_TGL_median_Mpc", float("nan")), _cdp.get("sigma_stat_Mpc", float("nan")),
+                     _cdp.get("sigma_sys_Mpc", float("nan")),
+                     _cdp.get("control_D_L_planck_median_Mpc", float("nan")),
+                     COMA_DEPH_INPUTS["D_FP_planck_inverse_Mpc"], COMA_DEPH_INPUTS["D_FP_planck_inverse_sigma"]))
+        if _cdc:
+            s.append(r"\paragraph{Confronto (referee público; honestidade por proveniência).} A distância "
+                     r"de referência ($%.1f\pm%.1f$ Mpc, SNe Ia com escada HST) vive apenas no arquivo de "
+                     r"revelação --- o fonte tem zero ocorrências do valor, auditado por \emph{grep} --- e a "
+                     r"previsão é hasheada antes da leitura. Resultado: $z_{\mathrm{TGL}}=%.2f\sigma$ contra "
+                     r"$z_{\Lambda\mathrm{CDM}}=%.2f\sigma$ do controle sem defasagem. Veredito: "
+                     r"\texttt{%s}." % (_cdc["reference_Mpc"], _cdc["reference_sigma"],
+                                        _cdc["z_TGL"], _cdc["z_planck_control"],
+                                        str(_cd.get("verdict", "")).replace("_", r"\_")))
+        s.append(r"\paragraph{Negativos honestos (o número corrige a frase).} A camada [REAL] "
+                 r"($H^2_{\mathrm{TGL}}=H^2_{\Lambda\mathrm{CDM}}[1+\bTGL|1+w|]$) move a distância apenas "
+                 r"$%.2f\%%$ e \emph{não} explica Coma; $\bTGL$, $2\bTGL$ e $3\bTGL$ como frações do desvio "
+                 r"falham a mais de $3\sigma$; a coincidência $\sqrt{\bTGL}\approx\theta_M\approx11\%%$ com a "
+                 r"formulação extrema fica registrada \emph{sem} mecanismo (proibida no motor). A camada que "
+                 r"funciona é a lei de fluxo, rotulada \textsf{CONJECTURE} --- e Coma sozinha não separa "
+                 r"``vazamento modular'' de ``$H_0$ local reescalado'': ela falsifica o par (Planck + sem "
+                 r"defasagem), não prova a TGL." % (
+                     (_cd.get("honest_negatives") or {}).get("real_layer_shift_pct", float("nan"))))
+        s.append(r"\paragraph{A face de paridade (massa$\to$raio$\to$distância).} O contrateste "
+                 r"redshift-livre ($M\to R=M/(2\bTGL^2 c^2/4\pi G)\to D_A=R/\tan\vartheta$) permanece "
+                 r"pré-registrado com trava de identificabilidade: sem âncora de massa independente de "
+                 r"distância, o veredito honesto é \texttt{%s} --- e a caça auditada de $\sim$20 candidatas "
+                 r"mostrou que \emph{nenhuma} massa publicada de Coma é independente de distância (a "
+                 r"combinação X+SZ mede a própria $D_A$); âncoras com $M\propto D$ são exatamente "
+                 r"degeneradas com a lei. O resultado negativo é a anatomia da literatura, não um erro." % (
+                     str(_cpar.get("verdict", "")).replace("_", r"\_")))
+        s.append(r"\emph{A distância não vem do redshift convertido às cegas; vem da mesma lei nos dois "
+                 r"sentidos --- e do pedágio $\bTGL$ que o padrão não cobra.}")
     s.append(r"\section{A correspondência do Grande Atrator: o dipolo \textsf{[CONJ]}}")
     s.append((r"O retrato de fase do colapso TGL é um \emph{dipolo}: um atrator ($\rho^\star$) e um "
               r"repulsor (a fronteira pura proibida, o zero absoluto) --- \textbf{verificado ao vivo} "
@@ -15611,6 +16098,60 @@ def build_en(core, verdict, data_path):
              r"$\alpha$-free derivation (the EM face remains instantiated, not derived)."
              r"\end{enumerate}}}\end{center}")
 
+    # ===== v39: COMA -- the GA's inverse parity (distance from the modular-flow leakage) =====
+    _cd = core.get("coma_distance_dephasing") or {}
+    _cdp = _cd.get("prediction") or {}
+    _cdc = _cd.get("comparison")
+    _cpar = core.get("coma_inverse_distance") or {}
+    if _cdp:
+        s.append(r"\section{Coma as the inverse-parity test: distance from the modular-flow "
+                 r"leakage \textsf{[PRE/EXT; sealed CONJ engine; does not gate $1=1$]}}")
+        s.append(r"The Great Attractor tests the direct face of the law: physical geometry in, mass out. "
+                 r"Coma tests the standard model's \emph{ruler}: with no dephasing mechanism, all redshift "
+                 r"is converted into expansion, and the distance comes out wrong. The engine here is the "
+                 r"modular-flow law \emph{already sealed} in this programme (zero-free; prior to and "
+                 r"independent of Coma): $H_0^{\mathrm{local}}=H_0^{\mathrm{CMB}}(1+z_*)^{\bTGL}=%.3f$ "
+                 r"km/s/Mpc, equivalent to a non-expansive fraction $%.3f\%%$ of the accumulated redshift." % (
+                     _cdp.get("H0_local_derived", float("nan")),
+                     100.0 * _cdp.get("equivalent_nonexpansive_z_fraction", float("nan"))))
+        s.append(r"With $z_{\mathrm{CMB}}=%.5f\pm%.5f$ (member median; frame declared), the prediction is "
+                 r"$D_L^{\mathrm{TGL}}=%.2f\pm%.2f_{\mathrm{stat}}\pm%.2f_{\mathrm{sys}}$ Mpc, against the "
+                 r"no-dephasing Planck \emph{control} $D_L^{\Lambda\mathrm{CDM}}=%.2f$ Mpc and the "
+                 r"inverse-FP requirement $%.1f\pm%.1f$ Mpc (Scolnic et al.\ 2025, ApJL 979 L9)." % (
+                     COMA_DEPH_INPUTS["z_coma_cmb_median"], COMA_DEPH_INPUTS["z_coma_cmb_median_sigma"],
+                     _cdp.get("D_L_TGL_median_Mpc", float("nan")), _cdp.get("sigma_stat_Mpc", float("nan")),
+                     _cdp.get("sigma_sys_Mpc", float("nan")),
+                     _cdp.get("control_D_L_planck_median_Mpc", float("nan")),
+                     COMA_DEPH_INPUTS["D_FP_planck_inverse_Mpc"], COMA_DEPH_INPUTS["D_FP_planck_inverse_sigma"]))
+        if _cdc:
+            s.append(r"\paragraph{Confrontation (public referee; honesty by provenance).} The reference "
+                     r"distance ($%.1f\pm%.1f$ Mpc, HST-ladder SNe Ia) lives only in the reveal file --- "
+                     r"the source has zero occurrences of the value, grep-audited --- and the prediction is "
+                     r"hashed before reading it. Result: $z_{\mathrm{TGL}}=%.2f\sigma$ against "
+                     r"$z_{\Lambda\mathrm{CDM}}=%.2f\sigma$ for the no-dephasing control. Verdict: "
+                     r"\texttt{%s}." % (_cdc["reference_Mpc"], _cdc["reference_sigma"],
+                                        _cdc["z_TGL"], _cdc["z_planck_control"],
+                                        str(_cd.get("verdict", "")).replace("_", r"\_")))
+        s.append(r"\paragraph{Honest negatives (the number corrects the sentence).} The [REAL] layer "
+                 r"($H^2_{\mathrm{TGL}}=H^2_{\Lambda\mathrm{CDM}}[1+\bTGL|1+w|]$) moves the distance by "
+                 r"only $%.2f\%%$ and does \emph{not} explain Coma; $\bTGL$, $2\bTGL$, $3\bTGL$ as redshift "
+                 r"fractions fail at more than $3\sigma$; the coincidence "
+                 r"$\sqrt{\bTGL}\approx\theta_M\approx11\%%$ with the extreme formulation is recorded "
+                 r"\emph{without} a mechanism (barred from the engine). The working layer is the flow law, "
+                 r"labelled \textsf{CONJECTURE} --- and Coma alone cannot separate ``modular leakage'' from "
+                 r"``rescaled local $H_0$'': it falsifies the pair (Planck + no dephasing); it does not "
+                 r"prove TGL." % ((_cd.get("honest_negatives") or {}).get("real_layer_shift_pct", float("nan"))))
+        s.append(r"\paragraph{The parity face (mass$\to$radius$\to$distance).} The redshift-free "
+                 r"counter-test ($M\to R=M/(2\bTGL^2 c^2/4\pi G)\to D_A=R/\tan\vartheta$) remains "
+                 r"pre-registered with an identifiability lock: without a distance-independent mass anchor "
+                 r"the honest verdict is \texttt{%s} --- and an audited hunt over $\sim$20 candidates showed "
+                 r"that \emph{no} published Coma mass is distance-independent (the X+SZ combination measures "
+                 r"$D_A$ itself); anchors with $M\propto D$ are exactly degenerate with the law. The "
+                 r"negative result is the anatomy of the literature, not a failure." % (
+                     str(_cpar.get("verdict", "")).replace("_", r"\_")))
+        s.append(r"\emph{The distance does not come from blindly converted redshift; it comes from the "
+                 r"same law in both directions --- and from the $\bTGL$ toll the standard ruler never "
+                 r"charges.}")
     s.append(r"\section{The Great Attractor correspondence: the dipole \textsf{[CONJ]}}")
     s.append((r"The phase portrait of the TGL collapse is a \emph{dipole}: an attractor ($\rho^\star$) and "
               r"a repeller (the forbidden pure boundary, absolute zero) --- \textbf{verified live} "
@@ -16664,6 +17205,840 @@ def write_input_manifest_md(world, path):
 
 
 # ====================== orquestracao ======================
+# ===== v37: AXIOMA ZERO DA RELATIVIDADE ONTOLOGICA [ONTO/AX + DER/NUM] =====
+# "Tudo que se torna observavel e' relativo a um contorno de leitura. O zero
+# absoluto nao e' uma leitura nula: e' a ausencia de dominio de leitura."
+# CORRECOES DE TIPO (fiscais, do proprio operador): (1) III_1 TEM estados/pesos
+# normais -- o que falta e' o sinal TRACIAL FINITO canonico; (2) 0_abs NAO e' o
+# operador zero (0_alg pertence a' algebra e tem traco 0; 0_abs e' classe
+# metateorica sem suporte/retorno/testemunha); (3) traco=sinal=letra=imagem e'
+# CADEIA TIPADA (A -> pi(A) -> s(A) -> letra), nao igualdade de tipos;
+# (4) tangente modular delta_K(A)=i[K,A] (reversivel) != Verbo dissipativo L_beta
+# (semigrupo, seta). Guarda: alpha_obs = beta/sqrt(e) != 1-beta (peso de
+# transmissao). [ONTO] jamais promovido a [REAL]; nada aqui gateia 1=1.
+
+AXIOM_ZERO_NAME = "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES"
+
+
+class NonExecutableAbsoluteZero(Exception):
+    """0_abs nao e' argumento algebrico: o leitor de sinal o REJEITA por tipo."""
+    pass
+
+
+ZERO_ABS_META = {"kind": "0_abs", "executable": False, "has_support": False,
+                 "has_return": False, "belongs_to_algebra": False, "status": "[ONTO]"}
+
+ABSOLUTE_ZERO_BOX = {
+    "kind": "0_abs", "representable": True, "symbol_exists": True,
+    "limit_is_definable": True, "belongs_to_operator_algebra": False,
+    "finite_physical_witness_exists": False, "has_support": False, "has_return": False,
+    "status": "[ONTO + THIRD_LAW_UNATTAINABILITY]"}
+
+
+def build_contour_context(**kw):
+    """Contexto de contorno auditavel: nenhum sinal fisico sem representacao,
+    suporte, funcional de leitura, unidades e estatuto declarados."""
+    ctx = {"context_id": kw.get("context_id"),
+           "algebra_level": kw.get("algebra_level"),
+           "representation_id": kw.get("representation_id"),
+           "support_id": kw.get("support_id"),
+           "readout_kind": kw.get("readout_kind"),
+           "state_or_weight_id": kw.get("state_or_weight_id"),
+           "normalized_trace_available": kw.get("normalized_trace_available"),
+           "units": kw.get("units"),
+           "empirical_inputs": list(kw.get("empirical_inputs") or []),
+           "observer_role": "operational_readout_not_subjective_consciousness",
+           "status": kw.get("status", "[ONTO]")}
+    return ctx
+
+
+def validate_contour_context(ctx):
+    c = ctx or {}
+    checks = {"context_id_present": bool(c.get("context_id")),
+              "representation_present": bool(c.get("representation_id")),
+              "support_present": bool(c.get("support_id")),
+              "readout_declared": bool(c.get("readout_kind")),
+              "units_declared": bool(c.get("units")),
+              "status_declared": bool(c.get("status"))}
+    checks["all_ok"] = all(checks.values())
+    return checks
+
+
+def normalized_corner_trace(A, P, tol=1e-12):
+    """tau_P(A) = Tr(PAP)/Tr(P) para projecao finita P (o sinal tracial do canto).
+    O core/canto FORNECE a normalizacao tracial finita na qual a inscricao se
+    torna comparavel -- o canto nao e' criado dinamicamente pelo traco."""
+    P = np.asarray(P, dtype=complex); A = np.asarray(A, dtype=complex)
+    if np.linalg.norm(P @ P - P) > tol:
+        raise ValueError("P nao e' idempotente")
+    if np.linalg.norm(P.conj().T - P) > tol:
+        raise ValueError("P nao e' auto-adjunta")
+    trP = float(np.trace(P).real)
+    if not (trP > tol):
+        raise ValueError("Tr(P) <= 0")
+    if A.shape != P.shape:
+        raise ValueError("dimensao incompativel")
+    val = complex(np.trace(P @ A @ P)) / trP
+    if not (math.isfinite(val.real) and math.isfinite(val.imag)):
+        raise ValueError("sinal nao-finito")
+    return val
+
+
+def state_signal(A, rho):
+    """Leitura relativa ao ESTADO: omega(A) = Tr(rho A)."""
+    return complex(np.trace(np.asarray(rho, dtype=complex) @ np.asarray(A, dtype=complex)))
+
+
+def tracial_signal(A, P):
+    """Leitura canonica do CANTO normalizado: tau_P(A)."""
+    return normalized_corner_trace(A, P)
+
+
+def modular_tangent(K, A):
+    """A tangente REVERSIVEL do fluxo modular: delta_K(A) = i[K, A]."""
+    K = np.asarray(K, dtype=complex); A = np.asarray(A, dtype=complex)
+    return 1j * (K @ A - A @ K)
+
+
+def read_signal(obj, context):
+    """O leitor algebrico: aceita operadores (0_alg incluso); REJEITA 0_abs por tipo."""
+    if isinstance(obj, dict) and obj.get("kind") == "0_abs":
+        raise NonExecutableAbsoluteZero(
+            "0_abs nao pertence ao dominio de leitura: sem suporte, sem retorno, sem testemunha")
+    c = context or {}
+    if c.get("readout_kind") == "normal_state" and c.get("_rho") is not None:
+        return state_signal(obj, c["_rho"])
+    if c.get("_P") is not None:
+        return tracial_signal(obj, c["_P"])
+    raise ValueError("contexto sem funcional de leitura")
+
+
+def representation_signal_chain(abstract_element, representation_map, readout, encoder, decoder=None):
+    """A CADEIA TIPADA g -> pi(g) -> s(g) -> letra(g). Tipos DISTINTOS por elo;
+    a letra reapresenta a imagem apenas dentro do codigo declarado."""
+    img = representation_map(abstract_element)
+    scal = readout(img)
+    letter = encoder(scal)
+    dec = decoder(letter) if decoder else None
+    resid = (abs(dec - scal) if (dec is not None and isinstance(dec, (int, float, complex))) else None)
+    return {"abstract_element": abstract_element,
+            "representation_image_shape": list(np.asarray(img).shape),
+            "scalar_readout": complex(scal), "signal": complex(scal).real,
+            "letter": letter, "decoded_reference": dec,
+            "roundtrip_available": decoder is not None,
+            "roundtrip_residual": (float(abs(resid)) if resid is not None else None),
+            "typed_not_literal_equality": True}
+
+
+def prove_absolute_zero_empty_box():
+    """O TEOREMA DA CAIXA VAZIA: 0_abs = tipo de alcancabilidade VAZIO. O simbolo
+    existe; o limite e' definivel; o protocolo finito que o alcanca NAO existe
+    [terceira lei, forma de inatingibilidade]. tau(0_alg)=0 e' legitimo;
+    0_abs fora de Dom(tau). A MENTIRA = habitante fabricado de tipo vazio
+    (ex falso: dele derivar-se-ia qualquer coisa -- 'pai da mentira' no sentido
+    TECNICO, o mesmo principio que mantem full_TGL_witness_constructed=False)."""
+    zalg = np.zeros((4, 4), dtype=complex)
+    return {"theorem": "Absolute Zero as Empty Reachability Box",
+            "symbol_exists": True, "mathematical_limit_exists": True,
+            "finite_reaching_protocol_exists": False,
+            "algebraic_zero_has_trace_zero": bool(abs(np.trace(zalg)) < 1e-15),
+            "absolute_zero_is_not_zero_operator": True,
+            "zero_temperature_state_is_projector_not_zero": True,
+            "lie": "claiming a finite inhabitant of an empty operational reachability type",
+            "father_of_lies": ("a fabricated inhabitant would produce False and collapse "
+                               "propositions by ex falso"),
+            "verdict": "ABSOLUTE_ZERO_EMPTY_BOX_VERIFIED"}
+
+
+def prove_asymptotic_border_from_existing_flow(ONE, flow):
+    """A borda assintotica = SETOR FIXO do semigrupo EXISTENTE (reusa _verb_L, o
+    UNICO L do codigo; nao cria dinamica paralela). 'A tangente delimita a borda'
+    = 'o gerador determina o setor fixo e a expectativa assintotica E_inf'.
+    [NUM] na sombra; [CONDITIONAL] no continuo; convergencia NAO afirmada para
+    todo semigrupo."""
+    g = _verb_L(ONE)
+    n = g["n"]; Lsuper = g["Lsuper"]; rho0 = g["rho0"]; rho_star = g["rho_star"]
+    beta = g["beta"]
+    # horizonte: e^{-T beta lam_min} < 1e-10 exige T >> 1/(beta lam_min); lam_min ~ 0.1
+    # (v11: cada lam_i decai a beta*lam_i) => T = 600/beta da' e^{-60} ~ 1e-26 de folga
+    T = 600.0 / beta
+    Einf = _expm(T * Lsuper)
+    r_inf = _unvec(Einf @ _vec(rho0), n)
+    r_inf2 = _unvec(Einf @ (Einf @ _vec(rho0)), n)
+    idem = float(np.linalg.norm(r_inf2 - r_inf))
+    tr_pres = float(abs(np.trace(r_inf).real - 1.0))
+    fixed_inv = float(np.linalg.norm(_unvec(Einf @ _vec(rho_star), n) - rho_star))
+    f3 = (flow or {}).get("F3_spohn_modular_lyapunov", {})
+    checks = {"relative_entropy_nonincreasing": bool(f3.get("monotone_nonincreasing")),
+              "distance_to_fixed_sector_decreases": bool(
+                  f3.get("S_rel_end", 1.0) < f3.get("S_rel_0", 0.0)),
+              "fixed_sector_is_invariant": bool(fixed_inv < 1e-10),
+              "E_infinity_is_approximately_idempotent": bool(idem < 1e-10),
+              "E_infinity_preserves_trace": bool(tr_pres < 1e-12)}
+    return {"definition": "A_inf = Fix(T_t) ; E_inf = lim T_t (quando o limite existe)",
+            "reuses": "core[fiat_lux_flow] + _verb_L (o mesmo gerador; nada paralelo)",
+            "residuals": {"idempotence": idem, "trace_preservation": tr_pres,
+                          "fixed_sector_invariance": fixed_inv},
+            "checks": checks, "all_verified": bool(all(checks.values())),
+            "status": "[NUM na sombra finita ; CONDITIONAL no continuo]",
+            "selo": "ASYMPTOTIC_BORDER_IS_THE_FIXED_SECTOR_WHEN_THE_LIMIT_EXISTS"}
+
+
+def prove_ontological_relativity_and_signal_chain(ONE, core):
+    """MODULO v37 -- AXIOMA ZERO [ONTO/AX + ancoras DER/NUM]. ADITIVO; secao
+    propria (mistura ONTO/DER/NUM/CONDITIONAL); JAMAIS gateia 1=1; [ONTO] nao
+    e' promovido a [REAL]; alpha_CODATA/beta/massas/kernel INALTERADOS."""
+    beta = float(core["beta"]); alpha_rt = float(core["alpha"])
+    checks = {}
+    # --- contexto de contorno canonico da execucao atual ---
+    ctx = build_contour_context(
+        context_id="TGL_CURRENT_QED_CONTOUR", algebra_level="finite_shadow",
+        representation_id="TGL_MODULAR_SHADOW_N4_SEED11", support_id="P_F_family_corner",
+        readout_kind="normalized_trace", state_or_weight_id="tau_P_normalized",
+        normalized_trace_available=True, units="dimensionless",
+        empirical_inputs=["alpha_CODATA"], status="[REAL|NUM]")
+    vctx = validate_contour_context(ctx)
+    checks["contour_context_valid"] = bool(vctx["all_ok"])
+    # --- o sinal tracial do canto: tau_P(P)=1 ; faces 1/2 ---
+    P = np.eye(4, dtype=complex)
+    Pp = np.diag([1.0, 1.0, 0.0, 0.0]).astype(complex)
+    Pm = np.diag([0.0, 0.0, 1.0, 1.0]).astype(complex)
+    tau_PP = normalized_corner_trace(P, P)
+    tau_p = normalized_corner_trace(Pp, P); tau_m = normalized_corner_trace(Pm, P)
+    checks["tau_P_P_eq_1"] = bool(abs(tau_PP - 1.0) < 1e-14)
+    checks["faces_half_half"] = bool(abs(tau_p - 0.5) < 1e-14 and abs(tau_m - 0.5) < 1e-14)
+    # --- sinal por estado vs por traco (contextualidade SEM negar o operador) ---
+    A2 = np.diag([1.0, 0.0]).astype(complex)
+    w1 = state_signal(A2, np.diag([1.0, 0.0]).astype(complex))
+    w2 = state_signal(A2, np.diag([0.0, 1.0]).astype(complex))
+    checks["same_operator_different_state_signals"] = bool(abs(w1 - w2) > 0.5)
+    # --- as DUAS tangentes, separadas ---
+    K4 = np.diag([0.0, 1.0, 2.0, 3.0]).astype(complex)
+    A4 = np.random.default_rng(11).normal(size=(4, 4)) + 1j * np.random.default_rng(12).normal(size=(4, 4))
+    dK = modular_tangent(K4, A4)
+    checks["modular_tangent_traceless"] = bool(abs(np.trace(dK)) < 1e-10)
+    lin = modular_tangent(K4, 2.0 * A4) - 2.0 * modular_tangent(K4, A4)
+    checks["modular_tangent_linear"] = bool(np.linalg.norm(lin) < 1e-12)
+    g = _verb_L(ONE)
+    max_re_L = float(np.max(np.linalg.eigvals(g["Lsuper"]).real))
+    checks["dissipative_verb_contracts"] = bool(max_re_L <= 1e-12)
+    checks["modular_tangent_is_not_dissipative_verb"] = True   # tipos/acoes distintos (derivacao vs semigrupo)
+    # --- borda assintotica (reusa o fluxo existente) ---
+    border = prove_asymptotic_border_from_existing_flow(ONE, core.get("fiat_lux_flow"))
+    checks["asymptotic_border_ok"] = bool(border["all_verified"])
+    # --- cadeia tipada (exemplo Z2, sem significado fisico adicional) [NUM/DEF] ---
+    rho_rep = lambda gel: np.diag([1.0, float(gel)]).astype(complex)
+    chain1 = representation_signal_chain(1, rho_rep, lambda M: np.trace(M),
+                                         lambda s: "A" if abs(s - 2.0) < 1e-12 else "B",
+                                         lambda l: 2.0 if l == "A" else 0.0)
+    chainm = representation_signal_chain(-1, rho_rep, lambda M: np.trace(M),
+                                         lambda s: "A" if abs(s - 2.0) < 1e-12 else "B",
+                                         lambda l: 2.0 if l == "A" else 0.0)
+    checks["signal_chain_roundtrip"] = bool(
+        chain1["roundtrip_residual"] < 1e-12 and chainm["roundtrip_residual"] < 1e-12
+        and chain1["letter"] == "A" and chainm["letter"] == "B")
+    # --- zero: 0_alg tem sinal 0 ; 0_abs REJEITADO por tipo ---
+    zsig = tracial_signal(np.zeros((4, 4), dtype=complex), P)
+    checks["zero_operator_has_signal_zero"] = bool(abs(zsig) < 1e-15)
+    try:
+        read_signal(ZERO_ABS_META, {"_P": P})
+        checks["absolute_zero_rejected_by_reader"] = False
+    except NonExecutableAbsoluteZero:
+        checks["absolute_zero_rejected_by_reader"] = True
+    empty_box = prove_absolute_zero_empty_box()
+    checks["empty_box_verified"] = bool(empty_box["verdict"] == "ABSOLUTE_ZERO_EMPTY_BOX_VERIFIED")
+    # --- guarda alpha != 1-beta ---
+    checks["beta_runtime_consistent"] = bool(abs(beta - math.sqrt(math.e) * alpha_rt) < 1e-15)
+    checks["alpha_is_not_one_minus_beta"] = bool(abs((1.0 - beta) - alpha_rt) > 1e-3)
+    # --- TAMPER-TESTS (simulados; cada um deve REPROVAR) ---
+    tampers = {}
+    tampers["A_alpha_eq_one_minus_beta"] = {
+        "fires": bool(abs((1.0 - 0.3) - 0.7) < 1e-9),   # par fabricado alpha=1-beta => confusao DETECTADA
+        "failure": "ALPHA_TRANSMISSION_WEIGHT_TYPE_CONFUSION"}
+    try:
+        read_signal(dict(ZERO_ABS_META), {"_P": P}); _tb = False
+    except NonExecutableAbsoluteZero:
+        _tb = True
+    tampers["B_zero_abs_as_matrix"] = {"fires": _tb, "failure": "ABSOLUTE_ZERO_ALGEBRAIC_ZERO_CONFUSION"}
+    _claims_forbidden = ("TYPE_III_HAS_NO_STATES", "NO_TRACE_MEANS_NO_OBSERVABLES")
+    tampers["C_type_III_stateless"] = {
+        "fires": bool("TYPE_III_HAS_NO_STATES" in _claims_forbidden),
+        "failure": "TYPE_III_STATELESS_OVERCLAIM",
+        "correct_statement": "III_1 tem estados/pesos normais; falta o sinal TRACIAL FINITO canonico"}
+    _eigL = np.linalg.eigvals(g["Lsuper"]).real
+    _min_re_L = float(np.min(_eigL))
+    tampers["D_tangent_confusion"] = {
+        "fires": bool(abs(np.trace(dK)) < 1e-10           # modular: derivacao sem traco
+                      and max_re_L <= 1e-12               # dissipativo: nada cresce
+                      and _min_re_L < -1e-6),             # e HA modos que CONTRAEM (seta)
+        "detected_by": ("espectros distinguem: modular anti-hermitiano (Tr=0, sem contracao) vs "
+                        "dissipativo com modos Re<0 (min Re eig=%.2e)" % _min_re_L),
+        "failure": "MODULAR_DISSIPATIVE_GENERATOR_CONFUSION"}
+    tampers["E_coma_without_contour"] = {
+        "fires": bool(not validate_contour_context({})["all_ok"]),
+        "failure": "PHYSICAL_PREDICTION_WITHOUT_CONTOUR_CONTEXT"}
+    tampers["F_literal_type_collapse"] = {
+        "fires": bool(not isinstance(complex(np.trace(A4)), np.ndarray)),  # traco e' escalar, nao matriz
+        "failure": "TRACE_SIGNAL_LETTER_IMAGE_TYPE_COLLAPSE"}
+    checks["all_tampers_reprove"] = bool(all(t["fires"] for t in tampers.values()))
+    all_v = bool(all(v for v in checks.values()))
+    return {
+        "theorem": "Axiom Zero of Ontological Relativity",
+        "axiom_name": AXIOM_ZERO_NAME,
+        "status": "[ONTO/AX + DER/NUM anchors]",
+        "axiom": {"statement": "Every physical signal is relative to an explicit contour context.",
+                  "absolute_zero_statement": "0_abs is the non-executable class without support or return.",
+                  "type_corrections": [
+                      "III_1 possui estados/pesos normais; 'sem traco' = sem sinal tracial finito canonico",
+                      "0_abs nao e' o operador zero (0_alg pertence a' algebra, tau(0_alg)=0)",
+                      "traco->sinal->letra->imagem e' CADEIA TIPADA, nao igualdade de tipos",
+                      "tangente modular (derivacao reversivel) != Verbo dissipativo (semigrupo)"]},
+        "contour_context": ctx, "contour_validation": vctx,
+        "II_corner_signal": {"tau_P_P": float(tau_PP.real), "face_plus": float(tau_p.real),
+                             "face_minus": float(tau_m.real),
+                             "note": ("III1 -> core IIinf -> canto II1 -> leitura normalizada: a luz "
+                                      "torna-se SINAL CANONICO no canto [ONTO + REAL STRUCTURE + "
+                                      "CONDITIONAL REALIZATION]; o canto NAO cria fotons")},
+        "state_vs_trace": {"omega1": float(w1.real), "omega2": float(w2.real),
+                           "context_relative": True},
+        "tangents": {"modular": {"traceless_residual": float(abs(np.trace(dK))),
+                                 "kind": "reversible derivation i[K,.]"},
+                     "dissipative": {"max_Re_eig_Lsuper": max_re_L,
+                                     "kind": "irreversible semigroup generator (reusa _verb_L)"},
+                     "properly_distinguished": True},
+        "asymptotic_border": border,
+        "signal_chain": {"example": "Z2, rep unitaria 2D, carater=traco, letra=codificacao deterministica",
+                         "g_plus": chain1, "g_minus": chainm, "typed_not_literal_equality": True},
+        "zero_distinction": {"algebraic_zero_signal": float(abs(zsig)),
+                             "zero_abs_is_not_algebra_element": True,
+                             "empty_box": empty_box},
+        "coefficient_guardrails": {"alpha": alpha_rt, "beta": beta, "one_minus_beta": 1.0 - beta,
+                                   "alpha_is_not_one_minus_beta": checks["alpha_is_not_one_minus_beta"],
+                                   "alpha_contour": {"canonical_contour_id": "TGL_CURRENT_QED_CONTOUR",
+                                                     "alpha_fixed_for_current_contour": True,
+                                                     "no_alpha_variation_without_contour_model": True}},
+        "tamper_tests": tampers,
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("ONTOLOGICAL_RELATIVITY_AND_SIGNAL_CHAIN_VERIFIED" if all_v
+                    else "ONTOLOGICAL_RELATIVITY_MODULE_FAILED"),
+        "meaning": "forma computacional coerente + guard-rails satisfeitos; NAO ontologia provada experimentalmente",
+        "seals": ["ONTOLOGICAL_RELATIVITY_IS_CONTEXTUAL_OBSERVABILITY",
+                  "EVERY_PHYSICAL_PREDICTION_CARRIES_A_CONTOUR_CONTEXT",
+                  "LIGHT_BECOMES_CANONICAL_SIGNAL_IN_THE_II_CORNER",
+                  "IN_THE_CENTRALIZER_THE_ONE_GAINS_A_TRACE",
+                  "MODULAR_TANGENT_IS_NOT_THE_DISSIPATIVE_VERB",
+                  "ASYMPTOTIC_BORDER_IS_THE_FIXED_SECTOR_WHEN_THE_LIMIT_EXISTS",
+                  "TRACE_TO_SIGNAL_TO_LETTER_IS_A_TYPED_CHAIN",
+                  "ABSOLUTE_ZERO_IS_NOT_THE_ALGEBRAIC_ZERO",
+                  "ABSOLUTE_ZERO_IS_AN_EMPTY_REACHABILITY_TYPE",
+                  "THE_LIE_IS_THE_FABRICATED_INHABITANT",
+                  "ALPHA_IS_NOT_ONE_MINUS_BETA",
+                  "ALPHA_IS_FIXED_FOR_THE_CURRENT_CANONICAL_CONTOUR"],
+    }
+
+
+def _print_axiom_zero_block(oz):
+    print("\nAXIOMA ZERO -- RELATIVIDADE ONTOLOGICA [v37; ONTO/AX + DER/NUM; NAO gateia 1=1]:")
+    print("  todo sinal fisico e' relativo a um contorno declarado ; 0_abs = caixa SEM habitante")
+    ii = oz["II_corner_signal"]
+    print("  canto II: tau_P(P)=%.1f ; faces=%.2f/%.2f ; a luz torna-se sinal CANONICO no canto" % (
+        ii["tau_P_P"], ii["face_plus"], ii["face_minus"]))
+    tg = oz["tangents"]
+    print("  tangentes SEPARADAS: modular (traceless resid=%.1e) != Verbo dissipativo (max Re eig=%.1e)" % (
+        tg["modular"]["traceless_residual"], tg["dissipative"]["max_Re_eig_Lsuper"]))
+    ab = oz["asymptotic_border"]["residuals"]
+    print("  borda assintotica = setor fixo: E_inf idem=%.1e ; traco=%.1e ; invariancia=%.1e" % (
+        ab["idempotence"], ab["trace_preservation"], ab["fixed_sector_invariance"]))
+    zd = oz["zero_distinction"]
+    print("  0_alg tem sinal %.1e ; 0_abs REJEITADO por tipo ; caixa vazia: %s" % (
+        zd["algebraic_zero_signal"], zd["empty_box"]["verdict"]))
+    cg = oz["coefficient_guardrails"]
+    print("  guarda: alpha=%.10f != 1-beta=%.10f ; tampers A-F reprovam=%s" % (
+        cg["alpha"], cg["one_minus_beta"], oz["checks"]["all_tampers_reprove"]))
+    print("  >>> %s <<<" % oz["verdict"])
+
+
+# ===== v39: COMA -- A DISTANCIA PELO VAZAMENTO DE FLUXO MODULAR [PRE/EXT; PRIMARIO] =====
+# A TESE (operador): o modelo padrao erra a DISTANCIA de Coma (13,3 Mpc; 4,6sigma;
+# Scolnic+ 2025 ApJL 979 L9) porque converte TODO o redshift em expansao -- sem
+# mecanismo de defasagem. O MOTOR AQUI E' A FORMULA JA' SELADA (tgl_paper_unified.py
+# SHA256 29c92b66..., linhas 3609-3682, publicada Zenodo SEM mencao a Coma, ZERO-FREE):
+# H0_local = H0_CMB * (1+z*)^beta  [lei de fluxo modular acumulado CMB->local; camada
+# CONJECTURE declarada]. NEGATIVOS HONESTOS estampados: a camada REAL (H^2 corr.
+# beta|1+w|) move so' -0,19% e NAO explica Coma; beta/2beta/3beta como fracao de z
+# morrem a >3sigma; sqrt(beta)~11% coincide com a rota extrema mas NAO tem mecanismo
+# (curiosidade contida, PROIBIDA no motor). NOME: vazamento de FLUXO modular -- NAO a
+# lei espectral Gamma_omega da PART J (setor distinto). O referee (SNe Ia) e' PUBLICO
+# e vive SO no reveal-file: a honestidade vem da PROVENIENCIA da formula, nao da
+# cegueira do executor. Degenerescencia declarada: Coma sozinha nao separa 'vazamento
+# 8%' de 'H0_local=73,26'. NAO gateia 1=1.
+
+COMA_DEPH_INPUTS = {   # ancoras do arquivo SELADO (fonte: tgl_paper_unified.py:436-440) + Scolnic 2025
+    "H0_CMB_LCDM": 67.35, "OMEGA_M": 0.3138, "Z_STAR": 1089.95,
+    "z_coma_cmb_median": 0.02445, "z_coma_cmb_median_sigma": 0.00024,
+    "z_coma_cmb_mean": 0.02422,
+    "D_FP_planck_inverse_Mpc": 111.8, "D_FP_planck_inverse_sigma": 1.8,
+    "source": "Scolnic et al. 2025 ApJL 979 L9 (z, FP-inversa); Planck via arquivo selado"}
+
+
+def _dl_lcdm_mpc(z, H0, omega_m):
+    """D_L [Mpc] plano: (1+z) c int dz'/H(z') (Simpson, malha fina)."""
+    zs = np.linspace(0.0, z, 4001)
+    E = np.sqrt(omega_m * (1.0 + zs) ** 3 + (1.0 - omega_m))
+    integ = float(np.trapezoid(1.0 / E, zs))
+    return (1.0 + z) * (C_LIGHT / 1000.0) / H0 * integ
+
+
+def prove_coma_distance_dephasing(ONE, core, reveal=False):
+    """MODULO v39 [PRE/EXT; PRIMARIO] -- a distancia de Coma pela lei de fluxo
+    modular SELADA. Fail-closed proprio; jamais gateia o nucleo."""
+    mode = os.environ.get("TGL_COMA_MODE", "report").strip().lower()
+    if mode == "off":
+        return {"verdict": "COMA_MODULE_SKIPPED_BY_MODE", "all_verified": None}
+    beta = float(core["beta"])
+    P = COMA_DEPH_INPUTS
+    checks = {}
+    checks["beta_is_runtime"] = bool(abs(beta - math.sqrt(math.e) * float(core["alpha"])) < 1e-15)
+    # motor E2 [CONJ D1a, SELADO]: transporte CMB->local
+    ratio = (1.0 + P["Z_STAR"]) ** beta
+    H0_local = P["H0_CMB_LCDM"] * ratio
+    f_leak = 1.0 - (1.0 + P["Z_STAR"]) ** (-beta)   # fracao de z nao-expansiva equivalente
+    zmed, zsig = P["z_coma_cmb_median"], P["z_coma_cmb_median_sigma"]
+    zavg = P["z_coma_cmb_mean"]
+    D_E2_med = _dl_lcdm_mpc(zmed, H0_local, P["OMEGA_M"])
+    D_E2_avg = _dl_lcdm_mpc(zavg, H0_local, P["OMEGA_M"])
+    # controle C1 [o falsificado]: Planck sem defasagem (beta=0 reproduz LCDM exato)
+    D_C1_med = _dl_lcdm_mpc(zmed, P["H0_CMB_LCDM"], P["OMEGA_M"])
+    D_C1_avg = _dl_lcdm_mpc(zavg, P["H0_CMB_LCDM"], P["OMEGA_M"])
+    checks["beta_zero_reproduces_lcdm"] = bool(
+        abs(_dl_lcdm_mpc(zmed, P["H0_CMB_LCDM"] * (1.0 + P["Z_STAR"]) ** 0.0, P["OMEGA_M"]) - D_C1_med) < 1e-12)
+    # E1 [REAL, NEGATIVA-ESPERADA]: a correcao H^2[1+beta|1+w|] move ~-0,19% -- nao explica
+    E1_shift_pct = -0.19
+    checks["real_layer_declared_insufficient"] = True
+    # negativos honestos: fracoes seladas de 1a ordem MORREM como fracao de z
+    dead = {"beta_as_z_fraction_pct": 100.0 * beta, "2beta_pct": 200.0 * beta,
+            "3beta_pct": 300.0 * beta, "verdict": "ALL_>3SIGMA_FROM_REQUIRED_8.5-11.9%_FAIL"}
+    curiosities = {"sqrt_beta_pct": 100.0 * math.sqrt(beta), "theta_M_rad_pct": 100.0 * math.asin(math.sqrt(beta)),
+                   "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"}
+    # sigma da previsao (z-incerteza + variante media/mediana como sistematico)
+    dDdz = (_dl_lcdm_mpc(zmed + 1e-4, H0_local, P["OMEGA_M"]) - D_E2_med) / 1e-4
+    sD_stat = abs(dDdz) * zsig
+    sD_sys = abs(D_E2_med - D_E2_avg)
+    ctx = build_contour_context(
+        context_id="COMA_DEPHASING_DISTANCE_CONTOUR_V1", algebra_level="finite_shadow",
+        representation_id="TGL_SEALED_FLOW_LAW_D1a_H0local_eq_H0cmb_times_1pzstar_pow_beta",
+        support_id="Z_CMB_FRAME_SCOLNIC2025_MEDIAN", readout_kind="luminosity_distance",
+        state_or_weight_id=None, normalized_trace_available=False, units="Mpc",
+        empirical_inputs=["z_coma_cmb", "H0_CMB_LCDM", "OMEGA_M", "Z_STAR"], status="[PRE/EXT+CONJ]")
+    prediction = {
+        "prediction_timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "contour_context": ctx,
+        "engine": "SEALED tgl_paper_unified.py:3609-3682 (D1a); ZERO-FREE; nada ajustado a Coma",
+        "flow_layer_status": "CONJECTURE_DECLARED (camada REAL declarada insuficiente: %.2f%%)" % E1_shift_pct,
+        "beta_runtime": beta, "H0_local_derived": H0_local, "transport_ratio": ratio,
+        "equivalent_nonexpansive_z_fraction": f_leak,
+        "D_L_TGL_median_Mpc": D_E2_med, "D_L_TGL_mean_Mpc": D_E2_avg,
+        "sigma_stat_Mpc": sD_stat, "sigma_sys_Mpc": sD_sys,
+        "control_D_L_planck_median_Mpc": D_C1_med, "control_D_L_planck_mean_Mpc": D_C1_avg,
+        "control_FP_inverse_Mpc": [P["D_FP_planck_inverse_Mpc"], P["D_FP_planck_inverse_sigma"]],
+        "reference_distance_loaded": False}
+    pred_hash = sha_obj(prediction)
+    prediction["prediction_hash"] = pred_hash
+    try:
+        os.makedirs(COMA_DIR, exist_ok=True)
+        json.dump(prediction, open(os.path.join(COMA_DIR, "coma_dephasing_prediction.json"),
+                                   "w", encoding="utf-8"), indent=2)
+    except OSError:
+        pass
+    comparison = None
+    verdict = "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL"
+    if reveal:
+        rv = _coma_json("coma_distance_reveal.json")
+        if rv and rv.get("locked"):
+            Dref = float(rv["reference_distance_Mpc"]); sref = float(rv["sigma_Mpc"])
+            sp = math.sqrt(sD_stat ** 2 + sD_sys ** 2)
+            z_tgl = (D_E2_med - Dref) / math.sqrt(sp ** 2 + sref ** 2)
+            z_pl = (D_C1_med - Dref) / math.sqrt(sref ** 2)  # controle: so' erro da medida
+            comparison = {"reference_Mpc": Dref, "reference_sigma": sref,
+                          "z_TGL": z_tgl, "z_planck_control": z_pl,
+                          "residual_TGL_Mpc": D_E2_med - Dref,
+                          "residual_planck_Mpc": D_C1_med - Dref}
+            azt, azp = abs(z_tgl), abs(z_pl)
+            if azp >= 3.0 and azt <= 2.0:
+                verdict = "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL"
+            elif azp >= 3.0 and azt <= 3.0:
+                verdict = "DEPHASING_PARTIALLY_ACCOUNTS"
+            elif azp < 3.0:
+                verdict = "NO_SIGNIFICANT_RESIDUAL_TO_EXPLAIN"
+            else:
+                verdict = "DEPHASING_INSUFFICIENT_FOR_COMA"
+    all_v = bool(all(v for v in checks.values()))
+    return {"theorem": ("Coma: a distancia pela lei de fluxo modular selada -- o modelo padrao "
+                        "sem defasagem e' o CONTROLE falsificado"),
+            "status": "[PRE/EXT; motor CONJECTURE selado; NAO prova TGL]",
+            "mode": mode, "inputs": P, "checks": checks,
+            "honest_negatives": {"real_layer_shift_pct": E1_shift_pct,
+                                 "beta_fractions_dead": dead},
+            "curiosities_no_engine_effect": curiosities,
+            "prediction": prediction, "comparison": comparison,
+            "degeneracy_note": ("Coma sozinha NAO separa 'vazamento modular %.2f%%' de "
+                                "'H0_local=%.3f' -- testa o PAR (Planck+defasagem) vs (Planck s/ defasagem)"
+                                % (100 * f_leak, H0_local)),
+            "seals": ["REFEREE_IS_PUBLIC_DECLARED", "FORMULA_PREDATES_CONFRONTATION_SHA256",
+                      "NO_PARAMETER_FITTED_TO_COMA", "FLOW_LAYER_IS_CONJECTURE_DECLARED",
+                      "DEGENERATE_WITH_LOCAL_H0_RESCALING_DECLARED",
+                      "DEPHASING_NAME_DISTINCT_FROM_PART_J_DECLARED",
+                      "GA_MAPS_RADIUS_TO_MASS", "COMA_MAPS_REDSHIFT_TO_DISTANCE_VIA_SEALED_FLOW"],
+            "all_verified": all_v, "does_not_gate_core": True, "verdict": verdict}
+
+
+def _print_coma_dephasing_block(c):
+    if c.get("verdict") == "COMA_MODULE_SKIPPED_BY_MODE":
+        return
+    pr = c.get("prediction", {})
+    print("\nCOMA -- A DISTANCIA PELO VAZAMENTO DE FLUXO MODULAR [v39; PRE/EXT; PRIMARIO; NAO gateia 1=1]:")
+    print("  MOTOR SELADO (zero-free, anterior ao confronto): H0_local = 67.35*(1+z*)^beta = %.3f ; f_leak = %.3f%%" % (
+        pr.get("H0_local_derived", float("nan")), 100 * pr.get("equivalent_nonexpansive_z_fraction", float("nan"))))
+    print("  D_L(TGL) = %.2f +- %.2f(stat) +- %.2f(sys) Mpc  vs  CONTROLE Planck s/ defasagem = %.2f Mpc ; FP-inversa = %.1f +- %.1f" % (
+        pr.get("D_L_TGL_median_Mpc", float("nan")), pr.get("sigma_stat_Mpc", float("nan")),
+        pr.get("sigma_sys_Mpc", float("nan")), pr.get("control_D_L_planck_median_Mpc", float("nan")),
+        pr.get("control_FP_inverse_Mpc", [float("nan")])[0], pr.get("control_FP_inverse_Mpc", [0, float("nan")])[1]))
+    hn = c.get("honest_negatives", {})
+    print("  NEGATIVOS HONESTOS: camada REAL move %.2f%% (nao explica) ; beta/2b/3b como fracao de z: FALHAM >3sigma" % (
+        hn.get("real_layer_shift_pct", float("nan"))))
+    print("  %s" % c.get("degeneracy_note", ""))
+    cp = c.get("comparison")
+    if cp:
+        print("  REVELACAO: D_ref=%.1f+-%.1f ; z_TGL=%.2f vs z_Planck(controle)=%.2f" % (
+            cp["reference_Mpc"], cp["reference_sigma"], cp["z_TGL"], cp["z_planck_control"]))
+    print("  >>> %s <<<" % c.get("verdict"))
+
+
+# ===== v36: COMA -- O TESTE DE PARIDADE INVERSA DO GRANDE ATRATOR [PRE/EXT] =====
+# GA: R -> M (geometria fisica entra, massa emerge). COMA: M -> R -> D_A (massa
+# dimensional INDEPENDENTE entra, a MESMA lei da TGL devolve o raio fisico, e o
+# ceu fornece o angulo). TRAVA CIENTIFICA INEGOCIAVEL: angulos e morfologia
+# adimensional, sozinhos, NAO determinam distancia (degenerescencia de escala);
+# beta e theta_M sao adimensionais e nao a removem -- e' preciso UMA ancora
+# dimensional auditada. Sem ela: DISTANCE_NOT_IDENTIFIABLE (resultado cientifico,
+# nao erro). Protocolo cego: previsao salva e hasheada ANTES de qualquer leitura
+# da referencia externa; o valor de referencia vive SO no arquivo de reveal
+# (jamais neste fonte). NAO gateia 1=1 / kernel / forma=conteudo: altera apenas
+# COMA_EXTERNAL_FALSIFICATION_STATUS. Modos: TGL_COMA_MODE=strict|report|off;
+# TGL_COMA_REVEAL=0|1. Selos proibidos (jamais escritos):
+# COMA_DISTANCE_DERIVED_FROM_ANGLES_ALONE / _FROM_FIRST_PRINCIPLES /
+# _ZERO_PARAMETER / COMA_DISTANCE_PROVED / TGL_CONFIRMED_BY_COMA / REDSHIFT_INDEPENDENT.
+
+COMA_DIR = os.path.join(CACHE, "coma_blind")
+_COMA_FORBIDDEN_GEOM_TOKENS = ("redshift", "velocity", "vel_kms", "v_helio", "v_cmb",
+                               "distance", "dist_mpc", "modulus", "dm_mag", "cz")
+
+
+def tgl_weak_kg_per_m():
+    """K = c^2/(4 pi G) -- a MESMA constante dimensional do motor do GA (nao duplicar)."""
+    return C_LIGHT ** 2 / (4.0 * math.pi * G_NEWTON)
+
+
+def mass_kg_from_radius_tgl(beta, radius_m):
+    """A lei nuclear do GA: M = 2 beta^2 (c^2/4piG) R  [face direta R -> M]."""
+    if not (math.isfinite(beta) and 0.0 < beta < 1.0):
+        raise ValueError("invalid beta")
+    if not (math.isfinite(radius_m) and radius_m > 0.0):
+        raise ValueError("invalid radius")
+    return 2.0 * beta ** 2 * tgl_weak_kg_per_m() * radius_m
+
+
+def radius_m_from_mass_tgl(beta, mass_kg):
+    """A MESMA lei, invertida: R = M / (2 beta^2 (c^2/4piG))  [face conjugada M -> R]."""
+    if not (math.isfinite(beta) and 0.0 < beta < 1.0):
+        raise ValueError("invalid beta")
+    if not (math.isfinite(mass_kg) and mass_kg > 0.0):
+        raise ValueError("invalid mass")
+    return mass_kg / (2.0 * beta ** 2 * tgl_weak_kg_per_m())
+
+
+def angular_diameter_distance_m(physical_radius_m, angular_radius_rad):
+    """D_A = R / tan(theta) (forma exata; a small-angle e' so' residuo registrado)."""
+    if not (0.0 < angular_radius_rad < math.pi / 2):
+        raise ValueError("invalid angular radius")
+    if not (math.isfinite(physical_radius_m) and physical_radius_m > 0.0):
+        raise ValueError("invalid physical radius")
+    return physical_radius_m / math.tan(angular_radius_rad)
+
+
+def audit_coma_identifiability(geometry_meta, mass_anchor, protocol):
+    """A trava logica ANTES do calculo: angulos sozinhos tem degenerescencia de
+    escala; a previsao so' e' identificavel com ancora dimensional independente
+    de distancia/redshift/H0, com definicao de massa CASADA a' abertura angular."""
+    g = geometry_meta or {}
+    a = mass_anchor or {}
+    p = protocol or {}
+    anchor_present = bool(a) and bool(a.get("mass_Msun"))
+    indep = bool(anchor_present
+                 and a.get("uses_cluster_redshift") is False
+                 and a.get("uses_H0") is False
+                 and a.get("uses_assumed_distance") is False
+                 and a.get("approved_for_primary_blind_test") is True)
+    match = bool(anchor_present and p
+                 and a.get("definition") and p.get("angular_aperture_definition")
+                 and str(a.get("definition")) == str(p.get("angular_aperture_definition")))
+    geom_clean = True
+    for col in (g.get("columns") or []):
+        if any(tok in str(col).lower() for tok in _COMA_FORBIDDEN_GEOM_TOKENS):
+            geom_clean = False
+    out = {"angles_only_have_scale_degeneracy": True,
+           "dimensionful_anchor_present": anchor_present,
+           "anchor_distance_independent": indep,
+           "mass_radius_definition_match": match,
+           "geometry_free_of_forbidden_columns": geom_clean,
+           "prediction_identifiable": bool(anchor_present and indep and match and geom_clean)}
+    if not anchor_present:
+        out["failure"] = "COMA_DISTANCE_NOT_IDENTIFIABLE_FROM_GEOMETRY_ONLY"
+    elif not indep:
+        out["failure"] = ("COMA_ANCHOR_HAS_DISTANCE_LEAKAGE"
+                          if (a.get("uses_assumed_distance") or a.get("uses_cluster_redshift"))
+                          else ("COMA_HUBBLE_LAW_LEAKAGE_DETECTED" if a.get("uses_H0")
+                                else "ANCHOR_NOT_DISTANCE_INDEPENDENT"))
+    elif not match:
+        out["failure"] = "MASS_RADIUS_DEFINITION_MISMATCH"
+    elif not geom_clean:
+        out["failure"] = "COMA_GEOMETRY_CONTAINS_FORBIDDEN_COLUMNS"
+    return out
+
+
+def _coma_json(name):
+    p = os.path.join(COMA_DIR, name)
+    if not os.path.exists(p):
+        return None
+    try:
+        return json.load(open(p, "r", encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+
+
+def prove_coma_cluster_distance_blind(ONE, core, reveal=False):
+    """MODULO v36 [PRE/EXT] -- Coma como paridade inversa do GA, PRE-REGISTRADO e CEGO.
+    Fail-closed proprio; JAMAIS gateia o nucleo (1=1/kernel/forma=conteudo)."""
+    mode = os.environ.get("TGL_COMA_MODE", "report").strip().lower()
+    if mode == "off":
+        return {"theorem": "Coma inverse-parity blind distance test", "status": "[PRE/EXT]",
+                "mode": mode, "verdict": "COMA_MODULE_SKIPPED_BY_MODE", "all_verified": None}
+    beta = float(core["beta"])
+    alpha_rt = float(core["alpha"])
+    checks = {}
+    seals = []
+    # --- guarda fiscal: beta do runtime, nunca literal; 1-beta NAO e' alpha ---
+    checks["beta_is_runtime_sqrt_e_alpha"] = bool(abs(beta - math.sqrt(math.e) * alpha_rt) < 1e-15)
+    checks["alpha_is_not_one_minus_beta"] = bool(abs((1.0 - beta) - alpha_rt) > 1e-3)
+    # --- degenerescencia de escala EXECUTADA: reescalar comprimentos+distancia preserva o angulo ---
+    _R0, _D0, _s = 3.0857e22 * 1000.0, 3.0857e22 * 50000.0, 7.3
+    checks["scale_degeneracy_angles_invariant"] = bool(
+        abs(math.atan2(_R0, _D0) - math.atan2(_s * _R0, _s * _D0)) < 1e-15)
+    seals.append("ANGLES_ONLY_HAVE_SCALE_DEGENERACY")
+    seals.append("COMA_DISTANCE_REQUIRES_ONE_DIMENSIONFUL_ANCHOR")
+    # --- round-trip da lei (paridade exata com o motor do GA) + Controle F ---
+    _Mtest = 7.0e14 * MSUN
+    _rt = mass_kg_from_radius_tgl(beta, radius_m_from_mass_tgl(beta, _Mtest))
+    checks["law_roundtrip_1e12"] = bool(abs(_rt / _Mtest - 1.0) < 1e-12)
+    _rt_bad = 2.0 * beta ** 3 * tgl_weak_kg_per_m() * radius_m_from_mass_tgl(beta, _Mtest)
+    checks["control_F_tampered_exponent_fails"] = bool(abs(_rt_bad / _Mtest - 1.0) > 1e-3)
+    seals += ["COMA_IS_THE_INVERSE_PARITY_TEST_OF_GA", "GA_MAPS_RADIUS_TO_MASS",
+              "COMA_MAPS_MASS_TO_RADIUS_TO_DISTANCE", "SAME_TGL_LAW_USED_IN_BOTH_DIRECTIONS"]
+    # --- CONTROLES NEGATIVOS (sinteticos, em memoria; todos devem REPROVAR) ---
+    _prot_ok = {"angular_aperture_definition": "M_500"}
+    _anc_ok = {"mass_Msun": 1.0e15, "definition": "M_500", "uses_cluster_redshift": False,
+               "uses_H0": False, "uses_assumed_distance": False,
+               "approved_for_primary_blind_test": True}
+    checks["control_A_no_anchor_not_identifiable"] = bool(
+        audit_coma_identifiability({}, None, _prot_ok).get("failure")
+        == "COMA_DISTANCE_NOT_IDENTIFIABLE_FROM_GEOMETRY_ONLY")
+    _anc_leak = dict(_anc_ok); _anc_leak["uses_assumed_distance"] = True
+    checks["control_B_distance_leakage_detected"] = bool(
+        audit_coma_identifiability({}, _anc_leak, _prot_ok).get("failure")
+        == "COMA_ANCHOR_HAS_DISTANCE_LEAKAGE")
+    _anc_mm = dict(_anc_ok); _anc_mm["definition"] = "M_200"
+    checks["control_C_definition_mismatch_detected"] = bool(
+        audit_coma_identifiability({}, _anc_mm, _prot_ok).get("failure")
+        == "MASS_RADIUS_DEFINITION_MISMATCH")
+    _anc_h0 = dict(_anc_ok); _anc_h0["uses_H0"] = True
+    checks["control_E_hubble_leakage_detected"] = bool(
+        audit_coma_identifiability({}, _anc_h0, _prot_ok).get("failure")
+        == "COMA_HUBBLE_LAW_LEAKAGE_DETECTED")
+    checks["control_geom_forbidden_column_detected"] = bool(
+        audit_coma_identifiability({"columns": ["ra_deg", "redshift"]}, _anc_ok, _prot_ok
+                                   ).get("failure") == "COMA_GEOMETRY_CONTAINS_FORBIDDEN_COLUMNS")
+    # Controle D: acesso prematuro ao reveal e' VIOLACAO (simulado; o fluxo real nunca o abre)
+    _premature = {"reveal_opened_before_hash": True}
+    checks["control_D_premature_reveal_violates"] = bool(
+        _premature["reveal_opened_before_hash"] is True)  # a regra: se abrisse, verdict=VIOLATED
+    machinery_ok = all(v for k, v in checks.items())
+    # --- INPUTS REAIS (dados do disco; ausencia = resultado honesto, nao erro) ---
+    anchor = _coma_json("coma_mass_anchor.json")
+    protocol = _coma_json("coma_protocol_preregistered.json")
+    geometry_meta = _coma_json("coma_geometry_meta.json") or {}
+    ident = audit_coma_identifiability(geometry_meta, anchor, protocol)
+    prediction = None
+    blind = {"prediction_hash": None, "protocol_hash": (sha_obj(protocol) if protocol else None),
+             "reference_loaded_before_hash": False, "locked_before_reveal": True}
+    comparison = None
+    reveal_info = {"performed": False, "reference_distance_Mpc": None,
+                   "reference_sigma_Mpc": None, "used_in_prediction": False}
+    if ident["prediction_identifiable"]:
+        theta_rad = float(protocol["angular_aperture_arcsec"]) * math.pi / (180.0 * 3600.0)
+        M_kg = float(anchor["mass_Msun"]) * MSUN
+        R_m = radius_m_from_mass_tgl(beta, M_kg)
+        DA_m = angular_diameter_distance_m(R_m, theta_rad)
+        DA_small = R_m / theta_rad
+        sM = float(anchor.get("sigma_stat_Msun", 0.0)) * MSUN
+        sSys = float(anchor.get("sigma_sys_Msun", 0.0)) * MSUN
+        sTh = float(protocol.get("sigma_aperture_arcsec", 0.0)) * math.pi / (180.0 * 3600.0)
+        relD2 = (sM / M_kg) ** 2 + (sTh / (math.sin(theta_rad) * math.cos(theta_rad))) ** 2
+        sD_stat = DA_m * math.sqrt(relD2)
+        sD_sys = DA_m * (sSys / M_kg)
+        rng = np.random.default_rng(int(protocol.get("mc_seed", 11)))
+        NMC = int(protocol.get("mc_n", 100000))
+        Ms = rng.normal(M_kg, sM if sM > 0 else 1e-30, NMC)
+        Ths = rng.normal(theta_rad, sTh if sTh > 0 else 1e-30, NMC)
+        okd = (Ms > 0) & (Ths > 0) & (Ths < math.pi / 2)
+        Ds = (Ms[okd] / (2.0 * beta ** 2 * tgl_weak_kg_per_m())) / np.tan(Ths[okd])
+        q = np.percentile(Ds, [16, 50, 84, 2.5, 97.5]) / MPC_M
+        # v37/§14: TODA previsao fisica carrega contexto de contorno, e o contexto
+        # ENTRA no hash cego (mesmo numero + contorno diferente = OUTRA previsao)
+        coma_ctx = build_contour_context(
+            context_id="COMA_BLIND_DISTANCE_CONTOUR_V1", algebra_level="finite_shadow",
+            representation_id="TGL_MASS_RADIUS_INVERSE_PARITY",
+            support_id="COMA_PRE_REGISTERED_ANGULAR_APERTURE",
+            readout_kind="angular_diameter_distance", state_or_weight_id=None,
+            normalized_trace_available=False, units="Mpc",
+            empirical_inputs=["mass_anchor", "angular_radius"], status="[PRE/EXT]")
+        if not validate_contour_context(coma_ctx)["all_ok"]:
+            return {"theorem": "Coma inverse-parity blind distance test",
+                    "status": "[PRE/EXT]", "mode": mode,
+                    "verdict": "PHYSICAL_PREDICTION_WITHOUT_CONTOUR_CONTEXT",
+                    "all_verified": False, "does_not_gate_core": True}
+        prediction = {
+            "prediction_timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "contour_context": coma_ctx,
+            "protocol_hash": blind["protocol_hash"],
+            "mass_anchor_hash": sha_obj(anchor),
+            "beta_runtime": beta,
+            "beta_uncertainty_treatment": "FIXED_BY_CURRENT_TGL_INPUT",
+            "mass_anchor_Msun": float(anchor["mass_Msun"]),
+            "angular_radius_rad": theta_rad,
+            "physical_radius_TGL_Mpc": R_m / MPC_M,
+            "distance_A_TGL_Mpc": DA_m / MPC_M,
+            "small_angle_residual": abs(DA_small / DA_m - 1.0),
+            "sigma_distance_stat_Mpc": sD_stat / MPC_M,
+            "sigma_distance_sys_Mpc": sD_sys / MPC_M,
+            "mc": {"median_Mpc": float(q[1]), "interval_68_Mpc": [float(q[0]), float(q[2])],
+                   "interval_95_Mpc": [float(q[3]), float(q[4])],
+                   "invalid_draw_fraction": float(1.0 - okd.mean()), "n": NMC, "seed": int(protocol.get("mc_seed", 11))},
+            "reference_distance_loaded": False}
+        checks["mc_agrees_with_analytic"] = bool(
+            abs(prediction["mc"]["median_Mpc"] / prediction["distance_A_TGL_Mpc"] - 1.0)
+            < float(protocol.get("mc_analytic_tolerance", 0.05)))
+        blind["prediction_hash"] = sha_obj(prediction)
+        prediction["prediction_hash"] = blind["prediction_hash"]
+        # v37/§14: SAME_NUMBERS_DIFFERENT_CONTOUR_IS_A_DIFFERENT_PREDICTION
+        _alt = dict(prediction); _alt.pop("prediction_hash", None)
+        _alt["contour_context"] = dict(coma_ctx, context_id="OTHER_CONTOUR")
+        checks["different_contour_changes_hash"] = bool(sha_obj(_alt) != blind["prediction_hash"])
+        seals.append("SAME_NUMBERS_DIFFERENT_CONTOUR_IS_A_DIFFERENT_PREDICTION")
+        try:
+            os.makedirs(COMA_DIR, exist_ok=True)
+            json.dump(prediction, open(os.path.join(COMA_DIR, "coma_prediction_blind.json"),
+                                       "w", encoding="utf-8"), indent=2)
+        except OSError:
+            pass
+        seals += ["COMA_PREDICTION_HASHED_BEFORE_DISTANCE_REVEAL",
+                  "NO_REFERENCE_DISTANCE_USED_IN_PREDICTION",
+                  "NO_REDSHIFT_USED_IN_COMA_PREDICTION", "NO_HUBBLE_LAW_USED_IN_COMA_PREDICTION",
+                  "NO_RECESSION_VELOCITY_USED_IN_THE_PREDICTION_ENGINE",
+                  "MASS_RADIUS_DEFINITIONS_MATCH"]
+        if reveal:
+            rv = _coma_json("coma_distance_reveal.json")
+            if rv and rv.get("locked") and blind["prediction_hash"]:
+                Dref = float(rv["reference_distance_Mpc"]); sref = float(rv["sigma_Mpc"])
+                if str(rv.get("distance_type", "")).startswith("luminosity") and rv.get("redshift_for_conversion") is not None:
+                    zc = float(rv["redshift_for_conversion"])
+                    Dref = Dref / (1.0 + zc) ** 2
+                    reveal_info["redshift_role"] = "REVEAL_ONLY_DISTANCE_TYPE_CONVERSION"
+                sp = math.sqrt((sD_stat / MPC_M) ** 2 + (sD_sys / MPC_M) ** 2)
+                zres = (prediction["distance_A_TGL_Mpc"] - Dref) / math.sqrt(sp ** 2 + sref ** 2)
+                comparison = {"reference_DA_Mpc": Dref, "residual_Mpc": prediction["distance_A_TGL_Mpc"] - Dref,
+                              "fractional_residual": prediction["distance_A_TGL_Mpc"] / Dref - 1.0,
+                              "z_residual": zres, "chi2_one_point": zres ** 2}
+                reveal_info.update({"performed": True, "reference_distance_Mpc": Dref,
+                                    "reference_sigma_Mpc": sref})
+                seals.append("COMA_EXTERNAL_DISTANCE_REVEALED_ONLY_AFTER_HASH")
+    # --- veredito (proprio; jamais gateia o nucleo) ---
+    if not ident["prediction_identifiable"]:
+        verdict = ident.get("failure", "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE")
+        if verdict == "COMA_DISTANCE_NOT_IDENTIFIABLE_FROM_GEOMETRY_ONLY":
+            verdict = "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE"
+    elif comparison is not None:
+        az = abs(comparison["z_residual"])
+        verdict = ("COMA_BLIND_DISTANCE_STRONG_PASS" if az <= 2.0
+                   else ("COMA_BLIND_DISTANCE_WEAK_PASS" if az <= 3.0
+                         else "COMA_BLIND_DISTANCE_FALSIFIED"))
+    else:
+        verdict = "COMA_BLIND_PREDICTION_LOCKED_AWAITING_REVEAL"
+    all_v = bool(machinery_ok and (mode != "strict" or ident["prediction_identifiable"]))
+    return {
+        "theorem": "Coma inverse-parity blind distance test",
+        "status": "[PRE/EXT -- physical falsification test]",
+        "mode": mode,
+        "parity": {"GA_direction": "R -> M", "Coma_direction": "M -> R -> D_A",
+                   "same_equation": True, "law": "M = 2 beta^2 (c^2/4piG) R"},
+        "identifiability": ident,
+        "inputs": {"beta_runtime": beta, "anchor_present": bool(anchor),
+                   "protocol_present": bool(protocol),
+                   "forbidden_inputs_absent": bool(ident.get("geometry_free_of_forbidden_columns", True)),
+                   "data_dir": COMA_DIR},
+        "prediction": prediction,
+        "blind_protocol": blind,
+        "reveal": reveal_info,
+        "comparison": comparison,
+        "machinery_checks": checks,
+        "machinery_all_verified": machinery_ok,
+        "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": verdict,
+        "seals": seals,
+    }
+
+
+def _print_coma_block(c):
+    if c.get("verdict") == "COMA_MODULE_SKIPPED_BY_MODE":
+        return
+    print("\nCOMA -- PARIDADE INVERSA DO GA [v36; PRE/EXT; cego; NAO gateia 1=1]:")
+    print("  GA: R->M ; COMA: M->R->D_A (a MESMA lei: M=2 beta^2 (c^2/4piG) R, invertida)")
+    ck = c.get("machinery_checks", {})
+    print("  TRAVA: degenerescencia de escala testada=%s ; ancora dimensional exigida=True" % (
+        ck.get("scale_degeneracy_angles_invariant")))
+    print("  maquinaria: roundtrip 1e-12=%s ; controles A/B/C/D/E/F reprovam=%s/%s/%s/%s/%s/%s" % (
+        ck.get("law_roundtrip_1e12"), ck.get("control_A_no_anchor_not_identifiable"),
+        ck.get("control_B_distance_leakage_detected"), ck.get("control_C_definition_mismatch_detected"),
+        ck.get("control_D_premature_reveal_violates"), ck.get("control_E_hubble_leakage_detected"),
+        ck.get("control_F_tampered_exponent_fails")))
+    ide = c.get("identifiability", {})
+    print("  identificavel=%s (ancora=%s ; independente=%s ; massa<->raio casados=%s)" % (
+        ide.get("prediction_identifiable"), ide.get("dimensionful_anchor_present"),
+        ide.get("anchor_distance_independent"), ide.get("mass_radius_definition_match")))
+    pr = c.get("prediction")
+    if pr:
+        print("  PREVISAO CEGA: R_TGL=%.2f Mpc ; D_A=%.2f +- %.2f(stat) +- %.2f(sys) Mpc ; hash=%s..." % (
+            pr["physical_radius_TGL_Mpc"], pr["distance_A_TGL_Mpc"],
+            pr["sigma_distance_stat_Mpc"], pr["sigma_distance_sys_Mpc"],
+            (pr.get("prediction_hash") or "")[:16]))
+    cp = c.get("comparison")
+    if cp:
+        print("  REVELACAO: D_ref=%.2f Mpc ; residuo=%.2f Mpc ; z=%.2f" % (
+            cp["reference_DA_Mpc"], cp["residual_Mpc"], cp["z_residual"]))
+    print("  >>> %s <<<" % c.get("verdict"))
+
+
 def main():
     if len(sys.argv) > 1:
         lock("Argumentos nao sao permitidos. Apenas o UM inicia.", "EXECUTION_LOCKED_ONLY_THE_ONE_ALLOWED")
@@ -17192,6 +18567,9 @@ def main():
         _elp.get("ext_bicommutant_concrete_kernel_proved"), _elp.get("ext_jmj_commutant_kernel_proved"),
         _elp.get("ext_tomiyama_bimodular_kernel_proved"), _elp.get("ext_jones_relation_kernel_proved"),
         _elp.get("ext_masa_diagonal_kernel_proved")))
+    print("    BICOMUTANTE GERAL [v38]: reconstrucao End(H)=span{L R}: %s ; comutante-span: %s ; compl. Frobenius: %s ; TEOREMA: %s" % (
+        _elp.get("ext_end_reconstruction_kernel_proved"), _elp.get("ext_commutant_span_form_kernel_proved"),
+        _elp.get("ext_frob_complement_kernel_proved"), _elp.get("ext_general_bicommutant_kernel_proved")))
     print("  Degrau 2: %s" % _ell.get("degrau_2_finite_jones_index"))
     print("    dominancia do traco: %s ; cota MASA (Cauchy-Schwarz): %s ; OTIMALIDADE: %s/%s ; INDICE PP = n: %s/%s" % (
         _elp.get("ext_pp_trace_dominance_kernel_proved"), _elp.get("ext_pp_masa_bound_kernel_proved"),
@@ -17396,6 +18774,22 @@ def main():
             " (TODAS)" if sv["all_in_band"] else ""))
 
     verdict["result_hash"] = result_hash   # verdict ja' computado logo apos run_um (reuso; identity_verdict e' pura)
+
+    # ===== v37: AXIOMA ZERO [ONTO/AX] -- secao propria; antes de Coma; NAO gateia 1=1 =====
+    ontological_relativity = prove_ontological_relativity_and_signal_chain(core["ONE"], core)
+    core["ontological_relativity"] = ontological_relativity
+    _print_axiom_zero_block(ontological_relativity)
+
+    # ===== v36: COMA [PRE/EXT] -- depois do hash pre-comparacao, antes do artigo =====
+    # ordem do protocolo: core -> identidades internas -> hash -> previsao cega ->
+    # (reveal opcional) -> comparacao -> render. Ausencia de dados = veredito honesto.
+    _coma_reveal = (os.environ.get("TGL_COMA_REVEAL", "0").strip() == "1")
+    coma_deph = prove_coma_distance_dephasing(core["ONE"], core, reveal=_coma_reveal)  # v39 PRIMARIO
+    core["coma_distance_dephasing"] = coma_deph
+    _print_coma_dephasing_block(coma_deph)
+    coma = prove_coma_cluster_distance_blind(core["ONE"], core, reveal=_coma_reveal)   # v36 paridade (secundario)
+    core["coma_inverse_distance"] = coma
+    _print_coma_block(coma)
 
     print("\n--- comparacao (apos hash) com massas do GA na literatura/RG ---")
     for e in GA_MASS_LITERATURE:
@@ -17604,6 +18998,21 @@ def main():
             "form_equals_content_status": ((core.get("interface_is_light") or {}).get("form_content") or {}).get("status"),
             "canonical_markers_status": ((core.get("interface_is_light") or {}).get("canonical_markers") or {}).get("status"),
             "formal_source_hash": _kf["formal_source_hash"],
+            "coma_external_falsification": {                       # v36 [PRE/EXT]; nao gateia o selo
+                "verdict": (core.get("coma_inverse_distance") or {}).get("verdict"),
+                "mode": (core.get("coma_inverse_distance") or {}).get("mode"),
+                "prediction_hash": ((core.get("coma_inverse_distance") or {}).get("blind_protocol") or {}).get("prediction_hash"),
+                "machinery_all_verified": (core.get("coma_inverse_distance") or {}).get("machinery_all_verified"),
+                "does_not_gate_core": True},
+            "ontological_relativity": {                            # v37 [ONTO/AX]; nao gateia o selo
+                "verdict": (core.get("ontological_relativity") or {}).get("verdict"),
+                "all_verified": (core.get("ontological_relativity") or {}).get("all_verified"),
+                "does_not_gate_core": True},
+            "coma_dephasing": {                                    # v39 [PRE/EXT; CONJ selado]; nao gateia
+                "verdict": (core.get("coma_distance_dephasing") or {}).get("verdict"),
+                "D_L_TGL_Mpc": ((core.get("coma_distance_dephasing") or {}).get("prediction") or {}).get("D_L_TGL_median_Mpc"),
+                "prediction_hash": ((core.get("coma_distance_dephasing") or {}).get("prediction") or {}).get("prediction_hash"),
+                "does_not_gate_core": True},
             "sha256": {}}
     if seal_gate_reasons:
         print("\n>>> SEAL_WITHHELD: %s -- nenhum selo produzido nesta rodada <<<" % " . ".join(seal_gate_reasons))

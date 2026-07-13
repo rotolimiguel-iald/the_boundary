@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=27850 len(stderr)=0
+# len(stdout)=30654 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -261,6 +261,34 @@ GravitonShadow.bell_corner_unit : ∀ (y : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin
   TGLExt.trOne TGLExt.eD = ↑(TGLExt.ppBestDiag n)
 @TGLExt.pp_ne_tower_for_scalars : ∀ {n : Type} [inst : Fintype n],
   1 < Fintype.card n → 1 / ↑(Fintype.card n) ≠ 1 / ↑(Fintype.card n) ^ 2
+@TGLExt.end_reconstruction : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (Φ : Module.End ℂ (Matrix n n ℂ)),
+  Φ = ∑ p, TGLExt.Lmul (TGLExt.Cmat Φ p.1 p.2) * TGLExt.Rmul (Matrix.single p.1 p.2 1)
+@TGLExt.Cmat_of_sum : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (D : n → n → Matrix n n ℂ) (k₀ l₀ : n),
+  TGLExt.Cmat (∑ p, TGLExt.Lmul (D p.1 p.2) * TGLExt.Rmul (Matrix.single p.1 p.2 1)) k₀ l₀ = D k₀ l₀
+@TGLExt.commutant_Cmat_comm : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {A : Set (Matrix n n ℂ)}
+  {Φ : Module.End ℂ (Matrix n n ℂ)},
+  Φ ∈ TGLExt.commutantSet (TGLExt.Lmul '' A) →
+    ∀ {a : Matrix n n ℂ}, a ∈ A → ∀ (k l : n), a * TGLExt.Cmat Φ k l = TGLExt.Cmat Φ k l * a
+@TGLExt.exists_span_form : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {A : Set (Matrix n n ℂ)}
+  {Φ : Module.End ℂ (Matrix n n ℂ)},
+  Φ ∈ TGLExt.commutantSet (TGLExt.Lmul '' A) →
+    Φ ∈ Submodule.span ℂ {f | ∃ x y, (∀ a ∈ A, a * x = x * a) ∧ f = TGLExt.Lmul x * TGLExt.Rmul y}
+@TGLExt.frob_self_eq_zero_iff : ∀ {n : Type} [inst : Fintype n] (x : Matrix n n ℂ), TGLExt.frob x x = 0 ↔ x = 0
+@TGLExt.disjoint_frobOrtho : ∀ {n : Type} [inst : Fintype n] (W : Submodule ℂ (Matrix n n ℂ)),
+  Disjoint W (TGLExt.frobOrtho W)
+@TGLExt.isCompl_frobOrtho : ∀ {n : Type} [inst : Fintype n] (W : Submodule ℂ (Matrix n n ℂ)),
+  IsCompl W (TGLExt.frobOrtho W)
+@TGLExt.frobProj_comm_Lmul : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {A : Set (Matrix n n ℂ)},
+  (∀ a ∈ A, ∀ b ∈ A, a * b ∈ A) →
+    (∀ a ∈ A, a.conjTranspose ∈ A) →
+      ∀ {a : Matrix n n ℂ},
+        a ∈ A →
+          TGLExt.Lmul a * TGLExt.frobProj (Submodule.span ℂ A) = TGLExt.frobProj (Submodule.span ℂ A) * TGLExt.Lmul a
+@TGLExt.finite_bicommutant : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {A : Set (Matrix n n ℂ)},
+  1 ∈ A →
+    (∀ a ∈ A, ∀ b ∈ A, a * b ∈ A) →
+      (∀ a ∈ A, a.conjTranspose ∈ A) →
+        TGLExt.commutantSet (TGLExt.commutantSet (TGLExt.Lmul '' A)) = TGLExt.Lmul '' ↑(Submodule.span ℂ A)
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -330,6 +358,15 @@ GravitonShadow.bell_corner_unit : ∀ (y : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin
 'TGLExt.tau_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.masa_tower_weight_eq_ppBest' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.pp_ne_tower_for_scalars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.end_reconstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Cmat_of_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.commutant_Cmat_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.exists_span_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.frob_self_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.disjoint_frobOrtho' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.isCompl_frobOrtho' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.frobProj_comm_Lmul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.finite_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.J_deltaHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.frob_delta_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.gibbs_kms' depends on axioms: [propext, Classical.choice, Quot.sound]

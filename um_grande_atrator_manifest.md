@@ -899,6 +899,51 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.end_reconstruction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Cmat_of_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.commutant_Cmat_comm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.exists_span_form": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.frob_self_eq_zero_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.disjoint_frobOrtho": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.isCompl_frobOrtho": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.frobProj_comm_Lmul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.finite_bicommutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.J_deltaHalf": [
       "propext",
       "Classical.choice",
@@ -955,7 +1000,7 @@
       "Quot.sound"
     ]
   },
-  "formal_source_hash": "8fa17904c3b9f43a68ff7426036ed730aec41fc877d0f7d2b01076beffa3c681",
+  "formal_source_hash": "982cec187cb3d64096cd7adcba7560719c1f8ad84704819489882daf0020c22c",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -1261,7 +1306,7 @@
 
 ```json
 {
-  "code_sha256": "ae0ee5a23b07731a627dda14f72aa9146ade91253a3b6335531f13be39d38378",
+  "code_sha256": "5f5f39bea8e9547711eda096e1e1084bd79c439457f3af04197b871ad8cdf7e4",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"
