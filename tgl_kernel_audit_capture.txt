@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=88012 len(stderr)=0
+# len(stdout)=91530 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -832,6 +832,36 @@ TGLExt.W_hasDerivAt : ∀ (κ : ℝ), HasDerivAt (fun u => TGLExt.qKappa u / 2) 
 TGLExt.susy_threshold : ∀ (κ : ℝ), (TGLExt.qKappa κ / 2) ^ 2 + TGLExt.alphaKappa κ ^ 2 / 4 = 1 / 4
 TGLExt.susy_partner_gap : ∀ (κ : ℝ),
   (TGLExt.qKappa κ / 2) ^ 2 - TGLExt.alphaKappa κ ^ 2 / 4 = 1 / 4 - TGLExt.alphaKappa κ ^ 2 / 2
+TGLExt.curv2 : Matrix (Fin 2) (Fin 2) ℝ → Matrix (Fin 2) (Fin 2) ℝ → Matrix (Fin 2) (Fin 2) ℝ
+TGLExt.minimal_curvature : ∀ (c₁ c₂ : ℝ),
+  TGLExt.curv2 (c₁ • TGLExt.polPlus) (c₂ • TGLExt.polCross) = (2 * c₁ * c₂) • TGLExt.rotGen
+@TGLExt.minimal_curvature_ne_zero : ∀ {c₁ c₂ : ℝ},
+  c₁ * c₂ ≠ 0 → TGLExt.curv2 (c₁ • TGLExt.polPlus) (c₂ • TGLExt.polCross) ≠ 0
+TGLExt.curvature_flat_same : ∀ (c₁ c₂ : ℝ) (A : Matrix (Fin 2) (Fin 2) ℝ), TGLExt.curv2 (c₁ • A) (c₂ • A) = 0
+TGLExt.solderMetric : Matrix (Fin 2) (Fin 2) ℝ → Matrix (Fin 2) (Fin 2) ℝ
+TGLExt.solderMetric_symm : ∀ (e : Matrix (Fin 2) (Fin 2) ℝ), (TGLExt.solderMetric e).transpose = TGLExt.solderMetric e
+TGLExt.solderMetric_det : ∀ (e : Matrix (Fin 2) (Fin 2) ℝ), (TGLExt.solderMetric e).det = -e.det ^ 2
+@TGLExt.solder_lorentzian : ∀ {e : Matrix (Fin 2) (Fin 2) ℝ}, e.det ≠ 0 → (TGLExt.solderMetric e).det < 0
+TGLExt.helicityRep : ℝ →ₗ[ℝ] Matrix (Fin 2) (Fin 2) ℝ
+TGLExt.helicityRep_injective : Function.Injective ⇑TGLExt.helicityRep
+TGLExt.minimal_curvature_recovered : ∀ (c₁ c₂ : ℝ),
+  ∃! R, TGLExt.helicityRep R = TGLExt.curv2 (c₁ • TGLExt.polPlus) (c₂ • TGLExt.polCross)
+@TGLExt.FullStaticWitness : {M : Type} → (ℝ → M → M) → Prop
+@TGLExt.leakage_strictly_loses : ∀ {t β g : ℝ}, 0 < t → 0 < β → 0 < g → Real.exp (-(t * β * g)) < 1
+TGLExt.full_closure_iff_flat : ∀ (t β g : ℝ), Real.exp (-(t * β * g)) = 1 ↔ t * β * g = 0
+@TGLExt.beta_forbids_full_static_witness : ∀ {β g : ℝ},
+  0 < β → 0 < g → ¬TGLExt.FullStaticWitness fun t x => Real.exp (-(t * β * g)) * x
+@TGLExt.verb_not_identity : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (d : n → ℝ) (i₀ : n),
+  0 < d i₀ → ∀ {t β : ℝ}, 0 < t → 0 < β → NormedSpace.exp (-(t * β) • Matrix.diagonal d) ≠ 1
+@TGLExt.leakage_rate_unique : ∀ {b₁ b₂ : ℝ}, (∀ (t : ℝ), Real.exp (-(t * b₁)) = Real.exp (-(t * b₂))) → b₁ = b₂
+@TGLExt.canonical_witness_is_not_full : ∀ {β g : ℝ},
+  0 < β →
+    0 < g →
+      ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] [Nonempty n] {Γ : Matrix n n ℂ},
+        Γ.trace = 0 →
+          (¬TGLExt.FullStaticWitness fun t x => Real.exp (-(t * β * g)) * x) ∧
+            TGLExt.gibbs (TGLExt.absoluteRho n) (2⁻¹ • (1 + Γ)) = 1 / 2 ∧
+              TGLExt.gibbs (TGLExt.absoluteRho n) (2⁻¹ • (1 - Γ)) = 1 / 2
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1074,6 +1104,20 @@ TGLExt.susy_partner_gap : ∀ (κ : ℝ),
 'TGLExt.W_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.susy_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.susy_partner_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.minimal_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.minimal_curvature_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.curvature_flat_same' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.solderMetric_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.solderMetric_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.solder_lorentzian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.helicityRep_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.minimal_curvature_recovered' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.leakage_strictly_loses' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.full_closure_iff_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.beta_forbids_full_static_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.verb_not_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.leakage_rate_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.canonical_witness_is_not_full' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

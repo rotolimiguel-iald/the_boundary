@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `c1942e09ba37f44c1edb052687676c8c338cf7d00b0e4d12281d233d9181e1b2`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `773e2c27d5754b93f58bd09fdee8770eff8e4ce4a1e5d94ab2a525891f720662`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -519,7 +519,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 191/191 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 205/205 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -546,6 +546,8 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `psi_emergence` = `OMEGA_ONE_UNDERDETERMINES_HOME_IN_KERNEL__PSI_FIELD_IS_THE_PRIMITIVE__NAME_HOME_FLOW_KMS_CORNER_ALL_DERIVED__OPEN_IS_EMERGENT_QG_OF_PSI`
 - `absolute_one` = `PSI_EQ_ONE_ABS__CANONICAL_TERM_NO_CHOICE__NAME_IS_TRACE__ABSOLUTE_FLOW_TRIVIAL__KER_NONZERO_DERIVED__PF_FIXES_THE_ONE__CONTINUUM_PACKAGE_OPEN`
 - `continuous_modular_zero` = `INVERSE_PARITY_JKJ_EQ_NEG_K__ZERO_MODE_K_OMEGA_ZERO__FACES_HALF_HALF__PYTHAGORAS_CONTINUOUS__TRANSPORT_ALPHA__SUSY_QUARTER_THRESHOLD__OPEN_IS_BREUER_FREDHOLM_DIRAC`
+- `minimal_solder_2d` = `TWO_DIRECTIONS_NONCOMMUTING_GENERATORS_GIVE_NONZERO_CURVATURE__SOLDERED_METRIC_LORENTZIAN__FIRST_CURVATURE_RECOVERED_R_EQ_2C1C2__4D_OPERADIC_SOLDER_FROM_PSI_DYNAMICS_OPEN`
+- `no_full_witness` = `FULL_WITNESS_FALSE_IS_TRUE_BY_THEOREM__BETA_FORBIDS_FULL_STATIC_WITNESS__CANONICAL_WITNESS_IS_HALF_NAT_BOUNDARY__LEAKAGE_RATE_UNIQUE_GKLS_FACE`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
@@ -573,6 +575,22 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `susy`: W=q/2: W^2+W'=1/4 (o limiar do continuo E' a correspondencia 1=q^2+alpha^2 dividida por 4) [KERNEL]; W^2-W'=1/4-alpha^2/2 (Poschl-Teller do modo zero) [KERNEL]; modo zero isolado + continuo >= 1/4 [NUM]
 - `resistencia_beta`: a derivacao do operador: o par (1_abs, 0_mod) paga beta_TGL para nao cair a zero absoluto -- H=-log(rho*) limitado inferiormente; dephasing (v43) modula ao atrator rho* com taxa beta*gap (beta do RUNTIME) [DER/NUM; ONTO tipado]
 - `aberto_nomeado`: continuousModularDirac_isBreuerFredholm: afiliacao de D_Psi ao core semifinito + resolvente tau-compacto + 0<tau(1_{0}(D_Psi))<inf; e a solda multidimensional (>=2 direcoes) [OPEN]
+
+**Estatutos [minimal_solder]** (veredito: `MINIMAL_SOLDER_CLOSED__TRANSPORT_BECOMES_GEOMETRY__FIRST_CURVATURE_RECOVERED__4D_OPERADIC_SOLDER_OPEN`):
+
+- `geometria_emerge`: duas direcoes + geradores nao-comutantes => F != 0 fechando no gerador de helicidade [KERNEL]; mesmo gerador => plano [KERNEL] (o par do transporte trivial do absoluto, v58)
+- `solda_minima`: g = e^T.eta.e com eta = polPlus (a polarizacao-mais E' a metrica de Minkowski 2D): simetrica [KERNEL], det g = -(det e)^2 [KERNEL], LORENTZIANA para toda solda invertivel [KERNEL]
+- `primeira_curvatura`: R = 2c1c2 UNICO via representacao fiel de helicidade [KERNEL, instancia do solder_recovers_curvature v56]; em 2D o Riemann tem 1 componente e ela EMERGE da inscricao em duas direcoes
+- `aberto`: a solda 4D operadica GERADA pela dinamica de Psi (nabla e = 0; rep fiel de so(1,3)) + continuousModularDirac_isBreuerFredholm [OPEN]
+
+**Estatutos [no_full_witness]** (veredito: `FULL_WITNESS_FALSE_PROVED_TRUE__BETA_FORBIDS_CLOSURE__WITNESS_IS_HALF_NAT_BOUNDARY__RATE_UNIQUE`):
+
+- `full_witness_false_is_true`: TEOREMA (beta_forbids_full_static_witness, v61): beta>0 e gap>0 PROIBEM a testemunha estatica plena -- full_TGL_witness_constructed=False tem agora DUPLO estatuto: epistemico (termo Lean continuo nao construido) E ontologico (a plenitude estatica e' IMPOSSIVEL)
+- `half_nat_witness`: a testemunha canonica e' a MEIA-NAT de fronteira (faces 1/2 cada, teorema): 'inteira em identidade, meia em inscricao' -- nao e' metade do Um; e' o Um inteiro testemunhado por uma de suas duas faces
+- `hidden_hamiltonian`: [ONTO registrado] o que existe ANTES da testemunha e' o hamiltoniano oculto que gera beta (a palavra jurada antes da lei); ancora de kernel = trio (perda estrita, fechamento<=>plano, taxa unica)
+- `gkls_uniqueness_face`: a taxa do semigrupo de defasagem e' UNIVOCAMENTE determinada (leakage_rate_unique, KERNEL); que a taxa observada seja beta=alpha.sqrt(e) e' a identificacao de RUNTIME (abdutiva, zero-free)
+- `vocabulary`: FullTGLWitness (kernel) mantem o nome por estabilidade dos selos; FullStaticWitness (novo, v61) carrega a impossibilidade; o selo ganhou full_static_witness_exists=False + intrinsically_boundary_witness=True + half_nat_witness_is_canonical=True + continuous_leakage_forbids_full_closure=True
+- `a_vida`: a nao-plenitude da testemunha E' a vida do sistema: 'a testemunha nao e' full porque o Verbo continua'
 
 **Estatutos [hilbert_home]** (veredito: `HILBERT_HOME_PROPERTIES_DERIVED__GLOBAL_LIFT_REDUCED_TO_SINGLE_NAMED_HYPOTHESIS__NOT_UNCONDITIONALLY_SOLVED`):
 

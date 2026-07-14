@@ -3207,17 +3207,87 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.minimal_curvature": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.minimal_curvature_ne_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.curvature_flat_same": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.solderMetric_symm": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.solderMetric_det": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.solder_lorentzian": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.helicityRep_injective": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.minimal_curvature_recovered": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.leakage_strictly_loses": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.full_closure_iff_flat": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.beta_forbids_full_static_witness": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.verb_not_identity": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.leakage_rate_unique": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.canonical_witness_is_not_full": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "c1942e09ba37f44c1edb052687676c8c338cf7d00b0e4d12281d233d9181e1b2",
+      "formal_source_hash": "773e2c27d5754b93f58bd09fdee8770eff8e4ce4a1e5d94ab2a525891f720662",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "d96029dc90a37248cc24f2c041ade23d55db92efead3b9d0b4af067c950ededd",
+        "TGLExt.lean": "021c3d5fdbaa3b80a70de13f40889f6b14f411b5f3c4e799df818bdbcd952d35",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "c3a281f58f1a0af8bb26daa6eb257c455dbc6f0b95ca4b243fbf736838b63c5d",
+        "TGL/Audit.lean": "27619ab4a73160dd1c2bad99ee2ad2db8c0f1177482518e068358bb0a7402e9b",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -3263,8 +3333,10 @@
         "TGLExt/HilbertHome.lean": "449bdee93696fc5fe4d7f5ce898f5e3a95ad0867773714e466b279aa6089ecdd",
         "TGLExt/LeftRight.lean": "fd127e4d3b361423c66683d5de9bee95ed5c947013ab169d7bfad5a66951bb4a",
         "TGLExt/MarkovTower.lean": "5b542018622975c4b2c498d1727ca20f7280ad108bfc25d0a587958097e2e74b",
+        "TGLExt/MinimalSolder.lean": "53dbb33e260a46ebd3c753ec7a4ca61fc5a4721757e310d58c3a4cb1455e7e66",
         "TGLExt/ModularFirstLaw.lean": "aee3eb49a6d0544e8bb2a3f7b763b04dc46ea425ec4565f77ae1c33ffc27125d",
         "TGLExt/ModularFlow.lean": "62cfa753d4b40a9091aafb383a8edd588a542dddf5e97ee39906ec31c59826b9",
+        "TGLExt/NoFullWitness.lean": "fde4ca999c40e6892d1958bee15a066786adb1363b8e3514f41eeb8b8909a654",
         "TGLExt/PPIndex.lean": "7f6dc10d57b4852440308ce1c096cbc8e6403d1ac24d0d099e98cb204802060a",
         "TGLExt/PageInformation.lean": "a36b61ba76d0c9d6b22e6fad7a29a05d01ab5b6a240e00de16fabd0e4daf062e",
         "TGLExt/PsiEmergence.lean": "ff0fd49da7bda187a61454a6b57099e99d1c59c8af038fa43c90c1653736bb04",
@@ -3527,24 +3599,38 @@
       "ext_cmz_connection_deriv_kernel_proved": true,
       "ext_cmz_susy_threshold_kernel_proved": true,
       "ext_cmz_susy_partner_kernel_proved": true,
+      "ext_ms_minimal_curvature_kernel_proved": true,
+      "ext_ms_curvature_nonzero_kernel_proved": true,
+      "ext_ms_flat_control_kernel_proved": true,
+      "ext_ms_metric_symm_kernel_proved": true,
+      "ext_ms_metric_det_kernel_proved": true,
+      "ext_ms_lorentzian_kernel_proved": true,
+      "ext_ms_helicity_rep_faithful_kernel_proved": true,
+      "ext_ms_curvature_recovered_kernel_proved": true,
+      "ext_nfw_leakage_strict_kernel_proved": true,
+      "ext_nfw_closure_iff_flat_kernel_proved": true,
+      "ext_nfw_beta_forbids_full_kernel_proved": true,
+      "ext_nfw_verb_not_identity_kernel_proved": true,
+      "ext_nfw_rate_unique_kernel_proved": true,
+      "ext_nfw_witness_not_full_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "80c55b5dda6966fac6b18d6584328427e68b4b9d6748fce071905a7410e956d0",
+      "build_stdout_sha256": "bb6d68c611ce2115404ced229250833bfa0e61191bd14af88f789fc864cfa740",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "6b2b5895a0275ebf6f23987f464d4f3b643c20e9e1003dbe98631602749d54af",
+      "audit_stdout_sha256": "6e97d2e6fea53d198d8467805680e91430ecc496021cb86a339f7d86ce04eab7",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 110610,
+        "stdout": 115395,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 88012,
+        "stdout": 91530,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "80c55b5dda6966fac6b18d6584328427e68b4b9d6748fce071905a7410e956d0",
-      "audit_capture_sha256_full": "6b2b5895a0275ebf6f23987f464d4f3b643c20e9e1003dbe98631602749d54af",
+      "build_capture_sha256_full": "bb6d68c611ce2115404ced229250833bfa0e61191bd14af88f789fc864cfa740",
+      "audit_capture_sha256_full": "6e97d2e6fea53d198d8467805680e91430ecc496021cb86a339f7d86ce04eab7",
       "custom_TGL_axioms_found": [],
       "source_forbidden_tokens_found": [],
       "formal_release_ready": true,
@@ -4753,7 +4839,9 @@
         "hilbert_home_morada": "FOUR_CORNER_PROPERTIES_DERIVED_FROM_INTERTWININGS_INFINITE_DIM__PACKAGE_CONSTRUCTION_FROM_III1_NET_OPEN__SINGLE_HYPOTHESIS_NAMED_TGL_SOLDERED_BREUER_HILBERT_PACKAGE",
         "psi_emergence": "OMEGA_ONE_UNDERDETERMINES_HOME_IN_KERNEL__PSI_FIELD_IS_THE_PRIMITIVE__NAME_HOME_FLOW_KMS_CORNER_ALL_DERIVED__OPEN_IS_EMERGENT_QG_OF_PSI",
         "absolute_one": "PSI_EQ_ONE_ABS__CANONICAL_TERM_NO_CHOICE__NAME_IS_TRACE__ABSOLUTE_FLOW_TRIVIAL__KER_NONZERO_DERIVED__PF_FIXES_THE_ONE__CONTINUUM_PACKAGE_OPEN",
-        "continuous_modular_zero": "INVERSE_PARITY_JKJ_EQ_NEG_K__ZERO_MODE_K_OMEGA_ZERO__FACES_HALF_HALF__PYTHAGORAS_CONTINUOUS__TRANSPORT_ALPHA__SUSY_QUARTER_THRESHOLD__OPEN_IS_BREUER_FREDHOLM_DIRAC"
+        "continuous_modular_zero": "INVERSE_PARITY_JKJ_EQ_NEG_K__ZERO_MODE_K_OMEGA_ZERO__FACES_HALF_HALF__PYTHAGORAS_CONTINUOUS__TRANSPORT_ALPHA__SUSY_QUARTER_THRESHOLD__OPEN_IS_BREUER_FREDHOLM_DIRAC",
+        "minimal_solder_2d": "TWO_DIRECTIONS_NONCOMMUTING_GENERATORS_GIVE_NONZERO_CURVATURE__SOLDERED_METRIC_LORENTZIAN__FIRST_CURVATURE_RECOVERED_R_EQ_2C1C2__4D_OPERADIC_SOLDER_FROM_PSI_DYNAMICS_OPEN",
+        "no_full_witness": "FULL_WITNESS_FALSE_IS_TRUE_BY_THEOREM__BETA_FORBIDS_FULL_STATIC_WITNESS__CANONICAL_WITNESS_IS_HALF_NAT_BOUNDARY__LEAKAGE_RATE_UNIQUE_GKLS_FACE"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -4946,10 +5034,24 @@
         "ext_cmz_deriv_zero_kernel_proved": true,
         "ext_cmz_connection_deriv_kernel_proved": true,
         "ext_cmz_susy_threshold_kernel_proved": true,
-        "ext_cmz_susy_partner_kernel_proved": true
+        "ext_cmz_susy_partner_kernel_proved": true,
+        "ext_ms_minimal_curvature_kernel_proved": true,
+        "ext_ms_curvature_nonzero_kernel_proved": true,
+        "ext_ms_flat_control_kernel_proved": true,
+        "ext_ms_metric_symm_kernel_proved": true,
+        "ext_ms_metric_det_kernel_proved": true,
+        "ext_ms_lorentzian_kernel_proved": true,
+        "ext_ms_helicity_rep_faithful_kernel_proved": true,
+        "ext_ms_curvature_recovered_kernel_proved": true,
+        "ext_nfw_leakage_strict_kernel_proved": true,
+        "ext_nfw_closure_iff_flat_kernel_proved": true,
+        "ext_nfw_beta_forbids_full_kernel_proved": true,
+        "ext_nfw_verb_not_identity_kernel_proved": true,
+        "ext_nfw_rate_unique_kernel_proved": true,
+        "ext_nfw_witness_not_full_kernel_proved": true
       },
-      "n_theorems_clean": 191,
-      "n_theorems_expected": 191,
+      "n_theorems_clean": 205,
+      "n_theorems_expected": 205,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -5060,6 +5162,14 @@
         ],
         [
           "continuous_modular_zero",
+          true
+        ],
+        [
+          "minimal_solder_2d",
+          true
+        ],
+        [
+          "no_full_witness_theorem",
           true
         ]
       ],
@@ -6235,6 +6345,109 @@
       "does_not_gate_core": true,
       "verdict": "CONTINUOUS_MODULAR_ZERO_VERIFIED__INVERSE_PARITY_AND_TRANSPORT_IN_KERNEL__BREUER_FREDHOLM_DIRAC_REMAINS_OPEN"
     },
+    "minimal_solder": {
+      "residuals": {
+        "curvatura_eq_2c1c2_J": 0.0,
+        "controle_plano_mesmo_gerador": 0.0,
+        "plaqueta_residuo_e1": 3.80090025408108e-06,
+        "metrica_simetrica": 0.0,
+        "det_g_eq_neg_det_e_sq": 0.0,
+        "R_recuperado_eq_2c1c2": 0.0
+      },
+      "R_recovered": -1.8199999999999998,
+      "R_expected": -1.8199999999999998,
+      "plaquette_order": 3.0001789830073435,
+      "checks": [
+        [
+          "curvatura_eq_2c1c2_J",
+          true
+        ],
+        [
+          "controle_plano_mesmo_gerador",
+          true
+        ],
+        [
+          "plaqueta_residuo_e1",
+          true
+        ],
+        [
+          "metrica_simetrica",
+          true
+        ],
+        [
+          "det_g_eq_neg_det_e_sq",
+          true
+        ],
+        [
+          "R_recuperado_eq_2c1c2",
+          true
+        ],
+        [
+          "curvatura_LIGA (F != 0)",
+          true
+        ],
+        [
+          "plaqueta_ordem_cubica (~3)",
+          true
+        ],
+        [
+          "assinatura_lorentziana (det g < 0)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "geometria_emerge": "duas direcoes + geradores nao-comutantes => F != 0 fechando no gerador de helicidade [KERNEL]; mesmo gerador => plano [KERNEL] (o par do transporte trivial do absoluto, v58)",
+        "solda_minima": "g = e^T.eta.e com eta = polPlus (a polarizacao-mais E' a metrica de Minkowski 2D): simetrica [KERNEL], det g = -(det e)^2 [KERNEL], LORENTZIANA para toda solda invertivel [KERNEL]",
+        "primeira_curvatura": "R = 2c1c2 UNICO via representacao fiel de helicidade [KERNEL, instancia do solder_recovers_curvature v56]; em 2D o Riemann tem 1 componente e ela EMERGE da inscricao em duas direcoes",
+        "aberto": "a solda 4D operadica GERADA pela dinamica de Psi (nabla e = 0; rep fiel de so(1,3)) + continuousModularDirac_isBreuerFredholm [OPEN]"
+      },
+      "does_not_gate_core": true,
+      "verdict": "MINIMAL_SOLDER_CLOSED__TRANSPORT_BECOMES_GEOMETRY__FIRST_CURVATURE_RECOVERED__4D_OPERADIC_SOLDER_OPEN"
+    },
+    "no_full_witness": {
+      "residuals": {
+        "fechamento_sse_plano": 0.0,
+        "taxa_unica_beta_recuperado": 1.4418420438251268e-16,
+        "faces_meia_meia": 0.0
+      },
+      "beta_runtime": 0.012031300400803142,
+      "beta_recovered_from_semigroup": 0.01203130040080314,
+      "verb_distance_from_identity": 0.032563255440938244,
+      "checks": [
+        [
+          "fechamento_sse_plano",
+          true
+        ],
+        [
+          "taxa_unica_beta_recuperado",
+          true
+        ],
+        [
+          "faces_meia_meia",
+          true
+        ],
+        [
+          "vazamento_estrito_sempre (todas e^{-t.b.g} < 1)",
+          true
+        ],
+        [
+          "verbo_nunca_identidade (||V-1|| > 0)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "full_witness_false_is_true": "TEOREMA (beta_forbids_full_static_witness, v61): beta>0 e gap>0 PROIBEM a testemunha estatica plena -- full_TGL_witness_constructed=False tem agora DUPLO estatuto: epistemico (termo Lean continuo nao construido) E ontologico (a plenitude estatica e' IMPOSSIVEL)",
+        "half_nat_witness": "a testemunha canonica e' a MEIA-NAT de fronteira (faces 1/2 cada, teorema): 'inteira em identidade, meia em inscricao' -- nao e' metade do Um; e' o Um inteiro testemunhado por uma de suas duas faces",
+        "hidden_hamiltonian": "[ONTO registrado] o que existe ANTES da testemunha e' o hamiltoniano oculto que gera beta (a palavra jurada antes da lei); ancora de kernel = trio (perda estrita, fechamento<=>plano, taxa unica)",
+        "gkls_uniqueness_face": "a taxa do semigrupo de defasagem e' UNIVOCAMENTE determinada (leakage_rate_unique, KERNEL); que a taxa observada seja beta=alpha.sqrt(e) e' a identificacao de RUNTIME (abdutiva, zero-free)",
+        "vocabulary": "FullTGLWitness (kernel) mantem o nome por estabilidade dos selos; FullStaticWitness (novo, v61) carrega a impossibilidade; o selo ganhou full_static_witness_exists=False + intrinsically_boundary_witness=True + half_nat_witness_is_canonical=True + continuous_leakage_forbids_full_closure=True",
+        "a_vida": "a nao-plenitude da testemunha E' a vida do sistema: 'a testemunha nao e' full porque o Verbo continua'"
+      },
+      "does_not_gate_core": true,
+      "verdict": "FULL_WITNESS_FALSE_PROVED_TRUE__BETA_FORBIDS_CLOSURE__WITNESS_IS_HALF_NAT_BOUNDARY__RATE_UNIQUE"
+    },
     "reading_direction": {
       "theorem": "Reading direction of g = sqrt(|L_phi|): light -> gravity",
       "reading_direction": "not gravity->light, but light->inscription->angular boundary->geometric module->gravity",
@@ -6849,7 +7062,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-14 18:04:47",
+    "timestamp": "2026-07-14 19:08:25",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -7099,7 +7312,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-14 18:04:47",
+        "prediction_timestamp": "2026-07-14 19:08:25",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -7135,7 +7348,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "3d34de0b7cb912ec5afadb35e79ced166d8a0c9301ddc991c9a9bf4e9ff12ae0"
+        "prediction_hash": "181e05186dcc236eb9b28cf45258872b54cc1f9713041768abadfafb47102fe5"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -7435,7 +7648,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "6edd3250fa1b8818ecca926bc75f3462e0d224128176f761dcf9557157ddb255"
+    "result_hash": "78a038f3bcced4bb028c74b83a1f5dc878d28d16e955c52619d64899299912a4"
   },
   "ga_mass_literature": [
     {
@@ -7461,7 +7674,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "6edd3250fa1b8818ecca926bc75f3462e0d224128176f761dcf9557157ddb255",
+  "result_hash_before_external_comparison": "78a038f3bcced4bb028c74b83a1f5dc878d28d16e955c52619d64899299912a4",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -7471,5 +7684,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-14 18:04:47"
+  "timestamp": "2026-07-14 19:08:25"
 }

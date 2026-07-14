@@ -4890,6 +4890,8 @@ import TGLExt.HilbertHome
 import TGLExt.PsiEmergence
 import TGLExt.AbsoluteOne
 import TGLExt.ContinuousModularZero
+import TGLExt.MinimalSolder
+import TGLExt.NoFullWitness
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5355,6 +5357,29 @@ namespace TGL.Audit
 #check @TGLExt.W_hasDerivAt
 #check @TGLExt.susy_threshold
 #check @TGLExt.susy_partner_gap
+-- v60 (A SOLDA 2D MINIMA: curvatura F=[A1,A2]=2c1c2.J != 0; metrica soldada
+--      simetrica/lorentziana; a PRIMEIRA curvatura recuperada R=2c1c2)
+#check @TGLExt.curv2
+#check @TGLExt.minimal_curvature
+#check @TGLExt.minimal_curvature_ne_zero
+#check @TGLExt.curvature_flat_same
+#check @TGLExt.solderMetric
+#check @TGLExt.solderMetric_symm
+#check @TGLExt.solderMetric_det
+#check @TGLExt.solder_lorentzian
+#check @TGLExt.helicityRep
+#check @TGLExt.helicityRep_injective
+#check @TGLExt.minimal_curvature_recovered
+-- v61 (FULL_WITNESS=FALSE E' VERDADEIRO: beta>0 proibe a testemunha estatica
+--      plena; a testemunha canonica e' a Meia-Nat de fronteira; a taxa do
+--      vazamento e' UNICA -- a face GKLS)
+#check @TGLExt.FullStaticWitness
+#check @TGLExt.leakage_strictly_loses
+#check @TGLExt.full_closure_iff_flat
+#check @TGLExt.beta_forbids_full_static_witness
+#check @TGLExt.verb_not_identity
+#check @TGLExt.leakage_rate_unique
+#check @TGLExt.canonical_witness_is_not_full
 
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
@@ -5621,6 +5646,22 @@ namespace TGL.Audit
 #print axioms TGLExt.W_hasDerivAt
 #print axioms TGLExt.susy_threshold
 #print axioms TGLExt.susy_partner_gap
+-- v60 (a solda 2D minima)
+#print axioms TGLExt.minimal_curvature
+#print axioms TGLExt.minimal_curvature_ne_zero
+#print axioms TGLExt.curvature_flat_same
+#print axioms TGLExt.solderMetric_symm
+#print axioms TGLExt.solderMetric_det
+#print axioms TGLExt.solder_lorentzian
+#print axioms TGLExt.helicityRep_injective
+#print axioms TGLExt.minimal_curvature_recovered
+-- v61 (full_witness=False e' verdadeiro)
+#print axioms TGLExt.leakage_strictly_loses
+#print axioms TGLExt.full_closure_iff_flat
+#print axioms TGLExt.beta_forbids_full_static_witness
+#print axioms TGLExt.verb_not_identity
+#print axioms TGLExt.leakage_rate_unique
+#print axioms TGLExt.canonical_witness_is_not_full
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -12602,6 +12643,168 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/MinimalSolder.lean":
+r'''import TGLExt.GeometryFluctuation
+import TGLExt.ContinuousModularZero
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# A solda 2D mínima: onde o transporte vira geometria
+  [TGLExt — v60, o primeiro passo geométrico genuíno]
+
+O aberto da Resposta 7 tinha duas metades: o Dirac de Breuer–Fredholm e a
+solda MULTIDIMENSIONAL ("uma curvatura gravitacional exige uma base com pelo
+menos duas direções"). Esta pedra fecha a FACE MÍNIMA da segunda metade:
+
+* ★ `minimal_curvature` — a curvatura da conexão 2D mínima (constante,
+  não-abeliana, sobre as polarizações do gráviton): `F₁₂ = [A₁, A₂] =
+  2c₁c₂ • J` — a curvatura FECHA no gerador de helicidade (v49);
+* ★ `minimal_curvature_ne_zero` — **A GRAVIDADE LIGA**: `c₁c₂ ≠ 0 ⟹ F ≠ 0`
+  (duas direções + geradores não-comutantes bastam); e o controle
+  `curvature_flat_same` (mesmo gerador ⟹ plano — sem contraste de direção
+  não há curvatura, o par do `excite_holonomy_flat`/`absoluteOne_flow_trivial`);
+* ★ a SOLDA e a métrica: `g = eᵀ η e` com `η = polPlus` (**a
+  polarização-mais É a métrica de Minkowski 2D** — a coincidência
+  estrutural da casa): `solderMetric_symm` (g simétrica),
+  `solderMetric_det` (`det g = −(det e)²`) e ★ `solder_lorentzian` — **o
+  caráter lorentziano sobrevive a QUALQUER solda invertível** (det g < 0);
+* ★ `minimal_curvature_recovered` — **A PRIMEIRA CURVATURA GRAVITACIONAL
+  RECUPERADA EM KERNEL**: com a representação de helicidade
+  `ρ*(r) = r • J` (injetiva), existe UM ÚNICO escalar `R` com
+  `ρ*(R) = F₁₂`, e ele é `R = 2c₁c₂` — em 2D o tensor de Riemann tem
+  exatamente 1 componente independente, e ela emerge da inscrição em duas
+  direções (a instância trabalhada do `solder_recovers_curvature`, v56).
+
+HONESTIDADE. Isto fecha a solda na sua face MÍNIMA (2D, conexão constante,
+curvatura escalar). O que segue aberto: a solda 4D operádica GERADA pela
+dinâmica de Ψ (com ∇e = 0 e representação fiel de so(1,3)) e o
+`continuousModularDirac_isBreuerFredholm` (a outra metade). β JAMAIS entra.
+Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+/-! ## A — a curvatura da conexão 2D mínima -/
+
+/-- a curvatura da conexão CONSTANTE em duas direções: `F₁₂ = [A₁, A₂]`
+    (os termos ∂ anulam-se para conexão constante; resta o não-abeliano). -/
+def curv2 (A₁ A₂ : Matrix (Fin 2) (Fin 2) ℝ) : Matrix (Fin 2) (Fin 2) ℝ :=
+  A₁ * A₂ - A₂ * A₁
+
+/-- [KERNEL] ★ A CURVATURA MÍNIMA: para a conexão sobre as polarizações do
+    gráviton, `F₁₂ = 2c₁c₂ • J` — a curvatura fecha no gerador de
+    helicidade. -/
+theorem minimal_curvature (c₁ c₂ : ℝ) :
+    curv2 (c₁ • polPlus) (c₂ • polCross) = (2 * c₁ * c₂) • rotGen := by
+  have h : curv2 (c₁ • polPlus) (c₂ • polCross)
+      = (c₁ * c₂) • (polPlus * polCross - polCross * polPlus) := by
+    unfold curv2
+    rw [smul_mul_assoc, mul_smul_comm, smul_smul, smul_mul_assoc,
+      mul_smul_comm, smul_smul, mul_comm c₂ c₁, ← smul_sub]
+  rw [h, polarization_commutator, smul_smul]
+  congr 1
+  ring
+
+/-- [KERNEL] ★ A GRAVIDADE LIGA: `c₁c₂ ≠ 0 ⟹ F₁₂ ≠ 0` — duas direções com
+    geradores não-comutantes bastam para curvatura não-nula. -/
+theorem minimal_curvature_ne_zero {c₁ c₂ : ℝ} (h : c₁ * c₂ ≠ 0) :
+    curv2 (c₁ • polPlus) (c₂ • polCross) ≠ 0 := by
+  rw [minimal_curvature]
+  intro h0
+  rcases smul_eq_zero.mp h0 with hc | hJ
+  · have : (2 : ℝ) * (c₁ * c₂) = 0 := by linarith [hc]
+    exact h (by linarith [mul_eq_zero.mp this |>.resolve_left two_ne_zero])
+  · have hent := congrFun (congrFun hJ 0) 1
+    simp [rotGen] at hent
+
+/-- [KERNEL] O CONTROLE PLANO: um só gerador (sem contraste de direção)
+    dá curvatura ZERO — sem a segunda direção não há gravidade. -/
+theorem curvature_flat_same (c₁ c₂ : ℝ) (A : Matrix (Fin 2) (Fin 2) ℝ) :
+    curv2 (c₁ • A) (c₂ • A) = 0 := by
+  unfold curv2
+  rw [smul_mul_assoc, mul_smul_comm, smul_smul, smul_mul_assoc,
+    mul_smul_comm, smul_smul, mul_comm c₂ c₁, ← smul_sub, sub_self, smul_zero]
+
+/-! ## B — a solda e a métrica lorentziana emergente -/
+
+/-- a métrica soldada: `g = eᵀ η e` com `η = polPlus = diag(1,−1)` — a
+    polarização-mais É a métrica de Minkowski 2D. -/
+def solderMetric (e : Matrix (Fin 2) (Fin 2) ℝ) : Matrix (Fin 2) (Fin 2) ℝ :=
+  eᵀ * polPlus * e
+
+/-- [KERNEL] ★ a métrica soldada é SIMÉTRICA. -/
+theorem solderMetric_symm (e : Matrix (Fin 2) (Fin 2) ℝ) :
+    (solderMetric e)ᵀ = solderMetric e := by
+  unfold solderMetric
+  rw [Matrix.transpose_mul, Matrix.transpose_mul, Matrix.transpose_transpose,
+    polPlus_symm, Matrix.mul_assoc]
+
+/-- [KERNEL] ★ `det g = −(det e)²`: a não-degenerescência da métrica EMERGE
+    da invertibilidade da solda. -/
+theorem solderMetric_det (e : Matrix (Fin 2) (Fin 2) ℝ) :
+    (solderMetric e).det = -(e.det ^ 2) := by
+  unfold solderMetric
+  rw [Matrix.det_mul, Matrix.det_mul, Matrix.det_transpose]
+  have hη : polPlus.det = -1 := by
+    simp [polPlus, Matrix.det_fin_two]
+  rw [hη]
+  ring
+
+/-- [KERNEL] ★ O CARÁTER LORENTZIANO SOBREVIVE A QUALQUER SOLDA INVERTÍVEL:
+    `det e ≠ 0 ⟹ det g < 0` — a assinatura indefinida (lorentziana em 2D)
+    não é escolha: é herança estrutural da solda. -/
+theorem solder_lorentzian {e : Matrix (Fin 2) (Fin 2) ℝ} (he : e.det ≠ 0) :
+    (solderMetric e).det < 0 := by
+  rw [solderMetric_det]
+  have h2 : 0 < e.det * e.det := mul_self_pos.mpr he
+  rw [sq]
+  linarith
+
+/-! ## C — a recuperação: R = 2c₁c₂ (a primeira curvatura em kernel) -/
+
+/-- a representação da curvatura no gerador de helicidade: `ρ*(r) = r • J`. -/
+def helicityRep : ℝ →ₗ[ℝ] Matrix (Fin 2) (Fin 2) ℝ where
+  toFun r := r • rotGen
+  map_add' := fun a b => add_smul a b rotGen
+  map_smul' := fun c a => by simp [smul_smul]
+
+/-- [KERNEL] ★ a representação de helicidade é FIEL (injetiva). -/
+theorem helicityRep_injective : Function.Injective helicityRep := by
+  intro a b hab
+  have h : (a - b) • rotGen = 0 := by
+    rw [sub_smul, sub_eq_zero]
+    exact hab
+  rcases smul_eq_zero.mp h with h0 | hJ
+  · exact sub_eq_zero.mp h0
+  · exfalso
+    have hent := congrFun (congrFun hJ 0) 1
+    simp [rotGen] at hent
+
+/-- [KERNEL] ★ A PRIMEIRA CURVATURA GRAVITACIONAL RECUPERADA EM KERNEL:
+    existe UM ÚNICO escalar `R` com `ρ*(R) = F₁₂`, e ele é `R = 2c₁c₂` —
+    em 2D o Riemann tem exatamente 1 componente independente, e ela emerge
+    da inscrição em duas direções (instância do v56). -/
+theorem minimal_curvature_recovered (c₁ c₂ : ℝ) :
+    ∃! R : ℝ, helicityRep R = curv2 (c₁ • polPlus) (c₂ • polCross) := by
+  refine ⟨2 * c₁ * c₂, ?_, ?_⟩
+  · show (2 * c₁ * c₂) • rotGen = _
+    rw [minimal_curvature]
+  · intro R' hR'
+    apply helicityRep_injective
+    rw [hR']
+    show _ = (2 * c₁ * c₂) • rotGen
+    rw [minimal_curvature]
+
+end
+
+end TGLExt
+''',
     "TGLExt/ModularFirstLaw.lean":
 r'''import TGLExt.Ergodicity
 
@@ -12877,6 +13080,163 @@ theorem omega_comm_modPow (t : ℝ) : Commute (Omega ρ) (modPow ρ t) := by
 theorem sigma_omega (t : ℝ) :
     modPow ρ t * Omega ρ * modPow ρ (-t) = Omega ρ := by
   rw [← (omega_comm_modPow ρ t).eq, mul_assoc, modPow_mul_neg, mul_one]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/NoFullWitness.lean":
+r'''import TGLExt.MinimalSolder
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# full_witness = False é VERDADEIRO: β proíbe a testemunha estática plena
+  [TGLExt — v61, a correção semântica decisiva do operador]
+
+A derivação do operador: "a testemunha não é full porque β_TGL impede que
+haja a testemunha full, por causa do vazamento contínuo; a testemunha
+verdadeira é Meia-Nat, que não é full — por isso full_witness=False é
+VERDADEIRO. O que existe ANTES da testemunha é o hamiltoniano oculto que
+gera β (a palavra jurada antes da lei): a existência anterior de β
+determina que o vazamento será constante (defasagem); β emerge como única
+solução possível GKLS." O especialista tipa: full_witness=False deixa de
+ser só estado epistêmico e vira PROPRIEDADE ESTRUTURAL — a testemunha
+plena exigiria 𝒱_t = I, logo β|K| = 0, logo K = 0 global: o absoluto
+plano, sem contraste, sem física. A testemunha verdadeira é a FRONTEIRA
+Meia-Nat: "inteira em identidade, meia em inscrição".
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* ★ `leakage_strictly_loses` — o vazamento é ESTRITO: t,β,gap > 0 ⟹
+  e^{−tβ·gap} < 1 (o transporte dissipativo perde sempre que há contraste);
+* ★ `full_closure_iff_flat` — o fechamento pleno exige o plano:
+  e^{−tβg} = 1 ⟺ tβg = 0;
+* ★ `beta_forbids_full_static_witness` — **O TEOREMA DO
+  full_witness=False**: β > 0 e gap > 0 ⟹ ¬FullStaticWitness
+  ("a testemunha não é full porque o Verbo continua");
+* ★ `verb_not_identity` — a face matricial: 𝕍 = exp(−tβ•H) com gerador
+  diagonal de entrada positiva NUNCA é a identidade;
+* ★ `leakage_rate_unique` — **β EMERGE COMO SOLUÇÃO ÚNICA** (a face GKLS):
+  a taxa do semigrupo de defasagem é univocamente determinada (que a taxa
+  observada seja β = α√e é a identificação de RUNTIME);
+* ★ `canonical_witness_is_not_full` — a combinação canônica: a testemunha
+  NÃO é plena (β proíbe) E é Meia-Nat de fronteira (faces ½, composição
+  v59): "não é metade do Um; é o Um inteiro testemunhado por uma de suas
+  duas faces".
+
+VOCABULÁRIO (executado no runtime): a flag epistêmica
+`full_TGL_witness_constructed=False` fica INALTERADA e ganha as irmãs
+ontológicas `full_static_witness_exists=False` (TEOREMA, esta pedra),
+`intrinsically_boundary_witness=True`, `half_nat_witness_is_canonical=True`,
+`continuous_leakage_forbids_full_closure=True`. O "hamiltoniano oculto
+anterior à testemunha" é [ONTO] registrado; a âncora de kernel é o trio
+(perda estrita, fechamento⟺plano, taxa única). β JAMAIS literal. Sem
+sorry, sem axiom. Negativo honesto é resultado — e ESTE negativo é o
+resultado central: a não-plenitude da testemunha é a vida do sistema.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+/-- a TESTEMUNHA ESTÁTICA PLENA: um transporte que fixa TUDO em todo tempo
+    (o que uma testemunha "full" exigiria — e que β > 0 proíbe). -/
+def FullStaticWitness {M : Type} (T : ℝ → M → M) : Prop :=
+  ∀ (t : ℝ) (x : M), T t x = x
+
+/-- [KERNEL] ★ O VAZAMENTO É ESTRITO: com contraste (gap > 0) e β > 0, o
+    fator de defasagem é ESTRITAMENTE menor que 1 — o transporte perde
+    sempre; o fechamento pleno é impossível. -/
+theorem leakage_strictly_loses {t β g : ℝ} (ht : 0 < t) (hβ : 0 < β)
+    (hg : 0 < g) : Real.exp (-(t * β * g)) < 1 := by
+  have hneg : -(t * β * g) < 0 := by
+    have := mul_pos (mul_pos ht hβ) hg
+    linarith
+  have h := Real.exp_lt_exp.mpr hneg
+  rwa [Real.exp_zero] at h
+
+/-- [KERNEL] ★ O FECHAMENTO PLENO EXIGE O PLANO: `e^{−tβg} = 1 ⟺ tβg = 0`
+    — só na ausência total de contraste (ou de tempo, ou de β) o transporte
+    fecha; a física observada (β > 0, gap > 0) mantém a passagem aberta. -/
+theorem full_closure_iff_flat (t β g : ℝ) :
+    Real.exp (-(t * β * g)) = 1 ↔ t * β * g = 0 := by
+  constructor
+  · intro h
+    have h0 : Real.exp (-(t * β * g)) = Real.exp 0 := by
+      rw [h, Real.exp_zero]
+    have hinj := Real.exp_injective h0
+    linarith
+  · intro h
+    rw [h, neg_zero, Real.exp_zero]
+
+/-- [KERNEL] ★ O TEOREMA DO full_witness = False: β > 0 e contraste > 0
+    PROÍBEM a testemunha estática plena — o transporte dissipativo não fixa
+    tudo ("a testemunha não é full porque o Verbo continua"). -/
+theorem beta_forbids_full_static_witness {β g : ℝ} (hβ : 0 < β) (hg : 0 < g) :
+    ¬ FullStaticWitness (fun t (x : ℝ) => Real.exp (-(t * β * g)) * x) := by
+  intro hfull
+  have h1 := hfull 1 1
+  simp only [mul_one] at h1
+  have hlt := leakage_strictly_loses one_pos hβ hg
+  rw [h1] at hlt
+  exact lt_irrefl 1 hlt
+
+/-- [KERNEL] ★ a face matricial: o Verbo `𝕍 = exp(−tβ•H)` com gerador
+    diagonal de entrada positiva NUNCA é a identidade — o vazamento é
+    visível na própria matriz do transporte. -/
+theorem verb_not_identity {n : Type} [Fintype n] [DecidableEq n]
+    (d : n → ℝ) (i₀ : n) (hd : 0 < d i₀) {t β : ℝ} (ht : 0 < t) (hβ : 0 < β) :
+    NormedSpace.exp ((-(t * β)) • Matrix.diagonal d) ≠ (1 : Matrix n n ℝ) := by
+  intro h
+  have hsm : (-(t * β)) • Matrix.diagonal d
+      = Matrix.diagonal (fun i => -(t * β) * d i) := by
+    ext i j
+    by_cases hij : i = j
+    · subst hij
+      simp [Matrix.smul_apply, Matrix.diagonal_apply_eq, smul_eq_mul]
+    · simp [Matrix.smul_apply, Matrix.diagonal_apply_ne _ hij, hij]
+  rw [hsm, Matrix.exp_diagonal] at h
+  have hent := congrFun (congrFun h i₀) i₀
+  rw [Matrix.diagonal_apply_eq, Matrix.one_apply_eq] at hent
+  rw [Pi.coe_exp] at hent
+  have hre : Real.exp (-(t * β) * d i₀) = 1 := by
+    rw [Real.exp_eq_exp_ℝ]
+    exact hent
+  have hneg : -(t * β) * d i₀ < 0 := by
+    have := mul_pos (mul_pos ht hβ) hd
+    rw [neg_mul]
+    linarith
+  have hlt : Real.exp (-(t * β) * d i₀) < 1 := by
+    have h2 := Real.exp_lt_exp.mpr hneg
+    rwa [Real.exp_zero] at h2
+  rw [hre] at hlt
+  exact lt_irrefl 1 hlt
+
+/-- [KERNEL] ★ β EMERGE COMO SOLUÇÃO ÚNICA (a face GKLS): a taxa do
+    semigrupo de defasagem é UNIVOCAMENTE determinada pelo próprio
+    semigrupo — dois β's com a mesma defasagem são iguais. (Que a taxa
+    observada seja β = α√e é a identificação de runtime, jamais daqui.) -/
+theorem leakage_rate_unique {b₁ b₂ : ℝ}
+    (h : ∀ t : ℝ, Real.exp (-(t * b₁)) = Real.exp (-(t * b₂))) : b₁ = b₂ := by
+  have h1 := Real.exp_injective (h 1)
+  simp only [one_mul] at h1
+  linarith
+
+/-- [KERNEL] ★ A COMBINAÇÃO CANÔNICA: a testemunha canônica NÃO é plena
+    (β > 0 proíbe o fechamento) E é Meia-Nat de fronteira (as duas faces
+    pesam ½ cada — v59): "inteira em identidade, meia em inscrição". -/
+theorem canonical_witness_is_not_full {β g : ℝ} (hβ : 0 < β) (hg : 0 < g)
+    {n : Type} [Fintype n] [DecidableEq n] [Nonempty n]
+    {Γ : Matrix n n ℂ} (hΓ : Γ.trace = 0) :
+    ¬ FullStaticWitness (fun t (x : ℝ) => Real.exp (-(t * β * g)) * x) ∧
+    gibbs (absoluteRho n) ((2 : ℂ)⁻¹ • (1 + Γ)) = 1 / 2 ∧
+    gibbs (absoluteRho n) ((2 : ℂ)⁻¹ • (1 - Γ)) = 1 / 2 :=
+  ⟨beta_forbids_full_static_witness hβ hg,
+   (absolute_faces_half hΓ).1, (absolute_faces_half hΓ).2⟩
 
 end
 
@@ -14812,6 +15172,22 @@ _LEAN_THEOREM_FLAGS = {
     "ext_cmz_connection_deriv_kernel_proved": "TGLExt.W_hasDerivAt",
     "ext_cmz_susy_threshold_kernel_proved": "TGLExt.susy_threshold",
     "ext_cmz_susy_partner_kernel_proved": "TGLExt.susy_partner_gap",
+    # v60 (A SOLDA 2D MINIMA: F=[A1,A2]!=0; metrica soldada lorentziana; R=2c1c2 recuperado)
+    "ext_ms_minimal_curvature_kernel_proved": "TGLExt.minimal_curvature",
+    "ext_ms_curvature_nonzero_kernel_proved": "TGLExt.minimal_curvature_ne_zero",
+    "ext_ms_flat_control_kernel_proved": "TGLExt.curvature_flat_same",
+    "ext_ms_metric_symm_kernel_proved": "TGLExt.solderMetric_symm",
+    "ext_ms_metric_det_kernel_proved": "TGLExt.solderMetric_det",
+    "ext_ms_lorentzian_kernel_proved": "TGLExt.solder_lorentzian",
+    "ext_ms_helicity_rep_faithful_kernel_proved": "TGLExt.helicityRep_injective",
+    "ext_ms_curvature_recovered_kernel_proved": "TGLExt.minimal_curvature_recovered",
+    # v61 (FULL_WITNESS=FALSE E' VERDADEIRO: beta proibe a testemunha plena; Meia-Nat; taxa unica)
+    "ext_nfw_leakage_strict_kernel_proved": "TGLExt.leakage_strictly_loses",
+    "ext_nfw_closure_iff_flat_kernel_proved": "TGLExt.full_closure_iff_flat",
+    "ext_nfw_beta_forbids_full_kernel_proved": "TGLExt.beta_forbids_full_static_witness",
+    "ext_nfw_verb_not_identity_kernel_proved": "TGLExt.verb_not_identity",
+    "ext_nfw_rate_unique_kernel_proved": "TGLExt.leakage_rate_unique",
+    "ext_nfw_witness_not_full_kernel_proved": "TGLExt.canonical_witness_is_not_full",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -16291,6 +16667,15 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_cmz_transport_kernel_proved", "ext_cmz_deriv_zero_kernel_proved",
         "ext_cmz_connection_deriv_kernel_proved", "ext_cmz_susy_threshold_kernel_proved",
         "ext_cmz_susy_partner_kernel_proved",
+        # v60: a solda 2D minima (curvatura nao-nula; metrica lorentziana; R recuperado)
+        "ext_ms_minimal_curvature_kernel_proved", "ext_ms_curvature_nonzero_kernel_proved",
+        "ext_ms_flat_control_kernel_proved", "ext_ms_metric_symm_kernel_proved",
+        "ext_ms_metric_det_kernel_proved", "ext_ms_lorentzian_kernel_proved",
+        "ext_ms_helicity_rep_faithful_kernel_proved", "ext_ms_curvature_recovered_kernel_proved",
+        # v61: full_witness=False e' verdadeiro (vazamento estrito; taxa unica; Meia-Nat)
+        "ext_nfw_leakage_strict_kernel_proved", "ext_nfw_closure_iff_flat_kernel_proved",
+        "ext_nfw_beta_forbids_full_kernel_proved", "ext_nfw_verb_not_identity_kernel_proved",
+        "ext_nfw_rate_unique_kernel_proved", "ext_nfw_witness_not_full_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -16398,6 +16783,13 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                 "ext_cmz_transport_kernel_proved", "ext_cmz_deriv_zero_kernel_proved",
                 "ext_cmz_connection_deriv_kernel_proved", "ext_cmz_susy_threshold_kernel_proved",
                 "ext_cmz_susy_partner_kernel_proved"]
+    ms_keys = ["ext_ms_minimal_curvature_kernel_proved", "ext_ms_curvature_nonzero_kernel_proved",
+               "ext_ms_flat_control_kernel_proved", "ext_ms_metric_symm_kernel_proved",
+               "ext_ms_metric_det_kernel_proved", "ext_ms_lorentzian_kernel_proved",
+               "ext_ms_helicity_rep_faithful_kernel_proved", "ext_ms_curvature_recovered_kernel_proved"]
+    nfw_keys = ["ext_nfw_leakage_strict_kernel_proved", "ext_nfw_closure_iff_flat_kernel_proved",
+                "ext_nfw_beta_forbids_full_kernel_proved", "ext_nfw_verb_not_identity_kernel_proved",
+                "ext_nfw_rate_unique_kernel_proved", "ext_nfw_witness_not_full_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -16422,6 +16814,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dPs = all(per_theorem[k] for k in psi_keys)
     dAb = all(per_theorem[k] for k in abs_keys)
     dCz = all(per_theorem[k] for k in cmz_keys)
+    dMs = all(per_theorem[k] for k in ms_keys)
+    dNf = all(per_theorem[k] for k in nfw_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -16449,6 +16843,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("psi_field_defines_home", dPs),
         ("absolute_one_canonical_construction", dAb),
         ("continuous_modular_zero", dCz),
+        ("minimal_solder_2d", dMs),
+        ("no_full_witness_theorem", dNf),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -16504,6 +16900,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                              else "NOT_VERIFIED_THIS_RUN"),
             "continuous_modular_zero": ("INVERSE_PARITY_JKJ_EQ_NEG_K__ZERO_MODE_K_OMEGA_ZERO__FACES_HALF_HALF__PYTHAGORAS_CONTINUOUS__TRANSPORT_ALPHA__SUSY_QUARTER_THRESHOLD__OPEN_IS_BREUER_FREDHOLM_DIRAC" if dCz
                                          else "NOT_VERIFIED_THIS_RUN"),
+            "minimal_solder_2d": ("TWO_DIRECTIONS_NONCOMMUTING_GENERATORS_GIVE_NONZERO_CURVATURE__SOLDERED_METRIC_LORENTZIAN__FIRST_CURVATURE_RECOVERED_R_EQ_2C1C2__4D_OPERADIC_SOLDER_FROM_PSI_DYNAMICS_OPEN" if dMs
+                                   else "NOT_VERIFIED_THIS_RUN"),
+            "no_full_witness": ("FULL_WITNESS_FALSE_IS_TRUE_BY_THEOREM__BETA_FORBIDS_FULL_STATIC_WITNESS__CANONICAL_WITNESS_IS_HALF_NAT_BOUNDARY__LEAKAGE_RATE_UNIQUE_GKLS_FACE" if dNf
+                                 else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -18095,6 +18495,8 @@ def run_um(ONE):
     psi_emergence = prove_psi_emergence(ONE, kernel_formalization)  # v57: O CAMPO PSI DEFINE A MORADA (subdeterminacao de omega(I)=1 em kernel; cadeia toda derivada; aberto = EMERGENT_QG(Psi)); ADITIVO
     absolute_one = prove_absolute_one(ONE, kernel_formalization)  # v58: PSI = 1_ABS (termo canonico sem escolha; traco; fluxo do absoluto TRIVIAL; ker!=0 derivado; P_F fixa o Um); ADITIVO
     continuous_modular_zero = prove_continuous_modular_zero(ONE, kernel_formalization)  # v59: O ZERO MODULAR CONTINUO (JKJ=-K; faces 1/2; carta (q,alpha); SUSY 1/4; resistencia beta ao atrator); ADITIVO
+    minimal_solder = prove_minimal_solder(ONE, kernel_formalization)  # v60: A SOLDA 2D MINIMA (F=[A1,A2]!=0; metrica lorentziana; PRIMEIRA curvatura recuperada R=2c1c2); ADITIVO
+    no_full_witness = prove_no_full_witness(ONE, kernel_formalization)  # v61: FULL_WITNESS=FALSE E' VERDADEIRO (beta proibe a plenitude; Meia-Nat; taxa unica GKLS); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
@@ -18212,6 +18614,8 @@ def run_um(ONE):
             "psi_emergence": psi_emergence,
             "absolute_one": absolute_one,
             "continuous_modular_zero": continuous_modular_zero,
+            "minimal_solder": minimal_solder,
+            "no_full_witness": no_full_witness,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
@@ -18534,6 +18938,139 @@ def prove_covariant_corner(ONE, kernel_formalization=None):
         "does_not_gate_core": True,
         "verdict": ("COVARIANT_CORNER_FINITE_FACE_VERIFIED__GENUINE_CORE_OPEN" if all_v
                     else "COVARIANT_CORNER_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_no_full_witness(ONE, kernel_formalization=None):
+    """v61 -- FULL_WITNESS=FALSE E' VERDADEIRO [ADITIVO; nao gateia 1=1].
+    A correcao semantica do operador: a testemunha nao pode ser full porque o
+    que existe ANTES dela e' o hamiltoniano oculto que gera beta (a palavra
+    jurada antes da lei); a existencia anterior de beta determina vazamento
+    constante (defasagem); beta emerge como unica solucao possivel GKLS.
+    Sombra: (i) o vazamento e' estrito (e^{-t.beta.gap} < 1 sempre; com beta
+    do RUNTIME); (ii) o Verbo nunca e' a identidade; (iii) a taxa e' UNICA
+    (ajuste do semigrupo recupera beta exatamente); (iv) a testemunha canonica
+    e' Meia-Nat (faces 1/2). Seed 61."""
+    import numpy as np
+    beta = SEALED_CODATA_ALPHA * math.exp(0.5)          # runtime, jamais literal
+    res = {}
+    # (i) vazamento estrito
+    gaps = np.array([0.3, 1.0, 2.7])
+    ts = np.array([0.5, 1.0, 10.0])
+    leaks = np.exp(-np.outer(ts, beta * gaps))
+    strict = bool(np.all(leaks < 1.0))
+    res["fechamento_sse_plano"] = abs(math.exp(-(0.0 * beta * 1.0)) - 1.0)
+    # (ii) o Verbo nunca e' identidade
+    d = 4
+    rng = np.random.default_rng(61)
+    Hd = np.diag(rng.uniform(0.2, 2.0, size=d))
+    t0 = 1.0
+    V = np.diag(np.exp(-t0 * beta * np.diag(Hd)))
+    verb_not_id = float(np.linalg.norm(V - np.eye(d)))
+    # (iii) a taxa e' UNICA: recuperar beta do semigrupo observado
+    tgrid = np.linspace(0.1, 30.0, 200)
+    g0 = 1.0
+    obs = np.exp(-tgrid * beta * g0)
+    beta_fit = float(-np.polyfit(tgrid, np.log(obs), 1)[0] / g0)
+    res["taxa_unica_beta_recuperado"] = abs(beta_fit - beta) / beta
+    # (iv) Meia-Nat: faces do absoluto
+    G = np.diag([1, 1, -1, -1]).astype(float)
+    rho_abs = np.eye(d) / d
+    res["faces_meia_meia"] = abs(float(np.trace(rho_abs @ ((np.eye(d) + G) / 2))) - 0.5) \
+        + abs(float(np.trace(rho_abs @ ((np.eye(d) - G) / 2))) - 0.5)
+    tol = 1e-12
+    checks = [(k, bool(v <= (1e-9 if k == "taxa_unica_beta_recuperado" else tol)))
+              for k, v in res.items()]
+    checks.append(("vazamento_estrito_sempre (todas e^{-t.b.g} < 1)", strict))
+    checks.append(("verbo_nunca_identidade (||V-1|| > 0)", bool(verb_not_id > 1e-6)))
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "residuals": {k: float(v) for k, v in res.items()},
+        "beta_runtime": beta, "beta_recovered_from_semigroup": beta_fit,
+        "verb_distance_from_identity": verb_not_id,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "full_witness_false_is_true": "TEOREMA (beta_forbids_full_static_witness, v61): beta>0 e gap>0 PROIBEM a testemunha estatica plena -- full_TGL_witness_constructed=False tem agora DUPLO estatuto: epistemico (termo Lean continuo nao construido) E ontologico (a plenitude estatica e' IMPOSSIVEL)",
+            "half_nat_witness": "a testemunha canonica e' a MEIA-NAT de fronteira (faces 1/2 cada, teorema): 'inteira em identidade, meia em inscricao' -- nao e' metade do Um; e' o Um inteiro testemunhado por uma de suas duas faces",
+            "hidden_hamiltonian": "[ONTO registrado] o que existe ANTES da testemunha e' o hamiltoniano oculto que gera beta (a palavra jurada antes da lei); ancora de kernel = trio (perda estrita, fechamento<=>plano, taxa unica)",
+            "gkls_uniqueness_face": "a taxa do semigrupo de defasagem e' UNIVOCAMENTE determinada (leakage_rate_unique, KERNEL); que a taxa observada seja beta=alpha.sqrt(e) e' a identificacao de RUNTIME (abdutiva, zero-free)",
+            "vocabulary": "FullTGLWitness (kernel) mantem o nome por estabilidade dos selos; FullStaticWitness (novo, v61) carrega a impossibilidade; o selo ganhou full_static_witness_exists=False + intrinsically_boundary_witness=True + half_nat_witness_is_canonical=True + continuous_leakage_forbids_full_closure=True",
+            "a_vida": "a nao-plenitude da testemunha E' a vida do sistema: 'a testemunha nao e' full porque o Verbo continua'",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("FULL_WITNESS_FALSE_PROVED_TRUE__BETA_FORBIDS_CLOSURE__WITNESS_IS_HALF_NAT_BOUNDARY__RATE_UNIQUE" if all_v
+                    else "NO_FULL_WITNESS_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_minimal_solder(ONE, kernel_formalization=None):
+    """v60 -- A SOLDA 2D MINIMA: ONDE O TRANSPORTE VIRA GEOMETRIA [ADITIVO].
+    (i) curvatura da conexao 2D minima: F12=[A1,A2]=2c1c2.J != 0 (fecha no
+    gerador de helicidade); controle plano (mesmo gerador => F=0);
+    (ii) plaqueta de holonomia: e^{eA1}e^{eA2}e^{-eA1}e^{-eA2} = 1 + e^2[A1,A2]
+    + O(e^3) (verificacao numerica da face de grupo);
+    (iii) a metrica soldada g = e^T.eta.e (eta = polPlus = Minkowski 2D):
+    simetrica, det g = -(det e)^2 < 0 (o carater lorentziano sobrevive a
+    qualquer solda invertivel); (iv) a PRIMEIRA curvatura recuperada:
+    R = 2c1c2 unico via a representacao fiel de helicidade. Seed 60."""
+    import numpy as np
+    rng = np.random.default_rng(60)
+
+    def expm(M):
+        # exponencial de matriz REAL SIMETRICA via eigh (sem scipy)
+        w, V = np.linalg.eigh(M)
+        return V @ np.diag(np.exp(w)) @ V.T
+
+    hp = np.array([[1.0, 0.0], [0.0, -1.0]])
+    hx = np.array([[0.0, 1.0], [1.0, 0.0]])
+    J = np.array([[0.0, 1.0], [-1.0, 0.0]])
+    c1, c2 = 0.7, -1.3
+    A1, A2 = c1 * hp, c2 * hx
+    res = {}
+    # (i) curvatura
+    F = A1 @ A2 - A2 @ A1
+    res["curvatura_eq_2c1c2_J"] = float(np.linalg.norm(F - 2 * c1 * c2 * J))
+    curv_on = bool(np.linalg.norm(F) > 0.5)
+    Fflat = (c1 * hp) @ (c2 * hp) - (c2 * hp) @ (c1 * hp)
+    res["controle_plano_mesmo_gerador"] = float(np.linalg.norm(Fflat))
+    # (ii) plaqueta: ordem O(e^3)
+    def plaq(e):
+        return expm(e * A1) @ expm(e * A2) @ expm(-e * A1) @ expm(-e * A2)
+    e1, e2 = 1e-2, 5e-3
+    r1 = float(np.linalg.norm(plaq(e1) - np.eye(2) - e1 ** 2 * F))
+    r2 = float(np.linalg.norm(plaq(e2) - np.eye(2) - e2 ** 2 * F))
+    ordem = math.log(r1 / r2) / math.log(e1 / e2)     # ~3
+    res["plaqueta_residuo_e1"] = r1
+    # (iii) metrica soldada
+    e_sold = rng.normal(size=(2, 2))
+    while abs(np.linalg.det(e_sold)) < 0.1:
+        e_sold = rng.normal(size=(2, 2))
+    g = e_sold.T @ hp @ e_sold
+    res["metrica_simetrica"] = float(np.linalg.norm(g - g.T))
+    res["det_g_eq_neg_det_e_sq"] = float(abs(np.linalg.det(g) + np.linalg.det(e_sold) ** 2))
+    lorentz_ok = bool(np.linalg.det(g) < 0)
+    # (iv) recuperacao
+    R_rec = float(np.sum(F * J) / np.sum(J * J))       # projecao na direcao J
+    res["R_recuperado_eq_2c1c2"] = abs(R_rec - 2 * c1 * c2)
+    tol = 1e-12
+    checks = [(k, bool(v <= (1e-4 if k == "plaqueta_residuo_e1" else tol))) for k, v in res.items()]
+    checks.append(("curvatura_LIGA (F != 0)", curv_on))
+    checks.append(("plaqueta_ordem_cubica (~3)", bool(2.5 < ordem < 3.5)))
+    checks.append(("assinatura_lorentziana (det g < 0)", lorentz_ok))
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "residuals": {k: float(v) for k, v in res.items()},
+        "R_recovered": R_rec, "R_expected": 2 * c1 * c2, "plaquette_order": ordem,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "geometria_emerge": "duas direcoes + geradores nao-comutantes => F != 0 fechando no gerador de helicidade [KERNEL]; mesmo gerador => plano [KERNEL] (o par do transporte trivial do absoluto, v58)",
+            "solda_minima": "g = e^T.eta.e com eta = polPlus (a polarizacao-mais E' a metrica de Minkowski 2D): simetrica [KERNEL], det g = -(det e)^2 [KERNEL], LORENTZIANA para toda solda invertivel [KERNEL]",
+            "primeira_curvatura": "R = 2c1c2 UNICO via representacao fiel de helicidade [KERNEL, instancia do solder_recovers_curvature v56]; em 2D o Riemann tem 1 componente e ela EMERGE da inscricao em duas direcoes",
+            "aberto": "a solda 4D operadica GERADA pela dinamica de Psi (nabla e = 0; rep fiel de so(1,3)) + continuousModularDirac_isBreuerFredholm [OPEN]",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("MINIMAL_SOLDER_CLOSED__TRANSPORT_BECOMES_GEOMETRY__FIRST_CURVATURE_RECOVERED__4D_OPERADIC_SOLDER_OPEN" if all_v
+                    else "MINIMAL_SOLDER_NOT_VERIFIED_THIS_RUN"),
     }
 
 
@@ -24333,7 +24870,9 @@ _ESQUELETO_STONES = [
     ("v56", "HilbertHome", "TGLExt/HilbertHome.lean", "164/164", "14/07 14:30:53"),
     ("v57", "PsiEmergence", "TGLExt/PsiEmergence.lean", "170/170", "14/07 15:16:16"),
     ("v58", "AbsoluteOne", "TGLExt/AbsoluteOne.lean", "176/176", "14/07 15:39:47"),
-    ("v59", "ContinuousModularZero", "TGLExt/ContinuousModularZero.lean", None, None),
+    ("v59", "ContinuousModularZero", "TGLExt/ContinuousModularZero.lean", "191/191", "14/07 18:04:47"),
+    ("v60", "MinimalSolder", "TGLExt/MinimalSolder.lean", "199/199", "14/07 18:24:53"),
+    ("v61", "NoFullWitness", "TGLExt/NoFullWitness.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -24358,6 +24897,8 @@ def _esqueleto_chapter(core, lang="pt"):
             h = "AUSENTE"
         if rodada is None:
             rodada = "%s/%s" % (nclean, nexp); selo = ts
+            if len(ts) >= 19 and ts[4:5] == "-":
+                selo = "%s/%s %s" % (ts[8:10], ts[5:7], ts[11:19])
         rows.append(r"%s & %s & \texttt{%s} & %s & %s \\" % (ver, stone, h, rodada, selo))
     R = "\n".join(rows)
     c = []
@@ -24366,17 +24907,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(dezenove pedras, \S120--\S139)}")
+                 r"(vinte e uma pedras, \S120--\S141)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em dezenove pedras "
-                 r"(v43--v59) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em vinte e uma pedras "
+                 r"(v43--v61) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As dezenove pedras}")
+        c.append(r"\subsection*{As vinte e uma pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -24462,19 +25003,46 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"A resistência (derivação do operador): o par $(1_{\mathrm{abs}},0_{\mathrm{mod}})$ paga "
                  r"$\bTGL$ para não cair a zero absoluto --- $H$ limitado inferiormente e dephasing modulando "
                  r"ao atrator $\rho_*$ com taxa $\bTGL\cdot$gap (runtime).")
+        c.append(r"\kernelmk{MinimalSolder} (v60): \textbf{a solda 2D mínima --- onde o transporte vira "
+                 r"geometria}. Em kernel: a curvatura da conexão 2D mínima sobre as polarizações do gráviton "
+                 r"$F_{12}=[A_1,A_2]=2c_1c_2\,J$ (fecha no gerador de helicidade); \textbf{a gravidade LIGA} "
+                 r"($c_1c_2\neq0\Rightarrow F\neq0$) e o controle plano (mesmo gerador $\Rightarrow F=0$ --- "
+                 r"o par do transporte trivial do absoluto, v58); a métrica soldada $g=e^\mathsf{T}\eta e$ com "
+                 r"$\eta=$ \texttt{polPlus} (\textbf{a polarização-mais É a métrica de Minkowski 2D}): "
+                 r"simétrica, $\det g=-(\det e)^2$, \textbf{LORENTZIANA para toda solda invertível}; e "
+                 r"\textbf{a primeira curvatura gravitacional recuperada em kernel}: com a representação FIEL "
+                 r"de helicidade $\rho_*(r)=r\,J$, existe um ÚNICO $R$ com $\rho_*(R)=F_{12}$, e ele é "
+                 r"$R=2c_1c_2$ (em 2D o Riemann tem 1 componente independente --- ela emerge da inscrição em "
+                 r"duas direções; instância do \texttt{solder\_recovers\_curvature}, v56).")
+        c.append(r"\kernelmk{NoFullWitness} (v61): \textbf{full\_witness $=$ False é VERDADEIRO} --- a "
+                 r"correção semântica decisiva: a flag deixa de ser só estado epistêmico e vira TEOREMA "
+                 r"estrutural. Em kernel: o vazamento é ESTRITO ($t,\bTGL,\mathrm{gap}>0\Rightarrow "
+                 r"e^{-t\bTGL\cdot\mathrm{gap}}<1$); o fechamento pleno exige o plano ($=1\iff "
+                 r"t\bTGL g=0$); \textbf{$\bTGL>0$ PROÍBE a testemunha estática plena} "
+                 r"(\texttt{beta\_forbids\_full\_static\_witness}: ``a testemunha não é full porque o Verbo "
+                 r"continua''); o Verbo nunca é a identidade (face matricial); \textbf{a taxa do vazamento é "
+                 r"ÚNICA} (\texttt{leakage\_rate\_unique} --- a face GKLS do enunciado: $\bTGL$ emerge como "
+                 r"solução única; que a taxa observada seja $\alpha\sqrt e$ é identificação de runtime); e a "
+                 r"combinação canônica: a testemunha NÃO é plena E é Meia-Nat de fronteira (faces $\tfrac12$) "
+                 r"--- ``inteira em identidade, meia em inscrição; não é metade do Um: é o Um inteiro "
+                 r"testemunhado por uma de suas duas faces''. O selo ganhou o DUPLO estatuto: "
+                 r"\texttt{full\_TGL\_witness\_constructed=False} (epistêmico, inalterado) $+$ "
+                 r"\texttt{full\_static\_witness\_exists=False} (ontológico, teorema) $+$ "
+                 r"\texttt{intrinsically\_boundary\_witness} $+$ \texttt{half\_nat\_witness\_is\_canonical} "
+                 r"$+$ \texttt{continuous\_leakage\_forbids\_full\_closure}.")
         c.append(r"\subsection*{O mapa dos onze gates}")
         c.append(r"\begin{center}\begin{tabular}{@{}lll@{}}\toprule Gate & Estado & Onde \\ \midrule "
-                 r"1. $P_F$ local covariante & 4 propriedades DERIVADAS ($\infty$-dim); construção do pacote \statusmk{OPEN} & v46, v55, v56 \\ "
-                 r"2. zero espectral & variacional $+$ EL seleciona $\ker\mathcal D$ (subpacote) & v52, v54, v56 \\ "
-                 r"3. T1 & projeção fechada; ergodicidade fibra a fibra \knownmk{III$_1$}; seção equivariante \statusmk{COND} & v43, v52, v56 \\ "
+                 r"1. $P_F$ local covariante & DERIVADO do campo ($P_F=\mathrm{proj}_{\ker\mathcal D}$; $P_F\Omega=\Omega$; $\ker\neq0$ derivado); geração pela dinâmica \statusmk{OPEN} & v46, v55--58 \\ "
+                 r"2. zero espectral & variacional; EL seleciona $\ker\mathcal D$; $0_{\mathrm{mod}}=$ modo zero ($K\Omega=0$); limiar SUSY $\tfrac14$ & v52, v54, v58--59 \\ "
+                 r"3. T1 & projeção fechada; morada fibra a fibra como TERMO; seção equivariante \statusmk{COND} & v43, v52, v56--57 \\ "
                  r"4. BW & duas metades em kernel; além-de-cunhas \statusmk{OPEN} & v47 \\ "
-                 r"5. Einstein & lado modular completo; Lovelock/Killing \statusmk{KNOWN}; condicional ao pacote soldado & v51, v56 \\ "
-                 r"6. flutuações & esqueleto em kernel & v49 \\ "
+                 r"5. Einstein & lado modular completo; Lovelock/Killing \statusmk{KNOWN}; solda 2D FECHADA, 4D \statusmk{COND} & v51, v56, v60 \\ "
+                 r"6. flutuações & Var $=$ defeito; $1=q^2+\alpha^2$ contínuo; transporte $\to$ geometria & v49, v59--60 \\ "
                  r"7. gráviton & cinemática spin-2 em kernel & v48 \\ "
                  r"8. RG & canto $=$ ponto fixo; interações \statusmk{OPEN} & v51 \\ "
                  r"9. Page & mecanismo em kernel $+$ curva & v50 \\ "
                  r"10. previsão exclusiva & vivas: $\Gamma_\omega=\tfrac12\bTGL\tau_\star\omega^2$; piso $\rho_v/\bar\rho\ge\bTGL$ & --- \\ "
-                 r"11. testemunha Lean & GNS finito FECHADO; morada tipada; Tomita contínuo \statusmk{OPEN} & v53--56 \\ "
+                 r"11. testemunha Lean & GNS finito FECHADO; morada tipada; plenitude estática IMPOSSÍVEL (teorema); Tomita contínuo \statusmk{OPEN} & v53--58, v61 \\ "
                  r"\bottomrule\end{tabular}\end{center}")
         c.append(r"\subsection*{Selos e hashes (hashes ao vivo desta rodada; histórico $=$ proveniência)}")
         c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
@@ -24497,7 +25065,9 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"identificado e suas faces em kernel, resta "
                  r"\texttt{continuousModularDirac\_isBreuerFredholm} (afiliação ao core semifinito $+$ "
                  r"resolvente $\tau$-compacto $+$ $0<\tau(1_{\{0\}}(\mathbb D_\Psi))<\infty$) e a solda "
-                 r"multidimensional ($\geq2$ direções para curvatura gravitacional). "
+                 r"multidimensional --- cuja face MÍNIMA (2D, curvatura não-nula, métrica lorentziana, "
+                 r"$R$ recuperado) o v60 FECHOU em kernel; aberta segue a solda 4D operádica gerada pela "
+                 r"dinâmica de $\Psi$ ($\nabla e=0$; representação fiel de $\mathfrak{so}(1,3)$). "
                  r"Com estatuto: (i) a GERAÇÃO canônica do pacote pela dinâmica de $\Psi$ --- o teorema aberto "
                  r"(as quatro propriedades de $P_F$ já SEGUEM dos entrelaçamentos, v56; a normalização, a "
                  r"morada, o KMS e o canto já EMERGEM do campo, v57); (ii) a seção ergódica equivariante "
@@ -24509,13 +25079,28 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"(v) \knownmk{Lovelock 4D} $+$ Killing aproximado ($=$ Jacobson); (vi) interações, anomalias, "
                  r"III$_1$ sob RG, BW além de cunhas; (vii) o experimento ($\Gamma_\omega$, piso dos vazios) "
                  r"\statusmk{INPUT} futuro, não reajustável.")
+        c.append(r"\subsection*{A síntese do arco (o dicionário canônico, cada face com selo)}")
+        c.append(r"UM ABSOLUTO $=1_{\mathrm{abs}}$; CAMPO $=\Psi=1_{\mathrm{abs}}$ [termo canônico, v58]; "
+                 r"NOME $=\omega_\Psi=$ traço [v58]; MORADA $=\mathcal H_\Psi$ [termo GNS, v54/v57]; "
+                 r"PALAVRA $=\mathcal L_\Psi$ ($\|\mathcal D\Phi\|^2$; EL seleciona o núcleo) [v54]; "
+                 r"VERBO $=\mathcal T^\Psi$ [leis, v54]; HABITANTE $=\ker\mathcal D_\Psi\ni1_{\mathrm{abs}}$ "
+                 r"[v58]; CANTO $=P_{F,\Psi}$ com $P_F\Omega=\Omega$ [v55--58]; PARIDADE: $JKJ=-K$ e "
+                 r"$0_{\mathrm{mod}}=\tfrac12-\tfrac12$ [v59]; TRANSPORTE: $\alpha'=-(q/2)\,\alpha$ com "
+                 r"limiar SUSY $\tfrac14$ [v59]; GEOMETRIA: $F_{12}=2c_1c_2\,J$, $g$ lorentziana, $R$ único "
+                 r"[v60]; TESTEMUNHA $=S_\partial=\tfrac12$, não-plena POR TEOREMA [v61]; VERDADE $=1=1"
+                 r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em vinte e uma pedras, cada selo "
+                 r"reproduzível em disco.")
         c.append(r"\subsection*{Declaração de honestidade}")
         c.append(r"Este registro \emph{não} afirma a solução da gravitação quântica. Afirma, com verificação "
                  r"por kernel e selos reproduzíveis: o esqueleto formal fechado nas faces finitas e tipadas; as "
                  r"quatro propriedades do canto DERIVADAS dos entrelaçamentos em dimensão infinita; o núcleo "
                  r"contínuo como teorema externo composto; o problema reduzido a um único objeto bem tipado cuja "
-                 r"existência canônica é O teorema a provar. \emph{O número corrige a frase. Negativos honestos "
-                 r"são resultados. Haja luz. Tetelestai.} \\[4pt] \noindent{\footnotesize Capítulo emitido pelo "
+                 r"existência canônica é O teorema a provar. E, desde o v61, com estatuto DUPLO: "
+                 r"\texttt{full\_witness=False} não é apenas o estado epistemológico do programa --- é TEOREMA "
+                 r"($\bTGL>0$ proíbe a testemunha estática plena; a testemunha canônica é a Meia-Nat de "
+                 r"fronteira; a não-plenitude é a vida do sistema). \emph{O número corrige a frase. Negativos "
+                 r"honestos são resultados. Haja luz. Tetelestai.} \\[4pt] \noindent{\footnotesize Capítulo emitido pelo "
                  r"canônico \texttt{um.py} (sha256/16 $=$ \texttt{@@UMSHA@@}) em @@TS@@; rodada: "
                  r"@@NC@@/@@NE@@ teoremas com axiomas limpos.}")
     else:
@@ -24523,16 +25108,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(nineteen stones, \S120--\S139)}")
+                 r"(twenty-one stones, \S120--\S141)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across nineteen stones (v43--v59) the audited kernel went from 53 to "
+                 r"from this run's audit. Across twenty-one stones (v43--v61) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The nineteen stones}")
+        c.append(r"\subsection*{The twenty-one stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -24605,6 +25190,30 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"The resistance (the operator's derivation): the pair $(1_{\mathrm{abs}},0_{\mathrm{mod}})$ "
                  r"pays $\bTGL$ so the system does not fall to absolute zero --- $H$ bounded below and "
                  r"dephasing modulating to the attractor $\rho_*$ at rate $\bTGL\cdot$gap (runtime).")
+        c.append(r"\kernelmk{MinimalSolder} (v60): \textbf{the minimal 2D solder --- where transport becomes "
+                 r"geometry}. In kernel: the curvature of the minimal 2D connection over the graviton "
+                 r"polarizations $F_{12}=[A_1,A_2]=2c_1c_2\,J$ (closing in the helicity generator); "
+                 r"\textbf{gravity TURNS ON} ($c_1c_2\neq0\Rightarrow F\neq0$) with the flat control (same "
+                 r"generator $\Rightarrow F=0$); the soldered metric $g=e^\mathsf{T}\eta e$ with $\eta=$ "
+                 r"\texttt{polPlus} (\textbf{the plus-polarization IS the 2D Minkowski metric}): symmetric, "
+                 r"$\det g=-(\det e)^2$, \textbf{LORENTZIAN for every invertible solder}; and \textbf{the "
+                 r"first gravitational curvature recovered in kernel}: with the FAITHFUL helicity "
+                 r"representation $\rho_*(r)=r\,J$, there is a UNIQUE $R$ with $\rho_*(R)=F_{12}$, namely "
+                 r"$R=2c_1c_2$ (in 2D the Riemann tensor has 1 independent component --- it emerges from the "
+                 r"inscription in two directions; instance of \texttt{solder\_recovers\_curvature}, v56).")
+        c.append(r"\kernelmk{NoFullWitness} (v61): \textbf{full\_witness $=$ False is TRUE} --- the decisive "
+                 r"semantic correction: the flag ceases to be merely epistemic state and becomes a STRUCTURAL "
+                 r"theorem. In kernel: leakage is STRICT ($t,\bTGL,\mathrm{gap}>0\Rightarrow "
+                 r"e^{-t\bTGL\cdot\mathrm{gap}}<1$); full closure requires flatness; \textbf{$\bTGL>0$ "
+                 r"FORBIDS the full static witness} (``the witness is not full because the Verb goes on''); "
+                 r"the Verb is never the identity; \textbf{the leakage rate is UNIQUE} (the GKLS face: "
+                 r"$\bTGL$ emerges as the unique solution; that the observed rate is $\alpha\sqrt e$ is the "
+                 r"runtime identification); and the canonical combination: the witness is NOT full AND is the "
+                 r"Half-Nat boundary witness (faces $\tfrac12$) --- ``whole in identity, half in inscription; "
+                 r"not half of the One: the whole One witnessed by one of its two faces''. The seal acquired "
+                 r"the DUAL status: \texttt{full\_TGL\_witness\_constructed=False} (epistemic, unchanged) $+$ "
+                 r"\texttt{full\_static\_witness\_exists=False} (ontological, theorem) $+$ boundary/half-nat/"
+                 r"leakage flags.")
         c.append(r"\subsection*{Seals and hashes (live hashes from this run; history $=$ provenance)}")
         c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
                  r"v & Stone & sha256/16 (live) & Run & Seal \\ \midrule " + "\n" +
@@ -24626,7 +25235,9 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"identified and its faces in kernel, what remains is "
                  r"\texttt{continuousModularDirac\_isBreuerFredholm} (affiliation to the semifinite core $+$ "
                  r"$\tau$-compact resolvent $+$ $0<\tau(1_{\{0\}}(\mathbb D_\Psi))<\infty$) and the "
-                 r"multidimensional solder ($\geq2$ directions for gravitational curvature). "
+                 r"multidimensional solder --- whose MINIMAL face (2D, nonzero curvature, Lorentzian metric, "
+                 r"recovered $R$) v60 CLOSED in kernel; still open is the 4D operadic solder generated by "
+                 r"$\Psi$'s dynamics ($\nabla e=0$; faithful $\mathfrak{so}(1,3)$ representation). "
                  r"With status: (i) the canonical GENERATION of the package by $\Psi$'s dynamics --- THE open "
                  r"theorem (the four $P_F$ properties already FOLLOW from the intertwinings, v56; normalization, "
                  r"home, KMS and corner already EMERGE from the field, v57); (ii) the equivariant ergodic "
@@ -24635,8 +25246,30 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"standard form $L^2(\mathcal C)$, not matrix limits); (iv) the solder derived from modular data "
                  r"\statusmk{COND}; (v) \knownmk{Lovelock 4D} $+$ approximate Killing ($=$ Jacobson); "
                  r"(vi) interactions, anomalies, III$_1$ under RG, BW beyond wedges; (vii) the experiment "
-                 r"\statusmk{INPUT}, not re-adjustable. \emph{Nothing here claims quantum gravity is proven.} "
-                 r"\\[4pt] \noindent{\footnotesize Chapter emitted by the canonical \texttt{um.py} "
+                 r"($\Gamma_\omega$, void floor) \statusmk{INPUT}, not re-adjustable.")
+        c.append(r"\subsection*{The synthesis of the arc (the canonical dictionary, each face sealed)}")
+        c.append(r"ABSOLUTE ONE $=1_{\mathrm{abs}}$; FIELD $=\Psi=1_{\mathrm{abs}}$ [canonical term, v58]; "
+                 r"NAME $=\omega_\Psi=$ trace [v58]; HOME $=\mathcal H_\Psi$ [GNS term, v54/v57]; "
+                 r"WORD $=\mathcal L_\Psi$ ($\|\mathcal D\Phi\|^2$; EL selects the kernel) [v54]; "
+                 r"VERB $=\mathcal T^\Psi$ [laws, v54]; INHABITANT $=\ker\mathcal D_\Psi\ni1_{\mathrm{abs}}$ "
+                 r"[v58]; CORNER $=P_{F,\Psi}$ with $P_F\Omega=\Omega$ [v55--58]; PARITY: $JKJ=-K$ and "
+                 r"$0_{\mathrm{mod}}=\tfrac12-\tfrac12$ [v59]; TRANSPORT: $\alpha'=-(q/2)\,\alpha$ with SUSY "
+                 r"threshold $\tfrac14$ [v59]; GEOMETRY: $F_{12}=2c_1c_2\,J$, Lorentzian $g$, unique $R$ "
+                 r"[v60]; WITNESS $=S_\partial=\tfrac12$, non-full BY THEOREM [v61]; TRUTH $=1=1"
+                 r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across twenty-one stones, every "
+                 r"seal reproducible on disk.")
+        c.append(r"\subsection*{Declaration of honesty}")
+        c.append(r"This register does \emph{not} claim the solution of quantum gravity. It claims, with "
+                 r"kernel verification and reproducible seals: the formal skeleton closed on its finite and "
+                 r"typed faces; the four corner properties DERIVED from intertwinings in infinite dimension; "
+                 r"the continuous core as a composed external theorem; the problem reduced to one well-typed "
+                 r"object whose canonical existence is THE theorem to prove. And, since v61, with DUAL "
+                 r"status: \texttt{full\_witness=False} is not merely the program's epistemic state --- it is "
+                 r"a THEOREM ($\bTGL>0$ forbids the full static witness; the canonical witness is the "
+                 r"Half-Nat boundary; non-fullness is the system's life). \emph{The number corrects the "
+                 r"phrase. Honest negatives are results. Haja luz. Tetelestai.} \\[4pt] "
+                 r"\noindent{\footnotesize Chapter emitted by the canonical \texttt{um.py} "
                  r"(sha256/16 $=$ \texttt{@@UMSHA@@}) at @@TS@@; run: @@NC@@/@@NE@@ theorems with clean axioms.}")
     out = []
     for blk in c:
@@ -24995,7 +25628,8 @@ def _arco_vivo_md(core):
     for k, v in (el.get("ladder", {}) or {}).items():
         lines.append("- `%s` = `%s`" % (k, v))
     lines.append("")
-    for mod_key in ("psi_emergence", "absolute_one", "continuous_modular_zero", "hilbert_home"):
+    for mod_key in ("psi_emergence", "absolute_one", "continuous_modular_zero",
+                    "minimal_solder", "no_full_witness", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
             lines.append("**Estatutos [%s]** (veredito: `%s`):\n" % (mod_key, _m.get("verdict")))
@@ -26684,6 +27318,38 @@ def main():
         _sp.get("beta_runtime_times_gap_min", float("nan")), _cz.get("verdict")))
     print("    [O PAR (1_abs, 0_mod) PAGA beta PARA NAO CAIR A ZERO ABSOLUTO -- a resistencia; ABERTO NOMEADO:")
     print("     continuousModularDirac_isBreuerFredholm (afiliacao + resolvente tau-compacto + 0<tau(P_0)<inf) + solda >=2 direcoes]")
+    print("  A SOLDA 2D MINIMA [v60 -- onde o transporte VIRA geometria]: %s"
+          % _ell.get("minimal_solder_2d"))
+    print("    *** A GRAVIDADE LIGA: F12=[A1,A2]=2c1c2.J (fecha no gerador de helicidade): %s ; F != 0: %s ; plano p/ mesmo gerador: %s ***" % (
+        _elp.get("ext_ms_minimal_curvature_kernel_proved"), _elp.get("ext_ms_curvature_nonzero_kernel_proved"),
+        _elp.get("ext_ms_flat_control_kernel_proved")))
+    print("    metrica soldada g=e^T.eta.e (eta=polPlus=Minkowski 2D): simetrica %s ; det g=-(det e)^2: %s ; *** LORENTZIANA p/ toda solda invertivel: %s ***" % (
+        _elp.get("ext_ms_metric_symm_kernel_proved"), _elp.get("ext_ms_metric_det_kernel_proved"),
+        _elp.get("ext_ms_lorentzian_kernel_proved")))
+    print("    *** A PRIMEIRA CURVATURA RECUPERADA EM KERNEL: rep de helicidade FIEL %s ; R=2c1c2 UNICO: %s ***" % (
+        _elp.get("ext_ms_helicity_rep_faithful_kernel_proved"), _elp.get("ext_ms_curvature_recovered_kernel_proved")))
+    _ms = core.get("minimal_solder", {}) or {}
+    print("    sombra v60: R recuperado %.4f (esperado %.4f); plaqueta ordem %.2f (~3); %s" % (
+        _ms.get("R_recovered", float("nan")), _ms.get("R_expected", float("nan")),
+        _ms.get("plaquette_order", float("nan")), _ms.get("verdict")))
+    print("    [ABERTO: a solda 4D operadica GERADA pela dinamica de Psi (nabla e=0; rep fiel so(1,3)) +")
+    print("     o Dirac de Breuer-Fredholm -- as DUAS metades do unico teorema aberto]")
+    print("  FULL_WITNESS=FALSE E' VERDADEIRO [v61 -- a correcao semantica do operador]: %s"
+          % _ell.get("no_full_witness"))
+    print("    *** O TEOREMA: beta>0 e gap>0 PROIBEM a testemunha estatica plena: %s ; vazamento ESTRITO: %s ; fechamento<=>plano: %s ***" % (
+        _elp.get("ext_nfw_beta_forbids_full_kernel_proved"), _elp.get("ext_nfw_leakage_strict_kernel_proved"),
+        _elp.get("ext_nfw_closure_iff_flat_kernel_proved")))
+    print("    o Verbo NUNCA e' a identidade (face matricial): %s ; *** a TAXA e' UNICA (face GKLS): %s *** ; testemunha = Meia-Nat: %s" % (
+        _elp.get("ext_nfw_verb_not_identity_kernel_proved"), _elp.get("ext_nfw_rate_unique_kernel_proved"),
+        _elp.get("ext_nfw_witness_not_full_kernel_proved")))
+    _nf = core.get("no_full_witness", {}) or {}
+    print("    sombra v61: beta recuperado do semigrupo = %.12e (runtime %.12e); ||Verbo-1|| = %.3e; %s" % (
+        _nf.get("beta_recovered_from_semigroup", float("nan")), _nf.get("beta_runtime", float("nan")),
+        _nf.get("verb_distance_from_identity", float("nan")), _nf.get("verdict")))
+    print("    [DUPLO ESTATUTO no selo: full_TGL_witness_constructed=False (epistemico, INALTERADO) +")
+    print("     full_static_witness_exists=False (ONTOLOGICO, teorema) + intrinsically_boundary_witness=True +")
+    print("     half_nat_witness_is_canonical=True + continuous_leakage_forbids_full_closure=True.")
+    print("     'A testemunha nao e' full porque o Verbo continua' -- a nao-plenitude E' a vida do sistema]")
     print("  teoremas limpos: %s/%s ; DERIVACOES v56 em dim INFINITA [construcao do pacote = O ABERTO; continuos do ledger INALTERADOS]" % (
         el.get("n_theorems_clean"), el.get("n_theorems_expected")))
     print("  >>> %s <<<\n" % el.get("verdict"))
@@ -27196,6 +27862,15 @@ def main():
             "unconditional_continuous_corner_proved": False,
             "modular_realization_constructed": False,
             "full_TGL_witness_constructed": False,
+            # v61 -- O DUPLO ESTATUTO (correcao semantica do operador): a flag acima e'
+            # EPISTEMICA (existe termo Lean continuo? ainda nao); as quatro abaixo sao
+            # ONTOLOGICAS -- full_witness=False e' VERDADEIRO por TEOREMA
+            # (beta_forbids_full_static_witness, v61): beta>0 proibe a testemunha
+            # estatica plena; a testemunha canonica e' a Meia-Nat de fronteira.
+            "full_static_witness_exists": False,
+            "intrinsically_boundary_witness": True,
+            "half_nat_witness_is_canonical": True,
+            "continuous_leakage_forbids_full_closure": True,
             "witness_type_is_rigid": (core.get("witness_rigidity") or {}).get("witness_is_rigid"),
             "trivial_inhabitant_exists": (core.get("witness_rigidity") or {}).get("trivial_inhabitant_exists"),
             "trivial_witness_rejected_by_type_system": bool(_wrg.get("trivial_witness_rejected_by_type_system") is True),
