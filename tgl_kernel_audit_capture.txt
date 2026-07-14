@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=81780 len(stderr)=0
+# len(stdout)=88012 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -776,6 +776,62 @@ TGLExt.PsiHomeData : Type → (n : Type) → [Fintype n] → [DecidableEq n] →
 @TGLExt.PsiHomeData.flow_fixes_spectral_corner : ∀ {Region n : Type} [inst : Fintype n] [inst_1 : DecidableEq n]
   (Ψ : TGLExt.PsiHomeData Region n) (O : Region) {Hm : Matrix n n ℂ},
   Commute (Ψ.rho O) Hm → ∀ (f : ℝ → ℝ) (t : ℝ), Ψ.flow O t (cfc f Hm) = cfc f Hm
+TGLExt.absoluteRho : (n : Type) → [Fintype n] → [DecidableEq n] → Matrix n n ℂ
+@TGLExt.absoluteRho_posDef : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] [Nonempty n],
+  (TGLExt.absoluteRho n).PosDef
+@TGLExt.absoluteRho_trace : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] [Nonempty n],
+  (TGLExt.absoluteRho n).trace = 1
+TGLExt.absoluteOneField : (Region n : Type) →
+  [inst : Fintype n] → [inst_1 : DecidableEq n] → [Nonempty n] → TGLExt.PsiHomeData Region n
+TGLExt.absoluteOneField_exists : ∀ (Region n : Type) [inst : Fintype n] [inst_1 : DecidableEq n] [Nonempty n],
+  Nonempty (TGLExt.PsiHomeData Region n)
+@TGLExt.absoluteOne_name_eq_trace : ∀ {Region n : Type} [inst : Fintype n] [inst_1 : DecidableEq n]
+  [inst_2 : Nonempty n] (O : Region) (a : Matrix n n ℂ),
+  (TGLExt.absoluteOneField Region n).name O a = (↑(Fintype.card n))⁻¹ * a.trace
+@TGLExt.absoluteRho_commute : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (a : Matrix n n ℂ),
+  Commute (TGLExt.absoluteRho n) a
+@TGLExt.absoluteOne_flow_trivial : ∀ {Region n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] [inst_2 : Nonempty n]
+  (O : Region) (t : ℝ) (a : Matrix n n ℂ), (TGLExt.absoluteOneField Region n).flow O t a = a
+@TGLExt.commutator_locks_annihilate_one : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n]
+  (A B C : Matrix n n ℂ), TGLExt.excite A 1 = 0 ∧ TGLExt.excite B 1 = 0 ∧ TGLExt.excite C 1 = 0
+@TGLExt.commutator_kernel_inhabited : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] [Nonempty n]
+  (A : Matrix n n ℂ), TGLExt.excite A 1 = 0 ∧ 1 ≠ 0
+@TGLExt.corner_fixes_inhabitant : ∀ {H W : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] [inst_3 : NormedAddCommGroup W] [inst_4 : NormedSpace ℂ W] (D : H →L[ℂ] W) {u : H},
+  D u = 0 → (↑D).ker.starProjection u = u
+@TGLExt.modularGen : {n : Type} → [Fintype n] → [DecidableEq n] → Matrix n n ℂ → Matrix n n ℂ → Matrix n n ℂ
+@TGLExt.modularGen_eq_neg_excite : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ y : Matrix n n ℂ),
+  TGLExt.modularGen ρ y = -TGLExt.excite (TGLExt.logRho ρ) y
+@TGLExt.modularGen_omega_zero : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef → TGLExt.modularGen ρ (TGLExt.Omega ρ) = 0
+@TGLExt.J_modularGen_J : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ y : Matrix n n ℂ),
+  TGLExt.Jconj (TGLExt.modularGen ρ (TGLExt.Jconj y)) = -TGLExt.modularGen ρ y
+@TGLExt.parity_fixed_eq_zero : ∀ {n : Type} [Fintype n] [DecidableEq n] {y : Matrix n n ℂ}, y = -y → y = 0
+@TGLExt.absolute_modularGen_zero : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] [Nonempty n]
+  (y : Matrix n n ℂ), TGLExt.modularGen (TGLExt.absoluteRho n) y = 0
+@TGLExt.absolute_faces_half : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] [Nonempty n] {Γ : Matrix n n ℂ},
+  Γ.trace = 0 →
+    TGLExt.gibbs (TGLExt.absoluteRho n) (2⁻¹ • (1 + Γ)) = 1 / 2 ∧
+      TGLExt.gibbs (TGLExt.absoluteRho n) (2⁻¹ • (1 - Γ)) = 1 / 2
+@TGLExt.absolute_contrast_zero : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] [Nonempty n]
+  {Γ : Matrix n n ℂ},
+  Γ.trace = 0 →
+    TGLExt.gibbs (TGLExt.absoluteRho n) (2⁻¹ • (1 - Γ)) - TGLExt.gibbs (TGLExt.absoluteRho n) (2⁻¹ • (1 + Γ)) = 0
+TGLExt.qKappa : ℝ → ℝ
+TGLExt.alphaKappa : ℝ → ℝ
+TGLExt.one_eq_q_sq_add_alpha_sq : ∀ (κ : ℝ), TGLExt.qKappa κ ^ 2 + TGLExt.alphaKappa κ ^ 2 = 1
+TGLExt.q_odd : ∀ (κ : ℝ), TGLExt.qKappa (-κ) = -TGLExt.qKappa κ
+TGLExt.alpha_even : ∀ (κ : ℝ), TGLExt.alphaKappa (-κ) = TGLExt.alphaKappa κ
+TGLExt.q_zero : TGLExt.qKappa 0 = 0
+TGLExt.alpha_zero : TGLExt.alphaKappa 0 = 1
+TGLExt.cosh_half_hasDerivAt : ∀ (κ : ℝ), HasDerivAt (fun u => Real.cosh (u / 2)) (Real.sinh (κ / 2) / 2) κ
+TGLExt.sinh_half_hasDerivAt : ∀ (κ : ℝ), HasDerivAt (fun u => Real.sinh (u / 2)) (Real.cosh (κ / 2) / 2) κ
+TGLExt.alpha_transport : ∀ (κ : ℝ), HasDerivAt TGLExt.alphaKappa (-(TGLExt.qKappa κ / 2) * TGLExt.alphaKappa κ) κ
+TGLExt.alpha_deriv_zero : HasDerivAt TGLExt.alphaKappa 0 0
+TGLExt.W_hasDerivAt : ∀ (κ : ℝ), HasDerivAt (fun u => TGLExt.qKappa u / 2) (TGLExt.alphaKappa κ ^ 2 / 4) κ
+TGLExt.susy_threshold : ∀ (κ : ℝ), (TGLExt.qKappa κ / 2) ^ 2 + TGLExt.alphaKappa κ ^ 2 / 4 = 1 / 4
+TGLExt.susy_partner_gap : ∀ (κ : ℝ),
+  (TGLExt.qKappa κ / 2) ^ 2 - TGLExt.alphaKappa κ ^ 2 / 4 = 1 / 4 - TGLExt.alphaKappa κ ^ 2 / 2
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -997,6 +1053,27 @@ TGLExt.PsiHomeData : Type → (n : Type) → [Fintype n] → [DecidableEq n] →
 'TGLExt.PsiHomeData.name_flow_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.PsiHomeData.flow_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.PsiHomeData.flow_fixes_spectral_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.absoluteOneField_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.absoluteOne_name_eq_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.absoluteOne_flow_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.commutator_locks_annihilate_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.commutator_kernel_inhabited' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.corner_fixes_inhabitant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.modularGen_eq_neg_excite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.modularGen_omega_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.J_modularGen_J' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.parity_fixed_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.absolute_modularGen_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.absolute_faces_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.absolute_contrast_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.one_eq_q_sq_add_alpha_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.q_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.alpha_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.alpha_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.alpha_deriv_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.W_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.susy_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.susy_partner_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

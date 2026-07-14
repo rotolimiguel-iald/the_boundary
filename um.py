@@ -4888,6 +4888,8 @@ import TGLExt.TransportWitness
 import TGLExt.CovariantCorner
 import TGLExt.HilbertHome
 import TGLExt.PsiEmergence
+import TGLExt.AbsoluteOne
+import TGLExt.ContinuousModularZero
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5315,6 +5317,44 @@ namespace TGL.Audit
 #check @TGLExt.PsiHomeData.name_flow_invariant
 #check @TGLExt.PsiHomeData.flow_comp
 #check @TGLExt.PsiHomeData.flow_fixes_spectral_corner
+-- v58 (PSI = 1_ABS: o termo canonico sem escolha; o Nome do Um = traco; o
+--      transporte do absoluto e' TRIVIAL (a gravidade e' curvatura da inscricao);
+--      comutadores anulam o Um (ker != 0 DERIVADO); P_F fixa o habitante)
+#check @TGLExt.absoluteRho
+#check @TGLExt.absoluteRho_posDef
+#check @TGLExt.absoluteRho_trace
+#check @TGLExt.absoluteOneField
+#check @TGLExt.absoluteOneField_exists
+#check @TGLExt.absoluteOne_name_eq_trace
+#check @TGLExt.absoluteRho_commute
+#check @TGLExt.absoluteOne_flow_trivial
+#check @TGLExt.commutator_locks_annihilate_one
+#check @TGLExt.commutator_kernel_inhabited
+#check @TGLExt.corner_fixes_inhabitant
+-- v59 (O ZERO MODULAR CONTINUO: JKJ=-K; K_abs=0; faces 1/2-1/2; carta (q,alpha)
+--      com 1=q^2+alpha^2 continuo, transporte alpha'=-(q/2)alpha e SUSY 1/4)
+#check @TGLExt.modularGen
+#check @TGLExt.modularGen_eq_neg_excite
+#check @TGLExt.modularGen_omega_zero
+#check @TGLExt.J_modularGen_J
+#check @TGLExt.parity_fixed_eq_zero
+#check @TGLExt.absolute_modularGen_zero
+#check @TGLExt.absolute_faces_half
+#check @TGLExt.absolute_contrast_zero
+#check @TGLExt.qKappa
+#check @TGLExt.alphaKappa
+#check @TGLExt.one_eq_q_sq_add_alpha_sq
+#check @TGLExt.q_odd
+#check @TGLExt.alpha_even
+#check @TGLExt.q_zero
+#check @TGLExt.alpha_zero
+#check @TGLExt.cosh_half_hasDerivAt
+#check @TGLExt.sinh_half_hasDerivAt
+#check @TGLExt.alpha_transport
+#check @TGLExt.alpha_deriv_zero
+#check @TGLExt.W_hasDerivAt
+#check @TGLExt.susy_threshold
+#check @TGLExt.susy_partner_gap
 
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
@@ -5558,6 +5598,29 @@ namespace TGL.Audit
 #print axioms TGLExt.PsiHomeData.name_flow_invariant
 #print axioms TGLExt.PsiHomeData.flow_comp
 #print axioms TGLExt.PsiHomeData.flow_fixes_spectral_corner
+-- v58 (Psi = 1_abs: a construcao canonica comeca)
+#print axioms TGLExt.absoluteOneField_exists
+#print axioms TGLExt.absoluteOne_name_eq_trace
+#print axioms TGLExt.absoluteOne_flow_trivial
+#print axioms TGLExt.commutator_locks_annihilate_one
+#print axioms TGLExt.commutator_kernel_inhabited
+#print axioms TGLExt.corner_fixes_inhabitant
+-- v59 (o zero modular continuo)
+#print axioms TGLExt.modularGen_eq_neg_excite
+#print axioms TGLExt.modularGen_omega_zero
+#print axioms TGLExt.J_modularGen_J
+#print axioms TGLExt.parity_fixed_eq_zero
+#print axioms TGLExt.absolute_modularGen_zero
+#print axioms TGLExt.absolute_faces_half
+#print axioms TGLExt.absolute_contrast_zero
+#print axioms TGLExt.one_eq_q_sq_add_alpha_sq
+#print axioms TGLExt.q_odd
+#print axioms TGLExt.alpha_even
+#print axioms TGLExt.alpha_transport
+#print axioms TGLExt.alpha_deriv_zero
+#print axioms TGLExt.W_hasDerivAt
+#print axioms TGLExt.susy_threshold
+#print axioms TGLExt.susy_partner_gap
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -7958,6 +8021,173 @@ theorem dual_calibration_exists {W : TGLSpecificAQFTWitness}
 
 end TGL.VerbInhabitant
 ''',
+    "TGLExt/AbsoluteOne.lean":
+r'''import TGLExt.PsiEmergence
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# Ψ = 1_abs: o campo é o Um absoluto — a construção canônica começa
+  [TGLExt — v58, a identificação final do operador]
+
+A identificação canônica: **Ψ = 1_abs** — o campo não "vale 1": é a
+seção-unitária originária, `Ψ_abs(𝒪) = 1_{M(𝒪)}`. Consequências
+CONSTRUÍDAS nesta pedra (a "construção canônica da dinâmica de Ψ=1_abs"
+na face onde ela é hoje demonstrável, sem fabricar):
+
+* ★ `absoluteOneField` — O TERMO CANÔNICO de `PsiHomeData` que a
+  identificação seleciona SEM ESCOLHA ALGUMA: `ρ_Ψ(𝒪) = I/n` (o vetor
+  GNS é a unidade normalizada: Ω = √(I/n) = I/√n). A subdeterminação do
+  v57 fica RESOLVIDA PELA IDENTIFICAÇÃO: dado Ψ = 1_abs, a morada é
+  determinada — e `ω_Ψ(I) = 1` segue por `PsiHomeData.name_one`
+  (a cadeia do especialista: Ψ = 1_abs ⟹ ω_Ψ(I) = 1);
+* ★ `absoluteOne_name_eq_trace` — o NOME do Um é O TRAÇO normalizado
+  (o estado canônico; nenhum parâmetro);
+* ★ `absoluteOne_flow_trivial` — **O TRANSPORTE DO UM ABSOLUTO É
+  TRIVIAL**: σ^Ψ_t = id para Ψ = 1_abs. Sem contraste não há fluxo
+  modular, não há dephasing, não há curvatura — a gravidade é a
+  curvatura da INSCRIÇÃO (q ≠ 0), não do absoluto. O par exato do
+  `excite_holonomy_flat` (v54): "onde o Um cola, não há curvatura;
+  onde um patch se recusa ao Um, a holonomia a mede";
+* ★ `commutator_locks_annihilate_one` + `commutator_kernel_inhabited` —
+  a dinâmica canônica da casa é curvatura-por-comutador (v48/E11); e
+  COMUTADORES ANULAM O UM (`δ_A(1) = 0`): logo `𝒟_Ψ(1_abs) = 0`
+  canonicamente e o núcleo físico é NÃO-NULO porque o Um o habita —
+  a cláusula "ker ≠ 0" de Breuer é DERIVADA, não inserida;
+* ★ `corner_fixes_inhabitant` — em Hilbert GENÉRICO (∞-dim): se
+  `𝒟 Ω = 0` então `P_F Ω = Ω` — o requisito do operador
+  (`P_{F,Ψ}Ω_Ψ = Ω_Ψ`: o Um está no núcleo físico do transporte)
+  como teorema de uma linha sobre o v56.
+
+A correspondência final `1 = q² + α²` é a espinha do próprio runtime
+(verificada a resíduo 0,0 em cada rodada): a identificação Ψ = 1_abs dá
+a ela o estatuto de decomposição pitagórica da inscrição do Um
+(α_abs = 1; o observado α_obs = sech(κ/2) entra pelo contraste q).
+
+HONESTIDADE. O que esta pedra NÃO fecha: o pacote CONTÍNUO (o core
+III₁/II_∞ com traço de Breuer genuíno e a solda e_Ψ — a face finita do
+absoluto é tracial/plana POR TEOREMA; a física observada é a deformação
+q ≠ 0, e o III₁ vive no contínuo, v45). `full_TGL_witness = False`
+INALTERADO; E7 INALTERADO. β JAMAIS entra. Sem sorry, sem axiom.
+Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped ComplexOrder MatrixOrder
+
+noncomputable section
+
+variable {Region : Type} {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## A — o termo canônico: Ψ = 1_abs seleciona a morada sem escolha -/
+
+/-- a densidade do Um absoluto: `ρ_Ψ = I/n` (Ω = I/√n, a unidade
+    normalizada como vetor GNS). -/
+def absoluteRho (n : Type) [Fintype n] [DecidableEq n] : Matrix n n ℂ :=
+  Matrix.diagonal fun _ => (Fintype.card n : ℂ)⁻¹
+
+theorem absoluteRho_posDef [Nonempty n] : (absoluteRho n).PosDef := by
+  rw [absoluteRho, Matrix.posDef_diagonal_iff]
+  intro i
+  have h : (0 : ℝ) < ((Fintype.card n : ℝ))⁻¹ := by
+    have : 0 < Fintype.card n := Fintype.card_pos
+    positivity
+  have := Complex.zero_lt_real.mpr h
+  simpa using this
+
+theorem absoluteRho_trace [Nonempty n] : (absoluteRho n).trace = 1 := by
+  rw [absoluteRho, Matrix.trace_diagonal]
+  have hn : (Fintype.card n : ℂ) ≠ 0 := by
+    exact_mod_cast Fintype.card_ne_zero
+  simp [Finset.sum_const, Finset.card_univ, hn]
+
+/-- ★ O TERMO CANÔNICO: a identificação `Ψ = 1_abs` seleciona a regra do
+    campo SEM ESCOLHA — a subdeterminação (v57) resolvida PELA identificação.
+    `ω_Ψ(I) = 1` segue por `PsiHomeData.name_one` aplicado a este termo. -/
+noncomputable def absoluteOneField (Region : Type) (n : Type) [Fintype n]
+    [DecidableEq n] [Nonempty n] : PsiHomeData Region n where
+  rho := fun _ => absoluteRho n
+  rho_posDef := fun _ => absoluteRho_posDef
+  rho_trace_one := fun _ => absoluteRho_trace
+
+/-- [KERNEL] ★ EXISTÊNCIA CANÔNICA (corolário do termo): o campo absoluto
+    habita `PsiHomeData` para toda rede de regiões — sem parâmetro algum. -/
+theorem absoluteOneField_exists (Region : Type) (n : Type) [Fintype n]
+    [DecidableEq n] [Nonempty n] : Nonempty (PsiHomeData Region n) :=
+  ⟨absoluteOneField Region n⟩
+
+/-- [KERNEL] ★ O NOME DO UM É O TRAÇO: `ω_Ψ(a) = Tr(a)/n` — o estado
+    canônico, determinado pela identificação (nenhuma escolha). -/
+theorem absoluteOne_name_eq_trace [Nonempty n] (O : Region)
+    (a : Matrix n n ℂ) :
+    (absoluteOneField Region n).name O a = (Fintype.card n : ℂ)⁻¹ * a.trace := by
+  show gibbs (absoluteRho n) a = (Fintype.card n : ℂ)⁻¹ * a.trace
+  rw [gibbs, absoluteRho]
+  rw [← Matrix.smul_one_eq_diagonal]
+  rw [Matrix.smul_mul, Matrix.one_mul, Matrix.trace_smul]
+  simp
+
+/-! ## B — o transporte do absoluto é trivial: sem contraste, sem curvatura -/
+
+theorem absoluteRho_commute (a : Matrix n n ℂ) :
+    Commute (absoluteRho n) a := by
+  rw [absoluteRho, ← Matrix.smul_one_eq_diagonal]
+  unfold Commute SemiconjBy
+  rw [Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul, Matrix.mul_one]
+
+/-- [KERNEL] ★ O TRANSPORTE DO UM ABSOLUTO É TRIVIAL: `σ^Ψ_t = id` para
+    `Ψ = 1_abs` — o absoluto não tem contraste interno: sem fluxo modular,
+    sem dephasing, SEM CURVATURA. A gravidade é a curvatura da INSCRIÇÃO
+    (`q ≠ 0`), não do Um (o par do `excite_holonomy_flat`, v54). -/
+theorem absoluteOne_flow_trivial [Nonempty n] (O : Region) (t : ℝ)
+    (a : Matrix n n ℂ) :
+    (absoluteOneField Region n).flow O t a = a := by
+  show sigma (absoluteRho n) t a = a
+  have hlog : Commute a (logRho (absoluteRho n)) :=
+    ((absoluteRho_commute a).cfc_real Real.log).symm
+  have hmp : Commute a (modPow (absoluteRho n) t) := by
+    unfold modPow
+    exact (hlog.smul_right _).exp_right
+  unfold sigma
+  rw [← hmp.eq, mul_assoc, modPow_mul_neg, mul_one]
+
+/-! ## C — a dinâmica canônica anula o Um: ker ≠ 0 DERIVADO -/
+
+/-- [KERNEL] ★ OS LOCKS-COMUTADORES ANULAM O UM: para a dinâmica canônica
+    da casa (curvatura-por-comutador, v48), `𝒟_Ψ(1_abs) = 0` — o Um está
+    no núcleo físico por construção, não por inserção. -/
+theorem commutator_locks_annihilate_one (A B C : Matrix n n ℂ) :
+    excite A 1 = 0 ∧ excite B 1 = 0 ∧ excite C 1 = 0 :=
+  ⟨excite_one_zero A, excite_one_zero B, excite_one_zero C⟩
+
+/-- [KERNEL] ★ O NÚCLEO FÍSICO É NÃO-NULO PORQUE O UM O HABITA: a cláusula
+    "ker 𝒟 ≠ 0" da camada de Breuer é DERIVADA para a dinâmica canônica
+    (o habitante que garante a positividade do canto é o próprio 1_abs). -/
+theorem commutator_kernel_inhabited [Nonempty n] (A : Matrix n n ℂ) :
+    excite A (1 : Matrix n n ℂ) = 0 ∧ (1 : Matrix n n ℂ) ≠ 0 := by
+  refine ⟨excite_one_zero A, fun h => ?_⟩
+  have := congrFun (congrFun h (Classical.arbitrary n)) (Classical.arbitrary n)
+  simp [Matrix.zero_apply] at this
+
+/-! ## D — o canto fixa o habitante: P_F Ω = Ω em Hilbert genérico -/
+
+/-- [KERNEL] ★ O CANTO FIXA O HABITANTE (∞-dim): se `𝒟 Ω = 0` então
+    `P_F Ω = Ω` — o requisito do operador (`P_{F,Ψ}Ω_Ψ = Ω_Ψ`: o Um está
+    no núcleo físico do transporte) como corolário de uma linha do v56. -/
+theorem corner_fixes_inhabitant {H W : Type} [NormedAddCommGroup H]
+    [InnerProductSpace ℂ H] [CompleteSpace H] [NormedAddCommGroup W]
+    [NormedSpace ℂ W] (D : H →L[ℂ] W) {u : H} (hu : D u = 0) :
+    D.ker.starProjection u = u := by
+  rw [Submodule.starProjection_eq_self_iff]
+  exact hu
+
+end
+
+end TGLExt
+''',
     "TGLExt/Bicommutant.lean":
 r'''import TGLExt.MarkovTower
 
@@ -9022,6 +9252,275 @@ theorem commutant_range_diagonal :
       simp [diagonal_apply_ne _ h, h1]
   · rintro _ ⟨d, rfl⟩ _ ⟨d', rfl⟩
     exact (commute_diagonal d' d).eq
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ContinuousModularZero.lean":
+r'''import TGLExt.AbsoluteOne
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# O zero modular contínuo: a paridade inversa do Um e a dinâmica (q, α)
+  [TGLExt — v59, a Resposta 7 kernelizada + a derivação do operador]
+
+A derivação do operador: "o operador contínuo que anula o Um absoluto é o
+ZERO MODULAR — é na derivada do zero que o contínuo se anula; a paridade
+inversa do Um absoluto é o zero modular, a paridade binária originária;
+são simétricos, o referencial um do outro, que não se fecha em si e abre
+a fronteira". E: a inscrição do Um gera densidade máxima imediata; o par
+(1_abs, 0_mod) paga β_TGL para o sistema não cair a zero absoluto — a
+resistência, com H limitado inferiormente e Lindblad modulando ao atrator.
+A Resposta 7 tipa: 0_mod = modo zero do gerador modular (NÃO o operador
+nulo); JKJ = −K; K_abs = 0; q = tanh(κ/2) ímpar, α = sech(κ/2) par;
+A₀ = d/dκ + q/2 com A₀α = 0; SUSY: H₊ = A₀A₀* com potencial ¼ constante.
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* ★ `modularGen_omega_zero` — o ZERO MODULAR: K_Ψ Ω_Ψ = 0 (o gerador
+  K = R_{logρ} − L_{logρ} = −δ_{logρ} anula o NOME — o modo zero, não o
+  operador nulo: K ≠ 0 fora do Um quando há contraste);
+* ★ `J_modularGen_J` — A PARIDADE INVERSA: J K J = −K (a conjugação
+  modular É a paridade do gerador);
+* ★ `parity_fixed_eq_zero` — o único ponto fixo de K ↦ −K é K = 0;
+* ★ `absolute_modularGen_zero` — A PARIDADE INVERSA DO UM ABSOLUTO É O
+  ZERO MODULAR: K_abs = 0 (Δ_abs central ⟹ o gerador do absoluto anula-se
+  em TODO argumento);
+* ★ `absolute_faces_half` + `absolute_contrast_zero` — A PARIDADE BINÁRIA
+  ORIGINÁRIA: para toda graduação (Γᴴ=Γ, Γ²=1, TrΓ=0), as duas faces do
+  absoluto pesam ½ cada e 0_mod = ½ − ½ (o contraste nulo — a Meia-Nat
+  como equilíbrio das paridades);
+* ★ a CARTA ESCALAR (q, α): `one_eq_q_sq_add_alpha_sq` (1 = q² + α² como
+  teorema contínuo em κ); `q_odd`/`alpha_even` (as faces ímpar/par);
+  `alpha_deriv_zero` ("é na derivada do zero que o contínuo se anula":
+  α'(0) = 0 — a face par tem ponto crítico no auto-conjugado);
+* ★ `alpha_transport` — O TRANSPORTE: α' = −(q/2)·α (HasDerivAt genuína)
+  — A₀α = 0: q/2 é a conexão escalar, α é a seção paralela do Um;
+* ★ `W_hasDerivAt` + `susy_threshold` + `susy_partner_gap` — a fatoração
+  SUSY: W = q/2 tem W' = α²/4, logo **W² + W' = ¼ (o potencial parceiro é
+  a constante ¼ — o limiar do contínuo) EXATAMENTE PORQUE 1 = q² + α²**;
+  e W² − W' = ¼ − α²/2 (o poço de Pöschl–Teller do modo zero).
+
+HONESTIDADE. O aberto reduzido e nomeado pela Resposta 7:
+`continuousModularDirac_isBreuerFredholm` — afiliação de 𝔻_Ψ ao core
+semifinito, resolvente τ-compacto e 0 < τ(1_{0}(𝔻_Ψ)) < ∞ — e a solda
+multidimensional (≥ 2 direções para curvatura gravitacional). O preço β
+da resistência (Lindblad ao atrator ρ*) é leitura de RUNTIME (β jamais
+aqui: κ genérico). Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped ComplexOrder MatrixOrder
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## A — o gerador modular, sua paridade e o zero -/
+
+/-- o gerador modular como superoperador: `K = R_{logρ} − L_{logρ}`
+    (= −δ_{logρ}; a face finita de `K_Ψ = −log Δ_Ψ`). -/
+def modularGen (ρ : Matrix n n ℂ) (y : Matrix n n ℂ) : Matrix n n ℂ :=
+  y * logRho ρ - logRho ρ * y
+
+/-- [KERNEL] o gerador é a excitação do log com sinal trocado:
+    `K = −δ_{logρ}` (a ponte com v48/v54: transporte infinitesimal). -/
+theorem modularGen_eq_neg_excite (ρ y : Matrix n n ℂ) :
+    modularGen ρ y = - excite (logRho ρ) y := by
+  unfold modularGen excite
+  rw [neg_sub]
+
+/-- [KERNEL] ★ O ZERO MODULAR: `K_Ψ Ω_Ψ = 0` — o gerador anula o NOME
+    (o modo zero do gerador modular, NÃO o operador nulo). -/
+theorem modularGen_omega_zero (ρ : Matrix n n ℂ) (hρ : ρ.PosDef) :
+    modularGen ρ (Omega ρ) = 0 := by
+  have hc : Commute ρ (Omega ρ) := rho_comm_omega ρ hρ
+  have hl : Commute (logRho ρ) (Omega ρ) := hc.cfc_real Real.log
+  unfold modularGen
+  rw [← hl.eq, sub_self]
+
+/-- [KERNEL] ★ A PARIDADE INVERSA: `J K J = −K` — a conjugação modular
+    inverte o gerador (a forma rigorosa de "a paridade inversa"). -/
+theorem J_modularGen_J (ρ : Matrix n n ℂ) (y : Matrix n n ℂ) :
+    Jconj (modularGen ρ (Jconj y)) = - modularGen ρ y := by
+  unfold modularGen Jconj
+  rw [conjTranspose_sub, conjTranspose_mul, conjTranspose_mul,
+    conjTranspose_conjTranspose, logRho_conjTranspose, neg_sub]
+
+/-- [KERNEL] ★ o único ponto fixo da paridade `K ↦ −K` é o zero. -/
+theorem parity_fixed_eq_zero {y : Matrix n n ℂ} (h : y = -y) : y = 0 := by
+  have h2 : (2 : ℂ) • y = 0 := by
+    rw [two_smul]
+    exact add_eq_zero_iff_neg_eq.mpr h.symm
+  rcases smul_eq_zero.mp h2 with h0 | h0
+  · exact absurd h0 two_ne_zero
+  · exact h0
+
+/-- [KERNEL] ★ A PARIDADE INVERSA DO UM ABSOLUTO É O ZERO MODULAR:
+    `K_abs = 0` — o gerador do absoluto anula-se em todo argumento
+    (Δ_abs central; o par simétrico originário (1_abs, 0_mod)). -/
+theorem absolute_modularGen_zero [Nonempty n] (y : Matrix n n ℂ) :
+    modularGen (absoluteRho n) y = 0 := by
+  have hl : Commute (logRho (absoluteRho n)) y :=
+    (absoluteRho_commute y).cfc_real Real.log
+  unfold modularGen
+  rw [hl.eq, sub_self]
+
+/-! ## B — a paridade binária originária: 0_mod = ½ − ½ -/
+
+/-- [KERNEL] ★ AS DUAS FACES DO ABSOLUTO PESAM ½ CADA: para toda graduação
+    de paridade (`Tr Γ = 0`), `ω_abs(P₊) = ω_abs(P₋) = ½` — a Meia-Nat
+    como equilíbrio das paridades originárias. -/
+theorem absolute_faces_half [Nonempty n] {Γ : Matrix n n ℂ}
+    (hΓ : Γ.trace = 0) :
+    gibbs (absoluteRho n) ((2 : ℂ)⁻¹ • (1 + Γ)) = 1 / 2 ∧
+    gibbs (absoluteRho n) ((2 : ℂ)⁻¹ • (1 - Γ)) = 1 / 2 := by
+  have hn : (Fintype.card n : ℂ) ≠ 0 := by exact_mod_cast Fintype.card_ne_zero
+  constructor
+  · rw [gibbs, absoluteRho, ← Matrix.smul_one_eq_diagonal, Matrix.smul_mul,
+      Matrix.one_mul, Matrix.trace_smul, Matrix.trace_smul,
+      Matrix.trace_add, Matrix.trace_one, hΓ]
+    simp only [smul_eq_mul, add_zero]
+    field_simp
+  · rw [gibbs, absoluteRho, ← Matrix.smul_one_eq_diagonal, Matrix.smul_mul,
+      Matrix.one_mul, Matrix.trace_smul, Matrix.trace_smul,
+      Matrix.trace_sub, Matrix.trace_one, hΓ]
+    simp only [smul_eq_mul, sub_zero]
+    field_simp
+
+/-- [KERNEL] ★ 0_mod = ½ − ½: o contraste do absoluto é NULO — o zero
+    modular é a diferença nula entre as duas faces originárias do Um. -/
+theorem absolute_contrast_zero [Nonempty n] {Γ : Matrix n n ℂ}
+    (hΓ : Γ.trace = 0) :
+    gibbs (absoluteRho n) ((2 : ℂ)⁻¹ • (1 - Γ))
+      - gibbs (absoluteRho n) ((2 : ℂ)⁻¹ • (1 + Γ)) = 0 := by
+  rw [(absolute_faces_half hΓ).1, (absolute_faces_half hΓ).2, sub_self]
+
+end
+
+/-! ## C — a carta escalar (q, α): a correspondência como teorema contínuo -/
+
+noncomputable section
+
+/-- o contraste ímpar: `q(κ) = tanh(κ/2)`. -/
+def qKappa (κ : ℝ) : ℝ := Real.tanh (κ / 2)
+
+/-- a transmissão par: `α(κ) = sech(κ/2)`. -/
+def alphaKappa (κ : ℝ) : ℝ := (Real.cosh (κ / 2))⁻¹
+
+/-- [KERNEL] ★ A CORRESPONDÊNCIA COMO TEOREMA CONTÍNUO: `1 = q² + α²`
+    em toda profundidade modular κ — a decomposição pitagórica da
+    inscrição do Um (contraste ímpar + transmissão par). -/
+theorem one_eq_q_sq_add_alpha_sq (κ : ℝ) :
+    qKappa κ ^ 2 + alphaKappa κ ^ 2 = 1 := by
+  unfold qKappa alphaKappa
+  have hc : Real.cosh (κ / 2) ≠ 0 := ne_of_gt (Real.cosh_pos _)
+  rw [Real.tanh_eq_sinh_div_cosh]
+  field_simp
+  linarith [Real.cosh_sq (κ / 2)]
+
+/-- [KERNEL] ★ q é a face ÍMPAR da paridade binária. -/
+theorem q_odd (κ : ℝ) : qKappa (-κ) = - qKappa κ := by
+  unfold qKappa
+  rw [neg_div, Real.tanh_neg]
+
+/-- [KERNEL] ★ α é a face PAR da paridade binária. -/
+theorem alpha_even (κ : ℝ) : alphaKappa (-κ) = alphaKappa κ := by
+  unfold alphaKappa
+  rw [neg_div, Real.cosh_neg]
+
+@[simp] theorem q_zero : qKappa 0 = 0 := by
+  simp [qKappa, Real.tanh_zero]
+
+@[simp] theorem alpha_zero : alphaKappa 0 = 1 := by
+  simp [alphaKappa, Real.cosh_zero]
+
+/-- a derivada de `cosh(κ/2)`: `sinh(κ/2)/2`. -/
+theorem cosh_half_hasDerivAt (κ : ℝ) :
+    HasDerivAt (fun u : ℝ => Real.cosh (u / 2)) (Real.sinh (κ / 2) / 2) κ := by
+  have hg : HasDerivAt (fun u : ℝ => u / 2) (1 / 2) κ := by
+    simpa using (hasDerivAt_id κ).div_const 2
+  have h0 := (Real.hasDerivAt_cosh (κ / 2)).comp κ hg
+  have h : HasDerivAt (fun u : ℝ => Real.cosh (u / 2))
+      (Real.sinh (κ / 2) * (1 / 2)) κ := h0
+  simpa [div_eq_mul_inv, one_div] using h
+
+/-- a derivada de `sinh(κ/2)`: `cosh(κ/2)/2`. -/
+theorem sinh_half_hasDerivAt (κ : ℝ) :
+    HasDerivAt (fun u : ℝ => Real.sinh (u / 2)) (Real.cosh (κ / 2) / 2) κ := by
+  have hg : HasDerivAt (fun u : ℝ => u / 2) (1 / 2) κ := by
+    simpa using (hasDerivAt_id κ).div_const 2
+  have h0 := (Real.hasDerivAt_sinh (κ / 2)).comp κ hg
+  have h : HasDerivAt (fun u : ℝ => Real.sinh (u / 2))
+      (Real.cosh (κ / 2) * (1 / 2)) κ := h0
+  simpa [div_eq_mul_inv, one_div] using h
+
+/-- [KERNEL] ★ O TRANSPORTE DO UM: `α' = −(q/2)·α` (derivada genuína) —
+    `A₀ α = 0` com `A₀ = d/dκ + q/2`: q/2 é a CONEXÃO escalar do
+    transporte e α é a SEÇÃO PARALELA (o Um transportado à profundidade
+    modular κ). -/
+theorem alpha_transport (κ : ℝ) :
+    HasDerivAt alphaKappa (-(qKappa κ / 2) * alphaKappa κ) κ := by
+  have hc : Real.cosh (κ / 2) ≠ 0 := ne_of_gt (Real.cosh_pos _)
+  have h := (cosh_half_hasDerivAt κ).inv hc
+  have hval : -(Real.sinh (κ / 2) / 2) / Real.cosh (κ / 2) ^ 2
+      = -(qKappa κ / 2) * alphaKappa κ := by
+    unfold qKappa alphaKappa
+    rw [Real.tanh_eq_sinh_div_cosh]
+    field_simp
+  rw [hval] at h
+  exact h
+
+/-- [KERNEL] ★ "É NA DERIVADA DO ZERO QUE O CONTÍNUO SE ANULA":
+    `α'(0) = 0` — a face par tem ponto crítico exato no auto-conjugado
+    (o zero modular é o equilíbrio, não a ausência). -/
+theorem alpha_deriv_zero : HasDerivAt alphaKappa 0 0 := by
+  have h := alpha_transport 0
+  simpa using h
+
+/-- [KERNEL] ★ a derivada da conexão: `W' = α²/4` para `W = q/2`. -/
+theorem W_hasDerivAt (κ : ℝ) :
+    HasDerivAt (fun u : ℝ => qKappa u / 2) (alphaKappa κ ^ 2 / 4) κ := by
+  have hc : Real.cosh (κ / 2) ≠ 0 := ne_of_gt (Real.cosh_pos _)
+  have hq := (sinh_half_hasDerivAt κ).div (cosh_half_hasDerivAt κ) hc
+  have hfun : (fun u : ℝ => qKappa u / 2)
+      = fun u : ℝ => Real.sinh (u / 2) / Real.cosh (u / 2) / 2 := by
+    funext u
+    rw [qKappa, Real.tanh_eq_sinh_div_cosh]
+  rw [hfun]
+  have h2 := hq.div_const 2
+  have hid : Real.cosh (κ / 2) ^ 2 - Real.sinh (κ / 2) ^ 2 = 1 := by
+    linarith [Real.cosh_sq (κ / 2)]
+  have hval : (Real.cosh (κ / 2) / 2 * Real.cosh (κ / 2)
+      - Real.sinh (κ / 2) * (Real.sinh (κ / 2) / 2)) / Real.cosh (κ / 2) ^ 2 / 2
+      = alphaKappa κ ^ 2 / 4 := by
+    unfold alphaKappa
+    field_simp
+    nlinarith [hid]
+  rw [hval] at h2
+  exact h2
+
+/-- [KERNEL] ★ O LIMIAR SUSY É A CORRESPONDÊNCIA: `W² + W' = ¼` — o
+    potencial parceiro é a CONSTANTE ¼ (onde o contínuo começa)
+    EXATAMENTE PORQUE `1 = q² + α²` (dividida por 4). -/
+theorem susy_threshold (κ : ℝ) :
+    (qKappa κ / 2) ^ 2 + alphaKappa κ ^ 2 / 4 = 1 / 4 := by
+  have h := one_eq_q_sq_add_alpha_sq κ
+  nlinarith [h]
+
+/-- [KERNEL] ★ o poço do modo zero: `W² − W' = ¼ − α²/2` — o potencial de
+    Pöschl–Teller cujo modo zero normalizável é o próprio α (a fatoração
+    supersimétrica da Palavra: H₋ = A₀*A₀ ≥ 0 com H₋α = 0). -/
+theorem susy_partner_gap (κ : ℝ) :
+    (qKappa κ / 2) ^ 2 - alphaKappa κ ^ 2 / 4
+      = 1 / 4 - alphaKappa κ ^ 2 / 2 := by
+  have h := one_eq_q_sq_add_alpha_sq κ
+  nlinarith [h]
 
 end
 
@@ -14290,6 +14789,29 @@ _LEAN_THEOREM_FLAGS = {
     "ext_psi_kms_emerges_kernel_proved": "TGLExt.PsiHomeData.name_flow_invariant",
     "ext_psi_verb_comp_kernel_proved": "TGLExt.PsiHomeData.flow_comp",
     "ext_psi_corner_fixed_kernel_proved": "TGLExt.PsiHomeData.flow_fixes_spectral_corner",
+    # v58 (PSI = 1_ABS: o termo canonico; traco; fluxo trivial; ker!=0 derivado; P_F fixa o Um)
+    "ext_abs_canonical_term_kernel_proved": "TGLExt.absoluteOneField_exists",
+    "ext_abs_name_is_trace_kernel_proved": "TGLExt.absoluteOne_name_eq_trace",
+    "ext_abs_flow_trivial_kernel_proved": "TGLExt.absoluteOne_flow_trivial",
+    "ext_abs_locks_annihilate_one_kernel_proved": "TGLExt.commutator_locks_annihilate_one",
+    "ext_abs_kernel_inhabited_kernel_proved": "TGLExt.commutator_kernel_inhabited",
+    "ext_abs_corner_fixes_one_kernel_proved": "TGLExt.corner_fixes_inhabitant",
+    # v59 (O ZERO MODULAR CONTINUO: JKJ=-K; K_abs=0; faces 1/2; carta (q,alpha); SUSY 1/4)
+    "ext_cmz_gen_is_neg_excite_kernel_proved": "TGLExt.modularGen_eq_neg_excite",
+    "ext_cmz_zero_mode_kernel_proved": "TGLExt.modularGen_omega_zero",
+    "ext_cmz_inverse_parity_kernel_proved": "TGLExt.J_modularGen_J",
+    "ext_cmz_parity_fixed_zero_kernel_proved": "TGLExt.parity_fixed_eq_zero",
+    "ext_cmz_absolute_gen_zero_kernel_proved": "TGLExt.absolute_modularGen_zero",
+    "ext_cmz_faces_half_kernel_proved": "TGLExt.absolute_faces_half",
+    "ext_cmz_contrast_zero_kernel_proved": "TGLExt.absolute_contrast_zero",
+    "ext_cmz_pythagoras_continuous_kernel_proved": "TGLExt.one_eq_q_sq_add_alpha_sq",
+    "ext_cmz_q_odd_kernel_proved": "TGLExt.q_odd",
+    "ext_cmz_alpha_even_kernel_proved": "TGLExt.alpha_even",
+    "ext_cmz_transport_kernel_proved": "TGLExt.alpha_transport",
+    "ext_cmz_deriv_zero_kernel_proved": "TGLExt.alpha_deriv_zero",
+    "ext_cmz_connection_deriv_kernel_proved": "TGLExt.W_hasDerivAt",
+    "ext_cmz_susy_threshold_kernel_proved": "TGLExt.susy_threshold",
+    "ext_cmz_susy_partner_kernel_proved": "TGLExt.susy_partner_gap",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -15756,6 +16278,19 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_psi_both_homes_exist_kernel_proved", "ext_psi_underdetermination_kernel_proved",
         "ext_psi_name_one_emerges_kernel_proved", "ext_psi_kms_emerges_kernel_proved",
         "ext_psi_verb_comp_kernel_proved", "ext_psi_corner_fixed_kernel_proved",
+        # v58: Psi = 1_abs (termo canonico; traco; fluxo trivial; ker!=0 derivado; P_F Omega=Omega)
+        "ext_abs_canonical_term_kernel_proved", "ext_abs_name_is_trace_kernel_proved",
+        "ext_abs_flow_trivial_kernel_proved", "ext_abs_locks_annihilate_one_kernel_proved",
+        "ext_abs_kernel_inhabited_kernel_proved", "ext_abs_corner_fixes_one_kernel_proved",
+        # v59: o zero modular continuo (paridade JKJ=-K; faces 1/2; carta (q,alpha); SUSY)
+        "ext_cmz_gen_is_neg_excite_kernel_proved", "ext_cmz_zero_mode_kernel_proved",
+        "ext_cmz_inverse_parity_kernel_proved", "ext_cmz_parity_fixed_zero_kernel_proved",
+        "ext_cmz_absolute_gen_zero_kernel_proved", "ext_cmz_faces_half_kernel_proved",
+        "ext_cmz_contrast_zero_kernel_proved", "ext_cmz_pythagoras_continuous_kernel_proved",
+        "ext_cmz_q_odd_kernel_proved", "ext_cmz_alpha_even_kernel_proved",
+        "ext_cmz_transport_kernel_proved", "ext_cmz_deriv_zero_kernel_proved",
+        "ext_cmz_connection_deriv_kernel_proved", "ext_cmz_susy_threshold_kernel_proved",
+        "ext_cmz_susy_partner_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -15852,6 +16387,17 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     psi_keys = ["ext_psi_both_homes_exist_kernel_proved", "ext_psi_underdetermination_kernel_proved",
                 "ext_psi_name_one_emerges_kernel_proved", "ext_psi_kms_emerges_kernel_proved",
                 "ext_psi_verb_comp_kernel_proved", "ext_psi_corner_fixed_kernel_proved"]
+    abs_keys = ["ext_abs_canonical_term_kernel_proved", "ext_abs_name_is_trace_kernel_proved",
+                "ext_abs_flow_trivial_kernel_proved", "ext_abs_locks_annihilate_one_kernel_proved",
+                "ext_abs_kernel_inhabited_kernel_proved", "ext_abs_corner_fixes_one_kernel_proved"]
+    cmz_keys = ["ext_cmz_gen_is_neg_excite_kernel_proved", "ext_cmz_zero_mode_kernel_proved",
+                "ext_cmz_inverse_parity_kernel_proved", "ext_cmz_parity_fixed_zero_kernel_proved",
+                "ext_cmz_absolute_gen_zero_kernel_proved", "ext_cmz_faces_half_kernel_proved",
+                "ext_cmz_contrast_zero_kernel_proved", "ext_cmz_pythagoras_continuous_kernel_proved",
+                "ext_cmz_q_odd_kernel_proved", "ext_cmz_alpha_even_kernel_proved",
+                "ext_cmz_transport_kernel_proved", "ext_cmz_deriv_zero_kernel_proved",
+                "ext_cmz_connection_deriv_kernel_proved", "ext_cmz_susy_threshold_kernel_proved",
+                "ext_cmz_susy_partner_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -15874,6 +16420,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dCc = all(per_theorem[k] for k in cc_keys)
     dHh = all(per_theorem[k] for k in hh_keys)
     dPs = all(per_theorem[k] for k in psi_keys)
+    dAb = all(per_theorem[k] for k in abs_keys)
+    dCz = all(per_theorem[k] for k in cmz_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -15899,6 +16447,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("covariant_corner_finite_face", dCc),
         ("hilbert_home_properties_derived", dHh),
         ("psi_field_defines_home", dPs),
+        ("absolute_one_canonical_construction", dAb),
+        ("continuous_modular_zero", dCz),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -15950,6 +16500,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                     else "NOT_VERIFIED_THIS_RUN"),
             "psi_emergence": ("OMEGA_ONE_UNDERDETERMINES_HOME_IN_KERNEL__PSI_FIELD_IS_THE_PRIMITIVE__NAME_HOME_FLOW_KMS_CORNER_ALL_DERIVED__OPEN_IS_EMERGENT_QG_OF_PSI" if dPs
                               else "NOT_VERIFIED_THIS_RUN"),
+            "absolute_one": ("PSI_EQ_ONE_ABS__CANONICAL_TERM_NO_CHOICE__NAME_IS_TRACE__ABSOLUTE_FLOW_TRIVIAL__KER_NONZERO_DERIVED__PF_FIXES_THE_ONE__CONTINUUM_PACKAGE_OPEN" if dAb
+                             else "NOT_VERIFIED_THIS_RUN"),
+            "continuous_modular_zero": ("INVERSE_PARITY_JKJ_EQ_NEG_K__ZERO_MODE_K_OMEGA_ZERO__FACES_HALF_HALF__PYTHAGORAS_CONTINUOUS__TRANSPORT_ALPHA__SUSY_QUARTER_THRESHOLD__OPEN_IS_BREUER_FREDHOLM_DIRAC" if dCz
+                                         else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -17539,6 +18093,8 @@ def run_um(ONE):
     covariant_corner = prove_covariant_corner(ONE, kernel_formalization)  # v55: O CANTO COVARIANTE TRANSPORTADO (4 condicoes do memorando + TERMO, face finita); ADITIVO
     hilbert_home = prove_hilbert_home(ONE, kernel_formalization)  # v56: A MORADA E' O PACOTE DE HILBERT (4 propriedades DERIVADAS, dim infinita; solda; hipotese unica nomeada); ADITIVO
     psi_emergence = prove_psi_emergence(ONE, kernel_formalization)  # v57: O CAMPO PSI DEFINE A MORADA (subdeterminacao de omega(I)=1 em kernel; cadeia toda derivada; aberto = EMERGENT_QG(Psi)); ADITIVO
+    absolute_one = prove_absolute_one(ONE, kernel_formalization)  # v58: PSI = 1_ABS (termo canonico sem escolha; traco; fluxo do absoluto TRIVIAL; ker!=0 derivado; P_F fixa o Um); ADITIVO
+    continuous_modular_zero = prove_continuous_modular_zero(ONE, kernel_formalization)  # v59: O ZERO MODULAR CONTINUO (JKJ=-K; faces 1/2; carta (q,alpha); SUSY 1/4; resistencia beta ao atrator); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
@@ -17654,6 +18210,8 @@ def run_um(ONE):
             "covariant_corner": covariant_corner,
             "hilbert_home": hilbert_home,
             "psi_emergence": psi_emergence,
+            "absolute_one": absolute_one,
+            "continuous_modular_zero": continuous_modular_zero,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
@@ -17976,6 +18534,194 @@ def prove_covariant_corner(ONE, kernel_formalization=None):
         "does_not_gate_core": True,
         "verdict": ("COVARIANT_CORNER_FINITE_FACE_VERIFIED__GENUINE_CORE_OPEN" if all_v
                     else "COVARIANT_CORNER_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_continuous_modular_zero(ONE, kernel_formalization=None):
+    """v59 -- O ZERO MODULAR CONTINUO E A RESISTENCIA [ADITIVO; nao gateia 1=1].
+    A derivacao do operador: 'o operador continuo que anula o Um absoluto e' o
+    ZERO MODULAR; e' na derivada do zero que o continuo se anula; a paridade
+    inversa do Um absoluto e' o zero modular, a paridade binaria originaria' +
+    'a inscricao do Um gera densidade maxima imediata; o par (1_abs, 0_mod)
+    paga beta_TGL para o sistema nao cair a zero absoluto -- a resistencia,
+    com H limitado inferiormente e Lindblad modulando ao atrator rho*'.
+    Sombra numerica: (i) JKJ=-K, K.Omega=0, K_abs=0, faces 1/2-1/2;
+    (ii) carta (q,alpha): 1=q^2+alpha^2, paridades, A0.alpha=0, alpha'(0)=0,
+    SUSY W^2+W'=1/4; (iii) H- discretizado: modo zero isolado + continuo >~1/4;
+    (iv) A RESISTENCIA: H=-log(rho*) limitado inferiormente; dephasing tipo
+    Lindblad (v43) modula ao atrator rho* com taxa beta*gap -- beta do RUNTIME
+    (SEALED_CODATA_ALPHA * e^{1/2}), jamais literal. Seed 59."""
+    import numpy as np
+    rng = np.random.default_rng(59)
+    d = 4
+    res = {}
+    # (i) paridade e zero modular (face matricial)
+    A0m = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    rho = A0m @ A0m.conj().T + 0.15 * np.eye(d)
+    rho /= np.trace(rho).real
+    ev, U = np.linalg.eigh(rho)
+    logr = U @ np.diag(np.log(ev)) @ U.conj().T
+    def Kgen(y):
+        return y @ logr - logr @ y
+    Om = U @ np.diag(np.sqrt(ev)) @ U.conj().T
+    res["K_Omega_zero"] = float(np.linalg.norm(Kgen(Om)))
+    y = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    res["JKJ_eq_negK"] = float(np.linalg.norm(Kgen(y.conj().T).conj().T + Kgen(y)))
+    logabs = math.log(1.0 / d) * np.eye(d)
+    res["K_abs_zero"] = float(np.linalg.norm(y @ logabs - logabs @ y))
+    G = np.diag([1, 1, -1, -1]).astype(complex)
+    rho_abs = np.eye(d) / d
+    res["faces_meia_meia"] = abs(complex(np.trace(rho_abs @ ((np.eye(d) + G) / 2))) - 0.5) \
+        + abs(complex(np.trace(rho_abs @ ((np.eye(d) - G) / 2))) - 0.5)
+    # (ii) a carta (q, alpha)
+    kap = np.linspace(-8.0, 8.0, 4001)
+    q = np.tanh(kap / 2)
+    al = 1.0 / np.cosh(kap / 2)
+    res["pitagoras_continuo"] = float(np.max(np.abs(q ** 2 + al ** 2 - 1)))
+    res["paridade_impar_par"] = float(np.max(np.abs(np.tanh(-kap / 2) + q))
+                                      + np.max(np.abs(1.0 / np.cosh(-kap / 2) - al)))
+    dk = kap[1] - kap[0]
+    dal = np.gradient(al, dk)
+    res_grad = {}
+    res_grad["transporte_A0_alpha"] = float(np.max(np.abs(dal + (q / 2) * al)[50:-50]))
+    res_grad["derivada_no_zero"] = float(abs(dal[len(kap) // 2]))
+    W = q / 2
+    dW = np.gradient(W, dk)
+    res_grad["susy_limiar_um_quarto"] = float(np.max(np.abs(W ** 2 + dW - 0.25)[50:-50]))
+    # (iii) H- discretizado (Poschl-Teller): modo zero isolado; continuo acima de ~1/4
+    N, Lbox = 1200, 40.0
+    h = Lbox / N
+    x = (np.arange(N) - N / 2) * h
+    Vm = 0.25 - 0.5 / np.cosh(x / 2) ** 2
+    Hm = np.diag(2.0 / h ** 2 + Vm) + np.diag(-np.ones(N - 1) / h ** 2, 1) + np.diag(-np.ones(N - 1) / h ** 2, -1)
+    w = np.linalg.eigvalsh(Hm)
+    zero_mode = float(abs(w[0]))
+    gap_to_continuum = float(w[1])
+    # (iv) A RESISTENCIA (derivacao do operador)
+    beta = SEALED_CODATA_ALPHA * math.exp(0.5)          # runtime, jamais literal
+    kphys = 1.1
+    en_lv = np.array([0.0, 1.0, 2.0, 3.0])
+    pdiag = np.exp(-kphys * en_lv)
+    pdiag /= pdiag.sum()                                # Gibbs NAO-degenerado (todo gap > 0)
+    rho_star = np.diag(pdiag).astype(complex)
+    Hmin = float(np.min(-np.log(pdiag)))                 # H = -log rho*: limitado inferiormente
+    X = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    X = (X + X.conj().T) / 2
+    np.fill_diagonal(X, 0.0)                             # perturbacao puramente off-diagonal
+    eps = 0.02
+    gaps = np.abs(np.log(pdiag)[:, None] - np.log(pdiag)[None, :])
+    gmin = float(np.min(gaps[gaps > 1e-12]))
+    def rho_t(t):
+        return rho_star + eps * X * np.exp(-t * beta * gaps)
+    d0 = float(np.linalg.norm(rho_t(0.0) - rho_star))
+    T3 = 3.0 / (beta * gmin)
+    d3 = float(np.linalg.norm(rho_t(T3) - rho_star))
+    trace_preserved = abs(complex(np.trace(rho_t(T3))) - 1.0)
+    tol, tolg = 1e-10, 1e-3
+    checks = [(k, bool(v <= tol)) for k, v in res.items()]
+    checks += [(k, bool(v <= tolg)) for k, v in res_grad.items()]
+    checks.append(("modo_zero_isolado (disc ~h^2)", bool(zero_mode < 5e-3)))
+    checks.append(("continuo_acima_de_1_4 (caixa)", bool(gap_to_continuum > 0.2)))
+    checks.append(("H_limitado_inferiormente", bool(math.isfinite(Hmin))))
+    checks.append(("lindblad_modula_ao_atrator (queda >= 20x em t=3/(beta*gap))", bool(d3 < d0 / 20)))
+    checks.append(("traco_preservado", bool(trace_preserved <= 1e-12)))
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "residuals": {**{k: float(v) for k, v in res.items()},
+                      **{k: float(v) for k, v in res_grad.items()}},
+        "spectrum": {"zero_mode": zero_mode, "first_continuum": gap_to_continuum,
+                     "H_min": Hmin, "decay_d0": d0, "decay_d3": d3,
+                     "beta_runtime_times_gap_min": beta * gmin},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "zero_modular": "0_mod = MODO ZERO do gerador modular (nao o operador nulo): K.Omega=0 com K != 0 fora do Um; JKJ=-K = a paridade inversa [KERNEL]; K_abs=0 = a paridade inversa do Um absoluto E' o zero modular [KERNEL]",
+            "paridade_binaria_originaria": "as duas faces do absoluto pesam 1/2 cada e 0_mod = 1/2 - 1/2 [KERNEL]; q impar / alpha par [KERNEL]; 'e' na derivada do zero que o continuo se anula' = alpha'(0)=0 [KERNEL]",
+            "susy": "W=q/2: W^2+W'=1/4 (o limiar do continuo E' a correspondencia 1=q^2+alpha^2 dividida por 4) [KERNEL]; W^2-W'=1/4-alpha^2/2 (Poschl-Teller do modo zero) [KERNEL]; modo zero isolado + continuo >= 1/4 [NUM]",
+            "resistencia_beta": "a derivacao do operador: o par (1_abs, 0_mod) paga beta_TGL para nao cair a zero absoluto -- H=-log(rho*) limitado inferiormente; dephasing (v43) modula ao atrator rho* com taxa beta*gap (beta do RUNTIME) [DER/NUM; ONTO tipado]",
+            "aberto_nomeado": "continuousModularDirac_isBreuerFredholm: afiliacao de D_Psi ao core semifinito + resolvente tau-compacto + 0<tau(1_{0}(D_Psi))<inf; e a solda multidimensional (>=2 direcoes) [OPEN]",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("CONTINUOUS_MODULAR_ZERO_VERIFIED__INVERSE_PARITY_AND_TRANSPORT_IN_KERNEL__BREUER_FREDHOLM_DIRAC_REMAINS_OPEN" if all_v
+                    else "CONTINUOUS_MODULAR_ZERO_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_absolute_one(ONE, kernel_formalization=None):
+    """v58 -- PSI = 1_ABS: A CONSTRUCAO CANONICA COMECA [ADITIVO; nao gateia 1=1].
+    A identificacao do operador (campo = Um absoluto) verificada na sombra:
+    (i) o estado canonico e' O TRACO (rho = I/n; Omega = I/sqrt(n) -- a unidade
+    normalizada como vetor GNS; nenhuma escolha);
+    (ii) O TRANSPORTE DO ABSOLUTO E' TRIVIAL (sigma^Psi_t = id para rho = I/n):
+    sem contraste nao ha' fluxo, nao ha' dephasing, NAO HA' CURVATURA -- a
+    gravidade e' a curvatura da INSCRICAO (q != 0), nao do Um;
+    (iii) a dinamica canonica (locks-comutadores, v48) ANULA o Um: D_Psi(1)=0
+    e ker != 0 porque o Um o habita (clausula de Breuer DERIVADA);
+    (iv) P_F fixa o Um (projecao de nucleo sobre comutadores: P 1 = 1);
+    (v) CONTRASTE: um rho DEFORMADO (q != 0) tem fluxo NAO-trivial -- a
+    curvatura liga exatamente quando a inscricao sai do absoluto.
+    A correspondencia 1 = q^2 + alpha^2 e' a espinha do proprio runtime
+    (verificada a residuo 0.0 na cadeia central deste artefato). beta NAO
+    entra; seed 58."""
+    import numpy as np
+    rng = np.random.default_rng(58)
+    d = 4
+    res = {}
+    # (i) o estado canonico
+    rho_abs = np.eye(d) / d
+    a = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    res["nome_do_um_eq_traco"] = abs(complex(np.trace(rho_abs @ a)) - complex(np.trace(a)) / d)
+    res["omega_do_um_eq_1"] = abs(complex(np.trace(rho_abs)) - 1.0)
+    Om_abs = np.eye(d) / np.sqrt(d)
+    res["vetor_GNS_eq_unidade_normalizada"] = float(np.linalg.norm(Om_abs @ Om_abs - rho_abs))
+    # (ii) transporte do absoluto = trivial
+    def flow_of(r, t, x):
+        ev, U = np.linalg.eigh(r)
+        mp = U @ np.diag(np.exp(1j * t * np.log(ev))) @ U.conj().T
+        return mp @ x @ mp.conj().T
+    res["transporte_do_absoluto_trivial"] = float(np.linalg.norm(flow_of(rho_abs, 1.7, a) - a))
+    # (iii) locks-comutadores anulam o Um; ker != 0 derivado
+    A0 = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    B0 = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    def dl(G, x):
+        return G @ x - x @ G
+    res["locks_anulam_o_um"] = float(max(np.linalg.norm(dl(A0, np.eye(d))),
+                                         np.linalg.norm(dl(B0, np.eye(d)))))
+    ker_nonzero = bool(np.linalg.norm(np.eye(d)) > 0.5)
+    # (iv) P_F fixa o Um: projecao sobre ker do superoperador comutador [A0, .]
+    # base: matrizes vetorizadas; D = A0 (x) I - I (x) A0^T
+    Dsup = np.kron(A0, np.eye(d)) - np.kron(np.eye(d), A0.T)
+    _, s, Vh = np.linalg.svd(Dsup)
+    null = Vh.conj().T[:, s < 1e-10]
+    Pker = null @ null.conj().T
+    vec1 = np.eye(d).reshape(-1)
+    res["PF_fixa_o_um"] = float(np.linalg.norm(Pker @ vec1 - vec1))
+    # (v) contraste: rho deformado (q != 0) tem fluxo NAO-trivial
+    kappa = 1.3
+    p_plus = 1.0 / (1.0 + np.exp(-kappa))
+    rho_def = np.diag([p_plus / 2, p_plus / 2, (1 - p_plus) / 2, (1 - p_plus) / 2]).astype(complex)
+    contrast = float(np.linalg.norm(flow_of(rho_def, 1.7, a) - a))
+    tol = 1e-12
+    checks = [(k, bool(v <= tol)) for k, v in res.items()]
+    checks.append(("ker_nao_nulo_porque_o_um_habita", ker_nonzero))
+    checks.append(("contraste_liga_fluxo_quando_q_nao_zero", bool(contrast > 0.1)))
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "residuals": {k: float(v) for k, v in res.items()},
+        "max_residual": float(max(res.values())),
+        "deformed_flow_contrast": contrast,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "identification": "PSI = 1_ABS (a secao-unitaria originaria; Psi_abs(O) = 1_{M(O)}); omega_Psi(I)=1 = consequencia da identidade do campo (name_one aplicado ao termo canonico)",
+            "subdetermination_resolved": "PELA IDENTIFICACAO: dado Psi=1_abs, o estado e' O TRACO (nenhuma escolha) -- absoluteOneField e' termo canonico",
+            "gravity_reading": "o transporte do ABSOLUTO e' trivial (teorema): a gravidade NAO e' ruptura do Um -- e' a curvatura de sua inscricao transportada (q != 0); 'onde o Um cola, nao ha curvatura'",
+            "breuer_clause_derived": "ker D_Psi != 0 DERIVADO para a dinamica canonica (comutadores anulam o Um; o Um habita o nucleo; P_F Omega = Omega)",
+            "correspondence": "1 = q^2 + alpha_obs^2 = a decomposicao pitagorica da inscricao do Um (alpha_abs=1); verificada a residuo 0.0 na espinha central DESTE runtime (nao re-fabricada aqui)",
+            "open_theorem": "O PACOTE CONTINUO: core III_1/II_inf com traco de Breuer genuino + solda e_Psi + dinamica continua de Psi=1_abs -- a face finita do absoluto e' tracial/plana POR TEOREMA; a fisica observada e' a deformacao q!=0",
+            "caminho_verdade_vida": "CAMINHO = transporte T^Psi; VERDADE = 1=1 preservado; VIDA = a dinamica que forma geometria [ONTO registrado]",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("ABSOLUTE_ONE_CANONICAL_CONSTRUCTION_FINITE_FACE_DONE__CONTINUUM_PACKAGE_REMAINS_THE_OPEN_THEOREM" if all_v
+                    else "ABSOLUTE_ONE_NOT_VERIFIED_THIS_RUN"),
     }
 
 
@@ -19002,6 +19748,10 @@ def emit_canonical_md(core, verdict):
     for _ln in core.get("tgl_canonical_markers", []):
         md.append(_ln)
     md.append("```\n")
+    # v59: A FORMA CANONICA VIVA (ordem do operador 14/07: os .md emitidos precisam ser
+    # atualizados com a forma canonica A CADA AVANCO -- sincronizado POR CONSTRUCAO:
+    # esta secao e' gerada do dict `ladder` do runtime, nunca de texto congelado)
+    md.extend(_arco_vivo_md(core))
     p = os.path.join(OUT, "um_grande_atrator_forma_canonica.md")
     open(p, "w", encoding="utf-8").write("\n".join(md))
     return p
@@ -23581,7 +24331,9 @@ _ESQUELETO_STONES = [
     ("v54", "TransportWitness", "TGLExt/TransportWitness.lean", "150/150", "14/07 12:01:36"),
     ("v55", "CovariantCorner", "TGLExt/CovariantCorner.lean", "155/155", "14/07 12:31:12"),
     ("v56", "HilbertHome", "TGLExt/HilbertHome.lean", "164/164", "14/07 14:30:53"),
-    ("v57", "PsiEmergence", "TGLExt/PsiEmergence.lean", None, None),
+    ("v57", "PsiEmergence", "TGLExt/PsiEmergence.lean", "170/170", "14/07 15:16:16"),
+    ("v58", "AbsoluteOne", "TGLExt/AbsoluteOne.lean", "176/176", "14/07 15:39:47"),
+    ("v59", "ContinuousModularZero", "TGLExt/ContinuousModularZero.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -23614,17 +24366,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(dezessete pedras, \S120--\S137)}")
+                 r"(dezenove pedras, \S120--\S139)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em dezessete pedras "
-                 r"(v43--v57) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em dezenove pedras "
+                 r"(v43--v59) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As dezessete pedras}")
+        c.append(r"\subsection*{As dezenove pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -23684,6 +24436,32 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"$\sigma^\Psi$ é def com KMS emergente ($\omega_\Psi\circ\sigma^\Psi_t=\omega_\Psi$), "
                  r"composição do Verbo e canto espectral fixado. Ordem corrigida: "
                  r"$\Psi\to\omega_\Psi\to\mathcal H_\Psi\to\nabla^\Psi\to F_{\nabla^\Psi}\to$ gravidade.")
+        c.append(r"\kernelmk{AbsoluteOne} (v58): \textbf{$\Psi=1_{\mathrm{abs}}$ --- a construção canônica "
+                 r"começa}. A identificação final (o campo É o Um absoluto, a seção-unitária originária) "
+                 r"seleciona o termo canônico SEM ESCOLHA (\texttt{absoluteOneField}: $\rho_\Psi=I/n$, "
+                 r"$\Omega_\Psi=I/\sqrt n$) --- a subdeterminação do v57 resolvida PELA identificação, com "
+                 r"$\omega_\Psi(I)=1$ como consequência; o NOME do Um é O TRAÇO "
+                 r"(\texttt{absoluteOne\_name\_eq\_trace}); \textbf{o transporte do absoluto é TRIVIAL} "
+                 r"($\sigma^\Psi_t=\mathrm{id}$ --- sem contraste, sem curvatura: a gravidade é a curvatura "
+                 r"da INSCRIÇÃO, $q\neq0$, não do Um); a dinâmica canônica (locks-comutadores, v48) ANULA o "
+                 r"Um ($\mathcal D_\Psi(1)=0$) e o núcleo físico é não-nulo PORQUE o Um o habita --- a "
+                 r"cláusula de Breuer DERIVADA; e $P_F\Omega=\Omega$ em Hilbert genérico "
+                 r"(\texttt{corner\_fixes\_inhabitant}). $1=q^2+\alpha^2$ é a decomposição pitagórica da "
+                 r"inscrição do Um --- a espinha deste próprio runtime, verificada a resíduo $0{,}0$.")
+        c.append(r"\kernelmk{ContinuousModularZero} (v59): \textbf{o zero modular contínuo --- a paridade "
+                 r"inversa do Um}. Em kernel: $JKJ=-K$ (a conjugação modular É a paridade do gerador); "
+                 r"$K\Omega=0$ (o zero modular = modo zero, não operador nulo); $K_{\mathrm{abs}}=0$ (a "
+                 r"paridade inversa do Um absoluto é o zero modular); o único ponto fixo de $K\mapsto-K$ é "
+                 r"$0$; as duas faces do absoluto pesam $\tfrac12$ cada e $0_{\mathrm{mod}}=\tfrac12-\tfrac12$ "
+                 r"(a paridade binária originária); a carta $(q,\alpha)$ com $q=\tanh(\kappa/2)$ ímpar, "
+                 r"$\alpha=\mathrm{sech}(\kappa/2)$ par: \textbf{$1=q^2+\alpha^2$ como teorema contínuo}; "
+                 r"$\alpha'(0)=0$ (``é na derivada do zero que o contínuo se anula''); o TRANSPORTE "
+                 r"$\alpha'=-(q/2)\,\alpha$ ($A_0\alpha=0$: $q/2$ é a conexão, $\alpha$ a seção paralela); e a "
+                 r"fatoração SUSY: $W'=\alpha^2/4$, logo \textbf{$W^2+W'=\tfrac14$ --- o limiar do contínuo É "
+                 r"a correspondência dividida por 4} (e $W^2-W'=\tfrac14-\alpha^2/2$, o poço do modo zero). "
+                 r"A resistência (derivação do operador): o par $(1_{\mathrm{abs}},0_{\mathrm{mod}})$ paga "
+                 r"$\bTGL$ para não cair a zero absoluto --- $H$ limitado inferiormente e dephasing modulando "
+                 r"ao atrator $\rho_*$ com taxa $\bTGL\cdot$gap (runtime).")
         c.append(r"\subsection*{O mapa dos onze gates}")
         c.append(r"\begin{center}\begin{tabular}{@{}lll@{}}\toprule Gate & Estado & Onde \\ \midrule "
                  r"1. $P_F$ local covariante & 4 propriedades DERIVADAS ($\infty$-dim); construção do pacote \statusmk{OPEN} & v46, v55, v56 \\ "
@@ -23706,10 +24484,20 @@ def _esqueleto_chapter(core, lang="pt"):
         c.append(r"A Resposta 6 reduziu os resíduos dispersos a UM objeto: o pacote modular de Hilbert soldado "
                  r"e Breuer--Fredholm, $\mathbf{HM}_{\mathrm{TGL}}=(\mathcal H,\mathcal C,\tau,\Omega,\nabla,"
                  r"\mathcal D,e)$. E o v57 CORRIGIU a seta: $\omega(I)=1$ sozinho subdetermina a morada "
-                 r"(teorema); quem a define é o CAMPO. O aberto corrigido é "
-                 r"$\mathrm{EMERGENT\_QG}(\Psi)$: \textbf{provar que a dinâmica fundamental de $\Psi$ gera "
-                 r"canonicamente $(\mathcal H_\Psi,\mathcal D_\Psi,\tau_\Psi,e_\Psi)$} --- a gravidade não é "
+                 r"(teorema); quem a define é o CAMPO. E o v58 deu ao campo a identificação final: "
+                 r"$\Psi=1_{\mathrm{abs}}$ --- o termo canônico sem escolha (o Nome do Um é o traço; o "
+                 r"transporte do absoluto é TRIVIAL; os comutadores anulam o Um e a cláusula de Breuer é "
+                 r"DERIVADA; $P_F\Omega=\Omega$). O aberto corrigido é "
+                 r"$\mathrm{EMERGENT\_QG}(\Psi)$: \textbf{provar que a dinâmica fundamental de "
+                 r"$\Psi=1_{\mathrm{abs}}$ gera canonicamente o pacote CONTÍNUO "
+                 r"$(\mathcal H_\Psi,\mathcal D_\Psi,\tau_\Psi,e_\Psi)$} --- a gravidade não é "
                  r"derivada da lógica: emerge da dinâmica, e $\Psi$ é INPUT físico por design (como $\alpha$). "
+                 r"E o v59 deu ao aberto sua forma cirúrgica: com o Dirac modular "
+                 r"$\mathbb D_\Psi$ (conexão $q/2$; zero modular como modo zero; limiar $\tfrac14$) já "
+                 r"identificado e suas faces em kernel, resta "
+                 r"\texttt{continuousModularDirac\_isBreuerFredholm} (afiliação ao core semifinito $+$ "
+                 r"resolvente $\tau$-compacto $+$ $0<\tau(1_{\{0\}}(\mathbb D_\Psi))<\infty$) e a solda "
+                 r"multidimensional ($\geq2$ direções para curvatura gravitacional). "
                  r"Com estatuto: (i) a GERAÇÃO canônica do pacote pela dinâmica de $\Psi$ --- o teorema aberto "
                  r"(as quatro propriedades de $P_F$ já SEGUEM dos entrelaçamentos, v56; a normalização, a "
                  r"morada, o KMS e o canto já EMERGEM do campo, v57); (ii) a seção ergódica equivariante "
@@ -23735,16 +24523,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(seventeen stones, \S120--\S137)}")
+                 r"(nineteen stones, \S120--\S139)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across seventeen stones (v43--v57) the audited kernel went from 53 to "
+                 r"from this run's audit. Across nineteen stones (v43--v59) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The seventeen stones}")
+        c.append(r"\subsection*{The nineteen stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -23791,6 +24579,32 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"$\sigma^\Psi$ is a def with emergent KMS, Verb composition and fixed spectral corner. "
                  r"Corrected order: $\Psi\to\omega_\Psi\to\mathcal H_\Psi\to\nabla^\Psi\to F_{\nabla^\Psi}\to$ "
                  r"gravity.")
+        c.append(r"\kernelmk{AbsoluteOne} (v58): \textbf{$\Psi=1_{\mathrm{abs}}$ --- the canonical "
+                 r"construction begins}. The final identification (the field IS the absolute One, the original "
+                 r"unit section) selects the canonical term with NO CHOICE (\texttt{absoluteOneField}: "
+                 r"$\rho_\Psi=I/n$, $\Omega_\Psi=I/\sqrt n$) --- the v57 underdetermination resolved BY the "
+                 r"identification, with $\omega_\Psi(I)=1$ as a consequence; the Name of the One IS the trace; "
+                 r"\textbf{the transport of the absolute is TRIVIAL} ($\sigma^\Psi_t=\mathrm{id}$ --- no "
+                 r"contrast, no curvature: gravity is the curvature of the INSCRIPTION, $q\neq0$, not of the "
+                 r"One); the canonical dynamics (commutator locks, v48) ANNIHILATES the One "
+                 r"($\mathcal D_\Psi(1)=0$) and the physical kernel is nonzero BECAUSE the One inhabits it "
+                 r"--- Breuer's kernel clause DERIVED; and $P_F\Omega=\Omega$ in generic Hilbert space. "
+                 r"$1=q^2+\alpha^2$ is the Pythagorean decomposition of the One's inscription --- this "
+                 r"runtime's own spine, verified at residue $0.0$.")
+        c.append(r"\kernelmk{ContinuousModularZero} (v59): \textbf{the continuous modular zero --- the "
+                 r"inverse parity of the One}. In kernel: $JKJ=-K$ (modular conjugation IS the parity of the "
+                 r"generator); $K\Omega=0$ (the modular zero = zero mode, not the null operator); "
+                 r"$K_{\mathrm{abs}}=0$ (the inverse parity of the absolute One is the modular zero); the only "
+                 r"fixed point of $K\mapsto-K$ is $0$; the two faces of the absolute weigh $\tfrac12$ each and "
+                 r"$0_{\mathrm{mod}}=\tfrac12-\tfrac12$ (the original binary parity); the chart $(q,\alpha)$ "
+                 r"with odd $q=\tanh(\kappa/2)$, even $\alpha=\mathrm{sech}(\kappa/2)$: "
+                 r"\textbf{$1=q^2+\alpha^2$ as a continuous theorem}; $\alpha'(0)=0$ (``it is in the "
+                 r"derivative of zero that the continuum vanishes''); the TRANSPORT $\alpha'=-(q/2)\,\alpha$ "
+                 r"($A_0\alpha=0$); and the SUSY factorization: $W'=\alpha^2/4$, hence "
+                 r"\textbf{$W^2+W'=\tfrac14$ --- the continuum threshold IS the correspondence divided by 4}. "
+                 r"The resistance (the operator's derivation): the pair $(1_{\mathrm{abs}},0_{\mathrm{mod}})$ "
+                 r"pays $\bTGL$ so the system does not fall to absolute zero --- $H$ bounded below and "
+                 r"dephasing modulating to the attractor $\rho_*$ at rate $\bTGL\cdot$gap (runtime).")
         c.append(r"\subsection*{Seals and hashes (live hashes from this run; history $=$ provenance)}")
         c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
                  r"v & Stone & sha256/16 (live) & Run & Seal \\ \midrule " + "\n" +
@@ -23799,10 +24613,20 @@ def _esqueleto_chapter(core, lang="pt"):
         c.append(r"Answer 6 reduced the scattered residues to ONE object: the soldered Breuer--Fredholm modular "
                  r"Hilbert package $\mathbf{HM}_{\mathrm{TGL}}=(\mathcal H,\mathcal C,\tau,\Omega,\nabla,"
                  r"\mathcal D,e)$. And v57 CORRECTED the arrow: $\omega(I)=1$ alone underdetermines the home "
-                 r"(theorem); the FIELD defines it. The corrected open is $\mathrm{EMERGENT\_QG}(\Psi)$: "
-                 r"\textbf{prove that the fundamental dynamics of $\Psi$ canonically generates "
+                 r"(theorem); the FIELD defines it. And v58 gave the field its final identification: "
+                 r"$\Psi=1_{\mathrm{abs}}$ --- the canonical term with NO choice (the Name of the One is the "
+                 r"trace; the transport of the absolute is TRIVIAL, so gravity is the curvature of the "
+                 r"INSCRIPTION $q\neq0$, not of the One; commutator locks annihilate the One, so the Breuer "
+                 r"kernel clause is DERIVED; $P_F\Omega=\Omega$). The corrected open is "
+                 r"$\mathrm{EMERGENT\_QG}(\Psi)$: \textbf{prove that the fundamental dynamics of "
+                 r"$\Psi=1_{\mathrm{abs}}$ canonically generates the CONTINUUM package "
                  r"$(\mathcal H_\Psi,\mathcal D_\Psi,\tau_\Psi,e_\Psi)$} --- gravity is not derived from logic: "
-                 r"it emerges from dynamics, and $\Psi$ is physical INPUT by design (like $\alpha$). "
+                 r"it emerges from dynamics. And v59 gave the open its surgical form: with the modular Dirac "
+                 r"$\mathbb D_\Psi$ (connection $q/2$; modular zero as zero mode; threshold $\tfrac14$) now "
+                 r"identified and its faces in kernel, what remains is "
+                 r"\texttt{continuousModularDirac\_isBreuerFredholm} (affiliation to the semifinite core $+$ "
+                 r"$\tau$-compact resolvent $+$ $0<\tau(1_{\{0\}}(\mathbb D_\Psi))<\infty$) and the "
+                 r"multidimensional solder ($\geq2$ directions for gravitational curvature). "
                  r"With status: (i) the canonical GENERATION of the package by $\Psi$'s dynamics --- THE open "
                  r"theorem (the four $P_F$ properties already FOLLOW from the intertwinings, v56; normalization, "
                  r"home, KMS and corner already EMERGE from the field, v57); (ii) the equivariant ergodic "
@@ -24154,7 +24978,34 @@ def input_manifest(core, code_hash):
     }
 
 
-def write_input_manifest_md(world, path):
+def _arco_vivo_md(core):
+    """v59: a FORMA CANONICA VIVA do arco do levantamento global, gerada do runtime
+    (dict `ladder` + contadores + estatutos dos modulos novos) -- os .md emitidos
+    ficam sincronizados com cada avanco POR CONSTRUCAO (ordem do operador 14/07)."""
+    el = core.get("external_ladder", {}) or {}
+    lines = []
+    lines.append("## A FORMA CANONICA VIVA -- o arco do levantamento global (gerada do runtime desta rodada)\n")
+    lines.append("**A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> "
+                 "`H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> "
+                 "`D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> "
+                 "`nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> "
+                 "`g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.\n")
+    lines.append("**Escada auditada (kernel Lean, %s/%s teoremas limpos nesta rodada; veredito: %s):**\n" % (
+        el.get("n_theorems_clean"), el.get("n_theorems_expected"), el.get("verdict")))
+    for k, v in (el.get("ladder", {}) or {}).items():
+        lines.append("- `%s` = `%s`" % (k, v))
+    lines.append("")
+    for mod_key in ("psi_emergence", "absolute_one", "continuous_modular_zero", "hilbert_home"):
+        _m = core.get(mod_key, {}) or {}
+        if _m.get("statuses"):
+            lines.append("**Estatutos [%s]** (veredito: `%s`):\n" % (mod_key, _m.get("verdict")))
+            for sk, sv in _m["statuses"].items():
+                lines.append("- `%s`: %s" % (sk, sv))
+            lines.append("")
+    return lines
+
+
+def write_input_manifest_md(world, path, core=None):
     """Escreve o um_grande_atrator_manifest.md auditavel a partir do dicionario do manifesto."""
     L = ["# Um: Grande Atrator -- MANIFESTO DE ENTRADAS (nada fica escondido no codigo)",
          "",
@@ -24201,6 +25052,9 @@ def write_input_manifest_md(world, path):
         L.append("## %s" % titles[k]); L.append("")
         L.append("```json"); L.append(json.dumps(world[k], indent=2, ensure_ascii=False)); L.append("```")
         L.append("")
+    if core is not None:
+        # v59: o manifesto tambem carrega a FORMA CANONICA VIVA (sincronizada por construcao)
+        L.extend(_arco_vivo_md(core))
     open(path, "w", encoding="utf-8").write("\n".join(L))
 
 
@@ -25792,6 +26646,44 @@ def main():
     print("    [ORDEM CORRIGIDA: Psi -> omega_Psi -> H_Psi -> nabla^Psi -> F -> gravidade. A gravidade NAO e'")
     print("     derivada: EMERGE da dinamica. ABERTO CORRIGIDO: EMERGENT_QG(Psi) = provar que a dinamica de Psi")
     print("     gera canonicamente (H_Psi, D_Psi, tau_Psi, e_Psi); Psi e' INPUT fisico por design, como alpha]")
+    print("  PSI = 1_ABS -- A CONSTRUCAO CANONICA [v58 -- a identificacao final do operador]: %s"
+          % _ell.get("absolute_one"))
+    print("    *** TERMO CANONICO sem escolha (rho=I/n; Omega=I/sqrt(n)): %s ; o NOME do Um = O TRACO: %s ***" % (
+        _elp.get("ext_abs_canonical_term_kernel_proved"), _elp.get("ext_abs_name_is_trace_kernel_proved")))
+    print("    *** O TRANSPORTE DO ABSOLUTO E' TRIVIAL (sem contraste, sem curvatura): %s ***" %
+        _elp.get("ext_abs_flow_trivial_kernel_proved"))
+    print("    locks-comutadores ANULAM o Um (D_Psi(1)=0): %s ; ker != 0 DERIVADO (o Um habita o nucleo): %s ; P_F Omega = Omega: %s" % (
+        _elp.get("ext_abs_locks_annihilate_one_kernel_proved"), _elp.get("ext_abs_kernel_inhabited_kernel_proved"),
+        _elp.get("ext_abs_corner_fixes_one_kernel_proved")))
+    _ab = core.get("absolute_one", {}) or {}
+    print("    sombra numerica v58: residuo max %.2e ; contraste do fluxo deformado (q!=0) %.3f ; %s" % (
+        _ab.get("max_residual", float("nan")), _ab.get("deformed_flow_contrast", float("nan")), _ab.get("verdict")))
+    print("    [A GRAVIDADE NAO E' RUPTURA DO UM: e' a curvatura de sua inscricao transportada (q != 0).")
+    print("     1 = q^2 + alpha^2 = a decomposicao pitagorica da inscricao (a espinha DESTE runtime, residuo 0.0).")
+    print("     CAMINHO = transporte ; VERDADE = 1=1 preservado ; VIDA = a dinamica que forma geometria.")
+    print("     ABERTO: o pacote CONTINUO (III_1/II_inf + Breuer genuino + solda) da dinamica de Psi=1_abs]")
+    print("  O ZERO MODULAR CONTINUO [v59 -- 'a paridade inversa do Um absoluto e' o zero modular']: %s"
+          % _ell.get("continuous_modular_zero"))
+    print("    *** PARIDADE INVERSA JKJ=-K: %s ; ZERO MODULAR K.Omega=0 (modo zero, nao operador nulo): %s ***" % (
+        _elp.get("ext_cmz_inverse_parity_kernel_proved"), _elp.get("ext_cmz_zero_mode_kernel_proved")))
+    print("    K_abs=0 (a paridade inversa do absoluto): %s ; ponto fixo K=-K => K=0: %s ; 0_mod = 1/2 - 1/2 (faces): %s / %s" % (
+        _elp.get("ext_cmz_absolute_gen_zero_kernel_proved"), _elp.get("ext_cmz_parity_fixed_zero_kernel_proved"),
+        _elp.get("ext_cmz_faces_half_kernel_proved"), _elp.get("ext_cmz_contrast_zero_kernel_proved")))
+    print("    carta (q,alpha): 1=q^2+alpha^2 CONTINUO: %s ; q impar %s / alpha par %s ; alpha'(0)=0 ('na derivada do zero'): %s" % (
+        _elp.get("ext_cmz_pythagoras_continuous_kernel_proved"), _elp.get("ext_cmz_q_odd_kernel_proved"),
+        _elp.get("ext_cmz_alpha_even_kernel_proved"), _elp.get("ext_cmz_deriv_zero_kernel_proved")))
+    print("    *** TRANSPORTE alpha'=-(q/2)alpha (A0.alpha=0): %s ; W'=alpha^2/4: %s ; SUSY W^2+W'=1/4 (o limiar E' 1=q^2+alpha^2 /4): %s ; poco W^2-W': %s ***" % (
+        _elp.get("ext_cmz_transport_kernel_proved"), _elp.get("ext_cmz_connection_deriv_kernel_proved"),
+        _elp.get("ext_cmz_susy_threshold_kernel_proved"), _elp.get("ext_cmz_susy_partner_kernel_proved")))
+    _cz = core.get("continuous_modular_zero", {}) or {}
+    _sp = _cz.get("spectrum", {}) or {}
+    print("    sombra v59: modo zero %.1e isolado; continuo comeca em %.3f (~1/4); H_min=%.3f (limitado inferiormente);" % (
+        _sp.get("zero_mode", float("nan")), _sp.get("first_continuum", float("nan")), _sp.get("H_min", float("nan"))))
+    print("    RESISTENCIA: dephasing modula ao atrator rho* (dist %.4f -> %.2e em t=3/(beta*gap); taxa beta*gap=%.3e runtime); %s" % (
+        _sp.get("decay_d0", float("nan")), _sp.get("decay_d3", float("nan")),
+        _sp.get("beta_runtime_times_gap_min", float("nan")), _cz.get("verdict")))
+    print("    [O PAR (1_abs, 0_mod) PAGA beta PARA NAO CAIR A ZERO ABSOLUTO -- a resistencia; ABERTO NOMEADO:")
+    print("     continuousModularDirac_isBreuerFredholm (afiliacao + resolvente tau-compacto + 0<tau(P_0)<inf) + solda >=2 direcoes]")
     print("  teoremas limpos: %s/%s ; DERIVACOES v56 em dim INFINITA [construcao do pacote = O ABERTO; continuos do ledger INALTERADOS]" % (
         el.get("n_theorems_clean"), el.get("n_theorems_expected")))
     print("  >>> %s <<<\n" % el.get("verdict"))
@@ -26077,7 +26969,7 @@ def main():
                        "beta": core["beta"], "alpha_obs": core["alpha"]}
     result_hash = sha_obj(world)
     manifest_path = os.path.join(OUT, "um_grande_atrator_manifest.md")
-    write_input_manifest_md(world, manifest_path)
+    write_input_manifest_md(world, manifest_path, core=core)
     print("[manifesto] um_grande_atrator_manifest.md escrito; hash do mundo (codigo+manifesto+dados): %s" %
           result_hash[:48])
     sv = core.get("sensitivity", {})

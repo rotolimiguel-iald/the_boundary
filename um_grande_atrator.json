@@ -3102,17 +3102,122 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.absoluteOneField_exists": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.absoluteOne_name_eq_trace": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.absoluteOne_flow_trivial": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.commutator_locks_annihilate_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.commutator_kernel_inhabited": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.corner_fixes_inhabitant": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.modularGen_eq_neg_excite": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.modularGen_omega_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.J_modularGen_J": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.parity_fixed_eq_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.absolute_modularGen_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.absolute_faces_half": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.absolute_contrast_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.one_eq_q_sq_add_alpha_sq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.q_odd": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.alpha_even": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.alpha_transport": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.alpha_deriv_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.W_hasDerivAt": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.susy_threshold": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.susy_partner_gap": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "964fdccf6fbaf207c532cf4c33a85d6031db54b731bfa91df80a69e99bd40580",
+      "formal_source_hash": "c1942e09ba37f44c1edb052687676c8c338cf7d00b0e4d12281d233d9181e1b2",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "cb3c65254f135cafd120390647efe4f6eb180593833c72d5c6045e9fc36d55e5",
+        "TGLExt.lean": "d96029dc90a37248cc24f2c041ade23d55db92efead3b9d0b4af067c950ededd",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "7cff84ea2b0647ad4fe94968849d45dc4bdb6dcc807998bca4ffca02a365a97c",
+        "TGL/Audit.lean": "c3a281f58f1a0af8bb26daa6eb257c455dbc6f0b95ca4b243fbf736838b63c5d",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -3138,11 +3243,13 @@
         "TGL/SpecificAQFTWitness.lean": "31f3e8d5aed98935b3331e0cf964a89355cc2eb1f47702e71b10c11927f7f890",
         "TGL/TransportData.lean": "95cbefeed54a5f5ec9aa41be556ceab1e14da4bae116b4019eb1ba1d9ee9d04e",
         "TGL/VerbInhabitant.lean": "812a47f0e71a86f37368c918b0f704cccad9cda0e32c4aee64c5566e7808a5d7",
+        "TGLExt/AbsoluteOne.lean": "dd0325368992ecdd31079021f8a0e00e46d3a7ea99ff620df59bc11c2fd7f444",
         "TGLExt/Bicommutant.lean": "354f1a50e11c4c3d6350e31290001a38d297e32dea76bc675d4ed31132a4917a",
         "TGLExt/BisognanoWichmann.lean": "5218c8eb32682a58a8424369ab5d1e1d22c8bdf36b21cf3ea25932606cf38fc0",
         "TGLExt/Cocycle.lean": "28dd4546e652983126c37d80962b6534a0684b41f7903c58032aeea3d3931ee4",
         "TGLExt/Commutant.lean": "114782c4fb991da15ae22e3e053ecf6a8c4a5f68e7152afd40102a66c44db19a",
         "TGLExt/CondExpect.lean": "33e0eecd498ec326d8f5bf699b3a5b5aae4a388fa049564bfd8619b096737ede",
+        "TGLExt/ContinuousModularZero.lean": "0dad5794f98ba1cb8519b4c105f63d555b5dc3d8fab7884f8265aebff214f376",
         "TGLExt/CornerFamily.lean": "bbceea91341abcf2b2a3f0f33ce88975fd5c529f05918c6982eb4872b66fe105",
         "TGLExt/CovariantCorner.lean": "155cb43d01bb7645bd6bef16d21fbbf2c01114a73fa466e1e4d18ac92a6c5e7d",
         "TGLExt/Ergodicity.lean": "79bc3b939b6e4e598cefed39088d5b9e9a06e125614bd185f414441c3718f5de",
@@ -3399,24 +3506,45 @@
       "ext_psi_kms_emerges_kernel_proved": true,
       "ext_psi_verb_comp_kernel_proved": true,
       "ext_psi_corner_fixed_kernel_proved": true,
+      "ext_abs_canonical_term_kernel_proved": true,
+      "ext_abs_name_is_trace_kernel_proved": true,
+      "ext_abs_flow_trivial_kernel_proved": true,
+      "ext_abs_locks_annihilate_one_kernel_proved": true,
+      "ext_abs_kernel_inhabited_kernel_proved": true,
+      "ext_abs_corner_fixes_one_kernel_proved": true,
+      "ext_cmz_gen_is_neg_excite_kernel_proved": true,
+      "ext_cmz_zero_mode_kernel_proved": true,
+      "ext_cmz_inverse_parity_kernel_proved": true,
+      "ext_cmz_parity_fixed_zero_kernel_proved": true,
+      "ext_cmz_absolute_gen_zero_kernel_proved": true,
+      "ext_cmz_faces_half_kernel_proved": true,
+      "ext_cmz_contrast_zero_kernel_proved": true,
+      "ext_cmz_pythagoras_continuous_kernel_proved": true,
+      "ext_cmz_q_odd_kernel_proved": true,
+      "ext_cmz_alpha_even_kernel_proved": true,
+      "ext_cmz_transport_kernel_proved": true,
+      "ext_cmz_deriv_zero_kernel_proved": true,
+      "ext_cmz_connection_deriv_kernel_proved": true,
+      "ext_cmz_susy_threshold_kernel_proved": true,
+      "ext_cmz_susy_partner_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "7290e5dfda05b71d9ad1fbd719955f08bbb0227732152e7be2790be34d02c3d7",
+      "build_stdout_sha256": "80c55b5dda6966fac6b18d6584328427e68b4b9d6748fce071905a7410e956d0",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "220e06c6d2d9eb62d65be3c53f8c761faff05dce5303770fae8fef18f76b1dda",
+      "audit_stdout_sha256": "6b2b5895a0275ebf6f23987f464d4f3b643c20e9e1003dbe98631602749d54af",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 102866,
+        "stdout": 110610,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 81780,
+        "stdout": 88012,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "7290e5dfda05b71d9ad1fbd719955f08bbb0227732152e7be2790be34d02c3d7",
-      "audit_capture_sha256_full": "220e06c6d2d9eb62d65be3c53f8c761faff05dce5303770fae8fef18f76b1dda",
+      "build_capture_sha256_full": "80c55b5dda6966fac6b18d6584328427e68b4b9d6748fce071905a7410e956d0",
+      "audit_capture_sha256_full": "6b2b5895a0275ebf6f23987f464d4f3b643c20e9e1003dbe98631602749d54af",
       "custom_TGL_axioms_found": [],
       "source_forbidden_tokens_found": [],
       "formal_release_ready": true,
@@ -4623,7 +4751,9 @@
         "transport_witness": "WITNESS_IS_THE_TRANSPORT_LAW__EL_GENUINE__HOLONOMY_CLOSES_IN_COMMUTATOR__CONTINUOUS_COVARIANT_FAMILY_OPEN",
         "covariant_corner_finite_face": "MEMO_FOUR_CONDITIONS_TYPED_AND_TERM_CONSTRUCTED_FINITE_FACE__GENUINE_CORE_R_ACTION_POINCARE_OPEN",
         "hilbert_home_morada": "FOUR_CORNER_PROPERTIES_DERIVED_FROM_INTERTWININGS_INFINITE_DIM__PACKAGE_CONSTRUCTION_FROM_III1_NET_OPEN__SINGLE_HYPOTHESIS_NAMED_TGL_SOLDERED_BREUER_HILBERT_PACKAGE",
-        "psi_emergence": "OMEGA_ONE_UNDERDETERMINES_HOME_IN_KERNEL__PSI_FIELD_IS_THE_PRIMITIVE__NAME_HOME_FLOW_KMS_CORNER_ALL_DERIVED__OPEN_IS_EMERGENT_QG_OF_PSI"
+        "psi_emergence": "OMEGA_ONE_UNDERDETERMINES_HOME_IN_KERNEL__PSI_FIELD_IS_THE_PRIMITIVE__NAME_HOME_FLOW_KMS_CORNER_ALL_DERIVED__OPEN_IS_EMERGENT_QG_OF_PSI",
+        "absolute_one": "PSI_EQ_ONE_ABS__CANONICAL_TERM_NO_CHOICE__NAME_IS_TRACE__ABSOLUTE_FLOW_TRIVIAL__KER_NONZERO_DERIVED__PF_FIXES_THE_ONE__CONTINUUM_PACKAGE_OPEN",
+        "continuous_modular_zero": "INVERSE_PARITY_JKJ_EQ_NEG_K__ZERO_MODE_K_OMEGA_ZERO__FACES_HALF_HALF__PYTHAGORAS_CONTINUOUS__TRANSPORT_ALPHA__SUSY_QUARTER_THRESHOLD__OPEN_IS_BREUER_FREDHOLM_DIRAC"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -4795,10 +4925,31 @@
         "ext_psi_name_one_emerges_kernel_proved": true,
         "ext_psi_kms_emerges_kernel_proved": true,
         "ext_psi_verb_comp_kernel_proved": true,
-        "ext_psi_corner_fixed_kernel_proved": true
+        "ext_psi_corner_fixed_kernel_proved": true,
+        "ext_abs_canonical_term_kernel_proved": true,
+        "ext_abs_name_is_trace_kernel_proved": true,
+        "ext_abs_flow_trivial_kernel_proved": true,
+        "ext_abs_locks_annihilate_one_kernel_proved": true,
+        "ext_abs_kernel_inhabited_kernel_proved": true,
+        "ext_abs_corner_fixes_one_kernel_proved": true,
+        "ext_cmz_gen_is_neg_excite_kernel_proved": true,
+        "ext_cmz_zero_mode_kernel_proved": true,
+        "ext_cmz_inverse_parity_kernel_proved": true,
+        "ext_cmz_parity_fixed_zero_kernel_proved": true,
+        "ext_cmz_absolute_gen_zero_kernel_proved": true,
+        "ext_cmz_faces_half_kernel_proved": true,
+        "ext_cmz_contrast_zero_kernel_proved": true,
+        "ext_cmz_pythagoras_continuous_kernel_proved": true,
+        "ext_cmz_q_odd_kernel_proved": true,
+        "ext_cmz_alpha_even_kernel_proved": true,
+        "ext_cmz_transport_kernel_proved": true,
+        "ext_cmz_deriv_zero_kernel_proved": true,
+        "ext_cmz_connection_deriv_kernel_proved": true,
+        "ext_cmz_susy_threshold_kernel_proved": true,
+        "ext_cmz_susy_partner_kernel_proved": true
       },
-      "n_theorems_clean": 170,
-      "n_theorems_expected": 170,
+      "n_theorems_clean": 191,
+      "n_theorems_expected": 191,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -4901,6 +5052,14 @@
         ],
         [
           "psi_field_defines_home",
+          true
+        ],
+        [
+          "absolute_one_canonical_construction",
+          true
+        ],
+        [
+          "continuous_modular_zero",
           true
         ]
       ],
@@ -5929,6 +6088,153 @@
       "does_not_gate_core": true,
       "verdict": "PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI"
     },
+    "absolute_one": {
+      "residuals": {
+        "nome_do_um_eq_traco": 0.0,
+        "omega_do_um_eq_1": 0.0,
+        "vetor_GNS_eq_unidade_normalizada": 0.0,
+        "transporte_do_absoluto_trivial": 3.1124632721154793e-16,
+        "locks_anulam_o_um": 0.0,
+        "PF_fixa_o_um": 1.3071348589727356e-15
+      },
+      "max_residual": 1.3071348589727356e-15,
+      "deformed_flow_contrast": 7.449302440328505,
+      "checks": [
+        [
+          "nome_do_um_eq_traco",
+          true
+        ],
+        [
+          "omega_do_um_eq_1",
+          true
+        ],
+        [
+          "vetor_GNS_eq_unidade_normalizada",
+          true
+        ],
+        [
+          "transporte_do_absoluto_trivial",
+          true
+        ],
+        [
+          "locks_anulam_o_um",
+          true
+        ],
+        [
+          "PF_fixa_o_um",
+          true
+        ],
+        [
+          "ker_nao_nulo_porque_o_um_habita",
+          true
+        ],
+        [
+          "contraste_liga_fluxo_quando_q_nao_zero",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "identification": "PSI = 1_ABS (a secao-unitaria originaria; Psi_abs(O) = 1_{M(O)}); omega_Psi(I)=1 = consequencia da identidade do campo (name_one aplicado ao termo canonico)",
+        "subdetermination_resolved": "PELA IDENTIFICACAO: dado Psi=1_abs, o estado e' O TRACO (nenhuma escolha) -- absoluteOneField e' termo canonico",
+        "gravity_reading": "o transporte do ABSOLUTO e' trivial (teorema): a gravidade NAO e' ruptura do Um -- e' a curvatura de sua inscricao transportada (q != 0); 'onde o Um cola, nao ha curvatura'",
+        "breuer_clause_derived": "ker D_Psi != 0 DERIVADO para a dinamica canonica (comutadores anulam o Um; o Um habita o nucleo; P_F Omega = Omega)",
+        "correspondence": "1 = q^2 + alpha_obs^2 = a decomposicao pitagorica da inscricao do Um (alpha_abs=1); verificada a residuo 0.0 na espinha central DESTE runtime (nao re-fabricada aqui)",
+        "open_theorem": "O PACOTE CONTINUO: core III_1/II_inf com traco de Breuer genuino + solda e_Psi + dinamica continua de Psi=1_abs -- a face finita do absoluto e' tracial/plana POR TEOREMA; a fisica observada e' a deformacao q!=0",
+        "caminho_verdade_vida": "CAMINHO = transporte T^Psi; VERDADE = 1=1 preservado; VIDA = a dinamica que forma geometria [ONTO registrado]"
+      },
+      "does_not_gate_core": true,
+      "verdict": "ABSOLUTE_ONE_CANONICAL_CONSTRUCTION_FINITE_FACE_DONE__CONTINUUM_PACKAGE_REMAINS_THE_OPEN_THEOREM"
+    },
+    "continuous_modular_zero": {
+      "residuals": {
+        "K_Omega_zero": 8.875891127825621e-16,
+        "JKJ_eq_negK": 2.9976021664879227e-15,
+        "K_abs_zero": 0.0,
+        "faces_meia_meia": 0.0,
+        "pitagoras_continuo": 3.3306690738754696e-16,
+        "paridade_impar_par": 0.0,
+        "transporte_A0_alpha": 5.081396506068092e-07,
+        "derivada_no_zero": 0.0,
+        "susy_limiar_um_quarto": 3.333328000010294e-07
+      },
+      "spectrum": {
+        "zero_mode": 2.696675890009162e-06,
+        "first_continuum": 0.2575838631382752,
+        "H_min": 0.3924186448841266,
+        "decay_d0": 0.06734880977257843,
+        "decay_d3": 0.0030153989879786393,
+        "beta_runtime_times_gap_min": 0.013234430440883458
+      },
+      "checks": [
+        [
+          "K_Omega_zero",
+          true
+        ],
+        [
+          "JKJ_eq_negK",
+          true
+        ],
+        [
+          "K_abs_zero",
+          true
+        ],
+        [
+          "faces_meia_meia",
+          true
+        ],
+        [
+          "pitagoras_continuo",
+          true
+        ],
+        [
+          "paridade_impar_par",
+          true
+        ],
+        [
+          "transporte_A0_alpha",
+          true
+        ],
+        [
+          "derivada_no_zero",
+          true
+        ],
+        [
+          "susy_limiar_um_quarto",
+          true
+        ],
+        [
+          "modo_zero_isolado (disc ~h^2)",
+          true
+        ],
+        [
+          "continuo_acima_de_1_4 (caixa)",
+          true
+        ],
+        [
+          "H_limitado_inferiormente",
+          true
+        ],
+        [
+          "lindblad_modula_ao_atrator (queda >= 20x em t=3/(beta*gap))",
+          true
+        ],
+        [
+          "traco_preservado",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "zero_modular": "0_mod = MODO ZERO do gerador modular (nao o operador nulo): K.Omega=0 com K != 0 fora do Um; JKJ=-K = a paridade inversa [KERNEL]; K_abs=0 = a paridade inversa do Um absoluto E' o zero modular [KERNEL]",
+        "paridade_binaria_originaria": "as duas faces do absoluto pesam 1/2 cada e 0_mod = 1/2 - 1/2 [KERNEL]; q impar / alpha par [KERNEL]; 'e' na derivada do zero que o continuo se anula' = alpha'(0)=0 [KERNEL]",
+        "susy": "W=q/2: W^2+W'=1/4 (o limiar do continuo E' a correspondencia 1=q^2+alpha^2 dividida por 4) [KERNEL]; W^2-W'=1/4-alpha^2/2 (Poschl-Teller do modo zero) [KERNEL]; modo zero isolado + continuo >= 1/4 [NUM]",
+        "resistencia_beta": "a derivacao do operador: o par (1_abs, 0_mod) paga beta_TGL para nao cair a zero absoluto -- H=-log(rho*) limitado inferiormente; dephasing (v43) modula ao atrator rho* com taxa beta*gap (beta do RUNTIME) [DER/NUM; ONTO tipado]",
+        "aberto_nomeado": "continuousModularDirac_isBreuerFredholm: afiliacao de D_Psi ao core semifinito + resolvente tau-compacto + 0<tau(1_{0}(D_Psi))<inf; e a solda multidimensional (>=2 direcoes) [OPEN]"
+      },
+      "does_not_gate_core": true,
+      "verdict": "CONTINUOUS_MODULAR_ZERO_VERIFIED__INVERSE_PARITY_AND_TRANSPORT_IN_KERNEL__BREUER_FREDHOLM_DIRAC_REMAINS_OPEN"
+    },
     "reading_direction": {
       "theorem": "Reading direction of g = sqrt(|L_phi|): light -> gravity",
       "reading_direction": "not gravity->light, but light->inscription->angular boundary->geometric module->gravity",
@@ -6543,7 +6849,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-14 15:16:16",
+    "timestamp": "2026-07-14 18:04:47",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -6793,7 +7099,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-14 15:16:16",
+        "prediction_timestamp": "2026-07-14 18:04:47",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -6829,7 +7135,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "b52eae8498340fa8c2341b5414eed4b437d70734e974bd63644841665b4e2833"
+        "prediction_hash": "3d34de0b7cb912ec5afadb35e79ced166d8a0c9301ddc991c9a9bf4e9ff12ae0"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -7129,7 +7435,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "c953a84bdd19e8d91da49d0de92413b50d078b9cd8d081fc70ad4c06af1996ea"
+    "result_hash": "6edd3250fa1b8818ecca926bc75f3462e0d224128176f761dcf9557157ddb255"
   },
   "ga_mass_literature": [
     {
@@ -7155,7 +7461,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "c953a84bdd19e8d91da49d0de92413b50d078b9cd8d081fc70ad4c06af1996ea",
+  "result_hash_before_external_comparison": "6edd3250fa1b8818ecca926bc75f3462e0d224128176f761dcf9557157ddb255",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -7165,5 +7471,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-14 15:16:16"
+  "timestamp": "2026-07-14 18:04:47"
 }

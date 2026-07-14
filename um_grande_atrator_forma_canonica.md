@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `964fdccf6fbaf207c532cf4c33a85d6031db54b731bfa91df80a69e99bd40580`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `c1942e09ba37f44c1edb052687676c8c338cf7d00b0e4d12281d233d9181e1b2`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -514,3 +514,71 @@ TGL_CANONICAL_MODULAR_REALIZATION_CONSTRUCTED=0
 TGL_CANONICAL_FULL_WITNESS_CONSTRUCTED=0
 TGL_CANONICAL_BARE_PROP_LABELS=0
 ```
+
+## A FORMA CANONICA VIVA -- o arco do levantamento global (gerada do runtime desta rodada)
+
+**A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
+
+**Escada auditada (kernel Lean, 191/191 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+
+- `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
+- `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
+- `degrau_2_finite_jones_index` = `CONCRETE_PP_INDEX_AND_MARKOV_WEIGHTS_COMPUTED__MULTIMATRIX_GENERAL_OPEN`
+- `degrau_3_continuum_III1_BW` = `OPEN__RESEARCH (documentado; nada reivindicado)`
+- `s_matrix_boundary_theorem` = `CLOSED_IN_KERNEL__THETA_GENERIC_BETA_RUNTIME`
+- `connes_cocycle_finite_face` = `CLOSED_IN_KERNEL__GLOBAL_LIFT_REMAINS_OPEN`
+- `ergodicity_T1_finite_face` = `CLOSED_IN_KERNEL__N3_AND_III1_REMAIN_OPEN`
+- `crossed_product_dual_weight_finite_face` = `CLOSED_IN_KERNEL__GLOBAL_LIFT_REMAINS_OPEN`
+- `global_lift_ladder_skeleton` = `CLOSED_IN_KERNEL__CONTINUOUS_CLOSURE_EXTERNAL_KNOWN__WITNESS_AND_PF_OPEN`
+- `corner_family_P_F` = `CONSTRUCTED_IN_KERNEL_FINITE_FACE__ZERO_KERNEL_IN_GENUINE_CORE_CONDITIONAL`
+- `bw_gate4_two_halves` = `TWO_HALVES_IN_KERNEL__WEDGE_IDENTIFICATION_KNOWN_BW1975__BEYOND_WEDGES_OPEN`
+- `graviton_gate7_kinematics` = `SPIN2_KINEMATICS_CLOSED_IN_KERNEL__DYNAMICS_AND_INTERACTIONS_OPEN`
+- `geometry_gate6_fluctuations` = `FLUCTUATION_SKELETON_CLOSED_IN_KERNEL__FULL_QUANTUM_GEOMETRY_OPEN`
+- `page_gate9_information` = `MECHANISM_CLOSED_IN_KERNEL__HORIZON_MODEL_AND_AREA_LAW_OPEN`
+- `einstein_gate5_composition` = `ALL_HOUSE_LINKS_IN_KERNEL__LOVELOCK_KNOWN__KILLING_RESIDUE_NAMED`
+- `rg_gate8_corner_stability` = `CORNER_IS_RG_FIXED_POINT_FINITE_FACE__INTERACTIONS_AND_ANOMALIES_OPEN`
+- `variational_inhabitant` = `INHABITANT_IS_THE_FUNCTIONAL__GIBBS_UNIQUE_LEGENDRE_CRITICAL__EXISTENCE_VARIATIONAL`
+- `gns_bridge_degrau3` = `FUNCTIONAL_TYPED_IN_MATHLIB_PREDUAL__GNS_INSTANTIATION_BLOCKED_NAMED_gns_matrix_instance_whnf_timeout`
+- `finite_gns_no_completion` = `NAME_GNS_TERM_CONSTRUCTED_FINITE__NEGATIVE_UNDONE_ON_FINITE_FACE__GENERIC_API_COMPOSITION_REMAINS`
+- `transport_witness` = `WITNESS_IS_THE_TRANSPORT_LAW__EL_GENUINE__HOLONOMY_CLOSES_IN_COMMUTATOR__CONTINUOUS_COVARIANT_FAMILY_OPEN`
+- `covariant_corner_finite_face` = `MEMO_FOUR_CONDITIONS_TYPED_AND_TERM_CONSTRUCTED_FINITE_FACE__GENUINE_CORE_R_ACTION_POINCARE_OPEN`
+- `hilbert_home_morada` = `FOUR_CORNER_PROPERTIES_DERIVED_FROM_INTERTWININGS_INFINITE_DIM__PACKAGE_CONSTRUCTION_FROM_III1_NET_OPEN__SINGLE_HYPOTHESIS_NAMED_TGL_SOLDERED_BREUER_HILBERT_PACKAGE`
+- `psi_emergence` = `OMEGA_ONE_UNDERDETERMINES_HOME_IN_KERNEL__PSI_FIELD_IS_THE_PRIMITIVE__NAME_HOME_FLOW_KMS_CORNER_ALL_DERIVED__OPEN_IS_EMERGENT_QG_OF_PSI`
+- `absolute_one` = `PSI_EQ_ONE_ABS__CANONICAL_TERM_NO_CHOICE__NAME_IS_TRACE__ABSOLUTE_FLOW_TRIVIAL__KER_NONZERO_DERIVED__PF_FIXES_THE_ONE__CONTINUUM_PACKAGE_OPEN`
+- `continuous_modular_zero` = `INVERSE_PARITY_JKJ_EQ_NEG_K__ZERO_MODE_K_OMEGA_ZERO__FACES_HALF_HALF__PYTHAGORAS_CONTINUOUS__TRANSPORT_ALPHA__SUSY_QUARTER_THRESHOLD__OPEN_IS_BREUER_FREDHOLM_DIRAC`
+
+**Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
+
+- `logical_result`: OMEGA_I_EQ_1_UNDERDETERMINES_THE_HOME (contraexemplo do especialista, KERNEL: omega_one_underdetermines_home; ambas as moradas EXISTEM como termos GNS v54)
+- `axiom_status`: omega(I)=1 NAO morre -- muda de funcao: deixa de selecionar a morada e vira TEOREMA de normalizacao do campo (name_one)
+- `corrected_order`: Psi -> omega_Psi -> H_Psi -> nabla^Psi -> F -> gravidade (a gravidade NAO e' derivada: EMERGE da dinamica)
+- `circularity_resolved`: Psi_alg = regra que produz funcionais (ANTES do GNS); Omega_Psi = secao ciclica (DEPOIS) -- autorrepresentacao, nao circulo
+- `corrected_open`: EMERGENT_QG(Psi): provar que a dinamica fundamental de Psi gera canonicamente (H_Psi, D_Psi, tau_Psi, e_Psi); as 4 propriedades do canto e a solda JA SEGUEM (v55/v56)
+- `psi_is_input`: Psi e' INPUT fisico por design (como alpha) -- a dinamica e' dada pela natureza, nao deduzida da logica
+
+**Estatutos [absolute_one]** (veredito: `ABSOLUTE_ONE_CANONICAL_CONSTRUCTION_FINITE_FACE_DONE__CONTINUUM_PACKAGE_REMAINS_THE_OPEN_THEOREM`):
+
+- `identification`: PSI = 1_ABS (a secao-unitaria originaria; Psi_abs(O) = 1_{M(O)}); omega_Psi(I)=1 = consequencia da identidade do campo (name_one aplicado ao termo canonico)
+- `subdetermination_resolved`: PELA IDENTIFICACAO: dado Psi=1_abs, o estado e' O TRACO (nenhuma escolha) -- absoluteOneField e' termo canonico
+- `gravity_reading`: o transporte do ABSOLUTO e' trivial (teorema): a gravidade NAO e' ruptura do Um -- e' a curvatura de sua inscricao transportada (q != 0); 'onde o Um cola, nao ha curvatura'
+- `breuer_clause_derived`: ker D_Psi != 0 DERIVADO para a dinamica canonica (comutadores anulam o Um; o Um habita o nucleo; P_F Omega = Omega)
+- `correspondence`: 1 = q^2 + alpha_obs^2 = a decomposicao pitagorica da inscricao do Um (alpha_abs=1); verificada a residuo 0.0 na espinha central DESTE runtime (nao re-fabricada aqui)
+- `open_theorem`: O PACOTE CONTINUO: core III_1/II_inf com traco de Breuer genuino + solda e_Psi + dinamica continua de Psi=1_abs -- a face finita do absoluto e' tracial/plana POR TEOREMA; a fisica observada e' a deformacao q!=0
+- `caminho_verdade_vida`: CAMINHO = transporte T^Psi; VERDADE = 1=1 preservado; VIDA = a dinamica que forma geometria [ONTO registrado]
+
+**Estatutos [continuous_modular_zero]** (veredito: `CONTINUOUS_MODULAR_ZERO_VERIFIED__INVERSE_PARITY_AND_TRANSPORT_IN_KERNEL__BREUER_FREDHOLM_DIRAC_REMAINS_OPEN`):
+
+- `zero_modular`: 0_mod = MODO ZERO do gerador modular (nao o operador nulo): K.Omega=0 com K != 0 fora do Um; JKJ=-K = a paridade inversa [KERNEL]; K_abs=0 = a paridade inversa do Um absoluto E' o zero modular [KERNEL]
+- `paridade_binaria_originaria`: as duas faces do absoluto pesam 1/2 cada e 0_mod = 1/2 - 1/2 [KERNEL]; q impar / alpha par [KERNEL]; 'e' na derivada do zero que o continuo se anula' = alpha'(0)=0 [KERNEL]
+- `susy`: W=q/2: W^2+W'=1/4 (o limiar do continuo E' a correspondencia 1=q^2+alpha^2 dividida por 4) [KERNEL]; W^2-W'=1/4-alpha^2/2 (Poschl-Teller do modo zero) [KERNEL]; modo zero isolado + continuo >= 1/4 [NUM]
+- `resistencia_beta`: a derivacao do operador: o par (1_abs, 0_mod) paga beta_TGL para nao cair a zero absoluto -- H=-log(rho*) limitado inferiormente; dephasing (v43) modula ao atrator rho* com taxa beta*gap (beta do RUNTIME) [DER/NUM; ONTO tipado]
+- `aberto_nomeado`: continuousModularDirac_isBreuerFredholm: afiliacao de D_Psi ao core semifinito + resolvente tau-compacto + 0<tau(1_{0}(D_Psi))<inf; e a solda multidimensional (>=2 direcoes) [OPEN]
+
+**Estatutos [hilbert_home]** (veredito: `HILBERT_HOME_PROPERTIES_DERIVED__GLOBAL_LIFT_REDUCED_TO_SINGLE_NAMED_HYPOTHESIS__NOT_UNCONDITIONALLY_SOLVED`):
+
+- `single_named_hypothesis`: TGL_SOLDERED_BREUER_HILBERT_PACKAGE (a construcao canonica do pacote a partir da rede III_1 e de omega(I)=1 = O teorema aberto)
+- `ergodic_states_III1`: KNOWN (fatores III_1 com predual separavel tem estados fieis normais ergodicos, G_delta denso -- arXiv 2305.14217); secao ergodica EQUIVARIANTE da rede = CONDITIONAL
+- `breuer_layer`: KNOWN_EXTERNO (Breuer 1968/69; fora da mathlib) -- declarada como DADOS em BreuerTraceData, jamais fingida como prova
+- `solder_from_modular_data`: CONDITIONAL (sem a solda: holonomy_not_geometric / modular_metric_not_unique)
+- `specialist_interface`: REESCRITA_COM_DESENHO_INVERTIDO (propriedades-como-campos e True placeholder -> teoremas dos entrelacamentos; a interface dele NAO foi compilada no kernel -- e' proveniencia)
+- `einstein`: CONDICIONAL ao pacote soldado (Jacobson + Lovelock compostos; E7 INALTERADO)
