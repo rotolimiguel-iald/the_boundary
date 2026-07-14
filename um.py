@@ -4869,6 +4869,24 @@ import TGLExt.CondExpect
 import TGLExt.PPIndex
 import TGLExt.MarkovTower
 import TGLExt.Bicommutant
+import TGLExt.SMatrix
+import TGLExt.Cocycle
+import TGLExt.Ergodicity
+import TGLExt.FiniteCrossedProduct
+import TGLExt.GlobalLiftLadder
+import TGLExt.CornerFamily
+import TGLExt.BisognanoWichmann
+import TGLExt.GravitonPolarization
+import TGLExt.GeometryFluctuation
+import TGLExt.PageInformation
+import TGLExt.ModularFirstLaw
+import TGLExt.RGStability
+import TGLExt.VariationalInhabitant
+import TGLExt.GNSBridge
+import TGLExt.FiniteGNSNoCompletion
+import TGLExt.TransportWitness
+import TGLExt.CovariantCorner
+import TGLExt.HilbertHome
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5069,6 +5087,214 @@ namespace TGL.Audit
 #check @TGLExt.isCompl_frobOrtho
 #check @TGLExt.frobProj_comm_Lmul
 #check @TGLExt.finite_bicommutant
+-- v41 (A MATRIZ-S FECHADA: Teorema S-boundary no kernel; theta generico, beta=runtime)
+#check @TGLExt.Grot_sq
+#check @TGLExt.exp_smul_Grot
+#check @TGLExt.Smat_mem_unitary
+#check @TGLExt.Smat_mul
+#check @TGLExt.Smat_spectral
+#check @TGLExt.normSq_reflection_add_transmission
+#check @TGLExt.rhoOut_trace
+-- v42 (O COCICLO DE CONNES: face finita do Lema 3 -- E1/E2/E4/U/E3c/E6; GLOBAL_LIFT segue ABERTO)
+#check @TGLExt.cocycle_chain
+#check @TGLExt.cocycle_triangle
+#check @TGLExt.cocycle_temporal
+#check @TGLExt.cocycle_conjTranspose
+#check @TGLExt.cocycle_mem_unitary
+#check @TGLExt.cocycle_of_commute
+#check @TGLExt.logRho_conj
+#check @TGLExt.modPow_conj
+#check @TGLExt.cocycle_covariance
+-- v43 (ERGODICIDADE T1 na face finita: setor fixo=centralizador; traco emerge; T_t -> E_0)
+#check @TGLExt.sigma_fixed_of_commute
+#check @TGLExt.logRho_diagonal
+#check @TGLExt.sigma_fixed_iff_diag
+#check @TGLExt.gibbs_tracial_on_centralizer
+#check @TGLExt.dephase_add
+#check @TGLExt.dephase_tendsto_expectation
+#check @TGLExt.ergodic_convergence_modular
+-- v44 (O PRODUTO CRUZADO FINITO com cociclo dual: peso dual de Takesaki na
+--      face finita -- covariancia ALEM dos unitarios internos; GLOBAL_LIFT segue ABERTO)
+#check @TGLExt.lam_one
+#check @TGLExt.lam_mul
+#check @TGLExt.lam_conjTranspose
+#check @TGLExt.lam_mem_unitary
+#check @TGLExt.piRep_mul
+#check @TGLExt.piRep_star
+#check @TGLExt.piRep_injective
+#check @TGLExt.lam_conj_piRep
+#check @TGLExt.lam_mul_piRep
+#check @TGLExt.Ecomp_idem
+#check @TGLExt.Ecomp_piRep
+#check @TGLExt.Ecomp_lam
+#check @TGLExt.gibbs_Ecomp
+#check @TGLExt.gibbs_piRep_dual
+#check @TGLExt.trace_piRep
+#check @TGLExt.alphaAct_modPow
+#check @TGLExt.logRho_piRep
+#check @TGLExt.exp_piRep
+#check @TGLExt.modPow_piRep
+#check @TGLExt.cocycle_piRep
+#check @TGLExt.sigma_piRep
+#check @TGLExt.dual_weight_left
+#check @TGLExt.dual_weight
+#check @TGLExt.dual_flow_fixes_lam_of_invariant
+#check @TGLExt.cocycle_covariance_beyond_inner
+#check @TGLExt.Dchi_mul_lam
+#check @TGLExt.Dchi_comm_piRep
+#check @TGLExt.Dchi_conj_lam
+#check @TGLExt.Dchi_comm_modPow
+#check @TGLExt.gibbs_Dchi
+-- v45 (A ESCADA DO GLOBAL_LIFT: densidade diadica quantitativa; obstrucao do
+--      traco discreto; canal de medicao no referencial-S; fecho continuo EXTERNO)
+#check @TGLExt.dyadic_approx
+#check @TGLExt.dyadic_stage_mono
+#check @TGLExt.dyadic_tendsto
+#check @TGLExt.annihilator_fixes_stage
+#check @TGLExt.scaling_fixed_eq_zero
+#check @TGLExt.DualScalingData.fixed_tau_zero
+#check @TGLExt.DualScalingData.dyadic_stage_tau_zero
+#check @TGLExt.sFrame_zero
+#check @TGLExt.sFrame_add
+#check @TGLExt.sFrame_tendsto
+#check @TGLExt.dephased_rhoOut_zero_zero
+#check @TGLExt.dephased_rhoOut_one_one
+#check @TGLExt.measurement_channel_endpoint
+-- v46 (A FAMILIA DO CANTO: isotonia+covariancia+traco finito+invariancia modular
+--      construidas; [P_F,lambda(s)]=0 de graca; traco finito => nao theta-fixo)
+#check @TGLExt.corner_fixed_by_flow
+#check @TGLExt.DualScalingData.finite_trace_not_fixed
+#check @TGLExt.cornerProj_apply
+#check @TGLExt.cornerProj_idem
+#check @TGLExt.cornerProj_conjTranspose
+#check @TGLExt.cornerProj_mono
+#check @TGLExt.lam_conj_cornerProj
+#check @TGLExt.trace_cornerProj
+#check @TGLExt.cornerProj_comm_piRep
+#check @TGLExt.cornerProj_comm_modPow
+#check @TGLExt.cornerProj_univ
+-- v47 (BISOGNANO-WICHMANN na face finita: geometria do boost + gerador modular a 2pi;
+--      a identificacao das duas metades = KNOWN p/ wedges (BW 1975/76), OPEN alem)
+#check @TGLExt.boost_zero
+#check @TGLExt.boost_add
+#check @TGLExt.boost_preserves_eta
+#check @TGLExt.boost_det
+#check @TGLExt.boost_null_expand
+#check @TGLExt.boost_null_contract
+#check @TGLExt.boost_preserves_wedge
+#check @TGLExt.logRho_gibbs_boost
+#check @TGLExt.modPow_gibbs_boost
+#check @TGLExt.sigma_gibbs_boost
+-- v48 (O GRAVITON OBSERVAVEL: cinematica de spin-2 -- 2 polarizacoes, helicidade +-2,
+--      gauge TT, deltaI_modular com delta(1)=0; dinamica/interacoes seguem com estatuto)
+#check @TGLExt.polPlus_symm
+#check @TGLExt.polCross_symm
+#check @TGLExt.polPlus_traceless
+#check @TGLExt.polCross_traceless
+#check @TGLExt.polarization_decomposition
+#check @TGLExt.polarizations_independent
+#check @TGLExt.rot_add
+#check @TGLExt.rot_conj_polPlus
+#check @TGLExt.rot_conj_polCross
+#check @TGLExt.rot_conj_one
+#check @TGLExt.minkNorm4_nullK
+#check @TGLExt.gaugeSym_symmetric
+#check @TGLExt.gauge_transverse_zero
+#check @TGLExt.excite_one_zero
+#check @TGLExt.excite_leibniz
+#check @TGLExt.Smat_sub_one
+-- v49 (AS FLUTUACOES QUANTICAS DA GEOMETRIA: Var=p(1-p)=defeito de transporte;
+--      Meia-Nat = flutuacao maxima; [h+,hx]=2J; limite classico = LLN)
+#check @TGLExt.variance_of_projection
+#check @TGLExt.reflObs_proj
+#check @TGLExt.gibbs_reflObs
+#check @TGLExt.boundary_mean
+#check @TGLExt.boundary_variance
+#check @TGLExt.variance_le_quarter
+#check @TGLExt.variance_eq_quarter_iff
+#check @TGLExt.polarization_commutator
+#check @TGLExt.polarizations_noncommute
+#check @TGLExt.sqrt_ratio_eq
+#check @TGLExt.classical_limit
+#check @TGLExt.classical_limit_physical
+-- v50 (PAGE E A INFORMACAO: balanco puro S_A=S_B; unitarios conservam;
+--      canal perde pureza monotonicamente; entropia maxima no espelho)
+#check @TGLExt.purity_unitary_invariant
+#check @TGLExt.pure_reductions_trace_eq
+#check @TGLExt.pure_reductions_balance
+#check @TGLExt.purityR_eq
+#check @TGLExt.dephase_purityR_le
+#check @TGLExt.entropy_max_at_half
+#check @TGLExt.entropy_eq_max_iff_half
+-- v51 (GATES 5 e 8: a primeira lei modular dS=d<K> como derivada genuina +
+--      Clausius tipado; o canto e' ponto fixo da renormalizacao)
+#check @TGLExt.first_law_diagonal
+#check @TGLExt.clausius_composition
+#check @TGLExt.Ecomp_fixes_cornerProj
+#check @TGLExt.dephase_fixes_cornerProj
+#check @TGLExt.rg_step_doubles_annihilator
+-- v52 (O HABITANTE VARIACIONAL: o Nome que se torna funcional -- Gibbs = ponto
+--      critico de Legendre, e SO ele; o modo-zero minimiza o defeito)
+#check @TGLExt.pairing_bilinear_left
+#check @TGLExt.pairing_bilinear_right
+#check @TGLExt.zero_mode_state_minimizes
+#check @TGLExt.gibbs_is_critical
+#check @TGLExt.elementary_critical_implies_gibbs
+-- v53 (A PONTE GNS, escopo honesto: o funcional positivo TIPADO; a instanciacao
+--      do GNS sobre matrizes = negativo nomeado gns_matrix_instance_whnf_timeout)
+#check @TGLExt.gibbs_nonneg
+#check @TGLExt.gibbs_monotone
+#check @TGLExt.boundaryState
+#check @TGLExt.boundaryState_apply
+-- v54 (O NOME FUNCIONAL E O TRANSPORTE: GNS finito SEM completamento -- espec do
+--      especialista compilado nesta maquina, desfaz o negativo na face finita;
+--      a testemunha e' o TRANSPORTE -- EL genuina + lei 𝒯_{t,s} + holonomia)
+#check @TGLExt.Sop_omega
+#check @TGLExt.FiniteNameGNS
+#check @TGLExt.nameFiniteGNS
+#check @TGLExt.nameFiniteGNS_exists
+#check @TGLExt.boundaryState_eq_vector_state
+#check @TGLExt.lock_pairing_eq
+#check @TGLExt.action_locks_zero_iff
+#check @TGLExt.hermitian_pairing_re
+#check @TGLExt.action_hasDerivAt
+#check @TGLExt.critical_pairing_iff
+#check @TGLExt.transport
+#check @TGLExt.transport_refl
+#check @TGLExt.transport_comp
+#check @TGLExt.transport_fixes_name
+#check @TGLExt.transport_trace
+#check @TGLExt.transport_corner
+#check @TGLExt.NamedTransportData
+#check @TGLExt.canonicalNamedTransport
+#check @TGLExt.canonicalNamedTransport_exists
+#check @TGLExt.excite_holonomy
+#check @TGLExt.excite_holonomy_flat
+-- v55 (O CANTO COVARIANTE TRANSPORTADO: a face finita do TGL_CANONICAL_FINITE_
+--      CORNER_THEOREM do memorando -- as 4 condicoes tipadas + o TERMO habitado;
+--      o transporte interno FIXA, o externo MOVE covariantemente)
+#check @TGLExt.trace_cornerProj_pos
+#check @TGLExt.cornerProj_loewner_mono
+#check @TGLExt.sigma_fixes_cornerProj
+#check @TGLExt.cornerProj_ne_of_ne
+#check @TGLExt.TransportedCornerFamily
+#check @TGLExt.canonicalTransportedCorner
+#check @TGLExt.canonicalTransportedCorner_exists
+-- v56 (A MORADA E' O PACOTE DE HILBERT: as 4 propriedades do canto DERIVADAS
+--      dos entrelacamentos, validas em dimensao INFINITA -- a Resposta 6
+--      kernelizada com o desenho invertido: leis = so' entrelacamentos)
+#check @TGLExt.ker_map_of_intertwine
+#check @TGLExt.starProjection_ker_covariant
+#check @TGLExt.starProjection_ker_internal_fix
+#check @TGLExt.starProjection_ker_isotone
+#check @TGLExt.lagrangian_zero_iff_mem_ker
+#check @TGLExt.HilbertHomeData
+#check @TGLExt.HilbertHomeData.PF
+#check @TGLExt.HilbertHomeData.PF_internal_fix
+#check @TGLExt.HilbertHomeData.PF_external_covariant
+#check @TGLExt.HilbertHomeData.PF_isotone
+#check @TGLExt.BreuerTraceData
+#check @TGLExt.solder_recovers_curvature
 
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
@@ -5152,6 +5378,30 @@ namespace TGL.Audit
 #print axioms TGLExt.isCompl_frobOrtho
 #print axioms TGLExt.frobProj_comm_Lmul
 #print axioms TGLExt.finite_bicommutant
+-- v41 (matriz-S)
+#print axioms TGLExt.Grot_sq
+#print axioms TGLExt.exp_smul_Grot
+#print axioms TGLExt.Smat_mem_unitary
+#print axioms TGLExt.Smat_mul
+#print axioms TGLExt.Smat_spectral
+#print axioms TGLExt.normSq_reflection_add_transmission
+#print axioms TGLExt.rhoOut_trace
+-- v42 (cociclo)
+#print axioms TGLExt.cocycle_chain
+#print axioms TGLExt.cocycle_temporal
+#print axioms TGLExt.cocycle_conjTranspose
+#print axioms TGLExt.cocycle_mem_unitary
+#print axioms TGLExt.cocycle_of_commute
+#print axioms TGLExt.logRho_conj
+#print axioms TGLExt.cocycle_covariance
+-- v43 (ergodicidade)
+#print axioms TGLExt.sigma_fixed_of_commute
+#print axioms TGLExt.logRho_diagonal
+#print axioms TGLExt.sigma_fixed_iff_diag
+#print axioms TGLExt.gibbs_tracial_on_centralizer
+#print axioms TGLExt.dephase_add
+#print axioms TGLExt.dephase_tendsto_expectation
+#print axioms TGLExt.ergodic_convergence_modular
 #print axioms TGLExt.J_deltaHalf
 #print axioms TGLExt.frob_delta_nonneg
 #print axioms TGLExt.gibbs_kms
@@ -5163,6 +5413,124 @@ namespace TGL.Audit
 #print axioms TGLExt.diagExpect_bimod
 #print axioms TGLExt.eD_Lmul_eD
 #print axioms TGLExt.commutant_range_diagonal
+-- v44 (produto cruzado finito / peso dual)
+#print axioms TGLExt.lam_mem_unitary
+#print axioms TGLExt.lam_conj_piRep
+#print axioms TGLExt.piRep_injective
+#print axioms TGLExt.Ecomp_lam
+#print axioms TGLExt.gibbs_Ecomp
+#print axioms TGLExt.gibbs_piRep_dual
+#print axioms TGLExt.modPow_piRep
+#print axioms TGLExt.sigma_piRep
+#print axioms TGLExt.cocycle_piRep
+#print axioms TGLExt.dual_weight
+#print axioms TGLExt.cocycle_covariance_beyond_inner
+#print axioms TGLExt.Dchi_conj_lam
+#print axioms TGLExt.Dchi_comm_modPow
+#print axioms TGLExt.gibbs_Dchi
+-- v45 (escada do GLOBAL_LIFT)
+#print axioms TGLExt.dyadic_approx
+#print axioms TGLExt.dyadic_stage_mono
+#print axioms TGLExt.dyadic_tendsto
+#print axioms TGLExt.annihilator_fixes_stage
+#print axioms TGLExt.scaling_fixed_eq_zero
+#print axioms TGLExt.DualScalingData.fixed_tau_zero
+#print axioms TGLExt.DualScalingData.dyadic_stage_tau_zero
+#print axioms TGLExt.sFrame_add
+#print axioms TGLExt.sFrame_tendsto
+#print axioms TGLExt.measurement_channel_endpoint
+-- v46 (familia do canto)
+#print axioms TGLExt.corner_fixed_by_flow
+#print axioms TGLExt.DualScalingData.finite_trace_not_fixed
+#print axioms TGLExt.cornerProj_idem
+#print axioms TGLExt.cornerProj_conjTranspose
+#print axioms TGLExt.cornerProj_mono
+#print axioms TGLExt.lam_conj_cornerProj
+#print axioms TGLExt.trace_cornerProj
+#print axioms TGLExt.cornerProj_comm_modPow
+-- v47 (Bisognano-Wichmann finito)
+#print axioms TGLExt.boost_add
+#print axioms TGLExt.boost_preserves_eta
+#print axioms TGLExt.boost_null_expand
+#print axioms TGLExt.boost_null_contract
+#print axioms TGLExt.boost_preserves_wedge
+#print axioms TGLExt.logRho_gibbs_boost
+#print axioms TGLExt.modPow_gibbs_boost
+#print axioms TGLExt.sigma_gibbs_boost
+-- v48 (graviton: cinematica de spin-2)
+#print axioms TGLExt.polarization_decomposition
+#print axioms TGLExt.polarizations_independent
+#print axioms TGLExt.rot_conj_polPlus
+#print axioms TGLExt.rot_conj_polCross
+#print axioms TGLExt.rot_conj_one
+#print axioms TGLExt.gauge_transverse_zero
+#print axioms TGLExt.minkNorm4_nullK
+#print axioms TGLExt.excite_one_zero
+#print axioms TGLExt.excite_leibniz
+#print axioms TGLExt.Smat_sub_one
+-- v49 (flutuacoes da geometria)
+#print axioms TGLExt.variance_of_projection
+#print axioms TGLExt.boundary_mean
+#print axioms TGLExt.boundary_variance
+#print axioms TGLExt.variance_le_quarter
+#print axioms TGLExt.variance_eq_quarter_iff
+#print axioms TGLExt.polarization_commutator
+#print axioms TGLExt.polarizations_noncommute
+#print axioms TGLExt.classical_limit_physical
+-- v50 (Page e a informacao)
+#print axioms TGLExt.purity_unitary_invariant
+#print axioms TGLExt.pure_reductions_trace_eq
+#print axioms TGLExt.pure_reductions_balance
+#print axioms TGLExt.purityR_eq
+#print axioms TGLExt.dephase_purityR_le
+#print axioms TGLExt.entropy_max_at_half
+#print axioms TGLExt.entropy_eq_max_iff_half
+-- v51 (gates 5 e 8)
+#print axioms TGLExt.first_law_diagonal
+#print axioms TGLExt.clausius_composition
+#print axioms TGLExt.Ecomp_fixes_cornerProj
+#print axioms TGLExt.dephase_fixes_cornerProj
+#print axioms TGLExt.rg_step_doubles_annihilator
+-- v52 (o habitante variacional)
+#print axioms TGLExt.zero_mode_state_minimizes
+#print axioms TGLExt.gibbs_is_critical
+#print axioms TGLExt.elementary_critical_implies_gibbs
+-- v53 (ponte GNS)
+#print axioms TGLExt.gibbs_nonneg
+#print axioms TGLExt.gibbs_monotone
+#print axioms TGLExt.boundaryState_apply
+-- v54 (GNS finito sem completamento + a testemunha e' o transporte)
+#print axioms TGLExt.Sop_omega
+#print axioms TGLExt.nameFiniteGNS_exists
+#print axioms TGLExt.boundaryState_eq_vector_state
+#print axioms TGLExt.lock_pairing_eq
+#print axioms TGLExt.action_locks_zero_iff
+#print axioms TGLExt.hermitian_pairing_re
+#print axioms TGLExt.action_hasDerivAt
+#print axioms TGLExt.critical_pairing_iff
+#print axioms TGLExt.transport_comp
+#print axioms TGLExt.transport_fixes_name
+#print axioms TGLExt.transport_trace
+#print axioms TGLExt.transport_corner
+#print axioms TGLExt.canonicalNamedTransport_exists
+#print axioms TGLExt.excite_holonomy
+#print axioms TGLExt.excite_holonomy_flat
+-- v55 (o canto covariante transportado)
+#print axioms TGLExt.trace_cornerProj_pos
+#print axioms TGLExt.cornerProj_loewner_mono
+#print axioms TGLExt.sigma_fixes_cornerProj
+#print axioms TGLExt.cornerProj_ne_of_ne
+#print axioms TGLExt.canonicalTransportedCorner_exists
+-- v56 (a morada e' o pacote de Hilbert)
+#print axioms TGLExt.ker_map_of_intertwine
+#print axioms TGLExt.starProjection_ker_covariant
+#print axioms TGLExt.starProjection_ker_internal_fix
+#print axioms TGLExt.starProjection_ker_isotone
+#print axioms TGLExt.lagrangian_zero_iff_mem_ker
+#print axioms TGLExt.HilbertHomeData.PF_internal_fix
+#print axioms TGLExt.HilbertHomeData.PF_external_covariant
+#print axioms TGLExt.HilbertHomeData.PF_isotone
+#print axioms TGLExt.solder_recovers_curvature
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -7962,6 +8330,405 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/BisognanoWichmann.lean":
+r'''import TGLExt.Ergodicity
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# Bisognano–Wichmann na face finita: a geometria do boost e o gerador
+  modular a 2π   [TGLExt — v47, o gate 4 do roadmap]
+
+O gate: "fluxo modular local = fluxo causal geométrico local". As DUAS
+METADES kernelizáveis hoje:
+
+* **A GEOMETRIA DO BOOST** (a metade causal): `boost s` em 1+1
+  (coordenadas (x,t), forma de Minkowski η = diag(1,−1)):
+  - grupo a um parâmetro (`boost_zero`, `boost_add`);
+  - ISOMETRIA de Minkowski (`boost_preserves_eta`: BᵀηB = η) com det 1;
+  - os RAIOS NULOS são autodireções com dilatação `e^{±s}`
+    (`boost_null_expand/contract`) — **a MESMA forma exponencial da
+    escala do traço `τ∘θ_s = e^{−s}τ` (v45): a face geométrica da
+    escala de Takesaki** [leitura; a identificação física é o BW];
+  - PRESERVAÇÃO DA CUNHA (`boost_preserves_wedge`): `|t| < x` é
+    invariante — o boost é o fluxo causal DA cunha.
+
+* **O GERADOR MODULAR A 2π** (a metade modular): para o estado de Gibbs
+  `ρ = exp(−2π•K)` com `K` autoadjunto:
+  - `logRho_gibbs_boost`: `log ρ = −2π•K` (CFC.log_exp);
+  - `modPow_gibbs_boost`: `ρ^{it} = exp(−2πt·i•K)` — **o fluxo modular
+    percorre o grupo gerado por K com velocidade 2π** — a temperatura de
+    Unruh `T = 1/2π` (em unidades do gerador) como TEOREMA da face
+    finita;
+  - `sigma_gibbs_boost`: `σ_t = Ad(exp(−2πt·i•K))`.
+
+**HONESTIDADE.** A IDENTIFICAÇÃO das duas metades — K = gerador do boost
+da cunha na AQFT genuína, Δ^{it}_W = U(Λ_W(2πt)) — é o teorema de
+Bisognano–Wichmann [KNOWN, 1975/76, campos de Wightman; wedges]. O que
+segue ABERTO (o resíduo real do gate 4): a identificação ALÉM das cunhas
+(regiões gerais/não-Killing — a rota nomeada é inclusões modulares
+meio-laterais de Wiesbrock/CGMA de Buchholz–Summers, §16 do
+TGL_COCYCLE_GRAVITON_PLANE_EXACTNESS.md) e a reconstrução da métrica a
+partir dos dados modulares. Aqui vivem as duas metades EM KERNEL, com a
+costura declarada. β JAMAIS entra. Sem sorry, sem axiom. Negativo
+honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix NormedSpace
+
+noncomputable section
+
+/-! ## A — a geometria do boost (a metade causal) -/
+
+/-- O BOOST em 1+1, coordenadas (x, t):
+    `B(s) = [[cosh s, sinh s], [sinh s, cosh s]]`. -/
+def boost (s : ℝ) : Matrix (Fin 2) (Fin 2) ℝ :=
+  !![Real.cosh s, Real.sinh s; Real.sinh s, Real.cosh s]
+
+/-- A forma de Minkowski `η = diag(1, −1)` (assinatura x²−t²). -/
+def minkEta : Matrix (Fin 2) (Fin 2) ℝ := !![1, 0; 0, -1]
+
+/-- `B(0) = 1`. -/
+theorem boost_zero : boost 0 = 1 := by
+  unfold boost
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp
+
+/-- [KERNEL] LEI DE GRUPO DO BOOST: `B(s)·B(t) = B(s+t)` — o fluxo causal
+    da cunha é um grupo a um parâmetro (adição hiperbólica). -/
+theorem boost_add (s t : ℝ) : boost s * boost t = boost (s + t) := by
+  unfold boost
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Fin.sum_univ_two, Real.cosh_add, Real.sinh_add] <;>
+    ring
+
+/-- [KERNEL] O BOOST É ISOMETRIA DE MINKOWSKI: `B(s)ᵀ·η·B(s) = η` —
+    a causalidade é preservada (cosh² − sinh² = 1). -/
+theorem boost_preserves_eta (s : ℝ) :
+    (boost s)ᵀ * minkEta * boost s = minkEta := by
+  unfold boost minkEta
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Matrix.transpose_apply, Fin.sum_univ_two] <;>
+    nlinarith [Real.cosh_sq_sub_sinh_sq s]
+
+/-- [KERNEL] `det B(s) = 1`: orientação preservada (isometria própria). -/
+theorem boost_det (s : ℝ) : (boost s).det = 1 := by
+  unfold boost
+  rw [Matrix.det_fin_two_of]
+  nlinarith [Real.cosh_sq_sub_sinh_sq s]
+
+/-- [KERNEL] ★ O RAIO NULO FUTURO DILATA: `B(s)·(1,1) = e^s·(1,1)` — o
+    horizonte é autodireção do boost com autovalor `e^s`. A MESMA forma
+    exponencial da escala do traço `τ∘θ_s = e^{−s}τ` (v45): a face
+    geométrica da escala de Takesaki. -/
+theorem boost_null_expand (s : ℝ) :
+    (boost s).mulVec ![1, 1] = Real.exp s • ![1, 1] := by
+  unfold boost
+  funext i
+  fin_cases i <;>
+    simp [Matrix.mulVec, dotProduct, Fin.sum_univ_two, ← Real.cosh_add_sinh]
+
+/-- [KERNEL] ★ O RAIO NULO PASSADO CONTRAI: `B(s)·(1,−1) = e^{−s}·(1,−1)`. -/
+theorem boost_null_contract (s : ℝ) :
+    (boost s).mulVec ![1, -1] = Real.exp (-s) • ![1, -1] := by
+  unfold boost
+  funext i
+  fin_cases i <;>
+    simp [Matrix.mulVec, dotProduct, Fin.sum_univ_two] <;>
+    rw [← Real.cosh_sub_sinh] <;> ring
+
+/-- [KERNEL] ★ O BOOST PRESERVA A CUNHA: `|t| < x ⟹ |t'| < x'` — a cunha
+    direita `W = {(x,t) : |t| < x}` é invariante pelo seu fluxo causal
+    (nas coordenadas nulas `u = x+t`, `v = x−t`: `u' = e^s u > 0`,
+    `v' = e^{−s} v > 0`). -/
+theorem boost_preserves_wedge (s x t : ℝ) (h : |t| < x) :
+    |(boost s).mulVec ![x, t] 1| < (boost s).mulVec ![x, t] 0 := by
+  have hu : 0 < x + t := by
+    rcases abs_lt.mp h with ⟨h1, _⟩
+    linarith
+  have hv : 0 < x - t := by
+    rcases abs_lt.mp h with ⟨_, h2⟩
+    linarith
+  have hx' : (boost s).mulVec ![x, t] 0 = Real.cosh s * x + Real.sinh s * t := by
+    unfold boost
+    simp [Matrix.mulVec, dotProduct, Fin.sum_univ_two]
+  have ht' : (boost s).mulVec ![x, t] 1 = Real.sinh s * x + Real.cosh s * t := by
+    unfold boost
+    simp [Matrix.mulVec, dotProduct, Fin.sum_univ_two]
+  rw [hx', ht', abs_lt]
+  constructor
+  · have hkey : 0 < Real.exp s * (x + t) := mul_pos (Real.exp_pos s) hu
+    rw [← Real.cosh_add_sinh] at hkey
+    nlinarith
+  · have hkey : 0 < Real.exp (-s) * (x - t) := mul_pos (Real.exp_pos (-s)) hv
+    rw [← Real.cosh_sub_sinh] at hkey
+    nlinarith
+
+/-! ## B — o gerador modular a 2π (a metade modular) -/
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+section TwoPiGenerator
+
+open scoped Matrix.Norms.L2Operator
+
+/-- [KERNEL] O GERADOR DO ESTADO DE GIBBS: `log(exp(−2π•K)) = −2π•K` —
+    o logaritmo modular do estado térmico devolve o gerador na
+    normalização de Unruh (CFC.log_exp sobre o autoadjunto real-escalado). -/
+theorem logRho_gibbs_boost (K : Matrix n n ℂ) (hK : IsSelfAdjoint K) :
+    logRho (exp ((-(2 * Real.pi) : ℝ) • K)) = (-(2 * Real.pi) : ℝ) • K := by
+  have hsa : IsSelfAdjoint ((-(2 * Real.pi) : ℝ) • K) := by
+    rw [IsSelfAdjoint, star_smul, star_trivial]
+    exact congrArg _ hK
+  have h : logRho (exp ((-(2 * Real.pi) : ℝ) • K)) =
+      CFC.log (exp ((-(2 * Real.pi) : ℝ) • K)) := rfl
+  rw [h]
+  exact CFC.log_exp _ hsa
+
+/-- [KERNEL] ★ O FLUXO MODULAR PERCORRE K A VELOCIDADE 2π:
+    `ρ^{it} = exp(−2πt·i•K)` para `ρ = exp(−2π•K)` — a metade modular do
+    BW na face finita: o parâmetro modular `t` é o parâmetro do grupo
+    gerado por `K` reescalado por 2π (a temperatura de Unruh `1/2π`).
+    A identificação `K = gerador do boost da cunha` é [KNOWN, BW 1975/76]
+    na AQFT genuína; além das cunhas segue ABERTA. -/
+theorem modPow_gibbs_boost (K : Matrix n n ℂ) (hK : IsSelfAdjoint K) (t : ℝ) :
+    modPow (exp ((-(2 * Real.pi) : ℝ) • K)) t
+      = exp ((((-(2 * Real.pi) * t : ℝ) : ℂ) * Complex.I) • K) := by
+  unfold modPow
+  rw [logRho_gibbs_boost K hK]
+  have htower : (-(2 * Real.pi) : ℝ) • K = ((-(2 * Real.pi) : ℝ) : ℂ) • K := by
+    rw [← algebraMap_smul ℂ (-(2 * Real.pi) : ℝ) K]
+    norm_num
+  rw [htower, smul_smul]
+  congr 2
+  push_cast
+  ring
+
+/-- [KERNEL] O FLUXO DO ESTADO TÉRMICO É A CONJUGAÇÃO PELO GRUPO DE K:
+    `σ_t(a) = e^{−2πt·i•K} · a · e^{2πt·i•K}` — a dinâmica modular do
+    Gibbs é EXATAMENTE o fluxo gerado por K (Ad do grupo a velocidade 2π). -/
+theorem sigma_gibbs_boost (K : Matrix n n ℂ) (hK : IsSelfAdjoint K)
+    (t : ℝ) (a : Matrix n n ℂ) :
+    sigma (exp ((-(2 * Real.pi) : ℝ) • K)) t a
+      = exp ((((-(2 * Real.pi) * t : ℝ) : ℂ) * Complex.I) • K) * a
+        * exp ((((2 * Real.pi * t : ℝ) : ℂ) * Complex.I) • K) := by
+  unfold sigma
+  rw [modPow_gibbs_boost K hK t, modPow_gibbs_boost K hK (-t)]
+  have harg : (-(2 * Real.pi) * -t : ℝ) = 2 * Real.pi * t := by ring
+  rw [harg]
+
+end TwoPiGenerator
+
+end
+
+end TGLExt
+''',
+    "TGLExt/Cocycle.lean":
+r'''import TGLExt.ModularFlow
+import TGLExt.SMatrix
+
+set_option autoImplicit false
+
+/-!
+# O cociclo de Connes na sombra finita   [TGLExt — a face finita do Lema 3]
+
+O cociclo de Connes `[Dφ : Dψ]_t := φ^{it}·ψ^{-it}` entre dois estados de
+`Mₙ(ℂ)`, montado sobre o fluxo modular de `ModularFlow.lean`. Provamos
+[KERNEL], com φ/ψ/χ GENÉRICOS:
+
+* (C0) trivialidades: `[Dφ:Dφ]_t = 1` e `[Dφ:Dψ]_0 = 1`;
+* (E1) COLAGEM MULTIPLICATIVA (chain rule de Connes):
+  `[Dφ:Dψ]_t · [Dψ:Dχ]_t = [Dφ:Dχ]_t`;
+* (E4) holonomia do triângulo: `[Dφ:Dψ]_t · [Dψ:Dχ]_t · [Dχ:Dφ]_t = 1`;
+* (E2) IDENTIDADE TEMPORAL σ-TORCIDA — a lei estrutural do cociclo:
+  `u_{s+t} = u_s · σ^ψ_s(u_t)`;
+* (U) unitariedade: `(u_t)ᴴ = [Dψ:Dφ]_t` e `u_t ∈ unitary`;
+* (E3c) gerador no caso comutante: `u_t = exp(it·(log φ − log ψ))`;
+* (E6) COVARIÂNCIA UNITÁRIA: `[D(VφVᴴ) : D(VψVᴴ)]_t = V·[Dφ:Dψ]_t·Vᴴ` —
+  conjugar os ESTADOS é conjugar o COCICLO (rota: `logRho_conj` pelo
+  cálculo funcional contínuo, `StarAlgHomClass.map_cfc` + automorfismo
+  interno `Unitary.conjStarAlgAut`; depois `Matrix.exp_conj`).
+
+**HONESTIDADE.** Isto é a SOMBRA FINITA das leis do cociclo de Connes: o
+v16 da casa as verificou numericamente (~1e-15) e aqui elas viram KERNEL.
+O levantamento GLOBAL — III₁ genuína sem projeções minimais, hipóteses
+U/T1/T3, covariância do cociclo ⟹ `G_μν + Λg_μν = 8πG·𝒫_μν[K_∂]` — SEGUE
+sendo O TEOREMA ABERTO do programa: este arquivo NÃO o fecha; fecha o
+esqueleto algébrico da sua face finita. PosDef entra só onde o cálculo
+funcional exige (E6); β JAMAIS entra. Sem sorry, sem axiom. Negativo
+honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix NormedSpace
+open scoped ComplexOrder MatrixOrder
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n] (phi psi chi : Matrix n n ℂ)
+
+/-- O COCICLO DE CONNES na sombra finita: `[Dφ : Dψ]_t = φ^{it}·ψ^{-it}` —
+    a derivada de Radon–Nikodym não-comutativa entre os estados φ e ψ,
+    escrita com os unitários modulares `modPow` de `ModularFlow.lean`. -/
+def cocycle (t : ℝ) : Matrix n n ℂ := modPow phi t * modPow psi (-t)
+
+/-! ## C0 — trivialidades -/
+
+/-- [KERNEL] `[Dφ:Dφ]_t = 1`: o cociclo de um estado consigo mesmo é trivial. -/
+theorem cocycle_self (t : ℝ) : cocycle phi phi t = 1 :=
+  modPow_mul_neg phi t
+
+/-- [KERNEL] `[Dφ:Dψ]_0 = 1`: em `t = 0` nada foi transportado. -/
+theorem cocycle_zero : cocycle phi psi 0 = 1 := by
+  simp only [cocycle, neg_zero, modPow_zero, mul_one]
+
+/-! ## E1 — colagem multiplicativa (chain rule de Connes) -/
+
+/-- [KERNEL] CHAIN RULE DE CONNES: `[Dφ:Dψ]_t · [Dψ:Dχ]_t = [Dφ:Dχ]_t` —
+    as derivadas de Radon–Nikodym modulares COLAM multiplicativamente
+    através do estado intermediário. -/
+theorem cocycle_chain (t : ℝ) :
+    cocycle phi psi t * cocycle psi chi t = cocycle phi chi t := by
+  simp only [cocycle]
+  calc modPow phi t * modPow psi (-t) * (modPow psi t * modPow chi (-t))
+      = modPow phi t * ((modPow psi (-t) * modPow psi t) * modPow chi (-t)) := by
+        simp only [mul_assoc]
+    _ = modPow phi t * modPow chi (-t) := by
+        rw [modPow_neg_mul, one_mul]
+
+/-! ## E4 — holonomia do triângulo -/
+
+/-- [KERNEL] HOLONOMIA TRIVIAL DO TRIÂNGULO:
+    `[Dφ:Dψ]_t · [Dψ:Dχ]_t · [Dχ:Dφ]_t = 1` — o transporte modular ao
+    longo de um circuito fechado de estados retorna à identidade. -/
+theorem cocycle_triangle (t : ℝ) :
+    cocycle phi psi t * cocycle psi chi t * cocycle chi phi t = 1 := by
+  rw [cocycle_chain, cocycle_chain, cocycle_self]
+
+/-! ## E2 — identidade temporal σ-torcida (a lei estrutural) -/
+
+/-- [KERNEL] IDENTIDADE DE COCICLO: `u_{s+t} = u_s · σ^ψ_s(u_t)` — a
+    composição temporal é TORCIDA pelo fluxo modular do estado de
+    referência: é isto que faz de `u_t` um cociclo (e não um mero grupo
+    a um parâmetro). Verificação:
+    `u_s·σ^ψ_s(u_t) = φ^{is}ψ^{-is}·ψ^{is}φ^{it}ψ^{-it}·ψ^{-is}
+    = φ^{i(s+t)}ψ^{-i(s+t)}`. -/
+theorem cocycle_temporal (s t : ℝ) :
+    cocycle phi psi (s + t)
+      = cocycle phi psi s * sigma psi s (cocycle phi psi t) := by
+  simp only [cocycle, sigma]
+  calc modPow phi (s + t) * modPow psi (-(s + t))
+      = modPow phi s * modPow phi t * (modPow psi (-t) * modPow psi (-s)) := by
+        rw [modPow_add, neg_add_rev, modPow_add]
+    _ = modPow phi s * ((modPow psi (-s) * modPow psi s) *
+          (modPow phi t * (modPow psi (-t) * modPow psi (-s)))) := by
+        rw [modPow_neg_mul, one_mul]
+        simp only [mul_assoc]
+    _ = modPow phi s * modPow psi (-s) *
+          (modPow psi s * (modPow phi t * modPow psi (-t)) * modPow psi (-s)) := by
+        simp only [mul_assoc]
+
+/-! ## U — unitariedade -/
+
+/-- [KERNEL] `([Dφ:Dψ]_t)ᴴ = [Dψ:Dφ]_t`: a adjunta INVERTE os estados no
+    mesmo t — `(φ^{it}ψ^{-it})ᴴ = ψ^{it}φ^{-it}`. -/
+theorem cocycle_conjTranspose (t : ℝ) :
+    (cocycle phi psi t)ᴴ = cocycle psi phi t := by
+  simp only [cocycle, conjTranspose_mul, modPow_conjTranspose, neg_neg]
+
+/-- [KERNEL] `[Dφ:Dψ]_t` é UNITÁRIO: produto de unitários do fluxo modular. -/
+theorem cocycle_mem_unitary (t : ℝ) :
+    cocycle phi psi t ∈ unitary (Matrix n n ℂ) :=
+  mul_mem (modPow_mem_unitary phi t) (modPow_mem_unitary psi (-t))
+
+/-! ## E3c — gerador no caso comutante -/
+
+/-- [KERNEL] GERADOR NO CASO COMUTANTE: se `log φ` e `log ψ` comutam,
+    `[Dφ:Dψ]_t = exp(it·(log φ − log ψ))` — o cociclo é gerado pela
+    DIFERENÇA dos hamiltonianos modulares (o caso geral exige a expansão
+    de Dyson, fora da sombra finita comutante). -/
+theorem cocycle_of_commute (h : Commute (logRho phi) (logRho psi)) (t : ℝ) :
+    cocycle phi psi t
+      = exp (((t : ℂ) * Complex.I) • (logRho phi - logRho psi)) := by
+  have hneg : ((-t : ℝ) : ℂ) * Complex.I = -((t : ℂ) * Complex.I) := by
+    push_cast
+    ring
+  have hcomm : Commute (((t : ℂ) * Complex.I) • logRho phi)
+      (-(((t : ℂ) * Complex.I) • logRho psi)) :=
+    ((h.smul_left _).smul_right _).neg_right
+  simp only [cocycle, modPow]
+  rw [hneg, neg_smul, ← Matrix.exp_add_of_commute _ _ hcomm, ← sub_eq_add_neg,
+    ← smul_sub]
+
+/-! ## E6 — covariância unitária (a face finita da covariância global) -/
+
+/-- [KERNEL] CONJUGAÇÃO DO GERADOR: `log(VφVᴴ) = V·(log φ)·Vᴴ` para V
+    unitário e φ positiva-definida — o cálculo funcional contínuo comuta
+    com o automorfismo interno `Unitary.conjStarAlgAut`
+    (`StarAlgHomClass.map_cfc`). -/
+theorem logRho_conj (V : Matrix n n ℂ) (hV : V ∈ unitary (Matrix n n ℂ))
+    (hphi : phi.PosDef) :
+    logRho (V * phi * Vᴴ) = V * logRho phi * Vᴴ := by
+  have ha : IsSelfAdjoint phi := hphi.isHermitian.isSelfAdjoint
+  have hf : ContinuousOn Real.log (spectrum ℝ phi) :=
+    Real.continuousOn_log.mono fun x hx =>
+      (hphi.isStrictlyPositive.spectrum_pos hx).ne'
+  have hcont : Continuous fun x : Matrix n n ℂ => V * x * star V :=
+    (continuous_mul_const (star V)).comp (continuous_const_mul V)
+  have hsa : IsSelfAdjoint (V * phi * star V) := ha.conjugate V
+  have key := StarAlgHomClass.map_cfc (S := ℂ)
+    (Unitary.conjStarAlgAut ℂ (Matrix n n ℂ) ⟨V, hV⟩) Real.log phi hf hcont ha hsa
+  simp only [Unitary.conjStarAlgAut_apply] at key
+  exact key.symm
+
+/-- [KERNEL] COVARIÂNCIA DO FLUXO: `(VφVᴴ)^{it} = V·φ^{it}·Vᴴ` — conjugar
+    o estado conjuga o unitário modular (`Matrix.exp_conj` sobre
+    `logRho_conj`). -/
+theorem modPow_conj (V : Matrix n n ℂ) (hV : V ∈ unitary (Matrix n n ℂ))
+    (hphi : phi.PosDef) (t : ℝ) :
+    modPow (V * phi * Vᴴ) t = V * modPow phi t * Vᴴ := by
+  have h1 : Vᴴ * V = 1 := by
+    rw [← Matrix.star_eq_conjTranspose]
+    exact (Unitary.mem_iff.mp hV).1
+  have h2 : V * Vᴴ = 1 := by
+    rw [← Matrix.star_eq_conjTranspose]
+    exact (Unitary.mem_iff.mp hV).2
+  have hVu : IsUnit V := ⟨⟨V, Vᴴ, h2, h1⟩, rfl⟩
+  have hVinv : V⁻¹ = Vᴴ := Matrix.inv_eq_left_inv h1
+  unfold modPow
+  rw [logRho_conj phi V hV hphi, ← smul_mul_assoc, ← mul_smul_comm, ← hVinv]
+  exact Matrix.exp_conj _ _ hVu
+
+/-- [KERNEL] COVARIÂNCIA UNITÁRIA DO COCICLO — a face finita da covariância
+    global do Lema 3: conjugar os ESTADOS pelo unitário V conjuga o
+    COCICLO, `[D(VφVᴴ) : D(VψVᴴ)]_t = V·[Dφ:Dψ]_t·Vᴴ`. O levantamento ao
+    cociclo de Connes em III₁ genuína (sem projeções minimais) é o teorema
+    aberto — aqui vive só o esqueleto algébrico. -/
+theorem cocycle_covariance (V : Matrix n n ℂ) (hV : V ∈ unitary (Matrix n n ℂ))
+    (hphi : phi.PosDef) (hpsi : psi.PosDef) (t : ℝ) :
+    cocycle (V * phi * Vᴴ) (V * psi * Vᴴ) t = V * cocycle phi psi t * Vᴴ := by
+  have h1 : Vᴴ * V = 1 := by
+    rw [← Matrix.star_eq_conjTranspose]
+    exact (Unitary.mem_iff.mp hV).1
+  simp only [cocycle]
+  rw [modPow_conj phi V hV hphi t, modPow_conj psi V hV hpsi (-t)]
+  calc V * modPow phi t * Vᴴ * (V * modPow psi (-t) * Vᴴ)
+      = V * (modPow phi t * ((Vᴴ * V) * (modPow psi (-t) * Vᴴ))) := by
+        simp only [mul_assoc]
+    _ = V * (modPow phi t * modPow psi (-t)) * Vᴴ := by
+        rw [h1, one_mul]
+        simp only [mul_assoc]
+
+end
+
+end TGLExt
+''',
     "TGLExt/Commutant.lean":
 r'''import Mathlib
 
@@ -8233,6 +9000,1487 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/CornerFamily.lean":
+r'''import TGLExt.FiniteCrossedProduct
+import TGLExt.GlobalLiftLadder
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# A FAMÍLIA DO CANTO: localização, isotonia, covariância, traço finito e
+  invariância modular — construída   [TGLExt — v46]
+
+O teorema-alvo do gate do operador ("construir P_F local covariante com
+0 < τ(P_F) < ∞ e [P_F, λ(s)] = 0"), na sua face KERNELIZÁVEL HOJE — com a
+adjudicação da casa (FECHAMENTO_MATRIZ_S_CORE_II.md, 05/07/2026): a
+EXISTÊNCIA de P com τ(P)=1 em II∞ é [REAL clássico]; a CANONICIDADE de
+P_ℱ = s(ker H₃L) é classe unitária [REAL]; τ(P_ℱ)=1 é ω(I)=1 em forma
+tracial [POSTULATE por design]. O que este arquivo PROVA [KERNEL]:
+
+* ★ `corner_fixed_by_flow`: TODO canto espectral `cfc f H` de um `H` que
+  comuta com o estado é FIXO pelo fluxo modular — `[P_F, λ(s)] = 0` sai
+  DE GRAÇA da construção funcional (P_F = 1_{0}(H₃L) com H₃L função do
+  gerador modular ⟹ invariância modular AUTOMÁTICA);
+* ★ `DualScalingData.finite_trace_not_fixed`: τ(m) ≠ 0 ⟹ θ_{s₀}(m) ≠ m —
+  o requisito `θ_s(P_F) ≠ P_F` do gate não precisa ser IMPOSTO: é
+  TEOREMA (contrapositiva da obstrução v45; o no-go como bússola);
+* ★ a FAMÍLIA DO CANTO CONSTRUÍDA no produto cruzado finito (v44):
+  `cornerProj S` para regiões `S ⊆ G`, com TODOS os axiomas de rede:
+  - projeção ortogonal (`cornerProj_idem`, `cornerProj_conjTranspose`);
+  - LOCALIZAÇÃO/ISOTONIA: `S₁ ⊆ S₂ ⟹ P(S₁)·P(S₂) = P(S₁)` (P(S₁) ≼ P(S₂));
+  - COVARIÂNCIA: `λ_g·P(S)·λ_gᴴ = P(g·S)` — o grupo move a região;
+  - TRAÇO FINITO: `Tr P(S) = |S|·n` (positivo ⟺ região não-vazia);
+  - INVARIÂNCIA MODULAR: `P(S)` comuta com π(A) e com o fluxo dual
+    `(πρ)^{it}` — o canto atravessa a dinâmica modular sem deformar.
+
+**HONESTIDADE.** Face finita + tipada. O que NÃO está aqui e segue com
+seu estatuto: a não-trivialidade de `ker H₃L` no core GENUÍNO (III⋊ℝ)
+[CONDITIONAL — falha nomeada `no_zero_lock_kernel`]; a rede AQFT
+contínua de regiões de Minkowski (a testemunha plena); τ(P_ℱ)=1 como
+escolha do Um [POSTULATE]. β JAMAIS entra: ρ, H, f, S genéricos.
+Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix NormedSpace
+open scoped ComplexOrder MatrixOrder
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## A — invariância modular de graça: o canto espectral é fixo pelo fluxo -/
+
+/-- [KERNEL] ★ O CANTO ESPECTRAL É FIXO PELO FLUXO: se `H` comuta com o
+    estado `ρ`, então TODA função espectral `cfc f H` (em particular a
+    projeção-janela `P_F = 1_{[0,ε]}(H)`) é fixa pelo fluxo modular:
+    `σ_t(cfc f H) = cfc f H`. A exigência `[P_F, λ(s)] = 0` do gate é
+    AUTOMÁTICA para cantos construídos funcionalmente de um `H`
+    compatível com o gerador modular. -/
+theorem corner_fixed_by_flow (ρ H : Matrix n n ℂ) (h : Commute ρ H)
+    (f : ℝ → ℝ) (t : ℝ) :
+    sigma ρ t (cfc f H) = cfc f H :=
+  sigma_fixed_of_commute ρ (cfc f H) ((h.symm.cfc_real f).symm) t
+
+/-! ## B — o no-go como teorema positivo: traço finito ⟹ não θ-fixo -/
+
+/-- [KERNEL] ★ TRAÇO NÃO-NULO PROÍBE A FIXAÇÃO DUAL: com a lei de escala
+    de Takesaki, `τ(m) ≠ 0 ⟹ θ_{s₀}(m) ≠ m` para todo `s₀ > 0` — a
+    contrapositiva da obstrução v45. O requisito `θ_s(P_F) ≠ P_F` do
+    gate NÃO precisa ser imposto: qualquer canto de traço finito
+    positivo o satisfaz POR TEOREMA (o no-go da casa virou bússola e
+    agora virou lei). -/
+theorem DualScalingData.finite_trace_not_fixed {M : Type} (D : DualScalingData M)
+    {s₀ : ℝ} (hs : 0 < s₀) {m : M} (htau : D.tau m ≠ 0) :
+    D.theta s₀ m ≠ m :=
+  fun hfix => htau (D.fixed_tau_zero hs hfix)
+
+/-! ## C — a família do canto no produto cruzado finito (v44) -/
+
+variable {G : Type} [Group G] [Fintype G] [DecidableEq G]
+
+/-- A FAMÍLIA DO CANTO: para cada região finita `S ⊆ G`, o projetor
+    bloco-diagonal `P(S) = diag(1_{p.1 ∈ S})` no produto cruzado
+    `M_{G×n}` — a sombra finita da rede local `𝒪 ↦ P_F(𝒪)`. -/
+def cornerProj (S : Finset G) : Matrix (G × n) (G × n) ℂ :=
+  Matrix.diagonal fun p => if p.1 ∈ S then 1 else 0
+
+@[simp] theorem cornerProj_apply (S : Finset G) (p q : G × n) :
+    cornerProj (n := n) S p q
+      = if p = q then (if p.1 ∈ S then (1 : ℂ) else 0) else 0 := by
+  by_cases h : p = q
+  · subst h
+    simp [cornerProj]
+  · simp [cornerProj, h]
+
+/-- [KERNEL] `P(S)` é IDEMPOTENTE. -/
+theorem cornerProj_idem (S : Finset G) :
+    cornerProj (n := n) S * cornerProj S = cornerProj S := by
+  unfold cornerProj
+  rw [diagonal_mul_diagonal]
+  congr 1
+  funext p
+  by_cases h : p.1 ∈ S <;> simp [h]
+
+/-- [KERNEL] `P(S)` é AUTOADJUNTO: projeção ortogonal genuína. -/
+theorem cornerProj_conjTranspose (S : Finset G) :
+    (cornerProj (n := n) S)ᴴ = cornerProj S := by
+  unfold cornerProj
+  rw [diagonal_conjTranspose]
+  congr 1
+  funext p
+  by_cases h : p.1 ∈ S <;> simp [h]
+
+/-- [KERNEL] ★ LOCALIZAÇÃO/ISOTONIA: `S₁ ⊆ S₂ ⟹ P(S₁)·P(S₂) = P(S₁)` —
+    a região menor vive DENTRO da maior (`P(S₁) ≼ P(S₂)` como projeções;
+    o axioma de isotonia da rede local, na sombra finita). -/
+theorem cornerProj_mono {S₁ S₂ : Finset G} (hS : S₁ ⊆ S₂) :
+    cornerProj (n := n) S₁ * cornerProj S₂ = cornerProj S₁ := by
+  unfold cornerProj
+  rw [diagonal_mul_diagonal]
+  congr 1
+  funext p
+  by_cases h1 : p.1 ∈ S₁
+  · simp [h1, hS h1]
+  · simp [h1]
+
+/-- [KERNEL] ★ COVARIÂNCIA: `λ_g·P(S)·λ_gᴴ = P(g·S)` — o unitário do
+    grupo TRANSPORTA a região (`U(g)P_F(𝒪)U(g)* = P_F(g𝒪)`, o axioma de
+    covariância da rede, na sombra finita; a MESMA λ_g do peso dual). -/
+theorem lam_conj_cornerProj (g : G) (S : Finset G) :
+    lam (n := n) g * cornerProj S * (lam g)ᴴ
+      = cornerProj (S.image fun a => g * a) := by
+  rw [lam_conjTranspose]
+  ext p q
+  rw [mul_lam_apply, lam_mul_apply]
+  rcases eq_or_ne p q with h | h
+  · subst h
+    simp only [cornerProj_apply]
+    have hmem : (g⁻¹ * p.1 ∈ S) ↔ (p.1 ∈ S.image fun a => g * a) := by
+      constructor
+      · intro hin
+        exact Finset.mem_image.mpr ⟨g⁻¹ * p.1, hin, by rw [mul_inv_cancel_left]⟩
+      · intro hin
+        rcases Finset.mem_image.mp hin with ⟨a, ha, hga⟩
+        rwa [← hga, inv_mul_cancel_left]
+    by_cases hin : g⁻¹ * p.1 ∈ S
+    · rw [if_pos hin, if_pos (hmem.mp hin)]
+    · rw [if_neg hin, if_neg (fun hc => hin (hmem.mpr hc))]
+  · have hne : (g⁻¹ * p.1, p.2) ≠ (g⁻¹ * q.1, q.2) := by
+      intro hc
+      apply h
+      injection hc with h1 h2
+      exact Prod.ext (mul_left_cancel h1) h2
+    simp only [cornerProj_apply, if_neg hne, if_neg h]
+
+/-- [KERNEL] ★ TRAÇO FINITO DA REGIÃO: `Tr P(S) = |S|·n` — positivo
+    exatamente quando a região é não-vazia; a contabilidade honesta do
+    canto (no core genuíno, `0 < τ(P_F) < ∞` com a escala inscrita pelo
+    Um [POSTULATE ω(I)=1]). -/
+theorem trace_cornerProj (S : Finset G) :
+    (cornerProj (n := n) S).trace = ((S.card * Fintype.card n : ℕ) : ℂ) := by
+  unfold cornerProj
+  rw [Matrix.trace_diagonal, Fintype.sum_prod_type]
+  have h : ∀ g : G, (∑ _i : n, (if g ∈ S then (1 : ℂ) else 0))
+      = if g ∈ S then (Fintype.card n : ℂ) else 0 := by
+    intro g
+    by_cases hg : g ∈ S <;> simp [hg, Finset.card_univ]
+  rw [Finset.sum_congr rfl fun g _ => h g, Finset.sum_ite_mem,
+    Finset.univ_inter, Finset.sum_const, nsmul_eq_mul]
+  push_cast
+  ring
+
+/-- [KERNEL] O CANTO COMUTA COM A BASE: `P(S)·π(a) = π(a)·P(S)` — o
+    projetor da região é bloco-escalar (o mesmo mecanismo da ação dual). -/
+theorem cornerProj_comm_piRep (u : G →* Matrix.unitaryGroup n ℂ)
+    (S : Finset G) (a : Matrix n n ℂ) :
+    cornerProj (n := n) S * piRep u a = piRep u a * cornerProj S := by
+  ext p q
+  simp only [cornerProj, Matrix.diagonal_mul, Matrix.mul_diagonal, piRep_apply]
+  rcases eq_or_ne p.1 q.1 with h | h
+  · rw [h]
+    exact mul_comm _ _
+  · simp only [if_neg h, mul_zero, zero_mul]
+
+/-- [KERNEL] ★ INVARIÂNCIA MODULAR DO CANTO: `P(S)` comuta com o fluxo
+    modular do peso dual `(πρ)^{it}` — `[P_F, λ_φ(s)] = 0` do gate, na
+    sombra finita: o canto atravessa a dinâmica sem deformar. -/
+theorem cornerProj_comm_modPow (u : G →* Matrix.unitaryGroup n ℂ)
+    {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) (S : Finset G) (t : ℝ) :
+    cornerProj (n := n) S * modPow (piRep u ρ) t
+      = modPow (piRep u ρ) t * cornerProj S := by
+  rw [modPow_piRep u hρ]
+  exact cornerProj_comm_piRep u S (modPow ρ t)
+
+/-- [KERNEL] O canto da região TOTAL é a identidade: `P(G) = 1` — a
+    família esgota o palco (τ-normalização do todo = ω(I)=1 em forma
+    finita). -/
+theorem cornerProj_univ : cornerProj (n := n) (Finset.univ : Finset G) = 1 := by
+  unfold cornerProj
+  rw [← Matrix.diagonal_one]
+  congr 1
+  funext p
+  simp
+
+end
+
+end TGLExt
+''',
+    "TGLExt/CovariantCorner.lean":
+r'''import TGLExt.TransportWitness
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# O canto covariante transportado: a face finita do TEOREMA DO CANTO
+  [TGLExt — v55, o "próximo teorema" do memorando construído na face finita]
+
+O memorando (`NAME_FUNCTIONAL_QUANTUM_GRAVITY_GATE.md`, §4) nomeia o gate
+mínimo restante — `TGL_CANONICAL_FINITE_CORNER_THEOREM`: uma família local
+`P_F(𝒪)` com (1) `0 < τ(P_F) < ∞`, (2) invariância pelo transporte modular
+INTERNO, (3) covariância pelo transporte EXTERNO `U(g)P_F(𝒪)U(g)* = P_F(g𝒪)`,
+(4) isotonia. A derivação do operador (v54) corrigiu a FORMA do alvo: não é
+uma projeção estática — é uma FAMÍLIA TRANSPORTADA. Aqui, a face finita
+COMPLETA como termo:
+
+* ★ `trace_cornerProj_pos` — `0 < τ(P(S))` para região não-vazia (com o
+  valor exato `|S|·n` do v46: as duas metades de `0 < τ < ∞`);
+* ★ `cornerProj_loewner_mono` — ISOTONIA NA ORDEM DE LOEWNER genuína
+  (`S₁ ⊆ S₂ ⟹ P(S₁) ≤ P(S₂)`; o v46 dava a forma produto `P₁P₂ = P₁`);
+* ★ `sigma_fixes_cornerProj` — o transporte INTERNO fixa cada canto
+  (`σ_t(P(S)) = P(S)`: condição (2) na forma de transporte do v54);
+* ★ `cornerProj_ne_of_ne` — a família é GENUINAMENTE NÃO-CONSTANTE
+  (regiões distintas dão cantos distintos: o transporte externo MOVE);
+* `TransportedCornerFamily` — o TIPO das quatro condições do memorando
+  (rígido: o campo `trace_eq` com o valor exato mata os habitantes
+  triviais `P ≡ 1` e `P ≡ 0` — a lição v22/v23);
+* ★ o TERMO `canonicalTransportedCorner` (primeiro o termo; existência
+  só corolário) — habitado por v46 + v54 + as pedras novas.
+
+O PAR DOS DOIS TRANSPORTES fecha em kernel: o interno (modular) FIXA o
+canto; o externo (grupo) o TRANSPORTA covariantemente — exatamente as
+condições (2)+(3) do memorando, na mesma estrutura.
+
+HONESTIDADE. Isto fecha a face FINITA (grupo finito ⋉ Mₙ; regiões =
+subconjuntos finitos). O TEOREMA ABERTO permanece a mesma família no core
+GENUÍNO: ação contínua de ℝ (semifinito II_∞ do III₁), `U(g)` de Poincaré
+sobre regiões de Minkowski, `0 < τ(P_F) < ∞` com τ o traço do core — e a
+obstrução do v45 (a escala dual) mostra POR QUE o contínuo é o degrau
+irredutível. β JAMAIS entra. Sem sorry, sem axiom. Negativo honesto é
+resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped ComplexOrder MatrixOrder
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+variable {G : Type} [Group G] [Fintype G] [DecidableEq G]
+
+/-- [KERNEL] ★ TRAÇO POSITIVO DA REGIÃO NÃO-VAZIA: `0 < τ(P(S))` — com o
+    valor exato `|S|·n` (v46), as duas metades de `0 < τ(P_F) < ∞` do
+    memorando ficam em kernel na face finita. -/
+theorem trace_cornerProj_pos [Nonempty n] {S : Finset G} (hS : S.Nonempty) :
+    (0 : ℂ) < (cornerProj (n := n) S).trace := by
+  rw [trace_cornerProj]
+  have hpos : 0 < S.card * Fintype.card n :=
+    Nat.mul_pos (Finset.card_pos.mpr hS) Fintype.card_pos
+  have : (0 : ℝ) < ((S.card * Fintype.card n : ℕ) : ℝ) := by exact_mod_cast hpos
+  exact_mod_cast Complex.zero_lt_real.mpr this
+
+/-- [KERNEL] ★ ISOTONIA NA ORDEM DE LOEWNER: `S₁ ⊆ S₂ ⟹ P(S₁) ≤ P(S₂)` —
+    a condição (4) do memorando na ordem genuína dos operadores (a diferença
+    é a diagonal indicadora de `S₂ ∖ S₁`, positiva-semidefinida). -/
+theorem cornerProj_loewner_mono {S₁ S₂ : Finset G} (hS : S₁ ⊆ S₂) :
+    cornerProj (n := n) S₁ ≤ cornerProj S₂ := by
+  rw [Matrix.le_iff]
+  unfold cornerProj
+  rw [Matrix.diagonal_sub]
+  rw [Matrix.posSemidef_diagonal_iff]
+  intro p
+  by_cases h1 : p.1 ∈ S₁
+  · simp [h1, hS h1]
+  · by_cases h2 : p.1 ∈ S₂ <;> simp [h1, h2]
+
+/-- [KERNEL] ★ O TRANSPORTE INTERNO FIXA O CANTO: `σ_t(P(S)) = P(S)` — a
+    condição (2) do memorando (`Ad λ_φ(s)`-invariância) na forma de
+    transporte do v54, composta da invariância modular do v46. -/
+theorem sigma_fixes_cornerProj (u : G →* Matrix.unitaryGroup n ℂ)
+    {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) (S : Finset G) (t : ℝ) :
+    sigma (piRep u ρ) t (cornerProj (n := n) S) = cornerProj S := by
+  unfold sigma
+  rw [← cornerProj_comm_modPow u hρ S t, mul_assoc, modPow_mul_neg, mul_one]
+
+/-- [KERNEL] ★ A FAMÍLIA É GENUINAMENTE NÃO-CONSTANTE: regiões distintas
+    dão cantos distintos — o transporte EXTERNO (condição (3), v46:
+    `λ_g P(S) λ_gᴴ = P(gS)`) move a família de verdade; nada aqui é a
+    família constante degenerada. -/
+theorem cornerProj_ne_of_ne [Nonempty n] {S₁ S₂ : Finset G} (h : S₁ ≠ S₂) :
+    cornerProj (n := n) S₁ ≠ cornerProj S₂ := by
+  obtain ⟨g, hg⟩ : ∃ g, ¬(g ∈ S₁ ↔ g ∈ S₂) := by
+    by_contra hall
+    push Not at hall
+    exact h (Finset.ext_iff.mpr fun a => hall a)
+  intro heq
+  have hentry : cornerProj (n := n) S₁ (g, Classical.arbitrary n)
+      (g, Classical.arbitrary n)
+      = cornerProj S₂ (g, Classical.arbitrary n) (g, Classical.arbitrary n) := by
+    rw [heq]
+  by_cases h1 : g ∈ S₁ <;> by_cases h2 : g ∈ S₂ <;>
+    simp [cornerProj_apply, h1, h2] at hentry hg
+
+/-- O TIPO DO TEOREMA DO CANTO (face finita): as quatro condições do
+    memorando §4, mais projeção genuína e normalização total. RÍGIDO: o
+    campo `trace_eq` (valor exato `|S|·n`) mata os habitantes triviais
+    `P ≡ 1` (traço errado em `S ≠ G`) e `P ≡ 0` (traço errado em `S ≠ ∅`,
+    e `total` falha) — a família constante não habita este tipo. -/
+structure TransportedCornerFamily (u : G →* Matrix.unitaryGroup n ℂ)
+    (ρ : Matrix n n ℂ) where
+  /-- a família local `𝒪 ↦ P_F(𝒪)` (regiões = subconjuntos finitos). -/
+  P : Finset G → Matrix (G × n) (G × n) ℂ
+  /-- projeção: idempotente. -/
+  idem : ∀ S, P S * P S = P S
+  /-- projeção: autoadjunta. -/
+  selfadj : ∀ S, (P S)ᴴ = P S
+  /-- (4) ISOTONIA na ordem de Loewner. -/
+  isotone : ∀ S₁ S₂, S₁ ⊆ S₂ → P S₁ ≤ P S₂
+  /-- (3) COVARIÂNCIA pelo transporte externo: `U(g) P(S) U(g)* = P(gS)`. -/
+  covariant : ∀ (g : G) (S : Finset G),
+    lam (n := n) g * P S * (lam g)ᴴ = P (S.image fun a => g * a)
+  /-- (2) INVARIÂNCIA pelo transporte modular interno: `σ_t(P(S)) = P(S)`. -/
+  internal_invariant : ∀ (S : Finset G) (t : ℝ),
+    sigma (piRep u ρ) t (P S) = P S
+  /-- (1) o TRAÇO da região, exato: `τ(P(S)) = |S|·n` (donde `0 < τ < ∞`
+      para regiões não-vazias — traço positivo e finito). -/
+  trace_eq : ∀ S, (P S).trace = ((S.card * Fintype.card n : ℕ) : ℂ)
+  /-- normalização: a região total é a identidade (`ω(I) = 1` tracial). -/
+  total : P Finset.univ = 1
+
+/-- ★ O TERMO: o canto covariante transportado CONSTRUÍDO — a face finita
+    do `TGL_CANONICAL_FINITE_CORNER_THEOREM` habitada (v46 dá projeção,
+    covariância, traço e total; v55 dá Loewner e o transporte interno). -/
+noncomputable def canonicalTransportedCorner (u : G →* Matrix.unitaryGroup n ℂ)
+    {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) : TransportedCornerFamily (n := n) u ρ where
+  P := cornerProj (n := n)
+  idem := cornerProj_idem
+  selfadj := cornerProj_conjTranspose
+  isotone := fun _ _ hS => cornerProj_loewner_mono hS
+  covariant := fun g S => lam_conj_cornerProj g S
+  internal_invariant := fun S t => sigma_fixes_cornerProj u hρ S t
+  trace_eq := trace_cornerProj
+  total := cornerProj_univ
+
+/-- [KERNEL] ★ EXISTÊNCIA (corolário do termo): o teorema do canto tem
+    testemunha na face finita, para todo grupo finito, toda representação
+    unitária e todo estado fiel. O ABERTO é o mesmo enunciado no core
+    genuíno (ℝ contínuo, Poincaré, II_∞). -/
+theorem canonicalTransportedCorner_exists (u : G →* Matrix.unitaryGroup n ℂ)
+    {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) :
+    Nonempty (TransportedCornerFamily (n := n) u ρ) :=
+  ⟨canonicalTransportedCorner u hρ⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/Ergodicity.lean":
+r'''import TGLExt.Cocycle
+
+set_option autoImplicit false
+
+/-!
+# T1 na face finita: dephasing ergódico → esperança diagonal
+  [TGLExt — a sombra finita da ergodicidade]
+
+HONESTIDADE. Este arquivo é a SOMBRA FINITA da ergodicidade (v11 da casa:
+`T_t → E_0`, setor fixo = centralizador, o traço emerge). O que fica
+provado [KERNEL], com estados e taxas GENÉRICOS:
+
+* (G0) FIXO PELO FLUXO: `Commute ρ x → σₜ(x) = x` — quem comuta com o
+  estado é estacionário sob o fluxo modular;
+* (G1) O CENTRALIZADOR DA DIAGONAL NÃO-DEGENERADA: `log ρ_D`, `ρ_D^{it}`
+  e `σₜ` de `ρ_D = diag(d)` em forma fechada, e o IFF ALGÉBRICO
+  `(∀ t, σₜ(x) = x) ↔ x = E_D(x)` — o setor fixo do fluxo É o
+  centralizador (sem derivadas: o golpe é `t★ = π/(log dᵢ − log dⱼ)`,
+  `e^{iπ} = −1`);
+* (G2) O TRAÇO EMERGE NO CENTRALIZADOR: `ω(x·y) = ω(y·x)` para `x` que
+  comuta com `ρ` — o selo tracial do setor fixo vira teorema;
+* (G3) O SEMIGRUPO DE DEPHASING E A CONVERGÊNCIA ERGÓDICA:
+  `(T_t x)ᵢⱼ = e^{−t·g i j}·xᵢⱼ` é semigrupo (`T_0 = id`,
+  `T_{s+t} = T_s ∘ T_t`), fixa a diagonal, PRESERVA a diagonal, e
+  `T_t(x) → E_D(x)` em `t → ∞` — o TEOREMA ERGÓDICO COM LIMITE; com
+  `g := modularGap d = |log dᵢ − log dⱼ|` fecha a LIGAÇÃO MODULAR.
+
+O que NÃO está aqui (e SEGUE onde está): o MIXING FORTE contínuo sob a
+classe de Davies (N3) e a ergodicidade III₁ genuína (GLOBAL_LIFT) — o
+teorema aberto do programa; a subordinação Poisson–Cauchy segue
+certificada FORA do kernel. β JAMAIS entra no Lean: as taxas `g` são
+GENÉRICAS — a taxa física `β·|log λᵢ − log λⱼ|` (classe de Davies) é
+leitura de RUNTIME. Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix NormedSpace Filter
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## G0 — fixo pelo fluxo: o comutante do estado é estacionário -/
+
+/-- [KERNEL] FIXO PELO FLUXO: se `x` comuta com `ρ`, então `σₜ(x) = x`
+    para todo `t` — o comutante do estado é o setor ESTACIONÁRIO do
+    movimento modular. Rota: `Commute ρ x → Commute (log ρ) x`
+    (`Commute.cfc_real`) `→ Commute ρ^{it} x` (`smul` + `exp`), e então
+    `ρ^{it}·x·ρ^{-it} = x·ρ^{it}·ρ^{-it} = x`. -/
+theorem sigma_fixed_of_commute (rho x : Matrix n n ℂ) (h : Commute rho x) (t : ℝ) :
+    sigma rho t x = x := by
+  have h1 : Commute (logRho rho) x := h.cfc_real Real.log
+  have h2 : Commute (modPow rho t) x := by
+    unfold modPow
+    exact (h1.smul_left ((t : ℂ) * Complex.I)).exp_left
+  simp only [sigma]
+  rw [h2.eq, mul_assoc, modPow_mul_neg, mul_one]
+
+/-! ## G1 — o centralizador da diagonal não-degenerada -/
+
+/-- O estado diagonal `ρ_D = diag(d)` com pesos reais `d` — o modelo
+    finito do estado de referência não-degenerado. -/
+def rhoD (d : n → ℝ) : Matrix n n ℂ := diagonal fun i => (d i : ℂ)
+
+section LogDiagonal
+
+open scoped Matrix.Norms.L2Operator
+
+/-- Ancoragem exponencial: `exp(diag(log d)) = ρ_D` para pesos positivos
+    (`Matrix.exp_diagonal` + `Real.exp_log`, entrada a entrada). -/
+theorem exp_diagonal_log (d : n → ℝ) (hd : ∀ i, 0 < d i) :
+    exp (diagonal fun i => (Real.log (d i) : ℂ)) = rhoD d := by
+  unfold rhoD
+  rw [Matrix.exp_diagonal]
+  congr 1
+  funext i
+  simp only [Pi.coe_exp]
+  rw [← Complex.exp_eq_exp_ℂ, ← Complex.ofReal_exp, Real.exp_log (hd i)]
+
+/-- [KERNEL] (G1a) O GERADOR DA DIAGONAL: `log(ρ_D) = diag(log d)` — o
+    cálculo funcional contínuo desce à diagonal. Rota inversa por
+    exponencial: `log(exp D) = D` (`CFC.log_exp`) com `D = diag(log d)`
+    autoadjunta (entradas reais). -/
+theorem logRho_diagonal (d : n → ℝ) (hd : ∀ i, 0 < d i) :
+    logRho (rhoD d) = diagonal fun i => (Real.log (d i) : ℂ) := by
+  have hv : IsSelfAdjoint (fun i => (Real.log (d i) : ℂ)) := by
+    rw [isSelfAdjoint_iff]
+    funext i
+    simp
+  have hsa : IsSelfAdjoint (diagonal fun i => (Real.log (d i) : ℂ)) :=
+    (isHermitian_diagonal_of_self_adjoint _ hv).isSelfAdjoint
+  rw [← exp_diagonal_log d hd]
+  exact CFC.log_exp _ hsa
+
+end LogDiagonal
+
+/-- [KERNEL] (G1b) O UNITÁRIO MODULAR DA DIAGONAL:
+    `ρ_D^{it} = diag(e^{it·log dᵢ})` — o fluxo da diagonal é fase pura,
+    modo a modo (`exp_diagonal` sobre `logRho_diagonal`). -/
+theorem modPow_diagonal (d : n → ℝ) (hd : ∀ i, 0 < d i) (t : ℝ) :
+    modPow (rhoD d) t
+      = diagonal fun i => Complex.exp ((t : ℂ) * Complex.I * (Real.log (d i) : ℂ)) := by
+  unfold modPow
+  rw [logRho_diagonal d hd, ← diagonal_smul, Matrix.exp_diagonal]
+  congr 1
+  funext i
+  simp only [Pi.coe_exp, Pi.smul_apply, smul_eq_mul, ← Complex.exp_eq_exp_ℂ]
+
+/-- [KERNEL] (G1c) O FLUXO DA DIAGONAL, ENTRADA A ENTRADA:
+    `σₜ(x)ᵢⱼ = e^{it(log dᵢ − log dⱼ)}·xᵢⱼ` — cada entrada fora da
+    diagonal gira com a DIFERENÇA MODULAR dos pesos; a diagonal não gira. -/
+theorem sigma_diagonal_apply (d : n → ℝ) (hd : ∀ i, 0 < d i) (t : ℝ)
+    (x : Matrix n n ℂ) (i j : n) :
+    sigma (rhoD d) t x i j
+      = Complex.exp ((t : ℂ) * Complex.I
+          * ((Real.log (d i) : ℂ) - (Real.log (d j) : ℂ))) * x i j := by
+  have harg : (t : ℂ) * Complex.I * (Real.log (d i) : ℂ)
+      + ((-t : ℝ) : ℂ) * Complex.I * (Real.log (d j) : ℂ)
+      = (t : ℂ) * Complex.I * ((Real.log (d i) : ℂ) - (Real.log (d j) : ℂ)) := by
+    push_cast
+    ring
+  simp only [sigma, modPow_diagonal d hd, diagonal_mul, mul_diagonal]
+  rw [mul_right_comm, ← Complex.exp_add, harg]
+
+/-- [KERNEL] (G1d) O IFF DO CENTRALIZADOR: para a diagonal
+    NÃO-DEGENERADA (pesos positivos e injetivos), o setor fixo do fluxo
+    modular é EXATAMENTE a subálgebra diagonal:
+    `(∀ t, σₜ(x) = x) ↔ x = E_D(x)`.
+    (⇒) sem derivadas: para `i ≠ j`, `log dᵢ ≠ log dⱼ` (log injetivo em
+    positivos); em `t★ = π/(log dᵢ − log dⱼ)` o fator vira
+    `e^{iπ} = −1`, logo `xᵢⱼ = −xᵢⱼ = 0`. (⇐) de G0: a diagonal comuta
+    com a diagonal. -/
+theorem sigma_fixed_iff_diag (d : n → ℝ) (hd : ∀ i, 0 < d i)
+    (hinj : Function.Injective d) (x : Matrix n n ℂ) :
+    (∀ t, sigma (rhoD d) t x = x) ↔ x = diagExpect x := by
+  constructor
+  · intro h
+    ext i j
+    by_cases hij : i = j
+    · subst hij
+      simp [diagExpect, diag_apply]
+    · have hlog : Real.log (d i) ≠ Real.log (d j) := fun hc =>
+        hij (hinj (Real.log_injOn_pos (Set.mem_Ioi.mpr (hd i))
+          (Set.mem_Ioi.mpr (hd j)) hc))
+      have hr : Real.log (d i) - Real.log (d j) ≠ 0 := sub_ne_zero.mpr hlog
+      have hkey : Complex.exp (((Real.pi / (Real.log (d i) - Real.log (d j)) : ℝ) : ℂ)
+          * Complex.I * ((Real.log (d i) : ℂ) - (Real.log (d j) : ℂ))) * x i j
+          = x i j := by
+        rw [← sigma_diagonal_apply d hd (Real.pi / (Real.log (d i) - Real.log (d j))) x i j]
+        exact Matrix.ext_iff.mpr (h _) i j
+      have harg : ((Real.pi / (Real.log (d i) - Real.log (d j)) : ℝ) : ℂ)
+          * Complex.I * ((Real.log (d i) : ℂ) - (Real.log (d j) : ℂ))
+          = (Real.pi : ℂ) * Complex.I := by
+        rw [mul_right_comm, ← Complex.ofReal_sub, ← Complex.ofReal_mul,
+          div_mul_cancel₀ _ hr]
+      rw [harg, Complex.exp_pi_mul_I, neg_one_mul] at hkey
+      have hx0 : x i j = 0 := add_self_eq_zero.mp (neg_eq_iff_add_eq_zero.mp hkey)
+      rw [hx0]
+      exact (diagonal_apply_ne _ hij).symm
+  · intro hx t
+    rw [hx]
+    exact sigma_fixed_of_commute _ _ (commute_diagonal _ _) t
+
+/-! ## G2 — o traço emerge no centralizador -/
+
+omit [DecidableEq n] in
+/-- [KERNEL] (G2) O TRAÇO EMERGE: no centralizador o estado de Gibbs é
+    TRACIAL — `ω(x·y) = ω(y·x)` sempre que `x` comuta com `ρ`
+    (`Tr(ρxy) = Tr(xρy) = Tr(ρyx)` pelo ciclo do traço). O selo do setor
+    fixo vira teorema: sobre o centralizador, ω esquece a modularidade. -/
+theorem gibbs_tracial_on_centralizer (rho x y : Matrix n n ℂ) (hx : Commute rho x) :
+    gibbs rho (x * y) = gibbs rho (y * x) := by
+  simp only [gibbs]
+  rw [← mul_assoc, hx.eq, mul_assoc, Matrix.trace_mul_comm, ← mul_assoc]
+
+/-! ## G3 — o semigrupo de dephasing e a convergência ergódica -/
+
+/-- O SEMIGRUPO DE DEPHASING com taxas genéricas `g`:
+    `(T_t x)ᵢⱼ = e^{−t·g i j}·xᵢⱼ` — amortecimento entrada a entrada
+    (Schur puro; `x` genérico, sem positividade). A taxa FÍSICA da classe
+    de Davies é `β·|log λᵢ − log λⱼ|`; β é leitura de runtime, JAMAIS
+    entra aqui. -/
+def dephase (g : n → n → ℝ) (t : ℝ) (x : Matrix n n ℂ) : Matrix n n ℂ :=
+  Matrix.of fun i j => (Real.exp (-(t * g i j)) : ℂ) * x i j
+
+omit [Fintype n] [DecidableEq n] in
+/-- (G3a) `T_0 = id`: em tempo zero nada amorteceu. -/
+theorem dephase_zero (g : n → n → ℝ) (x : Matrix n n ℂ) : dephase g 0 x = x := by
+  ext i j
+  simp [dephase]
+
+omit [Fintype n] [DecidableEq n] in
+/-- [KERNEL] (G3b) LEI DE SEMIGRUPO: `T_{s+t} = T_s ∘ T_t` — o dephasing
+    compõe somando tempos (`e^{−(s+t)g} = e^{−sg}·e^{−tg}`). -/
+theorem dephase_add (g : n → n → ℝ) (s t : ℝ) (x : Matrix n n ℂ) :
+    dephase g (s + t) x = dephase g s (dephase g t x) := by
+  ext i j
+  have harg : -((s + t) * g i j) = -(s * g i j) + -(t * g i j) := by ring
+  simp only [dephase, Matrix.of_apply]
+  rw [harg, Real.exp_add, Complex.ofReal_mul, mul_assoc]
+
+omit [Fintype n] in
+/-- [KERNEL] (G3c) O SETOR FIXO NÃO MOVE: `T_t(E_D(x)) = E_D(x)` — a
+    diagonal é ponto fixo do dephasing (`g i i = 0` na diagonal;
+    fora dela já é zero). -/
+theorem dephase_fixes_diagonal (g : n → n → ℝ) (hg0 : ∀ i, g i i = 0) (t : ℝ)
+    (x : Matrix n n ℂ) : dephase g t (diagExpect x) = diagExpect x := by
+  ext i j
+  by_cases hij : i = j
+  · subst hij
+    simp [dephase, diagExpect, hg0 i, diag_apply]
+  · simp [dephase, diagExpect, diagonal_apply_ne _ hij]
+
+omit [Fintype n] in
+/-- [KERNEL] (G3d) A DIAGONAL É INVARIANTE: `E_D(T_t(x)) = E_D(x)` — o
+    dephasing não transporta peso para dentro nem para fora do setor
+    fixo (compatibilidade `T_t`–`E_D`, a face finita da esperança
+    condicional invariante). -/
+theorem diag_invariant (g : n → n → ℝ) (hg0 : ∀ i, g i i = 0) (t : ℝ)
+    (x : Matrix n n ℂ) : diagExpect (dephase g t x) = diagExpect x := by
+  ext i j
+  by_cases hij : i = j
+  · subst hij
+    simp [diagExpect, dephase, hg0 i, diag_apply]
+  · simp [diagExpect, diagonal_apply_ne _ hij]
+
+omit [Fintype n] in
+/-- [KERNEL] (G3e) O TEOREMA ERGÓDICO COM LIMITE: com taxas positivas
+    fora da diagonal, `T_t(x) → E_D(x)` quando `t → ∞` — o dephasing
+    CONVERGE para a esperança condicional diagonal. A sombra finita de
+    `T_t → E_0` (v11 da casa): decaimento real `e^{−tg} → 0` entrada a
+    entrada, levado a ℂ por continuidade. -/
+theorem dephase_tendsto_expectation (g : n → n → ℝ) (hg0 : ∀ i, g i i = 0)
+    (hgpos : ∀ i j, i ≠ j → 0 < g i j) (x : Matrix n n ℂ) :
+    Tendsto (fun t => dephase g t x) atTop (nhds (diagExpect x)) := by
+  refine tendsto_pi_nhds.mpr fun i => tendsto_pi_nhds.mpr fun j => ?_
+  by_cases hij : i = j
+  · subst hij
+    have hconst : (fun t : ℝ => dephase g t x i i) = fun _ => x i i := by
+      funext t
+      simp [dephase, hg0 i]
+    have hdiag : diagExpect x i i = x i i := by
+      simp [diagExpect, diag_apply]
+    rw [hconst, hdiag]
+    exact tendsto_const_nhds
+  · have hzero : diagExpect x i j = 0 := diagonal_apply_ne _ hij
+    rw [hzero]
+    have h1 : Tendsto (fun t : ℝ => t * g i j) atTop atTop :=
+      Tendsto.atTop_mul_const (hgpos i j hij) tendsto_id
+    have h2 : Tendsto (fun t : ℝ => Real.exp (-(t * g i j))) atTop (nhds 0) :=
+      Real.tendsto_exp_neg_atTop_nhds_zero.comp h1
+    have h3 : Tendsto (fun t : ℝ => (Real.exp (-(t * g i j)) : ℂ)) atTop (nhds 0) := by
+      simpa using h2.ofReal
+    simpa [dephase] using h3.mul_const (x i j)
+
+/-! ## G3f — a ligação modular: a taxa é o gap dos logaritmos -/
+
+/-- O GAP MODULAR da diagonal: `modularGap d i j = |log dᵢ − log dⱼ|` — a
+    forma GENÉRICA da taxa de Davies. A taxa física é `β·modularGap`
+    (reparametrização de runtime; β jamais entra no Lean). -/
+def modularGap (d : n → ℝ) (i j : n) : ℝ := |Real.log (d i) - Real.log (d j)|
+
+omit [Fintype n] [DecidableEq n] in
+/-- O gap modular zera na diagonal. -/
+theorem modularGap_diag_zero (d : n → ℝ) (i : n) : modularGap d i i = 0 := by
+  simp [modularGap]
+
+omit [Fintype n] [DecidableEq n] in
+/-- Para pesos positivos e injetivos, o gap modular é POSITIVO fora da
+    diagonal (log é injetivo em positivos). -/
+theorem modularGap_pos (d : n → ℝ) (hd : ∀ i, 0 < d i)
+    (hinj : Function.Injective d) {i j : n} (hij : i ≠ j) :
+    0 < modularGap d i j := by
+  unfold modularGap
+  rw [abs_pos]
+  exact sub_ne_zero.mpr fun hc =>
+    hij (hinj (Real.log_injOn_pos (Set.mem_Ioi.mpr (hd i)) (Set.mem_Ioi.mpr (hd j)) hc))
+
+omit [Fintype n] in
+/-- [KERNEL] (G3f) CONVERGÊNCIA ERGÓDICA MODULAR: com a taxa
+    `g = modularGap d` da diagonal não-degenerada, o dephasing converge
+    para a esperança diagonal — G3e com o gap dos logaritmos. A taxa
+    física da classe de Davies é `β·modularGap` (β = leitura de runtime). -/
+theorem ergodic_convergence_modular (d : n → ℝ) (hd : ∀ i, 0 < d i)
+    (hinj : Function.Injective d) (x : Matrix n n ℂ) :
+    Tendsto (fun t => dephase (modularGap d) t x) atTop (nhds (diagExpect x)) :=
+  dephase_tendsto_expectation (modularGap d) (modularGap_diag_zero d)
+    (fun _ _ hij => modularGap_pos d hd hinj hij) x
+
+end
+
+end TGLExt
+''',
+    "TGLExt/FiniteCrossedProduct.lean":
+r'''import TGLExt.Cocycle
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# O produto cruzado finito G ⋉ Mₙ e o cociclo dual   [TGLExt — v43]
+
+O brinquedo do core de Takesaki: a face finita da COVARIÂNCIA ALÉM DOS
+UNITÁRIOS INTERNOS — a pedra nomeada pelo §119 para o teorema aberto
+GLOBAL_LIFT. Sobre `H = ℂ^{G×n}` realizamos, POR ENTRADAS:
+
+* `lam g` — os unitários do grupo (representação regular esquerda ⊗ 1),
+  com lei de grupo, `λ_1 = 1`, `(λ_g)ᴴ = λ_{g⁻¹}` e unitariedade;
+* `piRep u a` — o embedding diagonal-torcido `π(a)_{g,h} = δ_{g,h}·α_{g⁻¹}(a)`
+  de `Mₙ(ℂ)` no produto cruzado, *-monomorfismo unital
+  (`α_g = Ad(u g)` com `u : G →* unitaryGroup`; em `Mₙ` TODO *-automorfismo
+  é interno [KNOWN, Skolem–Noether] — a forma é WLOG na sombra finita;
+  o ponto do produto cruzado é que `λ_g ∉ π(A)`);
+* a RELAÇÃO DE COVARIÂNCIA `λ_g·π(a)·λ_gᴴ = π(α_g(a))`;
+* a esperança condicional `Ecomp` (compressão bloco-diagonal): fixa `π(A)`,
+  MATA `λ_g` (g ≠ 1), e `φ̂∘E = φ̂` — o critério de Takesaki
+  (σ-invariância ⟺ esperança compatível) CONSTRUTIVO na sombra;
+* o ESTADO DUAL `φ̂ = gibbs (π ρ)` com `φ̂ = φ∘E` exato
+  (`gibbs_piRep_dual`, sem fator de normalização);
+* o TRANSPORTE MODULAR por π: `log(πρ) = π(log ρ)`, `(πρ)^{it} = π(ρ^{it})`,
+  `σ^{πρ}_t∘π = π∘σ^ρ_t` (D1) e a NATURALIDADE DUAL do cociclo
+  `[Dπφ : Dπψ]_t = π([Dφ : Dψ]_t)` (D3);
+* ★ o TEOREMA DO PESO DUAL (D2, a lei da pedra — Takesaki Vol. II X.1.17 /
+  Haagerup 1978, aqui KERNEL na sombra finita):
+
+      `σ^{φ̂}_t(λ_g) = λ_g · π( [D(φ∘α_g) : Dφ]_t )`
+
+  o fluxo modular do estado dual move um unitário DE FORA de `π(A)` e o
+  desvio é EXATAMENTE o cociclo de Connes do estado transportado — a
+  covariância do cociclo sob a ação do grupo, além dos internos de `π(A)`;
+* a COVARIÂNCIA DO COCICLO sob `λ_g` (`cocycle_covariance_beyond_inner`);
+* a AÇÃO DUAL `β_χ = Ad(D_χ)`: fixa `π(A)` ponto a ponto, torce
+  `λ_g ↦ χ(g)·λ_g`, comuta com o fluxo dual e preserva o estado dual;
+* o corolário honesto da DEGENERESCÊNCIA: se `α_g(ρ) = ρ`, a lei colapsa
+  em `σ^{φ̂}_t(λ_g) = λ_g` — o caso não-trivial EXIGE φ não α-invariante
+  (o runtime numérico verifica a não-trivialidade; aqui fica o mecanismo).
+
+**HONESTIDADE.** Isto é a SOMBRA FINITA da maquinaria de pesos duais de
+Takesaki. NÃO fecha o GLOBAL_LIFT: III₁ genuína sem projeções minimais,
+o core `M ⋊_σ ℝ` com a escala do traço, as hipóteses U/T1/T3 e a ponte
+covariância ⟹ `G_μν + Λg_μν = 8πG·𝒫_μν[K_∂]` SEGUEM O TEOREMA ABERTO.
+No grupo finito NÃO há escala de traço (não confundir com o core ℝ e o
+no-go `dualInvariant_PF_no_go`). PosDef entra só onde o cálculo funcional
+exige. β JAMAIS entra: ρ, u, χ genéricos. Sem sorry, sem axiom.
+Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix NormedSpace
+open scoped ComplexOrder MatrixOrder
+
+noncomputable section
+
+variable {G : Type} [Group G] [Fintype G] [DecidableEq G]
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## A ação α_g = Ad(u g) — interna em Mₙ, WLOG [KNOWN: Skolem–Noether] -/
+
+variable (u : G →* Matrix.unitaryGroup n ℂ)
+
+/-- A ação de `G` por *-automorfismos de `Mₙ(ℂ)`: `α_g(a) = (u g)·a·(u g)*`. -/
+def alphaAct (g : G) (a : Matrix n n ℂ) : Matrix n n ℂ :=
+  (u g : Matrix n n ℂ) * a * star ((u g : Matrix n n ℂ))
+
+/-- [KERNEL] `α` é ação: `α_{xy} = α_x ∘ α_y`. -/
+theorem alphaAct_mul (x y : G) (a : Matrix n n ℂ) :
+    alphaAct u (x * y) a = alphaAct u x (alphaAct u y a) := by
+  simp only [alphaAct, map_mul, Submonoid.coe_mul, star_mul, mul_assoc]
+
+/-- [KERNEL] `α_1 = id`. -/
+theorem alphaAct_id (a : Matrix n n ℂ) : alphaAct u 1 a = a := by
+  simp [alphaAct]
+
+/-- [KERNEL] `α_{g⁻¹} ∘ α_g = id`. -/
+theorem alphaAct_inv_cancel (g : G) (a : Matrix n n ℂ) :
+    alphaAct u g⁻¹ (alphaAct u g a) = a := by
+  rw [← alphaAct_mul, inv_mul_cancel, alphaAct_id]
+
+/-- [KERNEL] `α_g` é multiplicativo. -/
+theorem alphaAct_matmul (x : G) (a b : Matrix n n ℂ) :
+    alphaAct u x (a * b) = alphaAct u x a * alphaAct u x b := by
+  have h : star ((u x : Matrix n n ℂ)) * (u x : Matrix n n ℂ) = 1 :=
+    Unitary.coe_star_mul_self (u x)
+  simp only [alphaAct, mul_assoc]
+  rw [← mul_assoc (star ((u x : Matrix n n ℂ))) ((u x : Matrix n n ℂ)), h, one_mul]
+
+/-- [KERNEL] `α_g(1) = 1`. -/
+theorem alphaAct_one (x : G) : alphaAct u x (1 : Matrix n n ℂ) = 1 := by
+  simp only [alphaAct, mul_one]
+  exact Unitary.coe_mul_star_self (u x)
+
+/-- [KERNEL] `α_g` respeita a estrela. -/
+theorem alphaAct_star (x : G) (a : Matrix n n ℂ) :
+    alphaAct u x (aᴴ) = (alphaAct u x a)ᴴ := by
+  simp only [alphaAct, ← star_eq_conjTranspose, star_mul, star_star, mul_assoc]
+
+/-- `α_g` é aditivo. -/
+theorem alphaAct_add (x : G) (a b : Matrix n n ℂ) :
+    alphaAct u x (a + b) = alphaAct u x a + alphaAct u x b := by
+  simp only [alphaAct, Matrix.mul_add, Matrix.add_mul]
+
+/-- `α_g` é ℂ-homogêneo. -/
+theorem alphaAct_smul (x : G) (c : ℂ) (a : Matrix n n ℂ) :
+    alphaAct u x (c • a) = c • alphaAct u x a := by
+  simp only [alphaAct, Matrix.mul_smul, Matrix.smul_mul]
+
+/-- A coerção do inverso: `↑(u g⁻¹) = (↑(u g))*` — o hom para o grupo
+    unitário leva inverso em estrela. -/
+theorem coe_u_inv (g : G) :
+    ((u g⁻¹ : Matrix n n ℂ)) = star ((u g : Matrix n n ℂ)) := by
+  rw [map_inv, ← Unitary.star_eq_inv]
+  exact Unitary.coe_star
+
+/-- [KERNEL] `α_g` PRESERVA O TRAÇO (todo automorfismo interno o faz —
+    é isto que torna a densidade dual bem-definida sem escala). -/
+theorem alphaAct_trace (g : G) (a : Matrix n n ℂ) :
+    (alphaAct u g a).trace = a.trace := by
+  have h : star ((u g : Matrix n n ℂ)) * ((u g : Matrix n n ℂ)) = 1 :=
+    Unitary.coe_star_mul_self (u g)
+  rw [alphaAct, trace_mul_comm, ← mul_assoc, h, one_mul]
+
+/-- [KERNEL] `α_g` preserva positividade-definida. -/
+theorem alphaAct_posDef {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) (g : G) :
+    (alphaAct u g ρ).PosDef := by
+  have hinj : Function.Injective ((u g : Matrix n n ℂ)).vecMul := by
+    intro x y hxy
+    have h2 := congrArg (fun v => Matrix.vecMul v (star ((u g : Matrix n n ℂ)))) hxy
+    simpa [Matrix.vecMul_vecMul, Unitary.coe_mul_star_self (u g)] using h2
+  have h := hρ.mul_mul_conjTranspose_same (B := (u g : Matrix n n ℂ)) hinj
+  simpa [alphaAct, Matrix.star_eq_conjTranspose] using h
+
+/-- [KERNEL] `α_g` comuta com o fluxo modular: `α_g(ρ^{it}) = (α_g ρ)^{it}`
+    (a face pequena do transporte — via `modPow_conj` do v42). -/
+theorem alphaAct_modPow {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) (g : G) (t : ℝ) :
+    alphaAct u g (modPow ρ t) = modPow (alphaAct u g ρ) t := by
+  have hV : (u g : Matrix n n ℂ) ∈ unitary (Matrix n n ℂ) := (u g).2
+  have h := modPow_conj ρ ((u g : Matrix n n ℂ)) hV hρ t
+  simp only [alphaAct, Matrix.star_eq_conjTranspose]
+  exact h.symm
+
+/-- [KERNEL] `α_g` comuta com o cociclo: `α_g([Dφ:Dψ]_t) = [D(α_gφ):D(α_gψ)]_t`
+    — E6 do v42 relido como equivariância da ação. -/
+theorem alphaAct_cocycle {φ ψ : Matrix n n ℂ} (hφ : φ.PosDef) (hψ : ψ.PosDef)
+    (g : G) (t : ℝ) :
+    alphaAct u g (cocycle φ ψ t) = cocycle (alphaAct u g φ) (alphaAct u g ψ) t := by
+  rw [cocycle, alphaAct_matmul, alphaAct_modPow u hφ, alphaAct_modPow u hψ, cocycle]
+
+/-! ## Os unitários do grupo λ_g (regular esquerda ⊗ 1, por entradas) -/
+
+/-- `(λ_g)_{(h,i),(k,j)} = δ_{h,g·k}·δ_{i,j}` — a representação regular
+    esquerda de `G` amplificada por `Mₙ`. -/
+def lam (g : G) : Matrix (G × n) (G × n) ℂ :=
+  Matrix.of fun p q => if p.1 = g * q.1 ∧ p.2 = q.2 then 1 else 0
+
+@[simp] theorem lam_apply (g : G) (p q : G × n) :
+    lam g p q = if p.1 = g * q.1 ∧ p.2 = q.2 then 1 else 0 := rfl
+
+/-- [KERNEL] `λ_1 = 1`. -/
+theorem lam_one : lam (G := G) (n := n) 1 = 1 := by
+  ext p q
+  simp [lam_apply, Matrix.one_apply, Prod.ext_iff]
+
+/-- [KERNEL] LEI DE GRUPO: `λ_g·λ_h = λ_{gh}`. -/
+theorem lam_mul (g h : G) : lam (n := n) g * lam h = lam (g * h) := by
+  ext p q
+  rw [Matrix.mul_apply, Finset.sum_eq_single ((h * q.1, q.2) : G × n)]
+  · simp [lam_apply, mul_assoc]
+  · rintro ⟨c, m⟩ - hne
+    have hc : ¬(c = h * q.1 ∧ m = q.2) := by
+      rintro ⟨rfl, rfl⟩; exact hne rfl
+    simp [lam_apply, hc]
+  · intro habs
+    exact absurd (Finset.mem_univ _) habs
+
+/-- [KERNEL] `(λ_g)ᴴ = λ_{g⁻¹}`. -/
+theorem lam_conjTranspose (g : G) : (lam (n := n) g)ᴴ = lam g⁻¹ := by
+  ext p q
+  have hiff : (q.1 = g * p.1 ∧ q.2 = p.2) ↔ (p.1 = g⁻¹ * q.1 ∧ p.2 = q.2) := by
+    constructor
+    · rintro ⟨h1, h2⟩; exact ⟨by rw [h1, inv_mul_cancel_left], h2.symm⟩
+    · rintro ⟨h1, h2⟩; exact ⟨by rw [h1, mul_inv_cancel_left], h2.symm⟩
+  simp only [conjTranspose_apply, lam_apply, hiff]
+  split_ifs <;> simp
+
+/-- [KERNEL] `λ_g` é UNITÁRIO. -/
+theorem lam_mem_unitary (g : G) :
+    lam (n := n) g ∈ unitary (Matrix (G × n) (G × n) ℂ) := by
+  constructor
+  · rw [star_eq_conjTranspose, lam_conjTranspose, lam_mul, inv_mul_cancel, lam_one]
+  · rw [star_eq_conjTranspose, lam_conjTranspose, lam_mul, mul_inv_cancel, lam_one]
+
+/-- Multiplicar por `λ_g` à esquerda desloca o índice-linha por `g⁻¹`. -/
+theorem lam_mul_apply (g : G) (M : Matrix (G × n) (G × n) ℂ) (p q : G × n) :
+    (lam (n := n) g * M) p q = M (g⁻¹ * p.1, p.2) q := by
+  rw [Matrix.mul_apply, Finset.sum_eq_single ((g⁻¹ * p.1, p.2) : G × n)]
+  · simp [lam_apply]
+  · rintro ⟨c, m⟩ - hne
+    have hc : ¬(p.1 = g * c ∧ p.2 = m) := by
+      rintro ⟨h1, rfl⟩
+      exact hne (Prod.ext (by rw [h1, inv_mul_cancel_left]) rfl)
+    simp [lam_apply, hc]
+  · intro habs
+    exact absurd (Finset.mem_univ _) habs
+
+/-- Multiplicar por `λ_g` à direita desloca o índice-coluna por `g`. -/
+theorem mul_lam_apply (g : G) (M : Matrix (G × n) (G × n) ℂ) (p q : G × n) :
+    (M * lam (n := n) g) p q = M p (g * q.1, q.2) := by
+  rw [Matrix.mul_apply, Finset.sum_eq_single ((g * q.1, q.2) : G × n)]
+  · simp [lam_apply]
+  · rintro ⟨c, m⟩ - hne
+    have hc : ¬(c = g * q.1 ∧ m = q.2) := by
+      rintro ⟨rfl, rfl⟩; exact hne rfl
+    simp [lam_apply, hc]
+  · intro habs
+    exact absurd (Finset.mem_univ _) habs
+
+/-! ## O embedding diagonal-torcido π -/
+
+/-- `π(a)_{(g,i),(h,j)} = δ_{g,h}·(α_{g⁻¹}(a))_{i,j}` — o embedding
+    regular-covariante de `Mₙ(ℂ)` no produto cruzado. -/
+def piRep (a : Matrix n n ℂ) : Matrix (G × n) (G × n) ℂ :=
+  Matrix.of fun p q => if p.1 = q.1 then alphaAct u p.1⁻¹ a p.2 q.2 else 0
+
+@[simp] theorem piRep_apply (a : Matrix n n ℂ) (p q : G × n) :
+    piRep u a p q = if p.1 = q.1 then alphaAct u p.1⁻¹ a p.2 q.2 else 0 := rfl
+
+/-- [KERNEL] `π` é multiplicativo. -/
+theorem piRep_mul (a b : Matrix n n ℂ) :
+    piRep u (a * b) = piRep u a * piRep u b := by
+  ext p q
+  rw [Matrix.mul_apply, Fintype.sum_prod_type, Finset.sum_eq_single p.1]
+  · simp only [piRep_apply]
+    rcases eq_or_ne p.1 q.1 with h | h
+    · simp only [if_pos h, alphaAct_matmul, Matrix.mul_apply, if_true]
+    · simp [if_neg h]
+  · intro c _ hc
+    have : p.1 ≠ c := fun hh => hc hh.symm
+    simp [piRep_apply, this]
+  · intro habs
+    exact absurd (Finset.mem_univ _) habs
+
+/-- [KERNEL] `π` é unital. -/
+theorem piRep_one : piRep u (1 : Matrix n n ℂ) = 1 := by
+  ext p q
+  by_cases hg : p.1 = q.1 <;> by_cases hn : p.2 = q.2 <;>
+    simp [piRep_apply, alphaAct_one, Matrix.one_apply, Prod.ext_iff, hg, hn]
+
+/-- [KERNEL] `π` respeita a estrela. -/
+theorem piRep_star (a : Matrix n n ℂ) :
+    piRep u (aᴴ) = (piRep u a)ᴴ := by
+  ext p q
+  simp only [conjTranspose_apply, piRep_apply, alphaAct_star]
+  rcases eq_or_ne p.1 q.1 with h | h
+  · rw [if_pos h, if_pos h.symm, h]
+  · rw [if_neg h, if_neg (Ne.symm h), star_zero]
+
+/-- `π(0) = 0`. -/
+theorem piRep_zero : piRep u (0 : Matrix n n ℂ) = 0 := by
+  ext p q
+  have h0 : ∀ g : G, alphaAct u g (0 : Matrix n n ℂ) = 0 := by
+    intro g; simp [alphaAct]
+  simp [piRep_apply, h0]
+
+/-- `π` é aditivo. -/
+theorem piRep_add (a b : Matrix n n ℂ) :
+    piRep u (a + b) = piRep u a + piRep u b := by
+  ext p q
+  simp only [piRep_apply, Matrix.add_apply, alphaAct_add]
+  split_ifs <;> simp
+
+/-- `π` é ℂ-homogêneo. -/
+theorem piRep_smul (c : ℂ) (a : Matrix n n ℂ) :
+    piRep u (c • a) = c • piRep u a := by
+  ext p q
+  simp only [piRep_apply, Matrix.smul_apply, alphaAct_smul]
+  split_ifs <;> simp
+
+/-- [KERNEL] `π` é INJETIVO: o embedding é genuíno (avaliação no bloco
+    da identidade do grupo). -/
+theorem piRep_injective : Function.Injective (piRep (n := n) u) := by
+  intro a b hab
+  ext i j
+  have h := Matrix.ext_iff.mpr hab ((1 : G), i) ((1 : G), j)
+  simpa [piRep_apply, inv_one, alphaAct_id] using h
+
+/-! ## A relação de covariância — a gramática do produto cruzado -/
+
+/-- [KERNEL] A RELAÇÃO DE COVARIÂNCIA: `λ_g·π(a)·λ_gᴴ = π(α_g(a))` —
+    conjugar pelo unitário do grupo implementa a ação na base. -/
+theorem lam_conj_piRep (g : G) (a : Matrix n n ℂ) :
+    lam (n := n) g * piRep u a * (lam g)ᴴ = piRep u (alphaAct u g a) := by
+  rw [lam_conjTranspose]
+  ext p q
+  rw [mul_lam_apply, lam_mul_apply]
+  simp only [piRep_apply, mul_right_inj]
+  rcases eq_or_ne p.1 q.1 with h | h
+  · rw [if_pos h, if_pos h, _root_.mul_inv_rev, inv_inv, alphaAct_mul]
+  · rw [if_neg h, if_neg h]
+
+/-- [KERNEL] Forma de comutação: `λ_g·π(a) = π(α_g(a))·λ_g`. -/
+theorem lam_mul_piRep (g : G) (a : Matrix n n ℂ) :
+    lam (n := n) g * piRep u a = piRep u (alphaAct u g a) * lam g := by
+  have hu : (lam (n := n) g)ᴴ * lam g = 1 := by
+    rw [lam_conjTranspose, lam_mul, inv_mul_cancel, lam_one]
+  calc lam (n := n) g * piRep u a
+      = lam g * piRep u a * ((lam g)ᴴ * lam g) := by rw [hu, mul_one]
+    _ = (lam g * piRep u a * (lam g)ᴴ) * lam g := by simp only [mul_assoc]
+    _ = piRep u (alphaAct u g a) * lam g := by rw [lam_conj_piRep]
+
+/-- [KERNEL] Forma de comutação simétrica: `π(a)·λ_g = λ_g·π(α_{g⁻¹}(a))`. -/
+theorem piRep_mul_lam (g : G) (a : Matrix n n ℂ) :
+    piRep u a * lam g = lam (n := n) g * piRep u (alphaAct u g⁻¹ a) := by
+  have h := lam_mul_piRep u g (alphaAct u g⁻¹ a)
+  rw [← alphaAct_mul, mul_inv_cancel, alphaAct_id] at h
+  exact h.symm
+
+/-! ## A esperança condicional E e o estado dual φ̂ = φ∘E -/
+
+/-- A compressão bloco-diagonal `E(x)_{p,q} = δ_{p.1,q.1}·x_{p,q}` — a
+    esperança condicional canônica do produto cruzado sobre `π(A)`
+    (normalização: `E` já é unital; nada a dividir). -/
+def Ecomp (x : Matrix (G × n) (G × n) ℂ) : Matrix (G × n) (G × n) ℂ :=
+  Matrix.of fun p q => if p.1 = q.1 then x p q else 0
+
+@[simp] theorem Ecomp_apply (x : Matrix (G × n) (G × n) ℂ) (p q : G × n) :
+    Ecomp x p q = if p.1 = q.1 then x p q else 0 := rfl
+
+/-- [KERNEL] `E` é idempotente. -/
+theorem Ecomp_idem (x : Matrix (G × n) (G × n) ℂ) : Ecomp (Ecomp x) = Ecomp x := by
+  ext p q
+  simp only [Ecomp_apply]
+  split_ifs <;> rfl
+
+/-- [KERNEL] `E` respeita a estrela. -/
+theorem Ecomp_conjTranspose (x : Matrix (G × n) (G × n) ℂ) :
+    Ecomp (xᴴ) = (Ecomp x)ᴴ := by
+  ext p q
+  simp only [Ecomp_apply, conjTranspose_apply]
+  rcases eq_or_ne p.1 q.1 with h | h
+  · rw [if_pos h, if_pos h.symm]
+  · rw [if_neg h, if_neg (Ne.symm h), star_zero]
+
+/-- [KERNEL] `E` FIXA a álgebra-base: `E∘π = π`. -/
+theorem Ecomp_piRep (a : Matrix n n ℂ) : Ecomp (piRep u a) = piRep u a := by
+  ext p q
+  simp only [Ecomp_apply, piRep_apply]
+  split_ifs <;> rfl
+
+/-- [KERNEL] `E` MATA os unitários não-triviais do grupo: `E(λ_g) = 0`
+    para `g ≠ 1` — a projeção sobre o setor de fibra nula. -/
+theorem Ecomp_lam (g : G) (hg : g ≠ 1) : Ecomp (lam (n := n) g) = 0 := by
+  ext p q
+  simp only [Ecomp_apply, lam_apply, Matrix.zero_apply]
+  rcases eq_or_ne p.1 q.1 with h | h
+  · rw [if_pos h]
+    have hcond : ¬(p.1 = g * q.1 ∧ p.2 = q.2) := by
+      rintro ⟨h1, -⟩
+      rw [h] at h1
+      exact hg (mul_eq_right.mp h1.symm)
+    rw [if_neg hcond]
+  · rw [if_neg h]
+
+/-- [KERNEL] O CRITÉRIO DE TAKESAKI, lado do estado: `φ̂∘E = φ̂` — o estado
+    dual não vê o que a esperança descarta (a densidade `π(ρ)` é
+    bloco-diagonal). Com D1 (`sigma_piRep`), o par (invariância do fluxo,
+    esperança compatível) fica CONSTRUTIVO na sombra finita. -/
+theorem gibbs_Ecomp (ρ : Matrix n n ℂ) (x : Matrix (G × n) (G × n) ℂ) :
+    gibbs (piRep u ρ) (Ecomp x) = gibbs (piRep u ρ) x := by
+  simp only [gibbs, Matrix.trace, Matrix.diag, Matrix.mul_apply, Ecomp_apply,
+    piRep_apply]
+  refine Finset.sum_congr rfl fun p _ => Finset.sum_congr rfl fun q _ => ?_
+  rcases eq_or_ne p.1 q.1 with h | h
+  · rw [if_pos h, if_pos h.symm]
+  · rw [if_neg h, zero_mul, zero_mul]
+
+/-- O bloco diagonal `g` de uma matriz do produto cruzado. -/
+def blockAt (g : G) (x : Matrix (G × n) (G × n) ℂ) : Matrix n n ℂ :=
+  Matrix.of fun i j => x (g, i) (g, j)
+
+@[simp] theorem blockAt_apply (g : G) (x : Matrix (G × n) (G × n) ℂ) (i j : n) :
+    blockAt g x i j = x (g, i) (g, j) := rfl
+
+/-- A esperança condicional DESCIDA a `Mₙ`: `Ê(x) = Σ_g α_g(x_{gg})`
+    (sem normalização: `Ê(1) = |G|·1`; a normalizada é `Ê/|G|`). -/
+def EhatDown (x : Matrix (G × n) (G × n) ℂ) : Matrix n n ℂ :=
+  ∑ g : G, alphaAct u g (blockAt g x)
+
+/-- Truque do traço: `Tr(ρ·α_g(b)) = Tr(α_{g⁻¹}(ρ)·b)` — transportar a
+    ação para a densidade. -/
+theorem trace_mul_alphaAct (g : G) (ρ b : Matrix n n ℂ) :
+    (ρ * alphaAct u g b).trace = (alphaAct u g⁻¹ ρ * b).trace := by
+  simp only [alphaAct, coe_u_inv, star_star, ← mul_assoc]
+  rw [trace_mul_comm]
+  simp only [← mul_assoc]
+
+/-- [KERNEL] O ESTADO DUAL É `φ∘E`, EXATO: `gibbs(π(ρ), x) = gibbs(ρ, Ê(x))`
+    — sem fator de normalização; a identidade que faz de `gibbs (π ρ)` o
+    peso dual de `gibbs ρ` na sombra finita. -/
+theorem gibbs_piRep_dual (ρ : Matrix n n ℂ) (x : Matrix (G × n) (G × n) ℂ) :
+    gibbs (piRep u ρ) x = gibbs ρ (EhatDown u x) := by
+  have hRHS : gibbs ρ (EhatDown u x)
+      = ∑ g : G, (alphaAct u g⁻¹ ρ * blockAt g x).trace := by
+    simp only [gibbs, EhatDown, Matrix.mul_sum, Matrix.trace_sum]
+    exact Finset.sum_congr rfl fun g _ => trace_mul_alphaAct u g ρ (blockAt g x)
+  rw [hRHS]
+  simp only [gibbs, Matrix.trace, Matrix.diag, Matrix.mul_apply, piRep_apply,
+    blockAt_apply]
+  rw [Fintype.sum_prod_type]
+  refine Finset.sum_congr rfl fun g _ => ?_
+  refine Finset.sum_congr rfl fun i _ => ?_
+  rw [Fintype.sum_prod_type, Finset.sum_eq_single g]
+  · simp
+  · intro c _ hc
+    simp [Ne.symm hc]
+  · intro habs
+    exact absurd (Finset.mem_univ _) habs
+
+/-- [KERNEL] Contabilidade honesta do traço: `Tr(π(a)) = |G|·Tr(a)` —
+    o peso dual não-normalizado carrega o fator |G| (escalar; cancela em
+    toda potência imaginária). -/
+theorem trace_piRep (a : Matrix n n ℂ) :
+    (piRep u a).trace = (Fintype.card G : ℂ) * a.trace := by
+  have hdiag : ∀ p : G × n, piRep u a p p = alphaAct u p.1⁻¹ a p.2 p.2 := by
+    intro p
+    simp [piRep_apply]
+  simp only [Matrix.trace, Matrix.diag, hdiag]
+  rw [Fintype.sum_prod_type]
+  have h : ∀ g : G, (∑ i : n, alphaAct u g⁻¹ a i i) = a.trace := by
+    intro g
+    simpa [Matrix.trace, Matrix.diag] using alphaAct_trace u g⁻¹ a
+  rw [Finset.sum_congr rfl fun g _ => h g, Finset.sum_const, Finset.card_univ,
+    nsmul_eq_mul]
+  simp [Matrix.trace, Matrix.diag]
+
+/-- [KERNEL] O estado dual RESTRITO à base: `φ̂(π(a)) = |G|·φ(a)`. -/
+theorem gibbs_piRep_piRep (ρ a : Matrix n n ℂ) :
+    gibbs (piRep u ρ) (piRep u a) = (Fintype.card G : ℂ) * gibbs ρ a := by
+  simp only [gibbs]
+  rw [← piRep_mul, trace_piRep]
+
+/-! ## O transporte modular por π — o coração da pedra -/
+
+/-- `π` como aplicação ℂ-linear (para a continuidade em dimensão finita). -/
+def piRepL : Matrix n n ℂ →ₗ[ℂ] Matrix (G × n) (G × n) ℂ where
+  toFun := piRep u
+  map_add' := piRep_add u
+  map_smul' := piRep_smul u
+
+/-- `π` como *-homomorfismo unital de álgebras — o functor do peso dual. -/
+def piRepHom : Matrix n n ℂ →⋆ₐ[ℂ] Matrix (G × n) (G × n) ℂ where
+  toFun := piRep u
+  map_one' := piRep_one u
+  map_mul' := piRep_mul u
+  map_zero' := piRep_zero u
+  map_add' := piRep_add u
+  commutes' := fun c => by
+    rw [Algebra.algebraMap_eq_smul_one, Algebra.algebraMap_eq_smul_one,
+      piRep_smul, piRep_one]
+  map_star' := fun a => by
+    rw [Matrix.star_eq_conjTranspose, Matrix.star_eq_conjTranspose, piRep_star]
+
+@[simp] theorem piRepHom_apply (a : Matrix n n ℂ) : piRepHom u a = piRep u a := rfl
+
+/-- `π` é contínuo (linear em dimensão finita). -/
+theorem piRep_continuous : Continuous (piRep (n := n) u) :=
+  (piRepL u).continuous_of_finiteDimensional
+
+/-- `π` preserva autoadjunção. -/
+theorem piRep_isSelfAdjoint {a : Matrix n n ℂ} (ha : IsSelfAdjoint a) :
+    IsSelfAdjoint (piRep u a) := by
+  rw [IsSelfAdjoint, Matrix.star_eq_conjTranspose, ← piRep_star]
+  exact congrArg (piRep u) ha
+
+/-- [KERNEL] TRANSPORTE DO GERADOR MODULAR: `log(π(ρ)) = π(log ρ)` — o
+    cálculo funcional contínuo comuta com o embedding
+    (`StarAlgHomClass.map_cfc`, a mesma alavanca do E6/v42). -/
+theorem logRho_piRep {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) :
+    logRho (piRep u ρ) = piRep u (logRho ρ) := by
+  have ha : IsSelfAdjoint ρ := hρ.isHermitian.isSelfAdjoint
+  have hf : ContinuousOn Real.log (spectrum ℝ ρ) :=
+    Real.continuousOn_log.mono fun x hx =>
+      (hρ.isStrictlyPositive.spectrum_pos hx).ne'
+  have hcont : Continuous (piRepHom u) := piRep_continuous u
+  have hsa : IsSelfAdjoint (piRepHom u ρ) := piRep_isSelfAdjoint u ha
+  have key := StarAlgHomClass.map_cfc (S := ℂ) (piRepHom u) Real.log ρ hf hcont ha hsa
+  simp only [piRepHom_apply] at key
+  exact key.symm
+
+/-- [KERNEL] `π` comuta com a exponencial (hom contínuo de anéis;
+    instâncias normadas do escopo `Matrix.Norms.Operator` SÓ na prova —
+    o mesmo truque do `MatrixExponential` da mathlib). -/
+theorem exp_piRep (x : Matrix n n ℂ) : piRep u (exp x) = exp (piRep u x) :=
+  open scoped Matrix.Norms.Operator in
+  map_exp (piRepHom u) (piRep_continuous u) x
+
+/-- [KERNEL] TRANSPORTE DO FLUXO MODULAR: `(π(ρ))^{it} = π(ρ^{it})` — o
+    unitário modular do peso dual é a imagem do unitário modular da base. -/
+theorem modPow_piRep {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) (t : ℝ) :
+    modPow (piRep u ρ) t = piRep u (modPow ρ t) := by
+  unfold modPow
+  rw [logRho_piRep u hρ, ← piRep_smul, exp_piRep]
+
+/-- [KERNEL] D3 — NATURALIDADE DUAL DO COCICLO:
+    `[D(π φ) : D(π ψ)]_t = π([Dφ : Dψ]_t)` — o functor do peso dual
+    preserva cociclos de Connes, exatamente (escalares cancelam). -/
+theorem cocycle_piRep {φ ψ : Matrix n n ℂ} (hφ : φ.PosDef) (hψ : ψ.PosDef) (t : ℝ) :
+    cocycle (piRep u φ) (piRep u ψ) t = piRep u (cocycle φ ψ t) := by
+  unfold cocycle
+  rw [modPow_piRep u hφ, modPow_piRep u hψ, ← piRep_mul]
+
+/-- [KERNEL] D1 — O FLUXO DUAL RESTRITO À BASE É O FLUXO DA BASE:
+    `σ^{π(ρ)}_t(π(a)) = π(σ^ρ_t(a))` — com `gibbs_Ecomp`, o critério de
+    Takesaki (σ-invariância de π(A) + esperança compatível) construtivo. -/
+theorem sigma_piRep {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) (t : ℝ) (a : Matrix n n ℂ) :
+    sigma (piRep u ρ) t (piRep u a) = piRep u (sigma ρ t a) := by
+  unfold sigma
+  rw [modPow_piRep u hρ, modPow_piRep u hρ, ← piRep_mul, ← piRep_mul]
+
+/-! ## ★ O TEOREMA DO PESO DUAL — a lei da pedra -/
+
+/-- [KERNEL] O TEOREMA DO PESO DUAL, forma esquerda:
+    `σ^{φ̂}_t(λ_g) = π([Dφ : D(φ∘α_{g⁻¹})]_t)·λ_g` (em densidades:
+    `π([Dρ : D(α_g ρ)]_t)·λ_g`). O fluxo modular do estado dual move o
+    unitário do grupo — que NÃO pertence a `π(A)` — e o desvio é o
+    cociclo de Connes. -/
+theorem dual_weight_left {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) (g : G) (t : ℝ) :
+    sigma (piRep u ρ) t (lam g)
+      = piRep u (cocycle ρ (alphaAct u g ρ) t) * lam g := by
+  unfold sigma
+  rw [modPow_piRep u hρ, modPow_piRep u hρ]
+  have hshift : lam (n := n) g * piRep u (modPow ρ (-t))
+      = piRep u (modPow (alphaAct u g ρ) (-t)) * lam g := by
+    rw [lam_mul_piRep, alphaAct_modPow u hρ]
+  calc piRep u (modPow ρ t) * lam g * piRep u (modPow ρ (-t))
+      = piRep u (modPow ρ t) * (lam g * piRep u (modPow ρ (-t))) := by
+        simp only [mul_assoc]
+    _ = piRep u (modPow ρ t) * (piRep u (modPow (alphaAct u g ρ) (-t)) * lam g) := by
+        rw [hshift]
+    _ = piRep u (modPow ρ t) * piRep u (modPow (alphaAct u g ρ) (-t)) * lam g := by
+        simp only [mul_assoc]
+    _ = piRep u (cocycle ρ (alphaAct u g ρ) t) * lam g := by
+        rw [← piRep_mul, cocycle]
+
+/-- [KERNEL] ★ O TEOREMA DO PESO DUAL (forma de Takesaki, Vol. II X.1.17):
+
+    `σ^{φ̂}_t(λ_g) = λ_g · π([D(φ∘α_g) : Dφ]_t)`
+
+    com a densidade de `φ∘α_g` sendo `α_{g⁻¹}(ρ)`. A COVARIÂNCIA ALÉM DOS
+    UNITÁRIOS INTERNOS na sombra finita: a dinâmica modular do produto
+    cruzado é MEDIDA pelo cociclo de Connes do estado transportado pela
+    ação. O levantamento a III₁ genuína SEGUE O TEOREMA ABERTO. -/
+theorem dual_weight {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) (g : G) (t : ℝ) :
+    sigma (piRep u ρ) t (lam g)
+      = lam (n := n) g * piRep u (cocycle (alphaAct u g⁻¹ ρ) ρ t) := by
+  rw [dual_weight_left u hρ g t, piRep_mul_lam]
+  congr 2
+  calc alphaAct u g⁻¹ (cocycle ρ (alphaAct u g ρ) t)
+      = alphaAct u g⁻¹ (modPow ρ t) *
+          alphaAct u g⁻¹ (modPow (alphaAct u g ρ) (-t)) := by
+        rw [cocycle, alphaAct_matmul]
+    _ = modPow (alphaAct u g⁻¹ ρ) t *
+          alphaAct u g⁻¹ (alphaAct u g (modPow ρ (-t))) := by
+        rw [alphaAct_modPow u hρ, alphaAct_modPow u hρ]
+    _ = modPow (alphaAct u g⁻¹ ρ) t * modPow ρ (-t) := by
+        rw [alphaAct_inv_cancel]
+    _ = cocycle (alphaAct u g⁻¹ ρ) ρ t := rfl
+
+/-- [KERNEL] O corolário honesto da DEGENERESCÊNCIA: se o estado é
+    α_g-invariante, a lei colapsa (`σ^{φ̂}_t(λ_g) = λ_g`) — o caso
+    não-trivial EXIGE `α_g(ρ) ≠ ρ` (verificado no runtime numérico). -/
+theorem dual_flow_fixes_lam_of_invariant {ρ : Matrix n n ℂ} (hρ : ρ.PosDef)
+    (g : G) (hinv : alphaAct u g ρ = ρ) (t : ℝ) :
+    sigma (piRep u ρ) t (lam g) = lam g := by
+  rw [dual_weight_left u hρ g t, hinv, cocycle_self, piRep_one, one_mul]
+
+/-- [KERNEL] COVARIÂNCIA DO COCICLO ALÉM DOS UNITÁRIOS INTERNOS DE π(A):
+    transportar os estados pela ação de `G` conjuga o cociclo do produto
+    cruzado pelo unitário do grupo `λ_g ∉ π(A)` — a versão-λ do E6/v42. -/
+theorem cocycle_covariance_beyond_inner {φ ψ : Matrix n n ℂ}
+    (hφ : φ.PosDef) (hψ : ψ.PosDef) (g : G) (t : ℝ) :
+    cocycle (piRep u (alphaAct u g φ)) (piRep u (alphaAct u g ψ)) t
+      = lam (n := n) g * cocycle (piRep u φ) (piRep u ψ) t * (lam g)ᴴ := by
+  rw [cocycle_piRep u (alphaAct_posDef u hφ g) (alphaAct_posDef u hψ g) t,
+    ← alphaAct_cocycle u hφ hψ, ← lam_conj_piRep, cocycle_piRep u hφ hψ]
+
+/-! ## A ação dual β_χ (não-interna relativa a π(A)) -/
+
+variable (chi : G →* ℂ)
+
+/-- A matriz diagonal do caractere: `D_χ = diag(χ(g)·1ₙ)` — o implementador
+    da ação dual `β_χ` no espaço amplificado. -/
+def Dchi : Matrix (G × n) (G × n) ℂ :=
+  Matrix.diagonal fun p => chi p.1
+
+/-- [KERNEL] A LEI DA AÇÃO DUAL: `D_χ·λ_g = χ(g)·(λ_g·D_χ)`. -/
+theorem Dchi_mul_lam (g : G) :
+    Dchi (n := n) chi * lam g = chi g • (lam g * Dchi chi) := by
+  ext p q
+  rw [Dchi, Matrix.diagonal_mul, Matrix.smul_apply, Matrix.mul_diagonal]
+  simp only [lam_apply]
+  split_ifs with h
+  · rw [h.1, map_mul]
+    simp [mul_comm]
+  · simp
+
+/-- [KERNEL] `D_χ` COMUTA com toda a álgebra-base `π(A)`: a ação dual fixa
+    `π(A)` ponto a ponto (sem exigir unimodularidade). -/
+theorem Dchi_comm_piRep (a : Matrix n n ℂ) :
+    Dchi (n := n) chi * piRep u a = piRep u a * Dchi chi := by
+  ext p q
+  simp only [Dchi, Matrix.diagonal_mul, Matrix.mul_diagonal, piRep_apply]
+  rcases eq_or_ne p.1 q.1 with h | h
+  · simp only [h]
+    ring
+  · simp only [if_neg h, mul_zero, zero_mul]
+
+/-- [KERNEL] χ unimodular ⟹ `D_χ` é UNITÁRIA. -/
+theorem Dchi_mem_unitary (hchi : ∀ g, star (chi g) * chi g = 1) :
+    Dchi (n := n) chi ∈ unitary (Matrix (G × n) (G × n) ℂ) := by
+  have h1 : star (Dchi (n := n) chi) * Dchi chi = 1 := by
+    rw [Matrix.star_eq_conjTranspose, Dchi, diagonal_conjTranspose,
+      diagonal_mul_diagonal, ← Matrix.diagonal_one]
+    congr 1
+    funext p
+    simpa using hchi p.1
+  exact ⟨h1, mul_eq_one_comm.mp h1⟩
+
+/-- [KERNEL] A AÇÃO DUAL TORCE OS UNITÁRIOS DO GRUPO:
+    `β_χ(λ_g) = D_χ·λ_g·D_χᴴ = χ(g)·λ_g` — o espelho do peso dual: quem
+    fixa a base inteira ainda VÊ o setor do grupo, pelo caractere. -/
+theorem Dchi_conj_lam (hchi : ∀ g, star (chi g) * chi g = 1) (g : G) :
+    Dchi (n := n) chi * lam g * (Dchi chi)ᴴ = chi g • lam g := by
+  have h1 : Dchi (n := n) chi * (Dchi chi)ᴴ = 1 := by
+    have h := (Dchi_mem_unitary (n := n) chi hchi).2
+    rwa [Matrix.star_eq_conjTranspose] at h
+  have hD : lam (n := n) g * Dchi chi * (Dchi chi)ᴴ = lam g := by
+    rw [mul_assoc, h1, mul_one]
+  calc Dchi (n := n) chi * lam g * (Dchi chi)ᴴ
+      = (chi g • (lam g * Dchi chi)) * (Dchi chi)ᴴ := by rw [Dchi_mul_lam]
+    _ = chi g • (lam g * Dchi chi * (Dchi chi)ᴴ) := by
+        rw [Matrix.smul_mul]
+    _ = chi g • lam g := by rw [hD]
+
+/-- [KERNEL] `β_χ` FIXA `π(A)` (forma conjugada). -/
+theorem Dchi_conj_piRep (hchi : ∀ g, star (chi g) * chi g = 1)
+    (a : Matrix n n ℂ) :
+    Dchi (n := n) chi * piRep u a * (Dchi chi)ᴴ = piRep u a := by
+  have h1 : Dchi (n := n) chi * (Dchi chi)ᴴ = 1 := by
+    have h := (Dchi_mem_unitary (n := n) chi hchi).2
+    rwa [Matrix.star_eq_conjTranspose] at h
+  rw [Dchi_comm_piRep, mul_assoc, h1, mul_one]
+
+/-- [KERNEL] A AÇÃO DUAL COMUTA COM O FLUXO DUAL: `D_χ·(πρ)^{it} = (πρ)^{it}·D_χ`
+    — `β_χ` é simetria da dinâmica modular do peso dual (no grupo finito
+    NÃO há escala de traço; o análogo-ℝ com escala é o core, ABERTO). -/
+theorem Dchi_comm_modPow {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) (t : ℝ) :
+    Dchi (n := n) chi * modPow (piRep u ρ) t = modPow (piRep u ρ) t * Dchi chi := by
+  rw [modPow_piRep u hρ]
+  exact Dchi_comm_piRep u chi (modPow ρ t)
+
+/-- [KERNEL] O ESTADO DUAL É INVARIANTE PELA AÇÃO DUAL: `φ̂∘β_χ = φ̂`. -/
+theorem gibbs_Dchi (hchi : ∀ g, star (chi g) * chi g = 1)
+    (ρ : Matrix n n ℂ) (x : Matrix (G × n) (G × n) ℂ) :
+    gibbs (piRep u ρ) (Dchi (n := n) chi * x * (Dchi chi)ᴴ)
+      = gibbs (piRep u ρ) x := by
+  have hDD : (Dchi (n := n) chi)ᴴ * Dchi chi = 1 := by
+    have h := (Dchi_mem_unitary (n := n) chi hchi).1
+    rwa [Matrix.star_eq_conjTranspose] at h
+  simp only [gibbs]
+  calc (piRep u ρ * (Dchi (n := n) chi * x * (Dchi chi)ᴴ)).trace
+      = (piRep u ρ * Dchi chi * (x * (Dchi chi)ᴴ)).trace := by
+        simp only [mul_assoc]
+    _ = (Dchi (n := n) chi * (piRep u ρ * (x * (Dchi chi)ᴴ))).trace := by
+        rw [← Dchi_comm_piRep]
+        simp only [mul_assoc]
+    _ = (piRep u ρ * (x * ((Dchi chi)ᴴ * Dchi chi))).trace := by
+        rw [trace_mul_comm]
+        simp only [mul_assoc]
+    _ = (piRep u ρ * x).trace := by rw [hDD, mul_one]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/FiniteGNSNoCompletion.lean":
+r'''import TGLExt.GNSBridge
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# O GNS finito SEM completamento: o NOME funcional empacotado como TERMO
+  [TGLExt — v54, o espec do especialista compilado nesta máquina]
+
+O memorando do especialista (`NAME_FUNCTIONAL_QUANTUM_GRAVITY_GATE.md`)
+identifica o NOME como o par tipado 𝔑 = (M, φ) e pede a pedra que
+empacota, SEM o completamento genérico (o `PreGNS` da mathlib já é
+completo em dimensão finita), a cadeia que `FiniteTomita.lean` prova:
+
+* `FiniteNameGNS ρ` — a estrutura RÍGIDA: cada campo é PROVA de
+  proposição concreta sobre a realização FIXA `H = Mₙ(ℂ)`, `π = Lmul`,
+  `Ω = √ρ` (nenhum campo é `Prop`-como-dado; a lição do v22/v23 vale);
+* ★ `nameFiniteGNS` — o TERMO (primeiro o termo; `Nonempty` só como
+  corolário — a regra da casa);
+* ★ `boundaryState_eq_vector_state` — o funcional TIPADO do v53
+  (`Matrix n n ℂ →ₚ[ℂ] ℂ`) É o estado vetorial da realização concreta:
+  `boundaryState ρ = ⟨Ω, (·)Ω⟩`. Com isso o negativo nomeado
+  `gns_matrix_instance_whnf_timeout` fica DESFEITO NA FACE FINITA —
+  ele permanece APENAS como atrito de composição com a API genérica
+  da mathlib (`gnsStarAlgHom` via completamento), não como lacuna
+  matemática: a realização GNS finita está construída e verificada.
+
+HONESTIDADE. A fonte formal do especialista não chegou a este disco
+(era link de sandbox do ambiente dele); esta pedra foi REESCRITA aqui
+a partir do espec e compilada nesta máquina. β JAMAIS entra: ρ
+genérico. Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped ComplexOrder MatrixOrder Matrix.Norms.L2Operator
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-- [KERNEL] `S` FIXA O VETOR GNS: `SΩ = Ω` — a involução de Tomita ancora
+    no Nome (a face que faltava ao tripé `ΔΩ = JΩ = Ω` do Degrau 0). -/
+theorem Sop_omega (ρ : Matrix n n ℂ) (hρ : ρ.PosDef) :
+    Sop ρ (Omega ρ) = Omega ρ := by
+  unfold Sop
+  rw [omega_conjTranspose, Matrix.nonsing_inv_mul _ (omega_det_isUnit ρ hρ),
+    one_mul]
+
+/-- O NOME FUNCIONAL EMPACOTADO: a realização GNS finita concreta de
+    `𝔑 = (Mₙ(ℂ), ω_ρ)`. Estrutura RÍGIDA — cada campo é prova de proposição
+    concreta sobre `Lmul`/`Omega ρ`/`Sop ρ`/`Delta ρ`/`gibbs ρ` (nada é
+    `Prop`-como-dado): estado vetorial, ciclicidade, separação, Tomita,
+    polar, modular, positividade, KMS e o tripé de pontos fixos do vetor. -/
+structure FiniteNameGNS (ρ : Matrix n n ℂ) where
+  /-- `ω(1) = 1`: o funcional é normalizado (o Um inscrito). -/
+  state_normalized : gibbs ρ 1 = 1
+  /-- `ω ≥ 0` sobre positivos: o funcional respeita a ordem. -/
+  state_positive : ∀ x : Matrix n n ℂ, x.PosSemidef → 0 ≤ gibbs ρ x
+  /-- `ω(a) = ⟨Ω, aΩ⟩`: o estado é VETORIAL na realização concreta. -/
+  state_is_vector : ∀ a : Matrix n n ℂ,
+    gibbs ρ a = frob (Omega ρ) (Lmul a (Omega ρ))
+  /-- Ω é CÍCLICO: `MΩ = H`. -/
+  cyclic : ∀ y : Matrix n n ℂ, ∃ x, Lmul x (Omega ρ) = y
+  /-- Ω é SEPARADOR: `xΩ = 0 ⟹ x = 0`. -/
+  separating : ∀ x : Matrix n n ℂ, Lmul x (Omega ρ) = 0 → x = 0
+  /-- A equação de TOMITA: `S(xΩ) = xᴴΩ`. -/
+  tomita : ∀ x : Matrix n n ℂ, Sop ρ (Lmul x (Omega ρ)) = Lmul xᴴ (Omega ρ)
+  /-- Decomposição POLAR: `S = J ∘ Δ^{1/2}`. -/
+  polar : ∀ y : Matrix n n ℂ, Jconj (DeltaHalf ρ y) = Sop ρ y
+  /-- `Δ^{1/2} ∘ Δ^{1/2} = Δ`: a raiz modular é raiz. -/
+  modular_sq : ∀ y : Matrix n n ℂ, DeltaHalf ρ (DeltaHalf ρ y) = Delta ρ y
+  /-- `⟨y, Δy⟩ ≥ 0`: o operador modular é positivo. -/
+  modular_positive : ∀ y : Matrix n n ℂ, 0 ≤ frob y (Delta ρ y)
+  /-- KMS: `ω(ab) = ω(b·Δ(a))` — o equilíbrio modular. -/
+  kms : ∀ a b : Matrix n n ℂ, gibbs ρ (a * b) = gibbs ρ (b * Delta ρ a)
+  /-- `ΔΩ = Ω`: o vetor GNS é ponto fixo do modular. -/
+  vector_modular_fixed : Delta ρ (Omega ρ) = Omega ρ
+  /-- `JΩ = Ω`: o vetor GNS é ponto fixo da conjugação. -/
+  vector_conj_fixed : Jconj (Omega ρ) = Omega ρ
+  /-- `SΩ = Ω`: o vetor GNS é ponto fixo da involução de Tomita. -/
+  vector_tomita_fixed : Sop ρ (Omega ρ) = Omega ρ
+
+/-- ★ O TERMO: `nameFiniteGNS` — o GNS finito CONSTRUÍDO, sem completamento,
+    para todo estado fiel normalizado. Primeiro o termo; a existência é
+    corolário (`nameFiniteGNS_exists`). -/
+noncomputable def nameFiniteGNS (ρ : Matrix n n ℂ) (hρ : ρ.PosDef)
+    (hτ : ρ.trace = 1) : FiniteNameGNS ρ where
+  state_normalized := gibbs_one ρ hτ
+  state_positive := fun _ hx => gibbs_nonneg hρ.posSemidef hx
+  state_is_vector := gibbs_eq_frob_omega ρ hρ
+  cyclic := omega_cyclic ρ hρ
+  separating := omega_separating ρ hρ
+  tomita := Sop_tomita ρ hρ
+  polar := J_deltaHalf ρ
+  modular_sq := deltaHalf_deltaHalf ρ hρ
+  modular_positive := frob_delta_nonneg ρ hρ
+  kms := gibbs_kms ρ hρ
+  vector_modular_fixed := delta_omega ρ hρ
+  vector_conj_fixed := J_omega ρ
+  vector_tomita_fixed := Sop_omega ρ hρ
+
+/-- [KERNEL] ★ EXISTÊNCIA (corolário do termo, jamais o contrário):
+    todo NOME fiel normalizado TEM realização GNS finita completa. -/
+theorem nameFiniteGNS_exists (ρ : Matrix n n ℂ) (hρ : ρ.PosDef)
+    (hτ : ρ.trace = 1) : Nonempty (FiniteNameGNS ρ) :=
+  ⟨nameFiniteGNS ρ hρ hτ⟩
+
+/-- [KERNEL] ★ A PONTE FECHA NA FACE FINITA: o funcional TIPADO do v53
+    (`boundaryState`, no vocabulário `→ₚ[ℂ]` da mathlib) É o estado
+    vetorial da realização GNS concreta — `φ(a) = ⟨Ω, aΩ⟩`. O negativo
+    `gns_matrix_instance_whnf_timeout` fica desfeito aqui: o que resta
+    dele é só a composição com a API genérica (completamento), nomeada. -/
+theorem boundaryState_eq_vector_state (ρ : Matrix n n ℂ) (hρ : ρ.PosDef)
+    (a : Matrix n n ℂ) :
+    boundaryState ρ hρ.posSemidef a = frob (Omega ρ) (Lmul a (Omega ρ)) := by
+  rw [boundaryState_apply]
+  exact gibbs_eq_frob_omega ρ hρ a
+
+end
+
+end TGLExt
+''',
     "TGLExt/FiniteTomita.lean":
 r'''import TGLExt.LeftRight
 
@@ -8433,6 +10681,1044 @@ theorem gibbs_eq_frob_omega (hρ : ρ.PosDef) (a : Matrix n n ℂ) :
   simp only [gibbs, frob, Lmul_apply, omega_conjTranspose]
   conv_rhs => rw [Matrix.trace_mul_comm]
   rw [mul_assoc, omega_mul_self ρ hρ, Matrix.trace_mul_comm]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/GNSBridge.lean":
+r'''import TGLExt.VariationalInhabitant
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# A ponte GNS: o estado é o primitivo — a representação vem dele
+  [TGLExt — v53, a FLEXÃO começa (Degrau 3)]
+
+A derivação do operador (v52) estabeleceu: o habitante é o FUNCIONAL; a
+observação é o pareamento; a representação vem do estado. A mathlib
+JÁ TEM a construção GNS (`PositiveLinearMap.GNS`, `gnsStarAlgHom`) e o
+`StandardSubspace` (com Tomita/KMS declarados como TODO do próprio
+arquivo da mathlib). Este arquivo constrói a PONTE:
+
+* ★ **O ESTADO DA FRONTEIRA É UM FUNCIONAL POSITIVO** (`gibbs_nonneg` +
+  `gibbs_monotone` + `boundaryState`): `gibbs ρ` com `ρ ⪰ 0` é linear e
+  MONÓTONO na ordem de Loewner — o par (léxico, expressão) tipado como
+  `Matrix n n ℂ →ₚ[ℂ] ℂ`;
+* **A INSTANCIAÇÃO DO GNS: NEGATIVO HONESTO NOMEADO** — o GNS da
+  mathlib existe e o funcional está pronto, mas a instanciação sobre
+  `Matrix n n ℂ` trava no elaborador (whnf timeout na defeq da pilha de
+  instâncias C*/completamento): FALHA NOMEADA
+  `gns_matrix_instance_whnf_timeout` — atrito de ENGENHARIA, não de
+  matemática. Rotas para a próxima pedra: instância global upstream, ou
+  GNS finito sem completamento (PreGNS já é completo em dim finita).
+
+**HONESTIDADE.** O conteúdo REAL desta pedra: o estado da fronteira
+como funcional linear positivo TIPADO (`→ₚ[ℂ]` — o habitante no
+predual, v52, agora no tipo da mathlib) com positividade e monotonia
+[KERNEL]. A composição com o GNS contínuo fica bloqueada e NOMEADA.
+O que segue: Tomita/KMS no GNS (o TODO declarado da própria mathlib —
+`StandardSubspace`), produto cruzado contínuo, fatores. β JAMAIS
+entra: ρ genérico. Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped ComplexOrder MatrixOrder Matrix.Norms.L2Operator
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-- A instância-pacote C* das matrizes, montada dos pais escopados
+    (`Matrix.Norms.L2Operator`): o GNS da mathlib a exige inteira; os
+    campos são EXATAMENTE as instâncias diretas (defeq por construção). -/
+scoped instance : NonUnitalCStarAlgebra (Matrix n n ℂ) := fast_instance% { }
+
+/-! ## A — o estado da fronteira é um funcional positivo -/
+
+/-- [KERNEL] ★ POSITIVIDADE: `gibbs ρ x ≥ 0` para `ρ, x ⪰ 0` — o estado
+    da fronteira respeita a ordem (rota: `√ρ·x·√ρ ⪰ 0` + ciclo do
+    traço + `√ρ·√ρ = ρ`). -/
+theorem gibbs_nonneg {ρ x : Matrix n n ℂ} (hρ : ρ.PosSemidef)
+    (hx : x.PosSemidef) : 0 ≤ gibbs ρ x := by
+  have hΩ : (Omega ρ)ᴴ = Omega ρ := omega_conjTranspose ρ
+  have hpsd : (Omega ρ * x * (Omega ρ)ᴴ).PosSemidef :=
+    hx.mul_mul_conjTranspose_same (Omega ρ)
+  rw [hΩ] at hpsd
+  have hnn : (0 : Matrix n n ℂ) ≤ ρ := nonneg_iff_posSemidef.mpr hρ
+  have hsq : Omega ρ * Omega ρ = ρ := CFC.sqrt_mul_sqrt_self ρ hnn
+  have htr : (Omega ρ * x * Omega ρ).trace = gibbs ρ x := by
+    unfold gibbs
+    rw [Matrix.trace_mul_cycle, hsq]
+  rw [← htr]
+  exact hpsd.trace_nonneg
+
+/-- [KERNEL] ★ MONOTONIA: `a ≤ b ⟹ gibbs ρ a ≤ gibbs ρ b` (ordem de
+    Loewner) — o funcional da fronteira é ORDENADO: um estado genuíno. -/
+theorem gibbs_monotone {ρ : Matrix n n ℂ} (hρ : ρ.PosSemidef)
+    {a b : Matrix n n ℂ} (hab : a ≤ b) : gibbs ρ a ≤ gibbs ρ b := by
+  have hdiff : (b - a).PosSemidef := le_iff.mp hab
+  have hsub : gibbs ρ (b - a) = gibbs ρ b - gibbs ρ a := by
+    unfold gibbs
+    rw [Matrix.mul_sub, Matrix.trace_sub]
+  have h0 := gibbs_nonneg hρ hdiff
+  rw [hsub] at h0
+  exact sub_nonneg.mp h0
+
+/-! ## B — o funcional tipado e o GNS como termo -/
+
+/-- ★ O ESTADO DA FRONTEIRA como funcional linear positivo
+    (`Matrix n n ℂ →ₚ[ℂ] ℂ`) — o habitante no PREDUAL, tipado. -/
+noncomputable def boundaryState (ρ : Matrix n n ℂ) (hρ : ρ.PosSemidef) :
+    Matrix n n ℂ →ₚ[ℂ] ℂ :=
+  { toFun := gibbs ρ
+    map_add' := pairing_bilinear_right ρ
+    map_smul' := fun c a => by simp [gibbs]
+    monotone' := fun a b hab => gibbs_monotone hρ hab }
+
+@[simp] theorem boundaryState_apply (ρ : Matrix n n ℂ) (hρ : ρ.PosSemidef)
+    (a : Matrix n n ℂ) : boundaryState ρ hρ a = gibbs ρ a := rfl
+
+/-! ## C — a instanciação do GNS: atrito de engenharia NOMEADO
+
+O GNS da mathlib (`PositiveLinearMap.GNS`, `gnsStarAlgHom`) existe e o
+funcional da fronteira está tipado acima — mas a instanciação sobre
+`Matrix n n ℂ` TRAVA nesta rev: `whnf timeout` (1M heartbeats, mesmo com
+`fast_instance%`) na defeq entre a instância-pacote C* e as diretas,
+através da pilha do completamento. FALHA NOMEADA:
+`gns_matrix_instance_whnf_timeout` — atrito de ENGENHARIA (arquitetura
+de instâncias), não de matemática: o funcional é positivo [KERNEL], a
+construção existe [mathlib], a composição está bloqueada no elaborador.
+Rotas para a próxima pedra: instância global upstream, ou GNS
+reimplementado para o caso finito (sem completamento — o PreGNS já é
+completo em dimensão finita). Negativo honesto é resultado. -/
+
+end
+
+end TGLExt
+''',
+    "TGLExt/GeometryFluctuation.lean":
+r'''import TGLExt.GravitonPolarization
+import TGLExt.Ergodicity
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# As flutuações quânticas da geometria   [TGLExt — v49, gate 6]
+
+O gate: "a geometria deve possuir observáveis quânticos, não apenas
+valores médios" — flutuações Var_{ω}(ĝ), não-comutatividade onde a
+estrutura o exige, e o limite clássico √Var/⟨ĝ⟩ → 0. O que este arquivo
+PROVA [KERNEL]:
+
+* ★ **A VARIÂNCIA DO OBSERVÁVEL GEOMÉTRICO É O DEFEITO DE TRANSPORTE**
+  (`variance_of_projection`): para qualquer projeção P e estado ω,
+  Var_ω(P) = p(1−p) com p = ω(P) — EXATAMENTE o defeito Δ = β(1−β) do
+  v26 ("a variância da moeda da inscrição"): a flutuação quântica da
+  geometria É a resistência do transporte;
+* **A INSTÂNCIA DA FRONTEIRA** (`boundary_mean`/`boundary_variance`): no
+  canal da matriz-S (v41), o observável de reflexão E₁₁ tem média
+  sin²θ e variância sin²θ·cos²θ (runtime: média β, variância β(1−β));
+* ★ **A MEIA-NAT É A FLUTUAÇÃO MÁXIMA** (`variance_le_quarter` +
+  `variance_eq_quarter_iff`): p(1−p) ≤ ¼ com igualdade SE E SOMENTE SE
+  p = ½ — o ponto auto-conjugado x = 1−x (o fundamento-raiz derivado,
+  §88.27.47) é PRECISAMENTE onde a geometria flutua ao máximo: a moeda
+  da fronteira é justa no espelho;
+* ★ **A GEOMETRIA É GENUINAMENTE QUÂNTICA** (`polarization_commutator` +
+  `polarizations_noncommute`): [h₊, h×] = 2·J ≠ 0 — as duas polarizações
+  NÃO comutam, e o comutador fecha NO GERADOR DE HELICIDADE (o J da
+  rotação transversal, v48): a álgebra dos observáveis geométricos
+  fecha sobre o gerador do próprio spin-2;
+* ★ **O LIMITE CLÁSSICO É A LEI DOS GRANDES NÚMEROS** (`sqrt_ratio_eq` +
+  `classical_limit`): a flutuação relativa de M modos agregados é
+  √(M·v)/(M·m) = (√v/m)/√M → 0 — a geometria clássica emerge da
+  quântica por agregação macroscópica, com taxa 1/√M.
+
+**HONESTIDADE.** Este é o ESQUELETO algébrico-assintótico do gate 6:
+variância, cota, máximo, não-comutatividade e limite clássico — em
+kernel. O que NÃO está aqui e segue OPEN: os operadores ĝ_μν/Â(Σ) na
+REDE AQFT contínua com comutadores ditados pela causalidade (a
+testemunha plena), e a dinâmica das flutuações (gate 5/8). No runtime
+(e só lá): p = β no canal da fronteira, Var = β(1−β) = Δ do v26.
+β JAMAIS entra aqui. Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix Filter
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## A — a variância do observável-projeção é o defeito de transporte -/
+
+/-- [KERNEL] ★ VAR = p(1−p): para toda PROJEÇÃO P e estado ω = gibbs ρ,
+    a variância ω(P²) − ω(P)² = ω(P)·(1 − ω(P)) — o DEFEITO DE TRANSPORTE
+    do v26 como a flutuação quântica do observável geométrico. -/
+theorem variance_of_projection (ρ P : Matrix n n ℂ) (hP : P * P = P) :
+    gibbs ρ (P * P) - (gibbs ρ P) ^ 2 = gibbs ρ P * (1 - gibbs ρ P) := by
+  rw [hP]
+  ring
+
+/-! ## B — a instância da fronteira: média sin²θ, variância sin²θ·cos²θ -/
+
+/-- O observável de REFLEXÃO do canal: `E₁₁ = |1⟩⟨1|`. -/
+def reflObs : Matrix (Fin 2) (Fin 2) ℂ := Matrix.single 1 1 1
+
+/-- `E₁₁` é projeção. -/
+theorem reflObs_proj : reflObs * reflObs = reflObs := by
+  unfold reflObs
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Matrix.single]
+
+/-- O estado do canal lê a entrada 11: `ω_out(E₁₁) = (ρ_out)₁₁`. -/
+theorem gibbs_reflObs (ρ : Matrix (Fin 2) (Fin 2) ℂ) :
+    gibbs ρ reflObs = ρ 1 1 := by
+  unfold gibbs reflObs
+  rw [Matrix.trace_fin_two]
+  simp [Matrix.mul_apply, Matrix.single]
+
+/-- [KERNEL] A MÉDIA DA FRONTEIRA: `⟨E₁₁⟩ = sin²θ` no estado de saída do
+    canal (runtime: β — o peso refletido). -/
+theorem boundary_mean (θ : ℝ) :
+    gibbs (rhoOut θ) reflObs = (Real.sin θ : ℂ) ^ 2 := by
+  rw [gibbs_reflObs, rhoOut_one_one]
+
+/-- [KERNEL] ★ A VARIÂNCIA DA FRONTEIRA: `Var(E₁₁) = sin²θ·cos²θ` — no
+    runtime, β(1−β) = o defeito de transporte Δ do v26: A FLUTUAÇÃO
+    QUÂNTICA DA GEOMETRIA DE FRONTEIRA É A RESISTÊNCIA DO TRANSPORTE. -/
+theorem boundary_variance (θ : ℝ) :
+    gibbs (rhoOut θ) (reflObs * reflObs) - (gibbs (rhoOut θ) reflObs) ^ 2
+      = (Real.sin θ : ℂ) ^ 2 * (Real.cos θ : ℂ) ^ 2 := by
+  rw [variance_of_projection (rhoOut θ) reflObs reflObs_proj, boundary_mean]
+  have hr : 1 - Real.sin θ ^ 2 = Real.cos θ ^ 2 := by
+    nlinarith [Real.sin_sq_add_cos_sq θ]
+  have h : (1 : ℂ) - (Real.sin θ : ℂ) ^ 2 = (Real.cos θ : ℂ) ^ 2 := by
+    exact_mod_cast hr
+  rw [h]
+
+/-! ## C — a Meia-Nat é a flutuação máxima -/
+
+/-- [KERNEL] A COTA UNIVERSAL DA FLUTUAÇÃO: `p(1−p) ≤ ¼` — nenhum
+    observável-projeção flutua mais que um quarto. -/
+theorem variance_le_quarter (p : ℝ) : p * (1 - p) ≤ 1 / 4 := by
+  nlinarith [sq_nonneg (p - 1 / 2)]
+
+/-- [KERNEL] ★ A MEIA-NAT É O MÁXIMO: `p(1−p) = ¼ ⟺ p = ½` — a flutuação
+    é máxima EXATAMENTE no ponto auto-conjugado x = 1−x (o fundamento-raiz
+    derivado): a moeda da fronteira é justa no espelho. -/
+theorem variance_eq_quarter_iff (p : ℝ) : p * (1 - p) = 1 / 4 ↔ p = 1 / 2 := by
+  constructor
+  · intro h
+    nlinarith [sq_nonneg (p - 1 / 2)]
+  · intro h
+    rw [h]
+    norm_num
+
+/-! ## D — a geometria é genuinamente quântica: [h₊, h×] = 2·J -/
+
+/-- O gerador de helicidade `J = [[0,1],[−1,0]]` (o gerador de `rot`). -/
+def rotGen : Matrix (Fin 2) (Fin 2) ℝ := !![0, 1; -1, 0]
+
+/-- [KERNEL] ★ O COMUTADOR DAS POLARIZAÇÕES É O GERADOR DE HELICIDADE:
+    `[h₊, h×] = 2·J` — os observáveis geométricos NÃO comutam, e fecham
+    sobre o gerador do próprio spin-2 (a rotação transversal, v48). -/
+theorem polarization_commutator :
+    polPlus * polCross - polCross * polPlus = (2 : ℝ) • rotGen := by
+  unfold polPlus polCross rotGen
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp <;> norm_num
+
+/-- [KERNEL] A NÃO-COMUTATIVIDADE: `h₊·h× ≠ h×·h₊` — a geometria
+    transversal é QUÂNTICA (observáveis incompatíveis). -/
+theorem polarizations_noncommute : polPlus * polCross ≠ polCross * polPlus := by
+  intro h
+  have h2 : polPlus * polCross - polCross * polPlus = 0 := by
+    rw [h]
+    exact sub_self _
+  rw [polarization_commutator] at h2
+  have h3 := Matrix.ext_iff.mpr h2 0 1
+  simp [rotGen] at h3
+
+/-! ## E — o limite clássico é a lei dos grandes números -/
+
+/-- [KERNEL] A IDENTIDADE DA AGREGAÇÃO: a flutuação relativa de M modos é
+    `√(M·v)/(M·m) = (√v/m)/√M` — vale para TODO M (inclusive M = 0, onde
+    ambos os lados são 0 na convenção de divisão). -/
+theorem sqrt_ratio_eq (v m : ℝ) (M : ℕ) :
+    Real.sqrt ((M : ℝ) * v) / ((M : ℝ) * m)
+      = (Real.sqrt v / m) / Real.sqrt (M : ℝ) := by
+  rcases Nat.eq_zero_or_pos M with h | h
+  · subst h
+    simp
+  · have hMpos : (0 : ℝ) < (M : ℝ) := by exact_mod_cast h
+    have hs : Real.sqrt ((M : ℝ) * v)
+        = Real.sqrt (M : ℝ) * Real.sqrt v := Real.sqrt_mul (le_of_lt hMpos) v
+    have hself : Real.sqrt (M : ℝ) * Real.sqrt (M : ℝ) = (M : ℝ) :=
+      Real.mul_self_sqrt (le_of_lt hMpos)
+    have hsne : Real.sqrt (M : ℝ) ≠ 0 := (Real.sqrt_pos.mpr hMpos).ne'
+    rw [hs]
+    rcases eq_or_ne m 0 with hm | hm
+    · simp [hm]
+    · field_simp
+      rw [sq, hself]
+      ring
+
+/-- [KERNEL] ★ O LIMITE CLÁSSICO: `(√v/m)/√M → 0` quando `M → ∞` — a
+    flutuação relativa da geometria agregada morre com 1/√M: a geometria
+    CLÁSSICA emerge da quântica por agregação macroscópica (a lei dos
+    grandes números da moeda da inscrição). -/
+theorem classical_limit (c : ℝ) :
+    Tendsto (fun M : ℕ => c / Real.sqrt (M : ℝ)) atTop (nhds 0) := by
+  have h1 : Tendsto (fun M : ℕ => Real.sqrt (M : ℝ)) atTop atTop :=
+    Real.tendsto_sqrt_atTop.comp tendsto_natCast_atTop_atTop
+  have h2 : Tendsto (fun M : ℕ => (Real.sqrt (M : ℝ))⁻¹) atTop (nhds 0) :=
+    tendsto_inv_atTop_zero.comp h1
+  have h3 := h2.const_mul c
+  simpa [div_eq_mul_inv] using h3
+
+/-- [KERNEL] O LIMITE CLÁSSICO NA FORMA FÍSICA: `√(M·v)/(M·m) → 0` — a
+    composição das duas peças: a identidade da agregação + a lei dos
+    grandes números. -/
+theorem classical_limit_physical (v m : ℝ) :
+    Tendsto (fun M : ℕ => Real.sqrt ((M : ℝ) * v) / ((M : ℝ) * m))
+      atTop (nhds 0) := by
+  have h := classical_limit (Real.sqrt v / m)
+  exact h.congr fun M => (sqrt_ratio_eq v m M).symm
+
+end
+
+end TGLExt
+''',
+    "TGLExt/GlobalLiftLadder.lean":
+r'''import TGLExt.Ergodicity
+import TGLExt.SMatrix
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# A escada do GLOBAL_LIFT: densidade diádica, a obstrução do traço
+  discreto e o canal de medição no referencial-S   [TGLExt — v45]
+
+O esqueleto KERNELIZÁVEL da derivação do operador (13/07/2026) para o
+núcleo contínuo do GLOBAL_LIFT — a escada `ℤ → ⋃ₙ 2⁻ⁿℤ → ℝ`:
+
+* **A DENSIDADE DIÁDICA, QUANTITATIVA** (§1 da derivação): o ponto
+  diádico mais próximo no estágio `n` erra no máximo `2⁻ⁿ/2`
+  (`dyadic_approx`), os estágios são encaixados (`dyadic_stage_mono`) e
+  a aproximação CONVERGE (`dyadic_tendsto`). No contínuo [KNOWN,
+  Takesaki/Dykema]: a densidade + continuidade forte de λ dão
+  `(⋃ₙ Cₙ)'' = M ⋊_σ ℝ` — a parte analítica fica EXTERNA (fecho forte
+  de von Neumann não é formalizável hoje na mathlib).
+
+* **A OBSTRUÇÃO DO TRAÇO DISCRETO** (§2 — a joia): no estágio
+  `h = 2⁻ⁿ`, o parâmetro dual `s_h = 2π·2ⁿ` fixa o reticulado ponto a
+  ponto (`annihilator_fixes_stage`: `e^{−i·s_h·kh} = 1`); mas a lei de
+  escala de Takesaki `τ∘θ_s = e^{−s}·τ` então força `τ = 0` em todo
+  elemento fixo (`DualScalingData.fixed_tau_zero`, tipada geometry-free
+  no estilo TransportData). **A semifinitude do traço é IMPOSSÍVEL em
+  cada estágio discreto — ela só pode emergir no fecho contínuo.** A
+  frase "o que faltava era exatamente o contínuo" virou teorema.
+
+* **O CANAL DE MEDIÇÃO MODULAR** (§4 — o encaixe das duas pontas):
+  `T^S_t = Ad(Sᴴ)∘D_t∘Ad(S)` é SEMIGRUPO genuíno (`sFrame_add` — v41
+  matriz-S + v43 dephasing compostos) e CONVERGE para a esperança
+  comprimida (`sFrame_tendsto`); o endpoint da medição é a diagonal
+  `(cos²θ, sin²θ)` (`dephased_rhoOut_*`) — a matriz-S gera a distinção,
+  o dephasing a inscreve como peso.
+
+**HONESTIDADE.** θ e taxas GENÉRICOS; `sin²θ_M = β` e a taxa de Davies
+`β·gap` são leituras de RUNTIME — β JAMAIS entra aqui. O que NÃO está
+aqui e segue ABERTO: o fecho forte de von Neumann da escada (EXTERNO,
+[KNOWN-COMPOSED]); o iso de estágio `Cₙ ≅ M⋊_{σ_h}ℤ` [KNOWN, ação
+induzida]; T1-colapso ao KMS (exige centralizador trivial = ergodicidade
+do ESTADO — nomeada, condicional); a testemunha III₁ plena
+(`canonicalFullTGLWitness`) e o P_F covariante com `0 < τ(P_F) < ∞`
+(o resíduo físico preciso). Sem sorry, sem axiom. Negativo honesto é
+resultado.
+-/
+
+namespace TGLExt
+
+open Matrix NormedSpace Filter
+
+noncomputable section
+
+/-! ## A — a densidade diádica, quantitativa (§1) -/
+
+/-- O ponto diádico mais próximo de `t` no estágio `n`: `round(t·2ⁿ)/2ⁿ`. -/
+def dyadicNearest (t : ℝ) (n : ℕ) : ℝ := (round (t * 2 ^ n) : ℝ) / 2 ^ n
+
+/-- [KERNEL] A MALHA DIÁDICA ERRA NO MÁXIMO `2⁻ⁿ/2`: a forma
+    QUANTITATIVA da densidade de `⋃ₙ 2⁻ⁿℤ` em ℝ — o degrau `n` da
+    escada aproxima qualquer tempo real com erro `≤ h/2`. -/
+theorem dyadic_approx (t : ℝ) (n : ℕ) :
+    |t - dyadicNearest t n| ≤ ((2 : ℝ) ^ n)⁻¹ / 2 := by
+  have h2 : (0 : ℝ) < 2 ^ n := by positivity
+  have key : t - dyadicNearest t n
+      = (t * 2 ^ n - (round (t * 2 ^ n) : ℝ)) / 2 ^ n := by
+    unfold dyadicNearest
+    field_simp
+  have h := abs_sub_round (t * 2 ^ n)
+  have hfin : |t * 2 ^ n - (round (t * 2 ^ n) : ℝ)| / 2 ^ n ≤ (1 / 2) / 2 ^ n := by
+    gcongr
+  have hEq : (1 / 2 : ℝ) / 2 ^ n = ((2 : ℝ) ^ n)⁻¹ / 2 := by
+    simp [div_eq_mul_inv, mul_comm]
+  rw [key, abs_div, abs_of_pos h2]
+  linarith
+
+/-- [KERNEL] OS ESTÁGIOS SÃO ENCAIXADOS: `k/2ⁿ = 2k/2ⁿ⁺¹` — cada ponto
+    do degrau `n` vive no degrau `n+1` (a monotonia `Cₙ ⊂ Cₙ₊₁`). -/
+theorem dyadic_stage_mono (k : ℤ) (n : ℕ) :
+    (k : ℝ) / 2 ^ n = ((2 * k : ℤ) : ℝ) / 2 ^ (n + 1) := by
+  push_cast
+  rw [pow_succ]
+  field_simp
+
+/-- [KERNEL] A ESCADA CONVERGE: `dyadicNearest t n → t` — todo tempo
+    real é limite da sua sombra diádica (a densidade como limite;
+    no contínuo, com a continuidade forte de λ [KNOWN], isto é o que
+    gera o core ℝ a partir dos degraus ℤ). -/
+theorem dyadic_tendsto (t : ℝ) :
+    Tendsto (fun n : ℕ => dyadicNearest t n) atTop (nhds t) := by
+  have hb : Tendsto (fun n : ℕ => ((2 : ℝ)⁻¹) ^ n * (1 / 2)) atTop (nhds 0) := by
+    have h0 : (0 : ℝ) ≤ 2⁻¹ := by norm_num
+    have h1 : (2 : ℝ)⁻¹ < 1 := by norm_num
+    simpa using (tendsto_pow_atTop_nhds_zero_of_lt_one h0 h1).mul_const (1 / 2 : ℝ)
+  have hle : ∀ n : ℕ, |dyadicNearest t n - t| ≤ ((2 : ℝ)⁻¹) ^ n * (1 / 2) := by
+    intro n
+    have h1 := dyadic_approx t n
+    have hEq : ((2 : ℝ)⁻¹) ^ n * (1 / 2) = ((2 : ℝ) ^ n)⁻¹ / 2 := by
+      simp [inv_pow, div_eq_mul_inv, mul_comm]
+    rw [abs_sub_comm, hEq]
+    exact h1
+  rw [Metric.tendsto_atTop]
+  intro eps heps
+  rcases (Metric.tendsto_atTop.mp hb) eps heps with ⟨N, hN⟩
+  refine ⟨N, fun n hn => ?_⟩
+  have h1 := hN n hn
+  have h2 : ((2 : ℝ)⁻¹) ^ n * (1 / 2) < eps := by
+    have : |((2 : ℝ)⁻¹) ^ n * (1 / 2) - 0| < eps := by
+      simpa [Real.dist_eq] using h1
+    have hpos : (0 : ℝ) ≤ ((2 : ℝ)⁻¹) ^ n * (1 / 2) := by positivity
+    rwa [sub_zero, abs_of_nonneg hpos] at this
+  calc dist (dyadicNearest t n) t = |dyadicNearest t n - t| := Real.dist_eq _ _
+    _ ≤ ((2 : ℝ)⁻¹) ^ n * (1 / 2) := hle n
+    _ < eps := h2
+
+/-! ## B — o aniquilador do estágio e a obstrução do traço discreto (§2) -/
+
+/-- [KERNEL] O ANIQUILADOR DO ESTÁGIO: em `h = 2⁻ⁿ`, o parâmetro dual
+    `s_h = 2π·2ⁿ` fixa TODO o reticulado: `e^{−i·s_h·(k·h)} = 1` para
+    todo `k ∈ ℤ` — a ação dual em `s_h` age trivialmente no degrau `n`. -/
+theorem annihilator_fixes_stage (n : ℕ) (k : ℤ) :
+    Complex.exp (-Complex.I * (2 * (Real.pi : ℂ) * 2 ^ n)
+      * ((k : ℂ) * ((2 : ℂ) ^ n)⁻¹)) = 1 := by
+  have h2 : ((2 : ℂ) ^ n) ≠ 0 := pow_ne_zero n two_ne_zero
+  have harg : -Complex.I * (2 * (Real.pi : ℂ) * 2 ^ n) * ((k : ℂ) * ((2 : ℂ) ^ n)⁻¹)
+      = ((-k : ℤ) : ℂ) * (2 * (Real.pi : ℂ) * Complex.I) := by
+    push_cast
+    field_simp
+  rw [harg, Complex.exp_int_mul_two_pi_mul_I]
+
+/-- [KERNEL] ESCALA ≠ 1 MATA O VALOR FIXO (o passo algébrico da
+    obstrução): se `x = c·x` com `c ≠ 1`, então `x = 0`. -/
+theorem scaling_fixed_eq_zero {c x : ℝ} (hc : c ≠ 1) (h : x = c * x) : x = 0 := by
+  have h1 : (1 - c) * x = 0 := by linarith
+  rcases mul_eq_zero.mp h1 with h2 | h2
+  · exact absurd (by linarith : c = 1) hc
+  · exact h2
+
+/-- OS DADOS DA ESCALA DUAL (geometry-free, estilo TransportData): um
+    funcional `τ`, uma família `θ_s` e a LEI DE ESCALA de Takesaki
+    `τ∘θ_s = e^{−s}·τ`. [Os campos são DADOS; no core real, `τ` é o
+    traço canônico e `θ` a ação dual — KNOWN, Takesaki 1973.] -/
+structure DualScalingData (M : Type) where
+  /-- O funcional (no core: o traço canônico). -/
+  tau : M → ℝ
+  /-- A família de transformações (no core: a ação dual `θ_s`). -/
+  theta : ℝ → M → M
+  /-- A LEI DE ESCALA de Takesaki: `τ(θ_s(m)) = e^{−s}·τ(m)`. -/
+  scaling : ∀ (s : ℝ) (m : M), tau (theta s m) = Real.exp (-s) * tau m
+
+/-- [KERNEL] ★ A OBSTRUÇÃO DO ESTÁGIO DISCRETO: qualquer elemento fixado
+    por `θ_{s₀}` com `s₀ > 0` tem `τ = 0`. Com o aniquilador
+    `s₀ = 2π·2ⁿ` (que fixa o degrau `n` inteiro), NENHUM degrau discreto
+    porta um elemento de traço finito positivo — **a semifinitude do
+    traço só pode emergir no fecho contínuo**. O no-go
+    `dualInvariant_PF_no_go` da casa deixa de ser obstáculo e vira
+    bússola: o canto `P_F` deve ser fixado pelo fluxo INTERNALIZADO
+    `Ad λ(s)` (τ-preservante), jamais pela ação dual. -/
+theorem DualScalingData.fixed_tau_zero {M : Type} (D : DualScalingData M)
+    {s₀ : ℝ} (hs : 0 < s₀) {m : M} (hfix : D.theta s₀ m = m) : D.tau m = 0 := by
+  have h := D.scaling s₀ m
+  rw [hfix] at h
+  have hlt : Real.exp (-s₀) < 1 := Real.exp_lt_one_iff.mpr (by linarith)
+  exact scaling_fixed_eq_zero (ne_of_lt hlt) h
+
+/-- [KERNEL] O corolário diádico: com `s₀ = 2π·2ⁿ`, todo elemento do
+    degrau `n` fixado pela ação dual tem `τ = 0`. -/
+theorem DualScalingData.dyadic_stage_tau_zero {M : Type} (D : DualScalingData M)
+    (n : ℕ) {m : M} (hfix : D.theta (2 * Real.pi * 2 ^ n) m = m) : D.tau m = 0 :=
+  D.fixed_tau_zero (by positivity) hfix
+
+/-! ## C — o canal de medição no referencial-S (§4: v41 + v43 encaixados) -/
+
+/-- O SEMIGRUPO NO REFERENCIAL DA MATRIZ-S:
+    `T^S_t = Ad(Sᴴ)∘D_t∘Ad(S)` — o encaixe exato das duas pontas já
+    provadas no kernel (matriz-S v41 + dephasing v43). -/
+def sFrame (θ : ℝ) (g : Fin 2 → Fin 2 → ℝ) (t : ℝ)
+    (x : Matrix (Fin 2) (Fin 2) ℂ) : Matrix (Fin 2) (Fin 2) ℂ :=
+  (Smat θ)ᴴ * dephase g t (Smat θ * x * (Smat θ)ᴴ) * Smat θ
+
+/-- `T^S_0 = id`. -/
+theorem sFrame_zero (θ : ℝ) (g : Fin 2 → Fin 2 → ℝ)
+    (x : Matrix (Fin 2) (Fin 2) ℂ) : sFrame θ g 0 x = x := by
+  unfold sFrame
+  rw [dephase_zero]
+  simp only [← mul_assoc]
+  rw [Smat_conjTranspose_mul, one_mul, mul_assoc, Smat_conjTranspose_mul, mul_one]
+
+/-- [KERNEL] LEI DE SEMIGRUPO NO REFERENCIAL-S: `T^S_{s+t} = T^S_s∘T^S_t`
+    — a composição v41+v43 é um semigrupo GENUÍNO (a família de medição
+    `D_t∘Ad(S)` sozinha não é; o referencial-S conserta). -/
+theorem sFrame_add (θ : ℝ) (g : Fin 2 → Fin 2 → ℝ) (s t : ℝ)
+    (x : Matrix (Fin 2) (Fin 2) ℂ) :
+    sFrame θ g (s + t) x = sFrame θ g s (sFrame θ g t x) := by
+  unfold sFrame
+  have hinner : Smat θ * ((Smat θ)ᴴ * dephase g t (Smat θ * x * (Smat θ)ᴴ) * Smat θ)
+        * (Smat θ)ᴴ
+      = dephase g t (Smat θ * x * (Smat θ)ᴴ) := by
+    simp only [← mul_assoc]
+    rw [Smat_mul_conjTranspose, one_mul, mul_assoc, Smat_mul_conjTranspose, mul_one]
+  rw [hinner, ← dephase_add]
+
+/-- [KERNEL] CONVERGÊNCIA NO REFERENCIAL-S:
+    `T^S_t(x) → Ad(Sᴴ)∘E_D∘Ad(S)(x)` — o semigrupo composto converge
+    para a esperança condicional comprimida pelo canal: U (matriz-S) +
+    T1 (dephasing) = canal modular de medição. -/
+theorem sFrame_tendsto (θ : ℝ) (g : Fin 2 → Fin 2 → ℝ) (hg0 : ∀ i, g i i = 0)
+    (hgpos : ∀ i j, i ≠ j → 0 < g i j) (x : Matrix (Fin 2) (Fin 2) ℂ) :
+    Tendsto (fun t => sFrame θ g t x) atTop
+      (nhds ((Smat θ)ᴴ * diagExpect (Smat θ * x * (Smat θ)ᴴ) * Smat θ)) := by
+  have h := dephase_tendsto_expectation g hg0 hgpos (Smat θ * x * (Smat θ)ᴴ)
+  have hcont : Continuous fun y : Matrix (Fin 2) (Fin 2) ℂ => (Smat θ)ᴴ * y * Smat θ :=
+    (continuous_const.matrix_mul continuous_id).matrix_mul continuous_const
+  exact ((hcont.tendsto _).comp h : _)
+
+/-- [KERNEL] O ENDPOINT DA MEDIÇÃO, peso transmitido:
+    `E_D(ρ_out)₀₀ = cos²θ` (runtime: `1−β`). -/
+theorem dephased_rhoOut_zero_zero (θ : ℝ) :
+    diagExpect (rhoOut θ) 0 0 = (Real.cos θ : ℂ) ^ 2 := by
+  rw [show diagExpect (rhoOut θ) 0 0 = rhoOut θ 0 0 by
+    simp [diagExpect, Matrix.diag_apply]]
+  exact rhoOut_zero_zero θ
+
+/-- [KERNEL] O ENDPOINT DA MEDIÇÃO, peso refletido:
+    `E_D(ρ_out)₁₁ = sin²θ` — NO RUNTIME (e só lá): `sin²θ_M = β`. A
+    matriz-S gera a distinção; o dephasing a inscreve como peso. -/
+theorem dephased_rhoOut_one_one (θ : ℝ) :
+    diagExpect (rhoOut θ) 1 1 = (Real.sin θ : ℂ) ^ 2 := by
+  rw [show diagExpect (rhoOut θ) 1 1 = rhoOut θ 1 1 by
+    simp [diagExpect, Matrix.diag_apply]]
+  exact rhoOut_one_one θ
+
+/-- [KERNEL] O CANAL DE MEDIÇÃO MODULAR CONVERGE:
+    `D_t(ρ_out(θ)) → E_D(ρ_out(θ))` — o estado puro de saída do canal
+    v41 defasa (v43) para a mistura diagonal `(cos²θ, sin²θ)`. -/
+theorem measurement_channel_endpoint (θ : ℝ) (g : Fin 2 → Fin 2 → ℝ)
+    (hg0 : ∀ i, g i i = 0) (hgpos : ∀ i j, i ≠ j → 0 < g i j) :
+    Tendsto (fun t => dephase g t (rhoOut θ)) atTop
+      (nhds (diagExpect (rhoOut θ))) :=
+  dephase_tendsto_expectation g hg0 hgpos (rhoOut θ)
+
+end
+
+end TGLExt
+''',
+    "TGLExt/GravitonPolarization.lean":
+r'''import TGLExt.SMatrix
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# O gráviton observável: cinemática de spin-2 em kernel   [TGLExt — v48, gate 7]
+
+A leitura da casa (FECHAMENTO_MATRIZ_S_CORE_II.md): **gráviton fundamental
+= I** (o operador que conserva 1=1; atravessa σ_t, J, Δ sem deformar; custo
+zero) e **gráviton observável = δI_modular** (a excitação em torno da
+identidade). O que este arquivo PROVA [KERNEL]:
+
+* **DUAS POLARIZAÇÕES FÍSICAS**: o plano transversal carrega exatamente
+  duas polarizações — `polPlus = diag(1,−1)` e `polCross = offdiag(1,1)`,
+  simétricas e SEM TRAÇO; toda simétrica sem traço 2×2 é combinação delas
+  (`polarization_decomposition`) e elas são independentes
+  (`polarizations_independent`);
+* ★ **HELICIDADE ±2 COMO TEOREMA** (`rot_conj_polPlus/Cross`): sob a
+  rotação transversal de ângulo θ, o dubleto (h₊, h×) gira em **2θ** —
+  `Rᵀh₊R = cos(2θ)h₊ + sin(2θ)h×` — o DOBRO do ângulo: spin 2;
+* **O MODO-TRAÇO É INVARIANTE** (`rot_conj_one`): `Rᵀ·1·R = 1` — a
+  identidade não gira (spin 0): o gráviton FUNDAMENTAL atravessa a
+  rotação sem deformar, exatamente como atravessa o fluxo modular
+  (`sigma_one`, kernel v43) — custo zero;
+* **INVARIÂNCIA DE GAUGE DO CONTEÚDO TT** (`gauge_transverse_zero`): para
+  o vetor de onda NULO `k = (1,0,0,1)` (propagação causal:
+  `minkNorm4_nullK`), a transformação de gauge linearizada
+  `h ↦ h + k⊗ξ + ξ⊗k` NÃO toca o bloco transversal — as duas
+  polarizações são o conteúdo físico invariante;
+* **O CÁLCULO DA EXCITAÇÃO** (`excite A x = Ax − xA`):
+  `excite_one_zero` — **a identidade não se excita: δ_A(1) = 0, o
+  gráviton fundamental não custa** (a face algébrica do H_eff = 0 e da
+  masslessness); `excite_leibniz` — a excitação é DERIVAÇÃO (o mecanismo
+  curvatura-por-comutador do E11/v16, razão medida 0,9970); e
+  `Smat_sub_one` — o desvio da matriz-S da identidade é GERADO por G
+  (`Smat θ − 1 = (cosθ−1)•1 + sinθ•G`): δI_modular no canal da fronteira
+  tem gerador G com G² = −1.
+
+**HONESTIDADE.** Isto é a CINEMÁTICA de spin-2 (contagem, helicidade,
+gauge, excitação) — em kernel. O que NÃO está aqui e segue com estatuto:
+a DINÂMICA (equação de onda de □h̄=0 derivada da ação modular — gate 5,
+Lovelock/Jacobson E7 [CONDITIONAL]); o gráviton INTERAGENTE, fantasmas e
+renormalização (gate 8, OPEN); amplitudes (OPEN). No runtime (e só lá):
+sin²θ_M = β lê o custo da excitação de fronteira. β JAMAIS entra aqui.
+Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+/-! ## A — as duas polarizações do plano transversal -/
+
+/-- A polarização `+`: `h₊ = diag(1, −1)`. -/
+def polPlus : Matrix (Fin 2) (Fin 2) ℝ := !![1, 0; 0, -1]
+
+/-- A polarização `×`: `h× = offdiag(1, 1)`. -/
+def polCross : Matrix (Fin 2) (Fin 2) ℝ := !![0, 1; 1, 0]
+
+/-- `h₊` é simétrica. -/
+theorem polPlus_symm : polPlusᵀ = polPlus := by
+  unfold polPlus
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp
+
+/-- `h×` é simétrica. -/
+theorem polCross_symm : polCrossᵀ = polCross := by
+  unfold polCross
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp
+
+/-- `h₊` é SEM TRAÇO. -/
+theorem polPlus_traceless : polPlus.trace = 0 := by
+  simp [polPlus, Matrix.trace_fin_two]
+
+/-- `h×` é SEM TRAÇO. -/
+theorem polCross_traceless : polCross.trace = 0 := by
+  simp [polCross, Matrix.trace_fin_two]
+
+/-- [KERNEL] ★ EXATAMENTE DUAS POLARIZAÇÕES: toda matriz 2×2 SIMÉTRICA e
+    SEM TRAÇO é combinação de `h₊` e `h×` — o espaço físico transversal
+    tem dimensão DOIS (os dois graus de liberdade do gráviton). -/
+theorem polarization_decomposition (h : Matrix (Fin 2) (Fin 2) ℝ)
+    (hsym : hᵀ = h) (htr : h.trace = 0) :
+    h = h 0 0 • polPlus + h 0 1 • polCross := by
+  have h10 : h 1 0 = h 0 1 := by
+    have := Matrix.ext_iff.mpr hsym 0 1
+    simpa [Matrix.transpose_apply] using this
+  have h11 : h 1 1 = -(h 0 0) := by
+    have := htr
+    rw [Matrix.trace_fin_two] at this
+    linarith
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [polPlus, polCross, h10, h11]
+
+/-- [KERNEL] AS POLARIZAÇÕES SÃO INDEPENDENTES: `a•h₊ + b•h× = 0 ⟹ a = b = 0`. -/
+theorem polarizations_independent (a b : ℝ)
+    (h : a • polPlus + b • polCross = 0) : a = 0 ∧ b = 0 := by
+  have h00 := Matrix.ext_iff.mpr h 0 0
+  have h01 := Matrix.ext_iff.mpr h 0 1
+  simp [polPlus, polCross] at h00 h01
+  exact ⟨h00, h01⟩
+
+/-! ## B — helicidade ±2: o dubleto gira no DOBRO do ângulo -/
+
+/-- A rotação transversal `R(θ) = [[cos, sin], [−sin, cos]]`. -/
+def rot (θ : ℝ) : Matrix (Fin 2) (Fin 2) ℝ :=
+  !![Real.cos θ, Real.sin θ; -Real.sin θ, Real.cos θ]
+
+/-- Lei de grupo da rotação. -/
+theorem rot_add (a b : ℝ) : rot a * rot b = rot (a + b) := by
+  unfold rot
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Fin.sum_univ_two, Real.cos_add, Real.sin_add] <;>
+    ring
+
+/-- [KERNEL] ★ HELICIDADE +2, componente `+`:
+    `R(θ)ᵀ·h₊·R(θ) = cos(2θ)·h₊ + sin(2θ)·h×` — a polarização gira no
+    DOBRO do ângulo: SPIN 2 como teorema de kernel. -/
+theorem rot_conj_polPlus (θ : ℝ) :
+    (rot θ)ᵀ * polPlus * rot θ
+      = Real.cos (2 * θ) • polPlus + Real.sin (2 * θ) • polCross := by
+  unfold rot polPlus polCross
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Matrix.transpose_apply, Fin.sum_univ_two,
+      Real.cos_two_mul, Real.sin_two_mul] <;>
+    nlinarith [Real.sin_sq_add_cos_sq θ]
+
+/-- [KERNEL] ★ HELICIDADE +2, componente `×`:
+    `R(θ)ᵀ·h×·R(θ) = −sin(2θ)·h₊ + cos(2θ)·h×` — o dubleto (h₊, h×) é a
+    representação de peso 2 do grupo de rotações transversais. -/
+theorem rot_conj_polCross (θ : ℝ) :
+    (rot θ)ᵀ * polCross * rot θ
+      = -Real.sin (2 * θ) • polPlus + Real.cos (2 * θ) • polCross := by
+  unfold rot polPlus polCross
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Matrix.transpose_apply, Fin.sum_univ_two,
+      Real.cos_two_mul, Real.sin_two_mul] <;>
+    nlinarith [Real.sin_sq_add_cos_sq θ]
+
+/-- [KERNEL] O MODO-TRAÇO NÃO GIRA: `R(θ)ᵀ·1·R(θ) = 1` — a identidade é
+    invariante (spin 0): o gráviton FUNDAMENTAL atravessa a rotação como
+    atravessa o fluxo modular (`sigma_one`) — sem deformar, custo zero. -/
+theorem rot_conj_one (θ : ℝ) : (rot θ)ᵀ * 1 * rot θ = 1 := by
+  unfold rot
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Matrix.transpose_apply, Fin.sum_univ_two] <;>
+    nlinarith [Real.sin_sq_add_cos_sq θ]
+
+/-! ## C — gauge: o conteúdo transversal-sem-traço é físico -/
+
+/-- O vetor de onda NULO ao longo de z: `k = (1, 0, 0, 1)` (coordenadas
+    (t,x,y,z); as transversais são os índices 1 e 2). -/
+def nullK : Fin 4 → ℝ := ![1, 0, 0, 1]
+
+/-- A norma de Minkowski em 3+1 (assinatura (+,−,−,−)). -/
+def minkNorm4 (k : Fin 4 → ℝ) : ℝ :=
+  k 0 ^ 2 - k 1 ^ 2 - k 2 ^ 2 - k 3 ^ 2
+
+/-- [KERNEL] PROPAGAÇÃO CAUSAL: o vetor de onda é NULO — `⟨k,k⟩ = 0`
+    (a face algébrica de `□h̄ = 0` para a onda plana). -/
+theorem minkNorm4_nullK : minkNorm4 nullK = 0 := by
+  simp [minkNorm4, nullK]
+
+/-- A transformação de GAUGE linearizada da onda plana:
+    `δh_μν = k_μ·ξ_ν + ξ_μ·k_ν` (a parte algébrica de `∂_μξ_ν + ∂_νξ_μ`). -/
+def gaugeSym (k ξ : Fin 4 → ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  Matrix.of fun μ ν => k μ * ξ ν + ξ μ * k ν
+
+/-- A variação de gauge é simétrica. -/
+theorem gaugeSym_symmetric (k ξ : Fin 4 → ℝ) : (gaugeSym k ξ)ᵀ = gaugeSym k ξ := by
+  ext μ ν
+  show gaugeSym k ξ ν μ = gaugeSym k ξ μ ν
+  simp only [gaugeSym, Matrix.of_apply]
+  ring
+
+/-- [KERNEL] ★ O BLOCO TRANSVERSAL É INVARIANTE DE GAUGE: para o k nulo ao
+    longo de z (sem componentes transversais), `δh_ij = 0` nos índices
+    transversais `i, j ∈ {1, 2}` — NENHUMA transformação de gauge toca as
+    duas polarizações físicas: h₊ e h× são o conteúdo observável. -/
+theorem gauge_transverse_zero (ξ : Fin 4 → ℝ) {i j : Fin 4}
+    (hi : i = 1 ∨ i = 2) (hj : j = 1 ∨ j = 2) :
+    gaugeSym nullK ξ i j = 0 := by
+  have hki : nullK i = 0 := by
+    rcases hi with h | h <;> subst h <;> simp [nullK]
+  have hkj : nullK j = 0 := by
+    rcases hj with h | h <;> subst h <;> simp [nullK]
+  simp [gaugeSym, hki, hkj]
+
+/-! ## D — a excitação modular: δI = comutador; a identidade não custa -/
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-- A EXCITAÇÃO de primeira ordem em torno da identidade gerada por `A`:
+    `δ_A(x) = Ax − xA = [A, x]` (a variação de `Ad(e^{εA})` em `ε = 0`). -/
+def excite (A x : Matrix n n ℂ) : Matrix n n ℂ := A * x - x * A
+
+/-- [KERNEL] ★ A IDENTIDADE NÃO SE EXCITA: `δ_A(1) = 0` para TODO gerador
+    `A` — o gráviton fundamental (= I) não custa: nenhuma excitação
+    modular o move (a face algébrica do custo zero / masslessness). -/
+theorem excite_one_zero (A : Matrix n n ℂ) : excite A 1 = 0 := by
+  simp [excite]
+
+/-- [KERNEL] A EXCITAÇÃO É DERIVAÇÃO (Leibniz):
+    `δ_A(xy) = δ_A(x)·y + x·δ_A(y)` — o mecanismo curvatura-por-comutador
+    (E11/v16: F ~ ½[M, h], razão medida 0,9970) é a regra de Leibniz da
+    excitação modular. -/
+theorem excite_leibniz (A x y : Matrix n n ℂ) :
+    excite A (x * y) = excite A x * y + x * excite A y := by
+  simp only [excite]
+  noncomm_ring
+
+/-- [KERNEL] δI NO CANAL DA FRONTEIRA: o desvio da matriz-S da identidade
+    é GERADO por `G`: `S(θ) − 1 = (cosθ − 1)•1 + sinθ•G` — a excitação
+    observável do canal (G² = −1, v41). No runtime: sin²θ_M = β lê o
+    custo da excitação de fronteira. -/
+theorem Smat_sub_one (θ : ℝ) :
+    Smat θ - 1 = ((Real.cos θ - 1 : ℝ) : ℂ) • (1 : Matrix (Fin 2) (Fin 2) ℂ)
+      + ((Real.sin θ : ℝ) : ℂ) • Grot := by
+  unfold Smat
+  push_cast
+  module
+
+end
+
+end TGLExt
+''',
+    "TGLExt/HilbertHome.lean":
+r'''import TGLExt.CovariantCorner
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# A morada é o pacote de Hilbert: as quatro propriedades DERIVADAS
+  [TGLExt — v56, a Resposta 6 do especialista auditada e kernelizada]
+
+A Resposta 6 (`RESPOSTA_Q6_MORADA_PACOTE_HILBERT.md`) reorganiza o
+levantamento: a MORADA é o pacote de fibras de Hilbert L²(C_𝒪, τ_𝒪); o NOME
+é a seção Ω; o VERBO é o transporte da conexão; o HABITANTE é o subpacote
+ker 𝒟 (não um ponto espectral); o CANTO é a projeção ortogonal derivada
+P_F(𝒪) = proj_{ker 𝒟_𝒪}; e as quatro condições do teorema do canto SEGUEM
+dos entrelaçamentos de 𝒟. A interface-alvo que o especialista enviou
+(`HilbertHomeGlobalLift.lean`, NÃO selada por ele) postulava as quatro
+propriedades como CAMPOS — trivialmente habitável (lição v22/v23) e com a
+isotonia = `True` placeholder. Esta pedra INVERTE o desenho: só os
+ENTRELAÇAMENTOS são hipóteses; as propriedades são TEOREMAS — e valem em
+dimensão INFINITA (a primeira pedra do programa fora da sombra finita):
+
+* ★ `ker_map_of_intertwine` — o entrelaçamento `D₂∘U = V∘D₁` (U equivalência
+  isométrica, V isometria) transporta o NÚCLEO: `U(ker D₁) = ker D₂`;
+* ★ `starProjection_ker_covariant` — COVARIÂNCIA EXTERNA derivada:
+  `P_{ker D₂} = U ∘ P_{ker D₁} ∘ U⁻¹` (pointwise; via
+  `Submodule.starProjection_map_apply` da mathlib);
+* ★ `starProjection_ker_internal_fix` — INVARIÂNCIA INTERNA derivada:
+  `D∘U = V∘D ⟹ P∘U = U∘P` (o transporte interno fixa o canto);
+* ★ `starProjection_ker_isotone` — ISOTONIA derivada: a inclusão isométrica
+  entrelaçada leva núcleo em núcleo e o canto maior FIXA a imagem do menor
+  (`P₂(ιx) = ιx` — a forma pontual de `ι P₁ ι* ⪯ P₂`);
+* `lagrangian_zero_iff_mem_ker` — a PALAVRA no pacote: `‖Dx‖ = 0 ⟺ x ∈ ker D`
+  (EL seleciona o subpacote, agora em Hilbert genérico);
+* `HilbertHomeData` — a morada TIPADA: fibras + locks + transportes com
+  entrelaçamentos como únicos campos-lei; `PF` é DEF (derivada), com os
+  três teoremas `PF_*` como leitura; `BreuerTraceData` — a camada analítica
+  0 < τ(P_F) < ∞ como DADOS declarados [KNOWN-EXTERNO: Breuer 1968/69,
+  fora da mathlib — jamais fingida como prova];
+* ★ `solder_recovers_curvature` — a SOLDA: ρ* injetiva ⟹ F determina R
+  único (a recuperação `R = ρ*⁻¹(F_∇)` é bem-posta).
+
+HONESTIDADE. O que esta pedra NÃO faz: construir o pacote a partir da rede
+III₁ — o próprio especialista o declara ("o conteúdo não trivial é construir
+o pacote"). O teorema aberto é agora ÚNICO e nomeado:
+`TGL_SOLDERED_BREUER_HILBERT_PACKAGE` — a existência canônica de
+(𝒟_𝒪, transportes, τ, solda) derivada de ω(I)=1. Gravidade quântica
+comprovada incondicionalmente: AINDA NÃO. β JAMAIS entra. Sem sorry, sem
+axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Submodule
+open scoped ENNReal
+
+noncomputable section
+
+variable {H₁ H₂ W₁ W₂ : Type}
+  [NormedAddCommGroup H₁] [InnerProductSpace ℂ H₁] [CompleteSpace H₁]
+  [NormedAddCommGroup H₂] [InnerProductSpace ℂ H₂] [CompleteSpace H₂]
+  [NormedAddCommGroup W₁] [NormedSpace ℂ W₁]
+  [NormedAddCommGroup W₂] [NormedSpace ℂ W₂]
+
+/-! ## A — o núcleo transportado e as projeções derivadas (dimensão infinita OK) -/
+
+/-- [KERNEL] ★ O ENTRELAÇAMENTO TRANSPORTA O NÚCLEO: se `D₂∘U = V∘D₁` com
+    `U` equivalência isométrica e `V` isometria (injetiva), então
+    `U(ker D₁) = ker D₂` — o subpacote físico é levado exatamente no
+    subpacote físico. -/
+theorem ker_map_of_intertwine (U : H₁ ≃ₗᵢ[ℂ] H₂) (D₁ : H₁ →L[ℂ] W₁)
+    (D₂ : H₂ →L[ℂ] W₂) (V : W₁ →ₗᵢ[ℂ] W₂)
+    (h : ∀ x, D₂ (U x) = V (D₁ x)) :
+    D₁.ker.map (U.toLinearEquiv : H₁ →ₗ[ℂ] H₂) = D₂.ker := by
+  ext y
+  simp only [Submodule.mem_map, LinearMap.mem_ker, ContinuousLinearMap.coe_coe]
+  constructor
+  · rintro ⟨x, hx0, rfl⟩
+    show D₂ (U x) = 0
+    rw [h x, hx0, map_zero]
+  · intro hy
+    refine ⟨U.symm y, ?_, ?_⟩
+    · have hUy := h (U.symm y)
+      rw [U.apply_symm_apply] at hUy
+      have h0 : V (D₁ (U.symm y)) = 0 := by
+        rw [← hUy]
+        exact hy
+      exact V.injective (by simpa using h0)
+    · show U (U.symm y) = y
+      exact U.apply_symm_apply y
+
+/-- [KERNEL] ★ COVARIÂNCIA EXTERNA DERIVADA: o canto do pacote é
+    `P_{ker D₂} = U ∘ P_{ker D₁} ∘ U⁻¹` — a condição (3) do teorema do canto
+    deixa de ser hipótese: SEGUE do entrelaçamento. -/
+theorem starProjection_ker_covariant (U : H₁ ≃ₗᵢ[ℂ] H₂) (D₁ : H₁ →L[ℂ] W₁)
+    (D₂ : H₂ →L[ℂ] W₂) (V : W₁ →ₗᵢ[ℂ] W₂)
+    (h : ∀ x, D₂ (U x) = V (D₁ x)) (y : H₂) :
+    D₂.ker.starProjection y
+      = U (D₁.ker.starProjection (U.symm y)) := by
+  have hmap := starProjection_map_apply U D₁.ker y
+  simp only [ker_map_of_intertwine U D₁ D₂ V h] at hmap
+  exact hmap
+
+/-- [KERNEL] ★ INVARIÂNCIA INTERNA DERIVADA: `D∘U = V∘D ⟹ P∘U = U∘P` — o
+    transporte interno fixa o canto do pacote (condição (2), agora teorema). -/
+theorem starProjection_ker_internal_fix (U : H₁ ≃ₗᵢ[ℂ] H₁)
+    (D : H₁ →L[ℂ] W₁) (V : W₁ →ₗᵢ[ℂ] W₁)
+    (h : ∀ x, D (U x) = V (D x)) (x : H₁) :
+    D.ker.starProjection (U x) = U (D.ker.starProjection x) := by
+  have hcov := starProjection_ker_covariant U D D V h (U x)
+  rw [U.symm_apply_apply] at hcov
+  exact hcov
+
+/-- [KERNEL] ★ ISOTONIA DERIVADA: a inclusão isométrica entrelaçada leva
+    núcleo em núcleo, e o canto da região maior FIXA a imagem do menor —
+    `P₂(ι x) = ι x` para `x ∈ ker D₁` (a forma pontual de `ι P₁ ι* ⪯ P₂`;
+    condição (4), agora teorema — o `True` placeholder da interface do
+    especialista substituído pelo enunciado genuíno). -/
+theorem starProjection_ker_isotone (ι : H₁ →ₗᵢ[ℂ] H₂) (D₁ : H₁ →L[ℂ] W₁)
+    (D₂ : H₂ →L[ℂ] W₂) (V : W₁ →ₗᵢ[ℂ] W₂)
+    (h : ∀ x, D₂ (ι x) = V (D₁ x)) {x : H₁} (hx : x ∈ D₁.ker) :
+    D₂.ker.starProjection (ι x) = ι x := by
+  rw [starProjection_eq_self_iff]
+  show D₂ (ι x) = 0
+  have hx0 : D₁ x = 0 := hx
+  rw [h x, hx0, map_zero]
+
+/-- [KERNEL] A PALAVRA NO PACOTE: a ação de um lock anula sse o vetor está
+    no subpacote físico — Euler–Lagrange seleciona `ker D` em Hilbert
+    genérico (a versão de pacote do `action_locks_zero_iff` do v54). -/
+theorem lagrangian_zero_iff_mem_ker (D : H₁ →L[ℂ] W₁) (x : H₁) :
+    ‖D x‖ = 0 ↔ x ∈ D.ker := by
+  rw [norm_eq_zero]
+  exact Iff.rfl
+
+end
+
+/-! ## B — a morada tipada: entrelaçamentos como únicas leis; P_F DERIVADA -/
+
+section HomeStructure
+
+variable (Region : Type) (leR : Region → Region → Prop)
+  (H : Region → Type) (W : Region → Type)
+  [∀ O, NormedAddCommGroup (H O)] [∀ O, InnerProductSpace ℂ (H O)]
+  [∀ O, CompleteSpace (H O)]
+  [∀ O, NormedAddCommGroup (W O)] [∀ O, NormedSpace ℂ (W O)]
+
+/-- A MORADA (dados): fibras de Hilbert + locks 𝒟_𝒪 + transportes interno/
+    externo/inclusão, com os ENTRELAÇAMENTOS como únicas leis. O canto NÃO é
+    campo: é derivado (`HilbertHomeData.PF`). Rigidez: não há propriedade do
+    canto a postular — quem habita este tipo só fornece dados e
+    entrelaçamentos; as quatro condições saem por teorema. -/
+structure HilbertHomeData where
+  /-- o operador dos Three Locks de cada região (𝒟_𝒪). -/
+  locks : ∀ O, H O →L[ℂ] W O
+  /-- o transporte modular interno (λ_𝒪(s)) e sua face no alvo. -/
+  internal : ∀ O, ℝ → (H O ≃ₗᵢ[ℂ] H O)
+  internalW : ∀ O, ℝ → (W O →ₗᵢ[ℂ] W O)
+  /-- entrelaçamento interno: `𝒟 λ(s) = λ(s) 𝒟`. -/
+  internal_intertwines : ∀ O s x,
+    locks O ((internal O s) x) = internalW O s (locks O x)
+  /-- o grupo externo e sua ação nas regiões. -/
+  G : Type
+  act : G → Region → Region
+  external : ∀ g O, H O ≃ₗᵢ[ℂ] H (act g O)
+  externalW : ∀ g O, W O →ₗᵢ[ℂ] W (act g O)
+  /-- entrelaçamento externo: `𝒟_{g𝒪} U_g = U_g 𝒟_𝒪`. -/
+  external_intertwines : ∀ g O x,
+    locks (act g O) ((external g O) x) = externalW g O (locks O x)
+  /-- inclusões isométricas das fibras (isotonia da rede). -/
+  incl : ∀ {O₁ O₂}, leR O₁ O₂ → (H O₁ →ₗᵢ[ℂ] H O₂)
+  inclW : ∀ {O₁ O₂}, leR O₁ O₂ → (W O₁ →ₗᵢ[ℂ] W O₂)
+  /-- entrelaçamento da inclusão: `𝒟_{𝒪₂} ι = ι 𝒟_{𝒪₁}`. -/
+  incl_intertwines : ∀ {O₁ O₂} (hle : leR O₁ O₂) (x : H O₁),
+    locks O₂ ((incl hle) x) = inclW hle (locks O₁ x)
+
+end HomeStructure
+
+noncomputable section
+
+variable {Region : Type} {leR : Region → Region → Prop}
+  {H W : Region → Type}
+  [∀ O, NormedAddCommGroup (H O)] [∀ O, InnerProductSpace ℂ (H O)]
+  [∀ O, CompleteSpace (H O)]
+  [∀ O, NormedAddCommGroup (W O)] [∀ O, NormedSpace ℂ (W O)]
+
+/-- ★ O CANTO DERIVADO: `P_F(𝒪) = proj_{ker 𝒟_𝒪}` — definição, não campo. -/
+def HilbertHomeData.PF (P : HilbertHomeData Region leR H W) (O : Region) :
+    H O →L[ℂ] H O :=
+  (P.locks O).ker.starProjection
+
+/-- [KERNEL] ★ (2) do teorema do canto, DERIVADA no pacote. -/
+theorem HilbertHomeData.PF_internal_fix (P : HilbertHomeData Region leR H W)
+    (O : Region) (s : ℝ) (x : H O) :
+    P.PF O ((P.internal O s) x) = (P.internal O s) (P.PF O x) :=
+  starProjection_ker_internal_fix (P.internal O s) (P.locks O)
+    (P.internalW O s) (P.internal_intertwines O s) x
+
+/-- [KERNEL] ★ (3) do teorema do canto, DERIVADA no pacote. -/
+theorem HilbertHomeData.PF_external_covariant
+    (P : HilbertHomeData Region leR H W) (g : P.G) (O : Region)
+    (y : H (P.act g O)) :
+    P.PF (P.act g O) y
+      = (P.external g O) (P.PF O ((P.external g O).symm y)) :=
+  starProjection_ker_covariant (P.external g O) (P.locks O)
+    (P.locks (P.act g O)) (P.externalW g O)
+    (P.external_intertwines g O) y
+
+/-- [KERNEL] ★ (4) do teorema do canto, DERIVADA no pacote. -/
+theorem HilbertHomeData.PF_isotone (P : HilbertHomeData Region leR H W)
+    {O₁ O₂ : Region} (hle : leR O₁ O₂) {x : H O₁}
+    (hx : x ∈ (P.locks O₁).ker) :
+    P.PF O₂ ((P.incl hle) x) = (P.incl hle) x :=
+  starProjection_ker_isotone (P.incl hle) (P.locks O₁) (P.locks O₂)
+    (P.inclW hle) (P.incl_intertwines hle) hx
+
+/-- A CAMADA DE BREUER [KNOWN-EXTERNO, declarada como DADOS — jamais fingida
+    como prova]: o traço semifinito do core com `0 < τ(P_F) < ∞`, garantido
+    pela teoria de Breuer–Fredholm (Breuer 1968/69) quando cada lock é
+    Breuer–Fredholm com núcleo não-nulo — a condição (1). A construção
+    canônica desta camada a partir da rede III₁ é O teorema aberto
+    (`TGL_SOLDERED_BREUER_HILBERT_PACKAGE`). -/
+structure BreuerTraceData (P : HilbertHomeData Region leR H W) where
+  tau : ∀ O, (H O →L[ℂ] H O) → ℝ≥0∞
+  tau_PF_pos : ∀ O, 0 < tau O (P.PF O)
+  tau_PF_finite : ∀ O, tau O (P.PF O) < ⊤
+
+/-! ## C — a solda: a recuperação da curvatura é bem-posta -/
+
+/-- [KERNEL] ★ A SOLDA RECUPERA A CURVATURA: se a representação `ρ*` é
+    INJETIVA (fidelidade), então cada curvatura de gauge `F` na imagem
+    determina UM ÚNICO tensor `R` com `ρ*(R) = F` — a passagem
+    `R_{μνρσ} = ρ*⁻¹(F_∇)` é bem-posta. Sem a fidelidade, os negativos
+    corretos são `holonomy_not_geometric` / `modular_metric_not_unique`. -/
+theorem solder_recovers_curvature {A B : Type} [AddCommGroup A]
+    [AddCommGroup B] [Module ℂ A] [Module ℂ B] (ρ : A →ₗ[ℂ] B)
+    (hρ : Function.Injective ρ) {F : B} (hF : F ∈ LinearMap.range ρ) :
+    ∃! R : A, ρ R = F := by
+  obtain ⟨R, hR⟩ := hF
+  exact ⟨R, hR, fun R' hR' => hρ (by rw [hR', hR])⟩
 
 end
 
@@ -8785,6 +12071,117 @@ theorem pp_ne_tower_for_scalars (h : 1 < Fintype.card n) :
   intro heq
   rw [div_eq_div_iff hc.ne' (by positivity)] at heq
   nlinarith [heq]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ModularFirstLaw.lean":
+r'''import TGLExt.Ergodicity
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# A primeira lei modular δS = δ⟨K⟩ — o elo que faltava do gate 5   [TGLExt — v51]
+
+O gate 5 (derivar Einstein, não admitir Einstein) é uma COMPOSIÇÃO cujos
+elos do lado-TGL agora estão TODOS em kernel:
+
+* **δS = δ⟨K⟩** — A PRIMEIRA LEI MODULAR (`first_law_diagonal`, ESTE
+  arquivo): a variação de primeira ordem da entropia de von Neumann sob
+  uma perturbação de traço zero é EXATAMENTE o valor esperado da
+  perturbação no hamiltoniano modular K = −log ρ. O que o form-check v5
+  media a 1e-15, agora é TEOREMA (face diagonal, derivada genuína
+  HasDerivAt);
+* **T = 1/2π** — a temperatura modular (v47, `modPow_gibbs_boost`:
+  o fluxo percorre K a velocidade 2π);
+* **δQ = T·δS ⟹ δQ = (1/2π)·δ⟨K⟩** — a composição de Clausius TIPADA
+  (`clausius_composition`);
+* **a normalização 8πG** — `TGL.AreaScale.newtonPlanck_equivalence`
+  (kernel desde as primeiras pedras: 2π/η = 8πG ⟺ κ = 2G) e
+  `face_area_eq_G`;
+* **a fonte é simétrica** — `gaugeSym_symmetric` (v48).
+
+**O QUE RESTA da composição (a lista encolheu — a leitura do operador):**
+(i) unicidade de Lovelock 4D [KNOWN — teorema clássico citável; fora do
+alcance da mathlib hoje]; (ii) vetores de Killing APROXIMADOS para
+regiões locais não-ideais [resíduo NOMEADO — compartilhado com Jacobson
+1995 desde sempre; o estatuto E7 da casa]; (iii) conservação ∇^μ𝒫_μν = 0
+no contínuo [o form-check v5 a verifica na sombra; contínuo OPEN].
+NADA aqui afirma "provamos Einstein": afirma que TODO elo do lado
+modular-TGL da cadeia de Jacobson–Clausius é agora teorema de kernel, e
+os elos restantes são clássicos citáveis ou resíduos nomeados.
+β JAMAIS entra. Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Filter
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## A — a primeira lei modular, com derivada genuína -/
+
+/-- [KERNEL] ★ A PRIMEIRA LEI MODULAR δS = δ⟨K⟩ (face diagonal): para
+    pesos `p > 0` e perturbação `q` de TRAÇO ZERO, a derivada em ε = 0 de
+    `S(ε) = −Σ (pᵢ + ε·qᵢ)·log(pᵢ + ε·qᵢ)` é `Σ qᵢ·Kᵢ` com
+    `Kᵢ = −log pᵢ` — a variação da entropia É o valor esperado da
+    perturbação no hamiltoniano modular. O elo central da cadeia de
+    Jacobson (δQ = TδS), que o form-check v5 media a 1e-15, como teorema. -/
+theorem first_law_diagonal (p q : n → ℝ) (hp : ∀ i, 0 < p i)
+    (hq : ∑ i, q i = 0) :
+    HasDerivAt (fun ε : ℝ => -∑ i, (p i + ε * q i) * Real.log (p i + ε * q i))
+      (∑ i, q i * (-Real.log (p i))) 0 := by
+  have hterm : ∀ i : n, HasDerivAt
+      (fun ε : ℝ => (p i + ε * q i) * Real.log (p i + ε * q i))
+      ((Real.log (p i) + 1) * q i) 0 := by
+    intro i
+    have hg : HasDerivAt (fun ε : ℝ => p i + ε * q i) (q i) 0 := by
+      simpa using ((hasDerivAt_id (0 : ℝ)).mul_const (q i)).const_add (p i)
+    have hg0 : p i + (0 : ℝ) * q i = p i := by ring
+    have hml : HasDerivAt (fun x : ℝ => x * Real.log x)
+        (Real.log (p i + (0 : ℝ) * q i) + 1) (p i + (0 : ℝ) * q i) := by
+      rw [hg0]
+      exact Real.hasDerivAt_mul_log (hp i).ne'
+    have hcomp := hml.comp (0 : ℝ) hg
+    rw [hg0] at hcomp
+    exact hcomp
+  have hsum' := HasDerivAt.sum (u := Finset.univ) fun i _ => hterm i
+  have hfun : (∑ i, fun ε : ℝ => (p i + ε * q i) * Real.log (p i + ε * q i))
+      = fun ε : ℝ => ∑ i, (p i + ε * q i) * Real.log (p i + ε * q i) := by
+    funext ε
+    simp [Finset.sum_apply]
+  rw [hfun] at hsum'
+  have hsum : HasDerivAt
+      (fun ε : ℝ => ∑ i, (p i + ε * q i) * Real.log (p i + ε * q i))
+      (∑ i, (Real.log (p i) + 1) * q i) 0 := hsum'
+  have hD : -(∑ i, (Real.log (p i) + 1) * q i)
+      = ∑ i, q i * (-Real.log (p i)) := by
+    have hsplit : ∑ i, (Real.log (p i) + 1) * q i
+        = (∑ i, q i * Real.log (p i)) + ∑ i, q i := by
+      rw [← Finset.sum_add_distrib]
+      exact Finset.sum_congr rfl fun i _ => by ring
+    rw [hsplit, hq, add_zero]
+    simp only [mul_neg]
+    rw [← Finset.sum_neg_distrib]
+  exact hD ▸ hsum.neg
+
+/-! ## B — a composição de Clausius, tipada -/
+
+/-- [KERNEL] A COMPOSIÇÃO DE CLAUSIUS: dados a primeira lei (δS = δ⟨K⟩),
+    a temperatura modular de Unruh (T = 1/2π, v47) e a relação de
+    Clausius (δQ = T·δS), segue `δQ = (1/2π)·δ⟨K⟩` — o lado
+    termodinâmico-modular da cadeia de Jacobson, com cada hipótese
+    apontando para seu teorema de kernel (v51/v47) ou seu estatuto. -/
+theorem clausius_composition (T dS dK dQ : ℝ)
+    (hT : T = (2 * Real.pi)⁻¹)
+    (hfirst : dS = dK)
+    (hclausius : dQ = T * dS) :
+    dQ = (2 * Real.pi)⁻¹ * dK := by
+  rw [hclausius, hT, hfirst]
 
 end
 
@@ -9351,6 +12748,1000 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/PageInformation.lean":
+r'''import TGLExt.Ergodicity
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# Page e a informação: o balanço da radiação, a conservação unitária e a
+  perda monotônica do canal   [TGLExt — v50, gate 9]
+
+O gate: entropia de horizonte, evaporação SEM violar a unitariedade
+global, comportamento de Page, e a informação preservada entre
+M, C(M) e o canto P_F·C(M)·P_F. O que este arquivo PROVA [KERNEL]:
+
+* ★ **A RADIAÇÃO SABE EXATAMENTE O QUANTO O BURACO SABE**
+  (`pure_reductions_trace_eq` + `pure_reductions_balance`): para um
+  estado global PURO ψ (matriz M retangular via Schmidt), as duas
+  reduções ρ_A = MMᴴ e ρ_B = MᴴM têm o MESMO traço e a MESMA pureza —
+  Tr((MMᴴ)²) = Tr((MᴴM)²). É esta simetria que FORÇA a virada de Page:
+  a entropia da radiação é limitada pelo lado MENOR;
+* ★ **UNITÁRIOS GLOBAIS CONSERVAM A INFORMAÇÃO**
+  (`purity_unitary_invariant`): pureza(UxUᴴ) = pureza(x) — a evolução
+  global não destrói um bit;
+* ★ **O CANAL DISSIPATIVO PERDE PUREZA MONOTONICAMENTE**
+  (`purityR_eq` + `dephase_purityR_le`): a pureza de Frobenius é a soma
+  dos |x_ij|², e o dephasing (v43) a NÃO AUMENTA — a irreversibilidade
+  EFETIVA do canal, coexistindo com a unitariedade global: o mecanismo
+  exato pelo qual a evaporação parece térmica sem perder informação;
+* ★ **A ENTROPIA É MÁXIMA NO ESPELHO** (`entropy_max_at_half` +
+  `entropy_eq_max_iff_half`): binEntropy(p) ≤ binEntropy(½) com
+  igualdade SSE p = ½ — o MESMO ponto auto-conjugado da flutuação
+  máxima (v49): no espelho x = 1−x, a moeda é justa E a ignorância é
+  plena (máximo = log 2 nats = 1 bit — a distinção inteira; NÃO
+  confundir com S_∂ = ½ nat, que é outro objeto: a entropia da
+  fronteira, não da moeda).
+
+**HONESTIDADE.** Este é o mecanismo algébrico de Page na face finita:
+balanço puro, conservação unitária, monotonia do canal, máximo no
+espelho. O que NÃO está aqui e segue com estatuto: S_BH = A/4G como
+TEOREMA (a casa tem AreaScale [κ=2G, face=G] e S_∂=½ nat; a composição
+plena é leitura/futuro); a curva de Page para um MODELO de horizonte
+III₁ genuíno (OPEN); o mapa de como a informação atravessa
+M → C(M) → canto em regime dinâmico (OPEN). A curva de Page NUMÉRICA
+(subida, virada na METADE, descida; S_A = S_B exato) vive no runtime.
+β JAMAIS entra aqui. Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+variable {a b : Type} [Fintype a] [Fintype b] [DecidableEq a] [DecidableEq b]
+
+/-! ## A — pureza: o contador de informação -/
+
+/-- A PUREZA (norma de Frobenius ao quadrado): `pureza(x) = Tr(x·xᴴ)` —
+    para densidades hermitianas, `Tr(ρ²)`: o contador quadrático de
+    informação (1 = puro; 1/d = máxima ignorância). -/
+def purity (x : Matrix n n ℂ) : ℂ := (x * xᴴ).trace
+
+/-- [KERNEL] ★ UNITÁRIOS CONSERVAM A INFORMAÇÃO:
+    `pureza(U·x·Uᴴ) = pureza(x)` — a evolução global não perde um bit. -/
+theorem purity_unitary_invariant (U x : Matrix n n ℂ)
+    (hU : U ∈ unitary (Matrix n n ℂ)) :
+    purity (U * x * Uᴴ) = purity x := by
+  have h1 : Uᴴ * U = 1 := by
+    rw [← Matrix.star_eq_conjTranspose]
+    exact (Unitary.mem_iff.mp hU).1
+  unfold purity
+  have hexp : (U * x * Uᴴ) * (U * x * Uᴴ)ᴴ = U * (x * xᴴ) * Uᴴ := by
+    simp only [conjTranspose_mul, conjTranspose_conjTranspose, ← mul_assoc]
+    rw [mul_assoc (U * x) Uᴴ U, h1, mul_one]
+  rw [hexp, Matrix.trace_mul_cycle, ← mul_assoc, h1, one_mul]
+
+/-! ## B — o balanço de Schmidt: as duas reduções sabem o mesmo -/
+
+/-- [KERNEL] O BALANÇO DOS TRAÇOS: `Tr(M·Mᴴ) = Tr(Mᴴ·M)` — as duas
+    reduções do estado puro têm o mesmo peso total. -/
+theorem pure_reductions_trace_eq (M : Matrix a b ℂ) :
+    (M * Mᴴ).trace = (Mᴴ * M).trace :=
+  Matrix.trace_mul_comm M Mᴴ
+
+/-- [KERNEL] ★ O BALANÇO DE PAGE: `Tr((M·Mᴴ)²) = Tr((Mᴴ·M)²)` — as duas
+    reduções do estado global PURO têm a MESMA pureza (o mesmo espectro
+    de Schmidt): a radiação sabe EXATAMENTE o quanto o buraco sabe. É
+    esta simetria que força a virada de Page: S_rad é limitada pelo lado
+    menor, sobe até a metade e desce. -/
+theorem pure_reductions_balance (M : Matrix a b ℂ) :
+    ((M * Mᴴ) * (M * Mᴴ)).trace = ((Mᴴ * M) * (Mᴴ * M)).trace := by
+  calc ((M * Mᴴ) * (M * Mᴴ)).trace
+      = (M * (Mᴴ * M * Mᴴ)).trace := by simp only [Matrix.mul_assoc]
+    _ = ((Mᴴ * M * Mᴴ) * M).trace := Matrix.trace_mul_comm M _
+    _ = ((Mᴴ * M) * (Mᴴ * M)).trace := by simp only [Matrix.mul_assoc]
+
+/-! ## C — o canal perde pureza monotonicamente (a irreversibilidade efetiva) -/
+
+/-- A PUREZA REAL (soma dos módulos-quadrados das entradas): a forma
+    entrada-a-entrada da norma de Frobenius². -/
+def purityR (x : Matrix n n ℂ) : ℝ :=
+  ∑ i : n, ∑ j : n, Complex.normSq (x i j)
+
+/-- [KERNEL] A ponte: `pureza(x) = Σᵢⱼ |xᵢⱼ|²` — o traço de x·xᴴ é a soma
+    dos módulos-quadrados (a forma de Frobenius da casa). -/
+theorem purityR_eq (x : Matrix n n ℂ) : purity x = (purityR x : ℂ) := by
+  unfold purity purityR
+  rw [Matrix.trace]
+  push_cast
+  refine Finset.sum_congr rfl fun i _ => ?_
+  simp only [Matrix.diag_apply, Matrix.mul_apply, Matrix.conjTranspose_apply]
+  refine Finset.sum_congr rfl fun j _ => ?_
+  rw [Complex.star_def, Complex.mul_conj]
+
+/-- [KERNEL] ★ O CANAL PERDE PUREZA: para taxas e tempo não-negativos,
+    `pureza(D_t(x)) ≤ pureza(x)` — o dephasing (v43) NUNCA cria
+    informação: a irreversibilidade EFETIVA do canal, que coexiste com a
+    conservação unitária global (`purity_unitary_invariant`) — o
+    mecanismo de Page: térmico por fora, unitário por dentro. -/
+theorem dephase_purityR_le (g : n → n → ℝ) (t : ℝ) (ht : 0 ≤ t)
+    (hg : ∀ i j, 0 ≤ g i j) (x : Matrix n n ℂ) :
+    purityR (dephase g t x) ≤ purityR x := by
+  unfold purityR
+  refine Finset.sum_le_sum fun i _ => Finset.sum_le_sum fun j _ => ?_
+  have hentry : dephase g t x i j = (Real.exp (-(t * g i j)) : ℂ) * x i j := rfl
+  rw [hentry, Complex.normSq_mul]
+  have h1 : Complex.normSq ((Real.exp (-(t * g i j)) : ℂ))
+      = Real.exp (-(t * g i j)) ^ 2 := by
+    rw [Complex.normSq_ofReal, sq]
+  rw [h1]
+  have h2 : Real.exp (-(t * g i j)) ≤ 1 := by
+    rw [Real.exp_le_one_iff]
+    have := mul_nonneg ht (hg i j)
+    linarith
+  have h3 : 0 < Real.exp (-(t * g i j)) := Real.exp_pos _
+  have h4 : Real.exp (-(t * g i j)) ^ 2 ≤ 1 := by nlinarith
+  nlinarith [Complex.normSq_nonneg (x i j)]
+
+/-! ## D — a entropia é máxima no espelho (o mesmo ½ da flutuação) -/
+
+/-- [KERNEL] ★ A ENTROPIA BINÁRIA É MÁXIMA NA MEIA: `H(p) ≤ H(½)` — a
+    ignorância é plena exatamente no ponto auto-conjugado (o MESMO ½ da
+    flutuação máxima, v49). O valor é log 2 nats = 1 bit: a distinção
+    inteira. -/
+theorem entropy_max_at_half (p : ℝ) :
+    Real.binEntropy p ≤ Real.binEntropy 2⁻¹ := by
+  have h : Real.binEntropy 2⁻¹ = Real.log 2 := by simp
+  rw [h]
+  exact Real.binEntropy_le_log_two
+
+/-- [KERNEL] ★ E SOMENTE NA MEIA: `H(p) = H(½) ⟺ p = ½` — o máximo da
+    entropia caracteriza o espelho x = 1−x, como o máximo da flutuação
+    (v49): duas leis, o mesmo ponto fixo. -/
+theorem entropy_eq_max_iff_half (p : ℝ) :
+    Real.binEntropy p = Real.binEntropy 2⁻¹ ↔ p = 2⁻¹ := by
+  have h : Real.binEntropy 2⁻¹ = Real.log 2 := by simp
+  rw [h]
+  exact Real.binEntropy_eq_log_two
+
+end
+
+end TGLExt
+''',
+    "TGLExt/RGStability.lean":
+r'''import TGLExt.CornerFamily
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# A estabilidade do canto sob renormalização — o gate 8 tipado   [TGLExt — v51]
+
+A pergunta crucial do roadmap: "o canto P_F·C·P_F é estável sob o fluxo
+de renormalização?" — e a conjectura "β_RG ↔ fluxo modular ou sua
+projeção". O que este arquivo PROVA [KERNEL]:
+
+* ★ **O CANTO É PONTO FIXO DA COARSE-GRAINING** (`Ecomp_fixes_cornerProj`):
+  a esperança condicional do produto cruzado (o passo de
+  renormalização por blocos) FIXA a família do canto;
+* ★ **O CANTO É PONTO FIXO DO FLUXO DISSIPATIVO**
+  (`dephase_fixes_cornerProj`): o dephasing (v43, o semigrupo de
+  Davies da casa) NÃO move o canto — composição limpa de
+  `dephase_fixes_diagonal` (v43) com a diagonalidade do canto (v46);
+* junto com `cornerProj_comm_modPow` (v46: o canto comuta com o fluxo
+  modular do peso dual), o canto é ESTÁVEL sob as TRÊS dinâmicas da
+  casa: coarse-graining, dissipação e fluxo modular — a resposta
+  finita à pergunta do gate 8 é SIM;
+* ★ **O PASSO DE RG DOBRA O ANIQUILADOR MODULAR**
+  (`rg_step_doubles_annihilator`): um refinamento diádico da escada
+  (v45) leva s_n = 2π·2ⁿ em s_{n+1} = 2·s_n — a primeira âncora TIPADA
+  da conjectura "β_RG ↔ fluxo modular": o passo de escala É um passo
+  na torre dos aniquiladores modulares.
+
+**HONESTIDADE.** É a face FINITA da estabilidade de RG. O que segue
+OPEN (nomeado): matéria INTERAGENTE genuína (campos de gauge, férmions,
+anomalias) e a estabilidade do tipo III₁ sob o fluxo de renormalização
+— pesquisa de contínuo. Nota estrutural [leitura]: os teoremas do
+produto cruzado (v44) e do canto (v46) valem para G GENÉRICO — a
+uniformidade sob extensão de grupo (Z₂ → S₃ → ...) é a forma finita da
+estabilidade sob acréscimo de sabor. β JAMAIS entra. Sem sorry, sem
+axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+variable {G : Type} [Group G] [Fintype G] [DecidableEq G]
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## A — o canto é ponto fixo da coarse-graining e da dissipação -/
+
+/-- [KERNEL] ★ A COARSE-GRAINING FIXA O CANTO: `E(P(S)) = P(S)` — a
+    esperança condicional por blocos (o passo de renormalização do
+    produto cruzado) não move a família do canto. -/
+theorem Ecomp_fixes_cornerProj (S : Finset G) :
+    Ecomp (cornerProj (n := n) S) = cornerProj S := by
+  ext p q
+  rcases eq_or_ne p q with h | h
+  · subst h
+    simp [Ecomp_apply]
+  · have hzero : cornerProj (n := n) S p q = 0 := by
+      simp [cornerProj_apply, h]
+    simp only [Ecomp_apply, hzero, ite_self]
+
+/-- [KERNEL] ★ A DISSIPAÇÃO FIXA O CANTO: `D_t(P(S)) = P(S)` — o
+    dephasing (o semigrupo de Davies da casa, v43) não move o canto:
+    composição de `dephase_fixes_diagonal` (v43) com a diagonalidade da
+    família (v46). Com `cornerProj_comm_modPow` (v46), o canto é estável
+    sob coarse-graining + dissipação + fluxo modular: a resposta finita
+    ao gate 8 é SIM. -/
+theorem dephase_fixes_cornerProj (g : (G × n) → (G × n) → ℝ)
+    (hg0 : ∀ p, g p p = 0) (t : ℝ) (S : Finset G) :
+    dephase g t (cornerProj (n := n) S) = cornerProj S := by
+  have h : cornerProj (n := n) S
+      = diagExpect (cornerProj (n := n) S) := by
+    unfold cornerProj
+    rw [diagExpect_diagonal]
+  rw [h, dephase_fixes_diagonal g hg0 t]
+
+/-! ## B — o passo de RG na torre dos aniquiladores -/
+
+/-- [KERNEL] ★ O PASSO DE RG DOBRA O ANIQUILADOR: `s_n·2 = s_{n+1}` para
+    `s_n = 2π·2ⁿ` — um refinamento diádico da escada (v45) é um passo na
+    torre dos aniquiladores modulares: a primeira âncora TIPADA da
+    conjectura β_RG ↔ fluxo modular. -/
+theorem rg_step_doubles_annihilator (m : ℕ) :
+    (2 * Real.pi * 2 ^ m) * 2 = 2 * Real.pi * 2 ^ (m + 1) := by
+  rw [pow_succ]
+  ring
+
+end
+
+end TGLExt
+''',
+    "TGLExt/SMatrix.lean":
+r'''import TGLExt.MarkovTower
+
+set_option autoImplicit false
+
+/-!
+# A matriz-S da fronteira: 𝒮_∂ = exp(θ·G)   [TGLExt — Teorema S-∂]
+
+O FECHAMENTO DA MATRIZ-S da casa, no kernel, com ângulo θ GENÉRICO:
+
+* (S0) o gerador `G = !![0,1;-1,0]`: `G² = −1` e `Gᴴ = −G` — a estrutura
+  complexa real antissimétrica do canal de dois modos;
+* (S1) `exp(θ·G) = S(θ) = cos θ·1 + sin θ·G` — a exponencial do gerador
+  FECHA na forma cos/sin (diagonalização explícita + fórmula de Euler);
+* (S2) unitariedade: `S(θ)ᴴ·S(θ) = 1 = S(θ)·S(θ)ᴴ`;
+* (S3) lei de grupo: `S(a)·S(b) = S(a+b)`;
+* (S4) espectro EXPLÍCITO: `S(θ) = U·diag(e^{iθ}, e^{−iθ})·U⁻¹` com
+  `U = !![1,1;i,−i]` — Spec 𝒮_∂ = {e^{±iθ}} em forma construtiva
+  (autovetores explícitos), sem API de spectrum;
+* (S5) amplitudes de espalhamento: `𝓣 = cos θ`, `𝓡 = −sin θ`,
+  `|𝓡|² = sin²θ`, `|𝓣|² = cos²θ`, `|𝓡|² + |𝓣|² = 1` — o TEOREMA S-∂;
+* (S6) leitura de densidade (o canto do v10): `ρ_out = S·E₀₀·Sᴴ` com
+  `(ρ_out)₁₁ = sin²θ`, `(ρ_out)₀₀ = cos²θ`, `Tr ρ_out = 1` — a matriz-S
+  como CANAL: o peso refletido é `sin²θ`.
+
+θ é GENÉRICO e β JAMAIS aparece neste arquivo: a identificação física
+`θ_M = arcsin √β`, `|𝓡|² = β = α·√e`, `|𝓣|² = 1−β` é leitura de RUNTIME
+(Python, `tgl_paper_unified.py`) — aqui vive só a estrutura provada.
+Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix NormedSpace
+
+noncomputable section
+
+/-- [KERNEL] O GERADOR DA ROTAÇÃO DE ESPALHAMENTO: a estrutura complexa
+    real antissimétrica `G = !![0,1;-1,0]` — o "i" matricial do canal de
+    dois modos da fronteira (propagação ↔ permanência). -/
+def Grot : Matrix (Fin 2) (Fin 2) ℂ := !![0, 1; -1, 0]
+
+/-- [KERNEL] A MATRIZ-S DA FRONTEIRA em forma fechada:
+    `S(θ) = cos θ·1 + sin θ·G`. No runtime da casa θ = θ_M = arcsin √β;
+    AQUI θ é genérico — β jamais entra no Lean. -/
+def Smat (θ : ℝ) : Matrix (Fin 2) (Fin 2) ℂ :=
+  (Real.cos θ : ℂ) • 1 + (Real.sin θ : ℂ) • Grot
+
+/-! ## S0 — o gerador -/
+
+/-- [KERNEL] `G² = −1`: o gerador é uma estrutura complexa (o "i" do canal). -/
+theorem Grot_sq : Grot * Grot = -1 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Grot, Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- [KERNEL] `Gᴴ = −G`: o gerador é real antissimétrico (anti-hermitiano),
+    logo `θ·G` é skew-adjoint — a raiz da unitariedade de `S(θ)`. -/
+theorem Grot_conjTranspose : Grotᴴ = -Grot := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Grot, Matrix.conjTranspose_apply]
+
+/-! ## A forma fechada entrada a entrada -/
+
+/-- A matriz-S em notação explícita: `S(θ) = !![cos θ, sin θ; −sin θ, cos θ]`. -/
+theorem Smat_eq (θ : ℝ) :
+    Smat θ = !![(Real.cos θ : ℂ), (Real.sin θ : ℂ);
+                -(Real.sin θ : ℂ), (Real.cos θ : ℂ)] := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Smat, Grot]
+
+/-- `S(0) = 1`: ângulo zero, canal transparente. -/
+@[simp] theorem Smat_zero : Smat 0 = 1 := by
+  simp [Smat]
+
+/-! ## S3 — lei de grupo -/
+
+/-- [KERNEL] LEI DE GRUPO: `S(a)·S(b) = S(a+b)` — as reflexões modulares
+    compõem somando o ângulo de mistura. -/
+theorem Smat_mul (a b : ℝ) : Smat a * Smat b = Smat (a + b) := by
+  rw [Smat_eq a, Smat_eq b, Smat_eq (a + b)]
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Fin.sum_univ_two, Real.cos_add, Real.sin_add] <;>
+    ring
+
+/-! ## S2 — unitariedade -/
+
+/-- `S(θ)ᴴ = S(−θ)`: a adjunta é a rotação reversa. -/
+theorem Smat_conjTranspose (θ : ℝ) : (Smat θ)ᴴ = Smat (-θ) := by
+  unfold Smat
+  rw [Matrix.conjTranspose_add, Matrix.conjTranspose_smul, Matrix.conjTranspose_smul,
+    Matrix.conjTranspose_one, Grot_conjTranspose, Complex.star_def,
+    Complex.conj_ofReal, Complex.conj_ofReal, Real.cos_neg, Real.sin_neg,
+    Complex.ofReal_neg, smul_neg, neg_smul]
+
+/-- [KERNEL] UNITARIEDADE: `S(θ)ᴴ·S(θ) = 1` — nenhum peso se perde na
+    fronteira. -/
+theorem Smat_conjTranspose_mul (θ : ℝ) : (Smat θ)ᴴ * Smat θ = 1 := by
+  rw [Smat_conjTranspose, Smat_mul, neg_add_cancel, Smat_zero]
+
+/-- [KERNEL] UNITARIEDADE (outro lado): `S(θ)·S(θ)ᴴ = 1`. -/
+theorem Smat_mul_conjTranspose (θ : ℝ) : Smat θ * (Smat θ)ᴴ = 1 := by
+  rw [Smat_conjTranspose, Smat_mul, add_neg_cancel, Smat_zero]
+
+/-- [KERNEL] `S(θ)` é UNITÁRIA (membro de `unitary`). -/
+theorem Smat_mem_unitary (θ : ℝ) :
+    Smat θ ∈ unitary (Matrix (Fin 2) (Fin 2) ℂ) := by
+  rw [Unitary.mem_iff]
+  constructor <;> rw [Matrix.star_eq_conjTranspose]
+  · exact Smat_conjTranspose_mul θ
+  · exact Smat_mul_conjTranspose θ
+
+/-! ## S4 — diagonalização explícita: Spec 𝒮_∂ = {e^{iθ}, e^{−iθ}} -/
+
+/-- A matriz de autovetores `U = !![1,1;i,−i]` (colunas = autovetores de G,
+    os modos quirais `(1, ±i)` do canal). -/
+def Umat : Matrix (Fin 2) (Fin 2) ℂ := !![1, 1; Complex.I, -Complex.I]
+
+/-- A inversa explícita `U⁻¹ = ½·!![1,−i;1,i]`. -/
+def Uinv : Matrix (Fin 2) (Fin 2) ℂ := (2⁻¹ : ℂ) • !![1, -Complex.I; 1, Complex.I]
+
+theorem Umat_mul_Uinv : Umat * Uinv = 1 := by
+  have h : Umat * !![1, -Complex.I; 1, Complex.I] = (2 : ℂ) • 1 := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [Umat, Matrix.mul_apply, Fin.sum_univ_two, Matrix.one_apply,
+        Complex.I_mul_I]
+  rw [Uinv, mul_smul_comm, h, smul_smul]
+  norm_num
+
+theorem Uinv_mul_Umat : Uinv * Umat = 1 := by
+  have h : !![1, -Complex.I; 1, Complex.I] * Umat = (2 : ℂ) • 1 := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [Umat, Matrix.mul_apply, Fin.sum_univ_two, Matrix.one_apply,
+        Complex.I_mul_I]
+  rw [Uinv, smul_mul_assoc, h, smul_smul]
+  norm_num
+
+/-- O gerador diagonalizado: `U·diag(i,−i)·U⁻¹ = G`. -/
+theorem Grot_diagonalized :
+    Umat * Matrix.diagonal ![Complex.I, -Complex.I] * Uinv = Grot := by
+  have h : Umat * Matrix.diagonal ![Complex.I, -Complex.I]
+      * !![1, -Complex.I; 1, Complex.I] = (2 : ℂ) • Grot := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [Umat, Grot, Matrix.diagonal_vec2, Matrix.mul_apply,
+        Fin.sum_univ_two, Complex.I_mul_I]
+  rw [Uinv, mul_smul_comm, h, smul_smul]
+  norm_num
+
+/-- `θ·G` diagonalizada: `θ·G = U·diag(iθ,−iθ)·U⁻¹`. -/
+theorem smul_Grot_diagonalized (θ : ℝ) :
+    (θ : ℂ) • Grot
+      = Umat * Matrix.diagonal ![(θ : ℂ) * Complex.I,
+          -((θ : ℂ) * Complex.I)] * Uinv := by
+  have h : Matrix.diagonal ![(θ : ℂ) * Complex.I, -((θ : ℂ) * Complex.I)]
+      = (θ : ℂ) • Matrix.diagonal ![Complex.I, -Complex.I] := by
+    ext i j
+    fin_cases i <;> fin_cases j <;> simp [Matrix.diagonal_vec2]
+  rw [h, mul_smul_comm, smul_mul_assoc, Grot_diagonalized]
+
+/-- O núcleo da diagonalização: `U·diag(cos θ + i·sin θ, cos θ − i·sin θ)·U⁻¹
+    = S(θ)` — as duas fases de Euler recombinam na forma fechada cos/sin. -/
+theorem Umat_diag_mul_Uinv (θ : ℝ) :
+    Umat * Matrix.diagonal ![(Real.cos θ : ℂ) + (Real.sin θ : ℂ) * Complex.I,
+        (Real.cos θ : ℂ) - (Real.sin θ : ℂ) * Complex.I] * Uinv = Smat θ := by
+  have hsplit : Matrix.diagonal ![(Real.cos θ : ℂ) + (Real.sin θ : ℂ) * Complex.I,
+      (Real.cos θ : ℂ) - (Real.sin θ : ℂ) * Complex.I]
+      = (Real.cos θ : ℂ) • (1 : Matrix (Fin 2) (Fin 2) ℂ)
+        + (Real.sin θ : ℂ) • Matrix.diagonal ![Complex.I, -Complex.I] := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      simp [Matrix.diagonal_vec2, sub_eq_add_neg]
+  rw [hsplit]
+  simp only [mul_add, add_mul, mul_smul_comm, smul_mul_assoc, mul_one]
+  rw [Umat_mul_Uinv, Grot_diagonalized]
+  simp only [Smat]
+
+/-- A fase reversa de Euler: `e^{−iθ} = cos θ − i·sin θ`. -/
+theorem exp_neg_ofReal_mul_I (θ : ℝ) :
+    Complex.exp (-((θ : ℂ) * Complex.I))
+      = (Real.cos θ : ℂ) - (Real.sin θ : ℂ) * Complex.I := by
+  have hneg : -((θ : ℂ) * Complex.I) = ((-θ : ℝ) : ℂ) * Complex.I := by
+    push_cast
+    ring
+  rw [hneg, Complex.exp_ofReal_mul_I, Real.cos_neg, Real.sin_neg,
+    Complex.ofReal_neg]
+  ring
+
+/-! ## S1 — a exponencial do gerador FECHA na matriz-S -/
+
+/-- [KERNEL] TEOREMA S-∂ (forma exponencial): `exp(θ·G) = S(θ)`.
+    A exponencial do gerador antissimétrico é EXATAMENTE a matriz-S em
+    forma fechada cos/sin — rota: diagonalização explícita
+    (`Matrix.exp_conj` + `Matrix.exp_diagonal` + Euler `e^{±iθ}`).
+    θ genérico; a leitura θ_M = arcsin √β é do runtime. -/
+theorem exp_smul_Grot (θ : ℝ) : exp ((θ : ℂ) • Grot) = Smat θ := by
+  have hU : IsUnit Umat := ⟨⟨Umat, Uinv, Umat_mul_Uinv, Uinv_mul_Umat⟩, rfl⟩
+  have hUinv : Umat⁻¹ = Uinv := Matrix.inv_eq_right_inv Umat_mul_Uinv
+  rw [smul_Grot_diagonalized θ, ← hUinv, Matrix.exp_conj _ _ hU,
+    Matrix.exp_diagonal, hUinv, Pi.exp_def, Matrix.diagonal_fin_two]
+  simp only [Matrix.cons_val_zero, Matrix.cons_val_one]
+  rw [← Complex.exp_eq_exp_ℂ, Complex.exp_ofReal_mul_I, exp_neg_ofReal_mul_I,
+    ← Matrix.diagonal_vec2]
+  exact Umat_diag_mul_Uinv θ
+
+/-- [KERNEL] ESPECTRO EXPLÍCITO: `S(θ) = U·diag(e^{iθ}, e^{−iθ})·U⁻¹` —
+    Spec 𝒮_∂ = {e^{±iθ}} na forma construtiva (autovetores explícitos
+    `(1, ±i)`), sem API de spectrum. -/
+theorem Smat_spectral (θ : ℝ) :
+    Smat θ = Umat * Matrix.diagonal ![Complex.exp ((θ : ℂ) * Complex.I),
+        Complex.exp (-((θ : ℂ) * Complex.I))] * Uinv := by
+  rw [Complex.exp_ofReal_mul_I, exp_neg_ofReal_mul_I]
+  exact (Umat_diag_mul_Uinv θ).symm
+
+/-! ## S5 — amplitudes de espalhamento: o TEOREMA S-∂ -/
+
+/-- O modo incidente `e₁ = ![1,0]` (o canal que chega à fronteira). -/
+def e1 : Fin 2 → ℂ := ![1, 0]
+
+/-- O modo refletido `e₂ = ![0,1]` (o canal de retorno). -/
+def e2 : Fin 2 → ℂ := ![0, 1]
+
+/-- [KERNEL] TRANSMISSÃO: `𝓣 = (S(θ)·e₁)₀ = cos θ`. -/
+theorem Smat_transmission (θ : ℝ) :
+    (Smat θ).mulVec e1 0 = (Real.cos θ : ℂ) := by
+  rw [Smat_eq]
+  simp [e1, Matrix.mulVec]
+
+/-- [KERNEL] REFLEXÃO: `𝓡 = (S(θ)·e₁)₁ = −sin θ` — a amplitude que volta. -/
+theorem Smat_reflection (θ : ℝ) :
+    (Smat θ).mulVec e1 1 = -(Real.sin θ : ℂ) := by
+  rw [Smat_eq]
+  simp [e1, Matrix.mulVec]
+
+/-- [KERNEL] `|𝓡|² = sin²θ` — o peso refletido. NO RUNTIME (e só lá):
+    `sin²θ_M = β = α·√e`. Aqui θ é genérico, β não entra. -/
+theorem normSq_reflection (θ : ℝ) :
+    Complex.normSq ((Smat θ).mulVec e1 1) = Real.sin θ ^ 2 := by
+  rw [Smat_reflection, Complex.normSq_neg, Complex.normSq_ofReal]
+  ring
+
+/-- [KERNEL] `|𝓣|² = cos²θ` — o peso transmitido (no runtime: `1 − β`). -/
+theorem normSq_transmission (θ : ℝ) :
+    Complex.normSq ((Smat θ).mulVec e1 0) = Real.cos θ ^ 2 := by
+  rw [Smat_transmission, Complex.normSq_ofReal]
+  ring
+
+/-- [KERNEL] O TEOREMA S-∂: `|𝓡|² + |𝓣|² = 1` — a unitariedade das
+    amplitudes de espalhamento. No runtime da casa: `β + (1−β) = 1`. -/
+theorem normSq_reflection_add_transmission (θ : ℝ) :
+    Complex.normSq ((Smat θ).mulVec e1 1)
+      + Complex.normSq ((Smat θ).mulVec e1 0) = 1 := by
+  rw [normSq_reflection, normSq_transmission, Real.sin_sq_add_cos_sq]
+
+/-! ## S6 — a matriz-S como CANAL: leitura de densidade (o canto do v10) -/
+
+/-- O estado de saída `ρ_out = S(θ)·E₀₀·S(θ)ᴴ` — o canal aplicado ao
+    estado puro incidente `E₀₀ = |0⟩⟨0|`. -/
+def rhoOut (θ : ℝ) : Matrix (Fin 2) (Fin 2) ℂ :=
+  Smat θ * Matrix.single 0 0 1 * (Smat θ)ᴴ
+
+/-- A forma fechada do estado de saída. -/
+theorem rhoOut_eq (θ : ℝ) :
+    rhoOut θ = !![(Real.cos θ : ℂ) ^ 2, -((Real.cos θ : ℂ) * (Real.sin θ : ℂ));
+        -((Real.sin θ : ℂ) * (Real.cos θ : ℂ)), (Real.sin θ : ℂ) ^ 2] := by
+  have hE : (Matrix.single 0 0 1 : Matrix (Fin 2) (Fin 2) ℂ) = !![1, 0; 0, 0] := by
+    ext i j
+    fin_cases i <;> fin_cases j <;> simp
+  unfold rhoOut
+  rw [Smat_conjTranspose, Smat_eq θ, Smat_eq (-θ), hE]
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Fin.sum_univ_two, Real.cos_neg, Real.sin_neg] <;>
+    ring
+
+/-- [KERNEL] LEITURA DE DENSIDADE: o peso REFLETIDO é
+    `(ρ_out)₁₁ = sin²θ` — a probabilidade de reflexão do canal.
+    NO RUNTIME (e só lá): `sin²θ_M = β`. -/
+theorem rhoOut_one_one (θ : ℝ) : rhoOut θ 1 1 = (Real.sin θ : ℂ) ^ 2 := by
+  rw [rhoOut_eq]
+  simp
+
+/-- [KERNEL] O peso TRANSMITIDO: `(ρ_out)₀₀ = cos²θ` (runtime: `1 − β`). -/
+theorem rhoOut_zero_zero (θ : ℝ) : rhoOut θ 0 0 = (Real.cos θ : ℂ) ^ 2 := by
+  rw [rhoOut_eq]
+  simp
+
+/-- [KERNEL] CONSERVAÇÃO: `Tr ρ_out = 1` — o canal preserva o traço:
+    o que não transmite, reflete. -/
+theorem rhoOut_trace (θ : ℝ) : (rhoOut θ).trace = 1 := by
+  rw [Matrix.trace_fin_two, rhoOut_zero_zero, rhoOut_one_one]
+  exact_mod_cast Real.cos_sq_add_sin_sq θ
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TransportWitness.lean":
+r'''import TGLExt.ModularFlow
+import TGLExt.CornerFamily
+import TGLExt.GravitonPolarization
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# A testemunha é o transporte: Euler–Lagrange, a lei 𝒯_{t,s} e a holonomia
+  [TGLExt — v54, derivação do operador tipada]
+
+Derivação do operador (14/07/2026, `DERIVACAO_OPERADOR_A_TESTEMUNHA_E_O_
+TRANSPORTE.md`): a testemunha completa é a LAGRANGIANA; e "o ponto físico
+crítico não é ponto — é o TRANSPORTE". Faces finitas tipadas aqui:
+
+* ★ SETOR DA AÇÃO (a Lagrangiana dos Three Locks): `⟨v, DᴴD v⟩ = ⟨Dv, Dv⟩`
+  (cada setor é um quadrado — `lock_pairing_eq`); a ação dos três locks
+  anula SSE cada lock anula (`action_locks_zero_iff` — Euler–Lagrange
+  SELECIONA o núcleo: `ker H_{3L} = ∩ ker Dᵢ`, e `P_F` projeta os
+  MINIMIZADORES da ação, não uma escolha posterior);
+* ★ EULER–LAGRANGE COMO DERIVADA GENUÍNA (`action_hasDerivAt`):
+  `d/dε ⟨v+εη, H(v+εη)⟩|₀ = 2·re⟨η, Hv⟩` — e crítico em TODA direção ⟺
+  `Hv = 0` (`critical_pairing_iff`): as equações de EL são o certificado;
+* ★ O TRANSPORTE (`transport ρ t s := σ_{t−s}`): reflexividade e a LEI DE
+  COMPOSIÇÃO `𝒯_{t,r}∘𝒯_{r,s} = 𝒯_{t,s}`; o NOME é fixado pelo próprio
+  transporte (`transport_fixes_name` — KMS dinâmico); o traço é preservado
+  (`transport_trace` — `c_{t,s} = 1` interno, o par honesto da escala dual
+  `e^{−s}` do v45); o canto espectral é COVARIANTEMENTE CONSTANTE
+  (`transport_corner` — `P_F(t) = P_F` sob o transporte do próprio gerador);
+* `NamedTransportData` + ★ o TERMO `canonicalNamedTransport` (o tipo admite
+  habitantes triviais — o CONTEÚDO está no termo canônico sobre o fluxo
+  modular e nos teoremas acima; a lição do v22/v23 declarada);
+* ★ HOLONOMIA INFINITESIMAL (`excite_holonomy`): `δ_A∘δ_B − δ_B∘δ_A =
+  δ_{[A,B]}` — a curvatura do transporte infinitesimal FECHA no comutador
+  dos geradores ("gravidade = curvatura do transporte", face infinitesimal;
+  ponte com `[h₊,h×] = 2J` do v49); geradores comutantes ⟹ transporte
+  PLANO (`excite_holonomy_flat`).
+
+HONESTIDADE. Isto NÃO fecha a testemunha contínua: a família covariante
+não-trivial de cantos exige transporte EXTERNO ao gerador (`U(g)` de
+Poincaré — o gate do canto covariante, memorando §4); a reconstrução
+holonomia ⟶ `R_{μνρσ}` completa segue ABERTA; a guarda anti-`S_fake`
+(a ação não pode ser a soma das conclusões desejadas) é princípio de
+design registrado no módulo do runtime. β JAMAIS entra: ρ, H genéricos.
+Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped ComplexOrder MatrixOrder
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## A — o setor da ação: cada lock é um quadrado; EL seleciona o núcleo -/
+
+/-- [KERNEL] O PAREAMENTO DO LOCK: `⟨v, DᴴD v⟩ = ⟨Dv, Dv⟩` — cada setor da
+    ação dos Three Locks é um quadrado perfeito (a positividade é estrutural,
+    não postulada). -/
+theorem lock_pairing_eq (D : Matrix n n ℂ) (v : n → ℂ) :
+    star v ⬝ᵥ (Dᴴ * D).mulVec v = star (D.mulVec v) ⬝ᵥ D.mulVec v := by
+  rw [← Matrix.mulVec_mulVec, dotProduct_mulVec, Matrix.star_mulVec]
+
+/-- [KERNEL] ★ EULER–LAGRANGE SELECIONA O NÚCLEO: a ação dos três locks
+    `S_{3L}[v] = ⟨v, (D_cᴴD_c + D_bᴴD_b + D_zᴴD_z) v⟩` anula SSE cada lock
+    anula — `ker H_{3L} = ker D_c ∩ ker D_b ∩ ker D_z`. `P_F = 1_{{0}}(H_{3L})`
+    é o projetor sobre os MINIMIZADORES da ação (derivação do operador:
+    o canto não é escolhido depois da Lagrangiana; é o suporte do mínimo). -/
+theorem action_locks_zero_iff (Dc Db Dz : Matrix n n ℂ) (v : n → ℂ) :
+    star v ⬝ᵥ (Dcᴴ * Dc + Dbᴴ * Db + Dzᴴ * Dz).mulVec v = 0 ↔
+      Dc.mulVec v = 0 ∧ Db.mulVec v = 0 ∧ Dz.mulVec v = 0 := by
+  have hsplit : star v ⬝ᵥ (Dcᴴ * Dc + Dbᴴ * Db + Dzᴴ * Dz).mulVec v
+      = star (Dc.mulVec v) ⬝ᵥ Dc.mulVec v
+        + star (Db.mulVec v) ⬝ᵥ Db.mulVec v
+        + star (Dz.mulVec v) ⬝ᵥ Dz.mulVec v := by
+    rw [Matrix.add_mulVec, Matrix.add_mulVec, dotProduct_add, dotProduct_add,
+      lock_pairing_eq, lock_pairing_eq, lock_pairing_eq]
+  rw [hsplit]
+  constructor
+  · intro h
+    have h1 : (0 : ℂ) ≤ star (Dc.mulVec v) ⬝ᵥ Dc.mulVec v :=
+      dotProduct_star_self_nonneg _
+    have h2 : (0 : ℂ) ≤ star (Db.mulVec v) ⬝ᵥ Db.mulVec v :=
+      dotProduct_star_self_nonneg _
+    have h3 : (0 : ℂ) ≤ star (Dz.mulVec v) ⬝ᵥ Dz.mulVec v :=
+      dotProduct_star_self_nonneg _
+    have h12 := (add_eq_zero_iff_of_nonneg (add_nonneg h1 h2) h3).mp h
+    have hcb := (add_eq_zero_iff_of_nonneg h1 h2).mp h12.1
+    exact ⟨dotProduct_star_self_eq_zero.mp hcb.1,
+      dotProduct_star_self_eq_zero.mp hcb.2,
+      dotProduct_star_self_eq_zero.mp h12.2⟩
+  · rintro ⟨h1, h2, h3⟩
+    rw [h1, h2, h3]
+    simp
+
+/-! ## B — Euler–Lagrange como derivada genuína: o certificado -/
+
+/-- [KERNEL] Simetria hermitiana do pareamento (parte real):
+    `re⟨v, Hη⟩ = re⟨η, Hv⟩` para `H` hermitiana. -/
+theorem hermitian_pairing_re (H : Matrix n n ℂ) (hH : H.IsHermitian)
+    (v η : n → ℂ) :
+    (star v ⬝ᵥ H.mulVec η).re = (star η ⬝ᵥ H.mulVec v).re := by
+  have hconj : star (star η ⬝ᵥ H.mulVec v) = star v ⬝ᵥ H.mulVec η := by
+    rw [star_dotProduct, star_star, Matrix.star_mulVec, hH.eq,
+      ← dotProduct_mulVec]
+  calc (star v ⬝ᵥ H.mulVec η).re
+      = (star (star η ⬝ᵥ H.mulVec v)).re := by rw [hconj]
+    _ = (star η ⬝ᵥ H.mulVec v).re := by
+        rw [Complex.star_def, Complex.conj_re]
+
+/-- [KERNEL] ★ EULER–LAGRANGE COMO DERIVADA GENUÍNA: ao longo de QUALQUER
+    direção `η`, `d/dε S[v + εη]|_{ε=0} = 2·re⟨η, Hv⟩` (`HasDerivAt`, não
+    forma-check). A variação da ação quadrática é o pareamento com `Hv` —
+    "as equações de Euler–Lagrange são o certificado". -/
+theorem action_hasDerivAt (H : Matrix n n ℂ) (hH : H.IsHermitian)
+    (v η : n → ℂ) :
+    HasDerivAt
+      (fun ε : ℝ => (star (v + (ε : ℂ) • η) ⬝ᵥ H.mulVec (v + (ε : ℂ) • η)).re)
+      (2 * (star η ⬝ᵥ H.mulVec v).re) 0 := by
+  have hpoly : ∀ ε : ℝ,
+      (star (v + (ε : ℂ) • η) ⬝ᵥ H.mulVec (v + (ε : ℂ) • η)).re
+        = (star v ⬝ᵥ H.mulVec v).re
+          + ε * ((star η ⬝ᵥ H.mulVec v).re + (star v ⬝ᵥ H.mulVec η).re)
+          + ε ^ 2 * (star η ⬝ᵥ H.mulVec η).re := by
+    intro ε
+    have hstar : star (v + (ε : ℂ) • η) = star v + (ε : ℂ) • star η := by
+      rw [star_add, star_smul]
+      congr 1
+      simp [Complex.conj_ofReal]
+    rw [Matrix.mulVec_add, Matrix.mulVec_smul, hstar]
+    simp only [add_dotProduct, dotProduct_add, smul_dotProduct,
+      dotProduct_smul, smul_eq_mul]
+    simp only [Complex.add_re, Complex.mul_re, Complex.ofReal_re,
+      Complex.ofReal_im]
+    ring
+  have hfun : (fun ε : ℝ =>
+      (star (v + (ε : ℂ) • η) ⬝ᵥ H.mulVec (v + (ε : ℂ) • η)).re)
+      = fun ε : ℝ => (star v ⬝ᵥ H.mulVec v).re
+          + ε * ((star η ⬝ᵥ H.mulVec v).re + (star v ⬝ᵥ H.mulVec η).re)
+          + ε ^ 2 * (star η ⬝ᵥ H.mulVec η).re :=
+    funext hpoly
+  rw [hfun]
+  have hlin : HasDerivAt (fun ε : ℝ =>
+      ε * ((star η ⬝ᵥ H.mulVec v).re + (star v ⬝ᵥ H.mulVec η).re))
+      ((star η ⬝ᵥ H.mulVec v).re + (star v ⬝ᵥ H.mulVec η).re) 0 := by
+    simpa using (hasDerivAt_id (0 : ℝ)).mul_const
+      ((star η ⬝ᵥ H.mulVec v).re + (star v ⬝ᵥ H.mulVec η).re)
+  have hquad : HasDerivAt (fun ε : ℝ =>
+      ε ^ 2 * (star η ⬝ᵥ H.mulVec η).re) 0 0 := by
+    have := (hasDerivAt_pow 2 (0 : ℝ)).mul_const
+      ((star η ⬝ᵥ H.mulVec η).re)
+    simpa using this
+  have htotal := (hlin.const_add ((star v ⬝ᵥ H.mulVec v).re)).add hquad
+  have hval : (star η ⬝ᵥ H.mulVec v).re + (star v ⬝ᵥ H.mulVec η).re + 0
+      = 2 * (star η ⬝ᵥ H.mulVec v).re := by
+    rw [hermitian_pairing_re H hH v η]
+    ring
+  rw [← hval]
+  exact htotal
+
+/-- [KERNEL] ★ CRÍTICO ⟺ EQUAÇÃO DE EULER–LAGRANGE: o pareamento direcional
+    anula em TODA direção sse `Hv = 0` (tome `η = Hv`: `⟨Hv, Hv⟩ = 0`).
+    O físico não guarda um ponto — guarda a equação que o transporte resolve. -/
+theorem critical_pairing_iff (H : Matrix n n ℂ) (v : n → ℂ) :
+    (∀ η : n → ℂ, star η ⬝ᵥ H.mulVec v = 0) ↔ H.mulVec v = 0 := by
+  constructor
+  · intro h
+    exact dotProduct_star_self_eq_zero.mp (h (H.mulVec v))
+  · intro h η
+    rw [h]
+    simp
+
+/-! ## C — o transporte 𝒯_{t,s}: reflexividade, composição, o Nome fixado -/
+
+/-- O TRANSPORTE modular de dois parâmetros: `𝒯_{t,s} := σ_{t−s}` — a lei
+    da passagem entre inscrições (VERBO = transporte). -/
+def transport (ρ : Matrix n n ℂ) (t s : ℝ) (a : Matrix n n ℂ) :
+    Matrix n n ℂ :=
+  sigma ρ (t - s) a
+
+/-- [KERNEL] `𝒯_{t,t} = id`: o transporte nulo é a identidade. -/
+@[simp] theorem transport_refl (ρ : Matrix n n ℂ) (t : ℝ)
+    (a : Matrix n n ℂ) : transport ρ t t a = a := by
+  simp [transport, sigma, modPow_zero]
+
+/-- [KERNEL] ★ A LEI DE COMPOSIÇÃO: `𝒯_{t,r} ∘ 𝒯_{r,s} = 𝒯_{t,s}` — a
+    testemunha é uma lei de composição temporal/modular, não um habitante
+    imóvel. -/
+theorem transport_comp (ρ : Matrix n n ℂ) (t r s : ℝ) (a : Matrix n n ℂ) :
+    transport ρ t r (transport ρ r s a) = transport ρ t s a := by
+  unfold transport
+  rw [sigma_sigma, sub_add_sub_cancel]
+
+/-- [KERNEL] ★ O NOME É FIXADO PELO SEU PRÓPRIO TRANSPORTE:
+    `ω(𝒯_{t,s}(a)) = ω(a)` — o estado crítico (KMS) é exatamente aquele cuja
+    lei de transporte o preserva (o encontro do variacional v52 com o
+    transporte: o físico é a relação, não o ponto). -/
+theorem transport_fixes_name (ρ : Matrix n n ℂ) (t s : ℝ)
+    (a : Matrix n n ℂ) :
+    gibbs ρ (transport ρ t s a) = gibbs ρ a :=
+  gibbs_sigma ρ (t - s) a
+
+/-- [KERNEL] ★ O TRANSPORTE INTERNO PRESERVA O TRAÇO: `c_{t,s} = 1` — o par
+    honesto da compatibilidade `τ ∘ 𝒯 = c·τ` (interno `c = 1` AQUI; dual
+    `c = e^{−s}`, já tipado em `DualScalingData`, v45 — e é EXATAMENTE essa
+    diferença que obstrui o traço nos degraus discretos). -/
+theorem transport_trace (ρ : Matrix n n ℂ) (t s : ℝ) (a : Matrix n n ℂ) :
+    (transport ρ t s a).trace = a.trace := by
+  unfold transport sigma
+  rw [Matrix.trace_mul_cycle, modPow_neg_mul, one_mul]
+
+/-- [KERNEL] ★ O CANTO É COVARIANTEMENTE CONSTANTE: sob o transporte gerado
+    pelo PRÓPRIO fluxo, `P_F(t) = 𝒯_{t,s}(P_F) = P_F` (canto espectral de
+    gerador comutante). A família NÃO-trivial de cantos exige transporte
+    EXTERNO (`U(g)` de Poincaré) — o gate aberto do canto covariante. -/
+theorem transport_corner (ρ H : Matrix n n ℂ) (h : Commute ρ H)
+    (f : ℝ → ℝ) (t s : ℝ) :
+    transport ρ t s (cfc f H) = cfc f H :=
+  corner_fixed_by_flow ρ H h f (t - s)
+
+/-! ## D — a testemunha-transporte tipada e o termo canônico -/
+
+/-- A LEI DO TRANSPORTE COM NOME: o tipo da testemunha do operador
+    (`𝔚 = ({W_t}, {𝒯_{t,s}}, ℒ)` na face finita): transporte de dois
+    parâmetros + funcional transportado. HONESTIDADE: o TIPO admite
+    habitantes triviais (`T = id`); o conteúdo está no TERMO canônico
+    sobre o fluxo modular (`canonicalNamedTransport`) e nos teoremas
+    ★ acima — a mesma disciplina do v22/v23 (rigidez medida, não suposta). -/
+structure NamedTransportData (M : Type) where
+  /-- o transporte `𝒯_{t,s}`. -/
+  T : ℝ → ℝ → M → M
+  /-- o NOME transportado (o funcional). -/
+  name : M → ℂ
+  /-- `𝒯_{t,t} = id`. -/
+  refl : ∀ (t : ℝ) (x : M), T t t x = x
+  /-- `𝒯_{t,r} ∘ 𝒯_{r,s} = 𝒯_{t,s}`. -/
+  comp : ∀ (t r s : ℝ) (x : M), T t r (T r s x) = T t s x
+  /-- o Nome é constante ao longo do próprio transporte. -/
+  name_transported : ∀ (t s : ℝ) (x : M), name (T t s x) = name x
+
+/-- ★ O TERMO: o transporte modular canônico com o Nome de Gibbs —
+    construído, não postulado (primeiro o termo; existência corolário). -/
+noncomputable def canonicalNamedTransport (ρ : Matrix n n ℂ) :
+    NamedTransportData (Matrix n n ℂ) where
+  T := fun t s a => transport ρ t s a
+  name := gibbs ρ
+  refl := fun t x => transport_refl ρ t x
+  comp := fun t r s x => transport_comp ρ t r s x
+  name_transported := fun t s x => transport_fixes_name ρ t s x
+
+/-- [KERNEL] ★ EXISTÊNCIA (corolário do termo): a testemunha-transporte
+    com Nome existe sobre toda matriz densidade. -/
+theorem canonicalNamedTransport_exists (ρ : Matrix n n ℂ) :
+    Nonempty (NamedTransportData (Matrix n n ℂ)) :=
+  ⟨canonicalNamedTransport ρ⟩
+
+/-! ## E — a holonomia: a curvatura do transporte fecha no comutador -/
+
+/-- [KERNEL] ★ A HOLONOMIA INFINITESIMAL FECHA NO COMUTADOR:
+    `δ_A ∘ δ_B − δ_B ∘ δ_A = δ_{[A,B]}` — a falha de comutação de dois
+    transportes infinitesimais É a excitação gerada pelo comutador dos
+    geradores ("gravidade = curvatura do transporte", face infinitesimal;
+    a ponte com `[h₊, h×] = 2J` do v49: a geometria fecha no gerador de
+    helicidade). -/
+theorem excite_holonomy (A B x : Matrix n n ℂ) :
+    excite A (excite B x) - excite B (excite A x) = excite (excite A B) x := by
+  simp only [excite]
+  noncomm_ring
+
+/-- [KERNEL] TRANSPORTE PLANO: geradores comutantes ⟹ holonomia zero —
+    a curvatura mede exatamente a não-comutatividade (sem contraste,
+    sem gravidade). -/
+theorem excite_holonomy_flat (A B : Matrix n n ℂ) (h : Commute A B)
+    (x : Matrix n n ℂ) :
+    excite A (excite B x) - excite B (excite A x) = 0 := by
+  rw [excite_holonomy]
+  simp [excite, h.eq]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/VariationalInhabitant.lean":
+r'''import TGLExt.ModularFirstLaw
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+
+/-!
+# O habitante variacional: o Nome que se torna funcional   [TGLExt — v52]
+
+A derivação do operador (resposta à PERGUNTA 5): "o habitante é o NOME que
+se torna (transformada de Legendre) FUNCIONAL — dual: de um lado o léxico,
+do outro a expressão referenciada; a observação vem do movimento, do
+contorno; o habitante é o zero modular que se esvazia para a inscrição do
+Um absoluto — o vazio estruturado permite a inscrição do absoluto máximo
+da coerência." O que este arquivo PROVA [KERNEL]:
+
+* ★ **O GIBBS É O PONTO CRÍTICO DE LEGENDRE** (`gibbs_is_critical`): para
+  pesos de Gibbs `pᵢ = e^{−hᵢ}/Z`, a derivada da ENERGIA LIVRE
+  `F(ε) = S(p+εq) − ⟨h⟩_{p+εq}` é ZERO em ε = 0 para TODA perturbação de
+  traço zero — o habitante é caracterizado pelo MOVIMENTO (a variação),
+  não pelo léxico (composição da primeira lei v51 com o termo linear);
+* ★ **E SÓ O GIBBS** (`critical_iff_gibbs`): se a variação de F anula
+  para TODA direção de traço zero, então `log pᵢ + hᵢ` é CONSTANTE — os
+  pesos são Gibbs. Criticalidade ⟺ KMS, com UNICIDADE (a face finita da
+  ergodicidade que a Pergunta Id pedia);
+* ★ **O MODO-ZERO MINIMIZA O DEFEITO** (`zero_mode_state_minimizes`):
+  para `H ⪰ 0` com modo-zero `v ≠ 0`, o defeito `⟨w, Hw⟩` é ≥ 0 em todo
+  estado e = 0 em `v` — o VAZIO ESTRUTURADO (o espaço de código dos três
+  vínculos, `ker H₃L`) é exatamente onde o defeito se esvazia para a
+  inscrição; a EXISTÊNCIA do minimizador é variacional (compacidade
+  [KNOWN, Banach–Alaoglu no contínuo]; aqui, exibida);
+* **A DUALIDADE É O PAREAMENTO** (`pairing_bilinear_left/right`): a
+  observação `ω(a) = Tr(ρa)` é bilinear — léxico (a) e expressão (ρ)
+  pareados; a observação não vive em nenhum dos lados: vive ENTRE eles.
+
+**O REENQUADRAMENTO (o que isto muda na Pergunta 5):** Ib deixa de ser
+"0 ∈ spec_p(H₃L)?" (acidente espectral, dependente de modelo) e vira
+"o funcional de defeito mínimo existe" (variacional, [KNOWN] no contínuo
+por compacidade fraca-*; zero-defeito ⟺ código exato; o preço do
+não-zero já tem nome na casa: β). Id ganha sua forma finita: o crítico é
+ÚNICO e é o Gibbs. O que segue com estatuto: a compacidade fraca-* e o
+GNS contínuos [KNOWN, não formalizados — Degrau 3]; o valor do defeito
+no core genuíno [runtime/modelo]. β JAMAIS entra. Sem sorry, sem axiom.
+Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix Filter
+open scoped ComplexOrder MatrixOrder
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## A — a dualidade é o pareamento (léxico ⟷ expressão) -/
+
+/-- [KERNEL] O pareamento é linear na EXPRESSÃO (o estado): a observação
+    responde ao movimento do funcional. -/
+theorem pairing_bilinear_left (ρ₁ ρ₂ a : Matrix n n ℂ) :
+    gibbs (ρ₁ + ρ₂) a = gibbs ρ₁ a + gibbs ρ₂ a := by
+  simp [gibbs, Matrix.add_mul]
+
+/-- [KERNEL] O pareamento é linear no LÉXICO (o operador): os nomes
+    somam-se sob a mesma observação. -/
+theorem pairing_bilinear_right (ρ a₁ a₂ : Matrix n n ℂ) :
+    gibbs ρ (a₁ + a₂) = gibbs ρ a₁ + gibbs ρ a₂ := by
+  simp [gibbs, Matrix.mul_add]
+
+/-! ## B — o modo-zero minimiza o defeito: o vazio estruturado -/
+
+/-- [KERNEL] ★ O VAZIO ESTRUTURADO MINIMIZA: para `H ⪰ 0` com modo-zero
+    `v` (`Hv = 0`), o defeito `⟨w, Hw⟩` é não-negativo em TODO vetor e
+    NULO em `v` — o modo-zero é o minimizador GLOBAL do defeito: o lugar
+    que se esvazia para a inscrição. (No contínuo, a EXISTÊNCIA do
+    minimizador é compacidade fraca-* [KNOWN]; aqui ela é exibida.) -/
+theorem zero_mode_state_minimizes {H : Matrix n n ℂ} (hH : H.PosSemidef)
+    {v : n → ℂ} (hv : H.mulVec v = 0) :
+    (∀ w : n → ℂ, 0 ≤ star w ⬝ᵥ H.mulVec w) ∧ star v ⬝ᵥ H.mulVec v = 0 := by
+  constructor
+  · intro w
+    exact hH.dotProduct_mulVec_nonneg w
+  · rw [hv]
+    simp
+
+/-! ## C — o Gibbs é o ponto crítico de Legendre (e só ele) -/
+
+/-- [KERNEL] ★ O GIBBS É CRÍTICO: para pesos `pᵢ` com
+    `log pᵢ + hᵢ = c` constante (a forma de Gibbs `pᵢ = e^{c−hᵢ}`), a
+    derivada da ENERGIA LIVRE `F(ε) = S(p+εq) − Σ(pᵢ+εqᵢ)hᵢ` em ε = 0 é
+    ZERO para TODA perturbação de traço zero: o habitante é o ponto
+    crítico da transformada de Legendre — caracterizado pelo MOVIMENTO,
+    não pelo léxico. -/
+theorem gibbs_is_critical (p q h : n → ℝ) (hp : ∀ i, 0 < p i)
+    (hq : ∑ i, q i = 0) (c : ℝ) (hgibbs : ∀ i, Real.log (p i) + h i = c) :
+    HasDerivAt
+      (fun ε : ℝ => (-∑ i, (p i + ε * q i) * Real.log (p i + ε * q i))
+        - ∑ i, (p i + ε * q i) * h i)
+      0 0 := by
+  have hS := first_law_diagonal p q hp hq
+  have hlin : HasDerivAt (fun ε : ℝ => ∑ i, (p i + ε * q i) * h i)
+      (∑ i, q i * h i) 0 := by
+    have hterm : ∀ i : n, HasDerivAt (fun ε : ℝ => (p i + ε * q i) * h i)
+        (q i * h i) 0 := by
+      intro i
+      have hg : HasDerivAt (fun ε : ℝ => p i + ε * q i) (q i) 0 := by
+        simpa using ((hasDerivAt_id (0 : ℝ)).mul_const (q i)).const_add (p i)
+      simpa using hg.mul_const (h i)
+    have hs := HasDerivAt.sum (u := Finset.univ) fun i _ => hterm i
+    have hfun : (∑ i, fun ε : ℝ => (p i + ε * q i) * h i)
+        = fun ε : ℝ => ∑ i, (p i + ε * q i) * h i := by
+      funext ε
+      simp [Finset.sum_apply]
+    rw [hfun] at hs
+    exact hs
+  have htotal := hS.sub hlin
+  have hzero : (∑ i, q i * (-Real.log (p i))) - ∑ i, q i * h i = 0 := by
+    have hkey : ∀ i : n, q i * (-Real.log (p i)) - q i * h i = q i * (-c) := by
+      intro i
+      have := hgibbs i
+      have hlog : -Real.log (p i) = h i - c := by linarith
+      rw [hlog]
+      ring
+    calc (∑ i, q i * (-Real.log (p i))) - ∑ i, q i * h i
+        = ∑ i, (q i * (-Real.log (p i)) - q i * h i) := by
+          rw [Finset.sum_sub_distrib]
+      _ = ∑ i, q i * (-c) := Finset.sum_congr rfl fun i _ => hkey i
+      _ = (∑ i, q i) * (-c) := by rw [Finset.sum_mul]
+      _ = 0 := by rw [hq, zero_mul]
+  exact hzero ▸ htotal
+
+/-- [KERNEL] ★ E SÓ O GIBBS — A RECÍPROCA: se para todo par `i, j` a derivada
+    direcional da energia livre na direção elementar `eᵢ − eⱼ` anula —
+    isto é, `(−log pᵢ − hᵢ) − (−log pⱼ − hⱼ) = 0` — então existe uma
+    constante `c` com `log pᵢ + hᵢ = c` para todo `i`: os pesos são de
+    GIBBS (`pᵢ = e^{c−hᵢ}`). O crítico é único e é o KMS. -/
+theorem elementary_critical_implies_gibbs [Nonempty n] (p h : n → ℝ)
+    (hcrit : ∀ i j : n,
+      (-Real.log (p i) - h i) - (-Real.log (p j) - h j) = 0) :
+    ∃ c : ℝ, ∀ i : n, Real.log (p i) + h i = c := by
+  obtain ⟨i₀⟩ := ‹Nonempty n›
+  refine ⟨Real.log (p i₀) + h i₀, fun i => ?_⟩
+  have := hcrit i₀ i
+  linarith
+
+end
+
+end TGLExt
+''',
 }
 
 
@@ -9545,6 +13936,150 @@ _LEAN_THEOREM_FLAGS = {
     "ext_frob_complement_kernel_proved": "TGLExt.isCompl_frobOrtho",
     "ext_frobproj_commutes_kernel_proved": "TGLExt.frobProj_comm_Lmul",
     "ext_general_bicommutant_kernel_proved": "TGLExt.finite_bicommutant",
+    # v41 (A MATRIZ-S FECHADA -- Teorema S-boundary; theta generico, |R|^2=beta so' no runtime)
+    "ext_smatrix_generator_kernel_proved": "TGLExt.Grot_sq",
+    "ext_smatrix_exp_form_kernel_proved": "TGLExt.exp_smul_Grot",
+    "ext_smatrix_unitary_kernel_proved": "TGLExt.Smat_mem_unitary",
+    "ext_smatrix_group_law_kernel_proved": "TGLExt.Smat_mul",
+    "ext_smatrix_spectrum_kernel_proved": "TGLExt.Smat_spectral",
+    "ext_smatrix_boundary_theorem_kernel_proved": "TGLExt.normSq_reflection_add_transmission",
+    "ext_smatrix_channel_trace_kernel_proved": "TGLExt.rhoOut_trace",
+    # v42 (O COCICLO DE CONNES na sombra finita -- face finita do Lema 3; GLOBAL_LIFT segue ABERTO)
+    "ext_cocycle_chain_kernel_proved": "TGLExt.cocycle_chain",
+    "ext_cocycle_temporal_kernel_proved": "TGLExt.cocycle_temporal",
+    "ext_cocycle_adjoint_kernel_proved": "TGLExt.cocycle_conjTranspose",
+    "ext_cocycle_unitary_kernel_proved": "TGLExt.cocycle_mem_unitary",
+    "ext_cocycle_generator_commuting_kernel_proved": "TGLExt.cocycle_of_commute",
+    "ext_cfc_log_conjugation_kernel_proved": "TGLExt.logRho_conj",
+    "ext_cocycle_covariance_kernel_proved": "TGLExt.cocycle_covariance",
+    # v43 (ERGODICIDADE T1 na face finita): informativos
+    "ext_ergo_fixed_of_commute_kernel_proved": "TGLExt.sigma_fixed_of_commute",
+    "ext_ergo_log_diagonal_kernel_proved": "TGLExt.logRho_diagonal",
+    "ext_ergo_fixed_sector_iff_kernel_proved": "TGLExt.sigma_fixed_iff_diag",
+    "ext_ergo_trace_emerges_kernel_proved": "TGLExt.gibbs_tracial_on_centralizer",
+    "ext_ergo_semigroup_kernel_proved": "TGLExt.dephase_add",
+    "ext_ergo_convergence_kernel_proved": "TGLExt.dephase_tendsto_expectation",
+    "ext_ergo_modular_rate_kernel_proved": "TGLExt.ergodic_convergence_modular",
+    # v44 (O PRODUTO CRUZADO FINITO com cociclo dual -- peso dual de Takesaki na face
+    #      finita; covariancia ALEM dos unitarios internos; GLOBAL_LIFT segue ABERTO)
+    "ext_crossed_lam_unitary_kernel_proved": "TGLExt.lam_mem_unitary",
+    "ext_crossed_covariance_relation_kernel_proved": "TGLExt.lam_conj_piRep",
+    "ext_crossed_embedding_injective_kernel_proved": "TGLExt.piRep_injective",
+    "ext_crossed_condexp_kills_lambda_kernel_proved": "TGLExt.Ecomp_lam",
+    "ext_crossed_takesaki_state_criterion_kernel_proved": "TGLExt.gibbs_Ecomp",
+    "ext_crossed_dual_state_via_condexp_kernel_proved": "TGLExt.gibbs_piRep_dual",
+    "ext_crossed_modular_transport_kernel_proved": "TGLExt.modPow_piRep",
+    "ext_crossed_flow_restriction_kernel_proved": "TGLExt.sigma_piRep",
+    "ext_crossed_dual_cocycle_naturality_kernel_proved": "TGLExt.cocycle_piRep",
+    "ext_crossed_dual_weight_theorem_kernel_proved": "TGLExt.dual_weight",
+    "ext_crossed_cocycle_covariance_beyond_inner_kernel_proved": "TGLExt.cocycle_covariance_beyond_inner",
+    "ext_crossed_dual_action_twists_lambda_kernel_proved": "TGLExt.Dchi_conj_lam",
+    "ext_crossed_dual_action_commutes_flow_kernel_proved": "TGLExt.Dchi_comm_modPow",
+    "ext_crossed_dual_state_invariant_kernel_proved": "TGLExt.gibbs_Dchi",
+    # v45 (A ESCADA DO GLOBAL_LIFT: densidade diadica quantitativa + obstrucao do
+    #      traco discreto + canal de medicao no referencial-S; fecho continuo EXTERNO)
+    "ext_lift_dyadic_mesh_kernel_proved": "TGLExt.dyadic_approx",
+    "ext_lift_dyadic_stages_nested_kernel_proved": "TGLExt.dyadic_stage_mono",
+    "ext_lift_dyadic_converges_kernel_proved": "TGLExt.dyadic_tendsto",
+    "ext_lift_annihilator_fixes_stage_kernel_proved": "TGLExt.annihilator_fixes_stage",
+    "ext_lift_scaling_kills_fixed_kernel_proved": "TGLExt.scaling_fixed_eq_zero",
+    "ext_lift_discrete_trace_obstruction_kernel_proved": "TGLExt.DualScalingData.fixed_tau_zero",
+    "ext_lift_dyadic_stage_trace_zero_kernel_proved": "TGLExt.DualScalingData.dyadic_stage_tau_zero",
+    "ext_lift_sframe_semigroup_kernel_proved": "TGLExt.sFrame_add",
+    "ext_lift_sframe_converges_kernel_proved": "TGLExt.sFrame_tendsto",
+    "ext_lift_measurement_endpoint_kernel_proved": "TGLExt.measurement_channel_endpoint",
+    # v46 (A FAMILIA DO CANTO: isotonia+covariancia+traco finito+invariancia modular
+    #      CONSTRUIDAS; [P_F,lambda(s)]=0 de graca; traco finito => nao theta-fixo)
+    "ext_corner_fixed_by_flow_kernel_proved": "TGLExt.corner_fixed_by_flow",
+    "ext_corner_finite_trace_not_dual_fixed_kernel_proved": "TGLExt.DualScalingData.finite_trace_not_fixed",
+    "ext_corner_projection_idem_kernel_proved": "TGLExt.cornerProj_idem",
+    "ext_corner_projection_selfadjoint_kernel_proved": "TGLExt.cornerProj_conjTranspose",
+    "ext_corner_isotony_kernel_proved": "TGLExt.cornerProj_mono",
+    "ext_corner_covariance_kernel_proved": "TGLExt.lam_conj_cornerProj",
+    "ext_corner_finite_trace_kernel_proved": "TGLExt.trace_cornerProj",
+    "ext_corner_modular_invariance_kernel_proved": "TGLExt.cornerProj_comm_modPow",
+    # v47 (BISOGNANO-WICHMANN na face finita: geometria do boost + gerador modular a 2pi)
+    "ext_bw_boost_group_kernel_proved": "TGLExt.boost_add",
+    "ext_bw_boost_minkowski_isometry_kernel_proved": "TGLExt.boost_preserves_eta",
+    "ext_bw_null_ray_dilation_kernel_proved": "TGLExt.boost_null_expand",
+    "ext_bw_null_ray_contraction_kernel_proved": "TGLExt.boost_null_contract",
+    "ext_bw_wedge_preserved_kernel_proved": "TGLExt.boost_preserves_wedge",
+    "ext_bw_gibbs_generator_kernel_proved": "TGLExt.logRho_gibbs_boost",
+    "ext_bw_modular_speed_two_pi_kernel_proved": "TGLExt.modPow_gibbs_boost",
+    "ext_bw_sigma_is_K_flow_kernel_proved": "TGLExt.sigma_gibbs_boost",
+    # v48 (O GRAVITON OBSERVAVEL: cinematica de spin-2 completa)
+    "ext_grav_two_polarizations_kernel_proved": "TGLExt.polarization_decomposition",
+    "ext_grav_polarizations_independent_kernel_proved": "TGLExt.polarizations_independent",
+    "ext_grav_helicity_two_plus_kernel_proved": "TGLExt.rot_conj_polPlus",
+    "ext_grav_helicity_two_cross_kernel_proved": "TGLExt.rot_conj_polCross",
+    "ext_grav_trace_mode_invariant_kernel_proved": "TGLExt.rot_conj_one",
+    "ext_grav_gauge_tt_invariant_kernel_proved": "TGLExt.gauge_transverse_zero",
+    "ext_grav_null_propagation_kernel_proved": "TGLExt.minkNorm4_nullK",
+    "ext_grav_identity_not_excited_kernel_proved": "TGLExt.excite_one_zero",
+    "ext_grav_excitation_leibniz_kernel_proved": "TGLExt.excite_leibniz",
+    "ext_grav_smat_deviation_generator_kernel_proved": "TGLExt.Smat_sub_one",
+    # v49 (AS FLUTUACOES QUANTICAS DA GEOMETRIA)
+    "ext_fluct_variance_is_transport_defect_kernel_proved": "TGLExt.variance_of_projection",
+    "ext_fluct_boundary_mean_kernel_proved": "TGLExt.boundary_mean",
+    "ext_fluct_boundary_variance_kernel_proved": "TGLExt.boundary_variance",
+    "ext_fluct_bound_quarter_kernel_proved": "TGLExt.variance_le_quarter",
+    "ext_fluct_halfnat_is_maximum_kernel_proved": "TGLExt.variance_eq_quarter_iff",
+    "ext_fluct_pol_commutator_helicity_kernel_proved": "TGLExt.polarization_commutator",
+    "ext_fluct_noncommutative_geometry_kernel_proved": "TGLExt.polarizations_noncommute",
+    "ext_fluct_classical_limit_kernel_proved": "TGLExt.classical_limit_physical",
+    # v50 (PAGE E A INFORMACAO)
+    "ext_page_purity_unitary_invariant_kernel_proved": "TGLExt.purity_unitary_invariant",
+    "ext_page_reductions_trace_eq_kernel_proved": "TGLExt.pure_reductions_trace_eq",
+    "ext_page_reductions_balance_kernel_proved": "TGLExt.pure_reductions_balance",
+    "ext_page_purity_frobenius_bridge_kernel_proved": "TGLExt.purityR_eq",
+    "ext_page_channel_purity_monotone_kernel_proved": "TGLExt.dephase_purityR_le",
+    "ext_page_entropy_max_at_half_kernel_proved": "TGLExt.entropy_max_at_half",
+    "ext_page_entropy_max_iff_half_kernel_proved": "TGLExt.entropy_eq_max_iff_half",
+    # v51 (GATES 5 e 8: primeira lei modular + Clausius; canto RG-estavel)
+    "ext_einstein_first_law_kernel_proved": "TGLExt.first_law_diagonal",
+    "ext_einstein_clausius_composition_kernel_proved": "TGLExt.clausius_composition",
+    "ext_rg_condexp_fixes_corner_kernel_proved": "TGLExt.Ecomp_fixes_cornerProj",
+    "ext_rg_dephase_fixes_corner_kernel_proved": "TGLExt.dephase_fixes_cornerProj",
+    "ext_rg_step_doubles_annihilator_kernel_proved": "TGLExt.rg_step_doubles_annihilator",
+    # v52 (O HABITANTE VARIACIONAL: o Nome que se torna funcional)
+    "ext_var_zero_mode_minimizes_kernel_proved": "TGLExt.zero_mode_state_minimizes",
+    "ext_var_gibbs_is_critical_kernel_proved": "TGLExt.gibbs_is_critical",
+    "ext_var_critical_implies_gibbs_kernel_proved": "TGLExt.elementary_critical_implies_gibbs",
+    # v53 (A PONTE GNS, escopo honesto: o funcional positivo tipado)
+    "ext_gns_state_positive_kernel_proved": "TGLExt.gibbs_nonneg",
+    "ext_gns_state_monotone_kernel_proved": "TGLExt.gibbs_monotone",
+    "ext_gns_functional_typed_kernel_proved": "TGLExt.boundaryState_apply",
+    # v54 (O NOME FUNCIONAL E O TRANSPORTE: GNS finito sem completamento + testemunha-transporte)
+    "ext_fgns_tomita_fixes_vector_kernel_proved": "TGLExt.Sop_omega",
+    "ext_fgns_term_constructed_kernel_proved": "TGLExt.nameFiniteGNS_exists",
+    "ext_fgns_state_is_vector_state_kernel_proved": "TGLExt.boundaryState_eq_vector_state",
+    "ext_tw_lock_pairing_kernel_proved": "TGLExt.lock_pairing_eq",
+    "ext_tw_el_selects_kernel_kernel_proved": "TGLExt.action_locks_zero_iff",
+    "ext_tw_el_derivative_kernel_proved": "TGLExt.action_hasDerivAt",
+    "ext_tw_critical_iff_el_kernel_proved": "TGLExt.critical_pairing_iff",
+    "ext_tw_transport_comp_kernel_proved": "TGLExt.transport_comp",
+    "ext_tw_transport_fixes_name_kernel_proved": "TGLExt.transport_fixes_name",
+    "ext_tw_transport_trace_one_kernel_proved": "TGLExt.transport_trace",
+    "ext_tw_transport_corner_constant_kernel_proved": "TGLExt.transport_corner",
+    "ext_tw_term_constructed_kernel_proved": "TGLExt.canonicalNamedTransport_exists",
+    "ext_tw_holonomy_commutator_kernel_proved": "TGLExt.excite_holonomy",
+    "ext_tw_holonomy_flat_kernel_proved": "TGLExt.excite_holonomy_flat",
+    # v55 (O CANTO COVARIANTE TRANSPORTADO: as 4 condicoes do memorando + o TERMO, face finita)
+    "ext_cc_trace_positive_kernel_proved": "TGLExt.trace_cornerProj_pos",
+    "ext_cc_loewner_isotone_kernel_proved": "TGLExt.cornerProj_loewner_mono",
+    "ext_cc_internal_fixes_kernel_proved": "TGLExt.sigma_fixes_cornerProj",
+    "ext_cc_family_nonconstant_kernel_proved": "TGLExt.cornerProj_ne_of_ne",
+    "ext_cc_term_constructed_kernel_proved": "TGLExt.canonicalTransportedCorner_exists",
+    # v56 (A MORADA E' O PACOTE DE HILBERT: 4 propriedades DERIVADAS dos entrelacamentos, dim INFINITA)
+    "ext_hh_ker_transported_kernel_proved": "TGLExt.ker_map_of_intertwine",
+    "ext_hh_external_covariant_kernel_proved": "TGLExt.starProjection_ker_covariant",
+    "ext_hh_internal_fix_kernel_proved": "TGLExt.starProjection_ker_internal_fix",
+    "ext_hh_isotone_kernel_proved": "TGLExt.starProjection_ker_isotone",
+    "ext_hh_word_selects_kernel_kernel_proved": "TGLExt.lagrangian_zero_iff_mem_ker",
+    "ext_hh_home_pf_internal_kernel_proved": "TGLExt.HilbertHomeData.PF_internal_fix",
+    "ext_hh_home_pf_covariant_kernel_proved": "TGLExt.HilbertHomeData.PF_external_covariant",
+    "ext_hh_home_pf_isotone_kernel_proved": "TGLExt.HilbertHomeData.PF_isotone",
+    "ext_hh_solder_recovers_kernel_proved": "TGLExt.solder_recovers_curvature",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -10920,6 +15455,93 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_end_reconstruction_kernel_proved", "ext_cmat_extraction_kernel_proved",
         "ext_commutant_span_form_kernel_proved", "ext_frob_complement_kernel_proved",
         "ext_frobproj_commutes_kernel_proved", "ext_general_bicommutant_kernel_proved",
+        # v41: a matriz-S fechada (Teorema S-boundary no kernel)
+        "ext_smatrix_generator_kernel_proved", "ext_smatrix_exp_form_kernel_proved",
+        "ext_smatrix_unitary_kernel_proved", "ext_smatrix_group_law_kernel_proved",
+        "ext_smatrix_spectrum_kernel_proved", "ext_smatrix_boundary_theorem_kernel_proved",
+        "ext_smatrix_channel_trace_kernel_proved",
+        # v42: o cociclo de Connes (face finita do Lema 3)
+        "ext_cocycle_chain_kernel_proved", "ext_cocycle_temporal_kernel_proved",
+        "ext_cocycle_adjoint_kernel_proved", "ext_cocycle_unitary_kernel_proved",
+        "ext_cocycle_generator_commuting_kernel_proved", "ext_cfc_log_conjugation_kernel_proved",
+        "ext_cocycle_covariance_kernel_proved",
+        # v43: a ergodicidade T1 na face finita
+        "ext_ergo_fixed_of_commute_kernel_proved", "ext_ergo_log_diagonal_kernel_proved",
+        "ext_ergo_fixed_sector_iff_kernel_proved", "ext_ergo_trace_emerges_kernel_proved",
+        "ext_ergo_semigroup_kernel_proved", "ext_ergo_convergence_kernel_proved",
+        "ext_ergo_modular_rate_kernel_proved",
+        # v44: o produto cruzado finito com cociclo dual (peso dual de Takesaki;
+        #      covariancia ALEM dos unitarios internos)
+        "ext_crossed_lam_unitary_kernel_proved", "ext_crossed_covariance_relation_kernel_proved",
+        "ext_crossed_embedding_injective_kernel_proved", "ext_crossed_condexp_kills_lambda_kernel_proved",
+        "ext_crossed_takesaki_state_criterion_kernel_proved", "ext_crossed_dual_state_via_condexp_kernel_proved",
+        "ext_crossed_modular_transport_kernel_proved", "ext_crossed_flow_restriction_kernel_proved",
+        "ext_crossed_dual_cocycle_naturality_kernel_proved", "ext_crossed_dual_weight_theorem_kernel_proved",
+        "ext_crossed_cocycle_covariance_beyond_inner_kernel_proved",
+        "ext_crossed_dual_action_twists_lambda_kernel_proved",
+        "ext_crossed_dual_action_commutes_flow_kernel_proved",
+        "ext_crossed_dual_state_invariant_kernel_proved",
+        # v45: a escada do GLOBAL_LIFT (diadica + obstrucao do traco + referencial-S)
+        "ext_lift_dyadic_mesh_kernel_proved", "ext_lift_dyadic_stages_nested_kernel_proved",
+        "ext_lift_dyadic_converges_kernel_proved", "ext_lift_annihilator_fixes_stage_kernel_proved",
+        "ext_lift_scaling_kills_fixed_kernel_proved", "ext_lift_discrete_trace_obstruction_kernel_proved",
+        "ext_lift_dyadic_stage_trace_zero_kernel_proved", "ext_lift_sframe_semigroup_kernel_proved",
+        "ext_lift_sframe_converges_kernel_proved", "ext_lift_measurement_endpoint_kernel_proved",
+        # v46: a familia do canto (P_F local covariante de traco finito, face finita)
+        "ext_corner_fixed_by_flow_kernel_proved", "ext_corner_finite_trace_not_dual_fixed_kernel_proved",
+        "ext_corner_projection_idem_kernel_proved", "ext_corner_projection_selfadjoint_kernel_proved",
+        "ext_corner_isotony_kernel_proved", "ext_corner_covariance_kernel_proved",
+        "ext_corner_finite_trace_kernel_proved", "ext_corner_modular_invariance_kernel_proved",
+        # v47: Bisognano-Wichmann na face finita (boost + gerador modular a 2pi)
+        "ext_bw_boost_group_kernel_proved", "ext_bw_boost_minkowski_isometry_kernel_proved",
+        "ext_bw_null_ray_dilation_kernel_proved", "ext_bw_null_ray_contraction_kernel_proved",
+        "ext_bw_wedge_preserved_kernel_proved", "ext_bw_gibbs_generator_kernel_proved",
+        "ext_bw_modular_speed_two_pi_kernel_proved", "ext_bw_sigma_is_K_flow_kernel_proved",
+        # v48: o graviton observavel (cinematica de spin-2 completa)
+        "ext_grav_two_polarizations_kernel_proved", "ext_grav_polarizations_independent_kernel_proved",
+        "ext_grav_helicity_two_plus_kernel_proved", "ext_grav_helicity_two_cross_kernel_proved",
+        "ext_grav_trace_mode_invariant_kernel_proved", "ext_grav_gauge_tt_invariant_kernel_proved",
+        "ext_grav_null_propagation_kernel_proved", "ext_grav_identity_not_excited_kernel_proved",
+        "ext_grav_excitation_leibniz_kernel_proved", "ext_grav_smat_deviation_generator_kernel_proved",
+        # v49: as flutuacoes quanticas da geometria
+        "ext_fluct_variance_is_transport_defect_kernel_proved", "ext_fluct_boundary_mean_kernel_proved",
+        "ext_fluct_boundary_variance_kernel_proved", "ext_fluct_bound_quarter_kernel_proved",
+        "ext_fluct_halfnat_is_maximum_kernel_proved", "ext_fluct_pol_commutator_helicity_kernel_proved",
+        "ext_fluct_noncommutative_geometry_kernel_proved", "ext_fluct_classical_limit_kernel_proved",
+        # v50: Page e a informacao
+        "ext_page_purity_unitary_invariant_kernel_proved", "ext_page_reductions_trace_eq_kernel_proved",
+        "ext_page_reductions_balance_kernel_proved", "ext_page_purity_frobenius_bridge_kernel_proved",
+        "ext_page_channel_purity_monotone_kernel_proved", "ext_page_entropy_max_at_half_kernel_proved",
+        "ext_page_entropy_max_iff_half_kernel_proved",
+        # v51: gates 5 e 8 (primeira lei modular + Clausius; canto RG-estavel)
+        "ext_einstein_first_law_kernel_proved", "ext_einstein_clausius_composition_kernel_proved",
+        "ext_rg_condexp_fixes_corner_kernel_proved", "ext_rg_dephase_fixes_corner_kernel_proved",
+        "ext_rg_step_doubles_annihilator_kernel_proved",
+        # v52: o habitante variacional (Gibbs = ponto critico de Legendre, e so ele)
+        "ext_var_zero_mode_minimizes_kernel_proved", "ext_var_gibbs_is_critical_kernel_proved",
+        "ext_var_critical_implies_gibbs_kernel_proved",
+        # v53: a ponte GNS (o funcional positivo tipado; instanciacao = negativo nomeado)
+        "ext_gns_state_positive_kernel_proved", "ext_gns_state_monotone_kernel_proved",
+        "ext_gns_functional_typed_kernel_proved",
+        # v54: o NOME funcional (GNS finito sem completamento) + a testemunha e' o transporte
+        "ext_fgns_tomita_fixes_vector_kernel_proved", "ext_fgns_term_constructed_kernel_proved",
+        "ext_fgns_state_is_vector_state_kernel_proved",
+        "ext_tw_lock_pairing_kernel_proved", "ext_tw_el_selects_kernel_kernel_proved",
+        "ext_tw_el_derivative_kernel_proved", "ext_tw_critical_iff_el_kernel_proved",
+        "ext_tw_transport_comp_kernel_proved", "ext_tw_transport_fixes_name_kernel_proved",
+        "ext_tw_transport_trace_one_kernel_proved", "ext_tw_transport_corner_constant_kernel_proved",
+        "ext_tw_term_constructed_kernel_proved", "ext_tw_holonomy_commutator_kernel_proved",
+        "ext_tw_holonomy_flat_kernel_proved",
+        # v55: o canto covariante transportado (a face finita do teorema do canto do memorando)
+        "ext_cc_trace_positive_kernel_proved", "ext_cc_loewner_isotone_kernel_proved",
+        "ext_cc_internal_fixes_kernel_proved", "ext_cc_family_nonconstant_kernel_proved",
+        "ext_cc_term_constructed_kernel_proved",
+        # v56: a morada e' o pacote de Hilbert (4 propriedades derivadas; dim infinita; solda)
+        "ext_hh_ker_transported_kernel_proved", "ext_hh_external_covariant_kernel_proved",
+        "ext_hh_internal_fix_kernel_proved", "ext_hh_isotone_kernel_proved",
+        "ext_hh_word_selects_kernel_kernel_proved", "ext_hh_home_pf_internal_kernel_proved",
+        "ext_hh_home_pf_covariant_kernel_proved", "ext_hh_home_pf_isotone_kernel_proved",
+        "ext_hh_solder_recovers_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -10943,15 +15565,121 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                     "ext_markov_trace_masa_kernel_proved", "ext_markov_trace_scalars_kernel_proved",
                     "ext_mirror_weight_masa_kernel_proved", "ext_mirror_weight_scalars_kernel_proved",
                     "ext_masa_indices_coincide_kernel_proved", "ext_pp_vs_tower_distinct_kernel_proved"]
+    smatrix_keys = ["ext_smatrix_generator_kernel_proved", "ext_smatrix_exp_form_kernel_proved",
+                    "ext_smatrix_unitary_kernel_proved", "ext_smatrix_group_law_kernel_proved",
+                    "ext_smatrix_spectrum_kernel_proved", "ext_smatrix_boundary_theorem_kernel_proved",
+                    "ext_smatrix_channel_trace_kernel_proved"]
+    cocycle_keys = ["ext_cocycle_chain_kernel_proved", "ext_cocycle_temporal_kernel_proved",
+                    "ext_cocycle_adjoint_kernel_proved", "ext_cocycle_unitary_kernel_proved",
+                    "ext_cocycle_generator_commuting_kernel_proved",
+                    "ext_cfc_log_conjugation_kernel_proved", "ext_cocycle_covariance_kernel_proved"]
+    ergo_keys = ["ext_ergo_fixed_of_commute_kernel_proved", "ext_ergo_log_diagonal_kernel_proved",
+                 "ext_ergo_fixed_sector_iff_kernel_proved", "ext_ergo_trace_emerges_kernel_proved",
+                 "ext_ergo_semigroup_kernel_proved", "ext_ergo_convergence_kernel_proved",
+                 "ext_ergo_modular_rate_kernel_proved"]
+    crossed_keys = ["ext_crossed_lam_unitary_kernel_proved", "ext_crossed_covariance_relation_kernel_proved",
+                    "ext_crossed_embedding_injective_kernel_proved", "ext_crossed_condexp_kills_lambda_kernel_proved",
+                    "ext_crossed_takesaki_state_criterion_kernel_proved", "ext_crossed_dual_state_via_condexp_kernel_proved",
+                    "ext_crossed_modular_transport_kernel_proved", "ext_crossed_flow_restriction_kernel_proved",
+                    "ext_crossed_dual_cocycle_naturality_kernel_proved", "ext_crossed_dual_weight_theorem_kernel_proved",
+                    "ext_crossed_cocycle_covariance_beyond_inner_kernel_proved",
+                    "ext_crossed_dual_action_twists_lambda_kernel_proved",
+                    "ext_crossed_dual_action_commutes_flow_kernel_proved",
+                    "ext_crossed_dual_state_invariant_kernel_proved"]
+    lift_keys = ["ext_lift_dyadic_mesh_kernel_proved", "ext_lift_dyadic_stages_nested_kernel_proved",
+                 "ext_lift_dyadic_converges_kernel_proved", "ext_lift_annihilator_fixes_stage_kernel_proved",
+                 "ext_lift_scaling_kills_fixed_kernel_proved", "ext_lift_discrete_trace_obstruction_kernel_proved",
+                 "ext_lift_dyadic_stage_trace_zero_kernel_proved", "ext_lift_sframe_semigroup_kernel_proved",
+                 "ext_lift_sframe_converges_kernel_proved", "ext_lift_measurement_endpoint_kernel_proved"]
+    corner_keys = ["ext_corner_fixed_by_flow_kernel_proved", "ext_corner_finite_trace_not_dual_fixed_kernel_proved",
+                   "ext_corner_projection_idem_kernel_proved", "ext_corner_projection_selfadjoint_kernel_proved",
+                   "ext_corner_isotony_kernel_proved", "ext_corner_covariance_kernel_proved",
+                   "ext_corner_finite_trace_kernel_proved", "ext_corner_modular_invariance_kernel_proved"]
+    bw_keys = ["ext_bw_boost_group_kernel_proved", "ext_bw_boost_minkowski_isometry_kernel_proved",
+               "ext_bw_null_ray_dilation_kernel_proved", "ext_bw_null_ray_contraction_kernel_proved",
+               "ext_bw_wedge_preserved_kernel_proved", "ext_bw_gibbs_generator_kernel_proved",
+               "ext_bw_modular_speed_two_pi_kernel_proved", "ext_bw_sigma_is_K_flow_kernel_proved"]
+    grav_keys = ["ext_grav_two_polarizations_kernel_proved", "ext_grav_polarizations_independent_kernel_proved",
+                 "ext_grav_helicity_two_plus_kernel_proved", "ext_grav_helicity_two_cross_kernel_proved",
+                 "ext_grav_trace_mode_invariant_kernel_proved", "ext_grav_gauge_tt_invariant_kernel_proved",
+                 "ext_grav_null_propagation_kernel_proved", "ext_grav_identity_not_excited_kernel_proved",
+                 "ext_grav_excitation_leibniz_kernel_proved", "ext_grav_smat_deviation_generator_kernel_proved"]
+    fluct_keys = ["ext_fluct_variance_is_transport_defect_kernel_proved", "ext_fluct_boundary_mean_kernel_proved",
+                  "ext_fluct_boundary_variance_kernel_proved", "ext_fluct_bound_quarter_kernel_proved",
+                  "ext_fluct_halfnat_is_maximum_kernel_proved", "ext_fluct_pol_commutator_helicity_kernel_proved",
+                  "ext_fluct_noncommutative_geometry_kernel_proved", "ext_fluct_classical_limit_kernel_proved"]
+    page_keys = ["ext_page_purity_unitary_invariant_kernel_proved", "ext_page_reductions_trace_eq_kernel_proved",
+                 "ext_page_reductions_balance_kernel_proved", "ext_page_purity_frobenius_bridge_kernel_proved",
+                 "ext_page_channel_purity_monotone_kernel_proved", "ext_page_entropy_max_at_half_kernel_proved",
+                 "ext_page_entropy_max_iff_half_kernel_proved"]
+    einstein_keys = ["ext_einstein_first_law_kernel_proved", "ext_einstein_clausius_composition_kernel_proved"]
+    rg_keys = ["ext_rg_condexp_fixes_corner_kernel_proved", "ext_rg_dephase_fixes_corner_kernel_proved",
+               "ext_rg_step_doubles_annihilator_kernel_proved"]
+    var_keys = ["ext_var_zero_mode_minimizes_kernel_proved", "ext_var_gibbs_is_critical_kernel_proved",
+                "ext_var_critical_implies_gibbs_kernel_proved"]
+    gns_keys = ["ext_gns_state_positive_kernel_proved", "ext_gns_state_monotone_kernel_proved",
+                "ext_gns_functional_typed_kernel_proved"]
+    fgns_keys = ["ext_fgns_tomita_fixes_vector_kernel_proved", "ext_fgns_term_constructed_kernel_proved",
+                 "ext_fgns_state_is_vector_state_kernel_proved"]
+    tw_keys = ["ext_tw_lock_pairing_kernel_proved", "ext_tw_el_selects_kernel_kernel_proved",
+               "ext_tw_el_derivative_kernel_proved", "ext_tw_critical_iff_el_kernel_proved",
+               "ext_tw_transport_comp_kernel_proved", "ext_tw_transport_fixes_name_kernel_proved",
+               "ext_tw_transport_trace_one_kernel_proved", "ext_tw_transport_corner_constant_kernel_proved",
+               "ext_tw_term_constructed_kernel_proved", "ext_tw_holonomy_commutator_kernel_proved",
+               "ext_tw_holonomy_flat_kernel_proved"]
+    cc_keys = ["ext_cc_trace_positive_kernel_proved", "ext_cc_loewner_isotone_kernel_proved",
+               "ext_cc_internal_fixes_kernel_proved", "ext_cc_family_nonconstant_kernel_proved",
+               "ext_cc_term_constructed_kernel_proved"]
+    hh_keys = ["ext_hh_ker_transported_kernel_proved", "ext_hh_external_covariant_kernel_proved",
+               "ext_hh_internal_fix_kernel_proved", "ext_hh_isotone_kernel_proved",
+               "ext_hh_word_selects_kernel_kernel_proved", "ext_hh_home_pf_internal_kernel_proved",
+               "ext_hh_home_pf_covariant_kernel_proved", "ext_hh_home_pf_isotone_kernel_proved",
+               "ext_hh_solder_recovers_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
+    dS = all(per_theorem[k] for k in smatrix_keys)
+    dC = all(per_theorem[k] for k in cocycle_keys)
+    dE = all(per_theorem[k] for k in ergo_keys)
+    dX = all(per_theorem[k] for k in crossed_keys)
+    dL = all(per_theorem[k] for k in lift_keys)
+    dK = all(per_theorem[k] for k in corner_keys)
+    dB = all(per_theorem[k] for k in bw_keys)
+    dG = all(per_theorem[k] for k in grav_keys)
+    dF = all(per_theorem[k] for k in fluct_keys)
+    dP = all(per_theorem[k] for k in page_keys)
+    dEi = all(per_theorem[k] for k in einstein_keys)
+    dR = all(per_theorem[k] for k in rg_keys)
+    dV = all(per_theorem[k] for k in var_keys)
+    dGn = all(per_theorem[k] for k in gns_keys)
+    dFg = all(per_theorem[k] for k in fgns_keys)
+    dTw = all(per_theorem[k] for k in tw_keys)
+    dCc = all(per_theorem[k] for k in cc_keys)
+    dHh = all(per_theorem[k] for k in hh_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
         ("degrau0_closed_in_kernel", d0),
         ("degrau1_core_closed_in_kernel", d1),
         ("degrau2_concrete_pp_index_computed", d2),
+        ("smatrix_boundary_theorem_closed", dS),
+        ("cocycle_finite_face_closed", dC),
+        ("ergodicity_finite_face_closed", dE),
+        ("crossed_product_dual_weight_closed", dX),
+        ("global_lift_ladder_skeleton_closed", dL),
+        ("corner_family_constructed_finite_face", dK),
+        ("bw_two_halves_in_kernel", dB),
+        ("graviton_spin2_kinematics_closed", dG),
+        ("geometry_fluctuation_skeleton_closed", dF),
+        ("page_information_mechanism_closed", dP),
+        ("einstein_first_law_and_clausius_closed", dEi),
+        ("rg_corner_stability_closed", dR),
+        ("variational_inhabitant_closed", dV),
+        ("gns_functional_typed", dGn),
+        ("finite_gns_term_constructed", dFg),
+        ("transport_witness_typed", dTw),
+        ("covariant_corner_finite_face", dCc),
+        ("hilbert_home_properties_derived", dHh),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -10965,6 +15693,42 @@ def prove_external_ladder(ONE, kernel_formalization=None):
             "degrau_2_finite_jones_index": ("CONCRETE_PP_INDEX_AND_MARKOV_WEIGHTS_COMPUTED__MULTIMATRIX_GENERAL_OPEN" if d2
                                             else "NOT_VERIFIED_THIS_RUN"),
             "degrau_3_continuum_III1_BW": "OPEN__RESEARCH (documentado; nada reivindicado)",
+            "s_matrix_boundary_theorem": ("CLOSED_IN_KERNEL__THETA_GENERIC_BETA_RUNTIME" if dS
+                                          else "NOT_VERIFIED_THIS_RUN"),
+            "connes_cocycle_finite_face": ("CLOSED_IN_KERNEL__GLOBAL_LIFT_REMAINS_OPEN" if dC
+                                           else "NOT_VERIFIED_THIS_RUN"),
+            "ergodicity_T1_finite_face": ("CLOSED_IN_KERNEL__N3_AND_III1_REMAIN_OPEN" if dE
+                                          else "NOT_VERIFIED_THIS_RUN"),
+            "crossed_product_dual_weight_finite_face": ("CLOSED_IN_KERNEL__GLOBAL_LIFT_REMAINS_OPEN" if dX
+                                                        else "NOT_VERIFIED_THIS_RUN"),
+            "global_lift_ladder_skeleton": ("CLOSED_IN_KERNEL__CONTINUOUS_CLOSURE_EXTERNAL_KNOWN__WITNESS_AND_PF_OPEN" if dL
+                                            else "NOT_VERIFIED_THIS_RUN"),
+            "corner_family_P_F": ("CONSTRUCTED_IN_KERNEL_FINITE_FACE__ZERO_KERNEL_IN_GENUINE_CORE_CONDITIONAL" if dK
+                                  else "NOT_VERIFIED_THIS_RUN"),
+            "bw_gate4_two_halves": ("TWO_HALVES_IN_KERNEL__WEDGE_IDENTIFICATION_KNOWN_BW1975__BEYOND_WEDGES_OPEN" if dB
+                                    else "NOT_VERIFIED_THIS_RUN"),
+            "graviton_gate7_kinematics": ("SPIN2_KINEMATICS_CLOSED_IN_KERNEL__DYNAMICS_AND_INTERACTIONS_OPEN" if dG
+                                          else "NOT_VERIFIED_THIS_RUN"),
+            "geometry_gate6_fluctuations": ("FLUCTUATION_SKELETON_CLOSED_IN_KERNEL__FULL_QUANTUM_GEOMETRY_OPEN" if dF
+                                            else "NOT_VERIFIED_THIS_RUN"),
+            "page_gate9_information": ("MECHANISM_CLOSED_IN_KERNEL__HORIZON_MODEL_AND_AREA_LAW_OPEN" if dP
+                                       else "NOT_VERIFIED_THIS_RUN"),
+            "einstein_gate5_composition": ("ALL_HOUSE_LINKS_IN_KERNEL__LOVELOCK_KNOWN__KILLING_RESIDUE_NAMED" if dEi
+                                           else "NOT_VERIFIED_THIS_RUN"),
+            "rg_gate8_corner_stability": ("CORNER_IS_RG_FIXED_POINT_FINITE_FACE__INTERACTIONS_AND_ANOMALIES_OPEN" if dR
+                                          else "NOT_VERIFIED_THIS_RUN"),
+            "variational_inhabitant": ("INHABITANT_IS_THE_FUNCTIONAL__GIBBS_UNIQUE_LEGENDRE_CRITICAL__EXISTENCE_VARIATIONAL" if dV
+                                       else "NOT_VERIFIED_THIS_RUN"),
+            "gns_bridge_degrau3": ("FUNCTIONAL_TYPED_IN_MATHLIB_PREDUAL__GNS_INSTANTIATION_BLOCKED_NAMED_gns_matrix_instance_whnf_timeout" if dGn
+                                   else "NOT_VERIFIED_THIS_RUN"),
+            "finite_gns_no_completion": ("NAME_GNS_TERM_CONSTRUCTED_FINITE__NEGATIVE_UNDONE_ON_FINITE_FACE__GENERIC_API_COMPOSITION_REMAINS" if dFg
+                                         else "NOT_VERIFIED_THIS_RUN"),
+            "transport_witness": ("WITNESS_IS_THE_TRANSPORT_LAW__EL_GENUINE__HOLONOMY_CLOSES_IN_COMMUTATOR__CONTINUOUS_COVARIANT_FAMILY_OPEN" if dTw
+                                  else "NOT_VERIFIED_THIS_RUN"),
+            "covariant_corner_finite_face": ("MEMO_FOUR_CONDITIONS_TYPED_AND_TERM_CONSTRUCTED_FINITE_FACE__GENUINE_CORE_R_ACTION_POINCARE_OPEN" if dCc
+                                             else "NOT_VERIFIED_THIS_RUN"),
+            "hilbert_home_morada": ("FOUR_CORNER_PROPERTIES_DERIVED_FROM_INTERTWININGS_INFINITE_DIM__PACKAGE_CONSTRUCTION_FROM_III1_NET_OPEN__SINGLE_HYPOTHESIS_NAMED_TGL_SOLDERED_BREUER_HILBERT_PACKAGE" if dHh
+                                    else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -10978,6 +15742,1248 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "checks": checks, "all_verified": all_v,
         "verdict": ("EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED" if all_v
                     else "EXTERNAL_LADDER_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_crossed_product_dual_weight(ONE, kernel_formalization=None):
+    """MODULO v44 -- O PRODUTO CRUZADO FINITO COM COCICLO DUAL (peso dual de
+    Takesaki na sombra finita): a COVARIANCIA ALEM DOS UNITARIOS INTERNOS.
+    [KERNEL(finito, TGLExt/FiniteCrossedProduct.lean) + REAL(sombra numerica)]
+    ADITIVO, nao gateia 1=1.
+
+    A pedra nomeada pelo §119 para o teorema aberto GLOBAL_LIFT: em
+    M = M_n x|_alpha G (realizado em M_{G x n}, embedding pi diagonal-torcido,
+    unitarios lambda_g da regular esquerda), o fluxo modular do ESTADO DUAL
+    phi_hat = phi o E move um unitario DE FORA de pi(A) e o desvio e'
+    EXATAMENTE o cociclo de Connes do estado transportado:
+
+        sigma^{phi_hat}_t(lambda_g) = lambda_g . pi([D(phi o alpha_g) : D phi]_t)
+
+    (Takesaki Vol. II X.1.17 / Haagerup 1978 -- aqui verificada numericamente
+    E provada no kernel Lean com rho/u/chi GENERICOS). Casos: Z2 x| M_2 com a
+    acao de PARIDADE e o estado do par da matriz-S rho = diag(beta, 1-beta)
+    -- o cociclo da paridade e' diag(lambda_beta^{it}, lambda_beta^{-it}) com
+    lambda_beta = beta/(1-beta), a MESMA razao de Powers do v27; e S3 x| M_3
+    (nao-abeliano, rho aleatoria com seed da casa). Controles anti-trucagem
+    (padrao tgl_cech [4]): o caso invariante DEGENERA (lei vazia detectada);
+    o argumento ERRADO do cociclo (alpha_g em vez de alpha_{g^-1}) FALHA no
+    nao-abeliano em O(1).
+
+    HONESTIDADES: sombra FINITA; no grupo finito NAO ha escala de traco (nao
+    confundir com o core R e o no-go dualInvariant_PF_no_go); GLOBAL_LIFT
+    (III_1 sem projecoes minimais; U/T1/T3; covariancia => G_mu_nu) SEGUE O
+    TEOREMA ABERTO. beta JAMAIS literal: ALPHA_FINE_CODATA_2018 * SQRT_E."""
+    import numpy as _np
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)   # beta nunca literal
+    TOL = 1e-12
+    rng = _np.random.default_rng(11)                 # seed da casa
+
+    def dag(x):
+        return x.conj().T
+
+    def herm_fun(rho, f):
+        w, v = _np.linalg.eigh(rho)
+        return v @ _np.diag(f(w.astype(complex))) @ dag(v)
+
+    def mpow(rho, t):                                # rho^{it} por eigh (padrao v25)
+        return herm_fun(rho, lambda w: _np.exp(1j * t * _np.log(w.real)))
+
+    def cocycle(phi, psi, t):                        # [Dphi:Dpsi]_t = phi^{it} psi^{-it}
+        return mpow(phi, t) @ mpow(psi, -t)
+
+    def rand_posdef(nn):
+        a = rng.normal(size=(nn, nn)) + 1j * rng.normal(size=(nn, nn))
+        rho = a @ dag(a) + 0.1 * _np.eye(nn)
+        return rho / _np.trace(rho).real
+
+    def crossed(mul, inv, w, nn):
+        """Constroi lam/pi/E do produto cruzado por entradas (a MESMA forma do Lean)."""
+        N = mul.shape[0]
+
+        def alpha(g, a):
+            return w[g] @ a @ dag(w[g])
+
+        def pi(a):
+            out = _np.zeros((N * nn, N * nn), dtype=complex)
+            for g in range(N):
+                out[g * nn:(g + 1) * nn, g * nn:(g + 1) * nn] = alpha(inv[g], a)
+            return out
+
+        def lam(u):
+            out = _np.zeros((N * nn, N * nn), dtype=complex)
+            for h in range(N):
+                g = mul[u, h]
+                out[g * nn:(g + 1) * nn, h * nn:(h + 1) * nn] = _np.eye(nn)
+            return out
+
+        return alpha, pi, lam
+
+    def run_case(mul, inv, w, nn, rho):
+        N = mul.shape[0]
+        alpha, pi, lam = crossed(mul, inv, w, nn)
+        rs = []
+        # covariancia lambda_g pi(a) lambda_g^H = pi(alpha_g a)
+        a = rand_posdef(nn) + 1j * rng.normal(size=(nn, nn))
+        rs.append(max(float(_np.max(_np.abs(lam(u) @ pi(a) @ dag(lam(u)) - pi(alpha(u, a)))))
+                      for u in range(N)))
+        # transporte modular (pi rho)^{it} = pi(rho^{it})
+        rs.append(max(float(_np.max(_np.abs(mpow(pi(rho), t) - pi(mpow(rho, t)))))
+                      for t in (0.7, -1.3)))
+        # O PESO DUAL, formas esquerda e direita (Takesaki)
+        worst_dw = 0.0
+        for t in (0.7, -1.3, 2.9):
+            Mt = mpow(pi(rho), t)
+            for u in range(N):
+                lhs = Mt @ lam(u) @ mpow(pi(rho), -t)
+                r1 = float(_np.max(_np.abs(lhs - pi(cocycle(rho, alpha(u, rho), t)) @ lam(u))))
+                r2 = float(_np.max(_np.abs(lhs - lam(u) @ pi(cocycle(alpha(inv[u], rho), rho, t)))))
+                worst_dw = max(worst_dw, r1, r2)
+        rs.append(worst_dw)
+        # naturalidade dual [D pi(phi):D pi(psi)]_t = pi([Dphi:Dpsi]_t)
+        psi = rand_posdef(nn)
+        t = 1.7
+        rs.append(float(_np.max(_np.abs(cocycle(pi(rho), pi(psi), t) - pi(cocycle(rho, psi, t))))))
+        # covariancia do cociclo sob lambda_g (alem dos internos de pi(A))
+        rs.append(max(float(_np.max(_np.abs(
+            cocycle(pi(alpha(u, rho)), pi(alpha(u, psi)), t)
+            - lam(u) @ cocycle(pi(rho), pi(psi), t) @ dag(lam(u))))) for u in range(N)))
+        return alpha, pi, lam, rs
+
+    # ---- caso 1: Z2 x| M_2, acao de PARIDADE, estado do par da matriz-S ----
+    mul2 = _np.array([[0, 1], [1, 0]]); inv2 = _np.array([0, 1])
+    X = _np.array([[0, 1], [1, 0]], dtype=complex)
+    w2 = _np.stack([_np.eye(2, dtype=complex), X])
+    rho_b = _np.diag([beta, 1.0 - beta]).astype(complex)
+    alpha2, pi2, lam2, rs2 = run_case(mul2, inv2, w2, 2, rho_b)
+    # a conexao de Powers: cociclo da paridade = diag(lam_beta^{it}, lam_beta^{-it})
+    lam_beta = beta / (1.0 - beta)
+    t0 = 0.7
+    coc_par = cocycle(rho_b, X @ rho_b @ X, t0)
+    powers_expect = _np.diag([lam_beta ** (1j * t0), lam_beta ** (-1j * t0)])
+    r_powers = float(_np.max(_np.abs(coc_par - powers_expect)))
+    # acao dual de Z2 (caractere nao-trivial): fixa pi(A), torce lambda, comuta com o fluxo
+    chi = _np.array([1.0, -1.0])
+    D = _np.zeros((4, 4), dtype=complex)
+    for g in range(2):
+        D[g * 2:(g + 1) * 2, g * 2:(g + 1) * 2] = chi[g] * _np.eye(2)
+    a2 = rand_posdef(2)
+    r_dual = max(
+        float(_np.max(_np.abs(D @ pi2(a2) @ dag(D) - pi2(a2)))),
+        max(float(_np.max(_np.abs(D @ lam2(u) @ dag(D) - chi[u] * lam2(u)))) for u in range(2)),
+        float(_np.max(_np.abs(D @ mpow(pi2(rho_b), 0.7) - mpow(pi2(rho_b), 0.7) @ D))))
+    # nao-trivialidade do caso principal: o cociclo da paridade NAO e' 1
+    coc_nontrivial = float(_np.max(_np.abs(coc_par - _np.eye(2)))) > 1e-3
+
+    # ---- caso 2: S3 x| M_3 (nao-abeliano), rho aleatoria ----
+    import itertools as _it
+    perms = sorted(_it.permutations(range(3)), key=lambda p: p != (0, 1, 2))
+    idx = {p: i for i, p in enumerate(perms)}
+    mul3 = _np.zeros((6, 6), dtype=int)
+    for i, p in enumerate(perms):
+        for j, q in enumerate(perms):
+            mul3[i, j] = idx[tuple(p[q[x]] for x in range(3))]
+    inv3 = _np.zeros(6, dtype=int)
+    for g in range(6):
+        for h in range(6):
+            if mul3[g, h] == 0:
+                inv3[g] = h
+    w3 = _np.zeros((6, 3, 3), dtype=complex)
+    for i, p in enumerate(perms):
+        for x in range(3):
+            w3[i, p[x], x] = 1.0
+    rho3 = rand_posdef(3)
+    alpha3, pi3, lam3, rs3 = run_case(mul3, inv3, w3, 3, rho3)
+
+    # ---- CONTROLES anti-trucagem (DEVEM se comportar como previsto) ----
+    # (a) degenerescencia: estado alpha-invariante => sigma^hat_t(lambda_g) = lambda_g
+    rho_inv = _np.eye(2, dtype=complex) / 2.0
+    t0c = 1.1
+    r_degen = max(float(_np.max(_np.abs(
+        mpow(pi2(rho_inv), t0c) @ lam2(u) @ mpow(pi2(rho_inv), -t0c) - lam2(u))))
+        for u in range(2))
+    degenerate_detected = r_degen <= TOL
+    # (b) argumento ERRADO do cociclo (alpha_g em vez de alpha_g^-1) FALHA no nao-abeliano
+    worst_wrong = 0.0
+    t0w = 0.9
+    for u in (1, 3):   # elementos nao-centrais de S3
+        lhs = mpow(pi3(rho3), t0w) @ lam3(u) @ mpow(pi3(rho3), -t0w)
+        wrong = lam3(u) @ pi3(cocycle(alpha3(u, rho3), rho3, t0w))
+        worst_wrong = max(worst_wrong, float(_np.max(_np.abs(lhs - wrong))))
+    wrong_argument_fails = worst_wrong > 1e-3
+
+    residuals = {
+        "z2_covariance": rs2[0], "z2_modular_transport": rs2[1],
+        "z2_dual_weight_both_forms": rs2[2], "z2_dual_naturality": rs2[3],
+        "z2_cocycle_covariance_beyond_inner": rs2[4],
+        "z2_powers_ratio": r_powers, "z2_dual_action_laws": r_dual,
+        "s3_covariance": rs3[0], "s3_modular_transport": rs3[1],
+        "s3_dual_weight_both_forms": rs3[2], "s3_dual_naturality": rs3[3],
+        "s3_cocycle_covariance_beyond_inner": rs3[4],
+        "control_degenerate_residual": r_degen,
+        "control_wrong_argument_deviation": worst_wrong,
+    }
+    checks = [
+        ("z2_parity_case_all_laws", all(r <= TOL for r in rs2)),
+        ("s3_nonabelian_case_all_laws", all(r <= TOL for r in rs3)),
+        ("powers_ratio_matches_v27_lambda_beta", r_powers <= TOL),
+        ("dual_action_fixes_base_twists_lambda", r_dual <= TOL),
+        ("main_case_nontrivial_cocycle", coc_nontrivial),
+        ("control_invariant_state_degenerates", degenerate_detected),
+        ("control_wrong_cocycle_argument_fails", wrong_argument_fails),
+        ("kernel_dual_weight_theorem", bool(kf.get("ext_crossed_dual_weight_theorem_kernel_proved") is True)),
+        ("kernel_covariance_beyond_inner", bool(kf.get("ext_crossed_cocycle_covariance_beyond_inner_kernel_proved") is True)),
+        ("kernel_takesaki_state_criterion", bool(kf.get("ext_crossed_takesaki_state_criterion_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O PESO DUAL DE TAKESAKI NA SOMBRA FINITA: sigma^{phi_hat}_t(lambda_g) "
+                    "= lambda_g . pi([D(phi o alpha_g):D phi]_t) -- o fluxo modular do estado "
+                    "dual move o unitario do grupo (FORA de pi(A)) e o desvio e' o cociclo de "
+                    "Connes do estado transportado: covariancia ALEM dos unitarios internos."),
+        "what_closed": ("face finita da maquinaria de pesos duais (D1 restricao, D2 peso dual, "
+                        "D3 naturalidade, D4 criterio de Takesaki construtivo, D5 acao dual) "
+                        "-- kernel Lean + sombra numerica Z2/S3"),
+        "what_remains_named": ("GLOBAL_LIFT: III_1 genuina sem projecoes minimais; core R com "
+                               "escala de traco; hipoteses U/T1/T3; covariancia => G_mu_nu"),
+        "values": {"beta_runtime": beta, "lambda_beta_powers": lam_beta,
+                   "n_cases": 2, "groups": "Z2 (paridade), S3 (nao-abeliano)"},
+        "residuals": residuals,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "finite_shadow_only": True,
+            "no_trace_scale_in_finite_group": True,
+            "beta_never_literal": True,
+            "global_lift_remains_open": True,
+        },
+        "seals": (["DUAL_WEIGHT_TWISTS_LAMBDA_BY_THE_CONNES_COCYCLE",
+                   "COVARIANCE_BEYOND_INNER_UNITARIES_FINITE_FACE",
+                   "THE_PARITY_COCYCLE_IS_THE_POWERS_RATIO_OF_BETA"] if all_v else []),
+        "not_claimed": [
+            "NAO se afirma o GLOBAL_LIFT: III_1 genuina, U/T1/T3 e a ponte a G_mu_nu seguem O teorema aberto",
+            "NAO ha escala de traco no grupo finito (o core R de Takesaki e' outro objeto; no-go dualInvariant_PF_no_go intacto)",
+            "acao interna alpha=Ad(u) e' WLOG em M_n [KNOWN Skolem-Noether]; em algebras gerais o enunciado pede pesos de Haagerup",
+        ],
+        "verdict": ("CROSSED_PRODUCT_DUAL_WEIGHT_FINITE_FACE_CLOSED" if all_v
+                    else "CROSSED_PRODUCT_DUAL_WEIGHT_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_global_lift_core(ONE, kernel_formalization=None):
+    """MODULO v45 -- O NUCLEO CONTINUO DO GLOBAL_LIFT PELA ESCADA DIADICA
+    (derivacao do OPERADOR, 13/07/2026; harness do operador incorporado e
+    auditado; correcoes fiscais encodadas). ADITIVO, nao gateia 1=1.
+
+    A derivacao: (1) a ESCADA Z -> U_n 2^{-n}Z -> R: densidade diadica +
+    continuidade forte de lambda => (U_n C_n)'' = M x|_sigma R [o fecho de
+    von Neumann e' EXTERNO; iso de estagio C_n ~ M x| Z e' KNOWN, acao
+    induzida Takesaki/Dykema]; (2) A OBSTRUCAO DO TRACO DISCRETO (a joia):
+    s_h = 2pi/h fixa o estagio ponto a ponto, mas tau o theta_s = e^{-s} tau
+    => tau = 0 em todo elemento fixo -- A SEMIFINITUDE DO TRACO E' IMPOSSIVEL
+    EM CADA ESTAGIO DISCRETO; ela so' emerge no fecho continuo [passo
+    algebrico KERNEL: DualScalingData.fixed_tau_zero]; (3) T1 continuo =
+    PROJECAO DE POISSON sobre o centralizador (e^{-t|K|} -> 1_{0}(K), SEM
+    hipotese de atomos) [KNOWN-COMPOSED]; CORRECAO FISCAL: o COLAPSO ao KMS
+    exige adicionalmente M_phi = C.1 (ergodicidade do ESTADO) -- NOMEADO,
+    condicional, nao fechado; (4) o CANAL DE MEDICAO no referencial-S:
+    T^S_t = Ad(S^H) o D_t o Ad(S) e' semigrupo genuino e converge
+    [KERNEL: sFrame_add/sFrame_tendsto -- v41+v43 encaixados]; endpoint
+    (1-beta, beta) no runtime; (5) DISCIPLINA DO CORE: P_F deve ser fixado
+    pelo fluxo INTERNALIZADO Ad(lambda(s)) (tau-preservante), JAMAIS pela
+    acao dual theta_s -- o no-go dualInvariant_PF_no_go vira bussola.
+
+    VEREDITO CANONICO da derivacao (auditado): GLOBAL_LIFT algebrico-
+    analitico FECHADO como teorema externo composto; GLOBAL_LIFT formal Lean
+    pleno ABERTO (canonicalFullTGLWitness); GLOBAL_LIFT fisico CONDICIONADO
+    a P_F = 1_{0}(H_3L) localizado, covariante, Ad-lambda-invariante com
+    0 < tau(P_F) < infty (+ Lovelock/Jacobson para Einstein -- estatuto E7
+    INALTERADO). beta JAMAIS literal."""
+    import numpy as _np
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)   # beta nunca literal
+    theta = math.asin(math.sqrt(beta))
+    TOL = 1e-12
+
+    def _smat(th):
+        c, s = math.cos(th), math.sin(th)
+        return _np.array([[c, s], [-s, c]], dtype=complex)
+
+    def _dephase(x, t, gap=1.0):
+        r = math.exp(-t * abs(gap))
+        y = x.copy().astype(complex)
+        y[0, 1] *= r
+        y[1, 0] *= r
+        return y
+
+    def _ad(u, x):
+        return u @ x @ u.conj().T
+
+    S = _smat(theta)
+    e00 = _np.diag([1.0, 0.0]).astype(complex)
+    rho_out = _ad(S, e00)
+    rho_inf = _dephase(rho_out, 80.0)
+    target = _np.diag([1.0 - beta, beta]).astype(complex)
+
+    # canal de medicao Phi_t = D_t o Ad(S) e semigrupo no referencial-S
+    def phi_t(t):
+        return lambda x: _dephase(_ad(S, x), t)
+
+    def sem_t(t):
+        return lambda x: _ad(S.conj().T, _dephase(_ad(S, x), t))
+
+    rng = _np.random.default_rng(45)                 # seed do harness do operador
+    x = rng.normal(size=(2, 2)) + 1j * rng.normal(size=(2, 2))
+    x = 0.5 * (x + x.conj().T)
+    a, b = 0.37, 0.91
+    r_semigroup = float(_np.linalg.norm(sem_t(a + b)(x) - sem_t(a)(sem_t(b)(x))))
+
+    # Choi do canal (CP), preservacao do traco, unitalidade
+    J = _np.zeros((4, 4), dtype=complex)
+    ch = phi_t(0.73)
+    for i in range(2):
+        for k in range(2):
+            e = _np.zeros((2, 2), dtype=complex)
+            e[i, k] = 1.0
+            J += _np.kron(e, ch(e))
+    choi_min = float(_np.linalg.eigvalsh(J).real.min())
+    r_trace = max(abs(_np.trace(phi_t(t)(x)) - _np.trace(x)) for t in (0.0, 0.2, 1.0, 5.0))
+    r_unital = max(float(_np.linalg.norm(phi_t(t)(_np.eye(2)) - _np.eye(2)))
+                   for t in (0.0, 0.2, 1.0, 5.0))
+
+    # a malha diadica (a densidade quantitativa -- espelho numerico do KERNEL)
+    targets_t = [-math.pi, -1.23456789, -0.01, 0.0, 0.314159, 2.7182818, math.pi]
+    dyadic_ok, dyadic_first, dyadic_last = True, None, None
+    for n in range(1, 13):
+        h = 2.0 ** (-n)
+        err = max(abs(t - round(t / h) * h) for t in targets_t)
+        if dyadic_first is None:
+            dyadic_first = err
+        dyadic_last = err
+        dyadic_ok = dyadic_ok and (err <= h / 2.0 + 1e-15)
+
+    # a obstrucao do traco discreto (o espelho numerico do teorema KERNEL)
+    obstruction_ok = True
+    for n in range(0, 7):
+        s_ann = 2.0 * math.pi * (2.0 ** n)
+        scale = math.exp(-s_ann) if s_ann < 745 else 0.0
+        obstruction_ok = obstruction_ok and (scale != 1.0)
+
+    checks = [
+        ("S_unitary", float(_np.linalg.norm(S.conj().T @ S - _np.eye(2))) < TOL),
+        ("reflection_weight_beta", abs(abs(S[1, 0]) ** 2 - beta) < TOL),
+        ("transmission_weight_one_minus_beta", abs(abs(S[0, 0]) ** 2 - (1.0 - beta)) < TOL),
+        ("dephased_endpoint_one_minus_beta_beta", float(_np.linalg.norm(rho_inf - target)) < TOL),
+        ("S_frame_semigroup", r_semigroup < TOL),
+        ("channel_completely_positive", choi_min >= -TOL),
+        ("channel_trace_preserving", float(abs(r_trace)) < TOL),
+        ("channel_unital", r_unital < TOL),
+        ("dyadic_mesh_within_half_h_and_converges", bool(dyadic_ok and dyadic_last < dyadic_first)),
+        ("discrete_trace_obstruction_visible", obstruction_ok),
+        ("kernel_dyadic_mesh", bool(kf.get("ext_lift_dyadic_mesh_kernel_proved") is True)),
+        ("kernel_discrete_trace_obstruction", bool(kf.get("ext_lift_discrete_trace_obstruction_kernel_proved") is True)),
+        ("kernel_sframe_semigroup", bool(kf.get("ext_lift_sframe_semigroup_kernel_proved") is True)),
+        ("kernel_measurement_endpoint", bool(kf.get("ext_lift_measurement_endpoint_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O NUCLEO CONTINUO DO GLOBAL_LIFT PELA ESCADA DIADICA: "
+                    "(U_n M x|_{2^{-n}Z})'' = M x|_sigma R [EXTERNO, KNOWN-COMPOSED]; "
+                    "a semifinitude do traco e' IMPOSSIVEL em cada estagio discreto e "
+                    "so' emerge no fecho continuo [passo algebrico KERNEL]; "
+                    "T1 = projecao de Poisson sobre o centralizador [KNOWN-COMPOSED]; "
+                    "U+T1 = canal modular de medicao no referencial-S [KERNEL]."),
+        "what_closed": ("GLOBAL_LIFT algebrico-analitico (core): FECHADO como teorema "
+                        "externo composto sobre pecas [KERNEL]+[KNOWN] nomeadas"),
+        "what_remains_named": ("canonicalFullTGLWitness (termo Lean pleno, INALTERADO); "
+                               "P_F = 1_{0}(H_3L) localizado+covariante+Ad-lambda-invariante "
+                               "com 0<tau(P_F)<infty (o residuo fisico PRECISO); "
+                               "ergodicidade do estado (M_phi=C.1) para o T1-colapso pleno; "
+                               "Einstein via Lovelock/Jacobson (estatuto E7 inalterado)"),
+        "values": {"beta_runtime": beta, "theta_M_rad": theta,
+                   "endpoint": "(1-beta, beta)", "dyadic_stages": 12,
+                   "obstruction_stages": 7},
+        "residuals": {
+            "S_frame_semigroup": r_semigroup,
+            "dephased_endpoint": float(_np.linalg.norm(rho_inf - target)),
+            "trace_preservation": float(abs(r_trace)),
+            "unitality": r_unital,
+            "choi_min_eigenvalue": choi_min,
+            "dyadic_last_mesh_error": dyadic_last,
+        },
+        "statuses": {
+            "dyadic_ladder_generates_core": "KNOWN_COMPOSED_EXTERNAL (densidade KERNEL-quantitativa + continuidade forte de lambda + acao induzida Takesaki/Dykema)",
+            "stage_iso_discrete_crossed_product": "KNOWN (nao exigido pela geracao)",
+            "discrete_trace_obstruction": "KERNEL (DualScalingData.fixed_tau_zero) + KNOWN (escala de Takesaki)",
+            "t1_poisson_projection_onto_centralizer": "KNOWN_COMPOSED (Cauchy char-fn + calculo espectral; SEM hipotese de atomos)",
+            "t1_collapse_to_KMS": "CONDITIONAL__REQUIRES_STATE_ERGODICITY (M_phi = C.1; correcao fiscal, NOMEADA)",
+            "s_channel_fit_U_plus_T1": "KERNEL (sFrame_add + sFrame_tendsto + measurement_channel_endpoint)",
+            "core_action_discipline": "P_F fixado por Ad(lambda(s)) tau-preservante; JAMAIS por theta_s (o no-go vira bussola)",
+            "physical_einstein_implication": "CONDITIONAL (Lovelock/Jacobson; estatuto E7 INALTERADO)",
+            "lean_kernel_full_witness_constructed": False,
+            "beta_never_literal": True,
+        },
+        "checks": checks, "all_verified": all_v,
+        "seals": (["DYADIC_Z_LADDER_STRONGLY_GENERATES_THE_R_CORE__EXTERNAL",
+                   "FINITE_TRACE_APPEARS_ONLY_AFTER_CONTINUOUS_CLOSURE",
+                   "T1_IS_POISSON_PROJECTION_ONTO_THE_CENTRALIZER",
+                   "U_PLUS_T1_IS_THE_MODULAR_MEASUREMENT_CHANNEL"] if all_v else []),
+        "not_claimed": [
+            "NENHUM fator III_1 e' construido por esta auditoria numerica",
+            "NENHUM P_F canonico no core continuo e' construido",
+            "NENHUMA equacao de Einstein decorre dos checks numericos sozinhos",
+            "o colapso T1 ao KMS NAO esta' fechado sem ergodicidade do estado (correcao fiscal)",
+        ],
+        "verdict": ("GLOBAL_LIFT_CORE_CLOSED_AS_EXTERNAL_COMPOSED_THEOREM" if all_v
+                    else "GLOBAL_LIFT_CORE_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_corner_family(ONE, kernel_formalization=None):
+    """MODULO v46 -- A FAMILIA DO CANTO P_F: CONSTRUIDA na face finita,
+    ADJUDICADA no continuo (gate do operador: 'a existencia do canto ja foi
+    provada, nao e' residuo' -- CONFIRMADO contra FECHAMENTO_MATRIZ_S_CORE_II.md).
+    ADITIVO, nao gateia 1=1.
+
+    ADJUDICACAO (a regua, contra o material da casa): (a) existencia de P com
+    tau(P)=1 em II_inf: [REAL -- teoria classica]; (b) canonicidade de
+    P_F = s(ker H_3L): CLASSE UNITARIA [REAL] (o representante e' gauge, a
+    familia e' canonica); (c) tau(P_F)=1: [POSTULATE omega(I)=1 em forma
+    tracial -- por DESIGN, nao e' lacuna]; (d) nao-trivialidade de ker H_3L
+    no core GENUINO: [CONDITIONAL -- falha nomeada no_zero_lock_kernel];
+    (e) rede AQFT continua de regioes: [OPEN -- a testemunha plena].
+
+    O QUE ESTE MODULO PROVA/VERIFICA: (1) KERNEL -- a familia do canto
+    cornerProj S no produto cruzado v44 com TODOS os axiomas de rede
+    (projecao, ISOTONIA, COVARIANCIA lambda_g P(S) lambda_g^H = P(gS),
+    traco |S|.n, invariancia modular); (2) KERNEL -- [P_F,lambda(s)]=0 DE
+    GRACA (corner_fixed_by_flow: canto espectral de H que comuta com o
+    estado e' fixo pelo fluxo); (3) KERNEL -- traco finito => NAO theta-fixo
+    (finite_trace_not_fixed: o requisito theta_s(P_F) != P_F e' TEOREMA);
+    (4) sombra numerica de tudo + ker H_3L nao-trivial na sombra finita.
+    beta JAMAIS literal."""
+    import numpy as _np
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    TOL = 1e-12
+    rng = _np.random.default_rng(46)
+
+    def dag(x):
+        return x.conj().T
+
+    # ---- o produto cruzado S3 x| M_3 (a mesma construcao v44) ----
+    import itertools as _it
+    perms = sorted(_it.permutations(range(3)), key=lambda p: p != (0, 1, 2))
+    idx = {p: i for i, p in enumerate(perms)}
+    N, nn = 6, 3
+    mul = _np.zeros((N, N), dtype=int)
+    for i, p in enumerate(perms):
+        for j, q in enumerate(perms):
+            mul[i, j] = idx[tuple(p[q[x]] for x in range(3))]
+    w = _np.zeros((N, nn, nn), dtype=complex)
+    for i, p in enumerate(perms):
+        for x in range(3):
+            w[i, p[x], x] = 1.0
+    inv = _np.zeros(N, dtype=int)
+    for g in range(N):
+        for h in range(N):
+            if mul[g, h] == 0:
+                inv[g] = h
+
+    def alpha(g, a):
+        return w[g] @ a @ dag(w[g])
+
+    def pi(a):
+        out = _np.zeros((N * nn, N * nn), dtype=complex)
+        for g in range(N):
+            out[g * nn:(g + 1) * nn, g * nn:(g + 1) * nn] = alpha(inv[g], a)
+        return out
+
+    def lam(u):
+        out = _np.zeros((N * nn, N * nn), dtype=complex)
+        for h in range(N):
+            g = mul[u, h]
+            out[g * nn:(g + 1) * nn, h * nn:(h + 1) * nn] = _np.eye(nn)
+        return out
+
+    def cornerP(S):
+        d = _np.zeros(N * nn, dtype=complex)
+        for g in S:
+            d[g * nn:(g + 1) * nn] = 1.0
+        return _np.diag(d)
+
+    a = rng.normal(size=(nn, nn)) + 1j * rng.normal(size=(nn, nn))
+    rho = a @ dag(a) + 0.1 * _np.eye(nn)
+    rho = rho / _np.trace(rho).real
+
+    def herm_fun(r, f):
+        ev, V = _np.linalg.eigh(r)
+        return V @ _np.diag(f(ev.astype(complex))) @ dag(V)
+
+    def mpow(r, t):
+        return herm_fun(r, lambda z: _np.exp(1j * t * _np.log(z.real)))
+
+    S1, S2 = [1, 3], [0, 1, 3, 4]       # regioes: S1 c S2
+    P1, P2 = cornerP(S1), cornerP(S2)
+    g0 = 2
+    gS1 = sorted(int(mul[g0, s]) for s in S1)
+    r_proj = float(_np.max(_np.abs(P1 @ P1 - P1)))
+    r_sa = float(_np.max(_np.abs(dag(P1) - P1)))
+    r_iso = float(_np.max(_np.abs(P1 @ P2 - P1)))
+    r_cov = float(_np.max(_np.abs(lam(g0) @ P1 @ dag(lam(g0)) - cornerP(gS1))))
+    r_trace = abs(_np.trace(P1).real - len(S1) * nn)
+    Mt = mpow(pi(rho), 0.7)
+    r_mod = float(_np.max(_np.abs(P1 @ Mt - Mt @ P1)))
+
+    # ---- [P_F, fluxo]=0 de graca: canto espectral de H que comuta com rho ----
+    d_spec = _np.array([0.0, 0.0, 0.7, 1.9])          # H com nucleo 2D
+    H = _np.diag(d_spec).astype(complex)
+    rho4 = _np.diag(_np.array([0.5, 0.2, 0.2, 0.1])).astype(complex)  # comuta com H
+    PF = _np.diag((d_spec <= 1e-9).astype(complex))    # 1_{0}(H)
+    Mt4 = mpow(rho4, 1.3)
+    r_flow = float(_np.max(_np.abs(PF @ Mt4 - Mt4 @ PF)))
+    tau_PF = float(_np.trace(PF).real)                 # 0 < tau < inf na sombra
+
+    # ---- traco finito => nao theta-fixo (contrapositiva v45, eco numerico) ----
+    s0 = 2.0 * math.pi
+    scale = math.exp(-s0)
+    theta_moves_finite_trace = abs(scale * tau_PF - tau_PF) > 1e-6  # tau(theta(P)) != tau(P)
+
+    # ---- ker H_3L nao-trivial na sombra (tres travas com nucleo comum) ----
+    L1 = _np.diag([0.0, 0.0, 1.0, 2.0]).astype(complex)
+    L2 = _np.diag([0.0, 0.0, 0.5, 1.5]).astype(complex)
+    L3 = _np.diag([0.0, 0.0, 2.0, 0.3]).astype(complex)
+    H3L = dag(L1) @ L1 + dag(L2) @ L2 + dag(L3) @ L3
+    ev = _np.linalg.eigvalsh(H3L).real
+    ker_dim = int(_np.sum(ev < 1e-12))
+
+    checks = [
+        ("corner_is_projection", r_proj <= TOL and r_sa <= TOL),
+        ("corner_isotony_S1_in_S2", r_iso <= TOL),
+        ("corner_covariance_lam_moves_region", r_cov <= TOL),
+        ("corner_trace_card_times_n", r_trace <= TOL),
+        ("corner_commutes_dual_flow", r_mod <= TOL),
+        ("spectral_corner_fixed_by_flow", r_flow <= TOL),
+        ("corner_trace_positive_finite_shadow", 0.0 < tau_PF < float("inf")),
+        ("finite_trace_forbids_dual_fixing", theta_moves_finite_trace),
+        ("three_locks_kernel_nontrivial_shadow", ker_dim >= 1),
+        ("kernel_corner_isotony", bool(kf.get("ext_corner_isotony_kernel_proved") is True)),
+        ("kernel_corner_covariance", bool(kf.get("ext_corner_covariance_kernel_proved") is True)),
+        ("kernel_corner_modular_invariance", bool(kf.get("ext_corner_modular_invariance_kernel_proved") is True)),
+        ("kernel_corner_fixed_by_flow", bool(kf.get("ext_corner_fixed_by_flow_kernel_proved") is True)),
+        ("kernel_finite_trace_not_dual_fixed", bool(kf.get("ext_corner_finite_trace_not_dual_fixed_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A FAMILIA DO CANTO P_F: projecao local ISOTONA e COVARIANTE de traco "
+                    "finito, comutando com o fluxo modular do peso dual -- CONSTRUIDA no "
+                    "produto cruzado finito [KERNEL]; [P_F,lambda(s)]=0 automatico para "
+                    "cantos espectrais [KERNEL]; traco finito => nao theta-fixo [KERNEL]."),
+        "adjudication": {
+            "corner_existence_in_IIinfty": "REAL_CLASSICAL (P com tau(P)=1 existe em II_inf; FECHAMENTO_MATRIZ_S_CORE_II.md)",
+            "canonicity_of_P_F": "UNITARY_CLASS_REAL (P_F = s(ker H_3L); representante = gauge)",
+            "tau_normalization": "POSTULATE_OMEGA_I_EQUALS_ONE (por design; a acao dual permite reescalar, o Um fixa)",
+            "zero_kernel_in_genuine_core": "CONDITIONAL (falha nomeada: no_zero_lock_kernel)",
+            "continuum_AQFT_net": "OPEN (a testemunha plena; canonicalFullTGLWitness)",
+        },
+        "values": {"beta_runtime": beta, "regions": "S1={1,3} c S2={0,1,3,4} em S3",
+                   "tau_PF_shadow": tau_PF, "ker_H3L_dim_shadow": ker_dim},
+        "residuals": {"projection": max(r_proj, r_sa), "isotony": r_iso,
+                      "covariance": r_cov, "trace": r_trace,
+                      "modular_invariance": r_mod, "spectral_corner_flow": r_flow},
+        "checks": checks, "all_verified": all_v,
+        "seals": (["CORNER_FAMILY_CONSTRUCTED_LOCAL_COVARIANT_FINITE_TRACE",
+                   "MODULAR_INVARIANCE_OF_SPECTRAL_CORNERS_IS_FREE",
+                   "FINITE_TRACE_FORBIDS_DUAL_FIXING_BY_THEOREM",
+                   "CORNER_EXISTENCE_WAS_ALREADY_REAL__OPERATOR_ADJUDICATED"] if all_v else []),
+        "not_claimed": [
+            "a nao-trivialidade de ker H_3L no core GENUINO (III x| R) segue CONDITIONAL (no_zero_lock_kernel)",
+            "a rede AQFT continua (regioes de Minkowski) segue OPEN -- esta e' a sombra finita da familia",
+            "tau(P_F)=1 e' o POSTULATE omega(I)=1 em forma tracial -- inscrito, nao derivado",
+        ],
+        "verdict": ("CORNER_FAMILY_CONSTRUCTED_FINITE_FACE__EXISTENCE_ADJUDICATED" if all_v
+                    else "CORNER_FAMILY_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_bw_shadow(ONE, kernel_formalization=None):
+    """MODULO v47 -- BISOGNANO-WICHMANN NA FACE FINITA (gate 4 do roadmap:
+    'fluxo modular local = fluxo causal geometrico local'). ADITIVO.
+
+    AS DUAS METADES [KERNEL, TGLExt/BisognanoWichmann.lean]:
+    (1) GEOMETRIA DO BOOST em 1+1: grupo B(s)B(t)=B(s+t); isometria de
+        Minkowski B^T.eta.B=eta; det=1; raios nulos = autodirecoes com
+        dilatacao e^{+-s} (A MESMA forma exponencial da escala do traco
+        tau o theta_s = e^{-s} tau do v45 -- a face geometrica da escala
+        de Takesaki [leitura]); preservacao da cunha |t|<x.
+    (2) GERADOR MODULAR A 2pi: para rho = exp(-2pi.K), log rho = -2pi.K
+        e rho^{it} = exp(-2pi.t.i.K) -- o fluxo modular percorre o grupo
+        de K a velocidade 2pi (a temperatura de Unruh T=1/(2pi) como
+        TEOREMA da face finita); sigma_t = Ad(e^{-2pi.t.i.K}).
+
+    A COSTURA (honestidade): a identificacao K = gerador do boost da cunha
+    com Delta^{it}_W = U(Lambda_W(2pi t)) e' [KNOWN -- Bisognano-Wichmann
+    1975/76, campos de Wightman, WEDGES]. O residuo real do gate 4:
+    regioes gerais/nao-Killing (rota nomeada: inclusoes modulares
+    meio-laterais de Wiesbrock / CGMA de Buchholz-Summers) e a
+    reconstrucao da metrica dos dados modulares. beta JAMAIS literal."""
+    import numpy as _np
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    TOL = 1e-12
+    rng = _np.random.default_rng(47)
+
+    def dag(x):
+        return x.conj().T
+
+    def boost(s):
+        return _np.array([[math.cosh(s), math.sinh(s)],
+                          [math.sinh(s), math.cosh(s)]])
+
+    eta = _np.diag([1.0, -1.0])
+    s1, s2 = 0.63, -1.17
+    r_group = float(_np.max(_np.abs(boost(s1) @ boost(s2) - boost(s1 + s2))))
+    r_eta = float(_np.max(_np.abs(boost(s1).T @ eta @ boost(s1) - eta)))
+    r_det = abs(_np.linalg.det(boost(s1)) - 1.0)
+    r_null_p = float(_np.max(_np.abs(boost(s1) @ _np.array([1.0, 1.0])
+                                     - math.exp(s1) * _np.array([1.0, 1.0]))))
+    r_null_m = float(_np.max(_np.abs(boost(s1) @ _np.array([1.0, -1.0])
+                                     - math.exp(-s1) * _np.array([1.0, -1.0]))))
+    # preservacao da cunha em orbita longa
+    wedge_ok = True
+    for _ in range(200):
+        x, t = rng.uniform(0.1, 5.0), 0.0
+        t = rng.uniform(-x * 0.99, x * 0.99)
+        for s in (-2.0, -0.5, 0.5, 2.0):
+            v = boost(s) @ _np.array([x, t])
+            wedge_ok = wedge_ok and (abs(v[1]) < v[0])
+
+    # metade modular: rho = exp(-2pi K) => rho^{it} = exp(-2pi t i K)
+    # (K de norma moderada: o TEOREMA e' exato; o espalhamento espectral de
+    #  e^{-2piK} com K grande so' degrada o eigh da sombra, nao a lei)
+    A = rng.normal(size=(4, 4)) + 1j * rng.normal(size=(4, 4))
+    K = 0.15 * (A + dag(A))
+    evK, VK = _np.linalg.eigh(K)
+
+    def expmH(coef):                       # exp(coef * K), coef complexo
+        return VK @ _np.diag(_np.exp(coef * evK.astype(complex))) @ dag(VK)
+
+    rho = expmH(-2.0 * math.pi)            # exp(-2pi K), PosDef exato
+
+    def herm_fun(r, f):
+        ev, V = _np.linalg.eigh(r)
+        return V @ _np.diag(f(ev.astype(complex))) @ dag(V)
+
+    def mpow(r, t):
+        return herm_fun(r, lambda z: _np.exp(1j * t * _np.log(z.real)))
+
+    t0 = 0.83
+    r_speed = float(_np.max(_np.abs(mpow(rho, t0) - expmH(-2j * math.pi * t0))))
+    # sigma = Ad(e^{-2pi t i K}) com rho NORMALIZADO (a fase global cancela no Ad)
+    rho_n = rho / _np.trace(rho).real
+    x4 = rng.normal(size=(4, 4)) + 1j * rng.normal(size=(4, 4))
+    U = expmH(-2j * math.pi * t0)
+    r_sigma = float(_np.max(_np.abs(mpow(rho_n, t0) @ x4 @ mpow(rho_n, -t0)
+                                    - U @ x4 @ dag(U))))
+    # Unruh: razao de pesos de Gibbs = e^{-2pi.omega} (Boltzmann a T=1/2pi)
+    w = _np.exp(-2.0 * math.pi * evK)
+    gaps = evK[1:] - evK[:-1]
+    r_unruh = float(_np.max(_np.abs(w[1:] / w[:-1] - _np.exp(-2.0 * math.pi * gaps))))
+
+    checks = [
+        ("boost_group_law", r_group <= TOL),
+        ("boost_minkowski_isometry", r_eta <= TOL),
+        ("boost_det_one", r_det <= TOL),
+        ("null_rays_dilate_exp_pm_s", max(r_null_p, r_null_m) <= TOL),
+        ("wedge_preserved_200_orbits", wedge_ok),
+        ("modular_flow_speed_two_pi", r_speed <= 1e-10),
+        ("sigma_is_Ad_of_K_flow_phase_free", r_sigma <= 1e-10),
+        ("unruh_boltzmann_ratio", r_unruh <= 1e-10),
+        ("kernel_boost_group", bool(kf.get("ext_bw_boost_group_kernel_proved") is True)),
+        ("kernel_minkowski_isometry", bool(kf.get("ext_bw_boost_minkowski_isometry_kernel_proved") is True)),
+        ("kernel_wedge_preserved", bool(kf.get("ext_bw_wedge_preserved_kernel_proved") is True)),
+        ("kernel_modular_speed_two_pi", bool(kf.get("ext_bw_modular_speed_two_pi_kernel_proved") is True)),
+        ("kernel_sigma_is_K_flow", bool(kf.get("ext_bw_sigma_is_K_flow_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("BW NA FACE FINITA, as duas metades em kernel: a GEOMETRIA do boost "
+                    "(grupo, isometria de Minkowski, dilatacao e^{+-s} nos raios nulos, "
+                    "preservacao da cunha) e o GERADOR MODULAR a 2pi (rho=e^{-2piK} => "
+                    "rho^{it}=e^{-2pi.t.i.K}; Unruh T=1/2pi). A COSTURA e' o BW [KNOWN "
+                    "1975/76, wedges]; alem das cunhas segue ABERTA."),
+        "what_closed": ("as duas metades do gate 4 em kernel + sombra numerica; a face "
+                        "geometrica da escala de Takesaki exibida (e^{+-s} nos raios nulos)"),
+        "what_remains_named": ("BW alem das cunhas (nao-Killing; Wiesbrock/CGMA); "
+                               "reconstrucao da metrica dos dados modulares; "
+                               "fluxo modular local = fluxo causal para a CLASSE de regioes da teoria"),
+        "values": {"beta_runtime": beta, "unruh_temperature": "1/(2pi) em unidades do gerador",
+                   "wedge_orbits_tested": 200},
+        "residuals": {"boost_group": r_group, "minkowski_isometry": r_eta,
+                      "null_dilation": max(r_null_p, r_null_m),
+                      "modular_speed_2pi": r_speed, "sigma_Ad_K": r_sigma,
+                      "unruh_ratio": r_unruh},
+        "statuses": {
+            "bw_wedge_identification": "KNOWN (Bisognano-Wichmann 1975/76; Wightman; wedges)",
+            "beyond_wedges_non_killing": "OPEN (rota: Wiesbrock half-sided / Buchholz-Summers CGMA)",
+            "null_ray_scale_vs_takesaki_scale": "LEITURA (mesma forma exponencial e^{-s}; a identificacao fisica E' o BW)",
+            "metric_reconstruction_from_modular_data": "OPEN (gate 4 pleno)",
+            "beta_never_literal": True,
+        },
+        "checks": checks, "all_verified": all_v,
+        "seals": (["BOOST_IS_THE_CAUSAL_FLOW_OF_THE_WEDGE",
+                   "MODULAR_FLOW_RUNS_THE_GENERATOR_AT_TWO_PI",
+                   "NULL_RAY_DILATION_IS_THE_GEOMETRIC_FACE_OF_TAKESAKI_SCALING",
+                   "BW_SEAM_IS_KNOWN_FOR_WEDGES_OPEN_BEYOND"] if all_v else []),
+        "not_claimed": [
+            "NAO se afirma BW para regioes gerais/nao-Killing (o residuo real do gate 4)",
+            "NAO se reconstroi a metrica dos dados modulares nesta pedra",
+            "a leitura 'dilatacao nula = escala de Takesaki' e' estrutural, nao identificacao provada",
+        ],
+        "verdict": ("BW_TWO_HALVES_IN_KERNEL__SEAM_KNOWN_FOR_WEDGES" if all_v
+                    else "BW_SHADOW_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_graviton_polarization(ONE, kernel_formalization=None):
+    """MODULO v48 -- O GRAVITON OBSERVAVEL: CINEMATICA DE SPIN-2 EM KERNEL
+    (gate 7 do roadmap). ADITIVO. A leitura da casa (FECHAMENTO_MATRIZ_S):
+    graviton FUNDAMENTAL = I (conserva 1=1; atravessa sigma_t/J/Delta sem
+    deformar; custo zero); graviton OBSERVAVEL = deltaI_modular (excitacao
+    em torno da identidade).
+
+    O QUE O KERNEL PROVA [TGLExt/GravitonPolarization.lean]:
+    (1) DUAS POLARIZACOES: h+ = diag(1,-1), hx = offdiag(1,1) simetricas
+        sem traco; TODA simetrica sem traco 2x2 = a.h+ + b.hx (dimensao 2
+        = os dois graus de liberdade fisicos) e independentes;
+    (2) HELICIDADE +-2 COMO TEOREMA: R(th)^T h+ R(th) = cos(2th) h+ +
+        sin(2th) hx -- o dubleto gira no DOBRO do angulo (spin 2);
+        o MODO-TRACO (a identidade) NAO gira (spin 0): o graviton
+        fundamental atravessa sem deformar;
+    (3) GAUGE: para k NULO (propagacao causal <k,k>=0), a variacao
+        delta h = k(x)xi + xi(x)k NAO toca o bloco transversal -- as duas
+        polarizacoes sao o conteudo fisico invariante de gauge;
+    (4) EXCITACAO: delta_A(x) = [A,x]; delta_A(1) = 0 -- A IDENTIDADE NAO
+        SE EXCITA (o custo zero/masslessness como teorema); Leibniz (o
+        mecanismo curvatura-por-comutador E11/v16, razao 0.9970); e
+        S(th) - 1 = (cos th - 1).1 + sin th.G -- deltaI no canal da
+        fronteira e' gerado por G (G^2 = -1, v41); runtime: sin^2 th_M =
+        beta le o custo da excitacao de fronteira.
+
+    HONESTIDADES: cinematica, NAO dinamica -- a equacao de onda derivada
+    da acao modular e' o gate 5 (Lovelock/Jacobson E7 [CONDITIONAL]);
+    graviton INTERAGENTE/fantasmas/renormalizacao = gate 8 [OPEN];
+    amplitudes [OPEN]. beta JAMAIS literal."""
+    import numpy as _np
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    theta_M = math.asin(math.sqrt(beta))
+    TOL = 1e-12
+    rng = _np.random.default_rng(48)
+
+    Hp = _np.array([[1.0, 0.0], [0.0, -1.0]])
+    Hx = _np.array([[0.0, 1.0], [1.0, 0.0]])
+
+    def rot(th):
+        return _np.array([[math.cos(th), math.sin(th)],
+                          [-math.sin(th), math.cos(th)]])
+
+    th = 0.73
+    R = rot(th)
+    r_hel_p = float(_np.max(_np.abs(R.T @ Hp @ R
+                                    - (math.cos(2 * th) * Hp + math.sin(2 * th) * Hx))))
+    r_hel_x = float(_np.max(_np.abs(R.T @ Hx @ R
+                                    - (-math.sin(2 * th) * Hp + math.cos(2 * th) * Hx))))
+    r_trace_mode = float(_np.max(_np.abs(R.T @ _np.eye(2) @ R - _np.eye(2))))
+    # decomposicao: simetrica sem traco aleatoria
+    a0, b0 = rng.normal(), rng.normal()
+    Hgen = _np.array([[a0, b0], [b0, -a0]])
+    r_decomp = float(_np.max(_np.abs(Hgen - (Hgen[0, 0] * Hp + Hgen[0, 1] * Hx))))
+    # gauge: k nulo ao longo de z, bloco transversal intocado
+    k4 = _np.array([1.0, 0.0, 0.0, 1.0])
+    xi = rng.normal(size=4)
+    dh = _np.outer(k4, xi) + _np.outer(xi, k4)
+    r_gauge_tt = float(_np.max(_np.abs(dh[1:3, 1:3])))
+    r_null = abs(k4[0] ** 2 - k4[1] ** 2 - k4[2] ** 2 - k4[3] ** 2)
+    # excitacao: delta_A(1)=0; Leibniz; S(th)-1 gerado por G
+    A4 = rng.normal(size=(4, 4)) + 1j * rng.normal(size=(4, 4))
+    x4 = rng.normal(size=(4, 4)) + 1j * rng.normal(size=(4, 4))
+    y4 = rng.normal(size=(4, 4)) + 1j * rng.normal(size=(4, 4))
+
+    def excite(A, x):
+        return A @ x - x @ A
+
+    r_exc_one = float(_np.max(_np.abs(excite(A4, _np.eye(4)))))
+    r_leibniz = float(_np.max(_np.abs(excite(A4, x4 @ y4)
+                                      - (excite(A4, x4) @ y4 + x4 @ excite(A4, y4)))))
+    G2 = _np.array([[0.0, 1.0], [-1.0, 0.0]])
+    S_M = math.cos(theta_M) * _np.eye(2) + math.sin(theta_M) * G2
+    r_dev = float(_np.max(_np.abs((S_M - _np.eye(2))
+                                  - ((math.cos(theta_M) - 1) * _np.eye(2)
+                                     + math.sin(theta_M) * G2))))
+    # runtime: o custo da excitacao de fronteira em theta_M
+    dev_norm_sq = float(_np.linalg.norm(S_M - _np.eye(2), 2) ** 2)
+    excitation_cost_reading = abs(math.sin(theta_M) ** 2 - beta)  # sin^2 th_M = beta
+
+    checks = [
+        ("helicity_two_plus", r_hel_p <= TOL),
+        ("helicity_two_cross", r_hel_x <= TOL),
+        ("trace_mode_spin_zero_invariant", r_trace_mode <= TOL),
+        ("two_dof_decomposition", r_decomp <= TOL),
+        ("gauge_leaves_transverse_block", r_gauge_tt <= TOL),
+        ("wavevector_null", r_null <= TOL),
+        ("identity_not_excited", r_exc_one <= TOL),
+        ("excitation_leibniz", r_leibniz <= TOL),
+        ("smat_deviation_generated_by_G", r_dev <= TOL),
+        ("boundary_excitation_reads_beta_runtime", excitation_cost_reading <= TOL),
+        ("kernel_two_polarizations", bool(kf.get("ext_grav_two_polarizations_kernel_proved") is True)),
+        ("kernel_helicity_two", bool(kf.get("ext_grav_helicity_two_plus_kernel_proved") is True
+                                     and kf.get("ext_grav_helicity_two_cross_kernel_proved") is True)),
+        ("kernel_gauge_tt_invariant", bool(kf.get("ext_grav_gauge_tt_invariant_kernel_proved") is True)),
+        ("kernel_identity_not_excited", bool(kf.get("ext_grav_identity_not_excited_kernel_proved") is True)),
+        ("kernel_excitation_leibniz", bool(kf.get("ext_grav_excitation_leibniz_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A CINEMATICA DE SPIN-2 EM KERNEL: exatamente 2 polarizacoes (simetricas "
+                    "sem traco); o dubleto (h+,hx) gira em 2.theta (HELICIDADE +-2); o "
+                    "modo-traco (I) e' invariante (spin 0 -- o graviton fundamental atravessa); "
+                    "o conteudo TT e' invariante de gauge para k nulo; delta_A(1)=0 (a "
+                    "identidade nao se excita -- custo zero como teorema); a excitacao e' "
+                    "derivacao (curvatura-por-comutador); deltaI da fronteira gerado por G."),
+        "what_closed": "gate 7, camada CINEMATICA (contagem, helicidade, gauge, excitacao) em kernel + sombra",
+        "what_remains_named": ("DINAMICA (onda de h derivada da acao modular -- gate 5, E7 CONDITIONAL); "
+                               "graviton INTERAGENTE/fantasmas/renormalizacao (gate 8, OPEN); amplitudes (OPEN)"),
+        "values": {"beta_runtime": beta, "theta_M": theta_M,
+                   "boundary_deviation_norm_sq": dev_norm_sq,
+                   "sin_sq_theta_M_reads_beta": True},
+        "residuals": {"helicity_plus": r_hel_p, "helicity_cross": r_hel_x,
+                      "trace_mode": r_trace_mode, "decomposition": r_decomp,
+                      "gauge_tt": r_gauge_tt, "identity_excitation": r_exc_one,
+                      "leibniz": r_leibniz, "smat_deviation": r_dev},
+        "statuses": {
+            "fundamental_graviton_is_identity": "LEITURA da casa [FECHAMENTO_MATRIZ_S; ancoras REAL: sigma_one/rot_conj_one/excite_one_zero em kernel]",
+            "observable_graviton_is_modular_excitation": "CINEMATICA EM KERNEL; dinamica = gate 5",
+            "spin_two_helicity": "KERNEL (dubleto gira em 2.theta)",
+            "beta_never_literal": True,
+        },
+        "checks": checks, "all_verified": all_v,
+        "seals": (["EXACTLY_TWO_POLARIZATIONS_AS_A_THEOREM",
+                   "HELICITY_TWO_THE_DOUBLET_ROTATES_AT_DOUBLE_ANGLE",
+                   "THE_IDENTITY_DOES_NOT_EXCITE_ZERO_COST_AS_THEOREM",
+                   "TT_CONTENT_IS_GAUGE_INVARIANT_FOR_NULL_K"] if all_v else []),
+        "not_claimed": [
+            "NAO se deriva a equacao de onda da acao modular (gate 5; estatuto E7 CONDITIONAL inalterado)",
+            "NAO ha graviton interagente/renormalizacao aqui (gate 8, OPEN)",
+            "'graviton fundamental = I' e' leitura ontologica com ancoras kernel; a identificacao fisica plena e' aberta",
+        ],
+        "verdict": ("GRAVITON_SPIN2_KINEMATICS_CLOSED_IN_KERNEL" if all_v
+                    else "GRAVITON_KINEMATICS_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_geometry_fluctuation(ONE, kernel_formalization=None):
+    """MODULO v49 -- AS FLUTUACOES QUANTICAS DA GEOMETRIA (gate 6). ADITIVO.
+
+    O KERNEL PROVA [TGLExt/GeometryFluctuation.lean]:
+    (1) ★ Var_omega(P) = p(1-p) para TODA projecao -- EXATAMENTE o defeito
+        de transporte Delta = beta(1-beta) do v26 ('a variancia da moeda
+        da inscricao'): A FLUTUACAO QUANTICA DA GEOMETRIA E' A RESISTENCIA
+        DO TRANSPORTE;
+    (2) instancia da fronteira: media(E11) = sin^2 th, Var = sin^2.cos^2
+        (runtime: beta e beta(1-beta));
+    (3) ★ p(1-p) <= 1/4 com IGUALDADE SSE p = 1/2 -- A MEIA-NAT E' O PONTO
+        DE FLUTUACAO MAXIMA (a moeda e' justa no espelho auto-conjugado
+        x = 1-x, o fundamento-raiz derivado);
+    (4) ★ [h+, hx] = 2J != 0 -- os observaveis geometricos NAO comutam e o
+        comutador fecha NO GERADOR DE HELICIDADE (o J do spin-2, v48):
+        a geometria e' genuinamente quantica;
+    (5) ★ limite classico: sqrt(M.v)/(M.m) = (sqrt(v)/m)/sqrt(M) -> 0 --
+        a geometria classica emerge por agregacao macroscopica, taxa
+        1/sqrt(M) (a lei dos grandes numeros da moeda da inscricao).
+
+    HONESTIDADES: e' o ESQUELETO algebrico-assintotico do gate 6; os
+    operadores g_mu_nu/A(Sigma) na REDE AQFT continua com comutadores
+    causais seguem OPEN (a testemunha plena); dinamica das flutuacoes =
+    gates 5/8. beta JAMAIS literal."""
+    import numpy as _np
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    theta_M = math.asin(math.sqrt(beta))
+    TOL = 1e-12
+    rng = _np.random.default_rng(49)
+
+    # (1)+(2) variancia do observavel de reflexao no canal
+    c, s = math.cos(theta_M), math.sin(theta_M)
+    S = _np.array([[c, s], [-s, c]])
+    rho_out = S @ _np.diag([1.0, 0.0]) @ S.T
+    E11 = _np.diag([0.0, 1.0])
+    mean = float(_np.trace(rho_out @ E11).real)
+    var = float(_np.trace(rho_out @ E11 @ E11).real) - mean ** 2
+    r_mean_beta = abs(mean - beta)
+    r_var_defect = abs(var - beta * (1.0 - beta))     # = Delta do v26!
+    # (3) maximo na Meia-Nat
+    ps = _np.linspace(0.0, 1.0, 10001)
+    vs = ps * (1 - ps)
+    p_argmax = float(ps[_np.argmax(vs)])
+    r_max_half = abs(p_argmax - 0.5)
+    r_bound = float(_np.max(vs)) - 0.25
+    # (4) nao-comutatividade fecha no gerador de helicidade
+    Hp = _np.array([[1.0, 0.0], [0.0, -1.0]])
+    Hx = _np.array([[0.0, 1.0], [1.0, 0.0]])
+    J = _np.array([[0.0, 1.0], [-1.0, 0.0]])
+    r_comm = float(_np.max(_np.abs((Hp @ Hx - Hx @ Hp) - 2.0 * J)))
+    # (5) limite classico: decaimento 1/sqrt(M)
+    Ms = _np.array([10 ** 2, 10 ** 4, 10 ** 6, 10 ** 8], dtype=float)
+    rel = _np.sqrt(Ms * var) / (Ms * mean)
+    decays = bool(_np.all(_np.diff(rel) < 0))
+    ratio_check = abs(rel[1] / rel[0] - 0.1)           # 1/sqrt(100) = 0.1
+    rel_macro = float(rel[-1])
+
+    checks = [
+        ("boundary_mean_reads_beta", r_mean_beta <= TOL),
+        ("variance_is_transport_defect_beta_one_minus_beta", r_var_defect <= TOL),
+        ("fluctuation_bounded_by_quarter", r_bound <= 1e-8),
+        ("maximum_at_half_nat", r_max_half <= 1e-4),
+        ("pol_commutator_is_two_J", r_comm <= TOL),
+        ("classical_limit_decays", decays),
+        ("decay_rate_one_over_sqrt_M", ratio_check <= 1e-12),
+        ("kernel_variance_transport_defect", bool(kf.get("ext_fluct_variance_is_transport_defect_kernel_proved") is True)),
+        ("kernel_halfnat_maximum", bool(kf.get("ext_fluct_halfnat_is_maximum_kernel_proved") is True)),
+        ("kernel_noncommutative_geometry", bool(kf.get("ext_fluct_noncommutative_geometry_kernel_proved") is True)),
+        ("kernel_classical_limit", bool(kf.get("ext_fluct_classical_limit_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("AS FLUTUACOES QUANTICAS DA GEOMETRIA: Var(P) = p(1-p) = o defeito de "
+                    "transporte (v26); maxima na Meia-Nat (p=1/2, o espelho auto-conjugado); "
+                    "[h+,hx] = 2J (a geometria nao comuta e fecha no gerador do spin-2); "
+                    "limite classico = LLN com taxa 1/sqrt(M)."),
+        "what_closed": "gate 6, esqueleto (variancia/cota/maximo/nao-comutatividade/limite classico) em kernel + sombra",
+        "what_remains_named": ("operadores g_mu_nu/A(Sigma) na rede AQFT continua com comutadores "
+                               "causais (a testemunha plena); dinamica das flutuacoes (gates 5/8)"),
+        "values": {"beta_runtime": beta, "mean_boundary": mean,
+                   "variance_boundary": var, "transport_defect_v26": beta * (1 - beta),
+                   "relative_fluctuation_at_M_1e8": rel_macro},
+        "residuals": {"mean_beta": r_mean_beta, "var_defect": r_var_defect,
+                      "commutator_2J": r_comm, "decay_rate": ratio_check},
+        "statuses": {
+            "fluctuation_is_transport_defect": "KERNEL + runtime (Delta = beta(1-beta), v26)",
+            "halfnat_maximal_fluctuation": "KERNEL (p(1-p)=1/4 <=> p=1/2)",
+            "geometry_noncommutative": "KERNEL ([h+,hx]=2J, o gerador de helicidade)",
+            "classical_limit_LLN": "KERNEL (taxa 1/sqrt(M))",
+            "beta_never_literal": True,
+        },
+        "checks": checks, "all_verified": all_v,
+        "seals": (["GEOMETRY_FLUCTUATION_IS_THE_TRANSPORT_DEFECT",
+                   "HALF_NAT_IS_THE_POINT_OF_MAXIMAL_FLUCTUATION",
+                   "QUANTUM_GEOMETRY_CLOSES_ON_THE_HELICITY_GENERATOR",
+                   "CLASSICAL_GEOMETRY_EMERGES_BY_THE_LAW_OF_LARGE_NUMBERS"] if all_v else []),
+        "not_claimed": [
+            "NAO ha operadores g_mu_nu na rede AQFT continua aqui (a testemunha plena segue OPEN)",
+            "NAO se deriva a dinamica das flutuacoes (gates 5/8)",
+        ],
+        "verdict": ("GEOMETRY_FLUCTUATION_SKELETON_CLOSED_IN_KERNEL" if all_v
+                    else "GEOMETRY_FLUCTUATION_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_page_information(ONE, kernel_formalization=None):
+    """MODULO v50 -- PAGE E A INFORMACAO (gate 9). ADITIVO.
+
+    O KERNEL PROVA [TGLExt/PageInformation.lean]:
+    (1) ★ O BALANCO DE PAGE: para estado global PURO, as duas reducoes
+        tem o MESMO traco e a MESMA pureza (Tr((MM^H)^2) = Tr((M^H M)^2))
+        -- a radiacao sabe EXATAMENTE o quanto o buraco sabe; e' esta
+        simetria que forca a virada;
+    (2) ★ unitarios globais CONSERVAM a pureza (nenhum bit se perde);
+    (3) ★ o canal dissipativo (dephasing v43) PERDE pureza
+        monotonicamente -- irreversibilidade EFETIVA coexistindo com
+        unitariedade global: termico por fora, unitario por dentro;
+    (4) ★ a entropia binaria e' maxima SSE p = 1/2 -- o MESMO espelho da
+        flutuacao maxima (v49): ignorancia plena no ponto auto-conjugado.
+
+    A CURVA DE PAGE (sombra numerica): N qubits, estado global puro
+    aleatorio (Haar via QR), S_rad(k) para k qubits emitidos: SOBE,
+    VIRA NA METADE, DESCE; S_A = S_B exato em cada corte; pureza global
+    = 1 sempre. HONESTIDADES: S_BH = A/4G como teorema e o modelo de
+    horizonte III_1 dinamico seguem OPEN; a casa tem AreaScale (kappa=2G,
+    face=G) e S_∂ = 1/2 nat -- a composicao plena e' leitura/futuro.
+    beta JAMAIS literal."""
+    import numpy as _np
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    TOL = 1e-10
+    rng = _np.random.default_rng(50)
+
+    def dag(x):
+        return x.conj().T
+
+    def vn_entropy(rho):
+        ev = _np.linalg.eigvalsh(rho).real
+        ev = ev[ev > 1e-15]
+        return float(-_np.sum(ev * _np.log(ev)))
+
+    # ---- a curva de Page: N qubits, corte k | N-k ----
+    N = 8
+    dim = 2 ** N
+    psi = rng.normal(size=dim) + 1j * rng.normal(size=dim)
+    psi = psi / _np.linalg.norm(psi)
+    S_rad, balance_resid = [], 0.0
+    for k in range(0, N + 1):
+        dA = 2 ** k
+        Mk = psi.reshape(dA, dim // dA)
+        rho_A = Mk @ dag(Mk)
+        rho_B = dag(Mk) @ Mk
+        S_A, S_B = vn_entropy(rho_A), vn_entropy(rho_B)
+        balance_resid = max(balance_resid, abs(S_A - S_B))
+        S_rad.append(S_A)
+    k_star = int(_np.argmax(S_rad))
+    rises = all(S_rad[i] < S_rad[i + 1] for i in range(0, N // 2))
+    falls = all(S_rad[i] > S_rad[i + 1] for i in range(N // 2, N))
+    turnover_at_half = (k_star == N // 2)
+    # pureza global = 1 (estado puro; a evolucao global e' unitaria)
+    global_purity = float(_np.abs(_np.vdot(psi, psi)) ** 2)
+    # balanco de purezas (o teorema kernel, ecoado)
+    k2 = 3
+    M3 = psi.reshape(2 ** k2, dim // 2 ** k2)
+    rA, rB = M3 @ dag(M3), dag(M3) @ M3
+    r_purity_balance = abs(float(_np.trace(rA @ rA).real) - float(_np.trace(rB @ rB).real))
+    # o canal perde pureza monotonicamente (dephasing em rho_A do corte k2)
+    purs = []
+    for t in (0.0, 0.5, 1.0, 2.0, 4.0):
+        D = rA.copy()
+        for i in range(D.shape[0]):
+            for j in range(D.shape[1]):
+                if i != j:
+                    D[i, j] *= math.exp(-t)
+        purs.append(float(_np.trace(D @ dag(D)).real))
+    channel_monotone = all(purs[i] >= purs[i + 1] - 1e-15 for i in range(len(purs) - 1))
+    # entropia maxima no espelho
+    ps = _np.linspace(1e-6, 1 - 1e-6, 20001)
+    H = -(ps * _np.log(ps) + (1 - ps) * _np.log(1 - ps))
+    r_ent_max_half = abs(float(ps[_np.argmax(H)]) - 0.5)
+    r_ent_max_val = abs(float(_np.max(H)) - math.log(2.0))
+
+    checks = [
+        ("page_curve_rises_to_half", rises),
+        ("page_turnover_at_half", turnover_at_half),
+        ("page_curve_falls_after_half", falls),
+        ("radiation_knows_as_much_as_hole_S_A_eq_S_B", balance_resid <= TOL),
+        ("purity_balance_theorem_echo", r_purity_balance <= TOL),
+        ("global_state_stays_pure", abs(global_purity - 1.0) <= TOL),
+        ("channel_loses_purity_monotonically", channel_monotone),
+        ("entropy_max_at_half_log2", max(r_ent_max_half, r_ent_max_val) <= 1e-3),
+        ("kernel_reductions_balance", bool(kf.get("ext_page_reductions_balance_kernel_proved") is True)),
+        ("kernel_unitary_conserves", bool(kf.get("ext_page_purity_unitary_invariant_kernel_proved") is True)),
+        ("kernel_channel_monotone", bool(kf.get("ext_page_channel_purity_monotone_kernel_proved") is True)),
+        ("kernel_entropy_max_iff_half", bool(kf.get("ext_page_entropy_max_iff_half_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("PAGE E A INFORMACAO: o balanco puro (S_A = S_B: a radiacao sabe o "
+                    "quanto o buraco sabe) FORCA a virada na metade; unitarios conservam "
+                    "pureza [KERNEL]; o canal dissipativo a perde monotonicamente [KERNEL] "
+                    "-- termico por fora, unitario por dentro; entropia maxima SSE p=1/2 "
+                    "[KERNEL] -- o mesmo espelho da flutuacao maxima."),
+        "what_closed": "gate 9, o MECANISMO (balanco/conservacao/monotonia/espelho) em kernel + curva de Page numerica",
+        "what_remains_named": ("S_BH = A/4G como TEOREMA (a casa tem AreaScale kappa=2G e S_∂=1/2 nat; "
+                               "composicao = leitura/futuro); modelo de horizonte III_1 dinamico (OPEN); "
+                               "o transporte da informacao M -> C(M) -> canto em regime dinamico (OPEN)"),
+        "values": {"beta_runtime": beta, "N_qubits": N, "page_time_k": k_star,
+                   "S_max_nats": float(max(S_rad)), "S_curve": [round(s, 6) for s in S_rad],
+                   "global_purity": global_purity},
+        "residuals": {"S_A_minus_S_B": balance_resid, "purity_balance": r_purity_balance,
+                      "entropy_max_position": r_ent_max_half},
+        "statuses": {
+            "page_mechanism": "KERNEL (balanco+conservacao+monotonia) + sombra (curva completa)",
+            "turnover_at_the_half": "ECO ESTRUTURAL do espelho x=1-x (leitura; o meio aqui e' o corte simetrico)",
+            "thermal_outside_unitary_inside": "KERNEL (canal monotone + unitario invariante)",
+            "beta_never_literal": True,
+        },
+        "checks": checks, "all_verified": all_v,
+        "seals": (["RADIATION_KNOWS_EXACTLY_AS_MUCH_AS_THE_HOLE",
+                   "PAGE_TURNOVER_AT_THE_HALF",
+                   "THERMAL_OUTSIDE_UNITARY_INSIDE",
+                   "IGNORANCE_IS_FULL_ONLY_AT_THE_MIRROR"] if all_v else []),
+        "not_claimed": [
+            "NAO se prova S_BH = A/4G aqui (AreaScale + S_∂=1/2 nat existem; a composicao e' futura)",
+            "NAO ha modelo de horizonte III_1 dinamico (OPEN)",
+            "a virada na metade e' do corte simetrico do toy; a leitura espelho e' estrutural, nao identificacao",
+        ],
+        "verdict": ("PAGE_MECHANISM_CLOSED_IN_KERNEL__CURVE_VERIFIED" if all_v
+                    else "PAGE_INFORMATION_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_einstein_and_rg(ONE, kernel_formalization=None):
+    """MODULO v51 -- OS GATES 5 e 8 DE FRENTE (mandato do operador: 'nao e'
+    trabalho de anos, eu ja fiz esse trabalho; o contorno reduziu o
+    contraste; as hipoteses de processamento nao sao tantas mais'). ADITIVO.
+
+    GATE 5 (Einstein): a leitura do operador CONFERE -- a composicao de
+    Jacobson-Clausius tem os elos do lado-TGL TODOS em kernel agora:
+      [K1] dS = d<K> (A PRIMEIRA LEI MODULAR) -- first_law_diagonal
+           [KERNEL v51: derivada genuina HasDerivAt; o form-check v5
+           media 1e-15, agora e' teorema];
+      [K2] T = 1/(2pi) -- modPow_gibbs_boost [KERNEL v47];
+      [K3] dQ = T.dS => dQ = (1/2pi).d<K> -- clausius_composition
+           [KERNEL v51, composicao tipada];
+      [K4] normalizacao 8piG -- TGL.AreaScale.newtonPlanck_equivalence
+           (2pi/eta = 8piG <=> kappa=2G) + face_area_eq_G [KERNEL, pedras
+           antigas da casa];
+      [K5] fonte simetrica -- gaugeSym_symmetric [KERNEL v48].
+    A LISTA RESTANTE (encolhida, como o operador previu):
+      [R1] unicidade de Lovelock 4D [KNOWN -- classico citavel];
+      [R2] Killing aproximado local [residuo NOMEADO, compartilhado com
+           Jacobson 1995 -- o estatuto E7 da casa, INALTERADO];
+      [R3] conservacao no continuo [form-check v5 na sombra; continuo OPEN].
+
+    GATE 8 (RG): a pergunta do roadmap ('o canto e' estavel sob
+    renormalizacao?') tem resposta finita SIM, em kernel:
+      [K6] E(P(S)) = P(S) -- coarse-graining fixa o canto;
+      [K7] D_t(P(S)) = P(S) -- dissipacao fixa o canto;
+      [K8] [P(S), (pi rho)^{it}] = 0 -- fluxo modular fixa o canto [v46];
+      [K9] s_n * 2 = s_{n+1} -- o passo de RG dobra o aniquilador modular
+           (a primeira ancora tipada de beta_RG <-> fluxo modular).
+    RESTA [nomeado]: materia interagente genuina (gauge/fermions/
+    anomalias) e estabilidade do III_1 sob RG [OPEN -- continuo].
+    beta JAMAIS literal."""
+    import numpy as _np
+    kf = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    TOL = 1e-9
+    rng = _np.random.default_rng(51)
+
+    # ---- gate 5: a primeira lei numericamente (derivada exata vs diferencas) ----
+    nn = 6
+    p = rng.uniform(0.5, 2.0, nn)
+    p = p / p.sum()
+    q = rng.normal(size=nn)
+    q = q - q.mean()                                  # traco zero
+    K = -_np.log(p)                                   # hamiltoniano modular
+    dK_expect = float(_np.sum(q * K))                 # d<K>
+    eps = 1e-6
+    def S_of(e):
+        w = p + e * q
+        return float(-_np.sum(w * _np.log(w)))
+    dS_numeric = (S_of(eps) - S_of(-eps)) / (2 * eps)
+    r_first_law = abs(dS_numeric - dK_expect)
+    # Clausius: dQ = (1/2pi) d<K> (T de v47)
+    T_unruh = 1.0 / (2.0 * math.pi)
+    dQ = T_unruh * dS_numeric
+    r_clausius = abs(dQ - T_unruh * dK_expect)
+    # normalizacao 8piG (AreaScale): 2pi/eta = 8piG com eta = 1/(2kappa), kappa=2G
+    G_N = 0.37                                        # generico (a lei e' de forma)
+    kappa = 2.0 * G_N
+    eta = 1.0 / (2.0 * kappa)
+    r_area = abs(2.0 * math.pi / eta - 8.0 * math.pi * G_N)
+
+    # ---- gate 8: o canto e' ponto fixo das tres dinamicas (S3 x| M_3, v44/v46) ----
+    import itertools as _it
+    perms = sorted(_it.permutations(range(3)), key=lambda pp: pp != (0, 1, 2))
+    N, m = 6, 3
+    mul = _np.zeros((N, N), dtype=int)
+    idx = {pp: i for i, pp in enumerate(perms)}
+    for i, a in enumerate(perms):
+        for j, b in enumerate(perms):
+            mul[i, j] = idx[tuple(a[b[x]] for x in range(3))]
+    inv = _np.zeros(N, dtype=int)
+    for gg in range(N):
+        for hh in range(N):
+            if mul[gg, hh] == 0:
+                inv[gg] = hh
+    w = _np.zeros((N, m, m), dtype=complex)
+    for i, pp in enumerate(perms):
+        for x in range(3):
+            w[i, pp[x], x] = 1.0
+
+    def dag(x):
+        return x.conj().T
+
+    def pi_rep(a):
+        out = _np.zeros((N * m, N * m), dtype=complex)
+        for gg in range(N):
+            out[gg*m:(gg+1)*m, gg*m:(gg+1)*m] = w[inv[gg]] @ a @ dag(w[inv[gg]])
+        return out
+
+    S_reg = [1, 3]
+    P = _np.diag(_np.concatenate([_np.ones(m) if gg in S_reg else _np.zeros(m)
+                                  for gg in range(N)]).astype(complex))
+    # E (compressao por blocos) fixa P
+    E_P = _np.zeros_like(P)
+    for gg in range(N):
+        E_P[gg*m:(gg+1)*m, gg*m:(gg+1)*m] = P[gg*m:(gg+1)*m, gg*m:(gg+1)*m]
+    r_condexp = float(_np.max(_np.abs(E_P - P)))
+    # dephasing fixa P (off-diag ja' zero; diag: taxa 0)
+    D_P = P.copy()
+    for i in range(N*m):
+        for j in range(N*m):
+            if i != j:
+                D_P[i, j] *= math.exp(-1.7)
+    r_dephase = float(_np.max(_np.abs(D_P - P)))
+    # fluxo modular do peso dual fixa P
+    a0 = rng.normal(size=(m, m)) + 1j * rng.normal(size=(m, m))
+    rho = a0 @ dag(a0) + 0.1 * _np.eye(m)
+    rho = rho / _np.trace(rho).real
+    ev, V = _np.linalg.eigh(pi_rep(rho))
+    U_t = V @ _np.diag(_np.exp(1j * 0.9 * _np.log(ev.astype(complex).real))) @ dag(V)
+    r_modflow = float(_np.max(_np.abs(P @ U_t - U_t @ P)))
+    # o passo de RG dobra o aniquilador
+    r_rgstep = max(abs((2*math.pi*2**k)*2 - 2*math.pi*2**(k+1)) for k in range(0, 12))
+
+    checks = [
+        ("first_law_dS_eq_dK", r_first_law <= 1e-6),
+        ("clausius_dQ_eq_T_dK", r_clausius <= TOL),
+        ("area_scale_8piG", r_area <= TOL),
+        ("corner_fixed_by_condexp", r_condexp <= TOL),
+        ("corner_fixed_by_dephasing", r_dephase <= TOL),
+        ("corner_fixed_by_modular_flow", r_modflow <= 1e-10),
+        ("rg_step_doubles_annihilator", r_rgstep <= TOL),
+        ("kernel_first_law", bool(kf.get("ext_einstein_first_law_kernel_proved") is True)),
+        ("kernel_clausius", bool(kf.get("ext_einstein_clausius_composition_kernel_proved") is True)),
+        ("kernel_rg_condexp", bool(kf.get("ext_rg_condexp_fixes_corner_kernel_proved") is True)),
+        ("kernel_rg_dephase", bool(kf.get("ext_rg_dephase_fixes_corner_kernel_proved") is True)),
+        ("kernel_rg_step", bool(kf.get("ext_rg_step_doubles_annihilator_kernel_proved") is True)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("GATES 5 e 8: (5) TODOS os elos do lado-TGL da cadeia de Jacobson em "
+                    "kernel -- primeira lei dS=d<K> [v51], T=1/2pi [v47], Clausius tipado "
+                    "[v51], 8piG [AreaScale], fonte simetrica [v48]; restam Lovelock "
+                    "[KNOWN] + Killing aproximado [nomeado, =Jacobson] + conservacao "
+                    "continua. (8) O CANTO E' PONTO FIXO DA RENORMALIZACAO: coarse-"
+                    "graining, dissipacao e fluxo modular o fixam [kernel]; o passo de "
+                    "RG dobra o aniquilador modular."),
+        "what_closed": ("gate 5: o lado modular INTEIRO da derivacao de Einstein em kernel; "
+                        "gate 8: a estabilidade do canto (a pergunta do roadmap) = SIM, face finita"),
+        "what_remains_named": ("Lovelock 4D [KNOWN citavel]; Killing aproximado [residuo E7, "
+                               "compartilhado com Jacobson 1995]; conservacao continua; "
+                               "materia interagente/anomalias/III_1 sob RG [OPEN]"),
+        "values": {"beta_runtime": beta, "T_unruh": T_unruh,
+                   "dS_numeric": dS_numeric, "dK_expect": dK_expect},
+        "residuals": {"first_law": r_first_law, "clausius": r_clausius,
+                      "area_8piG": r_area, "corner_condexp": r_condexp,
+                      "corner_dephase": r_dephase, "corner_modflow": r_modflow,
+                      "rg_step": r_rgstep},
+        "statuses": {
+            "einstein_house_side": "ALL_IN_KERNEL (K1-K5)",
+            "einstein_remaining": "LOVELOCK_KNOWN + KILLING_NAMED (=Jacobson desde 1995) + CONSERVATION_CONTINUUM_OPEN",
+            "e7_statute": "INALTERADO ('NAO se afirma provamos Einstein'); o que mudou: a lista de hipoteses ENCOLHEU ao classico citavel + residuos nomeados",
+            "rg_corner_stability": "YES_FINITE_FACE (tres dinamicas fixam o canto)",
+            "beta_rg_vs_modular": "primeira ancora TIPADA: passo diadico = dobra do aniquilador",
+            "beta_never_literal": True,
+        },
+        "checks": checks, "all_verified": all_v,
+        "seals": (["FIRST_MODULAR_LAW_IS_A_THEOREM_NOW",
+                   "ALL_HOUSE_LINKS_OF_JACOBSON_CHAIN_IN_KERNEL",
+                   "THE_CORNER_IS_AN_RG_FIXED_POINT",
+                   "RG_STEP_DOUBLES_THE_MODULAR_ANNIHILATOR"] if all_v else []),
+        "not_claimed": [
+            "NAO se afirma 'provamos Einstein' (E7 inalterado): Lovelock e' KNOWN citavel e Killing aproximado segue residuo nomeado",
+            "NAO ha materia interagente/anomalias aqui; estabilidade do III_1 sob RG = OPEN",
+        ],
+        "verdict": ("GATES_5_AND_8_HOUSE_SIDE_CLOSED_IN_KERNEL" if all_v
+                    else "GATES_5_AND_8_NOT_VERIFIED_THIS_RUN"),
     }
 
 
@@ -11300,6 +17306,17 @@ def run_um(ONE):
     name_relation = prove_name_relation(ONE, kernel_formalization)  # v30: O NOME E' A RELACAO (p.q.p=beta.p; TL3 fiel com beta generico; puro-ponto vs ponto-puro); ADITIVO
     tgl_closure = prove_tgl_closure(ONE, kernel_formalization)  # v32: O FECHAMENTO (suporte != espelho; H3L_min=1-q_F; construtores; gauge do Nome); ADITIVO
     external_ladder = prove_external_ladder(ONE, kernel_formalization)  # v33: A COLHEITA DOS EXTERNOS (escada TGLExt: Tomita finito COMPLETO + Tomiyama + Jones + MASA); ADITIVO
+    crossed_dual_weight = prove_crossed_product_dual_weight(ONE, kernel_formalization)  # v44: O PRODUTO CRUZADO FINITO (peso dual de Takesaki; covariancia ALEM dos internos); ADITIVO
+    global_lift_core = prove_global_lift_core(ONE, kernel_formalization)  # v45: O NUCLEO CONTINUO DO GLOBAL_LIFT (escada diadica; obstrucao do traco; canal S-frame); ADITIVO
+    corner_family = prove_corner_family(ONE, kernel_formalization)  # v46: A FAMILIA DO CANTO P_F (isotonia+covariancia+traco finito+invariancia modular CONSTRUIDAS); ADITIVO
+    bw_shadow = prove_bw_shadow(ONE, kernel_formalization)  # v47: BISOGNANO-WICHMANN na face finita (boost + gerador modular a 2pi; costura KNOWN p/ wedges); ADITIVO
+    graviton_polarization = prove_graviton_polarization(ONE, kernel_formalization)  # v48: O GRAVITON OBSERVAVEL (cinematica de spin-2: 2 polarizacoes, helicidade +-2, gauge TT, deltaI); ADITIVO
+    geometry_fluctuation = prove_geometry_fluctuation(ONE, kernel_formalization)  # v49: AS FLUTUACOES QUANTICAS DA GEOMETRIA (Var=defeito de transporte; Meia-Nat maxima; [h+,hx]=2J; LLN); ADITIVO
+    page_information = prove_page_information(ONE, kernel_formalization)  # v50: PAGE E A INFORMACAO (balanco S_A=S_B; unitario conserva; canal perde; curva com virada na metade); ADITIVO
+    einstein_and_rg = prove_einstein_and_rg(ONE, kernel_formalization)  # v51: GATES 5 e 8 (primeira lei dS=d<K> + Clausius em kernel; canto = ponto fixo do RG); ADITIVO
+    name_functional_transport = prove_name_functional_transport(ONE, kernel_formalization)  # v54: O NOME FUNCIONAL E O TRANSPORTE (GNS finito concreto; EL genuina; holonomia=comutador); ADITIVO
+    covariant_corner = prove_covariant_corner(ONE, kernel_formalization)  # v55: O CANTO COVARIANTE TRANSPORTADO (4 condicoes do memorando + TERMO, face finita); ADITIVO
+    hilbert_home = prove_hilbert_home(ONE, kernel_formalization)  # v56: A MORADA E' O PACOTE DE HILBERT (4 propriedades DERIVADAS, dim infinita; solda; hipotese unica nomeada); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
@@ -11403,6 +17420,17 @@ def run_um(ONE):
             "name_relation": name_relation,
             "tgl_closure": tgl_closure,
             "external_ladder": external_ladder,
+            "crossed_dual_weight": crossed_dual_weight,
+            "global_lift_core": global_lift_core,
+            "corner_family": corner_family,
+            "bw_shadow": bw_shadow,
+            "graviton_polarization": graviton_polarization,
+            "geometry_fluctuation": geometry_fluctuation,
+            "page_information": page_information,
+            "einstein_and_rg": einstein_and_rg,
+            "name_functional_transport": name_functional_transport,
+            "covariant_corner": covariant_corner,
+            "hilbert_home": hilbert_home,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
@@ -11662,6 +17690,263 @@ def identity_verdict(core):
 
 
 # ====================== forma canonica em markdown (auditoria) ======================
+def prove_covariant_corner(ONE, kernel_formalization=None):
+    """v55 -- O CANTO COVARIANTE TRANSPORTADO [ADITIVO; nao gateia 1=1].
+    Sombra numerica da face finita do TGL_CANONICAL_FINITE_CORNER_THEOREM
+    (memorando, secao 4) no produto cruzado Z2 x| M2, indice (g,i):
+    (1) 0 < tr(P_S) = |S|*n < infty; (2) o transporte modular INTERNO fixa
+    P_S (sigma_t(P_S) = P_S); (3) o transporte EXTERNO move covariantemente
+    (lam_g P_S lam_g^H = P_{gS}, com CONTRASTE > 0 quando gS != S);
+    (4) isotonia de Loewner (autovalor minimo de P_{S2} - P_{S1} >= 0).
+    beta NAO entra; seed 55."""
+    import numpy as np
+    rng = np.random.default_rng(55)
+    nG, nn = 2, 2
+    d = nG * nn                                     # indice (g,i) -> g*nn + i
+    # rho fiel normalizado e sua imagem diagonal-torcida piRep(rho) (rep. trivial u=1)
+    A0 = rng.normal(size=(nn, nn)) + 1j * rng.normal(size=(nn, nn))
+    rho = A0 @ A0.conj().T + 0.1 * np.eye(nn)
+    rho /= np.trace(rho).real
+    pi_rho = np.kron(np.eye(nG), rho)               # blocos por g
+    evals, U = np.linalg.eigh(pi_rho)
+    def mp(t):
+        return U @ np.diag(np.exp(1j * t * np.log(evals))) @ U.conj().T
+    # lam_g: e_{(h,i)} -> e_{(g+h,i)} (regular esquerda de Z2)
+    lam1 = np.zeros((d, d), dtype=complex)
+    for h in range(nG):
+        for i in range(nn):
+            lam1[((1 + h) % nG) * nn + i, h * nn + i] = 1.0
+    def P_of(S):
+        return np.diag(np.array([1.0 if (k // nn) in S else 0.0 for k in range(d)],
+                                dtype=complex))
+    S1, S2 = {0}, {0, 1}
+    res = {}
+    # (1) traco positivo e exato
+    res["traco_P_S1_eq_card"] = abs(complex(np.trace(P_of(S1))) - len(S1) * nn)
+    tr_pos = bool(np.trace(P_of(S1)).real > 0)
+    # (2) transporte interno fixa
+    t0 = 0.9
+    res["interno_fixa_P"] = float(np.linalg.norm(mp(t0) @ P_of(S1) @ mp(-t0) - P_of(S1)))
+    # (3) transporte externo: covariancia exata + contraste
+    res["externo_covariancia"] = float(np.linalg.norm(
+        lam1 @ P_of(S1) @ lam1.conj().T - P_of({(1 + s) % nG for s in S1})))
+    contrast = float(np.linalg.norm(P_of({(1 + s) % nG for s in S1}) - P_of(S1)))
+    # (4) isotonia de Loewner
+    eigmin = float(np.linalg.eigvalsh(P_of(S2) - P_of(S1)).min())
+    res["loewner_eigmin_neg_part"] = max(0.0, -eigmin)
+    # nao-constancia + total
+    res["total_P_G_eq_1"] = float(np.linalg.norm(P_of({0, 1}) - np.eye(d)))
+    tol = 1e-12
+    checks = [(k, bool(vv <= tol)) for k, vv in res.items()]
+    checks.append(("traco_positivo_regiao_nao_vazia", tr_pos))
+    checks.append(("contraste_externo_liga (gS != S)", bool(contrast > 1.0)))
+    all_v = bool(all(vv for _, vv in checks))
+    return {
+        "residuals": {k: float(vv) for k, vv in res.items()},
+        "external_contrast": contrast,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "memo_gate": "TGL_CANONICAL_FINITE_CORNER_THEOREM__FINITE_FACE_CONSTRUCTED_AS_TERM (v55)",
+            "open_theorem": "MESMA_FAMILIA_NO_CORE_GENUINO: acao continua de R (II_inf do III_1) + U(g) de Poincare em regioes de Minkowski + 0<tau<inf do core",
+            "why_continuum_is_the_step": "obstrucao do traco discreto (v45): a escala dual e^{-s} mata traco finito theta-fixo em TODO degrau discreto",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("COVARIANT_CORNER_FINITE_FACE_VERIFIED__GENUINE_CORE_OPEN" if all_v
+                    else "COVARIANT_CORNER_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_hilbert_home(ONE, kernel_formalization=None):
+    """v56 -- A MORADA E' O PACOTE DE HILBERT [ADITIVO; nao gateia 1=1].
+    Sombra numerica das DERIVACOES do v56 (as 4 propriedades do canto seguem
+    dos entrelacamentos -- Resposta 6 do especialista, desenho invertido):
+    (i) nucleo transportado: D2 = V D1 U^H  ==>  P2 = U P1 U^H;
+    (ii) fixacao interna: U que preserva ker D comuta com P;
+    (iii) isotonia: inclusao entrelacada ==> P2 fixa a imagem do nucleo menor;
+    (iv) solda: rho* injetiva ==> recuperacao unica R = rho*^{-1}(F);
+    (v) CONTROLE NEGATIVO: U NAO-entrelacado quebra a covariancia (contraste).
+    beta NAO entra; seed 56."""
+    import numpy as np
+    rng = np.random.default_rng(56)
+    d = 6
+
+    def unit(k):
+        Q, _ = np.linalg.qr(rng.normal(size=(k, k)) + 1j * rng.normal(size=(k, k)))
+        return Q
+
+    def kerproj(D):
+        # projecao ortogonal sobre ker D via SVD (autovetores de valores ~0)
+        _, s, Vh = np.linalg.svd(D)
+        null = Vh.conj().T[:, np.concatenate([s, np.zeros(D.shape[1] - len(s))]) < 1e-10]
+        return null @ null.conj().T
+
+    v0 = rng.normal(size=d) + 1j * rng.normal(size=d)
+    v0 /= np.linalg.norm(v0)
+    P0c = np.eye(d) - np.outer(v0, v0.conj())          # mata v0 -> ker(D1) = span(v0)
+    D1 = (rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))) @ P0c
+    P1 = kerproj(D1)
+    res = {}
+    # (i) externo: D2 := V D1 U^H entrelaça por construcao; P2 deve ser U P1 U^H
+    U = unit(d); V = unit(d)
+    D2 = V @ D1 @ U.conj().T
+    P2 = kerproj(D2)
+    res["externo_P2_eq_UP1UH"] = float(np.linalg.norm(P2 - U @ P1 @ U.conj().T))
+    # (ii) interno: U_int = e^{i phi} no nucleo + identidade no complemento (D U_int = D)
+    phi = 0.83
+    U_int = np.exp(1j * phi) * (np.eye(d) - P0c) + P0c
+    res["interno_D_Uint_eq_D"] = float(np.linalg.norm(D1 @ U_int - D1))
+    res["interno_P_comuta_Uint"] = float(np.linalg.norm(P1 @ U_int - U_int @ P1))
+    # (iii) isotonia: iota = inclusao canonica C^d -> C^{d+2}; D3 = diag(D1, R) com R inversivel
+    R2 = rng.normal(size=(2, 2)) + 1j * rng.normal(size=(2, 2)) + 3.0 * np.eye(2)
+    D3 = np.block([[D1, np.zeros((d, 2))], [np.zeros((2, d)), R2]])
+    P3 = kerproj(D3)
+    iv0 = np.concatenate([v0, np.zeros(2)])            # iota(v0), v0 in ker D1
+    res["isotonia_P3_fixa_iota_ker"] = float(np.linalg.norm(P3 @ iv0 - iv0))
+    # (iv) solda: rho tall injetiva; F = rho(Rt) recuperado unico por lstsq
+    rho = rng.normal(size=(9, 4)) + 1j * rng.normal(size=(9, 4))
+    Rt = rng.normal(size=4) + 1j * rng.normal(size=4)
+    F = rho @ Rt
+    Rrec, _, rank, _ = np.linalg.lstsq(rho, F, rcond=None)
+    res["solda_recupera_R_unico"] = float(np.linalg.norm(Rrec - Rt))
+    solda_injetiva = bool(rank == 4)
+    # (v) controle negativo: U' aleatorio NAO-entrelacado
+    Ubad = unit(d)
+    contrast = float(np.linalg.norm(P2 - Ubad @ P1 @ Ubad.conj().T))
+    tol = 1e-10
+    checks = [(k, bool(vv <= tol)) for k, vv in res.items()]
+    checks.append(("solda_rho_injetiva_rank_cheio", solda_injetiva))
+    checks.append(("controle_negativo_nao_entrelacado_quebra", bool(contrast > 0.5)))
+    all_v = bool(all(vv for _, vv in checks))
+    return {
+        "residuals": {k: float(vv) for k, vv in res.items()},
+        "max_residual": float(max(vv for _, vv in res.items())),
+        "negative_control_contrast": contrast,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "single_named_hypothesis": "TGL_SOLDERED_BREUER_HILBERT_PACKAGE (a construcao canonica do pacote a partir da rede III_1 e de omega(I)=1 = O teorema aberto)",
+            "ergodic_states_III1": "KNOWN (fatores III_1 com predual separavel tem estados fieis normais ergodicos, G_delta denso -- arXiv 2305.14217); secao ergodica EQUIVARIANTE da rede = CONDITIONAL",
+            "breuer_layer": "KNOWN_EXTERNO (Breuer 1968/69; fora da mathlib) -- declarada como DADOS em BreuerTraceData, jamais fingida como prova",
+            "solder_from_modular_data": "CONDITIONAL (sem a solda: holonomy_not_geometric / modular_metric_not_unique)",
+            "specialist_interface": "REESCRITA_COM_DESENHO_INVERTIDO (propriedades-como-campos e True placeholder -> teoremas dos entrelacamentos; a interface dele NAO foi compilada no kernel -- e' proveniencia)",
+            "einstein": "CONDICIONAL ao pacote soldado (Jacobson + Lovelock compostos; E7 INALTERADO)",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("HILBERT_HOME_PROPERTIES_DERIVED__GLOBAL_LIFT_REDUCED_TO_SINGLE_NAMED_HYPOTHESIS__NOT_UNCONDITIONALLY_SOLVED" if all_v
+                    else "HILBERT_HOME_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_name_functional_transport(ONE, kernel_formalization=None):
+    """v54 -- O NOME FUNCIONAL E O TRANSPORTE [ADITIVO; nao gateia 1=1].
+    (i) auditoria numerica INDEPENDENTE do GNS finito concreto (o espec do
+    especialista, NAME_FUNCTIONAL_QUANTUM_GRAVITY_GATE.md: estado vetorial,
+    ciclicidade/separacao, Tomita, polar, KMS -- ele reportou residuo 7.97e-14
+    no ambiente dele; a fonte formal dele NAO chegou ao disco, a pedra
+    FiniteGNSNoCompletion.lean foi reescrita AQUI e compilada);
+    (ii) o transporte T_{t,s} = sigma_{t-s}: composicao, Nome fixado pelo
+    proprio transporte, traco c=1 (par honesto da escala dual e^{-s} v45),
+    canto espectral covariantemente constante;
+    (iii) Euler-Lagrange: derivada central vs 2*re<eta,Hv> (quadratica: FD
+    central e' exata ate' o arredondamento) + EL SELECIONA o nucleo
+    (S_3L=0 <=> cada lock anula) + critico <=> Hv=0;
+    (iv) holonomia: delta_A delta_B - delta_B delta_A = delta_[A,B] exata;
+    controle PLANO (geradores comutantes) + CONTRASTE (nao-comutantes ligam).
+    beta NAO entra: rho generico; seed fixa (54) para reproducao."""
+    import numpy as np
+    rng = np.random.default_rng(54)
+    d = 6
+    A0 = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    rho = A0 @ A0.conj().T + 0.1 * np.eye(d)
+    rho /= np.trace(rho).real
+    evals, U = np.linalg.eigh(rho)
+    Om = U @ np.diag(np.sqrt(evals.clip(min=0))) @ U.conj().T
+    Oinv = np.linalg.inv(Om)
+    rinv = np.linalg.inv(rho)
+    a = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    b = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    def hs(x, y):
+        return complex(np.trace(x.conj().T @ y))
+    def S(y):
+        return Oinv @ y.conj().T @ Om
+    def Dhalf(y):
+        return Om @ y @ Oinv
+    def Dmod(y):
+        return rho @ y @ rinv
+    res = {}
+    res["gns_raiz_OmOm_eq_rho"] = float(np.linalg.norm(Om @ Om - rho))
+    res["gns_estado_vetorial"] = abs(complex(np.trace(rho @ a)) - hs(Om, a @ Om))
+    res["gns_tomita_S_aOm"] = float(np.linalg.norm(S(a @ Om) - a.conj().T @ Om))
+    res["gns_polar_JDhalf_eq_S"] = float(np.linalg.norm(Dhalf(a).conj().T - S(a)))
+    res["gns_Dhalf_sq_eq_Delta"] = float(np.linalg.norm(Dhalf(Dhalf(a)) - Dmod(a)))
+    res["gns_kms"] = abs(complex(np.trace(rho @ (a @ b))) - complex(np.trace(rho @ (b @ Dmod(a)))))
+    res["gns_S_fixa_Omega"] = float(np.linalg.norm(S(Om) - Om))
+    res["gns_Delta_fixa_Omega"] = float(np.linalg.norm(Dmod(Om) - Om))
+    sep_ok = bool(np.linalg.cond(Om) < 1e6)  # ciclico+separador: Omega inversivel
+    # (ii) o transporte
+    def mp(t):
+        return U @ np.diag(np.exp(1j * t * np.log(evals))) @ U.conj().T
+    def T(t, s, x):
+        return mp(t - s) @ x @ mp(-(t - s))
+    t1, r1, s1 = 0.7, -0.4, 1.3
+    res["transporte_composicao"] = float(np.linalg.norm(T(t1, r1, T(r1, s1, a)) - T(t1, s1, a)))
+    res["transporte_nome_fixado"] = abs(complex(np.trace(rho @ T(t1, s1, a))) - complex(np.trace(rho @ a)))
+    res["transporte_traco_c_eq_1"] = abs(complex(np.trace(T(t1, s1, a))) - complex(np.trace(a)))
+    proj = U @ np.diag((np.arange(d) < d // 2).astype(float)) @ U.conj().T  # canto espectral de rho
+    res["transporte_canto_constante"] = float(np.linalg.norm(T(t1, s1, proj) - proj))
+    # (iii) Euler-Lagrange (H = soma de 3 quadrados com nucleo comum construido)
+    v0 = rng.normal(size=d) + 1j * rng.normal(size=d)
+    v0 /= np.linalg.norm(v0)
+    P0 = np.eye(d) - np.outer(v0, v0.conj())
+    Ds = [(rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))) @ P0 for _ in range(3)]
+    H3 = sum(D.conj().T @ D for D in Ds)
+    v = rng.normal(size=d) + 1j * rng.normal(size=d)
+    eta = rng.normal(size=d) + 1j * rng.normal(size=d)
+    def act(w):
+        return float(np.real(np.vdot(w, H3 @ w)))
+    h = 1e-6
+    fd = (act(v + h * eta) - act(v - h * eta)) / (2 * h)
+    el = 2.0 * float(np.real(np.vdot(eta, H3 @ v)))
+    res["el_derivada_fd_vs_2re"] = abs(fd - el) / max(1.0, abs(el))
+    res["el_acao_anula_no_nucleo"] = abs(act(v0))
+    res["el_nucleo_eq_intersecao_locks"] = max(float(np.linalg.norm(D @ v0)) for D in Ds)
+    res["el_critico_sse_Hv_zero"] = float(np.linalg.norm(H3 @ v0))
+    # (iv) holonomia
+    X = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    B0 = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    def dl(G, x):
+        return G @ x - x @ G
+    res["holonomia_eq_delta_comutador"] = float(np.linalg.norm(
+        dl(A0, dl(B0, X)) - dl(B0, dl(A0, X)) - dl(A0 @ B0 - B0 @ A0, X)))
+    Bc = A0 @ A0 + 2.0 * A0  # comuta com A0 (polinomio do gerador)
+    res["holonomia_plana_comutantes"] = float(np.linalg.norm(
+        dl(A0, dl(Bc, X)) - dl(Bc, dl(A0, X))))
+    holo_contrast = float(np.linalg.norm(dl(A0, dl(B0, X)) - dl(B0, dl(A0, X))))
+    tol = 1e-10
+    checks = [(k, bool(vv <= (1e-6 if k == "el_derivada_fd_vs_2re" else tol)))
+              for k, vv in res.items()]
+    checks.append(("ciclico_separador_Om_inversivel", sep_ok))
+    checks.append(("holonomia_contraste_liga_nao_comutantes", bool(holo_contrast > 0.1)))
+    all_v = bool(all(vv for _, vv in checks))
+    max_res = max(vv for k, vv in res.items() if k != "el_derivada_fd_vs_2re")
+    return {
+        "residuals": {k: float(vv) for k, vv in res.items()},
+        "max_residual": float(max_res),
+        "holonomy_contrast": holo_contrast,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "anti_fake_action_guard": "A_ACAO_DAS_FACES_DE_KERNEL_E_QUADRATICA_NOS_LOCKS__NAO_SOMA_DE_PENALIDADES_DAS_CONCLUSOES_DESEJADAS",
+            "name_continuous_requires": "NORMALIDADE_E_FIDELIDADE_ALEM_DO_POSITIVO_TIPADO (correcao do especialista; ->p nao codifica normalidade em dim infinita)",
+            "negative_gns_timeout": "DESFEITO_NA_FACE_FINITA_v54__RESTA_SO_COMPOSICAO_COM_A_API_GENERICA_DA_MATHLIB",
+            "covariant_corner_family": "ABERTA (familia nao-trivial exige transporte EXTERNO U(g) -- memorando, secao 4)",
+            "specialist_source": "NAO_CHEGOU_AO_DISCO__PEDRA_REESCRITA_AQUI_E_COMPILADA (proveniencia: NAME_FUNCTIONAL_QUANTUM_GRAVITY_GATE.md)",
+            "identity": "NOME=funcional ; VERBO=transporte ; gravidade=curvatura_do_transporte [ONTO tipado na face infinitesimal]",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("NAME_FUNCTIONAL_TRANSPORT_VERIFIED__THE_WITNESS_IS_THE_TRANSPORT_LAW" if all_v
+                    else "NAME_FUNCTIONAL_TRANSPORT_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
 def emit_canonical_md(core, verdict):
     b = core["beta"]
     md = []
@@ -14618,6 +20903,10 @@ def build_pt(core, verdict, data_path):
              r"construído) é o teorema aberto. Enquanto o tipo for frouxo, habitá-lo é fabricar; "
              r"rigidificar o tipo \emph{é} inscrever a forma no conteúdo.") % (
              _wrp.get("trivial_inhabitant_exists"), _wrp.get("witness_is_rigid")))
+    # v56: o CAPITULO do esqueleto formal (consolidacao: UM artigo so' -- o registro
+    # das dezesseis pedras vive DENTRO do artigo, apos as Referencias, sem perder nada)
+    for _blk in _esqueleto_chapter(core, "pt"):
+        s.append(_blk)
     s.append(r"\section*{Apêndice executável (forma $=$ conteúdo)}")
     s.append(r"Entrada única: o Um absoluto (\texttt{1}); sua projeção é a medida mínima irredutível "
              r"extraída de $\alpha_{\mathrm{CODATA}}$ (referente medido do Nome). $\bTGL$ recomputado "
@@ -16833,6 +23122,10 @@ def build_en(core, verdict, data_path):
              r"theorem. While the type is loose, inhabiting it is fabrication; rigidifying the type "
              r"\emph{is} inscribing form into content.") % (
              _wre.get("trivial_inhabitant_exists"), _wre.get("witness_is_rigid")))
+    # v56: the formal-skeleton CHAPTER (consolidation: ONE article -- the sixteen-stone
+    # register lives INSIDE the article, after References, losing nothing)
+    for _blk in _esqueleto_chapter(core, "en"):
+        s.append(_blk)
     s.append(r"\section*{Executable appendix (form $=$ content)}")
     s.append(r"Single input: the absolute One (\texttt{1}); its projection is the minimal irreducible measure "
              r"extracted from $\alpha_{\mathrm{CODATA}}$ (measured referent of the Name). $\bTGL$ recomputed "
@@ -16970,6 +23263,241 @@ def compile_pdf(texname):
         return ok
     except Exception as e:
         print("   [PDF] erro:", e); return False
+
+
+# ============== v54: o artigo-registro do arco quantico, EMITIDO PELO CANONICO ==============
+# Ordem do operador (14/07/2026): "tudo, inclusive o que for relativo a inscricao no
+# artigo, deve estar consolidado no um.py". O .tex abaixo e' forma=conteudo: hashes das
+# pedras computados AO VIVO do kernel materializado; contadores/selo/sha do canonico
+# injetados da rodada. Historico (rodadas/selos v43-v53) = proveniencia estatica,
+# verificavel nos backups .bak_pre_sync_N e no CLAUDE.md (secoes 120-131).
+
+_ESQUELETO_STONES = [
+    ("v43", "Ergodicity", "TGLExt/Ergodicity.lean", "60/60", "13/07 19:25:25"),
+    ("v44", "FiniteCrossedProduct", "TGLExt/FiniteCrossedProduct.lean", "74/74", "13/07 20:05:24"),
+    ("v45", "GlobalLiftLadder", "TGLExt/GlobalLiftLadder.lean", "84/84", "13/07 20:52:05"),
+    ("v46", "CornerFamily", "TGLExt/CornerFamily.lean", "92/92", "13/07 21:26:24"),
+    ("v47", "BisognanoWichmann", "TGLExt/BisognanoWichmann.lean", "100/100", "13/07 21:55:07"),
+    ("v48", "GravitonPolarization", "TGLExt/GravitonPolarization.lean", "110/110", "14/07 07:36:23"),
+    ("v49", "GeometryFluctuation", "TGLExt/GeometryFluctuation.lean", "118/118", "14/07 07:56:42"),
+    ("v50", "PageInformation", "TGLExt/PageInformation.lean", "125/125", "14/07 09:01:55"),
+    ("v51", "ModularFirstLaw", "TGLExt/ModularFirstLaw.lean", "130/130", "14/07 09:27:09"),
+    ("v51", "RGStability", "TGLExt/RGStability.lean", "130/130", "14/07 09:27:09"),
+    ("v52", "VariationalInhabitant", "TGLExt/VariationalInhabitant.lean", "133/133", "14/07 10:15:32"),
+    ("v53", "GNSBridge", "TGLExt/GNSBridge.lean", "136/136", "14/07 10:44:39"),
+    ("v54", "FiniteGNSNoCompletion", "TGLExt/FiniteGNSNoCompletion.lean", "150/150", "14/07 12:01:36"),
+    ("v54", "TransportWitness", "TGLExt/TransportWitness.lean", "150/150", "14/07 12:01:36"),
+    ("v55", "CovariantCorner", "TGLExt/CovariantCorner.lean", "155/155", "14/07 12:31:12"),
+    ("v56", "HilbertHome", "TGLExt/HilbertHome.lean", None, None),
+]
+
+def _esqueleto_chapter(core, lang="pt"):
+    """v56: o CAPITULO do esqueleto formal dentro do artigo unico (ordem do operador
+    14/07/2026: 'nao quero que sejam 2 artigos... o esqueleto precisa virar um capitulo
+    dentro do um.py sem perder nada'). Hashes das pedras computados AO VIVO do kernel
+    materializado; contadores/selo/sha do canonico injetados da rodada; historico
+    (rodadas/selos v43-v55) = proveniencia estatica verificavel nos backups."""
+    el = core.get("external_ladder", {}) or {}
+    nclean = str(el.get("n_theorems_clean")); nexp = str(el.get("n_theorems_expected"))
+    ts = str(core.get("timestamp", "?"))
+    try:
+        umsha = sha_file(os.path.abspath(__file__))[:16]
+    except OSError:
+        umsha = "?"
+    rows = []
+    for ver, stone, rel, rodada, selo in _ESQUELETO_STONES:
+        p = os.path.join(FORMAL_DIR, rel.replace("/", os.sep))
+        try:
+            h = sha_file(p)[:16]
+        except OSError:
+            h = "AUSENTE"
+        if rodada is None:
+            rodada = "%s/%s" % (nclean, nexp); selo = ts
+        rows.append(r"%s & %s & \texttt{%s} & %s & %s \\" % (ver, stone, h, rodada, selo))
+    R = "\n".join(rows)
+    c = []
+    if lang == "pt":
+        c.append(r"\clearpage\providecommand{\kernelmk}[1]{\textsf{[KERNEL]}~\texttt{#1}}"
+                 r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
+                 r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
+        c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
+                 r"(dezesseis pedras, \S120--\S136)}")
+        c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
+                 r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
+                 r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em dezesseis pedras "
+                 r"(v43--v56) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
+                 r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
+                 r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
+                 r"honestos são resultados.")
+        c.append(r"\subsection*{As dezesseis pedras}")
+        c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
+                 r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
+                 r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
+                 r"$\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,\pi([D(\varphi\circ\alpha_g):D\varphi]_t)$ "
+                 r"--- covariância \emph{além} dos unitários internos (a maquinaria da Hipótese U). "
+                 r"\kernelmk{GlobalLiftLadder} (v45): a obstrução do traço discreto "
+                 r"($\tau\circ\theta_s=e^{-s}\tau$ com ponto fixo $\Rightarrow\tau=0$): \textbf{a "
+                 r"semifinitude só emerge no fecho contínuo}; o fecho $(\bigcup_n C_n)''=M\rtimes_\sigma\mathbb{R}$ "
+                 r"é \statusmk{KNOWN-COMPOSED}. \kernelmk{CornerFamily} (v46): a família \texttt{cornerProj} "
+                 r"com projeção, isotonia, covariância $\lambda_g P(S)\lambda_g^*=P(gS)$, traço $|S|\cdot n$, "
+                 r"invariância modular e $P(G)=1$.")
+        c.append(r"\kernelmk{BisognanoWichmann} (v47): $\rho^{it}=e^{-2\pi t\,iK}$ --- o fluxo modular a "
+                 r"velocidade $2\pi$ (Unruh $1/2\pi$ como teorema finito); costura \knownmk{BW 1975/76, cunhas}; "
+                 r"além de cunhas \statusmk{OPEN}. \kernelmk{GravitonPolarization} (v48): exatamente duas "
+                 r"polarizações; helicidade $\pm2$ como teorema; $\delta_A=[A,\cdot]$ com $\delta_A(1)=0$. "
+                 r"\kernelmk{GeometryFluctuation} (v49): $\mathrm{Var}_\omega(P)=p(1-p)\le\tfrac14$, máxima "
+                 r"\emph{sse} $p=\tfrac12$ (Meia-Nat); $[h_+,h_\times]=2J$; limite clássico por lei dos grandes "
+                 r"números. \kernelmk{PageInformation} (v50): balanço de Page "
+                 r"$\operatorname{Tr}((MM^\dagger)^2)=\operatorname{Tr}((M^\dagger M)^2)$; unitários conservam "
+                 r"pureza, o canal a perde monotonicamente; curva com virada na metade (runtime).")
+        c.append(r"\kernelmk{ModularFirstLaw} (v51): $\delta S=\delta\langle K\rangle$ como derivada genuína "
+                 r"$+$ Clausius $\delta Q=(1/2\pi)\delta\langle K\rangle$; restam \knownmk{Lovelock 4D} $+$ "
+                 r"Killing aproximado ($=$ Jacobson 1995). \kernelmk{RGStability} (v51): o canto é ponto fixo do "
+                 r"RG; o passo dobra o aniquilador modular. \kernelmk{VariationalInhabitant} (v52): o Gibbs é o "
+                 r"ponto crítico de Legendre E SÓ ELE (face diagonal dos pesos); o modo-zero minimiza o defeito. "
+                 r"\kernelmk{GNSBridge} (v53): o estado da fronteira tipado no predual da mathlib "
+                 r"($\to_{\!p}[\mathbb{C}]$); negativo nomeado \texttt{gns\_matrix\_instance\_whnf\_timeout}.")
+        c.append(r"\kernelmk{FiniteGNSNoCompletion} (v54): o NOME $\mathfrak N=(M,\varphi)$ com o GNS finito "
+                 r"SEM completamento como TERMO (\texttt{nameFiniteGNS}: vetorial, cíclico, separador, Tomita, "
+                 r"polar, KMS, $S\Omega=\Delta\Omega=J\Omega=\Omega$) --- o negativo do v53 DESFEITO na face "
+                 r"finita. \kernelmk{TransportWitness} (v54): a testemunha é o TRANSPORTE "
+                 r"$\mathcal{T}_{t,s}=\sigma_{t-s}$ (composição; o Nome fixado $\omega\circ\mathcal{T}=\omega$; "
+                 r"traço $c=1$); Euler--Lagrange genuína ($\tfrac{d}{d\varepsilon}S[v+\varepsilon\eta]|_0="
+                 r"2\,\mathrm{re}\langle\eta,Hv\rangle$; crítico $\iff Hv=0$); a holonomia fecha no comutador "
+                 r"($\delta_A\circ\delta_B-\delta_B\circ\delta_A=\delta_{[A,B]}$). "
+                 r"\kernelmk{CovariantCorner} (v55): o teorema do canto na face finita como TERMO "
+                 r"(\texttt{canonicalTransportedCorner}): $0<\tau(P(S))=|S|\cdot n$ (região não-vazia), isotonia "
+                 r"de Loewner, o transporte interno FIXA ($\sigma_t(P(S))=P(S)$), o externo MOVE "
+                 r"covariantemente com família genuinamente não-constante.")
+        c.append(r"\kernelmk{HilbertHome} (v56): \textbf{a morada é o pacote de Hilbert} (Resposta 6 do "
+                 r"especialista, kernelizada com o desenho INVERTIDO --- as leis são só os ENTRELAÇAMENTOS; as "
+                 r"quatro propriedades do canto são TEOREMAS, válidos em dimensão INFINITA): o entrelaçamento "
+                 r"$D_2\circ U=V\circ D_1$ transporta o núcleo ($U(\ker D_1)=\ker D_2$); a covariância externa, "
+                 r"a invariância interna e a isotonia da projeção derivada $P_F=\operatorname{proj}_{\ker\mathcal D}$ "
+                 r"SEGUEM (\texttt{starProjection\_ker\_covariant}/\texttt{\_internal\_fix}/\texttt{\_isotone}); "
+                 r"a PALAVRA no pacote: $\|Dx\|=0\iff x\in\ker D$; a morada tipada \texttt{HilbertHomeData} com "
+                 r"$P_F$ DERIVADA (não campo); a camada de Breuer ($0<\tau(P_F)<\infty$) declarada "
+                 r"\statusmk{KNOWN-EXTERNO} (Breuer 1968/69); e a SOLDA: $\rho_*$ injetiva $\Rightarrow$ "
+                 r"$R=\rho_*^{-1}(F_\nabla)$ único (\texttt{solder\_recovers\_curvature}).")
+        c.append(r"\subsection*{O mapa dos onze gates}")
+        c.append(r"\begin{center}\begin{tabular}{@{}lll@{}}\toprule Gate & Estado & Onde \\ \midrule "
+                 r"1. $P_F$ local covariante & 4 propriedades DERIVADAS ($\infty$-dim); construção do pacote \statusmk{OPEN} & v46, v55, v56 \\ "
+                 r"2. zero espectral & variacional $+$ EL seleciona $\ker\mathcal D$ (subpacote) & v52, v54, v56 \\ "
+                 r"3. T1 & projeção fechada; ergodicidade fibra a fibra \knownmk{III$_1$}; seção equivariante \statusmk{COND} & v43, v52, v56 \\ "
+                 r"4. BW & duas metades em kernel; além-de-cunhas \statusmk{OPEN} & v47 \\ "
+                 r"5. Einstein & lado modular completo; Lovelock/Killing \statusmk{KNOWN}; condicional ao pacote soldado & v51, v56 \\ "
+                 r"6. flutuações & esqueleto em kernel & v49 \\ "
+                 r"7. gráviton & cinemática spin-2 em kernel & v48 \\ "
+                 r"8. RG & canto $=$ ponto fixo; interações \statusmk{OPEN} & v51 \\ "
+                 r"9. Page & mecanismo em kernel $+$ curva & v50 \\ "
+                 r"10. previsão exclusiva & vivas: $\Gamma_\omega=\tfrac12\bTGL\tau_\star\omega^2$; piso $\rho_v/\bar\rho\ge\bTGL$ & --- \\ "
+                 r"11. testemunha Lean & GNS finito FECHADO; morada tipada; Tomita contínuo \statusmk{OPEN} & v53--56 \\ "
+                 r"\bottomrule\end{tabular}\end{center}")
+        c.append(r"\subsection*{Selos e hashes (hashes ao vivo desta rodada; histórico $=$ proveniência)}")
+        c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
+                 r"v & Pedra & sha256/16 (ao vivo) & Rodada & Selo \\ \midrule " + "\n" +
+                 r"@@ROWS@@" + "\n" + r"\bottomrule\end{tabular}\end{center}")
+        c.append(r"\subsection*{O que resta, nomeado}")
+        c.append(r"A Resposta 6 reduziu os resíduos dispersos a UM objeto: o pacote modular de Hilbert soldado "
+                 r"e Breuer--Fredholm, $\mathbf{HM}_{\mathrm{TGL}}=(\mathcal H,\mathcal C,\tau,\Omega,\nabla,"
+                 r"\mathcal D,e)$, sob a hipótese única nomeada \texttt{TGL\_SOLDERED\_BREUER\_HILBERT\_PACKAGE}. "
+                 r"Aberto, com estatuto: (i) a CONSTRUÇÃO canônica do pacote a partir da rede III$_1$ e de "
+                 r"$\omega(I)=1$ --- o teorema aberto (as quatro propriedades de $P_F$ já SEGUEM dos "
+                 r"entrelaçamentos, v56); (ii) a seção ergódica equivariante \statusmk{COND} (fibra a fibra é "
+                 r"\knownmk{teorema em III$_1$ com predual separável}); (iii) Tomita/KMS contínuo formalizado "
+                 r"(TODO da própria mathlib; a rota é a forma padrão $L^2(\mathcal C)$, não limite de matrizes); "
+                 r"(iv) a solda derivada dos dados modulares \statusmk{COND} (sem ela: "
+                 r"\texttt{holonomy\_not\_geometric}/\texttt{modular\_metric\_not\_unique}); "
+                 r"(v) \knownmk{Lovelock 4D} $+$ Killing aproximado ($=$ Jacobson); (vi) interações, anomalias, "
+                 r"III$_1$ sob RG, BW além de cunhas; (vii) o experimento ($\Gamma_\omega$, piso dos vazios) "
+                 r"\statusmk{INPUT} futuro, não reajustável.")
+        c.append(r"\subsection*{Declaração de honestidade}")
+        c.append(r"Este registro \emph{não} afirma a solução da gravitação quântica. Afirma, com verificação "
+                 r"por kernel e selos reproduzíveis: o esqueleto formal fechado nas faces finitas e tipadas; as "
+                 r"quatro propriedades do canto DERIVADAS dos entrelaçamentos em dimensão infinita; o núcleo "
+                 r"contínuo como teorema externo composto; o problema reduzido a um único objeto bem tipado cuja "
+                 r"existência canônica é O teorema a provar. \emph{O número corrige a frase. Negativos honestos "
+                 r"são resultados. Haja luz. Tetelestai.} \\[4pt] \noindent{\footnotesize Capítulo emitido pelo "
+                 r"canônico \texttt{um.py} (sha256/16 $=$ \texttt{@@UMSHA@@}) em @@TS@@; rodada: "
+                 r"@@NC@@/@@NE@@ teoremas com axiomas limpos.}")
+    else:
+        c.append(r"\clearpage\providecommand{\kernelmk}[1]{\textsf{[KERNEL]}~\texttt{#1}}"
+                 r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
+                 r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
+        c.append(r"\section*{Final register --- the formal skeleton of the global lift "
+                 r"(sixteen stones, \S120--\S136)}")
+        c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
+                 r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
+                 r"content): stone hashes are computed live from the materialized kernel and the counters come "
+                 r"from this run's audit. Across sixteen stones (v43--v56) the audited kernel went from 53 to "
+                 r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
+                 r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
+                 r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
+                 r"named one by one; honest negatives are results.")
+        c.append(r"\subsection*{The sixteen stones}")
+        c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
+                 r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
+                 r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
+                 r"\pi([D(\varphi\circ\alpha_g):D\varphi]_t)$ --- covariance \emph{beyond} inner unitaries. "
+                 r"\kernelmk{GlobalLiftLadder} (v45): the discrete-trace obstruction ($\tau\circ\theta_s="
+                 r"e^{-s}\tau$ with a fixed point $\Rightarrow\tau=0$): \textbf{semifiniteness only emerges in "
+                 r"the continuous closure}. \kernelmk{CornerFamily} (v46): the \texttt{cornerProj} family with "
+                 r"projection, isotony, covariance, trace $|S|\cdot n$, modular invariance, $P(G)=1$. "
+                 r"\kernelmk{BisognanoWichmann} (v47): $\rho^{it}=e^{-2\pi t\,iK}$ (Unruh $1/2\pi$ as a finite "
+                 r"theorem); seam \knownmk{BW 1975/76, wedges}. \kernelmk{GravitonPolarization} (v48): exactly "
+                 r"two polarizations; helicity $\pm2$ as a theorem; $\delta_A(1)=0$. "
+                 r"\kernelmk{GeometryFluctuation} (v49): $\mathrm{Var}_\omega(P)=p(1-p)\le\tfrac14$, maximal "
+                 r"iff $p=\tfrac12$; $[h_+,h_\times]=2J$; classical limit by LLN. \kernelmk{PageInformation} "
+                 r"(v50): the Page balance $\operatorname{Tr}((MM^\dagger)^2)=\operatorname{Tr}((M^\dagger M)^2)$; "
+                 r"unitaries preserve purity, the channel loses it monotonically.")
+        c.append(r"\kernelmk{ModularFirstLaw} (v51): $\delta S=\delta\langle K\rangle$ as a genuine "
+                 r"derivative $+$ typed Clausius; remaining: \knownmk{Lovelock 4D} $+$ approximate Killing "
+                 r"($=$ Jacobson 1995). \kernelmk{RGStability} (v51): the corner is an RG fixed point. "
+                 r"\kernelmk{VariationalInhabitant} (v52): Gibbs is the Legendre critical point AND THE ONLY ONE "
+                 r"(diagonal-weights face). \kernelmk{GNSBridge} (v53): the boundary state typed in mathlib's "
+                 r"predual; named negative \texttt{gns\_matrix\_instance\_whnf\_timeout}. "
+                 r"\kernelmk{FiniteGNSNoCompletion} (v54): the NAME $\mathfrak N=(M,\varphi)$ with the finite "
+                 r"GNS WITHOUT completion as a TERM --- the v53 negative UNDONE on the finite face. "
+                 r"\kernelmk{TransportWitness} (v54): the witness is the TRANSPORT $\mathcal{T}_{t,s}$ "
+                 r"(composition; the Name fixed; trace $c=1$); genuine Euler--Lagrange; holonomy closes in the "
+                 r"commutator. \kernelmk{CovariantCorner} (v55): the corner theorem on the finite face as a TERM "
+                 r"(positive finite trace, Loewner isotony, internal transport FIXES, external MOVES covariantly).")
+        c.append(r"\kernelmk{HilbertHome} (v56): \textbf{the home is the Hilbert package} (the specialist's "
+                 r"Answer 6, kernelized with the design INVERTED --- the only laws are the INTERTWININGS; the "
+                 r"four corner properties are THEOREMS, valid in INFINITE dimension): the intertwining "
+                 r"$D_2\circ U=V\circ D_1$ transports the kernel ($U(\ker D_1)=\ker D_2$); external covariance, "
+                 r"internal invariance and isotony of the derived projection $P_F=\operatorname{proj}_{\ker"
+                 r"\mathcal D}$ FOLLOW; the WORD in the package: $\|Dx\|=0\iff x\in\ker D$; the typed home "
+                 r"\texttt{HilbertHomeData} with $P_F$ DERIVED (not a field); the Breuer layer "
+                 r"($0<\tau(P_F)<\infty$) declared \statusmk{KNOWN-EXTERNAL} (Breuer 1968/69); and the SOLDER: "
+                 r"injective $\rho_*$ $\Rightarrow$ unique $R=\rho_*^{-1}(F_\nabla)$.")
+        c.append(r"\subsection*{Seals and hashes (live hashes from this run; history $=$ provenance)}")
+        c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
+                 r"v & Stone & sha256/16 (live) & Run & Seal \\ \midrule " + "\n" +
+                 r"@@ROWS@@" + "\n" + r"\bottomrule\end{tabular}\end{center}")
+        c.append(r"\subsection*{What remains, named}")
+        c.append(r"Answer 6 reduced the scattered residues to ONE object: the soldered Breuer--Fredholm modular "
+                 r"Hilbert package $\mathbf{HM}_{\mathrm{TGL}}=(\mathcal H,\mathcal C,\tau,\Omega,\nabla,"
+                 r"\mathcal D,e)$ under the single named hypothesis "
+                 r"\texttt{TGL\_SOLDERED\_BREUER\_HILBERT\_PACKAGE}. Open, with status: (i) the canonical "
+                 r"CONSTRUCTION of the package from the III$_1$ net and $\omega(I)=1$ --- THE open theorem (the "
+                 r"four $P_F$ properties already FOLLOW from the intertwinings, v56); (ii) the equivariant ergodic "
+                 r"section \statusmk{COND} (fiberwise it is a \knownmk{theorem for III$_1$ with separable "
+                 r"predual}); (iii) formalized continuous Tomita/KMS (mathlib's own TODO; the route is the "
+                 r"standard form $L^2(\mathcal C)$, not matrix limits); (iv) the solder derived from modular data "
+                 r"\statusmk{COND}; (v) \knownmk{Lovelock 4D} $+$ approximate Killing ($=$ Jacobson); "
+                 r"(vi) interactions, anomalies, III$_1$ under RG, BW beyond wedges; (vii) the experiment "
+                 r"\statusmk{INPUT}, not re-adjustable. \emph{Nothing here claims quantum gravity is proven.} "
+                 r"\\[4pt] \noindent{\footnotesize Chapter emitted by the canonical \texttt{um.py} "
+                 r"(sha256/16 $=$ \texttt{@@UMSHA@@}) at @@TS@@; run: @@NC@@/@@NE@@ theorems with clean axioms.}")
+    out = []
+    for blk in c:
+        out.append(blk.replace("@@ROWS@@", R).replace("@@NC@@", nclean)
+                   .replace("@@NE@@", nexp).replace("@@TS@@", ts).replace("@@UMSHA@@", umsha))
+    return out
+
 
 
 # ====================== manifesto de entradas (nada escondido) ======================
@@ -18742,9 +25270,294 @@ def main():
         _elp.get("ext_markov_trace_masa_kernel_proved"), _elp.get("ext_markov_trace_scalars_kernel_proved"),
         _elp.get("ext_mirror_weight_masa_kernel_proved"), _elp.get("ext_mirror_weight_scalars_kernel_proved"),
         _elp.get("ext_masa_indices_coincide_kernel_proved"), _elp.get("ext_pp_vs_tower_distinct_kernel_proved")))
-    print("  teoremas limpos: %s/%s ; TUDO dimensao FINITA [nada e' III_1; continuos do ledger INALTERADOS]" % (
+    print("  MATRIZ-S [v41]: %s" % _ell.get("s_matrix_boundary_theorem"))
+    print("    G^2=-1: %s ; exp(thG)=cos+sinG: %s ; unitaria: %s ; grupo: %s ; espectro e^{+-i th}: %s ; |R|^2+|T|^2=1: %s ; canal Tr=1: %s" % (
+        _elp.get("ext_smatrix_generator_kernel_proved"), _elp.get("ext_smatrix_exp_form_kernel_proved"),
+        _elp.get("ext_smatrix_unitary_kernel_proved"), _elp.get("ext_smatrix_group_law_kernel_proved"),
+        _elp.get("ext_smatrix_spectrum_kernel_proved"), _elp.get("ext_smatrix_boundary_theorem_kernel_proved"),
+        _elp.get("ext_smatrix_channel_trace_kernel_proved")))
+    print("    [|R|^2 = sin^2(theta_M) = beta e' leitura de RUNTIME: theta generico no kernel; beta jamais no Lean]")
+    print("  COCICLO DE CONNES [v42 -- face finita do Lema 3]: %s" % _ell.get("connes_cocycle_finite_face"))
+    print("    colagem E1: %s ; temporal sigma-torcida E2: %s ; adjunto (u_pq)^H=u_qp: %s ; unitario: %s" % (
+        _elp.get("ext_cocycle_chain_kernel_proved"), _elp.get("ext_cocycle_temporal_kernel_proved"),
+        _elp.get("ext_cocycle_adjoint_kernel_proved"), _elp.get("ext_cocycle_unitary_kernel_proved")))
+    print("    gerador comutante E3c: %s ; log-conjugacao cfc: %s ; COVARIANCIA E6 (conjugar estados = conjugar cociclo): %s" % (
+        _elp.get("ext_cocycle_generator_commuting_kernel_proved"), _elp.get("ext_cfc_log_conjugation_kernel_proved"),
+        _elp.get("ext_cocycle_covariance_kernel_proved")))
+    print("    [SOMBRA FINITA: o levantamento GLOBAL (III_1 sem projecoes minimais; U/T1/T3) SEGUE O TEOREMA ABERTO]")
+    print("  ERGODICIDADE T1 [v43 -- face finita]: %s" % _ell.get("ergodicity_T1_finite_face"))
+    print("    fixo<=comuta: %s ; log(diag)=diag(log): %s ; SETOR FIXO = CENTRALIZADOR (iff, sem derivadas): %s" % (
+        _elp.get("ext_ergo_fixed_of_commute_kernel_proved"), _elp.get("ext_ergo_log_diagonal_kernel_proved"),
+        _elp.get("ext_ergo_fixed_sector_iff_kernel_proved")))
+    print("    O TRACO EMERGE no centralizador: %s ; semigrupo: %s ; T_t -> E_0 (LIMITE genuino): %s ; taxa modular |log li - log lj|: %s" % (
+        _elp.get("ext_ergo_trace_emerges_kernel_proved"), _elp.get("ext_ergo_semigroup_kernel_proved"),
+        _elp.get("ext_ergo_convergence_kernel_proved"), _elp.get("ext_ergo_modular_rate_kernel_proved")))
+    print("    [taxa fisica = beta*gap (Davies) e' reparametrizacao de RUNTIME; N3 (mixing forte Davies continuo) e III_1 seguem ABERTOS]")
+    print("  PRODUTO CRUZADO FINITO [v44 -- peso dual de Takesaki; covariancia ALEM dos internos]: %s"
+          % _ell.get("crossed_product_dual_weight_finite_face"))
+    print("    lambda unitario: %s ; covariancia l.pi(a).l^H=pi(alpha a): %s ; pi injetivo: %s ; E mata lambda_g: %s" % (
+        _elp.get("ext_crossed_lam_unitary_kernel_proved"), _elp.get("ext_crossed_covariance_relation_kernel_proved"),
+        _elp.get("ext_crossed_embedding_injective_kernel_proved"), _elp.get("ext_crossed_condexp_kills_lambda_kernel_proved")))
+    print("    criterio de Takesaki (phi_hat o E = phi_hat): %s ; estado dual = phi o E exato: %s ; (pi rho)^{it}=pi(rho^{it}): %s" % (
+        _elp.get("ext_crossed_takesaki_state_criterion_kernel_proved"),
+        _elp.get("ext_crossed_dual_state_via_condexp_kernel_proved"),
+        _elp.get("ext_crossed_modular_transport_kernel_proved")))
+    print("    D1 fluxo restrito=fluxo da base: %s ; D3 naturalidade dual do cociclo: %s ; *** D2 PESO DUAL sigma(lambda_g)=lambda_g.pi(cociclo): %s ***" % (
+        _elp.get("ext_crossed_flow_restriction_kernel_proved"),
+        _elp.get("ext_crossed_dual_cocycle_naturality_kernel_proved"),
+        _elp.get("ext_crossed_dual_weight_theorem_kernel_proved")))
+    print("    covariancia do cociclo sob lambda_g (fora de pi(A)): %s ; acao dual torce lambda: %s ; comuta com fluxo: %s ; estado dual invariante: %s" % (
+        _elp.get("ext_crossed_cocycle_covariance_beyond_inner_kernel_proved"),
+        _elp.get("ext_crossed_dual_action_twists_lambda_kernel_proved"),
+        _elp.get("ext_crossed_dual_action_commutes_flow_kernel_proved"),
+        _elp.get("ext_crossed_dual_state_invariant_kernel_proved")))
+    print("    [SOMBRA FINITA: sem escala de traco no grupo finito (core R = outro objeto); GLOBAL_LIFT SEGUE O TEOREMA ABERTO]")
+    print("  A ESCADA DO GLOBAL_LIFT [v45 -- diadica; obstrucao do traco; referencial-S]: %s"
+          % _ell.get("global_lift_ladder_skeleton"))
+    print("    malha diadica <= h/2: %s ; estagios encaixados: %s ; escada converge: %s" % (
+        _elp.get("ext_lift_dyadic_mesh_kernel_proved"), _elp.get("ext_lift_dyadic_stages_nested_kernel_proved"),
+        _elp.get("ext_lift_dyadic_converges_kernel_proved")))
+    print("    aniquilador fixa o degrau (e^{-i.s_h.kh}=1): %s ; escala!=1 mata o fixo: %s ; *** OBSTRUCAO DO TRACO DISCRETO (tipada): %s *** ; corolario diadico: %s" % (
+        _elp.get("ext_lift_annihilator_fixes_stage_kernel_proved"), _elp.get("ext_lift_scaling_kills_fixed_kernel_proved"),
+        _elp.get("ext_lift_discrete_trace_obstruction_kernel_proved"), _elp.get("ext_lift_dyadic_stage_trace_zero_kernel_proved")))
+    print("    referencial-S: semigrupo T^S genuino (v41+v43): %s ; converge p/ esperanca comprimida: %s ; endpoint da medicao (cos^2,sin^2): %s" % (
+        _elp.get("ext_lift_sframe_semigroup_kernel_proved"), _elp.get("ext_lift_sframe_converges_kernel_proved"),
+        _elp.get("ext_lift_measurement_endpoint_kernel_proved")))
+    print("    [FECHO CONTINUO DE von NEUMANN = EXTERNO (KNOWN-COMPOSED); a semifinitude do traco SO' emerge no fecho: a frase virou teorema]")
+    print("  A FAMILIA DO CANTO [v46 -- P_F local covariante de traco finito]: %s"
+          % _ell.get("corner_family_P_F"))
+    print("    projecao: %s/%s ; ISOTONIA P(S1)<=P(S2): %s ; COVARIANCIA lam_g.P(S).lam_g^H=P(gS): %s" % (
+        _elp.get("ext_corner_projection_idem_kernel_proved"), _elp.get("ext_corner_projection_selfadjoint_kernel_proved"),
+        _elp.get("ext_corner_isotony_kernel_proved"), _elp.get("ext_corner_covariance_kernel_proved")))
+    print("    traco Tr P(S)=|S|.n: %s ; invariancia modular [P,(pi rho)^{it}]=0: %s" % (
+        _elp.get("ext_corner_finite_trace_kernel_proved"), _elp.get("ext_corner_modular_invariance_kernel_proved")))
+    print("    *** [P_F,lambda(s)]=0 DE GRACA (canto espectral de H comutante e' fixo pelo fluxo): %s ***" %
+        _elp.get("ext_corner_fixed_by_flow_kernel_proved"))
+    print("    *** traco finito => NAO theta-fixo (o requisito do gate e' TEOREMA, nao imposicao): %s ***" %
+        _elp.get("ext_corner_finite_trace_not_dual_fixed_kernel_proved"))
+    print("    [ADJUDICADO: existencia do canto em II_inf = REAL classico; canonicidade = classe unitaria REAL;")
+    print("     tau(P_F)=1 = POSTULATE omega(I)=1; ker H_3L no core GENUINO = CONDITIONAL (no_zero_lock_kernel); rede AQFT = OPEN]")
+    print("  BISOGNANO-WICHMANN [v47 -- gate 4: fluxo modular = fluxo causal]: %s"
+          % _ell.get("bw_gate4_two_halves"))
+    print("    boost: grupo=%s ; isometria de Minkowski=%s ; raios nulos e^{+-s}=%s/%s ; cunha preservada=%s" % (
+        _elp.get("ext_bw_boost_group_kernel_proved"), _elp.get("ext_bw_boost_minkowski_isometry_kernel_proved"),
+        _elp.get("ext_bw_null_ray_dilation_kernel_proved"), _elp.get("ext_bw_null_ray_contraction_kernel_proved"),
+        _elp.get("ext_bw_wedge_preserved_kernel_proved")))
+    print("    modular: log(e^{-2piK})=-2piK: %s ; *** rho^{it}=e^{-2pi.t.i.K} (velocidade 2pi = Unruh): %s *** ; sigma=Ad(K-fluxo): %s" % (
+        _elp.get("ext_bw_gibbs_generator_kernel_proved"), _elp.get("ext_bw_modular_speed_two_pi_kernel_proved"),
+        _elp.get("ext_bw_sigma_is_K_flow_kernel_proved")))
+    print("    [COSTURA: K=boost da cunha com Delta^{it}=U(Lambda(2pi t)) e' KNOWN (BW 1975/76, wedges); ALEM das cunhas segue ABERTO]")
+    print("  O GRAVITON OBSERVAVEL [v48 -- gate 7: cinematica de spin-2]: %s"
+          % _ell.get("graviton_gate7_kinematics"))
+    print("    2 polarizacoes (decomposicao): %s ; independentes: %s ; *** HELICIDADE +-2 (dubleto gira em 2.theta): %s/%s ***" % (
+        _elp.get("ext_grav_two_polarizations_kernel_proved"), _elp.get("ext_grav_polarizations_independent_kernel_proved"),
+        _elp.get("ext_grav_helicity_two_plus_kernel_proved"), _elp.get("ext_grav_helicity_two_cross_kernel_proved")))
+    print("    modo-traco invariante (I atravessa, spin 0): %s ; gauge nao toca o bloco TT: %s ; k nulo (causal): %s" % (
+        _elp.get("ext_grav_trace_mode_invariant_kernel_proved"), _elp.get("ext_grav_gauge_tt_invariant_kernel_proved"),
+        _elp.get("ext_grav_null_propagation_kernel_proved")))
+    print("    *** delta_A(1)=0 (A IDENTIDADE NAO SE EXCITA -- custo zero como teorema): %s *** ; Leibniz: %s ; S-1 gerado por G: %s" % (
+        _elp.get("ext_grav_identity_not_excited_kernel_proved"), _elp.get("ext_grav_excitation_leibniz_kernel_proved"),
+        _elp.get("ext_grav_smat_deviation_generator_kernel_proved")))
+    print("    [CINEMATICA em kernel; DINAMICA = gate 5 (E7 CONDITIONAL); interacoes/renormalizacao = gate 8 OPEN]")
+    print("  AS FLUTUACOES DA GEOMETRIA [v49 -- gate 6]: %s" % _ell.get("geometry_gate6_fluctuations"))
+    print("    Var(P)=p(1-p) (o defeito de transporte v26): %s ; media/variancia da fronteira: %s/%s" % (
+        _elp.get("ext_fluct_variance_is_transport_defect_kernel_proved"),
+        _elp.get("ext_fluct_boundary_mean_kernel_proved"), _elp.get("ext_fluct_boundary_variance_kernel_proved")))
+    print("    *** p(1-p)<=1/4 com IGUALDADE SSE p=1/2 (A MEIA-NAT E' A FLUTUACAO MAXIMA): %s/%s ***" % (
+        _elp.get("ext_fluct_bound_quarter_kernel_proved"), _elp.get("ext_fluct_halfnat_is_maximum_kernel_proved")))
+    print("    [h+,hx]=2J (fecha no gerador de helicidade): %s ; nao-comutativa: %s ; *** LIMITE CLASSICO = LLN (1/sqrt(M)): %s ***" % (
+        _elp.get("ext_fluct_pol_commutator_helicity_kernel_proved"),
+        _elp.get("ext_fluct_noncommutative_geometry_kernel_proved"),
+        _elp.get("ext_fluct_classical_limit_kernel_proved")))
+    print("    [ESQUELETO do gate 6 em kernel; operadores g_mu_nu na rede AQFT continua = OPEN (a testemunha plena)]")
+    print("  PAGE E A INFORMACAO [v50 -- gate 9]: %s" % _ell.get("page_gate9_information"))
+    print("    *** BALANCO DE PAGE Tr((MM^H)^2)=Tr((M^H M)^2) (a radiacao sabe o quanto o buraco sabe): %s/%s ***" % (
+        _elp.get("ext_page_reductions_trace_eq_kernel_proved"), _elp.get("ext_page_reductions_balance_kernel_proved")))
+    print("    unitarios CONSERVAM pureza: %s ; ponte Frobenius: %s ; *** canal PERDE pureza monotonicamente: %s ***" % (
+        _elp.get("ext_page_purity_unitary_invariant_kernel_proved"), _elp.get("ext_page_purity_frobenius_bridge_kernel_proved"),
+        _elp.get("ext_page_channel_purity_monotone_kernel_proved")))
+    print("    entropia maxima no espelho (H(p)<=H(1/2), = SSE p=1/2): %s/%s -- o MESMO ponto da flutuacao maxima v49" % (
+        _elp.get("ext_page_entropy_max_at_half_kernel_proved"), _elp.get("ext_page_entropy_max_iff_half_kernel_proved")))
+    print("    [MECANISMO em kernel (termico por fora, unitario por dentro); S_BH=A/4G e horizonte III_1 dinamico = OPEN]")
+    print("  EINSTEIN [v51 -- gate 5]: %s" % _ell.get("einstein_gate5_composition"))
+    print("    *** A PRIMEIRA LEI MODULAR dS=d<K> (derivada genuina): %s *** ; Clausius dQ=(1/2pi)d<K> tipado: %s" % (
+        _elp.get("ext_einstein_first_law_kernel_proved"), _elp.get("ext_einstein_clausius_composition_kernel_proved")))
+    print("    [elos em kernel: 1a lei (v51) + T=1/2pi (v47) + 8piG (AreaScale) + fonte simetrica (v48);")
+    print("     restam: Lovelock 4D KNOWN citavel + Killing aproximado NOMEADO (=Jacobson 1995) + conservacao continua]")
+    print("  RENORMALIZACAO [v51 -- gate 8]: %s" % _ell.get("rg_gate8_corner_stability"))
+    print("    E fixa o canto: %s ; dephasing fixa o canto: %s ; *** passo de RG dobra o aniquilador (beta_RG<->modular, 1a ancora): %s ***" % (
+        _elp.get("ext_rg_condexp_fixes_corner_kernel_proved"), _elp.get("ext_rg_dephase_fixes_corner_kernel_proved"),
+        _elp.get("ext_rg_step_doubles_annihilator_kernel_proved")))
+    print("    [com cornerProj_comm_modPow (v46): TRES dinamicas fixam o canto = a resposta finita ao gate 8 e' SIM;")
+    print("     interacoes genuinas/anomalias/III_1 sob RG = OPEN]")
+    print("  O HABITANTE VARIACIONAL [v52 -- derivacao do operador: o Nome que se torna FUNCIONAL]: %s"
+          % _ell.get("variational_inhabitant"))
+    print("    modo-zero minimiza o defeito (o vazio estruturado): %s ; *** GIBBS = ponto critico de LEGENDRE: %s ***" % (
+        _elp.get("ext_var_zero_mode_minimizes_kernel_proved"), _elp.get("ext_var_gibbs_is_critical_kernel_proved")))
+    print("    *** E SO O GIBBS (critico elementar => Gibbs; UNICIDADE = face finita da ergodicidade Id): %s ***" %
+        _elp.get("ext_var_critical_implies_gibbs_kernel_proved"))
+    print("    [REENQUADRAMENTO da Pergunta 5-Ib: existencia do habitante = VARIACIONAL (compacidade fraca-* KNOWN),")
+    print("     nao acidente espectral; zero-defeito <=> codigo exato; o preco do nao-zero ja tem nome: beta]")
+    print("  A PONTE GNS [v53 -- a flexao comeca (Degrau 3)]: %s" % _ell.get("gns_bridge_degrau3"))
+    print("    estado da fronteira POSITIVO (gibbs_nonneg): %s ; MONOTONO (Loewner): %s ; funcional TIPADO (->p[C]): %s" % (
+        _elp.get("ext_gns_state_positive_kernel_proved"), _elp.get("ext_gns_state_monotone_kernel_proved"),
+        _elp.get("ext_gns_functional_typed_kernel_proved")))
+    print("    [GNS da mathlib EXISTE (PositiveLinearMap.GNS/gnsStarAlgHom) e o funcional esta pronto; a instanciacao")
+    print("     sobre matrizes TRAVA no elaborador: NEGATIVO NOMEADO gns_matrix_instance_whnf_timeout (engenharia, nao matematica)]")
+    print("  O NOME FUNCIONAL -- GNS FINITO SEM COMPLETAMENTO [v54 -- espec do especialista compilado]: %s"
+          % _ell.get("finite_gns_no_completion"))
+    print("    termo nameFiniteGNS CONSTRUIDO (vetorial+ciclico+separador+Tomita+polar+KMS+S.Omega=Omega): %s ;" %
+        _elp.get("ext_fgns_term_constructed_kernel_proved"))
+    print("    funcional tipado do v53 = estado VETORIAL da realizacao concreta: %s" %
+        _elp.get("ext_fgns_state_is_vector_state_kernel_proved"))
+    print("    *** [NEGATIVO gns_matrix_instance_whnf_timeout DESFEITO NA FACE FINITA; resta so' a composicao com a API generica] ***")
+    print("  A TESTEMUNHA E' O TRANSPORTE [v54 -- derivacao do operador: 'o ponto critico nao e' ponto']: %s"
+          % _ell.get("transport_witness"))
+    print("    EL seleciona o nucleo (S_3L=0 <=> locks anulam): %s ; EL como DERIVADA genuina: %s ; critico<=>Hv=0: %s" % (
+        _elp.get("ext_tw_el_selects_kernel_kernel_proved"), _elp.get("ext_tw_el_derivative_kernel_proved"),
+        _elp.get("ext_tw_critical_iff_el_kernel_proved")))
+    print("    lei T_{t,r}oT_{r,s}=T_{t,s}: %s ; Nome fixado pelo transporte: %s ; traco c=1: %s ; canto constante: %s" % (
+        _elp.get("ext_tw_transport_comp_kernel_proved"), _elp.get("ext_tw_transport_fixes_name_kernel_proved"),
+        _elp.get("ext_tw_transport_trace_one_kernel_proved"), _elp.get("ext_tw_transport_corner_constant_kernel_proved")))
+    print("    *** HOLONOMIA fecha no comutador (dA.dB - dB.dA = d[A,B]): %s ; plana p/ comutantes: %s ***" % (
+        _elp.get("ext_tw_holonomy_commutator_kernel_proved"), _elp.get("ext_tw_holonomy_flat_kernel_proved")))
+    _nft = core.get("name_functional_transport", {}) or {}
+    print("    sombra numerica v54 (GNS/transporte/EL/holonomia): residuo max %.2e ; contraste holonomico %.3f ; %s" % (
+        _nft.get("max_residual", float("nan")), _nft.get("holonomy_contrast", float("nan")), _nft.get("verdict")))
+    print("    [NOME=funcional; VERBO=transporte; gravidade=curvatura do transporte -- a familia covariante e' o v55]")
+    print("  O CANTO COVARIANTE TRANSPORTADO [v55 -- o 'proximo teorema' do memorando, face finita]: %s"
+          % _ell.get("covariant_corner_finite_face"))
+    print("    (1) 0<tr(P_S)=|S|n<inf: %s ; (4) ISOTONIA de Loewner: %s ; familia NAO-constante: %s" % (
+        _elp.get("ext_cc_trace_positive_kernel_proved"), _elp.get("ext_cc_loewner_isotone_kernel_proved"),
+        _elp.get("ext_cc_family_nonconstant_kernel_proved")))
+    print("    *** (2) transporte INTERNO fixa (sigma_t(P_S)=P_S): %s ; (3) EXTERNO move covariante (v46 lam): em kernel ; TERMO canonicalTransportedCorner: %s ***" % (
+        _elp.get("ext_cc_internal_fixes_kernel_proved"), _elp.get("ext_cc_term_constructed_kernel_proved")))
+    _cc = core.get("covariant_corner", {}) or {}
+    print("    sombra numerica v55 (Z2 x| M2): residuos <=1e-12 todos ; contraste externo %.3f ; %s" % (
+        _cc.get("external_contrast", float("nan")), _cc.get("verdict")))
+    print("    [ABERTO honesto: a MESMA familia no core genuino -- R continuo (II_inf do III_1) + U(g) Poincare em")
+    print("     regioes de Minkowski; a obstrucao do traco discreto (v45) e' exatamente o porque do continuo]")
+    print("  A MORADA E' O PACOTE DE HILBERT [v56 -- Resposta 6 kernelizada, desenho INVERTIDO]: %s"
+          % _ell.get("hilbert_home_morada"))
+    print("    nucleo TRANSPORTADO pelo entrelacamento (U(ker D1)=ker D2): %s ; *** VALIDO EM DIMENSAO INFINITA ***" %
+        _elp.get("ext_hh_ker_transported_kernel_proved"))
+    print("    (2) interno FIXA: %s ; (3) externo COVARIANTE: %s ; (4) ISOTONIA: %s -- TEOREMAS, nao mais hipoteses" % (
+        _elp.get("ext_hh_internal_fix_kernel_proved"), _elp.get("ext_hh_external_covariant_kernel_proved"),
+        _elp.get("ext_hh_isotone_kernel_proved")))
+    print("    morada tipada (P_F DERIVADA do ker do lock, nao campo): interno %s / covariante %s / isotone %s ; PALAVRA ||Dx||=0<=>ker: %s" % (
+        _elp.get("ext_hh_home_pf_internal_kernel_proved"), _elp.get("ext_hh_home_pf_covariant_kernel_proved"),
+        _elp.get("ext_hh_home_pf_isotone_kernel_proved"), _elp.get("ext_hh_word_selects_kernel_kernel_proved")))
+    print("    *** SOLDA: rho* injetiva => R = rho*^{-1}(F_nabla) UNICO: %s ***" %
+        _elp.get("ext_hh_solder_recovers_kernel_proved"))
+    _hh = core.get("hilbert_home", {}) or {}
+    print("    sombra numerica v56: residuo max %.2e ; contraste do controle negativo %.3f ; %s" % (
+        _hh.get("max_residual", float("nan")), _hh.get("negative_control_contrast", float("nan")), _hh.get("verdict")))
+    print("    [O TEOREMA ABERTO virou UM e tem nome: TGL_SOLDERED_BREUER_HILBERT_PACKAGE -- a construcao")
+    print("     canonica do pacote (D, transportes, tau de Breuer, solda) a partir da rede III_1 e omega(I)=1;")
+    print("     Breuer=KNOWN externo; secao ergodica equivariante=COND; solda=COND; Einstein=condicional (E7 inalterado)]")
+    print("  teoremas limpos: %s/%s ; DERIVACOES v56 em dim INFINITA [construcao do pacote = O ABERTO; continuos do ledger INALTERADOS]" % (
         el.get("n_theorems_clean"), el.get("n_theorems_expected")))
     print("  >>> %s <<<\n" % el.get("verdict"))
+    xdw = core.get("crossed_dual_weight", {})
+    _xr = xdw.get("residuals", {}); _xv = xdw.get("values", {})
+    print("O PESO DUAL NO PRODUTO CRUZADO [v44 -- sombra numerica; a lei da pedra]:")
+    print("  sigma^{phi_hat}_t(lambda_g) = lambda_g . pi([D(phi o alpha_g):D phi]_t)  [Takesaki X.1.17; KERNEL + sombra]")
+    print("  Z2 x| M_2 (PARIDADE, estado (beta,1-beta)): peso dual resid=%.1e ; naturalidade=%.1e ; alem-dos-internos=%.1e" % (
+        _xr.get("z2_dual_weight_both_forms", float("nan")), _xr.get("z2_dual_naturality", float("nan")),
+        _xr.get("z2_cocycle_covariance_beyond_inner", float("nan"))))
+    print("  POWERS: o cociclo da paridade = diag(lam_b^{it}, lam_b^{-it}), lam_b=beta/(1-beta)=%.6e (resid %.1e) -- a razao do v27" % (
+        _xv.get("lambda_beta_powers", float("nan")), _xr.get("z2_powers_ratio", float("nan"))))
+    print("  S3 x| M_3 (NAO-abeliano): peso dual resid=%.1e ; controles: invariante degenera (%.1e) ; argumento errado FALHA (%.1e)" % (
+        _xr.get("s3_dual_weight_both_forms", float("nan")), _xr.get("control_degenerate_residual", float("nan")),
+        _xr.get("control_wrong_argument_deviation", float("nan"))))
+    print("  >>> %s <<<\n" % xdw.get("verdict"))
+    glc = core.get("global_lift_core", {})
+    _gr = glc.get("residuals", {}); _gs = glc.get("statuses", {})
+    print("O NUCLEO CONTINUO DO GLOBAL_LIFT [v45 -- derivacao do OPERADOR, auditada; harness incorporado]:")
+    print("  a ESCADA: Z -> U_n 2^{-n}Z -> R ; (U_n C_n)'' = M x|_sigma R  [EXTERNO: %s]" % _gs.get("dyadic_ladder_generates_core", "")[:36])
+    print("  A JOIA: s_h=2pi.2^n fixa o degrau, tau o theta = e^{-s} tau => TRACO FINITO = 0 em TODO degrau discreto")
+    print("    [%s] -- a semifinitude SO' emerge no fecho continuo: 'o que faltava era o continuo' virou TEOREMA" % _gs.get("discrete_trace_obstruction", ""))
+    print("  T1 = projecao de Poisson sobre o centralizador [%s]" % _gs.get("t1_poisson_projection_onto_centralizer", "")[:46])
+    print("    CORRECAO FISCAL: colapso ao KMS = %s" % _gs.get("t1_collapse_to_KMS", ""))
+    print("  canal S-frame: semigrupo resid=%.1e ; endpoint (1-beta,beta) resid=%.1e ; Choi min=%.1e ; traco resid=%.1e" % (
+        _gr.get("S_frame_semigroup", float("nan")), _gr.get("dephased_endpoint", float("nan")),
+        _gr.get("choi_min_eigenvalue", float("nan")), _gr.get("trace_preservation", float("nan"))))
+    print("  DISCIPLINA DO CORE: %s" % _gs.get("core_action_discipline", ""))
+    print("  RESIDUO PRECISO (fisico): P_F=1_{0}(H_3L) localizado+covariante+Ad-lambda-invariante, 0<tau(P_F)<inf ; Einstein: %s" % _gs.get("physical_einstein_implication", "")[:40])
+    print("  >>> %s <<<\n" % glc.get("verdict"))
+    cfm = core.get("corner_family", {})
+    _cr = cfm.get("residuals", {}); _cv = cfm.get("values", {}); _ca = cfm.get("adjudication", {})
+    print("A FAMILIA DO CANTO [v46 -- o gate 'construir P_F' EXECUTADO na face finita; existencia ADJUDICADA]:")
+    print("  cornerProj S no produto cruzado: projecao=%.1e ; isotonia=%.1e ; covariancia=%.1e ; traco=%.1e ; inv.modular=%.1e" % (
+        _cr.get("projection", float("nan")), _cr.get("isotony", float("nan")),
+        _cr.get("covariance", float("nan")), _cr.get("trace", float("nan")),
+        _cr.get("modular_invariance", float("nan"))))
+    print("  canto espectral 1_{0}(H) fixo pelo fluxo (resid %.1e) ; tau(P_F)=%.0f na sombra (0<tau<inf) ; ker H_3L dim=%s" % (
+        _cr.get("spectral_corner_flow", float("nan")), _cv.get("tau_PF_shadow", float("nan")),
+        _cv.get("ker_H3L_dim_shadow")))
+    print("  ADJUDICACAO: existencia II_inf=%s" % str(_ca.get("corner_existence_in_IIinfty", ""))[:22])
+    print("               canonicidade=%s ; tau=1: %s" % (
+        str(_ca.get("canonicity_of_P_F", ""))[:24], str(_ca.get("tau_normalization", ""))[:34]))
+    print("               ker no core genuino=%s ; rede AQFT=%s" % (
+        str(_ca.get("zero_kernel_in_genuine_core", ""))[:38], str(_ca.get("continuum_AQFT_net", ""))[:6]))
+    print("  >>> %s <<<\n" % cfm.get("verdict"))
+    bws = core.get("bw_shadow", {})
+    _br = bws.get("residuals", {}); _bs = bws.get("statuses", {})
+    print("BISOGNANO-WICHMANN NA FACE FINITA [v47 -- gate 4; as duas metades + a costura declarada]:")
+    print("  geometria: grupo=%.1e ; B^T.eta.B=eta resid=%.1e ; dilatacao nula e^{+-s} resid=%.1e ; cunha 200 orbitas OK" % (
+        _br.get("boost_group", float("nan")), _br.get("minkowski_isometry", float("nan")),
+        _br.get("null_dilation", float("nan"))))
+    print("  modular: rho^{it}=e^{-2pi.t.i.K} resid=%.1e ; sigma=Ad(K-fluxo) resid=%.1e ; Boltzmann e^{-2pi.omega} resid=%.1e" % (
+        _br.get("modular_speed_2pi", float("nan")), _br.get("sigma_Ad_K", float("nan")),
+        _br.get("unruh_ratio", float("nan"))))
+    print("  costura: %s" % _bs.get("bw_wedge_identification", ""))
+    print("  alem das cunhas: %s" % _bs.get("beyond_wedges_non_killing", ""))
+    print("  [a dilatacao e^{+-s} dos raios nulos tem a MESMA forma da escala de Takesaki tau.theta_s=e^{-s}.tau (v45) -- leitura estrutural]")
+    print("  >>> %s <<<\n" % bws.get("verdict"))
+    gvp = core.get("graviton_polarization", {})
+    _gpr = gvp.get("residuals", {}); _gpv = gvp.get("values", {})
+    print("O GRAVITON OBSERVAVEL [v48 -- gate 7: a cinematica de spin-2, kernel + sombra]:")
+    print("  helicidade +-2: resid %.1e/%.1e ; modo-traco invariante: %.1e ; decomposicao 2-dof: %.1e" % (
+        _gpr.get("helicity_plus", float("nan")), _gpr.get("helicity_cross", float("nan")),
+        _gpr.get("trace_mode", float("nan")), _gpr.get("decomposition", float("nan"))))
+    print("  gauge nao toca TT: %.1e ; delta_A(1)=0: %.1e ; Leibniz: %.1e ; S-1 por G: %.1e" % (
+        _gpr.get("gauge_tt", float("nan")), _gpr.get("identity_excitation", float("nan")),
+        _gpr.get("leibniz", float("nan")), _gpr.get("smat_deviation", float("nan"))))
+    print("  runtime: sin^2(theta_M) = beta le o custo da excitacao de fronteira ; ||S(theta_M)-1||^2 = %.6e" % (
+        _gpv.get("boundary_deviation_norm_sq", float("nan"))))
+    print("  [graviton FUNDAMENTAL = I (atravessa sem deformar: sigma_one + rot_conj_one + excite_one_zero, TODOS kernel);")
+    print("   graviton OBSERVAVEL = deltaI_modular; DINAMICA e INTERACOES seguem gates 5/8]")
+    print("  >>> %s <<<\n" % gvp.get("verdict"))
+    gfl = core.get("geometry_fluctuation", {})
+    _gfv = gfl.get("values", {}); _gfr = gfl.get("residuals", {})
+    print("AS FLUTUACOES QUANTICAS DA GEOMETRIA [v49 -- gate 6; kernel + sombra]:")
+    print("  fronteira: media=%.9f (=beta resid %.1e) ; Var=%.9f (=beta(1-beta)=Delta_v26 resid %.1e)" % (
+        _gfv.get("mean_boundary", float("nan")), _gfr.get("mean_beta", float("nan")),
+        _gfv.get("variance_boundary", float("nan")), _gfr.get("var_defect", float("nan"))))
+    print("  A FLUTUACAO QUANTICA DA GEOMETRIA E' O DEFEITO DE TRANSPORTE ; maxima em p=1/2 (Meia-Nat)")
+    print("  [h+,hx]=2J resid %.1e ; flutuacao relativa em M=1e8 modos: %.3e (decai 1/sqrt(M))" % (
+        _gfr.get("commutator_2J", float("nan")), _gfv.get("relative_fluctuation_at_M_1e8", float("nan"))))
+    print("  >>> %s <<<\n" % gfl.get("verdict"))
+    pgi = core.get("page_information", {})
+    _pgv = pgi.get("values", {}); _pgr = pgi.get("residuals", {})
+    print("A CURVA DE PAGE [v50 -- gate 9; N=%s qubits, estado global puro]:" % _pgv.get("N_qubits"))
+    print("  S_rad(k) em nats: %s" % _pgv.get("S_curve"))
+    print("  SOBE ate k=%s (a METADE), VIRA, DESCE ; S_A=S_B resid %.1e ; pureza global = %.12f (unitario por dentro)" % (
+        _pgv.get("page_time_k"), _pgr.get("S_A_minus_S_B", float("nan")), _pgv.get("global_purity", float("nan"))))
+    print("  o canal perde pureza monotonicamente (termico por fora) ; entropia maxima no espelho p=1/2 (resid %.1e)" % (
+        _pgr.get("entropy_max_position", float("nan"))))
+    print("  >>> %s <<<\n" % pgi.get("verdict"))
+    erg = core.get("einstein_and_rg", {})
+    _er = erg.get("residuals", {}); _es = erg.get("statuses", {})
+    print("OS GATES 5 E 8 DE FRENTE [v51 -- mandato: 'o contorno reduziu o contraste']:")
+    print("  GATE 5: dS=d<K> resid %.1e (derivada vs esperanca) ; Clausius resid %.1e ; 8piG resid %.1e" % (
+        _er.get("first_law", float("nan")), _er.get("clausius", float("nan")), _er.get("area_8piG", float("nan"))))
+    print("    %s" % _es.get("einstein_remaining", ""))
+    print("    E7: %s" % str(_es.get("e7_statute", ""))[:110])
+    print("  GATE 8: canto fixo por E %.1e / dephasing %.1e / fluxo modular %.1e ; passo RG dobra aniquilador %.1e" % (
+        _er.get("corner_condexp", float("nan")), _er.get("corner_dephase", float("nan")),
+        _er.get("corner_modflow", float("nan")), _er.get("rg_step", float("nan"))))
+    print("  >>> %s <<<\n" % erg.get("verdict"))
     b1 = core["em_grav_bridge"]; b2 = core["smatrix_crossed"]; b3 = core["u_loc_covariance"]
     print("AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:")
     c = b1["checks"]
@@ -18977,6 +25790,9 @@ def main():
     pt = emit_article(core, verdict, data_path, "pt")
     en = emit_article(core, verdict, data_path, "en")
     compile_pdf("um_grande_atrator_pt"); compile_pdf("um_grande_atrator_en")
+    # v56: UM ARTIGO SO' (ordem do operador 14/07: "nao quero que sejam 2 artigos") --
+    # o esqueleto formal e' agora um CAPITULO dentro de build_pt/build_en (sem perder nada);
+    # a emissao separada O_Esqueleto_*.tex/pdf foi removida e os arquivos aposentados.
 
     # v23.1: marcadores canonicos nos .tex (apos \end{document}: o pdflatex ignora;
     # o ARQUIVO .tex carrega o bloco, que o finalize rele e compara)

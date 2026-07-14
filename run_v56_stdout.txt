@@ -2,7 +2,7 @@ Inscreva o UM para iniciar:
 O UM foi inscrito. I = 1. omega(I) = 1.
 Iniciando desconstrucao fractalizada: 1 -> 1/2 -> beta -> borda -> massa
 
-[kernel embutido] materializado em C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\um_unificado\tgl_kernel: 3 escritos, 37 inalterados; packages: packages_present
+[kernel embutido] materializado em C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\tgl_kernel: 0 escritos, 59 inalterados; packages: packages_present
 Meia-Nat:  S=1/2 (x=1-x, residuo 0e+00) ; w_max=1/2
 s=1/(4pi)=0.079577 (campo=lei a 0.95%) ; vacuo rho=0e+00 -> 0
 beta=sqrt(e)*alpha=0.012031300400797  (=sqrt(e)*sqrt(1-q^2)) ; theta_M=6.2973 deg
@@ -269,7 +269,7 @@ FORMALIZACAO POR KERNEL [v22 -- o Python NAO prova; o kernel do Lean prova]:
   Projetor P_F (idempotente, auto-adjunto)       : KERNEL PROVED
   Implicacao do canto continuo                   : KERNEL PROVED CONDITIONALLY
   Testemunha AQFT especifica                     : NOT CONSTRUCTED
-  hash dos fontes Lean: 8fa17904c3b9f43a68ff7426036ed730aec41fc877d0f7d2b01076beffa3c681
+  hash dos fontes Lean: d1addb208f49d2642b7137fbc4e9cca960d587fc40b4945fa446ad4a73257c2d
   >>> TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN <<<
 FORMAL FRONTIER: construir um habitante de TGLSpecificAQFTWitness
                  sem sorry, admit ou axiomas customizados.
@@ -367,13 +367,165 @@ A COLHEITA DOS EXTERNOS [v33 -- escada TGLExt integrada; sombra FINITA verificad
   Degrau 0 (Tomita-Takesaki finito COMPLETO): CLOSED_IN_KERNEL
     S(x.Omega)=x^H.Omega: True ; polar S=J.Delta^{1/2}: True ; Delta>=0: True ; KMS-Gibbs: True
     fluxo rho^{it}: grupo=True unitario=True ; omega o sigma_t=omega: True ; exp(log rho)=rho: True ; sigma_t(Omega)=Omega: True
-  Degrau 1: CORE_CLOSED_IN_KERNEL__GENERAL_BICOMMUTANT_OPEN
+  Degrau 1: CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT
     bicomutante L''=L: True ; JMJ=M': True ; Tomiyama bimodular: True ; Jones e.L_x.e=L_{E(x)}.e: True ; MASA D'=D: True
+    BICOMUTANTE GERAL [v38]: reconstrucao End(H)=span{L R}: True ; comutante-span: True ; compl. Frobenius: True ; TEOREMA: True
   Degrau 2: CONCRETE_PP_INDEX_AND_MARKOV_WEIGHTS_COMPUTED__MULTIMATRIX_GENERAL_OPEN
     dominancia do traco: True ; cota MASA (Cauchy-Schwarz): True ; OTIMALIDADE: True/True ; INDICE PP = n: True/True
     MARKOV: Tr(L_x.e_D)=Tr x: True ; Tr(L_x.e_C)=Tr x/n: True ; tau(e)=1/Ind: True/True ; MASA coincide: True ; PP!=torre (n>1): True
-  teoremas limpos: 33/33 ; TUDO dimensao FINITA [nada e' III_1; continuos do ledger INALTERADOS]
+  MATRIZ-S [v41]: CLOSED_IN_KERNEL__THETA_GENERIC_BETA_RUNTIME
+    G^2=-1: True ; exp(thG)=cos+sinG: True ; unitaria: True ; grupo: True ; espectro e^{+-i th}: True ; |R|^2+|T|^2=1: True ; canal Tr=1: True
+    [|R|^2 = sin^2(theta_M) = beta e' leitura de RUNTIME: theta generico no kernel; beta jamais no Lean]
+  COCICLO DE CONNES [v42 -- face finita do Lema 3]: CLOSED_IN_KERNEL__GLOBAL_LIFT_REMAINS_OPEN
+    colagem E1: True ; temporal sigma-torcida E2: True ; adjunto (u_pq)^H=u_qp: True ; unitario: True
+    gerador comutante E3c: True ; log-conjugacao cfc: True ; COVARIANCIA E6 (conjugar estados = conjugar cociclo): True
+    [SOMBRA FINITA: o levantamento GLOBAL (III_1 sem projecoes minimais; U/T1/T3) SEGUE O TEOREMA ABERTO]
+  ERGODICIDADE T1 [v43 -- face finita]: CLOSED_IN_KERNEL__N3_AND_III1_REMAIN_OPEN
+    fixo<=comuta: True ; log(diag)=diag(log): True ; SETOR FIXO = CENTRALIZADOR (iff, sem derivadas): True
+    O TRACO EMERGE no centralizador: True ; semigrupo: True ; T_t -> E_0 (LIMITE genuino): True ; taxa modular |log li - log lj|: True
+    [taxa fisica = beta*gap (Davies) e' reparametrizacao de RUNTIME; N3 (mixing forte Davies continuo) e III_1 seguem ABERTOS]
+  PRODUTO CRUZADO FINITO [v44 -- peso dual de Takesaki; covariancia ALEM dos internos]: CLOSED_IN_KERNEL__GLOBAL_LIFT_REMAINS_OPEN
+    lambda unitario: True ; covariancia l.pi(a).l^H=pi(alpha a): True ; pi injetivo: True ; E mata lambda_g: True
+    criterio de Takesaki (phi_hat o E = phi_hat): True ; estado dual = phi o E exato: True ; (pi rho)^{it}=pi(rho^{it}): True
+    D1 fluxo restrito=fluxo da base: True ; D3 naturalidade dual do cociclo: True ; *** D2 PESO DUAL sigma(lambda_g)=lambda_g.pi(cociclo): True ***
+    covariancia do cociclo sob lambda_g (fora de pi(A)): True ; acao dual torce lambda: True ; comuta com fluxo: True ; estado dual invariante: True
+    [SOMBRA FINITA: sem escala de traco no grupo finito (core R = outro objeto); GLOBAL_LIFT SEGUE O TEOREMA ABERTO]
+  A ESCADA DO GLOBAL_LIFT [v45 -- diadica; obstrucao do traco; referencial-S]: CLOSED_IN_KERNEL__CONTINUOUS_CLOSURE_EXTERNAL_KNOWN__WITNESS_AND_PF_OPEN
+    malha diadica <= h/2: True ; estagios encaixados: True ; escada converge: True
+    aniquilador fixa o degrau (e^{-i.s_h.kh}=1): True ; escala!=1 mata o fixo: True ; *** OBSTRUCAO DO TRACO DISCRETO (tipada): True *** ; corolario diadico: True
+    referencial-S: semigrupo T^S genuino (v41+v43): True ; converge p/ esperanca comprimida: True ; endpoint da medicao (cos^2,sin^2): True
+    [FECHO CONTINUO DE von NEUMANN = EXTERNO (KNOWN-COMPOSED); a semifinitude do traco SO' emerge no fecho: a frase virou teorema]
+  A FAMILIA DO CANTO [v46 -- P_F local covariante de traco finito]: CONSTRUCTED_IN_KERNEL_FINITE_FACE__ZERO_KERNEL_IN_GENUINE_CORE_CONDITIONAL
+    projecao: True/True ; ISOTONIA P(S1)<=P(S2): True ; COVARIANCIA lam_g.P(S).lam_g^H=P(gS): True
+    traco Tr P(S)=|S|.n: True ; invariancia modular [P,(pi rho)^{it}]=0: True
+    *** [P_F,lambda(s)]=0 DE GRACA (canto espectral de H comutante e' fixo pelo fluxo): True ***
+    *** traco finito => NAO theta-fixo (o requisito do gate e' TEOREMA, nao imposicao): True ***
+    [ADJUDICADO: existencia do canto em II_inf = REAL classico; canonicidade = classe unitaria REAL;
+     tau(P_F)=1 = POSTULATE omega(I)=1; ker H_3L no core GENUINO = CONDITIONAL (no_zero_lock_kernel); rede AQFT = OPEN]
+  BISOGNANO-WICHMANN [v47 -- gate 4: fluxo modular = fluxo causal]: TWO_HALVES_IN_KERNEL__WEDGE_IDENTIFICATION_KNOWN_BW1975__BEYOND_WEDGES_OPEN
+    boost: grupo=True ; isometria de Minkowski=True ; raios nulos e^{+-s}=True/True ; cunha preservada=True
+    modular: log(e^{-2piK})=-2piK: True ; *** rho^{it}=e^{-2pi.t.i.K} (velocidade 2pi = Unruh): True *** ; sigma=Ad(K-fluxo): True
+    [COSTURA: K=boost da cunha com Delta^{it}=U(Lambda(2pi t)) e' KNOWN (BW 1975/76, wedges); ALEM das cunhas segue ABERTO]
+  O GRAVITON OBSERVAVEL [v48 -- gate 7: cinematica de spin-2]: SPIN2_KINEMATICS_CLOSED_IN_KERNEL__DYNAMICS_AND_INTERACTIONS_OPEN
+    2 polarizacoes (decomposicao): True ; independentes: True ; *** HELICIDADE +-2 (dubleto gira em 2.theta): True/True ***
+    modo-traco invariante (I atravessa, spin 0): True ; gauge nao toca o bloco TT: True ; k nulo (causal): True
+    *** delta_A(1)=0 (A IDENTIDADE NAO SE EXCITA -- custo zero como teorema): True *** ; Leibniz: True ; S-1 gerado por G: True
+    [CINEMATICA em kernel; DINAMICA = gate 5 (E7 CONDITIONAL); interacoes/renormalizacao = gate 8 OPEN]
+  AS FLUTUACOES DA GEOMETRIA [v49 -- gate 6]: FLUCTUATION_SKELETON_CLOSED_IN_KERNEL__FULL_QUANTUM_GEOMETRY_OPEN
+    Var(P)=p(1-p) (o defeito de transporte v26): True ; media/variancia da fronteira: True/True
+    *** p(1-p)<=1/4 com IGUALDADE SSE p=1/2 (A MEIA-NAT E' A FLUTUACAO MAXIMA): True/True ***
+    [h+,hx]=2J (fecha no gerador de helicidade): True ; nao-comutativa: True ; *** LIMITE CLASSICO = LLN (1/sqrt(M)): True ***
+    [ESQUELETO do gate 6 em kernel; operadores g_mu_nu na rede AQFT continua = OPEN (a testemunha plena)]
+  PAGE E A INFORMACAO [v50 -- gate 9]: MECHANISM_CLOSED_IN_KERNEL__HORIZON_MODEL_AND_AREA_LAW_OPEN
+    *** BALANCO DE PAGE Tr((MM^H)^2)=Tr((M^H M)^2) (a radiacao sabe o quanto o buraco sabe): True/True ***
+    unitarios CONSERVAM pureza: True ; ponte Frobenius: True ; *** canal PERDE pureza monotonicamente: True ***
+    entropia maxima no espelho (H(p)<=H(1/2), = SSE p=1/2): True/True -- o MESMO ponto da flutuacao maxima v49
+    [MECANISMO em kernel (termico por fora, unitario por dentro); S_BH=A/4G e horizonte III_1 dinamico = OPEN]
+  EINSTEIN [v51 -- gate 5]: ALL_HOUSE_LINKS_IN_KERNEL__LOVELOCK_KNOWN__KILLING_RESIDUE_NAMED
+    *** A PRIMEIRA LEI MODULAR dS=d<K> (derivada genuina): True *** ; Clausius dQ=(1/2pi)d<K> tipado: True
+    [elos em kernel: 1a lei (v51) + T=1/2pi (v47) + 8piG (AreaScale) + fonte simetrica (v48);
+     restam: Lovelock 4D KNOWN citavel + Killing aproximado NOMEADO (=Jacobson 1995) + conservacao continua]
+  RENORMALIZACAO [v51 -- gate 8]: CORNER_IS_RG_FIXED_POINT_FINITE_FACE__INTERACTIONS_AND_ANOMALIES_OPEN
+    E fixa o canto: True ; dephasing fixa o canto: True ; *** passo de RG dobra o aniquilador (beta_RG<->modular, 1a ancora): True ***
+    [com cornerProj_comm_modPow (v46): TRES dinamicas fixam o canto = a resposta finita ao gate 8 e' SIM;
+     interacoes genuinas/anomalias/III_1 sob RG = OPEN]
+  O HABITANTE VARIACIONAL [v52 -- derivacao do operador: o Nome que se torna FUNCIONAL]: INHABITANT_IS_THE_FUNCTIONAL__GIBBS_UNIQUE_LEGENDRE_CRITICAL__EXISTENCE_VARIATIONAL
+    modo-zero minimiza o defeito (o vazio estruturado): True ; *** GIBBS = ponto critico de LEGENDRE: True ***
+    *** E SO O GIBBS (critico elementar => Gibbs; UNICIDADE = face finita da ergodicidade Id): True ***
+    [REENQUADRAMENTO da Pergunta 5-Ib: existencia do habitante = VARIACIONAL (compacidade fraca-* KNOWN),
+     nao acidente espectral; zero-defeito <=> codigo exato; o preco do nao-zero ja tem nome: beta]
+  A PONTE GNS [v53 -- a flexao comeca (Degrau 3)]: FUNCTIONAL_TYPED_IN_MATHLIB_PREDUAL__GNS_INSTANTIATION_BLOCKED_NAMED_gns_matrix_instance_whnf_timeout
+    estado da fronteira POSITIVO (gibbs_nonneg): True ; MONOTONO (Loewner): True ; funcional TIPADO (->p[C]): True
+    [GNS da mathlib EXISTE (PositiveLinearMap.GNS/gnsStarAlgHom) e o funcional esta pronto; a instanciacao
+     sobre matrizes TRAVA no elaborador: NEGATIVO NOMEADO gns_matrix_instance_whnf_timeout (engenharia, nao matematica)]
+  O NOME FUNCIONAL -- GNS FINITO SEM COMPLETAMENTO [v54 -- espec do especialista compilado]: NAME_GNS_TERM_CONSTRUCTED_FINITE__NEGATIVE_UNDONE_ON_FINITE_FACE__GENERIC_API_COMPOSITION_REMAINS
+    termo nameFiniteGNS CONSTRUIDO (vetorial+ciclico+separador+Tomita+polar+KMS+S.Omega=Omega): True ;
+    funcional tipado do v53 = estado VETORIAL da realizacao concreta: True
+    *** [NEGATIVO gns_matrix_instance_whnf_timeout DESFEITO NA FACE FINITA; resta so' a composicao com a API generica] ***
+  A TESTEMUNHA E' O TRANSPORTE [v54 -- derivacao do operador: 'o ponto critico nao e' ponto']: WITNESS_IS_THE_TRANSPORT_LAW__EL_GENUINE__HOLONOMY_CLOSES_IN_COMMUTATOR__CONTINUOUS_COVARIANT_FAMILY_OPEN
+    EL seleciona o nucleo (S_3L=0 <=> locks anulam): True ; EL como DERIVADA genuina: True ; critico<=>Hv=0: True
+    lei T_{t,r}oT_{r,s}=T_{t,s}: True ; Nome fixado pelo transporte: True ; traco c=1: True ; canto constante: True
+    *** HOLONOMIA fecha no comutador (dA.dB - dB.dA = d[A,B]): True ; plana p/ comutantes: True ***
+    sombra numerica v54 (GNS/transporte/EL/holonomia): residuo max 4.85e-12 ; contraste holonomico 147.505 ; NAME_FUNCTIONAL_TRANSPORT_VERIFIED__THE_WITNESS_IS_THE_TRANSPORT_LAW
+    [NOME=funcional; VERBO=transporte; gravidade=curvatura do transporte -- a familia covariante e' o v55]
+  O CANTO COVARIANTE TRANSPORTADO [v55 -- o 'proximo teorema' do memorando, face finita]: MEMO_FOUR_CONDITIONS_TYPED_AND_TERM_CONSTRUCTED_FINITE_FACE__GENUINE_CORE_R_ACTION_POINCARE_OPEN
+    (1) 0<tr(P_S)=|S|n<inf: True ; (4) ISOTONIA de Loewner: True ; familia NAO-constante: True
+    *** (2) transporte INTERNO fixa (sigma_t(P_S)=P_S): True ; (3) EXTERNO move covariante (v46 lam): em kernel ; TERMO canonicalTransportedCorner: True ***
+    sombra numerica v55 (Z2 x| M2): residuos <=1e-12 todos ; contraste externo 2.000 ; COVARIANT_CORNER_FINITE_FACE_VERIFIED__GENUINE_CORE_OPEN
+    [ABERTO honesto: a MESMA familia no core genuino -- R continuo (II_inf do III_1) + U(g) Poincare em
+     regioes de Minkowski; a obstrucao do traco discreto (v45) e' exatamente o porque do continuo]
+  A MORADA E' O PACOTE DE HILBERT [v56 -- Resposta 6 kernelizada, desenho INVERTIDO]: FOUR_CORNER_PROPERTIES_DERIVED_FROM_INTERTWININGS_INFINITE_DIM__PACKAGE_CONSTRUCTION_FROM_III1_NET_OPEN__SINGLE_HYPOTHESIS_NAMED_TGL_SOLDERED_BREUER_HILBERT_PACKAGE
+    nucleo TRANSPORTADO pelo entrelacamento (U(ker D1)=ker D2): True ; *** VALIDO EM DIMENSAO INFINITA ***
+    (2) interno FIXA: True ; (3) externo COVARIANTE: True ; (4) ISOTONIA: True -- TEOREMAS, nao mais hipoteses
+    morada tipada (P_F DERIVADA do ker do lock, nao campo): interno True / covariante True / isotone True ; PALAVRA ||Dx||=0<=>ker: True
+    *** SOLDA: rho* injetiva => R = rho*^{-1}(F_nabla) UNICO: True ***
+    sombra numerica v56: residuo max 2.20e-15 ; contraste do controle negativo 0.920 ; HILBERT_HOME_PROPERTIES_DERIVED__GLOBAL_LIFT_REDUCED_TO_SINGLE_NAMED_HYPOTHESIS__NOT_UNCONDITIONALLY_SOLVED
+    [O TEOREMA ABERTO virou UM e tem nome: TGL_SOLDERED_BREUER_HILBERT_PACKAGE -- a construcao
+     canonica do pacote (D, transportes, tau de Breuer, solda) a partir da rede III_1 e omega(I)=1;
+     Breuer=KNOWN externo; secao ergodica equivariante=COND; solda=COND; Einstein=condicional (E7 inalterado)]
+  teoremas limpos: 164/164 ; DERIVACOES v56 em dim INFINITA [construcao do pacote = O ABERTO; continuos do ledger INALTERADOS]
   >>> EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED <<<
+
+O PESO DUAL NO PRODUTO CRUZADO [v44 -- sombra numerica; a lei da pedra]:
+  sigma^{phi_hat}_t(lambda_g) = lambda_g . pi([D(phi o alpha_g):D phi]_t)  [Takesaki X.1.17; KERNEL + sombra]
+  Z2 x| M_2 (PARIDADE, estado (beta,1-beta)): peso dual resid=1.1e-16 ; naturalidade=2.0e-16 ; alem-dos-internos=0.0e+00
+  POWERS: o cociclo da paridade = diag(lam_b^{it}, lam_b^{-it}), lam_b=beta/(1-beta)=1.217782e-02 (resid 1.8e-16) -- a razao do v27
+  S3 x| M_3 (NAO-abeliano): peso dual resid=7.5e-15 ; controles: invariante degenera (0.0e+00) ; argumento errado FALHA (9.6e-01)
+  >>> CROSSED_PRODUCT_DUAL_WEIGHT_FINITE_FACE_CLOSED <<<
+
+O NUCLEO CONTINUO DO GLOBAL_LIFT [v45 -- derivacao do OPERADOR, auditada; harness incorporado]:
+  a ESCADA: Z -> U_n 2^{-n}Z -> R ; (U_n C_n)'' = M x|_sigma R  [EXTERNO: KNOWN_COMPOSED_EXTERNAL (densidade K]
+  A JOIA: s_h=2pi.2^n fixa o degrau, tau o theta = e^{-s} tau => TRACO FINITO = 0 em TODO degrau discreto
+    [KERNEL (DualScalingData.fixed_tau_zero) + KNOWN (escala de Takesaki)] -- a semifinitude SO' emerge no fecho continuo: 'o que faltava era o continuo' virou TEOREMA
+  T1 = projecao de Poisson sobre o centralizador [KNOWN_COMPOSED (Cauchy char-fn + calculo espec]
+    CORRECAO FISCAL: colapso ao KMS = CONDITIONAL__REQUIRES_STATE_ERGODICITY (M_phi = C.1; correcao fiscal, NOMEADA)
+  canal S-frame: semigrupo resid=2.5e-16 ; endpoint (1-beta,beta) resid=1.1e-16 ; Choi min=-1.3e-17 ; traco resid=1.1e-16
+  DISCIPLINA DO CORE: P_F fixado por Ad(lambda(s)) tau-preservante; JAMAIS por theta_s (o no-go vira bussola)
+  RESIDUO PRECISO (fisico): P_F=1_{0}(H_3L) localizado+covariante+Ad-lambda-invariante, 0<tau(P_F)<inf ; Einstein: CONDITIONAL (Lovelock/Jacobson; estatuto
+  >>> GLOBAL_LIFT_CORE_CLOSED_AS_EXTERNAL_COMPOSED_THEOREM <<<
+
+A FAMILIA DO CANTO [v46 -- o gate 'construir P_F' EXECUTADO na face finita; existencia ADJUDICADA]:
+  cornerProj S no produto cruzado: projecao=0.0e+00 ; isotonia=0.0e+00 ; covariancia=0.0e+00 ; traco=0.0e+00 ; inv.modular=0.0e+00
+  canto espectral 1_{0}(H) fixo pelo fluxo (resid 0.0e+00) ; tau(P_F)=2 na sombra (0<tau<inf) ; ker H_3L dim=2
+  ADJUDICACAO: existencia II_inf=REAL_CLASSICAL (P com 
+               canonicidade=UNITARY_CLASS_REAL (P_F  ; tau=1: POSTULATE_OMEGA_I_EQUALS_ONE (por 
+               ker no core genuino=CONDITIONAL (falha nomeada: no_zero_lo ; rede AQFT=OPEN (
+  >>> CORNER_FAMILY_CONSTRUCTED_FINITE_FACE__EXISTENCE_ADJUDICATED <<<
+
+BISOGNANO-WICHMANN NA FACE FINITA [v47 -- gate 4; as duas metades + a costura declarada]:
+  geometria: grupo=1.1e-16 ; B^T.eta.B=eta resid=1.1e-16 ; dilatacao nula e^{+-s} resid=2.2e-16 ; cunha 200 orbitas OK
+  modular: rho^{it}=e^{-2pi.t.i.K} resid=2.4e-13 ; sigma=Ad(K-fluxo) resid=1.1e-12 ; Boltzmann e^{-2pi.omega} resid=1.0e-17
+  costura: KNOWN (Bisognano-Wichmann 1975/76; Wightman; wedges)
+  alem das cunhas: OPEN (rota: Wiesbrock half-sided / Buchholz-Summers CGMA)
+  [a dilatacao e^{+-s} dos raios nulos tem a MESMA forma da escala de Takesaki tau.theta_s=e^{-s}.tau (v45) -- leitura estrutural]
+  >>> BW_TWO_HALVES_IN_KERNEL__SEAM_KNOWN_FOR_WEDGES <<<
+
+O GRAVITON OBSERVAVEL [v48 -- gate 7: a cinematica de spin-2, kernel + sombra]:
+  helicidade +-2: resid 6.9e-17/6.9e-17 ; modo-traco invariante: 2.7e-17 ; decomposicao 2-dof: 0.0e+00
+  gauge nao toca TT: 0.0e+00 ; delta_A(1)=0: 0.0e+00 ; Leibniz: 3.7e-15 ; S-1 por G: 0.0e+00
+  runtime: sin^2(theta_M) = beta le o custo da excitacao de fronteira ; ||S(theta_M)-1||^2 = 1.206771e-02
+  [graviton FUNDAMENTAL = I (atravessa sem deformar: sigma_one + rot_conj_one + excite_one_zero, TODOS kernel);
+   graviton OBSERVAVEL = deltaI_modular; DINAMICA e INTERACOES seguem gates 5/8]
+  >>> GRAVITON_SPIN2_KINEMATICS_CLOSED_IN_KERNEL <<<
+
+AS FLUTUACOES QUANTICAS DA GEOMETRIA [v49 -- gate 6; kernel + sombra]:
+  fronteira: media=0.012031300 (=beta resid 0.0e+00) ; Var=0.011886548 (=beta(1-beta)=Delta_v26 resid 0.0e+00)
+  A FLUTUACAO QUANTICA DA GEOMETRIA E' O DEFEITO DE TRANSPORTE ; maxima em p=1/2 (Meia-Nat)
+  [h+,hx]=2J resid 0.0e+00 ; flutuacao relativa em M=1e8 modos: 9.062e-04 (decai 1/sqrt(M))
+  >>> GEOMETRY_FLUCTUATION_SKELETON_CLOSED_IN_KERNEL <<<
+
+A CURVA DE PAGE [v50 -- gate 9; N=8 qubits, estado global puro]:
+  S_rad(k) em nats: [0.0, 0.690359, 1.352152, 1.965331, 2.299251, 1.957747, 1.363395, 0.688498, 0.0]
+  SOBE ate k=4 (a METADE), VIRA, DESCE ; S_A=S_B resid 1.0e-15 ; pureza global = 1.000000000000 (unitario por dentro)
+  o canal perde pureza monotonicamente (termico por fora) ; entropia maxima no espelho p=1/2 (resid 5.6e-17)
+  >>> PAGE_MECHANISM_CLOSED_IN_KERNEL__CURVE_VERIFIED <<<
+
+OS GATES 5 E 8 DE FRENTE [v51 -- mandato: 'o contorno reduziu o contraste']:
+  GATE 5: dS=d<K> resid 3.7e-12 (derivada vs esperanca) ; Clausius resid 5.9e-13 ; 8piG resid 0.0e+00
+    LOVELOCK_KNOWN + KILLING_NAMED (=Jacobson desde 1995) + CONSERVATION_CONTINUUM_OPEN
+    E7: INALTERADO ('NAO se afirma provamos Einstein'); o que mudou: a lista de hipoteses ENCOLHEU ao classico citavel
+  GATE 8: canto fixo por E 0.0e+00 / dephasing 0.0e+00 / fluxo modular 0.0e+00 ; passo RG dobra aniquilador 0.0e+00
+  >>> GATES_5_AND_8_HOUSE_SIDE_CLOSED_IN_KERNEL <<<
 
 AS TRES FRENTES -- ponte operador-modular [MODULOS 1-3, conferidos pelo operador]:
   [1] PONTE SO(2): S_EM=[[q,alpha],[-alpha,q]] ; S_grav=[[cos,sin],[-sin,cos]] (mesma rotacao)
@@ -420,13 +572,9 @@ A ESCALA, O PESO, O PROGRAMA [v4 MODULOS P2-P6]:
       CONDICIONAL a P_2D em M ; residuo ABERTO: localizacao de P_2D em M vs M rtimes R. all=True
   [P4] PISO DOS VAZIOS [PRE]: rho_void/rho_bar >= beta=0.012031 (margem ~4.2x vs minimo tipico ~0.05)
       criterio: vazio robusto com rho_c/rho_bar < beta-3sigma FALSIFICA (DESI/Euclid). consistente=True
-  [P5] DIPOLO GA/ANTIPODA [PRE, posicoes]: n_GA=265 n_anti=323 razao=1.219 (boot mediana=1.216, CI95=[1.032,1.438])
-      antipoda NAO-sub-densa no bruto (razao=1.219>1): [BRUTO NAO-INFORMATIVO por ZoA, caveat
-      pre-declarado no modulo]. GA atras da Zona de Evitamento -> vies contra o GA. -> P5' decide.
+  [P5] DIPOLO GA/ANTIPODA [PRE]: CF4 indisponivel (CF4 absent (absent)) -- protocolo pre-registrado gravado.
   [P5'] TESTE MASCARADO (|b|>10; GA b=-6.8, anti b=6.8) [PRE, o teste que decide]:
-      n_GA_masc=247 n_anti_masc=279 razao_masc=1.130 (boot mediana=1.125, CI95=[0.941,1.357])
-      controles (8 cones |b|>30): contagens=[716, 269, 776, 457, 359, 892, 407, 556] ; IC90 das razoes=[0.396,2.529]
-      razao no percentil 54 dos controles ; fora do IC90=False => VEREDITO P5': NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)
+      CF4 indisponivel (CF4 absent (absent)) -- protocolo pre-registrado (mascara+8 controles seed=11) gravado.
   [P6] CROSSOVER DE DEFASAGEM [FINITE_DIM]: root law=canonica no IR (a MESMA lei do gerador v3):
       Gamma medido vs (1/2)beta(sqrt k_i-sqrt k_j)^2 rel_max=2.0e-05 ; expoente IR=1.999 UV=1.037
       crossover em omega tau* ~ 3.162 (quadratica IR -> linear UV) ; all=True
@@ -475,9 +623,32 @@ PRINCIPIO DA DEFASAGEM FRACTAL [CONJECTURE ontologica; ancoras REAL]:
   >>> existir E' o vazamento beta; a anticomutacao perfeita (nada absoluto) e' inalcancavel. <<<
 
 [A literatura ] R_struct=57.0 Mpc -> M_GA=2.744e+16 Msun
-[B CF4-posicoes] R_struct=41.27 Mpc -> M_GA=1.986e+16 Msun (n=265, geometria; origem=cache)
-[manifesto] um_grande_atrator_manifest.md escrito; hash do mundo (codigo+manifesto+dados): ff87d2f7903b6062bf06f13168b4981bd930739e06119cef
-[sensibilidade Modo B] 300 combinacoes: M_GA in [1.40e+16, 3.42e+16] Msun; 100% na banda (TODAS)
+[B CF4-posicoes] indisponivel: CF4 catalogue absent; place cf4_flow_canonical.csv in ./cache or beside release_clean. Source: https://edd.ifa.hawaii.edu/CF4/
+[manifesto] um_grande_atrator_manifest.md escrito; hash do mundo (codigo+manifesto+dados): 30860ca145d5bcb96b3300552583e72f32a683fb41c34839
+
+AXIOMA ZERO -- RELATIVIDADE ONTOLOGICA [v37; ONTO/AX + DER/NUM; NAO gateia 1=1]:
+  todo sinal fisico e' relativo a um contorno declarado ; 0_abs = caixa SEM habitante
+  canto II: tau_P(P)=1.0 ; faces=0.50/0.50 ; a luz torna-se sinal CANONICO no canto
+  tangentes SEPARADAS: modular (traceless resid=0.0e+00) != Verbo dissipativo (max Re eig=2.3e-18)
+  borda assintotica = setor fixo: E_inf idem=1.6e-13 ; traco=1.4e-13 ; invariancia=1.6e-13
+  0_alg tem sinal 0.0e+00 ; 0_abs REJEITADO por tipo ; caixa vazia: ABSOLUTE_ZERO_EMPTY_BOX_VERIFIED
+  guarda: alpha=0.0072973526 != 1-beta=0.9879686996 ; tampers A-F reprovam=True
+  >>> ONTOLOGICAL_RELATIVITY_AND_SIGNAL_CHAIN_VERIFIED <<<
+
+COMA -- A DISTANCIA PELO VAZAMENTO DE FLUXO MODULAR [v39; PRE/EXT; PRIMARIO; NAO gateia 1=1]:
+  MOTOR SELADO (zero-free, anterior ao confronto): H0_local = 67.35*(1+z*)^beta = 73.263 ; f_leak = 8.071%
+  D_L(TGL) = 101.90 +- 1.02(stat) +- 0.98(sys) Mpc  vs  CONTROLE Planck s/ defasagem = 110.85 Mpc ; FP-inversa = 111.8 +- 1.8
+  NEGATIVOS HONESTOS: camada REAL move -0.19% (nao explica) ; beta/2b/3b como fracao de z: FALHAM >3sigma
+  Coma sozinha NAO separa 'vazamento modular 8.07%' de 'H0_local=73.263' -- testa o PAR (Planck+defasagem) vs (Planck s/ defasagem)
+  REVELACAO: D_ref=98.5+-2.2 ; z_TGL=1.30 vs z_Planck(controle)=5.61
+  >>> DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL <<<
+
+COMA -- PARIDADE INVERSA DO GA [v36; PRE/EXT; cego; NAO gateia 1=1]:
+  GA: R->M ; COMA: M->R->D_A (a MESMA lei: M=2 beta^2 (c^2/4piG) R, invertida)
+  TRAVA: degenerescencia de escala testada=True ; ancora dimensional exigida=True
+  maquinaria: roundtrip 1e-12=True ; controles A/B/C/D/E/F reprovam=True/True/True/True/True/True
+  identificavel=False (ancora=False ; independente=False ; massa<->raio casados=False)
+  >>> COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE <<<
 
 --- comparacao (apos hash) com massas do GA na literatura/RG ---
    Norma cluster ACO 3627 (virial, RG dinamica) M=1.0e+15 Msun [GR_dynamical_virial]
@@ -586,7 +757,7 @@ INTERFACE = LUZ [v23/v24] -- forma=conteudo MEDIDO nos artefatos recem-escritos:
     CODATA: VALIDACAO_EXTERNA (q_QED=sqrt(1-alpha_QED^2)); residuo=4.0e-15
     o MESMO beta -> M_GA na janela cosmologica  (sombra gravitacional)
     FACE EM: 1=1=VERDADE   (1 = q^2 + alpha^2; R_partial=1/CODATA aposentado como motor)
-  massas (primeiros principios): A_literature=2.744e+16, B_cf4_positions=1.986e+16 Msun
+  massas (primeiros principios): A_literature=2.744e+16 Msun
   janela aceita: [1e+15, 1e+17] Msun
 ================================================================
 

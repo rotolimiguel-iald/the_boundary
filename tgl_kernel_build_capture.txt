@@ -1,8 +1,8 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE build
 # returncode: 0
-# len(stdout)=42774 len(stderr)=0
+# len(stdout)=99759 len(stderr)=0
 --- STDOUT ---
-⚠ [8559/8586] Replayed TGL.AreaScale
+⚠ [8559/8604] Replayed TGL.AreaScale
 warning: TGL/AreaScale.lean:24:48: Variable name `hk` is not explicitly referenced.
 
 The binding can be removed (if unused) or named `_` (if used implicitly).
@@ -13,7 +13,7 @@ warning: TGL/AreaScale.lean:24:65: Variable name `hG` is not explicitly referenc
 The binding can be removed (if unused) or named `_` (if used implicitly).
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [8566/8586] Replayed TGL.TransportData
+⚠ [8566/8604] Replayed TGL.TransportData
 warning: TGL/TransportData.lean:188:0: automatically included section variable(s) unused in theorem `TGL.TransportData.facePlus_idem`:
   [StarRing A]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
@@ -38,7 +38,7 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [StarRing A] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-⚠ [8569/8586] Replayed TGL.GravitonShadow
+⚠ [8569/8604] Replayed TGL.GravitonShadow
 warning: TGL/GravitonShadow.lean:56:72: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -55,7 +55,7 @@ Hint: Omit it from the simp argument list.
   simp [e00, Matrix.trace, Matrix.diag,̵ ̵F̵i̵n̵.̵s̵u̵m̵_̵u̵n̵i̵v̵_̵t̵w̵o̵]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8570/8586] Replayed TGL.NameRelation
+⚠ [8570/8604] Replayed TGL.NameRelation
 warning: TGL/NameRelation.lean:74:24: Variable name `hb0` is not explicitly referenced.
 
 The binding can be removed (if unused) or named `_` (if used implicitly).
@@ -97,7 +97,7 @@ Hint: Omit it from the simp argument list.
   simp [E1, E2, Matrix.mul_apply, Fin.sum_univ_three,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵a̵p̵p̵l̵y̵] at h00 h12 h21 h22 h11
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8571/8586] Replayed TGL.CoreSupport
+⚠ [8571/8604] Replayed TGL.CoreSupport
 warning: TGL/CoreSupport.lean:50:0: automatically included section variable(s) unused in theorem `TGL.CoreSupport.support_annihilates`:
   [StarRing A]
   [Algebra ℂ A]
@@ -118,8 +118,8 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [StarRing A] [Algebra ℂ A] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-✔ [8582/8586] Built TGL.HalfNat (12s)
-ℹ [8583/8586] Built TGL.Audit (12s)
+✔ [8600/8604] Built TGL.HalfNat (12s)
+ℹ [8601/8604] Built TGL.Audit (13s)
 info: TGL/Audit.lean:31:0: HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 info: TGL/Audit.lean:32:0: HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
 info: TGL/Audit.lean:33:0: AreaScale.eta_eq_one_over_two_kappa : ∀ (kappa : ℝ), 1 / 2 / kappa = 1 / (2 * kappa)
@@ -407,112 +407,698 @@ info: TGL/Audit.lean:151:0: @TGLExt.finite_bicommutant : ∀ {n : Type} [inst : 
     (∀ a ∈ A, ∀ b ∈ A, a * b ∈ A) →
       (∀ a ∈ A, a.conjTranspose ∈ A) →
         TGLExt.commutantSet (TGLExt.commutantSet (TGLExt.Lmul '' A)) = TGLExt.Lmul '' ↑(Submodule.span ℂ A)
-info: TGL/Audit.lean:154:0: 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:155:0: 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:156:0: 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:157:0: 'TGL.FiniteThreeLocks.ker_H3L_eq_threeLocks' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:158:0: 'TGL.FiniteThreeLocks.PF_isProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:159:0: 'TGL.FiniteThreeLocks.PF_isSelfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:160:0: 'TGL.FiniteThreeLocks.normalizedCornerTrace_PF' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:161:0: 'TGL.ContinuousCorner.ContinuousCornerWitness.normalizedTrace_P_eq_one' depends on axioms: [propext,
+info: TGL/Audit.lean:153:0: TGLExt.Grot_sq : TGLExt.Grot * TGLExt.Grot = -1
+info: TGL/Audit.lean:154:0: TGLExt.exp_smul_Grot : ∀ (θ : ℝ), NormedSpace.exp (↑θ • TGLExt.Grot) = TGLExt.Smat θ
+info: TGL/Audit.lean:155:0: TGLExt.Smat_mem_unitary : ∀ (θ : ℝ), TGLExt.Smat θ ∈ unitary (Matrix (Fin 2) (Fin 2) ℂ)
+info: TGL/Audit.lean:156:0: TGLExt.Smat_mul : ∀ (a b : ℝ), TGLExt.Smat a * TGLExt.Smat b = TGLExt.Smat (a + b)
+info: TGL/Audit.lean:157:0: TGLExt.Smat_spectral : ∀ (θ : ℝ),
+  TGLExt.Smat θ =
+    TGLExt.Umat * Matrix.diagonal ![Complex.exp (↑θ * Complex.I), Complex.exp (-(↑θ * Complex.I))] * TGLExt.Uinv
+info: TGL/Audit.lean:158:0: TGLExt.normSq_reflection_add_transmission : ∀ (θ : ℝ),
+  Complex.normSq ((TGLExt.Smat θ).mulVec TGLExt.e1 1) + Complex.normSq ((TGLExt.Smat θ).mulVec TGLExt.e1 0) = 1
+info: TGL/Audit.lean:159:0: TGLExt.rhoOut_trace : ∀ (θ : ℝ), (TGLExt.rhoOut θ).trace = 1
+info: TGL/Audit.lean:161:0: @TGLExt.cocycle_chain : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (phi psi chi : Matrix n n ℂ) (t : ℝ),
+  TGLExt.cocycle phi psi t * TGLExt.cocycle psi chi t = TGLExt.cocycle phi chi t
+info: TGL/Audit.lean:162:0: @TGLExt.cocycle_triangle : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (phi psi chi : Matrix n n ℂ)
+  (t : ℝ), TGLExt.cocycle phi psi t * TGLExt.cocycle psi chi t * TGLExt.cocycle chi phi t = 1
+info: TGL/Audit.lean:163:0: @TGLExt.cocycle_temporal : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (phi psi : Matrix n n ℂ) (s t : ℝ),
+  TGLExt.cocycle phi psi (s + t) = TGLExt.cocycle phi psi s * TGLExt.sigma psi s (TGLExt.cocycle phi psi t)
+info: TGL/Audit.lean:164:0: @TGLExt.cocycle_conjTranspose : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (phi psi : Matrix n n ℂ)
+  (t : ℝ), (TGLExt.cocycle phi psi t).conjTranspose = TGLExt.cocycle psi phi t
+info: TGL/Audit.lean:165:0: @TGLExt.cocycle_mem_unitary : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (phi psi : Matrix n n ℂ) (t : ℝ),
+  TGLExt.cocycle phi psi t ∈ unitary (Matrix n n ℂ)
+info: TGL/Audit.lean:166:0: @TGLExt.cocycle_of_commute : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (phi psi : Matrix n n ℂ),
+  Commute (TGLExt.logRho phi) (TGLExt.logRho psi) →
+    ∀ (t : ℝ), TGLExt.cocycle phi psi t = NormedSpace.exp ((↑t * Complex.I) • (TGLExt.logRho phi - TGLExt.logRho psi))
+info: TGL/Audit.lean:167:0: @TGLExt.logRho_conj : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (phi V : Matrix n n ℂ),
+  V ∈ unitary (Matrix n n ℂ) →
+    phi.PosDef → TGLExt.logRho (V * phi * V.conjTranspose) = V * TGLExt.logRho phi * V.conjTranspose
+info: TGL/Audit.lean:168:0: @TGLExt.modPow_conj : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (phi V : Matrix n n ℂ),
+  V ∈ unitary (Matrix n n ℂ) →
+    phi.PosDef → ∀ (t : ℝ), TGLExt.modPow (V * phi * V.conjTranspose) t = V * TGLExt.modPow phi t * V.conjTranspose
+info: TGL/Audit.lean:169:0: @TGLExt.cocycle_covariance : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (phi psi V : Matrix n n ℂ),
+  V ∈ unitary (Matrix n n ℂ) →
+    phi.PosDef →
+      psi.PosDef →
+        ∀ (t : ℝ),
+          TGLExt.cocycle (V * phi * V.conjTranspose) (V * psi * V.conjTranspose) t =
+            V * TGLExt.cocycle phi psi t * V.conjTranspose
+info: TGL/Audit.lean:171:0: @TGLExt.sigma_fixed_of_commute : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (rho x : Matrix n n ℂ),
+  Commute rho x → ∀ (t : ℝ), TGLExt.sigma rho t x = x
+info: TGL/Audit.lean:172:0: @TGLExt.logRho_diagonal : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (d : n → ℝ),
+  (∀ (i : n), 0 < d i) → TGLExt.logRho (TGLExt.rhoD d) = Matrix.diagonal fun i => ↑(Real.log (d i))
+info: TGL/Audit.lean:173:0: @TGLExt.sigma_fixed_iff_diag : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (d : n → ℝ),
+  (∀ (i : n), 0 < d i) →
+    Function.Injective d →
+      ∀ (x : Matrix n n ℂ), (∀ (t : ℝ), TGLExt.sigma (TGLExt.rhoD d) t x = x) ↔ x = TGLExt.diagExpect x
+info: TGL/Audit.lean:174:0: @TGLExt.gibbs_tracial_on_centralizer : ∀ {n : Type} [inst : Fintype n] (rho x y : Matrix n n ℂ),
+  Commute rho x → TGLExt.gibbs rho (x * y) = TGLExt.gibbs rho (y * x)
+info: TGL/Audit.lean:175:0: @TGLExt.dephase_add : ∀ {n : Type} (g : n → n → ℝ) (s t : ℝ) (x : Matrix n n ℂ),
+  TGLExt.dephase g (s + t) x = TGLExt.dephase g s (TGLExt.dephase g t x)
+info: TGL/Audit.lean:176:0: @TGLExt.dephase_tendsto_expectation : ∀ {n : Type} [inst : DecidableEq n] (g : n → n → ℝ),
+  (∀ (i : n), g i i = 0) →
+    (∀ (i j : n), i ≠ j → 0 < g i j) →
+      ∀ (x : Matrix n n ℂ), Filter.Tendsto (fun t => TGLExt.dephase g t x) Filter.atTop (nhds (TGLExt.diagExpect x))
+info: TGL/Audit.lean:177:0: @TGLExt.ergodic_convergence_modular : ∀ {n : Type} [inst : DecidableEq n] (d : n → ℝ),
+  (∀ (i : n), 0 < d i) →
+    Function.Injective d →
+      ∀ (x : Matrix n n ℂ),
+        Filter.Tendsto (fun t => TGLExt.dephase (TGLExt.modularGap d) t x) Filter.atTop (nhds (TGLExt.diagExpect x))
+info: TGL/Audit.lean:180:0: @TGLExt.lam_one : ∀ {G : Type} [inst : Group G] [Fintype G] [inst_2 : DecidableEq G] {n : Type} [Fintype n]
+  [inst_4 : DecidableEq n], TGLExt.lam 1 = 1
+info: TGL/Audit.lean:181:0: @TGLExt.lam_mul : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (g h : G), TGLExt.lam g * TGLExt.lam h = TGLExt.lam (g * h)
+info: TGL/Audit.lean:182:0: @TGLExt.lam_conjTranspose : ∀ {G : Type} [inst : Group G] [Fintype G] [inst_2 : DecidableEq G] {n : Type} [Fintype n]
+  [inst_4 : DecidableEq n] (g : G), (TGLExt.lam g).conjTranspose = TGLExt.lam g⁻¹
+info: TGL/Audit.lean:183:0: @TGLExt.lam_mem_unitary : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (g : G), TGLExt.lam g ∈ unitary (Matrix (G × n) (G × n) ℂ)
+info: TGL/Audit.lean:184:0: @TGLExt.piRep_mul : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (a b : Matrix n n ℂ),
+  TGLExt.piRep u (a * b) = TGLExt.piRep u a * TGLExt.piRep u b
+info: TGL/Audit.lean:185:0: @TGLExt.piRep_star : ∀ {G : Type} [inst : Group G] [Fintype G] [inst_2 : DecidableEq G] {n : Type} [inst_3 : Fintype n]
+  [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (a : Matrix n n ℂ),
+  TGLExt.piRep u a.conjTranspose = (TGLExt.piRep u a).conjTranspose
+info: TGL/Audit.lean:186:0: @TGLExt.piRep_injective : ∀ {G : Type} [inst : Group G] [Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)),
+  Function.Injective (TGLExt.piRep u)
+info: TGL/Audit.lean:187:0: @TGLExt.lam_conj_piRep : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (g : G) (a : Matrix n n ℂ),
+  TGLExt.lam g * TGLExt.piRep u a * (TGLExt.lam g).conjTranspose = TGLExt.piRep u (TGLExt.alphaAct u g a)
+info: TGL/Audit.lean:188:0: @TGLExt.lam_mul_piRep : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (g : G) (a : Matrix n n ℂ),
+  TGLExt.lam g * TGLExt.piRep u a = TGLExt.piRep u (TGLExt.alphaAct u g a) * TGLExt.lam g
+info: TGL/Audit.lean:189:0: @TGLExt.Ecomp_idem : ∀ {G : Type} [Group G] [Fintype G] [inst : DecidableEq G] {n : Type} [Fintype n] [DecidableEq n]
+  (x : Matrix (G × n) (G × n) ℂ), TGLExt.Ecomp (TGLExt.Ecomp x) = TGLExt.Ecomp x
+info: TGL/Audit.lean:190:0: @TGLExt.Ecomp_piRep : ∀ {G : Type} [inst : Group G] [Fintype G] [inst_2 : DecidableEq G] {n : Type} [inst_3 : Fintype n]
+  [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (a : Matrix n n ℂ),
+  TGLExt.Ecomp (TGLExt.piRep u a) = TGLExt.piRep u a
+info: TGL/Audit.lean:191:0: @TGLExt.Ecomp_lam : ∀ {G : Type} [inst : Group G] [Fintype G] [inst_2 : DecidableEq G] {n : Type} [Fintype n]
+  [inst_4 : DecidableEq n] (g : G), g ≠ 1 → TGLExt.Ecomp (TGLExt.lam g) = 0
+info: TGL/Audit.lean:192:0: @TGLExt.gibbs_Ecomp : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (ρ : Matrix n n ℂ)
+  (x : Matrix (G × n) (G × n) ℂ), TGLExt.gibbs (TGLExt.piRep u ρ) (TGLExt.Ecomp x) = TGLExt.gibbs (TGLExt.piRep u ρ) x
+info: TGL/Audit.lean:193:0: @TGLExt.gibbs_piRep_dual : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (ρ : Matrix n n ℂ)
+  (x : Matrix (G × n) (G × n) ℂ), TGLExt.gibbs (TGLExt.piRep u ρ) x = TGLExt.gibbs ρ (TGLExt.EhatDown u x)
+info: TGL/Audit.lean:194:0: @TGLExt.trace_piRep : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (a : Matrix n n ℂ),
+  (TGLExt.piRep u a).trace = ↑(Fintype.card G) * a.trace
+info: TGL/Audit.lean:195:0: @TGLExt.alphaAct_modPow : ∀ {G : Type} [inst : Group G] [Fintype G] [DecidableEq G] {n : Type} [inst_3 : Fintype n]
+  [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) {ρ : Matrix n n ℂ},
+  ρ.PosDef → ∀ (g : G) (t : ℝ), TGLExt.alphaAct u g (TGLExt.modPow ρ t) = TGLExt.modPow (TGLExt.alphaAct u g ρ) t
+info: TGL/Audit.lean:196:0: @TGLExt.logRho_piRep : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) {ρ : Matrix n n ℂ},
+  ρ.PosDef → TGLExt.logRho (TGLExt.piRep u ρ) = TGLExt.piRep u (TGLExt.logRho ρ)
+info: TGL/Audit.lean:197:0: @TGLExt.exp_piRep : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (x : Matrix n n ℂ),
+  TGLExt.piRep u (NormedSpace.exp x) = NormedSpace.exp (TGLExt.piRep u x)
+info: TGL/Audit.lean:198:0: @TGLExt.modPow_piRep : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) {ρ : Matrix n n ℂ},
+  ρ.PosDef → ∀ (t : ℝ), TGLExt.modPow (TGLExt.piRep u ρ) t = TGLExt.piRep u (TGLExt.modPow ρ t)
+info: TGL/Audit.lean:199:0: @TGLExt.cocycle_piRep : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) {φ ψ : Matrix n n ℂ},
+  φ.PosDef →
+    ψ.PosDef → ∀ (t : ℝ), TGLExt.cocycle (TGLExt.piRep u φ) (TGLExt.piRep u ψ) t = TGLExt.piRep u (TGLExt.cocycle φ ψ t)
+info: TGL/Audit.lean:200:0: @TGLExt.sigma_piRep : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) {ρ : Matrix n n ℂ},
+  ρ.PosDef →
+    ∀ (t : ℝ) (a : Matrix n n ℂ),
+      TGLExt.sigma (TGLExt.piRep u ρ) t (TGLExt.piRep u a) = TGLExt.piRep u (TGLExt.sigma ρ t a)
+info: TGL/Audit.lean:201:0: @TGLExt.dual_weight_left : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) {ρ : Matrix n n ℂ},
+  ρ.PosDef →
+    ∀ (g : G) (t : ℝ),
+      TGLExt.sigma (TGLExt.piRep u ρ) t (TGLExt.lam g) =
+        TGLExt.piRep u (TGLExt.cocycle ρ (TGLExt.alphaAct u g ρ) t) * TGLExt.lam g
+info: TGL/Audit.lean:202:0: @TGLExt.dual_weight : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) {ρ : Matrix n n ℂ},
+  ρ.PosDef →
+    ∀ (g : G) (t : ℝ),
+      TGLExt.sigma (TGLExt.piRep u ρ) t (TGLExt.lam g) =
+        TGLExt.lam g * TGLExt.piRep u (TGLExt.cocycle (TGLExt.alphaAct u g⁻¹ ρ) ρ t)
+info: TGL/Audit.lean:203:0: @TGLExt.dual_flow_fixes_lam_of_invariant : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G]
+  {n : Type} [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) {ρ : Matrix n n ℂ},
+  ρ.PosDef →
+    ∀ (g : G), TGLExt.alphaAct u g ρ = ρ → ∀ (t : ℝ), TGLExt.sigma (TGLExt.piRep u ρ) t (TGLExt.lam g) = TGLExt.lam g
+info: TGL/Audit.lean:204:0: @TGLExt.cocycle_covariance_beyond_inner : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G]
+  {n : Type} [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) {φ ψ : Matrix n n ℂ},
+  φ.PosDef →
+    ψ.PosDef →
+      ∀ (g : G) (t : ℝ),
+        TGLExt.cocycle (TGLExt.piRep u (TGLExt.alphaAct u g φ)) (TGLExt.piRep u (TGLExt.alphaAct u g ψ)) t =
+          TGLExt.lam g * TGLExt.cocycle (TGLExt.piRep u φ) (TGLExt.piRep u ψ) t * (TGLExt.lam g).conjTranspose
+info: TGL/Audit.lean:205:0: @TGLExt.Dchi_mul_lam : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (chi : G →* ℂ) (g : G),
+  TGLExt.Dchi chi * TGLExt.lam g = chi g • (TGLExt.lam g * TGLExt.Dchi chi)
+info: TGL/Audit.lean:206:0: @TGLExt.Dchi_comm_piRep : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (chi : G →* ℂ) (a : Matrix n n ℂ),
+  TGLExt.Dchi chi * TGLExt.piRep u a = TGLExt.piRep u a * TGLExt.Dchi chi
+info: TGL/Audit.lean:207:0: @TGLExt.Dchi_conj_lam : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (chi : G →* ℂ),
+  (∀ (g : G), star (chi g) * chi g = 1) →
+    ∀ (g : G), TGLExt.Dchi chi * TGLExt.lam g * (TGLExt.Dchi chi).conjTranspose = chi g • TGLExt.lam g
+info: TGL/Audit.lean:208:0: @TGLExt.Dchi_comm_modPow : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (chi : G →* ℂ) {ρ : Matrix n n ℂ},
+  ρ.PosDef →
+    ∀ (t : ℝ),
+      TGLExt.Dchi chi * TGLExt.modPow (TGLExt.piRep u ρ) t = TGLExt.modPow (TGLExt.piRep u ρ) t * TGLExt.Dchi chi
+info: TGL/Audit.lean:209:0: @TGLExt.gibbs_Dchi : ∀ {G : Type} [inst : Group G] [inst_1 : Fintype G] [inst_2 : DecidableEq G] {n : Type}
+  [inst_3 : Fintype n] [inst_4 : DecidableEq n] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (chi : G →* ℂ),
+  (∀ (g : G), star (chi g) * chi g = 1) →
+    ∀ (ρ : Matrix n n ℂ) (x : Matrix (G × n) (G × n) ℂ),
+      TGLExt.gibbs (TGLExt.piRep u ρ) (TGLExt.Dchi chi * x * (TGLExt.Dchi chi).conjTranspose) =
+        TGLExt.gibbs (TGLExt.piRep u ρ) x
+info: TGL/Audit.lean:212:0: TGLExt.dyadic_approx : ∀ (t : ℝ) (n : ℕ), |t - TGLExt.dyadicNearest t n| ≤ (2 ^ n)⁻¹ / 2
+info: TGL/Audit.lean:213:0: TGLExt.dyadic_stage_mono : ∀ (k : ℤ) (n : ℕ), ↑k / 2 ^ n = ↑(2 * k) / 2 ^ (n + 1)
+info: TGL/Audit.lean:214:0: TGLExt.dyadic_tendsto : ∀ (t : ℝ), Filter.Tendsto (fun n => TGLExt.dyadicNearest t n) Filter.atTop (nhds t)
+info: TGL/Audit.lean:215:0: TGLExt.annihilator_fixes_stage : ∀ (n : ℕ) (k : ℤ),
+  Complex.exp (-Complex.I * (2 * ↑Real.pi * 2 ^ n) * (↑k * (2 ^ n)⁻¹)) = 1
+info: TGL/Audit.lean:216:0: @TGLExt.scaling_fixed_eq_zero : ∀ {c x : ℝ}, c ≠ 1 → x = c * x → x = 0
+info: TGL/Audit.lean:217:0: @TGLExt.DualScalingData.fixed_tau_zero : ∀ {M : Type} (D : TGLExt.DualScalingData M) {s₀ : ℝ},
+  0 < s₀ → ∀ {m : M}, D.theta s₀ m = m → D.tau m = 0
+info: TGL/Audit.lean:218:0: @TGLExt.DualScalingData.dyadic_stage_tau_zero : ∀ {M : Type} (D : TGLExt.DualScalingData M) (n : ℕ) {m : M},
+  D.theta (2 * Real.pi * 2 ^ n) m = m → D.tau m = 0
+info: TGL/Audit.lean:219:0: TGLExt.sFrame_zero : ∀ (θ : ℝ) (g : Fin 2 → Fin 2 → ℝ) (x : Matrix (Fin 2) (Fin 2) ℂ), TGLExt.sFrame θ g 0 x = x
+info: TGL/Audit.lean:220:0: TGLExt.sFrame_add : ∀ (θ : ℝ) (g : Fin 2 → Fin 2 → ℝ) (s t : ℝ) (x : Matrix (Fin 2) (Fin 2) ℂ),
+  TGLExt.sFrame θ g (s + t) x = TGLExt.sFrame θ g s (TGLExt.sFrame θ g t x)
+info: TGL/Audit.lean:221:0: TGLExt.sFrame_tendsto : ∀ (θ : ℝ) (g : Fin 2 → Fin 2 → ℝ),
+  (∀ (i : Fin 2), g i i = 0) →
+    (∀ (i j : Fin 2), i ≠ j → 0 < g i j) →
+      ∀ (x : Matrix (Fin 2) (Fin 2) ℂ),
+        Filter.Tendsto (fun t => TGLExt.sFrame θ g t x) Filter.atTop
+          (nhds
+            ((TGLExt.Smat θ).conjTranspose * TGLExt.diagExpect (TGLExt.Smat θ * x * (TGLExt.Smat θ).conjTranspose) *
+              TGLExt.Smat θ))
+info: TGL/Audit.lean:222:0: TGLExt.dephased_rhoOut_zero_zero : ∀ (θ : ℝ), TGLExt.diagExpect (TGLExt.rhoOut θ) 0 0 = ↑(Real.cos θ) ^ 2
+info: TGL/Audit.lean:223:0: TGLExt.dephased_rhoOut_one_one : ∀ (θ : ℝ), TGLExt.diagExpect (TGLExt.rhoOut θ) 1 1 = ↑(Real.sin θ) ^ 2
+info: TGL/Audit.lean:224:0: TGLExt.measurement_channel_endpoint : ∀ (θ : ℝ) (g : Fin 2 → Fin 2 → ℝ),
+  (∀ (i : Fin 2), g i i = 0) →
+    (∀ (i j : Fin 2), i ≠ j → 0 < g i j) →
+      Filter.Tendsto (fun t => TGLExt.dephase g t (TGLExt.rhoOut θ)) Filter.atTop
+        (nhds (TGLExt.diagExpect (TGLExt.rhoOut θ)))
+info: TGL/Audit.lean:227:0: @TGLExt.corner_fixed_by_flow : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ H : Matrix n n ℂ),
+  Commute ρ H → ∀ (f : ℝ → ℝ) (t : ℝ), TGLExt.sigma ρ t (cfc f H) = cfc f H
+info: TGL/Audit.lean:228:0: @TGLExt.DualScalingData.finite_trace_not_fixed : ∀ {M : Type} (D : TGLExt.DualScalingData M) {s₀ : ℝ},
+  0 < s₀ → ∀ {m : M}, D.tau m ≠ 0 → D.theta s₀ m ≠ m
+info: TGL/Audit.lean:229:0: @TGLExt.cornerProj_apply : ∀ {n : Type} [Fintype n] [inst : DecidableEq n] {G : Type} [Group G] [Fintype G]
+  [inst_3 : DecidableEq G] (S : Finset G) (p q : G × n),
+  TGLExt.cornerProj S p q = if p = q then if p.1 ∈ S then 1 else 0 else 0
+info: TGL/Audit.lean:230:0: @TGLExt.cornerProj_idem : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {G : Type} [Group G]
+  [inst_3 : Fintype G] [inst_4 : DecidableEq G] (S : Finset G),
+  TGLExt.cornerProj S * TGLExt.cornerProj S = TGLExt.cornerProj S
+info: TGL/Audit.lean:231:0: @TGLExt.cornerProj_conjTranspose : ∀ {n : Type} [Fintype n] [inst : DecidableEq n] {G : Type} [Group G] [Fintype G]
+  [inst_3 : DecidableEq G] (S : Finset G), (TGLExt.cornerProj S).conjTranspose = TGLExt.cornerProj S
+info: TGL/Audit.lean:232:0: @TGLExt.cornerProj_mono : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {G : Type} [Group G]
+  [inst_3 : Fintype G] [inst_4 : DecidableEq G] {S₁ S₂ : Finset G},
+  S₁ ⊆ S₂ → TGLExt.cornerProj S₁ * TGLExt.cornerProj S₂ = TGLExt.cornerProj S₁
+info: TGL/Audit.lean:233:0: @TGLExt.lam_conj_cornerProj : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {G : Type} [inst_2 : Group G]
+  [inst_3 : Fintype G] [inst_4 : DecidableEq G] (g : G) (S : Finset G),
+  TGLExt.lam g * TGLExt.cornerProj S * (TGLExt.lam g).conjTranspose =
+    TGLExt.cornerProj (Finset.image (fun a => g * a) S)
+info: TGL/Audit.lean:234:0: @TGLExt.trace_cornerProj : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {G : Type} [Group G]
+  [inst_3 : Fintype G] [inst_4 : DecidableEq G] (S : Finset G), (TGLExt.cornerProj S).trace = ↑(S.card * Fintype.card n)
+info: TGL/Audit.lean:235:0: @TGLExt.cornerProj_comm_piRep : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {G : Type} [inst_2 : Group G]
+  [inst_3 : Fintype G] [inst_4 : DecidableEq G] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) (S : Finset G) (a : Matrix n n ℂ),
+  TGLExt.cornerProj S * TGLExt.piRep u a = TGLExt.piRep u a * TGLExt.cornerProj S
+info: TGL/Audit.lean:236:0: @TGLExt.cornerProj_comm_modPow : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {G : Type} [inst_2 : Group G]
+  [inst_3 : Fintype G] [inst_4 : DecidableEq G] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) {ρ : Matrix n n ℂ},
+  ρ.PosDef →
+    ∀ (S : Finset G) (t : ℝ),
+      TGLExt.cornerProj S * TGLExt.modPow (TGLExt.piRep u ρ) t =
+        TGLExt.modPow (TGLExt.piRep u ρ) t * TGLExt.cornerProj S
+info: TGL/Audit.lean:237:0: @TGLExt.cornerProj_univ : ∀ {n : Type} [Fintype n] [inst : DecidableEq n] {G : Type} [Group G] [inst_2 : Fintype G]
+  [inst_3 : DecidableEq G], TGLExt.cornerProj Finset.univ = 1
+info: TGL/Audit.lean:240:0: TGLExt.boost_zero : TGLExt.boost 0 = 1
+info: TGL/Audit.lean:241:0: TGLExt.boost_add : ∀ (s t : ℝ), TGLExt.boost s * TGLExt.boost t = TGLExt.boost (s + t)
+info: TGL/Audit.lean:242:0: TGLExt.boost_preserves_eta : ∀ (s : ℝ), (TGLExt.boost s).transpose * TGLExt.minkEta * TGLExt.boost s = TGLExt.minkEta
+info: TGL/Audit.lean:243:0: TGLExt.boost_det : ∀ (s : ℝ), (TGLExt.boost s).det = 1
+info: TGL/Audit.lean:244:0: TGLExt.boost_null_expand : ∀ (s : ℝ), (TGLExt.boost s).mulVec ![1, 1] = Real.exp s • ![1, 1]
+info: TGL/Audit.lean:245:0: TGLExt.boost_null_contract : ∀ (s : ℝ), (TGLExt.boost s).mulVec ![1, -1] = Real.exp (-s) • ![1, -1]
+info: TGL/Audit.lean:246:0: TGLExt.boost_preserves_wedge : ∀ (s x t : ℝ),
+  |t| < x → |(TGLExt.boost s).mulVec ![x, t] 1| < (TGLExt.boost s).mulVec ![x, t] 0
+info: TGL/Audit.lean:247:0: @TGLExt.logRho_gibbs_boost : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (K : Matrix n n ℂ),
+  IsSelfAdjoint K → TGLExt.logRho (NormedSpace.exp (-(2 * Real.pi) • K)) = -(2 * Real.pi) • K
+info: TGL/Audit.lean:248:0: @TGLExt.modPow_gibbs_boost : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (K : Matrix n n ℂ),
+  IsSelfAdjoint K →
+    ∀ (t : ℝ),
+      TGLExt.modPow (NormedSpace.exp (-(2 * Real.pi) • K)) t = NormedSpace.exp ((↑(-(2 * Real.pi) * t) * Complex.I) • K)
+info: TGL/Audit.lean:249:0: @TGLExt.sigma_gibbs_boost : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (K : Matrix n n ℂ),
+  IsSelfAdjoint K →
+    ∀ (t : ℝ) (a : Matrix n n ℂ),
+      TGLExt.sigma (NormedSpace.exp (-(2 * Real.pi) • K)) t a =
+        NormedSpace.exp ((↑(-(2 * Real.pi) * t) * Complex.I) • K) * a *
+          NormedSpace.exp ((↑(2 * Real.pi * t) * Complex.I) • K)
+info: TGL/Audit.lean:252:0: TGLExt.polPlus_symm : TGLExt.polPlus.transpose = TGLExt.polPlus
+info: TGL/Audit.lean:253:0: TGLExt.polCross_symm : TGLExt.polCross.transpose = TGLExt.polCross
+info: TGL/Audit.lean:254:0: TGLExt.polPlus_traceless : TGLExt.polPlus.trace = 0
+info: TGL/Audit.lean:255:0: TGLExt.polCross_traceless : TGLExt.polCross.trace = 0
+info: TGL/Audit.lean:256:0: TGLExt.polarization_decomposition : ∀ (h : Matrix (Fin 2) (Fin 2) ℝ),
+  h.transpose = h → h.trace = 0 → h = h 0 0 • TGLExt.polPlus + h 0 1 • TGLExt.polCross
+info: TGL/Audit.lean:257:0: TGLExt.polarizations_independent : ∀ (a b : ℝ), a • TGLExt.polPlus + b • TGLExt.polCross = 0 → a = 0 ∧ b = 0
+info: TGL/Audit.lean:258:0: TGLExt.rot_add : ∀ (a b : ℝ), TGLExt.rot a * TGLExt.rot b = TGLExt.rot (a + b)
+info: TGL/Audit.lean:259:0: TGLExt.rot_conj_polPlus : ∀ (θ : ℝ),
+  (TGLExt.rot θ).transpose * TGLExt.polPlus * TGLExt.rot θ =
+    Real.cos (2 * θ) • TGLExt.polPlus + Real.sin (2 * θ) • TGLExt.polCross
+info: TGL/Audit.lean:260:0: TGLExt.rot_conj_polCross : ∀ (θ : ℝ),
+  (TGLExt.rot θ).transpose * TGLExt.polCross * TGLExt.rot θ =
+    -Real.sin (2 * θ) • TGLExt.polPlus + Real.cos (2 * θ) • TGLExt.polCross
+info: TGL/Audit.lean:261:0: TGLExt.rot_conj_one : ∀ (θ : ℝ), (TGLExt.rot θ).transpose * 1 * TGLExt.rot θ = 1
+info: TGL/Audit.lean:262:0: TGLExt.minkNorm4_nullK : TGLExt.minkNorm4 TGLExt.nullK = 0
+info: TGL/Audit.lean:263:0: TGLExt.gaugeSym_symmetric : ∀ (k ξ : Fin 4 → ℝ), (TGLExt.gaugeSym k ξ).transpose = TGLExt.gaugeSym k ξ
+info: TGL/Audit.lean:264:0: TGLExt.gauge_transverse_zero : ∀ (ξ : Fin 4 → ℝ) {i j : Fin 4},
+  i = 1 ∨ i = 2 → j = 1 ∨ j = 2 → TGLExt.gaugeSym TGLExt.nullK ξ i j = 0
+info: TGL/Audit.lean:265:0: @TGLExt.excite_one_zero : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (A : Matrix n n ℂ),
+  TGLExt.excite A 1 = 0
+info: TGL/Audit.lean:266:0: @TGLExt.excite_leibniz : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (A x y : Matrix n n ℂ),
+  TGLExt.excite A (x * y) = TGLExt.excite A x * y + x * TGLExt.excite A y
+info: TGL/Audit.lean:267:0: TGLExt.Smat_sub_one : ∀ (θ : ℝ), TGLExt.Smat θ - 1 = ↑(Real.cos θ - 1) • 1 + ↑(Real.sin θ) • TGLExt.Grot
+info: TGL/Audit.lean:270:0: @TGLExt.variance_of_projection : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (ρ P : Matrix n n ℂ),
+  P * P = P → TGLExt.gibbs ρ (P * P) - TGLExt.gibbs ρ P ^ 2 = TGLExt.gibbs ρ P * (1 - TGLExt.gibbs ρ P)
+info: TGL/Audit.lean:271:0: TGLExt.reflObs_proj : TGLExt.reflObs * TGLExt.reflObs = TGLExt.reflObs
+info: TGL/Audit.lean:272:0: TGLExt.gibbs_reflObs : ∀ (ρ : Matrix (Fin 2) (Fin 2) ℂ), TGLExt.gibbs ρ TGLExt.reflObs = ρ 1 1
+info: TGL/Audit.lean:273:0: TGLExt.boundary_mean : ∀ (θ : ℝ), TGLExt.gibbs (TGLExt.rhoOut θ) TGLExt.reflObs = ↑(Real.sin θ) ^ 2
+info: TGL/Audit.lean:274:0: TGLExt.boundary_variance : ∀ (θ : ℝ),
+  TGLExt.gibbs (TGLExt.rhoOut θ) (TGLExt.reflObs * TGLExt.reflObs) - TGLExt.gibbs (TGLExt.rhoOut θ) TGLExt.reflObs ^ 2 =
+    ↑(Real.sin θ) ^ 2 * ↑(Real.cos θ) ^ 2
+info: TGL/Audit.lean:275:0: TGLExt.variance_le_quarter : ∀ (p : ℝ), p * (1 - p) ≤ 1 / 4
+info: TGL/Audit.lean:276:0: TGLExt.variance_eq_quarter_iff : ∀ (p : ℝ), p * (1 - p) = 1 / 4 ↔ p = 1 / 2
+info: TGL/Audit.lean:277:0: TGLExt.polarization_commutator : TGLExt.polPlus * TGLExt.polCross - TGLExt.polCross * TGLExt.polPlus = 2 • TGLExt.rotGen
+info: TGL/Audit.lean:278:0: TGLExt.polarizations_noncommute : TGLExt.polPlus * TGLExt.polCross ≠ TGLExt.polCross * TGLExt.polPlus
+info: TGL/Audit.lean:279:0: TGLExt.sqrt_ratio_eq : ∀ (v m : ℝ) (M : ℕ), √(↑M * v) / (↑M * m) = √v / m / √↑M
+info: TGL/Audit.lean:280:0: TGLExt.classical_limit : ∀ (c : ℝ), Filter.Tendsto (fun M => c / √↑M) Filter.atTop (nhds 0)
+info: TGL/Audit.lean:281:0: TGLExt.classical_limit_physical : ∀ (v m : ℝ), Filter.Tendsto (fun M => √(↑M * v) / (↑M * m)) Filter.atTop (nhds 0)
+info: TGL/Audit.lean:284:0: @TGLExt.purity_unitary_invariant : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (U x : Matrix n n ℂ),
+  U ∈ unitary (Matrix n n ℂ) → TGLExt.purity (U * x * U.conjTranspose) = TGLExt.purity x
+info: TGL/Audit.lean:285:0: @TGLExt.pure_reductions_trace_eq : ∀ {a b : Type} [inst : Fintype a] [inst_1 : Fintype b] [DecidableEq a]
+  [DecidableEq b] (M : Matrix a b ℂ), (M * M.conjTranspose).trace = (M.conjTranspose * M).trace
+info: TGL/Audit.lean:286:0: @TGLExt.pure_reductions_balance : ∀ {a b : Type} [inst : Fintype a] [inst_1 : Fintype b] [DecidableEq a] [DecidableEq b]
+  (M : Matrix a b ℂ),
+  (M * M.conjTranspose * (M * M.conjTranspose)).trace = (M.conjTranspose * M * (M.conjTranspose * M)).trace
+info: TGL/Audit.lean:287:0: @TGLExt.purityR_eq : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (x : Matrix n n ℂ),
+  TGLExt.purity x = ↑(TGLExt.purityR x)
+info: TGL/Audit.lean:288:0: @TGLExt.dephase_purityR_le : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (g : n → n → ℝ) (t : ℝ),
+  0 ≤ t → (∀ (i j : n), 0 ≤ g i j) → ∀ (x : Matrix n n ℂ), TGLExt.purityR (TGLExt.dephase g t x) ≤ TGLExt.purityR x
+info: TGL/Audit.lean:289:0: TGLExt.entropy_max_at_half : ∀ (p : ℝ), Real.binEntropy p ≤ Real.binEntropy 2⁻¹
+info: TGL/Audit.lean:290:0: TGLExt.entropy_eq_max_iff_half : ∀ (p : ℝ), Real.binEntropy p = Real.binEntropy 2⁻¹ ↔ p = 2⁻¹
+info: TGL/Audit.lean:293:0: @TGLExt.first_law_diagonal : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (p q : n → ℝ),
+  (∀ (i : n), 0 < p i) →
+    ∑ i, q i = 0 → HasDerivAt (fun ε => -∑ i, (p i + ε * q i) * Real.log (p i + ε * q i)) (∑ i, q i * -Real.log (p i)) 0
+info: TGL/Audit.lean:294:0: TGLExt.clausius_composition : ∀ (T dS dK dQ : ℝ),
+  T = (2 * Real.pi)⁻¹ → dS = dK → dQ = T * dS → dQ = (2 * Real.pi)⁻¹ * dK
+info: TGL/Audit.lean:295:0: @TGLExt.Ecomp_fixes_cornerProj : ∀ {G : Type} [Group G] [Fintype G] [inst : DecidableEq G] {n : Type} [Fintype n]
+  [inst_2 : DecidableEq n] (S : Finset G), TGLExt.Ecomp (TGLExt.cornerProj S) = TGLExt.cornerProj S
+info: TGL/Audit.lean:296:0: @TGLExt.dephase_fixes_cornerProj : ∀ {G : Type} [Group G] [Fintype G] [inst : DecidableEq G] {n : Type} [Fintype n]
+  [inst_2 : DecidableEq n] (g : G × n → G × n → ℝ),
+  (∀ (p : G × n), g p p = 0) → ∀ (t : ℝ) (S : Finset G), TGLExt.dephase g t (TGLExt.cornerProj S) = TGLExt.cornerProj S
+info: TGL/Audit.lean:297:0: TGLExt.rg_step_doubles_annihilator : ∀ (m : ℕ), 2 * Real.pi * 2 ^ m * 2 = 2 * Real.pi * 2 ^ (m + 1)
+info: TGL/Audit.lean:300:0: @TGLExt.pairing_bilinear_left : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (ρ₁ ρ₂ a : Matrix n n ℂ),
+  TGLExt.gibbs (ρ₁ + ρ₂) a = TGLExt.gibbs ρ₁ a + TGLExt.gibbs ρ₂ a
+info: TGL/Audit.lean:301:0: @TGLExt.pairing_bilinear_right : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (ρ a₁ a₂ : Matrix n n ℂ),
+  TGLExt.gibbs ρ (a₁ + a₂) = TGLExt.gibbs ρ a₁ + TGLExt.gibbs ρ a₂
+info: TGL/Audit.lean:302:0: @TGLExt.zero_mode_state_minimizes : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] {H : Matrix n n ℂ},
+  H.PosSemidef → ∀ {v : n → ℂ}, H.mulVec v = 0 → (∀ (w : n → ℂ), 0 ≤ star w ⬝ᵥ H.mulVec w) ∧ star v ⬝ᵥ H.mulVec v = 0
+info: TGL/Audit.lean:303:0: @TGLExt.gibbs_is_critical : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (p q h : n → ℝ),
+  (∀ (i : n), 0 < p i) →
+    ∑ i, q i = 0 →
+      ∀ (c : ℝ),
+        (∀ (i : n), Real.log (p i) + h i = c) →
+          HasDerivAt (fun ε => -∑ i, (p i + ε * q i) * Real.log (p i + ε * q i) - ∑ i, (p i + ε * q i) * h i) 0 0
+info: TGL/Audit.lean:304:0: @TGLExt.elementary_critical_implies_gibbs : ∀ {n : Type} [Fintype n] [DecidableEq n] [Nonempty n] (p h : n → ℝ),
+  (∀ (i j : n), -Real.log (p i) - h i - (-Real.log (p j) - h j) = 0) → ∃ c, ∀ (i : n), Real.log (p i) + h i = c
+info: TGL/Audit.lean:307:0: @TGLExt.gibbs_nonneg : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] {ρ x : Matrix n n ℂ},
+  ρ.PosSemidef → x.PosSemidef → 0 ≤ TGLExt.gibbs ρ x
+info: TGL/Audit.lean:308:0: @TGLExt.gibbs_monotone : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] {ρ : Matrix n n ℂ},
+  ρ.PosSemidef → ∀ {a b : Matrix n n ℂ}, a ≤ b → TGLExt.gibbs ρ a ≤ TGLExt.gibbs ρ b
+info: TGL/Audit.lean:309:0: @TGLExt.boundaryState : {n : Type} →
+  [Fintype n] → [DecidableEq n] → (ρ : Matrix n n ℂ) → ρ.PosSemidef → Matrix n n ℂ →ₚ[ℂ] ℂ
+info: TGL/Audit.lean:310:0: @TGLExt.boundaryState_apply : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ)
+  (hρ : ρ.PosSemidef) (a : Matrix n n ℂ), (TGLExt.boundaryState ρ hρ) a = TGLExt.gibbs ρ a
+info: TGL/Audit.lean:314:0: @TGLExt.Sop_omega : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef → TGLExt.Sop ρ (TGLExt.Omega ρ) = TGLExt.Omega ρ
+info: TGL/Audit.lean:315:0: @TGLExt.FiniteNameGNS : {n : Type} → [Fintype n] → [DecidableEq n] → Matrix n n ℂ → Prop
+info: TGL/Audit.lean:316:0: @TGLExt.nameFiniteGNS : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef → ρ.trace = 1 → TGLExt.FiniteNameGNS ρ
+info: TGL/Audit.lean:317:0: @TGLExt.nameFiniteGNS_exists : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ),
+  ρ.PosDef → ρ.trace = 1 → Nonempty (TGLExt.FiniteNameGNS ρ)
+info: TGL/Audit.lean:318:0: @TGLExt.boundaryState_eq_vector_state : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ)
+  (hρ : ρ.PosDef) (a : Matrix n n ℂ),
+  (TGLExt.boundaryState ρ ⋯) a = TGLExt.frob (TGLExt.Omega ρ) ((TGLExt.Lmul a) (TGLExt.Omega ρ))
+info: TGL/Audit.lean:319:0: @TGLExt.lock_pairing_eq : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (D : Matrix n n ℂ) (v : n → ℂ),
+  star v ⬝ᵥ (D.conjTranspose * D).mulVec v = star (D.mulVec v) ⬝ᵥ D.mulVec v
+info: TGL/Audit.lean:320:0: @TGLExt.action_locks_zero_iff : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (Dc Db Dz : Matrix n n ℂ) (v : n → ℂ),
+  star v ⬝ᵥ (Dc.conjTranspose * Dc + Db.conjTranspose * Db + Dz.conjTranspose * Dz).mulVec v = 0 ↔
+    Dc.mulVec v = 0 ∧ Db.mulVec v = 0 ∧ Dz.mulVec v = 0
+info: TGL/Audit.lean:321:0: @TGLExt.hermitian_pairing_re : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (H : Matrix n n ℂ),
+  H.IsHermitian → ∀ (v η : n → ℂ), (star v ⬝ᵥ H.mulVec η).re = (star η ⬝ᵥ H.mulVec v).re
+info: TGL/Audit.lean:322:0: @TGLExt.action_hasDerivAt : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (H : Matrix n n ℂ),
+  H.IsHermitian →
+    ∀ (v η : n → ℂ),
+      HasDerivAt (fun ε => (star (v + ↑ε • η) ⬝ᵥ H.mulVec (v + ↑ε • η)).re) (2 * (star η ⬝ᵥ H.mulVec v).re) 0
+info: TGL/Audit.lean:323:0: @TGLExt.critical_pairing_iff : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (H : Matrix n n ℂ) (v : n → ℂ),
+  (∀ (η : n → ℂ), star η ⬝ᵥ H.mulVec v = 0) ↔ H.mulVec v = 0
+info: TGL/Audit.lean:324:0: @TGLExt.transport : {n : Type} → [Fintype n] → [DecidableEq n] → Matrix n n ℂ → ℝ → ℝ → Matrix n n ℂ → Matrix n n ℂ
+info: TGL/Audit.lean:325:0: @TGLExt.transport_refl : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ) (t : ℝ)
+  (a : Matrix n n ℂ), TGLExt.transport ρ t t a = a
+info: TGL/Audit.lean:326:0: @TGLExt.transport_comp : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ) (t r s : ℝ)
+  (a : Matrix n n ℂ), TGLExt.transport ρ t r (TGLExt.transport ρ r s a) = TGLExt.transport ρ t s a
+info: TGL/Audit.lean:327:0: @TGLExt.transport_fixes_name : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ) (t s : ℝ)
+  (a : Matrix n n ℂ), TGLExt.gibbs ρ (TGLExt.transport ρ t s a) = TGLExt.gibbs ρ a
+info: TGL/Audit.lean:328:0: @TGLExt.transport_trace : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ : Matrix n n ℂ) (t s : ℝ)
+  (a : Matrix n n ℂ), (TGLExt.transport ρ t s a).trace = a.trace
+info: TGL/Audit.lean:329:0: @TGLExt.transport_corner : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (ρ H : Matrix n n ℂ),
+  Commute ρ H → ∀ (f : ℝ → ℝ) (t s : ℝ), TGLExt.transport ρ t s (cfc f H) = cfc f H
+info: TGL/Audit.lean:330:0: TGLExt.NamedTransportData : Type → Type
+info: TGL/Audit.lean:331:0: @TGLExt.canonicalNamedTransport : {n : Type} →
+  [Fintype n] → [DecidableEq n] → Matrix n n ℂ → TGLExt.NamedTransportData (Matrix n n ℂ)
+info: TGL/Audit.lean:332:0: @TGLExt.canonicalNamedTransport_exists : ∀ {n : Type} [Fintype n] [DecidableEq n] (ρ : Matrix n n ℂ),
+  Nonempty (TGLExt.NamedTransportData (Matrix n n ℂ))
+info: TGL/Audit.lean:333:0: @TGLExt.excite_holonomy : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (A B x : Matrix n n ℂ),
+  TGLExt.excite A (TGLExt.excite B x) - TGLExt.excite B (TGLExt.excite A x) = TGLExt.excite (TGLExt.excite A B) x
+info: TGL/Audit.lean:334:0: @TGLExt.excite_holonomy_flat : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (A B : Matrix n n ℂ),
+  Commute A B → ∀ (x : Matrix n n ℂ), TGLExt.excite A (TGLExt.excite B x) - TGLExt.excite B (TGLExt.excite A x) = 0
+info: TGL/Audit.lean:338:0: @TGLExt.trace_cornerProj_pos : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {G : Type} [Group G]
+  [inst_3 : Fintype G] [inst_4 : DecidableEq G] [Nonempty n] {S : Finset G},
+  S.Nonempty → 0 < (TGLExt.cornerProj S).trace
+info: TGL/Audit.lean:339:0: @TGLExt.cornerProj_loewner_mono : ∀ {n : Type} [Fintype n] [inst : DecidableEq n] {G : Type} [Group G] [Fintype G]
+  [inst_3 : DecidableEq G] {S₁ S₂ : Finset G}, S₁ ⊆ S₂ → TGLExt.cornerProj S₁ ≤ TGLExt.cornerProj S₂
+info: TGL/Audit.lean:340:0: @TGLExt.sigma_fixes_cornerProj : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {G : Type} [inst_2 : Group G]
+  [inst_3 : Fintype G] [inst_4 : DecidableEq G] (u : G →* ↥(Matrix.unitaryGroup n ℂ)) {ρ : Matrix n n ℂ},
+  ρ.PosDef → ∀ (S : Finset G) (t : ℝ), TGLExt.sigma (TGLExt.piRep u ρ) t (TGLExt.cornerProj S) = TGLExt.cornerProj S
+info: TGL/Audit.lean:341:0: @TGLExt.cornerProj_ne_of_ne : ∀ {n : Type} [Fintype n] [inst : DecidableEq n] {G : Type} [Group G] [Fintype G]
+  [inst_3 : DecidableEq G] [Nonempty n] {S₁ S₂ : Finset G}, S₁ ≠ S₂ → TGLExt.cornerProj S₁ ≠ TGLExt.cornerProj S₂
+info: TGL/Audit.lean:342:0: @TGLExt.TransportedCornerFamily : {n : Type} →
+  [inst : Fintype n] →
+    [inst_1 : DecidableEq n] →
+      {G : Type} →
+        [inst_2 : Group G] → [Fintype G] → [DecidableEq G] → (G →* ↥(Matrix.unitaryGroup n ℂ)) → Matrix n n ℂ → Type
+info: TGL/Audit.lean:343:0: @TGLExt.canonicalTransportedCorner : {n : Type} →
+  [inst : Fintype n] →
+    [inst_1 : DecidableEq n] →
+      {G : Type} →
+        [inst_2 : Group G] →
+          [inst_3 : Fintype G] →
+            [inst_4 : DecidableEq G] →
+              (u : G →* ↥(Matrix.unitaryGroup n ℂ)) → {ρ : Matrix n n ℂ} → ρ.PosDef → TGLExt.TransportedCornerFamily u ρ
+info: TGL/Audit.lean:344:0: @TGLExt.canonicalTransportedCorner_exists : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] {G : Type}
+  [inst_2 : Group G] [inst_3 : Fintype G] [inst_4 : DecidableEq G] (u : G →* ↥(Matrix.unitaryGroup n ℂ))
+  {ρ : Matrix n n ℂ}, ρ.PosDef → Nonempty (TGLExt.TransportedCornerFamily u ρ)
+info: TGL/Audit.lean:348:0: @TGLExt.ker_map_of_intertwine : ∀ {H₁ H₂ W₁ W₂ : Type} [inst : NormedAddCommGroup H₁] [inst_1 : InnerProductSpace ℂ H₁]
+  [CompleteSpace H₁] [inst_3 : NormedAddCommGroup H₂] [inst_4 : InnerProductSpace ℂ H₂] [CompleteSpace H₂]
+  [inst_6 : NormedAddCommGroup W₁] [inst_7 : NormedSpace ℂ W₁] [inst_8 : NormedAddCommGroup W₂]
+  [inst_9 : NormedSpace ℂ W₂] (U : H₁ ≃ₗᵢ[ℂ] H₂) (D₁ : H₁ →L[ℂ] W₁) (D₂ : H₂ →L[ℂ] W₂) (V : W₁ →ₗᵢ[ℂ] W₂),
+  (∀ (x : H₁), D₂ (U x) = V (D₁ x)) → Submodule.map (↑U.toLinearEquiv) (↑D₁).ker = (↑D₂).ker
+info: TGL/Audit.lean:349:0: @TGLExt.starProjection_ker_covariant : ∀ {H₁ H₂ W₁ W₂ : Type} [inst : NormedAddCommGroup H₁]
+  [inst_1 : InnerProductSpace ℂ H₁] [inst_2 : CompleteSpace H₁] [inst_3 : NormedAddCommGroup H₂]
+  [inst_4 : InnerProductSpace ℂ H₂] [inst_5 : CompleteSpace H₂] [inst_6 : NormedAddCommGroup W₁]
+  [inst_7 : NormedSpace ℂ W₁] [inst_8 : NormedAddCommGroup W₂] [inst_9 : NormedSpace ℂ W₂] (U : H₁ ≃ₗᵢ[ℂ] H₂)
+  (D₁ : H₁ →L[ℂ] W₁) (D₂ : H₂ →L[ℂ] W₂) (V : W₁ →ₗᵢ[ℂ] W₂),
+  (∀ (x : H₁), D₂ (U x) = V (D₁ x)) → ∀ (y : H₂), (↑D₂).ker.starProjection y = U ((↑D₁).ker.starProjection (U.symm y))
+info: TGL/Audit.lean:350:0: @TGLExt.starProjection_ker_internal_fix : ∀ {H₁ W₁ : Type} [inst : NormedAddCommGroup H₁]
+  [inst_1 : InnerProductSpace ℂ H₁] [inst_2 : CompleteSpace H₁] [inst_3 : NormedAddCommGroup W₁]
+  [inst_4 : NormedSpace ℂ W₁] (U : H₁ ≃ₗᵢ[ℂ] H₁) (D : H₁ →L[ℂ] W₁) (V : W₁ →ₗᵢ[ℂ] W₁),
+  (∀ (x : H₁), D (U x) = V (D x)) → ∀ (x : H₁), (↑D).ker.starProjection (U x) = U ((↑D).ker.starProjection x)
+info: TGL/Audit.lean:351:0: @TGLExt.starProjection_ker_isotone : ∀ {H₁ H₂ W₁ W₂ : Type} [inst : NormedAddCommGroup H₁]
+  [inst_1 : InnerProductSpace ℂ H₁] [CompleteSpace H₁] [inst_3 : NormedAddCommGroup H₂]
+  [inst_4 : InnerProductSpace ℂ H₂] [inst_5 : CompleteSpace H₂] [inst_6 : NormedAddCommGroup W₁]
+  [inst_7 : NormedSpace ℂ W₁] [inst_8 : NormedAddCommGroup W₂] [inst_9 : NormedSpace ℂ W₂] (ι : H₁ →ₗᵢ[ℂ] H₂)
+  (D₁ : H₁ →L[ℂ] W₁) (D₂ : H₂ →L[ℂ] W₂) (V : W₁ →ₗᵢ[ℂ] W₂),
+  (∀ (x : H₁), D₂ (ι x) = V (D₁ x)) → ∀ {x : H₁}, x ∈ (↑D₁).ker → (↑D₂).ker.starProjection (ι x) = ι x
+info: TGL/Audit.lean:352:0: @TGLExt.lagrangian_zero_iff_mem_ker : ∀ {H₁ W₁ : Type} [inst : NormedAddCommGroup H₁] [inst_1 : InnerProductSpace ℂ H₁]
+  [CompleteSpace H₁] [inst_3 : NormedAddCommGroup W₁] [inst_4 : NormedSpace ℂ W₁] (D : H₁ →L[ℂ] W₁) (x : H₁),
+  ‖D x‖ = 0 ↔ x ∈ (↑D).ker
+info: TGL/Audit.lean:353:0: TGLExt.HilbertHomeData : (Region : Type) →
+  (Region → Region → Prop) →
+    (H W : Region → Type) →
+      [inst : (O : Region) → NormedAddCommGroup (H O)] →
+        [(O : Region) → InnerProductSpace ℂ (H O)] →
+          [inst : (O : Region) → NormedAddCommGroup (W O)] → [(O : Region) → NormedSpace ℂ (W O)] → Type 1
+info: TGL/Audit.lean:354:0: @TGLExt.HilbertHomeData.PF : {Region : Type} →
+  {leR : Region → Region → Prop} →
+    {H W : Region → Type} →
+      [inst : (O : Region) → NormedAddCommGroup (H O)] →
+        [inst_1 : (O : Region) → InnerProductSpace ℂ (H O)] →
+          [∀ (O : Region), CompleteSpace (H O)] →
+            [inst_3 : (O : Region) → NormedAddCommGroup (W O)] →
+              [inst_4 : (O : Region) → NormedSpace ℂ (W O)] →
+                TGLExt.HilbertHomeData Region leR H W → (O : Region) → H O →L[ℂ] H O
+info: TGL/Audit.lean:355:0: @TGLExt.HilbertHomeData.PF_internal_fix : ∀ {Region : Type} {leR : Region → Region → Prop} {H W : Region → Type}
+  [inst : (O : Region) → NormedAddCommGroup (H O)] [inst_1 : (O : Region) → InnerProductSpace ℂ (H O)]
+  [inst_2 : ∀ (O : Region), CompleteSpace (H O)] [inst_3 : (O : Region) → NormedAddCommGroup (W O)]
+  [inst_4 : (O : Region) → NormedSpace ℂ (W O)] (P : TGLExt.HilbertHomeData Region leR H W) (O : Region) (s : ℝ)
+  (x : H O), (P.PF O) ((P.internal O s) x) = (P.internal O s) ((P.PF O) x)
+info: TGL/Audit.lean:356:0: @TGLExt.HilbertHomeData.PF_external_covariant : ∀ {Region : Type} {leR : Region → Region → Prop} {H W : Region → Type}
+  [inst : (O : Region) → NormedAddCommGroup (H O)] [inst_1 : (O : Region) → InnerProductSpace ℂ (H O)]
+  [inst_2 : ∀ (O : Region), CompleteSpace (H O)] [inst_3 : (O : Region) → NormedAddCommGroup (W O)]
+  [inst_4 : (O : Region) → NormedSpace ℂ (W O)] (P : TGLExt.HilbertHomeData Region leR H W) (g : P.G) (O : Region)
+  (y : H (P.act g O)), (P.PF (P.act g O)) y = (P.external g O) ((P.PF O) ((P.external g O).symm y))
+info: TGL/Audit.lean:357:0: @TGLExt.HilbertHomeData.PF_isotone : ∀ {Region : Type} {leR : Region → Region → Prop} {H W : Region → Type}
+  [inst : (O : Region) → NormedAddCommGroup (H O)] [inst_1 : (O : Region) → InnerProductSpace ℂ (H O)]
+  [inst_2 : ∀ (O : Region), CompleteSpace (H O)] [inst_3 : (O : Region) → NormedAddCommGroup (W O)]
+  [inst_4 : (O : Region) → NormedSpace ℂ (W O)] (P : TGLExt.HilbertHomeData Region leR H W) {O₁ O₂ : Region}
+  (hle : leR O₁ O₂) {x : H O₁}, x ∈ (↑(P.locks O₁)).ker → (P.PF O₂) ((P.incl hle) x) = (P.incl hle) x
+info: TGL/Audit.lean:358:0: @TGLExt.BreuerTraceData : {Region : Type} →
+  {leR : Region → Region → Prop} →
+    {H W : Region → Type} →
+      [inst : (O : Region) → NormedAddCommGroup (H O)] →
+        [inst_1 : (O : Region) → InnerProductSpace ℂ (H O)] →
+          [∀ (O : Region), CompleteSpace (H O)] →
+            [inst_3 : (O : Region) → NormedAddCommGroup (W O)] →
+              [inst_4 : (O : Region) → NormedSpace ℂ (W O)] → TGLExt.HilbertHomeData Region leR H W → Type
+info: TGL/Audit.lean:359:0: @TGLExt.solder_recovers_curvature : ∀ {A B : Type} [inst : AddCommGroup A] [inst_1 : AddCommGroup B]
+  [inst_2 : Module ℂ A] [inst_3 : Module ℂ B] (ρ : A →ₗ[ℂ] B),
+  Function.Injective ⇑ρ → ∀ {F : B}, F ∈ ρ.range → ∃! R, ρ R = F
+info: TGL/Audit.lean:362:0: 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:363:0: 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:364:0: 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:365:0: 'TGL.FiniteThreeLocks.ker_H3L_eq_threeLocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:366:0: 'TGL.FiniteThreeLocks.PF_isProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:367:0: 'TGL.FiniteThreeLocks.PF_isSelfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:368:0: 'TGL.FiniteThreeLocks.normalizedCornerTrace_PF' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:369:0: 'TGL.ContinuousCorner.ContinuousCornerWitness.normalizedTrace_P_eq_one' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-info: TGL/Audit.lean:162:0: 'TGL.SpecificAQFT.continuousCorner_of_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:163:0: 'TGL.SpecificAQFT.wedges_spacelike' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:164:0: 'TGL.SpecificAQFT.wedge_locality' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:165:0: 'TGL.ModularRealization.dualInvariant_PF_no_go' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:166:0: 'TGL.ModularRealization.fullWitness_not_finiteDimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:167:0: 'TGL.ModularRealization.fullWitness_PF_nonzero_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:168:0: 'TGL.HalfNatFresnel.fresnel_selfConjugate_half' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:169:0: 'TGL.HalfNatFresnel.modular_action_halfNat' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:170:0: 'TGL.VerbInhabitant.exp_fixed_of_annihilates' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:171:0: 'TGL.VerbInhabitant.canonicalVerb_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:172:0: 'TGL.VerbInhabitant.dual_calibration_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:173:0: 'TGL.TransportData.descent_iff_defect_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:174:0: 'TGL.TransportData.transport_defect_of_jones' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:175:0: 'TGL.TransportData.jones_selector_not_descended' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:176:0: 'TGL.NameIndex.ParityData.average_bimodular' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:177:0: 'TGL.NameIndex.name_index_eq_csc_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:178:0: 'TGL.NameIndex.name_index_mul_sin_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:179:0: 'TGL.NameIndex.amplitude_weight_index_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:180:0: 'TGL.HalfNatJonesTower.halfNatJonesTower_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:181:0: 'TGL.HalfNatJonesTower.halfNat_mirror_not_descended' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:182:0: 'TGL.HalfNatJonesTower.finite_markov_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:183:0: 'TGL.TransportData.faces_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:184:0: 'TGL.GravitonShadow.canonicalGravitonShadow_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:185:0: 'TGL.GravitonShadow.bell_cci_half' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:186:0: 'TGL.GravitonShadow.product_cci_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:187:0: 'TGL.NameRelation.pqp_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:188:0: 'TGL.NameRelation.tl3_linearly_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:189:0: 'TGL.NameRelation.canonicalTLThree_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:190:0: 'TGL.NameRelation.geometric_eq_trace_weight_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:191:0: 'TGL.CoreSupport.support_maximal' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:192:0: 'TGL.CoreSupport.threeLocksFromSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:193:0: 'TGL.CoreSupport.realizationFromSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:194:0: 'TGL.CoreSupport.transport_defect_gauge_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:197:0: 'TGLExt.commutant_triple' depends on axioms: [propext, Quot.sound]
-info: TGL/Audit.lean:198:0: 'TGLExt.bicommutant_range_Lmul' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:199:0: 'TGLExt.Jconj_Lmul_Jconj' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:200:0: 'TGLExt.omega_cyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:201:0: 'TGLExt.omega_separating' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:202:0: 'TGLExt.Sop_tomita' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:203:0: 'TGLExt.Sop_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:204:0: 'TGLExt.deltaHalf_deltaHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:205:0: 'TGLExt.delta_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:206:0: 'TGLExt.J_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:207:0: 'TGLExt.sigma_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:208:0: 'TGLExt.sigma_sigma' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:209:0: 'TGLExt.frob_trExpect_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:210:0: 'TGLExt.eTr_Lmul_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:212:0: 'TGLExt.trace_smul_one_sub_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:213:0: 'TGLExt.card_smul_diagExpect_sub_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:214:0: 'TGLExt.isGreatest_ppBound_trExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:215:0: 'TGLExt.isGreatest_ppBound_diagExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:216:0: 'TGLExt.ppIndexTr_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:217:0: 'TGLExt.ppIndexDiag_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:219:0: 'TGLExt.trace_Lmul_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:220:0: 'TGLExt.trace_Lmul_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:221:0: 'TGLExt.tau_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:222:0: 'TGLExt.tau_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:223:0: 'TGLExt.masa_tower_weight_eq_ppBest' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:224:0: 'TGLExt.pp_ne_tower_for_scalars' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:226:0: 'TGLExt.end_reconstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:227:0: 'TGLExt.Cmat_of_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:228:0: 'TGLExt.commutant_Cmat_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:229:0: 'TGLExt.exists_span_form' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:230:0: 'TGLExt.frob_self_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:231:0: 'TGLExt.disjoint_frobOrtho' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:232:0: 'TGLExt.isCompl_frobOrtho' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:233:0: 'TGLExt.frobProj_comm_Lmul' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:234:0: 'TGLExt.finite_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:235:0: 'TGLExt.J_deltaHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:236:0: 'TGLExt.frob_delta_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:237:0: 'TGLExt.gibbs_kms' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:238:0: 'TGLExt.modPow_add' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:239:0: 'TGLExt.modPow_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:240:0: 'TGLExt.gibbs_sigma' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:241:0: 'TGLExt.exp_logRho' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:242:0: 'TGLExt.sigma_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:243:0: 'TGLExt.diagExpect_bimod' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:244:0: 'TGLExt.eD_Lmul_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:245:0: 'TGLExt.commutant_range_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:248:0: TGL_KERNEL_BUILD_OK
-info: TGL/Audit.lean:249:0: FINITE_THREE_LOCKS_KERNEL_PROVED
-info: TGL/Audit.lean:250:0: CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
-info: TGL/Audit.lean:251:0: SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED
-info: TGL/Audit.lean:252:0: MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS
-info: TGL/Audit.lean:253:0: FULL_TGL_WITNESS_REMAINS_UNCONSTRUCTED
-info: TGL/Audit.lean:254:0: THE_CANONICAL_INHABITANT_IS_THE_VERB
-info: TGL/Audit.lean:255:0: TRANSPORT_DEFECT_MEASURES_RESISTANCE
-info: TGL/Audit.lean:256:0: THE_NAME_INDEX_IS_READ_IN_THE_JONES_MIRROR
-info: TGL/Audit.lean:257:0: HALF_NAT_IS_THE_ONLY_FINITE_MARKOV_MIRROR
-info: TGL/Audit.lean:258:0: GRAVITON_BELL_SHADOW_CCI_HALF
-info: TGL/Audit.lean:259:0: THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX
-info: TGL/Audit.lean:260:0: CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR
-info: TGL/Audit.lean:261:0: FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED
-✔ [8584/8586] Built TGL.Main (12s)
-✔ [8585/8586] Built TGL (12s)
-Build completed successfully (8586 jobs).
+info: TGL/Audit.lean:370:0: 'TGL.SpecificAQFT.continuousCorner_of_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:371:0: 'TGL.SpecificAQFT.wedges_spacelike' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:372:0: 'TGL.SpecificAQFT.wedge_locality' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:373:0: 'TGL.ModularRealization.dualInvariant_PF_no_go' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:374:0: 'TGL.ModularRealization.fullWitness_not_finiteDimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:375:0: 'TGL.ModularRealization.fullWitness_PF_nonzero_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:376:0: 'TGL.HalfNatFresnel.fresnel_selfConjugate_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:377:0: 'TGL.HalfNatFresnel.modular_action_halfNat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:378:0: 'TGL.VerbInhabitant.exp_fixed_of_annihilates' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:379:0: 'TGL.VerbInhabitant.canonicalVerb_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:380:0: 'TGL.VerbInhabitant.dual_calibration_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:381:0: 'TGL.TransportData.descent_iff_defect_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:382:0: 'TGL.TransportData.transport_defect_of_jones' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:383:0: 'TGL.TransportData.jones_selector_not_descended' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:384:0: 'TGL.NameIndex.ParityData.average_bimodular' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:385:0: 'TGL.NameIndex.name_index_eq_csc_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:386:0: 'TGL.NameIndex.name_index_mul_sin_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:387:0: 'TGL.NameIndex.amplitude_weight_index_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:388:0: 'TGL.HalfNatJonesTower.halfNatJonesTower_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:389:0: 'TGL.HalfNatJonesTower.halfNat_mirror_not_descended' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:390:0: 'TGL.HalfNatJonesTower.finite_markov_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:391:0: 'TGL.TransportData.faces_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:392:0: 'TGL.GravitonShadow.canonicalGravitonShadow_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:393:0: 'TGL.GravitonShadow.bell_cci_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:394:0: 'TGL.GravitonShadow.product_cci_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:395:0: 'TGL.NameRelation.pqp_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:396:0: 'TGL.NameRelation.tl3_linearly_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:397:0: 'TGL.NameRelation.canonicalTLThree_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:398:0: 'TGL.NameRelation.geometric_eq_trace_weight_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:399:0: 'TGL.CoreSupport.support_maximal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:400:0: 'TGL.CoreSupport.threeLocksFromSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:401:0: 'TGL.CoreSupport.realizationFromSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:402:0: 'TGL.CoreSupport.transport_defect_gauge_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:405:0: 'TGLExt.commutant_triple' depends on axioms: [propext, Quot.sound]
+info: TGL/Audit.lean:406:0: 'TGLExt.bicommutant_range_Lmul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:407:0: 'TGLExt.Jconj_Lmul_Jconj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:408:0: 'TGLExt.omega_cyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:409:0: 'TGLExt.omega_separating' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:410:0: 'TGLExt.Sop_tomita' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:411:0: 'TGLExt.Sop_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:412:0: 'TGLExt.deltaHalf_deltaHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:413:0: 'TGLExt.delta_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:414:0: 'TGLExt.J_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:415:0: 'TGLExt.sigma_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:416:0: 'TGLExt.sigma_sigma' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:417:0: 'TGLExt.frob_trExpect_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:418:0: 'TGLExt.eTr_Lmul_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:420:0: 'TGLExt.trace_smul_one_sub_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:421:0: 'TGLExt.card_smul_diagExpect_sub_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:422:0: 'TGLExt.isGreatest_ppBound_trExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:423:0: 'TGLExt.isGreatest_ppBound_diagExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:424:0: 'TGLExt.ppIndexTr_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:425:0: 'TGLExt.ppIndexDiag_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:427:0: 'TGLExt.trace_Lmul_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:428:0: 'TGLExt.trace_Lmul_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:429:0: 'TGLExt.tau_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:430:0: 'TGLExt.tau_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:431:0: 'TGLExt.masa_tower_weight_eq_ppBest' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:432:0: 'TGLExt.pp_ne_tower_for_scalars' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:434:0: 'TGLExt.end_reconstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:435:0: 'TGLExt.Cmat_of_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:436:0: 'TGLExt.commutant_Cmat_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:437:0: 'TGLExt.exists_span_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:438:0: 'TGLExt.frob_self_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:439:0: 'TGLExt.disjoint_frobOrtho' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:440:0: 'TGLExt.isCompl_frobOrtho' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:441:0: 'TGLExt.frobProj_comm_Lmul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:442:0: 'TGLExt.finite_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:444:0: 'TGLExt.Grot_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:445:0: 'TGLExt.exp_smul_Grot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:446:0: 'TGLExt.Smat_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:447:0: 'TGLExt.Smat_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:448:0: 'TGLExt.Smat_spectral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:449:0: 'TGLExt.normSq_reflection_add_transmission' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:450:0: 'TGLExt.rhoOut_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:452:0: 'TGLExt.cocycle_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:453:0: 'TGLExt.cocycle_temporal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:454:0: 'TGLExt.cocycle_conjTranspose' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:455:0: 'TGLExt.cocycle_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:456:0: 'TGLExt.cocycle_of_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:457:0: 'TGLExt.logRho_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:458:0: 'TGLExt.cocycle_covariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:460:0: 'TGLExt.sigma_fixed_of_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:461:0: 'TGLExt.logRho_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:462:0: 'TGLExt.sigma_fixed_iff_diag' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:463:0: 'TGLExt.gibbs_tracial_on_centralizer' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:464:0: 'TGLExt.dephase_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:465:0: 'TGLExt.dephase_tendsto_expectation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:466:0: 'TGLExt.ergodic_convergence_modular' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:467:0: 'TGLExt.J_deltaHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:468:0: 'TGLExt.frob_delta_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:469:0: 'TGLExt.gibbs_kms' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:470:0: 'TGLExt.modPow_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:471:0: 'TGLExt.modPow_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:472:0: 'TGLExt.gibbs_sigma' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:473:0: 'TGLExt.exp_logRho' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:474:0: 'TGLExt.sigma_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:475:0: 'TGLExt.diagExpect_bimod' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:476:0: 'TGLExt.eD_Lmul_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:477:0: 'TGLExt.commutant_range_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:479:0: 'TGLExt.lam_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:480:0: 'TGLExt.lam_conj_piRep' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:481:0: 'TGLExt.piRep_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:482:0: 'TGLExt.Ecomp_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:483:0: 'TGLExt.gibbs_Ecomp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:484:0: 'TGLExt.gibbs_piRep_dual' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:485:0: 'TGLExt.modPow_piRep' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:486:0: 'TGLExt.sigma_piRep' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:487:0: 'TGLExt.cocycle_piRep' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:488:0: 'TGLExt.dual_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:489:0: 'TGLExt.cocycle_covariance_beyond_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:490:0: 'TGLExt.Dchi_conj_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:491:0: 'TGLExt.Dchi_comm_modPow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:492:0: 'TGLExt.gibbs_Dchi' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:494:0: 'TGLExt.dyadic_approx' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:495:0: 'TGLExt.dyadic_stage_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:496:0: 'TGLExt.dyadic_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:497:0: 'TGLExt.annihilator_fixes_stage' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:498:0: 'TGLExt.scaling_fixed_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:499:0: 'TGLExt.DualScalingData.fixed_tau_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:500:0: 'TGLExt.DualScalingData.dyadic_stage_tau_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:501:0: 'TGLExt.sFrame_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:502:0: 'TGLExt.sFrame_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:503:0: 'TGLExt.measurement_channel_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:505:0: 'TGLExt.corner_fixed_by_flow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:506:0: 'TGLExt.DualScalingData.finite_trace_not_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:507:0: 'TGLExt.cornerProj_idem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:508:0: 'TGLExt.cornerProj_conjTranspose' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:509:0: 'TGLExt.cornerProj_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:510:0: 'TGLExt.lam_conj_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:511:0: 'TGLExt.trace_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:512:0: 'TGLExt.cornerProj_comm_modPow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:514:0: 'TGLExt.boost_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:515:0: 'TGLExt.boost_preserves_eta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:516:0: 'TGLExt.boost_null_expand' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:517:0: 'TGLExt.boost_null_contract' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:518:0: 'TGLExt.boost_preserves_wedge' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:519:0: 'TGLExt.logRho_gibbs_boost' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:520:0: 'TGLExt.modPow_gibbs_boost' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:521:0: 'TGLExt.sigma_gibbs_boost' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:523:0: 'TGLExt.polarization_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:524:0: 'TGLExt.polarizations_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:525:0: 'TGLExt.rot_conj_polPlus' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:526:0: 'TGLExt.rot_conj_polCross' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:527:0: 'TGLExt.rot_conj_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:528:0: 'TGLExt.gauge_transverse_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:529:0: 'TGLExt.minkNorm4_nullK' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:530:0: 'TGLExt.excite_one_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:531:0: 'TGLExt.excite_leibniz' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:532:0: 'TGLExt.Smat_sub_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:534:0: 'TGLExt.variance_of_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:535:0: 'TGLExt.boundary_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:536:0: 'TGLExt.boundary_variance' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:537:0: 'TGLExt.variance_le_quarter' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:538:0: 'TGLExt.variance_eq_quarter_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:539:0: 'TGLExt.polarization_commutator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:540:0: 'TGLExt.polarizations_noncommute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:541:0: 'TGLExt.classical_limit_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:543:0: 'TGLExt.purity_unitary_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:544:0: 'TGLExt.pure_reductions_trace_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:545:0: 'TGLExt.pure_reductions_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:546:0: 'TGLExt.purityR_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:547:0: 'TGLExt.dephase_purityR_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:548:0: 'TGLExt.entropy_max_at_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:549:0: 'TGLExt.entropy_eq_max_iff_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:551:0: 'TGLExt.first_law_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:552:0: 'TGLExt.clausius_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:553:0: 'TGLExt.Ecomp_fixes_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:554:0: 'TGLExt.dephase_fixes_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:555:0: 'TGLExt.rg_step_doubles_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:557:0: 'TGLExt.zero_mode_state_minimizes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:558:0: 'TGLExt.gibbs_is_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:559:0: 'TGLExt.elementary_critical_implies_gibbs' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:561:0: 'TGLExt.gibbs_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:562:0: 'TGLExt.gibbs_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:563:0: 'TGLExt.boundaryState_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:565:0: 'TGLExt.Sop_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:566:0: 'TGLExt.nameFiniteGNS_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:567:0: 'TGLExt.boundaryState_eq_vector_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:568:0: 'TGLExt.lock_pairing_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:569:0: 'TGLExt.action_locks_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:570:0: 'TGLExt.hermitian_pairing_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:571:0: 'TGLExt.action_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:572:0: 'TGLExt.critical_pairing_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:573:0: 'TGLExt.transport_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:574:0: 'TGLExt.transport_fixes_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:575:0: 'TGLExt.transport_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:576:0: 'TGLExt.transport_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:577:0: 'TGLExt.canonicalNamedTransport_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:578:0: 'TGLExt.excite_holonomy' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:579:0: 'TGLExt.excite_holonomy_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:581:0: 'TGLExt.trace_cornerProj_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:582:0: 'TGLExt.cornerProj_loewner_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:583:0: 'TGLExt.sigma_fixes_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:584:0: 'TGLExt.cornerProj_ne_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:585:0: 'TGLExt.canonicalTransportedCorner_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:587:0: 'TGLExt.ker_map_of_intertwine' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:588:0: 'TGLExt.starProjection_ker_covariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:589:0: 'TGLExt.starProjection_ker_internal_fix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:590:0: 'TGLExt.starProjection_ker_isotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:591:0: 'TGLExt.lagrangian_zero_iff_mem_ker' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:592:0: 'TGLExt.HilbertHomeData.PF_internal_fix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:593:0: 'TGLExt.HilbertHomeData.PF_external_covariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:594:0: 'TGLExt.HilbertHomeData.PF_isotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:595:0: 'TGLExt.solder_recovers_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:598:0: TGL_KERNEL_BUILD_OK
+info: TGL/Audit.lean:599:0: FINITE_THREE_LOCKS_KERNEL_PROVED
+info: TGL/Audit.lean:600:0: CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
+info: TGL/Audit.lean:601:0: SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED
+info: TGL/Audit.lean:602:0: MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS
+info: TGL/Audit.lean:603:0: FULL_TGL_WITNESS_REMAINS_UNCONSTRUCTED
+info: TGL/Audit.lean:604:0: THE_CANONICAL_INHABITANT_IS_THE_VERB
+info: TGL/Audit.lean:605:0: TRANSPORT_DEFECT_MEASURES_RESISTANCE
+info: TGL/Audit.lean:606:0: THE_NAME_INDEX_IS_READ_IN_THE_JONES_MIRROR
+info: TGL/Audit.lean:607:0: HALF_NAT_IS_THE_ONLY_FINITE_MARKOV_MIRROR
+info: TGL/Audit.lean:608:0: GRAVITON_BELL_SHADOW_CCI_HALF
+info: TGL/Audit.lean:609:0: THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX
+info: TGL/Audit.lean:610:0: CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR
+info: TGL/Audit.lean:611:0: FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED
+✔ [8602/8604] Built TGL.Main (12s)
+✔ [8603/8604] Built TGL (12s)
+Build completed successfully (8604 jobs).
 
 --- STDERR ---
 
