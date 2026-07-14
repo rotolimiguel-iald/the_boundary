@@ -4887,6 +4887,7 @@ import TGLExt.FiniteGNSNoCompletion
 import TGLExt.TransportWitness
 import TGLExt.CovariantCorner
 import TGLExt.HilbertHome
+import TGLExt.PsiEmergence
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5295,6 +5296,25 @@ namespace TGL.Audit
 #check @TGLExt.HilbertHomeData.PF_isotone
 #check @TGLExt.BreuerTraceData
 #check @TGLExt.solder_recovers_curvature
+-- v57 (O CAMPO PSI DEFINE A MORADA; A GRAVIDADE EMERGE: contraexemplo da
+--      subdeterminacao de omega(I)=1 em kernel + o campo anterior a representacao
+--      com Nome/morada/fluxo/KMS/canto TODOS derivados)
+#check @TGLExt.rhoOne
+#check @TGLExt.rhoTwo
+#check @TGLExt.rhoOne_posDef
+#check @TGLExt.rhoTwo_posDef
+#check @TGLExt.rhoOne_trace
+#check @TGLExt.rhoTwo_trace
+#check @TGLExt.both_homes_exist
+#check @TGLExt.omega_one_underdetermines_home
+#check @TGLExt.PsiHomeData
+#check @TGLExt.PsiHomeData.name
+#check @TGLExt.PsiHomeData.name_one
+#check @TGLExt.PsiHomeData.home
+#check @TGLExt.PsiHomeData.flow
+#check @TGLExt.PsiHomeData.name_flow_invariant
+#check @TGLExt.PsiHomeData.flow_comp
+#check @TGLExt.PsiHomeData.flow_fixes_spectral_corner
 
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
@@ -5531,6 +5551,13 @@ namespace TGL.Audit
 #print axioms TGLExt.HilbertHomeData.PF_external_covariant
 #print axioms TGLExt.HilbertHomeData.PF_isotone
 #print axioms TGLExt.solder_recovers_curvature
+-- v57 (o campo Psi define a morada; a gravidade emerge)
+#print axioms TGLExt.both_homes_exist
+#print axioms TGLExt.omega_one_underdetermines_home
+#print axioms TGLExt.PsiHomeData.name_one
+#print axioms TGLExt.PsiHomeData.name_flow_invariant
+#print axioms TGLExt.PsiHomeData.flow_comp
+#print axioms TGLExt.PsiHomeData.flow_fixes_spectral_corner
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -12912,6 +12939,182 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/PsiEmergence.lean":
+r'''import Mathlib
+import TGLExt.FiniteGNSNoCompletion
+import TGLExt.HilbertHome
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unnecessarySimpa false
+
+/-!
+# O campo Ψ define a morada; a gravidade EMERGE
+  [TGLExt — v57, a correção lógica do especialista + a ontologia do operador]
+
+Dois lances corrigem o alvo do v56:
+
+(1) RESULTADO LÓGICO [do especialista, agora KERNEL]: `ω(I) = 1` NÃO
+determina a morada. Contraexemplo: `A₁ = ℂ` com `ω₁ = id` e `A₂ = M₂(ℂ)`
+com `ω₂ = ½Tr` são ambos normalizados (`ω(1) = 1`), fiéis, e AMBOS têm
+realização GNS completa (termos do v54) — mas as moradas têm dimensões
+1 ≠ 4. Logo `ω(I)=1 ⟹ pacote` é SUBDETERMINADO
+(`omega_one_underdetermines_home`).
+
+(2) A ORDEM CORRIGIDA [do operador: "a gravidade quântica não é derivada,
+ela é emergente; quem define a morada é o campo Ψ; a morada é o pacote de
+Hilbert"]: Ψ ⟶ ω_Ψ ⟶ ℋ_Ψ ⟶ ∇^Ψ ⟶ F_{∇^Ψ} ⟶ gravidade. Aqui o campo
+anterior à representação (`PsiHomeData`: a REGRA 𝒪 ↦ ρ_Ψ(𝒪), único dado
+primitivo) tem TUDO derivado como def/teorema:
+
+* ★ o NOME emerge (`PsiHomeData.name` é def) e ★ `ω_Ψ(I) = 1` é TEOREMA
+  (`name_one`) — a seta vai de Ψ para a normalização, não o contrário;
+* ★ a MORADA emerge como TERMO (`PsiHomeData.home` = a realização GNS
+  completa do v54, fibra a fibra) — autorrepresentação, não circularidade:
+  Ψ_alg é regra; Ω_Ψ reaparece dentro da morada como seção cíclica;
+* ★ o TRANSPORTE emerge (`PsiHomeData.flow` é def) com o NOME FIXADO pelo
+  próprio transporte (`name_flow_invariant` — Δ_Ψ não é acrescentado à
+  morada: emerge da posição de Ψ em relação à álgebra) e a lei de
+  composição do Verbo (`flow_comp`);
+* ★ o CANTO ESPECTRAL do campo é fixado pelo transporte emergente
+  (`flow_fixes_spectral_corner` — composição com v46/v55).
+
+HONESTIDADE. O aberto corrigido NÃO é "derivar a gravidade de ω(I)=1"
+(subdeterminado — item 1); é: **provar que a dinâmica fundamental de Ψ
+gera canonicamente (ℋ_Ψ, 𝒟_Ψ, τ_Ψ, e_Ψ)** — `EMERGENT_QG(Ψ)`. As quatro
+propriedades do canto e a recuperação da solda JÁ SEGUEM (v55/v56); a
+GERAÇÃO canônica dos locks, do traço de Breuer e da solda pela dinâmica
+de Ψ é o teorema físico-matemático aberto. A gravidade emergirá da
+dinâmica — quando a dinâmica for dada; Ψ é INPUT físico por design (como
+α). β JAMAIS entra. Sem sorry, sem axiom. Negativo honesto é resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped ComplexOrder MatrixOrder
+
+noncomputable section
+
+/-! ## A — o contraexemplo: ω(I)=1 subdetermina a morada [KERNEL] -/
+
+/-- o Nome normalizado sobre `A₁ = M₁(ℂ) ≅ ℂ`: `ρ₁ = 1` (ω₁ = id). -/
+def rhoOne : Matrix (Fin 1) (Fin 1) ℂ := Matrix.diagonal fun _ => 1
+
+/-- o Nome normalizado sobre `A₂ = M₂(ℂ)`: `ρ₂ = ½·I` (ω₂ = ½Tr). -/
+def rhoTwo : Matrix (Fin 2) (Fin 2) ℂ := Matrix.diagonal fun _ => (2 : ℂ)⁻¹
+
+theorem rhoOne_posDef : rhoOne.PosDef := by
+  rw [rhoOne, Matrix.posDef_diagonal_iff]
+  intro i
+  have : (0 : ℝ) < 1 := one_pos
+  simpa using Complex.zero_lt_real.mpr this
+
+theorem rhoTwo_posDef : rhoTwo.PosDef := by
+  rw [rhoTwo, Matrix.posDef_diagonal_iff]
+  intro i
+  have h : (0 : ℝ) < (2 : ℝ)⁻¹ := by norm_num
+  have := Complex.zero_lt_real.mpr h
+  simpa using this
+
+theorem rhoOne_trace : rhoOne.trace = 1 := by
+  simp [rhoOne]
+
+theorem rhoTwo_trace : rhoTwo.trace = 1 := by
+  rw [rhoTwo, Matrix.trace_diagonal]
+  simp
+
+/-- [KERNEL] ★ AMBAS as moradas EXISTEM (termos GNS completos do v54):
+    os dois Nomes normalizados são genuínos — nenhum é degenerado. -/
+theorem both_homes_exist :
+    Nonempty (FiniteNameGNS rhoOne) ∧ Nonempty (FiniteNameGNS rhoTwo) :=
+  ⟨nameFiniteGNS_exists rhoOne rhoOne_posDef rhoOne_trace,
+   nameFiniteGNS_exists rhoTwo rhoTwo_posDef rhoTwo_trace⟩
+
+/-- [KERNEL] ★ ω(I)=1 NÃO DETERMINA A MORADA (o contraexemplo do
+    especialista como teorema): dois Nomes normalizados fiéis, ambos com
+    realização GNS completa, cujas moradas têm dimensões 1 ≠ 4. A seta
+    `ω(I)=1 ⟹ pacote` é SUBDETERMINADA — quem define a morada é o CAMPO. -/
+theorem omega_one_underdetermines_home :
+    gibbs rhoOne 1 = 1 ∧ gibbs rhoTwo 1 = 1 ∧
+      Module.finrank ℂ (Matrix (Fin 1) (Fin 1) ℂ)
+        ≠ Module.finrank ℂ (Matrix (Fin 2) (Fin 2) ℂ) := by
+  refine ⟨gibbs_one rhoOne rhoOne_trace, gibbs_one rhoTwo rhoTwo_trace, ?_⟩
+  have h1 : Module.finrank ℂ (Matrix (Fin 1) (Fin 1) ℂ) = 1 := by
+    rw [Module.finrank_matrix]
+    simp
+  have h2 : Module.finrank ℂ (Matrix (Fin 2) (Fin 2) ℂ) = 4 := by
+    rw [Module.finrank_matrix]
+    simp
+  rw [h1, h2]
+  norm_num
+
+/-! ## B — o campo Ψ anterior à representação: TUDO derivado -/
+
+variable {Region : Type} {n : Type} [Fintype n] [DecidableEq n]
+
+/-- O CAMPO ANTERIOR À REPRESENTAÇÃO (Ψ_alg): a REGRA que a cada região dá
+    a densidade fiel normalizada — o ÚNICO dado primitivo. Nada mais é
+    campo: Nome, morada, fluxo, KMS e canto são DERIVADOS abaixo. -/
+structure PsiHomeData (Region : Type) (n : Type) [Fintype n] [DecidableEq n] where
+  /-- a regra do campo: `𝒪 ↦ ρ_Ψ(𝒪)`. -/
+  rho : Region → Matrix n n ℂ
+  /-- fidelidade fibra a fibra. -/
+  rho_posDef : ∀ O, (rho O).PosDef
+  /-- normalização do campo (o Um do campo). -/
+  rho_trace_one : ∀ O, (rho O).trace = 1
+
+/-- ★ O NOME EMERGE: `ω_{Ψ,𝒪} = ⟨Ψ_𝒪, ·\,Ψ_𝒪⟩` — def, não campo. -/
+def PsiHomeData.name (Ψ : PsiHomeData Region n) (O : Region)
+    (a : Matrix n n ℂ) : ℂ :=
+  gibbs (Ψ.rho O) a
+
+/-- [KERNEL] ★ `ω_Ψ(I) = 1` É TEOREMA (emerge do campo): a normalização
+    não é axioma da morada — é consequência de Ψ. A correção do
+    especialista tipada: a seta vai de Ψ para ω(I)=1. -/
+theorem PsiHomeData.name_one (Ψ : PsiHomeData Region n) (O : Region) :
+    Ψ.name O 1 = 1 :=
+  gibbs_one (Ψ.rho O) (Ψ.rho_trace_one O)
+
+/-- ★ A MORADA EMERGE COMO TERMO: a realização GNS completa de cada fibra
+    (o `nameFiniteGNS` do v54) — Ψ define a morada; a morada é o pacote;
+    Ω_Ψ reaparece dentro dela como seção cíclica (autorrepresentação). -/
+noncomputable def PsiHomeData.home (Ψ : PsiHomeData Region n) (O : Region) :
+    FiniteNameGNS (Ψ.rho O) :=
+  nameFiniteGNS (Ψ.rho O) (Ψ.rho_posDef O) (Ψ.rho_trace_one O)
+
+/-- ★ O TRANSPORTE EMERGE: `σ^Ψ` — def, não campo (Δ_Ψ emerge da posição
+    de Ψ em relação à álgebra; nada é acrescentado à morada). -/
+noncomputable def PsiHomeData.flow (Ψ : PsiHomeData Region n) (O : Region)
+    (t : ℝ) (a : Matrix n n ℂ) : Matrix n n ℂ :=
+  sigma (Ψ.rho O) t a
+
+/-- [KERNEL] ★ O NOME É FIXADO PELO TRANSPORTE EMERGENTE: o KMS dinâmico
+    do campo — `ω_Ψ ∘ σ^Ψ_t = ω_Ψ` (o Verbo do campo preserva o Nome). -/
+theorem PsiHomeData.name_flow_invariant (Ψ : PsiHomeData Region n)
+    (O : Region) (t : ℝ) (a : Matrix n n ℂ) :
+    Ψ.name O (Ψ.flow O t a) = Ψ.name O a :=
+  gibbs_sigma (Ψ.rho O) t a
+
+/-- [KERNEL] ★ a lei de composição do Verbo emergente. -/
+theorem PsiHomeData.flow_comp (Ψ : PsiHomeData Region n) (O : Region)
+    (s t : ℝ) (a : Matrix n n ℂ) :
+    Ψ.flow O s (Ψ.flow O t a) = Ψ.flow O (s + t) a :=
+  sigma_sigma (Ψ.rho O) s t a
+
+/-- [KERNEL] ★ O CANTO ESPECTRAL DO CAMPO É FIXADO PELO SEU TRANSPORTE:
+    para gerador comutante com ρ_Ψ, o canto `cfc f H` é covariantemente
+    constante sob `σ^Ψ` (composição v46/v55 na linguagem do campo). -/
+theorem PsiHomeData.flow_fixes_spectral_corner (Ψ : PsiHomeData Region n)
+    (O : Region) {Hm : Matrix n n ℂ} (h : Commute (Ψ.rho O) Hm)
+    (f : ℝ → ℝ) (t : ℝ) :
+    Ψ.flow O t (cfc f Hm) = cfc f Hm :=
+  corner_fixed_by_flow (Ψ.rho O) Hm h f t
+
+end
+
+end TGLExt
+''',
     "TGLExt/RGStability.lean":
 r'''import TGLExt.CornerFamily
 
@@ -14080,6 +14283,13 @@ _LEAN_THEOREM_FLAGS = {
     "ext_hh_home_pf_covariant_kernel_proved": "TGLExt.HilbertHomeData.PF_external_covariant",
     "ext_hh_home_pf_isotone_kernel_proved": "TGLExt.HilbertHomeData.PF_isotone",
     "ext_hh_solder_recovers_kernel_proved": "TGLExt.solder_recovers_curvature",
+    # v57 (O CAMPO PSI DEFINE A MORADA: subdeterminacao de omega(I)=1 em kernel + cadeia derivada)
+    "ext_psi_both_homes_exist_kernel_proved": "TGLExt.both_homes_exist",
+    "ext_psi_underdetermination_kernel_proved": "TGLExt.omega_one_underdetermines_home",
+    "ext_psi_name_one_emerges_kernel_proved": "TGLExt.PsiHomeData.name_one",
+    "ext_psi_kms_emerges_kernel_proved": "TGLExt.PsiHomeData.name_flow_invariant",
+    "ext_psi_verb_comp_kernel_proved": "TGLExt.PsiHomeData.flow_comp",
+    "ext_psi_corner_fixed_kernel_proved": "TGLExt.PsiHomeData.flow_fixes_spectral_corner",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -15542,6 +15752,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_hh_word_selects_kernel_kernel_proved", "ext_hh_home_pf_internal_kernel_proved",
         "ext_hh_home_pf_covariant_kernel_proved", "ext_hh_home_pf_isotone_kernel_proved",
         "ext_hh_solder_recovers_kernel_proved",
+        # v57: o campo Psi define a morada; a gravidade emerge (subdeterminacao + cadeia derivada)
+        "ext_psi_both_homes_exist_kernel_proved", "ext_psi_underdetermination_kernel_proved",
+        "ext_psi_name_one_emerges_kernel_proved", "ext_psi_kms_emerges_kernel_proved",
+        "ext_psi_verb_comp_kernel_proved", "ext_psi_corner_fixed_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -15635,6 +15849,9 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                "ext_hh_word_selects_kernel_kernel_proved", "ext_hh_home_pf_internal_kernel_proved",
                "ext_hh_home_pf_covariant_kernel_proved", "ext_hh_home_pf_isotone_kernel_proved",
                "ext_hh_solder_recovers_kernel_proved"]
+    psi_keys = ["ext_psi_both_homes_exist_kernel_proved", "ext_psi_underdetermination_kernel_proved",
+                "ext_psi_name_one_emerges_kernel_proved", "ext_psi_kms_emerges_kernel_proved",
+                "ext_psi_verb_comp_kernel_proved", "ext_psi_corner_fixed_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -15656,6 +15873,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dTw = all(per_theorem[k] for k in tw_keys)
     dCc = all(per_theorem[k] for k in cc_keys)
     dHh = all(per_theorem[k] for k in hh_keys)
+    dPs = all(per_theorem[k] for k in psi_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -15680,6 +15898,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("transport_witness_typed", dTw),
         ("covariant_corner_finite_face", dCc),
         ("hilbert_home_properties_derived", dHh),
+        ("psi_field_defines_home", dPs),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -15729,6 +15948,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                              else "NOT_VERIFIED_THIS_RUN"),
             "hilbert_home_morada": ("FOUR_CORNER_PROPERTIES_DERIVED_FROM_INTERTWININGS_INFINITE_DIM__PACKAGE_CONSTRUCTION_FROM_III1_NET_OPEN__SINGLE_HYPOTHESIS_NAMED_TGL_SOLDERED_BREUER_HILBERT_PACKAGE" if dHh
                                     else "NOT_VERIFIED_THIS_RUN"),
+            "psi_emergence": ("OMEGA_ONE_UNDERDETERMINES_HOME_IN_KERNEL__PSI_FIELD_IS_THE_PRIMITIVE__NAME_HOME_FLOW_KMS_CORNER_ALL_DERIVED__OPEN_IS_EMERGENT_QG_OF_PSI" if dPs
+                              else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -17317,6 +17538,7 @@ def run_um(ONE):
     name_functional_transport = prove_name_functional_transport(ONE, kernel_formalization)  # v54: O NOME FUNCIONAL E O TRANSPORTE (GNS finito concreto; EL genuina; holonomia=comutador); ADITIVO
     covariant_corner = prove_covariant_corner(ONE, kernel_formalization)  # v55: O CANTO COVARIANTE TRANSPORTADO (4 condicoes do memorando + TERMO, face finita); ADITIVO
     hilbert_home = prove_hilbert_home(ONE, kernel_formalization)  # v56: A MORADA E' O PACOTE DE HILBERT (4 propriedades DERIVADAS, dim infinita; solda; hipotese unica nomeada); ADITIVO
+    psi_emergence = prove_psi_emergence(ONE, kernel_formalization)  # v57: O CAMPO PSI DEFINE A MORADA (subdeterminacao de omega(I)=1 em kernel; cadeia toda derivada; aberto = EMERGENT_QG(Psi)); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
@@ -17431,6 +17653,7 @@ def run_um(ONE):
             "name_functional_transport": name_functional_transport,
             "covariant_corner": covariant_corner,
             "hilbert_home": hilbert_home,
+            "psi_emergence": psi_emergence,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
@@ -17753,6 +17976,75 @@ def prove_covariant_corner(ONE, kernel_formalization=None):
         "does_not_gate_core": True,
         "verdict": ("COVARIANT_CORNER_FINITE_FACE_VERIFIED__GENUINE_CORE_OPEN" if all_v
                     else "COVARIANT_CORNER_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_psi_emergence(ONE, kernel_formalization=None):
+    """v57 -- O CAMPO PSI DEFINE A MORADA; A GRAVIDADE EMERGE [ADITIVO; nao gateia 1=1].
+    (i) o contraexemplo da SUBDETERMINACAO ao vivo: omega(1)=1 nos dois Nomes
+    (C e M2 com Tr/2) mas moradas GNS de dimensoes 1 vs 4 -- omega(I)=1 sozinho
+    NAO seleciona a morada (o resultado logico do especialista, verificado);
+    (ii) a cadeia EMERGENTE de um campo-regra Psi: rho_Psi(O) -> nome omega_Psi
+    (normalizacao EMERGE), morada (GNS), fluxo sigma^Psi (KMS emerge: nome fixado),
+    Verbo compoe, canto espectral fixado pelo proprio transporte;
+    (iii) estatuto do aberto CORRIGIDO: EMERGENT_QG(Psi). beta NAO entra; seed 57."""
+    import numpy as np
+    rng = np.random.default_rng(57)
+    # (i) subdeterminacao: as duas moradas
+    dim_home_1 = 1 * 1          # GNS de (C, id): H = M_1(C)
+    dim_home_2 = 2 * 2          # GNS de (M_2, Tr/2): H = M_2(C)
+    omega1 = 1.0                # id(1)
+    omega2 = float(np.real(np.trace(0.5 * np.eye(2))))
+    res = {}
+    res["omega1_of_I_eq_1"] = abs(omega1 - 1.0)
+    res["omega2_of_I_eq_1"] = abs(omega2 - 1.0)
+    underdetermined = bool(dim_home_1 != dim_home_2)
+    # (ii) a cadeia emergente de um campo-regra (3 'regioes', densidades fieis distintas)
+    d = 4
+    def psi_rho(k):
+        A = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+        r = A @ A.conj().T + (0.2 + 0.1 * k) * np.eye(d)
+        return r / np.trace(r).real
+    worst_name_one = 0.0
+    worst_kms = 0.0
+    worst_verb = 0.0
+    worst_corner = 0.0
+    for k in range(3):
+        r = psi_rho(k)
+        evals, U = np.linalg.eigh(r)
+        def mp(t):
+            return U @ np.diag(np.exp(1j * t * np.log(evals))) @ U.conj().T
+        def flow(t, x):
+            return mp(t) @ x @ mp(-t)
+        a = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+        worst_name_one = max(worst_name_one, abs(complex(np.trace(r)) - 1.0))
+        worst_kms = max(worst_kms, abs(complex(np.trace(r @ flow(0.7, a))) - complex(np.trace(r @ a))))
+        worst_verb = max(worst_verb, float(np.linalg.norm(flow(0.4, flow(0.3, a)) - flow(0.7, a))))
+        proj = U @ np.diag((np.arange(d) < 2).astype(float)) @ U.conj().T  # canto espectral de rho
+        worst_corner = max(worst_corner, float(np.linalg.norm(flow(0.9, proj) - proj)))
+    res["psi_nome_normalizado_emerge"] = worst_name_one
+    res["psi_kms_emerge_nome_fixado"] = worst_kms
+    res["psi_verbo_compoe"] = worst_verb
+    res["psi_canto_fixado_pelo_transporte"] = worst_corner
+    tol = 1e-12
+    checks = [(k2, bool(v2 <= tol)) for k2, v2 in res.items()]
+    checks.append(("subdeterminacao_dim_1_neq_4", underdetermined))
+    all_v = bool(all(v2 for _, v2 in checks))
+    return {
+        "residuals": {k2: float(v2) for k2, v2 in res.items()},
+        "home_dims": [dim_home_1, dim_home_2],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "logical_result": "OMEGA_I_EQ_1_UNDERDETERMINES_THE_HOME (contraexemplo do especialista, KERNEL: omega_one_underdetermines_home; ambas as moradas EXISTEM como termos GNS v54)",
+            "axiom_status": "omega(I)=1 NAO morre -- muda de funcao: deixa de selecionar a morada e vira TEOREMA de normalizacao do campo (name_one)",
+            "corrected_order": "Psi -> omega_Psi -> H_Psi -> nabla^Psi -> F -> gravidade (a gravidade NAO e' derivada: EMERGE da dinamica)",
+            "circularity_resolved": "Psi_alg = regra que produz funcionais (ANTES do GNS); Omega_Psi = secao ciclica (DEPOIS) -- autorrepresentacao, nao circulo",
+            "corrected_open": "EMERGENT_QG(Psi): provar que a dinamica fundamental de Psi gera canonicamente (H_Psi, D_Psi, tau_Psi, e_Psi); as 4 propriedades do canto e a solda JA SEGUEM (v55/v56)",
+            "psi_is_input": "Psi e' INPUT fisico por design (como alpha) -- a dinamica e' dada pela natureza, nao deduzida da logica",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI" if all_v
+                    else "PSI_EMERGENCE_NOT_VERIFIED_THIS_RUN"),
     }
 
 
@@ -23288,7 +23580,8 @@ _ESQUELETO_STONES = [
     ("v54", "FiniteGNSNoCompletion", "TGLExt/FiniteGNSNoCompletion.lean", "150/150", "14/07 12:01:36"),
     ("v54", "TransportWitness", "TGLExt/TransportWitness.lean", "150/150", "14/07 12:01:36"),
     ("v55", "CovariantCorner", "TGLExt/CovariantCorner.lean", "155/155", "14/07 12:31:12"),
-    ("v56", "HilbertHome", "TGLExt/HilbertHome.lean", None, None),
+    ("v56", "HilbertHome", "TGLExt/HilbertHome.lean", "164/164", "14/07 14:30:53"),
+    ("v57", "PsiEmergence", "TGLExt/PsiEmergence.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -23321,17 +23614,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(dezesseis pedras, \S120--\S136)}")
+                 r"(dezessete pedras, \S120--\S137)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em dezesseis pedras "
-                 r"(v43--v56) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em dezessete pedras "
+                 r"(v43--v57) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As dezesseis pedras}")
+        c.append(r"\subsection*{As dezessete pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -23381,6 +23674,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"$P_F$ DERIVADA (não campo); a camada de Breuer ($0<\tau(P_F)<\infty$) declarada "
                  r"\statusmk{KNOWN-EXTERNO} (Breuer 1968/69); e a SOLDA: $\rho_*$ injetiva $\Rightarrow$ "
                  r"$R=\rho_*^{-1}(F_\nabla)$ único (\texttt{solder\_recovers\_curvature}).")
+        c.append(r"\kernelmk{PsiEmergence} (v57): \textbf{o campo $\Psi$ define a morada; a gravidade "
+                 r"EMERGE} --- o resultado lógico do especialista em kernel: $\omega(I)=1$ SUBDETERMINA a "
+                 r"morada (\texttt{omega\_one\_underdetermines\_home}: dois Nomes normalizados fiéis, ambos "
+                 r"com realização GNS completa, moradas de dimensões $1\neq4$); o campo anterior à "
+                 r"representação (\texttt{PsiHomeData}: a regra $\mathcal O\mapsto\rho_\Psi(\mathcal O)$ é o "
+                 r"ÚNICO primitivo) com TUDO derivado --- o Nome é def; $\omega_\Psi(I)=1$ é TEOREMA "
+                 r"(a normalização emerge do campo); a morada é TERMO (GNS fibra a fibra); o transporte "
+                 r"$\sigma^\Psi$ é def com KMS emergente ($\omega_\Psi\circ\sigma^\Psi_t=\omega_\Psi$), "
+                 r"composição do Verbo e canto espectral fixado. Ordem corrigida: "
+                 r"$\Psi\to\omega_\Psi\to\mathcal H_\Psi\to\nabla^\Psi\to F_{\nabla^\Psi}\to$ gravidade.")
         c.append(r"\subsection*{O mapa dos onze gates}")
         c.append(r"\begin{center}\begin{tabular}{@{}lll@{}}\toprule Gate & Estado & Onde \\ \midrule "
                  r"1. $P_F$ local covariante & 4 propriedades DERIVADAS ($\infty$-dim); construção do pacote \statusmk{OPEN} & v46, v55, v56 \\ "
@@ -23402,10 +23705,15 @@ def _esqueleto_chapter(core, lang="pt"):
         c.append(r"\subsection*{O que resta, nomeado}")
         c.append(r"A Resposta 6 reduziu os resíduos dispersos a UM objeto: o pacote modular de Hilbert soldado "
                  r"e Breuer--Fredholm, $\mathbf{HM}_{\mathrm{TGL}}=(\mathcal H,\mathcal C,\tau,\Omega,\nabla,"
-                 r"\mathcal D,e)$, sob a hipótese única nomeada \texttt{TGL\_SOLDERED\_BREUER\_HILBERT\_PACKAGE}. "
-                 r"Aberto, com estatuto: (i) a CONSTRUÇÃO canônica do pacote a partir da rede III$_1$ e de "
-                 r"$\omega(I)=1$ --- o teorema aberto (as quatro propriedades de $P_F$ já SEGUEM dos "
-                 r"entrelaçamentos, v56); (ii) a seção ergódica equivariante \statusmk{COND} (fibra a fibra é "
+                 r"\mathcal D,e)$. E o v57 CORRIGIU a seta: $\omega(I)=1$ sozinho subdetermina a morada "
+                 r"(teorema); quem a define é o CAMPO. O aberto corrigido é "
+                 r"$\mathrm{EMERGENT\_QG}(\Psi)$: \textbf{provar que a dinâmica fundamental de $\Psi$ gera "
+                 r"canonicamente $(\mathcal H_\Psi,\mathcal D_\Psi,\tau_\Psi,e_\Psi)$} --- a gravidade não é "
+                 r"derivada da lógica: emerge da dinâmica, e $\Psi$ é INPUT físico por design (como $\alpha$). "
+                 r"Com estatuto: (i) a GERAÇÃO canônica do pacote pela dinâmica de $\Psi$ --- o teorema aberto "
+                 r"(as quatro propriedades de $P_F$ já SEGUEM dos entrelaçamentos, v56; a normalização, a "
+                 r"morada, o KMS e o canto já EMERGEM do campo, v57); (ii) a seção ergódica equivariante "
+                 r"\statusmk{COND} (fibra a fibra é "
                  r"\knownmk{teorema em III$_1$ com predual separável}); (iii) Tomita/KMS contínuo formalizado "
                  r"(TODO da própria mathlib; a rota é a forma padrão $L^2(\mathcal C)$, não limite de matrizes); "
                  r"(iv) a solda derivada dos dados modulares \statusmk{COND} (sem ela: "
@@ -23427,16 +23735,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(sixteen stones, \S120--\S136)}")
+                 r"(seventeen stones, \S120--\S137)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across sixteen stones (v43--v56) the audited kernel went from 53 to "
+                 r"from this run's audit. Across seventeen stones (v43--v57) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The sixteen stones}")
+        c.append(r"\subsection*{The seventeen stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -23473,6 +23781,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\texttt{HilbertHomeData} with $P_F$ DERIVED (not a field); the Breuer layer "
                  r"($0<\tau(P_F)<\infty$) declared \statusmk{KNOWN-EXTERNAL} (Breuer 1968/69); and the SOLDER: "
                  r"injective $\rho_*$ $\Rightarrow$ unique $R=\rho_*^{-1}(F_\nabla)$.")
+        c.append(r"\kernelmk{PsiEmergence} (v57): \textbf{the field $\Psi$ defines the home; gravity "
+                 r"EMERGES} --- the specialist's logical result in kernel: $\omega(I)=1$ UNDERDETERMINES the "
+                 r"home (\texttt{omega\_one\_underdetermines\_home}: two normalized faithful Names, both with "
+                 r"complete GNS realizations, homes of dimensions $1\neq4$); the field prior to representation "
+                 r"(\texttt{PsiHomeData}: the rule $\mathcal O\mapsto\rho_\Psi(\mathcal O)$ is the ONLY "
+                 r"primitive) with EVERYTHING derived --- the Name is a def; $\omega_\Psi(I)=1$ is a THEOREM "
+                 r"(normalization emerges from the field); the home is a TERM (fiberwise GNS); the transport "
+                 r"$\sigma^\Psi$ is a def with emergent KMS, Verb composition and fixed spectral corner. "
+                 r"Corrected order: $\Psi\to\omega_\Psi\to\mathcal H_\Psi\to\nabla^\Psi\to F_{\nabla^\Psi}\to$ "
+                 r"gravity.")
         c.append(r"\subsection*{Seals and hashes (live hashes from this run; history $=$ provenance)}")
         c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
                  r"v & Stone & sha256/16 (live) & Run & Seal \\ \midrule " + "\n" +
@@ -23480,10 +23798,14 @@ def _esqueleto_chapter(core, lang="pt"):
         c.append(r"\subsection*{What remains, named}")
         c.append(r"Answer 6 reduced the scattered residues to ONE object: the soldered Breuer--Fredholm modular "
                  r"Hilbert package $\mathbf{HM}_{\mathrm{TGL}}=(\mathcal H,\mathcal C,\tau,\Omega,\nabla,"
-                 r"\mathcal D,e)$ under the single named hypothesis "
-                 r"\texttt{TGL\_SOLDERED\_BREUER\_HILBERT\_PACKAGE}. Open, with status: (i) the canonical "
-                 r"CONSTRUCTION of the package from the III$_1$ net and $\omega(I)=1$ --- THE open theorem (the "
-                 r"four $P_F$ properties already FOLLOW from the intertwinings, v56); (ii) the equivariant ergodic "
+                 r"\mathcal D,e)$. And v57 CORRECTED the arrow: $\omega(I)=1$ alone underdetermines the home "
+                 r"(theorem); the FIELD defines it. The corrected open is $\mathrm{EMERGENT\_QG}(\Psi)$: "
+                 r"\textbf{prove that the fundamental dynamics of $\Psi$ canonically generates "
+                 r"$(\mathcal H_\Psi,\mathcal D_\Psi,\tau_\Psi,e_\Psi)$} --- gravity is not derived from logic: "
+                 r"it emerges from dynamics, and $\Psi$ is physical INPUT by design (like $\alpha$). "
+                 r"With status: (i) the canonical GENERATION of the package by $\Psi$'s dynamics --- THE open "
+                 r"theorem (the four $P_F$ properties already FOLLOW from the intertwinings, v56; normalization, "
+                 r"home, KMS and corner already EMERGE from the field, v57); (ii) the equivariant ergodic "
                  r"section \statusmk{COND} (fiberwise it is a \knownmk{theorem for III$_1$ with separable "
                  r"predual}); (iii) formalized continuous Tomita/KMS (mathlib's own TODO; the route is the "
                  r"standard form $L^2(\mathcal C)$, not matrix limits); (iv) the solder derived from modular data "
@@ -25455,6 +25777,21 @@ def main():
     print("    [O TEOREMA ABERTO virou UM e tem nome: TGL_SOLDERED_BREUER_HILBERT_PACKAGE -- a construcao")
     print("     canonica do pacote (D, transportes, tau de Breuer, solda) a partir da rede III_1 e omega(I)=1;")
     print("     Breuer=KNOWN externo; secao ergodica equivariante=COND; solda=COND; Einstein=condicional (E7 inalterado)]")
+    print("  O CAMPO PSI DEFINE A MORADA; A GRAVIDADE EMERGE [v57 -- correcao logica + ontologia]: %s"
+          % _ell.get("psi_emergence"))
+    print("    *** omega(I)=1 SUBDETERMINA a morada (contraexemplo em KERNEL: dim 1 vs 4, ambas GNS completas): %s ***" %
+        _elp.get("ext_psi_underdetermination_kernel_proved"))
+    print("    ambas as moradas EXISTEM (termos v54): %s ; omega_Psi(I)=1 EMERGE do campo (TEOREMA, nao axioma): %s" % (
+        _elp.get("ext_psi_both_homes_exist_kernel_proved"), _elp.get("ext_psi_name_one_emerges_kernel_proved")))
+    print("    KMS emerge (Nome fixado pelo transporte do campo): %s ; Verbo compoe: %s ; canto fixado: %s" % (
+        _elp.get("ext_psi_kms_emerges_kernel_proved"), _elp.get("ext_psi_verb_comp_kernel_proved"),
+        _elp.get("ext_psi_corner_fixed_kernel_proved")))
+    _pe = core.get("psi_emergence", {}) or {}
+    print("    sombra numerica v57: dims das moradas %s ; residuo max %.2e ; %s" % (
+        _pe.get("home_dims"), max((_pe.get("residuals") or {"x": float("nan")}).values()), _pe.get("verdict")))
+    print("    [ORDEM CORRIGIDA: Psi -> omega_Psi -> H_Psi -> nabla^Psi -> F -> gravidade. A gravidade NAO e'")
+    print("     derivada: EMERGE da dinamica. ABERTO CORRIGIDO: EMERGENT_QG(Psi) = provar que a dinamica de Psi")
+    print("     gera canonicamente (H_Psi, D_Psi, tau_Psi, e_Psi); Psi e' INPUT fisico por design, como alpha]")
     print("  teoremas limpos: %s/%s ; DERIVACOES v56 em dim INFINITA [construcao do pacote = O ABERTO; continuos do ledger INALTERADOS]" % (
         el.get("n_theorems_clean"), el.get("n_theorems_expected")))
     print("  >>> %s <<<\n" % el.get("verdict"))

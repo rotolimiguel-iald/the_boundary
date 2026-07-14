@@ -3072,17 +3072,47 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.both_homes_exist": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.omega_one_underdetermines_home": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.PsiHomeData.name_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.PsiHomeData.name_flow_invariant": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.PsiHomeData.flow_comp": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.PsiHomeData.flow_fixes_spectral_corner": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "d1addb208f49d2642b7137fbc4e9cca960d587fc40b4945fa446ad4a73257c2d",
+      "formal_source_hash": "964fdccf6fbaf207c532cf4c33a85d6031db54b731bfa91df80a69e99bd40580",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "b522bed5b2ea101afaf2cb15106b4c4b6768d2dcfb597f7935c691f904957413",
+        "TGLExt.lean": "cb3c65254f135cafd120390647efe4f6eb180593833c72d5c6045e9fc36d55e5",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "4f2f0176726b195a1f640d43573088f484affafbe41500976a0bcf8cd9a742e1",
+        "TGL/Audit.lean": "7cff84ea2b0647ad4fe94968849d45dc4bdb6dcc807998bca4ffca02a365a97c",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -3130,6 +3160,7 @@
         "TGLExt/ModularFlow.lean": "62cfa753d4b40a9091aafb383a8edd588a542dddf5e97ee39906ec31c59826b9",
         "TGLExt/PPIndex.lean": "7f6dc10d57b4852440308ce1c096cbc8e6403d1ac24d0d099e98cb204802060a",
         "TGLExt/PageInformation.lean": "a36b61ba76d0c9d6b22e6fad7a29a05d01ab5b6a240e00de16fabd0e4daf062e",
+        "TGLExt/PsiEmergence.lean": "ff0fd49da7bda187a61454a6b57099e99d1c59c8af038fa43c90c1653736bb04",
         "TGLExt/RGStability.lean": "ae3c1eeee6d86ea43b57ee0afe171bb43c0f24094702130ec3c2604f53aa7bf5",
         "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
         "TGLExt/TransportWitness.lean": "f4219cc2c036999e19e41b006d4899a1a10cd2e8e3562c5a277370faae0364ed",
@@ -3362,24 +3393,30 @@
       "ext_hh_home_pf_covariant_kernel_proved": true,
       "ext_hh_home_pf_isotone_kernel_proved": true,
       "ext_hh_solder_recovers_kernel_proved": true,
+      "ext_psi_both_homes_exist_kernel_proved": true,
+      "ext_psi_underdetermination_kernel_proved": true,
+      "ext_psi_name_one_emerges_kernel_proved": true,
+      "ext_psi_kms_emerges_kernel_proved": true,
+      "ext_psi_verb_comp_kernel_proved": true,
+      "ext_psi_corner_fixed_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "f5a4df54b43c681f7024a0c2b68822f06219b3863bf5378139e3c8c6555bded7",
+      "build_stdout_sha256": "7290e5dfda05b71d9ad1fbd719955f08bbb0227732152e7be2790be34d02c3d7",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "2726879f93669a27550e04c03a2980d1e9212a249a0ab55b53f8f333cf808cc1",
+      "audit_stdout_sha256": "220e06c6d2d9eb62d65be3c53f8c761faff05dce5303770fae8fef18f76b1dda",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 99653,
+        "stdout": 102866,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 79183,
+        "stdout": 81780,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "f5a4df54b43c681f7024a0c2b68822f06219b3863bf5378139e3c8c6555bded7",
-      "audit_capture_sha256_full": "2726879f93669a27550e04c03a2980d1e9212a249a0ab55b53f8f333cf808cc1",
+      "build_capture_sha256_full": "7290e5dfda05b71d9ad1fbd719955f08bbb0227732152e7be2790be34d02c3d7",
+      "audit_capture_sha256_full": "220e06c6d2d9eb62d65be3c53f8c761faff05dce5303770fae8fef18f76b1dda",
       "custom_TGL_axioms_found": [],
       "source_forbidden_tokens_found": [],
       "formal_release_ready": true,
@@ -4585,7 +4622,8 @@
         "finite_gns_no_completion": "NAME_GNS_TERM_CONSTRUCTED_FINITE__NEGATIVE_UNDONE_ON_FINITE_FACE__GENERIC_API_COMPOSITION_REMAINS",
         "transport_witness": "WITNESS_IS_THE_TRANSPORT_LAW__EL_GENUINE__HOLONOMY_CLOSES_IN_COMMUTATOR__CONTINUOUS_COVARIANT_FAMILY_OPEN",
         "covariant_corner_finite_face": "MEMO_FOUR_CONDITIONS_TYPED_AND_TERM_CONSTRUCTED_FINITE_FACE__GENUINE_CORE_R_ACTION_POINCARE_OPEN",
-        "hilbert_home_morada": "FOUR_CORNER_PROPERTIES_DERIVED_FROM_INTERTWININGS_INFINITE_DIM__PACKAGE_CONSTRUCTION_FROM_III1_NET_OPEN__SINGLE_HYPOTHESIS_NAMED_TGL_SOLDERED_BREUER_HILBERT_PACKAGE"
+        "hilbert_home_morada": "FOUR_CORNER_PROPERTIES_DERIVED_FROM_INTERTWININGS_INFINITE_DIM__PACKAGE_CONSTRUCTION_FROM_III1_NET_OPEN__SINGLE_HYPOTHESIS_NAMED_TGL_SOLDERED_BREUER_HILBERT_PACKAGE",
+        "psi_emergence": "OMEGA_ONE_UNDERDETERMINES_HOME_IN_KERNEL__PSI_FIELD_IS_THE_PRIMITIVE__NAME_HOME_FLOW_KMS_CORNER_ALL_DERIVED__OPEN_IS_EMERGENT_QG_OF_PSI"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -4751,10 +4789,16 @@
         "ext_hh_home_pf_internal_kernel_proved": true,
         "ext_hh_home_pf_covariant_kernel_proved": true,
         "ext_hh_home_pf_isotone_kernel_proved": true,
-        "ext_hh_solder_recovers_kernel_proved": true
+        "ext_hh_solder_recovers_kernel_proved": true,
+        "ext_psi_both_homes_exist_kernel_proved": true,
+        "ext_psi_underdetermination_kernel_proved": true,
+        "ext_psi_name_one_emerges_kernel_proved": true,
+        "ext_psi_kms_emerges_kernel_proved": true,
+        "ext_psi_verb_comp_kernel_proved": true,
+        "ext_psi_corner_fixed_kernel_proved": true
       },
-      "n_theorems_clean": 164,
-      "n_theorems_expected": 164,
+      "n_theorems_clean": 170,
+      "n_theorems_expected": 170,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -4853,6 +4897,10 @@
         ],
         [
           "hilbert_home_properties_derived",
+          true
+        ],
+        [
+          "psi_field_defines_home",
           true
         ]
       ],
@@ -5826,6 +5874,61 @@
       "does_not_gate_core": true,
       "verdict": "HILBERT_HOME_PROPERTIES_DERIVED__GLOBAL_LIFT_REDUCED_TO_SINGLE_NAMED_HYPOTHESIS__NOT_UNCONDITIONALLY_SOLVED"
     },
+    "psi_emergence": {
+      "residuals": {
+        "omega1_of_I_eq_1": 0.0,
+        "omega2_of_I_eq_1": 0.0,
+        "psi_nome_normalizado_emerge": 1.1102230246251565e-16,
+        "psi_kms_emerge_nome_fixado": 4.965068306494546e-16,
+        "psi_verbo_compoe": 6.629233450369878e-15,
+        "psi_canto_fixado_pelo_transporte": 2.157566463913794e-15
+      },
+      "home_dims": [
+        1,
+        4
+      ],
+      "checks": [
+        [
+          "omega1_of_I_eq_1",
+          true
+        ],
+        [
+          "omega2_of_I_eq_1",
+          true
+        ],
+        [
+          "psi_nome_normalizado_emerge",
+          true
+        ],
+        [
+          "psi_kms_emerge_nome_fixado",
+          true
+        ],
+        [
+          "psi_verbo_compoe",
+          true
+        ],
+        [
+          "psi_canto_fixado_pelo_transporte",
+          true
+        ],
+        [
+          "subdeterminacao_dim_1_neq_4",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "logical_result": "OMEGA_I_EQ_1_UNDERDETERMINES_THE_HOME (contraexemplo do especialista, KERNEL: omega_one_underdetermines_home; ambas as moradas EXISTEM como termos GNS v54)",
+        "axiom_status": "omega(I)=1 NAO morre -- muda de funcao: deixa de selecionar a morada e vira TEOREMA de normalizacao do campo (name_one)",
+        "corrected_order": "Psi -> omega_Psi -> H_Psi -> nabla^Psi -> F -> gravidade (a gravidade NAO e' derivada: EMERGE da dinamica)",
+        "circularity_resolved": "Psi_alg = regra que produz funcionais (ANTES do GNS); Omega_Psi = secao ciclica (DEPOIS) -- autorrepresentacao, nao circulo",
+        "corrected_open": "EMERGENT_QG(Psi): provar que a dinamica fundamental de Psi gera canonicamente (H_Psi, D_Psi, tau_Psi, e_Psi); as 4 propriedades do canto e a solda JA SEGUEM (v55/v56)",
+        "psi_is_input": "Psi e' INPUT fisico por design (como alpha) -- a dinamica e' dada pela natureza, nao deduzida da logica"
+      },
+      "does_not_gate_core": true,
+      "verdict": "PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI"
+    },
     "reading_direction": {
       "theorem": "Reading direction of g = sqrt(|L_phi|): light -> gravity",
       "reading_direction": "not gravity->light, but light->inscription->angular boundary->geometric module->gravity",
@@ -6440,7 +6543,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-14 14:30:53",
+    "timestamp": "2026-07-14 15:16:16",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -6690,7 +6793,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-14 14:30:53",
+        "prediction_timestamp": "2026-07-14 15:16:16",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -6726,7 +6829,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "88fec1a952e8f1af0bcbf1b3ad54e95fe4423d4d1979943fcc99ce2b771fdb5c"
+        "prediction_hash": "b52eae8498340fa8c2341b5414eed4b437d70734e974bd63644841665b4e2833"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -7026,7 +7129,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "30860ca145d5bcb96b3300552583e72f32a683fb41c34839e2df817374148f19"
+    "result_hash": "c953a84bdd19e8d91da49d0de92413b50d078b9cd8d081fc70ad4c06af1996ea"
   },
   "ga_mass_literature": [
     {
@@ -7052,7 +7155,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "30860ca145d5bcb96b3300552583e72f32a683fb41c34839e2df817374148f19",
+  "result_hash_before_external_comparison": "c953a84bdd19e8d91da49d0de92413b50d078b9cd8d081fc70ad4c06af1996ea",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -7062,5 +7165,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-14 14:30:53"
+  "timestamp": "2026-07-14 15:16:16"
 }

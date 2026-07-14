@@ -1619,9 +1619,39 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.both_homes_exist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.omega_one_underdetermines_home": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.PsiHomeData.name_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.PsiHomeData.name_flow_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.PsiHomeData.flow_comp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.PsiHomeData.flow_fixes_spectral_corner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "formal_source_hash": "d1addb208f49d2642b7137fbc4e9cca960d587fc40b4945fa446ad4a73257c2d",
+  "formal_source_hash": "964fdccf6fbaf207c532cf4c33a85d6031db54b731bfa91df80a69e99bd40580",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -1927,7 +1957,7 @@
 
 ```json
 {
-  "code_sha256": "90325daa62ba6f02b04817a2c0943a0a9cfadab4461fc4530cbdea15ca33cdca",
+  "code_sha256": "0fa75e8e0c388675ba19f16437e78b1dd69c2c59dc0eaa3efad4181c4e2aa5c2",
   "cf4_catalog_hash": null,
   "window_hash": null,
   "selection_hash": null

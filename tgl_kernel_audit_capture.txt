@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=79183 len(stderr)=0
+# len(stdout)=81780 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -749,6 +749,33 @@ TGLExt.HilbertHomeData : (Region : Type) →
 @TGLExt.solder_recovers_curvature : ∀ {A B : Type} [inst : AddCommGroup A] [inst_1 : AddCommGroup B]
   [inst_2 : Module ℂ A] [inst_3 : Module ℂ B] (ρ : A →ₗ[ℂ] B),
   Function.Injective ⇑ρ → ∀ {F : B}, F ∈ ρ.range → ∃! R, ρ R = F
+TGLExt.rhoOne : Matrix (Fin 1) (Fin 1) ℂ
+TGLExt.rhoTwo : Matrix (Fin 2) (Fin 2) ℂ
+TGLExt.rhoOne_posDef : TGLExt.rhoOne.PosDef
+TGLExt.rhoTwo_posDef : TGLExt.rhoTwo.PosDef
+TGLExt.rhoOne_trace : TGLExt.rhoOne.trace = 1
+TGLExt.rhoTwo_trace : TGLExt.rhoTwo.trace = 1
+TGLExt.both_homes_exist : Nonempty (TGLExt.FiniteNameGNS TGLExt.rhoOne) ∧ Nonempty (TGLExt.FiniteNameGNS TGLExt.rhoTwo)
+TGLExt.omega_one_underdetermines_home : TGLExt.gibbs TGLExt.rhoOne 1 = 1 ∧
+  TGLExt.gibbs TGLExt.rhoTwo 1 = 1 ∧
+    Module.finrank ℂ (Matrix (Fin 1) (Fin 1) ℂ) ≠ Module.finrank ℂ (Matrix (Fin 2) (Fin 2) ℂ)
+TGLExt.PsiHomeData : Type → (n : Type) → [Fintype n] → [DecidableEq n] → Type
+@TGLExt.PsiHomeData.name : {Region n : Type} →
+  [inst : Fintype n] → [inst_1 : DecidableEq n] → TGLExt.PsiHomeData Region n → Region → Matrix n n ℂ → ℂ
+@TGLExt.PsiHomeData.name_one : ∀ {Region n : Type} [inst : Fintype n] [inst_1 : DecidableEq n]
+  (Ψ : TGLExt.PsiHomeData Region n) (O : Region), Ψ.name O 1 = 1
+@TGLExt.PsiHomeData.home : ∀ {Region n : Type} [inst : Fintype n] [inst_1 : DecidableEq n]
+  (Ψ : TGLExt.PsiHomeData Region n) (O : Region), TGLExt.FiniteNameGNS (Ψ.rho O)
+@TGLExt.PsiHomeData.flow : {Region n : Type} →
+  [inst : Fintype n] → [inst_1 : DecidableEq n] → TGLExt.PsiHomeData Region n → Region → ℝ → Matrix n n ℂ → Matrix n n ℂ
+@TGLExt.PsiHomeData.name_flow_invariant : ∀ {Region n : Type} [inst : Fintype n] [inst_1 : DecidableEq n]
+  (Ψ : TGLExt.PsiHomeData Region n) (O : Region) (t : ℝ) (a : Matrix n n ℂ), Ψ.name O (Ψ.flow O t a) = Ψ.name O a
+@TGLExt.PsiHomeData.flow_comp : ∀ {Region n : Type} [inst : Fintype n] [inst_1 : DecidableEq n]
+  (Ψ : TGLExt.PsiHomeData Region n) (O : Region) (s t : ℝ) (a : Matrix n n ℂ),
+  Ψ.flow O s (Ψ.flow O t a) = Ψ.flow O (s + t) a
+@TGLExt.PsiHomeData.flow_fixes_spectral_corner : ∀ {Region n : Type} [inst : Fintype n] [inst_1 : DecidableEq n]
+  (Ψ : TGLExt.PsiHomeData Region n) (O : Region) {Hm : Matrix n n ℂ},
+  Commute (Ψ.rho O) Hm → ∀ (f : ℝ → ℝ) (t : ℝ), Ψ.flow O t (cfc f Hm) = cfc f Hm
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -964,6 +991,12 @@ TGLExt.HilbertHomeData : (Region : Type) →
 'TGLExt.HilbertHomeData.PF_external_covariant' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.HilbertHomeData.PF_isotone' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.solder_recovers_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.both_homes_exist' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.omega_one_underdetermines_home' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.PsiHomeData.name_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.PsiHomeData.name_flow_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.PsiHomeData.flow_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.PsiHomeData.flow_fixes_spectral_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
