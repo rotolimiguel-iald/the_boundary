@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=91530 len(stderr)=0
+# len(stdout)=94665 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -862,6 +862,32 @@ TGLExt.full_closure_iff_flat : ∀ (t β g : ℝ), Real.exp (-(t * β * g)) = 1 
           (¬TGLExt.FullStaticWitness fun t x => Real.exp (-(t * β * g)) * x) ∧
             TGLExt.gibbs (TGLExt.absoluteRho n) (2⁻¹ • (1 + Γ)) = 1 / 2 ∧
               TGLExt.gibbs (TGLExt.absoluteRho n) (2⁻¹ • (1 - Γ)) = 1 / 2
+TGLExt.eta4 : Matrix (Fin 4) (Fin 4) ℝ
+TGLExt.solderMetric4 : Matrix (Fin 4) (Fin 4) ℝ → Matrix (Fin 4) (Fin 4) ℝ
+TGLExt.solderMetric4_symm : ∀ (e : Matrix (Fin 4) (Fin 4) ℝ),
+  (TGLExt.solderMetric4 e).transpose = TGLExt.solderMetric4 e
+TGLExt.solderMetric4_det : ∀ (e : Matrix (Fin 4) (Fin 4) ℝ), (TGLExt.solderMetric4 e).det = -e.det ^ 2
+@TGLExt.solder4_lorentzian : ∀ {e : Matrix (Fin 4) (Fin 4) ℝ}, e.det ≠ 0 → (TGLExt.solderMetric4 e).det < 0
+@TGLExt.InSOEta : {n : Type} → [Fintype n] → Matrix n n ℝ → Matrix n n ℝ → Prop
+TGLExt.generators_in_so13 : TGLExt.InSOEta TGLExt.eta4 TGLExt.K1 ∧
+  TGLExt.InSOEta TGLExt.eta4 TGLExt.K2 ∧
+    TGLExt.InSOEta TGLExt.eta4 TGLExt.K3 ∧
+      TGLExt.InSOEta TGLExt.eta4 TGLExt.J1 ∧ TGLExt.InSOEta TGLExt.eta4 TGLExt.J2 ∧ TGLExt.InSOEta TGLExt.eta4 TGLExt.J3
+@TGLExt.bracket_in_so_eta : ∀ {n : Type} [inst : Fintype n] {η X Y : Matrix n n ℝ},
+  TGLExt.InSOEta η X → TGLExt.InSOEta η Y → TGLExt.InSOEta η (X * Y - Y * X)
+@TGLExt.so_eta_infinitesimal_isometry : ∀ {n : Type} [inst : Fintype n] {η X : Matrix n n ℝ},
+  TGLExt.InSOEta η X → ∀ (v w : n → ℝ), X.mulVec v ⬝ᵥ η.mulVec w + v ⬝ᵥ η.mulVec (X.mulVec w) = 0
+TGLExt.curv4 : Matrix (Fin 4) (Fin 4) ℝ → Matrix (Fin 4) (Fin 4) ℝ → Matrix (Fin 4) (Fin 4) ℝ
+TGLExt.boosts_close_in_minus_rotation : TGLExt.curv4 TGLExt.K1 TGLExt.K2 = -TGLExt.J3
+TGLExt.rotations_close_in_rotation : TGLExt.curv4 TGLExt.J1 TGLExt.J2 = TGLExt.J3
+TGLExt.boosts_curvature_is_rotation : ∀ (c₁ c₂ : ℝ),
+  TGLExt.curv4 (c₁ • TGLExt.K1) (c₂ • TGLExt.K2) = -(c₁ * c₂) • TGLExt.J3
+TGLExt.lorentzRep : (Fin 6 → ℝ) → Matrix (Fin 4) (Fin 4) ℝ
+TGLExt.lorentzRep_zero_iff : ∀ (c : Fin 6 → ℝ), TGLExt.lorentzRep c = 0 ↔ c = 0
+TGLExt.lorentzRep_injective : Function.Injective TGLExt.lorentzRep
+TGLExt.curvature4_recovered : ∀ (c₁ c₂ : ℝ), ∃! c, TGLExt.lorentzRep c = TGLExt.curv4 (c₁ • TGLExt.K1) (c₂ • TGLExt.K2)
+@TGLExt.susy_discrete_threshold : ∀ {n m : Type} [Fintype n] [inst : Fintype m] [inst_1 : DecidableEq n]
+  (B : Matrix m n ℂ) (c : ℝ), ↑c • 1 ≤ B.conjTranspose * B + ↑c • 1
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1118,6 +1144,18 @@ TGLExt.full_closure_iff_flat : ∀ (t β g : ℝ), Real.exp (-(t * β * g)) = 1 
 'TGLExt.verb_not_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.leakage_rate_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.canonical_witness_is_not_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.solderMetric4_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.solderMetric4_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.solder4_lorentzian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.generators_in_so13' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.bracket_in_so_eta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.so_eta_infinitesimal_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.boosts_close_in_minus_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.rotations_close_in_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.boosts_curvature_is_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.lorentzRep_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.curvature4_recovered' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.susy_discrete_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

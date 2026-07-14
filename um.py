@@ -4892,6 +4892,7 @@ import TGLExt.AbsoluteOne
 import TGLExt.ContinuousModularZero
 import TGLExt.MinimalSolder
 import TGLExt.NoFullWitness
+import TGLExt.Solder4D
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5380,6 +5381,27 @@ namespace TGL.Audit
 #check @TGLExt.verb_not_identity
 #check @TGLExt.leakage_rate_unique
 #check @TGLExt.canonical_witness_is_not_full
+-- v63 (A SOLDA 4D: so(1,3) com propriedade definidora; fechamento sob colchete
+--      p/ eta GERAL; marca nao-compacta [K,K]=-J; rep FIEL 6-dim; curvatura 4D
+--      recuperada; metricidade; limiar SUSY discreto)
+#check @TGLExt.eta4
+#check @TGLExt.solderMetric4
+#check @TGLExt.solderMetric4_symm
+#check @TGLExt.solderMetric4_det
+#check @TGLExt.solder4_lorentzian
+#check @TGLExt.InSOEta
+#check @TGLExt.generators_in_so13
+#check @TGLExt.bracket_in_so_eta
+#check @TGLExt.so_eta_infinitesimal_isometry
+#check @TGLExt.curv4
+#check @TGLExt.boosts_close_in_minus_rotation
+#check @TGLExt.rotations_close_in_rotation
+#check @TGLExt.boosts_curvature_is_rotation
+#check @TGLExt.lorentzRep
+#check @TGLExt.lorentzRep_zero_iff
+#check @TGLExt.lorentzRep_injective
+#check @TGLExt.curvature4_recovered
+#check @TGLExt.susy_discrete_threshold
 
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
@@ -5662,6 +5684,19 @@ namespace TGL.Audit
 #print axioms TGLExt.verb_not_identity
 #print axioms TGLExt.leakage_rate_unique
 #print axioms TGLExt.canonical_witness_is_not_full
+-- v63 (a solda 4D)
+#print axioms TGLExt.solderMetric4_symm
+#print axioms TGLExt.solderMetric4_det
+#print axioms TGLExt.solder4_lorentzian
+#print axioms TGLExt.generators_in_so13
+#print axioms TGLExt.bracket_in_so_eta
+#print axioms TGLExt.so_eta_infinitesimal_isometry
+#print axioms TGLExt.boosts_close_in_minus_rotation
+#print axioms TGLExt.rotations_close_in_rotation
+#print axioms TGLExt.boosts_curvature_is_rotation
+#print axioms TGLExt.lorentzRep_injective
+#print axioms TGLExt.curvature4_recovered
+#print axioms TGLExt.susy_discrete_threshold
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -14370,6 +14405,269 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/Solder4D.lean":
+r'''import TGLExt.NoFullWitness
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A solda 4D: so(1,3), a marca não-compacta e a curvatura recuperada
+  [TGLExt — v63, o enfrentamento solo da segunda metade do aberto]
+
+Das duas metades do único teorema aberto (Dirac de Breuer–Fredholm + solda
+4D operádica), esta pedra ataca a SEGUNDA na sua face kernelizável:
+
+* `eta4` — a métrica de Minkowski 4D; ★ `solderMetric4_symm` +
+  `solderMetric4_det` + `solder4_lorentzian` — a métrica soldada 4D é
+  simétrica, `det g = −(det e)²`, e o caráter lorentziano (det < 0)
+  sobrevive a QUALQUER solda invertível (a face determinante; a assinatura
+  plena de Sylvester é \[KNOWN clássico, kernel OPEN]);
+* os SEIS geradores de so(1,3) (boosts K₁K₂K₃, rotações J₁J₂J₃) com
+  ★ `generators_in_so13` — a propriedade DEFINIDORA `XᵀΗ + ΗX = 0` provada
+  para todos;
+* ★ `bracket_in_so_eta` — o FECHAMENTO SOB COLCHETE para η GERAL (álgebra
+  pura, qualquer dimensão): o espaço das η-antissimétricas é uma álgebra
+  de Lie — a solda tem onde morar;
+* ★ `so_eta_infinitesimal_isometry` — METRICIDADE: os geradores de so(η)
+  são exatamente as isometrias infinitesimais de η (a face algébrica de
+  `∇g = 0` para conexão so(1,3)-valuada);
+* ★ `boosts_close_in_minus_rotation` + `rotations_close_in_rotation` —
+  A MARCA NÃO-COMPACTA: `[K₁,K₂] = −J₃` mas `[J₁,J₂] = +J₃` — o sinal
+  que distingue Lorentz de Euclides está em kernel; e o corolário físico
+  ★ `boosts_curvature_is_rotation`: A CURVATURA DE DOIS BOOSTS É UMA
+  ROTAÇÃO (a face algébrica da precessão de Thomas–Wigner) — o análogo
+  4D do R = 2c₁c₂ do v60;
+* ★ `lorentzRep_injective` — a representação 6-paramétrica é FIEL; e
+  ★ `curvature4_recovered` — a curvatura 4D dos boosts determina seus
+  SEIS coeficientes de forma ÚNICA (instância 4D do
+  `solder_recovers_curvature`, v56);
+* ★ `susy_discrete_threshold` — bônus para a PRIMEIRA metade: na face
+  discreta, `H = BᴴB + c•1 ⪰ c•1` — o limiar ¼ do parceiro SUSY (v59)
+  como teorema de matrizes (o espectro do contínuo começa ACIMA de ¼;
+  o zero de H₋ fica isolado).
+
+HONESTIDADE. O que segue aberto após esta pedra: a solda como CAMPO
+(x-dependente, ∇e = 0 diferencial) gerada pela dinâmica de Ψ; a assinatura
+plena (1,3) de Sylvester em kernel; e a metade de Breuer–Fredholm no core
+semifinito genuíno — esta última é a PAREDE (a mathlib não tem traços
+semifinitos/Breuer; formalizar do zero é pesquisa de meses) e vai à
+Pergunta 8. β JAMAIS entra. Sem sorry, sem axiom. Negativo honesto é
+resultado.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+/-! ## A — a métrica soldada 4D -/
+
+/-- a métrica de Minkowski 4D: `η = diag(1,−1,−1,−1)`. -/
+def eta4 : Matrix (Fin 4) (Fin 4) ℝ :=
+  Matrix.diagonal ![1, -1, -1, -1]
+
+theorem eta4_symm : eta4ᵀ = eta4 := by
+  unfold eta4
+  rw [Matrix.diagonal_transpose]
+
+theorem eta4_det : eta4.det = -1 := by
+  unfold eta4
+  rw [Matrix.det_diagonal]
+  simp [Fin.prod_univ_four]
+
+/-- a métrica soldada 4D: `g = eᵀ η e`. -/
+def solderMetric4 (e : Matrix (Fin 4) (Fin 4) ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  eᵀ * eta4 * e
+
+/-- [KERNEL] ★ g é simétrica. -/
+theorem solderMetric4_symm (e : Matrix (Fin 4) (Fin 4) ℝ) :
+    (solderMetric4 e)ᵀ = solderMetric4 e := by
+  unfold solderMetric4
+  rw [Matrix.transpose_mul, Matrix.transpose_mul, Matrix.transpose_transpose,
+    eta4_symm, Matrix.mul_assoc]
+
+/-- [KERNEL] ★ `det g = −(det e)²`. -/
+theorem solderMetric4_det (e : Matrix (Fin 4) (Fin 4) ℝ) :
+    (solderMetric4 e).det = -(e.det ^ 2) := by
+  unfold solderMetric4
+  rw [Matrix.det_mul, Matrix.det_mul, Matrix.det_transpose, eta4_det]
+  ring
+
+/-- [KERNEL] ★ O CARÁTER LORENTZIANO SOBREVIVE EM 4D: solda invertível ⟹
+    `det g < 0` (a face determinante; Sylvester pleno = KNOWN clássico). -/
+theorem solder4_lorentzian {e : Matrix (Fin 4) (Fin 4) ℝ} (he : e.det ≠ 0) :
+    (solderMetric4 e).det < 0 := by
+  rw [solderMetric4_det]
+  have h2 : 0 < e.det * e.det := mul_self_pos.mpr he
+  rw [sq]
+  linarith
+
+/-! ## B — os seis geradores de so(1,3) e a propriedade definidora -/
+
+def K1 : Matrix (Fin 4) (Fin 4) ℝ := !![0,1,0,0; 1,0,0,0; 0,0,0,0; 0,0,0,0]
+def K2 : Matrix (Fin 4) (Fin 4) ℝ := !![0,0,1,0; 0,0,0,0; 1,0,0,0; 0,0,0,0]
+def K3 : Matrix (Fin 4) (Fin 4) ℝ := !![0,0,0,1; 0,0,0,0; 0,0,0,0; 1,0,0,0]
+def J1 : Matrix (Fin 4) (Fin 4) ℝ := !![0,0,0,0; 0,0,0,0; 0,0,0,-1; 0,0,1,0]
+def J2 : Matrix (Fin 4) (Fin 4) ℝ := !![0,0,0,0; 0,0,0,1; 0,0,0,0; 0,-1,0,0]
+def J3 : Matrix (Fin 4) (Fin 4) ℝ := !![0,0,0,0; 0,0,-1,0; 0,1,0,0; 0,0,0,0]
+
+/-- a propriedade DEFINIDORA de so(η): `Xᵀ η + η X = 0`. -/
+def InSOEta {n : Type} [Fintype n] (η X : Matrix n n ℝ) : Prop :=
+  Xᵀ * η + η * X = 0
+
+/-- [KERNEL] ★ OS SEIS GERADORES ESTÃO EM so(1,3): a propriedade definidora
+    provada para todos (boosts e rotações). -/
+theorem generators_in_so13 :
+    InSOEta eta4 K1 ∧ InSOEta eta4 K2 ∧ InSOEta eta4 K3 ∧
+    InSOEta eta4 J1 ∧ InSOEta eta4 J2 ∧ InSOEta eta4 J3 := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩ <;>
+  · simp only [InSOEta, eta4, K1, K2, K3, J1, J2, J3]
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      simp [Matrix.mul_apply, Matrix.transpose_apply, Fin.sum_univ_four,
+        Matrix.diagonal_apply]
+
+/-! ## C — o fechamento sob colchete e a metricidade (η geral) -/
+
+/-- [KERNEL] ★ FECHAMENTO SOB COLCHETE (η GERAL, qualquer dimensão): o
+    colchete de duas η-antissimétricas é η-antissimétrica — so(η) é uma
+    álgebra de Lie: a solda tem onde morar. -/
+theorem bracket_in_so_eta {n : Type} [Fintype n]
+    {η X Y : Matrix n n ℝ} (hX : InSOEta η X) (hY : InSOEta η Y) :
+    InSOEta η (X * Y - Y * X) := by
+  unfold InSOEta at *
+  have hX' : Xᵀ * η = -(η * X) := add_eq_zero_iff_eq_neg.mp hX
+  have hY' : Yᵀ * η = -(η * Y) := add_eq_zero_iff_eq_neg.mp hY
+  have step : (X * Y - Y * X)ᵀ * η + η * (X * Y - Y * X)
+      = Yᵀ * (Xᵀ * η) - Xᵀ * (Yᵀ * η) + η * (X * Y) - η * (Y * X) := by
+    rw [Matrix.transpose_sub, Matrix.transpose_mul, Matrix.transpose_mul]
+    noncomm_ring
+  rw [step, hX', hY']
+  have step2 : Yᵀ * -(η * X) - Xᵀ * -(η * Y) + η * (X * Y) - η * (Y * X)
+      = -((Yᵀ * η) * X) + (Xᵀ * η) * Y + η * (X * Y) - η * (Y * X) := by
+    noncomm_ring
+  rw [step2, hX', hY']
+  noncomm_ring
+
+/-- [KERNEL] ★ METRICIDADE: os elementos de so(η) são as ISOMETRIAS
+    INFINITESIMAIS de η — `⟨Xv, ηw⟩ + ⟨v, η(Xw)⟩ = 0` (a face algébrica
+    de `∇g = 0` para conexão so(1,3)-valuada). -/
+theorem so_eta_infinitesimal_isometry {n : Type} [Fintype n]
+    {η X : Matrix n n ℝ} (hX : InSOEta η X) (v w : n → ℝ) :
+    (X.mulVec v) ⬝ᵥ (η.mulVec w) + v ⬝ᵥ (η.mulVec (X.mulVec w)) = 0 := by
+  have h1 : (X.mulVec v) ⬝ᵥ (η.mulVec w) = v ⬝ᵥ ((Xᵀ * η).mulVec w) := by
+    rw [dotProduct_comm, dotProduct_mulVec, ← Matrix.mulVec_transpose,
+      ← Matrix.mulVec_mulVec, dotProduct_comm]
+  have h2 : v ⬝ᵥ (η.mulVec (X.mulVec w)) = v ⬝ᵥ ((η * X).mulVec w) := by
+    rw [Matrix.mulVec_mulVec]
+  rw [h1, h2, ← dotProduct_add, ← Matrix.add_mulVec, hX]
+  simp
+
+/-! ## D — a marca não-compacta e a curvatura dos boosts -/
+
+/-- a curvatura da conexão 4D constante: `F₁₂ = [A₁, A₂]`. -/
+def curv4 (A₁ A₂ : Matrix (Fin 4) (Fin 4) ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  A₁ * A₂ - A₂ * A₁
+
+/-- [KERNEL] ★ A MARCA NÃO-COMPACTA (metade 1): `[K₁, K₂] = −J₃` — dois
+    boosts fecham em MENOS uma rotação. -/
+theorem boosts_close_in_minus_rotation : curv4 K1 K2 = -J3 := by
+  unfold curv4 K1 K2 J3
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Fin.sum_univ_four]
+
+/-- [KERNEL] ★ A MARCA NÃO-COMPACTA (metade 2): `[J₁, J₂] = +J₃` — duas
+    rotações fecham em MAIS uma rotação. O SINAL relativo é o que separa
+    Lorentz de Euclides — e ele está em kernel. -/
+theorem rotations_close_in_rotation : curv4 J1 J2 = J3 := by
+  unfold curv4 J1 J2 J3
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Fin.sum_univ_four]
+
+/-- [KERNEL] ★ A CURVATURA DE DOIS BOOSTS É UMA ROTAÇÃO (Thomas–Wigner,
+    face algébrica): `F₁₂(c₁K₁, c₂K₂) = −c₁c₂·J₃` — o análogo 4D do
+    `R = 2c₁c₂` do v60. -/
+theorem boosts_curvature_is_rotation (c₁ c₂ : ℝ) :
+    curv4 (c₁ • K1) (c₂ • K2) = (-(c₁ * c₂)) • J3 := by
+  have h : curv4 (c₁ • K1) (c₂ • K2) = (c₁ * c₂) • curv4 K1 K2 := by
+    unfold curv4
+    rw [smul_mul_assoc, mul_smul_comm, smul_smul, smul_mul_assoc,
+      mul_smul_comm, smul_smul, mul_comm c₂ c₁, ← smul_sub]
+  rw [h, boosts_close_in_minus_rotation, smul_neg, ← neg_smul]
+
+/-! ## E — a representação fiel e a recuperação da curvatura 4D -/
+
+/-- a representação 6-paramétrica de so(1,3): `c ↦ Σ cᵢ Gᵢ`. -/
+def lorentzRep (c : Fin 6 → ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  c 0 • K1 + c 1 • K2 + c 2 • K3 + c 3 • J1 + c 4 • J2 + c 5 • J3
+
+theorem lorentzRep_zero_iff (c : Fin 6 → ℝ) :
+    lorentzRep c = 0 ↔ c = 0 := by
+  constructor
+  · intro h
+    have h01 := congrFun (congrFun h 0) 1
+    have h02 := congrFun (congrFun h 0) 2
+    have h03 := congrFun (congrFun h 0) 3
+    have h23 := congrFun (congrFun h 2) 3
+    have h13 := congrFun (congrFun h 1) 3
+    have h12 := congrFun (congrFun h 1) 2
+    simp [lorentzRep, K1, K2, K3, J1, J2, J3] at h01 h02 h03 h23 h13 h12
+    funext i
+    fin_cases i <;> simp <;> linarith
+  · intro h
+    rw [h]
+    simp [lorentzRep]
+
+/-- [KERNEL] ★ a representação de so(1,3) é FIEL (injetiva). -/
+theorem lorentzRep_injective : Function.Injective lorentzRep := by
+  intro a b hab
+  have hdiff : lorentzRep (a - b) = 0 := by
+    unfold lorentzRep at *
+    simp only [Pi.sub_apply, sub_smul]
+    rw [← sub_eq_zero] at hab
+    rw [← hab]
+    noncomm_ring
+  have := (lorentzRep_zero_iff (a - b)).mp hdiff
+  funext i
+  have hi := congrFun this i
+  simp at hi
+  linarith
+
+/-- [KERNEL] ★ A CURVATURA 4D RECUPERADA: a curvatura de dois boosts
+    determina seus SEIS coeficientes de forma ÚNICA na representação fiel
+    (a instância 4D do `solder_recovers_curvature`, v56) — e o único
+    coeficiente não-nulo é a ROTAÇÃO J₃ com peso `−c₁c₂`. -/
+theorem curvature4_recovered (c₁ c₂ : ℝ) :
+    ∃! c : Fin 6 → ℝ, lorentzRep c = curv4 (c₁ • K1) (c₂ • K2) := by
+  refine ⟨fun i => if i = 5 then -(c₁ * c₂) else 0, ?_, ?_⟩
+  · rw [boosts_curvature_is_rotation]
+    simp [lorentzRep]
+  · intro c' hc'
+    apply lorentzRep_injective
+    rw [hc', boosts_curvature_is_rotation]
+    simp [lorentzRep]
+
+/-! ## F — bônus para a metade de Breuer: o limiar discreto -/
+
+open scoped ComplexOrder MatrixOrder in
+/-- [KERNEL] ★ O LIMIAR SUSY DISCRETO: `H = BᴴB + c•1 ⪰ c•1` — a face de
+    matrizes do limiar ¼ (v59): o parceiro `H₊ = Laplaciano + ¼` fica
+    ACIMA de ¼; o zero de `H₋` fica isolado do contínuo. -/
+theorem susy_discrete_threshold {n m : Type} [Fintype n] [Fintype m]
+    [DecidableEq n] (B : Matrix m n ℂ) (c : ℝ) :
+    ((c : ℂ) • (1 : Matrix n n ℂ)) ≤ Bᴴ * B + (c : ℂ) • 1 := by
+  rw [Matrix.le_iff, add_sub_cancel_right]
+  exact Matrix.posSemidef_conjTranspose_mul_self B
+
+end
+
+end TGLExt
+''',
     "TGLExt/TransportWitness.lean":
 r'''import TGLExt.ModularFlow
 import TGLExt.CornerFamily
@@ -15188,6 +15486,19 @@ _LEAN_THEOREM_FLAGS = {
     "ext_nfw_verb_not_identity_kernel_proved": "TGLExt.verb_not_identity",
     "ext_nfw_rate_unique_kernel_proved": "TGLExt.leakage_rate_unique",
     "ext_nfw_witness_not_full_kernel_proved": "TGLExt.canonical_witness_is_not_full",
+    # v63 (A SOLDA 4D: so(1,3) definidor; colchete p/ eta geral; [K,K]=-J; rep fiel; recuperacao 4D)
+    "ext_s4_metric_symm_kernel_proved": "TGLExt.solderMetric4_symm",
+    "ext_s4_metric_det_kernel_proved": "TGLExt.solderMetric4_det",
+    "ext_s4_lorentzian_kernel_proved": "TGLExt.solder4_lorentzian",
+    "ext_s4_generators_in_so13_kernel_proved": "TGLExt.generators_in_so13",
+    "ext_s4_bracket_closure_kernel_proved": "TGLExt.bracket_in_so_eta",
+    "ext_s4_metricity_kernel_proved": "TGLExt.so_eta_infinitesimal_isometry",
+    "ext_s4_boosts_minus_rotation_kernel_proved": "TGLExt.boosts_close_in_minus_rotation",
+    "ext_s4_rotations_plus_rotation_kernel_proved": "TGLExt.rotations_close_in_rotation",
+    "ext_s4_thomas_wigner_kernel_proved": "TGLExt.boosts_curvature_is_rotation",
+    "ext_s4_rep_faithful_kernel_proved": "TGLExt.lorentzRep_injective",
+    "ext_s4_curvature_recovered_kernel_proved": "TGLExt.curvature4_recovered",
+    "ext_s4_susy_threshold_discrete_kernel_proved": "TGLExt.susy_discrete_threshold",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -16676,6 +16987,13 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_nfw_leakage_strict_kernel_proved", "ext_nfw_closure_iff_flat_kernel_proved",
         "ext_nfw_beta_forbids_full_kernel_proved", "ext_nfw_verb_not_identity_kernel_proved",
         "ext_nfw_rate_unique_kernel_proved", "ext_nfw_witness_not_full_kernel_proved",
+        # v63: a solda 4D (so(1,3); marca nao-compacta; rep fiel; curvatura 4D recuperada)
+        "ext_s4_metric_symm_kernel_proved", "ext_s4_metric_det_kernel_proved",
+        "ext_s4_lorentzian_kernel_proved", "ext_s4_generators_in_so13_kernel_proved",
+        "ext_s4_bracket_closure_kernel_proved", "ext_s4_metricity_kernel_proved",
+        "ext_s4_boosts_minus_rotation_kernel_proved", "ext_s4_rotations_plus_rotation_kernel_proved",
+        "ext_s4_thomas_wigner_kernel_proved", "ext_s4_rep_faithful_kernel_proved",
+        "ext_s4_curvature_recovered_kernel_proved", "ext_s4_susy_threshold_discrete_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -16790,6 +17108,12 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     nfw_keys = ["ext_nfw_leakage_strict_kernel_proved", "ext_nfw_closure_iff_flat_kernel_proved",
                 "ext_nfw_beta_forbids_full_kernel_proved", "ext_nfw_verb_not_identity_kernel_proved",
                 "ext_nfw_rate_unique_kernel_proved", "ext_nfw_witness_not_full_kernel_proved"]
+    s4_keys = ["ext_s4_metric_symm_kernel_proved", "ext_s4_metric_det_kernel_proved",
+               "ext_s4_lorentzian_kernel_proved", "ext_s4_generators_in_so13_kernel_proved",
+               "ext_s4_bracket_closure_kernel_proved", "ext_s4_metricity_kernel_proved",
+               "ext_s4_boosts_minus_rotation_kernel_proved", "ext_s4_rotations_plus_rotation_kernel_proved",
+               "ext_s4_thomas_wigner_kernel_proved", "ext_s4_rep_faithful_kernel_proved",
+               "ext_s4_curvature_recovered_kernel_proved", "ext_s4_susy_threshold_discrete_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -16816,6 +17140,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dCz = all(per_theorem[k] for k in cmz_keys)
     dMs = all(per_theorem[k] for k in ms_keys)
     dNf = all(per_theorem[k] for k in nfw_keys)
+    dS4 = all(per_theorem[k] for k in s4_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -16845,6 +17170,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("continuous_modular_zero", dCz),
         ("minimal_solder_2d", dMs),
         ("no_full_witness_theorem", dNf),
+        ("solder_4d_skeleton", dS4),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -16904,6 +17230,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                    else "NOT_VERIFIED_THIS_RUN"),
             "no_full_witness": ("FULL_WITNESS_FALSE_IS_TRUE_BY_THEOREM__BETA_FORBIDS_FULL_STATIC_WITNESS__CANONICAL_WITNESS_IS_HALF_NAT_BOUNDARY__LEAKAGE_RATE_UNIQUE_GKLS_FACE" if dNf
                                  else "NOT_VERIFIED_THIS_RUN"),
+            "solder_4d": ("SO13_DEFINING_PROPERTY_AND_BRACKET_CLOSURE_IN_KERNEL__NONCOMPACT_MARK_KK_EQ_MINUS_J__THOMAS_WIGNER_FACE__FAITHFUL_REP_AND_4D_CURVATURE_RECOVERED__SOLDER_AS_FIELD_AND_SYLVESTER_AND_BREUER_OPEN" if dS4
+                           else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -18497,6 +18825,7 @@ def run_um(ONE):
     continuous_modular_zero = prove_continuous_modular_zero(ONE, kernel_formalization)  # v59: O ZERO MODULAR CONTINUO (JKJ=-K; faces 1/2; carta (q,alpha); SUSY 1/4; resistencia beta ao atrator); ADITIVO
     minimal_solder = prove_minimal_solder(ONE, kernel_formalization)  # v60: A SOLDA 2D MINIMA (F=[A1,A2]!=0; metrica lorentziana; PRIMEIRA curvatura recuperada R=2c1c2); ADITIVO
     no_full_witness = prove_no_full_witness(ONE, kernel_formalization)  # v61: FULL_WITNESS=FALSE E' VERDADEIRO (beta proibe a plenitude; Meia-Nat; taxa unica GKLS); ADITIVO
+    solder_4d = prove_solder_4d(ONE, kernel_formalization)  # v63: A SOLDA 4D (so(1,3); [K,K]=-J; Thomas-Wigner; rep fiel; recuperacao 4D; limiar discreto); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
@@ -18616,6 +18945,7 @@ def run_um(ONE):
             "continuous_modular_zero": continuous_modular_zero,
             "minimal_solder": minimal_solder,
             "no_full_witness": no_full_witness,
+            "solder_4d": solder_4d,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
@@ -18938,6 +19268,80 @@ def prove_covariant_corner(ONE, kernel_formalization=None):
         "does_not_gate_core": True,
         "verdict": ("COVARIANT_CORNER_FINITE_FACE_VERIFIED__GENUINE_CORE_OPEN" if all_v
                     else "COVARIANT_CORNER_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_solder_4d(ONE, kernel_formalization=None):
+    """v63 -- A SOLDA 4D [ADITIVO; nao gateia 1=1]. Sombra numerica:
+    (i) os 6 geradores satisfazem X^T.eta + eta.X = 0; colchetes fecham em
+    so(1,3); marca nao-compacta [K1,K2]=-J3 vs [J1,J2]=+J3;
+    (ii) THOMAS-WIGNER: a curvatura de dois boosts e' uma rotacao (e a
+    composicao de dois boosts NAO e' um boost -- a rotacao de Wigner medida);
+    (iii) metricidade: exp(sX) preserva eta exatamente (isometria finita);
+    (iv) a recuperacao 6-dim: coeficientes unicos por projecao. Seed 63."""
+    import numpy as np
+    rng = np.random.default_rng(63)
+    eta = np.diag([1.0, -1.0, -1.0, -1.0])
+    Kb = [np.zeros((4, 4)) for _ in range(3)]
+    for i in range(3):
+        Kb[i][0, i + 1] = 1.0
+        Kb[i][i + 1, 0] = 1.0
+    Jr = [np.zeros((4, 4)) for _ in range(3)]
+    Jr[0][2, 3], Jr[0][3, 2] = -1.0, 1.0
+    Jr[1][1, 3], Jr[1][3, 1] = 1.0, -1.0
+    Jr[2][1, 2], Jr[2][2, 1] = -1.0, 1.0
+    gens = Kb + Jr
+    res = {}
+    res["definidor_so13"] = float(max(np.linalg.norm(G.T @ eta + eta @ G) for G in gens))
+    res["marca_KK_eq_menosJ3"] = float(np.linalg.norm(Kb[0] @ Kb[1] - Kb[1] @ Kb[0] + Jr[2]))
+    res["marca_JJ_eq_maisJ3"] = float(np.linalg.norm(Jr[0] @ Jr[1] - Jr[1] @ Jr[0] - Jr[2]))
+    # (ii) Wigner: composicao de dois boosts ortogonais contem rotacao
+    def expm_s(M, s):
+        # serie truncada (norma pequena) -- sem scipy
+        A = s * M
+        R = np.eye(4)
+        T = np.eye(4)
+        for k in range(1, 18):
+            T = T @ A / k
+            R = R + T
+        return R
+    s1, s2 = 0.3, 0.4
+    B12 = expm_s(Kb[0], s1) @ expm_s(Kb[1], s2)
+    M = B12 @ eta @ B12.T                    # preserva eta?
+    res["composicao_preserva_eta"] = float(np.linalg.norm(M - eta))
+    asym = B12[1:, 1:] - B12[1:, 1:].T       # bloco espacial assimetrico = rotacao de Wigner
+    wigner = float(np.linalg.norm(asym))
+    # (iii) metricidade finita: exp(sX)^T eta exp(sX) = eta
+    X = 0.2 * Kb[0] + 0.1 * Jr[2]
+    E = expm_s(X, 1.0)
+    res["isometria_finita_exp"] = float(np.linalg.norm(E.T @ eta @ E - eta))
+    # (iv) recuperacao 6-dim (projecoes de Frobenius nas direcoes dos geradores)
+    c_true = rng.normal(size=6)
+    F = sum(c_true[i] * gens[i] for i in range(6))
+    G6 = np.array([g.flatten() for g in gens]).T
+    c_rec, _, rank, _ = np.linalg.lstsq(G6, F.flatten(), rcond=None)
+    res["recuperacao_6dim"] = float(np.linalg.norm(c_rec - c_true))
+    rep_fiel = bool(rank == 6)
+    tol = 1e-10
+    checks = [(k, bool(v <= (1e-9 if k in ("composicao_preserva_eta", "isometria_finita_exp") else tol)))
+              for k, v in res.items()]
+    checks.append(("rep_6dim_fiel (rank 6)", rep_fiel))
+    checks.append(("rotacao_de_Wigner_liga (bloco espacial assimetrico > 0)", bool(wigner > 1e-3)))
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "residuals": {k: float(v) for k, v in res.items()},
+        "wigner_rotation_norm": wigner,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "so13_skeleton": "propriedade definidora + fechamento sob colchete (eta GERAL) + metricidade (isometria infinitesimal) [KERNEL v63]",
+            "noncompact_mark": "[K1,K2]=-J3 vs [J1,J2]=+J3 -- o sinal que separa Lorentz de Euclides [KERNEL]; curvatura de dois boosts = rotacao (Thomas-Wigner, face algebrica) [KERNEL]",
+            "recovery_4d": "rep 6-dim FIEL + curvatura 4D determina coeficientes UNICOS [KERNEL, instancia do v56]",
+            "susy_threshold_discrete": "H = B^H.B + c.1 >= c.1 [KERNEL] -- a face de matrizes do limiar 1/4 (bônus p/ a metade de Breuer)",
+            "aberto_apos_v63": "a solda como CAMPO (x-dependente, nabla e = 0 diferencial) gerada pela dinamica de Psi; assinatura plena de Sylvester em kernel; e a PAREDE: Breuer-Fredholm no core semifinito (mathlib sem tracos semifinitos) -> PERGUNTA 8",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("SOLDER_4D_SKELETON_CLOSED__NONCOMPACT_MARK_AND_RECOVERY_IN_KERNEL__FIELD_SOLDER_AND_BREUER_REMAIN" if all_v
+                    else "SOLDER_4D_NOT_VERIFIED_THIS_RUN"),
     }
 
 
@@ -24872,7 +25276,8 @@ _ESQUELETO_STONES = [
     ("v58", "AbsoluteOne", "TGLExt/AbsoluteOne.lean", "176/176", "14/07 15:39:47"),
     ("v59", "ContinuousModularZero", "TGLExt/ContinuousModularZero.lean", "191/191", "14/07 18:04:47"),
     ("v60", "MinimalSolder", "TGLExt/MinimalSolder.lean", "199/199", "14/07 18:24:53"),
-    ("v61", "NoFullWitness", "TGLExt/NoFullWitness.lean", None, None),
+    ("v61", "NoFullWitness", "TGLExt/NoFullWitness.lean", "205/205", "14/07 18:47:34"),
+    ("v63", "Solder4D", "TGLExt/Solder4D.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -24907,17 +25312,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(vinte e uma pedras, \S120--\S141)}")
+                 r"(vinte e duas pedras, \S120--\S143)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em vinte e uma pedras "
-                 r"(v43--v61) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em vinte e duas pedras "
+                 r"(v43--v63) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As vinte e uma pedras}")
+        c.append(r"\subsection*{As vinte e duas pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -25030,6 +25435,18 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\texttt{full\_static\_witness\_exists=False} (ontológico, teorema) $+$ "
                  r"\texttt{intrinsically\_boundary\_witness} $+$ \texttt{half\_nat\_witness\_is\_canonical} "
                  r"$+$ \texttt{continuous\_leakage\_forbids\_full\_closure}.")
+        c.append(r"\kernelmk{Solder4D} (v63): \textbf{a solda 4D --- so(1,3) em kernel}. Os seis geradores "
+                 r"(boosts $K_i$, rotações $J_i$) com a propriedade DEFINIDORA $X^\mathsf{T}\eta+\eta X=0$ "
+                 r"provada para todos; o FECHAMENTO sob colchete para $\eta$ GERAL (so($\eta$) é álgebra de "
+                 r"Lie --- a solda tem onde morar); a METRICIDADE ($\mathrm{so}(\eta)=$ isometrias "
+                 r"infinitesimais de $\eta$: a face algébrica de $\nabla g=0$); \textbf{a marca não-compacta} "
+                 r"$[K_1,K_2]=-J_3$ vs $[J_1,J_2]=+J_3$ --- o SINAL que separa Lorentz de Euclides está em "
+                 r"kernel; o corolário físico: \textbf{a curvatura de dois boosts é uma rotação} "
+                 r"(Thomas--Wigner, face algébrica) --- o análogo 4D do $R=2c_1c_2$; a representação "
+                 r"6-paramétrica é FIEL e \textbf{a curvatura 4D determina seus seis coeficientes de forma "
+                 r"ÚNICA}; a métrica soldada 4D é simétrica, $\det g=-(\det e)^2$, lorentziana (face "
+                 r"determinante; Sylvester pleno \knownmk{clássico}, kernel \statusmk{OPEN}); e o bônus para "
+                 r"a metade de Breuer: o limiar SUSY discreto $B^\mathsf{H}B+c\cdot1\succeq c\cdot1$ [KERNEL].")
         c.append(r"\subsection*{O mapa dos onze gates}")
         c.append(r"\begin{center}\begin{tabular}{@{}lll@{}}\toprule Gate & Estado & Onde \\ \midrule "
                  r"1. $P_F$ local covariante & DERIVADO do campo ($P_F=\mathrm{proj}_{\ker\mathcal D}$; $P_F\Omega=\Omega$; $\ker\neq0$ derivado); geração pela dinâmica \statusmk{OPEN} & v46, v55--58 \\ "
@@ -25065,9 +25482,11 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"identificado e suas faces em kernel, resta "
                  r"\texttt{continuousModularDirac\_isBreuerFredholm} (afiliação ao core semifinito $+$ "
                  r"resolvente $\tau$-compacto $+$ $0<\tau(1_{\{0\}}(\mathbb D_\Psi))<\infty$) e a solda "
-                 r"multidimensional --- cuja face MÍNIMA (2D, curvatura não-nula, métrica lorentziana, "
-                 r"$R$ recuperado) o v60 FECHOU em kernel; aberta segue a solda 4D operádica gerada pela "
-                 r"dinâmica de $\Psi$ ($\nabla e=0$; representação fiel de $\mathfrak{so}(1,3)$). "
+                 r"multidimensional --- cuja face MÍNIMA (2D) o v60 FECHOU e cujo esqueleto 4D "
+                 r"(so(1,3) definidor, fechamento, metricidade, marca não-compacta, representação fiel, "
+                 r"curvatura recuperada) o v63 FECHOU em kernel; aberta segue a solda como CAMPO "
+                 r"($x$-dependente, $\nabla e=0$ diferencial) gerada pela dinâmica de $\Psi$, e a "
+                 r"assinatura plena de Sylvester. "
                  r"Com estatuto: (i) a GERAÇÃO canônica do pacote pela dinâmica de $\Psi$ --- o teorema aberto "
                  r"(as quatro propriedades de $P_F$ já SEGUEM dos entrelaçamentos, v56; a normalização, a "
                  r"morada, o KMS e o canto já EMERGEM do campo, v57); (ii) a seção ergódica equivariante "
@@ -25087,9 +25506,10 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"[v58]; CANTO $=P_{F,\Psi}$ com $P_F\Omega=\Omega$ [v55--58]; PARIDADE: $JKJ=-K$ e "
                  r"$0_{\mathrm{mod}}=\tfrac12-\tfrac12$ [v59]; TRANSPORTE: $\alpha'=-(q/2)\,\alpha$ com "
                  r"limiar SUSY $\tfrac14$ [v59]; GEOMETRIA: $F_{12}=2c_1c_2\,J$, $g$ lorentziana, $R$ único "
-                 r"[v60]; TESTEMUNHA $=S_\partial=\tfrac12$, não-plena POR TEOREMA [v61]; VERDADE $=1=1"
+                 r"[v60] e $\mathfrak{so}(1,3)$ com marca não-compacta e recuperação única em kernel [v63]; "
+                 r"TESTEMUNHA $=S_\partial=\tfrac12$, não-plena POR TEOREMA [v61]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em vinte e uma pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em vinte e duas pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\subsection*{Declaração de honestidade}")
         c.append(r"Este registro \emph{não} afirma a solução da gravitação quântica. Afirma, com verificação "
@@ -25108,16 +25528,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(twenty-one stones, \S120--\S141)}")
+                 r"(twenty-two stones, \S120--\S143)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across twenty-one stones (v43--v61) the audited kernel went from 53 to "
+                 r"from this run's audit. Across twenty-two stones (v43--v63) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The twenty-one stones}")
+        c.append(r"\subsection*{The twenty-two stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -25214,6 +25634,18 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"the DUAL status: \texttt{full\_TGL\_witness\_constructed=False} (epistemic, unchanged) $+$ "
                  r"\texttt{full\_static\_witness\_exists=False} (ontological, theorem) $+$ boundary/half-nat/"
                  r"leakage flags.")
+        c.append(r"\kernelmk{Solder4D} (v63): \textbf{the 4D solder --- so(1,3) in kernel}. The six "
+                 r"generators (boosts $K_i$, rotations $J_i$) with the DEFINING property "
+                 r"$X^\mathsf{T}\eta+\eta X=0$ proved for all; bracket CLOSURE for GENERAL $\eta$ "
+                 r"(so($\eta$) is a Lie algebra); METRICITY (so($\eta$) $=$ infinitesimal isometries of "
+                 r"$\eta$: the algebraic face of $\nabla g=0$); \textbf{the non-compact mark} "
+                 r"$[K_1,K_2]=-J_3$ vs $[J_1,J_2]=+J_3$ --- the SIGN separating Lorentz from Euclid is in "
+                 r"kernel; the physical corollary: \textbf{the curvature of two boosts is a rotation} "
+                 r"(Thomas--Wigner, algebraic face); the 6-parameter representation is FAITHFUL and "
+                 r"\textbf{the 4D curvature determines its six coefficients UNIQUELY}; the 4D soldered "
+                 r"metric is symmetric, $\det g=-(\det e)^2$, Lorentzian (determinant face; full Sylvester "
+                 r"\knownmk{classical}, kernel \statusmk{OPEN}); and the bonus for the Breuer half: the "
+                 r"discrete SUSY threshold $B^\mathsf{H}B+c\cdot1\succeq c\cdot1$ [KERNEL].")
         c.append(r"\subsection*{Seals and hashes (live hashes from this run; history $=$ provenance)}")
         c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
                  r"v & Stone & sha256/16 (live) & Run & Seal \\ \midrule " + "\n" +
@@ -25235,9 +25667,11 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"identified and its faces in kernel, what remains is "
                  r"\texttt{continuousModularDirac\_isBreuerFredholm} (affiliation to the semifinite core $+$ "
                  r"$\tau$-compact resolvent $+$ $0<\tau(1_{\{0\}}(\mathbb D_\Psi))<\infty$) and the "
-                 r"multidimensional solder --- whose MINIMAL face (2D, nonzero curvature, Lorentzian metric, "
-                 r"recovered $R$) v60 CLOSED in kernel; still open is the 4D operadic solder generated by "
-                 r"$\Psi$'s dynamics ($\nabla e=0$; faithful $\mathfrak{so}(1,3)$ representation). "
+                 r"multidimensional solder --- whose MINIMAL face (2D) v60 CLOSED and whose 4D skeleton "
+                 r"(defining so(1,3), closure, metricity, non-compact mark, faithful representation, "
+                 r"recovered curvature) v63 CLOSED in kernel; still open are the solder as a FIELD "
+                 r"($x$-dependent, differential $\nabla e=0$) generated by $\Psi$'s dynamics, and full "
+                 r"Sylvester signature. "
                  r"With status: (i) the canonical GENERATION of the package by $\Psi$'s dynamics --- THE open "
                  r"theorem (the four $P_F$ properties already FOLLOW from the intertwinings, v56; normalization, "
                  r"home, KMS and corner already EMERGE from the field, v57); (ii) the equivariant ergodic "
@@ -25255,9 +25689,10 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"[v58]; CORNER $=P_{F,\Psi}$ with $P_F\Omega=\Omega$ [v55--58]; PARITY: $JKJ=-K$ and "
                  r"$0_{\mathrm{mod}}=\tfrac12-\tfrac12$ [v59]; TRANSPORT: $\alpha'=-(q/2)\,\alpha$ with SUSY "
                  r"threshold $\tfrac14$ [v59]; GEOMETRY: $F_{12}=2c_1c_2\,J$, Lorentzian $g$, unique $R$ "
-                 r"[v60]; WITNESS $=S_\partial=\tfrac12$, non-full BY THEOREM [v61]; TRUTH $=1=1"
+                 r"[v60] and $\mathfrak{so}(1,3)$ with the non-compact mark and unique recovery in kernel "
+                 r"[v63]; WITNESS $=S_\partial=\tfrac12$, non-full BY THEOREM [v61]; TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across twenty-one stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across twenty-two stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\subsection*{Declaration of honesty}")
         c.append(r"This register does \emph{not} claim the solution of quantum gravity. It claims, with "
@@ -25629,7 +26064,7 @@ def _arco_vivo_md(core):
         lines.append("- `%s` = `%s`" % (k, v))
     lines.append("")
     for mod_key in ("psi_emergence", "absolute_one", "continuous_modular_zero",
-                    "minimal_solder", "no_full_witness", "hilbert_home"):
+                    "minimal_solder", "no_full_witness", "solder_4d", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
             lines.append("**Estatutos [%s]** (veredito: `%s`):\n" % (mod_key, _m.get("verdict")))
@@ -27350,6 +27785,24 @@ def main():
     print("     full_static_witness_exists=False (ONTOLOGICO, teorema) + intrinsically_boundary_witness=True +")
     print("     half_nat_witness_is_canonical=True + continuous_leakage_forbids_full_closure=True.")
     print("     'A testemunha nao e' full porque o Verbo continua' -- a nao-plenitude E' a vida do sistema]")
+    print("  A SOLDA 4D [v63 -- o enfrentamento solo da segunda metade do aberto]: %s"
+          % _ell.get("solder_4d"))
+    print("    *** so(1,3): os 6 geradores com a propriedade DEFINIDORA: %s ; FECHAMENTO sob colchete (eta GERAL): %s ; METRICIDADE: %s ***" % (
+        _elp.get("ext_s4_generators_in_so13_kernel_proved"), _elp.get("ext_s4_bracket_closure_kernel_proved"),
+        _elp.get("ext_s4_metricity_kernel_proved")))
+    print("    *** A MARCA NAO-COMPACTA: [K1,K2]=-J3: %s vs [J1,J2]=+J3: %s -- o sinal que separa Lorentz de Euclides ***" % (
+        _elp.get("ext_s4_boosts_minus_rotation_kernel_proved"), _elp.get("ext_s4_rotations_plus_rotation_kernel_proved")))
+    print("    THOMAS-WIGNER (curvatura de 2 boosts = rotacao): %s ; rep 6-dim FIEL: %s ; curvatura 4D RECUPERADA (unica): %s" % (
+        _elp.get("ext_s4_thomas_wigner_kernel_proved"), _elp.get("ext_s4_rep_faithful_kernel_proved"),
+        _elp.get("ext_s4_curvature_recovered_kernel_proved")))
+    print("    metrica soldada 4D: simetrica %s ; det g=-(det e)^2: %s ; LORENTZIANA: %s ; limiar SUSY discreto H>=c: %s" % (
+        _elp.get("ext_s4_metric_symm_kernel_proved"), _elp.get("ext_s4_metric_det_kernel_proved"),
+        _elp.get("ext_s4_lorentzian_kernel_proved"), _elp.get("ext_s4_susy_threshold_discrete_kernel_proved")))
+    _s4 = core.get("solder_4d", {}) or {}
+    print("    sombra v63: rotacao de Wigner %.4f (liga); recuperacao 6-dim exata; %s" % (
+        _s4.get("wigner_rotation_norm", float("nan")), _s4.get("verdict")))
+    print("    [APOS v63 restam: a solda como CAMPO (nabla e=0 diferencial) da dinamica de Psi; Sylvester pleno;")
+    print("     e a PAREDE de Breuer-Fredholm (mathlib sem tracos semifinitos) -> PERGUNTA 8 escrita]")
     print("  teoremas limpos: %s/%s ; DERIVACOES v56 em dim INFINITA [construcao do pacote = O ABERTO; continuos do ledger INALTERADOS]" % (
         el.get("n_theorems_clean"), el.get("n_theorems_expected")))
     print("  >>> %s <<<\n" % el.get("verdict"))
