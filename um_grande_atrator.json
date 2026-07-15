@@ -3492,17 +3492,67 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.rotZ_preserves_eta": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.helicity_two_rotation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.helicity_two_rotation_cross": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tt_kinetic_positive": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tt_no_negative_norm": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.polarizations_linearly_independent": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.psd_offdiag_zero_of_diag_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.psd_trace_eq_zero_iff": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.trace_monotone_of_psd_sub": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.matrix_trace_is_faithful_weight": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "9bb078ef94bf929d9a59516fdb425ca766f65f13b7ce15108693b20bb09b703b",
+      "formal_source_hash": "93e3c4d032f5a4845badb54dd1f31f8342ac2ea3b4fe18e528318baf9d33d557",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "9c885347c75b9bb34926a74f2218bde680bcf4503d59f316f0163c109acb6708",
+        "TGLExt.lean": "c766f16a3d8a4b06f490fbe329c8503b6a152858f8e5756a648e8b21c5552347",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "d0d4c2e295c24a67dbd2717e3b6aec705dcba8e12712fe89d7fdad5207ed6cee",
+        "TGL/Audit.lean": "d0168f2303435ffcd9677610ab45ff9f41c1b4de8c94b851c72d678e10ae66b3",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -3548,6 +3598,7 @@
         "TGLExt/GravitonPolarization.lean": "b51528b11b867c5770edb555f42ee22ed11ea94ee702249d4c50fa5c7e39a758",
         "TGLExt/HilbertHome.lean": "449bdee93696fc5fe4d7f5ce898f5e3a95ad0867773714e466b279aa6089ecdd",
         "TGLExt/LeftRight.lean": "fd127e4d3b361423c66683d5de9bee95ed5c947013ab169d7bfad5a66951bb4a",
+        "TGLExt/LinearizedSpin2.lean": "8cbd46c5200f92dfe0b0dc0eac44f97f29b416e1cc911cc2fcceb2cc43888098",
         "TGLExt/LocalBreuerGap.lean": "8ec73c7d9e703d6c775f53351a784ab98b27ad2dd3d253b79a3d34992e0d5d3d",
         "TGLExt/MarkovTower.lean": "5b542018622975c4b2c498d1727ca20f7280ad108bfc25d0a587958097e2e74b",
         "TGLExt/MinimalSolder.lean": "53dbb33e260a46ebd3c753ec7a4ca61fc5a4721757e310d58c3a4cb1455e7e66",
@@ -3559,6 +3610,7 @@
         "TGLExt/PsiEmergence.lean": "ff0fd49da7bda187a61454a6b57099e99d1c59c8af038fa43c90c1653736bb04",
         "TGLExt/RGStability.lean": "ae3c1eeee6d86ea43b57ee0afe171bb43c0f24094702130ec3c2604f53aa7bf5",
         "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
+        "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
         "TGLExt/Solder4D.lean": "70f3c2aa3336b716a740a70c15759ffdaca612c7c69f975c0281a31e9bb2f35f",
         "TGLExt/SusyRelativeGap.lean": "3aa058b5c4f098e3218ffed0bc8271a28947b56af81750019e1360754873e7f2",
         "TGLExt/TransportWitness.lean": "f4219cc2c036999e19e41b006d4899a1a10cd2e8e3562c5a277370faae0364ed",
@@ -3876,24 +3928,34 @@
       "ext_tm_clausius_composition_kernel_proved": true,
       "ext_tm_jacobi_bianchi_seed_kernel_proved": true,
       "ext_tm_master_full_triad_kernel_proved": true,
+      "ext_ls2_rotz_isometry_kernel_proved": true,
+      "ext_ls2_helicity_two_plus_kernel_proved": true,
+      "ext_ls2_helicity_two_cross_kernel_proved": true,
+      "ext_ls2_tt_kinetic_positive_kernel_proved": true,
+      "ext_ls2_no_negative_norm_kernel_proved": true,
+      "ext_ls2_two_polarizations_kernel_proved": true,
+      "ext_ss_offdiag_zero_kernel_proved": true,
+      "ext_ss_trace_faithful_kernel_proved": true,
+      "ext_ss_trace_monotone_kernel_proved": true,
+      "ext_ss_faithful_weight_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "9a7711aa75de9f4305281fe185b641527b968c09eab58465c534913451487563",
+      "build_stdout_sha256": "cbfcc0646705b2825cfb10813ac8be16192007fae64273a53c19c64ff5fb43f9",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "094a516136183b90e6625e14eb0a802db2345e336ce4fa85828359cbf21c2b62",
+      "audit_stdout_sha256": "0a95f05551919e9a440a48af9832ead50c7c2a46891a5b70bd38512aaf544958",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 132822,
+        "stdout": 137879,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 103986,
+        "stdout": 106785,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "9a7711aa75de9f4305281fe185b641527b968c09eab58465c534913451487563",
-      "audit_capture_sha256_full": "094a516136183b90e6625e14eb0a802db2345e336ce4fa85828359cbf21c2b62",
+      "build_capture_sha256_full": "cbfcc0646705b2825cfb10813ac8be16192007fae64273a53c19c64ff5fb43f9",
+      "audit_capture_sha256_full": "0a95f05551919e9a440a48af9832ead50c7c2a46891a5b70bd38512aaf544958",
       "custom_TGL_axioms_found": [],
       "source_forbidden_tokens_found": [],
       "formal_release_ready": true,
@@ -5109,7 +5171,9 @@
         "local_breuer_gap": "WALL_CORRECTED_ANSWER8__GLOBAL_TAU_COMPACTNESS_REFUTED_TYPED__LOCAL_GAP_PACKAGE_GIVES_B3_AS_COMPOSITION__NO_FINITE_WEYL_PAIR__ZERO_MODE_WEIGHT_IS_ONE_EQ_OMEGA_I__HOME_IS_SEMIFINITE_CORE_AMPLIFICATION_ANSWER9",
         "susy_relative_gap": "LEVEL4_TYPED_AND_COMPOSED__SUSY_RELATIVE_GIVES_LOCAL_BREUER_GAP__KERNEL_DIM_LE_RANK_OF_INSCRIPTION_DISCRETE_BS_FACE__TRANSPORTED_SOLDER_INSCRIBES_SAME_METRIC__ONLY_INTERNAL_GAP_H1_REMAINS",
         "emergence_triad": "TGL_QUANTUM_GRAVITY_EMERGENCE_REDUCED_TO_THREE_NAMED_HYPOTHESES__H1_INTERNAL_SUSY_RELATIVE_GAP_MIGUEL__H2_SMOOTH_MODULAR_FOUR_FRAME_CARTAN__H3_LOCAL_HORIZON_EQUILIBRIUM_EINSTEIN__MASTER_THEOREM_COMPOSED_IN_KERNEL__F3_CLOSED_BY_CONGRUENCE__F4_SECTION_FROM_GLOBAL_NAME__NATURE_DECIDES",
-        "triad_master": "FULL_TRIAD_COMPOSED_H1_AND_H2_AND_H3_IMPLY_PENTAD__BREUER_NAME_COFRAME_LORENTZ_AND_CLAUSIUS_SIDE__EINSTEIN_COEFFICIENT_8PIG_EMERGES_FROM_UNRUH_TIMES_BEKENSTEIN_HAWKING__JACOBI_BIANCHI_SEED_IN_KERNEL__HYPOTHESES_ARE_THE_FRONTIER"
+        "triad_master": "FULL_TRIAD_COMPOSED_H1_AND_H2_AND_H3_IMPLY_PENTAD__BREUER_NAME_COFRAME_LORENTZ_AND_CLAUSIUS_SIDE__EINSTEIN_COEFFICIENT_8PIG_EMERGES_FROM_UNRUH_TIMES_BEKENSTEIN_HAWKING__JACOBI_BIANCHI_SEED_IN_KERNEL__HYPOTHESES_ARE_THE_FRONTIER",
+        "linearized_spin2": "DOUBLE_ANGLE_HELICITY_LAW_IN_KERNEL__TT_SECTOR_POSITIVE_NO_NEGATIVE_NORM__EXACTLY_TWO_POLARIZATIONS__FINITE_FACE_OF_ITEM6__FIERZ_PAULI_EL_AND_FULL_GHOST_FREEDOM_NEED_THE_CONTINUUM",
+        "semifinite_seed": "SEMIFINITE_ANALYSIS_INCREMENT_1__TRACE_FAITHFULNESS_ON_PSD_CONE_PROVED__MONOTONE_AND_POSITIVE__FIRST_CONCRETE_INHABITANT_OF_FAITHFUL_WEIGHT_AXIOMS__CONTINUUM_AFFILIATION_AND_NORMALITY_REMAIN"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -5359,10 +5423,20 @@
         "ext_tm_einstein_coefficient_kernel_proved": true,
         "ext_tm_clausius_composition_kernel_proved": true,
         "ext_tm_jacobi_bianchi_seed_kernel_proved": true,
-        "ext_tm_master_full_triad_kernel_proved": true
+        "ext_tm_master_full_triad_kernel_proved": true,
+        "ext_ls2_rotz_isometry_kernel_proved": true,
+        "ext_ls2_helicity_two_plus_kernel_proved": true,
+        "ext_ls2_helicity_two_cross_kernel_proved": true,
+        "ext_ls2_tt_kinetic_positive_kernel_proved": true,
+        "ext_ls2_no_negative_norm_kernel_proved": true,
+        "ext_ls2_two_polarizations_kernel_proved": true,
+        "ext_ss_offdiag_zero_kernel_proved": true,
+        "ext_ss_trace_faithful_kernel_proved": true,
+        "ext_ss_trace_monotone_kernel_proved": true,
+        "ext_ss_faithful_weight_kernel_proved": true
       },
-      "n_theorems_clean": 248,
-      "n_theorems_expected": 248,
+      "n_theorems_clean": 258,
+      "n_theorems_expected": 258,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -5501,6 +5575,14 @@
         ],
         [
           "triad_master_full",
+          true
+        ],
+        [
+          "linearized_spin2_finite_face",
+          true
+        ],
+        [
+          "semifinite_seed_increment1",
           true
         ]
       ],
@@ -8138,6 +8220,77 @@
       "does_not_gate_core": true,
       "verdict": "FULL_TRIAD_MASTER_COMPOSED__EINSTEIN_COEFFICIENT_EMERGES_FROM_CLAUSIUS__IMPLICATION_CLOSED_HYPOTHESES_ARE_THE_FRONTIER"
     },
+    "qg_closure": {
+      "gate": {
+        "mathematical_model_constructed": false,
+        "physical_quantum_gravity_constructed": false,
+        "empirical_test_completed": false,
+        "full_static_witness_exists": false,
+        "verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+      },
+      "formal_flags": {
+        "concrete_aqft_core_constructed": false,
+        "concrete_breuer_corner_constructed": false,
+        "concrete_modular_four_frame_constructed": false,
+        "concrete_solder_field_constructed": false,
+        "concrete_emergent_einstein_proved": false,
+        "canonical_boundary_transport_witness_constructed": false
+      },
+      "physics_flags": {
+        "massless_spin2_proved": false,
+        "exactly_two_helicities_proved": false,
+        "ghost_free_proved": false,
+        "stress_energy_conserved": false,
+        "relevant_anomalies_absent": false,
+        "linearized_spin2_finite_face": true
+      },
+      "experiment_flags": {
+        "void_profiles_unblinded": false,
+        "survey_mocks_passed": false,
+        "systematics_passed": false,
+        "powered_verdict_emitted": false,
+        "protocol_pre_registered": true,
+        "null_tests_passed_blind": true
+      },
+      "legitimate_seals": [
+        "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+        "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN",
+        "TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN",
+        "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED"
+      ],
+      "closure_order": "core concreto -> canto Breuer -> four-frame -> solda -> Einstein -> spin-2 -> teste empirico",
+      "checks": [
+        [
+          "gate fail-closed instalado (4 selos legitimos; nunca default True)",
+          true
+        ],
+        [
+          "ProbeVoidFloorAsProof: experimento perfeito NAO move flag matematica",
+          true
+        ],
+        [
+          "ProbeEmptyDefaults: dicts vazios => CONDITIONAL",
+          true
+        ],
+        [
+          "ProbePhysicsWithoutMath: fisica sem matematica => CONDITIONAL",
+          true
+        ],
+        [
+          "estado atual honesto: CONDITIONAL_ARCHITECTURE_ONLY",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "correcao_do_nome": "o gate 'testemunha full' e' IMPOSSIVEL por teorema (v61); o alvo correto e' canonical_boundary_transport_witness (testemunha de fronteira dinamica) -- flags novas instaladas, todas False (fail-closed)",
+        "faces_ja_em_kernel": "spin-2 face finita [v75: helice 2theta, TT>0, 2 polarizacoes]; teorema mestre condicional [v74]; pacotes abstratos [v64-66] -- NENHUMA delas move as flags concretas (probes garantem)",
+        "estado": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+        "o_caminho": "a ordem do fecho: SemifiniteAnalysis -> ConcreteAQFTCore -> ConcreteBreuerCorner -> ConcreteModularFourFrame -> ConcreteSolderField -> ConcreteEmergentEinstein -> LinearizedSpin2(continuo) -> CanonicalBoundaryWitness (TERMO, nao Nonempty)"
+      },
+      "does_not_gate_core": true,
+      "verdict": "QG_CLOSURE_GATE_INSTALLED_FAIL_CLOSED__NEGATIVE_PROBES_PASS__CURRENT_STATE_CONDITIONAL_ARCHITECTURE_ONLY"
+    },
     "certificate_II": {
       "H1_finite_face": {
         "psd_min_eig": 0.0,
@@ -8809,7 +8962,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-15 14:19:06",
+    "timestamp": "2026-07-15 17:24:20",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -9059,7 +9212,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-15 14:19:06",
+        "prediction_timestamp": "2026-07-15 17:24:20",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -9095,7 +9248,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "949e7622401872dfdec4c027f544a4497062f17480067f5e1504c387a9a2e0e0"
+        "prediction_hash": "aa131e580f4698a223cc7a5c0c4610f2a55716741cb1344f63e663bbba5bd411"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -9395,7 +9548,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "92b2a88943b81a3025c9d884abc9caffa20cc314e83db4bb38fdf74d6988b65d"
+    "result_hash": "8dafa29d9c547cfa36541f20f1f878ac78a33155d33009e3e5adffd8b60f80bc"
   },
   "ga_mass_literature": [
     {
@@ -9421,7 +9574,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "92b2a88943b81a3025c9d884abc9caffa20cc314e83db4bb38fdf74d6988b65d",
+  "result_hash_before_external_comparison": "8dafa29d9c547cfa36541f20f1f878ac78a33155d33009e3e5adffd8b60f80bc",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -9431,5 +9584,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-15 14:19:06"
+  "timestamp": "2026-07-15 17:24:20"
 }

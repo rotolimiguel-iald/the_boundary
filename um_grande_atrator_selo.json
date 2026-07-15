@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-15 14:19:06",
-  "result_hash": "92b2a88943b81a3025c9d884abc9caffa20cc314e83db4bb38fdf74d6988b65d",
+  "timestamp": "2026-07-15 17:24:20",
+  "result_hash": "8dafa29d9c547cfa36541f20f1f878ac78a33155d33009e3e5adffd8b60f80bc",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": false,
@@ -11,6 +11,14 @@
   "intrinsically_boundary_witness": true,
   "half_nat_witness_is_canonical": true,
   "continuous_leakage_forbids_full_closure": true,
+  "canonical_boundary_transport_witness_constructed": false,
+  "continuous_modular_realization_constructed": false,
+  "concrete_breuer_corner_constructed": false,
+  "concrete_modular_four_frame_constructed": false,
+  "concrete_emergent_einstein_proved": false,
+  "linearized_spin2_sector_proved": false,
+  "linearized_spin2_finite_face_kernel": true,
+  "qg_closure_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
   "witness_type_is_rigid": true,
   "trivial_inhabitant_exists": false,
   "trivial_witness_rejected_by_type_system": true,
@@ -38,7 +46,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "9bb078ef94bf929d9a59516fdb425ca766f65f13b7ce15108693b20bb09b703b",
+  "formal_source_hash": "93e3c4d032f5a4845badb54dd1f31f8342ac2ea3b4fe18e528318baf9d33d557",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -54,18 +62,18 @@
   "coma_dephasing": {
     "verdict": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "949e7622401872dfdec4c027f544a4497062f17480067f5e1504c387a9a2e0e0",
+    "prediction_hash": "aa131e580f4698a223cc7a5c0c4610f2a55716741cb1344f63e663bbba5bd411",
     "does_not_gate_core": true
   },
   "sha256": {
-    "um.py": "acd080bdfb3703d37bcbfc5733d63d5e14644bc6c128931a5e0b80100e2f11b7",
-    "um_grande_atrator_manifest.md": "f17b090de1026dfda9d2087efe8f9b47888268124b068c540ac5a88fffd3eb05",
-    "um_grande_atrator.json": "4e0e8bd392612ef029883568eb7e1261e07188e8f81127a64881da1cd5228e25",
-    "um_grande_atrator_forma_canonica.md": "f79700b2bbafcb437c14f5be1f7d04c26d26162788c8ac6b42d105f64b02a420",
-    "um_grande_atrator_pt.tex": "58f58df5e530f760f30320a09332bc8113430c567da695415a94f09c9387d6f8",
-    "um_grande_atrator_en.tex": "c1872f4ef9b3d2c384a54de1f5f96ff3f3bcd0b952d323f14133468ee2b96b94",
-    "um_grande_atrator_pt.pdf": "1f1618d95944d5d969279c13c52c93e4207dcf54c16e446481461c23ef4b6a4d",
-    "um_grande_atrator_en.pdf": "dde9bcfe2411f7776da8fce32b463a601eca6b2b388793d8bd7d74a973625168",
-    "tgl_kernel_proof_manifest.json": "ad99d475d7ef835ca80628b316060b042bd394b73755874a4f39b0be182dced2"
+    "um.py": "e66b2dec7e5acec26fff6d35b6984aeaa5397e152d89a004e717ad1a730ce5f2",
+    "um_grande_atrator_manifest.md": "c56fe99796d179e4669d842565688cbc800593a1356eb5b612fbccc815d7e2dc",
+    "um_grande_atrator.json": "2e8df4fbac4f7d4813708aa4f80df01238e9ca4ae1968504115a8a7c0c698a1a",
+    "um_grande_atrator_forma_canonica.md": "0f69e717b9bf2738bd267c8249ca1fc4e44c58a8b903704378d668574a3b3db3",
+    "um_grande_atrator_pt.tex": "6156baa970c8d5b82e57cf3e0010e51ecaa56d1bf62c5728b49ee426bc24b6fa",
+    "um_grande_atrator_en.tex": "bc7290cb55cb76aa5f929d5eba2cd05641ca84db4124a89150b6f213a27e904c",
+    "um_grande_atrator_pt.pdf": "575b92c499d0afc37ccca95dac6777d07847661b0dac612b054fd596877435aa",
+    "um_grande_atrator_en.pdf": "00b04e0238c22270f740160b99c86ebc419b2d9ce383c2075856922bd62a77e5",
+    "tgl_kernel_proof_manifest.json": "3b13ad2d65372de5d1cce0009eac5adfdf4e76f0d8f19b5bb9bbb0208812874c"
   }
 }

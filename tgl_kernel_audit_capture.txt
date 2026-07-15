@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=103986 len(stderr)=0
+# len(stdout)=106785 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -969,6 +969,34 @@ TGLExt.horizon_clausius_composition : ∀ (kappa eta dA : ℝ),
         T.tau S.ker / T.tau S.ker = 1 ∧
           (E⁻¹ * E = 1 ∧ TGLExt.LorentzByCongruence (TGLExt.solderMetric4 E⁻¹)) ∧
             H.dQ = H.kappa * H.dA / (8 * Real.pi * H.G)
+TGLExt.rotZ : ℝ → Matrix (Fin 4) (Fin 4) ℝ
+TGLExt.ePlus : Matrix (Fin 4) (Fin 4) ℝ
+TGLExt.eCross : Matrix (Fin 4) (Fin 4) ℝ
+TGLExt.rotZ_preserves_eta : ∀ (θ : ℝ), (TGLExt.rotZ θ).transpose * TGLExt.eta4 * TGLExt.rotZ θ = TGLExt.eta4
+TGLExt.helicity_two_rotation : ∀ (θ : ℝ),
+  (TGLExt.rotZ θ).transpose * TGLExt.ePlus * TGLExt.rotZ θ =
+    Real.cos (2 * θ) • TGLExt.ePlus - Real.sin (2 * θ) • TGLExt.eCross
+TGLExt.helicity_two_rotation_cross : ∀ (θ : ℝ),
+  (TGLExt.rotZ θ).transpose * TGLExt.eCross * TGLExt.rotZ θ =
+    Real.sin (2 * θ) • TGLExt.ePlus + Real.cos (2 * θ) • TGLExt.eCross
+TGLExt.tt_kinetic_positive : ∀ (a b : ℝ),
+  ((a • TGLExt.ePlus + b • TGLExt.eCross).transpose * (a • TGLExt.ePlus + b • TGLExt.eCross)).trace =
+    2 * (a ^ 2 + b ^ 2)
+TGLExt.tt_no_negative_norm : ∀ (a b : ℝ),
+  0 ≤ ((a • TGLExt.ePlus + b • TGLExt.eCross).transpose * (a • TGLExt.ePlus + b • TGLExt.eCross)).trace ∧
+    (((a • TGLExt.ePlus + b • TGLExt.eCross).transpose * (a • TGLExt.ePlus + b • TGLExt.eCross)).trace = 0 ↔
+      a = 0 ∧ b = 0)
+TGLExt.polarizations_linearly_independent : ∀ (a b : ℝ), a • TGLExt.ePlus + b • TGLExt.eCross = 0 → a = 0 ∧ b = 0
+@TGLExt.psd_offdiag_zero_of_diag_zero : ∀ {n : Type} [Fintype n] [DecidableEq n] (A : Matrix n n ℝ),
+  A.PosSemidef → (∀ (i : n), A i i = 0) → A = 0
+@TGLExt.psd_trace_eq_zero_iff : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (A : Matrix n n ℝ),
+  A.PosSemidef → (A.trace = 0 ↔ A = 0)
+@TGLExt.trace_monotone_of_psd_sub : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (A B : Matrix n n ℝ),
+  (B - A).PosSemidef → A.trace ≤ B.trace
+@TGLExt.matrix_trace_is_faithful_weight : ∀ {n : Type} [inst : Fintype n] [DecidableEq n],
+  (∀ (A : Matrix n n ℝ), A.PosSemidef → 0 ≤ A.trace) ∧
+    (∀ (A : Matrix n n ℝ), A.PosSemidef → (A.trace = 0 ↔ A = 0)) ∧
+      ∀ (A B : Matrix n n ℝ), (B - A).PosSemidef → A.trace ≤ B.trace
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1268,6 +1296,16 @@ TGLExt.horizon_clausius_composition : ∀ (kappa eta dA : ℝ),
 'TGLExt.horizon_clausius_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.jacobi_commutator_bianchi_seed' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.emergence_master_full_triad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.rotZ_preserves_eta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.helicity_two_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.helicity_two_rotation_cross' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.tt_kinetic_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.tt_no_negative_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.polarizations_linearly_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.psd_offdiag_zero_of_diag_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.psd_trace_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.trace_monotone_of_psd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.matrix_trace_is_faithful_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

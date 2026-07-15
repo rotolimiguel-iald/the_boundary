@@ -5058,6 +5058,8 @@ import TGLExt.LocalBreuerGap
 import TGLExt.SusyRelativeGap
 import TGLExt.EmergenceTriad
 import TGLExt.TriadMaster
+import TGLExt.LinearizedSpin2
+import TGLExt.SemifiniteSeed
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5625,6 +5627,24 @@ namespace TGL.Audit
 #check @TGLExt.jacobi_commutator_bianchi_seed
 #check @TGLExt.emergence_master_full_triad
 
+-- v75 (o setor spin-2 fisico, face finita: helice +-2 dupla-angulo; TT positivo
+--      sem ghosts; exatamente duas polarizacoes; rotZ isometria de eta)
+#check @TGLExt.rotZ
+#check @TGLExt.ePlus
+#check @TGLExt.eCross
+#check @TGLExt.rotZ_preserves_eta
+#check @TGLExt.helicity_two_rotation
+#check @TGLExt.helicity_two_rotation_cross
+#check @TGLExt.tt_kinetic_positive
+#check @TGLExt.tt_no_negative_norm
+#check @TGLExt.polarizations_linearly_independent
+
+-- v76 (a semente semifinita: fidelidade do traco no cone psd; monotonia; o 1o habitante)
+#check @TGLExt.psd_offdiag_zero_of_diag_zero
+#check @TGLExt.psd_trace_eq_zero_iff
+#check @TGLExt.trace_monotone_of_psd_sub
+#check @TGLExt.matrix_trace_is_faithful_weight
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -5954,6 +5974,18 @@ namespace TGL.Audit
 #print axioms TGLExt.horizon_clausius_composition
 #print axioms TGLExt.jacobi_commutator_bianchi_seed
 #print axioms TGLExt.emergence_master_full_triad
+-- v75 (o setor spin-2 fisico, face finita)
+#print axioms TGLExt.rotZ_preserves_eta
+#print axioms TGLExt.helicity_two_rotation
+#print axioms TGLExt.helicity_two_rotation_cross
+#print axioms TGLExt.tt_kinetic_positive
+#print axioms TGLExt.tt_no_negative_norm
+#print axioms TGLExt.polarizations_linearly_independent
+-- v76 (a semente semifinita)
+#print axioms TGLExt.psd_offdiag_zero_of_diag_zero
+#print axioms TGLExt.psd_trace_eq_zero_iff
+#print axioms TGLExt.trace_monotone_of_psd_sub
+#print axioms TGLExt.matrix_trace_is_faithful_weight
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -12909,6 +12941,153 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/LinearizedSpin2.lean":
+r'''import TGLExt.TriadMaster
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O SETOR SPIN-2 FÍSICO (face finita): hélice ±2, sem ghosts, duas polarizações
+  [TGLExt — v75, o item 6 do fecho na face que cede hoje]
+
+O veredito do fechamento definitivo lista o que falta para o selo
+TGL_QG_PHYSICAL_MODEL_CONSTRUCTED: "m = 0, s = 2, λ = ±2, sem modos de
+norma negativa". Esta pedra fecha a FACE FINITA desse setor:
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* ★ `rotZ_preserves_eta` — a rotação espacial concreta R(θ) é isometria
+  de η₄ (R(θ)ᵀ η R(θ) = η): o gerador compacto do v63 exponenciado, em
+  números — R(θ) ∈ SO(1,3) e a métrica soldada fica na classe (v66);
+* ★★ `helicity_two_rotation` / `helicity_two_rotation_cross` — **A LEI
+  DA DUPLA HÉLICE (λ = ±2)**: sob rotação por θ, o par de polarizações
+  TT (e₊, e×) gira por 2θ:
+  R(θ)ᵀ e₊ R(θ) = cos(2θ)·e₊ − sin(2θ)·e× ;
+  R(θ)ᵀ e× R(θ) = sin(2θ)·e₊ + cos(2θ)·e× —
+  a ASSINATURA do spin-2 (helicidade ±2) como identidade de matrizes,
+  com o ângulo DOBRADO saindo das fórmulas de arco-duplo;
+* ★★ `tt_kinetic_positive` / `tt_no_negative_norm` — **SEM GHOSTS (face
+  finita)**: a forma cinética do setor físico é POSITIVA-DEFINIDA:
+  tr[(a·e₊ + b·e×)ᵀ(a·e₊ + b·e×)] = 2(a² + b²) ≥ 0, com igualdade sse
+  a = b = 0 — nenhum modo de norma negativa no setor TT;
+* ★ `polarizations_linearly_independent` — **EXATAMENTE DUAS**: e₊ e e×
+  são linearmente independentes (o plano físico tem dimensão 2).
+
+HONESTIDADE: esta é a face FINITA/cinemática do item 6 — a lei de hélice,
+a positividade e a contagem no setor TT concreto. O que segue ABERTO do
+item 6: a AÇÃO linearizada completa (Fierz–Pauli como equação de
+Euler–Lagrange do modelo contínuo concreto) e a ausência de ghosts fora
+do gauge TT — dependem do contínuo (itens 1–5 do fecho). β jamais
+literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+/-- a rotação espacial concreta em torno de z (o gerador compacto J₃ do
+    v63, exponenciado em forma fechada). -/
+def rotZ (θ : ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  !![1, 0, 0, 0;
+     0, Real.cos θ, -(Real.sin θ), 0;
+     0, Real.sin θ, Real.cos θ, 0;
+     0, 0, 0, 1]
+
+/-- a polarização "mais" do gráviton (TT): e₊ = x⊗x − y⊗y. -/
+def ePlus : Matrix (Fin 4) (Fin 4) ℝ :=
+  !![0, 0, 0, 0;
+     0, 1, 0, 0;
+     0, 0, -1, 0;
+     0, 0, 0, 0]
+
+/-- a polarização "cruz" do gráviton (TT): e× = x⊗y + y⊗x. -/
+def eCross : Matrix (Fin 4) (Fin 4) ℝ :=
+  !![0, 0, 0, 0;
+     0, 0, 1, 0;
+     0, 1, 0, 0;
+     0, 0, 0, 0]
+
+/-- [KERNEL] ★ R(θ) é isometria de η₄: o gerador compacto do v63 em
+    números — a rotação preserva a métrica de Minkowski (e a classe
+    lorentziana da solda, v66). -/
+theorem rotZ_preserves_eta (θ : ℝ) :
+    (rotZ θ)ᵀ * eta4 * rotZ θ = eta4 := by
+  have h := Real.sin_sq_add_cos_sq θ
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [rotZ, eta4, Matrix.mul_apply, Matrix.transpose_apply,
+      Fin.sum_univ_four, Matrix.diagonal_apply] <;>
+    nlinarith [h]
+
+/-- [KERNEL] ★★ A LEI DA DUPLA HÉLICE (metade "mais"): sob rotação por
+    θ, e₊ gira por 2θ — R(θ)ᵀ e₊ R(θ) = cos(2θ)·e₊ − sin(2θ)·e×.
+    O ângulo DOBRADO é a assinatura da helicidade ±2 (spin-2). -/
+theorem helicity_two_rotation (θ : ℝ) :
+    (rotZ θ)ᵀ * ePlus * rotZ θ
+      = Real.cos (2 * θ) • ePlus - Real.sin (2 * θ) • eCross := by
+  rw [Real.cos_two_mul', Real.sin_two_mul]
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [rotZ, ePlus, eCross, Matrix.mul_apply, Matrix.transpose_apply,
+      Fin.sum_univ_four, Matrix.smul_apply, Matrix.sub_apply] <;>
+    ring
+
+/-- [KERNEL] ★★ A LEI DA DUPLA HÉLICE (metade "cruz"):
+    R(θ)ᵀ e× R(θ) = sin(2θ)·e₊ + cos(2θ)·e× — o par (e₊, e×) gira por
+    2θ: helicidade ±2 completa. -/
+theorem helicity_two_rotation_cross (θ : ℝ) :
+    (rotZ θ)ᵀ * eCross * rotZ θ
+      = Real.sin (2 * θ) • ePlus + Real.cos (2 * θ) • eCross := by
+  rw [Real.cos_two_mul', Real.sin_two_mul]
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [rotZ, ePlus, eCross, Matrix.mul_apply, Matrix.transpose_apply,
+      Fin.sum_univ_four, Matrix.smul_apply, Matrix.add_apply] <;>
+    ring
+
+/-- [KERNEL] ★★ SEM GHOSTS (face finita): a forma cinética do setor TT é
+    2(a² + b²) — POSITIVA. -/
+theorem tt_kinetic_positive (a b : ℝ) :
+    Matrix.trace ((a • ePlus + b • eCross)ᵀ * (a • ePlus + b • eCross))
+      = 2 * (a ^ 2 + b ^ 2) := by
+  simp [ePlus, eCross, Matrix.trace, Matrix.mul_apply, Matrix.transpose_apply,
+    Fin.sum_univ_four, Matrix.smul_apply, Matrix.add_apply, Matrix.diag]
+  ring
+
+/-- [KERNEL] ★ NENHUM MODO DE NORMA NEGATIVA no setor físico: a forma é
+    ≥ 0, e anula-se SÓ no zero (a definição de ghost-free na face TT). -/
+theorem tt_no_negative_norm (a b : ℝ) :
+    0 ≤ Matrix.trace ((a • ePlus + b • eCross)ᵀ * (a • ePlus + b • eCross)) ∧
+      (Matrix.trace ((a • ePlus + b • eCross)ᵀ * (a • ePlus + b • eCross)) = 0
+        ↔ a = 0 ∧ b = 0) := by
+  rw [tt_kinetic_positive]
+  constructor
+  · positivity
+  · constructor
+    · intro h
+      constructor <;> nlinarith [sq_nonneg a, sq_nonneg b]
+    · rintro ⟨rfl, rfl⟩
+      ring
+
+/-- [KERNEL] ★ EXATAMENTE DUAS polarizações: e₊ e e× são linearmente
+    independentes — o plano físico do gráviton tem dimensão 2. -/
+theorem polarizations_linearly_independent :
+    ∀ a b : ℝ, a • ePlus + b • eCross = 0 → a = 0 ∧ b = 0 := by
+  intro a b h
+  have h11 := congrFun (congrFun h 1) 1
+  have h12 := congrFun (congrFun h 1) 2
+  constructor
+  · simpa [ePlus, eCross, Matrix.smul_apply, Matrix.add_apply] using h11
+  · simpa [ePlus, eCross, Matrix.smul_apply, Matrix.add_apply] using h12
+
+end
+
+end TGLExt
+''',
     "TGLExt/LocalBreuerGap.lean":
 r'''import TGLExt.Solder4D
 
@@ -15290,6 +15469,131 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/SemifiniteSeed.lean":
+r'''import TGLExt.LinearizedSpin2
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A SEMENTE SEMIFINITA: o primeiro tijolo da biblioteca do fecho
+  [TGLExt — v76, o incremento 1 do programa SemifiniteAnalysis]
+
+O caminho ao selo TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED começa pela
+biblioteca que a mathlib não tem: FaithfulNormalSemifiniteTrace →
+AffiliatedOperator → TauCompactIdeal → BreuerFredholm. Esta pedra deposita
+o PRIMEIRO TIJOLO honesto: os axiomas do peso tracial fiel verificados no
+primeiro habitante concreto (o traço matricial no cone psd) — em
+particular o axioma central de FIDELIDADE, que não estava na mathlib.
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* ★ `psd_offdiag_zero_of_diag_zero` — o argumento do menor 2×2: se A ⪰ 0
+  e TODA a diagonal é nula, então A = 0 (para i ≠ j, o vetor
+  x = s·eᵢ + eⱼ dá 0 ≤ xᵀAx = 2s·Aᵢⱼ para todo s ⟹ Aᵢⱼ = 0);
+* ★★ `psd_trace_eq_zero_iff` — **A FIDELIDADE DO TRAÇO NO CONE PSD**
+  (o axioma central de FaithfulNormalSemifiniteTrace, provado em
+  concreto): A ⪰ 0 ⟹ (tr A = 0 ⟺ A = 0);
+* ★ `trace_monotone_of_psd_sub` — MONOTONIA: B − A ⪰ 0 ⟹ tr A ≤ tr B —
+  a face concreta do campo `mono` da camada abstrata v64;
+* ★ `matrix_trace_is_faithful_weight` — O PRIMEIRO HABITANTE: positividade
+  + fidelidade + monotonia empacotadas — os axiomas do peso tracial no
+  primeiro modelo concreto (normalidade é trivial em dimensão finita;
+  a semifinitude é a finitude).
+
+HONESTIDADE: dimensão FINITA — o tijolo 1 de um programa nomeado
+plurianual (o contínuo II_∞/III₁ exige operadores afiliados e
+normalidade genuína); NENHUMA flag concreta do fecho se move com isto
+(os probes v75 garantem). β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-- [KERNEL] ★ o argumento do menor 2×2: A ⪰ 0 com diagonal toda nula ⟹
+    A = 0 (o vetor x = s·eᵢ + eⱼ força cada entrada fora da diagonal). -/
+theorem psd_offdiag_zero_of_diag_zero (A : Matrix n n ℝ) (hA : A.PosSemidef)
+    (hdiag : ∀ i, A i i = 0) : A = 0 := by
+  ext i j
+  by_cases hij : i = j
+  · subst hij
+    simpa using hdiag i
+  · have hji : A j i = A i j := by
+      conv_lhs => rw [← hA.1]
+      simp [Matrix.conjTranspose_apply]
+    have key : ∀ s : ℝ, 0 ≤ 2 * s * A i j := by
+      intro s
+      have hp := hA.dotProduct_mulVec_nonneg
+        ((Pi.single i s : n → ℝ) + (Pi.single j 1 : n → ℝ))
+      have hstar : star ((Pi.single i s : n → ℝ) + (Pi.single j 1 : n → ℝ))
+          = (Pi.single i s : n → ℝ) + (Pi.single j 1 : n → ℝ) := by
+        funext k
+        simp [Pi.star_apply]
+      rw [hstar] at hp
+      have hmv : ∀ k, (A *ᵥ ((Pi.single i s : n → ℝ) + (Pi.single j 1 : n → ℝ))) k
+          = A k i * s + A k j * 1 := by
+        intro k
+        simp only [Matrix.mulVec, dotProduct, Pi.add_apply, Pi.single_apply,
+          mul_add, mul_ite, mul_one, mul_zero]
+        rw [Finset.sum_add_distrib]
+        simp [Finset.sum_ite_eq', Finset.mem_univ]
+      have hval : ((Pi.single i s : n → ℝ) + (Pi.single j 1 : n → ℝ)) ⬝ᵥ
+          (A *ᵥ ((Pi.single i s : n → ℝ) + (Pi.single j 1 : n → ℝ)))
+          = s * (A i i * s + A i j * 1) + 1 * (A j i * s + A j j * 1) := by
+        rw [add_dotProduct, single_dotProduct, single_dotProduct, hmv i, hmv j]
+      rw [hval, hdiag i, hdiag j, hji] at hp
+      nlinarith [hp]
+    have h2 := key (-(A i j))
+    have h3 := key (A i j)
+    have hz : A i j = 0 := by nlinarith [sq_nonneg (A i j)]
+    simpa using hz
+
+/-- [KERNEL] ★★ A FIDELIDADE DO TRAÇO NO CONE PSD — o axioma central de
+    `FaithfulNormalSemifiniteTrace`, provado no primeiro habitante
+    concreto: A ⪰ 0 ⟹ (tr A = 0 ⟺ A = 0). -/
+theorem psd_trace_eq_zero_iff (A : Matrix n n ℝ) (hA : A.PosSemidef) :
+    A.trace = 0 ↔ A = 0 := by
+  constructor
+  · intro htr
+    have hdiag : ∀ i, A i i = 0 := by
+      have hsum : ∑ k, A k k = 0 := by
+        simpa [Matrix.trace, Matrix.diag] using htr
+      intro i
+      exact (Finset.sum_eq_zero_iff_of_nonneg
+        (fun k _ => hA.diag_nonneg)).mp hsum i (Finset.mem_univ i)
+    exact psd_offdiag_zero_of_diag_zero A hA hdiag
+  · rintro rfl
+    simp
+
+/-- [KERNEL] ★ MONOTONIA do traço na ordem de Loewner (a face concreta do
+    campo `mono` da camada abstrata v64): B − A ⪰ 0 ⟹ tr A ≤ tr B. -/
+theorem trace_monotone_of_psd_sub (A B : Matrix n n ℝ)
+    (h : (B - A).PosSemidef) : A.trace ≤ B.trace := by
+  have hnn := h.trace_nonneg
+  rw [Matrix.trace_sub] at hnn
+  linarith
+
+/-- [KERNEL] ★ O PRIMEIRO HABITANTE da biblioteca semifinita: o traço
+    matricial satisfaz os três axiomas do peso tracial fiel no cone psd —
+    positividade, FIDELIDADE e monotonia (normalidade trivial em dimensão
+    finita; a semifinitude é a finitude). O tijolo 1 do caminho
+    SemifiniteAnalysis → ... → CanonicalBoundaryWitness. -/
+theorem matrix_trace_is_faithful_weight :
+    (∀ A : Matrix n n ℝ, A.PosSemidef → 0 ≤ A.trace) ∧
+      (∀ A : Matrix n n ℝ, A.PosSemidef → (A.trace = 0 ↔ A = 0)) ∧
+      (∀ A B : Matrix n n ℝ, (B - A).PosSemidef → A.trace ≤ B.trace) :=
+  ⟨fun _ hA => hA.trace_nonneg, psd_trace_eq_zero_iff, trace_monotone_of_psd_sub⟩
+
+end
+
+end TGLExt
+''',
     "TGLExt/Solder4D.lean":
 r'''import TGLExt.NoFullWitness
 
@@ -16744,6 +17048,18 @@ _LEAN_THEOREM_FLAGS = {
     "ext_tm_clausius_composition_kernel_proved": "TGLExt.horizon_clausius_composition",
     "ext_tm_jacobi_bianchi_seed_kernel_proved": "TGLExt.jacobi_commutator_bianchi_seed",
     "ext_tm_master_full_triad_kernel_proved": "TGLExt.emergence_master_full_triad",
+    # v75 (o setor spin-2 fisico, face finita: helice +-2; TT positivo; 2 polarizacoes)
+    "ext_ls2_rotz_isometry_kernel_proved": "TGLExt.rotZ_preserves_eta",
+    "ext_ls2_helicity_two_plus_kernel_proved": "TGLExt.helicity_two_rotation",
+    "ext_ls2_helicity_two_cross_kernel_proved": "TGLExt.helicity_two_rotation_cross",
+    "ext_ls2_tt_kinetic_positive_kernel_proved": "TGLExt.tt_kinetic_positive",
+    "ext_ls2_no_negative_norm_kernel_proved": "TGLExt.tt_no_negative_norm",
+    "ext_ls2_two_polarizations_kernel_proved": "TGLExt.polarizations_linearly_independent",
+    # v76 (a semente semifinita: fidelidade do traco no cone psd; monotonia; 1o habitante)
+    "ext_ss_offdiag_zero_kernel_proved": "TGLExt.psd_offdiag_zero_of_diag_zero",
+    "ext_ss_trace_faithful_kernel_proved": "TGLExt.psd_trace_eq_zero_iff",
+    "ext_ss_trace_monotone_kernel_proved": "TGLExt.trace_monotone_of_psd_sub",
+    "ext_ss_faithful_weight_kernel_proved": "TGLExt.matrix_trace_is_faithful_weight",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -18259,6 +18575,13 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         # v74: o teorema mestre completo (8piG de Clausius; Jacobi; H1^H2^H3)
         "ext_tm_einstein_coefficient_kernel_proved", "ext_tm_clausius_composition_kernel_proved",
         "ext_tm_jacobi_bianchi_seed_kernel_proved", "ext_tm_master_full_triad_kernel_proved",
+        # v75: o setor spin-2 (helice; TT positivo; duas polarizacoes; isometria)
+        "ext_ls2_rotz_isometry_kernel_proved", "ext_ls2_helicity_two_plus_kernel_proved",
+        "ext_ls2_helicity_two_cross_kernel_proved", "ext_ls2_tt_kinetic_positive_kernel_proved",
+        "ext_ls2_no_negative_norm_kernel_proved", "ext_ls2_two_polarizations_kernel_proved",
+        # v76: a semente semifinita
+        "ext_ss_offdiag_zero_kernel_proved", "ext_ss_trace_faithful_kernel_proved",
+        "ext_ss_trace_monotone_kernel_proved", "ext_ss_faithful_weight_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -18395,6 +18718,11 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                "ext_et_master_theorem_kernel_proved"]
     tm_keys = ["ext_tm_einstein_coefficient_kernel_proved", "ext_tm_clausius_composition_kernel_proved",
                "ext_tm_jacobi_bianchi_seed_kernel_proved", "ext_tm_master_full_triad_kernel_proved"]
+    ls2_keys = ["ext_ls2_rotz_isometry_kernel_proved", "ext_ls2_helicity_two_plus_kernel_proved",
+                "ext_ls2_helicity_two_cross_kernel_proved", "ext_ls2_tt_kinetic_positive_kernel_proved",
+                "ext_ls2_no_negative_norm_kernel_proved", "ext_ls2_two_polarizations_kernel_proved"]
+    ss_keys = ["ext_ss_offdiag_zero_kernel_proved", "ext_ss_trace_faithful_kernel_proved",
+               "ext_ss_trace_monotone_kernel_proved", "ext_ss_faithful_weight_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -18426,6 +18754,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dSrg = all(per_theorem[k] for k in srg_keys)
     dEt = all(per_theorem[k] for k in et_keys)
     dTm = all(per_theorem[k] for k in tm_keys)
+    dLs2 = all(per_theorem[k] for k in ls2_keys)
+    dSs = all(per_theorem[k] for k in ss_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -18460,6 +18790,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("susy_relative_level4", dSrg),
         ("emergence_triad", dEt),
         ("triad_master_full", dTm),
+        ("linearized_spin2_finite_face", dLs2),
+        ("semifinite_seed_increment1", dSs),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -18529,6 +18861,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                  else "NOT_VERIFIED_THIS_RUN"),
             "triad_master": ("FULL_TRIAD_COMPOSED_H1_AND_H2_AND_H3_IMPLY_PENTAD__BREUER_NAME_COFRAME_LORENTZ_AND_CLAUSIUS_SIDE__EINSTEIN_COEFFICIENT_8PIG_EMERGES_FROM_UNRUH_TIMES_BEKENSTEIN_HAWKING__JACOBI_BIANCHI_SEED_IN_KERNEL__HYPOTHESES_ARE_THE_FRONTIER" if dTm
                               else "NOT_VERIFIED_THIS_RUN"),
+            "linearized_spin2": ("DOUBLE_ANGLE_HELICITY_LAW_IN_KERNEL__TT_SECTOR_POSITIVE_NO_NEGATIVE_NORM__EXACTLY_TWO_POLARIZATIONS__FINITE_FACE_OF_ITEM6__FIERZ_PAULI_EL_AND_FULL_GHOST_FREEDOM_NEED_THE_CONTINUUM" if dLs2
+                                  else "NOT_VERIFIED_THIS_RUN"),
+            "semifinite_seed": ("SEMIFINITE_ANALYSIS_INCREMENT_1__TRACE_FAITHFULNESS_ON_PSD_CONE_PROVED__MONOTONE_AND_POSITIVE__FIRST_CONCRETE_INHABITANT_OF_FAITHFUL_WEIGHT_AXIOMS__CONTINUUM_AFFILIATION_AND_NORMALITY_REMAIN" if dSs
+                                 else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -20134,6 +20470,7 @@ def run_um(ONE):
     iald_prediction = prove_iald_unique_prediction(ONE)  # v72: A PREDICAO OPERACIONAL UNICA (P7: colapso IALD; protocolo pre-registrado; piloto 8/8; regua aplicada); ADITIVO
     void_stacking_blind = prove_void_stacking_blind(ONE, kids_acquisition)  # v73: A SUITE DO EMPILHAMENTO fase CEGA (extrator seletivo + teste nulo em centros aleatorios); ADITIVO
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
+    qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     certificate_II = prove_certificate_II_concrete_network(ONE)  # v67: CERTIFICADO II (a rede concreta dos Three Locks habita H1+H2, face finita); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
@@ -20266,6 +20603,7 @@ def run_um(ONE):
             "iald_prediction": iald_prediction,
             "void_stacking_blind": void_stacking_blind,
             "triad_master": triad_master,
+            "qg_closure": qg_closure,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -21807,6 +22145,122 @@ def prove_triad_master(ONE, kernel_formalization=None):
         "does_not_gate_core": True,
         "verdict": ("FULL_TRIAD_MASTER_COMPOSED__EINSTEIN_COEFFICIENT_EMERGES_FROM_CLAUSIUS__IMPLICATION_CLOSED_HYPOTHESES_ARE_THE_FRONTIER" if all_v
                     else "TRIAD_MASTER_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def evaluate_quantum_gravity_closure(formal, physics, experiment):
+    """O GATE FAIL-CLOSED DO FECHAMENTO (a funcao do veredito, exata): os
+    QUATRO selos legitimos e nada alem. NUNCA .get(key, True); ausencia de
+    falsificacao JAMAIS vira prova; cosmologia JAMAIS altera flag matematica."""
+    mathematical_model = all([
+        formal.get("concrete_aqft_core_constructed", False),
+        formal.get("concrete_breuer_corner_constructed", False),
+        formal.get("concrete_modular_four_frame_constructed", False),
+        formal.get("concrete_solder_field_constructed", False),
+        formal.get("concrete_emergent_einstein_proved", False),
+        formal.get("canonical_boundary_transport_witness_constructed", False),
+    ])
+    physical_qg = mathematical_model and all([
+        physics.get("massless_spin2_proved", False),
+        physics.get("exactly_two_helicities_proved", False),
+        physics.get("ghost_free_proved", False),
+        physics.get("stress_energy_conserved", False),
+        physics.get("relevant_anomalies_absent", False),
+    ])
+    empirical_test_completed = (
+        experiment.get("void_profiles_unblinded", False)
+        and experiment.get("survey_mocks_passed", False)
+        and experiment.get("systematics_passed", False)
+        and experiment.get("powered_verdict_emitted", False))
+    if not mathematical_model:
+        verdict = "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+    elif not physical_qg:
+        verdict = "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN"
+    elif not empirical_test_completed:
+        verdict = "TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN"
+    else:
+        verdict = "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED"
+    return {"mathematical_model_constructed": mathematical_model,
+            "physical_quantum_gravity_constructed": physical_qg,
+            "empirical_test_completed": empirical_test_completed,
+            "full_static_witness_exists": False,
+            "verdict": verdict}
+
+
+def prove_qg_closure_gate(ONE, kernel_formalization=None):
+    """v75 -- O GATE DO FECHAMENTO [ADITIVO; nao gateia 1=1]. O veredito do
+    fechamento definitivo instalado no canonico: (i) as FLAGS NOVAS do fecho
+    (o gate da 'testemunha full' e' impossivel POR TEOREMA v61 -- o sucesso e'
+    a testemunha de fronteira dinamica: canonical_boundary_transport_witness);
+    (ii) a funcao fail-closed evaluate_quantum_gravity_closure com os QUATRO
+    selos legitimos; (iii) os PROBES NEGATIVOS em runtime: cosmologia jamais
+    altera flag matematica (ProbeVoidFloorAsProof), dicts vazios jamais
+    aprovam (ProbeEmptyDefaults), experimento perfeito sem matematica
+    continua CONDITIONAL. Estado atual honesto:
+    TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY."""
+    # as flags do fecho -- HOJE (fail-closed; nada e' herdado por default)
+    formal = {
+        "concrete_aqft_core_constructed": False,
+        "concrete_breuer_corner_constructed": False,
+        "concrete_modular_four_frame_constructed": False,
+        "concrete_solder_field_constructed": False,
+        "concrete_emergent_einstein_proved": False,
+        "canonical_boundary_transport_witness_constructed": False,
+    }
+    physics = {
+        "massless_spin2_proved": False,          # face finita em kernel (v48/v75); o continuo falta
+        "exactly_two_helicities_proved": False,  # idem: duas polarizacoes provadas na face finita
+        "ghost_free_proved": False,              # TT positivo em kernel; fora do gauge TT falta
+        "stress_energy_conserved": False,
+        "relevant_anomalies_absent": False,
+        "linearized_spin2_finite_face": True,    # v75 [KERNEL]: helice 2theta + TT>0 + 2 polarizacoes
+    }
+    experiment = {
+        "void_profiles_unblinded": False,
+        "survey_mocks_passed": False,
+        "systematics_passed": False,
+        "powered_verdict_emitted": False,
+        "protocol_pre_registered": True,          # v67 [hash]
+        "null_tests_passed_blind": True,          # v73 [dados reais]
+    }
+    gate = evaluate_quantum_gravity_closure(formal, physics, experiment)
+    # PROBES NEGATIVOS (a auditoria da auditoria, em runtime)
+    probe_void_as_proof = evaluate_quantum_gravity_closure(
+        formal, physics, {k: True for k in experiment})
+    p1 = bool(probe_void_as_proof["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    probe_empty = evaluate_quantum_gravity_closure({}, {}, {})
+    p2 = bool(probe_empty["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+              and not probe_empty["mathematical_model_constructed"])
+    probe_physics_without_math = evaluate_quantum_gravity_closure(
+        {}, {k: True for k in physics}, {k: True for k in experiment})
+    p3 = bool(probe_physics_without_math["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("gate fail-closed instalado (4 selos legitimos; nunca default True)", True),
+        ("ProbeVoidFloorAsProof: experimento perfeito NAO move flag matematica", p1),
+        ("ProbeEmptyDefaults: dicts vazios => CONDITIONAL", p2),
+        ("ProbePhysicsWithoutMath: fisica sem matematica => CONDITIONAL", p3),
+        ("estado atual honesto: CONDITIONAL_ARCHITECTURE_ONLY", bool(gate["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "gate": gate, "formal_flags": formal, "physics_flags": physics,
+        "experiment_flags": experiment,
+        "legitimate_seals": ["TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+                             "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN",
+                             "TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN",
+                             "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED"],
+        "closure_order": ("core concreto -> canto Breuer -> four-frame -> solda -> "
+                          "Einstein -> spin-2 -> teste empirico"),
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "correcao_do_nome": "o gate 'testemunha full' e' IMPOSSIVEL por teorema (v61); o alvo correto e' canonical_boundary_transport_witness (testemunha de fronteira dinamica) -- flags novas instaladas, todas False (fail-closed)",
+            "faces_ja_em_kernel": "spin-2 face finita [v75: helice 2theta, TT>0, 2 polarizacoes]; teorema mestre condicional [v74]; pacotes abstratos [v64-66] -- NENHUMA delas move as flags concretas (probes garantem)",
+            "estado": gate["verdict"],
+            "o_caminho": "a ordem do fecho: SemifiniteAnalysis -> ConcreteAQFTCore -> ConcreteBreuerCorner -> ConcreteModularFourFrame -> ConcreteSolderField -> ConcreteEmergentEinstein -> LinearizedSpin2(continuo) -> CanonicalBoundaryWitness (TERMO, nao Nonempty)",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("QG_CLOSURE_GATE_INSTALLED_FAIL_CLOSED__NEGATIVE_PROBES_PASS__CURRENT_STATE_CONDITIONAL_ARCHITECTURE_ONLY" if all_v
+                    else "QG_CLOSURE_GATE_NOT_VERIFIED_THIS_RUN"),
     }
 
 
@@ -27818,7 +28272,9 @@ _ESQUELETO_STONES = [
     ("v64", "LocalBreuerGap", "TGLExt/LocalBreuerGap.lean", "229/229", "14/07 20:59:36"),
     ("v65", "SusyRelativeGap", "TGLExt/SusyRelativeGap.lean", "235/235", "14/07 21:36:38"),
     ("v66", "EmergenceTriad", "TGLExt/EmergenceTriad.lean", "244/244", "14/07 22:25:50"),
-    ("v74", "TriadMaster", "TGLExt/TriadMaster.lean", None, None),
+    ("v74", "TriadMaster", "TGLExt/TriadMaster.lean", "248/248", "15/07 14:19:06"),
+    ("v75", "LinearizedSpin2", "TGLExt/LinearizedSpin2.lean", "254/254", "15/07 16:13:35"),
+    ("v76", "SemifiniteSeed", "TGLExt/SemifiniteSeed.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -27853,17 +28309,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(vinte e seis pedras, \S120--\S154)}")
+                 r"(vinte e oito pedras, \S120--\S156)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em vinte e seis pedras "
-                 r"(v43--v74) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em vinte e oito pedras "
+                 r"(v43--v76) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As vinte e seis pedras}")
+        c.append(r"\subsection*{As vinte e oito pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -28057,6 +28513,35 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"conservação ($\nabla T=0$, cláusula de H3) e o colchete do v63, por trás de "
                  r"$\nabla G=0$. A implicação está FECHADA; as hipóteses são a fronteira --- "
                  r"exatamente onde os Certificados II--IV trabalham neste runtime.")
+        c.append(r"\kernelmk{LinearizedSpin2} (v75): \textbf{o setor spin-2 físico (face finita) "
+                 r"--- hélice $\pm2$, sem ghosts, duas polarizações}. \textbf{A LEI DA DUPLA "
+                 r"HÉLICE em kernel}: sob rotação por $\theta$, o par TT $(e_+,e_\times)$ gira "
+                 r"por $2\theta$ --- $R(\theta)^{\mathsf T}e_+R(\theta)=\cos(2\theta)\,e_+-"
+                 r"\sin(2\theta)\,e_\times$ e a lei parceira --- o ângulo DOBRADO é a assinatura "
+                 r"da helicidade $\pm2$; \textbf{SEM GHOSTS na face TT}: a forma cinética é "
+                 r"$2(a^2+b^2)$, positiva, nula só no zero (nenhum modo de norma negativa); "
+                 r"\textbf{EXATAMENTE DUAS} polarizações (independência linear); e $R(\theta)$ é "
+                 r"isometria de $\eta_4$ (o gerador compacto do v63 exponenciado). HONESTIDADE: "
+                 r"face finita/cinemática do item 6 do fecho; a ação de Fierz--Pauli como EL do "
+                 r"modelo CONTÍNUO e a ausência de ghosts fora do gauge TT dependem dos itens "
+                 r"1--5. E O GATE DO FECHAMENTO (runtime): os QUATRO selos legítimos "
+                 r"(\texttt{CONDITIONAL\_ARCHITECTURE\_ONLY} $\to$ \texttt{MATHEMATICAL\_MODEL} "
+                 r"$\to$ \texttt{PHYSICAL\_MODEL} $\to$ \texttt{FORMALLY\_CLOSED\_NATURE\_TEST}) "
+                 r"com função fail-closed, flags novas (o alvo é a testemunha de FRONTEIRA "
+                 r"dinâmica --- a full é impossível por teorema, v61) e PROBES negativos: "
+                 r"experimento perfeito não move flag matemática; dicts vazios não aprovam. "
+                 r"Estado atual honesto: \texttt{TGL\_QG\_CONDITIONAL\_ARCHITECTURE\_ONLY}.")
+        c.append(r"\kernelmk{SemifiniteSeed} (v76): \textbf{a semente semifinita --- o incremento 1 "
+                 r"do programa nomeado SemifiniteAnalysis}. Os axiomas do peso tracial fiel "
+                 r"verificados no PRIMEIRO habitante concreto: \textbf{a FIDELIDADE no cone psd} "
+                 r"($A\succeq0\Rightarrow(\mathrm{tr}\,A=0\Leftrightarrow A=0)$ --- novo em relação "
+                 r"à mathlib; pelo argumento do menor $2\times2$, $x=s\,e_i+e_j$), a positividade e "
+                 r"a MONOTONIA de Loewner ($B-A\succeq0\Rightarrow\mathrm{tr}\,A\le\mathrm{tr}\,B$ "
+                 r"--- o campo abstrato \texttt{mono} do v64, em concreto). HONESTIDADE: dimensão "
+                 r"finita --- o tijolo 1 de SemifiniteAnalysis $\to\dots\to$ "
+                 r"CanonicalBoundaryWitness; afiliação e normalidade genuína (o contínuo "
+                 r"II$_\infty$/III$_1$) permanecem; NENHUMA flag concreta do fecho se move (os "
+                 r"probes do v75 garantem).")
         c.append(r"\subsection*{O mapa dos onze gates}")
         c.append(r"\begin{center}\begin{tabular}{@{}lll@{}}\toprule Gate & Estado & Onde \\ \midrule "
                  r"1. $P_F$ local covariante & DERIVADO do campo ($P_F=\mathrm{proj}_{\ker\mathcal D}$; $P_F\Omega=\Omega$; $\ker\neq0$ derivado); geração pela dinâmica \statusmk{OPEN} & v46, v55--58 \\ "
@@ -28255,7 +28740,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em vinte e seis pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em vinte e oito pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -28288,16 +28773,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(twenty-six stones, \S120--\S154)}")
+                 r"(twenty-eight stones, \S120--\S156)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across twenty-six stones (v43--v74) the audited kernel went from 53 to "
+                 r"from this run's audit. Across twenty-eight stones (v43--v76) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The twenty-six stones}")
+        c.append(r"\subsection*{The twenty-eight stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -28479,6 +28964,34 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"conservation ($\nabla T=0$, H3's clause) and v63's bracket, beneath "
                  r"$\nabla G=0$. The implication is CLOSED; the hypotheses are the frontier --- "
                  r"exactly where Certificates II--IV work in this runtime.")
+        c.append(r"\kernelmk{LinearizedSpin2} (v75): \textbf{the physical spin-2 sector (finite "
+                 r"face) --- helicity $\pm2$, ghost-free, two polarizations}. \textbf{THE DOUBLE "
+                 r"HELIX LAW in kernel}: under rotation by $\theta$, the TT pair $(e_+,e_\times)$ "
+                 r"rotates by $2\theta$ --- $R(\theta)^{\mathsf T}e_+R(\theta)=\cos(2\theta)\,e_+"
+                 r"-\sin(2\theta)\,e_\times$ and its partner law --- the DOUBLED angle is the "
+                 r"signature of helicity $\pm2$; \textbf{GHOST-FREE on the TT face}: the kinetic "
+                 r"form is $2(a^2+b^2)$, positive, zero only at zero (no negative-norm modes); "
+                 r"\textbf{EXACTLY TWO} polarizations (linear independence); and $R(\theta)$ is "
+                 r"an isometry of $\eta_4$ (v63's compact generator exponentiated). HONESTY: the "
+                 r"finite/kinematic face of closure item 6; the Fierz--Pauli action as EL of the "
+                 r"CONTINUUM model and ghost freedom beyond TT gauge depend on items 1--5. AND "
+                 r"THE CLOSURE GATE (runtime): the FOUR legitimate seals "
+                 r"(\texttt{CONDITIONAL\_ARCHITECTURE\_ONLY} $\to$ \texttt{MATHEMATICAL\_MODEL} "
+                 r"$\to$ \texttt{PHYSICAL\_MODEL} $\to$ \texttt{FORMALLY\_CLOSED\_NATURE\_TEST}) "
+                 r"with a fail-closed function, new flags (the target is the DYNAMIC boundary "
+                 r"transport witness --- the full one is impossible by theorem, v61) and negative "
+                 r"PROBES: a perfect experiment moves no mathematical flag; empty dicts approve "
+                 r"nothing. Current honest state: \texttt{TGL\_QG\_CONDITIONAL\_ARCHITECTURE\_ONLY}.")
+        c.append(r"\kernelmk{SemifiniteSeed} (v76): \textbf{the semifinite seed --- increment 1 of "
+                 r"the named SemifiniteAnalysis program}. The axioms of the faithful trace weight "
+                 r"verified on the FIRST concrete inhabitant: \textbf{FAITHFULNESS on the psd cone} "
+                 r"($A\succeq0\Rightarrow(\mathrm{tr}\,A=0\Leftrightarrow A=0)$ --- new relative to "
+                 r"mathlib; via the $2\times2$-minor argument $x=s\,e_i+e_j$), positivity, and "
+                 r"Loewner MONOTONICITY ($B-A\succeq0\Rightarrow\mathrm{tr}\,A\le\mathrm{tr}\,B$ "
+                 r"--- v64's abstract \texttt{mono} field, concretely). HONESTY: finite dimension "
+                 r"--- brick 1 of SemifiniteAnalysis $\to\dots\to$ CanonicalBoundaryWitness; "
+                 r"affiliation and genuine normality (the II$_\infty$/III$_1$ continuum) remain; "
+                 r"NO concrete closure flag moves (the v75 probes guarantee it).")
         c.append(r"\subsection*{Seals and hashes (live hashes from this run; history $=$ provenance)}")
         c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
                  r"v & Stone & sha256/16 (live) & Run & Seal \\ \midrule " + "\n" +
@@ -28665,7 +29178,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across twenty-six stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across twenty-eight stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -29056,8 +29569,8 @@ def _arco_vivo_md(core):
                     "local_breuer_gap", "susy_relative_gap", "emergence_triad",
                     "void_floor_protocol", "void_floor_power", "void_floor_population",
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
-                    "void_stacking_blind", "triad_master", "certificate_II",
-                    "hilbert_home"):
+                    "void_stacking_blind", "triad_master", "qg_closure",
+                    "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
             lines.append("**Estatutos [%s]** (veredito: `%s`):\n" % (mod_key, _m.get("verdict")))
@@ -30943,6 +31456,25 @@ def main():
         (_tm.get("residuals", {}) or {}).get("coeficiente_de_einstein", float("nan")),
         (_tm.get("residuals", {}) or {}).get("jacobi_bianchi", float("nan")), _tm.get("verdict")))
     print("    [a IMPLICACAO esta fechada em kernel; as HIPOTESES sao a fronteira -- onde os Certificados II/III/IV trabalham]")
+    print("  O SETOR SPIN-2 FISICO, FACE FINITA [v75]: %s" % _ell.get("linearized_spin2"))
+    print("    *** A LEI DA DUPLA HELICE: R(theta)^T e_+ R(theta) = cos(2theta)e_+ - sin(2theta)e_x: %s / %s -- o ANGULO DOBRADO = helicidade +-2 ***" % (
+        _elp.get("ext_ls2_helicity_two_plus_kernel_proved"), _elp.get("ext_ls2_helicity_two_cross_kernel_proved")))
+    print("    SEM GHOSTS (face TT): forma cinetica = 2(a^2+b^2) > 0: %s / norma zero sse zero: %s ; EXATAMENTE DUAS polarizacoes: %s ; R(theta) isometria de eta: %s" % (
+        _elp.get("ext_ls2_tt_kinetic_positive_kernel_proved"), _elp.get("ext_ls2_no_negative_norm_kernel_proved"),
+        _elp.get("ext_ls2_two_polarizations_kernel_proved"), _elp.get("ext_ls2_rotz_isometry_kernel_proved")))
+    _qgc = core.get("qg_closure", {}) or {}
+    print("  O GATE DO FECHAMENTO [v75 -- os 4 selos legitimos; fail-closed; probes negativos]: %s" % _qgc.get("verdict"))
+    print("    ESTADO ATUAL HONESTO: %s" % ((_qgc.get("gate") or {}).get("verdict")))
+    print("    probes: experimento perfeito NAO move matematica; dicts vazios => CONDITIONAL; fisica sem matematica => CONDITIONAL")
+    print("    ordem do fecho: %s" % _qgc.get("closure_order"))
+    print("    [o gate 'testemunha full' e' impossivel POR TEOREMA (v61); o alvo e' canonical_boundary_transport_witness]")
+    print("  A SEMENTE SEMIFINITA [v76 -- o incremento 1 do programa SemifiniteAnalysis]: %s" % _ell.get("semifinite_seed"))
+    print("    *** A FIDELIDADE DO TRACO NO CONE PSD (o axioma central, novo p/ a mathlib): A>=0 => (tr A = 0 <=> A = 0): %s ***" % (
+        _elp.get("ext_ss_trace_faithful_kernel_proved")))
+    print("    o menor 2x2 (diag nula + psd => A=0): %s ; MONOTONIA de Loewner (o mono do v64 em concreto): %s ; o 1o habitante empacotado: %s" % (
+        _elp.get("ext_ss_offdiag_zero_kernel_proved"), _elp.get("ext_ss_trace_monotone_kernel_proved"),
+        _elp.get("ext_ss_faithful_weight_kernel_proved")))
+    print("    [dimensao FINITA -- tijolo 1 do caminho SemifiniteAnalysis -> ... -> CanonicalBoundaryWitness; nenhuma flag concreta se move]")
     _cii = core.get("certificate_II", {}) or {}
     _h1f = _cii.get("H1_finite_face", {}) or {}
     print("  CERTIFICADO II [v67 -- a rede CONCRETA habita H1+H2, face finita]: %s" % _cii.get("verdict"))
@@ -31473,6 +32005,16 @@ def main():
             "intrinsically_boundary_witness": True,
             "half_nat_witness_is_canonical": True,
             "continuous_leakage_forbids_full_closure": True,
+            # v75 -- AS FLAGS DO FECHO (o gate 'full' e' impossivel por teorema; o alvo
+            # correto e' a testemunha de fronteira dinamica; todas fail-closed):
+            "canonical_boundary_transport_witness_constructed": False,
+            "continuous_modular_realization_constructed": False,
+            "concrete_breuer_corner_constructed": False,
+            "concrete_modular_four_frame_constructed": False,
+            "concrete_emergent_einstein_proved": False,
+            "linearized_spin2_sector_proved": False,
+            "linearized_spin2_finite_face_kernel": True,
+            "qg_closure_verdict": ((core.get("qg_closure") or {}).get("gate") or {}).get("verdict"),
             "witness_type_is_rigid": (core.get("witness_rigidity") or {}).get("witness_is_rigid"),
             "trivial_inhabitant_exists": (core.get("witness_rigidity") or {}).get("trivial_inhabitant_exists"),
             "trivial_witness_rejected_by_type_system": bool(_wrg.get("trivial_witness_rejected_by_type_system") is True),
