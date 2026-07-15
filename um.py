@@ -5061,6 +5061,7 @@ import TGLExt.TriadMaster
 import TGLExt.LinearizedSpin2
 import TGLExt.SemifiniteSeed
 import TGLExt.DimensionTrace
+import TGLExt.ThreeLocksCorner
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5655,6 +5656,20 @@ namespace TGL.Audit
 #check @TGLExt.concrete_kernel_weight_via_abstract_layer
 #check @TGLExt.concrete_kernel_full_profile
 
+-- v79 (o canto dos Three Locks pela ponte da dimensao: a camada abstrata
+--      dispara sobre H3L = Dc*Dc+Db*Db+Dz*Dz — o Certificado II em kernel)
+#check @TGLExt.dimTraceDataOver
+#check @TGLExt.dimension_trace_over_top_finite
+#check @TGLExt.threeLocksDimTrace
+#check @TGLExt.threeLocks_ker_ne_bot_of_witness
+#check @TGLExt.threeLocksCornerPackage
+#check @TGLExt.three_locks_corner_weight
+#check @TGLExt.three_locks_corner_weight_eq_dim
+#check @TGLExt.three_locks_name_is_one
+#check @TGLExt.corner_le_each_lock
+#check @TGLExt.three_locks_corner_dim_le
+#check @TGLExt.three_locks_corner_full_profile
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6001,6 +6016,15 @@ namespace TGL.Audit
 #print axioms TGLExt.dimension_trace_top_finite
 #print axioms TGLExt.concrete_kernel_weight_via_abstract_layer
 #print axioms TGLExt.concrete_kernel_full_profile
+-- v79 (o canto dos Three Locks pela ponte da dimensao: Certificado II em kernel)
+#print axioms TGLExt.dimension_trace_over_top_finite
+#print axioms TGLExt.threeLocks_ker_ne_bot_of_witness
+#print axioms TGLExt.three_locks_corner_weight
+#print axioms TGLExt.three_locks_corner_weight_eq_dim
+#print axioms TGLExt.three_locks_name_is_one
+#print axioms TGLExt.corner_le_each_lock
+#print axioms TGLExt.three_locks_corner_dim_le
+#print axioms TGLExt.three_locks_corner_full_profile
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -10382,6 +10406,192 @@ theorem concrete_kernel_full_profile (H0 V : Matrix n n ℝ)
         Module.finrank ℝ (LinearMap.range V.mulVecLin) :=
   ⟨concrete_kernel_weight_via_abstract_layer H0 V hker,
     kernel_dim_le_rank_of_perturbation H0 V hpd⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ThreeLocksCorner.lean":
+r'''import TGLExt.DimensionTrace
+import TGL.FiniteThreeLocks
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O CANTO DOS THREE LOCKS PELA PONTE DA DIMENSÃO
+  [TGLExt — v79, o Certificado II elevado a teorema de kernel]
+
+O v77 fez o teorema abstrato de Breuer (v64) disparar sobre um operador
+concreto genérico (H₀ − V sobre ℝⁿ). Esta pedra o dispara sobre O OPERADOR
+DA TEORIA: `H3L = Dc*Dc + Db*Db + Dz*Dz` — os Three Locks da Ponte
+Einstein–Cartan–Miguel, a face finita da hipótese H1
+(TGL_INTERNAL_SUSY_RELATIVE_GAP), o mesmo operador que o Certificado II
+instancia numericamente no runtime do um.py (gap 0,0481, zero isolado,
+Nome = 1).
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* `dimTraceDataOver` — a ponte da dimensão GENERALIZADA: τ = dim é camada
+  tracial semifinita FIEL e MONÓTONA sobre o reticulado de subespaços de
+  QUALQUER espaço de dimensão finita sobre QUALQUER corpo (v77 era ℝⁿ;
+  agora ℂ entra — o corpo dos Three Locks);
+* ★ `dimension_trace_over_top_finite` — τ(⊤) < ∞ em qualquer corpo
+  (a semifinitude é a finitude, agora sem privilégio de ℝ);
+* ★ `threeLocks_ker_ne_bot_of_witness` — a PORTA: um habitante não nulo
+  das três fechaduras (Dc x = Db x = Dz x = 0, x ≠ 0) força ker H3L ≠ ⊥;
+* ★★ `three_locks_corner_weight` — O CERTIFICADO II EM KERNEL: o pacote
+  (ker H3L, gap = ⊤) instancia BreuerGapData na camada da dimensão sobre ℂ
+  e o teorema ABSTRATO `breuer_kernel_weight` (v64) conclui
+  0 < τ(ker H3L) < ∞ para o operador dos Three Locks;
+* ★ `three_locks_corner_weight_eq_dim` — o peso abstrato É o observável
+  do runtime: τ(ker H3L) = dim(canto) = Tr(P_F) (por definição — `rfl`);
+* ★ `three_locks_name_is_one` — o NOME normalizado do canto é 1
+  (τ_F(P_F) = 1, v58×v64×v79): ker ≠ ⊥ ⟹ dim > 0 ⟹ dim/dim = 1;
+* ★ `corner_le_each_lock` / `three_locks_corner_dim_le` — o canto vive
+  SOB cada fechadura e seu peso é limitado pela dimensão da inscrição
+  (dim ker H3L ≤ n);
+* ★★ `three_locks_corner_full_profile` — O PERFIL COMPLETO (v58×v64×v77×v79
+  numa só implicação): de UMA testemunha explícita nas três fechaduras
+  seguem peso POSITIVO ∧ FINITO ∧ Nome = 1 — as cláusulas de H1 na face
+  finita, agora TEOREMA, não medida.
+
+HONESTIDADE: dimensão finita — NÃO é prova de fator III₁; a EXISTÊNCIA da
+testemunha (x ≠ 0 nas três fechaduras) é hipótese aqui e é exatamente o que
+a rede concreta do Certificado II exibe numericamente no runtime — o kernel
+prova tudo A JUSANTE dela. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+open TGL.FiniteThreeLocks
+
+noncomputable section
+
+/- ═══════════ 1. A ponte da dimensão generalizada (qualquer corpo) ═══════════ -/
+
+/-- [DATA — v77 generalizado] τ = dim no reticulado de subespaços de um
+    espaço de dimensão finita sobre um corpo qualquer: FIEL e MONÓTONO.
+    O ℝⁿ do v77 dá lugar ao corpo dos Three Locks (ℂ). -/
+def dimTraceDataOver (K V : Type) [Field K] [AddCommGroup V] [Module K V]
+    [FiniteDimensional K V] : SemifiniteTraceData (Submodule K V) where
+  tau := fun S => (Module.finrank K S : ℝ≥0∞)
+  mono := by
+    intro p q hpq
+    exact_mod_cast Submodule.finrank_mono hpq
+  faithful := by
+    intro p hp
+    have h0 : Module.finrank K p = 0 := by exact_mod_cast hp
+    exact (Submodule.finrank_eq_zero (R := K)).mp h0
+
+variable (K V : Type) [Field K] [AddCommGroup V] [Module K V] [FiniteDimensional K V]
+
+/-- [KERNEL] ★ τ(⊤) < ∞ sobre QUALQUER corpo — a semifinitude é a
+    finitude, sem privilégio de ℝ. -/
+theorem dimension_trace_over_top_finite :
+    (dimTraceDataOver K V).tau ⊤ < ⊤ := by
+  simp only [dimTraceDataOver]
+  exact ENNReal.natCast_lt_top _
+
+/- ═══════════ 2. O canto dos Three Locks entra na camada ═══════════ -/
+
+variable {n : ℕ}
+variable (Dc Db Dz : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n))
+
+/-- [DATA] a camada da dimensão sobre o espaço dos Three Locks. -/
+def threeLocksDimTrace (n : ℕ) :
+    SemifiniteTraceData (Submodule ℂ (EuclideanSpace ℂ (Fin n))) :=
+  dimTraceDataOver ℂ (EuclideanSpace ℂ (Fin n))
+
+/-- [KERNEL] ★ a PORTA: um habitante não nulo das três fechaduras força
+    o canto a ser não-trivial — `ker H3L ≠ ⊥`. É exatamente esta hipótese
+    que a rede concreta do Certificado II exibe no runtime. -/
+theorem threeLocks_ker_ne_bot_of_witness
+    (x : EuclideanSpace ℂ (Fin n)) (hx : x ≠ 0)
+    (hc : Dc x = 0) (hb : Db x = 0) (hz : Dz x = 0) :
+    LinearMap.ker (H3L Dc Db Dz) ≠ ⊥ := by
+  intro h
+  have hmem : x ∈ LinearMap.ker (H3L Dc Db Dz) :=
+    (mem_ker_H3L_iff Dc Db Dz x).mpr ⟨hc, hb, hz⟩
+  rw [h, Submodule.mem_bot] at hmem
+  exact hx hmem
+
+/-- [DATA] o pacote de gap dos THREE LOCKS: ker = ker H3L no reticulado
+    da dimensão sobre ℂ, gap = ⊤ (finito em dimensão finita). -/
+def threeLocksCornerPackage
+    (hker : LinearMap.ker (H3L Dc Db Dz) ≠ ⊥) :
+    BreuerGapData (Submodule ℂ (EuclideanSpace ℂ (Fin n)))
+      (threeLocksDimTrace n) where
+  ker := LinearMap.ker (H3L Dc Db Dz)
+  gap := ⊤
+  ker_le_gap := le_top
+  gap_finite := dimension_trace_over_top_finite ℂ (EuclideanSpace ℂ (Fin n))
+  ker_ne_bot := hker
+
+/- ═══════════ 3. Os teoremas do canto ═══════════ -/
+
+/-- [KERNEL] ★★ O CERTIFICADO II EM KERNEL: o teorema ABSTRATO de Breuer
+    (v64) dispara sobre o operador DA TEORIA — para o canto dos Three
+    Locks, 0 < τ(ker H3L) < ∞. A face finita de H1 deixa de ser só medida
+    de runtime e vira teorema. -/
+theorem three_locks_corner_weight
+    (hker : LinearMap.ker (H3L Dc Db Dz) ≠ ⊥) :
+    0 < (threeLocksDimTrace n).tau (LinearMap.ker (H3L Dc Db Dz)) ∧
+      (threeLocksDimTrace n).tau (LinearMap.ker (H3L Dc Db Dz)) < ⊤ :=
+  breuer_kernel_weight (threeLocksCornerPackage Dc Db Dz hker)
+
+/-- [KERNEL] ★ o peso abstrato É o observável do runtime: τ(ker H3L)
+    coincide por DEFINIÇÃO com a dimensão do canto — o Tr(P_F) que o
+    Certificado II mede (tr(P_F) = 4 na rede concreta). -/
+theorem three_locks_corner_weight_eq_dim :
+    (threeLocksDimTrace n).tau (LinearMap.ker (H3L Dc Db Dz))
+      = (cornerDim Dc Db Dz : ℝ≥0∞) := rfl
+
+/-- [KERNEL] ★ o NOME do canto é 1 (τ_F(P_F) = 1): do canto não-trivial
+    segue dim > 0 e o traço normalizado é exatamente 1 — a normalização
+    do Nome (v58) agora deduzida da não-trivialidade, não assumida. -/
+theorem three_locks_name_is_one
+    (hker : LinearMap.ker (H3L Dc Db Dz) ≠ ⊥) :
+    (cornerDim Dc Db Dz : ℝ) / (cornerDim Dc Db Dz : ℝ) = 1 := by
+  have hpos : 0 < cornerDim Dc Db Dz := by
+    rcases Nat.eq_zero_or_pos (cornerDim Dc Db Dz) with h0 | h
+    · exact absurd ((Submodule.finrank_eq_zero (R := ℂ)).mp h0) hker
+    · exact h
+  exact normalizedCornerTrace_PF Dc Db Dz hpos
+
+/-- [KERNEL] ★ o canto vive SOB cada fechadura: ker H3L ≤ ker Dc
+    (e por simetria da interseção, sob as outras duas). -/
+theorem corner_le_each_lock :
+    LinearMap.ker (H3L Dc Db Dz) ≤ LinearMap.ker Dc := by
+  rw [ker_H3L_eq_threeLocks]
+  exact le_trans inf_le_left inf_le_left
+
+/-- [KERNEL] ★ o peso do canto é limitado pela dimensão da inscrição:
+    dim(ker H3L) ≤ n — o eco do "≤ posto" (v65) na face dos Three Locks. -/
+theorem three_locks_corner_dim_le :
+    cornerDim Dc Db Dz ≤ n := by
+  have h := Submodule.finrank_le (LinearMap.ker (H3L Dc Db Dz))
+  rwa [finrank_euclideanSpace_fin] at h
+
+/-- [KERNEL] ★★ O PERFIL COMPLETO DO CANTO DOS THREE LOCKS
+    (v58 × v64 × v77 × v79 numa só implicação): de UMA testemunha
+    explícita nas três fechaduras seguem peso POSITIVO ∧ FINITO ∧
+    Nome = 1 ∧ dim ≤ n — as cláusulas de H1 na face finita como TEOREMA.
+    A rede concreta do Certificado II fornece a testemunha; o kernel
+    prova tudo a jusante. -/
+theorem three_locks_corner_full_profile
+    (x : EuclideanSpace ℂ (Fin n)) (hx : x ≠ 0)
+    (hc : Dc x = 0) (hb : Db x = 0) (hz : Dz x = 0) :
+    ((0 < (threeLocksDimTrace n).tau (LinearMap.ker (H3L Dc Db Dz)) ∧
+      (threeLocksDimTrace n).tau (LinearMap.ker (H3L Dc Db Dz)) < ⊤) ∧
+      (cornerDim Dc Db Dz : ℝ) / (cornerDim Dc Db Dz : ℝ) = 1) ∧
+      cornerDim Dc Db Dz ≤ n := by
+  have hker := threeLocks_ker_ne_bot_of_witness Dc Db Dz x hx hc hb hz
+  exact ⟨⟨three_locks_corner_weight Dc Db Dz hker,
+          three_locks_name_is_one Dc Db Dz hker⟩,
+         three_locks_corner_dim_le Dc Db Dz⟩
 
 end
 
@@ -17192,6 +17402,15 @@ _LEAN_THEOREM_FLAGS = {
     "ext_dt_trace_top_finite_kernel_proved": "TGLExt.dimension_trace_top_finite",
     "ext_dt_abstract_fires_concrete_kernel_proved": "TGLExt.concrete_kernel_weight_via_abstract_layer",
     "ext_dt_full_profile_kernel_proved": "TGLExt.concrete_kernel_full_profile",
+    # v79 (o canto dos Three Locks pela ponte da dimensao: Certificado II em kernel)
+    "ext_tlc_field_general_trace_kernel_proved": "TGLExt.dimension_trace_over_top_finite",
+    "ext_tlc_witness_opens_corner_kernel_proved": "TGLExt.threeLocks_ker_ne_bot_of_witness",
+    "ext_tlc_corner_weight_kernel_proved": "TGLExt.three_locks_corner_weight",
+    "ext_tlc_weight_eq_dim_kernel_proved": "TGLExt.three_locks_corner_weight_eq_dim",
+    "ext_tlc_name_is_one_kernel_proved": "TGLExt.three_locks_name_is_one",
+    "ext_tlc_corner_under_lock_kernel_proved": "TGLExt.corner_le_each_lock",
+    "ext_tlc_dim_le_inscription_kernel_proved": "TGLExt.three_locks_corner_dim_le",
+    "ext_tlc_full_profile_kernel_proved": "TGLExt.three_locks_corner_full_profile",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -18717,6 +18936,11 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         # v77: a ponte da dimensao
         "ext_dt_trace_bot_kernel_proved", "ext_dt_trace_top_finite_kernel_proved",
         "ext_dt_abstract_fires_concrete_kernel_proved", "ext_dt_full_profile_kernel_proved",
+        # v79: o canto dos Three Locks pela ponte da dimensao (Certificado II em kernel)
+        "ext_tlc_field_general_trace_kernel_proved", "ext_tlc_witness_opens_corner_kernel_proved",
+        "ext_tlc_corner_weight_kernel_proved", "ext_tlc_weight_eq_dim_kernel_proved",
+        "ext_tlc_name_is_one_kernel_proved", "ext_tlc_corner_under_lock_kernel_proved",
+        "ext_tlc_dim_le_inscription_kernel_proved", "ext_tlc_full_profile_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -18860,6 +19084,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                "ext_ss_trace_monotone_kernel_proved", "ext_ss_faithful_weight_kernel_proved"]
     dt_keys = ["ext_dt_trace_bot_kernel_proved", "ext_dt_trace_top_finite_kernel_proved",
                "ext_dt_abstract_fires_concrete_kernel_proved", "ext_dt_full_profile_kernel_proved"]
+    tlc_keys = ["ext_tlc_field_general_trace_kernel_proved", "ext_tlc_witness_opens_corner_kernel_proved",
+                "ext_tlc_corner_weight_kernel_proved", "ext_tlc_weight_eq_dim_kernel_proved",
+                "ext_tlc_name_is_one_kernel_proved", "ext_tlc_corner_under_lock_kernel_proved",
+                "ext_tlc_dim_le_inscription_kernel_proved", "ext_tlc_full_profile_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -18894,6 +19122,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dLs2 = all(per_theorem[k] for k in ls2_keys)
     dSs = all(per_theorem[k] for k in ss_keys)
     dDt = all(per_theorem[k] for k in dt_keys)
+    dTlc = all(per_theorem[k] for k in tlc_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -18931,6 +19160,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("linearized_spin2_finite_face", dLs2),
         ("semifinite_seed_increment1", dSs),
         ("dimension_trace_bridge", dDt),
+        ("three_locks_corner_kernel", dTlc),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -19006,6 +19236,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                  else "NOT_VERIFIED_THIS_RUN"),
             "dimension_trace": ("SEMIFINITE_ANALYSIS_INCREMENT_2__DIMENSION_TRACE_ON_REAL_SUBSPACE_LATTICE_IS_GENUINE_INSTANCE_OF_V64_LAYER__ABSTRACT_BREUER_THEOREM_FIRES_ON_CONCRETE_KERNEL__FULL_PROFILE_POSITIVE_FINITE_RANK_BOUNDED__INFINITE_DIM_CLOSED_SUBSPACES_REMAIN" if dDt
                                  else "NOT_VERIFIED_THIS_RUN"),
+            "three_locks_corner": ("CERTIFICATE_II_FINITE_FACE_ELEVATED_TO_KERNEL_THEOREM__ABSTRACT_BREUER_FIRES_ON_H3L_THREE_LOCKS_OPERATOR__WITNESS_IN_THREE_LOCKS_FORCES_NONTRIVIAL_CORNER__WEIGHT_EQUALS_TR_PF_BY_DEFINITION__NAME_IS_ONE_DERIVED__DIM_BOUNDED_BY_INSCRIPTION__III1_REMAINS" if dTlc
+                                    else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -28683,7 +28915,8 @@ _ESQUELETO_STONES = [
     ("v74", "TriadMaster", "TGLExt/TriadMaster.lean", "248/248", "15/07 14:19:06"),
     ("v75", "LinearizedSpin2", "TGLExt/LinearizedSpin2.lean", "254/254", "15/07 16:13:35"),
     ("v76", "SemifiniteSeed", "TGLExt/SemifiniteSeed.lean", "258/258", "15/07 17:24:20"),
-    ("v77", "DimensionTrace", "TGLExt/DimensionTrace.lean", None, None),
+    ("v77", "DimensionTrace", "TGLExt/DimensionTrace.lean", "262/262", "15/07 18:20:11"),
+    ("v79", "ThreeLocksCorner", "TGLExt/ThreeLocksCorner.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -28718,17 +28951,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(vinte e nove pedras, \S120--\S157)}")
+                 r"(trinta pedras, \S120--\S159)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em vinte e nove pedras "
-                 r"(v43--v77) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em trinta pedras "
+                 r"(v43--v79) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As vinte e nove pedras}")
+        c.append(r"\subsection*{As trinta pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -28961,6 +29194,20 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"COMPLETO do canto: peso positivo, finito e LIMITADO PELO POSTO da inscrição, "
                  r"numa só implicação. HONESTIDADE: tijolo 2; subespaços FECHADOS de Hilbert "
                  r"$\infty$-dim e o $\tau$ semifinito genuíno seguem o programa.")
+        c.append(r"\kernelmk{ThreeLocksCorner} (v79): \textbf{o Certificado II elevado a teorema de "
+                 r"kernel --- a ponte da dimensão dispara sobre o operador DA TEORIA}. A ponte "
+                 r"generalizada a QUALQUER corpo ($\tau=\dim$ fiel e monótona; $\tau(\top)<\infty$) "
+                 r"recebe $\mathbb C$ --- e o Breuer abstrato (v64) dispara sobre "
+                 r"$H_{3L}=D_c^*D_c+D_b^*D_b+D_z^*D_z$, os Three Locks da Ponte "
+                 r"Einstein--Cartan--Miguel (a face finita de H1): uma testemunha não nula nas TRÊS "
+                 r"fechaduras força $\ker H_{3L}\neq\bot$ e daí, em kernel, "
+                 r"$0<\tau(\ker H_{3L})<\infty$, $\tau(\ker H_{3L})=\dim(\mathrm{canto})="
+                 r"\mathrm{Tr}(P_F)$ POR DEFINIÇÃO, \textbf{Nome $=1$ DERIVADO} (não assumido), o "
+                 r"canto SOB cada fechadura e $\dim\le n$ (o eco do ``$\le$ posto'', v65) --- o "
+                 r"PERFIL COMPLETO numa só implicação. O runtime fornece a testemunha (rede concreta: "
+                 r"gap $0{,}0481$, zero isolado, $\mathrm{tr}(P_F)=4$, Nome $=1$); o kernel prova "
+                 r"tudo a jusante. HONESTIDADE: dimensão finita --- NÃO é III$_1$; a existência da "
+                 r"testemunha é hipótese (instanciada numericamente); nenhuma flag do fecho se move.")
         c.append(r"\subsection*{O mapa dos onze gates}")
         c.append(r"\begin{center}\begin{tabular}{@{}lll@{}}\toprule Gate & Estado & Onde \\ \midrule "
                  r"1. $P_F$ local covariante & DERIVADO do campo ($P_F=\mathrm{proj}_{\ker\mathcal D}$; $P_F\Omega=\Omega$; $\ker\neq0$ derivado); geração pela dinâmica \statusmk{OPEN} & v46, v55--58 \\ "
@@ -29159,7 +29406,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em vinte e nove pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em trinta pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -29192,16 +29439,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(twenty-nine stones, \S120--\S157)}")
+                 r"(thirty stones, \S120--\S159)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across twenty-nine stones (v43--v77) the audited kernel went from 53 to "
+                 r"from this run's audit. Across thirty stones (v43--v79) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The twenty-nine stones}")
+        c.append(r"\subsection*{The thirty stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -29421,6 +29668,21 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"corner's FULL PROFILE: weight positive, finite, and BOUNDED BY THE RANK of the "
                  r"inscription, in one implication. HONESTY: brick 2; CLOSED subspaces of "
                  r"$\infty$-dim Hilbert and the genuine semifinite $\tau$ remain the program.")
+        c.append(r"\kernelmk{ThreeLocksCorner} (v79): \textbf{Certificate II elevated to a kernel "
+                 r"theorem --- the dimension bridge fires on THE THEORY'S operator}. The bridge "
+                 r"generalized to ANY field ($\tau=\dim$ faithful and monotone; $\tau(\top)<\infty$) "
+                 r"welcomes $\mathbb C$ --- and abstract Breuer (v64) fires on "
+                 r"$H_{3L}=D_c^*D_c+D_b^*D_b+D_z^*D_z$, the Three Locks of the "
+                 r"Einstein--Cartan--Miguel Bridge (H1's finite face): one nonzero witness in ALL "
+                 r"THREE locks forces $\ker H_{3L}\neq\bot$, whence, in kernel, "
+                 r"$0<\tau(\ker H_{3L})<\infty$, $\tau(\ker H_{3L})=\dim(\mathrm{corner})="
+                 r"\mathrm{Tr}(P_F)$ BY DEFINITION, \textbf{Name $=1$ DERIVED} (not assumed), the "
+                 r"corner UNDER each lock, and $\dim\le n$ (the ``$\le$ rank'' echo, v65) --- the "
+                 r"FULL PROFILE in one implication. The runtime supplies the witness (concrete "
+                 r"network: gap $0.0481$, isolated zero, $\mathrm{tr}(P_F)=4$, Name $=1$); the "
+                 r"kernel proves everything downstream. HONESTY: finite dimension --- NOT III$_1$; "
+                 r"the witness's existence is a hypothesis (numerically instantiated); no closure "
+                 r"flag moves.")
         c.append(r"\subsection*{Seals and hashes (live hashes from this run; history $=$ provenance)}")
         c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
                  r"v & Stone & sha256/16 (live) & Run & Seal \\ \midrule " + "\n" +
@@ -29607,7 +29869,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across twenty-nine stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across thirty stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -31936,6 +32198,16 @@ def main():
         _elp.get("ext_dt_abstract_fires_concrete_kernel_proved"), _elp.get("ext_dt_full_profile_kernel_proved")))
     print("    tau(bot) = 0: %s ; tau(top) < inf: %s ; [tijolo 2; subespacos FECHADOS de Hilbert inf-dim = o proximo]" % (
         _elp.get("ext_dt_trace_bot_kernel_proved"), _elp.get("ext_dt_trace_top_finite_kernel_proved")))
+    print("  O CANTO DOS THREE LOCKS [v79 -- o Certificado II elevado a teorema de kernel]: %s" % _ell.get("three_locks_corner"))
+    print("    *** o Breuer ABSTRATO dispara sobre H3L = Dc*Dc+Db*Db+Dz*Dz (o operador DA TEORIA, face finita de H1): %s ***" % (
+        _elp.get("ext_tlc_corner_weight_kernel_proved")))
+    print("    a porta (testemunha nas 3 fechaduras => ker != bot): %s ; peso = dim(canto) = Tr(P_F) por DEFINICAO: %s ; Nome = 1 DERIVADO: %s" % (
+        _elp.get("ext_tlc_witness_opens_corner_kernel_proved"), _elp.get("ext_tlc_weight_eq_dim_kernel_proved"),
+        _elp.get("ext_tlc_name_is_one_kernel_proved")))
+    print("    ponte generalizada a QUALQUER corpo (C entra): %s ; canto SOB cada fechadura: %s ; dim <= n (eco do <=posto): %s ; perfil completo: %s" % (
+        _elp.get("ext_tlc_field_general_trace_kernel_proved"), _elp.get("ext_tlc_corner_under_lock_kernel_proved"),
+        _elp.get("ext_tlc_dim_le_inscription_kernel_proved"), _elp.get("ext_tlc_full_profile_kernel_proved")))
+    print("    [dimensao FINITA -- NAO e' III_1; a testemunha e' hipotese, instanciada pela rede CONCRETA do Cert. II; o kernel prova o jusante]")
     _cii = core.get("certificate_II", {}) or {}
     _h1f = _cii.get("H1_finite_face", {}) or {}
     print("  CERTIFICADO II [v67 -- a rede CONCRETA habita H1+H2, face finita]: %s" % _cii.get("verdict"))

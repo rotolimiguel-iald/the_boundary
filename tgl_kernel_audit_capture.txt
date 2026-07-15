@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=108414 len(stderr)=0
+# len(stdout)=111849 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1015,6 +1015,44 @@ TGLExt.dimTraceData : (n : Type) → [Fintype n] → TGLExt.SemifiniteTraceData 
       (0 < (TGLExt.dimTraceData n).tau (H0 - V).mulVecLin.ker ∧
           (TGLExt.dimTraceData n).tau (H0 - V).mulVecLin.ker < ⊤) ∧
         Module.finrank ℝ ↥(H0 - V).mulVecLin.ker ≤ Module.finrank ℝ ↥V.mulVecLin.range
+TGLExt.dimTraceDataOver : (K V : Type) →
+  [inst : Field K] →
+    [inst_1 : AddCommGroup V] →
+      [inst_2 : Module K V] → [FiniteDimensional K V] → TGLExt.SemifiniteTraceData (Submodule K V)
+TGLExt.dimension_trace_over_top_finite : ∀ (K V : Type) [inst : Field K] [inst_1 : AddCommGroup V] [inst_2 : Module K V]
+  [inst_3 : FiniteDimensional K V], (TGLExt.dimTraceDataOver K V).tau ⊤ < ⊤
+TGLExt.threeLocksDimTrace : (n : ℕ) → TGLExt.SemifiniteTraceData (Submodule ℂ (EuclideanSpace ℂ (Fin n)))
+@TGLExt.threeLocks_ker_ne_bot_of_witness : ∀ {n : ℕ}
+  (Dc Db Dz : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n)) (x : EuclideanSpace ℂ (Fin n)),
+  x ≠ 0 → Dc x = 0 → Db x = 0 → Dz x = 0 → (FiniteThreeLocks.H3L Dc Db Dz).ker ≠ ⊥
+@TGLExt.threeLocksCornerPackage : {n : ℕ} →
+  (Dc Db Dz : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n)) →
+    (FiniteThreeLocks.H3L Dc Db Dz).ker ≠ ⊥ →
+      TGLExt.BreuerGapData (Submodule ℂ (EuclideanSpace ℂ (Fin n))) (TGLExt.threeLocksDimTrace n)
+@TGLExt.three_locks_corner_weight : ∀ {n : ℕ} (Dc Db Dz : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n)),
+  (FiniteThreeLocks.H3L Dc Db Dz).ker ≠ ⊥ →
+    0 < (TGLExt.threeLocksDimTrace n).tau (FiniteThreeLocks.H3L Dc Db Dz).ker ∧
+      (TGLExt.threeLocksDimTrace n).tau (FiniteThreeLocks.H3L Dc Db Dz).ker < ⊤
+@TGLExt.three_locks_corner_weight_eq_dim : ∀ {n : ℕ}
+  (Dc Db Dz : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n)),
+  (TGLExt.threeLocksDimTrace n).tau (FiniteThreeLocks.H3L Dc Db Dz).ker = ↑(FiniteThreeLocks.cornerDim Dc Db Dz)
+@TGLExt.three_locks_name_is_one : ∀ {n : ℕ} (Dc Db Dz : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n)),
+  (FiniteThreeLocks.H3L Dc Db Dz).ker ≠ ⊥ →
+    ↑(FiniteThreeLocks.cornerDim Dc Db Dz) / ↑(FiniteThreeLocks.cornerDim Dc Db Dz) = 1
+@TGLExt.corner_le_each_lock : ∀ {n : ℕ} (Dc Db Dz : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n)),
+  (FiniteThreeLocks.H3L Dc Db Dz).ker ≤ Dc.ker
+@TGLExt.three_locks_corner_dim_le : ∀ {n : ℕ} (Dc Db Dz : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n)),
+  FiniteThreeLocks.cornerDim Dc Db Dz ≤ n
+@TGLExt.three_locks_corner_full_profile : ∀ {n : ℕ} (Dc Db Dz : EuclideanSpace ℂ (Fin n) →ₗ[ℂ] EuclideanSpace ℂ (Fin n))
+  (x : EuclideanSpace ℂ (Fin n)),
+  x ≠ 0 →
+    Dc x = 0 →
+      Db x = 0 →
+        Dz x = 0 →
+          ((0 < (TGLExt.threeLocksDimTrace n).tau (FiniteThreeLocks.H3L Dc Db Dz).ker ∧
+                (TGLExt.threeLocksDimTrace n).tau (FiniteThreeLocks.H3L Dc Db Dz).ker < ⊤) ∧
+              ↑(FiniteThreeLocks.cornerDim Dc Db Dz) / ↑(FiniteThreeLocks.cornerDim Dc Db Dz) = 1) ∧
+            FiniteThreeLocks.cornerDim Dc Db Dz ≤ n
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1328,6 +1366,14 @@ TGLExt.dimTraceData : (n : Type) → [Fintype n] → TGLExt.SemifiniteTraceData 
 'TGLExt.dimension_trace_top_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.concrete_kernel_weight_via_abstract_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.concrete_kernel_full_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.dimension_trace_over_top_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.threeLocks_ker_ne_bot_of_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.three_locks_corner_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.three_locks_corner_weight_eq_dim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.three_locks_name_is_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.corner_le_each_lock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.three_locks_corner_dim_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.three_locks_corner_full_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

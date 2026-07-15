@@ -2109,9 +2109,49 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.dimension_trace_over_top_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.threeLocks_ker_ne_bot_of_witness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.three_locks_corner_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.three_locks_corner_weight_eq_dim": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.three_locks_name_is_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.corner_le_each_lock": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.three_locks_corner_dim_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.three_locks_corner_full_profile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "formal_source_hash": "0e7d684efaefcfd64f81c6ad110429fec0b5c69a7f72e665c552ff82c4d71c42",
+  "formal_source_hash": "e2e5f60784387f6b0ec190b8da3a3c32c766de20c0036b5f2c486d1cc469b397",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -2417,7 +2457,7 @@
 
 ```json
 {
-  "code_sha256": "c499ce5e46d94a12469858ab94492d0d3fa568d01d47c362450f9fe5257cebeb",
+  "code_sha256": "010a85a98badfafc4bafd41fd0f9877238185ca974a8a22075f753072e74c202",
   "cf4_catalog_hash": null,
   "window_hash": null,
   "selection_hash": null
@@ -2428,7 +2468,7 @@
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 262/262 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 270/270 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -2465,6 +2505,7 @@
 - `linearized_spin2` = `DOUBLE_ANGLE_HELICITY_LAW_IN_KERNEL__TT_SECTOR_POSITIVE_NO_NEGATIVE_NORM__EXACTLY_TWO_POLARIZATIONS__FINITE_FACE_OF_ITEM6__FIERZ_PAULI_EL_AND_FULL_GHOST_FREEDOM_NEED_THE_CONTINUUM`
 - `semifinite_seed` = `SEMIFINITE_ANALYSIS_INCREMENT_1__TRACE_FAITHFULNESS_ON_PSD_CONE_PROVED__MONOTONE_AND_POSITIVE__FIRST_CONCRETE_INHABITANT_OF_FAITHFUL_WEIGHT_AXIOMS__CONTINUUM_AFFILIATION_AND_NORMALITY_REMAIN`
 - `dimension_trace` = `SEMIFINITE_ANALYSIS_INCREMENT_2__DIMENSION_TRACE_ON_REAL_SUBSPACE_LATTICE_IS_GENUINE_INSTANCE_OF_V64_LAYER__ABSTRACT_BREUER_THEOREM_FIRES_ON_CONCRETE_KERNEL__FULL_PROFILE_POSITIVE_FINITE_RANK_BOUNDED__INFINITE_DIM_CLOSED_SUBSPACES_REMAIN`
+- `three_locks_corner` = `CERTIFICATE_II_FINITE_FACE_ELEVATED_TO_KERNEL_THEOREM__ABSTRACT_BREUER_FIRES_ON_H3L_THREE_LOCKS_OPERATOR__WITNESS_IN_THREE_LOCKS_FORCES_NONTRIVIAL_CORNER__WEIGHT_EQUALS_TR_PF_BY_DEFINITION__NAME_IS_ONE_DERIVED__DIM_BOUNDED_BY_INSCRIPTION__III1_REMAINS`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
