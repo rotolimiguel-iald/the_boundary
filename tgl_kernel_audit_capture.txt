@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=106785 len(stderr)=0
+# len(stdout)=108414 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -997,6 +997,24 @@ TGLExt.polarizations_linearly_independent : ∀ (a b : ℝ), a • TGLExt.ePlus 
   (∀ (A : Matrix n n ℝ), A.PosSemidef → 0 ≤ A.trace) ∧
     (∀ (A : Matrix n n ℝ), A.PosSemidef → (A.trace = 0 ↔ A = 0)) ∧
       ∀ (A B : Matrix n n ℝ), (B - A).PosSemidef → A.trace ≤ B.trace
+TGLExt.dimTraceData : (n : Type) → [Fintype n] → TGLExt.SemifiniteTraceData (Submodule ℝ (n → ℝ))
+@TGLExt.dimension_trace_bot : ∀ {n : Type} [inst : Fintype n] [DecidableEq n], (TGLExt.dimTraceData n).tau ⊥ = 0
+@TGLExt.dimension_trace_top_finite : ∀ {n : Type} [inst : Fintype n] [DecidableEq n], (TGLExt.dimTraceData n).tau ⊤ < ⊤
+@TGLExt.concreteKernelPackage : {n : Type} →
+  [inst : Fintype n] →
+    [DecidableEq n] →
+      (H0 V : Matrix n n ℝ) →
+        (H0 - V).mulVecLin.ker ≠ ⊥ → TGLExt.BreuerGapData (Submodule ℝ (n → ℝ)) (TGLExt.dimTraceData n)
+@TGLExt.concrete_kernel_weight_via_abstract_layer : ∀ {n : Type} [inst : Fintype n] [DecidableEq n]
+  (H0 V : Matrix n n ℝ),
+  (H0 - V).mulVecLin.ker ≠ ⊥ →
+    0 < (TGLExt.dimTraceData n).tau (H0 - V).mulVecLin.ker ∧ (TGLExt.dimTraceData n).tau (H0 - V).mulVecLin.ker < ⊤
+@TGLExt.concrete_kernel_full_profile : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (H0 V : Matrix n n ℝ),
+  (∀ (x : n → ℝ), x ≠ 0 → 0 < x ⬝ᵥ H0.mulVec x) →
+    (H0 - V).mulVecLin.ker ≠ ⊥ →
+      (0 < (TGLExt.dimTraceData n).tau (H0 - V).mulVecLin.ker ∧
+          (TGLExt.dimTraceData n).tau (H0 - V).mulVecLin.ker < ⊤) ∧
+        Module.finrank ℝ ↥(H0 - V).mulVecLin.ker ≤ Module.finrank ℝ ↥V.mulVecLin.range
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1306,6 +1324,10 @@ TGLExt.polarizations_linearly_independent : ∀ (a b : ℝ), a • TGLExt.ePlus 
 'TGLExt.psd_trace_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.trace_monotone_of_psd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.matrix_trace_is_faithful_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.dimension_trace_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.dimension_trace_top_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.concrete_kernel_weight_via_abstract_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.concrete_kernel_full_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

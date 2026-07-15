@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-15 17:24:20",
+  "timestamp": "2026-07-15 18:53:02",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "93e3c4d032f5a4845badb54dd1f31f8342ac2ea3b4fe18e528318baf9d33d557",
+  "formal_source_hash": "0e7d684efaefcfd64f81c6ad110429fec0b5c69a7f72e665c552ff82c4d71c42",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "c766f16a3d8a4b06f490fbe329c8503b6a152858f8e5756a648e8b21c5552347",
+    "TGLExt.lean": "772db13277f42f3fd94775486a944d6aa3a76d6519c486dddca7ed19ce486415",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "d0168f2303435ffcd9677610ab45ff9f41c1b4de8c94b851c72d678e10ae66b3",
+    "TGL/Audit.lean": "75bd18a07f9540948ff7f0f95c88be45711b135a8cee87ef06fba69b04607702",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -53,6 +53,7 @@
     "TGLExt/ContinuousModularZero.lean": "0dad5794f98ba1cb8519b4c105f63d555b5dc3d8fab7884f8265aebff214f376",
     "TGLExt/CornerFamily.lean": "bbceea91341abcf2b2a3f0f33ce88975fd5c529f05918c6982eb4872b66fe105",
     "TGLExt/CovariantCorner.lean": "155cb43d01bb7645bd6bef16d21fbbf2c01114a73fa466e1e4d18ac92a6c5e7d",
+    "TGLExt/DimensionTrace.lean": "cdadc9fdf8ed641c7c260e0a5450577b4e190b102a055dc0d2c49e71f49338ea",
     "TGLExt/EmergenceTriad.lean": "3b7c6220060598fb4353dddefd71fb9064db3ce8a1e2cf891d0f2ae8c97c04e9",
     "TGLExt/Ergodicity.lean": "79bc3b939b6e4e598cefed39088d5b9e9a06e125614bd185f414441c3718f5de",
     "TGLExt/FiniteCrossedProduct.lean": "330b9624b2ae0d8192785ae28c5a57f58e2d49070ea717f6af964d8c57020e0d",
@@ -1617,10 +1618,30 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.dimension_trace_bot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.dimension_trace_top_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.concrete_kernel_weight_via_abstract_layer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.concrete_kernel_full_profile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "cbfcc0646705b2825cfb10813ac8be16192007fae64273a53c19c64ff5fb43f9",
-  "audit_stdout_sha256": "0a95f05551919e9a440a48af9832ead50c7c2a46891a5b70bd38512aaf544958",
+  "build_stdout_sha256": "0349ceb98dd630821acae80caaa65c1ced1abb6e24425d2fe0b3a9d55231446d",
+  "audit_stdout_sha256": "45b699e1724d719e0e6e27502cec6f181ae7001b04e541f36d85236bed44ebd9",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

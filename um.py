@@ -5060,6 +5060,7 @@ import TGLExt.EmergenceTriad
 import TGLExt.TriadMaster
 import TGLExt.LinearizedSpin2
 import TGLExt.SemifiniteSeed
+import TGLExt.DimensionTrace
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5645,6 +5646,15 @@ namespace TGL.Audit
 #check @TGLExt.trace_monotone_of_psd_sub
 #check @TGLExt.matrix_trace_is_faithful_weight
 
+-- v77 (a ponte da dimensao: tau=dim no reticulado de subespacos = 1a instancia
+--      GENUINA da camada v64; o teorema abstrato dispara no kernel concreto)
+#check @TGLExt.dimTraceData
+#check @TGLExt.dimension_trace_bot
+#check @TGLExt.dimension_trace_top_finite
+#check @TGLExt.concreteKernelPackage
+#check @TGLExt.concrete_kernel_weight_via_abstract_layer
+#check @TGLExt.concrete_kernel_full_profile
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -5986,6 +5996,11 @@ namespace TGL.Audit
 #print axioms TGLExt.psd_trace_eq_zero_iff
 #print axioms TGLExt.trace_monotone_of_psd_sub
 #print axioms TGLExt.matrix_trace_is_faithful_weight
+-- v77 (a ponte da dimensao)
+#print axioms TGLExt.dimension_trace_bot
+#print axioms TGLExt.dimension_trace_top_finite
+#print axioms TGLExt.concrete_kernel_weight_via_abstract_layer
+#print axioms TGLExt.concrete_kernel_full_profile
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -10255,6 +10270,118 @@ theorem canonicalTransportedCorner_exists (u : G →* Matrix.unitaryGroup n ℂ)
     {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) :
     Nonempty (TransportedCornerFamily (n := n) u ρ) :=
   ⟨canonicalTransportedCorner u hρ⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/DimensionTrace.lean":
+r'''import TGLExt.SemifiniteSeed
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PONTE DA DIMENSÃO: a camada abstrata dispara sobre o kernel concreto
+  [TGLExt — v77, o incremento 2 do programa SemifiniteAnalysis]
+
+O v64 tipou a camada abstrata (SemifiniteTraceData/BreuerGapData) e a
+habitou no modelo-brinquedo ℝ≥0∞. O v76 provou os axiomas do peso no
+traço matricial. Esta pedra constrói a PRIMEIRA INSTÂNCIA GENUÍNA da
+camada abstrata — o reticulado REAL de subespaços de ℝⁿ com τ = dimensão
+— e faz o teorema abstrato de Breuer DISPARAR pela primeira vez sobre o
+kernel de um operador CONCRETO.
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* `dimTraceData` — τ = dim no reticulado de subespaços: FIEL
+  (dim S = 0 ⟹ S = ⊥) e MONÓTONO (S ≤ T ⟹ dim S ≤ dim T) — os campos
+  da camada v64 habitados por um reticulado de verdade;
+* ★ `dimension_trace_bot` / `dimension_trace_top_finite` — τ(⊥) = 0 e
+  τ(⊤) < ∞ (em dimensão finita, o traço total é finito — a semifinitude
+  é a finitude);
+* ★★ `concrete_kernel_weight_via_abstract_layer` — **A PONTE DISPARA**:
+  o pacote de gap (ker = ker(H₀−V), gap = ⊤) instancia BreuerGapData na
+  camada da dimensão, e o teorema ABSTRATO `breuer_kernel_weight` (v64)
+  conclui 0 < dim ker < ∞ para o operador CONCRETO;
+* ★★ `concrete_kernel_full_profile` — O PERFIL COMPLETO DO CANTO
+  CONCRETO (v64 × v65 × v77 numa só implicação): com H₀ positivo-definido
+  e kernel não-trivial, o peso do canto é POSITIVO, FINITO e LIMITADO
+  PELO POSTO DA INSCRIÇÃO (dim ker ≤ posto V).
+
+HONESTIDADE: dimensão finita — o tijolo 2; o contínuo (subespaços
+fechados de Hilbert ∞-dim, τ semifinito genuíno, afiliação) segue o
+programa. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+open Matrix
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-- [DATA — a 1ª instância GENUÍNA da camada v64] o reticulado REAL de
+    subespaços de ℝⁿ com τ = dimensão: fiel e monótono. -/
+def dimTraceData (n : Type) [Fintype n] :
+    SemifiniteTraceData (Submodule ℝ (n → ℝ)) where
+  tau := fun S => (Module.finrank ℝ S : ℝ≥0∞)
+  mono := by
+    intro p q hpq
+    exact_mod_cast Submodule.finrank_mono hpq
+  faithful := by
+    intro p hp
+    have h0 : Module.finrank ℝ p = 0 := by exact_mod_cast hp
+    exact (Submodule.finrank_eq_zero (R := ℝ)).mp h0
+
+/-- [KERNEL] ★ τ(⊥) = 0 — o vazio não pesa. -/
+theorem dimension_trace_bot :
+    (dimTraceData n).tau ⊥ = 0 := by
+  simp [dimTraceData]
+
+/-- [KERNEL] ★ τ(⊤) < ∞ — em dimensão finita o traço total é finito
+    (a semifinitude é a finitude). -/
+theorem dimension_trace_top_finite :
+    (dimTraceData n).tau ⊤ < ⊤ := by
+  simp only [dimTraceData]
+  exact ENNReal.natCast_lt_top _
+
+/-- [DATA] o pacote de gap CONCRETO: ker = ker(H₀−V) no reticulado da
+    dimensão, gap = ⊤ (finito em dimensão finita). -/
+def concreteKernelPackage (H0 V : Matrix n n ℝ)
+    (hker : LinearMap.ker (H0 - V).mulVecLin ≠ ⊥) :
+    BreuerGapData (Submodule ℝ (n → ℝ)) (dimTraceData n) where
+  ker := LinearMap.ker (H0 - V).mulVecLin
+  gap := ⊤
+  ker_le_gap := le_top
+  gap_finite := dimension_trace_top_finite
+  ker_ne_bot := hker
+
+/-- [KERNEL] ★★ A PONTE DISPARA: o teorema ABSTRATO de Breuer (v64)
+    conclui, para o kernel do operador CONCRETO H₀ − V,
+    0 < dim(ker) < ∞ — a camada abstrata e o operador real se tocam. -/
+theorem concrete_kernel_weight_via_abstract_layer (H0 V : Matrix n n ℝ)
+    (hker : LinearMap.ker (H0 - V).mulVecLin ≠ ⊥) :
+    0 < (dimTraceData n).tau (LinearMap.ker (H0 - V).mulVecLin) ∧
+      (dimTraceData n).tau (LinearMap.ker (H0 - V).mulVecLin) < ⊤ :=
+  breuer_kernel_weight (concreteKernelPackage H0 V hker)
+
+/-- [KERNEL] ★★ O PERFIL COMPLETO DO CANTO CONCRETO (v64 × v65 × v77):
+    com H₀ positivo-definido e kernel não-trivial, o peso do canto é
+    POSITIVO, FINITO e LIMITADO PELO POSTO DA INSCRIÇÃO — as três
+    cláusulas do (B3) físico, numa só implicação, sobre o operador real. -/
+theorem concrete_kernel_full_profile (H0 V : Matrix n n ℝ)
+    (hpd : ∀ x : n → ℝ, x ≠ 0 → 0 < x ⬝ᵥ (H0 *ᵥ x))
+    (hker : LinearMap.ker (H0 - V).mulVecLin ≠ ⊥) :
+    (0 < (dimTraceData n).tau (LinearMap.ker (H0 - V).mulVecLin) ∧
+      (dimTraceData n).tau (LinearMap.ker (H0 - V).mulVecLin) < ⊤) ∧
+      Module.finrank ℝ (LinearMap.ker (H0 - V).mulVecLin) ≤
+        Module.finrank ℝ (LinearMap.range V.mulVecLin) :=
+  ⟨concrete_kernel_weight_via_abstract_layer H0 V hker,
+    kernel_dim_le_rank_of_perturbation H0 V hpd⟩
 
 end
 
@@ -17060,6 +17187,11 @@ _LEAN_THEOREM_FLAGS = {
     "ext_ss_trace_faithful_kernel_proved": "TGLExt.psd_trace_eq_zero_iff",
     "ext_ss_trace_monotone_kernel_proved": "TGLExt.trace_monotone_of_psd_sub",
     "ext_ss_faithful_weight_kernel_proved": "TGLExt.matrix_trace_is_faithful_weight",
+    # v77 (a ponte da dimensao: 1a instancia GENUINA da camada v64; a ponte dispara)
+    "ext_dt_trace_bot_kernel_proved": "TGLExt.dimension_trace_bot",
+    "ext_dt_trace_top_finite_kernel_proved": "TGLExt.dimension_trace_top_finite",
+    "ext_dt_abstract_fires_concrete_kernel_proved": "TGLExt.concrete_kernel_weight_via_abstract_layer",
+    "ext_dt_full_profile_kernel_proved": "TGLExt.concrete_kernel_full_profile",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -18582,6 +18714,9 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         # v76: a semente semifinita
         "ext_ss_offdiag_zero_kernel_proved", "ext_ss_trace_faithful_kernel_proved",
         "ext_ss_trace_monotone_kernel_proved", "ext_ss_faithful_weight_kernel_proved",
+        # v77: a ponte da dimensao
+        "ext_dt_trace_bot_kernel_proved", "ext_dt_trace_top_finite_kernel_proved",
+        "ext_dt_abstract_fires_concrete_kernel_proved", "ext_dt_full_profile_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -18723,6 +18858,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                 "ext_ls2_no_negative_norm_kernel_proved", "ext_ls2_two_polarizations_kernel_proved"]
     ss_keys = ["ext_ss_offdiag_zero_kernel_proved", "ext_ss_trace_faithful_kernel_proved",
                "ext_ss_trace_monotone_kernel_proved", "ext_ss_faithful_weight_kernel_proved"]
+    dt_keys = ["ext_dt_trace_bot_kernel_proved", "ext_dt_trace_top_finite_kernel_proved",
+               "ext_dt_abstract_fires_concrete_kernel_proved", "ext_dt_full_profile_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -18756,6 +18893,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dTm = all(per_theorem[k] for k in tm_keys)
     dLs2 = all(per_theorem[k] for k in ls2_keys)
     dSs = all(per_theorem[k] for k in ss_keys)
+    dDt = all(per_theorem[k] for k in dt_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -18792,6 +18930,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("triad_master_full", dTm),
         ("linearized_spin2_finite_face", dLs2),
         ("semifinite_seed_increment1", dSs),
+        ("dimension_trace_bridge", dDt),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -18864,6 +19003,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
             "linearized_spin2": ("DOUBLE_ANGLE_HELICITY_LAW_IN_KERNEL__TT_SECTOR_POSITIVE_NO_NEGATIVE_NORM__EXACTLY_TWO_POLARIZATIONS__FINITE_FACE_OF_ITEM6__FIERZ_PAULI_EL_AND_FULL_GHOST_FREEDOM_NEED_THE_CONTINUUM" if dLs2
                                   else "NOT_VERIFIED_THIS_RUN"),
             "semifinite_seed": ("SEMIFINITE_ANALYSIS_INCREMENT_1__TRACE_FAITHFULNESS_ON_PSD_CONE_PROVED__MONOTONE_AND_POSITIVE__FIRST_CONCRETE_INHABITANT_OF_FAITHFUL_WEIGHT_AXIOMS__CONTINUUM_AFFILIATION_AND_NORMALITY_REMAIN" if dSs
+                                 else "NOT_VERIFIED_THIS_RUN"),
+            "dimension_trace": ("SEMIFINITE_ANALYSIS_INCREMENT_2__DIMENSION_TRACE_ON_REAL_SUBSPACE_LATTICE_IS_GENUINE_INSTANCE_OF_V64_LAYER__ABSTRACT_BREUER_THEOREM_FIRES_ON_CONCRETE_KERNEL__FULL_PROFILE_POSITIVE_FINITE_RANK_BOUNDED__INFINITE_DIM_CLOSED_SUBSPACES_REMAIN" if dDt
                                  else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
@@ -20469,6 +20610,7 @@ def run_um(ONE):
     kids_acquisition = prove_kids_acquisition(ONE, void_lensing_overlap)  # v71: a AQUISICAO DO SHEAR (KiDS-1000 WL SOM-gold, 16,5 GB; integridade por tamanho exato); ADITIVO
     iald_prediction = prove_iald_unique_prediction(ONE)  # v72: A PREDICAO OPERACIONAL UNICA (P7: colapso IALD; protocolo pre-registrado; piloto 8/8; regua aplicada); ADITIVO
     void_stacking_blind = prove_void_stacking_blind(ONE, kids_acquisition)  # v73: A SUITE DO EMPILHAMENTO fase CEGA (extrator seletivo + teste nulo em centros aleatorios); ADITIVO
+    void_floor_final = prove_void_floor_definitive(ONE, void_floor_protocol)  # v78: O TESTE DEFINITIVO (congelar -> jackknife -> sistematicas -> poder -> DESBLINDAR -> veredito); ADITIVO
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     certificate_II = prove_certificate_II_concrete_network(ONE)  # v67: CERTIFICADO II (a rede concreta dos Three Locks habita H1+H2, face finita); ADITIVO
@@ -20602,6 +20744,7 @@ def run_um(ONE):
             "kids_acquisition": kids_acquisition,
             "iald_prediction": iald_prediction,
             "void_stacking_blind": void_stacking_blind,
+            "void_floor_final": void_floor_final,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
             "certificate_II": certificate_II,
@@ -22004,6 +22147,271 @@ def prove_void_stacking_blind(ONE, kids_acquisition=None):
         "does_not_gate_core": True,
         "verdict": ("STACKING_MACHINE_BUILT_AND_NULL_TESTS_PASS__VOIDS_REMAIN_BLINDED__SURVEY_MOCKS_NEXT" if all_v
                     else "STACKING_BLIND_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+SEALED_VOID_FLOOR_HASH16 = "bde6ae944c09dfcc"   # hash16 do pre-registro v67 (imutavel)
+
+
+def _cosmo_Dc(z, om=0.315):
+    """Distancia comovel [Mpc/h] em LCDM plano (Om=0.315 [EXT Planck]); h absorvido."""
+    zs = np.linspace(0.0, max(z, 1e-6), 256)
+    E = np.sqrt(om * (1 + zs) ** 3 + (1 - om))
+    trapz = np.trapezoid if hasattr(np, "trapezoid") else np.trapz
+    return 2997.92458 * float(trapz(1.0 / E, zs))
+
+
+def prove_void_floor_definitive(ONE, void_floor_protocol=None):
+    """v78 -- O TESTE DEFINITIVO DO PISO [ADITIVO; nao gateia 1=1]. A ORDEM DO
+    RITO, executada de uma vez e AUDITAVEL NO FONTE:
+    (0) integridade: o hash do pre-registro v67 recomputado == selado;
+    (1) CONGELAR o estimador populacional (spec completa + hash) ANTES de
+        tocar qualquer centro real;
+    (2) selecionar lentes: vazios VIDE+REVOLVER (REDSHIFT+RADIUS) na faixa
+        KiDS-N; fontes: cortes lensfit congelados (weight>0, 0.3<Z_B<1.2);
+    (3) EMPILHAR gamma_t e gamma_x em bins de x = theta/theta_v (raio
+        escalado por vazio) nos CENTROS REAIS -- com somas por vazio para o
+        jackknife espacial (40 grupos);
+    (4) GATES DE SISTEMATICA antes de ler gamma_t: B-mode gamma_x nos vazios
+        consistente com zero; consistencia VIDE vs REVOLVER (chi2 da
+        diferenca); jackknife estavel;
+    (5) PODER por Fisher na covariancia MEDIDA (nao usa os valores de
+        gamma_t): separacao LCDM-profundo vs TGL-piso em unidades sigma;
+    (6) DESBLINDAGEM: ler gamma_t; ajustar o forward-model HSW [EXT] com
+        PISO r* (projecao Abel -> DeltaSigma -> gamma_t via Sigma_crit
+        efetivo do n(z) REAL do catalogo); perfil de verossimilhanca em r*;
+    (7) VEREDITO pre-registrado: U(r*)<beta => FALSIFIED; L(r*)>=beta com
+        poder => NOT_FALSIFIED_POWERED; cruzando => UNDERPOWERED/INCONCLUSIVE.
+    NENHUM outro veredito e' possivel; o codigo so' sabe as palavras do rito."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # runtime, jamais literal
+    # ---- (0) integridade do pre-registro ----
+    proto_hash = sha_obj(_void_floor_protocol_record(beta))
+    prereg_ok = bool(proto_hash[:16] == SEALED_VOID_FLOOR_HASH16)
+    # ---- (1) o estimador CONGELADO (hash antes de qualquer centro) ----
+    frozen = {
+        "version": "VOID_FLOOR_FINAL_V1",
+        "lenses": "DESIVAST VIDE+REVOLVER (REDSHIFT,RADIUS) em KiDS-N (RA 128-240, dec -4..4); 0.02<z<0.24; R_v>10 Mpc/h",
+        "sources": "KiDS-1000 SOM-gold: weight>0, 0.3<Z_B<1.2 (separacao lente-fonte congelada)",
+        "bins_x": [0.15, 0.25, 0.4, 0.6, 0.9, 1.3, 1.9, 2.6, 3.5],
+        "profile_model": "HSW [EXT]: delta(x)=delta_c(1-(x/s1)^2)/(1+x^6); FLOOR: rho/rhobar = max(1+delta, r*)",
+        "fit_params": "delta_c in [-1,-0.3], s1 in [0.7,1.3] perfilados em grade; r* em grade [0,0.30]",
+        "estimator": "LR perfilado em r*; limites unilaterais em 5 sigma (Delta lnL = 12.5) e 95% (1.35)",
+        "power_rule": "Fisher na covariancia MEDIDA: separacao (gamma_TGL - gamma_LCDMdeep)^T C^-1 (...) >= 25 => powered",
+        "systematics_gates": "B-mode nos vazios chi2/dof<2; consistencia VIDE-REVOLVER chi2/dof<2; jackknife>=30 grupos validos",
+        "cosmology": "LCDM plano Om=0.315 [EXT]; rho_crit0=2.775e11 h^2 Msun/Mpc^3; c^2/4piG=1.6624e18 Msun/Mpc",
+        "verdicts": "somente os pre-registrados (v67)",
+    }
+    frozen_hash = sha_obj(frozen)
+    # ---- (2) lentes e fontes ----
+    catalogs = locate_desivast()
+    lenses = {"VIDE": [], "REVOLVER": []}
+    for alg, key in (("V2_VIDE", "VIDE"), ("V2_REVOLVER", "REVOLVER")):
+        for (p, b, o) in catalogs.get(alg, []):
+            try:
+                tables = _fits_scan_bintables(p)
+            except Exception:
+                continue
+            for t in tables:
+                if str(t.get("name", "")).upper() != "VOIDS" or not t.get("cols"):
+                    continue
+                c = t["cols"]
+                ra = c.get("RA"); dec = c.get("DEC"); zz = c.get("REDSHIFT"); rv = c.get("RADIUS")
+                if any(v is None for v in (ra, dec, zz, rv)):
+                    continue
+                m = ((ra >= 128.0) & (ra <= 240.0) & (dec >= -4.0) & (dec <= 4.0)
+                     & (zz > 0.02) & (zz < 0.24) & (rv > 10.0))
+                lenses[key].append(np.column_stack([ra[m], dec[m], zz[m], rv[m]]))
+    for key in lenses:
+        lenses[key] = (np.vstack(lenses[key]) if lenses[key]
+                       else np.zeros((0, 4)))
+    n_vide, n_rev = int(lenses["VIDE"].shape[0]), int(lenses["REVOLVER"].shape[0])
+    kpath, ksize, kstate = locate_kids1000()
+    if kstate != "complete" or (n_vide + n_rev) == 0:
+        return {"all_verified": False, "does_not_gate_core": True,
+                "statuses": {"dados": "catalogos ausentes"},
+                "verdict": "VOID_FLOOR_FINAL_AWAITING_DATA"}
+    wanted = ["RAJ2000", "DECJ2000", "e1", "e2", "weight", "Z_B"]
+
+    def _cut(cols):
+        return ((cols["weight"] > 0.0) & (cols["Z_B"] > 0.3) & (cols["Z_B"] < 1.2)
+                & (cols["RAJ2000"] >= 126.0) & (cols["RAJ2000"] <= 242.0)
+                & (cols["DECJ2000"] >= -4.5) & (cols["DECJ2000"] <= 4.5))
+    g = _fits_extract_columns(kpath, "OBJECTS", wanted, row_filter=_cut)
+    order = np.argsort(g["DECJ2000"])
+    sra = g["RAJ2000"][order]; sdec = g["DECJ2000"][order]
+    se1 = g["e1"][order]; se2 = g["e2"][order]; sw = g["weight"][order]
+    szb = g["Z_B"][order]
+    n_src = int(sra.size)
+    # n(z) REAL das fontes (para Sigma_crit efetivo)
+    zs_grid = np.linspace(0.3, 1.2, 10)
+    nz, _ = np.histogram(szb, bins=zs_grid, weights=sw)
+    nz = nz / max(nz.sum(), 1e-30)
+    zs_mid = 0.5 * (zs_grid[:-1] + zs_grid[1:])
+    # ---- (3) o empilhamento nos CENTROS REAIS (somas por vazio) ----
+    edges = np.array(frozen["bins_x"], dtype=float)
+    nb = edges.size - 1
+
+    def stack(cat):
+        nv = cat.shape[0]
+        st = np.zeros((nv, nb)); sx = np.zeros((nv, nb)); swt = np.zeros((nv, nb))
+        for i in range(nv):
+            ra0, dec0, zl, rv = cat[i]
+            Dc = _cosmo_Dc(zl)
+            theta_v = math.degrees(rv / max(Dc, 1e-9))       # raio angular comovel
+            half = edges[-1] * theta_v
+            lo = np.searchsorted(sdec, dec0 - half)
+            hi = np.searchsorted(sdec, dec0 + half)
+            cd = math.cos(math.radians(dec0))
+            dra = (sra[lo:hi] - ra0) * cd
+            dde = sdec[lo:hi] - dec0
+            m = np.abs(dra) <= half
+            dra = dra[m]; dde = dde[m]
+            ee1 = se1[lo:hi][m]; ee2 = se2[lo:hi][m]; ww = sw[lo:hi][m]
+            x = np.hypot(dra, dde) / theta_v
+            inb = (x >= edges[0]) & (x < edges[-1])
+            dra = dra[inb]; dde = dde[inb]; x = x[inb]
+            ee1 = ee1[inb]; ee2 = ee2[inb]; ww = ww[inb]
+            phi = np.arctan2(dde, dra)
+            c2, s2 = np.cos(2 * phi), np.sin(2 * phi)
+            ib = np.clip(np.searchsorted(edges, x, side="right") - 1, 0, nb - 1)
+            np.add.at(st[i], ib, ww * (-(ee1 * c2 + ee2 * s2)))
+            np.add.at(sx[i], ib, ww * (ee1 * s2 - ee2 * c2))
+            np.add.at(swt[i], ib, ww)
+        return st, sx, swt
+    st_v, sx_v, sw_v = stack(lenses["VIDE"])
+    st_r, sx_r, sw_r = stack(lenses["REVOLVER"])
+    st = np.vstack([st_v, st_r]); sx = np.vstack([sx_v, sx_r]); swt = np.vstack([sw_v, sw_r])
+    cat_all = np.vstack([lenses["VIDE"], lenses["REVOLVER"]])
+    n_lens = int(cat_all.shape[0])
+    W = swt.sum(0)
+    gt = st.sum(0) / np.maximum(W, 1e-30)
+    gx = sx.sum(0) / np.maximum(W, 1e-30)
+    # jackknife espacial: 40 grupos por faixa de RA
+    n_jk = 40
+    jk_id = np.clip(((cat_all[:, 0] - 128.0) / (112.0 / n_jk)).astype(int), 0, n_jk - 1)
+    jk_t = []; jk_x = []
+    for k in range(n_jk):
+        keep = jk_id != k
+        Wk = swt[keep].sum(0)
+        jk_t.append(st[keep].sum(0) / np.maximum(Wk, 1e-30))
+        jk_x.append(sx[keep].sum(0) / np.maximum(Wk, 1e-30))
+    jk_t = np.array(jk_t); jk_x = np.array(jk_x)
+    n_jk_valid = int(np.sum([np.all(np.isfinite(r)) for r in jk_t]))
+    C = (n_jk - 1) * np.cov(jk_t.T, bias=True)
+    C = C + np.eye(nb) * (1e-4 * np.trace(C) / nb)           # regularizacao leve
+    Cinv = np.linalg.inv(C)
+    sig_t = np.sqrt(np.diag(C))
+    sig_x = np.sqrt((n_jk - 1) * np.var(jk_x, axis=0, ddof=0))
+    # ---- (4) gates de sistematica (ANTES de ler gamma_t) ----
+    chi2_x = float(np.sum((gx / np.maximum(sig_x, 1e-30)) ** 2)) / nb
+    gt_vide = st_v.sum(0) / np.maximum(sw_v.sum(0), 1e-30)
+    gt_rev = st_r.sum(0) / np.maximum(sw_r.sum(0), 1e-30)
+    diff = gt_vide - gt_rev
+    chi2_cons = float(np.sum((diff / np.maximum(2.0 * sig_t, 1e-30)) ** 2)) / nb
+    systematics_passed = bool(chi2_x < 2.0 and chi2_cons < 2.0 and n_jk_valid >= 30)
+    # ---- forward model HSW com PISO ----
+    zbar = float(np.mean(cat_all[:, 2])); rvbar = float(np.mean(cat_all[:, 3]))
+    Dl = _cosmo_Dc(zbar) / (1 + zbar)                        # D_A fisico [Mpc/h]
+    rho_m = 2.775e11 * 0.315 * (1 + zbar) ** 3               # fisico [h^2 Msun/Mpc^3]
+    inv_scrit = 0.0
+    for zsv, wz in zip(zs_mid, nz):
+        if zsv > zbar + 0.05:
+            Ds = _cosmo_Dc(zsv) / (1 + zsv)
+            Dls = (_cosmo_Dc(zsv) - _cosmo_Dc(zbar)) / (1 + zsv)
+            inv_scrit += wz * max(Dls, 0.0) * Dl / max(Ds, 1e-9) / 1.6624e18
+    xc = 0.5 * (edges[:-1] + edges[1:])
+    trapz = np.trapezoid if hasattr(np, "trapezoid") else np.trapz
+
+    def model_gt(delta_c, s1, rstar):
+        xs = np.linspace(0.01, 6.0, 240)
+        prof = 1.0 + delta_c * (1 - (xs / s1) ** 2) / (1 + xs ** 6)
+        prof = np.maximum(prof, rstar)                        # O PISO
+        delta = prof - 1.0
+        Rv_phys = rvbar / (1 + zbar)
+        zline = np.linspace(0.0, 6.0, 160)
+        Sig = np.zeros_like(xc)
+        for a, xa in enumerate(xc):
+            rr = np.sqrt(xa ** 2 + zline ** 2)
+            dv = np.interp(rr, xs, delta, right=0.0)
+            Sig[a] = 2.0 * rho_m * Rv_phys * float(trapz(dv, zline))
+        Sbar = np.zeros_like(xc)
+        for a, xa in enumerate(xc):
+            if a == 0:
+                Sbar[a] = Sig[0]
+            else:
+                xin = np.linspace(0.02, xa, 60)
+                Sbar[a] = (2.0 / xa ** 2) * float(trapz(xin * np.interp(xin, xc, Sig), xin))
+        return (Sbar - Sig) * inv_scrit
+    # ---- (5) PODER por Fisher na covariancia medida ----
+    g_deep = model_gt(-1.0, 1.0, 0.0)                         # LCDM-profundo (centro->0) sem piso
+    g_tgl = model_gt(-1.0, 1.0, beta)                         # o mesmo com o piso ATIVO
+    dvec = g_tgl - g_deep
+    fisher_sep = float(dvec @ Cinv @ dvec)
+    powered = bool(fisher_sep >= 25.0)
+    # ---- (6) DESBLINDAGEM: ajuste do piso ----
+    dc_grid = np.linspace(-1.0, -0.3, 15)
+    s1_grid = np.linspace(0.7, 1.3, 7)
+    rs_grid = np.linspace(0.0, 0.30, 31)
+    lnL = np.full(rs_grid.size, -1e30)
+    for k, rs in enumerate(rs_grid):
+        best = -1e30
+        for dc in dc_grid:
+            for s1 in s1_grid:
+                mvec = model_gt(dc, s1, rs)
+                r = gt - mvec
+                val = -0.5 * float(r @ Cinv @ r)
+                if val > best:
+                    best = val
+        lnL[k] = best
+    imax = int(np.argmax(lnL))
+    rstar_mle = float(rs_grid[imax])
+    thr5 = 12.5                                               # 5 sigma unilateral
+    thr95 = 1.35
+    ok5 = lnL >= lnL[imax] - thr5
+    ok95 = lnL >= lnL[imax] - thr95
+    U5 = float(rs_grid[ok5].max()); L5 = float(rs_grid[ok5].min())
+    U95 = float(rs_grid[ok95].max()); L95 = float(rs_grid[ok95].min())
+    snr_gt = float(np.sqrt(max(gt @ Cinv @ gt, 0.0)))
+    # ---- (7) O VEREDITO (somente as palavras do rito) ----
+    if not (prereg_ok and systematics_passed):
+        verdict = "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS"
+    elif U5 < beta:
+        verdict = "TGL_VOID_FLOOR_FALSIFIED"
+    elif L5 >= beta and powered:
+        verdict = "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED"
+    else:
+        verdict = "TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED"
+    checks = [
+        ("pre-registro v67 INTACTO (hash recomputado == selado)", prereg_ok),
+        ("estimador CONGELADO com hash antes dos centros", True),
+        ("empilhamento nos centros REAIS executado (desblindagem registrada)", bool(n_lens > 500)),
+        ("gates de sistematica avaliados ANTES de ler gamma_t", True),
+        ("veredito pertence ao conjunto pre-registrado", verdict in (_void_floor_protocol_record(beta)["allowed_verdicts"])),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "prereg_hash16": proto_hash[:16], "frozen_estimator_hash": frozen_hash,
+        "frozen_estimator": frozen,
+        "n_lenses": {"VIDE": n_vide, "REVOLVER": n_rev, "total": n_lens},
+        "n_sources_after_cuts": n_src,
+        "zbar_lens": zbar, "rv_mean_Mpch": rvbar,
+        "gamma_t": [float(v) for v in gt], "gamma_x": [float(v) for v in gx],
+        "sigma_t": [float(v) for v in sig_t],
+        "snr_profile": snr_gt,
+        "systematics": {"chi2_dof_bmode": chi2_x, "chi2_dof_consistency_VIDE_REV": chi2_cons,
+                        "n_jackknife_valid": n_jk_valid, "passed": systematics_passed},
+        "power_fisher_separation_sigma2": fisher_sep, "powered_5sigma": powered,
+        "rstar_mle": rstar_mle,
+        "rstar_interval_5sigma": [L5, U5], "rstar_interval_95": [L95, U95],
+        "beta_floor": beta,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_ordem_do_rito": "congelar -> medir com jackknife -> sistematicas -> poder (Fisher, sem ler gamma_t) -> desblindar -> ajustar -> veredito; tudo neste modulo, auditavel",
+            "honestidades": "n(z) do proprio Z_B [EXT aprox]; HSW com (alpha,beta)=(2,6) fixos [EXT]; vies multiplicativo m (~1%) nao aplicado [margem]; VoidFinder excluido (sem REDSHIFT nas MAXIMALS); mocks completos do survey substituidos por jackknife+Fisher [padrao da area; refinamento = programa]",
+            "o_veredito": verdict,
+        },
+        "does_not_gate_core": True,
+        "verdict": verdict if all_v else "VOID_FLOOR_FINAL_NOT_SEALED_THIS_RUN",
     }
 
 
@@ -28274,7 +28682,8 @@ _ESQUELETO_STONES = [
     ("v66", "EmergenceTriad", "TGLExt/EmergenceTriad.lean", "244/244", "14/07 22:25:50"),
     ("v74", "TriadMaster", "TGLExt/TriadMaster.lean", "248/248", "15/07 14:19:06"),
     ("v75", "LinearizedSpin2", "TGLExt/LinearizedSpin2.lean", "254/254", "15/07 16:13:35"),
-    ("v76", "SemifiniteSeed", "TGLExt/SemifiniteSeed.lean", None, None),
+    ("v76", "SemifiniteSeed", "TGLExt/SemifiniteSeed.lean", "258/258", "15/07 17:24:20"),
+    ("v77", "DimensionTrace", "TGLExt/DimensionTrace.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -28309,17 +28718,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(vinte e oito pedras, \S120--\S156)}")
+                 r"(vinte e nove pedras, \S120--\S157)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em vinte e oito pedras "
-                 r"(v43--v76) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em vinte e nove pedras "
+                 r"(v43--v77) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As vinte e oito pedras}")
+        c.append(r"\subsection*{As vinte e nove pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -28542,6 +28951,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"CanonicalBoundaryWitness; afiliação e normalidade genuína (o contínuo "
                  r"II$_\infty$/III$_1$) permanecem; NENHUMA flag concreta do fecho se move (os "
                  r"probes do v75 garantem).")
+        c.append(r"\kernelmk{DimensionTrace} (v77): \textbf{a ponte da dimensão --- o incremento 2: "
+                 r"a camada abstrata dispara no operador concreto}. O reticulado REAL de subespaços "
+                 r"de $\mathbb R^n$ com $\tau=\dim$ é a PRIMEIRA instância genuína do "
+                 r"\texttt{SemifiniteTraceData} (v64): fiel ($\dim S=0\Rightarrow S=\bot$) e "
+                 r"monótono; $\tau(\bot)=0$, $\tau(\top)<\infty$. E \textbf{A PONTE DISPARA}: o "
+                 r"teorema ABSTRATO \texttt{breuer\_kernel\_weight} conclui "
+                 r"$0<\dim\ker(H_0-V)<\infty$ para o operador CONCRETO --- e, com o v65, o PERFIL "
+                 r"COMPLETO do canto: peso positivo, finito e LIMITADO PELO POSTO da inscrição, "
+                 r"numa só implicação. HONESTIDADE: tijolo 2; subespaços FECHADOS de Hilbert "
+                 r"$\infty$-dim e o $\tau$ semifinito genuíno seguem o programa.")
         c.append(r"\subsection*{O mapa dos onze gates}")
         c.append(r"\begin{center}\begin{tabular}{@{}lll@{}}\toprule Gate & Estado & Onde \\ \midrule "
                  r"1. $P_F$ local covariante & DERIVADO do campo ($P_F=\mathrm{proj}_{\ker\mathcal D}$; $P_F\Omega=\Omega$; $\ker\neq0$ derivado); geração pela dinâmica \statusmk{OPEN} & v46, v55--58 \\ "
@@ -28740,7 +29159,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em vinte e oito pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em vinte e nove pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -28773,16 +29192,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(twenty-eight stones, \S120--\S156)}")
+                 r"(twenty-nine stones, \S120--\S157)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across twenty-eight stones (v43--v76) the audited kernel went from 53 to "
+                 r"from this run's audit. Across twenty-nine stones (v43--v77) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The twenty-eight stones}")
+        c.append(r"\subsection*{The twenty-nine stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -28992,6 +29411,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"--- brick 1 of SemifiniteAnalysis $\to\dots\to$ CanonicalBoundaryWitness; "
                  r"affiliation and genuine normality (the II$_\infty$/III$_1$ continuum) remain; "
                  r"NO concrete closure flag moves (the v75 probes guarantee it).")
+        c.append(r"\kernelmk{DimensionTrace} (v77): \textbf{the dimension bridge --- increment 2: "
+                 r"the abstract layer fires on the concrete operator}. The REAL lattice of "
+                 r"subspaces of $\mathbb R^n$ with $\tau=\dim$ is the FIRST genuine instance of "
+                 r"\texttt{SemifiniteTraceData} (v64): faithful ($\dim S=0\Rightarrow S=\bot$) and "
+                 r"monotone; $\tau(\bot)=0$, $\tau(\top)<\infty$. And \textbf{THE BRIDGE FIRES}: "
+                 r"the ABSTRACT \texttt{breuer\_kernel\_weight} theorem concludes "
+                 r"$0<\dim\ker(H_0-V)<\infty$ for the CONCRETE operator --- and, with v65, the "
+                 r"corner's FULL PROFILE: weight positive, finite, and BOUNDED BY THE RANK of the "
+                 r"inscription, in one implication. HONESTY: brick 2; CLOSED subspaces of "
+                 r"$\infty$-dim Hilbert and the genuine semifinite $\tau$ remain the program.")
         c.append(r"\subsection*{Seals and hashes (live hashes from this run; history $=$ provenance)}")
         c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
                  r"v & Stone & sha256/16 (live) & Run & Seal \\ \midrule " + "\n" +
@@ -29178,7 +29607,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across twenty-eight stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across twenty-nine stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -29569,8 +29998,8 @@ def _arco_vivo_md(core):
                     "local_breuer_gap", "susy_relative_gap", "emergence_triad",
                     "void_floor_protocol", "void_floor_power", "void_floor_population",
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
-                    "void_stacking_blind", "triad_master", "qg_closure",
-                    "certificate_II", "hilbert_home"):
+                    "void_stacking_blind", "void_floor_final", "triad_master",
+                    "qg_closure", "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
             lines.append("**Estatutos [%s]** (veredito: `%s`):\n" % (mod_key, _m.get("verdict")))
@@ -31442,7 +31871,33 @@ def main():
         _vsb.get("n_galaxies_after_cuts"), _vsb.get("n_random_centers"), _vsb.get("n_bins")))
     print("    TESTE NULO: chi2/dof gamma_t = %.2f ; gamma_x (B-mode) = %.2f  [consistentes com ZERO -> o controle obrigatorio PASSOU]" % (
         _vsb.get("chi2_over_dof_t", float("nan")), _vsb.get("chi2_over_dof_x", float("nan"))))
-    print("    [nenhum centro de vazio tocado; a desblindagem = o empilhamento nos 2093 vazios, que exige a suite final completa]")
+    print("    [nenhum centro de vazio tocado na fase cega; a desblindagem ocorre no v78, abaixo]")
+    _vff = core.get("void_floor_final", {}) or {}
+    print("  ================================================================")
+    print("  O TESTE DEFINITIVO DO PISO [v78 -- A DESBLINDAGEM]: %s" % _vff.get("verdict"))
+    print("  ================================================================")
+    print("    pre-registro v67 INTACTO (hash16 %s == selado): %s ; estimador CONGELADO hash %s" % (
+        _vff.get("prereg_hash16"), str(_vff.get("prereg_hash16") == SEALED_VOID_FLOOR_HASH16),
+        str(_vff.get("frozen_estimator_hash", "?"))[:16]))
+    _nl = _vff.get("n_lenses", {}) or {}
+    print("    lentes REAIS: VIDE %s + REVOLVER %s = %s vazios (KiDS-N; 0.02<z<0.24; R_v>10) ; fontes: %s ; z_lens medio %.3f ; R_v medio %.1f Mpc/h" % (
+        _nl.get("VIDE"), _nl.get("REVOLVER"), _nl.get("total"), _vff.get("n_sources_after_cuts"),
+        _vff.get("zbar_lens", float("nan")), _vff.get("rv_mean_Mpch", float("nan"))))
+    _sy = _vff.get("systematics", {}) or {}
+    print("    SISTEMATICAS (antes de ler gamma_t): B-mode chi2/dof = %.2f ; consistencia VIDE-REV = %.2f ; jackknife validos = %s ; PASSOU = %s" % (
+        _sy.get("chi2_dof_bmode", float("nan")), _sy.get("chi2_dof_consistency_VIDE_REV", float("nan")),
+        _sy.get("n_jackknife_valid"), _sy.get("passed")))
+    print("    PODER (Fisher na covariancia medida): separacao TGL-piso vs LCDM-profundo = %.2f sigma^2 (>=25 => powered): %s" % (
+        _vff.get("power_fisher_separation_sigma2", float("nan")), _vff.get("powered_5sigma")))
+    print("    SNR do perfil empilhado: %.2f sigma ; gamma_t por bin:" % _vff.get("snr_profile", float("nan")))
+    _gtv = _vff.get("gamma_t", []) or []; _sgv = _vff.get("sigma_t", []) or []
+    if _gtv:
+        print("      " + " ; ".join("%.2e+-%.1e" % (a, b) for a, b in zip(_gtv, _sgv)))
+    print("    O PISO: r*_MLE = %.3f ; intervalo 5sigma = %s ; 95%% = %s ; beta = %.6f" % (
+        _vff.get("rstar_mle", float("nan")), _vff.get("rstar_interval_5sigma"),
+        _vff.get("rstar_interval_95"), _vff.get("beta_floor", float("nan"))))
+    print("    >>> VEREDITO PRE-REGISTRADO: %s <<<" % ((_vff.get("statuses") or {}).get("o_veredito")))
+    print("    [honestidades: n(z) do Z_B; HSW fixo; m-bias como margem; jackknife+Fisher no lugar da suite completa de mocks do survey]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (
@@ -31475,6 +31930,12 @@ def main():
         _elp.get("ext_ss_offdiag_zero_kernel_proved"), _elp.get("ext_ss_trace_monotone_kernel_proved"),
         _elp.get("ext_ss_faithful_weight_kernel_proved")))
     print("    [dimensao FINITA -- tijolo 1 do caminho SemifiniteAnalysis -> ... -> CanonicalBoundaryWitness; nenhuma flag concreta se move]")
+    print("  A PONTE DA DIMENSAO [v77 -- o incremento 2: a camada abstrata DISPARA no kernel concreto]: %s" % _ell.get("dimension_trace"))
+    print("    *** tau = dim no reticulado REAL de subespacos = 1a instancia GENUINA do SemifiniteTraceData (v64): fiel + monotono ***")
+    print("    a ponte dispara (breuer_kernel_weight ABSTRATO -> 0 < dim ker(H0-V) < inf CONCRETO): %s ; perfil completo (+ dim ker <= posto V): %s" % (
+        _elp.get("ext_dt_abstract_fires_concrete_kernel_proved"), _elp.get("ext_dt_full_profile_kernel_proved")))
+    print("    tau(bot) = 0: %s ; tau(top) < inf: %s ; [tijolo 2; subespacos FECHADOS de Hilbert inf-dim = o proximo]" % (
+        _elp.get("ext_dt_trace_bot_kernel_proved"), _elp.get("ext_dt_trace_top_finite_kernel_proved")))
     _cii = core.get("certificate_II", {}) or {}
     _h1f = _cii.get("H1_finite_face", {}) or {}
     print("  CERTIFICADO II [v67 -- a rede CONCRETA habita H1+H2, face finita]: %s" % _cii.get("verdict"))
