@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=94665 len(stderr)=0
+# len(stdout)=97614 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -888,6 +888,28 @@ TGLExt.lorentzRep_injective : Function.Injective TGLExt.lorentzRep
 TGLExt.curvature4_recovered : ∀ (c₁ c₂ : ℝ), ∃! c, TGLExt.lorentzRep c = TGLExt.curv4 (c₁ • TGLExt.K1) (c₂ • TGLExt.K2)
 @TGLExt.susy_discrete_threshold : ∀ {n m : Type} [Fintype n] [inst : Fintype m] [inst_1 : DecidableEq n]
   (B : Matrix m n ℂ) (c : ℝ), ↑c • 1 ≤ B.conjTranspose * B + ↑c • 1
+TGLExt.SemifiniteTraceData : (L : Type) → [inst : Lattice L] → [BoundedOrder L] → Type
+TGLExt.BreuerGapData : (L : Type) → [inst : Lattice L] → [inst_1 : BoundedOrder L] → TGLExt.SemifiniteTraceData L → Type
+@TGLExt.kernel_weight_pos : ∀ {L : Type} [inst : Lattice L] [inst_1 : BoundedOrder L] {T : TGLExt.SemifiniteTraceData L}
+  (G : TGLExt.BreuerGapData L T), 0 < T.tau G.ker
+@TGLExt.kernel_weight_finite : ∀ {L : Type} [inst : Lattice L] [inst_1 : BoundedOrder L]
+  {T : TGLExt.SemifiniteTraceData L} (G : TGLExt.BreuerGapData L T), T.tau G.ker < ⊤
+@TGLExt.breuer_kernel_weight : ∀ {L : Type} [inst : Lattice L] [inst_1 : BoundedOrder L]
+  {T : TGLExt.SemifiniteTraceData L} (G : TGLExt.BreuerGapData L T), 0 < T.tau G.ker ∧ T.tau G.ker < ⊤
+TGLExt.idTrace : TGLExt.SemifiniteTraceData ENNReal
+TGLExt.modelGap : TGLExt.BreuerGapData ENNReal TGLExt.idTrace
+TGLExt.local_gap_package_consistent : Nonempty (TGLExt.BreuerGapData ENNReal TGLExt.idTrace)
+TGLExt.global_tau_compactness_refuted : ∃ T' G cont, T'.tau cont = ⊤ ∧ 0 < T'.tau G.ker ∧ T'.tau G.ker < ⊤
+TGLExt.no_finite_weyl_pair : ∀ (n : ℕ), 0 < n → ∀ (P Q : Matrix (Fin n) (Fin n) ℂ), P * Q - Q * P ≠ -Complex.I • 1
+@TGLExt.plus_block_eigenvalue_lower_bound : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n] (H : Matrix n n ℝ)
+  (c μ : ℝ), (H - c • 1).PosSemidef → ∀ (v : n → ℝ), v ≠ 0 → H.mulVec v = μ • v → c ≤ μ
+TGLExt.phi0sq : ℝ → ℝ
+TGLExt.halfTanh : ℝ → ℝ
+TGLExt.halfTanh_hasDerivAt : ∀ (κ : ℝ), HasDerivAt TGLExt.halfTanh (TGLExt.phi0sq κ) κ
+TGLExt.tendsto_halfTanh_atTop : Filter.Tendsto TGLExt.halfTanh Filter.atTop (nhds (1 / 2))
+TGLExt.tendsto_halfTanh_atBot : Filter.Tendsto TGLExt.halfTanh Filter.atBot (nhds (-(1 / 2)))
+TGLExt.phi0sq_integrable : MeasureTheory.Integrable TGLExt.phi0sq MeasureTheory.volume
+TGLExt.zero_mode_weight_is_one : ∫ (κ : ℝ), TGLExt.phi0sq κ = 1
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1156,6 +1178,18 @@ TGLExt.curvature4_recovered : ∀ (c₁ c₂ : ℝ), ∃! c, TGLExt.lorentzRep c
 'TGLExt.lorentzRep_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.curvature4_recovered' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.susy_discrete_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.kernel_weight_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.kernel_weight_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.breuer_kernel_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.local_gap_package_consistent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.global_tau_compactness_refuted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.no_finite_weyl_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.plus_block_eigenvalue_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.halfTanh_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.tendsto_halfTanh_atTop' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.tendsto_halfTanh_atBot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.phi0sq_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.zero_mode_weight_is_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

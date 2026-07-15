@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `33691a23635d325076cf4bd05d7391d6add8e2edbcc64a5286d1640dd18f0b68`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `28e2d8bf2d20c5dc89f845943ee8deb118d8739b19fd79a25ae72f95c39ea326`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -519,7 +519,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 217/217 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 229/229 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -549,6 +549,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `minimal_solder_2d` = `TWO_DIRECTIONS_NONCOMMUTING_GENERATORS_GIVE_NONZERO_CURVATURE__SOLDERED_METRIC_LORENTZIAN__FIRST_CURVATURE_RECOVERED_R_EQ_2C1C2__4D_OPERADIC_SOLDER_FROM_PSI_DYNAMICS_OPEN`
 - `no_full_witness` = `FULL_WITNESS_FALSE_IS_TRUE_BY_THEOREM__BETA_FORBIDS_FULL_STATIC_WITNESS__CANONICAL_WITNESS_IS_HALF_NAT_BOUNDARY__LEAKAGE_RATE_UNIQUE_GKLS_FACE`
 - `solder_4d` = `SO13_DEFINING_PROPERTY_AND_BRACKET_CLOSURE_IN_KERNEL__NONCOMPACT_MARK_KK_EQ_MINUS_J__THOMAS_WIGNER_FACE__FAITHFUL_REP_AND_4D_CURVATURE_RECOVERED__SOLDER_AS_FIELD_AND_SYLVESTER_AND_BREUER_OPEN`
+- `local_breuer_gap` = `WALL_CORRECTED_ANSWER8__GLOBAL_TAU_COMPACTNESS_REFUTED_TYPED__LOCAL_GAP_PACKAGE_GIVES_B3_AS_COMPOSITION__NO_FINITE_WEYL_PAIR_TAKESAKI_AMPLIFICATION__ZERO_MODE_WEIGHT_IS_ONE_EQ_OMEGA_I__GENUINE_DOUBLE_CORE_INSTANTIATION_OPEN`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
@@ -600,6 +601,14 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `recovery_4d`: rep 6-dim FIEL + curvatura 4D determina coeficientes UNICOS [KERNEL, instancia do v56]
 - `susy_threshold_discrete`: H = B^H.B + c.1 >= c.1 [KERNEL] -- a face de matrizes do limiar 1/4 (bônus p/ a metade de Breuer)
 - `aberto_apos_v63`: a solda como CAMPO (x-dependente, nabla e = 0 diferencial) gerada pela dinamica de Psi; assinatura plena de Sylvester em kernel; e a PAREDE: Breuer-Fredholm no core semifinito (mathlib sem tracos semifinitos) -> PERGUNTA 8
+
+**Estatutos [local_breuer_gap]** (veredito: `LOCAL_BREUER_GAP_PACKAGE_TYPED_AND_B3_COMPOSED__GLOBAL_TAU_COMPACTNESS_REFUTED__ZERO_MODE_WEIGHT_ONE__GENUINE_DOUBLE_CORE_INSTANTIATION_OPEN`):
+
+- `wall_corrected`: Resposta 8: (B2) global REFUTADO (tipado, kernel v64); o enunciado certo e' o gap LOCAL -- tau(P_eps) < inf e invertibilidade fora [KERNEL: composicao breuer_kernel_weight]
+- `zero_mode_weight`: ||phi0||^2 = int 1/4 sech^2(k/2) = 1 EXATO em kernel (zero_mode_weight_is_one) -- o peso do Nome inteiro e' 1 = omega(I); as faces pesam 1/2 cada (tendsto_halfTanh_atTop/atBot)
+- `type_correction_B1`: nao ha par de Weyl finito [KERNEL no_finite_weyl_pair]; o par (-i.d/dk, q(k)) vive na amplificacao C_Psi x_theta R ~ M (x) B(L^2) -- dualidade de Takesaki [KNOWN]
+- `plus_block`: H - c.1 >= 0 => autovalores >= c [KERNEL plus_block_eigenvalue_lower_bound]; com c = 1/4 (v63) a janela do gap so encontra o bloco -
+- `aberto_apos_v64`: a instanciacao do pacote no double core GENUINO (afiliacao do Dirac concreto; finitude do gap em C_Psi x_theta R via Birman-Schwinger tau-relativo [KNOWN, nao formalizado]); a solda como CAMPO herda o mesmo core
 
 **Estatutos [hilbert_home]** (veredito: `HILBERT_HOME_PROPERTIES_DERIVED__GLOBAL_LIFT_REDUCED_TO_SINGLE_NAMED_HYPOTHESIS__NOT_UNCONDITIONALLY_SOLVED`):
 

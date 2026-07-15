@@ -3337,17 +3337,77 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.kernel_weight_pos": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.kernel_weight_finite": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.breuer_kernel_weight": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.local_gap_package_consistent": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.global_tau_compactness_refuted": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.no_finite_weyl_pair": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.plus_block_eigenvalue_lower_bound": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.halfTanh_hasDerivAt": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tendsto_halfTanh_atTop": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tendsto_halfTanh_atBot": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.phi0sq_integrable": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.zero_mode_weight_is_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "33691a23635d325076cf4bd05d7391d6add8e2edbcc64a5286d1640dd18f0b68",
+      "formal_source_hash": "28e2d8bf2d20c5dc89f845943ee8deb118d8739b19fd79a25ae72f95c39ea326",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "8b4e6dccaeea48025235421452b108741f1b5d475dea811b4dfba7bf8db13237",
+        "TGLExt.lean": "8f02b3c729bca3bd22b5eeefad92d2bb9ac12875a273ba3cdfe4f9fd9b610fd8",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "d42cf2638a1919c2dc5e53bd3ac8f4fc4956164bcab624e12e771af4ef210919",
+        "TGL/Audit.lean": "1fa65f326b3b0b9fd7ed1290f12c5af06a940c3fe469a60e0a104d05f2de52c6",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -3392,6 +3452,7 @@
         "TGLExt/GravitonPolarization.lean": "b51528b11b867c5770edb555f42ee22ed11ea94ee702249d4c50fa5c7e39a758",
         "TGLExt/HilbertHome.lean": "449bdee93696fc5fe4d7f5ce898f5e3a95ad0867773714e466b279aa6089ecdd",
         "TGLExt/LeftRight.lean": "fd127e4d3b361423c66683d5de9bee95ed5c947013ab169d7bfad5a66951bb4a",
+        "TGLExt/LocalBreuerGap.lean": "8ec73c7d9e703d6c775f53351a784ab98b27ad2dd3d253b79a3d34992e0d5d3d",
         "TGLExt/MarkovTower.lean": "5b542018622975c4b2c498d1727ca20f7280ad108bfc25d0a587958097e2e74b",
         "TGLExt/MinimalSolder.lean": "53dbb33e260a46ebd3c753ec7a4ca61fc5a4721757e310d58c3a4cb1455e7e66",
         "TGLExt/ModularFirstLaw.lean": "aee3eb49a6d0544e8bb2a3f7b763b04dc46ea425ec4565f77ae1c33ffc27125d",
@@ -3686,24 +3747,36 @@
       "ext_s4_rep_faithful_kernel_proved": true,
       "ext_s4_curvature_recovered_kernel_proved": true,
       "ext_s4_susy_threshold_discrete_kernel_proved": true,
+      "ext_lbg_kernel_weight_pos_kernel_proved": true,
+      "ext_lbg_kernel_weight_finite_kernel_proved": true,
+      "ext_lbg_breuer_kernel_weight_kernel_proved": true,
+      "ext_lbg_package_consistent_kernel_proved": true,
+      "ext_lbg_global_refuted_kernel_proved": true,
+      "ext_lbg_no_finite_weyl_kernel_proved": true,
+      "ext_lbg_plus_block_bound_kernel_proved": true,
+      "ext_lbg_antiderivative_exact_kernel_proved": true,
+      "ext_lbg_face_plus_half_kernel_proved": true,
+      "ext_lbg_face_minus_half_kernel_proved": true,
+      "ext_lbg_zero_mode_integrable_kernel_proved": true,
+      "ext_lbg_zero_mode_weight_one_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "fa17d94f0b614c92b24ffa070019ddbd45dbc1a458a7b3a47a266640e35fb820",
+      "build_stdout_sha256": "8ad08d70afda0bbb1a975a7964475ac064ef47a2fb53876c9334b00f28e23823",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "75b7a8c88bf34f298313b35d0b8ab6e0dd8ccba971bb24dfb6eb2fc42d86d92b",
+      "audit_stdout_sha256": "b448d160aee59d76edd7421441b8d5c80c231ce60c23b3135cd476e1774b7c88",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 120855,
+        "stdout": 124644,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 94665,
+        "stdout": 97614,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "fa17d94f0b614c92b24ffa070019ddbd45dbc1a458a7b3a47a266640e35fb820",
-      "audit_capture_sha256_full": "75b7a8c88bf34f298313b35d0b8ab6e0dd8ccba971bb24dfb6eb2fc42d86d92b",
+      "build_capture_sha256_full": "8ad08d70afda0bbb1a975a7964475ac064ef47a2fb53876c9334b00f28e23823",
+      "audit_capture_sha256_full": "b448d160aee59d76edd7421441b8d5c80c231ce60c23b3135cd476e1774b7c88",
       "custom_TGL_axioms_found": [],
       "source_forbidden_tokens_found": [],
       "formal_release_ready": true,
@@ -4915,7 +4988,8 @@
         "continuous_modular_zero": "INVERSE_PARITY_JKJ_EQ_NEG_K__ZERO_MODE_K_OMEGA_ZERO__FACES_HALF_HALF__PYTHAGORAS_CONTINUOUS__TRANSPORT_ALPHA__SUSY_QUARTER_THRESHOLD__OPEN_IS_BREUER_FREDHOLM_DIRAC",
         "minimal_solder_2d": "TWO_DIRECTIONS_NONCOMMUTING_GENERATORS_GIVE_NONZERO_CURVATURE__SOLDERED_METRIC_LORENTZIAN__FIRST_CURVATURE_RECOVERED_R_EQ_2C1C2__4D_OPERADIC_SOLDER_FROM_PSI_DYNAMICS_OPEN",
         "no_full_witness": "FULL_WITNESS_FALSE_IS_TRUE_BY_THEOREM__BETA_FORBIDS_FULL_STATIC_WITNESS__CANONICAL_WITNESS_IS_HALF_NAT_BOUNDARY__LEAKAGE_RATE_UNIQUE_GKLS_FACE",
-        "solder_4d": "SO13_DEFINING_PROPERTY_AND_BRACKET_CLOSURE_IN_KERNEL__NONCOMPACT_MARK_KK_EQ_MINUS_J__THOMAS_WIGNER_FACE__FAITHFUL_REP_AND_4D_CURVATURE_RECOVERED__SOLDER_AS_FIELD_AND_SYLVESTER_AND_BREUER_OPEN"
+        "solder_4d": "SO13_DEFINING_PROPERTY_AND_BRACKET_CLOSURE_IN_KERNEL__NONCOMPACT_MARK_KK_EQ_MINUS_J__THOMAS_WIGNER_FACE__FAITHFUL_REP_AND_4D_CURVATURE_RECOVERED__SOLDER_AS_FIELD_AND_SYLVESTER_AND_BREUER_OPEN",
+        "local_breuer_gap": "WALL_CORRECTED_ANSWER8__GLOBAL_TAU_COMPACTNESS_REFUTED_TYPED__LOCAL_GAP_PACKAGE_GIVES_B3_AS_COMPOSITION__NO_FINITE_WEYL_PAIR_TAKESAKI_AMPLIFICATION__ZERO_MODE_WEIGHT_IS_ONE_EQ_OMEGA_I__GENUINE_DOUBLE_CORE_INSTANTIATION_OPEN"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -5134,10 +5208,22 @@
         "ext_s4_thomas_wigner_kernel_proved": true,
         "ext_s4_rep_faithful_kernel_proved": true,
         "ext_s4_curvature_recovered_kernel_proved": true,
-        "ext_s4_susy_threshold_discrete_kernel_proved": true
+        "ext_s4_susy_threshold_discrete_kernel_proved": true,
+        "ext_lbg_kernel_weight_pos_kernel_proved": true,
+        "ext_lbg_kernel_weight_finite_kernel_proved": true,
+        "ext_lbg_breuer_kernel_weight_kernel_proved": true,
+        "ext_lbg_package_consistent_kernel_proved": true,
+        "ext_lbg_global_refuted_kernel_proved": true,
+        "ext_lbg_no_finite_weyl_kernel_proved": true,
+        "ext_lbg_plus_block_bound_kernel_proved": true,
+        "ext_lbg_antiderivative_exact_kernel_proved": true,
+        "ext_lbg_face_plus_half_kernel_proved": true,
+        "ext_lbg_face_minus_half_kernel_proved": true,
+        "ext_lbg_zero_mode_integrable_kernel_proved": true,
+        "ext_lbg_zero_mode_weight_one_kernel_proved": true
       },
-      "n_theorems_clean": 217,
-      "n_theorems_expected": 217,
+      "n_theorems_clean": 229,
+      "n_theorems_expected": 229,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -5260,6 +5346,10 @@
         ],
         [
           "solder_4d_skeleton",
+          true
+        ],
+        [
+          "local_breuer_gap_package",
           true
         ]
       ],
@@ -6593,6 +6683,68 @@
       "does_not_gate_core": true,
       "verdict": "SOLDER_4D_SKELETON_CLOSED__NONCOMPACT_MARK_AND_RECOVERY_IN_KERNEL__FIELD_SOLDER_AND_BREUER_REMAIN"
     },
+    "local_breuer_gap": {
+      "residuals": {
+        "peso_do_nome_menos_um": 4.12318024167746e-09,
+        "face_mais_meia": 2.0611536366565986e-09,
+        "face_menos_meia": 2.0611536366565986e-09,
+        "modo_zero_do_bloco_menos": 1.4687813038510578e-14,
+        "traco_do_comutador": 0.0
+      },
+      "zero_mode_weight_quadrature": 0.9999999958768198,
+      "hminus_gap_second_eig": 0.25614175151698093,
+      "hplus_floor": 0.25614175151693064,
+      "zero_mode_overlap_sech": 0.9999999998800744,
+      "continuum_counts": {
+        "L10": 5,
+        "L20": 11
+      },
+      "weyl_obstruction_n": 8.0,
+      "checks": [
+        [
+          "peso_do_nome ~ 1 (quadratura; kernel tem o EXATO)",
+          true
+        ],
+        [
+          "faces +-1/2 (limites do antiderivado)",
+          true
+        ],
+        [
+          "modo zero do bloco - isolado (~0)",
+          true
+        ],
+        [
+          "gap local: 2o autovalor de H- > 0.2 (janela (-eps,eps) so ve o zero)",
+          true
+        ],
+        [
+          "piso do bloco +: min eig H+ > 0.2 (~1/4)",
+          true
+        ],
+        [
+          "perfil do modo zero = sech(k/2) (overlap > 0.999)",
+          true
+        ],
+        [
+          "REFUTACAO em sombra: continuo cresce com o volume (c2 > c1)",
+          true
+        ],
+        [
+          "Weyl: tr[P,Q] = 0 exato (obstrucao = n != 0)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "wall_corrected": "Resposta 8: (B2) global REFUTADO (tipado, kernel v64); o enunciado certo e' o gap LOCAL -- tau(P_eps) < inf e invertibilidade fora [KERNEL: composicao breuer_kernel_weight]",
+        "zero_mode_weight": "||phi0||^2 = int 1/4 sech^2(k/2) = 1 EXATO em kernel (zero_mode_weight_is_one) -- o peso do Nome inteiro e' 1 = omega(I); as faces pesam 1/2 cada (tendsto_halfTanh_atTop/atBot)",
+        "type_correction_B1": "nao ha par de Weyl finito [KERNEL no_finite_weyl_pair]; o par (-i.d/dk, q(k)) vive na amplificacao C_Psi x_theta R ~ M (x) B(L^2) -- dualidade de Takesaki [KNOWN]",
+        "plus_block": "H - c.1 >= 0 => autovalores >= c [KERNEL plus_block_eigenvalue_lower_bound]; com c = 1/4 (v63) a janela do gap so encontra o bloco -",
+        "aberto_apos_v64": "a instanciacao do pacote no double core GENUINO (afiliacao do Dirac concreto; finitude do gap em C_Psi x_theta R via Birman-Schwinger tau-relativo [KNOWN, nao formalizado]); a solda como CAMPO herda o mesmo core"
+      },
+      "does_not_gate_core": true,
+      "verdict": "LOCAL_BREUER_GAP_PACKAGE_TYPED_AND_B3_COMPOSED__GLOBAL_TAU_COMPACTNESS_REFUTED__ZERO_MODE_WEIGHT_ONE__GENUINE_DOUBLE_CORE_INSTANTIATION_OPEN"
+    },
     "reading_direction": {
       "theorem": "Reading direction of g = sqrt(|L_phi|): light -> gravity",
       "reading_direction": "not gravity->light, but light->inscription->angular boundary->geometric module->gravity",
@@ -7207,7 +7359,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-14 19:38:54",
+    "timestamp": "2026-07-14 20:59:36",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -7457,7 +7609,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-14 19:38:54",
+        "prediction_timestamp": "2026-07-14 20:59:36",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -7493,7 +7645,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "268bfec3099a605682afdd33ac2f7f7e047c29008e9a05515eb16f44fd58149c"
+        "prediction_hash": "045cb9fce186e72a3f193486e43df46ab1d6f37a1c612694b632386a8419154f"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -7793,7 +7945,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "dcdd8d440d3114572d1622c57bad8c92a48500a9417aadd82b8db6ac7b61d866"
+    "result_hash": "92d4a52942c1dc37e2ae00ff1d008f14a3dc32f3ccba4eee93ca52872d314ee6"
   },
   "ga_mass_literature": [
     {
@@ -7819,7 +7971,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "dcdd8d440d3114572d1622c57bad8c92a48500a9417aadd82b8db6ac7b61d866",
+  "result_hash_before_external_comparison": "92d4a52942c1dc37e2ae00ff1d008f14a3dc32f3ccba4eee93ca52872d314ee6",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -7829,5 +7981,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-14 19:38:54"
+  "timestamp": "2026-07-14 20:59:36"
 }

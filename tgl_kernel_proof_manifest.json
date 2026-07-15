@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-14 19:38:54",
+  "timestamp": "2026-07-14 20:59:36",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "33691a23635d325076cf4bd05d7391d6add8e2edbcc64a5286d1640dd18f0b68",
+  "formal_source_hash": "28e2d8bf2d20c5dc89f845943ee8deb118d8739b19fd79a25ae72f95c39ea326",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "8b4e6dccaeea48025235421452b108741f1b5d475dea811b4dfba7bf8db13237",
+    "TGLExt.lean": "8f02b3c729bca3bd22b5eeefad92d2bb9ac12875a273ba3cdfe4f9fd9b610fd8",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "d42cf2638a1919c2dc5e53bd3ac8f4fc4956164bcab624e12e771af4ef210919",
+    "TGL/Audit.lean": "1fa65f326b3b0b9fd7ed1290f12c5af06a940c3fe469a60e0a104d05f2de52c6",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -63,6 +63,7 @@
     "TGLExt/GravitonPolarization.lean": "b51528b11b867c5770edb555f42ee22ed11ea94ee702249d4c50fa5c7e39a758",
     "TGLExt/HilbertHome.lean": "449bdee93696fc5fe4d7f5ce898f5e3a95ad0867773714e466b279aa6089ecdd",
     "TGLExt/LeftRight.lean": "fd127e4d3b361423c66683d5de9bee95ed5c947013ab169d7bfad5a66951bb4a",
+    "TGLExt/LocalBreuerGap.lean": "8ec73c7d9e703d6c775f53351a784ab98b27ad2dd3d253b79a3d34992e0d5d3d",
     "TGLExt/MarkovTower.lean": "5b542018622975c4b2c498d1727ca20f7280ad108bfc25d0a587958097e2e74b",
     "TGLExt/MinimalSolder.lean": "53dbb33e260a46ebd3c753ec7a4ca61fc5a4721757e310d58c3a4cb1455e7e66",
     "TGLExt/ModularFirstLaw.lean": "aee3eb49a6d0544e8bb2a3f7b763b04dc46ea425ec4565f77ae1c33ffc27125d",
@@ -1406,10 +1407,70 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.kernel_weight_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.kernel_weight_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.breuer_kernel_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.local_gap_package_consistent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.global_tau_compactness_refuted": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.no_finite_weyl_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.plus_block_eigenvalue_lower_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.halfTanh_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tendsto_halfTanh_atTop": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tendsto_halfTanh_atBot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.phi0sq_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.zero_mode_weight_is_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "fa17d94f0b614c92b24ffa070019ddbd45dbc1a458a7b3a47a266640e35fb820",
-  "audit_stdout_sha256": "75b7a8c88bf34f298313b35d0b8ab6e0dd8ccba971bb24dfb6eb2fc42d86d92b",
+  "build_stdout_sha256": "8ad08d70afda0bbb1a975a7964475ac064ef47a2fb53876c9334b00f28e23823",
+  "audit_stdout_sha256": "b448d160aee59d76edd7421441b8d5c80c231ce60c23b3135cd476e1774b7c88",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

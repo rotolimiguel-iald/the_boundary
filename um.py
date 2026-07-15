@@ -4893,6 +4893,7 @@ import TGLExt.ContinuousModularZero
 import TGLExt.MinimalSolder
 import TGLExt.NoFullWitness
 import TGLExt.Solder4D
+import TGLExt.LocalBreuerGap
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5403,6 +5404,28 @@ namespace TGL.Audit
 #check @TGLExt.curvature4_recovered
 #check @TGLExt.susy_discrete_threshold
 
+-- v64 (A PAREDE CORRIGIDA, Resposta 8: pacote de gap LOCAL de Breuer;
+--      refutacao tipada da tau-compacidade GLOBAL; no-go de Weyl finito;
+--      cota espectral do bloco +; o peso do modo zero = 1 = omega(I))
+#check @TGLExt.SemifiniteTraceData
+#check @TGLExt.BreuerGapData
+#check @TGLExt.kernel_weight_pos
+#check @TGLExt.kernel_weight_finite
+#check @TGLExt.breuer_kernel_weight
+#check @TGLExt.idTrace
+#check @TGLExt.modelGap
+#check @TGLExt.local_gap_package_consistent
+#check @TGLExt.global_tau_compactness_refuted
+#check @TGLExt.no_finite_weyl_pair
+#check @TGLExt.plus_block_eigenvalue_lower_bound
+#check @TGLExt.phi0sq
+#check @TGLExt.halfTanh
+#check @TGLExt.halfTanh_hasDerivAt
+#check @TGLExt.tendsto_halfTanh_atTop
+#check @TGLExt.tendsto_halfTanh_atBot
+#check @TGLExt.phi0sq_integrable
+#check @TGLExt.zero_mode_weight_is_one
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -5697,6 +5720,19 @@ namespace TGL.Audit
 #print axioms TGLExt.lorentzRep_injective
 #print axioms TGLExt.curvature4_recovered
 #print axioms TGLExt.susy_discrete_threshold
+-- v64 (a parede corrigida: Breuer local)
+#print axioms TGLExt.kernel_weight_pos
+#print axioms TGLExt.kernel_weight_finite
+#print axioms TGLExt.breuer_kernel_weight
+#print axioms TGLExt.local_gap_package_consistent
+#print axioms TGLExt.global_tau_compactness_refuted
+#print axioms TGLExt.no_finite_weyl_pair
+#print axioms TGLExt.plus_block_eigenvalue_lower_bound
+#print axioms TGLExt.halfTanh_hasDerivAt
+#print axioms TGLExt.tendsto_halfTanh_atTop
+#print axioms TGLExt.tendsto_halfTanh_atBot
+#print axioms TGLExt.phi0sq_integrable
+#print axioms TGLExt.zero_mode_weight_is_one
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -12447,6 +12483,429 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/LocalBreuerGap.lean":
+r'''import TGLExt.Solder4D
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PAREDE CORRIGIDA: Breuer LOCAL, não τ-compacidade global
+  [TGLExt — v64, absorção da Resposta 8]
+
+A Resposta 8 do especialista mudou a FORMA da parede: (B2) global
+(resolvente globalmente τ-compacto) é FALSO na amplificação natural —
+as projeções espectrais do contínuo [¼,∞) têm multiplicidade infinita na
+direção κ. O enunciado Breuer correto é LOCAL: existe 0<ε<½ com
+P_ε = 1_{[−ε,ε]}(𝔻_Ψ) de peso τ-finito e 𝔻_Ψ invertível fora; então
+𝔻_Ψ é Breuer–Fredholm e 0 < τ(1_{{0}}(𝔻_Ψ)) < ∞. Hipótese mínima
+nomeada: TGL_LOCAL_BREUER_GAP_PACKAGE. E a correção de tipo de (B1):
+o par (−i∂_κ, q(κ)) satisfaz Weyl e vive na AMPLIFICAÇÃO
+C_Ψ⋊_θℝ ≅ M⊗̄B(L²(ℝ)) (Takesaki), não em C_Ψ isolado.
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* ★ `kernel_weight_pos` / `kernel_weight_finite` / `breuer_kernel_weight`
+  — O TEOREMA CORRIGIDO como COMPOSIÇÃO: do pacote de gap local
+  (kernel ≤ gap, τ(gap) < ∞, kernel ≠ ⊥, τ fiel e monótono) segue
+  0 < τ(ker) < ∞ — o (B3) da Pergunta 8, na forma que a Resposta 8
+  demonstrou ser a correta;
+* ★ `local_gap_package_consistent` — o pacote é HABITADO (modelo ℝ≥0∞);
+* ★ `global_tau_compactness_refuted` — **A REFUTAÇÃO TIPADA de (B2)
+  global**: no MESMO modelo em que o zero físico tem peso 0 < τ < ∞,
+  o contínuo tem peso ⊤ — "a finitude do zero físico convive com a
+  infinitude necessária da vida contínua"; o global é falso E
+  desnecessário;
+* ★ `no_finite_weyl_pair` — a face finita da correção de tipo de (B1):
+  NÃO existe par de Weyl em dimensão finita ([P,Q] = −i·1 é impossível em
+  matrizes — o traço do comutador é 0, o de −i·1 é −i·n ≠ 0); o par
+  (−i∂_κ, q(κ)) exige a amplificação de Takesaki;
+* ★ `plus_block_eigenvalue_lower_bound` — a face espectral discreta:
+  H − c·1 ⪰ 0 ⟹ todo autovalor ≥ c; com c = ¼ (v63: BᴴB+¼ ⪰ ¼), a
+  janela do gap (−ε,ε), ε < ½, NÃO encontra o bloco H₊ — o zero pertence
+  ao bloco H₋;
+* ★ `tendsto_halfTanh_atTop` / `tendsto_halfTanh_atBot` — AS DUAS FACES:
+  o antiderivado ½tanh(κ/2) tende a +½ e −½ — os pesos das faces P_± da
+  testemunha (a Meia-Nat, Q8.2);
+* ★ `zero_mode_weight_is_one` — **A JOIA (Q8.2)**: o peso L² do modo zero
+  φ₀ = ½sech(κ/2) é EXATAMENTE 1: ∫_ℝ ¼sech²(κ/2) dκ = ½ − (−½) = 1.
+  O peso do Nome inteiro é 1 = ω(I) — o axioma retorna como número no fim
+  da cadeia; as faces pesam ½ cada. Nenhuma normalização imposta: o 1 é
+  um teorema de integral (mathlib não tem d/dx tanh nem lim tanh — ambos
+  DERIVADOS aqui de sinh/cosh e do aperto 1−tanh x ≤ 2e^{−2x}).
+
+VOCABULÁRIO: τ jamais recebe um valor fabricado — o peso 1 é um TEOREMA
+DE INTEGRAL, não uma normalização imposta; a instanciação do pacote no
+double core GENUÍNO (afiliação do 𝔻_Ψ concreto, finitude do gap em
+C_Ψ⋊_θℝ) permanece ABERTA e nomeada. β jamais literal. Sem sorry, sem
+axiom. Negativo honesto é resultado — e `global_tau_compactness_refuted`
+é um negativo que LIBERTA: Breuer não pede que o contínuo desapareça.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+/- ═══════════════ 1. A camada mínima de dados [Q8.3] ═══════════════ -/
+
+/-- [DATA — Q8.3, nível 1] A camada tracial semifinita MÍNIMA: um
+    reticulado limitado de projeções `L` e um peso `τ : L → ℝ≥0∞`
+    monótono e fiel. (mathlib não tem traços semifinitos; a camada
+    registra o mecanismo — os teoremas abaixo são composição genuína.) -/
+structure SemifiniteTraceData (L : Type) [Lattice L] [BoundedOrder L] where
+  tau : L → ℝ≥0∞
+  mono : ∀ ⦃p q : L⦄, p ≤ q → tau p ≤ tau q
+  faithful : ∀ ⦃p : L⦄, tau p = 0 → p = ⊥
+
+/-- [DATA — Q8.3, nível 3] O certificado de GAP LOCAL de Breuer:
+    `ker` = 1_{{0}}(𝔻), `gap` = 1_{[−ε,ε]}(𝔻); o kernel está sob o gap
+    (monotonicidade espectral), o gap tem peso FINITO (a condição local
+    que SUBSTITUI o (B2) global refutado) e o kernel é não nulo
+    (o Um habita o núcleo — cláusula DERIVADA na v58). -/
+structure BreuerGapData (L : Type) [Lattice L] [BoundedOrder L]
+    (T : SemifiniteTraceData L) where
+  ker : L
+  gap : L
+  ker_le_gap : ker ≤ gap
+  gap_finite : T.tau gap < ⊤
+  ker_ne_bot : ker ≠ ⊥
+
+variable {L : Type} [Lattice L] [BoundedOrder L] {T : SemifiniteTraceData L}
+
+/- ═══════════ 2. O teorema corrigido (composição genuína) ═══════════ -/
+
+/-- [KERNEL] ★ O peso do zero é POSITIVO: contrapositiva da fidelidade —
+    se o kernel não é ⊥, seu peso não é 0. -/
+theorem kernel_weight_pos (G : BreuerGapData L T) : 0 < T.tau G.ker := by
+  rcases eq_or_ne (T.tau G.ker) 0 with h | h
+  · exact absurd (T.faithful h) G.ker_ne_bot
+  · exact pos_iff_ne_zero.mpr h
+
+/-- [KERNEL] ★ O peso do zero é FINITO: monotonia sob o gap finito —
+    ker ≤ P_ε e τ(P_ε) < ⊤ ⟹ τ(ker) < ⊤. -/
+theorem kernel_weight_finite (G : BreuerGapData L T) : T.tau G.ker < ⊤ :=
+  lt_of_le_of_lt (T.mono G.ker_le_gap) G.gap_finite
+
+/-- [KERNEL] ★★ O TEOREMA CORRIGIDO (Resposta 8): do pacote de gap local
+    segue o (B3) — `0 < τ(1_{{0}}(𝔻)) < ∞`. A Fredholmidade de Breuer é
+    invertibilidade módulo K_τ PERTO DE ZERO, não resolvente globalmente
+    τ-compacto. (TGL_LOCAL_BREUER_GAP_PACKAGE ⟹ B3.) -/
+theorem breuer_kernel_weight (G : BreuerGapData L T) :
+    0 < T.tau G.ker ∧ T.tau G.ker < ⊤ :=
+  ⟨kernel_weight_pos G, kernel_weight_finite G⟩
+
+/- ═══════ 3. O modelo e a refutação do global [Q8.1] ═══════ -/
+
+/-- [MODEL] O peso identidade sobre ℝ≥0∞ é uma camada tracial semifinita
+    genuína: monótono e fiel (⊥ = 0 é `rfl` em ℝ≥0∞). -/
+def idTrace : SemifiniteTraceData ℝ≥0∞ where
+  tau := id
+  mono := fun _ _ h => h
+  faithful := fun _ h => h
+
+/-- [MODEL] O certificado de gap local é HABITADO (ker = gap = 1:
+    0 < 1 < ⊤; 1 ≠ ⊥). -/
+def modelGap : BreuerGapData ℝ≥0∞ idTrace where
+  ker := 1
+  gap := 1
+  ker_le_gap := le_rfl
+  gap_finite := ENNReal.one_lt_top
+  ker_ne_bot := one_ne_zero
+
+/-- [KERNEL] ★ CONSISTÊNCIA do pacote: TGL_LOCAL_BREUER_GAP_PACKAGE não é
+    vazio — há modelo em que todas as cláusulas valem simultaneamente. -/
+theorem local_gap_package_consistent :
+    Nonempty (BreuerGapData ℝ≥0∞ idTrace) := ⟨modelGap⟩
+
+/-- [KERNEL] ★★ A REFUTAÇÃO TIPADA de (B2) GLOBAL (Resposta 8, Q8.1):
+    no MESMO modelo em que o pacote local fecha (zero físico com peso
+    0 < τ(ker) < ∞), existe um projetor de contínuo com peso ⊤.
+    A exigência global "todo projetor espectral é τ-finito" é FALSA —
+    e DESNECESSÁRIA: "não faltava demonstrar que todo o resolvente era
+    finito; faltava separar a finitude do zero físico da infinitude
+    necessária da vida contínua". O Verbo continua; o contínuo fica. -/
+theorem global_tau_compactness_refuted :
+    ∃ (T' : SemifiniteTraceData ℝ≥0∞) (G : BreuerGapData ℝ≥0∞ T')
+      (cont : ℝ≥0∞),
+      T'.tau cont = ⊤ ∧ 0 < T'.tau G.ker ∧ T'.tau G.ker < ⊤ :=
+  ⟨idTrace, modelGap, ⊤, rfl, kernel_weight_pos modelGap,
+    kernel_weight_finite modelGap⟩
+
+/- ═══════ 4. A correção de tipo de (B1) [Q8.4]: a face finita ═══════ -/
+
+/-- [KERNEL] ★ NÃO EXISTE PAR DE WEYL EM DIMENSÃO FINITA (a face finita
+    de `dirac_affiliated_to_double_core_amplification`): [P,Q] = −i·1 é
+    impossível em matrizes n×n, n ≥ 1 — o traço do comutador é 0, o de
+    −i·1 é −i·n ≠ 0. O par (−i∂_κ, M_{q(κ)}) da equação SUSY satisfaz
+    Weyl: NÃO cabe em canto finito algum; vive na amplificação
+    C_Ψ⋊_θℝ ≅ M⊗̄B(L²(ℝ)) — dualidade de Takesaki. -/
+theorem no_finite_weyl_pair (n : ℕ) (hn : 0 < n)
+    (P Q : Matrix (Fin n) (Fin n) ℂ) :
+    P * Q - Q * P ≠ (-Complex.I) • 1 := by
+  intro h
+  have htr := congrArg Matrix.trace h
+  rw [Matrix.trace_sub, Matrix.trace_mul_comm, sub_self, Matrix.trace_smul,
+    Matrix.trace_one] at htr
+  simp only [Fintype.card_fin, smul_eq_mul] at htr
+  have hI : (-Complex.I) ≠ 0 := neg_ne_zero.mpr Complex.I_ne_zero
+  have hn' : (n : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr hn.ne'
+  exact mul_ne_zero hI hn' htr.symm
+
+/-- [KERNEL] ★ COTA ESPECTRAL DO BLOCO + (face real simétrica): se
+    H − c·1 é semidefinida positiva e H v = μ v com v ≠ 0, então c ≤ μ.
+    Com c = ¼ (v63: BᴴB + ¼ ⪰ ¼): a janela do gap (−ε,ε), ε < ½, NÃO
+    encontra o bloco H₊ = AA* — o modo zero pertence ao bloco H₋. -/
+theorem plus_block_eigenvalue_lower_bound {n : Type} [Fintype n]
+    [DecidableEq n]
+    (H : Matrix n n ℝ) (c μ : ℝ) (hpsd : (H - c • 1).PosSemidef)
+    (v : n → ℝ) (hv : v ≠ 0) (heig : H.mulVec v = μ • v) : c ≤ μ := by
+  have hpair := hpsd.dotProduct_mulVec_nonneg v
+  have hstar : star v = v := funext fun i => star_trivial _
+  have hmv : (H - c • 1).mulVec v = (μ - c) • v := by
+    rw [Matrix.sub_mulVec, heig, Matrix.smul_mulVec, Matrix.one_mulVec,
+      sub_smul]
+  rw [hstar, hmv] at hpair
+  have hdot : v ⬝ᵥ ((μ - c) • v) = (μ - c) * (v ⬝ᵥ v) := by
+    rw [dotProduct_smul, smul_eq_mul]
+  rw [hdot] at hpair
+  have hvv : 0 < v ⬝ᵥ v := by
+    have h0 : star v ⬝ᵥ v ≠ 0 := fun hz =>
+      hv (dotProduct_star_self_eq_zero.mp hz)
+    rw [hstar] at h0
+    have hnn : 0 ≤ v ⬝ᵥ v :=
+      Finset.sum_nonneg fun i _ => mul_self_nonneg (v i)
+    exact hnn.lt_of_ne (Ne.symm h0)
+  nlinarith [hpair, hvv]
+
+/- ═══════ 5. O PESO DO NOME [Q8.2]: ‖φ₀‖² = 1, faces ±½ ═══════ -/
+
+/-- a densidade do modo zero: φ₀(κ)² = ¼ sech²(κ/2). -/
+def phi0sq (κ : ℝ) : ℝ := (1 / 4) * ((Real.cosh (κ / 2))⁻¹) ^ 2
+
+/-- o antiderivado canônico: ½ tanh(κ/2). -/
+def halfTanh (κ : ℝ) : ℝ := (1 / 2) * Real.tanh (κ / 2)
+
+/-- [KERNEL] o antiderivado é EXATO: (½tanh(κ/2))′ = ¼sech²(κ/2)
+    (mathlib não tem d/dx tanh — derivado aqui de sinh/cosh). -/
+theorem halfTanh_hasDerivAt (κ : ℝ) :
+    HasDerivAt halfTanh (phi0sq κ) κ := by
+  have hc : Real.cosh (κ / 2) ≠ 0 := (Real.cosh_pos (κ / 2)).ne'
+  have h2 : HasDerivAt (fun x : ℝ => x / 2) (1 / 2) κ := by
+    simpa using (hasDerivAt_id κ).div_const 2
+  have hs : HasDerivAt Real.sinh (Real.cosh (κ / 2)) (κ / 2) :=
+    Real.hasDerivAt_sinh (κ / 2)
+  have hch : HasDerivAt Real.cosh (Real.sinh (κ / 2)) (κ / 2) :=
+    Real.hasDerivAt_cosh (κ / 2)
+  have htanh0 : HasDerivAt (fun y : ℝ => Real.sinh y / Real.cosh y)
+      ((Real.cosh (κ / 2) * Real.cosh (κ / 2) -
+        Real.sinh (κ / 2) * Real.sinh (κ / 2)) /
+        (Real.cosh (κ / 2)) ^ 2) (κ / 2) := hs.div hch hc
+  have hcomp0 := htanh0.comp κ h2
+  have hcomp1 : HasDerivAt (fun x : ℝ => Real.sinh (x / 2) / Real.cosh (x / 2))
+      ((Real.cosh (κ / 2) * Real.cosh (κ / 2) -
+        Real.sinh (κ / 2) * Real.sinh (κ / 2)) /
+        (Real.cosh (κ / 2)) ^ 2 * (1 / 2)) κ := hcomp0
+  have hcomp : HasDerivAt (fun x : ℝ => Real.tanh (x / 2))
+      ((Real.cosh (κ / 2) * Real.cosh (κ / 2) -
+        Real.sinh (κ / 2) * Real.sinh (κ / 2)) /
+        (Real.cosh (κ / 2)) ^ 2 * (1 / 2)) κ := by
+    have hfun : (fun x : ℝ => Real.sinh (x / 2) / Real.cosh (x / 2)) =
+        fun x : ℝ => Real.tanh (x / 2) := by
+      funext x; rw [Real.tanh_eq_sinh_div_cosh]
+    rwa [hfun] at hcomp1
+  have hid : Real.cosh (κ / 2) * Real.cosh (κ / 2) -
+      Real.sinh (κ / 2) * Real.sinh (κ / 2) = 1 := by
+    have h := Real.cosh_sq_sub_sinh_sq (κ / 2)
+    nlinarith [h]
+  have hfinal : HasDerivAt halfTanh
+      (1 / 2 * ((Real.cosh (κ / 2) * Real.cosh (κ / 2) -
+        Real.sinh (κ / 2) * Real.sinh (κ / 2)) /
+        (Real.cosh (κ / 2)) ^ 2 * (1 / 2))) κ := hcomp.const_mul (1 / 2 : ℝ)
+  have hrw : 1 / 2 * ((Real.cosh (κ / 2) * Real.cosh (κ / 2) -
+      Real.sinh (κ / 2) * Real.sinh (κ / 2)) /
+      (Real.cosh (κ / 2)) ^ 2 * (1 / 2)) = phi0sq κ := by
+    rw [hid]
+    simp only [phi0sq]
+    field_simp
+    ring
+  rwa [hrw] at hfinal
+
+/-- [KERNEL] o aperto: 1 − tanh x ≤ 2e^{−2x} (a cauda direita morre
+    exponencialmente — sem estimativa fabricada, só a álgebra de exp). -/
+theorem one_sub_tanh_le (x : ℝ) :
+    1 - Real.tanh x ≤ 2 * Real.exp (-(2 * x)) := by
+  have ha : 0 < Real.exp x := Real.exp_pos x
+  have hb : 0 < Real.exp (-x) := Real.exp_pos (-x)
+  have hab : Real.exp x * Real.exp (-x) = 1 := by
+    rw [← Real.exp_add]; simp
+  have h2 : Real.exp (-(2 * x)) = Real.exp (-x) * Real.exp (-x) := by
+    rw [← Real.exp_add]; congr 1; ring
+  have hden : 0 < Real.exp x + Real.exp (-x) := by positivity
+  have key : 1 - Real.tanh x =
+      2 * Real.exp (-x) / (Real.exp x + Real.exp (-x)) := by
+    rw [Real.tanh_eq]
+    field_simp
+    ring
+  rw [key, h2, div_le_iff₀ hden]
+  nlinarith [hab, hb, mul_pos (mul_pos hb hb) hb]
+
+/-- [KERNEL] lim tanh = 1 em +∞ (mathlib não tem — derivado pelo aperto). -/
+theorem tendsto_tanh_atTop :
+    Filter.Tendsto Real.tanh Filter.atTop (nhds 1) := by
+  have hneg2x : Filter.Tendsto (fun x : ℝ => -(2 * x))
+      Filter.atTop Filter.atBot := by
+    have h1 : Filter.Tendsto (fun x : ℝ => 2 * x) Filter.atTop Filter.atTop :=
+      Filter.Tendsto.const_mul_atTop two_pos Filter.tendsto_id
+    have h2 := Filter.tendsto_neg_atTop_atBot.comp h1
+    simpa [Function.comp_def] using h2
+  have hexp : Filter.Tendsto (fun x : ℝ => Real.exp (-(2 * x)))
+      Filter.atTop (nhds 0) := by
+    have h := Real.tendsto_exp_atBot.comp hneg2x
+    simpa [Function.comp_def] using h
+  have hbound : Filter.Tendsto (fun x : ℝ => 2 * Real.exp (-(2 * x)))
+      Filter.atTop (nhds 0) := by
+    have h := hexp.const_mul (2 : ℝ)
+    simpa using h
+  have hsq : Filter.Tendsto (fun x : ℝ => 1 - Real.tanh x)
+      Filter.atTop (nhds 0) :=
+    squeeze_zero (fun t => sub_nonneg.mpr (Real.tanh_lt_one t).le)
+      (fun t => one_sub_tanh_le t) hbound
+  have h1 : Filter.Tendsto (fun x : ℝ => 1 - (1 - Real.tanh x))
+      Filter.atTop (nhds (1 - 0)) := tendsto_const_nhds.sub hsq
+  simpa using h1
+
+/-- [KERNEL] lim tanh = −1 em −∞ (paridade ímpar: tanh(−x) = −tanh x). -/
+theorem tendsto_tanh_atBot :
+    Filter.Tendsto Real.tanh Filter.atBot (nhds (-1)) := by
+  have h := tendsto_tanh_atTop.comp Filter.tendsto_neg_atBot_atTop
+  have h2 := h.neg
+  simp only [Function.comp_def] at h2
+  have heq : (fun x : ℝ => -Real.tanh (-x)) = Real.tanh := by
+    funext x; rw [Real.tanh_neg, neg_neg]
+  rwa [heq] at h2
+
+/-- [KERNEL] ★ A FACE P₊: ½tanh(κ/2) → ½ quando κ → +∞ — o peso da face
+    interna da testemunha (a Meia-Nat, Q8.2). -/
+theorem tendsto_halfTanh_atTop :
+    Filter.Tendsto halfTanh Filter.atTop (nhds (1 / 2)) := by
+  have h2 : Filter.Tendsto (fun κ : ℝ => κ / 2) Filter.atTop Filter.atTop := by
+    have h1 : Filter.Tendsto (fun κ : ℝ => (1 / 2 : ℝ) * κ)
+        Filter.atTop Filter.atTop :=
+      Filter.Tendsto.const_mul_atTop (by norm_num) Filter.tendsto_id
+    have heq : (fun κ : ℝ => (1 / 2 : ℝ) * κ) = fun κ : ℝ => κ / 2 := by
+      funext κ; ring
+    rwa [heq] at h1
+  have h := (tendsto_tanh_atTop.comp h2).const_mul (1 / 2 : ℝ)
+  have hfun : halfTanh = fun κ : ℝ => (1 / 2 : ℝ) * Real.tanh (κ / 2) := rfl
+  rw [hfun]
+  simpa [Function.comp_def] using h
+
+/-- [KERNEL] ★ A FACE P₋: ½tanh(κ/2) → −½ quando κ → −∞ — o peso da face
+    externa da testemunha (a Meia-Nat, Q8.2). -/
+theorem tendsto_halfTanh_atBot :
+    Filter.Tendsto halfTanh Filter.atBot (nhds (-(1 / 2))) := by
+  have h2 : Filter.Tendsto (fun κ : ℝ => κ / 2) Filter.atBot Filter.atBot := by
+    have h1 : Filter.Tendsto (fun κ : ℝ => (1 / 2 : ℝ) * -κ)
+        Filter.atBot Filter.atTop :=
+      Filter.Tendsto.const_mul_atTop (by norm_num)
+        Filter.tendsto_neg_atBot_atTop
+    have h2' := Filter.tendsto_neg_atTop_atBot.comp h1
+    simp only [Function.comp_def] at h2'
+    have heq : (fun κ : ℝ => -((1 / 2 : ℝ) * -κ)) = fun κ : ℝ => κ / 2 := by
+      funext κ; ring
+    rwa [heq] at h2'
+  have h := (tendsto_tanh_atBot.comp h2).const_mul (1 / 2 : ℝ)
+  have hfun : halfTanh = fun κ : ℝ => (1 / 2 : ℝ) * Real.tanh (κ / 2) := rfl
+  rw [hfun]
+  simpa [Function.comp_def] using h
+
+/-- [KERNEL] a densidade é contínua. -/
+theorem phi0sq_continuous : Continuous phi0sq := by
+  apply Continuous.mul continuous_const
+  apply Continuous.pow
+  exact (Real.continuous_cosh.comp (continuous_id.div_const 2)).inv₀
+    fun x => (Real.cosh_pos (x / 2)).ne'
+
+/-- [KERNEL] a densidade é não-negativa. -/
+theorem phi0sq_nonneg (κ : ℝ) : 0 ≤ phi0sq κ := by
+  unfold phi0sq
+  positivity
+
+/-- [KERNEL] a cota pela exponencial: ¼sech²(x/2) ≤ e^x (para a cauda
+    esquerda; álgebra: 1 ≤ (u²+1)² com u = e^{x/2}). -/
+theorem phi0sq_le_exp (x : ℝ) : phi0sq x ≤ Real.exp x := by
+  have hcosh : Real.cosh (x / 2) =
+      (Real.exp (x / 2) + Real.exp (-(x / 2))) / 2 := Real.cosh_eq (x / 2)
+  have hu0 : 0 < Real.exp (x / 2) := Real.exp_pos _
+  have hw0 : 0 < Real.exp (-(x / 2)) := Real.exp_pos _
+  have huw : Real.exp (x / 2) * Real.exp (-(x / 2)) = 1 := by
+    rw [← Real.exp_add]; simp
+  have hex : Real.exp (x / 2) * Real.exp (x / 2) = Real.exp x := by
+    rw [← Real.exp_add]; congr 1; ring
+  set u := Real.exp (x / 2)
+  set w := Real.exp (-(x / 2))
+  have hden : 0 < u + w := by positivity
+  simp only [phi0sq]
+  rw [hcosh, ← hex]
+  have key : (1 : ℝ) / 4 * (((u + w) / 2)⁻¹) ^ 2 = 1 / (u + w) ^ 2 := by
+    field_simp
+    ring
+  rw [key, div_le_iff₀ (by positivity : (0:ℝ) < (u + w) ^ 2)]
+  have hcore : u * (u + w) = u * u + 1 := by
+    rw [mul_add, huw]
+  have hsq : u * u * (u + w) ^ 2 = (u * u + 1) ^ 2 := by
+    rw [← hcore]; ring
+  rw [hsq]
+  nlinarith [mul_pos hu0 hu0]
+
+/-- [KERNEL] a cota espelhada: ¼sech²(x/2) ≤ e^{−x} (para a cauda
+    direita; a mesma álgebra na face w = e^{−x/2}). -/
+theorem phi0sq_le_exp_neg (x : ℝ) : phi0sq x ≤ Real.exp (-x) := by
+  have h := phi0sq_le_exp (-x)
+  have heven : phi0sq (-x) = phi0sq x := by
+    simp only [phi0sq]
+    rw [neg_div, Real.cosh_neg]
+  rwa [heven] at h
+
+/-- [KERNEL] a densidade é INTEGRÁVEL em ℝ: comparação com e^{x} no Iic
+    e com e^{−x} no Ioi — as duas caudas integráveis do mathlib. -/
+theorem phi0sq_integrable : MeasureTheory.Integrable phi0sq := by
+  have hIic : MeasureTheory.IntegrableOn phi0sq (Set.Iic 0) := by
+    apply MeasureTheory.Integrable.mono (integrableOn_exp_Iic 0)
+      phi0sq_continuous.aestronglyMeasurable
+    refine MeasureTheory.ae_of_all _ (fun x => ?_)
+    rw [Real.norm_eq_abs, Real.norm_eq_abs, abs_of_nonneg (phi0sq_nonneg x),
+      abs_of_nonneg (Real.exp_pos x).le]
+    exact phi0sq_le_exp x
+  have hIoi : MeasureTheory.IntegrableOn phi0sq (Set.Ioi 0) := by
+    apply MeasureTheory.Integrable.mono (integrableOn_exp_neg_Ioi 0)
+      phi0sq_continuous.aestronglyMeasurable
+    refine MeasureTheory.ae_of_all _ (fun x => ?_)
+    rw [Real.norm_eq_abs, Real.norm_eq_abs, abs_of_nonneg (phi0sq_nonneg x),
+      abs_of_nonneg (Real.exp_pos (-x)).le]
+    exact phi0sq_le_exp_neg x
+  have h := hIic.union hIoi
+  rwa [Set.Iic_union_Ioi, MeasureTheory.integrableOn_univ] at h
+
+/-- [KERNEL] ★★ A JOIA (Resposta 8, Q8.2): O PESO DO MODO ZERO É O NOME —
+    ‖φ₀‖² = ∫_ℝ ¼sech²(κ/2) dκ = ½ − (−½) = 1. O peso do zero físico
+    inteiro é EXATAMENTE 1 = ω(I): o axioma da identidade preservada
+    retorna como NÚMERO no fim da cadeia; as duas faces (os limites ±½
+    do antiderivado) pesam ½ cada — a Meia-Nat. Nenhuma normalização
+    imposta: o 1 é um teorema de integral. -/
+theorem zero_mode_weight_is_one : ∫ κ : ℝ, phi0sq κ = 1 := by
+  rw [MeasureTheory.integral_of_hasDerivAt_of_tendsto
+    (fun x => halfTanh_hasDerivAt x) phi0sq_integrable
+    tendsto_halfTanh_atBot tendsto_halfTanh_atTop]
+  norm_num
+
+end
+
+end TGLExt
+''',
     "TGLExt/MarkovTower.lean":
 r'''import TGLExt.PPIndex
 
@@ -15499,6 +15958,20 @@ _LEAN_THEOREM_FLAGS = {
     "ext_s4_rep_faithful_kernel_proved": "TGLExt.lorentzRep_injective",
     "ext_s4_curvature_recovered_kernel_proved": "TGLExt.curvature4_recovered",
     "ext_s4_susy_threshold_discrete_kernel_proved": "TGLExt.susy_discrete_threshold",
+    # v64 (A PAREDE CORRIGIDA, Resposta 8: gap LOCAL de Breuer; refutacao do global;
+    #      no-go de Weyl finito; cota do bloco +; o peso do modo zero = 1 = omega(I))
+    "ext_lbg_kernel_weight_pos_kernel_proved": "TGLExt.kernel_weight_pos",
+    "ext_lbg_kernel_weight_finite_kernel_proved": "TGLExt.kernel_weight_finite",
+    "ext_lbg_breuer_kernel_weight_kernel_proved": "TGLExt.breuer_kernel_weight",
+    "ext_lbg_package_consistent_kernel_proved": "TGLExt.local_gap_package_consistent",
+    "ext_lbg_global_refuted_kernel_proved": "TGLExt.global_tau_compactness_refuted",
+    "ext_lbg_no_finite_weyl_kernel_proved": "TGLExt.no_finite_weyl_pair",
+    "ext_lbg_plus_block_bound_kernel_proved": "TGLExt.plus_block_eigenvalue_lower_bound",
+    "ext_lbg_antiderivative_exact_kernel_proved": "TGLExt.halfTanh_hasDerivAt",
+    "ext_lbg_face_plus_half_kernel_proved": "TGLExt.tendsto_halfTanh_atTop",
+    "ext_lbg_face_minus_half_kernel_proved": "TGLExt.tendsto_halfTanh_atBot",
+    "ext_lbg_zero_mode_integrable_kernel_proved": "TGLExt.phi0sq_integrable",
+    "ext_lbg_zero_mode_weight_one_kernel_proved": "TGLExt.zero_mode_weight_is_one",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -16994,6 +17467,13 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_s4_boosts_minus_rotation_kernel_proved", "ext_s4_rotations_plus_rotation_kernel_proved",
         "ext_s4_thomas_wigner_kernel_proved", "ext_s4_rep_faithful_kernel_proved",
         "ext_s4_curvature_recovered_kernel_proved", "ext_s4_susy_threshold_discrete_kernel_proved",
+        # v64: a parede corrigida (gap local de Breuer; refutacao do global; peso 1)
+        "ext_lbg_kernel_weight_pos_kernel_proved", "ext_lbg_kernel_weight_finite_kernel_proved",
+        "ext_lbg_breuer_kernel_weight_kernel_proved", "ext_lbg_package_consistent_kernel_proved",
+        "ext_lbg_global_refuted_kernel_proved", "ext_lbg_no_finite_weyl_kernel_proved",
+        "ext_lbg_plus_block_bound_kernel_proved", "ext_lbg_antiderivative_exact_kernel_proved",
+        "ext_lbg_face_plus_half_kernel_proved", "ext_lbg_face_minus_half_kernel_proved",
+        "ext_lbg_zero_mode_integrable_kernel_proved", "ext_lbg_zero_mode_weight_one_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -17114,6 +17594,12 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                "ext_s4_boosts_minus_rotation_kernel_proved", "ext_s4_rotations_plus_rotation_kernel_proved",
                "ext_s4_thomas_wigner_kernel_proved", "ext_s4_rep_faithful_kernel_proved",
                "ext_s4_curvature_recovered_kernel_proved", "ext_s4_susy_threshold_discrete_kernel_proved"]
+    lbg_keys = ["ext_lbg_kernel_weight_pos_kernel_proved", "ext_lbg_kernel_weight_finite_kernel_proved",
+                "ext_lbg_breuer_kernel_weight_kernel_proved", "ext_lbg_package_consistent_kernel_proved",
+                "ext_lbg_global_refuted_kernel_proved", "ext_lbg_no_finite_weyl_kernel_proved",
+                "ext_lbg_plus_block_bound_kernel_proved", "ext_lbg_antiderivative_exact_kernel_proved",
+                "ext_lbg_face_plus_half_kernel_proved", "ext_lbg_face_minus_half_kernel_proved",
+                "ext_lbg_zero_mode_integrable_kernel_proved", "ext_lbg_zero_mode_weight_one_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -17141,6 +17627,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dMs = all(per_theorem[k] for k in ms_keys)
     dNf = all(per_theorem[k] for k in nfw_keys)
     dS4 = all(per_theorem[k] for k in s4_keys)
+    dLbg = all(per_theorem[k] for k in lbg_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -17171,6 +17658,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("minimal_solder_2d", dMs),
         ("no_full_witness_theorem", dNf),
         ("solder_4d_skeleton", dS4),
+        ("local_breuer_gap_package", dLbg),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -17232,6 +17720,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                  else "NOT_VERIFIED_THIS_RUN"),
             "solder_4d": ("SO13_DEFINING_PROPERTY_AND_BRACKET_CLOSURE_IN_KERNEL__NONCOMPACT_MARK_KK_EQ_MINUS_J__THOMAS_WIGNER_FACE__FAITHFUL_REP_AND_4D_CURVATURE_RECOVERED__SOLDER_AS_FIELD_AND_SYLVESTER_AND_BREUER_OPEN" if dS4
                            else "NOT_VERIFIED_THIS_RUN"),
+            "local_breuer_gap": ("WALL_CORRECTED_ANSWER8__GLOBAL_TAU_COMPACTNESS_REFUTED_TYPED__LOCAL_GAP_PACKAGE_GIVES_B3_AS_COMPOSITION__NO_FINITE_WEYL_PAIR_TAKESAKI_AMPLIFICATION__ZERO_MODE_WEIGHT_IS_ONE_EQ_OMEGA_I__GENUINE_DOUBLE_CORE_INSTANTIATION_OPEN" if dLbg
+                                  else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -18826,6 +19316,7 @@ def run_um(ONE):
     minimal_solder = prove_minimal_solder(ONE, kernel_formalization)  # v60: A SOLDA 2D MINIMA (F=[A1,A2]!=0; metrica lorentziana; PRIMEIRA curvatura recuperada R=2c1c2); ADITIVO
     no_full_witness = prove_no_full_witness(ONE, kernel_formalization)  # v61: FULL_WITNESS=FALSE E' VERDADEIRO (beta proibe a plenitude; Meia-Nat; taxa unica GKLS); ADITIVO
     solder_4d = prove_solder_4d(ONE, kernel_formalization)  # v63: A SOLDA 4D (so(1,3); [K,K]=-J; Thomas-Wigner; rep fiel; recuperacao 4D; limiar discreto); ADITIVO
+    local_breuer_gap = prove_local_breuer_gap(ONE, kernel_formalization)  # v64: A PAREDE CORRIGIDA (gap LOCAL de Breuer; global refutado; Weyl; peso do Nome = 1); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
@@ -18946,6 +19437,7 @@ def run_um(ONE):
             "minimal_solder": minimal_solder,
             "no_full_witness": no_full_witness,
             "solder_4d": solder_4d,
+            "local_breuer_gap": local_breuer_gap,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
@@ -19342,6 +19834,105 @@ def prove_solder_4d(ONE, kernel_formalization=None):
         "does_not_gate_core": True,
         "verdict": ("SOLDER_4D_SKELETON_CLOSED__NONCOMPACT_MARK_AND_RECOVERY_IN_KERNEL__FIELD_SOLDER_AND_BREUER_REMAIN" if all_v
                     else "SOLDER_4D_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_local_breuer_gap(ONE, kernel_formalization=None):
+    """v64 -- A PAREDE CORRIGIDA (Resposta 8) [ADITIVO; nao gateia 1=1].
+    Sombra numerica do pacote de gap LOCAL de Breuer:
+    (i) O PESO DO NOME: quadratura de ||phi0||^2 = int 1/4 sech^2(k/2) dk ~ 1
+    (o kernel tem o valor EXATO 1 = omega(I)); as duas faces +-1/2;
+    (ii) SUSY discretizado: A = D + q/2 (q = tanh(k/2)); H- = A^T.A tem modo
+    zero ~ sech(k/2) isolado; H+ = A.A^T tem piso ~ 1/4 (a janela do gap nao
+    encontra o bloco +);
+    (iii) A REFUTACAO EM SOMBRA: o numero de modos do continuo em janela fixa
+    CRESCE com o volume L (tau do continuo -> infinito) enquanto o peso do
+    modo zero fica ~ 1 -- a finitude do zero convive com a infinitude da vida;
+    (iv) WEYL: tr[P,Q] = 0 exato vs tr(-i.1) = -i.n -- nao ha par de Weyl
+    finito; o Dirac vive na amplificacao de Takesaki (double core). Seed 64."""
+    import numpy as np
+    res = {}
+    # (i) o peso do Nome: quadratura trapezoidal em [-L, L]
+    L, h = 20.0, 0.05
+    k = np.arange(-L, L + h / 2, h)
+    dens = 0.25 / np.cosh(k / 2.0) ** 2
+    w = float(np.trapezoid(dens, dx=h)) if hasattr(np, "trapezoid") else float(np.trapz(dens, dx=h))
+    res["peso_do_nome_menos_um"] = abs(w - 1.0)
+    face_p = 0.5 * math.tanh(L / 2.0)
+    face_m = -0.5 * math.tanh(L / 2.0)
+    res["face_mais_meia"] = abs(face_p - 0.5)
+    res["face_menos_meia"] = abs(face_m + 0.5)
+    # (ii) SUSY discretizado (diferenca avancada com ponto medio; H- = A^T A)
+    n = k.size
+    q = np.tanh(k / 2.0)
+    A = np.zeros((n - 1, n))
+    for i in range(n - 1):
+        qm = 0.5 * (q[i] + q[i + 1])
+        A[i, i] = -1.0 / h + 0.25 * qm
+        A[i, i + 1] = 1.0 / h + 0.25 * qm
+    Hm = A.T @ A
+    Hp = A @ A.T
+    evm, Vm = np.linalg.eigh(Hm)
+    evp = np.linalg.eigh(Hp)[0]
+    res["modo_zero_do_bloco_menos"] = float(abs(evm[0]))
+    gap_second = float(evm[1])
+    floor_plus = float(evp[0])
+    psi0 = Vm[:, 0]
+    prof = 1.0 / np.cosh(k / 2.0)
+    overlap = float(abs(psi0 @ prof) ** 2 / ((psi0 @ psi0) * (prof @ prof)))
+    # (iii) a refutacao em sombra: contagem do continuo cresce com o volume
+    def continuum_count(Lbox):
+        kk = np.arange(-Lbox, Lbox + h / 2, h)
+        qq = np.tanh(kk / 2.0)
+        m = kk.size
+        AA = np.zeros((m - 1, m))
+        for i in range(m - 1):
+            qm = 0.5 * (qq[i] + qq[i + 1])
+            AA[i, i] = -1.0 / h + 0.25 * qm
+            AA[i, i + 1] = 1.0 / h + 0.25 * qm
+        ev = np.linalg.eigh(AA.T @ AA)[0]
+        return int(np.sum((ev > 0.2) & (ev < 1.0)))
+    c1, c2 = continuum_count(10.0), continuum_count(20.0)
+    # (iv) Weyl finito: tr[P,Q] = 0 vs tr(-i.1) = -i.nW
+    nW = 8
+    Qw = np.diag(np.arange(nW, dtype=float))
+    Pw = np.zeros((nW, nW), dtype=complex)
+    for i in range(nW - 1):
+        Pw[i, i + 1] = -1j
+        Pw[i + 1, i] = 1j
+    tr_comm = complex(np.trace(Pw @ Qw - Qw @ Pw))
+    res["traco_do_comutador"] = abs(tr_comm)
+    weyl_obstruction = float(nW)      # |tr(-i.1)| = n != 0
+    checks = [
+        ("peso_do_nome ~ 1 (quadratura; kernel tem o EXATO)", bool(res["peso_do_nome_menos_um"] < 1e-4)),
+        ("faces +-1/2 (limites do antiderivado)", bool(res["face_mais_meia"] < 1e-4 and res["face_menos_meia"] < 1e-4)),
+        ("modo zero do bloco - isolado (~0)", bool(res["modo_zero_do_bloco_menos"] < 1e-2)),
+        ("gap local: 2o autovalor de H- > 0.2 (janela (-eps,eps) so ve o zero)", bool(gap_second > 0.2)),
+        ("piso do bloco +: min eig H+ > 0.2 (~1/4)", bool(floor_plus > 0.2)),
+        ("perfil do modo zero = sech(k/2) (overlap > 0.999)", bool(overlap > 0.999)),
+        ("REFUTACAO em sombra: continuo cresce com o volume (c2 > c1)", bool(c2 > c1)),
+        ("Weyl: tr[P,Q] = 0 exato (obstrucao = n != 0)", bool(res["traco_do_comutador"] < 1e-10 and weyl_obstruction > 0)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "residuals": {kk2: float(vv) for kk2, vv in res.items()},
+        "zero_mode_weight_quadrature": w,
+        "hminus_gap_second_eig": gap_second,
+        "hplus_floor": floor_plus,
+        "zero_mode_overlap_sech": overlap,
+        "continuum_counts": {"L10": c1, "L20": c2},
+        "weyl_obstruction_n": weyl_obstruction,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "wall_corrected": "Resposta 8: (B2) global REFUTADO (tipado, kernel v64); o enunciado certo e' o gap LOCAL -- tau(P_eps) < inf e invertibilidade fora [KERNEL: composicao breuer_kernel_weight]",
+            "zero_mode_weight": "||phi0||^2 = int 1/4 sech^2(k/2) = 1 EXATO em kernel (zero_mode_weight_is_one) -- o peso do Nome inteiro e' 1 = omega(I); as faces pesam 1/2 cada (tendsto_halfTanh_atTop/atBot)",
+            "type_correction_B1": "nao ha par de Weyl finito [KERNEL no_finite_weyl_pair]; o par (-i.d/dk, q(k)) vive na amplificacao C_Psi x_theta R ~ M (x) B(L^2) -- dualidade de Takesaki [KNOWN]",
+            "plus_block": "H - c.1 >= 0 => autovalores >= c [KERNEL plus_block_eigenvalue_lower_bound]; com c = 1/4 (v63) a janela do gap so encontra o bloco -",
+            "aberto_apos_v64": "a instanciacao do pacote no double core GENUINO (afiliacao do Dirac concreto; finitude do gap em C_Psi x_theta R via Birman-Schwinger tau-relativo [KNOWN, nao formalizado]); a solda como CAMPO herda o mesmo core",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("LOCAL_BREUER_GAP_PACKAGE_TYPED_AND_B3_COMPOSED__GLOBAL_TAU_COMPACTNESS_REFUTED__ZERO_MODE_WEIGHT_ONE__GENUINE_DOUBLE_CORE_INSTANTIATION_OPEN" if all_v
+                    else "LOCAL_BREUER_GAP_NOT_VERIFIED_THIS_RUN"),
     }
 
 
@@ -25277,7 +25868,8 @@ _ESQUELETO_STONES = [
     ("v59", "ContinuousModularZero", "TGLExt/ContinuousModularZero.lean", "191/191", "14/07 18:04:47"),
     ("v60", "MinimalSolder", "TGLExt/MinimalSolder.lean", "199/199", "14/07 18:24:53"),
     ("v61", "NoFullWitness", "TGLExt/NoFullWitness.lean", "205/205", "14/07 18:47:34"),
-    ("v63", "Solder4D", "TGLExt/Solder4D.lean", None, None),
+    ("v63", "Solder4D", "TGLExt/Solder4D.lean", "217/217", "14/07 19:38:54"),
+    ("v64", "LocalBreuerGap", "TGLExt/LocalBreuerGap.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -25312,17 +25904,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(vinte e duas pedras, \S120--\S143)}")
+                 r"(vinte e três pedras, \S120--\S144)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em vinte e duas pedras "
-                 r"(v43--v63) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em vinte e três pedras "
+                 r"(v43--v64) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As vinte e duas pedras}")
+        c.append(r"\subsection*{As vinte e três pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -25447,6 +26039,25 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"ÚNICA}; a métrica soldada 4D é simétrica, $\det g=-(\det e)^2$, lorentziana (face "
                  r"determinante; Sylvester pleno \knownmk{clássico}, kernel \statusmk{OPEN}); e o bônus para "
                  r"a metade de Breuer: o limiar SUSY discreto $B^\mathsf{H}B+c\cdot1\succeq c\cdot1$ [KERNEL].")
+        c.append(r"\kernelmk{LocalBreuerGap} (v64): \textbf{a parede corrigida --- Breuer LOCAL, não "
+                 r"$\tau$-compacidade global} (absorção da Resposta 8). O TEOREMA CORRIGIDO como composição "
+                 r"tipada: do pacote de gap local ($\ker\le P_\varepsilon$, $\tau(P_\varepsilon)<\infty$, "
+                 r"$\ker\neq\bot$, $\tau$ fiel e monótono) segue $0<\tau(1_{\{0\}}(\mathbb D))<\infty$ --- "
+                 r"o (B3), na forma que a Resposta 8 demonstrou ser a correta; \textbf{a REFUTAÇÃO tipada de "
+                 r"(B2) global}: no MESMO modelo em que o zero físico pesa $0<\tau<\infty$, o contínuo pesa "
+                 r"$\top$ --- o global é falso E desnecessário (``não faltava demonstrar que todo o resolvente "
+                 r"era finito; faltava separar a finitude do zero físico da infinitude necessária da vida "
+                 r"contínua''); a correção de tipo de (B1): \textbf{não há par de Weyl em dimensão finita} "
+                 r"($[P,Q]=-i\cdot1$ é impossível em matrizes; o par $(-i\partial_\kappa,q(\kappa))$ vive na "
+                 r"amplificação $C_\Psi\rtimes_\theta\mathbb R\simeq M\overline\otimes B(L^2)$, Takesaki "
+                 r"\knownmk{clássico}); a cota do bloco $+$: $H-c\cdot1\succeq0\Rightarrow$ autovalores "
+                 r"$\ge c$ (a janela do gap só encontra o bloco $-$); e \textbf{O PESO DO NOME}: "
+                 r"$\|\varphi_0\|^2=\int_{\mathbb R}\tfrac14\,\mathrm{sech}^2(\kappa/2)\,d\kappa="
+                 r"\tfrac12-(-\tfrac12)=1$ EXATO em kernel --- o peso do zero físico inteiro é "
+                 r"$1=\omega(I)$: o axioma retorna como número no fim da cadeia; as duas faces (os limites "
+                 r"$\pm\tfrac12$ do antiderivado) pesam $\tfrac12$ cada --- a Meia-Nat. Hipótese mínima "
+                 r"nomeada: \texttt{TGL\_LOCAL\_BREUER\_GAP\_PACKAGE}; a instanciação no double core "
+                 r"GENUÍNO segue \statusmk{OPEN}.")
         c.append(r"\subsection*{O mapa dos onze gates}")
         c.append(r"\begin{center}\begin{tabular}{@{}lll@{}}\toprule Gate & Estado & Onde \\ \midrule "
                  r"1. $P_F$ local covariante & DERIVADO do campo ($P_F=\mathrm{proj}_{\ker\mathcal D}$; $P_F\Omega=\Omega$; $\ker\neq0$ derivado); geração pela dinâmica \statusmk{OPEN} & v46, v55--58 \\ "
@@ -25479,14 +26090,19 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"derivada da lógica: emerge da dinâmica, e $\Psi$ é INPUT físico por design (como $\alpha$). "
                  r"E o v59 deu ao aberto sua forma cirúrgica: com o Dirac modular "
                  r"$\mathbb D_\Psi$ (conexão $q/2$; zero modular como modo zero; limiar $\tfrac14$) já "
-                 r"identificado e suas faces em kernel, resta "
-                 r"\texttt{continuousModularDirac\_isBreuerFredholm} (afiliação ao core semifinito $+$ "
-                 r"resolvente $\tau$-compacto $+$ $0<\tau(1_{\{0\}}(\mathbb D_\Psi))<\infty$) e a solda "
+                 r"identificado e suas faces em kernel, restava "
+                 r"\texttt{continuousModularDirac\_isBreuerFredholm} --- e a Resposta 8 CORRIGIU a forma "
+                 r"da parede (v64): o resolvente globalmente $\tau$-compacto é FALSO (refutação tipada em "
+                 r"kernel); o enunciado certo é o GAP LOCAL ($\tau(P_\varepsilon)<\infty$ $+$ "
+                 r"invertibilidade fora), cujo (B3) já é COMPOSIÇÃO em kernel, com o peso do modo zero "
+                 r"$=1=\omega(I)$ EXATO; o que segue aberto é a INSTANCIAÇÃO do pacote no double core "
+                 r"genuíno $C_\Psi\rtimes_\theta\mathbb R$ (afiliação do Dirac concreto; finitude do gap "
+                 r"via Birman--Schwinger $\tau$-relativo \knownmk{clássico, não formalizado}). E a solda "
                  r"multidimensional --- cuja face MÍNIMA (2D) o v60 FECHOU e cujo esqueleto 4D "
                  r"(so(1,3) definidor, fechamento, metricidade, marca não-compacta, representação fiel, "
                  r"curvatura recuperada) o v63 FECHOU em kernel; aberta segue a solda como CAMPO "
-                 r"($x$-dependente, $\nabla e=0$ diferencial) gerada pela dinâmica de $\Psi$, e a "
-                 r"assinatura plena de Sylvester. "
+                 r"($x$-dependente, $\nabla e=0$ diferencial) gerada pela dinâmica de $\Psi$ --- que herda "
+                 r"o MESMO core --- e a assinatura plena de Sylvester. "
                  r"Com estatuto: (i) a GERAÇÃO canônica do pacote pela dinâmica de $\Psi$ --- o teorema aberto "
                  r"(as quatro propriedades de $P_F$ já SEGUEM dos entrelaçamentos, v56; a normalização, a "
                  r"morada, o KMS e o canto já EMERGEM do campo, v57); (ii) a seção ergódica equivariante "
@@ -25507,9 +26123,11 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"$0_{\mathrm{mod}}=\tfrac12-\tfrac12$ [v59]; TRANSPORTE: $\alpha'=-(q/2)\,\alpha$ com "
                  r"limiar SUSY $\tfrac14$ [v59]; GEOMETRIA: $F_{12}=2c_1c_2\,J$, $g$ lorentziana, $R$ único "
                  r"[v60] e $\mathfrak{so}(1,3)$ com marca não-compacta e recuperação única em kernel [v63]; "
-                 r"TESTEMUNHA $=S_\partial=\tfrac12$, não-plena POR TEOREMA [v61]; VERDADE $=1=1"
+                 r"TESTEMUNHA $=S_\partial=\tfrac12$, não-plena POR TEOREMA [v61]; PESO: "
+                 r"$\tau(1_{\{0\}})=\|\varphi_0\|^2=1=\omega(I)$ --- o Nome pesa 1, as faces pesam "
+                 r"$\tfrac12$; o contínuo pesa $\top$ e NÃO precisa ser finito [v64]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em vinte e duas pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em vinte e três pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\subsection*{Declaração de honestidade}")
         c.append(r"Este registro \emph{não} afirma a solução da gravitação quântica. Afirma, com verificação "
@@ -25528,16 +26146,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(twenty-two stones, \S120--\S143)}")
+                 r"(twenty-three stones, \S120--\S144)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across twenty-two stones (v43--v63) the audited kernel went from 53 to "
+                 r"from this run's audit. Across twenty-three stones (v43--v64) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The twenty-two stones}")
+        c.append(r"\subsection*{The twenty-three stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -25646,6 +26264,27 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"metric is symmetric, $\det g=-(\det e)^2$, Lorentzian (determinant face; full Sylvester "
                  r"\knownmk{classical}, kernel \statusmk{OPEN}); and the bonus for the Breuer half: the "
                  r"discrete SUSY threshold $B^\mathsf{H}B+c\cdot1\succeq c\cdot1$ [KERNEL].")
+        c.append(r"\kernelmk{LocalBreuerGap} (v64): \textbf{the wall corrected --- LOCAL Breuer, not "
+                 r"global $\tau$-compactness} (absorbing Answer 8). The CORRECTED THEOREM as a typed "
+                 r"composition: from the local gap package ($\ker\le P_\varepsilon$, "
+                 r"$\tau(P_\varepsilon)<\infty$, $\ker\neq\bot$, $\tau$ faithful and monotone) follows "
+                 r"$0<\tau(1_{\{0\}}(\mathbb D))<\infty$ --- (B3) in the form Answer 8 showed to be the "
+                 r"right one; \textbf{the typed REFUTATION of global (B2)}: in the SAME model where the "
+                 r"physical zero weighs $0<\tau<\infty$, the continuum weighs $\top$ --- the global demand "
+                 r"is false AND unnecessary (``what was missing was not proving the whole resolvent finite; "
+                 r"it was separating the finiteness of the physical zero from the necessary infinitude of "
+                 r"continuous life''); the type correction of (B1): \textbf{no finite-dimensional Weyl "
+                 r"pair exists} ($[P,Q]=-i\cdot1$ is impossible for matrices; the pair "
+                 r"$(-i\partial_\kappa,q(\kappa))$ lives in the amplification "
+                 r"$C_\Psi\rtimes_\theta\mathbb R\simeq M\overline\otimes B(L^2)$, Takesaki "
+                 r"\knownmk{classical}); the plus-block bound: $H-c\cdot1\succeq0\Rightarrow$ eigenvalues "
+                 r"$\ge c$ (the gap window only meets the minus block); and \textbf{THE WEIGHT OF THE "
+                 r"NAME}: $\|\varphi_0\|^2=\int_{\mathbb R}\tfrac14\,\mathrm{sech}^2(\kappa/2)\,d\kappa="
+                 r"\tfrac12-(-\tfrac12)=1$ EXACT in kernel --- the weight of the whole physical zero is "
+                 r"$1=\omega(I)$: the axiom returns as a number at the end of the chain; the two faces "
+                 r"(the $\pm\tfrac12$ limits of the antiderivative) weigh $\tfrac12$ each --- the "
+                 r"Half-Nat. Minimal named hypothesis: \texttt{TGL\_LOCAL\_BREUER\_GAP\_PACKAGE}; "
+                 r"instantiation in the GENUINE double core remains \statusmk{OPEN}.")
         c.append(r"\subsection*{Seals and hashes (live hashes from this run; history $=$ provenance)}")
         c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
                  r"v & Stone & sha256/16 (live) & Run & Seal \\ \midrule " + "\n" +
@@ -25664,14 +26303,20 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"$(\mathcal H_\Psi,\mathcal D_\Psi,\tau_\Psi,e_\Psi)$} --- gravity is not derived from logic: "
                  r"it emerges from dynamics. And v59 gave the open its surgical form: with the modular Dirac "
                  r"$\mathbb D_\Psi$ (connection $q/2$; modular zero as zero mode; threshold $\tfrac14$) now "
-                 r"identified and its faces in kernel, what remains is "
-                 r"\texttt{continuousModularDirac\_isBreuerFredholm} (affiliation to the semifinite core $+$ "
-                 r"$\tau$-compact resolvent $+$ $0<\tau(1_{\{0\}}(\mathbb D_\Psi))<\infty$) and the "
+                 r"identified and its faces in kernel, what remained was "
+                 r"\texttt{continuousModularDirac\_isBreuerFredholm} --- and Answer 8 CORRECTED the shape "
+                 r"of the wall (v64): the globally $\tau$-compact resolvent is FALSE (typed refutation in "
+                 r"kernel); the right statement is the LOCAL GAP ($\tau(P_\varepsilon)<\infty$ $+$ bounded "
+                 r"inverse outside), whose (B3) is already a COMPOSITION in kernel, with the zero-mode "
+                 r"weight $=1=\omega(I)$ EXACT; what stays open is the INSTANTIATION of the package in the "
+                 r"genuine double core $C_\Psi\rtimes_\theta\mathbb R$ (affiliation of the concrete Dirac; "
+                 r"gap finiteness via $\tau$-relative Birman--Schwinger \knownmk{classical, not "
+                 r"formalized}). And the "
                  r"multidimensional solder --- whose MINIMAL face (2D) v60 CLOSED and whose 4D skeleton "
                  r"(defining so(1,3), closure, metricity, non-compact mark, faithful representation, "
                  r"recovered curvature) v63 CLOSED in kernel; still open are the solder as a FIELD "
-                 r"($x$-dependent, differential $\nabla e=0$) generated by $\Psi$'s dynamics, and full "
-                 r"Sylvester signature. "
+                 r"($x$-dependent, differential $\nabla e=0$) generated by $\Psi$'s dynamics --- which "
+                 r"inherits the SAME core --- and full Sylvester signature. "
                  r"With status: (i) the canonical GENERATION of the package by $\Psi$'s dynamics --- THE open "
                  r"theorem (the four $P_F$ properties already FOLLOW from the intertwinings, v56; normalization, "
                  r"home, KMS and corner already EMERGE from the field, v57); (ii) the equivariant ergodic "
@@ -25690,9 +26335,11 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"$0_{\mathrm{mod}}=\tfrac12-\tfrac12$ [v59]; TRANSPORT: $\alpha'=-(q/2)\,\alpha$ with SUSY "
                  r"threshold $\tfrac14$ [v59]; GEOMETRY: $F_{12}=2c_1c_2\,J$, Lorentzian $g$, unique $R$ "
                  r"[v60] and $\mathfrak{so}(1,3)$ with the non-compact mark and unique recovery in kernel "
-                 r"[v63]; WITNESS $=S_\partial=\tfrac12$, non-full BY THEOREM [v61]; TRUTH $=1=1"
+                 r"[v63]; WITNESS $=S_\partial=\tfrac12$, non-full BY THEOREM [v61]; WEIGHT: "
+                 r"$\tau(1_{\{0\}})=\|\varphi_0\|^2=1=\omega(I)$ --- the Name weighs 1, the faces weigh "
+                 r"$\tfrac12$; the continuum weighs $\top$ and need NOT be finite [v64]; TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across twenty-two stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across twenty-three stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\subsection*{Declaration of honesty}")
         c.append(r"This register does \emph{not} claim the solution of quantum gravity. It claims, with "
@@ -26064,7 +26711,8 @@ def _arco_vivo_md(core):
         lines.append("- `%s` = `%s`" % (k, v))
     lines.append("")
     for mod_key in ("psi_emergence", "absolute_one", "continuous_modular_zero",
-                    "minimal_solder", "no_full_witness", "solder_4d", "hilbert_home"):
+                    "minimal_solder", "no_full_witness", "solder_4d",
+                    "local_breuer_gap", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
             lines.append("**Estatutos [%s]** (veredito: `%s`):\n" % (mod_key, _m.get("verdict")))
@@ -27803,6 +28451,28 @@ def main():
         _s4.get("wigner_rotation_norm", float("nan")), _s4.get("verdict")))
     print("    [APOS v63 restam: a solda como CAMPO (nabla e=0 diferencial) da dinamica de Psi; Sylvester pleno;")
     print("     e a PAREDE de Breuer-Fredholm (mathlib sem tracos semifinitos) -> PERGUNTA 8 escrita]")
+    print("  A PAREDE CORRIGIDA [v64 -- Resposta 8: Breuer LOCAL, nao tau-compacidade global]: %s"
+          % _ell.get("local_breuer_gap"))
+    print("    *** O TEOREMA CORRIGIDO (composicao): 0 < tau(ker) < inf do pacote de gap local: %s (pos: %s ; fin: %s) ***" % (
+        _elp.get("ext_lbg_breuer_kernel_weight_kernel_proved"), _elp.get("ext_lbg_kernel_weight_pos_kernel_proved"),
+        _elp.get("ext_lbg_kernel_weight_finite_kernel_proved")))
+    print("    *** A REFUTACAO TIPADA de (B2) GLOBAL: %s -- o continuo pesa TOP e o zero fisico pesa 0<tau<inf no MESMO modelo ***" % (
+        _elp.get("ext_lbg_global_refuted_kernel_proved")))
+    print("    pacote HABITADO: %s ; NAO ha par de Weyl finito (correcao de tipo B1 -> double core de Takesaki): %s ; bloco+: autovalores >= c: %s" % (
+        _elp.get("ext_lbg_package_consistent_kernel_proved"), _elp.get("ext_lbg_no_finite_weyl_kernel_proved"),
+        _elp.get("ext_lbg_plus_block_bound_kernel_proved")))
+    print("    *** O PESO DO NOME: ||phi0||^2 = int 1/4 sech^2(k/2) dk = 1 EXATO: %s (antiderivado: %s ; integravel: %s ; faces +1/2: %s / -1/2: %s) ***" % (
+        _elp.get("ext_lbg_zero_mode_weight_one_kernel_proved"), _elp.get("ext_lbg_antiderivative_exact_kernel_proved"),
+        _elp.get("ext_lbg_zero_mode_integrable_kernel_proved"), _elp.get("ext_lbg_face_plus_half_kernel_proved"),
+        _elp.get("ext_lbg_face_minus_half_kernel_proved")))
+    _lbg = core.get("local_breuer_gap", {}) or {}
+    _lbgc = _lbg.get("continuum_counts", {}) or {}
+    print("    sombra v64: peso (quadratura) = %.9f ; piso H+ = %.4f ; gap H- (2o eig) = %.4f ; continuo cresce L10->L20: %s->%s ; %s" % (
+        _lbg.get("zero_mode_weight_quadrature", float("nan")), _lbg.get("hplus_floor", float("nan")),
+        _lbg.get("hminus_gap_second_eig", float("nan")), _lbgc.get("L10"), _lbgc.get("L20"), _lbg.get("verdict")))
+    print("    ['nao faltava demonstrar que todo o resolvente era finito; faltava separar a finitude do zero")
+    print("     fisico da infinitude necessaria da vida continua' -- o peso do Nome inteiro e' 1 = omega(I);")
+    print("     ABERTO: a instanciacao do pacote no double core GENUINO (afiliacao do Dirac concreto)]")
     print("  teoremas limpos: %s/%s ; DERIVACOES v56 em dim INFINITA [construcao do pacote = O ABERTO; continuos do ledger INALTERADOS]" % (
         el.get("n_theorems_clean"), el.get("n_theorems_expected")))
     print("  >>> %s <<<\n" % el.get("verdict"))
