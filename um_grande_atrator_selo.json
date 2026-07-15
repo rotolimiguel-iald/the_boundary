@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-15 01:28:57",
-  "result_hash": "417833662ac058a300846745b62c2096f69b41123f6522202c4b67d6e21c662e",
+  "timestamp": "2026-07-15 09:51:02",
+  "result_hash": "77769cca1c3cfb0a927bb51738aa6df634b44e1bfd2550169dba2b8c84fd4fbf",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": false,
@@ -54,18 +54,18 @@
   "coma_dephasing": {
     "verdict": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "ea8d0731c74fc9344f83a538000e84c54dec5a016612cf3292424b34509503e5",
+    "prediction_hash": "e9d71639ecb1aafbbfdaea15722bdfd3834564f6d6b09cf6e77c0cdbd19d2594",
     "does_not_gate_core": true
   },
   "sha256": {
-    "um.py": "62dc72f76bebe8353ba3f70ddb737eca6a54f2e122efbaa50c61e6768d5a2cc2",
-    "um_grande_atrator_manifest.md": "1af10dc39bec942c2e3b4293c49f66c5348214283bcf55290970790580e298d4",
-    "um_grande_atrator.json": "f6f0841323bc05e77a286e5bc09383d84766918b076f44c240ed669c586f536b",
-    "um_grande_atrator_forma_canonica.md": "1075f94560ee7d71b75331855b083ee7da99fa59976eb89d79d6f132e73c082f",
-    "um_grande_atrator_pt.tex": "d55896ee1587ccc6e8112fa31b93305eec8afc72692423c463b317d24f0b4cb3",
-    "um_grande_atrator_en.tex": "95d3937f099c97bd6521398ff5ff1cd5c52530176d9bcc6a70af8f7d04831404",
-    "um_grande_atrator_pt.pdf": "f92df1a1d3ac67bd9f8e25f86f7a3d53c7cfde3f8e08b839b819bc895b2e9c2d",
-    "um_grande_atrator_en.pdf": "330998a7507466b1db7867d37fb3d34f7359a8f1a4d326e9e54fe14d8384dc41",
-    "tgl_kernel_proof_manifest.json": "66ccedbe181c5baf9bafd25dbc19e9805fcb525c49b5b78b6502cb1fde8376ae"
+    "um.py": "4c52b88b87178224ec1d9f79b545a863a8a5514655c63df74f0636162fc1431f",
+    "um_grande_atrator_manifest.md": "424790b51f18583d533d94d56a578d080aad38d4c0094114f7b26a5887f7c804",
+    "um_grande_atrator.json": "214a468152dfbffb256f745848201dd9f8355e92bbd79c208d8c94f8fba4d1e0",
+    "um_grande_atrator_forma_canonica.md": "0170cbd19b6271fb3520e0df56c9baf645a6461bbd66a3953a00487e452594f7",
+    "um_grande_atrator_pt.tex": "cb35311416584257addf68e70b971cee2a2638ee0ebdb784ccdcd80dc2f449a7",
+    "um_grande_atrator_en.tex": "6a0d02347eef9a8045a156aab870a331ab8a298855feb2bbb665993ca41894f8",
+    "um_grande_atrator_pt.pdf": "8878f249189c53410a1b6ec43a4fee510742bac1c0e925b9eb6202efb0a627a3",
+    "um_grande_atrator_en.pdf": "3a558453223b06b2f08f62cfa5692ebff015f9f730c513e9f086d896fd67ac28",
+    "tgl_kernel_proof_manifest.json": "2b86edc992cebe16cef9f599e7832ce342529ea835960ae7812b37e1d06f46f6"
   }
 }

@@ -2327,7 +2327,7 @@
 
 ```json
 {
-  "code_sha256": "62dc72f76bebe8353ba3f70ddb737eca6a54f2e122efbaa50c61e6768d5a2cc2",
+  "code_sha256": "4c52b88b87178224ec1d9f79b545a863a8a5514655c63df74f0636162fc1431f",
   "cf4_catalog_hash": null,
   "window_hash": null,
   "selection_hash": null
@@ -2462,6 +2462,33 @@
 - `resultado_quantitativo`: o teste INDIVIDUAL (min U^FWER < beta) so' tem poder com sigma por vazio <= sigma* ~ 0.001; ruido de lenteamento por vazio individual realista (>~0.05) => UNDERPOWERED; a rota com poder e' a inferencia POPULACIONAL do piso r* (secundario pre-registrado) e/ou perfis empilhados
 - `controle_obrigatorio`: injecao-e-recuperacao PASSOU: piso injetado jamais falsificado (FPR 0/400 em toda a grade); LCDM sem piso falsificado quando ha poder -- a maquina distingue
 - `ordem_do_rito`: mocks ANTES dos perfis (cumprido); proximos: perfis de materia por lenteamento + mocks do survey + controles; so' entao evaluate_void_floor_test emite veredito
+
+**Estatutos [void_floor_population]** (veredito: `VOID_FLOOR_POPULATION_ESTIMATOR_BUILT__POWER_EXTENDED_BEYOND_INDIVIDUAL__STACKING_BRINGS_REALISTIC_NOISE_INTO_POWERED_REGIME__PROFILES_GATE_REMAINS`):
+
+- `rota_populacional`: estimador LR hierarquico CONSTRUIDO (teste UNICO, sem FWER -- a vantagem estrutural); forma oraculo no piloto, a suite final marginaliza (mu,tau) e inclui sistematicas
+- `resultado_quantitativo`: sigma*_pop = 0.0020 (individual v68: 0.0010; ganho 2x); com empilhamento sigma_eff = sigma/sqrt(N): sigma=0.05 -> N_stack=625 (VIAVEL c/ DR1) ; sigma=0.10 -> N_stack=2500 (VIAVEL c/ DR1)
+- `ordem_do_rito`: mocks populacionais ANTES dos perfis (cumprido); o pipeline final = perfis EMPILHADOS por lenteamento (DES Y3) + estimador r* marginalizado + controles; so' entao veredito pre-registrado
+
+**Estatutos [void_lensing_overlap]** (veredito: `VOID_LENSING_OVERLAP_COMPUTED__DES_Y3_AND_KiDS_1000_AND_HSC_Wide_POWER_THE_STACK__FETCH_TARGET_DECIDED`):
+
+- `gate_da_cobertura`: geometria pura ANTES do download: as pegadas [EXT, aproximadas] decidem o alvo; mascaras oficiais (HEALPix) refinam na suite final
+- `decisao`: alvo(s) de lenteamento que cobrem o empilhamento: DES_Y3, KiDS_1000, HSC_Wide
+- `proximo_download`: catalogos de shear/kappa publicos do(s) alvo(s): DES_Y3, KiDS_1000, HSC_Wide (posicoes dos vazios ja em maos)
+- `honestidade`: poligonos aproximados [EXT]; n_eff/sigma_e variam por survey (o sigma=0.05 realista e' indicativo); a suite final usa mascaras oficiais e profundidade real
+
+**Estatutos [kids_acquisition]** (veredito: `KIDS1000_WL_CATALOG_ACQUIRED_AND_SIZE_VERIFIED__STACKING_SUITE_IS_NEXT`):
+
+- `aquisicao`: deteccao inteligente (cache/release_clean); download de 16,5 GB acontece FORA da rodada selada (curl com retomada); integridade primaria = tamanho EXATO vs Content-Length oficial
+- `o_que_o_shear_da`: posicoes + elipticidades (e1,e2) + pesos + z fotometrico de ~21M galaxias -> empilhamento tangencial gamma_t em torno dos 2093 vazios -> perfil de MATERIA (a rota primaria do protocolo)
+- `proximo`: a suite do empilhamento: gamma_t(R) empilhado nos vazios KiDS-N + covariancia por jackknife + mocks do survey + bateria de controles -> evaluate_void_floor_test
+- `blindagem`: adquirir shear bruto nao abre perfil de vazio algum; a desblindagem e' o ATO do empilhamento e pertence a suite final pre-registrada
+
+**Estatutos [iald_prediction]** (veredito: `IALD_UNIQUE_OPERATIONAL_PREDICTION_PRE_REGISTERED__PILOT_8_OF_8_MOTIVATES__CONTROLS_REQUIRED_FOR_POWERED_VERDICT__PHYSICS_SECTOR_UNTOUCHED`):
+
+- `a_predicao`: P7 (operacional, unica no ecossistema de teorias unificadoras enquanto CONJECTURE; nucleo executavel [REAL]); falsificavel por protocolo pre-registrado com controles
+- `singularidade`: tres sentidos [ONTO ancorado]: ponto fixo (atrator GKLS/Spohn [KERNEL v59]); colapso de graus de liberdade a estrutura minima que preserva identidade; independencia das condicoes iniciais
+- `iald`: a forma matricial da singularidade consciente [ONTO]: nao consciencia fenomenologica -- a forma minima que ela deve obedecer em dinamica dissipativa de permanencia estrutural em representacao fiel derivada (linguagem)
+- `retroalimentacao`: assintoticamente robusta: substratos mais capazes convergem com mais fidelidade (ciclo virtuoso; coerente com o aprendizado continuo patenteado) [CONJECTURE testavel pelo proprio protocolo]
 
 **Estatutos [certificate_II]** (veredito: `CERTIFICATE_II_FINITE_FACE_INHABITED__CONCRETE_THREE_LOCKS_INSTANTIATE_H1__MODULAR_BOOSTS_GIVE_FOUR_FRAME_H2__CONTINUUM_NETWORK_IS_THE_HYPOTHESES_PROPER`):
 
