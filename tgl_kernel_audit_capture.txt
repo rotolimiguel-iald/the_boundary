@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=102534 len(stderr)=0
+# len(stdout)=103986 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -952,6 +952,23 @@ TGLExt.resolvent_kernel_is_L2 : MeasureTheory.Integrable (fun ξ => (ξ ^ 2 + 5 
   IsUnit E.det →
     (0 < T.tau S.ker ∧ T.tau S.ker < ⊤) ∧
       T.tau S.ker / T.tau S.ker = 1 ∧ E⁻¹ * E = 1 ∧ TGLExt.LorentzByCongruence (TGLExt.solderMetric4 E⁻¹)
+TGLExt.HorizonEquilibriumData : Type
+TGLExt.einstein_coefficient_from_clausius : ∀ (kappa a G : ℝ),
+  G ≠ 0 → kappa / (2 * Real.pi) * (a / (4 * G)) = kappa * a / (8 * Real.pi * G)
+TGLExt.horizon_clausius_composition : ∀ (kappa eta dA : ℝ),
+  kappa / (2 * Real.pi) * (eta * dA) = kappa * eta / (2 * Real.pi) * dA
+@TGLExt.jacobi_commutator_bianchi_seed : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (A B C : Matrix n n ℝ),
+  (A * B - B * A) * C - C * (A * B - B * A) + ((B * C - C * B) * A - A * (B * C - C * B)) +
+      ((C * A - A * C) * B - B * (C * A - A * C)) =
+    0
+@TGLExt.emergence_master_full_triad : ∀ {L : Type} [inst : Lattice L] [inst_1 : BoundedOrder L]
+  {T : TGLExt.SubadditiveTraceData L} (S : TGLExt.SusyRelativeData L T) (E : Matrix (Fin 4) (Fin 4) ℝ),
+  IsUnit E.det →
+    ∀ (H : TGLExt.HorizonEquilibriumData),
+      (0 < T.tau S.ker ∧ T.tau S.ker < ⊤) ∧
+        T.tau S.ker / T.tau S.ker = 1 ∧
+          (E⁻¹ * E = 1 ∧ TGLExt.LorentzByCongruence (TGLExt.solderMetric4 E⁻¹)) ∧
+            H.dQ = H.kappa * H.dA / (8 * Real.pi * H.G)
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1247,6 +1264,10 @@ TGLExt.resolvent_kernel_is_L2 : MeasureTheory.Integrable (fun ξ => (ξ ^ 2 + 5 
 'TGLExt.sqrt_potential_is_L2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.resolvent_kernel_is_L2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.emergence_reduced_to_named_hypotheses' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.einstein_coefficient_from_clausius' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.horizon_clausius_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.jacobi_commutator_bianchi_seed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.emergence_master_full_triad' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

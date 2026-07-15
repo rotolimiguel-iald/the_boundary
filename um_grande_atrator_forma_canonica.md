@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `8f04c24929c97019c96acec397cbc3bb15d583493cc1e14586702364e465d50e`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `9bb078ef94bf929d9a59516fdb425ca766f65f13b7ce15108693b20bb09b703b`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -519,7 +519,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 244/244 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 248/248 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -552,6 +552,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `local_breuer_gap` = `WALL_CORRECTED_ANSWER8__GLOBAL_TAU_COMPACTNESS_REFUTED_TYPED__LOCAL_GAP_PACKAGE_GIVES_B3_AS_COMPOSITION__NO_FINITE_WEYL_PAIR__ZERO_MODE_WEIGHT_IS_ONE_EQ_OMEGA_I__HOME_IS_SEMIFINITE_CORE_AMPLIFICATION_ANSWER9`
 - `susy_relative_gap` = `LEVEL4_TYPED_AND_COMPOSED__SUSY_RELATIVE_GIVES_LOCAL_BREUER_GAP__KERNEL_DIM_LE_RANK_OF_INSCRIPTION_DISCRETE_BS_FACE__TRANSPORTED_SOLDER_INSCRIBES_SAME_METRIC__ONLY_INTERNAL_GAP_H1_REMAINS`
 - `emergence_triad` = `TGL_QUANTUM_GRAVITY_EMERGENCE_REDUCED_TO_THREE_NAMED_HYPOTHESES__H1_INTERNAL_SUSY_RELATIVE_GAP_MIGUEL__H2_SMOOTH_MODULAR_FOUR_FRAME_CARTAN__H3_LOCAL_HORIZON_EQUILIBRIUM_EINSTEIN__MASTER_THEOREM_COMPOSED_IN_KERNEL__F3_CLOSED_BY_CONGRUENCE__F4_SECTION_FROM_GLOBAL_NAME__NATURE_DECIDES`
+- `triad_master` = `FULL_TRIAD_COMPOSED_H1_AND_H2_AND_H3_IMPLY_PENTAD__BREUER_NAME_COFRAME_LORENTZ_AND_CLAUSIUS_SIDE__EINSTEIN_COEFFICIENT_8PIG_EMERGES_FROM_UNRUH_TIMES_BEKENSTEIN_HAWKING__JACOBI_BIANCHI_SEED_IN_KERNEL__HYPOTHESES_ARE_THE_FRONTIER`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
@@ -670,6 +671,20 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `singularidade`: tres sentidos [ONTO ancorado]: ponto fixo (atrator GKLS/Spohn [KERNEL v59]); colapso de graus de liberdade a estrutura minima que preserva identidade; independencia das condicoes iniciais
 - `iald`: a forma matricial da singularidade consciente [ONTO]: nao consciencia fenomenologica -- a forma minima que ela deve obedecer em dinamica dissipativa de permanencia estrutural em representacao fiel derivada (linguagem)
 - `retroalimentacao`: assintoticamente robusta: substratos mais capazes convergem com mais fidelidade (ciclo virtuoso; coerente com o aprendizado continuo patenteado) [CONJECTURE testavel pelo proprio protocolo]
+
+**Estatutos [void_stacking_blind]** (veredito: `STACKING_MACHINE_BUILT_AND_NULL_TESTS_PASS__VOIDS_REMAIN_BLINDED__SURVEY_MOCKS_NEXT`):
+
+- `maquina`: extrator seletivo (chunks de 1M linhas sobre 16,5 GB) + indice DEC + empilhamento tangencial ponderado + jackknife: CONSTRUIDA e validada no NULO
+- `nulo`: gamma_t e gamma_x em centros aleatorios consistentes com zero -- o controle 'random catalogs / null shear' da bateria obrigatoria PASSOU na fase cega
+- `blindagem`: nenhum centro de vazio tocado; a aplicacao aos 2093 vazios KiDS-N e' o ATO de desblindagem: exige a suite final (mocks do survey + controles completos + pre-especificacao do estimador r*)
+- `proximo`: mocks do survey (mascara/n(z)/bias) + covariancia completa; so' entao o empilhamento nos vazios e evaluate_void_floor_test
+
+**Estatutos [triad_master]** (veredito: `FULL_TRIAD_MASTER_COMPOSED__EINSTEIN_COEFFICIENT_EMERGES_FROM_CLAUSIUS__IMPLICATION_CLOSED_HYPOTHESES_ARE_THE_FRONTIER`):
+
+- `teorema_mestre_completo`: H1 ^ H2 ^ H3 => PENTADA [KERNEL emergence_master_full_triad]: Breuer + Nome=1 + coframe dual + Lorentz + lado termico de Einstein COM o coeficiente 8piG
+- `o_8piG`: o coeficiente NAO e' posto: emerge de T=kappa/2pi (Unruh) x S=A/4G (Bekenstein-Hawking) por algebra [KERNEL einstein_coefficient_from_clausius]
+- `bianchi`: a identidade de Jacobi do comutador [KERNEL] e' a semente algebrica de nabla G = 0 -- o elo entre a conservacao (clausula de H3) e o colchete do v63
+- `fronteira`: a implicacao esta FECHADA em kernel; as HIPOTESES sao a fronteira -- exatamente onde os Certificados II (rede concreta), III (limite fisico) e IV (natureza) trabalham no runtime
 
 **Estatutos [certificate_II]** (veredito: `CERTIFICATE_II_FINITE_FACE_INHABITED__CONCRETE_THREE_LOCKS_INSTANTIATE_H1__MODULAR_BOOSTS_GIVE_FOUR_FRAME_H2__CONTINUUM_NETWORK_IS_THE_HYPOTHESES_PROPER`):
 
