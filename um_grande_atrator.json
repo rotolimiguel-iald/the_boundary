@@ -3602,17 +3602,57 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.semifinite_trace_bot": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.semifinite_trace_atom": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.semifinite_trace_is_semifinite": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.semifinite_trace_top_infinite": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.global_gap_impossible_infinite_dim": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.infinite_dim_local_breuer_weight": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.not_finiteDimensional_finsupp": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.first_infinite_dim_inhabitant": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "e2e5f60784387f6b0ec190b8da3a3c32c766de20c0036b5f2c486d1cc469b397",
+      "formal_source_hash": "eff202cdafcb5d26b6b32a96100e5ec718f0f0f803f58298ce4501983b20ad29",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "1c68f503c7b5326e39bfd8ac06227abcd0e5e4395dc011888f018f6235ad6c20",
+        "TGLExt.lean": "425aa158ff8bf731f0188e84c4a88e7fa0237c38d3908c9561810f1b92fe670a",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "74917195b340d4426dee856d42f634d54afadc6e230e092d0744efba931373bc",
+        "TGL/Audit.lean": "146b381d9837dc12f817136319093fac6d6b70bda5b8669b75eba3da2ea7acd7",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -3671,6 +3711,7 @@
         "TGLExt/PsiEmergence.lean": "ff0fd49da7bda187a61454a6b57099e99d1c59c8af038fa43c90c1653736bb04",
         "TGLExt/RGStability.lean": "ae3c1eeee6d86ea43b57ee0afe171bb43c0f24094702130ec3c2604f53aa7bf5",
         "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
+        "TGLExt/SemifiniteLattice.lean": "37ca0a1db916c93954c1a486ddbf5462248a050e58ccb6b670020c5225e46b0f",
         "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
         "TGLExt/Solder4D.lean": "70f3c2aa3336b716a740a70c15759ffdaca612c7c69f975c0281a31e9bb2f35f",
         "TGLExt/SusyRelativeGap.lean": "3aa058b5c4f098e3218ffed0bc8271a28947b56af81750019e1360754873e7f2",
@@ -4012,24 +4053,32 @@
       "ext_tlc_corner_under_lock_kernel_proved": true,
       "ext_tlc_dim_le_inscription_kernel_proved": true,
       "ext_tlc_full_profile_kernel_proved": true,
+      "ext_sfl_trace_bot_kernel_proved": true,
+      "ext_sfl_atom_weighs_one_kernel_proved": true,
+      "ext_sfl_semifiniteness_kernel_proved": true,
+      "ext_sfl_top_infinite_kernel_proved": true,
+      "ext_sfl_global_gap_refuted_kernel_proved": true,
+      "ext_sfl_local_breuer_infinite_kernel_proved": true,
+      "ext_sfl_infinite_home_exists_kernel_proved": true,
+      "ext_sfl_first_inhabitant_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "19fad334b9ff90ab3f768bac39f82e18ae5a7952c861bb77394fd063263bb628",
+      "build_stdout_sha256": "0e0fcfaf9d4a1ffb791929286b7141c54c66ee09ae94237481a4eebdf5e52f65",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "29a9acfb4405d2a77b0482c521d950c6266190c30881b265645e5dabfe9567e0",
+      "audit_stdout_sha256": "92e3ede748e0960ff0b541fbe8e8f631e4ca84c2dc6dc6bc9ee27f624a6680fe",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 143755,
+        "stdout": 147527,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 111849,
+        "stdout": 115061,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "19fad334b9ff90ab3f768bac39f82e18ae5a7952c861bb77394fd063263bb628",
-      "audit_capture_sha256_full": "29a9acfb4405d2a77b0482c521d950c6266190c30881b265645e5dabfe9567e0",
+      "build_capture_sha256_full": "0e0fcfaf9d4a1ffb791929286b7141c54c66ee09ae94237481a4eebdf5e52f65",
+      "audit_capture_sha256_full": "92e3ede748e0960ff0b541fbe8e8f631e4ca84c2dc6dc6bc9ee27f624a6680fe",
       "custom_TGL_axioms_found": [],
       "source_forbidden_tokens_found": [],
       "formal_release_ready": true,
@@ -5249,7 +5298,8 @@
         "linearized_spin2": "DOUBLE_ANGLE_HELICITY_LAW_IN_KERNEL__TT_SECTOR_POSITIVE_NO_NEGATIVE_NORM__EXACTLY_TWO_POLARIZATIONS__FINITE_FACE_OF_ITEM6__FIERZ_PAULI_EL_AND_FULL_GHOST_FREEDOM_NEED_THE_CONTINUUM",
         "semifinite_seed": "SEMIFINITE_ANALYSIS_INCREMENT_1__TRACE_FAITHFULNESS_ON_PSD_CONE_PROVED__MONOTONE_AND_POSITIVE__FIRST_CONCRETE_INHABITANT_OF_FAITHFUL_WEIGHT_AXIOMS__CONTINUUM_AFFILIATION_AND_NORMALITY_REMAIN",
         "dimension_trace": "SEMIFINITE_ANALYSIS_INCREMENT_2__DIMENSION_TRACE_ON_REAL_SUBSPACE_LATTICE_IS_GENUINE_INSTANCE_OF_V64_LAYER__ABSTRACT_BREUER_THEOREM_FIRES_ON_CONCRETE_KERNEL__FULL_PROFILE_POSITIVE_FINITE_RANK_BOUNDED__INFINITE_DIM_CLOSED_SUBSPACES_REMAIN",
-        "three_locks_corner": "CERTIFICATE_II_FINITE_FACE_ELEVATED_TO_KERNEL_THEOREM__ABSTRACT_BREUER_FIRES_ON_H3L_THREE_LOCKS_OPERATOR__WITNESS_IN_THREE_LOCKS_FORCES_NONTRIVIAL_CORNER__WEIGHT_EQUALS_TR_PF_BY_DEFINITION__NAME_IS_ONE_DERIVED__DIM_BOUNDED_BY_INSCRIPTION__III1_REMAINS"
+        "three_locks_corner": "CERTIFICATE_II_FINITE_FACE_ELEVATED_TO_KERNEL_THEOREM__ABSTRACT_BREUER_FIRES_ON_H3L_THREE_LOCKS_OPERATOR__WITNESS_IN_THREE_LOCKS_FORCES_NONTRIVIAL_CORNER__WEIGHT_EQUALS_TR_PF_BY_DEFINITION__NAME_IS_ONE_DERIVED__DIM_BOUNDED_BY_INSCRIPTION__III1_REMAINS",
+        "semifinite_lattice": "SEMIFINITE_ANALYSIS_INCREMENT_3__GENUINELY_SEMIFINITE_DIMENSION_TRACE_WITHOUT_AMBIENT_FINITENESS__ATOM_WEIGHS_ONE_EQ_OMEGA_I__TOP_WEIGHS_INFINITY__GLOBAL_GAP_IMPOSSIBLE_BY_THEOREM_IN_INFINITE_DIM_ANSWER8_FORCED__LOCAL_BREUER_FIRES_WITH_FINITE_KERNEL__INHABITED_IN_GENUINE_INFINITE_HOME__CLOSED_SUBSPACES_AND_NORMALITY_REMAIN"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -5521,10 +5571,18 @@
         "ext_tlc_name_is_one_kernel_proved": true,
         "ext_tlc_corner_under_lock_kernel_proved": true,
         "ext_tlc_dim_le_inscription_kernel_proved": true,
-        "ext_tlc_full_profile_kernel_proved": true
+        "ext_tlc_full_profile_kernel_proved": true,
+        "ext_sfl_trace_bot_kernel_proved": true,
+        "ext_sfl_atom_weighs_one_kernel_proved": true,
+        "ext_sfl_semifiniteness_kernel_proved": true,
+        "ext_sfl_top_infinite_kernel_proved": true,
+        "ext_sfl_global_gap_refuted_kernel_proved": true,
+        "ext_sfl_local_breuer_infinite_kernel_proved": true,
+        "ext_sfl_infinite_home_exists_kernel_proved": true,
+        "ext_sfl_first_inhabitant_kernel_proved": true
       },
-      "n_theorems_clean": 270,
-      "n_theorems_expected": 270,
+      "n_theorems_clean": 278,
+      "n_theorems_expected": 278,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -5679,6 +5737,10 @@
         ],
         [
           "three_locks_corner_kernel",
+          true
+        ],
+        [
+          "semifinite_lattice_infinite",
           true
         ]
       ],
@@ -9172,7 +9234,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-15 19:33:49",
+    "timestamp": "2026-07-15 20:01:59",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -9422,7 +9484,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-15 19:33:49",
+        "prediction_timestamp": "2026-07-15 20:01:59",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -9458,7 +9520,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "792a9518da2e249b1dd9207b6136f0f1e988e626be167aeda7117fe6b259b193"
+        "prediction_hash": "df1348e2b545c666e1cbb93386a1e2edb4f38e898258d6b3fa93132d0ac5835f"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -9758,7 +9820,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "410edd39d90bc7c527f18c0ba64754e39654e8b5447f8ed34ef74c9f30e0186c"
+    "result_hash": "0af4af6708f544e22d94655ff3412e36facc4a7cdce54ed775a2674b626fe24c"
   },
   "ga_mass_literature": [
     {
@@ -9784,7 +9846,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "410edd39d90bc7c527f18c0ba64754e39654e8b5447f8ed34ef74c9f30e0186c",
+  "result_hash_before_external_comparison": "0af4af6708f544e22d94655ff3412e36facc4a7cdce54ed775a2674b626fe24c",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -9794,5 +9856,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-15 19:33:49"
+  "timestamp": "2026-07-15 20:01:59"
 }

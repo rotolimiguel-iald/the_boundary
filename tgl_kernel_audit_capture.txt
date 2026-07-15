@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=111849 len(stderr)=0
+# len(stdout)=115061 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1053,6 +1053,41 @@ TGLExt.threeLocksDimTrace : (n : ℕ) → TGLExt.SemifiniteTraceData (Submodule 
                 (TGLExt.threeLocksDimTrace n).tau (FiniteThreeLocks.H3L Dc Db Dz).ker < ⊤) ∧
               ↑(FiniteThreeLocks.cornerDim Dc Db Dz) / ↑(FiniteThreeLocks.cornerDim Dc Db Dz) = 1) ∧
             FiniteThreeLocks.cornerDim Dc Db Dz ≤ n
+TGLExt.dimOrTop : (K : Type) →
+  [inst : Field K] → {V : Type} → [inst_1 : AddCommGroup V] → [inst_2 : Module K V] → Submodule K V → ENNReal
+TGLExt.dimOrTop_lt_top_iff : ∀ (K : Type) [inst : Field K] {V : Type} [inst_1 : AddCommGroup V] [inst_2 : Module K V]
+  {S : Submodule K V}, TGLExt.dimOrTop K S < ⊤ ↔ FiniteDimensional K ↥S
+TGLExt.semifiniteDimTrace : (K : Type) →
+  [inst : Field K] →
+    (V : Type) → [inst_1 : AddCommGroup V] → [inst_2 : Module K V] → TGLExt.SemifiniteTraceData (Submodule K V)
+TGLExt.semifinite_trace_bot : ∀ (K : Type) [inst : Field K] {V : Type} [inst_1 : AddCommGroup V] [inst_2 : Module K V],
+  (TGLExt.semifiniteDimTrace K V).tau ⊥ = 0
+TGLExt.semifinite_trace_atom : ∀ (K : Type) [inst : Field K] {V : Type} [inst_1 : AddCommGroup V] [inst_2 : Module K V]
+  (x : V), x ≠ 0 → (TGLExt.semifiniteDimTrace K V).tau (K ∙ x) = 1
+TGLExt.semifinite_trace_is_semifinite : ∀ (K : Type) [inst : Field K] {V : Type} [inst_1 : AddCommGroup V]
+  [inst_2 : Module K V] (S : Submodule K V), S ≠ ⊥ → ∃ T ≤ S, T ≠ ⊥ ∧ (TGLExt.semifiniteDimTrace K V).tau T = 1
+TGLExt.semifinite_trace_top_infinite : ∀ (K : Type) [inst : Field K] {V : Type} [inst_1 : AddCommGroup V]
+  [inst_2 : Module K V], ¬FiniteDimensional K V → (TGLExt.semifiniteDimTrace K V).tau ⊤ = ⊤
+TGLExt.global_gap_impossible_infinite_dim : ∀ (K : Type) [inst : Field K] {V : Type} [inst_1 : AddCommGroup V]
+  [inst_2 : Module K V], ¬FiniteDimensional K V → ¬(TGLExt.semifiniteDimTrace K V).tau ⊤ < ⊤
+TGLExt.infiniteDimLocalGapPackage : (K : Type) →
+  [inst : Field K] →
+    {V : Type} →
+      [inst_1 : AddCommGroup V] →
+        [inst_2 : Module K V] →
+          (kr gp : Submodule K V) →
+            kr ≠ ⊥ →
+              kr ≤ gp → FiniteDimensional K ↥gp → TGLExt.BreuerGapData (Submodule K V) (TGLExt.semifiniteDimTrace K V)
+TGLExt.infinite_dim_local_breuer_weight : ∀ (K : Type) [inst : Field K] {V : Type} [inst_1 : AddCommGroup V]
+  [inst_2 : Module K V] (kr gp : Submodule K V),
+  kr ≠ ⊥ →
+    kr ≤ gp →
+      FiniteDimensional K ↥gp →
+        (0 < (TGLExt.semifiniteDimTrace K V).tau kr ∧ (TGLExt.semifiniteDimTrace K V).tau kr < ⊤) ∧
+          FiniteDimensional K ↥kr
+TGLExt.not_finiteDimensional_finsupp : ∀ (K : Type) [inst : Field K], ¬FiniteDimensional K (ℕ →₀ K)
+TGLExt.first_infinite_dim_inhabitant : ∀ (K : Type) [inst : Field K],
+  ∃ G, (TGLExt.semifiniteDimTrace K (ℕ →₀ K)).tau G.ker = 1 ∧ (TGLExt.semifiniteDimTrace K (ℕ →₀ K)).tau ⊤ = ⊤
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1374,6 +1409,14 @@ TGLExt.threeLocksDimTrace : (n : ℕ) → TGLExt.SemifiniteTraceData (Submodule 
 'TGLExt.corner_le_each_lock' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.three_locks_corner_dim_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.three_locks_corner_full_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.semifinite_trace_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.semifinite_trace_atom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.semifinite_trace_is_semifinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.semifinite_trace_top_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.global_gap_impossible_infinite_dim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.infinite_dim_local_breuer_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.not_finiteDimensional_finsupp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.first_infinite_dim_inhabitant' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

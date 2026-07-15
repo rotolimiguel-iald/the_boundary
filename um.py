@@ -5062,6 +5062,7 @@ import TGLExt.LinearizedSpin2
 import TGLExt.SemifiniteSeed
 import TGLExt.DimensionTrace
 import TGLExt.ThreeLocksCorner
+import TGLExt.SemifiniteLattice
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5670,6 +5671,21 @@ namespace TGL.Audit
 #check @TGLExt.three_locks_corner_dim_le
 #check @TGLExt.three_locks_corner_full_profile
 
+-- v80 (o reticulado genuinamente semifinito: sem finitude ambiente; o gap
+--      global e' IMPOSSIVEL em inf-dim; o Breuer local dispara no infinito)
+#check @TGLExt.dimOrTop
+#check @TGLExt.dimOrTop_lt_top_iff
+#check @TGLExt.semifiniteDimTrace
+#check @TGLExt.semifinite_trace_bot
+#check @TGLExt.semifinite_trace_atom
+#check @TGLExt.semifinite_trace_is_semifinite
+#check @TGLExt.semifinite_trace_top_infinite
+#check @TGLExt.global_gap_impossible_infinite_dim
+#check @TGLExt.infiniteDimLocalGapPackage
+#check @TGLExt.infinite_dim_local_breuer_weight
+#check @TGLExt.not_finiteDimensional_finsupp
+#check @TGLExt.first_infinite_dim_inhabitant
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6025,6 +6041,15 @@ namespace TGL.Audit
 #print axioms TGLExt.corner_le_each_lock
 #print axioms TGLExt.three_locks_corner_dim_le
 #print axioms TGLExt.three_locks_corner_full_profile
+-- v80 (o reticulado genuinamente semifinito)
+#print axioms TGLExt.semifinite_trace_bot
+#print axioms TGLExt.semifinite_trace_atom
+#print axioms TGLExt.semifinite_trace_is_semifinite
+#print axioms TGLExt.semifinite_trace_top_infinite
+#print axioms TGLExt.global_gap_impossible_infinite_dim
+#print axioms TGLExt.infinite_dim_local_breuer_weight
+#print axioms TGLExt.not_finiteDimensional_finsupp
+#print axioms TGLExt.first_infinite_dim_inhabitant
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -10592,6 +10617,233 @@ theorem three_locks_corner_full_profile
   exact ⟨⟨three_locks_corner_weight Dc Db Dz hker,
           three_locks_name_is_one Dc Db Dz hker⟩,
          three_locks_corner_dim_le Dc Db Dz⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/SemifiniteLattice.lean":
+r'''import TGLExt.ThreeLocksCorner
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O RETICULADO GENUINAMENTE SEMIFINITO: a morada ∞-dim da camada da dimensão
+  [TGLExt — v80, o incremento 3 do programa SemifiniteAnalysis]
+
+O v77 habitou a camada abstrata (v64) em dimensão finita; o v79 a disparou
+sobre o operador da teoria. MAS em dimensão finita a semifinitude é a
+finitude (τ(⊤)<∞) — o gap = ⊤ sempre serve, e a correção da Resposta 8
+(gap LOCAL, não global) parece opcional. Esta pedra remove a hipótese de
+finitude do espaço ambiente e mostra que, em dimensão INFINITA:
+
+* o traço da dimensão continua camada tracial FIEL e MONÓTONA — mas agora
+  GENUINAMENTE semifinita: τ(⊤) = ⊤ e todo subespaço não-trivial domina
+  um subespaço de peso finito (= 1, o átomo);
+* **o gap GLOBAL é IMPOSSÍVEL POR TEOREMA** — a correção da parede (v64,
+  Resposta 8: "o certo é o GAP LOCAL") deixa de ser escolha e vira
+  NECESSIDADE do reticulado;
+* o Breuer LOCAL dispara: kernel não-trivial sob um gap de dimensão
+  finita ⟹ 0 < τ(ker) < ∞ — num espaço onde o todo pesa ⊤;
+* a morada existe: ℕ →₀ K é genuinamente ∞-dim e o pacote local é
+  HABITADO nela, com τ(ker) = 1 = ω(I) e τ(⊤) = ⊤.
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* `semifiniteDimTrace` — [DATA] τ = dim-ou-⊤ sobre Submodule K V, SEM
+  hipótese de finitude em V: fiel + monótona (a 1ª instância da camada
+  v64 que NÃO é um caso finito disfarçado);
+* ★ `semifinite_trace_bot` / ★ `semifinite_trace_atom` — τ(⊥) = 0 e
+  τ(K·x) = 1 para x ≠ 0: O ÁTOMO PESA 1 — ω(I) = 1 no reticulado;
+* ★★ `semifinite_trace_is_semifinite` — O AXIOMA DA SEMIFINITUDE, agora
+  genuíno: todo S ≠ ⊥ contém T ≠ ⊥ com τ(T) = 1 < ∞ (o Nome habita todo
+  canto não-trivial);
+* ★ `semifinite_trace_top_infinite` — em ∞-dim, τ(⊤) = ⊤ (o todo pesa
+  infinito — o território II_∞ no nível do reticulado);
+* ★★ `global_gap_impossible_infinite_dim` — **a REFUTAÇÃO do global como
+  teorema**: em ∞-dim NÃO existe gap = ⊤ com peso finito; o certificado
+  local do v64 é a ÚNICA porta (eco em reticulado do
+  global_tau_compactness_refuted);
+* ★★ `infinite_dim_local_breuer_weight` — o Breuer abstrato (v64) dispara
+  em ∞-dim: ker ≠ ⊥ sob gap de dim finita ⟹ 0 < τ(ker) < ∞, e o kernel
+  é finito-dimensional (a inscrição é finita DENTRO do infinito);
+* ★ `not_finiteDimensional_finsupp` — ℕ →₀ K é genuinamente ∞-dim
+  (a morada concreta existe);
+* ★★ `first_infinite_dim_inhabitant` — o pacote local de Breuer é
+  HABITADO em ℕ →₀ K: τ(ker) = 1 = ω(I) num espaço com τ(⊤) = ⊤.
+
+HONESTIDADE: reticulado de TODOS os subespaços (face algébrica) — o
+reticulado de projeções ORTOGONAIS de um Hilbert ∞-dim (subespaços
+FECHADOS, comutantes, normalidade do τ) é o próximo tijolo; nada aqui é
+III₁; nenhuma flag do fecho se move. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+variable (K : Type) [Field K] {V : Type} [AddCommGroup V] [Module K V]
+
+/-- [DEF] dimensão-ou-⊤: o peso de um subespaço é sua dimensão se finita,
+    e ⊤ caso contrário. -/
+noncomputable def dimOrTop (S : Submodule K V) : ℝ≥0∞ :=
+  open Classical in
+  if FiniteDimensional K S then (Module.finrank K S : ℝ≥0∞) else ⊤
+
+theorem dimOrTop_of_finite {S : Submodule K V} (h : FiniteDimensional K S) :
+    dimOrTop K S = (Module.finrank K S : ℝ≥0∞) := by
+  unfold dimOrTop
+  exact if_pos h
+
+theorem dimOrTop_of_infinite {S : Submodule K V} (h : ¬FiniteDimensional K S) :
+    dimOrTop K S = ⊤ := by
+  unfold dimOrTop
+  exact if_neg h
+
+/-- [KERNEL] o peso é finito EXATAMENTE nos subespaços de dimensão finita. -/
+theorem dimOrTop_lt_top_iff {S : Submodule K V} :
+    dimOrTop K S < ⊤ ↔ FiniteDimensional K S := by
+  constructor
+  · intro h
+    by_contra hS
+    rw [dimOrTop_of_infinite K hS] at h
+    exact lt_irrefl ⊤ h
+  · intro h
+    rw [dimOrTop_of_finite K h]
+    exact ENNReal.natCast_lt_top _
+
+variable (V) in
+/-- [DATA — a 1ª instância GENUINAMENTE SEMIFINITA da camada v64] τ = dim-ou-⊤
+    no reticulado de TODOS os subespaços de V, SEM hipótese de finitude no
+    ambiente: FIEL e MONÓTONA. -/
+def semifiniteDimTrace : SemifiniteTraceData (Submodule K V) where
+  tau := fun S => dimOrTop K S
+  mono := by
+    intro p q hpq
+    by_cases hq : FiniteDimensional K q
+    · haveI := hq
+      haveI hp : FiniteDimensional K p :=
+        (Submodule.comapSubtypeEquivOfLe hpq).finiteDimensional
+      rw [dimOrTop_of_finite K hp, dimOrTop_of_finite K hq]
+      have hle : Module.finrank K p ≤ Module.finrank K q := by
+        calc Module.finrank K p
+            = Module.finrank K (p.comap q.subtype) :=
+              (Submodule.comapSubtypeEquivOfLe hpq).finrank_eq.symm
+          _ ≤ Module.finrank K q := Submodule.finrank_le _
+      exact_mod_cast hle
+    · rw [dimOrTop_of_infinite K hq]
+      exact le_top
+  faithful := by
+    intro p hp
+    by_cases hpf : FiniteDimensional K p
+    · haveI := hpf
+      rw [dimOrTop_of_finite K hpf] at hp
+      have h0 : Module.finrank K p = 0 := by exact_mod_cast hp
+      exact (Submodule.finrank_eq_zero (R := K)).mp h0
+    · rw [dimOrTop_of_infinite K hpf] at hp
+      exact absurd hp ENNReal.top_ne_zero
+
+/-- [KERNEL] ★ τ(⊥) = 0 — o vazio não pesa (agora sem finitude ambiente). -/
+theorem semifinite_trace_bot :
+    (semifiniteDimTrace K V).tau ⊥ = 0 := by
+  have : FiniteDimensional K (⊥ : Submodule K V) := inferInstance
+  show dimOrTop K (⊥ : Submodule K V) = 0
+  rw [dimOrTop_of_finite K this]
+  simp
+
+/-- [KERNEL] ★ O ÁTOMO PESA 1: τ(K·x) = 1 para x ≠ 0 — ω(I) = 1 no
+    reticulado; a linha do Um pesa exatamente a identidade. -/
+theorem semifinite_trace_atom (x : V) (hx : x ≠ 0) :
+    (semifiniteDimTrace K V).tau (K ∙ x) = 1 := by
+  have hfd : FiniteDimensional K (K ∙ x) := inferInstance
+  show dimOrTop K (K ∙ x) = 1
+  rw [dimOrTop_of_finite K hfd, finrank_span_singleton hx]
+  simp
+
+/-- [KERNEL] ★★ O AXIOMA DA SEMIFINITUDE, genuíno: todo subespaço
+    não-trivial CONTÉM um subespaço de peso 1 — o Nome habita todo canto
+    não-trivial, mesmo quando o todo pesa ⊤. -/
+theorem semifinite_trace_is_semifinite (S : Submodule K V) (hS : S ≠ ⊥) :
+    ∃ T : Submodule K V, T ≤ S ∧ T ≠ ⊥ ∧ (semifiniteDimTrace K V).tau T = 1 := by
+  obtain ⟨x, hxS, hx0⟩ := (Submodule.ne_bot_iff S).mp hS
+  refine ⟨K ∙ x, ?_, ?_, semifinite_trace_atom K x hx0⟩
+  · exact (Submodule.span_singleton_le_iff_mem x S).mpr hxS
+  · intro h
+    exact hx0 (Submodule.span_singleton_eq_bot.mp h)
+
+/-- [KERNEL] ★ em dimensão INFINITA o todo pesa ⊤ — a semifinitude deixa
+    de ser finitude: o território II_∞ no nível do reticulado. -/
+theorem semifinite_trace_top_infinite (hV : ¬FiniteDimensional K V) :
+    (semifiniteDimTrace K V).tau ⊤ = ⊤ := by
+  have htop : ¬FiniteDimensional K (⊤ : Submodule K V) := by
+    intro h
+    haveI := h
+    exact hV (Submodule.topEquiv.finiteDimensional)
+  show dimOrTop K (⊤ : Submodule K V) = ⊤
+  exact dimOrTop_of_infinite K htop
+
+/-- [KERNEL] ★★ A REFUTAÇÃO DO GLOBAL COMO TEOREMA: em ∞-dim NÃO existe
+    certificado com gap = ⊤ (peso finito no todo é impossível) — o gap
+    LOCAL do v64 (Resposta 8) é a ÚNICA porta; a correção da parede era
+    necessidade, não escolha. -/
+theorem global_gap_impossible_infinite_dim (hV : ¬FiniteDimensional K V) :
+    ¬((semifiniteDimTrace K V).tau ⊤ < ⊤) := by
+  rw [semifinite_trace_top_infinite K hV]
+  exact lt_irrefl ⊤
+
+/-- [DATA] o pacote de gap LOCAL em dimensão qualquer: kernel não-trivial
+    sob um gap de dimensão FINITA. -/
+def infiniteDimLocalGapPackage (kr gp : Submodule K V)
+    (hker : kr ≠ ⊥) (hle : kr ≤ gp) (hgp : FiniteDimensional K gp) :
+    BreuerGapData (Submodule K V) (semifiniteDimTrace K V) where
+  ker := kr
+  gap := gp
+  ker_le_gap := hle
+  gap_finite := by
+    show dimOrTop K gp < ⊤
+    exact (dimOrTop_lt_top_iff K).mpr hgp
+  ker_ne_bot := hker
+
+/-- [KERNEL] ★★ O BREUER LOCAL DISPARA EM ∞-DIM: kernel não-trivial sob
+    gap finito ⟹ 0 < τ(ker) < ∞ E o kernel é finito-dimensional — a
+    inscrição é FINITA dentro do infinito (o certificado do v64 na sua
+    morada genuína). -/
+theorem infinite_dim_local_breuer_weight (kr gp : Submodule K V)
+    (hker : kr ≠ ⊥) (hle : kr ≤ gp) (hgp : FiniteDimensional K gp) :
+    (0 < (semifiniteDimTrace K V).tau kr ∧
+      (semifiniteDimTrace K V).tau kr < ⊤) ∧ FiniteDimensional K kr := by
+  have hw := breuer_kernel_weight (infiniteDimLocalGapPackage K kr gp hker hle hgp)
+  haveI := hgp
+  exact ⟨hw, (Submodule.comapSubtypeEquivOfLe hle).finiteDimensional⟩
+
+/-- [KERNEL] ★ a morada concreta existe: ℕ →₀ K é GENUINAMENTE ∞-dim
+    (a base canônica é infinita). -/
+theorem not_finiteDimensional_finsupp : ¬FiniteDimensional K (ℕ →₀ K) := by
+  intro h
+  haveI := h
+  haveI : Fintype ℕ :=
+    FiniteDimensional.fintypeBasisIndex (Finsupp.basisSingleOne (R := K) (ι := ℕ))
+  exact not_finite ℕ
+
+/-- [KERNEL] ★★ O PRIMEIRO HABITANTE ∞-DIM: em ℕ →₀ K o pacote local de
+    Breuer é HABITADO — τ(ker) = 1 = ω(I) num espaço onde τ(⊤) = ⊤.
+    O Nome pesa 1 dentro do infinito. -/
+theorem first_infinite_dim_inhabitant :
+    ∃ G : BreuerGapData (Submodule K (ℕ →₀ K)) (semifiniteDimTrace K (ℕ →₀ K)),
+      (semifiniteDimTrace K (ℕ →₀ K)).tau G.ker = 1 ∧
+        (semifiniteDimTrace K (ℕ →₀ K)).tau ⊤ = ⊤ := by
+  have hx : (Finsupp.single 0 (1 : K) : ℕ →₀ K) ≠ 0 := by
+    simp [Finsupp.single_eq_zero]
+  have hne : (K ∙ (Finsupp.single 0 (1 : K) : ℕ →₀ K)) ≠ ⊥ := by
+    intro h
+    exact hx (Submodule.span_singleton_eq_bot.mp h)
+  refine ⟨infiniteDimLocalGapPackage K _ _ hne le_rfl inferInstance,
+          semifinite_trace_atom K _ hx,
+          semifinite_trace_top_infinite K (not_finiteDimensional_finsupp K)⟩
 
 end
 
@@ -17411,6 +17663,15 @@ _LEAN_THEOREM_FLAGS = {
     "ext_tlc_corner_under_lock_kernel_proved": "TGLExt.corner_le_each_lock",
     "ext_tlc_dim_le_inscription_kernel_proved": "TGLExt.three_locks_corner_dim_le",
     "ext_tlc_full_profile_kernel_proved": "TGLExt.three_locks_corner_full_profile",
+    # v80 (o reticulado genuinamente semifinito: gap global impossivel em inf-dim)
+    "ext_sfl_trace_bot_kernel_proved": "TGLExt.semifinite_trace_bot",
+    "ext_sfl_atom_weighs_one_kernel_proved": "TGLExt.semifinite_trace_atom",
+    "ext_sfl_semifiniteness_kernel_proved": "TGLExt.semifinite_trace_is_semifinite",
+    "ext_sfl_top_infinite_kernel_proved": "TGLExt.semifinite_trace_top_infinite",
+    "ext_sfl_global_gap_refuted_kernel_proved": "TGLExt.global_gap_impossible_infinite_dim",
+    "ext_sfl_local_breuer_infinite_kernel_proved": "TGLExt.infinite_dim_local_breuer_weight",
+    "ext_sfl_infinite_home_exists_kernel_proved": "TGLExt.not_finiteDimensional_finsupp",
+    "ext_sfl_first_inhabitant_kernel_proved": "TGLExt.first_infinite_dim_inhabitant",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -18941,6 +19202,11 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_tlc_corner_weight_kernel_proved", "ext_tlc_weight_eq_dim_kernel_proved",
         "ext_tlc_name_is_one_kernel_proved", "ext_tlc_corner_under_lock_kernel_proved",
         "ext_tlc_dim_le_inscription_kernel_proved", "ext_tlc_full_profile_kernel_proved",
+        # v80: o reticulado genuinamente semifinito (inf-dim; gap local forcado)
+        "ext_sfl_trace_bot_kernel_proved", "ext_sfl_atom_weighs_one_kernel_proved",
+        "ext_sfl_semifiniteness_kernel_proved", "ext_sfl_top_infinite_kernel_proved",
+        "ext_sfl_global_gap_refuted_kernel_proved", "ext_sfl_local_breuer_infinite_kernel_proved",
+        "ext_sfl_infinite_home_exists_kernel_proved", "ext_sfl_first_inhabitant_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -19088,6 +19354,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                 "ext_tlc_corner_weight_kernel_proved", "ext_tlc_weight_eq_dim_kernel_proved",
                 "ext_tlc_name_is_one_kernel_proved", "ext_tlc_corner_under_lock_kernel_proved",
                 "ext_tlc_dim_le_inscription_kernel_proved", "ext_tlc_full_profile_kernel_proved"]
+    sfl_keys = ["ext_sfl_trace_bot_kernel_proved", "ext_sfl_atom_weighs_one_kernel_proved",
+                "ext_sfl_semifiniteness_kernel_proved", "ext_sfl_top_infinite_kernel_proved",
+                "ext_sfl_global_gap_refuted_kernel_proved", "ext_sfl_local_breuer_infinite_kernel_proved",
+                "ext_sfl_infinite_home_exists_kernel_proved", "ext_sfl_first_inhabitant_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -19123,6 +19393,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dSs = all(per_theorem[k] for k in ss_keys)
     dDt = all(per_theorem[k] for k in dt_keys)
     dTlc = all(per_theorem[k] for k in tlc_keys)
+    dSfl = all(per_theorem[k] for k in sfl_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -19161,6 +19432,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("semifinite_seed_increment1", dSs),
         ("dimension_trace_bridge", dDt),
         ("three_locks_corner_kernel", dTlc),
+        ("semifinite_lattice_infinite", dSfl),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -19237,6 +19509,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
             "dimension_trace": ("SEMIFINITE_ANALYSIS_INCREMENT_2__DIMENSION_TRACE_ON_REAL_SUBSPACE_LATTICE_IS_GENUINE_INSTANCE_OF_V64_LAYER__ABSTRACT_BREUER_THEOREM_FIRES_ON_CONCRETE_KERNEL__FULL_PROFILE_POSITIVE_FINITE_RANK_BOUNDED__INFINITE_DIM_CLOSED_SUBSPACES_REMAIN" if dDt
                                  else "NOT_VERIFIED_THIS_RUN"),
             "three_locks_corner": ("CERTIFICATE_II_FINITE_FACE_ELEVATED_TO_KERNEL_THEOREM__ABSTRACT_BREUER_FIRES_ON_H3L_THREE_LOCKS_OPERATOR__WITNESS_IN_THREE_LOCKS_FORCES_NONTRIVIAL_CORNER__WEIGHT_EQUALS_TR_PF_BY_DEFINITION__NAME_IS_ONE_DERIVED__DIM_BOUNDED_BY_INSCRIPTION__III1_REMAINS" if dTlc
+                                    else "NOT_VERIFIED_THIS_RUN"),
+            "semifinite_lattice": ("SEMIFINITE_ANALYSIS_INCREMENT_3__GENUINELY_SEMIFINITE_DIMENSION_TRACE_WITHOUT_AMBIENT_FINITENESS__ATOM_WEIGHS_ONE_EQ_OMEGA_I__TOP_WEIGHS_INFINITY__GLOBAL_GAP_IMPOSSIBLE_BY_THEOREM_IN_INFINITE_DIM_ANSWER8_FORCED__LOCAL_BREUER_FIRES_WITH_FINITE_KERNEL__INHABITED_IN_GENUINE_INFINITE_HOME__CLOSED_SUBSPACES_AND_NORMALITY_REMAIN" if dSfl
                                     else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
@@ -28916,7 +29190,8 @@ _ESQUELETO_STONES = [
     ("v75", "LinearizedSpin2", "TGLExt/LinearizedSpin2.lean", "254/254", "15/07 16:13:35"),
     ("v76", "SemifiniteSeed", "TGLExt/SemifiniteSeed.lean", "258/258", "15/07 17:24:20"),
     ("v77", "DimensionTrace", "TGLExt/DimensionTrace.lean", "262/262", "15/07 18:20:11"),
-    ("v79", "ThreeLocksCorner", "TGLExt/ThreeLocksCorner.lean", None, None),
+    ("v79", "ThreeLocksCorner", "TGLExt/ThreeLocksCorner.lean", "270/270", "15/07 19:33:49"),
+    ("v80", "SemifiniteLattice", "TGLExt/SemifiniteLattice.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -28951,17 +29226,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(trinta pedras, \S120--\S159)}")
+                 r"(trinta e uma pedras, \S120--\S160)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em trinta pedras "
-                 r"(v43--v79) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em trinta e uma pedras "
+                 r"(v43--v80) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As trinta pedras}")
+        c.append(r"\subsection*{As trinta e uma pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -29208,6 +29483,20 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"gap $0{,}0481$, zero isolado, $\mathrm{tr}(P_F)=4$, Nome $=1$); o kernel prova "
                  r"tudo a jusante. HONESTIDADE: dimensão finita --- NÃO é III$_1$; a existência da "
                  r"testemunha é hipótese (instanciada numericamente); nenhuma flag do fecho se move.")
+        c.append(r"\kernelmk{SemifiniteLattice} (v80): \textbf{o reticulado GENUINAMENTE semifinito "
+                 r"--- o incremento 3: a hipótese de finitude do ambiente cai}. $\tau=\dim$-ou-$\top$ "
+                 r"sobre TODOS os subespaços de $V$ qualquer: fiel, monótona, e agora semifinita de "
+                 r"verdade --- \textbf{o átomo pesa 1} ($\tau(K\!\cdot\!x)=1$, $\omega(I)$ no "
+                 r"reticulado), todo $S\neq\bot$ contém peso 1 (o AXIOMA da semifinitude), e em "
+                 r"$\infty$-dim $\tau(\top)=\top$. \textbf{A REFUTAÇÃO DO GLOBAL VIRA TEOREMA}: em "
+                 r"$\infty$-dim não existe gap $=\top$ de peso finito --- o gap LOCAL da Resposta 8 "
+                 r"(v64) era necessidade, não escolha. E o Breuer local DISPARA no infinito: kernel "
+                 r"não-trivial sob gap de dimensão finita $\Rightarrow 0<\tau(\ker)<\infty$ com "
+                 r"kernel finito-dimensional --- a inscrição é FINITA dentro do infinito; pacote "
+                 r"HABITADO em $\mathbb N\to_0 K$ (genuinamente $\infty$-dim): $\tau(\ker)=1$ num "
+                 r"espaço onde $\tau(\top)=\top$. HONESTIDADE: face ALGÉBRICA (todos os subespaços); "
+                 r"subespaços FECHADOS de Hilbert, comutantes e normalidade do $\tau$ = o próximo "
+                 r"tijolo; nada aqui é III$_1$; nenhuma flag do fecho se move.")
         c.append(r"\subsection*{O mapa dos onze gates}")
         c.append(r"\begin{center}\begin{tabular}{@{}lll@{}}\toprule Gate & Estado & Onde \\ \midrule "
                  r"1. $P_F$ local covariante & DERIVADO do campo ($P_F=\mathrm{proj}_{\ker\mathcal D}$; $P_F\Omega=\Omega$; $\ker\neq0$ derivado); geração pela dinâmica \statusmk{OPEN} & v46, v55--58 \\ "
@@ -29406,7 +29695,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em trinta pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em trinta e uma pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -29439,16 +29728,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(thirty stones, \S120--\S159)}")
+                 r"(thirty-one stones, \S120--\S160)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across thirty stones (v43--v79) the audited kernel went from 53 to "
+                 r"from this run's audit. Across thirty-one stones (v43--v80) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The thirty stones}")
+        c.append(r"\subsection*{The thirty-one stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -29683,6 +29972,20 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"kernel proves everything downstream. HONESTY: finite dimension --- NOT III$_1$; "
                  r"the witness's existence is a hypothesis (numerically instantiated); no closure "
                  r"flag moves.")
+        c.append(r"\kernelmk{SemifiniteLattice} (v80): \textbf{the GENUINELY semifinite lattice --- "
+                 r"increment 3: the ambient finiteness hypothesis falls}. $\tau=\dim$-or-$\top$ on "
+                 r"ALL subspaces of arbitrary $V$: faithful, monotone, and now truly semifinite --- "
+                 r"\textbf{the atom weighs 1} ($\tau(K\!\cdot\!x)=1$, $\omega(I)$ at lattice level), "
+                 r"every $S\neq\bot$ contains weight 1 (the semifiniteness AXIOM), and in "
+                 r"$\infty$-dim $\tau(\top)=\top$. \textbf{THE GLOBAL REFUTATION BECOMES A THEOREM}: "
+                 r"in $\infty$-dim no gap $=\top$ of finite weight exists --- Answer 8's LOCAL gap "
+                 r"(v64) was necessity, not choice. And local Breuer FIRES in the infinite: a "
+                 r"nontrivial kernel under a finite-dimensional gap $\Rightarrow 0<\tau(\ker)<\infty$ "
+                 r"with finite-dimensional kernel --- the inscription is FINITE inside the infinite; "
+                 r"the package is INHABITED in $\mathbb N\to_0 K$ (genuinely $\infty$-dim): "
+                 r"$\tau(\ker)=1$ in a space where $\tau(\top)=\top$. HONESTY: ALGEBRAIC face (all "
+                 r"subspaces); CLOSED Hilbert subspaces, commutants, and $\tau$-normality are the "
+                 r"next brick; nothing here is III$_1$; no closure flag moves.")
         c.append(r"\subsection*{Seals and hashes (live hashes from this run; history $=$ provenance)}")
         c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
                  r"v & Stone & sha256/16 (live) & Run & Seal \\ \midrule " + "\n" +
@@ -29869,7 +30172,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across thirty stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across thirty-one stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -32208,6 +32511,16 @@ def main():
         _elp.get("ext_tlc_field_general_trace_kernel_proved"), _elp.get("ext_tlc_corner_under_lock_kernel_proved"),
         _elp.get("ext_tlc_dim_le_inscription_kernel_proved"), _elp.get("ext_tlc_full_profile_kernel_proved")))
     print("    [dimensao FINITA -- NAO e' III_1; a testemunha e' hipotese, instanciada pela rede CONCRETA do Cert. II; o kernel prova o jusante]")
+    print("  O RETICULADO GENUINAMENTE SEMIFINITO [v80 -- o incremento 3: a finitude do ambiente cai]: %s" % _ell.get("semifinite_lattice"))
+    print("    *** A REFUTACAO DO GLOBAL VIRA TEOREMA: em inf-dim nao existe gap = top de peso finito (a Resposta 8 era necessidade): %s ***" % (
+        _elp.get("ext_sfl_global_gap_refuted_kernel_proved")))
+    print("    o atomo pesa 1 = omega(I) no reticulado: %s ; o AXIOMA da semifinitude (todo S != bot contem peso 1): %s ; tau(top) = top em inf-dim: %s" % (
+        _elp.get("ext_sfl_atom_weighs_one_kernel_proved"), _elp.get("ext_sfl_semifiniteness_kernel_proved"),
+        _elp.get("ext_sfl_top_infinite_kernel_proved")))
+    print("    o Breuer local DISPARA no infinito (kernel finito dentro do inf): %s ; morada inf-dim existe (N ->0 K): %s ; pacote HABITADO (tau(ker)=1, tau(top)=top): %s" % (
+        _elp.get("ext_sfl_local_breuer_infinite_kernel_proved"), _elp.get("ext_sfl_infinite_home_exists_kernel_proved"),
+        _elp.get("ext_sfl_first_inhabitant_kernel_proved")))
+    print("    [face ALGEBRICA (todos os subespacos); FECHADOS de Hilbert + comutantes + normalidade = o proximo tijolo; nada e' III_1]")
     _cii = core.get("certificate_II", {}) or {}
     _h1f = _cii.get("H1_finite_face", {}) or {}
     print("  CERTIFICADO II [v67 -- a rede CONCRETA habita H1+H2, face finita]: %s" % _cii.get("verdict"))
