@@ -209,8 +209,8 @@ Hint: Omit it from the simp argument list.
   ̲  ̲ ̲ ̲Matrix.smul_apply, Matrix.a̵dd̵_̵a̵p̵p̵l̵y̵,̵ ̵M̵a̵t̵r̵ix̵.̵d̵i̵ag]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-✔ [8615/8619] Built TGL.HalfNat (12s)
-ℹ [8616/8619] Built TGL.Audit (12s)
+✔ [8615/8619] Built TGL.HalfNat (13s)
+ℹ [8616/8619] Built TGL.Audit (13s)
 info: TGL/Audit.lean:31:0: HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 info: TGL/Audit.lean:32:0: HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
 info: TGL/Audit.lean:33:0: AreaScale.eta_eq_one_over_two_kappa : ∀ (kappa : ℝ), 1 / 2 / kappa = 1 / (2 * kappa)
@@ -1640,8 +1640,8 @@ info: TGL/Audit.lean:951:0: GRAVITON_BELL_SHADOW_CCI_HALF
 info: TGL/Audit.lean:952:0: THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX
 info: TGL/Audit.lean:953:0: CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR
 info: TGL/Audit.lean:954:0: FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED
-✔ [8617/8619] Built TGL.Main (11s)
-✔ [8618/8619] Built TGL (11s)
+✔ [8617/8619] Built TGL.Main (12s)
+✔ [8618/8619] Built TGL (13s)
 Build completed successfully (8619 jobs).
 
 --- STDERR ---

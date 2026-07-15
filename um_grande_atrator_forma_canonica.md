@@ -690,6 +690,13 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `honestidades`: n(z) do proprio Z_B [EXT aprox]; HSW com (alpha,beta)=(2,6) fixos [EXT]; vies multiplicativo m (~1%) nao aplicado [margem]; VoidFinder excluido (sem REDSHIFT nas MAXIMALS); mocks completos do survey substituidos por jackknife+Fisher [padrao da area; refinamento = programa]
 - `o_veredito`: TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS
 
+**Estatutos [void_floor_v2]** (veredito: `TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED`):
+
+- `a_correcao_central`: a V1 empilhou corretamente um SINAL, mas nao empilhou um OBSERVAVEL capaz de identificar o piso; a V2 prova primeiro dDeltaSigma/dr_c != 0, elimina o B-mode pela cadeia, e so entao desblinda
+- `independencia`: a fatia 0.24<=z<0.43 NAO EXISTE nos dados (BGS z_max~0.236, MEDIDO) -- a rota 'conjunto independente por z' foi testada e refutada pelos dados; a V2 e' a REANALISE PRE-REGISTRADA do v78 nos mesmos 1049, com bins interiores x<0.15 virgens (a V1 nunca os leu); independencia total = replicas DES Y3/HSC [proximo elo]
+- `honestidades`: m-bias medio global [EXT] (nao por bin tomografico); Sigma_crit efetivo do n(z) (nao por par); HSW (2,6) fixo; mocks completos substituidos por jackknife+aleatorios [refinamento = programa]; poder em r_c limitado pelos pares nos bins interiores (theta pequeno)
+- `o_veredito`: TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED
+
 **Estatutos [triad_master]** (veredito: `FULL_TRIAD_MASTER_COMPOSED__EINSTEIN_COEFFICIENT_EMERGES_FROM_CLAUSIUS__IMPLICATION_CLOSED_HYPOTHESES_ARE_THE_FRONTIER`):
 
 - `teorema_mestre_completo`: H1 ^ H2 ^ H3 => PENTADA [KERNEL emergence_master_full_triad]: Breuer + Nome=1 + coframe dual + Lorentz + lado termico de Einstein COM o coeficiente 8piG
