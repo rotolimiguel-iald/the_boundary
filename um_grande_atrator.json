@@ -3397,17 +3397,92 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.susy_relative_gap_finite": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.susy_relative_gives_breuer": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.susy_relative_package_consistent": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.perturbation_injective_on_kernel": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.kernel_dim_le_rank_of_perturbation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.discrete_parallel_solder_preserves_metric": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.eta4_lorentzByCongruence": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.sylvester_full_closed_by_congruence": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.lorentzByCongruence_congruent": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.four_frame_gives_lorentz_metric": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.equivariant_state_section_from_global_name": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.breuer_weight_normalizes_name": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.sqrt_potential_is_L2": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.resolvent_kernel_is_L2": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.emergence_reduced_to_named_hypotheses": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "28e2d8bf2d20c5dc89f845943ee8deb118d8739b19fd79a25ae72f95c39ea326",
+      "formal_source_hash": "8f04c24929c97019c96acec397cbc3bb15d583493cc1e14586702364e465d50e",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "8f02b3c729bca3bd22b5eeefad92d2bb9ac12875a273ba3cdfe4f9fd9b610fd8",
+        "TGLExt.lean": "c940ca4cccd53289b5af896dc183f109e4d7baee954b2813099c47d5cf12efbb",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "1fa65f326b3b0b9fd7ed1290f12c5af06a940c3fe469a60e0a104d05f2de52c6",
+        "TGL/Audit.lean": "fe8fe7ae26544462bc00fe90205581f03fd0c81dbcf48bdd0982cff82bae6f90",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -3442,6 +3517,7 @@
         "TGLExt/ContinuousModularZero.lean": "0dad5794f98ba1cb8519b4c105f63d555b5dc3d8fab7884f8265aebff214f376",
         "TGLExt/CornerFamily.lean": "bbceea91341abcf2b2a3f0f33ce88975fd5c529f05918c6982eb4872b66fe105",
         "TGLExt/CovariantCorner.lean": "155cb43d01bb7645bd6bef16d21fbbf2c01114a73fa466e1e4d18ac92a6c5e7d",
+        "TGLExt/EmergenceTriad.lean": "3b7c6220060598fb4353dddefd71fb9064db3ce8a1e2cf891d0f2ae8c97c04e9",
         "TGLExt/Ergodicity.lean": "79bc3b939b6e4e598cefed39088d5b9e9a06e125614bd185f414441c3718f5de",
         "TGLExt/FiniteCrossedProduct.lean": "330b9624b2ae0d8192785ae28c5a57f58e2d49070ea717f6af964d8c57020e0d",
         "TGLExt/FiniteGNSNoCompletion.lean": "056170ec3f50929081a75db129117cd5814ba88c1fe7c97432392303664e5025",
@@ -3464,6 +3540,7 @@
         "TGLExt/RGStability.lean": "ae3c1eeee6d86ea43b57ee0afe171bb43c0f24094702130ec3c2604f53aa7bf5",
         "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
         "TGLExt/Solder4D.lean": "70f3c2aa3336b716a740a70c15759ffdaca612c7c69f975c0281a31e9bb2f35f",
+        "TGLExt/SusyRelativeGap.lean": "3aa058b5c4f098e3218ffed0bc8271a28947b56af81750019e1360754873e7f2",
         "TGLExt/TransportWitness.lean": "f4219cc2c036999e19e41b006d4899a1a10cd2e8e3562c5a277370faae0364ed",
         "TGLExt/VariationalInhabitant.lean": "2af4afbc660fdd9c1ca9f8c66a8ad073fbea252949d64b503ed2e8cb81b6c27e"
       },
@@ -3759,24 +3836,39 @@
       "ext_lbg_face_minus_half_kernel_proved": true,
       "ext_lbg_zero_mode_integrable_kernel_proved": true,
       "ext_lbg_zero_mode_weight_one_kernel_proved": true,
+      "ext_srg_gap_finite_kernel_proved": true,
+      "ext_srg_level4_gives_breuer_kernel_proved": true,
+      "ext_srg_package_consistent_kernel_proved": true,
+      "ext_srg_perturbation_injective_kernel_proved": true,
+      "ext_srg_kernel_dim_le_rank_kernel_proved": true,
+      "ext_srg_discrete_solder_transport_kernel_proved": true,
+      "ext_et_eta4_in_class_kernel_proved": true,
+      "ext_et_sylvester_congruence_kernel_proved": true,
+      "ext_et_class_congruent_closed_kernel_proved": true,
+      "ext_et_four_frame_lorentz_kernel_proved": true,
+      "ext_et_equivariant_section_kernel_proved": true,
+      "ext_et_name_normalization_kernel_proved": true,
+      "ext_et_sqrt_potential_L2_kernel_proved": true,
+      "ext_et_resolvent_kernel_L2_kernel_proved": true,
+      "ext_et_master_theorem_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "8ad08d70afda0bbb1a975a7964475ac064ef47a2fb53876c9334b00f28e23823",
+      "build_stdout_sha256": "ebe238482ab97f56dc4f95ad9b2ffe94287d8bdeacf757799c543f8921c19c0d",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "b448d160aee59d76edd7421441b8d5c80c231ce60c23b3135cd476e1774b7c88",
+      "audit_stdout_sha256": "a14264a77a370a7244ba8fbaf85f9cc0c5580c0ce1d9d42f9d9d55febd43959e",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 124644,
+        "stdout": 131118,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 97614,
+        "stdout": 102534,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "8ad08d70afda0bbb1a975a7964475ac064ef47a2fb53876c9334b00f28e23823",
-      "audit_capture_sha256_full": "b448d160aee59d76edd7421441b8d5c80c231ce60c23b3135cd476e1774b7c88",
+      "build_capture_sha256_full": "ebe238482ab97f56dc4f95ad9b2ffe94287d8bdeacf757799c543f8921c19c0d",
+      "audit_capture_sha256_full": "a14264a77a370a7244ba8fbaf85f9cc0c5580c0ce1d9d42f9d9d55febd43959e",
       "custom_TGL_axioms_found": [],
       "source_forbidden_tokens_found": [],
       "formal_release_ready": true,
@@ -4989,7 +5081,9 @@
         "minimal_solder_2d": "TWO_DIRECTIONS_NONCOMMUTING_GENERATORS_GIVE_NONZERO_CURVATURE__SOLDERED_METRIC_LORENTZIAN__FIRST_CURVATURE_RECOVERED_R_EQ_2C1C2__4D_OPERADIC_SOLDER_FROM_PSI_DYNAMICS_OPEN",
         "no_full_witness": "FULL_WITNESS_FALSE_IS_TRUE_BY_THEOREM__BETA_FORBIDS_FULL_STATIC_WITNESS__CANONICAL_WITNESS_IS_HALF_NAT_BOUNDARY__LEAKAGE_RATE_UNIQUE_GKLS_FACE",
         "solder_4d": "SO13_DEFINING_PROPERTY_AND_BRACKET_CLOSURE_IN_KERNEL__NONCOMPACT_MARK_KK_EQ_MINUS_J__THOMAS_WIGNER_FACE__FAITHFUL_REP_AND_4D_CURVATURE_RECOVERED__SOLDER_AS_FIELD_AND_SYLVESTER_AND_BREUER_OPEN",
-        "local_breuer_gap": "WALL_CORRECTED_ANSWER8__GLOBAL_TAU_COMPACTNESS_REFUTED_TYPED__LOCAL_GAP_PACKAGE_GIVES_B3_AS_COMPOSITION__NO_FINITE_WEYL_PAIR_TAKESAKI_AMPLIFICATION__ZERO_MODE_WEIGHT_IS_ONE_EQ_OMEGA_I__GENUINE_DOUBLE_CORE_INSTANTIATION_OPEN"
+        "local_breuer_gap": "WALL_CORRECTED_ANSWER8__GLOBAL_TAU_COMPACTNESS_REFUTED_TYPED__LOCAL_GAP_PACKAGE_GIVES_B3_AS_COMPOSITION__NO_FINITE_WEYL_PAIR__ZERO_MODE_WEIGHT_IS_ONE_EQ_OMEGA_I__HOME_IS_SEMIFINITE_CORE_AMPLIFICATION_ANSWER9",
+        "susy_relative_gap": "LEVEL4_TYPED_AND_COMPOSED__SUSY_RELATIVE_GIVES_LOCAL_BREUER_GAP__KERNEL_DIM_LE_RANK_OF_INSCRIPTION_DISCRETE_BS_FACE__TRANSPORTED_SOLDER_INSCRIBES_SAME_METRIC__ONLY_INTERNAL_GAP_H1_REMAINS",
+        "emergence_triad": "TGL_QUANTUM_GRAVITY_EMERGENCE_REDUCED_TO_THREE_NAMED_HYPOTHESES__H1_INTERNAL_SUSY_RELATIVE_GAP_MIGUEL__H2_SMOOTH_MODULAR_FOUR_FRAME_CARTAN__H3_LOCAL_HORIZON_EQUILIBRIUM_EINSTEIN__MASTER_THEOREM_COMPOSED_IN_KERNEL__F3_CLOSED_BY_CONGRUENCE__F4_SECTION_FROM_GLOBAL_NAME__NATURE_DECIDES"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -5220,10 +5314,25 @@
         "ext_lbg_face_plus_half_kernel_proved": true,
         "ext_lbg_face_minus_half_kernel_proved": true,
         "ext_lbg_zero_mode_integrable_kernel_proved": true,
-        "ext_lbg_zero_mode_weight_one_kernel_proved": true
+        "ext_lbg_zero_mode_weight_one_kernel_proved": true,
+        "ext_srg_gap_finite_kernel_proved": true,
+        "ext_srg_level4_gives_breuer_kernel_proved": true,
+        "ext_srg_package_consistent_kernel_proved": true,
+        "ext_srg_perturbation_injective_kernel_proved": true,
+        "ext_srg_kernel_dim_le_rank_kernel_proved": true,
+        "ext_srg_discrete_solder_transport_kernel_proved": true,
+        "ext_et_eta4_in_class_kernel_proved": true,
+        "ext_et_sylvester_congruence_kernel_proved": true,
+        "ext_et_class_congruent_closed_kernel_proved": true,
+        "ext_et_four_frame_lorentz_kernel_proved": true,
+        "ext_et_equivariant_section_kernel_proved": true,
+        "ext_et_name_normalization_kernel_proved": true,
+        "ext_et_sqrt_potential_L2_kernel_proved": true,
+        "ext_et_resolvent_kernel_L2_kernel_proved": true,
+        "ext_et_master_theorem_kernel_proved": true
       },
-      "n_theorems_clean": 229,
-      "n_theorems_expected": 229,
+      "n_theorems_clean": 244,
+      "n_theorems_expected": 244,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -5350,6 +5459,14 @@
         ],
         [
           "local_breuer_gap_package",
+          true
+        ],
+        [
+          "susy_relative_level4",
+          true
+        ],
+        [
+          "emergence_triad",
           true
         ]
       ],
@@ -6745,6 +6862,893 @@
       "does_not_gate_core": true,
       "verdict": "LOCAL_BREUER_GAP_PACKAGE_TYPED_AND_B3_COMPOSED__GLOBAL_TAU_COMPACTNESS_REFUTED__ZERO_MODE_WEIGHT_ONE__GENUINE_DOUBLE_CORE_INSTANTIATION_OPEN"
     },
+    "susy_relative_gap": {
+      "residuals": {
+        "bs_modo_zero": 7.200742889927458e-17,
+        "bs_calibre": 2.220446049250313e-16,
+        "subaditividade_modelo": 0.0,
+        "solda_transportada_mesma_metrica": 1.967320211922957e-15
+      },
+      "bs_second_eig": 0.38212936786460505,
+      "checks": [
+        [
+          "BS: modo zero cravado pelo calibre v^T.H0^{-1}.v = 1 (~0)",
+          true
+        ],
+        [
+          "BS: kernel EXATAMENTE 1-dim (2o autovalor > 0)",
+          true
+        ],
+        [
+          "BS: calibre exato",
+          true
+        ],
+        [
+          "nivel 4: max(p,q) <= p+q (modelo)",
+          true
+        ],
+        [
+          "solda transportada inscreve a MESMA metrica (~1e-13)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "level4_composed": "SusyRelativeData => BreuerGapData => 0<tau(ker)<inf [KERNEL susy_relative_gives_breuer] -- o susy_relative_compact_gives_breuer_gap pedido pela Resposta 8, na camada tipada",
+        "discrete_birman_schwinger": "dim ker(H0-V) <= posto(V) [KERNEL kernel_dim_le_rank_of_perturbation] -- o numero de modos zero <= POSTO DA INSCRICAO; o modo zero do TGL e' unico porque -1/2 sech^2 e' posto um (um estado ligado)",
+        "solder_field_germ": "transporte isometrico preserva a metrica inscrita [KERNEL discrete_parallel_solder_preserves_metric] -- a face algebrica discreta de nabla e = 0; o campo continuo precisa do core",
+        "aberto_apos_v65": "SO a instanciacao no double core GENUINO: afiliacao do Dirac concreto a C_Psi x_theta R; a projecao interna P_int com tau(P_int)=1; Birman-Schwinger tau-relativo em II_inf [KNOWN, nao formalizado] -> PERGUNTA 9 (todas as questoes, 4 linguas)"
+      },
+      "does_not_gate_core": true,
+      "verdict": "LEVEL4_COMPOSED__DISCRETE_BS_KERNEL_UNIQUE_BY_RANK__SOLDER_TRANSPORT_EXACT__ONLY_CORE_INSTANTIATION_REMAINS"
+    },
+    "emergence_triad": {
+      "residuals": {
+        "coframe_dualidade": 2.6570248300188e-16,
+        "secao_equivariante": 0.0,
+        "U_fixa_o_Nome": 0.0,
+        "laco_do_nome": 0.0,
+        "insumo1_intV_menos_2": 8.24636048335492e-09,
+        "insumo2_resolvente_L2": 0.006666635834225332
+      },
+      "signature": {
+        "positive": 1,
+        "negative": 3
+      },
+      "checks": [
+        [
+          "four-frame: coframe DUAL (E^{-1}E=1)",
+          true
+        ],
+        [
+          "assinatura de Lorentz por congruencia: (1 pos, 3 neg)",
+          true
+        ],
+        [
+          "secao equivariante: phi(UAU^H) = phi(A) (U fixa o Nome)",
+          true
+        ],
+        [
+          "o laco do Nome: tau/tau = 1",
+          true
+        ],
+        [
+          "insumo F1c #1: int V = 2 (kernel tem o EXATO)",
+          true
+        ],
+        [
+          "insumo F1c #2: int (xi^2+5/4)^{-1} = 2pi/sqrt(5)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "type_correction_F1a": "a dupla travessia de Takesaki e' AINDA tipo III; a morada semifinita e' N_O = B(L^2(R_kappa)) (x)bar p_O.C_O.p_O com tau^p(p_O)=1 [Resposta 9]; nome: DIRAC_AFFILIATED_TO_SEMIFINITE_CORE_AMPLIFICATION",
+        "triade_e_a_ponte": "H1 <-> MIGUEL [REAL: o proprio operador dos Three Locks, p_O = 1_{0}(H^int_3L); o 'hamiltoniano oculto' do v61]; H2 <-> CARTAN [REAL na forma: de^a + omega^a_b ^ e^b = 0 E' a 1a equacao de estrutura]; H3 <-> EINSTEIN [REAL no conteudo: Clausius local => equacao de campo, Jacobson]; a leitura unificadora (luminodinamica do hamiltoniano oculto; formula inscritora da Meia-Nat/volume entropico) e' [ONTO], coerente com v61/par.88",
+        "hipoteses_da_tgl": "H1 TGL_INTERNAL_SUSY_RELATIVE_GAP ; H2 TGL_SMOOTH_MODULAR_FOUR_FRAME ; H3 TGL_LOCAL_HORIZON_EQUILIBRIUM",
+        "certificados_externos_KNOWN": "CONTINUOUS_STANDARD_FORM_SEMIFINITE_CERTIFICATE ; BREUER_FREDHOLM_THEORY ; TAKESAKI_DUALITY ; LOCAL_RINDLER_JACOBSON_LEMMA",
+        "programas_independentes": "TRIVIAL_CENTRALIZER_EQUIVARIANT_SECTION ; BW_BEYOND_WEDGES ; INTERACTING_ANOMALY_FREE_COMPLETION ; RG_STABILITY_AND_UV_COMPLETION ; FULL_MATHLIB_SEMIFINITE_FORMALIZATION",
+        "quatro_certificados_da_prova": "I consistencia formal (Lean prova H1^H2^H3 => E, NAO que a natureza realiza H1-H3) ; II existencia concreta (rede real habitando H1 e H2) ; III limite fisico (Einstein, helicidade +-2, sem anomalias relevantes) ; IV natureza (Gamma_omega = 1/2 beta tau* omega^2 ; piso dos vazios) -- alpha segue INPUT observacional do setor QED",
+        "frase_canonica": "a gravidade quantica emerge da curvatura do transporte do Um, desde que a dinamica selecione um canto interno Breuer-finito (H1), a rede modular produza quatro direcoes independentes (H2) e a fronteira esteja em equilibrio causal local (H3). A matematica prova a implicacao; a construcao concreta deve provar as hipoteses; a natureza decide a teoria."
+      },
+      "does_not_gate_core": true,
+      "verdict": "EMERGENCE_REDUCED_TO_THREE_NAMED_HYPOTHESES__H1_MIGUEL_H2_CARTAN_H3_EINSTEIN__MASTER_THEOREM_COMPOSED__NATURE_DECIDES"
+    },
+    "void_floor_protocol": {
+      "prediction_hash": "bde6ae944c09dfcc495ceee0b17975de1d1d889c3c26e596a82ddee947a087dd",
+      "protocol": {
+        "version": "VOID_FLOOR_V1",
+        "status": "PRE_REGISTERED",
+        "prediction": {
+          "quantity": "central_total_matter_density_ratio",
+          "formula": "rho_void_core / rho_mean >= beta_TGL  (delta_v >= beta_TGL - 1)",
+          "beta_source": "SEALED_CODATA_ALPHA * sqrt(e)  (runtime)",
+          "beta_never_literal": true,
+          "beta_floor": 0.012031300400803142,
+          "delta_floor": -0.9879686995991969
+        },
+        "void_definition": {
+          "primary_catalog": "DESI_DR1_DESIVAST_v1.0",
+          "algorithms": [
+            "VoidFinder",
+            "V2_VIDE",
+            "V2_REVOLVER"
+          ],
+          "z_range": [
+            0.0,
+            0.24
+          ],
+          "core_radius_fraction": 0.25,
+          "minimum_effective_radius": "fixed_before_unblinding",
+          "boundary_voids_excluded": true
+        },
+        "matter_reconstruction": {
+          "primary": "weak_lensing_calibrated_profile (DES Y3 shear na regiao comum)",
+          "galaxy_density_only_is_not_matter_density": true,
+          "redshift_space_correction": true,
+          "galaxy_bias_marginalized": true
+        },
+        "falsification": {
+          "universal_bound": true,
+          "criterion": "min_familywise_corrected_upper_bound < beta_TGL",
+          "global_alpha": 2.87e-07,
+          "mock_calibrated": true
+        },
+        "power": {
+          "required": true,
+          "reference_model": "LCDM_mocks",
+          "minimum_violation_probability": 0.05
+        },
+        "blinding": {
+          "prediction_hash_before_data": true,
+          "catalog_hash": true,
+          "mask_hash": true,
+          "pipeline_hash": true
+        },
+        "allowed_verdicts": [
+          "TGL_VOID_FLOOR_FALSIFIED",
+          "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
+          "TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED",
+          "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS",
+          "TGL_VOID_FLOOR_INCONCLUSIVE_VOID_DEFINITION"
+        ],
+        "forbidden_verdicts": [
+          "TGL_PROVED_BY_VOID_FLOOR",
+          "TGL_VOID_FLOOR_CONFIRMED"
+        ]
+      },
+      "acquisition": {
+        "VoidFinder": [
+          {
+            "file": "DESIVAST_BGS_VOLLIM_VoidFinder_NGC.fits",
+            "bytes": 3864960,
+            "origin": "local",
+            "sha256": "c69f2f7b2b1fed4554527475dd96584169b1ead5bbcd0c152164200e6a2f34c8"
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_VoidFinder_SGC.fits",
+            "bytes": 578880,
+            "origin": "local",
+            "sha256": "47c43b9b446f4bcb47cbc023115ac5297f9afb0045aea96d853649a80d7219c1"
+          }
+        ],
+        "V2_VIDE": [
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_VIDE_NGC.fits",
+            "bytes": 459138240,
+            "origin": "local",
+            "sha256": "41b9073805b6ee11ab3855d0c21c255b7ba309186755e7d6e17c06eb1fac8ce3"
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_VIDE_SGC.fits",
+            "bytes": 61980480,
+            "origin": "local",
+            "sha256": "9ae33edfe0c13ed6b0c189d2258edef4ec48171d27153b6b3ef8cd30c2ecb45c"
+          }
+        ],
+        "V2_REVOLVER": [
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_REVOLVER_NGC.fits",
+            "bytes": 611812800,
+            "origin": "local",
+            "sha256": "08d94b3e1740e154bde865b470c1f1a8d05d6e30ea4800fae2df2f5adec317b8"
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_REVOLVER_SGC.fits",
+            "bytes": 87442560,
+            "origin": "local",
+            "sha256": "297e51d92b7955d81d68c674af78f43f2bc6c04247f7510c0224d1f81a984ad2"
+          }
+        ]
+      },
+      "algorithms_present": [
+        "V2_REVOLVER",
+        "V2_VIDE",
+        "VoidFinder"
+      ],
+      "n_voids_by_algorithm": {
+        "VoidFinder": 3765,
+        "V2_VIDE": 1478,
+        "V2_REVOLVER": 1992
+      },
+      "inventory": {
+        "VoidFinder": [
+          {
+            "file": "DESIVAST_BGS_VOLLIM_VoidFinder_NGC.fits",
+            "table": "MAXIMALS",
+            "rows": 3241,
+            "fields": 11,
+            "colnames": [
+              "X",
+              "Y",
+              "Z",
+              "RADIUS",
+              "VOID",
+              "EDGE",
+              "R",
+              "RA",
+              "DEC",
+              "R_EFF",
+              "R_EFF_UNCERT"
+            ],
+            "radius_Mpc_h": {
+              "min": 9.965405536360066,
+              "median": 15.117132476673527,
+              "max": 31.68724203064072
+            }
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_VoidFinder_NGC.fits",
+            "table": "HOLES",
+            "rows": 89003,
+            "fields": 5,
+            "colnames": [
+              "X",
+              "Y",
+              "Z",
+              "RADIUS",
+              "VOID"
+            ],
+            "radius_Mpc_h": {
+              "min": 3.1316796351348657,
+              "median": 10.872793640318113,
+              "max": 24.035401363718982
+            }
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_VoidFinder_SGC.fits",
+            "table": "MAXIMALS",
+            "rows": 524,
+            "fields": 11,
+            "colnames": [
+              "X",
+              "Y",
+              "Z",
+              "RADIUS",
+              "VOID",
+              "EDGE",
+              "R",
+              "RA",
+              "DEC",
+              "R_EFF",
+              "R_EFF_UNCERT"
+            ],
+            "radius_Mpc_h": {
+              "min": 10.355027605142038,
+              "median": 14.953740558443974,
+              "max": 29.2574687041881
+            }
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_VoidFinder_SGC.fits",
+            "table": "HOLES",
+            "rows": 12860,
+            "fields": 5,
+            "colnames": [
+              "X",
+              "Y",
+              "Z",
+              "RADIUS",
+              "VOID"
+            ],
+            "radius_Mpc_h": {
+              "min": 4.009624862812233,
+              "median": 10.760971925109049,
+              "max": 24.516066393515842
+            }
+          }
+        ],
+        "V2_VIDE": [
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_VIDE_NGC.fits",
+            "table": "VOIDS",
+            "rows": 1258,
+            "fields": 19,
+            "colnames": [
+              "VOID",
+              "X",
+              "Y",
+              "Z",
+              "REDSHIFT",
+              "RA",
+              "DEC",
+              "RADIUS",
+              "X1",
+              "Y1",
+              "Z1",
+              "X2",
+              "Y2",
+              "Z2",
+              "X3",
+              "Y3"
+            ],
+            "z_range": [
+              0.034287096582584234,
+              0.2364388459479387
+            ],
+            "radius_Mpc_h": {
+              "min": 10.003920335323391,
+              "median": 15.602957242355064,
+              "max": 55.87914137121144
+            }
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_VIDE_NGC.fits",
+            "table": "ZONEVOID",
+            "rows": 2950,
+            "fields": 3,
+            "colnames": [
+              "ZONE",
+              "VOID0",
+              "VOID1"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_VIDE_NGC.fits",
+            "table": "GALZONE",
+            "rows": 604032,
+            "fields": 9,
+            "colnames": [
+              "GAL",
+              "TARGET",
+              "X",
+              "Y",
+              "Z",
+              "ZONE",
+              "DEPTH",
+              "EDGE",
+              "OUT"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_VIDE_NGC.fits",
+            "table": "TRIANGLE",
+            "rows": 3854410,
+            "fields": 13,
+            "colnames": [
+              "VOID",
+              "N_X",
+              "N_Y",
+              "N_Z",
+              "P1_X",
+              "P1_Y",
+              "P1_Z",
+              "P2_X",
+              "P2_Y",
+              "P2_Z",
+              "P3_X",
+              "P3_Y",
+              "P3_Z"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_VIDE_NGC.fits",
+            "table": "GALVIZ",
+            "rows": 604032,
+            "fields": 3,
+            "colnames": [
+              "GID",
+              "G2V",
+              "G2V2"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_VIDE_SGC.fits",
+            "table": "VOIDS",
+            "rows": 220,
+            "fields": 19,
+            "colnames": [
+              "VOID",
+              "X",
+              "Y",
+              "Z",
+              "REDSHIFT",
+              "RA",
+              "DEC",
+              "RADIUS",
+              "X1",
+              "Y1",
+              "Z1",
+              "X2",
+              "Y2",
+              "Z2",
+              "X3",
+              "Y3"
+            ],
+            "z_range": [
+              0.05295095354344873,
+              0.2356081638288383
+            ],
+            "radius_Mpc_h": {
+              "min": 10.019056462462382,
+              "median": 14.240927039307639,
+              "max": 38.30207427378833
+            }
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_VIDE_SGC.fits",
+            "table": "ZONEVOID",
+            "rows": 569,
+            "fields": 3,
+            "colnames": [
+              "ZONE",
+              "VOID0",
+              "VOID1"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_VIDE_SGC.fits",
+            "table": "GALZONE",
+            "rows": 90610,
+            "fields": 9,
+            "colnames": [
+              "GAL",
+              "TARGET",
+              "X",
+              "Y",
+              "Z",
+              "ZONE",
+              "DEPTH",
+              "EDGE",
+              "OUT"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_VIDE_SGC.fits",
+            "table": "TRIANGLE",
+            "rows": 511574,
+            "fields": 13,
+            "colnames": [
+              "VOID",
+              "N_X",
+              "N_Y",
+              "N_Z",
+              "P1_X",
+              "P1_Y",
+              "P1_Z",
+              "P2_X",
+              "P2_Y",
+              "P2_Z",
+              "P3_X",
+              "P3_Y",
+              "P3_Z"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_VIDE_SGC.fits",
+            "table": "GALVIZ",
+            "rows": 90610,
+            "fields": 3,
+            "colnames": [
+              "GID",
+              "G2V",
+              "G2V2"
+            ]
+          }
+        ],
+        "V2_REVOLVER": [
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_REVOLVER_NGC.fits",
+            "table": "VOIDS",
+            "rows": 1692,
+            "fields": 19,
+            "colnames": [
+              "VOID",
+              "X",
+              "Y",
+              "Z",
+              "REDSHIFT",
+              "RA",
+              "DEC",
+              "RADIUS",
+              "X1",
+              "Y1",
+              "Z1",
+              "X2",
+              "Y2",
+              "Z2",
+              "X3",
+              "Y3"
+            ],
+            "z_range": [
+              0.034287096582584234,
+              0.2364388459479387
+            ],
+            "radius_Mpc_h": {
+              "min": 10.003920335323391,
+              "median": 16.114438534487036,
+              "max": 43.50177267549969
+            }
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_REVOLVER_NGC.fits",
+            "table": "ZONEVOID",
+            "rows": 2950,
+            "fields": 3,
+            "colnames": [
+              "ZONE",
+              "VOID0",
+              "VOID1"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_REVOLVER_NGC.fits",
+            "table": "GALZONE",
+            "rows": 604032,
+            "fields": 9,
+            "colnames": [
+              "GAL",
+              "TARGET",
+              "X",
+              "Y",
+              "Z",
+              "ZONE",
+              "DEPTH",
+              "EDGE",
+              "OUT"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_REVOLVER_NGC.fits",
+            "table": "TRIANGLE",
+            "rows": 5321800,
+            "fields": 13,
+            "colnames": [
+              "VOID",
+              "N_X",
+              "N_Y",
+              "N_Z",
+              "P1_X",
+              "P1_Y",
+              "P1_Z",
+              "P2_X",
+              "P2_Y",
+              "P2_Z",
+              "P3_X",
+              "P3_Y",
+              "P3_Z"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_REVOLVER_NGC.fits",
+            "table": "GALVIZ",
+            "rows": 604032,
+            "fields": 3,
+            "colnames": [
+              "GID",
+              "G2V",
+              "G2V2"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_REVOLVER_SGC.fits",
+            "table": "VOIDS",
+            "rows": 300,
+            "fields": 19,
+            "colnames": [
+              "VOID",
+              "X",
+              "Y",
+              "Z",
+              "REDSHIFT",
+              "RA",
+              "DEC",
+              "RADIUS",
+              "X1",
+              "Y1",
+              "Z1",
+              "X2",
+              "Y2",
+              "Z2",
+              "X3",
+              "Y3"
+            ],
+            "z_range": [
+              0.04562656146933958,
+              0.235608163829045
+            ],
+            "radius_Mpc_h": {
+              "min": 10.019056462462382,
+              "median": 14.57904133562701,
+              "max": 35.762146851466795
+            }
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_REVOLVER_SGC.fits",
+            "table": "ZONEVOID",
+            "rows": 569,
+            "fields": 3,
+            "colnames": [
+              "ZONE",
+              "VOID0",
+              "VOID1"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_REVOLVER_SGC.fits",
+            "table": "GALZONE",
+            "rows": 90610,
+            "fields": 9,
+            "colnames": [
+              "GAL",
+              "TARGET",
+              "X",
+              "Y",
+              "Z",
+              "ZONE",
+              "DEPTH",
+              "EDGE",
+              "OUT"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_REVOLVER_SGC.fits",
+            "table": "TRIANGLE",
+            "rows": 756302,
+            "fields": 13,
+            "colnames": [
+              "VOID",
+              "N_X",
+              "N_Y",
+              "N_Z",
+              "P1_X",
+              "P1_Y",
+              "P1_Z",
+              "P2_X",
+              "P2_Y",
+              "P2_Z",
+              "P3_X",
+              "P3_Y",
+              "P3_Z"
+            ]
+          },
+          {
+            "file": "DESIVAST_BGS_VOLLIM_V2_REVOLVER_SGC.fits",
+            "table": "GALVIZ",
+            "rows": 90610,
+            "fields": 3,
+            "colnames": [
+              "GID",
+              "G2V",
+              "G2V2"
+            ]
+          }
+        ]
+      },
+      "gates_pending": {
+        "weak_lensing_matter_profiles": false,
+        "lcdm_mocks_and_power_analysis": false,
+        "systematics_controls_battery": false,
+        "familywise_upper_bounds": false,
+        "three_finder_consistency": true
+      },
+      "evaluator": "evaluate_void_floor_test (fail-closed; vereditos pre-registrados)",
+      "checks": [
+        [
+          "pre-registro com hash ANTES dos dados",
+          true
+        ],
+        [
+          "beta do runtime (jamais literal)",
+          true
+        ],
+        [
+          "aquisicao: >= 1 algoritmo presente",
+          true
+        ],
+        [
+          "veredito cientifico BLOQUEADO (gates pendentes)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "certificate_IV": "a porta de FALSIFICACAO da emergencia (nao conversao de compatibilidade em prova); cadeia obrigatoria: previsao -> hash -> dados -> mocks -> poder -> veredito fail-closed",
+        "observavel_primario": "r_v = densidade TOTAL de materia media no quarto central (x_c=0.25) do raio efetivo / densidade media no mesmo z; galaxias sao so' tracador auxiliar (bias/selecao/RSD)",
+        "dados": "DESIVAST DR1 (BGS ate z=0.24; VoidFinder/V2_VIDE/V2_REVOLVER) + shear publico (DES Y3) p/ massa; Euclid = replicacao futura (Q1 63 deg2 nao-cosmologico)",
+        "falsificacao": "min_i U_i^FWER < beta com p_global < 2.87e-7 calibrado por mocks; sem poder (P_LCDM < 0.05): NOT_FALSIFIED_UNDERPOWERED; inconsistencia entre finders: INCONCLUSIVE_VOID_DEFINITION",
+        "nesta_rodada": "PRE-REGISTRO SELADO + catalogos adquiridos/verificados + inventario; lenteamento/mocks/poder = gates pendentes; NENHUM veredito cientifico emitido"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_VOID_FLOOR_PROTOCOL_PRE_REGISTERED_AND_CATALOGS_ACQUIRED"
+    },
+    "void_floor_power": {
+      "beta_floor": 0.012031300400803142,
+      "n_voids": 7235,
+      "alpha_global": 2.87e-07,
+      "z_fwer_one_sided": 6.5018530954475615,
+      "n_mock_per_gridpoint": 400,
+      "lcdm_central_model": "lognormal(log 0.15, 0.85) clip[0.005,1.5] [EXT calibracao PILOTO]",
+      "power_map": [
+        {
+          "sigma": 0.0003,
+          "P_LCDM_falsify": 0.9975
+        },
+        {
+          "sigma": 0.0005,
+          "P_LCDM_falsify": 0.9775
+        },
+        {
+          "sigma": 0.001,
+          "P_LCDM_falsify": 0.3575
+        },
+        {
+          "sigma": 0.002,
+          "P_LCDM_falsify": 0.0
+        },
+        {
+          "sigma": 0.003,
+          "P_LCDM_falsify": 0.0
+        },
+        {
+          "sigma": 0.005,
+          "P_LCDM_falsify": 0.0
+        },
+        {
+          "sigma": 0.01,
+          "P_LCDM_falsify": 0.0
+        },
+        {
+          "sigma": 0.02,
+          "P_LCDM_falsify": 0.0
+        },
+        {
+          "sigma": 0.05,
+          "P_LCDM_falsify": 0.0
+        },
+        {
+          "sigma": 0.1,
+          "P_LCDM_falsify": 0.0
+        }
+      ],
+      "false_positive_map": [
+        {
+          "sigma": 0.0003,
+          "false_positive_TGL": 0.0
+        },
+        {
+          "sigma": 0.0005,
+          "false_positive_TGL": 0.0
+        },
+        {
+          "sigma": 0.001,
+          "false_positive_TGL": 0.0
+        },
+        {
+          "sigma": 0.002,
+          "false_positive_TGL": 0.0
+        },
+        {
+          "sigma": 0.003,
+          "false_positive_TGL": 0.0
+        },
+        {
+          "sigma": 0.005,
+          "false_positive_TGL": 0.0
+        },
+        {
+          "sigma": 0.01,
+          "false_positive_TGL": 0.0
+        },
+        {
+          "sigma": 0.02,
+          "false_positive_TGL": 0.0
+        },
+        {
+          "sigma": 0.05,
+          "false_positive_TGL": 0.0
+        },
+        {
+          "sigma": 0.1,
+          "false_positive_TGL": 0.0
+        }
+      ],
+      "sigma_star_power_threshold": 0.001,
+      "checks": [
+        [
+          "blindagem intacta (nenhum perfil observado tocado)",
+          true
+        ],
+        [
+          "injecao-e-recuperacao: TGL-mock JAMAIS falsificado (FPR = 0)",
+          true
+        ],
+        [
+          "maquina discrimina quando ha poder (P_LCDM alto em sigma minimo)",
+          true
+        ],
+        [
+          "veredito honesto: individual UNDERPOWERED em ruido realista (P < 0.05 em sigma >= 0.05)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "gate_do_poder": "PILOTO executado (mocks internos, seed 68); a suite FINAL exige mocks do survey (mascara/bias/RSD/z-err) -- o gate segue PENDENTE para veredito cientifico",
+        "resultado_quantitativo": "o teste INDIVIDUAL (min U^FWER < beta) so' tem poder com sigma por vazio <= sigma* ~ 0.001; ruido de lenteamento por vazio individual realista (>~0.05) => UNDERPOWERED; a rota com poder e' a inferencia POPULACIONAL do piso r* (secundario pre-registrado) e/ou perfis empilhados",
+        "controle_obrigatorio": "injecao-e-recuperacao PASSOU: piso injetado jamais falsificado (FPR 0/400 em toda a grade); LCDM sem piso falsificado quando ha poder -- a maquina distingue",
+        "ordem_do_rito": "mocks ANTES dos perfis (cumprido); proximos: perfis de materia por lenteamento + mocks do survey + controles; so' entao evaluate_void_floor_test emite veredito"
+      },
+      "does_not_gate_core": true,
+      "verdict": "VOID_FLOOR_POWER_PILOT_COMPUTED__INJECTION_RECOVERY_PASSED__INDIVIDUAL_BOUND_UNDERPOWERED_AT_REALISTIC_NOISE__POPULATION_ROUTE_IS_THE_POWERED_ONE"
+    },
+    "certificate_II": {
+      "H1_finite_face": {
+        "psd_min_eig": 0.0,
+        "kernel_dim": 4,
+        "gap": 0.04812520160321256,
+        "epsilon": 0.02406260080160628,
+        "window_counts_only_kernel": true,
+        "trace_PF": 3.9999999999999996,
+        "trace_finite_positive": true,
+        "name_normalization": 1.0
+      },
+      "H2_finite_face": {
+        "rank_frame": 4,
+        "signature": [
+          1,
+          3
+        ]
+      },
+      "checks": [
+        [
+          "H_3L concreto e' psd (min eig >= 0)",
+          true
+        ],
+        [
+          "kernel nao-nulo (o canto habita): dim >= 1",
+          true
+        ],
+        [
+          "GAP > 0 (zero ISOLADO no espectro concreto)",
+          true
+        ],
+        [
+          "janela (-eps,eps) contem SO o kernel (pacote local instanciado)",
+          true
+        ],
+        [
+          "0 < tr(P_F) < inf e tau/tau = 1 (o Nome pesa 1)",
+          true
+        ],
+        [
+          "four-frame dos boosts modulares: rank 4 (H2 finito)",
+          true
+        ],
+        [
+          "metrica do coframe: assinatura (1,3)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "certificate_II": "a rede CONCRETA (Three Locks do v10 -- a mesma face em kernel, FiniteThreeLocks) INSTANCIA H1 na face finita: gap real, kernel real, canto de traco finito, Nome=1; os boosts modulares dao o four-frame (H2 finito; BW-cunhas constitutivo)",
+        "honestidade": "face FINITA [REAL]; a rede II_inf/III_1 genuina E' o conteudo proprio de H1/H2 -- por construcao (por isso sao hipoteses, nao teoremas); o substrato fisico real do the_boundary (XXZ R=+1) e' o candidato para a extensao",
+        "aberto": "Certificado II pleno = construir a rede continua que habite H1 e H2 (programa); Certificado III = limite fisico; Certificado IV = protocolo pre-registrado nesta mesma rodada"
+      },
+      "does_not_gate_core": true,
+      "verdict": "CERTIFICATE_II_FINITE_FACE_INHABITED__CONCRETE_THREE_LOCKS_INSTANTIATE_H1__MODULAR_BOOSTS_GIVE_FOUR_FRAME_H2__CONTINUUM_NETWORK_IS_THE_HYPOTHESES_PROPER"
+    },
     "reading_direction": {
       "theorem": "Reading direction of g = sqrt(|L_phi|): light -> gravity",
       "reading_direction": "not gravity->light, but light->inscription->angular boundary->geometric module->gravity",
@@ -7359,7 +8363,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-14 20:59:36",
+    "timestamp": "2026-07-15 01:28:57",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -7609,7 +8613,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-14 20:59:36",
+        "prediction_timestamp": "2026-07-15 01:28:57",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -7645,7 +8649,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "045cb9fce186e72a3f193486e43df46ab1d6f37a1c612694b632386a8419154f"
+        "prediction_hash": "ea8d0731c74fc9344f83a538000e84c54dec5a016612cf3292424b34509503e5"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -7945,7 +8949,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "92d4a52942c1dc37e2ae00ff1d008f14a3dc32f3ccba4eee93ca52872d314ee6"
+    "result_hash": "417833662ac058a300846745b62c2096f69b41123f6522202c4b67d6e21c662e"
   },
   "ga_mass_literature": [
     {
@@ -7971,7 +8975,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "92d4a52942c1dc37e2ae00ff1d008f14a3dc32f3ccba4eee93ca52872d314ee6",
+  "result_hash_before_external_comparison": "417833662ac058a300846745b62c2096f69b41123f6522202c4b67d6e21c662e",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -7981,5 +8985,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-14 20:59:36"
+  "timestamp": "2026-07-15 01:28:57"
 }

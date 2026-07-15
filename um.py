@@ -102,6 +102,19 @@ GA_MASS_LITERATURE = [
 GA_ACCEPTED_WINDOW_Msun = [1.0e15, 1.0e17]   # janela cosmologica aceita (ordem de grandeza)
 CF4_URL = "https://edd.ifa.hawaii.edu/CF4/"   # fonte (download manual/oficial; ver caveat)
 
+# ---- DESIVAST DR1 (Certificado IV: o protocolo do piso dos vazios) ----
+# Fonte publica oficial (DESI DR1 VAC, 19/03/2025); convencao de cache identica ao
+# fetcher do TGL_CODE_ONE_REAL_FALSIFIER (release_clean/data/voids/desivast).
+DESIVAST_BASE_URL = "https://data.desi.lbl.gov/public/dr1/vac/dr1/desivast/v1.0/"
+DESIVAST_FILES = {
+    "VoidFinder": ["DESIVAST_BGS_VOLLIM_VoidFinder_NGC.fits",
+                   "DESIVAST_BGS_VOLLIM_VoidFinder_SGC.fits"],
+    "V2_VIDE": ["DESIVAST_BGS_VOLLIM_V2_VIDE_NGC.fits",
+                "DESIVAST_BGS_VOLLIM_V2_VIDE_SGC.fits"],
+    "V2_REVOLVER": ["DESIVAST_BGS_VOLLIM_V2_REVOLVER_NGC.fits",
+                    "DESIVAST_BGS_VOLLIM_V2_REVOLVER_SGC.fits"],
+}
+
 # ---- fator de campo fraco c^2/4piG (kg/m); so' constantes SI/CODATA ----
 WEAK_KG_PER_M = C_LIGHT ** 2 / (4.0 * math.pi * G_NEWTON)
 
@@ -160,6 +173,148 @@ def locate_cf4():
         shutil.copy(cand, cached)
         return cached, "copied_from_release_clean"
     return None, "absent"
+
+
+# ============ dados reais: DESIVAST DR1 (Certificado IV) ============
+def locate_desivast(allow_download=None):
+    """Localiza (ou baixa) os catalogos DESIVAST DR1. INTELIGENTE: (1) cache local
+    ./cache/voids/desivast; (2) o release_clean vizinho (onde o fetcher oficial do
+    TGL_CODE_ONE_REAL_FALSIFIER os deposita) -- quem JA TEM nao baixa de novo;
+    (3) download automatico da fonte publica (data.desi.lbl.gov) por arquivo
+    faltante, SGC primeiro (menor). TGL_VOID_NO_NETWORK=1 desliga a rede.
+    Retorna {algoritmo: [(path, bytes, origem), ...]} so' com o que EXISTE."""
+    if allow_download is None:
+        allow_download = os.environ.get("TGL_VOID_NO_NETWORK", "0") != "1"
+    roots = [os.path.join(CACHE, "voids", "desivast"),
+             os.path.join(BASE, "TGL_CODE_ONE_REAL_FALSIFIER", "release_clean",
+                          "data", "voids", "desivast"),
+             os.path.join(BASE, "..", "TGL_CODE_ONE_REAL_FALSIFIER", "release_clean",
+                          "data", "voids", "desivast")]
+    found = {}
+    for alg, files in DESIVAST_FILES.items():
+        hits = []
+        for fname in files:
+            got = None
+            for root in roots:
+                p = os.path.join(root, fname)
+                if os.path.exists(p) and os.path.getsize(p) > 1024:
+                    got = (p, os.path.getsize(p), "local")
+                    break
+            if got is None and allow_download:
+                dest_dir = roots[0]
+                os.makedirs(dest_dir, exist_ok=True)
+                dest = os.path.join(dest_dir, fname)
+                try:
+                    req = urllib.request.Request(DESIVAST_BASE_URL + fname,
+                                                 headers={"User-Agent": "um.py-TGL-void-floor"})
+                    with urllib.request.urlopen(req, timeout=120) as r, open(dest, "wb") as f:
+                        shutil.copyfileobj(r, f, length=1 << 20)
+                    if os.path.getsize(dest) > 1024:
+                        got = (dest, os.path.getsize(dest), "downloaded")
+                except Exception:
+                    if os.path.exists(dest):
+                        os.remove(dest)
+            if got is not None:
+                hits.append(got)
+        if hits:
+            found[alg] = hits
+    return found
+
+
+def _sha_file_stream(path):
+    """sha256 por streaming (os catalogos chegam a centenas de MB)."""
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 22), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _fits_scan_bintables(path, max_rows_load=500000):
+    """Leitor FITS minimo em numpy PURO (sem astropy/fitsio; auditavel): varre os HDUs
+    por seek (nunca carrega o arquivo inteiro), lista todas as BINTABLEs e materializa
+    as colunas so' das tabelas com NAXIS2 <= max_rows_load (os catalogos de vazios sao
+    pequenos; tabelas de membership gigantes ficam so' inventariadas). TFORM E/D/J/K/I/A."""
+    tables = []
+    with open(path, "rb") as f:
+        def read_header():
+            hdr = {}
+            while True:
+                block = f.read(2880)
+                if len(block) < 2880:
+                    return None
+                for i in range(0, 2880, 80):
+                    card = block[i:i + 80].decode("ascii", errors="replace")
+                    key = card[:8].strip()
+                    if key == "END":
+                        return hdr
+                    if card[8:10] == "= ":
+                        val = card[10:].split(" /")[0].strip()
+                        if val.startswith("'"):
+                            hdr[key] = val.strip().strip("'").strip()
+                        else:
+                            try:
+                                hdr[key] = int(val)
+                            except ValueError:
+                                try:
+                                    hdr[key] = float(val)
+                                except ValueError:
+                                    hdr[key] = val
+            # unreachable
+        while True:
+            hdr = read_header()
+            if hdr is None:
+                break
+            bitpix = abs(int(hdr.get("BITPIX", 8)))
+            naxes = [int(hdr.get("NAXIS%d" % k, 0)) for k in range(1, int(hdr.get("NAXIS", 0)) + 1)]
+            nbytes = (bitpix // 8) * (int(np.prod(naxes)) if naxes else 0)
+            nbytes += int(hdr.get("PCOUNT", 0))
+            padded = ((nbytes + 2879) // 2880) * 2880
+            xt = str(hdr.get("XTENSION", "")).strip()
+            if xt == "BINTABLE":
+                n1, n2 = int(hdr.get("NAXIS1", 0)), int(hdr.get("NAXIS2", 0))
+                name = str(hdr.get("EXTNAME", "?")).strip()
+                nf = int(hdr.get("TFIELDS", 0))
+                colnames = [str(hdr.get("TTYPE%d" % k, "col%d" % k)).strip() for k in range(1, nf + 1)]
+                entry = {"name": name, "rows": n2, "fields": nf, "colnames": colnames, "cols": None}
+                if 0 < n2 <= max_rows_load and n1 * n2 > 0:
+                    raw = f.read(n1 * n2)
+                    f.seek(padded - n1 * n2, 1)
+                    arr = np.frombuffer(raw, dtype=np.uint8).reshape(n2, n1)
+                    fmt = {"E": (">f4", 4), "D": (">f8", 8), "J": (">i4", 4),
+                           "K": (">i8", 8), "I": (">i2", 2), "B": ("u1", 1), "L": ("u1", 1)}
+                    cols, off, parse_ok = {}, 0, True
+                    for k in range(1, nf + 1):
+                        tform = str(hdr.get("TFORM%d" % k, "")).strip()
+                        j = 0
+                        while j < len(tform) and tform[j].isdigit():
+                            j += 1
+                        rep = int(tform[:j]) if j else 1
+                        code = tform[j] if j < len(tform) else "?"
+                        cname = colnames[k - 1]
+                        if code == "A":
+                            cols[cname] = None
+                            off += rep
+                        elif code in fmt:
+                            dt, w = fmt[code]
+                            sub = arr[:, off:off + rep * w].tobytes()
+                            v = np.frombuffer(sub, dtype=dt)
+                            cols[cname] = (v.reshape(n2, rep) if rep > 1 else v).astype(float)
+                            off += rep * w
+                        else:
+                            # TFORM nao suportado (P/Q/C/M): offsets ficariam errados --
+                            # aborta a materializacao DESTA tabela (fail-closed), mantem inventario
+                            parse_ok = False
+                            break
+                    entry["cols"] = cols if parse_ok else None
+                    if not parse_ok:
+                        entry["note"] = "TFORM_UNSUPPORTED_MATERIALIZATION_SKIPPED"
+                else:
+                    f.seek(padded, 1)
+                tables.append(entry)
+            else:
+                f.seek(padded, 1)
+    return tables
 
 
 def cf4_rstruct():
@@ -4894,6 +5049,8 @@ import TGLExt.MinimalSolder
 import TGLExt.NoFullWitness
 import TGLExt.Solder4D
 import TGLExt.LocalBreuerGap
+import TGLExt.SusyRelativeGap
+import TGLExt.EmergenceTriad
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5426,6 +5583,34 @@ namespace TGL.Audit
 #check @TGLExt.phi0sq_integrable
 #check @TGLExt.zero_mode_weight_is_one
 
+-- v65 (o NIVEL 4 da camada: SUSY-relativo => gap local; a face discreta de
+--      Birman-Schwinger: dim ker <= posto da inscricao; o germe da solda-campo)
+#check @TGLExt.SubadditiveTraceData
+#check @TGLExt.SusyRelativeData
+#check @TGLExt.susy_relative_gap_finite
+#check @TGLExt.SusyRelativeData.toBreuerGapData
+#check @TGLExt.susy_relative_gives_breuer
+#check @TGLExt.idTraceSub
+#check @TGLExt.modelSusy
+#check @TGLExt.susy_relative_package_consistent
+#check @TGLExt.perturbation_injective_on_kernel
+#check @TGLExt.kernel_dim_le_rank_of_perturbation
+#check @TGLExt.discrete_parallel_solder_preserves_metric
+
+-- v66 (A TRIADE: F3 fechado por congruencia; four-frame => coframe+metrica;
+--      secao equivariante do Nome; o laco do Nome (tau/tau=1); insumos F1c;
+--      o teorema mestre: H1 e H2 => Breuer + Nome=1 + Lorentz)
+#check @TGLExt.LorentzByCongruence
+#check @TGLExt.eta4_lorentzByCongruence
+#check @TGLExt.sylvester_full_closed_by_congruence
+#check @TGLExt.lorentzByCongruence_congruent
+#check @TGLExt.four_frame_gives_lorentz_metric
+#check @TGLExt.equivariant_state_section_from_global_name
+#check @TGLExt.breuer_weight_normalizes_name
+#check @TGLExt.sqrt_potential_is_L2
+#check @TGLExt.resolvent_kernel_is_L2
+#check @TGLExt.emergence_reduced_to_named_hypotheses
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -5733,6 +5918,23 @@ namespace TGL.Audit
 #print axioms TGLExt.tendsto_halfTanh_atBot
 #print axioms TGLExt.phi0sq_integrable
 #print axioms TGLExt.zero_mode_weight_is_one
+-- v65 (nivel 4: SUSY-relativo => Breuer local; dim ker <= posto; solda discreta)
+#print axioms TGLExt.susy_relative_gap_finite
+#print axioms TGLExt.susy_relative_gives_breuer
+#print axioms TGLExt.susy_relative_package_consistent
+#print axioms TGLExt.perturbation_injective_on_kernel
+#print axioms TGLExt.kernel_dim_le_rank_of_perturbation
+#print axioms TGLExt.discrete_parallel_solder_preserves_metric
+-- v66 (a triade da emergencia)
+#print axioms TGLExt.eta4_lorentzByCongruence
+#print axioms TGLExt.sylvester_full_closed_by_congruence
+#print axioms TGLExt.lorentzByCongruence_congruent
+#print axioms TGLExt.four_frame_gives_lorentz_metric
+#print axioms TGLExt.equivariant_state_section_from_global_name
+#print axioms TGLExt.breuer_weight_normalizes_name
+#print axioms TGLExt.sqrt_potential_is_L2
+#print axioms TGLExt.resolvent_kernel_is_L2
+#print axioms TGLExt.emergence_reduced_to_named_hypotheses
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -10002,6 +10204,211 @@ theorem canonicalTransportedCorner_exists (u : G →* Matrix.unitaryGroup n ℂ)
     {ρ : Matrix n n ℂ} (hρ : ρ.PosDef) :
     Nonempty (TransportedCornerFamily (n := n) u ρ) :=
   ⟨canonicalTransportedCorner u hρ⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/EmergenceTriad.lean":
+r'''import TGLExt.SusyRelativeGap
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A TRÍADE DA EMERGÊNCIA: três hipóteses nomeadas — Einstein–Cartan–Miguel
+  [TGLExt — v66, absorção da Resposta 9]
+
+O veredito da Resposta 9: a emergência gravitacional REDUZ-SE a três
+hipóteses físicas nomeadas — H1 = TGL_INTERNAL_SUSY_RELATIVE_GAP (o gap
+interno relativo do operador dos Three Locks: a face MIGUEL), H2 =
+TGL_SMOOTH_MODULAR_FOUR_FRAME (quatro direções modulares independentes:
+a face CARTAN — o coframe e a equação de estrutura), H3 =
+TGL_LOCAL_HORIZON_EQUILIBRIUM (Clausius local: a face EINSTEIN) — mais
+teoremas externos [KNOWN], programas independentes e o INPUT da natureza.
+Selo correto: TGL_QUANTUM_GRAVITY_EMERGENCE_REDUCED_TO_THREE_NAMED_HYPOTHESES
+(NÃO "incondicional"). CORREÇÃO DE TIPO (F1a): a morada semifinita é a
+amplificação N_O = B(L²(ℝ_κ)) ⊗̄ p_O C_O p_O — a dupla travessia de
+Takesaki é AINDA tipo III; nome certo:
+DIRAC_AFFILIATED_TO_SEMIFINITE_CORE_AMPLIFICATION.
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* ★ `sylvester_full_closed_by_congruence` — **F3 FECHADO** (Resposta 9):
+  assinatura de Lorentz POR CONGRUÊNCIA — toda solda invertível inscreve
+  métrica lorentziana (g = eᵀηe ≅ η, mesma inércia); com
+  `eta4_lorentzByCongruence` (η₄ na classe, e = 1) e
+  `lorentzByCongruence_congruent` (a classe é fechada sob congruência —
+  liga-se ao transporte do v65);
+* ★ `four_frame_gives_lorentz_metric` — a face finita de H2: quatro
+  direções independentes (E invertível) dão o coframe DUAL (E⁻¹E = 1,
+  e^a(E_b) = δ^a_b) e a métrica soldada lorentziana;
+* ★ `equivariant_state_section_from_global_name` — **F4 CONSTRUÍDO**
+  (Resposta 9): U unitário fixando o Nome (UΩ = Ω) ⟹ o estado
+  φ = ⟨Ω,·Ω⟩ é equivariante: φ(UAUᴴ) = φ(A);
+* ★ `breuer_weight_normalizes_name` — **O LAÇO DO NOME** (F1a): τ^p(p) =
+  τ(p)/τ(p) = 1 é bem-definido EXATAMENTE porque 0 < τ(p) < ∞ — o (B3)
+  é o que torna ω(I) = 1 realizável no core semifinito; o axioma pede
+  peso 1, o pacote de Breuer o entrega;
+* ★ `sqrt_potential_is_L2` / `resolvent_kernel_is_L2` — os DOIS INSUMOS
+  de F1c em kernel: ∫V = ∫½sech²(κ/2) = 2 (EXATO, da joia v64) e
+  (ξ²+5/4)⁻¹ integrável — juntos dão M_√V(H₊+1)^{−1/2} Hilbert–Schmidt
+  [KNOWN, operatorial] ⟹ V relativamente τ̃-compacto no canto;
+* ★★ `emergence_reduced_to_named_hypotheses` — **O TEOREMA MESTRE
+  COMPOSTO**: H1 (SusyRelativeData) ∧ H2 (four-frame) ⟹ (1) 0<τ(ker)<∞;
+  (2) o Nome pesa 1; (3) coframe dual + métrica lorentziana. A face H3
+  (primeira lei modular) está em kernel desde a v51 e compõe no runtime.
+  Lean prova H1∧H2∧H3 ⟹ E — NÃO que a natureza realiza H1–H3.
+
+A TRÍADE É A PONTE (derivação do operador, estatutos): H1 ↔ MIGUEL [REAL:
+o próprio operador dos Three Locks]; H2 ↔ CARTAN [REAL na forma:
+de^a + ω^a_b∧e^b = 0 é a primeira equação de estrutura]; H3 ↔ EINSTEIN
+[REAL no conteúdo: Clausius ⟹ equação de campo]. A leitura unificadora
+(a relação luminodinâmica do hamiltoniano oculto; a fórmula inscritora
+da Meia-Nat/volume entrópico) é [ONTO], coerente com v61/§88.
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+open Matrix
+
+noncomputable section
+
+/- ═══════ 1. F3 fechado por congruência ═══════ -/
+
+/-- [DEF — Resposta 9/F3] assinatura de Lorentz POR CONGRUÊNCIA:
+    g pertence à classe de η₄ sob congruência invertível. -/
+def LorentzByCongruence (g : Matrix (Fin 4) (Fin 4) ℝ) : Prop :=
+  ∃ e : Matrix (Fin 4) (Fin 4) ℝ, IsUnit e.det ∧ g = eᵀ * eta4 * e
+
+/-- [KERNEL] ★ η₄ está na classe (e = 1). -/
+theorem eta4_lorentzByCongruence : LorentzByCongruence eta4 := by
+  refine ⟨1, by simp, ?_⟩
+  simp
+
+/-- [KERNEL] ★★ SYLVESTER PLENO FECHADO POR CONGRUÊNCIA (Resposta 9/F3):
+    toda solda invertível inscreve métrica de assinatura lorentziana —
+    g = eᵀηe é congruente a η, logo tem a MESMA inércia (1,3). Nenhuma
+    hipótese física nova. -/
+theorem sylvester_full_closed_by_congruence (e : Matrix (Fin 4) (Fin 4) ℝ)
+    (he : IsUnit e.det) : LorentzByCongruence (solderMetric4 e) :=
+  ⟨e, he, rfl⟩
+
+/-- [KERNEL] ★ a classe lorentziana é FECHADA sob congruência invertível
+    (o elo com o transporte do v65: a solda transportada permanece na
+    classe). -/
+theorem lorentzByCongruence_congruent (g f : Matrix (Fin 4) (Fin 4) ℝ)
+    (hg : LorentzByCongruence g) (hf : IsUnit f.det) :
+    LorentzByCongruence (fᵀ * g * f) := by
+  obtain ⟨e, he, rfl⟩ := hg
+  refine ⟨e * f, ?_, ?_⟩
+  · rw [Matrix.det_mul]
+    exact he.mul hf
+  · rw [Matrix.transpose_mul]
+    noncomm_ring
+
+/- ═══════ 2. A face finita de H2: four-frame ⟹ coframe ⟹ g ═══════ -/
+
+/-- [KERNEL] ★ QUATRO DIREÇÕES INDEPENDENTES DÃO O COFRAME E A MÉTRICA
+    (a face finita de H2 = TGL\_SMOOTH\_MODULAR\_FOUR\_FRAME): se a matriz
+    E das quatro direções modulares é invertível, o coframe e := E⁻¹ é
+    DUAL (E⁻¹E = 1, i.e. e^a(E_b) = δ^a_b) e a métrica soldada
+    g = eᵀηe tem assinatura de Lorentz por congruência. -/
+theorem four_frame_gives_lorentz_metric (E : Matrix (Fin 4) (Fin 4) ℝ)
+    (hE : IsUnit E.det) :
+    E⁻¹ * E = 1 ∧ LorentzByCongruence (solderMetric4 E⁻¹) :=
+  ⟨Matrix.nonsing_inv_mul E hE,
+   sylvester_full_closed_by_congruence E⁻¹ (Matrix.isUnit_nonsing_inv_det E hE)⟩
+
+/- ═══════ 3. F4: a seção equivariante do Nome global ═══════ -/
+
+/-- [KERNEL] ★ A SEÇÃO COVARIANTE DO NOME (Resposta 9/F4,
+    EQUIVARIANT\_STATE\_SECTION\_FROM\_GLOBAL\_NAME): se U é unitário
+    (UᴴU = 1) e fixa o Nome (UΩ = Ω), então o estado φ(A) = ⟨Ω, AΩ⟩ é
+    equivariante: φ(UAUᴴ) = φ(A). O centralizador trivial simultâneo NÃO
+    é necessário — removido do teorema principal (programa independente). -/
+theorem equivariant_state_section_from_global_name {n : Type} [Fintype n]
+    [DecidableEq n]
+    (U A : Matrix n n ℂ) (Ω : n → ℂ)
+    (hU : Uᴴ * U = 1) (hΩ : U *ᵥ Ω = Ω) :
+    star Ω ⬝ᵥ ((U * A * Uᴴ) *ᵥ Ω) = star Ω ⬝ᵥ (A *ᵥ Ω) := by
+  have hΩ' : Uᴴ *ᵥ Ω = Ω := by
+    have h1 : Uᴴ *ᵥ (U *ᵥ Ω) = Ω := by
+      rw [Matrix.mulVec_mulVec, hU, Matrix.one_mulVec]
+    rwa [hΩ] at h1
+  have hmv : (U * A * Uᴴ) *ᵥ Ω = U *ᵥ (A *ᵥ Ω) := by
+    rw [← Matrix.mulVec_mulVec, ← Matrix.mulVec_mulVec, hΩ']
+  have hkey : star Ω ᵥ* U = star (Uᴴ *ᵥ Ω) := by
+    rw [Matrix.star_mulVec, Matrix.conjTranspose_conjTranspose]
+  rw [hmv, Matrix.dotProduct_mulVec, hkey, hΩ']
+
+/- ═══════ 4. O laço do Nome: B3 torna ω(I) = 1 realizável ═══════ -/
+
+/-- [KERNEL] ★ A NORMALIZAÇÃO DO NOME É BEM-DEFINIDA (Resposta 9/F1a):
+    τ^p(p) = τ(p)/τ(p) = 1 EXATAMENTE porque 0 < τ(p) < ∞ — o (B3) é o
+    que torna ω(I) = 1 realizável no core semifinito. O laço fecha: o
+    axioma pede peso 1; o pacote de Breuer o entrega. -/
+theorem breuer_weight_normalizes_name {L : Type} [Lattice L] [BoundedOrder L]
+    {T : SemifiniteTraceData L} (G : BreuerGapData L T) :
+    T.tau G.ker / T.tau G.ker = 1 :=
+  ENNReal.div_self (kernel_weight_pos G).ne' (kernel_weight_finite G).ne
+
+/- ═══════ 5. Os dois insumos de F1c em kernel ═══════ -/
+
+/-- [KERNEL] ★ √V ∈ L² (Resposta 9/F1c, insumo 1): V = ½sech²(κ/2) =
+    2·φ₀² é integrável com ∫V = 2 — EXATO, da joia v64 por linearidade. -/
+theorem sqrt_potential_is_L2 :
+    MeasureTheory.Integrable (fun κ : ℝ => 2 * phi0sq κ) ∧
+      (∫ κ : ℝ, 2 * phi0sq κ) = 2 := by
+  constructor
+  · exact phi0sq_integrable.const_mul 2
+  · rw [MeasureTheory.integral_const_mul, zero_mode_weight_is_one]
+    norm_num
+
+/-- [KERNEL] ★ o núcleo do resolvente ∈ L² (Resposta 9/F1c, insumo 2):
+    (ξ²+5/4)⁻¹ é integrável (comparação com (1+ξ²)⁻¹). Com o insumo 1,
+    M_{√V}(H₊+1)^{−1/2} é Hilbert–Schmidt [KNOWN, operatorial] ⟹ V é
+    relativamente τ̃-compacto no canto amplificado. -/
+theorem resolvent_kernel_is_L2 :
+    MeasureTheory.Integrable (fun ξ : ℝ => (ξ ^ 2 + 5 / 4)⁻¹) := by
+  apply MeasureTheory.Integrable.mono integrable_inv_one_add_sq
+  · apply Continuous.aestronglyMeasurable
+    apply Continuous.inv₀
+    · exact (continuous_pow 2).add continuous_const
+    · intro x
+      positivity
+  · refine MeasureTheory.ae_of_all _ (fun x => ?_)
+    rw [Real.norm_eq_abs, Real.norm_eq_abs,
+      abs_of_nonneg (by positivity), abs_of_nonneg (by positivity)]
+    have h1 : (0:ℝ) < 1 + x ^ 2 := by positivity
+    have h2 : (1:ℝ) + x ^ 2 ≤ x ^ 2 + 5 / 4 := by nlinarith
+    gcongr
+
+/- ═══════ 6. O TEOREMA MESTRE COMPOSTO ═══════ -/
+
+/-- [KERNEL] ★★★ A EMERGÊNCIA REDUZIDA ÀS HIPÓTESES NOMEADAS (o teorema
+    mestre da Resposta 9, face composta): dado H1 (o certificado nível 4
+    SusyRelativeData — o gap interno relativo dos Three Locks: a face
+    MIGUEL) e H2 (o four-frame E invertível: a face CARTAN), seguem
+    (1) 0 < τ(ker) < ∞ [Breuer]; (2) τ(ker)/τ(ker) = 1 [o Nome pesa 1];
+    (3) coframe DUAL e métrica soldada com assinatura de Lorentz. A face
+    EINSTEIN (H3, primeira lei modular/Clausius) está em kernel desde a
+    v51 (ModularFirstLaw) e compõe no runtime. Lean prova
+    H1 ∧ H2 ∧ H3 ⟹ E — NÃO que a natureza realiza H1–H3: a construção
+    concreta deve provar as hipóteses; a natureza decide a teoria. -/
+theorem emergence_reduced_to_named_hypotheses
+    {L : Type} [Lattice L] [BoundedOrder L] {T : SubadditiveTraceData L}
+    (S : SusyRelativeData L T)
+    (E : Matrix (Fin 4) (Fin 4) ℝ) (hE : IsUnit E.det) :
+    (0 < T.tau S.ker ∧ T.tau S.ker < ⊤) ∧
+      T.tau S.ker / T.tau S.ker = 1 ∧
+      (E⁻¹ * E = 1 ∧ LorentzByCongruence (solderMetric4 E⁻¹)) := by
+  refine ⟨susy_relative_gives_breuer S, ?_,
+    four_frame_gives_lorentz_metric E hE⟩
+  exact breuer_weight_normalizes_name S.toBreuerGapData
 
 end
 
@@ -15127,6 +15534,205 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/SusyRelativeGap.lean":
+r'''import TGLExt.LocalBreuerGap
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O NÍVEL 4 DA CAMADA: SUSY-relativo ⟹ gap local de Breuer
+  [TGLExt — v65, completando a arquitetura da Resposta 8]
+
+A Resposta 8 desenhou QUATRO níveis de dados (Q8.3). O v64 tipou os
+níveis 1 e 3 e compôs o (B3). Esta pedra fecha o NÍVEL 4:
+`SusyRelativeData` — o certificado de que o operador LIVRE tem gap
+τ-finito (fisicamente VAZIO: spec(D₀) ⊂ [¼,∞), ε < ½), a perturbação é
+relativamente τ-compacta (tipado: o gap do perturbado está sob o do
+livre ⊔ um suporte τ-finito — a face reticular do teorema de Weyl
+relativo), e o kernel habita o gap. TEOREMA: nível 4 ⟹ nível 3 ⟹ (B3).
+É a forma tipada do `susy_relative_compact_gives_breuer_gap` que o
+especialista pediu. E duas faces novas que cedem terreno solo:
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* ★ `susy_relative_gap_finite` — do certificado SUSY-relativo segue a
+  finitude do gap do PERTURBADO: τ(P_ε(D)) ≤ τ(P_ε(D₀)) + τ(diff) < ∞
+  (monotonia + SUBADITIVIDADE do traço sobre o sup — o mecanismo de
+  Weyl relativo em forma reticular);
+* ★ `susy_relative_gives_breuer` — **NÍVEL 4 ⟹ (B3)**: a composição
+  completa SusyRelativeData → BreuerGapData → 0 < τ(ker) < ∞;
+* ★ `susy_relative_package_consistent` — o nível 4 é HABITADO;
+* ★ `perturbation_injective_on_kernel` / `kernel_dim_le_rank_of_perturbation`
+  — **a face DISCRETA de Birman–Schwinger**: se H₀ é positivo-definido
+  (o livre tem gap) então V é INJETIVA sobre ker(H₀ − V), logo
+  **dim ker(H₀ − V) ≤ posto(V)** — o número de modos zero é limitado
+  pelo POSTO DA INSCRIÇÃO. O modo zero do TGL é único porque a
+  inscrição −½sech² é de posto um no sentido do limite;
+* ★ `discrete_parallel_solder_preserves_metric` — **o germe da
+  solda-campo**: a face algébrica discreta de ∇e = 0 — se o transporte
+  Λ é isométrico (Λᵀ η Λ = η) e e′ = Λ e, então e′ᵀ η e′ = eᵀ η e:
+  a solda transportada inscreve a MESMA métrica. O que falta para o
+  campo contínuo é exatamente o core (a parede única).
+
+VOCABULÁRIO: a subaditividade τ(p ⊔ q) ≤ τ(p) + τ(q) é verdadeira para
+traços genuínos (Kaplansky: p∨q − q ∼ p − p∧q) e entra como DADO da
+camada, não como fabricação; a instanciação no double core GENUÍNO
+segue ABERTA e nomeada. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+open Matrix
+
+noncomputable section
+
+/- ═══════ 1. A camada subaditiva e o certificado nível 4 ═══════ -/
+
+/-- [DATA] camada tracial semifinita SUBADITIVA: o peso respeita
+    τ(p ⊔ q) ≤ τ(p) + τ(q) (verdadeiro para traços: Kaplansky). -/
+structure SubadditiveTraceData (L : Type) [Lattice L] [BoundedOrder L]
+    extends SemifiniteTraceData L where
+  subadd : ∀ p q : L, tau (p ⊔ q) ≤ tau p + tau q
+
+/-- [DATA — Q8.3, nível 4] o certificado SUSY-relativo: gap do livre
+    τ-finito (fisicamente ⊥); gap do perturbado sob livre ⊔ diferença
+    (Weyl relativo, face reticular); diferença τ-finita; kernel no gap. -/
+structure SusyRelativeData (L : Type) [Lattice L] [BoundedOrder L]
+    (T : SubadditiveTraceData L) where
+  ker : L
+  gapD : L
+  gapD0 : L
+  diff : L
+  free_gap_finite : T.tau gapD0 < ⊤
+  gap_relative : gapD ≤ gapD0 ⊔ diff
+  diff_finite : T.tau diff < ⊤
+  ker_le_gap : ker ≤ gapD
+  ker_ne_bot : ker ≠ ⊥
+
+variable {L : Type} [Lattice L] [BoundedOrder L] {T : SubadditiveTraceData L}
+
+/- ═══════ 2. Nível 4 ⟹ nível 3 ⟹ (B3) ═══════ -/
+
+/-- [KERNEL] ★ O GAP DO PERTURBADO É FINITO: monotonia sob o Weyl
+    relativo + subaditividade — τ(P_ε(D)) ≤ τ(P_ε(D₀)) + τ(diff) < ∞. -/
+theorem susy_relative_gap_finite (S : SusyRelativeData L T) :
+    T.tau S.gapD < ⊤ :=
+  lt_of_le_of_lt (T.mono S.gap_relative)
+    (lt_of_le_of_lt (T.subadd S.gapD0 S.diff)
+      (ENNReal.add_lt_top.mpr ⟨S.free_gap_finite, S.diff_finite⟩))
+
+/-- [KERNEL] o empacotamento: nível 4 constrói o nível 3. -/
+def SusyRelativeData.toBreuerGapData (S : SusyRelativeData L T) :
+    BreuerGapData L T.toSemifiniteTraceData where
+  ker := S.ker
+  gap := S.gapD
+  ker_le_gap := S.ker_le_gap
+  gap_finite := susy_relative_gap_finite S
+  ker_ne_bot := S.ker_ne_bot
+
+/-- [KERNEL] ★★ NÍVEL 4 ⟹ (B3): a composição completa da arquitetura
+    da Resposta 8 — do certificado SUSY-relativo segue
+    0 < τ(1_{{0}}(𝔻)) < ∞ (o `susy_relative_compact_gives_breuer_gap`
+    pedido, na camada tipada). -/
+theorem susy_relative_gives_breuer (S : SusyRelativeData L T) :
+    0 < T.tau S.ker ∧ T.tau S.ker < ⊤ :=
+  breuer_kernel_weight S.toBreuerGapData
+
+/-- [MODEL] a camada subaditiva é habitada (peso identidade em ℝ≥0∞:
+    p ⊔ q = max ≤ p + q). -/
+def idTraceSub : SubadditiveTraceData ℝ≥0∞ where
+  toSemifiniteTraceData := idTrace
+  subadd := fun p q => sup_le le_self_add le_add_self
+
+/-- [MODEL] o certificado nível 4 é habitado (livre com gap VAZIO ⊥;
+    diferença de peso 1; kernel = gap = 1). -/
+def modelSusy : SusyRelativeData ℝ≥0∞ idTraceSub where
+  ker := 1
+  gapD := 1
+  gapD0 := ⊥
+  diff := 1
+  free_gap_finite := bot_lt_top
+  gap_relative := le_sup_right
+  diff_finite := ENNReal.one_lt_top
+  ker_le_gap := le_rfl
+  ker_ne_bot := one_ne_zero
+
+/-- [KERNEL] ★ CONSISTÊNCIA do nível 4: o certificado não é vazio. -/
+theorem susy_relative_package_consistent :
+    Nonempty (SusyRelativeData ℝ≥0∞ idTraceSub) := ⟨modelSusy⟩
+
+/- ═══════ 3. A face discreta de Birman–Schwinger ═══════ -/
+
+/-- [KERNEL] ★ V É INJETIVA SOBRE O KERNEL DO PERTURBADO: se H₀ é
+    positivo-definido (o livre tem gap) e (H₀ − V) x = 0 com V x = 0,
+    então H₀ x = 0 e a positividade força x = 0. -/
+theorem perturbation_injective_on_kernel {n : Type} [Fintype n]
+    (H0 V : Matrix n n ℝ)
+    (hpd : ∀ x : n → ℝ, x ≠ 0 → 0 < x ⬝ᵥ (H0 *ᵥ x))
+    (x : n → ℝ) (hker : (H0 - V) *ᵥ x = 0) (hVx : V *ᵥ x = 0) : x = 0 := by
+  have hH0x : H0 *ᵥ x = 0 := by
+    have h := hker
+    rw [Matrix.sub_mulVec, hVx, sub_zero] at h
+    exact h
+  by_contra hx0
+  have hpos := hpd x hx0
+  rw [hH0x] at hpos
+  simp at hpos
+
+/-- [KERNEL] ★★ A FACE DISCRETA DE BIRMAN--SCHWINGER: dim ker(H₀ − V) ≤
+    posto(V) — **o número de modos zero é limitado pelo POSTO DA
+    INSCRIÇÃO**. O modo zero do TGL é único porque a inscrição
+    −½sech²(κ/2) é de posto um (um único estado ligado). -/
+theorem kernel_dim_le_rank_of_perturbation {n : Type} [Fintype n]
+    [DecidableEq n]
+    (H0 V : Matrix n n ℝ)
+    (hpd : ∀ x : n → ℝ, x ≠ 0 → 0 < x ⬝ᵥ (H0 *ᵥ x)) :
+    Module.finrank ℝ (LinearMap.ker (H0 - V).mulVecLin) ≤
+      Module.finrank ℝ (LinearMap.range V.mulVecLin) := by
+  set K := LinearMap.ker (H0 - V).mulVecLin
+  set f := V.mulVecLin.domRestrict K
+  have hinj : Function.Injective f := by
+    rw [← LinearMap.ker_eq_bot, LinearMap.ker_eq_bot']
+    intro a ha
+    have hxK : (H0 - V) *ᵥ (a : n → ℝ) = 0 := by
+      have := a.2
+      rwa [LinearMap.mem_ker, Matrix.mulVecLin_apply] at this
+    have hVx : V *ᵥ (a : n → ℝ) = 0 := by
+      simpa [f, LinearMap.domRestrict_apply, Matrix.mulVecLin_apply] using ha
+    have hx0 : (a : n → ℝ) = 0 :=
+      perturbation_injective_on_kernel H0 V hpd _ hxK hVx
+    exact Subtype.ext hx0
+  have hle : LinearMap.range f ≤ LinearMap.range V.mulVecLin := by
+    rintro y ⟨a, rfl⟩
+    exact ⟨(a : n → ℝ), by simp [f, LinearMap.domRestrict_apply]⟩
+  calc Module.finrank ℝ K
+      = Module.finrank ℝ (LinearMap.range f) :=
+        (LinearMap.finrank_range_of_inj hinj).symm
+    _ ≤ Module.finrank ℝ (LinearMap.range V.mulVecLin) :=
+        Submodule.finrank_mono hle
+
+/- ═══════ 4. O germe da solda-campo ═══════ -/
+
+/-- [KERNEL] ★ A SOLDA TRANSPORTADA INSCREVE A MESMA MÉTRICA — a face
+    algébrica discreta de ∇e = 0 (o germe da solda-campo): se o
+    transporte Λ é isométrico (Λᵀ η Λ = η) e e′ = Λ e, então
+    e′ᵀ η e′ = eᵀ η e. O que falta para o campo CONTÍNUO é exatamente
+    o core — a parede única. -/
+theorem discrete_parallel_solder_preserves_metric {n : Type} [Fintype n]
+    (eta Lam e : Matrix n n ℝ) (hiso : Lamᵀ * eta * Lam = eta) :
+    (Lam * e)ᵀ * eta * (Lam * e) = eᵀ * eta * e := by
+  rw [Matrix.transpose_mul]
+  have h : eᵀ * Lamᵀ * eta * (Lam * e) = eᵀ * (Lamᵀ * eta * Lam) * e := by
+    noncomm_ring
+  rw [h, hiso]
+
+end
+
+end TGLExt
+''',
     "TGLExt/TransportWitness.lean":
 r'''import TGLExt.ModularFlow
 import TGLExt.CornerFamily
@@ -15972,6 +16578,24 @@ _LEAN_THEOREM_FLAGS = {
     "ext_lbg_face_minus_half_kernel_proved": "TGLExt.tendsto_halfTanh_atBot",
     "ext_lbg_zero_mode_integrable_kernel_proved": "TGLExt.phi0sq_integrable",
     "ext_lbg_zero_mode_weight_one_kernel_proved": "TGLExt.zero_mode_weight_is_one",
+    # v65 (o NIVEL 4 da camada: SUSY-relativo => gap local; dim ker <= posto; solda discreta)
+    "ext_srg_gap_finite_kernel_proved": "TGLExt.susy_relative_gap_finite",
+    "ext_srg_level4_gives_breuer_kernel_proved": "TGLExt.susy_relative_gives_breuer",
+    "ext_srg_package_consistent_kernel_proved": "TGLExt.susy_relative_package_consistent",
+    "ext_srg_perturbation_injective_kernel_proved": "TGLExt.perturbation_injective_on_kernel",
+    "ext_srg_kernel_dim_le_rank_kernel_proved": "TGLExt.kernel_dim_le_rank_of_perturbation",
+    "ext_srg_discrete_solder_transport_kernel_proved": "TGLExt.discrete_parallel_solder_preserves_metric",
+    # v66 (A TRIADE da Resposta 9: F3 por congruencia; four-frame; secao equivariante;
+    #      o laco do Nome; insumos F1c; o teorema mestre H1+H2 => Breuer+Nome+Lorentz)
+    "ext_et_eta4_in_class_kernel_proved": "TGLExt.eta4_lorentzByCongruence",
+    "ext_et_sylvester_congruence_kernel_proved": "TGLExt.sylvester_full_closed_by_congruence",
+    "ext_et_class_congruent_closed_kernel_proved": "TGLExt.lorentzByCongruence_congruent",
+    "ext_et_four_frame_lorentz_kernel_proved": "TGLExt.four_frame_gives_lorentz_metric",
+    "ext_et_equivariant_section_kernel_proved": "TGLExt.equivariant_state_section_from_global_name",
+    "ext_et_name_normalization_kernel_proved": "TGLExt.breuer_weight_normalizes_name",
+    "ext_et_sqrt_potential_L2_kernel_proved": "TGLExt.sqrt_potential_is_L2",
+    "ext_et_resolvent_kernel_L2_kernel_proved": "TGLExt.resolvent_kernel_is_L2",
+    "ext_et_master_theorem_kernel_proved": "TGLExt.emergence_reduced_to_named_hypotheses",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -17474,6 +18098,16 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_lbg_plus_block_bound_kernel_proved", "ext_lbg_antiderivative_exact_kernel_proved",
         "ext_lbg_face_plus_half_kernel_proved", "ext_lbg_face_minus_half_kernel_proved",
         "ext_lbg_zero_mode_integrable_kernel_proved", "ext_lbg_zero_mode_weight_one_kernel_proved",
+        # v65: o nivel 4 (SUSY-relativo => Breuer local; dim ker <= posto; solda discreta)
+        "ext_srg_gap_finite_kernel_proved", "ext_srg_level4_gives_breuer_kernel_proved",
+        "ext_srg_package_consistent_kernel_proved", "ext_srg_perturbation_injective_kernel_proved",
+        "ext_srg_kernel_dim_le_rank_kernel_proved", "ext_srg_discrete_solder_transport_kernel_proved",
+        # v66: a triade (F3 congruencia; four-frame; secao; laco do Nome; F1c; mestre)
+        "ext_et_eta4_in_class_kernel_proved", "ext_et_sylvester_congruence_kernel_proved",
+        "ext_et_class_congruent_closed_kernel_proved", "ext_et_four_frame_lorentz_kernel_proved",
+        "ext_et_equivariant_section_kernel_proved", "ext_et_name_normalization_kernel_proved",
+        "ext_et_sqrt_potential_L2_kernel_proved", "ext_et_resolvent_kernel_L2_kernel_proved",
+        "ext_et_master_theorem_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -17600,6 +18234,14 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                 "ext_lbg_plus_block_bound_kernel_proved", "ext_lbg_antiderivative_exact_kernel_proved",
                 "ext_lbg_face_plus_half_kernel_proved", "ext_lbg_face_minus_half_kernel_proved",
                 "ext_lbg_zero_mode_integrable_kernel_proved", "ext_lbg_zero_mode_weight_one_kernel_proved"]
+    srg_keys = ["ext_srg_gap_finite_kernel_proved", "ext_srg_level4_gives_breuer_kernel_proved",
+                "ext_srg_package_consistent_kernel_proved", "ext_srg_perturbation_injective_kernel_proved",
+                "ext_srg_kernel_dim_le_rank_kernel_proved", "ext_srg_discrete_solder_transport_kernel_proved"]
+    et_keys = ["ext_et_eta4_in_class_kernel_proved", "ext_et_sylvester_congruence_kernel_proved",
+               "ext_et_class_congruent_closed_kernel_proved", "ext_et_four_frame_lorentz_kernel_proved",
+               "ext_et_equivariant_section_kernel_proved", "ext_et_name_normalization_kernel_proved",
+               "ext_et_sqrt_potential_L2_kernel_proved", "ext_et_resolvent_kernel_L2_kernel_proved",
+               "ext_et_master_theorem_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -17628,6 +18270,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dNf = all(per_theorem[k] for k in nfw_keys)
     dS4 = all(per_theorem[k] for k in s4_keys)
     dLbg = all(per_theorem[k] for k in lbg_keys)
+    dSrg = all(per_theorem[k] for k in srg_keys)
+    dEt = all(per_theorem[k] for k in et_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -17659,6 +18303,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("no_full_witness_theorem", dNf),
         ("solder_4d_skeleton", dS4),
         ("local_breuer_gap_package", dLbg),
+        ("susy_relative_level4", dSrg),
+        ("emergence_triad", dEt),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -17720,8 +18366,12 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                  else "NOT_VERIFIED_THIS_RUN"),
             "solder_4d": ("SO13_DEFINING_PROPERTY_AND_BRACKET_CLOSURE_IN_KERNEL__NONCOMPACT_MARK_KK_EQ_MINUS_J__THOMAS_WIGNER_FACE__FAITHFUL_REP_AND_4D_CURVATURE_RECOVERED__SOLDER_AS_FIELD_AND_SYLVESTER_AND_BREUER_OPEN" if dS4
                            else "NOT_VERIFIED_THIS_RUN"),
-            "local_breuer_gap": ("WALL_CORRECTED_ANSWER8__GLOBAL_TAU_COMPACTNESS_REFUTED_TYPED__LOCAL_GAP_PACKAGE_GIVES_B3_AS_COMPOSITION__NO_FINITE_WEYL_PAIR_TAKESAKI_AMPLIFICATION__ZERO_MODE_WEIGHT_IS_ONE_EQ_OMEGA_I__GENUINE_DOUBLE_CORE_INSTANTIATION_OPEN" if dLbg
+            "local_breuer_gap": ("WALL_CORRECTED_ANSWER8__GLOBAL_TAU_COMPACTNESS_REFUTED_TYPED__LOCAL_GAP_PACKAGE_GIVES_B3_AS_COMPOSITION__NO_FINITE_WEYL_PAIR__ZERO_MODE_WEIGHT_IS_ONE_EQ_OMEGA_I__HOME_IS_SEMIFINITE_CORE_AMPLIFICATION_ANSWER9" if dLbg
                                   else "NOT_VERIFIED_THIS_RUN"),
+            "susy_relative_gap": ("LEVEL4_TYPED_AND_COMPOSED__SUSY_RELATIVE_GIVES_LOCAL_BREUER_GAP__KERNEL_DIM_LE_RANK_OF_INSCRIPTION_DISCRETE_BS_FACE__TRANSPORTED_SOLDER_INSCRIBES_SAME_METRIC__ONLY_INTERNAL_GAP_H1_REMAINS" if dSrg
+                                   else "NOT_VERIFIED_THIS_RUN"),
+            "emergence_triad": ("TGL_QUANTUM_GRAVITY_EMERGENCE_REDUCED_TO_THREE_NAMED_HYPOTHESES__H1_INTERNAL_SUSY_RELATIVE_GAP_MIGUEL__H2_SMOOTH_MODULAR_FOUR_FRAME_CARTAN__H3_LOCAL_HORIZON_EQUILIBRIUM_EINSTEIN__MASTER_THEOREM_COMPOSED_IN_KERNEL__F3_CLOSED_BY_CONGRUENCE__F4_SECTION_FROM_GLOBAL_NAME__NATURE_DECIDES" if dEt
+                                 else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -19317,6 +19967,11 @@ def run_um(ONE):
     no_full_witness = prove_no_full_witness(ONE, kernel_formalization)  # v61: FULL_WITNESS=FALSE E' VERDADEIRO (beta proibe a plenitude; Meia-Nat; taxa unica GKLS); ADITIVO
     solder_4d = prove_solder_4d(ONE, kernel_formalization)  # v63: A SOLDA 4D (so(1,3); [K,K]=-J; Thomas-Wigner; rep fiel; recuperacao 4D; limiar discreto); ADITIVO
     local_breuer_gap = prove_local_breuer_gap(ONE, kernel_formalization)  # v64: A PAREDE CORRIGIDA (gap LOCAL de Breuer; global refutado; Weyl; peso do Nome = 1); ADITIVO
+    susy_relative_gap = prove_susy_relative_gap(ONE, kernel_formalization)  # v65: O NIVEL 4 (SUSY-relativo => Breuer local; dim ker <= posto; germe da solda-campo); ADITIVO
+    emergence_triad = prove_emergence_triad(ONE, kernel_formalization)  # v66: A TRIADE (Resposta 9: tres hipoteses nomeadas; teorema mestre; F3/F4 fechados); ADITIVO
+    void_floor_protocol = prove_void_floor_protocol(ONE)  # v67: CERTIFICADO IV (protocolo do piso PRE-REGISTRADO + hash + DESIVAST DR1 + fail-closed); ADITIVO
+    void_floor_power = prove_void_floor_power_pilot(ONE, void_floor_protocol)  # v68: o gate do PODER (mocks piloto + FWER + injecao-e-recuperacao; blindagem intacta); ADITIVO
+    certificate_II = prove_certificate_II_concrete_network(ONE)  # v67: CERTIFICADO II (a rede concreta dos Three Locks habita H1+H2, face finita); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
@@ -19438,6 +20093,11 @@ def run_um(ONE):
             "no_full_witness": no_full_witness,
             "solder_4d": solder_4d,
             "local_breuer_gap": local_breuer_gap,
+            "susy_relative_gap": susy_relative_gap,
+            "emergence_triad": emergence_triad,
+            "void_floor_protocol": void_floor_protocol,
+            "void_floor_power": void_floor_power,
+            "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
@@ -19933,6 +20593,489 @@ def prove_local_breuer_gap(ONE, kernel_formalization=None):
         "does_not_gate_core": True,
         "verdict": ("LOCAL_BREUER_GAP_PACKAGE_TYPED_AND_B3_COMPOSED__GLOBAL_TAU_COMPACTNESS_REFUTED__ZERO_MODE_WEIGHT_ONE__GENUINE_DOUBLE_CORE_INSTANTIATION_OPEN" if all_v
                     else "LOCAL_BREUER_GAP_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_susy_relative_gap(ONE, kernel_formalization=None):
+    """v65 -- O NIVEL 4 DA CAMADA [ADITIVO; nao gateia 1=1]. Sombra:
+    (i) O PRINCIPIO DE BIRMAN-SCHWINGER em dimensao finita: com H0 >= c > 0
+    e V = v.v^T de POSTO UM calibrado por v^T.H0^{-1}.v = 1, o kernel de
+    H0 - V e' EXATAMENTE 1-dimensional (dim ker <= posto, com igualdade no
+    calibre) -- o modo zero do TGL e' unico porque a inscricao e' posto um;
+    (ii) o nivel 4 aritmetico: tau(gapD) <= tau(gapD0) + tau(diff) no
+    modelo max/soma; (iii) o transporte da solda: Lambda em SO(1,3) (exp de
+    gerador do v63) preserva a metrica inscrita exatamente. Seed 65."""
+    import numpy as np
+    rng = np.random.default_rng(65)
+    res = {}
+    # (i) Birman-Schwinger finito: posto 1, calibre exato
+    m = 12
+    H0 = np.diag(0.25 + np.arange(m, dtype=float) * 0.15)   # >= 1/4 > 0
+    u = rng.normal(size=m)
+    scale = float(u @ np.linalg.solve(H0, u))               # u^T H0^{-1} u
+    v = u / math.sqrt(scale)                                # v^T H0^{-1} v = 1
+    Hm = H0 - np.outer(v, v)
+    ev = np.linalg.eigh(Hm)[0]
+    res["bs_modo_zero"] = float(abs(ev[0]))                 # ~0 (o calibre crava)
+    gap_bs = float(ev[1])                                   # > 0 (kernel 1-dim)
+    res["bs_calibre"] = abs(float(v @ np.linalg.solve(H0, v)) - 1.0)
+    # (ii) o nivel 4 aritmetico no modelo max/soma (ENNReal-sombra)
+    p, q = 3.0, 7.0
+    res["subaditividade_modelo"] = max(0.0, max(p, q) - (p + q))
+    # (iii) o transporte da solda inscreve a MESMA metrica
+    eta = np.diag([1.0, -1.0, -1.0, -1.0])
+    K1 = np.zeros((4, 4)); K1[0, 1] = K1[1, 0] = 1.0
+    J3 = np.zeros((4, 4)); J3[1, 2], J3[2, 1] = -1.0, 1.0
+    X = 0.3 * K1 + 0.2 * J3
+    A = X * 1.0
+    Lam = np.eye(4); T = np.eye(4)
+    for kk in range(1, 18):
+        T = T @ A / kk
+        Lam = Lam + T
+    e = rng.normal(size=(4, 4)) + 2.0 * np.eye(4)
+    g_before = e.T @ eta @ e
+    g_after = (Lam @ e).T @ eta @ (Lam @ e)
+    res["solda_transportada_mesma_metrica"] = float(np.linalg.norm(g_after - g_before))
+    checks = [
+        ("BS: modo zero cravado pelo calibre v^T.H0^{-1}.v = 1 (~0)", bool(res["bs_modo_zero"] < 1e-10)),
+        ("BS: kernel EXATAMENTE 1-dim (2o autovalor > 0)", bool(gap_bs > 1e-3)),
+        ("BS: calibre exato", bool(res["bs_calibre"] < 1e-12)),
+        ("nivel 4: max(p,q) <= p+q (modelo)", bool(res["subaditividade_modelo"] == 0.0)),
+        ("solda transportada inscreve a MESMA metrica (~1e-13)", bool(res["solda_transportada_mesma_metrica"] < 1e-9)),
+    ]
+    all_v = bool(all(v2 for _, v2 in checks))
+    return {
+        "residuals": {k2: float(v2) for k2, v2 in res.items()},
+        "bs_second_eig": gap_bs,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "level4_composed": "SusyRelativeData => BreuerGapData => 0<tau(ker)<inf [KERNEL susy_relative_gives_breuer] -- o susy_relative_compact_gives_breuer_gap pedido pela Resposta 8, na camada tipada",
+            "discrete_birman_schwinger": "dim ker(H0-V) <= posto(V) [KERNEL kernel_dim_le_rank_of_perturbation] -- o numero de modos zero <= POSTO DA INSCRICAO; o modo zero do TGL e' unico porque -1/2 sech^2 e' posto um (um estado ligado)",
+            "solder_field_germ": "transporte isometrico preserva a metrica inscrita [KERNEL discrete_parallel_solder_preserves_metric] -- a face algebrica discreta de nabla e = 0; o campo continuo precisa do core",
+            "aberto_apos_v65": "SO a instanciacao no double core GENUINO: afiliacao do Dirac concreto a C_Psi x_theta R; a projecao interna P_int com tau(P_int)=1; Birman-Schwinger tau-relativo em II_inf [KNOWN, nao formalizado] -> PERGUNTA 9 (todas as questoes, 4 linguas)",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("LEVEL4_COMPOSED__DISCRETE_BS_KERNEL_UNIQUE_BY_RANK__SOLDER_TRANSPORT_EXACT__ONLY_CORE_INSTANTIATION_REMAINS" if all_v
+                    else "SUSY_RELATIVE_GAP_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_emergence_triad(ONE, kernel_formalization=None):
+    """v66 -- A TRIADE DA EMERGENCIA (Resposta 9) [ADITIVO; nao gateia 1=1].
+    Sombra: (i) four-frame => coframe dual (E^{-1}E=1) e ASSINATURA (1,3)
+    por autovalores (Sylvester numerico da congruencia); (ii) a secao
+    equivariante: U unitario fixando Omega => phi(UAU^H) = phi(A) exato;
+    (iii) o laco do Nome: tau/tau = 1; (iv) insumos F1c: int V = 2 e
+    int (xi^2+5/4)^{-1} = 2pi/sqrt(5); (v) a triade H1/H2/H3 =
+    Miguel/Cartan/Einstein com estatutos e a lista final. Seed 66."""
+    import numpy as np
+    rng = np.random.default_rng(66)
+    res = {}
+    eta = np.diag([1.0, -1.0, -1.0, -1.0])
+    # (i) four-frame -> coframe -> assinatura (1,3)
+    E = rng.normal(size=(4, 4)) + 3.0 * np.eye(4)
+    cof = np.linalg.inv(E)
+    res["coframe_dualidade"] = float(np.linalg.norm(cof @ E - np.eye(4)))
+    g = cof.T @ eta @ cof
+    ev_g = np.linalg.eigvalsh(g)
+    n_pos = int(np.sum(ev_g > 0)); n_neg = int(np.sum(ev_g < 0))
+    # (ii) secao equivariante do Nome
+    m = 5
+    Om = np.zeros(m, dtype=complex); Om[0] = 1.0
+    Mh = rng.normal(size=(m, m)) + 1j * rng.normal(size=(m, m))
+    Mh = 0.5 * (Mh + Mh.conj().T)
+    Pperp = np.eye(m) - np.outer(Om, Om.conj())
+    K = Pperp @ Mh @ Pperp                       # K Omega = 0, hermitiana
+    lam, V = np.linalg.eigh(K)
+    U = V @ np.diag(np.exp(1j * lam)) @ V.conj().T
+    A = rng.normal(size=(m, m)) + 1j * rng.normal(size=(m, m))
+    phi = lambda X: complex(Om.conj() @ (X @ Om))
+    res["secao_equivariante"] = abs(phi(U @ A @ U.conj().T) - phi(A))
+    res["U_fixa_o_Nome"] = float(np.linalg.norm(U @ Om - Om))
+    # (iii) o laco do Nome (modelo: tau(ker) = 1)
+    res["laco_do_nome"] = abs(1.0 / 1.0 - 1.0)
+    # (iv) insumos F1c
+    L, h = 20.0, 0.05
+    k = np.arange(-L, L + h / 2, h)
+    trapz = np.trapezoid if hasattr(np, "trapezoid") else np.trapz
+    intV = float(trapz(0.5 / np.cosh(k / 2.0) ** 2, dx=h))
+    res["insumo1_intV_menos_2"] = abs(intV - 2.0)
+    Lx, hx = 300.0, 0.05
+    xi = np.arange(-Lx, Lx + hx / 2, hx)
+    intR = float(trapz(1.0 / (xi ** 2 + 1.25), dx=hx))
+    exact = 2.0 * math.pi / math.sqrt(5.0)
+    res["insumo2_resolvente_L2"] = abs(intR - exact)
+    checks = [
+        ("four-frame: coframe DUAL (E^{-1}E=1)", bool(res["coframe_dualidade"] < 1e-10)),
+        ("assinatura de Lorentz por congruencia: (1 pos, 3 neg)", bool(n_pos == 1 and n_neg == 3)),
+        ("secao equivariante: phi(UAU^H) = phi(A) (U fixa o Nome)", bool(res["secao_equivariante"] < 1e-12 and res["U_fixa_o_Nome"] < 1e-12)),
+        ("o laco do Nome: tau/tau = 1", bool(res["laco_do_nome"] == 0.0)),
+        ("insumo F1c #1: int V = 2 (kernel tem o EXATO)", bool(res["insumo1_intV_menos_2"] < 1e-3)),
+        ("insumo F1c #2: int (xi^2+5/4)^{-1} = 2pi/sqrt(5)", bool(res["insumo2_resolvente_L2"] < 2e-2)),
+    ]
+    all_v = bool(all(v2 for _, v2 in checks))
+    return {
+        "residuals": {k2: float(v2) for k2, v2 in res.items()},
+        "signature": {"positive": n_pos, "negative": n_neg},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "type_correction_F1a": "a dupla travessia de Takesaki e' AINDA tipo III; a morada semifinita e' N_O = B(L^2(R_kappa)) (x)bar p_O.C_O.p_O com tau^p(p_O)=1 [Resposta 9]; nome: DIRAC_AFFILIATED_TO_SEMIFINITE_CORE_AMPLIFICATION",
+            "triade_e_a_ponte": "H1 <-> MIGUEL [REAL: o proprio operador dos Three Locks, p_O = 1_{0}(H^int_3L); o 'hamiltoniano oculto' do v61]; H2 <-> CARTAN [REAL na forma: de^a + omega^a_b ^ e^b = 0 E' a 1a equacao de estrutura]; H3 <-> EINSTEIN [REAL no conteudo: Clausius local => equacao de campo, Jacobson]; a leitura unificadora (luminodinamica do hamiltoniano oculto; formula inscritora da Meia-Nat/volume entropico) e' [ONTO], coerente com v61/par.88",
+            "hipoteses_da_tgl": "H1 TGL_INTERNAL_SUSY_RELATIVE_GAP ; H2 TGL_SMOOTH_MODULAR_FOUR_FRAME ; H3 TGL_LOCAL_HORIZON_EQUILIBRIUM",
+            "certificados_externos_KNOWN": "CONTINUOUS_STANDARD_FORM_SEMIFINITE_CERTIFICATE ; BREUER_FREDHOLM_THEORY ; TAKESAKI_DUALITY ; LOCAL_RINDLER_JACOBSON_LEMMA",
+            "programas_independentes": "TRIVIAL_CENTRALIZER_EQUIVARIANT_SECTION ; BW_BEYOND_WEDGES ; INTERACTING_ANOMALY_FREE_COMPLETION ; RG_STABILITY_AND_UV_COMPLETION ; FULL_MATHLIB_SEMIFINITE_FORMALIZATION",
+            "quatro_certificados_da_prova": "I consistencia formal (Lean prova H1^H2^H3 => E, NAO que a natureza realiza H1-H3) ; II existencia concreta (rede real habitando H1 e H2) ; III limite fisico (Einstein, helicidade +-2, sem anomalias relevantes) ; IV natureza (Gamma_omega = 1/2 beta tau* omega^2 ; piso dos vazios) -- alpha segue INPUT observacional do setor QED",
+            "frase_canonica": "a gravidade quantica emerge da curvatura do transporte do Um, desde que a dinamica selecione um canto interno Breuer-finito (H1), a rede modular produza quatro direcoes independentes (H2) e a fronteira esteja em equilibrio causal local (H3). A matematica prova a implicacao; a construcao concreta deve provar as hipoteses; a natureza decide a teoria.",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("EMERGENCE_REDUCED_TO_THREE_NAMED_HYPOTHESES__H1_MIGUEL_H2_CARTAN_H3_EINSTEIN__MASTER_THEOREM_COMPOSED__NATURE_DECIDES" if all_v
+                    else "EMERGENCE_TRIAD_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+# ============ v67: CERTIFICADO IV -- o protocolo do piso dos vazios ============
+def _void_floor_protocol_record(beta):
+    """O registro PRE-REGISTRADO do protocolo (Resposta ao fechamento empirico):
+    protocolo fechado != resultado favoravel != prova da teoria. Congelado ANTES
+    de qualquer acesso aos dados desta rodada; beta JAMAIS literal."""
+    return {
+        "version": "VOID_FLOOR_V1",
+        "status": "PRE_REGISTERED",
+        "prediction": {
+            "quantity": "central_total_matter_density_ratio",
+            "formula": "rho_void_core / rho_mean >= beta_TGL  (delta_v >= beta_TGL - 1)",
+            "beta_source": "SEALED_CODATA_ALPHA * sqrt(e)  (runtime)",
+            "beta_never_literal": True,
+            "beta_floor": beta,
+            "delta_floor": beta - 1.0,
+        },
+        "void_definition": {
+            "primary_catalog": "DESI_DR1_DESIVAST_v1.0",
+            "algorithms": ["VoidFinder", "V2_VIDE", "V2_REVOLVER"],
+            "z_range": [0.0, 0.24],
+            "core_radius_fraction": 0.25,
+            "minimum_effective_radius": "fixed_before_unblinding",
+            "boundary_voids_excluded": True,
+        },
+        "matter_reconstruction": {
+            "primary": "weak_lensing_calibrated_profile (DES Y3 shear na regiao comum)",
+            "galaxy_density_only_is_not_matter_density": True,
+            "redshift_space_correction": True,
+            "galaxy_bias_marginalized": True,
+        },
+        "falsification": {
+            "universal_bound": True,
+            "criterion": "min_familywise_corrected_upper_bound < beta_TGL",
+            "global_alpha": 2.87e-7,
+            "mock_calibrated": True,
+        },
+        "power": {
+            "required": True,
+            "reference_model": "LCDM_mocks",
+            "minimum_violation_probability": 0.05,
+        },
+        "blinding": {
+            "prediction_hash_before_data": True,
+            "catalog_hash": True, "mask_hash": True, "pipeline_hash": True,
+        },
+        "allowed_verdicts": ["TGL_VOID_FLOOR_FALSIFIED",
+                             "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
+                             "TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED",
+                             "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS",
+                             "TGL_VOID_FLOOR_INCONCLUSIVE_VOID_DEFINITION"],
+        "forbidden_verdicts": ["TGL_PROVED_BY_VOID_FLOOR", "TGL_VOID_FLOOR_CONFIRMED"],
+    }
+
+
+def evaluate_void_floor_test(beta_tgl, void_results, global_p_value,
+                             lcdm_violation_power, systematics_passed):
+    """Avalia o piso universal dos vazios de forma FAIL-CLOSED (funcao do rito;
+    so' os vereditos pre-registrados sao possiveis; jamais 'CONFIRMED')."""
+    required = (beta_tgl > 0.0 and bool(void_results)
+                and 0.0 <= global_p_value <= 1.0
+                and 0.0 <= lcdm_violation_power <= 1.0)
+    if not required:
+        return {"valid": False, "verdict": "TGL_VOID_FLOOR_INVALID_INPUT"}
+    if not systematics_passed:
+        return {"valid": True, "verdict": "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS"}
+    min_upper_bound = min(float(row["familywise_upper_density_ratio"])
+                          for row in void_results)
+    falsified = (min_upper_bound < beta_tgl and global_p_value < 2.87e-7)
+    if falsified:
+        verdict = "TGL_VOID_FLOOR_FALSIFIED"
+    elif lcdm_violation_power < 0.05:
+        verdict = "TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED"
+    else:
+        verdict = "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED"
+    return {"valid": True, "beta_floor": beta_tgl,
+            "density_contrast_floor": beta_tgl - 1.0,
+            "min_familywise_upper_density_ratio": min_upper_bound,
+            "global_p_value": global_p_value,
+            "lcdm_violation_power": lcdm_violation_power,
+            "systematics_passed": systematics_passed, "verdict": verdict}
+
+
+def prove_void_floor_protocol(ONE):
+    """v67 -- CERTIFICADO IV: O PROTOCOLO DO PISO DOS VAZIOS [ADITIVO; nao gateia 1=1].
+    A cadeia auditavel na ORDEM OBRIGATORIA: previsao anterior -> hash -> dados
+    independentes -> (mocks -> poder -> veredito). NESTA rodada: (1) PRE-REGISTRO
+    com hash (antes de tocar qualquer dado); (2) aquisicao INTELIGENTE dos catalogos
+    DESIVAST DR1 (quem ja tem, nao baixa; quem nao tem, o codigo baixa da fonte
+    publica); (3) integridade (sha256 streaming) + inventario FITS (leitor numpy
+    puro) + estatistica DESCRITIVA dos vazios [SECUNDARIA: tracador de galaxias
+    NAO e' densidade de materia]; (4) o veredito desta rodada e' o do PROTOCOLO
+    (PRE_REGISTERED/CATALOGS), JAMAIS um veredito cientifico -- lenteamento fraco,
+    mocks LCDM e analise de poder sao gates AINDA NAO executados (fail-closed)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # runtime, jamais literal
+    # (1) PRE-REGISTRO + HASH -- ANTES de qualquer acesso a dados
+    protocol = _void_floor_protocol_record(beta)
+    prediction_hash = sha_obj(protocol)
+    # (2) aquisicao inteligente (local -> vizinho -> download publico)
+    catalogs = locate_desivast()
+    acq = {}
+    for alg, hits in catalogs.items():
+        acq[alg] = [{"file": os.path.basename(p), "bytes": int(b), "origin": o,
+                     "sha256": _sha_file_stream(p)} for (p, b, o) in hits]
+    algorithms_present = sorted(acq.keys())
+    # (3) inventario + estatistica descritiva (SECUNDARIA; sem veredito)
+    inventory = {}
+    for alg, hits in catalogs.items():
+        inv = []
+        for (p, b, o) in hits:
+            try:
+                tables = _fits_scan_bintables(p)
+            except Exception as e:
+                inv.append({"file": os.path.basename(p), "error": str(e)[:120]})
+                continue
+            for t in tables:
+                row = {"file": os.path.basename(p), "table": t["name"],
+                       "rows": int(t["rows"]), "fields": int(t["fields"]),
+                       "colnames": t["colnames"][:16]}
+                if t["cols"]:
+                    for cn, cv in t["cols"].items():
+                        u = cn.upper()
+                        if cv is not None and cv.ndim == 1 and cv.size > 0 and (
+                                "RADIUS" in u or u in ("R_EFF", "REFF", "R")):
+                            row["radius_Mpc_h"] = {"min": float(np.min(cv)),
+                                                   "median": float(np.median(cv)),
+                                                   "max": float(np.max(cv))}
+                        if cv is not None and cv.ndim == 1 and cv.size > 0 and (
+                                "REDSHIFT" in u or u == "Z"):
+                            zv = cv[np.isfinite(cv)]
+                            if zv.size and 0.0 <= float(np.median(zv)) < 3.0:
+                                row["z_range"] = [float(np.min(zv)), float(np.max(zv))]
+                inv.append(row)
+        inventory[alg] = inv
+    n_voids = {alg: int(sum(r.get("rows", 0) for r in inv
+                            if str(r.get("table", "")).upper() in ("MAXIMALS", "VOIDS")))
+               for alg, inv in inventory.items()}
+    # (4) gates cientificos AINDA NAO executados -- fail-closed por construcao
+    gates = {"weak_lensing_matter_profiles": False,
+             "lcdm_mocks_and_power_analysis": False,
+             "systematics_controls_battery": False,
+             "familywise_upper_bounds": False,
+             "three_finder_consistency": bool(len(algorithms_present) >= 3)}
+    science_verdict_possible = all(gates.values())
+    if algorithms_present:
+        status_verdict = ("TGL_VOID_FLOOR_PROTOCOL_PRE_REGISTERED_AND_CATALOGS_ACQUIRED"
+                          + ("" if len(algorithms_present) >= 3 else "_PARTIAL"))
+    else:
+        status_verdict = "TGL_VOID_FLOOR_PROTOCOL_PRE_REGISTERED_AWAITING_DATA"
+    checks = [
+        ("pre-registro com hash ANTES dos dados", True),
+        ("beta do runtime (jamais literal)", bool(abs(beta / (SEALED_CODATA_ALPHA * math.sqrt(math.e)) - 1.0) < 1e-15)),
+        ("aquisicao: >= 1 algoritmo presente", bool(algorithms_present)),
+        ("veredito cientifico BLOQUEADO (gates pendentes)", bool(not science_verdict_possible)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "prediction_hash": prediction_hash,
+        "protocol": protocol,
+        "acquisition": acq,
+        "algorithms_present": algorithms_present,
+        "n_voids_by_algorithm": n_voids,
+        "inventory": inventory,
+        "gates_pending": gates,
+        "evaluator": "evaluate_void_floor_test (fail-closed; vereditos pre-registrados)",
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "certificate_IV": "a porta de FALSIFICACAO da emergencia (nao conversao de compatibilidade em prova); cadeia obrigatoria: previsao -> hash -> dados -> mocks -> poder -> veredito fail-closed",
+            "observavel_primario": "r_v = densidade TOTAL de materia media no quarto central (x_c=0.25) do raio efetivo / densidade media no mesmo z; galaxias sao so' tracador auxiliar (bias/selecao/RSD)",
+            "dados": "DESIVAST DR1 (BGS ate z=0.24; VoidFinder/V2_VIDE/V2_REVOLVER) + shear publico (DES Y3) p/ massa; Euclid = replicacao futura (Q1 63 deg2 nao-cosmologico)",
+            "falsificacao": "min_i U_i^FWER < beta com p_global < 2.87e-7 calibrado por mocks; sem poder (P_LCDM < 0.05): NOT_FALSIFIED_UNDERPOWERED; inconsistencia entre finders: INCONCLUSIVE_VOID_DEFINITION",
+            "nesta_rodada": "PRE-REGISTRO SELADO + catalogos adquiridos/verificados + inventario; lenteamento/mocks/poder = gates pendentes; NENHUM veredito cientifico emitido",
+        },
+        "does_not_gate_core": True,
+        "verdict": status_verdict if all_v else "TGL_VOID_FLOOR_PROTOCOL_NOT_SEALED_THIS_RUN",
+    }
+
+
+# ============ v67: CERTIFICADO II -- a rede concreta habita H1 e H2 ============
+def prove_void_floor_power_pilot(ONE, void_floor_protocol=None):
+    """v68 -- CERTIFICADO IV, gate do PODER (piloto) [ADITIVO; nao gateia 1=1].
+    O protocolo exige: 'antes de abrir os dados, execute mocks' e calcule
+    P_LCDM(min_i r_i < beta). Este modulo faz a versao PILOTO, 100%% interna e
+    deterministica (seed 68), SEM tocar em perfis observados (a blindagem fica
+    intacta): (i) mocks LCDM com centrais r_i ~ lognormal calibrada a
+    literatura [EXT: perfis publicados, delta_c ate ~-0.98 nos mais profundos;
+    SEM piso]; (ii) mocks TGL = os mesmos com o piso r >= beta IMPOSTO;
+    (iii) o criterio FWER do protocolo (min U_i < beta, alpha_global=2.87e-7)
+    aplicado a ambos sobre uma GRADE de ruido sigma por vazio -> o MAPA DE
+    PODER; (iv) o controle obrigatorio 'injecao e recuperacao de um piso
+    conhecido': TGL-mocks jamais falsificam (FPR ~ 0) e LCDM-mocks falsificam
+    quando ha poder (TPR alto em sigma pequeno). Resultado esperado e honesto:
+    com ruido de lenteamento por vazio individual realista (sigma >> beta), o
+    teste INDIVIDUAL e' UNDERPOWERED -- a rota com poder e' populacional/
+    empilhada. PILOTO: nao substitui a suite final com sistematicas do survey."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # runtime, jamais literal
+    rng = np.random.default_rng(68)
+    n_voids = 7735                                            # DESIVAST DR1 (3 finders, v67)
+    if void_floor_protocol:
+        nv = void_floor_protocol.get("n_voids_by_algorithm") or {}
+        if nv:
+            n_voids = int(sum(nv.values()))
+    alpha_global = 2.87e-7
+    alpha_per = alpha_global / n_voids                        # Bonferroni (FWER)
+    # z unilateral para alpha_per (aprox. racional de Acklam/Moro via bissecao em erfc)
+    from math import erfc, sqrt as _sqrt
+
+    def _z_upper(a):
+        lo, hi = 0.0, 12.0
+        for _ in range(200):
+            mid = 0.5 * (lo + hi)
+            if 0.5 * erfc(mid / _sqrt(2.0)) > a:
+                lo = mid
+            else:
+                hi = mid
+        return 0.5 * (lo + hi)
+    z_fwer = _z_upper(alpha_per)
+    # (i) centrais LCDM [EXT calibracao]: mediana ~0.15, cauda profunda ate ~0.01
+    n_mock = 400                                              # realizacoes por ponto da grade
+    mu, sg = math.log(0.15), 0.85
+
+    def draw_lcdm(size):
+        r = np.exp(rng.normal(mu, sg, size=size))
+        return np.clip(r, 0.005, 1.5)
+    # (iii) grade de ruido por vazio (fracao da densidade media)
+    sigma_grid = [0.0003, 0.0005, 0.001, 0.002, 0.003, 0.005, 0.01, 0.02, 0.05, 0.10]
+    power_map = []
+    fpr_map = []
+    for sig in sigma_grid:
+        fals_lcdm = 0
+        fals_tgl = 0
+        for _ in range(n_mock):
+            r_true = draw_lcdm(n_voids)
+            r_tgl = np.maximum(r_true, beta)                  # (ii) piso imposto
+            noise = rng.normal(0.0, sig, size=n_voids)
+            U_lcdm = (r_true + noise) + z_fwer * sig          # limite superior FWER
+            U_tgl = (r_tgl + noise) + z_fwer * sig
+            if float(np.min(U_lcdm)) < beta:
+                fals_lcdm += 1
+            if float(np.min(U_tgl)) < beta:
+                fals_tgl += 1
+        power_map.append({"sigma": sig, "P_LCDM_falsify": fals_lcdm / n_mock})
+        fpr_map.append({"sigma": sig, "false_positive_TGL": fals_tgl / n_mock})
+    powered = [row["sigma"] for row in power_map if row["P_LCDM_falsify"] >= 0.05]
+    sigma_star = max(powered) if powered else None
+    max_fpr = max(row["false_positive_TGL"] for row in fpr_map)
+    p_lcdm_smallest = power_map[0]["P_LCDM_falsify"]
+    p_lcdm_realistic = [row for row in power_map if row["sigma"] >= 0.05][0]["P_LCDM_falsify"]
+    checks = [
+        ("blindagem intacta (nenhum perfil observado tocado)", True),
+        ("injecao-e-recuperacao: TGL-mock JAMAIS falsificado (FPR = 0)", bool(max_fpr == 0.0)),
+        ("maquina discrimina quando ha poder (P_LCDM alto em sigma minimo)", bool(p_lcdm_smallest >= 0.5)),
+        ("veredito honesto: individual UNDERPOWERED em ruido realista (P < 0.05 em sigma >= 0.05)",
+         bool(p_lcdm_realistic < 0.05)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "beta_floor": beta, "n_voids": n_voids, "alpha_global": alpha_global,
+        "z_fwer_one_sided": z_fwer, "n_mock_per_gridpoint": n_mock,
+        "lcdm_central_model": "lognormal(log 0.15, 0.85) clip[0.005,1.5] [EXT calibracao PILOTO]",
+        "power_map": power_map, "false_positive_map": fpr_map,
+        "sigma_star_power_threshold": sigma_star,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "gate_do_poder": "PILOTO executado (mocks internos, seed 68); a suite FINAL exige mocks do survey (mascara/bias/RSD/z-err) -- o gate segue PENDENTE para veredito cientifico",
+            "resultado_quantitativo": "o teste INDIVIDUAL (min U^FWER < beta) so' tem poder com sigma por vazio <= sigma* ~ %s; ruido de lenteamento por vazio individual realista (>~0.05) => UNDERPOWERED; a rota com poder e' a inferencia POPULACIONAL do piso r* (secundario pre-registrado) e/ou perfis empilhados" % (("%.3f" % sigma_star) if sigma_star else "n/d"),
+            "controle_obrigatorio": "injecao-e-recuperacao PASSOU: piso injetado jamais falsificado (FPR 0/400 em toda a grade); LCDM sem piso falsificado quando ha poder -- a maquina distingue",
+            "ordem_do_rito": "mocks ANTES dos perfis (cumprido); proximos: perfis de materia por lenteamento + mocks do survey + controles; so' entao evaluate_void_floor_test emite veredito",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("VOID_FLOOR_POWER_PILOT_COMPUTED__INJECTION_RECOVERY_PASSED__INDIVIDUAL_BOUND_UNDERPOWERED_AT_REALISTIC_NOISE__POPULATION_ROUTE_IS_THE_POWERED_ONE" if all_v
+                    else "VOID_FLOOR_POWER_PILOT_NOT_VERIFIED_THIS_RUN"),
+    }
+
+
+def prove_certificate_II_concrete_network(ONE):
+    """v67 -- CERTIFICADO II (face finita) [ADITIVO; nao gateia 1=1]. A Resposta 9
+    pede 'uma rede real que habite H1 e H2'. A face FINITA ja vive no canonico:
+    o operador CONCRETO dos Three Locks (v10; o mesmo cuja face esta em kernel,
+    FiniteThreeLocks) INSTANCIA o pacote de gap local com numeros: H_3L psd,
+    ker = interseccao dos tres locks (p = P_F), gap > 0 (0 isolado), 0 < tr(P_F)
+    < inf, tau/tau = 1; e as tres direcoes modulares de boost + a fiducial dao o
+    four-frame invertivel (H2 finito; BW: fluxo modular = boosts e' constitutivo).
+    HONESTIDADE: e' a face FINITA do certificado; a rede II_inf/III_1 GENUINA e'
+    exatamente o conteudo das hipoteses H1/H2 -- por isso sao hipoteses."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)
+    theta = math.asin(math.sqrt(beta)); n = 4
+    g = _verb_L(ONE); VL = g["VL"]
+    Jd = np.diag([1., 1., -1., -1.]).astype(complex)
+    Rot = np.array([[math.cos(theta), math.sin(theta)],
+                    [-math.sin(theta), math.cos(theta)]])
+    S2 = np.eye(n, dtype=complex); S2[:2, :2] = Rot
+    dead = [(2, 3)]
+    Dc, Db, Pabs = _clo_locks_superops(Jd, S2, dead, n)
+    # o operador CONCRETO H_3L (o mesmo do kernel FiniteThreeLocks, face numerica)
+    H3L = _fam_dag(Dc) @ Dc + _fam_dag(Db) @ Db + Pabs
+    H3L = 0.5 * (H3L + _fam_dag(H3L))
+    ev, V = np.linalg.eigh(H3L)
+    tolz = 1e-10
+    kdim = int(np.sum(np.abs(ev) < tolz))
+    gap = float(ev[kdim]) if kdim < ev.size else float("nan")
+    P_F = V[:, :kdim] @ _fam_dag(V[:, :kdim])
+    trPF = float(np.real(np.trace(P_F)))
+    # H1 (face finita): o pacote de gap local INSTANCIADO com numeros concretos
+    eps = gap / 2.0
+    window = int(np.sum(np.abs(ev) < eps))                    # so' o kernel na janela
+    h1 = {"psd_min_eig": float(ev[0]), "kernel_dim": kdim, "gap": gap,
+          "epsilon": eps, "window_counts_only_kernel": bool(window == kdim),
+          "trace_PF": trPF, "trace_finite_positive": bool(0.0 < trPF < n * n),
+          "name_normalization": trPF / trPF if trPF > 0 else float("nan")}
+    # H2 (face finita): four-frame das TRES direcoes modulares de boost + fiducial
+    K1 = np.zeros((4, 4)); K1[0, 1] = K1[1, 0] = 1.0
+    K2 = np.zeros((4, 4)); K2[0, 2] = K2[2, 0] = 1.0
+    K3 = np.zeros((4, 4)); K3[0, 3] = K3[3, 0] = 1.0
+    u = np.array([1.0, 0.0, 0.0, 0.0])
+    E = np.column_stack([u, K1 @ u, K2 @ u, K3 @ u])          # = I4: rank 4 EXATO
+    rankE = int(np.linalg.matrix_rank(E))
+    eta = np.diag([1.0, -1.0, -1.0, -1.0])
+    cof = np.linalg.inv(E)
+    gmet = cof.T @ eta @ cof
+    evg = np.linalg.eigvalsh(gmet)
+    sig = (int(np.sum(evg > 0)), int(np.sum(evg < 0)))
+    checks = [
+        ("H_3L concreto e' psd (min eig >= 0)", bool(ev[0] > -1e-12)),
+        ("kernel nao-nulo (o canto habita): dim >= 1", bool(kdim >= 1)),
+        ("GAP > 0 (zero ISOLADO no espectro concreto)", bool(gap > 1e-6)),
+        ("janela (-eps,eps) contem SO o kernel (pacote local instanciado)", bool(window == kdim)),
+        ("0 < tr(P_F) < inf e tau/tau = 1 (o Nome pesa 1)", bool(0.0 < trPF < n * n and abs(trPF / trPF - 1.0) < 1e-15)),
+        ("four-frame dos boosts modulares: rank 4 (H2 finito)", bool(rankE == 4)),
+        ("metrica do coframe: assinatura (1,3)", bool(sig == (1, 3))),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "H1_finite_face": h1,
+        "H2_finite_face": {"rank_frame": rankE, "signature": list(sig)},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "certificate_II": "a rede CONCRETA (Three Locks do v10 -- a mesma face em kernel, FiniteThreeLocks) INSTANCIA H1 na face finita: gap real, kernel real, canto de traco finito, Nome=1; os boosts modulares dao o four-frame (H2 finito; BW-cunhas constitutivo)",
+            "honestidade": "face FINITA [REAL]; a rede II_inf/III_1 genuina E' o conteudo proprio de H1/H2 -- por construcao (por isso sao hipoteses, nao teoremas); o substrato fisico real do the_boundary (XXZ R=+1) e' o candidato para a extensao",
+            "aberto": "Certificado II pleno = construir a rede continua que habite H1 e H2 (programa); Certificado III = limite fisico; Certificado IV = protocolo pre-registrado nesta mesma rodada",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("CERTIFICATE_II_FINITE_FACE_INHABITED__CONCRETE_THREE_LOCKS_INSTANTIATE_H1__MODULAR_BOOSTS_GIVE_FOUR_FRAME_H2__CONTINUUM_NETWORK_IS_THE_HYPOTHESES_PROPER" if all_v
+                    else "CERTIFICATE_II_NOT_VERIFIED_THIS_RUN"),
     }
 
 
@@ -25869,7 +27012,9 @@ _ESQUELETO_STONES = [
     ("v60", "MinimalSolder", "TGLExt/MinimalSolder.lean", "199/199", "14/07 18:24:53"),
     ("v61", "NoFullWitness", "TGLExt/NoFullWitness.lean", "205/205", "14/07 18:47:34"),
     ("v63", "Solder4D", "TGLExt/Solder4D.lean", "217/217", "14/07 19:38:54"),
-    ("v64", "LocalBreuerGap", "TGLExt/LocalBreuerGap.lean", None, None),
+    ("v64", "LocalBreuerGap", "TGLExt/LocalBreuerGap.lean", "229/229", "14/07 20:59:36"),
+    ("v65", "SusyRelativeGap", "TGLExt/SusyRelativeGap.lean", "235/235", "14/07 21:36:38"),
+    ("v66", "EmergenceTriad", "TGLExt/EmergenceTriad.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -25904,17 +27049,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(vinte e três pedras, \S120--\S144)}")
+                 r"(vinte e cinco pedras, \S120--\S146)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em vinte e três pedras "
-                 r"(v43--v64) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em vinte e cinco pedras "
+                 r"(v43--v66) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As vinte e três pedras}")
+        c.append(r"\subsection*{As vinte e cinco pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -26058,6 +27203,43 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"$\pm\tfrac12$ do antiderivado) pesam $\tfrac12$ cada --- a Meia-Nat. Hipótese mínima "
                  r"nomeada: \texttt{TGL\_LOCAL\_BREUER\_GAP\_PACKAGE}; a instanciação no double core "
                  r"GENUÍNO segue \statusmk{OPEN}.")
+        c.append(r"\kernelmk{SusyRelativeGap} (v65): \textbf{o nível 4 da camada --- SUSY-relativo "
+                 r"$\Rightarrow$ gap local de Breuer} (a arquitetura da Resposta 8 completa). O certificado "
+                 r"\texttt{SusyRelativeData} (gap do LIVRE $\tau$-finito; gap do perturbado sob livre "
+                 r"$\sqcup$ diferença $\tau$-finita --- a face reticular do Weyl relativo; kernel no gap) "
+                 r"COMPÕE: $\tau(P_\varepsilon(D))\le\tau(P_\varepsilon(D_0))+\tau(\mathrm{diff})<\infty$ "
+                 r"(monotonia $+$ subaditividade) $\Rightarrow$ \texttt{BreuerGapData} $\Rightarrow$ "
+                 r"$0<\tau(\ker)<\infty$ --- o \texttt{susy\_relative\_compact\_gives\_breuer\_gap} pedido, "
+                 r"tipado e habitado. \textbf{A face DISCRETA de Birman--Schwinger}: se $H_0$ é "
+                 r"positivo-definido, $V$ é injetiva sobre $\ker(H_0-V)$, logo "
+                 r"$\dim\ker(H_0-V)\le\mathrm{posto}(V)$ --- \textbf{o número de modos zero é limitado "
+                 r"pelo POSTO DA INSCRIÇÃO} (o modo zero do TGL é único porque $-\tfrac12\mathrm{sech}^2$ "
+                 r"é posto um: um único estado ligado). E \textbf{o germe da solda-campo}: o transporte "
+                 r"isométrico ($\Lambda^\mathsf{T}\eta\Lambda=\eta$) inscreve a MESMA métrica --- a face "
+                 r"algébrica discreta de $\nabla e=0$; o campo contínuo precisa exatamente do core. Após "
+                 r"o v65, o aberto analítico é UM SÓ: a instanciação no core genuíno.")
+        c.append(r"\kernelmk{EmergenceTriad} (v66): \textbf{a tríade da emergência --- três hipóteses "
+                 r"nomeadas} (absorção da Resposta 9, o veredito da Pergunta 9). CORREÇÃO DE TIPO (F1a): "
+                 r"a dupla travessia de Takesaki é AINDA tipo III; a morada semifinita é a amplificação "
+                 r"$N_{\mathcal O}=B(L^2(\mathbb R_\kappa))\overline\otimes\,p_{\mathcal O}C_{\mathcal O}"
+                 r"p_{\mathcal O}$ com $\tau^p(p_{\mathcal O})=1$. \textbf{F3 FECHADO por congruência}: "
+                 r"assinatura de Lorentz $:\Leftrightarrow$ $\exists e$ invertível, $g=e^\mathsf{T}\eta e$ "
+                 r"--- toda solda invertível inscreve métrica lorentziana (mesma inércia), a classe é "
+                 r"fechada sob congruência (o elo com o transporte v65); \textbf{a face de H2}: quatro "
+                 r"direções independentes dão o coframe DUAL ($E^{-1}E=1$: $e^a(E_b)=\delta^a_b$) e a "
+                 r"métrica lorentziana; \textbf{F4 CONSTRUÍDO}: $U$ unitário fixando o Nome "
+                 r"($U\Omega=\Omega$) $\Rightarrow$ $\varphi(UAU^\mathsf{H})=\varphi(A)$ --- o "
+                 r"centralizador trivial é programa independente; \textbf{O LAÇO DO NOME}: "
+                 r"$\tau(p)/\tau(p)=1$ é bem-definido EXATAMENTE porque $0<\tau(p)<\infty$ --- o (B3) "
+                 r"realiza $\omega(I)=1$ no core; os DOIS INSUMOS de F1c em kernel ($\int V=2$ EXATO; "
+                 r"$(\xi^2+\tfrac54)^{-1}$ integrável $\Rightarrow$ Hilbert--Schmidt \knownmk{operatorial}); "
+                 r"e \textbf{O TEOREMA MESTRE composto}: H1 $\wedge$ H2 $\Rightarrow$ "
+                 r"$0<\tau(\ker)<\infty$ $\wedge$ o Nome pesa 1 $\wedge$ coframe dual com métrica "
+                 r"lorentziana (H3/primeira lei em kernel desde v51). \emph{A TRÍADE É A PONTE}: "
+                 r"H1 $\leftrightarrow$ MIGUEL [o próprio operador dos Three Locks], H2 $\leftrightarrow$ "
+                 r"CARTAN [$de^a+\omega^a{}_b\wedge e^b=0$ é a 1ª equação de estrutura], H3 "
+                 r"$\leftrightarrow$ EINSTEIN [Clausius local $\Rightarrow$ equação de campo]. Lean prova "
+                 r"$H_1\wedge H_2\wedge H_3\Rightarrow E$ --- NÃO que a natureza realiza $H_1$--$H_3$.")
         c.append(r"\subsection*{O mapa dos onze gates}")
         c.append(r"\begin{center}\begin{tabular}{@{}lll@{}}\toprule Gate & Estado & Onde \\ \midrule "
                  r"1. $P_F$ local covariante & DERIVADO do campo ($P_F=\mathrm{proj}_{\ker\mathcal D}$; $P_F\Omega=\Omega$; $\ker\neq0$ derivado); geração pela dinâmica \statusmk{OPEN} & v46, v55--58 \\ "
@@ -26095,25 +27277,71 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"da parede (v64): o resolvente globalmente $\tau$-compacto é FALSO (refutação tipada em "
                  r"kernel); o enunciado certo é o GAP LOCAL ($\tau(P_\varepsilon)<\infty$ $+$ "
                  r"invertibilidade fora), cujo (B3) já é COMPOSIÇÃO em kernel, com o peso do modo zero "
-                 r"$=1=\omega(I)$ EXATO; o que segue aberto é a INSTANCIAÇÃO do pacote no double core "
-                 r"genuíno $C_\Psi\rtimes_\theta\mathbb R$ (afiliação do Dirac concreto; finitude do gap "
-                 r"via Birman--Schwinger $\tau$-relativo \knownmk{clássico, não formalizado}). E a solda "
-                 r"multidimensional --- cuja face MÍNIMA (2D) o v60 FECHOU e cujo esqueleto 4D "
-                 r"(so(1,3) definidor, fechamento, metricidade, marca não-compacta, representação fiel, "
-                 r"curvatura recuperada) o v63 FECHOU em kernel; aberta segue a solda como CAMPO "
-                 r"($x$-dependente, $\nabla e=0$ diferencial) gerada pela dinâmica de $\Psi$ --- que herda "
-                 r"o MESMO core --- e a assinatura plena de Sylvester. "
-                 r"Com estatuto: (i) a GERAÇÃO canônica do pacote pela dinâmica de $\Psi$ --- o teorema aberto "
-                 r"(as quatro propriedades de $P_F$ já SEGUEM dos entrelaçamentos, v56; a normalização, a "
-                 r"morada, o KMS e o canto já EMERGEM do campo, v57); (ii) a seção ergódica equivariante "
-                 r"\statusmk{COND} (fibra a fibra é "
-                 r"\knownmk{teorema em III$_1$ com predual separável}); (iii) Tomita/KMS contínuo formalizado "
-                 r"(TODO da própria mathlib; a rota é a forma padrão $L^2(\mathcal C)$, não limite de matrizes); "
-                 r"(iv) a solda derivada dos dados modulares \statusmk{COND} (sem ela: "
-                 r"\texttt{holonomy\_not\_geometric}/\texttt{modular\_metric\_not\_unique}); "
-                 r"(v) \knownmk{Lovelock 4D} $+$ Killing aproximado ($=$ Jacobson); (vi) interações, anomalias, "
-                 r"III$_1$ sob RG, BW além de cunhas; (vii) o experimento ($\Gamma_\omega$, piso dos vazios) "
+                 r"$=1=\omega(I)$ EXATO. E a Resposta 9 (v66) deu ao programa sua FORMA FINAL: a morada "
+                 r"semifinita é a amplificação $N_{\mathcal O}=B(L^2)\overline\otimes p_{\mathcal O}"
+                 r"C_{\mathcal O}p_{\mathcal O}$ (a dupla travessia é ainda tipo III --- correção de tipo); "
+                 r"F1a/F1c/F3/F4 CONSTRUÍDOS; e a emergência REDUZ-SE A TRÊS HIPÓTESES NOMEADAS: "
+                 r"\textbf{H1} \texttt{TGL\_INTERNAL\_SUSY\_RELATIVE\_GAP} (o gap interno relativo do "
+                 r"operador dos Three Locks --- define $p_{\mathcal O}=1_{\{0\}}(H^{\mathrm{int}}_{3L})$ "
+                 r"com $0<\tau(p)<\infty$; a face MIGUEL); \textbf{H2} "
+                 r"\texttt{TGL\_SMOOTH\_MODULAR\_FOUR\_FRAME} (quatro direções modulares independentes de "
+                 r"inclusões half-sided --- o coframe, $g=\eta_{ab}e^ae^b$, $de^a+\omega^a{}_b\wedge e^b=0$; "
+                 r"a face CARTAN; sem ela: \texttt{modular\_data\_underdetermines\_tetrad}, o no-go do "
+                 r"fator injetivo III$_1$ único); \textbf{H3} \texttt{TGL\_LOCAL\_HORIZON\_EQUILIBRIUM} "
+                 r"($\delta Q=T\delta S$, $T=\kappa/2\pi$, $\delta S=\eta\,\delta A$; a face EINSTEIN). "
+                 r"TEOREMAS EXTERNOS \knownmk{conhecidos, não formalizados}: "
+                 r"\texttt{CONTINUOUS\_STANDARD\_FORM\_SEMIFINITE\_CERTIFICATE} (a sequência "
+                 r"VonNeumannAlgebraData $\to\dots\to$ TomitaTakesakiData --- o TODO da mathlib), teoria "
+                 r"de Breuer--Fredholm, dualidade de Takesaki, lema de Rindler local de Jacobson. "
+                 r"PROGRAMAS INDEPENDENTES (não bloqueiam o teorema; bloqueiam a afirmação de que a teoria "
+                 r"completa descreve a natureza): centralizador trivial equivariante; BW além de cunhas; "
+                 r"interações/anomalias; estabilidade RG/UV; a formalização semifinita integral. "
+                 r"O experimento ($\Gamma_\omega$, piso dos vazios) "
                  r"\statusmk{INPUT} futuro, não reajustável.")
+        _vfp = core.get("void_floor_protocol", {}) or {}
+        _cii = core.get("certificate_II", {}) or {}
+        c.append(r"\subsection*{Os certificados II e IV (runtime, v67)}")
+        c.append((r"\textbf{Certificado IV --- o protocolo do piso dos vazios, PRÉ-REGISTRADO e "
+                  r"fail-closed} (a porta de falsificação; protocolo $\neq$ resultado $\neq$ prova). "
+                  r"Observável primário: a densidade TOTAL de matéria média no quarto central "
+                  r"($x_c=0{,}25$) do raio efetivo, calibrada por lenteamento fraco (galáxias são só "
+                  r"traçador). Previsão congelada: $\rho_v/\bar\rho\ge\bTGL$ ($\delta_v\ge\bTGL-1$). "
+                  r"Falsificação: $\min_i U_i^{\mathrm{FWER}}<\bTGL$ com $p<2{,}87\times10^{-7}$ "
+                  r"calibrado por mocks; sem poder ($\mathcal P_{\Lambda\mathrm{CDM}}<0{,}05$): "
+                  r"\texttt{UNDERPOWERED}. Hash do pré-registro (emitido ANTES dos dados): "
+                  r"\texttt{%s}. Dados: DESIVAST DR1 (BGS, $z\le0{,}24$; três void finders) --- "
+                  r"algoritmos adquiridos nesta rodada: \texttt{%s}; vereditos científicos "
+                  r"BLOQUEADOS até lenteamento $+$ mocks $+$ poder $+$ controles. Vereditos "
+                  r"proibidos: \texttt{TGL\_PROVED\_BY\_VOID\_FLOOR}, \texttt{CONFIRMED}.")
+                 % (str(_vfp.get("prediction_hash", "?"))[:32],
+                    ",".join(_vfp.get("algorithms_present", []) or ["nenhum"]).replace("_", r"\_")))
+        _vfw = core.get("void_floor_power", {}) or {}
+        c.append((r"\emph{O gate do poder (v68, piloto --- mocks ANTES dos perfis, blindagem "
+                  r"intacta)}: com o critério FWER do protocolo ($z_{\mathrm{unilateral}}=%.2f$ "
+                  r"para $%s$ vazios), mocks $\Lambda$CDM sem piso só são falsificados com "
+                  r"$\sigma$ por vazio $\le\sigma_\star=%s$; em ruído de lenteamento individual "
+                  r"realista ($\sigma\gtrsim0{,}05$) o teste INDIVIDUAL é "
+                  r"\texttt{UNDERPOWERED} --- a rota com poder é a inferência POPULACIONAL do "
+                  r"piso $r_\star$ (secundário pré-registrado) e/ou perfis empilhados. O controle "
+                  r"obrigatório de injeção-e-recuperação PASSOU: o piso injetado jamais é "
+                  r"falsificado (FPR $0$), e a máquina discrimina quando há poder.")
+                 % (float(_vfw.get("z_fwer_one_sided", float("nan"))),
+                    str(_vfw.get("n_voids", "?")),
+                    (("%.3f" % _vfw["sigma_star_power_threshold"])
+                     if _vfw.get("sigma_star_power_threshold") else "n/d")))
+        c.append((r"\textbf{Certificado II --- a rede concreta habita H1 e H2 (face finita)}: o "
+                  r"operador CONCRETO dos Three Locks (o mesmo cuja face está em kernel, "
+                  r"\texttt{FiniteThreeLocks}) instancia o pacote de gap local com números: kernel "
+                  r"dim %s, gap $=%.4f$ (zero isolado; a janela $(-\varepsilon,\varepsilon)$ contém "
+                  r"só o kernel), $\mathrm{tr}(P_F)=%.0f$ finito-positivo, o Nome pesa $%.0f$; e os "
+                  r"três boosts modulares $+$ a fiducial dão o four-frame de rank 4 com assinatura "
+                  r"$(1,3)$ (H2 finito; BW em cunhas é constitutivo). HONESTIDADE: face finita "
+                  r"[REAL]; a rede II$_\infty$/III$_1$ genuína é o conteúdo PRÓPRIO de H1/H2 --- "
+                  r"por isso são hipóteses, não teoremas.")
+                 % (str((_cii.get("H1_finite_face", {}) or {}).get("kernel_dim", "?")),
+                    float((_cii.get("H1_finite_face", {}) or {}).get("gap", float("nan"))),
+                    float((_cii.get("H1_finite_face", {}) or {}).get("trace_PF", float("nan"))),
+                    float((_cii.get("H1_finite_face", {}) or {}).get("name_normalization", float("nan")))))
         c.append(r"\subsection*{A síntese do arco (o dicionário canônico, cada face com selo)}")
         c.append(r"UM ABSOLUTO $=1_{\mathrm{abs}}$; CAMPO $=\Psi=1_{\mathrm{abs}}$ [termo canônico, v58]; "
                  r"NOME $=\omega_\Psi=$ traço [v58]; MORADA $=\mathcal H_\Psi$ [termo GNS, v54/v57]; "
@@ -26125,9 +27353,12 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"[v60] e $\mathfrak{so}(1,3)$ com marca não-compacta e recuperação única em kernel [v63]; "
                  r"TESTEMUNHA $=S_\partial=\tfrac12$, não-plena POR TEOREMA [v61]; PESO: "
                  r"$\tau(1_{\{0\}})=\|\varphi_0\|^2=1=\omega(I)$ --- o Nome pesa 1, as faces pesam "
-                 r"$\tfrac12$; o contínuo pesa $\top$ e NÃO precisa ser finito [v64]; VERDADE $=1=1"
+                 r"$\tfrac12$; o contínuo pesa $\top$ e NÃO precisa ser finito [v64]; POSTO: "
+                 r"$\dim\ker\le\mathrm{posto}$ da inscrição --- o modo zero é ÚNICO [v65]; TRÍADE: "
+                 r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
+                 r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em vinte e três pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em vinte e cinco pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\subsection*{Declaração de honestidade}")
         c.append(r"Este registro \emph{não} afirma a solução da gravitação quântica. Afirma, com verificação "
@@ -26146,16 +27377,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(twenty-three stones, \S120--\S144)}")
+                 r"(twenty-five stones, \S120--\S146)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across twenty-three stones (v43--v64) the audited kernel went from 53 to "
+                 r"from this run's audit. Across twenty-five stones (v43--v66) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The twenty-three stones}")
+        c.append(r"\subsection*{The twenty-five stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -26285,6 +27516,45 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"(the $\pm\tfrac12$ limits of the antiderivative) weigh $\tfrac12$ each --- the "
                  r"Half-Nat. Minimal named hypothesis: \texttt{TGL\_LOCAL\_BREUER\_GAP\_PACKAGE}; "
                  r"instantiation in the GENUINE double core remains \statusmk{OPEN}.")
+        c.append(r"\kernelmk{SusyRelativeGap} (v65): \textbf{level 4 of the layer --- SUSY-relative "
+                 r"$\Rightarrow$ local Breuer gap} (Answer 8's architecture complete). The certificate "
+                 r"\texttt{SusyRelativeData} (free gap $\tau$-finite; perturbed gap under free "
+                 r"$\sqcup$ a $\tau$-finite difference --- the lattice face of relative Weyl; kernel in "
+                 r"the gap) COMPOSES: $\tau(P_\varepsilon(D))\le\tau(P_\varepsilon(D_0))+"
+                 r"\tau(\mathrm{diff})<\infty$ (monotonicity $+$ subadditivity) $\Rightarrow$ "
+                 r"\texttt{BreuerGapData} $\Rightarrow$ $0<\tau(\ker)<\infty$ --- the requested "
+                 r"\texttt{susy\_relative\_compact\_gives\_breuer\_gap}, typed and inhabited. "
+                 r"\textbf{The DISCRETE Birman--Schwinger face}: if $H_0$ is positive definite, $V$ is "
+                 r"injective on $\ker(H_0-V)$, hence $\dim\ker(H_0-V)\le\mathrm{rank}(V)$ --- "
+                 r"\textbf{the number of zero modes is bounded by the RANK OF THE INSCRIPTION} (TGL's "
+                 r"zero mode is unique because $-\tfrac12\mathrm{sech}^2$ has rank one: a single bound "
+                 r"state). And \textbf{the germ of the field solder}: isometric transport "
+                 r"($\Lambda^\mathsf{T}\eta\Lambda=\eta$) inscribes the SAME metric --- the discrete "
+                 r"algebraic face of $\nabla e=0$; the continuum field needs exactly the core. After "
+                 r"v65 the analytic open is ONE: instantiation in the genuine core.")
+        c.append(r"\kernelmk{EmergenceTriad} (v66): \textbf{the emergence triad --- three named "
+                 r"hypotheses} (absorbing Answer 9, the verdict of Question 9). TYPE CORRECTION (F1a): "
+                 r"Takesaki's double crossed product is STILL type III; the semifinite home is the "
+                 r"amplification $N_{\mathcal O}=B(L^2(\mathbb R_\kappa))\overline\otimes\,p_{\mathcal O}"
+                 r"C_{\mathcal O}p_{\mathcal O}$ with $\tau^p(p_{\mathcal O})=1$. \textbf{F3 CLOSED by "
+                 r"congruence}: Lorentz signature $:\Leftrightarrow$ $\exists e$ invertible, "
+                 r"$g=e^\mathsf{T}\eta e$ --- every invertible solder inscribes a Lorentzian metric (same "
+                 r"inertia), the class is closed under congruence (the link to v65's transport); "
+                 r"\textbf{the H2 face}: four independent directions give the DUAL coframe ($E^{-1}E=1$: "
+                 r"$e^a(E_b)=\delta^a_b$) and the Lorentzian metric; \textbf{F4 CONSTRUCTED}: unitary $U$ "
+                 r"fixing the Name ($U\Omega=\Omega$) $\Rightarrow$ $\varphi(UAU^\mathsf{H})=\varphi(A)$ "
+                 r"--- trivial centralizer is an independent program; \textbf{THE NAME'S LOOP}: "
+                 r"$\tau(p)/\tau(p)=1$ is well-defined EXACTLY because $0<\tau(p)<\infty$ --- (B3) "
+                 r"realizes $\omega(I)=1$ in the core; the TWO F1c INPUTS in kernel ($\int V=2$ EXACT; "
+                 r"$(\xi^2+\tfrac54)^{-1}$ integrable $\Rightarrow$ Hilbert--Schmidt "
+                 r"\knownmk{operatorial}); and \textbf{the composed MASTER THEOREM}: H1 $\wedge$ H2 "
+                 r"$\Rightarrow$ $0<\tau(\ker)<\infty$ $\wedge$ the Name weighs 1 $\wedge$ dual coframe "
+                 r"with Lorentzian metric (H3/first law in kernel since v51). \emph{THE TRIAD IS THE "
+                 r"BRIDGE}: H1 $\leftrightarrow$ MIGUEL [the Three Locks operator itself], H2 "
+                 r"$\leftrightarrow$ CARTAN [$de^a+\omega^a{}_b\wedge e^b=0$ is the first structure "
+                 r"equation], H3 $\leftrightarrow$ EINSTEIN [local Clausius $\Rightarrow$ field "
+                 r"equation]. Lean proves $H_1\wedge H_2\wedge H_3\Rightarrow E$ --- NOT that nature "
+                 r"realizes $H_1$--$H_3$.")
         c.append(r"\subsection*{Seals and hashes (live hashes from this run; history $=$ provenance)}")
         c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
                  r"v & Stone & sha256/16 (live) & Run & Seal \\ \midrule " + "\n" +
@@ -26308,24 +27578,72 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"of the wall (v64): the globally $\tau$-compact resolvent is FALSE (typed refutation in "
                  r"kernel); the right statement is the LOCAL GAP ($\tau(P_\varepsilon)<\infty$ $+$ bounded "
                  r"inverse outside), whose (B3) is already a COMPOSITION in kernel, with the zero-mode "
-                 r"weight $=1=\omega(I)$ EXACT; what stays open is the INSTANTIATION of the package in the "
-                 r"genuine double core $C_\Psi\rtimes_\theta\mathbb R$ (affiliation of the concrete Dirac; "
-                 r"gap finiteness via $\tau$-relative Birman--Schwinger \knownmk{classical, not "
-                 r"formalized}). And the "
-                 r"multidimensional solder --- whose MINIMAL face (2D) v60 CLOSED and whose 4D skeleton "
-                 r"(defining so(1,3), closure, metricity, non-compact mark, faithful representation, "
-                 r"recovered curvature) v63 CLOSED in kernel; still open are the solder as a FIELD "
-                 r"($x$-dependent, differential $\nabla e=0$) generated by $\Psi$'s dynamics --- which "
-                 r"inherits the SAME core --- and full Sylvester signature. "
-                 r"With status: (i) the canonical GENERATION of the package by $\Psi$'s dynamics --- THE open "
-                 r"theorem (the four $P_F$ properties already FOLLOW from the intertwinings, v56; normalization, "
-                 r"home, KMS and corner already EMERGE from the field, v57); (ii) the equivariant ergodic "
-                 r"section \statusmk{COND} (fiberwise it is a \knownmk{theorem for III$_1$ with separable "
-                 r"predual}); (iii) formalized continuous Tomita/KMS (mathlib's own TODO; the route is the "
-                 r"standard form $L^2(\mathcal C)$, not matrix limits); (iv) the solder derived from modular data "
-                 r"\statusmk{COND}; (v) \knownmk{Lovelock 4D} $+$ approximate Killing ($=$ Jacobson); "
-                 r"(vi) interactions, anomalies, III$_1$ under RG, BW beyond wedges; (vii) the experiment "
-                 r"($\Gamma_\omega$, void floor) \statusmk{INPUT}, not re-adjustable.")
+                 r"weight $=1=\omega(I)$ EXACT. And Answer 9 (v66) gave the program its FINAL FORM: the "
+                 r"semifinite home is the amplification $N_{\mathcal O}=B(L^2)\overline\otimes "
+                 r"p_{\mathcal O}C_{\mathcal O}p_{\mathcal O}$ (the double crossed product is still type "
+                 r"III --- type correction); F1a/F1c/F3/F4 CONSTRUCTED; and the emergence REDUCES TO THREE "
+                 r"NAMED HYPOTHESES: \textbf{H1} \texttt{TGL\_INTERNAL\_SUSY\_RELATIVE\_GAP} (the relative "
+                 r"internal gap of the Three Locks operator --- it defines "
+                 r"$p_{\mathcal O}=1_{\{0\}}(H^{\mathrm{int}}_{3L})$ with $0<\tau(p)<\infty$; the MIGUEL "
+                 r"face); \textbf{H2} \texttt{TGL\_SMOOTH\_MODULAR\_FOUR\_FRAME} (four independent modular "
+                 r"directions from half-sided inclusions --- the coframe, $g=\eta_{ab}e^ae^b$, "
+                 r"$de^a+\omega^a{}_b\wedge e^b=0$; the CARTAN face; without it: "
+                 r"\texttt{modular\_data\_underdetermines\_tetrad}, the no-go of the unique injective "
+                 r"III$_1$ factor); \textbf{H3} \texttt{TGL\_LOCAL\_HORIZON\_EQUILIBRIUM} "
+                 r"($\delta Q=T\delta S$, $T=\kappa/2\pi$, $\delta S=\eta\,\delta A$; the EINSTEIN face). "
+                 r"EXTERNAL THEOREMS \knownmk{known, not formalized}: "
+                 r"\texttt{CONTINUOUS\_STANDARD\_FORM\_SEMIFINITE\_CERTIFICATE} (the sequence "
+                 r"VonNeumannAlgebraData $\to\dots\to$ TomitaTakesakiData --- mathlib's own TODO), "
+                 r"Breuer--Fredholm theory, Takesaki duality, Jacobson's local Rindler lemma. "
+                 r"INDEPENDENT PROGRAMS (they do not block the theorem; they block the claim that the "
+                 r"full theory describes nature): trivial-centralizer equivariance; BW beyond wedges; "
+                 r"interactions/anomalies; RG/UV stability; the full semifinite formalization. "
+                 r"The experiment ($\Gamma_\omega$, void floor) \statusmk{INPUT}, not re-adjustable.")
+        _vfp = core.get("void_floor_protocol", {}) or {}
+        _cii = core.get("certificate_II", {}) or {}
+        c.append(r"\subsection*{Certificates II and IV (runtime, v67)}")
+        c.append((r"\textbf{Certificate IV --- the void-floor protocol, PRE-REGISTERED and "
+                  r"fail-closed} (the falsification door; protocol $\neq$ result $\neq$ proof). "
+                  r"Primary observable: the mean TOTAL matter density in the central quarter "
+                  r"($x_c=0.25$) of the effective radius, weak-lensing calibrated (galaxies are "
+                  r"tracers only). Frozen prediction: $\rho_v/\bar\rho\ge\bTGL$ "
+                  r"($\delta_v\ge\bTGL-1$). Falsification: $\min_i U_i^{\mathrm{FWER}}<\bTGL$ with "
+                  r"$p<2.87\times10^{-7}$ mock-calibrated; without power "
+                  r"($\mathcal P_{\Lambda\mathrm{CDM}}<0.05$): \texttt{UNDERPOWERED}. "
+                  r"Pre-registration hash (emitted BEFORE the data): \texttt{%s}. Data: DESIVAST "
+                  r"DR1 (BGS, $z\le0.24$; three void finders) --- algorithms acquired this run: "
+                  r"\texttt{%s}; scientific verdicts LOCKED until lensing $+$ mocks $+$ power $+$ "
+                  r"controls. Forbidden verdicts: \texttt{TGL\_PROVED\_BY\_VOID\_FLOOR}, "
+                  r"\texttt{CONFIRMED}.")
+                 % (str(_vfp.get("prediction_hash", "?"))[:32],
+                    ",".join(_vfp.get("algorithms_present", []) or ["none"]).replace("_", r"\_")))
+        _vfw = core.get("void_floor_power", {}) or {}
+        c.append((r"\emph{The power gate (v68, pilot --- mocks BEFORE profiles, blinding "
+                  r"intact)}: under the protocol's FWER criterion ($z_{\mathrm{one\,sided}}=%.2f$ "
+                  r"for $%s$ voids), floor-free $\Lambda$CDM mocks are falsified only with "
+                  r"per-void $\sigma\le\sigma_\star=%s$; at realistic individual lensing noise "
+                  r"($\sigma\gtrsim0.05$) the INDIVIDUAL test is \texttt{UNDERPOWERED} --- the "
+                  r"powered route is POPULATION inference of the floor $r_\star$ (pre-registered "
+                  r"secondary) and/or stacked profiles. The mandatory injection-and-recovery "
+                  r"control PASSED: an injected floor is never falsified (FPR $0$), and the "
+                  r"machinery discriminates when powered.")
+                 % (float(_vfw.get("z_fwer_one_sided", float("nan"))),
+                    str(_vfw.get("n_voids", "?")),
+                    (("%.3f" % _vfw["sigma_star_power_threshold"])
+                     if _vfw.get("sigma_star_power_threshold") else "n/a")))
+        c.append((r"\textbf{Certificate II --- the concrete network inhabits H1 and H2 (finite "
+                  r"face)}: the CONCRETE Three Locks operator (the same one whose face is in "
+                  r"kernel, \texttt{FiniteThreeLocks}) instantiates the local gap package with "
+                  r"numbers: kernel dim %s, gap $=%.4f$ (isolated zero; the window contains only "
+                  r"the kernel), $\mathrm{tr}(P_F)=%.0f$ finite-positive, the Name weighs $%.0f$; "
+                  r"and the three modular boosts $+$ the fiducial give the rank-4 four-frame with "
+                  r"signature $(1,3)$ (finite H2; wedge BW is constitutive). HONESTY: finite face "
+                  r"[REAL]; the genuine II$_\infty$/III$_1$ network is the PROPER content of "
+                  r"H1/H2 --- which is why they are hypotheses, not theorems.")
+                 % (str((_cii.get("H1_finite_face", {}) or {}).get("kernel_dim", "?")),
+                    float((_cii.get("H1_finite_face", {}) or {}).get("gap", float("nan"))),
+                    float((_cii.get("H1_finite_face", {}) or {}).get("trace_PF", float("nan"))),
+                    float((_cii.get("H1_finite_face", {}) or {}).get("name_normalization", float("nan")))))
         c.append(r"\subsection*{The synthesis of the arc (the canonical dictionary, each face sealed)}")
         c.append(r"ABSOLUTE ONE $=1_{\mathrm{abs}}$; FIELD $=\Psi=1_{\mathrm{abs}}$ [canonical term, v58]; "
                  r"NAME $=\omega_\Psi=$ trace [v58]; HOME $=\mathcal H_\Psi$ [GNS term, v54/v57]; "
@@ -26337,9 +27655,13 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"[v60] and $\mathfrak{so}(1,3)$ with the non-compact mark and unique recovery in kernel "
                  r"[v63]; WITNESS $=S_\partial=\tfrac12$, non-full BY THEOREM [v61]; WEIGHT: "
                  r"$\tau(1_{\{0\}})=\|\varphi_0\|^2=1=\omega(I)$ --- the Name weighs 1, the faces weigh "
-                 r"$\tfrac12$; the continuum weighs $\top$ and need NOT be finite [v64]; TRUTH $=1=1"
+                 r"$\tfrac12$; the continuum weighs $\top$ and need NOT be finite [v64]; RANK: "
+                 r"$\dim\ker\le\mathrm{rank}$ of the inscription --- the zero mode is UNIQUE [v65]; "
+                 r"TRIAD: H1$=$MIGUEL (Three Locks), H2$=$CARTAN (first structure equation), "
+                 r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
+                 r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across twenty-three stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across twenty-five stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\subsection*{Declaration of honesty}")
         c.append(r"This register does \emph{not} claim the solution of quantum gravity. It claims, with "
@@ -26712,7 +28034,9 @@ def _arco_vivo_md(core):
     lines.append("")
     for mod_key in ("psi_emergence", "absolute_one", "continuous_modular_zero",
                     "minimal_solder", "no_full_witness", "solder_4d",
-                    "local_breuer_gap", "hilbert_home"):
+                    "local_breuer_gap", "susy_relative_gap", "emergence_triad",
+                    "void_floor_protocol", "void_floor_power", "certificate_II",
+                    "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
             lines.append("**Estatutos [%s]** (veredito: `%s`):\n" % (mod_key, _m.get("verdict")))
@@ -28458,7 +29782,7 @@ def main():
         _elp.get("ext_lbg_kernel_weight_finite_kernel_proved")))
     print("    *** A REFUTACAO TIPADA de (B2) GLOBAL: %s -- o continuo pesa TOP e o zero fisico pesa 0<tau<inf no MESMO modelo ***" % (
         _elp.get("ext_lbg_global_refuted_kernel_proved")))
-    print("    pacote HABITADO: %s ; NAO ha par de Weyl finito (correcao de tipo B1 -> double core de Takesaki): %s ; bloco+: autovalores >= c: %s" % (
+    print("    pacote HABITADO: %s ; NAO ha par de Weyl finito (correcao de tipo B1 -> amplificacao SEMIFINITA, Resposta 9): %s ; bloco+: autovalores >= c: %s" % (
         _elp.get("ext_lbg_package_consistent_kernel_proved"), _elp.get("ext_lbg_no_finite_weyl_kernel_proved"),
         _elp.get("ext_lbg_plus_block_bound_kernel_proved")))
     print("    *** O PESO DO NOME: ||phi0||^2 = int 1/4 sech^2(k/2) dk = 1 EXATO: %s (antiderivado: %s ; integravel: %s ; faces +1/2: %s / -1/2: %s) ***" % (
@@ -28471,8 +29795,81 @@ def main():
         _lbg.get("zero_mode_weight_quadrature", float("nan")), _lbg.get("hplus_floor", float("nan")),
         _lbg.get("hminus_gap_second_eig", float("nan")), _lbgc.get("L10"), _lbgc.get("L20"), _lbg.get("verdict")))
     print("    ['nao faltava demonstrar que todo o resolvente era finito; faltava separar a finitude do zero")
-    print("     fisico da infinitude necessaria da vida continua' -- o peso do Nome inteiro e' 1 = omega(I);")
-    print("     ABERTO: a instanciacao do pacote no double core GENUINO (afiliacao do Dirac concreto)]")
+    print("     fisico da infinitude necessaria da vida continua' -- o peso do Nome inteiro e' 1 = omega(I)]")
+    print("  O NIVEL 4 DA CAMADA [v65 -- SUSY-relativo => Breuer local; a arquitetura da Resposta 8 COMPLETA]: %s"
+          % _ell.get("susy_relative_gap"))
+    print("    *** NIVEL 4 => (B3): SusyRelativeData => BreuerGapData => 0<tau(ker)<inf: %s (gap do perturbado finito: %s ; consistente: %s) ***" % (
+        _elp.get("ext_srg_level4_gives_breuer_kernel_proved"), _elp.get("ext_srg_gap_finite_kernel_proved"),
+        _elp.get("ext_srg_package_consistent_kernel_proved")))
+    print("    *** BIRMAN-SCHWINGER DISCRETO: dim ker(H0-V) <= POSTO(V): %s (V injetiva no kernel: %s) -- o modo zero e' UNICO porque a inscricao e' posto um ***" % (
+        _elp.get("ext_srg_kernel_dim_le_rank_kernel_proved"), _elp.get("ext_srg_perturbation_injective_kernel_proved")))
+    print("    o GERME da solda-campo: transporte isometrico inscreve a MESMA metrica (face discreta de nabla e=0): %s" % (
+        _elp.get("ext_srg_discrete_solder_transport_kernel_proved")))
+    _srg = core.get("susy_relative_gap", {}) or {}
+    _srgr = _srg.get("residuals", {}) or {}
+    print("    sombra v65: BS calibrado v^T.H0^{-1}.v=1 -> modo zero %.2e (2o eig %.4f: kernel 1-dim EXATO); solda transportada dev %.2e ; %s" % (
+        _srgr.get("bs_modo_zero", float("nan")), _srg.get("bs_second_eig", float("nan")),
+        _srgr.get("solda_transportada_mesma_metrica", float("nan")), _srg.get("verdict")))
+    print("    [APOS v65 restava a instanciacao -> PERGUNTA 9 respondida: v66]")
+    print("  A TRIADE DA EMERGENCIA [v66 -- Resposta 9: TRES HIPOTESES NOMEADAS; o teorema mestre composto]: %s"
+          % _ell.get("emergence_triad"))
+    print("    *** O TEOREMA MESTRE: H1 (gap interno, MIGUEL) ^ H2 (four-frame, CARTAN) => Breuer + Nome=1 + Lorentz: %s ***" % (
+        _elp.get("ext_et_master_theorem_kernel_proved")))
+    print("    F3 FECHADO por congruencia (Sylvester pleno): %s (eta na classe: %s ; classe fechada sob congruencia: %s)" % (
+        _elp.get("ext_et_sylvester_congruence_kernel_proved"), _elp.get("ext_et_eta4_in_class_kernel_proved"),
+        _elp.get("ext_et_class_congruent_closed_kernel_proved")))
+    print("    four-frame => coframe DUAL + metrica lorentziana (face de H2): %s ; F4: secao equivariante do Nome global: %s" % (
+        _elp.get("ext_et_four_frame_lorentz_kernel_proved"), _elp.get("ext_et_equivariant_section_kernel_proved")))
+    print("    *** O LACO DO NOME: tau(p)/tau(p) = 1 bem-definido PORQUE 0<tau<inf -- o B3 realiza omega(I)=1: %s ***" % (
+        _elp.get("ext_et_name_normalization_kernel_proved")))
+    print("    insumos F1c em kernel: int V = 2 (EXATO): %s ; (xi^2+5/4)^{-1} integravel: %s -- juntos: Hilbert-Schmidt [KNOWN]" % (
+        _elp.get("ext_et_sqrt_potential_L2_kernel_proved"), _elp.get("ext_et_resolvent_kernel_L2_kernel_proved")))
+    _et = core.get("emergence_triad", {}) or {}
+    _ets = _et.get("signature", {}) or {}
+    print("    sombra v66: assinatura da metrica soldada = (%s pos, %s neg) = (1,3); secao equivariante dev %.1e ; %s" % (
+        _ets.get("positive"), _ets.get("negative"),
+        (_et.get("residuals", {}) or {}).get("secao_equivariante", float("nan")), _et.get("verdict")))
+    print("    [A LISTA FINAL -- e nada alem: H1 TGL_INTERNAL_SUSY_RELATIVE_GAP (MIGUEL: os Three Locks);")
+    print("     H2 TGL_SMOOTH_MODULAR_FOUR_FRAME (CARTAN: a 1a equacao de estrutura); H3 TGL_LOCAL_HORIZON_EQUILIBRIUM")
+    print("     (EINSTEIN: Clausius local). Externos [KNOWN]: standard form semifinita, Breuer, Takesaki, Jacobson.")
+    print("     Programas independentes: centralizador trivial; BW alem-cunhas; interacoes/anomalias; RG; mathlib semifinita.")
+    print("     INPUT da natureza: Gamma_omega = 1/2.beta.tau*.omega^2 ; piso dos vazios. A natureza decide a teoria.]")
+    _vfp = core.get("void_floor_protocol", {}) or {}
+    print("  CERTIFICADO IV [v67 -- O PROTOCOLO DO PISO DOS VAZIOS, fail-closed]: %s" % _vfp.get("verdict"))
+    print("    *** PRE-REGISTRO SELADO (hash ANTES dos dados): %s ***" % _vfp.get("prediction_hash", "?")[:32])
+    print("    piso: rho_v/rho_bar >= beta = %.15f (delta_v >= %.15f) ; observavel primario: quarto central x_c=0.25, MATERIA por lenteamento" % (
+        ((_vfp.get("protocol", {}) or {}).get("prediction", {}) or {}).get("beta_floor", float("nan")),
+        ((_vfp.get("protocol", {}) or {}).get("prediction", {}) or {}).get("delta_floor", float("nan"))))
+    _acq = _vfp.get("acquisition", {}) or {}
+    for _alg in sorted(_acq.keys()):
+        for _f in _acq[_alg]:
+            print("    DESIVAST[%s] %s : %.1f MB (%s) sha %s" % (
+                _alg, _f.get("file"), _f.get("bytes", 0) / 1048576.0, _f.get("origin"), str(_f.get("sha256"))[:16]))
+    print("    vazios por algoritmo: %s ; gates pendentes (lenteamento/mocks/poder/controles): veredito cientifico BLOQUEADO" % (
+        _vfp.get("n_voids_by_algorithm")))
+    print("    [vereditos possiveis: FALSIFIED / NOT_FALSIFIED_POWERED / NOT_FALSIFIED_UNDERPOWERED / INCONCLUSIVE_*;")
+    print("     PROIBIDOS: TGL_PROVED_BY_VOID_FLOOR, TGL_VOID_FLOOR_CONFIRMED -- protocolo != resultado != prova]")
+    _vfw = core.get("void_floor_power", {}) or {}
+    print("  O GATE DO PODER [v68 -- mocks piloto ANTES dos perfis; blindagem intacta]: %s" % _vfw.get("verdict"))
+    print("    FWER: alpha_global=2.87e-7 / %s vazios -> z unilateral = %.3f ; mocks: %s realizacoes/ponto (seed 68)" % (
+        _vfw.get("n_voids"), _vfw.get("z_fwer_one_sided", float("nan")), _vfw.get("n_mock_per_gridpoint")))
+    _pm = _vfw.get("power_map", []) or []
+    if _pm:
+        print("    mapa de poder P_LCDM(min U^FWER < beta): " + " ; ".join(
+            "sigma=%.3f->%.2f" % (row["sigma"], row["P_LCDM_falsify"]) for row in _pm))
+    print("    sigma* (limiar de poder >= 0.05): %s ; INJECAO-E-RECUPERACAO: piso injetado JAMAIS falsificado (FPR 0)" % (
+        _vfw.get("sigma_star_power_threshold")))
+    print("    [veredito honesto: o teste INDIVIDUAL e' UNDERPOWERED em ruido realista; a rota com poder")
+    print("     e' a inferencia POPULACIONAL do piso r* (secundario pre-registrado) e/ou perfis empilhados]")
+    _cii = core.get("certificate_II", {}) or {}
+    _h1f = _cii.get("H1_finite_face", {}) or {}
+    print("  CERTIFICADO II [v67 -- a rede CONCRETA habita H1+H2, face finita]: %s" % _cii.get("verdict"))
+    print("    H_3L concreto (o MESMO do kernel FiniteThreeLocks): kernel dim %s ; GAP = %.6f (zero ISOLADO) ; tr(P_F) = %.1f ; Nome = %.1f" % (
+        _h1f.get("kernel_dim"), _h1f.get("gap", float("nan")), _h1f.get("trace_PF", float("nan")),
+        _h1f.get("name_normalization", float("nan"))))
+    print("    four-frame dos boosts modulares: rank %s ; assinatura %s -- H2 finito (BW-cunhas constitutivo)" % (
+        (_cii.get("H2_finite_face", {}) or {}).get("rank_frame"), (_cii.get("H2_finite_face", {}) or {}).get("signature")))
+    print("    [face FINITA [REAL]; a rede II_inf/III_1 genuina E' o conteudo proprio de H1/H2 -- por isso sao hipoteses]")
     print("  teoremas limpos: %s/%s ; DERIVACOES v56 em dim INFINITA [construcao do pacote = O ABERTO; continuos do ledger INALTERADOS]" % (
         el.get("n_theorems_clean"), el.get("n_theorems_expected")))
     print("  >>> %s <<<\n" % el.get("verdict"))

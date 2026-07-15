@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=97614 len(stderr)=0
+# len(stdout)=102534 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -910,6 +910,48 @@ TGLExt.tendsto_halfTanh_atTop : Filter.Tendsto TGLExt.halfTanh Filter.atTop (nhd
 TGLExt.tendsto_halfTanh_atBot : Filter.Tendsto TGLExt.halfTanh Filter.atBot (nhds (-(1 / 2)))
 TGLExt.phi0sq_integrable : MeasureTheory.Integrable TGLExt.phi0sq MeasureTheory.volume
 TGLExt.zero_mode_weight_is_one : ∫ (κ : ℝ), TGLExt.phi0sq κ = 1
+TGLExt.SubadditiveTraceData : (L : Type) → [inst : Lattice L] → [BoundedOrder L] → Type
+TGLExt.SusyRelativeData : (L : Type) →
+  [inst : Lattice L] → [inst_1 : BoundedOrder L] → TGLExt.SubadditiveTraceData L → Type
+@TGLExt.susy_relative_gap_finite : ∀ {L : Type} [inst : Lattice L] [inst_1 : BoundedOrder L]
+  {T : TGLExt.SubadditiveTraceData L} (S : TGLExt.SusyRelativeData L T), T.tau S.gapD < ⊤
+@TGLExt.SusyRelativeData.toBreuerGapData : {L : Type} →
+  [inst : Lattice L] →
+    [inst_1 : BoundedOrder L] →
+      {T : TGLExt.SubadditiveTraceData L} → TGLExt.SusyRelativeData L T → TGLExt.BreuerGapData L T.toSemifiniteTraceData
+@TGLExt.susy_relative_gives_breuer : ∀ {L : Type} [inst : Lattice L] [inst_1 : BoundedOrder L]
+  {T : TGLExt.SubadditiveTraceData L} (S : TGLExt.SusyRelativeData L T), 0 < T.tau S.ker ∧ T.tau S.ker < ⊤
+TGLExt.idTraceSub : TGLExt.SubadditiveTraceData ENNReal
+TGLExt.modelSusy : TGLExt.SusyRelativeData ENNReal TGLExt.idTraceSub
+TGLExt.susy_relative_package_consistent : Nonempty (TGLExt.SusyRelativeData ENNReal TGLExt.idTraceSub)
+@TGLExt.perturbation_injective_on_kernel : ∀ {n : Type} [inst : Fintype n] (H0 V : Matrix n n ℝ),
+  (∀ (x : n → ℝ), x ≠ 0 → 0 < x ⬝ᵥ H0.mulVec x) → ∀ (x : n → ℝ), (H0 - V).mulVec x = 0 → V.mulVec x = 0 → x = 0
+@TGLExt.kernel_dim_le_rank_of_perturbation : ∀ {n : Type} [inst : Fintype n] [DecidableEq n] (H0 V : Matrix n n ℝ),
+  (∀ (x : n → ℝ), x ≠ 0 → 0 < x ⬝ᵥ H0.mulVec x) →
+    Module.finrank ℝ ↥(H0 - V).mulVecLin.ker ≤ Module.finrank ℝ ↥V.mulVecLin.range
+@TGLExt.discrete_parallel_solder_preserves_metric : ∀ {n : Type} [inst : Fintype n] (eta Lam e : Matrix n n ℝ),
+  Lam.transpose * eta * Lam = eta → (Lam * e).transpose * eta * (Lam * e) = e.transpose * eta * e
+TGLExt.LorentzByCongruence : Matrix (Fin 4) (Fin 4) ℝ → Prop
+TGLExt.eta4_lorentzByCongruence : TGLExt.LorentzByCongruence TGLExt.eta4
+TGLExt.sylvester_full_closed_by_congruence : ∀ (e : Matrix (Fin 4) (Fin 4) ℝ),
+  IsUnit e.det → TGLExt.LorentzByCongruence (TGLExt.solderMetric4 e)
+TGLExt.lorentzByCongruence_congruent : ∀ (g f : Matrix (Fin 4) (Fin 4) ℝ),
+  TGLExt.LorentzByCongruence g → IsUnit f.det → TGLExt.LorentzByCongruence (f.transpose * g * f)
+TGLExt.four_frame_gives_lorentz_metric : ∀ (E : Matrix (Fin 4) (Fin 4) ℝ),
+  IsUnit E.det → E⁻¹ * E = 1 ∧ TGLExt.LorentzByCongruence (TGLExt.solderMetric4 E⁻¹)
+@TGLExt.equivariant_state_section_from_global_name : ∀ {n : Type} [inst : Fintype n] [inst_1 : DecidableEq n]
+  (U A : Matrix n n ℂ) (Ω : n → ℂ),
+  U.conjTranspose * U = 1 → U.mulVec Ω = Ω → star Ω ⬝ᵥ (U * A * U.conjTranspose).mulVec Ω = star Ω ⬝ᵥ A.mulVec Ω
+@TGLExt.breuer_weight_normalizes_name : ∀ {L : Type} [inst : Lattice L] [inst_1 : BoundedOrder L]
+  {T : TGLExt.SemifiniteTraceData L} (G : TGLExt.BreuerGapData L T), T.tau G.ker / T.tau G.ker = 1
+TGLExt.sqrt_potential_is_L2 : MeasureTheory.Integrable (fun κ => 2 * TGLExt.phi0sq κ) MeasureTheory.volume ∧
+  ∫ (κ : ℝ), 2 * TGLExt.phi0sq κ = 2
+TGLExt.resolvent_kernel_is_L2 : MeasureTheory.Integrable (fun ξ => (ξ ^ 2 + 5 / 4)⁻¹) MeasureTheory.volume
+@TGLExt.emergence_reduced_to_named_hypotheses : ∀ {L : Type} [inst : Lattice L] [inst_1 : BoundedOrder L]
+  {T : TGLExt.SubadditiveTraceData L} (S : TGLExt.SusyRelativeData L T) (E : Matrix (Fin 4) (Fin 4) ℝ),
+  IsUnit E.det →
+    (0 < T.tau S.ker ∧ T.tau S.ker < ⊤) ∧
+      T.tau S.ker / T.tau S.ker = 1 ∧ E⁻¹ * E = 1 ∧ TGLExt.LorentzByCongruence (TGLExt.solderMetric4 E⁻¹)
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1190,6 +1232,21 @@ TGLExt.zero_mode_weight_is_one : ∫ (κ : ℝ), TGLExt.phi0sq κ = 1
 'TGLExt.tendsto_halfTanh_atBot' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.phi0sq_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.zero_mode_weight_is_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.susy_relative_gap_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.susy_relative_gives_breuer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.susy_relative_package_consistent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.perturbation_injective_on_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.kernel_dim_le_rank_of_perturbation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.discrete_parallel_solder_preserves_metric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.eta4_lorentzByCongruence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.sylvester_full_closed_by_congruence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.lorentzByCongruence_congruent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.four_frame_gives_lorentz_metric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.equivariant_state_section_from_global_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.breuer_weight_normalizes_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.sqrt_potential_is_L2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.resolvent_kernel_is_L2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.emergence_reduced_to_named_hypotheses' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
