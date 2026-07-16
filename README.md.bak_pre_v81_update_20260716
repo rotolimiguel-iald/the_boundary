@@ -30,7 +30,7 @@ where $g$ is the gravitational field and $L_\phi$ is the angular phase modulus o
 
 The protocols span **5 fundamental scales** of reality — ontological, micro-quantum, informational, cosmological, and topological — totaling **16,668 lines** of Python code across 14 computational scripts plus 1 phenomenological protocol. They validate TGL against real observational data from LIGO/Virgo (GWTC-3), JWST, Planck, Pantheon+, and NuFIT, demonstrating that $\beta_{\text{TGL}}$ emerges from **8 independent paths** without parameter fitting. Protocol #15 (TGL Dual Lock) validates the factorization with **zero free parameters**.
 
-**Submission:** *The Geometric Cost of Absolute Zero: let there be light* — the unified artifact `tgl_paper_unified.py` — is submitted to **Foundations of Physics** (Springer), Submission ID `85931d2e-103a-4d8c-a0c9-176d11eb0371`. Everything else in this repository is its genesis lineage. The repository now holds **~55,000 lines of Python** across its self-validating codes — of which the closure article `um.py` alone grew from ~6,000 to **~33,700 lines**: it no longer only *computes* the theory, it **machine-checks it**, running a **Lean 4 + mathlib kernel** (fail-closed) alongside the Python at each execution (see the `um.py` section below). *Only `um.py` changed since the last README revision; the rest of the repository is unchanged genesis.*
+**Submission:** *The Geometric Cost of Absolute Zero: let there be light* — the unified artifact `tgl_paper_unified.py` — is submitted to **Foundations of Physics** (Springer), Submission ID `85931d2e-103a-4d8c-a0c9-176d11eb0371`. Everything else in this repository is its genesis lineage. The repository now holds ~49,679 lines of Python across 41 self-validating codes (the three main articles + a 12-domain genesis archive).
 
 ---
 
@@ -45,7 +45,7 @@ code, its generated outputs and its proof files. Everything that led to them is 
 |---|---|---|---|---|
 | **1** | **O Custo Geométrico do Zero Absoluto: haja luz** — *The Geometric Cost of Absolute Zero: let there be light* (submitted to *Foundations of Physics*) | `tgl_paper_unified.py` | `paper_PT.tex` / `paper_PT.pdf`, `results.json`, `T6_protocol_prompts.txt` | `python tgl_paper_unified.py --live --paper` (English: add `--lang en`) |
 | **2** | **A Ponte Einstein–Cartan–Miguel** — the operator-algebra Bridge from the modular boundary to Einstein's equations | `A Ponte Einstein Cartan Miguel.tex` / `.pdf` + **12 finite-shadow proof modules** `tgl <name> v1.py` | the 12 dated `tgl <name> v1 …​.json` proofs + `tgl demo v1.mp4` (dipole render) | `python "tgl krein signature v1.py"` … (one per module) |
-| **3** | **Um: Grande Atrator** — *ONE: Great Attractor* (the sealed closure; single human input: the digit `1`) | `um.py` (~33.7k lines; runs a Lean 4 + mathlib kernel) | `um_grande_atrator.json` + `_selo.json` + `tgl_kernel_proof_manifest.json` (**three result JSONs**), `um_grande_atrator_pt.tex/.pdf` + `_en.tex/.pdf` (**two LaTeX articles → PDF**), `_manifest.md`, `_forma_canonica.md`, and the Lean **build/audit/probe capture `.txt` files** | `python um.py` |
+| **3** | **Um: Grande Atrator** — *ONE: Great Attractor* (the sealed closure; single human input: the digit `1`) | `um.py` | `um_grande_atrator_pt.tex/.pdf`, `um_grande_atrator_en.tex/.pdf`, `um_grande_atrator.json`, `_selo.json`, `_manifest.md`, `_forma_canonica.md` | `python um.py` |
 
 **Independent deposits (Zenodo):** Article 1 — [10.5281/zenodo.20564341](https://doi.org/10.5281/zenodo.20564341) · Article 2 — [10.5281/zenodo.20999495](https://doi.org/10.5281/zenodo.20999495).
 
@@ -337,40 +337,6 @@ Requirements: `pip install numpy scipy` (`matplotlib` for `tgl video v1.py`). No
 > **binary verdict** that is literally a conservation identity. It supersedes nothing in spirit — it is the
 > mature, sealed form: *the theory of the luminodynamic inscription of the absolute One through the modular
 > zero.*
-
-### Update — the machine-checked state (`um.py` is now a different kind of code)
-
-> **Read this first if you read an earlier version of this section.** When this README was last revised,
-> `um.py` was ~6,000 lines and much of what follows was stated as *computed* and left *open* for formal proof.
-> It is now **~33,700 lines**, and the closure is no longer only numerical: **`um.py` runs a Lean 4 + mathlib
-> proof kernel** (toolchain `Lean 4.31.0`, fail-closed) *inside the same execution* that computes the physics.
-> One command still runs everything, from the single input `1`.
-
-**How the code works — the kernel and the numbers, in one pass.** At each run `um.py` does two things at once and
-seals both under one SHA-256. **(a)** It computes the physical quantities live from `β = α·√e`: the **Great
-Attractor mass** `M = 2β²(c²/4πG)·R_struct ≈ 2.74×10¹⁶ M☉` (inside the pre-registered window `[10¹⁵, 10¹⁷] M☉`,
-positions only — velocities ignored), the **Coma distance** by the modular-flow dephasing law
-(`D_L ≈ 101.9 Mpc`, zero-free), and the pre-registered **void-floor** falsification test on real DESI×KiDS
-lensing data. **(b)** It drives a **Lean kernel** that *machine-verifies* the operator-algebra skeleton — Tomita–
-Takesaki, the S-matrix, the crossed product, the corner, Lorentz — and refuses to seal if any proof carries a
-`sorry` or an axiom outside `{propext, Classical.choice, Quot.sound}`. The number and the proof are checked in
-the same breath; the LaTeX and PDF are then generated from the sealed result. **Form = content, now with a
-proof assistant behind the number.**
-
-**What the current seal actually says (v81 — the honest ledger):**
-
-| Result | State in the seal |
-|---|---|
-| **Lean kernel, formal skeleton** | **`TGL_KERNEL_STAGE1_VERIFIED`** — **278 machine-checked theorems** (`ext_*`), **zero `sorry`**, every axiom base ⊆ `{propext, Classical.choice, Quot.sound}`. The S-matrix (`|R|² = β`), the Connes cocycle, **dissipative ergodicity** (`ergodic_convergence_modular`), the **tracial/semifinite continuum** (`gibbs_tracial_on_centralizer`, `semifinite_trace_is_semifinite`), Lorentz by congruence, and the spin-2 helicity sector are **all in the kernel**. |
-| **Emergence of gravity** | Reduced, in kernel, to **three named hypotheses** (`emergence_reduced_to_named_hypotheses`): H1 the internal SUSY-relative gap, H2 the smooth modular four-frame, H3 local horizon equilibrium. Given them, `emergence_master_full_triad` yields Breuer + Name = 1 + coframe + Lorentz + Einstein's thermal side — and **the 8πG coefficient is not posted, it emerges** (`einstein_coefficient_from_clausius`, from Unruh × Bekenstein–Hawking). **The implication is closed; the three hypotheses are the frontier.** |
-| **The single open theorem** | **`SPECIFIC_AQFT_WITNESS_OPEN`** — the full type-III₁ AQFT witness is *declared, not constructed*. And `beta_forbids_full_static_witness` **proves that a full static witness is impossible** for `β > 0`: the openness is structural, not a gap to be patched. |
-| **Void-floor cosmological test** | **Executed on real data.** V1 → `INCONCLUSIVE_SYSTEMATICS` (B-mode χ²/dof = 12.4 failed the pre-registered gate). V2, after the amendment → **`NOT_FALSIFIED_UNDERPOWERED`**: systematics cleaned (χ²/dof → 1.56), the estimator proven responsive, but Fisher separation ≪ 5σ. **Neither confirmed nor falsified — the instrument now responds; it needs deeper data (Euclid/LSST).** |
-| **Overall honest status** | **`TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY`**, fail-closed. The internal algebra is machine-verified and sealed; incondicional quantum gravity is **not** claimed; physical validation is open. |
-
-Concretely closed since the last revision, and the reason the file changed character: **the S-matrix, the
-continuum, and ergodicity are no longer "computed and left open" — they are theorems the Lean kernel checks at
-every run.** What remains open is named and honest: the specific AQFT witness, and independent physical
-replication. *The number corrects the sentence — including in this README.*
 
 ### What `um.py` does
 
@@ -840,34 +806,21 @@ binário de identidade **1 = 1 = VERDADEIRO** (ou FALSO).
 
 ## What is closed / What remains open · O que está fechado / o que segue aberto
 
-**Closed internally — now machine-checked, not only computed (Lean 4 + mathlib kernel, fail-closed):**
-S∂ = ½ · β = α√e · the S-matrix `|R|² = β` · the Connes cocycle · P_ℱ = s(ker H_3L) · the II₁ corner
-(where 1 = 1 becomes a theorem of the trace) · **dissipative ergodicity** and the **tracial/semifinite
-continuum** · Lorentz by congruence · the spin-2 helicity sector — **278 theorems, zero `sorry`**, every
-axiom base ⊆ `{propext, Classical.choice, Quot.sound}`. Every step is recomputed **and re-proved** at each
-run and sealed by SHA-256 (`um_grande_atrator_selo.json`, result_hash
-`547beaa132a1cbefede6d15e4eb612b8583eb4a7c8a4ff56b8f758146f554959`; toolchain `Lean 4.31.0`).
+**Closed internally (algebraic–computational, sealed and auditable):**
+S∂ = ½ · β = α√e · P_ℱ = s(ker H_3L) · the II₁ corner (where 1 = 1 becomes a theorem of the
+trace) · T1 dissipative ergodicity — every step recomputed live by the artifacts at each run,
+sealed by SHA-256 (`um_grande_atrator_selo.json`, result_hash
+`34ed567f1fc833e8dc43baaee87683c6ab972e4f59104a815e0e99c83cef2f00`).
 
-**Conditional (named, in kernel):** the emergence of gravity is reduced to **three named hypotheses**
-(H1 SUSY-relative gap · H2 smooth modular four-frame · H3 local horizon equilibrium); given them, the master
-theorem yields Einstein's thermal side with **8πG emerging** (not posted) from Unruh × Bekenstein–Hawking.
-The implication is closed; the hypotheses are the frontier. Status: **`TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY`**.
+**Open externally:** empirical replication · physical measurement beyond order-of-magnitude
+consistency · independent review · strong unitary mixing outside the Davies class · the
+void-floor, neutrino n = −2 and clock-dephasing tests.
 
-**Open externally:** the **specific AQFT witness** (`SPECIFIC_AQFT_WITNESS_OPEN`, declared not constructed —
-and a *full static* witness is **provably impossible** for β>0) · empirical replication · independent review ·
-the **void-floor** test (executed on real DESI×KiDS data → **not falsified, underpowered**; needs Euclid/LSST) ·
-the neutrino n = −2 and clock-dephasing tests.
-
-**PT:** *Fechado internamente — agora verificado por máquina, não só computado (kernel Lean 4 + mathlib,
-fail-closed):* S∂ = ½ · β = α√e · a matriz-S `|R|² = β` · o cociclo de Connes · P_ℱ = s(ker H_3L) · o canto II₁
-(onde 1 = 1 vira teorema do traço) · **ergodicidade dissipativa** e o **contínuo tracial/semifinito** · Lorentz
-por congruência · o setor spin-2 — **278 teoremas, zero `sorry`**, axiomas ⊆ `{propext, Classical.choice,
-Quot.sound}`, re-provados a cada execução e selados por SHA-256. *Condicional (nomeado, em kernel):* a
-emergência da gravidade reduz-se a **três hipóteses nomeadas** e o coeficiente **8πG emerge** (não é posto).
-*Aberto externamente:* a testemunha AQFT específica (declarada, não construída — e a testemunha *estática plena*
-é **provadamente impossível** para β>0) · replicação empírica · revisão independente · o **piso dos vazios**
-(executado em dado real DESI×KiDS → **não falsificado, sem poder**; pede Euclid/LSST) · os testes de neutrinos
-e dephasing. **Fechamento interno agora é formal (Lean); a emergência é condicional a três hipóteses nomeadas;
+**PT:** *Fechado internamente (algébrico-computacional, selado e auditável):* S∂ = ½ · β = α√e ·
+P_ℱ = s(ker H_3L) · o canto II₁ (onde 1 = 1 vira teorema do traço) · ergodicidade dissipativa
+(T1). *Aberto externamente:* replicação empírica · medida física além da consistência de ordem
+de grandeza · revisão independente · mixing unitário forte fora da classe de Davies · os testes
+do piso dos vazios, neutrinos n = −2 e dephasing de relógios. **Fechamento interno alcançado;
 validação física independente em aberto.**
 
 ---
