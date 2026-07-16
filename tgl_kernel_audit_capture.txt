@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=133943 len(stderr)=0
+# len(stdout)=136273 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1298,6 +1298,28 @@ TGLExt.first_infinite_dim_inhabitant : ∀ (K : Type) [inst : Field K],
                           (0 < (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).ker ∧
                               (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).ker < ⊤) ∧
                             (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).kerᗮ = ⊤
+@TGLExt.star_aeval_eq_map_conj : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (T : H →L[ℂ] H),
+  ContinuousLinearMap.adjoint T = T →
+    ∀ (p : Polynomial ℂ), star ((Polynomial.aeval T) p) = (Polynomial.aeval T) (Polynomial.map (starRingEnd ℂ) p)
+@TGLExt.minpoly_selfadjoint_real : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : FiniteDimensional ℂ H] (T : H →L[ℂ] H),
+  ContinuousLinearMap.adjoint T = T → ∀ (n : ℕ), (starRingEnd ℂ) ((minpoly ℂ T).coeff n) = (minpoly ℂ T).coeff n
+@TGLExt.minpoly_zero_not_double_root : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : FiniteDimensional ℂ H] (T : H →L[ℂ] H), ContinuousLinearMap.adjoint T = T → ¬Polynomial.X ^ 2 ∣ minpoly ℂ T
+@TGLExt.annihilating_word_exists : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : FiniteDimensional ℂ H] (T : H →L[ℂ] H),
+  ContinuousLinearMap.adjoint T = T →
+    (↑T).ker ≠ ⊥ →
+      ∃ q,
+        (Polynomial.aeval T) (Polynomial.X * q) = 0 ∧ q.coeff 0 ≠ 0 ∧ ∀ (n : ℕ), (starRingEnd ℂ) (q.coeff n) = q.coeff n
+@TGLExt.finite_face_witness_unconditional : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : FiniteDimensional ℂ H] (T : H →L[ℂ] H),
+  ContinuousLinearMap.adjoint T = T → (↑T).ker ≠ ⊥ → TGLExt.SpectralApproximationWitness T
+@TGLExt.finite_face_corner_in_algebra : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : FiniteDimensional ℂ H] (T : H →L[ℂ] H),
+  ContinuousLinearMap.adjoint T = T →
+    (↑T).ker ≠ ⊥ → (↑T).ker.starProjection ∈ {T}.centralizer.centralizer ∧ (↑T).ker.starProjection ∈ {T}.centralizer
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1670,6 +1692,12 @@ TGLExt.first_infinite_dim_inhabitant : ∀ (K : Type) [inst : Field K],
 'TGLExt.exact_witness_of_annihilating_word' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.spectral_witness_of_annihilating_word' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.breuer_corner_of_annihilating_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.star_aeval_eq_map_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.minpoly_selfadjoint_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.minpoly_zero_not_double_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.annihilating_word_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.finite_face_witness_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.finite_face_corner_in_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

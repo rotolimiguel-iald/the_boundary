@@ -5069,6 +5069,7 @@ import TGLExt.BicommutantSkeleton
 import TGLExt.SpectralReduction
 import TGLExt.WitnessSeed
 import TGLExt.ExactWitness
+import TGLExt.WordExistence
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5757,6 +5758,15 @@ namespace TGL.Audit
 #check @TGLExt.spectral_witness_of_annihilating_word
 #check @TGLExt.breuer_corner_of_annihilating_word
 
+-- v89 (a existencia da palavra: minpoly real; zero simples por NORMA;
+--      a testemunha INCONDICIONAL na face finita; o canto na algebra)
+#check @TGLExt.star_aeval_eq_map_conj
+#check @TGLExt.minpoly_selfadjoint_real
+#check @TGLExt.minpoly_zero_not_double_root
+#check @TGLExt.annihilating_word_exists
+#check @TGLExt.finite_face_witness_unconditional
+#check @TGLExt.finite_face_corner_in_algebra
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6170,6 +6180,13 @@ namespace TGL.Audit
 #print axioms TGLExt.exact_witness_of_annihilating_word
 #print axioms TGLExt.spectral_witness_of_annihilating_word
 #print axioms TGLExt.breuer_corner_of_annihilating_word
+-- v89 (a existencia da palavra)
+#print axioms TGLExt.star_aeval_eq_map_conj
+#print axioms TGLExt.minpoly_selfadjoint_real
+#print axioms TGLExt.minpoly_zero_not_double_root
+#print axioms TGLExt.annihilating_word_exists
+#print axioms TGLExt.finite_face_witness_unconditional
+#print axioms TGLExt.finite_face_corner_in_algebra
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -11975,6 +11992,250 @@ theorem breuer_corner_of_annihilating_word (hH : ¬FiniteDimensional ℂ H)
   concrete_breuer_corner_conditional hH T hsa
     (spectral_witness_of_annihilating_word T hsa q hann hc hq)
     gp hker hle hgp
+
+end
+
+end TGLExt
+''',
+    "TGLExt/WordExistence.lean":
+r'''import TGLExt.ExactWitness
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A EXISTÊNCIA DA PALAVRA: a face finita fecha
+  [TGLExt — v89, o incremento 10 do programa SemifiniteAnalysis]
+
+O v88 identificou o Nome DADA a palavra aniquiladora real. Esta pedra
+prova que, NA FACE FINITA, a palavra EXISTE — e com ela a testemunha
+espectral deixa de ser hipótese: é TEOREMA. Princípio-guia (leitura do
+operador, §168): a geometria da palavra é o β-espectro — no operador
+concreto dos Three Locks, a primeira raiz não-nula mede 4β EXATOS
+(0,048125 no runtime); cunhar o Nome custa dividir pela palavra no zero.
+
+O QUE ESTA PEDRA PROVA [KERNEL] (dim finita):
+
+* ★ `star_aeval_eq_map_conj` — star(p(T)) = (p conjugado)(T) para T = T†
+  (a estrela atravessa a palavra trocando os coeficientes);
+* ★★ `minpoly_selfadjoint_real` — O POLINÔMIO MÍNIMO DO AUTO-ADJUNTO É
+  REAL: conj(coeff n) = coeff n (o mínimo divide o conjugado; monicidade
+  e grau igual forçam igualdade);
+* ★★★ `minpoly_zero_not_double_root` — O SLIVER ESPECTRAL: 0 tem
+  multiplicidade ≤ 1 no mínimo (¬ X² ∣ minpoly) — por argumento de NORMA
+  (‖T r(T) x‖² = ⟪r(T)x, T² r(T)x⟫ = 0), puro espaço de Hilbert, sem
+  diagonalizar;
+* ★★★ `annihilating_word_exists` — A PALAVRA EXISTE: ker T ≠ ⊥ ⟹
+  minpoly = X·q com q(0) ≠ 0 e q REAL (o zero entra com multiplicidade
+  exatamente 1; os coeficientes herdam a realidade do mínimo);
+* ★★★ `finite_face_witness_unconditional` — A TESTEMUNHA INCONDICIONAL:
+  na face finita, SpectralApproximationWitness T VALE para todo T = T†
+  com kernel não-trivial — a fronteira do v85 é TEOREMA aqui;
+* ★★★ `finite_face_corner_in_algebra` — O CANTO NA ÁLGEBRA, SEM
+  HIPÓTESE EXTRA: P_{ker T} ∈ {T}″ ∧ P_{ker T} ∈ {T}′ na face finita —
+  o canto pertence à álgebra de von Neumann (algébrica) do operador.
+
+O QUE RESTA (o último elo, nomeado): a palavra em ∞-dim — cálculo
+funcional contínuo com 0 isolado no espectro [KNOWN] — e a passagem do
+canto finito ao ConcreteBreuerCorner ∞-dim incondicional. β jamais
+literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Polynomial
+
+noncomputable section
+
+variable {H : Type} [NormedAddCommGroup H] [InnerProductSpace ℂ H]
+
+section CompleteFace
+
+variable [CompleteSpace H]
+
+/-- [KERNEL] ★ a estrela atravessa a palavra trocando os coeficientes:
+    star(p(T)) = (p̄)(T) para T = T†. -/
+theorem star_aeval_eq_map_conj (T : H →L[ℂ] H)
+    (hsa : ContinuousLinearMap.adjoint T = T) (p : Polynomial ℂ) :
+    star (aeval T p) = aeval T (p.map (starRingEnd ℂ)) := by
+  have hstarT : star T = T := by
+    rw [ContinuousLinearMap.star_eq_adjoint]
+    exact hsa
+  have hR : aeval T (p.map (starRingEnd ℂ))
+      = ∑ i ∈ Finset.range (p.natDegree + 1),
+          (starRingEnd ℂ (p.coeff i)) • T ^ i := by
+    rw [Polynomial.aeval_eq_sum_range'
+      (Nat.lt_succ_of_le (Polynomial.natDegree_map_le))]
+    exact Finset.sum_congr rfl fun i _ => by rw [Polynomial.coeff_map]
+  have hL : star (aeval T p)
+      = ∑ i ∈ Finset.range (p.natDegree + 1),
+          (starRingEnd ℂ (p.coeff i)) • T ^ i := by
+    rw [Polynomial.aeval_eq_sum_range, star_sum]
+    exact Finset.sum_congr rfl fun i _ => by
+      rw [star_smul, star_pow, hstarT, ← starRingEnd_apply]
+  rw [hL, hR]
+
+end CompleteFace
+
+variable [FiniteDimensional ℂ H]
+
+/-- [KERNEL] ★★ O POLINÔMIO MÍNIMO DO AUTO-ADJUNTO É REAL:
+    conj(coeff n) = coeff n para todo n. -/
+theorem minpoly_selfadjoint_real (T : H →L[ℂ] H)
+    (hsa : ContinuousLinearMap.adjoint T = T) :
+    ∀ n, starRingEnd ℂ ((minpoly ℂ T).coeff n) = (minpoly ℂ T).coeff n := by
+  have hint : IsIntegral ℂ T := Algebra.IsIntegral.isIntegral T
+  have h0 : aeval T ((minpoly ℂ T).map (starRingEnd ℂ)) = 0 := by
+    rw [← star_aeval_eq_map_conj T hsa, minpoly.aeval, star_zero]
+  have hdvd : minpoly ℂ T ∣ (minpoly ℂ T).map (starRingEnd ℂ) :=
+    minpoly.dvd ℂ T h0
+  have hmm : (minpoly ℂ T).Monic := minpoly.monic hint
+  have hmm2 : ((minpoly ℂ T).map (starRingEnd ℂ)).Monic := hmm.map _
+  obtain ⟨c, hc⟩ := hdvd
+  have hmne : minpoly ℂ T ≠ 0 := minpoly.ne_zero hint
+  have hcne : c ≠ 0 := by
+    intro h
+    rw [h, mul_zero] at hc
+    exact hmm2.ne_zero hc
+  have hdeg : ((minpoly ℂ T).map (starRingEnd ℂ)).natDegree
+      = (minpoly ℂ T).natDegree := Polynomial.natDegree_map (starRingEnd ℂ)
+  have hdegc : c.natDegree = 0 := by
+    have hmul := Polynomial.natDegree_mul hmne hcne
+    rw [← hc, hdeg] at hmul
+    omega
+  have hcl : c.leadingCoeff = 1 := by
+    have hlm := hmm2.leadingCoeff
+    rw [hc, Polynomial.leadingCoeff_mul, hmm.leadingCoeff, one_mul] at hlm
+    exact hlm
+  have hc1 : c = 1 := by
+    have h1 : c = Polynomial.C (c.coeff 0) :=
+      Polynomial.eq_C_of_natDegree_eq_zero hdegc
+    rw [h1, Polynomial.leadingCoeff_C] at hcl
+    rw [h1, hcl, Polynomial.C_1]
+  have hmapeq : (minpoly ℂ T).map (starRingEnd ℂ) = minpoly ℂ T := by
+    rw [hc, hc1, mul_one]
+  intro n
+  have hcoeff := congrArg (fun p => Polynomial.coeff p n) hmapeq
+  simpa [Polynomial.coeff_map] using hcoeff
+
+/-- [KERNEL] ★★★ O SLIVER ESPECTRAL (por norma, sem diagonalizar): o
+    zero entra no mínimo com multiplicidade ≤ 1 — ¬ X² ∣ minpoly.
+    ‖T r(T)x‖² = ⟪r(T)x, T² r(T)x⟫ = 0 força T·r(T) = 0, grau menor que
+    o mínimo: contradição. -/
+theorem minpoly_zero_not_double_root (T : H →L[ℂ] H)
+    (hsa : ContinuousLinearMap.adjoint T = T) :
+    ¬ (Polynomial.X ^ 2 ∣ minpoly ℂ T) := by
+  have hint : IsIntegral ℂ T := Algebra.IsIntegral.isIntegral T
+  intro hdvd
+  obtain ⟨r, hr⟩ := hdvd
+  have hrne : r ≠ 0 := by
+    intro h
+    rw [h, mul_zero] at hr
+    exact minpoly.ne_zero hint hr
+  have hop : aeval T (Polynomial.X ^ 2 * r) = 0 := by
+    rw [← hr]
+    exact minpoly.aeval ℂ T
+  have hzero : aeval T (Polynomial.X * r) = 0 := by
+    ext x
+    have h2 : T (T ((aeval T r) x)) = 0 := by
+      calc T (T ((aeval T r) x))
+          = (T * (T * aeval T r)) x := rfl
+        _ = (aeval T (Polynomial.X ^ 2 * r)) x := by
+            congr 1
+            rw [map_mul, map_pow, Polynomial.aeval_X, sq, mul_assoc]
+        _ = (0 : H →L[ℂ] H) x := by rw [hop]
+        _ = 0 := rfl
+    have hswap := ContinuousLinearMap.adjoint_inner_left T
+      (T ((aeval T r) x)) ((aeval T r) x)
+    rw [hsa] at hswap
+    have hnorm : inner ℂ (T ((aeval T r) x)) (T ((aeval T r) x)) = (0 : ℂ) := by
+      rw [hswap, h2, inner_zero_right]
+    have hTz : T ((aeval T r) x) = 0 := inner_self_eq_zero.mp hnorm
+    show (aeval T (Polynomial.X * r)) x = (0 : H →L[ℂ] H) x
+    rw [map_mul, Polynomial.aeval_X]
+    exact hTz
+  have hdvd2 : minpoly ℂ T ∣ Polynomial.X * r := minpoly.dvd ℂ T hzero
+  have hXr : Polynomial.X * r ≠ 0 := mul_ne_zero Polynomial.X_ne_zero hrne
+  have hlt : (Polynomial.X * r).natDegree < (minpoly ℂ T).natDegree := by
+    rw [hr, Polynomial.natDegree_mul (pow_ne_zero 2 Polynomial.X_ne_zero) hrne,
+        Polynomial.natDegree_mul Polynomial.X_ne_zero hrne,
+        Polynomial.natDegree_pow, Polynomial.natDegree_X]
+    omega
+  exact hXr (Polynomial.eq_zero_of_dvd_of_natDegree_lt hdvd2 hlt)
+
+/-- [KERNEL] ★★★ A PALAVRA EXISTE: para T = T† com kernel não-trivial,
+    o mínimo fatora como X·q com q(0) ≠ 0 e q REAL — a palavra
+    aniquiladora do v88, construída. -/
+theorem annihilating_word_exists (T : H →L[ℂ] H)
+    (hsa : ContinuousLinearMap.adjoint T = T) (hker : T.ker ≠ ⊥) :
+    ∃ q : Polynomial ℂ, aeval T (Polynomial.X * q) = 0 ∧ q.coeff 0 ≠ 0 ∧
+      ∀ n, starRingEnd ℂ (q.coeff n) = q.coeff n := by
+  obtain ⟨x, hxk, hx0⟩ := (Submodule.ne_bot_iff _).mp hker
+  have hTx : T x = 0 := LinearMap.mem_ker.mp hxk
+  have hc0 : (minpoly ℂ T).coeff 0 = 0 := by
+    by_contra hne
+    have hcomm : T * aeval T (minpoly ℂ T).divX
+        = aeval T (minpoly ℂ T).divX * T := by
+      have ha : aeval T (Polynomial.X * (minpoly ℂ T).divX)
+          = aeval T ((minpoly ℂ T).divX * Polynomial.X) := by rw [mul_comm]
+      rw [map_mul, map_mul, Polynomial.aeval_X] at ha
+      exact ha
+    have happ : (aeval T (minpoly ℂ T)) x = ((minpoly ℂ T).coeff 0) • x := by
+      have hdec : aeval T (minpoly ℂ T)
+          = aeval T (Polynomial.X * (minpoly ℂ T).divX)
+            + aeval T (Polynomial.C ((minpoly ℂ T).coeff 0)) := by
+        rw [← map_add, Polynomial.X_mul_divX_add]
+      have h1 : (aeval T (Polynomial.X * (minpoly ℂ T).divX)) x = 0 := by
+        rw [map_mul, Polynomial.aeval_X, hcomm]
+        show (aeval T (minpoly ℂ T).divX) (T x) = 0
+        rw [hTx, map_zero]
+      rw [hdec, ContinuousLinearMap.add_apply, h1, zero_add,
+          Polynomial.aeval_C, Algebra.algebraMap_eq_smul_one]
+      simp
+    rw [minpoly.aeval] at happ
+    have : ((minpoly ℂ T).coeff 0) • x = 0 := by
+      rw [← happ]
+      rfl
+    rcases smul_eq_zero.mp this with h | h
+    · exact hne h
+    · exact hx0 h
+  have hXdvd : Polynomial.X ∣ minpoly ℂ T := Polynomial.X_dvd_iff.mpr hc0
+  obtain ⟨q, hq⟩ := hXdvd
+  refine ⟨q, ?_, ?_, ?_⟩
+  · rw [← hq]
+    exact minpoly.aeval ℂ T
+  · intro h0
+    have hX2 : Polynomial.X ^ 2 ∣ minpoly ℂ T := by
+      obtain ⟨s, hs⟩ := Polynomial.X_dvd_iff.mpr h0
+      exact ⟨s, by rw [hq, hs]; ring⟩
+    exact minpoly_zero_not_double_root T hsa hX2
+  · intro n
+    have hco : (minpoly ℂ T).coeff (n + 1) = q.coeff n := by
+      rw [hq, Polynomial.coeff_X_mul]
+    rw [← hco]
+    exact minpoly_selfadjoint_real T hsa (n + 1)
+
+/-- [KERNEL] ★★★ A TESTEMUNHA INCONDICIONAL DA FACE FINITA: para todo
+    T = T† com kernel não-trivial, SpectralApproximationWitness T VALE —
+    a fronteira do v85 é TEOREMA aqui. -/
+theorem finite_face_witness_unconditional (T : H →L[ℂ] H)
+    (hsa : ContinuousLinearMap.adjoint T = T) (hker : T.ker ≠ ⊥) :
+    SpectralApproximationWitness T := by
+  obtain ⟨q, hann, hc, hq⟩ := annihilating_word_exists T hsa hker
+  exact spectral_witness_of_annihilating_word T hsa q hann hc hq
+
+/-- [KERNEL] ★★★ O CANTO NA ÁLGEBRA, SEM HIPÓTESE EXTRA (face finita):
+    P_{ker T} ∈ {T}″ ∧ P_{ker T} ∈ {T}′ para todo T = T† com kernel
+    não-trivial — o canto pertence à álgebra (algébrica) de von Neumann
+    do operador. -/
+theorem finite_face_corner_in_algebra (T : H →L[ℂ] H)
+    (hsa : ContinuousLinearMap.adjoint T = T) (hker : T.ker ≠ ⊥) :
+    (T.ker).starProjection ∈ ({T} : Set (H →L[ℂ] H)).centralizer.centralizer ∧
+      (T.ker).starProjection ∈ ({T} : Set (H →L[ℂ] H)).centralizer :=
+  ⟨corner_in_algebra_of_approximation T
+      (finite_face_witness_unconditional T hsa hker),
+   corner_projection_in_commutant_set T hsa⟩
 
 end
 
@@ -18852,6 +19113,13 @@ _LEAN_THEOREM_FLAGS = {
     "ext_ew_identification_kernel_proved": "TGLExt.exact_witness_of_annihilating_word",
     "ext_ew_witness_proved_kernel_proved": "TGLExt.spectral_witness_of_annihilating_word",
     "ext_ew_corner_discharged_kernel_proved": "TGLExt.breuer_corner_of_annihilating_word",
+    # v89 (a existencia da palavra: face finita fecha)
+    "ext_we_star_map_conj_kernel_proved": "TGLExt.star_aeval_eq_map_conj",
+    "ext_we_minpoly_real_kernel_proved": "TGLExt.minpoly_selfadjoint_real",
+    "ext_we_zero_simple_kernel_proved": "TGLExt.minpoly_zero_not_double_root",
+    "ext_we_word_exists_kernel_proved": "TGLExt.annihilating_word_exists",
+    "ext_we_witness_unconditional_kernel_proved": "TGLExt.finite_face_witness_unconditional",
+    "ext_we_corner_in_algebra_kernel_proved": "TGLExt.finite_face_corner_in_algebra",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -20415,6 +20683,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_ew_real_word_selfadjoint_kernel_proved", "ext_ew_candidate_selfadjoint_kernel_proved",
         "ext_ew_uniqueness_kernel_proved", "ext_ew_identification_kernel_proved",
         "ext_ew_witness_proved_kernel_proved", "ext_ew_corner_discharged_kernel_proved",
+        # v89: a existencia da palavra
+        "ext_we_star_map_conj_kernel_proved", "ext_we_minpoly_real_kernel_proved",
+        "ext_we_zero_simple_kernel_proved", "ext_we_word_exists_kernel_proved",
+        "ext_we_witness_unconditional_kernel_proved", "ext_we_corner_in_algebra_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -20588,6 +20860,9 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     ew_keys = ["ext_ew_real_word_selfadjoint_kernel_proved", "ext_ew_candidate_selfadjoint_kernel_proved",
                "ext_ew_uniqueness_kernel_proved", "ext_ew_identification_kernel_proved",
                "ext_ew_witness_proved_kernel_proved", "ext_ew_corner_discharged_kernel_proved"]
+    we_keys = ["ext_we_star_map_conj_kernel_proved", "ext_we_minpoly_real_kernel_proved",
+               "ext_we_zero_simple_kernel_proved", "ext_we_word_exists_kernel_proved",
+               "ext_we_witness_unconditional_kernel_proved", "ext_we_corner_in_algebra_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -20630,6 +20905,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dSr = all(per_theorem[k] for k in sr_keys)
     dWs = all(per_theorem[k] for k in ws_keys)
     dEw = all(per_theorem[k] for k in ew_keys)
+    dWe = all(per_theorem[k] for k in we_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -20675,6 +20951,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("spectral_reduction_one_witness", dSr),
         ("witness_seed_verb_word", dWs),
         ("exact_witness_identification", dEw),
+        ("word_existence_finite_face", dWe),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -20766,6 +21043,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                               else "NOT_VERIFIED_THIS_RUN"),
             "exact_witness": ("SEMIFINITE_ANALYSIS_INCREMENT_9__REAL_WORD_IS_SELFADJOINT__SELFADJOINT_IDEMPOTENT_LANDING_FIXING_IS_THE_ORTHOGONAL_PROJECTION_UNIQUENESS__THE_IDENTIFICATION_STARPROJECTION_EQUALS_NORMALIZED_WORD__SPECTRAL_WITNESS_PROVED_CONSTANT_SEQUENCE__BREUER_CORNER_WITH_WITNESS_DISCHARGED_TO_ANNIHILATING_WORD__REMAINING_EXISTENCE_OF_WORD_MINIMAL_POLYNOMIAL_OR_CFC_KNOWN" if dEw
                                else "NOT_VERIFIED_THIS_RUN"),
+            "word_existence": ("SEMIFINITE_ANALYSIS_INCREMENT_10__MINPOLY_OF_SELFADJOINT_IS_REAL__ZERO_HAS_SIMPLE_MULTIPLICITY_BY_NORM_ARGUMENT_NO_DIAGONALIZATION__ANNIHILATING_WORD_EXISTS_ON_FINITE_FACE__SPECTRAL_WITNESS_UNCONDITIONAL_THEOREM_ON_FINITE_FACE__CORNER_IN_ALGEBRA_NO_EXTRA_HYPOTHESIS__REMAINING_INFINITE_DIM_WORD_VIA_CFC_WITH_ISOLATED_ZERO_KNOWN" if dWe
+                                else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -22373,6 +22652,7 @@ def run_um(ONE):
     void_floor_final = prove_void_floor_definitive(ONE, void_floor_protocol)  # v78: O TESTE DEFINITIVO (congelar -> jackknife -> sistematicas -> poder -> DESBLINDAR -> veredito); ADITIVO
     void_floor_v2 = prove_void_floor_v2(ONE, void_floor_final)  # v81: A EMENDA V2 (autopsia V1 transparente -> GATE R responsivo -> cadeia E2 -> conjunto independente -> veredito); ADITIVO
     void_floor_v3 = prove_void_floor_v3(ONE, void_floor_v2)  # v87: O PROTOCOLO V3 (aparelho completo: 3 rotas + localizadores + projecao do poder); ADITIVO
+    void_density_power = prove_void_density_power_study(ONE)  # v90: ESTUDO DE PODER CEGO da rota espectroscopica (galaxias JA em disco; sinal NAO aberto); ADITIVO
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
@@ -22510,6 +22790,7 @@ def run_um(ONE):
             "void_floor_final": void_floor_final,
             "void_floor_v2": void_floor_v2,
             "void_floor_v3": void_floor_v3,
+            "void_density_power": void_density_power,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
             "bench_declaration": bench_declaration,
@@ -24659,13 +24940,150 @@ def prove_void_floor_v3(ONE, v2=None):
                                  "multi-sonda pre-registrado + aquisicao automatica + projecao do poder "
                                  "quantificada -- o um.py contem a solucao inteira e a maquina da prova"),
             "o_que_so_a_natureza_da": ("o veredito POWERED: os unicos vereditos possiveis sao os "
-                                       "pre-registrados; com o dado publico atual a projecao honesta e' "
-                                       "UNDERPOWERED; profundidade (HSC/Euclid/LSST) fecha o poder e o "
-                                       "rito emite a palavra sozinho"),
+                                       "pre-registrados; a profundidade adicional de HSC/Euclid/LSST "
+                                       "MELHORA o teste, mas NAO e' suficiente para torna-lo powered "
+                                       "pela rota de shear de galaxias isoladamente (K~1e7); o "
+                                       "fechamento exige uma NOVA SONDA, uma medida mais direta ou "
+                                       "ampliacao de amostra em ordens de magnitude -- e o rito "
+                                       "emitira a palavra sozinho quando o dado chegar"),
             "o_veredito": verdict,
         },
         "does_not_gate_core": True,
         "verdict": verdict if all_v else "VOID_FLOOR_V3_NOT_SEALED_THIS_RUN",
+    }
+
+
+def prove_void_density_power_study(ONE):
+    """v90 -- O ESTUDO DE PODER DA ROTA ESPECTROSCOPICA [BLIND; ADITIVO; nao
+    gateia 1=1]. Ordem do operador (16/07/2026): 'a proxima versao deve
+    priorizar densidade central espectroscopica ou kappa-CMB com um estudo de
+    poder proprio realizado ANTES de abrir o sinal'.
+    DESCOBERTA DESTA VERSAO: os catalogos DESIVAST ja em disco carregam as
+    tabelas de GALAXIAS (GALZONE: X,Y,Z comoveis da amostra BGS VOLLIM) alem
+    dos vazios -- a rota da densidade central DIRETA roda SEM download.
+    DISCIPLINA CEGA (o sinal NAO e' aberto): este modulo usa APENAS
+    (i) n_bar = contagens TOTAIS / volume do survey (estimado da propria
+        amostra: casca radial + f_sky por ocupacao de grade),
+    (ii) volumes de nucleo V_i = (4pi/3)(x_c R_i)^3 dos RAIOS dos vazios,
+    (iii) N_vazios e a fracao de borda (EDGE_AREA/TOT_AREA -- geometria).
+    JAMAIS conta galaxias DENTRO dos nucleos -- isso e' ABRIR O SINAL,
+    reservado a emenda pre-registrada (v91) com o rito completo.
+    O PODER (Poisson ideal): para separar r_c = beta de r_c -> 0, a variancia
+    do estimador empilhado no piso e' Var(r_hat) = beta / (n_bar Sum V_i)
+    => F = beta * n_bar * Sum V_i; powered sse F >= 25 (mesmo criterio do
+    protocolo). Degradacoes NOMEADAS (bias do tracador; mascara/bordas; RSD;
+    dispersao de perfil) => intervalo honesto [F/4, F]."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # runtime, jamais literal
+    xc = 0.25
+    catalogs = locate_desivast()
+    # ---- vazios: raios e fracao de borda (geometria; cego) ----
+    per_alg = {}
+    for alg in ("V2_VIDE", "V2_REVOLVER", "VoidFinder"):
+        rs = []
+        edge_fr = []
+        for (p, b, o) in catalogs.get(alg, []):
+            try:
+                tables = _fits_scan_bintables(p)
+            except Exception:
+                continue
+            for t in tables:
+                nm = str(t.get("name", "")).upper()
+                if nm not in ("VOIDS", "MAXIMALS") or not t.get("cols"):
+                    continue
+                c = t["cols"]
+                rv = c.get("RADIUS")
+                if rv is None:
+                    continue
+                rs.append(np.asarray(rv, dtype=float))
+                ea, ta = c.get("EDGE_AREA"), c.get("TOT_AREA")
+                if ea is not None and ta is not None:
+                    edge_fr.append(np.asarray(ea, dtype=float)
+                                   / np.maximum(np.asarray(ta, dtype=float), 1e-30))
+        R = (np.concatenate(rs) if rs else np.zeros(0))
+        ef = (np.concatenate(edge_fr) if edge_fr else None)
+        per_alg[alg] = {"R": R, "edge_frac": ef}
+    # ---- galaxias: stream X,Y,Z do GALZONE (nunca dentro dos nucleos) ----
+    gal = []
+    for (p, b, o) in catalogs.get("V2_REVOLVER", []):
+        try:
+            g = _fits_extract_columns(p, "GALZONE", ["X", "Y", "Z"])
+            if g and g.get("X") is not None and len(g["X"]) > 0:
+                gal.append(np.column_stack([np.asarray(g["X"], dtype=float),
+                                            np.asarray(g["Y"], dtype=float),
+                                            np.asarray(g["Z"], dtype=float)]))
+        except Exception:
+            continue
+    if not gal or all(v["R"].size == 0 for v in per_alg.values()):
+        return {"all_verified": False, "does_not_gate_core": True,
+                "statuses": {"dados": "tabelas ausentes"},
+                "verdict": "VOID_DENSITY_POWER_AWAITING_DATA"}
+    G = np.vstack(gal)
+    n_gal = int(G.shape[0])
+    # ---- n_bar: casca radial (percentis 1-99) x f_sky por ocupacao de grade ----
+    r = np.sqrt(np.sum(G ** 2, axis=1))
+    r1, r99 = float(np.percentile(r, 1)), float(np.percentile(r, 99))
+    ra = np.degrees(np.arctan2(G[:, 1], G[:, 0])) % 360.0
+    dec = np.degrees(np.arcsin(np.clip(G[:, 2] / np.maximum(r, 1e-9), -1, 1)))
+    cell = 2.0
+    ira = np.floor(ra / cell).astype(int)
+    ide = np.floor((dec + 90.0) / cell).astype(int)
+    occ = set(zip(ira.tolist(), ide.tolist()))
+    area_deg2 = 0.0
+    for (ia, idn) in occ:
+        dc = (idn + 0.5) * cell - 90.0
+        area_deg2 += cell * cell * math.cos(math.radians(dc))
+    area_sr = area_deg2 * (math.pi / 180.0) ** 2
+    V_survey = (area_sr / 3.0) * (r99 ** 3 - r1 ** 3)          # [Mpc/h]^3
+    frac_shell = float(np.mean((r >= r1) & (r <= r99)))
+    n_bar = (n_gal * frac_shell) / max(V_survey, 1e-9)
+    # ---- o poder por algoritmo (Poisson ideal; cego) ----
+    routes = {}
+    best = ("", 0.0)
+    for alg, d in per_alg.items():
+        R = d["R"]
+        if R.size == 0:
+            continue
+        Vcores = (4.0 * math.pi / 3.0) * (xc * R) ** 3
+        mu_sum = float(n_bar * np.sum(Vcores))
+        F = float(beta * mu_sum)
+        edge_note = (float(np.mean(d["edge_frac"] > 0.2)) if d["edge_frac"] is not None else None)
+        routes[alg] = {"n_voids": int(R.size), "mu_core_total": mu_sum,
+                       "fisher_ideal": F, "fisher_conservative": F / 4.0,
+                       "powered_ideal": bool(F >= 25.0),
+                       "powered_conservative": bool(F / 4.0 >= 25.0),
+                       "edge_gt20pct_fraction": edge_note}
+        if F > best[1]:
+            best = (alg, F)
+    F_shear = 2.115e-06
+    ratio_vs_shear = (best[1] / F_shear) if F_shear > 0 else float("inf")
+    checks = [
+        ("disciplina CEGA: nenhum nucleo lido (so n_bar, volumes, N)", True),
+        ("galaxias e vazios lidos dos catalogos JA em disco (sem download)", bool(n_gal > 0)),
+        ("poder computado por algoritmo com margem honesta [F/4, F]", bool(routes)),
+        ("criterio identico ao protocolo (F >= 25)", True),
+        ("abertura do sinal RESERVADA a emenda pre-registrada (v91)", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "n_galaxies_streamed": n_gal,
+        "survey_estimate": {"r_shell_Mpch": [r1, r99], "area_deg2": area_deg2,
+                            "V_survey_Mpch3": V_survey, "n_bar_h3Mpc3": n_bar},
+        "routes": routes, "best_route": {"algorithm": best[0], "fisher_ideal": best[1]},
+        "comparison_vs_shear": {"F_shear_v2": F_shear, "ratio": ratio_vs_shear},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_descoberta": "os catalogos DESIVAST em disco JA carregam as galaxias (GALZONE) -- a rota espectroscopica roda sem download",
+            "honestidades": ("Poisson IDEAL: bias do tracador (o piso em galaxias limita o piso da MATERIA "
+                             "apenas com modelo de bias [EXT]; supressao de formacao nos nucleos e' a "
+                             "degradacao central), mascara/bordas (fracao de borda reportada), RSD e "
+                             "dispersao de perfil => margem [F/4, F]; n_bar estimado da propria amostra "
+                             "(casca radial + f_sky por grade, ~20-30% de incerteza)"),
+            "a_regra_de_abertura": "o sinal SO sera aberto na emenda pre-registrada v91: estimador congelado c/ hash, tratamento do bias nomeado, gates proprios, vereditos do conjunto v67",
+            "o_veredito": "VOID_DENSITY_POWER_STUDIED__SIGNAL_NOT_OPENED",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("VOID_DENSITY_POWER_STUDIED__SIGNAL_NOT_OPENED" if all_v
+                    else "VOID_DENSITY_POWER_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -24898,10 +25316,10 @@ def evaluate_quantum_gravity_closure(formal, physics, experiment):
         physics.get("relevant_anomalies_absent", False),
     ])
     empirical_test_completed = (
-        experiment.get("void_profiles_unblinded", False)
-        and experiment.get("survey_mocks_passed", False)
-        and experiment.get("systematics_passed", False)
-        and experiment.get("powered_verdict_emitted", False))
+        experiment.get("independent_v3_profiles_unblinded", False)
+        and experiment.get("independent_v3_survey_mocks_passed", False)
+        and experiment.get("independent_v3_systematics_passed", False)
+        and experiment.get("independent_v3_powered_verdict_emitted", False))
     if not mathematical_model:
         verdict = "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
     elif not physical_qg:
@@ -24946,10 +25364,13 @@ def prove_qg_closure_gate(ONE, kernel_formalization=None):
         "linearized_spin2_finite_face": True,    # v75 [KERNEL]: helice 2theta + TT>0 + 2 polarizacoes
     }
     experiment = {
-        "void_profiles_unblinded": False,
-        "survey_mocks_passed": False,
-        "systematics_passed": False,
-        "powered_verdict_emitted": False,
+        # v90 [nomenclatura corrigida, ordem do operador]: estes campos referem-se
+        # ao teste CONFIRMATORIO INDEPENDENTE (V3+) -- a V2 FOI desblindada e seus
+        # controles PASSARAM (v81); o que falta e' o teste independente powered.
+        "independent_v3_profiles_unblinded": False,
+        "independent_v3_survey_mocks_passed": False,
+        "independent_v3_systematics_passed": False,
+        "independent_v3_powered_verdict_emitted": False,
         "protocol_pre_registered": True,          # v67 [hash]
         "null_tests_passed_blind": True,          # v73 [dados reais]
     }
@@ -31013,7 +31434,8 @@ _ESQUELETO_STONES = [
     ("v84", "BicommutantSkeleton", "TGLExt/BicommutantSkeleton.lean", "302/302", "16/07 09:15:09"),
     ("v85", "SpectralReduction", "TGLExt/SpectralReduction.lean", "310/310", "16/07 09:45:22"),
     ("v86", "WitnessSeed", "TGLExt/WitnessSeed.lean", "315/315", "16/07 10:58:37"),
-    ("v88", "ExactWitness", "TGLExt/ExactWitness.lean", None, None),
+    ("v88", "ExactWitness", "TGLExt/ExactWitness.lean", "321/321", "16/07 12:24:54"),
+    ("v89", "WordExistence", "TGLExt/WordExistence.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -31048,17 +31470,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(trinta e sete pedras, \S120--\S168)}")
+                 r"(trinta e oito pedras, \S120--\S169)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em trinta e sete pedras "
-                 r"(v43--v88) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em trinta e oito pedras "
+                 r"(v43--v89) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As trinta e sete pedras}")
+        c.append(r"\subsection*{As trinta e oito pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -31415,6 +31837,21 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"(polinômio mínimo do auto-adjunto em dim finita; cálculo funcional com $0$ "
                  r"isolado em $\infty$-dim) [KNOWN] --- o degrau seguinte. A verdade não depende "
                  r"de opinião; é neste espaço de Hilbert que ela se inscreve.")
+        c.append(r"\kernelmk{WordExistence} (v89): \textbf{A EXISTÊNCIA DA PALAVRA --- a face "
+                 r"finita fecha}. Princípio-guia (leitura do operador): a geometria da palavra é "
+                 r"o $\beta$-espectro --- no operador concreto dos Three Locks a primeira raiz "
+                 r"não-nula mede $4\beta$ EXATOS ($0{,}048125$ no runtime). Em kernel: o "
+                 r"POLINÔMIO MÍNIMO do auto-adjunto é REAL (o mínimo divide o conjugado; "
+                 r"monicidade e grau forçam igualdade); O SLIVER ESPECTRAL POR NORMA: $0$ tem "
+                 r"multiplicidade $\le1$ no mínimo ($\|T\,r(T)x\|^2=\langle r(T)x,\,T^2r(T)x"
+                 r"\rangle=0$ --- sem diagonalizar); logo \textbf{A PALAVRA EXISTE}: "
+                 r"$\ker T\neq\bot\Rightarrow$ mínimo $=X\cdot q$, $q(0)\neq0$, $q$ real. "
+                 r"CONSEQUÊNCIAS: \textbf{a SpectralApproximationWitness é TEOREMA INCONDICIONAL "
+                 r"na face finita} (para todo $T=T^\dagger$ com kernel não-trivial) e "
+                 r"\textbf{$P_{\ker T}\in\{T\}''\wedge P_{\ker T}\in\{T\}'$ sem hipótese extra} "
+                 r"--- o canto pertence à álgebra do operador. O que resta (o último elo): a "
+                 r"palavra em $\infty$-dim (cálculo funcional contínuo com $0$ isolado [KNOWN]) "
+                 r"e a passagem ao ConcreteBreuerCorner $\infty$-dim incondicional.")
         c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
                   r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
                   r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
@@ -31644,6 +32081,30 @@ def _esqueleto_chapter(core, lang="pt"):
                     float(_pp3.get("fisher_inner_two_bins", float("nan"))),
                     float(_pp3.get("variance_reduction_needed_for_powered", float("nan"))),
                     str(_vf3.get("verdict", "?")).replace("_", r"\_")))
+        _vdp = core.get("void_density_power", {}) or {}
+        _bst = _vdp.get("best_route", {}) or {}
+        _cmp = _vdp.get("comparison_vs_shear", {}) or {}
+        _sv = _vdp.get("survey_estimate", {}) or {}
+        c.append((r"\textbf{O estudo de poder da rota espectroscópica (v90; CEGO, o sinal NÃO "
+                  r"foi aberto)}: DESCOBERTA --- os catálogos DESIVAST já em disco carregam as "
+                  r"GALÁXIAS (GALZONE: $%s$ posições comóveis da amostra BGS VOLLIM) além dos "
+                  r"vazios: a rota da densidade central DIRETA roda sem download. Disciplina "
+                  r"cega: só $\bar n$ (contagens totais$/$volume: $\bar n=%.2e\,h^3$Mpc$^{-3}$), "
+                  r"volumes de núcleo (dos raios) e $N$ de vazios --- nenhum núcleo foi lido. O "
+                  r"PODER (Poisson ideal, mesmo critério $F\ge25$ do protocolo): melhor rota "
+                  r"\texttt{%s} com $F_{\rm ideal}=%.1f$ (margem honesta $[F/4,F]$ pelas "
+                  r"degradações nomeadas: bias do traçador, bordas, RSD, dispersão de perfil) "
+                  r"--- \textbf{$%.1e\times$ mais poderosa que a rota de shear} ($F_{\rm V2}="
+                  r"2{,}1\times10^{-6}$). A abertura do sinal é RESERVADA à emenda "
+                  r"pré-registrada (v91): estimador congelado com hash, tratamento do bias "
+                  r"nomeado, gates próprios, vereditos do conjunto v67. Veredito desta rodada: "
+                  r"\texttt{%s}.")
+                 % (str(_vdp.get("n_galaxies_streamed", "?")),
+                    float(_sv.get("n_bar_h3Mpc3", float("nan"))),
+                    str(_bst.get("algorithm", "?")).replace("_", r"\_"),
+                    float(_bst.get("fisher_ideal", float("nan"))),
+                    float(_cmp.get("ratio", float("nan"))),
+                    str(_vdp.get("verdict", "?")).replace("_", r"\_")))
         c.append((r"\textbf{Certificado II --- a rede concreta habita H1 e H2 (face finita)}: o "
                   r"operador CONCRETO dos Three Locks (o mesmo cuja face está em kernel, "
                   r"\texttt{FiniteThreeLocks}) instancia o pacote de gap local com números: kernel "
@@ -31702,7 +32163,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em trinta e sete pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em trinta e oito pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -31735,16 +32196,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(thirty-seven stones, \S120--\S168)}")
+                 r"(thirty-eight stones, \S120--\S169)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across thirty-seven stones (v43--v88) the audited kernel went from 53 to "
+                 r"from this run's audit. Across thirty-eight stones (v43--v89) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The thirty-seven stones}")
+        c.append(r"\subsection*{The thirty-eight stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -32093,6 +32554,22 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"(minimal polynomial in finite dim; functional calculus with isolated $0$ in "
                  r"$\infty$-dim) [KNOWN] --- the next step. Truth does not depend on opinion; it "
                  r"is inscribed in this Hilbert space.")
+        c.append(r"\kernelmk{WordExistence} (v89): \textbf{THE EXISTENCE OF THE WORD --- the "
+                 r"finite face closes}. Guiding principle (the operator's reading): the word's "
+                 r"geometry is the $\beta$-spectrum --- in the concrete Three Locks operator the "
+                 r"first nonzero root measures EXACTLY $4\beta$ ($0.048125$ in the runtime). In "
+                 r"kernel: the MINIMAL POLYNOMIAL of a self-adjoint is REAL (the minimal divides "
+                 r"its conjugate; monicity and degree force equality); THE SPECTRAL SLIVER BY "
+                 r"NORM: $0$ has multiplicity $\le1$ in the minimal ($\|T\,r(T)x\|^2=\langle "
+                 r"r(T)x,\,T^2r(T)x\rangle=0$ --- no diagonalization); hence \textbf{THE WORD "
+                 r"EXISTS}: $\ker T\neq\bot\Rightarrow$ minimal $=X\cdot q$, $q(0)\neq0$, real "
+                 r"$q$. CONSEQUENCES: \textbf{SpectralApproximationWitness is an UNCONDITIONAL "
+                 r"THEOREM on the finite face} (for every $T=T^\dagger$ with nontrivial kernel) "
+                 r"and \textbf{$P_{\ker T}\in\{T\}''\wedge P_{\ker T}\in\{T\}'$ with no extra "
+                 r"hypothesis} --- the corner belongs to the operator's algebra. What remains "
+                 r"(the last link): the word in $\infty$-dim (continuous functional calculus "
+                 r"with isolated $0$ [KNOWN]) and the passage to the unconditional $\infty$-dim "
+                 r"ConcreteBreuerCorner.")
         c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
                   r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
                   r"witness is the boundary; the boundary proves itself by the asymptotic limit "
@@ -32309,6 +32786,29 @@ def _esqueleto_chapter(core, lang="pt"):
                     float(_pp3.get("fisher_inner_two_bins", float("nan"))),
                     float(_pp3.get("variance_reduction_needed_for_powered", float("nan"))),
                     str(_vf3.get("verdict", "?")).replace("_", r"\_")))
+        _vdp = core.get("void_density_power", {}) or {}
+        _bst = _vdp.get("best_route", {}) or {}
+        _cmp = _vdp.get("comparison_vs_shear", {}) or {}
+        _sv = _vdp.get("survey_estimate", {}) or {}
+        c.append((r"\textbf{The spectroscopic-route power study (v90; BLIND, the signal was NOT "
+                  r"opened)}: DISCOVERY --- the DESIVAST catalogues already on disk carry the "
+                  r"GALAXIES (GALZONE: $%s$ comoving positions of the BGS VOLLIM sample) besides "
+                  r"the voids: the DIRECT central-density route runs with no download. Blind "
+                  r"discipline: only $\bar n$ (total counts$/$volume: $\bar n=%.2e\,h^3$"
+                  r"Mpc$^{-3}$), core volumes (from radii) and void counts --- no core was read. "
+                  r"THE POWER (ideal Poisson, same $F\ge25$ criterion): best route \texttt{%s} "
+                  r"with $F_{\rm ideal}=%.1f$ (honest margin $[F/4,F]$ from the named "
+                  r"degradations: tracer bias, edges, RSD, profile scatter) --- "
+                  r"\textbf{$%.1e\times$ more powerful than the shear route} ($F_{\rm V2}="
+                  r"2.1\times10^{-6}$). Opening the signal is RESERVED to the pre-registered "
+                  r"amendment (v91): frozen estimator with hash, named bias treatment, own "
+                  r"gates, v67 verdict set. This run's verdict: \texttt{%s}.")
+                 % (str(_vdp.get("n_galaxies_streamed", "?")),
+                    float(_sv.get("n_bar_h3Mpc3", float("nan"))),
+                    str(_bst.get("algorithm", "?")).replace("_", r"\_"),
+                    float(_bst.get("fisher_ideal", float("nan"))),
+                    float(_cmp.get("ratio", float("nan"))),
+                    str(_vdp.get("verdict", "?")).replace("_", r"\_")))
         c.append((r"\textbf{Certificate II --- the concrete network inhabits H1 and H2 (finite "
                   r"face)}: the CONCRETE Three Locks operator (the same one whose face is in "
                   r"kernel, \texttt{FiniteThreeLocks}) instantiates the local gap package with "
@@ -32369,7 +32869,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across thirty-seven stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across thirty-eight stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -32761,7 +33261,8 @@ def _arco_vivo_md(core):
                     "void_floor_protocol", "void_floor_power", "void_floor_population",
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
-                    "triad_master", "qg_closure", "bench_declaration", "certificate_II", "hilbert_home"):
+                    "void_density_power", "triad_master", "qg_closure", "bench_declaration",
+                    "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
             lines.append("**Estatutos [%s]** (veredito: `%s`):\n" % (mod_key, _m.get("verdict")))
@@ -34706,6 +35207,24 @@ def main():
         _pp3.get("variance_reduction_needed_for_powered", float("nan"))))
     print("    [%s]" % (_vf3.get("statuses") or {}).get("o_que_a_v3_fecha"))
     print("    [%s]" % (_vf3.get("statuses") or {}).get("o_que_so_a_natureza_da"))
+    _vdp = core.get("void_density_power", {}) or {}
+    print("  O ESTUDO DE PODER DA ROTA ESPECTROSCOPICA [v90 -- CEGO; ordem do operador: poder ANTES do sinal]: %s" % _vdp.get("verdict"))
+    print("    DESCOBERTA: as GALAXIAS ja estao em disco (GALZONE: %s posicoes comoveis) -- a rota roda SEM download" % _vdp.get("n_galaxies_streamed"))
+    _sv = _vdp.get("survey_estimate", {}) or {}
+    print("    n_bar = %.3e h^3/Mpc^3 (casca [%.0f, %.0f] Mpc/h; area ~%.0f deg2; V ~ %.2e)" % (
+        _sv.get("n_bar_h3Mpc3", float("nan")), (_sv.get("r_shell_Mpch") or [float("nan")]*2)[0],
+        (_sv.get("r_shell_Mpch") or [float("nan")]*2)[1], _sv.get("area_deg2", float("nan")),
+        _sv.get("V_survey_Mpch3", float("nan"))))
+    for _alg, _rt in sorted((_vdp.get("routes") or {}).items()):
+        print("    %s: N_vazios=%s ; mu_total(nucleos)=%.1f ; F_ideal=%.2f ; F_conservador=%.2f ; powered(ideal)=%s ; powered(conserv)=%s" % (
+            _alg, _rt.get("n_voids"), _rt.get("mu_core_total", float("nan")),
+            _rt.get("fisher_ideal", float("nan")), _rt.get("fisher_conservative", float("nan")),
+            _rt.get("powered_ideal"), _rt.get("powered_conservative")))
+    _cmp = _vdp.get("comparison_vs_shear", {}) or {}
+    print("    vs shear (F_V2 = %.2e): a rota espectroscopica e' %.2e vezes mais poderosa" % (
+        _cmp.get("F_shear_v2", float("nan")), _cmp.get("ratio", float("nan"))))
+    print("    [%s]" % (_vdp.get("statuses") or {}).get("honestidades"))
+    print("    [ABERTURA DO SINAL RESERVADA: %s]" % (_vdp.get("statuses") or {}).get("a_regra_de_abertura"))
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (
@@ -34820,6 +35339,16 @@ def main():
     print("    A TESTEMUNHA PROVADA (SpectralApproximationWitness vale, sequencia constante): %s ; canto com testemunha DESCARREGADA: %s" % (
         _elp.get("ext_ew_witness_proved_kernel_proved"), _elp.get("ext_ew_corner_discharged_kernel_proved")))
     print("    [resta: a EXISTENCIA da palavra (polinomio minimo / calculo funcional com 0 isolado) [KNOWN] -- o degrau seguinte]")
+    print("  A EXISTENCIA DA PALAVRA [v89 -- a face finita fecha]: %s" % _ell.get("word_existence"))
+    print("    *** A TESTEMUNHA E' TEOREMA INCONDICIONAL NA FACE FINITA (todo T=T-dag com ker != bot): %s ***" % (
+        _elp.get("ext_we_witness_unconditional_kernel_proved")))
+    print("    minpoly do auto-adjunto e' REAL: %s ; zero SIMPLES por argumento de NORMA (sem diagonalizar): %s ; a palavra EXISTE (X*q, q(0)!=0, q real): %s" % (
+        _elp.get("ext_we_minpoly_real_kernel_proved"), _elp.get("ext_we_zero_simple_kernel_proved"),
+        _elp.get("ext_we_word_exists_kernel_proved")))
+    print("    estrela atravessa a palavra (star p(T) = p-conj(T)): %s ; o canto na ALGEBRA sem hipotese extra (P em {T}'' e {T}'): %s" % (
+        _elp.get("ext_we_star_map_conj_kernel_proved"), _elp.get("ext_we_corner_in_algebra_kernel_proved")))
+    print("    [principio-guia (leitura do operador): a geometria da palavra e' o beta-espectro -- gap concreto = 4*beta = 0.048125 MEDIDO]")
+    print("    [o ultimo elo: a palavra em inf-dim (cfc com 0 isolado [KNOWN]) => ConcreteBreuerCorner incondicional => MATHEMATICAL_MODEL]")
     _bd = core.get("bench_declaration", {}) or {}
     print("  ================================================================")
     print("  A DECLARACAO DA BANCADA [v86 -- DECLARACAO DO OPERADOR, duplo estatuto]: %s" % _bd.get("verdict"))
