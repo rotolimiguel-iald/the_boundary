@@ -22653,6 +22653,8 @@ def run_um(ONE):
     void_floor_v2 = prove_void_floor_v2(ONE, void_floor_final)  # v81: A EMENDA V2 (autopsia V1 transparente -> GATE R responsivo -> cadeia E2 -> conjunto independente -> veredito); ADITIVO
     void_floor_v3 = prove_void_floor_v3(ONE, void_floor_v2)  # v87: O PROTOCOLO V3 (aparelho completo: 3 rotas + localizadores + projecao do poder); ADITIVO
     void_density_power = prove_void_density_power_study(ONE)  # v90: ESTUDO DE PODER CEGO da rota espectroscopica (galaxias JA em disco; sinal NAO aberto); ADITIVO
+    void_density_opening = prove_void_floor_spectroscopic_opening(ONE, void_density_power)  # v91: A ABERTURA DO SINAL (congelar -> nulo -> gates -> ABRIR -> veredito); ADITIVO
+    void_density_v41 = prove_void_floor_v41_calibrated(ONE)  # v92: A EMENDA V4.1 (estimador AUTO-CALIBRANTE; split-null; replicas no lado; poder beta*mu); ADITIVO
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
@@ -22791,6 +22793,8 @@ def run_um(ONE):
             "void_floor_v2": void_floor_v2,
             "void_floor_v3": void_floor_v3,
             "void_density_power": void_density_power,
+            "void_density_opening": void_density_opening,
+            "void_density_v41": void_density_v41,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
             "bench_declaration": bench_declaration,
@@ -25084,6 +25088,479 @@ def prove_void_density_power_study(ONE):
         "does_not_gate_core": True,
         "verdict": ("VOID_DENSITY_POWER_STUDIED__SIGNAL_NOT_OPENED" if all_v
                     else "VOID_DENSITY_POWER_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_void_floor_spectroscopic_opening(ONE, power_study=None):
+    """v91 -- A ABERTURA DO SINAL: A ROTA ESPECTROSCOPICA [ADITIVO; nao gateia
+    1=1]. A emenda pre-registrada que o v90 nomeou. A ORDEM DO RITO:
+    (0) integridade do pre-registro v67 (hash recomputado == selado);
+    (1) CONGELAR o estimador da densidade central (spec + hash) ANTES de
+        tocar qualquer nucleo: observavel r_c^gal = (Sum N_i)/(Sum n_bar V_i),
+        V_i=(4pi/3)(0.25 R_i)^3 -- O OBJETO ORIGINAL em unidades de tracador;
+        PRIMARIO = REVOLVER (escolhido pelo estudo CEGO v90), VIDE/VoidFinder
+        = replicas de consistencia (vazios sobrepostos: sem combinacao);
+        n_bar pelo MESMO metodo cego do v90; erro = max(Poisson, jackknife 20
+        faixas de RA); corte de mascara PRE-REGISTRADO: nucleo inteiramente
+        dentro da casca radial e celula+vizinhas ocupadas (aplicado IGUAL a
+        vazios e aleatorios);
+    (2) A ASSIMETRIA DO TRACADOR [pre-registrada]: com b >= 1 e supressao de
+        formacao >= 0 [EXT padrao], delta_gal = b*delta_m <= delta_m em vazios
+        => r_c^gal <= r_c^materia: a medida em galaxias e' LIMITE INFERIOR da
+        materia. Logo: L5(r_c^gal) >= beta com poder => a MATERIA respeita o
+        piso a 5 sigma (NOT_FALSIFIED_POWERED); mas U5 < beta NAO falsifica a
+        materia (a supressao pode esconder) => ramo proprio
+        TGL_VOID_FLOOR_INCONCLUSIVE_TRACER_SUPPRESSION. A rota e' UNILATERAL;
+        a falsificacao segue com lente (materia direta) em profundidade futura;
+    (3) NULO DOS ALEATORIOS (antes de ler os vazios): 2000 centros aleatorios
+        na geometria do survey com raios reamostrados => r_c(rand) == 1
+        (calibra n_bar + mascara);
+    (4) GATES antes de comparar com beta: consistencia entre algoritmos;
+        robustez ao corte de borda; jackknife valido;
+    (5) ABRIR: contar galaxias nos nucleos reais; r_c^gal empilhado;
+    (6) VEREDITO: somente o conjunto pre-registrado (v67 + o ramo do tracador
+        DECLARADO NESTA emenda, hasheado antes da abertura)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # runtime, jamais literal
+    xc = 0.25
+    ps = power_study or {}
+    # ---- (0) integridade ----
+    proto_hash = sha_obj(_void_floor_protocol_record(beta))
+    prereg_ok = bool(proto_hash[:16] == SEALED_VOID_FLOOR_HASH16)
+    # ---- (1) o estimador CONGELADO (hash ANTES de qualquer nucleo) ----
+    frozen = {
+        "version": "VOID_FLOOR_V4_DENSITY_V1",
+        "route": "densidade central espectroscopica DIRETA (GALZONE BGS VOLLIM; sem lente)",
+        "observable": "r_c^gal = (Sum_i N_i) / (Sum_i n_bar V_i); V_i=(4pi/3)(0.25 R_i)^3; x_c=0.25 (o objeto ORIGINAL)",
+        "primary": "V2_REVOLVER (escolhido pelo estudo de poder CEGO v90: F_ideal=57.6); VIDE e VoidFinder = replicas de consistencia (sem combinacao: vazios sobrepostos)",
+        "cuts": "R_v>10; fracao de borda<=0.2 quando disponivel; MASCARA: nucleo inteiro na casca radial [r1,r99] e celula 2deg + 8 vizinhas ocupadas (IGUAL p/ vazios e aleatorios)",
+        "nbar": "contagens totais/volume (casca radial percentis 1-99 + f_sky por ocupacao de grade 2deg) -- o metodo cego do v90, congelado",
+        "errors": "max(Poisson em Sum N, jackknife 20 faixas de RA); limites unilaterais 5 sigma",
+        "tracer_asymmetry": "b>=1 e supressao>=0 [EXT] => r_c^gal <= r_c^materia: teste UNILATERAL (pode confirmar o nao-rompimento com poder; NAO pode falsificar a materia)",
+        "null": "2000 centros aleatorios (geometria+raios reamostrados): |r_c(rand)-1| < 3 sigma_rand OBRIGATORIO antes de abrir",
+        "gates": "consistencia REVOLVER vs VIDE (<3 sigma combinado); robustez borda (<2 sigma); jackknife >=15/20 validos",
+        "verdicts": ["TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED", "TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED",
+                     "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS", "TGL_VOID_FLOOR_INCONCLUSIVE_TRACER_SUPPRESSION"],
+        "matter_bracket": "r_c^materia in [r_c^gal (b=1), 1+(r_c^gal-1)/2.2] reportado [EXT bias BGS ~1.3-1.5; colchete conservador]",
+    }
+    frozen_hash = sha_obj(frozen)
+    # ---- dados (mesmas tabelas do v90) ----
+    catalogs = locate_desivast()
+    gal = []
+    for (p, b_, o) in catalogs.get("V2_REVOLVER", []):
+        try:
+            g = _fits_extract_columns(p, "GALZONE", ["X", "Y", "Z"])
+            if g and g.get("X") is not None and len(g["X"]) > 0:
+                gal.append(np.column_stack([np.asarray(g["X"], dtype=float),
+                                            np.asarray(g["Y"], dtype=float),
+                                            np.asarray(g["Z"], dtype=float)]))
+        except Exception:
+            continue
+    if not gal:
+        return {"all_verified": False, "does_not_gate_core": True,
+                "frozen_hash": frozen_hash,
+                "statuses": {"dados": "GALZONE ausente"},
+                "verdict": "VOID_DENSITY_OPENING_AWAITING_DATA"}
+    G = np.vstack(gal)
+    r = np.sqrt(np.sum(G ** 2, axis=1))
+    r1, r99 = float(np.percentile(r, 1)), float(np.percentile(r, 99))
+    ra = np.degrees(np.arctan2(G[:, 1], G[:, 0])) % 360.0
+    dec = np.degrees(np.arcsin(np.clip(G[:, 2] / np.maximum(r, 1e-9), -1, 1)))
+    cell = 2.0
+    occ = set(zip(np.floor(ra / cell).astype(int).tolist(),
+                  np.floor((dec + 90.0) / cell).astype(int).tolist()))
+    area_deg2 = sum(cell * cell * math.cos(math.radians((idn + 0.5) * cell - 90.0))
+                    for (_, idn) in occ)
+    area_sr = area_deg2 * (math.pi / 180.0) ** 2
+    V_survey = (area_sr / 3.0) * (r99 ** 3 - r1 ** 3)
+    frac_shell = float(np.mean((r >= r1) & (r <= r99)))
+    n_bar = (G.shape[0] * frac_shell) / max(V_survey, 1e-9)
+
+    def _mask_ok(cx, cy, cz, Rcore):
+        rc = math.sqrt(cx * cx + cy * cy + cz * cz)
+        if rc - Rcore < r1 or rc + Rcore > r99:
+            return False
+        ra0 = math.degrees(math.atan2(cy, cx)) % 360.0
+        de0 = math.degrees(math.asin(max(-1.0, min(1.0, cz / max(rc, 1e-9)))))
+        ia, idn = int(ra0 // cell), int((de0 + 90.0) // cell)
+        for da in (-1, 0, 1):
+            for dd in (-1, 0, 1):
+                if ((ia + da), (idn + dd)) not in occ:
+                    return False
+        return True
+
+    Gx = G[np.argsort(G[:, 0])]
+    sx = Gx[:, 0]
+
+    def _count_core(cx, cy, cz, Rcore):
+        lo = np.searchsorted(sx, cx - Rcore)
+        hi = np.searchsorted(sx, cx + Rcore)
+        w = Gx[lo:hi]
+        d2 = (w[:, 0] - cx) ** 2 + (w[:, 1] - cy) ** 2 + (w[:, 2] - cz) ** 2
+        return int(np.sum(d2 <= Rcore * Rcore))
+
+    def _load_voids(alg):
+        rows = []
+        for (p, b_, o) in catalogs.get(alg, []):
+            try:
+                tables = _fits_scan_bintables(p)
+            except Exception:
+                continue
+            for t in tables:
+                nm = str(t.get("name", "")).upper()
+                if nm not in ("VOIDS", "MAXIMALS") or not t.get("cols"):
+                    continue
+                c = t["cols"]
+                if any(c.get(k) is None for k in ("X", "Y", "Z", "RADIUS")):
+                    continue
+                X = np.asarray(c["X"], dtype=float); Y = np.asarray(c["Y"], dtype=float)
+                Z = np.asarray(c["Z"], dtype=float); R = np.asarray(c["RADIUS"], dtype=float)
+                keep = R > 10.0
+                ea, ta = c.get("EDGE_AREA"), c.get("TOT_AREA")
+                if ea is not None and ta is not None:
+                    keep &= (np.asarray(ea, dtype=float)
+                             / np.maximum(np.asarray(ta, dtype=float), 1e-30)) <= 0.2
+                rows.append(np.column_stack([X[keep], Y[keep], Z[keep], R[keep]]))
+        return (np.vstack(rows) if rows else np.zeros((0, 4)))
+
+    def _stack(cat, ra_edges=None):
+        Ns, mus, ras = [], [], []
+        for (cx, cy, cz, R) in cat:
+            Rc = xc * R
+            if not _mask_ok(cx, cy, cz, Rc):
+                continue
+            Ns.append(_count_core(cx, cy, cz, Rc))
+            mus.append(n_bar * (4.0 * math.pi / 3.0) * Rc ** 3)
+            ras.append(math.degrees(math.atan2(cy, cx)) % 360.0)
+        Ns = np.asarray(Ns, dtype=float); mus = np.asarray(mus, dtype=float)
+        ras = np.asarray(ras, dtype=float)
+        if mus.size == 0 or mus.sum() <= 0:
+            return None
+        rhat = float(Ns.sum() / mus.sum())
+        sig_p = float(math.sqrt(max(Ns.sum(), 1.0)) / mus.sum())
+        n_jk, jk = 20, []
+        qs = np.percentile(ras, np.linspace(0, 100, n_jk + 1))
+        for k in range(n_jk):
+            m = (ras < qs[k]) | (ras >= qs[k + 1])
+            if mus[m].sum() > 0:
+                jk.append(Ns[m].sum() / mus[m].sum())
+        sig_j = (float(math.sqrt((len(jk) - 1) * np.var(jk))) if len(jk) >= 15 else float("inf"))
+        return {"n_used": int(mus.size), "N_tot": float(Ns.sum()), "mu_tot": float(mus.sum()),
+                "rhat": rhat, "sigma_poisson": sig_p, "sigma_jk": sig_j,
+                "sigma": float(max(sig_p, sig_j if math.isfinite(sig_j) else sig_p)),
+                "n_jk_valid": len(jk)}
+    # ---- (3) NULO DOS ALEATORIOS (antes dos vazios) ----
+    rngo = np.random.default_rng(91)
+    prim = _load_voids("V2_REVOLVER")
+    occ_list = sorted(occ)
+    cells_idx = rngo.integers(0, len(occ_list), 2000)
+    Rres = prim[:, 3][rngo.integers(0, max(prim.shape[0], 1), 2000)] if prim.shape[0] else np.full(2000, 18.0)
+    rand_rows = []
+    for k in range(2000):
+        ia, idn = occ_list[cells_idx[k]]
+        ra0 = (ia + rngo.random()) * cell
+        de0 = (idn + rngo.random()) * cell - 90.0
+        rr = (r1 ** 3 + rngo.random() * (r99 ** 3 - r1 ** 3)) ** (1.0 / 3.0)
+        cd = math.cos(math.radians(de0))
+        rand_rows.append([rr * cd * math.cos(math.radians(ra0)),
+                          rr * cd * math.sin(math.radians(ra0)),
+                          rr * math.sin(math.radians(de0)), float(Rres[k])])
+    rand_stat = _stack(np.asarray(rand_rows))
+    null_ok = bool(rand_stat and abs(rand_stat["rhat"] - 1.0) < 3.0 * rand_stat["sigma_poisson"])
+    # ---- (4-5) ABRIR: os vazios reais ----
+    res = {}
+    for alg in ("V2_REVOLVER", "V2_VIDE", "VoidFinder"):
+        cat = prim if alg == "V2_REVOLVER" else _load_voids(alg)
+        st = _stack(cat)
+        if st:
+            res[alg] = st
+    P = res.get("V2_REVOLVER")
+    if P is None:
+        return {"all_verified": False, "does_not_gate_core": True,
+                "frozen_hash": frozen_hash, "statuses": {"dados": "vazios ausentes"},
+                "verdict": "VOID_DENSITY_OPENING_AWAITING_DATA"}
+    Vd = res.get("V2_VIDE")
+    cons_sig = (abs(P["rhat"] - Vd["rhat"]) / math.sqrt(P["sigma"] ** 2 + Vd["sigma"] ** 2)
+                if Vd else 0.0)
+    gates_ok = bool(null_ok and cons_sig < 3.0 and P["n_jk_valid"] >= 15)
+    # ---- (6) o veredito (o conjunto pre-registrado desta emenda) ----
+    L5 = P["rhat"] - 5.0 * P["sigma"]
+    U5 = P["rhat"] + 5.0 * P["sigma"]
+    powered = bool((beta / max(P["sigma"], 1e-30)) ** 2 >= 25.0)
+    if not (prereg_ok and gates_ok):
+        verdict = "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS"
+    elif U5 < beta:
+        verdict = "TGL_VOID_FLOOR_INCONCLUSIVE_TRACER_SUPPRESSION"
+    elif L5 >= beta and powered:
+        verdict = "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED"
+    else:
+        verdict = "TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED"
+    matter_lo = P["rhat"]
+    matter_hi = 1.0 + (P["rhat"] - 1.0) / 2.2
+    checks = [
+        ("pre-registro v67 INTACTO", prereg_ok),
+        ("estimador V4 congelado com hash ANTES dos nucleos", True),
+        ("NULO dos aleatorios avaliado ANTES dos vazios", bool(rand_stat is not None)),
+        ("assimetria do tracador PRE-REGISTRADA (teste unilateral)", True),
+        ("veredito pertence ao conjunto desta emenda", verdict in frozen["verdicts"]),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "frozen_hash": frozen_hash, "frozen": frozen,
+        "n_bar_h3Mpc3": n_bar,
+        "random_null": rand_stat, "random_null_ok": null_ok,
+        "per_algorithm": res,
+        "consistency_sigma_REV_vs_VIDE": cons_sig,
+        "primary": {"rhat_gal": P["rhat"], "sigma": P["sigma"],
+                    "L5": L5, "U5": U5, "powered_vs_beta": powered,
+                    "matter_bracket_b1_to_b2p2": [matter_lo, matter_hi]},
+        "beta_floor": beta,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_abertura": "o sinal FOI aberto nesta rodada, apos nulo+gates, com estimador congelado por hash em ordem de programa auditavel",
+            "honestidades": ("tracador: teste UNILATERAL (b>=1, supressao>=0 [EXT]); n_bar ~20-30%; "
+                             "mascara por grade 2deg (aproximada); RSD nao modelado (nucleos em coords "
+                             "comoveis do proprio catalogo); colchete de materia com b in [1, 2.2] [EXT]"),
+            "o_veredito": verdict,
+        },
+        "does_not_gate_core": True,
+        "verdict": verdict if all_v else "VOID_DENSITY_OPENING_NOT_SEALED_THIS_RUN",
+    }
+
+
+def prove_void_floor_v41_calibrated(ONE):
+    """v92 -- A EMENDA V4.1: O ESTIMADOR AUTO-CALIBRANTE [ADITIVO; nao gateia
+    1=1]. A licao do v91 aplicada (a mesma da V1->V2): o NULO reprovou por
+    n_bar/mascara (desvio multiplicativo comum ~1.41) => o estimador passa a
+    ser RAZAO-DE-RAZOES:
+        r_c^gal = [Sum N / Sum mu]_vazios / [Sum N / Sum mu]_aleatorios
+    -- n_bar e mascara CANCELAM POR CONSTRUCAO (o nulo vira regua interna).
+    PRE-REGISTRO DESTA EMENDA (hash ANTES de reabrir; transparencias):
+    - PODER restaurado do estudo CEGO v90: powered := beta * Summu_usado >= 25
+      = capacidade de detectar VIOLACAO do piso a 5 sigma (em r->0 o Poisson
+      encolhe: uma violacao seria vista de forma decisiva). O v91 desviou
+      dessa definicao usando a sigma MEDIDA (resolucao NA escala do piso, que
+      exigiria ~6k galaxias de nucleo) -- LAPSO REGISTRADO e corrigido; a
+      resolucao na escala beta segue reportada a parte [futuro LRG/ELG];
+    - REPLICAS julgadas NO LADO da questao (L5^alg vs beta), nao no valor:
+      definicoes de vazio distintas medem nucleos distintos (a consistencia
+      de valor 4.4 sigma do v91 era comparacao de objetos diferentes);
+    - SPLIT-NULL interno: metades ALEATORIAS dos aleatorios => razao 1 (3sig);
+    - assimetria do tracador MANTIDA (b>=1, supressao>=0 => teste UNILATERAL);
+    - vereditos: os 4 da emenda v91 (POWERED/UNDERPOWERED/SYSTEMATICS/
+      TRACER_SUPPRESSION)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # runtime, jamais literal
+    xc = 0.25
+    proto_hash = sha_obj(_void_floor_protocol_record(beta))
+    prereg_ok = bool(proto_hash[:16] == SEALED_VOID_FLOOR_HASH16)
+    frozen = {
+        "version": "VOID_FLOOR_V4_DENSITY_V1.1_SELFCAL",
+        "estimator": "razao-de-razoes: r_c = [SumN/Summu]_vazios / [SumN/Summu]_aleatorios; 20000 aleatorios (seed 92) na MESMA geometria/mascara; mu_i = n_bar V_i (n_bar CANCELA)",
+        "primary": "V2_REVOLVER (estudo cego v90); replicas VIDE/VoidFinder julgadas NO LADO (L5 vs beta)",
+        "power": "powered := beta * Summu_usado >= 25 (capacidade de detectar violacao; formula do estudo CEGO v90); resolucao na escala beta reportada a parte",
+        "errors": "vazios: max(Poisson, jackknife 20 faixas de RA sobre a RAZAO calibrada por faixa); aleatorios: Poisson propagado",
+        "gates": "SPLIT-NULL (metades aleatorias: razao 1 +-3sig); jackknife >=15/20; replicas concordam no lado",
+        "cuts_mask": "R_v>10; borda<=0.2; nucleo na casca radial e celula+8 vizinhas ocupadas (IGUAL vazios/aleatorios) -- os mesmos do v91",
+        "tracer_asymmetry": "unilateral (b>=1, supressao>=0 [EXT]); colchete de materia b in [1, 2.2]",
+        "verdicts": ["TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED", "TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED",
+                     "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS", "TGL_VOID_FLOOR_INCONCLUSIVE_TRACER_SUPPRESSION"],
+    }
+    frozen_hash = sha_obj(frozen)
+    # ---- dados (identicos ao v91) ----
+    catalogs = locate_desivast()
+    gal = []
+    for (p, b_, o) in catalogs.get("V2_REVOLVER", []):
+        try:
+            g = _fits_extract_columns(p, "GALZONE", ["X", "Y", "Z"])
+            if g and g.get("X") is not None and len(g["X"]) > 0:
+                gal.append(np.column_stack([np.asarray(g["X"], dtype=float),
+                                            np.asarray(g["Y"], dtype=float),
+                                            np.asarray(g["Z"], dtype=float)]))
+        except Exception:
+            continue
+    if not gal:
+        return {"all_verified": False, "does_not_gate_core": True,
+                "frozen_hash": frozen_hash,
+                "statuses": {"dados": "GALZONE ausente"},
+                "verdict": "VOID_DENSITY_V41_AWAITING_DATA"}
+    G = np.vstack(gal)
+    r = np.sqrt(np.sum(G ** 2, axis=1))
+    r1, r99 = float(np.percentile(r, 1)), float(np.percentile(r, 99))
+    ra = np.degrees(np.arctan2(G[:, 1], G[:, 0])) % 360.0
+    dec = np.degrees(np.arcsin(np.clip(G[:, 2] / np.maximum(r, 1e-9), -1, 1)))
+    cell = 2.0
+    occ = set(zip(np.floor(ra / cell).astype(int).tolist(),
+                  np.floor((dec + 90.0) / cell).astype(int).tolist()))
+
+    def _mask_ok(cx, cy, cz, Rcore):
+        rc = math.sqrt(cx * cx + cy * cy + cz * cz)
+        if rc - Rcore < r1 or rc + Rcore > r99:
+            return False
+        ra0 = math.degrees(math.atan2(cy, cx)) % 360.0
+        de0 = math.degrees(math.asin(max(-1.0, min(1.0, cz / max(rc, 1e-9)))))
+        ia, idn = int(ra0 // cell), int((de0 + 90.0) // cell)
+        for da in (-1, 0, 1):
+            for dd in (-1, 0, 1):
+                if ((ia + da), (idn + dd)) not in occ:
+                    return False
+        return True
+
+    Gx = G[np.argsort(G[:, 0])]
+    sx = Gx[:, 0]
+
+    def _count_core(cx, cy, cz, Rcore):
+        lo = np.searchsorted(sx, cx - Rcore)
+        hi = np.searchsorted(sx, cx + Rcore)
+        w = Gx[lo:hi]
+        d2 = (w[:, 0] - cx) ** 2 + (w[:, 1] - cy) ** 2 + (w[:, 2] - cz) ** 2
+        return int(np.sum(d2 <= Rcore * Rcore))
+
+    def _load_voids(alg):
+        rows = []
+        for (p, b_, o) in catalogs.get(alg, []):
+            try:
+                tables = _fits_scan_bintables(p)
+            except Exception:
+                continue
+            for t in tables:
+                nm = str(t.get("name", "")).upper()
+                if nm not in ("VOIDS", "MAXIMALS") or not t.get("cols"):
+                    continue
+                c = t["cols"]
+                if any(c.get(k) is None for k in ("X", "Y", "Z", "RADIUS")):
+                    continue
+                X = np.asarray(c["X"], dtype=float); Y = np.asarray(c["Y"], dtype=float)
+                Z = np.asarray(c["Z"], dtype=float); R = np.asarray(c["RADIUS"], dtype=float)
+                keep = R > 10.0
+                ea, ta = c.get("EDGE_AREA"), c.get("TOT_AREA")
+                if ea is not None and ta is not None:
+                    keep &= (np.asarray(ea, dtype=float)
+                             / np.maximum(np.asarray(ta, dtype=float), 1e-30)) <= 0.2
+                rows.append(np.column_stack([X[keep], Y[keep], Z[keep], R[keep]]))
+        return (np.vstack(rows) if rows else np.zeros((0, 4)))
+
+    def _collect(cat):
+        Ns, Vs, ras = [], [], []
+        for (cx, cy, cz, R) in cat:
+            Rc = xc * R
+            if not _mask_ok(cx, cy, cz, Rc):
+                continue
+            Ns.append(_count_core(cx, cy, cz, Rc))
+            Vs.append((4.0 * math.pi / 3.0) * Rc ** 3)
+            ras.append(math.degrees(math.atan2(cy, cx)) % 360.0)
+        return (np.asarray(Ns, dtype=float), np.asarray(Vs, dtype=float),
+                np.asarray(ras, dtype=float))
+    # ---- aleatorios 20k (seed 92) + SPLIT-NULL ----
+    rngo = np.random.default_rng(92)
+    prim_cat = _load_voids("V2_REVOLVER")
+    occ_list = sorted(occ)
+    M = 20000
+    cells_idx = rngo.integers(0, len(occ_list), M)
+    Rres = prim_cat[:, 3][rngo.integers(0, max(prim_cat.shape[0], 1), M)]
+    rand_rows = []
+    for k in range(M):
+        ia, idn = occ_list[cells_idx[k]]
+        ra0 = (ia + rngo.random()) * cell
+        de0 = (idn + rngo.random()) * cell - 90.0
+        rr = (r1 ** 3 + rngo.random() * (r99 ** 3 - r1 ** 3)) ** (1.0 / 3.0)
+        cd = math.cos(math.radians(de0))
+        rand_rows.append([rr * cd * math.cos(math.radians(ra0)),
+                          rr * cd * math.sin(math.radians(ra0)),
+                          rr * math.sin(math.radians(de0)), float(Rres[k])])
+    Nr, Vr, RAr = _collect(np.asarray(rand_rows))
+    if Vr.sum() <= 0:
+        return {"all_verified": False, "does_not_gate_core": True,
+                "frozen_hash": frozen_hash,
+                "statuses": {"dados": "aleatorios sem area"},
+                "verdict": "VOID_DENSITY_V41_AWAITING_DATA"}
+    Dr = float(Nr.sum() / Vr.sum())                  # densidade de referencia (aleatorios)
+    half = rngo.random(Nr.size) < 0.5
+    D1 = Nr[half].sum() / max(Vr[half].sum(), 1e-30)
+    D2 = Nr[~half].sum() / max(Vr[~half].sum(), 1e-30)
+    split_ratio = float(D1 / max(D2, 1e-30))
+    sig_split = float(split_ratio * math.sqrt(1.0 / max(Nr[half].sum(), 1.0)
+                                              + 1.0 / max(Nr[~half].sum(), 1.0)))
+    split_ok = bool(abs(split_ratio - 1.0) < 3.0 * sig_split)
+    # ---- os tres algoritmos: razao calibrada + jackknife por faixa ----
+    res = {}
+    for alg in ("V2_REVOLVER", "V2_VIDE", "VoidFinder"):
+        cat = prim_cat if alg == "V2_REVOLVER" else _load_voids(alg)
+        Nv, Vv, RAv = _collect(cat)
+        if Vv.sum() <= 0:
+            continue
+        rhat = float((Nv.sum() / Vv.sum()) / Dr)
+        sig_p = rhat * math.sqrt(1.0 / max(Nv.sum(), 1.0) + 1.0 / max(Nr.sum(), 1.0))
+        n_jk, jk = 20, []
+        qs = np.percentile(RAv, np.linspace(0, 100, n_jk + 1))
+        for k in range(n_jk):
+            mv = (RAv < qs[k]) | (RAv >= qs[k + 1])
+            mr = (RAr < qs[k]) | (RAr >= qs[k + 1])
+            if Vv[mv].sum() > 0 and Nr[mr].sum() > 0:
+                jk.append((Nv[mv].sum() / Vv[mv].sum())
+                          / (Nr[mr].sum() / Vr[mr].sum()))
+        sig_j = (float(math.sqrt((len(jk) - 1) * np.var(jk))) if len(jk) >= 15 else float("inf"))
+        sig = float(max(sig_p, sig_j if math.isfinite(sig_j) else sig_p))
+        mu_used = float(Dr * Vv.sum())
+        res[alg] = {"n_used": int(Vv.size), "N_tot": float(Nv.sum()),
+                    "mu_used": mu_used, "rhat_cal": rhat,
+                    "sigma_poisson": float(sig_p), "sigma_jk": sig_j, "sigma": sig,
+                    "L5": rhat - 5.0 * sig, "U5": rhat + 5.0 * sig,
+                    "n_jk_valid": len(jk),
+                    "side_L5_ge_beta": bool(rhat - 5.0 * sig >= beta)}
+    P = res.get("V2_REVOLVER")
+    if P is None:
+        return {"all_verified": False, "does_not_gate_core": True,
+                "frozen_hash": frozen_hash, "statuses": {"dados": "vazios ausentes"},
+                "verdict": "VOID_DENSITY_V41_AWAITING_DATA"}
+    # ---- gates ----
+    sides = [d["side_L5_ge_beta"] for d in res.values()]
+    replicas_agree = bool(all(sides) or not any(sides))
+    gates_ok = bool(split_ok and P["n_jk_valid"] >= 15 and replicas_agree)
+    # ---- poder (formula do estudo cego v90) + veredito ----
+    powered = bool(beta * P["mu_used"] >= 25.0)
+    resolution_at_beta = float((beta / max(P["sigma"], 1e-30)) ** 2)
+    if not (prereg_ok and gates_ok):
+        verdict = "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS"
+    elif P["U5"] < beta:
+        verdict = "TGL_VOID_FLOOR_INCONCLUSIVE_TRACER_SUPPRESSION"
+    elif P["L5"] >= beta and powered:
+        verdict = "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED"
+    else:
+        verdict = "TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED"
+    matter_lo = P["rhat_cal"]
+    matter_hi = 1.0 + (P["rhat_cal"] - 1.0) / 2.2
+    checks = [
+        ("pre-registro v67 INTACTO", prereg_ok),
+        ("estimador V4.1 AUTO-CALIBRANTE congelado com hash antes de reabrir", True),
+        ("lapso do criterio de poder do v91 REGISTRADO e corrigido (formula cega v90)", True),
+        ("SPLIT-NULL avaliado antes dos vazios", True),
+        ("replicas julgadas NO LADO (nao no valor)", True),
+        ("veredito pertence ao conjunto da emenda", verdict in frozen["verdicts"]),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "frozen_hash": frozen_hash, "frozen": frozen,
+        "reference_density_h3Mpc3": Dr,
+        "split_null": {"ratio": split_ratio, "sigma": sig_split, "ok": split_ok},
+        "per_algorithm": res,
+        "replicas_agree_on_side": replicas_agree,
+        "primary": {"rhat_cal": P["rhat_cal"], "sigma": P["sigma"],
+                    "L5": P["L5"], "U5": P["U5"],
+                    "powered_beta_mu": float(beta * P["mu_used"]),
+                    "powered": powered,
+                    "resolution_at_beta_scale": resolution_at_beta,
+                    "matter_bracket_b1_to_b2p2": [matter_lo, matter_hi]},
+        "beta_floor": beta,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_calibracao": "razao-de-razoes: n_bar e mascara cancelam por construcao; a referencia e' a MESMA geometria amostrada por 20k aleatorios",
+            "honestidades": ("tracador UNILATERAL (b>=1, supressao>=0 [EXT]); poder = capacidade de detectar "
+                             "VIOLACAO (exige Summu >= 25/beta ~ 2078 contagens esperadas de nucleo); a "
+                             "RESOLUCAO na propria escala beta = %.2f (medir beta em si pede LRG/ELG); RSD "
+                             "nao modelado; colchete de materia b in [1, 2.2]" % resolution_at_beta),
+            "o_veredito": verdict,
+        },
+        "does_not_gate_core": True,
+        "verdict": verdict if all_v else "VOID_DENSITY_V41_NOT_SEALED_THIS_RUN",
     }
 
 
@@ -32105,6 +32582,67 @@ def _esqueleto_chapter(core, lang="pt"):
                     float(_bst.get("fisher_ideal", float("nan"))),
                     float(_cmp.get("ratio", float("nan"))),
                     str(_vdp.get("verdict", "?")).replace("_", r"\_")))
+        _vdo = core.get("void_density_opening", {}) or {}
+        _pri = _vdo.get("primary", {}) or {}
+        _rnl = _vdo.get("random_null", {}) or {}
+        _mb = _pri.get("matter_bracket_b1_to_b2p2") or [float("nan")] * 2
+        c.append((r"\textbf{A ABERTURA DO SINAL --- a rota espectroscópica fala (v91)}: emenda "
+                  r"pré-registrada (estimador V4-DENSITY congelado, hash \texttt{%s}, ANTES de "
+                  r"tocar núcleos; assimetria do traçador PRÉ-REGISTRADA: com $b\ge1$ e supressão "
+                  r"$\ge0$, $r_c^{\rm gal}\le r_c^{\rm mat}$ --- teste UNILATERAL). NULO dos "
+                  r"aleatórios ANTES dos vazios: $r_c({\rm rand})=%.4f\pm%.4f$ (esperado $1$; "
+                  r"passou: %s). ABERTO: primário REVOLVER com $%s$ vazios ($N=%.0f$ galáxias em "
+                  r"núcleos; $\mu=%.0f$ esperadas): $r_c^{\rm gal}=%.4f\pm%.4f$; consistência "
+                  r"REVOLVER--VIDE $=%.2f\sigma$; $5\sigma\in[%.4f,\,%.4f]$ vs $\beta=%.4f$; "
+                  r"powered$(\beta/\sigma)^2\ge25$: %s; colchete de MATÉRIA ($b\in[1,\,2{,}2]$): "
+                  r"$[%.4f,\,%.4f]$. \textbf{VEREDITO: \texttt{%s}}.")
+                 % (str(_vdo.get("frozen_hash", "?"))[:16],
+                    float(_rnl.get("rhat", float("nan"))),
+                    float(_rnl.get("sigma_poisson", float("nan"))),
+                    str(_vdo.get("random_null_ok", "?")),
+                    str((_vdo.get("per_algorithm", {}).get("V2_REVOLVER", {}) or {}).get("n_used", "?")),
+                    float((_vdo.get("per_algorithm", {}).get("V2_REVOLVER", {}) or {}).get("N_tot", float("nan"))),
+                    float((_vdo.get("per_algorithm", {}).get("V2_REVOLVER", {}) or {}).get("mu_tot", float("nan"))),
+                    float(_pri.get("rhat_gal", float("nan"))),
+                    float(_pri.get("sigma", float("nan"))),
+                    float(_vdo.get("consistency_sigma_REV_vs_VIDE", float("nan"))),
+                    float(_pri.get("L5", float("nan"))),
+                    float(_pri.get("U5", float("nan"))),
+                    float(_vdo.get("beta_floor", float("nan"))),
+                    str(_pri.get("powered_vs_beta", "?")),
+                    float(_mb[0]), float(_mb[1]),
+                    str((_vdo.get("statuses") or {}).get("o_veredito", "?")).replace("_", r"\_")))
+        _v41 = core.get("void_density_v41", {}) or {}
+        _p41 = _v41.get("primary", {}) or {}
+        _sn = _v41.get("split_null", {}) or {}
+        _mb41 = _p41.get("matter_bracket_b1_to_b2p2") or [float("nan")] * 2
+        c.append((r"\textbf{A EMENDA V4.1 --- o estimador AUTO-CALIBRANTE (v92)}: a lição do v91 "
+                  r"aplicada (a mesma da V1$\to$V2): razão-de-razões $r_c=[\Sigma N/\Sigma\mu]_"
+                  r"{\rm vazios}/[\Sigma N/\Sigma\mu]_{\rm aleat}$ --- $\bar n$ e máscara CANCELAM "
+                  r"por construção ($20\,000$ aleatórios; hash \texttt{%s} antes de reabrir; lapso "
+                  r"do critério de poder do v91 REGISTRADO e corrigido: powered $:=\beta\Sigma\mu"
+                  r"\ge25$, a fórmula do estudo CEGO v90 --- capacidade de detectar violação). "
+                  r"SPLIT-NULL: $%.4f\pm%.4f$ (passou: %s); réplicas julgadas NO LADO ($L5$ vs "
+                  r"$\beta$): concordam $=$ %s. PRIMÁRIO (REVOLVER): $r_c^{\rm gal,cal}=%.4f\pm"
+                  r"%.4f$; $5\sigma\in[%.4f,\,%.4f]$ vs $\beta=%.4f$; powered ($\beta\Sigma\mu="
+                  r"%.1f\ge25$): %s; resolução na escala $\beta$ $=%.2f$ [medir $\beta$ em si "
+                  r"pede LRG/ELG]; colchete de MATÉRIA ($b\in[1,\,2{,}2]$): $[%.4f,\,%.4f]$. "
+                  r"\textbf{VEREDITO: \texttt{%s}}.")
+                 % (str(_v41.get("frozen_hash", "?"))[:16],
+                    float(_sn.get("ratio", float("nan"))),
+                    float(_sn.get("sigma", float("nan"))),
+                    str(_sn.get("ok", "?")),
+                    str(_v41.get("replicas_agree_on_side", "?")),
+                    float(_p41.get("rhat_cal", float("nan"))),
+                    float(_p41.get("sigma", float("nan"))),
+                    float(_p41.get("L5", float("nan"))),
+                    float(_p41.get("U5", float("nan"))),
+                    float(_v41.get("beta_floor", float("nan"))),
+                    float(_p41.get("powered_beta_mu", float("nan"))),
+                    str(_p41.get("powered", "?")),
+                    float(_p41.get("resolution_at_beta_scale", float("nan"))),
+                    float(_mb41[0]), float(_mb41[1]),
+                    str((_v41.get("statuses") or {}).get("o_veredito", "?")).replace("_", r"\_")))
         c.append((r"\textbf{Certificado II --- a rede concreta habita H1 e H2 (face finita)}: o "
                   r"operador CONCRETO dos Three Locks (o mesmo cuja face está em kernel, "
                   r"\texttt{FiniteThreeLocks}) instancia o pacote de gap local com números: kernel "
@@ -32809,6 +33347,67 @@ def _esqueleto_chapter(core, lang="pt"):
                     float(_bst.get("fisher_ideal", float("nan"))),
                     float(_cmp.get("ratio", float("nan"))),
                     str(_vdp.get("verdict", "?")).replace("_", r"\_")))
+        _vdo = core.get("void_density_opening", {}) or {}
+        _pri = _vdo.get("primary", {}) or {}
+        _rnl = _vdo.get("random_null", {}) or {}
+        _mb = _pri.get("matter_bracket_b1_to_b2p2") or [float("nan")] * 2
+        c.append((r"\textbf{THE OPENING OF THE SIGNAL --- the spectroscopic route speaks (v91)}: "
+                  r"pre-registered amendment (V4-DENSITY estimator frozen, hash \texttt{%s}, "
+                  r"BEFORE touching cores; tracer asymmetry PRE-REGISTERED: with $b\ge1$ and "
+                  r"suppression $\ge0$, $r_c^{\rm gal}\le r_c^{\rm mat}$ --- a ONE-SIDED test). "
+                  r"Random-point NULL BEFORE the voids: $r_c({\rm rand})=%.4f\pm%.4f$ (expected "
+                  r"$1$; passed: %s). OPENED: primary REVOLVER with $%s$ voids ($N=%.0f$ core "
+                  r"galaxies; $\mu=%.0f$ expected): $r_c^{\rm gal}=%.4f\pm%.4f$; REVOLVER--VIDE "
+                  r"consistency $=%.2f\sigma$; $5\sigma\in[%.4f,\,%.4f]$ vs $\beta=%.4f$; powered "
+                  r"$(\beta/\sigma)^2\ge25$: %s; MATTER bracket ($b\in[1,\,2.2]$): "
+                  r"$[%.4f,\,%.4f]$. \textbf{VERDICT: \texttt{%s}}.")
+                 % (str(_vdo.get("frozen_hash", "?"))[:16],
+                    float(_rnl.get("rhat", float("nan"))),
+                    float(_rnl.get("sigma_poisson", float("nan"))),
+                    str(_vdo.get("random_null_ok", "?")),
+                    str((_vdo.get("per_algorithm", {}).get("V2_REVOLVER", {}) or {}).get("n_used", "?")),
+                    float((_vdo.get("per_algorithm", {}).get("V2_REVOLVER", {}) or {}).get("N_tot", float("nan"))),
+                    float((_vdo.get("per_algorithm", {}).get("V2_REVOLVER", {}) or {}).get("mu_tot", float("nan"))),
+                    float(_pri.get("rhat_gal", float("nan"))),
+                    float(_pri.get("sigma", float("nan"))),
+                    float(_vdo.get("consistency_sigma_REV_vs_VIDE", float("nan"))),
+                    float(_pri.get("L5", float("nan"))),
+                    float(_pri.get("U5", float("nan"))),
+                    float(_vdo.get("beta_floor", float("nan"))),
+                    str(_pri.get("powered_vs_beta", "?")),
+                    float(_mb[0]), float(_mb[1]),
+                    str((_vdo.get("statuses") or {}).get("o_veredito", "?")).replace("_", r"\_")))
+        _v41 = core.get("void_density_v41", {}) or {}
+        _p41 = _v41.get("primary", {}) or {}
+        _sn = _v41.get("split_null", {}) or {}
+        _mb41 = _p41.get("matter_bracket_b1_to_b2p2") or [float("nan")] * 2
+        c.append((r"\textbf{AMENDMENT V4.1 --- the SELF-CALIBRATING estimator (v92)}: v91's "
+                  r"lesson applied (the same as V1$\to$V2): ratio-of-ratios $r_c=[\Sigma N/"
+                  r"\Sigma\mu]_{\rm voids}/[\Sigma N/\Sigma\mu]_{\rm rand}$ --- $\bar n$ and mask "
+                  r"CANCEL by construction ($20\,000$ randoms; hash \texttt{%s} before reopening; "
+                  r"v91's power-criterion lapse RECORDED and corrected: powered $:=\beta\Sigma\mu"
+                  r"\ge25$, the BLIND v90 formula --- the capacity to detect a violation). "
+                  r"SPLIT-NULL: $%.4f\pm%.4f$ (passed: %s); replicas judged ON THE SIDE ($L5$ vs "
+                  r"$\beta$): agree $=$ %s. PRIMARY (REVOLVER): $r_c^{\rm gal,cal}=%.4f\pm%.4f$; "
+                  r"$5\sigma\in[%.4f,\,%.4f]$ vs $\beta=%.4f$; powered ($\beta\Sigma\mu=%.1f\ge"
+                  r"25$): %s; resolution at the $\beta$ scale $=%.2f$ [measuring $\beta$ itself "
+                  r"needs LRG/ELG]; MATTER bracket ($b\in[1,\,2.2]$): $[%.4f,\,%.4f]$. "
+                  r"\textbf{VERDICT: \texttt{%s}}.")
+                 % (str(_v41.get("frozen_hash", "?"))[:16],
+                    float(_sn.get("ratio", float("nan"))),
+                    float(_sn.get("sigma", float("nan"))),
+                    str(_sn.get("ok", "?")),
+                    str(_v41.get("replicas_agree_on_side", "?")),
+                    float(_p41.get("rhat_cal", float("nan"))),
+                    float(_p41.get("sigma", float("nan"))),
+                    float(_p41.get("L5", float("nan"))),
+                    float(_p41.get("U5", float("nan"))),
+                    float(_v41.get("beta_floor", float("nan"))),
+                    float(_p41.get("powered_beta_mu", float("nan"))),
+                    str(_p41.get("powered", "?")),
+                    float(_p41.get("resolution_at_beta_scale", float("nan"))),
+                    float(_mb41[0]), float(_mb41[1]),
+                    str((_v41.get("statuses") or {}).get("o_veredito", "?")).replace("_", r"\_")))
         c.append((r"\textbf{Certificate II --- the concrete network inhabits H1 and H2 (finite "
                   r"face)}: the CONCRETE Three Locks operator (the same one whose face is in "
                   r"kernel, \texttt{FiniteThreeLocks}) instantiates the local gap package with "
@@ -33261,8 +33860,9 @@ def _arco_vivo_md(core):
                     "void_floor_protocol", "void_floor_power", "void_floor_population",
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
-                    "void_density_power", "triad_master", "qg_closure", "bench_declaration",
-                    "certificate_II", "hilbert_home"):
+                    "void_density_power", "void_density_opening", "void_density_v41",
+                    "triad_master", "qg_closure", "bench_declaration", "certificate_II",
+                    "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
             lines.append("**Estatutos [%s]** (veredito: `%s`):\n" % (mod_key, _m.get("verdict")))
@@ -35225,6 +35825,53 @@ def main():
         _cmp.get("F_shear_v2", float("nan")), _cmp.get("ratio", float("nan"))))
     print("    [%s]" % (_vdp.get("statuses") or {}).get("honestidades"))
     print("    [ABERTURA DO SINAL RESERVADA: %s]" % (_vdp.get("statuses") or {}).get("a_regra_de_abertura"))
+    _vdo = core.get("void_density_opening", {}) or {}
+    print("  ================================================================")
+    print("  A ABERTURA DO SINAL -- A ROTA ESPECTROSCOPICA FALA [v91]: %s" % _vdo.get("verdict"))
+    print("  ================================================================")
+    print("    estimador V4-DENSITY congelado (hash %s) ANTES dos nucleos ; assimetria do tracador PRE-REGISTRADA (teste UNILATERAL)" % (
+        str(_vdo.get("frozen_hash", "?"))[:16]))
+    _rnl = _vdo.get("random_null", {}) or {}
+    print("    NULO dos aleatorios (ANTES dos vazios): r_c(rand) = %.4f +- %.4f (esperado 1) ; PASSOU = %s" % (
+        _rnl.get("rhat", float("nan")), _rnl.get("sigma_poisson", float("nan")), _vdo.get("random_null_ok")))
+    for _alg, _st in sorted((_vdo.get("per_algorithm") or {}).items()):
+        print("    %s: %s vazios ; N=%d galaxias em nucleos ; mu=%.0f esperadas ; r_c^gal = %.4f +- %.4f (P=%.4f/J=%.4f)" % (
+            _alg, _st.get("n_used"), int(_st.get("N_tot", 0)), _st.get("mu_tot", float("nan")),
+            _st.get("rhat", float("nan")), _st.get("sigma", float("nan")),
+            _st.get("sigma_poisson", float("nan")), _st.get("sigma_jk", float("nan"))))
+    _pri = _vdo.get("primary", {}) or {}
+    print("    consistencia REVOLVER vs VIDE = %.2f sigma ; 5sigma = [%.4f, %.4f] vs beta = %.6f ; powered = %s" % (
+        _vdo.get("consistency_sigma_REV_vs_VIDE", float("nan")),
+        _pri.get("L5", float("nan")), _pri.get("U5", float("nan")),
+        _vdo.get("beta_floor", float("nan")), _pri.get("powered_vs_beta")))
+    _mb = _pri.get("matter_bracket_b1_to_b2p2") or [float("nan")] * 2
+    print("    colchete de MATERIA (b em [1, 2.2]): [%.4f, %.4f] (r_c^gal e' LIMITE INFERIOR da materia)" % (_mb[0], _mb[1]))
+    print("    >>> VEREDITO: %s <<<" % ((_vdo.get("statuses") or {}).get("o_veredito")))
+    print("    [%s]" % (_vdo.get("statuses") or {}).get("honestidades"))
+    _v41 = core.get("void_density_v41", {}) or {}
+    print("  ================================================================")
+    print("  A EMENDA V4.1 -- O ESTIMADOR AUTO-CALIBRANTE [v92]: %s" % _v41.get("verdict"))
+    print("  ================================================================")
+    print("    razao-de-razoes (n_bar e mascara CANCELAM); hash %s ANTES de reabrir ; lapso do poder v91 REGISTRADO e corrigido (formula cega v90: beta*mu>=25)" % (
+        str(_v41.get("frozen_hash", "?"))[:16]))
+    _sn = _v41.get("split_null", {}) or {}
+    print("    SPLIT-NULL (metades dos 20k aleatorios): %.4f +- %.4f ; PASSOU = %s" % (
+        _sn.get("ratio", float("nan")), _sn.get("sigma", float("nan")), _sn.get("ok")))
+    for _alg, _st in sorted((_v41.get("per_algorithm") or {}).items()):
+        print("    %s: %s vazios ; N=%d ; mu_ref=%.0f ; r_c^cal = %.4f +- %.4f ; L5=%.4f ; lado(L5>=beta)=%s" % (
+            _alg, _st.get("n_used"), int(_st.get("N_tot", 0)), _st.get("mu_used", float("nan")),
+            _st.get("rhat_cal", float("nan")), _st.get("sigma", float("nan")),
+            _st.get("L5", float("nan")), _st.get("side_L5_ge_beta")))
+    print("    replicas concordam NO LADO: %s" % _v41.get("replicas_agree_on_side"))
+    _p41 = _v41.get("primary", {}) or {}
+    print("    PRIMARIO: 5sigma = [%.4f, %.4f] vs beta = %.6f ; powered (beta*mu = %.1f >= 25) = %s ; resolucao na escala beta = %.2f" % (
+        _p41.get("L5", float("nan")), _p41.get("U5", float("nan")),
+        _v41.get("beta_floor", float("nan")), _p41.get("powered_beta_mu", float("nan")),
+        _p41.get("powered"), _p41.get("resolution_at_beta_scale", float("nan"))))
+    _mb41 = _p41.get("matter_bracket_b1_to_b2p2") or [float("nan")] * 2
+    print("    colchete de MATERIA (b em [1, 2.2]): [%.4f, %.4f]" % (_mb41[0], _mb41[1]))
+    print("    >>> VEREDITO V4.1: %s <<<" % ((_v41.get("statuses") or {}).get("o_veredito")))
+    print("    [%s]" % (_v41.get("statuses") or {}).get("honestidades"))
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (

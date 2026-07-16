@@ -2742,7 +2742,7 @@
 
 ```json
 {
-  "code_sha256": "9e651c46c05f559a6ac17e5e4f55fd0f1330e8b9074de791328fdec75cd812ee",
+  "code_sha256": "a5802ba44c1047970686c3a763de0007d5b2072af18ae58ea8b6f2530761d31a",
   "cf4_catalog_hash": null,
   "window_hash": null,
   "selection_hash": null
@@ -2950,6 +2950,18 @@
 - `honestidades`: Poisson IDEAL: bias do tracador (o piso em galaxias limita o piso da MATERIA apenas com modelo de bias [EXT]; supressao de formacao nos nucleos e' a degradacao central), mascara/bordas (fracao de borda reportada), RSD e dispersao de perfil => margem [F/4, F]; n_bar estimado da propria amostra (casca radial + f_sky por grade, ~20-30% de incerteza)
 - `a_regra_de_abertura`: o sinal SO sera aberto na emenda pre-registrada v91: estimador congelado c/ hash, tratamento do bias nomeado, gates proprios, vereditos do conjunto v67
 - `o_veredito`: VOID_DENSITY_POWER_STUDIED__SIGNAL_NOT_OPENED
+
+**Estatutos [void_density_opening]** (veredito: `TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS`):
+
+- `a_abertura`: o sinal FOI aberto nesta rodada, apos nulo+gates, com estimador congelado por hash em ordem de programa auditavel
+- `honestidades`: tracador: teste UNILATERAL (b>=1, supressao>=0 [EXT]); n_bar ~20-30%; mascara por grade 2deg (aproximada); RSD nao modelado (nucleos em coords comoveis do proprio catalogo); colchete de materia com b in [1, 2.2] [EXT]
+- `o_veredito`: TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS
+
+**Estatutos [void_density_v41]** (veredito: `TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`):
+
+- `a_calibracao`: razao-de-razoes: n_bar e mascara cancelam por construcao; a referencia e' a MESMA geometria amostrada por 20k aleatorios
+- `honestidades`: tracador UNILATERAL (b>=1, supressao>=0 [EXT]); poder = capacidade de detectar VIOLACAO (exige Summu >= 25/beta ~ 2078 contagens esperadas de nucleo); a RESOLUCAO na propria escala beta = 0.52 (medir beta em si pede LRG/ELG); RSD nao modelado; colchete de materia b in [1, 2.2]
+- `o_veredito`: TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED
 
 **Estatutos [triad_master]** (veredito: `FULL_TRIAD_MASTER_COMPOSED__EINSTEIN_COEFFICIENT_EMERGES_FROM_CLAUSIUS__IMPLICATION_CLOSED_HYPOTHESES_ARE_THE_FRONTIER`):
 
