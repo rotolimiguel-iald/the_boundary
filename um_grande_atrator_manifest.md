@@ -2374,9 +2374,39 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.real_word_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.name_candidate_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.selfadjoint_idempotent_eq_starProjection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.exact_witness_of_annihilating_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.spectral_witness_of_annihilating_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.breuer_corner_of_annihilating_word": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "formal_source_hash": "ae74d8bafcb011e4ff2cc980887095084c24f50bb45cd019759b842843fcae6e",
+  "formal_source_hash": "46b7ad43d7e1fa98b5e2aebb99fbc655812391f3d88eb3f79922b4203197a643",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -2682,7 +2712,7 @@
 
 ```json
 {
-  "code_sha256": "c9a4d115cc8622148c5fa1d2590c7024612b9ee27ac795ac27c473af868ab639",
+  "code_sha256": "6c1381a5a63978f9a3f4dbf9cb28bc89c9e407947e88fc888afca725ada8c299",
   "cf4_catalog_hash": null,
   "window_hash": null,
   "selection_hash": null
@@ -2693,7 +2723,7 @@
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 315/315 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 321/321 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -2737,6 +2767,7 @@
 - `bicommutant_skeleton` = `SEMIFINITE_ANALYSIS_INCREMENT_6__DIMENSION_TRACE_IS_NORMAL_ON_CHAINS_THE_RULE_IS_CAUSAL__SET_IN_DOUBLE_COMMUTANT_FREE__TRIPLE_COMMUTANT_COLLAPSES__COMMUTANT_IS_UNITAL_MONOID__CORNER_IN_CENTRALIZER_AND_RESPECTS_ALGEBRAIC_BICOMMUTANT__CONTINUOUS_BICOMMUTANT_AND_SPECTRAL_MEMBERSHIP_REMAIN`
 - `spectral_reduction` = `SEMIFINITE_ANALYSIS_INCREMENT_7__COMMUTANT_IS_SOT_CLOSED_TOPOLOGICAL_HALF_OF_VON_NEUMANN__COMMUTANT_IS_SOT_CLOSED_SUBALGEBRA_PIECE_BY_PIECE__POLYNOMIALS_AND_THEIR_POINTWISE_LIMITS_LIVE_IN_DOUBLE_COMMUTANT__RESIDUE_REDUCED_TO_ONE_NAMED_WITNESS_SPECTRAL_APPROXIMATION__CONCRETE_BREUER_CORNER_CONDITIONAL_ON_THE_WITNESS__WITNESS_IS_KNOWN_FOR_SELFADJOINT_WITH_ISOLATED_ZERO__BUILDING_IT_IN_KERNEL_IS_THE_PROGRAM`
 - `witness_seed` = `SEMIFINITE_ANALYSIS_INCREMENT_8__THE_VERB_ANNIHILATING_WORD_MINTS_THE_NAME_CANDIDATE__LANDS_IN_CORNER__FIXES_CORNER__IDEMPOTENT_VERB_OF_NAME_IS_NAME__NO_SPECTRAL_THEOREM_USED_PURE_WORD_ALGEBRA__REMAINING_SELFADJOINTNESS_PLUS_UNIQUENESS_OF_ORTHOGONAL_PROJECTION_AND_EXISTENCE_OF_ANNIHILATING_WORD_IN_INFINITE_DIM`
+- `exact_witness` = `SEMIFINITE_ANALYSIS_INCREMENT_9__REAL_WORD_IS_SELFADJOINT__SELFADJOINT_IDEMPOTENT_LANDING_FIXING_IS_THE_ORTHOGONAL_PROJECTION_UNIQUENESS__THE_IDENTIFICATION_STARPROJECTION_EQUALS_NORMALIZED_WORD__SPECTRAL_WITNESS_PROVED_CONSTANT_SEQUENCE__BREUER_CORNER_WITH_WITNESS_DISCHARGED_TO_ANNIHILATING_WORD__REMAINING_EXISTENCE_OF_WORD_MINIMAL_POLYNOMIAL_OR_CFC_KNOWN`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
@@ -2875,6 +2906,12 @@
 - `independencia`: a fatia 0.24<=z<0.43 NAO EXISTE nos dados (BGS z_max~0.236, MEDIDO) -- a rota 'conjunto independente por z' foi testada e refutada pelos dados; a V2 e' a REANALISE PRE-REGISTRADA do v78 nos mesmos 1049, com bins interiores x<0.15 virgens (a V1 nunca os leu); independencia total = replicas DES Y3/HSC [proximo elo]
 - `honestidades`: m-bias medio global [EXT] (nao por bin tomografico); Sigma_crit efetivo do n(z) (nao por par); HSW (2,6) fixo; mocks completos substituidos por jackknife+aleatorios [refinamento = programa]; poder em r_c limitado pelos pares nos bins interiores (theta pequeno)
 - `o_veredito`: TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED
+
+**Estatutos [void_floor_v3]** (veredito: `VOID_FLOOR_V3_PROTOCOL_INSTALLED_AWAITING_DATA`):
+
+- `o_que_a_v3_fecha`: o APARELHO: instrumento responsivo (V2) + lente limpa (V2) + protocolo multi-sonda pre-registrado + aquisicao automatica + projecao do poder quantificada -- o um.py contem a solucao inteira e a maquina da prova
+- `o_que_so_a_natureza_da`: o veredito POWERED: os unicos vereditos possiveis sao os pre-registrados; com o dado publico atual a projecao honesta e' UNDERPOWERED; profundidade (HSC/Euclid/LSST) fecha o poder e o rito emite a palavra sozinho
+- `o_veredito`: VOID_FLOOR_V3_PROTOCOL_INSTALLED_AWAITING_DATA
 
 **Estatutos [triad_master]** (veredito: `FULL_TRIAD_MASTER_COMPOSED__EINSTEIN_COEFFICIENT_EMERGES_FROM_CLAUSIUS__IMPLICATION_CLOSED_HYPOTHESES_ARE_THE_FRONTIER`):
 
