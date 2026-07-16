@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=115061 len(stderr)=0
+# len(stdout)=130446 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1088,6 +1088,168 @@ TGLExt.infinite_dim_local_breuer_weight : ∀ (K : Type) [inst : Field K] {V : T
 TGLExt.not_finiteDimensional_finsupp : ∀ (K : Type) [inst : Field K], ¬FiniteDimensional K (ℕ →₀ K)
 TGLExt.first_infinite_dim_inhabitant : ∀ (K : Type) [inst : Field K],
   ∃ G, (TGLExt.semifiniteDimTrace K (ℕ →₀ K)).tau G.ker = 1 ∧ (TGLExt.semifiniteDimTrace K (ℕ →₀ K)).tau ⊤ = ⊤
+@TGLExt.atom_is_closed : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] [CompleteSpace H]
+  (x : H), IsClosed ↑(ℂ ∙ x)
+@TGLExt.closed_lattice_semifinite : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (S : Submodule ℂ H),
+  S ≠ ⊥ → ∃ T ≤ S, IsClosed ↑T ∧ T ≠ ⊥ ∧ (TGLExt.semifiniteDimTrace ℂ H).tau T = 1
+@TGLExt.closed_double_orthocomplement : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (S : Submodule ℂ H), IsClosed ↑S → Sᗮᗮ = S
+@TGLExt.orthocomplement_meet_bot : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (S : Submodule ℂ H), S ⊓ Sᗮ = ⊥
+@TGLExt.closed_orthocomplement_isCompl : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (S : Submodule ℂ H), IsClosed ↑S → IsCompl S Sᗮ
+@TGLExt.inscription_complement_infinite : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H],
+  ¬FiniteDimensional ℂ H →
+    ∀ (S : Submodule ℂ H), IsClosed ↑S → ∀ [FiniteDimensional ℂ ↥S], (TGLExt.semifiniteDimTrace ℂ H).tau Sᗮ = ⊤
+@TGLExt.atom_complement_infinite : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H],
+  ¬FiniteDimensional ℂ H →
+    ∀ (x : H),
+      x ≠ 0 → (TGLExt.semifiniteDimTrace ℂ H).tau (ℂ ∙ x) = 1 ∧ (TGLExt.semifiniteDimTrace ℂ H).tau (ℂ ∙ x)ᗮ = ⊤
+@TGLExt.closed_local_breuer_corner : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H],
+  ¬FiniteDimensional ℂ H →
+    ∀ (kr gp : Submodule ℂ H),
+      kr ≠ ⊥ →
+        kr ≤ gp →
+          FiniteDimensional ℂ ↥gp →
+            ((0 < (TGLExt.semifiniteDimTrace ℂ H).tau kr ∧ (TGLExt.semifiniteDimTrace ℂ H).tau kr < ⊤) ∧ IsClosed ↑kr) ∧
+              (TGLExt.semifiniteDimTrace ℂ H).tau krᗮ = ⊤
+@TGLExt.Invariant : {H : Type} →
+  [inst : NormedAddCommGroup H] → [inst_1 : InnerProductSpace ℂ H] → (H →L[ℂ] H) → Submodule ℂ H → Prop
+@TGLExt.closed_projection_idempotent : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (S : Submodule ℂ H) [inst_3 : S.HasOrthogonalProjection], IsIdempotentElem S.starProjection
+@TGLExt.starProjection_eq_zero_of_mem_orthogonal : ∀ {H : Type} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [CompleteSpace H] (S : Submodule ℂ H) [inst_3 : S.HasOrthogonalProjection] {y : H},
+  y ∈ Sᗮ → S.starProjection y = 0
+@TGLExt.orthogonal_invariant_of_adjoint_invariant : ∀ {H : Type} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (a : H →L[ℂ] H) (S : Submodule ℂ H),
+  TGLExt.Invariant (ContinuousLinearMap.adjoint a) S → TGLExt.Invariant a Sᗮ
+@TGLExt.starProjection_commutes_of_invariant : ∀ {H : Type} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (a : H →L[ℂ] H) (S : Submodule ℂ H)
+  [inst_3 : S.HasOrthogonalProjection],
+  TGLExt.Invariant a S →
+    TGLExt.Invariant (ContinuousLinearMap.adjoint a) S → ∀ (x : H), S.starProjection (a x) = a (S.starProjection x)
+@TGLExt.invariant_of_starProjection_commutes : ∀ {H : Type} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [CompleteSpace H] (a : H →L[ℂ] H) (S : Submodule ℂ H)
+  [inst_3 : S.HasOrthogonalProjection],
+  (∀ (x : H), S.starProjection (a x) = a (S.starProjection x)) → TGLExt.Invariant a S
+@TGLExt.selfadjoint_invariant_iff_commutes : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (a : H →L[ℂ] H),
+  ContinuousLinearMap.adjoint a = a →
+    ∀ (S : Submodule ℂ H) [inst_3 : S.HasOrthogonalProjection],
+      TGLExt.Invariant a S ↔ ∀ (x : H), S.starProjection (a x) = a (S.starProjection x)
+@TGLExt.kerHasOrthogonalProjection : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (T : H →L[ℂ] H), (↑T).ker.HasOrthogonalProjection
+@TGLExt.selfadjoint_ker_projection_in_commutant : ∀ {H : Type} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (T : H →L[ℂ] H),
+  ContinuousLinearMap.adjoint T = T → ∀ (x : H), (↑T).ker.starProjection (T x) = T ((↑T).ker.starProjection x)
+@TGLExt.breuer_corner_projection_in_commutant : ∀ {H : Type} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H],
+  ¬FiniteDimensional ℂ H →
+    ∀ (T : H →L[ℂ] H),
+      ContinuousLinearMap.adjoint T = T →
+        ∀ (gp : Submodule ℂ H),
+          (↑T).ker ≠ ⊥ →
+            (↑T).ker ≤ gp →
+              FiniteDimensional ℂ ↥gp →
+                (∀ (x : H), (↑T).ker.starProjection (T x) = T ((↑T).ker.starProjection x)) ∧
+                  (0 < (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).ker ∧
+                      (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).ker < ⊤) ∧
+                    (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).kerᗮ = ⊤
+@TGLExt.dimension_trace_normal_on_chains : ∀ {K : Type} [inst : Field K] {V : Type} [inst_1 : AddCommGroup V]
+  [inst_2 : Module K V] (S : ℕ → Submodule K V),
+  Monotone S → (TGLExt.semifiniteDimTrace K V).tau (⨆ i, S i) = ⨆ i, (TGLExt.semifiniteDimTrace K V).tau (S i)
+@TGLExt.operator_commutant_antitone : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (A B : Set (H →L[ℂ] H)), A ⊆ B → B.centralizer ⊆ A.centralizer
+@TGLExt.operator_algebra_in_double_commutant : ∀ {H : Type} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [CompleteSpace H] (A : Set (H →L[ℂ] H)), A ⊆ A.centralizer.centralizer
+@TGLExt.operator_triple_commutant_collapse : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (A : Set (H →L[ℂ] H)), A.centralizer.centralizer.centralizer = A.centralizer
+@TGLExt.operator_commutant_unital_multiplicative : ∀ {H : Type} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [CompleteSpace H] (A : Set (H →L[ℂ] H)),
+  1 ∈ A.centralizer ∧ ∀ (a b : H →L[ℂ] H), a ∈ A.centralizer → b ∈ A.centralizer → a * b ∈ A.centralizer
+@TGLExt.corner_projection_in_commutant_set : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (T : H →L[ℂ] H),
+  ContinuousLinearMap.adjoint T = T → (↑T).ker.starProjection ∈ {T}.centralizer
+@TGLExt.corner_commutes_with_bicommutant : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (T : H →L[ℂ] H),
+  ContinuousLinearMap.adjoint T = T →
+    ∀ b ∈ {T}.centralizer.centralizer, (↑T).ker.starProjection * b = b * (↑T).ker.starProjection
+@TGLExt.breuer_corner_full_algebraic_frame : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H],
+  ¬FiniteDimensional ℂ H →
+    ∀ (T : H →L[ℂ] H),
+      ContinuousLinearMap.adjoint T = T →
+        ∀ (gp : Submodule ℂ H),
+          (↑T).ker ≠ ⊥ →
+            (↑T).ker ≤ gp →
+              FiniteDimensional ℂ ↥gp →
+                ((↑T).ker.starProjection ∈ {T}.centralizer ∧
+                    ∀ b ∈ {T}.centralizer.centralizer, (↑T).ker.starProjection * b = b * (↑T).ker.starProjection) ∧
+                  (0 < (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).ker ∧
+                      (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).ker < ⊤) ∧
+                    (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).kerᗮ = ⊤
+@TGLExt.commutant_pointwise_limit_closed : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (A : Set (H →L[ℂ] H)) (a : ℕ → H →L[ℂ] H) (b : H →L[ℂ] H),
+  (∀ (n : ℕ), a n ∈ A.centralizer) →
+    (∀ (x : H), Filter.Tendsto (fun n => (a n) x) Filter.atTop (nhds (b x))) → b ∈ A.centralizer
+@TGLExt.commutant_add_smul_closed : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (A : Set (H →L[ℂ] H)),
+  (∀ (a b : H →L[ℂ] H), a ∈ A.centralizer → b ∈ A.centralizer → a + b ∈ A.centralizer) ∧
+    ∀ (c : ℂ), ∀ a ∈ A.centralizer, c • a ∈ A.centralizer
+@TGLExt.generator_in_bicommutant : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (T : H →L[ℂ] H), T ∈ {T}.centralizer.centralizer
+@TGLExt.powers_in_bicommutant : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (T : H →L[ℂ] H) (n : ℕ), T ^ n ∈ {T}.centralizer.centralizer
+@TGLExt.polynomials_in_bicommutant : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (T : H →L[ℂ] H) (p : Polynomial ℂ), (Polynomial.aeval T) p ∈ {T}.centralizer.centralizer
+@TGLExt.limit_of_polynomials_in_bicommutant : ∀ {H : Type} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [CompleteSpace H] (T b : H →L[ℂ] H) (p : ℕ → Polynomial ℂ),
+  (∀ (x : H), Filter.Tendsto (fun n => ((Polynomial.aeval T) (p n)) x) Filter.atTop (nhds (b x))) →
+    b ∈ {T}.centralizer.centralizer
+@TGLExt.SpectralApproximationWitness : {H : Type} →
+  [inst : NormedAddCommGroup H] → [inst_1 : InnerProductSpace ℂ H] → [CompleteSpace H] → (H →L[ℂ] H) → Prop
+@TGLExt.corner_in_algebra_of_approximation : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (T : H →L[ℂ] H),
+  TGLExt.SpectralApproximationWitness T → (↑T).ker.starProjection ∈ {T}.centralizer.centralizer
+@TGLExt.concrete_breuer_corner_conditional : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H],
+  ¬FiniteDimensional ℂ H →
+    ∀ (T : H →L[ℂ] H),
+      ContinuousLinearMap.adjoint T = T →
+        TGLExt.SpectralApproximationWitness T →
+          ∀ (gp : Submodule ℂ H),
+            (↑T).ker ≠ ⊥ →
+              (↑T).ker ≤ gp →
+                FiniteDimensional ℂ ↥gp →
+                  ((↑T).ker.starProjection ∈ {T}.centralizer.centralizer ∧ (↑T).ker.starProjection ∈ {T}.centralizer) ∧
+                    (0 < (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).ker ∧
+                        (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).ker < ⊤) ∧
+                      (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).kerᗮ = ⊤
+@TGLExt.verb_word_lands_in_corner : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (T : H →L[ℂ] H) (q : Polynomial ℂ),
+  (Polynomial.aeval T) (Polynomial.X * q) = 0 → ∀ (x : H), ((Polynomial.aeval T) q) x ∈ (↑T).ker
+@TGLExt.verb_word_fixes_the_name : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (T : H →L[ℂ] H) (q : Polynomial ℂ) {x : H},
+  x ∈ (↑T).ker → ((Polynomial.aeval T) q) x = q.coeff 0 • x
+@TGLExt.verb_word_mints_idempotent : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (T : H →L[ℂ] H) (q : Polynomial ℂ),
+  (Polynomial.aeval T) (Polynomial.X * q) = 0 →
+    (Polynomial.aeval T) q * (Polynomial.aeval T) q = q.coeff 0 • (Polynomial.aeval T) q
+@TGLExt.name_candidate_idempotent : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (T : H →L[ℂ] H) (q : Polynomial ℂ),
+  (Polynomial.aeval T) (Polynomial.X * q) = 0 →
+    q.coeff 0 ≠ 0 → IsIdempotentElem ((q.coeff 0)⁻¹ • (Polynomial.aeval T) q)
+@TGLExt.witness_seed_complete : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [CompleteSpace H] (T : H →L[ℂ] H) (q : Polynomial ℂ),
+  (Polynomial.aeval T) (Polynomial.X * q) = 0 →
+    q.coeff 0 ≠ 0 →
+      (∀ (x : H), ((q.coeff 0)⁻¹ • (Polynomial.aeval T) q) x ∈ (↑T).ker) ∧
+        (∀ x ∈ (↑T).ker, ((q.coeff 0)⁻¹ • (Polynomial.aeval T) q) x = x) ∧
+          IsIdempotentElem ((q.coeff 0)⁻¹ • (Polynomial.aeval T) q)
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1417,6 +1579,43 @@ TGLExt.first_infinite_dim_inhabitant : ∀ (K : Type) [inst : Field K],
 'TGLExt.infinite_dim_local_breuer_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.not_finiteDimensional_finsupp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.first_infinite_dim_inhabitant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.atom_is_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.closed_lattice_semifinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.closed_double_orthocomplement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.orthocomplement_meet_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.closed_orthocomplement_isCompl' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.inscription_complement_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.atom_complement_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.closed_local_breuer_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.closed_projection_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.starProjection_eq_zero_of_mem_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.orthogonal_invariant_of_adjoint_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.starProjection_commutes_of_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.invariant_of_starProjection_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.selfadjoint_invariant_iff_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.selfadjoint_ker_projection_in_commutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.breuer_corner_projection_in_commutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.dimension_trace_normal_on_chains' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.operator_commutant_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.operator_algebra_in_double_commutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.operator_triple_commutant_collapse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.operator_commutant_unital_multiplicative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.corner_projection_in_commutant_set' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.corner_commutes_with_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.breuer_corner_full_algebraic_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.commutant_pointwise_limit_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.commutant_add_smul_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.generator_in_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.powers_in_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.polynomials_in_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.limit_of_polynomials_in_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.corner_in_algebra_of_approximation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.concrete_breuer_corner_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.verb_word_lands_in_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.verb_word_fixes_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.verb_word_mints_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.name_candidate_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.witness_seed_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

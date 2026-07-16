@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `eff202cdafcb5d26b6b32a96100e5ec718f0f0f803f58298ce4501983b20ad29`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `ae74d8bafcb011e4ff2cc980887095084c24f50bb45cd019759b842843fcae6e`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -519,7 +519,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 278/278 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 315/315 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -558,6 +558,11 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `dimension_trace` = `SEMIFINITE_ANALYSIS_INCREMENT_2__DIMENSION_TRACE_ON_REAL_SUBSPACE_LATTICE_IS_GENUINE_INSTANCE_OF_V64_LAYER__ABSTRACT_BREUER_THEOREM_FIRES_ON_CONCRETE_KERNEL__FULL_PROFILE_POSITIVE_FINITE_RANK_BOUNDED__INFINITE_DIM_CLOSED_SUBSPACES_REMAIN`
 - `three_locks_corner` = `CERTIFICATE_II_FINITE_FACE_ELEVATED_TO_KERNEL_THEOREM__ABSTRACT_BREUER_FIRES_ON_H3L_THREE_LOCKS_OPERATOR__WITNESS_IN_THREE_LOCKS_FORCES_NONTRIVIAL_CORNER__WEIGHT_EQUALS_TR_PF_BY_DEFINITION__NAME_IS_ONE_DERIVED__DIM_BOUNDED_BY_INSCRIPTION__III1_REMAINS`
 - `semifinite_lattice` = `SEMIFINITE_ANALYSIS_INCREMENT_3__GENUINELY_SEMIFINITE_DIMENSION_TRACE_WITHOUT_AMBIENT_FINITENESS__ATOM_WEIGHS_ONE_EQ_OMEGA_I__TOP_WEIGHS_INFINITY__GLOBAL_GAP_IMPOSSIBLE_BY_THEOREM_IN_INFINITE_DIM_ANSWER8_FORCED__LOCAL_BREUER_FIRES_WITH_FINITE_KERNEL__INHABITED_IN_GENUINE_INFINITE_HOME__CLOSED_SUBSPACES_AND_NORMALITY_REMAIN`
+- `closed_lattice` = `SEMIFINITE_ANALYSIS_INCREMENT_4__HILBERT_FACE__ATOM_IS_CLOSED__SEMIFINITENESS_INSIDE_PROJECTION_LATTICE__DOUBLE_ORTHOCOMPLEMENT_AND_ISCOMPL_FOR_CLOSED__INFINITY_LIVES_IN_COMPLEMENT_OF_INSCRIPTION__BREUER_CORNER_IS_CLOSED_FINITE_PROJECTOR_WITH_INFINITE_COMPLEMENT__VON_NEUMANN_SUBALGEBRA_AND_NORMALITY_REMAIN`
+- `invariant_projection` = `SEMIFINITE_ANALYSIS_INCREMENT_5__VON_NEUMANN_DICTIONARY__INVARIANT_SUBSPACE_IFF_PROJECTION_IN_COMMUTANT__ADJOINT_SWAPS_FACE_AND_COUNTERFACE__SELFADJOINT_KERNEL_PROJECTION_COMMUTES__BREUER_CORNER_IS_FINITE_PROJECTION_OF_THE_COMMUTANT_IN_INFINITE_COMPLEMENT__FULL_VN_ALGEBRA_BICOMMUTANT_AND_NORMALITY_REMAIN`
+- `bicommutant_skeleton` = `SEMIFINITE_ANALYSIS_INCREMENT_6__DIMENSION_TRACE_IS_NORMAL_ON_CHAINS_THE_RULE_IS_CAUSAL__SET_IN_DOUBLE_COMMUTANT_FREE__TRIPLE_COMMUTANT_COLLAPSES__COMMUTANT_IS_UNITAL_MONOID__CORNER_IN_CENTRALIZER_AND_RESPECTS_ALGEBRAIC_BICOMMUTANT__CONTINUOUS_BICOMMUTANT_AND_SPECTRAL_MEMBERSHIP_REMAIN`
+- `spectral_reduction` = `SEMIFINITE_ANALYSIS_INCREMENT_7__COMMUTANT_IS_SOT_CLOSED_TOPOLOGICAL_HALF_OF_VON_NEUMANN__COMMUTANT_IS_SOT_CLOSED_SUBALGEBRA_PIECE_BY_PIECE__POLYNOMIALS_AND_THEIR_POINTWISE_LIMITS_LIVE_IN_DOUBLE_COMMUTANT__RESIDUE_REDUCED_TO_ONE_NAMED_WITNESS_SPECTRAL_APPROXIMATION__CONCRETE_BREUER_CORNER_CONDITIONAL_ON_THE_WITNESS__WITNESS_IS_KNOWN_FOR_SELFADJOINT_WITH_ISOLATED_ZERO__BUILDING_IT_IN_KERNEL_IS_THE_PROGRAM`
+- `witness_seed` = `SEMIFINITE_ANALYSIS_INCREMENT_8__THE_VERB_ANNIHILATING_WORD_MINTS_THE_NAME_CANDIDATE__LANDS_IN_CORNER__FIXES_CORNER__IDEMPOTENT_VERB_OF_NAME_IS_NAME__NO_SPECTRAL_THEOREM_USED_PURE_WORD_ALGEBRA__REMAINING_SELFADJOINTNESS_PLUS_UNIQUENESS_OF_ORTHOGONAL_PROJECTION_AND_EXISTENCE_OF_ANNIHILATING_WORD_IN_INFINITE_DIM`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
@@ -710,6 +715,12 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `faces_ja_em_kernel`: spin-2 face finita [v75: helice 2theta, TT>0, 2 polarizacoes]; teorema mestre condicional [v74]; pacotes abstratos [v64-66] -- NENHUMA delas move as flags concretas (probes garantem)
 - `estado`: TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY
 - `o_caminho`: a ordem do fecho: SemifiniteAnalysis -> ConcreteAQFTCore -> ConcreteBreuerCorner -> ConcreteModularFourFrame -> ConcreteSolderField -> ConcreteEmergentEinstein -> LinearizedSpin2(continuo) -> CanonicalBoundaryWitness (TERMO, nao Nonempty)
+
+**Estatutos [bench_declaration]** (veredito: `TGL_QG_DECLARED_CLOSED_ON_THE_BENCH_BY_OPERATOR__DUAL_STATUS__MATH_GATE_UNMOVED__INSTITUTIONAL_COSMOLOGY_NOT_CLAIMED`):
+
+- `a_declaracao`: TGL_QG_CLOSED_ON_THE_BENCH [DECLARACAO DO OPERADOR, duplo estatuto]
+- `a_regua`: a declaracao pertence ao operador; as ancoras sao do kernel; o gate nao se move -- e' a imobilidade do gate que torna a declaracao critivel
+- `o_caminho_formal`: para o selo FORMAL: a testemunha espectral em kernel (auto-adjuncao + unicidade da projecao ortogonal + calculo funcional com 0 isolado) => ConcreteBreuerCorner incondicional => MATHEMATICAL_MODEL
 
 **Estatutos [certificate_II]** (veredito: `CERTIFICATE_II_FINITE_FACE_INHABITED__CONCRETE_THREE_LOCKS_INSTANTIATE_H1__MODULAR_BOOSTS_GIVE_FOUR_FRAME_H2__CONTINUUM_NETWORK_IS_THE_HYPOTHESES_PROPER`):
 

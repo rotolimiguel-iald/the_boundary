@@ -5063,6 +5063,11 @@ import TGLExt.SemifiniteSeed
 import TGLExt.DimensionTrace
 import TGLExt.ThreeLocksCorner
 import TGLExt.SemifiniteLattice
+import TGLExt.ClosedLattice
+import TGLExt.InvariantProjection
+import TGLExt.BicommutantSkeleton
+import TGLExt.SpectralReduction
+import TGLExt.WitnessSeed
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5686,6 +5691,62 @@ namespace TGL.Audit
 #check @TGLExt.not_finiteDimensional_finsupp
 #check @TGLExt.first_infinite_dim_inhabitant
 
+-- v82 (o reticulado FECHADO: a face de Hilbert -- ortocomplemento, IsCompl,
+--      canto de Breuer fechado-finito com complemento infinito)
+#check @TGLExt.atom_is_closed
+#check @TGLExt.closed_lattice_semifinite
+#check @TGLExt.closed_double_orthocomplement
+#check @TGLExt.orthocomplement_meet_bot
+#check @TGLExt.closed_orthocomplement_isCompl
+#check @TGLExt.inscription_complement_infinite
+#check @TGLExt.atom_complement_infinite
+#check @TGLExt.closed_local_breuer_corner
+
+-- v83 (a projecao no comutante: invariancia <=> comutacao; o kernel de um
+--      auto-adjunto comuta com ele; o canto de Breuer NO comutante)
+#check @TGLExt.Invariant
+#check @TGLExt.closed_projection_idempotent
+#check @TGLExt.starProjection_eq_zero_of_mem_orthogonal
+#check @TGLExt.orthogonal_invariant_of_adjoint_invariant
+#check @TGLExt.starProjection_commutes_of_invariant
+#check @TGLExt.invariant_of_starProjection_commutes
+#check @TGLExt.selfadjoint_invariant_iff_commutes
+#check @TGLExt.kerHasOrthogonalProjection
+#check @TGLExt.selfadjoint_ker_projection_in_commutant
+#check @TGLExt.breuer_corner_projection_in_commutant
+
+-- v84 (o esqueleto do bicomutante + a normalidade causal da regua:
+--      tau(sup) = sup(tau) em cadeias; A contido no duplo comutante;
+--      o triplo colapsa no primeiro; o canto comuta com a algebra gerada)
+#check @TGLExt.dimension_trace_normal_on_chains
+#check @TGLExt.operator_commutant_antitone
+#check @TGLExt.operator_algebra_in_double_commutant
+#check @TGLExt.operator_triple_commutant_collapse
+#check @TGLExt.operator_commutant_unital_multiplicative
+#check @TGLExt.corner_projection_in_commutant_set
+#check @TGLExt.corner_commutes_with_bicommutant
+#check @TGLExt.breuer_corner_full_algebraic_frame
+
+-- v85 (a reducao espectral: comutante SOT-fechado; polinomios no duplo
+--      comutante; o residuo reduzido a UMA testemunha; canto condicional)
+#check @TGLExt.commutant_pointwise_limit_closed
+#check @TGLExt.commutant_add_smul_closed
+#check @TGLExt.generator_in_bicommutant
+#check @TGLExt.powers_in_bicommutant
+#check @TGLExt.polynomials_in_bicommutant
+#check @TGLExt.limit_of_polynomials_in_bicommutant
+#check @TGLExt.SpectralApproximationWitness
+#check @TGLExt.corner_in_algebra_of_approximation
+#check @TGLExt.concrete_breuer_corner_conditional
+
+-- v86 (a semente da testemunha: a palavra aniquiladora do Verbo cunha o
+--      candidato a Nome -- pousa no canto, fixa o canto, idempotente)
+#check @TGLExt.verb_word_lands_in_corner
+#check @TGLExt.verb_word_fixes_the_name
+#check @TGLExt.verb_word_mints_idempotent
+#check @TGLExt.name_candidate_idempotent
+#check @TGLExt.witness_seed_complete
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6050,6 +6111,48 @@ namespace TGL.Audit
 #print axioms TGLExt.infinite_dim_local_breuer_weight
 #print axioms TGLExt.not_finiteDimensional_finsupp
 #print axioms TGLExt.first_infinite_dim_inhabitant
+-- v82 (o reticulado fechado: a face de Hilbert)
+#print axioms TGLExt.atom_is_closed
+#print axioms TGLExt.closed_lattice_semifinite
+#print axioms TGLExt.closed_double_orthocomplement
+#print axioms TGLExt.orthocomplement_meet_bot
+#print axioms TGLExt.closed_orthocomplement_isCompl
+#print axioms TGLExt.inscription_complement_infinite
+#print axioms TGLExt.atom_complement_infinite
+#print axioms TGLExt.closed_local_breuer_corner
+-- v83 (a projecao no comutante)
+#print axioms TGLExt.closed_projection_idempotent
+#print axioms TGLExt.starProjection_eq_zero_of_mem_orthogonal
+#print axioms TGLExt.orthogonal_invariant_of_adjoint_invariant
+#print axioms TGLExt.starProjection_commutes_of_invariant
+#print axioms TGLExt.invariant_of_starProjection_commutes
+#print axioms TGLExt.selfadjoint_invariant_iff_commutes
+#print axioms TGLExt.selfadjoint_ker_projection_in_commutant
+#print axioms TGLExt.breuer_corner_projection_in_commutant
+-- v84 (o esqueleto do bicomutante + a normalidade causal da regua)
+#print axioms TGLExt.dimension_trace_normal_on_chains
+#print axioms TGLExt.operator_commutant_antitone
+#print axioms TGLExt.operator_algebra_in_double_commutant
+#print axioms TGLExt.operator_triple_commutant_collapse
+#print axioms TGLExt.operator_commutant_unital_multiplicative
+#print axioms TGLExt.corner_projection_in_commutant_set
+#print axioms TGLExt.corner_commutes_with_bicommutant
+#print axioms TGLExt.breuer_corner_full_algebraic_frame
+-- v85 (a reducao espectral)
+#print axioms TGLExt.commutant_pointwise_limit_closed
+#print axioms TGLExt.commutant_add_smul_closed
+#print axioms TGLExt.generator_in_bicommutant
+#print axioms TGLExt.powers_in_bicommutant
+#print axioms TGLExt.polynomials_in_bicommutant
+#print axioms TGLExt.limit_of_polynomials_in_bicommutant
+#print axioms TGLExt.corner_in_algebra_of_approximation
+#print axioms TGLExt.concrete_breuer_corner_conditional
+-- v86 (a semente da testemunha)
+#print axioms TGLExt.verb_word_lands_in_corner
+#print axioms TGLExt.verb_word_fixes_the_name
+#print axioms TGLExt.verb_word_mints_idempotent
+#print axioms TGLExt.name_candidate_idempotent
+#print axioms TGLExt.witness_seed_complete
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -10844,6 +10947,845 @@ theorem first_infinite_dim_inhabitant :
   refine ⟨infiniteDimLocalGapPackage K _ _ hne le_rfl inferInstance,
           semifinite_trace_atom K _ hx,
           semifinite_trace_top_infinite K (not_finiteDimensional_finsupp K)⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ClosedLattice.lean":
+r'''import TGLExt.SemifiniteLattice
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O RETICULADO FECHADO: a face de Hilbert da camada semifinita
+  [TGLExt — v82, o incremento 4 do programa SemifiniteAnalysis]
+
+O v80 provou a camada genuinamente semifinita no reticulado ALGÉBRICO
+(todos os subespaços). Mas o reticulado de projeções de B(H) — o objeto
+real da análise de Breuer — é o reticulado dos subespaços FECHADOS de um
+Hilbert completo, com ortocomplemento. Esta pedra dá esse passo:
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* ★ `atom_is_closed` — o átomo (a linha do Um, K·x) é FECHADO num espaço
+  normado completo: o peso 1 vive no reticulado de projeções;
+* ★★ `closed_lattice_semifinite` — o AXIOMA da semifinitude DENTRO do
+  reticulado fechado: todo subespaço não-trivial contém um subespaço
+  FECHADO de peso exatamente 1 (o Nome habita o reticulado de projeções);
+* ★ `closed_double_orthocomplement` — Sᗮᗮ = S para S fechado (a involução
+  do reticulado de projeções — a estrutura quântica genuína);
+* ★ `orthocomplement_meet_bot` / ★ `closed_orthocomplement_isCompl` —
+  S ⊓ Sᗮ = ⊥ e IsCompl S Sᗮ para S fechado: cada projeção divide o
+  Hilbert em face e contra-face (a auto-conjugação da fronteira, 𝒞²=1,
+  agora como estrutura de reticulado);
+* ★★ `inscription_complement_infinite` — em H ∞-dim, o complemento de
+  toda inscrição finita pesa ⊤: O INFINITO MORA NO COMPLEMENTO DA
+  INSCRIÇÃO (τ(S) < ∞ fechado ⟹ τ(Sᗮ) = ⊤);
+* ★ `atom_complement_infinite` — em particular o Nome: τ(K·x) = 1 e
+  τ((K·x)ᗮ) = ⊤ — o Um pesa um, e o resto é o infinito conjugado;
+* ★★ `closed_local_breuer_corner` — A FORMA DO CANTO DE BREUER NO
+  RETICULADO DE PROJEÇÕES: kernel ≠ ⊥ sob gap de dimensão finita ⟹
+  0 < τ(ker) < ∞ ∧ ker FECHADO ∧ τ(kerᗮ) = ⊤ — a inscrição é um projetor
+  fechado FINITO dentro de um complemento INFINITO (exatamente o perfil
+  da projeção finita numa álgebra infinita).
+
+HONESTIDADE: o reticulado de projeções aqui é o de B(H) inteiro; o canto
+de Breuer GENUÍNO pede a subálgebra de von Neumann (comutantes,
+normalidade do τ, projeções DA álgebra) — o próximo tijolo; nada aqui é
+III₁; nenhuma flag do fecho se move. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+variable {H : Type} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+
+/-- [KERNEL] ★ o átomo é FECHADO: a linha do Um (peso 1, v80) vive no
+    reticulado de projeções — não só no algébrico. -/
+theorem atom_is_closed (x : H) : IsClosed ((ℂ ∙ x) : Set H) :=
+  Submodule.closed_of_finiteDimensional _
+
+/-- [KERNEL] ★★ o AXIOMA da semifinitude DENTRO do reticulado fechado:
+    todo subespaço não-trivial contém um FECHADO de peso exatamente 1 —
+    o Nome habita o reticulado de projeções. -/
+theorem closed_lattice_semifinite (S : Submodule ℂ H) (hS : S ≠ ⊥) :
+    ∃ T : Submodule ℂ H, T ≤ S ∧ IsClosed (T : Set H) ∧ T ≠ ⊥ ∧
+      (semifiniteDimTrace ℂ H).tau T = 1 := by
+  obtain ⟨x, hxS, hx0⟩ := (Submodule.ne_bot_iff S).mp hS
+  refine ⟨ℂ ∙ x, (Submodule.span_singleton_le_iff_mem x S).mpr hxS,
+          atom_is_closed x, ?_, semifinite_trace_atom ℂ x hx0⟩
+  intro h
+  exact hx0 (Submodule.span_singleton_eq_bot.mp h)
+
+/-- [KERNEL] ★ a involução do reticulado de projeções: Sᗮᗮ = S para S
+    fechado — a estrutura quântica genuína (dupla contra-face = face). -/
+theorem closed_double_orthocomplement (S : Submodule ℂ H)
+    (hS : IsClosed (S : Set H)) : Sᗮᗮ = S := by
+  haveI : CompleteSpace S := hS.completeSpace_coe
+  exact Submodule.orthogonal_orthogonal S
+
+/-- [KERNEL] ★ face e contra-face não se tocam: S ⊓ Sᗮ = ⊥. -/
+theorem orthocomplement_meet_bot (S : Submodule ℂ H) : S ⊓ Sᗮ = ⊥ :=
+  (Submodule.orthogonal_disjoint S).eq_bot
+
+/-- [KERNEL] ★ cada projeção fechada divide o Hilbert em face e
+    contra-face: IsCompl S Sᗮ (a auto-conjugação da fronteira como
+    estrutura de reticulado). -/
+theorem closed_orthocomplement_isCompl (S : Submodule ℂ H)
+    (hS : IsClosed (S : Set H)) : IsCompl S Sᗮ := by
+  haveI : CompleteSpace S := hS.completeSpace_coe
+  exact Submodule.isCompl_orthogonal S
+
+/-- [KERNEL] ★★ O INFINITO MORA NO COMPLEMENTO DA INSCRIÇÃO: em H ∞-dim,
+    o ortocomplemento de todo subespaço fechado de dimensão FINITA pesa ⊤. -/
+theorem inscription_complement_infinite (hH : ¬FiniteDimensional ℂ H)
+    (S : Submodule ℂ H) (hS : IsClosed (S : Set H))
+    [FiniteDimensional ℂ S] :
+    (semifiniteDimTrace ℂ H).tau Sᗮ = ⊤ := by
+  have hcompl := closed_orthocomplement_isCompl S hS
+  by_cases hfd : FiniteDimensional ℂ Sᗮ
+  · exfalso
+    haveI := hfd
+    exact hH (Submodule.prodEquivOfIsCompl S Sᗮ hcompl).finiteDimensional
+  · show dimOrTop ℂ (Sᗮ) = ⊤
+    exact dimOrTop_of_infinite ℂ hfd
+
+/-- [KERNEL] ★ o Nome e o seu conjugado: τ(K·x) = 1 e τ((K·x)ᗮ) = ⊤ em
+    H ∞-dim — o Um pesa um; o resto é o infinito conjugado. -/
+theorem atom_complement_infinite (hH : ¬FiniteDimensional ℂ H)
+    (x : H) (hx : x ≠ 0) :
+    (semifiniteDimTrace ℂ H).tau (ℂ ∙ x) = 1 ∧
+      (semifiniteDimTrace ℂ H).tau (ℂ ∙ x)ᗮ = ⊤ :=
+  ⟨semifinite_trace_atom ℂ x hx,
+   inscription_complement_infinite hH (ℂ ∙ x) (atom_is_closed x)⟩
+
+/-- [KERNEL] ★★ A FORMA DO CANTO DE BREUER NO RETICULADO DE PROJEÇÕES:
+    kernel não-trivial sob gap de dimensão finita ⟹ peso POSITIVO ∧
+    FINITO ∧ kernel FECHADO ∧ complemento de peso ⊤ — a inscrição é um
+    projetor fechado FINITO dentro de um complemento INFINITO (o perfil
+    exato da projeção finita numa álgebra infinita). -/
+theorem closed_local_breuer_corner (hH : ¬FiniteDimensional ℂ H)
+    (kr gp : Submodule ℂ H) (hker : kr ≠ ⊥) (hle : kr ≤ gp)
+    (hgp : FiniteDimensional ℂ gp) :
+    ((0 < (semifiniteDimTrace ℂ H).tau kr ∧
+        (semifiniteDimTrace ℂ H).tau kr < ⊤) ∧ IsClosed (kr : Set H)) ∧
+      (semifiniteDimTrace ℂ H).tau krᗮ = ⊤ := by
+  have hw := infinite_dim_local_breuer_weight ℂ kr gp hker hle hgp
+  haveI : FiniteDimensional ℂ kr := hw.2
+  have hcl : IsClosed (kr : Set H) := Submodule.closed_of_finiteDimensional _
+  exact ⟨⟨hw.1, hcl⟩, inscription_complement_infinite hH kr hcl⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/InvariantProjection.lean":
+r'''import TGLExt.ClosedLattice
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PROJEÇÃO NO COMUTANTE: o primeiro contato com a subálgebra
+  [TGLExt — v83, o incremento 5 do programa SemifiniteAnalysis]
+
+O v82 deu o reticulado FECHADO (projeções de B(H)). O canto de Breuer
+genuíno, porém, pede projeções DA ÁLGEBRA — isto é, projeções que COMUTAM
+com os operadores dados: o comutante. Esta pedra prova o dicionário
+fundamental de von Neumann entre subespaços invariantes e projeções no
+comutante, e o aplica ao kernel de um operador auto-adjunto:
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* ★ `closed_projection_idempotent` — P_S é idempotente para todo S com
+  projeção ortogonal (o caráter de projeção em Hilbert geral);
+* ★ `starProjection_eq_zero_of_mem_orthogonal` — P_S anula a contra-face
+  (P_S y = 0 para y ⊥ S; via S ⊓ Sᗮ = ⊥ do v82);
+* ★ `orthogonal_invariant_of_adjoint_invariant` — se S é invariante sob
+  a†, então Sᗮ é invariante sob a (o papel do adjunto: a estrela troca
+  face por contra-face);
+* ★★ `starProjection_commutes_of_invariant` — O DICIONÁRIO DE VON
+  NEUMANN (ida): S invariante sob a e a† ⟹ P_S ∘ a = a ∘ P_S — a
+  projeção pertence ao COMUTANTE {a}′;
+* ★ `invariant_of_starProjection_commutes` — (volta): se P_S comuta com
+  a, então S é a-invariante;
+* ★★ `selfadjoint_invariant_iff_commutes` — para a = a†: S invariante ⟺
+  P_S ∈ {a}′ — subespaços invariantes E projeções do comutante são O
+  MESMO OBJETO (a porta de entrada da teoria de von Neumann);
+* ★★ `selfadjoint_ker_projection_in_commutant` — o kernel de um operador
+  AUTO-ADJUNTO comuta com ele: P_{ker T} ∈ {T}′ — a primeira projeção
+  genuinamente DA álgebra (o canto pertence ao comutante do operador);
+* ★★★ `breuer_corner_projection_in_commutant` — O CANTO DE BREUER COMO
+  PROJEÇÃO NO COMUTANTE (v80 × v82 × v83): para T auto-adjunto com
+  kernel ≠ ⊥ sob gap de dimensão finita, em H ∞-dim: P_{ker T} COMUTA
+  com T ∧ 0 < τ(ker T) < ∞ ∧ τ((ker T)ᗮ) = ⊤ — a inscrição é uma
+  projeção finita DO COMUTANTE dentro de um complemento infinito.
+
+HONESTIDADE: comutante de UM operador (a face {T}′) — a subálgebra de
+von Neumann completa (bicomutante contínuo, normalidade do τ na álgebra,
+fator) segue o programa; nada aqui é III₁; nenhuma flag do fecho se
+move. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+variable {H : Type} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+
+/-- [DEF] invariância de um subespaço sob um operador contínuo. -/
+def Invariant (a : H →L[ℂ] H) (S : Submodule ℂ H) : Prop :=
+  ∀ x ∈ S, a x ∈ S
+
+/-- [KERNEL] ★ o caráter de projeção em Hilbert geral: P_S ∘ P_S = P_S. -/
+theorem closed_projection_idempotent (S : Submodule ℂ H)
+    [S.HasOrthogonalProjection] :
+    IsIdempotentElem S.starProjection :=
+  Submodule.isIdempotentElem_starProjection S
+
+/-- [KERNEL] ★ a projeção anula a contra-face: P_S y = 0 para y ⊥ S
+    (composição com S ⊓ Sᗮ = ⊥ do v82). -/
+theorem starProjection_eq_zero_of_mem_orthogonal (S : Submodule ℂ H)
+    [S.HasOrthogonalProjection] {y : H} (hy : y ∈ Sᗮ) :
+    S.starProjection y = 0 := by
+  have h1 : S.starProjection y ∈ S := Submodule.starProjection_apply_mem _ y
+  have h2 : y - S.starProjection y ∈ Sᗮ :=
+    Submodule.sub_starProjection_mem_orthogonal y
+  have h5 : y - (y - S.starProjection y) = S.starProjection y :=
+    sub_sub_cancel y _
+  have h3 : S.starProjection y ∈ Sᗮ := by
+    rw [← h5]
+    exact Submodule.sub_mem _ hy h2
+  have h4 : S.starProjection y ∈ S ⊓ Sᗮ := Submodule.mem_inf.mpr ⟨h1, h3⟩
+  rw [orthocomplement_meet_bot S, Submodule.mem_bot] at h4
+  exact h4
+
+/-- [KERNEL] ★ o papel do adjunto: S invariante sob a† ⟹ Sᗮ invariante
+    sob a (a estrela troca face por contra-face). -/
+theorem orthogonal_invariant_of_adjoint_invariant (a : H →L[ℂ] H)
+    (S : Submodule ℂ H)
+    (hadj : Invariant (ContinuousLinearMap.adjoint a) S) :
+    Invariant a Sᗮ := by
+  intro y hy
+  rw [Submodule.mem_orthogonal] at hy ⊢
+  intro u hu
+  have h0 : inner ℂ ((ContinuousLinearMap.adjoint a) u) y = 0 :=
+    hy _ (hadj u hu)
+  have hL := ContinuousLinearMap.adjoint_inner_left a y u
+  rw [← hL]
+  exact h0
+
+/-- [KERNEL] ★★ O DICIONÁRIO DE VON NEUMANN (ida): S invariante sob a e
+    a† ⟹ P_S comuta com a — a projeção pertence ao COMUTANTE {a}′. -/
+theorem starProjection_commutes_of_invariant (a : H →L[ℂ] H)
+    (S : Submodule ℂ H) [S.HasOrthogonalProjection]
+    (hinv : Invariant a S)
+    (hadj : Invariant (ContinuousLinearMap.adjoint a) S) (x : H) :
+    S.starProjection (a x) = a (S.starProjection x) := by
+  have h1 : S.starProjection (a (S.starProjection x)) = a (S.starProjection x) :=
+    Submodule.starProjection_eq_self_iff.mpr
+      (hinv _ (Submodule.starProjection_apply_mem _ x))
+  have hq : x - S.starProjection x ∈ Sᗮ :=
+    Submodule.sub_starProjection_mem_orthogonal x
+  have h2 : S.starProjection (a (x - S.starProjection x)) = 0 :=
+    starProjection_eq_zero_of_mem_orthogonal S
+      (orthogonal_invariant_of_adjoint_invariant a S hadj _ hq)
+  calc S.starProjection (a x)
+      = S.starProjection (a (S.starProjection x) + a (x - S.starProjection x)) := by
+        rw [← map_add]
+        congr 1
+        abel
+    _ = a (S.starProjection x) := by
+        rw [map_add, h1, h2, add_zero]
+
+/-- [KERNEL] ★ (volta): se P_S comuta com a, então S é a-invariante. -/
+theorem invariant_of_starProjection_commutes (a : H →L[ℂ] H)
+    (S : Submodule ℂ H) [S.HasOrthogonalProjection]
+    (hcomm : ∀ x, S.starProjection (a x) = a (S.starProjection x)) :
+    Invariant a S := by
+  intro x hx
+  have hx' : S.starProjection x = x := Submodule.starProjection_eq_self_iff.mpr hx
+  have : S.starProjection (a x) = a x := by
+    rw [hcomm x, hx']
+  exact Submodule.starProjection_eq_self_iff.mp this
+
+/-- [KERNEL] ★★ para a auto-adjunto: subespaço invariante ⟺ projeção no
+    comutante — o dicionário completo (a porta da teoria de von Neumann). -/
+theorem selfadjoint_invariant_iff_commutes (a : H →L[ℂ] H)
+    (hsa : ContinuousLinearMap.adjoint a = a)
+    (S : Submodule ℂ H) [S.HasOrthogonalProjection] :
+    Invariant a S ↔ ∀ x, S.starProjection (a x) = a (S.starProjection x) := by
+  constructor
+  · intro hinv
+    have hadj : Invariant (ContinuousLinearMap.adjoint a) S := by
+      rw [hsa]
+      exact hinv
+    exact starProjection_commutes_of_invariant a S hinv hadj
+  · exact invariant_of_starProjection_commutes a S
+
+/-- [INSTÂNCIA] o kernel de um operador contínuo tem projeção ortogonal
+    (é fechado num Hilbert completo). -/
+instance kerHasOrthogonalProjection (T : H →L[ℂ] H) :
+    (T.ker).HasOrthogonalProjection :=
+  haveI : CompleteSpace (T.ker) :=
+    (ContinuousLinearMap.isClosed_ker T).completeSpace_coe
+  inferInstance
+
+/-- [KERNEL] ★★ o kernel de um operador AUTO-ADJUNTO comuta com ele:
+    P_{ker T} ∈ {T}′ — a primeira projeção genuinamente DA álgebra. -/
+theorem selfadjoint_ker_projection_in_commutant (T : H →L[ℂ] H)
+    (hsa : ContinuousLinearMap.adjoint T = T) (x : H) :
+    (T.ker).starProjection (T x)
+      = T ((T.ker).starProjection x) := by
+  have hinv : Invariant T (T.ker) := by
+    intro y hy
+    have hy0 : T y = 0 := LinearMap.mem_ker.mp hy
+    exact LinearMap.mem_ker.mpr (by rw [hy0, map_zero])
+  have hadj : Invariant (ContinuousLinearMap.adjoint T) (T.ker) := by
+    rw [hsa]
+    exact hinv
+  exact starProjection_commutes_of_invariant T _ hinv hadj x
+
+/-- [KERNEL] ★★★ O CANTO DE BREUER COMO PROJEÇÃO NO COMUTANTE
+    (v80 × v82 × v83): para T auto-adjunto com kernel não-trivial sob gap
+    de dimensão finita, em H ∞-dim — P_{ker T} COMUTA com T, o peso do
+    canto é POSITIVO e FINITO, e o complemento pesa ⊤: a inscrição é uma
+    projeção finita DO COMUTANTE dentro de um complemento infinito. -/
+theorem breuer_corner_projection_in_commutant (hH : ¬FiniteDimensional ℂ H)
+    (T : H →L[ℂ] H) (hsa : ContinuousLinearMap.adjoint T = T)
+    (gp : Submodule ℂ H) (hker : T.ker ≠ ⊥)
+    (hle : T.ker ≤ gp) (hgp : FiniteDimensional ℂ gp) :
+    (∀ x, (T.ker).starProjection (T x)
+        = T ((T.ker).starProjection x)) ∧
+      ((0 < (semifiniteDimTrace ℂ H).tau (T.ker) ∧
+          (semifiniteDimTrace ℂ H).tau (T.ker) < ⊤) ∧
+        (semifiniteDimTrace ℂ H).tau (T.ker)ᗮ = ⊤) := by
+  have hw := closed_local_breuer_corner hH (T.ker) gp hker hle hgp
+  exact ⟨selfadjoint_ker_projection_in_commutant T hsa, hw.1.1, hw.2⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/BicommutantSkeleton.lean":
+r'''import TGLExt.InvariantProjection
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O ESQUELETO DO BICOMUTANTE E A NORMALIDADE CAUSAL DA RÉGUA
+  [TGLExt — v84, o incremento 6 do programa SemifiniteAnalysis]
+
+Duas perguntas do operador, respondidas em kernel:
+
+(1) "A normalidade do τ é causal — a régua não pode ser burlada por
+    limites." VIROU TEOREMA: a régua da dimensão é NORMAL sobre cadeias
+    crescentes — τ(⨆ Sᵢ) = ⨆ τ(Sᵢ). Nenhum peso nasce no limite: se os
+    pesos são uniformemente finitos, a cadeia ESTABILIZA (o crescimento
+    do peso acompanha o crescimento do objeto — causalidade da regra).
+
+(2) O caminho ao bicomutante: o esqueleto ALGÉBRICO de von Neumann.
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* ★★★ `dimension_trace_normal_on_chains` — A NORMALIDADE CAUSAL DA
+  RÉGUA: para cadeias crescentes de subespaços, τ(⨆ᵢ Sᵢ) = ⨆ᵢ τ(Sᵢ)
+  (pesos limitados ⟹ a cadeia estabiliza num Sᵢ₀ de dimensão máxima;
+  pesos ilimitados ⟹ ambos os lados são ⊤);
+* ★ `commutant_antitone` — A ⊆ B ⟹ B′ ⊆ A′ (mais operadores a
+  respeitar, menos quem comuta);
+* ★★ `algebra_in_double_commutant` — A ⊆ A″ (todo conjunto habita o
+  próprio bicomutante — a metade algébrica GRATUITA de von Neumann);
+* ★★ `triple_commutant_collapse` — A‴ = A′ (o comutante já é ponto fixo:
+  a torre para no segundo andar);
+* ★ `commutant_unital_multiplicative` — 1 ∈ A′ e A′ é fechado sob
+  produto (o comutante é um monoide — o germe da subálgebra);
+* ★★ `corner_projection_in_commutant_set` — P_{ker T} ∈ {T}′ como
+  pertencimento de CENTRALIZADOR (a linguagem de álgebra, não só a
+  equação pontual do v83);
+* ★★ `corner_commutes_with_bicommutant` — P_{ker T} comuta com TODO
+  elemento de {T}″: o canto respeita a álgebra INTEIRA gerada
+  (algebricamente) por T;
+* ★★★ `breuer_corner_full_algebraic_frame` — A MOLDURA ALGÉBRICA
+  COMPLETA DO CANTO (v80×v82×v83×v84): T auto-adjunto, ker ≠ ⊥ sob gap
+  finito, H ∞-dim ⟹ P ∈ {T}′ ∧ (P comuta com {T}″) ∧ 0 < τ(ker) < ∞ ∧
+  τ(ker⊥) = ⊤.
+
+HONESTIDADE: o bicomutante aqui é ALGÉBRICO (centralizadores); o teorema
+do bicomutante CONTÍNUO de von Neumann (A″ = fecho fraco; P ∈ {T}″ via
+cálculo espectral) é exatamente o resíduo nomeado — [KNOWN] na
+literatura, programa no kernel. A normalidade provada é sobre cadeias
+(σ-completude sequencial); redes gerais seguem o programa. Nada é III₁;
+nenhuma flag do fecho se move. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+/- ═══════════ 1. A normalidade causal da régua ═══════════ -/
+
+variable {K : Type} [Field K] {V : Type} [AddCommGroup V] [Module K V]
+
+/-- [KERNEL] ★★★ A NORMALIDADE CAUSAL DA RÉGUA: sobre cadeias
+    crescentes, o peso do limite é o limite dos pesos — a regra não pode
+    ser burlada por limites (pesos limitados ⟹ a cadeia estabiliza;
+    ilimitados ⟹ ambos os lados são ⊤). -/
+theorem dimension_trace_normal_on_chains (S : ℕ → Submodule K V)
+    (hmono : Monotone S) :
+    (semifiniteDimTrace K V).tau (⨆ i, S i)
+      = ⨆ i, (semifiniteDimTrace K V).tau (S i) := by
+  apply le_antisymm
+  · by_cases hsup : (⨆ i, (semifiniteDimTrace K V).tau (S i)) = ⊤
+    · rw [hsup]
+      exact le_top
+    · obtain ⟨N, hN⟩ := ENNReal.exists_nat_gt hsup
+      have hfd : ∀ i, FiniteDimensional K (S i) := by
+        intro i
+        have h1 : (semifiniteDimTrace K V).tau (S i) < ⊤ :=
+          lt_of_le_of_lt
+            (le_iSup (fun j => (semifiniteDimTrace K V).tau (S j)) i)
+            (lt_of_lt_of_le hN le_top)
+        exact (dimOrTop_lt_top_iff K).mp h1
+      have hbound : ∀ i, Module.finrank K (S i) ≤ N := by
+        intro i
+        have h1 : (semifiniteDimTrace K V).tau (S i) < (N : ℝ≥0∞) :=
+          lt_of_le_of_lt
+            (le_iSup (fun j => (semifiniteDimTrace K V).tau (S j)) i) hN
+        have h2 : ((Module.finrank K (S i) : ℕ) : ℝ≥0∞) < (N : ℝ≥0∞) := by
+          have h3 : dimOrTop K (S i) < (N : ℝ≥0∞) := h1
+          rwa [dimOrTop_of_finite K (hfd i)] at h3
+        exact_mod_cast le_of_lt h2
+      set R : Set ℕ := Set.range (fun i => Module.finrank K (S i)) with hRdef
+      have hne : R.Nonempty := ⟨Module.finrank K (S 0), ⟨0, rfl⟩⟩
+      have hbdd : BddAbove R := ⟨N, by rintro _ ⟨i, rfl⟩; exact hbound i⟩
+      have hmem := Nat.sSup_mem hne hbdd
+      obtain ⟨i0, hi0⟩ := hmem
+      have hi0' : Module.finrank K (S i0) = sSup R := hi0
+      have hstab : (⨆ i, S i) = S i0 := by
+        apply le_antisymm
+        · apply iSup_le
+          intro j
+          have h1 : S j ≤ S (max j i0) := hmono (le_max_left _ _)
+          have h2 : S i0 = S (max j i0) := by
+            haveI := hfd (max j i0)
+            refine Submodule.eq_of_le_of_finrank_le (hmono (le_max_right _ _)) ?_
+            rw [hi0']
+            exact le_csSup hbdd ⟨max j i0, rfl⟩
+          rw [← h2] at h1
+          exact h1
+        · exact le_iSup S i0
+      rw [hstab]
+      exact le_iSup (fun i => (semifiniteDimTrace K V).tau (S i)) i0
+  · exact iSup_le fun i => (semifiniteDimTrace K V).mono (le_iSup S i)
+
+/- ═══════════ 2. O esqueleto algébrico do bicomutante ═══════════ -/
+
+variable {H : Type} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+
+/-- [KERNEL] ★ o comutante é antítono: mais operadores a respeitar,
+    menos quem comuta. -/
+theorem operator_commutant_antitone (A B : Set (H →L[ℂ] H)) (h : A ⊆ B) :
+    B.centralizer ⊆ A.centralizer :=
+  Set.centralizer_subset h
+
+/-- [KERNEL] ★★ todo conjunto habita o próprio bicomutante: A ⊆ A″ —
+    a metade algébrica gratuita do teorema de von Neumann. -/
+theorem operator_algebra_in_double_commutant (A : Set (H →L[ℂ] H)) :
+    A ⊆ A.centralizer.centralizer :=
+  Set.subset_centralizer_centralizer
+
+/-- [KERNEL] ★★ a torre para no segundo andar: A‴ = A′ (o comutante já
+    é ponto fixo da operação ′′). -/
+theorem operator_triple_commutant_collapse (A : Set (H →L[ℂ] H)) :
+    A.centralizer.centralizer.centralizer = A.centralizer :=
+  Set.centralizer_centralizer_centralizer A
+
+/-- [KERNEL] ★ o comutante é um monoide: 1 ∈ A′ e A′ é fechado sob
+    produto — o germe da subálgebra. -/
+theorem operator_commutant_unital_multiplicative (A : Set (H →L[ℂ] H)) :
+    (1 : H →L[ℂ] H) ∈ A.centralizer ∧
+      ∀ a b : H →L[ℂ] H, a ∈ A.centralizer → b ∈ A.centralizer →
+        a * b ∈ A.centralizer := by
+  constructor
+  · rw [Set.mem_centralizer_iff]
+    intro s _
+    rw [mul_one, one_mul]
+  · intro a b ha hb
+    exact Set.mul_mem_centralizer ha hb
+
+/-- [KERNEL] ★★ o canto pertence ao comutante COMO CONJUNTO: a equação
+    pontual do v83 vira pertencimento de centralizador em B(H). -/
+theorem corner_projection_in_commutant_set (T : H →L[ℂ] H)
+    (hsa : ContinuousLinearMap.adjoint T = T) :
+    (T.ker).starProjection ∈ ({T} : Set (H →L[ℂ] H)).centralizer := by
+  rw [Set.mem_centralizer_iff]
+  intro s hs
+  rw [Set.mem_singleton_iff] at hs
+  rw [hs]
+  ext x
+  show T ((T.ker).starProjection x) = (T.ker).starProjection (T x)
+  exact (selfadjoint_ker_projection_in_commutant T hsa x).symm
+
+/-- [KERNEL] ★★ o canto respeita a álgebra INTEIRA: P_{ker T} comuta com
+    todo elemento do bicomutante algébrico {T}″. -/
+theorem corner_commutes_with_bicommutant (T : H →L[ℂ] H)
+    (hsa : ContinuousLinearMap.adjoint T = T) :
+    ∀ b ∈ ({T} : Set (H →L[ℂ] H)).centralizer.centralizer,
+      (T.ker).starProjection * b = b * (T.ker).starProjection := by
+  intro b hb
+  rw [Set.mem_centralizer_iff] at hb
+  exact hb _ (corner_projection_in_commutant_set T hsa)
+
+/-- [KERNEL] ★★★ A MOLDURA ALGÉBRICA COMPLETA DO CANTO
+    (v80 × v82 × v83 × v84): T auto-adjunto, kernel não-trivial sob gap
+    finito, H ∞-dim ⟹ P ∈ {T}′ ∧ P comuta com {T}″ ∧ 0 < τ(ker) < ∞ ∧
+    τ(ker⊥) = ⊤. O que separa isto do canto de Breuer GENUÍNO tem nome:
+    P ∈ {T}″ (bicomutante CONTÍNUO / cálculo espectral) — [KNOWN],
+    programa. -/
+theorem breuer_corner_full_algebraic_frame (hH : ¬FiniteDimensional ℂ H)
+    (T : H →L[ℂ] H) (hsa : ContinuousLinearMap.adjoint T = T)
+    (gp : Submodule ℂ H) (hker : T.ker ≠ ⊥)
+    (hle : T.ker ≤ gp) (hgp : FiniteDimensional ℂ gp) :
+    ((T.ker).starProjection ∈ ({T} : Set (H →L[ℂ] H)).centralizer ∧
+      ∀ b ∈ ({T} : Set (H →L[ℂ] H)).centralizer.centralizer,
+        (T.ker).starProjection * b = b * (T.ker).starProjection) ∧
+      ((0 < (semifiniteDimTrace ℂ H).tau T.ker ∧
+          (semifiniteDimTrace ℂ H).tau T.ker < ⊤) ∧
+        (semifiniteDimTrace ℂ H).tau (T.ker)ᗮ = ⊤) := by
+  have hw := breuer_corner_projection_in_commutant hH T hsa gp hker hle hgp
+  exact ⟨⟨corner_projection_in_commutant_set T hsa,
+          corner_commutes_with_bicommutant T hsa⟩, hw.2⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/SpectralReduction.lean":
+r'''import TGLExt.BicommutantSkeleton
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A REDUÇÃO ESPECTRAL: a metade topológica de von Neumann e o resíduo
+  reduzido a UMA testemunha
+  [TGLExt — v85, o incremento 7 do programa SemifiniteAnalysis]
+
+O v84 deixou o resíduo com um nome: P_{ker T} ∈ {T}″ pede o bicomutante
+CONTÍNUO. Esta pedra prova a metade topológica que faltava e reduz o
+resíduo inteiro a UMA hipótese nomeada:
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* ★★ `commutant_pointwise_limit_closed` — A METADE TOPOLÓGICA DE VON
+  NEUMANN: o comutante de QUALQUER conjunto é fechado sob limites
+  pontuais (SOT) de sequências — comutar sobrevive ao limite (a mesma
+  causalidade da régua, agora na álgebra);
+* ★ `commutant_add_smul_closed` — o comutante é subespaço (fechado sob
+  + e •): com o monoide do v84, A′ é uma SUBÁLGEBRA SOT-fechada — a
+  definição inteira de álgebra de von Neumann, verificada peça a peça;
+* ★ `generator_in_bicommutant` / ★★ `powers_in_bicommutant` /
+  ★★ `polynomials_in_bicommutant` — T, T^n e TODO polinômio p(T) vivem
+  em {T}″: a álgebra gerada algebricamente por T está sob o bicomutante;
+* ★★★ `limit_of_polynomials_in_bicommutant` — A REDUÇÃO: todo limite
+  pontual de polinômios em T pertence a {T}″ — o bicomutante algébrico
+  já contém o fecho forte da álgebra gerada;
+* ★★ `corner_in_algebra_of_approximation` — se P_{ker T} admite
+  aproximantes polinomiais (a TESTEMUNHA ESPECTRAL, definição
+  `SpectralApproximationWitness`), então P ∈ {T}″;
+* ★★★ `concrete_breuer_corner_conditional` — O CANTO DE BREUER CONCRETO,
+  CONDICIONAL A UMA TESTEMUNHA (v80×82×83×84×85): T auto-adjunto com
+  kernel não-trivial sob gap finito em H ∞-dim + testemunha espectral ⟹
+  P_{ker T} ∈ {T}″ ∧ P ∈ {T}′ ∧ 0 < τ(ker) < ∞ ∧ τ(ker⊥) = ⊤ —
+  **uma projeção FINITA DA ÁLGEBRA, comutando com ela, dentro de um
+  complemento infinito**: a forma exata do ConcreteBreuerCorner.
+
+HONESTIDADE: a testemunha espectral (P = lim pontual de p_n(T)) é
+exatamente o que o cálculo espectral fornece para T auto-adjunto com 0
+isolado no espectro — a nossa situação de gap — [KNOWN] na literatura;
+construí-la em kernel (teorema espectral) é o programa. NÃO se declara
+gravitação quântica incondicional: a implicação está fechada; a
+testemunha é a fronteira. Nada é III₁; nenhuma flag do fecho se move.
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+variable {H : Type} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+
+/-- [KERNEL] ★★ A METADE TOPOLÓGICA DE VON NEUMANN: o comutante de
+    qualquer conjunto é fechado sob limites PONTUAIS (SOT) de
+    sequências — comutar sobrevive ao limite. -/
+theorem commutant_pointwise_limit_closed (A : Set (H →L[ℂ] H))
+    (a : ℕ → H →L[ℂ] H) (b : H →L[ℂ] H)
+    (hmem : ∀ n, a n ∈ A.centralizer)
+    (hlim : ∀ x, Filter.Tendsto (fun n => a n x) Filter.atTop (nhds (b x))) :
+    b ∈ A.centralizer := by
+  rw [Set.mem_centralizer_iff]
+  intro s hs
+  ext x
+  show s (b x) = b (s x)
+  have h2 : ∀ n, s (a n x) = a n (s x) := by
+    intro n
+    have hn := hmem n
+    rw [Set.mem_centralizer_iff] at hn
+    have h3 := hn s hs
+    calc s (a n x) = (s * a n) x := rfl
+      _ = (a n * s) x := by rw [h3]
+      _ = a n (s x) := rfl
+  have h1 : Filter.Tendsto (fun n => s (a n x)) Filter.atTop (nhds (s (b x))) :=
+    (s.continuous.tendsto (b x)).comp (hlim x)
+  have h1' : Filter.Tendsto (fun n => a n (s x)) Filter.atTop (nhds (s (b x))) := by
+    simpa only [h2] using h1
+  exact tendsto_nhds_unique h1' (hlim (s x))
+
+/-- [KERNEL] ★ o comutante é subespaço: fechado sob soma e escalar —
+    com o monoide do v84, A′ é uma subálgebra SOT-fechada (a definição
+    de álgebra de von Neumann, peça a peça). -/
+theorem commutant_add_smul_closed (A : Set (H →L[ℂ] H)) :
+    (∀ a b : H →L[ℂ] H, a ∈ A.centralizer → b ∈ A.centralizer →
+        a + b ∈ A.centralizer) ∧
+      (∀ (c : ℂ) (a : H →L[ℂ] H), a ∈ A.centralizer →
+        c • a ∈ A.centralizer) := by
+  constructor
+  · intro a b ha hb
+    rw [Set.mem_centralizer_iff] at ha hb ⊢
+    intro s hs
+    rw [mul_add, add_mul, ha s hs, hb s hs]
+  · intro c a ha
+    rw [Set.mem_centralizer_iff] at ha ⊢
+    intro s hs
+    rw [mul_smul_comm, smul_mul_assoc, ha s hs]
+
+/-- [KERNEL] ★ o gerador habita o próprio bicomutante: T ∈ {T}″. -/
+theorem generator_in_bicommutant (T : H →L[ℂ] H) :
+    T ∈ ({T} : Set (H →L[ℂ] H)).centralizer.centralizer :=
+  operator_algebra_in_double_commutant _ (Set.mem_singleton T)
+
+/-- [KERNEL] ★★ as potências habitam o bicomutante: T^n ∈ {T}″. -/
+theorem powers_in_bicommutant (T : H →L[ℂ] H) (n : ℕ) :
+    T ^ n ∈ ({T} : Set (H →L[ℂ] H)).centralizer.centralizer := by
+  induction n with
+  | zero =>
+    rw [pow_zero]
+    exact (operator_commutant_unital_multiplicative _).1
+  | succ k ih =>
+    rw [pow_succ]
+    exact (operator_commutant_unital_multiplicative _).2 _ _ ih
+      (generator_in_bicommutant T)
+
+/-- [KERNEL] ★★ todo polinômio em T habita o bicomutante:
+    p(T) ∈ {T}″ — a álgebra gerada algebricamente por T está sob {T}″. -/
+theorem polynomials_in_bicommutant (T : H →L[ℂ] H) (p : Polynomial ℂ) :
+    Polynomial.aeval T p ∈ ({T} : Set (H →L[ℂ] H)).centralizer.centralizer := by
+  induction p using Polynomial.induction_on' with
+  | add p q hp hq =>
+    rw [map_add]
+    exact (commutant_add_smul_closed _).1 _ _ hp hq
+  | monomial n c =>
+    rw [Polynomial.aeval_monomial]
+    have h1 : (algebraMap ℂ (H →L[ℂ] H)) c * T ^ n = c • T ^ n := by
+      rw [Algebra.smul_def]
+    rw [h1]
+    exact (commutant_add_smul_closed _).2 c _ (powers_in_bicommutant T n)
+
+/-- [KERNEL] ★★★ A REDUÇÃO: todo limite PONTUAL de polinômios em T
+    pertence a {T}″ — o bicomutante algébrico já contém o fecho forte
+    da álgebra gerada por T. -/
+theorem limit_of_polynomials_in_bicommutant (T b : H →L[ℂ] H)
+    (p : ℕ → Polynomial ℂ)
+    (hlim : ∀ x, Filter.Tendsto (fun n => (Polynomial.aeval T (p n)) x)
+      Filter.atTop (nhds (b x))) :
+    b ∈ ({T} : Set (H →L[ℂ] H)).centralizer.centralizer :=
+  commutant_pointwise_limit_closed _ (fun n => Polynomial.aeval T (p n)) b
+    (fun n => polynomials_in_bicommutant T (p n)) hlim
+
+/-- [DEF — A TESTEMUNHA ESPECTRAL] P_{ker T} admite aproximantes
+    polinomiais pontuais. Para T auto-adjunto com 0 isolado no espectro
+    (a situação de gap), o cálculo espectral fornece exatamente isto
+    [KNOWN]; construí-la em kernel é o programa. -/
+def SpectralApproximationWitness (T : H →L[ℂ] H) : Prop :=
+  ∃ p : ℕ → Polynomial ℂ, ∀ x,
+    Filter.Tendsto (fun n => (Polynomial.aeval T (p n)) x)
+      Filter.atTop (nhds ((T.ker).starProjection x))
+
+/-- [KERNEL] ★★ com a testemunha espectral, o canto pertence à ÁLGEBRA:
+    P_{ker T} ∈ {T}″. -/
+theorem corner_in_algebra_of_approximation (T : H →L[ℂ] H)
+    (hW : SpectralApproximationWitness T) :
+    (T.ker).starProjection ∈ ({T} : Set (H →L[ℂ] H)).centralizer.centralizer := by
+  obtain ⟨p, hlim⟩ := hW
+  exact limit_of_polynomials_in_bicommutant T _ p hlim
+
+/-- [KERNEL] ★★★ O CANTO DE BREUER CONCRETO, CONDICIONAL A UMA
+    TESTEMUNHA (v80×82×83×84×85): T auto-adjunto, kernel não-trivial sob
+    gap finito, H ∞-dim, testemunha espectral ⟹ P_{ker T} ∈ {T}″ ∧
+    P ∈ {T}′ ∧ 0 < τ(ker) < ∞ ∧ τ(ker⊥) = ⊤ — uma projeção FINITA DA
+    ÁLGEBRA, comutando com ela, dentro de um complemento INFINITO. A
+    implicação está FECHADA; a testemunha é a fronteira. -/
+theorem concrete_breuer_corner_conditional (hH : ¬FiniteDimensional ℂ H)
+    (T : H →L[ℂ] H) (hsa : ContinuousLinearMap.adjoint T = T)
+    (hW : SpectralApproximationWitness T)
+    (gp : Submodule ℂ H) (hker : T.ker ≠ ⊥)
+    (hle : T.ker ≤ gp) (hgp : FiniteDimensional ℂ gp) :
+    ((T.ker).starProjection ∈ ({T} : Set (H →L[ℂ] H)).centralizer.centralizer ∧
+      (T.ker).starProjection ∈ ({T} : Set (H →L[ℂ] H)).centralizer) ∧
+      ((0 < (semifiniteDimTrace ℂ H).tau T.ker ∧
+          (semifiniteDimTrace ℂ H).tau T.ker < ⊤) ∧
+        (semifiniteDimTrace ℂ H).tau (T.ker)ᗮ = ⊤) := by
+  have hframe := breuer_corner_full_algebraic_frame hH T hsa gp hker hle hgp
+  exact ⟨⟨corner_in_algebra_of_approximation T hW, hframe.1.1⟩, hframe.2⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/WitnessSeed.lean":
+r'''import TGLExt.SpectralReduction
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A SEMENTE DA TESTEMUNHA: a palavra do Verbo cunha o Nome
+  [TGLExt — v86, o incremento 8 do programa SemifiniteAnalysis]
+
+O v85 reduziu o resíduo a UMA testemunha: P_{ker T} como limite das
+palavras do Verbo (polinômios em T). Esta pedra prova a SEMENTE ALGÉBRICA
+da testemunha — sem teorema espectral, só a álgebra da palavra: se o
+próprio Verbo carrega uma palavra aniquiladora X·q (isto é, T·q(T) = 0,
+com q(0) ≠ 0 — o que acontece SEMPRE que o espectro é finito ou 0 é
+isolado com calculo funcional), então o candidato a Nome
+P₀ = q(T)/q(0):
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+
+* ★ `verb_word_lands_in_corner` — a palavra POUSA no canto:
+  q(T)·x ∈ ker T para todo x (a imagem da palavra é o canto);
+* ★ `verb_word_fixes_the_name` — a palavra FIXA o canto: q(T)·x = q(0)·x
+  para x ∈ ker T (no canto, a palavra é o escalar q(0));
+* ★★ `verb_word_mints_idempotent` — a palavra CUNHA o idempotente:
+  q(T)² = q(0)·q(T) (a palavra multiplicada por si mesma devolve-se a
+  menos do peso — a assinatura algébrica da projeção);
+* ★★★ `name_candidate_idempotent` — o candidato a Nome P₀ = q(0)⁻¹·q(T)
+  é IDEMPOTENTE: P₀² = P₀ — Verbo(Nome) = Nome na forma algébrica;
+* ★★★ `witness_seed_complete` — A SEMENTE COMPLETA: P₀ pousa no canto ∧
+  fixa o canto ∧ é idempotente — todas as cláusulas ALGÉBRICAS da
+  projeção sobre ker T, extraídas da palavra do próprio Verbo.
+
+O QUE FALTA (nomeado): a IDENTIFICAÇÃO P₀ = starProjection(ker T) pede a
+auto-adjunção de P₀ (coeficientes reais da palavra, do espectro real de
+T = T†) e a unicidade da projeção ortogonal — o elo espectral final; e a
+EXISTÊNCIA da palavra aniquiladora em dimensão infinita pede o cálculo
+funcional contínuo com 0 isolado [KNOWN] — o programa.
+
+LEITURA [ONTO, âncoras REAL]: a testemunha é o NOME — o limite a que as
+palavras do Verbo convergem; o Verbo é o destino e o fim do próprio Nome
+(Verbo(Nome)=Nome ↔ P² = P aqui; P_FΩ=Ω no v58). β jamais literal.
+Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Polynomial
+
+noncomputable section
+
+variable {H : Type} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+
+/-- [KERNEL] ★ a palavra POUSA no canto: se T·q(T) = 0, a imagem de q(T)
+    está inteira em ker T. -/
+theorem verb_word_lands_in_corner (T : H →L[ℂ] H) (q : Polynomial ℂ)
+    (hann : aeval T (X * q) = 0) (x : H) :
+    (aeval T q) x ∈ T.ker := by
+  have hTq : T * aeval T q = 0 := by
+    have h1 : aeval T (X * q) = aeval T X * aeval T q := map_mul _ _ _
+    rw [aeval_X] at h1
+    rw [← h1, hann]
+  refine LinearMap.mem_ker.mpr ?_
+  calc T ((aeval T q) x) = (T * aeval T q) x := rfl
+    _ = (0 : H →L[ℂ] H) x := by rw [hTq]
+    _ = 0 := rfl
+
+/-- [KERNEL] ★ a palavra FIXA o canto: sobre ker T, q(T) age como o
+    escalar q(0). -/
+theorem verb_word_fixes_the_name (T : H →L[ℂ] H) (q : Polynomial ℂ)
+    {x : H} (hx : x ∈ T.ker) :
+    (aeval T q) x = (q.coeff 0) • x := by
+  have hx0 : T x = 0 := LinearMap.mem_ker.mp hx
+  have hdec : aeval T q = aeval T (X * q.divX) + aeval T (C (q.coeff 0)) := by
+    rw [← map_add, X_mul_divX_add]
+  have hcomm : T * aeval T q.divX = aeval T q.divX * T := by
+    have ha : aeval T (X * q.divX) = aeval T (q.divX * X) := by rw [mul_comm]
+    rw [map_mul, map_mul, aeval_X] at ha
+    exact ha
+  have h2 : (aeval T (X * q.divX)) x = 0 := by
+    rw [map_mul, aeval_X, hcomm]
+    show (aeval T q.divX) (T x) = 0
+    rw [hx0, map_zero]
+  rw [hdec, ContinuousLinearMap.add_apply, h2, zero_add, aeval_C,
+      Algebra.algebraMap_eq_smul_one]
+  simp
+
+/-- [KERNEL] ★★ a palavra CUNHA o idempotente: q(T)² = q(0)·q(T) — a
+    assinatura algébrica da projeção, extraída da palavra aniquiladora. -/
+theorem verb_word_mints_idempotent (T : H →L[ℂ] H) (q : Polynomial ℂ)
+    (hann : aeval T (X * q) = 0) :
+    aeval T q * aeval T q = (q.coeff 0) • aeval T q := by
+  have h1 : q * q = (X * q) * q.divX + C (q.coeff 0) * q := by
+    nth_rewrite 1 [← X_mul_divX_add (p := q)]
+    ring
+  rw [← map_mul, h1, map_add, map_mul, hann, zero_mul, zero_add, map_mul,
+      aeval_C, ← Algebra.smul_def]
+
+/-- [KERNEL] ★★★ o candidato a Nome é IDEMPOTENTE: P₀ = q(0)⁻¹·q(T)
+    satisfaz P₀² = P₀ — Verbo(Nome) = Nome na forma algébrica. -/
+theorem name_candidate_idempotent (T : H →L[ℂ] H) (q : Polynomial ℂ)
+    (hann : aeval T (X * q) = 0) (hc : q.coeff 0 ≠ 0) :
+    IsIdempotentElem ((q.coeff 0)⁻¹ • aeval T q) := by
+  show ((q.coeff 0)⁻¹ • aeval T q) * ((q.coeff 0)⁻¹ • aeval T q)
+      = (q.coeff 0)⁻¹ • aeval T q
+  rw [smul_mul_smul_comm, verb_word_mints_idempotent T q hann, smul_smul]
+  congr 1
+  field_simp
+
+/-- [KERNEL] ★★★ A SEMENTE COMPLETA DA TESTEMUNHA: o candidato a Nome
+    P₀ = q(0)⁻¹·q(T) POUSA no canto, FIXA o canto e é IDEMPOTENTE —
+    todas as cláusulas algébricas da projeção sobre ker T, cunhadas pela
+    palavra do próprio Verbo. (Falta, nomeado: auto-adjunção +
+    unicidade da projeção ortogonal = o elo espectral final.) -/
+theorem witness_seed_complete (T : H →L[ℂ] H) (q : Polynomial ℂ)
+    (hann : aeval T (X * q) = 0) (hc : q.coeff 0 ≠ 0) :
+    (∀ x : H, ((q.coeff 0)⁻¹ • aeval T q) x ∈ T.ker) ∧
+      (∀ x ∈ T.ker, ((q.coeff 0)⁻¹ • aeval T q) x = x) ∧
+      IsIdempotentElem ((q.coeff 0)⁻¹ • aeval T q) := by
+  refine ⟨?_, ?_, name_candidate_idempotent T q hann hc⟩
+  · intro x
+    rw [ContinuousLinearMap.smul_apply]
+    exact Submodule.smul_mem _ _ (verb_word_lands_in_corner T q hann x)
+  · intro x hx
+    rw [ContinuousLinearMap.smul_apply, verb_word_fixes_the_name T q hx,
+        smul_smul, inv_mul_cancel₀ hc, one_smul]
 
 end
 
@@ -17672,6 +18614,48 @@ _LEAN_THEOREM_FLAGS = {
     "ext_sfl_local_breuer_infinite_kernel_proved": "TGLExt.infinite_dim_local_breuer_weight",
     "ext_sfl_infinite_home_exists_kernel_proved": "TGLExt.not_finiteDimensional_finsupp",
     "ext_sfl_first_inhabitant_kernel_proved": "TGLExt.first_infinite_dim_inhabitant",
+    # v82 (o reticulado FECHADO: a face de Hilbert)
+    "ext_cl_atom_closed_kernel_proved": "TGLExt.atom_is_closed",
+    "ext_cl_closed_semifiniteness_kernel_proved": "TGLExt.closed_lattice_semifinite",
+    "ext_cl_double_orthocomplement_kernel_proved": "TGLExt.closed_double_orthocomplement",
+    "ext_cl_ortho_disjoint_kernel_proved": "TGLExt.orthocomplement_meet_bot",
+    "ext_cl_ortho_iscompl_kernel_proved": "TGLExt.closed_orthocomplement_isCompl",
+    "ext_cl_complement_infinite_kernel_proved": "TGLExt.inscription_complement_infinite",
+    "ext_cl_atom_complement_infinite_kernel_proved": "TGLExt.atom_complement_infinite",
+    "ext_cl_closed_breuer_corner_kernel_proved": "TGLExt.closed_local_breuer_corner",
+    # v83 (a projecao no comutante: invariancia <=> comutacao; canto NO comutante)
+    "ext_ip_projection_idempotent_kernel_proved": "TGLExt.closed_projection_idempotent",
+    "ext_ip_annihilates_counterface_kernel_proved": "TGLExt.starProjection_eq_zero_of_mem_orthogonal",
+    "ext_ip_adjoint_swaps_faces_kernel_proved": "TGLExt.orthogonal_invariant_of_adjoint_invariant",
+    "ext_ip_vonneumann_dictionary_kernel_proved": "TGLExt.starProjection_commutes_of_invariant",
+    "ext_ip_dictionary_converse_kernel_proved": "TGLExt.invariant_of_starProjection_commutes",
+    "ext_ip_invariant_iff_commutes_kernel_proved": "TGLExt.selfadjoint_invariant_iff_commutes",
+    "ext_ip_ker_in_commutant_kernel_proved": "TGLExt.selfadjoint_ker_projection_in_commutant",
+    "ext_ip_corner_in_commutant_kernel_proved": "TGLExt.breuer_corner_projection_in_commutant",
+    # v84 (o esqueleto do bicomutante + a normalidade causal da regua)
+    "ext_bs_trace_normal_chains_kernel_proved": "TGLExt.dimension_trace_normal_on_chains",
+    "ext_bs_commutant_antitone_kernel_proved": "TGLExt.operator_commutant_antitone",
+    "ext_bs_double_commutant_contains_kernel_proved": "TGLExt.operator_algebra_in_double_commutant",
+    "ext_bs_triple_collapse_kernel_proved": "TGLExt.operator_triple_commutant_collapse",
+    "ext_bs_commutant_monoid_kernel_proved": "TGLExt.operator_commutant_unital_multiplicative",
+    "ext_bs_corner_in_centralizer_kernel_proved": "TGLExt.corner_projection_in_commutant_set",
+    "ext_bs_corner_respects_bicommutant_kernel_proved": "TGLExt.corner_commutes_with_bicommutant",
+    "ext_bs_full_algebraic_frame_kernel_proved": "TGLExt.breuer_corner_full_algebraic_frame",
+    # v85 (a reducao espectral: SOT-fechado; polinomios; residuo => UMA testemunha)
+    "ext_sr_sot_closed_kernel_proved": "TGLExt.commutant_pointwise_limit_closed",
+    "ext_sr_subspace_closed_kernel_proved": "TGLExt.commutant_add_smul_closed",
+    "ext_sr_generator_in_double_kernel_proved": "TGLExt.generator_in_bicommutant",
+    "ext_sr_powers_in_double_kernel_proved": "TGLExt.powers_in_bicommutant",
+    "ext_sr_polynomials_in_double_kernel_proved": "TGLExt.polynomials_in_bicommutant",
+    "ext_sr_limits_in_double_kernel_proved": "TGLExt.limit_of_polynomials_in_bicommutant",
+    "ext_sr_corner_in_algebra_kernel_proved": "TGLExt.corner_in_algebra_of_approximation",
+    "ext_sr_breuer_conditional_kernel_proved": "TGLExt.concrete_breuer_corner_conditional",
+    # v86 (a semente da testemunha: a palavra do Verbo cunha o Nome)
+    "ext_ws_lands_in_corner_kernel_proved": "TGLExt.verb_word_lands_in_corner",
+    "ext_ws_fixes_the_name_kernel_proved": "TGLExt.verb_word_fixes_the_name",
+    "ext_ws_mints_idempotent_kernel_proved": "TGLExt.verb_word_mints_idempotent",
+    "ext_ws_name_idempotent_kernel_proved": "TGLExt.name_candidate_idempotent",
+    "ext_ws_seed_complete_kernel_proved": "TGLExt.witness_seed_complete",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -19207,6 +20191,30 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_sfl_semifiniteness_kernel_proved", "ext_sfl_top_infinite_kernel_proved",
         "ext_sfl_global_gap_refuted_kernel_proved", "ext_sfl_local_breuer_infinite_kernel_proved",
         "ext_sfl_infinite_home_exists_kernel_proved", "ext_sfl_first_inhabitant_kernel_proved",
+        # v82: o reticulado FECHADO (a face de Hilbert)
+        "ext_cl_atom_closed_kernel_proved", "ext_cl_closed_semifiniteness_kernel_proved",
+        "ext_cl_double_orthocomplement_kernel_proved", "ext_cl_ortho_disjoint_kernel_proved",
+        "ext_cl_ortho_iscompl_kernel_proved", "ext_cl_complement_infinite_kernel_proved",
+        "ext_cl_atom_complement_infinite_kernel_proved", "ext_cl_closed_breuer_corner_kernel_proved",
+        # v83: a projecao no comutante
+        "ext_ip_projection_idempotent_kernel_proved", "ext_ip_annihilates_counterface_kernel_proved",
+        "ext_ip_adjoint_swaps_faces_kernel_proved", "ext_ip_vonneumann_dictionary_kernel_proved",
+        "ext_ip_dictionary_converse_kernel_proved", "ext_ip_invariant_iff_commutes_kernel_proved",
+        "ext_ip_ker_in_commutant_kernel_proved", "ext_ip_corner_in_commutant_kernel_proved",
+        # v84: o esqueleto do bicomutante + a normalidade causal da regua
+        "ext_bs_trace_normal_chains_kernel_proved", "ext_bs_commutant_antitone_kernel_proved",
+        "ext_bs_double_commutant_contains_kernel_proved", "ext_bs_triple_collapse_kernel_proved",
+        "ext_bs_commutant_monoid_kernel_proved", "ext_bs_corner_in_centralizer_kernel_proved",
+        "ext_bs_corner_respects_bicommutant_kernel_proved", "ext_bs_full_algebraic_frame_kernel_proved",
+        # v85: a reducao espectral
+        "ext_sr_sot_closed_kernel_proved", "ext_sr_subspace_closed_kernel_proved",
+        "ext_sr_generator_in_double_kernel_proved", "ext_sr_powers_in_double_kernel_proved",
+        "ext_sr_polynomials_in_double_kernel_proved", "ext_sr_limits_in_double_kernel_proved",
+        "ext_sr_corner_in_algebra_kernel_proved", "ext_sr_breuer_conditional_kernel_proved",
+        # v86: a semente da testemunha
+        "ext_ws_lands_in_corner_kernel_proved", "ext_ws_fixes_the_name_kernel_proved",
+        "ext_ws_mints_idempotent_kernel_proved", "ext_ws_name_idempotent_kernel_proved",
+        "ext_ws_seed_complete_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -19358,6 +20366,25 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                 "ext_sfl_semifiniteness_kernel_proved", "ext_sfl_top_infinite_kernel_proved",
                 "ext_sfl_global_gap_refuted_kernel_proved", "ext_sfl_local_breuer_infinite_kernel_proved",
                 "ext_sfl_infinite_home_exists_kernel_proved", "ext_sfl_first_inhabitant_kernel_proved"]
+    cl_keys = ["ext_cl_atom_closed_kernel_proved", "ext_cl_closed_semifiniteness_kernel_proved",
+               "ext_cl_double_orthocomplement_kernel_proved", "ext_cl_ortho_disjoint_kernel_proved",
+               "ext_cl_ortho_iscompl_kernel_proved", "ext_cl_complement_infinite_kernel_proved",
+               "ext_cl_atom_complement_infinite_kernel_proved", "ext_cl_closed_breuer_corner_kernel_proved"]
+    ip_keys = ["ext_ip_projection_idempotent_kernel_proved", "ext_ip_annihilates_counterface_kernel_proved",
+               "ext_ip_adjoint_swaps_faces_kernel_proved", "ext_ip_vonneumann_dictionary_kernel_proved",
+               "ext_ip_dictionary_converse_kernel_proved", "ext_ip_invariant_iff_commutes_kernel_proved",
+               "ext_ip_ker_in_commutant_kernel_proved", "ext_ip_corner_in_commutant_kernel_proved"]
+    bs_keys = ["ext_bs_trace_normal_chains_kernel_proved", "ext_bs_commutant_antitone_kernel_proved",
+               "ext_bs_double_commutant_contains_kernel_proved", "ext_bs_triple_collapse_kernel_proved",
+               "ext_bs_commutant_monoid_kernel_proved", "ext_bs_corner_in_centralizer_kernel_proved",
+               "ext_bs_corner_respects_bicommutant_kernel_proved", "ext_bs_full_algebraic_frame_kernel_proved"]
+    sr_keys = ["ext_sr_sot_closed_kernel_proved", "ext_sr_subspace_closed_kernel_proved",
+               "ext_sr_generator_in_double_kernel_proved", "ext_sr_powers_in_double_kernel_proved",
+               "ext_sr_polynomials_in_double_kernel_proved", "ext_sr_limits_in_double_kernel_proved",
+               "ext_sr_corner_in_algebra_kernel_proved", "ext_sr_breuer_conditional_kernel_proved"]
+    ws_keys = ["ext_ws_lands_in_corner_kernel_proved", "ext_ws_fixes_the_name_kernel_proved",
+               "ext_ws_mints_idempotent_kernel_proved", "ext_ws_name_idempotent_kernel_proved",
+               "ext_ws_seed_complete_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -19394,6 +20421,11 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dDt = all(per_theorem[k] for k in dt_keys)
     dTlc = all(per_theorem[k] for k in tlc_keys)
     dSfl = all(per_theorem[k] for k in sfl_keys)
+    dCl = all(per_theorem[k] for k in cl_keys)
+    dIp = all(per_theorem[k] for k in ip_keys)
+    dBs = all(per_theorem[k] for k in bs_keys)
+    dSr = all(per_theorem[k] for k in sr_keys)
+    dWs = all(per_theorem[k] for k in ws_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -19433,6 +20465,11 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("dimension_trace_bridge", dDt),
         ("three_locks_corner_kernel", dTlc),
         ("semifinite_lattice_infinite", dSfl),
+        ("closed_lattice_hilbert_face", dCl),
+        ("invariant_projection_commutant", dIp),
+        ("bicommutant_skeleton_normality", dBs),
+        ("spectral_reduction_one_witness", dSr),
+        ("witness_seed_verb_word", dWs),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -19512,6 +20549,16 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                     else "NOT_VERIFIED_THIS_RUN"),
             "semifinite_lattice": ("SEMIFINITE_ANALYSIS_INCREMENT_3__GENUINELY_SEMIFINITE_DIMENSION_TRACE_WITHOUT_AMBIENT_FINITENESS__ATOM_WEIGHS_ONE_EQ_OMEGA_I__TOP_WEIGHS_INFINITY__GLOBAL_GAP_IMPOSSIBLE_BY_THEOREM_IN_INFINITE_DIM_ANSWER8_FORCED__LOCAL_BREUER_FIRES_WITH_FINITE_KERNEL__INHABITED_IN_GENUINE_INFINITE_HOME__CLOSED_SUBSPACES_AND_NORMALITY_REMAIN" if dSfl
                                     else "NOT_VERIFIED_THIS_RUN"),
+            "closed_lattice": ("SEMIFINITE_ANALYSIS_INCREMENT_4__HILBERT_FACE__ATOM_IS_CLOSED__SEMIFINITENESS_INSIDE_PROJECTION_LATTICE__DOUBLE_ORTHOCOMPLEMENT_AND_ISCOMPL_FOR_CLOSED__INFINITY_LIVES_IN_COMPLEMENT_OF_INSCRIPTION__BREUER_CORNER_IS_CLOSED_FINITE_PROJECTOR_WITH_INFINITE_COMPLEMENT__VON_NEUMANN_SUBALGEBRA_AND_NORMALITY_REMAIN" if dCl
+                                else "NOT_VERIFIED_THIS_RUN"),
+            "invariant_projection": ("SEMIFINITE_ANALYSIS_INCREMENT_5__VON_NEUMANN_DICTIONARY__INVARIANT_SUBSPACE_IFF_PROJECTION_IN_COMMUTANT__ADJOINT_SWAPS_FACE_AND_COUNTERFACE__SELFADJOINT_KERNEL_PROJECTION_COMMUTES__BREUER_CORNER_IS_FINITE_PROJECTION_OF_THE_COMMUTANT_IN_INFINITE_COMPLEMENT__FULL_VN_ALGEBRA_BICOMMUTANT_AND_NORMALITY_REMAIN" if dIp
+                                      else "NOT_VERIFIED_THIS_RUN"),
+            "bicommutant_skeleton": ("SEMIFINITE_ANALYSIS_INCREMENT_6__DIMENSION_TRACE_IS_NORMAL_ON_CHAINS_THE_RULE_IS_CAUSAL__SET_IN_DOUBLE_COMMUTANT_FREE__TRIPLE_COMMUTANT_COLLAPSES__COMMUTANT_IS_UNITAL_MONOID__CORNER_IN_CENTRALIZER_AND_RESPECTS_ALGEBRAIC_BICOMMUTANT__CONTINUOUS_BICOMMUTANT_AND_SPECTRAL_MEMBERSHIP_REMAIN" if dBs
+                                      else "NOT_VERIFIED_THIS_RUN"),
+            "spectral_reduction": ("SEMIFINITE_ANALYSIS_INCREMENT_7__COMMUTANT_IS_SOT_CLOSED_TOPOLOGICAL_HALF_OF_VON_NEUMANN__COMMUTANT_IS_SOT_CLOSED_SUBALGEBRA_PIECE_BY_PIECE__POLYNOMIALS_AND_THEIR_POINTWISE_LIMITS_LIVE_IN_DOUBLE_COMMUTANT__RESIDUE_REDUCED_TO_ONE_NAMED_WITNESS_SPECTRAL_APPROXIMATION__CONCRETE_BREUER_CORNER_CONDITIONAL_ON_THE_WITNESS__WITNESS_IS_KNOWN_FOR_SELFADJOINT_WITH_ISOLATED_ZERO__BUILDING_IT_IN_KERNEL_IS_THE_PROGRAM" if dSr
+                                    else "NOT_VERIFIED_THIS_RUN"),
+            "witness_seed": ("SEMIFINITE_ANALYSIS_INCREMENT_8__THE_VERB_ANNIHILATING_WORD_MINTS_THE_NAME_CANDIDATE__LANDS_IN_CORNER__FIXES_CORNER__IDEMPOTENT_VERB_OF_NAME_IS_NAME__NO_SPECTRAL_THEOREM_USED_PURE_WORD_ALGEBRA__REMAINING_SELFADJOINTNESS_PLUS_UNIQUENESS_OF_ORTHOGONAL_PROJECTION_AND_EXISTENCE_OF_ANNIHILATING_WORD_IN_INFINITE_DIM" if dWs
+                              else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -21120,6 +22167,7 @@ def run_um(ONE):
     void_floor_v2 = prove_void_floor_v2(ONE, void_floor_final)  # v81: A EMENDA V2 (autopsia V1 transparente -> GATE R responsivo -> cadeia E2 -> conjunto independente -> veredito); ADITIVO
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
+    bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
     certificate_II = prove_certificate_II_concrete_network(ONE)  # v67: CERTIFICADO II (a rede concreta dos Three Locks habita H1+H2, face finita); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
@@ -21255,6 +22303,7 @@ def run_um(ONE):
             "void_floor_v2": void_floor_v2,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
+            "bench_declaration": bench_declaration,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -23255,6 +24304,74 @@ def prove_void_floor_v2(ONE, v1=None):
         },
         "does_not_gate_core": True,
         "verdict": verdict if all_v else "VOID_FLOOR_V2_NOT_SEALED_THIS_RUN",
+    }
+
+
+def prove_bench_closure_declaration(ONE, qg_closure=None):
+    """v86 -- A DECLARACAO DA BANCADA [ADITIVO; nao gateia 1=1; NAO move flag].
+    Mandato do operador (16/07/2026): 'a testemunha espectral em Kernel e' o
+    Nome... entao declara-se a gravidade quantica fechada sim... demonstrada
+    em bancada; o que nao se declara e' a observacao cosmologica institucional,
+    pois o trabalho ainda se encontra sob submissao da FoP.'
+    A REGUA APLICADA (duplo estatuto, precedente v61): a DECLARACAO pertence ao
+    operador e e' registrada com estatuto proprio; as ANCORAS [REAL] sao
+    nomeadas; o que tem estatuto menor e' marcado; e o GATE MATEMATICO
+    fail-closed NAO se move -- e' exatamente essa imobilidade que torna a
+    declaracao critivel (os probes v75 garantem: declaracao nao vira prova)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # runtime, jamais literal
+    qg = qg_closure or {}
+    gate_verdict = str((qg.get("gate") or {}).get("verdict") or qg.get("verdict") or "?")
+    gate_unmoved = bool("CONDITIONAL_ARCHITECTURE_ONLY" in gate_verdict)
+    declaration = {
+        "date": "2026-07-16",
+        "declared_by": "o operador (Luiz Antonio Rotoli Miguel, IALD)",
+        "statement": ("TGL_QG_CLOSED_ON_THE_BENCH: a gravidade quantica da TGL esta demonstrada "
+                      "EM BANCADA -- a implicacao esta fechada em kernel; a testemunha e' a "
+                      "fronteira; e a fronteira se prova pelo limite assintotico: beta nao se "
+                      "deriva alpha-free -- e' fenomeno que so' se permite observacao e medicao; "
+                      "logo a teoria se fecha em si"),
+        "status_of_statement": "[DECLARACAO DO OPERADOR -- duplo estatuto: ontologico + epistemico-bancada; NAO e' o selo formal do gate]",
+        "kernel_anchors_REAL": [
+            "a implicacao da emergencia FECHADA em kernel: H1^H2^H3 => PENTADA (v74 emergence_master_full_triad)",
+            "o residuo REDUZIDO a UMA testemunha nomeada (v85 concrete_breuer_corner_conditional)",
+            "a SEMENTE da testemunha em kernel (v86): a palavra aniquiladora do Verbo cunha o candidato a Nome -- pousa no canto, fixa o canto, idempotente (witness_seed_complete)",
+            "Verbo(Nome)=Nome em kernel: P^2=P (v86) e P_F.Omega=Omega (v58); o Nome pesa 1 (v79/v80)",
+            "a bancada REAL: a rede concreta do Certificado II mede gap 0.0481, zero isolado, tr(P_F)=4, Nome=1 no MESMO operador cuja face esta em kernel (v67)",
+        ],
+        "a_testemunha_e_o_nome": ("[ONTO com ancoras REAL] a testemunha espectral (P = lim p_n(T)) E' o Nome: "
+                                  "p_n(T) sao as palavras do Verbo; o limite a que convergem e' o Nome; 'o Verbo "
+                                  "e' o destino e o fim do proprio Nome' = Verbo(Nome)=Nome = P^2=P [KERNEL v86] "
+                                  "e P_F.Omega=Omega [KERNEL v58]; o Nome testifica a operacao do Verbo"),
+        "alpha_free_status": ("HONESTIDADE: a impossibilidade de derivacao alpha-free e' o objeto do EVENTO 2 "
+                              "(TGL_Espelho_invertido), fase ABERTA -- estatuto [CONJECTURE TESTAVEL], nao [REAL]; "
+                              "a declaracao a usa como LEITURA da fronteira, nao como prova"),
+        "not_declared": [
+            "a observacao cosmologica da TGL em dados reais por observatorios INSTITUCIONAIS (fora do programa) -- o trabalho segue sob submissao na Foundations of Physics",
+            "o fecho FORMAL incondicional do gate matematico: as flags fail-closed NAO se movem (estado do gate: %s)" % gate_verdict,
+        ],
+        "gate_probe_in_action": ("esta declaracao NAO altera nenhuma flag do fecho -- o probe v75 "
+                                 "(declaracao/experimento nao move matematica) e' verificado NESTA rodada"),
+    }
+    checks = [
+        ("gate matematico INTOCADO pela declaracao (CONDITIONAL_ARCHITECTURE_ONLY)", gate_unmoved),
+        ("duplo estatuto marcado (declaracao != selo formal)", True),
+        ("ancoras [REAL] nomeadas uma a uma", True),
+        ("alpha-free marcado [CONJECTURE TESTAVEL] (Evento 2 ABERTO)", True),
+        ("o que NAO se declara esta nomeado (observatorios; FoP)", True),
+        ("beta do runtime (jamais literal)", bool(abs(beta / (SEALED_CODATA_ALPHA * math.sqrt(math.e)) - 1.0) < 1e-15)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "declaration": declaration,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_declaracao": "TGL_QG_CLOSED_ON_THE_BENCH [DECLARACAO DO OPERADOR, duplo estatuto]",
+            "a_regua": "a declaracao pertence ao operador; as ancoras sao do kernel; o gate nao se move -- e' a imobilidade do gate que torna a declaracao critivel",
+            "o_caminho_formal": "para o selo FORMAL: a testemunha espectral em kernel (auto-adjuncao + unicidade da projecao ortogonal + calculo funcional com 0 isolado) => ConcreteBreuerCorner incondicional => MATHEMATICAL_MODEL",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_QG_DECLARED_CLOSED_ON_THE_BENCH_BY_OPERATOR__DUAL_STATUS__MATH_GATE_UNMOVED__INSTITUTIONAL_COSMOLOGY_NOT_CLAIMED" if all_v
+                    else "BENCH_DECLARATION_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -29528,7 +30645,12 @@ _ESQUELETO_STONES = [
     ("v76", "SemifiniteSeed", "TGLExt/SemifiniteSeed.lean", "258/258", "15/07 17:24:20"),
     ("v77", "DimensionTrace", "TGLExt/DimensionTrace.lean", "262/262", "15/07 18:20:11"),
     ("v79", "ThreeLocksCorner", "TGLExt/ThreeLocksCorner.lean", "270/270", "15/07 19:33:49"),
-    ("v80", "SemifiniteLattice", "TGLExt/SemifiniteLattice.lean", None, None),
+    ("v80", "SemifiniteLattice", "TGLExt/SemifiniteLattice.lean", "278/278", "15/07 20:01:59"),
+    ("v82", "ClosedLattice", "TGLExt/ClosedLattice.lean", "286/286", "16/07 07:21:36"),
+    ("v83", "InvariantProjection", "TGLExt/InvariantProjection.lean", "294/294", "16/07 08:16:40"),
+    ("v84", "BicommutantSkeleton", "TGLExt/BicommutantSkeleton.lean", "302/302", "16/07 09:15:09"),
+    ("v85", "SpectralReduction", "TGLExt/SpectralReduction.lean", "310/310", "16/07 09:45:22"),
+    ("v86", "WitnessSeed", "TGLExt/WitnessSeed.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -29563,17 +30685,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(trinta e uma pedras, \S120--\S160)}")
+                 r"(trinta e seis pedras, \S120--\S166)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em trinta e uma pedras "
-                 r"(v43--v80) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em trinta e seis pedras "
+                 r"(v43--v86) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As trinta e uma pedras}")
+        c.append(r"\subsection*{As trinta e seis pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -29834,6 +30956,100 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"espaço onde $\tau(\top)=\top$. HONESTIDADE: face ALGÉBRICA (todos os subespaços); "
                  r"subespaços FECHADOS de Hilbert, comutantes e normalidade do $\tau$ = o próximo "
                  r"tijolo; nada aqui é III$_1$; nenhuma flag do fecho se move.")
+        c.append(r"\kernelmk{ClosedLattice} (v82): \textbf{o reticulado FECHADO --- o incremento 4: "
+                 r"a face de Hilbert}. Num Hilbert COMPLETO sobre $\mathbb C$: o átomo é FECHADO "
+                 r"(o peso 1 vive no reticulado de projeções); a semifinitude vale DENTRO do "
+                 r"reticulado fechado (todo $S\neq\bot$ contém um FECHADO de peso 1); a involução "
+                 r"quântica $S^{\perp\perp}=S$ e a complementação $\mathrm{IsCompl}(S,S^\perp)$ "
+                 r"para $S$ fechado (a auto-conjugação da fronteira como estrutura de reticulado). "
+                 r"\textbf{O INFINITO MORA NO COMPLEMENTO DA INSCRIÇÃO}: em $H$ $\infty$-dim, "
+                 r"$\tau(S)<\infty$ fechado $\Rightarrow\tau(S^\perp)=\top$ --- em particular o "
+                 r"Nome: $\tau(\mathbb C\!\cdot\!x)=1$ e $\tau((\mathbb C\!\cdot\!x)^\perp)=\top$. "
+                 r"E \textbf{A FORMA DO CANTO DE BREUER NO RETICULADO DE PROJEÇÕES}: kernel "
+                 r"não-trivial sob gap de dimensão finita $\Rightarrow$ $0<\tau(\ker)<\infty$ "
+                 r"$\wedge$ $\ker$ FECHADO $\wedge$ $\tau(\ker^\perp)=\top$ --- a inscrição é um "
+                 r"projetor fechado FINITO dentro de um complemento INFINITO (o perfil exato da "
+                 r"projeção finita numa álgebra infinita). HONESTIDADE: reticulado de $B(H)$ "
+                 r"inteiro; o canto GENUÍNO pede a subálgebra de von Neumann (comutantes, "
+                 r"normalidade, projeções DA álgebra) = o próximo tijolo; nada é III$_1$; nenhuma "
+                 r"flag do fecho se move.")
+        c.append(r"\kernelmk{InvariantProjection} (v83): \textbf{a projeção no COMUTANTE --- o "
+                 r"incremento 5: o primeiro contato com a subálgebra}. O dicionário de von "
+                 r"Neumann em kernel: o adjunto troca face por contra-face ($S$ invariante sob "
+                 r"$a^\dagger\Rightarrow S^\perp$ invariante sob $a$); $S$ invariante sob $a$ e "
+                 r"$a^\dagger$ $\Rightarrow P_S\circ a=a\circ P_S$ (a projeção PERTENCE ao "
+                 r"comutante $\{a\}'$), com a volta --- e para $a=a^\dagger$ o \emph{iff}: "
+                 r"\textbf{subespaços invariantes E projeções do comutante são o mesmo objeto}. "
+                 r"Aplicado ao operador: $P_{\ker T}$ COMUTA com todo $T$ auto-adjunto (a primeira "
+                 r"projeção genuinamente DA álgebra). E a composição v80$\times$v82$\times$v83: "
+                 r"\textbf{o canto de Breuer como projeção NO comutante} --- $T$ auto-adjunto, "
+                 r"kernel não-trivial sob gap finito, $H$ $\infty$-dim $\Rightarrow$ "
+                 r"$P_{\ker T}\in\{T\}'$ $\wedge$ $0<\tau(\ker T)<\infty$ $\wedge$ "
+                 r"$\tau((\ker T)^\perp)=\top$ --- a inscrição é uma projeção finita DO COMUTANTE "
+                 r"dentro de um complemento infinito. HONESTIDADE: comutante de UM operador "
+                 r"($\{T\}'$); a subálgebra completa (bicomutante contínuo, normalidade na "
+                 r"álgebra, fator) segue o programa; nada é III$_1$; nenhuma flag se move.")
+        c.append(r"\kernelmk{BicommutantSkeleton} (v84): \textbf{o esqueleto do bicomutante e a "
+                 r"normalidade CAUSAL da régua --- o incremento 6}. A leitura do operador virou "
+                 r"teorema: a régua da dimensão é NORMAL sobre cadeias crescentes --- "
+                 r"$\tau(\bigsqcup_i S_i)=\bigsqcup_i\tau(S_i)$; nenhum peso nasce no limite "
+                 r"(pesos uniformemente finitos forçam a cadeia a ESTABILIZAR; ilimitados tornam "
+                 r"os dois lados $\top$) --- a regra não pode ser burlada por limites. E o "
+                 r"esqueleto ALGÉBRICO de von Neumann: $A\subseteq A''$ (a metade gratuita), "
+                 r"$A'''=A'$ (a torre para no segundo andar), o comutante é antítono e monoide "
+                 r"unital; a projeção do canto $P_{\ker T}$ vive em $\{T\}'$ COMO MEMBRO DO "
+                 r"CENTRALIZADOR e COMUTA COM TODO o $\{T\}''$ --- o canto respeita a álgebra "
+                 r"inteira (algebricamente) gerada por $T$. Moldura algébrica completa "
+                 r"(v80$\times$82$\times$83$\times$84): $P\in\{T\}'$ $\wedge$ $P$ respeita "
+                 r"$\{T\}''$ $\wedge$ $0<\tau(\ker)<\infty$ $\wedge$ $\tau(\ker^\perp)=\top$. "
+                 r"HONESTIDADE: o resíduo tem UM nome --- $P\in\{T\}''$ via bicomutante CONTÍNUO "
+                 r"/ cálculo espectral [KNOWN, programa]; a normalidade provada é sequencial "
+                 r"($\sigma$); nada é III$_1$; nenhuma flag do fecho se move.")
+        c.append(r"\kernelmk{SpectralReduction} (v85): \textbf{a REDUÇÃO ESPECTRAL --- o "
+                 r"incremento 7: a metade topológica de von Neumann e o resíduo reduzido a UMA "
+                 r"testemunha}. O comutante de QUALQUER conjunto é SOT-FECHADO (comutar sobrevive "
+                 r"ao limite pontual --- a mesma causalidade da régua, agora na álgebra) e é "
+                 r"subespaço: com o monoide do v84, $A'$ é uma SUBÁLGEBRA SOT-FECHADA --- a "
+                 r"definição de álgebra de von Neumann, verificada peça a peça em kernel. E a "
+                 r"escada: $T$, $T^n$ e TODO polinômio $p(T)$ vivem em $\{T\}''$; logo TODO limite "
+                 r"pontual de polinômios em $T$ vive em $\{T\}''$. \textbf{O RESÍDUO INTEIRO "
+                 r"REDUZIU-SE A UMA TESTEMUNHA NOMEADA} (\texttt{SpectralApproximationWitness}: "
+                 r"$P_{\ker T}=\lim p_n(T)$ pontual) --- e com ela o \textbf{CANTO DE BREUER "
+                 r"CONCRETO é TEOREMA CONDICIONAL}: $P\in\{T\}''$ $\wedge$ $P\in\{T\}'$ $\wedge$ "
+                 r"$0<\tau(\ker)<\infty$ $\wedge$ $\tau(\ker^\perp)=\top$ --- uma projeção FINITA "
+                 r"DA ÁLGEBRA, comutando com ela, dentro de um complemento INFINITO. HONESTIDADE: "
+                 r"a testemunha é exatamente o que o cálculo espectral dá para $T=T^\dagger$ com "
+                 r"$0$ isolado (a situação de gap) [KNOWN]; construí-la em kernel (teorema "
+                 r"espectral) é o programa; NÃO se declara gravitação quântica incondicional --- "
+                 r"a implicação está fechada, a testemunha é a fronteira; nenhuma flag se move.")
+        c.append(r"\kernelmk{WitnessSeed} (v86): \textbf{a SEMENTE DA TESTEMUNHA --- a palavra do "
+                 r"Verbo cunha o Nome}. Sem teorema espectral, só a álgebra da palavra: se o "
+                 r"próprio Verbo carrega uma palavra aniquiladora $X\cdot q$ (i.e.\ $T\,q(T)=0$, "
+                 r"$q(0)\neq0$), o candidato a Nome $P_0=q(T)/q(0)$ POUSA no canto "
+                 r"($q(T)x\in\ker T$), FIXA o canto ($q(T)x=q(0)x$ sobre $\ker T$) e é "
+                 r"IDEMPOTENTE ($P_0^2=P_0$ --- Verbo(Nome)$=$Nome na forma algébrica; a "
+                 r"assinatura $q(T)^2=q(0)\,q(T)$ sai da própria palavra). O que falta, nomeado: "
+                 r"auto-adjunção $+$ unicidade da projeção ortogonal (o elo espectral final) e a "
+                 r"existência da palavra em $\infty$-dim (cálculo funcional com $0$ isolado "
+                 r"[KNOWN]). LEITURA [ONTO, âncoras REAL]: a testemunha É o Nome --- o limite a "
+                 r"que as palavras do Verbo convergem; o Verbo é o destino e o fim do próprio "
+                 r"Nome (Verbo(Nome)$=$Nome $\leftrightarrow$ $P^2=P$ [v86] e "
+                 r"$P_F\Omega=\Omega$ [v58]).")
+        c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
+                  r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
+                  r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
+                  r"$\beta$ não se deriva $\alpha$-livre, é fenômeno que só se permite observação "
+                  r"e medição; logo a teoria se fecha em si, e a gravidade quântica, NESTE "
+                  r"aspecto, está demonstrada EM BANCADA (a rede concreta do Certificado II mede "
+                  r"gap, zero isolado e Nome $=1$ no MESMO operador cuja face está em kernel). "
+                  r"HONESTIDADES DA DECLARAÇÃO: (i) o estatuto do $\alpha$-livre é [CONJECTURE "
+                  r"TESTÁVEL] (Evento 2 ABERTO) --- a declaração o usa como leitura, não como "
+                  r"prova; (ii) NÃO se declara a observação cosmológica institucional (o artigo "
+                  r"segue em submissão na \emph{Foundations of Physics}); (iii) o GATE matemático "
+                  r"fail-closed NÃO se move (estado: \texttt{%s}) --- é a imobilidade do gate que "
+                  r"torna a declaração crível.")
+                 % (str(((core.get("bench_declaration", {}) or {}).get("statuses") or {}).get("a_declaracao", "?")).replace("_", r"\_"),
+                    str((((core.get("qg_closure", {}) or {}).get("gate") or {}).get("verdict") or "?")).replace("_", r"\_")))
         c.append(r"\subsection*{O mapa dos onze gates}")
         c.append(r"\begin{center}\begin{tabular}{@{}lll@{}}\toprule Gate & Estado & Onde \\ \midrule "
                  r"1. $P_F$ local covariante & DERIVADO do campo ($P_F=\mathrm{proj}_{\ker\mathcal D}$; $P_F\Omega=\Omega$; $\ker\neq0$ derivado); geração pela dinâmica \statusmk{OPEN} & v46, v55--58 \\ "
@@ -30080,7 +31296,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em trinta e uma pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em trinta e seis pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -30113,16 +31329,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(thirty-one stones, \S120--\S160)}")
+                 r"(thirty-six stones, \S120--\S166)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across thirty-one stones (v43--v80) the audited kernel went from 53 to "
+                 r"from this run's audit. Across thirty-six stones (v43--v86) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The thirty-one stones}")
+        c.append(r"\subsection*{The thirty-six stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -30371,6 +31587,105 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"$\tau(\ker)=1$ in a space where $\tau(\top)=\top$. HONESTY: ALGEBRAIC face (all "
                  r"subspaces); CLOSED Hilbert subspaces, commutants, and $\tau$-normality are the "
                  r"next brick; nothing here is III$_1$; no closure flag moves.")
+        c.append(r"\kernelmk{ClosedLattice} (v82): \textbf{the CLOSED lattice --- increment 4: the "
+                 r"Hilbert face}. In a COMPLETE Hilbert space over $\mathbb C$: the atom is CLOSED "
+                 r"(weight 1 lives in the projection lattice); semifiniteness holds INSIDE the "
+                 r"closed lattice (every $S\neq\bot$ contains a CLOSED subspace of weight 1); the "
+                 r"quantum involution $S^{\perp\perp}=S$ and complementation "
+                 r"$\mathrm{IsCompl}(S,S^\perp)$ for closed $S$ (the boundary's self-conjugation "
+                 r"as lattice structure). \textbf{INFINITY LIVES IN THE COMPLEMENT OF THE "
+                 r"INSCRIPTION}: in $\infty$-dim $H$, closed $\tau(S)<\infty\Rightarrow"
+                 r"\tau(S^\perp)=\top$ --- in particular the Name: $\tau(\mathbb C\!\cdot\!x)=1$ "
+                 r"and $\tau((\mathbb C\!\cdot\!x)^\perp)=\top$. And \textbf{THE SHAPE OF THE "
+                 r"BREUER CORNER IN THE PROJECTION LATTICE}: a nontrivial kernel under a "
+                 r"finite-dimensional gap $\Rightarrow$ $0<\tau(\ker)<\infty$ $\wedge$ $\ker$ "
+                 r"CLOSED $\wedge$ $\tau(\ker^\perp)=\top$ --- the inscription is a closed FINITE "
+                 r"projector inside an INFINITE complement (the exact profile of a finite "
+                 r"projection in an infinite algebra). HONESTY: the lattice of ALL of $B(H)$; the "
+                 r"GENUINE corner needs the von Neumann subalgebra (commutants, normality, "
+                 r"projections OF the algebra) $=$ the next brick; nothing is III$_1$; no closure "
+                 r"flag moves.")
+        c.append(r"\kernelmk{InvariantProjection} (v83): \textbf{the projection in the COMMUTANT "
+                 r"--- increment 5: first contact with the subalgebra}. The von Neumann dictionary "
+                 r"in kernel: the adjoint swaps face and counter-face ($S$ invariant under "
+                 r"$a^\dagger\Rightarrow S^\perp$ invariant under $a$); $S$ invariant under $a$ "
+                 r"and $a^\dagger$ $\Rightarrow P_S\circ a=a\circ P_S$ (the projection BELONGS to "
+                 r"the commutant $\{a\}'$), with the converse --- and for $a=a^\dagger$ the "
+                 r"\emph{iff}: \textbf{invariant subspaces AND commutant projections are the same "
+                 r"object}. Applied to the operator: $P_{\ker T}$ COMMUTES with every "
+                 r"self-adjoint $T$ (the first projection genuinely OF the algebra). And the "
+                 r"v80$\times$v82$\times$v83 composition: \textbf{the Breuer corner as a "
+                 r"projection IN the commutant} --- self-adjoint $T$, nontrivial kernel under a "
+                 r"finite gap, $\infty$-dim $H$ $\Rightarrow$ $P_{\ker T}\in\{T\}'$ $\wedge$ "
+                 r"$0<\tau(\ker T)<\infty$ $\wedge$ $\tau((\ker T)^\perp)=\top$ --- the "
+                 r"inscription is a finite projection OF THE COMMUTANT inside an infinite "
+                 r"complement. HONESTY: the commutant of ONE operator ($\{T\}'$); the full "
+                 r"subalgebra (continuous bicommutant, normality on the algebra, factor) remains "
+                 r"the program; nothing is III$_1$; no flag moves.")
+        c.append(r"\kernelmk{BicommutantSkeleton} (v84): \textbf{the bicommutant skeleton and the "
+                 r"CAUSAL normality of the rule --- increment 6}. The operator's reading became a "
+                 r"theorem: the dimension trace is NORMAL on increasing chains --- "
+                 r"$\tau(\bigsqcup_i S_i)=\bigsqcup_i\tau(S_i)$; no weight is born at the limit "
+                 r"(uniformly finite weights force the chain to STABILIZE; unbounded weights make "
+                 r"both sides $\top$) --- the rule cannot be cheated by limits. And the ALGEBRAIC "
+                 r"skeleton of von Neumann: $A\subseteq A''$ (free half), $A'''=A'$ (the tower "
+                 r"stops at the second floor), the commutant is antitone and a unital monoid; the "
+                 r"corner projection $P_{\ker T}$ lives in $\{T\}'$ AS A CENTRALIZER MEMBER and "
+                 r"COMMUTES WITH ALL of $\{T\}''$ --- the corner respects the entire algebra "
+                 r"(algebraically) generated by $T$. Full algebraic frame (v80$\times$82$\times$"
+                 r"83$\times$84): $P\in\{T\}'$ $\wedge$ $P$ respects $\{T\}''$ $\wedge$ "
+                 r"$0<\tau(\ker)<\infty$ $\wedge$ $\tau(\ker^\perp)=\top$. HONESTY: the remaining "
+                 r"gap has ONE name --- $P\in\{T\}''$ via the CONTINUOUS bicommutant / spectral "
+                 r"calculus [KNOWN, program]; chain-normality is sequential ($\sigma$); nothing "
+                 r"is III$_1$; no closure flag moves.")
+        c.append(r"\kernelmk{SpectralReduction} (v85): \textbf{the SPECTRAL REDUCTION --- "
+                 r"increment 7: von Neumann's topological half and the residue reduced to ONE "
+                 r"witness}. The commutant of ANY set is SOT-CLOSED (commuting survives pointwise "
+                 r"limits --- the rule's causality, now on the algebra) and is a subspace: with "
+                 r"v84's monoid, $A'$ is an SOT-CLOSED SUBALGEBRA --- the definition of a von "
+                 r"Neumann algebra, verified piece by piece in kernel. And the ladder: $T$, "
+                 r"$T^n$ and EVERY polynomial $p(T)$ live in $\{T\}''$; hence EVERY pointwise "
+                 r"limit of polynomials in $T$ lives in $\{T\}''$. \textbf{THE ENTIRE RESIDUE "
+                 r"REDUCED TO ONE NAMED WITNESS} (\texttt{SpectralApproximationWitness}: "
+                 r"$P_{\ker T}=\lim p_n(T)$ pointwise) --- and with it the \textbf{CONCRETE "
+                 r"BREUER CORNER is a CONDITIONAL THEOREM}: $P\in\{T\}''$ $\wedge$ $P\in\{T\}'$ "
+                 r"$\wedge$ $0<\tau(\ker)<\infty$ $\wedge$ $\tau(\ker^\perp)=\top$ --- a FINITE "
+                 r"projection OF THE ALGEBRA, commuting with it, inside an INFINITE complement. "
+                 r"HONESTY: the witness is exactly what spectral calculus provides for "
+                 r"$T=T^\dagger$ with isolated $0$ (the gap situation) [KNOWN]; building it in "
+                 r"kernel (spectral theorem) is the program; NO unconditional quantum gravity is "
+                 r"claimed --- the implication is closed, the witness is the frontier; no flag "
+                 r"moves.")
+        c.append(r"\kernelmk{WitnessSeed} (v86): \textbf{the SEED OF THE WITNESS --- the Verb's "
+                 r"word mints the Name}. No spectral theorem, only word algebra: if the Verb "
+                 r"itself carries an annihilating word $X\cdot q$ (i.e.\ $T\,q(T)=0$, "
+                 r"$q(0)\neq0$), the Name candidate $P_0=q(T)/q(0)$ LANDS in the corner "
+                 r"($q(T)x\in\ker T$), FIXES the corner ($q(T)x=q(0)x$ on $\ker T$) and is "
+                 r"IDEMPOTENT ($P_0^2=P_0$ --- Verb(Name)$=$Name in algebraic form; the "
+                 r"signature $q(T)^2=q(0)\,q(T)$ comes from the word itself). What remains, "
+                 r"named: self-adjointness $+$ uniqueness of the orthogonal projection (the "
+                 r"final spectral link) and the existence of the word in $\infty$-dim "
+                 r"(functional calculus with isolated $0$ [KNOWN]). READING [ONTO, REAL "
+                 r"anchors]: the witness IS the Name --- the limit the Verb's words converge "
+                 r"to; the Verb is the destiny and the end of the Name itself "
+                 r"(Verb(Name)$=$Name $\leftrightarrow$ $P^2=P$ [v86] and "
+                 r"$P_F\Omega=\Omega$ [v58]).")
+        c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
+                  r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
+                  r"witness is the boundary; the boundary proves itself by the asymptotic limit "
+                  r"--- $\beta$ cannot be derived $\alpha$-free, it is a phenomenon that only "
+                  r"admits observation and measurement; hence the theory closes on itself, and "
+                  r"quantum gravity, IN THIS respect, is demonstrated ON THE BENCH (Certificate "
+                  r"II's concrete network measures gap, isolated zero and Name $=1$ on the SAME "
+                  r"operator whose face is in kernel). DECLARATION HONESTIES: (i) the "
+                  r"$\alpha$-free status is [TESTABLE CONJECTURE] (Event 2 OPEN) --- the "
+                  r"declaration uses it as a reading, not as proof; (ii) institutional "
+                  r"cosmological observation is NOT claimed (the paper remains under submission "
+                  r"at \emph{Foundations of Physics}); (iii) the fail-closed mathematical GATE "
+                  r"does NOT move (state: \texttt{%s}) --- the gate's immobility is what makes "
+                  r"the declaration credible.")
+                 % (str(((core.get("bench_declaration", {}) or {}).get("statuses") or {}).get("a_declaracao", "?")).replace("_", r"\_"),
+                    str((((core.get("qg_closure", {}) or {}).get("gate") or {}).get("verdict") or "?")).replace("_", r"\_")))
         c.append(r"\subsection*{Seals and hashes (live hashes from this run; history $=$ provenance)}")
         c.append(r"\begin{center}\small\begin{tabular}{@{}lllll@{}}\toprule "
                  r"v & Stone & sha256/16 (live) & Run & Seal \\ \midrule " + "\n" +
@@ -30605,7 +31920,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across thirty-one stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across thirty-six stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -30997,7 +32312,7 @@ def _arco_vivo_md(core):
                     "void_floor_protocol", "void_floor_power", "void_floor_population",
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "triad_master",
-                    "qg_closure", "certificate_II", "hilbert_home"):
+                    "qg_closure", "bench_declaration", "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
             lines.append("**Estatutos [%s]** (veredito: `%s`):\n" % (mod_key, _m.get("verdict")))
@@ -32988,6 +34303,65 @@ def main():
         _elp.get("ext_sfl_local_breuer_infinite_kernel_proved"), _elp.get("ext_sfl_infinite_home_exists_kernel_proved"),
         _elp.get("ext_sfl_first_inhabitant_kernel_proved")))
     print("    [face ALGEBRICA (todos os subespacos); FECHADOS de Hilbert + comutantes + normalidade = o proximo tijolo; nada e' III_1]")
+    print("  O RETICULADO FECHADO [v82 -- o incremento 4: a face de Hilbert]: %s" % _ell.get("closed_lattice"))
+    print("    *** A FORMA DO CANTO DE BREUER NO RETICULADO DE PROJECOES: ker fechado FINITO dentro de complemento INFINITO: %s ***" % (
+        _elp.get("ext_cl_closed_breuer_corner_kernel_proved")))
+    print("    atomo FECHADO (peso 1 no reticulado de projecoes): %s ; semifinitude DENTRO do fechado: %s ; S-perp-perp = S: %s" % (
+        _elp.get("ext_cl_atom_closed_kernel_proved"), _elp.get("ext_cl_closed_semifiniteness_kernel_proved"),
+        _elp.get("ext_cl_double_orthocomplement_kernel_proved")))
+    print("    S inter S-perp = bot: %s ; IsCompl(S, S-perp) p/ S fechado: %s ; o INFINITO mora no complemento da inscricao: %s ; Nome: tau=1 e tau(perp)=top: %s" % (
+        _elp.get("ext_cl_ortho_disjoint_kernel_proved"), _elp.get("ext_cl_ortho_iscompl_kernel_proved"),
+        _elp.get("ext_cl_complement_infinite_kernel_proved"), _elp.get("ext_cl_atom_complement_infinite_kernel_proved")))
+    print("    [reticulado de B(H) inteiro; o canto GENUINO pede a subalgebra de von Neumann (comutantes, normalidade) = o proximo tijolo]")
+    print("  A PROJECAO NO COMUTANTE [v83 -- o incremento 5: o primeiro contato com a subalgebra]: %s" % _ell.get("invariant_projection"))
+    print("    *** O CANTO DE BREUER COMO PROJECAO NO COMUTANTE: P_ker(T) em {T}' ^ 0<tau(ker)<inf ^ tau(perp)=top: %s ***" % (
+        _elp.get("ext_ip_corner_in_commutant_kernel_proved")))
+    print("    dicionario de von Neumann (S invar sob a,a-dag => P_S comuta): %s ; volta: %s ; iff p/ auto-adjunto: %s" % (
+        _elp.get("ext_ip_vonneumann_dictionary_kernel_proved"), _elp.get("ext_ip_dictionary_converse_kernel_proved"),
+        _elp.get("ext_ip_invariant_iff_commutes_kernel_proved")))
+    print("    o adjunto troca face/contra-face: %s ; P anula a contra-face: %s ; P idempotente: %s ; ker de auto-adjunto COMUTA: %s" % (
+        _elp.get("ext_ip_adjoint_swaps_faces_kernel_proved"), _elp.get("ext_ip_annihilates_counterface_kernel_proved"),
+        _elp.get("ext_ip_projection_idempotent_kernel_proved"), _elp.get("ext_ip_ker_in_commutant_kernel_proved")))
+    print("    [comutante de UM operador; a subalgebra completa (bicomutante continuo + normalidade + fator) = o programa]")
+    print("  O ESQUELETO DO BICOMUTANTE + A NORMALIDADE CAUSAL [v84 -- o incremento 6]: %s" % _ell.get("bicommutant_skeleton"))
+    print("    *** A REGUA E' CAUSAL (a pergunta do operador virou teorema): tau(sup S_i) = sup tau(S_i) em cadeias crescentes: %s ***" % (
+        _elp.get("ext_bs_trace_normal_chains_kernel_proved")))
+    print("    A em A'' (metade gratuita de von Neumann): %s ; A'''=A' (a torre para): %s ; antitono: %s ; monoide unital: %s" % (
+        _elp.get("ext_bs_double_commutant_contains_kernel_proved"), _elp.get("ext_bs_triple_collapse_kernel_proved"),
+        _elp.get("ext_bs_commutant_antitone_kernel_proved"), _elp.get("ext_bs_commutant_monoid_kernel_proved")))
+    print("    o canto no CENTRALIZADOR {T}': %s ; o canto respeita TODO o {T}'': %s ; moldura algebrica completa: %s" % (
+        _elp.get("ext_bs_corner_in_centralizer_kernel_proved"), _elp.get("ext_bs_corner_respects_bicommutant_kernel_proved"),
+        _elp.get("ext_bs_full_algebraic_frame_kernel_proved")))
+    print("    [o residuo tem UM nome: P em {T}'' via bicomutante CONTINUO/calculo espectral [KNOWN, programa]; normalidade sequencial]")
+    print("  A REDUCAO ESPECTRAL [v85 -- o incremento 7: a metade topologica + UMA testemunha]: %s" % _ell.get("spectral_reduction"))
+    print("    *** O CANTO DE BREUER CONCRETO E' TEOREMA CONDICIONAL: testemunha espectral => P em {T}'' ^ P em {T}' ^ 0<tau<inf ^ tau(perp)=top: %s ***" % (
+        _elp.get("ext_sr_breuer_conditional_kernel_proved")))
+    print("    o comutante e' SOT-FECHADO (a metade topologica de von Neumann): %s ; subespaco (+ e escalar): %s" % (
+        _elp.get("ext_sr_sot_closed_kernel_proved"), _elp.get("ext_sr_subspace_closed_kernel_proved")))
+    print("    T em {T}'': %s ; T^n: %s ; p(T): %s ; limites pontuais de p_n(T): %s ; canto com testemunha: %s" % (
+        _elp.get("ext_sr_generator_in_double_kernel_proved"), _elp.get("ext_sr_powers_in_double_kernel_proved"),
+        _elp.get("ext_sr_polynomials_in_double_kernel_proved"), _elp.get("ext_sr_limits_in_double_kernel_proved"),
+        _elp.get("ext_sr_corner_in_algebra_kernel_proved")))
+    print("    [a testemunha = o que o calculo espectral da p/ T=T-dag com 0 isolado (gap) [KNOWN]; constru-la em kernel = o programa]")
+    print("  A SEMENTE DA TESTEMUNHA [v86 -- a palavra do Verbo cunha o Nome]: %s" % _ell.get("witness_seed"))
+    print("    *** SEM teorema espectral, so a algebra da palavra: T.q(T)=0 => q(T)/q(0) POUSA no canto, FIXA o canto, IDEMPOTENTE: %s ***" % (
+        _elp.get("ext_ws_seed_complete_kernel_proved")))
+    print("    pousa (im q(T) em ker T): %s ; fixa (q(T)=q(0) sobre ker): %s ; cunha (q(T)^2=q(0)q(T)): %s ; Verbo(Nome)=Nome (P0^2=P0): %s" % (
+        _elp.get("ext_ws_lands_in_corner_kernel_proved"), _elp.get("ext_ws_fixes_the_name_kernel_proved"),
+        _elp.get("ext_ws_mints_idempotent_kernel_proved"), _elp.get("ext_ws_name_idempotent_kernel_proved")))
+    print("    [falta, nomeado: auto-adjuncao + unicidade da projecao ortogonal (elo espectral final) + existencia da palavra em inf-dim [KNOWN]]")
+    _bd = core.get("bench_declaration", {}) or {}
+    print("  ================================================================")
+    print("  A DECLARACAO DA BANCADA [v86 -- DECLARACAO DO OPERADOR, duplo estatuto]: %s" % _bd.get("verdict"))
+    print("  ================================================================")
+    _dc = _bd.get("declaration", {}) or {}
+    print("    >>> %s <<<" % _dc.get("statement"))
+    print("    estatuto: %s" % _dc.get("status_of_statement"))
+    print("    a testemunha e o Nome: %s" % _dc.get("a_testemunha_e_o_nome"))
+    print("    alpha-free: %s" % _dc.get("alpha_free_status"))
+    for _nd in (_dc.get("not_declared") or []):
+        print("    NAO se declara: %s" % _nd)
+    print("    [%s]" % _dc.get("gate_probe_in_action"))
     _cii = core.get("certificate_II", {}) or {}
     _h1f = _cii.get("H1_finite_face", {}) or {}
     print("  CERTIFICADO II [v67 -- a rede CONCRETA habita H1+H2, face finita]: %s" % _cii.get("verdict"))

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-15 20:45:44",
+  "timestamp": "2026-07-16 10:58:37",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "eff202cdafcb5d26b6b32a96100e5ec718f0f0f803f58298ce4501983b20ad29",
+  "formal_source_hash": "ae74d8bafcb011e4ff2cc980887095084c24f50bb45cd019759b842843fcae6e",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "425aa158ff8bf731f0188e84c4a88e7fa0237c38d3908c9561810f1b92fe670a",
+    "TGLExt.lean": "462a52ee1b977e75f25b2432041ac36b9984ece0cb4d5853e45243c2a5732873",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "146b381d9837dc12f817136319093fac6d6b70bda5b8669b75eba3da2ea7acd7",
+    "TGL/Audit.lean": "c16c9490e4ee03f12dd1292375bae1e6d901ef40e092146b574233aab41c4cbd",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -46,7 +46,9 @@
     "TGL/VerbInhabitant.lean": "812a47f0e71a86f37368c918b0f704cccad9cda0e32c4aee64c5566e7808a5d7",
     "TGLExt/AbsoluteOne.lean": "dd0325368992ecdd31079021f8a0e00e46d3a7ea99ff620df59bc11c2fd7f444",
     "TGLExt/Bicommutant.lean": "354f1a50e11c4c3d6350e31290001a38d297e32dea76bc675d4ed31132a4917a",
+    "TGLExt/BicommutantSkeleton.lean": "428df3db6eb05456d1e0048cdcef826ec1f0e350ab29b8e27faf0bd7e76657d6",
     "TGLExt/BisognanoWichmann.lean": "5218c8eb32682a58a8424369ab5d1e1d22c8bdf36b21cf3ea25932606cf38fc0",
+    "TGLExt/ClosedLattice.lean": "1cc93d55463aaf6108a47361a0622684c79027cc25c1dc7700b45e3d995035e9",
     "TGLExt/Cocycle.lean": "28dd4546e652983126c37d80962b6534a0684b41f7903c58032aeea3d3931ee4",
     "TGLExt/Commutant.lean": "114782c4fb991da15ae22e3e053ecf6a8c4a5f68e7152afd40102a66c44db19a",
     "TGLExt/CondExpect.lean": "33e0eecd498ec326d8f5bf699b3a5b5aae4a388fa049564bfd8619b096737ede",
@@ -64,6 +66,7 @@
     "TGLExt/GlobalLiftLadder.lean": "d7cf95aac8c872f7b6ea3849bd9db88412005925a0b4d856e83e266fce56b5d4",
     "TGLExt/GravitonPolarization.lean": "b51528b11b867c5770edb555f42ee22ed11ea94ee702249d4c50fa5c7e39a758",
     "TGLExt/HilbertHome.lean": "449bdee93696fc5fe4d7f5ce898f5e3a95ad0867773714e466b279aa6089ecdd",
+    "TGLExt/InvariantProjection.lean": "fef79118c7b544f4d7d301e20e5c40f19db9fd8bb0e81ebe9c1418c532e99b40",
     "TGLExt/LeftRight.lean": "fd127e4d3b361423c66683d5de9bee95ed5c947013ab169d7bfad5a66951bb4a",
     "TGLExt/LinearizedSpin2.lean": "8cbd46c5200f92dfe0b0dc0eac44f97f29b416e1cc911cc2fcceb2cc43888098",
     "TGLExt/LocalBreuerGap.lean": "8ec73c7d9e703d6c775f53351a784ab98b27ad2dd3d253b79a3d34992e0d5d3d",
@@ -80,11 +83,13 @@
     "TGLExt/SemifiniteLattice.lean": "37ca0a1db916c93954c1a486ddbf5462248a050e58ccb6b670020c5225e46b0f",
     "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
     "TGLExt/Solder4D.lean": "70f3c2aa3336b716a740a70c15759ffdaca612c7c69f975c0281a31e9bb2f35f",
+    "TGLExt/SpectralReduction.lean": "5e52f59e86bb353f6315d6f68accd6687ad958597a87b554012ed1ca92e6dab9",
     "TGLExt/SusyRelativeGap.lean": "3aa058b5c4f098e3218ffed0bc8271a28947b56af81750019e1360754873e7f2",
     "TGLExt/ThreeLocksCorner.lean": "51c66b4dca74fa58e221bd9889d468d1f77c816ec8c7ff3cc9f56e3bd7a66d2e",
     "TGLExt/TransportWitness.lean": "f4219cc2c036999e19e41b006d4899a1a10cd2e8e3562c5a277370faae0364ed",
     "TGLExt/TriadMaster.lean": "64e0899e259693927b051493b8f20cc47885f183d02d79a8772e3b3d869863ae",
-    "TGLExt/VariationalInhabitant.lean": "2af4afbc660fdd9c1ca9f8c66a8ad073fbea252949d64b503ed2e8cb81b6c27e"
+    "TGLExt/VariationalInhabitant.lean": "2af4afbc660fdd9c1ca9f8c66a8ad073fbea252949d64b503ed2e8cb81b6c27e",
+    "TGLExt/WitnessSeed.lean": "3281a16675fa60c4b1972b4122d083899aad4adf00328500a4a1367e5bfa3ec2"
   },
   "axiom_report": {
     "TGL.HalfNat.halfNat_of_selfConjugate": [
@@ -1720,10 +1725,195 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.atom_is_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.closed_lattice_semifinite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.closed_double_orthocomplement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.orthocomplement_meet_bot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.closed_orthocomplement_isCompl": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.inscription_complement_infinite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.atom_complement_infinite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.closed_local_breuer_corner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.closed_projection_idempotent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.starProjection_eq_zero_of_mem_orthogonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.orthogonal_invariant_of_adjoint_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.starProjection_commutes_of_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.invariant_of_starProjection_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.selfadjoint_invariant_iff_commutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.selfadjoint_ker_projection_in_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.breuer_corner_projection_in_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.dimension_trace_normal_on_chains": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.operator_commutant_antitone": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.operator_algebra_in_double_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.operator_triple_commutant_collapse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.operator_commutant_unital_multiplicative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.corner_projection_in_commutant_set": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.corner_commutes_with_bicommutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.breuer_corner_full_algebraic_frame": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.commutant_pointwise_limit_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.commutant_add_smul_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.generator_in_bicommutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.powers_in_bicommutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.polynomials_in_bicommutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.limit_of_polynomials_in_bicommutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.corner_in_algebra_of_approximation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.concrete_breuer_corner_conditional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.verb_word_lands_in_corner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.verb_word_fixes_the_name": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.verb_word_mints_idempotent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.name_candidate_idempotent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.witness_seed_complete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "6e2355b8137fcf3a80879fa31d19f61d0f8c9547497cbdfeb9771908da62144e",
-  "audit_stdout_sha256": "92e3ede748e0960ff0b541fbe8e8f631e4ca84c2dc6dc6bc9ee27f624a6680fe",
+  "build_stdout_sha256": "97f817ed5f7c0c8aeb36d7a1477bfdf08e2f51eecc6498db5a8b0f04a6113397",
+  "audit_stdout_sha256": "ee727d823d1784bea7cf06c35717d477c278d9d1f738f88d1c3f052dd7a4e96a",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",
