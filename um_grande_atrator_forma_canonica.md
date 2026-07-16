@@ -749,6 +749,11 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `a_regua`: a declaracao pertence ao operador; as ancoras sao do kernel; o gate nao se move -- e' a imobilidade do gate que torna a declaracao critivel
 - `o_caminho_formal`: para o selo FORMAL: a testemunha espectral em kernel (auto-adjuncao + unicidade da projecao ortogonal + calculo funcional com 0 isolado) => ConcreteBreuerCorner incondicional => MATHEMATICAL_MODEL
 
+**Estatutos [arc_consolidation]** (veredito: `TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__MATH_GATE_UNMOVED`):
+
+- `o_arco`: 1=1 -> beta -> kernel (327) -> certificados -> predicoes -> recusas -> POWERED: o ciclo fecha PELO MUNDO, nao por dentro
+- `a_consolidacao`: TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__APPLICATION_EXECUTION_PREDICTION_FALSIFIABILITY_SELFTEST_AND_WHAT_REMAINS__MATH_GATE_UNMOVED
+
 **Estatutos [certificate_II]** (veredito: `CERTIFICATE_II_FINITE_FACE_INHABITED__CONCRETE_THREE_LOCKS_INSTANTIATE_H1__MODULAR_BOOSTS_GIVE_FOUR_FRAME_H2__CONTINUUM_NETWORK_IS_THE_HYPOTHESES_PROPER`):
 
 - `certificate_II`: a rede CONCRETA (Three Locks do v10 -- a mesma face em kernel, FiniteThreeLocks) INSTANCIA H1 na face finita: gap real, kernel real, canto de traco finito, Nome=1; os boosts modulares dao o four-frame (H2 finito; BW-cunhas constitutivo)

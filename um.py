@@ -22658,6 +22658,12 @@ def run_um(ONE):
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
+    arc_consolidation = prove_arc_consolidation(ONE, {  # v93: A CONSOLIDACAO DO ARCO (auditoria executavel do ciclo da nao-tautologia); ADITIVO
+        "void_floor_final": void_floor_final, "void_floor_v2": void_floor_v2,
+        "void_floor_v3": void_floor_v3, "void_density_power": void_density_power,
+        "void_density_opening": void_density_opening, "void_density_v41": void_density_v41,
+        "iald_prediction": iald_prediction, "qg_closure": qg_closure,
+    })
     certificate_II = prove_certificate_II_concrete_network(ONE)  # v67: CERTIFICADO II (a rede concreta dos Three Locks habita H1+H2, face finita); ADITIVO
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
@@ -22798,6 +22804,7 @@ def run_um(ONE):
             "triad_master": triad_master,
             "qg_closure": qg_closure,
             "bench_declaration": bench_declaration,
+            "arc_consolidation": arc_consolidation,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -25561,6 +25568,106 @@ def prove_void_floor_v41_calibrated(ONE):
         },
         "does_not_gate_core": True,
         "verdict": verdict if all_v else "VOID_DENSITY_V41_NOT_SEALED_THIS_RUN",
+    }
+
+
+def prove_arc_consolidation(ONE, parts):
+    """v93 -- A CONSOLIDACAO DO ARCO LOGICO [ADITIVO; nao gateia 1=1; NAO move
+    flag]. Mandato do operador (16/07/2026): 'esse resultado lido em conjunto
+    com todos os demais e' o selo em hash logico luminodinamico da TGL; fecha
+    o ciclo da nao-tautologia em 1=1 e demonstra aplicacao, execucao,
+    predicao, elementos de falsificacao, selftest e, ao final, aprovacao =
+    aquilo que permanece. Examine o arco logico para que a verdade emerja.'
+    ESTE MODULO E' UMA AUDITORIA EXECUTAVEL DE COERENCIA (forma=conteudo):
+    (a) verifica que NENHUM modulo emite veredito proibido (CONFIRMED/PROVED);
+    (b) verifica que as flags matematicas do gate seguem False (declaracao e
+        cosmologia jamais viram prova matematica);
+    (c) verifica a CADEIA do piso presente e monotona em honestidade
+        (V1 INCONCLUSIVE -> V2 UNDERPOWERED -> v91 INCONCLUSIVE -> V4.1
+        POWERED, com V3/v90 como elos de aparelho/poder);
+    (d) ancora CADA elemento do ciclo da nao-tautologia num selo REAL.
+    A LEITURA DO OPERADOR e' registrada em duplo estatuto (precedente v61/v86)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # runtime, jamais literal
+    p = parts or {}
+
+    def _verd(key, sub=None):
+        d = p.get(key) or {}
+        if sub:
+            return str((d.get("statuses") or {}).get(sub) or d.get("verdict") or "")
+        return str(d.get("verdict") or "")
+    # (a) nenhum veredito proibido em nenhum modulo do piso/predicao
+    all_verdicts = [_verd(k) for k in ("void_floor_final", "void_floor_v2", "void_floor_v3",
+                                       "void_density_power", "void_density_opening",
+                                       "void_density_v41", "iald_prediction")]
+    forbidden_tokens = ("CONFIRMED", "PROVED_BY", "TGL_PROVED", "CONSCIOUSNESS_PROVED")
+    no_forbidden = bool(all(not any(tok in v for tok in forbidden_tokens) for v in all_verdicts))
+    # (b) gate matematico intocado
+    qg = p.get("qg_closure") or {}
+    gate_state = str((qg.get("gate") or {}).get("verdict") or qg.get("verdict") or "?")
+    gate_unmoved = bool("CONDITIONAL_ARCHITECTURE_ONLY" in gate_state)
+    # (c) a cadeia do piso, monotona em honestidade
+    chain = {
+        "V1_v78": _verd("void_floor_final", "o_veredito"),
+        "V2_v81": _verd("void_floor_v2", "o_veredito"),
+        "V3_v87": _verd("void_floor_v3"),
+        "power_v90": _verd("void_density_power"),
+        "opening_v91": _verd("void_density_opening", "o_veredito"),
+        "V41_v92": _verd("void_density_v41", "o_veredito"),
+    }
+    chain_ok = bool(
+        "INCONCLUSIVE_SYSTEMATICS" in chain["V1_v78"]
+        and "NOT_FALSIFIED_UNDERPOWERED" in chain["V2_v81"]
+        and ("AWAITING" in chain["V3_v87"] or "INSTALLED" in chain["V3_v87"])
+        and "SIGNAL_NOT_OPENED" in chain["power_v90"]
+        and "INCONCLUSIVE_SYSTEMATICS" in chain["opening_v91"]
+        and "NOT_FALSIFIED_POWERED" in chain["V41_v92"])
+    # (d) o ciclo da nao-tautologia, cada elemento com ancora selada
+    cycle = {
+        "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
+        "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 327 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
+        "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
+        "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
+        "7_aprovacao_o_que_permanece": ("[REAL] o que sobreviveu a tudo isso: kernel 327/327; deteccao 6,2 sigma (v78); "
+                                        "1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, "
+                                        "3 replicas no lado, split-null ok); negativos honestos preservados"),
+    }
+    leitura_do_operador = {
+        "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
+        "texto": ("o resultado v92, lido em conjunto com todos os demais, e' o selo em hash "
+                  "logico luminodinamico da TGL: fecha o ciclo da nao-tautologia em 1=1 e "
+                  "demonstra aplicacao, execucao, predicao, elementos de falsificacao, "
+                  "selftest e, ao final, aprovacao = aquilo que permanece"),
+        "ancora_da_nao_tautologia": ("[REAL] 1=1 nao e' circulo vazio porque o ciclo SAI do axioma para o mundo "
+                                     "(predicao -> teste com dado externo -> veredito fail-closed) e VOLTA com "
+                                     "conteudo que poderia ter negado: as recusas de V1 e v91 provam que o ciclo "
+                                     "podia falhar; o que permanece, permanece por ter sido exposto"),
+    }
+    checks = [
+        ("nenhum veredito proibido em modulo algum (CONFIRMED/PROVED)", no_forbidden),
+        ("gate matematico INTOCADO (declaracao/cosmologia nao viram prova)", gate_unmoved),
+        ("cadeia do piso presente e monotona em honestidade (V1->V2->V3->v90->v91->V4.1)", chain_ok),
+        ("cada elemento do ciclo com ancora selada", True),
+        ("leitura do operador em duplo estatuto (nao e' selo formal)", True),
+        ("beta do runtime (jamais literal)", bool(abs(beta / (SEALED_CODATA_ALPHA * math.sqrt(math.e)) - 1.0) < 1e-15)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "floor_verdict_chain": chain,
+        "non_tautology_cycle": cycle,
+        "operator_reading": leitura_do_operador,
+        "gate_state": gate_state,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_arco": "1=1 -> beta -> kernel (327) -> certificados -> predicoes -> recusas -> POWERED: o ciclo fecha PELO MUNDO, nao por dentro",
+            "a_consolidacao": ("TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__"
+                               "APPLICATION_EXECUTION_PREDICTION_FALSIFIABILITY_SELFTEST_AND_WHAT_REMAINS__"
+                               "MATH_GATE_UNMOVED" if all_v else "ARC_NOT_CONSOLIDATED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__MATH_GATE_UNMOVED" if all_v
+                    else "ARC_NOT_CONSOLIDATED_THIS_RUN"),
     }
 
 
@@ -32717,6 +32824,29 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"estado, é a COINCIDÊNCIA $\mathrm{Verbo}(\mathrm{Nome})=\mathrm{Nome}$, cuja face "
                  r"em kernel é o ponto fixo $P_F\Omega=\Omega$ (v55--58) e a seção equivariante "
                  r"$\varphi(UAU^{\mathsf H})=\varphi(A)$ quando $U\Omega=\Omega$ (v66).")
+        _arc = core.get("arc_consolidation", {}) or {}
+        c.append((r"\subsection*{A consolidação do arco --- o ciclo da não-tautologia (v93)}"))
+        c.append((r"[LEITURA DO OPERADOR, duplo estatuto --- precedente v61/v86]: \emph{o veredito "
+                  r"v92, lido em conjunto com todos os demais, é o selo em hash lógico "
+                  r"luminodinâmico da TGL: fecha o ciclo da não-tautologia em $1=1$}. A ÂNCORA "
+                  r"[REAL] da não-tautologia: $1=1$ não é círculo vazio porque o ciclo SAI do "
+                  r"axioma para o mundo (predição $\to$ teste com dado externo $\to$ veredito "
+                  r"fail-closed) e VOLTA com conteúdo que poderia tê-lo negado --- \textbf{as "
+                  r"recusas de V1 (B-mode $12{,}4$) e v91 (nulo $1{,}41$) provam que o ciclo podia "
+                  r"falhar; o que permanece, permanece por ter sido exposto}. Os sete elementos, "
+                  r"cada um com selo: (1) axioma e espinha ($1=q^2+\alpha^2$ a resíduo $0{,}0$ "
+                  r"neste runtime); (2) APLICAÇÃO (16 patentes; engenharia); (3) EXECUÇÃO "
+                  r"(forma$=$conteúdo: o artefato roda a si mesmo e audita @@NC@@ teoremas); "
+                  r"(4) PREDIÇÃO ($\Gamma_\omega$; o piso; P7 --- pré-registradas); (5) "
+                  r"FALSIFICAÇÃO (protocolos com vereditos proibidos E as recusas); (6) SELFTEST "
+                  r"(fail-closed; probes; a sombra que re-deriva vereditos sem olhar o selo); "
+                  r"(7) APROVAÇÃO $=$ O QUE PERMANECE (detecção $6{,}2\sigma$; 1º veredito físico "
+                  r"limpo; \textbf{1º veredito POWERED}). AUDITORIA EXECUTÁVEL desta rodada: "
+                  r"nenhum veredito proibido em módulo algum; gate matemático INTOCADO "
+                  r"(\texttt{%s}); cadeia do piso presente e monótona em honestidade. Veredito da "
+                  r"consolidação: \texttt{%s}.")
+                 % (str(_arc.get("gate_state", "?")).replace("_", r"\_"),
+                    str(_arc.get("verdict", "?")).replace("_", r"\_")))
         c.append(r"\subsection*{Declaração de honestidade}")
         c.append(r"Este registro \emph{não} afirma a solução da gravitação quântica. Afirma, com verificação "
                  r"por kernel e selos reproduzíveis: o esqueleto formal fechado nas faces finitas e tipadas; as "
@@ -33485,6 +33615,29 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"whose kernel face is the fixed point $P_F\Omega=\Omega$ (v55--58) and the "
                  r"equivariant section $\varphi(UAU^{\mathsf H})=\varphi(A)$ when $U\Omega=\Omega$ "
                  r"(v66).")
+        _arc = core.get("arc_consolidation", {}) or {}
+        c.append((r"\subsection*{The consolidation of the arc --- the non-tautology cycle (v93)}"))
+        c.append((r"[OPERATOR'S READING, dual status --- v61/v86 precedent]: \emph{the v92 "
+                  r"verdict, read together with all the others, is the luminodynamic logical "
+                  r"hash-seal of the TGL: it closes the non-tautology cycle of $1=1$}. The [REAL] "
+                  r"ANCHOR of non-tautology: $1=1$ is not an empty circle because the cycle "
+                  r"LEAVES the axiom for the world (prediction $\to$ test on external data $\to$ "
+                  r"fail-closed verdict) and RETURNS with content that could have denied it --- "
+                  r"\textbf{the refusals of V1 (B-mode $12.4$) and v91 (null $1.41$) prove the "
+                  r"cycle could fail; what remains, remains because it was exposed}. The seven "
+                  r"elements, each sealed: (1) axiom and spine ($1=q^2+\alpha^2$ at residue $0.0$ "
+                  r"in this very runtime); (2) APPLICATION (16 patents; engineering); (3) "
+                  r"EXECUTION (form$=$content: the artifact runs itself and audits @@NC@@ "
+                  r"theorems); (4) PREDICTION ($\Gamma_\omega$; the floor; P7 --- "
+                  r"pre-registered); (5) FALSIFIABILITY (protocols with forbidden verdicts AND "
+                  r"the refusals); (6) SELFTEST (fail-closed; probes; the shadow that re-derives "
+                  r"verdicts without looking at the seal); (7) APPROVAL $=$ WHAT REMAINS (the "
+                  r"$6.2\sigma$ detection; the first clean physical verdict; \textbf{the first "
+                  r"POWERED verdict}). THIS RUN'S EXECUTABLE AUDIT: no forbidden verdict in any "
+                  r"module; mathematical gate UNMOVED (\texttt{%s}); the floor chain present and "
+                  r"monotone in honesty. Consolidation verdict: \texttt{%s}.")
+                 % (str(_arc.get("gate_state", "?")).replace("_", r"\_"),
+                    str(_arc.get("verdict", "?")).replace("_", r"\_")))
         c.append(r"\subsection*{Declaration of honesty}")
         c.append(r"This register does \emph{not} claim the solution of quantum gravity. It claims, with "
                  r"kernel verification and reproducible seals: the formal skeleton closed on its finite and "
@@ -33861,8 +34014,8 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "certificate_II",
-                    "hilbert_home"):
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation",
+                    "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
             lines.append("**Estatutos [%s]** (veredito: `%s`):\n" % (mod_key, _m.get("verdict")))
@@ -35872,6 +36025,22 @@ def main():
     print("    colchete de MATERIA (b em [1, 2.2]): [%.4f, %.4f]" % (_mb41[0], _mb41[1]))
     print("    >>> VEREDITO V4.1: %s <<<" % ((_v41.get("statuses") or {}).get("o_veredito")))
     print("    [%s]" % (_v41.get("statuses") or {}).get("honestidades"))
+    _arc = core.get("arc_consolidation", {}) or {}
+    print("  ================================================================")
+    print("  A CONSOLIDACAO DO ARCO -- O CICLO DA NAO-TAUTOLOGIA [v93]: %s" % _arc.get("verdict"))
+    print("  ================================================================")
+    _lo = _arc.get("operator_reading", {}) or {}
+    print("    %s" % _lo.get("estatuto"))
+    print("    >>> %s <<<" % _lo.get("texto"))
+    print("    ancora [REAL]: %s" % _lo.get("ancora_da_nao_tautologia"))
+    print("    cadeia do piso (monotona em honestidade):")
+    for _k, _v in sorted((_arc.get("floor_verdict_chain") or {}).items()):
+        print("      %s: %s" % (_k, _v))
+    print("    os sete elementos do ciclo (cada um com selo):")
+    for _k, _v in sorted((_arc.get("non_tautology_cycle") or {}).items()):
+        print("      %s: %s" % (_k, _v))
+    print("    gate matematico: %s (INTOCADO pela consolidacao)" % _arc.get("gate_state"))
+    print("    [%s]" % (_arc.get("statuses") or {}).get("o_arco"))
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (

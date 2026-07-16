@@ -2742,7 +2742,7 @@
 
 ```json
 {
-  "code_sha256": "a5802ba44c1047970686c3a763de0007d5b2072af18ae58ea8b6f2530761d31a",
+  "code_sha256": "3457dfc4059b67037514268efbddb40dcc7afc973c008bf2451ed8805127b7f7",
   "cf4_catalog_hash": null,
   "window_hash": null,
   "selection_hash": null
@@ -2982,6 +2982,11 @@
 - `a_declaracao`: TGL_QG_CLOSED_ON_THE_BENCH [DECLARACAO DO OPERADOR, duplo estatuto]
 - `a_regua`: a declaracao pertence ao operador; as ancoras sao do kernel; o gate nao se move -- e' a imobilidade do gate que torna a declaracao critivel
 - `o_caminho_formal`: para o selo FORMAL: a testemunha espectral em kernel (auto-adjuncao + unicidade da projecao ortogonal + calculo funcional com 0 isolado) => ConcreteBreuerCorner incondicional => MATHEMATICAL_MODEL
+
+**Estatutos [arc_consolidation]** (veredito: `TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__MATH_GATE_UNMOVED`):
+
+- `o_arco`: 1=1 -> beta -> kernel (327) -> certificados -> predicoes -> recusas -> POWERED: o ciclo fecha PELO MUNDO, nao por dentro
+- `a_consolidacao`: TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__APPLICATION_EXECUTION_PREDICTION_FALSIFIABILITY_SELFTEST_AND_WHAT_REMAINS__MATH_GATE_UNMOVED
 
 **Estatutos [certificate_II]** (veredito: `CERTIFICATE_II_FINITE_FACE_INHABITED__CONCRETE_THREE_LOCKS_INSTANTIATE_H1__MODULAR_BOOSTS_GIVE_FOUR_FRAME_H2__CONTINUUM_NETWORK_IS_THE_HYPOTHESES_PROPER`):
 

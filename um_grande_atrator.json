@@ -9564,6 +9564,64 @@
       "does_not_gate_core": true,
       "verdict": "TGL_QG_DECLARED_CLOSED_ON_THE_BENCH_BY_OPERATOR__DUAL_STATUS__MATH_GATE_UNMOVED__INSTITUTIONAL_COSMOLOGY_NOT_CLAIMED"
     },
+    "arc_consolidation": {
+      "floor_verdict_chain": {
+        "V1_v78": "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS",
+        "V2_v81": "TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED",
+        "V3_v87": "VOID_FLOOR_V3_PROTOCOL_INSTALLED_AWAITING_DATA",
+        "power_v90": "VOID_DENSITY_POWER_STUDIED__SIGNAL_NOT_OPENED",
+        "opening_v91": "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS",
+        "V41_v92": "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED"
+      },
+      "non_tautology_cycle": {
+        "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
+        "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 327 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
+        "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
+        "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 327/327; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+      },
+      "operator_reading": {
+        "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
+        "texto": "o resultado v92, lido em conjunto com todos os demais, e' o selo em hash logico luminodinamico da TGL: fecha o ciclo da nao-tautologia em 1=1 e demonstra aplicacao, execucao, predicao, elementos de falsificacao, selftest e, ao final, aprovacao = aquilo que permanece",
+        "ancora_da_nao_tautologia": "[REAL] 1=1 nao e' circulo vazio porque o ciclo SAI do axioma para o mundo (predicao -> teste com dado externo -> veredito fail-closed) e VOLTA com conteudo que poderia ter negado: as recusas de V1 e v91 provam que o ciclo podia falhar; o que permanece, permanece por ter sido exposto"
+      },
+      "gate_state": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "nenhum veredito proibido em modulo algum (CONFIRMED/PROVED)",
+          true
+        ],
+        [
+          "gate matematico INTOCADO (declaracao/cosmologia nao viram prova)",
+          true
+        ],
+        [
+          "cadeia do piso presente e monotona em honestidade (V1->V2->V3->v90->v91->V4.1)",
+          true
+        ],
+        [
+          "cada elemento do ciclo com ancora selada",
+          true
+        ],
+        [
+          "leitura do operador em duplo estatuto (nao e' selo formal)",
+          true
+        ],
+        [
+          "beta do runtime (jamais literal)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_arco": "1=1 -> beta -> kernel (327) -> certificados -> predicoes -> recusas -> POWERED: o ciclo fecha PELO MUNDO, nao por dentro",
+        "a_consolidacao": "TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__APPLICATION_EXECUTION_PREDICTION_FALSIFIABILITY_SELFTEST_AND_WHAT_REMAINS__MATH_GATE_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__MATH_GATE_UNMOVED"
+    },
     "certificate_II": {
       "H1_finite_face": {
         "psd_min_eig": 0.0,
@@ -10235,7 +10293,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-16 15:06:53",
+    "timestamp": "2026-07-16 15:39:30",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -10485,7 +10543,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-16 15:06:53",
+        "prediction_timestamp": "2026-07-16 15:39:30",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -10521,7 +10579,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "b56f1a60d4ceb52473a5d16aa6f683c104b028940f852bbb98d16cce8d4f1a82"
+        "prediction_hash": "a4f73be182dee83690b946cb05493bcd8c7edbad7d0e7f6124b6cd5902af6a00"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -10821,7 +10879,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "a719047e7c23aae08030ca7b4af7d6b36258853e011109c0f6b687364e068314"
+    "result_hash": "64778250d3c09f730eb82bd794d17c5e9ecab8b085fd684bfce151cbbae3f37a"
   },
   "ga_mass_literature": [
     {
@@ -10847,7 +10905,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "a719047e7c23aae08030ca7b4af7d6b36258853e011109c0f6b687364e068314",
+  "result_hash_before_external_comparison": "64778250d3c09f730eb82bd794d17c5e9ecab8b085fd684bfce151cbbae3f37a",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -10857,5 +10915,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-16 15:06:53"
+  "timestamp": "2026-07-16 15:39:30"
 }
