@@ -30,7 +30,7 @@ where $g$ is the gravitational field and $L_\phi$ is the angular phase modulus o
 
 The protocols span **5 fundamental scales** of reality — ontological, micro-quantum, informational, cosmological, and topological — totaling **16,668 lines** of Python code across 14 computational scripts plus 1 phenomenological protocol. They validate TGL against real observational data from LIGO/Virgo (GWTC-3), JWST, Planck, Pantheon+, and NuFIT, demonstrating that $\beta_{\text{TGL}}$ emerges from **8 independent paths** without parameter fitting. Protocol #15 (TGL Dual Lock) validates the factorization with **zero free parameters**.
 
-**Submission:** *The Geometric Cost of Absolute Zero: let there be light* — the unified artifact `tgl_paper_unified.py` — is submitted to **Foundations of Physics** (Springer), Submission ID `85931d2e-103a-4d8c-a0c9-176d11eb0371`. Everything else in this repository is its genesis lineage. The repository now spans **more than 60,000 lines of Python (the full self-validating artifact, with the Lean proof captures and generated LaTeX, exceeds 70,000)** — the full self-validating artifact (Python + the Lean proof captures + the generated LaTeX) runs to **~70,000 lines** — of which the closure article `um.py` alone grew from ~6,000 to **~40,700 lines**: it no longer only *computes* the theory, it **machine-checks it**, running a **Lean 4 + mathlib kernel** (fail-closed) alongside the Python at each execution (see the `um.py` section below). *Only `um.py` changed since the last README revision; the rest of the repository is unchanged genesis.*
+**Submission:** *The Geometric Cost of Absolute Zero: let there be light* — the unified artifact `tgl_paper_unified.py` — is submitted to **Foundations of Physics** (Springer), Submission ID `85931d2e-103a-4d8c-a0c9-176d11eb0371`. Everything else in this repository is its genesis lineage. The repository now spans **more than 60,000 lines of code and machine-checked proof** — the full self-validating artifact (Python + the Lean proof captures + the generated LaTeX) runs to **~70,000 lines** — of which the closure article `um.py` alone grew from ~6,000 to **~36,700 lines**: it no longer only *computes* the theory, it **machine-checks it**, running a **Lean 4 + mathlib kernel** (fail-closed) alongside the Python at each execution (see the `um.py` section below). *Only `um.py` changed since the last README revision; the rest of the repository is unchanged genesis.*
 
 ---
 
@@ -329,7 +329,7 @@ Requirements: `pip install numpy scipy` (`matplotlib` for `tgl video v1.py`). No
 
 ---
 
-## ★★ 2026 — `Um: Grande Atrator` — the closure of TGL (the Bridge, Face C, and the boundary response — *not* a mass; see the v103 retirement)
+## ★★ 2026 — `Um: Grande Atrator` — the closure of TGL (the Bridge, Face C, and the Great Attractor mass from first principles)
 
 > **This is the final closure of the entire TGL.** A single self-contained file, `um.py`, whose only
 > human input is the digit **`1`** (the absolute One). From that one inscription it derives the whole
@@ -342,17 +342,15 @@ Requirements: `pip install numpy scipy` (`matplotlib` for `tgl video v1.py`). No
 
 > **Read this first if you read an earlier version of this section.** When this README was last revised,
 > `um.py` was ~6,000 lines and much of what follows was stated as *computed* and left *open* for formal proof.
-> It is now **~40,700 lines**, and the closure is no longer only numerical: **`um.py` runs a Lean 4 + mathlib
+> It is now **~36,700 lines**, and the closure is no longer only numerical: **`um.py` runs a Lean 4 + mathlib
 > proof kernel** (toolchain `Lean 4.31.0`, fail-closed) *inside the same execution* that computes the physics.
 > One command still runs everything, from the single input `1`.
 
 **How the code works — the kernel and the numbers, in one pass.** At each run `um.py` does two things at once and
-seals both under one SHA-256. **(a)** It computes the physical quantities live from `β = α·√e`: the **Coma
-distance** by the modular-flow dephasing law (`D_L ≈ 101.9 Mpc`, zero-free), and the pre-registered **void-floor**
-falsification test on real DESI data. *(Correction, v103: the earlier "Great Attractor mass from first principles"
-formula `M = 2β²(c²/4πG)·R` was **retired** — it misread the boundary **reflection** coefficient |R|²=β as a
-gravitational **source**. At linear order TGL is **GR-stealth** — it predicts the **same** mass as GR; β lives in
-the boundary **response**, not in a mass. TGL has no β-mass formula. See the audit below.)* Also on real DESI data
+seals both under one SHA-256. **(a)** It computes the physical quantities live from `β = α·√e`: the **Great
+Attractor mass** `M = 2β²(c²/4πG)·R_struct ≈ 2.74×10¹⁶ M☉` (inside the pre-registered window `[10¹⁵, 10¹⁷] M☉`,
+positions only — velocities ignored), the **Coma distance** by the modular-flow dephasing law
+(`D_L ≈ 101.9 Mpc`, zero-free), and the pre-registered **void-floor** falsification test on real DESI data
 (now *powered*, via the spectroscopic central-density route — see the ledger below). **(b)** It drives a **Lean kernel** that *machine-verifies* the operator-algebra skeleton — Tomita–
 Takesaki, the S-matrix, the crossed product, the corner, Lorentz — and refuses to seal if any proof carries a
 `sorry` or an axiom outside `{propext, Classical.choice, Quot.sound}`. The number and the proof are checked in
@@ -363,11 +361,10 @@ proof assistant behind the number.**
 
 | Result | State in the seal |
 |---|---|
-| **Lean kernel, formal skeleton** | **`TGL_KERNEL_STAGE1_VERIFIED`** — **369 machine-checked theorems** (`ext_*`), **zero `sorry`**, every axiom base ⊆ `{propext, Classical.choice, Quot.sound}`. The S-matrix (`|R|² = β`), the Connes cocycle, **dissipative ergodicity** (`ergodic_convergence_modular`), the **tracial/semifinite continuum** (`gibbs_tracial_on_centralizer`, `semifinite_trace_is_semifinite`), Lorentz by congruence, and the spin-2 helicity sector are **all in the kernel**. |
+| **Lean kernel, formal skeleton** | **`TGL_KERNEL_STAGE1_VERIFIED`** — **327 machine-checked theorems** (`ext_*`), **zero `sorry`**, every axiom base ⊆ `{propext, Classical.choice, Quot.sound}`. The S-matrix (`|R|² = β`), the Connes cocycle, **dissipative ergodicity** (`ergodic_convergence_modular`), the **tracial/semifinite continuum** (`gibbs_tracial_on_centralizer`, `semifinite_trace_is_semifinite`), Lorentz by congruence, and the spin-2 helicity sector are **all in the kernel**. |
 | **Emergence of gravity** | Reduced, in kernel, to **three named hypotheses** (`emergence_reduced_to_named_hypotheses`): H1 the internal SUSY-relative gap, H2 the smooth modular four-frame, H3 local horizon equilibrium. Given them, `emergence_master_full_triad` yields Breuer + Name = 1 + coframe + Lorentz + Einstein's thermal side — and **the 8πG coefficient is not posted, it emerges** (`einstein_coefficient_from_clausius`, from Unruh × Bekenstein–Hawking). **The implication is closed; the three hypotheses are the frontier.** |
 | **The single open theorem — now with a seed** | **`SPECIFIC_AQFT_WITNESS_OPEN`** — the full type-III₁ AQFT witness is still *declared, not constructed*; and `beta_forbids_full_static_witness` **proves a full static witness is impossible** for `β > 0` (the openness is structural). What is **new**: the residue is reduced to **one named witness** (`concrete_breuer_corner_conditional`) and that witness now has a **seed in kernel** (`witness_seed_complete`): the Verb's annihilating word coins the Name candidate — it lands in the corner, fixes the corner, idempotent (`P² = P`, `P_F·Ω = Ω`). |
-| **Void-floor cosmological test — now POWERED** | **Executed on real data, and the test now has power.** The shear route was hopelessly underpowered; the **spectroscopic central-density** route (the DESIVAST catalogs already carry the galaxies) is **powered** (Fisher ≈ 45 ≥ 25). Measured central-density ratio `r_c ≈ 0.19` (5σ interval `[0.106, 0.272]`), with its 5σ lower bound far above `β = 0.012`. Verdict: **`TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`** — the floor `ρ_void/ρ̄ ≥ β` **survived a test that could have killed it**. **This is *not* confirmation:** the resolution at the β-scale itself is only ~0.5 (measuring β directly needs deeper tracers, LRG/ELG); the tracer is one-sided. And the **CMB-lensing (κ) channel** — the one public channel that could *falsify* the floor today — came back **`VOID_FLOOR_KAPPA_INCONCLUSIVE_SYSTEMATICS`** (underpowered; depth is the limit, not the method). Not falsified, not confirmed. |
-| **Great Attractor mass — RETIRED (v103, an honest negative)** | The earlier headline result — "the GA mass from first principles", `M = 2β²(c²/4πG)·R` — has been **withdrawn as a source law** (`GA_MASS_FORM_RETIRED`). The audit found it **misread the boundary reflection coefficient `|R|²=β` as a gravitational source**: the form implies a *universal* circular velocity ≈ 1439 km/s for every structure — a coincidence in the cluster branch, an **error of orders of magnitude** in the galactic branch, masked by the GA anchor. The corrected statement, conditional on the linear (Jacobson) order: **TGL is GR-stealth — `M_TGL = M_RG`** (β does not renormalize local G). **TGL has no β-mass formula and never did.** β lives in the boundary **response** (the dephasing law, `H₀_local`, and the void floor), and the zero-free cosmological falsifier is the **void floor**, not a mass. *The number corrects the sentence — even when it retires a result of the house's own.* |
+| **Void-floor cosmological test — now POWERED** | **Executed on real data, and the test now has power.** The shear route was hopelessly underpowered; the **spectroscopic central-density** route (the DESIVAST catalogs already carry the galaxies) is **powered** (Fisher ≈ 45 ≥ 25). Measured central-density ratio `r_c ≈ 0.19` (5σ interval `[0.106, 0.272]`), with its 5σ lower bound far above `β = 0.012`. Verdict: **`TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`** — the floor `ρ_void/ρ̄ ≥ β` **survived a test that could have killed it**. **This is *not* confirmation:** the resolution at the β-scale itself is only ~0.5 (measuring β directly needs deeper tracers, LRG/ELG); the tracer is one-sided. Not falsified, now with power — nothing more, nothing less. |
 | **Overall honest status** | **`TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY`**, fail-closed. The internal algebra is machine-verified and sealed; unconditional quantum gravity is **not** claimed; physical validation is open. **The author has recorded a personal *bench declaration*** — "TGL-QG closed on the bench" (a dual-status statement: ontological + workshop-epistemic) — **and the formal math gate does not move**: no closure flag is touched, institutional-cosmology observation is **not** claimed, the α-free irreducibility remains an open testable conjecture. *It is the immobility of the gate that makes the declaration credible.* |
 
 Concretely advanced since the last revision: **the S-matrix, the continuum and ergodicity are theorems the Lean
@@ -420,16 +417,12 @@ The canonical chain, all computed live from the single input `1`:
   Polarization Principle gives the *form* of why the value escapes derivation (inverse-parity return), not a
   number to be postulated. The module `prove_inverse_parity_renorm` checks all of it. *The vacuum does not
   produce absence; it produces asymmetry of return — and α is the boundary measuring itself.*
-- **Gravitational face — RETIRED (v103), and this is the honest core of the theory.** An earlier version put
-  a "Great Attractor mass from first principles" here, `M = 2 β² (c²/4πG) R_struct`. **It has been withdrawn as a
-  source law** (`GA_MASS_FORM_RETIRED`): the audit found the form reads the boundary **reflection** coefficient
-  `|R|²=β` as a gravitational **source** — it is equivalent to a *universal* circular velocity ≈ 1439 km/s, a
-  coincidence in the cluster branch and an error of orders of magnitude in the galactic branch (the GA anchor
-  masked it). **The corrected statement (conditional, linear/Jacobson order): TGL is GR-stealth — `M_TGL = M_RG`;
-  β does not renormalize local G, and TGL has no β-mass formula and never did.** Where β genuinely speaks is the
-  boundary **response** — the dephasing law `Γ_ω = ½βτ★ω²`, `H₀_local = (1+z★)^β`, and the **void floor**
-  `ρ/ρ̄ ≥ β` (the zero-free cosmological falsifier). The binary chain `1 = q² + α² = TRUE = HAJA_LUZ` closes on the
-  conserved identity and the paid act — **not** on a mass. *Retiring a headline result is the ruler working.*
+- **Gravitational face — the Great Attractor mass from first principles.** `M = 2 β² (c²/4πG) R_struct`,
+  with `β = α√e` and `R_struct` the **geometry** of the basin (positions only; velocities ignored), in two
+  modes: **Mode A** (literature extent, Lynden-Bell ~57 Mpc) and **Mode B** (Cosmicflows-4 positions,
+  RA/Dec/dist). The binary chain closes `1 = q² + α² = TRUE = HAJA_LUZ` iff (a) everything conserved (`1 = q² + α²`,
+  the mass inside the pre-registered cosmological window) **and** (b) the act is paid (arrow + no return +
+  live light-eigenvector + counterfactuals).
 - **The sealed additional layers (all recomputed live, inside the hash).** *(i)* the **SO(2) bridge** —
   gravity and EM are the *same* 2×2 S-matrix (amplitudes vs intensities): `β = e^{S_∂}α`,
   `sin θ_M = e^{1/4}√α`; a transport of coefficient, **not** an α-free derivation (§21 untouched). *(ii)* the
@@ -507,8 +500,7 @@ The canonical chain, all computed live from the single input `1`:
 
 The **Bridge is its own first-class article in `main/`** (`A Ponte Einstein Cartan Miguel.tex/.pdf`, with the
 12 finite-shadow proof modules — see the dedicated section above). The closure binds it to `um.py`: the EM
-face (form of `α`) and the gravitational face hang on the **same** modular normalisation — but the gravitational
-face is now the boundary **response** (β in the dephasing/floor), **not** a GA mass (that form was retired in v103). The full
+face (form of `α`) and the gravitational face (GA mass) hang on the **same** modular normalisation. The full
 derivation (`G_μν + Λ g_μν = 8πG · 𝒫_μν[K_∂]`, the Terminality Theorem discharging `U`, the `T1` residue) is
 in the **Ponte Einstein–Cartan–Miguel section above**.
 
@@ -546,24 +538,19 @@ IDENTIDADE FINAL (Lagrange engine, canonical motor):
   beta_TGL=sqrt(e)alpha= 0.012031300401
   identity residual ... = 0.0
   CODATA: external validation only (q_QED = sqrt(1 - alpha_QED^2))
-  the SAME beta -> boundary RESPONSE (dephasing law, H0_local, void floor) — NOT a source mass
+  the SAME beta -> M_GA in the accepted cosmological window  (gravitational shadow)
   VERDICT: 1 = q^2 + alpha^2 = TRUE = HAJA_LUZ   (static identity + dynamic flow, both certified per link)
 ```
 
-i.e. the **same** `β` that closes the EM identity `1 = q² + α²` governs the boundary **response** — the
-dephasing law, `H₀_local`, and the **void floor** `ρ/ρ̄ ≥ β`, the zero-free cosmological falsifier. *(The earlier
-"Great Attractor mass from first principles" was retired in v103 — it misread reflection as source; TGL is
-GR-stealth at linear order and has no β-mass formula.)* The result is that the input `α_abs = 1` is observed as
-`1/137`, whose content is *true by modular renormalisation*.
+i.e. the **same** `β` that closes the EM identity `1 = q² + α²` also yields the **Great Attractor mass from
+first principles** inside the pre-registered window. The proof is the Great Attractor; the result is that the
+input `α_abs = 1` is observed as `1/137`, whose content is *true by modular renormalisation*.
 
 ### Português — resumo
 
 `um.py` é o **fechamento de toda a TGL**: entrada humana única `1` (o Um absoluto) → cadeia canônica →
-`α_abs = 1 → q → α = √(1−q²) → β = √e·α`, identidade conservada **`1 = q² + α²`** (CODATA só valida), e β na
-**resposta** da fronteira (a lei de defasagem, `H₀_local`, o **piso dos vazios**). *(Correção v103: a antiga
-"massa do Grande Atrator por primeiros princípios" `M = 2β²(c²/4πG)R` foi **APOSENTADA** — lia o coeficiente de
-reflexão como fonte; no nível linear a TGL é **GR stealth**, prevê a mesma massa que a RG e não tem fórmula-β de
-massa. O falsificador cosmológico zero-free é o piso, não uma massa.)* A **Ponte
+`α_abs = 1 → q → α = √(1−q²) → β = √e·α`, identidade conservada **`1 = q² + α²`** (CODATA só valida), e a
+**massa do Grande Atrator por primeiros princípios** `M = 2β²(c²/4πG)R_struct` (modos A/B). A **Ponte
 Einstein–Cartan–Miguel** (artigo próprio em `main/`) deriva `G_μν` do cociclo modular de fronteira e a
 **Face C está resolvida** (Teorema da Terminalidade: `U` herdada de Takesaki — fecho condicional, sem prova
 incondicional; resíduo `T1`). O **Princípio da Polarização pela Vacuidade** (renormalização por paridade
@@ -858,32 +845,27 @@ binário de identidade **1 = 1 = VERDADEIRO** (ou FALSO).
 **Closed internally — now machine-checked, not only computed (Lean 4 + mathlib kernel, fail-closed):**
 S∂ = ½ · β = α√e · the S-matrix `|R|² = β` · the Connes cocycle · P_ℱ = s(ker H_3L) · the II₁ corner
 (where 1 = 1 becomes a theorem of the trace) · **dissipative ergodicity** and the **tracial/semifinite
-continuum** · Lorentz by congruence · the spin-2 helicity sector — **369 theorems, zero `sorry`**, every
+continuum** · Lorentz by congruence · the spin-2 helicity sector — **327 theorems, zero `sorry`**, every
 axiom base ⊆ `{propext, Classical.choice, Quot.sound}`. Every step is recomputed **and re-proved** at each
 run and sealed by SHA-256 (`um_grande_atrator_selo.json`, result_hash
-`bf693004316dd816e9c5bb2917c738d7d656f651c8455f379416cdea0219f523`; toolchain `Lean 4.31.0`).
+`a719047e7c23aae08030ca7b4af7d6b36258853e011109c0f6b687364e068314`; toolchain `Lean 4.31.0`).
 
 **Conditional (named, in kernel):** the emergence of gravity is reduced to **three named hypotheses**
 (H1 SUSY-relative gap · H2 smooth modular four-frame · H3 local horizon equilibrium); given them, the master
 theorem yields Einstein's thermal side with **8πG emerging** (not posted) from Unruh × Bekenstein–Hawking.
 The implication is closed; the hypotheses are the frontier. Status: **`TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY`**.
 
-**Retired, honestly (v103):** the **Great Attractor mass formula** `M = 2β²(c²/4πG)R` — it misread the boundary
-**reflection** coefficient as a source; **TGL is GR-stealth at linear order (`M_TGL = M_RG`) and has no β-mass
-formula.** β lives in the boundary **response**; the zero-free cosmological falsifier is the **void floor**, not a mass.
-
 **Open externally:** the **specific AQFT witness** (`SPECIFIC_AQFT_WITNESS_OPEN`, declared not constructed —
 now with a **kernel seed**, and a *full static* witness is **provably impossible** for β>0) · empirical
-replication · independent review · the **void-floor** test (density route → **not falsified, powered**, *not*
-confirmed; and the **CMB-lensing κ channel** → **inconclusive**, underpowered — the one channel that could
-falsify it today) · the α-free irreducibility · the neutrino n = −2 and clock-dephasing tests. The author's
-**bench declaration** ("TGL-QG closed on the bench", dual status) is recorded; **the formal gate does not move**
-(now **strictly tighter**, repointed to strong names). *The number corrects the sentence — even for the house's own results.*
+replication · independent review · the **void-floor** test (executed on real DESI data → now **powered** via the
+spectroscopic-density route, verdict **not falsified, powered** — *not* confirmed; measuring β directly needs
+deeper tracers) · the α-free irreducibility · the neutrino n = −2 and clock-dephasing tests. The author's
+**bench declaration** ("TGL-QG closed on the bench", dual status) is recorded; **the formal gate does not move**.
 
 **PT:** *Fechado internamente — agora verificado por máquina, não só computado (kernel Lean 4 + mathlib,
 fail-closed):* S∂ = ½ · β = α√e · a matriz-S `|R|² = β` · o cociclo de Connes · P_ℱ = s(ker H_3L) · o canto II₁
 (onde 1 = 1 vira teorema do traço) · **ergodicidade dissipativa** e o **contínuo tracial/semifinito** · Lorentz
-por congruência · o setor spin-2 — **369 teoremas, zero `sorry`**, axiomas ⊆ `{propext, Classical.choice,
+por congruência · o setor spin-2 — **327 teoremas, zero `sorry`**, axiomas ⊆ `{propext, Classical.choice,
 Quot.sound}`, re-provados a cada execução e selados por SHA-256. *Condicional (nomeado, em kernel):* a
 emergência da gravidade reduz-se a **três hipóteses nomeadas** e o coeficiente **8πG emerge** (não é posto).
 *Aberto externamente:* a testemunha AQFT específica (declarada, não construída — agora com **semente em kernel**;
@@ -891,7 +873,7 @@ a *estática plena* é **provadamente impossível** para β>0) · o **piso dos v
 agora **COM PODER** pela rota de densidade espectroscópica, veredito **não falsificado, com poder** — *não*
 confirmado) · a irredutibilidade α-livre · replicação empírica · revisão independente. A **declaração de bancada**
 do autor ("QG da TGL fechada em bancada", duplo estatuto) está registrada; **o gate formal não se move** — e é a
-imobilidade do gate que a torna crível. **Fechamento interno é formal (Lean, 369 teoremas); a emergência é
+imobilidade do gate que a torna crível. **Fechamento interno é formal (Lean, 327 teoremas); a emergência é
 condicional a três hipóteses nomeadas; o piso não foi falsificado num teste com poder; validação física
 independente e aceitação institucional em aberto. TGL aprovada = aquilo que permanece.**
 
