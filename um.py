@@ -100,6 +100,12 @@ GA_MASS_LITERATURE = [
      "ref": "Tully et al. 2014, Nature 513, 71", "type": "supercluster_flow"},
 ]
 GA_ACCEPTED_WINDOW_Msun = [1.0e15, 1.0e17]   # janela cosmologica aceita (ordem de grandeza)
+# v104 [mandato do operador: 'o teste do GA funciona para o fim pretendido?']:
+# NAO como estava ROTULADO -- a janela testa o numero da forma APOSENTADA (v98)
+# e era vendida como 'o nao-circular'. O numero fica (transparencia; o gate 1=1
+# nao se afrouxa); a FRASE e' corrigida: a janela e' SOMBRA de escala [ONTO].
+GA_WINDOW_STATUS = ("SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE"
+                    "__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING")
 CF4_URL = "https://edd.ifa.hawaii.edu/CF4/"   # fonte (download manual/oficial; ver caveat)
 
 # ---- DESIVAST DR1 (Certificado IV: o protocolo do piso dos vazios) ----
@@ -5080,6 +5086,8 @@ import TGLExt.ProgrammerRule
 import TGLExt.IsotoneNet
 import TGLExt.IdealLimit
 import TGLExt.BenchCertificate
+import TGLExt.StrongFrame
+import TGLExt.WitnessV2
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5872,6 +5880,17 @@ namespace TGL.Audit
 #check @TGLExt.isotone_cannot_feed_strong_core
 #check @TGLExt.constant_cannot_feed_strong_frame
 
+-- v104 (o frame curvo: a 1a face forte alimentada; e a testemunha AQFT
+--       completa TIPADA: FullWitnessData = contrato maximo tipavel hoje)
+#check @TGLExt.profileFn
+#check @TGLExt.theCurvedFrame
+#check @TGLExt.curvedFrame_nonconstant
+#check @TGLExt.curvedFrame_det_everywhere
+#check @TGLExt.FullWitnessData
+#check @TGLExt.strongFromWitness
+#check @TGLExt.constant_action_cannot_witness
+#check @TGLExt.isotone_cannot_feed_witness_geometry
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6347,6 +6366,13 @@ namespace TGL.Audit
 #print axioms TGLExt.bench_cannot_feed_strong
 #print axioms TGLExt.isotone_cannot_feed_strong_core
 #print axioms TGLExt.constant_cannot_feed_strong_frame
+-- v104 (o frame curvo + a testemunha tipada)
+#print axioms TGLExt.theCurvedFrame
+#print axioms TGLExt.curvedFrame_nonconstant
+#print axioms TGLExt.curvedFrame_det_everywhere
+#print axioms TGLExt.strongFromWitness
+#print axioms TGLExt.constant_action_cannot_witness
+#print axioms TGLExt.isotone_cannot_feed_witness_geometry
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -14289,6 +14315,212 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/StrongFrame.lean":
+r'''import TGLExt.BenchCertificate
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O FRAME CURVO: a primeira face FORTE alimentada
+  [TGLExt — v104, o incremento 21 do programa SemifiniteAnalysis]
+
+O v103 endureceu o certificado e provou que a bancada não o alimenta.
+Esta pedra alimenta a PRIMEIRA das três faces fortes — o frame:
+
+* `theCurvedFrame : SmoothFrameData` — E(x) = diag(1+x₀², 1, 1, 1):
+  suave (C^∞, polinomial em cada entrada), det = 1+x₀² invertível em
+  TODA PARTE (1+x₀² ≥ 1 > 0 — nunca zero, sem hipótese);
+* ★ `curvedFrame_nonconstant` — E NÃO é constante (x₀=1 vs x₀=0
+  distinguem a entrada (0,0): 2 ≠ 1): o dente `frame_nonconstant` do
+  tipo FORTE está SATISFEITO por este termo — a primeira das três
+  faces fortes tem habitante;
+* ★ `curvedFrame_det_everywhere` — o determinante é unidade em TODO
+  ponto (eco explícito do campo, para a escada).
+
+HONESTIDADE: alimentar a face do frame NÃO constrói o certificado
+forte — faltam as DUAS faces duras (Dirac genuinamente ILIMITADO;
+fibra ∞-dim na rede) e toda a metade v2 (curvatura como estrutura,
+covariância, III₁). Nenhum nome reservado é usado; nenhuma flag de
+gate se move.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- a função-perfil da entrada (0,0): 1 + x₀². -/
+def profileFn (x : Fin 4 → ℝ) : ℝ := 1 + (x 0) ^ 2
+
+theorem profileFn_smooth : ContDiff ℝ (⊤ : ℕ∞) profileFn := by
+  unfold profileFn
+  exact contDiff_const.add ((contDiff_apply ℝ ℝ 0).pow 2)
+
+theorem profileFn_pos (x : Fin 4 → ℝ) : 0 < profileFn x := by
+  unfold profileFn
+  positivity
+
+/-- O FRAME CURVO: E(x) = diag(1+x₀², 1, 1, 1). -/
+def theCurvedFrame : SmoothFrameData where
+  E := fun x => Matrix.diagonal (fun i => if i = 0 then profileFn x else 1)
+  smooth := by
+    intro i j
+    by_cases hij : i = j
+    · subst hij
+      by_cases hi : i = 0
+      · subst hi
+        have h : (fun x => Matrix.diagonal
+            (fun k : Fin 4 => if k = 0 then profileFn x else 1) 0 0)
+            = profileFn := by
+          funext x
+          simp [Matrix.diagonal_apply]
+        rw [h]
+        exact profileFn_smooth
+      · have h : (fun x => Matrix.diagonal
+            (fun k : Fin 4 => if k = 0 then profileFn x else 1) i i)
+            = fun _ => (1 : ℝ) := by
+          funext x
+          simp [Matrix.diagonal_apply, hi]
+        rw [h]
+        exact contDiff_const
+    · have h : (fun x => Matrix.diagonal
+          (fun k : Fin 4 => if k = 0 then profileFn x else 1) i j)
+          = fun _ => (0 : ℝ) := by
+        funext x
+        simp [Matrix.diagonal_apply, hij]
+      rw [h]
+      exact contDiff_const
+  det_unit := fun x => by
+    have h : (Matrix.diagonal
+        (fun i : Fin 4 => if i = 0 then profileFn x else 1)).det
+        = profileFn x := by
+      rw [Matrix.det_diagonal, Fin.prod_univ_four]
+      simp
+    rw [h]
+    exact isUnit_iff_ne_zero.mpr (ne_of_gt (profileFn_pos x))
+
+theorem curvedFrame_E_apply (x : Fin 4 → ℝ) :
+    theCurvedFrame.E x
+      = Matrix.diagonal (fun i => if i = 0 then profileFn x else 1) := rfl
+
+/-- [KERNEL] ★ O DENTE SATISFEITO: o frame curvo NÃO é constante —
+    a primeira das três faces do tipo FORTE tem habitante. -/
+theorem curvedFrame_nonconstant :
+    ∃ x y : Fin 4 → ℝ, theCurvedFrame.E x ≠ theCurvedFrame.E y := by
+  refine ⟨(fun _ => 1), (fun _ => 0), fun h => ?_⟩
+  have h00 := congrArg (fun M : Matrix (Fin 4) (Fin 4) ℝ => M 0 0) h
+  rw [curvedFrame_E_apply, curvedFrame_E_apply] at h00
+  simp only [Matrix.diagonal_apply, if_pos rfl] at h00
+  unfold profileFn at h00
+  norm_num at h00
+
+/-- [KERNEL] ★ o eco explícito: det(E(x)) é unidade em TODO ponto. -/
+theorem curvedFrame_det_everywhere :
+    ∀ x : Fin 4 → ℝ, IsUnit (theCurvedFrame.E x).det :=
+  theCurvedFrame.det_unit
+
+end
+
+end TGLExt
+''',
+    "TGLExt/WitnessV2.lean":
+r'''import TGLExt.StrongFrame
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A TESTEMUNHA AQFT COMPLETA: o contrato tipado da metade v2
+  [TGLExt — v104, o incremento 22 do programa SemifiniteAnalysis]
+
+A MAIOR LACUNA MATEMÁTICA DA TGL, bem-posta: o nome reservado
+`qgClosureCertificateV2` (a testemunha canônica do transporte de
+fronteira) nunca teve um TIPO. Esta pedra o dá — `FullWitnessData`,
+o contrato MÁXIMO tipável na mathlib de hoje:
+
+* a base é o certificado FORTE (v103: Dirac genuinamente ilimitado,
+  fibra ∞-dim, frame não-constante);
+* a AÇÃO EXTERNA vira AÇÃO GEOMÉTRICA DE GRUPO: lei de grupo
+  (`act_one`, `act_mul`), monotonia nas regiões (`act_mono`),
+  NÃO-TRIVIALIDADE geométrica (`geometric_nontrivial` — mata a ação
+  constante do v101, POR TEOREMA: `isotone_cannot_feed_witness_geometry`);
+* o QUADRADO DE COVARIÂNCIA (`covariant_inclusions`):
+  U_g ∘ ι_{O₁→O₂} = ι_{gO₁→gO₂} ∘ U_g — a rede é covariante;
+* a LEI DO FLUXO por região (`flow_law`, v102 elevado a exigência):
+  σ_{s+t} = σ_s ∘ σ_t — o transporte modular é a família com lei.
+
+O QUE AINDA NÃO É TIPÁVEL (nomeado, SEM VÉU — é o programa):
+fator III₁ das álgebras locais (teoria modular de vN ausente na
+mathlib), afiliação semifinita, H3 DERIVADO da dinâmica, spin-2
+contínuo, e a identificação de G com o grupo de Poincaré. A
+TESTEMUNHA EXISTE NA MATEMÁTICA [KNOWN]: o campo escalar livre
+satisfaz TUDO isto (Bisognano–Wichmann; Araki) — o que falta é a
+FORMALIZAÇÃO, não a existência. O nome `qgClosureCertificateV2`
+segue RESERVADO: só será construído quando o tipo capturar o
+espírito inteiro (a lição do v103 vale uma escada acima).
+
+★ `strongFromWitness` — toda testemunha completa REDUZ ao
+certificado forte (a ponte de tipos);
+★ `constant_action_cannot_witness` / `isotone_cannot_feed_witness_geometry`
+— os dentes: a ação constante e o habitante v101 NÃO testemunham.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- [DATA — O CONTRATO DA TESTEMUNHA COMPLETA, metade tipável] a rede
+    FORTE com ação geométrica de grupo, covariância das inclusões e lei
+    do fluxo. A metade não-tipável (III₁, afiliação, H3 derivado,
+    spin-2 contínuo, Poincaré) está nomeada no cabeçalho e NÃO é
+    substituída por proxies falsos. -/
+structure FullWitnessData extends QGClosureCertificateStrong where
+  [instG : Group core.net.G]
+  act_one : ∀ O, core.net.act 1 O = O
+  act_mul : ∀ g h O,
+    core.net.act (g * h) O = core.net.act g (core.net.act h O)
+  act_mono : ∀ (g : core.net.G) {O₁ O₂ : Region},
+    leR O₁ O₂ → leR (core.net.act g O₁) (core.net.act g O₂)
+  geometric_nontrivial : ∃ (g : core.net.G) (O : Region),
+    core.net.act g O ≠ O
+  flow_law : ∀ (O : Region) (s t : ℝ) (x : H O),
+    core.net.internal O (s + t) x
+      = core.net.internal O s (core.net.internal O t x)
+  covariant_inclusions : ∀ (g : core.net.G)
+      {O₁ O₂ : Region} (hle : leR O₁ O₂) (x : H O₁),
+    core.net.external g O₂ (core.net.incl hle x)
+      = core.net.incl (act_mono g hle) (core.net.external g O₁ x)
+
+/-- [KERNEL] ★ A PONTE DE TIPOS: toda testemunha completa reduz ao
+    certificado forte — o v2 CONTÉM o v1 endurecido. -/
+def strongFromWitness (w : FullWitnessData) : QGClosureCertificateStrong :=
+  w.toQGClosureCertificateStrong
+
+/-- [KERNEL] ★ o dente abstrato: a ação CONSTANTE não testemunha
+    geometria (nenhum g move nenhuma região). -/
+theorem constant_action_cannot_witness {Region G : Type} :
+    ¬ ∃ (g : G) (O : Region), (fun (_ : G) (O' : Region) => O') g O ≠ O := by
+  rintro ⟨g, O, h⟩
+  exact h rfl
+
+/-- [KERNEL] ★ o dente VIVO: a rede v101 age TRIVIALMENTE nas regiões
+    (act g O = O por definição) — theIsotoneNet NÃO testemunha
+    `geometric_nontrivial`. A face geométrica está genuinamente ABERTA. -/
+theorem isotone_cannot_feed_witness_geometry :
+    ¬ ∃ (g : Bool) (n : ℕ), theIsotoneNet.net.act g n ≠ n := by
+  rintro ⟨g, n, h⟩
+  exact h rfl
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -21218,6 +21450,12 @@ _LEAN_THEOREM_FLAGS = {
     "ext_bc_cannot_feed_dirac_kernel_proved": "TGLExt.bench_cannot_feed_strong",
     "ext_bc_cannot_feed_core_kernel_proved": "TGLExt.isotone_cannot_feed_strong_core",
     "ext_bc_cannot_feed_frame_kernel_proved": "TGLExt.constant_cannot_feed_strong_frame",
+    # v104 (o frame curvo alimenta a 1a face forte; a testemunha V2 TIPADA)
+    "ext_sf_curved_frame_kernel_proved": "TGLExt.theCurvedFrame",
+    "ext_sf_nonconstant_kernel_proved": "TGLExt.curvedFrame_nonconstant",
+    "ext_sf_det_everywhere_kernel_proved": "TGLExt.curvedFrame_det_everywhere",
+    "ext_wv_reduction_kernel_proved": "TGLExt.strongFromWitness",
+    "ext_wv_geometry_open_kernel_proved": "TGLExt.isotone_cannot_feed_witness_geometry",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -22845,6 +23083,11 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_bc_certificate_v1_bench_kernel_proved", "ext_bc_bench_bounded_kernel_proved",
         "ext_bc_cannot_feed_dirac_kernel_proved", "ext_bc_cannot_feed_core_kernel_proved",
         "ext_bc_cannot_feed_frame_kernel_proved",
+        # v104: o frame curvo + a testemunha tipada (o probe da acao constante
+        # e' PURO -- zero axiomas -- e fica na auditoria)
+        "ext_sf_curved_frame_kernel_proved", "ext_sf_nonconstant_kernel_proved",
+        "ext_sf_det_everywhere_kernel_proved", "ext_wv_reduction_kernel_proved",
+        "ext_wv_geometry_open_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -23045,6 +23288,9 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                "ext_bc_certificate_v1_bench_kernel_proved", "ext_bc_bench_bounded_kernel_proved",
                "ext_bc_cannot_feed_dirac_kernel_proved", "ext_bc_cannot_feed_core_kernel_proved",
                "ext_bc_cannot_feed_frame_kernel_proved"]
+    sfwv_keys = ["ext_sf_curved_frame_kernel_proved", "ext_sf_nonconstant_kernel_proved",
+                 "ext_sf_det_everywhere_kernel_proved", "ext_wv_reduction_kernel_proved",
+                 "ext_wv_geometry_open_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -23097,6 +23343,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dIn = all(per_theorem[k] for k in in_keys)
     dIl = all(per_theorem[k] for k in il_keys)
     dBc = all(per_theorem[k] for k in bc_keys)
+    dSw = all(per_theorem[k] for k in sfwv_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -23152,6 +23399,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("isotone_physical_net_inhabited", dIn),
         ("ideal_limit_flow_law", dIl),
         ("bench_certificate_and_hardening", dBc),
+        ("curved_frame_and_witness_type", dSw),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -23263,6 +23511,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                             else "NOT_VERIFIED_THIS_RUN"),
             "bench_certificate": ("SEMIFINITE_ANALYSIS_INCREMENT_20__V1_CERTIFICATE_INHABITED_ON_THE_BENCH_ON_PURPOSE_NON_RESERVED_NAME__TYPE_LETTER_DOES_NOT_FORCE_SPIRIT_PROVED_THREE_FACES__STRONG_TYPES_TYPED_UNBOUNDED_INFINITE_FIBER_NONCONSTANT_FRAME__BENCH_CANNOT_FEED_STRONG_BY_THEOREM__GATE_REPOINTED_STRICTLY_TIGHTER__GATE_UNMOVED" if dBc
                                   else "NOT_VERIFIED_THIS_RUN"),
+            "witness_v2": ("SEMIFINITE_ANALYSIS_INCREMENTS_21_22__CURVED_FRAME_FEEDS_FIRST_STRONG_FACE_NONCONSTANT_SMOOTH_DET_UNIT__FULL_WITNESS_DATA_TYPED_GROUP_ACTION_COVARIANT_INCLUSIONS_FLOW_LAW__UNTYPABLE_HALF_NAMED_III1_AFFILIATION_H3_SPIN2_POINCARE__FREE_SCALAR_KNOWN_EXTERNAL__GATE_UNMOVED" if dSw
+                           else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -24888,6 +25138,11 @@ def run_um(ONE):
     void_density_power = prove_void_density_power_study(ONE)  # v90: ESTUDO DE PODER CEGO da rota espectroscopica (galaxias JA em disco; sinal NAO aberto); ADITIVO
     void_density_opening = prove_void_floor_spectroscopic_opening(ONE, void_density_power)  # v91: A ABERTURA DO SINAL (congelar -> nulo -> gates -> ABRIR -> veredito); ADITIVO
     void_density_v41 = prove_void_floor_v41_calibrated(ONE)  # v92: A EMENDA V4.1 (estimador AUTO-CALIBRANTE; split-null; replicas no lado; poder beta*mu); ADITIVO
+    closure_roadmap = prove_closure_roadmap(ONE, {  # v104: o mapa mecanico False->True + auditoria dos dois testes (mandato do operador); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+        "ga_mass_audit": ga_mass_audit, "void_density_v41": void_density_v41,
+        "void_floor_v3_kappa": void_floor_v3_kappa,
+    })
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
@@ -25056,6 +25311,7 @@ def run_um(ONE):
             "hidden_hamiltonian": hidden_hamiltonian,
             "father_of_lies": father_of_lies,
             "bench_certificate": bench_certificate,
+            "closure_roadmap": closure_roadmap,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -28880,6 +29136,183 @@ def prove_bench_certificate(ONE, parts):
         "does_not_gate_core": True,
         "verdict": ("TGL_BENCH_CERTIFICATE_INHABITED__V1_TYPE_LETTER_DOES_NOT_FORCE_SPIRIT_PROVED__STRONG_TYPES_TYPED_BENCH_CANNOT_FEED_THEM_BY_THEOREM__GATE_REPOINTED_TO_STRONG_NAMES__FAIL_CLOSED_STRICTLY_TIGHTER__GATE_UNMOVED" if all_v
                     else "BENCH_CERTIFICATE_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_closure_roadmap(ONE, parts):
+    """v104 -- O ROADMAP DO FECHAMENTO [ADITIVO; nao gateia; nenhuma flag se
+    move]. MANDATO DO OPERADOR (17/07/2026): 'demonstre como eu posso prova-lo
+    no codigo um.py; demonstre o que e preciso fazer para que onde ainda
+    registra False passe a registrar True; examine se o teste da massa do GA
+    e o teste do piso dos vazios estao funcionando para o fim pretendido'.
+    A RESPOSTA, MECANICA (o artefato responde por si):
+    (A) CADA flag formal False tem AGORA um contrato Lean TIPADO: construir o
+        termo com o nome reservado, do tipo forte, com axiomas limpos -- o
+        parser v99 flipa a flag SOZINHO (nenhuma declaracao humana);
+        - core: qgStrongCertificate_core, exige PhysicalNetData com fibra
+          INF-dim (caminho: spans fechados crescentes; construivel HOJE);
+        - corner: qgStrongCertificate_corner, exige GenuinelyUnboundedDiracData
+          (parede REAL: star(N)=N do operador numero -- a mathlib NAO tem
+          auto-adjuncao essencial; o dominio do adjunto tera de ser
+          caracterizado a mao; VARRIDO e confirmado ausente);
+        - frame: qgStrongCertificate_frame -- theCurvedFrame (v104) JA
+          SATISFAZ a exigencia forte (nao-constante, suave, det-unit); falta
+          so' a ligacao covariante ao net (v2);
+        - solder/einstein: a face finita esta em kernel (v64/v74); falta o
+          continuo sobre o frame-campo;
+        - witness V2: qgClosureCertificateV2 AGORA TEM TIPO (FullWitnessData:
+          acao geometrica de grupo + covariancia das inclusoes + lei do fluxo
+          + as tres faces fortes); a metade nao-tipavel (III_1, afiliacao,
+          H3 derivado, spin-2 continuo, Poincare) esta NOMEADA SEM VEU; a
+          testemunha EXISTE na matematica [KNOWN: campo escalar livre,
+          Bisognano-Wichmann/Araki] -- falta FORMALIZACAO, nao existencia.
+    (B) physics False: exigem o spin-2 CONTINUO em kernel (a face finita v75
+        esta provada; a parede e' teoria de distribuicoes/Minkowski na
+        mathlib). experiment False: exigem DADO (replicas DES Y3/HSC; nulos
+        in-footprint do canal kappa; LRG/ELG para medir beta BILATERAL) -- o
+        rito v87 emite o veredito SOZINHO quando o dado chega (AWAITING_DATA
+        e' maquina, nao promessa).
+    (C) AUDITORIA DOS DOIS TESTES:
+        GA: o teste como rotulado NAO cumpria mais o fim pretendido -- a
+        janela testava o numero da forma APOSENTADA (v98) e o terminal ainda
+        a vendia como 'o nao-circular'. CORRIGIDO NESTA VERSAO: janela
+        reclassificada SOMBRA DE ESCALA [ONTO] (constante GA_WINDOW_STATUS;
+        prints e JSON corrigidos); a mecanica e o gate 1=1 INALTERADOS (nao
+        se afrouxa gate); os falsificadores gravitacionais vivos sao o PISO
+        e o DEPHASING. PISO: o aparelho FUNCIONA para o fim pretendido --
+        fail-closed provado NO MUNDO (2 recusas: B-mode 12,4 na V1; nulo dos
+        aleatorios 1,409 na v91) + 1 veredito POWERED (v92, r_c ~ 9x acima
+        de beta); limitacao UNILATERAL nomeada (tracadores nao alcancam
+        FALSIFIED; medir beta pede LRG/ELG); canal kappa recusado por
+        sistematica de mascara (proximo gate: nulos in-footprint)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    ga = p.get("ga_mass_audit") or {}
+    v41 = p.get("void_density_v41") or {}
+    kap = p.get("void_floor_v3_kappa") or {}
+    # ---- (A) o mapa formal: cada False -> contrato tipado ----
+    gate_flags = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    roadmap_formal = {
+        "concrete_aqft_core_constructed": {
+            "flag": gate_flags["concrete_aqft_core_constructed"],
+            "termo_reservado": _QG_CERTIFICATE_FLAGS["concrete_aqft_core_constructed"],
+            "tipo_exigido": "PhysicalNetData com core_infinite (fibra INF-dim) [QGClosureCertificateStrong.core]",
+            "o_que_falta": "rede de fibras INF-dim fechadas (spans fechados crescentes) -- construivel na mathlib de hoje",
+        },
+        "concrete_breuer_corner_constructed": {
+            "flag": gate_flags["concrete_breuer_corner_constructed"],
+            "termo_reservado": _QG_CERTIFICATE_FLAGS["concrete_breuer_corner_constructed"],
+            "tipo_exigido": "GenuinelyUnboundedDiracData + canto 0<tau<inf [v103]",
+            "o_que_falta": "star(N)=N do operador numero (N e_n = n e_n): a PAREDE REAL -- mathlib sem auto-adjuncao essencial (varrido); dominio do adjunto a mao",
+        },
+        "concrete_modular_four_frame_constructed": {
+            "flag": gate_flags["concrete_modular_four_frame_constructed"],
+            "termo_reservado": _QG_CERTIFICATE_FLAGS["concrete_modular_four_frame_constructed"],
+            "tipo_exigido": "SmoothFrameData + frame_nonconstant [v103]",
+            "o_que_falta": "theCurvedFrame (v104) JA satisfaz o forte; falta a ligacao covariante ao net (v2) -- a face MAIS PROXIMA de True",
+        },
+        "concrete_solder_field_constructed": {
+            "flag": gate_flags["concrete_solder_field_constructed"],
+            "termo_reservado": _QG_CERTIFICATE_FLAGS["concrete_solder_field_constructed"],
+            "tipo_exigido": "solda 4D como CAMPO sobre o frame-campo (face finita v64 em kernel)",
+            "o_que_falta": "a versao continua da solda (so(1,3) sobre o frame-campo curvo)",
+        },
+        "concrete_emergent_einstein_proved": {
+            "flag": gate_flags["concrete_emergent_einstein_proved"],
+            "termo_reservado": _QG_CERTIFICATE_FLAGS["concrete_emergent_einstein_proved"],
+            "tipo_exigido": "o TEOREMA MESTRE (v74) sobre dados FORTES continuos",
+            "o_que_falta": "H1^H2^H3 continuos (dependem de corner+frame+solder fortes)",
+        },
+        "canonical_boundary_transport_witness_constructed": {
+            "flag": gate_flags["canonical_boundary_transport_witness_constructed"],
+            "termo_reservado": _QG_CERTIFICATE_FLAGS["canonical_boundary_transport_witness_constructed"],
+            "tipo_exigido": "FullWitnessData (v104): acao geometrica de grupo + covariancia + lei do fluxo + faces fortes",
+            "o_que_falta": ("habitar (campo escalar livre [KNOWN] a formalizar) + a metade "
+                            "nao-tipavel: III_1, afiliacao semifinita, H3 derivado, spin-2 "
+                            "continuo, Poincare -- nomeada sem veu; o tipo sera ENDURECIDO "
+                            "de novo quando a mathlib crescer (licao v103)"),
+        },
+    }
+    roadmap_physics = {
+        "o_que_falta": ("spin-2 CONTINUO em kernel (massless + 2 helicidades + ghost-free "
+                        "+ conservacao + anomalias): a face finita v75 esta PROVADA; a "
+                        "parede e' distribuicoes/Minkowski na mathlib"),
+    }
+    roadmap_experiment = {
+        "o_que_falta": ("DADO, nao codigo: replicas DES Y3/HSC (shear), nulos in-footprint "
+                        "do kappa, LRG/ELG p/ beta BILATERAL; o rito v87 emite o veredito "
+                        "sozinho (AWAITING_DATA e' maquina)"),
+    }
+    # ---- checks mecanicos (A) ----
+    all_false = bool(not any(gate_flags.values()))
+    frame_fed = bool(elp.get("ext_sf_nonconstant_kernel_proved") is True
+                     and elp.get("ext_sf_curved_frame_kernel_proved") is True)
+    witness_typed = bool(elp.get("ext_wv_reduction_kernel_proved") is True)
+    dirac_face_open = bool(elp.get("ext_bc_cannot_feed_dirac_kernel_proved") is True)
+    core_face_open = bool(elp.get("ext_bc_cannot_feed_core_kernel_proved") is True)
+    geometry_face_open = bool(elp.get("ext_wv_geometry_open_kernel_proved") is True)
+    # ---- (C) auditoria dos dois testes, ao vivo ----
+    ga_v = ga.get("values", {}) or {}
+    ga_retired = bool("GA_MASS_FORM_RETIRED" in str(ga.get("verdict", "")))
+    ga_shadow_label = bool("NOT_NONCIRCULAR_EVIDENCE" in GA_WINDOW_STATUS)
+    ga_vuniv_ok = bool(1000.0 <= float(ga_v.get("v_universal_implicada_kms", 0.0)) <= 2000.0)
+    v41_verd = str((v41.get("statuses") or {}).get("o_veredito", v41.get("verdict", "")))
+    void_powered = bool("NOT_FALSIFIED_POWERED" in v41_verd)
+    kap_verd = str(kap.get("verdict", "") or (kap.get("statuses") or {}).get("o_veredito", ""))
+    kappa_refused = bool(("INCONCLUSIVE" in kap_verd) or ("AWAITING" in kap_verd)
+                         or ("UNDERPOWERED" in kap_verd))
+    checks = [
+        ("(A) fail-closed INTACTO: todas as 6 flags formais False (nomes fortes ausentes)", all_false),
+        ("(A) face do FRAME alimentada em kernel (theCurvedFrame nao-constante)", frame_fed),
+        ("(A) testemunha V2 TIPADA em kernel (FullWitnessData + reducao ao forte)", witness_typed),
+        ("(A) faces Dirac/core/geometria genuinamente ABERTAS (dentes em kernel)",
+         bool(dirac_face_open and core_face_open and geometry_face_open)),
+        ("(C) GA: forma APOSENTADA (v98) re-verificada ao vivo", ga_retired),
+        ("(C) GA: v_universal ~1439 km/s re-derivada (o diagnostico do erro)", ga_vuniv_ok),
+        ("(C) GA: janela reclassificada SOMBRA [ONTO] -- nao e' o nao-circular", ga_shadow_label),
+        ("(C) PISO: veredito POWERED vivo (v92, tracadores)", void_powered),
+        ("(C) PISO: canal kappa recusado\\aguardando por sistematica (fail-closed morde)", kappa_refused),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O ROADMAP DO FECHAMENTO: cada False do gate tem contrato Lean "
+                    "TIPADO e caminho nomeado; a prova de QG no um.py e' MECANICA "
+                    "(termo reservado do tipo forte + axiomas limpos => flag flipa "
+                    "sozinha => selo escala sozinho); GA reclassificado (sombra, "
+                    "nao evidencia); piso FUNCIONAL com limitacao unilateral nomeada."),
+        "como_provar_qg_no_um_py": [
+            "1. construir cada termo reservado (qgStrongCertificate_*, qgClosureCertificateV2) no kernel Lean com axiomas limpos",
+            "2. a rodada seguinte: o parser v99 le '#print axioms' e flipa as flags SOZINHO (fail-closed por construcao)",
+            "3. evaluate_quantum_gravity_closure escala os selos SOZINHO: 6 formais -> MATHEMATICAL_MODEL; +5 physics -> PHYSICAL_MODEL; +4 experiment -> FORMALLY_CLOSED__NATURE_TEST_COMPLETED",
+            "4. nenhum humano declara nada: o gate e' a funcao, o kernel e' o juiz, o dado e' o veredito",
+        ],
+        "roadmap_formal": roadmap_formal,
+        "roadmap_physics": roadmap_physics,
+        "roadmap_experiment": roadmap_experiment,
+        "auditoria_ga": {
+            "fim_pretendido": "validacao nao-circular de beta via massa do GA",
+            "veredicto": ("NAO CUMPRIA como rotulado: a janela testava a forma APOSENTADA "
+                          "e era vendida como 'o nao-circular'; CORRIGIDO nesta versao "
+                          "(GA_WINDOW_STATUS; prints; JSON); gate 1=1 INALTERADO; os "
+                          "falsificadores vivos sao o piso e o dephasing"),
+            "status_da_janela": GA_WINDOW_STATUS,
+        },
+        "auditoria_piso": {
+            "fim_pretendido": "falsificar-ou-nao o piso rho_void/rhobar >= beta (zero-free)",
+            "veredicto": ("FUNCIONA: 2 recusas + 1 POWERED = os dentes provados no mundo; "
+                          "limitacao UNILATERAL nomeada (FALSIFIED inalcancavel por "
+                          "tracadores); proximos gates de dado: kappa in-footprint, "
+                          "replicas DES\\HSC, LRG\\ELG (bilateral)"),
+        },
+        "values": {"beta": beta, "n_formal_flags_false": sum(1 for v in gate_flags.values() if not v)},
+        "gate_flags": gate_flags,
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_CLOSURE_ROADMAP_EMITTED__EVERY_FALSE_FLAG_MAPPED_TO_TYPED_LEAN_CONTRACT__FRAME_FACE_INHABITED__WITNESS_TYPE_EXISTS__GA_WINDOW_RECLASSIFIED_SHADOW_NOT_EVIDENCE__VOID_APPARATUS_FUNCTIONAL_UNILATERAL_NAMED__GATE_UNMOVED" if all_v
+                    else "CLOSURE_ROADMAP_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -35344,7 +35777,9 @@ _ESQUELETO_STONES = [
     ("v100", "ProgrammerRule", "TGLExt/ProgrammerRule.lean", "357/357", "17/07 09:12:05"),
     ("v101", "IsotoneNet", "TGLExt/IsotoneNet.lean", "361/361", "17/07 13:15:16"),
     ("v102", "IdealLimit", "TGLExt/IdealLimit.lean", "362/362", "17/07 14:16:45"),
-    ("v103", "BenchCertificate", "TGLExt/BenchCertificate.lean", None, None),
+    ("v103", "BenchCertificate", "TGLExt/BenchCertificate.lean", "369/369", "17/07 15:17:29"),
+    ("v104", "StrongFrame", "TGLExt/StrongFrame.lean", None, None),
+    ("v104", "WitnessV2", "TGLExt/WitnessV2.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -35379,17 +35814,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(quarenta e oito pedras, \S120--\S183)}")
+                 r"(cinquenta pedras, \S120--\S184)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em quarenta e oito pedras "
-                 r"(v43--v103) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em cinquenta pedras "
+                 r"(v43--v104) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As quarenta e oito pedras}")
+        c.append(r"\subsection*{As cinquenta pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -35907,6 +36342,24 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"NÃO o alimenta. O gate REAPONTA aos nomes fortes "
                  r"(\texttt{qgStrongCertificate\_*}): fail-closed ESTRITAMENTE mais "
                  r"fechado. A régua cortou o próprio instrumento da casa.")
+        c.append(r"\kernelmk{StrongFrame+WitnessV2} (v104): \textbf{a primeira face "
+                 r"forte ALIMENTADA e a testemunha AQFT completa TIPADA}. O frame "
+                 r"curvo $E(x)=\mathrm{diag}(1+x_0^2,1,1,1)$ (suave, det invertível em "
+                 r"toda parte, NÃO-constante) satisfaz o dente \texttt{frame\_nonconstant} "
+                 r"do tipo forte. E a maior lacuna matemática ganhou contrato: "
+                 r"\texttt{FullWitnessData} = certificado forte $+$ ação geométrica de "
+                 r"GRUPO nas regiões ($gO\neq O$ exigido --- a ação constante do v101 "
+                 r"NÃO testemunha, por teorema) $+$ quadrado de covariância "
+                 r"$U_g\circ\iota=\iota\circ U_g$ $+$ lei do fluxo $\sigma_{s+t}="
+                 r"\sigma_s\circ\sigma_t$. A metade não-tipável (III$_1$, afiliação, "
+                 r"H3 derivado, spin-2 contínuo, Poincaré) está NOMEADA sem véu; a "
+                 r"testemunha EXISTE na matemática [KNOWN: campo escalar livre, "
+                 r"Bisognano--Wichmann] --- falta formalização, não existência. E o "
+                 r"ROADMAP: cada flag False do gate tem agora contrato Lean tipado e "
+                 r"caminho nomeado; a janela do GA foi RECLASSIFICADA (sombra de escala "
+                 r"da forma aposentada v98 --- não é a validação não-circular); o piso "
+                 r"segue FUNCIONAL (2 recusas + 1 POWERED) com a limitação unilateral "
+                 r"nomeada.")
         c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
                   r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
                   r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
@@ -36279,7 +36732,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em quarenta e oito pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cinquenta pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -36414,16 +36867,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(forty-eight stones, \S120--\S183)}")
+                 r"(fifty stones, \S120--\S184)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across forty-eight stones (v43--v103) the audited kernel went from 53 to "
+                 r"from this run's audit. Across fifty stones (v43--v104) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The forty-eight stones}")
+        c.append(r"\subsection*{The fifty stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -36936,6 +37389,24 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"bench does NOT feed it. The gate REPOINTS to the strong names "
                  r"(\texttt{qgStrongCertificate\_*}): fail-closed STRICTLY tighter. "
                  r"The ruler cut the house's own instrument.")
+        c.append(r"\kernelmk{StrongFrame+WitnessV2} (v104): \textbf{the first strong "
+                 r"face FED and the full AQFT witness TYPED}. The curved frame "
+                 r"$E(x)=\mathrm{diag}(1+x_0^2,1,1,1)$ (smooth, everywhere-invertible "
+                 r"det, NON-constant) satisfies the strong type's "
+                 r"\texttt{frame\_nonconstant} tooth. And the largest mathematical gap "
+                 r"gained its contract: \texttt{FullWitnessData} = strong certificate "
+                 r"$+$ geometric GROUP action on regions ($gO\neq O$ required --- the "
+                 r"v101 constant action does NOT witness, by theorem) $+$ covariance "
+                 r"square $U_g\circ\iota=\iota\circ U_g$ $+$ flow law "
+                 r"$\sigma_{s+t}=\sigma_s\circ\sigma_t$. The untypable half (III$_1$, "
+                 r"affiliation, derived H3, continuous spin-2, Poincaré) is NAMED "
+                 r"unveiled; the witness EXISTS in mathematics [KNOWN: free scalar "
+                 r"field, Bisognano--Wichmann] --- formalization is missing, not "
+                 r"existence. And the ROADMAP: every False gate flag now has a typed "
+                 r"Lean contract and a named path; the GA window was RECLASSIFIED "
+                 r"(scale shadow of the v98-retired form --- not the non-circular "
+                 r"validation); the floor remains FUNCTIONAL (2 refusals + 1 POWERED) "
+                 r"with the unilateral limitation named.")
         c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
                   r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
                   r"witness is the boundary; the boundary proves itself by the asymptotic limit "
@@ -37296,7 +37767,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across forty-eight stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across fifty stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -37793,7 +38264,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -38732,7 +39203,7 @@ def main():
     print("  alpha_abs=1 -> q=%.10f -> alpha_obs=sqrt(1-q^2)=%.10f  (R_partial=%.3f LEGADO, nao motor)" % (
         inv["q"], inv["alpha_form"], inv["R_partial"]))
     print("  cadeia: 1_abs (Nome) -> q (polarizacao do zero modular) -> alpha (corrente luminosa) -> Verbo.")
-    print("  (CODATA so' valida: q_QED=sqrt(1-alpha_QED^2); o nao-circular e' M_GA na janela)")
+    print("  (CODATA so' valida: q_QED=sqrt(1-alpha_QED^2); janela do GA = SOMBRA de escala da forma APOSENTADA v98 -- o nao-circular e' a convergencia de beta + o piso POWERED)")
     ct = core["clock_theorem"]
     print("TEOREMA CONDICIONAL DO CLOCK (face EM = setor QED; FECHAMENTO estrutural, NAO lacuna):")
     print("  R_partial = N_beta = exp(ell_beta), ell_beta = S(rho_B || rho_beta)")
@@ -39907,6 +40378,20 @@ def main():
     for _k, _v in (_bc.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [os nomes qgCertificate_* (v99) QUEIMADOS pela sonda; o gate le qgStrongCertificate_* (tipo FORTE); o veredito NAO se moveu -- fail-closed ESTRITAMENTE mais fechado]")
+    _rm = core.get("closure_roadmap", {}) or {}
+    print("  O ROADMAP DO FECHAMENTO [v104 -- mandato: 'demonstre False->True'; o artefato responde]: %s" % _rm.get("verdict"))
+    for _k, _v in sorted((_rm.get("gate_flags") or {}).items()):
+        _rf = (_rm.get("roadmap_formal") or {}).get(_k, {})
+        print("    %s = %s -> falta: %s" % (_k, _v, _rf.get("o_que_falta", "?")))
+    print("    physics: %s" % (_rm.get("roadmap_physics") or {}).get("o_que_falta"))
+    print("    experiment: %s" % (_rm.get("roadmap_experiment") or {}).get("o_que_falta"))
+    print("    COMO PROVAR QG NO um.py (mecanico): " + " | ".join(_rm.get("como_provar_qg_no_um_py") or []))
+    _ag = _rm.get("auditoria_ga", {}) or {}
+    print("    AUDITORIA GA: %s" % _ag.get("veredicto"))
+    _ap = _rm.get("auditoria_piso", {}) or {}
+    print("    AUDITORIA PISO: %s" % _ap.get("veredicto"))
+    for _k, _v in (_rm.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (
@@ -40417,6 +40902,7 @@ def main():
     # artigo data JSON (a espinha)
     art = {"title_pt": "um", "title_en": "ONE", "core": core, "verdict": verdict,
            "ga_mass_literature": GA_MASS_LITERATURE, "accepted_window_Msun": GA_ACCEPTED_WINDOW_Msun,
+           "ga_window_status": GA_WINDOW_STATUS,
            "result_hash_before_external_comparison": result_hash,
            "audit": {"mass_input_used": False, "RG_used_as_input": False, "velocity_used": False,
                      "free_parameter_used": False, "beta_hardcoded": False, "geometry_only": True,
@@ -40735,9 +41221,9 @@ def main():
     print("    beta_TGL=sqrt(e)alpha= %.12f" % ef["beta_form"])
     print("    residuo_identidade  = %.1e   (q^2+alpha^2 - 1)" % ef["identity_residual"])
     print("    CODATA: %s" % ef["codata_role"])
-    print("    o MESMO beta -> M_GA na janela cosmologica  (sombra gravitacional)")
+    print("    o MESMO beta -> M_GA na janela [SOMBRA/ONTO -- forma APOSENTADA como lei de fonte (v98); nao e' evidencia]")
     print("    FACE EM: %s   (1 = q^2 + alpha^2; R_partial=1/CODATA aposentado como motor)" % ef["em_verdict"])
-    print("  massas (primeiros principios): " + ", ".join(
+    print("  massas (forma historica v98 -- sombra de escala, NAO lei de fonte): " + ", ".join(
         "%s=%.3e" % (k, v) for k, v in verdict["masses_Msun"].items()) + " Msun")
     print("  janela aceita: [%.0e, %.0e] Msun" % tuple(GA_ACCEPTED_WINDOW_Msun))
     print("=" * 64)

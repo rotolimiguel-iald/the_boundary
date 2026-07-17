@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=149346 len(stderr)=0
+# len(stdout)=150451 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1446,6 +1446,14 @@ TGLExt.benchDirac_is_bounded : ∃ C, ∀ (x : ↥TGLExt.theBenchDirac.D.domain)
 TGLExt.bench_cannot_feed_strong : ¬∃ g, g.toUnboundedDiracData = TGLExt.theBenchDirac
 TGLExt.isotone_cannot_feed_strong_core : ¬∃ O, ¬FiniteDimensional ℂ ↥(TGLExt.fiber O)
 TGLExt.constant_cannot_feed_strong_frame : ¬∃ x y, TGLExt.theConstantFrame.E x ≠ TGLExt.theConstantFrame.E y
+TGLExt.profileFn : (Fin 4 → ℝ) → ℝ
+TGLExt.theCurvedFrame : TGLExt.SmoothFrameData
+TGLExt.curvedFrame_nonconstant : ∃ x y, TGLExt.theCurvedFrame.E x ≠ TGLExt.theCurvedFrame.E y
+TGLExt.curvedFrame_det_everywhere : ∀ (x : Fin 4 → ℝ), IsUnit (TGLExt.theCurvedFrame.E x).det
+TGLExt.FullWitnessData : Type 1
+TGLExt.strongFromWitness : TGLExt.FullWitnessData → TGLExt.QGClosureCertificateStrong
+@TGLExt.constant_action_cannot_witness : ∀ {Region G : Type}, ¬∃ g O, (fun x O' => O') g O ≠ O
+TGLExt.isotone_cannot_feed_witness_geometry : ¬∃ g n, TGLExt.theIsotoneNet.net.act g n ≠ n
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1870,6 +1878,12 @@ TGLExt.constant_cannot_feed_strong_frame : ¬∃ x y, TGLExt.theConstantFrame.E 
 'TGLExt.bench_cannot_feed_strong' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.isotone_cannot_feed_strong_core' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.constant_cannot_feed_strong_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theCurvedFrame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.curvedFrame_nonconstant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.curvedFrame_det_everywhere' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.strongFromWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.constant_action_cannot_witness' does not depend on any axioms
+'TGLExt.isotone_cannot_feed_witness_geometry' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

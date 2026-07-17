@@ -2644,9 +2644,34 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.theCurvedFrame": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.curvedFrame_nonconstant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.curvedFrame_det_everywhere": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.strongFromWitness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.isotone_cannot_feed_witness_geometry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "formal_source_hash": "4098da41394f84a1649e854ae3a6e5b16e273a5fa70cf4d83264f769bf79ddaf",
+  "formal_source_hash": "a543bd6c31437b0095f00f0d46820cb4c72e4d4e175361db17ce89bcd7f3ee61",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -2952,7 +2977,7 @@
 
 ```json
 {
-  "code_sha256": "acc49927cae59cd0ff1bcf04a55d2a7a42f05ddcba2dbf23d407cc6ee3c04fad",
+  "code_sha256": "bd062827f27ee079e1c0f7173775407cfc54cdf40aaa335021cb91a749f4a239",
   "cf4_catalog_hash": null,
   "window_hash": null,
   "selection_hash": null
@@ -2963,7 +2988,7 @@
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 369/369 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 374/374 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -3018,6 +3043,7 @@
 - `isotone_net` = `SEMIFINITE_ANALYSIS_INCREMENT_18__PHYSICAL_NET_DATA_INHABITED__GROWING_FIBERS_SPAN_OF_INSCRIPTIONS__INCLUSION_ZERO_TO_ONE_NOT_SURJECTIVE_BY_ORTHONORMALITY__RESTRICTED_LOCKS_INTERTWINE_WITH_INCLUSIONS__GENUINE_FLOW_PER_FIBER__BOOL_FLIP_GROUP_NONTRIVIAL_U_EQ_ONE_MINUS_TWO_P__FINITE_DIM_FIBERS_AND_NONGEOMETRIC_ACTION_DECLARED__III1_LEVEL_RESERVED_FOR_V2__GATE_UNMOVED`
 - `ideal_limit` = `SEMIFINITE_ANALYSIS_INCREMENT_19__IDEAL_ZERO_NAMED_NOT_INHABITED_OPTION_TYPE__CHANNEL_NEVER_REACHES_IDEAL_ZERO_AXIOM_PURE_AUDIT_ONLY__FLOW_LAW_PHI_S_PLUS_T_EQ_PHI_S_COMPOSE_PHI_T_PROVED__OMEGA_INFINITY_OUTSIDE_PREDUAL_FROZEN_AS_V2_SPEC__GATE_UNMOVED`
 - `bench_certificate` = `SEMIFINITE_ANALYSIS_INCREMENT_20__V1_CERTIFICATE_INHABITED_ON_THE_BENCH_ON_PURPOSE_NON_RESERVED_NAME__TYPE_LETTER_DOES_NOT_FORCE_SPIRIT_PROVED_THREE_FACES__STRONG_TYPES_TYPED_UNBOUNDED_INFINITE_FIBER_NONCONSTANT_FRAME__BENCH_CANNOT_FEED_STRONG_BY_THEOREM__GATE_REPOINTED_STRICTLY_TIGHTER__GATE_UNMOVED`
+- `witness_v2` = `SEMIFINITE_ANALYSIS_INCREMENTS_21_22__CURVED_FRAME_FEEDS_FIRST_STRONG_FACE_NONCONSTANT_SMOOTH_DET_UNIT__FULL_WITNESS_DATA_TYPED_GROUP_ACTION_COVARIANT_INCLUSIONS_FLOW_LAW__UNTYPABLE_HALF_NAMED_III1_AFFILIATION_H3_SPIN2_POINCARE__FREE_SCALAR_KNOWN_EXTERNAL__GATE_UNMOVED`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
