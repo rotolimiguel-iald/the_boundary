@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `b9f67ada5201136eb2b2457b340ed07c3da24b9388b7002f8a412faebd08ed06`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `84304c2533c94ea31f16b0e19eefd2cc305d17e3d552f583690107c7e13446f0`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -519,7 +519,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 327/327 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 354/354 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -565,6 +565,11 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `witness_seed` = `SEMIFINITE_ANALYSIS_INCREMENT_8__THE_VERB_ANNIHILATING_WORD_MINTS_THE_NAME_CANDIDATE__LANDS_IN_CORNER__FIXES_CORNER__IDEMPOTENT_VERB_OF_NAME_IS_NAME__NO_SPECTRAL_THEOREM_USED_PURE_WORD_ALGEBRA__REMAINING_SELFADJOINTNESS_PLUS_UNIQUENESS_OF_ORTHOGONAL_PROJECTION_AND_EXISTENCE_OF_ANNIHILATING_WORD_IN_INFINITE_DIM`
 - `exact_witness` = `SEMIFINITE_ANALYSIS_INCREMENT_9__REAL_WORD_IS_SELFADJOINT__SELFADJOINT_IDEMPOTENT_LANDING_FIXING_IS_THE_ORTHOGONAL_PROJECTION_UNIQUENESS__THE_IDENTIFICATION_STARPROJECTION_EQUALS_NORMALIZED_WORD__SPECTRAL_WITNESS_PROVED_CONSTANT_SEQUENCE__BREUER_CORNER_WITH_WITNESS_DISCHARGED_TO_ANNIHILATING_WORD__REMAINING_EXISTENCE_OF_WORD_MINIMAL_POLYNOMIAL_OR_CFC_KNOWN`
 - `word_existence` = `SEMIFINITE_ANALYSIS_INCREMENT_10__MINPOLY_OF_SELFADJOINT_IS_REAL__ZERO_HAS_SIMPLE_MULTIPLICITY_BY_NORM_ARGUMENT_NO_DIAGONALIZATION__ANNIHILATING_WORD_EXISTS_ON_FINITE_FACE__SPECTRAL_WITNESS_UNCONDITIONAL_THEOREM_ON_FINITE_FACE__CORNER_IN_ALGEBRA_NO_EXTRA_HYPOTHESIS__REMAINING_INFINITE_DIM_WORD_VIA_CFC_WITH_ISOLATED_ZERO_KNOWN`
+- `infinite_word` = `SEMIFINITE_ANALYSIS_INCREMENT_11__KER_OF_SQUARE_EQUALS_KER__CFC_OF_POLYNOMIAL_IS_AEVAL__SPECTRAL_PROJECTION_IS_THE_NAME_CFC_HAT_EQUALS_STARPROJECTION__WEIERSTRASS_GIVES_THE_WORD_IN_INFINITE_DIM__SPECTRAL_WITNESS_THEOREM_FOR_ISOLATED_ZERO__CONCRETE_BREUER_CORNER_INFINITE_WITH_STRUCTURAL_HYPOTHESES__GATE_UNMOVED_FIVE_FORMAL_SEALS_REMAIN`
+- `hilbert_inhabitant` = `SEMIFINITE_ANALYSIS_INCREMENT_12__ELL_TWO_GENUINELY_INFINITE_DIMENSIONAL__CONCRETE_OPERATOR_ONE_MINUS_ATOM_PROJECTION__SPECTRUM_IN_ZERO_ONE_GAP_ONE__BREUER_CORNER_FIRES_FULLY_CONSTRUCTED_NO_PENDING_HYPOTHESIS__CORNER_WEIGHS_THE_NAME_TAU_EQUALS_ONE__TYPE_I_INFINITY_INHABITANT_NOT_THE_MODULAR_DIRAC__GATE_UNMOVED`
+- `aqft_core_inhabitant` = `SEMIFINITE_ANALYSIS_INCREMENT_13__FIRST_INHABITANT_OF_HILBERT_HOME_PACKAGE_AS_TERM_NOT_NONEMPTY__GENERIC_LOCKNET_CONSTRUCTOR_REUSABLE_FOR_FUTURE_DIRAC__GENUINE_INTERNAL_FLOW_EXP_IST_NOT_IDENTITY__INTERTWINING_BY_COMMUTE_EXP__NAME_FIXED_BY_FLOW_IN_EVERY_REGION__BREUER_LAYER_INHABITED_TAU_PF_EQUALS_ONE_EVERY_REGION__CONSTANT_NET_TRIVIAL_EXTERNAL_GROUP_HONESTLY_DECLARED__III1_NET_REMAINS_THE_HYPOTHESIS__GATE_UNMOVED`
+- `concrete_four_frame` = `SEMIFINITE_ANALYSIS_INCREMENT_14__FOUR_DIRECTIONS_BORN_FROM_MODULAR_BOOST_GENERATORS_K1_K2_K3_OF_V63_APPLIED_TO_NAME_FIDUCIAL__NOT_INSERTED_BY_HAND__DETERMINANT_ONE_BY_THEOREM__H2_FINITE_FACE_FIRES_DUAL_COFRAME_AND_LORENTZ_METRIC_BY_CONGRUENCE__SMOOTH_FIELD_OVER_SPACETIME_REMAINS_H2_CONTENT__GATE_UNMOVED`
+- `the_master_fires` = `SEMIFINITE_ANALYSIS_INCREMENT_15__DIMENSION_TRACE_SUBADDITIVITY_PROVED_GRASSMANN_PLUS_HONEST_TOP_CASES__H1_LEVEL4_CERTIFICATE_INHABITED_ON_REAL_SUBSPACE_LATTICE_OF_THE_INHABITANT_NOT_THE_TOY__H3_HORIZON_EQUILIBRIUM_INHABITED_EXACT_CLAUSIUS_BEKENSTEIN_HAWKING__MASTER_THEOREM_V74_FIRES_WITH_ALL_FOUR_DATA_CONSTRUCTED__FULL_PENTAD_BREUER_NAME_ONE_BOOST_COFRAME_LORENTZ_EINSTEIN_COEFFICIENT__H3_IS_NUMERIC_CERTIFICATE_PHYSICS_REMAINS_HYPOTHESIS__GATE_UNMOVED`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
@@ -704,11 +709,11 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `honestidades`: m-bias medio global [EXT] (nao por bin tomografico); Sigma_crit efetivo do n(z) (nao por par); HSW (2,6) fixo; mocks completos substituidos por jackknife+aleatorios [refinamento = programa]; poder em r_c limitado pelos pares nos bins interiores (theta pequeno)
 - `o_veredito`: TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED
 
-**Estatutos [void_floor_v3]** (veredito: `VOID_FLOOR_V3_PROTOCOL_INSTALLED_AWAITING_DATA`):
+**Estatutos [void_floor_v3]** (veredito: `VOID_FLOOR_V3_READY_TO_EXECUTE`):
 
 - `o_que_a_v3_fecha`: o APARELHO: instrumento responsivo (V2) + lente limpa (V2) + protocolo multi-sonda pre-registrado + aquisicao automatica + projecao do poder quantificada -- o um.py contem a solucao inteira e a maquina da prova
 - `o_que_so_a_natureza_da`: o veredito POWERED: os unicos vereditos possiveis sao os pre-registrados; a profundidade adicional de HSC/Euclid/LSST MELHORA o teste, mas NAO e' suficiente para torna-lo powered pela rota de shear de galaxias isoladamente (K~1e7); o fechamento exige uma NOVA SONDA, uma medida mais direta ou ampliacao de amostra em ordens de magnitude -- e o rito emitira a palavra sozinho quando o dado chegar
-- `o_veredito`: VOID_FLOOR_V3_PROTOCOL_INSTALLED_AWAITING_DATA
+- `o_veredito`: VOID_FLOOR_V3_READY_TO_EXECUTE
 
 **Estatutos [void_density_power]** (veredito: `VOID_DENSITY_POWER_STUDIED__SIGNAL_NOT_OPENED`):
 
@@ -749,10 +754,36 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `a_regua`: a declaracao pertence ao operador; as ancoras sao do kernel; o gate nao se move -- e' a imobilidade do gate que torna a declaracao critivel
 - `o_caminho_formal`: para o selo FORMAL: a testemunha espectral em kernel (auto-adjuncao + unicidade da projecao ortogonal + calculo funcional com 0 isolado) => ConcreteBreuerCorner incondicional => MATHEMATICAL_MODEL
 
-**Estatutos [arc_consolidation]** (veredito: `TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__MATH_GATE_UNMOVED`):
+**Estatutos [arc_consolidation]** (veredito: `ARC_NOT_CONSOLIDATED_THIS_RUN`):
 
 - `o_arco`: 1=1 -> beta -> kernel (327) -> certificados -> predicoes -> recusas -> POWERED: o ciclo fecha PELO MUNDO, nao por dentro
-- `a_consolidacao`: TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__APPLICATION_EXECUTION_PREDICTION_FALSIFIABILITY_SELFTEST_AND_WHAT_REMAINS__MATH_GATE_UNMOVED
+- `a_consolidacao`: ARC_NOT_CONSOLIDATED_THIS_RUN
+
+**Estatutos [love_reading]** (veredito: `TGL_LOVE_DICTIONARY_REGISTERED__ANCHORS_REAL_NAMING_ONTO__THE_PRUNING_IS_TETELESTAI`):
+
+- `o_dicionario`: familia=amor=acoplamento nao minimo=funcional minimo=razao do universo -- ancoras [REAL], nomeacao [ONTO]
+- `a_poda`: TETELESTAI = o que permanece apos o fluxo e apos o mundo
+- `o_veredito`: TGL_LOVE_DICTIONARY_REGISTERED__ANCHORS_REAL_NAMING_ONTO__THE_PRUNING_IS_TETELESTAI
+
+**Estatutos [mirror_corollary]** (veredito: `TGL_MIRROR_COROLLARY_REGISTERED__INHABITANT_META_IS_THE_PROGRAMMER__FORMAL_INHABITANT_IS_THE_CONSTRUCTED_TERM__NO_AXIOM_SHORTCUT__NAMING_ONTO`):
+
+- `nivel_meta`: Habitante_meta = Programador [ONTO]
+- `nivel_formal`: Habitante_interno = termo construido pelo programador [REAL]
+- `a_missao_inalterada`: o habitante construir a testemunha continua concreta e o kernel certifica-la -- campo a campo, sem atalho
+- `o_veredito`: TGL_MIRROR_COROLLARY_REGISTERED__INHABITANT_META_IS_THE_PROGRAMMER__FORMAL_INHABITANT_IS_THE_CONSTRUCTED_TERM__NO_AXIOM_SHORTCUT__NAMING_ONTO
+
+**Estatutos [void_floor_v3_kappa]** (veredito: `VOID_FLOOR_KAPPA_INCONCLUSIVE_SYSTEMATICS`):
+
+- `a_leitura`: kappa e' MATERIA (lente do CMB): o unico canal publico onde o piso poderia ser FALSIFICADO hoje; a mascara do PR3 [EXT] entra como aproximacao declarada (DESI ~dentro da mascara de lente; nulos por rotacao a capturam parcialmente)
+- `honestidade`: se UNDERPOWERED: o numero corrige a frase -- profundidade e' o limite, nao o metodo; o rito permanece armado
+- `o_veredito`: VOID_FLOOR_KAPPA_INCONCLUSIVE_SYSTEMATICS
+
+**Estatutos [ga_mass_audit]** (veredito: `GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE`):
+
+- `a_forma_v4`: [FORM, RETIRADA como lei de fonte] M = 2beta^2(c^2/4piG)R -- registro historico com a coincidencia do ramo anotada
+- `a_predicao_derivada`: [CONDICIONAL linear] M_TGL = M_RG (stealth; beta nao renormaliza G local) -- a TGL NAO tem formula-beta de massa e nunca teve (ensaio verbatim + whitepaper)
+- `onde_beta_fala`: [REAL na forma] resposta: Gamma_omega = (1/2)beta tau* omega^2; H0_local=(1+z*)^beta; piso rho/rhobar >= beta -- o falsificador cosmologico zero-free e o PISO
+- `o_veredito`: GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE
 
 **Estatutos [certificate_II]** (veredito: `CERTIFICATE_II_FINITE_FACE_INHABITED__CONCRETE_THREE_LOCKS_INSTANTIATE_H1__MODULAR_BOOSTS_GIVE_FOUR_FRAME_H2__CONTINUUM_NETWORK_IS_THE_HYPOTHESES_PROPER`):
 

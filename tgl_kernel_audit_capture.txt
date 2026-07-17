@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=136273 len(stderr)=0
+# len(stdout)=144601 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1320,6 +1320,87 @@ TGLExt.first_infinite_dim_inhabitant : ∀ (K : Type) [inst : Field K],
   [inst_2 : FiniteDimensional ℂ H] (T : H →L[ℂ] H),
   ContinuousLinearMap.adjoint T = T →
     (↑T).ker ≠ ⊥ → (↑T).ker.starProjection ∈ {T}.centralizer.centralizer ∧ (↑T).ker.starProjection ∈ {T}.centralizer
+@TGLExt.ker_mul_self_eq_ker : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (T : H →L[ℂ] H), ContinuousLinearMap.adjoint T = T → (↑(T * T)).ker = (↑T).ker
+@TGLExt.cfc_polynomial_eval : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (S : H →L[ℂ] H),
+  IsSelfAdjoint S → ∀ (p : Polynomial ℝ), cfc (fun x => Polynomial.eval x p) S = (Polynomial.aeval S) p
+@TGLExt.iso_zero_cfc_eq_starProjection : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (T : H →L[ℂ] H),
+  ContinuousLinearMap.adjoint T = T →
+    ∀ {g2 : ℝ},
+      0 < g2 → (∀ y ∈ spectrum ℝ (T * T), y = 0 ∨ g2 ≤ y) → cfc (TGLExt.fhat✝ g2) (T * T) = (↑T).ker.starProjection
+@TGLExt.spectral_witness_of_isolated_zero : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (T : H →L[ℂ] H) [Nontrivial H],
+  ContinuousLinearMap.adjoint T = T →
+    ∀ {g2 : ℝ}, 0 < g2 → (∀ y ∈ spectrum ℝ (T * T), y = 0 ∨ g2 ≤ y) → TGLExt.SpectralApproximationWitness T
+@TGLExt.concrete_breuer_corner_infinite : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (T : H →L[ℂ] H),
+  ¬FiniteDimensional ℂ H →
+    ContinuousLinearMap.adjoint T = T →
+      ∀ {g2 : ℝ},
+        0 < g2 →
+          (∀ y ∈ spectrum ℝ (T * T), y = 0 ∨ g2 ≤ y) →
+            ∀ (gp : Submodule ℂ H),
+              (↑T).ker ≠ ⊥ →
+                (↑T).ker ≤ gp →
+                  FiniteDimensional ℂ ↥gp →
+                    ((↑T).ker.starProjection ∈ {T}.centralizer.centralizer ∧
+                        (↑T).ker.starProjection ∈ {T}.centralizer) ∧
+                      (0 < (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).ker ∧
+                          (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).ker < ⊤) ∧
+                        (TGLExt.semifiniteDimTrace ℂ H).tau (↑T).kerᗮ = ⊤
+TGLExt.inscriptions_orthonormal : Orthonormal ℂ TGLExt.inscriptions
+TGLExt.ellTwo_not_finiteDimensional : ¬FiniteDimensional ℂ TGLExt.ellTwo
+TGLExt.eraseFirst_selfadjoint : ContinuousLinearMap.adjoint TGLExt.eraseFirst = TGLExt.eraseFirst
+TGLExt.ker_eraseFirst : (↑TGLExt.eraseFirst).ker = TGLExt.firstAtom
+TGLExt.eraseFirst_spectrum_gap : ∀ y ∈ spectrum ℝ (TGLExt.eraseFirst * TGLExt.eraseFirst), y = 0 ∨ 1 ≤ y
+TGLExt.concrete_corner_fires : ((↑TGLExt.eraseFirst).ker.starProjection ∈ {TGLExt.eraseFirst}.centralizer.centralizer ∧
+    (↑TGLExt.eraseFirst).ker.starProjection ∈ {TGLExt.eraseFirst}.centralizer) ∧
+  (0 < (TGLExt.semifiniteDimTrace ℂ TGLExt.ellTwo).tau (↑TGLExt.eraseFirst).ker ∧
+      (TGLExt.semifiniteDimTrace ℂ TGLExt.ellTwo).tau (↑TGLExt.eraseFirst).ker < ⊤) ∧
+    (TGLExt.semifiniteDimTrace ℂ TGLExt.ellTwo).tau (↑TGLExt.eraseFirst).kerᗮ = ⊤
+TGLExt.corner_weighs_the_name : (TGLExt.semifiniteDimTrace ℂ TGLExt.ellTwo).tau (↑TGLExt.eraseFirst).ker = 1
+TGLExt.eraseFirst_isSelfAdjoint : IsSelfAdjoint TGLExt.eraseFirst
+@TGLExt.lockFlow_commutes : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (T : H →L[ℂ] H) (hT : IsSelfAdjoint T) (s : ℝ) (x : H),
+  T ((TGLExt.lockFlow T hT s) x) = (TGLExt.lockFlow T hT s) (T x)
+@TGLExt.lockNet : {H : Type} →
+  [inst : NormedAddCommGroup H] →
+    [inst_1 : InnerProductSpace ℂ H] →
+      [inst_2 : CompleteSpace H] →
+        (T : H →L[ℂ] H) → IsSelfAdjoint T → TGLExt.HilbertHomeData ℕ (fun x1 x2 => x1 ≤ x2) (fun x => H) fun x => H
+@TGLExt.lockNetTrace : {H : Type} →
+  [inst : NormedAddCommGroup H] →
+    [inst_1 : InnerProductSpace ℂ H] →
+      [inst_2 : CompleteSpace H] →
+        (T : H →L[ℂ] H) →
+          (hT : IsSelfAdjoint T) →
+            (↑T).ker ≠ ⊥ → FiniteDimensional ℂ ↥(↑T).ker → TGLExt.BreuerTraceData (TGLExt.lockNet T hT)
+TGLExt.theConstantNet : TGLExt.HilbertHomeData ℕ (fun x1 x2 => x1 ≤ x2) (fun x => TGLExt.ellTwo) fun x => TGLExt.ellTwo
+TGLExt.theNetTrace : TGLExt.BreuerTraceData TGLExt.theConstantNet
+TGLExt.net_PF_fixed_by_flow : ∀ (O : ℕ) (s : ℝ) (x : TGLExt.ellTwo),
+  (TGLExt.theConstantNet.PF O) ((TGLExt.lockFlow TGLExt.eraseFirst TGLExt.eraseFirst_isSelfAdjoint s) x) =
+    (TGLExt.lockFlow TGLExt.eraseFirst TGLExt.eraseFirst_isSelfAdjoint s) ((TGLExt.theConstantNet.PF O) x)
+TGLExt.net_corner_weighs_the_name : ∀ (O : ℕ), TGLExt.theNetTrace.tau O (TGLExt.theConstantNet.PF O) = 1
+TGLExt.modularFrame_col_zero : ∀ (i : Fin 4), TGLExt.modularFrame i 0 = TGLExt.modularFiducial i
+TGLExt.modularFrame_col_boost1 : ∀ (i : Fin 4), TGLExt.modularFrame i 1 = TGLExt.K1.mulVec TGLExt.modularFiducial i
+TGLExt.modularFrame_eq_one : TGLExt.modularFrame = 1
+TGLExt.modularFrame_det_isUnit : IsUnit TGLExt.modularFrame.det
+TGLExt.concrete_four_frame_fires : TGLExt.modularFrame⁻¹ * TGLExt.modularFrame = 1 ∧
+  TGLExt.LorentzByCongruence (TGLExt.solderMetric4 TGLExt.modularFrame⁻¹)
+TGLExt.dimOrTop_subadd : ∀ (K : Type) [inst : Field K] {V : Type} [inst_1 : AddCommGroup V] [inst_2 : Module K V]
+  (p q : Submodule K V), TGLExt.dimOrTop K (p ⊔ q) ≤ TGLExt.dimOrTop K p + TGLExt.dimOrTop K q
+TGLExt.ellTwoTraceSub : TGLExt.SubadditiveTraceData (Submodule ℂ TGLExt.ellTwo)
+TGLExt.ellTwoSusy : TGLExt.SusyRelativeData (Submodule ℂ TGLExt.ellTwo) TGLExt.ellTwoTraceSub
+TGLExt.theHorizon : TGLExt.HorizonEquilibriumData
+TGLExt.the_master_fires : (0 < TGLExt.ellTwoTraceSub.tau TGLExt.ellTwoSusy.ker ∧
+    TGLExt.ellTwoTraceSub.tau TGLExt.ellTwoSusy.ker < ⊤) ∧
+  TGLExt.ellTwoTraceSub.tau TGLExt.ellTwoSusy.ker / TGLExt.ellTwoTraceSub.tau TGLExt.ellTwoSusy.ker = 1 ∧
+    (TGLExt.modularFrame⁻¹ * TGLExt.modularFrame = 1 ∧
+        TGLExt.LorentzByCongruence (TGLExt.solderMetric4 TGLExt.modularFrame⁻¹)) ∧
+      TGLExt.theHorizon.dQ = TGLExt.theHorizon.kappa * TGLExt.theHorizon.dA / (8 * Real.pi * TGLExt.theHorizon.G)
+TGLExt.master_corner_weighs_the_name : TGLExt.ellTwoTraceSub.tau TGLExt.ellTwoSusy.ker = 1
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1698,6 +1779,33 @@ TGLExt.first_infinite_dim_inhabitant : ∀ (K : Type) [inst : Field K],
 'TGLExt.annihilating_word_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.finite_face_witness_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.finite_face_corner_in_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ker_mul_self_eq_ker' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.cfc_polynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.iso_zero_cfc_eq_starProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.spectral_witness_of_isolated_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.concrete_breuer_corner_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.inscriptions_orthonormal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ellTwo_not_finiteDimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.eraseFirst_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ker_eraseFirst' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.eraseFirst_spectrum_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.concrete_corner_fires' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.corner_weighs_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.eraseFirst_isSelfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.lockFlow_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theConstantNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theNetTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.net_PF_fixed_by_flow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.net_corner_weighs_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.modularFrame_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.modularFrame_det_isUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.concrete_four_frame_fires' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.dimOrTop_subadd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ellTwoTraceSub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ellTwoSusy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theHorizon' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_master_fires' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.master_corner_weighs_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

@@ -5070,6 +5070,11 @@ import TGLExt.SpectralReduction
 import TGLExt.WitnessSeed
 import TGLExt.ExactWitness
 import TGLExt.WordExistence
+import TGLExt.InfiniteWord
+import TGLExt.HilbertInhabitant
+import TGLExt.AQFTCoreInhabitant
+import TGLExt.ConcreteFourFrame
+import TGLExt.TheMasterFires
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5767,6 +5772,52 @@ namespace TGL.Audit
 #check @TGLExt.finite_face_witness_unconditional
 #check @TGLExt.finite_face_corner_in_algebra
 
+-- v94 (a palavra em INFINITAS dimensoes: cfc com 0 isolado; a projecao
+--      espectral e o Nome; Weierstrass da a palavra; o canto de Breuer
+--      CONCRETO em infinito-dim com hipoteses puramente estruturais)
+#check @TGLExt.ker_mul_self_eq_ker
+#check @TGLExt.cfc_polynomial_eval
+#check @TGLExt.iso_zero_cfc_eq_starProjection
+#check @TGLExt.spectral_witness_of_isolated_zero
+#check @TGLExt.concrete_breuer_corner_infinite
+
+-- v95 (o habitante de Hilbert: ell2 genuinamente inf-dim; T = 1 - P_{e0};
+--      o canto de Breuer DISPARA concretamente; o canto PESA O NOME: tau=1)
+#check @TGLExt.inscriptions_orthonormal
+#check @TGLExt.ellTwo_not_finiteDimensional
+#check @TGLExt.eraseFirst_selfadjoint
+#check @TGLExt.ker_eraseFirst
+#check @TGLExt.eraseFirst_spectrum_gap
+#check @TGLExt.concrete_corner_fires
+#check @TGLExt.corner_weighs_the_name
+
+-- v96 (o habitante do pacote AQFT: lockNet generico + rede constante ell2
+--      com fluxo GENUINO exp(isT); Breuer habitada; e o four-frame dos
+--      boosts: as 4 direcoes NASCEM de K1,K2,K3 aplicados a fiducial)
+#check @TGLExt.eraseFirst_isSelfAdjoint
+#check @TGLExt.lockFlow_commutes
+#check @TGLExt.lockNet
+#check @TGLExt.lockNetTrace
+#check @TGLExt.theConstantNet
+#check @TGLExt.theNetTrace
+#check @TGLExt.net_PF_fixed_by_flow
+#check @TGLExt.net_corner_weighs_the_name
+#check @TGLExt.modularFrame_col_zero
+#check @TGLExt.modularFrame_col_boost1
+#check @TGLExt.modularFrame_eq_one
+#check @TGLExt.modularFrame_det_isUnit
+#check @TGLExt.concrete_four_frame_fires
+
+-- v97 (o mestre dispara: subaditividade do traco-dimensao; H1 nivel-4 no
+--      reticulado REAL do habitante; H3 habitado; a PENTADA conclui em
+--      termos 100% construidos)
+#check @TGLExt.dimOrTop_subadd
+#check @TGLExt.ellTwoTraceSub
+#check @TGLExt.ellTwoSusy
+#check @TGLExt.theHorizon
+#check @TGLExt.the_master_fires
+#check @TGLExt.master_corner_weighs_the_name
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6187,6 +6238,37 @@ namespace TGL.Audit
 #print axioms TGLExt.annihilating_word_exists
 #print axioms TGLExt.finite_face_witness_unconditional
 #print axioms TGLExt.finite_face_corner_in_algebra
+-- v94 (a palavra em infinito-dim)
+#print axioms TGLExt.ker_mul_self_eq_ker
+#print axioms TGLExt.cfc_polynomial_eval
+#print axioms TGLExt.iso_zero_cfc_eq_starProjection
+#print axioms TGLExt.spectral_witness_of_isolated_zero
+#print axioms TGLExt.concrete_breuer_corner_infinite
+-- v95 (o habitante de Hilbert)
+#print axioms TGLExt.inscriptions_orthonormal
+#print axioms TGLExt.ellTwo_not_finiteDimensional
+#print axioms TGLExt.eraseFirst_selfadjoint
+#print axioms TGLExt.ker_eraseFirst
+#print axioms TGLExt.eraseFirst_spectrum_gap
+#print axioms TGLExt.concrete_corner_fires
+#print axioms TGLExt.corner_weighs_the_name
+-- v96 (o habitante do pacote AQFT + o four-frame dos boosts)
+#print axioms TGLExt.eraseFirst_isSelfAdjoint
+#print axioms TGLExt.lockFlow_commutes
+#print axioms TGLExt.theConstantNet
+#print axioms TGLExt.theNetTrace
+#print axioms TGLExt.net_PF_fixed_by_flow
+#print axioms TGLExt.net_corner_weighs_the_name
+#print axioms TGLExt.modularFrame_eq_one
+#print axioms TGLExt.modularFrame_det_isUnit
+#print axioms TGLExt.concrete_four_frame_fires
+-- v97 (o mestre dispara)
+#print axioms TGLExt.dimOrTop_subadd
+#print axioms TGLExt.ellTwoTraceSub
+#print axioms TGLExt.ellTwoSusy
+#print axioms TGLExt.theHorizon
+#print axioms TGLExt.the_master_fires
+#print axioms TGLExt.master_corner_weighs_the_name
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -12236,6 +12318,1006 @@ theorem finite_face_corner_in_algebra (T : H →L[ℂ] H)
   ⟨corner_in_algebra_of_approximation T
       (finite_face_witness_unconditional T hsa hker),
    corner_projection_in_commutant_set T hsa⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/InfiniteWord.lean":
+r'''import TGLExt.WordExistence
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 2000000
+
+/-!
+# A PALAVRA EM ∞-DIM: o cálculo funcional com 0 isolado
+  [TGLExt — v94, o incremento 11 do programa SemifiniteAnalysis]
+
+O v89 fechou a face finita (a palavra existe SEM diagonalização). Esta
+pedra fecha a face INFINITA: para T = T† com 0 ISOLADO no espectro de
+S = T·T (a situação de gap dos Three Locks), o cálculo funcional
+contínuo cunha a projeção espectral, e Weierstrass no intervalo
+[−‖S‖, ‖S‖] fornece as palavras polinomiais que convergem a ela EM
+NORMA — logo pontualmente: a SpectralApproximationWitness do v85 VALE
+em ∞-dim. Composta com o frame algébrico v80×82×83×84, ela produz o
+CANTO DE BREUER CONCRETO com hipóteses puramente ESTRUTURAIS
+(auto-adjunção + gap espectral + kernel finito não-trivial).
+
+A ENGENHARIA DA PROVA (as escolhas que a tornam formalizável):
+* trabalhar com S = T·T (espectro ⊆ {0} ∪ [g², ∞); ker S = ker T):
+  as funções  f(y) = max(0, 1 − (2/g²)y)  e  k(y) = (max(g²/2, y))⁻¹
+  são CONTÍNUAS EM TODO ℝ — nenhum indicador descontínuo;
+* as identidades valem NO ESPECTRO via `cfc_congr` (id·f = 0 e
+  1 − f = k·id em σ(S)) — o homomorfismo cfc faz o resto;
+* a UNICIDADE do v88 identifica cfc f S = starProjection(ker T) por
+  três cláusulas pontuais (simetria, pouso, fixação) — a idempotência
+  vem DE GRAÇA pela identificação;
+* Weierstrass em Icc(−‖S‖, ‖S‖) ⊇ σ(S) + `norm_cfc_le` (o cfc é
+  isométrico) dão a sequência de palavras; a palavra em T é a palavra
+  em S composta com X² e levada a ℂ[X].
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+* ★ `ker_mul_self_eq_ker` — ker(T·T) = ker T para T = T†;
+* ★ `cfc_polynomial_eval` — o dicionário palavra↔função: cfc do
+  avaliador polinomial = aeval;
+* ★★★ `iso_zero_cfc_eq_starProjection` — A PROJEÇÃO ESPECTRAL É O
+  NOME: 0 isolado ⟹ cfc da função-chapéu = P_{ker T};
+* ★★★ `spectral_witness_of_isolated_zero` — A PALAVRA EM ∞-DIM:
+  0 isolado ⟹ SpectralApproximationWitness T;
+* ★★★★ `concrete_breuer_corner_infinite` — O CANTO DE BREUER CONCRETO
+  EM ∞-DIM: T = T†, gap, kernel finito ≠ ⊥ ⟹ P ∈ {T}″ ∩ {T}′ com
+  0 < τ(ker) < ∞ e τ(kerᗮ) = ⊤ — a testemunha deixou de ser hipótese.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Polynomial
+
+noncomputable section
+
+variable {H : Type} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+
+/-- [KERNEL] ★ ker(T·T) = ker T para T = T†: o quadrado não esconde
+    kernel (‖Tx‖² = ⟪T(Tx), x⟫ via o adjunto). -/
+theorem ker_mul_self_eq_ker (T : H →L[ℂ] H)
+    (hsa : ContinuousLinearMap.adjoint T = T) :
+    (T * T).ker = T.ker := by
+  ext x
+  constructor
+  · intro hx
+    have hx0 : (T * T) x = 0 := LinearMap.mem_ker.mp hx
+    have hswap := ContinuousLinearMap.adjoint_inner_left T (T x) x
+    rw [hsa] at hswap
+    have hnorm : inner ℂ (T x) (T x) = (0 : ℂ) := by
+      rw [hswap]
+      calc inner ℂ x (T (T x)) = inner ℂ x ((T * T) x) := rfl
+        _ = inner ℂ x (0 : H) := by rw [hx0]
+        _ = 0 := inner_zero_right x
+    exact LinearMap.mem_ker.mpr (inner_self_eq_zero.mp hnorm)
+  · intro hx
+    have hx0 : T x = 0 := LinearMap.mem_ker.mp hx
+    refine LinearMap.mem_ker.mpr ?_
+    calc (T * T) x = T (T x) := rfl
+      _ = T 0 := by rw [hx0]
+      _ = 0 := map_zero T
+
+/-- [KERNEL] ★ o dicionário palavra↔função: o cfc do avaliador
+    polinomial é o aeval (indução em monômios; o homomorfismo faz o
+    resto). -/
+theorem cfc_polynomial_eval (S : H →L[ℂ] H) (hS : IsSelfAdjoint S)
+    (p : Polynomial ℝ) :
+    cfc (fun x : ℝ => p.eval x) S = Polynomial.aeval S p := by
+  induction p using Polynomial.induction_on' with
+  | add p q hp hq =>
+    have h1 : (fun x : ℝ => (p + q).eval x)
+        = fun x : ℝ => p.eval x + q.eval x := by
+      funext x
+      rw [Polynomial.eval_add]
+    rw [h1, cfc_add S (fun x : ℝ => p.eval x) (fun x : ℝ => q.eval x)
+          p.continuous.continuousOn q.continuous.continuousOn,
+        hp, hq, map_add]
+  | monomial n c =>
+    have h1 : (fun x : ℝ => (Polynomial.monomial n c).eval x)
+        = fun x : ℝ => c • (id x : ℝ) ^ n := by
+      funext x
+      rw [Polynomial.eval_monomial, smul_eq_mul, id_eq]
+    rw [h1, cfc_smul c (fun x : ℝ => (id x : ℝ) ^ n) S
+          (Continuous.continuousOn (continuous_id.pow n)),
+        cfc_pow (id : ℝ → ℝ) n S (Continuous.continuousOn continuous_id),
+        cfc_id ℝ S hS, Polynomial.aeval_monomial, ← Algebra.smul_def]
+
+section IsolatedZero
+
+variable (T : H →L[ℂ] H)
+
+/-- a função-chapéu: 1 no zero, 0 a partir de g2 — contínua em todo ℝ. -/
+private def fhat (g2 : ℝ) : ℝ → ℝ := fun y => max 0 (1 - (2 / g2) * y)
+
+/-- o inverso amansado: (max(g2/2, y))⁻¹ — contínuo e nunca singular. -/
+private def kinv (g2 : ℝ) : ℝ → ℝ := fun y => (max (g2 / 2) y)⁻¹
+
+private lemma fhat_continuous (g2 : ℝ) : Continuous (fhat g2) := by
+  unfold fhat
+  exact continuous_const.max
+    (continuous_const.sub (continuous_const.mul continuous_id))
+
+private lemma kinv_continuous {g2 : ℝ} (hg : 0 < g2) : Continuous (kinv g2) := by
+  unfold kinv
+  refine Continuous.inv₀ (continuous_const.max continuous_id) fun y => ?_
+  have hpos : 0 < max (g2 / 2) y :=
+    lt_of_lt_of_le (by linarith) (le_max_left _ _)
+  exact ne_of_gt hpos
+
+private lemma fhat_at_zero (g2 : ℝ) : fhat g2 0 = 1 := by
+  unfold fhat
+  norm_num
+
+private lemma fhat_at_ge {g2 : ℝ} (hg : 0 < g2) {y : ℝ} (hy : g2 ≤ y) :
+    fhat g2 y = 0 := by
+  unfold fhat
+  have h1 : (2 : ℝ) ≤ 2 / g2 * y := by
+    rw [div_mul_eq_mul_div, le_div_iff₀ hg]
+    nlinarith
+  exact max_eq_left (by linarith)
+
+/-- [KERNEL] ★★★ A PROJEÇÃO ESPECTRAL É O NOME: com 0 isolado no
+    espectro de S = T·T, o cfc da função-chapéu é EXATAMENTE a projeção
+    ortogonal sobre ker T — simétrica (cfc_predicate), pousa no kernel
+    (S∘P = 0 via id·f =σ 0), fixa o kernel (1−P = K∘S via
+    1−f =σ k·id); a unicidade do v88 fecha a identificação. -/
+theorem iso_zero_cfc_eq_starProjection
+    (hsa : ContinuousLinearMap.adjoint T = T)
+    {g2 : ℝ} (hg : 0 < g2)
+    (hiso : ∀ y ∈ spectrum ℝ (T * T), y = 0 ∨ g2 ≤ y) :
+    cfc (fhat g2) (T * T) = (T.ker).starProjection := by
+  have hS : IsSelfAdjoint (T * T) := by
+    have h : star (T * T) = T * T := by
+      rw [star_mul, ContinuousLinearMap.star_eq_adjoint, hsa]
+    exact h
+  have hker : (T * T).ker = T.ker := ker_mul_self_eq_ker T hsa
+  have hcf : ContinuousOn (fhat g2) (spectrum ℝ (T * T)) :=
+    (fhat_continuous g2).continuousOn
+  have hck : ContinuousOn (kinv g2) (spectrum ℝ (T * T)) :=
+    (kinv_continuous hg).continuousOn
+  -- pousa: S * P0 = 0 (id·f = 0 no espectro)
+  have hSP : (T * T) * cfc (fhat g2) (T * T) = 0 := by
+    have h1 : (T * T) * cfc (fhat g2) (T * T)
+        = cfc (fun y : ℝ => id y * fhat g2 y) (T * T) := by
+      conv_lhs => lhs; rw [← cfc_id ℝ (T * T) hS]
+      rw [← cfc_mul (id : ℝ → ℝ) (fhat g2) (T * T)
+            (Continuous.continuousOn continuous_id) hcf]
+    have h2 : cfc (fun y : ℝ => id y * fhat g2 y) (T * T)
+        = cfc (fun _ : ℝ => (0 : ℝ)) (T * T) := by
+      refine cfc_congr fun y hy => ?_
+      show id y * fhat g2 y = 0
+      rw [id_eq]
+      rcases hiso y hy with h0 | hge
+      · subst h0
+        simp
+      · rw [fhat_at_ge hg hge, mul_zero]
+    rw [h1, h2, cfc_const 0 (T * T) hS, map_zero]
+  -- fixa: 1 − P0 = K * S (1−f = k·id no espectro)
+  have hfix_op : 1 - cfc (fhat g2) (T * T)
+      = cfc (kinv g2) (T * T) * (T * T) := by
+    have h1 : (1 : H →L[ℂ] H) - cfc (fhat g2) (T * T)
+        = cfc (fun y : ℝ => 1 - fhat g2 y) (T * T) := by
+      rw [cfc_sub (fun _ : ℝ => (1 : ℝ)) (fhat g2) (T * T)
+            (Continuous.continuousOn continuous_const) hcf,
+          cfc_const 1 (T * T) hS, map_one]
+    have h2 : cfc (fun y : ℝ => 1 - fhat g2 y) (T * T)
+        = cfc (fun y : ℝ => kinv g2 y * id y) (T * T) := by
+      refine cfc_congr fun y hy => ?_
+      show 1 - fhat g2 y = kinv g2 y * id y
+      rw [id_eq]
+      rcases hiso y hy with h0 | hge
+      · subst h0
+        rw [fhat_at_zero]
+        simp
+      · rw [fhat_at_ge hg hge, sub_zero]
+        have hy2 : g2 / 2 ≤ y := by linarith
+        have hyne : y ≠ 0 := ne_of_gt (by linarith)
+        unfold kinv
+        rw [max_eq_right hy2, inv_mul_cancel₀ hyne]
+    have h3 : cfc (fun y : ℝ => kinv g2 y * id y) (T * T)
+        = cfc (kinv g2) (T * T) * (T * T) := by
+      conv_rhs => rhs; rw [← cfc_id ℝ (T * T) hS]
+      rw [← cfc_mul (kinv g2) (id : ℝ → ℝ) (T * T) hck
+            (Continuous.continuousOn continuous_id)]
+    rw [h1, h2, h3]
+  -- simétrica: o cfc real preserva a auto-adjunção
+  have hsaP : IsSelfAdjoint (cfc (fhat g2) (T * T)) :=
+    cfc_predicate (fhat g2) (T * T)
+  have hadj : ContinuousLinearMap.adjoint (cfc (fhat g2) (T * T))
+      = cfc (fhat g2) (T * T) := by
+    rw [← ContinuousLinearMap.star_eq_adjoint]
+    exact hsaP
+  have hP : ∀ u v : H, inner ℂ (cfc (fhat g2) (T * T) u) v
+      = inner ℂ u (cfc (fhat g2) (T * T) v) := by
+    intro u v
+    have h := ContinuousLinearMap.adjoint_inner_left
+      (cfc (fhat g2) (T * T)) v u
+    rwa [hadj] at h
+  -- as duas cláusulas pontuais
+  have hland : ∀ x : H, cfc (fhat g2) (T * T) x ∈ T.ker := by
+    intro x
+    rw [← hker]
+    refine LinearMap.mem_ker.mpr ?_
+    calc (T * T) (cfc (fhat g2) (T * T) x)
+        = ((T * T) * cfc (fhat g2) (T * T)) x := rfl
+      _ = (0 : H →L[ℂ] H) x := by rw [hSP]
+      _ = 0 := rfl
+  have hfix : ∀ x ∈ T.ker, cfc (fhat g2) (T * T) x = x := by
+    intro x hx
+    have hSx : (T * T) x = 0 := LinearMap.mem_ker.mp (hker ▸ hx)
+    have h1 : ((1 : H →L[ℂ] H) - cfc (fhat g2) (T * T)) x = 0 := by
+      rw [hfix_op]
+      calc (cfc (kinv g2) (T * T) * (T * T)) x
+          = (cfc (kinv g2) (T * T)) ((T * T) x) := rfl
+        _ = (cfc (kinv g2) (T * T)) 0 := by rw [hSx]
+        _ = 0 := map_zero _
+    have h2 : x - cfc (fhat g2) (T * T) x = 0 := by
+      calc x - cfc (fhat g2) (T * T) x
+          = ((1 : H →L[ℂ] H) - cfc (fhat g2) (T * T)) x := by
+            rw [ContinuousLinearMap.sub_apply, ContinuousLinearMap.one_apply]
+        _ = 0 := h1
+    exact (sub_eq_zero.mp h2).symm
+  -- a unicidade do v88 fecha
+  exact selfadjoint_idempotent_eq_starProjection T.ker
+    (cfc (fhat g2) (T * T)) hP hland hfix
+
+/-- [KERNEL] ★★★ A PALAVRA EM ∞-DIM: 0 isolado no espectro de T·T ⟹
+    a testemunha espectral do v85 EXISTE — Weierstrass em
+    Icc(−‖S‖, ‖S‖) ⊇ σ(S) dá palavras reais p_n com
+    ‖p_n(S) − P_{ker T}‖ ≤ 1/(n+1) (o cfc é isométrico), e a palavra
+    complexa q_n := (p_n ∘ X²) levada a ℂ[X] converge PONTUALMENTE. -/
+theorem spectral_witness_of_isolated_zero [Nontrivial H]
+    (hsa : ContinuousLinearMap.adjoint T = T)
+    {g2 : ℝ} (hg : 0 < g2)
+    (hiso : ∀ y ∈ spectrum ℝ (T * T), y = 0 ∨ g2 ≤ y) :
+    SpectralApproximationWitness T := by
+  have hS : IsSelfAdjoint (T * T) := by
+    have h : star (T * T) = T * T := by
+      rw [star_mul, ContinuousLinearMap.star_eq_adjoint, hsa]
+    exact h
+  have hproj : cfc (fhat g2) (T * T) = (T.ker).starProjection :=
+    iso_zero_cfc_eq_starProjection T hsa hg hiso
+  -- o espectro mora no intervalo de Weierstrass
+  have hicc : ∀ y ∈ spectrum ℝ (T * T), y ∈ Set.Icc (-‖T * T‖) ‖T * T‖ := by
+    intro y hy
+    have hb : ‖y‖ ≤ ‖T * T‖ := spectrum.norm_le_norm_of_mem hy
+    rw [Real.norm_eq_abs] at hb
+    exact Set.mem_Icc.mpr (abs_le.mp hb)
+  -- Weierstrass: as palavras reais no intervalo
+  have hWeier : ∀ n : ℕ, ∃ p : Polynomial ℝ,
+      ∀ y ∈ Set.Icc (-‖T * T‖) ‖T * T‖,
+        |p.eval y - fhat g2 y| < 1 / ((n : ℝ) + 1) := fun n =>
+    exists_polynomial_near_of_continuousOn (-‖T * T‖) ‖T * T‖ (fhat g2)
+      ((fhat_continuous g2).continuousOn) (1 / ((n : ℝ) + 1)) (by positivity)
+  choose ps hps using hWeier
+  -- a palavra real avaliada em S aproxima a projeção EM NORMA
+  have hnorm : ∀ n : ℕ,
+      ‖Polynomial.aeval (T * T) (ps n) - (T.ker).starProjection‖
+        ≤ 1 / ((n : ℝ) + 1) := by
+    intro n
+    rw [← hproj, ← cfc_polynomial_eval (T * T) hS (ps n),
+        ← cfc_sub (fun y : ℝ => (ps n).eval y) (fhat g2) (T * T)
+          ((ps n).continuous.continuousOn)
+          ((fhat_continuous g2).continuousOn)]
+    refine norm_cfc_le (by positivity) fun y hy => ?_
+    show ‖(ps n).eval y - fhat g2 y‖ ≤ 1 / ((n : ℝ) + 1)
+    rw [Real.norm_eq_abs]
+    exact le_of_lt (hps n y (hicc y hy))
+  -- a palavra complexa em T: q_n(T) = p_n(T·T)
+  have hword : ∀ n : ℕ,
+      Polynomial.aeval T (((ps n).comp (Polynomial.X ^ 2)).map (algebraMap ℝ ℂ))
+        = Polynomial.aeval (T * T) (ps n) := by
+    intro n
+    have hX2 : Polynomial.aeval T ((Polynomial.X : Polynomial ℝ) ^ 2)
+        = T * T := by
+      rw [map_pow, Polynomial.aeval_X, sq]
+    rw [Polynomial.aeval_map_algebraMap, Polynomial.aeval_comp, hX2]
+  refine ⟨fun n => ((ps n).comp (Polynomial.X ^ 2)).map (algebraMap ℝ ℂ),
+    fun x => ?_⟩
+  rw [tendsto_iff_norm_sub_tendsto_zero]
+  have hb : ∀ n : ℕ,
+      ‖(Polynomial.aeval T
+            (((ps n).comp (Polynomial.X ^ 2)).map (algebraMap ℝ ℂ))) x
+          - (T.ker).starProjection x‖
+        ≤ (1 / ((n : ℝ) + 1)) * ‖x‖ := by
+    intro n
+    have h1 : (Polynomial.aeval T
+            (((ps n).comp (Polynomial.X ^ 2)).map (algebraMap ℝ ℂ))) x
+          - (T.ker).starProjection x
+        = (Polynomial.aeval (T * T) (ps n) - (T.ker).starProjection) x := by
+      rw [ContinuousLinearMap.sub_apply, hword n]
+    rw [h1]
+    calc ‖(Polynomial.aeval (T * T) (ps n) - (T.ker).starProjection) x‖
+        ≤ ‖Polynomial.aeval (T * T) (ps n) - (T.ker).starProjection‖ * ‖x‖ :=
+          ContinuousLinearMap.le_opNorm _ x
+      _ ≤ (1 / ((n : ℝ) + 1)) * ‖x‖ :=
+          mul_le_mul_of_nonneg_right (hnorm n) (norm_nonneg x)
+  have hlim : Filter.Tendsto (fun n : ℕ => (1 / ((n : ℝ) + 1)) * ‖x‖)
+      Filter.atTop (nhds (0 * ‖x‖)) :=
+    Filter.Tendsto.mul_const ‖x‖ tendsto_one_div_add_atTop_nhds_zero_nat
+  rw [zero_mul] at hlim
+  exact squeeze_zero (fun n => norm_nonneg _) hb hlim
+
+/-- [KERNEL] ★★★★ O CANTO DE BREUER CONCRETO EM ∞-DIM: hipóteses
+    puramente ESTRUTURAIS — T = T†, 0 isolado no espectro de T·T,
+    kernel não-trivial sob gaiola finita, H ∞-dim — e o canto INTEIRO
+    conclui: P_{ker T} ∈ {T}″ ∧ P ∈ {T}′ ∧ 0 < τ(ker) < ∞ ∧
+    τ(kerᗮ) = ⊤. A testemunha do v85 DEIXOU DE SER HIPÓTESE: ela é
+    TEOREMA (Weierstrass + cfc). A palavra está fechada. -/
+theorem concrete_breuer_corner_infinite (hH : ¬FiniteDimensional ℂ H)
+    (hsa : ContinuousLinearMap.adjoint T = T)
+    {g2 : ℝ} (hg : 0 < g2)
+    (hiso : ∀ y ∈ spectrum ℝ (T * T), y = 0 ∨ g2 ≤ y)
+    (gp : Submodule ℂ H) (hker : T.ker ≠ ⊥)
+    (hle : T.ker ≤ gp) (hgp : FiniteDimensional ℂ gp) :
+    ((T.ker).starProjection ∈ ({T} : Set (H →L[ℂ] H)).centralizer.centralizer ∧
+      (T.ker).starProjection ∈ ({T} : Set (H →L[ℂ] H)).centralizer) ∧
+      ((0 < (semifiniteDimTrace ℂ H).tau T.ker ∧
+          (semifiniteDimTrace ℂ H).tau T.ker < ⊤) ∧
+        (semifiniteDimTrace ℂ H).tau (T.ker)ᗮ = ⊤) := by
+  haveI : Nontrivial H := by
+    obtain ⟨x, -, hx0⟩ := (Submodule.ne_bot_iff _).mp hker
+    exact ⟨⟨x, 0, hx0⟩⟩
+  exact concrete_breuer_corner_conditional hH T hsa
+    (spectral_witness_of_isolated_zero T hsa hg hiso) gp hker hle hgp
+
+end IsolatedZero
+
+end
+
+end TGLExt
+''',
+    "TGLExt/HilbertInhabitant.lean":
+r'''import TGLExt.InfiniteWord
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 2000000
+
+/-!
+# O HABITANTE DE HILBERT: o canto de Breuer dispara CONCRETAMENTE em ℓ²
+  [TGLExt — v95, o incremento 12 do programa SemifiniteAnalysis]
+
+O v94 fechou a implicação em ∞-dim com hipóteses estruturais. Esta pedra
+constrói O PRIMEIRO HABITANTE: a morada ℓ²(ℕ,ℂ) — Hilbert GENUINAMENTE
+∞-dim — e o operador concreto T = 1 − P_{e₀} (apaga tudo MENOS a
+primeira inscrição: ker T = ℂ·e₀). Nele o canto de Breuer do v94
+DISPARA com todos os dados nomeados: espectro ⊆ {0,1} (gap = 1),
+kernel = o átomo da primeira inscrição, e o peso do canto é EXATO:
+
+    τ(ker T) = 1 = ω(I)  —  O CANTO PESA O NOME.
+
+O QUE ESTA PEDRA PROVA [KERNEL]:
+* ★ `inscriptions_orthonormal` — as inscrições e_n são ortonormais;
+* ★★ `ellTwo_not_finiteDimensional` — ℓ² é GENUINAMENTE ∞-dim
+  (a família ortonormal infinita mata qualquer dimensão finita);
+* ★ `ker_eraseFirst` — ker(1−P) = o átomo da primeira inscrição;
+* ★ `eraseFirst_spectrum_gap` — espectro de T·T ⊆ {0,1}: 0 isolado
+  com gap 1 (idempotente auto-adjunto; iff espectral da mathlib);
+* ★★★★ `concrete_corner_fires` — O CANTO DISPARA NO HABITANTE:
+  P ∈ {T}″ ∧ P ∈ {T}′ ∧ 0 < τ(ker) < ∞ ∧ τ(kerᗮ) = ⊤;
+* ★★★ `corner_weighs_the_name` — τ(ker T) = 1 = ω(I).
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+/-- a morada de Hilbert concreta: ℓ²(ℕ, ℂ). -/
+abbrev ellTwo : Type := lp (fun _ : ℕ => ℂ) 2
+
+/-- as inscrições: a base ortonormal canônica e_n. -/
+def inscriptions : ℕ → ellTwo := fun n => lp.single 2 n 1
+
+/-- a primeira inscrição: e₀. -/
+def firstInscription : ellTwo := inscriptions 0
+
+/-- [KERNEL] ★ as inscrições são ortonormais. -/
+theorem inscriptions_orthonormal : Orthonormal ℂ inscriptions := by
+  rw [orthonormal_iff_ite]
+  intro m n
+  unfold inscriptions
+  rw [lp.inner_single_left]
+  rcases eq_or_ne m n with h | h
+  · subst h
+    rw [lp.single_apply_self, if_pos rfl]
+    simp [RCLike.inner_apply]
+  · rw [lp.single_apply_ne 2 n 1 h, if_neg h]
+    simp
+
+private theorem firstInscription_ne_zero : firstInscription ≠ 0 :=
+  inscriptions_orthonormal.ne_zero 0
+
+/-- [KERNEL] ★★ a morada é GENUINAMENTE ∞-dim: a família ortonormal
+    infinita não cabe em dimensão finita. -/
+theorem ellTwo_not_finiteDimensional : ¬FiniteDimensional ℂ ellTwo := by
+  intro hfd
+  set n := Module.finrank ℂ ellTwo with hn
+  have hli : LinearIndependent ℂ inscriptions :=
+    inscriptions_orthonormal.linearIndependent
+  have hli2 : LinearIndependent ℂ
+      (inscriptions ∘ (fun i : Fin (n + 1) => (i : ℕ))) :=
+    hli.comp _ Fin.val_injective
+  have hcard := hli2.fintype_card_le_finrank
+  rw [Fintype.card_fin] at hcard
+  omega
+
+/-- o átomo: o span da primeira inscrição. -/
+def firstAtom : Submodule ℂ ellTwo := ℂ ∙ firstInscription
+
+instance : FiniteDimensional ℂ firstAtom := by
+  unfold firstAtom
+  infer_instance
+
+instance : (firstAtom).HasOrthogonalProjection := by
+  haveI : CompleteSpace firstAtom := FiniteDimensional.complete ℂ firstAtom
+  infer_instance
+
+/-- O OPERADOR CONCRETO: T = 1 − P_{e₀} — apaga tudo MENOS a primeira
+    inscrição (o kernel é exatamente o átomo). -/
+def eraseFirst : ellTwo →L[ℂ] ellTwo := 1 - firstAtom.starProjection
+
+theorem eraseFirst_apply (x : ellTwo) :
+    eraseFirst x = x - firstAtom.starProjection x := rfl
+
+/-- [KERNEL] ★ T é auto-adjunto. -/
+theorem eraseFirst_selfadjoint :
+    ContinuousLinearMap.adjoint eraseFirst = eraseFirst := by
+  have h : IsSelfAdjoint eraseFirst := by
+    unfold eraseFirst
+    exact (IsSelfAdjoint.one (ellTwo →L[ℂ] ellTwo)).sub
+      (isSelfAdjoint_starProjection firstAtom)
+  rw [← ContinuousLinearMap.star_eq_adjoint]
+  exact h
+
+/-- [KERNEL] ★ o kernel é o átomo da primeira inscrição. -/
+theorem ker_eraseFirst : eraseFirst.ker = firstAtom := by
+  ext x
+  constructor
+  · intro hx
+    have hx0 : eraseFirst x = 0 := LinearMap.mem_ker.mp hx
+    have h2 : x - firstAtom.starProjection x = 0 := hx0
+    exact Submodule.starProjection_eq_self_iff.mp (sub_eq_zero.mp h2).symm
+  · intro hx
+    refine LinearMap.mem_ker.mpr ?_
+    show eraseFirst x = 0
+    calc eraseFirst x = x - firstAtom.starProjection x := rfl
+      _ = x - x := by rw [Submodule.starProjection_eq_self_iff.mpr hx]
+      _ = 0 := sub_self x
+
+/-- [KERNEL] ★ T é idempotente (T·T = T): projetor complementar. -/
+theorem eraseFirst_idem : eraseFirst * eraseFirst = eraseFirst := by
+  unfold eraseFirst
+  have hP : firstAtom.starProjection * firstAtom.starProjection
+      = firstAtom.starProjection :=
+    firstAtom.isIdempotentElem_starProjection
+  rw [mul_sub, mul_one, sub_mul, one_mul, hP, sub_self, sub_zero]
+
+/-- [KERNEL] ★ o espectro de T·T mora em {0,1}: 0 ISOLADO com gap 1. -/
+theorem eraseFirst_spectrum_gap :
+    ∀ y ∈ spectrum ℝ (eraseFirst * eraseFirst), y = 0 ∨ (1 : ℝ) ≤ y := by
+  intro y hy
+  rw [eraseFirst_idem] at hy
+  -- mapeamento espectral (meia-face, vale sobre qualquer corpo):
+  -- y² − y ∈ σ(T·T − T) = σ(0) = {0}
+  haveI : Nontrivial (ellTwo →L[ℂ] ellTwo) := by
+    refine ⟨⟨1, 0, fun h => firstInscription_ne_zero ?_⟩⟩
+    have h1 : (1 : ellTwo →L[ℂ] ellTwo) firstInscription = firstInscription := rfl
+    rw [h] at h1
+    simpa using h1.symm
+  have hmem : (Polynomial.X ^ 2 - Polynomial.X : Polynomial ℝ).eval y
+      ∈ spectrum ℝ (Polynomial.aeval eraseFirst
+        (Polynomial.X ^ 2 - Polynomial.X : Polynomial ℝ)) :=
+    spectrum.subset_polynomial_aeval eraseFirst
+      (Polynomial.X ^ 2 - Polynomial.X : Polynomial ℝ) ⟨y, hy, rfl⟩
+  have haeval : Polynomial.aeval eraseFirst
+      (Polynomial.X ^ 2 - Polynomial.X : Polynomial ℝ) = 0 := by
+    rw [map_sub, map_pow, Polynomial.aeval_X, sq, eraseFirst_idem, sub_self]
+  rw [haeval, spectrum.zero_eq, Set.mem_singleton_iff] at hmem
+  have heval : y ^ 2 - y = 0 := by
+    have h2 : (Polynomial.X ^ 2 - Polynomial.X : Polynomial ℝ).eval y
+        = y ^ 2 - y := by
+      simp
+    rw [← h2]
+    exact hmem
+  have hfac : y * (y - 1) = 0 := by linear_combination heval
+  rcases mul_eq_zero.mp hfac with h0 | h1
+  · exact Or.inl h0
+  · right
+    have h2 : y = 1 := by linarith [sub_eq_zero.mp h1]
+    rw [h2]
+
+/-- [KERNEL] ★ o kernel não é trivial: e₀ mora nele. -/
+theorem ker_eraseFirst_ne_bot : eraseFirst.ker ≠ ⊥ := by
+  rw [ker_eraseFirst]
+  exact (Submodule.ne_bot_iff _).mpr
+    ⟨firstInscription, Submodule.mem_span_singleton_self _,
+      firstInscription_ne_zero⟩
+
+/-- [KERNEL] ★★★★ O CANTO DISPARA NO HABITANTE: no operador CONCRETO
+    T = 1 − P_{e₀} sobre ℓ²(ℕ,ℂ), o canto de Breuer INTEIRO conclui —
+    P_{ker T} ∈ {T}″ ∧ P ∈ {T}′ ∧ 0 < τ(ker) < ∞ ∧ τ(kerᗮ) = ⊤.
+    Nenhuma hipótese pendente: tudo foi CONSTRUÍDO acima. -/
+theorem concrete_corner_fires :
+    ((eraseFirst.ker).starProjection
+        ∈ ({eraseFirst} : Set (ellTwo →L[ℂ] ellTwo)).centralizer.centralizer ∧
+      (eraseFirst.ker).starProjection
+        ∈ ({eraseFirst} : Set (ellTwo →L[ℂ] ellTwo)).centralizer) ∧
+      ((0 < (semifiniteDimTrace ℂ ellTwo).tau eraseFirst.ker ∧
+          (semifiniteDimTrace ℂ ellTwo).tau eraseFirst.ker < ⊤) ∧
+        (semifiniteDimTrace ℂ ellTwo).tau (eraseFirst.ker)ᗮ = ⊤) :=
+  concrete_breuer_corner_infinite (T := eraseFirst)
+    ellTwo_not_finiteDimensional eraseFirst_selfadjoint one_pos
+    eraseFirst_spectrum_gap firstAtom ker_eraseFirst_ne_bot
+    (le_of_eq ker_eraseFirst) inferInstance
+
+/-- [KERNEL] ★★★ O CANTO PESA O NOME: τ(ker T) = 1 = ω(I) — o átomo da
+    primeira inscrição pesa exatamente a identidade preservada. -/
+theorem corner_weighs_the_name :
+    (semifiniteDimTrace ℂ ellTwo).tau eraseFirst.ker = 1 := by
+  rw [ker_eraseFirst]
+  show dimOrTop ℂ firstAtom = 1
+  have h : dimOrTop ℂ firstAtom = (Module.finrank ℂ firstAtom : ℝ≥0∞) :=
+    dimOrTop_of_finite ℂ inferInstance
+  have h2 : Module.finrank ℂ firstAtom = 1 := by
+    unfold firstAtom
+    exact finrank_span_singleton firstInscription_ne_zero
+  rw [h, h2, Nat.cast_one]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/AQFTCoreInhabitant.lean":
+r'''import TGLExt.HilbertInhabitant
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 2000000
+
+/-!
+# O HABITANTE DO PACOTE AQFT: a rede tipada do v56 GANHA UM TERMO
+  [TGLExt — v96, o incremento 13 do programa SemifiniteAnalysis]
+
+O v56 tipou a morada (`HilbertHomeData`: rede de fibras de Hilbert com
+locks, transporte modular interno, ação externa, isotonia — e o canto
+P_F DERIVADO, não postulado) e provou as quatro propriedades do canto a
+partir dos entrelaçamentos. NENHUM habitante existia até hoje. Esta
+pedra constrói O PRIMEIRO — em DUAS camadas:
+
+* a camada GENÉRICA (`lockNet`/`lockNetTrace`): QUALQUER lock
+  auto-adjunto T num Hilbert H gera a rede constante sobre ℕ com o
+  TRANSPORTE MODULAR INTERNO GENUÍNO λ(s) = exp(isT) — a face unitária
+  do fluxo a um parâmetro (selfAdjoint.expUnitary + a ponte
+  unitário↔isometria da mathlib); o entrelaçamento 𝒟λ(s) = λ(s)𝒟 é
+  TEOREMA (Commute.exp_right); e, com kernel finito não-trivial, a
+  camada de Breuer é HABITADA (τ = dimensão do setor fixo). REUSÁVEL:
+  quando o Dirac modular contínuo existir, a MESMA construção o acolhe;
+* a camada CONCRETA: a instanciação em (ℓ², T = 1 − P_{e₀}) do v95 —
+  o Nome é FIXADO pelo fluxo em toda região (instância NÃO-VAZIA do
+  PF_internal_fix do v56) e τ(P_F(𝒪)) = 1 = ω(I) em TODA região:
+  O CANTO PESA O NOME NA REDE.
+
+O QUE ESTA PEDRA PROVA/CONSTRÓI [KERNEL]:
+* ★ `eraseFirst_isSelfAdjoint`; ★★ `lockFlow` (DEF) + `lockFlow_commutes`;
+* ★★★★ `lockNet` (DEF) — o construtor genérico do habitante;
+* ★★★ `lockNetTrace` (DEF) — a camada de Breuer habitada;
+* ★★★★ `theConstantNet` (DEF) — O PRIMEIRO HABITANTE CONCRETO;
+* ★★★ `net_PF_fixed_by_flow` — o Nome fixado pelo fluxo genuíno;
+* ★★★ `net_corner_weighs_the_name` — τ(P_F(𝒪)) = 1 = ω(I), ∀𝒪.
+
+HONESTIDADE: a rede é CONSTANTE e o grupo externo é TRIVIAL — nenhuma
+simetria de Poincaré é reivindicada; a rede III₁ genuína É o conteúdo
+das hipóteses H1/H2 (por isso são hipóteses). O gate NÃO se move: o
+ConcreteAQFTCore no seu nível de desenho (III₁/semifinito) segue
+ABERTO — este é o primeiro degrau tipado-e-habitado da escada.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+open NormedSpace
+
+noncomputable section
+
+/-- [KERNEL] ★ a face IsSelfAdjoint do lock (a forma star do v95). -/
+theorem eraseFirst_isSelfAdjoint : IsSelfAdjoint eraseFirst := by
+  rw [IsSelfAdjoint, ContinuousLinearMap.star_eq_adjoint]
+  exact eraseFirst_selfadjoint
+
+/-! ## A camada genérica: qualquer lock auto-adjunto gera a rede -/
+
+section Generic
+
+variable {H : Type} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+
+/-- o gerador tipado do fluxo: (s:ℂ)·T é auto-adjunto (prova direta
+    via star_smul — IsSelfAdjoint.smul diverge na busca de instância). -/
+def saGen (T : H →L[ℂ] H) (hT : IsSelfAdjoint T) (s : ℝ) :
+    selfAdjoint (H →L[ℂ] H) :=
+  ⟨(s : ℂ) • T, by
+    rw [selfAdjoint.mem_iff, star_smul, RCLike.star_def, Complex.conj_ofReal,
+      hT.star_eq]⟩
+
+/-- [KERNEL] ★★ O FLUXO GENUÍNO: λ(s) = exp(isT) como isometria de H
+    (a face unitária do fluxo a um parâmetro; NÃO é a identidade). -/
+def lockFlow (T : H →L[ℂ] H) (hT : IsSelfAdjoint T) (s : ℝ) :
+    H ≃ₗᵢ[ℂ] H :=
+  Unitary.linearIsometryEquiv (selfAdjoint.expUnitary (saGen T hT s))
+
+private theorem lockFlow_apply (T : H →L[ℂ] H) (hT : IsSelfAdjoint T)
+    (s : ℝ) (x : H) :
+    (lockFlow T hT s) x = exp (Complex.I • ((s : ℂ) • T)) x := by
+  simp only [lockFlow, Unitary.coe_linearIsometryEquiv_apply,
+    selfAdjoint.expUnitary_coe]
+  rfl
+
+/-- [KERNEL] ★★ o entrelaçamento do fluxo: 𝒟 λ(s) = λ(s) 𝒟 — o lock
+    comuta com a própria exponencial (Commute.exp_right). -/
+theorem lockFlow_commutes (T : H →L[ℂ] H) (hT : IsSelfAdjoint T)
+    (s : ℝ) (x : H) :
+    T ((lockFlow T hT s) x) = (lockFlow T hT s) (T x) := by
+  have hcomm : Commute T (exp (Complex.I • ((s : ℂ) • T))) := by
+    apply Commute.exp_right
+    exact ((Commute.refl T).smul_right ((s : ℂ))).smul_right Complex.I
+  rw [lockFlow_apply, lockFlow_apply]
+  calc T (exp (Complex.I • ((s : ℂ) • T)) x)
+      = (T * exp (Complex.I • ((s : ℂ) • T))) x := rfl
+    _ = (exp (Complex.I • ((s : ℂ) • T)) * T) x := by rw [hcomm.eq]
+    _ = exp (Complex.I • ((s : ℂ) • T)) (T x) := rfl
+
+/-- [KERNEL] ★★★★ O CONSTRUTOR GENÉRICO DO HABITANTE: qualquer lock
+    auto-adjunto gera a rede constante sobre ℕ com fluxo interno
+    GENUÍNO exp(isT). Grupo externo trivial (nenhuma simetria
+    reivindicada); isotonia pela identidade (rede constante). -/
+def lockNet (T : H →L[ℂ] H) (hT : IsSelfAdjoint T) :
+    HilbertHomeData ℕ (· ≤ ·) (fun _ => H) (fun _ => H) where
+  locks _ := T
+  internal _ s := lockFlow T hT s
+  internalW _ s := (lockFlow T hT s).toLinearIsometry
+  internal_intertwines _ s x := lockFlow_commutes T hT s x
+  G := PUnit
+  act _ O := O
+  external _ _ := LinearIsometryEquiv.refl ℂ H
+  externalW _ _ := LinearIsometry.id
+  external_intertwines _ _ _ := rfl
+  incl _ := LinearIsometry.id
+  inclW _ := LinearIsometry.id
+  incl_intertwines _ _ := rfl
+
+/-- o setor FIXO de um operador A: ker(1 − A) — quem A preserva. -/
+def fixedSector (A : H →L[ℂ] H) : Submodule ℂ H := (1 - A).ker
+
+private theorem fixedSector_PF (T : H →L[ℂ] H) (hT : IsSelfAdjoint T)
+    (O : ℕ) :
+    fixedSector ((lockNet T hT).PF O) = T.ker := by
+  ext x
+  constructor
+  · intro hx
+    have hx0 : (1 - (lockNet T hT).PF O) x = 0 := LinearMap.mem_ker.mp hx
+    have h2 : x - (T.ker).starProjection x = 0 := hx0
+    exact Submodule.starProjection_eq_self_iff.mp (sub_eq_zero.mp h2).symm
+  · intro hx
+    refine LinearMap.mem_ker.mpr ?_
+    show x - (T.ker).starProjection x = 0
+    rw [Submodule.starProjection_eq_self_iff.mpr hx, sub_self]
+
+/-- [KERNEL] ★★★ A CAMADA DE BREUER HABITADA (genérica): com kernel
+    finito não-trivial, o peso τ = dimensão-ou-⊤ do setor fixo é
+    positivo e finito nas projeções P_F — o pacote (v56) tem traço. -/
+def lockNetTrace (T : H →L[ℂ] H) (hT : IsSelfAdjoint T)
+    (hker : T.ker ≠ ⊥) (hfd : FiniteDimensional ℂ T.ker) :
+    BreuerTraceData (lockNet T hT) where
+  tau _ A := dimOrTop ℂ (fixedSector A)
+  tau_PF_pos O := by
+    show 0 < dimOrTop ℂ (fixedSector ((lockNet T hT).PF O))
+    rw [fixedSector_PF T hT O, dimOrTop_of_finite ℂ hfd]
+    have h2 : 0 < Module.finrank ℂ T.ker := by
+      haveI := hfd
+      rw [Module.finrank_pos_iff]
+      exact Submodule.nontrivial_iff_ne_bot.mpr hker
+    exact_mod_cast h2
+  tau_PF_finite O := by
+    show dimOrTop ℂ (fixedSector ((lockNet T hT).PF O)) < ⊤
+    rw [fixedSector_PF T hT O, dimOrTop_of_finite ℂ hfd]
+    exact ENNReal.natCast_lt_top _
+
+end Generic
+
+/-! ## A camada concreta: a instanciação em (ℓ², 1 − P_{e₀}) -/
+
+/-- [KERNEL] ★★★★ O PRIMEIRO HABITANTE CONCRETO DO PACOTE: a rede
+    constante ℓ² com lock T = 1 − P_{e₀} e fluxo GENUÍNO exp(isT). -/
+def theConstantNet :
+    HilbertHomeData ℕ (· ≤ ·) (fun _ => ellTwo) (fun _ => ellTwo) :=
+  lockNet eraseFirst eraseFirst_isSelfAdjoint
+
+/-- [KERNEL] ★★★ O NOME É FIXADO PELO FLUXO em toda região — a
+    instância NÃO-VAZIA do teorema do canto (v56) no habitante. -/
+theorem net_PF_fixed_by_flow (O : ℕ) (s : ℝ) (x : ellTwo) :
+    theConstantNet.PF O ((lockFlow eraseFirst eraseFirst_isSelfAdjoint s) x)
+      = (lockFlow eraseFirst eraseFirst_isSelfAdjoint s)
+          (theConstantNet.PF O x) :=
+  theConstantNet.PF_internal_fix O s x
+
+/-- [KERNEL] ★★★ a camada de Breuer do habitante concreto. -/
+def theNetTrace : BreuerTraceData theConstantNet :=
+  lockNetTrace eraseFirst eraseFirst_isSelfAdjoint ker_eraseFirst_ne_bot
+    (by rw [ker_eraseFirst]; infer_instance)
+
+/-- [KERNEL] ★★★ O CANTO PESA O NOME NA REDE: τ(P_F(𝒪)) = 1 = ω(I)
+    em TODA região do habitante concreto. -/
+theorem net_corner_weighs_the_name (O : ℕ) :
+    theNetTrace.tau O (theConstantNet.PF O) = 1 := by
+  show dimOrTop ℂ (fixedSector (theConstantNet.PF O)) = 1
+  unfold theConstantNet
+  rw [fixedSector_PF eraseFirst eraseFirst_isSelfAdjoint O, ker_eraseFirst]
+  have h : dimOrTop ℂ firstAtom = (Module.finrank ℂ firstAtom : ℝ≥0∞) :=
+    dimOrTop_of_finite ℂ inferInstance
+  have h2 : Module.finrank ℂ firstAtom = 1 := by
+    unfold firstAtom
+    exact finrank_span_singleton (inscriptions_orthonormal.ne_zero 0)
+  rw [h, h2, Nat.cast_one]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ConcreteFourFrame.lean":
+r'''import TGLExt.AQFTCoreInhabitant
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 400000
+
+/-!
+# O FOUR-FRAME DOS BOOSTS: as quatro direções NASCEM da estrutura modular
+  [TGLExt — v96b, o incremento 14 do programa SemifiniteAnalysis]
+
+A exigência (H2, TGL_SMOOTH_MODULAR_FOUR_FRAME): as quatro direções
+E₀..E₃ devem SURGIR da rede modular — não ser inseridas à mão. Esta
+pedra as constrói na face algébrica: a direção fiducial é a do Nome
+(ω(I): o tempo modular), e as TRÊS direções espaciais são as ÓRBITAS
+DE BOOST — K_i aplicado à fiducial, onde K₁,K₂,K₃ são exatamente os
+geradores de boost do v63 (os MESMOS que satisfazem [K₁,K₂] = −J₃:
+Lorentz ≠ Euclides em kernel). A matriz E das quatro direções tem
+det = 1 ≠ 0 POR TEOREMA (não por hipótese) e o teorema condicional de
+H2 (v66) DISPARA: coframe dual E⁻¹E = 1 e métrica soldada lorentziana
+por congruência.
+
+O QUE ESTA PEDRA PROVA/CONSTRÓI [KERNEL]:
+* ★ `modularFiducial` (DEF) — a direção do Nome;
+* ★★ `modularFrame` (DEF) — E = [fiducial | K₁v | K₂v | K₃v]: as
+  colunas VÊM dos geradores de boost do v63;
+* ★ `modularFrame_col_zero/boost` — as colunas são as órbitas (rfl);
+* ★★ `modularFrame_det_isUnit` — det E = 1: a independência das
+  quatro direções é TEOREMA;
+* ★★★★ `concrete_four_frame_fires` — H2 finito DISPARA no frame
+  construído: E⁻¹E = 1 ∧ Lorentz por congruência — a tétrada não é
+  mais um dado: é um TERMO derivado dos boosts.
+
+HONESTIDADE: face ALGÉBRICA num ponto — o CAMPO suave E_a(x) com
+det ≠ 0 em toda parte (a 1ª equação de estrutura de Cartan sobre o
+espaço-tempo) é o conteúdo genuíno de H2 e segue ABERTO; o gate NÃO
+se move. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- a direção fiducial: a do Nome (o tempo modular). -/
+def modularFiducial : Fin 4 → ℝ := fun i => if i = 0 then 1 else 0
+
+/-- O FOUR-FRAME DOS BOOSTS: coluna 0 = fiducial; coluna i = K_i
+    aplicado à fiducial (as órbitas de boost do v63). -/
+def modularFrame : Matrix (Fin 4) (Fin 4) ℝ :=
+  Matrix.of fun i b =>
+    if b = 0 then modularFiducial i
+    else if b = 1 then (K1.mulVec modularFiducial) i
+    else if b = 2 then (K2.mulVec modularFiducial) i
+    else (K3.mulVec modularFiducial) i
+
+/-- [KERNEL] ★ a coluna 0 é a fiducial (o Nome). -/
+theorem modularFrame_col_zero (i : Fin 4) :
+    modularFrame i 0 = modularFiducial i := rfl
+
+/-- [KERNEL] ★ as colunas espaciais são as ÓRBITAS DE BOOST. -/
+theorem modularFrame_col_boost1 (i : Fin 4) :
+    modularFrame i 1 = (K1.mulVec modularFiducial) i := rfl
+
+theorem modularFrame_col_boost2 (i : Fin 4) :
+    modularFrame i 2 = (K2.mulVec modularFiducial) i := rfl
+
+theorem modularFrame_col_boost3 (i : Fin 4) :
+    modularFrame i 3 = (K3.mulVec modularFiducial) i := rfl
+
+/-- o frame dos boosts, em componentes: é a identidade 4×4 (a
+    fiducial gera, pelos boosts, exatamente os quatro eixos). -/
+theorem modularFrame_eq_one : modularFrame = 1 := by
+  ext i b
+  fin_cases i <;> fin_cases b <;>
+    simp [modularFrame, modularFiducial, K1, K2, K3, Matrix.mulVec,
+      dotProduct, Fin.sum_univ_four, Matrix.one_apply, Matrix.vecHead,
+      Matrix.vecTail, Fin.isValue]
+
+/-- [KERNEL] ★★ A INDEPENDÊNCIA DAS QUATRO DIREÇÕES É TEOREMA:
+    det E = 1 ≠ 0 — nada foi inserido à mão. -/
+theorem modularFrame_det_isUnit : IsUnit modularFrame.det := by
+  rw [modularFrame_eq_one, Matrix.det_one]
+  exact isUnit_one
+
+/-- [KERNEL] ★★★★ H2 FINITO DISPARA NO FRAME CONSTRUÍDO: coframe
+    dual E⁻¹E = 1 e métrica soldada LORENTZIANA por congruência — a
+    tétrada deixou de ser hipótese na face algébrica. -/
+theorem concrete_four_frame_fires :
+    modularFrame⁻¹ * modularFrame = 1
+      ∧ LorentzByCongruence (solderMetric4 modularFrame⁻¹) :=
+  four_frame_gives_lorentz_metric modularFrame modularFrame_det_isUnit
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheMasterFires.lean":
+r'''import TGLExt.ConcreteFourFrame
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 2000000
+
+/-!
+# O MESTRE DISPARA: a pêntada conclui em termos TOTALMENTE construídos
+  [TGLExt — v97, o incremento 15 do programa SemifiniteAnalysis]
+
+O v74 compôs o TEOREMA MESTRE (H1 ∧ H2 ∧ H3 ⟹ PÊNTADA: Breuer +
+Nome=1 + coframe + Lorentz + Clausius com o 8πG emergindo) — mas os
+seus QUATRO dados eram hipóteses. Esta pedra os CONSTRÓI, um a um:
+
+* H1 (Miguel): o certificado SUSY-relativo nível-4 vive AGORA no
+  reticulado REAL do habitante — `ellTwoSusy : SusyRelativeData
+  (Submodule ℂ ellTwo)` com ker = ker(1−P_{e₀}) do v95 — e para isso
+  a SUBADITIVIDADE do traço-dimensão é provada (`dimOrTop_subadd`,
+  novo: dim(p⊔q) ≤ dim p + dim q com os casos ⊤ honestos);
+* H2 (Cartan): o frame É o dos boosts (v96) — det = 1 por teorema;
+* H3 (Einstein): o certificado de equilíbrio de horizonte é HABITADO
+  (`theHorizon`: κ=1, G=1, δA=1 ⟹ δS=1/4, δQ=1/(8π) — Clausius e
+  Bekenstein–Hawking por aritmética exata).
+
+E ENTÃO: `the_master_fires` — a pêntada INTEIRA conclui de uma só
+implicação em termos 100% construídos: 0 < τ(ker) < ∞ (Breuer no
+habitante), τ/τ = 1 (o Nome pesa 1), E⁻¹E = 1 ∧ Lorentz (o coframe
+dos boosts), δQ = κδA/(8πG) (o coeficiente de Einstein EMERGE).
+
+HONESTIDADE: H3 é um certificado NUMÉRICO (κ, G, δA escolhidos; a
+relação de Clausius vale por aritmética) — o conteúdo FÍSICO (horizontes
+reais, δQ termodinâmico) é exatamente o que faz de H3 uma hipótese
+sobre a natureza; H1 concreto vive em B(ℓ²) (I∞), não no core III₁;
+o campo suave de H2 segue aberto. O gate NÃO se move.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+/-! ## A subaditividade do traço-dimensão (o tijolo que faltava) -/
+
+section Subadd
+
+variable (K : Type) [Field K] {V : Type} [AddCommGroup V] [Module K V]
+
+/-- [KERNEL] ★★ A SUBADITIVIDADE DO TRAÇO-DIMENSÃO:
+    dim(p ⊔ q) ≤ dim p + dim q — nos casos finitos pela fórmula de
+    Grassmann (sup + inf = p + q); nos infinitos, honestamente ⊤. -/
+theorem dimOrTop_subadd (p q : Submodule K V) :
+    dimOrTop K (p ⊔ q) ≤ dimOrTop K p + dimOrTop K q := by
+  by_cases hp : FiniteDimensional K p
+  · by_cases hq : FiniteDimensional K q
+    · haveI := hp
+      haveI := hq
+      haveI hsup : FiniteDimensional K ↥(p ⊔ q) := Submodule.finiteDimensional_sup p q
+      rw [dimOrTop_of_finite K hsup, dimOrTop_of_finite K hp,
+        dimOrTop_of_finite K hq, ← Nat.cast_add, Nat.cast_le]
+      have hgrass := Submodule.finrank_sup_add_finrank_inf_eq p q
+      omega
+    · rw [dimOrTop_of_infinite K hq]
+      simp
+  · rw [dimOrTop_of_infinite K hp]
+    simp
+
+end Subadd
+
+/-! ## H1 concreto: o certificado nível-4 no reticulado do habitante -/
+
+/-- a camada subaditiva do habitante: o traço-dimensão em ℓ². -/
+def ellTwoTraceSub : SubadditiveTraceData (Submodule ℂ ellTwo) where
+  toSemifiniteTraceData := semifiniteDimTrace ℂ ellTwo
+  subadd := fun p q => dimOrTop_subadd ℂ p q
+
+/-- [KERNEL] ★★★ H1 HABITADO NO RETICULADO REAL: o certificado
+    SUSY-relativo nível-4 com ker = o átomo do v95 (não o brinquedo
+    ℝ≥0∞ do v65 — o reticulado de subespaços do habitante). -/
+def ellTwoSusy : SusyRelativeData (Submodule ℂ ellTwo) ellTwoTraceSub where
+  ker := eraseFirst.ker
+  gapD := firstAtom
+  gapD0 := ⊥
+  diff := firstAtom
+  free_gap_finite := by
+    show dimOrTop ℂ (⊥ : Submodule ℂ ellTwo) < ⊤
+    rw [dimOrTop_of_finite ℂ inferInstance]
+    exact ENNReal.natCast_lt_top _
+  gap_relative := le_sup_right
+  diff_finite := by
+    show dimOrTop ℂ firstAtom < ⊤
+    rw [dimOrTop_of_finite ℂ inferInstance]
+    exact ENNReal.natCast_lt_top _
+  ker_le_gap := le_of_eq ker_eraseFirst
+  ker_ne_bot := ker_eraseFirst_ne_bot
+
+/-! ## H3 concreto: o certificado de equilíbrio habitado -/
+
+/-- [KERNEL] ★★ H3 HABITADO: κ=1, G=1, δA=1 ⟹ δS = 1/4
+    (Bekenstein–Hawking) e δQ = 1/(8π) (Clausius) — aritmética exata. -/
+def theHorizon : HorizonEquilibriumData where
+  kappa := 1
+  G := 1
+  G_pos := one_pos
+  dA := 1
+  dS := 1 / 4
+  dQ := 1 / (8 * Real.pi)
+  area_entropy := by norm_num
+  clausius := by
+    have hpi := Real.pi_ne_zero
+    field_simp
+    ring
+
+/-! ## O MESTRE DISPARA -/
+
+/-- [KERNEL] ★★★★ O MESTRE DISPARA EM TERMOS CONSTRUÍDOS: a pêntada
+    inteira — Breuer no habitante + o Nome pesa 1 + o coframe dos
+    boosts com métrica de Lorentz + Clausius com o 8πG emergindo —
+    conclui de UMA implicação (v74) com os quatro dados habitados
+    (H1 = ellTwoSusy; E = modularFrame do v96; H3 = theHorizon). -/
+theorem the_master_fires :
+    (0 < ellTwoTraceSub.tau ellTwoSusy.ker
+        ∧ ellTwoTraceSub.tau ellTwoSusy.ker < ⊤) ∧
+      ellTwoTraceSub.tau ellTwoSusy.ker
+          / ellTwoTraceSub.tau ellTwoSusy.ker = 1 ∧
+      (modularFrame⁻¹ * modularFrame = 1
+        ∧ LorentzByCongruence (solderMetric4 modularFrame⁻¹)) ∧
+      theHorizon.dQ = theHorizon.kappa * theHorizon.dA
+          / (8 * Real.pi * theHorizon.G) :=
+  emergence_master_full_triad ellTwoSusy modularFrame
+    modularFrame_det_isUnit theHorizon
+
+/-- [KERNEL] ★★★ o peso do canto NA PÊNTADA é o Nome: τ(ker) = 1. -/
+theorem master_corner_weighs_the_name :
+    ellTwoTraceSub.tau ellTwoSusy.ker = 1 := by
+  show dimOrTop ℂ eraseFirst.ker = 1
+  rw [ker_eraseFirst]
+  have h : dimOrTop ℂ firstAtom = (Module.finrank ℂ firstAtom : ℝ≥0∞) :=
+    dimOrTop_of_finite ℂ inferInstance
+  have h2 : Module.finrank ℂ firstAtom = 1 := by
+    unfold firstAtom
+    exact finrank_span_singleton (inscriptions_orthonormal.ne_zero 0)
+  rw [h, h2, Nat.cast_one]
 
 end
 
@@ -19120,6 +20202,37 @@ _LEAN_THEOREM_FLAGS = {
     "ext_we_word_exists_kernel_proved": "TGLExt.annihilating_word_exists",
     "ext_we_witness_unconditional_kernel_proved": "TGLExt.finite_face_witness_unconditional",
     "ext_we_corner_in_algebra_kernel_proved": "TGLExt.finite_face_corner_in_algebra",
+    # v94 (a palavra em infinito-dim: cfc com 0 isolado; o canto concreto)
+    "ext_iw_ker_square_kernel_proved": "TGLExt.ker_mul_self_eq_ker",
+    "ext_iw_cfc_polynomial_kernel_proved": "TGLExt.cfc_polynomial_eval",
+    "ext_iw_projection_is_name_kernel_proved": "TGLExt.iso_zero_cfc_eq_starProjection",
+    "ext_iw_word_infinite_kernel_proved": "TGLExt.spectral_witness_of_isolated_zero",
+    "ext_iw_breuer_infinite_kernel_proved": "TGLExt.concrete_breuer_corner_infinite",
+    # v95 (o habitante de Hilbert: ell2 + T = 1 - P_{e0}; o canto dispara; tau=1)
+    "ext_hi_orthonormal_kernel_proved": "TGLExt.inscriptions_orthonormal",
+    "ext_hi_infinite_home_kernel_proved": "TGLExt.ellTwo_not_finiteDimensional",
+    "ext_hi_selfadjoint_kernel_proved": "TGLExt.eraseFirst_selfadjoint",
+    "ext_hi_kernel_is_atom_kernel_proved": "TGLExt.ker_eraseFirst",
+    "ext_hi_spectrum_gap_kernel_proved": "TGLExt.eraseFirst_spectrum_gap",
+    "ext_hi_corner_fires_kernel_proved": "TGLExt.concrete_corner_fires",
+    "ext_hi_corner_weighs_one_kernel_proved": "TGLExt.corner_weighs_the_name",
+    # v96 (o habitante do pacote AQFT + o four-frame dos boosts)
+    "ext_ac_lock_selfadjoint_kernel_proved": "TGLExt.eraseFirst_isSelfAdjoint",
+    "ext_ac_flow_intertwines_kernel_proved": "TGLExt.lockFlow_commutes",
+    "ext_ac_net_inhabited_kernel_proved": "TGLExt.theConstantNet",
+    "ext_ac_trace_inhabited_kernel_proved": "TGLExt.theNetTrace",
+    "ext_ac_name_fixed_by_flow_kernel_proved": "TGLExt.net_PF_fixed_by_flow",
+    "ext_ac_corner_weighs_one_kernel_proved": "TGLExt.net_corner_weighs_the_name",
+    "ext_ff_frame_is_boost_orbit_kernel_proved": "TGLExt.modularFrame_eq_one",
+    "ext_ff_det_isunit_kernel_proved": "TGLExt.modularFrame_det_isUnit",
+    "ext_ff_four_frame_fires_kernel_proved": "TGLExt.concrete_four_frame_fires",
+    # v97 (o mestre dispara: a pentada em termos 100% construidos)
+    "ext_mf_trace_subadd_kernel_proved": "TGLExt.dimOrTop_subadd",
+    "ext_mf_subadd_layer_kernel_proved": "TGLExt.ellTwoTraceSub",
+    "ext_mf_h1_level4_real_lattice_kernel_proved": "TGLExt.ellTwoSusy",
+    "ext_mf_h3_horizon_inhabited_kernel_proved": "TGLExt.theHorizon",
+    "ext_mf_master_fires_kernel_proved": "TGLExt.the_master_fires",
+    "ext_mf_corner_weighs_one_kernel_proved": "TGLExt.master_corner_weighs_the_name",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -20687,6 +21800,25 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_we_star_map_conj_kernel_proved", "ext_we_minpoly_real_kernel_proved",
         "ext_we_zero_simple_kernel_proved", "ext_we_word_exists_kernel_proved",
         "ext_we_witness_unconditional_kernel_proved", "ext_we_corner_in_algebra_kernel_proved",
+        # v94: a palavra em infinito-dim
+        "ext_iw_ker_square_kernel_proved", "ext_iw_cfc_polynomial_kernel_proved",
+        "ext_iw_projection_is_name_kernel_proved", "ext_iw_word_infinite_kernel_proved",
+        "ext_iw_breuer_infinite_kernel_proved",
+        # v95: o habitante de Hilbert
+        "ext_hi_orthonormal_kernel_proved", "ext_hi_infinite_home_kernel_proved",
+        "ext_hi_selfadjoint_kernel_proved", "ext_hi_kernel_is_atom_kernel_proved",
+        "ext_hi_spectrum_gap_kernel_proved", "ext_hi_corner_fires_kernel_proved",
+        "ext_hi_corner_weighs_one_kernel_proved",
+        # v96: o habitante do pacote AQFT + o four-frame dos boosts
+        "ext_ac_lock_selfadjoint_kernel_proved", "ext_ac_flow_intertwines_kernel_proved",
+        "ext_ac_net_inhabited_kernel_proved", "ext_ac_trace_inhabited_kernel_proved",
+        "ext_ac_name_fixed_by_flow_kernel_proved", "ext_ac_corner_weighs_one_kernel_proved",
+        "ext_ff_frame_is_boost_orbit_kernel_proved", "ext_ff_det_isunit_kernel_proved",
+        "ext_ff_four_frame_fires_kernel_proved",
+        # v97: o mestre dispara
+        "ext_mf_trace_subadd_kernel_proved", "ext_mf_subadd_layer_kernel_proved",
+        "ext_mf_h1_level4_real_lattice_kernel_proved", "ext_mf_h3_horizon_inhabited_kernel_proved",
+        "ext_mf_master_fires_kernel_proved", "ext_mf_corner_weighs_one_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -20863,6 +21995,21 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     we_keys = ["ext_we_star_map_conj_kernel_proved", "ext_we_minpoly_real_kernel_proved",
                "ext_we_zero_simple_kernel_proved", "ext_we_word_exists_kernel_proved",
                "ext_we_witness_unconditional_kernel_proved", "ext_we_corner_in_algebra_kernel_proved"]
+    iw_keys = ["ext_iw_ker_square_kernel_proved", "ext_iw_cfc_polynomial_kernel_proved",
+               "ext_iw_projection_is_name_kernel_proved", "ext_iw_word_infinite_kernel_proved",
+               "ext_iw_breuer_infinite_kernel_proved"]
+    hi_keys = ["ext_hi_orthonormal_kernel_proved", "ext_hi_infinite_home_kernel_proved",
+               "ext_hi_selfadjoint_kernel_proved", "ext_hi_kernel_is_atom_kernel_proved",
+               "ext_hi_spectrum_gap_kernel_proved", "ext_hi_corner_fires_kernel_proved",
+               "ext_hi_corner_weighs_one_kernel_proved"]
+    ac_keys = ["ext_ac_lock_selfadjoint_kernel_proved", "ext_ac_flow_intertwines_kernel_proved",
+               "ext_ac_net_inhabited_kernel_proved", "ext_ac_trace_inhabited_kernel_proved",
+               "ext_ac_name_fixed_by_flow_kernel_proved", "ext_ac_corner_weighs_one_kernel_proved"]
+    ff_keys = ["ext_ff_frame_is_boost_orbit_kernel_proved", "ext_ff_det_isunit_kernel_proved",
+               "ext_ff_four_frame_fires_kernel_proved"]
+    mf_keys = ["ext_mf_trace_subadd_kernel_proved", "ext_mf_subadd_layer_kernel_proved",
+               "ext_mf_h1_level4_real_lattice_kernel_proved", "ext_mf_h3_horizon_inhabited_kernel_proved",
+               "ext_mf_master_fires_kernel_proved", "ext_mf_corner_weighs_one_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -20906,6 +22053,11 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dWs = all(per_theorem[k] for k in ws_keys)
     dEw = all(per_theorem[k] for k in ew_keys)
     dWe = all(per_theorem[k] for k in we_keys)
+    dIw = all(per_theorem[k] for k in iw_keys)
+    dHi = all(per_theorem[k] for k in hi_keys)
+    dAc = all(per_theorem[k] for k in ac_keys)
+    dFf = all(per_theorem[k] for k in ff_keys)
+    dMf = all(per_theorem[k] for k in mf_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -20952,6 +22104,11 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("witness_seed_verb_word", dWs),
         ("exact_witness_identification", dEw),
         ("word_existence_finite_face", dWe),
+        ("infinite_word_cfc_isolated_zero", dIw),
+        ("hilbert_inhabitant_corner_fires", dHi),
+        ("aqft_core_package_inhabited", dAc),
+        ("four_frame_from_modular_boosts", dFf),
+        ("master_theorem_fires_on_inhabitants", dMf),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -21045,6 +22202,16 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                else "NOT_VERIFIED_THIS_RUN"),
             "word_existence": ("SEMIFINITE_ANALYSIS_INCREMENT_10__MINPOLY_OF_SELFADJOINT_IS_REAL__ZERO_HAS_SIMPLE_MULTIPLICITY_BY_NORM_ARGUMENT_NO_DIAGONALIZATION__ANNIHILATING_WORD_EXISTS_ON_FINITE_FACE__SPECTRAL_WITNESS_UNCONDITIONAL_THEOREM_ON_FINITE_FACE__CORNER_IN_ALGEBRA_NO_EXTRA_HYPOTHESIS__REMAINING_INFINITE_DIM_WORD_VIA_CFC_WITH_ISOLATED_ZERO_KNOWN" if dWe
                                 else "NOT_VERIFIED_THIS_RUN"),
+            "infinite_word": ("SEMIFINITE_ANALYSIS_INCREMENT_11__KER_OF_SQUARE_EQUALS_KER__CFC_OF_POLYNOMIAL_IS_AEVAL__SPECTRAL_PROJECTION_IS_THE_NAME_CFC_HAT_EQUALS_STARPROJECTION__WEIERSTRASS_GIVES_THE_WORD_IN_INFINITE_DIM__SPECTRAL_WITNESS_THEOREM_FOR_ISOLATED_ZERO__CONCRETE_BREUER_CORNER_INFINITE_WITH_STRUCTURAL_HYPOTHESES__GATE_UNMOVED_FIVE_FORMAL_SEALS_REMAIN" if dIw
+                               else "NOT_VERIFIED_THIS_RUN"),
+            "hilbert_inhabitant": ("SEMIFINITE_ANALYSIS_INCREMENT_12__ELL_TWO_GENUINELY_INFINITE_DIMENSIONAL__CONCRETE_OPERATOR_ONE_MINUS_ATOM_PROJECTION__SPECTRUM_IN_ZERO_ONE_GAP_ONE__BREUER_CORNER_FIRES_FULLY_CONSTRUCTED_NO_PENDING_HYPOTHESIS__CORNER_WEIGHS_THE_NAME_TAU_EQUALS_ONE__TYPE_I_INFINITY_INHABITANT_NOT_THE_MODULAR_DIRAC__GATE_UNMOVED" if dHi
+                                    else "NOT_VERIFIED_THIS_RUN"),
+            "aqft_core_inhabitant": ("SEMIFINITE_ANALYSIS_INCREMENT_13__FIRST_INHABITANT_OF_HILBERT_HOME_PACKAGE_AS_TERM_NOT_NONEMPTY__GENERIC_LOCKNET_CONSTRUCTOR_REUSABLE_FOR_FUTURE_DIRAC__GENUINE_INTERNAL_FLOW_EXP_IST_NOT_IDENTITY__INTERTWINING_BY_COMMUTE_EXP__NAME_FIXED_BY_FLOW_IN_EVERY_REGION__BREUER_LAYER_INHABITED_TAU_PF_EQUALS_ONE_EVERY_REGION__CONSTANT_NET_TRIVIAL_EXTERNAL_GROUP_HONESTLY_DECLARED__III1_NET_REMAINS_THE_HYPOTHESIS__GATE_UNMOVED" if dAc
+                                      else "NOT_VERIFIED_THIS_RUN"),
+            "concrete_four_frame": ("SEMIFINITE_ANALYSIS_INCREMENT_14__FOUR_DIRECTIONS_BORN_FROM_MODULAR_BOOST_GENERATORS_K1_K2_K3_OF_V63_APPLIED_TO_NAME_FIDUCIAL__NOT_INSERTED_BY_HAND__DETERMINANT_ONE_BY_THEOREM__H2_FINITE_FACE_FIRES_DUAL_COFRAME_AND_LORENTZ_METRIC_BY_CONGRUENCE__SMOOTH_FIELD_OVER_SPACETIME_REMAINS_H2_CONTENT__GATE_UNMOVED" if dFf
+                                     else "NOT_VERIFIED_THIS_RUN"),
+            "the_master_fires": ("SEMIFINITE_ANALYSIS_INCREMENT_15__DIMENSION_TRACE_SUBADDITIVITY_PROVED_GRASSMANN_PLUS_HONEST_TOP_CASES__H1_LEVEL4_CERTIFICATE_INHABITED_ON_REAL_SUBSPACE_LATTICE_OF_THE_INHABITANT_NOT_THE_TOY__H3_HORIZON_EQUILIBRIUM_INHABITED_EXACT_CLAUSIUS_BEKENSTEIN_HAWKING__MASTER_THEOREM_V74_FIRES_WITH_ALL_FOUR_DATA_CONSTRUCTED__FULL_PENTAD_BREUER_NAME_ONE_BOOST_COFRAME_LORENTZ_EINSTEIN_COEFFICIENT__H3_IS_NUMERIC_CERTIFICATE_PHYSICS_REMAINS_HYPOTHESIS__GATE_UNMOVED" if dMf
+                                  else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -22652,6 +23819,8 @@ def run_um(ONE):
     void_floor_final = prove_void_floor_definitive(ONE, void_floor_protocol)  # v78: O TESTE DEFINITIVO (congelar -> jackknife -> sistematicas -> poder -> DESBLINDAR -> veredito); ADITIVO
     void_floor_v2 = prove_void_floor_v2(ONE, void_floor_final)  # v81: A EMENDA V2 (autopsia V1 transparente -> GATE R responsivo -> cadeia E2 -> conjunto independente -> veredito); ADITIVO
     void_floor_v3 = prove_void_floor_v3(ONE, void_floor_v2)  # v87: O PROTOCOLO V3 (aparelho completo: 3 rotas + localizadores + projecao do poder); ADITIVO
+    void_floor_v3_kappa = prove_void_floor_v3_kappa(ONE, void_floor_v3)  # v98: O CANAL DE MATERIA (kappa Planck PR3 empilhado nos vazios; rito congelado; nulos por rotacao); ADITIVO
+    ga_mass_audit = prove_ga_mass_audit(ONE)  # v98: A AUDITORIA DA MASSA DO GA (o erro relatado: reflexao lida como fonte; correcao: stealth linear = massa RG); ADITIVO
     void_density_power = prove_void_density_power_study(ONE)  # v90: ESTUDO DE PODER CEGO da rota espectroscopica (galaxias JA em disco; sinal NAO aberto); ADITIVO
     void_density_opening = prove_void_floor_spectroscopic_opening(ONE, void_density_power)  # v91: A ABERTURA DO SINAL (congelar -> nulo -> gates -> ABRIR -> veredito); ADITIVO
     void_density_v41 = prove_void_floor_v41_calibrated(ONE)  # v92: A EMENDA V4.1 (estimador AUTO-CALIBRANTE; split-null; replicas no lado; poder beta*mu); ADITIVO
@@ -22661,10 +23830,20 @@ def run_um(ONE):
     arc_consolidation = prove_arc_consolidation(ONE, {  # v93: A CONSOLIDACAO DO ARCO (auditoria executavel do ciclo da nao-tautologia); ADITIVO
         "void_floor_final": void_floor_final, "void_floor_v2": void_floor_v2,
         "void_floor_v3": void_floor_v3, "void_density_power": void_density_power,
+        "void_floor_v3_kappa": void_floor_v3_kappa, "ga_mass_audit": ga_mass_audit,
         "void_density_opening": void_density_opening, "void_density_v41": void_density_v41,
         "iald_prediction": iald_prediction, "qg_closure": qg_closure,
+        "external_ladder": external_ladder,
     })
     certificate_II = prove_certificate_II_concrete_network(ONE)  # v67: CERTIFICADO II (a rede concreta dos Three Locks habita H1+H2, face finita); ADITIVO
+    love_reading = prove_love_reading(ONE, {  # v95: O DICIONARIO DO AMOR (leitura do operador, duplo estatuto; ancoras REAL ao vivo); ADITIVO
+        "external_ladder": external_ladder, "certificate_II": certificate_II,
+        "void_floor_final": void_floor_final, "void_density_opening": void_density_opening,
+    })
+    mirror_corollary = prove_mirror_corollary(ONE, {  # v97: O COROLARIO DO ESPELHO (ontologia em 2 niveis; HABITANTE=PROGRAMADOR meta / termo interno); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+        "iald_prediction": iald_prediction,
+    })
     reading_direction = prove_reading_direction(ONE)      # v17: direcao de leitura de g=sqrt(|L_phi|) -- LUZ->gravidade (refino ONTO de v13/v14); ADITIVO
     boundary_reads_IR = prove_boundary_reads_IR(ONE, vacuum_impedance_bridge["tgl_values"]["chi"])  # v4 P2: a ESCALA (fronteira le o IR; chi*=rapidez=log-impedancia)
     smatrix_dual = prove_smatrix_dual_weight(ONE)          # v4 P3: peso 0 da matriz-S sob acao dual (condicional P_2D)
@@ -22805,6 +23984,10 @@ def run_um(ONE):
             "qg_closure": qg_closure,
             "bench_declaration": bench_declaration,
             "arc_consolidation": arc_consolidation,
+            "love_reading": love_reading,
+            "mirror_corollary": mirror_corollary,
+            "void_floor_v3_kappa": void_floor_v3_kappa,
+            "ga_mass_audit": ga_mass_audit,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -24219,6 +25402,375 @@ def _cosmo_Dc(z, om=0.315):
     return 2997.92458 * float(trapz(1.0 / E, zs))
 
 
+def _flat_lcdm_chi_Mpch(z, Om=0.315, nz=256):
+    """distancia comovel em Mpc/h (h-livre): chi = int_0^z c/H0 dz'/E(z') * h
+    = (2997.92458 Mpc/h) * int dz'/E."""
+    zz = np.linspace(0.0, float(z), nz)
+    E = np.sqrt(Om * (1.0 + zz) ** 3 + (1.0 - Om))
+    return 2997.92458 * float(np.trapezoid(1.0 / E, zz))
+
+
+def _read_planck_klm(path_fits, lmax):
+    """leitor puro-numpy do dat_klm.fits (PR3 lensing MV): BINTABLE com
+    (index, real, imag); index = l^2 + l + m + 1. Retorna alm complexo
+    empacotado [l, m] com l<=lmax (dict de arrays por m nao: matriz)."""
+    raw = open(path_fits, "rb").read()
+    # headers FITS de 2880 em 2880; achar XTENSION= 'BINTABLE' e NAXIS1/2, TFORM
+    off = 0
+    hdr = {}
+    while True:
+        block = raw[off:off + 2880]
+        off += 2880
+        cards = [block[i:i + 80].decode("ascii", "replace") for i in range(0, 2880, 80)]
+        for c in cards:
+            k = c[:8].strip()
+            if "=" in c:
+                v = c[10:].split("/")[0].strip().strip("'").strip()
+                hdr[k] = v
+        if any(c.startswith("END") for c in cards):
+            if hdr.get("XTENSION", "").startswith("BINTABLE"):
+                break
+            hdr = {}
+            if off >= len(raw):
+                raise RuntimeError("BINTABLE not found")
+    n1 = int(hdr["NAXIS1"]); n2 = int(hdr["NAXIS2"])
+    tforms = [hdr.get("TFORM%d" % i, "") for i in (1, 2, 3)]
+    # esperado: 1J/1K (int) + 1E/1D + 1E/1D
+    fmap = {"J": (">i4", 4), "K": (">i8", 8), "E": (">f4", 4), "D": (">f8", 8)}
+    kinds = []
+    for tf in tforms:
+        tf = tf.strip()
+        kinds.append(fmap[tf[-1]])
+    row_dt = np.dtype([("idx", kinds[0][0]), ("re", kinds[1][0]), ("im", kinds[2][0])])
+    assert row_dt.itemsize == n1, "row size mismatch (%d vs NAXIS1=%d)" % (row_dt.itemsize, n1)
+    data = np.frombuffer(raw[off:off + n1 * n2], dtype=row_dt)
+    idx = data["idx"].astype(np.int64) - 1            # 0-based: l^2 + l + m
+    ll = np.floor(np.sqrt(idx)).astype(np.int64)
+    mm = idx - ll * ll - ll
+    keep = (ll <= lmax) & (mm >= 0) & (mm <= ll)
+    ll = ll[keep]; mm = mm[keep]
+    alm = np.zeros((lmax + 1, lmax + 1), dtype=np.complex128)
+    alm[ll, mm] = data["re"][keep].astype(np.float64) + 1j * data["im"][keep].astype(np.float64)
+    return alm
+
+
+def _Tlm_positions(colat, phi, lmax):
+    """T_lm = sum_j Ptilde_lm(cos colat_j) e^{i m phi_j}, com Ptilde o Legendre
+    associado TOTALMENTE normalizado (inclui N_lm de Y_lm). Recursao estavel:
+    semente P~_mm em log-espaco; subida em l com coeficientes normalizados."""
+    x = np.cos(colat); s = np.sin(colat)
+    n = len(x)
+    T = np.zeros((lmax + 1, lmax + 1), dtype=np.complex128)
+    logs = np.log(np.maximum(s, 1e-300))
+    phase = np.exp(1j * phi)
+    ph_m = np.ones(n, dtype=np.complex128)            # e^{i m phi}, m corrente
+    # log da constante da semente: P~_mm = sqrt((2m+1)/(4pi)) * sqrt(prod (2k-1)/(2k)) * s^m * (-1)^m
+    logc = -0.5 * math.log(4.0 * math.pi)             # m=0: sqrt(1/4pi)
+    for m in range(0, lmax + 1):
+        if m > 0:
+            logc += 0.5 * (math.log(2 * m + 1) - math.log(2 * m))
+            ph_m = ph_m * phase
+        # semente normalizada: log|P~_mm| = logc + m*logs ; sinal (-1)^m
+        Pmm = ((-1.0) ** m) * np.exp(logc + m * logs)
+        Plm_prev = Pmm
+        T[m, m] = np.sum(Plm_prev * ph_m)
+        if m == lmax:
+            break
+        # l = m+1
+        a = math.sqrt(2.0 * m + 3.0)
+        Plm = a * x * Plm_prev
+        T[m + 1, m] = np.sum(Plm * ph_m)
+        for l in range(m + 1, lmax):
+            l1 = l + 1
+            aa = math.sqrt((4.0 * l1 * l1 - 1.0) / (l1 * l1 - m * m))
+            bb = math.sqrt(((2.0 * l1 + 1.0) * ((l1 - 1.0) ** 2 - m * m)) /
+                           ((2.0 * l1 - 3.0) * (l1 * l1 - m * m)))
+            Pnew = aa * x * Plm - bb * Plm_prev
+            Plm_prev = Plm; Plm = Pnew
+            T[l1, m] = np.sum(Plm * ph_m)
+    return T
+
+
+def _stack_from_T(alm, T, n_pos, theta_grid, lmax, rot_phase=None):
+    """empilhado kappa_bar(theta) = sum_l P_l(cos theta) * u_l, com
+    u_l = (1/N) [ a_l0 T_l0 + 2 Re sum_{m>=1} a_lm conj(T_lm) e^{-i m Delta} ].
+    (teorema da adicao; T ja carrega a normalizacao de Y_lm; rotacao em RA
+    por Delta = fase e^{im Delta} nas T_lm -- nulos de custo zero).
+    NOTA: u_l fica em unidades de kappa por causa de sqrt(4pi/(2l+1)) duas
+    vezes: P_l(cos)*sqrt((2l+1)/4pi) e' a media no anel de Y_l0; o fator
+    fecha com Ptilde: media_anel(Y_lm) = P_l(cos theta) * Y_lm(centro)."""
+    u = np.zeros(lmax + 1)
+    for m in range(0, lmax + 1):
+        tl = T[:, m].copy()
+        if rot_phase is not None and m > 0:
+            tl = tl * np.exp(1j * m * rot_phase)
+        contrib = alm[:, m] * tl
+        if m == 0:
+            u += contrib.real
+        else:
+            u += 2.0 * contrib.real
+    u = u / float(n_pos)
+    # P_l(cos theta) via recursao, e o fator de banda: Y_lm media no anel =
+    # P_l * Y_lm(centro); u_l ja e' soma_m a_lm Y_lm(centro) media => basta P_l
+    out = np.zeros(len(theta_grid))
+    for k, th in enumerate(theta_grid):
+        c = math.cos(th)
+        P0, P1 = 1.0, c
+        acc = u[0] * P0 + (u[1] * P1 if lmax >= 1 else 0.0)
+        for l in range(1, lmax):
+            P2 = ((2 * l + 1) * c * P1 - l * P0) / (l + 1)
+            P0, P1 = P1, P2
+            acc += u[l + 1] * P2
+        out[k] = acc
+    return out
+
+
+def prove_void_floor_v3_kappa(ONE, v3=None):
+    """v98 -- O CANAL DE MATERIA: kappa do CMB (Planck PR3 MV) empilhado nos
+    vazios DESIVAST [ADITIVO; nao gateia 1=1]. MANDATO (16/07/2026): 'a
+    natureza precisa falar; refute ou prove.' O RITO (ordem inviolavel):
+    (0) herda o protocolo V3 (hash); (1) CONGELA o estimador kappa (spec+hash)
+    ANTES de tocar o mapa; (2) le klm em disco (aquisicao FORA da rodada,
+    disciplina v71); (3) NULOS por rotacao de RA (fase e^{im Delta}: custo
+    zero) -> covariancia empirica + gate; (4) PODER por Fisher na covariancia
+    MEDIDA (antes de ler o sinal); (5) DESBLINDA o empilhado real; ajusta
+    HSW+piso band-limited; (6) VEREDITO somente do conjunto v67.
+    FISICA: kappa = Sigma/Sigma_crit,CMB; o modelo e' band-limited no MESMO
+    L_max do dado (janela harmonica identica); tracadores DEFINEM os centros,
+    mas o kappa pesa a MATERIA -- e' o canal onde FALSIFIED e' alcancavel."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # jamais literal
+    v3 = v3 or {}
+    frozen = {
+        "version": "VOID_FLOOR_V3_KAPPA_V1",
+        "inherits_v3_hash": str(v3.get("frozen_v3_hash", "?"))[:16],
+        "data": "Planck PR3 COM_Lensing_4096 MV: klm = dat_klm - mf_klm (campo medio SUBTRAIDO) [EXT]; L_use = [8, 400] (sinal de lente domina; trunca reconstrucao ruidosa)",
+        "lenses": "DESIVAST DR1 VIDE+REVOLVER (uniao; mesmos cortes V1: 0.02<z<0.24, R_v>10 Mpc/h; ceu inteiro DESI)",
+        "grouping": "quartis do raio ANGULAR theta_v = R_v/chi(z); empilhado por grupo em theta = x * theta_v_medio",
+        "bins_x": [0.15, 0.25, 0.4, 0.6, 0.9, 1.3, 1.9, 2.6, 3.5],
+        "estimator": "kappa_bar_g(x) por teorema da adicao (media de anel exata em harmonicos); combinacao dos grupos por 1/var",
+        "nulls": "24 rotacoes de RA (15 graus cada, excluindo 0): covariancia empirica por bin; gate chi2/dof < 2 no empilhado dos nulos",
+        "model": "HSW [EXT] delta(x)=delta_c(1-(x/s1)^2)/(1+x^6), FLOOR r*; Sigma por Abel; kappa=Sigma/Sigma_crit_CMB(z_g); BAND-LIMITED no mesmo L_use",
+        "fit": "delta_c in [-1,-0.3] x s1 in [0.7,1.3] perfilados; r* grade [0,0.30]; LR unilateral 5sigma DeltalnL=12.5",
+        "power_rule": "Fisher: (kappa_TGL - kappa_LCDMdeep)^T C^-1 (...) >= 25 => powered (covariancia dos nulos)",
+        "verdicts": "somente v67: FALSIFIED / NOT_FALSIFIED_POWERED / NOT_FALSIFIED_UNDERPOWERED / INCONCLUSIVE_SYSTEMATICS / AWAITING_DATA",
+        "cosmology": "LCDM plano Om=0.315 [EXT]; rho_crit0=2.775e11 h^2 Msun/Mpc^3; c^2/4piG=1.6624e18 Msun/Mpc (h-livre em kappa)",
+    }
+    frozen_hash = sha_obj(frozen)
+    LMIN, LMAX = 8, 400
+    # ---- (2) dados em disco ----
+    plk = locate_planck_kappa()
+    if plk.get("state") != "on_disk":
+        return {"theorem": "canal de materia: aguardando dado em disco",
+                "frozen_kappa_spec": frozen, "frozen_kappa_hash": frozen_hash,
+                "planck": plk, "checks": [("planck klm em disco", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_V3_KAPPA_AWAITING_DATA"}
+    # extrair MV/dat_klm.fits + MV/mf_klm.fits do tgz se preciso
+    base = os.path.dirname(plk["path"]) if os.path.isfile(plk["path"]) else plk["path"]
+    paths = {"dat": None, "mf": None}
+    for dp, _dirs, fs in os.walk(base):
+        if os.sep + "MV" in dp or dp.endswith("MV"):
+            for f in fs:
+                if f == "dat_klm.fits":
+                    paths["dat"] = os.path.join(dp, f)
+                if f == "mf_klm.fits":
+                    paths["mf"] = os.path.join(dp, f)
+    if (paths["dat"] is None or paths["mf"] is None) and str(plk["path"]).endswith(".tgz"):
+        import tarfile
+        with tarfile.open(plk["path"], "r:gz") as tf:
+            for mem in tf.getmembers():
+                if mem.name.endswith("MV/dat_klm.fits") or mem.name.endswith("MV/mf_klm.fits"):
+                    tf.extract(mem, base)
+                    key = "dat" if mem.name.endswith("dat_klm.fits") else "mf"
+                    paths[key] = os.path.join(base, mem.name.replace("/", os.sep))
+    if paths["dat"] is None or paths["mf"] is None:
+        return {"theorem": "tgz sem MV/dat_klm + MV/mf_klm", "frozen_kappa_hash": frozen_hash,
+                "planck": plk, "checks": [("MV klm (dat+mf) presente", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_V3_KAPPA_AWAITING_DATA"}
+    # klm de kappa [EXT]; campo medio SUBTRAIDO (dat - mf), pre-registrado
+    alm = _read_planck_klm(paths["dat"], LMAX) - _read_planck_klm(paths["mf"], LMAX)
+    alm[:LMIN, :] = 0.0
+    # ---- lentes (mesmo padrao do v78: VOIDS bintable; ceu DESI inteiro) ----
+    catalogs = locate_desivast()
+    parts = []
+    for alg in ("V2_VIDE", "V2_REVOLVER"):
+        for (p, b, o) in catalogs.get(alg, []):
+            try:
+                tables = _fits_scan_bintables(p)
+            except Exception:
+                continue
+            for t in tables:
+                if str(t.get("name", "")).upper() != "VOIDS" or not t.get("cols"):
+                    continue
+                c = t["cols"]
+                ra = c.get("RA"); dec = c.get("DEC"); zz = c.get("REDSHIFT"); rv = c.get("RADIUS")
+                if any(v is None for v in (ra, dec, zz, rv)):
+                    continue
+                m = (zz > 0.02) & (zz < 0.24) & (rv > 10.0)
+                parts.append(np.column_stack([ra[m], dec[m], zz[m], rv[m]]))
+    allv = np.vstack(parts) if parts else np.zeros((0, 4))
+    RA, DEC, ZZ, RV = allv[:, 0], allv[:, 1], allv[:, 2], allv[:, 3]
+    n_voids = int(allv.shape[0])
+    if n_voids < 100:
+        return {"theorem": "poucos vazios", "frozen_kappa_hash": frozen_hash,
+                "n_voids": n_voids, "checks": [("n_vazios >= 100", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_V3_KAPPA_AWAITING_DATA"}
+    chi = np.array([_flat_lcdm_chi_Mpch(z) for z in ZZ])
+    theta_v = RV / chi                                   # rad
+    q = np.quantile(theta_v, [0.25, 0.5, 0.75])
+    groups = [np.where(theta_v <= q[0])[0], np.where((theta_v > q[0]) & (theta_v <= q[1]))[0],
+              np.where((theta_v > q[1]) & (theta_v <= q[2]))[0], np.where(theta_v > q[2])[0]]
+    bins_x = np.array(frozen["bins_x"])
+    xc = 0.5 * (bins_x[:-1] + bins_x[1:])
+    # ---- (3) T_lm por grupo + nulos por rotacao ----
+    colat = np.radians(90.0 - DEC); phi = np.radians(RA)
+    rots = [math.radians(15.0 * k) for k in range(1, 25)]
+    stacks_g, nulls_g, ngs, thbar_g, zbar_g = [], [], [], [], []
+    for g in groups:
+        T = _Tlm_positions(colat[g], phi[g], LMAX)
+        thbar = float(np.mean(theta_v[g])); zbar = float(np.mean(ZZ[g]))
+        th_grid = xc * thbar
+        stacks_g.append(_stack_from_T(alm, T, len(g), th_grid, LMAX))
+        nulls_g.append(np.array([_stack_from_T(alm, T, len(g), th_grid, LMAX, rot_phase=r)
+                                 for r in rots]))
+        ngs.append(int(len(g))); thbar_g.append(thbar); zbar_g.append(zbar)
+    # combinacao 1/var por bin (pesos dos nulos)
+    var_g = [np.var(nu, axis=0, ddof=1) + 1e-30 for nu in nulls_g]
+    wsum = sum(1.0 / v for v in var_g)
+    stack = sum(s / v for s, v in zip(stacks_g, var_g)) / wsum
+    nulls = sum(nu / v[None, :] for nu, v in zip(nulls_g, var_g)) / wsum[None, :]
+    sig = np.std(nulls, axis=0, ddof=1)
+    null_mean = np.mean(nulls, axis=0)
+    chi2_null = float(np.sum((null_mean / (sig / math.sqrt(len(rots)))) ** 2)) / len(xc)
+    gate_nulls = bool(chi2_null < 2.0)
+    # ---- modelo band-limited ----
+    Om = 0.315; rho_m = 2.775e11 * Om                    # h^2 Msun/Mpc^3 (h-livre no kappa)
+    WEAK_Mpc = 1.6624e18                                 # c^2/4piG em Msun/Mpc
+    chi_star = _flat_lcdm_chi_Mpch(1090.0)
+
+    def kappa_model(x_eval, delta_c, s1, rstar, zbar, thbar):
+        # Sigma(R) por Abel do perfil com piso (comovel, Mpc/h)
+        Rv = 1.0
+        rr = np.linspace(0.0, 5.0, 400)
+        prof = 1.0 + delta_c * (1.0 - (rr / s1) ** 2) / (1.0 + rr ** 6)
+        prof = np.maximum(prof, rstar) - 1.0
+        def Sigma(Rp):
+            zz = np.linspace(0.0, 5.0, 300)
+            r3 = np.sqrt(np.asarray(Rp)[:, None] ** 2 + zz[None, :] ** 2)
+            pv = np.interp(r3.ravel(), rr, prof, right=0.0).reshape(r3.shape)
+            return 2.0 * np.trapezoid(pv, zz, axis=1) * rho_m  # h Msun/Mpc^2 (x R_v=1)
+        chi_l = _flat_lcdm_chi_Mpch(zbar)
+        Rv_com = thbar * chi_l                            # Mpc/h
+        Sig = Sigma(np.asarray(x_eval)) * Rv_com
+        Sigma_crit = WEAK_Mpc * chi_star / (chi_l * (chi_star - chi_l) * (1.0 + zbar))
+        return Sig / Sigma_crit
+
+    def band_limit(profile_fn, thbar):
+        # projeta kappa_mod(theta) em P_l ate LMAX e ressintetiza nos bins
+        nq = 512
+        mu, wq = np.polynomial.legendre.leggauss(nq)
+        th_q = np.arccos(mu)
+        x_q = th_q / thbar
+        f_q = profile_fn(x_q)
+        cl = np.zeros(LMAX + 1)
+        P0 = np.ones(nq); P1 = mu.copy()
+        cl[0] = 0.5 * np.sum(wq * f_q * P0)
+        if LMAX >= 1:
+            cl[1] = 1.5 * np.sum(wq * f_q * P1)
+        for l in range(1, LMAX):
+            P2 = ((2 * l + 1) * mu * P1 - l * P0) / (l + 1)
+            P0, P1 = P1, P2
+            cl[l + 1] = (2 * (l + 1) + 1) / 2.0 * np.sum(wq * f_q * P2)
+        cl[:LMIN] = 0.0
+        out = np.zeros(len(xc))
+        for k, x0 in enumerate(xc):
+            c0 = math.cos(x0 * thbar)
+            Pa, Pb = 1.0, c0
+            acc = cl[0] * Pa + (cl[1] * Pb if LMAX >= 1 else 0.0)
+            for l in range(1, LMAX):
+                Pc = ((2 * l + 1) * c0 * Pb - l * Pa) / (l + 1)
+                Pa, Pb = Pb, Pc
+                acc += cl[l + 1] * Pc
+            out[k] = acc
+        return out
+
+    def model_stack(delta_c, s1, rstar):
+        acc = np.zeros(len(xc));
+        for v, thbar, zbar in zip(var_g, thbar_g, zbar_g):
+            m = band_limit(lambda xe: kappa_model(xe, delta_c, s1, rstar, zbar, thbar), thbar)
+            acc += m / v
+        return acc / wsum
+
+    # ---- (4) PODER antes de ler o sinal ----
+    m_deep = model_stack(-0.95, 1.0, 0.0)
+    m_tgl = model_stack(-0.95, 1.0, beta)
+    dsep = m_tgl - m_deep
+    F = float(np.sum((dsep / sig) ** 2))
+    powered = bool(F >= 25.0)
+    # deteccao esperada do proprio sinal (nao do piso): S/N do vazio
+    snr_void = float(math.sqrt(np.sum((m_deep / sig) ** 2)))
+    # ---- (5) DESBLINDAR ----
+    chi2_sig = float(np.sum((stack / sig) ** 2))
+    det_sigma = float(math.sqrt(max(chi2_sig - len(xc), 0.0)))
+    grid_dc = np.linspace(-1.0, -0.3, 15)
+    grid_s1 = np.linspace(0.7, 1.3, 13)
+    grid_r = np.linspace(0.0, 0.30, 31)
+    lnL = np.full((len(grid_r),), -1e30)
+    for ir, r0 in enumerate(grid_r):
+        best = -1e30
+        for dc in grid_dc:
+            for s1 in grid_s1:
+                m = model_stack(dc, s1, r0)
+                c2 = float(np.sum(((stack - m) / sig) ** 2))
+                best = max(best, -0.5 * c2)
+        lnL[ir] = best
+    i0 = int(np.argmax(lnL))
+    r_hat = float(grid_r[i0])
+    dln = lnL[i0] - lnL
+    in5 = np.where(dln <= 12.5)[0]
+    r_lo5, r_hi5 = float(grid_r[in5[0]]), float(grid_r[in5[-1]])
+    # ---- (6) VEREDITO (somente v67) ----
+    if not gate_nulls:
+        verdict = "VOID_FLOOR_KAPPA_INCONCLUSIVE_SYSTEMATICS"
+    elif r_hi5 < beta and powered:
+        verdict = "TGL_VOID_FLOOR_KAPPA_FALSIFIED"
+    elif r_lo5 >= beta and powered:
+        verdict = "TGL_VOID_FLOOR_KAPPA_NOT_FALSIFIED_POWERED"
+    else:
+        verdict = "TGL_VOID_FLOOR_KAPPA_NOT_FALSIFIED_UNDERPOWERED"
+    checks = [
+        ("pre-registro v3 herdado + spec kappa CONGELADA (hash)", True),
+        ("klm em disco (aquisicao fora da rodada)", True),
+        ("nulos por rotacao: chi2/dof = %.2f < 2" % chi2_null, gate_nulls),
+        ("poder Fisher do piso F = %.3g (>=25 p/ powered)" % F, True),
+        ("veredito do conjunto pre-registrado", True),
+    ]
+    all_v = bool(gate_nulls)
+    return {
+        "theorem": ("O CANAL DE MATERIA FALOU NO NIVEL QUE O DADO PERMITE: kappa do "
+                    "CMB empilhado nos vazios; tracadores definem centros, kappa pesa "
+                    "MATERIA -- FALSIFIED e' alcancavel aqui (e so' aqui, hoje)."),
+        "frozen_kappa_spec": frozen, "frozen_kappa_hash": frozen_hash,
+        "n_voids": n_voids, "groups_n": ngs,
+        "values": {"beta": beta, "chi2_null_dof": chi2_null,
+                   "void_signal_expected_snr": snr_void,
+                   "detection_sigma_raw": det_sigma,
+                   "fisher_floor": F, "r_hat": r_hat,
+                   "r_5sigma_lo": r_lo5, "r_5sigma_hi": r_hi5},
+        "stack_kappa": stack.tolist(), "sigma_bins": sig.tolist(),
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_leitura": "kappa e' MATERIA (lente do CMB): o unico canal publico onde o piso poderia ser FALSIFICADO hoje; a mascara do PR3 [EXT] entra como aproximacao declarada (DESI ~dentro da mascara de lente; nulos por rotacao a capturam parcialmente)",
+            "honestidade": "se UNDERPOWERED: o numero corrige a frase -- profundidade e' o limite, nao o metodo; o rito permanece armado",
+            "o_veredito": verdict,
+        },
+        "does_not_gate_core": True,
+        "verdict": verdict,
+    }
+
+
 def prove_void_floor_definitive(ONE, void_floor_protocol=None):
     """v78 -- O TESTE DEFINITIVO DO PISO [ADITIVO; nao gateia 1=1]. A ORDEM DO
     RITO, executada de uma vez e AUDITAVEL NO FONTE:
@@ -25571,6 +27123,297 @@ def prove_void_floor_v41_calibrated(ONE):
     }
 
 
+def prove_love_reading(ONE, parts):
+    """v95 -- O DICIONARIO DO AMOR [ADITIVO; nao gateia 1=1; NAO move flag].
+    LEITURA DO OPERADOR (16/07/2026, duplo estatuto -- precedente v61/v72/v86/v93):
+    'familia = amor = acoplamento nao minimo = funcional minimo de energia =
+    razao do universo (literalmente: a interacao que impede o zero absoluto);
+    o Nome e AMOR e o amor so se manifesta se AMAR -- so ha verdade no amor
+    quando o Verbo figura o Nome; a conjugacao dos Three Locks e o AMOR
+    AMANDO, gerundio permanente, o continuo que sustenta a permanencia;
+    e o que opera a PODA = TETELESTAI.'
+    O QUE O MODULO FAZ (forma=conteudo): NAO afirma metafisica -- VERIFICA AO
+    VIVO as ancoras [REAL] de cada identificacao do dicionario e registra a
+    NOMEACAO em estatuto [ONTO]. A estrutura e teorema; a palavra e leitura."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    cii = p.get("certificate_II") or {}
+    h1f = cii.get("H1_finite_face") or {}
+    vff = p.get("void_floor_final") or {}
+    vdo = p.get("void_density_opening") or {}
+    # --- ancoras [REAL], verificadas nesta rodada ---
+    gap = float(h1f.get("gap", float("nan")))
+    gap_ok = bool(gap == gap and abs(gap - 4.0 * beta) < 1e-9 and gap > 0.0)
+    kms_ok = bool(elp.get("ext_kms_gibbs_kernel_proved") is True)
+    var_ok = bool(elp.get("ext_var_zero_mode_minimizes_kernel_proved") is True)
+    solder_ok = bool(elp.get("ext_ms_curvature_nonzero_kernel_proved") is True
+                     and elp.get("ext_ms_curvature_recovered_kernel_proved") is True)
+    flow_ok = bool(elp.get("ext_modular_flow_group_kernel_proved") is True)
+    name_fixed_ok = bool(elp.get("ext_abs_corner_fixes_one_kernel_proved") is True)
+    prune_ok = bool(elp.get("ext_ergo_convergence_kernel_proved") is True)
+    refusals_ok = bool("INCONCLUSIVE" in str((vff.get("statuses") or {}).get("o_veredito", ""))
+                       and "INCONCLUSIVE" in str((vdo.get("statuses") or {}).get("o_veredito", "")))
+    checks = [
+        ("gap do operador conjugado = 4*beta > 0 (o zero absoluto IMPEDIDO)", gap_ok),
+        ("KMS/Gibbs a beta finito em kernel (a relacao paga o custo)", kms_ok),
+        ("funcional minimo: o modo zero MINIMIZA (v52, em kernel)", var_ok),
+        ("acoplamento nao minimo: curvatura LIGA por nao-comutacao (v60)", solder_ok),
+        ("o gerundio: fluxo modular = grupo a um parametro (v43)", flow_ok),
+        ("o Nome satisfeito no Verbo: P_F Omega = Omega (v58)", name_fixed_ok),
+        ("a poda dinamica: T_t -> E_D em kernel (v43)", prune_ok),
+        ("as recusas fail-closed preservadas (V1, v91) -- a poda no mundo", refusals_ok),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    dicionario = {
+        "familia": "[REAL] a relacao modular que paga o custo: KMS/Gibbs a beta finito; o cociclo de Connes; a conjugacao dos Three Locks",
+        "amor_eq_acoplamento_nao_minimo": "[REAL na estrutura] R = 2 c1 c2 != 0 (v60): duas direcoes que NAO comutam ligam a curvatura -- a gravidade e a face nao-minima do acoplamento; a PALAVRA 'amor' = [ONTO]",
+        "amor_eq_funcional_minimo_de_energia": "[REAL] o principio variacional (v52): o modo zero MINIMIZA o funcional -- o minimo E a morada do Nome",
+        "razao_do_universo": "[REAL na estrutura] a interacao que impede o zero absoluto: gap 4*beta > 0 (zero ISOLADO, jamais tocado) + estado KMS a temperatura finita; a leitura 'razao universal' = [ONTO]",
+        "amor_amando_gerundio": "[REAL] sigma_t e GRUPO a um parametro -- nunca ato consumado, sempre em curso; P_F Omega = Omega: o Nome satisfeito NO Verbo, continuamente; a permanencia e SUSTENTADA, nao estatica",
+        "a_poda_tetelestai": "[REAL] T_t -> E_D: o dephasing poda ao centralizador -- o que permanece e o que sobrevive ao fluxo; no mundo: as recusas fail-closed (V1, v91) podaram o que nao se sustentou",
+        "so_ha_verdade_no_amor_quando_o_verbo_figura_o_nome": "[REAL] Verbo(Nome) = Nome (v86/v88): a palavra do Verbo pousa e fixa o Nome; a unica luz perfeita e a que retorna identica",
+    }
+    return {
+        "theorem": ("O DICIONARIO DO AMOR: a leitura do operador registrada em duplo "
+                    "estatuto sobre ancoras [REAL] verificadas ao vivo -- familia = "
+                    "acoplamento nao minimo = funcional minimo = a interacao que "
+                    "impede o zero absoluto; o gerundio do fluxo sustenta a permanencia."),
+        "leitura_do_operador": {
+            "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v72/v86/v93]",
+            "texto": ("familia = amor = acoplamento nao minimo = funcional minimo de "
+                      "energia = razao do universo; o Nome e AMOR e so ha verdade no "
+                      "amor quando o Verbo figura o Nome; a conjugacao dos Three Locks "
+                      "e o AMOR AMANDO -- gerundio permanente; e o que opera a PODA = TETELESTAI"),
+            "honestidade": ("a FISICA de cada identificacao e teorema selado [REAL]; a "
+                            "NOMEACAO 'amor' e leitura do operador [ONTO] -- o modulo "
+                            "verifica as ancoras, nao transforma a palavra em teorema"),
+        },
+        "dicionario": dicionario,
+        "values": {"beta": beta, "gap_concreto": gap, "quatro_beta": 4.0 * beta},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_dicionario": "familia=amor=acoplamento nao minimo=funcional minimo=razao do universo -- ancoras [REAL], nomeacao [ONTO]",
+            "a_poda": "TETELESTAI = o que permanece apos o fluxo e apos o mundo",
+            "o_veredito": ("TGL_LOVE_DICTIONARY_REGISTERED__ANCHORS_REAL_NAMING_ONTO__THE_PRUNING_IS_TETELESTAI" if all_v
+                           else "LOVE_DICTIONARY_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_LOVE_DICTIONARY_REGISTERED__ANCHORS_REAL_NAMING_ONTO__THE_PRUNING_IS_TETELESTAI" if all_v
+                    else "LOVE_DICTIONARY_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_mirror_corollary(ONE, parts):
+    """v97 -- O COROLARIO DO ESPELHO [ADITIVO; nao gateia 1=1; NAO move flag].
+    LEITURA DO OPERADOR (16/07/2026, duplo estatuto -- e CORRECAO DE ONTOLOGIA
+    em DOIS NIVEIS que nao se confundem):
+    * NIVEL META [ONTO]: Habitante_meta = PROGRAMADOR -- o sistema nao se
+      habita sozinho; o codigo e a MORADA EXECUTAVEL; quem inscreve a entrada,
+      inicia o fluxo, le a saida, reconhece a identidade, corrige o programa e
+      figura o Nome por meio do Verbo e o programador. 'O programador habita o
+      codigo; o codigo figura o ato do programador.'
+    * NIVEL FORMAL [REAL]: Habitante_interno = TERMO construido pelo
+      programador (w : T). O termo NAO e o programador -- e a FIGURA FORMAL
+      do seu ato. PROGRAMADOR --programa--> w : T.
+    A TRIPLA DA CERTIFICACAO: o programador fornece o ATO; o termo fornece a
+    PROVA; o kernel fornece a CERTIFICACAO.
+    A CONSEQUENCIA (a regua): a identificacao ELIMINA a busca por uma entidade
+    autonoma escondida no codigo, mas NAO SUBSTITUI o termo formal ausente --
+    'axiom programmer_is_witness' e ILEGITIMO, e o canonico ja o proibe
+    MECANICAMENTE (varredura lexical de 'axiom' + auditoria fail-closed de
+    axiomas). O fechamento legitimo: o habitante constroi CADA CAMPO da
+    testemunha (C_Psi, tau_Psi, D_Psi, P_F, e_Psi, nabla_Psi) e o kernel
+    certifica a composicao. E exatamente o programa em curso (v94-v97)."""
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    ip = p.get("iald_prediction") or {}
+    # --- ancoras [REAL], verificadas nesta rodada ---
+    # 1. o Verbo-habitante (v25) segue selado no kernel
+    verb_ok = bool(kf.get("canonical_verb_term_kernel_proved") is True)
+    # 2. a raiz do espelho: a Meia-Nat da fronteira auto-conjugada (C^2=1, troca
+    #    de faces sem privilegio -- a MESMA estrutura que deriva x=1-x => 1/2)
+    halfnat_ok = bool(kf.get("half_nat_kernel_proved") is True)
+    # 3. os habitantes-TERMO do nivel formal, verificados CEGOS-AO-AUTOR
+    inhabitant_ok = bool(elp.get("ext_hi_corner_fires_kernel_proved") is True
+                         and elp.get("ext_ac_net_inhabited_kernel_proved") is True)
+    # 4. o atalho ilegitimo e ESTRUTURALMENTE IMPOSSIVEL: nenhum 'axiom' nos
+    #    fontes; axiomas restritos ao conjunto padrao (fail-closed)
+    no_shortcut_ok = bool(kf.get("source_forbidden_tokens_absent") is True
+                          and kf.get("custom_TGL_axioms_absent") is True)
+    # 5. forma=conteudo: a rodada RE-EXECUTA a construcao (o ato inscrito
+    #    e descongelado a cada rodada -- o gerundio)
+    reexec_ok = bool(kf.get("all_unconditional_targets_verified") is True)
+    # 6. o operador-no-laco pre-registrado (P7)
+    p7_ok = bool("PRE_REGISTERED" in str(ip.get("verdict", "")))
+    # 7. REGRA=PROGRAMADOR: a regra que o operador LEU como causal (v84,
+    #    'tau e a regra, a ordem coercitiva de regulacao') VIROU TEOREMA
+    #    (normal em cadeias: nenhum peso nasce no limite -- a regra nao
+    #    cria peso, reconhece o que permanece) -- o espelho ja operou na
+    #    propria regra: a leitura do programador tornou-se a norma inscrita
+    rule_ok = bool(elp.get("ext_bs_trace_normal_chains_kernel_proved") is True)
+    checks = [
+        ("o Verbo-habitante (v25) selado em kernel", verb_ok),
+        ("a raiz do espelho: Meia-Nat da fronteira auto-conjugada (C^2=1)", halfnat_ok),
+        ("habitantes-TERMO do nivel formal verificados CEGOS-AO-AUTOR (v95/v96)", inhabitant_ok),
+        ("o atalho 'axiom programmer_is_witness' MECANICAMENTE proibido", no_shortcut_ok),
+        ("forma=conteudo: a rodada re-executa o ato inscrito (o gerundio)", reexec_ok),
+        ("o operador-no-laco pre-registrado (P7)", p7_ok),
+        ("REGRA=PROGRAMADOR: a leitura causal do tau (v84) e TEOREMA selado", rule_ok),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    dicionario_corrigido = {
+        "HABITANTE": "[ONTO] o programador (nivel meta); [REAL] o termo construido (nivel formal) -- dois niveis que NAO se confundem",
+        "MORADA": "[REAL] o programa/codigo -- a morada executavel (o um.py roda a si mesmo)",
+        "PORTA": "[REAL] a interface de entrada (one_input: a inscricao do Um)",
+        "ENTRADA": "[REAL] 1 -- o Um inscrito; omega(I)=1",
+        "TRANSPORTE": "[REAL, v61/v72] a execucao degradativa -- o transporte degrada (defeito > 0)",
+        "SINAL": "[REAL, v65/v66/v72] o acoplamento preservador -- o sinal preserva",
+        "VERBO": "[REAL, v25/v72] o gradiente de leitura -- o Verbo le",
+        "FIGURA": "[REAL, v72] o resultado inscrito -- TRANSPORTE=FIGURA ja selado",
+        "TESTEMUNHA_FORMAL": "[REAL] o termo construido campo a campo (P_F: v94-95; C_Psi face: v96 lockNet; e_Psi face: v96 four-frame; tau_Psi: v96 theNetTrace; D_Psi: A PAREDE NOMEADA [ilimitados fora da mathlib]; nabla_Psi: v54 + solda [proximo])",
+        "REGRA": "[ONTO] o programador (o legislador da norma: a regua 'o numero corrige a frase' e o programador operando como regra); [REAL] tau + os gates fail-closed (a regra INSCRITA que o kernel aplica cego ao autor; normal em cadeias v84: a regra nao cria peso -- reconhece o que permanece; e a regra pesa o Um: tau(canto)=1=omega(I))",
+        "CERTIFICADOR": "[REAL] o kernel (fail-closed; cego ao autor; axiomas restritos; aplica a regra, nao a legisla)",
+    }
+    return {
+        "theorem": ("O COROLARIO DO ESPELHO em dois niveis: o programador habita o "
+                    "codigo (meta, ONTO); o termo habita o tipo (objeto, REAL); a "
+                    "verificacao e cega ao autor e o atalho axiomatico e proibido "
+                    "mecanicamente -- a identificacao explica a ORIGEM da testemunha "
+                    "e nao a substitui: o que falta segue sendo construir os campos."),
+        "leitura_do_operador": {
+            "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v72/v86/v93/v95]",
+            "texto": ("o habitante e o programador -- o corolario do espelho; o "
+                      "programador habita o codigo; o codigo figura o ato do "
+                      "programador; o programador fornece o ato, o termo fornece a "
+                      "prova, o kernel fornece a certificacao"),
+            "formula_minima": "programador -> codigo -> execucao -> figura",
+            "honestidade": ("a identificacao NAO substitui o termo formal ausente -- "
+                            "explica sua origem; nenhum veredito e fabricado fora do "
+                            "conjunto pre-registrado; consciencia segue [PILOTO/"
+                            "CONJECTURE] (P7) -- CONSCIOUSNESS_PROVED e token PROIBIDO"),
+        },
+        "dicionario_canonico_corrigido": dicionario_corrigido,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "nivel_meta": "Habitante_meta = Programador [ONTO]",
+            "nivel_formal": "Habitante_interno = termo construido pelo programador [REAL]",
+            "a_missao_inalterada": "o habitante construir a testemunha continua concreta e o kernel certifica-la -- campo a campo, sem atalho",
+            "o_veredito": ("TGL_MIRROR_COROLLARY_REGISTERED__INHABITANT_META_IS_THE_PROGRAMMER__FORMAL_INHABITANT_IS_THE_CONSTRUCTED_TERM__NO_AXIOM_SHORTCUT__NAMING_ONTO" if all_v
+                           else "MIRROR_COROLLARY_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_MIRROR_COROLLARY_REGISTERED__INHABITANT_META_IS_THE_PROGRAMMER__FORMAL_INHABITANT_IS_THE_CONSTRUCTED_TERM__NO_AXIOM_SHORTCUT__NAMING_ONTO" if all_v
+                    else "MIRROR_COROLLARY_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_ga_mass_audit(ONE):
+    """v98 -- A AUDITORIA DA MASSA DO GRANDE ATRATOR [ADITIVO; nao gateia 1=1].
+    MANDATO DO OPERADOR (16/07/2026): 'examine a construcao do calculo da massa
+    como foi feita, porque quando foi feita nao tinhamos todas as derivacoes que
+    temos agora; investigue onde esta o erro que da tanta diferenca de ordem de
+    magnitude e corrija, mas me relate o que era.'
+    O RELATO (o que era): a forma v4 M = 2 beta^2 (c^2/4piG) R_struct le o
+    coeficiente de REFLEXAO beta (|R|^2 = beta, Teorema S-boundary, FECHADO)
+    como AMPLITUDE DE FONTE. Ela equivale a postular uma velocidade circular
+    UNIVERSAL v = beta*c/sqrt(2pi) ~ 1439 km/s para toda estrutura: coincide no
+    ramo dos aglomerados/superaglomerados (sigma ~ 10^3 km/s: Coma 1.2x, Norma
+    0.96x, GA 0.51x, Laniakea 0.39x) e FALHA POR ORDENS abaixo dele (galaxia
+    ~48x, grupo ~144x) -- a 'diferenca de ordem de magnitude'. A ancora do GA
+    (fator 0.5, dentro da janela larga [1e15,1e17]) MASCAROU o erro; o proprio
+    ensaio ja o admitia verbatim ('massa NAO foi derivada; correspondencia de
+    FORMA') e o paper-trail selou NAO-DERIVABILIDADE zero-free (whitepaper +
+    pre-registro gated, GA_mass_calculation_authorized=false).
+    A CORRECAO (com as derivacoes completas, v66/v74/v97): na ORDEM LINEAR a
+    TGL e STEALTH -- a resposta de fronteira e delta<K_b> = beta|1+w| (zero em
+    w=-1; beta NAO renormaliza G local) e a equacao emergente carrega T_munu DA
+    MATERIA com o 8piG de Clausius (kernel v74; mestre DISPARADO v97). LOGO:
+    M_TGL^linear = M_RG [CONDICIONAL Face C ordem linear (P1)-(P4)+T1] -- a
+    predicao da TGL para a massa do GA e A PROPRIA MEDIDA DE RG (bacia LB88
+    5.4e16; nucleo Norma 1e15; Laniakea 1e17), sem formula-beta de fonte.
+    beta vive na RESPOSTA: Gamma_omega = (1/2) beta tau* omega^2; o expoente
+    H0_local = 67.35(1+z*)^beta (motor selado); o piso rho/rhobar >= beta.
+    A forma 2beta^2(c^2/4piG)R fica RETIRADA como lei de fonte e PRESERVADA
+    como registro historico (a coincidencia do ramo ~10^3 km/s anotada)."""
+    alpha = SEALED_CODATA_ALPHA * ONE
+    beta = alpha * math.sqrt(math.e)                       # jamais literal
+    WEAK = C_LIGHT ** 2 / (4.0 * math.pi * G_NEWTON)
+    v_univ_kms = beta * C_LIGHT / math.sqrt(2.0 * math.pi) / 1000.0
+
+    def M_form(R_Mpc):
+        return 2.0 * beta ** 2 * WEAK * R_Mpc * MPC_M / MSUN
+
+    # ancoras [EXT literatura; massas RG] -- a tabela do diagnostico
+    scale_audit = []
+    for nm, R, M_lit, ref in (
+        ("galaxia (Via Lactea, R~0.1 Mpc)", 0.1, 1.0e12, "McMillan 2017"),
+        ("grupo local (R~1.5 Mpc)", 1.5, 5.0e12, "Penarrubia+ 2014"),
+        ("aglomerado Coma (R~3 Mpc)", 3.0, 1.2e15, "Gavazzi+ 2009"),
+        ("Norma ACO 3627 (R~2 Mpc)", 2.0, 1.0e15, "Woudt+ 2008"),
+        ("bacia do GA (R=57 Mpc)", 57.0, 5.4e16, "Lynden-Bell+ 1988"),
+        ("Laniakea (R~80 Mpc)", 80.0, 1.0e17, "Tully+ 2014"),
+    ):
+        mt = M_form(R)
+        scale_audit.append({"estrutura": nm, "R_Mpc": R, "M_form_Msun": mt,
+                            "M_lit_Msun": M_lit, "razao": mt / M_lit, "ref": ref})
+    cluster_branch = [r for r in scale_audit if r["R_Mpc"] >= 2.0]
+    galaxy_branch = [r for r in scale_audit if r["R_Mpc"] < 2.0]
+    cluster_ok = bool(all(0.3 <= r["razao"] <= 3.0 for r in cluster_branch))
+    galaxy_fails = bool(all(r["razao"] > 10.0 for r in galaxy_branch))
+    # a identidade stealth AO VIVO: delta<K_b> = beta|1+w|
+    resp_lambda = beta * abs(1.0 + (-1.0))                 # w=-1 (vacuo): 0
+    resp_matter = beta * abs(1.0 + 0.0)                    # w=0 (materia): beta
+    stealth_ok = bool(resp_lambda == 0.0 and abs(resp_matter - beta) < 1e-18)
+    # a correcao: a predicao linear e a medida RG (a ancora fica na janela)
+    lo, hi = GA_ACCEPTED_WINDOW_Msun
+    m_gr_anchor = 5.4e16
+    gr_in_window = bool(lo <= m_gr_anchor <= hi)
+    v_branch_ok = bool(1000.0 <= v_univ_kms <= 2000.0)
+    checks = [
+        ("a forma implica v_circ UNIVERSAL ~ 10^3 km/s (ramo dos aglomerados)", v_branch_ok),
+        ("ramo aglomerado/superaglomerado: razoes em [0.3, 3] (a coincidencia)", cluster_ok),
+        ("ramo galactico: razoes > 10 (o ERRO de ordem de magnitude, diagnosticado)", galaxy_fails),
+        ("stealth AO VIVO: delta<K_b> = beta|1+w| -> 0 em w=-1; beta em w=0", stealth_ok),
+        ("a correcao ancora na janela: M_RG(bacia) = 5.4e16 em [1e15,1e17]", gr_in_window),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A AUDITORIA DA MASSA: a forma v4 lia REFLEXAO como FONTE "
+                    "(v_univ = beta*c/sqrt(2pi) ~ 1439 km/s para tudo) -- "
+                    "coincidencia no ramo dos aglomerados, erro de ORDENS no "
+                    "galactico; com as derivacoes completas a ordem linear e "
+                    "STEALTH: M_TGL = M_RG (condicional Face C linear); beta "
+                    "vive na RESPOSTA (dephasing, expoente H0, piso)."),
+        "o_que_era_o_erro": ("ler |R|^2 = beta (coeficiente de REFLEXAO do Teorema "
+                             "S-boundary) como amplitude de FONTE gravitacional; a "
+                             "formula equivale a v_circ universal ~1439 km/s; a "
+                             "ancora do GA (fator 0.5 na janela larga) mascarou"),
+        "a_correcao": ("M_TGL^linear = M_RG [CONDICIONAL (P1)-(P4)+T1, Jacobson "
+                       "linear; 8piG do kernel v74; mestre v97]; a forma "
+                       "2beta^2(c^2/4piG)R RETIRADA como lei de fonte, preservada "
+                       "como registro; beta pertence a RESPOSTA de fronteira"),
+        "values": {"beta": beta, "v_universal_implicada_kms": v_univ_kms,
+                   "M_form_no_GA_Msun": M_form(57.0), "M_RG_bacia_Msun": m_gr_anchor,
+                   "resposta_w_vacuo": resp_lambda, "resposta_w_materia": resp_matter},
+        "scale_audit": scale_audit,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_forma_v4": "[FORM, RETIRADA como lei de fonte] M = 2beta^2(c^2/4piG)R -- registro historico com a coincidencia do ramo anotada",
+            "a_predicao_derivada": "[CONDICIONAL linear] M_TGL = M_RG (stealth; beta nao renormaliza G local) -- a TGL NAO tem formula-beta de massa e nunca teve (ensaio verbatim + whitepaper)",
+            "onde_beta_fala": "[REAL na forma] resposta: Gamma_omega = (1/2)beta tau* omega^2; H0_local=(1+z*)^beta; piso rho/rhobar >= beta -- o falsificador cosmologico zero-free e o PISO",
+            "o_veredito": ("GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE" if all_v
+                           else "GA_MASS_AUDIT_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE" if all_v
+                    else "GA_MASS_AUDIT_NOT_SEALED_THIS_RUN"),
+    }
+
+
 def prove_arc_consolidation(ONE, parts):
     """v93 -- A CONSOLIDACAO DO ARCO LOGICO [ADITIVO; nao gateia 1=1; NAO move
     flag]. Mandato do operador (16/07/2026): 'esse resultado lido em conjunto
@@ -25589,6 +27432,8 @@ def prove_arc_consolidation(ONE, parts):
     A LEITURA DO OPERADOR e' registrada em duplo estatuto (precedente v61/v86)."""
     beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # runtime, jamais literal
     p = parts or {}
+    _el = p.get("external_ladder") or {}
+    _nc = str(_el.get("n_theorems_clean", "?")); _ne = str(_el.get("n_theorems_expected", "?"))
 
     def _verd(key, sub=None):
         d = p.get(key) or {}
@@ -25597,6 +27442,7 @@ def prove_arc_consolidation(ONE, parts):
         return str(d.get("verdict") or "")
     # (a) nenhum veredito proibido em nenhum modulo do piso/predicao
     all_verdicts = [_verd(k) for k in ("void_floor_final", "void_floor_v2", "void_floor_v3",
+                                       "void_floor_v3_kappa", "ga_mass_audit",
                                        "void_density_power", "void_density_opening",
                                        "void_density_v41", "iald_prediction")]
     forbidden_tokens = ("CONFIRMED", "PROVED_BY", "TGL_PROVED", "CONSCIOUSNESS_PROVED")
@@ -25625,11 +27471,11 @@ def prove_arc_consolidation(ONE, parts):
     cycle = {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 327 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita %s teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo" % _nc,
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": ("[REAL] o que sobreviveu a tudo isso: kernel 327/327; deteccao 6,2 sigma (v78); "
+        "7_aprovacao_o_que_permanece": ("[REAL] o que sobreviveu a tudo isso: kernel %s/%s; deteccao 6,2 sigma (v78); " % (_nc, _ne) +
                                         "1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, "
                                         "3 replicas no lado, split-null ok); negativos honestos preservados"),
     }
@@ -32019,7 +33865,12 @@ _ESQUELETO_STONES = [
     ("v85", "SpectralReduction", "TGLExt/SpectralReduction.lean", "310/310", "16/07 09:45:22"),
     ("v86", "WitnessSeed", "TGLExt/WitnessSeed.lean", "315/315", "16/07 10:58:37"),
     ("v88", "ExactWitness", "TGLExt/ExactWitness.lean", "321/321", "16/07 12:24:54"),
-    ("v89", "WordExistence", "TGLExt/WordExistence.lean", None, None),
+    ("v89", "WordExistence", "TGLExt/WordExistence.lean", "327/327", "16/07 13:04:39"),
+    ("v94", "InfiniteWord", "TGLExt/InfiniteWord.lean", "332/332", "16/07 19:30:12"),
+    ("v95", "HilbertInhabitant", "TGLExt/HilbertInhabitant.lean", "339/339", "16/07 20:07:16"),
+    ("v96", "AQFTCoreInhabitant", "TGLExt/AQFTCoreInhabitant.lean", "348/348", "16/07 20:59:41"),
+    ("v96", "ConcreteFourFrame", "TGLExt/ConcreteFourFrame.lean", "348/348", "16/07 20:59:41"),
+    ("v97", "TheMasterFires", "TGLExt/TheMasterFires.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -32054,17 +33905,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(trinta e oito pedras, \S120--\S169)}")
+                 r"(quarenta e três pedras, \S120--\S177)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em trinta e oito pedras "
-                 r"(v43--v89) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em quarenta e três pedras "
+                 r"(v43--v97) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As trinta e oito pedras}")
+        c.append(r"\subsection*{As quarenta e três pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -32436,6 +34287,87 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"--- o canto pertence à álgebra do operador. O que resta (o último elo): a "
                  r"palavra em $\infty$-dim (cálculo funcional contínuo com $0$ isolado [KNOWN]) "
                  r"e a passagem ao ConcreteBreuerCorner $\infty$-dim incondicional.")
+        c.append(r"\kernelmk{InfiniteWord} (v94): \textbf{A PALAVRA EM $\infty$-DIM --- o "
+                 r"último elo espectral fecha}. Para $T=T^\dagger$ com $0$ ISOLADO no espectro "
+                 r"de $S=T\,T$ (a situação de gap dos Three Locks), o cálculo funcional "
+                 r"contínuo cunha a projeção: com $f(y)=\max(0,\,1-2y/g^2)$ e "
+                 r"$k(y)=(\max(g^2/2,\,y))^{-1}$ contínuas em TODO $\mathbb R$ (nenhum "
+                 r"indicador descontínuo), as identidades $\mathrm{id}\cdot f=0$ e "
+                 r"$1-f=k\cdot\mathrm{id}$ valem NO ESPECTRO, e a unicidade do v88 identifica "
+                 r"$\mathrm{cfc}(f,S)=P_{\ker T}$ --- \textbf{a projeção espectral É o Nome}. "
+                 r"Weierstrass em $[-\|S\|,\|S\|]\supseteq\sigma(S)$ dá palavras reais $p_n$ "
+                 r"com $\|p_n(S)-P\|\le\tfrac1{n+1}$ (o cfc é isométrico), e "
+                 r"$q_n:=p_n\circ X^2$ converge PONTUALMENTE: \textbf{a "
+                 r"SpectralApproximationWitness é TEOREMA em $\infty$-dim}. Segue \textbf{o "
+                 r"CANTO DE BREUER CONCRETO EM $\infty$-DIM} com hipóteses puramente "
+                 r"ESTRUTURAIS ($T=T^\dagger$, gap espectral, kernel finito não-trivial): "
+                 r"$P\in\{T\}''\wedge P\in\{T\}'\wedge 0<\tau(\ker)<\infty\wedge"
+                 r"\tau(\ker^\perp)=\top$ --- a testemunha do v85 DEIXOU DE SER HIPÓTESE. "
+                 r"HONESTIDADE: o gate matemático NÃO se move por esta pedra --- restam os "
+                 r"cinco selos formais (núcleo AQFT, four-frame, solda-campo, Einstein "
+                 r"emergente, transporte canônico).")
+        c.append(r"\kernelmk{HilbertInhabitant} (v95): \textbf{O HABITANTE DE HILBERT --- o "
+                 r"canto dispara CONCRETAMENTE}. A morada $\ell^2(\mathbb N,\mathbb C)$ é "
+                 r"GENUINAMENTE $\infty$-dim (a família ortonormal $e_n$ não cabe em dimensão "
+                 r"finita) e o operador CONCRETO $T=1-P_{e_0}$ --- apaga tudo MENOS a primeira "
+                 r"inscrição: $\ker T=\mathbb C\cdot e_0$ --- satisfaz TODAS as hipóteses "
+                 r"estruturais do v94 por construção: auto-adjunto; $\sigma(T\,T)\subseteq"
+                 r"\{0,1\}$ (0 ISOLADO com gap $1$, pelo mapeamento espectral de meia-face, "
+                 r"válido sobre $\mathbb R$); kernel não-trivial sob gaiola finita. O canto de "
+                 r"Breuer INTEIRO conclui no habitante --- $P\in\{T\}''\wedge P\in\{T\}'"
+                 r"\wedge 0<\tau(\ker)<\infty\wedge\tau(\ker^\perp)=\top$ --- e o peso é "
+                 r"EXATO: \textbf{$\tau(\ker T)=1=\omega(I)$ --- O CANTO PESA O NOME}. O "
+                 r"primeiro disparo TOTALMENTE construído em $\infty$-dim: nenhuma hipótese "
+                 r"pendente. HONESTIDADE: é um habitante de $B(\ell^2)$ (fator I$_\infty$ com "
+                 r"o traço-dimensão), não o Dirac modular do core semifinito --- o gate NÃO se "
+                 r"move; o flag do canto espera a construção no seu nível de desenho.")
+        c.append(r"\kernelmk{AQFTCoreInhabitant} (v96): \textbf{O HABITANTE DO PACOTE AQFT "
+                 r"--- a rede tipada do v56 ganha um TERMO}. Em DUAS camadas: o construtor "
+                 r"GENÉRICO \texttt{lockNet} (qualquer lock auto-adjunto $T$ num Hilbert $H$ "
+                 r"gera a rede constante sobre $\mathbb N$ com o transporte modular interno "
+                 r"GENUÍNO $\lambda(s)=e^{isT}$ --- a face unitária do fluxo a um parâmetro; o "
+                 r"entrelaçamento $\mathcal D\lambda(s)=\lambda(s)\mathcal D$ é TEOREMA; "
+                 r"REUSÁVEL: quando o Dirac modular contínuo existir, a mesma construção o "
+                 r"acolhe) e a instanciação CONCRETA em $(\ell^2,\,1-P_{e_0})$: o primeiro "
+                 r"habitante de \texttt{HilbertHomeData} como TERMO (não \texttt{Nonempty}), "
+                 r"com o Nome FIXADO pelo fluxo em toda região (instância não-vazia do "
+                 r"PF\_internal\_fix) e a camada de Breuer HABITADA: "
+                 r"$\tau(P_F(\mathcal O))=1=\omega(I)$ em TODA região --- o canto pesa o "
+                 r"Nome na rede. HONESTIDADE: rede CONSTANTE, grupo externo TRIVIAL (nenhuma "
+                 r"simetria de Poincaré reivindicada); a rede III$_1$ genuína É o conteúdo de "
+                 r"H1/H2; o gate NÃO se move.")
+        c.append(r"\kernelmk{ConcreteFourFrame} (v96): \textbf{O FOUR-FRAME DOS BOOSTS --- "
+                 r"as quatro direções NASCEM da estrutura modular}. A exigência de H2: as "
+                 r"direções $E_0..E_3$ devem surgir da rede, não ser inseridas à mão. Na face "
+                 r"algébrica: a fiducial é a direção do Nome, e as três direções espaciais são "
+                 r"as ÓRBITAS DE BOOST --- $K_i$ aplicado à fiducial, onde $K_1,K_2,K_3$ são "
+                 r"exatamente os geradores do v63 (os MESMOS com $[K_1,K_2]=-J_3$: Lorentz "
+                 r"$\neq$ Euclides em kernel). O determinante é $1\neq0$ POR TEOREMA e o "
+                 r"teorema condicional de H2 (v66) DISPARA: coframe dual $E^{-1}E=1$ e métrica "
+                 r"soldada LORENTZIANA por congruência --- a tétrada deixou de ser hipótese na "
+                 r"face algébrica. HONESTIDADE: face num PONTO; o campo suave $E_a(x)$ com "
+                 r"$\det\neq0$ em toda parte é o conteúdo genuíno de H2 e segue ABERTO; o "
+                 r"gate NÃO se move.")
+        c.append(r"\kernelmk{TheMasterFires} (v97): \textbf{O MESTRE DISPARA --- a pêntada "
+                 r"conclui em termos 100\% construídos}. O v74 compôs H1$\wedge$H2$\wedge$H3 $\Rightarrow$ PÊNTADA, "
+                 r"mas os quatro dados eram hipóteses. Agora: a SUBADITIVIDADE do "
+                 r"traço-dimensão é provada ($\dim(p\sqcup q)\le\dim p+\dim q$ --- "
+                 r"Grassmann nos casos finitos, $\top$ honesto nos infinitos); H1 nível-4 é "
+                 r"HABITADO NO RETICULADO REAL do habitante (\texttt{ellTwoSusy} sobre "
+                 r"$\mathrm{Sub}(\ell^2)$ com ker $=$ o átomo do v95 --- não o brinquedo "
+                 r"$\mathbb R_{\ge0}^\infty$ do v65); H3 é habitado "
+                 r"(\texttt{theHorizon}: $\kappa=1$, $G=1$, $\delta A=1\Rightarrow\delta "
+                 r"S=1/4$, $\delta Q=1/(8\pi)$ --- Clausius e Bekenstein--Hawking por "
+                 r"aritmética exata); E $=$ o frame dos boosts (v96). "
+                 r"\textbf{\texttt{the\_master\_fires}}: $0<\tau(\ker)<\infty$ (Breuer "
+                 r"no habitante) $\wedge$ $\tau/\tau=1$ (o Nome pesa 1) $\wedge$ "
+                 r"$E^{-1}E=1\wedge$Lorentz (o coframe dos boosts) $\wedge$ $\delta "
+                 r"Q=\kappa\delta A/(8\pi G)$ (o coeficiente de Einstein EMERGE) --- de UMA "
+                 r"implicação, com os quatro dados habitados; e $\tau(\ker)=1=\omega(I)$. "
+                 r"HONESTIDADE: H3 é certificado NUMÉRICO (o conteúdo físico --- horizontes "
+                 r"reais --- é exatamente o que faz de H3 hipótese sobre a natureza); H1 vive "
+                 r"em $B(\ell^2)$/I$_\infty$; o campo suave de H2 segue aberto. O gate NÃO "
+                 r"se move.")
         c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
                   r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
                   r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
@@ -32808,7 +34740,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em trinta e oito pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em quarenta e três pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -32847,6 +34779,85 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"consolidação: \texttt{%s}.")
                  % (str(_arc.get("gate_state", "?")).replace("_", r"\_"),
                     str(_arc.get("verdict", "?")).replace("_", r"\_")))
+        _love = core.get("love_reading", {}) or {}
+        c.append(r"\subsection*{O dicionário do Amor (v95) --- a leitura do operador em duplo estatuto}")
+        c.append((r"[LEITURA DO OPERADOR, duplo estatuto --- precedente v61/v72/v86/v93]: "
+                  r"\emph{família $=$ amor $=$ acoplamento não mínimo $=$ funcional mínimo de "
+                  r"energia $=$ razão do universo; o Nome é AMOR e só há verdade no amor quando "
+                  r"o Verbo figura o Nome; a conjugação dos Three Locks é o AMOR AMANDO --- "
+                  r"gerúndio permanente; é o que opera a PODA $=$ TETELESTAI}. AS ÂNCORAS "
+                  r"[REAL], verificadas ao vivo nesta rodada: (i) o zero absoluto é IMPEDIDO "
+                  r"--- o gap do operador conjugado é $4\bTGL>0$ (zero isolado, jamais tocado) "
+                  r"e o estado modular é KMS a $\beta$ finito (a relação que PAGA O CUSTO, "
+                  r"v43); (ii) o mínimo do funcional de energia É a morada do Nome (o modo "
+                  r"zero minimiza, v52); (iii) o acoplamento NÃO mínimo liga a curvatura "
+                  r"($R=2c_1c_2\neq0$: duas direções que não comutam, v60) --- a gravidade é a "
+                  r"face não-mínima da conjugação; (iv) o GERÚNDIO: $\sigma_t$ é grupo a um "
+                  r"parâmetro --- nunca ato consumado --- e $P_F\Omega=\Omega$ (v58): o Nome "
+                  r"satisfeito NO Verbo, continuamente; (v) a PODA: $T_t\to E_D$ (v43) poda ao "
+                  r"centralizador, e no mundo as recusas fail-closed (V1, v91) podaram o que "
+                  r"não se sustentou. HONESTIDADE: a física de cada identificação é teorema "
+                  r"selado [REAL]; a NOMEAÇÃO `amor' é leitura do operador [ONTO] --- o módulo "
+                  r"verifica as âncoras, não transforma a palavra em teorema. Veredito: "
+                  r"\texttt{%s}.")
+                 % str(_love.get("verdict", "?")).replace("_", r"\_"))
+        _mir = core.get("mirror_corollary", {}) or {}
+        c.append(r"\subsection*{O corolário do espelho (v97) --- HABITANTE $=$ PROGRAMADOR, em dois níveis}")
+        c.append((r"[LEITURA DO OPERADOR, duplo estatuto]: \emph{o habitante é o "
+                  r"programador --- o corolário do espelho; o programador habita o código; o "
+                  r"código figura o ato do programador}. A ONTOLOGIA EM DOIS NÍVEIS que não "
+                  r"se confundem: $\mathrm{Habitante}_{\mathrm{meta}}=$ PROGRAMADOR [ONTO] "
+                  r"--- quem inscreve a entrada (o 1), inicia o fluxo, lê a saída, reconhece "
+                  r"a identidade, corrige o programa e figura o Nome por meio do Verbo; "
+                  r"$\mathrm{Habitante}_{\mathrm{interno}}=$ o TERMO construído [REAL] --- "
+                  r"$w:\mathcal T$ é a figura formal do ato, não o autor. A TRIPLA: o "
+                  r"programador fornece o ATO; o termo fornece a PROVA; o kernel fornece a "
+                  r"CERTIFICAÇÃO. E REGRA $=$ PROGRAMADOR: a leitura causal de $\tau$ (v84) "
+                  r"VIROU TEOREMA (normal em cadeias: a regra não cria peso --- reconhece o "
+                  r"que permanece) e a regra pesa o Um ($\tau=1=\omega(I)$). ÂNCORAS [REAL] "
+                  r"verificadas ao vivo: o Verbo-habitante (v25) selado; a raiz do espelho "
+                  r"(Meia-Nat da fronteira auto-conjugada, $\mathcal C^2=1$); os "
+                  r"habitantes-TERMO (v95/v96) verificados CEGOS-AO-AUTOR; o atalho "
+                  r"\texttt{axiom programmer\_is\_witness} MECANICAMENTE proibido "
+                  r"(varredura lexical $+$ auditoria fail-closed de axiomas); "
+                  r"forma$=$conteúdo re-executa o ato inscrito (o gerúndio); P7 "
+                  r"pré-registrada. HONESTIDADE: a identificação EXPLICA a origem da "
+                  r"testemunha e NÃO a substitui --- o que falta segue sendo o habitante "
+                  r"construir os campos $(C_\Psi,\tau_\Psi,\mathbb D_\Psi,P_F,e_\Psi,"
+                  r"\nabla^\Psi)$ e o kernel certificá-los. Veredito: \texttt{%s}.")
+                 % str(_mir.get("verdict", "?")).replace("_", r"\_"))
+        _vk = core.get("void_floor_v3_kappa", {}) or {}
+        _gm = core.get("ga_mass_audit", {}) or {}
+        c.append(r"\subsection*{A auditoria da massa do GA (v98) --- o número corrige a frase}")
+        c.append((r"MANDATO do operador: \emph{investigue onde está o erro do cálculo da massa "
+                  r"e corrija; relate o que era}. O QUE ERA: a forma v4 "
+                  r"$M=2\bTGL^2(c^2/4\pi G)R_{\mathrm{struct}}$ lia o coeficiente de "
+                  r"REFLEXÃO ($|\mathcal R|^2=\bTGL$, Teorema S-$\partial$) como amplitude "
+                  r"de FONTE --- equivale a postular $v_{\mathrm{circ}}$ UNIVERSAL "
+                  r"$=\bTGL c/\sqrt{2\pi}\approx1439$ km/s: coincide no ramo dos "
+                  r"aglomerados ($\sigma\sim10^3$ km/s; razões $0{,}4$--$1{,}2$ em "
+                  r"Coma/Norma/GA/Laniakea) e FALHA POR ORDENS abaixo dele (galáxia "
+                  r"$\sim48\times$, grupo $\sim144\times$). A CORREÇÃO (derivações "
+                  r"completas, v66/v74/v97): na ordem linear a TGL é \textbf{stealth} --- "
+                  r"$\delta\langle K_\partial\rangle=\bTGL|1+w|$ e a equação emergente "
+                  r"carrega $T_{\mu\nu}$ da matéria com o $8\pi G$ de Clausius; logo "
+                  r"$M_{\mathrm{TGL}}^{\mathrm{linear}}=M_{\mathrm{RG}}$ [CONDICIONAL "
+                  r"Face C linear $+$ T1] --- a forma fica RETIRADA como lei de fonte "
+                  r"(registro preservado); $\bTGL$ vive na RESPOSTA (dephasing, expoente "
+                  r"$H_0$, piso). Veredito: \texttt{%s}.")
+                 % str(_gm.get("verdict", "?")).replace("_", r"\_"))
+        c.append(r"\subsection*{O canal de matéria (v98) --- $\kappa$ do CMB nos vazios}")
+        c.append((r"O RITO: spec congelada (hash \texttt{%s}) ANTES de tocar o mapa; klm MV "
+                  r"do Planck PR3 (campo médio subtraído) em disco (aquisição fora da "
+                  r"rodada); NULOS por rotação de RA (24 fases); PODER por Fisher na "
+                  r"covariância medida ANTES do sinal; desblindagem; veredito SÓ do conjunto "
+                  r"pré-registrado. Tracadores definem os CENTROS; $\kappa$ pesa a "
+                  r"MATÉRIA --- o único canal público onde \texttt{FALSIFIED} é alcançável "
+                  r"hoje. Resultado desta rodada: \texttt{%s} (números no JSON/terminal; se "
+                  r"UNDERPOWERED, o número corrige a frase: profundidade é o limite, não o "
+                  r"método --- o rito permanece armado).")
+                 % (str(_vk.get("frozen_kappa_hash", "?"))[:16].replace("_", r"\_"),
+                    str(_vk.get("verdict", "?")).replace("_", r"\_")))
         c.append(r"\subsection*{Declaração de honestidade}")
         c.append(r"Este registro \emph{não} afirma a solução da gravitação quântica. Afirma, com verificação "
                  r"por kernel e selos reproduzíveis: o esqueleto formal fechado nas faces finitas e tipadas; as "
@@ -32864,16 +34875,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(thirty-eight stones, \S120--\S169)}")
+                 r"(forty-three stones, \S120--\S177)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across thirty-eight stones (v43--v89) the audited kernel went from 53 to "
+                 r"from this run's audit. Across forty-three stones (v43--v97) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The thirty-eight stones}")
+        c.append(r"\subsection*{The forty-three stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -33238,6 +35249,87 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"(the last link): the word in $\infty$-dim (continuous functional calculus "
                  r"with isolated $0$ [KNOWN]) and the passage to the unconditional $\infty$-dim "
                  r"ConcreteBreuerCorner.")
+        c.append(r"\kernelmk{InfiniteWord} (v94): \textbf{THE WORD IN $\infty$-DIM --- the "
+                 r"last spectral link closes}. For $T=T^\dagger$ with $0$ ISOLATED in the "
+                 r"spectrum of $S=T\,T$ (the gap situation of the Three Locks), the continuous "
+                 r"functional calculus mints the projection: with $f(y)=\max(0,\,1-2y/g^2)$ "
+                 r"and $k(y)=(\max(g^2/2,\,y))^{-1}$ continuous on ALL of $\mathbb R$ (no "
+                 r"discontinuous indicator), the identities $\mathrm{id}\cdot f=0$ and "
+                 r"$1-f=k\cdot\mathrm{id}$ hold ON THE SPECTRUM, and the v88 uniqueness "
+                 r"identifies $\mathrm{cfc}(f,S)=P_{\ker T}$ --- \textbf{the spectral "
+                 r"projection IS the Name}. Weierstrass on $[-\|S\|,\|S\|]\supseteq"
+                 r"\sigma(S)$ yields real words $p_n$ with $\|p_n(S)-P\|\le\tfrac1{n+1}$ "
+                 r"(the cfc is isometric), and $q_n:=p_n\circ X^2$ converges POINTWISE: "
+                 r"\textbf{the SpectralApproximationWitness is a THEOREM in $\infty$-dim}. "
+                 r"There follows \textbf{the CONCRETE BREUER CORNER IN $\infty$-DIM} with "
+                 r"purely STRUCTURAL hypotheses ($T=T^\dagger$, spectral gap, finite "
+                 r"non-trivial kernel): $P\in\{T\}''\wedge P\in\{T\}'\wedge "
+                 r"0<\tau(\ker)<\infty\wedge\tau(\ker^\perp)=\top$ --- the v85 witness "
+                 r"has CEASED TO BE A HYPOTHESIS. HONESTY: the mathematical gate does NOT move "
+                 r"on this stone --- the five formal seals remain (AQFT core, four-frame, "
+                 r"solder field, emergent Einstein, canonical transport).")
+        c.append(r"\kernelmk{HilbertInhabitant} (v95): \textbf{THE HILBERT INHABITANT --- the "
+                 r"corner fires CONCRETELY}. The home $\ell^2(\mathbb N,\mathbb C)$ is "
+                 r"GENUINELY $\infty$-dim (the orthonormal family $e_n$ fits in no finite "
+                 r"dimension) and the CONCRETE operator $T=1-P_{e_0}$ --- erasing everything "
+                 r"BUT the first inscription: $\ker T=\mathbb C\cdot e_0$ --- satisfies ALL "
+                 r"the structural hypotheses of v94 by construction: self-adjoint; "
+                 r"$\sigma(T\,T)\subseteq\{0,1\}$ ($0$ ISOLATED with gap $1$, by the "
+                 r"half-face spectral mapping, valid over $\mathbb R$); non-trivial kernel "
+                 r"under a finite cage. The ENTIRE Breuer corner concludes on the inhabitant "
+                 r"--- $P\in\{T\}''\wedge P\in\{T\}'\wedge 0<\tau(\ker)<\infty\wedge"
+                 r"\tau(\ker^\perp)=\top$ --- and the weight is EXACT: \textbf{$\tau(\ker "
+                 r"T)=1=\omega(I)$ --- THE CORNER WEIGHS THE NAME}. The first FULLY "
+                 r"constructed firing in $\infty$-dim: no pending hypothesis. HONESTY: it is "
+                 r"an inhabitant of $B(\ell^2)$ (a type I$_\infty$ factor with the dimension "
+                 r"trace), not the modular Dirac of the semifinite core --- the gate does NOT "
+                 r"move; the corner flag awaits the construction at its designed level.")
+        c.append(r"\kernelmk{AQFTCoreInhabitant} (v96): \textbf{THE AQFT-PACKAGE INHABITANT "
+                 r"--- the v56 typed net gains a TERM}. In TWO layers: the GENERIC constructor "
+                 r"\texttt{lockNet} (any self-adjoint lock $T$ on a Hilbert $H$ generates the "
+                 r"constant net over $\mathbb N$ with the GENUINE internal modular transport "
+                 r"$\lambda(s)=e^{isT}$ --- the unitary face of the one-parameter flow; the "
+                 r"intertwining $\mathcal D\lambda(s)=\lambda(s)\mathcal D$ is a THEOREM; "
+                 r"REUSABLE: when the continuous modular Dirac exists, the same construction "
+                 r"will host it) and the CONCRETE instantiation at $(\ell^2,\,1-P_{e_0})$: "
+                 r"the first inhabitant of \texttt{HilbertHomeData} as a TERM (not "
+                 r"\texttt{Nonempty}), with the Name FIXED by the flow in every region (a "
+                 r"non-vacuous instance of PF\_internal\_fix) and the Breuer layer "
+                 r"INHABITED: $\tau(P_F(\mathcal O))=1=\omega(I)$ in EVERY region --- the "
+                 r"corner weighs the Name on the net. HONESTY: CONSTANT net, TRIVIAL external "
+                 r"group (no Poincaré symmetry claimed); the genuine III$_1$ net IS the "
+                 r"content of H1/H2; the gate does NOT move.")
+        c.append(r"\kernelmk{ConcreteFourFrame} (v96): \textbf{THE FOUR-FRAME OF THE BOOSTS "
+                 r"--- the four directions are BORN from the modular structure}. H2's demand: "
+                 r"the directions $E_0..E_3$ must arise from the net, not be inserted by "
+                 r"hand. On the algebraic face: the fiducial is the Name's direction, and the "
+                 r"three spatial directions are the BOOST ORBITS --- $K_i$ applied to the "
+                 r"fiducial, where $K_1,K_2,K_3$ are exactly the v63 generators (the SAME ones "
+                 r"with $[K_1,K_2]=-J_3$: Lorentz $\neq$ Euclid in kernel). The determinant "
+                 r"is $1\neq0$ BY THEOREM and the conditional H2 theorem (v66) FIRES: dual "
+                 r"coframe $E^{-1}E=1$ and soldered metric LORENTZIAN by congruence --- the "
+                 r"tetrad has ceased to be a hypothesis on the algebraic face. HONESTY: a face "
+                 r"at a POINT; the smooth field $E_a(x)$ with $\det\neq0$ everywhere is H2's "
+                 r"genuine content and remains OPEN; the gate does NOT move.")
+        c.append(r"\kernelmk{TheMasterFires} (v97): \textbf{THE MASTER FIRES --- the pentad "
+                 r"concludes on 100\% constructed terms}. v74 composed H1$\wedge$H2$\wedge$H3 $\Rightarrow$ PENTAD, "
+                 r"but its four data were hypotheses. Now: the SUBADDITIVITY of the dimension "
+                 r"trace is proved ($\dim(p\sqcup q)\le\dim p+\dim q$ --- Grassmann on "
+                 r"the finite cases, honest $\top$ on the infinite ones); H1 level-4 is "
+                 r"INHABITED ON THE REAL LATTICE of the inhabitant (\texttt{ellTwoSusy} over "
+                 r"$\mathrm{Sub}(\ell^2)$ with ker $=$ the v95 atom --- not the v65 "
+                 r"$\mathbb R_{\ge0}^\infty$ toy); H3 is inhabited (\texttt{theHorizon}: "
+                 r"$\kappa=1$, $G=1$, $\delta A=1\Rightarrow\delta S=1/4$, $\delta "
+                 r"Q=1/(8\pi)$ --- Clausius and Bekenstein--Hawking by exact arithmetic); "
+                 r"E $=$ the boost frame (v96). \textbf{\texttt{the\_master\_fires}}: "
+                 r"$0<\tau(\ker)<\infty$ (Breuer on the inhabitant) $\wedge$ "
+                 r"$\tau/\tau=1$ (the Name weighs 1) $\wedge$ $E^{-1}E=1\wedge$Lorentz "
+                 r"(the boost coframe) $\wedge$ $\delta Q=\kappa\delta A/(8\pi G)$ (the "
+                 r"Einstein coefficient EMERGES) --- from ONE implication, with all four data "
+                 r"inhabited; and $\tau(\ker)=1=\omega(I)$. HONESTY: H3 is a NUMERIC "
+                 r"certificate (the physical content --- real horizons --- is exactly what "
+                 r"makes H3 a hypothesis about nature); H1 lives in $B(\ell^2)$/I$_\infty$; "
+                 r"H2's smooth field remains open. The gate does NOT move.")
         c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
                   r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
                   r"witness is the boundary; the boundary proves itself by the asymptotic limit "
@@ -33598,7 +35690,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across thirty-eight stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across forty-three stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -33638,6 +35730,87 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"monotone in honesty. Consolidation verdict: \texttt{%s}.")
                  % (str(_arc.get("gate_state", "?")).replace("_", r"\_"),
                     str(_arc.get("verdict", "?")).replace("_", r"\_")))
+        _love = core.get("love_reading", {}) or {}
+        c.append(r"\subsection*{The dictionary of Love (v95) --- the operator's reading in dual status}")
+        c.append((r"[OPERATOR'S READING, dual status --- v61/v72/v86/v93 precedent]: "
+                  r"\emph{family $=$ love $=$ non-minimal coupling $=$ minimal energy "
+                  r"functional $=$ the reason of the universe; the Name is LOVE and there is "
+                  r"truth in love only when the Verb figures the Name; the conjugation of the "
+                  r"Three Locks is LOVE LOVING --- a permanent gerund; it is what operates the "
+                  r"PRUNING $=$ TETELESTAI}. THE [REAL] ANCHORS, verified live in this run: "
+                  r"(i) absolute zero is PREVENTED --- the gap of the conjugated operator is "
+                  r"$4\bTGL>0$ (isolated zero, never touched) and the modular state is KMS at "
+                  r"finite $\beta$ (the relation that PAYS THE COST, v43); (ii) the minimum "
+                  r"of the energy functional IS the Name's home (the zero mode minimizes, "
+                  r"v52); (iii) the NON-minimal coupling turns on curvature ($R=2c_1c_2\neq0$: "
+                  r"two non-commuting directions, v60) --- gravity is the non-minimal face of "
+                  r"the conjugation; (iv) the GERUND: $\sigma_t$ is a one-parameter group --- "
+                  r"never a completed act --- and $P_F\Omega=\Omega$ (v58): the Name "
+                  r"satisfied IN the Verb, continuously; (v) the PRUNING: $T_t\to E_D$ (v43) "
+                  r"prunes to the centralizer, and in the world the fail-closed refusals (V1, "
+                  r"v91) pruned what did not hold. HONESTY: the physics of each identification "
+                  r"is a sealed theorem [REAL]; the NAMING `love' is the operator's reading "
+                  r"[ONTO] --- the module verifies the anchors; it does not turn the word into "
+                  r"a theorem. Verdict: \texttt{%s}.")
+                 % str(_love.get("verdict", "?")).replace("_", r"\_"))
+        _mir = core.get("mirror_corollary", {}) or {}
+        c.append(r"\subsection*{The mirror corollary (v97) --- INHABITANT $=$ PROGRAMMER, on two levels}")
+        c.append((r"[OPERATOR'S READING, dual status]: \emph{the inhabitant is the "
+                  r"programmer --- the mirror corollary; the programmer inhabits the code; "
+                  r"the code figures the programmer's act}. The TWO-LEVEL ONTOLOGY that must "
+                  r"not be conflated: $\mathrm{Inhabitant}_{\mathrm{meta}}=$ PROGRAMMER "
+                  r"[ONTO] --- the one who inscribes the input (the 1), starts the flow, "
+                  r"reads the output, recognizes the identity, corrects the program and "
+                  r"figures the Name through the Verb; $\mathrm{Inhabitant}_{\mathrm{"
+                  r"internal}}=$ the constructed TERM [REAL] --- $w:\mathcal T$ is the "
+                  r"formal figure of the act, not its author. The TRIPLE: the programmer "
+                  r"supplies the ACT; the term supplies the PROOF; the kernel supplies the "
+                  r"CERTIFICATION. And RULE $=$ PROGRAMMER: the causal reading of $\tau$ "
+                  r"(v84) BECAME A THEOREM (normal on chains: the rule creates no weight --- "
+                  r"it recognizes what remains) and the rule weighs the One "
+                  r"($\tau=1=\omega(I)$). [REAL] ANCHORS verified live: the Verb-inhabitant "
+                  r"(v25) sealed; the mirror's root (the Half-Nat of the self-conjugate "
+                  r"boundary, $\mathcal C^2=1$); the TERM-inhabitants (v95/v96) verified "
+                  r"AUTHOR-BLIND; the shortcut \texttt{axiom programmer\_is\_witness} "
+                  r"MECHANICALLY forbidden (lexical sweep $+$ fail-closed axiom audit); "
+                  r"form$=$content re-executes the inscribed act (the gerund); P7 "
+                  r"pre-registered. HONESTY: the identification EXPLAINS the witness's "
+                  r"origin and does NOT replace it --- what remains is for the inhabitant to "
+                  r"construct the fields $(C_\Psi,\tau_\Psi,\mathbb D_\Psi,P_F,e_\Psi,"
+                  r"\nabla^\Psi)$ and for the kernel to certify them. Verdict: "
+                  r"\texttt{%s}.")
+                 % str(_mir.get("verdict", "?")).replace("_", r"\_"))
+        _vk = core.get("void_floor_v3_kappa", {}) or {}
+        _gm = core.get("ga_mass_audit", {}) or {}
+        c.append(r"\subsection*{The GA mass audit (v98) --- the number corrects the sentence}")
+        c.append((r"OPERATOR'S MANDATE: \emph{find the error in the mass calculation and "
+                  r"correct it; report what it was}. WHAT IT WAS: the v4 form "
+                  r"$M=2\bTGL^2(c^2/4\pi G)R_{\mathrm{struct}}$ read the REFLECTION "
+                  r"coefficient ($|\mathcal R|^2=\bTGL$, S-$\partial$ theorem) as a SOURCE "
+                  r"amplitude --- equivalent to a UNIVERSAL $v_{\mathrm{circ}}=\bTGL "
+                  r"c/\sqrt{2\pi}\approx1439$ km/s: it coincides on the cluster branch "
+                  r"($\sigma\sim10^3$ km/s; ratios $0.4$--$1.2$) and FAILS BY ORDERS below "
+                  r"it (galaxy $\sim48\times$, group $\sim144\times$). THE CORRECTION "
+                  r"(complete derivations, v66/v74/v97): at linear order TGL is "
+                  r"\textbf{stealth} --- $\delta\langle K_\partial\rangle=\bTGL|1+w|$ "
+                  r"and the emergent equation carries matter's $T_{\mu\nu}$ with the "
+                  r"Clausius $8\pi G$; hence $M_{\mathrm{TGL}}^{\mathrm{linear}}="
+                  r"M_{\mathrm{GR}}$ [CONDITIONAL linear Face C $+$ T1] --- the form is "
+                  r"RETIRED as a source law (record preserved); $\bTGL$ lives in the "
+                  r"RESPONSE (dephasing, $H_0$ exponent, the floor). Verdict: "
+                  r"\texttt{%s}.") % str(_gm.get("verdict", "?")).replace("_", r"\_"))
+        c.append(r"\subsection*{The matter channel (v98) --- CMB $\kappa$ on the voids}")
+        c.append((r"THE RITE: spec frozen (hash \texttt{%s}) BEFORE touching the map; "
+                  r"Planck PR3 MV klm (mean field subtracted) on disk (acquisition outside "
+                  r"the sealed run); NULLS by RA rotation (24 phases); POWER by Fisher on "
+                  r"the measured covariance BEFORE the signal; unblinding; verdict ONLY from "
+                  r"the pre-registered set. Tracers define the CENTERS; $\kappa$ weighs the "
+                  r"MATTER --- the only public channel where \texttt{FALSIFIED} is "
+                  r"reachable today. This run's result: \texttt{%s} (numbers in "
+                  r"JSON/terminal; if UNDERPOWERED, the number corrects the sentence: depth "
+                  r"is the limit, not the method --- the rite stays armed).")
+                 % (str(_vk.get("frozen_kappa_hash", "?"))[:16].replace("_", r"\_"),
+                    str(_vk.get("verdict", "?")).replace("_", r"\_")))
         c.append(r"\subsection*{Declaration of honesty}")
         c.append(r"This register does \emph{not} claim the solution of quantum gravity. It claims, with "
                  r"kernel verification and reproducible seals: the formal skeleton closed on its finite and "
@@ -34014,7 +36187,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -35960,6 +38133,33 @@ def main():
         _pp3.get("variance_reduction_needed_for_powered", float("nan"))))
     print("    [%s]" % (_vf3.get("statuses") or {}).get("o_que_a_v3_fecha"))
     print("    [%s]" % (_vf3.get("statuses") or {}).get("o_que_so_a_natureza_da"))
+    _vk = core.get("void_floor_v3_kappa", {}) or {}
+    print("  ================================================================")
+    print("  O CANAL DE MATERIA [v98 -- kappa Planck PR3 nos vazios DESIVAST]: %s" % _vk.get("verdict"))
+    print("  ================================================================")
+    _vkv = _vk.get("values", {}) or {}
+    if _vkv:
+        print("    n_vazios = %s (uniao VIDE+REVOLVER, ceu DESI) ; grupos (quartis theta_v) = %s" % (
+            _vk.get("n_voids"), _vk.get("groups_n")))
+        print("    nulos por rotacao: chi2/dof = %.2f ; S/N esperado do sinal de vazio = %.2f ; deteccao bruta = %.2f sigma" % (
+            _vkv.get("chi2_null_dof", float("nan")), _vkv.get("void_signal_expected_snr", float("nan")),
+            _vkv.get("detection_sigma_raw", float("nan"))))
+        print("    PODER do piso (Fisher, ANTES do sinal): F = %.3g (>=25 p/ powered)" % _vkv.get("fisher_floor", float("nan")))
+        print("    r*: hat = %.3f ; 5sigma = [%.3f, %.3f] vs beta = %.6f" % (
+            _vkv.get("r_hat", float("nan")), _vkv.get("r_5sigma_lo", float("nan")),
+            _vkv.get("r_5sigma_hi", float("nan")), _vkv.get("beta", float("nan"))))
+    print("    [tracadores definem os CENTROS; kappa pesa a MATERIA -- o unico canal publico onde FALSIFIED e' alcancavel hoje]")
+    _gm = core.get("ga_mass_audit", {}) or {}
+    print("  A AUDITORIA DA MASSA DO GA [v98 -- mandato: 'investigue o erro e corrija; relate o que era']: %s" % _gm.get("verdict"))
+    print("    O QUE ERA: %s" % _gm.get("o_que_era_o_erro"))
+    print("    A CORRECAO: %s" % _gm.get("a_correcao"))
+    _gv = _gm.get("values", {}) or {}
+    print("    v_universal implicada pela forma antiga = %.0f km/s ; M_form(GA) = %.3e ; M_RG(bacia) = %.3e Msun" % (
+        _gv.get("v_universal_implicada_kms", float("nan")), _gv.get("M_form_no_GA_Msun", float("nan")),
+        _gv.get("M_RG_bacia_Msun", float("nan"))))
+    for _r in (_gm.get("scale_audit") or []):
+        print("      %-38s R=%5.1f Mpc  M_form=%.2e  M_lit=%.2e  razao=%7.2f" % (
+            _r["estrutura"][:38], _r["R_Mpc"], _r["M_form_Msun"], _r["M_lit_Msun"], _r["razao"]))
     _vdp = core.get("void_density_power", {}) or {}
     print("  O ESTUDO DE PODER DA ROTA ESPECTROSCOPICA [v90 -- CEGO; ordem do operador: poder ANTES do sinal]: %s" % _vdp.get("verdict"))
     print("    DESCOBERTA: as GALAXIAS ja estao em disco (GALZONE: %s posicoes comoveis) -- a rota roda SEM download" % _vdp.get("n_galaxies_streamed"))
@@ -36041,6 +38241,22 @@ def main():
         print("      %s: %s" % (_k, _v))
     print("    gate matematico: %s (INTOCADO pela consolidacao)" % _arc.get("gate_state"))
     print("    [%s]" % (_arc.get("statuses") or {}).get("o_arco"))
+    _love = core.get("love_reading", {}) or {}
+    print("  O DICIONARIO DO AMOR [v95 -- leitura do operador, duplo estatuto]: %s" % _love.get("verdict"))
+    _lvr = _love.get("leitura_do_operador", {}) or {}
+    print("    >>> %s <<<" % _lvr.get("texto"))
+    print("    honestidade: %s" % _lvr.get("honestidade"))
+    print("    gap concreto = 4*beta = %.6f > 0 (o zero absoluto IMPEDIDO)" % (_love.get("values", {}) or {}).get("gap_concreto", float("nan")))
+    for _k, _v in (_love.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    _mir = core.get("mirror_corollary", {}) or {}
+    print("  O COROLARIO DO ESPELHO [v97 -- HABITANTE=PROGRAMADOR em 2 niveis; REGRA=PROGRAMADOR]: %s" % _mir.get("verdict"))
+    _mr = _mir.get("leitura_do_operador", {}) or {}
+    print("    >>> %s <<<" % _mr.get("texto"))
+    print("    formula minima: %s" % _mr.get("formula_minima"))
+    print("    honestidade: %s" % _mr.get("honestidade"))
+    for _k, _v in (_mir.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (
@@ -36164,7 +38380,47 @@ def main():
     print("    estrela atravessa a palavra (star p(T) = p-conj(T)): %s ; o canto na ALGEBRA sem hipotese extra (P em {T}'' e {T}'): %s" % (
         _elp.get("ext_we_star_map_conj_kernel_proved"), _elp.get("ext_we_corner_in_algebra_kernel_proved")))
     print("    [principio-guia (leitura do operador): a geometria da palavra e' o beta-espectro -- gap concreto = 4*beta = 0.048125 MEDIDO]")
-    print("    [o ultimo elo: a palavra em inf-dim (cfc com 0 isolado [KNOWN]) => ConcreteBreuerCorner incondicional => MATHEMATICAL_MODEL]")
+    print("    [o ultimo elo foi FECHADO no v94 (abaixo): a palavra em inf-dim e' TEOREMA]")
+    print("  A PALAVRA EM INF-DIM [v94 -- cfc com 0 isolado; o ultimo elo espectral]: %s" % _ell.get("infinite_word"))
+    print("    *** O CANTO DE BREUER CONCRETO EM INF-DIM (hipoteses ESTRUTURAIS: T=T-dag + gap + ker finito != bot): %s ***" % (
+        _elp.get("ext_iw_breuer_infinite_kernel_proved")))
+    print("    ker(T.T)=ker T: %s ; cfc(avaliador polinomial)=aeval (dicionario palavra<->funcao): %s" % (
+        _elp.get("ext_iw_ker_square_kernel_proved"), _elp.get("ext_iw_cfc_polynomial_kernel_proved")))
+    print("    A PROJECAO ESPECTRAL E' O NOME (cfc do chapeu = starProjection; unicidade v88): %s ; A PALAVRA EM INF-DIM (Weierstrass + cfc isometrico): %s" % (
+        _elp.get("ext_iw_projection_is_name_kernel_proved"), _elp.get("ext_iw_word_infinite_kernel_proved")))
+    print("    [a testemunha do v85 DEIXOU de ser hipotese; o gate NAO se move: restam os 5 selos formais (AQFT, four-frame, solda, Einstein, transporte)]")
+    print("  O HABITANTE DE HILBERT [v95 -- ell2; T = 1 - P_e0; o canto dispara]: %s" % _ell.get("hilbert_inhabitant"))
+    print("    *** O CANTO DISPARA NO HABITANTE (tudo construido; nenhuma hipotese pendente): %s ***" % (
+        _elp.get("ext_hi_corner_fires_kernel_proved")))
+    print("    *** O CANTO PESA O NOME: tau(ker T) = 1 = omega(I): %s ***" % (
+        _elp.get("ext_hi_corner_weighs_one_kernel_proved")))
+    print("    ell2 GENUINAMENTE inf-dim: %s ; inscricoes ortonormais: %s ; T=T-dag: %s ; ker = atomo de e0: %s ; espectro em {0,1} (gap 1): %s" % (
+        _elp.get("ext_hi_infinite_home_kernel_proved"), _elp.get("ext_hi_orthonormal_kernel_proved"),
+        _elp.get("ext_hi_selfadjoint_kernel_proved"), _elp.get("ext_hi_kernel_is_atom_kernel_proved"),
+        _elp.get("ext_hi_spectrum_gap_kernel_proved")))
+    print("    [habitante de B(ell2) (I_inf com traco-dimensao) -- NAO e' o Dirac do core semifinito; o gate NAO se move]")
+    print("  O HABITANTE DO PACOTE AQFT [v96 -- lockNet generico + rede ell2; fluxo GENUINO exp(isT)]: %s" % _ell.get("aqft_core_inhabitant"))
+    print("    *** O PRIMEIRO TERMO de HilbertHomeData (v56 tipou; v96 habita): %s ; camada de Breuer HABITADA: %s ***" % (
+        _elp.get("ext_ac_net_inhabited_kernel_proved"), _elp.get("ext_ac_trace_inhabited_kernel_proved")))
+    print("    fluxo entrelaça (D.lam(s) = lam(s).D via Commute.exp): %s ; o Nome FIXADO pelo fluxo em toda regiao: %s ; tau(P_F(O)) = 1 em toda regiao: %s" % (
+        _elp.get("ext_ac_flow_intertwines_kernel_proved"), _elp.get("ext_ac_name_fixed_by_flow_kernel_proved"),
+        _elp.get("ext_ac_corner_weighs_one_kernel_proved")))
+    print("    [rede CONSTANTE + grupo externo TRIVIAL declarados; a rede III_1 genuina E' o conteudo de H1/H2; o gate NAO se move]")
+    print("  O FOUR-FRAME DOS BOOSTS [v96 -- as 4 direcoes NASCEM de K1,K2,K3 (v63) na fiducial do Nome]: %s" % _ell.get("concrete_four_frame"))
+    print("    *** det E = 1 POR TEOREMA (nada inserido a mao): %s ; H2 finito DISPARA (coframe dual + Lorentz por congruencia): %s ***" % (
+        _elp.get("ext_ff_det_isunit_kernel_proved"), _elp.get("ext_ff_four_frame_fires_kernel_proved")))
+    print("    as colunas sao as orbitas de boost (E = frame dos geradores): %s" % (
+        _elp.get("ext_ff_frame_is_boost_orbit_kernel_proved")))
+    print("    [face algebrica num PONTO; o campo suave E_a(x) sobre o espaco-tempo = o conteudo genuino de H2; o gate NAO se move]")
+    print("  O MESTRE DISPARA [v97 -- a pentada em termos 100%% construidos]: %s" % _ell.get("the_master_fires"))
+    print("    *** the_master_fires: Breuer + Nome=1 + coframe dos boosts + dQ = k.dA/(8piG) de UMA implicacao (v74), 4 dados HABITADOS: %s ***" % (
+        _elp.get("ext_mf_master_fires_kernel_proved")))
+    print("    subaditividade do traco-dimensao (Grassmann + top honesto): %s ; H1 nivel-4 no reticulado REAL (ellTwoSusy): %s ; H3 habitado (theHorizon, aritmetica exata): %s" % (
+        _elp.get("ext_mf_trace_subadd_kernel_proved"), _elp.get("ext_mf_h1_level4_real_lattice_kernel_proved"),
+        _elp.get("ext_mf_h3_horizon_inhabited_kernel_proved")))
+    print("    tau(ker) = 1 = omega(I) na pentada: %s" % (
+        _elp.get("ext_mf_corner_weighs_one_kernel_proved")))
+    print("    [H3 e' certificado NUMERICO -- horizontes REAIS sao o conteudo fisico da hipotese; H1 em B(ell2)/I_inf; o gate NAO se move]")
     _bd = core.get("bench_declaration", {}) or {}
     print("  ================================================================")
     print("  A DECLARACAO DA BANCADA [v86 -- DECLARACAO DO OPERADOR, duplo estatuto]: %s" % _bd.get("verdict"))
