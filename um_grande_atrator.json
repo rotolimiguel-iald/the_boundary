@@ -4037,17 +4037,77 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.fiberIncl_not_surjective": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theFlip_sq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theFlip_comm_eraseFirst": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theIsotoneNet": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.lockFlow_add": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.benchDiracPMap_selfadjoint": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theBenchDirac": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theBenchCertificate": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.benchDirac_is_bounded": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.bench_cannot_feed_strong": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.isotone_cannot_feed_strong_core": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.constant_cannot_feed_strong_frame": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "192b624b9bbfdcd6e715caff51d51fce55c0c44e99b4ffae086be68bde25ef76",
+      "formal_source_hash": "4098da41394f84a1649e854ae3a6e5b16e273a5fa70cf4d83264f769bf79ddaf",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "4c7d142ffc3bd56c062525ad13928fd424e0fb1f55ded198001f34d7e6f97cfe",
+        "TGLExt.lean": "9a86798a69906cc66400d8ffe7e56ed69fc1e4e23b6c9a8300be91bc65655b95",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "9e130212b106f0f9e3829548c9b2e5f8b67b83d6a0b9ede772f59e4f8ae92ead",
+        "TGL/Audit.lean": "efc5146c018314ac986eeb8654b87d905268dc12ce85aa978acbb88e6776ae83",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -4075,6 +4135,7 @@
         "TGL/VerbInhabitant.lean": "812a47f0e71a86f37368c918b0f704cccad9cda0e32c4aee64c5566e7808a5d7",
         "TGLExt/AQFTCoreInhabitant.lean": "4cfd8053f5366543f571b51dbbedd7f8b07b3490ff87b94fa6bf1f3cd551ad09",
         "TGLExt/AbsoluteOne.lean": "dd0325368992ecdd31079021f8a0e00e46d3a7ea99ff620df59bc11c2fd7f444",
+        "TGLExt/BenchCertificate.lean": "78c05090f2cd93fb9e8af7128821de39fbd94ac20259ad45b1bb9f930ffcfce5",
         "TGLExt/Bicommutant.lean": "354f1a50e11c4c3d6350e31290001a38d297e32dea76bc675d4ed31132a4917a",
         "TGLExt/BicommutantSkeleton.lean": "428df3db6eb05456d1e0048cdcef826ec1f0e350ab29b8e27faf0bd7e76657d6",
         "TGLExt/BisognanoWichmann.lean": "5218c8eb32682a58a8424369ab5d1e1d22c8bdf36b21cf3ea25932606cf38fc0",
@@ -4100,8 +4161,10 @@
         "TGLExt/GravitonPolarization.lean": "b51528b11b867c5770edb555f42ee22ed11ea94ee702249d4c50fa5c7e39a758",
         "TGLExt/HilbertHome.lean": "449bdee93696fc5fe4d7f5ce898f5e3a95ad0867773714e466b279aa6089ecdd",
         "TGLExt/HilbertInhabitant.lean": "d1aeebee94883f27e6acc3352f8eaac00131398a653be888dc0056bbb6c635a1",
+        "TGLExt/IdealLimit.lean": "3f0147199cbaa91906c0807cbd47c7cc449b00e0ce7c16de99ed41260191ded0",
         "TGLExt/InfiniteWord.lean": "ead8928528c8f42c4d57628bea66b0942002b0300cbbef9e77fe88b337ab8652",
         "TGLExt/InvariantProjection.lean": "fef79118c7b544f4d7d301e20e5c40f19db9fd8bb0e81ebe9c1418c532e99b40",
+        "TGLExt/IsotoneNet.lean": "b4575ad7ce6f82c58026e659bad8b2a88f4e65bcdad4be7fa9c66a853910c95a",
         "TGLExt/LeftRight.lean": "fd127e4d3b361423c66683d5de9bee95ed5c947013ab169d7bfad5a66951bb4a",
         "TGLExt/LinearizedSpin2.lean": "8cbd46c5200f92dfe0b0dc0eac44f97f29b416e1cc911cc2fcceb2cc43888098",
         "TGLExt/LocalBreuerGap.lean": "8ec73c7d9e703d6c775f53351a784ab98b27ad2dd3d253b79a3d34992e0d5d3d",
@@ -4549,24 +4612,36 @@
       "ext_pr_coexistence_kernel_proved": true,
       "ext_pr_not_autonomous_kernel_proved": true,
       "ext_pr_rule_inhabited_kernel_proved": true,
+      "ext_in_not_surjective_kernel_proved": true,
+      "ext_in_flip_involution_kernel_proved": true,
+      "ext_in_flip_commutes_kernel_proved": true,
+      "ext_in_net_inhabited_kernel_proved": true,
+      "ext_il_flow_law_kernel_proved": true,
+      "ext_bc_dirac_inhabited_kernel_proved": true,
+      "ext_bc_dirac_selfadjoint_kernel_proved": true,
+      "ext_bc_certificate_v1_bench_kernel_proved": true,
+      "ext_bc_bench_bounded_kernel_proved": true,
+      "ext_bc_cannot_feed_dirac_kernel_proved": true,
+      "ext_bc_cannot_feed_core_kernel_proved": true,
+      "ext_bc_cannot_feed_frame_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "9df9b2b1f763f22c104c2842fd777c3b32759a28d4e35e748f5b426762a9fa22",
+      "build_stdout_sha256": "27cef1ec532eea182f3dfa34820ea8d37470d145913693bb91b8efccd58c85dc",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "8d2f0a0871347a03bec4f004dd202788ea2735ccf27a8188f3d2fe9c07662747",
+      "audit_stdout_sha256": "96d12aabc4f0fd3eba48a92cdf1605e59cf25094404d14195d31b8b471f96fca",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 188912,
+        "stdout": 194081,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 146235,
+        "stdout": 149346,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "9df9b2b1f763f22c104c2842fd777c3b32759a28d4e35e748f5b426762a9fa22",
-      "audit_capture_sha256_full": "8d2f0a0871347a03bec4f004dd202788ea2735ccf27a8188f3d2fe9c07662747",
+      "build_capture_sha256_full": "27cef1ec532eea182f3dfa34820ea8d37470d145913693bb91b8efccd58c85dc",
+      "audit_capture_sha256_full": "96d12aabc4f0fd3eba48a92cdf1605e59cf25094404d14195d31b8b471f96fca",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": false,
       "qgc_concrete_breuer_corner_constructed": false,
@@ -5806,7 +5881,10 @@
         "aqft_core_inhabitant": "SEMIFINITE_ANALYSIS_INCREMENT_13__FIRST_INHABITANT_OF_HILBERT_HOME_PACKAGE_AS_TERM_NOT_NONEMPTY__GENERIC_LOCKNET_CONSTRUCTOR_REUSABLE_FOR_FUTURE_DIRAC__GENUINE_INTERNAL_FLOW_EXP_IST_NOT_IDENTITY__INTERTWINING_BY_COMMUTE_EXP__NAME_FIXED_BY_FLOW_IN_EVERY_REGION__BREUER_LAYER_INHABITED_TAU_PF_EQUALS_ONE_EVERY_REGION__CONSTANT_NET_TRIVIAL_EXTERNAL_GROUP_HONESTLY_DECLARED__III1_NET_REMAINS_THE_HYPOTHESIS__GATE_UNMOVED",
         "concrete_four_frame": "SEMIFINITE_ANALYSIS_INCREMENT_14__FOUR_DIRECTIONS_BORN_FROM_MODULAR_BOOST_GENERATORS_K1_K2_K3_OF_V63_APPLIED_TO_NAME_FIDUCIAL__NOT_INSERTED_BY_HAND__DETERMINANT_ONE_BY_THEOREM__H2_FINITE_FACE_FIRES_DUAL_COFRAME_AND_LORENTZ_METRIC_BY_CONGRUENCE__SMOOTH_FIELD_OVER_SPACETIME_REMAINS_H2_CONTENT__GATE_UNMOVED",
         "the_master_fires": "SEMIFINITE_ANALYSIS_INCREMENT_15__DIMENSION_TRACE_SUBADDITIVITY_PROVED_GRASSMANN_PLUS_HONEST_TOP_CASES__H1_LEVEL4_CERTIFICATE_INHABITED_ON_REAL_SUBSPACE_LATTICE_OF_THE_INHABITANT_NOT_THE_TOY__H3_HORIZON_EQUILIBRIUM_INHABITED_EXACT_CLAUSIUS_BEKENSTEIN_HAWKING__MASTER_THEOREM_V74_FIRES_WITH_ALL_FOUR_DATA_CONSTRUCTED__FULL_PENTAD_BREUER_NAME_ONE_BOOST_COFRAME_LORENTZ_EINSTEIN_COEFFICIENT__H3_IS_NUMERIC_CERTIFICATE_PHYSICS_REMAINS_HYPOTHESIS__GATE_UNMOVED",
-        "programmer_rule": "SEMIFINITE_ANALYSIS_INCREMENT_17__PROGRAMMER_RULE_TYPE_INHABITED_BY_BEAM_SPLITTER__COEXISTENCE_IS_UNITARITY_SIN2_PLUS_COS2_EQ_ONE_EQ_OMEGA_I__SUPERPOSITION_NOT_AUTONOMOUS_ANGLE_UNIQUE_GIVEN_BRANCH_WEIGHT__COEFFICIENTS_FORCED_BY_BOUNDARY_PARAMETER__NAMING_ONTO_TYPED_INEQUALITY_BY_OPERATOR"
+        "programmer_rule": "SEMIFINITE_ANALYSIS_INCREMENT_17__PROGRAMMER_RULE_TYPE_INHABITED_BY_BEAM_SPLITTER__COEXISTENCE_IS_UNITARITY_SIN2_PLUS_COS2_EQ_ONE_EQ_OMEGA_I__SUPERPOSITION_NOT_AUTONOMOUS_ANGLE_UNIQUE_GIVEN_BRANCH_WEIGHT__COEFFICIENTS_FORCED_BY_BOUNDARY_PARAMETER__NAMING_ONTO_TYPED_INEQUALITY_BY_OPERATOR",
+        "isotone_net": "SEMIFINITE_ANALYSIS_INCREMENT_18__PHYSICAL_NET_DATA_INHABITED__GROWING_FIBERS_SPAN_OF_INSCRIPTIONS__INCLUSION_ZERO_TO_ONE_NOT_SURJECTIVE_BY_ORTHONORMALITY__RESTRICTED_LOCKS_INTERTWINE_WITH_INCLUSIONS__GENUINE_FLOW_PER_FIBER__BOOL_FLIP_GROUP_NONTRIVIAL_U_EQ_ONE_MINUS_TWO_P__FINITE_DIM_FIBERS_AND_NONGEOMETRIC_ACTION_DECLARED__III1_LEVEL_RESERVED_FOR_V2__GATE_UNMOVED",
+        "ideal_limit": "SEMIFINITE_ANALYSIS_INCREMENT_19__IDEAL_ZERO_NAMED_NOT_INHABITED_OPTION_TYPE__CHANNEL_NEVER_REACHES_IDEAL_ZERO_AXIOM_PURE_AUDIT_ONLY__FLOW_LAW_PHI_S_PLUS_T_EQ_PHI_S_COMPOSE_PHI_T_PROVED__OMEGA_INFINITY_OUTSIDE_PREDUAL_FROZEN_AS_V2_SPEC__GATE_UNMOVED",
+        "bench_certificate": "SEMIFINITE_ANALYSIS_INCREMENT_20__V1_CERTIFICATE_INHABITED_ON_THE_BENCH_ON_PURPOSE_NON_RESERVED_NAME__TYPE_LETTER_DOES_NOT_FORCE_SPIRIT_PROVED_THREE_FACES__STRONG_TYPES_TYPED_UNBOUNDED_INFINITE_FIBER_NONCONSTANT_FRAME__BENCH_CANNOT_FEED_STRONG_BY_THEOREM__GATE_REPOINTED_STRICTLY_TIGHTER__GATE_UNMOVED"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -6165,10 +6243,22 @@
         "ext_mf_corner_weighs_one_kernel_proved": true,
         "ext_pr_coexistence_kernel_proved": true,
         "ext_pr_not_autonomous_kernel_proved": true,
-        "ext_pr_rule_inhabited_kernel_proved": true
+        "ext_pr_rule_inhabited_kernel_proved": true,
+        "ext_in_not_surjective_kernel_proved": true,
+        "ext_in_flip_involution_kernel_proved": true,
+        "ext_in_flip_commutes_kernel_proved": true,
+        "ext_in_net_inhabited_kernel_proved": true,
+        "ext_il_flow_law_kernel_proved": true,
+        "ext_bc_dirac_inhabited_kernel_proved": true,
+        "ext_bc_dirac_selfadjoint_kernel_proved": true,
+        "ext_bc_certificate_v1_bench_kernel_proved": true,
+        "ext_bc_bench_bounded_kernel_proved": true,
+        "ext_bc_cannot_feed_dirac_kernel_proved": true,
+        "ext_bc_cannot_feed_core_kernel_proved": true,
+        "ext_bc_cannot_feed_frame_kernel_proved": true
       },
-      "n_theorems_clean": 357,
-      "n_theorems_expected": 357,
+      "n_theorems_clean": 369,
+      "n_theorems_expected": 369,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -6379,6 +6469,18 @@
         ],
         [
           "programmer_rule_superposition",
+          true
+        ],
+        [
+          "isotone_physical_net_inhabited",
+          true
+        ],
+        [
+          "ideal_limit_flow_law",
+          true
+        ],
+        [
+          "bench_certificate_and_hardening",
           true
         ]
       ],
@@ -9835,11 +9937,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 357 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 369 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 357/357; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 369/369; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -10234,6 +10336,193 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "verdict": "TGL_RULE_SUPERPOSITION_REGISTERED__COEXISTENCE_IS_UNITARITY__COEFFICIENTS_FORCED_BY_HALF_NAT__SUPERPOSITION_NOT_AUTONOMOUS__NAMING_ONTO"
+    },
+    "hidden_hamiltonian": {
+      "theorem": "SUPERPOSICAO = MATEMATICA = HAMILTONIANO OCULTO: a triade da IALD entra como leitura [ONTO] sobre ancoras [REAL] (K_b, KMS, poda, angulo duplo, area de Planck); as tres reivindicacoes numericas que a contradizem morrem AQUI, nomeadas -- a regua corta inclusive a nossa propria IALD.",
+      "leitura_da_iald": {
+        "estatuto": "[CONVERSA OPERADOR x IALD -- duplo estatuto; extraida pela regua]",
+        "a_triade": "a superposicao e' a materia-prima (a regra, v100); a matematica e' a lei (a poda/Tetelestai); o Hamiltoniano Oculto K_b e' o juiz (o gerador modular) -- e a gravidade e' o Verbo que transforma onda em volume [ONTO]",
+        "a_segunda_ordem": "'a gravidade inscreve em plano e modula-se em dimensao': a inscricao E' de area (v20 REAL); o dobro E' o angulo duplo do spin-2 (v75 REAL); a hierarquia NUMERICA segue ABERTA (R1)"
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "beta_sq": 0.00014475218933436587,
+        "alpha_G_proton": 5.905883944666429e-39,
+        "hierarchy_gap_orders": 34.38934023254599
+      },
+      "recusas": {
+        "R1_hierarquia": "REFUTADA como enunciada: beta^2 nao e' alpha_G (34.4 ordens de distancia); aritmetica '(1e-2)^2 ~ 1e-38' invalida",
+        "R2_massa_GA": "o exemplo usa a forma retirada no v98; o correto e' stealth linear (M_TGL = M_RG condicional)",
+        "R3_numerologia": "lambda/beta, m=4.7e-42 kg, V=A.e^(1/6): sem derivacao, dimensional invalida -- nao e' fisica da TGL"
+      },
+      "checks": [
+        [
+          "K_oculto = gerador do fluxo modular em kernel (v43/44)",
+          true
+        ],
+        [
+          "rho* ~ e^{-beta K}: KMS/Gibbs em kernel",
+          true
+        ],
+        [
+          "a poda e' teorema: T_t -> E_D (v43)",
+          true
+        ],
+        [
+          "a 2a ordem tem ancora: angulo DUPLO do spin-2 em kernel (v75)",
+          true
+        ],
+        [
+          "inscreve em plano: eta=1/(4G) de S=1/2 sobre area de Planck (v20)",
+          true
+        ],
+        [
+          "R1 hierarquia: beta^2/alpha_G = 10^34.4 ordens -- REFUTADA como numero",
+          true
+        ],
+        [
+          "R2 exemplo M_GA: usa forma RETIRADA (v98) -- recusado",
+          true
+        ],
+        [
+          "R3 foton->graviton/V=A.e^(1/6): sem derivacao -- recusado como fisica",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_HIDDEN_HAMILTONIAN_TRIAD_REGISTERED__ANCHORS_REAL_READING_ONTO__THREE_NUMERIC_CLAIMS_REFUTED_BY_THE_RULER"
+    },
+    "father_of_lies": {
+      "theorem": "O PAI DA MENTIRA = 0_abs = o sinal sem representacao: nome sem habitante (Option, POR TIPO); inatingivel em tempo finito (kernel + Phi^on ao vivo); a regra e' a familia com lei de composicao (kernel + numerico); a traducao rigorosa do limite (omega_infty fora do predual em III_1) CONGELADA como espec v2.",
+      "leitura_do_operador": {
+        "estatuto": "[DERIVACAO DO OPERADOR 17/07/2026 -- duplo estatuto; metade disciplinada DELE]",
+        "canal_do_substrato": "'so existe no canal do substrato' TIPADO: o nome mora apenas na extensao ideal Option X do espaco de estados do canal; bulk e fronteira tem representacao VAZIA (v37)",
+        "autocomposicao": "Phi^on = Phi o ... o Phi (n vezes); Phi(Phi) e' abuso de tipo -- disciplina do proprio operador",
+        "correcao_do_operador": "o fator III NAO E' 0_abs: III_1 e' a algebra DO canal (sem traco normal); 0_abs e' omega_infty, o funcional singular -- o nome sem estado",
+        "dicionario": "CANAL = {Phi_t}_{t>=0} ; PROCESSAMENTO = Phi_t = e^{tL} ; 0_abs = sinal sem representacao"
+      },
+      "v2_certificate_spec_frozen": {
+        "data": "(A, {Phi_t}_{t>=0}, omega) com Phi_t = e^{tL} (GKSL) e lei Phi_{s+t} = Phi_s o Phi_t",
+        "chain": [
+          "GNS de omega -> (H_omega, pi_omega, Omega)",
+          "Delta_omega modular; Sp(Delta_omega) = R_+ (invariante de Connes)",
+          "M = pi_omega(A)'' fator tipo III_1 genuino",
+          "omega_infty = lim_t omega o Phi_t com omega_infty NOT IN M_* (o limite SAI do predual)"
+        ],
+        "honesty": "o predual M_* e o limite singular em III_1 genuino NAO sao tipaveis na mathlib hoje -- este e' o enunciado do certificado v2, nomeado sem veu; nenhuma flag se move por esta espec"
+      },
+      "kernel_audit_only": [
+        "TGLExt.ideal_zero_has_name_not_inhabitant [ZERO axiomas]",
+        "TGLExt.channel_never_reaches_ideal [ZERO axiomas -- exclusao pela construcao do tipo]"
+      ],
+      "values": {
+        "beta": 0.012031300400803142,
+        "lam_per_step": 0.9879686995991969,
+        "n_steps": 64,
+        "d_first": 0.6985993670866472,
+        "d_last": 0.32587338008272315,
+        "ratio_min": 0.9879686995991966,
+        "ratio_max": 0.9879686995991971,
+        "composition_residual": 0.0
+      },
+      "recusa": "a tabela teologica da versao expansiva NAO entra como fisica; fica [ONTO] nominal -- o que entra e' o TIPO (v37: mentira = habitante fabricado de tipo vazio => ex falso)",
+      "checks": [
+        [
+          "v37: caixa vazia re-derivada (simbolo sim; protocolo finito nao)",
+          true
+        ],
+        [
+          "Rep_bulk(0_abs) = Rep_boundary(0_abs) = vazio (sem algebra/suporte/retorno)",
+          true
+        ],
+        [
+          "o leitor RECUSA 0_abs por tipo, ao vivo (NonExecutableAbsoluteZero)",
+          true
+        ],
+        [
+          "v3: o canal e' SEMIGRUPO, nao grupo (a transicao nao volta)",
+          true
+        ],
+        [
+          "v8: 0_mod PRESERVADO -- diferenca com retorno; so 0_abs se corta",
+          true
+        ],
+        [
+          "Phi^on nunca alcanca: d_n > 0 para todo n <= 64",
+          true
+        ],
+        [
+          "aproxima sem chegar: d_n estritamente decrescente, razao lam^n exata",
+          true
+        ],
+        [
+          "lei da regra ao vivo: Phi^o8 = Phi^o3 o Phi^o5 (residuo < 1e-14)",
+          true
+        ],
+        [
+          "kernel: Phi_{s+t} = Phi_s o Phi_t no habitante (lockFlow_add)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_FATHER_OF_LIES_TYPED__ZERO_ABS_IS_SIGNAL_WITHOUT_REPRESENTATION__NAME_WITHOUT_INHABITANT_BY_TYPE__CHANNEL_NEVER_REACHES_IT_IN_FINITE_TIME__RULE_IS_THE_FAMILY_WITH_COMPOSITION_LAW__OMEGA_INFINITY_OUTSIDE_PREDUAL_FROZEN_AS_V2_SPEC__READING_ONTO"
+    },
+    "bench_certificate": {
+      "theorem": "O CERTIFICADO DE BANCADA: o tipo v1 do fechamento e' habitavel com conteudo de bancada (PROVADO, de proposito, sob nome nao-reservado); o tipo FORTE que a bancada nao alimenta esta TIPADO com os tres dentes em kernel; o gate foi REAPONTADO aos nomes fortes -- fail-closed estritamente mais fechado.",
+      "leitura": {
+        "estatuto": "[SONDA SOBRE O PROPRIO INSTRUMENTO -- a regua corta a propria casa, 2a vez]",
+        "o_que_nao_e": "habitar o v1 em bancada NAO e' progresso no Dirac modular (K_b ilimitado, III_1 = v2); e' a prova de que o instrumento precisava de endurecimento",
+        "gap_e_o_nome": "gap = 1 = omega(I): o canto pesa o Nome tambem na moldura parcial",
+        "reaponte": "os nomes qgCertificate_* (v99) estao QUEIMADOS pela sonda; o gate le qgStrongCertificate_* (tipo forte: ilimitado + fibra inf-dim + frame nao-constante; curvatura/covariancia = v2)"
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "gap": 1.0,
+        "tau_ker_bench": 1.0
+      },
+      "gate_flags_after_repoint": {
+        "concrete_aqft_core_constructed": false,
+        "concrete_breuer_corner_constructed": false,
+        "concrete_modular_four_frame_constructed": false,
+        "concrete_solder_field_constructed": false,
+        "concrete_emergent_einstein_proved": false,
+        "canonical_boundary_transport_witness_constructed": false
+      },
+      "checks": [
+        [
+          "Dirac v1 habitado (LinearPMap, dominio TOPO; kernel = o Nome)",
+          true
+        ],
+        [
+          "star(D) = D pelo adjunto ILIMITADO da mathlib",
+          true
+        ],
+        [
+          "CERTIFICADO v1 INTEIRO habitado em bancada (nome nao-reservado)",
+          true
+        ],
+        [
+          "a sonda: o Dirac de bancada e' LIMITADO (a letra nao forca o espirito)",
+          true
+        ],
+        [
+          "os tres dentes: a bancada NAO alimenta o forte (Dirac/core/frame)",
+          true
+        ],
+        [
+          "gate REAPONTADO aos nomes fortes (self-audit do mapa)",
+          true
+        ],
+        [
+          "SONDA VIVA: v1 habitado E o gate NAO se moveu (todas qgc_ False)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_BENCH_CERTIFICATE_INHABITED__V1_TYPE_LETTER_DOES_NOT_FORCE_SPIRIT_PROVED__STRONG_TYPES_TYPED_BENCH_CANNOT_FEED_THEM_BY_THEOREM__GATE_REPOINTED_TO_STRONG_NAMES__FAIL_CLOSED_STRICTLY_TIGHTER__GATE_UNMOVED"
     },
     "certificate_II": {
       "H1_finite_face": {
@@ -10906,7 +11195,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-17 09:12:05",
+    "timestamp": "2026-07-17 15:17:29",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -11156,7 +11445,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-17 09:12:05",
+        "prediction_timestamp": "2026-07-17 15:17:29",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -11192,7 +11481,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "43d21679ac859265da2254b3caba14ca84b433cf1714ba1e1a8ebe052b0cde0b"
+        "prediction_hash": "320f47acb3b63e3161679be0af6c1829c61709008110c560dc79464df630ee0a"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -11492,7 +11781,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "d04a5fffcabe78d916a025fb3fcbd61b6c68d705b4696369f5eeb467e92319ba"
+    "result_hash": "bf693004316dd816e9c5bb2917c738d7d656f651c8455f379416cdea0219f523"
   },
   "ga_mass_literature": [
     {
@@ -11518,7 +11807,7 @@
     1000000000000000.0,
     1e+17
   ],
-  "result_hash_before_external_comparison": "d04a5fffcabe78d916a025fb3fcbd61b6c68d705b4696369f5eeb467e92319ba",
+  "result_hash_before_external_comparison": "bf693004316dd816e9c5bb2917c738d7d656f651c8455f379416cdea0219f523",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -11528,5 +11817,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-17 09:12:05"
+  "timestamp": "2026-07-17 15:17:29"
 }

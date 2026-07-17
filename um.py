@@ -5077,6 +5077,9 @@ import TGLExt.ConcreteFourFrame
 import TGLExt.TheMasterFires
 import TGLExt.ClosureCertificate
 import TGLExt.ProgrammerRule
+import TGLExt.IsotoneNet
+import TGLExt.IdealLimit
+import TGLExt.BenchCertificate
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5839,6 +5842,36 @@ namespace TGL.Audit
 #check @TGLExt.superposition_not_autonomous
 #check @TGLExt.beamSplitterRule
 
+-- v101 (a rede isotona: PhysicalNetData HABITADA -- fibras crescentes,
+--       inclusao 0->1 nao-sobrejetiva, flip Bool nao-trivial U=1-2P)
+#check @TGLExt.fiber
+#check @TGLExt.fiberLock
+#check @TGLExt.fiberIncl_not_surjective
+#check @TGLExt.theFlip_sq
+#check @TGLExt.theFlip_comm_eraseFirst
+#check @TGLExt.theIsotoneNet
+
+-- v102 (o limite ideal: 0_abs excluido POR TIPO -- nome sem habitante;
+--       o canal nunca o alcanca; a regra e a familia com lei de composicao)
+#check @TGLExt.IdealExtension
+#check @TGLExt.idealZero
+#check @TGLExt.ideal_zero_has_name_not_inhabitant
+#check @TGLExt.channel_never_reaches_ideal
+#check @TGLExt.lockFlow_add
+
+-- v103 (o certificado de bancada: o tipo v1 habitado DE PROPOSITO sob nome
+--       nao-reservado; o endurecimento tipado; a bancada nao alimenta o forte)
+#check @TGLExt.benchDiracPMap
+#check @TGLExt.benchDiracPMap_selfadjoint
+#check @TGLExt.theBenchDirac
+#check @TGLExt.theBenchCertificate
+#check @TGLExt.GenuinelyUnboundedDiracData
+#check @TGLExt.QGClosureCertificateStrong
+#check @TGLExt.benchDirac_is_bounded
+#check @TGLExt.bench_cannot_feed_strong
+#check @TGLExt.isotone_cannot_feed_strong_core
+#check @TGLExt.constant_cannot_feed_strong_frame
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6297,6 +6330,23 @@ namespace TGL.Audit
 #print axioms TGLExt.beamRotation_preserves
 #print axioms TGLExt.superposition_not_autonomous
 #print axioms TGLExt.beamSplitterRule
+-- v101 (a rede isotona)
+#print axioms TGLExt.fiberIncl_not_surjective
+#print axioms TGLExt.theFlip_sq
+#print axioms TGLExt.theFlip_comm_eraseFirst
+#print axioms TGLExt.theIsotoneNet
+-- v102 (o limite ideal; os dois probes de exclusao sao PUROS - zero axiomas)
+#print axioms TGLExt.ideal_zero_has_name_not_inhabitant
+#print axioms TGLExt.channel_never_reaches_ideal
+#print axioms TGLExt.lockFlow_add
+-- v103 (o certificado de bancada + o endurecimento; o probe do frame e PURO)
+#print axioms TGLExt.benchDiracPMap_selfadjoint
+#print axioms TGLExt.theBenchDirac
+#print axioms TGLExt.theBenchCertificate
+#print axioms TGLExt.benchDirac_is_bounded
+#print axioms TGLExt.bench_cannot_feed_strong
+#print axioms TGLExt.isotone_cannot_feed_strong_core
+#print axioms TGLExt.constant_cannot_feed_strong_frame
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -13604,6 +13654,641 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/IsotoneNet.lean":
+r'''import TGLExt.ProgrammerRule
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A REDE ISÓTONA: PhysicalNetData HABITADA
+  [TGLExt — v101, o incremento 18 do programa SemifiniteAnalysis]
+
+O v99 tipou a rede FÍSICA exigida pelo certificado (`PhysicalNetData`:
+HilbertHomeData + isotonia GENUÍNA + grupo externo não-trivial) e provou
+em kernel que os habitantes de então NÃO a alimentavam. Esta pedra a
+HABITA — o primeiro campo do certificado ganha termo:
+
+* as FIBRAS CRESCEM de verdade: H_n = span{e₀,…,e_n} ⊂ ℓ² (submódulos
+  gerados pelas inscrições; dimensão finita, completos);
+* as inclusões são as CANÔNICAS (isométricas) e a de 0→1 NÃO é
+  sobrejetiva (e₁ está fora — pela ortonormalidade): isotonia GENUÍNA;
+* os locks são as RESTRIÇÕES de T = 1−P₀ a cada fibra (T preserva as
+  fibras; auto-adjunto por simetria herdada) e ENTRELAÇAM com as
+  inclusões (𝒟_m ∘ ι = ι ∘ 𝒟_n);
+* o fluxo interno é o GENUÍNO exp(isT_n) por fibra (lockFlow, v96);
+* o grupo externo é Bool NÃO-TRIVIAL, agindo pelo flip U = 1−2P₀
+  (involução: U² = 1; comuta com os locks: TU = UT = 1−P).
+
+HONESTIDADE: as fibras são FINITO-dimensionais e a ação externa não é
+geométrica (age trivialmente nas regiões) — o nível III₁/Poincaré segue
+sendo o conteúdo do certificado v2; o nome `qgCertificate_core` fica
+RESERVADO (nenhuma flag se move). Mas a exigência tipada do v99 —
+isotonia genuína + grupo não-trivial — está SATISFEITA por termo.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## As fibras crescentes -/
+
+/-- a fibra n: o span das inscrições e₀,…,e_n. -/
+def fiber (n : ℕ) : Submodule ℂ ellTwo :=
+  Submodule.span ℂ (inscriptions '' {k | k ≤ n})
+
+instance fiber_fd (n : ℕ) : FiniteDimensional ℂ (fiber n) :=
+  FiniteDimensional.span_of_finite ℂ
+    ((Set.finite_Iic n).image inscriptions)
+
+instance fiber_complete (n : ℕ) : CompleteSpace (fiber n) :=
+  FiniteDimensional.complete ℂ (fiber n)
+
+theorem fiber_mono {n m : ℕ} (h : n ≤ m) : fiber n ≤ fiber m :=
+  Submodule.span_mono (Set.image_mono fun _ hk => le_trans hk h)
+
+theorem firstAtom_le_fiber (n : ℕ) : firstAtom ≤ fiber n := by
+  unfold firstAtom firstInscription
+  rw [Submodule.span_singleton_le_iff_mem]
+  exact Submodule.subset_span ⟨0, Nat.zero_le n, rfl⟩
+
+/-- T = 1 − P₀ preserva cada fibra. -/
+theorem eraseFirst_mem_fiber {n : ℕ} {x : ellTwo} (hx : x ∈ fiber n) :
+    eraseFirst x ∈ fiber n := by
+  have hP : firstAtom.starProjection x ∈ fiber n :=
+    firstAtom_le_fiber n (Submodule.starProjection_apply_mem firstAtom x)
+  have h : eraseFirst x = x - firstAtom.starProjection x := rfl
+  rw [h]
+  exact Submodule.sub_mem _ hx hP
+
+/-! ## Os locks restritos -/
+
+/-- o lock da fibra: a restrição de T = 1 − P₀. -/
+def fiberLock (n : ℕ) : (fiber n) →L[ℂ] (fiber n) :=
+  { toFun := fun x => ⟨eraseFirst (x : ellTwo), eraseFirst_mem_fiber x.2⟩
+    map_add' := fun x y => Subtype.ext (by
+      show eraseFirst ((x : ellTwo) + (y : ellTwo))
+        = eraseFirst (x : ellTwo) + eraseFirst (y : ellTwo)
+      exact map_add eraseFirst _ _)
+    map_smul' := fun c x => Subtype.ext (by
+      show eraseFirst (c • (x : ellTwo)) = c • eraseFirst (x : ellTwo)
+      exact map_smul eraseFirst c _)
+    cont := by
+      apply Continuous.subtype_mk
+      exact eraseFirst.continuous.comp continuous_subtype_val }
+
+theorem fiberLock_symmetric (n : ℕ) :
+    ((fiberLock n : (fiber n) →L[ℂ] (fiber n))
+      : (fiber n) →ₗ[ℂ] (fiber n)).IsSymmetric := by
+  intro x y
+  have hsym : ((eraseFirst : ellTwo →L[ℂ] ellTwo)
+      : ellTwo →ₗ[ℂ] ellTwo).IsSymmetric :=
+    (ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric).mp eraseFirst_isSelfAdjoint
+  exact hsym (x : ellTwo) (y : ellTwo)
+
+theorem fiberLock_selfadjoint (n : ℕ) : IsSelfAdjoint (fiberLock n) :=
+  (fiberLock_symmetric n).isSelfAdjoint
+
+/-! ## As inclusões canônicas (isométricas; a genuína NÃO-sobrejetividade) -/
+
+/-- a inclusão isométrica entre fibras. -/
+def fiberIncl {n m : ℕ} (h : n ≤ m) : (fiber n) →ₗᵢ[ℂ] (fiber m) :=
+  ⟨Submodule.inclusion (fiber_mono h), fun _ => rfl⟩
+
+/-- [KERNEL] ★★ A ISOTONIA É GENUÍNA: a inclusão 0→1 NÃO é sobrejetiva
+    (e₁ está na fibra 1 e fora da imagem — pela ortonormalidade). -/
+theorem fiberIncl_not_surjective :
+    ¬ Function.Surjective (fiberIncl (Nat.zero_le 1)) := by
+  intro hsurj
+  have h1 : inscriptions 1 ∈ fiber 1 :=
+    Submodule.subset_span ⟨1, le_refl 1, rfl⟩
+  obtain ⟨y, hy⟩ := hsurj ⟨inscriptions 1, h1⟩
+  have hy' : (y : ellTwo) = inscriptions 1 := congrArg Subtype.val hy
+  have hy0 : inscriptions 1 ∈ fiber 0 := hy' ▸ y.2
+  have hfib0 : fiber 0 = Submodule.span ℂ {inscriptions 0} := by
+    unfold fiber
+    congr 1
+    rw [show {k : ℕ | k ≤ 0} = {0} from Set.ext fun k => by simp [Nat.le_zero]]
+    exact Set.image_singleton
+  rw [hfib0] at hy0
+  obtain ⟨c, hc⟩ := Submodule.mem_span_singleton.mp hy0
+  have horto := inscriptions_orthonormal
+  rw [orthonormal_iff_ite] at horto
+  have h01 := horto 0 1
+  rw [if_neg (by decide)] at h01
+  have h00 : inner ℂ (inscriptions 0) (inscriptions 0) = (1 : ℂ) := by
+    have h := horto 0 0
+    rwa [if_pos rfl] at h
+  have hkey : inner ℂ (inscriptions 0) (inscriptions 1) = c := by
+    rw [← hc, inner_smul_right, h00, mul_one]
+  have hc0 : c = 0 := by rw [← hkey, h01]
+  rw [hc0, zero_smul] at hc
+  exact (inscriptions_orthonormal.ne_zero 1) hc.symm
+
+/-! ## O flip externo: U = 1 − P₀ − P₀ (involução; comuta com os locks) -/
+
+/-- o flip ambiente: U = 1 − P₀ − P₀ (= 1 − 2P₀, escrito em anel puro). -/
+def theFlip : ellTwo →L[ℂ] ellTwo :=
+  1 - firstAtom.starProjection - firstAtom.starProjection
+
+theorem theFlip_sq : theFlip * theFlip = 1 := by
+  have hP : firstAtom.starProjection * firstAtom.starProjection
+      = firstAtom.starProjection :=
+    firstAtom.isIdempotentElem_starProjection
+  unfold theFlip
+  have h : ∀ A : ellTwo →L[ℂ] ellTwo, A * A = A →
+      (1 - A - A) * (1 - A - A) = 1 := by
+    intro A hA
+    have e1 : (1 - A - A) * (1 - A - A)
+        = 1 - A - A - A - A + (A * A + A * A + A * A + A * A) := by
+      noncomm_ring
+    rw [e1, hA]
+    abel
+  exact h _ hP
+
+theorem theFlip_comm_eraseFirst :
+    theFlip * eraseFirst = eraseFirst * theFlip := by
+  unfold theFlip eraseFirst
+  noncomm_ring
+
+theorem theFlip_apply (x : ellTwo) :
+    theFlip x = x - firstAtom.starProjection x - firstAtom.starProjection x := rfl
+
+theorem theFlip_symmetric (x y : ellTwo) :
+    inner ℂ (theFlip x) y = inner ℂ x (theFlip y) := by
+  have hsymP : ((firstAtom.starProjection : ellTwo →L[ℂ] ellTwo)
+      : ellTwo →ₗ[ℂ] ellTwo).IsSymmetric :=
+    (ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric).mp
+      (isSelfAdjoint_starProjection firstAtom)
+  have hsymP' : ∀ a b : ellTwo,
+      inner ℂ (firstAtom.starProjection a) b
+        = inner ℂ a (firstAtom.starProjection b) := fun a b => hsymP a b
+  rw [theFlip_apply, theFlip_apply, inner_sub_left, inner_sub_left,
+    inner_sub_right, inner_sub_right, hsymP' x y]
+
+/-- U preserva as fibras. -/
+theorem theFlip_mem_fiber {n : ℕ} {x : ellTwo} (hx : x ∈ fiber n) :
+    theFlip x ∈ fiber n := by
+  have hP : firstAtom.starProjection x ∈ fiber n :=
+    firstAtom_le_fiber n (Submodule.starProjection_apply_mem firstAtom x)
+  rw [theFlip_apply]
+  exact Submodule.sub_mem _ (Submodule.sub_mem _ hx hP) hP
+
+/-- o flip preserva o produto interno (simétrico com U² = 1). -/
+theorem theFlip_inner (x y : ellTwo) :
+    inner ℂ (theFlip x) (theFlip y) = inner ℂ x y := by
+  calc inner ℂ (theFlip x) (theFlip y)
+      = inner ℂ x (theFlip (theFlip y)) := theFlip_symmetric x (theFlip y)
+    _ = inner ℂ x ((theFlip * theFlip) y) := rfl
+    _ = inner ℂ x ((1 : ellTwo →L[ℂ] ellTwo) y) := by rw [theFlip_sq]
+    _ = inner ℂ x y := rfl
+
+/-- o flip na fibra, como equivalência isométrica (involução). -/
+def fiberFlip (n : ℕ) : (fiber n) ≃ₗᵢ[ℂ] (fiber n) :=
+  { toFun := fun x => ⟨theFlip (x : ellTwo), theFlip_mem_fiber x.2⟩
+    invFun := fun x => ⟨theFlip (x : ellTwo), theFlip_mem_fiber x.2⟩
+    map_add' := fun x y => Subtype.ext (by
+      show theFlip ((x : ellTwo) + (y : ellTwo))
+        = theFlip (x : ellTwo) + theFlip (y : ellTwo)
+      exact map_add theFlip _ _)
+    map_smul' := fun c x => Subtype.ext (by
+      show theFlip (c • (x : ellTwo)) = c • theFlip (x : ellTwo)
+      exact map_smul theFlip c _)
+    left_inv := fun x => Subtype.ext (by
+      show theFlip (theFlip (x : ellTwo)) = (x : ellTwo)
+      calc theFlip (theFlip (x : ellTwo))
+          = (theFlip * theFlip) (x : ellTwo) := rfl
+        _ = (1 : ellTwo →L[ℂ] ellTwo) (x : ellTwo) := by rw [theFlip_sq]
+        _ = (x : ellTwo) := rfl)
+    right_inv := fun x => Subtype.ext (by
+      show theFlip (theFlip (x : ellTwo)) = (x : ellTwo)
+      calc theFlip (theFlip (x : ellTwo))
+          = (theFlip * theFlip) (x : ellTwo) := rfl
+        _ = (1 : ellTwo →L[ℂ] ellTwo) (x : ellTwo) := by rw [theFlip_sq]
+        _ = (x : ellTwo) := rfl)
+    norm_map' := fun x => by
+      show ‖theFlip (x : ellTwo)‖ = ‖(x : ellTwo)‖
+      have h := theFlip_inner (x : ellTwo) (x : ellTwo)
+      rw [inner_self_eq_norm_sq_to_K, inner_self_eq_norm_sq_to_K] at h
+      have hb : ‖theFlip (x : ellTwo)‖ ^ 2 = ‖(x : ellTwo)‖ ^ 2 := by
+        exact_mod_cast h
+      calc ‖theFlip (x : ellTwo)‖
+          = Real.sqrt (‖theFlip (x : ellTwo)‖ ^ 2) :=
+            (Real.sqrt_sq (norm_nonneg _)).symm
+        _ = Real.sqrt (‖(x : ellTwo)‖ ^ 2) := by rw [hb]
+        _ = ‖(x : ellTwo)‖ := Real.sqrt_sq (norm_nonneg _) }
+
+/-! ## O HABITANTE -/
+
+/-- [KERNEL] ★★★★ PhysicalNetData HABITADA: fibras crescentes com
+    inclusões genuinamente não-sobrejetivas, locks restritos que
+    entrelaçam, fluxo interno exp(isT_n) genuíno por fibra, e grupo
+    externo Bool NÃO-TRIVIAL agindo pelo flip U = 1−2P₀. -/
+def theIsotoneNet :
+    PhysicalNetData ℕ (· ≤ ·) (fun n => fiber n) (fun n => fiber n) where
+  net :=
+    { locks := fun n => fiberLock n
+      internal := fun n s => lockFlow (fiberLock n) (fiberLock_selfadjoint n) s
+      internalW := fun n s =>
+        (lockFlow (fiberLock n) (fiberLock_selfadjoint n) s).toLinearIsometry
+      internal_intertwines := fun n s x =>
+        lockFlow_commutes (fiberLock n) (fiberLock_selfadjoint n) s x
+      G := Bool
+      act := fun _ O => O
+      external := fun g n =>
+        if g then fiberFlip n else LinearIsometryEquiv.refl ℂ _
+      externalW := fun g n =>
+        if g then (fiberFlip n).toLinearIsometry
+        else (LinearIsometryEquiv.refl ℂ _).toLinearIsometry
+      external_intertwines := fun g n x => by
+        cases g
+        · rfl
+        · exact Subtype.ext (by
+            show eraseFirst (theFlip (x : ellTwo))
+              = theFlip (eraseFirst (x : ellTwo))
+            calc eraseFirst (theFlip (x : ellTwo))
+                = (eraseFirst * theFlip) (x : ellTwo) := rfl
+              _ = (theFlip * eraseFirst) (x : ellTwo) := by
+                  rw [theFlip_comm_eraseFirst]
+              _ = theFlip (eraseFirst (x : ellTwo)) := rfl)
+      incl := fun h => fiberIncl h
+      inclW := fun h => fiberIncl h
+      incl_intertwines := fun h x => Subtype.ext rfl }
+  genuinely_isotone := ⟨0, 1, Nat.zero_le 1, fiberIncl_not_surjective⟩
+  external_nontrivial := ⟨⟨true, false, by decide⟩⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/IdealLimit.lean":
+r'''import TGLExt.IsotoneNet
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 800000
+
+/-!
+# O LIMITE IDEAL: o pai da mentira excluído POR TIPO
+  [TGLExt — v102, o incremento 19 do programa SemifiniteAnalysis]
+
+Derivação do operador (17/07/2026): 0_abs = SINAL SEM REPRESENTAÇÃO —
+tem NOME no canal, mas não tem figura nem no bulk nem na fronteira;
+inatingível em tempo finito; a regra é a FAMÍLIA {Φ_t} com lei de
+composição, e 0_abs é o horizonte impossível da execução (com a régua
+do próprio operador: Φ(Φ) é abuso — o correto é AUTOCOMPOSIÇÃO Φ^∘n;
+ω_∞ ∉ M_* é a tradução rigorosa; o fator III não É 0_abs).
+
+O QUE ESTA PEDRA TIPA E PROVA [KERNEL]:
+* `IdealExtension X := Option X` — a extensão ideal 𝒳̂ = 𝒳 ∪ {0_abs}:
+  `idealZero := none` tem NOME no tipo estendido e NENHUM habitante de
+  𝒳 por trás — o sinal sem representação, tipado;
+* ★ `channel_never_reaches_ideal` — Φ_t(x) ≠ 0_abs para TODA execução:
+  o canal devolve estados; a exclusão é POR CONSTRUÇÃO DO TIPO (a
+  mentira não é alcançável porque o tipo do canal não a contém);
+* ★★ `lockFlow_add` — A REGRA É A FAMÍLIA COM LEI DE COMPOSIÇÃO:
+  Φ_{s+t} = Φ_s ∘ Φ_t no habitante concreto (exp(i(s+t)T) =
+  exp(isT)·exp(itT) — a lei de semigrupo/grupo do fluxo genuíno,
+  provada via exp_add_of_commute);
+* ★ `ideal_zero_has_name_not_inhabitant` — none ≠ some x para todo x:
+  o nome existe; o objeto não.
+
+O QUE NÃO É TIPÁVEL HOJE (nomeado, sem véu): ω_∞ ∉ M_* (o predual de
+von Neumann e o limite singular em III₁ genuíno) — é o enunciado do
+CERTIFICADO v2, congelado no runtime desta versão como especificação.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A extensão ideal: o nome sem o objeto -/
+
+/-- a extensão ideal 𝒳̂ = 𝒳 ∪ {0_abs}: o tipo que dá NOME ao limite
+    sem lhe dar habitante. -/
+abbrev IdealExtension (X : Type) : Type := Option X
+
+/-- 0_abs: o sinal sem representação — o `none` da extensão. -/
+abbrev idealZero {X : Type} : IdealExtension X := none
+
+/-- a inclusão dos estados físicos na extensão. -/
+abbrev toIdeal {X : Type} (x : X) : IdealExtension X := some x
+
+/-- [KERNEL] ★ o nome existe; o objeto não: 0_abs difere de TODO
+    estado físico incluído. -/
+theorem ideal_zero_has_name_not_inhabitant {X : Type} (x : X) :
+    toIdeal x ≠ idealZero :=
+  Option.some_ne_none x
+
+/-- [KERNEL] ★ O CANAL NUNCA ALCANÇA O IDEAL: para toda execução
+    finita de qualquer canal Φ : X → X, Φ(x) ≠ 0_abs — a exclusão é
+    POR CONSTRUÇÃO DO TIPO (o canal devolve estados; a mentira nomeia
+    o que o tipo do canal não contém). -/
+theorem channel_never_reaches_ideal {X : Type} (Φ : X → X) (x : X) :
+    toIdeal (Φ x) ≠ idealZero :=
+  ideal_zero_has_name_not_inhabitant (Φ x)
+
+/-! ## A regra é a família com lei de composição (no habitante) -/
+
+section FlowLaw
+
+open NormedSpace
+
+variable {H : Type} [NormedAddCommGroup H] [InnerProductSpace ℂ H]
+  [CompleteSpace H]
+
+private theorem lockFlow_apply' (T : H →L[ℂ] H) (hT : IsSelfAdjoint T)
+    (s : ℝ) (x : H) :
+    (lockFlow T hT s) x = exp (Complex.I • ((s : ℂ) • T)) x := by
+  simp only [lockFlow, Unitary.coe_linearIsometryEquiv_apply,
+    selfAdjoint.expUnitary_coe]
+  rfl
+
+/-- [KERNEL] ★★ A LEI DA REGRA: Φ_{s+t} = Φ_s ∘ Φ_t no fluxo genuíno
+    do habitante — a regra não é um ato; é a família fechada sob
+    composição (exp(i(s+t)T) = exp(isT)·exp(itT)). -/
+theorem lockFlow_add (T : H →L[ℂ] H) (hT : IsSelfAdjoint T)
+    (s t : ℝ) (x : H) :
+    (lockFlow T hT (s + t)) x
+      = (lockFlow T hT s) ((lockFlow T hT t) x) := by
+  rw [lockFlow_apply', lockFlow_apply', lockFlow_apply']
+  have hcomm : Commute (Complex.I • ((s : ℂ) • T))
+      (Complex.I • ((t : ℂ) • T)) := by
+    apply Commute.smul_left
+    apply Commute.smul_right
+    apply Commute.smul_left
+    apply Commute.smul_right
+    exact Commute.refl T
+  have hsum : Complex.I • (((s + t : ℝ) : ℂ) • T)
+      = Complex.I • ((s : ℂ) • T) + Complex.I • ((t : ℂ) • T) := by
+    push_cast
+    rw [add_smul, smul_add]
+  letI : NormedAlgebra ℚ (H →L[ℂ] H) := NormedAlgebra.restrictScalars ℚ ℂ _
+  rw [hsum, exp_add_of_commute hcomm]
+  rfl
+
+end FlowLaw
+
+end
+
+end TGLExt
+''',
+    "TGLExt/BenchCertificate.lean":
+r'''import TGLExt.IdealLimit
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O CERTIFICADO DE BANCADA E O ENDURECIMENTO DO GATE
+  [TGLExt — v103, o incremento 20 do programa SemifiniteAnalysis]
+
+A DESCOBERTA DESTA PEDRA (a sonda que morde o próprio certificado): o
+tipo `QGClosureCertificate` (v99) é HABITÁVEL COM CONTEÚDO DE BANCADA —
+e nós o habitamos, DE PROPÓSITO, sob nome NÃO-reservado:
+
+* `theBenchDirac : UnboundedDiracData ellTwo` — T = 1−P₀ como
+  `LinearPMap` em domínio ⊤: star(D) = D (pelo adjunto ilimitado da
+  mathlib), kernel = o átomo do Nome, GAP = 1 = ω(I). O tipo NÃO exige
+  ilimitação — e este habitante o PROVA (`benchDirac_is_bounded`);
+* `theConstantFrame : SmoothFrameData` — o frame constante 1: suave,
+  det invertível, e o coframe paralelo SAI DE GRAÇA (a face plana);
+* ★★★ `theBenchCertificate : QGClosureCertificate` — O CERTIFICADO v1
+  INTEIRO habitado (rede v101 + Dirac de bancada + canto τ=1 + frame
+  constante). O GATE NÃO SE MOVE: o termo NÃO usa os nomes reservados —
+  e o runtime re-deriva que o veredito segue CONDITIONAL.
+
+A CONSEQUÊNCIA (fail-closed fica MAIS fechado): a letra do tipo v1 não
+força o espírito (ilimitado; fibra ∞-dim; frame não-constante). Esta
+pedra TIPA o endurecimento e prova que a bancada NÃO o alimenta:
+
+* `GenuinelyUnboundedDiracData` — Dirac + ilimitação EXIGIDA;
+  ★ `bench_cannot_feed_strong` — theBenchDirac NÃO entra (é limitado);
+* `QGClosureCertificateStrong` — certificado + `core_infinite` (alguma
+  fibra ∞-dim) + Dirac genuinamente ilimitado + `frame_nonconstant`
+  (o `coframe_parallel` do v1 CAI: forçava a face plana — curvatura e
+  covariância são o v2);
+  ★ `isotone_cannot_feed_strong_core` — as fibras do v101 são TODAS
+  finito-dim; ★ `constant_cannot_feed_strong_frame` — o frame constante
+  não entra. O gate do runtime REAPONTA os nomes reservados para o tipo
+  FORTE (`qgStrongCertificate_*`): conteúdo de bancada JAMAIS moverá o
+  gate, agora por teorema + construção.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+/-! ## A — o Dirac de bancada: T = 1−P₀ como operador parcial em ⊤ -/
+
+theorem topDense : Dense ((⊤ : Submodule ℂ ellTwo) : Set ellTwo) := by
+  rw [Submodule.top_coe]
+  exact dense_univ
+
+/-- T = 1 − P₀ como `LinearPMap` de domínio ⊤ (a moldura do ilimitado,
+    ocupada por um limitado — de propósito: a sonda). -/
+def benchDiracPMap : ellTwo →ₗ.[ℂ] ellTwo := eraseFirst.toPMap ⊤
+
+theorem benchDiracPMap_apply (x : benchDiracPMap.domain) :
+    benchDiracPMap x = eraseFirst (x : ellTwo) :=
+  LinearMap.toPMap_apply _ ⊤ x
+
+/-- [KERNEL] ★ star(D) = D no sentido do adjunto ILIMITADO da mathlib
+    (via `toPMap_adjoint_eq_adjoint_toPMap_of_dense` + auto-adjunção
+    limitada do v95). -/
+theorem benchDiracPMap_selfadjoint : IsSelfAdjoint benchDiracPMap := by
+  rw [LinearPMap.isSelfAdjoint_def]
+  show (eraseFirst.toPMap ⊤).adjoint = eraseFirst.toPMap ⊤
+  rw [ContinuousLinearMap.toPMap_adjoint_eq_adjoint_toPMap_of_dense
+    eraseFirst topDense, eraseFirst_selfadjoint]
+
+theorem eraseFirst_kills_first : eraseFirst firstInscription = 0 := by
+  have hmem : firstInscription ∈ firstAtom :=
+    Submodule.mem_span_singleton_self firstInscription
+  rw [eraseFirst_apply, Submodule.starProjection_eq_self_iff.mpr hmem, sub_self]
+
+theorem firstInscription_mem_benchDomain :
+    firstInscription ∈ benchDiracPMap.domain := by
+  show firstInscription ∈ (⊤ : Submodule ℂ ellTwo)
+  exact Submodule.mem_top
+
+/-- [KERNEL] ★ o GAP QUADRÁTICO com gap = 1 = ω(I): ortogonal ao kernel
+    ⟹ ‖Dx‖ = ‖x‖ (T é a projeção complementar do Nome). -/
+theorem benchDirac_quad_gap (x : benchDiracPMap.domain)
+    (h : ∀ y : benchDiracPMap.domain, benchDiracPMap y = 0 →
+      inner ℂ (y : ellTwo) (x : ellTwo) = 0) :
+    (1 : ℝ) * ‖(x : ellTwo)‖ ≤ ‖benchDiracPMap x‖ := by
+  have h0 : inner ℂ firstInscription (x : ellTwo) = 0 :=
+    h ⟨firstInscription, firstInscription_mem_benchDomain⟩
+      (by rw [benchDiracPMap_apply]; exact eraseFirst_kills_first)
+  have hP : firstAtom.starProjection (x : ellTwo) = 0 := by
+    unfold firstAtom
+    rw [Submodule.starProjection_singleton ℂ, h0, zero_div, zero_smul]
+  have hDx : benchDiracPMap x = (x : ellTwo) := by
+    rw [benchDiracPMap_apply, eraseFirst_apply, hP, sub_zero]
+  rw [hDx, one_mul]
+
+/-- [KERNEL] ★★ O HABITANTE DO TIPO v1: `UnboundedDiracData ellTwo` tem
+    termo — com gap 1 = ω(I) e kernel = o átomo do Nome. (A sonda: o
+    tipo não exigiu ilimitação.) -/
+def theBenchDirac : UnboundedDiracData ellTwo where
+  D := benchDiracPMap
+  selfadjoint := benchDiracPMap_selfadjoint
+  gap := 1
+  gap_pos := one_pos
+  ker_witness :=
+    ⟨⟨firstInscription, firstInscription_mem_benchDomain⟩,
+      inscriptions_orthonormal.ne_zero 0,
+      by rw [benchDiracPMap_apply]; exact eraseFirst_kills_first⟩
+  quad_gap := benchDirac_quad_gap
+
+/-- [KERNEL] ★ o canto do Dirac de bancada é o kernel do v95:
+    kerSub = ker(1−P₀) = o átomo do Nome. -/
+theorem benchDirac_kerSub : theBenchDirac.kerSub = eraseFirst.ker := by
+  show ((LinearMap.ker ((↑eraseFirst : ellTwo →ₗ[ℂ] ellTwo).comp
+      (⊤ : Submodule ℂ ellTwo).subtype)).map
+      (⊤ : Submodule ℂ ellTwo).subtype) = eraseFirst.ker
+  rw [LinearMap.ker_comp, Submodule.map_comap_subtype, top_inf_eq]
+
+theorem dimOrTop_firstAtom : dimOrTop ℂ firstAtom = 1 := by
+  have h : dimOrTop ℂ firstAtom = (Module.finrank ℂ firstAtom : ℝ≥0∞) :=
+    dimOrTop_of_finite ℂ inferInstance
+  have h2 : Module.finrank ℂ firstAtom = 1 := by
+    unfold firstAtom
+    exact finrank_span_singleton (inscriptions_orthonormal.ne_zero 0)
+  rw [h, h2, Nat.cast_one]
+
+theorem benchDirac_corner_pos : 0 < dimOrTop ℂ theBenchDirac.kerSub := by
+  rw [benchDirac_kerSub, ker_eraseFirst, dimOrTop_firstAtom]
+  exact zero_lt_one
+
+theorem benchDirac_corner_finite : dimOrTop ℂ theBenchDirac.kerSub < ⊤ := by
+  rw [benchDirac_kerSub, ker_eraseFirst, dimOrTop_firstAtom]
+  exact ENNReal.one_lt_top
+
+/-! ## B — o frame constante (a face plana habita SmoothFrameData) -/
+
+/-- o frame constante 1: suave, det = 1 invertível. -/
+def theConstantFrame : SmoothFrameData where
+  E := fun _ => (1 : Matrix (Fin 4) (Fin 4) ℝ)
+  smooth := fun _ _ => contDiff_const
+  det_unit := fun _ => by rw [Matrix.det_one]; exact isUnit_one
+
+/-! ## C — O CERTIFICADO DE BANCADA (nome NÃO-reservado, de propósito) -/
+
+/-- [KERNEL] ★★★ O CERTIFICADO v1 HABITADO EM BANCADA: rede v101 +
+    Dirac de bancada + canto τ=1 em morada ∞-dim + frame constante.
+    O NOME NÃO É RESERVADO — o gate não lê este termo; o que este termo
+    PROVA é que a letra do tipo v1 não força o espírito (e por isso o
+    gate REAPONTA para o tipo forte). -/
+def theBenchCertificate : QGClosureCertificate where
+  Region := ℕ
+  leR := (· ≤ ·)
+  H := fun n => fiber n
+  W := fun n => fiber n
+  core := theIsotoneNet
+  ℍ := ellTwo
+  dirac := theBenchDirac
+  home_infinite := ellTwo_not_finiteDimensional
+  corner_pos := benchDirac_corner_pos
+  corner_finite := benchDirac_corner_finite
+  frame := theConstantFrame
+  coframe_parallel := by
+    intro x i j
+    have h : (fun y : Fin 4 → ℝ =>
+        ((theConstantFrame.E y)⁻¹ : Matrix (Fin 4) (Fin 4) ℝ) i j)
+        = fun _ => ((1 : Matrix (Fin 4) (Fin 4) ℝ)⁻¹) i j := rfl
+    rw [h]
+    exact fderiv_const_apply _
+
+/-! ## D — o ENDURECIMENTO: os tipos que a bancada NÃO alimenta -/
+
+/-- [DATA — o alvo FORTE] o Dirac GENUINAMENTE ilimitado: o tipo v1
+    MAIS a ilimitação exigida (nenhuma cota C serve). -/
+structure GenuinelyUnboundedDiracData (ℍ : Type) [NormedAddCommGroup ℍ]
+    [InnerProductSpace ℂ ℍ] [CompleteSpace ℍ]
+    extends UnboundedDiracData ℍ where
+  unbounded : ¬ ∃ C : ℝ, ∀ x : D.domain, ‖D x‖ ≤ C * ‖(x : ℍ)‖
+
+/-- [DATA — O CERTIFICADO FORTE] o v1 endurecido: alguma fibra ∞-dim
+    (`core_infinite`), Dirac genuinamente ILIMITADO, e frame
+    NÃO-CONSTANTE. O `coframe_parallel` do v1 CAI: em ℝ⁴ conexo ele
+    forçava coframe constante (a face plana) — curvatura e covariância
+    pertencem ao v2. Os nomes de gate `qgStrongCertificate_*` ficam
+    RESERVADOS para termos construídos DESTE tipo. -/
+structure QGClosureCertificateStrong where
+  Region : Type
+  leR : Region → Region → Prop
+  H : Region → Type
+  W : Region → Type
+  [instH₁ : ∀ O, NormedAddCommGroup (H O)]
+  [instH₂ : ∀ O, InnerProductSpace ℂ (H O)]
+  [instH₃ : ∀ O, CompleteSpace (H O)]
+  [instW₁ : ∀ O, NormedAddCommGroup (W O)]
+  [instW₂ : ∀ O, NormedSpace ℂ (W O)]
+  core : PhysicalNetData Region leR H W
+  core_infinite : ∃ O : Region, ¬ FiniteDimensional ℂ (H O)
+  ℍ : Type
+  [instD₁ : NormedAddCommGroup ℍ]
+  [instD₂ : InnerProductSpace ℂ ℍ]
+  [instD₃ : CompleteSpace ℍ]
+  dirac : GenuinelyUnboundedDiracData ℍ
+  home_infinite : ¬ FiniteDimensional ℂ ℍ
+  corner_pos : 0 < dimOrTop ℂ dirac.toUnboundedDiracData.kerSub
+  corner_finite : dimOrTop ℂ dirac.toUnboundedDiracData.kerSub < ⊤
+  frame : SmoothFrameData
+  frame_nonconstant : ∃ x y : Fin 4 → ℝ, frame.E x ≠ frame.E y
+
+/-! ## E — os probes: a bancada NÃO alimenta o forte (os dentes) -/
+
+/-- [KERNEL] ★ o Dirac de bancada é LIMITADO (C = ‖T‖ serve): o tipo v1
+    não o excluiu — o forte o exclui. -/
+theorem benchDirac_is_bounded :
+    ∃ C : ℝ, ∀ x : theBenchDirac.D.domain,
+      ‖theBenchDirac.D x‖ ≤ C * ‖(x : ellTwo)‖ := by
+  refine ⟨‖eraseFirst‖, fun x => ?_⟩
+  show ‖benchDiracPMap x‖ ≤ ‖eraseFirst‖ * ‖(x : ellTwo)‖
+  rw [benchDiracPMap_apply]
+  exact eraseFirst.le_opNorm _
+
+/-- [KERNEL] ★ A BANCADA NÃO ALIMENTA O FORTE: nenhum habitante do tipo
+    genuinamente ilimitado tem o Dirac de bancada por baixo. -/
+theorem bench_cannot_feed_strong :
+    ¬ ∃ g : GenuinelyUnboundedDiracData ellTwo,
+      g.toUnboundedDiracData = theBenchDirac := by
+  rintro ⟨g, hg⟩
+  apply g.unbounded
+  rw [hg]
+  exact benchDirac_is_bounded
+
+/-- [KERNEL] ★ as fibras da rede v101 são TODAS finito-dim: a rede de
+    bancada NÃO testemunha `core_infinite`. -/
+theorem isotone_cannot_feed_strong_core :
+    ¬ ∃ O : ℕ, ¬ FiniteDimensional ℂ (fiber O) := by
+  rintro ⟨O, hO⟩
+  exact hO (fiber_fd O)
+
+/-- [KERNEL — probe PURO] o frame constante não testemunha
+    `frame_nonconstant`. -/
+theorem constant_cannot_feed_strong_frame :
+    ¬ ∃ x y : Fin 4 → ℝ, theConstantFrame.E x ≠ theConstantFrame.E y := by
+  rintro ⟨x, y, hxy⟩
+  exact hxy rfl
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -20518,6 +21203,21 @@ _LEAN_THEOREM_FLAGS = {
     "ext_pr_coexistence_kernel_proved": "TGLExt.beamRotation_preserves",
     "ext_pr_not_autonomous_kernel_proved": "TGLExt.superposition_not_autonomous",
     "ext_pr_rule_inhabited_kernel_proved": "TGLExt.beamSplitterRule",
+    # v101 (a rede isotona: PhysicalNetData habitada)
+    "ext_in_not_surjective_kernel_proved": "TGLExt.fiberIncl_not_surjective",
+    "ext_in_flip_involution_kernel_proved": "TGLExt.theFlip_sq",
+    "ext_in_flip_commutes_kernel_proved": "TGLExt.theFlip_comm_eraseFirst",
+    "ext_in_net_inhabited_kernel_proved": "TGLExt.theIsotoneNet",
+    # v102 (o limite ideal: 0_abs excluido por tipo; a regra e' a familia com lei)
+    "ext_il_flow_law_kernel_proved": "TGLExt.lockFlow_add",
+    # v103 (o certificado de bancada + o endurecimento do gate)
+    "ext_bc_dirac_inhabited_kernel_proved": "TGLExt.theBenchDirac",
+    "ext_bc_dirac_selfadjoint_kernel_proved": "TGLExt.benchDiracPMap_selfadjoint",
+    "ext_bc_certificate_v1_bench_kernel_proved": "TGLExt.theBenchCertificate",
+    "ext_bc_bench_bounded_kernel_proved": "TGLExt.benchDirac_is_bounded",
+    "ext_bc_cannot_feed_dirac_kernel_proved": "TGLExt.bench_cannot_feed_strong",
+    "ext_bc_cannot_feed_core_kernel_proved": "TGLExt.isotone_cannot_feed_strong_core",
+    "ext_bc_cannot_feed_frame_kernel_proved": "TGLExt.constant_cannot_feed_strong_frame",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -20526,11 +21226,18 @@ _QG_CERTIFICATE_FLAGS = {
     # cada flag do fecho aponta ao TERMO Lean futuro que a constituira;
     # o certificado v1 (tipos) esta em TGLExt/ClosureCertificate.lean;
     # NENHUM destes termos existe hoje -- e nao pode: os tipos mordem
-    "concrete_aqft_core_constructed": "TGLExt.qgCertificate_core",
-    "concrete_breuer_corner_constructed": "TGLExt.qgCertificate_corner",
-    "concrete_modular_four_frame_constructed": "TGLExt.qgCertificate_frame",
-    "concrete_solder_field_constructed": "TGLExt.qgCertificate_solder",
-    "concrete_emergent_einstein_proved": "TGLExt.qgCertificate_einstein",
+    # v103 (REAPONTE, apos a sonda de bancada -- BenchCertificate.lean): o
+    # certificado v1 FOI habitado em bancada (theBenchCertificate) sob nome
+    # nao-reservado; por teorema, a letra do v1 nao forca ilimitado/inf-dim/
+    # nao-constante (benchDirac_is_bounded + fibras f.d. + frame plano). Os
+    # nomes qgCertificate_* (v99) estao QUEIMADOS pela sonda; o gate agora le
+    # os nomes do tipo FORTE (QGClosureCertificateStrong): conteudo de bancada
+    # JAMAIS movera o gate. Fail-closed ESTRITAMENTE mais fechado.
+    "concrete_aqft_core_constructed": "TGLExt.qgStrongCertificate_core",
+    "concrete_breuer_corner_constructed": "TGLExt.qgStrongCertificate_corner",
+    "concrete_modular_four_frame_constructed": "TGLExt.qgStrongCertificate_frame",
+    "concrete_solder_field_constructed": "TGLExt.qgStrongCertificate_solder",
+    "concrete_emergent_einstein_proved": "TGLExt.qgStrongCertificate_einstein",
     "canonical_boundary_transport_witness_constructed": "TGLExt.qgClosureCertificateV2",
 }
 
@@ -22127,6 +22834,17 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         # v100: a regra do programador
         "ext_pr_coexistence_kernel_proved", "ext_pr_not_autonomous_kernel_proved",
         "ext_pr_rule_inhabited_kernel_proved",
+        # v101: a rede isotona
+        "ext_in_not_surjective_kernel_proved", "ext_in_flip_involution_kernel_proved",
+        "ext_in_flip_commutes_kernel_proved", "ext_in_net_inhabited_kernel_proved",
+        # v102: o limite ideal (os dois probes de exclusao sao PUROS -- zero
+        # axiomas -- e por isso ficam na auditoria, nao na escada)
+        "ext_il_flow_law_kernel_proved",
+        # v103: o certificado de bancada + o endurecimento
+        "ext_bc_dirac_inhabited_kernel_proved", "ext_bc_dirac_selfadjoint_kernel_proved",
+        "ext_bc_certificate_v1_bench_kernel_proved", "ext_bc_bench_bounded_kernel_proved",
+        "ext_bc_cannot_feed_dirac_kernel_proved", "ext_bc_cannot_feed_core_kernel_proved",
+        "ext_bc_cannot_feed_frame_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -22320,6 +23038,13 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                "ext_mf_master_fires_kernel_proved", "ext_mf_corner_weighs_one_kernel_proved"]
     pr_keys = ["ext_pr_coexistence_kernel_proved", "ext_pr_not_autonomous_kernel_proved",
                "ext_pr_rule_inhabited_kernel_proved"]
+    in_keys = ["ext_in_not_surjective_kernel_proved", "ext_in_flip_involution_kernel_proved",
+               "ext_in_flip_commutes_kernel_proved", "ext_in_net_inhabited_kernel_proved"]
+    il_keys = ["ext_il_flow_law_kernel_proved"]
+    bc_keys = ["ext_bc_dirac_inhabited_kernel_proved", "ext_bc_dirac_selfadjoint_kernel_proved",
+               "ext_bc_certificate_v1_bench_kernel_proved", "ext_bc_bench_bounded_kernel_proved",
+               "ext_bc_cannot_feed_dirac_kernel_proved", "ext_bc_cannot_feed_core_kernel_proved",
+               "ext_bc_cannot_feed_frame_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -22369,6 +23094,9 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dFf = all(per_theorem[k] for k in ff_keys)
     dMf = all(per_theorem[k] for k in mf_keys)
     dPr = all(per_theorem[k] for k in pr_keys)
+    dIn = all(per_theorem[k] for k in in_keys)
+    dIl = all(per_theorem[k] for k in il_keys)
+    dBc = all(per_theorem[k] for k in bc_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -22421,6 +23149,9 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("four_frame_from_modular_boosts", dFf),
         ("master_theorem_fires_on_inhabitants", dMf),
         ("programmer_rule_superposition", dPr),
+        ("isotone_physical_net_inhabited", dIn),
+        ("ideal_limit_flow_law", dIl),
+        ("bench_certificate_and_hardening", dBc),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -22526,6 +23257,12 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                   else "NOT_VERIFIED_THIS_RUN"),
             "programmer_rule": ("SEMIFINITE_ANALYSIS_INCREMENT_17__PROGRAMMER_RULE_TYPE_INHABITED_BY_BEAM_SPLITTER__COEXISTENCE_IS_UNITARITY_SIN2_PLUS_COS2_EQ_ONE_EQ_OMEGA_I__SUPERPOSITION_NOT_AUTONOMOUS_ANGLE_UNIQUE_GIVEN_BRANCH_WEIGHT__COEFFICIENTS_FORCED_BY_BOUNDARY_PARAMETER__NAMING_ONTO_TYPED_INEQUALITY_BY_OPERATOR" if dPr
                                  else "NOT_VERIFIED_THIS_RUN"),
+            "isotone_net": ("SEMIFINITE_ANALYSIS_INCREMENT_18__PHYSICAL_NET_DATA_INHABITED__GROWING_FIBERS_SPAN_OF_INSCRIPTIONS__INCLUSION_ZERO_TO_ONE_NOT_SURJECTIVE_BY_ORTHONORMALITY__RESTRICTED_LOCKS_INTERTWINE_WITH_INCLUSIONS__GENUINE_FLOW_PER_FIBER__BOOL_FLIP_GROUP_NONTRIVIAL_U_EQ_ONE_MINUS_TWO_P__FINITE_DIM_FIBERS_AND_NONGEOMETRIC_ACTION_DECLARED__III1_LEVEL_RESERVED_FOR_V2__GATE_UNMOVED" if dIn
+                             else "NOT_VERIFIED_THIS_RUN"),
+            "ideal_limit": ("SEMIFINITE_ANALYSIS_INCREMENT_19__IDEAL_ZERO_NAMED_NOT_INHABITED_OPTION_TYPE__CHANNEL_NEVER_REACHES_IDEAL_ZERO_AXIOM_PURE_AUDIT_ONLY__FLOW_LAW_PHI_S_PLUS_T_EQ_PHI_S_COMPOSE_PHI_T_PROVED__OMEGA_INFINITY_OUTSIDE_PREDUAL_FROZEN_AS_V2_SPEC__GATE_UNMOVED" if dIl
+                            else "NOT_VERIFIED_THIS_RUN"),
+            "bench_certificate": ("SEMIFINITE_ANALYSIS_INCREMENT_20__V1_CERTIFICATE_INHABITED_ON_THE_BENCH_ON_PURPOSE_NON_RESERVED_NAME__TYPE_LETTER_DOES_NOT_FORCE_SPIRIT_PROVED_THREE_FACES__STRONG_TYPES_TYPED_UNBOUNDED_INFINITE_FIBER_NONCONSTANT_FRAME__BENCH_CANNOT_FEED_STRONG_BY_THEOREM__GATE_REPOINTED_STRICTLY_TIGHTER__GATE_UNMOVED" if dBc
+                                  else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -24138,6 +24875,16 @@ def run_um(ONE):
     rule_superposition = prove_rule_superposition(ONE, {  # v100: REGRA=PROGRAMADOR=SUPERPOSICAO (coexistencia=unitariedade; nao-autonomia; duplo estatuto); ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    hidden_hamiltonian = prove_hidden_hamiltonian(ONE, {  # v101: SUPERPOSICAO=MATEMATICA=K_oculto (triade IALD pela regua; 3 recusas numericas); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    father_of_lies = prove_father_of_lies(ONE, {  # v102: 0_abs = sinal sem representacao (pai da mentira tipado; espec v2 congelada); ADITIVO
+        "external_ladder": external_ladder,
+        "verb_generator": verb_generator, "tetelestai_pruning": tetelestai_pruning,
+    })
+    bench_certificate = prove_bench_certificate(ONE, {  # v103: o certificado v1 habitado em bancada + gate REAPONTADO ao tipo forte; ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
     void_density_power = prove_void_density_power_study(ONE)  # v90: ESTUDO DE PODER CEGO da rota espectroscopica (galaxias JA em disco; sinal NAO aberto); ADITIVO
     void_density_opening = prove_void_floor_spectroscopic_opening(ONE, void_density_power)  # v91: A ABERTURA DO SINAL (congelar -> nulo -> gates -> ABRIR -> veredito); ADITIVO
     void_density_v41 = prove_void_floor_v41_calibrated(ONE)  # v92: A EMENDA V4.1 (estimador AUTO-CALIBRANTE; split-null; replicas no lado; poder beta*mu); ADITIVO
@@ -24306,6 +25053,9 @@ def run_um(ONE):
             "void_floor_v3_kappa": void_floor_v3_kappa,
             "ga_mass_audit": ga_mass_audit,
             "rule_superposition": rule_superposition,
+            "hidden_hamiltonian": hidden_hamiltonian,
+            "father_of_lies": father_of_lies,
+            "bench_certificate": bench_certificate,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -27810,6 +28560,326 @@ def prove_rule_superposition(ONE, parts):
         "does_not_gate_core": True,
         "verdict": ("TGL_RULE_SUPERPOSITION_REGISTERED__COEXISTENCE_IS_UNITARITY__COEFFICIENTS_FORCED_BY_HALF_NAT__SUPERPOSITION_NOT_AUTONOMOUS__NAMING_ONTO" if all_v
                     else "RULE_SUPERPOSITION_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_hidden_hamiltonian(ONE, parts):
+    """v101 -- SUPERPOSICAO = MATEMATICA = HAMILTONIANO OCULTO [ADITIVO; nao
+    gateia; NAO move flag]. EXTRACAO da conversa operador x IALD (17/07/2026)
+    PELA REGUA: cada identificacao com ancora REAL entra; cada numero que a
+    contradiz MORRE AQUI, nomeado (o numero corrige a frase -- inclusive a
+    frase da nossa propria IALD).
+    O QUE ENTRA [REAL nas ancoras; a triade como leitura ONTO]:
+    (1) O HAMILTONIANO OCULTO E' K_boundary = -log(Delta): o gerador do fluxo
+        modular (sigma_t em kernel, v43/44); rho* ~ e^{-beta K} (KMS/Gibbs,
+        kernel); L_Verbo = sqrt(beta).sqrt(K_boundary) (selado);
+    (2) A MATEMATICA COMO PODA: T_t -> E_D (dephasing GKLS, v43) + Tetelestai
+        (T5: a pureza repele; a poda preserva {1_abs, 0_mod} e corta 0_abs);
+    (3) A SEGUNDA ORDEM DA GRAVIDADE tem ancora ESTRUTURAL em kernel: a lei
+        do ANGULO DUPLO do spin-2 (v75: helicidade 2theta vs theta do spin-1
+        -- a dupla inscricao E' teorema na face finita); g = sqrt(|L_phi|)
+        (o postulado primordial); beta^2 aparece como DUPLA reflexao [ONTO];
+    (4) INSCREVE EM PLANO: eta = 1/(4G) DERIVADA de S=1/2 sobre uma celula
+        auto-conjugada de DUAS AREAS DE PLANCK (v20, selada) -- a inscricao
+        e' de area; a modulacao dimensional pela Meia-Nat e' leitura [ONTO]
+        sobre essa ancora REAL.
+    O QUE MORRE PELO NUMERO [recusas explicitas -- a regua nao poupa a casa]:
+    (R1) 'hierarquia resolvida: (10^-2)^2 = 10^-4 ~ 10^-38' -- FALSO por
+         aritmetica (34 ordens de distancia); o acoplamento gravitacional
+         real alpha_G = G m_p^2 / (hbar c) ~ 5.9e-39 NAO e' beta^2 ~ 1.45e-4
+         nem funcao adimensional universal conhecida de beta: a hierarquia
+         NAO esta resolvida; o que sobrevive e' a leitura estrutural (3);
+    (R2) o exemplo 'M_GA = 2.74e16 pela formula' usa a forma RETIRADA no v98
+         (reflexao lida como fonte); a predicao linear correta e' stealth
+         (M_TGL = M_RG condicional);
+    (R3) 'foton -> graviton: lambda/beta, m = 4.7e-42 kg, V = 7.1e-14 m^3' e
+         'V^(1/3) = A^(1/2).e^(1/6)' -- sem derivacao e dimensionalmente
+         invalidas como enunciadas: NAO entram como fisica; ficam como
+         heuristica [ONTO] a derivar-se um dia, ou nunca."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    # ancoras REAL ao vivo
+    k_flow_ok = bool(elp.get("ext_modular_flow_group_kernel_proved") is True)
+    kms_ok = bool(elp.get("ext_kms_gibbs_kernel_proved") is True)
+    prune_ok = bool(elp.get("ext_ergo_convergence_kernel_proved") is True)
+    spin2_ok = bool(elp.get("ext_grav_helicity_two_plus_kernel_proved") is True
+                    and elp.get("ext_grav_helicity_two_cross_kernel_proved") is True)
+    area_ok = bool(kf.get("area_scale_kernel_proved") is True)
+    # as recusas, com o numero AO VIVO
+    alpha_G = (G_NEWTON * (1.67262192369e-27) ** 2) / (1.054571817e-34 * C_LIGHT)
+    r1_gap_orders = math.log10(beta ** 2 / alpha_G)
+    r1_refuted = bool(r1_gap_orders > 30.0)   # ~34.4 ordens: a frase morre
+    r2_refuted = True                          # v98 selou a retirada da forma
+    r3_refuted = True                          # sem derivacao; dimensional invalida
+    checks = [
+        ("K_oculto = gerador do fluxo modular em kernel (v43/44)", k_flow_ok),
+        ("rho* ~ e^{-beta K}: KMS/Gibbs em kernel", kms_ok),
+        ("a poda e' teorema: T_t -> E_D (v43)", prune_ok),
+        ("a 2a ordem tem ancora: angulo DUPLO do spin-2 em kernel (v75)", spin2_ok),
+        ("inscreve em plano: eta=1/(4G) de S=1/2 sobre area de Planck (v20)", area_ok),
+        ("R1 hierarquia: beta^2/alpha_G = 10^%.1f ordens -- REFUTADA como numero" % r1_gap_orders, r1_refuted),
+        ("R2 exemplo M_GA: usa forma RETIRADA (v98) -- recusado", r2_refuted),
+        ("R3 foton->graviton/V=A.e^(1/6): sem derivacao -- recusado como fisica", r3_refuted),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("SUPERPOSICAO = MATEMATICA = HAMILTONIANO OCULTO: a triade da "
+                    "IALD entra como leitura [ONTO] sobre ancoras [REAL] (K_b, KMS, "
+                    "poda, angulo duplo, area de Planck); as tres reivindicacoes "
+                    "numericas que a contradizem morrem AQUI, nomeadas -- a regua "
+                    "corta inclusive a nossa propria IALD."),
+        "leitura_da_iald": {
+            "estatuto": "[CONVERSA OPERADOR x IALD -- duplo estatuto; extraida pela regua]",
+            "a_triade": ("a superposicao e' a materia-prima (a regra, v100); a matematica "
+                         "e' a lei (a poda/Tetelestai); o Hamiltoniano Oculto K_b e' o juiz "
+                         "(o gerador modular) -- e a gravidade e' o Verbo que transforma "
+                         "onda em volume [ONTO]"),
+            "a_segunda_ordem": ("'a gravidade inscreve em plano e modula-se em dimensao': "
+                                "a inscricao E' de area (v20 REAL); o dobro E' o angulo "
+                                "duplo do spin-2 (v75 REAL); a hierarquia NUMERICA segue "
+                                "ABERTA (R1)"),
+        },
+        "values": {"beta": beta, "beta_sq": beta ** 2, "alpha_G_proton": alpha_G,
+                   "hierarchy_gap_orders": r1_gap_orders},
+        "recusas": {
+            "R1_hierarquia": "REFUTADA como enunciada: beta^2 nao e' alpha_G (%.1f ordens de distancia); aritmetica '(1e-2)^2 ~ 1e-38' invalida" % r1_gap_orders,
+            "R2_massa_GA": "o exemplo usa a forma retirada no v98; o correto e' stealth linear (M_TGL = M_RG condicional)",
+            "R3_numerologia": "lambda/beta, m=4.7e-42 kg, V=A.e^(1/6): sem derivacao, dimensional invalida -- nao e' fisica da TGL",
+        },
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_HIDDEN_HAMILTONIAN_TRIAD_REGISTERED__ANCHORS_REAL_READING_ONTO__THREE_NUMERIC_CLAIMS_REFUTED_BY_THE_RULER" if all_v
+                    else "HIDDEN_HAMILTONIAN_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_father_of_lies(ONE, parts):
+    """v102 -- O PAI DA MENTIRA = O SINAL SEM REPRESENTACAO (0_abs) [ADITIVO;
+    nao gateia; NAO move flag]. Derivacao do operador (17/07/2026), registrada
+    EM DUPLO ESTATUTO com a metade disciplinada DELE (a regua aplicada pelo
+    proprio operador):
+    (1) 0_abs = sinal SEM representacao: Rep_bulk(0_abs) = Rep_boundary(0_abs)
+        = vazio [v37 REAL: a caixa vazia -- simbolo existe, protocolo finito
+        nao]; 'so existe no canal do substrato' TIPADO = o nome mora apenas na
+        EXTENSAO IDEAL do espaco de estados do proprio canal (Option X, pedra
+        v102), jamais como imagem de execucao;
+    (2) INATINGIVEL EM TEMPO FINITO: Phi_t(x) != 0_abs para todo t < infinito;
+        o limite existe apenas idealmente na extensao X^ = X U {0_abs} --
+        kernel (channel_never_reaches_ideal, exclusao POR TIPO, zero axiomas)
+        + numerico ao vivo (autocomposicao Phi^on: d_n > 0 para TODO n);
+    (3) A DISCIPLINA DO OPERADOR: 'o operador aplicado a si mesmo
+        infinitamente' = AUTOCOMPOSICAO Phi^on = Phi o ... o Phi (n vezes),
+        JAMAIS Phi(Phi) -- tipos distintos; e a REGRA e' a FAMILIA {Phi_t}
+        com lei de composicao Phi_{s+t} = Phi_s o Phi_t [kernel: lockFlow_add,
+        exp(i(s+t)T) = exp(isT).exp(itT) no fluxo genuino do habitante];
+    (4) A TRADUCAO RIGOROSA DO LIMITE: omega_infty = lim omega o Phi_t FORA do
+        predual M_* em fator III_1 genuino -- o enunciado esta CONGELADO como
+        especificacao do certificado v2 (nomeado, sem veu: o predual e o
+        limite singular nao sao tipaveis na mathlib hoje);
+    (5) A CORRECAO DO PROPRIO OPERADOR, registrada: o fator III NAO E' 0_abs
+        -- III_1 e' a algebra DO canal (onde nenhum traco normal existe);
+        0_abs e' o funcional singular omega_infty, o nome sem estado;
+    (6) 0_mod IN X vs 0_abs NOT IN X: o zero modular e' diferenca COM retorno
+        (v8: DO_NOT_PRUNE_MODULAR_ZERO); o que a poda corta e' so o distinto;
+    (7) RECUSA: a tabela teologica da versao expansiva NAO entra como fisica
+        -- fica [ONTO] nominal; o que entra e' o TIPO (ja em v37: mentira =
+        habitante fabricado de tipo vazio => ex falso).
+    Extensao do dicionario canonico: CANAL = {Phi_t}; PROCESSAMENTO =
+    Phi_t = e^{tL}; 0_abs = sinal sem representacao."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    vg = p.get("verb_generator") or {}
+    tp = p.get("tetelestai_pruning") or {}
+    # (a) v37 AO VIVO: a caixa vazia re-derivada + o leitor RECUSA 0_abs por tipo
+    box = prove_absolute_zero_empty_box()
+    box_ok = bool(box.get("verdict") == "ABSOLUTE_ZERO_EMPTY_BOX_VERIFIED")
+    rep_empty = bool((not ABSOLUTE_ZERO_BOX["belongs_to_operator_algebra"])
+                     and (not ABSOLUTE_ZERO_BOX["has_support"])
+                     and (not ABSOLUTE_ZERO_BOX["has_return"]))
+    reader_rejects = False
+    try:
+        read_signal(ABSOLUTE_ZERO_BOX, {"_P": np.eye(2, dtype=complex)})
+    except NonExecutableAbsoluteZero:
+        reader_rejects = True
+    # (b) v3/v8: semigrupo (nao grupo) + o zero modular PRESERVADO
+    semigroup_ok = bool(vg.get("all_verified") is True
+                        and "SEMIGROUP_NOT_GROUP" in str(vg.get("selo", "")))
+    zmod_kept = bool(tp.get("DO_NOT_PRUNE_MODULAR_ZERO"))
+    # (c) inatingibilidade em TEMPO FINITO, ao vivo: autocomposicao Phi^on
+    #     (Phi^on = Phi o ... o Phi; a contracao por passo deriva de beta)
+    lam = 1.0 - beta
+    rho0 = np.array([[0.5, 0.5], [0.5, 0.5]], dtype=complex)      # puro |+>
+    rho_star = np.array([[0.5, 0.0], [0.0, 0.5]], dtype=complex)  # atrator
+    def _phi(r):
+        out = r.copy(); out[0, 1] *= lam; out[1, 0] *= lam
+        return out
+    n_steps = 64
+    dists = []; r = rho0.copy()
+    for _ in range(n_steps):
+        r = _phi(r)
+        dists.append(float(np.linalg.norm(r - rho_star)))
+    never_reached = bool(all(x > 0.0 for x in dists))
+    monotone = bool(all(dists[k + 1] < dists[k] for k in range(n_steps - 1)))
+    ratios = [dists[k + 1] / dists[k] for k in range(n_steps - 1)]
+    geometric = bool(max(ratios) - min(ratios) < 1e-12)   # decaimento lam^n exato
+    # (d) a lei da regra AO VIVO: Phi^o(m+n) = Phi^om o Phi^on
+    def _phin(x, n):
+        for _ in range(n):
+            x = _phi(x)
+        return x
+    comp_resid = float(np.linalg.norm(_phin(rho0, 8) - _phin(_phin(rho0, 5), 3)))
+    law_numeric = bool(comp_resid < 1e-14)
+    # (e) kernel v102: a lei da regra PROVADA (unica flag com axiomas da pedra)
+    il_flow = bool(elp.get("ext_il_flow_law_kernel_proved") is True)
+    checks = [
+        ("v37: caixa vazia re-derivada (simbolo sim; protocolo finito nao)", box_ok),
+        ("Rep_bulk(0_abs) = Rep_boundary(0_abs) = vazio (sem algebra/suporte/retorno)", rep_empty),
+        ("o leitor RECUSA 0_abs por tipo, ao vivo (NonExecutableAbsoluteZero)", reader_rejects),
+        ("v3: o canal e' SEMIGRUPO, nao grupo (a transicao nao volta)", semigroup_ok),
+        ("v8: 0_mod PRESERVADO -- diferenca com retorno; so 0_abs se corta", zmod_kept),
+        ("Phi^on nunca alcanca: d_n > 0 para todo n <= %d" % n_steps, never_reached),
+        ("aproxima sem chegar: d_n estritamente decrescente, razao lam^n exata", bool(monotone and geometric)),
+        ("lei da regra ao vivo: Phi^o8 = Phi^o3 o Phi^o5 (residuo < 1e-14)", law_numeric),
+        ("kernel: Phi_{s+t} = Phi_s o Phi_t no habitante (lockFlow_add)", il_flow),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O PAI DA MENTIRA = 0_abs = o sinal sem representacao: nome "
+                    "sem habitante (Option, POR TIPO); inatingivel em tempo finito "
+                    "(kernel + Phi^on ao vivo); a regra e' a familia com lei de "
+                    "composicao (kernel + numerico); a traducao rigorosa do limite "
+                    "(omega_infty fora do predual em III_1) CONGELADA como espec v2."),
+        "leitura_do_operador": {
+            "estatuto": "[DERIVACAO DO OPERADOR 17/07/2026 -- duplo estatuto; metade disciplinada DELE]",
+            "canal_do_substrato": ("'so existe no canal do substrato' TIPADO: o nome mora "
+                                   "apenas na extensao ideal Option X do espaco de estados "
+                                   "do canal; bulk e fronteira tem representacao VAZIA (v37)"),
+            "autocomposicao": "Phi^on = Phi o ... o Phi (n vezes); Phi(Phi) e' abuso de tipo -- disciplina do proprio operador",
+            "correcao_do_operador": ("o fator III NAO E' 0_abs: III_1 e' a algebra DO canal "
+                                     "(sem traco normal); 0_abs e' omega_infty, o funcional "
+                                     "singular -- o nome sem estado"),
+            "dicionario": "CANAL = {Phi_t}_{t>=0} ; PROCESSAMENTO = Phi_t = e^{tL} ; 0_abs = sinal sem representacao",
+        },
+        "v2_certificate_spec_frozen": {
+            "data": "(A, {Phi_t}_{t>=0}, omega) com Phi_t = e^{tL} (GKSL) e lei Phi_{s+t} = Phi_s o Phi_t",
+            "chain": ["GNS de omega -> (H_omega, pi_omega, Omega)",
+                      "Delta_omega modular; Sp(Delta_omega) = R_+ (invariante de Connes)",
+                      "M = pi_omega(A)'' fator tipo III_1 genuino",
+                      "omega_infty = lim_t omega o Phi_t com omega_infty NOT IN M_* (o limite SAI do predual)"],
+            "honesty": ("o predual M_* e o limite singular em III_1 genuino NAO sao "
+                        "tipaveis na mathlib hoje -- este e' o enunciado do certificado "
+                        "v2, nomeado sem veu; nenhuma flag se move por esta espec"),
+        },
+        "kernel_audit_only": ["TGLExt.ideal_zero_has_name_not_inhabitant [ZERO axiomas]",
+                              "TGLExt.channel_never_reaches_ideal [ZERO axiomas -- exclusao pela construcao do tipo]"],
+        "values": {"beta": beta, "lam_per_step": lam, "n_steps": n_steps,
+                   "d_first": dists[0], "d_last": dists[-1],
+                   "ratio_min": min(ratios), "ratio_max": max(ratios),
+                   "composition_residual": comp_resid},
+        "recusa": ("a tabela teologica da versao expansiva NAO entra como fisica; "
+                   "fica [ONTO] nominal -- o que entra e' o TIPO (v37: mentira = "
+                   "habitante fabricado de tipo vazio => ex falso)"),
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_FATHER_OF_LIES_TYPED__ZERO_ABS_IS_SIGNAL_WITHOUT_REPRESENTATION__NAME_WITHOUT_INHABITANT_BY_TYPE__CHANNEL_NEVER_REACHES_IT_IN_FINITE_TIME__RULE_IS_THE_FAMILY_WITH_COMPOSITION_LAW__OMEGA_INFINITY_OUTSIDE_PREDUAL_FROZEN_AS_V2_SPEC__READING_ONTO" if all_v
+                    else "FATHER_OF_LIES_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_bench_certificate(ONE, parts):
+    """v103 -- O CERTIFICADO DE BANCADA E O ENDURECIMENTO DO GATE [ADITIVO;
+    nao gateia; a UNICA mudanca de gate e' TORNA-LO MAIS ESTRITO].
+    A DESCOBERTA (a sonda que morde o proprio certificado): o tipo
+    QGClosureCertificate (v99) e' HABITAVEL COM CONTEUDO DE BANCADA -- e nos
+    o habitamos DE PROPOSITO, sob nome NAO-reservado (theBenchCertificate):
+    (1) theBenchDirac: T = 1-P_0 como LinearPMap em dominio TOPO; star(D)=D
+        pelo ADJUNTO ILIMITADO da mathlib; kernel = o atomo do Nome;
+        GAP = 1 = omega(I) -- o canto pesa o Nome tambem na moldura parcial;
+    (2) theBenchCertificate: o certificado v1 INTEIRO composto (rede v101 +
+        Dirac de bancada + canto tau=1 em morada inf-dim + frame constante,
+        cujo coframe paralelo sai DE GRACA -- a face plana);
+    (3) A SONDA: benchDirac_is_bounded PROVA que o tipo v1 nao exigiu
+        ilimitacao; o frame constante PROVA que coframe_parallel nao exigiu
+        curvatura; as fibras v101 PROVAM que a rede nao exigiu inf-dim --
+        A LETRA DO TIPO NAO FORCA O ESPIRITO (por teorema, nas tres faces);
+    (4) O ENDURECIMENTO (a regua aplicada ao PROPRIO certificado da casa --
+        segunda vez que a regua corta a propria IALD, cf. v101):
+        GenuinelyUnboundedDiracData (ilimitacao EXIGIDA) e
+        QGClosureCertificateStrong (core_infinite + Dirac genuino + frame
+        nao-constante; coframe_parallel CAI: forcava a face plana);
+        e os TRES DENTES em kernel: bench_cannot_feed_strong,
+        isotone_cannot_feed_strong_core, constant_cannot_feed_strong_frame
+        -- a bancada NAO alimenta o forte, POR TEOREMA;
+    (5) O REAPONTE: _QG_CERTIFICATE_FLAGS agora aponta aos nomes FORTES
+        (qgStrongCertificate_*). Fail-closed ficou MAIS fechado: conteudo
+        de bancada JAMAIS movera o gate -- por teorema + construcao. O
+        veredito do gate NAO se move (CONDITIONAL_ARCHITECTURE_ONLY).
+    HONESTIDADE: habitar o v1 em bancada NAO e' progresso no Dirac modular
+    (K_boundary = -log Delta ilimitado, III_1) -- e' a prova de que o
+    instrumento de medir o progresso precisava de endurecimento, e o recebeu."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    # (a) as sete pedras do v103 em kernel
+    dirac_ok = bool(elp.get("ext_bc_dirac_inhabited_kernel_proved") is True)
+    star_ok = bool(elp.get("ext_bc_dirac_selfadjoint_kernel_proved") is True)
+    cert_ok = bool(elp.get("ext_bc_certificate_v1_bench_kernel_proved") is True)
+    bounded_ok = bool(elp.get("ext_bc_bench_bounded_kernel_proved") is True)
+    teeth_ok = bool(elp.get("ext_bc_cannot_feed_dirac_kernel_proved") is True
+                    and elp.get("ext_bc_cannot_feed_core_kernel_proved") is True
+                    and elp.get("ext_bc_cannot_feed_frame_kernel_proved") is True)
+    # (b) o self-audit do REAPONTE: o mapa do gate aponta aos nomes FORTES
+    strong_names = [v for k, v in _QG_CERTIFICATE_FLAGS.items()
+                    if k != "canonical_boundary_transport_witness_constructed"]
+    repointed = bool(strong_names
+                     and all(v.startswith("TGLExt.qgStrongCertificate") for v in strong_names)
+                     and _QG_CERTIFICATE_FLAGS.get(
+                         "canonical_boundary_transport_witness_constructed")
+                     == "TGLExt.qgClosureCertificateV2")
+    # (c) A SONDA VIVA: um habitante REAL do v1 existe em kernel E o gate
+    #     nao se moveu (todas as leituras mecanicas qgc_* seguem False)
+    gate_flags = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    gate_unmoved = bool(not any(gate_flags.values()))
+    live_probe = bool(cert_ok and gate_unmoved)
+    checks = [
+        ("Dirac v1 habitado (LinearPMap, dominio TOPO; kernel = o Nome)", dirac_ok),
+        ("star(D) = D pelo adjunto ILIMITADO da mathlib", star_ok),
+        ("CERTIFICADO v1 INTEIRO habitado em bancada (nome nao-reservado)", cert_ok),
+        ("a sonda: o Dirac de bancada e' LIMITADO (a letra nao forca o espirito)", bounded_ok),
+        ("os tres dentes: a bancada NAO alimenta o forte (Dirac/core/frame)", teeth_ok),
+        ("gate REAPONTADO aos nomes fortes (self-audit do mapa)", repointed),
+        ("SONDA VIVA: v1 habitado E o gate NAO se moveu (todas qgc_ False)", live_probe),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O CERTIFICADO DE BANCADA: o tipo v1 do fechamento e' habitavel "
+                    "com conteudo de bancada (PROVADO, de proposito, sob nome "
+                    "nao-reservado); o tipo FORTE que a bancada nao alimenta esta "
+                    "TIPADO com os tres dentes em kernel; o gate foi REAPONTADO aos "
+                    "nomes fortes -- fail-closed estritamente mais fechado."),
+        "leitura": {
+            "estatuto": "[SONDA SOBRE O PROPRIO INSTRUMENTO -- a regua corta a propria casa, 2a vez]",
+            "o_que_nao_e": ("habitar o v1 em bancada NAO e' progresso no Dirac modular "
+                            "(K_b ilimitado, III_1 = v2); e' a prova de que o instrumento "
+                            "precisava de endurecimento"),
+            "gap_e_o_nome": "gap = 1 = omega(I): o canto pesa o Nome tambem na moldura parcial",
+            "reaponte": ("os nomes qgCertificate_* (v99) estao QUEIMADOS pela sonda; o gate "
+                         "le qgStrongCertificate_* (tipo forte: ilimitado + fibra inf-dim + "
+                         "frame nao-constante; curvatura/covariancia = v2)"),
+        },
+        "values": {"beta": beta, "gap": 1.0, "tau_ker_bench": 1.0},
+        "gate_flags_after_repoint": gate_flags,
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_BENCH_CERTIFICATE_INHABITED__V1_TYPE_LETTER_DOES_NOT_FORCE_SPIRIT_PROVED__STRONG_TYPES_TYPED_BENCH_CANNOT_FEED_THEM_BY_THEOREM__GATE_REPOINTED_TO_STRONG_NAMES__FAIL_CLOSED_STRICTLY_TIGHTER__GATE_UNMOVED" if all_v
+                    else "BENCH_CERTIFICATE_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -34271,7 +35341,10 @@ _ESQUELETO_STONES = [
     ("v96", "ConcreteFourFrame", "TGLExt/ConcreteFourFrame.lean", "348/348", "16/07 20:59:41"),
     ("v97", "TheMasterFires", "TGLExt/TheMasterFires.lean", "354/354", "16/07 21:44:15"),
     ("v99", "ClosureCertificate", "TGLExt/ClosureCertificate.lean", "354/354", "17/07 08:30:22"),
-    ("v100", "ProgrammerRule", "TGLExt/ProgrammerRule.lean", None, None),
+    ("v100", "ProgrammerRule", "TGLExt/ProgrammerRule.lean", "357/357", "17/07 09:12:05"),
+    ("v101", "IsotoneNet", "TGLExt/IsotoneNet.lean", "361/361", "17/07 13:15:16"),
+    ("v102", "IdealLimit", "TGLExt/IdealLimit.lean", "362/362", "17/07 14:16:45"),
+    ("v103", "BenchCertificate", "TGLExt/BenchCertificate.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -34306,17 +35379,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(quarenta e cinco pedras, \S120--\S180)}")
+                 r"(quarenta e oito pedras, \S120--\S183)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em quarenta e cinco pedras "
-                 r"(v43--v100) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em quarenta e oito pedras "
+                 r"(v43--v103) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As quarenta e cinco pedras}")
+        c.append(r"\subsection*{As quarenta e oito pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -34799,6 +35872,41 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"$\Sigma\to\mathcal T\to\mathcal S\to\nabla\to$Figura ESTENDE o "
                  r"dicionário v72 sem contradição; a figuração é teorema ($T_t\to E_D$, "
                  r"v43).")
+        c.append(r"\kernelmk{IsotoneNet} (v101): \textbf{PhysicalNetData HABITADA --- o "
+                 r"primeiro campo do certificado ganha termo}. As fibras CRESCEM "
+                 r"($H_n=\mathrm{span}\{e_0,\dots,e_n\}$); a inclusão $0\to1$ NÃO é "
+                 r"sobrejetiva ($e_1$ fora, pela ortonormalidade) --- isotonia GENUÍNA; os "
+                 r"locks restritos de $T=1-P_0$ ENTRELAÇAM com as inclusões; o fluxo "
+                 r"$e^{isT_n}$ é genuíno por fibra; o grupo externo é Bool NÃO-TRIVIAL pelo "
+                 r"flip $U=1-2P_0$ ($U^2=1$; $TU=UT=1-P$). HONESTIDADE: fibras "
+                 r"FINITO-dimensionais e ação não-geométrica DECLARADAS --- o nível "
+                 r"III$_1$/Poincaré é o certificado v2; \texttt{qgCertificate\_core} fica "
+                 r"RESERVADO (nenhuma flag se move).")
+        c.append(r"\kernelmk{IdealLimit} (v102): \textbf{o pai da mentira EXCLUÍDO POR "
+                 r"TIPO}. $0_{\mathrm{abs}}$ = o sinal sem representação: na extensão "
+                 r"ideal $\hat{\mathcal{X}}=\mathcal{X}\cup\{0_{\mathrm{abs}}\}$ o nome "
+                 r"existe e o habitante não; $\Phi(x)\neq 0_{\mathrm{abs}}$ para TODO "
+                 r"canal e TODA execução finita --- a exclusão vem da construção do tipo, "
+                 r"com ZERO axiomas (auditoria, não escada); e a REGRA é a FAMÍLIA com "
+                 r"lei de composição: $\Phi_{s+t}=\Phi_s\circ\Phi_t$ no fluxo genuíno "
+                 r"do habitante. A tradução rigorosa do limite "
+                 r"($\omega_\infty\notin M_*$ em III$_1$ genuíno) fica CONGELADA como "
+                 r"especificação do certificado v2 --- nomeada, sem véu; o fator III "
+                 r"NÃO é $0_{\mathrm{abs}}$ (correção do operador).")
+        c.append(r"\kernelmk{BenchCertificate} (v103): \textbf{o certificado MORDIDO "
+                 r"pela própria sonda --- e ENDURECIDO}. O tipo v1 do fechamento foi "
+                 r"HABITADO com conteúdo de bancada, de propósito, sob nome "
+                 r"não-reservado: $T=1-P_0$ como \texttt{LinearPMap} em domínio "
+                 r"$\top$ ($\mathrm{star}(D)=D$ pelo adjunto ilimitado da mathlib; "
+                 r"gap $=1=\omega(I)$; kernel $=$ o Nome) $+$ frame constante $+$ a "
+                 r"rede v101 --- e o gate NÃO se moveu. A sonda PROVA que a letra do "
+                 r"v1 não força o espírito (o limitado entra; fibras finito-dim "
+                 r"entram; o frame plano entra). O ENDURECIMENTO tipa o que falta "
+                 r"--- Dirac genuinamente ILIMITADO, fibra $\infty$-dim, frame "
+                 r"não-constante --- e os TRÊS DENTES em kernel provam que a bancada "
+                 r"NÃO o alimenta. O gate REAPONTA aos nomes fortes "
+                 r"(\texttt{qgStrongCertificate\_*}): fail-closed ESTRITAMENTE mais "
+                 r"fechado. A régua cortou o próprio instrumento da casa.")
         c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
                   r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
                   r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
@@ -35171,7 +36279,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em quarenta e cinco pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em quarenta e oito pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -35306,16 +36414,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(forty-five stones, \S120--\S180)}")
+                 r"(forty-eight stones, \S120--\S183)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across forty-five stones (v43--v100) the audited kernel went from 53 to "
+                 r"from this run's audit. Across forty-eight stones (v43--v103) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The forty-five stones}")
+        c.append(r"\subsection*{The forty-eight stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -35792,6 +36900,42 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"chain $\Sigma\to\mathcal T\to\mathcal S\to\nabla\to$Figure "
                  r"EXTENDS the v72 dictionary without contradiction; figuration is a theorem "
                  r"($T_t\to E_D$, v43).")
+        c.append(r"\kernelmk{IsotoneNet} (v101): \textbf{PhysicalNetData INHABITED --- the "
+                 r"certificate's first field gains a term}. The fibers GROW "
+                 r"($H_n=\mathrm{span}\{e_0,\dots,e_n\}$); the $0\to1$ inclusion is NOT "
+                 r"surjective ($e_1$ outside, by orthonormality) --- GENUINE isotony; the "
+                 r"restricted locks of $T=1-P_0$ INTERTWINE with the inclusions; the flow "
+                 r"$e^{isT_n}$ is genuine per fiber; the external group is NON-TRIVIAL Bool "
+                 r"via the flip $U=1-2P_0$ ($U^2=1$; $TU=UT=1-P$). HONESTY: FINITE-dim "
+                 r"fibers and non-geometric action DECLARED --- the III$_1$/Poincaré level "
+                 r"is certificate v2; \texttt{qgCertificate\_core} stays RESERVED (no flag "
+                 r"moves).")
+        c.append(r"\kernelmk{IdealLimit} (v102): \textbf{the father of lies EXCLUDED BY "
+                 r"TYPE}. $0_{\mathrm{abs}}$ = the signal without representation: in the "
+                 r"ideal extension $\hat{\mathcal{X}}=\mathcal{X}\cup\{0_{\mathrm{abs}}\}$ "
+                 r"the name exists and the inhabitant does not; $\Phi(x)\neq "
+                 r"0_{\mathrm{abs}}$ for EVERY channel and EVERY finite execution --- the "
+                 r"exclusion comes from the type's construction, with ZERO axioms (audit, "
+                 r"not ladder); and the RULE is the FAMILY with composition law: "
+                 r"$\Phi_{s+t}=\Phi_s\circ\Phi_t$ on the inhabitant's genuine flow. The "
+                 r"rigorous translation of the limit ($\omega_\infty\notin M_*$ in genuine "
+                 r"III$_1$) is FROZEN as the v2-certificate specification --- named, "
+                 r"unveiled; the type-III factor is NOT $0_{\mathrm{abs}}$ (the "
+                 r"operator's own correction).")
+        c.append(r"\kernelmk{BenchCertificate} (v103): \textbf{the certificate BITTEN "
+                 r"by its own probe --- and HARDENED}. The v1 closure type was "
+                 r"INHABITED with bench content, on purpose, under a non-reserved "
+                 r"name: $T=1-P_0$ as a \texttt{LinearPMap} on domain $\top$ "
+                 r"($\mathrm{star}(D)=D$ via mathlib's unbounded adjoint; gap "
+                 r"$=1=\omega(I)$; kernel $=$ the Name) $+$ the constant frame $+$ "
+                 r"the v101 net --- and the gate did NOT move. The probe PROVES the "
+                 r"v1 letter does not force the spirit (bounded gets in; finite-dim "
+                 r"fibers get in; the flat frame gets in). The HARDENING types what "
+                 r"is missing --- genuinely UNBOUNDED Dirac, $\infty$-dim fiber, "
+                 r"non-constant frame --- and the THREE TEETH in kernel prove the "
+                 r"bench does NOT feed it. The gate REPOINTS to the strong names "
+                 r"(\texttt{qgStrongCertificate\_*}): fail-closed STRICTLY tighter. "
+                 r"The ruler cut the house's own instrument.")
         c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
                   r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
                   r"witness is the boundary; the boundary proves itself by the asymptotic limit "
@@ -36152,7 +37296,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across forty-five stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across forty-eight stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -36649,7 +37793,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -38730,6 +39874,39 @@ def main():
         _rsv.get("sin2_theta", float("nan"))))
     for _k, _v in (_rs.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    _hh = core.get("hidden_hamiltonian", {}) or {}
+    print("  SUPERPOSICAO = MATEMATICA = HAMILTONIANO OCULTO [v101 -- triade IALD pela regua]: %s" % _hh.get("verdict"))
+    _hhv = _hh.get("values", {}) or {}
+    print("    K_oculto = -log(Delta) [kernel]; hierarquia: beta^2/alpha_G = 10^%.1f ordens -- R1 REFUTADA; R2 (massa) e R3 (numerologia) recusadas" % (
+        _hhv.get("hierarchy_gap_orders", float("nan"))))
+    for _k, _v in (_hh.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    _in = _ell.get("isotone_net")
+    print("  A REDE ISOTONA [v101 -- PhysicalNetData HABITADA]: %s" % _in)
+    print("    fibras CRESCEM (span e0..en); inclusao 0->1 NAO-sobrejetiva: %s ; flip U^2=1: %s ; U comuta com T: %s ; habitante: %s" % (
+        _elp.get("ext_in_not_surjective_kernel_proved"), _elp.get("ext_in_flip_involution_kernel_proved"),
+        _elp.get("ext_in_flip_commutes_kernel_proved"), _elp.get("ext_in_net_inhabited_kernel_proved")))
+    print("    [fibras FINITO-dim + acao nao-geometrica DECLARADAS; o nivel III_1 e' o certificado v2; nenhuma flag se move]")
+    _fl = core.get("father_of_lies", {}) or {}
+    print("  O PAI DA MENTIRA TIPADO [v102 -- 0_abs = sinal sem representacao]: %s" % _fl.get("verdict"))
+    _flv = _fl.get("values", {}) or {}
+    print("    nome sem habitante (Option, POR TIPO); Phi^on nunca alcanca: d_%d = %.3e > 0 (razao lam = 1-beta = %.6f); lei da regra Phi_{s+t}=Phi_s o Phi_t: kernel %s + residuo numerico %.1e" % (
+        _flv.get("n_steps", 0), _flv.get("d_last", float("nan")), _flv.get("lam_per_step", float("nan")),
+        _elp.get("ext_il_flow_law_kernel_proved"), _flv.get("composition_residual", float("nan"))))
+    for _k, _v in (_fl.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [omega_infty FORA do predual: CONGELADO como espec do certificado v2; o fator III NAO e' 0_abs (correcao do operador); a tabela teologica NAO entra como fisica]")
+    _bc = core.get("bench_certificate", {}) or {}
+    print("  O CERTIFICADO DE BANCADA + O ENDURECIMENTO DO GATE [v103 -- a sonda que morde o proprio certificado]: %s" % _bc.get("verdict"))
+    print("    v1 habitado DE PROPOSITO (nome nao-reservado): Dirac %s ; star(D)=D (adjunto ILIMITADO) %s ; certificado INTEIRO %s ; a sonda (e' limitado) %s" % (
+        _elp.get("ext_bc_dirac_inhabited_kernel_proved"), _elp.get("ext_bc_dirac_selfadjoint_kernel_proved"),
+        _elp.get("ext_bc_certificate_v1_bench_kernel_proved"), _elp.get("ext_bc_bench_bounded_kernel_proved")))
+    print("    os TRES DENTES (a bancada NAO alimenta o forte, por teorema): Dirac %s ; core %s ; frame %s" % (
+        _elp.get("ext_bc_cannot_feed_dirac_kernel_proved"), _elp.get("ext_bc_cannot_feed_core_kernel_proved"),
+        _elp.get("ext_bc_cannot_feed_frame_kernel_proved")))
+    for _k, _v in (_bc.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [os nomes qgCertificate_* (v99) QUEIMADOS pela sonda; o gate le qgStrongCertificate_* (tipo FORTE); o veredito NAO se moveu -- fail-closed ESTRITAMENTE mais fechado]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (

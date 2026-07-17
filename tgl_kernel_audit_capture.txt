@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=146235 len(stderr)=0
+# len(stdout)=149346 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1421,6 +1421,31 @@ TGLExt.beamRotation_preserves : ∀ (θ : ℝ) (ψ : TGLExt.MirrorState),
     Complex.normSq (ψ 0) + Complex.normSq (ψ 1)
 TGLExt.superposition_not_autonomous : ∀ (w : ℝ), 0 ≤ w → w ≤ 1 → ∃! θ, θ ∈ Set.Icc 0 (Real.pi / 2) ∧ Real.sin θ = √w
 TGLExt.beamSplitterRule : ℝ → TGLExt.ProgrammerRule TGLExt.MirrorState ℝ
+TGLExt.fiber : ℕ → Submodule ℂ TGLExt.ellTwo
+TGLExt.fiberLock : (n : ℕ) → ↥(TGLExt.fiber n) →L[ℂ] ↥(TGLExt.fiber n)
+TGLExt.fiberIncl_not_surjective : ¬Function.Surjective ⇑(TGLExt.fiberIncl ⋯)
+TGLExt.theFlip_sq : TGLExt.theFlip * TGLExt.theFlip = 1
+TGLExt.theFlip_comm_eraseFirst : TGLExt.theFlip * TGLExt.eraseFirst = TGLExt.eraseFirst * TGLExt.theFlip
+TGLExt.theIsotoneNet : TGLExt.PhysicalNetData ℕ (fun x1 x2 => x1 ≤ x2) (fun n => ↥(TGLExt.fiber n)) fun n =>
+  ↥(TGLExt.fiber n)
+TGLExt.IdealExtension : Type → Type
+@TGLExt.idealZero : {X : Type} → TGLExt.IdealExtension X
+@TGLExt.ideal_zero_has_name_not_inhabitant : ∀ {X : Type} (x : X), TGLExt.toIdeal x ≠ TGLExt.idealZero
+@TGLExt.channel_never_reaches_ideal : ∀ {X : Type} (Φ : X → X) (x : X), TGLExt.toIdeal (Φ x) ≠ TGLExt.idealZero
+@TGLExt.lockFlow_add : ∀ {H : Type} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (T : H →L[ℂ] H) (hT : IsSelfAdjoint T) (s t : ℝ) (x : H),
+  (TGLExt.lockFlow T hT (s + t)) x = (TGLExt.lockFlow T hT s) ((TGLExt.lockFlow T hT t) x)
+TGLExt.benchDiracPMap : TGLExt.ellTwo →ₗ.[ℂ] TGLExt.ellTwo
+TGLExt.benchDiracPMap_selfadjoint : IsSelfAdjoint TGLExt.benchDiracPMap
+TGLExt.theBenchDirac : TGLExt.UnboundedDiracData TGLExt.ellTwo
+TGLExt.theBenchCertificate : TGLExt.QGClosureCertificate
+TGLExt.GenuinelyUnboundedDiracData : (ℍ : Type) →
+  [inst : NormedAddCommGroup ℍ] → [InnerProductSpace ℂ ℍ] → [CompleteSpace ℍ] → Type
+TGLExt.QGClosureCertificateStrong : Type 1
+TGLExt.benchDirac_is_bounded : ∃ C, ∀ (x : ↥TGLExt.theBenchDirac.D.domain), ‖↑TGLExt.theBenchDirac.D x‖ ≤ C * ‖↑x‖
+TGLExt.bench_cannot_feed_strong : ¬∃ g, g.toUnboundedDiracData = TGLExt.theBenchDirac
+TGLExt.isotone_cannot_feed_strong_core : ¬∃ O, ¬FiniteDimensional ℂ ↥(TGLExt.fiber O)
+TGLExt.constant_cannot_feed_strong_frame : ¬∃ x y, TGLExt.theConstantFrame.E x ≠ TGLExt.theConstantFrame.E y
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1831,6 +1856,20 @@ TGLExt.beamSplitterRule : ℝ → TGLExt.ProgrammerRule TGLExt.MirrorState ℝ
 'TGLExt.beamRotation_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.superposition_not_autonomous' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.beamSplitterRule' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.fiberIncl_not_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theFlip_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theFlip_comm_eraseFirst' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theIsotoneNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ideal_zero_has_name_not_inhabitant' does not depend on any axioms
+'TGLExt.channel_never_reaches_ideal' does not depend on any axioms
+'TGLExt.lockFlow_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.benchDiracPMap_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theBenchDirac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theBenchCertificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.benchDirac_is_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.bench_cannot_feed_strong' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.isotone_cannot_feed_strong_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.constant_cannot_feed_strong_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
