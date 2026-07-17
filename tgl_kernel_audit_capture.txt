@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=144601 len(stderr)=0
+# len(stdout)=146235 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1401,6 +1401,26 @@ TGLExt.the_master_fires : (0 < TGLExt.ellTwoTraceSub.tau TGLExt.ellTwoSusy.ker �
         TGLExt.LorentzByCongruence (TGLExt.solderMetric4 TGLExt.modularFrame⁻¹)) ∧
       TGLExt.theHorizon.dQ = TGLExt.theHorizon.kappa * TGLExt.theHorizon.dA / (8 * Real.pi * TGLExt.theHorizon.G)
 TGLExt.master_corner_weighs_the_name : TGLExt.ellTwoTraceSub.tau TGLExt.ellTwoSusy.ker = 1
+TGLExt.PhysicalNetData : (Region : Type) →
+  (Region → Region → Prop) →
+    (H W : Region → Type) →
+      [inst : (O : Region) → NormedAddCommGroup (H O)] →
+        [(O : Region) → InnerProductSpace ℂ (H O)] →
+          [∀ (O : Region), CompleteSpace (H O)] →
+            [inst : (O : Region) → NormedAddCommGroup (W O)] → [(O : Region) → NormedSpace ℂ (W O)] → Type 1
+TGLExt.UnboundedDiracData : (ℍ : Type) →
+  [inst : NormedAddCommGroup ℍ] → [InnerProductSpace ℂ ℍ] → [CompleteSpace ℍ] → Type
+TGLExt.SmoothFrameData : Type
+TGLExt.QGClosureCertificate : Type 1
+TGLExt.constant_net_group_trivial : ¬Nontrivial PUnit.{u_1 + 1}
+@TGLExt.identity_inclusion_cannot_witness : ∀ {α : Type}, Function.Surjective fun x => x
+TGLExt.ProgrammerRule : Type → Type → Type
+TGLExt.beamRotation : ℝ → TGLExt.MirrorState → TGLExt.MirrorState
+TGLExt.beamRotation_preserves : ∀ (θ : ℝ) (ψ : TGLExt.MirrorState),
+  Complex.normSq (TGLExt.beamRotation θ ψ 0) + Complex.normSq (TGLExt.beamRotation θ ψ 1) =
+    Complex.normSq (ψ 0) + Complex.normSq (ψ 1)
+TGLExt.superposition_not_autonomous : ∀ (w : ℝ), 0 ≤ w → w ≤ 1 → ∃! θ, θ ∈ Set.Icc 0 (Real.pi / 2) ∧ Real.sin θ = √w
+TGLExt.beamSplitterRule : ℝ → TGLExt.ProgrammerRule TGLExt.MirrorState ℝ
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1806,6 +1826,11 @@ TGLExt.master_corner_weighs_the_name : TGLExt.ellTwoTraceSub.tau TGLExt.ellTwoSu
 'TGLExt.theHorizon' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.the_master_fires' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.master_corner_weighs_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.constant_net_group_trivial' does not depend on any axioms
+'TGLExt.identity_inclusion_cannot_witness' does not depend on any axioms
+'TGLExt.beamRotation_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.superposition_not_autonomous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.beamSplitterRule' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

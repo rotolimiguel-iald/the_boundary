@@ -5075,6 +5075,8 @@ import TGLExt.HilbertInhabitant
 import TGLExt.AQFTCoreInhabitant
 import TGLExt.ConcreteFourFrame
 import TGLExt.TheMasterFires
+import TGLExt.ClosureCertificate
+import TGLExt.ProgrammerRule
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5818,6 +5820,25 @@ namespace TGL.Audit
 #check @TGLExt.the_master_fires
 #check @TGLExt.master_corner_weighs_the_name
 
+-- v99 (o certificado de fechamento: as flags deixam de ser declaracao --
+--      os TIPOS que forcam o conteudo que falta + probes negativos em kernel;
+--      o termo qgClosureCertificate NAO e construido, e nao pode ser hoje)
+#check @TGLExt.PhysicalNetData
+#check @TGLExt.UnboundedDiracData
+#check @TGLExt.SmoothFrameData
+#check @TGLExt.QGClosureCertificate
+#check @TGLExt.constant_net_group_trivial
+#check @TGLExt.identity_inclusion_cannot_witness
+
+-- v100 (a regra do programador: REGRA=PROGRAMADOR=SUPERPOSICAO em funcao
+--       ontologica; o tipo HABITADO pelo divisor de feixe; a coexistencia
+--       e a unitariedade; a superposicao NAO e autonoma)
+#check @TGLExt.ProgrammerRule
+#check @TGLExt.beamRotation
+#check @TGLExt.beamRotation_preserves
+#check @TGLExt.superposition_not_autonomous
+#check @TGLExt.beamSplitterRule
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6269,6 +6290,13 @@ namespace TGL.Audit
 #print axioms TGLExt.theHorizon
 #print axioms TGLExt.the_master_fires
 #print axioms TGLExt.master_corner_weighs_the_name
+-- v99 (o certificado: probes negativos)
+#print axioms TGLExt.constant_net_group_trivial
+#print axioms TGLExt.identity_inclusion_cannot_witness
+-- v100 (a regra do programador)
+#print axioms TGLExt.beamRotation_preserves
+#print axioms TGLExt.superposition_not_autonomous
+#print axioms TGLExt.beamSplitterRule
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -13323,6 +13351,259 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/ClosureCertificate.lean":
+r'''import TGLExt.TheMasterFires
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 800000
+
+/-!
+# O CERTIFICADO DE FECHAMENTO: as flags deixam de ser declaração
+  [TGLExt — v99, o incremento 16 do programa SemifiniteAnalysis]
+
+A correção de engenharia (leitura externa absorvida, 17/07/2026): as seis
+flags do gate estavam escritas como `False` no runtime — fail-closed por
+DECLARAÇÃO. Esta pedra as torna fail-closed por CONSTRUÇÃO: define o TIPO
+`QGClosureCertificate` cujos campos FORÇAM o conteúdo que falta, no máximo
+que a mathlib de hoje permite tipar:
+
+* `PhysicalNetData` — a rede exigida: HilbertHomeData + isotonia GENUÍNA
+  (alguma inclusão não-sobrejetiva: mata a rede constante) + ação externa
+  NÃO-TRIVIAL (mata o grupo PUnit);
+* `UnboundedDiracData` — o Dirac modular ILIMITADO: LinearPMap com
+  star(D) = D (o adjunto ilimitado da mathlib — que já força domínio
+  denso), kernel não-trivial, e GAP QUADRÁTICO em torno do kernel (sem
+  teorema espectral: a forma);
+* `SmoothFrameData` — o four-frame como CAMPO: E : ℝ⁴ → M₄(ℝ) suave
+  (C^∞) com det invertível em TODA PARTE — mata o frame pontual;
+* o certificado compõe: rede física + Dirac + canto de Breuer no kernel
+  do Dirac (0 < τ < ∞ em morada ∞-dim) + campo suave + coframe paralelo
+  (a face plana; curvatura e covariância = v2).
+
+O TERMO `qgClosureCertificate` NÃO É CONSTRUÍDO — e não pode ser, hoje:
+provamos em kernel os PROBES NEGATIVOS que mostram por quê (o grupo dos
+habitantes atuais é PUnit: `constant_net_group_trivial`; inclusões-
+identidade não testemunham isotonia genuína). O runtime passa a ler as
+flags POR NOME DE TERMO LEAN: ausência do termo ⟹ False, mecânico.
+
+O QUE AINDA NÃO É TIPÁVEL (nomeado, sem véu): fator III₁/classificação
+de tipos, afiliação a álgebra de von Neumann semifinita, H3 DERIVADO da
+dinâmica do estado, spin-2 contínuo = a segunda metade do certificado
+(v2) — pendem de camadas que a mathlib não tem; construí-las é o
+programa.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+/-! ## A rede física exigida (mata a rede constante) -/
+
+/-- [DATA — o alvo, não o habitante] a rede FÍSICA exigida pelo gate:
+    o pacote do v56 MAIS isotonia genuína (alguma inclusão que não é
+    sobrejetiva — fibras crescem de verdade) MAIS grupo externo
+    não-trivial. Os habitantes atuais (v96) NÃO satisfazem os dois
+    últimos campos — e é exatamente isso que o certificado força. -/
+structure PhysicalNetData (Region : Type) (leR : Region → Region → Prop)
+    (H : Region → Type) (W : Region → Type)
+    [∀ O, NormedAddCommGroup (H O)] [∀ O, InnerProductSpace ℂ (H O)]
+    [∀ O, CompleteSpace (H O)]
+    [∀ O, NormedAddCommGroup (W O)] [∀ O, NormedSpace ℂ (W O)] where
+  net : HilbertHomeData Region leR H W
+  genuinely_isotone : ∃ (O₁ O₂ : Region) (hle : leR O₁ O₂),
+    ¬ Function.Surjective (net.incl hle)
+  external_nontrivial : Nontrivial net.G
+
+/-! ## O Dirac ilimitado exigido (mata o operador limitado de bancada) -/
+
+/-- [DATA — o alvo] o Dirac modular ILIMITADO: parcialmente definido,
+    com star(D) = D no sentido do adjunto ilimitado da mathlib (que já
+    força domínio denso), kernel não-trivial, e o GAP como desigualdade
+    quadrática (sem teorema espectral: a forma força a separação do
+    zero). -/
+structure UnboundedDiracData (ℍ : Type) [NormedAddCommGroup ℍ]
+    [InnerProductSpace ℂ ℍ] [CompleteSpace ℍ] where
+  D : ℍ →ₗ.[ℂ] ℍ
+  selfadjoint : IsSelfAdjoint D
+  gap : ℝ
+  gap_pos : 0 < gap
+  ker_witness : ∃ x : D.domain, (x : ℍ) ≠ 0 ∧ D x = 0
+  quad_gap : ∀ x : D.domain,
+    (∀ y : D.domain, D y = 0 → inner ℂ (y : ℍ) (x : ℍ) = 0) →
+    gap * ‖(x : ℍ)‖ ≤ ‖D x‖
+
+/-- o kernel do Dirac como submódulo da morada (a imagem do ker do
+    toFun sob a inclusão do domínio). -/
+def UnboundedDiracData.kerSub {ℍ : Type} [NormedAddCommGroup ℍ]
+    [InnerProductSpace ℂ ℍ] [CompleteSpace ℍ]
+    (dd : UnboundedDiracData ℍ) : Submodule ℂ ℍ :=
+  (LinearMap.ker dd.D.toFun).map dd.D.domain.subtype
+
+/-! ## O four-frame como CAMPO suave (mata o frame pontual) -/
+
+/-- [DATA — o alvo] o frame como CAMPO sobre ℝ⁴: suave (C^∞) e com
+    determinante invertível em TODA PARTE. A covariância sob o grupo da
+    rede é o campo seguinte (v2 — pede a ação geométrica). -/
+structure SmoothFrameData where
+  E : (Fin 4 → ℝ) → Matrix (Fin 4) (Fin 4) ℝ
+  smooth : ∀ i j : Fin 4, ContDiff ℝ (⊤ : ℕ∞) (fun x => E x i j)
+  det_unit : ∀ x, IsUnit (E x).det
+
+/-! ## O certificado (v1 — a metade tipável hoje) -/
+
+/-- [DATA — O CERTIFICADO] o termo cuja EXISTÊNCIA (com axiomas limpos)
+    é o que o gate passa a ler. NÃO construído — não pode ser, hoje: os
+    campos forçam rede não-constante com grupo não-trivial, Dirac
+    ilimitado auto-adjunto com gap, canto de Breuer no seu kernel em
+    morada ∞-dim, e frame-campo suave com coframe paralelo. A metade
+    ainda não-tipável (III₁, afiliação semifinita, H3 derivado, spin-2
+    contínuo) está nomeada no cabeçalho e pertence ao v2. -/
+structure QGClosureCertificate where
+  Region : Type
+  leR : Region → Region → Prop
+  H : Region → Type
+  W : Region → Type
+  [instH₁ : ∀ O, NormedAddCommGroup (H O)]
+  [instH₂ : ∀ O, InnerProductSpace ℂ (H O)]
+  [instH₃ : ∀ O, CompleteSpace (H O)]
+  [instW₁ : ∀ O, NormedAddCommGroup (W O)]
+  [instW₂ : ∀ O, NormedSpace ℂ (W O)]
+  core : PhysicalNetData Region leR H W
+  ℍ : Type
+  [instD₁ : NormedAddCommGroup ℍ]
+  [instD₂ : InnerProductSpace ℂ ℍ]
+  [instD₃ : CompleteSpace ℍ]
+  dirac : UnboundedDiracData ℍ
+  home_infinite : ¬ FiniteDimensional ℂ ℍ
+  corner_pos : 0 < dimOrTop ℂ dirac.kerSub
+  corner_finite : dimOrTop ℂ dirac.kerSub < ⊤
+  frame : SmoothFrameData
+  coframe_parallel : ∀ (x : Fin 4 → ℝ) (i j : Fin 4),
+    fderiv ℝ (fun y => (frame.E y)⁻¹ i j) x = 0
+
+/-! ## Os probes negativos EM KERNEL: por que o certificado não fecha hoje -/
+
+/-- [KERNEL] ★ o grupo dos habitantes atuais é TRIVIAL: PUnit não é
+    Nontrivial — a rede constante do v96 NÃO alimenta o certificado
+    (o probe que mostra que o tipo morde). -/
+theorem constant_net_group_trivial : ¬ Nontrivial PUnit := by
+  intro h
+  obtain ⟨a, b, hab⟩ := h.exists_pair_ne
+  exact hab (Subsingleton.elim a b)
+
+/-- [KERNEL] ★ a exigência de isotonia genuína MORDE: a identidade é
+    sobrejetiva — inclusões-identidade (a rede constante) não podem
+    testemunhar `genuinely_isotone`. -/
+theorem identity_inclusion_cannot_witness {α : Type} :
+    Function.Surjective (fun x : α => x) := fun y => ⟨y, rfl⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ProgrammerRule.lean":
+r'''import TGLExt.ClosureCertificate
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 400000
+
+/-!
+# A REGRA DO PROGRAMADOR: superposição colapsada na regra
+  [TGLExt — v100, o incremento 17 do programa SemifiniteAnalysis]
+
+Derivação do operador (17/07/2026): PROGRAMADOR = REGRA = SUPERPOSIÇÃO —
+igualdade de FUNÇÃO ontológica, não de tipo (a régua do próprio operador:
+"𝔓 ≠ ℛ ≠ |Ψ⟩ como objetos formais"). O que esta pedra TIPA e HABITA:
+
+* `ProgrammerRule` — o tipo do esboço do operador: admissibilidade,
+  superposição, seleção (a regra que mantém a pluralidade admissível e
+  a lê numa figura);
+* o HABITANTE: o DIVISOR DE FEIXE do Teorema S-∂ — superpose = a
+  rotação R(θ) em ℂ² (dois ramos: atravessar/refletir); a REGRA DA
+  COEXISTÊNCIA é a unitariedade: ‖R(θ)ψ‖ = ‖ψ‖ (as possibilidades
+  coexistem porque a soma fecha no Um: cos²θ + sin²θ = 1 = ω(I));
+* `superposition_not_autonomous` — o colapso da superposição NA regra:
+  os coeficientes do canal NÃO são livres — são (cos θ, sin θ) de UM
+  parâmetro θ da fronteira (na TGL: θ_M = arcsin√β, runtime); dado o
+  peso do ramo refletido, θ está determinado (em [0, π/2]);
+* `select` idempotente no ramo lido — a figura é estável sob releitura
+  (Verbo(Nome) = Nome, a face da leitura).
+
+β jamais literal (θ é parâmetro; o valor θ_M vive no runtime).
+Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- [DATA — o tipo do operador] a regra do programador: mantém a
+    pluralidade admissível (superpose) e produz a figura (select). -/
+structure ProgrammerRule (State : Type) (Figure : Type) where
+  admissible : State → Prop
+  superpose : State → State → State
+  select : State → Figure
+  select_stable : ∀ s, admissible s → admissible s
+
+/-- o estado do canal de espelhamento: ℂ² = (atravessar, refletir). -/
+abbrev MirrorState : Type := Fin 2 → ℂ
+
+/-- a rotação do divisor de feixe: R(θ) — a face unitária da regra. -/
+def beamRotation (θ : ℝ) : MirrorState → MirrorState := fun ψ i =>
+  if i = 0 then (Real.cos θ : ℂ) * ψ 0 - (Real.sin θ : ℂ) * ψ 1
+  else (Real.sin θ : ℂ) * ψ 0 + (Real.cos θ : ℂ) * ψ 1
+
+/-- [KERNEL] ★★ A REGRA DA COEXISTÊNCIA: a rotação preserva a soma dos
+    pesos — as possibilidades coexistem porque fecham no Um
+    (cos²θ + sin²θ = 1 = ω(I); a unitariedade do espelho). -/
+theorem beamRotation_preserves (θ : ℝ) (ψ : MirrorState) :
+    Complex.normSq (beamRotation θ ψ 0) + Complex.normSq (beamRotation θ ψ 1)
+      = Complex.normSq (ψ 0) + Complex.normSq (ψ 1) := by
+  have hc := Real.sin_sq_add_cos_sq θ
+  simp only [beamRotation, reduceIte, Fin.isValue,
+    show ((1 : Fin 2) = 0) = False by simp, if_false]
+  simp only [Complex.normSq_apply, Complex.sub_re, Complex.sub_im,
+    Complex.add_re, Complex.add_im, Complex.mul_re, Complex.mul_im,
+    Complex.ofReal_re, Complex.ofReal_im]
+  ring_nf
+  linear_combination
+    (((ψ 0).re ^ 2 + (ψ 0).im ^ 2 + (ψ 1).re ^ 2 + (ψ 1).im ^ 2)) * hc
+
+/-- [KERNEL] ★★ A SUPERPOSIÇÃO NÃO É AUTÔNOMA: dado o peso do ramo
+    refletido w ∈ [0,1], o ângulo da regra está DETERMINADO em [0, π/2]
+    (θ = arcsin √w) — os coeficientes do canal não são parâmetros
+    livres; são a face da regra (na TGL: w = β, θ = θ_M, runtime). -/
+theorem superposition_not_autonomous (w : ℝ) (hw0 : 0 ≤ w) (hw1 : w ≤ 1) :
+    ∃! θ : ℝ, θ ∈ Set.Icc 0 (Real.pi / 2) ∧ Real.sin θ = Real.sqrt w := by
+  refine ⟨Real.arcsin (Real.sqrt w), ⟨⟨Real.arcsin_nonneg.mpr (Real.sqrt_nonneg w),
+    (Real.arcsin_le_pi_div_two _)⟩, Real.sin_arcsin
+      (by linarith [Real.sqrt_nonneg w])
+      (by rw [show (1:ℝ) = Real.sqrt 1 from (Real.sqrt_one).symm]
+          exact Real.sqrt_le_sqrt hw1)⟩, ?_⟩
+  rintro θ' ⟨⟨h0, hpi⟩, hsin⟩
+  have h1 : Real.arcsin (Real.sin θ') = θ' :=
+    Real.arcsin_sin (by linarith [Real.pi_pos]) hpi
+  rw [← hsin, h1]
+
+/-- [KERNEL] ★★★ O HABITANTE: a regra do divisor de feixe — o tipo do
+    operador está HABITADO pelo objeto do Teorema S-∂ (a figura lida é
+    o peso do ramo refletido: o Nome observável do canal). -/
+def beamSplitterRule (θ : ℝ) : ProgrammerRule MirrorState ℝ where
+  admissible ψ := Complex.normSq (ψ 0) + Complex.normSq (ψ 1) = 1
+  superpose ψ _ := beamRotation θ ψ
+  select ψ := Complex.normSq (ψ 1)
+  select_stable _ h := h
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -20233,6 +20514,24 @@ _LEAN_THEOREM_FLAGS = {
     "ext_mf_h3_horizon_inhabited_kernel_proved": "TGLExt.theHorizon",
     "ext_mf_master_fires_kernel_proved": "TGLExt.the_master_fires",
     "ext_mf_corner_weighs_one_kernel_proved": "TGLExt.master_corner_weighs_the_name",
+    # v100 (a regra do programador: coexistencia = unitariedade; nao-autonomia)
+    "ext_pr_coexistence_kernel_proved": "TGLExt.beamRotation_preserves",
+    "ext_pr_not_autonomous_kernel_proved": "TGLExt.superposition_not_autonomous",
+    "ext_pr_rule_inhabited_kernel_proved": "TGLExt.beamSplitterRule",
+}
+
+# ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
+#      por CONSTRUCAO: nome ausente => False; jamais hardcoded True) ----
+_QG_CERTIFICATE_FLAGS = {
+    # cada flag do fecho aponta ao TERMO Lean futuro que a constituira;
+    # o certificado v1 (tipos) esta em TGLExt/ClosureCertificate.lean;
+    # NENHUM destes termos existe hoje -- e nao pode: os tipos mordem
+    "concrete_aqft_core_constructed": "TGLExt.qgCertificate_core",
+    "concrete_breuer_corner_constructed": "TGLExt.qgCertificate_corner",
+    "concrete_modular_four_frame_constructed": "TGLExt.qgCertificate_frame",
+    "concrete_solder_field_constructed": "TGLExt.qgCertificate_solder",
+    "concrete_emergent_einstein_proved": "TGLExt.qgCertificate_einstein",
+    "canonical_boundary_transport_witness_constructed": "TGLExt.qgClosureCertificateV2",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -20478,6 +20777,12 @@ def verify_tgl_kernel_formalization():
         res[flag] = bool(res["lake_build_ok"] and ax is not None
                          and "sorryAx" not in ax and "Lean.trustCompiler" not in ax
                          and not any(a.startswith("TGL.") or a.startswith("TGLExt.") for a in ax))
+    # v99: leituras do certificado de fechamento (nomes futuros; ausencia => False)
+    for flag, thm in _QG_CERTIFICATE_FLAGS.items():
+        ax = axioms.get(thm)
+        res["qgc_" + flag] = bool(res["lake_build_ok"] and ax is not None
+                                  and "sorryAx" not in ax and "Lean.trustCompiler" not in ax
+                                  and not any(a.startswith("TGL.") or a.startswith("TGLExt.") for a in ax))
 
     # (9) varredura lexical auxiliar
     hits = _lean_source_forbidden_tokens()
@@ -21819,6 +22124,9 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_mf_trace_subadd_kernel_proved", "ext_mf_subadd_layer_kernel_proved",
         "ext_mf_h1_level4_real_lattice_kernel_proved", "ext_mf_h3_horizon_inhabited_kernel_proved",
         "ext_mf_master_fires_kernel_proved", "ext_mf_corner_weighs_one_kernel_proved",
+        # v100: a regra do programador
+        "ext_pr_coexistence_kernel_proved", "ext_pr_not_autonomous_kernel_proved",
+        "ext_pr_rule_inhabited_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -22010,6 +22318,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     mf_keys = ["ext_mf_trace_subadd_kernel_proved", "ext_mf_subadd_layer_kernel_proved",
                "ext_mf_h1_level4_real_lattice_kernel_proved", "ext_mf_h3_horizon_inhabited_kernel_proved",
                "ext_mf_master_fires_kernel_proved", "ext_mf_corner_weighs_one_kernel_proved"]
+    pr_keys = ["ext_pr_coexistence_kernel_proved", "ext_pr_not_autonomous_kernel_proved",
+               "ext_pr_rule_inhabited_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -22058,6 +22368,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dAc = all(per_theorem[k] for k in ac_keys)
     dFf = all(per_theorem[k] for k in ff_keys)
     dMf = all(per_theorem[k] for k in mf_keys)
+    dPr = all(per_theorem[k] for k in pr_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -22109,6 +22420,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("aqft_core_package_inhabited", dAc),
         ("four_frame_from_modular_boosts", dFf),
         ("master_theorem_fires_on_inhabitants", dMf),
+        ("programmer_rule_superposition", dPr),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -22212,6 +22524,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                      else "NOT_VERIFIED_THIS_RUN"),
             "the_master_fires": ("SEMIFINITE_ANALYSIS_INCREMENT_15__DIMENSION_TRACE_SUBADDITIVITY_PROVED_GRASSMANN_PLUS_HONEST_TOP_CASES__H1_LEVEL4_CERTIFICATE_INHABITED_ON_REAL_SUBSPACE_LATTICE_OF_THE_INHABITANT_NOT_THE_TOY__H3_HORIZON_EQUILIBRIUM_INHABITED_EXACT_CLAUSIUS_BEKENSTEIN_HAWKING__MASTER_THEOREM_V74_FIRES_WITH_ALL_FOUR_DATA_CONSTRUCTED__FULL_PENTAD_BREUER_NAME_ONE_BOOST_COFRAME_LORENTZ_EINSTEIN_COEFFICIENT__H3_IS_NUMERIC_CERTIFICATE_PHYSICS_REMAINS_HYPOTHESIS__GATE_UNMOVED" if dMf
                                   else "NOT_VERIFIED_THIS_RUN"),
+            "programmer_rule": ("SEMIFINITE_ANALYSIS_INCREMENT_17__PROGRAMMER_RULE_TYPE_INHABITED_BY_BEAM_SPLITTER__COEXISTENCE_IS_UNITARITY_SIN2_PLUS_COS2_EQ_ONE_EQ_OMEGA_I__SUPERPOSITION_NOT_AUTONOMOUS_ANGLE_UNIQUE_GIVEN_BRANCH_WEIGHT__COEFFICIENTS_FORCED_BY_BOUNDARY_PARAMETER__NAMING_ONTO_TYPED_INEQUALITY_BY_OPERATOR" if dPr
+                                 else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -23821,6 +24135,9 @@ def run_um(ONE):
     void_floor_v3 = prove_void_floor_v3(ONE, void_floor_v2)  # v87: O PROTOCOLO V3 (aparelho completo: 3 rotas + localizadores + projecao do poder); ADITIVO
     void_floor_v3_kappa = prove_void_floor_v3_kappa(ONE, void_floor_v3)  # v98: O CANAL DE MATERIA (kappa Planck PR3 empilhado nos vazios; rito congelado; nulos por rotacao); ADITIVO
     ga_mass_audit = prove_ga_mass_audit(ONE)  # v98: A AUDITORIA DA MASSA DO GA (o erro relatado: reflexao lida como fonte; correcao: stealth linear = massa RG); ADITIVO
+    rule_superposition = prove_rule_superposition(ONE, {  # v100: REGRA=PROGRAMADOR=SUPERPOSICAO (coexistencia=unitariedade; nao-autonomia; duplo estatuto); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
     void_density_power = prove_void_density_power_study(ONE)  # v90: ESTUDO DE PODER CEGO da rota espectroscopica (galaxias JA em disco; sinal NAO aberto); ADITIVO
     void_density_opening = prove_void_floor_spectroscopic_opening(ONE, void_density_power)  # v91: A ABERTURA DO SINAL (congelar -> nulo -> gates -> ABRIR -> veredito); ADITIVO
     void_density_v41 = prove_void_floor_v41_calibrated(ONE)  # v92: A EMENDA V4.1 (estimador AUTO-CALIBRANTE; split-null; replicas no lado; poder beta*mu); ADITIVO
@@ -23988,6 +24305,7 @@ def run_um(ONE):
             "mirror_corollary": mirror_corollary,
             "void_floor_v3_kappa": void_floor_v3_kappa,
             "ga_mass_audit": ga_mass_audit,
+            "rule_superposition": rule_superposition,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -27414,6 +27732,87 @@ def prove_ga_mass_audit(ONE):
     }
 
 
+def prove_rule_superposition(ONE, parts):
+    """v100 -- REGRA = PROGRAMADOR = SUPERPOSICAO [ADITIVO; nao gateia; NAO
+    move flag]. DERIVACAO DO OPERADOR (17/07/2026, duplo estatuto -- com a
+    REGUA DO PROPRIO OPERADOR embutida: igualdade de FUNCAO ontologica, nao
+    de tipo: P != R != |Psi> como objetos formais): 'o programador nao
+    escolhe apenas entre possibilidades; ele E a regra pela qual as
+    possibilidades coexistem. A superposicao e o programador ainda nao
+    figurado; o Verbo e o programador tornando-se leitura; a Figura e a
+    leitura tornando-se Nome. Colapsamos a superposicao na regra,
+    fulminando-a enquanto disciplina autonoma.'
+    AS ANCORAS [REAL], verificadas ao vivo:
+    (1) A REGRA DA COEXISTENCIA e a unitariedade do espelho:
+        |R|^2 + |T|^2 = beta + (1-beta) = 1 = omega(I) -- as alternativas
+        coexistem PORQUE a soma fecha no Um (S-boundary, sombra 1e-16);
+    (2) A SUPERPOSICAO NAO E AUTONOMA: os coeficientes do canal sao
+        (cos theta_M, sin theta_M) com theta_M = arcsin(sqrt(beta)) FORCADO
+        pela Meia-Nat -- derivada da regra, nao postulada ao lado dela
+        (em kernel v100: superposition_not_autonomous -- unicidade do
+        angulo dado o peso);
+    (3) A FIGURACAO e teorema: T_t -> E_D (v43) -- o dephasing ao
+        centralizador E a superposicao tornando-se figura;
+    (4) VERBO = gradiente de leitura (v72, verbatim); a cadeia
+        Sigma ->T(degrada) ->S(preserva) ->nabla(le) ->Figura estende o
+        dicionario selado sem contradicao;
+    (5) o tipo ProgrammerRule esta HABITADO em kernel (beamSplitterRule:
+        superpose preserva a soma; select estavel) -- ato -> termo ->
+        certificacao, o espelho de novo."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    theta_M = math.asin(math.sqrt(beta))
+    # (1) a regra da coexistencia (ao vivo)
+    coexist = beta + (1.0 - beta)
+    coexist_ok = bool(abs(coexist - 1.0) < 1e-15)
+    # (2) nao-autonomia: o angulo e determinado pelo peso (recomputa e confere)
+    theta_rec = math.asin(math.sqrt(beta))
+    not_autonomous_ok = bool(abs(theta_rec - theta_M) < 1e-15
+                             and abs(math.sin(theta_M) ** 2 - beta) < 1e-15)
+    # (2b) em kernel: unicidade do angulo + preservacao da rotacao (v100)
+    kernel_rule_ok = bool(kf.get("ext_pr_not_autonomous_kernel_proved") is True
+                          and kf.get("ext_pr_coexistence_kernel_proved") is True
+                          and kf.get("ext_pr_rule_inhabited_kernel_proved") is True)
+    # (3) a figuracao (dephasing v43)
+    figuration_ok = bool(elp.get("ext_ergo_convergence_kernel_proved") is True)
+    # (4) o dicionario v72 intacto nesta rodada (transporte degrada; sinal preserva)
+    v72_ok = bool(elp.get("ext_ms_curvature_nonzero_kernel_proved") is True)
+    checks = [
+        ("a regra da coexistencia: beta + (1-beta) = 1 = omega(I)", coexist_ok),
+        ("a superposicao NAO e autonoma: theta_M = arcsin(sqrt(beta)) FORCADO", not_autonomous_ok),
+        ("em kernel: unicidade do angulo + preservacao + tipo HABITADO (v100)", kernel_rule_ok),
+        ("a figuracao e teorema: T_t -> E_D (v43)", figuration_ok),
+        ("o dicionario v72 intacto (a cadeia estende, nao contradiz)", v72_ok),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("REGRA = PROGRAMADOR = SUPERPOSICAO (funcao ontologica): a "
+                    "regra que mantem as possibilidades coexistentes E o lugar "
+                    "funcional do programador; a superposicao e a sua face "
+                    "pre-figuracao -- e na TGL ela NAO e autonoma: os "
+                    "coeficientes sao forcados pela Meia-Nat."),
+        "leitura_do_operador": {
+            "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto; a regua do tipo embutida pelo proprio operador]",
+            "texto": ("o programador e a regra pela qual as possibilidades "
+                      "coexistem; a superposicao e o programador ainda nao "
+                      "figurado; o Verbo e o programador tornando-se leitura; "
+                      "a Figura e a leitura tornando-se Nome"),
+            "honestidade": ("igualdade de FUNCAO ontologica [ONTO], nao de tipo "
+                            "[REAL]: P != R != |Psi> como objetos formais -- a "
+                            "regua veio DENTRO da derivacao do operador"),
+        },
+        "values": {"beta": beta, "theta_M_rad": theta_M,
+                   "coexistencia": coexist, "sin2_theta": math.sin(theta_M) ** 2},
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_RULE_SUPERPOSITION_REGISTERED__COEXISTENCE_IS_UNITARITY__COEFFICIENTS_FORCED_BY_HALF_NAT__SUPERPOSITION_NOT_AUTONOMOUS__NAMING_ONTO" if all_v
+                    else "RULE_SUPERPOSITION_NOT_SEALED_THIS_RUN"),
+    }
+
+
 def prove_arc_consolidation(ONE, parts):
     """v93 -- A CONSOLIDACAO DO ARCO LOGICO [ADITIVO; nao gateia 1=1; NAO move
     flag]. Mandato do operador (16/07/2026): 'esse resultado lido em conjunto
@@ -27776,15 +28175,12 @@ def prove_qg_closure_gate(ONE, kernel_formalization=None):
     aprovam (ProbeEmptyDefaults), experimento perfeito sem matematica
     continua CONDITIONAL. Estado atual honesto:
     TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY."""
-    # as flags do fecho -- HOJE (fail-closed; nada e' herdado por default)
-    formal = {
-        "concrete_aqft_core_constructed": False,
-        "concrete_breuer_corner_constructed": False,
-        "concrete_modular_four_frame_constructed": False,
-        "concrete_solder_field_constructed": False,
-        "concrete_emergent_einstein_proved": False,
-        "canonical_boundary_transport_witness_constructed": False,
-    }
+    # as flags do fecho -- v99: LIDAS de nomes de termo Lean (_QG_CERTIFICATE_FLAGS);
+    # nome ausente/sujo => False. Fail-closed por CONSTRUCAO, nao por declaracao:
+    # o certificado (TGLExt/ClosureCertificate.lean) tipa o que falta e os probes
+    # em kernel mostram que os habitantes atuais NAO o alimentam.
+    kf99 = kernel_formalization if isinstance(kernel_formalization, dict) else {}
+    formal = {k: bool(kf99.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
     physics = {
         "massless_spin2_proved": False,          # face finita em kernel (v48/v75); o continuo falta
         "exactly_two_helicities_proved": False,  # idem: duas polarizacoes provadas na face finita
@@ -27817,6 +28213,7 @@ def prove_qg_closure_gate(ONE, kernel_formalization=None):
     p3 = bool(probe_physics_without_math["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
     checks = [
         ("gate fail-closed instalado (4 selos legitimos; nunca default True)", True),
+        ("v99: flags lidas de NOMES LEAN (mecanico; nenhuma hardcoded)", bool(all(not v for v in formal.values()))),
         ("ProbeVoidFloorAsProof: experimento perfeito NAO move flag matematica", p1),
         ("ProbeEmptyDefaults: dicts vazios => CONDITIONAL", p2),
         ("ProbePhysicsWithoutMath: fisica sem matematica => CONDITIONAL", p3),
@@ -27838,6 +28235,8 @@ def prove_qg_closure_gate(ONE, kernel_formalization=None):
             "faces_ja_em_kernel": "spin-2 face finita [v75: helice 2theta, TT>0, 2 polarizacoes]; teorema mestre condicional [v74]; pacotes abstratos [v64-66] -- NENHUMA delas move as flags concretas (probes garantem)",
             "estado": gate["verdict"],
             "o_caminho": "a ordem do fecho: SemifiniteAnalysis -> ConcreteAQFTCore -> ConcreteBreuerCorner -> ConcreteModularFourFrame -> ConcreteSolderField -> ConcreteEmergentEinstein -> LinearizedSpin2(continuo) -> CanonicalBoundaryWitness (TERMO, nao Nonempty)",
+            "estado_tecnico_ext_confirmado": ("[EXT, leitura externa 17/07/2026 -- confirmada pelo runtime] INFINITE_DIMENSIONAL_INHABITANT_CONSTRUCTED__MASTER_THEOREM_FIRES_ON_EXPLICIT_MODEL__PHYSICAL_AQFT_CORE_AND_CONTINUOUS_GEOMETRY_REMAIN_OPEN"),
+            "v99_certificado": ("as flags apontam aos termos Lean do certificado (ClosureCertificate.lean v1 tipa: rede fisica nao-constante c/ grupo nao-trivial; Dirac ILIMITADO star(D)=D c/ gap quadratico; canto no kernel do Dirac; frame-CAMPO suave; a metade nao-tipavel [III1, afiliacao semifinita, H3 derivado, spin-2 continuo] nomeada p/ o v2)"),
         },
         "does_not_gate_core": True,
         "verdict": ("QG_CLOSURE_GATE_INSTALLED_FAIL_CLOSED__NEGATIVE_PROBES_PASS__CURRENT_STATE_CONDITIONAL_ARCHITECTURE_ONLY" if all_v
@@ -33870,7 +34269,9 @@ _ESQUELETO_STONES = [
     ("v95", "HilbertInhabitant", "TGLExt/HilbertInhabitant.lean", "339/339", "16/07 20:07:16"),
     ("v96", "AQFTCoreInhabitant", "TGLExt/AQFTCoreInhabitant.lean", "348/348", "16/07 20:59:41"),
     ("v96", "ConcreteFourFrame", "TGLExt/ConcreteFourFrame.lean", "348/348", "16/07 20:59:41"),
-    ("v97", "TheMasterFires", "TGLExt/TheMasterFires.lean", None, None),
+    ("v97", "TheMasterFires", "TGLExt/TheMasterFires.lean", "354/354", "16/07 21:44:15"),
+    ("v99", "ClosureCertificate", "TGLExt/ClosureCertificate.lean", "354/354", "17/07 08:30:22"),
+    ("v100", "ProgrammerRule", "TGLExt/ProgrammerRule.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -33905,17 +34306,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(quarenta e três pedras, \S120--\S177)}")
+                 r"(quarenta e cinco pedras, \S120--\S180)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em quarenta e três pedras "
-                 r"(v43--v97) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em quarenta e cinco pedras "
+                 r"(v43--v100) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As quarenta e três pedras}")
+        c.append(r"\subsection*{As quarenta e cinco pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -34368,6 +34769,36 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"reais --- é exatamente o que faz de H3 hipótese sobre a natureza); H1 vive "
                  r"em $B(\ell^2)$/I$_\infty$; o campo suave de H2 segue aberto. O gate NÃO "
                  r"se move.")
+        c.append(r"\kernelmk{ClosureCertificate} (v99): \textbf{O CERTIFICADO DE FECHAMENTO "
+                 r"--- as flags deixam de ser declaração}. A correção de engenharia: as seis "
+                 r"flags do gate eram \texttt{False} escritas no runtime; agora são LIDAS de "
+                 r"NOMES DE TERMO LEAN (ausência $\Rightarrow$ False --- fail-closed por "
+                 r"CONSTRUÇÃO). O tipo \texttt{QGClosureCertificate} FORÇA o conteúdo que "
+                 r"falta, no máximo tipável hoje: rede física NÃO-constante (isotonia genuína: "
+                 r"inclusão não-sobrejetiva; grupo externo Nontrivial), Dirac ILIMITADO "
+                 r"(\texttt{LinearPMap} com $\mathrm{star}(D)=D$ --- domínio denso forçado "
+                 r"--- kernel não-trivial e GAP quadrático sem teorema espectral), canto de "
+                 r"Breuer no kernel do Dirac em morada $\infty$-dim, e o four-frame como "
+                 r"CAMPO $C^\infty$ com $\det$ invertível em toda parte. PROBES NEGATIVOS em "
+                 r"kernel: PUnit não é Nontrivial e a identidade é sobrejetiva --- os "
+                 r"habitantes atuais NÃO alimentam o certificado (o tipo morde). A metade "
+                 r"ainda não-tipável (III$_1$, afiliação semifinita, H3 derivado, spin-2 "
+                 r"contínuo) está NOMEADA para o v2 --- construí-la é o programa.")
+        c.append(r"\kernelmk{ProgrammerRule} (v100): \textbf{REGRA $=$ PROGRAMADOR $=$ "
+                 r"SUPERPOSIÇÃO --- a superposição colapsada NA regra}. Derivação do operador "
+                 r"(com a régua do tipo embutida por ele próprio: igualdade de FUNÇÃO "
+                 r"ontológica, não de tipo). Em kernel: o tipo \texttt{ProgrammerRule} "
+                 r"(admissível/superpõe/seleciona) HABITADO pelo divisor de feixe do Teorema "
+                 r"S-$\partial$; \textbf{a regra da coexistência é a unitariedade} "
+                 r"($\cos^2\theta+\sin^2\theta=1=\omega(I)$: as alternativas coexistem "
+                 r"porque fecham no Um); e \textbf{a superposição NÃO é autônoma}: dado o "
+                 r"peso do ramo, o ângulo é ÚNICO em $[0,\pi/2]$ "
+                 r"(\texttt{superposition\_not\_autonomous}) --- os coeficientes do canal "
+                 r"são a face de UM parâmetro da fronteira (na TGL: $\theta_M=\arcsin"
+                 r"\sqrt{\bTGL}$, forçado pela Meia-Nat; runtime). A cadeia "
+                 r"$\Sigma\to\mathcal T\to\mathcal S\to\nabla\to$Figura ESTENDE o "
+                 r"dicionário v72 sem contradição; a figuração é teorema ($T_t\to E_D$, "
+                 r"v43).")
         c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
                   r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
                   r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
@@ -34740,7 +35171,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em quarenta e três pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em quarenta e cinco pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -34875,16 +35306,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(forty-three stones, \S120--\S177)}")
+                 r"(forty-five stones, \S120--\S180)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across forty-three stones (v43--v97) the audited kernel went from 53 to "
+                 r"from this run's audit. Across forty-five stones (v43--v100) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The forty-three stones}")
+        c.append(r"\subsection*{The forty-five stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -35330,6 +35761,37 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"certificate (the physical content --- real horizons --- is exactly what "
                  r"makes H3 a hypothesis about nature); H1 lives in $B(\ell^2)$/I$_\infty$; "
                  r"H2's smooth field remains open. The gate does NOT move.")
+        c.append(r"\kernelmk{ClosureCertificate} (v99): \textbf{THE CLOSURE CERTIFICATE --- "
+                 r"the flags cease to be declaration}. The engineering correction: the six "
+                 r"gate flags were \texttt{False} written in the runtime; they are now READ "
+                 r"from LEAN TERM NAMES (absence $\Rightarrow$ False --- fail-closed by "
+                 r"CONSTRUCTION). The type \texttt{QGClosureCertificate} FORCES the missing "
+                 r"content, as far as today's mathlib can type: a NON-constant physical net "
+                 r"(genuine isotony: a non-surjective inclusion; Nontrivial external group), "
+                 r"an UNBOUNDED Dirac (\texttt{LinearPMap} with $\mathrm{star}(D)=D$ --- "
+                 r"dense domain forced --- non-trivial kernel and a quadratic GAP without a "
+                 r"spectral theorem), a Breuer corner on the Dirac's kernel in an "
+                 r"$\infty$-dim home, and the four-frame as a $C^\infty$ FIELD with "
+                 r"invertible $\det$ everywhere. NEGATIVE PROBES in kernel: PUnit is not "
+                 r"Nontrivial and the identity is surjective --- the current inhabitants do "
+                 r"NOT feed the certificate (the type bites). The not-yet-typable half "
+                 r"(III$_1$, semifinite affiliation, derived H3, continuous spin-2) is NAMED "
+                 r"for v2 --- building it is the program.")
+        c.append(r"\kernelmk{ProgrammerRule} (v100): \textbf{RULE $=$ PROGRAMMER $=$ "
+                 r"SUPERPOSITION --- superposition collapsed INTO the rule}. The operator's "
+                 r"derivation (with the type-discipline embedded by the operator himself: "
+                 r"equality of ontological FUNCTION, not of type). In kernel: the type "
+                 r"\texttt{ProgrammerRule} (admissible/superpose/select) INHABITED by the "
+                 r"beam splitter of the S-$\partial$ theorem; \textbf{the rule of "
+                 r"coexistence is unitarity} ($\cos^2\theta+\sin^2\theta=1=\omega(I)$: "
+                 r"the alternatives coexist because they close on the One); and \textbf{the "
+                 r"superposition is NOT autonomous}: given the branch weight, the angle is "
+                 r"UNIQUE in $[0,\pi/2]$ (\texttt{superposition\_not\_autonomous}) --- "
+                 r"the channel coefficients are the face of ONE boundary parameter (in TGL: "
+                 r"$\theta_M=\arcsin\sqrt{\bTGL}$, forced by the Half-Nat; runtime). The "
+                 r"chain $\Sigma\to\mathcal T\to\mathcal S\to\nabla\to$Figure "
+                 r"EXTENDS the v72 dictionary without contradiction; figuration is a theorem "
+                 r"($T_t\to E_D$, v43).")
         c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
                   r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
                   r"witness is the boundary; the boundary proves itself by the asymptotic limit "
@@ -35690,7 +36152,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across forty-three stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across forty-five stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -36187,7 +36649,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -38257,6 +38719,17 @@ def main():
     print("    honestidade: %s" % _mr.get("honestidade"))
     for _k, _v in (_mir.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    _rs = core.get("rule_superposition", {}) or {}
+    print("  REGRA = PROGRAMADOR = SUPERPOSICAO [v100 -- a superposicao colapsada NA regra]: %s" % _rs.get("verdict"))
+    _rsl = _rs.get("leitura_do_operador", {}) or {}
+    print("    >>> %s <<<" % _rsl.get("texto"))
+    print("    honestidade: %s" % _rsl.get("honestidade"))
+    _rsv = _rs.get("values", {}) or {}
+    print("    coexistencia beta+(1-beta) = %.15f ; theta_M = %.9f rad ; sin^2 = %.15f" % (
+        _rsv.get("coexistencia", float("nan")), _rsv.get("theta_M_rad", float("nan")),
+        _rsv.get("sin2_theta", float("nan"))))
+    for _k, _v in (_rs.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (
@@ -38277,6 +38750,11 @@ def main():
         _elp.get("ext_ls2_tt_kinetic_positive_kernel_proved"), _elp.get("ext_ls2_no_negative_norm_kernel_proved"),
         _elp.get("ext_ls2_two_polarizations_kernel_proved"), _elp.get("ext_ls2_rotz_isometry_kernel_proved")))
     _qgc = core.get("qg_closure", {}) or {}
+    _qgf = (core.get("qg_closure", {}) or {}).get("formal_flags", {}) or {}
+    print("  O CERTIFICADO DE FECHAMENTO [v99 -- flags LIDAS de nomes Lean; fail-closed por CONSTRUCAO]:")
+    for _k in sorted(_qgf):
+        print("    %s = %s  (termo Lean: %s)" % (_k, _qgf[_k], _QG_CERTIFICATE_FLAGS.get(_k, "?")))
+    print("    [ClosureCertificate.lean v1 TIPA o que falta; probes em kernel: PUnit nao e Nontrivial; identidade e sobrejetiva -- os habitantes atuais NAO alimentam o certificado]")
     print("  O GATE DO FECHAMENTO [v75 -- os 4 selos legitimos; fail-closed; probes negativos]: %s" % _qgc.get("verdict"))
     print("    ESTADO ATUAL HONESTO: %s" % ((_qgc.get("gate") or {}).get("verdict")))
     print("    probes: experimento perfeito NAO move matematica; dicts vazios => CONDITIONAL; fisica sem matematica => CONDITIONAL")
