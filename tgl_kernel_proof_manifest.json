@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-18 09:49:12",
+  "timestamp": "2026-07-18 11:32:55",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "3192c9805916e00ae10d7159d7dbf22fa4570eabebcbcfeb8c6d0a10433aff32",
+  "formal_source_hash": "8b4d63076bb4dfa01da5caa4bf137f6a027d7a0d47beddbdbd0b5c12f7dd4de1",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "dd44dc76875fb45135913146ba82819230a574d6309b482c43e165aadec5952f",
+    "TGLExt.lean": "73c1ad3486f19cbfa7b1dca214275b070ffcc6ceda31a3d3ccf35777d708d121",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "c3f542dc6cd864ac94f60106f563ac3977681392c801d12b3b4dc134f57422aa",
+    "TGL/Audit.lean": "1282f372413c196d28afe90880d7cd41cbfbe5982fc38287363e80a6d4cbb9f5",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -70,9 +70,11 @@
     "TGLExt/FiniteTomita.lean": "f845a71a81bb02585020f5da224a9407b4dd36b1408cccab37ea1b69cfb6647e",
     "TGLExt/FirstCurvature.lean": "d88d4a5fa15462f43850119f39099059a8ae0af87190420aa921dfaf20ebde44",
     "TGLExt/GNSBridge.lean": "a625e38824790f94eb6ac54f44cffc0656e6e3fc2f3ae2d42220dac071a11c8b",
+    "TGLExt/GeometricWitness.lean": "c971c7b2a45420bcb1c9e5e6ac37276e5a5796269b1002765b41b835a03d2afe",
     "TGLExt/GeometryFluctuation.lean": "c70403c706d7b033628bf775ebc8552d5adfb885372c58f2252dbc1c58e7b655",
     "TGLExt/GlobalLiftLadder.lean": "d7cf95aac8c872f7b6ea3849bd9db88412005925a0b4d856e83e266fce56b5d4",
     "TGLExt/GravitonPolarization.lean": "b51528b11b867c5770edb555f42ee22ed11ea94ee702249d4c50fa5c7e39a758",
+    "TGLExt/GravitonReading.lean": "4b9cdbbdf1d0c20d906315b972774f0043bec7333c313764054ef45daf508cb0",
     "TGLExt/HilbertHome.lean": "449bdee93696fc5fe4d7f5ce898f5e3a95ad0867773714e466b279aa6089ecdd",
     "TGLExt/HilbertInhabitant.lean": "d1aeebee94883f27e6acc3352f8eaac00131398a653be888dc0056bbb6c635a1",
     "TGLExt/IdealLimit.lean": "3f0147199cbaa91906c0807cbd47c7cc449b00e0ce7c16de99ed41260191ded0",
@@ -94,6 +96,7 @@
     "TGLExt/ProgrammerRule.lean": "89e5e14bee9dc4aa37ded5f8b5269ce9fd93787f16eec9346273042c93fc349d",
     "TGLExt/PsiEmergence.lean": "ff0fd49da7bda187a61454a6b57099e99d1c59c8af038fa43c90c1653736bb04",
     "TGLExt/RGStability.lean": "ae3c1eeee6d86ea43b57ee0afe171bb43c0f24094702130ec3c2604f53aa7bf5",
+    "TGLExt/ReducedEmergence.lean": "d11854b264e6e17c551db2e6ffc6eaf804408afa1846c88529487167743eb845",
     "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
     "TGLExt/SemifiniteLattice.lean": "37ca0a1db916c93954c1a486ddbf5462248a050e58ccb6b670020c5225e46b0f",
     "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
@@ -2443,10 +2446,55 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.null_contraction_reads_source": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.emergence_forces_field_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.emergence_zero_flat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theReducedEmergence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theGeometricNet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theGeometricWitness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.witness_action_moves_regions_not_fibers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.first_derivative_does_not_decide": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.reading_rides_the_zeros": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "4eb96651e89e3faa1530bed23578645358627a7f7500c51988bcf80457b6aa53",
-  "audit_stdout_sha256": "00e0ebd089170f35bd43f06101ca4fcf11d3176764129dea662ded266db11247",
+  "build_stdout_sha256": "44c2a58f5d4f39fb7a177937120e63adb543d4b8d7eb75b238329ed50907ca30",
+  "audit_stdout_sha256": "7c9e1ddd743905b6095d93f22514b7b386bfbbf377f44d7dcef3cf1032846318",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

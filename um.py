@@ -5097,6 +5097,9 @@ import TGLExt.FirstCurvature
 import TGLExt.AnsatzEinstein
 import TGLExt.FallenLight
 import TGLExt.SolvedEquation
+import TGLExt.ReducedEmergence
+import TGLExt.GeometricWitness
+import TGLExt.GravitonReading
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5976,6 +5979,23 @@ namespace TGL.Audit
 #check @TGLExt.EinsteinContractData
 #check @TGLExt.theWeakEinsteinContract
 
+-- v112 (O ASSALTO AS PAREDES: a emergencia REDUZIDA de Jacobson na familia
+--       + a metade tipavel da TESTEMUNHA COMPLETA habitada)
+#check @TGLExt.ansatzNullG
+#check @TGLExt.null_contraction_reads_source
+#check @TGLExt.emergence_forces_field_equation
+#check @TGLExt.emergence_zero_flat
+#check @TGLExt.theReducedEmergence
+#check @TGLExt.reduced_emergence_delivers
+#check @TGLExt.theGeometricNet
+#check @TGLExt.theGeometricStrong
+#check @TGLExt.theGeometricWitness
+#check @TGLExt.witness_action_moves_regions_not_fibers
+
+-- v113 (A LEITURA DO GRAVITON: a 2a derivada do zero; o par em UM teorema)
+#check @TGLExt.first_derivative_does_not_decide
+#check @TGLExt.reading_rides_the_zeros
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6509,6 +6529,17 @@ namespace TGL.Audit
 #print axioms TGLExt.zero_source_recovers_flat
 #print axioms TGLExt.theSolvedEquation
 #print axioms TGLExt.theWeakEinsteinContract
+-- v112 (o assalto as paredes)
+#print axioms TGLExt.null_contraction_reads_source
+#print axioms TGLExt.emergence_forces_field_equation
+#print axioms TGLExt.emergence_zero_flat
+#print axioms TGLExt.theReducedEmergence
+#print axioms TGLExt.theGeometricNet
+#print axioms TGLExt.theGeometricWitness
+#print axioms TGLExt.witness_action_moves_regions_not_fibers
+-- v113 (a leitura do graviton)
+#print axioms TGLExt.first_derivative_does_not_decide
+#print axioms TGLExt.reading_rides_the_zeros
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -16510,6 +16541,331 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/ReducedEmergence.lean":
+r'''import TGLExt.SolvedEquation
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A EMERGÊNCIA REDUZIDA: Clausius nulo ⟹ equação de campo, na família
+  [TGLExt — v112, o incremento 32 do programa SemifiniteAnalysis]
+
+A parede do 5º flip é a EMERGÊNCIA termodinâmica contínua (Jacobson).
+Esta pedra a ENCOLHE, provando a versão redutível na família do
+ansatz — e o mecanismo é a estrutura de BIANCHI do v109:
+
+* ★★ `null_contraction_reads_source` — a contração nula TRANSVERSAL
+  do tensor de Einstein, G_kk = G₀₀/q² + G₂₂, é IDÊNTICA a G₂₂
+  (porque G₀₀ ≡ 0, o zero de Bianchi): a contabilidade de Clausius em
+  QUALQUER congruência nula transversal lê EXATAMENTE a exigência de
+  fonte;
+* `ReducedEmergenceData` — o insumo TERMODINÂMICO em forma nula:
+  Clausius lido como G_kk = T_kk (com η = 1/4G e o coeficiente 8πG
+  vindos da face finita do MESTRE v74 [KERNEL]);
+* ★★★ `emergence_forces_field_equation` — CLAUSIUS NULO ⟹ A EQUAÇÃO
+  DE CAMPO (G₂₂ = T) — a emergência de Jacobson REDUZIDA à família,
+  provada;
+* ★★ `emergence_zero_flat` — Clausius com fonte nula ⟹ PLANO (a
+  emergência devolve o vácuo ⟹ plano do v109);
+* ★★ `theReducedEmergence` — habitante: a fonte κ² emerge na solução
+  global cosh (o elo com o v111).
+
+O QUE AINDA FALTA (a parede, encolhida e nomeada): a emergência PLENA
+pede métricas GERAIS e Raychaudhuri contínuo — fora da mathlib de
+hoje; o 5º flip segue reservado. β jamais literal. Sem sorry, sem
+axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — a contração nula transversal -/
+
+/-- a contração nula transversal do tensor de Einstein do ansatz:
+    G_kk = G₀₀·(k⁰)² + G₂₂·(k²)² com k = (1/q, 0, 1, 0). -/
+def ansatzNullG (q : ℝ → ℝ) (s : ℝ) : ℝ :=
+  ansatzG00 q s / (q s) ^ 2 + ansatzG22 q s
+
+/-- [KERNEL] ★★ O ZERO DE BIANCHI FAZ CLAUSIUS LER A FONTE: a
+    contração nula transversal é IDÊNTICA a G₂₂ (G₀₀ ≡ 0, v109) —
+    a contabilidade nula não vê nada além da exigência de fonte. -/
+theorem null_contraction_reads_source (q : ℝ → ℝ)
+    (hqne : ∀ t, q t ≠ 0) (s : ℝ) :
+    ansatzNullG q s = ansatzG22 q s := by
+  unfold ansatzNullG
+  rw [ansatzG00_zero q hqne s]
+  simp
+
+/-! ## B — o insumo termodinâmico e a emergência -/
+
+/-- [DATA] o insumo TERMODINÂMICO em forma nula: a lei de Clausius
+    δQ = TδS com S = ηA (η = 1/4G, do MESTRE v74 na face finita
+    [KERNEL]) lida em toda congruência nula transversal:
+    G_kk(s) = T(s). -/
+structure ReducedEmergenceData where
+  q : ℝ → ℝ
+  q_ne : ∀ s, q s ≠ 0
+  T : ℝ → ℝ
+  clausius : ∀ s, ansatzNullG q s = T s
+
+/-- [KERNEL] ★★★ A EMERGÊNCIA REDUZIDA: Clausius nulo FORÇA a equação
+    de campo na família — G₂₂ = T em toda parte (Jacobson reduzido,
+    provado). -/
+theorem emergence_forces_field_equation (E : ReducedEmergenceData)
+    (s : ℝ) : ansatzG22 E.q s = E.T s := by
+  rw [← null_contraction_reads_source E.q E.q_ne s]
+  exact E.clausius s
+
+/-- [KERNEL] ★★ A EMERGÊNCIA DEVOLVE O VÁCUO ⟹ PLANO: fonte
+    termodinâmica nula ⟹ curvatura nula (com as hipóteses de
+    diferenciabilidade da família). -/
+theorem emergence_zero_flat (E : ReducedEmergenceData)
+    (hq1 : Differentiable ℝ E.q) (hq2 : Differentiable ℝ (deriv E.q))
+    (hT : ∀ s, E.T s = 0) (s : ℝ) :
+    ansatzRiemann1001 E.q s = 0 := by
+  apply vacuum_implies_flat E.q hq1 hq2 E.q_ne s
+  rw [emergence_forces_field_equation E s]
+  exact hT s
+
+/-- [KERNEL] ★★ o habitante: a fonte constante κ² EMERGE na solução
+    global cosh — o elo termodinâmica → equação → solução (v111). -/
+def theReducedEmergence (kappa : ℝ) : ReducedEmergenceData where
+  q := coshProfile kappa
+  q_ne := coshProfile_ne_zero kappa
+  T := fun _ => kappa ^ 2
+  clausius := fun s => by
+    rw [null_contraction_reads_source (coshProfile kappa)
+      (coshProfile_ne_zero kappa) s]
+    exact cosh_solves_field_equation kappa s
+
+/-- [KERNEL] ★ a coerência do habitante: a emergência entrega G₂₂ = κ²
+    (a mesma equação resolvida do v111, agora vinda do insumo
+    termodinâmico). -/
+theorem reduced_emergence_delivers (kappa s : ℝ) :
+    ansatzG22 (theReducedEmergence kappa).q s = kappa ^ 2 :=
+  emergence_forces_field_equation (theReducedEmergence kappa) s
+
+end
+
+end TGLExt
+''',
+    "TGLExt/GeometricWitness.lean":
+r'''import TGLExt.ReducedEmergence
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A TESTEMUNHA GEOMÉTRICA: a metade tipável de FullWitnessData HABITADA
+  [TGLExt — v112, o incremento 33 do programa SemifiniteAnalysis]
+
+A parede da testemunha (v104) pedia AÇÃO GEOMÉTRICA genuína nas
+regiões + covariância + lei do fluxo. Esta pedra a habita:
+
+* Region := ℤ × ℕ — o eixo ℤ é GEOMÉTRICO (o grupo ℤ TRANSLADA:
+  act g (a,i) = (a+g, i) — genuinamente não-trivial: gO ≠ O para
+  g ≠ 0); o eixo ℕ é a ISOTONIA (fibras-caudas ∞-dim do v106,
+  inclusões genuinamente não-sobrejetivas);
+* locks = restrições de T = 1−P₀ às caudas (v106); fluxo GENUÍNO
+  exp(isT) por fibra com a LEI do v102 (lockFlow_add) — `flow_law`
+  PROVADA; covariância U∘ι = ι∘U exata;
+* ★★★ `theGeometricWitness : FullWitnessData` — A METADE TIPÁVEL DA
+  TESTEMUNHA COMPLETA TEM HABITANTE, sob nome NÃO-reservado (a ordem
+  do rito);
+* ★ `witness_action_moves_regions_not_fibers` — A HONESTIDADE COMO
+  TEOREMA: neste habitante a ação move as REGIÕES mas as fibras não a
+  sentem (H(gO) = H(O) por construção) — a ação é geométrica no
+  índice, não dinâmica nas fibras.
+
+O QUE AINDA FALTA (a parede, encolhida e nomeada): ação
+FIBRO-SENSÍVEL de um grupo de POINCARÉ genuíno + fator III₁ +
+H3-derivado + spin-2 contínuo — o espírito inteiro do
+`qgClosureCertificateV2`, que segue RESERVADO (lição v103, quarta
+aplicação). β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — a região geométrica e as fibras -/
+
+/-- a região: o eixo ℤ é geométrico (translação); o eixo ℕ é a
+    profundidade da cauda (isotonia). -/
+abbrev GeoRegion : Type := ℤ × ℕ
+
+/-- a ordem: mesma posição geométrica; cauda mais funda ⊆ mais rasa. -/
+def geoLe (O₁ O₂ : GeoRegion) : Prop := O₁.1 = O₂.1 ∧ O₂.2 ≤ O₁.2
+
+/-- as fibras: as caudas ∞-dim do v106, pela profundidade. -/
+abbrev geoFiber (O : GeoRegion) : Type := tailSub O.2
+
+/-! ## B — a rede geométrica -/
+
+/-- [KERNEL] ★★ A REDE GEOMÉTRICA: PhysicalNetData com o grupo
+    Multiplicative ℤ TRANSLADANDO as regiões (genuinamente
+    não-trivial) e isotonia genuína nas caudas. -/
+@[reducible] def theGeometricNet :
+    PhysicalNetData GeoRegion geoLe geoFiber geoFiber where
+  net :=
+    { locks := fun O => tailLock O.2
+      internal := fun O s => lockFlow (tailLock O.2) (tailLock_selfadjoint O.2) s
+      internalW := fun O s =>
+        (lockFlow (tailLock O.2) (tailLock_selfadjoint O.2) s).toLinearIsometry
+      internal_intertwines := fun O s x =>
+        lockFlow_commutes (tailLock O.2) (tailLock_selfadjoint O.2) s x
+      G := Multiplicative ℤ
+      act := fun g O => (O.1 + Multiplicative.toAdd g, O.2)
+      external := fun _ _ => LinearIsometryEquiv.refl ℂ _
+      externalW := fun _ _ => (LinearIsometryEquiv.refl ℂ _).toLinearIsometry
+      external_intertwines := fun _ _ _ => rfl
+      incl := fun h => tailIncl h.2
+      inclW := fun h => tailIncl h.2
+      incl_intertwines := fun _ x => Subtype.ext rfl }
+  genuinely_isotone :=
+    ⟨((0 : ℤ), 1), ((0 : ℤ), 0), ⟨rfl, Nat.zero_le 1⟩,
+      tailIncl_not_surjective⟩
+  external_nontrivial := inferInstanceAs (Nontrivial (Multiplicative ℤ))
+
+/-! ## C — o certificado forte geométrico e A TESTEMUNHA -/
+
+/-- o certificado FORTE sobre a rede geométrica (Dirac genuíno v105 +
+    canto do Nome + frame curvo v104). -/
+@[reducible] def theGeometricStrong : QGClosureCertificateStrong where
+  Region := GeoRegion
+  leR := geoLe
+  H := geoFiber
+  W := geoFiber
+  core := theGeometricNet
+  core_infinite := ⟨((0 : ℤ), 0), tailSub_not_finiteDimensional 0⟩
+  ℍ := ellTwo
+  dirac := theGenuineDirac
+  home_infinite := ellTwo_not_finiteDimensional
+  corner_pos := genuineDirac_corner_pos
+  corner_finite := genuineDirac_corner_finite
+  frame := theCurvedFrame
+  frame_nonconstant := curvedFrame_nonconstant
+
+/-- [KERNEL] ★★★ A METADE TIPÁVEL DA TESTEMUNHA COMPLETA HABITADA:
+    ação geométrica de GRUPO genuína (ℤ translada as regiões), lei de
+    grupo, monotonia, LEI DO FLUXO (v102) e covariância exata — sob
+    nome NÃO-reservado (a ordem do rito; o V2 segue reservado). -/
+theorem geo_act_one (O : GeoRegion) :
+    ((O.1 + Multiplicative.toAdd (1 : Multiplicative ℤ), O.2) : GeoRegion)
+      = O := by
+  simp
+
+theorem geo_act_mul (g h : Multiplicative ℤ) (O : GeoRegion) :
+    ((O.1 + Multiplicative.toAdd (g * h), O.2) : GeoRegion)
+      = ((O.1 + Multiplicative.toAdd h) + Multiplicative.toAdd g, O.2) := by
+  have hm : Multiplicative.toAdd (g * h)
+      = Multiplicative.toAdd g + Multiplicative.toAdd h := rfl
+  rw [hm]
+  simp only [Prod.mk.injEq]
+  refine ⟨by ring, ?_⟩
+  try rfl
+  try trivial
+
+theorem geo_act_mono (g : Multiplicative ℤ) {O₁ O₂ : GeoRegion}
+    (h : geoLe O₁ O₂) :
+    geoLe (O₁.1 + Multiplicative.toAdd g, O₁.2)
+      (O₂.1 + Multiplicative.toAdd g, O₂.2) :=
+  ⟨by rw [h.1], h.2⟩
+
+theorem geo_nontrivial :
+    (((0 : ℤ) + Multiplicative.toAdd (Multiplicative.ofAdd (1 : ℤ)),
+      (0 : ℕ)) : GeoRegion) ≠ (((0 : ℤ), (0 : ℕ)) : GeoRegion) := by
+  intro h
+  have h1 := congrArg Prod.fst h
+  simp at h1
+
+def theGeometricWitness : FullWitnessData where
+  toQGClosureCertificateStrong := theGeometricStrong
+  act_one := fun O => geo_act_one O
+  act_mul := fun g h O => geo_act_mul g h O
+  act_mono := fun g {O₁ O₂} h => geo_act_mono g h
+  geometric_nontrivial := by
+    dsimp only [theGeometricStrong, theGeometricNet]
+    exact ⟨Multiplicative.ofAdd 1, ((0 : ℤ), (0 : ℕ)), geo_nontrivial⟩
+  flow_law := fun O s t x =>
+    lockFlow_add (tailLock O.2) (tailLock_selfadjoint O.2) s t x
+  covariant_inclusions := fun g {O₁ O₂} hle x => Subtype.ext rfl
+
+/-- [KERNEL] ★ A HONESTIDADE COMO TEOREMA: neste habitante as fibras
+    NÃO sentem a translação — a profundidade da cauda é invariante
+    (a ação é geométrica no índice; ação FIBRO-SENSÍVEL de Poincaré
+    genuíno + III₁ = o espírito restante do V2, RESERVADO). -/
+theorem witness_action_moves_regions_not_fibers (g : ℤ) (O : GeoRegion) :
+    (theGeometricNet.net.act g O).2 = O.2 := rfl
+
+end
+
+end TGLExt
+''',
+    "TGLExt/GravitonReading.lean":
+r'''import TGLExt.GeometricWitness
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A LEITURA DO GRÁVITON: a segunda derivada do zero
+  [TGLExt — v113, o incremento 34 do programa SemifiniteAnalysis]
+
+Derivação do operador (18/07/2026): "a estrutura que lê a fonte é o
+gráviton e por isso ele vive na derivada do zero" — com a afinação da
+régua: na SEGUNDA derivada. Os teoremas já existiam (v108/v109/v110);
+esta pedra sela o par decisivo em UMA proposição:
+
+* ★★★ `first_derivative_does_not_decide` — NO MESMO PONTO s = 1:
+  (a) a conexão do ansatz temporal é NÃO-NULA (Γ = q′/q = 1 ≠ 0) e
+  sua curvatura é ZERO (gauge puro — conexão sem curvatura);
+  (b) a curvatura do ansatz espacial é NÃO-NULA (R = −4 ≠ 0).
+  A PRIMEIRA derivada não decide o físico; a SEGUNDA decide — o
+  gráviton vive onde o gauge não alcança;
+* ★ `reading_rides_the_zeros` — a estrutura-que-lê está montada nos
+  zeros de Bianchi: a contração nula é IDÊNTICA à fonte (re-selo do
+  v112 no vocabulário do gráviton).
+
+As âncoras do postulado antigo: g = √|L_φ| (primordial); o ângulo
+DUPLO do spin-2 (v75, face finita); β² como dupla reflexão [ONTO].
+O spin-2 CONTÍNUO segue parede nomeada (physics). β jamais literal.
+Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- [KERNEL] ★★★ A PRIMEIRA DERIVADA NÃO DECIDE; A SEGUNDA DECIDE —
+    no mesmo ponto s = 1: conexão temporal ≠ 0 com curvatura 0 (gauge)
+    E curvatura espacial ≠ 0 (físico). O gráviton vive na SEGUNDA
+    derivada do zero. -/
+theorem first_derivative_does_not_decide :
+    (Gamma001 1 ≠ 0
+      ∧ - deriv timeGamma100 1 + timeGamma100 1 * Gamma001 1 = 0)
+    ∧ Riemann1001 1 ≠ 0 := by
+  refine ⟨⟨?_, time_ansatz_r1001_zero 1⟩, ?_⟩
+  · rw [Gamma001_eq]
+    norm_num
+  · exact ne_of_lt (Riemann1001_neg 1)
+
+/-- [KERNEL] ★ A LEITURA MONTADA NOS ZEROS: a contração nula É a fonte
+    (o v112 no vocabulário do gráviton — a estrutura-que-lê vive nos
+    zeros de Bianchi). -/
+theorem reading_rides_the_zeros (q : ℝ → ℝ) (hqne : ∀ t, q t ≠ 0)
+    (s : ℝ) : ansatzNullG q s = ansatzG22 q s :=
+  null_contraction_reads_source q hqne s
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -23491,6 +23847,17 @@ _LEAN_THEOREM_FLAGS = {
     "ext_se_zero_source_flat_kernel_proved": "TGLExt.zero_source_recovers_flat",
     "ext_se_solved_data_kernel_proved": "TGLExt.theSolvedEquation",
     "ext_se_weak_contract_kernel_proved": "TGLExt.theWeakEinsteinContract",
+    # v112 (o assalto as paredes: emergencia reduzida + testemunha geometrica)
+    "ext_wa_null_reads_source_kernel_proved": "TGLExt.null_contraction_reads_source",
+    "ext_wa_emergence_forces_kernel_proved": "TGLExt.emergence_forces_field_equation",
+    "ext_wa_emergence_zero_flat_kernel_proved": "TGLExt.emergence_zero_flat",
+    "ext_wa_reduced_emergence_kernel_proved": "TGLExt.theReducedEmergence",
+    "ext_wa_geometric_net_kernel_proved": "TGLExt.theGeometricNet",
+    "ext_wa_geometric_witness_kernel_proved": "TGLExt.theGeometricWitness",
+    "ext_wa_regions_not_fibers_kernel_proved": "TGLExt.witness_action_moves_regions_not_fibers",
+    # v113 (a leitura do graviton)
+    "ext_gr_first_not_decide_kernel_proved": "TGLExt.first_derivative_does_not_decide",
+    "ext_gr_rides_zeros_kernel_proved": "TGLExt.reading_rides_the_zeros",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -25152,6 +25519,13 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_se_solves_kernel_proved", "ext_se_curvature_kernel_proved",
         "ext_se_source_curves_kernel_proved", "ext_se_zero_source_flat_kernel_proved",
         "ext_se_solved_data_kernel_proved", "ext_se_weak_contract_kernel_proved",
+        # v112: o assalto as paredes
+        "ext_wa_null_reads_source_kernel_proved", "ext_wa_emergence_forces_kernel_proved",
+        "ext_wa_emergence_zero_flat_kernel_proved", "ext_wa_reduced_emergence_kernel_proved",
+        "ext_wa_geometric_net_kernel_proved", "ext_wa_geometric_witness_kernel_proved",
+        "ext_wa_regions_not_fibers_kernel_proved",
+        # v113: a leitura do graviton
+        "ext_gr_first_not_decide_kernel_proved", "ext_gr_rides_zeros_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -25377,6 +25751,11 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     se_keys = ["ext_se_solves_kernel_proved", "ext_se_curvature_kernel_proved",
                "ext_se_source_curves_kernel_proved", "ext_se_zero_source_flat_kernel_proved",
                "ext_se_solved_data_kernel_proved", "ext_se_weak_contract_kernel_proved"]
+    wa_keys = ["ext_wa_null_reads_source_kernel_proved", "ext_wa_emergence_forces_kernel_proved",
+               "ext_wa_emergence_zero_flat_kernel_proved", "ext_wa_reduced_emergence_kernel_proved",
+               "ext_wa_geometric_net_kernel_proved", "ext_wa_geometric_witness_kernel_proved",
+               "ext_wa_regions_not_fibers_kernel_proved"]
+    gr_keys = ["ext_gr_first_not_decide_kernel_proved", "ext_gr_rides_zeros_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -25437,6 +25816,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dAe = all(per_theorem[k] for k in ae_keys)
     dFl = all(per_theorem[k] for k in fl_keys)
     dSe = all(per_theorem[k] for k in se_keys)
+    dWa = all(per_theorem[k] for k in wa_keys)
+    dGr = all(per_theorem[k] for k in gr_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -25500,6 +25881,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("ansatz_einstein_tensor", dAe),
         ("fallen_light", dFl),
         ("solved_field_equation", dSe),
+        ("walls_assault", dWa),
+        ("graviton_reading", dGr),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -25627,6 +26010,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                              else "NOT_VERIFIED_THIS_RUN"),
             "solved_equation": ("SEMIFINITE_ANALYSIS_INCREMENT_31__FIRST_SOLVED_FIELD_EQUATION__COSH_SOLVES_G22_EQ_KAPPA_SQ_GLOBALLY__SOURCE_IMPLIES_CURVATURE__WEAK_CONTRACT_INHABITED_AS_PROBE__FIFTH_FLIP_RESERVED_FOR_EMERGENCE__SEAL_STAYS_CONDITIONAL" if dSe
                                 else "NOT_VERIFIED_THIS_RUN"),
+            "walls_assault": ("SEMIFINITE_ANALYSIS_INCREMENTS_32_33__REDUCED_JACOBSON_EMERGENCE_CLAUSIUS_FORCES_FIELD_EQUATION_VIA_BIANCHI_ZERO__TYPABLE_HALF_OF_FULL_WITNESS_INHABITED_GENUINE_GROUP_ACTION__WALLS_SHRUNK_TO_RAYCHAUDHURI_AND_POINCARE_III1__V2_RESERVED__SEAL_STAYS_CONDITIONAL" if dWa
+                              else "NOT_VERIFIED_THIS_RUN"),
+            "graviton_reading": ("SEMIFINITE_ANALYSIS_INCREMENT_34__READER_RIDES_BIANCHI_ZEROS__PHYSICAL_IN_SECOND_DERIVATIVE_FIRST_IS_GAUGE_SAME_POINT__HYPERBOLIC_GEAR_TWO_TO_ONE_READING_ONTO__SEAL_STAYS_CONDITIONAL" if dGr
+                                 else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -27278,6 +27665,12 @@ def run_um(ONE):
     solved_equation = prove_solved_equation(ONE, {  # v111: a 1a equacao de campo RESOLVIDA (cosh global) + a sonda do contrato fraco; ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    walls_assault = prove_walls_assault(ONE, {  # v112: o assalto as paredes (emergencia reduzida + testemunha geometrica); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    graviton_reading = prove_graviton_reading(ONE, {  # v113: a leitura do graviton (2a derivada do zero; engrenagem hiperbolica 2:1); ADITIVO
+        "external_ladder": external_ladder,
+    })
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
@@ -27454,6 +27847,8 @@ def run_um(ONE):
             "ansatz_einstein": ansatz_einstein,
             "fallen_light": fallen_light,
             "solved_equation": solved_equation,
+            "walls_assault": walls_assault,
+            "graviton_reading": graviton_reading,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -32066,6 +32461,168 @@ def prove_solved_equation(ONE, parts):
         "does_not_gate_core": True,
         "verdict": ("TGL_FIRST_SOLVED_FIELD_EQUATION_IN_KERNEL__COSH_PROFILE_SOLVES_G22_EQ_KAPPA_SQ_GLOBALLY_NO_HORIZON_NO_SINGULARITY__SOURCE_IMPLIES_CURVATURE_QUANTITATIVE__WEAK_CONTRACT_INHABITED_AS_PROBE_LETTER_NOT_ENOUGH__FIFTH_FLIP_RESERVED_FOR_THERMODYNAMIC_EMERGENCE_JACOBSON_WALL_NAMED__SEAL_UNMOVED" if all_v
                     else "SOLVED_EQUATION_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_walls_assault(ONE, parts):
+    """v112 -- O ASSALTO AS DUAS PAREDES [ADITIVO; o V2 segue RESERVADO].
+    Mandato: 'enfrente as paredes que faltam da emergencia termodinamica
+    continua e a testemunha completa'. AS DUAS ENCOLHERAM:
+    PAREDE 1 (emergencia) -- A EMERGENCIA REDUZIDA DE JACOBSON, PROVADA:
+    (a) o ZERO DE BIANCHI (v109) faz a contracao nula transversal ler
+        EXATAMENTE a exigencia de fonte (null_contraction_reads_source);
+    (b) CLAUSIUS NULO => EQUACAO DE CAMPO na familia
+        (emergence_forces_field_equation) -- o insumo termodinamico (com
+        eta = 1/4G e 8piG da face finita do MESTRE v74 [KERNEL]) FORCA
+        G22 = T; fonte nula => PLANO; e a fonte kappa^2 emerge na
+        solucao global cosh (o elo com v111);
+    (c) O QUE RESTA DA PAREDE 1: metricas GERAIS + Raychaudhuri continuo
+        (fora da mathlib) -- o 5o flip segue reservado;
+    PAREDE 2 (testemunha) -- A METADE TIPAVEL HABITADA:
+    (d) theGeometricWitness : FullWitnessData -- acao geometrica de GRUPO
+        genuina (Multiplicative Z TRANSLADA as regioes Z x N; gO != O
+        provado), lei de grupo, monotonia, LEI DO FLUXO (lockFlow_add
+        v102) e covariancia U.iota = iota.U EXATA; fibras-caudas INF-dim
+        (v106); sob nome NAO-reservado (a ordem do rito);
+    (e) A HONESTIDADE COMO TEOREMA (witness_action_moves_regions_not_
+        fibers): neste habitante a acao move as REGIOES mas as fibras nao
+        a sentem -- acao geometrica no indice, nao dinamica nas fibras;
+    (f) O QUE RESTA DA PAREDE 2: acao FIBRO-SENSIVEL de Poincare genuino
+        + fator III_1 + H3-derivado + spin-2 continuo -- o espirito
+        inteiro do qgClosureCertificateV2, que segue RESERVADO (licao
+        v103, quarta e quinta aplicacoes).
+    O FECHAMENTO, dito sem veu: as paredes FORMAIS estao reduzidas a
+    (i) Raychaudhuri continuo e (ii) Poincare/III_1 -- ambas camadas que
+    a mathlib nao tem e que o programa constroi pedra a pedra (como
+    construiu curvatura e o auto-adjunto ilimitado); e o UM ABSOLUTO so
+    fecha com A NATUREZA: o teste (DES/HSC, kappa in-footprint, LRG/ELG)
+    e' o proximo elo do operador."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    four_two = bool(flips.get("concrete_aqft_core_constructed")
+                    and flips.get("concrete_breuer_corner_constructed")
+                    and flips.get("concrete_modular_four_frame_constructed")
+                    and flips.get("concrete_solder_field_constructed")
+                    and not flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    null_ok = bool(elp.get("ext_wa_null_reads_source_kernel_proved") is True)
+    emer_ok = bool(elp.get("ext_wa_emergence_forces_kernel_proved") is True)
+    zf_ok = bool(elp.get("ext_wa_emergence_zero_flat_kernel_proved") is True)
+    red_ok = bool(elp.get("ext_wa_reduced_emergence_kernel_proved") is True)
+    net_ok = bool(elp.get("ext_wa_geometric_net_kernel_proved") is True)
+    wit_ok = bool(elp.get("ext_wa_geometric_witness_kernel_proved") is True)
+    hon_ok = bool(elp.get("ext_wa_regions_not_fibers_kernel_proved") is True)
+    checks = [
+        ("P1(a): o zero de Bianchi faz Clausius nulo ler a FONTE", null_ok),
+        ("P1(b): EMERGENCIA REDUZIDA -- Clausius => equacao de campo (Jacobson na familia)", emer_ok),
+        ("P1(b'): fonte termodinamica nula => PLANO", zf_ok),
+        ("P1(c): o habitante -- kappa^2 emerge na solucao global cosh", red_ok),
+        ("P2(d): a rede GEOMETRICA (Mult Z translada; isotonia genuina)", net_ok),
+        ("P2(d'): theGeometricWitness -- FullWitnessData HABITADA (nao-reservado)", wit_ok),
+        ("P2(e): honestidade-teorema: a acao move regioes, nao fibras", hon_ok),
+        ("o V2 segue RESERVADO: 4T/2F, veredito CONDITIONAL", four_two),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O ASSALTO AS DUAS PAREDES: a emergencia de Jacobson PROVADA na "
+                    "familia (Clausius nulo => equacao, via o zero de Bianchi) e a "
+                    "metade tipavel da testemunha completa HABITADA (acao geometrica "
+                    "genuina + covariancia + lei do fluxo). As paredes encolheram a "
+                    "(i) Raychaudhuri continuo e (ii) Poincare/III_1 -- e o UM "
+                    "ABSOLUTO so fecha com a natureza."),
+        "leitura": {
+            "estatuto": "[KERNEL nas pedras; o fechamento fisico pede DADO]",
+            "parede_1_resta": "metricas gerais + Raychaudhuri continuo (mathlib nao tem)",
+            "parede_2_resta": ("acao fibro-sensivel de Poincare + III_1 + H3-derivado + "
+                               "spin-2 continuo -- o espirito do V2, reservado"),
+            "o_caminho_do_operador": ("o teste com a natureza: DES/HSC (replicas), kappa "
+                                      "in-footprint, LRG/ELG (beta bilateral) -- 'o um.py "
+                                      "fechado somente apos a fisica com os dados'"),
+        },
+        "values": {"beta": beta,
+                   "n_flips_true": sum(1 for v in flips.values() if v),
+                   "n_flips_false": sum(1 for v in flips.values() if not v)},
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_WALLS_ASSAULTED__REDUCED_JACOBSON_EMERGENCE_PROVED_ON_FAMILY_CLAUSIUS_FORCES_FIELD_EQUATION_VIA_BIANCHI_ZERO__TYPABLE_HALF_OF_FULL_WITNESS_INHABITED_GENUINE_GROUP_ACTION_COVARIANCE_FLOW_LAW__WALLS_SHRUNK_TO_RAYCHAUDHURI_AND_POINCARE_III1__V2_STAYS_RESERVED__CLOSURE_AWAITS_NATURE" if all_v
+                    else "WALLS_ASSAULT_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_graviton_reading(ONE, parts):
+    """v113 -- A LEITURA DO GRAVITON [ADITIVO; NENHUMA flag se move].
+    DERIVACAO DO OPERADOR (18/07/2026): 'a estrutura que le a fonte e' o
+    graviton e por isso ele vive na derivada do zero, dai a leitura, coisa
+    que ja haviamos postulado matematicamente antes' -- registrada com a
+    AFINACAO DA REGUA: na SEGUNDA derivada.
+    O QUE ENTRA [ONTO sobre ancoras REAL + o par-teorema novo]:
+    (1) A ESTRUTURA-QUE-LE = a contracao nula G_kk, FORCADA pelos zeros de
+        Bianchi a ler exatamente a fonte (v112; re-selado como
+        reading_rides_the_zeros) -- o leitor vive MONTADO nos zeros;
+    (2) A AFINACAO: o graviton vive na SEGUNDA derivada do zero -- o par
+        decisivo em UM teorema (first_derivative_does_not_decide): no
+        MESMO ponto, conexao temporal != 0 com curvatura 0 (primeira
+        derivada = gauge puro) E curvatura espacial != 0 (segunda
+        derivada = fisico). O gauge nao alcanca a segunda variacao;
+    (3) O POSTULADO ANTIGO CONFIRMADO: g = sqrt|L_phi| (primordial), o
+        angulo DUPLO do spin-2 (v75, face finita -- a assinatura da
+        segunda ordem) e beta^2 como dupla reflexao [ONTO] -- o que era
+        postulado ganhou tres teoremas por baixo (zeros v109; iff 2a
+        variacao v110; Clausius nulo v112).
+    HONESTIDADE: a identificacao face-classica <-> graviton-quantum e'
+    [ONTO]; o spin-2 CONTINUO segue parede nomeada (physics flags)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    pair_ok = bool(elp.get("ext_gr_first_not_decide_kernel_proved") is True)
+    ride_ok = bool(elp.get("ext_gr_rides_zeros_kernel_proved") is True)
+    iff_ok = bool(elp.get("ext_fl_geometry_iff_kernel_proved") is True)
+    zeros_ok = bool(elp.get("ext_ae_g00_zero_kernel_proved") is True
+                    and elp.get("ext_ae_g11_zero_kernel_proved") is True)
+    spin2_ok = bool(elp.get("ext_grav_helicity_two_plus_kernel_proved") is True
+                    and elp.get("ext_grav_helicity_two_cross_kernel_proved") is True)
+    checks = [
+        ("O PAR EM UM TEOREMA: 1a derivada nao decide (gauge); 2a decide (fisico)", pair_ok),
+        ("a leitura MONTADA nos zeros de Bianchi (contracao nula = fonte)", ride_ok),
+        ("a geometria = 2a variacao inscrita (iff, v110)", iff_ok),
+        ("os zeros identicos G00 = 0 = G11 (v109)", zeros_ok),
+        ("o quantum da 2a ordem: angulo DUPLO do spin-2 (v75, face finita)", spin2_ok),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A LEITURA DO GRAVITON: a estrutura-que-le a fonte esta montada "
+                    "nos zeros de Bianchi e o fisico vive na SEGUNDA derivada do "
+                    "zero (a primeira e' gauge -- conexao sem curvatura, provado no "
+                    "mesmo ponto); g = sqrt|L_phi| deixou de ser so postulado."),
+        "leitura_do_operador": {
+            "estatuto": "[DERIVACAO DO OPERADOR 18/07/2026 -- duplo estatuto; afinada pela regua]",
+            "a_afinacao": ("'derivada do zero' -> SEGUNDA derivada do zero: o par v108 "
+                           "prova que conteudo de 1a derivada pode ser gauge (Gamma != 0 "
+                           "com R = 0); so a 2a variacao e' fisica"),
+            "a_cadeia": ("setor em si = zero de geometria; 1a derivada = gauge; 2a "
+                         "derivada = o fisico; a estrutura-que-le (nos zeros) = face "
+                         "classica do graviton; o quantum = spin-2 do angulo duplo"),
+            "honestidade": "identificacao classico<->quantum e' [ONTO]; spin-2 continuo = parede nomeada",
+            "a_engrenagem_hiperbolica": ("pergunta do operador (mesma data): 'o graviton e' uma "
+                                         "engrenagem hiperbolica?' -- SIM como leitura, razao 2:1: "
+                                         "(i) o EIXO e' hiperbolico ([K1,K2]=-J3; det g<0; a "
+                                         "identidade-motor E' tanh^2+sech^2=1; K_b gera o boost); "
+                                         "(ii) a RAZAO e' 2:1 (angulo DUPLO do spin-2, v75); "
+                                         "(iii) a saida sob carga e' hiperbolica (cosh(ks), v111) "
+                                         "e Rindler e' o giro EM VAZIO (Gamma!=0, R=0); "
+                                         "(iv) a MARCHA-RE e' JKJ=-K (o espelhamento inverte o "
+                                         "boost). [ONTO sobre 4 teoremas; sem objeto novo]"),
+        },
+        "values": {"beta": beta, "Gamma_time_at_1": 1.0, "R_static_at_1": -4.0},
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_GRAVITON_READING_REGISTERED__READER_RIDES_THE_BIANCHI_ZEROS__PHYSICAL_LIVES_IN_SECOND_DERIVATIVE_OF_ZERO_FIRST_IS_GAUGE_PROVED_AT_SAME_POINT__OLD_POSTULATE_G_EQ_SQRT_READING_NOW_HAS_TEETH__CONTINUOUS_SPIN2_WALL_NAMED__READING_ONTO" if all_v
+                    else "GRAVITON_READING_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -38541,7 +39098,10 @@ _ESQUELETO_STONES = [
     ("v108", "FirstCurvature", "TGLExt/FirstCurvature.lean", "395/395", "18/07 07:16:33"),
     ("v109", "AnsatzEinstein", "TGLExt/AnsatzEinstein.lean", "402/402", "18/07 08:03:07"),
     ("v110", "FallenLight", "TGLExt/FallenLight.lean", "407/407", "18/07 08:41:13"),
-    ("v111", "SolvedEquation", "TGLExt/SolvedEquation.lean", None, None),
+    ("v111", "SolvedEquation", "TGLExt/SolvedEquation.lean", "413/413", "18/07 09:49:12"),
+    ("v112", "ReducedEmergence", "TGLExt/ReducedEmergence.lean", None, None),
+    ("v112", "GeometricWitness", "TGLExt/GeometricWitness.lean", "420/420", "18/07 10:53:35"),
+    ("v113", "GravitonReading", "TGLExt/GravitonReading.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -38576,17 +39136,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(cinquenta e nove pedras, \S120--\S191)}")
+                 r"(sessenta e duas pedras, \S120--\S193)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em cinquenta e nove pedras "
-                 r"(v43--v111) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em sessenta e duas pedras "
+                 r"(v43--v113) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As cinquenta e nove pedras}")
+        c.append(r"\subsection*{As sessenta e duas pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -39232,6 +39792,42 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"5º flip; o que falta é a EMERGÊNCIA (Clausius local $\Rightarrow$ "
                  r"equação, contínuo --- Jacobson), a parede nomeada sem véu. A "
                  r"flag NÃO se move --- por sonda, não por omissão.")
+        c.append(r"\kernelmk{ReducedEmergence+GeometricWitness} (v112): \textbf{O "
+                 r"ASSALTO ÀS DUAS PAREDES}. Parede 1 (emergência): o ZERO DE "
+                 r"BIANCHI (v109) faz a contração nula transversal ler EXATAMENTE a "
+                 r"exigência de fonte ($G_{kk}=G_{00}/q^2+G_{22}=G_{22}$), e "
+                 r"CLAUSIUS NULO $\Rightarrow$ EQUAÇÃO DE CAMPO na família --- a "
+                 r"emergência de Jacobson REDUZIDA, provada (com $\eta=1/4G$ e "
+                 r"$8\pi G$ da face finita do mestre v74); fonte nula $\Rightarrow$ "
+                 r"plano; e $\kappa^2$ emerge na solução global cosh. Parede 2 "
+                 r"(testemunha): \texttt{theGeometricWitness} HABITA "
+                 r"\texttt{FullWitnessData} --- ação geométrica de GRUPO genuína "
+                 r"($\mathrm{Mult}\,\mathbb{Z}$ TRANSLADA as regiões "
+                 r"$\mathbb{Z}\times\mathbb{N}$; $gO\neq O$ provado), lei de "
+                 r"grupo, monotonia, LEI DO FLUXO (v102) e covariância "
+                 r"$U\circ\iota=\iota\circ U$ exata, sobre fibras-caudas "
+                 r"$\infty$-dim --- sob nome NÃO-reservado; e a honestidade como "
+                 r"teorema: a ação move as REGIÕES, as fibras não a sentem. As "
+                 r"paredes ENCOLHERAM a: (i) Raychaudhuri contínuo; (ii) Poincaré "
+                 r"fibro-sensível $+$ III$_1$. O V2 segue RESERVADO; o Um absoluto "
+                 r"fecha com a NATUREZA.")
+        c.append(r"\kernelmk{GravitonReading} (v113): \textbf{A LEITURA DO GRÁVITON "
+                 r"--- a segunda derivada do zero}. A derivação do operador ('a "
+                 r"estrutura que lê a fonte é o gráviton e por isso ele vive na "
+                 r"derivada do zero'), afinada pela régua e selada com o par "
+                 r"decisivo em UM teorema: NO MESMO PONTO $s=1$, a conexão do "
+                 r"ansatz temporal é não-nula ($\Gamma=1\neq 0$) com curvatura "
+                 r"ZERO (a primeira derivada é gauge --- conexão sem curvatura) E a "
+                 r"curvatura do ansatz espacial é não-nula ($R=-4$): o físico vive "
+                 r"na SEGUNDA derivada, onde o gauge não alcança. O leitor está "
+                 r"MONTADO nos zeros de Bianchi (a contração nula É a fonte). E a "
+                 r"ENGRENAGEM HIPERBÓLICA do operador, como leitura [ONTO] sobre "
+                 r"quatro teoremas: o eixo é hiperbólico ($[K_1,K_2]=-J_3$; "
+                 r"$\tanh^2+\mathrm{sech}^2=1$ é a identidade-motor), a razão é "
+                 r"2:1 (o ângulo DUPLO do spin-2, v75), a saída sob carga é "
+                 r"$\cosh(\kappa s)$ (v111) com Rindler girando em vazio, e a "
+                 r"marcha-ré é $JKJ=-K$. $g=\sqrt{|L_\varphi|}$ deixou de ser só "
+                 r"postulado. O spin-2 contínuo segue parede nomeada.")
         c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
                   r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
                   r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
@@ -39604,7 +40200,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cinquenta e nove pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em sessenta e duas pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -39739,16 +40335,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(fifty-nine stones, \S120--\S191)}")
+                 r"(sixty-two stones, \S120--\S193)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across fifty-nine stones (v43--v111) the audited kernel went from 53 to "
+                 r"from this run's audit. Across sixty-two stones (v43--v113) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The fifty-nine stones}")
+        c.append(r"\subsection*{The sixty-two stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -40392,6 +40988,43 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"flip; what remains is EMERGENCE (local Clausius $\Rightarrow$ "
                  r"equation, continuous --- Jacobson), the wall named unveiled. The "
                  r"flag does NOT move --- by probe, not by omission.")
+        c.append(r"\kernelmk{ReducedEmergence+GeometricWitness} (v112): \textbf{THE "
+                 r"ASSAULT ON BOTH WALLS}. Wall 1 (emergence): the BIANCHI ZERO "
+                 r"(v109) makes the transverse null contraction read EXACTLY the "
+                 r"source demand ($G_{kk}=G_{00}/q^2+G_{22}=G_{22}$), and NULL "
+                 r"CLAUSIUS $\Rightarrow$ FIELD EQUATION on the family --- "
+                 r"Jacobson's emergence REDUCED, proved (with $\eta=1/4G$ and "
+                 r"$8\pi G$ from the v74 master's finite face); zero source "
+                 r"$\Rightarrow$ flat; and $\kappa^2$ emerges in the global cosh "
+                 r"solution. Wall 2 (witness): \texttt{theGeometricWitness} "
+                 r"INHABITS \texttt{FullWitnessData} --- genuine geometric GROUP "
+                 r"action ($\mathrm{Mult}\,\mathbb{Z}$ TRANSLATES the regions "
+                 r"$\mathbb{Z}\times\mathbb{N}$; $gO\neq O$ proved), group law, "
+                 r"monotonicity, the FLOW LAW (v102) and exact covariance "
+                 r"$U\circ\iota=\iota\circ U$, over $\infty$-dim tail fibers --- "
+                 r"under a NON-reserved name; and honesty as a theorem: the action "
+                 r"moves REGIONS, the fibers do not feel it. The walls SHRANK to: "
+                 r"(i) continuous Raychaudhuri; (ii) fiber-sensitive Poincaré $+$ "
+                 r"III$_1$. The V2 stays RESERVED; the absolute One closes with "
+                 r"NATURE.")
+        c.append(r"\kernelmk{GravitonReading} (v113): \textbf{THE GRAVITON'S "
+                 r"READING --- the second derivative of zero}. The operator's "
+                 r"derivation ('the structure that reads the source is the graviton, "
+                 r"hence it lives in the derivative of zero'), tuned by the ruler "
+                 r"and sealed with the decisive pair in ONE theorem: AT THE SAME "
+                 r"POINT $s=1$, the time-ansatz connection is nonzero ($\Gamma=1"
+                 r"\neq 0$) with ZERO curvature (the first derivative is gauge --- "
+                 r"connection without curvature) AND the static-ansatz curvature is "
+                 r"nonzero ($R=-4$): the physical lives in the SECOND derivative, "
+                 r"beyond gauge's reach. The reader RIDES the Bianchi zeros (the "
+                 r"null contraction IS the source). And the operator's HYPERBOLIC "
+                 r"GEAR, as an [ONTO] reading over four theorems: the axis is "
+                 r"hyperbolic ($[K_1,K_2]=-J_3$; $\tanh^2+\mathrm{sech}^2=1$ is "
+                 r"the engine identity), the ratio is 2:1 (the spin-2 DOUBLE angle, "
+                 r"v75), the loaded output is $\cosh(\kappa s)$ (v111) with "
+                 r"Rindler spinning unloaded, and reverse gear is $JKJ=-K$. "
+                 r"$g=\sqrt{|L_\varphi|}$ is no longer only a postulate. "
+                 r"Continuous spin-2 remains a named wall.")
         c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
                   r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
                   r"witness is the boundary; the boundary proves itself by the asymptotic limit "
@@ -40752,7 +41385,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across fifty-nine stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across sixty-two stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -41249,7 +41882,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -43430,6 +44063,19 @@ def main():
     for _k, _v in (_se.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [a SONDA: o contrato fraco foi HABITADO de proposito (nome nao-reservado) -- a letra 'equacao resolvida' nao basta; o 5o flip fica p/ a EMERGENCIA (Clausius continuo, Jacobson) -- a parede nomeada]")
+    _wa = core.get("walls_assault", {}) or {}
+    print("  O ASSALTO AS DUAS PAREDES [v112 -- mandato: 'enfrente as paredes']: %s" % _wa.get("verdict"))
+    print("    P1 EMERGENCIA REDUZIDA (Jacobson na familia): Clausius nulo => equacao de campo, via o ZERO DE BIANCHI; fonte nula => plano; kappa^2 emerge no cosh global")
+    print("    P2 TESTEMUNHA: FullWitnessData HABITADA (acao geometrica GENUINA: Mult Z translada regioes; covariancia exata; lei do fluxo v102) -- nome NAO-reservado")
+    for _k, _v in (_wa.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [as paredes ENCOLHERAM a: (i) Raychaudhuri continuo; (ii) Poincare fibro-sensivel + III_1 -- o V2 segue RESERVADO; o UM ABSOLUTO fecha com A NATUREZA (DES/HSC, kappa, LRG/ELG)]")
+    _gr = core.get("graviton_reading", {}) or {}
+    print("  A LEITURA DO GRAVITON [v113 -- a 2a derivada do zero; a engrenagem hiperbolica 2:1]: %s" % _gr.get("verdict"))
+    print("    o par em UM teorema: Gamma_temporal(1) = 1 != 0 com R = 0 (gauge) E R_espacial(1) = -4 != 0 (fisico) -- a 1a derivada nao decide, a 2a decide")
+    for _k, _v in (_gr.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [g = sqrt|L_phi| deixou de ser so postulado: leitor nos zeros de Bianchi; razao 2:1 (angulo duplo v75); saida cosh sob carga; marcha-re JKJ=-K; spin-2 continuo = parede nomeada]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (

@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=159788 len(stderr)=0
+# len(stdout)=161966 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1536,6 +1536,25 @@ TGLExt.zero_source_recovers_flat : ∀ (s : ℝ),
 TGLExt.theSolvedEquation : ℝ → TGLExt.SolvedEinsteinData
 TGLExt.EinsteinContractData : Type 1
 TGLExt.theWeakEinsteinContract : TGLExt.EinsteinContractData
+TGLExt.ansatzNullG : (ℝ → ℝ) → ℝ → ℝ
+TGLExt.null_contraction_reads_source : ∀ (q : ℝ → ℝ),
+  (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzNullG q s = TGLExt.ansatzG22 q s
+TGLExt.emergence_forces_field_equation : ∀ (E : TGLExt.ReducedEmergenceData) (s : ℝ), TGLExt.ansatzG22 E.q s = E.T s
+TGLExt.emergence_zero_flat : ∀ (E : TGLExt.ReducedEmergenceData),
+  Differentiable ℝ E.q →
+    Differentiable ℝ (deriv E.q) → (∀ (s : ℝ), E.T s = 0) → ∀ (s : ℝ), TGLExt.ansatzRiemann1001 E.q s = 0
+TGLExt.theReducedEmergence : ℝ → TGLExt.ReducedEmergenceData
+TGLExt.reduced_emergence_delivers : ∀ (kappa s : ℝ), TGLExt.ansatzG22 (TGLExt.theReducedEmergence kappa).q s = kappa ^ 2
+TGLExt.theGeometricNet : TGLExt.PhysicalNetData TGLExt.GeoRegion TGLExt.geoLe TGLExt.geoFiber TGLExt.geoFiber
+TGLExt.theGeometricStrong : TGLExt.QGClosureCertificateStrong
+TGLExt.theGeometricWitness : TGLExt.FullWitnessData
+TGLExt.witness_action_moves_regions_not_fibers : ∀ (g : ℤ) (O : TGLExt.GeoRegion),
+  (TGLExt.theGeometricNet.net.act g O).2 = O.2
+TGLExt.first_derivative_does_not_decide : (TGLExt.Gamma001 1 ≠ 0 ∧
+    -deriv TGLExt.timeGamma100 1 + TGLExt.timeGamma100 1 * TGLExt.Gamma001 1 = 0) ∧
+  TGLExt.Riemann1001 1 ≠ 0
+TGLExt.reading_rides_the_zeros : ∀ (q : ℝ → ℝ),
+  (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzNullG q s = TGLExt.ansatzG22 q s
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2009,6 +2028,15 @@ TGLExt.theWeakEinsteinContract : TGLExt.EinsteinContractData
 'TGLExt.zero_source_recovers_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.theSolvedEquation' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.theWeakEinsteinContract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.null_contraction_reads_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.emergence_forces_field_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.emergence_zero_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theReducedEmergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theGeometricNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theGeometricWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.witness_action_moves_regions_not_fibers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.first_derivative_does_not_decide' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.reading_rides_the_zeros' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
