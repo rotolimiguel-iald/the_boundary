@@ -4217,17 +4217,47 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.Gamma001_from_metric": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.Gamma100_from_metric": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.Riemann1001_eq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.Riemann1001_neg": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.time_ansatz_r1001_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theStaticSolderData": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "ef71e2566a6803bbbf444f5e28ba0c352bbdf86e456f0973d465d6e3b9bc50d8",
+      "formal_source_hash": "afae18c5756a7a2de895ae2af99fed227a1e103700b785d3410a0e7ac3ae7375",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "1538404df82608b94a53c577acbece6f6eb65c9d1bc734063b492c29a0c02a90",
+        "TGLExt.lean": "a8880f9aeb35177193082cc1b92980cf17da382aab114e7a6e2635000286e92e",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "1b5bf4fdf58df2d1a92f73a40dcd7f94222ce608286d61ec247e916639c5d788",
+        "TGL/Audit.lean": "3bd01f00e0f583309929095d46f3f3c254cf5fa7b0d77c3df352cf45caacbb12",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -4275,6 +4305,7 @@
         "TGLExt/FiniteCrossedProduct.lean": "330b9624b2ae0d8192785ae28c5a57f58e2d49070ea717f6af964d8c57020e0d",
         "TGLExt/FiniteGNSNoCompletion.lean": "056170ec3f50929081a75db129117cd5814ba88c1fe7c97432392303664e5025",
         "TGLExt/FiniteTomita.lean": "f845a71a81bb02585020f5da224a9407b4dd36b1408cccab37ea1b69cfb6647e",
+        "TGLExt/FirstCurvature.lean": "d88d4a5fa15462f43850119f39099059a8ae0af87190420aa921dfaf20ebde44",
         "TGLExt/GNSBridge.lean": "a625e38824790f94eb6ac54f44cffc0656e6e3fc2f3ae2d42220dac071a11c8b",
         "TGLExt/GeometryFluctuation.lean": "c70403c706d7b033628bf775ebc8552d5adfb885372c58f2252dbc1c58e7b655",
         "TGLExt/GlobalLiftLadder.lean": "d7cf95aac8c872f7b6ea3849bd9db88412005925a0b4d856e83e266fce56b5d4",
@@ -4771,24 +4802,30 @@
       "ext_so_solder_data_kernel_proved": true,
       "ext_so_det_neg_kernel_proved": true,
       "ext_so_nonconstant_kernel_proved": true,
+      "ext_fc_gamma001_metric_kernel_proved": true,
+      "ext_fc_gamma100_metric_kernel_proved": true,
+      "ext_fc_riemann_eq_kernel_proved": true,
+      "ext_fc_riemann_neg_kernel_proved": true,
+      "ext_fc_time_flat_kernel_proved": true,
+      "ext_fc_static_solder_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "72afc47bdc0d37e6c610dcfd33609b597d159805af5bb12956da56d90c38c2a1",
+      "build_stdout_sha256": "060474d957c4c15e59e6346d3f3817aeb0bd665e62c4caf6e0f9fd1183d929b2",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "ee2eb65cd014596f3bd027972f3a486f8de18e03be66b9b9d492bd37545c252d",
+      "audit_stdout_sha256": "dcc51f0c6657b8826f14e582993af5c85cbb07051fe949827cdbc6050541a2d8",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 203873,
+        "stdout": 207592,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 154297,
+        "stdout": 155416,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "72afc47bdc0d37e6c610dcfd33609b597d159805af5bb12956da56d90c38c2a1",
-      "audit_capture_sha256_full": "ee2eb65cd014596f3bd027972f3a486f8de18e03be66b9b9d492bd37545c252d",
+      "build_capture_sha256_full": "060474d957c4c15e59e6346d3f3817aeb0bd665e62c4caf6e0f9fd1183d929b2",
+      "audit_capture_sha256_full": "dcc51f0c6657b8826f14e582993af5c85cbb07051fe949827cdbc6050541a2d8",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
       "qgc_concrete_breuer_corner_constructed": true,
@@ -6035,7 +6072,8 @@
         "witness_v2": "SEMIFINITE_ANALYSIS_INCREMENTS_21_22__CURVED_FRAME_FEEDS_FIRST_STRONG_FACE_NONCONSTANT_SMOOTH_DET_UNIT__FULL_WITNESS_DATA_TYPED_GROUP_ACTION_COVARIANT_INCLUSIONS_FLOW_LAW__UNTYPABLE_HALF_NAMED_III1_AFFILIATION_H3_SPIN2_POINCARE__FREE_SCALAR_KNOWN_EXTERNAL__GATE_UNMOVED",
         "number_operator": "SEMIFINITE_ANALYSIS_INCREMENTS_23_24__NUMBER_OPERATOR_N_ON_ELL2_PROPER_DENSE_DOMAIN__SYMMETRIC_UNBOUNDED_NAME_IN_KERNEL__HARD_INCLUSION_BY_TRUNCATION_S_LE_C_SQRT_S__STAR_N_EQ_N_PROVED_FIRST_CONCRETE_UNBOUNDED_SELFADJOINT__GENUINELY_UNBOUNDED_DIRAC_INHABITED__GATE_UNMOVED",
         "strong_assembly": "SEMIFINITE_ANALYSIS_INCREMENTS_25_26__TAIL_NET_INFINITE_DIM_FIBERS_CLOSED_GENUINE_ISOTONY__KER_N_EQ_NAME_ATOM_TAU_ONE__STRONG_CERTIFICATE_ASSEMBLED_NON_RESERVED_FIRST__THREE_RESERVED_NAMES_MINTED_CORE_CORNER_FRAME__SEAL_STAYS_CONDITIONAL",
-        "solder_field": "SEMIFINITE_ANALYSIS_INCREMENT_27__CONTINUOUS_SOLDER_G_EQ_ET_ETA_E_ON_CURVED_FRAME__SYMMETRIC_SMOOTH_NONCONSTANT__LORENTZIAN_DET_NEG_EVERYWHERE__FOURTH_RESERVED_NAME_MINTED__EINSTEIN_NOT_TYPED_ON_PURPOSE_CURVATURE_WALL_NAMED__SEAL_STAYS_CONDITIONAL"
+        "solder_field": "SEMIFINITE_ANALYSIS_INCREMENT_27__CONTINUOUS_SOLDER_G_EQ_ET_ETA_E_ON_CURVED_FRAME__SYMMETRIC_SMOOTH_NONCONSTANT__LORENTZIAN_DET_NEG_EVERYWHERE__FOURTH_RESERVED_NAME_MINTED__EINSTEIN_NOT_TYPED_ON_PURPOSE_CURVATURE_WALL_NAMED__SEAL_STAYS_CONDITIONAL",
+        "first_curvature": "SEMIFINITE_ANALYSIS_INCREMENT_28__CURVATURE_LAYER_BY_HAND__CHRISTOFFELS_DERIVED_FROM_METRIC__R1001_EQ_MINUS_TWO_Q_NEGATIVE_EVERYWHERE__RULER_PAIR_TIME_ANSATZ_FLAT__STATIC_SOLDER_INHABITS_CONTRACT__SEAL_STAYS_CONDITIONAL"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -6426,10 +6464,16 @@
         "ext_sa_strong_assembled_kernel_proved": true,
         "ext_so_solder_data_kernel_proved": true,
         "ext_so_det_neg_kernel_proved": true,
-        "ext_so_nonconstant_kernel_proved": true
+        "ext_so_nonconstant_kernel_proved": true,
+        "ext_fc_gamma001_metric_kernel_proved": true,
+        "ext_fc_gamma100_metric_kernel_proved": true,
+        "ext_fc_riemann_eq_kernel_proved": true,
+        "ext_fc_riemann_neg_kernel_proved": true,
+        "ext_fc_time_flat_kernel_proved": true,
+        "ext_fc_static_solder_kernel_proved": true
       },
-      "n_theorems_clean": 389,
-      "n_theorems_expected": 389,
+      "n_theorems_clean": 395,
+      "n_theorems_expected": 395,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -6668,6 +6712,10 @@
         ],
         [
           "continuous_solder_field",
+          true
+        ],
+        [
+          "first_curvature",
           true
         ]
       ],
@@ -10124,11 +10172,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 389 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 395 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 389/389; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 395/395; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -10982,6 +11030,52 @@
       "does_not_gate_core": true,
       "verdict": "TGL_FOURTH_FLIP__CONTINUOUS_SOLDER_FIELD_ON_CURVED_FRAME__SYMMETRIC_SMOOTH_LORENTZIAN_DET_NEG_EVERYWHERE_NONCONSTANT__RESERVED_NAME_MINTED__EINSTEIN_DELIBERATELY_NOT_TYPED_CURVATURE_WALL_NAMED__SEAL_UNMOVED_CONDITIONAL"
     },
+    "first_curvature": {
+      "theorem": "A PRIMEIRA CURVATURA DO KERNEL: no ansatz estatico os simbolos nascem da metrica e R^1_001 = -2(1+s^2) < 0 em toda parte -- a camada de curvatura que a mathlib nao tem comecou a ser construida a mao; e a regua corta o proprio v107: seu perfil temporal e' plano (gauge), a curvatura genuina e' espacial.",
+      "leitura": {
+        "estatuto": "[KERNEL -- calculo diferencial formal; leitura fisica no v2]",
+        "o_par_da_regua": "nao-constancia != curvatura: o v107 flipou o contrato (nao-constancia EXIGIDA) e o v108 mostra que curvatura e' exigencia ADICIONAL -- o contrato do einstein tera de exigi-la (o tipo ainda nao existe, de proposito)",
+        "o_que_falta_5o_flip": "Ricci + tensor de Einstein do ansatz (mesmas tecnicas, mais componentes) -> contrato do MESTRE continuo (Clausius local => equacao de campo) -> juncao com os dados fortes"
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "R_1001_at_0": -2.0,
+        "R_1001_at_1": -4.0
+      },
+      "checks": [
+        [
+          "Gamma^0_01 DERIVADO da metrica (q'/q = (1/2g00)(g00)')",
+          true
+        ],
+        [
+          "Gamma^1_00 DERIVADO da metrica (qq' = -(1/2)g11(g00)')",
+          true
+        ],
+        [
+          "A PRIMEIRA CURVATURA: R^1_001 = -2q, calculada e provada",
+          true
+        ],
+        [
+          "CURVA EM TODA PARTE: R^1_001 < 0 (nenhum gauge aplana)",
+          true
+        ],
+        [
+          "O PAR DA REGUA: ansatz temporal (v107) da R = 0 -- nao-constancia != curvatura",
+          true
+        ],
+        [
+          "a solda genuinamente curva habita o contrato (theStaticSolderData)",
+          true
+        ],
+        [
+          "os 4 flips seguem True; einstein/witness seguem False",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_FIRST_CURVATURE_IN_KERNEL__CHRISTOFFELS_DERIVED_FROM_METRIC__R1001_EQ_MINUS_TWO_Q_PROVED__NEGATIVE_EVERYWHERE_GENUINELY_CURVED__RULER_PAIR_TIME_ANSATZ_FLAT_NONCONSTANCY_IS_NOT_CURVATURE__CURVATURE_LAYER_UNDER_CONSTRUCTION_BY_HAND__SEAL_UNMOVED"
+    },
     "certificate_II": {
       "H1_finite_face": {
         "psd_min_eig": 0.0,
@@ -11653,7 +11747,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-18 04:05:11",
+    "timestamp": "2026-07-18 07:16:33",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -11903,7 +11997,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-18 04:05:11",
+        "prediction_timestamp": "2026-07-18 07:16:33",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -11939,7 +12033,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "afefcbf5d635de5618b7ae16038f6e455bc98ba902838b5f4bc8bffb46cce02c"
+        "prediction_hash": "e3580b4609d1d73fb6b833546e43aa29058b0adf3a653e5d2d70dd0d477ec8f9"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -12239,7 +12333,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "6d4993a7b1170e93edf819b4b8162359945af3ead4a8a260d9b20dba70162174"
+    "result_hash": "0574f6135f74475eda603c4c925098028ef35a08aec621be5d4c24f351d3960f"
   },
   "ga_mass_literature": [
     {
@@ -12266,7 +12360,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "6d4993a7b1170e93edf819b4b8162359945af3ead4a8a260d9b20dba70162174",
+  "result_hash_before_external_comparison": "0574f6135f74475eda603c4c925098028ef35a08aec621be5d4c24f351d3960f",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -12276,5 +12370,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-18 04:05:11"
+  "timestamp": "2026-07-18 07:16:33"
 }

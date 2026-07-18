@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-18 04:05:11",
+  "timestamp": "2026-07-18 07:16:33",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "ef71e2566a6803bbbf444f5e28ba0c352bbdf86e456f0973d465d6e3b9bc50d8",
+  "formal_source_hash": "afae18c5756a7a2de895ae2af99fed227a1e103700b785d3410a0e7ac3ae7375",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "1538404df82608b94a53c577acbece6f6eb65c9d1bc734063b492c29a0c02a90",
+    "TGLExt.lean": "a8880f9aeb35177193082cc1b92980cf17da382aab114e7a6e2635000286e92e",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "1b5bf4fdf58df2d1a92f73a40dcd7f94222ce608286d61ec247e916639c5d788",
+    "TGL/Audit.lean": "3bd01f00e0f583309929095d46f3f3c254cf5fa7b0d77c3df352cf45caacbb12",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -66,6 +66,7 @@
     "TGLExt/FiniteCrossedProduct.lean": "330b9624b2ae0d8192785ae28c5a57f58e2d49070ea717f6af964d8c57020e0d",
     "TGLExt/FiniteGNSNoCompletion.lean": "056170ec3f50929081a75db129117cd5814ba88c1fe7c97432392303664e5025",
     "TGLExt/FiniteTomita.lean": "f845a71a81bb02585020f5da224a9407b4dd36b1408cccab37ea1b69cfb6647e",
+    "TGLExt/FirstCurvature.lean": "d88d4a5fa15462f43850119f39099059a8ae0af87190420aa921dfaf20ebde44",
     "TGLExt/GNSBridge.lean": "a625e38824790f94eb6ac54f44cffc0656e6e3fc2f3ae2d42220dac071a11c8b",
     "TGLExt/GeometryFluctuation.lean": "c70403c706d7b033628bf775ebc8552d5adfb885372c58f2252dbc1c58e7b655",
     "TGLExt/GlobalLiftLadder.lean": "d7cf95aac8c872f7b6ea3849bd9db88412005925a0b4d856e83e266fce56b5d4",
@@ -2319,10 +2320,40 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.Gamma001_from_metric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Gamma100_from_metric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Riemann1001_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.Riemann1001_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.time_ansatz_r1001_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theStaticSolderData": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "72afc47bdc0d37e6c610dcfd33609b597d159805af5bb12956da56d90c38c2a1",
-  "audit_stdout_sha256": "ee2eb65cd014596f3bd027972f3a486f8de18e03be66b9b9d492bd37545c252d",
+  "build_stdout_sha256": "060474d957c4c15e59e6346d3f3817aeb0bd665e62c4caf6e0f9fd1183d929b2",
+  "audit_stdout_sha256": "dcc51f0c6657b8826f14e582993af5c85cbb07051fe949827cdbc6050541a2d8",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

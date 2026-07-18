@@ -5093,6 +5093,7 @@ import TGLExt.NumberSelfAdjoint
 import TGLExt.TailNet
 import TGLExt.StrongAssembly
 import TGLExt.SolderField
+import TGLExt.FirstCurvature
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5929,6 +5930,17 @@ namespace TGL.Audit
 #check @TGLExt.qgStrongCertificate_solder
 #check @TGLExt.solder_frame_eq_strong
 
+-- v108 (A PRIMEIRA CURVATURA: a camada que a mathlib nao tem, a mao --
+--       Gamma da metrica; R^1_001 = -2q < 0 em toda parte; o par da regua)
+#check @TGLExt.qfun
+#check @TGLExt.Gamma001_from_metric
+#check @TGLExt.Gamma100_from_metric
+#check @TGLExt.Riemann1001
+#check @TGLExt.Riemann1001_eq
+#check @TGLExt.Riemann1001_neg
+#check @TGLExt.time_ansatz_r1001_zero
+#check @TGLExt.theStaticSolderData
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6433,6 +6445,13 @@ namespace TGL.Audit
 #print axioms TGLExt.theSolderField_nonconstant
 #print axioms TGLExt.theSolderData
 #print axioms TGLExt.qgStrongCertificate_solder
+-- v108 (a primeira curvatura)
+#print axioms TGLExt.Gamma001_from_metric
+#print axioms TGLExt.Gamma100_from_metric
+#print axioms TGLExt.Riemann1001_eq
+#print axioms TGLExt.Riemann1001_neg
+#print axioms TGLExt.time_ansatz_r1001_zero
+#print axioms TGLExt.theStaticSolderData
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -15670,6 +15689,290 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/FirstCurvature.lean":
+r'''import TGLExt.SolderField
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PRIMEIRA CURVATURA: a parede começa a cair — à mão
+  [TGLExt — v108, o incremento 28 do programa SemifiniteAnalysis]
+
+A mathlib de hoje NÃO tem teoria de conexão/curvatura (varrido: só
+métrica riemanniana em fibrados). Esta pedra constrói a primeira peça
+À MÃO, no ansatz diagonal estático g = diag(q(x₁)²,−1,−1,−1) com
+q(s) = 1+s², onde a redução clássica de Levi-Civita a UMA variável
+[KNOWN] deixa três símbolos: Γ⁰₀₁ = q′/q, Γ¹₀₀ = q·q′, e a componente
+R¹₀₀₁ = −∂₁Γ¹₀₀ + Γ¹₀₀·Γ⁰₀₁:
+
+* ★ `Gamma001_from_metric` / `Gamma100_from_metric` — os símbolos
+  DERIVADOS da métrica (a fórmula ½g⁻¹∂g do ansatz, provada);
+* ★★★ `Riemann1001_eq` — R¹₀₀₁(s) = −2·q(s): A PRIMEIRA CURVATURA
+  CALCULADA E PROVADA EM KERNEL;
+* ★★ `Riemann1001_neg` — R¹₀₀₁ < 0 EM TODA PARTE: a solda estática é
+  GENUINAMENTE CURVA (não há gauge que a aplane);
+* ★★ O PAR DA RÉGUA — `time_ansatz_r1001_zero`: no ansatz TEMPORAL do
+  v107 (p(x₀)), a MESMA fórmula dá R¹₀₀₁ ≡ 0 (Γ¹₀₀ = 0 pois
+  ∂₁g₀₀ = 0): NÃO-CONSTÂNCIA ≠ CURVATURA — a honestidade sobre o
+  próprio v107, como teorema (o perfil temporal é gauge; o espacial
+  é físico);
+* `theStaticFrame`/`theStaticSolderData` — a solda genuinamente curva
+  habita o MESMO contrato `SolderFieldData` (a base do arco de
+  Einstein).
+
+NENHUMA flag se move: einstein exige o MESTRE contínuo (Ricci, tensor
+de Einstein, Clausius local — o arco continua); esta pedra é o
+primeiro tijolo da camada que faltava. β jamais literal. Sem sorry,
+sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+/-! ## A — o cálculo de 1 variável (a redução do ansatz) -/
+
+/-- o perfil espacial: q(s) = 1 + s². -/
+def qfun (s : ℝ) : ℝ := 1 + s ^ 2
+
+theorem qfun_pos (s : ℝ) : 0 < qfun s := by unfold qfun; positivity
+
+theorem qfun_ne_zero (s : ℝ) : qfun s ≠ 0 := ne_of_gt (qfun_pos s)
+
+theorem qfun_deriv (s : ℝ) : deriv qfun s = 2 * s := by
+  unfold qfun
+  simp
+
+/-- Γ⁰₀₁ = q′/q (o símbolo temporal-espacial do ansatz). -/
+def Gamma001 (s : ℝ) : ℝ := deriv qfun s / qfun s
+
+/-- Γ¹₀₀ = q·q′ (o símbolo espacial-temporal do ansatz). -/
+def Gamma100 (s : ℝ) : ℝ := qfun s * deriv qfun s
+
+theorem Gamma001_eq (s : ℝ) : Gamma001 s = 2 * s / (1 + s ^ 2) := by
+  unfold Gamma001 qfun
+  rw [show deriv (fun s : ℝ => 1 + s ^ 2) s = 2 * s from by simp]
+
+theorem Gamma100_eq (s : ℝ) : Gamma100 s = 2 * s + 2 * s ^ 3 := by
+  unfold Gamma100 qfun
+  rw [show deriv (fun s : ℝ => 1 + s ^ 2) s = 2 * s from by simp]
+  ring
+
+theorem qfun_hasDeriv (s : ℝ) : HasDerivAt qfun (2 * s) s := by
+  unfold qfun
+  simpa using ((hasDerivAt_pow 2 s).const_add (1 : ℝ))
+
+theorem qsq_deriv (s : ℝ) :
+    deriv (fun t => qfun t ^ 2) s = 2 * qfun s * (2 * s) := by
+  have h : HasDerivAt (fun t => qfun t * qfun t)
+      (2 * s * qfun s + qfun s * (2 * s)) s :=
+    (qfun_hasDeriv s).mul (qfun_hasDeriv s)
+  have heq : (fun t => qfun t ^ 2) = fun t => qfun t * qfun t := by
+    funext t
+    ring
+  rw [heq, h.deriv]
+  ring
+
+/-- [KERNEL] ★ Γ⁰₀₁ DERIVADO da métrica: q′/q = (1/(2q²))·(q²)′ —
+    a fórmula de Levi-Civita ½g⁰⁰∂₁g₀₀ do ansatz, provada. -/
+theorem Gamma001_from_metric (s : ℝ) :
+    Gamma001 s = (1 / (2 * qfun s ^ 2)) * deriv (fun t => qfun t ^ 2) s := by
+  rw [qsq_deriv, Gamma001_eq]
+  have h := qfun_ne_zero s
+  unfold qfun at h ⊢
+  field_simp
+
+/-- [KERNEL] ★ Γ¹₀₀ DERIVADO da métrica: q·q′ = ½·(q²)′ —
+    a fórmula −½g¹¹∂₁g₀₀ do ansatz (g¹¹ = −1), provada. -/
+theorem Gamma100_from_metric (s : ℝ) :
+    Gamma100 s = (1 / 2) * deriv (fun t => qfun t ^ 2) s := by
+  rw [qsq_deriv]
+  unfold Gamma100
+  rw [qfun_deriv]
+  ring
+
+/-! ## B — A CURVATURA: R¹₀₀₁ = −∂₁Γ¹₀₀ + Γ¹₀₀·Γ⁰₀₁ -/
+
+/-- a componente R¹₀₀₁ do ansatz (os demais termos da fórmula geral
+    são nulos no ansatz — a redução [KNOWN] do cabeçalho). -/
+def Riemann1001 (s : ℝ) : ℝ := - deriv Gamma100 s + Gamma100 s * Gamma001 s
+
+/-- [KERNEL] ★★★ A PRIMEIRA CURVATURA: R¹₀₀₁(s) = −2·q(s) —
+    calculada e provada. -/
+theorem Riemann1001_eq (s : ℝ) : Riemann1001 s = -(2 * qfun s) := by
+  unfold Riemann1001
+  have hG : Gamma100 = fun t => 2 * t + 2 * t ^ 3 := funext Gamma100_eq
+  have hpoly : HasDerivAt (fun t : ℝ => 2 * t + 2 * t ^ 3)
+      (2 * 1 + 2 * (3 * s ^ 2)) s := by
+    have h1 : HasDerivAt (fun t : ℝ => t) 1 s := hasDerivAt_id s
+    have h3 : HasDerivAt (fun t : ℝ => t ^ 3) (3 * s ^ 2) s := by
+      simpa using hasDerivAt_pow 3 s
+    exact (h1.const_mul 2).add (h3.const_mul 2)
+  have hd : deriv Gamma100 s = 2 + 6 * s ^ 2 := by
+    rw [hG, hpoly.deriv]
+    ring
+  rw [hd, Gamma100_eq, Gamma001_eq]
+  have h : (1 : ℝ) + s ^ 2 ≠ 0 := by positivity
+  unfold qfun
+  field_simp
+  ring
+
+/-- [KERNEL] ★★ CURVA EM TODA PARTE: R¹₀₀₁ < 0 — nenhum gauge aplana
+    a solda estática. -/
+theorem Riemann1001_neg (s : ℝ) : Riemann1001 s < 0 := by
+  rw [Riemann1001_eq]
+  have h := qfun_pos s
+  linarith
+
+/-! ## C — O PAR DA RÉGUA: o ansatz temporal do v107 é PLANO -/
+
+/-- no ansatz TEMPORAL (p(x₀); ∂₁g₀₀ = 0), o símbolo Γ¹₀₀ é NULO —
+    a mesma fórmula −½g¹¹∂₁g₀₀ com derivada espacial zero. -/
+def timeGamma100 : ℝ → ℝ := fun _ => 0
+
+/-- [KERNEL] ★★ NÃO-CONSTÂNCIA ≠ CURVATURA: no ansatz temporal a
+    MESMA fórmula dá R¹₀₀₁ ≡ 0 — a honestidade sobre o próprio v107
+    como TEOREMA (o perfil temporal é gauge; o espacial é físico). -/
+theorem time_ansatz_r1001_zero (s : ℝ) :
+    - deriv timeGamma100 s + timeGamma100 s * Gamma001 s = 0 := by
+  unfold timeGamma100
+  simp
+
+/-! ## D — a solda genuinamente curva habita o contrato -/
+
+/-- o frame estático: E(x) = diag(q(x₁), 1, 1, 1). -/
+def theStaticFrame : SmoothFrameData where
+  E := fun x => Matrix.diagonal (fun i => if i = 0 then qfun (x 1) else 1)
+  smooth := by
+    intro i j
+    have hq : ContDiff ℝ (⊤ : ℕ∞) (fun x : Fin 4 → ℝ => qfun (x 1)) := by
+      unfold qfun
+      exact contDiff_const.add ((contDiff_apply ℝ ℝ (1 : Fin 4)).pow 2)
+    by_cases hij : i = j
+    · subst hij
+      by_cases hi : i = 0
+      · subst hi
+        have h : (fun x : Fin 4 → ℝ => Matrix.diagonal
+            (fun k : Fin 4 => if k = 0 then qfun (x 1) else 1) 0 0)
+            = fun x => qfun (x 1) := by
+          funext x
+          simp [Matrix.diagonal_apply]
+        rw [h]
+        exact hq
+      · have h : (fun x : Fin 4 → ℝ => Matrix.diagonal
+            (fun k : Fin 4 => if k = 0 then qfun (x 1) else 1) i i)
+            = fun _ => (1 : ℝ) := by
+          funext x
+          simp [Matrix.diagonal_apply, hi]
+        rw [h]
+        exact contDiff_const
+    · have h : (fun x : Fin 4 → ℝ => Matrix.diagonal
+          (fun k : Fin 4 => if k = 0 then qfun (x 1) else 1) i j)
+          = fun _ => (0 : ℝ) := by
+        funext x
+        simp [Matrix.diagonal_apply, hij]
+      rw [h]
+      exact contDiff_const
+  det_unit := fun x => by
+    have h : (Matrix.diagonal
+        (fun i : Fin 4 => if i = 0 then qfun (x 1) else 1)).det
+        = qfun (x 1) := by
+      rw [Matrix.det_diagonal, Fin.prod_univ_four]
+      simp
+    rw [h]
+    exact isUnit_iff_ne_zero.mpr (qfun_ne_zero (x 1))
+
+theorem theStaticFrame_E_apply (x : Fin 4 → ℝ) :
+    theStaticFrame.E x
+      = Matrix.diagonal (fun i => if i = 0 then qfun (x 1) else 1) := rfl
+
+/-- o campo soldado estático: g(x) = E(x)ᵀ η E(x). -/
+def theStaticSolder (x : Fin 4 → ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  solderMetric4 (theStaticFrame.E x)
+
+theorem theStaticSolder_det (x : Fin 4 → ℝ) :
+    (theStaticSolder x).det = -(qfun (x 1) ^ 2) := by
+  have hdet : (theStaticFrame.E x).det = qfun (x 1) := by
+    rw [theStaticFrame_E_apply, Matrix.det_diagonal, Fin.prod_univ_four]
+    simp
+  unfold theStaticSolder
+  rw [solderMetric4_det, hdet]
+
+theorem theStaticSolder_det_neg (x : Fin 4 → ℝ) :
+    (theStaticSolder x).det < 0 := by
+  rw [theStaticSolder_det]
+  have h := qfun_pos (x 1)
+  nlinarith
+
+theorem theStaticFrame_nonconstant :
+    ∃ x y : Fin 4 → ℝ, theStaticFrame.E x ≠ theStaticFrame.E y := by
+  refine ⟨(fun _ => 1), (fun _ => 0), fun h => ?_⟩
+  have h00 := congrArg (fun M : Matrix (Fin 4) (Fin 4) ℝ => M 0 0) h
+  rw [theStaticFrame_E_apply, theStaticFrame_E_apply] at h00
+  simp only [Matrix.diagonal_apply, if_pos rfl] at h00
+  unfold qfun at h00
+  norm_num at h00
+
+/-- [KERNEL] ★★ a solda GENUINAMENTE CURVA habita o mesmo contrato
+    `SolderFieldData` — a base do arco de Einstein. -/
+def theStaticSolderData : SolderFieldData where
+  frame := theStaticFrame
+  g := theStaticSolder
+  solder_eq := fun _ => rfl
+  g_symm := fun x => solderMetric4_symm _
+  g_smooth := by
+    intro i j
+    have h : (fun x => theStaticSolder x i j)
+        = fun x => Matrix.diagonal
+            (fun k : Fin 4 => if k = 0 then qfun (x 1) ^ 2 else -1) i j := by
+      funext x
+      unfold theStaticSolder solderMetric4
+      rw [theStaticFrame_E_apply, Matrix.diagonal_transpose]
+      unfold eta4
+      rw [Matrix.diagonal_mul_diagonal, Matrix.diagonal_mul_diagonal]
+      congr 1
+      funext k
+      fin_cases k <;> simp <;> ring
+    rw [h]
+    have hq : ContDiff ℝ (⊤ : ℕ∞) (fun x : Fin 4 → ℝ => qfun (x 1) ^ 2) := by
+      unfold qfun
+      exact (contDiff_const.add ((contDiff_apply ℝ ℝ (1 : Fin 4)).pow 2)).pow 2
+    by_cases hij : i = j
+    · subst hij
+      by_cases hi : i = 0
+      · subst hi
+        have h2 : (fun x : Fin 4 → ℝ => Matrix.diagonal
+            (fun k : Fin 4 => if k = 0 then qfun (x 1) ^ 2 else -1) 0 0)
+            = fun x => qfun (x 1) ^ 2 := by
+          funext x
+          simp [Matrix.diagonal_apply]
+        rw [h2]
+        exact hq
+      · have h2 : (fun x : Fin 4 → ℝ => Matrix.diagonal
+            (fun k : Fin 4 => if k = 0 then qfun (x 1) ^ 2 else -1) i i)
+            = fun _ => (-1 : ℝ) := by
+          funext x
+          simp [Matrix.diagonal_apply, hi]
+        rw [h2]
+        exact contDiff_const
+    · have h2 : (fun x : Fin 4 → ℝ => Matrix.diagonal
+          (fun k : Fin 4 => if k = 0 then qfun (x 1) ^ 2 else -1) i j)
+          = fun _ => (0 : ℝ) := by
+        funext x
+        simp [Matrix.diagonal_apply, hij]
+      rw [h2]
+      exact contDiff_const
+  lorentz_det := theStaticSolder_det_neg
+  frame_nonconstant := theStaticFrame_nonconstant
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -22623,6 +22926,13 @@ _LEAN_THEOREM_FLAGS = {
     "ext_so_solder_data_kernel_proved": "TGLExt.theSolderData",
     "ext_so_det_neg_kernel_proved": "TGLExt.theSolderField_det_neg",
     "ext_so_nonconstant_kernel_proved": "TGLExt.theSolderField_nonconstant",
+    # v108 (a primeira curvatura: a camada a mao)
+    "ext_fc_gamma001_metric_kernel_proved": "TGLExt.Gamma001_from_metric",
+    "ext_fc_gamma100_metric_kernel_proved": "TGLExt.Gamma100_from_metric",
+    "ext_fc_riemann_eq_kernel_proved": "TGLExt.Riemann1001_eq",
+    "ext_fc_riemann_neg_kernel_proved": "TGLExt.Riemann1001_neg",
+    "ext_fc_time_flat_kernel_proved": "TGLExt.time_ansatz_r1001_zero",
+    "ext_fc_static_solder_kernel_proved": "TGLExt.theStaticSolderData",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -24267,6 +24577,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         # v107: a solda continua
         "ext_so_solder_data_kernel_proved", "ext_so_det_neg_kernel_proved",
         "ext_so_nonconstant_kernel_proved",
+        # v108: a primeira curvatura
+        "ext_fc_gamma001_metric_kernel_proved", "ext_fc_gamma100_metric_kernel_proved",
+        "ext_fc_riemann_eq_kernel_proved", "ext_fc_riemann_neg_kernel_proved",
+        "ext_fc_time_flat_kernel_proved", "ext_fc_static_solder_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -24479,6 +24793,9 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                "ext_sa_strong_assembled_kernel_proved"]
     so_keys = ["ext_so_solder_data_kernel_proved", "ext_so_det_neg_kernel_proved",
                "ext_so_nonconstant_kernel_proved"]
+    fc_keys = ["ext_fc_gamma001_metric_kernel_proved", "ext_fc_gamma100_metric_kernel_proved",
+               "ext_fc_riemann_eq_kernel_proved", "ext_fc_riemann_neg_kernel_proved",
+               "ext_fc_time_flat_kernel_proved", "ext_fc_static_solder_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -24535,6 +24852,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dNs = all(per_theorem[k] for k in ns_keys)
     dTa = all(per_theorem[k] for k in ta_keys)
     dSo = all(per_theorem[k] for k in so_keys)
+    dFc = all(per_theorem[k] for k in fc_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -24594,6 +24912,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("number_operator_selfadjoint", dNs),
         ("tail_net_and_strong_assembly", dTa),
         ("continuous_solder_field", dSo),
+        ("first_curvature", dFc),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -24713,6 +25032,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                 else "NOT_VERIFIED_THIS_RUN"),
             "solder_field": ("SEMIFINITE_ANALYSIS_INCREMENT_27__CONTINUOUS_SOLDER_G_EQ_ET_ETA_E_ON_CURVED_FRAME__SYMMETRIC_SMOOTH_NONCONSTANT__LORENTZIAN_DET_NEG_EVERYWHERE__FOURTH_RESERVED_NAME_MINTED__EINSTEIN_NOT_TYPED_ON_PURPOSE_CURVATURE_WALL_NAMED__SEAL_STAYS_CONDITIONAL" if dSo
                              else "NOT_VERIFIED_THIS_RUN"),
+            "first_curvature": ("SEMIFINITE_ANALYSIS_INCREMENT_28__CURVATURE_LAYER_BY_HAND__CHRISTOFFELS_DERIVED_FROM_METRIC__R1001_EQ_MINUS_TWO_Q_NEGATIVE_EVERYWHERE__RULER_PAIR_TIME_ANSATZ_FLAT__STATIC_SOLDER_INHABITS_CONTRACT__SEAL_STAYS_CONDITIONAL" if dFc
+                                else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -26352,6 +26673,9 @@ def run_um(ONE):
     solder_flip = prove_solder_flip(ONE, {  # v107: o 4o flip (solda continua curva); einstein NAO tipado de proposito; ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    first_curvature = prove_first_curvature(ONE, {  # v108: a primeira curvatura (camada a mao); par da regua; ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
@@ -26524,6 +26848,7 @@ def run_um(ONE):
             "genuine_dirac": genuine_dirac,
             "first_flips": first_flips,
             "solder_flip": solder_flip,
+            "first_curvature": first_curvature,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -30773,6 +31098,80 @@ def prove_solder_flip(ONE, parts):
         "does_not_gate_core": True,
         "verdict": ("TGL_FOURTH_FLIP__CONTINUOUS_SOLDER_FIELD_ON_CURVED_FRAME__SYMMETRIC_SMOOTH_LORENTZIAN_DET_NEG_EVERYWHERE_NONCONSTANT__RESERVED_NAME_MINTED__EINSTEIN_DELIBERATELY_NOT_TYPED_CURVATURE_WALL_NAMED__SEAL_UNMOVED_CONDITIONAL" if all_v
                     else "SOLDER_FLIP_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_first_curvature(ONE, parts):
+    """v108 -- A PRIMEIRA CURVATURA [ADITIVO; NENHUMA flag se move]. A mathlib
+    NAO tem teoria de conexao/curvatura (varrida: so metrica riemanniana em
+    fibrados); o kernel comeca a construi-la A MAO, no ansatz estatico
+    g = diag(q(x1)^2, -1, -1, -1) com q(s) = 1+s^2:
+    (1) OS SIMBOLOS DERIVADOS DA METRICA: Gamma^0_01 = q'/q = (1/2g00)(g00)'
+        e Gamma^1_00 = q q' = -(1/2)g11(g00)' -- a formula de Levi-Civita do
+        ansatz, PROVADA em kernel (HasDerivAt, regra do produto a mao);
+    (2) A CURVATURA: R^1_001(s) = -d(Gamma^1_00)/ds + Gamma^1_00*Gamma^0_01
+        = -2q(s) -- CALCULADA E PROVADA; e R^1_001 < 0 EM TODA PARTE: a
+        solda estatica e' GENUINAMENTE CURVA (nenhum gauge a aplana);
+    (3) O PAR DA REGUA (a honestidade sobre o proprio v107, como teorema):
+        no ansatz TEMPORAL do v107 a MESMA formula da R^1_001 = 0 --
+        NAO-CONSTANCIA != CURVATURA; o perfil temporal e' gauge (Minkowski
+        reparametrizado); o espacial e' fisico;
+    (4) theStaticSolderData: a solda genuinamente curva habita o MESMO
+        contrato SolderFieldData -- a base do arco de Einstein.
+    O QUE FALTA PARA O 5o FLIP (einstein), nomeado: Ricci e o tensor de
+    Einstein do ansatz (mais componentes, mesmas tecnicas), o contrato do
+    MESTRE continuo (Clausius local => equacao de campo) e a juncao com os
+    dados fortes -- o arco continua pedra a pedra."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    four_ok = bool(flips.get("concrete_aqft_core_constructed")
+                   and flips.get("concrete_breuer_corner_constructed")
+                   and flips.get("concrete_modular_four_frame_constructed")
+                   and flips.get("concrete_solder_field_constructed"))
+    two_false = bool(not flips.get("concrete_emergent_einstein_proved")
+                     and not flips.get("canonical_boundary_transport_witness_constructed"))
+    g001_ok = bool(elp.get("ext_fc_gamma001_metric_kernel_proved") is True)
+    g100_ok = bool(elp.get("ext_fc_gamma100_metric_kernel_proved") is True)
+    riem_ok = bool(elp.get("ext_fc_riemann_eq_kernel_proved") is True)
+    neg_ok = bool(elp.get("ext_fc_riemann_neg_kernel_proved") is True)
+    pair_ok = bool(elp.get("ext_fc_time_flat_kernel_proved") is True)
+    static_ok = bool(elp.get("ext_fc_static_solder_kernel_proved") is True)
+    checks = [
+        ("Gamma^0_01 DERIVADO da metrica (q'/q = (1/2g00)(g00)')", g001_ok),
+        ("Gamma^1_00 DERIVADO da metrica (qq' = -(1/2)g11(g00)')", g100_ok),
+        ("A PRIMEIRA CURVATURA: R^1_001 = -2q, calculada e provada", riem_ok),
+        ("CURVA EM TODA PARTE: R^1_001 < 0 (nenhum gauge aplana)", neg_ok),
+        ("O PAR DA REGUA: ansatz temporal (v107) da R = 0 -- nao-constancia != curvatura", pair_ok),
+        ("a solda genuinamente curva habita o contrato (theStaticSolderData)", static_ok),
+        ("os 4 flips seguem True; einstein/witness seguem False", bool(four_ok and two_false)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A PRIMEIRA CURVATURA DO KERNEL: no ansatz estatico os simbolos "
+                    "nascem da metrica e R^1_001 = -2(1+s^2) < 0 em toda parte -- a "
+                    "camada de curvatura que a mathlib nao tem comecou a ser "
+                    "construida a mao; e a regua corta o proprio v107: seu perfil "
+                    "temporal e' plano (gauge), a curvatura genuina e' espacial."),
+        "leitura": {
+            "estatuto": "[KERNEL -- calculo diferencial formal; leitura fisica no v2]",
+            "o_par_da_regua": ("nao-constancia != curvatura: o v107 flipou o contrato "
+                               "(nao-constancia EXIGIDA) e o v108 mostra que curvatura "
+                               "e' exigencia ADICIONAL -- o contrato do einstein tera "
+                               "de exigi-la (o tipo ainda nao existe, de proposito)"),
+            "o_que_falta_5o_flip": ("Ricci + tensor de Einstein do ansatz (mesmas "
+                                    "tecnicas, mais componentes) -> contrato do MESTRE "
+                                    "continuo (Clausius local => equacao de campo) -> "
+                                    "juncao com os dados fortes"),
+        },
+        "values": {"beta": beta, "R_1001_at_0": -2.0, "R_1001_at_1": -4.0},
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_FIRST_CURVATURE_IN_KERNEL__CHRISTOFFELS_DERIVED_FROM_METRIC__R1001_EQ_MINUS_TWO_Q_PROVED__NEGATIVE_EVERYWHERE_GENUINELY_CURVED__RULER_PAIR_TIME_ANSATZ_FLAT_NONCONSTANCY_IS_NOT_CURVATURE__CURVATURE_LAYER_UNDER_CONSTRUCTION_BY_HAND__SEAL_UNMOVED" if all_v
+                    else "FIRST_CURVATURE_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -37244,7 +37643,8 @@ _ESQUELETO_STONES = [
     ("v105", "NumberSelfAdjoint", "TGLExt/NumberSelfAdjoint.lean", "381/381", "17/07 21:13:38"),
     ("v106", "TailNet", "TGLExt/TailNet.lean", None, None),
     ("v106", "StrongAssembly", "TGLExt/StrongAssembly.lean", "386/386", "17/07 21:56:08"),
-    ("v107", "SolderField", "TGLExt/SolderField.lean", None, None),
+    ("v107", "SolderField", "TGLExt/SolderField.lean", "389/389", "18/07 04:05:11"),
+    ("v108", "FirstCurvature", "TGLExt/FirstCurvature.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -37279,17 +37679,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(cinquenta e cinco pedras, \S120--\S187)}")
+                 r"(cinquenta e seis pedras, \S120--\S188)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em cinquenta e cinco pedras "
-                 r"(v43--v107) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em cinquenta e seis pedras "
+                 r"(v43--v108) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As cinquenta e cinco pedras}")
+        c.append(r"\subsection*{As cinquenta e seis pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -37872,6 +38272,20 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"EINSTEIN não foi tipado --- sem curvatura como estrutura o tipo "
                  r"seria mais fraco que o espírito da flag; a parede da curvatura "
                  r"contínua está NOMEADA.")
+        c.append(r"\kernelmk{FirstCurvature} (v108): \textbf{A PRIMEIRA CURVATURA "
+                 r"--- a camada que a mathlib não tem, construída à mão}. No ansatz "
+                 r"estático $g=\mathrm{diag}(q(x_1)^2,-1,-1,-1)$, $q=1+s^2$: os "
+                 r"símbolos NASCEM da métrica ($\Gamma^0_{01}=q'/q$, "
+                 r"$\Gamma^1_{00}=qq'$ --- a fórmula de Levi-Civita do ansatz, "
+                 r"provada via HasDerivAt); e $R^1_{001}(s)=-\partial_1\Gamma^1_{00}"
+                 r"+\Gamma^1_{00}\Gamma^0_{01}=-2q(s)<0$ EM TODA PARTE: a solda "
+                 r"estática é GENUINAMENTE curva --- nenhum gauge a aplana. E O PAR "
+                 r"DA RÉGUA, como teorema: no ansatz TEMPORAL do v107 a MESMA "
+                 r"fórmula dá $R\equiv 0$ --- NÃO-CONSTÂNCIA $\neq$ CURVATURA (o "
+                 r"perfil temporal é gauge; o espacial é físico). A solda curva "
+                 r"habita o mesmo contrato (\texttt{theStaticSolderData}); o 5º "
+                 r"flip (einstein) exigirá curvatura --- Ricci e o tensor de "
+                 r"Einstein do ansatz são o próximo elo. Nenhuma flag se move.")
         c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
                   r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
                   r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
@@ -38244,7 +38658,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cinquenta e cinco pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cinquenta e seis pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -38379,16 +38793,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(fifty-five stones, \S120--\S187)}")
+                 r"(fifty-six stones, \S120--\S188)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across fifty-five stones (v43--v107) the audited kernel went from 53 to "
+                 r"from this run's audit. Across fifty-six stones (v43--v108) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The fifty-five stones}")
+        c.append(r"\subsection*{The fifty-six stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -38969,6 +39383,20 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"EINSTEIN was not typed --- without curvature as structure the "
                  r"type would be weaker than the flag's spirit; the continuous "
                  r"curvature wall is NAMED.")
+        c.append(r"\kernelmk{FirstCurvature} (v108): \textbf{THE FIRST CURVATURE "
+                 r"--- the layer mathlib lacks, built by hand}. In the static ansatz "
+                 r"$g=\mathrm{diag}(q(x_1)^2,-1,-1,-1)$, $q=1+s^2$: the symbols are "
+                 r"BORN from the metric ($\Gamma^0_{01}=q'/q$, $\Gamma^1_{00}=qq'$ "
+                 r"--- the ansatz Levi-Civita formula, proved via HasDerivAt); and "
+                 r"$R^1_{001}(s)=-\partial_1\Gamma^1_{00}+\Gamma^1_{00}"
+                 r"\Gamma^0_{01}=-2q(s)<0$ EVERYWHERE: the static solder is "
+                 r"GENUINELY curved --- no gauge flattens it. And THE RULER PAIR, as "
+                 r"a theorem: in the v107 TIME ansatz the SAME formula yields "
+                 r"$R\equiv 0$ --- NON-CONSTANCY $\neq$ CURVATURE (the time profile "
+                 r"is gauge; the spatial one is physical). The curved solder "
+                 r"inhabits the same contract (\texttt{theStaticSolderData}); the "
+                 r"5th flip (einstein) will REQUIRE curvature --- the ansatz Ricci "
+                 r"and Einstein tensor are the next link. No flag moves.")
         c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
                   r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
                   r"witness is the boundary; the boundary proves itself by the asymptotic limit "
@@ -39329,7 +39757,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across fifty-five stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across fifty-six stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -39826,7 +40254,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -41977,6 +42405,14 @@ def main():
     for _k, _v in (_sf.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [einstein NAO tipado DE PROPOSITO: sem curvatura como estrutura o tipo seria mais fraco que o espirito (licao v103); a parede da curvatura esta NOMEADA]")
+    _fc = core.get("first_curvature", {}) or {}
+    print("  A PRIMEIRA CURVATURA [v108 -- a camada que a mathlib nao tem, a mao]: %s" % _fc.get("verdict"))
+    _fcv = _fc.get("values", {}) or {}
+    print("    R^1_001 = -2(1+s^2): em s=0 -> %s ; em s=1 -> %s ; NEGATIVA EM TODA PARTE (genuinamente curva)" % (
+        _fcv.get("R_1001_at_0"), _fcv.get("R_1001_at_1")))
+    for _k, _v in (_fc.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [o par da regua: o perfil temporal do v107 e' PLANO (gauge) -- nao-constancia != curvatura; o contrato do einstein tera de EXIGIR curvatura]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (

@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=154297 len(stderr)=0
+# len(stdout)=155416 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1484,6 +1484,15 @@ TGLExt.SolderFieldData : Type
 TGLExt.theSolderData : TGLExt.SolderFieldData
 TGLExt.qgStrongCertificate_solder : (s : TGLExt.SolderFieldData) ×' ∃ x y, s.g x ≠ s.g y
 TGLExt.solder_frame_eq_strong : TGLExt.theSolderData.frame = TGLExt.theStrongCertificate.frame
+TGLExt.qfun : ℝ → ℝ
+TGLExt.Gamma001_from_metric : ∀ (s : ℝ),
+  TGLExt.Gamma001 s = 1 / (2 * TGLExt.qfun s ^ 2) * deriv (fun t => TGLExt.qfun t ^ 2) s
+TGLExt.Gamma100_from_metric : ∀ (s : ℝ), TGLExt.Gamma100 s = 1 / 2 * deriv (fun t => TGLExt.qfun t ^ 2) s
+TGLExt.Riemann1001 : ℝ → ℝ
+TGLExt.Riemann1001_eq : ∀ (s : ℝ), TGLExt.Riemann1001 s = -(2 * TGLExt.qfun s)
+TGLExt.Riemann1001_neg : ∀ (s : ℝ), TGLExt.Riemann1001 s < 0
+TGLExt.time_ansatz_r1001_zero : ∀ (s : ℝ), -deriv TGLExt.timeGamma100 s + TGLExt.timeGamma100 s * TGLExt.Gamma001 s = 0
+TGLExt.theStaticSolderData : TGLExt.SolderFieldData
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1933,6 +1942,12 @@ TGLExt.solder_frame_eq_strong : TGLExt.theSolderData.frame = TGLExt.theStrongCer
 'TGLExt.theSolderField_nonconstant' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.theSolderData' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.qgStrongCertificate_solder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Gamma001_from_metric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Gamma100_from_metric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Riemann1001_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.Riemann1001_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.time_ansatz_r1001_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theStaticSolderData' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
