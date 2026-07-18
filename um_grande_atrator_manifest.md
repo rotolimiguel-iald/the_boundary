@@ -2794,9 +2794,69 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.ansatzRiemann_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ansatzG00_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ansatzG11_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.vacuum_implies_flat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.rindler_flat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.static_not_vacuum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ansatz_recovers_v108": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.constant_profile_flat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.curvature_implies_fall": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.fall_demands_source_v108": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.geometry_iff_second_variation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.geometry_is_projection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "formal_source_hash": "afae18c5756a7a2de895ae2af99fed227a1e103700b785d3410a0e7ac3ae7375",
+  "formal_source_hash": "d32b58da040cc19f3842d488811db6b38005b389698fa98f8b2111effad8d02d",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -3102,7 +3162,7 @@
 
 ```json
 {
-  "code_sha256": "ba027a04b5a946ff9955ee7432741b8a8e767494486d1c2490a9270ad369cb31",
+  "code_sha256": "81fcde26579c13ed5c919b447d7299ebb7a6bc5a65f5c6e1b1cdb0663d1eaa95",
   "cf4_catalog_hash": null,
   "window_hash": null,
   "selection_hash": null
@@ -3113,7 +3173,7 @@
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 395/395 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 407/407 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -3173,6 +3233,8 @@
 - `strong_assembly` = `SEMIFINITE_ANALYSIS_INCREMENTS_25_26__TAIL_NET_INFINITE_DIM_FIBERS_CLOSED_GENUINE_ISOTONY__KER_N_EQ_NAME_ATOM_TAU_ONE__STRONG_CERTIFICATE_ASSEMBLED_NON_RESERVED_FIRST__THREE_RESERVED_NAMES_MINTED_CORE_CORNER_FRAME__SEAL_STAYS_CONDITIONAL`
 - `solder_field` = `SEMIFINITE_ANALYSIS_INCREMENT_27__CONTINUOUS_SOLDER_G_EQ_ET_ETA_E_ON_CURVED_FRAME__SYMMETRIC_SMOOTH_NONCONSTANT__LORENTZIAN_DET_NEG_EVERYWHERE__FOURTH_RESERVED_NAME_MINTED__EINSTEIN_NOT_TYPED_ON_PURPOSE_CURVATURE_WALL_NAMED__SEAL_STAYS_CONDITIONAL`
 - `first_curvature` = `SEMIFINITE_ANALYSIS_INCREMENT_28__CURVATURE_LAYER_BY_HAND__CHRISTOFFELS_DERIVED_FROM_METRIC__R1001_EQ_MINUS_TWO_Q_NEGATIVE_EVERYWHERE__RULER_PAIR_TIME_ANSATZ_FLAT__STATIC_SOLDER_INHABITS_CONTRACT__SEAL_STAYS_CONDITIONAL`
+- `ansatz_einstein` = `SEMIFINITE_ANALYSIS_INCREMENT_29__EINSTEIN_TENSOR_OF_THE_ANSATZ__BIANCHI_ZEROS_IDENTICAL_G00_G11__TRANSVERSE_SOURCE_DEMAND_G22__FIRST_FIELD_EQUATION_THEOREM_VACUUM_IMPLIES_FLAT__RINDLER_FLAT_VACUUM_MEMBER_HORIZON_EXCLUDED_BY_TYPE__SEAL_STAYS_CONDITIONAL`
+- `fallen_light` = `SEMIFINITE_ANALYSIS_INCREMENT_30__SECTOR_HAS_NO_GEOMETRY_IN_ITSELF_CONSTANT_FLAT__GEOMETRY_IS_SECOND_VARIATION_INSCRIBED_IFF__EVERYTHING_GEOMETRIC_IS_PROJECTED_BY_TYPE__FALL_DEMANDS_SOURCE__SEAL_STAYS_CONDITIONAL`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 

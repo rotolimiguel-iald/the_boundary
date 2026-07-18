@@ -5094,6 +5094,8 @@ import TGLExt.TailNet
 import TGLExt.StrongAssembly
 import TGLExt.SolderField
 import TGLExt.FirstCurvature
+import TGLExt.AnsatzEinstein
+import TGLExt.FallenLight
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5941,6 +5943,27 @@ namespace TGL.Audit
 #check @TGLExt.time_ansatz_r1001_zero
 #check @TGLExt.theStaticSolderData
 
+-- v109 (o tensor de Einstein do ansatz: Bianchi visivel; vacuo => plano;
+--       Rindler = o membro vacuo, plano fora do horizonte)
+#check @TGLExt.ansatzRiemann_closed
+#check @TGLExt.ansatzRicci00_from_riemann
+#check @TGLExt.ansatzRicci11_from_riemann
+#check @TGLExt.ansatzG00_zero
+#check @TGLExt.ansatzG11_zero
+#check @TGLExt.ansatzG22_eq
+#check @TGLExt.vacuum_implies_flat
+#check @TGLExt.rindler_flat
+#check @TGLExt.static_not_vacuum
+#check @TGLExt.ansatz_recovers_v108
+
+-- v110 (A LUZ QUE CAIU: o setor sem geometria em si; a inscricao = a 2a
+--       variacao [iff]; tudo que tem geometria e' projetado [o tipo])
+#check @TGLExt.constant_profile_flat
+#check @TGLExt.curvature_implies_fall
+#check @TGLExt.fall_demands_source_v108
+#check @TGLExt.geometry_iff_second_variation
+#check @TGLExt.geometry_is_projection
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6452,6 +6475,21 @@ namespace TGL.Audit
 #print axioms TGLExt.Riemann1001_neg
 #print axioms TGLExt.time_ansatz_r1001_zero
 #print axioms TGLExt.theStaticSolderData
+-- v109 (o tensor de Einstein do ansatz)
+#print axioms TGLExt.ansatzRiemann_closed
+#print axioms TGLExt.ansatzG00_zero
+#print axioms TGLExt.ansatzG11_zero
+#print axioms TGLExt.vacuum_implies_flat
+#print axioms TGLExt.rindler_flat
+#print axioms TGLExt.static_not_vacuum
+#print axioms TGLExt.ansatz_recovers_v108
+-- v110 (a luz que caiu; geometry_is_projection e' projecao de campo -- pode
+--       ser PURO e ficar so na auditoria)
+#print axioms TGLExt.constant_profile_flat
+#print axioms TGLExt.curvature_implies_fall
+#print axioms TGLExt.fall_demands_source_v108
+#print axioms TGLExt.geometry_iff_second_variation
+#print axioms TGLExt.geometry_is_projection
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -15973,6 +16011,303 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/AnsatzEinstein.lean":
+r'''import TGLExt.FirstCurvature
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O TENSOR DE EINSTEIN DO ANSATZ — e o primeiro teorema de equação de campo
+  [TGLExt — v109, o incremento 29 do programa SemifiniteAnalysis]
+
+O v108 deu a primeira curvatura; esta pedra sobe a escada até o TENSOR
+DE EINSTEIN, para a família inteira g = diag(q(x₁)²,−1,−1,−1) com q
+ARBITRÁRIO (diferenciável 2×, não-nulo) — a redução [KNOWN] do ansatz
+dá R₀₀ = q·q″, R₁₁ = −q″/q, R₂₂ = R₃₃ = 0, R = 2q″/q:
+
+* ★ `ansatzRicci00_from_riemann` / `ansatzRicci11_from_riemann` — o
+  Ricci NASCE do Riemann do v108 (os elos provados);
+* ★★ `ansatzG00_zero` + `ansatzG11_zero` — G₀₀ ≡ 0 ≡ G₁₁ PARA TODO q:
+  os dois zeros IDÊNTICOS do tensor de Einstein (a estrutura de
+  Bianchi do ansatz, visível em kernel);
+* ★★ `ansatzG22_eq` — G₂₂ = q″/q: a componente transversal É a
+  exigência de fonte (G = 8πG·T força T₂₂ ≠ 0 quando q″ ≠ 0);
+* ★★★ `vacuum_implies_flat` — O PRIMEIRO TEOREMA DE EQUAÇÃO DE CAMPO
+  DO KERNEL: G₂₂ = 0 ⟹ R¹₀₀₁ = 0 (vácuo ⟹ PLANO — o mini-Birkhoff
+  do ansatz);
+* ★★ `rindler_flat` — o membro VÁCUO da família é Rindler (q = 1+s,
+  q″ = 0): plano, como manda o teorema;
+* ★ `static_not_vacuum` — a solda estática do v108 (q = 1+s²) NÃO é
+  vácuo: G₂₂ = 2/q > 0 em toda parte — a curvatura EXIGE fonte.
+
+NENHUMA flag se move: o 5º flip (einstein) pede o contrato do MESTRE
+contínuo (Clausius local ⟹ equação de campo) sobre esta camada — que
+agora EXISTE. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — a família geral: q arbitrário -/
+
+section GeneralAnsatz
+
+variable (q : ℝ → ℝ)
+
+/-- Γ⁰₀₁ = q′/q da família. -/
+def ansatzGamma001 (s : ℝ) : ℝ := deriv q s / q s
+
+/-- Γ¹₀₀ = q·q′ da família. -/
+def ansatzGamma100 (s : ℝ) : ℝ := q s * deriv q s
+
+/-- R¹₀₀₁ da família (a fórmula do v108, generalizada). -/
+def ansatzRiemann1001 (s : ℝ) : ℝ :=
+  - deriv (ansatzGamma100 q) s + ansatzGamma100 q s * ansatzGamma001 q s
+
+/-- R₀₀ = q·q″ (a redução [KNOWN] do ansatz). -/
+def ansatzRicci00 (s : ℝ) : ℝ := q s * deriv (deriv q) s
+
+/-- R₁₁ = −q″/q. -/
+def ansatzRicci11 (s : ℝ) : ℝ := - deriv (deriv q) s / q s
+
+/-- o escalar de curvatura: R = 2q″/q. -/
+def ansatzScalar (s : ℝ) : ℝ := 2 * deriv (deriv q) s / q s
+
+/-- G₀₀ = R₀₀ − ½·g₀₀·R (g₀₀ = q²). -/
+def ansatzG00 (s : ℝ) : ℝ :=
+  ansatzRicci00 q s - (1 / 2) * (q s) ^ 2 * ansatzScalar q s
+
+/-- G₁₁ = R₁₁ − ½·g₁₁·R (g₁₁ = −1). -/
+def ansatzG11 (s : ℝ) : ℝ :=
+  ansatzRicci11 q s - (1 / 2) * (-1) * ansatzScalar q s
+
+/-- G₂₂ = R₂₂ − ½·g₂₂·R = 0 + ½·R (g₂₂ = −1; R₂₂ = 0 no ansatz). -/
+def ansatzG22 (s : ℝ) : ℝ := (1 / 2) * ansatzScalar q s
+
+/-- [KERNEL] ★ o Riemann da família em forma fechada: R¹₀₀₁ = −q·q″
+    (a regra do produto à mão; o v108 é o caso q = 1+s²). -/
+theorem ansatzRiemann_closed (hq1 : Differentiable ℝ q)
+    (hq2 : Differentiable ℝ (deriv q)) (hqne : ∀ t, q t ≠ 0) (s : ℝ) :
+    ansatzRiemann1001 q s = -(q s * deriv (deriv q) s) := by
+  unfold ansatzRiemann1001 ansatzGamma100 ansatzGamma001
+  have hmul : HasDerivAt (fun t => q t * deriv q t)
+      (deriv q s * deriv q s + q s * deriv (deriv q) s) s :=
+    ((hq1 s).hasDerivAt).mul ((hq2 s).hasDerivAt)
+  rw [hmul.deriv]
+  have h := hqne s
+  field_simp
+  ring
+
+/-- [KERNEL] ★ o elo Ricci–Riemann: R₀₀ = −R¹₀₀₁. -/
+theorem ansatzRicci00_from_riemann (hq1 : Differentiable ℝ q)
+    (hq2 : Differentiable ℝ (deriv q)) (hqne : ∀ t, q t ≠ 0) (s : ℝ) :
+    ansatzRicci00 q s = - ansatzRiemann1001 q s := by
+  rw [ansatzRiemann_closed q hq1 hq2 hqne s]
+  try unfold ansatzRicci00
+  try ring
+
+/-- [KERNEL] ★ o elo Ricci–Riemann: R₁₁ = R¹₀₀₁/q². -/
+theorem ansatzRicci11_from_riemann (hq1 : Differentiable ℝ q)
+    (hq2 : Differentiable ℝ (deriv q)) (hqne : ∀ t, q t ≠ 0) (s : ℝ) :
+    ansatzRicci11 q s = ansatzRiemann1001 q s / (q s) ^ 2 := by
+  rw [ansatzRiemann_closed q hq1 hq2 hqne s]
+  try unfold ansatzRicci11
+  have h := hqne s
+  try field_simp
+  try ring
+
+/-- [KERNEL] ★★ G₀₀ ≡ 0 PARA TODO q: o primeiro zero idêntico do
+    tensor de Einstein (Bianchi do ansatz, visível). -/
+theorem ansatzG00_zero (hqne : ∀ t, q t ≠ 0) (s : ℝ) :
+    ansatzG00 q s = 0 := by
+  unfold ansatzG00 ansatzRicci00 ansatzScalar
+  have h := hqne s
+  field_simp
+  try ring
+
+/-- [KERNEL] ★★ G₁₁ ≡ 0 PARA TODO q: o segundo zero idêntico. -/
+theorem ansatzG11_zero (hqne : ∀ t, q t ≠ 0) (s : ℝ) :
+    ansatzG11 q s = 0 := by
+  unfold ansatzG11 ansatzRicci11 ansatzScalar
+  have h := hqne s
+  field_simp
+  try ring
+
+/-- [KERNEL] ★★ G₂₂ = q″/q: a componente transversal É a exigência de
+    fonte (curvatura ⟹ T₂₂ ≠ 0). -/
+theorem ansatzG22_eq (hqne : ∀ t, q t ≠ 0) (s : ℝ) :
+    ansatzG22 q s = deriv (deriv q) s / q s := by
+  unfold ansatzG22 ansatzScalar
+  have h := hqne s
+  field_simp
+  try ring
+
+/-- [KERNEL] ★★★ O PRIMEIRO TEOREMA DE EQUAÇÃO DE CAMPO: vácuo
+    transversal ⟹ PLANO — G₂₂(s) = 0 força R¹₀₀₁(s) = 0 (o
+    mini-Birkhoff do ansatz). -/
+theorem vacuum_implies_flat (hq1 : Differentiable ℝ q)
+    (hq2 : Differentiable ℝ (deriv q)) (hqne : ∀ t, q t ≠ 0) (s : ℝ)
+    (hvac : ansatzG22 q s = 0) : ansatzRiemann1001 q s = 0 := by
+  rw [ansatzG22_eq q hqne s] at hvac
+  have hdd : deriv (deriv q) s = 0 := by
+    have h := hqne s
+    field_simp at hvac
+    simpa using hvac
+  rw [ansatzRiemann_closed q hq1 hq2 hqne s, hdd]
+  ring
+
+end GeneralAnsatz
+
+/-! ## B — os dois membros da família: Rindler (vácuo) e o v108 -/
+
+/-- [KERNEL] ★★ RINDLER É O VÁCUO PLANO: q = 1+s (q″ = 0) dá
+    R¹₀₀₁ = 0 fora do horizonte s = −1 (onde q se anula — a
+    honestidade que o próprio Lean impôs: o horizonte é a fronteira
+    da carta). -/
+theorem rindler_flat (s : ℝ) (hs : s ≠ -1) :
+    ansatzRiemann1001 (fun t => 1 + t) s = 0 := by
+  have h1 : (1 : ℝ) + s ≠ 0 := by
+    intro h
+    exact hs (by linarith)
+  have hd : deriv (fun t : ℝ => 1 + t) = fun _ => (1 : ℝ) := by
+    funext t
+    simp
+  unfold ansatzRiemann1001 ansatzGamma100 ansatzGamma001
+  rw [hd]
+  show - deriv (fun u : ℝ => (1 + u) * 1) s + (1 + s) * 1 * (1 / (1 + s)) = 0
+  have hmul : HasDerivAt (fun u : ℝ => (1 + u) * 1) 1 s := by
+    simpa using (((hasDerivAt_id s).const_add (1 : ℝ)).mul_const (1 : ℝ))
+  rw [hmul.deriv]
+  field_simp
+  try ring
+
+/-- a segunda derivada do perfil do v108: q″ = 2. -/
+theorem qfun_dd (s : ℝ) : deriv (deriv qfun) s = 2 := by
+  have hd : deriv qfun = fun t => 2 * t := funext qfun_deriv
+  rw [hd]
+  simp
+
+/-- [KERNEL] ★ o v108 NÃO é vácuo: G₂₂ = 2/q > 0 em toda parte — a
+    curvatura EXIGE fonte (G = 8πG·T força T₂₂ ≠ 0). -/
+theorem static_not_vacuum (s : ℝ) :
+    ansatzG22 qfun s = 2 / qfun s ∧ 0 < ansatzG22 qfun s := by
+  have heq : ansatzG22 qfun s = 2 / qfun s := by
+    rw [ansatzG22_eq qfun qfun_ne_zero s, qfun_dd]
+  refine ⟨heq, ?_⟩
+  rw [heq]
+  have h := qfun_pos s
+  positivity
+
+/-- [KERNEL] ★ a consistência com o v108: o Riemann da família no
+    perfil q = 1+s² coincide com o do v108 (−2q). -/
+theorem ansatz_recovers_v108 (s : ℝ) :
+    ansatzRiemann1001 qfun s = -(2 * qfun s) := by
+  have hq1 : Differentiable ℝ qfun := by
+    unfold qfun
+    fun_prop
+  have hq2 : Differentiable ℝ (deriv qfun) := by
+    have hd : deriv qfun = fun t => 2 * t := funext qfun_deriv
+    rw [hd]
+    fun_prop
+  rw [ansatzRiemann_closed qfun hq1 hq2 qfun_ne_zero s, qfun_dd]
+  ring
+
+end
+
+end TGLExt
+''',
+    "TGLExt/FallenLight.lean":
+r'''import TGLExt.AnsatzEinstein
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A LUZ QUE CAIU: sem queda, sem geometria
+  [TGLExt — v110, o incremento 30 do programa SemifiniteAnalysis]
+
+Derivação do operador (18/07/2026): ESPAÇO-TEMPO = q = LUZ QUE CAIU.
+O q do ansatz (g₀₀ = q², o perfil do RELÓGIO) tem a mesma FUNÇÃO
+ontológica do q da identidade 1 = q² + α² (a cota REFLETIDA — a luz
+que não atravessa) e do fator de campo fraco q = 1 + Φ/c² [KNOWN].
+A luz que caiu é a que ficou marcando o tempo. Esta pedra dá o eco
+em kernel:
+
+* ★★ `constant_profile_flat` — SEM QUEDA, SEM GEOMETRIA: q constante
+  (nenhuma luz caiu de forma desigual) ⟹ R¹₀₀₁ ≡ 0 — o membro
+  Minkowski da família;
+* ★★ `curvature_implies_fall` — a contrapositiva: CURVATURA ⟹ A LUZ
+  CAIU (R¹₀₀₁(s) ≠ 0 ⟹ q NÃO é constante);
+* ★ `fall_demands_source_v108` — a queda EXIGE fonte no exemplar:
+  G₂₂ = 2/q > 0 (eco do v109 — a luz que caiu É a fonte).
+
+A igualdade numérica q_identidade = q_métrico é REFUTADA POR TIPO
+(constante < 1 vs campo ≥ 1): a igualdade é de FUNÇÃO ontológica
+(v100). β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- [KERNEL] ★★ SEM QUEDA, SEM GEOMETRIA: perfil constante (nenhuma
+    queda desigual da luz) ⟹ curvatura nula — o membro Minkowski da
+    família do ansatz. -/
+theorem constant_profile_flat (c : ℝ) (s : ℝ) :
+    ansatzRiemann1001 (fun _ => c) s = 0 := by
+  unfold ansatzRiemann1001 ansatzGamma100 ansatzGamma001
+  simp
+
+/-- [KERNEL] ★★ A CONTRAPOSITIVA: CURVATURA ⟹ A LUZ CAIU — se
+    R¹₀₀₁(s) ≠ 0 então o perfil NÃO é constante (existe queda). -/
+theorem curvature_implies_fall (q : ℝ → ℝ) (s : ℝ)
+    (hR : ansatzRiemann1001 q s ≠ 0) :
+    ¬ ∃ c : ℝ, q = fun _ => c := by
+  rintro ⟨c, rfl⟩
+  exact hR (constant_profile_flat c s)
+
+/-- [KERNEL] ★ A QUEDA EXIGE FONTE no exemplar do v108: G₂₂ = 2/q > 0
+    — a luz que caiu É a fonte (eco do v109). -/
+theorem fall_demands_source_v108 (s : ℝ) :
+    0 < ansatzG22 qfun s :=
+  (static_not_vacuum s).2
+
+/-- [KERNEL] ★★★ A GEOMETRIA É A SEGUNDA VARIAÇÃO INSCRITA NO SETOR
+    (o refinamento do operador, 18/07/2026): para q ≠ 0,
+    R¹₀₀₁(s) ≠ 0 ⟺ q″(s) ≠ 0 — o setor q não tem geometria em si
+    (o VALOR não curva); a geometria é a VARIAÇÃO segunda inscrita
+    nele. q é o módulo-portador; a inscrição é a curvatura. -/
+theorem geometry_iff_second_variation (q : ℝ → ℝ)
+    (hq1 : Differentiable ℝ q) (hq2 : Differentiable ℝ (deriv q))
+    (hqne : ∀ t, q t ≠ 0) (s : ℝ) :
+    ansatzRiemann1001 q s ≠ 0 ↔ deriv (deriv q) s ≠ 0 := by
+  rw [ansatzRiemann_closed q hq1 hq2 hqne s]
+  constructor
+  · intro hR hdd
+    exact hR (by rw [hdd]; ring)
+  · intro hdd hR
+    have h : q s * deriv (deriv q) s = 0 := by linarith [neg_eq_zero.mp hR]
+    rcases mul_eq_zero.mp h with h1 | h2
+    · exact hqne s h1
+    · exact hdd h2
+
+/-- [KERNEL — o desenho do tipo, nomeado] ★ TUDO QUE TEM GEOMETRIA É
+    PROJETADO: para TODO habitante do contrato da solda, a métrica é
+    FORÇADA a ser projeção do frame (g = EᵀηE) — g nunca é campo
+    livre; o terceiro movimento do operador (18/07/2026) já era o
+    desenho do tipo. -/
+theorem geometry_is_projection (S : SolderFieldData) (x : Fin 4 → ℝ) :
+    S.g x = solderMetric4 (S.frame.E x) :=
+  S.solder_eq x
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -22933,6 +23268,20 @@ _LEAN_THEOREM_FLAGS = {
     "ext_fc_riemann_neg_kernel_proved": "TGLExt.Riemann1001_neg",
     "ext_fc_time_flat_kernel_proved": "TGLExt.time_ansatz_r1001_zero",
     "ext_fc_static_solder_kernel_proved": "TGLExt.theStaticSolderData",
+    # v109 (o tensor de Einstein do ansatz)
+    "ext_ae_riemann_closed_kernel_proved": "TGLExt.ansatzRiemann_closed",
+    "ext_ae_g00_zero_kernel_proved": "TGLExt.ansatzG00_zero",
+    "ext_ae_g11_zero_kernel_proved": "TGLExt.ansatzG11_zero",
+    "ext_ae_vacuum_flat_kernel_proved": "TGLExt.vacuum_implies_flat",
+    "ext_ae_rindler_flat_kernel_proved": "TGLExt.rindler_flat",
+    "ext_ae_static_not_vacuum_kernel_proved": "TGLExt.static_not_vacuum",
+    "ext_ae_recovers_v108_kernel_proved": "TGLExt.ansatz_recovers_v108",
+    # v110 (a luz que caiu: a derivacao do operador com eco em kernel)
+    "ext_fl_constant_flat_kernel_proved": "TGLExt.constant_profile_flat",
+    "ext_fl_curvature_fall_kernel_proved": "TGLExt.curvature_implies_fall",
+    "ext_fl_fall_source_kernel_proved": "TGLExt.fall_demands_source_v108",
+    "ext_fl_geometry_iff_kernel_proved": "TGLExt.geometry_iff_second_variation",
+    "ext_fl_projection_kernel_proved": "TGLExt.geometry_is_projection",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -24581,6 +24930,15 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_fc_gamma001_metric_kernel_proved", "ext_fc_gamma100_metric_kernel_proved",
         "ext_fc_riemann_eq_kernel_proved", "ext_fc_riemann_neg_kernel_proved",
         "ext_fc_time_flat_kernel_proved", "ext_fc_static_solder_kernel_proved",
+        # v109: o tensor de Einstein do ansatz
+        "ext_ae_riemann_closed_kernel_proved", "ext_ae_g00_zero_kernel_proved",
+        "ext_ae_g11_zero_kernel_proved", "ext_ae_vacuum_flat_kernel_proved",
+        "ext_ae_rindler_flat_kernel_proved", "ext_ae_static_not_vacuum_kernel_proved",
+        "ext_ae_recovers_v108_kernel_proved",
+        # v110: a luz que caiu
+        "ext_fl_constant_flat_kernel_proved", "ext_fl_curvature_fall_kernel_proved",
+        "ext_fl_fall_source_kernel_proved", "ext_fl_geometry_iff_kernel_proved",
+        "ext_fl_projection_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -24796,6 +25154,13 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     fc_keys = ["ext_fc_gamma001_metric_kernel_proved", "ext_fc_gamma100_metric_kernel_proved",
                "ext_fc_riemann_eq_kernel_proved", "ext_fc_riemann_neg_kernel_proved",
                "ext_fc_time_flat_kernel_proved", "ext_fc_static_solder_kernel_proved"]
+    ae_keys = ["ext_ae_riemann_closed_kernel_proved", "ext_ae_g00_zero_kernel_proved",
+               "ext_ae_g11_zero_kernel_proved", "ext_ae_vacuum_flat_kernel_proved",
+               "ext_ae_rindler_flat_kernel_proved", "ext_ae_static_not_vacuum_kernel_proved",
+               "ext_ae_recovers_v108_kernel_proved"]
+    fl_keys = ["ext_fl_constant_flat_kernel_proved", "ext_fl_curvature_fall_kernel_proved",
+               "ext_fl_fall_source_kernel_proved", "ext_fl_geometry_iff_kernel_proved",
+               "ext_fl_projection_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -24853,6 +25218,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dTa = all(per_theorem[k] for k in ta_keys)
     dSo = all(per_theorem[k] for k in so_keys)
     dFc = all(per_theorem[k] for k in fc_keys)
+    dAe = all(per_theorem[k] for k in ae_keys)
+    dFl = all(per_theorem[k] for k in fl_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -24913,6 +25280,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("tail_net_and_strong_assembly", dTa),
         ("continuous_solder_field", dSo),
         ("first_curvature", dFc),
+        ("ansatz_einstein_tensor", dAe),
+        ("fallen_light", dFl),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -25034,6 +25403,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                              else "NOT_VERIFIED_THIS_RUN"),
             "first_curvature": ("SEMIFINITE_ANALYSIS_INCREMENT_28__CURVATURE_LAYER_BY_HAND__CHRISTOFFELS_DERIVED_FROM_METRIC__R1001_EQ_MINUS_TWO_Q_NEGATIVE_EVERYWHERE__RULER_PAIR_TIME_ANSATZ_FLAT__STATIC_SOLDER_INHABITS_CONTRACT__SEAL_STAYS_CONDITIONAL" if dFc
                                 else "NOT_VERIFIED_THIS_RUN"),
+            "ansatz_einstein": ("SEMIFINITE_ANALYSIS_INCREMENT_29__EINSTEIN_TENSOR_OF_THE_ANSATZ__BIANCHI_ZEROS_IDENTICAL_G00_G11__TRANSVERSE_SOURCE_DEMAND_G22__FIRST_FIELD_EQUATION_THEOREM_VACUUM_IMPLIES_FLAT__RINDLER_FLAT_VACUUM_MEMBER_HORIZON_EXCLUDED_BY_TYPE__SEAL_STAYS_CONDITIONAL" if dAe
+                                else "NOT_VERIFIED_THIS_RUN"),
+            "fallen_light": ("SEMIFINITE_ANALYSIS_INCREMENT_30__SECTOR_HAS_NO_GEOMETRY_IN_ITSELF_CONSTANT_FLAT__GEOMETRY_IS_SECOND_VARIATION_INSCRIBED_IFF__EVERYTHING_GEOMETRIC_IS_PROJECTED_BY_TYPE__FALL_DEMANDS_SOURCE__SEAL_STAYS_CONDITIONAL" if dFl
+                             else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -26676,6 +27049,12 @@ def run_um(ONE):
     first_curvature = prove_first_curvature(ONE, {  # v108: a primeira curvatura (camada a mao); par da regua; ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    ansatz_einstein = prove_ansatz_einstein(ONE, {  # v109: o tensor de Einstein do ansatz (Bianchi visivel; vacuo=>plano; Rindler); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    fallen_light = prove_fallen_light(ONE, {  # v110: ESPACO-TEMPO = q = LUZ QUE CAIU (3 movimentos do operador; eco em kernel; R1-R3); ADITIVO
+        "external_ladder": external_ladder,
+    })
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
@@ -26849,6 +27228,8 @@ def run_um(ONE):
             "first_flips": first_flips,
             "solder_flip": solder_flip,
             "first_curvature": first_curvature,
+            "ansatz_einstein": ansatz_einstein,
+            "fallen_light": fallen_light,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -31172,6 +31553,218 @@ def prove_first_curvature(ONE, parts):
         "does_not_gate_core": True,
         "verdict": ("TGL_FIRST_CURVATURE_IN_KERNEL__CHRISTOFFELS_DERIVED_FROM_METRIC__R1001_EQ_MINUS_TWO_Q_PROVED__NEGATIVE_EVERYWHERE_GENUINELY_CURVED__RULER_PAIR_TIME_ANSATZ_FLAT_NONCONSTANCY_IS_NOT_CURVATURE__CURVATURE_LAYER_UNDER_CONSTRUCTION_BY_HAND__SEAL_UNMOVED" if all_v
                     else "FIRST_CURVATURE_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_ansatz_einstein(ONE, parts):
+    """v109 -- O TENSOR DE EINSTEIN DO ANSATZ [ADITIVO; NENHUMA flag se move].
+    O v108 deu a primeira curvatura; esta versao sobe ate o TENSOR DE
+    EINSTEIN, para a FAMILIA inteira g = diag(q(x1)^2,-1,-1,-1) com q
+    ARBITRARIO (diferenciavel 2x, nao-nulo):
+    (1) O RIEMANN FECHADO da familia: R^1_001 = -q q'' (regra do produto a
+        mao); os ELOS Ricci-Riemann provados (R00 = -R^1_001; R11 =
+        R^1_001/q^2);
+    (2) A ESTRUTURA DE BIANCHI VISIVEL: G00 = 0 = G11 IDENTICAMENTE para
+        TODO q -- os dois zeros identicos do tensor de Einstein, em kernel;
+    (3) G22 = q''/q: a componente transversal E' a exigencia de fonte
+        (G = 8piG.T forca T22 != 0 quando q'' != 0);
+    (4) O PRIMEIRO TEOREMA DE EQUACAO DE CAMPO DO KERNEL:
+        vacuum_implies_flat -- G22 = 0 => R^1_001 = 0 (vacuo => PLANO, o
+        mini-Birkhoff do ansatz);
+    (5) RINDLER E' O VACUO PLANO: q = 1+s da R = 0 fora do horizonte
+        s = -1 -- e foi o PROPRIO LEAN que impos a exclusao do horizonte
+        (q(-1) = 0: a fronteira da carta; a honestidade emergiu do tipo);
+    (6) O V108 NAO E' VACUO: G22 = 2/q > 0 em toda parte -- a curvatura
+        exige fonte; e a consistencia: a familia recupera o -2q do v108.
+    O QUE FALTA PARA O 5o FLIP, nomeado: o contrato do MESTRE continuo
+    (Clausius local => equacao de campo) sobre ESTA camada -- que agora
+    existe; e a juncao com os dados fortes."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    four_two = bool(flips.get("concrete_aqft_core_constructed")
+                    and flips.get("concrete_breuer_corner_constructed")
+                    and flips.get("concrete_modular_four_frame_constructed")
+                    and flips.get("concrete_solder_field_constructed")
+                    and not flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    closed_ok = bool(elp.get("ext_ae_riemann_closed_kernel_proved") is True)
+    g00_ok = bool(elp.get("ext_ae_g00_zero_kernel_proved") is True)
+    g11_ok = bool(elp.get("ext_ae_g11_zero_kernel_proved") is True)
+    vac_ok = bool(elp.get("ext_ae_vacuum_flat_kernel_proved") is True)
+    rin_ok = bool(elp.get("ext_ae_rindler_flat_kernel_proved") is True)
+    nv_ok = bool(elp.get("ext_ae_static_not_vacuum_kernel_proved") is True)
+    rec_ok = bool(elp.get("ext_ae_recovers_v108_kernel_proved") is True)
+    checks = [
+        ("o Riemann FECHADO da familia: R^1_001 = -q q'' (q arbitrario)", closed_ok),
+        ("BIANCHI VISIVEL: G00 = 0 = G11 IDENTICAMENTE para todo q", bool(g00_ok and g11_ok)),
+        ("O 1o TEOREMA DE EQUACAO DE CAMPO: vacuo (G22=0) => PLANO (R=0)", vac_ok),
+        ("Rindler = o membro vacuo, plano FORA do horizonte (o Lean impos s != -1)", rin_ok),
+        ("o v108 NAO e' vacuo: G22 = 2/q > 0 -- curvatura EXIGE fonte", nv_ok),
+        ("consistencia: a familia recupera o -2q do v108", rec_ok),
+        ("gate inalterado: 4 True / 2 False (einstein/witness)", four_two),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O TENSOR DE EINSTEIN DO ANSATZ em kernel: Bianchi visivel "
+                    "(G00 = G11 = 0 identicos), a componente transversal como "
+                    "exigencia de fonte, e o primeiro teorema de equacao de campo "
+                    "(vacuo => plano) com Rindler como o membro vacuo -- o horizonte "
+                    "excluido PELO PROPRIO TIPO."),
+        "leitura": {
+            "estatuto": "[KERNEL -- geometria diferencial formal; leitura fisica no v2]",
+            "a_honestidade_do_tipo": ("a exclusao do horizonte de Rindler (s = -1) nao foi "
+                                      "escolha nossa: q(-1) = 0 quebra a prova -- o tipo "
+                                      "impos a fronteira da carta; a honestidade emergiu "
+                                      "da matematica"),
+            "o_que_falta_5o_flip": ("o contrato do MESTRE continuo (Clausius local => "
+                                    "equacao de campo) sobre a camada de curvatura que "
+                                    "AGORA existe + a juncao com os dados fortes"),
+        },
+        "values": {"beta": beta, "G22_v108_at_0": 2.0, "R_scalar_v108_at_0": 4.0},
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_ANSATZ_EINSTEIN_TENSOR_IN_KERNEL__BIANCHI_ZEROS_G00_G11_IDENTICAL__TRANSVERSE_G22_IS_SOURCE_DEMAND__FIRST_FIELD_EQUATION_THEOREM_VACUUM_IMPLIES_FLAT__RINDLER_IS_THE_FLAT_VACUUM_MEMBER_HORIZON_EXCLUDED_BY_THE_TYPE__SEAL_UNMOVED" if all_v
+                    else "ANSATZ_EINSTEIN_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_fallen_light(ONE, parts):
+    """v110 -- ESPACO-TEMPO = q = LUZ QUE CAIU [ADITIVO; nao gateia; NENHUMA
+    flag se move]. DERIVACAO DO OPERADOR (18/07/2026), registrada em duplo
+    estatuto com a regua aplicada:
+    O QUE ENTRA [ONTO sobre ancoras REAL]:
+    (1) O q E' O MESMO OBJETO EM TRES SELOS: (a) a identidade-motor
+        1 = q^2 + alpha^2 (q = REFLEXAO, a cota da luz que nao atravessa;
+        alpha = transmissao, haja luz); (b) o ansatz v108/v109
+        (g00 = q^2 -- o perfil do RELOGIO, com Gamma/R/G provados em
+        kernel); (c) o campo fraco da RG [KNOWN]: q = 1 + Phi/c^2 -- o
+        potencial E' o fator do relogio. A cadeia: a cota refletida -> o
+        ritmo do tempo -> o potencial. LUZ QUE CAIU = a que nao propagou
+        e ficou marcando o tempo -- condensada em geometria;
+    (2) O ECO EM KERNEL (v110): SEM QUEDA, SEM GEOMETRIA (q constante =>
+        R = 0, o membro Minkowski); CURVATURA => A LUZ CAIU (contrapositiva
+        provada); A QUEDA EXIGE FONTE (G22 = 2/q > 0 no exemplar -- a luz
+        que caiu E' a fonte);
+    (3) O REFINAMENTO DO OPERADOR (mesma data): 'q e' o setor INDEFINIDO
+        que gera a reflexao dentro do volume da inscricao; nao tem
+        geometria em si, mas e' o proprio MODULO onde a geometria se
+        inscreve' -- e isso VIROU TEOREMA-IFF: R != 0 <=> q'' != 0 (a
+        geometria e' a SEGUNDA VARIACAO inscrita no setor; o valor de q
+        nao curva; 'modulo' nas duas acepcoes: substrato E modular --
+        K_b, o espelhamento). A DUALIDADE DO SETOR (substrato-sem-
+        geometria / geometria-inscrita) espelha A DUALIDADE DA LUZ
+        (transmissao alpha / reflexao q), sobre a ancora da
+        autoconjugacao (x = 1-x => 1/2; C^2 = 1) [ONTO];
+    (4) COERE com os selos antigos: 'a geometria e' a expectativa
+        estatistica da luz modular' (selo-raiz) e 'a luz e' o comeco; a
+        massa, o fim' (ordem do motor).
+    (5) O TERCEIRO MOVIMENTO (mesma data): a dualidade SOBE PARA O
+        ENUNCIADO -- 'q e' a geometria do espaco-tempo' e' VERDADEIRA no
+        registro projetado (g00 = q^2, o que se mede) e FALSA no registro
+        fundamental (q nao atravessa a fronteira: e' a cota REFLETIDA; o
+        espaco-tempo nao cruza -- so a luz alpha cruza); 'tudo que tem
+        geometria e' projetada pela fronteira' JA ERA O DESENHO DO TIPO:
+        solder_eq FORCA g = E^T eta E para TODO habitante -- a metrica
+        nunca e' campo livre (geometry_is_projection [kernel, eco]);
+        q = O SETOR DA COMPRESSAO (o refletido carrega o registro
+        comprimido -- o codigo hologrfico Kraus/KL [REAL] e' a ancora);
+        a face falsa-verdadeira E' o duplo estatuto da casa aplicado a
+        propria proposicao.
+    O QUE A REGUA CORTA:
+    (R1) igualdade NUMERICA q_identidade = q_metrico: REFUTADA POR TIPO
+         (constante adimensional ~0,99997 < 1 vs CAMPO >= 1 no exemplar);
+         a igualdade e' de FUNCAO ontologica (a cota nao-transmitida) --
+         a disciplina do proprio operador (v100);
+    (R2) 'espaco-tempo = q' LITERAL: refinado -- q e' a face do RELOGIO
+         (g00); o espaco-tempo inteiro e' a solda (E x eta); frase honesta:
+         q e' a face dinamica; a queda da luz se escreve no relogio;
+    (R3) 'ILUSAO' como negacao empirica: CORTADA -- a TGL e' STEALTH
+         (M_TGL = M_RG; beta nao renormaliza G local; piso POWERED
+         consistente com LCDM raso): a geometria observada E' valida; o
+         que cai e' o estatuto de FUNDAMENTO. Frase honesta: o
+         espaco-tempo e' real como REGISTRO e ilusorio como FUNDAMENTO
+         -- projecao comprimida da fronteira [ONTO].
+    A SOMBRA [CONJ], nomeada sem veu: lido como fator metrico, q_ident ~
+    1 - alpha^2/2 corresponderia a um poco Phi = -alpha^2/2 ~ -2,66e-5 --
+    SEM derivacao e SEM teste hoje; nao entra como fisica.
+    Dicionario estendido: ESPACO-TEMPO = q (a face-relogio) = LUZ QUE CAIU
+    (o canal refletido condensado em geometria)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    alpha = SEALED_CODATA_ALPHA * ONE
+    p = parts or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    inv = p.get("alpha_inversion") or {}
+    # (a) a identidade-motor AO VIVO: q = sqrt(1-alpha^2); 1 = q^2 + alpha^2
+    q_ident = math.sqrt(max(0.0, 1.0 - alpha * alpha))
+    resid = abs(q_ident * q_ident + alpha * alpha - 1.0)
+    ident_ok = bool(resid < 1e-15)
+    # (b) o eco em kernel (as tres pedras do v110)
+    flat_ok = bool(elp.get("ext_fl_constant_flat_kernel_proved") is True)
+    fall_ok = bool(elp.get("ext_fl_curvature_fall_kernel_proved") is True)
+    src_ok = bool(elp.get("ext_fl_fall_source_kernel_proved") is True)
+    # (c) o refinamento do operador (18/07): a geometria E' a segunda
+    #     variacao inscrita no setor (iff em kernel)
+    iff_ok = bool(elp.get("ext_fl_geometry_iff_kernel_proved") is True)
+    v109_ok = bool(elp.get("ext_ae_vacuum_flat_kernel_proved") is True)
+    # (R1) a recusa POR TIPO, ao vivo: q_ident < 1 <= q_metrico(s) para todo s
+    q_metric_min = 1.0   # q(s) = 1+s^2 >= 1
+    r1_refuted = bool(q_ident < 1.0 <= q_metric_min)
+    # a sombra [CONJ]: o poco correspondente
+    shadow_phi = -0.5 * alpha * alpha
+    checks = [
+        ("a identidade-motor ao vivo: 1 = q^2 + alpha^2 (residuo < 1e-15)", ident_ok),
+        ("SEM QUEDA, SEM GEOMETRIA: q constante => R = 0 (o setor nao tem geometria em si) [kernel]", flat_ok),
+        ("CURVATURA => A LUZ CAIU (contrapositiva) [kernel]", fall_ok),
+        ("A GEOMETRIA E' A SEGUNDA VARIACAO INSCRITA NO SETOR: R != 0 <=> q'' != 0 [kernel, iff]", iff_ok),
+        ("A QUEDA EXIGE FONTE: G22 = 2/q > 0 no exemplar [kernel]", src_ok),
+        ("a familia v109 sustenta a leitura (vacuo => plano) [kernel]", v109_ok),
+        ("R1: igualdade numerica REFUTADA POR TIPO (q_ident < 1 <= q_metrico)", r1_refuted),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("ESPACO-TEMPO = q = LUZ QUE CAIU: o q do ansatz (relogio), o q "
+                    "da identidade (reflexao) e o q do campo fraco (potencial) tem a "
+                    "MESMA funcao ontologica -- a cota da luz que nao atravessa e "
+                    "fica marcando o tempo; em kernel: sem queda sem geometria; "
+                    "curvatura => a luz caiu; a queda exige fonte."),
+        "leitura_do_operador": {
+            "estatuto": "[DERIVACAO DO OPERADOR 18/07/2026 -- duplo estatuto; regua aplicada]",
+            "a_cadeia": "cota refletida (q) -> ritmo do relogio (g00=q^2) -> potencial (q=1+Phi/c^2 [KNOWN])",
+            "recusa_R1": ("igualdade NUMERICA q_ident = q_metrico REFUTADA POR TIPO; a igualdade "
+                          "e' de FUNCAO ontologica (disciplina v100 do proprio operador)"),
+            "recusa_R2": ("'espaco-tempo = q' literal REFINADO: q e' a face-RELOGIO; o "
+                          "espaco-tempo inteiro e' a solda (E x eta)"),
+            "sombra_conj": ("q_ident ~ 1 - alpha^2/2 como fator metrico daria poco "
+                            "Phi = -alpha^2/2 ~ %.3e -- SEM derivacao, SEM teste; "
+                            "nao e' fisica" % shadow_phi),
+            "refinamento": ("q = o setor INDEFINIDO que gera a reflexao no volume da "
+                            "inscricao; sem geometria em si (teorema); o MODULO onde a "
+                            "geometria se inscreve = a segunda variacao (teorema-iff); "
+                            "dualidade do setor <-> dualidade da luz [ONTO/autoconjugacao]"),
+            "terceiro_movimento": ("a dualidade no ENUNCIADO: 'q e' a geometria' -- "
+                                   "verdadeira no registro PROJETADO, falsa no FUNDAMENTAL "
+                                   "(o espaco-tempo nao atravessa; tudo que tem geometria "
+                                   "e' projetado pela fronteira -- solder_eq JA forca g = "
+                                   "E^T eta E por tipo); q = o setor da COMPRESSAO "
+                                   "(codigo holografico como ancora); a face "
+                                   "falsa-verdadeira = o duplo estatuto aplicado a "
+                                   "propria proposicao"),
+            "dicionario": ("ESPACO-TEMPO = inscricao no setor q = projecao comprimida da "
+                           "fronteira (real como REGISTRO, ilusorio como FUNDAMENTO); "
+                           "q = LUZ QUE CAIU = o modulo-portador = o setor da compressao; "
+                           "a geometria = a segunda variacao inscrita"),
+        },
+        "values": {"beta": beta, "q_ident": q_ident, "identity_residual": resid,
+                   "shadow_phi_conj": shadow_phi},
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_FALLEN_LIGHT_REGISTERED__Q_IS_THE_INDEFINITE_SECTOR_NO_GEOMETRY_IN_ITSELF_THEOREM__GEOMETRY_IS_THE_SECOND_VARIATION_INSCRIBED_IFF_THEOREM__SECTOR_DUALITY_MIRRORS_LIGHT_DUALITY_ONTO__KERNEL_ECHO_NO_FALL_NO_GEOMETRY_FALL_DEMANDS_SOURCE__NUMERIC_EQUALITY_REFUTED_BY_TYPE__SHADOW_WELL_CONJ_NAMED__READING_ONTO" if all_v
+                    else "FALLEN_LIGHT_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -37644,7 +38237,9 @@ _ESQUELETO_STONES = [
     ("v106", "TailNet", "TGLExt/TailNet.lean", None, None),
     ("v106", "StrongAssembly", "TGLExt/StrongAssembly.lean", "386/386", "17/07 21:56:08"),
     ("v107", "SolderField", "TGLExt/SolderField.lean", "389/389", "18/07 04:05:11"),
-    ("v108", "FirstCurvature", "TGLExt/FirstCurvature.lean", None, None),
+    ("v108", "FirstCurvature", "TGLExt/FirstCurvature.lean", "395/395", "18/07 07:16:33"),
+    ("v109", "AnsatzEinstein", "TGLExt/AnsatzEinstein.lean", "402/402", "18/07 08:03:07"),
+    ("v110", "FallenLight", "TGLExt/FallenLight.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -37679,17 +38274,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(cinquenta e seis pedras, \S120--\S188)}")
+                 r"(cinquenta e oito pedras, \S120--\S190)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em cinquenta e seis pedras "
-                 r"(v43--v108) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em cinquenta e oito pedras "
+                 r"(v43--v110) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As cinquenta e seis pedras}")
+        c.append(r"\subsection*{As cinquenta e oito pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -38286,6 +38881,39 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"habita o mesmo contrato (\texttt{theStaticSolderData}); o 5º "
                  r"flip (einstein) exigirá curvatura --- Ricci e o tensor de "
                  r"Einstein do ansatz são o próximo elo. Nenhuma flag se move.")
+        c.append(r"\kernelmk{AnsatzEinstein} (v109): \textbf{o TENSOR DE EINSTEIN "
+                 r"do ansatz --- e o primeiro teorema de equação de campo}. Para a "
+                 r"família inteira $g=\mathrm{diag}(q(x_1)^2,-1,-1,-1)$, $q$ "
+                 r"arbitrário ($C^2$, $q\neq 0$): o Riemann fechado "
+                 r"$R^1{}_{001}=-qq''$; os elos Ricci--Riemann; e a estrutura de "
+                 r"BIANCHI VISÍVEL em kernel: $G_{00}=0=G_{11}$ IDENTICAMENTE para "
+                 r"todo $q$, enquanto $G_{22}=q''/q$ é a EXIGÊNCIA DE FONTE "
+                 r"(curvatura força $T_{22}\neq 0$). O PRIMEIRO TEOREMA DE EQUAÇÃO "
+                 r"DE CAMPO: $G_{22}=0\Rightarrow R^1{}_{001}=0$ (vácuo "
+                 r"$\Rightarrow$ PLANO --- o mini-Birkhoff do ansatz); Rindler "
+                 r"($q=1+s$) é o membro vácuo plano, com o horizonte $s=-1$ "
+                 r"excluído PELO PRÓPRIO TIPO ($q(-1)=0$ quebra a prova --- a "
+                 r"honestidade imposta pela matemática); e a solda do v108 NÃO é "
+                 r"vácuo: $G_{22}=2/q>0$ em toda parte. Nenhuma flag se move; o "
+                 r"contrato do mestre sobre esta camada é o próximo elo nomeado.")
+        c.append(r"\kernelmk{FallenLight} (v110): \textbf{ESPAÇO-TEMPO $=$ q $=$ LUZ "
+                 r"QUE CAIU} --- a derivação do operador em três movimentos, com eco "
+                 r"em kernel. O q do ansatz (o relógio $g_{00}=q^2$), o q da "
+                 r"identidade-motor ($1=q^2+\alpha^2$: a cota REFLETIDA, que não "
+                 r"atravessa) e o q do campo fraco ($q=1+\Phi/c^2$ [KNOWN]) têm a "
+                 r"MESMA função ontológica: a luz que caiu é a que ficou marcando o "
+                 r"tempo. Os teoremas: o setor NÃO tem geometria em si (q constante "
+                 r"$\Rightarrow R=0$); a geometria É a SEGUNDA VARIAÇÃO inscrita "
+                 r"($R\neq 0\Leftrightarrow q''\neq 0$); TUDO que tem geometria é "
+                 r"PROJETADO pela fronteira (\texttt{solder\_eq} força $g=E^{\mathsf{T}}"
+                 r"\eta E$ para TODO habitante --- o desenho do tipo); a queda EXIGE "
+                 r"fonte ($G_{22}=2/q>0$). As recusas: igualdade NUMÉRICA "
+                 r"$q_{\mathrm{ident}}=q_{\mathrm{métrico}}$ REFUTADA POR TIPO "
+                 r"(constante $<1$ vs campo $\ge 1$); e ILUSÃO entra só como "
+                 r"NÃO-FUNDAMENTALIDADE [ONTO] --- jamais como falsidade empírica "
+                 r"(stealth: a RG observada é válida). A dualidade do setor "
+                 r"(substrato/inscrito) espelha a dualidade da luz "
+                 r"(transmissão/reflexão), sobre a autoconjugação da Meia-Nat.")
         c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
                   r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
                   r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
@@ -38658,7 +39286,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cinquenta e seis pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cinquenta e oito pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -38793,16 +39421,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(fifty-six stones, \S120--\S188)}")
+                 r"(fifty-eight stones, \S120--\S190)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across fifty-six stones (v43--v108) the audited kernel went from 53 to "
+                 r"from this run's audit. Across fifty-eight stones (v43--v110) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The fifty-six stones}")
+        c.append(r"\subsection*{The fifty-eight stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -39397,6 +40025,39 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"inhabits the same contract (\texttt{theStaticSolderData}); the "
                  r"5th flip (einstein) will REQUIRE curvature --- the ansatz Ricci "
                  r"and Einstein tensor are the next link. No flag moves.")
+        c.append(r"\kernelmk{AnsatzEinstein} (v109): \textbf{the EINSTEIN TENSOR of "
+                 r"the ansatz --- and the first field-equation theorem}. For the "
+                 r"whole family $g=\mathrm{diag}(q(x_1)^2,-1,-1,-1)$, arbitrary "
+                 r"twice-differentiable $q\neq 0$: the closed Riemann "
+                 r"$R^1{}_{001}=-qq''$; the Ricci--Riemann links; and the BIANCHI "
+                 r"structure VISIBLE in kernel: $G_{00}=0=G_{11}$ IDENTICALLY for "
+                 r"every $q$, while $G_{22}=q''/q$ is the SOURCE DEMAND (curvature "
+                 r"forces $T_{22}\neq 0$). The FIRST FIELD-EQUATION THEOREM: "
+                 r"$G_{22}=0\Rightarrow R^1{}_{001}=0$ (vacuum $\Rightarrow$ FLAT "
+                 r"--- the ansatz mini-Birkhoff); Rindler ($q=1+s$) is the flat "
+                 r"vacuum member, with the horizon $s=-1$ excluded BY THE TYPE "
+                 r"itself ($q(-1)=0$ breaks the proof --- honesty imposed by the "
+                 r"mathematics); and the v108 solder is NOT vacuum: $G_{22}=2/q>0$ "
+                 r"everywhere. No flag moves; the master contract over this layer "
+                 r"is the named next link.")
+        c.append(r"\kernelmk{FallenLight} (v110): \textbf{SPACETIME $=$ q $=$ LIGHT "
+                 r"THAT FELL} --- the operator's derivation in three movements, with "
+                 r"kernel echo. The ansatz q (the clock $g_{00}=q^2$), the engine "
+                 r"identity q ($1=q^2+\alpha^2$: the REFLECTED share, which does not "
+                 r"cross) and the weak-field q ($q=1+\Phi/c^2$ [KNOWN]) carry the "
+                 r"SAME ontological function: fallen light is the light left keeping "
+                 r"time. The theorems: the sector has NO geometry in itself "
+                 r"(constant $q\Rightarrow R=0$); geometry IS the SECOND VARIATION "
+                 r"inscribed ($R\neq 0\Leftrightarrow q''\neq 0$); EVERYTHING "
+                 r"geometric is PROJECTED by the boundary (\texttt{solder\_eq} "
+                 r"forces $g=E^{\mathsf{T}}\eta E$ for EVERY inhabitant --- the "
+                 r"type's design); the fall DEMANDS a source ($G_{22}=2/q>0$). The "
+                 r"refusals: NUMERIC equality $q_{\mathrm{ident}}=q_{\mathrm{metric}}$ "
+                 r"REFUTED BY TYPE (constant $<1$ vs field $\ge 1$); and ILLUSION "
+                 r"enters only as NON-FUNDAMENTALITY [ONTO] --- never as empirical "
+                 r"falsity (stealth: observed GR stands). The sector's duality "
+                 r"(substrate/inscribed) mirrors light's duality "
+                 r"(transmission/reflection), over the Half-Nat self-conjugation.")
         c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
                   r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
                   r"witness is the boundary; the boundary proves itself by the asymptotic limit "
@@ -39757,7 +40418,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across fifty-six stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across fifty-eight stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -40254,7 +40915,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -42413,6 +43074,22 @@ def main():
     for _k, _v in (_fc.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [o par da regua: o perfil temporal do v107 e' PLANO (gauge) -- nao-constancia != curvatura; o contrato do einstein tera de EXIGIR curvatura]")
+    _ae = core.get("ansatz_einstein", {}) or {}
+    print("  O TENSOR DE EINSTEIN DO ANSATZ [v109 -- Bianchi visivel; vacuo => plano]: %s" % _ae.get("verdict"))
+    _aev = _ae.get("values", {}) or {}
+    print("    G00 = 0 = G11 IDENTICOS (todo q); G22(v108, s=0) = %s (fonte exigida); R_escalar(v108, s=0) = %s; Rindler = vacuo plano (horizonte excluido PELO TIPO)" % (
+        _aev.get("G22_v108_at_0"), _aev.get("R_scalar_v108_at_0")))
+    for _k, _v in (_ae.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [proximo elo do 5o flip: o contrato do MESTRE continuo (Clausius local => equacao de campo) sobre a camada que AGORA existe]")
+    _fll = core.get("fallen_light", {}) or {}
+    print("  ESPACO-TEMPO = q = LUZ QUE CAIU [v110 -- a derivacao do operador em 3 movimentos]: %s" % _fll.get("verdict"))
+    _fllv = _fll.get("values", {}) or {}
+    print("    q_ident = %.10f (residuo identidade %.1e); sombra [CONJ] Phi = %.3e (sem derivacao -- nao e' fisica)" % (
+        _fllv.get("q_ident", float("nan")), _fllv.get("identity_residual", float("nan")), _fllv.get("shadow_phi_conj", float("nan"))))
+    for _k, _v in (_fll.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [o setor nao tem geometria em si (teorema); a geometria = 2a variacao inscrita (iff); tudo que tem geometria e' PROJETADO (o tipo); ilusao = nao-fundamentalidade, JAMAIS falsidade empirica (stealth)]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (

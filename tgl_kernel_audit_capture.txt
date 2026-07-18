@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=155416 len(stderr)=0
+# len(stdout)=158540 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1493,6 +1493,38 @@ TGLExt.Riemann1001_eq : ∀ (s : ℝ), TGLExt.Riemann1001 s = -(2 * TGLExt.qfun 
 TGLExt.Riemann1001_neg : ∀ (s : ℝ), TGLExt.Riemann1001 s < 0
 TGLExt.time_ansatz_r1001_zero : ∀ (s : ℝ), -deriv TGLExt.timeGamma100 s + TGLExt.timeGamma100 s * TGLExt.Gamma001 s = 0
 TGLExt.theStaticSolderData : TGLExt.SolderFieldData
+TGLExt.ansatzRiemann_closed : ∀ (q : ℝ → ℝ),
+  Differentiable ℝ q →
+    Differentiable ℝ (deriv q) →
+      (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzRiemann1001 q s = -(q s * deriv (deriv q) s)
+TGLExt.ansatzRicci00_from_riemann : ∀ (q : ℝ → ℝ),
+  Differentiable ℝ q →
+    Differentiable ℝ (deriv q) →
+      (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzRicci00 q s = -TGLExt.ansatzRiemann1001 q s
+TGLExt.ansatzRicci11_from_riemann : ∀ (q : ℝ → ℝ),
+  Differentiable ℝ q →
+    Differentiable ℝ (deriv q) →
+      (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzRicci11 q s = TGLExt.ansatzRiemann1001 q s / q s ^ 2
+TGLExt.ansatzG00_zero : ∀ (q : ℝ → ℝ), (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzG00 q s = 0
+TGLExt.ansatzG11_zero : ∀ (q : ℝ → ℝ), (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzG11 q s = 0
+TGLExt.ansatzG22_eq : ∀ (q : ℝ → ℝ), (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzG22 q s = deriv (deriv q) s / q s
+TGLExt.vacuum_implies_flat : ∀ (q : ℝ → ℝ),
+  Differentiable ℝ q →
+    Differentiable ℝ (deriv q) →
+      (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzG22 q s = 0 → TGLExt.ansatzRiemann1001 q s = 0
+TGLExt.rindler_flat : ∀ (s : ℝ), s ≠ -1 → TGLExt.ansatzRiemann1001 (fun t => 1 + t) s = 0
+TGLExt.static_not_vacuum : ∀ (s : ℝ),
+  TGLExt.ansatzG22 TGLExt.qfun s = 2 / TGLExt.qfun s ∧ 0 < TGLExt.ansatzG22 TGLExt.qfun s
+TGLExt.ansatz_recovers_v108 : ∀ (s : ℝ), TGLExt.ansatzRiemann1001 TGLExt.qfun s = -(2 * TGLExt.qfun s)
+TGLExt.constant_profile_flat : ∀ (c s : ℝ), TGLExt.ansatzRiemann1001 (fun x => c) s = 0
+TGLExt.curvature_implies_fall : ∀ (q : ℝ → ℝ) (s : ℝ), TGLExt.ansatzRiemann1001 q s ≠ 0 → ¬∃ c, q = fun x => c
+TGLExt.fall_demands_source_v108 : ∀ (s : ℝ), 0 < TGLExt.ansatzG22 TGLExt.qfun s
+TGLExt.geometry_iff_second_variation : ∀ (q : ℝ → ℝ),
+  Differentiable ℝ q →
+    Differentiable ℝ (deriv q) →
+      (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzRiemann1001 q s ≠ 0 ↔ deriv (deriv q) s ≠ 0
+TGLExt.geometry_is_projection : ∀ (S : TGLExt.SolderFieldData) (x : Fin 4 → ℝ),
+  S.g x = TGLExt.solderMetric4 (S.frame.E x)
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1948,6 +1980,18 @@ TGLExt.theStaticSolderData : TGLExt.SolderFieldData
 'TGLExt.Riemann1001_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.time_ansatz_r1001_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.theStaticSolderData' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ansatzRiemann_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ansatzG00_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ansatzG11_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.vacuum_implies_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.rindler_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.static_not_vacuum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ansatz_recovers_v108' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.constant_profile_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.curvature_implies_fall' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.fall_demands_source_v108' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.geometry_iff_second_variation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.geometry_is_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
