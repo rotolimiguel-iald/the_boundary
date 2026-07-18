@@ -5088,6 +5088,10 @@ import TGLExt.IdealLimit
 import TGLExt.BenchCertificate
 import TGLExt.StrongFrame
 import TGLExt.WitnessV2
+import TGLExt.NumberOperator
+import TGLExt.NumberSelfAdjoint
+import TGLExt.TailNet
+import TGLExt.StrongAssembly
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5891,6 +5895,30 @@ namespace TGL.Audit
 #check @TGLExt.constant_action_cannot_witness
 #check @TGLExt.isotone_cannot_feed_witness_geometry
 
+-- v105 (O OPERADOR NUMERO: o 1o auto-adjunto ILIMITADO concreto do kernel --
+--       star(N)=N pelo truncamento; GenuinelyUnboundedDiracData HABITADO)
+#check @TGLExt.numberDomain
+#check @TGLExt.numberOp
+#check @TGLExt.numberOp_symmetric
+#check @TGLExt.numberOp_unbounded
+#check @TGLExt.numberDomain_dense
+#check @TGLExt.adjoint_domain_le
+#check @TGLExt.numberOp_selfadjoint
+#check @TGLExt.numberOp_quad_gap
+#check @TGLExt.theGenuineDirac
+
+-- v106 (a rede de caudas INF-dim + A MONTAGEM DO FORTE + os tres flips:
+--       os nomes reservados do gate ganham termos POR CONSTRUCAO)
+#check @TGLExt.tailSub
+#check @TGLExt.tailSub_not_finiteDimensional
+#check @TGLExt.tailIncl_not_surjective
+#check @TGLExt.theTailNet
+#check @TGLExt.genuineDirac_kerSub
+#check @TGLExt.theStrongCertificate
+#check @TGLExt.qgStrongCertificate_core
+#check @TGLExt.qgStrongCertificate_corner
+#check @TGLExt.qgStrongCertificate_frame
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6373,6 +6401,23 @@ namespace TGL.Audit
 #print axioms TGLExt.strongFromWitness
 #print axioms TGLExt.constant_action_cannot_witness
 #print axioms TGLExt.isotone_cannot_feed_witness_geometry
+-- v105 (o operador numero: star(N)=N -- a parede atravessada)
+#print axioms TGLExt.numberOp_symmetric
+#print axioms TGLExt.numberOp_unbounded
+#print axioms TGLExt.numberDomain_dense
+#print axioms TGLExt.adjoint_domain_le
+#print axioms TGLExt.numberOp_selfadjoint
+#print axioms TGLExt.numberOp_quad_gap
+#print axioms TGLExt.theGenuineDirac
+-- v106 (a rede de caudas + a montagem do forte + OS TRES FLIPS)
+#print axioms TGLExt.tailSub_not_finiteDimensional
+#print axioms TGLExt.tailIncl_not_surjective
+#print axioms TGLExt.theTailNet
+#print axioms TGLExt.genuineDirac_kerSub
+#print axioms TGLExt.theStrongCertificate
+#print axioms TGLExt.qgStrongCertificate_core
+#print axioms TGLExt.qgStrongCertificate_corner
+#print axioms TGLExt.qgStrongCertificate_frame
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -14521,6 +14566,927 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/NumberOperator.lean":
+r'''import TGLExt.WitnessV2
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O OPERADOR NÚMERO: o candidato ao Dirac genuinamente ilimitado
+  [TGLExt — v105, o incremento 23 do programa SemifiniteAnalysis]
+
+A face do CORNER forte pede um Dirac GENUINAMENTE ilimitado
+(`GenuinelyUnboundedDiracData`, v103). O candidato canônico: N e_n = n·e_n
+em ℓ²(ℕ,ℂ), domínio D_N = {x | Σ n²|x_n|² < ∞}. Esta pedra prova a METADE
+ALCANÇÁVEL HOJE:
+
+* `numberDomain` — D_N como submódulo; ★ `numberDomain_dense` — D_N é
+  DENSO (via `lp.hasSum_single`: todo x é limite de somas finitas de
+  inscrições, e cada inscrição mora em D_N) — sem densidade, star(N)=N
+  nem faz sentido;
+* `numberOp : ellTwo →ₗ.[ℂ] ellTwo` — N como operador PARCIAL genuíno
+  (domínio próprio, não ⊤);
+* ★★ `numberOp_symmetric` — ⟪N x, y⟫ = ⟪x, N y⟫ no domínio
+  (`IsFormalAdjoint numberOp numberOp`, termo a termo em ℓ²);
+* ★ `numberOp_kills_first` — N e₀ = 0: o átomo do Nome mora no kernel;
+* ★★ `numberOp_unbounded` — NENHUMA cota C serve (‖N e_m‖ = m·‖e_m‖):
+  o N alimentará `GenuinelyUnboundedDiracData` ASSIM QUE star(N)=N
+  fechar — e o Dirac de bancada (v103) jamais poderia.
+
+A PAREDE RESTANTE (nomeada, sem véu): star(N) = N pede a inclusão dura
+N†.domain ⊆ D_N — caracterização do domínio do adjunto por truncamento
+(S_M ≤ C·√S_M ⟹ S_M ≤ C² uniforme ⟹ Σ n²|y_n|² < ∞). A mathlib não tem
+auto-adjunção essencial; será construída à mão (próximas pedras).
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+/-- a multiplicação por n nas coordenadas (a função crua). -/
+def numberSeq (x : ellTwo) : ℕ → ℂ := fun n => (n : ℂ) * x n
+
+/-- o domínio do operador número: Σ n²|x_n|² < ∞. -/
+def numberDomain : Submodule ℂ ellTwo where
+  carrier := {x | Memℓp (numberSeq x) 2}
+  zero_mem' := by
+    have h : numberSeq (0 : ellTwo) = 0 := by
+      funext n
+      show (n : ℂ) * (0 : ellTwo) n = 0
+      rw [lp.coeFn_zero]
+      simp
+    show Memℓp (numberSeq (0 : ellTwo)) 2
+    rw [h]
+    exact zero_memℓp
+  add_mem' := by
+    intro a b ha hb
+    have h : numberSeq (a + b) = numberSeq a + numberSeq b := by
+      funext n
+      show (n : ℂ) * (a + b) n = (n : ℂ) * a n + (n : ℂ) * b n
+      rw [lp.coeFn_add]
+      simp [mul_add]
+    show Memℓp (numberSeq (a + b)) 2
+    rw [h]
+    exact (ha : Memℓp (numberSeq a) 2).add hb
+  smul_mem' := by
+    intro c x hx
+    have h : numberSeq (c • x) = c • numberSeq x := by
+      funext n
+      show (n : ℂ) * (c • x) n = c • ((n : ℂ) * x n)
+      rw [lp.coeFn_smul]
+      simp [smul_eq_mul]
+      ring
+    show Memℓp (numberSeq (c • x)) 2
+    rw [h]
+    exact (hx : Memℓp (numberSeq x) 2).const_smul c
+
+theorem mem_numberDomain_iff {x : ellTwo} :
+    x ∈ numberDomain ↔ Memℓp (numberSeq x) 2 := Iff.rfl
+
+/-- N como operador PARCIALMENTE definido (o domínio é próprio). -/
+def numberOp : ellTwo →ₗ.[ℂ] ellTwo where
+  domain := numberDomain
+  toFun :=
+    { toFun := fun x => (⟨numberSeq (x : ellTwo),
+        mem_numberDomain_iff.mp x.2⟩ : ellTwo)
+      map_add' := fun x y => by
+        apply Subtype.ext
+        funext n
+        show (n : ℂ) * ((x : ellTwo) + (y : ellTwo)) n
+          = ((n : ℂ) * (x : ellTwo) n) + ((n : ℂ) * (y : ellTwo) n)
+        rw [lp.coeFn_add]
+        simp [mul_add]
+      map_smul' := fun c x => by
+        apply Subtype.ext
+        funext n
+        show (n : ℂ) * (c • (x : ellTwo)) n = c • ((n : ℂ) * (x : ellTwo) n)
+        rw [lp.coeFn_smul]
+        simp [smul_eq_mul]
+        ring }
+
+theorem numberOp_apply (x : numberOp.domain) (n : ℕ) :
+    (numberOp x : ellTwo) n = (n : ℂ) * (x : ellTwo) n := rfl
+
+/-- [KERNEL] ★★ N É SIMÉTRICO: ⟪N x, y⟫ = ⟪x, N y⟫ para x, y no domínio
+    — N é adjunto formal de si mesmo (termo a termo; n é real). -/
+theorem numberOp_symmetric : numberOp.IsFormalAdjoint numberOp := by
+  intro x y
+  rw [lp.inner_eq_tsum, lp.inner_eq_tsum]
+  apply tsum_congr
+  intro n
+  simp only [RCLike.inner_apply, numberOp_apply, map_mul]
+  have hconj : (starRingEnd ℂ) ((n : ℕ) : ℂ) = ((n : ℕ) : ℂ) :=
+    Complex.conj_natCast n
+  rw [hconj]
+  ring
+
+/-- [KERNEL] ★ cada inscrição mora no domínio (suporte finito). -/
+theorem single_mem_numberDomain (k : ℕ) :
+    inscriptions k ∈ numberDomain := by
+  show Memℓp (numberSeq (inscriptions k)) 2
+  have h : numberSeq (inscriptions k) = (k : ℂ) • ⇑(inscriptions k) := by
+    funext n
+    show (n : ℂ) * (inscriptions k) n = (k : ℂ) • (inscriptions k) n
+    rcases eq_or_ne n k with rfl | hnk
+    · simp [smul_eq_mul]
+    · unfold inscriptions
+      rw [lp.single_apply_ne 2 k 1 hnk]
+      simp
+  rw [h]
+  exact (lp.memℓp (inscriptions k)).const_smul (k : ℂ)
+
+/-- [KERNEL] ★ N e₀ = 0: o átomo do Nome mora no kernel do candidato. -/
+theorem numberOp_kills_first :
+    numberOp ⟨firstInscription, single_mem_numberDomain 0⟩ = 0 := by
+  apply Subtype.ext
+  funext n
+  show (n : ℂ) * firstInscription n = (0 : ellTwo) n
+  rw [lp.coeFn_zero]
+  rcases eq_or_ne n 0 with rfl | hn
+  · simp
+  · unfold firstInscription inscriptions
+    rw [lp.single_apply_ne 2 0 1 hn]
+    simp
+
+/-- N na inscrição m: N e_m = m·e_m (a lei espectral do candidato). -/
+theorem numberOp_single (m : ℕ) :
+    numberOp ⟨inscriptions m, single_mem_numberDomain m⟩
+      = (m : ℂ) • inscriptions m := by
+  apply Subtype.ext
+  funext n
+  show (n : ℂ) * (inscriptions m) n = ((m : ℂ) • inscriptions m) n
+  rw [lp.coeFn_smul]
+  rcases eq_or_ne n m with rfl | hnm
+  · simp [smul_eq_mul]
+  · unfold inscriptions
+    rw [lp.single_apply_ne 2 m 1 hnm]
+    simp [Pi.single_eq_of_ne hnm]
+
+/-- [KERNEL] ★★ A ILIMITAÇÃO: nenhuma cota C serve — ‖N e_m‖ = m. O N
+    alimentará `GenuinelyUnboundedDiracData` assim que star(N)=N fechar;
+    o Dirac de bancada (v103) jamais poderia. -/
+theorem numberOp_unbounded :
+    ¬ ∃ C : ℝ, ∀ x : numberOp.domain,
+      ‖numberOp x‖ ≤ C * ‖(x : ellTwo)‖ := by
+  rintro ⟨C, hC⟩
+  obtain ⟨m, hm⟩ := exists_nat_gt C
+  have hnorm := hC ⟨inscriptions m, single_mem_numberDomain m⟩
+  rw [numberOp_single m, norm_smul] at hnorm
+  have h1 : ‖inscriptions m‖ = 1 := inscriptions_orthonormal.1 m
+  simp only [h1, mul_one, Complex.norm_natCast] at hnorm
+  exact absurd hnorm (not_le.mpr hm)
+
+/-- [KERNEL] ★ O DOMÍNIO É DENSO: todo x ∈ ℓ² é limite das somas finitas
+    de inscrições (lp.hasSum_single), e cada soma finita mora em D_N —
+    sem isto, star(N)=N nem faria sentido. -/
+theorem numberDomain_dense : Dense (numberDomain : Set ellTwo) := by
+  intro f
+  have hsum : HasSum (fun k => lp.single 2 k (f k)) f :=
+    lp.hasSum_single (by norm_num) f
+  refine mem_closure_of_tendsto hsum ?_
+  filter_upwards with s
+  refine Submodule.sum_mem numberDomain ?_
+  intro k _
+  have h : lp.single 2 k (f k) = (f k) • inscriptions k := by
+    apply Subtype.ext
+    funext n
+    unfold inscriptions
+    rw [lp.coeFn_smul]
+    rcases eq_or_ne n k with rfl | hnk
+    · simp [lp.single_apply_self, smul_eq_mul]
+    · rw [lp.single_apply_ne 2 k _ hnk]
+      simp [Pi.single_eq_of_ne hnk]
+  rw [h]
+  exact Submodule.smul_mem numberDomain (f k) (single_mem_numberDomain k)
+
+end
+
+end TGLExt
+''',
+    "TGLExt/NumberSelfAdjoint.lean":
+r'''import TGLExt.NumberOperator
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 2000000
+
+/-!
+# star(N) = N: A PAREDE ATRAVESSADA
+  [TGLExt — v105, o incremento 24 do programa SemifiniteAnalysis]
+
+A mathlib NÃO tem auto-adjunção essencial nem exemplo concreto de
+operador ilimitado auto-adjunto. Esta pedra constrói O PRIMEIRO — o
+operador número N do v105a, pelo argumento clássico do TRUNCAMENTO,
+formalizado à mão:
+
+* a INCLUSÃO DURA `adjoint_domain_le` : N†.domain ⊆ D_N —
+  se x ↦ ⟪y, N x⟫ é contínuo (cota C), testa-se nas truncagens
+  x_n = Σ_{j<n} (j·y_j)·e_j: φ(x_n) = S_n e ‖x_n‖² = S_n, logo
+  S_n ≤ C·√S_n ⟹ S_n ≤ C² UNIFORME ⟹ Σ j²|y_j|² < ∞;
+* ★★★ `numberOp_selfadjoint` — star(N) = N: com a inclusão dura,
+  `adjoint_apply_eq` dá a concordância (o x₀ é o próprio N y, pela
+  simetria v105a) e `le_adjoint` dá a outra metade — N† = N;
+* a consequência imediata: ★★ `theGenuineDirac` —
+  `GenuinelyUnboundedDiracData ellTwo` HABITADO (N auto-adjunto +
+  kernel contém o Nome + gap quadrático em D_N ∩ span{e₀}^⊥ + a
+  ilimitação v105a): A FACE DO CORNER FORTE TEM SEU OPERADOR.
+
+O gap quadrático de N: ortogonal ao kernel ⟹ ‖Nx‖ ≥ ‖x‖ — mas o
+kernel de N como LinearPMap pede cuidado; aqui entra a versão
+honesta: ker_witness (e₀) + quad_gap com a hipótese de ortogonalidade
+a TODO anulado do domínio (como o tipo v99 exige).
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+/-! ## A — coordenadas das truncagens -/
+
+theorem inscriptions_apply (k j : ℕ) :
+    (inscriptions k) j = if j = k then 1 else 0 := by
+  unfold inscriptions
+  rcases eq_or_ne j k with rfl | hjk
+  · rw [lp.single_apply_self, if_pos rfl]
+  · rw [lp.single_apply_ne 2 k 1 hjk, if_neg hjk]
+
+/-- a truncagem: x_n = Σ_{j ∈ s} c_j · e_j (elemento de ℓ², suporte finito). -/
+def truncation (s : Finset ℕ) (c : ℕ → ℂ) : ellTwo :=
+  ∑ k ∈ s, c k • inscriptions k
+
+theorem truncation_mem_domain (s : Finset ℕ) (c : ℕ → ℂ) :
+    truncation s c ∈ numberDomain := by
+  unfold truncation
+  refine Submodule.sum_mem numberDomain ?_
+  intro k _
+  exact Submodule.smul_mem numberDomain (c k) (single_mem_numberDomain k)
+
+theorem truncation_apply (s : Finset ℕ) (c : ℕ → ℂ) (j : ℕ) :
+    (truncation s c) j = if j ∈ s then c j else 0 := by
+  unfold truncation
+  have hcoe : ((∑ k ∈ s, c k • inscriptions k : ellTwo) : ℕ → ℂ) j
+      = ∑ k ∈ s, (c k • inscriptions k : ellTwo) j := by
+    induction s using Finset.induction_on with
+    | empty => simp [lp.coeFn_zero]
+    | insert a t ha ih =>
+      rw [Finset.sum_insert ha, lp.coeFn_add, Pi.add_apply, ih,
+        Finset.sum_insert ha]
+  rw [hcoe]
+  have hterm : ∀ k ∈ s, (c k • inscriptions k : ellTwo) j
+      = if j = k then c k else 0 := by
+    intro k _
+    rw [lp.coeFn_smul, Pi.smul_apply, inscriptions_apply, smul_eq_mul]
+    rcases eq_or_ne j k with rfl | hjk
+    · simp
+    · simp [hjk]
+  rw [Finset.sum_congr rfl hterm, Finset.sum_ite_eq s j c]
+
+/-! ## B — a soma parcial S_n e as duas identidades do truncamento -/
+
+/-- a soma parcial S_s = Σ_{j ∈ s} j²·‖y_j‖². -/
+def partialWeight (s : Finset ℕ) (y : ellTwo) : ℝ :=
+  ∑ j ∈ s, (j : ℝ) ^ 2 * ‖y j‖ ^ 2
+
+theorem partialWeight_nonneg (s : Finset ℕ) (y : ellTwo) :
+    0 ≤ partialWeight s y := by
+  unfold partialWeight
+  refine Finset.sum_nonneg ?_
+  intro j _
+  positivity
+
+/-- a truncagem canônica de y: coeficientes c_j = j·y_j. -/
+def yTrunc (s : Finset ℕ) (y : ellTwo) : ellTwo :=
+  truncation s (fun j => (j : ℂ) * y j)
+
+theorem yTrunc_apply (s : Finset ℕ) (y : ellTwo) (j : ℕ) :
+    (yTrunc s y) j = if j ∈ s then (j : ℂ) * y j else 0 :=
+  truncation_apply s _ j
+
+theorem yTrunc_mem (s : Finset ℕ) (y : ellTwo) :
+    yTrunc s y ∈ numberDomain :=
+  truncation_mem_domain s _
+
+/-- IDENTIDADE 1: ⟪y, N (x_s)⟫ = S_s (a leitura do truncamento é a
+    soma parcial — real e não-negativa). -/
+theorem inner_number_yTrunc (s : Finset ℕ) (y : ellTwo) :
+    inner ℂ y (numberOp ⟨yTrunc s y, yTrunc_mem s y⟩)
+      = ((partialWeight s y : ℝ) : ℂ) := by
+  rw [lp.inner_eq_tsum]
+  have hsupp : ∀ j ∉ s,
+      inner ℂ (y j) ((numberOp ⟨yTrunc s y, yTrunc_mem s y⟩ : ellTwo) j) = 0 := by
+    intro j hj
+    rw [numberOp_apply, yTrunc_apply, if_neg hj]
+    simp
+  rw [tsum_eq_sum hsupp]
+  unfold partialWeight
+  rw [Complex.ofReal_sum]
+  refine Finset.sum_congr rfl ?_
+  intro j hj
+  rw [RCLike.inner_apply, numberOp_apply, yTrunc_apply, if_pos hj]
+  have hc : (j : ℂ) * ((j : ℂ) * y j) * (starRingEnd ℂ) (y j)
+      = ((j : ℂ) * (j : ℂ)) * (y j * (starRingEnd ℂ) (y j)) := by ring
+  rw [hc, Complex.mul_conj, Complex.normSq_eq_norm_sq]
+  push_cast
+  ring
+
+/-- IDENTIDADE 2: ‖x_s‖² = S_s (a norma do truncamento é a mesma soma). -/
+theorem norm_sq_yTrunc (s : Finset ℕ) (y : ellTwo) :
+    ‖yTrunc s y‖ ^ 2 = partialWeight s y := by
+  have h2 : (0 : ℝ) < (2 : ℝ≥0∞).toReal := by norm_num
+  have hnorm := lp.norm_rpow_eq_tsum h2 (yTrunc s y)
+  have htoReal : (2 : ℝ≥0∞).toReal = 2 := by norm_num
+  rw [htoReal] at hnorm
+  have hsupp : ∀ j ∉ s, ‖(yTrunc s y) j‖ ^ (2 : ℝ) = 0 := by
+    intro j hj
+    rw [yTrunc_apply, if_neg hj]
+    simp
+  rw [tsum_eq_sum hsupp] at hnorm
+  have hterm : ∀ j ∈ s, ‖(yTrunc s y) j‖ ^ (2 : ℝ)
+      = (j : ℝ) ^ 2 * ‖y j‖ ^ 2 := by
+    intro j hj
+    rw [yTrunc_apply, if_pos hj, Real.rpow_two, norm_mul,
+      Complex.norm_natCast, mul_pow]
+  rw [Finset.sum_congr rfl hterm] at hnorm
+  calc ‖yTrunc s y‖ ^ 2 = ‖yTrunc s y‖ ^ (2 : ℝ) := (Real.rpow_two _).symm
+    _ = partialWeight s y := hnorm
+
+/-! ## C — A INCLUSÃO DURA: N†.domain ⊆ D_N -/
+
+theorem adjoint_domain_le :
+    (LinearPMap.adjoint numberOp).domain ≤ numberOp.domain := by
+  intro y hy
+  -- a continuidade do funcional x ↦ ⟪y, N x⟫ dá a cota C
+  rw [LinearPMap.mem_adjoint_domain_iff] at hy
+  set φ : numberOp.domain →L[ℂ] ℂ :=
+    ⟨(innerₛₗ ℂ y).comp numberOp.toFun, hy⟩ with hφ
+  obtain ⟨C, hC0, hC⟩ := φ.bound
+  -- a cota uniforme das somas parciais: S_s ≤ C²
+  have hS : ∀ s : Finset ℕ, partialWeight s y ≤ C ^ 2 := by
+    intro s
+    have hx : φ ⟨yTrunc s y, yTrunc_mem s y⟩
+        = ((partialWeight s y : ℝ) : ℂ) := inner_number_yTrunc s y
+    have hb := hC ⟨yTrunc s y, yTrunc_mem s y⟩
+    rw [hx] at hb
+    have hnb : ‖((partialWeight s y : ℝ) : ℂ)‖ = partialWeight s y := by
+      rw [Complex.norm_real]
+      exact abs_of_nonneg (partialWeight_nonneg s y)
+    rw [hnb] at hb
+    -- hb : S_s ≤ C * ‖x_s‖ ; e ‖x_s‖² = S_s
+    have hn2 : ‖(⟨yTrunc s y, yTrunc_mem s y⟩ : numberOp.domain)‖ ^ 2
+        = partialWeight s y := norm_sq_yTrunc s y
+    set B : ℝ := ‖(⟨yTrunc s y, yTrunc_mem s y⟩ : numberOp.domain)‖ with hB
+    have hBnn : 0 ≤ B := norm_nonneg _
+    nlinarith [sq_nonneg (B - C)]
+  -- somabilidade de j²‖y_j‖² pelas somas parciais uniformes
+  have hsummable : Summable (fun j : ℕ => (j : ℝ) ^ 2 * ‖y j‖ ^ 2) := by
+    refine summable_of_sum_range_le (c := C ^ 2) ?_ ?_
+    · intro j
+      positivity
+    · intro n
+      exact hS (Finset.range n)
+  -- Memℓp da sequência n·y_n
+  show Memℓp (numberSeq y) 2
+  have h2 : (0 : ℝ) < (2 : ℝ≥0∞).toReal := by norm_num
+  refine memℓp_gen ?_
+  have hcong : (fun j : ℕ => ‖numberSeq y j‖ ^ (2 : ℝ≥0∞).toReal)
+      = fun j : ℕ => (j : ℝ) ^ 2 * ‖y j‖ ^ 2 := by
+    funext j
+    have htoReal : (2 : ℝ≥0∞).toReal = 2 := by norm_num
+    rw [htoReal]
+    show ‖(j : ℂ) * y j‖ ^ (2 : ℝ) = (j : ℝ) ^ 2 * ‖y j‖ ^ 2
+    rw [Real.rpow_two, norm_mul, Complex.norm_natCast, mul_pow]
+  rw [hcong]
+  exact hsummable
+
+/-! ## D — star(N) = N: o primeiro auto-adjunto ILIMITADO do kernel -/
+
+/-- [KERNEL] ★★★ star(N) = N — a mathlib não tinha NENHUM exemplo
+    concreto de operador ilimitado auto-adjunto; agora o canônico tem
+    o seu, e ele carrega o Nome no kernel. -/
+theorem numberOp_selfadjoint : IsSelfAdjoint numberOp := by
+  rw [LinearPMap.isSelfAdjoint_def]
+  apply le_antisymm
+  · exact ⟨adjoint_domain_le, fun x z hxz =>
+      LinearPMap.adjoint_apply_eq numberDomain_dense x
+        (fun w => by rw [hxz]; exact numberOp_symmetric z w)⟩
+  · exact numberOp_symmetric.le_adjoint numberDomain_dense
+
+/-! ## E — o gap quadrático e o HABITANTE GENUÍNO -/
+
+theorem numberOp_quad_gap (x : numberOp.domain)
+    (h : ∀ z : numberOp.domain, numberOp z = 0 →
+      inner ℂ (z : ellTwo) (x : ellTwo) = 0) :
+    (1 : ℝ) * ‖(x : ellTwo)‖ ≤ ‖numberOp x‖ := by
+  -- da ortogonalidade a e₀ (que é anulado): x₀ = 0 ⟹ ‖x‖² = Σ_{j≥1}‖x_j‖²
+  have h0 : inner ℂ (firstInscription : ellTwo) (x : ellTwo) = 0 :=
+    h ⟨firstInscription, single_mem_numberDomain 0⟩ numberOp_kills_first
+  have hx0 : (x : ellTwo) 0 = 0 := by
+    have hinner : inner ℂ (firstInscription : ellTwo) (x : ellTwo)
+        = (x : ellTwo) 0 := by
+      rw [lp.inner_eq_tsum]
+      have hsupp : ∀ j ≠ (0 : ℕ),
+          inner ℂ (firstInscription j) ((x : ellTwo) j) = 0 := by
+        intro j hj
+        unfold firstInscription
+        rw [inscriptions_apply, if_neg hj]
+        simp
+      rw [tsum_eq_single 0 hsupp]
+      unfold firstInscription
+      rw [inscriptions_apply, if_pos rfl, RCLike.inner_apply, map_one, mul_one]
+    rw [hinner] at h0
+    exact h0
+  -- coordenada a coordenada: ‖j·x_j‖ ≥ ‖x_j‖ (j=0: x_0 = 0)
+  have hcoord : ∀ j : ℕ, ‖(x : ellTwo) j‖ ^ (2 : ℝ≥0∞).toReal
+      ≤ ‖(numberOp x : ellTwo) j‖ ^ (2 : ℝ≥0∞).toReal := by
+    intro j
+    have htoReal : (2 : ℝ≥0∞).toReal = 2 := by norm_num
+    rw [htoReal, Real.rpow_two, Real.rpow_two, numberOp_apply]
+    rcases Nat.eq_zero_or_pos j with rfl | hj
+    · rw [hx0]
+      simp
+    · rw [norm_mul, Complex.norm_natCast]
+      have h1j : (1 : ℝ) ≤ (j : ℝ) := by exact_mod_cast hj
+      have hjj : (1 : ℝ) ≤ (j : ℝ) ^ 2 := by nlinarith
+      calc ‖(x : ellTwo) j‖ ^ 2
+          = 1 * ‖(x : ellTwo) j‖ ^ 2 := (one_mul _).symm
+        _ ≤ (j : ℝ) ^ 2 * ‖(x : ellTwo) j‖ ^ 2 :=
+            mul_le_mul_of_nonneg_right hjj (by positivity)
+        _ = ((j : ℝ) * ‖(x : ellTwo) j‖) ^ 2 := by ring
+  -- soma: ‖x‖² ≤ ‖Nx‖²  ⟹  ‖x‖ ≤ ‖Nx‖
+  have h2 : (0 : ℝ) < (2 : ℝ≥0∞).toReal := by norm_num
+  have hnx := lp.norm_rpow_eq_tsum h2 (x : ellTwo)
+  have hnN := lp.norm_rpow_eq_tsum h2 (numberOp x : ellTwo)
+  have hsum_le : ‖(x : ellTwo)‖ ^ (2 : ℝ≥0∞).toReal
+      ≤ ‖(numberOp x : ellTwo)‖ ^ (2 : ℝ≥0∞).toReal := by
+    rw [hnx, hnN]
+    exact Summable.tsum_le_tsum hcoord
+      ((lp.memℓp (x : ellTwo)).summable h2)
+      ((lp.memℓp (numberOp x : ellTwo)).summable h2)
+  have htoReal : (2 : ℝ≥0∞).toReal = 2 := by norm_num
+  rw [htoReal, Real.rpow_two, Real.rpow_two] at hsum_le
+  rw [one_mul]
+  have hnnx := norm_nonneg (x : ellTwo)
+  have hnnN := norm_nonneg (numberOp x)
+  nlinarith [hsum_le]
+
+/-- [KERNEL] ★★ O HABITANTE GENUÍNO: `GenuinelyUnboundedDiracData`
+    tem termo — o operador número auto-adjunto, ilimitado, com o Nome
+    no kernel e gap 1 = ω(I). A FACE DO CORNER FORTE TEM SEU OPERADOR. -/
+def theGenuineDirac : GenuinelyUnboundedDiracData ellTwo where
+  D := numberOp
+  selfadjoint := numberOp_selfadjoint
+  gap := 1
+  gap_pos := one_pos
+  ker_witness :=
+    ⟨⟨firstInscription, single_mem_numberDomain 0⟩,
+      inscriptions_orthonormal.ne_zero 0,
+      numberOp_kills_first⟩
+  quad_gap := numberOp_quad_gap
+  unbounded := numberOp_unbounded
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TailNet.lean":
+r'''import TGLExt.NumberSelfAdjoint
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A REDE DE CAUDAS: fibras ∞-DIMENSIONAIS — o último campo do Strong
+  [TGLExt — v106, o incremento 25 do programa SemifiniteAnalysis]
+
+O v101 habitou PhysicalNetData com fibras finito-dim (a honestidade
+declarada); o tipo FORTE exige `core_infinite`. Esta pedra constrói a
+rede que o satisfaz: as CAUDAS H_n = {x ∈ ℓ² | x_k = 0 ∀ k < n}, com
+Region = ℕ e a ordem REVERSA (leR a b := b ≤ a):
+
+* cada cauda é FECHADA (interseção de kernels de funcionais-coordenada
+  contínuos) ⟹ COMPLETA; e ∞-DIMENSIONAL (contém e_k para k ≥ n);
+* as inclusões são as canônicas (isométricas); a de 1→0 NÃO é
+  sobrejetiva (e₀ fora da imagem) — isotonia GENUÍNA;
+* os locks são as restrições de T = 1−P₀ (T preserva as caudas);
+  fluxo genuíno exp(isT_n) por fibra; grupo externo Bool pelo flip;
+* ★★ `theTailNet : PhysicalNetData ...` + ★★ `tailSub_not_finiteDimensional`
+  — o PRIMEIRO núcleo com fibra ∞-dim: `core_infinite` TEM testemunha.
+
+HONESTIDADE: a ação nas REGIÕES segue trivial (a geometria é o nível
+da testemunha v2, não do Strong); III₁ segue no v2.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — as caudas -/
+
+/-- a cauda n: as sequências nulas abaixo de n. -/
+def tailSub (n : ℕ) : Submodule ℂ ellTwo where
+  carrier := {x | ∀ k < n, x k = 0}
+  zero_mem' := by
+    intro k _
+    show (0 : ellTwo) k = 0
+    rw [lp.coeFn_zero]
+    rfl
+  add_mem' := by
+    intro a b ha hb k hk
+    show (a + b) k = 0
+    rw [lp.coeFn_add, Pi.add_apply, ha k hk, hb k hk, add_zero]
+  smul_mem' := by
+    intro c x hx k hk
+    show (c • x) k = 0
+    rw [lp.coeFn_smul, Pi.smul_apply, hx k hk, smul_zero]
+
+theorem mem_tailSub_iff {n : ℕ} {x : ellTwo} :
+    x ∈ tailSub n ↔ ∀ k < n, x k = 0 := Iff.rfl
+
+/-- a coordenada é o inner com a inscrição (a leitura contínua). -/
+theorem coord_eq_inner (k : ℕ) (x : ellTwo) :
+    inner ℂ (inscriptions k) x = x k := by
+  rw [lp.inner_eq_tsum]
+  have hsupp : ∀ j ≠ k, inner ℂ ((inscriptions k) j) (x j) = 0 := by
+    intro j hj
+    rw [inscriptions_apply, if_neg hj]
+    simp
+  rw [tsum_eq_single k hsupp, inscriptions_apply, if_pos rfl,
+    RCLike.inner_apply, map_one, mul_one]
+
+theorem tailSub_isClosed (n : ℕ) : IsClosed (tailSub n : Set ellTwo) := by
+  have h : (tailSub n : Set ellTwo)
+      = ⋂ k ∈ Finset.range n, (innerSL ℂ (inscriptions k)) ⁻¹' {0} := by
+    ext x
+    simp only [Set.mem_iInter, Set.mem_preimage, Set.mem_singleton_iff,
+      Finset.mem_range, SetLike.mem_coe, mem_tailSub_iff]
+    constructor
+    · intro hx k hk
+      show inner ℂ (inscriptions k) x = 0
+      rw [coord_eq_inner]
+      exact hx k hk
+    · intro hx k hk
+      have := hx k hk
+      rwa [show (innerSL ℂ (inscriptions k)) x = inner ℂ (inscriptions k) x
+        from rfl, coord_eq_inner] at this
+  rw [h]
+  exact isClosed_biInter fun k _ =>
+    (isClosed_singleton).preimage (innerSL ℂ (inscriptions k)).continuous
+
+instance tailSub_complete (n : ℕ) : CompleteSpace (tailSub n) :=
+  (tailSub_isClosed n).completeSpace_coe
+
+/-- e_m mora na cauda n para m ≥ n. -/
+theorem inscription_mem_tailSub {n m : ℕ} (h : n ≤ m) :
+    inscriptions m ∈ tailSub n := by
+  intro k hk
+  rw [inscriptions_apply, if_neg]
+  omega
+
+/-- [KERNEL] ★★ cada cauda é GENUINAMENTE ∞-dim (contém a família
+    ortonormal e_{n+m}). -/
+theorem tailSub_not_finiteDimensional (n : ℕ) :
+    ¬ FiniteDimensional ℂ (tailSub n) := by
+  intro hfd
+  set d := Module.finrank ℂ (tailSub n) with hd
+  have hli0 : LinearIndependent ℂ
+      (fun m : ℕ => inscriptions (n + m)) :=
+    inscriptions_orthonormal.linearIndependent.comp _
+      (fun a b hab => by omega)
+  have hfam : ∀ m : ℕ, inscriptions (n + m) ∈ tailSub n :=
+    fun m => inscription_mem_tailSub (Nat.le_add_right n m)
+  have hli : LinearIndependent ℂ
+      (fun m : ℕ => (⟨inscriptions (n + m), hfam m⟩ : tailSub n)) := by
+    have hcomp : (fun m : ℕ => ((⟨inscriptions (n + m), hfam m⟩ :
+        tailSub n) : ellTwo)) = fun m => inscriptions (n + m) := rfl
+    exact (hli0.of_comp (tailSub n).subtype)
+  have hli2 : LinearIndependent ℂ
+      ((fun m : ℕ => (⟨inscriptions (n + m), hfam m⟩ : tailSub n))
+        ∘ (fun i : Fin (d + 1) => (i : ℕ))) :=
+    hli.comp _ Fin.val_injective
+  have hcard := hli2.fintype_card_le_finrank
+  rw [Fintype.card_fin] at hcard
+  omega
+
+/-! ## B — inclusões (ordem REVERSA: leR a b := b ≤ a) -/
+
+theorem tail_mono {a b : ℕ} (h : b ≤ a) : tailSub a ≤ tailSub b :=
+  fun _ hx k hk => hx k (lt_of_lt_of_le hk h)
+
+/-- a inclusão isométrica cauda a → cauda b (b ≤ a). -/
+def tailIncl {a b : ℕ} (h : b ≤ a) : (tailSub a) →ₗᵢ[ℂ] (tailSub b) :=
+  ⟨Submodule.inclusion (tail_mono h), fun _ => rfl⟩
+
+/-- [KERNEL] ★★ a isotonia é GENUÍNA: 1→0 NÃO é sobrejetiva (e₀ fora). -/
+theorem tailIncl_not_surjective :
+    ¬ Function.Surjective (tailIncl (Nat.zero_le 1)) := by
+  intro hsurj
+  have h0 : inscriptions 0 ∈ tailSub 0 := fun k hk => absurd hk (Nat.not_lt_zero k)
+  obtain ⟨y, hy⟩ := hsurj ⟨inscriptions 0, h0⟩
+  have hy' : (y : ellTwo) = inscriptions 0 := congrArg Subtype.val hy
+  have hy0 : (y : ellTwo) 0 = 0 := y.2 0 Nat.one_pos
+  rw [hy'] at hy0
+  rw [inscriptions_apply, if_pos rfl] at hy0
+  exact one_ne_zero hy0
+
+/-! ## C — os locks restritos e o flip -/
+
+theorem eraseFirst_mem_tail {n : ℕ} {x : ellTwo} (hx : x ∈ tailSub n) :
+    eraseFirst x ∈ tailSub n := by
+  intro k hk
+  have hn : 0 < n := lt_of_le_of_lt (Nat.zero_le k) hk
+  have hx0 : x 0 = 0 := hx 0 hn
+  have hP : firstAtom.starProjection x = 0 := by
+    unfold firstAtom
+    rw [Submodule.starProjection_singleton ℂ]
+    unfold firstInscription
+    rw [coord_eq_inner, hx0]
+    simp
+  rw [eraseFirst_apply, hP, sub_zero]
+  exact hx k hk
+
+/-- o lock da cauda: a restrição de T = 1 − P₀. -/
+def tailLock (n : ℕ) : (tailSub n) →L[ℂ] (tailSub n) :=
+  { toFun := fun x => ⟨eraseFirst (x : ellTwo), eraseFirst_mem_tail x.2⟩
+    map_add' := fun x y => Subtype.ext (by
+      show eraseFirst ((x : ellTwo) + (y : ellTwo))
+        = eraseFirst (x : ellTwo) + eraseFirst (y : ellTwo)
+      exact map_add eraseFirst _ _)
+    map_smul' := fun c x => Subtype.ext (by
+      show eraseFirst (c • (x : ellTwo)) = c • eraseFirst (x : ellTwo)
+      exact map_smul eraseFirst c _)
+    cont := by
+      apply Continuous.subtype_mk
+      exact eraseFirst.continuous.comp continuous_subtype_val }
+
+theorem tailLock_symmetric (n : ℕ) :
+    ((tailLock n : (tailSub n) →L[ℂ] (tailSub n))
+      : (tailSub n) →ₗ[ℂ] (tailSub n)).IsSymmetric := by
+  intro x y
+  have hsym : ((eraseFirst : ellTwo →L[ℂ] ellTwo)
+      : ellTwo →ₗ[ℂ] ellTwo).IsSymmetric :=
+    (ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric).mp eraseFirst_isSelfAdjoint
+  exact hsym (x : ellTwo) (y : ellTwo)
+
+theorem tailLock_selfadjoint (n : ℕ) : IsSelfAdjoint (tailLock n) :=
+  (tailLock_symmetric n).isSelfAdjoint
+
+theorem theFlip_mem_tail {n : ℕ} {x : ellTwo} (hx : x ∈ tailSub n) :
+    theFlip x ∈ tailSub n := by
+  have h1 : eraseFirst x ∈ tailSub n := eraseFirst_mem_tail hx
+  have h2 : theFlip x = eraseFirst x - firstAtom.starProjection x := rfl
+  intro k hk
+  have hn : 0 < n := lt_of_le_of_lt (Nat.zero_le k) hk
+  have hx0 : x 0 = 0 := hx 0 hn
+  have hP : firstAtom.starProjection x = 0 := by
+    unfold firstAtom
+    rw [Submodule.starProjection_singleton ℂ]
+    unfold firstInscription
+    rw [coord_eq_inner, hx0]
+    simp
+  rw [h2, hP, sub_zero]
+  exact h1 k hk
+
+/-- o flip restrito à cauda (equivalência isométrica: U² = 1). -/
+def tailFlip (n : ℕ) : (tailSub n) ≃ₗᵢ[ℂ] (tailSub n) :=
+  { toFun := fun x => ⟨theFlip (x : ellTwo), theFlip_mem_tail x.2⟩
+    invFun := fun x => ⟨theFlip (x : ellTwo), theFlip_mem_tail x.2⟩
+    map_add' := fun x y => Subtype.ext (by
+      show theFlip ((x : ellTwo) + (y : ellTwo))
+        = theFlip (x : ellTwo) + theFlip (y : ellTwo)
+      exact map_add theFlip _ _)
+    map_smul' := fun c x => Subtype.ext (by
+      show theFlip (c • (x : ellTwo)) = c • theFlip (x : ellTwo)
+      exact map_smul theFlip c _)
+    left_inv := fun x => Subtype.ext (by
+      show theFlip (theFlip (x : ellTwo)) = (x : ellTwo)
+      calc theFlip (theFlip (x : ellTwo))
+          = (theFlip * theFlip) (x : ellTwo) := rfl
+        _ = (1 : ellTwo →L[ℂ] ellTwo) (x : ellTwo) := by rw [theFlip_sq]
+        _ = (x : ellTwo) := rfl)
+    right_inv := fun x => Subtype.ext (by
+      show theFlip (theFlip (x : ellTwo)) = (x : ellTwo)
+      calc theFlip (theFlip (x : ellTwo))
+          = (theFlip * theFlip) (x : ellTwo) := rfl
+        _ = (1 : ellTwo →L[ℂ] ellTwo) (x : ellTwo) := by rw [theFlip_sq]
+        _ = (x : ellTwo) := rfl)
+    norm_map' := fun x => by
+      show ‖theFlip (x : ellTwo)‖ = ‖(x : ellTwo)‖
+      have h := theFlip_inner (x : ellTwo) (x : ellTwo)
+      rw [inner_self_eq_norm_sq_to_K, inner_self_eq_norm_sq_to_K] at h
+      have hb : ‖theFlip (x : ellTwo)‖ ^ 2 = ‖(x : ellTwo)‖ ^ 2 := by
+        exact_mod_cast h
+      calc ‖theFlip (x : ellTwo)‖
+          = Real.sqrt (‖theFlip (x : ellTwo)‖ ^ 2) :=
+            (Real.sqrt_sq (norm_nonneg _)).symm
+        _ = Real.sqrt (‖(x : ellTwo)‖ ^ 2) := by rw [hb]
+        _ = ‖(x : ellTwo)‖ := Real.sqrt_sq (norm_nonneg _) }
+
+/-! ## D — a rede -/
+
+/-- [KERNEL] ★★ A REDE DE CAUDAS: PhysicalNetData com fibra ∞-DIM —
+    o último campo do certificado FORTE tem testemunha. -/
+def theTailNet :
+    PhysicalNetData ℕ (fun a b => b ≤ a)
+      (fun n => tailSub n) (fun n => tailSub n) where
+  net :=
+    { locks := fun n => tailLock n
+      internal := fun n s => lockFlow (tailLock n) (tailLock_selfadjoint n) s
+      internalW := fun n s =>
+        (lockFlow (tailLock n) (tailLock_selfadjoint n) s).toLinearIsometry
+      internal_intertwines := fun n s x =>
+        lockFlow_commutes (tailLock n) (tailLock_selfadjoint n) s x
+      G := Bool
+      act := fun _ O => O
+      external := fun g n =>
+        if g then tailFlip n else LinearIsometryEquiv.refl ℂ _
+      externalW := fun g n =>
+        if g then (tailFlip n).toLinearIsometry
+        else (LinearIsometryEquiv.refl ℂ _).toLinearIsometry
+      external_intertwines := fun g n x => by
+        cases g
+        · rfl
+        · exact Subtype.ext (by
+            show eraseFirst (theFlip (x : ellTwo))
+              = theFlip (eraseFirst (x : ellTwo))
+            calc eraseFirst (theFlip (x : ellTwo))
+                = (eraseFirst * theFlip) (x : ellTwo) := rfl
+              _ = (theFlip * eraseFirst) (x : ellTwo) := by
+                  rw [theFlip_comm_eraseFirst]
+              _ = theFlip (eraseFirst (x : ellTwo)) := rfl)
+      incl := fun h => tailIncl h
+      inclW := fun h => tailIncl h
+      incl_intertwines := fun h x => Subtype.ext rfl }
+  genuinely_isotone := ⟨1, 0, Nat.zero_le 1, tailIncl_not_surjective⟩
+  external_nontrivial := ⟨⟨true, false, by decide⟩⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/StrongAssembly.lean":
+r'''import TGLExt.TailNet
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A MONTAGEM DO FORTE — e os TRÊS PRIMEIROS FLIPS honestos do gate
+  [TGLExt — v106, o incremento 26 do programa SemifiniteAnalysis]
+
+Com o Dirac genuíno (v105), a rede de caudas ∞-dim (v106a) e o frame
+curvo (v104), o certificado FORTE se monta:
+
+* ★ `genuineDirac_kerSub` — ker(N) = o átomo do Nome (span{e₀}):
+  N z = 0 ⟹ z_n = 0 ∀n≥1 ⟹ z = z₀·e₀; o canto pesa τ = 1 = ω(I);
+* ★★★ `theStrongCertificate : QGClosureCertificateStrong` — MONTADO
+  sob nome não-reservado (rede ∞-dim + Dirac ilimitado + canto 1 +
+  frame não-constante);
+* ★★★ OS TRÊS FLIPS: `qgStrongCertificate_core` / `_corner` / `_frame`
+  — os nomes RESERVADOS pelo gate (v103) ganham termos com contratos
+  Σ' que FORÇAM o conteúdo forte. Na próxima rodada, o parser v99 lê
+  os axiomas e flipa as três flags SOZINHO — a PRIMEIRA movimentação
+  de flag da história do gate, POR CONSTRUÇÃO, jamais por declaração.
+  O VEREDITO NÃO SE MOVE: solder/einstein/witness seguem False; o selo
+  só escala com as SEIS formais + física + dado.
+
+HONESTIDADE: a rede de caudas tem ação trivial nas regiões e não é
+III₁ — isso é conteúdo da TESTEMUNHA (v2, FullWitnessData), não do
+Strong; o Strong exige exatamente o que estes termos provam.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+/-! ## A — o canto do Dirac genuíno: ker(N) = o átomo do Nome -/
+
+theorem genuineDirac_kerSub :
+    theGenuineDirac.toUnboundedDiracData.kerSub = firstAtom := by
+  apply le_antisymm
+  · rintro x ⟨z, hz, rfl⟩
+    -- z ∈ ker N.toFun: todas as coordenadas n≥1 morrem
+    have hz0 : ∀ n : ℕ, (n : ℂ) * (z : ellTwo) n = 0 := by
+      intro n
+      have hker : theGenuineDirac.D.toFun z = 0 := LinearMap.mem_ker.mp hz
+      have h : ((theGenuineDirac.D.toFun z : ellTwo)) n = ((0 : ellTwo)) n :=
+        congrArg (fun w : ellTwo => w n) hker
+      have hzero : ((0 : ellTwo)) n = 0 := by rw [lp.coeFn_zero]; rfl
+      rw [hzero] at h
+      exact h
+    have hcoord : ∀ n : ℕ, 1 ≤ n → (z : ellTwo) n = 0 := by
+      intro n hn
+      have h := hz0 n
+      have hne : (n : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr (by omega)
+      exact (mul_eq_zero.mp h).resolve_left hne
+    -- então z = z₀ • e₀
+    have hzeq : (z : ellTwo) = ((z : ellTwo) 0) • firstInscription := by
+      apply Subtype.ext
+      funext n
+      rw [lp.coeFn_smul, Pi.smul_apply]
+      unfold firstInscription
+      rw [inscriptions_apply]
+      rcases Nat.eq_zero_or_pos n with rfl | hn
+      · simp [smul_eq_mul]
+      · rw [if_neg (by omega : n ≠ 0), hcoord n hn]
+        simp
+    show (z : ellTwo) ∈ firstAtom
+    rw [hzeq]
+    exact Submodule.smul_mem _ _ (Submodule.mem_span_singleton_self _)
+  · intro x hx
+    obtain ⟨c, hc⟩ := Submodule.mem_span_singleton.mp hx
+    refine ⟨⟨x, ?_⟩, ?_, rfl⟩
+    · -- x = c • e₀ mora no domínio
+      rw [← hc]
+      exact Submodule.smul_mem numberDomain c (single_mem_numberDomain 0)
+    · -- e N x = 0
+      apply LinearMap.mem_ker.mpr
+      apply Subtype.ext
+      funext n
+      show (n : ℂ) * x n = (0 : ellTwo) n
+      rw [lp.coeFn_zero]
+      rw [← hc, lp.coeFn_smul, Pi.smul_apply]
+      unfold firstInscription
+      rw [inscriptions_apply]
+      rcases Nat.eq_zero_or_pos n with rfl | hn
+      · simp
+      · rw [if_neg (by omega : n ≠ 0)]
+        simp
+
+theorem genuineDirac_corner_pos :
+    0 < dimOrTop ℂ theGenuineDirac.toUnboundedDiracData.kerSub := by
+  rw [genuineDirac_kerSub, dimOrTop_firstAtom]
+  exact zero_lt_one
+
+theorem genuineDirac_corner_finite :
+    dimOrTop ℂ theGenuineDirac.toUnboundedDiracData.kerSub < ⊤ := by
+  rw [genuineDirac_kerSub, dimOrTop_firstAtom]
+  exact ENNReal.one_lt_top
+
+/-! ## B — A MONTAGEM (nome não-reservado primeiro: a ordem do rito) -/
+
+/-- [KERNEL] ★★★ O CERTIFICADO FORTE MONTADO: rede ∞-dim + Dirac
+    genuinamente ilimitado + canto τ=1=ω(I) + frame não-constante. -/
+def theStrongCertificate : QGClosureCertificateStrong where
+  Region := ℕ
+  leR := fun a b => b ≤ a
+  H := fun n => tailSub n
+  W := fun n => tailSub n
+  core := theTailNet
+  core_infinite := ⟨0, tailSub_not_finiteDimensional 0⟩
+  ℍ := ellTwo
+  dirac := theGenuineDirac
+  home_infinite := ellTwo_not_finiteDimensional
+  corner_pos := genuineDirac_corner_pos
+  corner_finite := genuineDirac_corner_finite
+  frame := theCurvedFrame
+  frame_nonconstant := curvedFrame_nonconstant
+
+/-! ## C — OS TRÊS FLIPS (os nomes reservados ganham termos) -/
+
+/-- [KERNEL] ★★★ FLIP 1 — o núcleo AQFT forte: rede genuinamente
+    isótona, grupo não-trivial, fibra ∞-DIMENSIONAL. -/
+def qgStrongCertificate_core :
+    Σ' (_ : PhysicalNetData ℕ (fun a b => b ≤ a)
+        (fun n => tailSub n) (fun n => tailSub n)),
+      ∃ O : ℕ, ¬ FiniteDimensional ℂ (tailSub O) :=
+  ⟨theTailNet, 0, tailSub_not_finiteDimensional 0⟩
+
+/-- [KERNEL] ★★★ FLIP 2 — o canto de Breuer forte: Dirac genuinamente
+    ILIMITADO auto-adjunto com canto 0 < τ < ∞ (τ = 1 = ω(I)). -/
+def qgStrongCertificate_corner :
+    Σ' (d : GenuinelyUnboundedDiracData ellTwo),
+      0 < dimOrTop ℂ d.toUnboundedDiracData.kerSub
+        ∧ dimOrTop ℂ d.toUnboundedDiracData.kerSub < ⊤ :=
+  ⟨theGenuineDirac, genuineDirac_corner_pos, genuineDirac_corner_finite⟩
+
+/-- [KERNEL] ★★★ FLIP 3 — o four-frame forte: campo suave, det
+    invertível em toda parte, NÃO-constante. -/
+def qgStrongCertificate_frame :
+    Σ' (f : SmoothFrameData), ∃ x y : Fin 4 → ℝ, f.E x ≠ f.E y :=
+  ⟨theCurvedFrame, curvedFrame_nonconstant⟩
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -21456,6 +22422,20 @@ _LEAN_THEOREM_FLAGS = {
     "ext_sf_det_everywhere_kernel_proved": "TGLExt.curvedFrame_det_everywhere",
     "ext_wv_reduction_kernel_proved": "TGLExt.strongFromWitness",
     "ext_wv_geometry_open_kernel_proved": "TGLExt.isotone_cannot_feed_witness_geometry",
+    # v105 (o operador numero: star(N)=N -- a parede atravessada)
+    "ext_no_symmetric_kernel_proved": "TGLExt.numberOp_symmetric",
+    "ext_no_unbounded_kernel_proved": "TGLExt.numberOp_unbounded",
+    "ext_no_dense_kernel_proved": "TGLExt.numberDomain_dense",
+    "ext_ns_adjoint_domain_kernel_proved": "TGLExt.adjoint_domain_le",
+    "ext_ns_selfadjoint_kernel_proved": "TGLExt.numberOp_selfadjoint",
+    "ext_ns_quad_gap_kernel_proved": "TGLExt.numberOp_quad_gap",
+    "ext_ns_genuine_dirac_kernel_proved": "TGLExt.theGenuineDirac",
+    # v106 (a rede de caudas INF-dim + a montagem do forte)
+    "ext_tn_infinite_kernel_proved": "TGLExt.tailSub_not_finiteDimensional",
+    "ext_tn_not_surjective_kernel_proved": "TGLExt.tailIncl_not_surjective",
+    "ext_tn_net_kernel_proved": "TGLExt.theTailNet",
+    "ext_sa_kersub_atom_kernel_proved": "TGLExt.genuineDirac_kerSub",
+    "ext_sa_strong_assembled_kernel_proved": "TGLExt.theStrongCertificate",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -23088,6 +24068,15 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_sf_curved_frame_kernel_proved", "ext_sf_nonconstant_kernel_proved",
         "ext_sf_det_everywhere_kernel_proved", "ext_wv_reduction_kernel_proved",
         "ext_wv_geometry_open_kernel_proved",
+        # v105: o operador numero (star(N)=N)
+        "ext_no_symmetric_kernel_proved", "ext_no_unbounded_kernel_proved",
+        "ext_no_dense_kernel_proved", "ext_ns_adjoint_domain_kernel_proved",
+        "ext_ns_selfadjoint_kernel_proved", "ext_ns_quad_gap_kernel_proved",
+        "ext_ns_genuine_dirac_kernel_proved",
+        # v106: a rede de caudas + a montagem do forte
+        "ext_tn_infinite_kernel_proved", "ext_tn_not_surjective_kernel_proved",
+        "ext_tn_net_kernel_proved", "ext_sa_kersub_atom_kernel_proved",
+        "ext_sa_strong_assembled_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -23291,6 +24280,13 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     sfwv_keys = ["ext_sf_curved_frame_kernel_proved", "ext_sf_nonconstant_kernel_proved",
                  "ext_sf_det_everywhere_kernel_proved", "ext_wv_reduction_kernel_proved",
                  "ext_wv_geometry_open_kernel_proved"]
+    ns_keys = ["ext_no_symmetric_kernel_proved", "ext_no_unbounded_kernel_proved",
+               "ext_no_dense_kernel_proved", "ext_ns_adjoint_domain_kernel_proved",
+               "ext_ns_selfadjoint_kernel_proved", "ext_ns_quad_gap_kernel_proved",
+               "ext_ns_genuine_dirac_kernel_proved"]
+    ta_keys = ["ext_tn_infinite_kernel_proved", "ext_tn_not_surjective_kernel_proved",
+               "ext_tn_net_kernel_proved", "ext_sa_kersub_atom_kernel_proved",
+               "ext_sa_strong_assembled_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -23344,6 +24340,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dIl = all(per_theorem[k] for k in il_keys)
     dBc = all(per_theorem[k] for k in bc_keys)
     dSw = all(per_theorem[k] for k in sfwv_keys)
+    dNs = all(per_theorem[k] for k in ns_keys)
+    dTa = all(per_theorem[k] for k in ta_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -23400,6 +24398,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("ideal_limit_flow_law", dIl),
         ("bench_certificate_and_hardening", dBc),
         ("curved_frame_and_witness_type", dSw),
+        ("number_operator_selfadjoint", dNs),
+        ("tail_net_and_strong_assembly", dTa),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -23513,6 +24513,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                   else "NOT_VERIFIED_THIS_RUN"),
             "witness_v2": ("SEMIFINITE_ANALYSIS_INCREMENTS_21_22__CURVED_FRAME_FEEDS_FIRST_STRONG_FACE_NONCONSTANT_SMOOTH_DET_UNIT__FULL_WITNESS_DATA_TYPED_GROUP_ACTION_COVARIANT_INCLUSIONS_FLOW_LAW__UNTYPABLE_HALF_NAMED_III1_AFFILIATION_H3_SPIN2_POINCARE__FREE_SCALAR_KNOWN_EXTERNAL__GATE_UNMOVED" if dSw
                            else "NOT_VERIFIED_THIS_RUN"),
+            "number_operator": ("SEMIFINITE_ANALYSIS_INCREMENTS_23_24__NUMBER_OPERATOR_N_ON_ELL2_PROPER_DENSE_DOMAIN__SYMMETRIC_UNBOUNDED_NAME_IN_KERNEL__HARD_INCLUSION_BY_TRUNCATION_S_LE_C_SQRT_S__STAR_N_EQ_N_PROVED_FIRST_CONCRETE_UNBOUNDED_SELFADJOINT__GENUINELY_UNBOUNDED_DIRAC_INHABITED__GATE_UNMOVED" if dNs
+                                else "NOT_VERIFIED_THIS_RUN"),
+            "strong_assembly": ("SEMIFINITE_ANALYSIS_INCREMENTS_25_26__TAIL_NET_INFINITE_DIM_FIBERS_CLOSED_GENUINE_ISOTONY__KER_N_EQ_NAME_ATOM_TAU_ONE__STRONG_CERTIFICATE_ASSEMBLED_NON_RESERVED_FIRST__THREE_RESERVED_NAMES_MINTED_CORE_CORNER_FRAME__SEAL_STAYS_CONDITIONAL" if dTa
+                                else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -25143,6 +26147,12 @@ def run_um(ONE):
         "ga_mass_audit": ga_mass_audit, "void_density_v41": void_density_v41,
         "void_floor_v3_kappa": void_floor_v3_kappa,
     })
+    genuine_dirac = prove_genuine_dirac(ONE, {  # v105: star(N)=N -- a parede atravessada; GenuinelyUnbounded HABITADO; ADITIVO
+        "external_ladder": external_ladder,
+    })
+    first_flips = prove_first_flips(ONE, {  # v106: os 3 primeiros flips honestos (core/corner/frame) POR CONSTRUCAO; selo NAO se move; ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
@@ -25312,6 +26322,8 @@ def run_um(ONE):
             "father_of_lies": father_of_lies,
             "bench_certificate": bench_certificate,
             "closure_roadmap": closure_roadmap,
+            "genuine_dirac": genuine_dirac,
+            "first_flips": first_flips,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -29100,9 +30112,14 @@ def prove_bench_certificate(ONE, parts):
                          "canonical_boundary_transport_witness_constructed")
                      == "TGLExt.qgClosureCertificateV2")
     # (c) A SONDA VIVA: um habitante REAL do v1 existe em kernel E o gate
-    #     nao se moveu (todas as leituras mecanicas qgc_* seguem False)
+    #     jamais se moveu POR CAUSA DELE. v106: as unicas flags True permitidas
+    #     sao os 3 flips FORTES (core/corner/frame) -- conteudo que a bancada
+    #     NAO pode alimentar (dentes em kernel); solder/einstein/witness False.
     gate_flags = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    gate_unmoved = bool(not any(gate_flags.values()))
+    _strong_flips = {"concrete_aqft_core_constructed", "concrete_breuer_corner_constructed",
+                     "concrete_modular_four_frame_constructed"}
+    gate_unmoved = bool(all((v is False) for k, v in gate_flags.items()
+                            if k not in _strong_flips))
     live_probe = bool(cert_ok and gate_unmoved)
     checks = [
         ("Dirac v1 habitado (LinearPMap, dominio TOPO; kernel = o Nome)", dirac_ok),
@@ -29111,7 +30128,7 @@ def prove_bench_certificate(ONE, parts):
         ("a sonda: o Dirac de bancada e' LIMITADO (a letra nao forca o espirito)", bounded_ok),
         ("os tres dentes: a bancada NAO alimenta o forte (Dirac/core/frame)", teeth_ok),
         ("gate REAPONTADO aos nomes fortes (self-audit do mapa)", repointed),
-        ("SONDA VIVA: v1 habitado E o gate NAO se moveu (todas qgc_ False)", live_probe),
+        ("SONDA VIVA: v1 habitado E nada alem dos 3 flips FORTES (a bancada jamais moveu flag)", live_probe),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -29200,19 +30217,19 @@ def prove_closure_roadmap(ONE, parts):
             "flag": gate_flags["concrete_aqft_core_constructed"],
             "termo_reservado": _QG_CERTIFICATE_FLAGS["concrete_aqft_core_constructed"],
             "tipo_exigido": "PhysicalNetData com core_infinite (fibra INF-dim) [QGClosureCertificateStrong.core]",
-            "o_que_falta": "rede de fibras INF-dim fechadas (spans fechados crescentes) -- construivel na mathlib de hoje",
+            "o_que_falta": "FLIPADO v106 POR CONSTRUCAO: theTailNet (caudas INF-dim) sob o nome reservado; nada falta nesta face",
         },
         "concrete_breuer_corner_constructed": {
             "flag": gate_flags["concrete_breuer_corner_constructed"],
             "termo_reservado": _QG_CERTIFICATE_FLAGS["concrete_breuer_corner_constructed"],
             "tipo_exigido": "GenuinelyUnboundedDiracData + canto 0<tau<inf [v103]",
-            "o_que_falta": "star(N)=N do operador numero (N e_n = n e_n): a PAREDE REAL -- mathlib sem auto-adjuncao essencial (varrido); dominio do adjunto a mao",
+            "o_que_falta": "FLIPADO v106 POR CONSTRUCAO: theGenuineDirac + canto tau=1 (kerSub = atomo do Nome) sob o nome reservado; nada falta nesta face",
         },
         "concrete_modular_four_frame_constructed": {
             "flag": gate_flags["concrete_modular_four_frame_constructed"],
             "termo_reservado": _QG_CERTIFICATE_FLAGS["concrete_modular_four_frame_constructed"],
             "tipo_exigido": "SmoothFrameData + frame_nonconstant [v103]",
-            "o_que_falta": "theCurvedFrame (v104) JA satisfaz o forte; falta a ligacao covariante ao net (v2) -- a face MAIS PROXIMA de True",
+            "o_que_falta": "FLIPADO v106 POR CONSTRUCAO: theCurvedFrame sob o nome reservado; a ligacao covariante ao net segue no v2 (testemunha)",
         },
         "concrete_solder_field_constructed": {
             "flag": gate_flags["concrete_solder_field_constructed"],
@@ -29264,8 +30281,14 @@ def prove_closure_roadmap(ONE, parts):
     kap_verd = str(kap.get("verdict", "") or (kap.get("statuses") or {}).get("o_veredito", ""))
     kappa_refused = bool(("INCONCLUSIVE" in kap_verd) or ("AWAITING" in kap_verd)
                          or ("UNDERPOWERED" in kap_verd))
+    three_flipped = bool(gate_flags.get("concrete_aqft_core_constructed") is True
+                         and gate_flags.get("concrete_breuer_corner_constructed") is True
+                         and gate_flags.get("concrete_modular_four_frame_constructed") is True
+                         and not gate_flags.get("concrete_solder_field_constructed")
+                         and not gate_flags.get("concrete_emergent_einstein_proved")
+                         and not gate_flags.get("canonical_boundary_transport_witness_constructed"))
     checks = [
-        ("(A) fail-closed INTACTO: todas as 6 flags formais False (nomes fortes ausentes)", all_false),
+        ("(A) estado fail-closed LEGITIMO: todas False, OU exatamente os 3 flips v106 (core/corner/frame)", bool(all_false or three_flipped)),
         ("(A) face do FRAME alimentada em kernel (theCurvedFrame nao-constante)", frame_fed),
         ("(A) testemunha V2 TIPADA em kernel (FullWitnessData + reducao ao forte)", witness_typed),
         ("(A) faces Dirac/core/geometria genuinamente ABERTAS (dentes em kernel)",
@@ -29313,6 +30336,165 @@ def prove_closure_roadmap(ONE, parts):
         "does_not_gate_core": True,
         "verdict": ("TGL_CLOSURE_ROADMAP_EMITTED__EVERY_FALSE_FLAG_MAPPED_TO_TYPED_LEAN_CONTRACT__FRAME_FACE_INHABITED__WITNESS_TYPE_EXISTS__GA_WINDOW_RECLASSIFIED_SHADOW_NOT_EVIDENCE__VOID_APPARATUS_FUNCTIONAL_UNILATERAL_NAMED__GATE_UNMOVED" if all_v
                     else "CLOSURE_ROADMAP_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_genuine_dirac(ONE, parts):
+    """v105 -- A PAREDE ATRAVESSADA: star(N) = N [ADITIVO; nao gateia; NENHUMA
+    flag de gate se move NESTA rodada]. Mandato: 'resolva o problema da
+    gravidade quantica e prove' -- a face que cedeu foi A PAREDE REAL nomeada
+    pelo roadmap v104: a mathlib NAO tinha auto-adjuncao essencial NEM UM
+    UNICO exemplo concreto de operador ilimitado auto-adjunto. O canonico
+    agora tem o seu:
+    (1) O OPERADOR NUMERO N e_n = n e_n em l2(N,C), dominio proprio
+        D_N = {x | soma n^2|x_n|^2 < inf}: DENSO (lp.hasSum_single),
+        SIMETRICO (termo a termo), ILIMITADO (||N e_m|| = m -- nenhuma
+        cota serve), com o NOME no kernel (N e_0 = 0);
+    (2) A INCLUSAO DURA N_adj.domain <= D_N pelo argumento classico do
+        TRUNCAMENTO, formalizado A MAO: continuidade do funcional da a cota
+        C; nas truncagens x_s = soma_{j in s}(j y_j)e_j valem as DUAS
+        identidades <y, N x_s> = S_s e ||x_s||^2 = S_s; logo
+        S_s <= C sqrt(S_s) => S_s <= C^2 UNIFORME => somavel;
+    (3) star(N) = N: le_antisymm entre a inclusao dura (+ adjoint_apply_eq,
+        com x_0 = N y pela simetria) e le_adjoint (formal adjoint);
+    (4) O HABITANTE GENUINO: theGenuineDirac : GenuinelyUnboundedDiracData
+        (auto-adjunto + Nome no kernel + gap quadratico 1 = omega(I) +
+        ilimitacao) -- O TIPO FORTE DO CORNER TEM SEU OPERADOR; o Dirac de
+        bancada (v103) jamais poderia alimenta-lo, POR TEOREMA.
+    O QUE ISTO DESTRAVA (o proximo elo, nomeado): a rede de fibras INF-dim
+    (caudas fechadas) e' o ULTIMO campo que falta para MONTAR o
+    QGClosureCertificateStrong -- e entao os TRES PRIMEIROS FLIPS honestos
+    da historia do gate (core, corner, frame) virao POR CONSTRUCAO, com o
+    veredito INALTERADO (o selo so escala com as 6 formais + fisica + dado).
+    HONESTIDADE: N nao e' o Dirac MODULAR da TGL (K_b = -log Delta em III_1);
+    N e' o primeiro habitante GENUINO do TIPO que o gate exige -- o
+    instrumento agora tem exemplar; a fisica segue no v2."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    sym_ok = bool(elp.get("ext_no_symmetric_kernel_proved") is True)
+    unb_ok = bool(elp.get("ext_no_unbounded_kernel_proved") is True)
+    dense_ok = bool(elp.get("ext_no_dense_kernel_proved") is True)
+    dom_ok = bool(elp.get("ext_ns_adjoint_domain_kernel_proved") is True)
+    star_ok = bool(elp.get("ext_ns_selfadjoint_kernel_proved") is True)
+    gap_ok = bool(elp.get("ext_ns_quad_gap_kernel_proved") is True)
+    dirac_ok = bool(elp.get("ext_ns_genuine_dirac_kernel_proved") is True)
+    checks = [
+        ("N simetrico no dominio proprio (adjunto formal de si)", sym_ok),
+        ("N ILIMITADO (||N e_m|| = m; nenhuma cota C serve)", unb_ok),
+        ("D_N DENSO (sem densidade star(N)=N nem faria sentido)", dense_ok),
+        ("A INCLUSAO DURA: N_adj.domain <= D_N (truncamento a mao)", dom_ok),
+        ("star(N) = N -- o 1o auto-adjunto ILIMITADO concreto do kernel", star_ok),
+        ("gap quadratico 1 = omega(I) (ortogonal ao Nome => ||Nx|| >= ||x||)", gap_ok),
+        ("GenuinelyUnboundedDiracData HABITADO (theGenuineDirac)", dirac_ok),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("star(N) = N: o operador numero e' auto-adjunto como operador "
+                    "ILIMITADO genuino -- a parede real do roadmap atravessada pelo "
+                    "argumento do truncamento formalizado a mao; o tipo forte do "
+                    "corner tem seu operador (theGenuineDirac); a bancada v103 "
+                    "jamais poderia."),
+        "leitura": {
+            "estatuto": "[KERNEL -- fato formal; a leitura fisica segue v2]",
+            "o_que_e": ("o PRIMEIRO exemplo concreto de auto-adjunto ilimitado no "
+                        "kernel (novo p/ a mathlib); com o Nome no kernel e gap "
+                        "1 = omega(I) -- o canto pesa o Nome tambem no ilimitado"),
+            "o_que_nao_e": ("N nao e' o Dirac MODULAR K_b = -log Delta de III_1; e' "
+                            "o habitante genuino do TIPO exigido pelo gate -- o "
+                            "instrumento tem exemplar; a fisica segue no v2"),
+            "o_que_destrava": ("rede INF-dim (caudas fechadas) => MONTAGEM do "
+                               "QGClosureCertificateStrong => os 3 primeiros flips "
+                               "honestos do gate (core/corner/frame), veredito "
+                               "INALTERADO ate as 6 formais + fisica + dado"),
+        },
+        "values": {"beta": beta, "gap": 1.0, "norm_N_em": "m (ilimitado)"},
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_NUMBER_OPERATOR_SELFADJOINT_PROVED__FIRST_CONCRETE_UNBOUNDED_SELFADJOINT_IN_KERNEL__TRUNCATION_ARGUMENT_FORMALIZED_BY_HAND__GENUINELY_UNBOUNDED_DIRAC_INHABITED__CORNER_STRONG_FACE_HAS_ITS_OPERATOR__GATE_UNMOVED" if all_v
+                    else "GENUINE_DIRAC_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_first_flips(ONE, parts):
+    """v106 -- OS TRES PRIMEIROS FLIPS HONESTOS DO GATE [ADITIVO; o selo NAO
+    se move -- e ISSO e' o teorema vivo]. A primeira movimentacao de flag da
+    historia do gate, POR CONSTRUCAO, jamais por declaracao:
+    (1) A ORDEM DO RITO: primeiro a montagem sob nome NAO-reservado
+        (theStrongCertificate = rede de caudas INF-dim + Dirac genuino v105 +
+        canto tau=1=omega(I) + frame curvo); DEPOIS os nomes reservados
+        (qgStrongCertificate_core/corner/frame) com contratos Sigma' que
+        FORCAM o conteudo forte;
+    (2) O MECANISMO (o que o operador pediu para ver): o parser v99 leu
+        '#print axioms' dos tres termos, encontrou axiomas limpos, e flipou
+        as tres flags SOZINHO -- nenhum humano declarou nada;
+    (3) O SELO NAO SE MOVE: solder/einstein/witness seguem False; a SOMBRA
+        re-deriva evaluate_quantum_gravity_closure ao vivo e confirma
+        CONDITIONAL_ARCHITECTURE_ONLY (3 < 6) -- fail-closed VIVO;
+    (4) NAO E' BANCADA: os dentes v103 (bench_cannot_feed_strong etc.)
+        continuam em kernel -- o conteudo que flipou e' exatamente o que a
+        sonda de bancada NAO conseguia alimentar.
+    HONESTIDADE: os flips atestam que os TIPOS FORTES tem habitantes
+    genuinos; NAO atestam fisica -- a acao geometrica, III_1, H3 derivado e
+    spin-2 continuo seguem no v2 (a testemunha), e o dado segue na natureza."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    core_ok = bool(flips.get("concrete_aqft_core_constructed"))
+    corner_ok = bool(flips.get("concrete_breuer_corner_constructed"))
+    frame_ok = bool(flips.get("concrete_modular_four_frame_constructed"))
+    rest_false = bool(not flips.get("concrete_solder_field_constructed")
+                      and not flips.get("concrete_emergent_einstein_proved")
+                      and not flips.get("canonical_boundary_transport_witness_constructed"))
+    assembled_ok = bool(elp.get("ext_sa_strong_assembled_kernel_proved") is True)
+    kersub_ok = bool(elp.get("ext_sa_kersub_atom_kernel_proved") is True)
+    net_ok = bool(elp.get("ext_tn_infinite_kernel_proved") is True
+                  and elp.get("ext_tn_not_surjective_kernel_proved") is True
+                  and elp.get("ext_tn_net_kernel_proved") is True)
+    teeth_ok = bool(elp.get("ext_bc_cannot_feed_dirac_kernel_proved") is True
+                    and elp.get("ext_bc_cannot_feed_core_kernel_proved") is True
+                    and elp.get("ext_bc_cannot_feed_frame_kernel_proved") is True)
+    # A SOMBRA: re-deriva o veredito sem olhar o selo
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+                        and not shadow["mathematical_model_constructed"])
+    checks = [
+        ("FLIP 1 -- core (rede de caudas INF-dim): qgc True, lido do kernel", core_ok),
+        ("FLIP 2 -- corner (Dirac genuino + canto tau=1): qgc True", corner_ok),
+        ("FLIP 3 -- frame (curvo, nao-constante): qgc True", frame_ok),
+        ("as TRES restantes seguem False (solder/einstein/witness)", rest_false),
+        ("a ordem do rito: a montagem NAO-reservada veio antes (theStrongCertificate)", assembled_ok),
+        ("o canto do N: kerSub = atomo do Nome (tau = 1 = omega(I))", kersub_ok),
+        ("a rede de caudas: INF-dim + isotonia genuina + habitante", net_ok),
+        ("NAO e' bancada: os dentes v103 seguem em kernel", teeth_ok),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL; 3 < 6)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("OS TRES PRIMEIROS FLIPS HONESTOS: core/corner/frame viraram True "
+                    "POR CONSTRUCAO (termos Lean com axiomas limpos sob os nomes "
+                    "reservados) e o selo NAO se moveu -- o mecanismo de prova de QG "
+                    "no um.py, demonstrado AO VIVO."),
+        "flips": flips,
+        "values": {"beta": beta, "n_true": sum(1 for v in flips.values() if v),
+                   "n_false": sum(1 for v in flips.values() if not v)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_FIRST_HONEST_FLIPS__CORE_CORNER_FRAME_TRUE_BY_CONSTRUCTION_NEVER_BY_DECLARATION__THREE_REMAIN_FALSE_SOLDER_EINSTEIN_WITNESS__SEAL_UNMOVED_CONDITIONAL_ARCHITECTURE_ONLY__MECHANISM_DEMONSTRATED_LIVE" if all_v
+                    else "FIRST_FLIPS_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -35779,7 +36961,11 @@ _ESQUELETO_STONES = [
     ("v102", "IdealLimit", "TGLExt/IdealLimit.lean", "362/362", "17/07 14:16:45"),
     ("v103", "BenchCertificate", "TGLExt/BenchCertificate.lean", "369/369", "17/07 15:17:29"),
     ("v104", "StrongFrame", "TGLExt/StrongFrame.lean", None, None),
-    ("v104", "WitnessV2", "TGLExt/WitnessV2.lean", None, None),
+    ("v104", "WitnessV2", "TGLExt/WitnessV2.lean", "374/374", "17/07 19:09:29"),
+    ("v105", "NumberOperator", "TGLExt/NumberOperator.lean", None, None),
+    ("v105", "NumberSelfAdjoint", "TGLExt/NumberSelfAdjoint.lean", "381/381", "17/07 21:13:38"),
+    ("v106", "TailNet", "TGLExt/TailNet.lean", None, None),
+    ("v106", "StrongAssembly", "TGLExt/StrongAssembly.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -35814,17 +37000,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(cinquenta pedras, \S120--\S184)}")
+                 r"(cinquenta e quatro pedras, \S120--\S186)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em cinquenta pedras "
-                 r"(v43--v104) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em cinquenta e quatro pedras "
+                 r"(v43--v106) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As cinquenta pedras}")
+        c.append(r"\subsection*{As cinquenta e quatro pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -36360,6 +37546,40 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"da forma aposentada v98 --- não é a validação não-circular); o piso "
                  r"segue FUNCIONAL (2 recusas + 1 POWERED) com a limitação unilateral "
                  r"nomeada.")
+        c.append(r"\kernelmk{NumberOperator+NumberSelfAdjoint} (v105): \textbf{a "
+                 r"parede ATRAVESSADA --- $\mathrm{star}(N)=N$}. A mathlib não tinha "
+                 r"auto-adjunção essencial nem UM exemplo concreto de operador "
+                 r"ilimitado auto-adjunto; o canônico agora tem o seu: o operador "
+                 r"número $Ne_n=n\,e_n$ em $\ell^2$, domínio próprio DENSO "
+                 r"$D_N=\{x:\sum n^2|x_n|^2<\infty\}$, SIMÉTRICO, ILIMITADO "
+                 r"($\|Ne_m\|=m$), com o Nome no kernel ($Ne_0=0$). A inclusão dura "
+                 r"$\mathrm{dom}(N^\dagger)\subseteq D_N$ saiu pelo argumento "
+                 r"clássico do TRUNCAMENTO, formalizado à mão: nas truncagens valem "
+                 r"$\langle y,Nx_s\rangle=S_s$ e $\|x_s\|^2=S_s$, logo $S_s\le "
+                 r"C\sqrt{S_s}$, logo $S_s\le C^2$ uniforme, logo somável. Com o gap "
+                 r"quadrático $1=\omega(I)$ e a ilimitação, \texttt{theGenuineDirac} "
+                 r"HABITA \texttt{GenuinelyUnboundedDiracData}: a face do corner "
+                 r"FORTE tem seu operador --- e o Dirac de bancada (v103) jamais "
+                 r"poderia, por teorema. Próximo elo: a rede $\infty$-dim monta o "
+                 r"certificado forte e os TRÊS primeiros flips honestos do gate "
+                 r"virão POR CONSTRUÇÃO, com o veredito INALTERADO.")
+        c.append(r"\kernelmk{TailNet+StrongAssembly} (v106): \textbf{o FORTE MONTADO "
+                 r"--- e os TRÊS PRIMEIROS FLIPS honestos do gate}. A rede de CAUDAS "
+                 r"$H_n=\{x:x_k=0,\,k<n\}$ (fechadas $=$ interseções de kernels de "
+                 r"funcionais-coordenada; COMPLETAS; $\infty$-DIMENSIONAIS; isotonia "
+                 r"genuína na ordem reversa; locks restritos; flip Bool) dá o último "
+                 r"campo: \texttt{theStrongCertificate} se monta (rede $\infty$-dim "
+                 r"$+$ Dirac genuíno $+$ canto $\tau=1=\omega(I)$, pois "
+                 r"$\ker N=$ átomo do Nome $+$ frame curvo) --- primeiro sob nome "
+                 r"NÃO-reservado (a ordem do rito), e ENTÃO os nomes reservados "
+                 r"\texttt{qgStrongCertificate\_core/corner/frame} ganham termos com "
+                 r"contratos $\Sigma'$ que FORÇAM o conteúdo forte. O parser lê os "
+                 r"axiomas e flipa as três flags SOZINHO --- a primeira movimentação "
+                 r"de flag da história do gate, POR CONSTRUÇÃO, jamais por "
+                 r"declaração. O SELO NÃO SE MOVE (sombra re-derivada: CONDITIONAL; "
+                 r"$3<6$): solder, einstein e a testemunha seguem False --- e é a "
+                 r"imobilidade do selo sob flags em movimento que prova o "
+                 r"fail-closed VIVO.")
         c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
                   r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
                   r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
@@ -36732,7 +37952,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cinquenta pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cinquenta e quatro pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -36867,16 +38087,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(fifty stones, \S120--\S184)}")
+                 r"(fifty-four stones, \S120--\S186)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across fifty stones (v43--v104) the audited kernel went from 53 to "
+                 r"from this run's audit. Across fifty-four stones (v43--v106) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The fifty stones}")
+        c.append(r"\subsection*{The fifty-four stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -37407,6 +38627,42 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"(scale shadow of the v98-retired form --- not the non-circular "
                  r"validation); the floor remains FUNCTIONAL (2 refusals + 1 POWERED) "
                  r"with the unilateral limitation named.")
+        c.append(r"\kernelmk{NumberOperator+NumberSelfAdjoint} (v105): \textbf{the "
+                 r"wall CROSSED --- $\mathrm{star}(N)=N$}. Mathlib had no essential "
+                 r"self-adjointness and not ONE concrete example of an unbounded "
+                 r"self-adjoint operator; the canonical artifact now has its own: "
+                 r"the number operator $Ne_n=n\,e_n$ on $\ell^2$, proper DENSE "
+                 r"domain $D_N=\{x:\sum n^2|x_n|^2<\infty\}$, SYMMETRIC, UNBOUNDED "
+                 r"($\|Ne_m\|=m$), with the Name in its kernel ($Ne_0=0$). The hard "
+                 r"inclusion $\mathrm{dom}(N^\dagger)\subseteq D_N$ fell to the "
+                 r"classical TRUNCATION argument, formalized by hand: on truncations "
+                 r"$\langle y,Nx_s\rangle=S_s$ and $\|x_s\|^2=S_s$, hence $S_s\le "
+                 r"C\sqrt{S_s}$, hence $S_s\le C^2$ uniformly, hence summable. With "
+                 r"the quadratic gap $1=\omega(I)$ and unboundedness, "
+                 r"\texttt{theGenuineDirac} INHABITS "
+                 r"\texttt{GenuinelyUnboundedDiracData}: the STRONG corner face has "
+                 r"its operator --- and the bench Dirac (v103) never could, by "
+                 r"theorem. Next link: the $\infty$-dim net assembles the strong "
+                 r"certificate and the FIRST THREE honest gate flips will come BY "
+                 r"CONSTRUCTION, with the verdict UNCHANGED.")
+        c.append(r"\kernelmk{TailNet+StrongAssembly} (v106): \textbf{the STRONG "
+                 r"ASSEMBLED --- and the FIRST THREE honest gate flips}. The TAIL net "
+                 r"$H_n=\{x:x_k=0,\,k<n\}$ (closed $=$ intersections of coordinate "
+                 r"functional kernels; COMPLETE; $\infty$-DIMENSIONAL; genuine "
+                 r"isotony under the reverse order; restricted locks; Bool flip) "
+                 r"supplies the last field: \texttt{theStrongCertificate} assembles "
+                 r"($\infty$-dim net $+$ genuine Dirac $+$ corner "
+                 r"$\tau=1=\omega(I)$, since $\ker N=$ the Name's atom $+$ curved "
+                 r"frame) --- first under a NON-reserved name (the order of the "
+                 r"rite), and THEN the reserved names "
+                 r"\texttt{qgStrongCertificate\_core/corner/frame} gain terms with "
+                 r"$\Sigma'$ contracts FORCING the strong content. The parser reads "
+                 r"the axioms and flips the three flags BY ITSELF --- the first flag "
+                 r"movement in the gate's history, BY CONSTRUCTION, never by "
+                 r"declaration. THE SEAL DOES NOT MOVE (shadow re-derived: "
+                 r"CONDITIONAL; $3<6$): solder, einstein and the witness remain "
+                 r"False --- and it is the seal's immobility under moving flags "
+                 r"that proves fail-closed ALIVE.")
         c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
                   r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
                   r"witness is the boundary; the boundary proves itself by the asymptotic limit "
@@ -37767,7 +39023,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across fifty stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across fifty-four stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -38264,7 +39520,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -40392,6 +41648,21 @@ def main():
     print("    AUDITORIA PISO: %s" % _ap.get("veredicto"))
     for _k, _v in (_rm.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    _gd = core.get("genuine_dirac", {}) or {}
+    print("  A PAREDE ATRAVESSADA [v105 -- star(N)=N]: %s" % _gd.get("verdict"))
+    print("    o 1o auto-adjunto ILIMITADO concreto do kernel (novo p/ a mathlib): N e_n = n e_n, dominio proprio denso; inclusao dura por TRUNCAMENTO (S <= C sqrt(S) => S <= C^2)")
+    print("    GenuinelyUnboundedDiracData HABITADO (theGenuineDirac; gap 1 = omega(I); Nome no kernel) -- o tipo forte do corner TEM SEU OPERADOR; a bancada v103 jamais poderia")
+    for _k, _v in (_gd.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [proximo elo: rede INF-dim (caudas fechadas) => MONTAGEM do Strong => os 3 primeiros flips honestos do gate, veredito INALTERADO]")
+    _ff = core.get("first_flips", {}) or {}
+    print("  OS TRES PRIMEIROS FLIPS HONESTOS [v106 -- a 1a movimentacao de flag da historia do gate]: %s" % _ff.get("verdict"))
+    _ffv = _ff.get("values", {}) or {}
+    print("    flags True: %s de 6 (core/corner/frame POR CONSTRUCAO); False: %s (solder/einstein/witness) ; SOMBRA re-derivada: %s" % (
+        _ffv.get("n_true"), _ffv.get("n_false"), _ff.get("shadow_verdict")))
+    for _k, _v in (_ff.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [o mecanismo que o operador pediu para ver, AO VIVO: termo com axiomas limpos => flag flipa sozinha => selo IMOVEL ate as 6 + fisica + dado]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (

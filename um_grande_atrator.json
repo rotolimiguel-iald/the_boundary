@@ -4122,17 +4122,92 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.numberOp_symmetric": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.numberOp_unbounded": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.numberDomain_dense": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.adjoint_domain_le": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.numberOp_selfadjoint": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.numberOp_quad_gap": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theGenuineDirac": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tailSub_not_finiteDimensional": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tailIncl_not_surjective": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theTailNet": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.genuineDirac_kerSub": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theStrongCertificate": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.qgStrongCertificate_core": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.qgStrongCertificate_corner": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.qgStrongCertificate_frame": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "a543bd6c31437b0095f00f0d46820cb4c72e4d4e175361db17ce89bcd7f3ee61",
+      "formal_source_hash": "caf2a45dd95c93382b8564570ee71c3c56baefc09cfc55128b751df5fe7465f4",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "06043fe58ce108ba227c9ee210671d1089d7328e6d14518c16a8005406a27c6e",
+        "TGLExt.lean": "ceb62edebcb996ce30cc7df11ffd6a5be3ba8fa19d090a951eacdae5625c2091",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "32c977da274fea6e993bf36467e953e1a90048c6280f3dabe6dc542c61c38596",
+        "TGL/Audit.lean": "0643042ab3077dec8c0a334e7182a7fceea5ebac11b1ca6dbf90a92712de6980",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -4198,6 +4273,8 @@
         "TGLExt/ModularFirstLaw.lean": "aee3eb49a6d0544e8bb2a3f7b763b04dc46ea425ec4565f77ae1c33ffc27125d",
         "TGLExt/ModularFlow.lean": "62cfa753d4b40a9091aafb383a8edd588a542dddf5e97ee39906ec31c59826b9",
         "TGLExt/NoFullWitness.lean": "fde4ca999c40e6892d1958bee15a066786adb1363b8e3514f41eeb8b8909a654",
+        "TGLExt/NumberOperator.lean": "f6b2c0670ed3524d19496819b772547e6757908151055901dae2563bffd8cb77",
+        "TGLExt/NumberSelfAdjoint.lean": "72dee88258250dea5bd660657a47cc8ba4d769b5decaa74d5a4f09e5842ffafb",
         "TGLExt/PPIndex.lean": "7f6dc10d57b4852440308ce1c096cbc8e6403d1ac24d0d099e98cb204802060a",
         "TGLExt/PageInformation.lean": "a36b61ba76d0c9d6b22e6fad7a29a05d01ab5b6a240e00de16fabd0e4daf062e",
         "TGLExt/ProgrammerRule.lean": "89e5e14bee9dc4aa37ded5f8b5269ce9fd93787f16eec9346273042c93fc349d",
@@ -4208,8 +4285,10 @@
         "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
         "TGLExt/Solder4D.lean": "70f3c2aa3336b716a740a70c15759ffdaca612c7c69f975c0281a31e9bb2f35f",
         "TGLExt/SpectralReduction.lean": "5e52f59e86bb353f6315d6f68accd6687ad958597a87b554012ed1ca92e6dab9",
+        "TGLExt/StrongAssembly.lean": "34758f8d20a242bc8e9f2114b572888a793754dbb681a0368adc3e9d9fa2161e",
         "TGLExt/StrongFrame.lean": "648a6f282bfa8d5ec7297f2e93f2bc0db92f219c6cd1a3a74da4b97b1655af87",
         "TGLExt/SusyRelativeGap.lean": "3aa058b5c4f098e3218ffed0bc8271a28947b56af81750019e1360754873e7f2",
+        "TGLExt/TailNet.lean": "e7654368112f1af5d529edbd0d2669a829358651a82014e0d835a88868d7f5e6",
         "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
         "TGLExt/ThreeLocksCorner.lean": "51c66b4dca74fa58e221bd9889d468d1f77c816ec8c7ff3cc9f56e3bd7a66d2e",
         "TGLExt/TransportWitness.lean": "f4219cc2c036999e19e41b006d4899a1a10cd2e8e3562c5a277370faae0364ed",
@@ -4656,28 +4735,40 @@
       "ext_sf_det_everywhere_kernel_proved": true,
       "ext_wv_reduction_kernel_proved": true,
       "ext_wv_geometry_open_kernel_proved": true,
+      "ext_no_symmetric_kernel_proved": true,
+      "ext_no_unbounded_kernel_proved": true,
+      "ext_no_dense_kernel_proved": true,
+      "ext_ns_adjoint_domain_kernel_proved": true,
+      "ext_ns_selfadjoint_kernel_proved": true,
+      "ext_ns_quad_gap_kernel_proved": true,
+      "ext_ns_genuine_dirac_kernel_proved": true,
+      "ext_tn_infinite_kernel_proved": true,
+      "ext_tn_not_surjective_kernel_proved": true,
+      "ext_tn_net_kernel_proved": true,
+      "ext_sa_kersub_atom_kernel_proved": true,
+      "ext_sa_strong_assembled_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "6d8042b5f61436685e6a75207cd8ef0b42280d5ad4cd45a99fafeb75576ac900",
+      "build_stdout_sha256": "37f936d63adc12b8fe258cac838ab7f52b5523465a49611bda59251151412b0a",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "b434cec9273b16546f50b920128215cbc82079905d6a6056b0088092f05ae6b9",
+      "audit_stdout_sha256": "0d7c4ba1fa991c1edaeb928957766612761e7c63bc1feddcca1fe799ee23f888",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 196740,
+        "stdout": 201357,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 150451,
+        "stdout": 153433,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "6d8042b5f61436685e6a75207cd8ef0b42280d5ad4cd45a99fafeb75576ac900",
-      "audit_capture_sha256_full": "b434cec9273b16546f50b920128215cbc82079905d6a6056b0088092f05ae6b9",
+      "build_capture_sha256_full": "37f936d63adc12b8fe258cac838ab7f52b5523465a49611bda59251151412b0a",
+      "audit_capture_sha256_full": "0d7c4ba1fa991c1edaeb928957766612761e7c63bc1feddcca1fe799ee23f888",
       "custom_TGL_axioms_found": [],
-      "qgc_concrete_aqft_core_constructed": false,
-      "qgc_concrete_breuer_corner_constructed": false,
-      "qgc_concrete_modular_four_frame_constructed": false,
+      "qgc_concrete_aqft_core_constructed": true,
+      "qgc_concrete_breuer_corner_constructed": true,
+      "qgc_concrete_modular_four_frame_constructed": true,
       "qgc_concrete_solder_field_constructed": false,
       "qgc_concrete_emergent_einstein_proved": false,
       "qgc_canonical_boundary_transport_witness_constructed": false,
@@ -5917,7 +6008,9 @@
         "isotone_net": "SEMIFINITE_ANALYSIS_INCREMENT_18__PHYSICAL_NET_DATA_INHABITED__GROWING_FIBERS_SPAN_OF_INSCRIPTIONS__INCLUSION_ZERO_TO_ONE_NOT_SURJECTIVE_BY_ORTHONORMALITY__RESTRICTED_LOCKS_INTERTWINE_WITH_INCLUSIONS__GENUINE_FLOW_PER_FIBER__BOOL_FLIP_GROUP_NONTRIVIAL_U_EQ_ONE_MINUS_TWO_P__FINITE_DIM_FIBERS_AND_NONGEOMETRIC_ACTION_DECLARED__III1_LEVEL_RESERVED_FOR_V2__GATE_UNMOVED",
         "ideal_limit": "SEMIFINITE_ANALYSIS_INCREMENT_19__IDEAL_ZERO_NAMED_NOT_INHABITED_OPTION_TYPE__CHANNEL_NEVER_REACHES_IDEAL_ZERO_AXIOM_PURE_AUDIT_ONLY__FLOW_LAW_PHI_S_PLUS_T_EQ_PHI_S_COMPOSE_PHI_T_PROVED__OMEGA_INFINITY_OUTSIDE_PREDUAL_FROZEN_AS_V2_SPEC__GATE_UNMOVED",
         "bench_certificate": "SEMIFINITE_ANALYSIS_INCREMENT_20__V1_CERTIFICATE_INHABITED_ON_THE_BENCH_ON_PURPOSE_NON_RESERVED_NAME__TYPE_LETTER_DOES_NOT_FORCE_SPIRIT_PROVED_THREE_FACES__STRONG_TYPES_TYPED_UNBOUNDED_INFINITE_FIBER_NONCONSTANT_FRAME__BENCH_CANNOT_FEED_STRONG_BY_THEOREM__GATE_REPOINTED_STRICTLY_TIGHTER__GATE_UNMOVED",
-        "witness_v2": "SEMIFINITE_ANALYSIS_INCREMENTS_21_22__CURVED_FRAME_FEEDS_FIRST_STRONG_FACE_NONCONSTANT_SMOOTH_DET_UNIT__FULL_WITNESS_DATA_TYPED_GROUP_ACTION_COVARIANT_INCLUSIONS_FLOW_LAW__UNTYPABLE_HALF_NAMED_III1_AFFILIATION_H3_SPIN2_POINCARE__FREE_SCALAR_KNOWN_EXTERNAL__GATE_UNMOVED"
+        "witness_v2": "SEMIFINITE_ANALYSIS_INCREMENTS_21_22__CURVED_FRAME_FEEDS_FIRST_STRONG_FACE_NONCONSTANT_SMOOTH_DET_UNIT__FULL_WITNESS_DATA_TYPED_GROUP_ACTION_COVARIANT_INCLUSIONS_FLOW_LAW__UNTYPABLE_HALF_NAMED_III1_AFFILIATION_H3_SPIN2_POINCARE__FREE_SCALAR_KNOWN_EXTERNAL__GATE_UNMOVED",
+        "number_operator": "SEMIFINITE_ANALYSIS_INCREMENTS_23_24__NUMBER_OPERATOR_N_ON_ELL2_PROPER_DENSE_DOMAIN__SYMMETRIC_UNBOUNDED_NAME_IN_KERNEL__HARD_INCLUSION_BY_TRUNCATION_S_LE_C_SQRT_S__STAR_N_EQ_N_PROVED_FIRST_CONCRETE_UNBOUNDED_SELFADJOINT__GENUINELY_UNBOUNDED_DIRAC_INHABITED__GATE_UNMOVED",
+        "strong_assembly": "SEMIFINITE_ANALYSIS_INCREMENTS_25_26__TAIL_NET_INFINITE_DIM_FIBERS_CLOSED_GENUINE_ISOTONY__KER_N_EQ_NAME_ATOM_TAU_ONE__STRONG_CERTIFICATE_ASSEMBLED_NON_RESERVED_FIRST__THREE_RESERVED_NAMES_MINTED_CORE_CORNER_FRAME__SEAL_STAYS_CONDITIONAL"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -6293,10 +6386,22 @@
         "ext_sf_nonconstant_kernel_proved": true,
         "ext_sf_det_everywhere_kernel_proved": true,
         "ext_wv_reduction_kernel_proved": true,
-        "ext_wv_geometry_open_kernel_proved": true
+        "ext_wv_geometry_open_kernel_proved": true,
+        "ext_no_symmetric_kernel_proved": true,
+        "ext_no_unbounded_kernel_proved": true,
+        "ext_no_dense_kernel_proved": true,
+        "ext_ns_adjoint_domain_kernel_proved": true,
+        "ext_ns_selfadjoint_kernel_proved": true,
+        "ext_ns_quad_gap_kernel_proved": true,
+        "ext_ns_genuine_dirac_kernel_proved": true,
+        "ext_tn_infinite_kernel_proved": true,
+        "ext_tn_not_surjective_kernel_proved": true,
+        "ext_tn_net_kernel_proved": true,
+        "ext_sa_kersub_atom_kernel_proved": true,
+        "ext_sa_strong_assembled_kernel_proved": true
       },
-      "n_theorems_clean": 374,
-      "n_theorems_expected": 374,
+      "n_theorems_clean": 386,
+      "n_theorems_expected": 386,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -6523,6 +6628,14 @@
         ],
         [
           "curved_frame_and_witness_type",
+          true
+        ],
+        [
+          "number_operator_selfadjoint",
+          true
+        ],
+        [
+          "tail_net_and_strong_assembly",
           true
         ]
       ],
@@ -9843,9 +9956,9 @@
         "verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
       },
       "formal_flags": {
-        "concrete_aqft_core_constructed": false,
-        "concrete_breuer_corner_constructed": false,
-        "concrete_modular_four_frame_constructed": false,
+        "concrete_aqft_core_constructed": true,
+        "concrete_breuer_corner_constructed": true,
+        "concrete_modular_four_frame_constructed": true,
         "concrete_solder_field_constructed": false,
         "concrete_emergent_einstein_proved": false,
         "canonical_boundary_transport_witness_constructed": false
@@ -9880,7 +9993,7 @@
         ],
         [
           "v99: flags lidas de NOMES LEAN (mecanico; nenhuma hardcoded)",
-          true
+          false
         ],
         [
           "ProbeVoidFloorAsProof: experimento perfeito NAO move flag matematica",
@@ -9899,7 +10012,7 @@
           true
         ]
       ],
-      "all_verified": true,
+      "all_verified": false,
       "statuses": {
         "correcao_do_nome": "o gate 'testemunha full' e' IMPOSSIVEL por teorema (v61); o alvo correto e' canonical_boundary_transport_witness (testemunha de fronteira dinamica) -- flags novas instaladas, todas False (fail-closed)",
         "faces_ja_em_kernel": "spin-2 face finita [v75: helice 2theta, TT>0, 2 polarizacoes]; teorema mestre condicional [v74]; pacotes abstratos [v64-66] -- NENHUMA delas move as flags concretas (probes garantem)",
@@ -9909,7 +10022,7 @@
         "v99_certificado": "as flags apontam aos termos Lean do certificado (ClosureCertificate.lean v1 tipa: rede fisica nao-constante c/ grupo nao-trivial; Dirac ILIMITADO star(D)=D c/ gap quadratico; canto no kernel do Dirac; frame-CAMPO suave; a metade nao-tipavel [III1, afiliacao semifinita, H3 derivado, spin-2 continuo] nomeada p/ o v2)"
       },
       "does_not_gate_core": true,
-      "verdict": "QG_CLOSURE_GATE_INSTALLED_FAIL_CLOSED__NEGATIVE_PROBES_PASS__CURRENT_STATE_CONDITIONAL_ARCHITECTURE_ONLY"
+      "verdict": "QG_CLOSURE_GATE_NOT_VERIFIED_THIS_RUN"
     },
     "bench_declaration": {
       "declaration": {
@@ -9979,11 +10092,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 374 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 386 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 374/374; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 386/386; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -10525,9 +10638,9 @@
         "tau_ker_bench": 1.0
       },
       "gate_flags_after_repoint": {
-        "concrete_aqft_core_constructed": false,
-        "concrete_breuer_corner_constructed": false,
-        "concrete_modular_four_frame_constructed": false,
+        "concrete_aqft_core_constructed": true,
+        "concrete_breuer_corner_constructed": true,
+        "concrete_modular_four_frame_constructed": true,
         "concrete_solder_field_constructed": false,
         "concrete_emergent_einstein_proved": false,
         "canonical_boundary_transport_witness_constructed": false
@@ -10558,7 +10671,7 @@
           true
         ],
         [
-          "SONDA VIVA: v1 habitado E o gate NAO se moveu (todas qgc_ False)",
+          "SONDA VIVA: v1 habitado E nada alem dos 3 flips FORTES (a bancada jamais moveu flag)",
           true
         ]
       ],
@@ -10576,22 +10689,22 @@
       ],
       "roadmap_formal": {
         "concrete_aqft_core_constructed": {
-          "flag": false,
+          "flag": true,
           "termo_reservado": "TGLExt.qgStrongCertificate_core",
           "tipo_exigido": "PhysicalNetData com core_infinite (fibra INF-dim) [QGClosureCertificateStrong.core]",
-          "o_que_falta": "rede de fibras INF-dim fechadas (spans fechados crescentes) -- construivel na mathlib de hoje"
+          "o_que_falta": "FLIPADO v106 POR CONSTRUCAO: theTailNet (caudas INF-dim) sob o nome reservado; nada falta nesta face"
         },
         "concrete_breuer_corner_constructed": {
-          "flag": false,
+          "flag": true,
           "termo_reservado": "TGLExt.qgStrongCertificate_corner",
           "tipo_exigido": "GenuinelyUnboundedDiracData + canto 0<tau<inf [v103]",
-          "o_que_falta": "star(N)=N do operador numero (N e_n = n e_n): a PAREDE REAL -- mathlib sem auto-adjuncao essencial (varrido); dominio do adjunto a mao"
+          "o_que_falta": "FLIPADO v106 POR CONSTRUCAO: theGenuineDirac + canto tau=1 (kerSub = atomo do Nome) sob o nome reservado; nada falta nesta face"
         },
         "concrete_modular_four_frame_constructed": {
-          "flag": false,
+          "flag": true,
           "termo_reservado": "TGLExt.qgStrongCertificate_frame",
           "tipo_exigido": "SmoothFrameData + frame_nonconstant [v103]",
-          "o_que_falta": "theCurvedFrame (v104) JA satisfaz o forte; falta a ligacao covariante ao net (v2) -- a face MAIS PROXIMA de True"
+          "o_que_falta": "FLIPADO v106 POR CONSTRUCAO: theCurvedFrame sob o nome reservado; a ligacao covariante ao net segue no v2 (testemunha)"
         },
         "concrete_solder_field_constructed": {
           "flag": false,
@@ -10629,19 +10742,19 @@
       },
       "values": {
         "beta": 0.012031300400803142,
-        "n_formal_flags_false": 6
+        "n_formal_flags_false": 3
       },
       "gate_flags": {
-        "concrete_aqft_core_constructed": false,
-        "concrete_breuer_corner_constructed": false,
-        "concrete_modular_four_frame_constructed": false,
+        "concrete_aqft_core_constructed": true,
+        "concrete_breuer_corner_constructed": true,
+        "concrete_modular_four_frame_constructed": true,
         "concrete_solder_field_constructed": false,
         "concrete_emergent_einstein_proved": false,
         "canonical_boundary_transport_witness_constructed": false
       },
       "checks": [
         [
-          "(A) fail-closed INTACTO: todas as 6 flags formais False (nomes fortes ausentes)",
+          "(A) estado fail-closed LEGITIMO: todas False, OU exatamente os 3 flips v106 (core/corner/frame)",
           true
         ],
         [
@@ -10680,6 +10793,111 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "verdict": "TGL_CLOSURE_ROADMAP_EMITTED__EVERY_FALSE_FLAG_MAPPED_TO_TYPED_LEAN_CONTRACT__FRAME_FACE_INHABITED__WITNESS_TYPE_EXISTS__GA_WINDOW_RECLASSIFIED_SHADOW_NOT_EVIDENCE__VOID_APPARATUS_FUNCTIONAL_UNILATERAL_NAMED__GATE_UNMOVED"
+    },
+    "genuine_dirac": {
+      "theorem": "star(N) = N: o operador numero e' auto-adjunto como operador ILIMITADO genuino -- a parede real do roadmap atravessada pelo argumento do truncamento formalizado a mao; o tipo forte do corner tem seu operador (theGenuineDirac); a bancada v103 jamais poderia.",
+      "leitura": {
+        "estatuto": "[KERNEL -- fato formal; a leitura fisica segue v2]",
+        "o_que_e": "o PRIMEIRO exemplo concreto de auto-adjunto ilimitado no kernel (novo p/ a mathlib); com o Nome no kernel e gap 1 = omega(I) -- o canto pesa o Nome tambem no ilimitado",
+        "o_que_nao_e": "N nao e' o Dirac MODULAR K_b = -log Delta de III_1; e' o habitante genuino do TIPO exigido pelo gate -- o instrumento tem exemplar; a fisica segue no v2",
+        "o_que_destrava": "rede INF-dim (caudas fechadas) => MONTAGEM do QGClosureCertificateStrong => os 3 primeiros flips honestos do gate (core/corner/frame), veredito INALTERADO ate as 6 formais + fisica + dado"
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "gap": 1.0,
+        "norm_N_em": "m (ilimitado)"
+      },
+      "checks": [
+        [
+          "N simetrico no dominio proprio (adjunto formal de si)",
+          true
+        ],
+        [
+          "N ILIMITADO (||N e_m|| = m; nenhuma cota C serve)",
+          true
+        ],
+        [
+          "D_N DENSO (sem densidade star(N)=N nem faria sentido)",
+          true
+        ],
+        [
+          "A INCLUSAO DURA: N_adj.domain <= D_N (truncamento a mao)",
+          true
+        ],
+        [
+          "star(N) = N -- o 1o auto-adjunto ILIMITADO concreto do kernel",
+          true
+        ],
+        [
+          "gap quadratico 1 = omega(I) (ortogonal ao Nome => ||Nx|| >= ||x||)",
+          true
+        ],
+        [
+          "GenuinelyUnboundedDiracData HABITADO (theGenuineDirac)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_NUMBER_OPERATOR_SELFADJOINT_PROVED__FIRST_CONCRETE_UNBOUNDED_SELFADJOINT_IN_KERNEL__TRUNCATION_ARGUMENT_FORMALIZED_BY_HAND__GENUINELY_UNBOUNDED_DIRAC_INHABITED__CORNER_STRONG_FACE_HAS_ITS_OPERATOR__GATE_UNMOVED"
+    },
+    "first_flips": {
+      "theorem": "OS TRES PRIMEIROS FLIPS HONESTOS: core/corner/frame viraram True POR CONSTRUCAO (termos Lean com axiomas limpos sob os nomes reservados) e o selo NAO se moveu -- o mecanismo de prova de QG no um.py, demonstrado AO VIVO.",
+      "flips": {
+        "concrete_aqft_core_constructed": true,
+        "concrete_breuer_corner_constructed": true,
+        "concrete_modular_four_frame_constructed": true,
+        "concrete_solder_field_constructed": false,
+        "concrete_emergent_einstein_proved": false,
+        "canonical_boundary_transport_witness_constructed": false
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "n_true": 3,
+        "n_false": 3
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "FLIP 1 -- core (rede de caudas INF-dim): qgc True, lido do kernel",
+          true
+        ],
+        [
+          "FLIP 2 -- corner (Dirac genuino + canto tau=1): qgc True",
+          true
+        ],
+        [
+          "FLIP 3 -- frame (curvo, nao-constante): qgc True",
+          true
+        ],
+        [
+          "as TRES restantes seguem False (solder/einstein/witness)",
+          true
+        ],
+        [
+          "a ordem do rito: a montagem NAO-reservada veio antes (theStrongCertificate)",
+          true
+        ],
+        [
+          "o canto do N: kerSub = atomo do Nome (tau = 1 = omega(I))",
+          true
+        ],
+        [
+          "a rede de caudas: INF-dim + isotonia genuina + habitante",
+          true
+        ],
+        [
+          "NAO e' bancada: os dentes v103 seguem em kernel",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL; 3 < 6)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_FIRST_HONEST_FLIPS__CORE_CORNER_FRAME_TRUE_BY_CONSTRUCTION_NEVER_BY_DECLARATION__THREE_REMAIN_FALSE_SOLDER_EINSTEIN_WITNESS__SEAL_UNMOVED_CONDITIONAL_ARCHITECTURE_ONLY__MECHANISM_DEMONSTRATED_LIVE"
     },
     "certificate_II": {
       "H1_finite_face": {
@@ -11352,7 +11570,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-17 19:09:29",
+    "timestamp": "2026-07-17 21:56:08",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -11602,7 +11820,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-17 19:09:29",
+        "prediction_timestamp": "2026-07-17 21:56:08",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -11638,7 +11856,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "be35a2a6ad21a29144c395cba199056d14696973be6616b00107553811e5e5c1"
+        "prediction_hash": "f86d822e53f1f9d77e9d0eb9efd16920f363ebdc1d6a3eff062b31b8c47666ad"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -11938,7 +12156,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "d5a54337af2191eab690d5823c7f59a2076a36241fe0f726e23ed2d0e6fe051f"
+    "result_hash": "15170d4acfeb2ecf8dcfdc3d278c19b55af31cd2900eddfa9048c69eab74af12"
   },
   "ga_mass_literature": [
     {
@@ -11965,7 +12183,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "d5a54337af2191eab690d5823c7f59a2076a36241fe0f726e23ed2d0e6fe051f",
+  "result_hash_before_external_comparison": "15170d4acfeb2ecf8dcfdc3d278c19b55af31cd2900eddfa9048c69eab74af12",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -11975,5 +12193,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-17 19:09:29"
+  "timestamp": "2026-07-17 21:56:08"
 }

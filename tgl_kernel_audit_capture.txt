@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=150451 len(stderr)=0
+# len(stdout)=153433 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1454,6 +1454,29 @@ TGLExt.FullWitnessData : Type 1
 TGLExt.strongFromWitness : TGLExt.FullWitnessData → TGLExt.QGClosureCertificateStrong
 @TGLExt.constant_action_cannot_witness : ∀ {Region G : Type}, ¬∃ g O, (fun x O' => O') g O ≠ O
 TGLExt.isotone_cannot_feed_witness_geometry : ¬∃ g n, TGLExt.theIsotoneNet.net.act g n ≠ n
+TGLExt.numberDomain : Submodule ℂ TGLExt.ellTwo
+TGLExt.numberOp : TGLExt.ellTwo →ₗ.[ℂ] TGLExt.ellTwo
+TGLExt.numberOp_symmetric : TGLExt.numberOp.IsFormalAdjoint TGLExt.numberOp
+TGLExt.numberOp_unbounded : ¬∃ C, ∀ (x : ↥TGLExt.numberOp.domain), ‖↑TGLExt.numberOp x‖ ≤ C * ‖↑x‖
+TGLExt.numberDomain_dense : Dense ↑TGLExt.numberDomain
+TGLExt.adjoint_domain_le : TGLExt.numberOp.adjoint.domain ≤ TGLExt.numberOp.domain
+TGLExt.numberOp_selfadjoint : IsSelfAdjoint TGLExt.numberOp
+TGLExt.numberOp_quad_gap : ∀ (x : ↥TGLExt.numberOp.domain),
+  (∀ (z : ↥TGLExt.numberOp.domain), ↑TGLExt.numberOp z = 0 → inner ℂ ↑z ↑x = 0) → 1 * ‖↑x‖ ≤ ‖↑TGLExt.numberOp x‖
+TGLExt.theGenuineDirac : TGLExt.GenuinelyUnboundedDiracData TGLExt.ellTwo
+TGLExt.tailSub : ℕ → Submodule ℂ TGLExt.ellTwo
+TGLExt.tailSub_not_finiteDimensional : ∀ (n : ℕ), ¬FiniteDimensional ℂ ↥(TGLExt.tailSub n)
+TGLExt.tailIncl_not_surjective : ¬Function.Surjective ⇑(TGLExt.tailIncl ⋯)
+TGLExt.theTailNet : TGLExt.PhysicalNetData ℕ (fun a b => b ≤ a) (fun n => ↥(TGLExt.tailSub n)) fun n =>
+  ↥(TGLExt.tailSub n)
+TGLExt.genuineDirac_kerSub : TGLExt.theGenuineDirac.kerSub = TGLExt.firstAtom
+TGLExt.theStrongCertificate : TGLExt.QGClosureCertificateStrong
+TGLExt.qgStrongCertificate_core : (_ :
+  TGLExt.PhysicalNetData ℕ (fun a b => b ≤ a) (fun n => ↥(TGLExt.tailSub n)) fun n => ↥(TGLExt.tailSub n)) ×'
+  ∃ O, ¬FiniteDimensional ℂ ↥(TGLExt.tailSub O)
+TGLExt.qgStrongCertificate_corner : (d : TGLExt.GenuinelyUnboundedDiracData TGLExt.ellTwo) ×'
+  0 < TGLExt.dimOrTop ℂ d.kerSub ∧ TGLExt.dimOrTop ℂ d.kerSub < ⊤
+TGLExt.qgStrongCertificate_frame : (f : TGLExt.SmoothFrameData) ×' ∃ x y, f.E x ≠ f.E y
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1884,6 +1907,21 @@ TGLExt.isotone_cannot_feed_witness_geometry : ¬∃ g n, TGLExt.theIsotoneNet.ne
 'TGLExt.strongFromWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.constant_action_cannot_witness' does not depend on any axioms
 'TGLExt.isotone_cannot_feed_witness_geometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.numberOp_symmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.numberOp_unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.numberDomain_dense' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.adjoint_domain_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.numberOp_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.numberOp_quad_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theGenuineDirac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.tailSub_not_finiteDimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.tailIncl_not_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theTailNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.genuineDirac_kerSub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theStrongCertificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgStrongCertificate_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgStrongCertificate_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgStrongCertificate_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
