@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-18 08:41:13",
+  "timestamp": "2026-07-18 09:49:12",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "d32b58da040cc19f3842d488811db6b38005b389698fa98f8b2111effad8d02d",
+  "formal_source_hash": "3192c9805916e00ae10d7159d7dbf22fa4570eabebcbcfeb8c6d0a10433aff32",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "280887518f75adf48c5e372b154a27b93fd26958ab737ecda5334fa02fb6e081",
+    "TGLExt.lean": "dd44dc76875fb45135913146ba82819230a574d6309b482c43e165aadec5952f",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "fed36a9ab49a62ba4a9b8ec8cecb40419c9338c40a474f9afa5c250a3418ce19",
+    "TGL/Audit.lean": "c3f542dc6cd864ac94f60106f563ac3977681392c801d12b3b4dc134f57422aa",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -99,6 +99,7 @@
     "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
     "TGLExt/Solder4D.lean": "70f3c2aa3336b716a740a70c15759ffdaca612c7c69f975c0281a31e9bb2f35f",
     "TGLExt/SolderField.lean": "5dd64e3c8edb8729e474f64822c3f483a8eb504adcffeec734984bb2be6bc873",
+    "TGLExt/SolvedEquation.lean": "052856927e7668d0af050070dd22ec834d1126a1eb5ee8d02e8ecf8b8baa7383",
     "TGLExt/SpectralReduction.lean": "5e52f59e86bb353f6315d6f68accd6687ad958597a87b554012ed1ca92e6dab9",
     "TGLExt/StrongAssembly.lean": "34758f8d20a242bc8e9f2114b572888a793754dbb681a0368adc3e9d9fa2161e",
     "TGLExt/StrongFrame.lean": "648a6f282bfa8d5ec7297f2e93f2bc0db92f219c6cd1a3a74da4b97b1655af87",
@@ -2412,10 +2413,40 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.cosh_solves_field_equation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.cosh_curvature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.source_implies_curvature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.zero_source_recovers_flat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theSolvedEquation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theWeakEinsteinContract": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "399941c793db6e6a0d2ae17bea57b24cdad11dfa6fa1c9f8a3cdb1b730503e58",
-  "audit_stdout_sha256": "295b86dd113360431dc27422598d957b22ef7467d31e250fe9aceff76fa599dc",
+  "build_stdout_sha256": "4eb96651e89e3faa1530bed23578645358627a7f7500c51988bcf80457b6aa53",
+  "audit_stdout_sha256": "00e0ebd089170f35bd43f06101ca4fcf11d3176764129dea662ded266db11247",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

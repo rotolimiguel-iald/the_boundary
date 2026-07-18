@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=158540 len(stderr)=0
+# len(stdout)=159788 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1525,6 +1525,17 @@ TGLExt.geometry_iff_second_variation : ∀ (q : ℝ → ℝ),
       (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzRiemann1001 q s ≠ 0 ↔ deriv (deriv q) s ≠ 0
 TGLExt.geometry_is_projection : ∀ (S : TGLExt.SolderFieldData) (x : Fin 4 → ℝ),
   S.g x = TGLExt.solderMetric4 (S.frame.E x)
+TGLExt.coshProfile : ℝ → ℝ → ℝ
+TGLExt.cosh_solves_field_equation : ∀ (kappa s : ℝ), TGLExt.ansatzG22 (TGLExt.coshProfile kappa) s = kappa ^ 2
+TGLExt.cosh_curvature : ∀ (kappa s : ℝ),
+  TGLExt.ansatzRiemann1001 (TGLExt.coshProfile kappa) s = -(kappa ^ 2 * TGLExt.coshProfile kappa s ^ 2)
+TGLExt.source_implies_curvature : ∀ (kappa : ℝ),
+  kappa ≠ 0 → ∀ (s : ℝ), TGLExt.ansatzRiemann1001 (TGLExt.coshProfile kappa) s < 0
+TGLExt.zero_source_recovers_flat : ∀ (s : ℝ),
+  TGLExt.coshProfile 0 s = 1 ∧ TGLExt.ansatzRiemann1001 (TGLExt.coshProfile 0) s = 0
+TGLExt.theSolvedEquation : ℝ → TGLExt.SolvedEinsteinData
+TGLExt.EinsteinContractData : Type 1
+TGLExt.theWeakEinsteinContract : TGLExt.EinsteinContractData
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1992,6 +2003,12 @@ TGLExt.geometry_is_projection : ∀ (S : TGLExt.SolderFieldData) (x : Fin 4 → 
 'TGLExt.fall_demands_source_v108' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.geometry_iff_second_variation' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.geometry_is_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.cosh_solves_field_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.cosh_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.source_implies_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.zero_source_recovers_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theSolvedEquation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theWeakEinsteinContract' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

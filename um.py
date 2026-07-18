@@ -5096,6 +5096,7 @@ import TGLExt.SolderField
 import TGLExt.FirstCurvature
 import TGLExt.AnsatzEinstein
 import TGLExt.FallenLight
+import TGLExt.SolvedEquation
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5964,6 +5965,17 @@ namespace TGL.Audit
 #check @TGLExt.geometry_iff_second_variation
 #check @TGLExt.geometry_is_projection
 
+-- v111 (A EQUACAO RESOLVIDA: cosh(ks) resolve G22 = k^2 globalmente;
+--       fonte => curvatura; o contrato fraco habitado = a sonda v103)
+#check @TGLExt.coshProfile
+#check @TGLExt.cosh_solves_field_equation
+#check @TGLExt.cosh_curvature
+#check @TGLExt.source_implies_curvature
+#check @TGLExt.zero_source_recovers_flat
+#check @TGLExt.theSolvedEquation
+#check @TGLExt.EinsteinContractData
+#check @TGLExt.theWeakEinsteinContract
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6490,6 +6502,13 @@ namespace TGL.Audit
 #print axioms TGLExt.fall_demands_source_v108
 #print axioms TGLExt.geometry_iff_second_variation
 #print axioms TGLExt.geometry_is_projection
+-- v111 (a equacao resolvida)
+#print axioms TGLExt.cosh_solves_field_equation
+#print axioms TGLExt.cosh_curvature
+#print axioms TGLExt.source_implies_curvature
+#print axioms TGLExt.zero_source_recovers_flat
+#print axioms TGLExt.theSolvedEquation
+#print axioms TGLExt.theWeakEinsteinContract
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -16308,6 +16327,189 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/SolvedEquation.lean":
+r'''import TGLExt.FallenLight
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A EQUAÇÃO RESOLVIDA: a primeira solução global de campo em kernel
+  [TGLExt — v111, o incremento 31 do programa SemifiniteAnalysis]
+
+O v109 deu o tensor de Einstein da família; esta pedra RESOLVE a
+equação: para fonte constante κ² (leitura: κ² = 8πG·ρ), o perfil
+q(s) = cosh(κs) satisfaz
+
+    G₂₂(s) = q″/q = κ²   EM TODA PARTE
+
+— solução GLOBAL (cosh ≥ 1: sem horizonte, sem singularidade, sem
+carta parcial). E a curvatura da solução: R¹₀₀₁ = −κ²·cosh²(κs) < 0
+em toda parte quando κ ≠ 0 — FONTE ⟹ CURVATURA, quantitativo.
+
+* ★ derivadas do perfil: (cosh κ·)′ = κ sinh, (cosh κ·)″ = κ²cosh
+  (cadeia via HasDerivAt.comp, provada);
+* ★★★ `cosh_solves_field_equation` — G₂₂ ≡ κ²: A PRIMEIRA EQUAÇÃO DE
+  CAMPO RESOLVIDA EM KERNEL;
+* ★★ `cosh_curvature` + `source_implies_curvature` — R = −κ²cosh² e
+  κ ≠ 0 ⟹ R ≠ 0 em toda parte;
+* ★ `zero_source_recovers_flat` — κ = 0 devolve q ≡ 1 e R ≡ 0: a
+  coerência com vácuo ⟹ plano (v109);
+* `SolvedEinsteinData` (o pacote da solução) + `theSolvedEquation`
+  (habitante, ∀κ) + `EinsteinContractData` (o contrato FRACO tipado)
+  + ★ `theWeakEinsteinContract` — HABITADO sob nome NÃO-reservado:
+  A SONDA (lição v103): a letra "equação resolvida" é alcançável
+  HOJE, logo NÃO pode ser o juiz do 5º flip; o que falta é a
+  EMERGÊNCIA (a derivação termodinâmica contínua Clausius ⟹ equação,
+  Jacobson contínuo) — a parede, nomeada sem véu. A flag NÃO se move.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Real
+
+noncomputable section
+
+/-! ## A — o perfil cosh e suas derivadas -/
+
+/-- o perfil da solução: q(s) = cosh(κs). -/
+def coshProfile (kappa : ℝ) (s : ℝ) : ℝ := Real.cosh (kappa * s)
+
+theorem coshProfile_pos (kappa s : ℝ) : 0 < coshProfile kappa s :=
+  Real.cosh_pos (kappa * s)
+
+theorem coshProfile_ne_zero (kappa : ℝ) : ∀ s, coshProfile kappa s ≠ 0 :=
+  fun s => ne_of_gt (coshProfile_pos kappa s)
+
+theorem coshProfile_hasDeriv (kappa s : ℝ) :
+    HasDerivAt (coshProfile kappa) (kappa * Real.sinh (kappa * s)) s := by
+  have h := (Real.hasDerivAt_cosh (kappa * s)).comp s
+    ((hasDerivAt_id s).const_mul kappa)
+  have h2 : HasDerivAt (coshProfile kappa)
+      (Real.sinh (kappa * s) * (kappa * 1)) s := h
+  simpa [mul_comm] using h2
+
+theorem coshProfile_deriv (kappa : ℝ) :
+    deriv (coshProfile kappa) = fun s => kappa * Real.sinh (kappa * s) := by
+  funext s
+  exact (coshProfile_hasDeriv kappa s).deriv
+
+theorem coshProfile_deriv2 (kappa s : ℝ) :
+    deriv (deriv (coshProfile kappa)) s = kappa ^ 2 * coshProfile kappa s := by
+  rw [coshProfile_deriv]
+  have hs := (Real.hasDerivAt_sinh (kappa * s)).comp s
+    ((hasDerivAt_id s).const_mul kappa)
+  have hs' : HasDerivAt (fun t => Real.sinh (kappa * t))
+      (Real.cosh (kappa * s) * (kappa * 1)) s := hs
+  have h : HasDerivAt (fun t => kappa * Real.sinh (kappa * t))
+      (kappa * (Real.cosh (kappa * s) * (kappa * 1))) s := hs'.const_mul kappa
+  rw [h.deriv]
+  unfold coshProfile
+  ring
+
+/-! ## B — A EQUAÇÃO RESOLVIDA -/
+
+/-- [KERNEL] ★★★ A PRIMEIRA EQUAÇÃO DE CAMPO RESOLVIDA: o perfil
+    cosh(κs) satisfaz G₂₂ ≡ κ² EM TODA PARTE — solução GLOBAL, sem
+    horizonte e sem singularidade (leitura: κ² = 8πG·ρ). -/
+theorem cosh_solves_field_equation (kappa s : ℝ) :
+    ansatzG22 (coshProfile kappa) s = kappa ^ 2 := by
+  rw [ansatzG22_eq (coshProfile kappa) (coshProfile_ne_zero kappa) s,
+    coshProfile_deriv2]
+  field_simp [coshProfile_ne_zero kappa s]
+
+theorem coshProfile_differentiable (kappa : ℝ) :
+    Differentiable ℝ (coshProfile kappa) :=
+  fun s => (coshProfile_hasDeriv kappa s).differentiableAt
+
+theorem coshProfile_deriv_differentiable (kappa : ℝ) :
+    Differentiable ℝ (deriv (coshProfile kappa)) := by
+  rw [coshProfile_deriv]
+  intro s
+  have hs := (Real.hasDerivAt_sinh (kappa * s)).comp s
+    ((hasDerivAt_id s).const_mul kappa)
+  have hs' : HasDerivAt (fun t => Real.sinh (kappa * t))
+      (Real.cosh (kappa * s) * (kappa * 1)) s := hs
+  exact (hs'.const_mul kappa).differentiableAt
+
+/-- [KERNEL] ★★ a curvatura da solução: R¹₀₀₁ = −κ²·cosh²(κs). -/
+theorem cosh_curvature (kappa s : ℝ) :
+    ansatzRiemann1001 (coshProfile kappa) s
+      = -(kappa ^ 2 * coshProfile kappa s ^ 2) := by
+  rw [ansatzRiemann_closed (coshProfile kappa)
+    (coshProfile_differentiable kappa)
+    (coshProfile_deriv_differentiable kappa)
+    (coshProfile_ne_zero kappa) s, coshProfile_deriv2]
+  ring
+
+/-- [KERNEL] ★★ FONTE ⟹ CURVATURA, quantitativo: κ ≠ 0 ⟹ R < 0 em
+    toda parte (a fonte curva SEMPRE — nenhum ponto escapa). -/
+theorem source_implies_curvature (kappa : ℝ) (hk : kappa ≠ 0) (s : ℝ) :
+    ansatzRiemann1001 (coshProfile kappa) s < 0 := by
+  rw [cosh_curvature]
+  have h3 : 0 < kappa ^ 2 * coshProfile kappa s ^ 2 := by
+    have h1 := coshProfile_pos kappa s
+    positivity
+  linarith
+
+/-- [KERNEL] ★ a coerência: κ = 0 devolve q ≡ 1 (cosh 0 = 1) e a
+    curvatura zera — vácuo ⟹ plano, como manda o v109. -/
+theorem zero_source_recovers_flat (s : ℝ) :
+    coshProfile 0 s = 1 ∧ ansatzRiemann1001 (coshProfile 0) s = 0 := by
+  constructor
+  · unfold coshProfile
+    simp
+  · rw [cosh_curvature]
+    ring
+
+/-! ## C — o pacote da solução e o contrato FRACO (a sonda v103) -/
+
+/-- [DATA] o pacote da equação resolvida: fonte constante κ², perfil
+    positivo global, a equação satisfeita em toda parte, e
+    fonte ⟹ curvatura. -/
+structure SolvedEinsteinData where
+  kappa : ℝ
+  q : ℝ → ℝ
+  q_pos : ∀ s, 0 < q s
+  solves : ∀ s, ansatzG22 q s = kappa ^ 2
+  source_curves : kappa ≠ 0 → ∀ s, ansatzRiemann1001 q s ≠ 0
+
+/-- [KERNEL] ★★ o habitante: a solução cosh, para TODO κ. -/
+def theSolvedEquation (kappa : ℝ) : SolvedEinsteinData where
+  kappa := kappa
+  q := coshProfile kappa
+  q_pos := coshProfile_pos kappa
+  solves := cosh_solves_field_equation kappa
+  source_curves := fun hk s => ne_of_lt (source_implies_curvature kappa hk s)
+
+/-- [DATA — o contrato FRACO do 5º flip; a sonda] dados fortes + solda
+    + equação resolvida. HABITÁVEL HOJE (theWeakEinsteinContract) —
+    logo NÃO pode ser o juiz do flip (lição v103): o que falta é a
+    EMERGÊNCIA (Clausius local ⟹ equação, contínuo — Jacobson), a
+    parede nomeada. -/
+structure EinsteinContractData where
+  strong : QGClosureCertificateStrong
+  solder : SolderFieldData
+  solved : SolvedEinsteinData
+  source_nonzero : solved.kappa ≠ 0
+
+/-- [KERNEL] ★ A SONDA (lição v103 aplicada de novo): o contrato fraco
+    É habitável hoje — sob nome NÃO-reservado, provando que a letra
+    "equação resolvida" não basta para o espírito "equação EMERGENTE";
+    a flag do einstein NÃO se move. -/
+def theWeakEinsteinContract : EinsteinContractData where
+  strong := theStrongCertificate
+  solder := theSolderData
+  solved := theSolvedEquation 1
+  source_nonzero := one_ne_zero
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -23282,6 +23484,13 @@ _LEAN_THEOREM_FLAGS = {
     "ext_fl_fall_source_kernel_proved": "TGLExt.fall_demands_source_v108",
     "ext_fl_geometry_iff_kernel_proved": "TGLExt.geometry_iff_second_variation",
     "ext_fl_projection_kernel_proved": "TGLExt.geometry_is_projection",
+    # v111 (a equacao resolvida)
+    "ext_se_solves_kernel_proved": "TGLExt.cosh_solves_field_equation",
+    "ext_se_curvature_kernel_proved": "TGLExt.cosh_curvature",
+    "ext_se_source_curves_kernel_proved": "TGLExt.source_implies_curvature",
+    "ext_se_zero_source_flat_kernel_proved": "TGLExt.zero_source_recovers_flat",
+    "ext_se_solved_data_kernel_proved": "TGLExt.theSolvedEquation",
+    "ext_se_weak_contract_kernel_proved": "TGLExt.theWeakEinsteinContract",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -24939,6 +25148,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_fl_constant_flat_kernel_proved", "ext_fl_curvature_fall_kernel_proved",
         "ext_fl_fall_source_kernel_proved", "ext_fl_geometry_iff_kernel_proved",
         "ext_fl_projection_kernel_proved",
+        # v111: a equacao resolvida
+        "ext_se_solves_kernel_proved", "ext_se_curvature_kernel_proved",
+        "ext_se_source_curves_kernel_proved", "ext_se_zero_source_flat_kernel_proved",
+        "ext_se_solved_data_kernel_proved", "ext_se_weak_contract_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -25161,6 +25374,9 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     fl_keys = ["ext_fl_constant_flat_kernel_proved", "ext_fl_curvature_fall_kernel_proved",
                "ext_fl_fall_source_kernel_proved", "ext_fl_geometry_iff_kernel_proved",
                "ext_fl_projection_kernel_proved"]
+    se_keys = ["ext_se_solves_kernel_proved", "ext_se_curvature_kernel_proved",
+               "ext_se_source_curves_kernel_proved", "ext_se_zero_source_flat_kernel_proved",
+               "ext_se_solved_data_kernel_proved", "ext_se_weak_contract_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -25220,6 +25436,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dFc = all(per_theorem[k] for k in fc_keys)
     dAe = all(per_theorem[k] for k in ae_keys)
     dFl = all(per_theorem[k] for k in fl_keys)
+    dSe = all(per_theorem[k] for k in se_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -25282,6 +25499,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("first_curvature", dFc),
         ("ansatz_einstein_tensor", dAe),
         ("fallen_light", dFl),
+        ("solved_field_equation", dSe),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -25407,6 +25625,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                 else "NOT_VERIFIED_THIS_RUN"),
             "fallen_light": ("SEMIFINITE_ANALYSIS_INCREMENT_30__SECTOR_HAS_NO_GEOMETRY_IN_ITSELF_CONSTANT_FLAT__GEOMETRY_IS_SECOND_VARIATION_INSCRIBED_IFF__EVERYTHING_GEOMETRIC_IS_PROJECTED_BY_TYPE__FALL_DEMANDS_SOURCE__SEAL_STAYS_CONDITIONAL" if dFl
                              else "NOT_VERIFIED_THIS_RUN"),
+            "solved_equation": ("SEMIFINITE_ANALYSIS_INCREMENT_31__FIRST_SOLVED_FIELD_EQUATION__COSH_SOLVES_G22_EQ_KAPPA_SQ_GLOBALLY__SOURCE_IMPLIES_CURVATURE__WEAK_CONTRACT_INHABITED_AS_PROBE__FIFTH_FLIP_RESERVED_FOR_EMERGENCE__SEAL_STAYS_CONDITIONAL" if dSe
+                                else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -27055,6 +27275,9 @@ def run_um(ONE):
     fallen_light = prove_fallen_light(ONE, {  # v110: ESPACO-TEMPO = q = LUZ QUE CAIU (3 movimentos do operador; eco em kernel; R1-R3); ADITIVO
         "external_ladder": external_ladder,
     })
+    solved_equation = prove_solved_equation(ONE, {  # v111: a 1a equacao de campo RESOLVIDA (cosh global) + a sonda do contrato fraco; ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
@@ -27230,6 +27453,7 @@ def run_um(ONE):
             "first_curvature": first_curvature,
             "ansatz_einstein": ansatz_einstein,
             "fallen_light": fallen_light,
+            "solved_equation": solved_equation,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -31765,6 +31989,83 @@ def prove_fallen_light(ONE, parts):
         "does_not_gate_core": True,
         "verdict": ("TGL_FALLEN_LIGHT_REGISTERED__Q_IS_THE_INDEFINITE_SECTOR_NO_GEOMETRY_IN_ITSELF_THEOREM__GEOMETRY_IS_THE_SECOND_VARIATION_INSCRIBED_IFF_THEOREM__SECTOR_DUALITY_MIRRORS_LIGHT_DUALITY_ONTO__KERNEL_ECHO_NO_FALL_NO_GEOMETRY_FALL_DEMANDS_SOURCE__NUMERIC_EQUALITY_REFUTED_BY_TYPE__SHADOW_WELL_CONJ_NAMED__READING_ONTO" if all_v
                     else "FALLEN_LIGHT_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_solved_equation(ONE, parts):
+    """v111 -- A EQUACAO RESOLVIDA [ADITIVO; NENHUMA flag se move -- e a
+    SONDA prova por que]. Mandato 'resolva e prove', levado ao maximo
+    honesto de hoje:
+    (1) A PRIMEIRA EQUACAO DE CAMPO RESOLVIDA EM KERNEL: para fonte
+        constante kappa^2 (leitura: kappa^2 = 8piG.rho), o perfil
+        q(s) = cosh(kappa s) satisfaz G22 = kappa^2 EM TODA PARTE --
+        solucao GLOBAL (cosh >= 1: sem horizonte, sem singularidade);
+    (2) FONTE => CURVATURA, quantitativo: R^1_001 = -kappa^2 cosh^2 < 0
+        em toda parte quando kappa != 0; e kappa = 0 devolve q = 1 e
+        R = 0 (coerencia com vacuo => plano, v109);
+    (3) O PACOTE SolvedEinsteinData HABITADO para TODO kappa
+        (theSolvedEquation);
+    (4) A SONDA (licao v103, terceira aplicacao): o contrato FRACO
+        EinsteinContractData (fortes + solda + equacao resolvida) FOI
+        HABITADO sob nome NAO-reservado (theWeakEinsteinContract) --
+        provando que a letra 'equacao resolvida' e' alcancavel HOJE e
+        portanto NAO pode ser o juiz do 5o flip. O que falta e' a
+        EMERGENCIA: a derivacao termodinamica continua (Clausius local
+        => equacao de campo -- Jacobson continuo), A PAREDE nomeada sem
+        veu. A flag do einstein NAO se move -- por sonda, nao por
+        omissao."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    four_two = bool(flips.get("concrete_aqft_core_constructed")
+                    and flips.get("concrete_breuer_corner_constructed")
+                    and flips.get("concrete_modular_four_frame_constructed")
+                    and flips.get("concrete_solder_field_constructed")
+                    and not flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    eq_ok = bool(elp.get("ext_se_solves_kernel_proved") is True)
+    curv_ok = bool(elp.get("ext_se_curvature_kernel_proved") is True)
+    src_ok = bool(elp.get("ext_se_source_curves_kernel_proved") is True)
+    coh_ok = bool(elp.get("ext_se_zero_source_flat_kernel_proved") is True)
+    pack_ok = bool(elp.get("ext_se_solved_data_kernel_proved") is True)
+    weak_ok = bool(elp.get("ext_se_weak_contract_kernel_proved") is True)
+    checks = [
+        ("A EQUACAO RESOLVIDA: G22(cosh(ks)) = k^2 EM TODA PARTE (global)", eq_ok),
+        ("a curvatura da solucao: R = -k^2 cosh^2 (fechada)", curv_ok),
+        ("FONTE => CURVATURA: k != 0 => R < 0 em toda parte", src_ok),
+        ("coerencia: k = 0 => q = 1 e R = 0 (vacuo => plano, v109)", coh_ok),
+        ("o pacote habitado p/ TODO k (theSolvedEquation)", pack_ok),
+        ("A SONDA: o contrato fraco HABITADO (nome nao-reservado) => a letra nao basta", weak_ok),
+        ("a flag do einstein NAO se moveu (4T/2F) -- por sonda, nao por omissao", four_two),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A PRIMEIRA EQUACAO DE CAMPO RESOLVIDA EM KERNEL: cosh(kappa s) "
+                    "resolve G22 = kappa^2 globalmente; fonte => curvatura "
+                    "quantitativo; e a SONDA do contrato fraco prova que o 5o flip "
+                    "exige a EMERGENCIA (Clausius continuo), nao apenas a equacao."),
+        "leitura": {
+            "estatuto": "[KERNEL -- solucao formal; a leitura fisica kappa^2 = 8piG.rho]",
+            "o_que_e": ("a equacao de Einstein do ansatz, RESOLVIDA e verificada "
+                        "formalmente -- solucao global sem horizonte nem singularidade"),
+            "a_sonda": ("terceira aplicacao da licao v103: habitamos o contrato fraco "
+                        "de proposito para provar que ele nao pode ser o juiz; o 5o "
+                        "flip fica reservado para a DERIVACAO (Jacobson continuo) -- "
+                        "a parede nomeada"),
+            "o_caminho_restante": ("formais: einstein = derivacao termodinamica continua; "
+                                   "witness = escalar livre [KNOWN] + III_1; physics = "
+                                   "spin-2 continuo; experiment = dado (DES/HSC, kappa "
+                                   "in-footprint, LRG/ELG)"),
+        },
+        "values": {"beta": beta, "G22_of_cosh": "kappa^2 (exato)",
+                   "R_of_cosh_at_0_kappa1": -1.0},
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_FIRST_SOLVED_FIELD_EQUATION_IN_KERNEL__COSH_PROFILE_SOLVES_G22_EQ_KAPPA_SQ_GLOBALLY_NO_HORIZON_NO_SINGULARITY__SOURCE_IMPLIES_CURVATURE_QUANTITATIVE__WEAK_CONTRACT_INHABITED_AS_PROBE_LETTER_NOT_ENOUGH__FIFTH_FLIP_RESERVED_FOR_THERMODYNAMIC_EMERGENCE_JACOBSON_WALL_NAMED__SEAL_UNMOVED" if all_v
+                    else "SOLVED_EQUATION_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -38239,7 +38540,8 @@ _ESQUELETO_STONES = [
     ("v107", "SolderField", "TGLExt/SolderField.lean", "389/389", "18/07 04:05:11"),
     ("v108", "FirstCurvature", "TGLExt/FirstCurvature.lean", "395/395", "18/07 07:16:33"),
     ("v109", "AnsatzEinstein", "TGLExt/AnsatzEinstein.lean", "402/402", "18/07 08:03:07"),
-    ("v110", "FallenLight", "TGLExt/FallenLight.lean", None, None),
+    ("v110", "FallenLight", "TGLExt/FallenLight.lean", "407/407", "18/07 08:41:13"),
+    ("v111", "SolvedEquation", "TGLExt/SolvedEquation.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -38274,17 +38576,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(cinquenta e oito pedras, \S120--\S190)}")
+                 r"(cinquenta e nove pedras, \S120--\S191)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em cinquenta e oito pedras "
-                 r"(v43--v110) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em cinquenta e nove pedras "
+                 r"(v43--v111) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As cinquenta e oito pedras}")
+        c.append(r"\subsection*{As cinquenta e nove pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -38914,6 +39216,22 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"(stealth: a RG observada é válida). A dualidade do setor "
                  r"(substrato/inscrito) espelha a dualidade da luz "
                  r"(transmissão/reflexão), sobre a autoconjugação da Meia-Nat.")
+        c.append(r"\kernelmk{SolvedEquation} (v111): \textbf{A EQUAÇÃO RESOLVIDA "
+                 r"--- a primeira solução global de campo em kernel}. Para fonte "
+                 r"constante $\kappa^2$ (leitura: $\kappa^2=8\pi G\rho$), o perfil "
+                 r"$q(s)=\cosh(\kappa s)$ satisfaz $G_{22}\equiv\kappa^2$ EM TODA "
+                 r"PARTE --- solução GLOBAL ($\cosh\ge 1$: sem horizonte, sem "
+                 r"singularidade); a curvatura fechada $R^1{}_{001}=-\kappa^2"
+                 r"\cosh^2<0$ quantifica FONTE $\Rightarrow$ CURVATURA; e "
+                 r"$\kappa=0$ devolve $q\equiv 1$, $R\equiv 0$ (coerência com "
+                 r"vácuo $\Rightarrow$ plano). E A SONDA (terceira aplicação da "
+                 r"lição v103): o contrato FRACO (fortes $+$ solda $+$ equação "
+                 r"resolvida) foi HABITADO sob nome não-reservado "
+                 r"(\texttt{theWeakEinsteinContract}) --- provando que a letra "
+                 r"``equação resolvida'' é alcançável hoje e NÃO pode ser o juiz do "
+                 r"5º flip; o que falta é a EMERGÊNCIA (Clausius local $\Rightarrow$ "
+                 r"equação, contínuo --- Jacobson), a parede nomeada sem véu. A "
+                 r"flag NÃO se move --- por sonda, não por omissão.")
         c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
                   r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
                   r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
@@ -39286,7 +39604,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cinquenta e oito pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cinquenta e nove pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -39421,16 +39739,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(fifty-eight stones, \S120--\S190)}")
+                 r"(fifty-nine stones, \S120--\S191)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across fifty-eight stones (v43--v110) the audited kernel went from 53 to "
+                 r"from this run's audit. Across fifty-nine stones (v43--v111) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The fifty-eight stones}")
+        c.append(r"\subsection*{The fifty-nine stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -40058,6 +40376,22 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"falsity (stealth: observed GR stands). The sector's duality "
                  r"(substrate/inscribed) mirrors light's duality "
                  r"(transmission/reflection), over the Half-Nat self-conjugation.")
+        c.append(r"\kernelmk{SolvedEquation} (v111): \textbf{THE SOLVED EQUATION "
+                 r"--- the first global field solution in kernel}. For constant "
+                 r"source $\kappa^2$ (reading: $\kappa^2=8\pi G\rho$), the profile "
+                 r"$q(s)=\cosh(\kappa s)$ satisfies $G_{22}\equiv\kappa^2$ "
+                 r"EVERYWHERE --- a GLOBAL solution ($\cosh\ge 1$: no horizon, no "
+                 r"singularity); the closed curvature $R^1{}_{001}=-\kappa^2"
+                 r"\cosh^2<0$ quantifies SOURCE $\Rightarrow$ CURVATURE; and "
+                 r"$\kappa=0$ returns $q\equiv 1$, $R\equiv 0$ (coherent with "
+                 r"vacuum $\Rightarrow$ flat). And THE PROBE (third application of "
+                 r"the v103 lesson): the WEAK contract (strong $+$ solder $+$ solved "
+                 r"equation) was INHABITED under a non-reserved name "
+                 r"(\texttt{theWeakEinsteinContract}) --- proving the letter "
+                 r"``solved equation'' is reachable today and CANNOT judge the 5th "
+                 r"flip; what remains is EMERGENCE (local Clausius $\Rightarrow$ "
+                 r"equation, continuous --- Jacobson), the wall named unveiled. The "
+                 r"flag does NOT move --- by probe, not by omission.")
         c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
                   r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
                   r"witness is the boundary; the boundary proves itself by the asymptotic limit "
@@ -40418,7 +40752,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across fifty-eight stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across fifty-nine stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -40915,7 +41249,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -43090,6 +43424,12 @@ def main():
     for _k, _v in (_fll.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [o setor nao tem geometria em si (teorema); a geometria = 2a variacao inscrita (iff); tudo que tem geometria e' PROJETADO (o tipo); ilusao = nao-fundamentalidade, JAMAIS falsidade empirica (stealth)]")
+    _se = core.get("solved_equation", {}) or {}
+    print("  A EQUACAO RESOLVIDA [v111 -- a 1a solucao global de campo em kernel]: %s" % _se.get("verdict"))
+    print("    q = cosh(kappa s) resolve G22 = kappa^2 EM TODA PARTE (sem horizonte, sem singularidade); R = -kappa^2 cosh^2 < 0 (fonte => curvatura)")
+    for _k, _v in (_se.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [a SONDA: o contrato fraco foi HABITADO de proposito (nome nao-reservado) -- a letra 'equacao resolvida' nao basta; o 5o flip fica p/ a EMERGENCIA (Clausius continuo, Jacobson) -- a parede nomeada]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (
