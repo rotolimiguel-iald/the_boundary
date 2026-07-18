@@ -4197,17 +4197,37 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.theSolderField_det_neg": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theSolderField_nonconstant": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theSolderData": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.qgStrongCertificate_solder": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "caf2a45dd95c93382b8564570ee71c3c56baefc09cfc55128b751df5fe7465f4",
+      "formal_source_hash": "ef71e2566a6803bbbf444f5e28ba0c352bbdf86e456f0973d465d6e3b9bc50d8",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "ceb62edebcb996ce30cc7df11ffd6a5be3ba8fa19d090a951eacdae5625c2091",
+        "TGLExt.lean": "1538404df82608b94a53c577acbece6f6eb65c9d1bc734063b492c29a0c02a90",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "0643042ab3077dec8c0a334e7182a7fceea5ebac11b1ca6dbf90a92712de6980",
+        "TGL/Audit.lean": "1b5bf4fdf58df2d1a92f73a40dcd7f94222ce608286d61ec247e916639c5d788",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -4284,6 +4304,7 @@
         "TGLExt/SemifiniteLattice.lean": "37ca0a1db916c93954c1a486ddbf5462248a050e58ccb6b670020c5225e46b0f",
         "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
         "TGLExt/Solder4D.lean": "70f3c2aa3336b716a740a70c15759ffdaca612c7c69f975c0281a31e9bb2f35f",
+        "TGLExt/SolderField.lean": "5dd64e3c8edb8729e474f64822c3f483a8eb504adcffeec734984bb2be6bc873",
         "TGLExt/SpectralReduction.lean": "5e52f59e86bb353f6315d6f68accd6687ad958597a87b554012ed1ca92e6dab9",
         "TGLExt/StrongAssembly.lean": "34758f8d20a242bc8e9f2114b572888a793754dbb681a0368adc3e9d9fa2161e",
         "TGLExt/StrongFrame.lean": "648a6f282bfa8d5ec7297f2e93f2bc0db92f219c6cd1a3a74da4b97b1655af87",
@@ -4747,29 +4768,32 @@
       "ext_tn_net_kernel_proved": true,
       "ext_sa_kersub_atom_kernel_proved": true,
       "ext_sa_strong_assembled_kernel_proved": true,
+      "ext_so_solder_data_kernel_proved": true,
+      "ext_so_det_neg_kernel_proved": true,
+      "ext_so_nonconstant_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "37f936d63adc12b8fe258cac838ab7f52b5523465a49611bda59251151412b0a",
+      "build_stdout_sha256": "72afc47bdc0d37e6c610dcfd33609b597d159805af5bb12956da56d90c38c2a1",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "0d7c4ba1fa991c1edaeb928957766612761e7c63bc1feddcca1fe799ee23f888",
+      "audit_stdout_sha256": "ee2eb65cd014596f3bd027972f3a486f8de18e03be66b9b9d492bd37545c252d",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 201357,
+        "stdout": 203873,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 153433,
+        "stdout": 154297,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "37f936d63adc12b8fe258cac838ab7f52b5523465a49611bda59251151412b0a",
-      "audit_capture_sha256_full": "0d7c4ba1fa991c1edaeb928957766612761e7c63bc1feddcca1fe799ee23f888",
+      "build_capture_sha256_full": "72afc47bdc0d37e6c610dcfd33609b597d159805af5bb12956da56d90c38c2a1",
+      "audit_capture_sha256_full": "ee2eb65cd014596f3bd027972f3a486f8de18e03be66b9b9d492bd37545c252d",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
       "qgc_concrete_breuer_corner_constructed": true,
       "qgc_concrete_modular_four_frame_constructed": true,
-      "qgc_concrete_solder_field_constructed": false,
+      "qgc_concrete_solder_field_constructed": true,
       "qgc_concrete_emergent_einstein_proved": false,
       "qgc_canonical_boundary_transport_witness_constructed": false,
       "source_forbidden_tokens_found": [],
@@ -6010,7 +6034,8 @@
         "bench_certificate": "SEMIFINITE_ANALYSIS_INCREMENT_20__V1_CERTIFICATE_INHABITED_ON_THE_BENCH_ON_PURPOSE_NON_RESERVED_NAME__TYPE_LETTER_DOES_NOT_FORCE_SPIRIT_PROVED_THREE_FACES__STRONG_TYPES_TYPED_UNBOUNDED_INFINITE_FIBER_NONCONSTANT_FRAME__BENCH_CANNOT_FEED_STRONG_BY_THEOREM__GATE_REPOINTED_STRICTLY_TIGHTER__GATE_UNMOVED",
         "witness_v2": "SEMIFINITE_ANALYSIS_INCREMENTS_21_22__CURVED_FRAME_FEEDS_FIRST_STRONG_FACE_NONCONSTANT_SMOOTH_DET_UNIT__FULL_WITNESS_DATA_TYPED_GROUP_ACTION_COVARIANT_INCLUSIONS_FLOW_LAW__UNTYPABLE_HALF_NAMED_III1_AFFILIATION_H3_SPIN2_POINCARE__FREE_SCALAR_KNOWN_EXTERNAL__GATE_UNMOVED",
         "number_operator": "SEMIFINITE_ANALYSIS_INCREMENTS_23_24__NUMBER_OPERATOR_N_ON_ELL2_PROPER_DENSE_DOMAIN__SYMMETRIC_UNBOUNDED_NAME_IN_KERNEL__HARD_INCLUSION_BY_TRUNCATION_S_LE_C_SQRT_S__STAR_N_EQ_N_PROVED_FIRST_CONCRETE_UNBOUNDED_SELFADJOINT__GENUINELY_UNBOUNDED_DIRAC_INHABITED__GATE_UNMOVED",
-        "strong_assembly": "SEMIFINITE_ANALYSIS_INCREMENTS_25_26__TAIL_NET_INFINITE_DIM_FIBERS_CLOSED_GENUINE_ISOTONY__KER_N_EQ_NAME_ATOM_TAU_ONE__STRONG_CERTIFICATE_ASSEMBLED_NON_RESERVED_FIRST__THREE_RESERVED_NAMES_MINTED_CORE_CORNER_FRAME__SEAL_STAYS_CONDITIONAL"
+        "strong_assembly": "SEMIFINITE_ANALYSIS_INCREMENTS_25_26__TAIL_NET_INFINITE_DIM_FIBERS_CLOSED_GENUINE_ISOTONY__KER_N_EQ_NAME_ATOM_TAU_ONE__STRONG_CERTIFICATE_ASSEMBLED_NON_RESERVED_FIRST__THREE_RESERVED_NAMES_MINTED_CORE_CORNER_FRAME__SEAL_STAYS_CONDITIONAL",
+        "solder_field": "SEMIFINITE_ANALYSIS_INCREMENT_27__CONTINUOUS_SOLDER_G_EQ_ET_ETA_E_ON_CURVED_FRAME__SYMMETRIC_SMOOTH_NONCONSTANT__LORENTZIAN_DET_NEG_EVERYWHERE__FOURTH_RESERVED_NAME_MINTED__EINSTEIN_NOT_TYPED_ON_PURPOSE_CURVATURE_WALL_NAMED__SEAL_STAYS_CONDITIONAL"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -6398,10 +6423,13 @@
         "ext_tn_not_surjective_kernel_proved": true,
         "ext_tn_net_kernel_proved": true,
         "ext_sa_kersub_atom_kernel_proved": true,
-        "ext_sa_strong_assembled_kernel_proved": true
+        "ext_sa_strong_assembled_kernel_proved": true,
+        "ext_so_solder_data_kernel_proved": true,
+        "ext_so_det_neg_kernel_proved": true,
+        "ext_so_nonconstant_kernel_proved": true
       },
-      "n_theorems_clean": 386,
-      "n_theorems_expected": 386,
+      "n_theorems_clean": 389,
+      "n_theorems_expected": 389,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -6636,6 +6664,10 @@
         ],
         [
           "tail_net_and_strong_assembly",
+          true
+        ],
+        [
+          "continuous_solder_field",
           true
         ]
       ],
@@ -9959,7 +9991,7 @@
         "concrete_aqft_core_constructed": true,
         "concrete_breuer_corner_constructed": true,
         "concrete_modular_four_frame_constructed": true,
-        "concrete_solder_field_constructed": false,
+        "concrete_solder_field_constructed": true,
         "concrete_emergent_einstein_proved": false,
         "canonical_boundary_transport_witness_constructed": false
       },
@@ -10092,11 +10124,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 386 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 389 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 386/386; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 389/389; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -10641,7 +10673,7 @@
         "concrete_aqft_core_constructed": true,
         "concrete_breuer_corner_constructed": true,
         "concrete_modular_four_frame_constructed": true,
-        "concrete_solder_field_constructed": false,
+        "concrete_solder_field_constructed": true,
         "concrete_emergent_einstein_proved": false,
         "canonical_boundary_transport_witness_constructed": false
       },
@@ -10707,10 +10739,10 @@
           "o_que_falta": "FLIPADO v106 POR CONSTRUCAO: theCurvedFrame sob o nome reservado; a ligacao covariante ao net segue no v2 (testemunha)"
         },
         "concrete_solder_field_constructed": {
-          "flag": false,
+          "flag": true,
           "termo_reservado": "TGLExt.qgStrongCertificate_solder",
           "tipo_exigido": "solda 4D como CAMPO sobre o frame-campo (face finita v64 em kernel)",
-          "o_que_falta": "a versao continua da solda (so(1,3) sobre o frame-campo curvo)"
+          "o_que_falta": "FLIPADO v107 POR CONSTRUCAO: theSolderData (g = E^T eta E curva, det<0 em toda parte) sob o nome reservado"
         },
         "concrete_emergent_einstein_proved": {
           "flag": false,
@@ -10742,19 +10774,19 @@
       },
       "values": {
         "beta": 0.012031300400803142,
-        "n_formal_flags_false": 3
+        "n_formal_flags_false": 2
       },
       "gate_flags": {
         "concrete_aqft_core_constructed": true,
         "concrete_breuer_corner_constructed": true,
         "concrete_modular_four_frame_constructed": true,
-        "concrete_solder_field_constructed": false,
+        "concrete_solder_field_constructed": true,
         "concrete_emergent_einstein_proved": false,
         "canonical_boundary_transport_witness_constructed": false
       },
       "checks": [
         [
-          "(A) estado fail-closed LEGITIMO: todas False, OU exatamente os 3 flips v106 (core/corner/frame)",
+          "(A) estado fail-closed LEGITIMO: todas False, OU exatamente os 4 flips fortes (core/corner/frame/solder)",
           true
         ],
         [
@@ -10847,14 +10879,14 @@
         "concrete_aqft_core_constructed": true,
         "concrete_breuer_corner_constructed": true,
         "concrete_modular_four_frame_constructed": true,
-        "concrete_solder_field_constructed": false,
+        "concrete_solder_field_constructed": true,
         "concrete_emergent_einstein_proved": false,
         "canonical_boundary_transport_witness_constructed": false
       },
       "values": {
         "beta": 0.012031300400803142,
-        "n_true": 3,
-        "n_false": 3
+        "n_true": 4,
+        "n_false": 2
       },
       "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
       "checks": [
@@ -10871,7 +10903,7 @@
           true
         ],
         [
-          "as TRES restantes seguem False (solder/einstein/witness)",
+          "as restantes DURAS seguem False (einstein/witness); solder = 4o flip v107",
           true
         ],
         [
@@ -10898,6 +10930,57 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "verdict": "TGL_FIRST_HONEST_FLIPS__CORE_CORNER_FRAME_TRUE_BY_CONSTRUCTION_NEVER_BY_DECLARATION__THREE_REMAIN_FALSE_SOLDER_EINSTEIN_WITNESS__SEAL_UNMOVED_CONDITIONAL_ARCHITECTURE_ONLY__MECHANISM_DEMONSTRATED_LIVE"
+    },
+    "solder_flip": {
+      "theorem": "O QUARTO FLIP: a solda continua g(x) = E(x)^T eta E(x) sobre o frame curvo -- simetrica, suave, lorentziana (det < 0 em toda parte), nao-constante; o nome reservado cunhado; o selo IMOVEL (4 < 6). Einstein NAO foi tipado de proposito: sem curvatura como estrutura o tipo seria mais fraco que o espirito (licao v103 aplicada a nos mesmos).",
+      "flips": {
+        "concrete_aqft_core_constructed": true,
+        "concrete_breuer_corner_constructed": true,
+        "concrete_modular_four_frame_constructed": true,
+        "concrete_solder_field_constructed": true,
+        "concrete_emergent_einstein_proved": false,
+        "canonical_boundary_transport_witness_constructed": false
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "n_true": 4,
+        "n_false": 2,
+        "det_g_at_origin": -1.0
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "FLIP 4 -- solder (campo g = E^T eta E curvo): qgc True, lido do kernel",
+          true
+        ],
+        [
+          "os 4 flips juntos: core/corner/frame/solder True",
+          true
+        ],
+        [
+          "as DUAS restantes seguem False (einstein/witness)",
+          true
+        ],
+        [
+          "o habitante: theSolderData (simetrica+suave+lorentziana+curva)",
+          true
+        ],
+        [
+          "det g < 0 EM TODA PARTE (o volume lorentziano jamais degenera)",
+          true
+        ],
+        [
+          "a solda e' genuinamente CURVA (nao-constante)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL; 4 < 6)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_FOURTH_FLIP__CONTINUOUS_SOLDER_FIELD_ON_CURVED_FRAME__SYMMETRIC_SMOOTH_LORENTZIAN_DET_NEG_EVERYWHERE_NONCONSTANT__RESERVED_NAME_MINTED__EINSTEIN_DELIBERATELY_NOT_TYPED_CURVATURE_WALL_NAMED__SEAL_UNMOVED_CONDITIONAL"
     },
     "certificate_II": {
       "H1_finite_face": {
@@ -11570,7 +11653,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-17 21:56:08",
+    "timestamp": "2026-07-18 04:05:11",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -11820,7 +11903,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-17 21:56:08",
+        "prediction_timestamp": "2026-07-18 04:05:11",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -11856,7 +11939,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "f86d822e53f1f9d77e9d0eb9efd16920f363ebdc1d6a3eff062b31b8c47666ad"
+        "prediction_hash": "afefcbf5d635de5618b7ae16038f6e455bc98ba902838b5f4bc8bffb46cce02c"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -12156,7 +12239,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "15170d4acfeb2ecf8dcfdc3d278c19b55af31cd2900eddfa9048c69eab74af12"
+    "result_hash": "6d4993a7b1170e93edf819b4b8162359945af3ead4a8a260d9b20dba70162174"
   },
   "ga_mass_literature": [
     {
@@ -12183,7 +12266,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "15170d4acfeb2ecf8dcfdc3d278c19b55af31cd2900eddfa9048c69eab74af12",
+  "result_hash_before_external_comparison": "6d4993a7b1170e93edf819b4b8162359945af3ead4a8a260d9b20dba70162174",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -12193,5 +12276,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-17 21:56:08"
+  "timestamp": "2026-07-18 04:05:11"
 }

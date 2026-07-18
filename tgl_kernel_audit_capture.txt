@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=153433 len(stderr)=0
+# len(stdout)=154297 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1477,6 +1477,13 @@ TGLExt.qgStrongCertificate_core : (_ :
 TGLExt.qgStrongCertificate_corner : (d : TGLExt.GenuinelyUnboundedDiracData TGLExt.ellTwo) ×'
   0 < TGLExt.dimOrTop ℂ d.kerSub ∧ TGLExt.dimOrTop ℂ d.kerSub < ⊤
 TGLExt.qgStrongCertificate_frame : (f : TGLExt.SmoothFrameData) ×' ∃ x y, f.E x ≠ f.E y
+TGLExt.theSolderField : (Fin 4 → ℝ) → Matrix (Fin 4) (Fin 4) ℝ
+TGLExt.theSolderField_det_neg : ∀ (x : Fin 4 → ℝ), (TGLExt.theSolderField x).det < 0
+TGLExt.theSolderField_nonconstant : ∃ x y, TGLExt.theSolderField x ≠ TGLExt.theSolderField y
+TGLExt.SolderFieldData : Type
+TGLExt.theSolderData : TGLExt.SolderFieldData
+TGLExt.qgStrongCertificate_solder : (s : TGLExt.SolderFieldData) ×' ∃ x y, s.g x ≠ s.g y
+TGLExt.solder_frame_eq_strong : TGLExt.theSolderData.frame = TGLExt.theStrongCertificate.frame
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1922,6 +1929,10 @@ TGLExt.qgStrongCertificate_frame : (f : TGLExt.SmoothFrameData) ×' ∃ x y, f.E
 'TGLExt.qgStrongCertificate_core' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.qgStrongCertificate_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.qgStrongCertificate_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theSolderField_det_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theSolderField_nonconstant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theSolderData' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgStrongCertificate_solder' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

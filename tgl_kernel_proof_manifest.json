@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-17 21:56:08",
+  "timestamp": "2026-07-18 04:05:11",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "caf2a45dd95c93382b8564570ee71c3c56baefc09cfc55128b751df5fe7465f4",
+  "formal_source_hash": "ef71e2566a6803bbbf444f5e28ba0c352bbdf86e456f0973d465d6e3b9bc50d8",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "ceb62edebcb996ce30cc7df11ffd6a5be3ba8fa19d090a951eacdae5625c2091",
+    "TGLExt.lean": "1538404df82608b94a53c577acbece6f6eb65c9d1bc734063b492c29a0c02a90",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "0643042ab3077dec8c0a334e7182a7fceea5ebac11b1ca6dbf90a92712de6980",
+    "TGL/Audit.lean": "1b5bf4fdf58df2d1a92f73a40dcd7f94222ce608286d61ec247e916639c5d788",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -95,6 +95,7 @@
     "TGLExt/SemifiniteLattice.lean": "37ca0a1db916c93954c1a486ddbf5462248a050e58ccb6b670020c5225e46b0f",
     "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
     "TGLExt/Solder4D.lean": "70f3c2aa3336b716a740a70c15759ffdaca612c7c69f975c0281a31e9bb2f35f",
+    "TGLExt/SolderField.lean": "5dd64e3c8edb8729e474f64822c3f483a8eb504adcffeec734984bb2be6bc873",
     "TGLExt/SpectralReduction.lean": "5e52f59e86bb353f6315d6f68accd6687ad958597a87b554012ed1ca92e6dab9",
     "TGLExt/StrongAssembly.lean": "34758f8d20a242bc8e9f2114b572888a793754dbb681a0368adc3e9d9fa2161e",
     "TGLExt/StrongFrame.lean": "648a6f282bfa8d5ec7297f2e93f2bc0db92f219c6cd1a3a74da4b97b1655af87",
@@ -2298,10 +2299,30 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.theSolderField_det_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theSolderField_nonconstant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theSolderData": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgStrongCertificate_solder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "37f936d63adc12b8fe258cac838ab7f52b5523465a49611bda59251151412b0a",
-  "audit_stdout_sha256": "0d7c4ba1fa991c1edaeb928957766612761e7c63bc1feddcca1fe799ee23f888",
+  "build_stdout_sha256": "72afc47bdc0d37e6c610dcfd33609b597d159805af5bb12956da56d90c38c2a1",
+  "audit_stdout_sha256": "ee2eb65cd014596f3bd027972f3a486f8de18e03be66b9b9d492bd37545c252d",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

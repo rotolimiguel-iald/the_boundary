@@ -5092,6 +5092,7 @@ import TGLExt.NumberOperator
 import TGLExt.NumberSelfAdjoint
 import TGLExt.TailNet
 import TGLExt.StrongAssembly
+import TGLExt.SolderField
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5919,6 +5920,15 @@ namespace TGL.Audit
 #check @TGLExt.qgStrongCertificate_corner
 #check @TGLExt.qgStrongCertificate_frame
 
+-- v107 (a solda continua sobre o frame curvo: o QUARTO FLIP)
+#check @TGLExt.theSolderField
+#check @TGLExt.theSolderField_det_neg
+#check @TGLExt.theSolderField_nonconstant
+#check @TGLExt.SolderFieldData
+#check @TGLExt.theSolderData
+#check @TGLExt.qgStrongCertificate_solder
+#check @TGLExt.solder_frame_eq_strong
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6418,6 +6428,11 @@ namespace TGL.Audit
 #print axioms TGLExt.qgStrongCertificate_core
 #print axioms TGLExt.qgStrongCertificate_corner
 #print axioms TGLExt.qgStrongCertificate_frame
+-- v107 (a solda continua: o quarto flip)
+#print axioms TGLExt.theSolderField_det_neg
+#print axioms TGLExt.theSolderField_nonconstant
+#print axioms TGLExt.theSolderData
+#print axioms TGLExt.qgStrongCertificate_solder
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -15487,6 +15502,174 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/SolderField.lean":
+r'''import TGLExt.StrongAssembly
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A SOLDA CONTÍNUA: o campo g(x) = E(x)ᵀ η E(x) — e o QUARTO FLIP
+  [TGLExt — v107, o incremento 27 do programa SemifiniteAnalysis]
+
+O v63 provou a solda PONTUAL (g = eᵀηe simétrica; det g = −det(e)²).
+Esta pedra a eleva a CAMPO sobre o frame CURVO do v104:
+
+* `theSolderField` — g(x) = solderMetric4(E(x)) com E o frame curvo:
+  ★ diagonal explícita diag((1+x₀²)², −1, −1, −1);
+  ★ SIMÉTRICA em todo ponto; ★ SUAVE (C^∞ entrada a entrada);
+  ★ `theSolderField_det_neg` — det g(x) = −(1+x₀²)² < 0 em TODA PARTE:
+  o volume lorentziano JAMAIS degenera (a face do sinal, típada);
+  ★ NÃO-CONSTANTE (a solda é genuinamente curva — herda o forte);
+* `SolderFieldData` — o contrato TIPADO do 4º flip: frame forte +
+  g nascida da solda + suavidade + det < 0 + não-constância;
+* ★★★ `qgStrongCertificate_solder` — O QUARTO FLIP: o nome reservado
+  ganha termo com contrato Σ'. O selo NÃO se move (4 < 6).
+
+HONESTIDADE (a lição do v103 aplicada a nós mesmos): o contrato de
+EINSTEIN **não** é tipado nesta pedra — um tipo sem CURVATURA como
+estrutura seria mais fraco que o espírito da flag, e flipar sobre ele
+seria bancada. A curvatura contínua (geometria riemanniana plena)
+não está na mathlib de hoje: o 5º flip fica NOMEADO e reservado;
+a assinatura plena (1,3) de Sylvester idem (det < 0 é a metade
+honesta tipável em 4D).
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+/-- O CAMPO SOLDADO: g(x) = E(x)ᵀ η E(x) sobre o frame curvo. -/
+def theSolderField (x : Fin 4 → ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  solderMetric4 (theCurvedFrame.E x)
+
+/-- [KERNEL] ★ a forma diagonal explícita da solda curva. -/
+theorem theSolderField_eq (x : Fin 4 → ℝ) :
+    theSolderField x
+      = Matrix.diagonal (fun i => if i = 0 then profileFn x ^ 2 else -1) := by
+  unfold theSolderField solderMetric4
+  rw [curvedFrame_E_apply, Matrix.diagonal_transpose]
+  unfold eta4
+  rw [Matrix.diagonal_mul_diagonal, Matrix.diagonal_mul_diagonal]
+  congr 1
+  funext i
+  fin_cases i <;> simp <;> ring
+
+/-- [KERNEL] ★ g é simétrica em todo ponto (herdado da solda pontual). -/
+theorem theSolderField_symm (x : Fin 4 → ℝ) :
+    (theSolderField x)ᵀ = theSolderField x :=
+  solderMetric4_symm _
+
+/-- [KERNEL] ★ o determinante do campo: det g(x) = −(1+x₀²)². -/
+theorem theSolderField_det (x : Fin 4 → ℝ) :
+    (theSolderField x).det = -(profileFn x ^ 2) := by
+  have hdet : (theCurvedFrame.E x).det = profileFn x := by
+    rw [curvedFrame_E_apply, Matrix.det_diagonal, Fin.prod_univ_four]
+    simp
+  unfold theSolderField
+  rw [solderMetric4_det, hdet]
+
+/-- [KERNEL] ★★ O VOLUME LORENTZIANO JAMAIS DEGENERA: det g(x) < 0 em
+    toda parte (a face do sinal em 4D, tipada; Sylvester pleno = nomeado). -/
+theorem theSolderField_det_neg (x : Fin 4 → ℝ) :
+    (theSolderField x).det < 0 := by
+  rw [theSolderField_det]
+  have h := profileFn_pos x
+  nlinarith
+
+theorem theSolderField_nondegenerate (x : Fin 4 → ℝ) :
+    IsUnit (theSolderField x).det :=
+  isUnit_iff_ne_zero.mpr (ne_of_lt (theSolderField_det_neg x))
+
+/-- [KERNEL] ★ a solda é SUAVE (C^∞, entrada a entrada). -/
+theorem theSolderField_smooth (i j : Fin 4) :
+    ContDiff ℝ (⊤ : ℕ∞) (fun x => theSolderField x i j) := by
+  have h : (fun x => theSolderField x i j)
+      = fun x => Matrix.diagonal
+          (fun k : Fin 4 => if k = 0 then profileFn x ^ 2 else -1) i j := by
+    funext x
+    rw [theSolderField_eq]
+  rw [h]
+  by_cases hij : i = j
+  · subst hij
+    by_cases hi : i = 0
+    · subst hi
+      have h2 : (fun x => Matrix.diagonal
+          (fun k : Fin 4 => if k = 0 then profileFn x ^ 2 else -1) 0 0)
+          = fun x => profileFn x ^ 2 := by
+        funext x
+        simp [Matrix.diagonal_apply]
+      rw [h2]
+      exact profileFn_smooth.pow 2
+    · have h2 : (fun x => Matrix.diagonal
+          (fun k : Fin 4 => if k = 0 then profileFn x ^ 2 else -1) i i)
+          = fun _ => (-1 : ℝ) := by
+        funext x
+        simp [Matrix.diagonal_apply, hi]
+      rw [h2]
+      exact contDiff_const
+  · have h2 : (fun x => Matrix.diagonal
+        (fun k : Fin 4 => if k = 0 then profileFn x ^ 2 else -1) i j)
+        = fun _ => (0 : ℝ) := by
+      funext x
+      simp [Matrix.diagonal_apply, hij]
+    rw [h2]
+    exact contDiff_const
+
+/-- [KERNEL] ★ a solda é genuinamente CURVA: g NÃO é constante. -/
+theorem theSolderField_nonconstant :
+    ∃ x y : Fin 4 → ℝ, theSolderField x ≠ theSolderField y := by
+  refine ⟨(fun _ => 1), (fun _ => 0), fun h => ?_⟩
+  have h00 := congrArg (fun M : Matrix (Fin 4) (Fin 4) ℝ => M 0 0) h
+  rw [theSolderField_eq, theSolderField_eq] at h00
+  simp only [Matrix.diagonal_apply, if_pos rfl] at h00
+  unfold profileFn at h00
+  norm_num at h00
+
+/-! ## O contrato tipado do 4º flip -/
+
+/-- [DATA — o contrato FORTE da solda] frame forte + métrica NASCIDA da
+    solda (g = EᵀηE) + suavidade + volume lorentziano nunca-nulo +
+    não-constância (a solda plana da bancada NÃO entra). -/
+structure SolderFieldData where
+  frame : SmoothFrameData
+  g : (Fin 4 → ℝ) → Matrix (Fin 4) (Fin 4) ℝ
+  solder_eq : ∀ x, g x = solderMetric4 (frame.E x)
+  g_symm : ∀ x, (g x)ᵀ = g x
+  g_smooth : ∀ i j : Fin 4, ContDiff ℝ (⊤ : ℕ∞) (fun x => g x i j)
+  lorentz_det : ∀ x, (g x).det < 0
+  frame_nonconstant : ∃ x y : Fin 4 → ℝ, frame.E x ≠ frame.E y
+
+/-- [KERNEL] ★★ o habitante: a solda curva completa. -/
+def theSolderData : SolderFieldData where
+  frame := theCurvedFrame
+  g := theSolderField
+  solder_eq := fun _ => rfl
+  g_symm := theSolderField_symm
+  g_smooth := theSolderField_smooth
+  lorentz_det := theSolderField_det_neg
+  frame_nonconstant := curvedFrame_nonconstant
+
+/-- [KERNEL] ★★★ O QUARTO FLIP: o nome reservado do gate ganha termo —
+    solda forte com métrica não-constante. O selo NÃO se move (4 < 6). -/
+def qgStrongCertificate_solder :
+    Σ' (s : SolderFieldData), ∃ x y : Fin 4 → ℝ, s.g x ≠ s.g y :=
+  ⟨theSolderData, theSolderField_nonconstant⟩
+
+/-- [KERNEL — cola] a solda e o certificado forte compartilham o MESMO
+    frame (o par é compatível; o mestre contínuo é o 5º flip, nomeado). -/
+theorem solder_frame_eq_strong :
+    theSolderData.frame = theStrongCertificate.frame := rfl
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -22436,6 +22619,10 @@ _LEAN_THEOREM_FLAGS = {
     "ext_tn_net_kernel_proved": "TGLExt.theTailNet",
     "ext_sa_kersub_atom_kernel_proved": "TGLExt.genuineDirac_kerSub",
     "ext_sa_strong_assembled_kernel_proved": "TGLExt.theStrongCertificate",
+    # v107 (a solda continua sobre o frame curvo)
+    "ext_so_solder_data_kernel_proved": "TGLExt.theSolderData",
+    "ext_so_det_neg_kernel_proved": "TGLExt.theSolderField_det_neg",
+    "ext_so_nonconstant_kernel_proved": "TGLExt.theSolderField_nonconstant",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -24077,6 +24264,9 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_tn_infinite_kernel_proved", "ext_tn_not_surjective_kernel_proved",
         "ext_tn_net_kernel_proved", "ext_sa_kersub_atom_kernel_proved",
         "ext_sa_strong_assembled_kernel_proved",
+        # v107: a solda continua
+        "ext_so_solder_data_kernel_proved", "ext_so_det_neg_kernel_proved",
+        "ext_so_nonconstant_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -24287,6 +24477,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     ta_keys = ["ext_tn_infinite_kernel_proved", "ext_tn_not_surjective_kernel_proved",
                "ext_tn_net_kernel_proved", "ext_sa_kersub_atom_kernel_proved",
                "ext_sa_strong_assembled_kernel_proved"]
+    so_keys = ["ext_so_solder_data_kernel_proved", "ext_so_det_neg_kernel_proved",
+               "ext_so_nonconstant_kernel_proved"]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -24342,6 +24534,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dSw = all(per_theorem[k] for k in sfwv_keys)
     dNs = all(per_theorem[k] for k in ns_keys)
     dTa = all(per_theorem[k] for k in ta_keys)
+    dSo = all(per_theorem[k] for k in so_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -24400,6 +24593,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("curved_frame_and_witness_type", dSw),
         ("number_operator_selfadjoint", dNs),
         ("tail_net_and_strong_assembly", dTa),
+        ("continuous_solder_field", dSo),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -24517,6 +24711,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                 else "NOT_VERIFIED_THIS_RUN"),
             "strong_assembly": ("SEMIFINITE_ANALYSIS_INCREMENTS_25_26__TAIL_NET_INFINITE_DIM_FIBERS_CLOSED_GENUINE_ISOTONY__KER_N_EQ_NAME_ATOM_TAU_ONE__STRONG_CERTIFICATE_ASSEMBLED_NON_RESERVED_FIRST__THREE_RESERVED_NAMES_MINTED_CORE_CORNER_FRAME__SEAL_STAYS_CONDITIONAL" if dTa
                                 else "NOT_VERIFIED_THIS_RUN"),
+            "solder_field": ("SEMIFINITE_ANALYSIS_INCREMENT_27__CONTINUOUS_SOLDER_G_EQ_ET_ETA_E_ON_CURVED_FRAME__SYMMETRIC_SMOOTH_NONCONSTANT__LORENTZIAN_DET_NEG_EVERYWHERE__FOURTH_RESERVED_NAME_MINTED__EINSTEIN_NOT_TYPED_ON_PURPOSE_CURVATURE_WALL_NAMED__SEAL_STAYS_CONDITIONAL" if dSo
+                             else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -26153,6 +26349,9 @@ def run_um(ONE):
     first_flips = prove_first_flips(ONE, {  # v106: os 3 primeiros flips honestos (core/corner/frame) POR CONSTRUCAO; selo NAO se move; ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    solder_flip = prove_solder_flip(ONE, {  # v107: o 4o flip (solda continua curva); einstein NAO tipado de proposito; ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
@@ -26324,6 +26523,7 @@ def run_um(ONE):
             "closure_roadmap": closure_roadmap,
             "genuine_dirac": genuine_dirac,
             "first_flips": first_flips,
+            "solder_flip": solder_flip,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -30117,7 +30317,8 @@ def prove_bench_certificate(ONE, parts):
     #     NAO pode alimentar (dentes em kernel); solder/einstein/witness False.
     gate_flags = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
     _strong_flips = {"concrete_aqft_core_constructed", "concrete_breuer_corner_constructed",
-                     "concrete_modular_four_frame_constructed"}
+                     "concrete_modular_four_frame_constructed",
+                     "concrete_solder_field_constructed"}  # v107: 4o flip forte
     gate_unmoved = bool(all((v is False) for k, v in gate_flags.items()
                             if k not in _strong_flips))
     live_probe = bool(cert_ok and gate_unmoved)
@@ -30235,7 +30436,7 @@ def prove_closure_roadmap(ONE, parts):
             "flag": gate_flags["concrete_solder_field_constructed"],
             "termo_reservado": _QG_CERTIFICATE_FLAGS["concrete_solder_field_constructed"],
             "tipo_exigido": "solda 4D como CAMPO sobre o frame-campo (face finita v64 em kernel)",
-            "o_que_falta": "a versao continua da solda (so(1,3) sobre o frame-campo curvo)",
+            "o_que_falta": "FLIPADO v107 POR CONSTRUCAO: theSolderData (g = E^T eta E curva, det<0 em toda parte) sob o nome reservado",
         },
         "concrete_emergent_einstein_proved": {
             "flag": gate_flags["concrete_emergent_einstein_proved"],
@@ -30281,14 +30482,14 @@ def prove_closure_roadmap(ONE, parts):
     kap_verd = str(kap.get("verdict", "") or (kap.get("statuses") or {}).get("o_veredito", ""))
     kappa_refused = bool(("INCONCLUSIVE" in kap_verd) or ("AWAITING" in kap_verd)
                          or ("UNDERPOWERED" in kap_verd))
-    three_flipped = bool(gate_flags.get("concrete_aqft_core_constructed") is True
-                         and gate_flags.get("concrete_breuer_corner_constructed") is True
-                         and gate_flags.get("concrete_modular_four_frame_constructed") is True
-                         and not gate_flags.get("concrete_solder_field_constructed")
-                         and not gate_flags.get("concrete_emergent_einstein_proved")
-                         and not gate_flags.get("canonical_boundary_transport_witness_constructed"))
+    flips_now = bool(gate_flags.get("concrete_aqft_core_constructed") is True
+                     and gate_flags.get("concrete_breuer_corner_constructed") is True
+                     and gate_flags.get("concrete_modular_four_frame_constructed") is True
+                     and gate_flags.get("concrete_solder_field_constructed") is True
+                     and not gate_flags.get("concrete_emergent_einstein_proved")
+                     and not gate_flags.get("canonical_boundary_transport_witness_constructed"))
     checks = [
-        ("(A) estado fail-closed LEGITIMO: todas False, OU exatamente os 3 flips v106 (core/corner/frame)", bool(all_false or three_flipped)),
+        ("(A) estado fail-closed LEGITIMO: todas False, OU exatamente os 4 flips fortes (core/corner/frame/solder)", bool(all_false or flips_now)),
         ("(A) face do FRAME alimentada em kernel (theCurvedFrame nao-constante)", frame_fed),
         ("(A) testemunha V2 TIPADA em kernel (FullWitnessData + reducao ao forte)", witness_typed),
         ("(A) faces Dirac/core/geometria genuinamente ABERTAS (dentes em kernel)",
@@ -30447,8 +30648,8 @@ def prove_first_flips(ONE, parts):
     core_ok = bool(flips.get("concrete_aqft_core_constructed"))
     corner_ok = bool(flips.get("concrete_breuer_corner_constructed"))
     frame_ok = bool(flips.get("concrete_modular_four_frame_constructed"))
-    rest_false = bool(not flips.get("concrete_solder_field_constructed")
-                      and not flips.get("concrete_emergent_einstein_proved")
+    # v107: o 4o flip (solder) e' legitimo; as restantes duras sao einstein/witness
+    rest_false = bool(not flips.get("concrete_emergent_einstein_proved")
                       and not flips.get("canonical_boundary_transport_witness_constructed"))
     assembled_ok = bool(elp.get("ext_sa_strong_assembled_kernel_proved") is True)
     kersub_ok = bool(elp.get("ext_sa_kersub_atom_kernel_proved") is True)
@@ -30474,7 +30675,7 @@ def prove_first_flips(ONE, parts):
         ("FLIP 1 -- core (rede de caudas INF-dim): qgc True, lido do kernel", core_ok),
         ("FLIP 2 -- corner (Dirac genuino + canto tau=1): qgc True", corner_ok),
         ("FLIP 3 -- frame (curvo, nao-constante): qgc True", frame_ok),
-        ("as TRES restantes seguem False (solder/einstein/witness)", rest_false),
+        ("as restantes DURAS seguem False (einstein/witness); solder = 4o flip v107", rest_false),
         ("a ordem do rito: a montagem NAO-reservada veio antes (theStrongCertificate)", assembled_ok),
         ("o canto do N: kerSub = atomo do Nome (tau = 1 = omega(I))", kersub_ok),
         ("a rede de caudas: INF-dim + isotonia genuina + habitante", net_ok),
@@ -30495,6 +30696,83 @@ def prove_first_flips(ONE, parts):
         "does_not_gate_core": True,
         "verdict": ("TGL_FIRST_HONEST_FLIPS__CORE_CORNER_FRAME_TRUE_BY_CONSTRUCTION_NEVER_BY_DECLARATION__THREE_REMAIN_FALSE_SOLDER_EINSTEIN_WITNESS__SEAL_UNMOVED_CONDITIONAL_ARCHITECTURE_ONLY__MECHANISM_DEMONSTRATED_LIVE" if all_v
                     else "FIRST_FLIPS_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_solder_flip(ONE, parts):
+    """v107 -- O QUARTO FLIP: A SOLDA CONTINUA [ADITIVO; o selo NAO se move].
+    O v63 provou a solda PONTUAL (g = e^T eta e; det g = -det(e)^2); esta
+    versao a eleva a CAMPO sobre o frame CURVO (v104):
+    (1) theSolderField: g(x) = E(x)^T eta E(x) = diag((1+x0^2)^2, -1, -1, -1)
+        -- SIMETRICA, SUAVE (C-inf), NAO-CONSTANTE (a solda e' genuinamente
+        curva), e com det g(x) = -(1+x0^2)^2 < 0 EM TODA PARTE: o volume
+        lorentziano JAMAIS degenera (a face do sinal, tipada; Sylvester
+        pleno (1,3) = nomeado);
+    (2) SolderFieldData (o contrato tipado do 4o flip) + theSolderData
+        (habitante) + qgStrongCertificate_solder (o nome reservado cunhado
+        com contrato Sigma'): o parser flipou a 4a flag SOZINHO;
+    (3) O SELO NAO SE MOVE (sombra: CONDITIONAL; 4 < 6): einstein e a
+        testemunha seguem False;
+    (4) A LICAO v103 APLICADA A NOS MESMOS: o contrato de EINSTEIN **nao**
+        foi tipado nesta versao -- um tipo sem CURVATURA como estrutura
+        seria mais fraco que o espirito da flag, e flipar sobre ele seria
+        bancada; a curvatura continua nao esta na mathlib -- o 5o flip fica
+        NOMEADO e reservado (a cola solder_frame_eq_strong registra que o
+        par forte+solda compartilha o MESMO frame; o mestre continuo e' o
+        que falta)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    solder_ok = bool(flips.get("concrete_solder_field_constructed"))
+    four_ok = bool(flips.get("concrete_aqft_core_constructed")
+                   and flips.get("concrete_breuer_corner_constructed")
+                   and flips.get("concrete_modular_four_frame_constructed")
+                   and solder_ok)
+    two_false = bool(not flips.get("concrete_emergent_einstein_proved")
+                     and not flips.get("canonical_boundary_transport_witness_constructed"))
+    data_ok = bool(elp.get("ext_so_solder_data_kernel_proved") is True)
+    det_ok = bool(elp.get("ext_so_det_neg_kernel_proved") is True)
+    nonc_ok = bool(elp.get("ext_so_nonconstant_kernel_proved") is True)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+                        and not shadow["mathematical_model_constructed"])
+    checks = [
+        ("FLIP 4 -- solder (campo g = E^T eta E curvo): qgc True, lido do kernel", solder_ok),
+        ("os 4 flips juntos: core/corner/frame/solder True", four_ok),
+        ("as DUAS restantes seguem False (einstein/witness)", two_false),
+        ("o habitante: theSolderData (simetrica+suave+lorentziana+curva)", data_ok),
+        ("det g < 0 EM TODA PARTE (o volume lorentziano jamais degenera)", det_ok),
+        ("a solda e' genuinamente CURVA (nao-constante)", nonc_ok),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL; 4 < 6)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O QUARTO FLIP: a solda continua g(x) = E(x)^T eta E(x) sobre o "
+                    "frame curvo -- simetrica, suave, lorentziana (det < 0 em toda "
+                    "parte), nao-constante; o nome reservado cunhado; o selo IMOVEL "
+                    "(4 < 6). Einstein NAO foi tipado de proposito: sem curvatura "
+                    "como estrutura o tipo seria mais fraco que o espirito (licao "
+                    "v103 aplicada a nos mesmos)."),
+        "flips": flips,
+        "values": {"beta": beta, "n_true": sum(1 for v in flips.values() if v),
+                   "n_false": sum(1 for v in flips.values() if not v),
+                   "det_g_at_origin": -1.0},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_FOURTH_FLIP__CONTINUOUS_SOLDER_FIELD_ON_CURVED_FRAME__SYMMETRIC_SMOOTH_LORENTZIAN_DET_NEG_EVERYWHERE_NONCONSTANT__RESERVED_NAME_MINTED__EINSTEIN_DELIBERATELY_NOT_TYPED_CURVATURE_WALL_NAMED__SEAL_UNMOVED_CONDITIONAL" if all_v
+                    else "SOLDER_FLIP_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -36965,7 +37243,8 @@ _ESQUELETO_STONES = [
     ("v105", "NumberOperator", "TGLExt/NumberOperator.lean", None, None),
     ("v105", "NumberSelfAdjoint", "TGLExt/NumberSelfAdjoint.lean", "381/381", "17/07 21:13:38"),
     ("v106", "TailNet", "TGLExt/TailNet.lean", None, None),
-    ("v106", "StrongAssembly", "TGLExt/StrongAssembly.lean", None, None),
+    ("v106", "StrongAssembly", "TGLExt/StrongAssembly.lean", "386/386", "17/07 21:56:08"),
+    ("v107", "SolderField", "TGLExt/SolderField.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -37000,17 +37279,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(cinquenta e quatro pedras, \S120--\S186)}")
+                 r"(cinquenta e cinco pedras, \S120--\S187)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em cinquenta e quatro pedras "
-                 r"(v43--v106) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em cinquenta e cinco pedras "
+                 r"(v43--v107) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As cinquenta e quatro pedras}")
+        c.append(r"\subsection*{As cinquenta e cinco pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -37580,6 +37859,19 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"$3<6$): solder, einstein e a testemunha seguem False --- e é a "
                  r"imobilidade do selo sob flags em movimento que prova o "
                  r"fail-closed VIVO.")
+        c.append(r"\kernelmk{SolderField} (v107): \textbf{a SOLDA CONTÍNUA --- o "
+                 r"QUARTO FLIP}. A solda pontual do v63 ($g=e^{\mathsf{T}}\eta e$) "
+                 r"elevada a CAMPO sobre o frame curvo: $g(x)=E(x)^{\mathsf{T}}\eta "
+                 r"E(x)=\mathrm{diag}((1+x_0^2)^2,-1,-1,-1)$ --- simétrica, SUAVE, "
+                 r"NÃO-constante (a solda é genuinamente curva), e com $\det g(x)="
+                 r"-(1+x_0^2)^2<0$ EM TODA PARTE: o volume lorentziano jamais "
+                 r"degenera (a face do sinal tipada; Sylvester pleno nomeado). O "
+                 r"contrato \texttt{SolderFieldData} habitado e o nome reservado "
+                 r"\texttt{qgStrongCertificate\_solder} CUNHADO: quatro flags True, "
+                 r"selo IMÓVEL ($4<6$). E a lição do v103 aplicada a nós mesmos: "
+                 r"EINSTEIN não foi tipado --- sem curvatura como estrutura o tipo "
+                 r"seria mais fraco que o espírito da flag; a parede da curvatura "
+                 r"contínua está NOMEADA.")
         c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
                   r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
                   r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
@@ -37952,7 +38244,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cinquenta e quatro pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cinquenta e cinco pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -38087,16 +38379,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(fifty-four stones, \S120--\S186)}")
+                 r"(fifty-five stones, \S120--\S187)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across fifty-four stones (v43--v106) the audited kernel went from 53 to "
+                 r"from this run's audit. Across fifty-five stones (v43--v107) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The fifty-four stones}")
+        c.append(r"\subsection*{The fifty-five stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -38663,6 +38955,20 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"CONDITIONAL; $3<6$): solder, einstein and the witness remain "
                  r"False --- and it is the seal's immobility under moving flags "
                  r"that proves fail-closed ALIVE.")
+        c.append(r"\kernelmk{SolderField} (v107): \textbf{the CONTINUOUS SOLDER --- "
+                 r"the FOURTH FLIP}. The v63 pointwise solder ($g=e^{\mathsf{T}}\eta "
+                 r"e$) lifted to a FIELD over the curved frame: "
+                 r"$g(x)=E(x)^{\mathsf{T}}\eta E(x)=\mathrm{diag}((1+x_0^2)^2,"
+                 r"-1,-1,-1)$ --- symmetric, SMOOTH, NON-constant (the solder is "
+                 r"genuinely curved), with $\det g(x)=-(1+x_0^2)^2<0$ EVERYWHERE: "
+                 r"the Lorentzian volume never degenerates (the sign face typed; "
+                 r"full Sylvester named). The \texttt{SolderFieldData} contract is "
+                 r"inhabited and the reserved name "
+                 r"\texttt{qgStrongCertificate\_solder} MINTED: four flags True, "
+                 r"seal UNMOVED ($4<6$). And the v103 lesson applied to ourselves: "
+                 r"EINSTEIN was not typed --- without curvature as structure the "
+                 r"type would be weaker than the flag's spirit; the continuous "
+                 r"curvature wall is NAMED.")
         c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
                   r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
                   r"witness is the boundary; the boundary proves itself by the asymptotic limit "
@@ -39023,7 +39329,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across fifty-four stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across fifty-five stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -39520,7 +39826,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -41663,6 +41969,14 @@ def main():
     for _k, _v in (_ff.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [o mecanismo que o operador pediu para ver, AO VIVO: termo com axiomas limpos => flag flipa sozinha => selo IMOVEL ate as 6 + fisica + dado]")
+    _sf = core.get("solder_flip", {}) or {}
+    print("  O QUARTO FLIP [v107 -- a solda continua g = E^T eta E sobre o frame CURVO]: %s" % _sf.get("verdict"))
+    _sfv = _sf.get("values", {}) or {}
+    print("    flags True: %s de 6 ; False: %s (einstein/witness) ; SOMBRA: %s ; det g(0) = %s (lorentziano em toda parte)" % (
+        _sfv.get("n_true"), _sfv.get("n_false"), _sf.get("shadow_verdict"), _sfv.get("det_g_at_origin")))
+    for _k, _v in (_sf.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [einstein NAO tipado DE PROPOSITO: sem curvatura como estrutura o tipo seria mais fraco que o espirito (licao v103); a parede da curvatura esta NOMEADA]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (

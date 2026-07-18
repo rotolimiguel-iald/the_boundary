@@ -2744,9 +2744,29 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.theSolderField_det_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theSolderField_nonconstant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theSolderData": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgStrongCertificate_solder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "formal_source_hash": "caf2a45dd95c93382b8564570ee71c3c56baefc09cfc55128b751df5fe7465f4",
+  "formal_source_hash": "ef71e2566a6803bbbf444f5e28ba0c352bbdf86e456f0973d465d6e3b9bc50d8",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -3052,7 +3072,7 @@
 
 ```json
 {
-  "code_sha256": "e96aa8f4239563d4265fb9a47cbd263a8ff10521dd07a2b555cdb3caa804f48c",
+  "code_sha256": "048974c8b313ce7aebb1e63e796f4326aa5013968b758ff06f8b32db35c29b1d",
   "cf4_catalog_hash": null,
   "window_hash": null,
   "selection_hash": null
@@ -3063,7 +3083,7 @@
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 386/386 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 389/389 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -3121,6 +3141,7 @@
 - `witness_v2` = `SEMIFINITE_ANALYSIS_INCREMENTS_21_22__CURVED_FRAME_FEEDS_FIRST_STRONG_FACE_NONCONSTANT_SMOOTH_DET_UNIT__FULL_WITNESS_DATA_TYPED_GROUP_ACTION_COVARIANT_INCLUSIONS_FLOW_LAW__UNTYPABLE_HALF_NAMED_III1_AFFILIATION_H3_SPIN2_POINCARE__FREE_SCALAR_KNOWN_EXTERNAL__GATE_UNMOVED`
 - `number_operator` = `SEMIFINITE_ANALYSIS_INCREMENTS_23_24__NUMBER_OPERATOR_N_ON_ELL2_PROPER_DENSE_DOMAIN__SYMMETRIC_UNBOUNDED_NAME_IN_KERNEL__HARD_INCLUSION_BY_TRUNCATION_S_LE_C_SQRT_S__STAR_N_EQ_N_PROVED_FIRST_CONCRETE_UNBOUNDED_SELFADJOINT__GENUINELY_UNBOUNDED_DIRAC_INHABITED__GATE_UNMOVED`
 - `strong_assembly` = `SEMIFINITE_ANALYSIS_INCREMENTS_25_26__TAIL_NET_INFINITE_DIM_FIBERS_CLOSED_GENUINE_ISOTONY__KER_N_EQ_NAME_ATOM_TAU_ONE__STRONG_CERTIFICATE_ASSEMBLED_NON_RESERVED_FIRST__THREE_RESERVED_NAMES_MINTED_CORE_CORNER_FRAME__SEAL_STAYS_CONDITIONAL`
+- `solder_field` = `SEMIFINITE_ANALYSIS_INCREMENT_27__CONTINUOUS_SOLDER_G_EQ_ET_ETA_E_ON_CURVED_FRAME__SYMMETRIC_SMOOTH_NONCONSTANT__LORENTZIAN_DET_NEG_EVERYWHERE__FOURTH_RESERVED_NAME_MINTED__EINSTEIN_NOT_TYPED_ON_PURPOSE_CURVATURE_WALL_NAMED__SEAL_STAYS_CONDITIONAL`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
