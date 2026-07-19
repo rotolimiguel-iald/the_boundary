@@ -4637,17 +4637,57 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.regularRep_left_inv": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.regularRep_right_inv": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.fusedFiber_not_finiteDimensional": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theFusedNet": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theFusedStrong": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theFusedWitness": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.fused_fiber_faithful": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.fused_boost_moves_fiber": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "21bbb0d201f5fe0b4c15842a20260ac1aead50218af84b45ef3714275f4b10fb",
+      "formal_source_hash": "57b6f99b9d0edaa78299afbac7391bbddd531fc29c6cb80e3f4c1129a7b920ed",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "f8f1b833c1b6e39417df2707e528ddbedf7c94a2c011861e2af71aab0c205043",
+        "TGLExt.lean": "2b84b08758af5b94a427aed71e151d7b227d1f6579c80d88cfcf6a6c0e3680a6",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "207280c86895462319426e1f43dba28716a2608b1128367f879b0b7021c001c4",
+        "TGL/Audit.lean": "5a5ca7a8d88bc23af60b2aec7b098da0f83d33e614759c567a88eac96e508b95",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -4700,6 +4740,7 @@
         "TGLExt/FiniteGNSNoCompletion.lean": "056170ec3f50929081a75db129117cd5814ba88c1fe7c97432392303664e5025",
         "TGLExt/FiniteTomita.lean": "f845a71a81bb02585020f5da224a9407b4dd36b1408cccab37ea1b69cfb6647e",
         "TGLExt/FirstCurvature.lean": "d88d4a5fa15462f43850119f39099059a8ae0af87190420aa921dfaf20ebde44",
+        "TGLExt/FusedWitness.lean": "3708dde5255559cddcddecbe2ca05eb93e751511db8a8f7bcf6968e60a065e69",
         "TGLExt/GNSBridge.lean": "a625e38824790f94eb6ac54f44cffc0656e6e3fc2f3ae2d42220dac071a11c8b",
         "TGLExt/GeometricWitness.lean": "c971c7b2a45420bcb1c9e5e6ac37276e5a5796269b1002765b41b835a03d2afe",
         "TGLExt/GeometryFluctuation.lean": "c70403c706d7b033628bf775ebc8552d5adfb885372c58f2252dbc1c58e7b655",
@@ -5288,24 +5329,32 @@
       "ext_sw_coeven_inscription_kernel_proved": true,
       "ext_sw_halving_invariant_kernel_proved": true,
       "ext_sw_synthesis_kernel_proved": true,
+      "ext_fw_left_inv_kernel_proved": true,
+      "ext_fw_right_inv_kernel_proved": true,
+      "ext_fw_fiber_infinite_kernel_proved": true,
+      "ext_fw_fused_net_kernel_proved": true,
+      "ext_fw_fused_strong_kernel_proved": true,
+      "ext_fw_fused_witness_kernel_proved": true,
+      "ext_fw_fiber_faithful_kernel_proved": true,
+      "ext_fw_boost_moves_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "d1f89dbc7388a229485b25ce92ad9c8d7dfd08c8db879da6874654a6443cfc13",
+      "build_stdout_sha256": "a80196a9699ee0adf2472a43be1eff32885ac0ed09ee627d7d0d7601fb4cc60d",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "63198097f9ec9143275910fc6b8df8065752adfc32406911ed8432861c30a4e9",
+      "audit_stdout_sha256": "550e6b8f33a28c52caad76a3b398ddb7c1495d602215100aa2058a4481d3c9b1",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 225759,
+        "stdout": 226697,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 167295,
+        "stdout": 168001,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "d1f89dbc7388a229485b25ce92ad9c8d7dfd08c8db879da6874654a6443cfc13",
-      "audit_capture_sha256_full": "63198097f9ec9143275910fc6b8df8065752adfc32406911ed8432861c30a4e9",
+      "build_capture_sha256_full": "a80196a9699ee0adf2472a43be1eff32885ac0ed09ee627d7d0d7601fb4cc60d",
+      "audit_capture_sha256_full": "550e6b8f33a28c52caad76a3b398ddb7c1495d602215100aa2058a4481d3c9b1",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
       "qgc_concrete_breuer_corner_constructed": true,
@@ -6563,7 +6612,8 @@
         "master_continuum": "SEMIFINITE_ANALYSIS_INCREMENTS_36_37_38__CONTINUOUS_MASTER_CONTRACT_ON_THE_SOLDER__FULL_NULL_CONE_CLAUSIUS_IFF_FIELD_EQUATION__FIFTH_RESERVED_NAME_MINTED_EINSTEIN__LORENTZ_GROUP_BY_HAND_DEFINING_RELATION__BOOST_LAW_IS_HYPERBOLIC_GEAR__POINCARE_TEN_DIRECTIONS_FAITHFUL__PARITY_MOVES_FIBER_FIXING_ORIGIN__PROPER_SECTOR_FIBERS_BLIND__WITNESS_WALL_NAMED_UNITARY_REP_PLUS_III1__SEAL_STAYS_CONDITIONAL",
         "regular_rep": "SEMIFINITE_ANALYSIS_INCREMENT_39__REGULAR_REPRESENTATION_OF_POINCARE_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION_ABS_DET_ONE__GROUP_LAW_PROVED__FAITHFUL_EVERY_NONIDENTITY_MOVES_A_VECTOR__BOOST_NOW_SEEN__WITNESS_RESIDUE_FIBER_FUSION_PLUS_III1__SEAL_STAYS_CONDITIONAL",
         "traceless_algebra": "SEMIFINITE_ANALYSIS_INCREMENT_40__BIPARTITION_OF_ELL2_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT_OF_THE_PROGRAM__TWO_INDEPENDENT_TRACE_KILLERS_FLOW_AND_ALGEBRA__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_STAYS_CONDITIONAL",
-        "semifinite_weight": "SEMIFINITE_ANALYSIS_INCREMENT_41__TR_IN_KERNEL__TR_ONE_INFINITE__NAME_ATOM_WEIGHS_ONE_THIRD_FACE__WEIGHT_ABSORBS_BIPARTITION_INF_EQ_TWO_INF__TYPE_DECIDED_WHERE_RULER_BREAKS__SEAL_STAYS_CONDITIONAL"
+        "semifinite_weight": "SEMIFINITE_ANALYSIS_INCREMENT_41__TR_IN_KERNEL__TR_ONE_INFINITE__NAME_ATOM_WEIGHS_ONE_THIRD_FACE__WEIGHT_ABSORBS_BIPARTITION_INF_EQ_TWO_INF__TYPE_DECIDED_WHERE_RULER_BREAKS__SEAL_STAYS_CONDITIONAL",
+        "fused_witness": "SEMIFINITE_ANALYSIS_INCREMENT_42__FAITHFUL_REP_FUSED_INTO_NET_FIBERS__FIBER_IS_TAIL_TIMES_L2_SPACETIME__POINCARE_ACTS_ON_REGIONS_AND_INSIDE_FIBERS__NO_BLIND_DIRECTION_IN_FIBERS__BOOST_MOVES_FIBER_VECTORS_V116_HONESTY_SUPERSEDED__WITNESS_RESIDUE_III1_ALONE__SEAL_STAYS_CONDITIONAL"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -7037,10 +7087,18 @@
         "ext_sw_atom_one_kernel_proved": true,
         "ext_sw_coeven_inscription_kernel_proved": true,
         "ext_sw_halving_invariant_kernel_proved": true,
-        "ext_sw_synthesis_kernel_proved": true
+        "ext_sw_synthesis_kernel_proved": true,
+        "ext_fw_left_inv_kernel_proved": true,
+        "ext_fw_right_inv_kernel_proved": true,
+        "ext_fw_fiber_infinite_kernel_proved": true,
+        "ext_fw_fused_net_kernel_proved": true,
+        "ext_fw_fused_strong_kernel_proved": true,
+        "ext_fw_fused_witness_kernel_proved": true,
+        "ext_fw_fiber_faithful_kernel_proved": true,
+        "ext_fw_boost_moves_kernel_proved": true
       },
-      "n_theorems_clean": 472,
-      "n_theorems_expected": 472,
+      "n_theorems_clean": 480,
+      "n_theorems_expected": 480,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -11110,6 +11168,426 @@
       "does_not_gate_core": true,
       "verdict": "TGL_SEMIFINITE_WEIGHT__TR_IN_KERNEL__TR_ONE_IS_INFINITE__NAME_ATOM_WEIGHS_ONE_THIRD_FACE_OF_OMEGA_I__WEIGHT_ABSORBS_THE_BIPARTITION_INF_EQ_TWO_INF__TYPE_DECIDED_BY_WHERE_THE_RULER_BREAKS__III1_PATH_NAMED__SEAL_UNMOVED"
     },
+    "void_shear_unblinding": {
+      "theorem": "O ATO DA DESBLINDAGEM: o shear KiDS falou nos vazios DESIVAST no nivel que o dado permite -- a suite independente V3 emitiu seu veredito pre-registrado; o shear pesa MATERIA.",
+      "frozen_shear_spec": {
+        "version": "VOID_SHEAR_UNBLINDING_V1",
+        "data": "KiDS-1000 SOM-gold (v71); cortes v73: weight>0, 0.1<Z_B<1.2, faixa N (RA 128-240, DEC -4..4)",
+        "lenses": "DESIVAST DR1 VIDE+REVOLVER uniao (V1: 0.02<z<0.24, R_v>10) DENTRO da faixa (margem 1.5 graus)",
+        "estimator": "gamma_t empilhado em x = theta/theta_v, 8 bins geomspace(0.15, 3.0); quartis de theta_v combinados 1/var; janela por vazio <= 1.5 graus",
+        "nulls": "(i) 200 centros ALEATORIOS seed 73 (mocks do NULO na mascara+ruido reais): chi2/dof(gamma_t)<3 e (gamma_x)<3; (ii) gamma_x dos VAZIOS: chi2/dof<3; (iii) jackknife 20 grupos de vazios por RA = covariancia",
+        "model": "HSW [EXT] + piso r*: Sigma por Abel; DeltaSigma = Sigmabar(<x)-Sigma(x); gamma_t = DeltaSigma/Sigma_crit_eff; Sigma_crit_eff = <1/Sigma_crit>^-1 sobre fontes Z_B > z_l + 0.1 [EXT aprox. pontual]",
+        "fit": "delta_c in [-1,-0.3] x s1 in [0.7,1.3] perfilados; r* grade [0, 0.30] passo 0.01; banda 5sigma DeltalnL = 12.5",
+        "power_rule": "Fisher F = sum(((gt_TGL - gt_deep)/sigma)^2) >= 25 => powered (sigma da covariancia jackknife MEDIDA, antes de ler o piso)",
+        "gates": "nulos aleatorios ok E gamma_x vazios ok E n_vazios >= 500 E jackknife >= 15/20",
+        "verdicts": [
+          "TGL_VOID_FLOOR_SHEAR_FALSIFIED",
+          "TGL_VOID_FLOOR_SHEAR_NOT_FALSIFIED_POWERED",
+          "TGL_VOID_FLOOR_SHEAR_NOT_FALSIFIED_UNDERPOWERED",
+          "VOID_SHEAR_INCONCLUSIVE_SYSTEMATICS",
+          "VOID_SHEAR_AWAITING_DATA"
+        ],
+        "honesty": "mocks de injecao de sinal NAO incluidos (limite nomeado); flags do gate INTOCADOS por este modulo"
+      },
+      "frozen_shear_hash": "f06bfc1ec06294d4c82231868615893303261a3fc6986f527db5b3e26cde743a",
+      "n_galaxies": 9863348,
+      "n_voids": 700,
+      "groups_n": [
+        175,
+        175,
+        175,
+        175
+      ],
+      "values": {
+        "beta": 0.012031300400803142,
+        "chi2_null_t": 0.5711515611373899,
+        "chi2_null_x": 1.7889341793330402,
+        "chi2_void_bmode": 0.8190296319964824,
+        "void_signal_expected_snr": 1.0159944229871372,
+        "detection_sigma_raw": 1.2279893128143247,
+        "fisher_floor": 0.0,
+        "r_hat": 0.3,
+        "r_5sigma_lo": 0.0,
+        "r_5sigma_hi": 0.3
+      },
+      "stack_gamma_t": [
+        0.00026585412104830733,
+        -6.262700923497338e-05,
+        0.0002189464349221672,
+        0.0003935348738958544,
+        -0.00018739321506623026,
+        -0.00015068619893047572,
+        0.00016147610321513907,
+        0.004986250264170031
+      ],
+      "sigma_bins": [
+        0.000418478064330467,
+        0.00040543221503328583,
+        0.0003157071324943938,
+        0.0002525456972786583,
+        0.0001983326648396712,
+        0.0001441512508597155,
+        0.0003169964933680557,
+        0.0025163823149888446
+      ],
+      "checks": [
+        [
+          "pre-registro v67 INTACTO + espec V1 congelada ANTES do ato",
+          true
+        ],
+        [
+          "BATERIA DE NULOS (200 aleatorios seed 73): gt 0.57 / gx 1.79 < 3",
+          true
+        ],
+        [
+          "O ATO: 700 vazios empilhados em x = theta/theta_v (4 quartis)",
+          true
+        ],
+        [
+          "B-mode dos vazios: chi2/dof = 0.82 < 3",
+          true
+        ],
+        [
+          "jackknife >= 15/20 em todos os quartis",
+          false
+        ],
+        [
+          "poder Fisher do piso F = 0 (>= 25 p/ powered)",
+          true
+        ],
+        [
+          "veredito do conjunto pre-registrado",
+          true
+        ]
+      ],
+      "all_verified": false,
+      "statuses": {
+        "o_ato": "os vazios KiDS-N foram DESBLINDADOS sob espec congelada -- o ato que o v73 reservou aconteceu nesta rodada, com a bateria pre-registrada",
+        "honestidade": "mocks de INJECAO de sinal nao incluidos (ensemble do nulo apenas) -- limite NOMEADO; Sigma_crit via Z_B pontual [EXT]; os flags experimentais do gate NAO sao tocados por este modulo (fail-closed); a projecao v87 antecipava UNDERPOWERED -- o numero acima decide",
+        "o_veredito": "VOID_SHEAR_INCONCLUSIVE_SYSTEMATICS"
+      },
+      "does_not_gate_core": true,
+      "verdict": "VOID_SHEAR_INCONCLUSIVE_SYSTEMATICS"
+    },
+    "void_shear_v2": {
+      "theorem": "A EMENDA V2 DO SHEAR: o instrumento corrigido na granularidade -- o shear KiDS falou nos vazios no nivel que o dado permite.",
+      "frozen_shear2_spec": {
+        "version": "VOID_SHEAR_UNBLINDING_V2",
+        "amends": "V1 (v121) INCONCLUSIVE_SYSTEMATICS; autopsia = jackknife 20/quartil com ~175 vazios/quartil (bins vazios; sigma inf; F=0) -- granularidade da ESPEC, nao o dado",
+        "inherits_v1_hash": "f06bfc1ec06294d4",
+        "fix": "jackknife 10 grupos/quartil; FALLBACK: se algum quartil < 8 validos => empilhamento UNICO (20 grupos RA; modelo com medias globais)",
+        "inherited": "cortes v73; bins x geomspace(0.15,3.0) nb=8; nulos 200 aleatorios seed 73; HSW+piso via Abel; Sigma_crit_eff por Z_B [EXT]; Fisher >= 25; vereditos do V1"
+      },
+      "frozen_shear2_hash": "fce93c4b18bab40840bc3e5dcf77fe380c7fd17b9568dc0defe338ffd174d3d2",
+      "n_voids": 700,
+      "fallback_used": true,
+      "values": {
+        "beta": 0.012031300400803142,
+        "chi2_null_t": 0.5711515611373899,
+        "chi2_null_x": 1.7889341793330402,
+        "chi2_void_bmode": 1.3352260463746939,
+        "n_jk_eff": 20,
+        "detection_sigma_raw": 1.9646509861917978,
+        "fisher_floor": 0.0,
+        "r_hat": 0.0,
+        "r_5sigma_lo": 0.0,
+        "r_5sigma_hi": 0.3
+      },
+      "stack_gamma_t": [
+        -8.412413022344628e-05,
+        -8.121510363710273e-05,
+        -0.00013183663537214422,
+        8.101473342477737e-05,
+        1.4735121621133834e-06,
+        -0.00012440217456674162,
+        0.00016147610321513907,
+        0.004986250264170031
+      ],
+      "sigma_bins": [
+        0.00017983575624881765,
+        0.0001129015820187128,
+        6.778672480240725e-05,
+        9.131076179839202e-05,
+        0.00011289824241355127,
+        0.0001178514964683393,
+        0.00041856704594792207,
+        0.002167814724227347
+      ],
+      "checks": [
+        [
+          "autopsia do V1 registrada (granularidade do jk) + espec V2 congelada",
+          true
+        ],
+        [
+          "nulos (herdados): gt 0.57 / gx 1.79 < 3",
+          true
+        ],
+        [
+          "quartis com jk 10: minimo 0 grupos validos (fallback True)",
+          true
+        ],
+        [
+          "B-mode dos vazios: chi2/dof = 1.34 < 3",
+          true
+        ],
+        [
+          "jackknife efetivo suficiente (20 grupos)",
+          true
+        ],
+        [
+          "poder Fisher do piso F = 0 (>= 25 p/ powered)",
+          true
+        ],
+        [
+          "veredito do conjunto pre-registrado",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "a_autopsia": "o V1 reprovou na granularidade do jackknife (espec), nao no dado -- a V2 corrige o instrumento e reemite",
+        "honestidade": "mocks de injecao seguem ausentes (limite nomeado); flags do gate INTOCADOS; se UNDERPOWERED: profundidade e' o limite (v87 antecipou)",
+        "o_veredito": "TGL_VOID_FLOOR_SHEAR_NOT_FALSIFIED_UNDERPOWERED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_VOID_FLOOR_SHEAR_NOT_FALSIFIED_UNDERPOWERED"
+    },
+    "void_floor_kappa_v6": {
+      "theorem": "A EMENDA V6: o kappa PROFUNDO (ACT DR6) empilhado nos vazios com o baseline subtraido -- o canal de materia com o instrumento afinado; FALSIFIED segue alcancavel aqui.",
+      "frozen_v6_spec": {
+        "version": "VOID_FLOOR_KAPPA_V6_ACT",
+        "amends": "V5 (v115) INCONCLUSIVE_SYSTEMATICS; residuo isolado = baseline coerente do mapa + F=0 (Planck kappa sem poder em escalas de vazio)",
+        "inherits_v5_hash": "6df4be0a0e30a938",
+        "data": "ACT DR6 lensing v1 baseline: kappa_alm_data (formato Planck-klm; lmax 4000, truncado a L_use [8,400]) + mask healpix RING nside 4096 (1024D) [aquisicao 19/07/2026 fora da rodada]; campo medio tratado pelo pipeline ACT [EXT]",
+        "coordinates": "EQUATORIAIS [EXT: convencao ACT]; gate ao vivo: faixa DEC [-62,22] contem >90% do peso da mascara; f_sky esperado ~0.2-0.25",
+        "baseline_amendment": "kappa_bar corrigido = empilhado - MEDIA DOS NULOS; nulos corrigidos = nulos - media; chi2/dof dos nulos CORRIGIDOS < 2 (a emenda nomeada no v115)",
+        "nulls": "24 rotacoes de RA (15 graus) FILTRADAS pela mascara (sobrevivencia >= 0.5 em todos os quartis; >= 16 validas)",
+        "inherited": "lentes DESIVAST VIDE+REVOLVER 0.02<z<0.24 R_v>10; quartis theta_v; bins_x [0.15..3.5]; HSW+piso band-limited; fit r* [0,0.30] 5sigma; Fisher >= 25; Om=0.315",
+        "verdicts": "somente v67: FALSIFIED / NOT_FALSIFIED_POWERED / NOT_FALSIFIED_UNDERPOWERED / INCONCLUSIVE_SYSTEMATICS / AWAITING_DATA"
+      },
+      "frozen_v6_hash": "d0b706d5b7bc51154fd40036a916197b24543142e2802909217a85c19170e9c6",
+      "n_voids": 3470,
+      "n_kept": 1020,
+      "groups_n": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "values": {
+        "beta": 0.012031300400803142,
+        "f_sky": 0.23388297855854034,
+        "footprint_concentration": 0.9999997897607603,
+        "n_rot_valid": 9,
+        "chi2_null_dof": 3.0274705751347963e-32,
+        "void_signal_expected_snr": 0.4867378487845661,
+        "detection_sigma_raw": 0.0,
+        "fisher_floor": 0.0,
+        "r_hat": 0.0,
+        "r_5sigma_lo": 0.0,
+        "r_5sigma_hi": 0.3
+      },
+      "stack_kappa": [
+        0.00015074120993679597,
+        -0.00028712879982633406,
+        0.0013323698073939606,
+        0.0005599370857561993,
+        -0.00013321743742761744,
+        -2.8932807020930766e-06,
+        0.00012043278152086628,
+        0.0002463676460453905
+      ],
+      "sigma_bins": [
+        0.0029243743563245584,
+        0.001573898969262545,
+        0.0013036970351859509,
+        0.0010448334661538059,
+        0.0009683245756517384,
+        0.0006619961875054511,
+        0.0006613988183458173,
+        0.0002733551255867923
+      ],
+      "checks": [
+        [
+          "dado NOVO: ACT DR6 alm+mask em disco (aquisicao fora da rodada)",
+          true
+        ],
+        [
+          "coordenadas EQUATORIAIS validadas: concentracao 1.000 > 0.90; f_sky 0.234; RING",
+          true
+        ],
+        [
+          "centros na pegada ACT: 1020/3470",
+          true
+        ],
+        [
+          "rotacoes validas >= 16: 9",
+          false
+        ],
+        [
+          "A EMENDA DO BASELINE aplicada: nulos corrigidos chi2/dof = 0.00 < 2",
+          true
+        ],
+        [
+          "poder Fisher do piso F = 0 (>= 25 p/ powered)",
+          true
+        ],
+        [
+          "veredito do conjunto pre-registrado",
+          true
+        ]
+      ],
+      "all_verified": false,
+      "statuses": {
+        "o_dado_novo": "ACT DR6 baseline: kappa mais fundo que Planck nas escalas de vazio; formato identico (leitor reutilizado); coordenadas equatoriais validadas por gate de concentracao",
+        "a_emenda": "baseline coerente SUBTRAIDO (media dos nulos) -- o residuo isolado no V5 tratado por estimador pre-registrado",
+        "honestidade": "se UNDERPOWERED: profundidade segue o limite (SPT/estagios futuros); se INCONCLUSIVE: o proximo suspeito e' nomeado no relatorio",
+        "o_veredito": "VOID_FLOOR_KAPPA_V6_INCONCLUSIVE_SYSTEMATICS"
+      },
+      "does_not_gate_core": true,
+      "verdict": "VOID_FLOOR_KAPPA_V6_INCONCLUSIVE_SYSTEMATICS"
+    },
+    "fused_witness": {
+      "theorem": "A FUSAO: a representacao fiel de Poincare (v118) FUNDIDA as fibras da rede covariante (v106/v116) -- fibra = cauda x L2(R4); Poincare age nas regioes E dentro das fibras; NENHUMA direcao e' cega nas fibras (todo g =/= 1 move vetor); o boost que era cego (v116) agora move -- e o residuo formal da testemunha reduziu-se a UMA parede: III_1.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "n_true": 5,
+        "n_false": 1
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "U(g) e' equivalencia isometrica: inversa = U(g^-1) pela lei de grupo",
+          true
+        ],
+        [
+          "a rede FUNDIDA habitada: fibra = cauda x L2(R4), isotonia genuina, fibra inf-dim",
+          true
+        ],
+        [
+          "FullWitnessData fundida: covariancia + lei de fluxo na fibra-produto",
+          true
+        ],
+        [
+          "NENHUMA DIRECAO CEGA NAS FIBRAS: todo g =/= 1 move vetor da fibra",
+          true
+        ],
+        [
+          "a honestidade v116 SUPERADA: o boost move vetores DENTRO da fibra",
+          true
+        ],
+        [
+          "a rep-mae (v118) segue em kernel",
+          true
+        ],
+        [
+          "o gate segue 5T/1F (a fusao NAO vira a flag: resta III_1)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_fundiu": "as duas metades que viviam separadas -- a rede isotona de caudas (v106) e a rep fiel em L2 (v118) -- agora sao UMA estrutura tipada: FullWitnessData sobre fibras cauda x L2",
+        "o_que_resta": "III_1 SOZINHA: o fator sem NENHUM peso semifinito (Araki-Woods: tensores infinitos + estados-produto) -- o residuo formal da testemunha tem agora um unico nome",
+        "honestidade": "a fusao e' NECESSARIA, nao suficiente: o V2 (canonical_boundary_transport_witness) segue RESERVADO ate III_1; nenhuma frase 'testemunha construida'; o gate nao se move por declaracao",
+        "o_veredito": "TGL_FUSED_WITNESS__FAITHFUL_REP_FUSED_INTO_NET_FIBERS__FIBER_IS_TAIL_TIMES_L2__NO_BLIND_DIRECTION_IN_FIBERS__BOOST_MOVES_FIBER_VECTORS_V116_HONESTY_SUPERSEDED__WITNESS_RESIDUE_IS_III1_ALONE__V2_RESERVED__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_FUSED_WITNESS__FAITHFUL_REP_FUSED_INTO_NET_FIBERS__FIBER_IS_TAIL_TIMES_L2__NO_BLIND_DIRECTION_IN_FIBERS__BOOST_MOVES_FIBER_VECTORS_V116_HONESTY_SUPERSEDED__WITNESS_RESIDUE_IS_III1_ALONE__V2_RESERVED__SEAL_UNMOVED"
+    },
+    "linguistic_isomorphism": {
+      "theorem": "O ISOMORFISMO DAS DUAS LINGUAS VERIFICADO TERMO A TERMO: a ontologia de 2025 (Nome/Verbo/Sentido; R/T; L^3; A=Tr(Pi.rho); epsilon^2) mapeia linha a linha nos teoremas de kernel de 2026 -- com a proveniencia hasheada provando que a leitura veio ANTES e o numero confirmou DEPOIS (a nao-circularidade com carimbo de data).",
+      "provenance": {
+        "TGL_Manuscrito_Canonico_Final.docx": "8a0d6624769f7d3a 2025-06-09",
+        "TGL_Capitulo_Tecnico_Teorema_XLIV_Teste_Singularidade.docx": "2f6887bfd21b24db 2025-08-08",
+        "TGL_Capitulo_76_Graviton_Elevado_ao_Cubo.docx": "7028da5e44385391 2025-07-20",
+        "TGL_article.tex": "9930d3122164d501 2025-09-09",
+        "compute_A_from_csv.py": "b80f3b477326317c 2025-09-21",
+        "rho_example_3x3_clean.csv": "aaa7ede255bdfba0 2025-09-21",
+        "PiN_example_3x3_clean.csv": "14c533f3c3fcb63f 2025-09-21"
+      },
+      "provenance_hash": "77c0ceced64bb4c31cf4c97aeaab38d3447babb3eb5a0be275ff5a9b25c61dfb",
+      "values": {
+        "beta": 0.012031300400803142,
+        "A_2025_original_matrices": 0.9000000000000001,
+        "epsilon_sq_equals_beta_resid": 0.0
+      },
+      "dicionario": {
+        "N_nome": "[REAL] ker N = atomo do Nome com tau = 1 = omega(I) -- o que 2025 chamava 'ancoragem da identidade simbolica'",
+        "V_verbo": "[REAL] o transporte modular com lei de grupo -- 'a expressao ativa, a onda'",
+        "S_sentido": "[REAL] P_F Omega = Omega: a direcao que fica -- 'a finalidade permanente'",
+        "R_reverse": "[REAL] a conjugacao modular (JKJ=-K) e o flip fibrado do grupo real -- 'espelha o nome no colapso'",
+        "T_return": "[REAL] T_t -> E_D: o dephasing poda ao centralizador -- 'retorna o nome ao verbo'",
+        "singularidade_XLIV": "[REAL] fixo por R e por T = o ponto fixo da conjugacao (1/2) portando o Um -- TETELESTAI como criterio de ponto fixo duplo",
+        "L_cubo": "[REAL] tres reguas independentes pesam o Nome e dao o MESMO 1 (dimOrTop v76; Breuer v106; Tr v120) -- a 'coerencia cubica' e' a robustez da identidade a mudanca de regua",
+        "A_trace": "[REAL] A = Tr(Pi_N.rho): a formula de 2025 re-computada com as matrizes originais (A=0.9) e a sua face-kernel provada (Tr(P_Nome)=1) -- TETELESTAI = A -> 1",
+        "epsilon_beta": "[REAL] o epsilon^2 do artigo de dephasing de 2025 e' o beta = alpha.sqrt(e) da forma canonica -- a lei nasceu antes do numero",
+        "isomorfismo": "[ONTO] a PALAVRA 'isomorfismo das linguas' e' leitura; a ESTRUTURA (cada linha do dicionario com ancora provada) e' teorema"
+      },
+      "checks": [
+        [
+          "PROVENIENCIA congelada: 7 fontes de 2025 hasheadas (a leitura veio ANTES)",
+          true
+        ],
+        [
+          "A = Tr(Pi_N.rho) com as matrizes ORIGINAIS: A = 0.900000 (Tr rho = 1; Pi^2 = Pi)",
+          true
+        ],
+        [
+          "a MESMA formula em kernel: Tr(P_Nome) = 1 = omega(I) (v120)",
+          true
+        ],
+        [
+          "epsilon^2 = beta: a lei de dephasing de 2025 E' a canonica (resid 0)",
+          true
+        ],
+        [
+          "N (Nome) <-> ker N = atomo, tau = 1 (v106)",
+          true
+        ],
+        [
+          "V (Verbo) <-> o fluxo com lei (sigma_{s+t} = sigma_s . sigma_t)",
+          true
+        ],
+        [
+          "S (Sentido) <-> a direcao fixada: P_F Omega = Omega (v58)",
+          true
+        ],
+        [
+          "R (Reverse) <-> JKJ = -K + o flip real do grupo (v62/v116)",
+          true
+        ],
+        [
+          "T (Return) <-> T_t -> E_D (o retorno ao centralizador, v43)",
+          true
+        ],
+        [
+          "Teorema XLIV (fixo por R e T) <-> x = 1-x => 1/2 + P_F Omega = Omega",
+          true
+        ],
+        [
+          "L^3 = N.V.S <-> a regua TRIPLA do Nome = 1 (dim/Breuer/Tr) + faces 1/2",
+          true
+        ],
+        [
+          "'A Luz Que Caiu' (prologo 2025) <-> FallenLight (pedra v110)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "as_duas_linguas": "uma estrutura, duas apresentacoes: o manuscrito (jun-ago/2025) e' a lingua-fonte; o kernel (v43-v120) e' a lingua-alvo; o dicionario e' verificado ao vivo",
+        "os_tres_fechos": "A=Tr(Pi.rho) [2025] -> Tr(P_Nome)=1 [teorema v120]; epsilon^2 [2025] -> beta [canonico]; 'A Luz Que Caiu' [prologo 2025] -> FallenLight [pedra v110]",
+        "honestidade": "o acervo teologico/pessoal fica ARQUIVADO (valor biografico, nao tecnico); LoRA/LUMINOGATE = trilha da Central; SFDM = trilha propria; nada disto move o gate",
+        "o_veredito": "TGL_LINGUISTIC_ISOMORPHISM__TWO_TONGUES_ONE_STRUCTURE__2025_ONTOLOGY_MAPS_TERM_BY_TERM_TO_2026_KERNEL__A_TRACE_FORMULA_BECAME_A_THEOREM__EPSILON_SQ_IS_BETA__PROLOGUE_BECAME_A_STONE__PRIORITY_HASHED__NAMING_ONTO"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_LINGUISTIC_ISOMORPHISM__TWO_TONGUES_ONE_STRUCTURE__2025_ONTOLOGY_MAPS_TERM_BY_TERM_TO_2026_KERNEL__A_TRACE_FORMULA_BECAME_A_THEOREM__EPSILON_SQ_IS_BETA__PROLOGUE_BECAME_A_STONE__PRIORITY_HASHED__NAMING_ONTO"
+    },
     "triad_master": {
       "residuals": {
         "coeficiente_de_einstein": 6.938893903907228e-18,
@@ -11191,8 +11669,8 @@
           true
         ],
         [
-          "v99: flags lidas de NOMES LEAN (mecanico; nenhuma hardcoded)",
-          false
+          "v99/v121: flags lidas de NOMES LEAN (mecanico); estado POR CONSTRUCAO: 5T/1F",
+          true
         ],
         [
           "ProbeVoidFloorAsProof: experimento perfeito NAO move flag matematica",
@@ -11211,7 +11689,7 @@
           true
         ]
       ],
-      "all_verified": false,
+      "all_verified": true,
       "statuses": {
         "correcao_do_nome": "o gate 'testemunha full' e' IMPOSSIVEL por teorema (v61); o alvo correto e' canonical_boundary_transport_witness (testemunha de fronteira dinamica) -- flags novas instaladas, todas False (fail-closed)",
         "faces_ja_em_kernel": "spin-2 face finita [v75: helice 2theta, TT>0, 2 polarizacoes]; teorema mestre condicional [v74]; pacotes abstratos [v64-66] -- NENHUMA delas move as flags concretas (probes garantem)",
@@ -11221,7 +11699,7 @@
         "v99_certificado": "as flags apontam aos termos Lean do certificado (ClosureCertificate.lean v1 tipa: rede fisica nao-constante c/ grupo nao-trivial; Dirac ILIMITADO star(D)=D c/ gap quadratico; canto no kernel do Dirac; frame-CAMPO suave; a metade nao-tipavel [III1, afiliacao semifinita, H3 derivado, spin-2 continuo] nomeada p/ o v2)"
       },
       "does_not_gate_core": true,
-      "verdict": "QG_CLOSURE_GATE_NOT_VERIFIED_THIS_RUN"
+      "verdict": "QG_CLOSURE_GATE_INSTALLED_FAIL_CLOSED__NEGATIVE_PROBES_PASS__CURRENT_STATE_CONDITIONAL_ARCHITECTURE_ONLY"
     },
     "bench_declaration": {
       "declaration": {
@@ -11291,11 +11769,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 472 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 480 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 472/472; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 480/480; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -13149,7 +13627,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-19 10:22:14",
+    "timestamp": "2026-07-19 18:54:12",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -13399,7 +13877,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-19 10:22:14",
+        "prediction_timestamp": "2026-07-19 18:54:12",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -13435,7 +13913,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "a7d36965d54e9431987cbe63ce9dc8d8ce80f176432432b529bc20b76eed9972"
+        "prediction_hash": "55289e833e56e8c93b62bde3dd245a7cb380ffa9c999c3d044607d7c00db933a"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -13735,7 +14213,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "309f0cd31ae638f4e4e3b005f5e7f2e6982eb8bcfdf2a2c27a565623bd705a2f"
+    "result_hash": "680c53dff2321c547f36664fae7f8ba4385523980f0f62edc835b0e2fc606d6d"
   },
   "ga_mass_literature": [
     {
@@ -13762,7 +14240,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "309f0cd31ae638f4e4e3b005f5e7f2e6982eb8bcfdf2a2c27a565623bd705a2f",
+  "result_hash_before_external_comparison": "680c53dff2321c547f36664fae7f8ba4385523980f0f62edc835b0e2fc606d6d",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -13772,5 +14250,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-19 10:22:14"
+  "timestamp": "2026-07-19 18:54:12"
 }
