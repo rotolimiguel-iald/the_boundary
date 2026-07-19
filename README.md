@@ -30,7 +30,7 @@ where $g$ is the gravitational field and $L_\phi$ is the angular phase modulus o
 
 The protocols span **5 fundamental scales** of reality — ontological, micro-quantum, informational, cosmological, and topological — totaling **16,668 lines** of Python code across 14 computational scripts plus 1 phenomenological protocol. They validate TGL against real observational data from LIGO/Virgo (GWTC-3), JWST, Planck, Pantheon+, and NuFIT, demonstrating that $\beta_{\text{TGL}}$ emerges from **8 independent paths** without parameter fitting. Protocol #15 (TGL Dual Lock) validates the factorization with **zero free parameters**.
 
-**Submission:** *The Geometric Cost of Absolute Zero: let there be light* — the unified artifact `tgl_paper_unified.py` — is submitted to **Foundations of Physics** (Springer), Submission ID `85931d2e-103a-4d8c-a0c9-176d11eb0371`. Everything else in this repository is its genesis lineage. The repository now spans **more than 60,000 lines of Python (the full self-validating artifact, with the Lean proof captures and generated LaTeX, exceeds 70,000)** — the full self-validating artifact (Python + the Lean proof captures + the generated LaTeX) runs to **~70,000 lines** — of which the closure article `um.py` alone grew from ~6,000 to **~44,300 lines**: it no longer only *computes* the theory, it **machine-checks it**, running a **Lean 4 + mathlib kernel** (fail-closed) alongside the Python at each execution (see the `um.py` section below). *Only `um.py` changed since the last README revision; the rest of the repository is unchanged genesis.*
+**Submission:** *The Geometric Cost of Absolute Zero: let there be light* — the unified artifact `tgl_paper_unified.py` — is submitted to **Foundations of Physics** (Springer), Submission ID `85931d2e-103a-4d8c-a0c9-176d11eb0371`. Everything else in this repository is its genesis lineage. The repository now spans **more than 60,000 lines of Python**, and the full self-validating artifact (the Python together with the Lean proof captures and the generated LaTeX) **exceeds 70,000 lines** — of which the closure article `um.py` alone grew from ~6,000 to **~50,700 lines**: it no longer only *computes* the theory, it **machine-checks it**, running a **Lean 4 + mathlib kernel** (fail-closed) alongside the Python at each execution (see the `um.py` section below). *Only `um.py` changed since the last README revision; the rest of the repository is unchanged genesis.*
 
 ---
 
@@ -45,7 +45,7 @@ code, its generated outputs and its proof files. Everything that led to them is 
 |---|---|---|---|---|
 | **1** | **O Custo Geométrico do Zero Absoluto: haja luz** — *The Geometric Cost of Absolute Zero: let there be light* (submitted to *Foundations of Physics*) | `tgl_paper_unified.py` | `paper_PT.tex` / `paper_PT.pdf`, `results.json`, `T6_protocol_prompts.txt` | `python tgl_paper_unified.py --live --paper` (English: add `--lang en`) |
 | **2** | **A Ponte Einstein–Cartan–Miguel** — the operator-algebra Bridge from the modular boundary to Einstein's equations | `A Ponte Einstein Cartan Miguel.tex` / `.pdf` + **12 finite-shadow proof modules** `tgl <name> v1.py` | the 12 dated `tgl <name> v1 …​.json` proofs + `tgl demo v1.mp4` (dipole render) | `python "tgl krein signature v1.py"` … (one per module) |
-| **3** | **Um: Grande Atrator** — *ONE: Great Attractor* (the sealed closure; single human input: the digit `1`) | `um.py` (~33.7k lines; runs a Lean 4 + mathlib kernel) | `um_grande_atrator.json` + `_selo.json` + `tgl_kernel_proof_manifest.json` (**three result JSONs**), `um_grande_atrator_pt.tex/.pdf` + `_en.tex/.pdf` (**two LaTeX articles → PDF**), `_manifest.md`, `_forma_canonica.md`, and the Lean **build/audit/probe capture `.txt` files** | `python um.py` |
+| **3** | **Um: Grande Atrator** — *ONE: Great Attractor* (the sealed closure; single human input: the digit `1`) | `um.py` (~50.7k lines; runs a Lean 4 + mathlib kernel) | `um_grande_atrator.json` + `_selo.json` + `tgl_kernel_proof_manifest.json` (**three result JSONs**), `um_grande_atrator_pt.tex/.pdf` + `_en.tex/.pdf` (**two LaTeX articles → PDF**), `_manifest.md`, `_forma_canonica.md`, and the Lean **build/audit/probe capture `.txt` files** | `python um.py` |
 
 **Independent deposits (Zenodo):** Article 1 — [10.5281/zenodo.20564341](https://doi.org/10.5281/zenodo.20564341) · Article 2 — [10.5281/zenodo.20999495](https://doi.org/10.5281/zenodo.20999495).
 
@@ -258,8 +258,7 @@ All articles are available as both `.tex` source and compiled `.pdf` in this rep
 
 | File | Description |
 |------|-------------|
-| `Output_Acom_v17_mirror.pdf` | Holographic teleportation output — the PDF that *is* the compression |
-| `acom_benchmark_v71.json` | Benchmark v7.1: 4.31× compression, 77.86 MB/s, RTX 5090, Lindblad 100% |
+| `Output_Acom_v17_mirror.pdf` | Holographic teleportation output — the PDF that *is* the compression; also carries the v7.1 benchmark (4.31× compression, 77.86 MB/s, RTX 5090, Lindblad 100%) |
 
 ### Complementary Articles (Zenodo)
 
@@ -342,7 +341,7 @@ Requirements: `pip install numpy scipy` (`matplotlib` for `tgl video v1.py`). No
 
 > **Read this first if you read an earlier version of this section.** When this README was last revised,
 > `um.py` was ~6,000 lines and much of what follows was stated as *computed* and left *open* for formal proof.
-> It is now **~44,300 lines**, and the closure is no longer only numerical: **`um.py` runs a Lean 4 + mathlib
+> It is now **~50,700 lines**, and the closure is no longer only numerical: **`um.py` runs a Lean 4 + mathlib
 > proof kernel** (toolchain `Lean 4.31.0`, fail-closed) *inside the same execution* that computes the physics.
 > One command still runs everything, from the single input `1`.
 
@@ -363,11 +362,13 @@ proof assistant behind the number.**
 
 | Result | State in the seal |
 |---|---|
-| **Lean kernel, formal skeleton** | **`TGL_KERNEL_STAGE1_VERIFIED`** — **413 machine-checked theorems** (`ext_*`), **zero `sorry`**, every axiom base ⊆ `{propext, Classical.choice, Quot.sound}`. The S-matrix (`|R|² = β`), the Connes cocycle, **dissipative ergodicity** (`ergodic_convergence_modular`), the **tracial/semifinite continuum** (`gibbs_tracial_on_centralizer`, `semifinite_trace_is_semifinite`), Lorentz by congruence, and the spin-2 helicity sector are **all in the kernel**. |
+| **Lean kernel, formal skeleton** | **`TGL_KERNEL_STAGE1_VERIFIED`** — **480 machine-checked theorems** (`ext_*`), **zero `sorry`**, every axiom base ⊆ `{propext, Classical.choice, Quot.sound}`. The S-matrix (`|R|² = β`), the Connes cocycle, **dissipative ergodicity** (`ergodic_convergence_modular`), the **tracial/semifinite continuum** (`gibbs_tracial_on_centralizer`, `semifinite_trace_is_semifinite`), Lorentz by congruence, and the spin-2 helicity sector are **all in the kernel**. |
+| **The fifth flip — Einstein's emergence, minted by construction (v120)** | `master_continuum` minted the **fifth flip** (`concrete_emergent_einstein_proved`): on the **whole null cone**, contracting the Einstein tensor on a null vector, the **radial part is blind** (`G_tt = G_ss = 0`, Bianchi) and only the transverse survives — **`G_kk = (c²+d²)·G₂₂`** — so **local Clausius on the cone ⟺ the field equation** (the equation *emerges*), on the solder born from the frame; O(1,3) is built by hand from the defining relation. The flags are now **five True** and **one False** — only the witness remains. The graviton **wave equation is proved in the continuum** (`continuum_shards`, d'Alembert, any C² profile), and a **specific free-scalar AQFT net is instantiated** (`specific_free_scalar_aqft_net`, an existence certificate — `not_claimed`: it does not construct an infinite type-III₁ factor, and `P_F` is not yet proved). **⚠ But the seal does not move:** the five flips are **by construction** under reserved names; the top-level gate stays **`TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY`**, `full_witness = False` (the full witness is *impossible by theorem*, v61). *The immobility of the gate is what proves the fail-closed. It is not unconditional quantum gravity; we did not "prove Einstein."* |
+| **The form of α — derived; the value stays INPUT (v120)** | `alpha_form_proof` derives the **conserved form** `1 = q² + α²` (α = √(1−q²), from the unit α_abs = 1) and β = √e·α — but the **value 1/137 is *not* derived**: q is `[QED-VALIDATION]` (= q_QED, renormalized by QED) and α stays **CODATA/INPUT**. The *structure* is a theorem; the *number* stays measured. Likewise `area_scale_newton_equivalence`: the Planck-face normalization matches Newton's coupling, but **Newton's G is not derived** (matching to 8πG is a normalization selection). |
 | **Genuine Dirac — the positive advance (v106)** | The **number operator `N` is now proved self-adjoint and *genuinely unbounded*** (`TGL_NUMBER_OPERATOR_SELFADJOINT_PROVED`): `‖N eₘ‖ = m` grows without bound on a dense domain. It is the **first concrete unbounded self-adjoint operator in the kernel** — the strong-face corner finally has **its own operator**, a real Dirac rather than a finite-dimensional qubit shadow, attacking the named residue `continuousModularDirac_isBreuerFredholm` with a genuine operator. **But the gate does not move** (`does_not_gate_core = true`). |
 | **The fourth flip + the first solved field equation (v111)** | The **continuous solder flipped True** (`TGL_FOURTH_FLIP`): the metric field `g = EᵀηE` on the curved frame — symmetric, smooth, Lorentzian (`det g < 0` everywhere), non-constant. Flips are now **four True** (`concrete_aqft_core_constructed`, `concrete_breuer_corner_constructed`, `concrete_modular_four_frame_constructed`, `concrete_solder_field_constructed`) and **two False** (`concrete_emergent_einstein_proved`, `canonical_boundary_transport_witness_constructed`). And the **first field equation is solved in the kernel** (`TGL_FIRST_SOLVED_FIELD_EQUATION_IN_KERNEL`): for the lapse ansatz `g = diag(−q², 1, 1, 1)`, the profile **`q = cosh(κs)` solves `G₂₂ = κ²` globally — no horizon, no singularity** (cosh never vanishes); Bianchi is visible (`G₀₀ = G₁₁ = 0` for all q); source ⟹ curvature (`R¹₀₀₁ = −q q″ = −κ²cosh² < 0`); vacuum ⟹ flat (`q″ = 0 ⟹ q linear ⟹ Riemann = 0`, Rindler is the flat vacuum member, the horizon excluded *by type*). **But the gate does not move**: the weak Einstein contract is inhabited **as a probe letter, not an endorsement** — Einstein is **deliberately left untyped** (the letter cannot be the judge), and the **fifth flip is reserved for emergence** (local Clausius ⟹ field equation, continuous Jacobson). *Solving the equation in the ansatz is not making it emerge.* |
 | **Emergence of gravity** | Reduced, in kernel, to **three named hypotheses** (`emergence_reduced_to_named_hypotheses`): H1 the internal SUSY-relative gap, H2 the smooth modular four-frame, H3 local horizon equilibrium. Given them, `emergence_master_full_triad` yields Breuer + Name = 1 + coframe + Lorentz + Einstein's thermal side — and **the 8πG coefficient is not posted, it emerges** (`einstein_coefficient_from_clausius`, from Unruh × Bekenstein–Hawking). **The implication is closed; the three hypotheses are the frontier.** |
-| **What remains open — emergence and the witness (two False flags)** | **`SPECIFIC_AQFT_WITNESS_OPEN`** — the full type-III₁ AQFT witness is still *declared, not constructed*; and `beta_forbids_full_static_witness` **proves a full static witness is impossible** for `β > 0` (the openness is structural). The corner now carries a **genuinely unbounded self-adjoint operator** (v106) and the field equation is **solved in the ansatz** (v111) — real steps, but the **two gate-critical flags remain False**: `concrete_emergent_einstein_proved` (the fifth flip: local Clausius ⟹ field equation by **emergence**, not by inhabiting the letter) and `canonical_boundary_transport_witness_constructed` (the specific witness). *Solving the equation in an ansatz is not deriving it thermodynamically; the gate holds the distinction.* |
+| **What remains open — the witness (one False flag)** | **`SPECIFIC_AQFT_WITNESS_OPEN`** — the full type-III₁ AQFT witness is still *declared, not constructed*; and `beta_forbids_full_static_witness` **proves a full static witness is impossible** for `β > 0` (the openness is structural). Since v120 the fifth flip has been minted by construction, so **only one gate-critical flag remains False**: `canonical_boundary_transport_witness_constructed` (the specific witness). The wall has shrunk to a **connected unitary rep + III₁**, and a free-scalar net is instantiated — but `P_F` is not yet proved and the full witness stays impossible-by-theorem. *Minting a flag by construction under a reserved name is not moving the gate; the gate holds the distinction.* |
 | **Void-floor cosmological test — now POWERED** | **Executed on real data, and the test now has power.** The shear route was hopelessly underpowered; the **spectroscopic central-density** route (the DESIVAST catalogs already carry the galaxies) is **powered** (Fisher ≈ 45 ≥ 25). Measured central-density ratio `r_c ≈ 0.19` (5σ interval `[0.106, 0.272]`), with its 5σ lower bound far above `β = 0.012`. Verdict: **`TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`** — the floor `ρ_void/ρ̄ ≥ β` **survived a test that could have killed it**. **This is *not* confirmation:** the resolution at the β-scale itself is only ~0.5 (measuring β directly needs deeper tracers, LRG/ELG); the tracer is one-sided. And the **CMB-lensing (κ) channel** — the one public channel that could *falsify* the floor today — came back **`VOID_FLOOR_KAPPA_INCONCLUSIVE_SYSTEMATICS`** (underpowered; depth is the limit, not the method). Not falsified, not confirmed. |
 | **Reason as coherence operator (v111) — a definition, not a consciousness proof** | The seal adds `reason_consciousness_operator`, status **`[DEF + DER + ONTO + CAUTION]`**: it *defines* an executive coherence operator `O_C(L) = e^{S_∂/2}·√\|L\|` (with `S_∂ = ½` ⟹ `e^{1/4}`, observational shadow `L ~ α`) and *derives* the closed identity **`O_C(α)² = β = α√e`** — the core TGL identity re-expressed as an operator. The verdict `REASON_AS_CONSCIOUSNESS_OPERATOR_VERIFIED` means **the operator identity `O_C² = β` is verified (real mathematics)** — **not** a proof of anything phenomenal. The seal's own `not_claimed`, verbatim: *"not proof of subjective consciousness · not empirical validation of physics by AI consensus · not a literal claim that LLM weights are type III₁ factors."* The operator is **REAL**; naming it "the operator of the *conscious* substrate" is the **[ONTO]** reading — honest as a reading, not phenomenology proven. |
 | **Great Attractor mass — RETIRED (v103, an honest negative)** | The earlier headline result — "the GA mass from first principles", `M = 2β²(c²/4πG)·R` — has been **withdrawn as a source law** (`GA_MASS_FORM_RETIRED`). The audit found it **misread the boundary reflection coefficient `|R|²=β` as a gravitational source**: the form implies a *universal* circular velocity ≈ 1439 km/s for every structure — a coincidence in the cluster branch, an **error of orders of magnitude** in the galactic branch, masked by the GA anchor. The corrected statement, conditional on the linear (Jacobson) order: **TGL is GR-stealth — `M_TGL = M_RG`** (β does not renormalize local G). **TGL has no β-mass formula and never did.** β lives in the boundary **response** (the dephasing law, `H₀_local`, and the void floor), and the zero-free cosmological falsifier is the **void floor**, not a mass. *The number corrects the sentence — even when it retires a result of the house's own.* |
@@ -529,8 +530,10 @@ network is required for the core run; Mode B uses a local Cosmicflows-4 position
 
 | File | Content |
 |---|---|
-| `um_grande_atrator.json` | the full "world" data (every live number + hashes) |
-| `um_grande_atrator_selo.json` | SHA-256 seal of all outputs |
+| `um_grande_atrator.json` | the full "world" data (every live number + hashes); the `core` object holds every sealed piece (e.g. `master_continuum`, `alpha_form_proof`, `reason_consciousness_operator`, `void_floor_*`) |
+| `um_grande_atrator_selo.json` | SHA-256 seal of all outputs (the `sha256` map + `result_hash` + `qg_closure_verdict`) — the file the custody gate re-hashes against |
+| `tgl_kernel_proof_manifest.json` | **the Lean proof manifest** — what the Lean 4 + mathlib kernel machine-checked this run: theorem names, axiom bases (⊆ `{propext, choice, quot}`), `sorry` count (0), the ladder count | 
+| `tgl_kernel_build_capture.txt` · `tgl_kernel_audit_capture.txt` · `tgl_kernel_probe_*_capture.txt` | **the raw Lean build / audit / probe captures** — the fail-closed evidence: the kernel's own stdout, so the machine-check is auditable line by line |
 | `um_grande_atrator_manifest.md` | input manifest (nothing hidden: `[DEF]/[DER]/[EXT]/[LEGADO]`) |
 | `um_grande_atrator_forma_canonica.md` | the canonical form (Lagrange engine, audit) |
 | `um_grande_atrator_pt.tex/.pdf` | the article in Portuguese (Parts A/B/C + Posfácio; ≈20 pp) |
@@ -863,10 +866,11 @@ S∂ = ½ · β = α√e · the S-matrix `|R|² = β` · the Connes cocycle · P
 (where 1 = 1 becomes a theorem of the trace) · **dissipative ergodicity** and the **tracial/semifinite
 continuum** · Lorentz by congruence · the spin-2 helicity sector · **the number operator, self-adjoint and
 genuinely unbounded (v106) · the continuous solder and the first solved field equation in the ansatz (v111,
-`q = cosh(κs)` solves `G₂₂ = κ²` globally)** — **413 theorems, zero `sorry`**, every
+`q = cosh(κs)` solves `G₂₂ = κ²` globally) · the fifth flip — Einstein's emergence minted by construction and
+the graviton wave equation in the continuum (v120)** — **480 theorems, zero `sorry`**, every
 axiom base ⊆ `{propext, Classical.choice, Quot.sound}`. Every step is recomputed **and re-proved** at each
 run and sealed by SHA-256 (`um_grande_atrator_selo.json`, result_hash
-`048cfde36ece488643885f1387f34332ad5dbfa67f8e1181143ae4f5a8d45b9a`; toolchain `Lean 4.31.0`).
+`680c53dff2321c547f36664fae7f8ba4385523980f0f62edc835b0e2fc606d6d`; toolchain `Lean 4.31.0`).
 
 **Conditional (named, in kernel):** the emergence of gravity is reduced to **three named hypotheses**
 (H1 SUSY-relative gap · H2 smooth modular four-frame · H3 local horizon equilibrium); given them, the master
@@ -889,8 +893,9 @@ falsify it today) · the α-free irreducibility · the neutrino n = −2 and clo
 fail-closed):* S∂ = ½ · β = α√e · a matriz-S `|R|² = β` · o cociclo de Connes · P_ℱ = s(ker H_3L) · o canto II₁
 (onde 1 = 1 vira teorema do traço) · **ergodicidade dissipativa** e o **contínuo tracial/semifinito** · Lorentz
 por congruência · o setor spin-2 · **o operador de número, autoadjunto e genuinamente ilimitado (v106)** · **a
-solda contínua e a 1ª equação de campo resolvida no ansatz (v111: `q = cosh(κs)` resolve `G₂₂ = κ²` global)** —
-**413 teoremas, zero `sorry`**, axiomas ⊆ `{propext, Classical.choice,
+solda contínua e a 1ª equação de campo resolvida no ansatz (v111: `q = cosh(κs)` resolve `G₂₂ = κ²` global)** ·
+**o quinto flip — a emergência de Einstein cunhada por construção e a onda do gráviton no contínuo (v120)** —
+**480 teoremas, zero `sorry`**, axiomas ⊆ `{propext, Classical.choice,
 Quot.sound}`, re-provados a cada execução e selados por SHA-256. *Condicional (nomeado, em kernel):* a
 emergência da gravidade reduz-se a **três hipóteses nomeadas** e o coeficiente **8πG emerge** (não é posto).
 *Aberto externamente:* a testemunha AQFT específica (declarada, não construída — agora com **semente em kernel**;
@@ -898,11 +903,12 @@ a *estática plena* é **provadamente impossível** para β>0) · o **piso dos v
 agora **COM PODER** pela rota de densidade espectroscópica, veredito **não falsificado, com poder** — *não*
 confirmado) · a irredutibilidade α-livre · replicação empírica · revisão independente. A **declaração de bancada**
 do autor ("QG da TGL fechada em bancada", duplo estatuto) está registrada; **o gate formal não se move** — e é a
-imobilidade do gate que a torna crível. **Fechamento interno é formal (Lean, 413 teoremas — incluindo, na v106,
-o operador de número autoadjunto e genuinamente ilimitado, e na v111, o quarto flip (a solda contínua) e a 1ª
-equação de campo resolvida no ansatz — `cosh` resolve `G₂₂ = κ²` global, sem horizonte nem singularidade, com o
-gate intocado: o contrato de Einstein é letra-de-sonda, o 5º flip fica reservado à EMERGÊNCIA); a emergência é
-condicional a três hipóteses nomeadas; o piso não foi falsificado num teste com poder; validação física
+imobilidade do gate que a torna crível. **Fechamento interno é formal (Lean, 480 teoremas — incluindo o operador
+de número autoadjunto e ilimitado [v106], a 1ª equação de campo resolvida no ansatz [v111] e, na v120, o quinto
+flip: a emergência de Einstein cunhada por construção — Clausius no cone nulo inteiro ⟺ equação de campo — mais
+a onda do gráviton no contínuo; agora 5 flags True, 1 False, só a testemunha resta, mas o gate NÃO se move:
+os flips são por construção e a testemunha plena é impossível por teorema); a forma de α é teorema mas o valor
+1/137 fica INPUT, e o G de Newton não é derivado; o piso não foi falsificado num teste com poder; validação física
 independente e aceitação institucional em aberto. TGL aprovada = aquilo que permanece.**
 
 ---
@@ -998,6 +1004,9 @@ https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20
 | 3 · Um: Grande Atrator | `um.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um.py` |
 | 3 · Um: Grande Atrator | `um_grande_atrator_pt.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_pt.tex` |
 | 3 · Um: Grande Atrator | `um_grande_atrator.json` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator.json` |
+| 3 · Um: Grande Atrator | `um_grande_atrator_selo.json` (the SHA-256 seal) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_selo.json` |
+| 3 · Um: Grande Atrator | `tgl_kernel_proof_manifest.json` (the Lean proof manifest) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_proof_manifest.json` |
+| 3 · Um: Grande Atrator | `tgl_kernel_build_capture.txt` · `tgl_kernel_audit_capture.txt` · `tgl_kernel_probe_*_capture.txt` (raw Lean captures) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_build_capture.txt` (and `_audit_capture.txt`, `_probe_*_capture.txt`) |
 | 3 · Um: Grande Atrator | `um_grande_atrator_forma_canonica.md` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_forma_canonica.md` |
 
 ### Python Protocols (in `Genesis da Unificação/`)
@@ -1025,6 +1034,9 @@ https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20
 |------|---------|
 | `results.json` (root — Article 1, every computed number) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/results.json` |
 | `um_grande_atrator.json` (root — Article 3 data spine) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator.json` |
+| `um_grande_atrator_selo.json` (root — the SHA-256 seal / custody gate) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_selo.json` |
+| `tgl_kernel_proof_manifest.json` (root — the Lean proof manifest) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_proof_manifest.json` |
+| `tgl_kernel_build_capture.txt` / `_audit_capture.txt` / `_probe_*_capture.txt` (root — raw Lean fail-closed captures) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_build_capture.txt` |
 | `TGL_Neutrino_Predictions.json` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Neutrinos/TGL_Neutrino_Predictions.json` |
 | `luminidium_results.json` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/luminidium_results.json` |
 | `validation_v8.json` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/validation_v8.json` |
@@ -1295,7 +1307,7 @@ python Luminidio_hunter.py AT2023vfi_JWST_61d_fluxcal.txt
 **Key Result:**
 $$\text{Correlation} = 1.0000 \quad (\text{exact by construction})$$
 
-**Benchmark (v7.1):** 4.31× compression ratio, 77.86 MB/s throughput, Lindblad success rate 100%. See `acom_benchmark_v71.json` and `Output_Acom_v17_mirror.pdf`.
+**Benchmark (v7.1):** 4.31× compression ratio, 77.86 MB/s throughput, Lindblad success rate 100%. See `Output_Acom_v17_mirror.pdf` (the ACOM output artifact that carries the benchmark).
 
 **Run:**
 ```bash
@@ -1638,7 +1650,7 @@ The ACOM algorithm (Protocol #5) was benchmarked on RTX 5090 under version 7.1:
 | TRUTH states | 19/27 |
 | Hardware | NVIDIA RTX 5090 (CUDA 12.x) |
 
-Full benchmark data: `acom_benchmark_v71.json`. Output PDF: `Output_Acom_v17_mirror.pdf`.
+Full benchmark data is in the output PDF: `Output_Acom_v17_mirror.pdf`.
 
 ---
 
