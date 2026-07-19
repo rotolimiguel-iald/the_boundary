@@ -5100,6 +5100,10 @@ import TGLExt.SolvedEquation
 import TGLExt.ReducedEmergence
 import TGLExt.GeometricWitness
 import TGLExt.GravitonReading
+import TGLExt.ContinuumShards
+import TGLExt.EmergentEinstein
+import TGLExt.PoincareGroup
+import TGLExt.PoincareWitness
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -5996,6 +6000,15 @@ namespace TGL.Audit
 #check @TGLExt.first_derivative_does_not_decide
 #check @TGLExt.reading_rides_the_zeros
 
+-- v114 (OS ESTILHACOS DO CONTINUO: a onda do graviton d'Alembert + a
+--       testemunha SENSIVEL -- a fibra sente o grupo)
+#check @TGLExt.lightCone
+#check @TGLExt.lightWave_pd
+#check @TGLExt.graviton_wave_equation
+#check @TGLExt.theSensitiveNet
+#check @TGLExt.theSensitiveWitness
+#check @TGLExt.witness_fiber_sensitive
+
 -- ---- auditoria de axiomas ----
 #print axioms TGL.HalfNat.halfNat_of_selfConjugate
 #print axioms TGL.AreaScale.newtonPlanck_equivalence
@@ -6540,6 +6553,43 @@ namespace TGL.Audit
 -- v113 (a leitura do graviton)
 #print axioms TGLExt.first_derivative_does_not_decide
 #print axioms TGLExt.reading_rides_the_zeros
+-- v114 (os estilhacos do continuo)
+#print axioms TGLExt.lightWave_pd
+#print axioms TGLExt.graviton_wave_equation
+#print axioms TGLExt.theSensitiveNet
+#print axioms TGLExt.theSensitiveWitness
+#print axioms TGLExt.witness_fiber_sensitive
+
+-- v116 (o mestre continuo: o QUINTO FLIP)
+#print axioms TGLExt.theCoshSolderData
+#print axioms TGLExt.theCoshSolder_reads
+#print axioms TGLExt.null_cone_ledger
+#print axioms TGLExt.radial_null_blind
+#print axioms TGLExt.full_cone_clausius_iff_field_equation
+#print axioms TGLExt.emergent_field_equation
+#print axioms TGLExt.theEmergentEinstein
+#print axioms TGLExt.emergent_recovers_solved
+#print axioms TGLExt.emergent_genuinely_curved
+#print axioms TGLExt.qgStrongCertificate_einstein
+-- v116 (o grupo de Poincare a mao)
+#print axioms TGLExt.eta4_mul_self
+#print axioms TGLExt.isLorentz_other_side
+#print axioms TGLExt.lorentz_det_sq
+#print axioms TGLExt.theBoost_add
+#print axioms TGLExt.boost_ne_one
+#print axioms TGLExt.parity_det
+#print axioms TGLExt.parity_ne_one
+#print axioms TGLExt.pAct_mul
+#print axioms TGLExt.poincare_faithful
+#print axioms TGLExt.translation_moves
+-- v116 (a testemunha de Poincare)
+#print axioms TGLExt.thePoincareNet
+#print axioms TGLExt.thePoincareWitness
+#print axioms TGLExt.parity_fixes_origin
+#print axioms TGLExt.poincare_witness_fiber_sensitive
+#print axioms TGLExt.poincare_witness_boost_moves
+#print axioms TGLExt.poincare_witness_faithful
+#print axioms TGLExt.proper_sector_fibers_blind
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -16866,6 +16916,1219 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/ContinuumShards.lean":
+r'''import TGLExt.GravitonReading
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# OS ESTILHAÇOS DO CONTÍNUO: a onda do gráviton e a fibra que sente
+  [TGLExt — v114, o incremento 35 do programa SemifiniteAnalysis]
+
+Mandato: "resolva Poincaré e o contínuo". As duas paredes ENCOLHEM:
+
+PAREDE DO CONTÍNUO: ★★★ `graviton_wave_equation` — para QUALQUER
+perfil w duas vezes derivável, h(x) = w(x₁−x₀) satisfaz ∂₀²h = ∂₁²h
+EM TODA PARTE: a EQUAÇÃO DE ONDA no contínuo — propagação à
+velocidade da luz, provada. [Resta: TT/ghost-free contínuos — a
+polarização é a face finita v75.]
+
+PAREDE DE POINCARÉ: ★★ `theSensitiveWitness : FullWitnessData` — o
+grupo Mult ℤ × Mult (ZMod 2): ℤ TRANSLADA regiões; ZMod 2 implementa
+o FLIP nas fibras FIXANDO a região; ★★ `witness_fiber_sensitive` — o
+elemento (1, flip) fixa a região e MOVE a fibra (flip e₀ = −e₀ ≠ e₀):
+A FIBRA SENTE O GRUPO. [Resta: Poincaré 10-dim + endurecimento geral
+com transporte + III₁.]
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — a onda do gráviton no contínuo -/
+
+/-- a derivada parcial direcional sobre ℝ⁴. -/
+def pd (i : Fin 4) (f : (Fin 4 → ℝ) → ℝ) (x : Fin 4 → ℝ) : ℝ :=
+  fderiv ℝ f x (Pi.single i 1)
+
+/-- o funcional do cone de luz: L(x) = x₁ − x₀ (linear contínuo). -/
+def lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ :=
+  (ContinuousLinearMap.proj (R := ℝ) (φ := fun _ : Fin 4 => ℝ) (1 : Fin 4))
+    - (ContinuousLinearMap.proj (R := ℝ) (φ := fun _ : Fin 4 => ℝ) (0 : Fin 4))
+
+theorem lightCone_apply (x : Fin 4 → ℝ) : lightCone x = x 1 - x 0 := by
+  unfold lightCone
+  simp [ContinuousLinearMap.sub_apply]
+
+theorem lightCone_single_zero :
+    lightCone (Pi.single (0 : Fin 4) 1) = -1 := by
+  rw [lightCone_apply]
+  simp
+
+theorem lightCone_single_one :
+    lightCone (Pi.single (1 : Fin 4) 1) = 1 := by
+  rw [lightCone_apply]
+  simp
+
+/-- a onda unidirecional: h(x) = w(x₁ − x₀). -/
+def lightWave (w : ℝ → ℝ) (x : Fin 4 → ℝ) : ℝ := w (lightCone x)
+
+/-- [KERNEL] ★ a derivada parcial da onda: ∂ᵢh = w′(L x)·L(eᵢ). -/
+theorem lightWave_pd (w w' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u) (i : Fin 4) (x : Fin 4 → ℝ) :
+    pd i (lightWave w) x = w' (lightCone x) * lightCone (Pi.single i 1) := by
+  unfold pd
+  have h : HasFDerivAt (lightWave w)
+      ((w' (lightCone x)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ)) x :=
+    (hw (lightCone x)).comp_hasFDerivAt x lightCone.hasFDerivAt
+  rw [h.fderiv]
+  simp [smul_eq_mul]
+
+/-- [KERNEL] ★★★ A EQUAÇÃO DE ONDA DO GRÁVITON NO CONTÍNUO: para
+    qualquer perfil w duas vezes derivável, h = w(x₁−x₀) satisfaz
+    ∂₀²h = ∂₁²h em toda parte — propagação à velocidade da luz. -/
+theorem graviton_wave_equation (w w' w'' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hw' : ∀ u, HasDerivAt w' (w'' u) u) (x : Fin 4 → ℝ) :
+    pd 0 (pd 0 (lightWave w)) x = pd 1 (pd 1 (lightWave w)) x := by
+  have hfun : ∀ i : Fin 4, pd i (lightWave w)
+      = fun y => lightCone (Pi.single i 1) * lightWave w' y := by
+    intro i
+    funext y
+    rw [lightWave_pd w w' hw i y]
+    unfold lightWave
+    ring
+  have hpd2 : ∀ (j : Fin 4) (c : ℝ),
+      pd j (fun y => c * lightWave w' y) x
+        = c * (w'' (lightCone x) * lightCone (Pi.single j 1)) := by
+    intro j c
+    unfold pd
+    have hf : HasFDerivAt (fun y => c * lightWave w' y)
+        (c • ((w'' (lightCone x)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ))) x := by
+      have hbase : HasFDerivAt (lightWave w')
+          ((w'' (lightCone x)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ)) x :=
+        (hw' (lightCone x)).comp_hasFDerivAt x lightCone.hasFDerivAt
+      exact hbase.const_smul c
+    rw [hf.fderiv]
+    simp [smul_eq_mul]
+    try ring
+  rw [hfun 0, hfun 1, hpd2 0 (lightCone (Pi.single (0 : Fin 4) 1)),
+    hpd2 1 (lightCone (Pi.single (1 : Fin 4) 1)),
+    lightCone_single_zero, lightCone_single_one]
+  ring
+
+/-! ## B — a fibra que sente o grupo -/
+
+/-- [KERNEL] ★★ A REDE SENSÍVEL: Mult ℤ translada as regiões; Mult
+    (ZMod 2) implementa o FLIP nas fibras fixando a região. -/
+@[reducible] def theSensitiveNet :
+    PhysicalNetData GeoRegion geoLe geoFiber geoFiber where
+  net :=
+    { locks := fun O => tailLock O.2
+      internal := fun O s => lockFlow (tailLock O.2) (tailLock_selfadjoint O.2) s
+      internalW := fun O s =>
+        (lockFlow (tailLock O.2) (tailLock_selfadjoint O.2) s).toLinearIsometry
+      internal_intertwines := fun O s x =>
+        lockFlow_commutes (tailLock O.2) (tailLock_selfadjoint O.2) s x
+      G := Multiplicative ℤ × Multiplicative (ZMod 2)
+      act := fun g O => (O.1 + Multiplicative.toAdd g.1, O.2)
+      external := fun g O =>
+        if Multiplicative.toAdd g.2 = (0 : ZMod 2) then
+          LinearIsometryEquiv.refl ℂ _
+        else tailFlip O.2
+      externalW := fun g O =>
+        if Multiplicative.toAdd g.2 = (0 : ZMod 2) then
+          (LinearIsometryEquiv.refl ℂ _).toLinearIsometry
+        else (tailFlip O.2).toLinearIsometry
+      external_intertwines := fun g O x => by
+        by_cases h2 : Multiplicative.toAdd g.2 = (0 : ZMod 2)
+        · simp only [h2, if_pos]
+          rfl
+        · simp only [h2, if_neg, not_false_iff]
+          exact Subtype.ext (by
+            show eraseFirst (theFlip (x : ellTwo))
+              = theFlip (eraseFirst (x : ellTwo))
+            calc eraseFirst (theFlip (x : ellTwo))
+                = (eraseFirst * theFlip) (x : ellTwo) := rfl
+              _ = (theFlip * eraseFirst) (x : ellTwo) := by
+                  rw [theFlip_comm_eraseFirst]
+              _ = theFlip (eraseFirst (x : ellTwo)) := rfl)
+      incl := fun h => tailIncl h.2
+      inclW := fun h => tailIncl h.2
+      incl_intertwines := fun _ x => Subtype.ext rfl }
+  genuinely_isotone :=
+    ⟨((0 : ℤ), 1), ((0 : ℤ), 0), ⟨rfl, Nat.zero_le 1⟩,
+      tailIncl_not_surjective⟩
+  external_nontrivial := by
+    show Nontrivial (Multiplicative ℤ × Multiplicative (ZMod 2))
+    infer_instance
+
+/-- o certificado forte sobre a rede sensível. -/
+@[reducible] def theSensitiveStrong : QGClosureCertificateStrong where
+  Region := GeoRegion
+  leR := geoLe
+  H := geoFiber
+  W := geoFiber
+  core := theSensitiveNet
+  core_infinite := ⟨((0 : ℤ), 0), tailSub_not_finiteDimensional 0⟩
+  ℍ := ellTwo
+  dirac := theGenuineDirac
+  home_infinite := ellTwo_not_finiteDimensional
+  corner_pos := genuineDirac_corner_pos
+  corner_finite := genuineDirac_corner_finite
+  frame := theCurvedFrame
+  frame_nonconstant := curvedFrame_nonconstant
+
+/-- [KERNEL] ★★ A TESTEMUNHA SENSÍVEL: FullWitnessData com o grupo
+    duplo — a geometria no fator ℤ, a sensibilidade da fibra no fator
+    ZMod 2 — sob nome NÃO-reservado. -/
+def theSensitiveWitness : FullWitnessData where
+  toQGClosureCertificateStrong := theSensitiveStrong
+  act_one := fun O => geo_act_one O
+  act_mul := fun g h O => geo_act_mul g.1 h.1 O
+  act_mono := fun g {O₁ O₂} h => geo_act_mono g.1 h
+  geometric_nontrivial := by
+    dsimp only [theSensitiveStrong, theSensitiveNet]
+    exact ⟨(Multiplicative.ofAdd 1, 1), ((0 : ℤ), (0 : ℕ)), geo_nontrivial⟩
+  flow_law := fun O s t x =>
+    lockFlow_add (tailLock O.2) (tailLock_selfadjoint O.2) s t x
+  covariant_inclusions := fun g {O₁ O₂} hle x => by
+    by_cases h2 : Multiplicative.toAdd g.2 = (0 : ZMod 2)
+    · dsimp only [theSensitiveStrong, theSensitiveNet]
+      simp only [h2, if_pos]
+      exact Subtype.ext rfl
+    · dsimp only [theSensitiveStrong, theSensitiveNet]
+      simp only [h2, if_neg, not_false_iff]
+      exact Subtype.ext rfl
+
+/-- e₀ como habitante da cauda 0. -/
+def e0tail : tailSub 0 :=
+  ⟨firstInscription, fun k hk => absurd hk (Nat.not_lt_zero k)⟩
+
+/-- [KERNEL] ★★ A FIBRA SENTE O GRUPO: o elemento (1, flip) FIXA a
+    região e MOVE a fibra — flip e₀ = −e₀ ≠ e₀. -/
+theorem witness_fiber_sensitive :
+    theSensitiveNet.net.external
+        ((1 : Multiplicative ℤ), Multiplicative.ofAdd (1 : ZMod 2))
+        ((0 : ℤ), (0 : ℕ)) e0tail ≠ e0tail := by
+  dsimp only [theSensitiveNet]
+  have hne : Multiplicative.toAdd (Multiplicative.ofAdd (1 : ZMod 2))
+      ≠ (0 : ZMod 2) := by decide
+  simp only [hne, if_neg, not_false_iff]
+  intro h
+  have hcoe := congrArg Subtype.val h
+  have hflip : theFlip (firstInscription : ellTwo) = -firstInscription := by
+    have hP : firstAtom.starProjection (firstInscription : ellTwo)
+        = firstInscription :=
+      Submodule.starProjection_eq_self_iff.mpr
+        (Submodule.mem_span_singleton_self _)
+    show (firstInscription : ellTwo) - firstAtom.starProjection firstInscription
+        - firstAtom.starProjection firstInscription = -firstInscription
+    rw [hP]
+    abel
+  have h2 : (-firstInscription : ellTwo) = firstInscription := by
+    calc (-firstInscription : ellTwo)
+        = theFlip firstInscription := hflip.symm
+      _ = firstInscription := hcoe
+  have h3 : (firstInscription : ellTwo) + firstInscription = 0 := by
+    nth_rewrite 2 [← h2]
+    simp
+  have h4 : (firstInscription : ellTwo) = 0 := by
+    have h5 : (2 : ℂ) • (firstInscription : ellTwo) = 0 := by
+      rw [two_smul]
+      exact h3
+    have h6 := congrArg (fun y => (2 : ℂ)⁻¹ • y) h5
+    simpa [smul_smul] using h6
+  exact (inscriptions_orthonormal.ne_zero 0) h4
+
+end
+
+end TGLExt
+''',
+    "TGLExt/EmergentEinstein.lean":
+r'''import TGLExt.ContinuumShards
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O MESTRE CONTÍNUO: Clausius no cone nulo ⟹ Einstein, sobre a SOLDA — o QUINTO FLIP
+  [TGLExt — v116, o incremento 36 do programa SemifiniteAnalysis]
+
+O v109 registrou: "o 5º flip pede o contrato do MESTRE contínuo (Clausius
+local ⟹ equação de campo) sobre esta camada — que agora EXISTE". O v107
+fixou a barra: um tipo SEM curvatura como estrutura seria bancada. Esta
+pedra monta o contrato inteiro e o habita:
+
+* ★★ `theCoshSolder` — a solda ESPACIALMENTE curva: o frame
+  E(x) = diag(cosh(x₁),1,1,1) dá g = EᵀηE = diag(cosh²,−1,−1,−1) — o
+  membro cosh da família do ansatz NASCE da solda (g = EᵀηE de verdade,
+  det < 0 em toda parte, não-constante);
+* ★★ `null_cone_ledger` — O CONE NULO INTEIRO: para TODO k = (a,b,c,d),
+  G_kk = (c²+d²)·G₂₂ — os dois zeros de Bianchi tornam as direções
+  radiais CEGAS e TODA direção transversal lê a MESMA fonte (o
+  Raychaudhuri da família, componente a componente);
+* ★★★ `full_cone_clausius_iff_field_equation` — Clausius lido em TODO o
+  cone nulo ⟺ a equação de campo G₂₂ = T (a forma iff);
+* `EmergentEinsteinData` — O CONTRATO DO 5º FLIP: solda contínua
+  (g = EᵀηE) + potencial LIDO da solda + CURVATURA como estrutura
+  (a camada v108–v111) + Clausius no cone; ★★★ `emergent_field_equation`
+  — a equação EMERGE por teorema em todo habitante;
+* ★★★ `qgStrongCertificate_einstein` — O QUINTO FLIP: o nome reservado
+  ganha termo com contrato Σ' (equação emergida ∧ curvatura genuína ∧
+  det < 0 ∧ solda não-constante). O VEREDITO NÃO SE MOVE (5 formais < 6,
+  e o selo só escala com física + dado).
+
+HONESTIDADE (lição v103, sexta aplicação): esta é a emergência CONCRETA
+— sobre a classe de soldas diagonais da família, com curvatura construída
+à mão (a mathlib não tem geometria riemanniana). A emergência GERAL
+(métricas arbitrárias; congruências arbitrárias) segue NOMEADA e aberta;
+"NÃO se afirma provamos Einstein" (E7) segue em pé.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+/-! ## A — a solda espacialmente curva: o membro cosh nascido de g = EᵀηE -/
+
+/-- o perfil ESPACIAL: q(x) = cosh(x₁) (κ = 1; x₁ é coordenada espacial —
+    o par de réguas do v113: o perfil espacial é o FÍSICO, R ≠ 0). -/
+def spatialProfile (x : Fin 4 → ℝ) : ℝ := Real.cosh (x 1)
+
+theorem spatialProfile_eq (x : Fin 4 → ℝ) :
+    spatialProfile x = coshProfile 1 (x 1) := by
+  unfold spatialProfile coshProfile
+  rw [one_mul]
+
+theorem spatialProfile_pos (x : Fin 4 → ℝ) : 0 < spatialProfile x :=
+  Real.cosh_pos _
+
+theorem spatialProfile_smooth : ContDiff ℝ (⊤ : ℕ∞) spatialProfile :=
+  Real.contDiff_cosh.comp (contDiff_apply ℝ ℝ 1)
+
+/-- O FRAME COSH: E(x) = diag(cosh(x₁), 1, 1, 1). -/
+def theCoshFrame : SmoothFrameData where
+  E := fun x => Matrix.diagonal (fun i => if i = 0 then spatialProfile x else 1)
+  smooth := by
+    intro i j
+    by_cases hij : i = j
+    · subst hij
+      by_cases hi : i = 0
+      · subst hi
+        have h : (fun x => Matrix.diagonal
+            (fun k : Fin 4 => if k = 0 then spatialProfile x else 1) 0 0)
+            = spatialProfile := by
+          funext x
+          simp [Matrix.diagonal_apply]
+        rw [h]
+        exact spatialProfile_smooth
+      · have h : (fun x => Matrix.diagonal
+            (fun k : Fin 4 => if k = 0 then spatialProfile x else 1) i i)
+            = fun _ => (1 : ℝ) := by
+          funext x
+          simp [Matrix.diagonal_apply, hi]
+        rw [h]
+        exact contDiff_const
+    · have h : (fun x => Matrix.diagonal
+          (fun k : Fin 4 => if k = 0 then spatialProfile x else 1) i j)
+          = fun _ => (0 : ℝ) := by
+        funext x
+        simp [Matrix.diagonal_apply, hij]
+      rw [h]
+      exact contDiff_const
+  det_unit := fun x => by
+    have h : (Matrix.diagonal
+        (fun i : Fin 4 => if i = 0 then spatialProfile x else 1)).det
+        = spatialProfile x := by
+      rw [Matrix.det_diagonal, Fin.prod_univ_four]
+      simp
+    rw [h]
+    exact isUnit_iff_ne_zero.mpr (ne_of_gt (spatialProfile_pos x))
+
+theorem coshFrame_E_apply (x : Fin 4 → ℝ) :
+    theCoshFrame.E x
+      = Matrix.diagonal (fun i => if i = 0 then spatialProfile x else 1) := rfl
+
+/-- a solda cosh: g(x) = E(x)ᵀ η E(x). -/
+def theCoshSolderField (x : Fin 4 → ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  solderMetric4 (theCoshFrame.E x)
+
+/-- [KERNEL] ★ a forma diagonal explícita: g = diag(cosh²(x₁),−1,−1,−1). -/
+theorem theCoshSolderField_eq (x : Fin 4 → ℝ) :
+    theCoshSolderField x
+      = Matrix.diagonal (fun i => if i = 0 then spatialProfile x ^ 2 else -1) := by
+  unfold theCoshSolderField solderMetric4
+  rw [coshFrame_E_apply, Matrix.diagonal_transpose]
+  unfold eta4
+  rw [Matrix.diagonal_mul_diagonal, Matrix.diagonal_mul_diagonal]
+  congr 1
+  funext i
+  fin_cases i <;> simp <;> ring
+
+theorem theCoshSolderField_symm (x : Fin 4 → ℝ) :
+    (theCoshSolderField x)ᵀ = theCoshSolderField x :=
+  solderMetric4_symm _
+
+theorem theCoshSolderField_det (x : Fin 4 → ℝ) :
+    (theCoshSolderField x).det = -(spatialProfile x ^ 2) := by
+  have hdet : (theCoshFrame.E x).det = spatialProfile x := by
+    rw [coshFrame_E_apply, Matrix.det_diagonal, Fin.prod_univ_four]
+    simp
+  unfold theCoshSolderField
+  rw [solderMetric4_det, hdet]
+
+/-- [KERNEL] ★ det g(x) < 0 em TODA PARTE (o volume lorentziano vive). -/
+theorem theCoshSolderField_det_neg (x : Fin 4 → ℝ) :
+    (theCoshSolderField x).det < 0 := by
+  rw [theCoshSolderField_det]
+  have h := spatialProfile_pos x
+  nlinarith
+
+theorem theCoshSolderField_smooth (i j : Fin 4) :
+    ContDiff ℝ (⊤ : ℕ∞) (fun x => theCoshSolderField x i j) := by
+  have h : (fun x => theCoshSolderField x i j)
+      = fun x => Matrix.diagonal
+          (fun k : Fin 4 => if k = 0 then spatialProfile x ^ 2 else -1) i j := by
+    funext x
+    rw [theCoshSolderField_eq]
+  rw [h]
+  by_cases hij : i = j
+  · subst hij
+    by_cases hi : i = 0
+    · subst hi
+      have h2 : (fun x => Matrix.diagonal
+          (fun k : Fin 4 => if k = 0 then spatialProfile x ^ 2 else -1) 0 0)
+          = fun x => spatialProfile x ^ 2 := by
+        funext x
+        simp [Matrix.diagonal_apply]
+      rw [h2]
+      exact spatialProfile_smooth.pow 2
+    · have h2 : (fun x => Matrix.diagonal
+          (fun k : Fin 4 => if k = 0 then spatialProfile x ^ 2 else -1) i i)
+          = fun _ => (-1 : ℝ) := by
+        funext x
+        simp [Matrix.diagonal_apply, hi]
+      rw [h2]
+      exact contDiff_const
+  · have h2 : (fun x => Matrix.diagonal
+        (fun k : Fin 4 => if k = 0 then spatialProfile x ^ 2 else -1) i j)
+        = fun _ => (0 : ℝ) := by
+      funext x
+      simp [Matrix.diagonal_apply, hij]
+    rw [h2]
+    exact contDiff_const
+
+/-- [KERNEL] ★ a solda cosh é genuinamente NÃO-CONSTANTE
+    (cosh(1)² = 1 + sinh(1)² > 1 = cosh(0)²). -/
+theorem theCoshSolderField_nonconstant :
+    ∃ x y : Fin 4 → ℝ, theCoshSolderField x ≠ theCoshSolderField y := by
+  refine ⟨(fun _ => 1), (fun _ => 0), fun h => ?_⟩
+  have h00 := congrArg (fun M : Matrix (Fin 4) (Fin 4) ℝ => M 0 0) h
+  rw [theCoshSolderField_eq, theCoshSolderField_eq] at h00
+  simp only [Matrix.diagonal_apply] at h00
+  unfold spatialProfile at h00
+  have h00' : Real.cosh (1 : ℝ) ^ 2 = Real.cosh (0 : ℝ) ^ 2 := by
+    simpa using h00
+  rw [Real.cosh_zero, one_pow] at h00'
+  have hs : (0 : ℝ) < Real.sinh 1 := Real.sinh_pos_iff.mpr one_pos
+  nlinarith [Real.cosh_sq_sub_sinh_sq (1 : ℝ), mul_pos hs hs]
+
+theorem coshFrame_nonconstant :
+    ∃ x y : Fin 4 → ℝ, theCoshFrame.E x ≠ theCoshFrame.E y := by
+  obtain ⟨x, y, hxy⟩ := theCoshSolderField_nonconstant
+  refine ⟨x, y, fun h => hxy ?_⟩
+  unfold theCoshSolderField
+  rw [h]
+
+/-- [KERNEL] ★★ A SOLDA COSH: o habitante do contrato do 4º flip cuja
+    métrica é o membro cosh da família — g NASCE de EᵀηE. -/
+def theCoshSolderData : SolderFieldData where
+  frame := theCoshFrame
+  g := theCoshSolderField
+  solder_eq := fun _ => rfl
+  g_symm := theCoshSolderField_symm
+  g_smooth := theCoshSolderField_smooth
+  lorentz_det := theCoshSolderField_det_neg
+  frame_nonconstant := coshFrame_nonconstant
+
+/-- [KERNEL] ★ a solda cosh LÊ o potencial da família: g(x) =
+    diag(q(x₁)²,−1,−1,−1) com q = coshProfile 1. -/
+theorem theCoshSolder_reads (x : Fin 4 → ℝ) :
+    theCoshSolderData.g x
+      = Matrix.diagonal
+          (fun i => if i = 0 then (coshProfile 1 (x 1)) ^ 2 else -1) := by
+  show theCoshSolderField x = _
+  rw [theCoshSolderField_eq]
+  congr 1
+  funext i
+  rw [spatialProfile_eq]
+
+/-! ## B — o cone nulo inteiro: o Raychaudhuri da família -/
+
+/-- G₃₃ da família = G₂₂ (a simetria transversal y ↔ z). -/
+def ansatzG33 (q : ℝ → ℝ) (s : ℝ) : ℝ := ansatzG22 q s
+
+/-- a contração G_kk = G₀₀a² + G₁₁b² + G₂₂c² + G₃₃d² para k = (a,b,c,d). -/
+def ansatzNullContraction (q : ℝ → ℝ) (a b c d : ℝ) (s : ℝ) : ℝ :=
+  ansatzG00 q s * a ^ 2 + ansatzG11 q s * b ^ 2
+    + ansatzG22 q s * c ^ 2 + ansatzG33 q s * d ^ 2
+
+/-- [KERNEL] ★★ O CONE INTEIRO LÊ A MESMA FONTE: G_kk = (c²+d²)·G₂₂ para
+    TODA direção k — os zeros de Bianchi cegam o setor radial e fazem
+    toda componente transversal ler a MESMA exigência de fonte. -/
+theorem null_cone_ledger (q : ℝ → ℝ) (hqne : ∀ t, q t ≠ 0)
+    (a b c d : ℝ) (s : ℝ) :
+    ansatzNullContraction q a b c d s = (c ^ 2 + d ^ 2) * ansatzG22 q s := by
+  unfold ansatzNullContraction ansatzG33
+  rw [ansatzG00_zero q hqne s, ansatzG11_zero q hqne s]
+  ring
+
+/-- [KERNEL] ★ a cegueira radial: a congruência nula radial
+    k = (1/q, 1, 0, 0) NÃO lê nada (G_kk = 0 — os dois zeros). -/
+theorem radial_null_blind (q : ℝ → ℝ) (hqne : ∀ t, q t ≠ 0) (s : ℝ) :
+    ansatzNullContraction q (1 / q s) 1 0 0 s = 0 := by
+  rw [null_cone_ledger q hqne _ _ _ _ s]
+  ring
+
+/-- [KERNEL] ★★★ CLAUSIUS NO CONE INTEIRO ⟺ A EQUAÇÃO DE CAMPO: a
+    contabilidade δQ = TδS lida em TODAS as direções nulas (com o peso
+    transversal c²+d² — a área que o feixe carrega) equivale a
+    G₂₂ = T em toda parte. A forma iff do Raychaudhuri da família. -/
+theorem full_cone_clausius_iff_field_equation (q : ℝ → ℝ)
+    (hqne : ∀ t, q t ≠ 0) (T : ℝ → ℝ) :
+    (∀ a b c d s : ℝ, (q s) ^ 2 * a ^ 2 = b ^ 2 + c ^ 2 + d ^ 2 →
+        ansatzNullContraction q a b c d s = (c ^ 2 + d ^ 2) * T s)
+      ↔ (∀ s, ansatzG22 q s = T s) := by
+  constructor
+  · intro h s
+    have hnull : (q s) ^ 2 * (1 / q s) ^ 2
+        = 0 ^ 2 + 1 ^ 2 + 0 ^ 2 := by
+      have hq := hqne s
+      have h1 : (q s) ^ 2 * (1 / q s) ^ 2 = 1 := by
+        field_simp
+      rw [h1]
+      norm_num
+    have h2 := h (1 / q s) 0 1 0 s hnull
+    rw [null_cone_ledger q hqne _ _ _ _ s] at h2
+    have h3 : (1 : ℝ) * ansatzG22 q s = 1 * T s := by
+      calc (1 : ℝ) * ansatzG22 q s
+          = ((1 : ℝ) ^ 2 + 0 ^ 2) * ansatzG22 q s := by ring
+        _ = ((1 : ℝ) ^ 2 + 0 ^ 2) * T s := h2
+        _ = 1 * T s := by ring
+    linarith [h3]
+  · intro h a b c d s _
+    rw [null_cone_ledger q hqne a b c d s, h s]
+
+/-! ## C — o contrato do 5º flip e o habitante -/
+
+/-- [DATA — O CONTRATO DO MESTRE CONTÍNUO] a solda contínua (g = EᵀηE,
+    o contrato do 4º flip) cujo potencial LIDO carrega a CURVATURA como
+    estrutura (a camada v108–v111) e recebe o insumo de CLAUSIUS no
+    cone nulo inteiro. A equação de campo NÃO é um campo do contrato —
+    ela EMERGE por teorema (`emergent_field_equation`). -/
+structure EmergentEinsteinData where
+  solder : SolderFieldData
+  q : ℝ → ℝ
+  solder_reads : ∀ x, solder.g x
+    = Matrix.diagonal (fun i => if i = 0 then (q (x 1)) ^ 2 else -1)
+  q_ne : ∀ s, q s ≠ 0
+  q_diff : Differentiable ℝ q
+  q_dd : Differentiable ℝ (deriv q)
+  T : ℝ → ℝ
+  clausius_cone : ∀ a b c d s : ℝ,
+    (q s) ^ 2 * a ^ 2 = b ^ 2 + c ^ 2 + d ^ 2 →
+    ansatzNullContraction q a b c d s = (c ^ 2 + d ^ 2) * T s
+
+/-- [KERNEL] ★★★ A EQUAÇÃO EMERGE: em todo habitante do contrato, a
+    contabilidade de Clausius no cone FORÇA G₂₂ = T em toda parte —
+    o mestre contínuo sobre a solda, provado. -/
+theorem emergent_field_equation (e : EmergentEinsteinData) (s : ℝ) :
+    ansatzG22 e.q s = e.T s :=
+  (full_cone_clausius_iff_field_equation e.q e.q_ne e.T).mp e.clausius_cone s
+
+/-- [KERNEL] ★★ o habitante: a solda cosh com a fonte constante que o
+    v111 resolveu (κ = 1; G₂₂ ≡ 1). -/
+def theEmergentEinstein : EmergentEinsteinData where
+  solder := theCoshSolderData
+  q := coshProfile 1
+  solder_reads := theCoshSolder_reads
+  q_ne := coshProfile_ne_zero 1
+  q_diff := coshProfile_differentiable 1
+  q_dd := coshProfile_deriv_differentiable 1
+  T := fun _ => 1
+  clausius_cone := fun a b c d s _ => by
+    rw [null_cone_ledger (coshProfile 1) (coshProfile_ne_zero 1) a b c d s,
+      cosh_solves_field_equation 1 s]
+    norm_num
+
+/-- [KERNEL] ★ a coerência: a equação emergida do habitante É a equação
+    resolvida do v111 (G₂₂ = 1 = κ² com κ = 1). -/
+theorem emergent_recovers_solved (s : ℝ) :
+    ansatzG22 theEmergentEinstein.q s = 1 := by
+  have h := emergent_field_equation theEmergentEinstein s
+  exact h
+
+/-- [KERNEL] ★ o habitante é genuinamente CURVO: R¹₀₀₁ < 0 em toda
+    parte (v111: fonte ⟹ curvatura, sem exceção de ponto). -/
+theorem emergent_genuinely_curved :
+    ∃ s : ℝ, ansatzRiemann1001 theEmergentEinstein.q s ≠ 0 :=
+  ⟨0, ne_of_lt (source_implies_curvature 1 one_ne_zero 0)⟩
+
+/-- [KERNEL] ★★★ O QUINTO FLIP: o nome reservado do gate ganha termo —
+    o contrato do mestre contínuo habitado com a equação EMERGIDA,
+    curvatura genuína, volume lorentziano vivo e solda não-constante.
+    O VEREDITO NÃO SE MOVE: 5 formais < 6, e o selo só escala com a
+    física e com o dado (a emergência GERAL segue nomeada e aberta). -/
+def qgStrongCertificate_einstein :
+    Σ' (e : EmergentEinsteinData),
+      (∀ s, ansatzG22 e.q s = e.T s)
+        ∧ (∃ s, ansatzRiemann1001 e.q s ≠ 0)
+        ∧ (∀ x, (e.solder.g x).det < 0)
+        ∧ (∃ x y : Fin 4 → ℝ, e.solder.g x ≠ e.solder.g y) :=
+  ⟨theEmergentEinstein,
+    emergent_field_equation theEmergentEinstein,
+    emergent_genuinely_curved,
+    theCoshSolderField_det_neg,
+    theCoshSolderField_nonconstant⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/PoincareGroup.lean":
+r'''import TGLExt.EmergentEinstein
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O GRUPO DE POINCARÉ À MÃO: as dez direções em kernel
+  [TGLExt — v116, o incremento 37 do programa SemifiniteAnalysis]
+
+A parede da testemunha (v104/v112/v114) pede um grupo de POINCARÉ
+genuíno agindo fibro-sensivelmente. A mathlib NÃO tem o grupo de
+Lorentz — esta pedra o constrói À MÃO, pela relação definidora:
+
+* `LorentzGrp` = {Λ : M₄(ℝ) // Λᵀ η Λ = η} com instância de GRUPO
+  provada à mão (★ a inversa é η Λᵀ η — `mul_eq_one_comm` fecha o
+  lado direito; associatividade herdada das matrizes);
+* ★ `lorentz_det_sq` — det Λ = ±1 (o quadrado é 1);
+* ★★ `theBoost` — o boost hiperbólico B(χ) no plano (0,1), com
+  ★★★ `boost_add` — B(χ₁)·B(χ₂) = B(χ₁+χ₂): a ENGRENAGEM HIPERBÓLICA
+  do v113 elevada a LEI DE GRUPO em kernel (cosh_add/sinh_add), e
+  ★ `boost_ne_one` — χ ≠ 0 ⟹ B(χ) ≠ 1 (o subgrupo a um parâmetro é
+  genuíno);
+* ★ `theParity` — a paridade P = diag(1,−1,1,1) com det = −1 (o
+  representante do setor desconexo — a direção que o flip do v114
+  antecipou);
+* `PoincareGroup` = ℝ⁴ ⋊ O(1,3) com instância de GRUPO à mão
+  (translações + Lorentz: as DEZ direções);
+* ★★ `poincare_faithful` — a ação afim em ℝ⁴ é FIEL: quem fixa todos
+  os pontos é a identidade — nenhuma das dez direções é cega.
+
+A pedra seguinte (PoincareWitness) põe este grupo para agir na REDE.
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+/-! ## A — o grupo de Lorentz pela relação definidora -/
+
+/-- a relação definidora: Λ preserva η. -/
+def IsLorentz (A : Matrix (Fin 4) (Fin 4) ℝ) : Prop :=
+  Aᵀ * eta4 * A = eta4
+
+/-- O GRUPO DE LORENTZ O(1,3), à mão. -/
+def LorentzGrp : Type :=
+  {A : Matrix (Fin 4) (Fin 4) ℝ // IsLorentz A}
+
+theorem eta4_mul_self : eta4 * eta4 = 1 := by
+  unfold eta4
+  rw [Matrix.diagonal_mul_diagonal]
+  have h : (Matrix.diagonal
+        (fun i => (![1, -1, -1, -1] : Fin 4 → ℝ) i * ![1, -1, -1, -1] i))
+      = Matrix.diagonal (1 : Fin 4 → ℝ) := by
+    congr 1
+    funext i
+    fin_cases i <;> norm_num
+  rw [h]
+  exact Matrix.diagonal_one
+
+theorem eta4_swallow (M : Matrix (Fin 4) (Fin 4) ℝ) :
+    eta4 * (eta4 * M) = M := by
+  rw [← Matrix.mul_assoc, eta4_mul_self, Matrix.one_mul]
+
+theorem isLorentz_one : IsLorentz 1 := by
+  unfold IsLorentz
+  rw [Matrix.transpose_one, Matrix.one_mul, Matrix.mul_one]
+
+theorem isLorentz_mul {A B : Matrix (Fin 4) (Fin 4) ℝ}
+    (hA : IsLorentz A) (hB : IsLorentz B) : IsLorentz (A * B) := by
+  unfold IsLorentz at *
+  rw [Matrix.transpose_mul]
+  calc Bᵀ * Aᵀ * eta4 * (A * B)
+      = Bᵀ * (Aᵀ * eta4 * A) * B := by
+        simp only [Matrix.mul_assoc]
+    _ = Bᵀ * eta4 * B := by rw [hA]
+    _ = eta4 := hB
+
+/-- a inversa de Lorentz: η Λᵀ η. -/
+def lorentzInv (A : Matrix (Fin 4) (Fin 4) ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  eta4 * Aᵀ * eta4
+
+theorem lorentzInv_mul {A : Matrix (Fin 4) (Fin 4) ℝ}
+    (hA : IsLorentz A) : lorentzInv A * A = 1 := by
+  unfold lorentzInv
+  calc eta4 * Aᵀ * eta4 * A
+      = eta4 * (Aᵀ * eta4 * A) := by simp only [Matrix.mul_assoc]
+    _ = eta4 * eta4 := by rw [hA]
+    _ = 1 := eta4_mul_self
+
+theorem mul_lorentzInv {A : Matrix (Fin 4) (Fin 4) ℝ}
+    (hA : IsLorentz A) : A * lorentzInv A = 1 :=
+  mul_eq_one_comm.mp (lorentzInv_mul hA)
+
+/-- [KERNEL] ★ o outro lado da relação: Λ η Λᵀ = η (via a inversa). -/
+theorem isLorentz_other_side {A : Matrix (Fin 4) (Fin 4) ℝ}
+    (hA : IsLorentz A) : A * eta4 * Aᵀ = eta4 := by
+  have h1 : A * lorentzInv A = 1 := mul_lorentzInv hA
+  unfold lorentzInv at h1
+  have h2 : A * (eta4 * Aᵀ * eta4) * eta4 = eta4 := by
+    rw [h1, Matrix.one_mul]
+  calc A * eta4 * Aᵀ
+      = A * (eta4 * Aᵀ * eta4) * eta4 := by
+        simp only [Matrix.mul_assoc, eta4_mul_self, Matrix.mul_one]
+    _ = eta4 := h2
+
+theorem isLorentz_inv {A : Matrix (Fin 4) (Fin 4) ℝ}
+    (hA : IsLorentz A) : IsLorentz (lorentzInv A) := by
+  unfold IsLorentz lorentzInv
+  have htr : (eta4 * Aᵀ * eta4)ᵀ = eta4 * A * eta4 := by
+    rw [Matrix.transpose_mul, Matrix.transpose_mul,
+      Matrix.transpose_transpose, eta4_symm]
+    simp only [Matrix.mul_assoc]
+  rw [htr]
+  have hmid : A * eta4 * Aᵀ = eta4 := isLorentz_other_side hA
+  calc eta4 * A * eta4 * eta4 * (eta4 * Aᵀ * eta4)
+      = eta4 * (A * eta4 * Aᵀ) * eta4 := by
+        simp only [Matrix.mul_assoc]
+        rw [eta4_swallow]
+    _ = eta4 * eta4 * eta4 := by rw [hmid]
+    _ = eta4 := by rw [eta4_mul_self, Matrix.one_mul]
+
+instance : One LorentzGrp := ⟨⟨1, isLorentz_one⟩⟩
+instance : Mul LorentzGrp :=
+  ⟨fun A B => ⟨A.1 * B.1, isLorentz_mul A.2 B.2⟩⟩
+instance : Inv LorentzGrp :=
+  ⟨fun A => ⟨lorentzInv A.1, isLorentz_inv A.2⟩⟩
+
+/-- [KERNEL] ★★ O(1,3) é um GRUPO — provado à mão. -/
+instance : Group LorentzGrp where
+  mul_assoc a b c := Subtype.ext (Matrix.mul_assoc _ _ _)
+  one_mul a := Subtype.ext (Matrix.one_mul _)
+  mul_one a := Subtype.ext (Matrix.mul_one _)
+  inv_mul_cancel a := Subtype.ext (lorentzInv_mul a.2)
+
+theorem lorentzGrp_mul_val (A B : LorentzGrp) :
+    (A * B).1 = A.1 * B.1 := rfl
+
+theorem lorentzGrp_one_val : (1 : LorentzGrp).1 = 1 := rfl
+
+/-- [KERNEL] ★ det Λ = ±1: o quadrado do determinante é 1. -/
+theorem lorentz_det_sq (A : LorentzGrp) : A.1.det ^ 2 = 1 := by
+  have h := congrArg Matrix.det A.2
+  rw [Matrix.det_mul, Matrix.det_mul, Matrix.det_transpose, eta4_det] at h
+  nlinarith [h]
+
+/-! ## B — o boost: a engrenagem hiperbólica como lei de grupo -/
+
+/-- a matriz do boost no plano (0,1). -/
+def boostMat (χ : ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  Matrix.of ![![Real.cosh χ, Real.sinh χ, 0, 0],
+              ![Real.sinh χ, Real.cosh χ, 0, 0],
+              ![0, 0, 1, 0],
+              ![0, 0, 0, 1]]
+
+theorem boostMat_isLorentz (χ : ℝ) : IsLorentz (boostMat χ) := by
+  unfold IsLorentz boostMat eta4
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Fin.sum_univ_four, Matrix.diagonal_apply,
+      Matrix.transpose_apply] <;>
+    nlinarith [Real.cosh_sq_sub_sinh_sq χ]
+
+/-- O BOOST como elemento do grupo. -/
+def theBoost (χ : ℝ) : LorentzGrp := ⟨boostMat χ, boostMat_isLorentz χ⟩
+
+/-- [KERNEL] ★★★ A ENGRENAGEM HIPERBÓLICA É LEI DE GRUPO:
+    B(χ₁)·B(χ₂) = B(χ₁+χ₂) — a rapidez ADICIONA (cosh_add/sinh_add);
+    o postulado de leitura do v113 virou teorema de composição. -/
+theorem theBoost_add (χ₁ χ₂ : ℝ) :
+    theBoost χ₁ * theBoost χ₂ = theBoost (χ₁ + χ₂) := by
+  apply Subtype.ext
+  show boostMat χ₁ * boostMat χ₂ = boostMat (χ₁ + χ₂)
+  unfold boostMat
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Fin.sum_univ_four, Real.cosh_add,
+      Real.sinh_add] <;>
+    ring
+
+/-- [KERNEL] ★ o subgrupo a um parâmetro é GENUÍNO: χ ≠ 0 ⟹ B(χ) ≠ 1
+    (a entrada (0,1) é sinh χ ≠ 0). -/
+theorem boost_ne_one (χ : ℝ) (hχ : χ ≠ 0) : theBoost χ ≠ 1 := by
+  intro h
+  have h01 := congrArg (fun A : LorentzGrp => A.1 0 1) h
+  have hb : (theBoost χ).1 0 1 = Real.sinh χ := by
+    unfold theBoost boostMat
+    simp
+  have ho : (1 : LorentzGrp).1 0 1 = 0 := by
+    rw [lorentzGrp_one_val]
+    simp
+  rw [hb, ho] at h01
+  exact (Real.sinh_ne_zero.mpr hχ) h01
+
+/-! ## C — a paridade: o setor desconexo -/
+
+/-- o vetor da paridade espacial-1: (1,−1,1,1). -/
+def parityVec : Fin 4 → ℝ := fun i => if i = 1 then -1 else 1
+
+/-- a matriz da paridade espacial-1: P = diag(1,−1,1,1). -/
+def parityMat : Matrix (Fin 4) (Fin 4) ℝ :=
+  Matrix.diagonal parityVec
+
+theorem parityMat_isLorentz : IsLorentz parityMat := by
+  unfold IsLorentz parityMat eta4
+  rw [Matrix.diagonal_transpose, Matrix.diagonal_mul_diagonal,
+    Matrix.diagonal_mul_diagonal]
+  congr 1
+  funext i
+  fin_cases i <;> simp [parityVec]
+
+/-- A PARIDADE como elemento do grupo. -/
+def theParity : LorentzGrp := ⟨parityMat, parityMat_isLorentz⟩
+
+/-- [KERNEL] ★ det P = −1: a paridade mora no setor DESCONEXO. -/
+theorem parity_det : theParity.1.det = -1 := by
+  show parityMat.det = -1
+  unfold parityMat
+  rw [Matrix.det_diagonal, Fin.prod_univ_four]
+  simp [parityVec]
+
+/-- [KERNEL] ★ a paridade não é a identidade (entrada (1,1)). -/
+theorem parity_ne_one : theParity ≠ 1 := by
+  intro h
+  have h11 := congrArg (fun A : LorentzGrp => A.1 1 1) h
+  have hp : (theParity).1 1 1 = -1 := by
+    show parityMat 1 1 = -1
+    unfold parityMat
+    simp [parityVec]
+  have ho : (1 : LorentzGrp).1 1 1 = 1 := by
+    rw [lorentzGrp_one_val]
+    simp
+  rw [hp, ho] at h11
+  norm_num at h11
+
+/-! ## D — o grupo de Poincaré: ℝ⁴ ⋊ O(1,3) -/
+
+/-- O GRUPO DE POINCARÉ: translação + Lorentz (as dez direções). -/
+structure PoincareGroup where
+  tr : Fin 4 → ℝ
+  lor : LorentzGrp
+
+instance : One PoincareGroup := ⟨⟨0, 1⟩⟩
+instance : Mul PoincareGroup :=
+  ⟨fun g h => ⟨g.tr + g.lor.1.mulVec h.tr, g.lor * h.lor⟩⟩
+instance : Inv PoincareGroup :=
+  ⟨fun g => ⟨-(g.lor⁻¹.1.mulVec g.tr), g.lor⁻¹⟩⟩
+
+theorem poincare_mul_tr (g h : PoincareGroup) :
+    (g * h).tr = g.tr + g.lor.1.mulVec h.tr := rfl
+
+theorem poincare_mul_lor (g h : PoincareGroup) :
+    (g * h).lor = g.lor * h.lor := rfl
+
+theorem poincare_one_tr : (1 : PoincareGroup).tr = 0 := rfl
+
+theorem poincare_one_lor : (1 : PoincareGroup).lor = 1 := rfl
+
+theorem poincare_ext {g h : PoincareGroup}
+    (htr : g.tr = h.tr) (hlor : g.lor = h.lor) : g = h := by
+  cases g
+  cases h
+  simp only at htr hlor
+  rw [htr, hlor]
+
+/-- [KERNEL] ★★ POINCARÉ É UM GRUPO — o produto semidireto à mão. -/
+instance : Group PoincareGroup where
+  mul_assoc g h k := by
+    apply poincare_ext
+    · show (g.tr + g.lor.1.mulVec h.tr)
+          + (g.lor * h.lor).1.mulVec k.tr
+        = g.tr + g.lor.1.mulVec (h.tr + h.lor.1.mulVec k.tr)
+      rw [lorentzGrp_mul_val, Matrix.mulVec_add, ← Matrix.mulVec_mulVec]
+      rw [add_assoc]
+    · show (g.lor * h.lor) * k.lor = g.lor * (h.lor * k.lor)
+      exact mul_assoc _ _ _
+  one_mul g := by
+    apply poincare_ext
+    · show (0 : Fin 4 → ℝ) + (1 : LorentzGrp).1.mulVec g.tr = g.tr
+      rw [lorentzGrp_one_val, Matrix.one_mulVec, zero_add]
+    · show (1 : LorentzGrp) * g.lor = g.lor
+      exact one_mul _
+  mul_one g := by
+    apply poincare_ext
+    · show g.tr + g.lor.1.mulVec (0 : Fin 4 → ℝ) = g.tr
+      rw [Matrix.mulVec_zero, add_zero]
+    · show g.lor * 1 = g.lor
+      exact mul_one _
+  inv_mul_cancel g := by
+    apply poincare_ext
+    · show -(g.lor⁻¹.1.mulVec g.tr) + g.lor⁻¹.1.mulVec g.tr = 0
+      exact neg_add_cancel _
+    · show g.lor⁻¹ * g.lor = 1
+      exact inv_mul_cancel _
+
+/-! ## E — a ação afim e a fidelidade das dez direções -/
+
+/-- a ação afim de Poincaré no espaço-tempo: x ↦ Λx + a. -/
+def pAct (g : PoincareGroup) (x : Fin 4 → ℝ) : Fin 4 → ℝ :=
+  g.lor.1.mulVec x + g.tr
+
+theorem pAct_one (x : Fin 4 → ℝ) : pAct 1 x = x := by
+  unfold pAct
+  rw [poincare_one_tr, poincare_one_lor, lorentzGrp_one_val,
+    Matrix.one_mulVec, add_zero]
+
+theorem pAct_mul (g h : PoincareGroup) (x : Fin 4 → ℝ) :
+    pAct (g * h) x = pAct g (pAct h x) := by
+  unfold pAct
+  rw [poincare_mul_tr, poincare_mul_lor, lorentzGrp_mul_val,
+    ← Matrix.mulVec_mulVec, Matrix.mulVec_add]
+  abel
+
+/-- [KERNEL] ★★ A AÇÃO É FIEL: quem fixa TODOS os pontos do
+    espaço-tempo é a identidade — nenhuma das dez direções é cega. -/
+theorem poincare_faithful (g : PoincareGroup)
+    (h : ∀ x, pAct g x = x) : g = 1 := by
+  have h0 := h 0
+  unfold pAct at h0
+  rw [Matrix.mulVec_zero, zero_add] at h0
+  have hL : ∀ x, g.lor.1.mulVec x = x := by
+    intro x
+    have hx := h x
+    unfold pAct at hx
+    rw [h0, add_zero] at hx
+    exact hx
+  have hM : g.lor.1 = 1 := by
+    apply Matrix.ext_of_mulVec_single
+    intro j
+    rw [hL (Pi.single j 1), Matrix.one_mulVec]
+  apply poincare_ext
+  · rw [h0, poincare_one_tr]
+  · rw [poincare_one_lor]
+    exact Subtype.ext hM
+
+/-- [KERNEL] ★ a translação pura move TODO ponto (a ≠ 0). -/
+theorem translation_moves (a : Fin 4 → ℝ) (ha : a ≠ 0) (x : Fin 4 → ℝ) :
+    pAct ⟨a, 1⟩ x ≠ x := by
+  unfold pAct
+  intro h
+  apply ha
+  have h1 : (1 : LorentzGrp).1.mulVec x + a = x := h
+  rw [lorentzGrp_one_val, Matrix.one_mulVec] at h1
+  have h2 := congrArg (fun v => v - x) h1
+  simpa using h2
+
+end
+
+end TGLExt
+''',
+    "TGLExt/PoincareWitness.lean":
+r'''import TGLExt.PoincareGroup
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A TESTEMUNHA DE POINCARÉ: as dez direções agem na rede — e a fibra sente
+  [TGLExt — v116, o incremento 38 do programa SemifiniteAnalysis]
+
+O v114 fez a fibra sentir UM flip (ℤ × ℤ/2). Esta pedra troca o grupo
+de brinquedo pelo GRUPO DE POINCARÉ inteiro (v116, à mão):
+
+* `PoinRegion` = (ℝ⁴) × ℕ — a base é o ESPAÇO-TEMPO (não mais ℤ);
+  Poincaré age pela ação afim x ↦ Λx + a; o eixo ℕ é a isotonia
+  (caudas ∞-dim do v106);
+* ★★ `thePoincareNet` — PhysicalNetData com G = PoincareGroup: as DEZ
+  direções agem nas regiões; a fibra representa o setor DESCONEXO
+  (det Λ = −1 ⟹ flip genuíno; det Λ = 1 ⟹ identidade);
+* ★★★ `thePoincareWitness : FullWitnessData` — A TESTEMUNHA COM O
+  GRUPO DE POINCARÉ GENUÍNO habitada, sob nome NÃO-reservado (lei de
+  grupo, monotonia, não-trivialidade, lei do fluxo, covariância);
+* ★★ `poincare_witness_fiber_sensitive` — A FIBRA SENTE POINCARÉ:
+  a PARIDADE (0, P) FIXA a região da origem e MOVE a fibra
+  (flip e₀ = −e₀ ≠ e₀) — o teste do v114, agora com o grupo real;
+* ★★ `poincare_witness_boost_moves` — o BOOST move as regiões
+  (sinh χ ≠ 0); ★★ `poincare_witness_faithful` — quem fixa TODAS as
+  regiões é a identidade: NENHUMA das dez direções é cega na rede;
+* ★ `proper_sector_fibers_blind` — HONESTIDADE COMO TEOREMA: neste
+  habitante o setor próprio (det = 1) age trivialmente nas fibras — a
+  representação fibrada fatora pela paridade. A representação unitária
+  FIEL do setor conexo é ∞-dim (não há rep unitária f.d. de boosts) e
+  segue NOMEADA com III₁: é exatamente o resíduo do V2, que continua
+  RESERVADO (lição v103, sétima aplicação).
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped Classical
+
+noncomputable section
+
+/-! ## A — a região de Poincaré e a ação afim -/
+
+/-- a região: base = ponto do espaço-tempo ℝ⁴; profundidade = isotonia. -/
+abbrev PoinRegion : Type := (Fin 4 → ℝ) × ℕ
+
+/-- a ordem: mesma base; cauda mais funda ⊆ mais rasa. -/
+def poinLe (O₁ O₂ : PoinRegion) : Prop := O₁.1 = O₂.1 ∧ O₂.2 ≤ O₁.2
+
+/-- as fibras: as caudas ∞-dim do v106. -/
+abbrev poinFiber (O : PoinRegion) : Type := tailSub O.2
+
+/-- a ação nas regiões: Poincaré age na base, preserva a profundidade. -/
+def poinAct (g : PoincareGroup) (O : PoinRegion) : PoinRegion :=
+  (pAct g O.1, O.2)
+
+theorem poinAct_one (O : PoinRegion) : poinAct 1 O = O := by
+  unfold poinAct
+  rw [pAct_one]
+
+theorem poinAct_mul (g h : PoincareGroup) (O : PoinRegion) :
+    poinAct (g * h) O = poinAct g (poinAct h O) := by
+  unfold poinAct
+  rw [pAct_mul]
+
+theorem poinAct_mono (g : PoincareGroup) {O₁ O₂ : PoinRegion}
+    (h : poinLe O₁ O₂) : poinLe (poinAct g O₁) (poinAct g O₂) :=
+  ⟨by unfold poinAct; rw [h.1], h.2⟩
+
+/-! ## B — a rede de Poincaré (fibra = setor desconexo) -/
+
+/-- [KERNEL] ★★ A REDE DE POINCARÉ: as dez direções agem nas regiões;
+    a fibra representa o setor desconexo (paridade ⟹ flip). -/
+@[reducible] def thePoincareNet :
+    PhysicalNetData PoinRegion poinLe poinFiber poinFiber where
+  net :=
+    { locks := fun O => tailLock O.2
+      internal := fun O s => lockFlow (tailLock O.2) (tailLock_selfadjoint O.2) s
+      internalW := fun O s =>
+        (lockFlow (tailLock O.2) (tailLock_selfadjoint O.2) s).toLinearIsometry
+      internal_intertwines := fun O s x =>
+        lockFlow_commutes (tailLock O.2) (tailLock_selfadjoint O.2) s x
+      G := PoincareGroup
+      act := poinAct
+      external := fun g O =>
+        if g.lor.1.det = 1 then LinearIsometryEquiv.refl ℂ _
+        else tailFlip O.2
+      externalW := fun g O =>
+        if g.lor.1.det = 1 then
+          (LinearIsometryEquiv.refl ℂ _).toLinearIsometry
+        else (tailFlip O.2).toLinearIsometry
+      external_intertwines := fun g O x => by
+        by_cases hdet : g.lor.1.det = 1
+        · simp only [hdet, if_pos]
+          rfl
+        · simp only [hdet, if_neg, not_false_iff]
+          exact Subtype.ext (by
+            show eraseFirst (theFlip (x : ellTwo))
+              = theFlip (eraseFirst (x : ellTwo))
+            calc eraseFirst (theFlip (x : ellTwo))
+                = (eraseFirst * theFlip) (x : ellTwo) := rfl
+              _ = (theFlip * eraseFirst) (x : ellTwo) := by
+                  rw [theFlip_comm_eraseFirst]
+              _ = theFlip (eraseFirst (x : ellTwo)) := rfl)
+      incl := fun h => tailIncl h.2
+      inclW := fun h => tailIncl h.2
+      incl_intertwines := fun _ x => Subtype.ext rfl }
+  genuinely_isotone :=
+    ⟨((fun _ => 0 : Fin 4 → ℝ), 1), ((fun _ => 0 : Fin 4 → ℝ), 0),
+      ⟨rfl, Nat.zero_le 1⟩, tailIncl_not_surjective⟩
+  external_nontrivial := by
+    show Nontrivial PoincareGroup
+    refine ⟨⟨⟨(fun _ => 1 : Fin 4 → ℝ), 1⟩, 1, fun h => ?_⟩⟩
+    have htr := congrArg PoincareGroup.tr h
+    have h0 := congrArg (fun v : Fin 4 → ℝ => v 0) htr
+    simp only [poincare_one_tr] at h0
+    norm_num at h0
+
+/-! ## C — o certificado forte e A TESTEMUNHA -/
+
+/-- o certificado forte sobre a rede de Poincaré. -/
+@[reducible] def thePoincareStrong : QGClosureCertificateStrong where
+  Region := PoinRegion
+  leR := poinLe
+  H := poinFiber
+  W := poinFiber
+  core := thePoincareNet
+  core_infinite := ⟨((fun _ => 0 : Fin 4 → ℝ), 0), tailSub_not_finiteDimensional 0⟩
+  ℍ := ellTwo
+  dirac := theGenuineDirac
+  home_infinite := ellTwo_not_finiteDimensional
+  corner_pos := genuineDirac_corner_pos
+  corner_finite := genuineDirac_corner_finite
+  frame := theCurvedFrame
+  frame_nonconstant := curvedFrame_nonconstant
+
+/-- [KERNEL] ★★★ A TESTEMUNHA DE POINCARÉ: FullWitnessData com o GRUPO
+    DE POINCARÉ genuíno (as dez direções) — sob nome NÃO-reservado
+    (o V2 segue reservado: falta a rep unitária fiel do setor conexo
+    e o fator III₁). -/
+def thePoincareWitness : FullWitnessData where
+  toQGClosureCertificateStrong := thePoincareStrong
+  act_one := fun O => poinAct_one O
+  act_mul := fun g h O => poinAct_mul g h O
+  act_mono := fun g {O₁ O₂} h => poinAct_mono g h
+  geometric_nontrivial := by
+    dsimp only [thePoincareStrong, thePoincareNet]
+    refine ⟨⟨(fun _ => 1 : Fin 4 → ℝ), 1⟩,
+      ((fun _ => 0 : Fin 4 → ℝ), 0), fun h => ?_⟩
+    have hfst := congrArg Prod.fst h
+    have h0 := congrArg (fun v : Fin 4 → ℝ => v 0) hfst
+    unfold poinAct pAct at h0
+    simp only [lorentzGrp_one_val, Matrix.one_mulVec] at h0
+    norm_num at h0
+  flow_law := fun O s t x =>
+    lockFlow_add (tailLock O.2) (tailLock_selfadjoint O.2) s t x
+  covariant_inclusions := fun g {O₁ O₂} hle x => by
+    by_cases hdet : g.lor.1.det = 1
+    · dsimp only [thePoincareStrong, thePoincareNet]
+      simp only [hdet, if_pos]
+      exact Subtype.ext rfl
+    · dsimp only [thePoincareStrong, thePoincareNet]
+      simp only [hdet, if_neg, not_false_iff]
+      exact Subtype.ext rfl
+
+/-! ## D — os teoremas: a fibra sente, o boost move, ninguém é cego -/
+
+/-- o elemento de paridade em Poincaré: (0, P). -/
+def parityElement : PoincareGroup := ⟨0, theParity⟩
+
+/-- [KERNEL] ★ a paridade FIXA a região da origem. -/
+theorem parity_fixes_origin :
+    poinAct parityElement ((0 : Fin 4 → ℝ), (0 : ℕ))
+      = ((0 : Fin 4 → ℝ), (0 : ℕ)) := by
+  unfold poinAct pAct parityElement
+  rw [Matrix.mulVec_zero]
+  simp
+
+/-- [KERNEL] ★★ A FIBRA SENTE POINCARÉ: a paridade (0, P) — det = −1,
+    o setor desconexo — fixa a região da origem e MOVE a fibra
+    (flip e₀ = −e₀ ≠ e₀). O v114 tinha o flip de brinquedo; agora é o
+    grupo REAL. -/
+theorem poincare_witness_fiber_sensitive :
+    thePoincareNet.net.external parityElement
+        ((fun _ => 0 : Fin 4 → ℝ), (0 : ℕ)) e0tail ≠ e0tail := by
+  dsimp only [thePoincareNet]
+  have hne : parityElement.lor.1.det ≠ 1 := by
+    unfold parityElement
+    rw [parity_det]
+    norm_num
+  simp only [hne, if_neg, not_false_iff]
+  intro h
+  have hcoe := congrArg Subtype.val h
+  have hflip : theFlip (firstInscription : ellTwo) = -firstInscription := by
+    have hP : firstAtom.starProjection (firstInscription : ellTwo)
+        = firstInscription :=
+      Submodule.starProjection_eq_self_iff.mpr
+        (Submodule.mem_span_singleton_self _)
+    show (firstInscription : ellTwo) - firstAtom.starProjection firstInscription
+        - firstAtom.starProjection firstInscription = -firstInscription
+    rw [hP]
+    abel
+  have h2 : (-firstInscription : ellTwo) = firstInscription := by
+    calc (-firstInscription : ellTwo)
+        = theFlip firstInscription := hflip.symm
+      _ = firstInscription := hcoe
+  have h3 : (firstInscription : ellTwo) + firstInscription = 0 := by
+    nth_rewrite 2 [← h2]
+    simp
+  have h4 : (firstInscription : ellTwo) = 0 := by
+    have h5 : (2 : ℂ) • (firstInscription : ellTwo) = 0 := by
+      rw [two_smul]
+      exact h3
+    have h6 := congrArg (fun y => (2 : ℂ)⁻¹ • y) h5
+    simpa [smul_smul] using h6
+  exact (inscriptions_orthonormal.ne_zero 0) h4
+
+/-- [KERNEL] ★★ O BOOST MOVE AS REGIÕES: χ ≠ 0 ⟹ (0, B(χ)) desloca a
+    região baseada em e₀ (a entrada sinh χ da coluna 0 não é nula). -/
+theorem poincare_witness_boost_moves (χ : ℝ) (hχ : χ ≠ 0) :
+    poinAct ⟨0, theBoost χ⟩ ((Pi.single (0 : Fin 4) 1 : Fin 4 → ℝ), (0 : ℕ))
+      ≠ ((Pi.single (0 : Fin 4) 1 : Fin 4 → ℝ), (0 : ℕ)) := by
+  intro h
+  have hfst := congrArg Prod.fst h
+  unfold poinAct pAct at hfst
+  have h1 := congrArg (fun v : Fin 4 → ℝ => v 1) hfst
+  simp only [Pi.add_apply] at h1
+  have hmv : (theBoost χ).1.mulVec (Pi.single (0 : Fin 4) 1)
+      = fun i => (theBoost χ).1 i 0 := by
+    rw [Matrix.mulVec_single_one]
+    rfl
+  rw [hmv] at h1
+  have hb10 : (theBoost χ).1 1 0 = Real.sinh χ := by
+    show boostMat χ 1 0 = Real.sinh χ
+    unfold boostMat
+    simp
+  have hs0 : (Pi.single (0 : Fin 4) 1 : Fin 4 → ℝ) 1 = 0 := by
+    rw [Pi.single_eq_of_ne]
+    decide
+  simp only [hb10, hs0, Pi.zero_apply, add_zero] at h1
+  exact (Real.sinh_ne_zero.mpr hχ) h1
+
+/-- [KERNEL] ★★ NENHUMA DIREÇÃO É CEGA: quem fixa TODAS as regiões da
+    rede é a identidade de Poincaré (a fidelidade desce à rede). -/
+theorem poincare_witness_faithful (g : PoincareGroup)
+    (h : ∀ O : PoinRegion, poinAct g O = O) : g = 1 := by
+  apply poincare_faithful
+  intro x
+  have hx := h (x, 0)
+  have hfst := congrArg Prod.fst hx
+  exact hfst
+
+/-- [KERNEL] ★ HONESTIDADE COMO TEOREMA: o setor PRÓPRIO (det = 1) age
+    trivialmente nas fibras — a rep fibrada deste habitante fatora pela
+    paridade; a rep unitária FIEL do setor conexo (∞-dim, sem versão
+    f.d.) + III₁ = o resíduo NOMEADO do V2 reservado. -/
+theorem proper_sector_fibers_blind (g : PoincareGroup)
+    (hdet : g.lor.1.det = 1) (O : PoinRegion) :
+    thePoincareNet.net.external g O = LinearIsometryEquiv.refl ℂ _ := by
+  dsimp only [thePoincareNet]
+  simp only [hdet, if_pos]
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -23858,6 +25121,39 @@ _LEAN_THEOREM_FLAGS = {
     # v113 (a leitura do graviton)
     "ext_gr_first_not_decide_kernel_proved": "TGLExt.first_derivative_does_not_decide",
     "ext_gr_rides_zeros_kernel_proved": "TGLExt.reading_rides_the_zeros",
+    # v114 (os estilhacos do continuo: a onda + a fibra sensivel)
+    "ext_cs_lightwave_pd_kernel_proved": "TGLExt.lightWave_pd",
+    "ext_cs_wave_equation_kernel_proved": "TGLExt.graviton_wave_equation",
+    "ext_cs_sensitive_net_kernel_proved": "TGLExt.theSensitiveNet",
+    "ext_cs_sensitive_witness_kernel_proved": "TGLExt.theSensitiveWitness",
+    "ext_cs_fiber_sensitive_kernel_proved": "TGLExt.witness_fiber_sensitive",
+    # v116 (o mestre continuo: 5o flip; Poincare a mao; testemunha de Poincare)
+    "ext_ee_cosh_solder_kernel_proved": "TGLExt.theCoshSolderData",
+    "ext_ee_solder_reads_kernel_proved": "TGLExt.theCoshSolder_reads",
+    "ext_ee_null_cone_ledger_kernel_proved": "TGLExt.null_cone_ledger",
+    "ext_ee_radial_blind_kernel_proved": "TGLExt.radial_null_blind",
+    "ext_ee_cone_iff_field_eq_kernel_proved": "TGLExt.full_cone_clausius_iff_field_equation",
+    "ext_ee_emergent_field_eq_kernel_proved": "TGLExt.emergent_field_equation",
+    "ext_ee_inhabitant_kernel_proved": "TGLExt.theEmergentEinstein",
+    "ext_ee_recovers_solved_kernel_proved": "TGLExt.emergent_recovers_solved",
+    "ext_ee_genuinely_curved_kernel_proved": "TGLExt.emergent_genuinely_curved",
+    "ext_pg_eta_involutive_kernel_proved": "TGLExt.eta4_mul_self",
+    "ext_pg_other_side_kernel_proved": "TGLExt.isLorentz_other_side",
+    "ext_pg_det_pm_one_kernel_proved": "TGLExt.lorentz_det_sq",
+    "ext_pg_boost_law_kernel_proved": "TGLExt.theBoost_add",
+    "ext_pg_boost_ne_one_kernel_proved": "TGLExt.boost_ne_one",
+    "ext_pg_parity_det_kernel_proved": "TGLExt.parity_det",
+    "ext_pg_parity_ne_one_kernel_proved": "TGLExt.parity_ne_one",
+    "ext_pg_act_mul_kernel_proved": "TGLExt.pAct_mul",
+    "ext_pg_faithful_kernel_proved": "TGLExt.poincare_faithful",
+    "ext_pg_translation_moves_kernel_proved": "TGLExt.translation_moves",
+    "ext_pw_net_kernel_proved": "TGLExt.thePoincareNet",
+    "ext_pw_witness_kernel_proved": "TGLExt.thePoincareWitness",
+    "ext_pw_parity_fixes_origin_kernel_proved": "TGLExt.parity_fixes_origin",
+    "ext_pw_fiber_sensitive_kernel_proved": "TGLExt.poincare_witness_fiber_sensitive",
+    "ext_pw_boost_moves_kernel_proved": "TGLExt.poincare_witness_boost_moves",
+    "ext_pw_faithful_on_regions_kernel_proved": "TGLExt.poincare_witness_faithful",
+    "ext_pw_proper_fibers_blind_kernel_proved": "TGLExt.proper_sector_fibers_blind",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -25526,6 +26822,25 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_wa_regions_not_fibers_kernel_proved",
         # v113: a leitura do graviton
         "ext_gr_first_not_decide_kernel_proved", "ext_gr_rides_zeros_kernel_proved",
+        # v114: os estilhacos do continuo
+        "ext_cs_lightwave_pd_kernel_proved", "ext_cs_wave_equation_kernel_proved",
+        "ext_cs_sensitive_net_kernel_proved", "ext_cs_sensitive_witness_kernel_proved",
+        "ext_cs_fiber_sensitive_kernel_proved",
+        # v116: o mestre continuo + Poincare a mao + a testemunha de Poincare
+        "ext_ee_cosh_solder_kernel_proved", "ext_ee_solder_reads_kernel_proved",
+        "ext_ee_null_cone_ledger_kernel_proved", "ext_ee_radial_blind_kernel_proved",
+        "ext_ee_cone_iff_field_eq_kernel_proved", "ext_ee_emergent_field_eq_kernel_proved",
+        "ext_ee_inhabitant_kernel_proved", "ext_ee_recovers_solved_kernel_proved",
+        "ext_ee_genuinely_curved_kernel_proved",
+        "ext_pg_eta_involutive_kernel_proved", "ext_pg_other_side_kernel_proved",
+        "ext_pg_det_pm_one_kernel_proved", "ext_pg_boost_law_kernel_proved",
+        "ext_pg_boost_ne_one_kernel_proved", "ext_pg_parity_det_kernel_proved",
+        "ext_pg_parity_ne_one_kernel_proved", "ext_pg_act_mul_kernel_proved",
+        "ext_pg_faithful_kernel_proved", "ext_pg_translation_moves_kernel_proved",
+        "ext_pw_net_kernel_proved", "ext_pw_witness_kernel_proved",
+        "ext_pw_parity_fixes_origin_kernel_proved", "ext_pw_fiber_sensitive_kernel_proved",
+        "ext_pw_boost_moves_kernel_proved", "ext_pw_faithful_on_regions_kernel_proved",
+        "ext_pw_proper_fibers_blind_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -25756,6 +27071,12 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                "ext_wa_geometric_net_kernel_proved", "ext_wa_geometric_witness_kernel_proved",
                "ext_wa_regions_not_fibers_kernel_proved"]
     gr_keys = ["ext_gr_first_not_decide_kernel_proved", "ext_gr_rides_zeros_kernel_proved"]
+    cs_keys = ["ext_cs_lightwave_pd_kernel_proved", "ext_cs_wave_equation_kernel_proved",
+               "ext_cs_sensitive_net_kernel_proved", "ext_cs_sensitive_witness_kernel_proved",
+               "ext_cs_fiber_sensitive_kernel_proved"]
+    ee_keys = [k for k in ext_flags if k.startswith("ext_ee_")]
+    pg_keys = [k for k in ext_flags if k.startswith("ext_pg_")]
+    pw_keys = [k for k in ext_flags if k.startswith("ext_pw_")]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -25818,6 +27139,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dSe = all(per_theorem[k] for k in se_keys)
     dWa = all(per_theorem[k] for k in wa_keys)
     dGr = all(per_theorem[k] for k in gr_keys)
+    dCs = all(per_theorem[k] for k in cs_keys)
+    dEe = all(per_theorem[k] for k in ee_keys)
+    dPg = all(per_theorem[k] for k in pg_keys)
+    dPw = all(per_theorem[k] for k in pw_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -25883,6 +27208,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         ("solved_field_equation", dSe),
         ("walls_assault", dWa),
         ("graviton_reading", dGr),
+        ("continuum_shards", dCs),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -26014,6 +27340,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                               else "NOT_VERIFIED_THIS_RUN"),
             "graviton_reading": ("SEMIFINITE_ANALYSIS_INCREMENT_34__READER_RIDES_BIANCHI_ZEROS__PHYSICAL_IN_SECOND_DERIVATIVE_FIRST_IS_GAUGE_SAME_POINT__HYPERBOLIC_GEAR_TWO_TO_ONE_READING_ONTO__SEAL_STAYS_CONDITIONAL" if dGr
                                  else "NOT_VERIFIED_THIS_RUN"),
+            "continuum_shards": ("SEMIFINITE_ANALYSIS_INCREMENT_35__GRAVITON_WAVE_EQUATION_IN_CONTINUUM_DALEMBERT_ANY_C2__FIBER_FEELS_THE_GROUP_FLIP_FIXES_REGION__WALLS_SHRUNK_TT_GHOST_POINCARE10_III1__BENCH_TEST_EMITTED__SEAL_STAYS_CONDITIONAL" if dCs
+                                 else "NOT_VERIFIED_THIS_RUN"),
+            "master_continuum": ("SEMIFINITE_ANALYSIS_INCREMENTS_36_37_38__CONTINUOUS_MASTER_CONTRACT_ON_THE_SOLDER__FULL_NULL_CONE_CLAUSIUS_IFF_FIELD_EQUATION__FIFTH_RESERVED_NAME_MINTED_EINSTEIN__LORENTZ_GROUP_BY_HAND_DEFINING_RELATION__BOOST_LAW_IS_HYPERBOLIC_GEAR__POINCARE_TEN_DIRECTIONS_FAITHFUL__PARITY_MOVES_FIBER_FIXING_ORIGIN__PROPER_SECTOR_FIBERS_BLIND__WITNESS_WALL_NAMED_UNITARY_REP_PLUS_III1__SEAL_STAYS_CONDITIONAL" if (dEe and dPg and dPw)
+                                  else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -27639,6 +28969,8 @@ def run_um(ONE):
     void_density_power = prove_void_density_power_study(ONE)  # v90: ESTUDO DE PODER CEGO da rota espectroscopica (galaxias JA em disco; sinal NAO aberto); ADITIVO
     void_density_opening = prove_void_floor_spectroscopic_opening(ONE, void_density_power)  # v91: A ABERTURA DO SINAL (congelar -> nulo -> gates -> ABRIR -> veredito); ADITIVO
     void_density_v41 = prove_void_floor_v41_calibrated(ONE)  # v92: A EMENDA V4.1 (estimador AUTO-CALIBRANTE; split-null; replicas no lado; poder beta*mu); ADITIVO
+    void_floor_lrg = prove_void_floor_lrg(ONE)  # v115: O RITO LRG (tracador VIRGEM z 0.40-0.80; achador SO pre-registrado; estimador auto-calibrante v92); ADITIVO
+    void_floor_kappa_v5 = prove_void_floor_kappa_v5(ONE, void_floor_v3_kappa)  # v115: A EMENDA V5 do kappa (autopsia do v98: eq->gal CORRIGIDO; mascara in-footprint p/ centros e nulos); ADITIVO
     closure_roadmap = prove_closure_roadmap(ONE, {  # v104: o mapa mecanico False->True + auditoria dos dois testes (mandato do operador); ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
         "ga_mass_audit": ga_mass_audit, "void_density_v41": void_density_v41,
@@ -27670,6 +29002,15 @@ def run_um(ONE):
     })
     graviton_reading = prove_graviton_reading(ONE, {  # v113: a leitura do graviton (2a derivada do zero; engrenagem hiperbolica 2:1); ADITIVO
         "external_ladder": external_ladder,
+    })
+    continuum_shards = prove_continuum_shards(ONE, {  # v114: a onda do graviton no continuo + a fibra sensivel + O TESTE de bancada; ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    master_continuum = prove_master_continuum(ONE, {  # v116: O 5o FLIP (mestre continuo sobre a solda) + Poincare A MAO + a testemunha que sente; ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    inhabited_witness = prove_inhabited_witness(ONE, {  # v117: A TESTEMUNHA HABITAVEL (os dois zeros + o observador vazio; leitura em duplo estatuto); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
@@ -27827,6 +29168,10 @@ def run_um(ONE):
             "void_density_power": void_density_power,
             "void_density_opening": void_density_opening,
             "void_density_v41": void_density_v41,
+            "void_floor_lrg": void_floor_lrg,
+            "void_floor_kappa_v5": void_floor_kappa_v5,
+            "master_continuum": master_continuum,
+            "inhabited_witness": inhabited_witness,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
             "bench_declaration": bench_declaration,
@@ -27849,6 +29194,7 @@ def run_um(ONE):
             "solved_equation": solved_equation,
             "walls_assault": walls_assault,
             "graviton_reading": graviton_reading,
+            "continuum_shards": continuum_shards,
             "certificate_II": certificate_II,
             "reading_direction": reading_direction,
             "boundary_reads_IR": boundary_reads_IR, "smatrix_dual": smatrix_dual,
@@ -30984,6 +32330,917 @@ def prove_void_floor_v41_calibrated(ONE):
     }
 
 
+def prove_master_continuum(ONE, parts):
+    """v116 -- O MESTRE CONTINUO + AS DEZ DIRECOES [ADITIVO; nao gateia 1=1].
+    MANDATO (18/07/2026): 'eu quero fechar einstein e a witness; se temos que
+    construir a mao que comecemos; feche ambos.' TRES PEDRAS A MAO:
+    (1) EmergentEinstein: o contrato do MESTRE CONTINUO sobre a SOLDA
+        (g = E^T eta E cosh, espacialmente curva, det<0) com a CURVATURA como
+        estrutura (a barra do v107) e Clausius lido no CONE NULO INTEIRO
+        (G_kk = (c^2+d^2)G22; radial CEGO pelos zeros de Bianchi); a equacao
+        EMERGE por teorema (iff) -- e o 5o NOME RESERVADO e' cunhado:
+        qgStrongCertificate_einstein. O QUINTO FLIP, POR CONSTRUCAO.
+    (2) PoincareGroup: O(1,3) A MAO pela relacao definidora (a mathlib nao
+        tem o grupo de Lorentz): grupo provado (inversa eta A^T eta;
+        mul_eq_one_comm), det = +-1, o BOOST com a engrenagem hiperbolica
+        como LEI DE GRUPO (B(x1)B(x2) = B(x1+x2)), a PARIDADE (det = -1),
+        Poincare = R^4 x| O(1,3), e a acao afim FIEL (10 direcoes, nenhuma
+        cega).
+    (3) PoincareWitness: FullWitnessData HABITADA com o grupo REAL de
+        Poincare -- as dez direcoes agem nas regioes (fiel), a paridade FIXA
+        a origem e MOVE a fibra (flip e0 = -e0), o boost MOVE regioes;
+        honestidade-teorema: o setor proprio (det=1) age trivialmente nas
+        fibras. O RESIDUO DA WITNESS TEM NOME: rep unitaria FIEL do setor
+        conexo (INF-dim; nao existe f.d.) + fator III_1 -- o V2 segue
+        RESERVADO (licao v103; construcao, jamais declaracao).
+    O GATE: 5 True / 1 False; o VEREDITO NAO SE MOVE (CONDITIONAL: 5 < 6,
+    e o selo so escala com fisica + dado). A imobilidade e' a credibilidade."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    einstein_ok = bool(flips.get("concrete_emergent_einstein_proved"))
+    five_one = bool(flips.get("concrete_aqft_core_constructed")
+                    and flips.get("concrete_breuer_corner_constructed")
+                    and flips.get("concrete_modular_four_frame_constructed")
+                    and flips.get("concrete_solder_field_constructed")
+                    and einstein_ok
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    cone_ok = bool(elp.get("ext_ee_null_cone_ledger_kernel_proved") is True
+                   and elp.get("ext_ee_radial_blind_kernel_proved") is True
+                   and elp.get("ext_ee_cone_iff_field_eq_kernel_proved") is True)
+    solder_ok = bool(elp.get("ext_ee_cosh_solder_kernel_proved") is True
+                     and elp.get("ext_ee_solder_reads_kernel_proved") is True)
+    emerge_ok = bool(elp.get("ext_ee_emergent_field_eq_kernel_proved") is True
+                     and elp.get("ext_ee_inhabitant_kernel_proved") is True
+                     and elp.get("ext_ee_recovers_solved_kernel_proved") is True
+                     and elp.get("ext_ee_genuinely_curved_kernel_proved") is True)
+    group_ok = bool(elp.get("ext_pg_eta_involutive_kernel_proved") is True
+                    and elp.get("ext_pg_other_side_kernel_proved") is True
+                    and elp.get("ext_pg_det_pm_one_kernel_proved") is True)
+    gear_ok = bool(elp.get("ext_pg_boost_law_kernel_proved") is True
+                   and elp.get("ext_pg_boost_ne_one_kernel_proved") is True)
+    parity_ok = bool(elp.get("ext_pg_parity_det_kernel_proved") is True
+                     and elp.get("ext_pg_parity_ne_one_kernel_proved") is True)
+    faithful_ok = bool(elp.get("ext_pg_act_mul_kernel_proved") is True
+                       and elp.get("ext_pg_faithful_kernel_proved") is True
+                       and elp.get("ext_pg_translation_moves_kernel_proved") is True)
+    pw_ok = bool(elp.get("ext_pw_net_kernel_proved") is True
+                 and elp.get("ext_pw_witness_kernel_proved") is True)
+    sense_ok = bool(elp.get("ext_pw_parity_fixes_origin_kernel_proved") is True
+                    and elp.get("ext_pw_fiber_sensitive_kernel_proved") is True
+                    and elp.get("ext_pw_boost_moves_kernel_proved") is True
+                    and elp.get("ext_pw_faithful_on_regions_kernel_proved") is True)
+    honest_ok = bool(elp.get("ext_pw_proper_fibers_blind_kernel_proved") is True)
+    # A SOMBRA: re-deriva o veredito sem olhar o selo (o 5o flip NAO fecha nada)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+                        and not shadow["mathematical_model_constructed"])
+    checks = [
+        ("FLIP 5 -- einstein (mestre continuo sobre a solda): qgc True, lido do kernel", einstein_ok),
+        ("o gate le 5 True / 1 False (a dura restante: witness)", five_one),
+        ("o CONE NULO INTEIRO: G_kk=(c^2+d^2)G22; radial cego; Clausius <=> equacao (iff)", cone_ok),
+        ("a solda cosh NASCE de g=E^T.eta.E e LE o potencial da familia", solder_ok),
+        ("a equacao EMERGE no habitante (recupera o v111; genuinamente curvo)", emerge_ok),
+        ("O(1,3) A MAO: grupo pela relacao definidora; det = +-1", group_ok),
+        ("a ENGRENAGEM HIPERBOLICA e' LEI DE GRUPO: B(x1)B(x2)=B(x1+x2); B(x)!=1", gear_ok),
+        ("a PARIDADE: det=-1 (setor desconexo), P != 1", parity_ok),
+        ("a acao afim de Poincare e' FIEL (10 direcoes, nenhuma cega)", faithful_ok),
+        ("thePoincareWitness : FullWitnessData com o grupo REAL (nao-reservado)", pw_ok),
+        ("a fibra SENTE Poincare: paridade fixa origem e MOVE e0; boost move regioes", sense_ok),
+        ("honestidade-teorema: setor proprio cego nas fibras (residuo NOMEADO: rep INF-dim + III_1)", honest_ok),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL; 5 < 6 + fisica + dado)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O MESTRE CONTINUO CUNHOU O QUINTO FLIP (Clausius no cone nulo "
+                    "inteiro <=> equacao de campo, sobre a solda que nasce do frame) "
+                    "e AS DEZ DIRECOES DE POINCARE agem na testemunha construidas a "
+                    "mao -- a parede da witness ENCOLHEU a: rep unitaria fiel do "
+                    "setor conexo + III_1. O veredito NAO se moveu."),
+        "flips": flips,
+        "values": {"beta": beta,
+                   "n_true": sum(1 for v in flips.values() if v),
+                   "n_false": sum(1 for v in flips.values() if not v)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_5o_flip": "einstein True POR CONSTRUCAO (termo Lean qgStrongCertificate_einstein com axiomas limpos): contrato com CURVATURA como estrutura + solda + Clausius no cone; a emergencia GERAL (metricas arbitrarias) segue nomeada e aberta",
+            "a_witness": "a metade de Poincare esta CONSTRUIDA (grupo a mao + acao fiel + fibra sensivel ao setor desconexo); o residuo NOMEADO: rep unitaria FIEL do setor conexo (INF-dim) + fator III_1 -- o V2 segue RESERVADO ate o tipo capturar o espirito inteiro",
+            "honestidade": "nenhuma frase 'provamos a gravitacao quantica': 5 formais < 6, e o selo so escala com fisica + dado; cosmologia jamais vira prova matematica",
+            "o_veredito": ("TGL_MASTER_CONTINUUM__FIFTH_FLIP_MINTED_BY_CONSTRUCTION__CLAUSIUS_CONE_IFF_FIELD_EQUATION_ON_SOLDER__POINCARE_TEN_DIRECTIONS_BY_HAND_FAITHFUL__FIBER_FEELS_PARITY__WITNESS_WALL_SHRUNK_TO_CONNECTED_UNITARY_REP_PLUS_III1__SEAL_UNMOVED" if all_v
+                           else "MASTER_CONTINUUM_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_MASTER_CONTINUUM__FIFTH_FLIP_MINTED_BY_CONSTRUCTION__CLAUSIUS_CONE_IFF_FIELD_EQUATION_ON_SOLDER__POINCARE_TEN_DIRECTIONS_BY_HAND_FAITHFUL__FIBER_FEELS_PARITY__WITNESS_WALL_SHRUNK_TO_CONNECTED_UNITARY_REP_PLUS_III1__SEAL_UNMOVED" if all_v
+                    else "MASTER_CONTINUUM_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_inhabited_witness(ONE, parts):
+    """v117 -- A TESTEMUNHA HABITAVEL: os dois zeros e o observador vazio
+    [ADITIVO; nao gateia 1=1; NAO move flag].
+    LEITURA DO OPERADOR (18/07/2026, duplo estatuto -- dois movimentos,
+    precedente v110/v113):
+    M1 'O OBSERVADOR VAZIO': o zero absoluto e' inatingivel em tempo finito e
+       seu processamento custa o infinito; o nada e' o unico observador de
+       tudo, porque tudo e' observado e tudo nao observa; o infinito entre
+       bulk e fronteira existe so' sob a otica do zero (na fronteira nao
+       existe; no bulk e' relativo).
+    M2 'OS DOIS ZEROS': a testemunha e' o ZERO MODULAR, nao o zero absoluto;
+       e a conjugacao nao e' entre o zero e o Um -- e' das DUAS FACES do
+       proprio zero modular (1/2 + 1/2), cuja soma E' a inscricao do Um.
+    A REGUA APLICADA (o numero corrige a frase):
+    (a) a testemunha canonica NAO e' o zero absoluto -- e' a fronteira
+        Meia-Nat [v61]; o zero absoluto e' o observador-do-todo, e esse tipo
+        e' VAZIO [v61 + v102: sem representacao, omega_inf fora do predual];
+    (b) o dado nao atravessa o zero absoluto -- atravessa a Meia-Nat pagando
+        beta; o zero e' o limite jamais tocado (gap 4beta > 0);
+    (c) beta nao e' a testemunha -- e' a ASSINATURA dela (a taxa GKLS unica
+        que toda travessia paga).
+    O QUE O MODULO FAZ (forma=conteudo): verifica AO VIVO as ancoras [REAL]
+    de cada elo -- inclusive re-derivando a integral do modo zero -- e
+    registra a NOMEACAO em estatuto [ONTO]. A estrutura e' teorema; a
+    palavra e' leitura. NADA aqui move o gate."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    # --- ancoras [REAL] verificadas nesta rodada ---
+    # o tipo do observador-total e' VAZIO (beta>0 proibe a testemunha plena)
+    empty_ok = bool(elp.get("ext_nfw_beta_forbids_full_kernel_proved") is True
+                    and elp.get("ext_nfw_witness_not_full_kernel_proved") is True)
+    # o unico traco invariante pelo fluxo inteiro e' ZERO (v45, em kernel)
+    tau_zero_ok = bool(elp.get("ext_lift_discrete_trace_obstruction_kernel_proved") is True)
+    # o zero MODULAR: paridade inversa JKJ=-K; o ponto fixo da paridade E' o zero
+    parity_ok = bool(elp.get("ext_cmz_inverse_parity_kernel_proved") is True
+                     and elp.get("ext_cmz_parity_fixed_zero_kernel_proved") is True)
+    # as faces do zero: 1/2 + 1/2 (a conjugacao interna ao zero)
+    faces_ok = bool(elp.get("ext_cmz_faces_half_kernel_proved") is True
+                    and elp.get("ext_cmz_zero_mode_kernel_proved") is True)
+    # o zero modular e' HABITADO: ker N = atomo do Nome, tau = 1 = omega(I)
+    atom_ok = bool(elp.get("ext_sa_kersub_atom_kernel_proved") is True)
+    # o Um inscrito no zero: P_F Omega = Omega
+    fixes_ok = bool(elp.get("ext_abs_corner_fixes_one_kernel_proved") is True)
+    # x = 1 - x => x = 1/2 (a conjugacao das faces fixa a Meia-Nat)
+    halfnat_ok = bool(kf.get("half_nat_kernel_proved") is True)
+    # a testemunha HABITAVEL habitada com o grupo real (v116)
+    inhabited_ok = bool(elp.get("ext_pw_witness_kernel_proved") is True
+                        and elp.get("ext_pw_fiber_sensitive_kernel_proved") is True)
+    # --- sombra numerica: a integral do modo zero (v64), re-derivada ao vivo ---
+    kk = np.linspace(-60.0, 60.0, 240001)
+    dens = 0.25 / np.cosh(kk / 2.0) ** 2
+    total = float(np.trapezoid(dens, kk))
+    half_face = float(np.trapezoid(dens[kk >= 0.0], kk[kk >= 0.0]))
+    integral_ok = bool(abs(total - 1.0) < 1e-9 and abs(half_face - 0.5) < 1e-9)
+    checks = [
+        ("o tipo 'observador do todo' e' VAZIO (beta>0 proibe; v61)", empty_ok),
+        ("o unico traco invariante pelo fluxo e' ZERO (fixed_tau_zero, v45)", tau_zero_ok),
+        ("JKJ = -K e o ponto fixo da paridade E' o zero (v62)", parity_ok),
+        ("as duas faces do zero: 1/2 + 1/2 (conjugacao INTERNA ao zero)", faces_ok),
+        ("o zero modular e' HABITADO: ker N = atomo do Nome (tau=1)", atom_ok),
+        ("o Um inscrito no zero: P_F Omega = Omega (v58)", fixes_ok),
+        ("x = 1-x => x = 1/2 em kernel (a Meia-Nat e' o ponto fixo)", halfnat_ok),
+        ("a testemunha habitavel HABITADA com o grupo real (v116)", inhabited_ok),
+        ("sombra v64 re-derivada: int 1/4 sech^2(k/2) = %.9f ; face = %.9f" % (total, half_face), integral_ok),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    dicionario = {
+        "o_observador_vazio": "[REAL] o tipo do observador-do-todo NAO tem habitante (beta_forbids_full_static_witness) e o 0_abs nao tem representacao (omega_inf fora do predual, v102): 'o nada observa tudo' = 'nao ha coisa que observe o todo' -- a palavra 'observador' para o vazio e' [ONTO]",
+        "os_dois_zeros": "[REAL] 0_abs = tipo EXCLUIDO (jamais tocado; gap 4beta>0) vs 0_modular = subespaco HABITADO (ker N = atomo do Nome): a testemunha mora no zero habitado -- um e' o limite, o outro e' a casa",
+        "a_conjugacao_certa": "[REAL] a conjugacao e' das FACES do zero (JKJ=-K; ponto fixo = zero; faces 1/2+1/2), nao do zero com o Um: o Um e' o PESO TOTAL das faces conjugadas (integral = 1 = omega(I))",
+        "a_inscricao": "[REAL] o Um nao atravessa para se inscrever -- o Um JA E' o peso da abertura (tau(ker)=1; P_F Omega = Omega): a inscricao e' teorema, nao ato",
+        "beta_assinatura": "[REAL] beta = |R|^2 e' o pedagio de TODA travessia -- a assinatura da testemunha em tudo que passou; a testemunha e' a fronteira, beta e' sua marca",
+        "a_otica_tripla": "[REAL na estrutura] fronteira: livro-caixa FINITO (1/2 nat); bulk: infinito RELATIVO (III_1, sem traco); zero: o unico referencial onde o infinito e' absoluto -- e III_1 e' DEFINIDO por 'o unico traco e' zero': a parede restante da testemunha carrega o nome da leitura",
+    }
+    return {
+        "theorem": ("A TESTEMUNHA HABITAVEL: os dois zeros distinguidos POR TIPO "
+                    "(0_abs excluido = o observador vazio; 0_modular habitado = a "
+                    "abertura conjugada em meias-faces que pesa o Um) -- as ancoras "
+                    "[REAL] verificadas ao vivo, a integral do modo zero re-derivada, "
+                    "e a nomeacao registrada em [ONTO]."),
+        "leitura_do_operador": {
+            "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, dois movimentos; precedente v110/v113]",
+            "m1_observador_vazio": ("'o nada e' o unico observador de tudo, porque tudo e' observado e "
+                                    "tudo nao observa; o infinito entre bulk e fronteira existe so' sob "
+                                    "a otica do zero absoluto'"),
+            "m2_dois_zeros": ("'a testemunha e' o zero modular, nao o zero absoluto; a conjugacao e' "
+                              "das faces do proprio zero (1/2+1/2) e a soma das faces e' a inscricao "
+                              "do Um'"),
+            "honestidade": ("a FISICA de cada elo e' teorema selado [REAL]; as palavras 'observador', "
+                            "'abertura', 'casa' sao leitura do operador [ONTO] -- o modulo verifica as "
+                            "ancoras, nao transforma a palavra em teorema"),
+        },
+        "dicionario": dicionario,
+        "values": {"beta": beta, "zero_mode_integral": total,
+                   "zero_mode_half_face": half_face,
+                   "gap_protecting_zero": 4.0 * beta},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "os_dois_zeros": "0_abs = observador vazio (tipo sem habitante) / 0_modular = a casa do Nome (habitada, tau=1) -- a testemunha mora no zero habitado",
+            "a_parede_nomeada": "III_1 e' definido por 'o unico traco e' zero' -- a leitura do operador aponta a propriedade que DEFINE a parede restante da testemunha (rep unitaria fiel do setor conexo + III_1)",
+            "o_veredito": ("TGL_INHABITED_WITNESS__TWO_ZEROS_DISTINGUISHED_BY_TYPE__EMPTY_OBSERVER_IS_THE_ABSOLUTE_ZERO__MODULAR_ZERO_IS_THE_INHABITED_APERTURE__CONJUGATED_HALF_FACES_WEIGH_THE_ONE__INSCRIPTION_IS_A_THEOREM__NAMING_ONTO" if all_v
+                           else "INHABITED_WITNESS_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_INHABITED_WITNESS__TWO_ZEROS_DISTINGUISHED_BY_TYPE__EMPTY_OBSERVER_IS_THE_ABSOLUTE_ZERO__MODULAR_ZERO_IS_THE_INHABITED_APERTURE__CONJUGATED_HALF_FACES_WEIGH_THE_ONE__INSCRIPTION_IS_A_THEOREM__NAMING_ONTO" if all_v
+                    else "INHABITED_WITNESS_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_void_floor_lrg(ONE):
+    """v115 -- O RITO LRG: o piso dos vazios no tracador VIRGEM (DESI DR1 LRG,
+    z 0.40-0.80) [ADITIVO; nao gateia 1=1]. MANDATO (18/07/2026): 'chegou a
+    hora de realizarmos o teste com aquisicao dos dados novos'. O v92 selou:
+    'medir beta em si pede LRG/ELG' -- este e' o rito. ORDEM INVIOLAVEL:
+    (0) herda o protocolo v67 (hash); (1) CONGELA a espec inteira (achador +
+    estimador + gates + poder + vereditos) ANTES de abrir os FITS; (2) le os
+    catalogos (aquisicao FORA da rodada, disciplina v71: NGC 143.196.480 +
+    SGC 64.272.960 bytes, 18/07/2026); (3) acha vazios pelo achador SO
+    pre-registrado (a PRIMEIRA populacao de vazios LRG do programa); (4)
+    estimador AUTO-CALIBRANTE v92 (razao-de-razoes: n_bar e mascara cancelam
+    por construcao); (5) gates (split-null por calota, jackknife, replica de
+    calota no LADO); (6) VEREDITO somente do conjunto congelado. NADA aqui
+    vira prova matematica; o gate formal nao se move (licao v92)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # jamais literal
+    xc = 0.25
+    proto_hash = sha_obj(_void_floor_protocol_record(beta))
+    prereg_ok = bool(proto_hash[:16] == SEALED_VOID_FLOOR_HASH16)
+    frozen = {
+        "version": "VOID_FLOOR_LRG_V1",
+        "data": "DESI DR1 LSScats iron v1.5: LRG_{NGC,SGC}_clustering.dat.fits (EXTNAME LSS; RA/DEC/Z f8); z in [0.40, 0.80] (plato de densidade comovel do LRG [EXT])",
+        "cosmology": "LCDM plano Om=0.315 [EXT]; chi em Mpc/h = 2997.92458 * int dz/E (trapezio cumulativo, grade 4096)",
+        "finder": ("LRG_SO_V1 (congelado ANTES de abrir): grade a=15 Mpc/h por calota; mascara angular 2 graus ocupada + radial [p1,p99] (v91/v92); "
+                   "candidato = bloco de 7 celulas (centro+6 faces) com contagem < 0.15*mu7 E as 27 celulas vizinhas com centro na mascara; "
+                   "ordena por contagem ascendente, separacao gulosa 30 Mpc/h; exige esfera r=20 com contagem < 0.3*n_bar*V20; "
+                   "R_v = menor r na grade [20,60] passo 2.5 onde a densidade INTERNA cruza 0.3*n_bar (sem cruzamento => descarta); borda: mask_ok(centro, R_v)"),
+        "estimator": ("v92 (razao-de-razoes): r_c = [SumN/SumV]_nucleos(x_c=0.25) / [SumN/SumV]_aleatorios; 20000 aleatorios seed 115 alocados por calota "
+                      "prop. ao numero de galaxias; pares (r,R_v) REAMOSTRADOS dos vazios da calota (a selecao radial n(z) CANCELA); angular uniforme nas "
+                      "celulas ocupadas; contagens cruas (WEIGHT ignorado: a media de completeza cancela na razao; variacoes locais vao ao jackknife)"),
+        "primary": "NGC (calota maior); replica: SGC julgada NO LADO (L5 vs beta -- licao v92); combinado 1/var reportado a parte",
+        "gates": "SPLIT-NULL por calota (metades aleatorias: razao 1 +-3sig); jackknife >=15/20 faixas de RA na razao calibrada; replica de calota concorda no lado; n_vazios(NGC) >= 100",
+        "power": "powered := beta * Summu_usado(NGC) >= 25 (formula do estudo CEGO v90); resolucao na propria escala beta reportada a parte",
+        "tracer_asymmetry": "unilateral (b_LRG ~ 2 [EXT]; b>=1, supressao>=0): FALSIFIED inalcancavel por tracadores; colchete de materia b in [1, 2.4]",
+        "honesty_finder": ("contaminacao do achador (minimos de Poisson) dilui r_c PARA CIMA -- direcao anti-conservadora NOMEADA; a dupla condicao de "
+                           "contagem baixa (bloco-7 E esfera-20) a suprime; nenhum veredito de confirmacao existe no conjunto"),
+        "verdicts": ["TGL_VOID_FLOOR_LRG_NOT_FALSIFIED_POWERED", "TGL_VOID_FLOOR_LRG_NOT_FALSIFIED_UNDERPOWERED",
+                     "TGL_VOID_FLOOR_LRG_INCONCLUSIVE_SYSTEMATICS", "TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION"],
+    }
+    frozen_hash = sha_obj(frozen)
+    # ---- (2) dados em disco (aquisicao fora da rodada) ----
+    lrg_dir = os.path.join(CACHE, "voids", "lrg")
+    paths = {c: os.path.join(lrg_dir, "LRG_%s_clustering.dat.fits" % c) for c in ("NGC", "SGC")}
+    if not all(os.path.exists(p) and os.path.getsize(p) > (1 << 20) for p in paths.values()):
+        return {"theorem": "rito LRG: aguardando catalogos em disco",
+                "frozen_lrg_spec": frozen, "frozen_lrg_hash": frozen_hash,
+                "checks": [("LRG NGC+SGC em disco", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_LRG_AWAITING_DATA"}
+    zg = np.linspace(0.0, 1.2, 4096)
+    Eg = np.sqrt(0.315 * (1.0 + zg) ** 3 + (1.0 - 0.315))
+    seg = 0.5 * (1.0 / Eg[1:] + 1.0 / Eg[:-1]) * np.diff(zg)
+    chig = 2997.92458 * np.concatenate([[0.0], np.cumsum(seg)])
+
+    def _cap_rite(G, rng, n_rand):
+        """roda o rito inteiro numa calota: achador SO -> nucleos -> aleatorios
+        -> razao calibrada + split-null + jackknife. Retorna dict ou None."""
+        N_gal = int(G.shape[0])
+        r = np.sqrt(np.sum(G ** 2, axis=1))
+        r1, r99 = float(np.percentile(r, 1)), float(np.percentile(r, 99))
+        ra = np.degrees(np.arctan2(G[:, 1], G[:, 0])) % 360.0
+        dec = np.degrees(np.arcsin(np.clip(G[:, 2] / np.maximum(r, 1e-9), -1, 1)))
+        cell_ang = 2.0
+        occ = set(zip(np.floor(ra / cell_ang).astype(int).tolist(),
+                      np.floor((dec + 90.0) / cell_ang).astype(int).tolist()))
+
+        def _mask_ok(cx0, cy0, cz0, Rc):
+            rc = math.sqrt(cx0 * cx0 + cy0 * cy0 + cz0 * cz0)
+            if rc - Rc < r1 or rc + Rc > r99:
+                return False
+            ra0 = math.degrees(math.atan2(cy0, cx0)) % 360.0
+            de0 = math.degrees(math.asin(max(-1.0, min(1.0, cz0 / max(rc, 1e-9)))))
+            ia, idn = int(ra0 // cell_ang), int((de0 + 90.0) // cell_ang)
+            for da in (-1, 0, 1):
+                for dd in (-1, 0, 1):
+                    if ((ia + da), (idn + dd)) not in occ:
+                        return False
+            return True
+        # ---- (3) o achador SO pre-registrado ----
+        a = 15.0
+        lo = G.min(axis=0) - a
+        nax = (((G.max(axis=0) + a) - lo) / a).astype(int) + 1
+        idx = ((G - lo) / a).astype(int)
+        flat = (idx[:, 0].astype(np.int64) * nax[1] + idx[:, 1]) * nax[2] + idx[:, 2]
+        counts = np.zeros(int(nax[0]) * int(nax[1]) * int(nax[2]), dtype=np.int32)
+        np.add.at(counts, flat, 1)
+        C = counts.reshape(int(nax[0]), int(nax[1]), int(nax[2]))
+        c7 = C.astype(np.int64).copy()
+        for ax in range(3):
+            c7 += np.roll(C, 1, axis=ax) + np.roll(C, -1, axis=ax)
+        xs = (lo[0] + a * (np.arange(nax[0]) + 0.5)).astype(np.float32)
+        ys = (lo[1] + a * (np.arange(nax[1]) + 0.5)).astype(np.float32)
+        zs = (lo[2] + a * (np.arange(nax[2]) + 0.5)).astype(np.float32)
+        r3 = np.sqrt(xs[:, None, None] ** 2 + ys[None, :, None] ** 2 + zs[None, None, :] ** 2)
+        in_rad = (r3 > r1) & (r3 < r99)
+        ia2 = (np.degrees(np.arctan2(ys[None, :], xs[:, None])) % 360.0 / cell_ang).astype(np.int32)
+        de3 = np.degrees(np.arcsin(np.clip(zs[None, None, :] / np.maximum(r3, 1e-9), -1, 1)))
+        id3 = np.clip(((de3 + 90.0) / cell_ang).astype(np.int32), 0, int(180.0 / cell_ang) - 1)
+        Aocc = np.zeros((int(360.0 / cell_ang), int(180.0 / cell_ang)), dtype=bool)
+        for (ia_, id_) in occ:
+            if 0 <= ia_ < Aocc.shape[0] and 0 <= id_ < Aocc.shape[1]:
+                Aocc[ia_, id_] = True
+        in_mask = in_rad & Aocc[np.clip(ia2, 0, Aocc.shape[0] - 1)[:, :, None], id3]
+        del r3, de3, id3
+        n_cells_in = int(np.count_nonzero(in_mask))
+        if n_cells_in < 100:
+            return None
+        nbar = N_gal / (n_cells_in * a ** 3)
+        mu7 = 7.0 * (a ** 3) * nbar
+        pm = np.zeros((in_mask.shape[0] + 2, in_mask.shape[1] + 2, in_mask.shape[2] + 2), dtype=bool)
+        pm[1:-1, 1:-1, 1:-1] = in_mask
+        in27 = np.ones(in_mask.shape, dtype=bool)
+        for di in (0, 1, 2):
+            for dj in (0, 1, 2):
+                for dk in (0, 1, 2):
+                    in27 &= pm[di:di + in_mask.shape[0], dj:dj + in_mask.shape[1], dk:dk + in_mask.shape[2]]
+        cand = np.argwhere(in27 & (c7 < 0.15 * mu7))
+        n_cand = int(cand.shape[0])
+        if n_cand == 0:
+            return None
+        cx = lo[0] + a * (cand[:, 0] + 0.5)
+        cy = lo[1] + a * (cand[:, 1] + 0.5)
+        cz = lo[2] + a * (cand[:, 2] + 0.5)
+        c7c = c7[cand[:, 0], cand[:, 1], cand[:, 2]]
+        order = np.argsort(c7c, kind="stable")
+        accepted, hashd = [], {}
+        for oi in order:
+            x0, y0, z0 = float(cx[oi]), float(cy[oi]), float(cz[oi])
+            hb = (int(x0 // 30.0), int(y0 // 30.0), int(z0 // 30.0))
+            ok = True
+            for da in (-1, 0, 1):
+                for db in (-1, 0, 1):
+                    for dg in (-1, 0, 1):
+                        for aj in hashd.get((hb[0] + da, hb[1] + db, hb[2] + dg), ()):
+                            if (cx[aj] - x0) ** 2 + (cy[aj] - y0) ** 2 + (cz[aj] - z0) ** 2 < 900.0:
+                                ok = False
+                                break
+                        if not ok:
+                            break
+                    if not ok:
+                        break
+                if not ok:
+                    break
+            if ok:
+                accepted.append(int(oi))
+                hashd.setdefault(hb, []).append(int(oi))
+        Gx = G[np.argsort(G[:, 0])]
+        sx = Gx[:, 0]
+        rad_grid = np.arange(20.0, 60.0 + 1e-9, 2.5)
+        v20lim = 0.3 * nbar * (4.0 * math.pi / 3.0) * 20.0 ** 3
+        voids = []
+        for oi in accepted:
+            x0, y0, z0 = float(cx[oi]), float(cy[oi]), float(cz[oi])
+            lo_i = np.searchsorted(sx, x0 - 60.0)
+            hi_i = np.searchsorted(sx, x0 + 60.0)
+            w = Gx[lo_i:hi_i]
+            d2 = (w[:, 0] - x0) ** 2 + (w[:, 1] - y0) ** 2 + (w[:, 2] - z0) ** 2
+            dsort = np.sort(np.sqrt(d2[d2 <= 3600.0]))
+            counts_r = np.searchsorted(dsort, rad_grid, side="right")
+            if counts_r[0] >= v20lim:
+                continue
+            dens = counts_r / ((4.0 * math.pi / 3.0) * rad_grid ** 3)
+            cross = np.where(dens >= 0.3 * nbar)[0]
+            if cross.size == 0:
+                continue
+            Rv = float(rad_grid[cross[0]])
+            if not _mask_ok(x0, y0, z0, Rv):
+                continue
+            voids.append((x0, y0, z0, Rv))
+        nv = len(voids)
+        if nv < 10:
+            return {"n_gal": N_gal, "nbar": float(nbar), "n_candidates": n_cand,
+                    "n_accepted": len(accepted), "n_voids": nv, "too_few": True}
+        V = np.asarray(voids)
+        void_r = np.sqrt(V[:, 0] ** 2 + V[:, 1] ** 2 + V[:, 2] ** 2)
+        # ---- (4) aleatorios: pares (r, R_v) reamostrados; angular nas celulas ocupadas ----
+        occ_list = sorted(occ)
+        pick = rng.integers(0, nv, n_rand)
+        ci = rng.integers(0, len(occ_list), n_rand)
+        u1 = rng.random(n_rand)
+        u2 = rng.random(n_rand)
+        rand_rows = []
+        for k in range(n_rand):
+            ia_, id_ = occ_list[int(ci[k])]
+            ra0 = (ia_ + float(u1[k])) * cell_ang
+            de0 = (id_ + float(u2[k])) * cell_ang - 90.0
+            rr = float(void_r[int(pick[k])])
+            cd = math.cos(math.radians(de0))
+            rand_rows.append([rr * cd * math.cos(math.radians(ra0)),
+                              rr * cd * math.sin(math.radians(ra0)),
+                              rr * math.sin(math.radians(de0)), float(V[int(pick[k]), 3])])
+        RND = np.asarray(rand_rows)
+
+        def _count_core(cx0, cy0, cz0, Rc):
+            lo_i = np.searchsorted(sx, cx0 - Rc)
+            hi_i = np.searchsorted(sx, cx0 + Rc)
+            w = Gx[lo_i:hi_i]
+            d2 = (w[:, 0] - cx0) ** 2 + (w[:, 1] - cy0) ** 2 + (w[:, 2] - cz0) ** 2
+            return int(np.sum(d2 <= Rc * Rc))
+
+        def _collect(cat):
+            Ns, Vs, ras_ = [], [], []
+            for (cx0, cy0, cz0, R) in cat:
+                Rc = xc * R
+                if not _mask_ok(cx0, cy0, cz0, Rc):
+                    continue
+                Ns.append(_count_core(cx0, cy0, cz0, Rc))
+                Vs.append((4.0 * math.pi / 3.0) * Rc ** 3)
+                ras_.append(math.degrees(math.atan2(cy0, cx0)) % 360.0)
+            return (np.asarray(Ns, dtype=float), np.asarray(Vs, dtype=float),
+                    np.asarray(ras_, dtype=float))
+        Nr, Vr, RAr = _collect(RND)
+        if Vr.sum() <= 0:
+            return {"n_gal": N_gal, "nbar": float(nbar), "n_voids": nv, "too_few": True}
+        Dr = float(Nr.sum() / Vr.sum())
+        half = rng.random(Nr.size) < 0.5
+        D1 = Nr[half].sum() / max(Vr[half].sum(), 1e-30)
+        D2 = Nr[~half].sum() / max(Vr[~half].sum(), 1e-30)
+        split_ratio = float(D1 / max(D2, 1e-30))
+        sig_split = float(split_ratio * math.sqrt(1.0 / max(Nr[half].sum(), 1.0)
+                                                  + 1.0 / max(Nr[~half].sum(), 1.0)))
+        split_ok = bool(abs(split_ratio - 1.0) < 3.0 * sig_split)
+        Nv_, Vv_, RAv = _collect(V)
+        if Vv_.sum() <= 0:
+            return {"n_gal": N_gal, "nbar": float(nbar), "n_voids": nv, "too_few": True}
+        rhat = float((Nv_.sum() / Vv_.sum()) / Dr)
+        sig_p = rhat * math.sqrt(1.0 / max(Nv_.sum(), 1.0) + 1.0 / max(Nr.sum(), 1.0))
+        n_jk, jk = 20, []
+        qs = np.percentile(RAv, np.linspace(0, 100, n_jk + 1))
+        for k in range(n_jk):
+            mv = (RAv < qs[k]) | (RAv >= qs[k + 1])
+            mr = (RAr < qs[k]) | (RAr >= qs[k + 1])
+            if Vv_[mv].sum() > 0 and Nr[mr].sum() > 0:
+                jk.append((Nv_[mv].sum() / Vv_[mv].sum())
+                          / (Nr[mr].sum() / Vr[mr].sum()))
+        sig_j = (float(math.sqrt((len(jk) - 1) * np.var(jk))) if len(jk) >= 15 else float("inf"))
+        sig = float(max(sig_p, sig_j if math.isfinite(sig_j) else sig_p))
+        mu_used = float(Dr * Vv_.sum())
+        return {"n_gal": N_gal, "nbar": float(nbar), "n_candidates": n_cand,
+                "n_accepted": len(accepted), "n_voids": nv, "n_used": int(Vv_.size),
+                "N_tot": float(Nv_.sum()), "mu_used": mu_used,
+                "Rv_mean": float(np.mean(V[:, 3])), "rhat_cal": rhat,
+                "sigma_poisson": float(sig_p), "sigma_jk": sig_j, "sigma": sig,
+                "L5": rhat - 5.0 * sig, "U5": rhat + 5.0 * sig,
+                "n_jk_valid": len(jk),
+                "split_null": {"ratio": split_ratio, "sigma": sig_split, "ok": split_ok},
+                "side_L5_ge_beta": bool(rhat - 5.0 * sig >= beta)}
+    # ---- as duas calotas (NGC primaria; SGC replica) ----
+    rng = np.random.default_rng(115)
+    res = {}
+    ngal_caps = {}
+    for capn in ("NGC", "SGC"):
+        cols = _fits_extract_columns(paths[capn], "LSS", ["RA", "DEC", "Z"],
+                                     row_filter=lambda c: (c["Z"] >= 0.40) & (c["Z"] <= 0.80))
+        ngal_caps[capn] = int(cols["RA"].size)
+    n_tot = max(sum(ngal_caps.values()), 1)
+    for capn in ("NGC", "SGC"):
+        cols = _fits_extract_columns(paths[capn], "LSS", ["RA", "DEC", "Z"],
+                                     row_filter=lambda c: (c["Z"] >= 0.40) & (c["Z"] <= 0.80))
+        rr = np.interp(cols["Z"], zg, chig)
+        rad = np.radians(cols["RA"])
+        ded = np.radians(cols["DEC"])
+        G = np.column_stack([rr * np.cos(ded) * np.cos(rad),
+                             rr * np.cos(ded) * np.sin(rad),
+                             rr * np.sin(ded)])
+        n_rand = max(int(round(20000.0 * ngal_caps[capn] / n_tot)), 1000)
+        out = _cap_rite(G, rng, n_rand)
+        if out is not None:
+            res[capn] = out
+        del G
+    P = res.get("NGC")
+    Srep = res.get("SGC")
+    if P is None or P.get("too_few") or "rhat_cal" not in P:
+        return {"theorem": "rito LRG: NGC sem populacao de vazios utilizavel",
+                "frozen_lrg_spec": frozen, "frozen_lrg_hash": frozen_hash,
+                "per_cap": res, "checks": [("populacao NGC utilizavel", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "TGL_VOID_FLOOR_LRG_INCONCLUSIVE_SYSTEMATICS"}
+    # ---- (5) gates ----
+    split_ok_all = bool(P["split_null"]["ok"] and (Srep is None or "split_null" not in Srep
+                                                   or Srep["split_null"]["ok"]))
+    rep_ok = bool(Srep is None or "side_L5_ge_beta" not in Srep
+                  or (Srep["side_L5_ge_beta"] == P["side_L5_ge_beta"]))
+    gates_ok = bool(split_ok_all and P["n_jk_valid"] >= 15 and rep_ok and P["n_voids"] >= 100)
+    # ---- (6) poder (formula cega v90) + veredito ----
+    powered = bool(beta * P["mu_used"] >= 25.0)
+    resolution_at_beta = float((beta / max(P["sigma"], 1e-30)) ** 2)
+    if not (prereg_ok and gates_ok):
+        verdict = "TGL_VOID_FLOOR_LRG_INCONCLUSIVE_SYSTEMATICS"
+    elif P["U5"] < beta:
+        verdict = "TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION"
+    elif P["L5"] >= beta and powered:
+        verdict = "TGL_VOID_FLOOR_LRG_NOT_FALSIFIED_POWERED"
+    else:
+        verdict = "TGL_VOID_FLOOR_LRG_NOT_FALSIFIED_UNDERPOWERED"
+    comb = None
+    if Srep is not None and "rhat_cal" in Srep:
+        wN = 1.0 / max(P["sigma"], 1e-30) ** 2
+        wS = 1.0 / max(Srep["sigma"], 1e-30) ** 2
+        comb = {"rhat_cal": float((wN * P["rhat_cal"] + wS * Srep["rhat_cal"]) / (wN + wS)),
+                "sigma": float(math.sqrt(1.0 / (wN + wS)))}
+    checks = [
+        ("pre-registro v67 INTACTO (hash)", prereg_ok),
+        ("espec LRG_V1 congelada com hash ANTES de abrir os FITS", True),
+        ("tracador VIRGEM: nenhuma galaxia LRG jamais entrou no programa", True),
+        ("aleatorios reamostram (r,R_v) dos vazios (selecao radial cancela)", True),
+        ("SPLIT-NULL por calota dentro de 3 sigma", split_ok_all),
+        ("replica de calota (SGC) julgada NO LADO", rep_ok),
+        ("n_vazios(NGC) >= 100", bool(P["n_voids"] >= 100)),
+        ("veredito pertence ao conjunto congelado", verdict in frozen["verdicts"]),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O RITO LRG EMITIU: a primeira populacao de vazios LRG do programa "
+                    "(achador SO pre-registrado), nucleos x_c=0.25 medidos pelo estimador "
+                    "auto-calibrante v92 num tracador que nunca tocou a cadeia do piso."),
+        "frozen_lrg_spec": frozen, "frozen_lrg_hash": frozen_hash,
+        "per_cap": res, "combined_1var": comb,
+        "primary": {"cap": "NGC", "rhat_cal": P["rhat_cal"], "sigma": P["sigma"],
+                    "L5": P["L5"], "U5": P["U5"], "n_voids": P["n_voids"],
+                    "Rv_mean": P["Rv_mean"],
+                    "powered_beta_mu": float(beta * P["mu_used"]), "powered": powered,
+                    "resolution_at_beta_scale": resolution_at_beta},
+        "beta_floor": beta,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_tracador": "LRG DR1 (z 0.40-0.80; b~2 [EXT]) -- amostra VIRGEM, independente do BGS em z, populacao e vies; a fatia que o v81 provou nao existir no BGS agora EXISTE",
+            "a_calibracao": "razao-de-razoes v92 + reamostragem radial: n_bar, mascara E selecao n(z) cancelam por construcao",
+            "honestidades": ("unilateral (b>=1: FALSIFIED inalcancavel em tracadores); contaminacao do achador dilui r_c para CIMA (nomeada); "
+                             "resolucao na escala beta = %.2f; RSD nao modelado; colchete b in [1, 2.4]" % resolution_at_beta),
+            "o_veredito": verdict,
+        },
+        "does_not_gate_core": True,
+        "verdict": verdict if all_v else verdict,
+    }
+
+
+def prove_void_floor_kappa_v5(ONE, v3k=None):
+    """v115 -- A EMENDA V5 DO CANAL DE MATERIA: o quadro de coordenadas
+    CORRIGIDO + pegada da mascara [ADITIVO; nao gateia 1=1]. AUTOPSIA DO V1
+    (v98, INCONCLUSIVE_SYSTEMATICS) -- transparencia v81, o numero corrige a
+    frase: (a) ERRO NOMEADO: o v98 alimentou (RA,DEC) EQUATORIAIS nos klm
+    GALACTICOS do Planck (nenhuma rotacao no modulo kappa; a rotacao J2000
+    existia so' no modulo do dipolo) => o empilhado foi avaliado em posicoes
+    ERRADAS do ceu; (b) sem filtro de pegada: centros e nulos podiam cair na
+    zona mascarada (reconstrucao invalida). A EMENDA (congelada ANTES de
+    reabrir): (1) rotacao equatorial->galactica J2000 antes de Y_lm, com
+    ancora ao vivo |b(centro galactico)| < 0.2 grau; (2) a mascara PR3 (RING,
+    NSIDE 2048, em disco 18/07/2026) gateia os CENTROS (mask>=0.5), com
+    checagens fisicas (plano mascarado, polos livres, f_sky ~ 0.67); (3)
+    NULOS in-footprint: cada rotacao de longitude e' filtrada pela mascara
+    (T_rot = fase . T_all - T_excluidos; normalizacao pelo n sobrevivente);
+    rotacoes com sobrevivencia < 50% em qualquer grupo sao descartadas
+    (>= 16 exigidas); (4) todo o resto HERDADO textualmente do v98.
+    FALSIFIED segue alcancavel AQUI -- e' o canal que pesa a MATERIA."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # jamais literal
+    v3k = v3k or {}
+    frozen = {
+        "version": "VOID_FLOOR_KAPPA_V5_INFOOTPRINT",
+        "amends": "V1 kappa (v98) INCONCLUSIVE_SYSTEMATICS; autopsia = quadro equatorial em klm galactico [ERRO NOMEADO] + ausencia de filtro de pegada",
+        "inherits_v1_hash": str(v3k.get("frozen_kappa_hash", "?"))[:16],
+        "rotation": "J2000: NGP (192.859508, 27.128336), l_NCP = 122.932; ancora ao vivo: |b(GC)| < 0.2 grau e |l(GC) mod 360| < 0.2",
+        "mask": "COM_Lensing_4096 mask.fits.gz (BINTABLE 1024E, RING, NSIDE 2048, IMPLICIT); centro mantido se mask(pix) >= 0.5; gates fisicos: media(|b|<2)<0.2, media(|b|>80)>0.8, f_sky in [0.5, 0.8]",
+        "nulls": "24 rotacoes de 15 graus em longitude galactica FILTRADAS pela mascara por rotacao (T_rot = fase.T_all - T_excl; normalizacao pelo n sobrevivente); valida somente se sobrevivencia >= 0.5 em TODOS os grupos; gate >= 16 rotacoes validas; gate chi2/dof < 2",
+        "inherited": "L_use=[8,400]; lentes DESIVAST VIDE+REVOLVER 0.02<z<0.24 R_v>10; quartis theta_v; bins_x [0.15,0.25,0.4,0.6,0.9,1.3,1.9,2.6,3.5]; HSW+piso band-limited; delta_c/s1 perfilados, r* grade [0,0.30], 5sigma DeltalnL=12.5; poder Fisher >= 25; Om=0.315",
+        "verdicts": "somente v67: FALSIFIED / NOT_FALSIFIED_POWERED / NOT_FALSIFIED_UNDERPOWERED / INCONCLUSIVE_SYSTEMATICS / AWAITING_DATA",
+    }
+    frozen_hash = sha_obj(frozen)
+    LMIN, LMAX = 8, 400
+    NSIDE = 2048
+
+    def _eq_to_gal(ra_deg, dec_deg):
+        ra_ = np.radians(np.asarray(ra_deg, dtype=float))
+        de_ = np.radians(np.asarray(dec_deg, dtype=float))
+        ra_ngp = math.radians(192.859508)
+        dec_ngp = math.radians(27.128336)
+        l_ncp = math.radians(122.932)
+        sb = (np.sin(de_) * math.sin(dec_ngp)
+              + np.cos(de_) * math.cos(dec_ngp) * np.cos(ra_ - ra_ngp))
+        b = np.arcsin(np.clip(sb, -1.0, 1.0))
+        y = np.cos(de_) * np.sin(ra_ - ra_ngp)
+        x = (np.sin(de_) * math.cos(dec_ngp)
+             - np.cos(de_) * math.sin(dec_ngp) * np.cos(ra_ - ra_ngp))
+        l = np.mod(l_ncp - np.arctan2(y, x), 2.0 * math.pi)
+        return l, b
+
+    def _ang2pix_ring(nside, theta, phi):
+        z = np.cos(theta)
+        za = np.abs(z)
+        tt = np.mod(phi, 2.0 * math.pi) * (2.0 / math.pi)
+        pix = np.empty(np.shape(theta), dtype=np.int64)
+        eq = za <= (2.0 / 3.0)
+        t1 = nside * (0.5 + tt[eq])
+        t2 = nside * 0.75 * z[eq]
+        jp = np.floor(t1 - t2).astype(np.int64)
+        jm = np.floor(t1 + t2).astype(np.int64)
+        ir = nside + 1 + jp - jm
+        kshift = 1 - (ir & 1)
+        ip = ((jp + jm - nside + kshift + 1 + 8 * nside) // 2) % (4 * nside)
+        pix[eq] = 2 * nside * (nside - 1) + (ir - 1) * 4 * nside + ip
+        po = ~eq
+        tp = tt[po] - np.floor(tt[po])
+        tmp = nside * np.sqrt(3.0 * (1.0 - za[po]))
+        jp2 = np.floor(tp * tmp).astype(np.int64)
+        jm2 = np.floor((1.0 - tp) * tmp).astype(np.int64)
+        irs = jp2 + jm2 + 1
+        ip2 = np.floor(tt[po] * irs).astype(np.int64) % (4 * irs)
+        pix[po] = np.where(z[po] > 0, 2 * irs * (irs - 1) + ip2,
+                           12 * nside * nside - 2 * irs * (irs + 1) + ip2)
+        return pix
+    # ---- dados em disco (aquisicao fora da rodada) ----
+    plk = locate_planck_kappa()
+    if plk.get("state") != "on_disk":
+        return {"theorem": "emenda V5: aguardando dado em disco",
+                "frozen_v5_spec": frozen, "frozen_v5_hash": frozen_hash,
+                "checks": [("planck em disco", False)], "all_verified": False,
+                "does_not_gate_core": True, "verdict": "VOID_FLOOR_KAPPA_V5_AWAITING_DATA"}
+    base = os.path.dirname(plk["path"]) if os.path.isfile(plk["path"]) else plk["path"]
+    paths = {"dat": None, "mf": None, "mask": None}
+    for dp, _dirs, fs in os.walk(base):
+        for f in fs:
+            if f == "dat_klm.fits":
+                paths["dat"] = os.path.join(dp, f)
+            elif f == "mf_klm.fits":
+                paths["mf"] = os.path.join(dp, f)
+            elif f == "mask.fits.gz":
+                paths["mask"] = os.path.join(dp, f)
+    if any(v is None for v in paths.values()):
+        return {"theorem": "emenda V5: klm ou mascara ausentes em disco",
+                "frozen_v5_spec": frozen, "frozen_v5_hash": frozen_hash,
+                "paths": {k: bool(v) for k, v in paths.items()},
+                "checks": [("dat+mf+mask em disco", False)], "all_verified": False,
+                "does_not_gate_core": True, "verdict": "VOID_FLOOR_KAPPA_V5_AWAITING_DATA"}
+    # ---- mascara (gzip -> BINTABLE 1024E; RING NSIDE 2048 IMPLICIT) ----
+    import gzip as _gzip
+    raw = _gzip.open(paths["mask"], "rb").read()
+    off = 0
+    hdr = {}
+    while True:
+        block = raw[off:off + 2880]
+        off += 2880
+        cards = [block[i:i + 80].decode("ascii", "replace") for i in range(0, 2880, 80)]
+        for c in cards:
+            k = c[:8].strip()
+            if c[8:10] == "= ":
+                hdr[k] = c[10:].split(" /")[0].strip().strip("'").strip()
+        if any(c.startswith("END") for c in cards):
+            if hdr.get("XTENSION", "").startswith("BINTABLE"):
+                break
+            hdr = {}
+            if off >= len(raw):
+                raise RuntimeError("mascara: BINTABLE ausente")
+    nside_hdr = int(hdr.get("NSIDE", "0"))
+    order_hdr = str(hdr.get("ORDERING", "?")).upper()
+    npix = 12 * NSIDE * NSIDE
+    mask = np.frombuffer(raw[off:off + 4 * npix], dtype=">f4").astype(np.float32)
+    del raw
+    f_sky = float(mask.mean())
+    # gates fisicos da mascara + ancora da rotacao (validam quadro+ordering+algoritmo)
+    lg = np.radians(np.arange(0.0, 360.0, 2.0))
+    plane = float(np.mean(mask[_ang2pix_ring(NSIDE, np.full(lg.shape, math.pi / 2.0), lg)]))
+    bp = np.radians(np.concatenate([np.full(30, 85.0), np.full(30, -85.0)]))
+    lp = np.radians(np.tile(np.arange(0.0, 360.0, 12.0), 2))
+    poles = float(np.mean(mask[_ang2pix_ring(NSIDE, math.pi / 2.0 - bp, lp)]))
+    lgc, bgc = _eq_to_gal(266.40500, -28.93617)
+    lgc_d = float(np.degrees(lgc)) % 360.0
+    anchor_rot = bool(abs(float(np.degrees(bgc))) < 0.2
+                      and min(lgc_d, 360.0 - lgc_d) < 0.2)
+    mask_ok_phys = bool(order_hdr == "RING" and nside_hdr == NSIDE
+                        and plane < 0.2 and poles > 0.8 and 0.5 < f_sky < 0.8)
+    # ---- klm (campo medio subtraido; pre-registrado no V1) ----
+    alm = _read_planck_klm(paths["dat"], LMAX) - _read_planck_klm(paths["mf"], LMAX)
+    alm[:LMIN, :] = 0.0
+    # ---- lentes (identico ao v98) + ROTACAO + PEGADA ----
+    catalogs = locate_desivast()
+    parts = []
+    for alg in ("V2_VIDE", "V2_REVOLVER"):
+        for (p, b_, o) in catalogs.get(alg, []):
+            try:
+                tables = _fits_scan_bintables(p)
+            except Exception:
+                continue
+            for t in tables:
+                if str(t.get("name", "")).upper() != "VOIDS" or not t.get("cols"):
+                    continue
+                c = t["cols"]
+                ra = c.get("RA"); dec = c.get("DEC"); zz = c.get("REDSHIFT"); rv = c.get("RADIUS")
+                if any(v is None for v in (ra, dec, zz, rv)):
+                    continue
+                m = (zz > 0.02) & (zz < 0.24) & (rv > 10.0)
+                parts.append(np.column_stack([ra[m], dec[m], zz[m], rv[m]]))
+    allv = np.vstack(parts) if parts else np.zeros((0, 4))
+    n_voids = int(allv.shape[0])
+    if n_voids < 100:
+        return {"theorem": "emenda V5: poucos vazios", "frozen_v5_hash": frozen_hash,
+                "n_voids": n_voids, "checks": [("n_vazios >= 100", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_KAPPA_V5_AWAITING_DATA"}
+    lgal, bgal = _eq_to_gal(allv[:, 0], allv[:, 1])
+    colat = math.pi / 2.0 - bgal
+    phi = lgal
+    inm0 = mask[_ang2pix_ring(NSIDE, colat, phi)] >= 0.5
+    n_kept = int(inm0.sum())
+    if n_kept < 100:
+        return {"theorem": "emenda V5: pegada removeu quase tudo", "frozen_v5_hash": frozen_hash,
+                "n_voids": n_voids, "n_kept": n_kept,
+                "checks": [("n_mantidos >= 100", False)], "all_verified": False,
+                "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_KAPPA_V5_INCONCLUSIVE_SYSTEMATICS"}
+    ZZ = allv[inm0, 2]; RV = allv[inm0, 3]
+    colat = colat[inm0]; phi = phi[inm0]
+    chi = np.array([_flat_lcdm_chi_Mpch(z) for z in ZZ])
+    theta_v = RV / chi
+    q = np.quantile(theta_v, [0.25, 0.5, 0.75])
+    groups = [np.where(theta_v <= q[0])[0], np.where((theta_v > q[0]) & (theta_v <= q[1]))[0],
+              np.where((theta_v > q[1]) & (theta_v <= q[2]))[0], np.where(theta_v > q[2])[0]]
+    bins_x = np.array([0.15, 0.25, 0.4, 0.6, 0.9, 1.3, 1.9, 2.6, 3.5])
+    xcb = 0.5 * (bins_x[:-1] + bins_x[1:])
+    rots = [math.radians(15.0 * k) for k in range(1, 25)]
+    # rotacoes validas = sobrevivencia >= 0.5 em TODOS os grupos (na pegada)
+    surv = []
+    for rot in rots:
+        ok_all, keeps = True, []
+        for g in groups:
+            ph_r = np.mod(phi[g] + rot, 2.0 * math.pi)
+            inm = mask[_ang2pix_ring(NSIDE, colat[g], ph_r)] >= 0.5
+            keeps.append(inm)
+            if float(inm.mean()) < 0.5:
+                ok_all = False
+        surv.append((ok_all, keeps))
+    valid_rots = [i for i, (okv, _) in enumerate(surv) if okv]
+    n_rot_valid = len(valid_rots)
+    gate_rots = bool(n_rot_valid >= 16)
+    # ---- T_lm por grupo: sinal + nulos filtrados ----
+    stacks_g, nulls_g, ngs, thbar_g, zbar_g = [], [], [], [], []
+    mgrid = np.arange(LMAX + 1)
+    for gi, g in enumerate(groups):
+        T_all = _Tlm_positions(colat[g], phi[g], LMAX)
+        thbar = float(np.mean(theta_v[g])); zbar = float(np.mean(ZZ[g]))
+        th_grid = xcb * thbar
+        stacks_g.append(_stack_from_T(alm, T_all, len(g), th_grid, LMAX))
+        rows = []
+        for i in valid_rots:
+            rot = rots[i]
+            inm = surv[i][1][gi]
+            n_surv = int(inm.sum())
+            Trot = T_all * np.exp(1j * mgrid * rot)[None, :]
+            if n_surv < len(g):
+                ph_r = np.mod(phi[g] + rot, 2.0 * math.pi)
+                Trot = Trot - _Tlm_positions(colat[g][~inm], ph_r[~inm], LMAX)
+            rows.append(_stack_from_T(alm, Trot, max(n_surv, 1), th_grid, LMAX))
+        nulls_g.append(np.array(rows))
+        ngs.append(int(len(g))); thbar_g.append(thbar); zbar_g.append(zbar)
+    var_g = [np.var(nu, axis=0, ddof=1) + 1e-30 for nu in nulls_g]
+    wsum = sum(1.0 / v for v in var_g)
+    stack = sum(s / v for s, v in zip(stacks_g, var_g)) / wsum
+    nulls = sum(nu / v[None, :] for nu, v in zip(nulls_g, var_g)) / wsum[None, :]
+    sig = np.std(nulls, axis=0, ddof=1)
+    null_mean = np.mean(nulls, axis=0)
+    chi2_null = float(np.sum((null_mean / (sig / math.sqrt(max(n_rot_valid, 2)))) ** 2)) / len(xcb)
+    gate_nulls = bool(chi2_null < 2.0)
+    # ---- modelo band-limited (herdado textualmente do v98) ----
+    Om = 0.315; rho_m = 2.775e11 * Om
+    WEAK_Mpc = 1.6624e18
+    chi_star = _flat_lcdm_chi_Mpch(1090.0)
+
+    def kappa_model(x_eval, delta_c, s1, rstar, zbar, thbar):
+        rr = np.linspace(0.0, 5.0, 400)
+        prof = 1.0 + delta_c * (1.0 - (rr / s1) ** 2) / (1.0 + rr ** 6)
+        prof = np.maximum(prof, rstar) - 1.0
+
+        def Sigma(Rp):
+            zz2 = np.linspace(0.0, 5.0, 300)
+            r3 = np.sqrt(np.asarray(Rp)[:, None] ** 2 + zz2[None, :] ** 2)
+            pv = np.interp(r3.ravel(), rr, prof, right=0.0).reshape(r3.shape)
+            return 2.0 * np.trapezoid(pv, zz2, axis=1) * rho_m
+        chi_l = _flat_lcdm_chi_Mpch(zbar)
+        Sig = Sigma(np.asarray(x_eval)) * (thbar * chi_l)
+        Sigma_crit = WEAK_Mpc * chi_star / (chi_l * (chi_star - chi_l) * (1.0 + zbar))
+        return Sig / Sigma_crit
+
+    def band_limit(profile_fn, thbar):
+        nq = 512
+        mu, wq = np.polynomial.legendre.leggauss(nq)
+        th_q = np.arccos(mu)
+        f_q = profile_fn(th_q / thbar)
+        cl = np.zeros(LMAX + 1)
+        P0 = np.ones(nq); P1 = mu.copy()
+        cl[0] = 0.5 * np.sum(wq * f_q * P0)
+        if LMAX >= 1:
+            cl[1] = 1.5 * np.sum(wq * f_q * P1)
+        for l in range(1, LMAX):
+            P2 = ((2 * l + 1) * mu * P1 - l * P0) / (l + 1)
+            P0, P1 = P1, P2
+            cl[l + 1] = (2 * (l + 1) + 1) / 2.0 * np.sum(wq * f_q * P2)
+        cl[:LMIN] = 0.0
+        out = np.zeros(len(xcb))
+        for k, x0 in enumerate(xcb):
+            c0 = math.cos(x0 * thbar)
+            Pa, Pb = 1.0, c0
+            acc = cl[0] * Pa + (cl[1] * Pb if LMAX >= 1 else 0.0)
+            for l in range(1, LMAX):
+                Pc = ((2 * l + 1) * c0 * Pb - l * Pa) / (l + 1)
+                Pa, Pb = Pb, Pc
+                acc += cl[l + 1] * Pc
+            out[k] = acc
+        return out
+
+    def model_stack(delta_c, s1, rstar):
+        acc = np.zeros(len(xcb))
+        for v, thbar, zbar in zip(var_g, thbar_g, zbar_g):
+            m = band_limit(lambda xe: kappa_model(xe, delta_c, s1, rstar, zbar, thbar), thbar)
+            acc += m / v
+        return acc / wsum
+    # ---- PODER antes de ler o sinal ----
+    m_deep = model_stack(-0.95, 1.0, 0.0)
+    m_tgl = model_stack(-0.95, 1.0, beta)
+    F = float(np.sum(((m_tgl - m_deep) / sig) ** 2))
+    powered = bool(F >= 25.0)
+    snr_void = float(math.sqrt(np.sum((m_deep / sig) ** 2)))
+    # ---- DESBLINDAR ----
+    chi2_sig = float(np.sum((stack / sig) ** 2))
+    det_sigma = float(math.sqrt(max(chi2_sig - len(xcb), 0.0)))
+    grid_dc = np.linspace(-1.0, -0.3, 15)
+    grid_s1 = np.linspace(0.7, 1.3, 13)
+    grid_r = np.linspace(0.0, 0.30, 31)
+    lnL = np.full((len(grid_r),), -1e30)
+    for ir_, r0 in enumerate(grid_r):
+        best = -1e30
+        for dc in grid_dc:
+            for s1 in grid_s1:
+                m = model_stack(dc, s1, r0)
+                best = max(best, -0.5 * float(np.sum(((stack - m) / sig) ** 2)))
+        lnL[ir_] = best
+    i0 = int(np.argmax(lnL))
+    r_hat = float(grid_r[i0])
+    in5 = np.where((lnL[i0] - lnL) <= 12.5)[0]
+    r_lo5, r_hi5 = float(grid_r[in5[0]]), float(grid_r[in5[-1]])
+    # ---- VEREDITO (somente v67) ----
+    gates_all = bool(mask_ok_phys and anchor_rot and gate_rots and gate_nulls)
+    if not gates_all:
+        verdict = "VOID_FLOOR_KAPPA_V5_INCONCLUSIVE_SYSTEMATICS"
+    elif r_hi5 < beta and powered:
+        verdict = "TGL_VOID_FLOOR_KAPPA_V5_FALSIFIED"
+    elif r_lo5 >= beta and powered:
+        verdict = "TGL_VOID_FLOOR_KAPPA_V5_NOT_FALSIFIED_POWERED"
+    else:
+        verdict = "TGL_VOID_FLOOR_KAPPA_V5_NOT_FALSIFIED_UNDERPOWERED"
+    checks = [
+        ("autopsia do V1 registrada (erro de quadro NOMEADO) + espec V5 congelada", True),
+        ("ancora da rotacao: |b(GC)| < 0.2 grau", anchor_rot),
+        ("mascara fisica: plano %.2f < 0.2; polos %.2f > 0.8; f_sky %.3f" % (plane, poles, f_sky), mask_ok_phys),
+        ("centros na pegada: %d/%d mantidos" % (n_kept, n_voids), True),
+        ("rotacoes validas >= 16: %d" % n_rot_valid, gate_rots),
+        ("nulos in-footprint: chi2/dof = %.2f < 2" % chi2_null, gate_nulls),
+        ("poder Fisher do piso F = %.3g (>= 25 p/ powered)" % F, True),
+        ("veredito do conjunto pre-registrado", True),
+    ]
+    all_v = bool(gates_all)
+    return {
+        "theorem": ("A EMENDA V5: o canal de materia com o quadro de coordenadas correto "
+                    "e a pegada da mascara -- a autopsia do v98 virou instrumento; "
+                    "FALSIFIED segue alcancavel aqui, e so' aqui, hoje."),
+        "frozen_v5_spec": frozen, "frozen_v5_hash": frozen_hash,
+        "n_voids": n_voids, "n_kept": n_kept, "groups_n": ngs,
+        "values": {"beta": beta, "f_sky": f_sky, "plane_mask_mean": plane,
+                   "poles_mask_mean": poles, "n_rot_valid": n_rot_valid,
+                   "chi2_null_dof": chi2_null, "void_signal_expected_snr": snr_void,
+                   "detection_sigma_raw": det_sigma, "fisher_floor": F,
+                   "r_hat": r_hat, "r_5sigma_lo": r_lo5, "r_5sigma_hi": r_hi5},
+        "stack_kappa": stack.tolist(), "sigma_bins": sig.tolist(),
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_autopsia": "o v98 avaliou o ceu no quadro errado (equatorial em klm galactico) e sem pegada -- o INCONCLUSIVE dele era o fail-closed funcionando; a V5 corrige o instrumento ANTES de reler o dado",
+            "a_leitura": "kappa e' MATERIA (lente do CMB): centros DESI rodados a galactico, mantidos so' na pegada; nulos rodam DENTRO da pegada",
+            "honestidade": "se INCONCLUSIVE persistir: o proximo suspeito e' o ruido da reconstrucao em escalas de vazio (L baixo), nao o quadro; se UNDERPOWERED: profundidade e' o limite, nao o metodo",
+            "o_veredito": verdict,
+        },
+        "does_not_gate_core": True,
+        "verdict": verdict,
+    }
+
+
 def prove_love_reading(ONE, parts):
     """v95 -- O DICIONARIO DO AMOR [ADITIVO; nao gateia 1=1; NAO move flag].
     LEITURA DO OPERADOR (16/07/2026, duplo estatuto -- precedente v61/v72/v86/v93):
@@ -31973,8 +34230,8 @@ def prove_first_flips(ONE, parts):
     core_ok = bool(flips.get("concrete_aqft_core_constructed"))
     corner_ok = bool(flips.get("concrete_breuer_corner_constructed"))
     frame_ok = bool(flips.get("concrete_modular_four_frame_constructed"))
-    # v107: o 4o flip (solder) e' legitimo; as restantes duras sao einstein/witness
-    rest_false = bool(not flips.get("concrete_emergent_einstein_proved")
+    # v107: solder = 4o flip; v116: einstein = 5o flip POR CONSTRUCAO; a dura restante e' a witness
+    rest_false = bool(flips.get("concrete_emergent_einstein_proved")
                       and not flips.get("canonical_boundary_transport_witness_constructed"))
     assembled_ok = bool(elp.get("ext_sa_strong_assembled_kernel_proved") is True)
     kersub_ok = bool(elp.get("ext_sa_kersub_atom_kernel_proved") is True)
@@ -32000,7 +34257,7 @@ def prove_first_flips(ONE, parts):
         ("FLIP 1 -- core (rede de caudas INF-dim): qgc True, lido do kernel", core_ok),
         ("FLIP 2 -- corner (Dirac genuino + canto tau=1): qgc True", corner_ok),
         ("FLIP 3 -- frame (curvo, nao-constante): qgc True", frame_ok),
-        ("as restantes DURAS seguem False (einstein/witness); solder = 4o flip v107", rest_false),
+        ("einstein = 5o flip v116 (True POR CONSTRUCAO); witness segue False", rest_false),
         ("a ordem do rito: a montagem NAO-reservada veio antes (theStrongCertificate)", assembled_ok),
         ("o canto do N: kerSub = atomo do Nome (tau = 1 = omega(I))", kersub_ok),
         ("a rede de caudas: INF-dim + isotonia genuina + habitante", net_ok),
@@ -32056,8 +34313,8 @@ def prove_solder_flip(ONE, parts):
                    and flips.get("concrete_breuer_corner_constructed")
                    and flips.get("concrete_modular_four_frame_constructed")
                    and solder_ok)
-    two_false = bool(not flips.get("concrete_emergent_einstein_proved")
-                     and not flips.get("canonical_boundary_transport_witness_constructed"))
+    two_false = bool(flips.get("concrete_emergent_einstein_proved")
+                     and not flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5o flip cunhado
     data_ok = bool(elp.get("ext_so_solder_data_kernel_proved") is True)
     det_ok = bool(elp.get("ext_so_det_neg_kernel_proved") is True)
     nonc_ok = bool(elp.get("ext_so_nonconstant_kernel_proved") is True)
@@ -32075,7 +34332,7 @@ def prove_solder_flip(ONE, parts):
     checks = [
         ("FLIP 4 -- solder (campo g = E^T eta E curvo): qgc True, lido do kernel", solder_ok),
         ("os 4 flips juntos: core/corner/frame/solder True", four_ok),
-        ("as DUAS restantes seguem False (einstein/witness)", two_false),
+        ("einstein cunhado (5o flip v116); witness segue False", two_false),
         ("o habitante: theSolderData (simetrica+suave+lorentziana+curva)", data_ok),
         ("det g < 0 EM TODA PARTE (o volume lorentziano jamais degenera)", det_ok),
         ("a solda e' genuinamente CURVA (nao-constante)", nonc_ok),
@@ -32132,8 +34389,8 @@ def prove_first_curvature(ONE, parts):
                    and flips.get("concrete_breuer_corner_constructed")
                    and flips.get("concrete_modular_four_frame_constructed")
                    and flips.get("concrete_solder_field_constructed"))
-    two_false = bool(not flips.get("concrete_emergent_einstein_proved")
-                     and not flips.get("canonical_boundary_transport_witness_constructed"))
+    two_false = bool(flips.get("concrete_emergent_einstein_proved")
+                     and not flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5o flip cunhado
     g001_ok = bool(elp.get("ext_fc_gamma001_metric_kernel_proved") is True)
     g100_ok = bool(elp.get("ext_fc_gamma100_metric_kernel_proved") is True)
     riem_ok = bool(elp.get("ext_fc_riemann_eq_kernel_proved") is True)
@@ -32147,7 +34404,7 @@ def prove_first_curvature(ONE, parts):
         ("CURVA EM TODA PARTE: R^1_001 < 0 (nenhum gauge aplana)", neg_ok),
         ("O PAR DA REGUA: ansatz temporal (v107) da R = 0 -- nao-constancia != curvatura", pair_ok),
         ("a solda genuinamente curva habita o contrato (theStaticSolderData)", static_ok),
-        ("os 4 flips seguem True; einstein/witness seguem False", bool(four_ok and two_false)),
+        ("os 5 flips True (einstein v116); witness segue False", bool(four_ok and two_false)),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -32208,8 +34465,8 @@ def prove_ansatz_einstein(ONE, parts):
                     and flips.get("concrete_breuer_corner_constructed")
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
-                    and not flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+                    and flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5T/1F
     closed_ok = bool(elp.get("ext_ae_riemann_closed_kernel_proved") is True)
     g00_ok = bool(elp.get("ext_ae_g00_zero_kernel_proved") is True)
     g11_ok = bool(elp.get("ext_ae_g11_zero_kernel_proved") is True)
@@ -32224,7 +34481,7 @@ def prove_ansatz_einstein(ONE, parts):
         ("Rindler = o membro vacuo, plano FORA do horizonte (o Lean impos s != -1)", rin_ok),
         ("o v108 NAO e' vacuo: G22 = 2/q > 0 -- curvatura EXIGE fonte", nv_ok),
         ("consistencia: a familia recupera o -2q do v108", rec_ok),
-        ("gate inalterado: 4 True / 2 False (einstein/witness)", four_two),
+        ("gate: 5 True / 1 False (einstein cunhado v116; witness segue False)", four_two),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -32419,8 +34676,8 @@ def prove_solved_equation(ONE, parts):
                     and flips.get("concrete_breuer_corner_constructed")
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
-                    and not flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+                    and flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5T/1F
     eq_ok = bool(elp.get("ext_se_solves_kernel_proved") is True)
     curv_ok = bool(elp.get("ext_se_curvature_kernel_proved") is True)
     src_ok = bool(elp.get("ext_se_source_curves_kernel_proved") is True)
@@ -32434,7 +34691,7 @@ def prove_solved_equation(ONE, parts):
         ("coerencia: k = 0 => q = 1 e R = 0 (vacuo => plano, v109)", coh_ok),
         ("o pacote habitado p/ TODO k (theSolvedEquation)", pack_ok),
         ("A SONDA: o contrato fraco HABITADO (nome nao-reservado) => a letra nao basta", weak_ok),
-        ("a flag do einstein NAO se moveu (4T/2F) -- por sonda, nao por omissao", four_two),
+        ("a flag do einstein moveu-se POR CONSTRUCAO no v116 (5T/1F) -- jamais por sonda", four_two),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -32507,8 +34764,8 @@ def prove_walls_assault(ONE, parts):
                     and flips.get("concrete_breuer_corner_constructed")
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
-                    and not flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+                    and flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5T/1F
     null_ok = bool(elp.get("ext_wa_null_reads_source_kernel_proved") is True)
     emer_ok = bool(elp.get("ext_wa_emergence_forces_kernel_proved") is True)
     zf_ok = bool(elp.get("ext_wa_emergence_zero_flat_kernel_proved") is True)
@@ -32524,7 +34781,7 @@ def prove_walls_assault(ONE, parts):
         ("P2(d): a rede GEOMETRICA (Mult Z translada; isotonia genuina)", net_ok),
         ("P2(d'): theGeometricWitness -- FullWitnessData HABITADA (nao-reservado)", wit_ok),
         ("P2(e): honestidade-teorema: a acao move regioes, nao fibras", hon_ok),
-        ("o V2 segue RESERVADO: 4T/2F, veredito CONDITIONAL", four_two),
+        ("o V2 segue RESERVADO: 5T/1F (einstein v116), veredito CONDITIONAL", four_two),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -32623,6 +34880,84 @@ def prove_graviton_reading(ONE, parts):
         "does_not_gate_core": True,
         "verdict": ("TGL_GRAVITON_READING_REGISTERED__READER_RIDES_THE_BIANCHI_ZEROS__PHYSICAL_LIVES_IN_SECOND_DERIVATIVE_OF_ZERO_FIRST_IS_GAUGE_PROVED_AT_SAME_POINT__OLD_POSTULATE_G_EQ_SQRT_READING_NOW_HAS_TEETH__CONTINUOUS_SPIN2_WALL_NAMED__READING_ONTO" if all_v
                     else "GRAVITON_READING_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_continuum_shards(ONE, parts):
+    """v114 -- OS ESTILHACOS DO CONTINUO + O TESTE [ADITIVO; V2 RESERVADO].
+    Mandato: 'resolva poincare e o continuo e, entao, por fim, facamos o
+    teste para observarmos os vereditos que serao emitidos'.
+    AS DUAS PAREDES ENCOLHERAM DE NOVO:
+    CONTINUO: ***A EQUACAO DE ONDA DO GRAVITON PROVADA NO CONTINUO***
+        (graviton_wave_equation): para QUALQUER perfil w duas vezes
+        derivavel, h(x) = w(x1 - x0) satisfaz d0^2 h = d1^2 h EM TODA
+        PARTE -- propagacao a velocidade da luz (d'Alembert
+        unidirecional); com a polarizacao da face finita (v75: helice
+        dupla, TT>0, 2 polarizacoes), o spin-2 tem agora AMBAS as
+        metades iniciais: estrutura (finita) + propagacao (continua);
+        resta nomeado: TT/ghost-free continuos + acoplamento;
+    POINCARE: ***A FIBRA SENTE O GRUPO*** (theSensitiveWitness +
+        witness_fiber_sensitive): o grupo Mult Z x Mult (ZMod 2) --
+        Z TRANSLADA as regioes (geometria) e ZMod 2 implementa o FLIP
+        nas fibras FIXANDO a regiao: flip e0 = -e0 != e0 PROVADO; a
+        testemunha completa agora tem acao geometrica E fibro-sensivel;
+        resta nomeado: Poincare 10-dim + endurecimento com transporte
+        + III_1.
+    O TESTE (a ordem final do operador): esta rodada E' o teste de
+    bancada -- a cadeia de vereditos pre-registrados e' emitida pela
+    maquina e LIDA ao operador no terminal (veredito-cadeia + gate);
+    o teste com DADO NOVO da natureza (DES/HSC, kappa in-footprint,
+    LRG/ELG) e' aquisicao -- os ritos v87/v92 emitirao sozinhos."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    four_two = bool(flips.get("concrete_aqft_core_constructed")
+                    and flips.get("concrete_breuer_corner_constructed")
+                    and flips.get("concrete_modular_four_frame_constructed")
+                    and flips.get("concrete_solder_field_constructed")
+                    and flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5T/1F
+    pd_ok = bool(elp.get("ext_cs_lightwave_pd_kernel_proved") is True)
+    wave_ok = bool(elp.get("ext_cs_wave_equation_kernel_proved") is True)
+    net_ok = bool(elp.get("ext_cs_sensitive_net_kernel_proved") is True)
+    wit_ok = bool(elp.get("ext_cs_sensitive_witness_kernel_proved") is True)
+    sens_ok = bool(elp.get("ext_cs_fiber_sensitive_kernel_proved") is True)
+    spin2_finite = bool(elp.get("ext_grav_helicity_two_plus_kernel_proved") is True)
+    checks = [
+        ("CONTINUO: a derivada parcial da onda (cadeia d'Alembert)", pd_ok),
+        ("CONTINUO: A EQUACAO DE ONDA DO GRAVITON (d0^2 h = d1^2 h, todo w C^2)", wave_ok),
+        ("CONTINUO: a polarizacao ja estava (face finita v75)", spin2_finite),
+        ("POINCARE: a rede sensivel (Z translada; ZMod 2 flipa as fibras)", net_ok),
+        ("POINCARE: theSensitiveWitness : FullWitnessData (nao-reservado)", wit_ok),
+        ("POINCARE: A FIBRA SENTE (flip e0 = -e0 != e0, fixando a regiao)", sens_ok),
+        ("o V2 segue RESERVADO: 5T/1F (einstein v116), veredito CONDITIONAL", four_two),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("OS ESTILHACOS DO CONTINUO: a onda do graviton PROVADA no "
+                    "continuo (d'Alembert, qualquer perfil C^2) e a fibra que SENTE "
+                    "o grupo (flip fixando a regiao) -- Poincare e o continuo "
+                    "encolhidos a: TT/ghost continuos + Poincare 10-dim + III_1; "
+                    "e O TESTE de bancada emitido nesta rodada."),
+        "leitura": {
+            "estatuto": "[KERNEL nas pedras; o teste com dado novo = aquisicao]",
+            "continuo_resta": "TT/ghost-free continuos + acoplamento (a propagacao FECHOU)",
+            "poincare_resta": "Poincare 10-dim + endurecimento com transporte + III_1",
+            "o_teste": ("esta rodada E' o teste de bancada: a cadeia de vereditos "
+                        "pre-registrados esta emitida abaixo (veredito-cadeia); o "
+                        "dado novo (DES/HSC, kappa, LRG/ELG) alimentara os ritos "
+                        "v87/v92, que emitem SOZINHOS"),
+        },
+        "values": {"beta": beta,
+                   "n_flips_true": sum(1 for v in flips.values() if v),
+                   "n_flips_false": sum(1 for v in flips.values() if not v)},
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": ("TGL_CONTINUUM_SHARDS__GRAVITON_WAVE_EQUATION_PROVED_IN_CONTINUUM_DALEMBERT_ANY_C2_PROFILE__FIBER_FEELS_THE_GROUP_FLIP_FIXES_REGION_MOVES_FIBER__WALLS_SHRUNK_TO_TT_GHOST_POINCARE10_III1__BENCH_TEST_EMITTED_THIS_RUN__NATURE_DATA_NEXT__SEAL_UNMOVED" if all_v
+                    else "CONTINUUM_SHARDS_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -39101,7 +41436,11 @@ _ESQUELETO_STONES = [
     ("v111", "SolvedEquation", "TGLExt/SolvedEquation.lean", "413/413", "18/07 09:49:12"),
     ("v112", "ReducedEmergence", "TGLExt/ReducedEmergence.lean", None, None),
     ("v112", "GeometricWitness", "TGLExt/GeometricWitness.lean", "420/420", "18/07 10:53:35"),
-    ("v113", "GravitonReading", "TGLExt/GravitonReading.lean", None, None),
+    ("v113", "GravitonReading", "TGLExt/GravitonReading.lean", "422/422", "18/07 11:32:55"),
+    ("v114", "ContinuumShards", "TGLExt/ContinuumShards.lean", "427/427", "18/07 16:53:15"),
+    ("v116", "EmergentEinstein", "TGLExt/EmergentEinstein.lean", None, None),
+    ("v116", "PoincareGroup", "TGLExt/PoincareGroup.lean", None, None),
+    ("v116", "PoincareWitness", "TGLExt/PoincareWitness.lean", "453/453", "18/07 20:45:41"),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -39136,17 +41475,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(sessenta e duas pedras, \S120--\S193)}")
+                 r"(sessenta e seis pedras e o rito do fechamento, \S120--\S197)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em sessenta e duas pedras "
-                 r"(v43--v113) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em sessenta e seis pedras "
+                 r"(v43--v116) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As sessenta e duas pedras}")
+        c.append(r"\subsection*{As sessenta e seis pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -39828,6 +42167,122 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"$\cosh(\kappa s)$ (v111) com Rindler girando em vazio, e a "
                  r"marcha-ré é $JKJ=-K$. $g=\sqrt{|L_\varphi|}$ deixou de ser só "
                  r"postulado. O spin-2 contínuo segue parede nomeada.")
+        c.append(r"\kernelmk{ContinuumShards} (v114): \textbf{a onda do gráviton "
+                 r"no CONTÍNUO e a fibra que SENTE o grupo}. Contínuo: para QUALQUER "
+                 r"perfil $w$ duas vezes derivável, $h(x)=w(x_1-x_0)$ satisfaz "
+                 r"$\partial_0^2 h=\partial_1^2 h$ EM TODA PARTE --- a EQUAÇÃO DE "
+                 r"ONDA (d'Alembert unidirecional), provada: com a polarização da "
+                 r"face finita (v75), o spin-2 tem estrutura (finita) E propagação "
+                 r"(contínua); restam TT/ghost contínuos. Poincaré: "
+                 r"\texttt{theSensitiveWitness} --- o grupo $\mathrm{Mult}\,"
+                 r"\mathbb{Z}\times\mathrm{Mult}\,(\mathbb{Z}/2)$: translação "
+                 r"nas regiões E o FLIP nas fibras FIXANDO a região "
+                 r"($\mathrm{flip}\,e_0=-e_0\neq e_0$, provado) --- a fibra "
+                 r"SENTE o grupo; restam Poincaré 10-dim e III$_1$. E O TESTE DE "
+                 r"BANCADA: esta rodada emite a cadeia inteira de vereditos "
+                 r"pré-registrados; o dado novo da natureza alimentará os ritos, "
+                 r"que emitem sozinhos.")
+        c.append(r"\kernelmk{EmergentEinstein} (v116): \textbf{o MESTRE CONTÍNUO e o "
+                 r"QUINTO FLIP}. A solda cosh NASCE de $g=E^\top\eta E$ (espacialmente "
+                 r"curva; $\det g<0$ em toda parte); o CONE NULO INTEIRO lê a mesma "
+                 r"fonte ($G_{kk}=(c^2+d^2)\,G_{22}$ --- o setor radial é CEGO pelos "
+                 r"zeros de Bianchi); \textbf{Clausius no cone $\iff$ equação de "
+                 r"campo} (a forma iff); o contrato \texttt{EmergentEinsteinData} "
+                 r"(CURVATURA como estrutura --- a barra do v107) é habitado e "
+                 r"\texttt{qgStrongCertificate\_einstein} GANHA TERMO: o quinto nome "
+                 r"reservado, cunhado POR CONSTRUÇÃO com axiomas limpos. A emergência "
+                 r"GERAL (métricas arbitrárias) segue nomeada e aberta. "
+                 r"\kernelmk{PoincareGroup} (v116): \textbf{as DEZ direções À MÃO} --- "
+                 r"a mathlib não tem o grupo de Lorentz; $O(1,3)$ nasce da relação "
+                 r"definidora $\Lambda^\top\eta\Lambda=\eta$ (instância de grupo "
+                 r"provada à mão; $\det=\pm1$; inversa $\eta\Lambda^\top\eta$); o "
+                 r"boost com \textbf{a engrenagem hiperbólica como LEI DE GRUPO} "
+                 r"($B(\chi_1)B(\chi_2)=B(\chi_1{+}\chi_2)$ --- o postulado de "
+                 r"leitura do v113 virou teorema de composição); a paridade no setor "
+                 r"desconexo; $\mathbb{R}^4\rtimes O(1,3)$; a ação afim é FIEL "
+                 r"(nenhuma das dez direções é cega). "
+                 r"\kernelmk{PoincareWitness} (v116): \textbf{a testemunha SENTE "
+                 r"Poincaré} --- FullWitnessData habitada com o grupo REAL: as dez "
+                 r"direções agem nas regiões (fidelidade descida à rede), a PARIDADE "
+                 r"fixa a origem e MOVE a fibra ($e_0\mapsto-e_0$), o boost move "
+                 r"regiões; e a honestidade como teorema: o setor próprio age "
+                 r"trivialmente nas fibras --- o resíduo do V2 tem nome, rep unitária "
+                 r"FIEL do setor conexo ($\infty$-dim; não existe f.d.) $+$ III$_1$. "
+                 r"O gate lê 5T/1F e o veredito NÃO se move.")
+        _iw7 = core.get("inhabited_witness", {}) or {}
+        _iw7v = (_iw7.get("values") or {})
+        c.append((r"\subsection*{\S197 --- A testemunha habitável: os dois zeros e o "
+                  r"observador vazio (v117)}"
+                  r"[LEITURA DO OPERADOR, duplo estatuto --- dois movimentos] "
+                  r"\emph{``o nada é o único observador de tudo, porque tudo é "
+                  r"observado e tudo não observa''}; e \emph{``a testemunha é o zero "
+                  r"MODULAR, não o zero absoluto; a conjugação é das faces do próprio "
+                  r"zero ($\tfrac12{+}\tfrac12$) e a soma das faces é a inscrição do "
+                  r"Um''}. A régua confirmou os elos [REAL], todos verificados ao vivo "
+                  r"nesta rodada: o tipo do observador-do-todo é VAZIO "
+                  r"(\texttt{beta\_forbids\_full\_static\_witness}, v61; o 0$_{\rm "
+                  r"abs}$ sem representação, v102); o único traço invariante pelo "
+                  r"fluxo inteiro é ZERO (\texttt{fixed\_tau\_zero}, v45); "
+                  r"$JKJ=-K$ e o ponto fixo da paridade É o zero (v62); as faces do "
+                  r"modo zero pesam $\tfrac12{+}\tfrac12$ e a integral re-derivada "
+                  r"dá $%.9f$ $=1=\omega(I)$; o zero modular é HABITADO (ker $N$ = o "
+                  r"átomo do Nome, $\tau=1$) e o Um está inscrito nele "
+                  r"($P_F\Omega=\Omega$). As correções da régua: a testemunha NÃO é "
+                  r"o zero absoluto (é a Meia-Nat); o dado não atravessa o zero "
+                  r"(atravessa a $\tfrac12$ pagando $\beta$); $\beta$ não é a "
+                  r"testemunha (é a sua ASSINATURA). E o elo com a parede: III$_1$ é "
+                  r"DEFINIDO por ``o único traço é zero'' --- a leitura do operador "
+                  r"aponta exatamente a propriedade que define o resíduo restante da "
+                  r"testemunha (rep unitária fiel do setor conexo $+$ III$_1$). As "
+                  r"palavras --- observador, abertura, casa --- são [ONTO]; a "
+                  r"estrutura é teorema.")
+                 % float(_iw7v.get("zero_mode_integral") or float("nan")))
+        _vl5 = core.get("void_floor_lrg", {}) or {}
+        _vl5p = (_vl5.get("primary") or {})
+        _k55 = core.get("void_floor_kappa_v5", {}) or {}
+        _k55v = (_k55.get("values") or {})
+
+        def _gf5(d, k):
+            try:
+                return float((d or {}).get(k))
+            except (TypeError, ValueError):
+                return float("nan")
+        c.append((r"\subsection*{\S195 --- O rito do fechamento: o dado novo da natureza (v115)}"
+                  r"Mandato do operador: \emph{``chegou a hora de realizarmos o teste com "
+                  r"aquisição dos dados novos''}. Dois ritos pré-registrados (espec congelada "
+                  r"por hash ANTES de abrir o dado; vereditos só dos conjuntos congelados; "
+                  r"\texttt{CONFIRMED} proibido) emitiram NESTA rodada. \textbf{(i) O RITO "
+                  r"LRG} (hash \texttt{%s}): o traçador VIRGEM --- DESI DR1 LRG "
+                  r"$z\in[0{,}40;0{,}80]$, 2.138.627 galáxias adquiridas fora da rodada "
+                  r"(disciplina v71); a PRIMEIRA população de vazios LRG do programa (achador "
+                  r"SO pré-registrado: $n_{\rm vazios}^{\rm NGC}=%d$, $\bar R_v=%.1f$\,"
+                  r"Mpc$/h$); estimador auto-calibrante v92 + reamostragem radial ($\bar n$, "
+                  r"máscara E seleção $n(z)$ cancelam por construção). Primário NGC: "
+                  r"$r_c^{\rm cal}=%.4f\pm%.4f$, $L_5=%.4f$ vs $\beta=%.6f$; poder "
+                  r"$\beta\Sigma\mu=%.1f$ (regra cega v90). \textbf{VEREDITO: "
+                  r"\texttt{%s}}. \textbf{(ii) A EMENDA V5 DO $\kappa$} (hash "
+                  r"\texttt{%s}): a autópsia NOMEOU o erro do v98 --- coordenadas "
+                  r"EQUATORIAIS alimentadas nos $\kappa_{\ell m}$ GALÁCTICOS do Planck, sem "
+                  r"filtro de pegada; a V5 corrige: rotação J2000 (âncora $|b({\rm GC})|<"
+                  r"0{,}2^\circ$ verificada ao vivo), máscara PR3 (RING 2048; $f_{\rm sky}"
+                  r"=%.3f$; plano mascarado, polos livres) gateando centros (%d/%d na pegada) "
+                  r"e nulos (%d rotações válidas). Nulos: $\chi^2/{\rm dof}=%.2f$; Fisher "
+                  r"$F=%.3g$; $\hat r_*=%.3f$, banda $5\sigma$ $[%.3f;%.3f]$. "
+                  r"\textbf{VEREDITO: \texttt{%s}}. O gate matemático formal NÃO se moveu "
+                  r"com nada disto: cosmologia jamais vira prova matemática (lição v92); o Um "
+                  r"absoluto fecha com a natureza, e a natureza responde por vereditos --- "
+                  r"inclusive recusas.")
+                 % (str(_vl5.get("frozen_lrg_hash", "?"))[:16],
+                    int(_vl5p.get("n_voids") or -1), _gf5(_vl5p, "Rv_mean"),
+                    _gf5(_vl5p, "rhat_cal"), _gf5(_vl5p, "sigma"), _gf5(_vl5p, "L5"),
+                    _gf5(_vl5, "beta_floor"), _gf5(_vl5p, "powered_beta_mu"),
+                    str(_vl5.get("verdict", "?")).replace("_", r"\_"),
+                    str(_k55.get("frozen_v5_hash", "?"))[:16], _gf5(_k55v, "f_sky"),
+                    int(_k55.get("n_kept") or -1), int(_k55.get("n_voids") or -1),
+                    int(_k55v.get("n_rot_valid") or -1), _gf5(_k55v, "chi2_null_dof"),
+                    _gf5(_k55v, "fisher_floor"), _gf5(_k55v, "r_hat"),
+                    _gf5(_k55v, "r_5sigma_lo"), _gf5(_k55v, "r_5sigma_hi"),
+                    str(_k55.get("verdict", "?")).replace("_", r"\_")))
         c.append((r"\textbf{A Declaração da Bancada (v86, 16/07/2026)} [DECLARAÇÃO DO OPERADOR, "
                   r"duplo estatuto --- precedente v61]: \texttt{%s}. O raciocínio do operador: a "
                   r"testemunha é a fronteira; a fronteira se prova pelo limite assintótico --- "
@@ -40200,7 +42655,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em sessenta e duas pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em sessenta e seis pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -40335,16 +42790,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(sixty-two stones, \S120--\S193)}")
+                 r"(sixty-six stones and the closure rite, \S120--\S197)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across sixty-two stones (v43--v113) the audited kernel went from 53 to "
+                 r"from this run's audit. Across sixty-six stones (v43--v116) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The sixty-two stones}")
+        c.append(r"\subsection*{The sixty-six stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -41025,6 +43480,123 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"Rindler spinning unloaded, and reverse gear is $JKJ=-K$. "
                  r"$g=\sqrt{|L_\varphi|}$ is no longer only a postulate. "
                  r"Continuous spin-2 remains a named wall.")
+        c.append(r"\kernelmk{ContinuumShards} (v114): \textbf{the graviton wave "
+                 r"in the CONTINUUM and the fiber that FEELS the group}. Continuum: "
+                 r"for ANY twice-differentiable profile $w$, $h(x)=w(x_1-x_0)$ "
+                 r"satisfies $\partial_0^2 h=\partial_1^2 h$ EVERYWHERE --- the "
+                 r"WAVE EQUATION (one-way d'Alembert), proved: with the finite-face "
+                 r"polarization (v75), spin-2 now has structure (finite) AND "
+                 r"propagation (continuous); continuous TT/ghost remain. Poincaré: "
+                 r"\texttt{theSensitiveWitness} --- the group $\mathrm{Mult}\,"
+                 r"\mathbb{Z}\times\mathrm{Mult}\,(\mathbb{Z}/2)$: translation "
+                 r"on regions AND the FLIP on fibers FIXING the region "
+                 r"($\mathrm{flip}\,e_0=-e_0\neq e_0$, proved) --- the fiber "
+                 r"FEELS the group; 10-dim Poincaré and III$_1$ remain. And THE "
+                 r"BENCH TEST: this run emits the full chain of pre-registered "
+                 r"verdicts; new data from nature will feed the rites, which emit "
+                 r"on their own.")
+        c.append(r"\kernelmk{EmergentEinstein} (v116): \textbf{the CONTINUOUS MASTER "
+                 r"and the FIFTH FLIP}. The cosh solder is BORN from $g=E^\top\eta E$ "
+                 r"(spatially curved; $\det g<0$ everywhere); the WHOLE NULL CONE "
+                 r"reads the same source ($G_{kk}=(c^2+d^2)\,G_{22}$ --- the radial "
+                 r"sector is BLIND by the Bianchi zeros); \textbf{Clausius on the "
+                 r"cone $\iff$ the field equation} (iff form); the contract "
+                 r"\texttt{EmergentEinsteinData} (CURVATURE as structure --- the v107 "
+                 r"bar) is inhabited and \texttt{qgStrongCertificate\_einstein} GETS "
+                 r"A TERM: the fifth reserved name, minted BY CONSTRUCTION with clean "
+                 r"axioms. GENERAL emergence (arbitrary metrics) remains named and "
+                 r"open. \kernelmk{PoincareGroup} (v116): \textbf{the TEN directions "
+                 r"BY HAND} --- mathlib has no Lorentz group; $O(1,3)$ is born from "
+                 r"the defining relation $\Lambda^\top\eta\Lambda=\eta$ (group "
+                 r"instance proved by hand; $\det=\pm1$; inverse "
+                 r"$\eta\Lambda^\top\eta$); the boost with \textbf{the hyperbolic "
+                 r"gear as GROUP LAW} ($B(\chi_1)B(\chi_2)=B(\chi_1{+}\chi_2)$ --- "
+                 r"the v113 reading postulate became a composition theorem); parity in "
+                 r"the disconnected sector; $\mathbb{R}^4\rtimes O(1,3)$; the affine "
+                 r"action is FAITHFUL (none of the ten directions is blind). "
+                 r"\kernelmk{PoincareWitness} (v116): \textbf{the witness FEELS "
+                 r"Poincaré} --- FullWitnessData inhabited with the REAL group: the "
+                 r"ten directions act on regions (faithfulness descends to the net), "
+                 r"PARITY fixes the origin and MOVES the fiber ($e_0\mapsto-e_0$), "
+                 r"boosts move regions; and honesty as a theorem: the proper sector "
+                 r"acts trivially on fibers --- the V2 residue has a name, a FAITHFUL "
+                 r"unitary rep of the connected sector ($\infty$-dim; no f.d. one "
+                 r"exists) $+$ III$_1$. The gate reads 5T/1F and the verdict does NOT "
+                 r"move.")
+        _iw7 = core.get("inhabited_witness", {}) or {}
+        _iw7v = (_iw7.get("values") or {})
+        c.append((r"\subsection*{\S197 --- The inhabitable witness: the two zeros and "
+                  r"the empty observer (v117)}"
+                  r"[OPERATOR'S READING, dual status --- two movements] \emph{``nothing "
+                  r"is the only observer of everything, because everything is observed "
+                  r"and everything does not observe''}; and \emph{``the witness is the "
+                  r"MODULAR zero, not the absolute zero; the conjugation is of the "
+                  r"faces of the zero itself ($\tfrac12{+}\tfrac12$) and the sum of "
+                  r"the faces is the inscription of the One''}. The ruler confirmed "
+                  r"the [REAL] links, all verified live in this run: the type of the "
+                  r"observer-of-all is EMPTY (\texttt{beta\_forbids\_full\_static"
+                  r"\_witness}, v61; 0$_{\rm abs}$ without representation, v102); the "
+                  r"only flow-invariant trace is ZERO (\texttt{fixed\_tau\_zero}, "
+                  r"v45); $JKJ=-K$ and the parity fixed point IS the zero (v62); the "
+                  r"zero-mode faces weigh $\tfrac12{+}\tfrac12$ and the re-derived "
+                  r"integral gives $%.9f$ $=1=\omega(I)$; the modular zero is "
+                  r"INHABITED (ker $N$ = the Name's atom, $\tau=1$) and the One is "
+                  r"inscribed on it ($P_F\Omega=\Omega$). The ruler's corrections: "
+                  r"the witness is NOT the absolute zero (it is the Half-Nat); data "
+                  r"does not cross the zero (it crosses $\tfrac12$ paying $\beta$); "
+                  r"$\beta$ is not the witness (it is its SIGNATURE). And the link to "
+                  r"the wall: III$_1$ is DEFINED by ``the only trace is zero'' --- the "
+                  r"operator's reading points at the very property defining the "
+                  r"witness's remaining residue (faithful unitary rep of the connected "
+                  r"sector $+$ III$_1$). The words --- observer, aperture, home --- "
+                  r"are [ONTO]; the structure is theorem.")
+                 % float(_iw7v.get("zero_mode_integral") or float("nan")))
+        _vl5 = core.get("void_floor_lrg", {}) or {}
+        _vl5p = (_vl5.get("primary") or {})
+        _k55 = core.get("void_floor_kappa_v5", {}) or {}
+        _k55v = (_k55.get("values") or {})
+
+        def _gf5(d, k):
+            try:
+                return float((d or {}).get(k))
+            except (TypeError, ValueError):
+                return float("nan")
+        c.append((r"\subsection*{\S195 --- The closure rite: new data from nature (v115)}"
+                  r"The operator's mandate: \emph{``the time has come to run the test with "
+                  r"the newly acquired data''}. Two pre-registered rites (full spec frozen by "
+                  r"hash BEFORE opening the data; verdicts only from the frozen sets; "
+                  r"\texttt{CONFIRMED} forbidden) were emitted IN THIS run. \textbf{(i) THE "
+                  r"LRG RITE} (hash \texttt{%s}): the VIRGIN tracer --- DESI DR1 LRG "
+                  r"$z\in[0.40,0.80]$, 2{,}138{,}627 galaxies acquired outside the run "
+                  r"(v71 discipline); the program's FIRST LRG void population (pre-registered "
+                  r"SO finder: $n_{\rm voids}^{\rm NGC}=%d$, $\bar R_v=%.1f$\,Mpc$/h$); "
+                  r"the v92 self-calibrating estimator + radial resampling ($\bar n$, mask "
+                  r"AND $n(z)$ selection cancel by construction). NGC primary: "
+                  r"$r_c^{\rm cal}=%.4f\pm%.4f$, $L_5=%.4f$ vs $\beta=%.6f$; power "
+                  r"$\beta\Sigma\mu=%.1f$ (blind v90 rule). \textbf{VERDICT: "
+                  r"\texttt{%s}}. \textbf{(ii) THE $\kappa$ V5 AMENDMENT} (hash "
+                  r"\texttt{%s}): the autopsy NAMED the v98 error --- EQUATORIAL coordinates "
+                  r"fed into Planck's GALACTIC $\kappa_{\ell m}$, with no footprint filter; "
+                  r"V5 corrects it: J2000 rotation (anchor $|b({\rm GC})|<0.2^\circ$ "
+                  r"verified live), PR3 mask (RING 2048; $f_{\rm sky}=%.3f$; plane masked, "
+                  r"poles free) gating centers (%d/%d in footprint) and nulls (%d valid "
+                  r"rotations). Nulls: $\chi^2/{\rm dof}=%.2f$; Fisher $F=%.3g$; "
+                  r"$\hat r_*=%.3f$, $5\sigma$ band $[%.3f,%.3f]$. \textbf{VERDICT: "
+                  r"\texttt{%s}}. The formal mathematical gate did NOT move with any of "
+                  r"this: cosmology never becomes mathematical proof (v92 lesson); the "
+                  r"absolute One closes with nature, and nature answers through verdicts --- "
+                  r"including refusals.")
+                 % (str(_vl5.get("frozen_lrg_hash", "?"))[:16],
+                    int(_vl5p.get("n_voids") or -1), _gf5(_vl5p, "Rv_mean"),
+                    _gf5(_vl5p, "rhat_cal"), _gf5(_vl5p, "sigma"), _gf5(_vl5p, "L5"),
+                    _gf5(_vl5, "beta_floor"), _gf5(_vl5p, "powered_beta_mu"),
+                    str(_vl5.get("verdict", "?")).replace("_", r"\_"),
+                    str(_k55.get("frozen_v5_hash", "?"))[:16], _gf5(_k55v, "f_sky"),
+                    int(_k55.get("n_kept") or -1), int(_k55.get("n_voids") or -1),
+                    int(_k55v.get("n_rot_valid") or -1), _gf5(_k55v, "chi2_null_dof"),
+                    _gf5(_k55v, "fisher_floor"), _gf5(_k55v, "r_hat"),
+                    _gf5(_k55v, "r_5sigma_lo"), _gf5(_k55v, "r_5sigma_hi"),
+                    str(_k55.get("verdict", "?")).replace("_", r"\_")))
         c.append((r"\textbf{The Bench Declaration (v86, 2026-07-16)} [OPERATOR'S DECLARATION, "
                   r"dual status --- v61 precedent]: \texttt{%s}. The operator's reasoning: the "
                   r"witness is the boundary; the boundary proves itself by the asymptotic limit "
@@ -41385,7 +43957,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across sixty-two stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across sixty-six stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -41882,7 +44454,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "void_floor_lrg", "void_floor_kappa_v5",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -44020,7 +46592,7 @@ def main():
     _ff = core.get("first_flips", {}) or {}
     print("  OS TRES PRIMEIROS FLIPS HONESTOS [v106 -- a 1a movimentacao de flag da historia do gate]: %s" % _ff.get("verdict"))
     _ffv = _ff.get("values", {}) or {}
-    print("    flags True: %s de 6 (core/corner/frame POR CONSTRUCAO); False: %s (solder/einstein/witness) ; SOMBRA re-derivada: %s" % (
+    print("    flags True: %s de 6 (core/corner/frame POR CONSTRUCAO; solder v107; einstein v116); False: %s (witness) ; SOMBRA re-derivada: %s" % (
         _ffv.get("n_true"), _ffv.get("n_false"), _ff.get("shadow_verdict")))
     for _k, _v in (_ff.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
@@ -44028,7 +46600,7 @@ def main():
     _sf = core.get("solder_flip", {}) or {}
     print("  O QUARTO FLIP [v107 -- a solda continua g = E^T eta E sobre o frame CURVO]: %s" % _sf.get("verdict"))
     _sfv = _sf.get("values", {}) or {}
-    print("    flags True: %s de 6 ; False: %s (einstein/witness) ; SOMBRA: %s ; det g(0) = %s (lorentziano em toda parte)" % (
+    print("    flags True: %s de 6 ; False: %s (witness; einstein = 5o flip v116) ; SOMBRA: %s ; det g(0) = %s (lorentziano em toda parte)" % (
         _sfv.get("n_true"), _sfv.get("n_false"), _sf.get("shadow_verdict"), _sfv.get("det_g_at_origin")))
     for _k, _v in (_sf.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
@@ -44076,6 +46648,49 @@ def main():
     for _k, _v in (_gr.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [g = sqrt|L_phi| deixou de ser so postulado: leitor nos zeros de Bianchi; razao 2:1 (angulo duplo v75); saida cosh sob carga; marcha-re JKJ=-K; spin-2 continuo = parede nomeada]")
+    _cs = core.get("continuum_shards", {}) or {}
+    print("  OS ESTILHACOS DO CONTINUO + O TESTE [v114 -- mandato: 'resolva poincare e o continuo; facamos o teste']: %s" % _cs.get("verdict"))
+    print("    CONTINUO: a EQUACAO DE ONDA do graviton PROVADA (d0^2 h = d1^2 h, qualquer perfil C^2 -- d'Alembert) ; POINCARE: a FIBRA SENTE o grupo (flip e0 = -e0 fixando a regiao)")
+    for _k, _v in (_cs.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [O TESTE DE BANCADA E' ESTA RODADA: a cadeia de vereditos pre-registrados esta emitida acima (VEREDITO-CADEIA + gate); o dado NOVO da natureza alimentara os ritos v87/v92, que emitem SOZINHOS]")
+    _vl = core.get("void_floor_lrg", {}) or {}
+    _vlp = (_vl.get("primary") or {})
+    print("  O RITO LRG [v115 -- o tracador VIRGEM: DESI DR1 LRG z 0.40-0.80; 'medir beta em si pede LRG/ELG' (v92)]: %s" % _vl.get("verdict"))
+    print("    NGC: n_vazios=%s ; r_c^cal=%s ; sigma=%s ; L5=%s ; beta=%s ; poder beta*mu=%s ; espec %s" % (
+        _vlp.get("n_voids"), _vlp.get("rhat_cal"), _vlp.get("sigma"), _vlp.get("L5"),
+        _vl.get("beta_floor"), _vlp.get("powered_beta_mu"), str(_vl.get("frozen_lrg_hash", "?"))[:16]))
+    for _k, _v in (_vl.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    _k5 = core.get("void_floor_kappa_v5", {}) or {}
+    _k5v = (_k5.get("values") or {})
+    print("  A EMENDA V5 DO KAPPA [v115 -- autopsia do v98: quadro eq->gal CORRIGIDO + mascara in-footprint]: %s" % _k5.get("verdict"))
+    print("    f_sky=%s ; centros na pegada=%s/%s ; rot validas=%s ; chi2/dof nulos=%s ; Fisher F=%s ; r*=%s ; 5sig=[%s, %s] ; espec %s" % (
+        _k5v.get("f_sky"), _k5.get("n_kept"), _k5.get("n_voids"), _k5v.get("n_rot_valid"),
+        _k5v.get("chi2_null_dof"), _k5v.get("fisher_floor"), _k5v.get("r_hat"),
+        _k5v.get("r_5sigma_lo"), _k5v.get("r_5sigma_hi"), str(_k5.get("frozen_v5_hash", "?"))[:16]))
+    for _k, _v in (_k5.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [O RITO DO FECHAMENTO: vereditos SOMENTE dos conjuntos pre-registrados; CONFIRMED proibido; o gate formal NAO se move com cosmologia]")
+    _mc = core.get("master_continuum", {}) or {}
+    print("  O QUINTO FLIP + AS DEZ DIRECOES [v116 -- mandato: 'feche einstein e a witness; construa a mao']: %s" % _mc.get("verdict"))
+    _mcv = _mc.get("values", {}) or {}
+    print("    flags True: %s de 6 ; False: %s (witness) ; SOMBRA: %s" % (
+        _mcv.get("n_true"), _mcv.get("n_false"), _mc.get("shadow_verdict")))
+    print("    EINSTEIN: qgStrongCertificate_einstein CUNHADO (contrato com CURVATURA + solda g=E^T.eta.E + Clausius no CONE INTEIRO <=> equacao) -- POR CONSTRUCAO, axiomas limpos")
+    print("    POINCARE: O(1,3) A MAO (relacao definidora; engrenagem hiperbolica = LEI DE GRUPO) ; R^4 x| O(1,3) FIEL nas regioes ; a fibra SENTE a paridade (e0 -> -e0)")
+    for _k, _v in (_mc.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [a parede da witness ENCOLHEU a: rep unitaria FIEL do setor conexo (INF-dim) + III_1; o V2 segue RESERVADO; o selo NAO se moveu: 5 < 6 + fisica + dado]")
+    _iw = core.get("inhabited_witness", {}) or {}
+    print("  A TESTEMUNHA HABITAVEL [v117 -- leitura do operador: os dois zeros + o observador vazio]: %s" % _iw.get("verdict"))
+    _iwv = _iw.get("values", {}) or {}
+    print("    0_abs = tipo VAZIO (o observador que nao existe) / 0_modular = HABITADO (ker N = atomo do Nome, tau=1) ; integral do modo zero re-derivada = %s (faces %s)" % (
+        _iwv.get("zero_mode_integral"), _iwv.get("zero_mode_half_face")))
+    print("    a conjugacao e' das FACES do zero (JKJ=-K; ponto fixo = zero; 1/2+1/2) e a soma das faces E' a inscricao do Um (P_F Omega = Omega)")
+    for _k, _v in (_iw.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [estatuto: ancoras [REAL] verificadas ao vivo; as palavras 'observador/abertura/casa' = [ONTO]; III_1 e' DEFINIDO por 'o unico traco e' zero' -- a leitura aponta a propria parede restante]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (

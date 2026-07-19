@@ -1,8 +1,8 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE build
 # returncode: 0
-# len(stdout)=216350 len(stderr)=0
+# len(stdout)=223635 len(stderr)=0
 --- STDOUT ---
-⚠ [8559/8650] Replayed TGL.AreaScale
+⚠ [8559/8654] Replayed TGL.AreaScale
 warning: TGL/AreaScale.lean:24:48: Variable name `hk` is not explicitly referenced.
 
 The binding can be removed (if unused) or named `_` (if used implicitly).
@@ -13,7 +13,7 @@ warning: TGL/AreaScale.lean:24:65: Variable name `hG` is not explicitly referenc
 The binding can be removed (if unused) or named `_` (if used implicitly).
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [8566/8650] Replayed TGL.TransportData
+⚠ [8566/8654] Replayed TGL.TransportData
 warning: TGL/TransportData.lean:188:0: automatically included section variable(s) unused in theorem `TGL.TransportData.facePlus_idem`:
   [StarRing A]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
@@ -38,7 +38,7 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [StarRing A] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-⚠ [8569/8650] Replayed TGL.GravitonShadow
+⚠ [8569/8654] Replayed TGL.GravitonShadow
 warning: TGL/GravitonShadow.lean:56:72: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -55,7 +55,7 @@ Hint: Omit it from the simp argument list.
   simp [e00, Matrix.trace, Matrix.diag,̵ ̵F̵i̵n̵.̵s̵u̵m̵_̵u̵n̵i̵v̵_̵t̵w̵o̵]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8570/8650] Replayed TGL.NameRelation
+⚠ [8570/8654] Replayed TGL.NameRelation
 warning: TGL/NameRelation.lean:74:24: Variable name `hb0` is not explicitly referenced.
 
 The binding can be removed (if unused) or named `_` (if used implicitly).
@@ -97,7 +97,7 @@ Hint: Omit it from the simp argument list.
   simp [E1, E2, Matrix.mul_apply, Fin.sum_univ_three,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵a̵p̵p̵l̵y̵] at h00 h12 h21 h22 h11
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8571/8650] Replayed TGL.CoreSupport
+⚠ [8571/8654] Replayed TGL.CoreSupport
 warning: TGL/CoreSupport.lean:50:0: automatically included section variable(s) unused in theorem `TGL.CoreSupport.support_annihilates`:
   [StarRing A]
   [Algebra ℂ A]
@@ -118,7 +118,7 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [StarRing A] [Algebra ℂ A] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-⚠ [8602/8650] Replayed TGLExt.NoFullWitness
+⚠ [8602/8654] Replayed TGLExt.NoFullWitness
 warning: TGLExt/NoFullWitness.lean:113:31: This simp argument is unused:
   Matrix.diagonal_apply_ne _ hij
 
@@ -126,7 +126,7 @@ Hint: Omit it from the simp argument list.
   simp [Matrix.smul_apply, M̵a̵t̵r̵i̵x̵.̵d̵i̵a̵g̵o̵n̵a̵l̵_̵a̵p̵p̵l̵y̵_̵n̵e̵ ̵_̵ ̵h̵i̵j̵,̵ ̵hij]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8603/8650] Replayed TGLExt.Solder4D
+⚠ [8603/8654] Replayed TGLExt.Solder4D
 warning: TGLExt/Solder4D.lean:122:54: This simp argument is unused:
   Fin.sum_univ_four
 
@@ -163,7 +163,7 @@ Hint: Omit it from the simp argument list.
   simp [Matrix.mul_apply,̵ ̵F̵i̵n̵.̵s̵u̵m̵_̵u̵n̵i̵v̵_̵f̵o̵u̵r̵]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8605/8650] Replayed TGLExt.SusyRelativeGap
+⚠ [8605/8654] Replayed TGLExt.SusyRelativeGap
 warning: TGLExt/SusyRelativeGap.lean:111:16: Variable name `p` is not explicitly referenced.
 
 The binding can be removed (if unused) or named `_` (if used implicitly).
@@ -174,7 +174,7 @@ warning: TGLExt/SusyRelativeGap.lean:111:18: Variable name `q` is not explicitly
 The binding can be removed (if unused) or named `_` (if used implicitly).
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [8608/8650] Replayed TGLExt.LinearizedSpin2
+⚠ [8608/8654] Replayed TGLExt.LinearizedSpin2
 warning: TGLExt/LinearizedSpin2.lean:92:25: This simp argument is unused:
   Matrix.smul_apply
 
@@ -209,10 +209,10 @@ Hint: Omit it from the simp argument list.
   ̲  ̲ ̲ ̲Matrix.smul_apply, Matrix.a̵dd̵_̵a̵p̵p̵l̵y̵,̵ ̵M̵a̵t̵r̵ix̵.̵d̵i̵ag]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-ℹ [8614/8650] Replayed TGLExt.InvariantProjection
+ℹ [8614/8654] Replayed TGLExt.InvariantProjection
 info: TGLExt/InvariantProjection.lean:118:8: Try this:
   [apply] abel_nf
-⚠ [8617/8650] Replayed TGLExt.WitnessSeed
+⚠ [8617/8654] Replayed TGLExt.WitnessSeed
 warning: TGLExt/WitnessSeed.lean:84:12: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
@@ -222,11 +222,11 @@ Note: The updated constant is in a different namespace. Dot notation may need to
 warning: TGLExt/WitnessSeed.lean:125:8: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
-⚠ [8619/8650] Replayed TGLExt.WordExistence
+⚠ [8619/8654] Replayed TGLExt.WordExistence
 warning: TGLExt/WordExistence.lean:193:16: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
-⚠ [8620/8650] Replayed TGLExt.InfiniteWord
+⚠ [8620/8654] Replayed TGLExt.InfiniteWord
 warning: TGLExt/InfiniteWord.lean:238:16: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
@@ -236,7 +236,7 @@ Note: The updated constant is in a different namespace. Dot notation may need to
 warning: TGLExt/InfiniteWord.lean:309:10: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
-⚠ [8621/8650] Replayed TGLExt.HilbertInhabitant
+⚠ [8621/8654] Replayed TGLExt.HilbertInhabitant
 warning: TGLExt/HilbertInhabitant.lean:58:10: This simp argument is unused:
   RCLike.inner_apply
 
@@ -244,7 +244,7 @@ Hint: Omit it from the simp argument list.
   simp ̵[̵R̵C̵L̵i̵k̵e̵.̵i̵n̵n̵e̵r̵_̵a̵p̵p̵l̵y̵]̵
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8622/8650] Replayed TGLExt.AQFTCoreInhabitant
+⚠ [8622/8654] Replayed TGLExt.AQFTCoreInhabitant
 warning: TGLExt/AQFTCoreInhabitant.lean:82:23: This simp argument is unused:
   Unitary.coe_linearIsometryEquiv_apply
 
@@ -260,7 +260,7 @@ Hint: Omit it from the simp argument list.
   ̵ ̵ ̵ ̵ ̵s̵e̵l̵f̵A̵d̵j̵o̵i̵n̵t̵.̵e̵x̵p̵U̵n̵i̵t̵a̵r̵y̵_̵c̵o̵e̵]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8623/8650] Replayed TGLExt.ConcreteFourFrame
+⚠ [8623/8654] Replayed TGLExt.ConcreteFourFrame
 warning: TGLExt/ConcreteFourFrame.lean:75:18: This simp argument is unused:
   Fin.sum_univ_four
 
@@ -293,13 +293,13 @@ Hint: Omit it from the simp argument list.
   ̲  ̲ ̲ ̲ ̲ ̲Matrix.one_apply, Matrix.vecHead, M̵a̵t̵r̵i̵x̵.̵v̵e̵c̵T̵a̵i̵l̵,̵ ̵Fin.isValue]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8626/8650] Replayed TGLExt.ProgrammerRule
+⚠ [8626/8654] Replayed TGLExt.ProgrammerRule
 warning: TGLExt/ProgrammerRule.lean:73:46: Variable name `hw0` is not explicitly referenced.
 
 The binding can be removed (if unused) or named `_` (if used implicitly).
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [8627/8650] Replayed TGLExt.IsotoneNet
+⚠ [8627/8654] Replayed TGLExt.IsotoneNet
 warning: TGLExt/IsotoneNet.lean:117:66: This simp argument is unused:
   Nat.le_zero
 
@@ -307,7 +307,7 @@ Hint: Omit it from the simp argument list.
   simp ̵[̵N̵a̵t̵.̵l̵e̵_̵z̵e̵r̵o̵]̵
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8628/8650] Replayed TGLExt.IdealLimit
+⚠ [8628/8654] Replayed TGLExt.IdealLimit
 warning: TGLExt/IdealLimit.lean:81:23: This simp argument is unused:
   Unitary.coe_linearIsometryEquiv_apply
 
@@ -323,7 +323,7 @@ Hint: Omit it from the simp argument list.
   ̵ ̵ ̵ ̵ ̵s̵e̵l̵f̵A̵d̵j̵o̵i̵n̵t̵.̵e̵x̵p̵U̵n̵i̵t̵a̵r̵y̵_̵c̵o̵e̵]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8630/8650] Replayed TGLExt.StrongFrame
+⚠ [8630/8654] Replayed TGLExt.StrongFrame
 warning: TGLExt/StrongFrame.lean:61:16: This simp argument is unused:
   Matrix.diagonal_apply
 
@@ -352,7 +352,7 @@ Hint: Omit it from the simp argument list.
   simp only [Matrix.diagonal_apply,̵ ̵i̵f̵_̵p̵o̵s̵ ̵r̵f̵l̵] at h00
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8632/8650] Replayed TGLExt.NumberOperator
+⚠ [8632/8654] Replayed TGLExt.NumberOperator
 warning: TGLExt/NumberOperator.lean:193:12: This simp argument is unused:
   lp.single_apply_self
 
@@ -360,7 +360,7 @@ Hint: Omit it from the simp argument list.
   simp [̵l̵p̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵_̵s̵e̵l̵f̵,̵ ̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵]̵[̲s̲m̲u̲l̲_̲e̲q̲_̲m̲u̲l̲]̲
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8633/8650] Replayed TGLExt.NumberSelfAdjoint
+⚠ [8633/8654] Replayed TGLExt.NumberSelfAdjoint
 warning: TGLExt/NumberSelfAdjoint.lean:68:21: This simp argument is unused:
   lp.coeFn_zero
 
@@ -368,7 +368,7 @@ Hint: Omit it from the simp argument list.
   simp ̵[̵l̵p̵.̵c̵o̵e̵F̵n̵_̵z̵e̵r̵o̵]̵
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8636/8650] Replayed TGLExt.SolderField
+⚠ [8636/8654] Replayed TGLExt.SolderField
 warning: TGLExt/SolderField.lean:56:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -400,7 +400,7 @@ Hint: Omit it from the simp argument list.
   simp only [Matrix.diagonal_apply,̵ ̵i̵f̵_̵p̵o̵s̵ ̵r̵f̵l̵] at h00
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8637/8650] Replayed TGLExt.FirstCurvature
+⚠ [8637/8654] Replayed TGLExt.FirstCurvature
 warning: TGLExt/FirstCurvature.lean:171:16: This simp argument is unused:
   Matrix.diagonal_apply
 
@@ -453,14 +453,71 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: TGLExt/FirstCurvature.lean:247:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8642/8650] Replayed TGLExt.GeometricWitness
+⚠ [8642/8654] Replayed TGLExt.GeometricWitness
 warning: TGLExt/GeometricWitness.lean:73:32: Variable name `x` is not explicitly referenced.
 
 The binding can be removed (if unused) or named `_` (if used implicitly).
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-✔ [8646/8650] Built TGL.HalfNat (12s)
-ℹ [8647/8650] Built TGL.Audit (13s)
+⚠ [8644/8654] Replayed TGLExt.ContinuumShards
+warning: TGLExt/ContinuumShards.lean:46:8: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+warning: TGLExt/ContinuumShards.lean:46:8: This simp argument is unused:
+  ContinuousLinearMap.sub_apply
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵C̵o̵n̵t̵i̵n̵u̵o̵u̵s̵L̵i̵n̵e̵a̵r̵M̵a̵p̵.̵s̵u̵b̵_̵a̵p̵p̵l̵y̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8645/8654] Replayed TGLExt.EmergentEinstein
+warning: TGLExt/EmergentEinstein.lean:80:16: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵M̵a̵t̵r̵i̵x̵.̵d̵i̵a̵g̵o̵n̵a̵l̵_̵a̵p̵p̵l̵y̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TGLExt/EmergentEinstein.lean:87:16: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  simp [M̵a̵t̵r̵i̵x̵.̵d̵i̵a̵g̵o̵n̵a̵l̵_̵a̵p̵p̵l̵y̵,̵ ̵hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TGLExt/EmergentEinstein.lean:94:14: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  simp [M̵a̵t̵r̵i̵x̵.̵d̵i̵a̵g̵o̵n̵a̵l̵_̵a̵p̵p̵l̵y̵,̵ ̵hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TGLExt/EmergentEinstein.lean:124:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: TGLExt/EmergentEinstein.lean:161:14: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵M̵a̵t̵r̵i̵x̵.̵d̵i̵a̵g̵o̵n̵a̵l̵_̵a̵p̵p̵l̵y̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TGLExt/EmergentEinstein.lean:168:14: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  simp [M̵a̵t̵r̵i̵x̵.̵d̵i̵a̵g̵o̵n̵a̵l̵_̵a̵p̵p̵l̵y̵,̵ ̵hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TGLExt/EmergentEinstein.lean:175:12: This simp argument is unused:
+  Matrix.diagonal_apply
+
+Hint: Omit it from the simp argument list.
+  simp [M̵a̵t̵r̵i̵x̵.̵d̵i̵a̵g̵o̵n̵a̵l̵_̵a̵p̵p̵l̵y̵,̵ ̵hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [8650/8654] Built TGL.HalfNat (12s)
+ℹ [8651/8654] Built TGL.Audit (13s)
 info: TGL/Audit.lean:31:0: HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 info: TGL/Audit.lean:32:0: HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
 info: TGL/Audit.lean:33:0: AreaScale.eta_eq_one_over_two_kappa : ∀ (kappa : ℝ), 1 / 2 / kappa = 1 / (2 * kappa)
@@ -2014,505 +2071,552 @@ info: TGL/Audit.lean:845:0: TGLExt.first_derivative_does_not_decide : (TGLExt.Ga
   TGLExt.Riemann1001 1 ≠ 0
 info: TGL/Audit.lean:846:0: TGLExt.reading_rides_the_zeros : ∀ (q : ℝ → ℝ),
   (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzNullG q s = TGLExt.ansatzG22 q s
-info: TGL/Audit.lean:849:0: 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:850:0: 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:851:0: 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:852:0: 'TGL.FiniteThreeLocks.ker_H3L_eq_threeLocks' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:853:0: 'TGL.FiniteThreeLocks.PF_isProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:854:0: 'TGL.FiniteThreeLocks.PF_isSelfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:855:0: 'TGL.FiniteThreeLocks.normalizedCornerTrace_PF' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:856:0: 'TGL.ContinuousCorner.ContinuousCornerWitness.normalizedTrace_P_eq_one' depends on axioms: [propext,
+info: TGL/Audit.lean:850:0: TGLExt.lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ
+info: TGL/Audit.lean:851:0: TGLExt.lightWave_pd : ∀ (w w' : ℝ → ℝ),
+  (∀ (u : ℝ), HasDerivAt w (w' u) u) →
+    ∀ (i : Fin 4) (x : Fin 4 → ℝ),
+      TGLExt.pd i (TGLExt.lightWave w) x = w' (TGLExt.lightCone x) * TGLExt.lightCone (Pi.single i 1)
+info: TGL/Audit.lean:852:0: TGLExt.graviton_wave_equation : ∀ (w w' w'' : ℝ → ℝ),
+  (∀ (u : ℝ), HasDerivAt w (w' u) u) →
+    (∀ (u : ℝ), HasDerivAt w' (w'' u) u) →
+      ∀ (x : Fin 4 → ℝ),
+        TGLExt.pd 0 (TGLExt.pd 0 (TGLExt.lightWave w)) x = TGLExt.pd 1 (TGLExt.pd 1 (TGLExt.lightWave w)) x
+info: TGL/Audit.lean:853:0: TGLExt.theSensitiveNet : TGLExt.PhysicalNetData TGLExt.GeoRegion TGLExt.geoLe TGLExt.geoFiber TGLExt.geoFiber
+info: TGL/Audit.lean:854:0: TGLExt.theSensitiveWitness : TGLExt.FullWitnessData
+info: TGL/Audit.lean:855:0: TGLExt.witness_fiber_sensitive : (TGLExt.theSensitiveNet.net.external (1, Multiplicative.ofAdd 1) (0, 0))
+    TGLExt.e0tail ≠
+  TGLExt.e0tail
+info: TGL/Audit.lean:858:0: 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:859:0: 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:860:0: 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:861:0: 'TGL.FiniteThreeLocks.ker_H3L_eq_threeLocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:862:0: 'TGL.FiniteThreeLocks.PF_isProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:863:0: 'TGL.FiniteThreeLocks.PF_isSelfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:864:0: 'TGL.FiniteThreeLocks.normalizedCornerTrace_PF' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:865:0: 'TGL.ContinuousCorner.ContinuousCornerWitness.normalizedTrace_P_eq_one' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-info: TGL/Audit.lean:857:0: 'TGL.SpecificAQFT.continuousCorner_of_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:858:0: 'TGL.SpecificAQFT.wedges_spacelike' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:859:0: 'TGL.SpecificAQFT.wedge_locality' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:860:0: 'TGL.ModularRealization.dualInvariant_PF_no_go' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:861:0: 'TGL.ModularRealization.fullWitness_not_finiteDimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:862:0: 'TGL.ModularRealization.fullWitness_PF_nonzero_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:863:0: 'TGL.HalfNatFresnel.fresnel_selfConjugate_half' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:864:0: 'TGL.HalfNatFresnel.modular_action_halfNat' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:865:0: 'TGL.VerbInhabitant.exp_fixed_of_annihilates' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:866:0: 'TGL.VerbInhabitant.canonicalVerb_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:867:0: 'TGL.VerbInhabitant.dual_calibration_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:868:0: 'TGL.TransportData.descent_iff_defect_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:869:0: 'TGL.TransportData.transport_defect_of_jones' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:870:0: 'TGL.TransportData.jones_selector_not_descended' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:871:0: 'TGL.NameIndex.ParityData.average_bimodular' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:872:0: 'TGL.NameIndex.name_index_eq_csc_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:873:0: 'TGL.NameIndex.name_index_mul_sin_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:874:0: 'TGL.NameIndex.amplitude_weight_index_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:875:0: 'TGL.HalfNatJonesTower.halfNatJonesTower_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:876:0: 'TGL.HalfNatJonesTower.halfNat_mirror_not_descended' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:877:0: 'TGL.HalfNatJonesTower.finite_markov_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:878:0: 'TGL.TransportData.faces_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:879:0: 'TGL.GravitonShadow.canonicalGravitonShadow_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:880:0: 'TGL.GravitonShadow.bell_cci_half' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:881:0: 'TGL.GravitonShadow.product_cci_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:882:0: 'TGL.NameRelation.pqp_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:883:0: 'TGL.NameRelation.tl3_linearly_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:884:0: 'TGL.NameRelation.canonicalTLThree_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:885:0: 'TGL.NameRelation.geometric_eq_trace_weight_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:886:0: 'TGL.CoreSupport.support_maximal' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:887:0: 'TGL.CoreSupport.threeLocksFromSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:888:0: 'TGL.CoreSupport.realizationFromSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:889:0: 'TGL.CoreSupport.transport_defect_gauge_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:892:0: 'TGLExt.commutant_triple' depends on axioms: [propext, Quot.sound]
-info: TGL/Audit.lean:893:0: 'TGLExt.bicommutant_range_Lmul' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:894:0: 'TGLExt.Jconj_Lmul_Jconj' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:895:0: 'TGLExt.omega_cyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:896:0: 'TGLExt.omega_separating' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:897:0: 'TGLExt.Sop_tomita' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:898:0: 'TGLExt.Sop_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:899:0: 'TGLExt.deltaHalf_deltaHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:900:0: 'TGLExt.delta_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:901:0: 'TGLExt.J_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:902:0: 'TGLExt.sigma_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:903:0: 'TGLExt.sigma_sigma' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:904:0: 'TGLExt.frob_trExpect_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:905:0: 'TGLExt.eTr_Lmul_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:907:0: 'TGLExt.trace_smul_one_sub_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:908:0: 'TGLExt.card_smul_diagExpect_sub_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:909:0: 'TGLExt.isGreatest_ppBound_trExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:910:0: 'TGLExt.isGreatest_ppBound_diagExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:911:0: 'TGLExt.ppIndexTr_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:912:0: 'TGLExt.ppIndexDiag_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:914:0: 'TGLExt.trace_Lmul_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:915:0: 'TGLExt.trace_Lmul_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:916:0: 'TGLExt.tau_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:917:0: 'TGLExt.tau_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:918:0: 'TGLExt.masa_tower_weight_eq_ppBest' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:919:0: 'TGLExt.pp_ne_tower_for_scalars' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:921:0: 'TGLExt.end_reconstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:922:0: 'TGLExt.Cmat_of_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:923:0: 'TGLExt.commutant_Cmat_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:924:0: 'TGLExt.exists_span_form' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:925:0: 'TGLExt.frob_self_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:926:0: 'TGLExt.disjoint_frobOrtho' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:927:0: 'TGLExt.isCompl_frobOrtho' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:928:0: 'TGLExt.frobProj_comm_Lmul' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:929:0: 'TGLExt.finite_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:931:0: 'TGLExt.Grot_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:932:0: 'TGLExt.exp_smul_Grot' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:933:0: 'TGLExt.Smat_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:934:0: 'TGLExt.Smat_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:935:0: 'TGLExt.Smat_spectral' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:936:0: 'TGLExt.normSq_reflection_add_transmission' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:937:0: 'TGLExt.rhoOut_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:939:0: 'TGLExt.cocycle_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:940:0: 'TGLExt.cocycle_temporal' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:941:0: 'TGLExt.cocycle_conjTranspose' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:942:0: 'TGLExt.cocycle_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:943:0: 'TGLExt.cocycle_of_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:944:0: 'TGLExt.logRho_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:945:0: 'TGLExt.cocycle_covariance' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:947:0: 'TGLExt.sigma_fixed_of_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:948:0: 'TGLExt.logRho_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:949:0: 'TGLExt.sigma_fixed_iff_diag' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:950:0: 'TGLExt.gibbs_tracial_on_centralizer' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:951:0: 'TGLExt.dephase_add' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:952:0: 'TGLExt.dephase_tendsto_expectation' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:953:0: 'TGLExt.ergodic_convergence_modular' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:954:0: 'TGLExt.J_deltaHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:955:0: 'TGLExt.frob_delta_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:956:0: 'TGLExt.gibbs_kms' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:957:0: 'TGLExt.modPow_add' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:958:0: 'TGLExt.modPow_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:959:0: 'TGLExt.gibbs_sigma' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:960:0: 'TGLExt.exp_logRho' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:961:0: 'TGLExt.sigma_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:962:0: 'TGLExt.diagExpect_bimod' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:963:0: 'TGLExt.eD_Lmul_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:964:0: 'TGLExt.commutant_range_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:966:0: 'TGLExt.lam_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:967:0: 'TGLExt.lam_conj_piRep' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:968:0: 'TGLExt.piRep_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:969:0: 'TGLExt.Ecomp_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:970:0: 'TGLExt.gibbs_Ecomp' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:971:0: 'TGLExt.gibbs_piRep_dual' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:972:0: 'TGLExt.modPow_piRep' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:973:0: 'TGLExt.sigma_piRep' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:974:0: 'TGLExt.cocycle_piRep' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:975:0: 'TGLExt.dual_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:976:0: 'TGLExt.cocycle_covariance_beyond_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:977:0: 'TGLExt.Dchi_conj_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:978:0: 'TGLExt.Dchi_comm_modPow' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:979:0: 'TGLExt.gibbs_Dchi' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:981:0: 'TGLExt.dyadic_approx' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:982:0: 'TGLExt.dyadic_stage_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:983:0: 'TGLExt.dyadic_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:984:0: 'TGLExt.annihilator_fixes_stage' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:985:0: 'TGLExt.scaling_fixed_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:986:0: 'TGLExt.DualScalingData.fixed_tau_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:987:0: 'TGLExt.DualScalingData.dyadic_stage_tau_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:988:0: 'TGLExt.sFrame_add' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:989:0: 'TGLExt.sFrame_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:990:0: 'TGLExt.measurement_channel_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:992:0: 'TGLExt.corner_fixed_by_flow' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:993:0: 'TGLExt.DualScalingData.finite_trace_not_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:994:0: 'TGLExt.cornerProj_idem' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:995:0: 'TGLExt.cornerProj_conjTranspose' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:996:0: 'TGLExt.cornerProj_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:997:0: 'TGLExt.lam_conj_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:998:0: 'TGLExt.trace_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:999:0: 'TGLExt.cornerProj_comm_modPow' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1001:0: 'TGLExt.boost_add' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1002:0: 'TGLExt.boost_preserves_eta' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1003:0: 'TGLExt.boost_null_expand' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1004:0: 'TGLExt.boost_null_contract' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1005:0: 'TGLExt.boost_preserves_wedge' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1006:0: 'TGLExt.logRho_gibbs_boost' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1007:0: 'TGLExt.modPow_gibbs_boost' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1008:0: 'TGLExt.sigma_gibbs_boost' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1010:0: 'TGLExt.polarization_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1011:0: 'TGLExt.polarizations_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1012:0: 'TGLExt.rot_conj_polPlus' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1013:0: 'TGLExt.rot_conj_polCross' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1014:0: 'TGLExt.rot_conj_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1015:0: 'TGLExt.gauge_transverse_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1016:0: 'TGLExt.minkNorm4_nullK' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1017:0: 'TGLExt.excite_one_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1018:0: 'TGLExt.excite_leibniz' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1019:0: 'TGLExt.Smat_sub_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1021:0: 'TGLExt.variance_of_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1022:0: 'TGLExt.boundary_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1023:0: 'TGLExt.boundary_variance' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1024:0: 'TGLExt.variance_le_quarter' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1025:0: 'TGLExt.variance_eq_quarter_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1026:0: 'TGLExt.polarization_commutator' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1027:0: 'TGLExt.polarizations_noncommute' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1028:0: 'TGLExt.classical_limit_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1030:0: 'TGLExt.purity_unitary_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1031:0: 'TGLExt.pure_reductions_trace_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1032:0: 'TGLExt.pure_reductions_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1033:0: 'TGLExt.purityR_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1034:0: 'TGLExt.dephase_purityR_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1035:0: 'TGLExt.entropy_max_at_half' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1036:0: 'TGLExt.entropy_eq_max_iff_half' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1038:0: 'TGLExt.first_law_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1039:0: 'TGLExt.clausius_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1040:0: 'TGLExt.Ecomp_fixes_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1041:0: 'TGLExt.dephase_fixes_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1042:0: 'TGLExt.rg_step_doubles_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1044:0: 'TGLExt.zero_mode_state_minimizes' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1045:0: 'TGLExt.gibbs_is_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1046:0: 'TGLExt.elementary_critical_implies_gibbs' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1048:0: 'TGLExt.gibbs_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1049:0: 'TGLExt.gibbs_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1050:0: 'TGLExt.boundaryState_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1052:0: 'TGLExt.Sop_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1053:0: 'TGLExt.nameFiniteGNS_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1054:0: 'TGLExt.boundaryState_eq_vector_state' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1055:0: 'TGLExt.lock_pairing_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1056:0: 'TGLExt.action_locks_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1057:0: 'TGLExt.hermitian_pairing_re' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1058:0: 'TGLExt.action_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1059:0: 'TGLExt.critical_pairing_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1060:0: 'TGLExt.transport_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1061:0: 'TGLExt.transport_fixes_name' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1062:0: 'TGLExt.transport_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1063:0: 'TGLExt.transport_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1064:0: 'TGLExt.canonicalNamedTransport_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1065:0: 'TGLExt.excite_holonomy' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1066:0: 'TGLExt.excite_holonomy_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1068:0: 'TGLExt.trace_cornerProj_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1069:0: 'TGLExt.cornerProj_loewner_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1070:0: 'TGLExt.sigma_fixes_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1071:0: 'TGLExt.cornerProj_ne_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1072:0: 'TGLExt.canonicalTransportedCorner_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1074:0: 'TGLExt.ker_map_of_intertwine' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1075:0: 'TGLExt.starProjection_ker_covariant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1076:0: 'TGLExt.starProjection_ker_internal_fix' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1077:0: 'TGLExt.starProjection_ker_isotone' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1078:0: 'TGLExt.lagrangian_zero_iff_mem_ker' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1079:0: 'TGLExt.HilbertHomeData.PF_internal_fix' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1080:0: 'TGLExt.HilbertHomeData.PF_external_covariant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1081:0: 'TGLExt.HilbertHomeData.PF_isotone' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1082:0: 'TGLExt.solder_recovers_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1084:0: 'TGLExt.both_homes_exist' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1085:0: 'TGLExt.omega_one_underdetermines_home' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1086:0: 'TGLExt.PsiHomeData.name_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1087:0: 'TGLExt.PsiHomeData.name_flow_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1088:0: 'TGLExt.PsiHomeData.flow_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1089:0: 'TGLExt.PsiHomeData.flow_fixes_spectral_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1091:0: 'TGLExt.absoluteOneField_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1092:0: 'TGLExt.absoluteOne_name_eq_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1093:0: 'TGLExt.absoluteOne_flow_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1094:0: 'TGLExt.commutator_locks_annihilate_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1095:0: 'TGLExt.commutator_kernel_inhabited' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1096:0: 'TGLExt.corner_fixes_inhabitant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1098:0: 'TGLExt.modularGen_eq_neg_excite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1099:0: 'TGLExt.modularGen_omega_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1100:0: 'TGLExt.J_modularGen_J' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1101:0: 'TGLExt.parity_fixed_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1102:0: 'TGLExt.absolute_modularGen_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1103:0: 'TGLExt.absolute_faces_half' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1104:0: 'TGLExt.absolute_contrast_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1105:0: 'TGLExt.one_eq_q_sq_add_alpha_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1106:0: 'TGLExt.q_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1107:0: 'TGLExt.alpha_even' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1108:0: 'TGLExt.alpha_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1109:0: 'TGLExt.alpha_deriv_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1110:0: 'TGLExt.W_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1111:0: 'TGLExt.susy_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1112:0: 'TGLExt.susy_partner_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1114:0: 'TGLExt.minimal_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1115:0: 'TGLExt.minimal_curvature_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1116:0: 'TGLExt.curvature_flat_same' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1117:0: 'TGLExt.solderMetric_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1118:0: 'TGLExt.solderMetric_det' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1119:0: 'TGLExt.solder_lorentzian' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1120:0: 'TGLExt.helicityRep_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1121:0: 'TGLExt.minimal_curvature_recovered' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1123:0: 'TGLExt.leakage_strictly_loses' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1124:0: 'TGLExt.full_closure_iff_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1125:0: 'TGLExt.beta_forbids_full_static_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1126:0: 'TGLExt.verb_not_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1127:0: 'TGLExt.leakage_rate_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1128:0: 'TGLExt.canonical_witness_is_not_full' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1130:0: 'TGLExt.solderMetric4_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1131:0: 'TGLExt.solderMetric4_det' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1132:0: 'TGLExt.solder4_lorentzian' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1133:0: 'TGLExt.generators_in_so13' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1134:0: 'TGLExt.bracket_in_so_eta' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1135:0: 'TGLExt.so_eta_infinitesimal_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1136:0: 'TGLExt.boosts_close_in_minus_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1137:0: 'TGLExt.rotations_close_in_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1138:0: 'TGLExt.boosts_curvature_is_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1139:0: 'TGLExt.lorentzRep_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1140:0: 'TGLExt.curvature4_recovered' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1141:0: 'TGLExt.susy_discrete_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1143:0: 'TGLExt.kernel_weight_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1144:0: 'TGLExt.kernel_weight_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1145:0: 'TGLExt.breuer_kernel_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1146:0: 'TGLExt.local_gap_package_consistent' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1147:0: 'TGLExt.global_tau_compactness_refuted' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1148:0: 'TGLExt.no_finite_weyl_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1149:0: 'TGLExt.plus_block_eigenvalue_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1150:0: 'TGLExt.halfTanh_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1151:0: 'TGLExt.tendsto_halfTanh_atTop' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1152:0: 'TGLExt.tendsto_halfTanh_atBot' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1153:0: 'TGLExt.phi0sq_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1154:0: 'TGLExt.zero_mode_weight_is_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1156:0: 'TGLExt.susy_relative_gap_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1157:0: 'TGLExt.susy_relative_gives_breuer' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1158:0: 'TGLExt.susy_relative_package_consistent' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1159:0: 'TGLExt.perturbation_injective_on_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1160:0: 'TGLExt.kernel_dim_le_rank_of_perturbation' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1161:0: 'TGLExt.discrete_parallel_solder_preserves_metric' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1163:0: 'TGLExt.eta4_lorentzByCongruence' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1164:0: 'TGLExt.sylvester_full_closed_by_congruence' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1165:0: 'TGLExt.lorentzByCongruence_congruent' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1166:0: 'TGLExt.four_frame_gives_lorentz_metric' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1167:0: 'TGLExt.equivariant_state_section_from_global_name' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1168:0: 'TGLExt.breuer_weight_normalizes_name' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1169:0: 'TGLExt.sqrt_potential_is_L2' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1170:0: 'TGLExt.resolvent_kernel_is_L2' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1171:0: 'TGLExt.emergence_reduced_to_named_hypotheses' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1173:0: 'TGLExt.einstein_coefficient_from_clausius' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1174:0: 'TGLExt.horizon_clausius_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1175:0: 'TGLExt.jacobi_commutator_bianchi_seed' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1176:0: 'TGLExt.emergence_master_full_triad' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1178:0: 'TGLExt.rotZ_preserves_eta' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1179:0: 'TGLExt.helicity_two_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1180:0: 'TGLExt.helicity_two_rotation_cross' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1181:0: 'TGLExt.tt_kinetic_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1182:0: 'TGLExt.tt_no_negative_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1183:0: 'TGLExt.polarizations_linearly_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1185:0: 'TGLExt.psd_offdiag_zero_of_diag_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1186:0: 'TGLExt.psd_trace_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1187:0: 'TGLExt.trace_monotone_of_psd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1188:0: 'TGLExt.matrix_trace_is_faithful_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1190:0: 'TGLExt.dimension_trace_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1191:0: 'TGLExt.dimension_trace_top_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1192:0: 'TGLExt.concrete_kernel_weight_via_abstract_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1193:0: 'TGLExt.concrete_kernel_full_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1195:0: 'TGLExt.dimension_trace_over_top_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1196:0: 'TGLExt.threeLocks_ker_ne_bot_of_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1197:0: 'TGLExt.three_locks_corner_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1198:0: 'TGLExt.three_locks_corner_weight_eq_dim' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1199:0: 'TGLExt.three_locks_name_is_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1200:0: 'TGLExt.corner_le_each_lock' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1201:0: 'TGLExt.three_locks_corner_dim_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1202:0: 'TGLExt.three_locks_corner_full_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1204:0: 'TGLExt.semifinite_trace_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1205:0: 'TGLExt.semifinite_trace_atom' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1206:0: 'TGLExt.semifinite_trace_is_semifinite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1207:0: 'TGLExt.semifinite_trace_top_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1208:0: 'TGLExt.global_gap_impossible_infinite_dim' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1209:0: 'TGLExt.infinite_dim_local_breuer_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1210:0: 'TGLExt.not_finiteDimensional_finsupp' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1211:0: 'TGLExt.first_infinite_dim_inhabitant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1213:0: 'TGLExt.atom_is_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1214:0: 'TGLExt.closed_lattice_semifinite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1215:0: 'TGLExt.closed_double_orthocomplement' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1216:0: 'TGLExt.orthocomplement_meet_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1217:0: 'TGLExt.closed_orthocomplement_isCompl' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1218:0: 'TGLExt.inscription_complement_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1219:0: 'TGLExt.atom_complement_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1220:0: 'TGLExt.closed_local_breuer_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1222:0: 'TGLExt.closed_projection_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1223:0: 'TGLExt.starProjection_eq_zero_of_mem_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1224:0: 'TGLExt.orthogonal_invariant_of_adjoint_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1225:0: 'TGLExt.starProjection_commutes_of_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1226:0: 'TGLExt.invariant_of_starProjection_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1227:0: 'TGLExt.selfadjoint_invariant_iff_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1228:0: 'TGLExt.selfadjoint_ker_projection_in_commutant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1229:0: 'TGLExt.breuer_corner_projection_in_commutant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1231:0: 'TGLExt.dimension_trace_normal_on_chains' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1232:0: 'TGLExt.operator_commutant_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1233:0: 'TGLExt.operator_algebra_in_double_commutant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1234:0: 'TGLExt.operator_triple_commutant_collapse' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1235:0: 'TGLExt.operator_commutant_unital_multiplicative' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1236:0: 'TGLExt.corner_projection_in_commutant_set' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1237:0: 'TGLExt.corner_commutes_with_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1238:0: 'TGLExt.breuer_corner_full_algebraic_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1240:0: 'TGLExt.commutant_pointwise_limit_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1241:0: 'TGLExt.commutant_add_smul_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1242:0: 'TGLExt.generator_in_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1243:0: 'TGLExt.powers_in_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1244:0: 'TGLExt.polynomials_in_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1245:0: 'TGLExt.limit_of_polynomials_in_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1246:0: 'TGLExt.corner_in_algebra_of_approximation' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1247:0: 'TGLExt.concrete_breuer_corner_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1249:0: 'TGLExt.verb_word_lands_in_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1250:0: 'TGLExt.verb_word_fixes_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1251:0: 'TGLExt.verb_word_mints_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1252:0: 'TGLExt.name_candidate_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1253:0: 'TGLExt.witness_seed_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1255:0: 'TGLExt.real_word_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1256:0: 'TGLExt.name_candidate_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1257:0: 'TGLExt.selfadjoint_idempotent_eq_starProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1258:0: 'TGLExt.exact_witness_of_annihilating_word' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1259:0: 'TGLExt.spectral_witness_of_annihilating_word' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1260:0: 'TGLExt.breuer_corner_of_annihilating_word' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1262:0: 'TGLExt.star_aeval_eq_map_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1263:0: 'TGLExt.minpoly_selfadjoint_real' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1264:0: 'TGLExt.minpoly_zero_not_double_root' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1265:0: 'TGLExt.annihilating_word_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1266:0: 'TGLExt.finite_face_witness_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1267:0: 'TGLExt.finite_face_corner_in_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1269:0: 'TGLExt.ker_mul_self_eq_ker' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1270:0: 'TGLExt.cfc_polynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1271:0: 'TGLExt.iso_zero_cfc_eq_starProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1272:0: 'TGLExt.spectral_witness_of_isolated_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1273:0: 'TGLExt.concrete_breuer_corner_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1275:0: 'TGLExt.inscriptions_orthonormal' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1276:0: 'TGLExt.ellTwo_not_finiteDimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1277:0: 'TGLExt.eraseFirst_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1278:0: 'TGLExt.ker_eraseFirst' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1279:0: 'TGLExt.eraseFirst_spectrum_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1280:0: 'TGLExt.concrete_corner_fires' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1281:0: 'TGLExt.corner_weighs_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1283:0: 'TGLExt.eraseFirst_isSelfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1284:0: 'TGLExt.lockFlow_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1285:0: 'TGLExt.theConstantNet' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1286:0: 'TGLExt.theNetTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1287:0: 'TGLExt.net_PF_fixed_by_flow' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1288:0: 'TGLExt.net_corner_weighs_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1289:0: 'TGLExt.modularFrame_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1290:0: 'TGLExt.modularFrame_det_isUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1291:0: 'TGLExt.concrete_four_frame_fires' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1293:0: 'TGLExt.dimOrTop_subadd' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1294:0: 'TGLExt.ellTwoTraceSub' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1295:0: 'TGLExt.ellTwoSusy' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1296:0: 'TGLExt.theHorizon' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1297:0: 'TGLExt.the_master_fires' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1298:0: 'TGLExt.master_corner_weighs_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1300:0: 'TGLExt.constant_net_group_trivial' does not depend on any axioms
-info: TGL/Audit.lean:1301:0: 'TGLExt.identity_inclusion_cannot_witness' does not depend on any axioms
-info: TGL/Audit.lean:1303:0: 'TGLExt.beamRotation_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1304:0: 'TGLExt.superposition_not_autonomous' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1305:0: 'TGLExt.beamSplitterRule' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1307:0: 'TGLExt.fiberIncl_not_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1308:0: 'TGLExt.theFlip_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1309:0: 'TGLExt.theFlip_comm_eraseFirst' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1310:0: 'TGLExt.theIsotoneNet' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1312:0: 'TGLExt.ideal_zero_has_name_not_inhabitant' does not depend on any axioms
-info: TGL/Audit.lean:1313:0: 'TGLExt.channel_never_reaches_ideal' does not depend on any axioms
-info: TGL/Audit.lean:1314:0: 'TGLExt.lockFlow_add' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1316:0: 'TGLExt.benchDiracPMap_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1317:0: 'TGLExt.theBenchDirac' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1318:0: 'TGLExt.theBenchCertificate' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1319:0: 'TGLExt.benchDirac_is_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1320:0: 'TGLExt.bench_cannot_feed_strong' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1321:0: 'TGLExt.isotone_cannot_feed_strong_core' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1322:0: 'TGLExt.constant_cannot_feed_strong_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1324:0: 'TGLExt.theCurvedFrame' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1325:0: 'TGLExt.curvedFrame_nonconstant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1326:0: 'TGLExt.curvedFrame_det_everywhere' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1327:0: 'TGLExt.strongFromWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1328:0: 'TGLExt.constant_action_cannot_witness' does not depend on any axioms
-info: TGL/Audit.lean:1329:0: 'TGLExt.isotone_cannot_feed_witness_geometry' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1331:0: 'TGLExt.numberOp_symmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1332:0: 'TGLExt.numberOp_unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1333:0: 'TGLExt.numberDomain_dense' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1334:0: 'TGLExt.adjoint_domain_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1335:0: 'TGLExt.numberOp_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1336:0: 'TGLExt.numberOp_quad_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1337:0: 'TGLExt.theGenuineDirac' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1339:0: 'TGLExt.tailSub_not_finiteDimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1340:0: 'TGLExt.tailIncl_not_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1341:0: 'TGLExt.theTailNet' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1342:0: 'TGLExt.genuineDirac_kerSub' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1343:0: 'TGLExt.theStrongCertificate' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1344:0: 'TGLExt.qgStrongCertificate_core' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1345:0: 'TGLExt.qgStrongCertificate_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1346:0: 'TGLExt.qgStrongCertificate_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1348:0: 'TGLExt.theSolderField_det_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1349:0: 'TGLExt.theSolderField_nonconstant' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1350:0: 'TGLExt.theSolderData' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1351:0: 'TGLExt.qgStrongCertificate_solder' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1353:0: 'TGLExt.Gamma001_from_metric' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1354:0: 'TGLExt.Gamma100_from_metric' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1355:0: 'TGLExt.Riemann1001_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1356:0: 'TGLExt.Riemann1001_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1357:0: 'TGLExt.time_ansatz_r1001_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1358:0: 'TGLExt.theStaticSolderData' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1360:0: 'TGLExt.ansatzRiemann_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1361:0: 'TGLExt.ansatzG00_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1362:0: 'TGLExt.ansatzG11_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1363:0: 'TGLExt.vacuum_implies_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1364:0: 'TGLExt.rindler_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1365:0: 'TGLExt.static_not_vacuum' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1366:0: 'TGLExt.ansatz_recovers_v108' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1369:0: 'TGLExt.constant_profile_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1370:0: 'TGLExt.curvature_implies_fall' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1371:0: 'TGLExt.fall_demands_source_v108' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1372:0: 'TGLExt.geometry_iff_second_variation' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1373:0: 'TGLExt.geometry_is_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1375:0: 'TGLExt.cosh_solves_field_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1376:0: 'TGLExt.cosh_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1377:0: 'TGLExt.source_implies_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1378:0: 'TGLExt.zero_source_recovers_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1379:0: 'TGLExt.theSolvedEquation' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1380:0: 'TGLExt.theWeakEinsteinContract' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1382:0: 'TGLExt.null_contraction_reads_source' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1383:0: 'TGLExt.emergence_forces_field_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1384:0: 'TGLExt.emergence_zero_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1385:0: 'TGLExt.theReducedEmergence' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1386:0: 'TGLExt.theGeometricNet' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1387:0: 'TGLExt.theGeometricWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1388:0: 'TGLExt.witness_action_moves_regions_not_fibers' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1390:0: 'TGLExt.first_derivative_does_not_decide' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1391:0: 'TGLExt.reading_rides_the_zeros' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1394:0: TGL_KERNEL_BUILD_OK
-info: TGL/Audit.lean:1395:0: FINITE_THREE_LOCKS_KERNEL_PROVED
-info: TGL/Audit.lean:1396:0: CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
-info: TGL/Audit.lean:1397:0: SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED
-info: TGL/Audit.lean:1398:0: MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS
-info: TGL/Audit.lean:1399:0: FULL_TGL_WITNESS_REMAINS_UNCONSTRUCTED
-info: TGL/Audit.lean:1400:0: THE_CANONICAL_INHABITANT_IS_THE_VERB
-info: TGL/Audit.lean:1401:0: TRANSPORT_DEFECT_MEASURES_RESISTANCE
-info: TGL/Audit.lean:1402:0: THE_NAME_INDEX_IS_READ_IN_THE_JONES_MIRROR
-info: TGL/Audit.lean:1403:0: HALF_NAT_IS_THE_ONLY_FINITE_MARKOV_MIRROR
-info: TGL/Audit.lean:1404:0: GRAVITON_BELL_SHADOW_CCI_HALF
-info: TGL/Audit.lean:1405:0: THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX
-info: TGL/Audit.lean:1406:0: CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR
-info: TGL/Audit.lean:1407:0: FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED
-✔ [8648/8650] Built TGL.Main (11s)
-✔ [8649/8650] Built TGL (11s)
-Build completed successfully (8650 jobs).
+info: TGL/Audit.lean:866:0: 'TGL.SpecificAQFT.continuousCorner_of_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:867:0: 'TGL.SpecificAQFT.wedges_spacelike' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:868:0: 'TGL.SpecificAQFT.wedge_locality' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:869:0: 'TGL.ModularRealization.dualInvariant_PF_no_go' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:870:0: 'TGL.ModularRealization.fullWitness_not_finiteDimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:871:0: 'TGL.ModularRealization.fullWitness_PF_nonzero_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:872:0: 'TGL.HalfNatFresnel.fresnel_selfConjugate_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:873:0: 'TGL.HalfNatFresnel.modular_action_halfNat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:874:0: 'TGL.VerbInhabitant.exp_fixed_of_annihilates' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:875:0: 'TGL.VerbInhabitant.canonicalVerb_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:876:0: 'TGL.VerbInhabitant.dual_calibration_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:877:0: 'TGL.TransportData.descent_iff_defect_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:878:0: 'TGL.TransportData.transport_defect_of_jones' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:879:0: 'TGL.TransportData.jones_selector_not_descended' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:880:0: 'TGL.NameIndex.ParityData.average_bimodular' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:881:0: 'TGL.NameIndex.name_index_eq_csc_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:882:0: 'TGL.NameIndex.name_index_mul_sin_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:883:0: 'TGL.NameIndex.amplitude_weight_index_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:884:0: 'TGL.HalfNatJonesTower.halfNatJonesTower_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:885:0: 'TGL.HalfNatJonesTower.halfNat_mirror_not_descended' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:886:0: 'TGL.HalfNatJonesTower.finite_markov_forces_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:887:0: 'TGL.TransportData.faces_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:888:0: 'TGL.GravitonShadow.canonicalGravitonShadow_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:889:0: 'TGL.GravitonShadow.bell_cci_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:890:0: 'TGL.GravitonShadow.product_cci_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:891:0: 'TGL.NameRelation.pqp_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:892:0: 'TGL.NameRelation.tl3_linearly_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:893:0: 'TGL.NameRelation.canonicalTLThree_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:894:0: 'TGL.NameRelation.geometric_eq_trace_weight_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:895:0: 'TGL.CoreSupport.support_maximal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:896:0: 'TGL.CoreSupport.threeLocksFromSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:897:0: 'TGL.CoreSupport.realizationFromSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:898:0: 'TGL.CoreSupport.transport_defect_gauge_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:901:0: 'TGLExt.commutant_triple' depends on axioms: [propext, Quot.sound]
+info: TGL/Audit.lean:902:0: 'TGLExt.bicommutant_range_Lmul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:903:0: 'TGLExt.Jconj_Lmul_Jconj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:904:0: 'TGLExt.omega_cyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:905:0: 'TGLExt.omega_separating' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:906:0: 'TGLExt.Sop_tomita' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:907:0: 'TGLExt.Sop_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:908:0: 'TGLExt.deltaHalf_deltaHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:909:0: 'TGLExt.delta_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:910:0: 'TGLExt.J_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:911:0: 'TGLExt.sigma_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:912:0: 'TGLExt.sigma_sigma' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:913:0: 'TGLExt.frob_trExpect_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:914:0: 'TGLExt.eTr_Lmul_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:916:0: 'TGLExt.trace_smul_one_sub_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:917:0: 'TGLExt.card_smul_diagExpect_sub_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:918:0: 'TGLExt.isGreatest_ppBound_trExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:919:0: 'TGLExt.isGreatest_ppBound_diagExpect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:920:0: 'TGLExt.ppIndexTr_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:921:0: 'TGLExt.ppIndexDiag_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:923:0: 'TGLExt.trace_Lmul_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:924:0: 'TGLExt.trace_Lmul_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:925:0: 'TGLExt.tau_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:926:0: 'TGLExt.tau_eTr' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:927:0: 'TGLExt.masa_tower_weight_eq_ppBest' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:928:0: 'TGLExt.pp_ne_tower_for_scalars' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:930:0: 'TGLExt.end_reconstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:931:0: 'TGLExt.Cmat_of_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:932:0: 'TGLExt.commutant_Cmat_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:933:0: 'TGLExt.exists_span_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:934:0: 'TGLExt.frob_self_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:935:0: 'TGLExt.disjoint_frobOrtho' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:936:0: 'TGLExt.isCompl_frobOrtho' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:937:0: 'TGLExt.frobProj_comm_Lmul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:938:0: 'TGLExt.finite_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:940:0: 'TGLExt.Grot_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:941:0: 'TGLExt.exp_smul_Grot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:942:0: 'TGLExt.Smat_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:943:0: 'TGLExt.Smat_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:944:0: 'TGLExt.Smat_spectral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:945:0: 'TGLExt.normSq_reflection_add_transmission' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:946:0: 'TGLExt.rhoOut_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:948:0: 'TGLExt.cocycle_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:949:0: 'TGLExt.cocycle_temporal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:950:0: 'TGLExt.cocycle_conjTranspose' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:951:0: 'TGLExt.cocycle_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:952:0: 'TGLExt.cocycle_of_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:953:0: 'TGLExt.logRho_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:954:0: 'TGLExt.cocycle_covariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:956:0: 'TGLExt.sigma_fixed_of_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:957:0: 'TGLExt.logRho_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:958:0: 'TGLExt.sigma_fixed_iff_diag' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:959:0: 'TGLExt.gibbs_tracial_on_centralizer' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:960:0: 'TGLExt.dephase_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:961:0: 'TGLExt.dephase_tendsto_expectation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:962:0: 'TGLExt.ergodic_convergence_modular' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:963:0: 'TGLExt.J_deltaHalf' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:964:0: 'TGLExt.frob_delta_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:965:0: 'TGLExt.gibbs_kms' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:966:0: 'TGLExt.modPow_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:967:0: 'TGLExt.modPow_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:968:0: 'TGLExt.gibbs_sigma' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:969:0: 'TGLExt.exp_logRho' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:970:0: 'TGLExt.sigma_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:971:0: 'TGLExt.diagExpect_bimod' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:972:0: 'TGLExt.eD_Lmul_eD' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:973:0: 'TGLExt.commutant_range_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:975:0: 'TGLExt.lam_mem_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:976:0: 'TGLExt.lam_conj_piRep' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:977:0: 'TGLExt.piRep_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:978:0: 'TGLExt.Ecomp_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:979:0: 'TGLExt.gibbs_Ecomp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:980:0: 'TGLExt.gibbs_piRep_dual' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:981:0: 'TGLExt.modPow_piRep' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:982:0: 'TGLExt.sigma_piRep' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:983:0: 'TGLExt.cocycle_piRep' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:984:0: 'TGLExt.dual_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:985:0: 'TGLExt.cocycle_covariance_beyond_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:986:0: 'TGLExt.Dchi_conj_lam' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:987:0: 'TGLExt.Dchi_comm_modPow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:988:0: 'TGLExt.gibbs_Dchi' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:990:0: 'TGLExt.dyadic_approx' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:991:0: 'TGLExt.dyadic_stage_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:992:0: 'TGLExt.dyadic_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:993:0: 'TGLExt.annihilator_fixes_stage' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:994:0: 'TGLExt.scaling_fixed_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:995:0: 'TGLExt.DualScalingData.fixed_tau_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:996:0: 'TGLExt.DualScalingData.dyadic_stage_tau_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:997:0: 'TGLExt.sFrame_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:998:0: 'TGLExt.sFrame_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:999:0: 'TGLExt.measurement_channel_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1001:0: 'TGLExt.corner_fixed_by_flow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1002:0: 'TGLExt.DualScalingData.finite_trace_not_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1003:0: 'TGLExt.cornerProj_idem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1004:0: 'TGLExt.cornerProj_conjTranspose' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1005:0: 'TGLExt.cornerProj_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1006:0: 'TGLExt.lam_conj_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1007:0: 'TGLExt.trace_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1008:0: 'TGLExt.cornerProj_comm_modPow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1010:0: 'TGLExt.boost_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1011:0: 'TGLExt.boost_preserves_eta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1012:0: 'TGLExt.boost_null_expand' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1013:0: 'TGLExt.boost_null_contract' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1014:0: 'TGLExt.boost_preserves_wedge' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1015:0: 'TGLExt.logRho_gibbs_boost' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1016:0: 'TGLExt.modPow_gibbs_boost' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1017:0: 'TGLExt.sigma_gibbs_boost' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1019:0: 'TGLExt.polarization_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1020:0: 'TGLExt.polarizations_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1021:0: 'TGLExt.rot_conj_polPlus' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1022:0: 'TGLExt.rot_conj_polCross' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1023:0: 'TGLExt.rot_conj_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1024:0: 'TGLExt.gauge_transverse_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1025:0: 'TGLExt.minkNorm4_nullK' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1026:0: 'TGLExt.excite_one_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1027:0: 'TGLExt.excite_leibniz' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1028:0: 'TGLExt.Smat_sub_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1030:0: 'TGLExt.variance_of_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1031:0: 'TGLExt.boundary_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1032:0: 'TGLExt.boundary_variance' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1033:0: 'TGLExt.variance_le_quarter' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1034:0: 'TGLExt.variance_eq_quarter_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1035:0: 'TGLExt.polarization_commutator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1036:0: 'TGLExt.polarizations_noncommute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1037:0: 'TGLExt.classical_limit_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1039:0: 'TGLExt.purity_unitary_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1040:0: 'TGLExt.pure_reductions_trace_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1041:0: 'TGLExt.pure_reductions_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1042:0: 'TGLExt.purityR_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1043:0: 'TGLExt.dephase_purityR_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1044:0: 'TGLExt.entropy_max_at_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1045:0: 'TGLExt.entropy_eq_max_iff_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1047:0: 'TGLExt.first_law_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1048:0: 'TGLExt.clausius_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1049:0: 'TGLExt.Ecomp_fixes_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1050:0: 'TGLExt.dephase_fixes_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1051:0: 'TGLExt.rg_step_doubles_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1053:0: 'TGLExt.zero_mode_state_minimizes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1054:0: 'TGLExt.gibbs_is_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1055:0: 'TGLExt.elementary_critical_implies_gibbs' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1057:0: 'TGLExt.gibbs_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1058:0: 'TGLExt.gibbs_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1059:0: 'TGLExt.boundaryState_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1061:0: 'TGLExt.Sop_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1062:0: 'TGLExt.nameFiniteGNS_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1063:0: 'TGLExt.boundaryState_eq_vector_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1064:0: 'TGLExt.lock_pairing_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1065:0: 'TGLExt.action_locks_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1066:0: 'TGLExt.hermitian_pairing_re' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1067:0: 'TGLExt.action_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1068:0: 'TGLExt.critical_pairing_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1069:0: 'TGLExt.transport_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1070:0: 'TGLExt.transport_fixes_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1071:0: 'TGLExt.transport_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1072:0: 'TGLExt.transport_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1073:0: 'TGLExt.canonicalNamedTransport_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1074:0: 'TGLExt.excite_holonomy' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1075:0: 'TGLExt.excite_holonomy_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1077:0: 'TGLExt.trace_cornerProj_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1078:0: 'TGLExt.cornerProj_loewner_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1079:0: 'TGLExt.sigma_fixes_cornerProj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1080:0: 'TGLExt.cornerProj_ne_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1081:0: 'TGLExt.canonicalTransportedCorner_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1083:0: 'TGLExt.ker_map_of_intertwine' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1084:0: 'TGLExt.starProjection_ker_covariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1085:0: 'TGLExt.starProjection_ker_internal_fix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1086:0: 'TGLExt.starProjection_ker_isotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1087:0: 'TGLExt.lagrangian_zero_iff_mem_ker' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1088:0: 'TGLExt.HilbertHomeData.PF_internal_fix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1089:0: 'TGLExt.HilbertHomeData.PF_external_covariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1090:0: 'TGLExt.HilbertHomeData.PF_isotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1091:0: 'TGLExt.solder_recovers_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1093:0: 'TGLExt.both_homes_exist' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1094:0: 'TGLExt.omega_one_underdetermines_home' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1095:0: 'TGLExt.PsiHomeData.name_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1096:0: 'TGLExt.PsiHomeData.name_flow_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1097:0: 'TGLExt.PsiHomeData.flow_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1098:0: 'TGLExt.PsiHomeData.flow_fixes_spectral_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1100:0: 'TGLExt.absoluteOneField_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1101:0: 'TGLExt.absoluteOne_name_eq_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1102:0: 'TGLExt.absoluteOne_flow_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1103:0: 'TGLExt.commutator_locks_annihilate_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1104:0: 'TGLExt.commutator_kernel_inhabited' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1105:0: 'TGLExt.corner_fixes_inhabitant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1107:0: 'TGLExt.modularGen_eq_neg_excite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1108:0: 'TGLExt.modularGen_omega_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1109:0: 'TGLExt.J_modularGen_J' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1110:0: 'TGLExt.parity_fixed_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1111:0: 'TGLExt.absolute_modularGen_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1112:0: 'TGLExt.absolute_faces_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1113:0: 'TGLExt.absolute_contrast_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1114:0: 'TGLExt.one_eq_q_sq_add_alpha_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1115:0: 'TGLExt.q_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1116:0: 'TGLExt.alpha_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1117:0: 'TGLExt.alpha_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1118:0: 'TGLExt.alpha_deriv_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1119:0: 'TGLExt.W_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1120:0: 'TGLExt.susy_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1121:0: 'TGLExt.susy_partner_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1123:0: 'TGLExt.minimal_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1124:0: 'TGLExt.minimal_curvature_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1125:0: 'TGLExt.curvature_flat_same' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1126:0: 'TGLExt.solderMetric_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1127:0: 'TGLExt.solderMetric_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1128:0: 'TGLExt.solder_lorentzian' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1129:0: 'TGLExt.helicityRep_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1130:0: 'TGLExt.minimal_curvature_recovered' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1132:0: 'TGLExt.leakage_strictly_loses' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1133:0: 'TGLExt.full_closure_iff_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1134:0: 'TGLExt.beta_forbids_full_static_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1135:0: 'TGLExt.verb_not_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1136:0: 'TGLExt.leakage_rate_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1137:0: 'TGLExt.canonical_witness_is_not_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1139:0: 'TGLExt.solderMetric4_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1140:0: 'TGLExt.solderMetric4_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1141:0: 'TGLExt.solder4_lorentzian' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1142:0: 'TGLExt.generators_in_so13' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1143:0: 'TGLExt.bracket_in_so_eta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1144:0: 'TGLExt.so_eta_infinitesimal_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1145:0: 'TGLExt.boosts_close_in_minus_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1146:0: 'TGLExt.rotations_close_in_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1147:0: 'TGLExt.boosts_curvature_is_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1148:0: 'TGLExt.lorentzRep_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1149:0: 'TGLExt.curvature4_recovered' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1150:0: 'TGLExt.susy_discrete_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1152:0: 'TGLExt.kernel_weight_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1153:0: 'TGLExt.kernel_weight_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1154:0: 'TGLExt.breuer_kernel_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1155:0: 'TGLExt.local_gap_package_consistent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1156:0: 'TGLExt.global_tau_compactness_refuted' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1157:0: 'TGLExt.no_finite_weyl_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1158:0: 'TGLExt.plus_block_eigenvalue_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1159:0: 'TGLExt.halfTanh_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1160:0: 'TGLExt.tendsto_halfTanh_atTop' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1161:0: 'TGLExt.tendsto_halfTanh_atBot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1162:0: 'TGLExt.phi0sq_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1163:0: 'TGLExt.zero_mode_weight_is_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1165:0: 'TGLExt.susy_relative_gap_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1166:0: 'TGLExt.susy_relative_gives_breuer' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1167:0: 'TGLExt.susy_relative_package_consistent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1168:0: 'TGLExt.perturbation_injective_on_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1169:0: 'TGLExt.kernel_dim_le_rank_of_perturbation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1170:0: 'TGLExt.discrete_parallel_solder_preserves_metric' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1172:0: 'TGLExt.eta4_lorentzByCongruence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1173:0: 'TGLExt.sylvester_full_closed_by_congruence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1174:0: 'TGLExt.lorentzByCongruence_congruent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1175:0: 'TGLExt.four_frame_gives_lorentz_metric' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1176:0: 'TGLExt.equivariant_state_section_from_global_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1177:0: 'TGLExt.breuer_weight_normalizes_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1178:0: 'TGLExt.sqrt_potential_is_L2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1179:0: 'TGLExt.resolvent_kernel_is_L2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1180:0: 'TGLExt.emergence_reduced_to_named_hypotheses' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1182:0: 'TGLExt.einstein_coefficient_from_clausius' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1183:0: 'TGLExt.horizon_clausius_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1184:0: 'TGLExt.jacobi_commutator_bianchi_seed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1185:0: 'TGLExt.emergence_master_full_triad' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1187:0: 'TGLExt.rotZ_preserves_eta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1188:0: 'TGLExt.helicity_two_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1189:0: 'TGLExt.helicity_two_rotation_cross' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1190:0: 'TGLExt.tt_kinetic_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1191:0: 'TGLExt.tt_no_negative_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1192:0: 'TGLExt.polarizations_linearly_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1194:0: 'TGLExt.psd_offdiag_zero_of_diag_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1195:0: 'TGLExt.psd_trace_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1196:0: 'TGLExt.trace_monotone_of_psd_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1197:0: 'TGLExt.matrix_trace_is_faithful_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1199:0: 'TGLExt.dimension_trace_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1200:0: 'TGLExt.dimension_trace_top_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1201:0: 'TGLExt.concrete_kernel_weight_via_abstract_layer' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1202:0: 'TGLExt.concrete_kernel_full_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1204:0: 'TGLExt.dimension_trace_over_top_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1205:0: 'TGLExt.threeLocks_ker_ne_bot_of_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1206:0: 'TGLExt.three_locks_corner_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1207:0: 'TGLExt.three_locks_corner_weight_eq_dim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1208:0: 'TGLExt.three_locks_name_is_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1209:0: 'TGLExt.corner_le_each_lock' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1210:0: 'TGLExt.three_locks_corner_dim_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1211:0: 'TGLExt.three_locks_corner_full_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1213:0: 'TGLExt.semifinite_trace_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1214:0: 'TGLExt.semifinite_trace_atom' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1215:0: 'TGLExt.semifinite_trace_is_semifinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1216:0: 'TGLExt.semifinite_trace_top_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1217:0: 'TGLExt.global_gap_impossible_infinite_dim' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1218:0: 'TGLExt.infinite_dim_local_breuer_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1219:0: 'TGLExt.not_finiteDimensional_finsupp' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1220:0: 'TGLExt.first_infinite_dim_inhabitant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1222:0: 'TGLExt.atom_is_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1223:0: 'TGLExt.closed_lattice_semifinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1224:0: 'TGLExt.closed_double_orthocomplement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1225:0: 'TGLExt.orthocomplement_meet_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1226:0: 'TGLExt.closed_orthocomplement_isCompl' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1227:0: 'TGLExt.inscription_complement_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1228:0: 'TGLExt.atom_complement_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1229:0: 'TGLExt.closed_local_breuer_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1231:0: 'TGLExt.closed_projection_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1232:0: 'TGLExt.starProjection_eq_zero_of_mem_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1233:0: 'TGLExt.orthogonal_invariant_of_adjoint_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1234:0: 'TGLExt.starProjection_commutes_of_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1235:0: 'TGLExt.invariant_of_starProjection_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1236:0: 'TGLExt.selfadjoint_invariant_iff_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1237:0: 'TGLExt.selfadjoint_ker_projection_in_commutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1238:0: 'TGLExt.breuer_corner_projection_in_commutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1240:0: 'TGLExt.dimension_trace_normal_on_chains' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1241:0: 'TGLExt.operator_commutant_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1242:0: 'TGLExt.operator_algebra_in_double_commutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1243:0: 'TGLExt.operator_triple_commutant_collapse' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1244:0: 'TGLExt.operator_commutant_unital_multiplicative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1245:0: 'TGLExt.corner_projection_in_commutant_set' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1246:0: 'TGLExt.corner_commutes_with_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1247:0: 'TGLExt.breuer_corner_full_algebraic_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1249:0: 'TGLExt.commutant_pointwise_limit_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1250:0: 'TGLExt.commutant_add_smul_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1251:0: 'TGLExt.generator_in_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1252:0: 'TGLExt.powers_in_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1253:0: 'TGLExt.polynomials_in_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1254:0: 'TGLExt.limit_of_polynomials_in_bicommutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1255:0: 'TGLExt.corner_in_algebra_of_approximation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1256:0: 'TGLExt.concrete_breuer_corner_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1258:0: 'TGLExt.verb_word_lands_in_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1259:0: 'TGLExt.verb_word_fixes_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1260:0: 'TGLExt.verb_word_mints_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1261:0: 'TGLExt.name_candidate_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1262:0: 'TGLExt.witness_seed_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1264:0: 'TGLExt.real_word_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1265:0: 'TGLExt.name_candidate_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1266:0: 'TGLExt.selfadjoint_idempotent_eq_starProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1267:0: 'TGLExt.exact_witness_of_annihilating_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1268:0: 'TGLExt.spectral_witness_of_annihilating_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1269:0: 'TGLExt.breuer_corner_of_annihilating_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1271:0: 'TGLExt.star_aeval_eq_map_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1272:0: 'TGLExt.minpoly_selfadjoint_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1273:0: 'TGLExt.minpoly_zero_not_double_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1274:0: 'TGLExt.annihilating_word_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1275:0: 'TGLExt.finite_face_witness_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1276:0: 'TGLExt.finite_face_corner_in_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1278:0: 'TGLExt.ker_mul_self_eq_ker' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1279:0: 'TGLExt.cfc_polynomial_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1280:0: 'TGLExt.iso_zero_cfc_eq_starProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1281:0: 'TGLExt.spectral_witness_of_isolated_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1282:0: 'TGLExt.concrete_breuer_corner_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1284:0: 'TGLExt.inscriptions_orthonormal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1285:0: 'TGLExt.ellTwo_not_finiteDimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1286:0: 'TGLExt.eraseFirst_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1287:0: 'TGLExt.ker_eraseFirst' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1288:0: 'TGLExt.eraseFirst_spectrum_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1289:0: 'TGLExt.concrete_corner_fires' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1290:0: 'TGLExt.corner_weighs_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1292:0: 'TGLExt.eraseFirst_isSelfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1293:0: 'TGLExt.lockFlow_commutes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1294:0: 'TGLExt.theConstantNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1295:0: 'TGLExt.theNetTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1296:0: 'TGLExt.net_PF_fixed_by_flow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1297:0: 'TGLExt.net_corner_weighs_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1298:0: 'TGLExt.modularFrame_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1299:0: 'TGLExt.modularFrame_det_isUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1300:0: 'TGLExt.concrete_four_frame_fires' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1302:0: 'TGLExt.dimOrTop_subadd' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1303:0: 'TGLExt.ellTwoTraceSub' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1304:0: 'TGLExt.ellTwoSusy' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1305:0: 'TGLExt.theHorizon' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1306:0: 'TGLExt.the_master_fires' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1307:0: 'TGLExt.master_corner_weighs_the_name' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1309:0: 'TGLExt.constant_net_group_trivial' does not depend on any axioms
+info: TGL/Audit.lean:1310:0: 'TGLExt.identity_inclusion_cannot_witness' does not depend on any axioms
+info: TGL/Audit.lean:1312:0: 'TGLExt.beamRotation_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1313:0: 'TGLExt.superposition_not_autonomous' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1314:0: 'TGLExt.beamSplitterRule' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1316:0: 'TGLExt.fiberIncl_not_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1317:0: 'TGLExt.theFlip_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1318:0: 'TGLExt.theFlip_comm_eraseFirst' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1319:0: 'TGLExt.theIsotoneNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1321:0: 'TGLExt.ideal_zero_has_name_not_inhabitant' does not depend on any axioms
+info: TGL/Audit.lean:1322:0: 'TGLExt.channel_never_reaches_ideal' does not depend on any axioms
+info: TGL/Audit.lean:1323:0: 'TGLExt.lockFlow_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1325:0: 'TGLExt.benchDiracPMap_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1326:0: 'TGLExt.theBenchDirac' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1327:0: 'TGLExt.theBenchCertificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1328:0: 'TGLExt.benchDirac_is_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1329:0: 'TGLExt.bench_cannot_feed_strong' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1330:0: 'TGLExt.isotone_cannot_feed_strong_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1331:0: 'TGLExt.constant_cannot_feed_strong_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1333:0: 'TGLExt.theCurvedFrame' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1334:0: 'TGLExt.curvedFrame_nonconstant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1335:0: 'TGLExt.curvedFrame_det_everywhere' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1336:0: 'TGLExt.strongFromWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1337:0: 'TGLExt.constant_action_cannot_witness' does not depend on any axioms
+info: TGL/Audit.lean:1338:0: 'TGLExt.isotone_cannot_feed_witness_geometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1340:0: 'TGLExt.numberOp_symmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1341:0: 'TGLExt.numberOp_unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1342:0: 'TGLExt.numberDomain_dense' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1343:0: 'TGLExt.adjoint_domain_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1344:0: 'TGLExt.numberOp_selfadjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1345:0: 'TGLExt.numberOp_quad_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1346:0: 'TGLExt.theGenuineDirac' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1348:0: 'TGLExt.tailSub_not_finiteDimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1349:0: 'TGLExt.tailIncl_not_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1350:0: 'TGLExt.theTailNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1351:0: 'TGLExt.genuineDirac_kerSub' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1352:0: 'TGLExt.theStrongCertificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1353:0: 'TGLExt.qgStrongCertificate_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1354:0: 'TGLExt.qgStrongCertificate_corner' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1355:0: 'TGLExt.qgStrongCertificate_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1357:0: 'TGLExt.theSolderField_det_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1358:0: 'TGLExt.theSolderField_nonconstant' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1359:0: 'TGLExt.theSolderData' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1360:0: 'TGLExt.qgStrongCertificate_solder' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1362:0: 'TGLExt.Gamma001_from_metric' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1363:0: 'TGLExt.Gamma100_from_metric' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1364:0: 'TGLExt.Riemann1001_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1365:0: 'TGLExt.Riemann1001_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1366:0: 'TGLExt.time_ansatz_r1001_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1367:0: 'TGLExt.theStaticSolderData' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1369:0: 'TGLExt.ansatzRiemann_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1370:0: 'TGLExt.ansatzG00_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1371:0: 'TGLExt.ansatzG11_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1372:0: 'TGLExt.vacuum_implies_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1373:0: 'TGLExt.rindler_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1374:0: 'TGLExt.static_not_vacuum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1375:0: 'TGLExt.ansatz_recovers_v108' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1378:0: 'TGLExt.constant_profile_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1379:0: 'TGLExt.curvature_implies_fall' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1380:0: 'TGLExt.fall_demands_source_v108' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1381:0: 'TGLExt.geometry_iff_second_variation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1382:0: 'TGLExt.geometry_is_projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1384:0: 'TGLExt.cosh_solves_field_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1385:0: 'TGLExt.cosh_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1386:0: 'TGLExt.source_implies_curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1387:0: 'TGLExt.zero_source_recovers_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1388:0: 'TGLExt.theSolvedEquation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1389:0: 'TGLExt.theWeakEinsteinContract' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1391:0: 'TGLExt.null_contraction_reads_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1392:0: 'TGLExt.emergence_forces_field_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1393:0: 'TGLExt.emergence_zero_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1394:0: 'TGLExt.theReducedEmergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1395:0: 'TGLExt.theGeometricNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1396:0: 'TGLExt.theGeometricWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1397:0: 'TGLExt.witness_action_moves_regions_not_fibers' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1399:0: 'TGLExt.first_derivative_does_not_decide' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1400:0: 'TGLExt.reading_rides_the_zeros' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1402:0: 'TGLExt.lightWave_pd' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1403:0: 'TGLExt.graviton_wave_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1404:0: 'TGLExt.theSensitiveNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1405:0: 'TGLExt.theSensitiveWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1406:0: 'TGLExt.witness_fiber_sensitive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1409:0: 'TGLExt.theCoshSolderData' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1410:0: 'TGLExt.theCoshSolder_reads' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1411:0: 'TGLExt.null_cone_ledger' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1412:0: 'TGLExt.radial_null_blind' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1413:0: 'TGLExt.full_cone_clausius_iff_field_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1414:0: 'TGLExt.emergent_field_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1415:0: 'TGLExt.theEmergentEinstein' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1416:0: 'TGLExt.emergent_recovers_solved' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1417:0: 'TGLExt.emergent_genuinely_curved' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1418:0: 'TGLExt.qgStrongCertificate_einstein' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1420:0: 'TGLExt.eta4_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1421:0: 'TGLExt.isLorentz_other_side' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1422:0: 'TGLExt.lorentz_det_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1423:0: 'TGLExt.theBoost_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1424:0: 'TGLExt.boost_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1425:0: 'TGLExt.parity_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1426:0: 'TGLExt.parity_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1427:0: 'TGLExt.pAct_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1428:0: 'TGLExt.poincare_faithful' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1429:0: 'TGLExt.translation_moves' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1431:0: 'TGLExt.thePoincareNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1432:0: 'TGLExt.thePoincareWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1433:0: 'TGLExt.parity_fixes_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1434:0: 'TGLExt.poincare_witness_fiber_sensitive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1435:0: 'TGLExt.poincare_witness_boost_moves' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1436:0: 'TGLExt.poincare_witness_faithful' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1437:0: 'TGLExt.proper_sector_fibers_blind' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1440:0: TGL_KERNEL_BUILD_OK
+info: TGL/Audit.lean:1441:0: FINITE_THREE_LOCKS_KERNEL_PROVED
+info: TGL/Audit.lean:1442:0: CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
+info: TGL/Audit.lean:1443:0: SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED
+info: TGL/Audit.lean:1444:0: MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS
+info: TGL/Audit.lean:1445:0: FULL_TGL_WITNESS_REMAINS_UNCONSTRUCTED
+info: TGL/Audit.lean:1446:0: THE_CANONICAL_INHABITANT_IS_THE_VERB
+info: TGL/Audit.lean:1447:0: TRANSPORT_DEFECT_MEASURES_RESISTANCE
+info: TGL/Audit.lean:1448:0: THE_NAME_INDEX_IS_READ_IN_THE_JONES_MIRROR
+info: TGL/Audit.lean:1449:0: HALF_NAT_IS_THE_ONLY_FINITE_MARKOV_MIRROR
+info: TGL/Audit.lean:1450:0: GRAVITON_BELL_SHADOW_CCI_HALF
+info: TGL/Audit.lean:1451:0: THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX
+info: TGL/Audit.lean:1452:0: CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR
+info: TGL/Audit.lean:1453:0: FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED
+✔ [8652/8654] Built TGL.Main (11s)
+✔ [8653/8654] Built TGL (11s)
+Build completed successfully (8654 jobs).
 
 --- STDERR ---
 

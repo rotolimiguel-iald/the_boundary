@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `8b4d63076bb4dfa01da5caa4bf137f6a027d7a0d47beddbdbd0b5c12f7dd4de1`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `85e1f99119f24305615ac6a0a5cd3bed1fc48dd644c8d6151ba0c0bcdb1c1efd`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -519,7 +519,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 422/422 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 453/453 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -584,6 +584,8 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `solved_equation` = `SEMIFINITE_ANALYSIS_INCREMENT_31__FIRST_SOLVED_FIELD_EQUATION__COSH_SOLVES_G22_EQ_KAPPA_SQ_GLOBALLY__SOURCE_IMPLIES_CURVATURE__WEAK_CONTRACT_INHABITED_AS_PROBE__FIFTH_FLIP_RESERVED_FOR_EMERGENCE__SEAL_STAYS_CONDITIONAL`
 - `walls_assault` = `SEMIFINITE_ANALYSIS_INCREMENTS_32_33__REDUCED_JACOBSON_EMERGENCE_CLAUSIUS_FORCES_FIELD_EQUATION_VIA_BIANCHI_ZERO__TYPABLE_HALF_OF_FULL_WITNESS_INHABITED_GENUINE_GROUP_ACTION__WALLS_SHRUNK_TO_RAYCHAUDHURI_AND_POINCARE_III1__V2_RESERVED__SEAL_STAYS_CONDITIONAL`
 - `graviton_reading` = `SEMIFINITE_ANALYSIS_INCREMENT_34__READER_RIDES_BIANCHI_ZEROS__PHYSICAL_IN_SECOND_DERIVATIVE_FIRST_IS_GAUGE_SAME_POINT__HYPERBOLIC_GEAR_TWO_TO_ONE_READING_ONTO__SEAL_STAYS_CONDITIONAL`
+- `continuum_shards` = `SEMIFINITE_ANALYSIS_INCREMENT_35__GRAVITON_WAVE_EQUATION_IN_CONTINUUM_DALEMBERT_ANY_C2__FIBER_FEELS_THE_GROUP_FLIP_FIXES_REGION__WALLS_SHRUNK_TT_GHOST_POINCARE10_III1__BENCH_TEST_EMITTED__SEAL_STAYS_CONDITIONAL`
+- `master_continuum` = `SEMIFINITE_ANALYSIS_INCREMENTS_36_37_38__CONTINUOUS_MASTER_CONTRACT_ON_THE_SOLDER__FULL_NULL_CONE_CLAUSIUS_IFF_FIELD_EQUATION__FIFTH_RESERVED_NAME_MINTED_EINSTEIN__LORENTZ_GROUP_BY_HAND_DEFINING_RELATION__BOOST_LAW_IS_HYPERBOLIC_GEAR__POINCARE_TEN_DIRECTIONS_FAITHFUL__PARITY_MOVES_FIBER_FIXING_ORIGIN__PROPER_SECTOR_FIBERS_BLIND__WITNESS_WALL_NAMED_UNITARY_REP_PLUS_III1__SEAL_STAYS_CONDITIONAL`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
@@ -800,6 +802,33 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `a_predicao_derivada`: [CONDICIONAL linear] M_TGL = M_RG (stealth; beta nao renormaliza G local) -- a TGL NAO tem formula-beta de massa e nunca teve (ensaio verbatim + whitepaper)
 - `onde_beta_fala`: [REAL na forma] resposta: Gamma_omega = (1/2)beta tau* omega^2; H0_local=(1+z*)^beta; piso rho/rhobar >= beta -- o falsificador cosmologico zero-free e o PISO
 - `o_veredito`: GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE
+
+**Estatutos [master_continuum]** (veredito: `TGL_MASTER_CONTINUUM__FIFTH_FLIP_MINTED_BY_CONSTRUCTION__CLAUSIUS_CONE_IFF_FIELD_EQUATION_ON_SOLDER__POINCARE_TEN_DIRECTIONS_BY_HAND_FAITHFUL__FIBER_FEELS_PARITY__WITNESS_WALL_SHRUNK_TO_CONNECTED_UNITARY_REP_PLUS_III1__SEAL_UNMOVED`):
+
+- `o_5o_flip`: einstein True POR CONSTRUCAO (termo Lean qgStrongCertificate_einstein com axiomas limpos): contrato com CURVATURA como estrutura + solda + Clausius no cone; a emergencia GERAL (metricas arbitrarias) segue nomeada e aberta
+- `a_witness`: a metade de Poincare esta CONSTRUIDA (grupo a mao + acao fiel + fibra sensivel ao setor desconexo); o residuo NOMEADO: rep unitaria FIEL do setor conexo (INF-dim) + fator III_1 -- o V2 segue RESERVADO ate o tipo capturar o espirito inteiro
+- `honestidade`: nenhuma frase 'provamos a gravitacao quantica': 5 formais < 6, e o selo so escala com fisica + dado; cosmologia jamais vira prova matematica
+- `o_veredito`: TGL_MASTER_CONTINUUM__FIFTH_FLIP_MINTED_BY_CONSTRUCTION__CLAUSIUS_CONE_IFF_FIELD_EQUATION_ON_SOLDER__POINCARE_TEN_DIRECTIONS_BY_HAND_FAITHFUL__FIBER_FEELS_PARITY__WITNESS_WALL_SHRUNK_TO_CONNECTED_UNITARY_REP_PLUS_III1__SEAL_UNMOVED
+
+**Estatutos [inhabited_witness]** (veredito: `TGL_INHABITED_WITNESS__TWO_ZEROS_DISTINGUISHED_BY_TYPE__EMPTY_OBSERVER_IS_THE_ABSOLUTE_ZERO__MODULAR_ZERO_IS_THE_INHABITED_APERTURE__CONJUGATED_HALF_FACES_WEIGH_THE_ONE__INSCRIPTION_IS_A_THEOREM__NAMING_ONTO`):
+
+- `os_dois_zeros`: 0_abs = observador vazio (tipo sem habitante) / 0_modular = a casa do Nome (habitada, tau=1) -- a testemunha mora no zero habitado
+- `a_parede_nomeada`: III_1 e' definido por 'o unico traco e' zero' -- a leitura do operador aponta a propriedade que DEFINE a parede restante da testemunha (rep unitaria fiel do setor conexo + III_1)
+- `o_veredito`: TGL_INHABITED_WITNESS__TWO_ZEROS_DISTINGUISHED_BY_TYPE__EMPTY_OBSERVER_IS_THE_ABSOLUTE_ZERO__MODULAR_ZERO_IS_THE_INHABITED_APERTURE__CONJUGATED_HALF_FACES_WEIGH_THE_ONE__INSCRIPTION_IS_A_THEOREM__NAMING_ONTO
+
+**Estatutos [void_floor_lrg]** (veredito: `TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION`):
+
+- `o_tracador`: LRG DR1 (z 0.40-0.80; b~2 [EXT]) -- amostra VIRGEM, independente do BGS em z, populacao e vies; a fatia que o v81 provou nao existir no BGS agora EXISTE
+- `a_calibracao`: razao-de-razoes v92 + reamostragem radial: n_bar, mascara E selecao n(z) cancelam por construcao
+- `honestidades`: unilateral (b>=1: FALSIFIED inalcancavel em tracadores); contaminacao do achador dilui r_c para CIMA (nomeada); resolucao na escala beta = 851.65; RSD nao modelado; colchete b in [1, 2.4]
+- `o_veredito`: TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION
+
+**Estatutos [void_floor_kappa_v5]** (veredito: `VOID_FLOOR_KAPPA_V5_INCONCLUSIVE_SYSTEMATICS`):
+
+- `a_autopsia`: o v98 avaliou o ceu no quadro errado (equatorial em klm galactico) e sem pegada -- o INCONCLUSIVE dele era o fail-closed funcionando; a V5 corrige o instrumento ANTES de reler o dado
+- `a_leitura`: kappa e' MATERIA (lente do CMB): centros DESI rodados a galactico, mantidos so' na pegada; nulos rodam DENTRO da pegada
+- `honestidade`: se INCONCLUSIVE persistir: o proximo suspeito e' o ruido da reconstrucao em escalas de vazio (L baixo), nao o quadro; se UNDERPOWERED: profundidade e' o limite, nao o metodo
+- `o_veredito`: VOID_FLOOR_KAPPA_V5_INCONCLUSIVE_SYSTEMATICS
 
 **Estatutos [certificate_II]** (veredito: `CERTIFICATE_II_FINITE_FACE_INHABITED__CONCRETE_THREE_LOCKS_INSTANTIATE_H1__MODULAR_BOOSTS_GIVE_FOUR_FRAME_H2__CONTINUUM_NETWORK_IS_THE_HYPOTHESES_PROPER`):
 

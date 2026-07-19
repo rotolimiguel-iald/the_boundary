@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-18 11:32:55",
-  "result_hash": "b45d3fa8a3a0d5eb4c5ffa48f8c6a26f636db3dd2cffaa7022be0d3c0ba2d448",
+  "timestamp": "2026-07-18 21:39:40",
+  "result_hash": "e9fc2a17ff1a1a303886a1843f43895beb693b9e2a98110216d8aa101fb43a0e",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": false,
@@ -46,7 +46,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "8b4d63076bb4dfa01da5caa4bf137f6a027d7a0d47beddbdbd0b5c12f7dd4de1",
+  "formal_source_hash": "85e1f99119f24305615ac6a0a5cd3bed1fc48dd644c8d6151ba0c0bcdb1c1efd",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -62,18 +62,18 @@
   "coma_dephasing": {
     "verdict": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "ac344b4086369ec0eca25fc911e80c96f18251e72f9246a65f77cad509819e3e",
+    "prediction_hash": "f2f0549f46474f25f1a1e120107f43f12e04d0bbf587563318534148172c5c31",
     "does_not_gate_core": true
   },
   "sha256": {
-    "um.py": "caf7ccf7feeda71ef9f3d3b95d493414e2ea14667a6fa4902bb504ef3f1cf344",
-    "um_grande_atrator_manifest.md": "db665e6b0ff8f4a0f5e6d69912198e2b84d157584db7b79716d91adf416a450b",
-    "um_grande_atrator.json": "c698b4ab146a54519211e26de3c8c9f25cc29b53f25d154600f61aabeb3ba12f",
-    "um_grande_atrator_forma_canonica.md": "5a053dad5f8d563d7c0813f6082d52f7c247ec1ea272725698a40574a8be5265",
-    "um_grande_atrator_pt.tex": "70fc87319f5602782a4e31c5b1acdd0f4631f99eec6a2efd74fa557b950178af",
-    "um_grande_atrator_en.tex": "9cf6cb694e49d48fb88925405fe992734a2eb659ccde50f97d695d11f5032512",
-    "um_grande_atrator_pt.pdf": "32e547839464b2cd2156aef964e82b3d8cf12e26eef0b32b0112c5b685c5e438",
-    "um_grande_atrator_en.pdf": "44d732dbc0d65f7ca614c0a5b244094968003ce277a1631852a5df3cd021f07c",
-    "tgl_kernel_proof_manifest.json": "7d8e2cc14b13a80f35a4c2bc0268c19d1d10a8e8328c8770535c71c91fe370f7"
+    "um.py": "ee07311db56c4d6b1ce88e3fb171207063fa59061a8b2e90a007fb3c55dfa8b2",
+    "um_grande_atrator_manifest.md": "aad5707215c5e6fd6af15587698238c674857fb0f54f0c8ba9251d2c22557693",
+    "um_grande_atrator.json": "4d3b93d1aa61d0411adbd2b3795b03399322d2e2c4400c7ae72b74d50226e803",
+    "um_grande_atrator_forma_canonica.md": "4c23ec53c0f9b8889a9a8a97aa60f9045dd1f5e8e7d8dbaffd07b4b6fb3ab59b",
+    "um_grande_atrator_pt.tex": "c807ddff9d82580fb8d23e3d07ddcecdead82fb4c41769b335c3f1f48364509f",
+    "um_grande_atrator_en.tex": "ee6b4f99405130fac220bc31de3cd25a7b81286caf785e517178ee14f4704821",
+    "um_grande_atrator_pt.pdf": "beb1b6023376116879fa3165c3e24063953127d82e7ac684f1094ecaf524138c",
+    "um_grande_atrator_en.pdf": "a18fd68af867208b7cd41243f79e78fa91af1260edcfc863d762d2ebc52f8917",
+    "tgl_kernel_proof_manifest.json": "7c0cbd6363a54ef2c530a0e24832085200bb0427b2eadfc36dab9a4421d0c8f7"
   }
 }

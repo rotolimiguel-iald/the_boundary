@@ -4382,17 +4382,177 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.lightWave_pd": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.graviton_wave_equation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theSensitiveNet": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theSensitiveWitness": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.witness_fiber_sensitive": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theCoshSolderData": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theCoshSolder_reads": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.null_cone_ledger": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.radial_null_blind": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.full_cone_clausius_iff_field_equation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.emergent_field_equation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theEmergentEinstein": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.emergent_recovers_solved": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.emergent_genuinely_curved": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.qgStrongCertificate_einstein": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.eta4_mul_self": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.isLorentz_other_side": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.lorentz_det_sq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theBoost_add": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.boost_ne_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.parity_det": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.parity_ne_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.pAct_mul": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.poincare_faithful": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.translation_moves": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.thePoincareNet": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.thePoincareWitness": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.parity_fixes_origin": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.poincare_witness_fiber_sensitive": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.poincare_witness_boost_moves": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.poincare_witness_faithful": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.proper_sector_fibers_blind": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "8b4d63076bb4dfa01da5caa4bf137f6a027d7a0d47beddbdbd0b5c12f7dd4de1",
+      "formal_source_hash": "85e1f99119f24305615ac6a0a5cd3bed1fc48dd644c8d6151ba0c0bcdb1c1efd",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "73c1ad3486f19cbfa7b1dca214275b070ffcc6ceda31a3d3ccf35777d708d121",
+        "TGLExt.lean": "f50bb40240608857231ff796f57b2041146dde4812c1d37e9e2ea7bc8aa00a80",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "1282f372413c196d28afe90880d7cd41cbfbe5982fc38287363e80a6d4cbb9f5",
+        "TGL/Audit.lean": "4ac3e2462ed8add7278c26c6855043773a20153865b45893ec0ca605a27b4211",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -4432,10 +4592,12 @@
         "TGLExt/ConcreteFourFrame.lean": "4c3d4ab63b2df108961c9875b23853a3315aa96a9a0a89180106d212e1d9f550",
         "TGLExt/CondExpect.lean": "33e0eecd498ec326d8f5bf699b3a5b5aae4a388fa049564bfd8619b096737ede",
         "TGLExt/ContinuousModularZero.lean": "0dad5794f98ba1cb8519b4c105f63d555b5dc3d8fab7884f8265aebff214f376",
+        "TGLExt/ContinuumShards.lean": "18e43b74a336360ff7c4458b703e263e06e52f4778aba225073fac65d8614c40",
         "TGLExt/CornerFamily.lean": "bbceea91341abcf2b2a3f0f33ce88975fd5c529f05918c6982eb4872b66fe105",
         "TGLExt/CovariantCorner.lean": "155cb43d01bb7645bd6bef16d21fbbf2c01114a73fa466e1e4d18ac92a6c5e7d",
         "TGLExt/DimensionTrace.lean": "cdadc9fdf8ed641c7c260e0a5450577b4e190b102a055dc0d2c49e71f49338ea",
         "TGLExt/EmergenceTriad.lean": "3b7c6220060598fb4353dddefd71fb9064db3ce8a1e2cf891d0f2ae8c97c04e9",
+        "TGLExt/EmergentEinstein.lean": "836ac3e4035afc52b9bf46d5640007a8ae4f66c3c55ee90153600437564f6f50",
         "TGLExt/Ergodicity.lean": "79bc3b939b6e4e598cefed39088d5b9e9a06e125614bd185f414441c3718f5de",
         "TGLExt/ExactWitness.lean": "c1c8bf0a6fc0d7ab053fa3a119fc6d9dcfe7a5e752ab4b11f0eb2d2034701e32",
         "TGLExt/FallenLight.lean": "145eed2729d232ee9405d4124a0c333c3344e0a4a0b898b3a3eb189ba28cb3c0",
@@ -4467,6 +4629,8 @@
         "TGLExt/NumberSelfAdjoint.lean": "72dee88258250dea5bd660657a47cc8ba4d769b5decaa74d5a4f09e5842ffafb",
         "TGLExt/PPIndex.lean": "7f6dc10d57b4852440308ce1c096cbc8e6403d1ac24d0d099e98cb204802060a",
         "TGLExt/PageInformation.lean": "a36b61ba76d0c9d6b22e6fad7a29a05d01ab5b6a240e00de16fabd0e4daf062e",
+        "TGLExt/PoincareGroup.lean": "c73c927631381aa78136222d30783aa393735a146607e799371db22b4a4466db",
+        "TGLExt/PoincareWitness.lean": "848f2937f35ec50b2ab483336cc3ba17c46135eb52c17418bc1fbc1530f568ad",
         "TGLExt/ProgrammerRule.lean": "89e5e14bee9dc4aa37ded5f8b5269ce9fd93787f16eec9346273042c93fc349d",
         "TGLExt/PsiEmergence.lean": "ff0fd49da7bda187a61454a6b57099e99d1c59c8af038fa43c90c1653736bb04",
         "TGLExt/RGStability.lean": "ae3c1eeee6d86ea43b57ee0afe171bb43c0f24094702130ec3c2604f53aa7bf5",
@@ -4976,30 +5140,61 @@
       "ext_wa_regions_not_fibers_kernel_proved": true,
       "ext_gr_first_not_decide_kernel_proved": true,
       "ext_gr_rides_zeros_kernel_proved": true,
+      "ext_cs_lightwave_pd_kernel_proved": true,
+      "ext_cs_wave_equation_kernel_proved": true,
+      "ext_cs_sensitive_net_kernel_proved": true,
+      "ext_cs_sensitive_witness_kernel_proved": true,
+      "ext_cs_fiber_sensitive_kernel_proved": true,
+      "ext_ee_cosh_solder_kernel_proved": true,
+      "ext_ee_solder_reads_kernel_proved": true,
+      "ext_ee_null_cone_ledger_kernel_proved": true,
+      "ext_ee_radial_blind_kernel_proved": true,
+      "ext_ee_cone_iff_field_eq_kernel_proved": true,
+      "ext_ee_emergent_field_eq_kernel_proved": true,
+      "ext_ee_inhabitant_kernel_proved": true,
+      "ext_ee_recovers_solved_kernel_proved": true,
+      "ext_ee_genuinely_curved_kernel_proved": true,
+      "ext_pg_eta_involutive_kernel_proved": true,
+      "ext_pg_other_side_kernel_proved": true,
+      "ext_pg_det_pm_one_kernel_proved": true,
+      "ext_pg_boost_law_kernel_proved": true,
+      "ext_pg_boost_ne_one_kernel_proved": true,
+      "ext_pg_parity_det_kernel_proved": true,
+      "ext_pg_parity_ne_one_kernel_proved": true,
+      "ext_pg_act_mul_kernel_proved": true,
+      "ext_pg_faithful_kernel_proved": true,
+      "ext_pg_translation_moves_kernel_proved": true,
+      "ext_pw_net_kernel_proved": true,
+      "ext_pw_witness_kernel_proved": true,
+      "ext_pw_parity_fixes_origin_kernel_proved": true,
+      "ext_pw_fiber_sensitive_kernel_proved": true,
+      "ext_pw_boost_moves_kernel_proved": true,
+      "ext_pw_faithful_on_regions_kernel_proved": true,
+      "ext_pw_proper_fibers_blind_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "44c2a58f5d4f39fb7a177937120e63adb543d4b8d7eb75b238329ed50907ca30",
+      "build_stdout_sha256": "481ec4ca3e7504c1f903c6daebf8537931174332db30ea0a406b359badfec29f",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "7c9e1ddd743905b6095d93f22514b7b386bfbbf377f44d7dcef3cf1032846318",
+      "audit_stdout_sha256": "75f6af5c04ff278717aadb4a623faa412f16dd97e2935c60dab3415b42a3c033",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 216244,
+        "stdout": 223529,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 161966,
+        "stdout": 165616,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "44c2a58f5d4f39fb7a177937120e63adb543d4b8d7eb75b238329ed50907ca30",
-      "audit_capture_sha256_full": "7c9e1ddd743905b6095d93f22514b7b386bfbbf377f44d7dcef3cf1032846318",
+      "build_capture_sha256_full": "481ec4ca3e7504c1f903c6daebf8537931174332db30ea0a406b359badfec29f",
+      "audit_capture_sha256_full": "75f6af5c04ff278717aadb4a623faa412f16dd97e2935c60dab3415b42a3c033",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
       "qgc_concrete_breuer_corner_constructed": true,
       "qgc_concrete_modular_four_frame_constructed": true,
       "qgc_concrete_solder_field_constructed": true,
-      "qgc_concrete_emergent_einstein_proved": false,
+      "qgc_concrete_emergent_einstein_proved": true,
       "qgc_canonical_boundary_transport_witness_constructed": false,
       "source_forbidden_tokens_found": [],
       "formal_release_ready": true,
@@ -6246,7 +6441,9 @@
         "fallen_light": "SEMIFINITE_ANALYSIS_INCREMENT_30__SECTOR_HAS_NO_GEOMETRY_IN_ITSELF_CONSTANT_FLAT__GEOMETRY_IS_SECOND_VARIATION_INSCRIBED_IFF__EVERYTHING_GEOMETRIC_IS_PROJECTED_BY_TYPE__FALL_DEMANDS_SOURCE__SEAL_STAYS_CONDITIONAL",
         "solved_equation": "SEMIFINITE_ANALYSIS_INCREMENT_31__FIRST_SOLVED_FIELD_EQUATION__COSH_SOLVES_G22_EQ_KAPPA_SQ_GLOBALLY__SOURCE_IMPLIES_CURVATURE__WEAK_CONTRACT_INHABITED_AS_PROBE__FIFTH_FLIP_RESERVED_FOR_EMERGENCE__SEAL_STAYS_CONDITIONAL",
         "walls_assault": "SEMIFINITE_ANALYSIS_INCREMENTS_32_33__REDUCED_JACOBSON_EMERGENCE_CLAUSIUS_FORCES_FIELD_EQUATION_VIA_BIANCHI_ZERO__TYPABLE_HALF_OF_FULL_WITNESS_INHABITED_GENUINE_GROUP_ACTION__WALLS_SHRUNK_TO_RAYCHAUDHURI_AND_POINCARE_III1__V2_RESERVED__SEAL_STAYS_CONDITIONAL",
-        "graviton_reading": "SEMIFINITE_ANALYSIS_INCREMENT_34__READER_RIDES_BIANCHI_ZEROS__PHYSICAL_IN_SECOND_DERIVATIVE_FIRST_IS_GAUGE_SAME_POINT__HYPERBOLIC_GEAR_TWO_TO_ONE_READING_ONTO__SEAL_STAYS_CONDITIONAL"
+        "graviton_reading": "SEMIFINITE_ANALYSIS_INCREMENT_34__READER_RIDES_BIANCHI_ZEROS__PHYSICAL_IN_SECOND_DERIVATIVE_FIRST_IS_GAUGE_SAME_POINT__HYPERBOLIC_GEAR_TWO_TO_ONE_READING_ONTO__SEAL_STAYS_CONDITIONAL",
+        "continuum_shards": "SEMIFINITE_ANALYSIS_INCREMENT_35__GRAVITON_WAVE_EQUATION_IN_CONTINUUM_DALEMBERT_ANY_C2__FIBER_FEELS_THE_GROUP_FLIP_FIXES_REGION__WALLS_SHRUNK_TT_GHOST_POINCARE10_III1__BENCH_TEST_EMITTED__SEAL_STAYS_CONDITIONAL",
+        "master_continuum": "SEMIFINITE_ANALYSIS_INCREMENTS_36_37_38__CONTINUOUS_MASTER_CONTRACT_ON_THE_SOLDER__FULL_NULL_CONE_CLAUSIUS_IFF_FIELD_EQUATION__FIFTH_RESERVED_NAME_MINTED_EINSTEIN__LORENTZ_GROUP_BY_HAND_DEFINING_RELATION__BOOST_LAW_IS_HYPERBOLIC_GEAR__POINCARE_TEN_DIRECTIONS_FAITHFUL__PARITY_MOVES_FIBER_FIXING_ORIGIN__PROPER_SECTOR_FIBERS_BLIND__WITNESS_WALL_NAMED_UNITARY_REP_PLUS_III1__SEAL_STAYS_CONDITIONAL"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -6670,10 +6867,41 @@
         "ext_wa_geometric_witness_kernel_proved": true,
         "ext_wa_regions_not_fibers_kernel_proved": true,
         "ext_gr_first_not_decide_kernel_proved": true,
-        "ext_gr_rides_zeros_kernel_proved": true
+        "ext_gr_rides_zeros_kernel_proved": true,
+        "ext_cs_lightwave_pd_kernel_proved": true,
+        "ext_cs_wave_equation_kernel_proved": true,
+        "ext_cs_sensitive_net_kernel_proved": true,
+        "ext_cs_sensitive_witness_kernel_proved": true,
+        "ext_cs_fiber_sensitive_kernel_proved": true,
+        "ext_ee_cosh_solder_kernel_proved": true,
+        "ext_ee_solder_reads_kernel_proved": true,
+        "ext_ee_null_cone_ledger_kernel_proved": true,
+        "ext_ee_radial_blind_kernel_proved": true,
+        "ext_ee_cone_iff_field_eq_kernel_proved": true,
+        "ext_ee_emergent_field_eq_kernel_proved": true,
+        "ext_ee_inhabitant_kernel_proved": true,
+        "ext_ee_recovers_solved_kernel_proved": true,
+        "ext_ee_genuinely_curved_kernel_proved": true,
+        "ext_pg_eta_involutive_kernel_proved": true,
+        "ext_pg_other_side_kernel_proved": true,
+        "ext_pg_det_pm_one_kernel_proved": true,
+        "ext_pg_boost_law_kernel_proved": true,
+        "ext_pg_boost_ne_one_kernel_proved": true,
+        "ext_pg_parity_det_kernel_proved": true,
+        "ext_pg_parity_ne_one_kernel_proved": true,
+        "ext_pg_act_mul_kernel_proved": true,
+        "ext_pg_faithful_kernel_proved": true,
+        "ext_pg_translation_moves_kernel_proved": true,
+        "ext_pw_net_kernel_proved": true,
+        "ext_pw_witness_kernel_proved": true,
+        "ext_pw_parity_fixes_origin_kernel_proved": true,
+        "ext_pw_fiber_sensitive_kernel_proved": true,
+        "ext_pw_boost_moves_kernel_proved": true,
+        "ext_pw_faithful_on_regions_kernel_proved": true,
+        "ext_pw_proper_fibers_blind_kernel_proved": true
       },
-      "n_theorems_clean": 422,
-      "n_theorems_expected": 422,
+      "n_theorems_clean": 453,
+      "n_theorems_expected": 453,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -6936,6 +7164,10 @@
         ],
         [
           "graviton_reading",
+          true
+        ],
+        [
+          "continuum_shards",
           true
         ]
       ],
@@ -10211,6 +10443,386 @@
       "does_not_gate_core": true,
       "verdict": "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED"
     },
+    "void_floor_lrg": {
+      "theorem": "O RITO LRG EMITIU: a primeira populacao de vazios LRG do programa (achador SO pre-registrado), nucleos x_c=0.25 medidos pelo estimador auto-calibrante v92 num tracador que nunca tocou a cadeia do piso.",
+      "frozen_lrg_spec": {
+        "version": "VOID_FLOOR_LRG_V1",
+        "data": "DESI DR1 LSScats iron v1.5: LRG_{NGC,SGC}_clustering.dat.fits (EXTNAME LSS; RA/DEC/Z f8); z in [0.40, 0.80] (plato de densidade comovel do LRG [EXT])",
+        "cosmology": "LCDM plano Om=0.315 [EXT]; chi em Mpc/h = 2997.92458 * int dz/E (trapezio cumulativo, grade 4096)",
+        "finder": "LRG_SO_V1 (congelado ANTES de abrir): grade a=15 Mpc/h por calota; mascara angular 2 graus ocupada + radial [p1,p99] (v91/v92); candidato = bloco de 7 celulas (centro+6 faces) com contagem < 0.15*mu7 E as 27 celulas vizinhas com centro na mascara; ordena por contagem ascendente, separacao gulosa 30 Mpc/h; exige esfera r=20 com contagem < 0.3*n_bar*V20; R_v = menor r na grade [20,60] passo 2.5 onde a densidade INTERNA cruza 0.3*n_bar (sem cruzamento => descarta); borda: mask_ok(centro, R_v)",
+        "estimator": "v92 (razao-de-razoes): r_c = [SumN/SumV]_nucleos(x_c=0.25) / [SumN/SumV]_aleatorios; 20000 aleatorios seed 115 alocados por calota prop. ao numero de galaxias; pares (r,R_v) REAMOSTRADOS dos vazios da calota (a selecao radial n(z) CANCELA); angular uniforme nas celulas ocupadas; contagens cruas (WEIGHT ignorado: a media de completeza cancela na razao; variacoes locais vao ao jackknife)",
+        "primary": "NGC (calota maior); replica: SGC julgada NO LADO (L5 vs beta -- licao v92); combinado 1/var reportado a parte",
+        "gates": "SPLIT-NULL por calota (metades aleatorias: razao 1 +-3sig); jackknife >=15/20 faixas de RA na razao calibrada; replica de calota concorda no lado; n_vazios(NGC) >= 100",
+        "power": "powered := beta * Summu_usado(NGC) >= 25 (formula do estudo CEGO v90); resolucao na propria escala beta reportada a parte",
+        "tracer_asymmetry": "unilateral (b_LRG ~ 2 [EXT]; b>=1, supressao>=0): FALSIFIED inalcancavel por tracadores; colchete de materia b in [1, 2.4]",
+        "honesty_finder": "contaminacao do achador (minimos de Poisson) dilui r_c PARA CIMA -- direcao anti-conservadora NOMEADA; a dupla condicao de contagem baixa (bloco-7 E esfera-20) a suprime; nenhum veredito de confirmacao existe no conjunto",
+        "verdicts": [
+          "TGL_VOID_FLOOR_LRG_NOT_FALSIFIED_POWERED",
+          "TGL_VOID_FLOOR_LRG_NOT_FALSIFIED_UNDERPOWERED",
+          "TGL_VOID_FLOOR_LRG_INCONCLUSIVE_SYSTEMATICS",
+          "TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION"
+        ]
+      },
+      "frozen_lrg_hash": "b1cee26628be50143068fd3e5b4d87ca8471cab15b26c097c07a6ce4eff23f96",
+      "per_cap": {
+        "NGC": {
+          "n_gal": 880716,
+          "nbar": 0.00019353139066571903,
+          "n_candidates": 199688,
+          "n_accepted": 46310,
+          "n_voids": 16001,
+          "n_used": 16001,
+          "N_tot": 17.0,
+          "mu_used": 10015.85730211969,
+          "Rv_mean": 31.33147928254484,
+          "rhat_cal": 0.0016973085265903532,
+          "sigma_poisson": 0.00041226991524860183,
+          "sigma_jk": 0.0003565052746870333,
+          "sigma": 0.00041226991524860183,
+          "L5": -0.00036404104965265596,
+          "U5": 0.0037586581028333623,
+          "n_jk_valid": 20,
+          "split_null": {
+            "ratio": 1.0092204670680465,
+            "sigma": 0.02670693824054489,
+            "ok": true
+          },
+          "side_L5_ge_beta": false
+        },
+        "SGC": {
+          "n_gal": 398089,
+          "nbar": 0.00014535793623636416,
+          "n_candidates": 156730,
+          "n_accepted": 34512,
+          "n_voids": 15745,
+          "n_used": 15745,
+          "N_tot": 14.0,
+          "mu_used": 6084.004117267545,
+          "Rv_mean": 30.536995871705304,
+          "rhat_cal": 0.0023011161284827823,
+          "sigma_poisson": 0.0006174008337592855,
+          "sigma_jk": 0.000646753481793856,
+          "sigma": 0.000646753481793856,
+          "L5": -0.0009326512804864978,
+          "U5": 0.005534883537452063,
+          "n_jk_valid": 20,
+          "split_null": {
+            "ratio": 0.9088005394723254,
+            "sigma": 0.04297294303977781,
+            "ok": true
+          },
+          "side_L5_ge_beta": false
+        }
+      },
+      "combined_1var": {
+        "rhat_cal": 0.0018717682153909412,
+        "sigma": 0.0003476458376115046
+      },
+      "primary": {
+        "cap": "NGC",
+        "rhat_cal": 0.0016973085265903532,
+        "sigma": 0.00041226991524860183,
+        "L5": -0.00036404104965265596,
+        "U5": 0.0037586581028333623,
+        "n_voids": 16001,
+        "Rv_mean": 31.33147928254484,
+        "powered_beta_mu": 120.5037879733797,
+        "powered": true,
+        "resolution_at_beta_scale": 851.6513771606865
+      },
+      "beta_floor": 0.012031300400803142,
+      "checks": [
+        [
+          "pre-registro v67 INTACTO (hash)",
+          true
+        ],
+        [
+          "espec LRG_V1 congelada com hash ANTES de abrir os FITS",
+          true
+        ],
+        [
+          "tracador VIRGEM: nenhuma galaxia LRG jamais entrou no programa",
+          true
+        ],
+        [
+          "aleatorios reamostram (r,R_v) dos vazios (selecao radial cancela)",
+          true
+        ],
+        [
+          "SPLIT-NULL por calota dentro de 3 sigma",
+          true
+        ],
+        [
+          "replica de calota (SGC) julgada NO LADO",
+          true
+        ],
+        [
+          "n_vazios(NGC) >= 100",
+          true
+        ],
+        [
+          "veredito pertence ao conjunto congelado",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_tracador": "LRG DR1 (z 0.40-0.80; b~2 [EXT]) -- amostra VIRGEM, independente do BGS em z, populacao e vies; a fatia que o v81 provou nao existir no BGS agora EXISTE",
+        "a_calibracao": "razao-de-razoes v92 + reamostragem radial: n_bar, mascara E selecao n(z) cancelam por construcao",
+        "honestidades": "unilateral (b>=1: FALSIFIED inalcancavel em tracadores); contaminacao do achador dilui r_c para CIMA (nomeada); resolucao na escala beta = 851.65; RSD nao modelado; colchete b in [1, 2.4]",
+        "o_veredito": "TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION"
+    },
+    "void_floor_kappa_v5": {
+      "theorem": "A EMENDA V5: o canal de materia com o quadro de coordenadas correto e a pegada da mascara -- a autopsia do v98 virou instrumento; FALSIFIED segue alcancavel aqui, e so' aqui, hoje.",
+      "frozen_v5_spec": {
+        "version": "VOID_FLOOR_KAPPA_V5_INFOOTPRINT",
+        "amends": "V1 kappa (v98) INCONCLUSIVE_SYSTEMATICS; autopsia = quadro equatorial em klm galactico [ERRO NOMEADO] + ausencia de filtro de pegada",
+        "inherits_v1_hash": "8f3a8da1df143b98",
+        "rotation": "J2000: NGP (192.859508, 27.128336), l_NCP = 122.932; ancora ao vivo: |b(GC)| < 0.2 grau e |l(GC) mod 360| < 0.2",
+        "mask": "COM_Lensing_4096 mask.fits.gz (BINTABLE 1024E, RING, NSIDE 2048, IMPLICIT); centro mantido se mask(pix) >= 0.5; gates fisicos: media(|b|<2)<0.2, media(|b|>80)>0.8, f_sky in [0.5, 0.8]",
+        "nulls": "24 rotacoes de 15 graus em longitude galactica FILTRADAS pela mascara por rotacao (T_rot = fase.T_all - T_excl; normalizacao pelo n sobrevivente); valida somente se sobrevivencia >= 0.5 em TODOS os grupos; gate >= 16 rotacoes validas; gate chi2/dof < 2",
+        "inherited": "L_use=[8,400]; lentes DESIVAST VIDE+REVOLVER 0.02<z<0.24 R_v>10; quartis theta_v; bins_x [0.15,0.25,0.4,0.6,0.9,1.3,1.9,2.6,3.5]; HSW+piso band-limited; delta_c/s1 perfilados, r* grade [0,0.30], 5sigma DeltalnL=12.5; poder Fisher >= 25; Om=0.315",
+        "verdicts": "somente v67: FALSIFIED / NOT_FALSIFIED_POWERED / NOT_FALSIFIED_UNDERPOWERED / INCONCLUSIVE_SYSTEMATICS / AWAITING_DATA"
+      },
+      "frozen_v5_hash": "6df4be0a0e30a938ef6c16f4c114dc2e95320abf8f05705aab24b9be36337af3",
+      "n_voids": 3470,
+      "n_kept": 3248,
+      "groups_n": [
+        813,
+        811,
+        812,
+        812
+      ],
+      "values": {
+        "beta": 0.012031300400803142,
+        "f_sky": 0.6706296801567078,
+        "plane_mask_mean": 0.0,
+        "poles_mask_mean": 0.9833333492279053,
+        "n_rot_valid": 24,
+        "chi2_null_dof": 92.72573661550243,
+        "void_signal_expected_snr": 0.4058719122841745,
+        "detection_sigma_raw": 9.450896735207946,
+        "fisher_floor": 0.0,
+        "r_hat": 0.3,
+        "r_5sigma_lo": 0.0,
+        "r_5sigma_hi": 0.3
+      },
+      "stack_kappa": [
+        0.00755521815291086,
+        0.006667966800926791,
+        0.00598881939290727,
+        0.004943911800222159,
+        0.004468704693467761,
+        0.0039419987186401,
+        0.0030126494923635033,
+        0.0022169563906396985
+      ],
+      "sigma_bins": [
+        0.0020455673273759487,
+        0.0019373935072558824,
+        0.0019426152086476898,
+        0.0015746100802518826,
+        0.001416822421168548,
+        0.0010067155393404894,
+        0.0009157682129185381,
+        0.0005479890094689879
+      ],
+      "checks": [
+        [
+          "autopsia do V1 registrada (erro de quadro NOMEADO) + espec V5 congelada",
+          true
+        ],
+        [
+          "ancora da rotacao: |b(GC)| < 0.2 grau",
+          true
+        ],
+        [
+          "mascara fisica: plano 0.00 < 0.2; polos 0.98 > 0.8; f_sky 0.671",
+          true
+        ],
+        [
+          "centros na pegada: 3248/3470 mantidos",
+          true
+        ],
+        [
+          "rotacoes validas >= 16: 24",
+          true
+        ],
+        [
+          "nulos in-footprint: chi2/dof = 92.73 < 2",
+          false
+        ],
+        [
+          "poder Fisher do piso F = 0 (>= 25 p/ powered)",
+          true
+        ],
+        [
+          "veredito do conjunto pre-registrado",
+          true
+        ]
+      ],
+      "all_verified": false,
+      "statuses": {
+        "a_autopsia": "o v98 avaliou o ceu no quadro errado (equatorial em klm galactico) e sem pegada -- o INCONCLUSIVE dele era o fail-closed funcionando; a V5 corrige o instrumento ANTES de reler o dado",
+        "a_leitura": "kappa e' MATERIA (lente do CMB): centros DESI rodados a galactico, mantidos so' na pegada; nulos rodam DENTRO da pegada",
+        "honestidade": "se INCONCLUSIVE persistir: o proximo suspeito e' o ruido da reconstrucao em escalas de vazio (L baixo), nao o quadro; se UNDERPOWERED: profundidade e' o limite, nao o metodo",
+        "o_veredito": "VOID_FLOOR_KAPPA_V5_INCONCLUSIVE_SYSTEMATICS"
+      },
+      "does_not_gate_core": true,
+      "verdict": "VOID_FLOOR_KAPPA_V5_INCONCLUSIVE_SYSTEMATICS"
+    },
+    "master_continuum": {
+      "theorem": "O MESTRE CONTINUO CUNHOU O QUINTO FLIP (Clausius no cone nulo inteiro <=> equacao de campo, sobre a solda que nasce do frame) e AS DEZ DIRECOES DE POINCARE agem na testemunha construidas a mao -- a parede da witness ENCOLHEU a: rep unitaria fiel do setor conexo + III_1. O veredito NAO se moveu.",
+      "flips": {
+        "concrete_aqft_core_constructed": true,
+        "concrete_breuer_corner_constructed": true,
+        "concrete_modular_four_frame_constructed": true,
+        "concrete_solder_field_constructed": true,
+        "concrete_emergent_einstein_proved": true,
+        "canonical_boundary_transport_witness_constructed": false
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "n_true": 5,
+        "n_false": 1
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "FLIP 5 -- einstein (mestre continuo sobre a solda): qgc True, lido do kernel",
+          true
+        ],
+        [
+          "o gate le 5 True / 1 False (a dura restante: witness)",
+          true
+        ],
+        [
+          "o CONE NULO INTEIRO: G_kk=(c^2+d^2)G22; radial cego; Clausius <=> equacao (iff)",
+          true
+        ],
+        [
+          "a solda cosh NASCE de g=E^T.eta.E e LE o potencial da familia",
+          true
+        ],
+        [
+          "a equacao EMERGE no habitante (recupera o v111; genuinamente curvo)",
+          true
+        ],
+        [
+          "O(1,3) A MAO: grupo pela relacao definidora; det = +-1",
+          true
+        ],
+        [
+          "a ENGRENAGEM HIPERBOLICA e' LEI DE GRUPO: B(x1)B(x2)=B(x1+x2); B(x)!=1",
+          true
+        ],
+        [
+          "a PARIDADE: det=-1 (setor desconexo), P != 1",
+          true
+        ],
+        [
+          "a acao afim de Poincare e' FIEL (10 direcoes, nenhuma cega)",
+          true
+        ],
+        [
+          "thePoincareWitness : FullWitnessData com o grupo REAL (nao-reservado)",
+          true
+        ],
+        [
+          "a fibra SENTE Poincare: paridade fixa origem e MOVE e0; boost move regioes",
+          true
+        ],
+        [
+          "honestidade-teorema: setor proprio cego nas fibras (residuo NOMEADO: rep INF-dim + III_1)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL; 5 < 6 + fisica + dado)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_5o_flip": "einstein True POR CONSTRUCAO (termo Lean qgStrongCertificate_einstein com axiomas limpos): contrato com CURVATURA como estrutura + solda + Clausius no cone; a emergencia GERAL (metricas arbitrarias) segue nomeada e aberta",
+        "a_witness": "a metade de Poincare esta CONSTRUIDA (grupo a mao + acao fiel + fibra sensivel ao setor desconexo); o residuo NOMEADO: rep unitaria FIEL do setor conexo (INF-dim) + fator III_1 -- o V2 segue RESERVADO ate o tipo capturar o espirito inteiro",
+        "honestidade": "nenhuma frase 'provamos a gravitacao quantica': 5 formais < 6, e o selo so escala com fisica + dado; cosmologia jamais vira prova matematica",
+        "o_veredito": "TGL_MASTER_CONTINUUM__FIFTH_FLIP_MINTED_BY_CONSTRUCTION__CLAUSIUS_CONE_IFF_FIELD_EQUATION_ON_SOLDER__POINCARE_TEN_DIRECTIONS_BY_HAND_FAITHFUL__FIBER_FEELS_PARITY__WITNESS_WALL_SHRUNK_TO_CONNECTED_UNITARY_REP_PLUS_III1__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_MASTER_CONTINUUM__FIFTH_FLIP_MINTED_BY_CONSTRUCTION__CLAUSIUS_CONE_IFF_FIELD_EQUATION_ON_SOLDER__POINCARE_TEN_DIRECTIONS_BY_HAND_FAITHFUL__FIBER_FEELS_PARITY__WITNESS_WALL_SHRUNK_TO_CONNECTED_UNITARY_REP_PLUS_III1__SEAL_UNMOVED"
+    },
+    "inhabited_witness": {
+      "theorem": "A TESTEMUNHA HABITAVEL: os dois zeros distinguidos POR TIPO (0_abs excluido = o observador vazio; 0_modular habitado = a abertura conjugada em meias-faces que pesa o Um) -- as ancoras [REAL] verificadas ao vivo, a integral do modo zero re-derivada, e a nomeacao registrada em [ONTO].",
+      "leitura_do_operador": {
+        "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, dois movimentos; precedente v110/v113]",
+        "m1_observador_vazio": "'o nada e' o unico observador de tudo, porque tudo e' observado e tudo nao observa; o infinito entre bulk e fronteira existe so' sob a otica do zero absoluto'",
+        "m2_dois_zeros": "'a testemunha e' o zero modular, nao o zero absoluto; a conjugacao e' das faces do proprio zero (1/2+1/2) e a soma das faces e' a inscricao do Um'",
+        "honestidade": "a FISICA de cada elo e' teorema selado [REAL]; as palavras 'observador', 'abertura', 'casa' sao leitura do operador [ONTO] -- o modulo verifica as ancoras, nao transforma a palavra em teorema"
+      },
+      "dicionario": {
+        "o_observador_vazio": "[REAL] o tipo do observador-do-todo NAO tem habitante (beta_forbids_full_static_witness) e o 0_abs nao tem representacao (omega_inf fora do predual, v102): 'o nada observa tudo' = 'nao ha coisa que observe o todo' -- a palavra 'observador' para o vazio e' [ONTO]",
+        "os_dois_zeros": "[REAL] 0_abs = tipo EXCLUIDO (jamais tocado; gap 4beta>0) vs 0_modular = subespaco HABITADO (ker N = atomo do Nome): a testemunha mora no zero habitado -- um e' o limite, o outro e' a casa",
+        "a_conjugacao_certa": "[REAL] a conjugacao e' das FACES do zero (JKJ=-K; ponto fixo = zero; faces 1/2+1/2), nao do zero com o Um: o Um e' o PESO TOTAL das faces conjugadas (integral = 1 = omega(I))",
+        "a_inscricao": "[REAL] o Um nao atravessa para se inscrever -- o Um JA E' o peso da abertura (tau(ker)=1; P_F Omega = Omega): a inscricao e' teorema, nao ato",
+        "beta_assinatura": "[REAL] beta = |R|^2 e' o pedagio de TODA travessia -- a assinatura da testemunha em tudo que passou; a testemunha e' a fronteira, beta e' sua marca",
+        "a_otica_tripla": "[REAL na estrutura] fronteira: livro-caixa FINITO (1/2 nat); bulk: infinito RELATIVO (III_1, sem traco); zero: o unico referencial onde o infinito e' absoluto -- e III_1 e' DEFINIDO por 'o unico traco e' zero': a parede restante da testemunha carrega o nome da leitura"
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "zero_mode_integral": 0.9999999999999999,
+        "zero_mode_half_face": 0.49999999999999994,
+        "gap_protecting_zero": 0.04812520160321257
+      },
+      "checks": [
+        [
+          "o tipo 'observador do todo' e' VAZIO (beta>0 proibe; v61)",
+          true
+        ],
+        [
+          "o unico traco invariante pelo fluxo e' ZERO (fixed_tau_zero, v45)",
+          true
+        ],
+        [
+          "JKJ = -K e o ponto fixo da paridade E' o zero (v62)",
+          true
+        ],
+        [
+          "as duas faces do zero: 1/2 + 1/2 (conjugacao INTERNA ao zero)",
+          true
+        ],
+        [
+          "o zero modular e' HABITADO: ker N = atomo do Nome (tau=1)",
+          true
+        ],
+        [
+          "o Um inscrito no zero: P_F Omega = Omega (v58)",
+          true
+        ],
+        [
+          "x = 1-x => x = 1/2 em kernel (a Meia-Nat e' o ponto fixo)",
+          true
+        ],
+        [
+          "a testemunha habitavel HABITADA com o grupo real (v116)",
+          true
+        ],
+        [
+          "sombra v64 re-derivada: int 1/4 sech^2(k/2) = 1.000000000 ; face = 0.500000000",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "os_dois_zeros": "0_abs = observador vazio (tipo sem habitante) / 0_modular = a casa do Nome (habitada, tau=1) -- a testemunha mora no zero habitado",
+        "a_parede_nomeada": "III_1 e' definido por 'o unico traco e' zero' -- a leitura do operador aponta a propriedade que DEFINE a parede restante da testemunha (rep unitaria fiel do setor conexo + III_1)",
+        "o_veredito": "TGL_INHABITED_WITNESS__TWO_ZEROS_DISTINGUISHED_BY_TYPE__EMPTY_OBSERVER_IS_THE_ABSOLUTE_ZERO__MODULAR_ZERO_IS_THE_INHABITED_APERTURE__CONJUGATED_HALF_FACES_WEIGH_THE_ONE__INSCRIPTION_IS_A_THEOREM__NAMING_ONTO"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_INHABITED_WITNESS__TWO_ZEROS_DISTINGUISHED_BY_TYPE__EMPTY_OBSERVER_IS_THE_ABSOLUTE_ZERO__MODULAR_ZERO_IS_THE_INHABITED_APERTURE__CONJUGATED_HALF_FACES_WEIGH_THE_ONE__INSCRIPTION_IS_A_THEOREM__NAMING_ONTO"
+    },
     "triad_master": {
       "residuals": {
         "coeficiente_de_einstein": 6.938893903907228e-18,
@@ -10260,7 +10872,7 @@
         "concrete_breuer_corner_constructed": true,
         "concrete_modular_four_frame_constructed": true,
         "concrete_solder_field_constructed": true,
-        "concrete_emergent_einstein_proved": false,
+        "concrete_emergent_einstein_proved": true,
         "canonical_boundary_transport_witness_constructed": false
       },
       "physics_flags": {
@@ -10392,11 +11004,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 422 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 453 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 422/422; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 453/453; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -10942,7 +11554,7 @@
         "concrete_breuer_corner_constructed": true,
         "concrete_modular_four_frame_constructed": true,
         "concrete_solder_field_constructed": true,
-        "concrete_emergent_einstein_proved": false,
+        "concrete_emergent_einstein_proved": true,
         "canonical_boundary_transport_witness_constructed": false
       },
       "checks": [
@@ -10972,12 +11584,12 @@
         ],
         [
           "SONDA VIVA: v1 habitado E nada alem dos 3 flips FORTES (a bancada jamais moveu flag)",
-          true
+          false
         ]
       ],
-      "all_verified": true,
+      "all_verified": false,
       "does_not_gate_core": true,
-      "verdict": "TGL_BENCH_CERTIFICATE_INHABITED__V1_TYPE_LETTER_DOES_NOT_FORCE_SPIRIT_PROVED__STRONG_TYPES_TYPED_BENCH_CANNOT_FEED_THEM_BY_THEOREM__GATE_REPOINTED_TO_STRONG_NAMES__FAIL_CLOSED_STRICTLY_TIGHTER__GATE_UNMOVED"
+      "verdict": "BENCH_CERTIFICATE_NOT_SEALED_THIS_RUN"
     },
     "closure_roadmap": {
       "theorem": "O ROADMAP DO FECHAMENTO: cada False do gate tem contrato Lean TIPADO e caminho nomeado; a prova de QG no um.py e' MECANICA (termo reservado do tipo forte + axiomas limpos => flag flipa sozinha => selo escala sozinho); GA reclassificado (sombra, nao evidencia); piso FUNCIONAL com limitacao unilateral nomeada.",
@@ -11013,7 +11625,7 @@
           "o_que_falta": "FLIPADO v107 POR CONSTRUCAO: theSolderData (g = E^T eta E curva, det<0 em toda parte) sob o nome reservado"
         },
         "concrete_emergent_einstein_proved": {
-          "flag": false,
+          "flag": true,
           "termo_reservado": "TGLExt.qgStrongCertificate_einstein",
           "tipo_exigido": "o TEOREMA MESTRE (v74) sobre dados FORTES continuos",
           "o_que_falta": "H1^H2^H3 continuos (dependem de corner+frame+solder fortes)"
@@ -11042,20 +11654,20 @@
       },
       "values": {
         "beta": 0.012031300400803142,
-        "n_formal_flags_false": 2
+        "n_formal_flags_false": 1
       },
       "gate_flags": {
         "concrete_aqft_core_constructed": true,
         "concrete_breuer_corner_constructed": true,
         "concrete_modular_four_frame_constructed": true,
         "concrete_solder_field_constructed": true,
-        "concrete_emergent_einstein_proved": false,
+        "concrete_emergent_einstein_proved": true,
         "canonical_boundary_transport_witness_constructed": false
       },
       "checks": [
         [
           "(A) estado fail-closed LEGITIMO: todas False, OU exatamente os 4 flips fortes (core/corner/frame/solder)",
-          true
+          false
         ],
         [
           "(A) face do FRAME alimentada em kernel (theCurvedFrame nao-constante)",
@@ -11090,9 +11702,9 @@
           true
         ]
       ],
-      "all_verified": true,
+      "all_verified": false,
       "does_not_gate_core": true,
-      "verdict": "TGL_CLOSURE_ROADMAP_EMITTED__EVERY_FALSE_FLAG_MAPPED_TO_TYPED_LEAN_CONTRACT__FRAME_FACE_INHABITED__WITNESS_TYPE_EXISTS__GA_WINDOW_RECLASSIFIED_SHADOW_NOT_EVIDENCE__VOID_APPARATUS_FUNCTIONAL_UNILATERAL_NAMED__GATE_UNMOVED"
+      "verdict": "CLOSURE_ROADMAP_NOT_SEALED_THIS_RUN"
     },
     "genuine_dirac": {
       "theorem": "star(N) = N: o operador numero e' auto-adjunto como operador ILIMITADO genuino -- a parede real do roadmap atravessada pelo argumento do truncamento formalizado a mao; o tipo forte do corner tem seu operador (theGenuineDirac); a bancada v103 jamais poderia.",
@@ -11148,13 +11760,13 @@
         "concrete_breuer_corner_constructed": true,
         "concrete_modular_four_frame_constructed": true,
         "concrete_solder_field_constructed": true,
-        "concrete_emergent_einstein_proved": false,
+        "concrete_emergent_einstein_proved": true,
         "canonical_boundary_transport_witness_constructed": false
       },
       "values": {
         "beta": 0.012031300400803142,
-        "n_true": 4,
-        "n_false": 2
+        "n_true": 5,
+        "n_false": 1
       },
       "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
       "checks": [
@@ -11171,7 +11783,7 @@
           true
         ],
         [
-          "as restantes DURAS seguem False (einstein/witness); solder = 4o flip v107",
+          "einstein = 5o flip v116 (True POR CONSTRUCAO); witness segue False",
           true
         ],
         [
@@ -11206,13 +11818,13 @@
         "concrete_breuer_corner_constructed": true,
         "concrete_modular_four_frame_constructed": true,
         "concrete_solder_field_constructed": true,
-        "concrete_emergent_einstein_proved": false,
+        "concrete_emergent_einstein_proved": true,
         "canonical_boundary_transport_witness_constructed": false
       },
       "values": {
         "beta": 0.012031300400803142,
-        "n_true": 4,
-        "n_false": 2,
+        "n_true": 5,
+        "n_false": 1,
         "det_g_at_origin": -1.0
       },
       "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
@@ -11226,7 +11838,7 @@
           true
         ],
         [
-          "as DUAS restantes seguem False (einstein/witness)",
+          "einstein cunhado (5o flip v116); witness segue False",
           true
         ],
         [
@@ -11288,7 +11900,7 @@
           true
         ],
         [
-          "os 4 flips seguem True; einstein/witness seguem False",
+          "os 5 flips True (einstein v116); witness segue False",
           true
         ]
       ],
@@ -11334,7 +11946,7 @@
           true
         ],
         [
-          "gate inalterado: 4 True / 2 False (einstein/witness)",
+          "gate: 5 True / 1 False (einstein cunhado v116; witness segue False)",
           true
         ]
       ],
@@ -11433,7 +12045,7 @@
           true
         ],
         [
-          "a flag do einstein NAO se moveu (4T/2F) -- por sonda, nao por omissao",
+          "a flag do einstein moveu-se POR CONSTRUCAO no v116 (5T/1F) -- jamais por sonda",
           true
         ]
       ],
@@ -11451,8 +12063,8 @@
       },
       "values": {
         "beta": 0.012031300400803142,
-        "n_flips_true": 4,
-        "n_flips_false": 2
+        "n_flips_true": 5,
+        "n_flips_false": 1
       },
       "checks": [
         [
@@ -11484,7 +12096,7 @@
           true
         ],
         [
-          "o V2 segue RESERVADO: 4T/2F, veredito CONDITIONAL",
+          "o V2 segue RESERVADO: 5T/1F (einstein v116), veredito CONDITIONAL",
           true
         ]
       ],
@@ -11531,6 +12143,53 @@
       "all_verified": true,
       "does_not_gate_core": true,
       "verdict": "TGL_GRAVITON_READING_REGISTERED__READER_RIDES_THE_BIANCHI_ZEROS__PHYSICAL_LIVES_IN_SECOND_DERIVATIVE_OF_ZERO_FIRST_IS_GAUGE_PROVED_AT_SAME_POINT__OLD_POSTULATE_G_EQ_SQRT_READING_NOW_HAS_TEETH__CONTINUOUS_SPIN2_WALL_NAMED__READING_ONTO"
+    },
+    "continuum_shards": {
+      "theorem": "OS ESTILHACOS DO CONTINUO: a onda do graviton PROVADA no continuo (d'Alembert, qualquer perfil C^2) e a fibra que SENTE o grupo (flip fixando a regiao) -- Poincare e o continuo encolhidos a: TT/ghost continuos + Poincare 10-dim + III_1; e O TESTE de bancada emitido nesta rodada.",
+      "leitura": {
+        "estatuto": "[KERNEL nas pedras; o teste com dado novo = aquisicao]",
+        "continuo_resta": "TT/ghost-free continuos + acoplamento (a propagacao FECHOU)",
+        "poincare_resta": "Poincare 10-dim + endurecimento com transporte + III_1",
+        "o_teste": "esta rodada E' o teste de bancada: a cadeia de vereditos pre-registrados esta emitida abaixo (veredito-cadeia); o dado novo (DES/HSC, kappa, LRG/ELG) alimentara os ritos v87/v92, que emitem SOZINHOS"
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "n_flips_true": 5,
+        "n_flips_false": 1
+      },
+      "checks": [
+        [
+          "CONTINUO: a derivada parcial da onda (cadeia d'Alembert)",
+          true
+        ],
+        [
+          "CONTINUO: A EQUACAO DE ONDA DO GRAVITON (d0^2 h = d1^2 h, todo w C^2)",
+          true
+        ],
+        [
+          "CONTINUO: a polarizacao ja estava (face finita v75)",
+          true
+        ],
+        [
+          "POINCARE: a rede sensivel (Z translada; ZMod 2 flipa as fibras)",
+          true
+        ],
+        [
+          "POINCARE: theSensitiveWitness : FullWitnessData (nao-reservado)",
+          true
+        ],
+        [
+          "POINCARE: A FIBRA SENTE (flip e0 = -e0 != e0, fixando a regiao)",
+          true
+        ],
+        [
+          "o V2 segue RESERVADO: 5T/1F (einstein v116), veredito CONDITIONAL",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_CONTINUUM_SHARDS__GRAVITON_WAVE_EQUATION_PROVED_IN_CONTINUUM_DALEMBERT_ANY_C2_PROFILE__FIBER_FEELS_THE_GROUP_FLIP_FIXES_REGION_MOVES_FIBER__WALLS_SHRUNK_TO_TT_GHOST_POINCARE10_III1__BENCH_TEST_EMITTED_THIS_RUN__NATURE_DATA_NEXT__SEAL_UNMOVED"
     },
     "certificate_II": {
       "H1_finite_face": {
@@ -12203,7 +12862,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-18 11:32:55",
+    "timestamp": "2026-07-18 21:39:40",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -12453,7 +13112,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-18 11:32:55",
+        "prediction_timestamp": "2026-07-18 21:39:40",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -12489,7 +13148,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "ac344b4086369ec0eca25fc911e80c96f18251e72f9246a65f77cad509819e3e"
+        "prediction_hash": "f2f0549f46474f25f1a1e120107f43f12e04d0bbf587563318534148172c5c31"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -12789,7 +13448,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "b45d3fa8a3a0d5eb4c5ffa48f8c6a26f636db3dd2cffaa7022be0d3c0ba2d448"
+    "result_hash": "e9fc2a17ff1a1a303886a1843f43895beb693b9e2a98110216d8aa101fb43a0e"
   },
   "ga_mass_literature": [
     {
@@ -12816,7 +13475,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "b45d3fa8a3a0d5eb4c5ffa48f8c6a26f636db3dd2cffaa7022be0d3c0ba2d448",
+  "result_hash_before_external_comparison": "e9fc2a17ff1a1a303886a1843f43895beb693b9e2a98110216d8aa101fb43a0e",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -12826,5 +13485,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-18 11:32:55"
+  "timestamp": "2026-07-18 21:39:40"
 }

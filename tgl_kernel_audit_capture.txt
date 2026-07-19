@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=161966 len(stderr)=0
+# len(stdout)=165616 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -1555,6 +1555,21 @@ TGLExt.first_derivative_does_not_decide : (TGLExt.Gamma001 1 ≠ 0 ∧
   TGLExt.Riemann1001 1 ≠ 0
 TGLExt.reading_rides_the_zeros : ∀ (q : ℝ → ℝ),
   (∀ (t : ℝ), q t ≠ 0) → ∀ (s : ℝ), TGLExt.ansatzNullG q s = TGLExt.ansatzG22 q s
+TGLExt.lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ
+TGLExt.lightWave_pd : ∀ (w w' : ℝ → ℝ),
+  (∀ (u : ℝ), HasDerivAt w (w' u) u) →
+    ∀ (i : Fin 4) (x : Fin 4 → ℝ),
+      TGLExt.pd i (TGLExt.lightWave w) x = w' (TGLExt.lightCone x) * TGLExt.lightCone (Pi.single i 1)
+TGLExt.graviton_wave_equation : ∀ (w w' w'' : ℝ → ℝ),
+  (∀ (u : ℝ), HasDerivAt w (w' u) u) →
+    (∀ (u : ℝ), HasDerivAt w' (w'' u) u) →
+      ∀ (x : Fin 4 → ℝ),
+        TGLExt.pd 0 (TGLExt.pd 0 (TGLExt.lightWave w)) x = TGLExt.pd 1 (TGLExt.pd 1 (TGLExt.lightWave w)) x
+TGLExt.theSensitiveNet : TGLExt.PhysicalNetData TGLExt.GeoRegion TGLExt.geoLe TGLExt.geoFiber TGLExt.geoFiber
+TGLExt.theSensitiveWitness : TGLExt.FullWitnessData
+TGLExt.witness_fiber_sensitive : (TGLExt.theSensitiveNet.net.external (1, Multiplicative.ofAdd 1) (0, 0))
+    TGLExt.e0tail ≠
+  TGLExt.e0tail
 'TGL.HalfNat.halfNat_of_selfConjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.AreaScale.newtonPlanck_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGL.FiniteThreeLocks.H3L_posSemidefinite' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -2037,6 +2052,38 @@ TGLExt.reading_rides_the_zeros : ∀ (q : ℝ → ℝ),
 'TGLExt.witness_action_moves_regions_not_fibers' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.first_derivative_does_not_decide' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.reading_rides_the_zeros' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.lightWave_pd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.graviton_wave_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theSensitiveNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theSensitiveWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.witness_fiber_sensitive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theCoshSolderData' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theCoshSolder_reads' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.null_cone_ledger' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.radial_null_blind' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.full_cone_clausius_iff_field_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.emergent_field_equation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theEmergentEinstein' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.emergent_recovers_solved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.emergent_genuinely_curved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgStrongCertificate_einstein' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.eta4_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.isLorentz_other_side' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.lorentz_det_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theBoost_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.boost_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.parity_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.parity_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.pAct_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.poincare_faithful' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.translation_moves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.thePoincareNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.thePoincareWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.parity_fixes_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.poincare_witness_fiber_sensitive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.poincare_witness_boost_moves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.poincare_witness_faithful' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.proper_sector_fibers_blind' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
