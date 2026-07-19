@@ -5106,6 +5106,7 @@ import TGLExt.PoincareGroup
 import TGLExt.PoincareWitness
 import TGLExt.RegularRep
 import TGLExt.TracelessAlgebra
+import TGLExt.SemifiniteWeight
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -6610,6 +6611,13 @@ namespace TGL.Audit
 #print axioms TGLExt.tracial_state_is_zero
 #print axioms TGLExt.fullAlgebra
 #print axioms TGLExt.bipartition_mem_fullAlgebra
+
+-- v120 (o segundo tijolo: o peso que sobrevive; infinito = 2x infinito)
+#print axioms TGLExt.opWeight_one_top
+#print axioms TGLExt.opWeight_atom_one
+#print axioms TGLExt.coEven_inscription_even
+#print axioms TGLExt.opWeight_halving_invariant
+#print axioms TGLExt.state_dies_weight_survives
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -18996,6 +19004,195 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/SemifiniteWeight.lean":
+r'''import TGLExt.TracelessAlgebra
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O SEGUNDO TIJOLO: o PESO que sobrevive — Tr em kernel, e ∞ = 2∞
+  [TGLExt — v120, o incremento 41 do programa SemifiniteAnalysis]
+
+O v119 provou que o ESTADO tracial morre pela bipartição (2φ(1)=φ(1)
+com φ(1) finito ⟹ φ=0). Esta pedra constrói o PESO semifinito Tr e
+prova POR QUE ele sobrevive à mesma bipartição:
+
+* `opWeight` — o peso diagonal Tr(a) = Σₙ ⟨eₙ, a eₙ⟩ ∈ [0,∞],
+  valorado em ℝ≥0∞ (o peso NÃO é um funcional limitado — é a régua
+  não-limitada que o tipo I∞ ainda admite);
+* ★★ `opWeight_one_top` — Tr(1) = ∞: a casa inteira pesa INFINITO;
+* ★★★ `opWeight_atom_one` — **Tr(P_Nome) = 1 = ω(I)**: o átomo do
+  Nome pesa EXATAMENTE 1 sob o peso verdadeiro da álgebra plena — a
+  terceira face da mesma identidade (dimOrTop v76; canto de Breuer
+  v106; agora o Tr operatorial);
+* ★★ `opWeight_halving_invariant` — O PESO ABSORVE A BIPARTIÇÃO:
+  Tr(u·a·c_E) = Tr(a) — a meia-casa pesa o mesmo que a casa;
+* ★★★ `state_dies_weight_survives` — O TEOREMA-SÍNTESE: o estado
+  morre (v119), o peso vale ∞ na unidade, e a bipartição é ABSORVIDA
+  (∞ = 2∞ é consistente; φ(1) = 2φ(1) finito não é). É a distinção
+  I∞/III posta em kernel: o que decide é ONDE a régua estoura.
+
+O QUE FALTA (nomeado): normalidade do peso (continuidade σ-fraca),
+a teoria GERAL de pesos sobre vN, e o fator concreto SEM NENHUM peso
+semifinito (Araki–Woods/Powers) = III₁ — o programa, pedra a pedra.
+O V2 segue RESERVADO (lição v103, décima aplicação).
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+/-! ## A — o peso diagonal -/
+
+/-- o peso diagonal: Tr(a) = Σₙ ⟨eₙ, a eₙ⟩ (parte real, em [0,∞]).
+    Nos positivos é O peso canônico; a fórmula é total. -/
+def opWeight (a : ellTwo →L[ℂ] ellTwo) : ℝ≥0∞ :=
+  ∑' n, ENNReal.ofReal ((a (inscriptions n) : ℕ → ℂ) n).re
+
+theorem opWeight_term (a : ellTwo →L[ℂ] ellTwo) (n : ℕ) :
+    ((a (inscriptions n) : ℕ → ℂ) n).re
+      = (inner ℂ (inscriptions n) (a (inscriptions n))).re := by
+  rw [coord_eq_inner]
+
+/-! ## B — a casa pesa infinito -/
+
+/-- [KERNEL] ★★ Tr(1) = ∞: cada inscrição pesa 1 e há infinitas —
+    o peso NÃO é um estado (a régua não-limitada). -/
+theorem opWeight_one_top : opWeight 1 = ⊤ := by
+  unfold opWeight
+  have hterm : ∀ n : ℕ,
+      ENNReal.ofReal ((((1 : ellTwo →L[ℂ] ellTwo) (inscriptions n) : ℕ → ℂ) n).re)
+        = 1 := by
+    intro n
+    have h1 : ((1 : ellTwo →L[ℂ] ellTwo) (inscriptions n) : ℕ → ℂ) n
+        = (inscriptions n : ℕ → ℂ) n := rfl
+    rw [h1, inscriptions_apply, if_pos rfl]
+    norm_num
+  rw [tsum_congr hterm]
+  exact ENNReal.tsum_const_eq_top_of_ne_zero one_ne_zero
+
+/-! ## C — o Nome pesa 1 sob o Tr verdadeiro -/
+
+/-- [KERNEL] ★★★ Tr(P_Nome) = 1 = ω(I): a terceira face da identidade
+    do canto — o átomo do Nome pesa exatamente 1 sob o peso da álgebra
+    plena. -/
+theorem opWeight_atom_one : opWeight firstAtom.starProjection = 1 := by
+  unfold opWeight
+  have hterm : ∀ n : ℕ,
+      ENNReal.ofReal (((firstAtom.starProjection (inscriptions n) : ℕ → ℂ) n).re)
+        = if n = 0 then 1 else 0 := by
+    intro n
+    rcases Nat.eq_zero_or_pos n with rfl | hn
+    · have hmem : firstInscription ∈ firstAtom :=
+        Submodule.mem_span_singleton_self _
+      have hP0 : firstAtom.starProjection (inscriptions 0) = firstInscription := by
+        show firstAtom.starProjection firstInscription = firstInscription
+        exact Submodule.starProjection_eq_self_iff.mpr hmem
+      rw [hP0, if_pos rfl]
+      show ENNReal.ofReal (((firstInscription : ℕ → ℂ) 0).re) = 1
+      unfold firstInscription
+      rw [inscriptions_apply, if_pos rfl]
+      norm_num
+    · have hP0 : firstAtom.starProjection (inscriptions n) = 0 := by
+        unfold firstAtom
+        rw [Submodule.starProjection_singleton ℂ]
+        have hinner : inner ℂ firstInscription (inscriptions n) = 0 := by
+          unfold firstInscription
+          rw [coord_eq_inner, inscriptions_apply,
+            if_neg (by omega : ¬ (0 : ℕ) = n)]
+        rw [hinner, zero_div, zero_smul]
+      rw [hP0, if_neg (by omega : ¬ n = 0)]
+      have h0 : ((0 : ellTwo) : ℕ → ℂ) n = 0 := by
+        rw [lp.coeFn_zero]
+        rfl
+      rw [h0]
+      norm_num
+  rw [tsum_congr hterm]
+  rw [tsum_eq_single 0 (fun b hb => by simp [hb])]
+  rw [if_pos rfl]
+
+/-! ## D — o peso ABSORVE a bipartição -/
+
+theorem coEven_inscription_even (n : ℕ) :
+    coEven (inscriptions (2 * n)) = inscriptions n := by
+  apply Subtype.ext
+  funext m
+  show (inscriptions (2 * n) : ℕ → ℂ) (2 * m) = (inscriptions n : ℕ → ℂ) m
+  rw [inscriptions_apply, inscriptions_apply]
+  by_cases h : m = n
+  · rw [if_pos (by omega), if_pos h]
+  · rw [if_neg (by omega), if_neg h]
+
+theorem coEven_inscription_odd (n : ℕ) (hn : n % 2 = 1) :
+    coEven (inscriptions n) = 0 := by
+  apply Subtype.ext
+  funext m
+  show (inscriptions n : ℕ → ℂ) (2 * m) = ((0 : ellTwo) : ℕ → ℂ) m
+  rw [inscriptions_apply, if_neg (by omega : 2 * m ≠ n)]
+  rw [lp.coeFn_zero]
+  rfl
+
+theorem evenShift_coord (x : ellTwo) (n : ℕ) :
+    ((evenShift x : ellTwo) : ℕ → ℂ) (2 * n) = (x : ℕ → ℂ) n := by
+  show evenShiftFun (x : ℕ → ℂ) (2 * n) = (x : ℕ → ℂ) n
+  exact evenShiftFun_double _ n
+
+/-- [KERNEL] ★★ O PESO ABSORVE A BIPARTIÇÃO: Tr(u·a·c_E) = Tr(a) —
+    a meia-casa pesa o mesmo que a casa inteira. -/
+theorem opWeight_halving_invariant (a : ellTwo →L[ℂ] ellTwo) :
+    opWeight (evenShift * a * coEven) = opWeight a := by
+  unfold opWeight
+  rw [← Function.Injective.tsum_eq double_injective (f := fun k =>
+    ENNReal.ofReal ((((evenShift * a * coEven) (inscriptions k) : ℕ → ℂ) k).re)) ?_]
+  · congr 1
+    funext n
+    have hchain : ((evenShift * a * coEven) (inscriptions (2 * n)) : ℕ → ℂ) (2 * n)
+        = ((a (inscriptions n) : ellTwo) : ℕ → ℂ) n := by
+      show ((evenShift (a (coEven (inscriptions (2 * n)))) : ellTwo) : ℕ → ℂ) (2 * n) = _
+      rw [coEven_inscription_even]
+      exact evenShift_coord (a (inscriptions n)) n
+    show ENNReal.ofReal ((((evenShift * a * coEven) (inscriptions (2 * n)) : ℕ → ℂ) (2 * n)).re) = _
+    rw [hchain]
+  · intro k hk
+    by_contra hr
+    have hodd : k % 2 = 1 := by
+      by_contra h
+      exact hr ⟨k / 2, show 2 * (k / 2) = k by omega⟩
+    have hzero : (evenShift * a * coEven) (inscriptions k) = 0 := by
+      show evenShift (a (coEven (inscriptions k))) = 0
+      rw [coEven_inscription_odd k hodd, map_zero, map_zero]
+    apply hk
+    show ENNReal.ofReal ((((evenShift * a * coEven) (inscriptions k) : ℕ → ℂ) k).re) = 0
+    rw [hzero]
+    have h0 : ((0 : ellTwo) : ℕ → ℂ) k = 0 := by
+      rw [lp.coeFn_zero]
+      rfl
+    rw [h0]
+    norm_num
+
+/-! ## E — O TEOREMA-SÍNTESE: onde a régua estoura decide o tipo -/
+
+/-- [KERNEL] ★★★ O ESTADO MORRE, O PESO SOBREVIVE: (i) todo estado
+    tracial é zero (v119); (ii) Tr(1) = ∞; (iii) a bipartição é
+    ABSORVIDA pelo peso (Tr(u·1·c_E) = Tr(1); ∞ = 2∞ é consistente —
+    φ(1) = 2φ(1) finito não é). A distinção I∞/III em kernel: o tipo
+    é decidido por ONDE a régua estoura. -/
+theorem state_dies_weight_survives :
+    (∀ T : TracialState, ∀ a, T.φ a = 0)
+      ∧ opWeight 1 = ⊤
+      ∧ opWeight (evenShift * 1 * coEven) = opWeight 1 :=
+  ⟨tracial_state_is_zero, opWeight_one_top, opWeight_halving_invariant 1⟩
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -26037,6 +26234,12 @@ _LEAN_THEOREM_FLAGS = {
     "ext_ta_trace_zero_kernel_proved": "TGLExt.tracial_state_is_zero",
     "ext_ta_vn_algebra_kernel_proved": "TGLExt.fullAlgebra",
     "ext_ta_bipartition_mem_kernel_proved": "TGLExt.bipartition_mem_fullAlgebra",
+    # v120 (o segundo tijolo: o peso que sobrevive)
+    "ext_sw_one_top_kernel_proved": "TGLExt.opWeight_one_top",
+    "ext_sw_atom_one_kernel_proved": "TGLExt.opWeight_atom_one",
+    "ext_sw_coeven_inscription_kernel_proved": "TGLExt.coEven_inscription_even",
+    "ext_sw_halving_invariant_kernel_proved": "TGLExt.opWeight_halving_invariant",
+    "ext_sw_synthesis_kernel_proved": "TGLExt.state_dies_weight_survives",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -27734,6 +27937,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_ta_partition_kernel_proved", "ext_ta_one_zero_kernel_proved",
         "ext_ta_trace_zero_kernel_proved", "ext_ta_vn_algebra_kernel_proved",
         "ext_ta_bipartition_mem_kernel_proved",
+        # v120: o peso que sobrevive
+        "ext_sw_one_top_kernel_proved", "ext_sw_atom_one_kernel_proved",
+        "ext_sw_coeven_inscription_kernel_proved",
+        "ext_sw_halving_invariant_kernel_proved", "ext_sw_synthesis_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -27972,6 +28179,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     pw_keys = [k for k in ext_flags if k.startswith("ext_pw_")]
     rr_keys = [k for k in ext_flags if k.startswith("ext_rr_")]
     ta2_keys = [k for k in ext_flags if k.startswith("ext_ta_")]
+    sw2_keys = [k for k in ext_flags if k.startswith("ext_sw_")]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -28040,6 +28248,7 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dPw = all(per_theorem[k] for k in pw_keys)
     dRr = all(per_theorem[k] for k in rr_keys)
     dTa2 = all(per_theorem[k] for k in ta2_keys)
+    dSw2 = all(per_theorem[k] for k in sw2_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -28244,6 +28453,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
             "regular_rep": ("SEMIFINITE_ANALYSIS_INCREMENT_39__REGULAR_REPRESENTATION_OF_POINCARE_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION_ABS_DET_ONE__GROUP_LAW_PROVED__FAITHFUL_EVERY_NONIDENTITY_MOVES_A_VECTOR__BOOST_NOW_SEEN__WITNESS_RESIDUE_FIBER_FUSION_PLUS_III1__SEAL_STAYS_CONDITIONAL" if dRr
                              else "NOT_VERIFIED_THIS_RUN"),
             "traceless_algebra": ("SEMIFINITE_ANALYSIS_INCREMENT_40__BIPARTITION_OF_ELL2_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT_OF_THE_PROGRAM__TWO_INDEPENDENT_TRACE_KILLERS_FLOW_AND_ALGEBRA__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_STAYS_CONDITIONAL" if dTa2
+                                   else "NOT_VERIFIED_THIS_RUN"),
+            "semifinite_weight": ("SEMIFINITE_ANALYSIS_INCREMENT_41__TR_IN_KERNEL__TR_ONE_INFINITE__NAME_ATOM_WEIGHS_ONE_THIRD_FACE__WEIGHT_ABSORBS_BIPARTITION_INF_EQ_TWO_INF__TYPE_DECIDED_WHERE_RULER_BREAKS__SEAL_STAYS_CONDITIONAL" if dSw2
                                    else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
@@ -29919,6 +30130,9 @@ def run_um(ONE):
     traceless_algebra = prove_traceless_algebra(ONE, {  # v119: A PAREDE DE FUNDO, 1o tijolo (o unico traco e' zero; B(l2) como vN); ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    semifinite_weight = prove_semifinite_weight(ONE, {  # v120: o 2o tijolo (o PESO que sobrevive; Tr(Nome)=1; inf=2.inf); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
@@ -30081,6 +30295,7 @@ def run_um(ONE):
             "inhabited_witness": inhabited_witness,
             "faithful_rep": faithful_rep,
             "traceless_algebra": traceless_algebra,
+            "semifinite_weight": semifinite_weight,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
             "bench_declaration": bench_declaration,
@@ -33635,6 +33850,88 @@ def prove_traceless_algebra(ONE, parts):
         "does_not_gate_core": True,
         "verdict": ("TGL_TRACELESS_ALGEBRA__BIPARTITION_OF_THE_HOME_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__THE_ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT__TWO_INDEPENDENT_TRACE_KILLERS__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_UNMOVED" if all_v
                     else "TRACELESS_ALGEBRA_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_semifinite_weight(ONE, parts):
+    """v120 -- O SEGUNDO TIJOLO: O PESO QUE SOBREVIVE [ADITIVO; nao gateia
+    1=1]. A PEDRA 69 (SemifiniteWeight.lean) constroi o Tr em kernel e prova
+    POR QUE ele sobrevive a biparticao que matou o estado (v119):
+    * opWeight: Tr(a) = Sum <e_n, a e_n> em [0, infinito] -- a regua
+      NAO-limitada que o tipo I-infinito ainda admite;
+    * Tr(1) = INFINITO: a casa inteira pesa infinito (o peso nao e' estado);
+    * ★★★ Tr(P_Nome) = 1 = omega(I): A TERCEIRA FACE DA IDENTIDADE DO CANTO
+      -- o atomo do Nome pesa exatamente 1 sob o peso VERDADEIRO da algebra
+      plena (dimOrTop v76; canto de Breuer v106; agora o Tr operatorial);
+    * O PESO ABSORVE A BIPARTICAO: Tr(u.a.cE) = Tr(a) -- a meia-casa pesa o
+      mesmo que a casa;
+    * O TEOREMA-SINTESE state_dies_weight_survives: o estado morre (v119),
+      Tr(1) = infinito, e a biparticao e' absorvida -- INFINITO = 2xINFINITO
+      e' consistente; phi(1) = 2phi(1) finito nao e'. A distincao I-inf/III
+      em kernel: O TIPO E' DECIDIDO POR ONDE A REGUA ESTOURA.
+    O QUE FALTA (nomeado): normalidade; teoria geral de pesos sobre vN; o
+    fator SEM NENHUM peso semifinito (Araki-Woods) = III_1. O V2 segue
+    RESERVADO; gate 5T/1F; o selo NAO se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_aqft_core_constructed")
+                    and flips.get("concrete_breuer_corner_constructed")
+                    and flips.get("concrete_modular_four_frame_constructed")
+                    and flips.get("concrete_solder_field_constructed")
+                    and flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    top_ok = bool(elp.get("ext_sw_one_top_kernel_proved") is True)
+    atom_ok = bool(elp.get("ext_sw_atom_one_kernel_proved") is True)
+    inv_ok = bool(elp.get("ext_sw_halving_invariant_kernel_proved") is True
+                  and elp.get("ext_sw_coeven_inscription_kernel_proved") is True)
+    synth_ok = bool(elp.get("ext_sw_synthesis_kernel_proved") is True)
+    state_ok = bool(elp.get("ext_ta_trace_zero_kernel_proved") is True)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+                        and not shadow["mathematical_model_constructed"])
+    checks = [
+        ("Tr(1) = INFINITO: a casa inteira pesa infinito (o peso nao e' estado)", top_ok),
+        ("Tr(P_Nome) = 1 = omega(I): a 3a face da identidade do canto", atom_ok),
+        ("O PESO ABSORVE A BIPARTICAO: Tr(u.a.cE) = Tr(a)", inv_ok),
+        ("o teorema-sintese: estado morre + peso sobrevive + inf = 2.inf", synth_ok),
+        ("o assassino de estado (v119) segue em kernel", state_ok),
+        ("o gate segue 5T/1F (a witness e' a dura restante)", five_one),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O PESO QUE SOBREVIVE: Tr em kernel com Tr(1) = infinito, "
+                    "Tr(P_Nome) = 1 = omega(I) (a terceira face da identidade do "
+                    "canto), e a biparticao ABSORVIDA (inf = 2.inf) -- o tipo da "
+                    "algebra e' decidido por ONDE a regua estoura: o estado estoura "
+                    "no finito (morre), o peso estoura no infinito (vive)."),
+        "values": {"beta": beta,
+                   "n_true": sum(1 for v in flips.values() if v),
+                   "n_false": sum(1 for v in flips.values() if not v)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_identidade_tripla": "o Nome pesa 1 em TRES reguas independentes: dimOrTop (v76), canto de Breuer (v106), e agora o Tr operatorial (v120) -- omega(I) = 1 e' robusto a mudanca de regua",
+            "o_que_resta": "normalidade do peso; teoria geral de pesos sobre vN; o fator SEM peso semifinito (Araki-Woods) = III_1 -- o programa, pedra a pedra",
+            "honestidade": "B(ell2) segue I-infinito; nenhuma frase 'III_1 construido'; o par de tijolos (v119+v120) e' a DICOTOMIA que a classificacao usa, provada na casa do Nome",
+            "o_veredito": ("TGL_SEMIFINITE_WEIGHT__TR_IN_KERNEL__TR_ONE_IS_INFINITE__NAME_ATOM_WEIGHS_ONE_THIRD_FACE_OF_OMEGA_I__WEIGHT_ABSORBS_THE_BIPARTITION_INF_EQ_TWO_INF__TYPE_DECIDED_BY_WHERE_THE_RULER_BREAKS__III1_PATH_NAMED__SEAL_UNMOVED" if all_v
+                           else "SEMIFINITE_WEIGHT_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_SEMIFINITE_WEIGHT__TR_IN_KERNEL__TR_ONE_IS_INFINITE__NAME_ATOM_WEIGHS_ONE_THIRD_FACE_OF_OMEGA_I__WEIGHT_ABSORBS_THE_BIPARTITION_INF_EQ_TWO_INF__TYPE_DECIDED_BY_WHERE_THE_RULER_BREAKS__III1_PATH_NAMED__SEAL_UNMOVED" if all_v
+                    else "SEMIFINITE_WEIGHT_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -42521,7 +42818,8 @@ _ESQUELETO_STONES = [
     ("v116", "PoincareGroup", "TGLExt/PoincareGroup.lean", None, None),
     ("v116", "PoincareWitness", "TGLExt/PoincareWitness.lean", "453/453", "18/07 20:45:41"),
     ("v118", "RegularRep", "TGLExt/RegularRep.lean", "460/460", "19/07 07:28:49"),
-    ("v119", "TracelessAlgebra", "TGLExt/TracelessAlgebra.lean", None, None),
+    ("v119", "TracelessAlgebra", "TGLExt/TracelessAlgebra.lean", "467/467", "19/07 08:33:51"),
+    ("v120", "SemifiniteWeight", "TGLExt/SemifiniteWeight.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -42556,17 +42854,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(sessenta e oito pedras e o rito do fechamento, \S120--\S199)}")
+                 r"(sessenta e nove pedras e o rito do fechamento, \S120--\S200)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em sessenta e oito pedras "
-                 r"(v43--v119) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em sessenta e nove pedras "
+                 r"(v43--v120) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As sessenta e oito pedras}")
+        c.append(r"\subsection*{As sessenta e nove pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -43313,6 +43611,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"de álgebra (v119). Honestidade: $B(\ell^2)$ é I$_\infty$ --- o "
                  r"PESO $\mathrm{Tr}$ sobrevive; a parede III$_1$ verdadeira = matar "
                  r"também o peso (pesos, normalidade, Araki--Woods: o programa).")
+        c.append(r"\kernelmk{SemifiniteWeight} (v120): \textbf{o peso que "
+                 r"sobrevive} --- Tr em kernel ($\mathrm{Tr}(a)=\sum_n\langle e_n,"
+                 r"a\,e_n\rangle$, valorado em $[0,\infty]$): $\mathrm{Tr}(1)="
+                 r"\infty$; \textbf{$\mathrm{Tr}(P_{\rm Nome})=1=\omega(I)$} --- "
+                 r"a TERCEIRA face da identidade do canto (dimOrTop v76; Breuer "
+                 r"v106; agora o Tr operatorial); e \textbf{a bipartição ABSORVIDA}: "
+                 r"$\mathrm{Tr}(u\,a\,c_E)=\mathrm{Tr}(a)$ --- $\infty=2\infty$ "
+                 r"é consistente onde $\varphi(1)=2\varphi(1)$ finito não é. O "
+                 r"teorema-síntese \texttt{state\_dies\_weight\_survives}: O TIPO "
+                 r"É DECIDIDO POR ONDE A RÉGUA ESTOURA. III$_1$ $=$ o fator sem "
+                 r"NENHUM peso semifinito --- nomeado, o próximo horizonte.")
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- A testemunha habitável: os dois zeros e o "
@@ -43759,7 +44068,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em sessenta e oito pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em sessenta e nove pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -43894,16 +44203,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(sixty-eight stones and the closure rite, \S120--\S199)}")
+                 r"(sixty-nine stones and the closure rite, \S120--\S200)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across sixty-eight stones (v43--v119) the audited kernel went from 53 to "
+                 r"from this run's audit. Across sixty-nine stones (v43--v120) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The sixty-eight stones}")
+        c.append(r"\subsection*{The sixty-nine stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -44650,6 +44959,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"(v119). Honesty: $B(\ell^2)$ is I$_\infty$ --- the WEIGHT "
                  r"$\mathrm{Tr}$ survives; the true III$_1$ wall = killing the "
                  r"weight too (weights, normality, Araki--Woods: the program).")
+        c.append(r"\kernelmk{SemifiniteWeight} (v120): \textbf{the weight that "
+                 r"survives} --- Tr in kernel ($\mathrm{Tr}(a)=\sum_n\langle e_n,"
+                 r"a\,e_n\rangle$, valued in $[0,\infty]$): $\mathrm{Tr}(1)="
+                 r"\infty$; \textbf{$\mathrm{Tr}(P_{\rm Name})=1=\omega(I)$} --- "
+                 r"the THIRD face of the corner identity (dimOrTop v76; Breuer v106; "
+                 r"now the operator Tr); and \textbf{the bipartition ABSORBED}: "
+                 r"$\mathrm{Tr}(u\,a\,c_E)=\mathrm{Tr}(a)$ --- $\infty=2\infty$ "
+                 r"is consistent where finite $\varphi(1)=2\varphi(1)$ is not. The "
+                 r"synthesis theorem \texttt{state\_dies\_weight\_survives}: THE "
+                 r"TYPE IS DECIDED BY WHERE THE RULER BREAKS. III$_1$ $=$ the factor "
+                 r"with NO semifinite weight at all --- named, the next horizon.")
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- The inhabitable witness: the two zeros and "
@@ -45084,7 +45404,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across sixty-eight stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across sixty-nine stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -45581,7 +45901,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "void_floor_lrg", "void_floor_kappa_v5",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_floor_lrg", "void_floor_kappa_v5",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -47830,6 +48150,12 @@ def main():
     for _k, _v in (_ta.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [honestidade: B(ell2) e' I-infinito -- o PESO Tr sobrevive; a parede III_1 = matar tambem o peso (pesos+normalidade+Araki-Woods = o programa); dois assassinos de traco em kernel: fluxo v45 + algebra v119]")
+    _sw = core.get("semifinite_weight", {}) or {}
+    print("  O PESO QUE SOBREVIVE [v120 -- Tr em kernel; onde a regua estoura decide o tipo]: %s" % _sw.get("verdict"))
+    print("    Tr(1) = INFINITO ; Tr(P_Nome) = 1 = omega(I) (a 3a face da identidade do canto) ; Tr(u.a.cE) = Tr(a): a biparticao ABSORVIDA (inf = 2.inf)")
+    for _k, _v in (_sw.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [o par v119+v120 = a DICOTOMIA da classificacao provada na casa do Nome: o estado estoura no finito (morre), o peso estoura no infinito (vive); III_1 = o fator sem NENHUM peso -- nomeado]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (
