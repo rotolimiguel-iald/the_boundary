@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `85e1f99119f24305615ac6a0a5cd3bed1fc48dd644c8d6151ba0c0bcdb1c1efd`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `67a42bd2be01c4f586d69c24318e7025c3c18bbeab336e3cd80f29b949c1c53f`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -519,7 +519,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 453/453 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 467/467 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -586,6 +586,8 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `graviton_reading` = `SEMIFINITE_ANALYSIS_INCREMENT_34__READER_RIDES_BIANCHI_ZEROS__PHYSICAL_IN_SECOND_DERIVATIVE_FIRST_IS_GAUGE_SAME_POINT__HYPERBOLIC_GEAR_TWO_TO_ONE_READING_ONTO__SEAL_STAYS_CONDITIONAL`
 - `continuum_shards` = `SEMIFINITE_ANALYSIS_INCREMENT_35__GRAVITON_WAVE_EQUATION_IN_CONTINUUM_DALEMBERT_ANY_C2__FIBER_FEELS_THE_GROUP_FLIP_FIXES_REGION__WALLS_SHRUNK_TT_GHOST_POINCARE10_III1__BENCH_TEST_EMITTED__SEAL_STAYS_CONDITIONAL`
 - `master_continuum` = `SEMIFINITE_ANALYSIS_INCREMENTS_36_37_38__CONTINUOUS_MASTER_CONTRACT_ON_THE_SOLDER__FULL_NULL_CONE_CLAUSIUS_IFF_FIELD_EQUATION__FIFTH_RESERVED_NAME_MINTED_EINSTEIN__LORENTZ_GROUP_BY_HAND_DEFINING_RELATION__BOOST_LAW_IS_HYPERBOLIC_GEAR__POINCARE_TEN_DIRECTIONS_FAITHFUL__PARITY_MOVES_FIBER_FIXING_ORIGIN__PROPER_SECTOR_FIBERS_BLIND__WITNESS_WALL_NAMED_UNITARY_REP_PLUS_III1__SEAL_STAYS_CONDITIONAL`
+- `regular_rep` = `SEMIFINITE_ANALYSIS_INCREMENT_39__REGULAR_REPRESENTATION_OF_POINCARE_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION_ABS_DET_ONE__GROUP_LAW_PROVED__FAITHFUL_EVERY_NONIDENTITY_MOVES_A_VECTOR__BOOST_NOW_SEEN__WITNESS_RESIDUE_FIBER_FUSION_PLUS_III1__SEAL_STAYS_CONDITIONAL`
+- `traceless_algebra` = `SEMIFINITE_ANALYSIS_INCREMENT_40__BIPARTITION_OF_ELL2_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT_OF_THE_PROGRAM__TWO_INDEPENDENT_TRACE_KILLERS_FLOW_AND_ALGEBRA__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_STAYS_CONDITIONAL`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
@@ -815,6 +817,20 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `os_dois_zeros`: 0_abs = observador vazio (tipo sem habitante) / 0_modular = a casa do Nome (habitada, tau=1) -- a testemunha mora no zero habitado
 - `a_parede_nomeada`: III_1 e' definido por 'o unico traco e' zero' -- a leitura do operador aponta a propriedade que DEFINE a parede restante da testemunha (rep unitaria fiel do setor conexo + III_1)
 - `o_veredito`: TGL_INHABITED_WITNESS__TWO_ZEROS_DISTINGUISHED_BY_TYPE__EMPTY_OBSERVER_IS_THE_ABSOLUTE_ZERO__MODULAR_ZERO_IS_THE_INHABITED_APERTURE__CONJUGATED_HALF_FACES_WEIGH_THE_ONE__INSCRIPTION_IS_A_THEOREM__NAMING_ONTO
+
+**Estatutos [faithful_rep]** (veredito: `TGL_FAITHFUL_REP__POINCARE_ACTS_UNITARILY_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION__GROUP_LAW_PROVED__FAITHFUL_NO_BLIND_DIRECTION__BOOST_NOW_SEEN__WITNESS_RESIDUE_SHRUNK_TO_FIBER_FUSION_PLUS_III1__SEAL_UNMOVED`):
+
+- `o_que_fechou`: a rep unitaria FIEL do grupo INTEIRO (setor conexo incluido) em INF-dim -- construida, nao postulada; a unitariedade e' TEOREMA da relacao eta
+- `o_que_resta`: a FUSAO da rep as fibras da rede covariante (produto L2 -- mecanica nomeada) + o fator III_1 (teoria modular de von Neumann, ausente da mathlib; construi-la e' o programa) -- o V2 segue RESERVADO
+- `honestidade`: nenhuma frase 'provamos a gravitacao quantica': o gate segue 5T/1F e o selo so escala com os 6 formais + fisica + dado
+- `o_veredito`: TGL_FAITHFUL_REP__POINCARE_ACTS_UNITARILY_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION__GROUP_LAW_PROVED__FAITHFUL_NO_BLIND_DIRECTION__BOOST_NOW_SEEN__WITNESS_RESIDUE_SHRUNK_TO_FIBER_FUSION_PLUS_III1__SEAL_UNMOVED
+
+**Estatutos [traceless_algebra]** (veredito: `TGL_TRACELESS_ALGEBRA__BIPARTITION_OF_THE_HOME_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__THE_ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT__TWO_INDEPENDENT_TRACE_KILLERS__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_UNMOVED`):
+
+- `o_que_fechou`: estados traciais EXCLUIDOS de B(ell2) por teorema (halving); dois assassinos de traco independentes (fluxo v45 + algebra v119); o primeiro objeto vN do programa
+- `o_que_resta`: a parede III_1 verdadeira: matar tambem o PESO semifinito normal (B(ell2) e' I-infinito: Tr sobrevive) -- pesos, normalidade e o fator concreto (Araki-Woods) = o programa; + a fusao da rep fiel as fibras
+- `honestidade`: nenhuma frase 'III_1 construido': o tijolo e' o PADRAO da propriedade definidora, provado na algebra plena; o fator e' o programa
+- `o_veredito`: TGL_TRACELESS_ALGEBRA__BIPARTITION_OF_THE_HOME_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__THE_ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT__TWO_INDEPENDENT_TRACE_KILLERS__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_UNMOVED
 
 **Estatutos [void_floor_lrg]** (veredito: `TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION`):
 

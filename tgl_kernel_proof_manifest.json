@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-18 21:39:40",
+  "timestamp": "2026-07-19 08:33:51",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "85e1f99119f24305615ac6a0a5cd3bed1fc48dd644c8d6151ba0c0bcdb1c1efd",
+  "formal_source_hash": "67a42bd2be01c4f586d69c24318e7025c3c18bbeab336e3cd80f29b949c1c53f",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "f50bb40240608857231ff796f57b2041146dde4812c1d37e9e2ea7bc8aa00a80",
+    "TGLExt.lean": "57d42b06c49e1f5427a6b0ff605dcea5816e76f348a5933b36fd1cc7e3efd932",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "4ac3e2462ed8add7278c26c6855043773a20153865b45893ec0ca605a27b4211",
+    "TGL/Audit.lean": "8386a6436c5963f18dceb4322d3614bddd278f59ac32a6e88e79103a2bccfe14",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -101,6 +101,7 @@
     "TGLExt/PsiEmergence.lean": "ff0fd49da7bda187a61454a6b57099e99d1c59c8af038fa43c90c1653736bb04",
     "TGLExt/RGStability.lean": "ae3c1eeee6d86ea43b57ee0afe171bb43c0f24094702130ec3c2604f53aa7bf5",
     "TGLExt/ReducedEmergence.lean": "d11854b264e6e17c551db2e6ffc6eaf804408afa1846c88529487167743eb845",
+    "TGLExt/RegularRep.lean": "a3861da9c4d4e8ef8173272ad8843c65dcbe8215d598a52948f608fca7d53590",
     "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
     "TGLExt/SemifiniteLattice.lean": "37ca0a1db916c93954c1a486ddbf5462248a050e58ccb6b670020c5225e46b0f",
     "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
@@ -114,6 +115,7 @@
     "TGLExt/TailNet.lean": "e7654368112f1af5d529edbd0d2669a829358651a82014e0d835a88868d7f5e6",
     "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
     "TGLExt/ThreeLocksCorner.lean": "51c66b4dca74fa58e221bd9889d468d1f77c816ec8c7ff3cc9f56e3bd7a66d2e",
+    "TGLExt/TracelessAlgebra.lean": "50c531bd93946a7f8df4bc940e15c3d2f71899e02c50e060e6f695f136a13de5",
     "TGLExt/TransportWitness.lean": "f4219cc2c036999e19e41b006d4899a1a10cd2e8e3562c5a277370faae0364ed",
     "TGLExt/TriadMaster.lean": "64e0899e259693927b051493b8f20cc47885f183d02d79a8772e3b3d869863ae",
     "TGLExt/VariationalInhabitant.lean": "2af4afbc660fdd9c1ca9f8c66a8ad073fbea252949d64b503ed2e8cb81b6c27e",
@@ -2655,10 +2657,80 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.measurePreserving_mulVec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.measurePreserving_pAct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.regularRep_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.regularRep_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.regularRep_faithful": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.regularRep_moves_boost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.spacetimeL2_nontrivial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.coEven_evenShift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.coOdd_oddShift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.shift_partition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tracial_one_eq_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tracial_state_is_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.fullAlgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.bipartition_mem_fullAlgebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "481ec4ca3e7504c1f903c6daebf8537931174332db30ea0a406b359badfec29f",
-  "audit_stdout_sha256": "75f6af5c04ff278717aadb4a623faa412f16dd97e2935c60dab3415b42a3c033",
+  "build_stdout_sha256": "81d315f4001572edb1c31de4561a9fda157dd41ba00b1b14b57f1598e4b98320",
+  "audit_stdout_sha256": "39f005bd9a4daadf2ab3c0dcd87031f7dda4e11451891d38067cf680f55792b7",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

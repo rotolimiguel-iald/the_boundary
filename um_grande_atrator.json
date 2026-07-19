@@ -4542,17 +4542,87 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.measurePreserving_mulVec": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.measurePreserving_pAct": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.regularRep_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.regularRep_mul": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.regularRep_faithful": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.regularRep_moves_boost": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.spacetimeL2_nontrivial": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.coEven_evenShift": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.coOdd_oddShift": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.shift_partition": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tracial_one_eq_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tracial_state_is_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.fullAlgebra": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.bipartition_mem_fullAlgebra": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "85e1f99119f24305615ac6a0a5cd3bed1fc48dd644c8d6151ba0c0bcdb1c1efd",
+      "formal_source_hash": "67a42bd2be01c4f586d69c24318e7025c3c18bbeab336e3cd80f29b949c1c53f",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "f50bb40240608857231ff796f57b2041146dde4812c1d37e9e2ea7bc8aa00a80",
+        "TGLExt.lean": "57d42b06c49e1f5427a6b0ff605dcea5816e76f348a5933b36fd1cc7e3efd932",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "4ac3e2462ed8add7278c26c6855043773a20153865b45893ec0ca605a27b4211",
+        "TGL/Audit.lean": "8386a6436c5963f18dceb4322d3614bddd278f59ac32a6e88e79103a2bccfe14",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -4635,6 +4705,7 @@
         "TGLExt/PsiEmergence.lean": "ff0fd49da7bda187a61454a6b57099e99d1c59c8af038fa43c90c1653736bb04",
         "TGLExt/RGStability.lean": "ae3c1eeee6d86ea43b57ee0afe171bb43c0f24094702130ec3c2604f53aa7bf5",
         "TGLExt/ReducedEmergence.lean": "d11854b264e6e17c551db2e6ffc6eaf804408afa1846c88529487167743eb845",
+        "TGLExt/RegularRep.lean": "a3861da9c4d4e8ef8173272ad8843c65dcbe8215d598a52948f608fca7d53590",
         "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
         "TGLExt/SemifiniteLattice.lean": "37ca0a1db916c93954c1a486ddbf5462248a050e58ccb6b670020c5225e46b0f",
         "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
@@ -4648,6 +4719,7 @@
         "TGLExt/TailNet.lean": "e7654368112f1af5d529edbd0d2669a829358651a82014e0d835a88868d7f5e6",
         "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
         "TGLExt/ThreeLocksCorner.lean": "51c66b4dca74fa58e221bd9889d468d1f77c816ec8c7ff3cc9f56e3bd7a66d2e",
+        "TGLExt/TracelessAlgebra.lean": "50c531bd93946a7f8df4bc940e15c3d2f71899e02c50e060e6f695f136a13de5",
         "TGLExt/TransportWitness.lean": "f4219cc2c036999e19e41b006d4899a1a10cd2e8e3562c5a277370faae0364ed",
         "TGLExt/TriadMaster.lean": "64e0899e259693927b051493b8f20cc47885f183d02d79a8772e3b3d869863ae",
         "TGLExt/VariationalInhabitant.lean": "2af4afbc660fdd9c1ca9f8c66a8ad073fbea252949d64b503ed2e8cb81b6c27e",
@@ -5171,24 +5243,38 @@
       "ext_pw_boost_moves_kernel_proved": true,
       "ext_pw_faithful_on_regions_kernel_proved": true,
       "ext_pw_proper_fibers_blind_kernel_proved": true,
+      "ext_rr_mp_lorentz_kernel_proved": true,
+      "ext_rr_mp_pact_kernel_proved": true,
+      "ext_rr_one_kernel_proved": true,
+      "ext_rr_mul_kernel_proved": true,
+      "ext_rr_faithful_kernel_proved": true,
+      "ext_rr_boost_moves_kernel_proved": true,
+      "ext_rr_nontrivial_kernel_proved": true,
+      "ext_ta_coeven_kernel_proved": true,
+      "ext_ta_coodd_kernel_proved": true,
+      "ext_ta_partition_kernel_proved": true,
+      "ext_ta_one_zero_kernel_proved": true,
+      "ext_ta_trace_zero_kernel_proved": true,
+      "ext_ta_vn_algebra_kernel_proved": true,
+      "ext_ta_bipartition_mem_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "481ec4ca3e7504c1f903c6daebf8537931174332db30ea0a406b359badfec29f",
+      "build_stdout_sha256": "81d315f4001572edb1c31de4561a9fda157dd41ba00b1b14b57f1598e4b98320",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "75f6af5c04ff278717aadb4a623faa412f16dd97e2935c60dab3415b42a3c033",
+      "audit_stdout_sha256": "39f005bd9a4daadf2ab3c0dcd87031f7dda4e11451891d38067cf680f55792b7",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 223529,
+        "stdout": 225161,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 165616,
+        "stdout": 166842,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "481ec4ca3e7504c1f903c6daebf8537931174332db30ea0a406b359badfec29f",
-      "audit_capture_sha256_full": "75f6af5c04ff278717aadb4a623faa412f16dd97e2935c60dab3415b42a3c033",
+      "build_capture_sha256_full": "81d315f4001572edb1c31de4561a9fda157dd41ba00b1b14b57f1598e4b98320",
+      "audit_capture_sha256_full": "39f005bd9a4daadf2ab3c0dcd87031f7dda4e11451891d38067cf680f55792b7",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
       "qgc_concrete_breuer_corner_constructed": true,
@@ -6443,7 +6529,9 @@
         "walls_assault": "SEMIFINITE_ANALYSIS_INCREMENTS_32_33__REDUCED_JACOBSON_EMERGENCE_CLAUSIUS_FORCES_FIELD_EQUATION_VIA_BIANCHI_ZERO__TYPABLE_HALF_OF_FULL_WITNESS_INHABITED_GENUINE_GROUP_ACTION__WALLS_SHRUNK_TO_RAYCHAUDHURI_AND_POINCARE_III1__V2_RESERVED__SEAL_STAYS_CONDITIONAL",
         "graviton_reading": "SEMIFINITE_ANALYSIS_INCREMENT_34__READER_RIDES_BIANCHI_ZEROS__PHYSICAL_IN_SECOND_DERIVATIVE_FIRST_IS_GAUGE_SAME_POINT__HYPERBOLIC_GEAR_TWO_TO_ONE_READING_ONTO__SEAL_STAYS_CONDITIONAL",
         "continuum_shards": "SEMIFINITE_ANALYSIS_INCREMENT_35__GRAVITON_WAVE_EQUATION_IN_CONTINUUM_DALEMBERT_ANY_C2__FIBER_FEELS_THE_GROUP_FLIP_FIXES_REGION__WALLS_SHRUNK_TT_GHOST_POINCARE10_III1__BENCH_TEST_EMITTED__SEAL_STAYS_CONDITIONAL",
-        "master_continuum": "SEMIFINITE_ANALYSIS_INCREMENTS_36_37_38__CONTINUOUS_MASTER_CONTRACT_ON_THE_SOLDER__FULL_NULL_CONE_CLAUSIUS_IFF_FIELD_EQUATION__FIFTH_RESERVED_NAME_MINTED_EINSTEIN__LORENTZ_GROUP_BY_HAND_DEFINING_RELATION__BOOST_LAW_IS_HYPERBOLIC_GEAR__POINCARE_TEN_DIRECTIONS_FAITHFUL__PARITY_MOVES_FIBER_FIXING_ORIGIN__PROPER_SECTOR_FIBERS_BLIND__WITNESS_WALL_NAMED_UNITARY_REP_PLUS_III1__SEAL_STAYS_CONDITIONAL"
+        "master_continuum": "SEMIFINITE_ANALYSIS_INCREMENTS_36_37_38__CONTINUOUS_MASTER_CONTRACT_ON_THE_SOLDER__FULL_NULL_CONE_CLAUSIUS_IFF_FIELD_EQUATION__FIFTH_RESERVED_NAME_MINTED_EINSTEIN__LORENTZ_GROUP_BY_HAND_DEFINING_RELATION__BOOST_LAW_IS_HYPERBOLIC_GEAR__POINCARE_TEN_DIRECTIONS_FAITHFUL__PARITY_MOVES_FIBER_FIXING_ORIGIN__PROPER_SECTOR_FIBERS_BLIND__WITNESS_WALL_NAMED_UNITARY_REP_PLUS_III1__SEAL_STAYS_CONDITIONAL",
+        "regular_rep": "SEMIFINITE_ANALYSIS_INCREMENT_39__REGULAR_REPRESENTATION_OF_POINCARE_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION_ABS_DET_ONE__GROUP_LAW_PROVED__FAITHFUL_EVERY_NONIDENTITY_MOVES_A_VECTOR__BOOST_NOW_SEEN__WITNESS_RESIDUE_FIBER_FUSION_PLUS_III1__SEAL_STAYS_CONDITIONAL",
+        "traceless_algebra": "SEMIFINITE_ANALYSIS_INCREMENT_40__BIPARTITION_OF_ELL2_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT_OF_THE_PROGRAM__TWO_INDEPENDENT_TRACE_KILLERS_FLOW_AND_ALGEBRA__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_STAYS_CONDITIONAL"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -6898,10 +6986,24 @@
         "ext_pw_fiber_sensitive_kernel_proved": true,
         "ext_pw_boost_moves_kernel_proved": true,
         "ext_pw_faithful_on_regions_kernel_proved": true,
-        "ext_pw_proper_fibers_blind_kernel_proved": true
+        "ext_pw_proper_fibers_blind_kernel_proved": true,
+        "ext_rr_mp_lorentz_kernel_proved": true,
+        "ext_rr_mp_pact_kernel_proved": true,
+        "ext_rr_one_kernel_proved": true,
+        "ext_rr_mul_kernel_proved": true,
+        "ext_rr_faithful_kernel_proved": true,
+        "ext_rr_boost_moves_kernel_proved": true,
+        "ext_rr_nontrivial_kernel_proved": true,
+        "ext_ta_coeven_kernel_proved": true,
+        "ext_ta_coodd_kernel_proved": true,
+        "ext_ta_partition_kernel_proved": true,
+        "ext_ta_one_zero_kernel_proved": true,
+        "ext_ta_trace_zero_kernel_proved": true,
+        "ext_ta_vn_algebra_kernel_proved": true,
+        "ext_ta_bipartition_mem_kernel_proved": true
       },
-      "n_theorems_clean": 453,
-      "n_theorems_expected": 453,
+      "n_theorems_clean": 467,
+      "n_theorems_expected": 467,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -10823,6 +10925,106 @@
       "does_not_gate_core": true,
       "verdict": "TGL_INHABITED_WITNESS__TWO_ZEROS_DISTINGUISHED_BY_TYPE__EMPTY_OBSERVER_IS_THE_ABSOLUTE_ZERO__MODULAR_ZERO_IS_THE_INHABITED_APERTURE__CONJUGATED_HALF_FACES_WEIGH_THE_ONE__INSCRIPTION_IS_A_THEOREM__NAMING_ONTO"
     },
+    "faithful_rep": {
+      "theorem": "A REPRESENTACAO REGULAR FIEL: Poincare inteiro age unitariamente em L2(R4) -- a unitariedade nasce da relacao definidora, a lei de grupo esta provada, e NENHUMA das dez direcoes e' cega (o boost, cego na fibra do v116, move vetores). A metade 'rep fiel INF-dim' do residuo da witness EXISTE em kernel.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "n_true": 5,
+        "n_false": 1
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "a unitariedade NASCE da relacao: |det Lambda| = 1 => Lebesgue preservada",
+          true
+        ],
+        [
+          "a lei de grupo: U(1) = id ; U(g)U(h) = U(gh)",
+          true
+        ],
+        [
+          "A FIDELIDADE: todo g != 1 move um vetor de L2 (medida positiva ve o deslocamento)",
+          true
+        ],
+        [
+          "o setor que era CEGO agora e' visto: o boost move vetores",
+          true
+        ],
+        [
+          "a morada L2(R4) e' nao-trivial",
+          true
+        ],
+        [
+          "o gate segue 5T/1F (a witness e' a dura restante)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_fechou": "a rep unitaria FIEL do grupo INTEIRO (setor conexo incluido) em INF-dim -- construida, nao postulada; a unitariedade e' TEOREMA da relacao eta",
+        "o_que_resta": "a FUSAO da rep as fibras da rede covariante (produto L2 -- mecanica nomeada) + o fator III_1 (teoria modular de von Neumann, ausente da mathlib; construi-la e' o programa) -- o V2 segue RESERVADO",
+        "honestidade": "nenhuma frase 'provamos a gravitacao quantica': o gate segue 5T/1F e o selo so escala com os 6 formais + fisica + dado",
+        "o_veredito": "TGL_FAITHFUL_REP__POINCARE_ACTS_UNITARILY_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION__GROUP_LAW_PROVED__FAITHFUL_NO_BLIND_DIRECTION__BOOST_NOW_SEEN__WITNESS_RESIDUE_SHRUNK_TO_FIBER_FUSION_PLUS_III1__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_FAITHFUL_REP__POINCARE_ACTS_UNITARILY_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION__GROUP_LAW_PROVED__FAITHFUL_NO_BLIND_DIRECTION__BOOST_NOW_SEEN__WITNESS_RESIDUE_SHRUNK_TO_FIBER_FUSION_PLUS_III1__SEAL_UNMOVED"
+    },
+    "traceless_algebra": {
+      "theorem": "A PAREDE DE FUNDO COMECOU A SER ESCALADA: 'o unico traco e' zero' e' TEOREMA no nivel da algebra (a biparticao de ell2 mata todo estado tracial de B(ell2)), e B(ell2) entrou como o primeiro objeto de von Neumann do programa. A propriedade que DEFINE o tipo III tem agora seu padrao provado na casa do Nome.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "n_true": 5,
+        "n_false": 1
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "a biparticao: cE.u = 1 e cO.v = 1 (retracoes em kernel)",
+          true
+        ],
+        [
+          "u.cE + v.cO = 1: a casa e' DUAS copias de si (algebra infinita)",
+          true
+        ],
+        [
+          "a biparticao mata phi(1): 2phi(1) = phi(1) => phi(1) = 0",
+          true
+        ],
+        [
+          "O TEOREMA DO TRACO ZERO: todo estado tracial sobre B(ell2) e' ZERO",
+          true
+        ],
+        [
+          "B(ell2) e' ALGEBRA DE VON NEUMANN e a biparticao mora nela",
+          true
+        ],
+        [
+          "o assassino de FLUXO (v45) segue em kernel: dois mecanismos independentes",
+          true
+        ],
+        [
+          "o gate segue 5T/1F (a witness e' a dura restante)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_fechou": "estados traciais EXCLUIDOS de B(ell2) por teorema (halving); dois assassinos de traco independentes (fluxo v45 + algebra v119); o primeiro objeto vN do programa",
+        "o_que_resta": "a parede III_1 verdadeira: matar tambem o PESO semifinito normal (B(ell2) e' I-infinito: Tr sobrevive) -- pesos, normalidade e o fator concreto (Araki-Woods) = o programa; + a fusao da rep fiel as fibras",
+        "honestidade": "nenhuma frase 'III_1 construido': o tijolo e' o PADRAO da propriedade definidora, provado na algebra plena; o fator e' o programa",
+        "o_veredito": "TGL_TRACELESS_ALGEBRA__BIPARTITION_OF_THE_HOME_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__THE_ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT__TWO_INDEPENDENT_TRACE_KILLERS__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_TRACELESS_ALGEBRA__BIPARTITION_OF_THE_HOME_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__THE_ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT__TWO_INDEPENDENT_TRACE_KILLERS__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_UNMOVED"
+    },
     "triad_master": {
       "residuals": {
         "coeficiente_de_einstein": 6.938893903907228e-18,
@@ -11004,11 +11206,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 453 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 467 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 453/453; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 467/467; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -12862,7 +13064,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-18 21:39:40",
+    "timestamp": "2026-07-19 08:33:51",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -13112,7 +13314,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-18 21:39:40",
+        "prediction_timestamp": "2026-07-19 08:33:51",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -13148,7 +13350,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "f2f0549f46474f25f1a1e120107f43f12e04d0bbf587563318534148172c5c31"
+        "prediction_hash": "e970e2005513d6e7c732d31280fe30495e38132563622381998dd7bf8e733662"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -13448,7 +13650,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "e9fc2a17ff1a1a303886a1843f43895beb693b9e2a98110216d8aa101fb43a0e"
+    "result_hash": "1bdcde68603eaf9704148abc112907dbb06ca2bfb1ca70b0f22a96fcf1c745ff"
   },
   "ga_mass_literature": [
     {
@@ -13475,7 +13677,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "e9fc2a17ff1a1a303886a1843f43895beb693b9e2a98110216d8aa101fb43a0e",
+  "result_hash_before_external_comparison": "1bdcde68603eaf9704148abc112907dbb06ca2bfb1ca70b0f22a96fcf1c745ff",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -13485,5 +13687,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-18 21:39:40"
+  "timestamp": "2026-07-19 08:33:51"
 }

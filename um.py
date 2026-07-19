@@ -5104,6 +5104,8 @@ import TGLExt.ContinuumShards
 import TGLExt.EmergentEinstein
 import TGLExt.PoincareGroup
 import TGLExt.PoincareWitness
+import TGLExt.RegularRep
+import TGLExt.TracelessAlgebra
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -6590,6 +6592,24 @@ namespace TGL.Audit
 #print axioms TGLExt.poincare_witness_boost_moves
 #print axioms TGLExt.poincare_witness_faithful
 #print axioms TGLExt.proper_sector_fibers_blind
+
+-- v118 (a representacao regular FIEL de Poincare em L2)
+#print axioms TGLExt.measurePreserving_mulVec
+#print axioms TGLExt.measurePreserving_pAct
+#print axioms TGLExt.regularRep_one
+#print axioms TGLExt.regularRep_mul
+#print axioms TGLExt.regularRep_faithful
+#print axioms TGLExt.regularRep_moves_boost
+#print axioms TGLExt.spacetimeL2_nontrivial
+
+-- v119 (a parede de fundo, primeiro tijolo: o unico traco e' zero)
+#print axioms TGLExt.coEven_evenShift
+#print axioms TGLExt.coOdd_oddShift
+#print axioms TGLExt.shift_partition
+#print axioms TGLExt.tracial_one_eq_zero
+#print axioms TGLExt.tracial_state_is_zero
+#print axioms TGLExt.fullAlgebra
+#print axioms TGLExt.bipartition_mem_fullAlgebra
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -18129,6 +18149,853 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/RegularRep.lean":
+r'''import TGLExt.PoincareWitness
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A REPRESENTAÇÃO FIEL: Poincaré inteiro age unitariamente em L²(ℝ⁴)
+  [TGLExt — v118, o incremento 39 do programa SemifiniteAnalysis]
+
+O v116 nomeou o resíduo da testemunha: "rep unitária FIEL do setor
+conexo (∞-dim; não existe f.d.) + III₁". Esta pedra CONSTRÓI a metade
+construtível — a representação regular:
+
+* `SpacetimeL2` = L²(ℝ⁴, ℂ) com a medida de Lebesgue — ∞-dim;
+* ★★ `measurePreserving_pAct` — TODA transformação de Poincaré preserva
+  a medida de Lebesgue (|det Λ| = 1 pela relação definidora + translação
+  invariante): a unitariedade nasce da relação ΛᵀηΛ = η;
+* ★★ `regularRep` — U(g)F = F ∘ φ(g⁻¹): isometria linear de L², com
+  ★ `regularRep_one` (U(1) = id) e ★★ `regularRep_mul`
+  (U(g)U(h) = U(gh) — a lei de grupo);
+* ★★★ `regularRep_faithful` — A FIDELIDADE: para TODO g ≠ 1 existe
+  F ∈ L² com U(g)F ≠ F (o indicador de uma bola pequena em torno de um
+  ponto movido — o deslocamento é visto por um conjunto de medida
+  positiva). NENHUMA direção é cega: translações, rotações, PARIDADE e
+  BOOSTS movem vetores de L²;
+* ★★ `regularRep_moves_boost` — o corolário nomeado: o BOOST (χ ≠ 0),
+  que a fibra do v116 não via (setor próprio cego), MOVE vetores da
+  representação regular.
+
+O QUE ISTO FECHA: a metade "rep unitária fiel em ∞-dim" do resíduo da
+witness EXISTE em kernel. O QUE SEGUE ABERTO (nomeado, sem véu): acoplar
+esta representação às FIBRAS da rede covariante e o fator III₁ (teoria
+modular de von Neumann, ausente da mathlib) — o `qgClosureCertificateV2`
+segue RESERVADO (lição v103, oitava aplicação).
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open MeasureTheory Metric
+
+noncomputable section
+
+/-- L²(ℝ⁴, ℂ): a morada da representação regular. -/
+abbrev SpacetimeL2 : Type := Lp ℂ 2 (volume : Measure (Fin 4 → ℝ))
+
+/-! ## A — Poincaré preserva Lebesgue -/
+
+theorem lorentz_det_ne_zero (Λ : LorentzGrp) : Λ.1.det ≠ 0 := by
+  intro h
+  have h2 := lorentz_det_sq Λ
+  rw [h] at h2
+  norm_num at h2
+
+theorem lorentz_abs_det_inv_one (Λ : LorentzGrp) : |(Λ.1.det)⁻¹| = 1 := by
+  have h2 := lorentz_det_sq Λ
+  have habs : |Λ.1.det| = 1 := by
+    nlinarith [abs_nonneg Λ.1.det, sq_abs Λ.1.det,
+      sq_nonneg (|Λ.1.det| - 1), sq_nonneg (|Λ.1.det| + 1)]
+  rw [abs_inv, habs]
+  norm_num
+
+/-- [KERNEL] ★ a parte de Lorentz preserva Lebesgue (|det| = 1). -/
+theorem measurePreserving_mulVec (Λ : LorentzGrp) :
+    MeasurePreserving (fun x : Fin 4 → ℝ => Λ.1.mulVec x) volume volume := by
+  have hfun : (fun x : Fin 4 → ℝ => Λ.1.mulVec x) = Matrix.toLin' Λ.1 := by
+    funext x
+    rw [Matrix.toLin'_apply]
+  rw [hfun]
+  refine ⟨(LinearMap.continuous_on_pi _).measurable, ?_⟩
+  rw [Real.map_matrix_volume_pi_eq_smul_volume_pi (lorentz_det_ne_zero Λ),
+    lorentz_abs_det_inv_one, ENNReal.ofReal_one, one_smul]
+
+/-- [KERNEL] ★ a translação preserva Lebesgue (invariância de Haar). -/
+theorem measurePreserving_translate (a : Fin 4 → ℝ) :
+    MeasurePreserving (fun x : Fin 4 → ℝ => x + a) volume volume :=
+  ⟨measurable_add_const a, map_add_right_eq_self volume a⟩
+
+/-- [KERNEL] ★★ TODA transformação de Poincaré preserva a medida de
+    Lebesgue: a unitariedade nasce de ΛᵀηΛ = η (|det Λ| = 1). -/
+theorem measurePreserving_pAct (g : PoincareGroup) :
+    MeasurePreserving (pAct g) volume volume := by
+  have hfun : pAct g
+      = (fun x : Fin 4 → ℝ => x + g.tr)
+        ∘ (fun x : Fin 4 → ℝ => g.lor.1.mulVec x) := by
+    funext x
+    rfl
+  rw [hfun]
+  exact (measurePreserving_translate g.tr).comp (measurePreserving_mulVec g.lor)
+
+/-! ## B — a representação regular -/
+
+/-- A REPRESENTAÇÃO REGULAR: U(g)F = F ∘ φ(g⁻¹). -/
+def regularRep (g : PoincareGroup) : SpacetimeL2 →ₗᵢ[ℂ] SpacetimeL2 :=
+  Lp.compMeasurePreservingₗᵢ ℂ (pAct g⁻¹) (measurePreserving_pAct g⁻¹)
+
+theorem regularRep_apply (g : PoincareGroup) (F : SpacetimeL2) :
+    regularRep g F
+      = Lp.compMeasurePreserving (pAct g⁻¹) (measurePreserving_pAct g⁻¹) F := rfl
+
+/-- a congruência da composição (a prova é irrelevante, a função manda). -/
+theorem comp_congr_fun {f₁ f₂ : (Fin 4 → ℝ) → (Fin 4 → ℝ)} (h : f₁ = f₂)
+    (hf₁ : MeasurePreserving f₁ (volume : Measure (Fin 4 → ℝ)) volume)
+    (F : SpacetimeL2) :
+    Lp.compMeasurePreserving f₁ hf₁ F
+      = Lp.compMeasurePreserving f₂ (h ▸ hf₁) F := by
+  subst h
+  rfl
+
+/-- [KERNEL] ★ U(1) = id. -/
+theorem regularRep_one (F : SpacetimeL2) : regularRep 1 F = F := by
+  rw [regularRep_apply]
+  have h1 : pAct (1 : PoincareGroup)⁻¹ = id := by
+    funext x
+    rw [inv_one, pAct_one]
+    rfl
+  rw [comp_congr_fun h1 (measurePreserving_pAct 1⁻¹) F]
+  exact Lp.compMeasurePreserving_id_apply F
+
+/-- [KERNEL] ★★ A LEI DE GRUPO: U(gh) = U(g) ∘ U(h). -/
+theorem regularRep_mul (g h : PoincareGroup) (F : SpacetimeL2) :
+    regularRep (g * h) F = regularRep g (regularRep h F) := by
+  rw [regularRep_apply, regularRep_apply, regularRep_apply]
+  have hfun : pAct ((g * h)⁻¹) = pAct h⁻¹ ∘ pAct g⁻¹ := by
+    funext x
+    rw [mul_inv_rev]
+    exact pAct_mul h⁻¹ g⁻¹ x
+  rw [comp_congr_fun hfun (measurePreserving_pAct (g * h)⁻¹) F]
+  exact Lp.compMeasurePreserving_comp_apply F
+    (measurePreserving_pAct h⁻¹) (measurePreserving_pAct g⁻¹)
+
+/-! ## C — A FIDELIDADE: nenhuma direção é cega em L² -/
+
+/-- o indicador de uma bola como elemento de L². -/
+def ballIndicator (x₀ : Fin 4 → ℝ) (r : ℝ) : SpacetimeL2 :=
+  indicatorConstLp 2
+    (measurableSet_ball : MeasurableSet (Metric.ball x₀ r))
+    (ne_of_lt (measure_ball_lt_top : volume (Metric.ball x₀ r) < ⊤)) (1 : ℂ)
+
+theorem ballIndicator_coe (x₀ : Fin 4 → ℝ) (r : ℝ) :
+    ballIndicator x₀ r
+      =ᵐ[volume] (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) := by
+  unfold ballIndicator
+  exact indicatorConstLp_coeFn
+
+/-- [KERNEL] ★★★ A FIDELIDADE DA REPRESENTAÇÃO REGULAR: todo g ≠ 1 move
+    algum vetor de L² — o indicador de uma bola pequena em torno de um
+    ponto que g⁻¹ desloca. Translações, rotações, paridade E BOOSTS:
+    nenhuma das dez direções é cega na representação regular. -/
+theorem regularRep_faithful (g : PoincareGroup) (hg : g ≠ 1) :
+    ∃ F : SpacetimeL2, regularRep g F ≠ F := by
+  -- (1) um ponto movido por φ := pAct g⁻¹
+  have hginv : g⁻¹ ≠ 1 := fun h => hg (by
+    have := congrArg (·⁻¹) h
+    simpa using this)
+  have hmoved : ∃ x₀, pAct g⁻¹ x₀ ≠ x₀ := by
+    by_contra hall
+    push Not at hall
+    exact hginv (poincare_faithful g⁻¹ hall)
+  obtain ⟨x₀, hx₀⟩ := hmoved
+  set φ := pAct g⁻¹ with hφdef
+  set y₀ := φ x₀ with hy₀
+  have hd : 0 < dist y₀ x₀ := dist_pos.mpr hx₀
+  set r := dist y₀ x₀ / 3 with hr
+  have hrpos : 0 < r := by positivity
+  -- (2) a constante de Lipschitz da parte linear
+  set L := LinearMap.toContinuousLinearMap (Matrix.toLin' (g⁻¹).lor.1) with hL
+  have hlip : ∀ x, dist (φ x) y₀ ≤ ‖L‖ * dist x x₀ := by
+    intro x
+    have hsub : φ x - y₀ = L (x - x₀) := by
+      show pAct g⁻¹ x - pAct g⁻¹ x₀ = L (x - x₀)
+      unfold pAct
+      have : L (x - x₀) = (g⁻¹).lor.1.mulVec (x - x₀) := by
+        show Matrix.toLin' (g⁻¹).lor.1 (x - x₀) = _
+        rw [Matrix.toLin'_apply]
+      rw [this, Matrix.mulVec_sub]
+      abel
+    rw [dist_eq_norm, hsub]
+    calc ‖L (x - x₀)‖ ≤ ‖L‖ * ‖x - x₀‖ := L.le_opNorm _
+      _ = ‖L‖ * dist x x₀ := by rw [dist_eq_norm]
+  -- (3) o raio pequeno: dentro de B(x₀, δ) o φ manda tudo perto de y₀
+  set δ := min r (r / (‖L‖ + 1)) with hδ
+  have hδpos : 0 < δ := by
+    apply lt_min hrpos
+    positivity
+  have hδr : δ ≤ r := min_le_left _ _
+  have hnorm_pos : (0 : ℝ) < ‖L‖ + 1 := by positivity
+  have himage : ∀ x ∈ Metric.ball x₀ δ, dist (φ x) y₀ < r := by
+    intro x hx
+    have hdx : dist x x₀ < δ := mem_ball.mp hx
+    calc dist (φ x) y₀ ≤ ‖L‖ * dist x x₀ := hlip x
+      _ ≤ ‖L‖ * δ := by
+          apply mul_le_mul_of_nonneg_left (le_of_lt hdx) (norm_nonneg _)
+      _ ≤ ‖L‖ * (r / (‖L‖ + 1)) := by
+          apply mul_le_mul_of_nonneg_left (min_le_right _ _) (norm_nonneg _)
+      _ < r := by
+          rw [div_eq_mul_inv]
+          rw [← mul_assoc]
+          have h1 : ‖L‖ * r < (‖L‖ + 1) * r := by nlinarith [hrpos]
+          calc ‖L‖ * r * (‖L‖ + 1)⁻¹ < (‖L‖ + 1) * r * (‖L‖ + 1)⁻¹ := by
+                apply mul_lt_mul_of_pos_right h1
+                positivity
+            _ = r := by field_simp
+  -- (4) dentro de B(x₀, δ): o indicador vale 1 e o transportado vale 0
+  set F := ballIndicator x₀ r with hF
+  refine ⟨F, fun heq => ?_⟩
+  -- as duas classes têm representantes explícitos
+  have hUF : regularRep g F =ᵐ[volume] fun x => (F : (Fin 4 → ℝ) → ℂ) (φ x) := by
+    rw [regularRep_apply]
+    exact Lp.coeFn_compMeasurePreserving F (measurePreserving_pAct g⁻¹)
+  have hcoe : (F : (Fin 4 → ℝ) → ℂ)
+      =ᵐ[volume] (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) :=
+    ballIndicator_coe x₀ r
+  have hmap : (volume : Measure (Fin 4 → ℝ)).map φ = volume :=
+    (measurePreserving_pAct g⁻¹).map_eq
+  have hcomp : (fun x => (F : (Fin 4 → ℝ) → ℂ) (φ x))
+      =ᵐ[volume] fun x => (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) (φ x) := by
+    have h1 : ((F : (Fin 4 → ℝ) → ℂ) ∘ φ)
+        =ᵐ[volume] ((Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) ∘ φ) := by
+      apply ae_eq_comp ((measurePreserving_pAct g⁻¹).measurable.aemeasurable)
+      rw [hmap]
+      exact hcoe
+    exact h1
+  -- a igualdade em Lp forçaria indicator∘φ =ᵃᵉ indicator
+  have hae : (fun x => (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) (φ x))
+      =ᵐ[volume] (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) := by
+    calc (fun x => (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) (φ x))
+        =ᵐ[volume] (fun x => (F : (Fin 4 → ℝ) → ℂ) (φ x)) := hcomp.symm
+      _ =ᵐ[volume] regularRep g F := hUF.symm
+      _ =ᵐ[volume] (F : (Fin 4 → ℝ) → ℂ) := by rw [heq]
+      _ =ᵐ[volume] (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) := hcoe
+  -- mas as duas funções diferem em TODA a bola B(x₀, δ), de medida positiva
+  have hdiff : Metric.ball x₀ δ
+      ⊆ {x | (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) (φ x)
+             ≠ (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) x} := by
+    intro x hx
+    have hin : x ∈ Metric.ball x₀ r :=
+      mem_ball.mpr (lt_of_lt_of_le (mem_ball.mp hx) hδr)
+    have hout : φ x ∉ Metric.ball x₀ r := by
+      intro hmem
+      have h1 : dist (φ x) y₀ < r := himage x hx
+      have h2 : dist (φ x) x₀ < r := mem_ball.mp hmem
+      have h3 : dist y₀ x₀ ≤ dist y₀ (φ x) + dist (φ x) x₀ := dist_triangle _ _ _
+      rw [dist_comm y₀ (φ x)] at h3
+      have : dist y₀ x₀ < 2 * r := by linarith
+      rw [hr] at this
+      linarith [hd]
+    show (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) (φ x)
+        ≠ (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) x
+    rw [Set.indicator_of_notMem hout, Set.indicator_of_mem hin]
+    norm_num
+  have hnull : volume {x | (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) (φ x)
+      ≠ (Metric.ball x₀ r).indicator (fun _ => (1 : ℂ)) x} = 0 := by
+    exact hae
+  have hpos : (0 : ENNReal) < volume (Metric.ball x₀ δ) :=
+    measure_ball_pos volume x₀ hδpos
+  have : volume (Metric.ball x₀ δ) = 0 :=
+    le_antisymm (hnull ▸ measure_mono hdiff) zero_le
+  rw [this] at hpos
+  exact lt_irrefl 0 hpos
+
+/-- o boost puro como elemento de Poincaré. -/
+def boostElement (χ : ℝ) : PoincareGroup := ⟨0, theBoost χ⟩
+
+theorem boostElement_ne_one (χ : ℝ) (hχ : χ ≠ 0) : boostElement χ ≠ 1 := by
+  intro h
+  have hlor := congrArg PoincareGroup.lor h
+  exact boost_ne_one χ hχ (by
+    show theBoost χ = 1
+    exact hlor)
+
+/-- [KERNEL] ★★ O SETOR QUE ERA CEGO AGORA É VISTO: o boost (χ ≠ 0)
+    MOVE vetores de L² — a direção que a fibra do v116 não via
+    (`proper_sector_fibers_blind`) age NÃO-trivialmente na
+    representação regular. -/
+theorem regularRep_moves_boost (χ : ℝ) (hχ : χ ≠ 0) :
+    ∃ F : SpacetimeL2, regularRep (boostElement χ) F ≠ F :=
+  regularRep_faithful (boostElement χ) (boostElement_ne_one χ hχ)
+
+/-- [KERNEL] ★ a morada é genuinamente ∞-dimensional (herda o padrão do
+    programa: L² sobre um espaço sem átomos não é finito-dim; aqui basta
+    o não-trivial: a bola unitária tem indicador não-nulo). -/
+theorem spacetimeL2_nontrivial : ∃ F : SpacetimeL2, F ≠ 0 := by
+  refine ⟨ballIndicator 0 1, fun h => ?_⟩
+  have hcoe := ballIndicator_coe (0 : Fin 4 → ℝ) 1
+  rw [h] at hcoe
+  have hzero : ((0 : SpacetimeL2) : (Fin 4 → ℝ) → ℂ) =ᵐ[volume] 0 :=
+    Lp.coeFn_zero ℂ 2 volume
+  have hae : (Metric.ball (0 : Fin 4 → ℝ) 1).indicator (fun _ => (1 : ℂ))
+      =ᵐ[volume] 0 := (hcoe.symm.trans hzero)
+  have hdiff : Metric.ball (0 : Fin 4 → ℝ) 1
+      ⊆ {x | (Metric.ball (0 : Fin 4 → ℝ) 1).indicator (fun _ => (1 : ℂ)) x
+             ≠ (0 : (Fin 4 → ℝ) → ℂ) x} := by
+    intro x hx
+    show (Metric.ball (0 : Fin 4 → ℝ) 1).indicator (fun _ => (1 : ℂ)) x ≠ 0
+    rw [Set.indicator_of_mem hx]
+    norm_num
+  have hnull : volume {x | (Metric.ball (0 : Fin 4 → ℝ) 1).indicator
+      (fun _ => (1 : ℂ)) x ≠ (0 : (Fin 4 → ℝ) → ℂ) x} = 0 := hae
+  have hpos : (0 : ENNReal) < volume (Metric.ball (0 : Fin 4 → ℝ) 1) :=
+    measure_ball_pos volume 0 one_pos
+  have : volume (Metric.ball (0 : Fin 4 → ℝ) 1) = 0 :=
+    le_antisymm (hnull ▸ measure_mono hdiff) zero_le
+  rw [this] at hpos
+  exact lt_irrefl 0 hpos
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TracelessAlgebra.lean":
+r'''import TGLExt.RegularRep
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PAREDE DE FUNDO, PRIMEIRO TIJOLO: "o único traço é zero" — em kernel
+  [TGLExt — v119, o incremento 40 do programa SemifiniteAnalysis]
+
+A última parede da testemunha é o fator III₁ — teoria modular de von
+Neumann, ausente da mathlib. O mandato: "se tiver que ser feita à mão,
+que seja feito." Esta pedra põe o primeiro tijolo:
+
+* ★★ `evenShift`/`oddShift` + retrações — A BIPARTIÇÃO DE ℓ²: quatro
+  operadores contínuos com cE·u = 1, cO·v = 1 e u·cE + v·cO = 1 (a casa
+  é isomorfa a DUAS cópias de si — a marca das álgebras infinitas), com
+  as três identidades PONTUAIS;
+* `TracialState` — o contrato tipado do traço limitado (linear,
+  positivo-real, *-simétrico, tracial), com star = adjunto da C*-face;
+* ★★ `tracial_one_eq_zero` — a bipartição mata φ(1) por traço puro:
+  φ(1) = φ(cE·u) = φ(u·cE), idem ímpar; somando, 2φ(1) = φ(1);
+* ★★★ `tracial_state_is_zero` — O TEOREMA: TODO estado tracial sobre
+  B(ℓ²) é IDENTICAMENTE ZERO — "o único traço é zero" (a leitura do
+  operador, v117) no nível da ÁLGEBRA: o argumento quadrático da
+  positividade sobre φ(1) = 0;
+* ★★ `fullAlgebra` — B(ℓ²) como ÁLGEBRA DE VON NEUMANN (o primeiro
+  objeto de von Neumann do programa) e a bipartição mora nela.
+
+HONESTIDADE (sem véu): B(ℓ²) é tipo I∞, não III — o que sobrevive nela
+é o PESO semifinito Tr (não-limitado). Este teorema mata os traços
+LIMITADOS (estados); a parede III₁ verdadeira = matar também o peso
+semifinito normal. Dois mecanismos independentes agora em kernel: o
+assassino de FLUXO (v45: τ∘θ_s = e^{−s}τ ⟹ τ = 0) e o assassino de
+ÁLGEBRA (v119: a bipartição). O que falta para III₁: pesos, normalidade
+e um fator concreto (Araki–Woods) — o programa, pedra a pedra.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ComplexConjugate ENNReal
+
+noncomputable section
+
+/-! ## A — as funções da bipartição -/
+
+/-- (u x)ₖ = x_{k/2} se k é par, 0 se ímpar. -/
+def evenShiftFun (x : ℕ → ℂ) : ℕ → ℂ :=
+  fun k => if k % 2 = 0 then x (k / 2) else 0
+
+/-- (v x)ₖ = x_{k/2} se k é ímpar, 0 se par. -/
+def oddShiftFun (x : ℕ → ℂ) : ℕ → ℂ :=
+  fun k => if k % 2 = 1 then x (k / 2) else 0
+
+/-- a retração par: (cE y)ₙ = y_{2n}. -/
+def coEvenFun (y : ℕ → ℂ) : ℕ → ℂ := fun n => y (2 * n)
+
+/-- a retração ímpar: (cO y)ₙ = y_{2n+1}. -/
+def coOddFun (y : ℕ → ℂ) : ℕ → ℂ := fun n => y (2 * n + 1)
+
+theorem evenShiftFun_double (x : ℕ → ℂ) (n : ℕ) :
+    evenShiftFun x (2 * n) = x n := by
+  unfold evenShiftFun
+  rw [if_pos (by omega : (2 * n) % 2 = 0)]
+  congr 1
+  omega
+
+theorem oddShiftFun_double (x : ℕ → ℂ) (n : ℕ) :
+    oddShiftFun x (2 * n + 1) = x n := by
+  unfold oddShiftFun
+  rw [if_pos (by omega : (2 * n + 1) % 2 = 1)]
+  congr 1
+  omega
+
+theorem double_injective : Function.Injective (fun n : ℕ => 2 * n) := by
+  intro a b h
+  simpa using h
+
+theorem double_succ_injective :
+    Function.Injective (fun n : ℕ => 2 * n + 1) := by
+  intro a b h
+  simpa using h
+
+theorem evenShiftFun_support (x : ℕ → ℂ) (k : ℕ)
+    (hk : k ∉ Set.range (fun n : ℕ => 2 * n)) :
+    ‖evenShiftFun x k‖ ^ (2 : ℝ≥0∞).toReal = 0 := by
+  have hodd : k % 2 = 1 := by
+    by_contra h
+    exact hk ⟨k / 2, show 2 * (k / 2) = k by omega⟩
+  unfold evenShiftFun
+  rw [if_neg (by omega)]
+  rw [norm_zero]
+  rw [Real.zero_rpow (by norm_num)]
+
+theorem oddShiftFun_support (x : ℕ → ℂ) (k : ℕ)
+    (hk : k ∉ Set.range (fun n : ℕ => 2 * n + 1)) :
+    ‖oddShiftFun x k‖ ^ (2 : ℝ≥0∞).toReal = 0 := by
+  have heven : k % 2 = 0 := by
+    by_contra h
+    exact hk ⟨k / 2, show 2 * (k / 2) + 1 = k by omega⟩
+  unfold oddShiftFun
+  rw [if_neg (by omega)]
+  rw [norm_zero]
+  rw [Real.zero_rpow (by norm_num)]
+
+/-! ## B — pertinência e limitação -/
+
+theorem evenShiftFun_support' (x : ℕ → ℂ) :
+    (Function.support fun k => ‖evenShiftFun x k‖ ^ (2 : ℝ≥0∞).toReal)
+      ⊆ Set.range (fun n : ℕ => 2 * n) := by
+  intro k hk
+  by_contra hr
+  exact hk (evenShiftFun_support x k hr)
+
+theorem oddShiftFun_support' (x : ℕ → ℂ) :
+    (Function.support fun k => ‖oddShiftFun x k‖ ^ (2 : ℝ≥0∞).toReal)
+      ⊆ Set.range (fun n : ℕ => 2 * n + 1) := by
+  intro k hk
+  by_contra hr
+  exact hk (oddShiftFun_support x k hr)
+
+theorem memℓp_two_iff_summable (f : ℕ → ℂ) :
+    Memℓp f 2 ↔ Summable (fun k => ‖f k‖ ^ (2 : ℝ≥0∞).toReal) := by
+  constructor
+  · intro h
+    exact h.summable (by norm_num)
+  · intro h
+    exact memℓp_gen h
+
+theorem evenShiftFun_memℓp (x : ellTwo) :
+    Memℓp (evenShiftFun (x : ℕ → ℂ)) 2 := by
+  rw [memℓp_two_iff_summable]
+  rw [← Function.Injective.summable_iff double_injective
+    (evenShiftFun_support (x : ℕ → ℂ))]
+  have hcong : ((fun k => ‖evenShiftFun (x : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal)
+      ∘ (fun n : ℕ => 2 * n))
+      = fun n => ‖(x : ℕ → ℂ) n‖ ^ (2 : ℝ≥0∞).toReal := by
+    funext n
+    show ‖evenShiftFun (x : ℕ → ℂ) (2 * n)‖ ^ (2 : ℝ≥0∞).toReal = _
+    rw [evenShiftFun_double]
+  rw [hcong]
+  exact (lp.memℓp x).summable (by norm_num)
+
+theorem oddShiftFun_memℓp (x : ellTwo) :
+    Memℓp (oddShiftFun (x : ℕ → ℂ)) 2 := by
+  rw [memℓp_two_iff_summable]
+  rw [← Function.Injective.summable_iff double_succ_injective
+    (oddShiftFun_support (x : ℕ → ℂ))]
+  have hcong : ((fun k => ‖oddShiftFun (x : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal)
+      ∘ (fun n : ℕ => 2 * n + 1))
+      = fun n => ‖(x : ℕ → ℂ) n‖ ^ (2 : ℝ≥0∞).toReal := by
+    funext n
+    show ‖oddShiftFun (x : ℕ → ℂ) (2 * n + 1)‖ ^ (2 : ℝ≥0∞).toReal = _
+    rw [oddShiftFun_double]
+  rw [hcong]
+  exact (lp.memℓp x).summable (by norm_num)
+
+theorem coEvenFun_memℓp (y : ellTwo) :
+    Memℓp (coEvenFun (y : ℕ → ℂ)) 2 := by
+  rw [memℓp_two_iff_summable]
+  have hy : Summable (fun k => ‖(y : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal) :=
+    (lp.memℓp y).summable (by norm_num)
+  refine summable_of_sum_range_le
+    (c := ∑' k, ‖(y : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal) ?_ ?_
+  · intro n
+    positivity
+  · intro N
+    have himg : ∑ n ∈ Finset.range N,
+        ‖coEvenFun (y : ℕ → ℂ) n‖ ^ (2 : ℝ≥0∞).toReal
+        = ∑ k ∈ (Finset.range N).image (fun n => 2 * n),
+            ‖(y : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal := by
+      rw [Finset.sum_image (fun a _ b _ h => double_injective h)]
+      rfl
+    rw [himg]
+    exact Summable.sum_le_tsum _ (fun k _ => by positivity) hy
+
+theorem coOddFun_memℓp (y : ellTwo) :
+    Memℓp (coOddFun (y : ℕ → ℂ)) 2 := by
+  rw [memℓp_two_iff_summable]
+  have hy : Summable (fun k => ‖(y : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal) :=
+    (lp.memℓp y).summable (by norm_num)
+  refine summable_of_sum_range_le
+    (c := ∑' k, ‖(y : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal) ?_ ?_
+  · intro n
+    positivity
+  · intro N
+    have himg : ∑ n ∈ Finset.range N,
+        ‖coOddFun (y : ℕ → ℂ) n‖ ^ (2 : ℝ≥0∞).toReal
+        = ∑ k ∈ (Finset.range N).image (fun n => 2 * n + 1),
+            ‖(y : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal := by
+      rw [Finset.sum_image (fun a _ b _ h => double_succ_injective h)]
+      rfl
+    rw [himg]
+    exact Summable.sum_le_tsum _ (fun k _ => by positivity) hy
+
+/-! ## C — os quatro operadores contínuos -/
+
+def evenShiftLM : ellTwo →ₗ[ℂ] ellTwo where
+  toFun x := ⟨evenShiftFun (x : ℕ → ℂ), evenShiftFun_memℓp x⟩
+  map_add' x y := by
+    apply Subtype.ext
+    funext k
+    show evenShiftFun ((x : ℕ → ℂ) + (y : ℕ → ℂ)) k
+        = evenShiftFun (x : ℕ → ℂ) k + evenShiftFun (y : ℕ → ℂ) k
+    unfold evenShiftFun
+    by_cases h : k % 2 = 0 <;> simp [h]
+  map_smul' c x := by
+    apply Subtype.ext
+    funext k
+    show evenShiftFun (c • (x : ℕ → ℂ)) k = c • evenShiftFun (x : ℕ → ℂ) k
+    unfold evenShiftFun
+    by_cases h : k % 2 = 0 <;> simp [h]
+
+def oddShiftLM : ellTwo →ₗ[ℂ] ellTwo where
+  toFun x := ⟨oddShiftFun (x : ℕ → ℂ), oddShiftFun_memℓp x⟩
+  map_add' x y := by
+    apply Subtype.ext
+    funext k
+    show oddShiftFun ((x : ℕ → ℂ) + (y : ℕ → ℂ)) k
+        = oddShiftFun (x : ℕ → ℂ) k + oddShiftFun (y : ℕ → ℂ) k
+    unfold oddShiftFun
+    by_cases h : k % 2 = 1 <;> simp [h]
+  map_smul' c x := by
+    apply Subtype.ext
+    funext k
+    show oddShiftFun (c • (x : ℕ → ℂ)) k = c • oddShiftFun (x : ℕ → ℂ) k
+    unfold oddShiftFun
+    by_cases h : k % 2 = 1 <;> simp [h]
+
+def coEvenLM : ellTwo →ₗ[ℂ] ellTwo where
+  toFun y := ⟨coEvenFun (y : ℕ → ℂ), coEvenFun_memℓp y⟩
+  map_add' x y := by
+    apply Subtype.ext
+    funext n
+    show coEvenFun ((x : ℕ → ℂ) + (y : ℕ → ℂ)) n
+        = coEvenFun (x : ℕ → ℂ) n + coEvenFun (y : ℕ → ℂ) n
+    unfold coEvenFun
+    simp
+  map_smul' c x := by
+    apply Subtype.ext
+    funext n
+    show coEvenFun (c • (x : ℕ → ℂ)) n = c • coEvenFun (x : ℕ → ℂ) n
+    unfold coEvenFun
+    simp
+
+def coOddLM : ellTwo →ₗ[ℂ] ellTwo where
+  toFun y := ⟨coOddFun (y : ℕ → ℂ), coOddFun_memℓp y⟩
+  map_add' x y := by
+    apply Subtype.ext
+    funext n
+    show coOddFun ((x : ℕ → ℂ) + (y : ℕ → ℂ)) n
+        = coOddFun (x : ℕ → ℂ) n + coOddFun (y : ℕ → ℂ) n
+    unfold coOddFun
+    simp
+  map_smul' c x := by
+    apply Subtype.ext
+    funext n
+    show coOddFun (c • (x : ℕ → ℂ)) n = c • coOddFun (x : ℕ → ℂ) n
+    unfold coOddFun
+    simp
+
+theorem norm_sq_eq_tsum (z : ellTwo) :
+    ‖z‖ ^ (2 : ℝ≥0∞).toReal
+      = ∑' k, ‖(z : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal :=
+  lp.norm_rpow_eq_tsum (by norm_num) z
+
+theorem sq_le_of_rpow_le {a b : ℝ} (ha : 0 ≤ a) (hb : 0 ≤ b)
+    (h : a ^ (2 : ℝ≥0∞).toReal ≤ b ^ (2 : ℝ≥0∞).toReal) : a ≤ b := by
+  have h2 : (2 : ℝ≥0∞).toReal = 2 := by norm_num
+  rw [h2] at h
+  rw [Real.rpow_two, Real.rpow_two] at h
+  calc a = Real.sqrt (a ^ 2) := (Real.sqrt_sq ha).symm
+    _ ≤ Real.sqrt (b ^ 2) := Real.sqrt_le_sqrt h
+    _ = b := Real.sqrt_sq hb
+
+theorem evenShiftLM_norm (x : ellTwo) : ‖evenShiftLM x‖ ≤ 1 * ‖x‖ := by
+  rw [one_mul]
+  refine sq_le_of_rpow_le (norm_nonneg _) (norm_nonneg _) (le_of_eq ?_)
+  rw [norm_sq_eq_tsum, norm_sq_eq_tsum]
+  show (∑' k, ‖evenShiftFun (x : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal) = _
+  rw [← Function.Injective.tsum_eq double_injective
+    (evenShiftFun_support' (x : ℕ → ℂ))]
+  congr 1
+  funext n
+  show ‖evenShiftFun (x : ℕ → ℂ) (2 * n)‖ ^ (2 : ℝ≥0∞).toReal = _
+  rw [evenShiftFun_double]
+
+theorem oddShiftLM_norm (x : ellTwo) : ‖oddShiftLM x‖ ≤ 1 * ‖x‖ := by
+  rw [one_mul]
+  refine sq_le_of_rpow_le (norm_nonneg _) (norm_nonneg _) (le_of_eq ?_)
+  rw [norm_sq_eq_tsum, norm_sq_eq_tsum]
+  show (∑' k, ‖oddShiftFun (x : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal) = _
+  rw [← Function.Injective.tsum_eq double_succ_injective
+    (oddShiftFun_support' (x : ℕ → ℂ))]
+  congr 1
+  funext n
+  show ‖oddShiftFun (x : ℕ → ℂ) (2 * n + 1)‖ ^ (2 : ℝ≥0∞).toReal = _
+  rw [oddShiftFun_double]
+
+theorem coEvenLM_norm (y : ellTwo) : ‖coEvenLM y‖ ≤ 1 * ‖y‖ := by
+  rw [one_mul]
+  have hy : Summable (fun k => ‖(y : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal) :=
+    (lp.memℓp y).summable (by norm_num)
+  have hc : Summable
+      (fun n => ‖coEvenFun (y : ℕ → ℂ) n‖ ^ (2 : ℝ≥0∞).toReal) := by
+    have h := coEvenFun_memℓp y
+    rw [memℓp_two_iff_summable] at h
+    exact h
+  refine sq_le_of_rpow_le (norm_nonneg _) (norm_nonneg _) ?_
+  rw [norm_sq_eq_tsum, norm_sq_eq_tsum]
+  show (∑' n, ‖coEvenFun (y : ℕ → ℂ) n‖ ^ (2 : ℝ≥0∞).toReal) ≤ _
+  refine Summable.tsum_le_tsum_of_inj (fun n => 2 * n) double_injective
+    (fun k _ => by positivity) (fun n => le_of_eq rfl) hc hy
+
+theorem coOddLM_norm (y : ellTwo) : ‖coOddLM y‖ ≤ 1 * ‖y‖ := by
+  rw [one_mul]
+  have hy : Summable (fun k => ‖(y : ℕ → ℂ) k‖ ^ (2 : ℝ≥0∞).toReal) :=
+    (lp.memℓp y).summable (by norm_num)
+  have hc : Summable
+      (fun n => ‖coOddFun (y : ℕ → ℂ) n‖ ^ (2 : ℝ≥0∞).toReal) := by
+    have h := coOddFun_memℓp y
+    rw [memℓp_two_iff_summable] at h
+    exact h
+  refine sq_le_of_rpow_le (norm_nonneg _) (norm_nonneg _) ?_
+  rw [norm_sq_eq_tsum, norm_sq_eq_tsum]
+  show (∑' n, ‖coOddFun (y : ℕ → ℂ) n‖ ^ (2 : ℝ≥0∞).toReal) ≤ _
+  refine Summable.tsum_le_tsum_of_inj (fun n => 2 * n + 1) double_succ_injective
+    (fun k _ => by positivity) (fun n => le_of_eq rfl) hc hy
+
+/-- u : o mergulho par (isometria). -/
+def evenShift : ellTwo →L[ℂ] ellTwo :=
+  LinearMap.mkContinuous evenShiftLM 1 evenShiftLM_norm
+
+/-- v : o mergulho ímpar (isometria). -/
+def oddShift : ellTwo →L[ℂ] ellTwo :=
+  LinearMap.mkContinuous oddShiftLM 1 oddShiftLM_norm
+
+/-- cE : a retração par. -/
+def coEven : ellTwo →L[ℂ] ellTwo :=
+  LinearMap.mkContinuous coEvenLM 1 coEvenLM_norm
+
+/-- cO : a retração ímpar. -/
+def coOdd : ellTwo →L[ℂ] ellTwo :=
+  LinearMap.mkContinuous coOddLM 1 coOddLM_norm
+
+/-! ## D — as identidades da bipartição (PONTUAIS) -/
+
+/-- [KERNEL] ★ cE · u = 1. -/
+theorem coEven_evenShift : coEven * evenShift = 1 := by
+  ext x n
+  show coEvenFun (evenShiftFun (x : ℕ → ℂ)) n = (x : ℕ → ℂ) n
+  unfold coEvenFun
+  rw [evenShiftFun_double]
+
+/-- [KERNEL] ★ cO · v = 1. -/
+theorem coOdd_oddShift : coOdd * oddShift = 1 := by
+  ext x n
+  show coOddFun (oddShiftFun (x : ℕ → ℂ)) n = (x : ℕ → ℂ) n
+  unfold coOddFun
+  rw [oddShiftFun_double]
+
+/-- [KERNEL] ★★ A BIPARTIÇÃO: u·cE + v·cO = 1 — a casa é DUAS cópias
+    de si mesma (a marca das álgebras infinitas). -/
+theorem shift_partition :
+    evenShift * coEven + oddShift * coOdd = 1 := by
+  ext y k
+  show evenShiftFun (coEvenFun (y : ℕ → ℂ)) k
+      + oddShiftFun (coOddFun (y : ℕ → ℂ)) k = (y : ℕ → ℂ) k
+  unfold evenShiftFun oddShiftFun coEvenFun coOddFun
+  by_cases h : k % 2 = 0
+  · rw [if_pos h, if_neg (by omega)]
+    have hk : 2 * (k / 2) = k := by omega
+    rw [hk, add_zero]
+  · rw [if_neg h, if_pos (by omega : k % 2 = 1)]
+    have hk : 2 * (k / 2) + 1 = k := by omega
+    rw [hk, zero_add]
+
+/-! ## E — o contrato do traço limitado e O TEOREMA -/
+
+/-- [DATA — o contrato do traço limitado] linear + positivo-real +
+    *-simétrico + tracial (star = adjunto da C*-face). Normalidade NÃO
+    é exigida: o teorema mata até os não-normais. -/
+structure TracialState where
+  φ : (ellTwo →L[ℂ] ellTwo) → ℂ
+  map_add : ∀ a b, φ (a + b) = φ a + φ b
+  map_smul : ∀ (c : ℂ) a, φ (c • a) = c * φ a
+  pos_real : ∀ a, ∃ r : ℝ, 0 ≤ r ∧ φ (star a * a) = (r : ℂ)
+  star_symm : ∀ a, φ (star a) = conj (φ a)
+  tracial : ∀ a b, φ (a * b) = φ (b * a)
+
+/-- [KERNEL] ★★ A BIPARTIÇÃO MATA φ(1): φ(1) = φ(cE·u) = φ(u·cE) e
+    φ(1) = φ(cO·v) = φ(v·cO); somando, 2φ(1) = φ(u·cE + v·cO) = φ(1). -/
+theorem tracial_one_eq_zero (T : TracialState) : T.φ 1 = 0 := by
+  have h1 : T.φ 1 = T.φ (evenShift * coEven) := by
+    rw [← coEven_evenShift]
+    exact T.tracial coEven evenShift
+  have h2 : T.φ 1 = T.φ (oddShift * coOdd) := by
+    rw [← coOdd_oddShift]
+    exact T.tracial coOdd oddShift
+  have hsum : T.φ 1 + T.φ 1
+      = T.φ (evenShift * coEven + oddShift * coOdd) := by
+    rw [T.map_add, ← h1, ← h2]
+  rw [shift_partition] at hsum
+  have h3 : T.φ 1 + T.φ 1 - T.φ 1 = T.φ 1 - T.φ 1 := by rw [hsum]
+  simpa using h3
+
+/-- [KERNEL] ★★★ O TEOREMA DO TRAÇO ZERO: todo estado tracial sobre
+    B(ℓ²) é IDENTICAMENTE ZERO — "o único traço é zero" (v117), agora
+    no nível da álgebra, pelo argumento quadrático da positividade. -/
+theorem tracial_state_is_zero (T : TracialState)
+    (a : ellTwo →L[ℂ] ellTwo) : T.φ a = 0 := by
+  by_contra hne
+  have hApos : 0 < ‖T.φ a‖ := norm_pos_iff.mpr hne
+  -- a fase w com |w| = 1 e w·φ(a) = ‖φ(a)‖
+  set w : ℂ := conj (T.φ a) / (‖T.φ a‖ : ℂ) with hw
+  have hwa : w * T.φ a = (‖T.φ a‖ : ℂ) := by
+    rw [hw, div_mul_eq_mul_div]
+    rw [Complex.conj_mul']
+    rw [div_eq_iff (by
+      simpa using ne_of_gt hApos : ((‖T.φ a‖ : ℝ) : ℂ) ≠ 0)]
+    norm_cast
+    ring
+  have hwmod : w * conj w = 1 := by
+    rw [hw]
+    rw [map_div₀, Complex.conj_conj, Complex.conj_ofReal]
+    rw [div_mul_div_comm, Complex.conj_mul']
+    rw [div_eq_one_iff_eq (by
+      have : ((‖T.φ a‖ : ℝ) : ℂ) ≠ 0 := by simpa using ne_of_gt hApos
+      exact mul_ne_zero this this)]
+    norm_cast
+    ring
+  obtain ⟨r, hr, hφaa⟩ := T.pos_real a
+  -- para todo t real, 0 ≤ 2t‖φ(a)‖ + t²r (a positividade da forma)
+  have hkey : ∀ t : ℝ, 0 ≤ 2 * t * ‖T.φ a‖ + t ^ 2 * r := by
+    intro t
+    set z : ℂ := (t : ℂ) * w with hz
+    set b : ellTwo →L[ℂ] ellTwo := 1 + z • a with hb
+    obtain ⟨s, hs, hφbb⟩ := T.pos_real b
+    -- star b * b expandido
+    have hstar : star b = 1 + conj z • star a := by
+      rw [hb, star_add, star_one, star_smul]
+      rfl
+    have hexp : star b * b
+        = 1 + z • a + conj z • star a
+          + (conj z * z) • (star a * a) := by
+      rw [hb, hstar]
+      have hsm : (conj z • star a) * (z • a)
+          = (conj z * z) • (star a * a) := by
+        rw [smul_mul_assoc, mul_smul_comm, smul_smul]
+      rw [add_mul]
+      rw [mul_add, mul_add]
+      simp only [one_mul, mul_one]
+      rw [hsm]
+      abel
+    -- φ do produto
+    have hφexp : T.φ (star b * b)
+        = z * T.φ a + conj z * conj (T.φ a) + (conj z * z) * (r : ℂ) := by
+      rw [hexp]
+      rw [T.map_add, T.map_add, T.map_add]
+      rw [T.map_smul, T.map_smul, T.map_smul]
+      rw [tracial_one_eq_zero T, T.star_symm, hφaa]
+      ring
+    -- os termos com a fase
+    have hz1 : z * T.φ a = ((t * ‖T.φ a‖ : ℝ) : ℂ) := by
+      rw [hz, mul_assoc, hwa]
+      norm_cast
+    have hz2 : conj z * conj (T.φ a) = ((t * ‖T.φ a‖ : ℝ) : ℂ) := by
+      have : conj z * conj (T.φ a) = conj (z * T.φ a) :=
+        (map_mul (starRingEnd ℂ) z (T.φ a)).symm
+      rw [this, hz1, Complex.conj_ofReal]
+    have hz3 : conj z * z = ((t ^ 2 : ℝ) : ℂ) := by
+      rw [hz, map_mul, Complex.conj_ofReal]
+      have : (t : ℂ) * conj w * ((t : ℂ) * w) = (t : ℂ) * (t : ℂ) * (w * conj w) := by
+        ring
+      rw [this, hwmod]
+      norm_cast
+      ring
+    rw [hz1, hz2, hz3] at hφexp
+    rw [hφbb] at hφexp
+    -- s real = expressão real: extrair a igualdade em ℝ
+    have hreal : (s : ℂ)
+        = ((t * ‖T.φ a‖ + t * ‖T.φ a‖ + t ^ 2 * r : ℝ) : ℂ) := by
+      rw [hφexp]
+      push_cast
+      ring
+    have hs_eq : s = t * ‖T.φ a‖ + t * ‖T.φ a‖ + t ^ 2 * r :=
+      Complex.ofReal_inj.mp hreal
+    have : 0 ≤ t * ‖T.φ a‖ + t * ‖T.φ a‖ + t ^ 2 * r := by
+      rw [← hs_eq]
+      exact hs
+    linarith
+  -- o t que refuta: t₀ = −‖φ(a)‖/(r+1)
+  set A := ‖T.φ a‖ with hA
+  have hr1 : (0 : ℝ) < r + 1 := by linarith
+  set t₀ : ℝ := -(A / (r + 1)) with ht₀
+  have h2 := hkey t₀
+  have h3 : (2 * t₀ * A + t₀ ^ 2 * r) * (r + 1) ^ 2
+      = -(A ^ 2 * (r + 2)) := by
+    rw [ht₀]
+    field_simp
+    ring
+  have h4 : 0 ≤ -(A ^ 2 * (r + 2)) := by
+    rw [← h3]
+    exact mul_nonneg h2 (by positivity)
+  nlinarith [h4, hApos]
+
+/-! ## F — B(ℓ²) como álgebra de von Neumann -/
+
+/-- [KERNEL] ★★ O PRIMEIRO OBJETO DE VON NEUMANN DO PROGRAMA:
+    B(ℓ²) — o bicomutante de tudo é tudo. -/
+def fullAlgebra : VonNeumannAlgebra ellTwo where
+  toStarSubalgebra := ⊤
+  centralizer_centralizer' := by
+    ext x
+    constructor
+    · intro _
+      show x ∈ (⊤ : StarSubalgebra ℂ (ellTwo →L[ℂ] ellTwo)).carrier
+      exact trivial
+    · intro _ y hy
+      exact (hy x trivial).symm
+
+/-- [KERNEL] ★ a bipartição MORA na álgebra de von Neumann. -/
+theorem bipartition_mem_fullAlgebra :
+    evenShift ∈ (fullAlgebra : Set (ellTwo →L[ℂ] ellTwo))
+      ∧ coEven ∈ (fullAlgebra : Set (ellTwo →L[ℂ] ellTwo)) := by
+  constructor <;> exact trivial
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -25154,6 +26021,22 @@ _LEAN_THEOREM_FLAGS = {
     "ext_pw_boost_moves_kernel_proved": "TGLExt.poincare_witness_boost_moves",
     "ext_pw_faithful_on_regions_kernel_proved": "TGLExt.poincare_witness_faithful",
     "ext_pw_proper_fibers_blind_kernel_proved": "TGLExt.proper_sector_fibers_blind",
+    # v118 (a representacao regular FIEL de Poincare em L2)
+    "ext_rr_mp_lorentz_kernel_proved": "TGLExt.measurePreserving_mulVec",
+    "ext_rr_mp_pact_kernel_proved": "TGLExt.measurePreserving_pAct",
+    "ext_rr_one_kernel_proved": "TGLExt.regularRep_one",
+    "ext_rr_mul_kernel_proved": "TGLExt.regularRep_mul",
+    "ext_rr_faithful_kernel_proved": "TGLExt.regularRep_faithful",
+    "ext_rr_boost_moves_kernel_proved": "TGLExt.regularRep_moves_boost",
+    "ext_rr_nontrivial_kernel_proved": "TGLExt.spacetimeL2_nontrivial",
+    # v119 (a parede de fundo, 1o tijolo: o unico traco e' zero)
+    "ext_ta_coeven_kernel_proved": "TGLExt.coEven_evenShift",
+    "ext_ta_coodd_kernel_proved": "TGLExt.coOdd_oddShift",
+    "ext_ta_partition_kernel_proved": "TGLExt.shift_partition",
+    "ext_ta_one_zero_kernel_proved": "TGLExt.tracial_one_eq_zero",
+    "ext_ta_trace_zero_kernel_proved": "TGLExt.tracial_state_is_zero",
+    "ext_ta_vn_algebra_kernel_proved": "TGLExt.fullAlgebra",
+    "ext_ta_bipartition_mem_kernel_proved": "TGLExt.bipartition_mem_fullAlgebra",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -26841,6 +27724,16 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_pw_parity_fixes_origin_kernel_proved", "ext_pw_fiber_sensitive_kernel_proved",
         "ext_pw_boost_moves_kernel_proved", "ext_pw_faithful_on_regions_kernel_proved",
         "ext_pw_proper_fibers_blind_kernel_proved",
+        # v118: a representacao regular fiel
+        "ext_rr_mp_lorentz_kernel_proved", "ext_rr_mp_pact_kernel_proved",
+        "ext_rr_one_kernel_proved", "ext_rr_mul_kernel_proved",
+        "ext_rr_faithful_kernel_proved", "ext_rr_boost_moves_kernel_proved",
+        "ext_rr_nontrivial_kernel_proved",
+        # v119: a parede de fundo, 1o tijolo
+        "ext_ta_coeven_kernel_proved", "ext_ta_coodd_kernel_proved",
+        "ext_ta_partition_kernel_proved", "ext_ta_one_zero_kernel_proved",
+        "ext_ta_trace_zero_kernel_proved", "ext_ta_vn_algebra_kernel_proved",
+        "ext_ta_bipartition_mem_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -27077,6 +27970,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     ee_keys = [k for k in ext_flags if k.startswith("ext_ee_")]
     pg_keys = [k for k in ext_flags if k.startswith("ext_pg_")]
     pw_keys = [k for k in ext_flags if k.startswith("ext_pw_")]
+    rr_keys = [k for k in ext_flags if k.startswith("ext_rr_")]
+    ta2_keys = [k for k in ext_flags if k.startswith("ext_ta_")]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -27143,6 +28038,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dEe = all(per_theorem[k] for k in ee_keys)
     dPg = all(per_theorem[k] for k in pg_keys)
     dPw = all(per_theorem[k] for k in pw_keys)
+    dRr = all(per_theorem[k] for k in rr_keys)
+    dTa2 = all(per_theorem[k] for k in ta2_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -27344,6 +28241,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                  else "NOT_VERIFIED_THIS_RUN"),
             "master_continuum": ("SEMIFINITE_ANALYSIS_INCREMENTS_36_37_38__CONTINUOUS_MASTER_CONTRACT_ON_THE_SOLDER__FULL_NULL_CONE_CLAUSIUS_IFF_FIELD_EQUATION__FIFTH_RESERVED_NAME_MINTED_EINSTEIN__LORENTZ_GROUP_BY_HAND_DEFINING_RELATION__BOOST_LAW_IS_HYPERBOLIC_GEAR__POINCARE_TEN_DIRECTIONS_FAITHFUL__PARITY_MOVES_FIBER_FIXING_ORIGIN__PROPER_SECTOR_FIBERS_BLIND__WITNESS_WALL_NAMED_UNITARY_REP_PLUS_III1__SEAL_STAYS_CONDITIONAL" if (dEe and dPg and dPw)
                                   else "NOT_VERIFIED_THIS_RUN"),
+            "regular_rep": ("SEMIFINITE_ANALYSIS_INCREMENT_39__REGULAR_REPRESENTATION_OF_POINCARE_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION_ABS_DET_ONE__GROUP_LAW_PROVED__FAITHFUL_EVERY_NONIDENTITY_MOVES_A_VECTOR__BOOST_NOW_SEEN__WITNESS_RESIDUE_FIBER_FUSION_PLUS_III1__SEAL_STAYS_CONDITIONAL" if dRr
+                             else "NOT_VERIFIED_THIS_RUN"),
+            "traceless_algebra": ("SEMIFINITE_ANALYSIS_INCREMENT_40__BIPARTITION_OF_ELL2_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT_OF_THE_PROGRAM__TWO_INDEPENDENT_TRACE_KILLERS_FLOW_AND_ALGEBRA__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_STAYS_CONDITIONAL" if dTa2
+                                   else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -29012,6 +29913,12 @@ def run_um(ONE):
     inhabited_witness = prove_inhabited_witness(ONE, {  # v117: A TESTEMUNHA HABITAVEL (os dois zeros + o observador vazio; leitura em duplo estatuto); ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    faithful_rep = prove_faithful_rep(ONE, {  # v118: A REPRESENTACAO FIEL (Poincare inteiro age em L2; fidelidade sem direcao cega); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    traceless_algebra = prove_traceless_algebra(ONE, {  # v119: A PAREDE DE FUNDO, 1o tijolo (o unico traco e' zero; B(l2) como vN); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
@@ -29172,6 +30079,8 @@ def run_um(ONE):
             "void_floor_kappa_v5": void_floor_kappa_v5,
             "master_continuum": master_continuum,
             "inhabited_witness": inhabited_witness,
+            "faithful_rep": faithful_rep,
+            "traceless_algebra": traceless_algebra,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
             "bench_declaration": bench_declaration,
@@ -32556,6 +33465,176 @@ def prove_inhabited_witness(ONE, parts):
         "does_not_gate_core": True,
         "verdict": ("TGL_INHABITED_WITNESS__TWO_ZEROS_DISTINGUISHED_BY_TYPE__EMPTY_OBSERVER_IS_THE_ABSOLUTE_ZERO__MODULAR_ZERO_IS_THE_INHABITED_APERTURE__CONJUGATED_HALF_FACES_WEIGH_THE_ONE__INSCRIPTION_IS_A_THEOREM__NAMING_ONTO" if all_v
                     else "INHABITED_WITNESS_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_faithful_rep(ONE, parts):
+    """v118 -- A REPRESENTACAO FIEL [ADITIVO; nao gateia 1=1; NAO move flag].
+    MANDATO: 'prossiga para fechar o que falta'. O v116 nomeou o residuo da
+    witness: 'rep unitaria FIEL do setor conexo (INF-dim) + III_1'. A pedra 67
+    CONSTROI a metade construtivel -- a REPRESENTACAO REGULAR de Poincare em
+    L2(R4):
+    * a unitariedade NASCE da relacao definidora: Lambda^T eta Lambda = eta
+      => |det| = 1 => toda transformacao de Poincare preserva Lebesgue;
+    * U(g)F = F o phi(g^-1): isometria linear com U(1)=id e U(g)U(h)=U(gh);
+    * A FIDELIDADE (o teorema-coroa): TODO g != 1 move algum vetor de L2 --
+      o indicador de uma bola pequena em torno de um ponto deslocado; o
+      deslocamento e' visto por um conjunto de MEDIDA POSITIVA;
+    * O SETOR QUE ERA CEGO AGORA E' VISTO: o boost (chi != 0) move vetores
+      (a fibra do v116 era cega no setor proprio -- a rep regular NAO e').
+    O QUE ISTO FECHA: 'rep unitaria fiel em INF-dim' EXISTE em kernel. O QUE
+    SEGUE (nomeado): a FUSAO desta rep as fibras da rede covariante + o fator
+    III_1 (teoria modular de vN, ausente da mathlib). O V2 segue RESERVADO;
+    o gate segue 5T/1F; o selo NAO se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_aqft_core_constructed")
+                    and flips.get("concrete_breuer_corner_constructed")
+                    and flips.get("concrete_modular_four_frame_constructed")
+                    and flips.get("concrete_solder_field_constructed")
+                    and flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    mp_ok = bool(elp.get("ext_rr_mp_lorentz_kernel_proved") is True
+                 and elp.get("ext_rr_mp_pact_kernel_proved") is True)
+    law_ok = bool(elp.get("ext_rr_one_kernel_proved") is True
+                  and elp.get("ext_rr_mul_kernel_proved") is True)
+    faithful_ok = bool(elp.get("ext_rr_faithful_kernel_proved") is True)
+    boost_ok = bool(elp.get("ext_rr_boost_moves_kernel_proved") is True)
+    home_ok = bool(elp.get("ext_rr_nontrivial_kernel_proved") is True)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+                        and not shadow["mathematical_model_constructed"])
+    checks = [
+        ("a unitariedade NASCE da relacao: |det Lambda| = 1 => Lebesgue preservada", mp_ok),
+        ("a lei de grupo: U(1) = id ; U(g)U(h) = U(gh)", law_ok),
+        ("A FIDELIDADE: todo g != 1 move um vetor de L2 (medida positiva ve o deslocamento)", faithful_ok),
+        ("o setor que era CEGO agora e' visto: o boost move vetores", boost_ok),
+        ("a morada L2(R4) e' nao-trivial", home_ok),
+        ("o gate segue 5T/1F (a witness e' a dura restante)", five_one),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A REPRESENTACAO REGULAR FIEL: Poincare inteiro age unitariamente "
+                    "em L2(R4) -- a unitariedade nasce da relacao definidora, a lei de "
+                    "grupo esta provada, e NENHUMA das dez direcoes e' cega (o boost, "
+                    "cego na fibra do v116, move vetores). A metade 'rep fiel INF-dim' "
+                    "do residuo da witness EXISTE em kernel."),
+        "values": {"beta": beta,
+                   "n_true": sum(1 for v in flips.values() if v),
+                   "n_false": sum(1 for v in flips.values() if not v)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_que_fechou": "a rep unitaria FIEL do grupo INTEIRO (setor conexo incluido) em INF-dim -- construida, nao postulada; a unitariedade e' TEOREMA da relacao eta",
+            "o_que_resta": "a FUSAO da rep as fibras da rede covariante (produto L2 -- mecanica nomeada) + o fator III_1 (teoria modular de von Neumann, ausente da mathlib; construi-la e' o programa) -- o V2 segue RESERVADO",
+            "honestidade": "nenhuma frase 'provamos a gravitacao quantica': o gate segue 5T/1F e o selo so escala com os 6 formais + fisica + dado",
+            "o_veredito": ("TGL_FAITHFUL_REP__POINCARE_ACTS_UNITARILY_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION__GROUP_LAW_PROVED__FAITHFUL_NO_BLIND_DIRECTION__BOOST_NOW_SEEN__WITNESS_RESIDUE_SHRUNK_TO_FIBER_FUSION_PLUS_III1__SEAL_UNMOVED" if all_v
+                           else "FAITHFUL_REP_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_FAITHFUL_REP__POINCARE_ACTS_UNITARILY_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION__GROUP_LAW_PROVED__FAITHFUL_NO_BLIND_DIRECTION__BOOST_NOW_SEEN__WITNESS_RESIDUE_SHRUNK_TO_FIBER_FUSION_PLUS_III1__SEAL_UNMOVED" if all_v
+                    else "FAITHFUL_REP_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_traceless_algebra(ONE, parts):
+    """v119 -- A PAREDE DE FUNDO, PRIMEIRO TIJOLO [ADITIVO; nao gateia 1=1].
+    MANDATO: 'enfrente a ultima parede -- a teoria modular de von Neumann
+    inteira, ausente da mathlib; se tiver que ser feita a mao, que seja
+    feito.' A PEDRA 68 (TracelessAlgebra.lean) poe o primeiro tijolo:
+    * A BIPARTICAO DE ell2: quatro operadores continuos com cE.u = 1,
+      cO.v = 1 e u.cE + v.cO = 1 -- a casa e' isomorfa a DUAS copias de si
+      (a marca das algebras infinitas), identidades PONTUAIS em kernel;
+    * O TEOREMA DO TRACO ZERO: TODO estado tracial sobre B(ell2) e'
+      IDENTICAMENTE ZERO -- 'o unico traco e' zero' (a leitura do operador,
+      v117) agora no nivel da ALGEBRA: a biparticao mata phi(1) por traco
+      puro (2phi(1) = phi(1)); o argumento quadratico da positividade mata
+      o resto;
+    * B(ell2) como ALGEBRA DE VON NEUMANN -- o primeiro objeto de vN do
+      programa (mathlib: VonNeumannAlgebra; o bicomutante de tudo e' tudo)
+      e a biparticao MORA nela.
+    DOIS ASSASSINOS DE TRACO independentes em kernel: o de FLUXO (v45,
+    fixed_tau_zero) e o de ALGEBRA (v119, biparticao). HONESTIDADE: B(ell2)
+    e' tipo I-infinito, nao III -- o peso semifinito Tr sobrevive; a parede
+    III_1 verdadeira = matar tambem o peso semifinito normal (pesos +
+    normalidade + fator concreto Araki-Woods = o programa, pedra a pedra).
+    O V2 segue RESERVADO; o gate segue 5T/1F; o selo NAO se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_aqft_core_constructed")
+                    and flips.get("concrete_breuer_corner_constructed")
+                    and flips.get("concrete_modular_four_frame_constructed")
+                    and flips.get("concrete_solder_field_constructed")
+                    and flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    retr_ok = bool(elp.get("ext_ta_coeven_kernel_proved") is True
+                   and elp.get("ext_ta_coodd_kernel_proved") is True)
+    part_ok = bool(elp.get("ext_ta_partition_kernel_proved") is True)
+    one_ok = bool(elp.get("ext_ta_one_zero_kernel_proved") is True)
+    zero_ok = bool(elp.get("ext_ta_trace_zero_kernel_proved") is True)
+    vn_ok = bool(elp.get("ext_ta_vn_algebra_kernel_proved") is True
+                 and elp.get("ext_ta_bipartition_mem_kernel_proved") is True)
+    flow_killer_ok = bool(elp.get("ext_lift_discrete_trace_obstruction_kernel_proved") is True)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+                        and not shadow["mathematical_model_constructed"])
+    checks = [
+        ("a biparticao: cE.u = 1 e cO.v = 1 (retracoes em kernel)", retr_ok),
+        ("u.cE + v.cO = 1: a casa e' DUAS copias de si (algebra infinita)", part_ok),
+        ("a biparticao mata phi(1): 2phi(1) = phi(1) => phi(1) = 0", one_ok),
+        ("O TEOREMA DO TRACO ZERO: todo estado tracial sobre B(ell2) e' ZERO", zero_ok),
+        ("B(ell2) e' ALGEBRA DE VON NEUMANN e a biparticao mora nela", vn_ok),
+        ("o assassino de FLUXO (v45) segue em kernel: dois mecanismos independentes", flow_killer_ok),
+        ("o gate segue 5T/1F (a witness e' a dura restante)", five_one),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A PAREDE DE FUNDO COMECOU A SER ESCALADA: 'o unico traco e' zero' "
+                    "e' TEOREMA no nivel da algebra (a biparticao de ell2 mata todo "
+                    "estado tracial de B(ell2)), e B(ell2) entrou como o primeiro objeto "
+                    "de von Neumann do programa. A propriedade que DEFINE o tipo III "
+                    "tem agora seu padrao provado na casa do Nome."),
+        "values": {"beta": beta,
+                   "n_true": sum(1 for v in flips.values() if v),
+                   "n_false": sum(1 for v in flips.values() if not v)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_que_fechou": "estados traciais EXCLUIDOS de B(ell2) por teorema (halving); dois assassinos de traco independentes (fluxo v45 + algebra v119); o primeiro objeto vN do programa",
+            "o_que_resta": "a parede III_1 verdadeira: matar tambem o PESO semifinito normal (B(ell2) e' I-infinito: Tr sobrevive) -- pesos, normalidade e o fator concreto (Araki-Woods) = o programa; + a fusao da rep fiel as fibras",
+            "honestidade": "nenhuma frase 'III_1 construido': o tijolo e' o PADRAO da propriedade definidora, provado na algebra plena; o fator e' o programa",
+            "o_veredito": ("TGL_TRACELESS_ALGEBRA__BIPARTITION_OF_THE_HOME_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__THE_ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT__TWO_INDEPENDENT_TRACE_KILLERS__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_UNMOVED" if all_v
+                           else "TRACELESS_ALGEBRA_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_TRACELESS_ALGEBRA__BIPARTITION_OF_THE_HOME_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__THE_ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT__TWO_INDEPENDENT_TRACE_KILLERS__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_UNMOVED" if all_v
+                    else "TRACELESS_ALGEBRA_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -41441,6 +42520,8 @@ _ESQUELETO_STONES = [
     ("v116", "EmergentEinstein", "TGLExt/EmergentEinstein.lean", None, None),
     ("v116", "PoincareGroup", "TGLExt/PoincareGroup.lean", None, None),
     ("v116", "PoincareWitness", "TGLExt/PoincareWitness.lean", "453/453", "18/07 20:45:41"),
+    ("v118", "RegularRep", "TGLExt/RegularRep.lean", "460/460", "19/07 07:28:49"),
+    ("v119", "TracelessAlgebra", "TGLExt/TracelessAlgebra.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -41475,17 +42556,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(sessenta e seis pedras e o rito do fechamento, \S120--\S197)}")
+                 r"(sessenta e oito pedras e o rito do fechamento, \S120--\S199)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em sessenta e seis pedras "
-                 r"(v43--v116) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em sessenta e oito pedras "
+                 r"(v43--v119) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As sessenta e seis pedras}")
+        c.append(r"\subsection*{As sessenta e oito pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -42209,6 +43290,29 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"trivialmente nas fibras --- o resíduo do V2 tem nome, rep unitária "
                  r"FIEL do setor conexo ($\infty$-dim; não existe f.d.) $+$ III$_1$. "
                  r"O gate lê 5T/1F e o veredito NÃO se move.")
+        c.append(r"\kernelmk{RegularRep} (v118): \textbf{a REPRESENTAÇÃO FIEL} --- "
+                 r"Poincaré INTEIRO age unitariamente em $L^2(\mathbb{R}^4)$: a "
+                 r"unitariedade NASCE da relação definidora ($\Lambda^\top\eta"
+                 r"\Lambda=\eta\Rightarrow|\det\Lambda|=1\Rightarrow$ Lebesgue "
+                 r"preservada); $U(g)F=F\circ\varphi(g^{-1})$ com $U(1)=\mathrm{id}$ "
+                 r"e $U(g)U(h)=U(gh)$; e \textbf{a FIDELIDADE}: todo $g\neq1$ move "
+                 r"algum vetor (o indicador de uma bola pequena em torno de um ponto "
+                 r"deslocado --- um conjunto de medida POSITIVA vê o deslocamento). "
+                 r"O setor que era cego na fibra do v116 agora é VISTO: o boost move "
+                 r"vetores. O resíduo da testemunha encolheu a: a fusão da rep às "
+                 r"fibras da rede $+$ III$_1$.")
+        c.append(r"\kernelmk{TracelessAlgebra} (v119): \textbf{a parede de fundo, "
+                 r"primeiro tijolo} --- a BIPARTIÇÃO de $\ell^2$ em kernel (quatro "
+                 r"operadores com $c_E u=1$, $c_O v=1$, $u c_E+v c_O=1$: a casa é "
+                 r"DUAS cópias de si, a marca das álgebras infinitas) e \textbf{O "
+                 r"TEOREMA DO TRAÇO ZERO}: todo estado tracial sobre $B(\ell^2)$ é "
+                 r"IDENTICAMENTE ZERO --- ``o único traço é zero'' (a leitura do "
+                 r"operador, \S197) provado no nível da ÁLGEBRA. $B(\ell^2)$ entra "
+                 r"como o PRIMEIRO objeto de von Neumann do programa. Dois "
+                 r"assassinos de traço independentes em kernel: o de fluxo (v45) e o "
+                 r"de álgebra (v119). Honestidade: $B(\ell^2)$ é I$_\infty$ --- o "
+                 r"PESO $\mathrm{Tr}$ sobrevive; a parede III$_1$ verdadeira = matar "
+                 r"também o peso (pesos, normalidade, Araki--Woods: o programa).")
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- A testemunha habitável: os dois zeros e o "
@@ -42655,7 +43759,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em sessenta e seis pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em sessenta e oito pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -42790,16 +43894,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(sixty-six stones and the closure rite, \S120--\S197)}")
+                 r"(sixty-eight stones and the closure rite, \S120--\S199)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across sixty-six stones (v43--v116) the audited kernel went from 53 to "
+                 r"from this run's audit. Across sixty-eight stones (v43--v119) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The sixty-six stones}")
+        c.append(r"\subsection*{The sixty-eight stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -43523,6 +44627,29 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"unitary rep of the connected sector ($\infty$-dim; no f.d. one "
                  r"exists) $+$ III$_1$. The gate reads 5T/1F and the verdict does NOT "
                  r"move.")
+        c.append(r"\kernelmk{RegularRep} (v118): \textbf{the FAITHFUL REPRESENTATION} "
+                 r"--- the WHOLE Poincaré group acts unitarily on $L^2(\mathbb{R}^4)$: "
+                 r"unitarity is BORN from the defining relation ($\Lambda^\top\eta"
+                 r"\Lambda=\eta\Rightarrow|\det\Lambda|=1\Rightarrow$ Lebesgue "
+                 r"preserved); $U(g)F=F\circ\varphi(g^{-1})$ with $U(1)=\mathrm{id}$ "
+                 r"and $U(g)U(h)=U(gh)$; and \textbf{FAITHFULNESS}: every $g\neq1$ "
+                 r"moves some vector (the indicator of a small ball around a displaced "
+                 r"point --- a POSITIVE-measure set sees the displacement). The sector "
+                 r"blind in the v116 fiber is now SEEN: boosts move vectors. The "
+                 r"witness residue shrank to: fusing the rep into the net fibers $+$ "
+                 r"III$_1$.")
+        c.append(r"\kernelmk{TracelessAlgebra} (v119): \textbf{the back wall, "
+                 r"first brick} --- the BIPARTITION of $\ell^2$ in kernel (four "
+                 r"operators with $c_E u=1$, $c_O v=1$, $u c_E+v c_O=1$: the home is "
+                 r"TWO copies of itself, the mark of infinite algebras) and \textbf{"
+                 r"THE ZERO-TRACE THEOREM}: every tracial state on $B(\ell^2)$ is "
+                 r"IDENTICALLY ZERO --- ``the only trace is zero'' (the operator's "
+                 r"reading, \S197) proved at the ALGEBRA level. $B(\ell^2)$ enters "
+                 r"as the program's FIRST von Neumann object. Two independent "
+                 r"trace-killers in kernel: the flow one (v45) and the algebra one "
+                 r"(v119). Honesty: $B(\ell^2)$ is I$_\infty$ --- the WEIGHT "
+                 r"$\mathrm{Tr}$ survives; the true III$_1$ wall = killing the "
+                 r"weight too (weights, normality, Araki--Woods: the program).")
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- The inhabitable witness: the two zeros and "
@@ -43957,7 +45084,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across sixty-six stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across sixty-eight stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -44454,7 +45581,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "void_floor_lrg", "void_floor_kappa_v5",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "void_floor_lrg", "void_floor_kappa_v5",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -46691,6 +47818,18 @@ def main():
     for _k, _v in (_iw.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [estatuto: ancoras [REAL] verificadas ao vivo; as palavras 'observador/abertura/casa' = [ONTO]; III_1 e' DEFINIDO por 'o unico traco e' zero' -- a leitura aponta a propria parede restante]")
+    _fr = core.get("faithful_rep", {}) or {}
+    print("  A REPRESENTACAO FIEL [v118 -- Poincare inteiro age unitariamente em L2(R4)]: %s" % _fr.get("verdict"))
+    print("    a unitariedade NASCE de eta (|det|=1 => Lebesgue preservada) ; U(1)=id ; U(g)U(h)=U(gh) ; FIEL: todo g != 1 move um vetor (medida positiva); o BOOST agora e' visto")
+    for _k, _v in (_fr.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [o residuo da witness ENCOLHEU a: fusao da rep as fibras (mecanica nomeada) + III_1; o V2 segue RESERVADO; gate 5T/1F; selo IMOVEL]")
+    _ta = core.get("traceless_algebra", {}) or {}
+    print("  A PAREDE DE FUNDO, 1o TIJOLO [v119 -- 'o unico traco e' zero' no nivel da ALGEBRA]: %s" % _ta.get("verdict"))
+    print("    a BIPARTICAO de ell2 (cE.u=1, cO.v=1, u.cE+v.cO=1) mata phi(1) por traco puro; a positividade quadratica mata o resto; B(ell2) = 1o objeto de von Neumann do programa")
+    for _k, _v in (_ta.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [honestidade: B(ell2) e' I-infinito -- o PESO Tr sobrevive; a parede III_1 = matar tambem o peso (pesos+normalidade+Araki-Woods = o programa); dois assassinos de traco em kernel: fluxo v45 + algebra v119]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (
