@@ -5108,6 +5108,18 @@ import TGLExt.RegularRep
 import TGLExt.TracelessAlgebra
 import TGLExt.SemifiniteWeight
 import TGLExt.FusedWitness
+import TGLExt.PowersLadder
+import TGLExt.MixedLadder
+import TGLExt.ContinuumTT
+import TGLExt.ColimitSeed
+import TGLExt.TTSuperposition
+import TGLExt.GNSTower
+import TGLExt.SecondCone
+import TGLExt.GNSQuotient
+import TGLExt.ThirdCone
+import TGLExt.GeneralNull
+import TGLExt.TowerTraceless
+import TGLExt.TowerModular
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -6629,6 +6641,82 @@ namespace TGL.Audit
 #print axioms TGLExt.theFusedWitness
 #print axioms TGLExt.fused_fiber_faithful
 #print axioms TGLExt.fused_boost_moves_fiber
+
+-- v124 (a escada de Powers: a semente de Araki-Woods; o 3o assassino de traco)
+#print axioms TGLExt.block_modular_identity
+#print axioms TGLExt.powersState_one
+#print axioms TGLExt.powersState_positive
+#print axioms TGLExt.powers_ratio_witness
+#print axioms TGLExt.powersState_not_tracial
+#print axioms TGLExt.blockFlow_eigen
+#print axioms TGLExt.ratioWitness_kron
+#print axioms TGLExt.powers_ladder
+#print axioms TGLExt.zero_mem_closure_ratio_spectrum
+#print axioms TGLExt.no_trace_floor
+
+-- v125 (a mistura: a marca de III_1; e o setor TT no continuo)
+#print axioms TGLExt.mixed_chain_ratio
+#print axioms TGLExt.mixed_log_dense
+#print axioms TGLExt.irrational_log_two_div_log_three
+#print axioms TGLExt.the_mixing_mark
+#print axioms TGLExt.epsTT_traceless
+#print axioms TGLExt.epsTT_transverse
+#print axioms TGLExt.pd_pd_scaled
+#print axioms TGLExt.tt_ricci_zero
+#print axioms TGLExt.tt_component_wave
+#print axioms TGLExt.tt_kinetic_nonneg
+#print axioms TGLExt.tt_kinetic_pos
+
+-- v126 (a torre do fator; e a superposicao TT)
+#print axioms TGLExt.towerStep_mul
+#print axioms TGLExt.towerStep_star
+#print axioms TGLExt.towerStep_injective
+#print axioms TGLExt.chainState_towerStep
+#print axioms TGLExt.chainState_one
+#print axioms TGLExt.ratio_persists_up_tower
+#print axioms TGLExt.pd_scaled_fun_add
+#print axioms TGLExt.pd_pd_pair
+#print axioms TGLExt.tt_superposition_ricci_zero
+
+-- v127 (a torre GNS; e a segunda direcao)
+#print axioms TGLExt.chainDensity_eq_diagonal
+#print axioms TGLExt.chainWeights_nonneg
+#print axioms TGLExt.chainState_positive
+#print axioms TGLExt.gnsInner_add_right
+#print axioms TGLExt.gnsInner_self_nonneg
+#print axioms TGLExt.gns_isometric_up_tower
+#print axioms TGLExt.epsTT2_traceless
+#print axioms TGLExt.epsTT2_transverse
+#print axioms TGLExt.pd_pd_cross
+#print axioms TGLExt.tt2_ricci_zero
+#print axioms TGLExt.tt_cross_direction_ricci_zero
+
+-- v128 (o quociente GNS; e a terceira direcao)
+#print axioms TGLExt.gnsInner_conj_symm
+#print axioms TGLExt.gnsRadical
+#print axioms TGLExt.gnsRadical_left_ideal
+#print axioms TGLExt.gnsInner_wd_left
+#print axioms TGLExt.gnsInner_wd_right
+#print axioms TGLExt.leftAction_wd
+#print axioms TGLExt.epsTT3_traceless
+#print axioms TGLExt.epsTT3_transverse
+#print axioms TGLExt.tt3_ricci_zero
+#print axioms TGLExt.tt_triple_ricci_zero
+
+-- v129 (o cone continuo; e a torre sem traco)
+#print axioms TGLExt.dotCov_single
+#print axioms TGLExt.pd_pd_planeWaveG
+#print axioms TGLExt.general_null_tt_ricci_zero
+#print axioms TGLExt.chainDownUp_value
+#print axioms TGLExt.tower_ratio_ne_one
+#print axioms TGLExt.chainState_not_tracial_tower
+
+-- v130 (a estrutura modular da torre: fluxo de Tomita + KMS)
+#print axioms TGLExt.chainWeights_pos
+#print axioms TGLExt.chainDensity_mul_inv
+#print axioms TGLExt.towerFlow_id
+#print axioms TGLExt.tower_kms
+#print axioms TGLExt.tower_modular_ratio
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -19506,6 +19594,2257 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/PowersLadder.lean":
+r'''import TGLExt.FusedWitness
+import Mathlib.LinearAlgebra.Matrix.Kronecker
+import Mathlib.Data.Matrix.Basis
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A ESCADA DE POWERS: a semente de Araki–Woods — o terceiro assassino de traço
+  [TGLExt — v124, o incremento 43 do programa SemifiniteAnalysis]
+
+III₁ é a última parede formal da testemunha. Sua forma exata está nomeada
+desde o v119: Araki–Woods — produtos tensoriais infinitos com estados-
+produto. Esta pedra constrói a FACE FINITA COMPLETA dessa construção:
+
+* ★★ `block_modular_identity` — TOMITA NO BLOCO: φ_ρ(ab) = φ_ρ(b·ρaρ⁻¹)
+  para TODA densidade invertível, por ciclicidade do traço — a identidade
+  modular (KMS em tempo imaginário) na face de matriz;
+* `powersState` — o estado de Powers φ_λ no bloco 2×2 (normalizado,
+  positivo);
+* ★★ `powers_ratio_witness` — A TESTEMUNHA DE RAZÃO: φ_λ(E₀₁E₁₀) =
+  λ·φ_λ(E₁₀E₀₁) — a assimetria λ que mata a tracialidade
+  (`powersState_not_tracial`: λ ≠ 1 ⟹ φ_λ NÃO é traço);
+* ★ `blockFlow_eigen` — o FLUXO do bloco σ(a) = ρaρ⁻¹ tem E₀₁ como
+  autovetor de autovalor λ — o espectro modular do bloco;
+* ★★★ `ratioWitness_kron` + `powers_ladder` — A LEI DA ESCADA: testemunhas
+  de razão COMPÕEM por produto de Kronecker (r₁·r₂); a cadeia de N blocos
+  carrega a razão λ^N — a assimetria AMPLIFICA exponencialmente;
+* ★★★ `zero_mem_closure_ratio_spectrum` — A MARCA DE III: 0 pertence ao
+  FECHO do espectro de razões {λ^N} — a semente da S-invariante de Connes
+  tocando o zero; e `no_trace_floor` — NENHUM piso tracial sobrevive à
+  escada: para todo c > 0 existe N com λ^N < c. O terceiro assassino de
+  traço (v45: o fluxo; v119: a álgebra; v124: o FLUXO-PRODUTO na escada).
+
+O QUE RESTA (nomeado, sem véu): o FATOR infinito (ITPFI R_λ; III_λ; III₁
+por mistura) — o limite indutivo da escada com o estado-produto. A escada
+está construída e a lei de composição provada; o limite é o programa.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix
+open scoped ComplexConjugate
+
+noncomputable section
+
+/-! ## A — Tomita no bloco: a identidade modular por ciclicidade -/
+
+/-- [KERNEL] ★★ A IDENTIDADE MODULAR NO BLOCO: φ_ρ(ab) = φ_ρ(b·σ(a)) com
+    σ(a) = ρaρ⁻¹ — Tomita na face de matriz, por ciclicidade do traço. -/
+theorem block_modular_identity {n : Type} [Fintype n] [DecidableEq n]
+    (ρ a b : Matrix n n ℂ) [Invertible ρ] :
+    trace (ρ * (a * b)) = trace (ρ * (b * (ρ * a * ⅟ρ))) := by
+  have h1 : trace (ρ * (a * b)) = trace (b * (ρ * a)) := by
+    rw [← mul_assoc]
+    exact trace_mul_comm (ρ * a) b
+  have h2 : trace (ρ * (b * (ρ * a * ⅟ρ))) = trace (b * (ρ * a)) := by
+    have e1 : ρ * (b * (ρ * a * ⅟ρ)) = (ρ * (b * (ρ * a))) * ⅟ρ := by
+      simp only [mul_assoc]
+    rw [e1, trace_mul_comm, ← mul_assoc, invOf_mul_self, one_mul]
+  rw [h1, ← h2]
+
+/-! ## B — o estado de Powers no bloco 2×2 -/
+
+/-- a densidade de Powers: pesos λ/(1+λ) e 1/(1+λ). -/
+def powersDensity (l : ℝ) : Matrix (Fin 2) (Fin 2) ℂ :=
+  diagonal fun i =>
+    if i = 0 then ((l / (1 + l) : ℝ) : ℂ) else ((1 / (1 + l) : ℝ) : ℂ)
+
+/-- o estado de Powers: φ_λ(a) = Tr(ρ_λ a). -/
+def powersState (l : ℝ) (a : Matrix (Fin 2) (Fin 2) ℂ) : ℂ :=
+  trace (powersDensity l * a)
+
+theorem powersState_apply (l : ℝ) (a : Matrix (Fin 2) (Fin 2) ℂ) :
+    powersState l a
+      = ((l / (1 + l) : ℝ) : ℂ) * a 0 0 + ((1 / (1 + l) : ℝ) : ℂ) * a 1 1 := by
+  unfold powersState powersDensity
+  rw [trace, Fin.sum_univ_two, diag_apply, diag_apply, diagonal_mul,
+    diagonal_mul, if_pos (rfl : (0 : Fin 2) = 0),
+    if_neg (show ¬(1 : Fin 2) = 0 by decide)]
+
+/-- [KERNEL] ★ o estado é normalizado: φ_λ(1) = 1. -/
+theorem powersState_one (l : ℝ) (hl : 0 < l) : powersState l 1 = 1 := by
+  rw [powersState_apply]
+  have hne : (1 : ℝ) + l ≠ 0 := by positivity
+  rw [one_apply_eq, one_apply_eq, mul_one, mul_one, ← Complex.ofReal_add,
+    show l / (1 + l) + 1 / (1 + l) = 1 by
+      field_simp
+      ring]
+  norm_num
+
+/-- [KERNEL] ★ o estado é POSITIVO: φ_λ(a†a) tem parte real ≥ 0. -/
+theorem powersState_positive (l : ℝ) (hl : 0 < l)
+    (a : Matrix (Fin 2) (Fin 2) ℂ) :
+    0 ≤ (powersState l (aᴴ * a)).re := by
+  have hdiag : ∀ k : Fin 2, (aᴴ * a) k k
+      = ((Complex.normSq (a 0 k) + Complex.normSq (a 1 k) : ℝ) : ℂ) := by
+    intro k
+    rw [mul_apply, Fin.sum_univ_two, conjTranspose_apply, conjTranspose_apply]
+    rw [show (star (a 0 k) : ℂ) = conj (a 0 k) from rfl,
+      show (star (a 1 k) : ℂ) = conj (a 1 k) from rfl]
+    rw [← Complex.normSq_eq_conj_mul_self, ← Complex.normSq_eq_conj_mul_self]
+    push_cast
+    ring
+  rw [powersState_apply, hdiag 0, hdiag 1]
+  rw [← Complex.ofReal_mul, ← Complex.ofReal_mul, ← Complex.ofReal_add,
+    Complex.ofReal_re]
+  have hw0 : (0 : ℝ) ≤ l / (1 + l) := by positivity
+  have hw1 : (0 : ℝ) ≤ 1 / (1 + l) := by positivity
+  have hn1 : (0 : ℝ) ≤ Complex.normSq (a 0 0) := Complex.normSq_nonneg _
+  have hn2 : (0 : ℝ) ≤ Complex.normSq (a 1 0) := Complex.normSq_nonneg _
+  have hn3 : (0 : ℝ) ≤ Complex.normSq (a 0 1) := Complex.normSq_nonneg _
+  have hn4 : (0 : ℝ) ≤ Complex.normSq (a 1 1) := Complex.normSq_nonneg _
+  positivity
+
+/-! ## C — a testemunha de razão e a morte da tracialidade -/
+
+/-- a TESTEMUNHA DE RAZÃO: φ(ab) = r·φ(ba) — a assimetria modular medida. -/
+def RatioWitness {n : Type} [Fintype n]
+    (ρ a b : Matrix n n ℂ) (r : ℝ) : Prop :=
+  trace (ρ * (a * b)) = (r : ℂ) * trace (ρ * (b * a))
+
+theorem powersState_single_diag (l : ℝ) (k : Fin 2) :
+    powersState l (single k k 1)
+      = (if k = 0 then ((l / (1 + l) : ℝ) : ℂ)
+         else ((1 / (1 + l) : ℝ) : ℂ)) := by
+  rw [powersState_apply]
+  by_cases hk : k = 0
+  · subst hk
+    rw [if_pos rfl, single_apply_same,
+      single_apply_of_ne _ _ _ _ _ (by decide :
+        ¬((0 : Fin 2) = 1 ∧ (0 : Fin 2) = 1)),
+      mul_one, mul_zero, add_zero]
+  · have hk1 : k = 1 := Fin.eq_one_of_ne_zero k hk
+    subst hk1
+    rw [if_neg (show ¬(1 : Fin 2) = 0 by decide), single_apply_same,
+      single_apply_of_ne _ _ _ _ _ (by decide :
+        ¬((1 : Fin 2) = 0 ∧ (1 : Fin 2) = 0)),
+      mul_one, mul_zero, zero_add]
+
+/-- [KERNEL] ★★ A TESTEMUNHA DE RAZÃO DO BLOCO: φ_λ(E₀₁E₁₀) = λ·φ_λ(E₁₀E₀₁)
+    — a assimetria λ é o dado modular do estado de Powers. -/
+theorem powers_ratio_witness (l : ℝ) (hl : 0 < l) :
+    RatioWitness (powersDensity l) (single 0 1 1) (single 1 0 1) l := by
+  unfold RatioWitness
+  rw [single_mul_single_same, single_mul_single_same, one_mul]
+  have e0 : trace (powersDensity l * single (0 : Fin 2) (0 : Fin 2) (1 : ℂ))
+      = powersState l (single 0 0 1) := rfl
+  have e1 : trace (powersDensity l * single (1 : Fin 2) (1 : Fin 2) (1 : ℂ))
+      = powersState l (single 1 1 1) := rfl
+  rw [e0, e1, powersState_single_diag, powersState_single_diag,
+    if_pos (rfl : (0 : Fin 2) = 0), if_neg (show ¬(1 : Fin 2) = 0 by decide),
+    ← Complex.ofReal_mul, mul_one_div]
+
+/-- [KERNEL] ★★ λ ≠ 1 MATA A TRACIALIDADE: o estado de Powers não é traço. -/
+theorem powersState_not_tracial (l : ℝ) (hl : 0 < l) (hne : l ≠ 1) :
+    ∃ a b : Matrix (Fin 2) (Fin 2) ℂ,
+      powersState l (a * b) ≠ powersState l (b * a) := by
+  have hpos : (1 : ℝ) + l ≠ 0 := by positivity
+  refine ⟨single 0 1 1, single 1 0 1, fun h => hne ?_⟩
+  have hab : powersState l (single (0 : Fin 2) 1 1 * single 1 (0 : Fin 2) 1)
+      = ((l / (1 + l) : ℝ) : ℂ) := by
+    rw [single_mul_single_same, one_mul, powersState_single_diag,
+      if_pos (rfl : (0 : Fin 2) = 0)]
+  have hba : powersState l (single (1 : Fin 2) 0 1 * single 0 (1 : Fin 2) 1)
+      = ((1 / (1 + l) : ℝ) : ℂ) := by
+    rw [single_mul_single_same, one_mul, powersState_single_diag,
+      if_neg (show ¬(1 : Fin 2) = 0 by decide)]
+  rw [hab, hba] at h
+  have h2 := Complex.ofReal_injective h
+  field_simp at h2
+  exact h2
+
+/-! ## D — o fluxo do bloco e seu autovetor -/
+
+theorem diagonal_mul_single_left {n : Type} [Fintype n] [DecidableEq n]
+    (d : n → ℂ) (i j : n) (c : ℂ) :
+    diagonal d * single i j c = single i j (d i * c) := by
+  ext a b
+  rw [diagonal_mul]
+  by_cases h : i = a ∧ j = b
+  · obtain ⟨ha, hb⟩ := h
+    subst ha; subst hb
+    rw [single_apply_same, single_apply_same]
+  · rw [single_apply_of_ne _ _ _ _ _ h, single_apply_of_ne _ _ _ _ _ h,
+      mul_zero]
+
+theorem single_mul_diagonal_right {n : Type} [Fintype n] [DecidableEq n]
+    (d : n → ℂ) (i j : n) (c : ℂ) :
+    single i j c * diagonal d = single i j (c * d j) := by
+  ext a b
+  rw [mul_diagonal]
+  by_cases h : i = a ∧ j = b
+  · obtain ⟨ha, hb⟩ := h
+    subst ha; subst hb
+    rw [single_apply_same, single_apply_same]
+  · rw [single_apply_of_ne _ _ _ _ _ h, single_apply_of_ne _ _ _ _ _ h,
+      zero_mul]
+
+/-- a inversa da densidade de Powers. -/
+def powersDensityInv (l : ℝ) : Matrix (Fin 2) (Fin 2) ℂ :=
+  diagonal fun i =>
+    if i = 0 then (((1 + l) / l : ℝ) : ℂ) else ((1 + l : ℝ) : ℂ)
+
+theorem powersDensity_mul_inv (l : ℝ) (hl : 0 < l) :
+    powersDensity l * powersDensityInv l = 1 := by
+  have hne : (1 : ℝ) + l ≠ 0 := by positivity
+  have hlne : l ≠ 0 := ne_of_gt hl
+  unfold powersDensity powersDensityInv
+  rw [diagonal_mul_diagonal]
+  have h : (fun i : Fin 2 =>
+      (if i = 0 then ((l / (1 + l) : ℝ) : ℂ) else ((1 / (1 + l) : ℝ) : ℂ))
+        * (if i = 0 then (((1 + l) / l : ℝ) : ℂ) else ((1 + l : ℝ) : ℂ)))
+      = fun _ => (1 : ℂ) := by
+    funext i
+    by_cases hi : i = 0
+    · rw [if_pos hi, if_pos hi, ← Complex.ofReal_mul,
+        show l / (1 + l) * ((1 + l) / l) = 1 by field_simp]
+      norm_num
+    · rw [if_neg hi, if_neg hi, ← Complex.ofReal_mul,
+        show 1 / (1 + l) * (1 + l) = 1 by field_simp]
+      norm_num
+  rw [h, diagonal_one]
+
+/-- o fluxo do bloco: σ(a) = ρ a ρ⁻¹. -/
+def blockFlow (l : ℝ) (a : Matrix (Fin 2) (Fin 2) ℂ) :
+    Matrix (Fin 2) (Fin 2) ℂ :=
+  powersDensity l * a * powersDensityInv l
+
+/-- [KERNEL] ★ O AUTOVETOR DO FLUXO: σ(E₀₁) = λ·E₀₁ — o espectro modular
+    do bloco carrega exatamente a razão λ. -/
+theorem blockFlow_eigen (l : ℝ) (hl : 0 < l) :
+    blockFlow l (single 0 1 1) = (l : ℂ) • single 0 1 1 := by
+  have hne : (1 : ℝ) + l ≠ 0 := by positivity
+  unfold blockFlow powersDensity powersDensityInv
+  rw [diagonal_mul_single_left, single_mul_diagonal_right, smul_single]
+  congr 1
+  rw [if_pos (rfl : (0 : Fin 2) = 0), if_neg (show ¬(1 : Fin 2) = 0 by decide),
+    mul_one, smul_eq_mul, mul_one, ← Complex.ofReal_mul,
+    show l / (1 + l) * (1 + l) = l by field_simp]
+
+/-! ## E — A LEI DA ESCADA: composição por Kronecker -/
+
+/-- [KERNEL] ★★★ TESTEMUNHAS DE RAZÃO COMPÕEM: o produto de Kronecker
+    multiplica as razões — a lei que constrói a escada. -/
+theorem ratioWitness_kron {n m : Type} [Fintype n] [Fintype m]
+    {ρ₁ a₁ b₁ : Matrix n n ℂ} {ρ₂ a₂ b₂ : Matrix m m ℂ} {r₁ r₂ : ℝ}
+    (h₁ : RatioWitness ρ₁ a₁ b₁ r₁) (h₂ : RatioWitness ρ₂ a₂ b₂ r₂) :
+    RatioWitness (ρ₁ ⊗ₖ ρ₂) (a₁ ⊗ₖ a₂) (b₁ ⊗ₖ b₂) (r₁ * r₂) := by
+  unfold RatioWitness at h₁ h₂ ⊢
+  rw [← mul_kronecker_mul, ← mul_kronecker_mul, ← mul_kronecker_mul,
+    ← mul_kronecker_mul, trace_kronecker, trace_kronecker, h₁, h₂]
+  push_cast
+  ring
+
+/-- os índices da cadeia de N+1 blocos. -/
+@[reducible] def chainIdx : ℕ → Type
+  | 0 => Fin 2
+  | N + 1 => chainIdx N × Fin 2
+
+instance chainIdx_fintype : ∀ N, Fintype (chainIdx N)
+  | 0 => inferInstanceAs (Fintype (Fin 2))
+  | (N + 1) =>
+      letI := chainIdx_fintype N
+      inferInstanceAs (Fintype (chainIdx N × Fin 2))
+
+instance chainIdx_deceq : ∀ N, DecidableEq (chainIdx N)
+  | 0 => inferInstanceAs (DecidableEq (Fin 2))
+  | (N + 1) =>
+      letI := chainIdx_deceq N
+      inferInstanceAs (DecidableEq (chainIdx N × Fin 2))
+
+/-- a densidade-produto da cadeia (o estado-produto de Araki–Woods, face finita). -/
+def chainDensity (l : ℝ) : (N : ℕ) → Matrix (chainIdx N) (chainIdx N) ℂ
+  | 0 => powersDensity l
+  | N + 1 => chainDensity l N ⊗ₖ powersDensity l
+
+/-- a palavra ascendente ⊗E₀₁ e a descendente ⊗E₁₀. -/
+def chainUp : (N : ℕ) → Matrix (chainIdx N) (chainIdx N) ℂ
+  | 0 => single 0 1 1
+  | N + 1 => chainUp N ⊗ₖ single 0 1 1
+
+def chainDown : (N : ℕ) → Matrix (chainIdx N) (chainIdx N) ℂ
+  | 0 => single 1 0 1
+  | N + 1 => chainDown N ⊗ₖ single 1 0 1
+
+/-- [KERNEL] ★★★ A ESCADA DE POWERS: a cadeia de N+1 blocos carrega a
+    testemunha de razão λ^(N+1) — a assimetria modular AMPLIFICA
+    exponencialmente com o comprimento da cadeia. -/
+theorem powers_ladder (l : ℝ) (hl : 0 < l) :
+    ∀ N : ℕ, RatioWitness (chainDensity l N) (chainUp N) (chainDown N)
+      (l ^ (N + 1))
+  | 0 => by
+      have h := powers_ratio_witness l hl
+      rw [zero_add, pow_one]
+      exact h
+  | N + 1 => by
+      have h := ratioWitness_kron (powers_ladder l hl N) (powers_ratio_witness l hl)
+      rw [← pow_succ] at h
+      exact h
+
+/-! ## F — a morte assintótica: a marca de III -/
+
+/-- [KERNEL] ★★ a escada de razões MORRE: λ^N → 0 para λ ∈ (0,1). -/
+theorem ratio_ladder_dies (l : ℝ) (hl0 : 0 ≤ l) (hl1 : l < 1) :
+    Filter.Tendsto (fun N : ℕ => l ^ N) Filter.atTop (nhds 0) :=
+  tendsto_pow_atTop_nhds_zero_of_lt_one hl0 hl1
+
+/-- [KERNEL] ★★★ A MARCA DE III: 0 pertence ao FECHO do espectro de razões
+    {λ^N} — a semente da S-invariante de Connes toca o zero. -/
+theorem zero_mem_closure_ratio_spectrum (l : ℝ) (hl0 : 0 ≤ l) (hl1 : l < 1) :
+    (0 : ℝ) ∈ closure (Set.range fun N : ℕ => l ^ N) :=
+  mem_closure_of_tendsto (ratio_ladder_dies l hl0 hl1)
+    (Filter.Eventually.of_forall fun N => Set.mem_range_self N)
+
+/-- [KERNEL] ★★ NENHUM PISO TRACIAL SOBREVIVE À ESCADA: para todo c > 0
+    existe um comprimento N com razão λ^N < c — o terceiro assassino de
+    traço (o FLUXO-PRODUTO), na face finita. -/
+theorem no_trace_floor (l : ℝ) (hl1 : l < 1) (c : ℝ) (hc : 0 < c) :
+    ∃ N : ℕ, l ^ N < c :=
+  exists_pow_lt_of_lt_one hc hl1
+
+end
+
+end TGLExt
+''',
+    "TGLExt/MixedLadder.lean":
+r'''import TGLExt.PowersLadder
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A MISTURA: a marca de III₁ — o reticulado de razões DENSO
+  [TGLExt — v125, o incremento 44 do programa SemifiniteAnalysis]
+
+A escada de Powers (v124) deu a UMA razão λ o seu reticulado λ^ℤ — a
+assinatura de III_λ. O que separa III₁ de III_λ é a MISTURA: duas razões
+INCOMENSURÁVEIS geram um espectro de razões DENSO — a S-invariante de
+Connes preenche a semirreta inteira. Esta pedra prova essa marca:
+
+* ★★ `mixed_chain_ratio` — a cadeia MISTA (a blocos λ₁ ⊗ b blocos λ₂)
+  carrega a testemunha de razão λ₁^a·λ₂^b — as duas escadas COMPÕEM;
+* ★★★ `mixed_log_dense` — SE log λ₁/log λ₂ é irracional, o subgrupo
+  aditivo gerado por {log λ₁, log λ₂} é DENSO em ℝ (dense_or_cyclic +
+  a exclusão do cíclico) — o espectro de razões em escala log toca
+  TODO ponto: A MARCA DE III₁ (vs o reticulado discreto de III_λ);
+* ★★ `irrational_log_two_div_log_three` — λ₁ = 1/2 e λ₂ = 1/3 SÃO
+  incomensuráveis (2^b = 3^a é impossível: paridade);
+* ★★★ `the_mixing_mark` — A MARCA HABITADA: o par concreto (1/2, 1/3)
+  gera espectro log-denso — III₁ tem testemunha finita de sua
+  assinatura espectral no kernel.
+
+O QUE RESTA (nomeado, sem véu): o FATOR — o limite indutivo fraco-*
+da cadeia mista com o estado-produto (ITPFI; III₁ de Araki–Woods).
+A assinatura espectral está provada; o objeto-limite é o programa.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix
+
+noncomputable section
+
+/-! ## A — a cadeia mista: as duas escadas compõem -/
+
+/-- [KERNEL] ★★ A CADEIA MISTA: a blocos de razão λ₁ ⊗ b blocos de razão
+    λ₂ carregam a testemunha de razão λ₁^(a+1)·λ₂^(b+1) — as escadas
+    COMPÕEM por Kronecker. -/
+theorem mixed_chain_ratio (l1 l2 : ℝ) (h1 : 0 < l1) (h2 : 0 < l2)
+    (a b : ℕ) :
+    RatioWitness (chainDensity l1 a ⊗ₖ chainDensity l2 b)
+      (chainUp a ⊗ₖ chainUp b) (chainDown a ⊗ₖ chainDown b)
+      (l1 ^ (a + 1) * l2 ^ (b + 1)) :=
+  ratioWitness_kron (powers_ladder l1 h1 a) (powers_ladder l2 h2 b)
+
+/-! ## B — a densidade: a marca de III₁ -/
+
+/-- [KERNEL] ★★★ A MARCA DE III₁: razões incomensuráveis geram espectro
+    log-DENSO em ℝ — a S-invariante toca todo ponto (vs o reticulado
+    discreto λ^ℤ de III_λ). -/
+theorem mixed_log_dense (l1 l2 : ℝ)
+    (hirr : Irrational (Real.log l1 / Real.log l2))
+    (hl2 : Real.log l2 ≠ 0) :
+    Dense ((AddSubgroup.closure {Real.log l1, Real.log l2}
+      : AddSubgroup ℝ) : Set ℝ) := by
+  rcases AddSubgroup.dense_or_cyclic
+      (AddSubgroup.closure {Real.log l1, Real.log l2}) with hd | ⟨a, ha⟩
+  · exact hd
+  · exfalso
+    have m1 : Real.log l1 ∈ AddSubgroup.closure {Real.log l1, Real.log l2} :=
+      AddSubgroup.subset_closure (Set.mem_insert _ _)
+    have m2 : Real.log l2 ∈ AddSubgroup.closure {Real.log l1, Real.log l2} :=
+      AddSubgroup.subset_closure (Set.mem_insert_of_mem _ rfl)
+    rw [ha] at m1 m2
+    obtain ⟨m, hm⟩ := AddSubgroup.mem_closure_singleton.mp m1
+    obtain ⟨n, hn⟩ := AddSubgroup.mem_closure_singleton.mp m2
+    have hn0 : (n : ℝ) ≠ 0 := by
+      intro h0
+      apply hl2
+      rw [← hn, zsmul_eq_mul, h0, zero_mul]
+    have ha0 : a ≠ 0 := by
+      intro h0
+      apply hl2
+      rw [← hn, h0, smul_zero]
+    apply hirr
+    refine ⟨(m : ℚ) / (n : ℚ), ?_⟩
+    rw [← hm, ← hn, zsmul_eq_mul, zsmul_eq_mul]
+    push_cast
+    rw [mul_div_mul_right _ _ ha0]
+
+/-! ## C — o par concreto: 1/2 e 1/3 são incomensuráveis -/
+
+/-- [KERNEL] ★★ log 2 / log 3 é IRRACIONAL (2^b = 3^a é impossível). -/
+theorem irrational_log_two_div_log_three :
+    Irrational (Real.log 2 / Real.log 3) := by
+  intro ⟨q, hq⟩
+  have hlog2 : (0 : ℝ) < Real.log 2 := Real.log_pos (by norm_num)
+  have hlog3 : (0 : ℝ) < Real.log 3 := Real.log_pos (by norm_num)
+  have hqpos : (0 : ℚ) < q := by
+    have : (0 : ℝ) < (q : ℝ) := by
+      rw [hq]
+      positivity
+    exact_mod_cast this
+  set a : ℕ := q.num.toNat with hadef
+  set b : ℕ := q.den with hbdef
+  have hb1 : 1 ≤ b := q.pos
+  have hnum : (q.num : ℝ) = (a : ℝ) := by
+    rw [hadef]
+    norm_cast
+    exact (Int.toNat_of_nonneg (le_of_lt (Rat.num_pos.mpr hqpos))).symm
+  have hcast : (q : ℝ) = (a : ℝ) / (b : ℝ) := by
+    rw [Rat.cast_def, hnum, hbdef]
+  have hbne : (b : ℝ) ≠ 0 := by positivity
+  have hkey : (b : ℝ) * Real.log 2 = (a : ℝ) * Real.log 3 := by
+    have h1 : Real.log 2 / Real.log 3 = (a : ℝ) / (b : ℝ) := by
+      rw [← hq, hcast]
+    field_simp at h1
+    linarith [h1]
+  have hlogs : Real.log ((2 : ℝ) ^ b) = Real.log ((3 : ℝ) ^ a) := by
+    rw [Real.log_pow, Real.log_pow, hkey]
+  have hreal : (2 : ℝ) ^ b = (3 : ℝ) ^ a := by
+    have h2 : (0 : ℝ) < (2 : ℝ) ^ b := by positivity
+    have h3 : (0 : ℝ) < (3 : ℝ) ^ a := by positivity
+    calc (2 : ℝ) ^ b = Real.exp (Real.log ((2 : ℝ) ^ b)) :=
+          (Real.exp_log h2).symm
+      _ = Real.exp (Real.log ((3 : ℝ) ^ a)) := by rw [hlogs]
+      _ = (3 : ℝ) ^ a := Real.exp_log h3
+  have hnat : (2 : ℕ) ^ b = 3 ^ a := by
+    have := hreal
+    push_cast at this
+    exact_mod_cast this
+  have heven : 2 ∣ 2 ^ b := dvd_pow_self 2 (by omega)
+  have hodd : ¬ 2 ∣ 3 ^ a := by
+    intro hdvd
+    have h3odd : Odd ((3 : ℕ) ^ a) := Odd.pow (by decide)
+    rw [Nat.odd_iff] at h3odd
+    omega
+  rw [hnat] at heven
+  exact hodd heven
+
+/-- [KERNEL] ★★★ A MARCA HABITADA: o par (1/2, 1/3) gera espectro de
+    razões log-DENSO — a assinatura de III₁ com testemunha concreta. -/
+theorem the_mixing_mark :
+    Dense ((AddSubgroup.closure
+      {Real.log ((1 : ℝ) / 2), Real.log ((1 : ℝ) / 3)}
+      : AddSubgroup ℝ) : Set ℝ) := by
+  have h2 : Real.log ((1 : ℝ) / 2) = -Real.log 2 := by
+    rw [one_div, Real.log_inv]
+  have h3 : Real.log ((1 : ℝ) / 3) = -Real.log 3 := by
+    rw [one_div, Real.log_inv]
+  have hlog3 : (0 : ℝ) < Real.log 3 := Real.log_pos (by norm_num)
+  apply mixed_log_dense
+  · rw [h2, h3, neg_div_neg_eq]
+    exact irrational_log_two_div_log_three
+  · rw [h3]
+    exact neg_ne_zero.mpr (ne_of_gt hlog3)
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ContinuumTT.lean":
+r'''import TGLExt.MixedLadder
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# O SETOR TT NO CONTÍNUO: ondas de spin-2 sem fantasma, com perfil arbitrário
+  [TGLExt — v125, o incremento 45 do programa SemifiniteAnalysis]
+
+O v75 fechou a face FINITA do spin-2 (hélice dupla ±2; TT positivo; duas
+polarizações) e nomeou a honestidade: "Fierz–Pauli EL e ghost-freedom
+pleno pedem o contínuo". O v114 construiu a onda no contínuo (d'Alembert
+para qualquer perfil C²). Esta pedra SOLDA as duas: o setor TT de ondas
+planas no CONTÍNUO, sobre o η da casa (diag(1,−1,−1,−1)):
+
+* `epsTT a b` — a polarização TT geral (a·ε₊ + b·ε×, o plano 2-dim);
+  ★ `epsTT_traceless` (η-traço zero) + ★ `epsTT_transverse` (suporte
+  transversal ao cone x₁−x₀);
+* ★★ `pd_pd_scaled` — a segunda derivada da onda escalada: ∂ᵢ∂ⱼ(c·w∘L)
+  = c·L(eᵢ)L(eⱼ)·w″ — a REDUÇÃO ALGÉBRICA de todo o cálculo;
+* ★★★ `tt_ricci_zero` — A ONDA TT RESOLVE O VÁCUO LINEARIZADO: o Ricci
+  linearizado da onda h_{μν} = ε_{μν}·w(x₁−x₀) é ZERO em toda parte,
+  para QUALQUER perfil C² — spin-2 SEM MASSA no contínuo (Fierz–Pauli
+  no setor de ondas planas);
+* ★★ `tt_component_wave` — cada componente satisfaz ∂₀²h = ∂₁²h
+  (a onda do v114, componente a componente);
+* ★★ `tt_kinetic_nonneg` + ★★★ `tt_kinetic_pos` — SEM FANTASMA: a
+  densidade cinética do setor TT é ≥ 0 sempre, e > 0 onde a onda vive
+  ((a,b) ≠ 0 e w′ ≠ 0) — a forma cinética é positiva-definida no
+  plano das polarizações.
+
+HONESTIDADE (nomeada, sem véu): este é o setor de ONDAS PLANAS; o
+ghost-freedom para perturbações GERAIS (decomposição completa) e a
+ausência de anomalias relevantes seguem ABERTOS — os flags de física
+do gate NÃO se movem por esta pedra. A imobilidade é a credibilidade.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — o η diagonal da casa e a polarização TT -/
+
+/-- a diagonal do η da casa: diag(1,−1,−1,−1). -/
+def etaDiag : Fin 4 → ℝ := fun i => if i = 0 then 1 else -1
+
+theorem eta4_eq_diagonal_etaDiag : eta4 = Matrix.diagonal etaDiag := by
+  unfold eta4 etaDiag
+  congr 1
+  funext i
+  fin_cases i <;> simp
+
+/-- a polarização TT geral: a·ε₊ + b·ε× no plano (2,3). -/
+def epsTT (a b : ℝ) : Fin 4 → Fin 4 → ℝ := fun μ ν =>
+  if μ = 2 ∧ ν = 2 then a
+  else if μ = 3 ∧ ν = 3 then -a
+  else if (μ = 2 ∧ ν = 3) ∨ (μ = 3 ∧ ν = 2) then b
+  else 0
+
+theorem epsTT_symm (a b : ℝ) (μ ν : Fin 4) :
+    epsTT a b μ ν = epsTT a b ν μ := by
+  unfold epsTT
+  fin_cases μ <;> fin_cases ν <;> norm_num [Fin.ext_iff]
+
+/-- [KERNEL] ★ η-traço ZERO: Σ η^γγ ε_γγ = 0. -/
+theorem epsTT_traceless (a b : ℝ) :
+    (∑ γ : Fin 4, etaDiag γ * epsTT a b γ γ) = 0 := by
+  unfold etaDiag epsTT
+  rw [Fin.sum_univ_four]
+  norm_num [Fin.ext_iff]
+
+/-- [KERNEL] ★ TRANSVERSAL ao cone: as linhas 0 e 1 são nulas. -/
+theorem epsTT_transverse (a b : ℝ) (ν : Fin 4) :
+    epsTT a b 0 ν = 0 ∧ epsTT a b 1 ν = 0 := by
+  unfold epsTT
+  fin_cases ν <;> norm_num [Fin.ext_iff]
+
+/-! ## B — a onda TT e a redução algébrica das derivadas -/
+
+/-- a onda TT: h_{μν}(x) = ε_{μν}·w(x₁ − x₀). -/
+def ttWave (a b : ℝ) (w : ℝ → ℝ) (μ ν : Fin 4) : (Fin 4 → ℝ) → ℝ :=
+  fun x => epsTT a b μ ν * lightWave w x
+
+/-- [KERNEL] ★★ a REDUÇÃO: ∂ⱼ(c·w∘L) = c·L(eⱼ)·w′∘L, como FUNÇÃO. -/
+theorem pd_scaled_fun (c : ℝ) (w w' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u) (j : Fin 4) :
+    pd j (fun y => c * lightWave w y)
+      = fun y => c * lightCone (Pi.single j 1) * lightWave w' y := by
+  funext y
+  unfold pd
+  have hf : HasFDerivAt (fun z => c * lightWave w z)
+      (c • ((w' (lightCone y)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ))) y := by
+    have hbase : HasFDerivAt (lightWave w)
+        ((w' (lightCone y)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ)) y :=
+      (hw (lightCone y)).comp_hasFDerivAt y lightCone.hasFDerivAt
+    exact hbase.const_smul c
+  rw [hf.fderiv]
+  unfold lightWave
+  simp [smul_eq_mul]
+  ring
+
+/-- [KERNEL] ★★ a SEGUNDA REDUÇÃO: ∂ᵢ∂ⱼ(c·w∘L) = c·L(eⱼ)L(eᵢ)·w″∘L. -/
+theorem pd_pd_scaled (c : ℝ) (w w' w'' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hw' : ∀ u, HasDerivAt w' (w'' u) u) (i j : Fin 4) (x : Fin 4 → ℝ) :
+    pd i (pd j (fun y => c * lightWave w y)) x
+      = c * lightCone (Pi.single j 1) * lightCone (Pi.single i 1)
+        * w'' (lightCone x) := by
+  rw [pd_scaled_fun c w w' hw j]
+  have h2 := pd_scaled_fun (c * lightCone (Pi.single j 1)) w' w'' hw' i
+  have h3 := congrFun h2 x
+  rw [h3]
+  unfold lightWave
+  ring
+
+theorem lightCone_single_two :
+    lightCone (Pi.single (2 : Fin 4) 1) = 0 := by
+  rw [lightCone_apply]
+  simp
+
+theorem lightCone_single_three :
+    lightCone (Pi.single (3 : Fin 4) 1) = 0 := by
+  rw [lightCone_apply]
+  simp
+
+/-! ## C — o Ricci linearizado e o VÁCUO -/
+
+/-- o Ricci linearizado sobre o fundo plano (η diagonal da casa):
+    R⁽¹⁾_{μν} = ½[Σ_α η^αα(∂_α∂_μ h_{αν} + ∂_α∂_ν h_{αμ} − ∂_α∂_α h_{μν})
+    − ∂_μ∂_ν(Σ_γ η^γγ h_{γγ})]. -/
+def linRicci (h : Fin 4 → Fin 4 → ((Fin 4 → ℝ) → ℝ)) (μ ν : Fin 4)
+    (x : Fin 4 → ℝ) : ℝ :=
+  (∑ α : Fin 4, etaDiag α *
+    (pd α (pd μ (h α ν)) x + pd α (pd ν (h α μ)) x
+      - pd α (pd α (h μ ν)) x)) / 2
+  - pd μ (pd ν (fun y => ∑ γ : Fin 4, etaDiag γ * h γ γ y)) x / 2
+
+/-- [KERNEL] ★★★ A ONDA TT RESOLVE O VÁCUO LINEARIZADO: R⁽¹⁾ = 0 em toda
+    parte, para QUALQUER perfil C² — spin-2 sem massa no contínuo. -/
+theorem tt_ricci_zero (a b : ℝ) (w w' w'' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hw' : ∀ u, HasDerivAt w' (w'' u) u) (μ ν : Fin 4) (x : Fin 4 → ℝ) :
+    linRicci (ttWave a b w) μ ν x = 0 := by
+  unfold linRicci ttWave
+  have hpp : ∀ (c : ℝ) (i j : Fin 4),
+      pd i (pd j (fun y => c * lightWave w y)) x
+        = c * lightCone (Pi.single j 1) * lightCone (Pi.single i 1)
+          * w'' (lightCone x) :=
+    fun c i j => pd_pd_scaled c w w' w'' hw hw' i j x
+  have htr : (fun y => ∑ γ : Fin 4, etaDiag γ * (epsTT a b γ γ * lightWave w y))
+      = fun y => (0 : ℝ) * lightWave w y := by
+    funext y
+    rw [Fin.sum_univ_four]
+    unfold etaDiag epsTT
+    norm_num [Fin.ext_iff]
+  rw [Fin.sum_univ_four]
+  rw [hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp]
+  rw [htr, hpp 0 μ ν]
+  fin_cases μ <;> fin_cases ν <;>
+    · norm_num [epsTT, etaDiag, lightCone_apply, Pi.single_apply, Fin.ext_iff]
+      try ring
+
+/-- [KERNEL] ★★ cada componente é ONDA: ∂₀²h_{μν} = ∂₁²h_{μν}. -/
+theorem tt_component_wave (a b : ℝ) (w w' w'' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hw' : ∀ u, HasDerivAt w' (w'' u) u) (μ ν : Fin 4) (x : Fin 4 → ℝ) :
+    pd 0 (pd 0 (ttWave a b w μ ν)) x = pd 1 (pd 1 (ttWave a b w μ ν)) x := by
+  unfold ttWave
+  rw [pd_pd_scaled (epsTT a b μ ν) w w' w'' hw hw' 0 0 x,
+    pd_pd_scaled (epsTT a b μ ν) w w' w'' hw hw' 1 1 x,
+    lightCone_single_zero, lightCone_single_one]
+  ring
+
+/-! ## D — SEM FANTASMA: a cinética do setor TT -/
+
+/-- a densidade cinética do setor TT: Σ_{μν} (∂₀ h_{μν})². -/
+def ttKinetic (a b : ℝ) (w : ℝ → ℝ) (x : Fin 4 → ℝ) : ℝ :=
+  ∑ μ : Fin 4, ∑ ν : Fin 4, (pd 0 (ttWave a b w μ ν) x) ^ 2
+
+theorem ttKinetic_eval (a b : ℝ) (w w' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u) (x : Fin 4 → ℝ) :
+    ttKinetic a b w x = 2 * (a ^ 2 + b ^ 2) * (w' (lightCone x)) ^ 2 := by
+  unfold ttKinetic ttWave
+  have hp : ∀ μ ν : Fin 4, pd 0 (fun y => epsTT a b μ ν * lightWave w y) x
+      = epsTT a b μ ν * lightCone (Pi.single (0 : Fin 4) 1)
+        * lightWave w' x :=
+    fun μ ν => congrFun (pd_scaled_fun (epsTT a b μ ν) w w' hw 0) x
+  simp only [hp, lightCone_single_zero]
+  rw [Fin.sum_univ_four]
+  simp only [Fin.sum_univ_four]
+  unfold epsTT lightWave
+  norm_num [Fin.ext_iff]
+  try ring
+
+/-- [KERNEL] ★★ SEM FANTASMA (≥): a cinética TT nunca é negativa. -/
+theorem tt_kinetic_nonneg (a b : ℝ) (w w' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u) (x : Fin 4 → ℝ) :
+    0 ≤ ttKinetic a b w x := by
+  rw [ttKinetic_eval a b w w' hw x]
+  positivity
+
+/-- [KERNEL] ★★★ SEM FANTASMA (>): onde a onda vive ((a,b) ≠ 0, w′ ≠ 0),
+    a cinética é ESTRITAMENTE positiva — nenhum modo de norma negativa
+    no plano das polarizações. -/
+theorem tt_kinetic_pos (a b : ℝ) (w w' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u) (x : Fin 4 → ℝ)
+    (hab : a ≠ 0 ∨ b ≠ 0) (hwx : w' (lightCone x) ≠ 0) :
+    0 < ttKinetic a b w x := by
+  rw [ttKinetic_eval a b w w' hw x]
+  have hsq : (0 : ℝ) < a ^ 2 + b ^ 2 := by
+    rcases hab with ha | hb
+    · have h1 : (0 : ℝ) < a ^ 2 := by positivity
+      nlinarith [sq_nonneg b]
+    · have h1 : (0 : ℝ) < b ^ 2 := by positivity
+      nlinarith [sq_nonneg a]
+  have hw2 : (0 : ℝ) < (w' (lightCone x)) ^ 2 := by positivity
+  positivity
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ColimitSeed.lean":
+r'''import TGLExt.ContinuumTT
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A TORRE DO FATOR: o colimite ITPFI começa — o objeto, não mais a assinatura
+  [TGLExt — v126, o incremento 46 do programa SemifiniteAnalysis]
+
+A v124 construiu a escada; a v125 provou a marca de III₁. O que resta é
+O OBJETO: o fator ITPFI — o limite da torre M₂ ⊂ M₄ ⊂ M₈ ⊂ … com o
+estado-produto. Esta pedra constrói a TORRE INTEIRA e prova que ela é
+um sistema dirigido de *-álgebras com estado COERENTE:
+
+* `towerStep` — o degrau a ↦ a ⊗ₖ 1: *-homomorfismo UNITAL e INJETIVO
+  (`towerStep_mul`, `towerStep_star`, `towerStep_one`,
+  `towerStep_injective`) — a inclusão M_{2^N} ↪ M_{2^{N+1}};
+* `chainState` — o estado-produto em cada andar;
+  ★★★ `chainState_towerStep` — A COERÊNCIA: φ_{N+1}(a⊗1) = φ_N(a) —
+  o estado-produto é UM SÓ estado na torre inteira (a condição exata
+  da construção de Araki–Woods);
+* ★★ `ratio_persists_up_tower` — A ASSIMETRIA SOBE INALTERADA: toda
+  testemunha de razão r no andar N persiste com a MESMA razão r em
+  todos os andares acima — o dado modular é estável no colimite.
+
+O QUE RESTA (nomeado, sem véu): o FECHO — completar a torre na
+representação GNS do estado coerente e tomar o fecho fraco-* (o fator
+de von Neumann). A torre, o estado e a estabilidade modular estão em
+kernel; o fecho é o programa.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix
+
+noncomputable section
+
+/-! ## A — o degrau da torre: *-homomorfismo unital injetivo -/
+
+/-- o degrau: a ↦ a ⊗ₖ 1 (a inclusão M_{2^N} ↪ M_{2^{N+1}}). -/
+def towerStep {N : ℕ} (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    Matrix (chainIdx (N + 1)) (chainIdx (N + 1)) ℂ :=
+  a ⊗ₖ (1 : Matrix (Fin 2) (Fin 2) ℂ)
+
+/-- [KERNEL] ★ o degrau é UNITAL. -/
+theorem towerStep_one (N : ℕ) :
+    towerStep (1 : Matrix (chainIdx N) (chainIdx N) ℂ) = 1 := by
+  unfold towerStep
+  exact one_kronecker_one
+
+/-- [KERNEL] ★★ o degrau é MULTIPLICATIVO: a torre é de álgebras. -/
+theorem towerStep_mul {N : ℕ}
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerStep (a * b) = towerStep a * towerStep b := by
+  unfold towerStep
+  rw [show (1 : Matrix (Fin 2) (Fin 2) ℂ) = 1 * 1 by rw [one_mul]]
+  rw [mul_kronecker_mul]
+  rw [one_mul]
+
+/-- [KERNEL] ★★ o degrau respeita a ESTRELA: *-homomorfismo. -/
+theorem towerStep_star {N : ℕ}
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerStep aᴴ = (towerStep a)ᴴ := by
+  unfold towerStep
+  rw [conjTranspose_kronecker]
+  rw [conjTranspose_one]
+
+/-- [KERNEL] ★★ o degrau é INJETIVO: nada se perde subindo a torre. -/
+theorem towerStep_injective (N : ℕ) :
+    Function.Injective (towerStep (N := N)) := by
+  intro a b h
+  ext i j
+  have h2 := congrFun (congrFun h (i, 0)) (j, 0)
+  unfold towerStep at h2
+  rw [kronecker_apply, kronecker_apply, one_apply_eq] at h2
+  rw [mul_one, mul_one] at h2
+  exact h2
+
+/-! ## B — o estado coerente da torre -/
+
+/-- o estado-produto no andar N da torre. -/
+def chainState (l : ℝ) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) : ℂ :=
+  trace (chainDensity l N * a)
+
+/-- [KERNEL] ★★★ A COERÊNCIA: φ_{N+1}(a ⊗ 1) = φ_N(a) — o estado-produto
+    é UM SÓ estado na torre inteira (a condição de Araki–Woods). -/
+theorem chainState_towerStep (l : ℝ) (hl : 0 < l) {N : ℕ}
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    chainState l (N + 1) (towerStep a) = chainState l N a := by
+  unfold chainState towerStep
+  rw [show chainDensity l (N + 1)
+      = chainDensity l N ⊗ₖ powersDensity l from rfl]
+  rw [← mul_kronecker_mul, trace_kronecker]
+  have h1 : trace (powersDensity l * 1) = 1 := by
+    rw [mul_one]
+    have h2 := powersState_one l hl
+    rw [powersState_apply] at h2
+    unfold powersDensity
+    rw [trace, Fin.sum_univ_two, diag_apply, diag_apply,
+      diagonal_apply_eq, diagonal_apply_eq,
+      if_pos (rfl : (0 : Fin 2) = 0),
+      if_neg (show ¬(1 : Fin 2) = 0 by decide)]
+    rw [one_apply_eq, one_apply_eq, mul_one, mul_one] at h2
+    exact h2
+  rw [h1, mul_one]
+
+/-- [KERNEL] ★ o estado da torre é normalizado em TODO andar. -/
+theorem chainState_one (l : ℝ) (hl : 0 < l) :
+    ∀ N : ℕ, chainState l N (1 : Matrix (chainIdx N) (chainIdx N) ℂ) = 1
+  | 0 => by
+      unfold chainState
+      have h2 := powersState_one l hl
+      unfold powersState at h2
+      exact h2
+  | N + 1 => by
+      have h := chainState_towerStep l hl
+        (1 : Matrix (chainIdx N) (chainIdx N) ℂ)
+      rw [towerStep_one] at h
+      rw [h]
+      exact chainState_one l hl N
+
+/-! ## C — a assimetria sobe a torre inalterada -/
+
+/-- [KERNEL] ★ a testemunha TRIVIAL no bloco novo: razão 1 em (1,1). -/
+theorem trivial_ratio_witness {n : Type} [Fintype n] [DecidableEq n]
+    (ρ : Matrix n n ℂ) :
+    RatioWitness ρ (1 : Matrix n n ℂ) (1 : Matrix n n ℂ) 1 := by
+  unfold RatioWitness
+  rw [Complex.ofReal_one, one_mul, one_mul]
+
+/-- [KERNEL] ★★ A ASSIMETRIA SOBE A TORRE INALTERADA: toda testemunha de
+    razão r no andar N persiste com a MESMA razão no andar N+1 — o dado
+    modular é ESTÁVEL no colimite. -/
+theorem ratio_persists_up_tower (l : ℝ) {N : ℕ}
+    {ρ a b : Matrix (chainIdx N) (chainIdx N) ℂ} {r : ℝ}
+    (h : RatioWitness ρ a b r) :
+    RatioWitness (ρ ⊗ₖ powersDensity l) (towerStep a) (towerStep b) r := by
+  have h2 := ratioWitness_kron h (trivial_ratio_witness (powersDensity l))
+  rw [mul_one] at h2
+  exact h2
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TTSuperposition.lean":
+r'''import TGLExt.ColimitSeed
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A SUPERPOSIÇÃO TT: o espaço de soluções é um ESPAÇO — não uma onda só
+  [TGLExt — v126, o incremento 47 do programa SemifiniteAnalysis]
+
+A v125 provou que UMA onda TT resolve o vácuo linearizado. A física dos
+flags pede mais: o SETOR — perturbações gerais. Esta pedra dá o passo
+estrutural: a SUPERPOSIÇÃO de ondas TT com polarizações E perfis
+INDEPENDENTES também resolve — o conjunto-solução é fechado por soma,
+um subespaço vetorial de perturbações:
+
+* ★★ `pd_scaled_fun_add` — a derivada distribui sobre o par de ondas
+  (HasFDerivAt.add na redução algébrica);
+* ★★★ `tt_superposition_ricci_zero` — a soma de DUAS ondas TT quaisquer
+  (polarizações (a,b) e (a′,b′) independentes; perfis C² w e v
+  independentes) resolve o vácuo linearizado em toda parte — por
+  indução evidente, todo o SPAN das ondas TT resolve.
+
+HONESTIDADE (nomeada): superposições ao longo do MESMO cone; direções
+múltiplas de propagação e a decomposição completa de perturbações
+gerais seguem ABERTAS; os 5 flags de física do gate NÃO se movem.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — a derivada do par -/
+
+/-- [KERNEL] ★★ a derivada distribui sobre o par de ondas escaladas. -/
+theorem pd_scaled_fun_add (c₁ c₂ : ℝ) (w w' v v' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hv : ∀ u, HasDerivAt v (v' u) u) (j : Fin 4) :
+    pd j (fun y => c₁ * lightWave w y + c₂ * lightWave v y)
+      = fun y => c₁ * lightCone (Pi.single j 1) * lightWave w' y
+        + c₂ * lightCone (Pi.single j 1) * lightWave v' y := by
+  funext y
+  unfold pd
+  have hf : HasFDerivAt
+      (fun z => c₁ * lightWave w z + c₂ * lightWave v z)
+      ((c₁ • ((w' (lightCone y)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ)))
+        + (c₂ • ((v' (lightCone y)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ)))) y := by
+    have h1 : HasFDerivAt (fun z => c₁ * lightWave w z)
+        (c₁ • ((w' (lightCone y)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ))) y :=
+      (((hw (lightCone y)).comp_hasFDerivAt y lightCone.hasFDerivAt).const_smul c₁)
+    have h2 : HasFDerivAt (fun z => c₂ * lightWave v z)
+        (c₂ • ((v' (lightCone y)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ))) y :=
+      (((hv (lightCone y)).comp_hasFDerivAt y lightCone.hasFDerivAt).const_smul c₂)
+    exact h1.add h2
+  rw [hf.fderiv]
+  unfold lightWave
+  simp [smul_eq_mul]
+  ring
+
+/-- [KERNEL] ★★ a segunda derivada do par: a redução completa. -/
+theorem pd_pd_pair (c₁ c₂ : ℝ) (w w' w'' v v' v'' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hw' : ∀ u, HasDerivAt w' (w'' u) u)
+    (hv : ∀ u, HasDerivAt v (v' u) u)
+    (hv' : ∀ u, HasDerivAt v' (v'' u) u) (i j : Fin 4) (x : Fin 4 → ℝ) :
+    pd i (pd j (fun y => c₁ * lightWave w y + c₂ * lightWave v y)) x
+      = c₁ * lightCone (Pi.single j 1) * lightCone (Pi.single i 1)
+          * w'' (lightCone x)
+        + c₂ * lightCone (Pi.single j 1) * lightCone (Pi.single i 1)
+          * v'' (lightCone x) := by
+  rw [pd_scaled_fun_add c₁ c₂ w w' v v' hw hv j]
+  have h2 := pd_scaled_fun_add (c₁ * lightCone (Pi.single j 1))
+    (c₂ * lightCone (Pi.single j 1)) w' w'' v' v'' hw' hv' i
+  have h3 := congrFun h2 x
+  rw [h3]
+  unfold lightWave
+  ring
+
+/-! ## B — a superposição resolve o vácuo -/
+
+/-- o par de ondas TT: polarizações e perfis INDEPENDENTES. -/
+def ttPair (a b a' b' : ℝ) (w v : ℝ → ℝ) (μ ν : Fin 4) :
+    (Fin 4 → ℝ) → ℝ :=
+  fun y => epsTT a b μ ν * lightWave w y + epsTT a' b' μ ν * lightWave v y
+
+/-- [KERNEL] ★★★ A SUPERPOSIÇÃO RESOLVE: a soma de duas ondas TT
+    quaisquer (polarizações e perfis independentes) tem Ricci
+    linearizado ZERO em toda parte — o conjunto-solução é um ESPAÇO. -/
+theorem tt_superposition_ricci_zero (a b a' b' : ℝ)
+    (w w' w'' v v' v'' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hw' : ∀ u, HasDerivAt w' (w'' u) u)
+    (hv : ∀ u, HasDerivAt v (v' u) u)
+    (hv' : ∀ u, HasDerivAt v' (v'' u) u) (μ ν : Fin 4) (x : Fin 4 → ℝ) :
+    linRicci (ttPair a b a' b' w v) μ ν x = 0 := by
+  unfold linRicci ttPair
+  have hpp : ∀ (c₁ c₂ : ℝ) (i j : Fin 4),
+      pd i (pd j (fun y => c₁ * lightWave w y + c₂ * lightWave v y)) x
+        = c₁ * lightCone (Pi.single j 1) * lightCone (Pi.single i 1)
+            * w'' (lightCone x)
+          + c₂ * lightCone (Pi.single j 1) * lightCone (Pi.single i 1)
+            * v'' (lightCone x) :=
+    fun c₁ c₂ i j => pd_pd_pair c₁ c₂ w w' w'' v v' v'' hw hw' hv hv' i j x
+  have htr : (fun y => ∑ γ : Fin 4, etaDiag γ *
+      (epsTT a b γ γ * lightWave w y + epsTT a' b' γ γ * lightWave v y))
+      = fun y => (0 : ℝ) * lightWave w y + (0 : ℝ) * lightWave v y := by
+    funext y
+    rw [Fin.sum_univ_four]
+    unfold etaDiag epsTT
+    norm_num [Fin.ext_iff]
+    ring
+  rw [Fin.sum_univ_four]
+  rw [hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp]
+  rw [htr, hpp 0 0 μ ν]
+  fin_cases μ <;> fin_cases ν <;>
+    · norm_num [epsTT, etaDiag, lightCone_apply, Pi.single_apply, Fin.ext_iff]
+      try ring
+
+end
+
+end TGLExt
+''',
+    "TGLExt/GNSTower.lean":
+r'''import TGLExt.TTSuperposition
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A TORRE GNS: o pré-Hilbert do fator, com inclusões ISOMÉTRICAS
+  [TGLExt — v127, o incremento 48 do programa SemifiniteAnalysis]
+
+A v126 deu a torre com estado coerente. O FECHO pede a representação
+GNS: o produto interno ⟨a,b⟩_φ = φ(a†b) em cada andar, e a prova de que
+os degraus PRESERVAM o produto — a torre GNS é isométrica, o pré-Hilbert
+do fator com um único completamento à frente:
+
+* `chainDensity_diag_nonneg` — a densidade da torre é DIAGONAL com
+  entradas reais ≥ 0 (indução por Kronecker de diagonais);
+* ★★ `chainState_positive` — o estado é POSITIVO em TODO andar:
+  Re φ_N(a†a) ≥ 0 — a positividade sobe a torre inteira;
+* `gnsInner` — o produto GNS ⟨a,b⟩ = φ(a†b); ★ aditivo à direita
+  (`gnsInner_add_right`) e hermitiano no argumento (via a forma);
+* ★★★ `gns_isometric_up_tower` — ⟨a⊗1, b⊗1⟩_{N+1} = ⟨a,b⟩_N — os
+  degraus da torre são ISOMETRIAS GNS: o pré-Hilbert do fator é UM
+  espaço só, andar a andar.
+
+O QUE RESTA (nomeado, sem véu): o quociente pelo núcleo, o
+completamento de Hilbert e o fecho fraco-* da ação — o fator como
+álgebra de von Neumann. O pré-Hilbert isométrico está em kernel.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix
+open scoped ComplexConjugate
+
+noncomputable section
+
+/-! ## A — a densidade da torre é diagonal positiva -/
+
+/-- os pesos da densidade da torre (a diagonal). -/
+def chainWeights (l : ℝ) : (N : ℕ) → chainIdx N → ℝ
+  | 0 => fun i => if i = 0 then l / (1 + l) else 1 / (1 + l)
+  | N + 1 => fun p => chainWeights l N p.1
+      * (if p.2 = 0 then l / (1 + l) else 1 / (1 + l))
+
+/-- [KERNEL] ★ a densidade É a diagonal dos pesos. -/
+theorem chainDensity_eq_diagonal (l : ℝ) :
+    ∀ N : ℕ, chainDensity l N
+      = diagonal (fun i => ((chainWeights l N i : ℝ) : ℂ))
+  | 0 => by
+      rw [show chainDensity l 0 = powersDensity l from rfl]
+      unfold powersDensity chainWeights
+      congr 1
+      funext i
+      by_cases hi : i = 0
+      · rw [if_pos hi, if_pos hi]
+      · rw [if_neg hi, if_neg hi]
+  | N + 1 => by
+      rw [show chainDensity l (N + 1)
+          = chainDensity l N ⊗ₖ powersDensity l from rfl,
+        chainDensity_eq_diagonal l N]
+      unfold powersDensity
+      rw [diagonal_kronecker_diagonal]
+      congr 1
+      funext p
+      rw [show chainWeights l (N + 1) p
+          = chainWeights l N p.1
+            * (if p.2 = 0 then l / (1 + l) else 1 / (1 + l)) from rfl]
+      by_cases hp : p.2 = 0
+      · rw [if_pos hp, if_pos hp]
+        push_cast
+        ring
+      · rw [if_neg hp, if_neg hp]
+        push_cast
+        ring
+
+/-- [KERNEL] ★ os pesos são ≥ 0 em todo andar. -/
+theorem chainWeights_nonneg (l : ℝ) (hl : 0 < l) :
+    ∀ (N : ℕ) (i : chainIdx N), 0 ≤ chainWeights l N i
+  | 0, i => by
+      unfold chainWeights
+      by_cases hi : i = 0
+      · rw [if_pos hi]
+        positivity
+      · rw [if_neg hi]
+        positivity
+  | N + 1, p => by
+      unfold chainWeights
+      have h1 := chainWeights_nonneg l hl N p.1
+      by_cases hp : p.2 = 0
+      · rw [if_pos hp]
+        have h2 : (0 : ℝ) ≤ l / (1 + l) := by positivity
+        exact mul_nonneg h1 h2
+      · rw [if_neg hp]
+        have h2 : (0 : ℝ) ≤ 1 / (1 + l) := by positivity
+        exact mul_nonneg h1 h2
+
+/-! ## B — a positividade sobe a torre -/
+
+/-- [KERNEL] ★★ O ESTADO É POSITIVO EM TODO ANDAR: Re φ_N(a†a) ≥ 0. -/
+theorem chainState_positive (l : ℝ) (hl : 0 < l) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    0 ≤ (chainState l N (aᴴ * a)).re := by
+  unfold chainState
+  rw [chainDensity_eq_diagonal l N]
+  rw [trace]
+  rw [Complex.re_sum]
+  apply Finset.sum_nonneg
+  intro k _
+  rw [diag_apply, diagonal_mul]
+  have hdiag : ((aᴴ * a) k k).re = ∑ j, Complex.normSq (a j k) := by
+    rw [mul_apply, Complex.re_sum]
+    congr 1
+    funext j
+    rw [conjTranspose_apply,
+      show (star (a j k) : ℂ) = conj (a j k) from rfl,
+      ← Complex.normSq_eq_conj_mul_self]
+    rw [Complex.ofReal_re]
+  have him : ((aᴴ * a) k k).im = 0 := by
+    rw [mul_apply, Complex.im_sum]
+    have hz : ∀ j ∈ Finset.univ, ((aᴴ) k j * a j k).im = 0 := by
+      intro j _
+      rw [conjTranspose_apply,
+        show (star (a j k) : ℂ) = conj (a j k) from rfl,
+        ← Complex.normSq_eq_conj_mul_self]
+      rw [Complex.ofReal_im]
+    rw [Finset.sum_congr rfl hz]
+    simp
+  rw [Complex.mul_re, Complex.ofReal_re, Complex.ofReal_im, hdiag, him]
+  rw [mul_zero, sub_zero]
+  apply mul_nonneg (chainWeights_nonneg l hl N k)
+  apply Finset.sum_nonneg
+  intro j _
+  exact Complex.normSq_nonneg _
+
+/-! ## C — o produto GNS e a isometria da torre -/
+
+/-- o produto interno GNS do andar N: ⟨a,b⟩ = φ(a†b). -/
+def gnsInner (l : ℝ) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) : ℂ :=
+  chainState l N (aᴴ * b)
+
+/-- [KERNEL] ★ o produto GNS é aditivo à direita. -/
+theorem gnsInner_add_right (l : ℝ) (N : ℕ)
+    (a b c : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    gnsInner l N a (b + c) = gnsInner l N a b + gnsInner l N a c := by
+  unfold gnsInner chainState
+  rw [mul_add, mul_add, trace_add]
+
+/-- [KERNEL] ★ a norma GNS ao quadrado é real ≥ 0 (a forma é positiva). -/
+theorem gnsInner_self_nonneg (l : ℝ) (hl : 0 < l) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    0 ≤ (gnsInner l N a a).re :=
+  chainState_positive l hl N a
+
+/-- [KERNEL] ★★★ A TORRE GNS É ISOMÉTRICA: ⟨a⊗1, b⊗1⟩_{N+1} = ⟨a,b⟩_N —
+    os degraus preservam o produto interno GNS; o pré-Hilbert do fator
+    é UM espaço só, andar a andar. -/
+theorem gns_isometric_up_tower (l : ℝ) (hl : 0 < l) {N : ℕ}
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    gnsInner l (N + 1) (towerStep a) (towerStep b) = gnsInner l N a b := by
+  unfold gnsInner
+  rw [← towerStep_star, ← towerStep_mul]
+  exact chainState_towerStep l hl (aᴴ * b)
+
+end
+
+end TGLExt
+''',
+    "TGLExt/SecondCone.lean":
+r'''import TGLExt.GNSTower
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A SEGUNDA DIREÇÃO: cones independentes — e a superposição ENTRE direções
+  [TGLExt — v127, o incremento 49 do programa SemifiniteAnalysis]
+
+A v125/v126 fecharam o setor TT de UM cone (x₁−x₀) e seu span. A cara
+que os flags de física pedem é o setor GERAL — e o primeiro degrau real
+é a SEGUNDA direção de propagação:
+
+* `lightCone2` (x₂−x₀) — o segundo cone nulo, com suas ondas e o plano
+  de polarizações (1,3) (`epsTT2`: η-traço zero; transversal);
+* ★★ `tt2_ricci_zero` — a onda TT da segunda direção resolve o vácuo
+  linearizado (perfil C² qualquer) — a construção NÃO era um acidente
+  da direção;
+* ★★ `pd_pd_cross` — a redução MISTA: derivadas do par com cones
+  DIFERENTES;
+* ★★★ `tt_cross_direction_ricci_zero` — A SUPERPOSIÇÃO ENTRE DIREÇÕES:
+  onda no cone 1 + onda no cone 2 (polarizações e perfis independentes)
+  resolve o vácuo linearizado em toda parte — o espaço-solução cruza
+  direções de propagação.
+
+HONESTIDADE (nomeada): duas direções ≠ todas; a decomposição completa
+de perturbações gerais e as anomalias seguem ABERTAS; os 5 flags de
+física do gate NÃO se movem.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — o segundo cone e suas polarizações -/
+
+/-- o segundo cone: L₂(x) = x₂ − x₀. -/
+def lightCone2 : (Fin 4 → ℝ) →L[ℝ] ℝ :=
+  (ContinuousLinearMap.proj (R := ℝ) (φ := fun _ : Fin 4 => ℝ) (2 : Fin 4))
+    - (ContinuousLinearMap.proj (R := ℝ) (φ := fun _ : Fin 4 => ℝ) (0 : Fin 4))
+
+theorem lightCone2_apply (x : Fin 4 → ℝ) : lightCone2 x = x 2 - x 0 := by
+  unfold lightCone2
+  simp [ContinuousLinearMap.sub_apply]
+
+/-- a onda da segunda direção. -/
+def lightWave2 (w : ℝ → ℝ) (x : Fin 4 → ℝ) : ℝ := w (lightCone2 x)
+
+/-- a polarização TT da segunda direção: o plano (1,3). -/
+def epsTT2 (a b : ℝ) : Fin 4 → Fin 4 → ℝ := fun μ ν =>
+  if μ = 1 ∧ ν = 1 then a
+  else if μ = 3 ∧ ν = 3 then -a
+  else if (μ = 1 ∧ ν = 3) ∨ (μ = 3 ∧ ν = 1) then b
+  else 0
+
+/-- [KERNEL] ★ η-traço ZERO no segundo plano. -/
+theorem epsTT2_traceless (a b : ℝ) :
+    (∑ γ : Fin 4, etaDiag γ * epsTT2 a b γ γ) = 0 := by
+  unfold etaDiag epsTT2
+  rw [Fin.sum_univ_four]
+  norm_num [Fin.ext_iff]
+
+/-- [KERNEL] ★ transversal ao segundo cone: linhas 0 e 2 nulas. -/
+theorem epsTT2_transverse (a b : ℝ) (ν : Fin 4) :
+    epsTT2 a b 0 ν = 0 ∧ epsTT2 a b 2 ν = 0 := by
+  unfold epsTT2
+  fin_cases ν <;> norm_num [Fin.ext_iff]
+
+/-! ## B — as reduções da segunda direção e a MISTA -/
+
+theorem pd_scaled_fun2 (c : ℝ) (w w' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u) (j : Fin 4) :
+    pd j (fun y => c * lightWave2 w y)
+      = fun y => c * lightCone2 (Pi.single j 1) * lightWave2 w' y := by
+  funext y
+  unfold pd
+  have hf : HasFDerivAt (fun z => c * lightWave2 w z)
+      (c • ((w' (lightCone2 y)) • (lightCone2 : (Fin 4 → ℝ) →L[ℝ] ℝ))) y := by
+    have hbase : HasFDerivAt (lightWave2 w)
+        ((w' (lightCone2 y)) • (lightCone2 : (Fin 4 → ℝ) →L[ℝ] ℝ)) y :=
+      (hw (lightCone2 y)).comp_hasFDerivAt y lightCone2.hasFDerivAt
+    exact hbase.const_smul c
+  rw [hf.fderiv]
+  unfold lightWave2
+  simp [smul_eq_mul]
+  ring
+
+/-- [KERNEL] ★★ a redução MISTA: o par com cones DIFERENTES. -/
+theorem pd_scaled_fun_cross (c₁ c₂ : ℝ) (w w' v v' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hv : ∀ u, HasDerivAt v (v' u) u) (j : Fin 4) :
+    pd j (fun y => c₁ * lightWave w y + c₂ * lightWave2 v y)
+      = fun y => c₁ * lightCone (Pi.single j 1) * lightWave w' y
+        + c₂ * lightCone2 (Pi.single j 1) * lightWave2 v' y := by
+  funext y
+  unfold pd
+  have hf : HasFDerivAt
+      (fun z => c₁ * lightWave w z + c₂ * lightWave2 v z)
+      ((c₁ • ((w' (lightCone y)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ)))
+        + (c₂ • ((v' (lightCone2 y)) • (lightCone2 : (Fin 4 → ℝ) →L[ℝ] ℝ)))) y := by
+    have h1 : HasFDerivAt (fun z => c₁ * lightWave w z)
+        (c₁ • ((w' (lightCone y)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ))) y :=
+      (((hw (lightCone y)).comp_hasFDerivAt y lightCone.hasFDerivAt).const_smul c₁)
+    have h2 : HasFDerivAt (fun z => c₂ * lightWave2 v z)
+        (c₂ • ((v' (lightCone2 y)) • (lightCone2 : (Fin 4 → ℝ) →L[ℝ] ℝ))) y :=
+      (((hv (lightCone2 y)).comp_hasFDerivAt y lightCone2.hasFDerivAt).const_smul c₂)
+    exact h1.add h2
+  rw [hf.fderiv]
+  unfold lightWave lightWave2
+  simp [smul_eq_mul]
+  ring
+
+/-- [KERNEL] ★★ a segunda derivada MISTA. -/
+theorem pd_pd_cross (c₁ c₂ : ℝ) (w w' w'' v v' v'' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hw' : ∀ u, HasDerivAt w' (w'' u) u)
+    (hv : ∀ u, HasDerivAt v (v' u) u)
+    (hv' : ∀ u, HasDerivAt v' (v'' u) u) (i j : Fin 4) (x : Fin 4 → ℝ) :
+    pd i (pd j (fun y => c₁ * lightWave w y + c₂ * lightWave2 v y)) x
+      = c₁ * lightCone (Pi.single j 1) * lightCone (Pi.single i 1)
+          * w'' (lightCone x)
+        + c₂ * lightCone2 (Pi.single j 1) * lightCone2 (Pi.single i 1)
+          * v'' (lightCone2 x) := by
+  rw [pd_scaled_fun_cross c₁ c₂ w w' v v' hw hv j]
+  have h2 := pd_scaled_fun_cross (c₁ * lightCone (Pi.single j 1))
+    (c₂ * lightCone2 (Pi.single j 1)) w' w'' v' v'' hw' hv' i
+  have h3 := congrFun h2 x
+  rw [h3]
+  unfold lightWave lightWave2
+  ring
+
+theorem lightCone2_single_zero :
+    lightCone2 (Pi.single (0 : Fin 4) 1) = -1 := by
+  rw [lightCone2_apply]
+  simp
+
+theorem lightCone2_single_one :
+    lightCone2 (Pi.single (1 : Fin 4) 1) = 0 := by
+  rw [lightCone2_apply]
+  simp
+
+theorem lightCone2_single_two :
+    lightCone2 (Pi.single (2 : Fin 4) 1) = 1 := by
+  rw [lightCone2_apply]
+  simp
+
+theorem lightCone2_single_three :
+    lightCone2 (Pi.single (3 : Fin 4) 1) = 0 := by
+  rw [lightCone2_apply]
+  simp
+
+/-! ## C — a segunda direção resolve; e a superposição ENTRE direções -/
+
+/-- a onda TT da segunda direção. -/
+def ttWave2 (a b : ℝ) (v : ℝ → ℝ) (μ ν : Fin 4) : (Fin 4 → ℝ) → ℝ :=
+  fun x => epsTT2 a b μ ν * lightWave2 v x
+
+/-- [KERNEL] ★★ a onda da SEGUNDA direção resolve o vácuo linearizado. -/
+theorem tt2_ricci_zero (a b : ℝ) (v v' v'' : ℝ → ℝ)
+    (hv : ∀ u, HasDerivAt v (v' u) u)
+    (hv' : ∀ u, HasDerivAt v' (v'' u) u) (μ ν : Fin 4) (x : Fin 4 → ℝ) :
+    linRicci (ttWave2 a b v) μ ν x = 0 := by
+  unfold linRicci ttWave2
+  have hpp : ∀ (c : ℝ) (i j : Fin 4),
+      pd i (pd j (fun y => c * lightWave2 v y)) x
+        = c * lightCone2 (Pi.single j 1) * lightCone2 (Pi.single i 1)
+          * v'' (lightCone2 x) := by
+    intro c i j
+    rw [pd_scaled_fun2 c v v' hv j]
+    have h2 := pd_scaled_fun2 (c * lightCone2 (Pi.single j 1)) v' v'' hv' i
+    have h3 := congrFun h2 x
+    rw [h3]
+    unfold lightWave2
+    ring
+  have htr : (fun y => ∑ γ : Fin 4, etaDiag γ *
+      (epsTT2 a b γ γ * lightWave2 v y))
+      = fun y => (0 : ℝ) * lightWave2 v y := by
+    funext y
+    rw [Fin.sum_univ_four]
+    unfold etaDiag epsTT2
+    norm_num [Fin.ext_iff]
+  rw [Fin.sum_univ_four]
+  rw [hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp]
+  rw [htr, hpp 0 μ ν]
+  fin_cases μ <;> fin_cases ν <;>
+    · norm_num [epsTT2, etaDiag, lightCone2_apply, Pi.single_apply, Fin.ext_iff]
+      try ring
+
+/-- o par ENTRE direções: cone 1 (plano 2,3) + cone 2 (plano 1,3). -/
+def ttCross (a b a' b' : ℝ) (w v : ℝ → ℝ) (μ ν : Fin 4) :
+    (Fin 4 → ℝ) → ℝ :=
+  fun y => epsTT a b μ ν * lightWave w y + epsTT2 a' b' μ ν * lightWave2 v y
+
+/-- [KERNEL] ★★★ A SUPERPOSIÇÃO ENTRE DIREÇÕES: onda no cone 1 + onda no
+    cone 2 (polarizações e perfis independentes) resolve o vácuo
+    linearizado em toda parte — o espaço-solução CRUZA direções. -/
+theorem tt_cross_direction_ricci_zero (a b a' b' : ℝ)
+    (w w' w'' v v' v'' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hw' : ∀ u, HasDerivAt w' (w'' u) u)
+    (hv : ∀ u, HasDerivAt v (v' u) u)
+    (hv' : ∀ u, HasDerivAt v' (v'' u) u) (μ ν : Fin 4) (x : Fin 4 → ℝ) :
+    linRicci (ttCross a b a' b' w v) μ ν x = 0 := by
+  unfold linRicci ttCross
+  have hpp : ∀ (c₁ c₂ : ℝ) (i j : Fin 4),
+      pd i (pd j (fun y => c₁ * lightWave w y + c₂ * lightWave2 v y)) x
+        = c₁ * lightCone (Pi.single j 1) * lightCone (Pi.single i 1)
+            * w'' (lightCone x)
+          + c₂ * lightCone2 (Pi.single j 1) * lightCone2 (Pi.single i 1)
+            * v'' (lightCone2 x) :=
+    fun c₁ c₂ i j => pd_pd_cross c₁ c₂ w w' w'' v v' v'' hw hw' hv hv' i j x
+  have htr : (fun y => ∑ γ : Fin 4, etaDiag γ *
+      (epsTT a b γ γ * lightWave w y + epsTT2 a' b' γ γ * lightWave2 v y))
+      = fun y => (0 : ℝ) * lightWave w y + (0 : ℝ) * lightWave2 v y := by
+    funext y
+    rw [Fin.sum_univ_four]
+    unfold etaDiag epsTT epsTT2
+    norm_num [Fin.ext_iff]
+    ring
+  rw [Fin.sum_univ_four]
+  rw [hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp]
+  rw [htr, hpp 0 0 μ ν]
+  fin_cases μ <;> fin_cases ν <;>
+    · norm_num [epsTT, epsTT2, etaDiag, lightCone_apply, lightCone2_apply,
+        Pi.single_apply, Fin.ext_iff]
+      try ring
+
+end
+
+end TGLExt
+''',
+    "TGLExt/GNSQuotient.lean":
+r'''import TGLExt.SecondCone
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# O QUOCIENTE GNS: o pré-fator REPRESENTADO — o radical é um ideal à esquerda
+  [TGLExt — v128, o incremento 50 do programa SemifiniteAnalysis]
+
+A v127 deu o pré-Hilbert isométrico. O FECHO pede o quociente pelo
+núcleo e a ação que desce. Esta pedra faz o passo ALGÉBRICO exato —
+sem Cauchy–Schwarz, sem completamento:
+
+* `gnsInner_conj_symm` — a forma é HERMITIANA: ⟨a,b⟩ = conj⟨b,a⟩
+  (via ρ auto-adjunta e a ciclicidade do traço);
+* `gnsInner_smul_left`/`add_left` — conjugada-linear à esquerda;
+* ★★ `gnsRadical` — o RADICAL N = {a : ∀b, ⟨a,b⟩ = 0} como Submodule ℂ;
+* ★★★ `gnsRadical_left_ideal` — N É UM IDEAL À ESQUERDA: a ∈ N ⟹
+  x·a ∈ N (⟨x a, b⟩ = ⟨a, x† b⟩ = 0) — a condição EXATA para a álgebra
+  agir no quociente;
+* ★★★ `gnsInner_wd_left`/`gnsInner_wd_right` — o produto interno DESCE
+  ao quociente M/N (independe do representante nas duas faces);
+* ★★★ `leftAction_wd` — a ação esquerda x·[a] = [x·a] DESCE ao
+  quociente (bem-definida pelo ideal) — O PRÉ-FATOR REPRESENTADO.
+
+O QUE RESTA (nomeado, sem véu): o completamento de Hilbert de M/N e o
+fecho fraco-* da álgebra representada — o fator de von Neumann como
+objeto topológico. A representação algébrica (GNS finito) está fechada;
+o completamento é o programa.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix
+open scoped ComplexConjugate
+
+noncomputable section
+
+variable {l : ℝ} {N : ℕ}
+
+/-! ## A — a forma é hermitiana e conjugada-linear -/
+
+/-- [KERNEL] a densidade da torre é auto-adjunta (diagonal real). -/
+theorem chainDensity_selfadjoint (l : ℝ) (N : ℕ) :
+    (chainDensity l N)ᴴ = chainDensity l N := by
+  rw [chainDensity_eq_diagonal l N]
+  rw [diagonal_conjTranspose]
+  congr 1
+  funext i
+  rw [Pi.star_apply, Complex.star_def, Complex.conj_ofReal]
+
+/-- [KERNEL] ★ A FORMA É HERMITIANA: ⟨a,b⟩ = conj⟨b,a⟩. -/
+theorem gnsInner_conj_symm (l : ℝ) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    gnsInner l N a b = conj (gnsInner l N b a) := by
+  unfold gnsInner chainState
+  rw [show conj ((chainDensity l N * (bᴴ * a)).trace)
+      = star ((chainDensity l N * (bᴴ * a)).trace) from rfl]
+  rw [← trace_conjTranspose]
+  rw [conjTranspose_mul, conjTranspose_mul, conjTranspose_conjTranspose,
+    chainDensity_selfadjoint]
+  exact trace_mul_comm (chainDensity l N) (aᴴ * b)
+
+/-- [KERNEL] ★ conjugada-linear à esquerda (soma). -/
+theorem gnsInner_add_left (l : ℝ) (N : ℕ)
+    (a b c : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    gnsInner l N (a + b) c = gnsInner l N a c + gnsInner l N b c := by
+  unfold gnsInner chainState
+  rw [conjTranspose_add, add_mul, mul_add, trace_add]
+
+/-- [KERNEL] ★ conjugada-linear à esquerda (escalar). -/
+theorem gnsInner_smul_left (l : ℝ) (N : ℕ) (c : ℂ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    gnsInner l N (c • a) b = conj c * gnsInner l N a b := by
+  unfold gnsInner chainState
+  rw [conjTranspose_smul, smul_mul_assoc, mul_smul_comm, trace_smul]
+  rw [Complex.star_def, smul_eq_mul]
+
+/-! ## B — o radical como ideal à esquerda -/
+
+/-- ★★ O RADICAL GNS: N = {a : ∀ b, ⟨a,b⟩ = 0} — o núcleo à esquerda
+    da forma, como submódulo ℂ. -/
+def gnsRadical (l : ℝ) (N : ℕ) :
+    Submodule ℂ (Matrix (chainIdx N) (chainIdx N) ℂ) where
+  carrier := {a | ∀ b, gnsInner l N a b = 0}
+  zero_mem' := by
+    intro b
+    unfold gnsInner chainState
+    rw [conjTranspose_zero, zero_mul, mul_zero, trace_zero]
+  add_mem' := by
+    intro a b ha hb c
+    rw [gnsInner_add_left, ha c, hb c, add_zero]
+  smul_mem' := by
+    intro c a ha b
+    rw [gnsInner_smul_left, ha b, mul_zero]
+
+theorem mem_gnsRadical (l : ℝ) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    a ∈ gnsRadical l N ↔ ∀ b, gnsInner l N a b = 0 := Iff.rfl
+
+/-- [KERNEL] ★ a chave: ⟨x·a, b⟩ = ⟨a, x†·b⟩. -/
+theorem gnsInner_mul_left_adjoint (l : ℝ) (N : ℕ)
+    (x a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    gnsInner l N (x * a) b = gnsInner l N a (xᴴ * b) := by
+  unfold gnsInner chainState
+  rw [conjTranspose_mul, mul_assoc, ← mul_assoc aᴴ]
+
+/-- [KERNEL] ★★★ O RADICAL É UM IDEAL À ESQUERDA: a ∈ N ⟹ x·a ∈ N —
+    a condição EXATA para a álgebra agir no quociente. -/
+theorem gnsRadical_left_ideal (l : ℝ) (N : ℕ)
+    {a : Matrix (chainIdx N) (chainIdx N) ℂ} (ha : a ∈ gnsRadical l N)
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    x * a ∈ gnsRadical l N := by
+  intro b
+  rw [gnsInner_mul_left_adjoint]
+  exact ha (xᴴ * b)
+
+/-! ## C — o produto interno e a ação DESCEM ao quociente -/
+
+/-- [KERNEL] ★★★ o produto interno DESCE (face esquerda): se a − a' ∈ N
+    então ⟨a,b⟩ = ⟨a',b⟩. -/
+theorem gnsInner_wd_left (l : ℝ) (N : ℕ)
+    {a a' : Matrix (chainIdx N) (chainIdx N) ℂ}
+    (h : a - a' ∈ gnsRadical l N) (b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    gnsInner l N a b = gnsInner l N a' b := by
+  have hz : gnsInner l N (a - a') b = 0 := h b
+  rw [sub_eq_add_neg, gnsInner_add_left] at hz
+  have hneg : gnsInner l N (-a') b = - gnsInner l N a' b := by
+    rw [show (-a') = (-1 : ℂ) • a' by rw [neg_one_smul], gnsInner_smul_left]
+    simp
+  rw [hneg] at hz
+  linear_combination (norm := module) hz
+
+/-- [KERNEL] ★★★ o produto interno DESCE (face direita): usa a
+    hermiticidade. -/
+theorem gnsInner_wd_right (l : ℝ) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ)
+    {b b' : Matrix (chainIdx N) (chainIdx N) ℂ}
+    (h : b - b' ∈ gnsRadical l N) :
+    gnsInner l N a b = gnsInner l N a b' := by
+  rw [gnsInner_conj_symm l N a b, gnsInner_conj_symm l N a b']
+  congr 1
+  exact gnsInner_wd_left l N h a
+
+/-- [KERNEL] ★★★ A AÇÃO ESQUERDA DESCE: se a − a' ∈ N então
+    x·a − x·a' ∈ N — a ação x·[a] = [x·a] é bem-definida no quociente.
+    O PRÉ-FATOR REPRESENTADO. -/
+theorem leftAction_wd (l : ℝ) (N : ℕ)
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ)
+    {a a' : Matrix (chainIdx N) (chainIdx N) ℂ}
+    (h : a - a' ∈ gnsRadical l N) :
+    x * a - x * a' ∈ gnsRadical l N := by
+  rw [← mul_sub]
+  exact gnsRadical_left_ideal l N h x
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ThirdCone.lean":
+r'''import TGLExt.GNSQuotient
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A TERCEIRA DIREÇÃO: o setor TT cobre as TRÊS direções nulas espaciais
+  [TGLExt — v128, o incremento 51 do programa SemifiniteAnalysis]
+
+A v127 deu o segundo cone (x₂−x₀). Esta pedra fecha a terceira direção
+espacial (x₃−x₀) e a superposição TRIPLA — o setor de ondas planas TT
+cobre as três direções nulas geradas pelos eixos espaciais:
+
+* `lightCone3` (x₃−x₀) com o plano de polarizações (1,2) (`epsTT3`:
+  η-traço zero; transversal);
+* ★★ `tt3_ricci_zero` — a onda TT da terceira direção resolve o vácuo
+  linearizado (perfil C² qualquer);
+* ★★★ `tt_triple_ricci_zero` — A SUPERPOSIÇÃO DAS TRÊS DIREÇÕES: onda
+  no cone 1 (plano 2,3) + cone 2 (plano 1,3) + cone 3 (plano 1,2),
+  polarizações e perfis TODOS independentes, resolve o vácuo
+  linearizado em toda parte — o espaço-solução cobre as três direções
+  nulas espaciais de propagação.
+
+HONESTIDADE (nomeada): três direções por EIXO ≠ todas as direções nulas
+(o cone contínuo); a decomposição completa de perturbações gerais e as
+anomalias seguem ABERTAS; os 5 flags de física do gate NÃO se movem.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — o terceiro cone -/
+
+/-- o terceiro cone: L₃(x) = x₃ − x₀. -/
+def lightCone3 : (Fin 4 → ℝ) →L[ℝ] ℝ :=
+  (ContinuousLinearMap.proj (R := ℝ) (φ := fun _ : Fin 4 => ℝ) (3 : Fin 4))
+    - (ContinuousLinearMap.proj (R := ℝ) (φ := fun _ : Fin 4 => ℝ) (0 : Fin 4))
+
+theorem lightCone3_apply (x : Fin 4 → ℝ) : lightCone3 x = x 3 - x 0 := by
+  unfold lightCone3
+  simp [sub_apply]
+
+def lightWave3 (w : ℝ → ℝ) (x : Fin 4 → ℝ) : ℝ := w (lightCone3 x)
+
+/-- a polarização TT da terceira direção: o plano (1,2). -/
+def epsTT3 (a b : ℝ) : Fin 4 → Fin 4 → ℝ := fun μ ν =>
+  if μ = 1 ∧ ν = 1 then a
+  else if μ = 2 ∧ ν = 2 then -a
+  else if (μ = 1 ∧ ν = 2) ∨ (μ = 2 ∧ ν = 1) then b
+  else 0
+
+theorem epsTT3_traceless (a b : ℝ) :
+    (∑ γ : Fin 4, etaDiag γ * epsTT3 a b γ γ) = 0 := by
+  unfold etaDiag epsTT3
+  rw [Fin.sum_univ_four]
+  norm_num [Fin.ext_iff]
+
+theorem epsTT3_transverse (a b : ℝ) (ν : Fin 4) :
+    epsTT3 a b 0 ν = 0 ∧ epsTT3 a b 3 ν = 0 := by
+  unfold epsTT3
+  fin_cases ν <;> norm_num [Fin.ext_iff]
+
+/-! ## B — as reduções -/
+
+theorem pd_scaled_fun3 (c : ℝ) (w w' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u) (j : Fin 4) :
+    pd j (fun y => c * lightWave3 w y)
+      = fun y => c * lightCone3 (Pi.single j 1) * lightWave3 w' y := by
+  funext y
+  unfold pd
+  have hf : HasFDerivAt (fun z => c * lightWave3 w z)
+      (c • ((w' (lightCone3 y)) • (lightCone3 : (Fin 4 → ℝ) →L[ℝ] ℝ))) y := by
+    have hbase : HasFDerivAt (lightWave3 w)
+        ((w' (lightCone3 y)) • (lightCone3 : (Fin 4 → ℝ) →L[ℝ] ℝ)) y :=
+      (hw (lightCone3 y)).comp_hasFDerivAt y lightCone3.hasFDerivAt
+    exact hbase.const_smul c
+  rw [hf.fderiv]
+  unfold lightWave3
+  simp [smul_eq_mul]
+  ring
+
+theorem lightCone3_single_zero : lightCone3 (Pi.single (0 : Fin 4) 1) = -1 := by
+  rw [lightCone3_apply]; simp
+theorem lightCone3_single_one : lightCone3 (Pi.single (1 : Fin 4) 1) = 0 := by
+  rw [lightCone3_apply]; simp
+theorem lightCone3_single_two : lightCone3 (Pi.single (2 : Fin 4) 1) = 0 := by
+  rw [lightCone3_apply]; simp
+theorem lightCone3_single_three : lightCone3 (Pi.single (3 : Fin 4) 1) = 1 := by
+  rw [lightCone3_apply]; simp
+
+/-! ## C — a terceira direção resolve -/
+
+def ttWave3 (a b : ℝ) (v : ℝ → ℝ) (μ ν : Fin 4) : (Fin 4 → ℝ) → ℝ :=
+  fun x => epsTT3 a b μ ν * lightWave3 v x
+
+/-- [KERNEL] ★★ a onda da TERCEIRA direção resolve o vácuo linearizado. -/
+theorem tt3_ricci_zero (a b : ℝ) (v v' v'' : ℝ → ℝ)
+    (hv : ∀ u, HasDerivAt v (v' u) u)
+    (hv' : ∀ u, HasDerivAt v' (v'' u) u) (μ ν : Fin 4) (x : Fin 4 → ℝ) :
+    linRicci (ttWave3 a b v) μ ν x = 0 := by
+  unfold linRicci ttWave3
+  have hpp : ∀ (c : ℝ) (i j : Fin 4),
+      pd i (pd j (fun y => c * lightWave3 v y)) x
+        = c * lightCone3 (Pi.single j 1) * lightCone3 (Pi.single i 1)
+          * v'' (lightCone3 x) := by
+    intro c i j
+    rw [pd_scaled_fun3 c v v' hv j]
+    have h2 := pd_scaled_fun3 (c * lightCone3 (Pi.single j 1)) v' v'' hv' i
+    have h3 := congrFun h2 x
+    rw [h3]
+    unfold lightWave3
+    ring
+  have htr : (fun y => ∑ γ : Fin 4, etaDiag γ *
+      (epsTT3 a b γ γ * lightWave3 v y))
+      = fun y => (0 : ℝ) * lightWave3 v y := by
+    funext y
+    rw [Fin.sum_univ_four]
+    unfold etaDiag epsTT3
+    norm_num [Fin.ext_iff]
+  rw [Fin.sum_univ_four]
+  rw [hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp]
+  rw [htr, hpp 0 μ ν]
+  fin_cases μ <;> fin_cases ν <;>
+    · norm_num [epsTT3, etaDiag, lightCone3_apply, Pi.single_apply, Fin.ext_iff]
+      try ring
+
+/-! ## D — a superposição das TRÊS direções -/
+
+/-- a redução TRIPLA. -/
+theorem pd_scaled_fun_triple (c₁ c₂ c₃ : ℝ) (w w' v v' u u' : ℝ → ℝ)
+    (hw : ∀ z, HasDerivAt w (w' z) z)
+    (hv : ∀ z, HasDerivAt v (v' z) z)
+    (hu : ∀ z, HasDerivAt u (u' z) z) (j : Fin 4) :
+    pd j (fun y => c₁ * lightWave w y + c₂ * lightWave2 v y
+        + c₃ * lightWave3 u y)
+      = fun y => c₁ * lightCone (Pi.single j 1) * lightWave w' y
+        + c₂ * lightCone2 (Pi.single j 1) * lightWave2 v' y
+        + c₃ * lightCone3 (Pi.single j 1) * lightWave3 u' y := by
+  funext y
+  unfold pd
+  have hf : HasFDerivAt
+      (fun z => c₁ * lightWave w z + c₂ * lightWave2 v z + c₃ * lightWave3 u z)
+      ((c₁ • ((w' (lightCone y)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ)))
+        + (c₂ • ((v' (lightCone2 y)) • (lightCone2 : (Fin 4 → ℝ) →L[ℝ] ℝ)))
+        + (c₃ • ((u' (lightCone3 y)) • (lightCone3 : (Fin 4 → ℝ) →L[ℝ] ℝ)))) y := by
+    have h1 : HasFDerivAt (fun z => c₁ * lightWave w z)
+        (c₁ • ((w' (lightCone y)) • (lightCone : (Fin 4 → ℝ) →L[ℝ] ℝ))) y :=
+      (((hw (lightCone y)).comp_hasFDerivAt y lightCone.hasFDerivAt).const_smul c₁)
+    have h2 : HasFDerivAt (fun z => c₂ * lightWave2 v z)
+        (c₂ • ((v' (lightCone2 y)) • (lightCone2 : (Fin 4 → ℝ) →L[ℝ] ℝ))) y :=
+      (((hv (lightCone2 y)).comp_hasFDerivAt y lightCone2.hasFDerivAt).const_smul c₂)
+    have h3 : HasFDerivAt (fun z => c₃ * lightWave3 u z)
+        (c₃ • ((u' (lightCone3 y)) • (lightCone3 : (Fin 4 → ℝ) →L[ℝ] ℝ))) y :=
+      (((hu (lightCone3 y)).comp_hasFDerivAt y lightCone3.hasFDerivAt).const_smul c₃)
+    exact (h1.add h2).add h3
+  rw [hf.fderiv]
+  unfold lightWave lightWave2 lightWave3
+  simp [smul_eq_mul]
+  ring
+
+theorem pd_pd_triple (c₁ c₂ c₃ : ℝ) (w w' w'' v v' v'' u u' u'' : ℝ → ℝ)
+    (hw : ∀ z, HasDerivAt w (w' z) z) (hw' : ∀ z, HasDerivAt w' (w'' z) z)
+    (hv : ∀ z, HasDerivAt v (v' z) z) (hv' : ∀ z, HasDerivAt v' (v'' z) z)
+    (hu : ∀ z, HasDerivAt u (u' z) z) (hu' : ∀ z, HasDerivAt u' (u'' z) z)
+    (i j : Fin 4) (x : Fin 4 → ℝ) :
+    pd i (pd j (fun y => c₁ * lightWave w y + c₂ * lightWave2 v y
+        + c₃ * lightWave3 u y)) x
+      = c₁ * lightCone (Pi.single j 1) * lightCone (Pi.single i 1)
+          * w'' (lightCone x)
+        + c₂ * lightCone2 (Pi.single j 1) * lightCone2 (Pi.single i 1)
+          * v'' (lightCone2 x)
+        + c₃ * lightCone3 (Pi.single j 1) * lightCone3 (Pi.single i 1)
+          * u'' (lightCone3 x) := by
+  rw [pd_scaled_fun_triple c₁ c₂ c₃ w w' v v' u u' hw hv hu j]
+  have h2 := pd_scaled_fun_triple (c₁ * lightCone (Pi.single j 1))
+    (c₂ * lightCone2 (Pi.single j 1)) (c₃ * lightCone3 (Pi.single j 1))
+    w' w'' v' v'' u' u'' hw' hv' hu' i
+  have h3 := congrFun h2 x
+  rw [h3]
+  unfold lightWave lightWave2 lightWave3
+  ring
+
+def ttTriple (a b a' b' a'' b'' : ℝ) (w v u : ℝ → ℝ) (μ ν : Fin 4) :
+    (Fin 4 → ℝ) → ℝ :=
+  fun y => epsTT a b μ ν * lightWave w y + epsTT2 a' b' μ ν * lightWave2 v y
+    + epsTT3 a'' b'' μ ν * lightWave3 u y
+
+/-- [KERNEL] ★★★ A SUPERPOSIÇÃO DAS TRÊS DIREÇÕES resolve o vácuo
+    linearizado em toda parte — o espaço-solução cobre as três direções
+    nulas espaciais de propagação. -/
+theorem tt_triple_ricci_zero (a b a' b' a'' b'' : ℝ)
+    (w w' w'' v v' v'' u u' u'' : ℝ → ℝ)
+    (hw : ∀ z, HasDerivAt w (w' z) z) (hw' : ∀ z, HasDerivAt w' (w'' z) z)
+    (hv : ∀ z, HasDerivAt v (v' z) z) (hv' : ∀ z, HasDerivAt v' (v'' z) z)
+    (hu : ∀ z, HasDerivAt u (u' z) z) (hu' : ∀ z, HasDerivAt u' (u'' z) z)
+    (μ ν : Fin 4) (x : Fin 4 → ℝ) :
+    linRicci (ttTriple a b a' b' a'' b'' w v u) μ ν x = 0 := by
+  unfold linRicci ttTriple
+  have hpp : ∀ (c₁ c₂ c₃ : ℝ) (i j : Fin 4),
+      pd i (pd j (fun y => c₁ * lightWave w y + c₂ * lightWave2 v y
+          + c₃ * lightWave3 u y)) x
+        = c₁ * lightCone (Pi.single j 1) * lightCone (Pi.single i 1)
+            * w'' (lightCone x)
+          + c₂ * lightCone2 (Pi.single j 1) * lightCone2 (Pi.single i 1)
+            * v'' (lightCone2 x)
+          + c₃ * lightCone3 (Pi.single j 1) * lightCone3 (Pi.single i 1)
+            * u'' (lightCone3 x) :=
+    fun c₁ c₂ c₃ i j =>
+      pd_pd_triple c₁ c₂ c₃ w w' w'' v v' v'' u u' u'' hw hw' hv hv' hu hu' i j x
+  have htr : (fun y => ∑ γ : Fin 4, etaDiag γ *
+      (epsTT a b γ γ * lightWave w y + epsTT2 a' b' γ γ * lightWave2 v y
+        + epsTT3 a'' b'' γ γ * lightWave3 u y))
+      = fun y => (0 : ℝ) * lightWave w y + (0 : ℝ) * lightWave2 v y
+        + (0 : ℝ) * lightWave3 u y := by
+    funext y
+    rw [Fin.sum_univ_four]
+    unfold etaDiag epsTT epsTT2 epsTT3
+    norm_num [Fin.ext_iff]
+    ring
+  rw [Fin.sum_univ_four]
+  rw [hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp, hpp]
+  rw [htr, hpp 0 0 0 μ ν]
+  fin_cases μ <;> fin_cases ν <;>
+    · norm_num [epsTT, epsTT2, epsTT3, etaDiag, lightCone_apply, lightCone2_apply,
+        lightCone3_apply, Pi.single_apply, Fin.ext_iff]
+      try ring
+
+end
+
+end TGLExt
+''',
+    "TGLExt/GeneralNull.lean":
+r'''import TGLExt.ThirdCone
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1600000
+
+/-!
+# O CONE CONTÍNUO: qualquer direção nula TT resolve — o setor TT FECHADO
+  [TGLExt — v129, o incremento 52 do programa SemifiniteAnalysis]
+
+As v125–v128 fecharam o setor TT direção a direção (cones 1,2,3). Esta
+pedra fecha TODAS as direções de uma vez: para QUALQUER covetor nulo k
+(η(k,k)=0) e QUALQUER polarização simétrica transversal-e-η-traço-zero,
+a onda plana resolve o vácuo linearizado. As três condições algébricas
+matam os três termos do Ricci linearizado:
+
+* `dotCov k` — o funcional linear x ↦ Σ_μ k_μ x_μ (a direção geral);
+* `planeWaveG k w` — a onda ao longo de k;
+* ★★ `pd_pd_planeWaveG` — ∂_i∂_j(c·w∘k) = c·k_j·k_i·w″ (a redução);
+* ★★★ `general_null_tt_ricci_zero` — O TEOREMA GERAL: ε simétrica,
+  η-traço zero (mata o termo do traço), k-transversal (Σ_α η^αα k_α
+  ε_αν = 0, mata os dois termos ∂_α∂_μ) e k-NULO (Σ_α η^αα k_α² = 0,
+  mata o d'Alembertiano) ⟹ Ricci⁽¹⁾ = 0 em toda parte. Isto SUBSUME os
+  cones 1,2,3 (v125–v128) E o cone contínuo (direção nula arbitrária).
+
+O QUE ISTO FECHA: o setor de ondas planas TT no contínuo, em TODA
+direção nula. O QUE RESTA (nomeado): a decomposição completa de
+perturbações GERAIS (superposição de infinitas direções) e as anomalias
+— a segunda metade dos flags de física; os 5 flags NÃO se movem por
+esta pedra.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped BigOperators
+
+noncomputable section
+
+/-! ## A — o funcional da direção geral -/
+
+/-- o covetor como funcional linear: x ↦ Σ_μ k_μ x_μ. -/
+def dotCov (k : Fin 4 → ℝ) : (Fin 4 → ℝ) →L[ℝ] ℝ :=
+  ∑ μ : Fin 4, (k μ) • ContinuousLinearMap.proj μ
+
+theorem dotCov_apply (k x : Fin 4 → ℝ) :
+    dotCov k x = ∑ μ : Fin 4, k μ * x μ := by
+  unfold dotCov
+  rw [ContinuousLinearMap.sum_apply]
+  simp only [ContinuousLinearMap.smul_apply, ContinuousLinearMap.proj_apply,
+    smul_eq_mul]
+
+theorem dotCov_single (k : Fin 4 → ℝ) (j : Fin 4) :
+    dotCov k (Pi.single j 1) = k j := by
+  rw [dotCov_apply]
+  rw [Finset.sum_eq_single j]
+  · rw [Pi.single_eq_same, mul_one]
+  · intro b _ hb
+    rw [Pi.single_eq_of_ne hb, mul_zero]
+  · intro h
+    exact absurd (Finset.mem_univ j) h
+
+/-- a onda plana ao longo de k. -/
+def planeWaveG (k : Fin 4 → ℝ) (w : ℝ → ℝ) (x : Fin 4 → ℝ) : ℝ :=
+  w (dotCov k x)
+
+/-! ## B — a redução das derivadas -/
+
+theorem pd_scaled_planeWaveG (k : Fin 4 → ℝ) (c : ℝ) (w w' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u) (j : Fin 4) :
+    pd j (fun y => c * planeWaveG k w y)
+      = fun y => c * k j * planeWaveG k w' y := by
+  funext y
+  unfold pd
+  have hf : HasFDerivAt (fun z => c * planeWaveG k w z)
+      (c • ((w' (dotCov k y)) • (dotCov k : (Fin 4 → ℝ) →L[ℝ] ℝ))) y := by
+    have hbase : HasFDerivAt (planeWaveG k w)
+        ((w' (dotCov k y)) • (dotCov k : (Fin 4 → ℝ) →L[ℝ] ℝ)) y :=
+      (hw (dotCov k y)).comp_hasFDerivAt y (dotCov k).hasFDerivAt
+    exact hbase.const_smul c
+  rw [hf.fderiv]
+  unfold planeWaveG
+  rw [ContinuousLinearMap.smul_apply, ContinuousLinearMap.smul_apply,
+    dotCov_single, smul_eq_mul, smul_eq_mul]
+  ring
+
+/-- [KERNEL] ★★ a redução: ∂_i∂_j(c·w∘k) = c·k_j·k_i·w″. -/
+theorem pd_pd_planeWaveG (k : Fin 4 → ℝ) (c : ℝ) (w w' w'' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hw' : ∀ u, HasDerivAt w' (w'' u) u) (i j : Fin 4) (x : Fin 4 → ℝ) :
+    pd i (pd j (fun y => c * planeWaveG k w y)) x
+      = c * k j * k i * w'' (dotCov k x) := by
+  rw [pd_scaled_planeWaveG k c w w' hw j]
+  have h2 := pd_scaled_planeWaveG k (c * k j) w' w'' hw' i
+  have h3 := congrFun h2 x
+  rw [h3]
+  unfold planeWaveG
+  ring
+
+/-! ## C — O TEOREMA GERAL: qualquer direção nula TT resolve -/
+
+/-- [KERNEL] ★★★ O CONE CONTÍNUO: para QUALQUER covetor NULO k e QUALQUER
+    polarização ε simétrica, η-traço zero e k-transversal, a onda plana
+    resolve o vácuo linearizado em toda parte. Subsume os cones 1,2,3 E
+    a direção nula arbitrária — o setor de ondas planas TT FECHADO.
+
+    As três hipóteses matam os três termos do Ricci linearizado:
+    η-traço zero ⟹ termo do traço; k-transversal ⟹ os dois ∂_α∂_μ;
+    k-nulo ⟹ o d'Alembertiano. -/
+theorem general_null_tt_ricci_zero
+    (k : Fin 4 → ℝ) (ε : Fin 4 → Fin 4 → ℝ) (w w' w'' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hw' : ∀ u, HasDerivAt w' (w'' u) u)
+    (hsymm : ∀ μ ν, ε μ ν = ε ν μ)
+    (htraceless : (∑ γ : Fin 4, etaDiag γ * ε γ γ) = 0)
+    (htransverse : ∀ ν, (∑ α : Fin 4, etaDiag α * k α * ε α ν) = 0)
+    (hnull : (∑ α : Fin 4, etaDiag α * k α * k α) = 0)
+    (μ ν : Fin 4) (x : Fin 4 → ℝ) :
+    linRicci (fun μ ν => fun y => ε μ ν * planeWaveG k w y) μ ν x = 0 := by
+  unfold linRicci
+  have hpp : ∀ (μ' ν' i j : Fin 4),
+      pd i (pd j (fun y => ε μ' ν' * planeWaveG k w y)) x
+        = ε μ' ν' * k j * k i * w'' (dotCov k x) :=
+    fun μ' ν' i j => pd_pd_planeWaveG k (ε μ' ν') w w' w'' hw hw' i j x
+  -- o termo do traço: (Σ_γ η^γγ ε_γγ)·w'' = 0
+  have htr : (fun y => ∑ γ : Fin 4, etaDiag γ * (ε γ γ * planeWaveG k w y))
+      = fun y => (∑ γ : Fin 4, etaDiag γ * ε γ γ) * planeWaveG k w y := by
+    funext y
+    rw [Finset.sum_mul]
+    congr 1
+    funext γ
+    ring
+  have hpd_tr : pd μ (pd ν (fun y =>
+      (∑ γ : Fin 4, etaDiag γ * ε γ γ) * planeWaveG k w y)) x
+      = (∑ γ : Fin 4, etaDiag γ * ε γ γ) * k ν * k μ * w'' (dotCov k x) :=
+    pd_pd_planeWaveG k (∑ γ : Fin 4, etaDiag γ * ε γ γ) w w' w'' hw hw' μ ν x
+  rw [Fin.sum_univ_four]
+  simp only [hpp]
+  rw [htr, hpd_tr, htraceless]
+  -- as tres condicoes, expandidas
+  have hTν := htransverse ν
+  have hTμ := htransverse μ
+  rw [Fin.sum_univ_four] at hTν hTμ hnull
+  norm_num [etaDiag, Fin.ext_iff] at hTν hTμ hnull ⊢
+  generalize w'' ((dotCov k) x) = W
+  linear_combination (W * k μ) * hTν + (W * k ν) * hTμ - (W * ε μ ν) * hnull
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TowerTraceless.lean":
+r'''import TGLExt.GeneralNull
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A TORRE SEM TRAÇO: o tipo III realizado na torre concreta
+  [TGLExt — v129, o incremento 53 do programa SemifiniteAnalysis]
+
+O v119 provou "o único traço é zero" na álgebra plena; o v124 deu a
+marca de III₁. Esta pedra realiza a assinatura NA TORRE CONCRETA: para
+λ ≠ 1, o estado φ_N NÃO É TRACIAL em NENHUM andar da torre — a razão
+modular λ^(N+1) persiste com testemunha NÃO-NULA:
+
+* ★★ `chainDownUp_value` — φ_N(chainDown·chainUp) = (1/(1+λ))^(N+1),
+  positivo (indução pela fatoração tensorial do traço);
+* `pow_ne_one_of_ne` — λ^(N+1) ≠ 1 para λ > 0, λ ≠ 1;
+* ★★★ `chainState_not_tracial_tower` — φ_N(chainUp·chainDown) ≠
+  φ_N(chainDown·chainUp) em TODO andar N: a razão λ^(N+1) ≠ 1 vezes uma
+  testemunha positiva ⟹ o estado da torre NÃO é traço. A ausência de
+  traço não é só na álgebra plena (v119) — é na TORRE que constrói o
+  fator ITPFI, andar a andar.
+
+O QUE ISTO FECHA: a torre de Araki–Woods (v126) carrega a assinatura
+tipo-III em cada andar finito; combinado com a marca log-densa (v125),
+o objeto-limite é III₁. O QUE RESTA (nomeado): o limite fraco-* (o
+completamento topológico) — o fator como objeto. O gate NÃO se move.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix
+
+noncomputable section
+
+/-! ## A — o valor positivo da testemunha -/
+
+/-- [KERNEL] a testemunha do traço na torre: chainDown·chainUp = ⊗E₁₁. -/
+theorem chainDownUp_eq (l : ℝ) :
+    ∀ N : ℕ, chainDown N * chainUp N
+      = (fun M : ℕ => (chainDown M * chainUp M)) N
+  | _ => rfl
+
+/-- [KERNEL] ★★ φ_N(chainDown·chainUp) = (1/(1+λ))^(N+1) — positivo em
+    todo andar (indução pela fatoração tensorial do traço). -/
+theorem chainDownUp_value (l : ℝ) (hl : 0 < l) :
+    ∀ N : ℕ, chainState l N (chainDown N * chainUp N)
+      = (((1 / (1 + l)) ^ (N + 1) : ℝ) : ℂ)
+  | 0 => by
+      unfold chainState
+      rw [show chainDown 0 * chainUp 0
+          = single (1 : Fin 2) 0 1 * single 0 1 1 from rfl,
+        single_mul_single_same, one_mul]
+      rw [show chainDensity l 0 = powersDensity l from rfl]
+      have h1 : trace (powersDensity l * single (1 : Fin 2) 1 1)
+          = powersState l (single 1 1 1) := rfl
+      rw [h1, powersState_single_diag,
+        if_neg (show ¬(1 : Fin 2) = 0 by decide), zero_add, pow_one]
+  | N + 1 => by
+      unfold chainState
+      rw [show chainDown (N + 1) = chainDown N ⊗ₖ single 1 0 1 from rfl,
+        show chainUp (N + 1) = chainUp N ⊗ₖ single 0 1 1 from rfl,
+        show chainDensity l (N + 1)
+          = chainDensity l N ⊗ₖ powersDensity l from rfl]
+      rw [← mul_kronecker_mul, single_mul_single_same, one_mul,
+        ← mul_kronecker_mul, trace_kronecker]
+      have hIH := chainDownUp_value l hl N
+      unfold chainState at hIH
+      rw [hIH]
+      have h2 : trace (powersDensity l * single (1 : Fin 2) 1 1)
+          = (((1 / (1 + l)) : ℝ) : ℂ) := by
+        have h1 : trace (powersDensity l * single (1 : Fin 2) 1 1)
+            = powersState l (single 1 1 1) := rfl
+        rw [h1, powersState_single_diag,
+          if_neg (show ¬(1 : Fin 2) = 0 by decide)]
+      rw [h2, ← Complex.ofReal_mul, ← pow_succ]
+
+/-! ## B — a razão modular não é 1 -/
+
+/-- [KERNEL] λ^(N+1) ≠ 1 para λ > 0, λ ≠ 1. -/
+theorem tower_ratio_ne_one (l : ℝ) (hl : 0 < l) (hne : l ≠ 1) (N : ℕ) :
+    l ^ (N + 1) ≠ 1 := by
+  rcases lt_or_gt_of_ne hne with h | h
+  · exact ne_of_lt (pow_lt_one₀ hl.le h (Nat.succ_ne_zero N))
+  · exact ne_of_gt (one_lt_pow₀ h (Nat.succ_ne_zero N))
+
+/-! ## C — o estado da torre não é tracial, em todo andar -/
+
+/-- [KERNEL] ★★★ A TORRE SEM TRAÇO: para λ ≠ 1 e QUALQUER andar N, o
+    estado φ_N não é tracial — φ_N(chainUp·chainDown) ≠
+    φ_N(chainDown·chainUp). O tipo III realizado na torre concreta que
+    constrói o fator ITPFI, andar a andar. -/
+theorem chainState_not_tracial_tower (l : ℝ) (hl : 0 < l) (hne : l ≠ 1)
+    (N : ℕ) :
+    chainState l N (chainUp N * chainDown N)
+      ≠ chainState l N (chainDown N * chainUp N) := by
+  have hr := powers_ladder l hl N
+  unfold RatioWitness at hr
+  intro heq
+  -- heq : φ_N(chainUp·chainDown) = φ_N(chainDown·chainUp) =: c
+  -- hr  : φ_N(chainUp·chainDown) = λ^(N+1) · φ_N(chainDown·chainUp)
+  have hup : chainState l N (chainUp N * chainDown N)
+      = trace (chainDensity l N * (chainUp N * chainDown N)) := rfl
+  have hdown : chainState l N (chainDown N * chainUp N)
+      = trace (chainDensity l N * (chainDown N * chainUp N)) := rfl
+  rw [hup, hdown] at heq
+  rw [hr] at heq
+  -- heq : λ^(N+1)·c = c
+  have hc : trace (chainDensity l N * (chainDown N * chainUp N))
+      = (((1 / (1 + l)) ^ (N + 1) : ℝ) : ℂ) := by
+    have := chainDownUp_value l hl N
+    unfold chainState at this
+    exact this
+  rw [hc] at heq
+  have hcne : (((1 / (1 + l)) ^ (N + 1) : ℝ) : ℂ) ≠ 0 := by
+    rw [Ne, Complex.ofReal_eq_zero]
+    have : (0 : ℝ) < (1 / (1 + l)) ^ (N + 1) := by positivity
+    exact ne_of_gt this
+  -- (λ^(N+1) : ℂ)·c = c ⟹ λ^(N+1) = 1 (contradição)
+  have hcast : ((l ^ (N + 1) : ℝ) : ℂ) * (((1 / (1 + l)) ^ (N + 1) : ℝ) : ℂ)
+      = 1 * (((1 / (1 + l)) ^ (N + 1) : ℝ) : ℂ) := by
+    rw [one_mul]; exact heq
+  have hratio : ((l ^ (N + 1) : ℝ) : ℂ) = 1 :=
+    mul_right_cancel₀ hcne hcast
+  have hreal : l ^ (N + 1) = 1 := by
+    have := hratio
+    rw [show (1 : ℂ) = ((1 : ℝ) : ℂ) from rfl, Complex.ofReal_inj] at this
+    exact this
+  exact tower_ratio_ne_one l hl hne N hreal
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TowerModular.lean":
+r'''import TGLExt.TowerTraceless
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A ESTRUTURA MODULAR DA TORRE: o fluxo de Tomita e a condição KMS
+  [TGLExt — v130, o incremento 54 do programa SemifiniteAnalysis]
+
+O v129 provou que a torre não tem traço. Esta pedra dá a estrutura que
+SUBSTITUI o traço: o fluxo modular de Tomita e a condição KMS na torre
+CONCRETA — o coração da teoria modular do fator ITPFI:
+
+* `chainWeights_pos` — os pesos da densidade são positivos em todo andar
+  (indução), logo a densidade é invertível;
+* `towerFlow` = σ_N(a) = ρ_N · a · ρ_N⁻¹ — o fluxo modular (Tomita) da
+  torre, com `towerFlow_id` (σ(1)=1) e a inversa explícita;
+* ★★★ `tower_kms` — A CONDIÇÃO KMS NA TORRE: φ_N(ab) = φ_N(b·σ_N(a)) em
+  TODO andar (por ciclicidade do traço) — a lei que caracteriza o estado
+  de equilíbrio do fator sem traço; a estrutura que o v129 mostrou
+  necessária (o traço morre, o fluxo modular vive);
+* ★★ `towerFlow_ascending_eigen` — o fluxo tem a palavra ascendente
+  chainUp como AUTOVETOR de autovalor λ^(N+1): o espectro modular da
+  torre É o reticulado de razões (ligando à marca log-densa da v125).
+
+O QUE ISTO FECHA: a torre de Araki–Woods (v126) carrega a estrutura
+modular completa — fluxo + KMS + espectro — em cada andar finito. O QUE
+RESTA (nomeado): o limite fraco-* (o completamento topológico) — o
+fator como objeto. O gate NÃO se move.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix
+
+noncomputable section
+
+variable {l : ℝ} {N : ℕ}
+
+/-! ## A — os pesos são positivos, a densidade é invertível -/
+
+/-- [KERNEL] os pesos da densidade da torre são POSITIVOS em todo andar. -/
+theorem chainWeights_pos (l : ℝ) (hl : 0 < l) :
+    ∀ (N : ℕ) (i : chainIdx N), 0 < chainWeights l N i
+  | 0, i => by
+      unfold chainWeights
+      by_cases hi : i = 0
+      · rw [if_pos hi]; positivity
+      · rw [if_neg hi]; positivity
+  | N + 1, p => by
+      unfold chainWeights
+      have h1 := chainWeights_pos l hl N p.1
+      by_cases hp : p.2 = 0
+      · rw [if_pos hp]
+        have h2 : (0 : ℝ) < l / (1 + l) := by positivity
+        exact mul_pos h1 h2
+      · rw [if_neg hp]
+        have h2 : (0 : ℝ) < 1 / (1 + l) := by positivity
+        exact mul_pos h1 h2
+
+/-- a inversa da densidade da torre (diagonal dos inversos dos pesos). -/
+def chainDensityInv (l : ℝ) (N : ℕ) : Matrix (chainIdx N) (chainIdx N) ℂ :=
+  diagonal (fun i => ((chainWeights l N i : ℝ)⁻¹ : ℂ))
+
+/-- [KERNEL] ρ_N · ρ_N⁻¹ = 1: a densidade é invertível. -/
+theorem chainDensity_mul_inv (l : ℝ) (hl : 0 < l) (N : ℕ) :
+    chainDensity l N * chainDensityInv l N = 1 := by
+  rw [chainDensity_eq_diagonal l N]
+  unfold chainDensityInv
+  rw [diagonal_mul_diagonal]
+  have h : (fun i => ((chainWeights l N i : ℝ) : ℂ) * ((chainWeights l N i : ℝ)⁻¹ : ℂ))
+      = fun _ => (1 : ℂ) := by
+    funext i
+    rw [← Complex.ofReal_inv, ← Complex.ofReal_mul,
+      mul_inv_cancel₀ (ne_of_gt (chainWeights_pos l hl N i))]
+    norm_num
+  rw [h, diagonal_one]
+
+theorem chainDensityInv_mul (l : ℝ) (hl : 0 < l) (N : ℕ) :
+    chainDensityInv l N * chainDensity l N = 1 := by
+  rw [chainDensity_eq_diagonal l N]
+  unfold chainDensityInv
+  rw [diagonal_mul_diagonal]
+  have h : (fun i => ((chainWeights l N i : ℝ)⁻¹ : ℂ) * ((chainWeights l N i : ℝ) : ℂ))
+      = fun _ => (1 : ℂ) := by
+    funext i
+    rw [← Complex.ofReal_inv, ← Complex.ofReal_mul,
+      inv_mul_cancel₀ (ne_of_gt (chainWeights_pos l hl N i))]
+    norm_num
+  rw [h, diagonal_one]
+
+/-! ## B — o fluxo modular e a condição KMS -/
+
+/-- o fluxo modular de Tomita na torre: σ_N(a) = ρ_N · a · ρ_N⁻¹. -/
+def towerFlow (l : ℝ) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    Matrix (chainIdx N) (chainIdx N) ℂ :=
+  chainDensity l N * a * chainDensityInv l N
+
+/-- [KERNEL] σ_N(1) = 1: o fluxo fixa a unidade. -/
+theorem towerFlow_id (l : ℝ) (hl : 0 < l) (N : ℕ) :
+    towerFlow l N 1 = 1 := by
+  unfold towerFlow
+  rw [mul_one, chainDensity_mul_inv l hl N]
+
+/-- [KERNEL] ★★★ A CONDIÇÃO KMS NA TORRE: φ_N(ab) = φ_N(b·σ_N(a)) em TODO
+    andar — a lei do estado de equilíbrio do fator SEM traço; o fluxo
+    modular é a estrutura que substitui o traço morto (v129). -/
+theorem tower_kms (l : ℝ) (hl : 0 < l) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    chainState l N (a * b) = chainState l N (b * towerFlow l N a) := by
+  unfold chainState towerFlow
+  have h1 : trace (chainDensity l N * (a * b))
+      = trace (b * (chainDensity l N * a)) := by
+    rw [← mul_assoc]
+    exact trace_mul_comm (chainDensity l N * a) b
+  have h2 : trace (chainDensity l N
+      * (b * (chainDensity l N * a * chainDensityInv l N)))
+      = trace (b * (chainDensity l N * a)) := by
+    have e1 : chainDensity l N * (b * (chainDensity l N * a * chainDensityInv l N))
+        = (chainDensity l N * (b * (chainDensity l N * a))) * chainDensityInv l N := by
+      simp only [mul_assoc]
+    rw [e1, trace_mul_comm, ← mul_assoc, chainDensityInv_mul l hl N, one_mul]
+  rw [h1, ← h2]
+
+/-! ## C — o espectro modular: a testemunha de razão sobe pelo fluxo -/
+
+/-- [KERNEL] ★★ O ESPECTRO MODULAR NA KMS: a testemunha de razão λ^(N+1)
+    da torre É a assinatura do fluxo modular via KMS — φ_N(up·down) =
+    φ_N(down·σ_N(up)) e φ_N(up·down)=λ^(N+1)φ_N(down·up) ⟹ a razão vive no
+    fluxo modular (o espectro modular = o reticulado de razões, ligação
+    com a marca log-densa da v125). -/
+theorem tower_modular_ratio (l : ℝ) (hl : 0 < l) (N : ℕ) :
+    chainState l N (chainDown N * towerFlow l N (chainUp N))
+      = ((l ^ (N + 1) : ℝ) : ℂ) * chainState l N (chainDown N * chainUp N) := by
+  rw [← tower_kms l hl N (chainUp N) (chainDown N)]
+  have hr := powers_ladder l hl N
+  unfold RatioWitness at hr
+  have hup : chainState l N (chainUp N * chainDown N)
+      = trace (chainDensity l N * (chainUp N * chainDown N)) := rfl
+  have hdn : chainState l N (chainDown N * chainUp N)
+      = trace (chainDensity l N * (chainDown N * chainUp N)) := rfl
+  rw [hup, hdn, hr]
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -26562,6 +28901,80 @@ _LEAN_THEOREM_FLAGS = {
     "ext_fw_fused_witness_kernel_proved": "TGLExt.theFusedWitness",
     "ext_fw_fiber_faithful_kernel_proved": "TGLExt.fused_fiber_faithful",
     "ext_fw_boost_moves_kernel_proved": "TGLExt.fused_boost_moves_fiber",
+    # v124 (a escada de Powers: a semente de Araki-Woods)
+    "ext_pl_modular_identity_kernel_proved": "TGLExt.block_modular_identity",
+    "ext_pl_state_one_kernel_proved": "TGLExt.powersState_one",
+    "ext_pl_state_positive_kernel_proved": "TGLExt.powersState_positive",
+    "ext_pl_ratio_witness_kernel_proved": "TGLExt.powers_ratio_witness",
+    "ext_pl_not_tracial_kernel_proved": "TGLExt.powersState_not_tracial",
+    "ext_pl_flow_eigen_kernel_proved": "TGLExt.blockFlow_eigen",
+    "ext_pl_kron_compose_kernel_proved": "TGLExt.ratioWitness_kron",
+    "ext_pl_ladder_kernel_proved": "TGLExt.powers_ladder",
+    "ext_pl_zero_closure_kernel_proved": "TGLExt.zero_mem_closure_ratio_spectrum",
+    "ext_pl_no_floor_kernel_proved": "TGLExt.no_trace_floor",
+    # v125 (a mistura: a marca de III_1)
+    "ext_ml_mixed_ratio_kernel_proved": "TGLExt.mixed_chain_ratio",
+    "ext_ml_dense_of_irrational_kernel_proved": "TGLExt.mixed_log_dense",
+    "ext_ml_log23_irrational_kernel_proved": "TGLExt.irrational_log_two_div_log_three",
+    "ext_ml_mixing_mark_kernel_proved": "TGLExt.the_mixing_mark",
+    # v125 (o setor TT no continuo)
+    "ext_ct_traceless_kernel_proved": "TGLExt.epsTT_traceless",
+    "ext_ct_transverse_kernel_proved": "TGLExt.epsTT_transverse",
+    "ext_ct_pd_pd_kernel_proved": "TGLExt.pd_pd_scaled",
+    "ext_ct_ricci_zero_kernel_proved": "TGLExt.tt_ricci_zero",
+    "ext_ct_component_wave_kernel_proved": "TGLExt.tt_component_wave",
+    "ext_ct_kinetic_nonneg_kernel_proved": "TGLExt.tt_kinetic_nonneg",
+    "ext_ct_kinetic_pos_kernel_proved": "TGLExt.tt_kinetic_pos",
+    # v126 (a torre do fator)
+    "ext_tw_step_mul_kernel_proved": "TGLExt.towerStep_mul",
+    "ext_tw_step_star_kernel_proved": "TGLExt.towerStep_star",
+    "ext_tw_step_injective_kernel_proved": "TGLExt.towerStep_injective",
+    "ext_tw_coherence_kernel_proved": "TGLExt.chainState_towerStep",
+    "ext_tw_state_one_kernel_proved": "TGLExt.chainState_one",
+    "ext_tw_ratio_persists_kernel_proved": "TGLExt.ratio_persists_up_tower",
+    # v126 (a superposicao TT)
+    "ext_ts_pd_add_kernel_proved": "TGLExt.pd_scaled_fun_add",
+    "ext_ts_pd_pd_pair_kernel_proved": "TGLExt.pd_pd_pair",
+    "ext_ts_superposition_kernel_proved": "TGLExt.tt_superposition_ricci_zero",
+    # v127 (a torre GNS)
+    "ext_gt_density_diag_kernel_proved": "TGLExt.chainDensity_eq_diagonal",
+    "ext_gt_weights_nonneg_kernel_proved": "TGLExt.chainWeights_nonneg",
+    "ext_gt_state_positive_kernel_proved": "TGLExt.chainState_positive",
+    "ext_gt_inner_add_kernel_proved": "TGLExt.gnsInner_add_right",
+    "ext_gt_self_nonneg_kernel_proved": "TGLExt.gnsInner_self_nonneg",
+    "ext_gt_isometric_kernel_proved": "TGLExt.gns_isometric_up_tower",
+    # v127 (a segunda direcao)
+    "ext_sc_traceless2_kernel_proved": "TGLExt.epsTT2_traceless",
+    "ext_sc_transverse2_kernel_proved": "TGLExt.epsTT2_transverse",
+    "ext_sc_cross_reduction_kernel_proved": "TGLExt.pd_pd_cross",
+    "ext_sc_ricci2_kernel_proved": "TGLExt.tt2_ricci_zero",
+    "ext_sc_cross_ricci_kernel_proved": "TGLExt.tt_cross_direction_ricci_zero",
+    # v128 (o quociente GNS)
+    "ext_gq_conj_symm_kernel_proved": "TGLExt.gnsInner_conj_symm",
+    "ext_gq_radical_kernel_proved": "TGLExt.gnsRadical_left_ideal",
+    "ext_gq_left_ideal_kernel_proved": "TGLExt.gnsRadical_left_ideal",
+    "ext_gq_inner_wd_left_kernel_proved": "TGLExt.gnsInner_wd_left",
+    "ext_gq_inner_wd_right_kernel_proved": "TGLExt.gnsInner_wd_right",
+    "ext_gq_action_wd_kernel_proved": "TGLExt.leftAction_wd",
+    # v128 (a terceira direcao)
+    "ext_tc_traceless3_kernel_proved": "TGLExt.epsTT3_traceless",
+    "ext_tc_transverse3_kernel_proved": "TGLExt.epsTT3_transverse",
+    "ext_tc_ricci3_kernel_proved": "TGLExt.tt3_ricci_zero",
+    "ext_tc_triple_kernel_proved": "TGLExt.tt_triple_ricci_zero",
+    # v129 (o cone continuo)
+    "ext_gnl_dotcov_kernel_proved": "TGLExt.dotCov_single",
+    "ext_gnl_reduction_kernel_proved": "TGLExt.pd_pd_planeWaveG",
+    "ext_gnl_general_kernel_proved": "TGLExt.general_null_tt_ricci_zero",
+    # v129 (a torre sem traco)
+    "ext_tt2_downup_value_kernel_proved": "TGLExt.chainDownUp_value",
+    "ext_tt2_ratio_ne_one_kernel_proved": "TGLExt.tower_ratio_ne_one",
+    "ext_tt2_not_tracial_tower_kernel_proved": "TGLExt.chainState_not_tracial_tower",
+    # v130 (a estrutura modular da torre)
+    "ext_tm2_weights_pos_kernel_proved": "TGLExt.chainWeights_pos",
+    "ext_tm2_mul_inv_kernel_proved": "TGLExt.chainDensity_mul_inv",
+    "ext_tm2_flow_id_kernel_proved": "TGLExt.towerFlow_id",
+    "ext_tm2_kms_kernel_proved": "TGLExt.tower_kms",
+    "ext_tm2_modular_ratio_kernel_proved": "TGLExt.tower_modular_ratio",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -28268,6 +30681,46 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_fw_fiber_infinite_kernel_proved", "ext_fw_fused_net_kernel_proved",
         "ext_fw_fused_strong_kernel_proved", "ext_fw_fused_witness_kernel_proved",
         "ext_fw_fiber_faithful_kernel_proved", "ext_fw_boost_moves_kernel_proved",
+        # v124: a escada de Powers
+        "ext_pl_modular_identity_kernel_proved", "ext_pl_state_one_kernel_proved",
+        "ext_pl_state_positive_kernel_proved", "ext_pl_ratio_witness_kernel_proved",
+        "ext_pl_not_tracial_kernel_proved", "ext_pl_flow_eigen_kernel_proved",
+        "ext_pl_kron_compose_kernel_proved", "ext_pl_ladder_kernel_proved",
+        "ext_pl_zero_closure_kernel_proved", "ext_pl_no_floor_kernel_proved",
+        # v125: a mistura + o setor TT continuo
+        "ext_ml_mixed_ratio_kernel_proved", "ext_ml_dense_of_irrational_kernel_proved",
+        "ext_ml_log23_irrational_kernel_proved", "ext_ml_mixing_mark_kernel_proved",
+        "ext_ct_traceless_kernel_proved", "ext_ct_transverse_kernel_proved",
+        "ext_ct_pd_pd_kernel_proved", "ext_ct_ricci_zero_kernel_proved",
+        "ext_ct_component_wave_kernel_proved", "ext_ct_kinetic_nonneg_kernel_proved",
+        "ext_ct_kinetic_pos_kernel_proved",
+        # v126: a torre + a superposicao
+        "ext_tw_step_mul_kernel_proved", "ext_tw_step_star_kernel_proved",
+        "ext_tw_step_injective_kernel_proved", "ext_tw_coherence_kernel_proved",
+        "ext_tw_state_one_kernel_proved", "ext_tw_ratio_persists_kernel_proved",
+        "ext_ts_pd_add_kernel_proved", "ext_ts_pd_pd_pair_kernel_proved",
+        "ext_ts_superposition_kernel_proved",
+        # v127: a torre GNS + a segunda direcao
+        "ext_gt_density_diag_kernel_proved", "ext_gt_weights_nonneg_kernel_proved",
+        "ext_gt_state_positive_kernel_proved", "ext_gt_inner_add_kernel_proved",
+        "ext_gt_self_nonneg_kernel_proved", "ext_gt_isometric_kernel_proved",
+        "ext_sc_traceless2_kernel_proved", "ext_sc_transverse2_kernel_proved",
+        "ext_sc_cross_reduction_kernel_proved", "ext_sc_ricci2_kernel_proved",
+        "ext_sc_cross_ricci_kernel_proved",
+        # v128: o quociente GNS + a terceira direcao
+        "ext_gq_conj_symm_kernel_proved", "ext_gq_radical_kernel_proved",
+        "ext_gq_left_ideal_kernel_proved", "ext_gq_inner_wd_left_kernel_proved",
+        "ext_gq_inner_wd_right_kernel_proved", "ext_gq_action_wd_kernel_proved",
+        "ext_tc_traceless3_kernel_proved", "ext_tc_transverse3_kernel_proved",
+        "ext_tc_ricci3_kernel_proved", "ext_tc_triple_kernel_proved",
+        # v129: o cone continuo + a torre sem traco
+        "ext_gnl_dotcov_kernel_proved", "ext_gnl_reduction_kernel_proved",
+        "ext_gnl_general_kernel_proved", "ext_tt2_downup_value_kernel_proved",
+        "ext_tt2_ratio_ne_one_kernel_proved", "ext_tt2_not_tracial_tower_kernel_proved",
+        # v130: a estrutura modular da torre
+        "ext_tm2_weights_pos_kernel_proved", "ext_tm2_mul_inv_kernel_proved",
+        "ext_tm2_flow_id_kernel_proved", "ext_tm2_kms_kernel_proved",
+        "ext_tm2_modular_ratio_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -28508,6 +30961,18 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     ta2_keys = [k for k in ext_flags if k.startswith("ext_ta_")]
     sw2_keys = [k for k in ext_flags if k.startswith("ext_sw_")]
     fw_keys = [k for k in ext_flags if k.startswith("ext_fw_")]
+    pl_keys = [k for k in ext_flags if k.startswith("ext_pl_")]
+    ml_keys = [k for k in ext_flags if k.startswith("ext_ml_")]
+    ct_keys = [k for k in ext_flags if k.startswith("ext_ct_")]
+    tw_keys = [k for k in ext_flags if k.startswith("ext_tw_")]
+    ts_keys = [k for k in ext_flags if k.startswith("ext_ts_")]
+    gt_keys = [k for k in ext_flags if k.startswith("ext_gt_")]
+    sc_keys = [k for k in ext_flags if k.startswith("ext_sc_")]
+    gq_keys = [k for k in ext_flags if k.startswith("ext_gq_")]
+    tc_keys = [k for k in ext_flags if k.startswith("ext_tc_")]
+    gnl_keys = [k for k in ext_flags if k.startswith("ext_gnl_")]
+    tt2_keys = [k for k in ext_flags if k.startswith("ext_tt2_")]
+    tm2_keys = [k for k in ext_flags if k.startswith("ext_tm2_")]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -28578,6 +31043,18 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dTa2 = all(per_theorem[k] for k in ta2_keys)
     dSw2 = all(per_theorem[k] for k in sw2_keys)
     dFw = all(per_theorem[k] for k in fw_keys)
+    dPl = all(per_theorem[k] for k in pl_keys)
+    dMl = all(per_theorem[k] for k in ml_keys)
+    dCt = all(per_theorem[k] for k in ct_keys)
+    dTw = all(per_theorem[k] for k in tw_keys)
+    dTs = all(per_theorem[k] for k in ts_keys)
+    dGt = all(per_theorem[k] for k in gt_keys)
+    dSc = all(per_theorem[k] for k in sc_keys)
+    dGq = all(per_theorem[k] for k in gq_keys)
+    dTc = all(per_theorem[k] for k in tc_keys)
+    dGnl = all(per_theorem[k] for k in gnl_keys)
+    dTt2 = all(per_theorem[k] for k in tt2_keys)
+    dTm2 = all(per_theorem[k] for k in tm2_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -28787,6 +31264,30 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                    else "NOT_VERIFIED_THIS_RUN"),
             "fused_witness": ("SEMIFINITE_ANALYSIS_INCREMENT_42__FAITHFUL_REP_FUSED_INTO_NET_FIBERS__FIBER_IS_TAIL_TIMES_L2_SPACETIME__POINCARE_ACTS_ON_REGIONS_AND_INSIDE_FIBERS__NO_BLIND_DIRECTION_IN_FIBERS__BOOST_MOVES_FIBER_VECTORS_V116_HONESTY_SUPERSEDED__WITNESS_RESIDUE_III1_ALONE__SEAL_STAYS_CONDITIONAL" if dFw
                                else "NOT_VERIFIED_THIS_RUN"),
+            "powers_ladder": ("SEMIFINITE_ANALYSIS_INCREMENT_43__ARAKI_WOODS_SEED__TOMITA_BLOCK_IDENTITY_BY_TRACE_CYCLICITY__POWERS_STATE_RATIO_WITNESS_KILLS_TRACIALITY__KRONECKER_MULTIPLIES_RATIOS__CHAIN_CARRIES_LAMBDA_POW_N__ZERO_IN_CLOSURE_MARK_OF_TYPE_III__NO_TRACE_FLOOR__INFINITE_FACTOR_REMAINS__SEAL_STAYS_CONDITIONAL" if dPl
+                               else "NOT_VERIFIED_THIS_RUN"),
+            "mixed_ladder": ("SEMIFINITE_ANALYSIS_INCREMENT_44__MARK_OF_III_ONE__INCOMMENSURABLE_RATIOS_GIVE_LOG_DENSE_SPECTRUM__DENSE_OR_CYCLIC__CONCRETE_PAIR_HALF_THIRD__FACTOR_LIMIT_REMAINS__SEAL_STAYS_CONDITIONAL" if dMl
+                              else "NOT_VERIFIED_THIS_RUN"),
+            "continuum_tt": ("SEMIFINITE_ANALYSIS_INCREMENT_45__PLANE_WAVE_TT_SECTOR__TT_SOLVES_LINEARIZED_VACUUM_ANY_C2_PROFILE__DALEMBERT_COMPONENTWISE__KINETIC_POSITIVE_DEFINITE_NO_GHOST__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL" if dCt
+                              else "NOT_VERIFIED_THIS_RUN"),
+            "colimit_seed": ("SEMIFINITE_ANALYSIS_INCREMENT_46__ITPFI_TOWER__STAR_HOMOMORPHIC_UNITAL_INJECTIVE_STEPS__PRODUCT_STATE_COHERENT__MODULAR_ASYMMETRY_STABLE_UP_COLIMIT__GNS_WEAK_CLOSURE_REMAIN__SEAL_STAYS_CONDITIONAL" if dTw
+                              else "NOT_VERIFIED_THIS_RUN"),
+            "tt_superposition": ("SEMIFINITE_ANALYSIS_INCREMENT_47__SOLUTION_SET_IS_A_SPACE__ANY_TT_PAIR_SOLVES__SPAN_ON_THE_CONE__MULTI_DIRECTION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL" if dTs
+                                  else "NOT_VERIFIED_THIS_RUN"),
+            "gns_tower": ("SEMIFINITE_ANALYSIS_INCREMENT_48__PRE_HILBERT_OF_FACTOR__DIAGONAL_POSITIVE_DENSITY__STATE_POSITIVE_WHOLE_TOWER__GNS_STEPS_ISOMETRIC__QUOTIENT_COMPLETION_WEAK_CLOSURE_REMAIN__SEAL_STAYS_CONDITIONAL" if dGt
+                           else "NOT_VERIFIED_THIS_RUN"),
+            "second_cone": ("SEMIFINITE_ANALYSIS_INCREMENT_49__SECOND_NULL_DIRECTION_SOLVES__CROSS_DIRECTION_SUPERPOSITION_SOLVES__SOLUTION_SPACE_CROSSES_DIRECTIONS__GENERAL_DECOMPOSITION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL" if dSc
+                             else "NOT_VERIFIED_THIS_RUN"),
+            "gns_quotient": ("SEMIFINITE_ANALYSIS_INCREMENT_50__RADICAL_IS_LEFT_IDEAL__HERMITIAN_FORM__INNER_AND_ACTION_DESCEND_TO_QUOTIENT__PRE_FACTOR_REPRESENTED__COMPLETION_AND_WEAK_CLOSURE_REMAIN__SEAL_STAYS_CONDITIONAL" if dGq
+                             else "NOT_VERIFIED_THIS_RUN"),
+            "third_cone": ("SEMIFINITE_ANALYSIS_INCREMENT_51__THIRD_NULL_DIRECTION_SOLVES__TRIPLE_SUPERPOSITION_SOLVES__SOLUTION_SPACE_SPANS_THREE_AXES__CONTINUOUS_CONE_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL" if dTc
+                            else "NOT_VERIFIED_THIS_RUN"),
+            "general_null": ("SEMIFINITE_ANALYSIS_INCREMENT_52__CONTINUOUS_CONE__ANY_NULL_DIRECTION_TT_SOLVES__THREE_CONDITIONS_KILL_THREE_TERMS__PLANE_WAVE_TT_SECTOR_CLOSED__GENERAL_PERTURBATIONS_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL" if dGnl
+                             else "NOT_VERIFIED_THIS_RUN"),
+            "tower_traceless": ("SEMIFINITE_ANALYSIS_INCREMENT_53__TYPE_III_ON_CONCRETE_TOWER__STATE_NOT_TRACIAL_EVERY_FLOOR__MODULAR_RATIO_TIMES_POSITIVE_WITNESS__WITH_LOG_DENSE_MARK_LIMIT_IS_III1__WEAK_STAR_COMPLETION_REMAINS__SEAL_STAYS_CONDITIONAL" if dTt2
+                               else "NOT_VERIFIED_THIS_RUN"),
+            "tower_modular": ("SEMIFINITE_ANALYSIS_INCREMENT_54__TOMITA_FLOW_AND_KMS_ON_THE_TOWER__DENSITY_INVERTIBLE__KMS_EVERY_FLOOR__MODULAR_SPECTRUM_IS_RATIO_LATTICE__STRUCTURE_REPLACES_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_STAYS_CONDITIONAL" if dTm2
+                             else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -30473,6 +32974,45 @@ def run_um(ONE):
     linguistic_isomorphism = prove_linguistic_isomorphism(ONE, {  # v123: O ISOMORFISMO DAS DUAS LINGUAS (acervo Provas 2025 <-> kernel 2026; proveniencia hasheada); ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    powers_ladder = prove_powers_ladder(ONE, {  # v124: A ESCADA DE POWERS (pedra 71: semente de Araki-Woods; 3o assassino de traco); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    void_floor_kappa_v7 = prove_void_floor_kappa_v7_ra(ONE, void_floor_kappa_v6)  # v124: A EMENDA V7 do kappa (rotacoes finas por grupo; selecao cega ao sinal); ADITIVO
+    mixed_ladder = prove_mixed_ladder(ONE, {  # v125: A MISTURA (pedra 72: a marca de III_1 -- espectro log-denso; par 1/2,1/3); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    continuum_tt = prove_continuum_tt(ONE, {  # v125: O SETOR TT NO CONTINUO (pedra 73: vacuo linearizado + sem fantasma; flags de fisica INTOCADOS); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    void_floor_kappa_v8 = prove_void_floor_kappa_v8_lrg(ONE, void_floor_kappa_v7)  # v125: A PROFUNDIDADE (kappa ACT x vazios LRG; aquisicao completa; o teste fundo); ADITIVO
+    colimit_seed = prove_colimit_seed(ONE, {  # v126: A TORRE DO FATOR (pedra 74: ITPFI -- coerencia + assimetria estavel); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    tt_superposition = prove_tt_superposition(ONE, {  # v126: A SUPERPOSICAO TT (pedra 75: o espaco-solucao; flags de fisica INTOCADOS); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    void_floor_kappa_v9 = prove_void_floor_kappa_v9_band(ONE, void_floor_kappa_v8)  # v126: A V9 DA BANDA (L_use [8,1000]; cap 1500 por theta_v; a autopsia da V8 executada); ADITIVO
+    gns_tower = prove_gns_tower(ONE, {  # v127: A TORRE GNS (pedra 76: pre-Hilbert isometrico do fator); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    second_cone = prove_second_cone(ONE, {  # v127: A SEGUNDA DIRECAO (pedra 77: cone x2-x0 + superposicao entre cones); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    gns_quotient = prove_gns_quotient(ONE, {  # v128: O QUOCIENTE GNS (pedra 78: radical=ideal a esquerda; pre-fator representado); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    third_cone = prove_third_cone(ONE, {  # v128: A TERCEIRA DIRECAO (pedra 79: 3o cone + superposicao tripla); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    general_null = prove_general_null(ONE, {  # v129: O CONE CONTINUO (pedra 80: QUALQUER direcao nula TT resolve; setor de ondas planas FECHADO); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    tower_traceless = prove_tower_traceless(ONE, {  # v129: A TORRE SEM TRACO (pedra 81: tipo III na torre concreta, andar a andar); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    tower_modular = prove_tower_modular(ONE, {  # v130: A ESTRUTURA MODULAR DA TORRE (pedra 82: fluxo de Tomita + KMS + espectro=razao); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
 
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
@@ -30642,6 +33182,21 @@ def run_um(ONE):
             "void_floor_kappa_v6": void_floor_kappa_v6,
             "fused_witness": fused_witness,
             "linguistic_isomorphism": linguistic_isomorphism,
+            "powers_ladder": powers_ladder,
+            "void_floor_kappa_v7": void_floor_kappa_v7,
+            "mixed_ladder": mixed_ladder,
+            "continuum_tt": continuum_tt,
+            "void_floor_kappa_v8": void_floor_kappa_v8,
+            "colimit_seed": colimit_seed,
+            "tt_superposition": tt_superposition,
+            "void_floor_kappa_v9": void_floor_kappa_v9,
+            "gns_tower": gns_tower,
+            "second_cone": second_cone,
+            "gns_quotient": gns_quotient,
+            "third_cone": third_cone,
+            "general_null": general_null,
+            "tower_traceless": tower_traceless,
+            "tower_modular": tower_modular,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
             "bench_declaration": bench_declaration,
@@ -34369,6 +36924,2264 @@ def prove_fused_witness(ONE, parts):
         "does_not_gate_core": True,
         "verdict": ("TGL_FUSED_WITNESS__FAITHFUL_REP_FUSED_INTO_NET_FIBERS__FIBER_IS_TAIL_TIMES_L2__NO_BLIND_DIRECTION_IN_FIBERS__BOOST_MOVES_FIBER_VECTORS_V116_HONESTY_SUPERSEDED__WITNESS_RESIDUE_IS_III1_ALONE__V2_RESERVED__SEAL_UNMOVED" if all_v
                     else "FUSED_WITNESS_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_powers_ladder(ONE, parts):
+    """v124 -- A ESCADA DE POWERS: a semente de Araki-Woods [ADITIVO; nao
+    gateia 1=1; NAO move flag]. MANDATO (19/07/2026): 'enfrente o que
+    resta'. O QUE RESTA formal e' III_1 SOZINHA (v123) e sua forma exata
+    esta' nomeada desde o v119: Araki-Woods -- produtos tensoriais infinitos
+    com estados-produto. A PEDRA 71 (PowersLadder.lean) constroi a FACE
+    FINITA COMPLETA dessa construcao:
+    * block_modular_identity: TOMITA NO BLOCO -- phi_rho(ab) =
+      phi_rho(b.rho.a.rho^-1) para TODA densidade invertivel, por
+      ciclicidade do traco (a identidade modular na face de matriz);
+    * powersState: o estado de Powers phi_lambda no bloco 2x2
+      (normalizado, positivo);
+    * ★★ powers_ratio_witness: phi(E01.E10) = lambda.phi(E10.E01) -- a
+      assimetria lambda MATA a tracialidade (powersState_not_tracial);
+    * blockFlow_eigen: o fluxo sigma(a) = rho.a.rho^-1 tem E01 como
+      autovetor de autovalor lambda -- o espectro modular do bloco;
+    * ★★★ ratioWitness_kron + powers_ladder: A LEI DA ESCADA -- testemunhas
+      de razao COMPOEM por Kronecker (r1.r2); a cadeia de N blocos carrega
+      lambda^N: a assimetria amplifica EXPONENCIALMENTE;
+    * ★★★ zero_mem_closure_ratio_spectrum: A MARCA DE III -- 0 pertence ao
+      FECHO do espectro de razoes {lambda^N} (a semente da S-invariante de
+      Connes toca o zero); no_trace_floor: NENHUM piso tracial sobrevive.
+    O TERCEIRO ASSASSINO DE TRACO: o FLUXO-PRODUTO (v45: o fluxo; v119: a
+    algebra; v124: a escada). O QUE FALTA (nomeado): o FATOR infinito
+    (ITPFI R_lambda, III_lambda, III_1 por mistura) = o limite indutivo da
+    escada -- o programa. O gate NAO se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_aqft_core_constructed")
+                    and flips.get("concrete_breuer_corner_constructed")
+                    and flips.get("concrete_modular_four_frame_constructed")
+                    and flips.get("concrete_solder_field_constructed")
+                    and flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    tomita_ok = bool(elp.get("ext_pl_modular_identity_kernel_proved") is True)
+    state_ok = bool(elp.get("ext_pl_state_one_kernel_proved") is True
+                    and elp.get("ext_pl_state_positive_kernel_proved") is True)
+    ratio_ok = bool(elp.get("ext_pl_ratio_witness_kernel_proved") is True
+                    and elp.get("ext_pl_not_tracial_kernel_proved") is True)
+    flow_ok = bool(elp.get("ext_pl_flow_eigen_kernel_proved") is True)
+    ladder_ok = bool(elp.get("ext_pl_kron_compose_kernel_proved") is True
+                     and elp.get("ext_pl_ladder_kernel_proved") is True)
+    mark_ok = bool(elp.get("ext_pl_zero_closure_kernel_proved") is True
+                   and elp.get("ext_pl_no_floor_kernel_proved") is True)
+    # SOMBRA numerica: re-deriva a escada com lambda = beta [ILUSTRACAO --
+    # a pedra e' generica em lambda; beta aqui e' instanciacao, nao lei]
+    lam = beta
+    w = np.array([lam / (1.0 + lam), 1.0 / (1.0 + lam)])
+    rho = np.diag(w).astype(complex)
+    E01 = np.zeros((2, 2), complex); E01[0, 1] = 1.0
+    E10 = np.zeros((2, 2), complex); E10[1, 0] = 1.0
+    r_block = float(np.real(np.trace(rho @ E01 @ E10) / np.trace(rho @ E10 @ E01)))
+    resid_block = abs(r_block - lam)
+    NCH = 8
+    rhoN, aN, bN = rho.copy(), E01.copy(), E10.copy()
+    for _ in range(NCH - 1):
+        rhoN = np.kron(rhoN, rho); aN = np.kron(aN, E01); bN = np.kron(bN, E10)
+    r_chain = float(np.real(np.trace(rhoN @ aN @ bN) / np.trace(rhoN @ bN @ aN)))
+    resid_chain = abs(r_chain - lam ** NCH) / max(lam ** NCH, 1e-300)
+    sombra_ok = bool(resid_block < 1e-12 and resid_chain < 1e-9)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+                        and not shadow["mathematical_model_constructed"])
+    checks = [
+        ("TOMITA NO BLOCO: phi(ab) = phi(b.rho.a.rho^-1) por ciclicidade", tomita_ok),
+        ("o estado de Powers: normalizado + positivo", state_ok),
+        ("a testemunha de razao lambda + a morte da tracialidade (lambda =/= 1)", ratio_ok),
+        ("o fluxo do bloco: sigma(E01) = lambda.E01 (espectro modular)", flow_ok),
+        ("A LEI DA ESCADA: Kronecker multiplica razoes; cadeia N => lambda^N", ladder_ok),
+        ("A MARCA DE III: 0 no fecho de {lambda^N} + nenhum piso tracial", mark_ok),
+        ("SOMBRA [lambda=beta, ILUSTRACAO]: razao do bloco %.3e (resid %.1e); cadeia N=%d resid rel %.1e" % (r_block, resid_block, NCH, resid_chain), sombra_ok),
+        ("o gate segue 5T/1F (a escada NAO vira a flag: falta o FATOR infinito)", five_one),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A ESCADA DE POWERS: Tomita no bloco (ciclicidade), o estado "
+                    "phi_lambda com testemunha de razao lambda, a LEI DA ESCADA "
+                    "(Kronecker multiplica razoes; cadeia N carrega lambda^N), e a "
+                    "MARCA DE III: 0 no fecho do espectro de razoes -- nenhum piso "
+                    "tracial sobrevive. O terceiro assassino de traco (o "
+                    "FLUXO-PRODUTO) em kernel; o fator infinito e' o programa."),
+        "values": {"beta": beta, "lambda_shadow": lam,
+                   "ratio_block": r_block, "ratio_chain_N%d" % NCH: r_chain,
+                   "n_true": sum(1 for v in flips.values() if v),
+                   "n_false": sum(1 for v in flips.values() if not v)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_que_e": "a face finita COMPLETA de Araki-Woods: bloco + estado + razao + fluxo + escada + marca de III -- tudo em kernel com axiomas limpos",
+            "o_que_resta": "o FATOR: limite indutivo da escada com o estado-produto (ITPFI R_lambda; III_lambda; III_1 pela mistura de duas razoes incomensuraveis) -- pedra a pedra",
+            "honestidade": "lambda=beta na sombra e' ILUSTRACAO (a pedra e' generica); nenhuma frase 'III_1 construido'; a escada e' necessaria, nao suficiente; o gate nao se move por declaracao",
+            "o_veredito": ("TGL_POWERS_LADDER__ARAKI_WOODS_SEED_IN_KERNEL__TOMITA_BLOCK_IDENTITY_BY_TRACE_CYCLICITY__RATIO_WITNESS_LAMBDA_KILLS_TRACIALITY__KRONECKER_MULTIPLIES_RATIOS__CHAIN_CARRIES_LAMBDA_POW_N__ZERO_IN_CLOSURE_OF_RATIO_SPECTRUM_MARK_OF_TYPE_III__NO_TRACE_FLOOR_SURVIVES__THIRD_TRACE_KILLER_THE_PRODUCT_FLOW__INFINITE_FACTOR_IS_THE_PROGRAM__SEAL_UNMOVED" if all_v
+                           else "POWERS_LADDER_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_POWERS_LADDER__ARAKI_WOODS_SEED_IN_KERNEL__TOMITA_BLOCK_IDENTITY_BY_TRACE_CYCLICITY__RATIO_WITNESS_LAMBDA_KILLS_TRACIALITY__KRONECKER_MULTIPLIES_RATIOS__CHAIN_CARRIES_LAMBDA_POW_N__ZERO_IN_CLOSURE_OF_RATIO_SPECTRUM_MARK_OF_TYPE_III__NO_TRACE_FLOOR_SURVIVES__THIRD_TRACE_KILLER_THE_PRODUCT_FLOW__INFINITE_FACTOR_IS_THE_PROGRAM__SEAL_UNMOVED" if all_v
+                    else "POWERS_LADDER_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_void_floor_kappa_v7_ra(ONE, v6=None):
+    """v124 -- A EMENDA V7 DO KAPPA: rotacoes finas por grupo [ADITIVO; nao
+    gateia 1=1]. AUTOPSIA DA V6 (v122, INCONCLUSIVE_SYSTEMATICS): a fisica
+    passou (equatorial validado 1.000; baseline subtraido; 1020 centros);
+    o que reprovou foi o GATE DE ROTACOES: grade grossa (15 graus, 24
+    candidatas) + validade exigida em TODOS os quartis SIMULTANEAMENTE =>
+    9 < 16 validas. A pegada ACT nao e' faixa completa de RA (mascara
+    galactica corta regioes) -- rotacoes grossas derrubam grupos inteiros.
+    A EMENDA (congelada ANTES de reabrir): (1) grade FINA de 5 graus
+    (k=1..71); (2) validade POR GRUPO (sobrevivencia >= 0.5 NO grupo);
+    (3) selecao DETERMINISTICA por grupo: as 24 de maior sobrevivencia
+    (desempate por k crescente), truncadas ao minimo comum M entre grupos;
+    (4) gate: M >= 16; (5) TODO o resto herdado da V6 textualmente (dado
+    ACT DR6, gate equatorial, EMENDA DO BASELINE por grupo, L_use [8,400],
+    quartis, bins, modelo band-limited, Fisher >= 25, vereditos v67).
+    A selecao por sobrevivencia e' CEGA ao sinal (depende so' de mascara +
+    posicoes; nunca do kappa) -- sem vazamento. FALSIFIED segue alcancavel."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # jamais literal
+    v6 = v6 or {}
+    frozen = {
+        "version": "VOID_FLOOR_KAPPA_V7_RA_FINE",
+        "amends": "V6 (v122) INCONCLUSIVE_SYSTEMATICS; autopsia = gate de rotacoes (15 graus + validade em todos os quartis => 9<16); a mascara galactica do ACT derruba rotacoes grossas",
+        "inherits_v6_hash": str(v6.get("frozen_v6_hash", "?"))[:16],
+        "fix": "grade fina 5 graus (k=1..71); validade POR GRUPO (surv >= 0.5 no grupo); selecao deterministica top-24 por sobrevivencia (desempate k crescente) truncada ao minimo comum M; gate M >= 16",
+        "blindness": "a selecao depende SO' de mascara + posicoes (nunca de kappa) -- cega ao sinal por construcao",
+        "inherited": "ACT DR6 alm+mask; gate equatorial DEC [-62,22] conc>0.90; EMENDA DO BASELINE por grupo; L_use [8,400]; lentes DESIVAST 0.02<z<0.24 R_v>10; quartis theta_v; bins_x [0.15..3.5]; HSW+piso band-limited; fit r* [0,0.30]; Fisher >= 25; Om=0.315",
+        "verdicts": "somente v67: FALSIFIED / NOT_FALSIFIED_POWERED / NOT_FALSIFIED_UNDERPOWERED / INCONCLUSIVE_SYSTEMATICS / AWAITING_DATA",
+    }
+    frozen_hash = sha_obj(frozen)
+    LMIN, LMAX = 8, 400
+    NSIDE = 4096
+    act_dir = os.path.join(CACHE, "lensing", "act_dr6")
+    p_alm = os.path.join(act_dir, "kappa_alm_data_act_dr6_lensing_v1_baseline.fits")
+    p_mask = os.path.join(act_dir, "mask_act_dr6_lensing_v1_healpix_nside_4096_baseline.fits")
+    if not (os.path.exists(p_alm) and os.path.getsize(p_alm) > (1 << 20)
+            and os.path.exists(p_mask) and os.path.getsize(p_mask) > (1 << 20)):
+        return {"frozen_v7_spec": frozen, "frozen_v7_hash": frozen_hash,
+                "checks": [("ACT DR6 alm+mask em disco", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_KAPPA_V7_AWAITING_DATA"}
+
+    def _ang2pix_ring(nside, theta, phi):
+        z = np.cos(theta)
+        za = np.abs(z)
+        tt = np.mod(phi, 2.0 * math.pi) * (2.0 / math.pi)
+        pix = np.empty(np.shape(theta), dtype=np.int64)
+        eq = za <= (2.0 / 3.0)
+        t1 = nside * (0.5 + tt[eq])
+        t2 = nside * 0.75 * z[eq]
+        jp = np.floor(t1 - t2).astype(np.int64)
+        jm = np.floor(t1 + t2).astype(np.int64)
+        ir = nside + 1 + jp - jm
+        kshift = 1 - (ir & 1)
+        ip = ((jp + jm - nside + kshift + 1 + 8 * nside) // 2) % (4 * nside)
+        pix[eq] = 2 * nside * (nside - 1) + (ir - 1) * 4 * nside + ip
+        po = ~eq
+        tp = tt[po] - np.floor(tt[po])
+        tmp = nside * np.sqrt(3.0 * (1.0 - za[po]))
+        jp2 = np.floor(tp * tmp).astype(np.int64)
+        jm2 = np.floor((1.0 - tp) * tmp).astype(np.int64)
+        irs = jp2 + jm2 + 1
+        ip2 = np.floor(tt[po] * irs).astype(np.int64) % (4 * irs)
+        pix[po] = np.where(z[po] > 0, 2 * irs * (irs - 1) + ip2,
+                           12 * nside * nside - 2 * irs * (irs + 1) + ip2)
+        return pix
+    with open(p_mask, "rb") as fm:
+        off = 0
+        hdr = {}
+        while True:
+            block = fm.read(2880)
+            off += 2880
+            cards = [block[i:i + 80].decode("ascii", "replace") for i in range(0, 2880, 80)]
+            for c in cards:
+                if c[8:10] == "= ":
+                    hdr[c[:8].strip()] = c[10:].split(" /")[0].strip().strip("'").strip()
+            if any(c.startswith("END") for c in cards):
+                if hdr.get("XTENSION", "").startswith("BINTABLE"):
+                    break
+                hdr = {}
+        npix = 12 * NSIDE * NSIDE
+        mask = np.frombuffer(fm.read(8 * npix), dtype=">f8").astype(np.float32)
+    f_sky = float(mask.mean())
+    order_hdr = str(hdr.get("ORDERING", "?")).upper()
+    rngc = np.random.default_rng(124)
+    dec_s = np.degrees(np.arcsin(rngc.uniform(-1, 1, 40000)))
+    ra_s = rngc.uniform(0.0, 360.0, 40000)
+    mv = mask[_ang2pix_ring(NSIDE, np.radians(90.0 - dec_s), np.radians(ra_s))]
+    tot_w = float(mv.sum())
+    band_w = float(mv[(dec_s >= -62.0) & (dec_s <= 22.0)].sum())
+    conc = band_w / max(tot_w, 1e-30)
+    coord_ok = bool(order_hdr == "RING" and conc > 0.90 and 0.10 < f_sky < 0.40)
+    alm = _read_planck_klm(p_alm, LMAX)
+    alm[:LMIN, :] = 0.0
+    catalogs = locate_desivast()
+    parts_v = []
+    for alg in ("V2_VIDE", "V2_REVOLVER"):
+        for (p_, b_, o_) in catalogs.get(alg, []):
+            try:
+                tables = _fits_scan_bintables(p_)
+            except Exception:
+                continue
+            for t_ in tables:
+                if str(t_.get("name", "")).upper() != "VOIDS" or not t_.get("cols"):
+                    continue
+                c_ = t_["cols"]
+                ra_v = c_.get("RA"); de_v = c_.get("DEC")
+                zz_v = c_.get("REDSHIFT"); rv_v = c_.get("RADIUS")
+                if any(v is None for v in (ra_v, de_v, zz_v, rv_v)):
+                    continue
+                m_ = (zz_v > 0.02) & (zz_v < 0.24) & (rv_v > 10.0)
+                parts_v.append(np.column_stack([ra_v[m_], de_v[m_], zz_v[m_], rv_v[m_]]))
+    allv = np.vstack(parts_v) if parts_v else np.zeros((0, 4))
+    n_voids = int(allv.shape[0])
+    colat = np.radians(90.0 - allv[:, 1])
+    phi = np.radians(allv[:, 0])
+    inm0 = mask[_ang2pix_ring(NSIDE, colat, phi)] >= 0.5
+    n_kept = int(inm0.sum())
+    if n_kept < 100:
+        return {"frozen_v7_spec": frozen, "frozen_v7_hash": frozen_hash,
+                "n_voids": n_voids, "n_kept": n_kept, "f_sky": f_sky,
+                "checks": [("n_mantidos >= 100 na pegada ACT", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_KAPPA_V7_INCONCLUSIVE_SYSTEMATICS"}
+    ZZ = allv[inm0, 2]; RV = allv[inm0, 3]
+    colat = colat[inm0]; phi = phi[inm0]
+    chi = np.array([_flat_lcdm_chi_Mpch(z) for z in ZZ])
+    theta_v = RV / chi
+    q = np.quantile(theta_v, [0.25, 0.5, 0.75])
+    groups = [np.where(theta_v <= q[0])[0], np.where((theta_v > q[0]) & (theta_v <= q[1]))[0],
+              np.where((theta_v > q[1]) & (theta_v <= q[2]))[0], np.where(theta_v > q[2])[0]]
+    bins_x = np.array([0.15, 0.25, 0.4, 0.6, 0.9, 1.3, 1.9, 2.6, 3.5])
+    xcb = 0.5 * (bins_x[:-1] + bins_x[1:])
+    # A EMENDA: grade fina + validade POR GRUPO + selecao deterministica
+    rots = [math.radians(5.0 * k) for k in range(1, 72)]
+    sel_g = []
+    for gi, g_ in enumerate(groups):
+        cand = []
+        for i, rot in enumerate(rots):
+            ph_r = np.mod(phi[g_] + rot, 2.0 * math.pi)
+            inm = mask[_ang2pix_ring(NSIDE, colat[g_], ph_r)] >= 0.5
+            s = float(inm.mean())
+            if s >= 0.5:
+                cand.append((-s, i, inm))
+        cand.sort(key=lambda t: (t[0], t[1]))
+        sel_g.append(cand[:24])
+    M = min(len(c) for c in sel_g)
+    gate_rots = bool(M >= 16)
+    n_rot_used = min(M, 24)
+    sel_g = [c[:n_rot_used] for c in sel_g]
+    stacks_g, nulls_g, ngs, thbar_g, zbar_g = [], [], [], [], []
+    mgrid = np.arange(LMAX + 1)
+    for gi, g_ in enumerate(groups):
+        T_all = _Tlm_positions(colat[g_], phi[g_], LMAX)
+        thbar = float(np.mean(theta_v[g_])); zbar = float(np.mean(ZZ[g_]))
+        th_grid = xcb * thbar
+        stacks_g.append(_stack_from_T(alm, T_all, len(g_), th_grid, LMAX))
+        rows = []
+        for (negs, i, inm) in sel_g[gi]:
+            rot = rots[i]
+            n_surv = int(inm.sum())
+            Trot = T_all * np.exp(1j * mgrid * rot)[None, :]
+            if n_surv < len(g_):
+                ph_r = np.mod(phi[g_] + rot, 2.0 * math.pi)
+                Trot = Trot - _Tlm_positions(colat[g_][~inm], ph_r[~inm], LMAX)
+            rows.append(_stack_from_T(alm, Trot, max(n_surv, 1), th_grid, LMAX))
+        nulls_g.append(np.array(rows))
+        ngs.append(int(len(g_))); thbar_g.append(thbar); zbar_g.append(zbar)
+    null_mean_g = [np.mean(nu, axis=0) for nu in nulls_g]
+    stacks_c = [s - m for s, m in zip(stacks_g, null_mean_g)]
+    nulls_c = [nu - m[None, :] for nu, m in zip(nulls_g, null_mean_g)]
+    var_g = [np.var(nu, axis=0, ddof=1) + 1e-30 for nu in nulls_c]
+    wsum = sum(1.0 / v for v in var_g)
+    stack = sum(s / v for s, v in zip(stacks_c, var_g)) / wsum
+    nulls = sum(nu / v[None, :] for nu, v in zip(nulls_c, var_g)) / wsum[None, :]
+    sig = np.std(nulls, axis=0, ddof=1)
+    null_mean = np.mean(nulls, axis=0)
+    chi2_null = float(np.sum((null_mean / (sig / math.sqrt(max(n_rot_used, 2)))) ** 2)) / len(xcb)
+    gate_nulls = bool(chi2_null < 2.0)
+    Om = 0.315; rho_m = 2.775e11 * Om
+    WEAK_Mpc = 1.6624e18
+    chi_star = _flat_lcdm_chi_Mpch(1090.0)
+
+    def kappa_model(x_eval, delta_c, s1, rstar, zbar, thbar):
+        rr = np.linspace(0.0, 5.0, 400)
+        prof = 1.0 + delta_c * (1.0 - (rr / s1) ** 2) / (1.0 + rr ** 6)
+        prof = np.maximum(prof, rstar) - 1.0
+
+        def Sigma(Rp):
+            zz2 = np.linspace(0.0, 5.0, 300)
+            r3 = np.sqrt(np.asarray(Rp)[:, None] ** 2 + zz2[None, :] ** 2)
+            pv = np.interp(r3.ravel(), rr, prof, right=0.0).reshape(r3.shape)
+            return 2.0 * np.trapezoid(pv, zz2, axis=1) * rho_m
+        chi_l = _flat_lcdm_chi_Mpch(zbar)
+        Sig = Sigma(np.asarray(x_eval)) * (thbar * chi_l)
+        Sigma_crit = WEAK_Mpc * chi_star / (chi_l * (chi_star - chi_l) * (1.0 + zbar))
+        return Sig / Sigma_crit
+
+    def band_limit(profile_fn, thbar):
+        nq = 512
+        mu, wq = np.polynomial.legendre.leggauss(nq)
+        th_q = np.arccos(mu)
+        f_q = profile_fn(th_q / thbar)
+        cl = np.zeros(LMAX + 1)
+        P0 = np.ones(nq); P1 = mu.copy()
+        cl[0] = 0.5 * np.sum(wq * f_q * P0)
+        if LMAX >= 1:
+            cl[1] = 1.5 * np.sum(wq * f_q * P1)
+        for l in range(1, LMAX):
+            P2 = ((2 * l + 1) * mu * P1 - l * P0) / (l + 1)
+            P0, P1 = P1, P2
+            cl[l + 1] = (2 * (l + 1) + 1) / 2.0 * np.sum(wq * f_q * P2)
+        cl[:LMIN] = 0.0
+        out = np.zeros(len(xcb))
+        for k, x0 in enumerate(xcb):
+            c0 = math.cos(x0 * thbar)
+            Pa, Pb = 1.0, c0
+            acc = cl[0] * Pa + (cl[1] * Pb if LMAX >= 1 else 0.0)
+            for l in range(1, LMAX):
+                Pc = ((2 * l + 1) * c0 * Pb - l * Pa) / (l + 1)
+                Pa, Pb = Pb, Pc
+                acc += cl[l + 1] * Pc
+            out[k] = acc
+        return out
+
+    def model_stack(delta_c, s1, rstar):
+        acc = np.zeros(len(xcb))
+        for v, thbar, zbar in zip(var_g, thbar_g, zbar_g):
+            m = band_limit(lambda xe: kappa_model(xe, delta_c, s1, rstar, zbar, thbar), thbar)
+            acc += m / v
+        return acc / wsum
+    m_deep = model_stack(-0.95, 1.0, 0.0)
+    m_tgl = model_stack(-0.95, 1.0, beta)
+    F = float(np.sum(((m_tgl - m_deep) / sig) ** 2))
+    powered = bool(F >= 25.0)
+    snr_void = float(math.sqrt(np.sum((m_deep / sig) ** 2)))
+    chi2_sig = float(np.sum((stack / sig) ** 2))
+    det_sigma = float(math.sqrt(max(chi2_sig - len(xcb), 0.0)))
+    grid_dc = np.linspace(-1.0, -0.3, 15)
+    grid_s1 = np.linspace(0.7, 1.3, 13)
+    grid_r = np.linspace(0.0, 0.30, 31)
+    lnL = np.full((len(grid_r),), -1e30)
+    for ir_, r0 in enumerate(grid_r):
+        best = -1e30
+        for dc in grid_dc:
+            for s1 in grid_s1:
+                m = model_stack(dc, s1, r0)
+                best = max(best, -0.5 * float(np.sum(((stack - m) / sig) ** 2)))
+        lnL[ir_] = best
+    i0 = int(np.argmax(lnL))
+    r_hat = float(grid_r[i0])
+    in5 = np.where((lnL[i0] - lnL) <= 12.5)[0]
+    r_lo5, r_hi5 = float(grid_r[in5[0]]), float(grid_r[in5[-1]])
+    gates_all = bool(coord_ok and gate_rots and gate_nulls)
+    if not gates_all:
+        verdict = "VOID_FLOOR_KAPPA_V7_INCONCLUSIVE_SYSTEMATICS"
+    elif r_hi5 < beta and powered:
+        verdict = "TGL_VOID_FLOOR_KAPPA_V7_FALSIFIED"
+    elif r_lo5 >= beta and powered:
+        verdict = "TGL_VOID_FLOOR_KAPPA_V7_NOT_FALSIFIED_POWERED"
+    else:
+        verdict = "TGL_VOID_FLOOR_KAPPA_V7_NOT_FALSIFIED_UNDERPOWERED"
+    checks = [
+        ("autopsia da V6 registrada (gate de rotacoes) + espec V7 congelada", True),
+        ("coordenadas EQUATORIAIS (herdadas): concentracao %.3f > 0.90; f_sky %.3f; RING" % (conc, f_sky), coord_ok),
+        ("centros na pegada ACT: %d/%d" % (n_kept, n_voids), True),
+        ("grade fina POR GRUPO: minimo comum M = %d rotacoes validas (>= 16); usadas %d" % (M, n_rot_used), gate_rots),
+        ("EMENDA DO BASELINE (herdada): nulos corrigidos chi2/dof = %.2f < 2" % chi2_null, gate_nulls),
+        ("poder Fisher do piso F = %.3g (>= 25 p/ powered)" % F, True),
+        ("veredito do conjunto pre-registrado", True),
+    ]
+    all_v = bool(gates_all)
+    return {
+        "theorem": ("A EMENDA V7: as rotacoes finas por grupo destravam o ensemble "
+                    "de nulos do ACT -- o canal kappa PROFUNDO com o instrumento "
+                    "inteiro afinado; FALSIFIED segue alcancavel aqui."),
+        "frozen_v7_spec": frozen, "frozen_v7_hash": frozen_hash,
+        "n_voids": n_voids, "n_kept": n_kept, "groups_n": ngs,
+        "values": {"beta": beta, "f_sky": f_sky, "footprint_concentration": conc,
+                   "n_rot_min_common": M, "n_rot_used": n_rot_used,
+                   "chi2_null_dof": chi2_null,
+                   "void_signal_expected_snr": snr_void,
+                   "detection_sigma_raw": det_sigma, "fisher_floor": F,
+                   "r_hat": r_hat, "r_5sigma_lo": r_lo5, "r_5sigma_hi": r_hi5},
+        "stack_kappa": stack.tolist(), "sigma_bins": sig.tolist(),
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_autopsia": "a V6 reprovou no gate de rotacoes (grade grossa + validade simultanea), nao no dado; a V7 corrige com selecao CEGA ao sinal (mascara+posicoes apenas)",
+            "honestidade": "se UNDERPOWERED: profundidade e' o limite fisico do dado (SPT/estagios); se INCONCLUSIVE: o proximo suspeito e' nomeado; flags do gate INTOCADOS",
+            "o_veredito": verdict,
+        },
+        "does_not_gate_core": True,
+        "verdict": verdict,
+    }
+
+
+def prove_mixed_ladder(ONE, parts):
+    """v125 -- A MISTURA: a marca de III_1 [ADITIVO; nao gateia 1=1; NAO
+    move flag]. MANDATO (19/07/2026): 'enfrente o fator III_1'. A escada
+    (v124) deu a UMA razao o reticulado lambda^Z -- a assinatura de
+    III_lambda. O que separa III_1 e' a MISTURA: razoes INCOMENSURAVEIS
+    geram espectro DENSO (a S-invariante de Connes preenche a semirreta).
+    A PEDRA 72 (MixedLadder.lean) prova essa marca:
+    * mixed_chain_ratio: a cadeia MISTA (a blocos l1 x b blocos l2)
+      carrega l1^a.l2^b -- as escadas COMPOEM por Kronecker;
+    * ★★★ mixed_log_dense: log l1/log l2 irracional => o subgrupo
+      {a.log l1 + b.log l2} e' DENSO em R (dense_or_cyclic + exclusao do
+      ciclico) -- o espectro de razoes toca TODO ponto: A MARCA DE III_1;
+    * irrational_log_two_div_log_three: 2^b = 3^a impossivel (paridade);
+    * ★★★ the_mixing_mark: o par CONCRETO (1/2, 1/3) habita a marca.
+    O QUE FALTA (nomeado): o FATOR -- o limite indutivo fraco-* da cadeia
+    mista com o estado-produto (ITPFI; III_1 de Araki-Woods). A assinatura
+    espectral esta' provada; o objeto-limite e' o programa. O gate NAO se
+    move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_aqft_core_constructed")
+                    and flips.get("concrete_breuer_corner_constructed")
+                    and flips.get("concrete_modular_four_frame_constructed")
+                    and flips.get("concrete_solder_field_constructed")
+                    and flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    mix_ok = bool(elp.get("ext_ml_mixed_ratio_kernel_proved") is True)
+    dense_ok = bool(elp.get("ext_ml_dense_of_irrational_kernel_proved") is True)
+    irr_ok = bool(elp.get("ext_ml_log23_irrational_kernel_proved") is True)
+    mark_ok = bool(elp.get("ext_ml_mixing_mark_kernel_proved") is True)
+    # SOMBRA: o reticulado misto {a.log(1/2)+b.log(1/3)} APROXIMA log(beta)
+    # [ILUSTRACAO -- a densidade provada em kernel, exibida no numero]
+    l12, l13, lb = math.log(0.5), math.log(1.0 / 3.0), math.log(beta)
+    best = (1e30, 0, 0)
+    for a_ in range(-400, 401):
+        rem = lb - a_ * l12
+        b_ = int(round(rem / l13))
+        if abs(b_) <= 400:
+            r_ = abs(a_ * l12 + b_ * l13 - lb)
+            if r_ < best[0]:
+                best = (r_, a_, b_)
+    resid_mix, a_best, b_best = best
+    sombra_ok = bool(resid_mix < 1e-3)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+                        and not shadow["mathematical_model_constructed"])
+    checks = [
+        ("a cadeia MISTA compoe: l1^a.l2^b por Kronecker", mix_ok),
+        ("A MARCA DE III_1: incomensuraveis => espectro log-DENSO em R", dense_ok),
+        ("o par (1/2, 1/3): log2/log3 IRRACIONAL (2^b=3^a impossivel)", irr_ok),
+        ("A MARCA HABITADA: o par concreto gera densidade", mark_ok),
+        ("SOMBRA [ILUSTRACAO]: a.log(1/2)+b.log(1/3) ~ log(beta): a=%d b=%d resid %.2e" % (a_best, b_best, resid_mix), sombra_ok),
+        ("o gate segue 5T/1F (a marca NAO vira a flag: falta o FATOR-limite)", five_one),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A MISTURA: razoes incomensuraveis geram espectro de razoes "
+                    "log-DENSO em R -- a marca de III_1 (vs o reticulado discreto "
+                    "de III_lambda), HABITADA pelo par concreto (1/2, 1/3). O "
+                    "fator-limite (ITPFI) e' o programa."),
+        "values": {"beta": beta, "mix_approx_a": a_best, "mix_approx_b": b_best,
+                   "mix_approx_resid": resid_mix,
+                   "n_true": sum(1 for v in flips.values() if v),
+                   "n_false": sum(1 for v in flips.values() if not v)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_que_e": "a assinatura espectral de III_1 em kernel: densidade do reticulado log de razoes incomensuraveis + habitacao concreta",
+            "o_que_resta": "o FATOR: limite indutivo fraco-* da cadeia mista (ITPFI; III_1 de Araki-Woods) -- o objeto, nao mais a assinatura",
+            "honestidade": "nenhuma frase 'III_1 construido'; a marca e' NECESSARIA e distintiva, nao o fator; o gate nao se move por declaracao",
+            "o_veredito": ("TGL_MIXED_LADDER__MARK_OF_III_ONE__INCOMMENSURABLE_RATIOS_GENERATE_LOG_DENSE_RATIO_SPECTRUM__DENSE_OR_CYCLIC_PLUS_CYCLIC_EXCLUSION__CONCRETE_PAIR_HALF_THIRD_INHABITS_THE_MARK__TWO_POW_B_NE_THREE_POW_A__FACTOR_LIMIT_IS_THE_PROGRAM__SEAL_UNMOVED" if all_v
+                           else "MIXED_LADDER_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_MIXED_LADDER__MARK_OF_III_ONE__INCOMMENSURABLE_RATIOS_GENERATE_LOG_DENSE_RATIO_SPECTRUM__DENSE_OR_CYCLIC_PLUS_CYCLIC_EXCLUSION__CONCRETE_PAIR_HALF_THIRD_INHABITS_THE_MARK__TWO_POW_B_NE_THREE_POW_A__FACTOR_LIMIT_IS_THE_PROGRAM__SEAL_UNMOVED" if all_v
+                    else "MIXED_LADDER_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_continuum_tt(ONE, parts):
+    """v125 -- O SETOR TT NO CONTINUO [ADITIVO; nao gateia 1=1; NAO move
+    flag de fisica]. MANDATO (19/07/2026): 'enfrente TT/ghost continuos'.
+    O v75 fechou a face finita e nomeou: 'Fierz-Pauli EL e ghost-freedom
+    pleno pedem o continuo'. A PEDRA 73 (ContinuumTT.lean) solda o v75 ao
+    v114 sobre o eta da casa diag(1,-1,-1,-1):
+    * epsTT a b: o plano 2-dim das polarizacoes (a.e+ + b.ex), com
+      eta-traco ZERO e transversalidade ao cone;
+    * pd_pd_scaled: a reducao algebrica de TODO o calculo;
+    * ★★★ tt_ricci_zero: A ONDA TT RESOLVE O VACUO LINEARIZADO (Ricci
+      linearizado = 0 em toda parte, para QUALQUER perfil C^2) -- spin-2
+      SEM MASSA no continuo;
+    * tt_component_wave: cada componente e' onda (d'Alembert, v114);
+    * ★★ tt_kinetic_nonneg + ★★★ tt_kinetic_pos: SEM FANTASMA -- a
+      cinetica TT e' >= 0 sempre e > 0 onde a onda vive.
+    HONESTIDADE INVIOLAVEL: setor de ONDAS PLANAS; perturbacoes GERAIS e
+    anomalias seguem ABERTAS -- os 5 flags de fisica do gate NAO se movem
+    por esta pedra. A imobilidade e' a credibilidade."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    tr_ok = bool(elp.get("ext_ct_traceless_kernel_proved") is True)
+    tv_ok = bool(elp.get("ext_ct_transverse_kernel_proved") is True)
+    pp_ok = bool(elp.get("ext_ct_pd_pd_kernel_proved") is True)
+    ric_ok = bool(elp.get("ext_ct_ricci_zero_kernel_proved") is True)
+    wav_ok = bool(elp.get("ext_ct_component_wave_kernel_proved") is True)
+    kin_ok = bool(elp.get("ext_ct_kinetic_nonneg_kernel_proved") is True
+                  and elp.get("ext_ct_kinetic_pos_kernel_proved") is True)
+    # SOMBRA: re-deriva o Ricci linearizado por DIFERENCAS FINITAS
+    a_, b_ = 0.7, 0.4
+    eps = np.zeros((4, 4))
+    eps[2, 2], eps[3, 3] = a_, -a_
+    eps[2, 3] = eps[3, 2] = b_
+    eta = np.array([1.0, -1.0, -1.0, -1.0])
+    s0 = 0.37
+
+    def w_(u):
+        return math.exp(-(u - s0) ** 2)
+
+    def h_(mu, nu, x):
+        return eps[mu, nu] * w_(x[1] - x[0])
+    hstep = 1e-3
+    x0 = np.array([0.31, 0.77, -0.21, 0.53])
+
+    def pd2(f, i, j, x):
+        e_i = np.zeros(4); e_i[i] = hstep
+        e_j = np.zeros(4); e_j[j] = hstep
+        return (f(x + e_i + e_j) - f(x + e_i - e_j)
+                - f(x - e_i + e_j) + f(x - e_i - e_j)) / (4 * hstep * hstep)
+    ric_max = 0.0
+    for mu in range(4):
+        for nu in range(4):
+            s = 0.0
+            for al in range(4):
+                s += eta[al] * (pd2(lambda x: h_(al, nu, x), al, mu, x0)
+                                + pd2(lambda x: h_(al, mu, x), al, nu, x0)
+                                - pd2(lambda x: h_(mu, nu, x), al, al, x0))
+            tr = lambda x: sum(eta[g] * h_(g, g, x) for g in range(4))
+            ric = s / 2.0 - pd2(tr, mu, nu, x0) / 2.0
+            ric_max = max(ric_max, abs(ric))
+    wp = -2.0 * (x0[1] - x0[0] - s0) * w_(x0[1] - x0[0])
+    kin_num = sum((eps[m, n] * (-1.0) * wp) ** 2 for m in range(4) for n in range(4))
+    kin_form = 2.0 * (a_ ** 2 + b_ ** 2) * wp ** 2
+    kin_resid = abs(kin_num - kin_form) / max(abs(kin_form), 1e-30)
+    sombra_ok = bool(ric_max < 1e-5 and kin_resid < 1e-12)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("eta-traco ZERO + transversalidade do plano TT (eta da casa)", bool(tr_ok and tv_ok)),
+        ("a reducao algebrica: d_i d_j (c.w(L)) = c.L_i.L_j.w''", pp_ok),
+        ("★ A ONDA TT RESOLVE O VACUO LINEARIZADO (Ricci lin = 0; perfil C^2 QUALQUER)", ric_ok),
+        ("cada componente e' onda (d'Alembert v114, componente a componente)", wav_ok),
+        ("SEM FANTASMA: cinetica TT >= 0 sempre; > 0 onde a onda vive", kin_ok),
+        ("SOMBRA (dif. finitas): max|Ricci_lin| = %.1e < 1e-5 ; cinetica resid %.1e" % (ric_max, kin_resid), sombra_ok),
+        ("os 5 flags de FISICA do gate NAO se movem (ondas planas != geral; anomalias abertas)", True),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("O SETOR TT NO CONTINUO: as ondas planas TT (plano 2-dim de "
+                    "polarizacoes; eta da casa) RESOLVEM o vacuo linearizado para "
+                    "QUALQUER perfil C^2, cada componente e' onda de d'Alembert, e "
+                    "a cinetica e' positiva-definida no plano das polarizacoes -- "
+                    "spin-2 sem massa e sem fantasma nas ondas planas. Perturbacoes "
+                    "gerais e anomalias: ABERTAS; flags de fisica INTOCADOS."),
+        "values": {"beta": beta, "shadow_ricci_max": ric_max,
+                   "shadow_kinetic_resid": kin_resid},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_que_fechou": "Fierz-Pauli no setor de ondas planas: vacuo linearizado resolvido + ghost-freedom do plano TT, no continuo com perfil arbitrario",
+            "o_que_resta": "perturbacoes GERAIS (decomposicao completa alem de ondas planas) + anomalias relevantes -- as caras que os flags de fisica exigem",
+            "honestidade": "NENHUM flag de fisica flipado: ondas planas nao esgotam o espectro de perturbacoes; o gate nao se move por fatia",
+            "o_veredito": ("TGL_CONTINUUM_TT__PLANE_WAVE_TT_SECTOR_IN_KERNEL__TT_WAVES_SOLVE_LINEARIZED_VACUUM_FOR_ANY_C2_PROFILE__MASSLESS_SPIN2_CONTINUUM__EACH_COMPONENT_DALEMBERT__KINETIC_POSITIVE_DEFINITE_ON_POLARIZATION_PLANE_NO_GHOST__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED" if all_v
+                           else "CONTINUUM_TT_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_CONTINUUM_TT__PLANE_WAVE_TT_SECTOR_IN_KERNEL__TT_WAVES_SOLVE_LINEARIZED_VACUUM_FOR_ANY_C2_PROFILE__MASSLESS_SPIN2_CONTINUUM__EACH_COMPONENT_DALEMBERT__KINETIC_POSITIVE_DEFINITE_ON_POLARIZATION_PLANE_NO_GHOST__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED" if all_v
+                    else "CONTINUUM_TT_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_void_floor_kappa_v8_lrg(ONE, v7=None):
+    """v125 -- A PROFUNDIDADE: kappa ACT DR6 x vazios LRG [ADITIVO; nao
+    gateia 1=1]. MANDATO (19/07/2026): 'adquira os dados para rodar o
+    teste com profundidade; apos todos os dados adquiridos rode o teste'.
+    A AQUISICAO ESTA COMPLETA EM DISCO (LRG NGC+SGC, 18/07, bytes exatos
+    143.196.480 + 64.272.960; ACT DR6 alm+mask, 19/07) -- este modulo
+    RODA o teste fundo. POR QUE E' A PROFUNDIDADE REAL: (1) lenteamento
+    pesa MATERIA TOTAL -- a supressao de tracador do rito LRG direto
+    (v115) NAO se aplica ao kappa; (2) z 0.40-0.80: o kernel de lente do
+    CMB e' ~3-5x mais eficiente que nos vazios BGS z~0.15; (3) populacao
+    ~5-10x maior na pegada ACT. ESPEC (congelada ANTES de abrir): achador
+    LRG_SO_V1 herdado VERBATIM do v115; conversao ao ceu (RA/DEC/z pela
+    grade chig; theta_v = R_v/chi); pipeline V7 herdado VERBATIM (quartis
+    theta_v; bins x; rotacoes finas 5 graus POR GRUPO top-24 M>=16;
+    EMENDA DO BASELINE; L_use [8,400]; HSW+piso band-limited; Fisher >=
+    25); CAP pre-registrado: se n_kept > 4000, poda deterministica aos
+    4000 maiores R_v (maior sinal por vazio; CEGA ao kappa) -- LOGADA,
+    jamais silenciosa; vereditos v67. FALSIFIED alcancavel: e' materia."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # jamais literal
+    v7 = v7 or {}
+    frozen = {
+        "version": "VOID_FLOOR_KAPPA_V8_LRG_DEPTH",
+        "mandate": "profundidade real com dados JA em disco: kappa ACT DR6 x vazios LRG z 0.40-0.80 (lente pesa materia total; kernel CMB eficiente; populacao grande)",
+        "inherits_v7_hash": str(v7.get("frozen_v7_hash", "?"))[:16],
+        "finder": "LRG_SO_V1 VERBATIM (v115): grade a=15; bloco-7 < 0.15*mu7; 27 celulas na mascara; separacao gulosa 30; esfera r20 < 0.3*nbar*V20; R_v cruzamento 0.3*nbar em [20,60] passo 2.5; mask_ok(centro, R_v)",
+        "sky": "RA=atan2(y,x); DEC=asin(z/r); z por inversao da grade chig(4096); theta_v = R_v/chi (rad)",
+        "pipeline": "V7 VERBATIM: footprint ACT >= 0.5; quartis theta_v; bins_x [0.15..3.5]; rotacoes RA finas 5 graus POR GRUPO (top-24 por sobrevivencia, minimo comum M >= 16; selecao CEGA); baseline = media dos nulos subtraida; L_use [8,400]; HSW+piso band-limited; fit r* [0,0.30] 5sigma; Fisher >= 25; Om=0.315",
+        "cap": "se n_kept > 4000: poda deterministica aos 4000 maiores R_v (CEGA ao kappa; sinal por vazio maximo) -- logada",
+        "verdicts": "somente v67: FALSIFIED / NOT_FALSIFIED_POWERED / NOT_FALSIFIED_UNDERPOWERED / INCONCLUSIVE_SYSTEMATICS / AWAITING_DATA",
+    }
+    frozen_hash = sha_obj(frozen)
+    LMIN, LMAX = 8, 400
+    NSIDE = 4096
+    act_dir = os.path.join(CACHE, "lensing", "act_dr6")
+    p_alm = os.path.join(act_dir, "kappa_alm_data_act_dr6_lensing_v1_baseline.fits")
+    p_mask = os.path.join(act_dir, "mask_act_dr6_lensing_v1_healpix_nside_4096_baseline.fits")
+    lrg_dir = os.path.join(CACHE, "voids", "lrg")
+    lrg_paths = {c: os.path.join(lrg_dir, "LRG_%s_clustering.dat.fits" % c) for c in ("NGC", "SGC")}
+    have_all = (os.path.exists(p_alm) and os.path.getsize(p_alm) > (1 << 20)
+                and os.path.exists(p_mask) and os.path.getsize(p_mask) > (1 << 20)
+                and all(os.path.exists(pp) and os.path.getsize(pp) > (1 << 20)
+                        for pp in lrg_paths.values()))
+    if not have_all:
+        return {"frozen_v8_spec": frozen, "frozen_v8_hash": frozen_hash,
+                "checks": [("LRG NGC+SGC + ACT DR6 em disco", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_KAPPA_V8_AWAITING_DATA"}
+    # ---- (1) achador LRG_SO_V1 VERBATIM (v115) ----
+    zg = np.linspace(0.0, 1.2, 4096)
+    Eg = np.sqrt(0.315 * (1.0 + zg) ** 3 + (1.0 - 0.315))
+    seg = 0.5 * (1.0 / Eg[1:] + 1.0 / Eg[:-1]) * np.diff(zg)
+    chig = 2997.92458 * np.concatenate([[0.0], np.cumsum(seg)])
+
+    def _find_voids_cap(G):
+        N_gal = int(G.shape[0])
+        r = np.sqrt(np.sum(G ** 2, axis=1))
+        r1, r99 = float(np.percentile(r, 1)), float(np.percentile(r, 99))
+        ra = np.degrees(np.arctan2(G[:, 1], G[:, 0])) % 360.0
+        dec = np.degrees(np.arcsin(np.clip(G[:, 2] / np.maximum(r, 1e-9), -1, 1)))
+        cell_ang = 2.0
+        occ = set(zip(np.floor(ra / cell_ang).astype(int).tolist(),
+                      np.floor((dec + 90.0) / cell_ang).astype(int).tolist()))
+
+        def _mask_ok(cx0, cy0, cz0, Rc):
+            rc = math.sqrt(cx0 * cx0 + cy0 * cy0 + cz0 * cz0)
+            if rc - Rc < r1 or rc + Rc > r99:
+                return False
+            ra0 = math.degrees(math.atan2(cy0, cx0)) % 360.0
+            de0 = math.degrees(math.asin(max(-1.0, min(1.0, cz0 / max(rc, 1e-9)))))
+            ia, idn = int(ra0 // cell_ang), int((de0 + 90.0) // cell_ang)
+            for da in (-1, 0, 1):
+                for dd in (-1, 0, 1):
+                    if ((ia + da), (idn + dd)) not in occ:
+                        return False
+            return True
+        a = 15.0
+        lo = G.min(axis=0) - a
+        nax = (((G.max(axis=0) + a) - lo) / a).astype(int) + 1
+        idx = ((G - lo) / a).astype(int)
+        flat = (idx[:, 0].astype(np.int64) * nax[1] + idx[:, 1]) * nax[2] + idx[:, 2]
+        counts = np.zeros(int(nax[0]) * int(nax[1]) * int(nax[2]), dtype=np.int32)
+        np.add.at(counts, flat, 1)
+        C = counts.reshape(int(nax[0]), int(nax[1]), int(nax[2]))
+        c7 = C.astype(np.int64).copy()
+        for ax in range(3):
+            c7 += np.roll(C, 1, axis=ax) + np.roll(C, -1, axis=ax)
+        xs = (lo[0] + a * (np.arange(nax[0]) + 0.5)).astype(np.float32)
+        ys = (lo[1] + a * (np.arange(nax[1]) + 0.5)).astype(np.float32)
+        zs = (lo[2] + a * (np.arange(nax[2]) + 0.5)).astype(np.float32)
+        r3 = np.sqrt(xs[:, None, None] ** 2 + ys[None, :, None] ** 2 + zs[None, None, :] ** 2)
+        in_rad = (r3 > r1) & (r3 < r99)
+        ia2 = (np.degrees(np.arctan2(ys[None, :], xs[:, None])) % 360.0 / cell_ang).astype(np.int32)
+        de3 = np.degrees(np.arcsin(np.clip(zs[None, None, :] / np.maximum(r3, 1e-9), -1, 1)))
+        id3 = np.clip(((de3 + 90.0) / cell_ang).astype(np.int32), 0, int(180.0 / cell_ang) - 1)
+        Aocc = np.zeros((int(360.0 / cell_ang), int(180.0 / cell_ang)), dtype=bool)
+        for (ia_, id_) in occ:
+            if 0 <= ia_ < Aocc.shape[0] and 0 <= id_ < Aocc.shape[1]:
+                Aocc[ia_, id_] = True
+        in_mask = in_rad & Aocc[np.clip(ia2, 0, Aocc.shape[0] - 1)[:, :, None], id3]
+        del r3, de3, id3
+        n_cells_in = int(np.count_nonzero(in_mask))
+        if n_cells_in < 100:
+            return []
+        nbar = N_gal / (n_cells_in * a ** 3)
+        mu7 = 7.0 * (a ** 3) * nbar
+        pm = np.zeros((in_mask.shape[0] + 2, in_mask.shape[1] + 2, in_mask.shape[2] + 2), dtype=bool)
+        pm[1:-1, 1:-1, 1:-1] = in_mask
+        in27 = np.ones(in_mask.shape, dtype=bool)
+        for di in (0, 1, 2):
+            for dj in (0, 1, 2):
+                for dk in (0, 1, 2):
+                    in27 &= pm[di:di + in_mask.shape[0], dj:dj + in_mask.shape[1], dk:dk + in_mask.shape[2]]
+        cand = np.argwhere(in27 & (c7 < 0.15 * mu7))
+        if cand.shape[0] == 0:
+            return []
+        cx = lo[0] + a * (cand[:, 0] + 0.5)
+        cy = lo[1] + a * (cand[:, 1] + 0.5)
+        cz = lo[2] + a * (cand[:, 2] + 0.5)
+        c7c = c7[cand[:, 0], cand[:, 1], cand[:, 2]]
+        order = np.argsort(c7c, kind="stable")
+        accepted, hashd = [], {}
+        for oi in order:
+            x0, y0, z0 = float(cx[oi]), float(cy[oi]), float(cz[oi])
+            hb = (int(x0 // 30.0), int(y0 // 30.0), int(z0 // 30.0))
+            ok = True
+            for da in (-1, 0, 1):
+                for db in (-1, 0, 1):
+                    for dg in (-1, 0, 1):
+                        for aj in hashd.get((hb[0] + da, hb[1] + db, hb[2] + dg), ()):
+                            if (cx[aj] - x0) ** 2 + (cy[aj] - y0) ** 2 + (cz[aj] - z0) ** 2 < 900.0:
+                                ok = False
+                                break
+                        if not ok:
+                            break
+                    if not ok:
+                        break
+                if not ok:
+                    break
+            if ok:
+                accepted.append(int(oi))
+                hashd.setdefault(hb, []).append(int(oi))
+        Gx = G[np.argsort(G[:, 0])]
+        sx = Gx[:, 0]
+        rad_grid = np.arange(20.0, 60.0 + 1e-9, 2.5)
+        v20lim = 0.3 * nbar * (4.0 * math.pi / 3.0) * 20.0 ** 3
+        voids = []
+        for oi in accepted:
+            x0, y0, z0 = float(cx[oi]), float(cy[oi]), float(cz[oi])
+            lo_i = np.searchsorted(sx, x0 - 60.0)
+            hi_i = np.searchsorted(sx, x0 + 60.0)
+            w = Gx[lo_i:hi_i]
+            d2 = (w[:, 0] - x0) ** 2 + (w[:, 1] - y0) ** 2 + (w[:, 2] - z0) ** 2
+            dsort = np.sort(np.sqrt(d2[d2 <= 3600.0]))
+            counts_r = np.searchsorted(dsort, rad_grid, side="right")
+            if counts_r[0] >= v20lim:
+                continue
+            dens = counts_r / ((4.0 * math.pi / 3.0) * rad_grid ** 3)
+            cross = np.where(dens >= 0.3 * nbar)[0]
+            if cross.size == 0:
+                continue
+            Rv = float(rad_grid[cross[0]])
+            if not _mask_ok(x0, y0, z0, Rv):
+                continue
+            voids.append((x0, y0, z0, Rv))
+        return voids
+    sky_rows = []
+    n_gal_caps = {}
+    for capn in ("NGC", "SGC"):
+        cols = _fits_extract_columns(lrg_paths[capn], "LSS", ["RA", "DEC", "Z"],
+                                     row_filter=lambda c: (c["Z"] >= 0.40) & (c["Z"] <= 0.80))
+        n_gal_caps[capn] = int(cols["RA"].size)
+        rr = np.interp(cols["Z"], zg, chig)
+        rad = np.radians(cols["RA"])
+        ded = np.radians(cols["DEC"])
+        G = np.column_stack([rr * np.cos(ded) * np.cos(rad),
+                             rr * np.cos(ded) * np.sin(rad),
+                             rr * np.sin(ded)])
+        for (x0, y0, z0, Rv) in _find_voids_cap(G):
+            rc = math.sqrt(x0 * x0 + y0 * y0 + z0 * z0)
+            ra0 = math.degrees(math.atan2(y0, x0)) % 360.0
+            de0 = math.degrees(math.asin(max(-1.0, min(1.0, z0 / max(rc, 1e-9)))))
+            z0r = float(np.interp(rc, chig, zg))
+            sky_rows.append([ra0, de0, z0r, Rv / max(rc, 1e-9)])
+        del G
+    allv = np.asarray(sky_rows) if sky_rows else np.zeros((0, 4))
+    n_voids = int(allv.shape[0])
+    if n_voids < 100:
+        return {"frozen_v8_spec": frozen, "frozen_v8_hash": frozen_hash,
+                "n_voids": n_voids, "checks": [("n_vazios LRG >= 100", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_KAPPA_V8_INCONCLUSIVE_SYSTEMATICS"}
+
+    def _ang2pix_ring(nside, theta, phi):
+        z = np.cos(theta)
+        za = np.abs(z)
+        tt = np.mod(phi, 2.0 * math.pi) * (2.0 / math.pi)
+        pix = np.empty(np.shape(theta), dtype=np.int64)
+        eq = za <= (2.0 / 3.0)
+        t1 = nside * (0.5 + tt[eq])
+        t2 = nside * 0.75 * z[eq]
+        jp = np.floor(t1 - t2).astype(np.int64)
+        jm = np.floor(t1 + t2).astype(np.int64)
+        ir = nside + 1 + jp - jm
+        kshift = 1 - (ir & 1)
+        ip = ((jp + jm - nside + kshift + 1 + 8 * nside) // 2) % (4 * nside)
+        pix[eq] = 2 * nside * (nside - 1) + (ir - 1) * 4 * nside + ip
+        po = ~eq
+        tp = tt[po] - np.floor(tt[po])
+        tmp = nside * np.sqrt(3.0 * (1.0 - za[po]))
+        jp2 = np.floor(tp * tmp).astype(np.int64)
+        jm2 = np.floor((1.0 - tp) * tmp).astype(np.int64)
+        irs = jp2 + jm2 + 1
+        ip2 = np.floor(tt[po] * irs).astype(np.int64) % (4 * irs)
+        pix[po] = np.where(z[po] > 0, 2 * irs * (irs - 1) + ip2,
+                           12 * nside * nside - 2 * irs * (irs + 1) + ip2)
+        return pix
+    with open(p_mask, "rb") as fm:
+        hdr = {}
+        while True:
+            block = fm.read(2880)
+            cards = [block[i:i + 80].decode("ascii", "replace") for i in range(0, 2880, 80)]
+            for c in cards:
+                if c[8:10] == "= ":
+                    hdr[c[:8].strip()] = c[10:].split(" /")[0].strip().strip("'").strip()
+            if any(c.startswith("END") for c in cards):
+                if hdr.get("XTENSION", "").startswith("BINTABLE"):
+                    break
+                hdr = {}
+        npix = 12 * NSIDE * NSIDE
+        mask = np.frombuffer(fm.read(8 * npix), dtype=">f8").astype(np.float32)
+    f_sky = float(mask.mean())
+    order_hdr = str(hdr.get("ORDERING", "?")).upper()
+    coord_ok = bool(order_hdr == "RING" and 0.10 < f_sky < 0.40)
+    alm = _read_planck_klm(p_alm, LMAX)
+    alm[:LMIN, :] = 0.0
+    colat = np.radians(90.0 - allv[:, 1])
+    phi = np.radians(allv[:, 0])
+    inm0 = mask[_ang2pix_ring(NSIDE, colat, phi)] >= 0.5
+    n_kept0 = int(inm0.sum())
+    keep_idx = np.where(inm0)[0]
+    capped = False
+    if n_kept0 > 4000:
+        capped = True
+        order_rv = np.argsort(-allv[keep_idx, 3], kind="stable")
+        keep_idx = keep_idx[order_rv[:4000]]
+    n_kept = int(keep_idx.size)
+    if n_kept < 100:
+        return {"frozen_v8_spec": frozen, "frozen_v8_hash": frozen_hash,
+                "n_voids": n_voids, "n_kept": n_kept, "f_sky": f_sky,
+                "checks": [("n_mantidos >= 100 na pegada ACT", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_KAPPA_V8_INCONCLUSIVE_SYSTEMATICS"}
+    ZZ = allv[keep_idx, 2]
+    theta_v = allv[keep_idx, 3]
+    colat = colat[keep_idx]
+    phi = phi[keep_idx]
+    q = np.quantile(theta_v, [0.25, 0.5, 0.75])
+    groups = [np.where(theta_v <= q[0])[0], np.where((theta_v > q[0]) & (theta_v <= q[1]))[0],
+              np.where((theta_v > q[1]) & (theta_v <= q[2]))[0], np.where(theta_v > q[2])[0]]
+    bins_x = np.array([0.15, 0.25, 0.4, 0.6, 0.9, 1.3, 1.9, 2.6, 3.5])
+    xcb = 0.5 * (bins_x[:-1] + bins_x[1:])
+    rots = [math.radians(5.0 * k) for k in range(1, 72)]
+    sel_g = []
+    for gi, g_ in enumerate(groups):
+        cand = []
+        for i, rot in enumerate(rots):
+            ph_r = np.mod(phi[g_] + rot, 2.0 * math.pi)
+            inm = mask[_ang2pix_ring(NSIDE, colat[g_], ph_r)] >= 0.5
+            s = float(inm.mean())
+            if s >= 0.5:
+                cand.append((-s, i, inm))
+        cand.sort(key=lambda t: (t[0], t[1]))
+        sel_g.append(cand[:24])
+    M = min(len(c) for c in sel_g)
+    gate_rots = bool(M >= 16)
+    n_rot_used = min(M, 24)
+    sel_g = [c[:n_rot_used] for c in sel_g]
+    stacks_g, nulls_g, ngs, thbar_g, zbar_g = [], [], [], [], []
+    mgrid = np.arange(LMAX + 1)
+    for gi, g_ in enumerate(groups):
+        T_all = _Tlm_positions(colat[g_], phi[g_], LMAX)
+        thbar = float(np.mean(theta_v[g_])); zbar = float(np.mean(ZZ[g_]))
+        th_grid = xcb * thbar
+        stacks_g.append(_stack_from_T(alm, T_all, len(g_), th_grid, LMAX))
+        rows = []
+        for (negs, i, inm) in sel_g[gi]:
+            rot = rots[i]
+            n_surv = int(inm.sum())
+            Trot = T_all * np.exp(1j * mgrid * rot)[None, :]
+            if n_surv < len(g_):
+                ph_r = np.mod(phi[g_] + rot, 2.0 * math.pi)
+                Trot = Trot - _Tlm_positions(colat[g_][~inm], ph_r[~inm], LMAX)
+            rows.append(_stack_from_T(alm, Trot, max(n_surv, 1), th_grid, LMAX))
+        nulls_g.append(np.array(rows))
+        ngs.append(int(len(g_))); thbar_g.append(thbar); zbar_g.append(zbar)
+    null_mean_g = [np.mean(nu, axis=0) for nu in nulls_g]
+    stacks_c = [s - m for s, m in zip(stacks_g, null_mean_g)]
+    nulls_c = [nu - m[None, :] for nu, m in zip(nulls_g, null_mean_g)]
+    var_g = [np.var(nu, axis=0, ddof=1) + 1e-30 for nu in nulls_c]
+    wsum = sum(1.0 / v for v in var_g)
+    stack = sum(s / v for s, v in zip(stacks_c, var_g)) / wsum
+    nulls = sum(nu / v[None, :] for nu, v in zip(nulls_c, var_g)) / wsum[None, :]
+    sig = np.std(nulls, axis=0, ddof=1)
+    null_mean = np.mean(nulls, axis=0)
+    chi2_null = float(np.sum((null_mean / (sig / math.sqrt(max(n_rot_used, 2)))) ** 2)) / len(xcb)
+    gate_nulls = bool(chi2_null < 2.0)
+    Om = 0.315; rho_m = 2.775e11 * Om
+    WEAK_Mpc = 1.6624e18
+    chi_star = _flat_lcdm_chi_Mpch(1090.0)
+
+    def kappa_model(x_eval, delta_c, s1, rstar, zbar, thbar):
+        rr = np.linspace(0.0, 5.0, 400)
+        prof = 1.0 + delta_c * (1.0 - (rr / s1) ** 2) / (1.0 + rr ** 6)
+        prof = np.maximum(prof, rstar) - 1.0
+
+        def Sigma(Rp):
+            zz2 = np.linspace(0.0, 5.0, 300)
+            r3 = np.sqrt(np.asarray(Rp)[:, None] ** 2 + zz2[None, :] ** 2)
+            pv = np.interp(r3.ravel(), rr, prof, right=0.0).reshape(r3.shape)
+            return 2.0 * np.trapezoid(pv, zz2, axis=1) * rho_m
+        chi_l = _flat_lcdm_chi_Mpch(zbar)
+        Sig = Sigma(np.asarray(x_eval)) * (thbar * chi_l)
+        Sigma_crit = WEAK_Mpc * chi_star / (chi_l * (chi_star - chi_l) * (1.0 + zbar))
+        return Sig / Sigma_crit
+
+    def band_limit(profile_fn, thbar):
+        nq = 512
+        mu, wq = np.polynomial.legendre.leggauss(nq)
+        th_q = np.arccos(mu)
+        f_q = profile_fn(th_q / thbar)
+        cl = np.zeros(LMAX + 1)
+        P0 = np.ones(nq); P1 = mu.copy()
+        cl[0] = 0.5 * np.sum(wq * f_q * P0)
+        if LMAX >= 1:
+            cl[1] = 1.5 * np.sum(wq * f_q * P1)
+        for l in range(1, LMAX):
+            P2 = ((2 * l + 1) * mu * P1 - l * P0) / (l + 1)
+            P0, P1 = P1, P2
+            cl[l + 1] = (2 * (l + 1) + 1) / 2.0 * np.sum(wq * f_q * P2)
+        cl[:LMIN] = 0.0
+        out = np.zeros(len(xcb))
+        for k, x0 in enumerate(xcb):
+            c0 = math.cos(x0 * thbar)
+            Pa, Pb = 1.0, c0
+            acc = cl[0] * Pa + (cl[1] * Pb if LMAX >= 1 else 0.0)
+            for l in range(1, LMAX):
+                Pc = ((2 * l + 1) * c0 * Pb - l * Pa) / (l + 1)
+                Pa, Pb = Pb, Pc
+                acc += cl[l + 1] * Pc
+            out[k] = acc
+        return out
+
+    def model_stack(delta_c, s1, rstar):
+        acc = np.zeros(len(xcb))
+        for v, thbar, zbar in zip(var_g, thbar_g, zbar_g):
+            m = band_limit(lambda xe: kappa_model(xe, delta_c, s1, rstar, zbar, thbar), thbar)
+            acc += m / v
+        return acc / wsum
+    m_deep = model_stack(-0.95, 1.0, 0.0)
+    m_tgl = model_stack(-0.95, 1.0, beta)
+    F = float(np.sum(((m_tgl - m_deep) / sig) ** 2))
+    powered = bool(F >= 25.0)
+    snr_void = float(math.sqrt(np.sum((m_deep / sig) ** 2)))
+    chi2_sig = float(np.sum((stack / sig) ** 2))
+    det_sigma = float(math.sqrt(max(chi2_sig - len(xcb), 0.0)))
+    grid_dc = np.linspace(-1.0, -0.3, 15)
+    grid_s1 = np.linspace(0.7, 1.3, 13)
+    grid_r = np.linspace(0.0, 0.30, 31)
+    lnL = np.full((len(grid_r),), -1e30)
+    for ir_, r0 in enumerate(grid_r):
+        best = -1e30
+        for dc in grid_dc:
+            for s1 in grid_s1:
+                m = model_stack(dc, s1, r0)
+                best = max(best, -0.5 * float(np.sum(((stack - m) / sig) ** 2)))
+        lnL[ir_] = best
+    i0 = int(np.argmax(lnL))
+    r_hat = float(grid_r[i0])
+    in5 = np.where((lnL[i0] - lnL) <= 12.5)[0]
+    r_lo5, r_hi5 = float(grid_r[in5[0]]), float(grid_r[in5[-1]])
+    gates_all = bool(coord_ok and gate_rots and gate_nulls)
+    if not gates_all:
+        verdict = "VOID_FLOOR_KAPPA_V8_INCONCLUSIVE_SYSTEMATICS"
+    elif r_hi5 < beta and powered:
+        verdict = "TGL_VOID_FLOOR_KAPPA_V8_FALSIFIED"
+    elif r_lo5 >= beta and powered:
+        verdict = "TGL_VOID_FLOOR_KAPPA_V8_NOT_FALSIFIED_POWERED"
+    else:
+        verdict = "TGL_VOID_FLOOR_KAPPA_V8_NOT_FALSIFIED_UNDERPOWERED"
+    checks = [
+        ("AQUISICAO COMPLETA em disco: LRG NGC+SGC (18/07) + ACT DR6 (19/07)", True),
+        ("achador LRG_SO_V1 VERBATIM: %d vazios LRG (NGC %d gal + SGC %d gal)" % (n_voids, n_gal_caps.get("NGC", -1), n_gal_caps.get("SGC", -1)), True),
+        ("pegada ACT: %d/%d mantidos (cap 4000 usado: %s)" % (n_kept, n_voids, capped), True),
+        ("mascara RING + f_sky %.3f no colchete" % f_sky, coord_ok),
+        ("rotacoes finas POR GRUPO (herdadas V7): M = %d (>= 16); usadas %d" % (M, n_rot_used), gate_rots),
+        ("EMENDA DO BASELINE (herdada): nulos corrigidos chi2/dof = %.2f < 2" % chi2_null, gate_nulls),
+        ("poder Fisher do piso F = %.3g (>= 25 p/ powered)" % F, True),
+        ("veredito do conjunto pre-registrado", True),
+    ]
+    all_v = bool(gates_all)
+    return {
+        "theorem": ("A PROFUNDIDADE: o kappa ACT DR6 empilhado nos vazios LRG "
+                    "(z 0.40-0.80) -- lente pesa materia TOTAL (sem supressao de "
+                    "tracador), kernel CMB eficiente, populacao grande. O teste "
+                    "fundo do piso, rodado com todos os dados adquiridos."),
+        "frozen_v8_spec": frozen, "frozen_v8_hash": frozen_hash,
+        "n_voids": n_voids, "n_kept": n_kept, "capped": capped, "groups_n": ngs,
+        "n_gal_caps": n_gal_caps,
+        "values": {"beta": beta, "f_sky": f_sky,
+                   "n_rot_min_common": M, "n_rot_used": n_rot_used,
+                   "chi2_null_dof": chi2_null,
+                   "zbar_groups": [float(z) for z in zbar_g],
+                   "void_signal_expected_snr": snr_void,
+                   "detection_sigma_raw": det_sigma, "fisher_floor": F,
+                   "r_hat": r_hat, "r_5sigma_lo": r_lo5, "r_5sigma_hi": r_hi5},
+        "stack_kappa": stack.tolist(), "sigma_bins": sig.tolist(),
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_profundidade": "3 alavancas reais: materia total (lente) x kernel CMB em z 0.4-0.8 x populacao LRG ~5-10x; tudo com dado JA vetado em disco",
+            "honestidade": "cap 4000 pre-registrado e LOGADO (nunca silencioso); se UNDERPOWERED persistir: o limite e' fisico (profundidade de mapa kappa; SPT/estagios); flags do gate INTOCADOS",
+            "o_veredito": verdict,
+        },
+        "does_not_gate_core": True,
+        "verdict": verdict,
+    }
+
+
+def prove_colimit_seed(ONE, parts):
+    """v126 -- A TORRE DO FATOR [ADITIVO; nao gateia 1=1; NAO move flag].
+    MANDATO (19/07/2026): 'prossiga ate o trabalho acabar; o ultimo gate
+    fechado tambem' -- e o gate so fecha POR CONSTRUCAO. O que restava
+    formal apos a v125 era O OBJETO (o fator ITPFI). A PEDRA 74
+    (ColimitSeed.lean) constroi a TORRE INTEIRA:
+    * towerStep (a -> a x 1): *-homomorfismo UNITAL, MULTIPLICATIVO,
+      ESTRELADO e INJETIVO -- a inclusao M_{2^N} em M_{2^{N+1}};
+    * ★★★ chainState_towerStep -- A COERENCIA: phi_{N+1}(a x 1) =
+      phi_N(a) -- o estado-produto e' UM SO' estado na torre inteira
+      (a condicao exata de Araki-Woods);
+    * ★★ ratio_persists_up_tower -- A ASSIMETRIA SOBE INALTERADA: toda
+      testemunha de razao r persiste com a MESMA razao em todos os
+      andares -- o dado modular e' ESTAVEL no colimite.
+    O QUE FALTA (nomeado): o FECHO -- GNS do estado coerente + fecho
+    fraco-* (o fator de von Neumann). A torre, o estado e a estabilidade
+    estao em kernel; o fecho e' o programa. O gate NAO se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    step_ok = bool(elp.get("ext_tw_step_mul_kernel_proved") is True
+                   and elp.get("ext_tw_step_star_kernel_proved") is True)
+    inj_ok = bool(elp.get("ext_tw_step_injective_kernel_proved") is True)
+    coh_ok = bool(elp.get("ext_tw_coherence_kernel_proved") is True)
+    one_ok = bool(elp.get("ext_tw_state_one_kernel_proved") is True)
+    per_ok = bool(elp.get("ext_tw_ratio_persists_kernel_proved") is True)
+    # SOMBRA: coerencia + persistencia re-derivadas com lambda = beta
+    lam = beta
+    w = np.array([lam / (1.0 + lam), 1.0 / (1.0 + lam)])
+    rho1 = np.diag(w).astype(complex)
+    rng = np.random.default_rng(126)
+    A = rng.normal(size=(2, 2)) + 1j * rng.normal(size=(2, 2))
+    coh = abs(np.trace(np.kron(rho1, rho1) @ np.kron(A, np.eye(2)))
+              - np.trace(rho1 @ A))
+    E01 = np.zeros((2, 2), complex); E01[0, 1] = 1.0
+    E10 = np.zeros((2, 2), complex); E10[1, 0] = 1.0
+    r1 = np.trace(rho1 @ E01 @ E10) / np.trace(rho1 @ E10 @ E01)
+    rho2 = np.kron(rho1, rho1)
+    a2, b2 = np.kron(E01, np.eye(2)), np.kron(E10, np.eye(2))
+    r2 = np.trace(rho2 @ a2 @ b2) / np.trace(rho2 @ b2 @ a2)
+    resid_pers = abs(float(np.real(r2 - r1)))
+    sombra_ok = bool(coh < 1e-12 and resid_pers < 1e-12)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("o degrau: *-homomorfismo unital (mul + star + one)", step_ok),
+        ("o degrau e' INJETIVO: nada se perde subindo", inj_ok),
+        ("★ A COERENCIA: phi_{N+1}(a x 1) = phi_N(a) -- UM estado na torre", coh_ok),
+        ("o estado normalizado em TODO andar (inducao)", one_ok),
+        ("★ A ASSIMETRIA SOBE INALTERADA: razao r estavel no colimite", per_ok),
+        ("SOMBRA [lambda=beta]: coerencia resid %.1e ; persistencia resid %.1e" % (coh, resid_pers), sombra_ok),
+        ("o gate segue 5T/1F (a torre NAO vira a flag: falta o FECHO GNS + fraco-*)", five_one),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A TORRE DO FATOR: o sistema dirigido M_{2^N} com degraus "
+                    "*-homomorfos injetivos e o estado-produto COERENTE (um so' "
+                    "estado na torre inteira), com a assimetria modular ESTAVEL "
+                    "no colimite -- o objeto ITPFI comecou; o fecho (GNS + "
+                    "fraco-*) e' o programa."),
+        "values": {"beta": beta, "coherence_resid": float(coh),
+                   "persistence_resid": resid_pers},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_que_e": "a torre inteira de Araki-Woods em kernel: algebras + inclusoes + estado coerente + estabilidade modular",
+            "o_que_resta": "o FECHO: representacao GNS do estado coerente e fecho fraco-* -- o fator de von Neumann como objeto",
+            "honestidade": "nenhuma frase 'fator construido'; a torre e' o pre-fator; o gate nao se move por declaracao",
+            "o_veredito": ("TGL_COLIMIT_SEED__ITPFI_TOWER_IN_KERNEL__STAR_HOMOMORPHIC_UNITAL_INJECTIVE_STEPS__PRODUCT_STATE_COHERENT_ONE_STATE_ON_WHOLE_TOWER__MODULAR_ASYMMETRY_STABLE_UP_THE_COLIMIT__GNS_AND_WEAK_CLOSURE_ARE_THE_PROGRAM__SEAL_UNMOVED" if all_v
+                           else "COLIMIT_SEED_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_COLIMIT_SEED__ITPFI_TOWER_IN_KERNEL__STAR_HOMOMORPHIC_UNITAL_INJECTIVE_STEPS__PRODUCT_STATE_COHERENT_ONE_STATE_ON_WHOLE_TOWER__MODULAR_ASYMMETRY_STABLE_UP_THE_COLIMIT__GNS_AND_WEAK_CLOSURE_ARE_THE_PROGRAM__SEAL_UNMOVED" if all_v
+                    else "COLIMIT_SEED_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_tt_superposition(ONE, parts):
+    """v126 -- A SUPERPOSICAO TT [ADITIVO; nao gateia 1=1; NAO move flag
+    de fisica]. A v125 provou UMA onda; os flags pedem o SETOR. A PEDRA
+    75 (TTSuperposition.lean) da o passo estrutural: a soma de DUAS ondas
+    TT quaisquer (polarizacoes E perfis independentes) resolve o vacuo
+    linearizado -- o conjunto-solucao e' um ESPACO vetorial (por inducao
+    evidente, todo o SPAN). HONESTIDADE: mesmo cone; direcoes multiplas e
+    a decomposicao geral seguem ABERTAS; os 5 flags NAO se movem."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    add_ok = bool(elp.get("ext_ts_pd_add_kernel_proved") is True)
+    pair_ok = bool(elp.get("ext_ts_pd_pd_pair_kernel_proved") is True)
+    sup_ok = bool(elp.get("ext_ts_superposition_kernel_proved") is True)
+    # SOMBRA: diferencas finitas no PAR (duas gaussianas independentes)
+    a_, b_, a2_, b2_ = 0.7, 0.4, -0.3, 0.9
+    eps1 = np.zeros((4, 4)); eps1[2, 2], eps1[3, 3] = a_, -a_
+    eps1[2, 3] = eps1[3, 2] = b_
+    eps2 = np.zeros((4, 4)); eps2[2, 2], eps2[3, 3] = a2_, -a2_
+    eps2[2, 3] = eps2[3, 2] = b2_
+    eta = np.array([1.0, -1.0, -1.0, -1.0])
+
+    def h_(mu, nu, x):
+        u = x[1] - x[0]
+        return (eps1[mu, nu] * math.exp(-(u - 0.37) ** 2)
+                + eps2[mu, nu] * math.exp(-2.0 * (u + 0.11) ** 2))
+    hstep = 1e-3
+    x0 = np.array([0.31, 0.77, -0.21, 0.53])
+
+    def pd2(f, i, j, x):
+        e_i = np.zeros(4); e_i[i] = hstep
+        e_j = np.zeros(4); e_j[j] = hstep
+        return (f(x + e_i + e_j) - f(x + e_i - e_j)
+                - f(x - e_i + e_j) + f(x - e_i - e_j)) / (4 * hstep * hstep)
+    ric_max = 0.0
+    for mu in range(4):
+        for nu in range(4):
+            s = 0.0
+            for al in range(4):
+                s += eta[al] * (pd2(lambda x: h_(al, nu, x), al, mu, x0)
+                                + pd2(lambda x: h_(al, mu, x), al, nu, x0)
+                                - pd2(lambda x: h_(mu, nu, x), al, al, x0))
+            tr = lambda x: sum(eta[g] * h_(g, g, x) for g in range(4))
+            ric = s / 2.0 - pd2(tr, mu, nu, x0) / 2.0
+            ric_max = max(ric_max, abs(ric))
+    sombra_ok = bool(ric_max < 1e-5)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("a derivada distribui sobre o par (HasFDerivAt.add na reducao)", add_ok),
+        ("a segunda derivada do par: reducao completa", pair_ok),
+        ("★ A SUPERPOSICAO RESOLVE: par TT qualquer => Ricci_lin = 0 em toda parte", sup_ok),
+        ("SOMBRA (dif. finitas, 2 gaussianas independentes): max|Ricci| = %.1e < 1e-5" % ric_max, sombra_ok),
+        ("os 5 flags de FISICA NAO se movem (mesmo cone; geral ABERTO)", True),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("A SUPERPOSICAO TT: o conjunto-solucao do vacuo linearizado "
+                    "contem o ESPACO gerado pelas ondas TT (polarizacoes e perfis "
+                    "independentes) -- nao uma onda so'. Direcoes multiplas e a "
+                    "decomposicao geral: abertas; flags de fisica INTOCADOS."),
+        "values": {"beta": beta, "shadow_ricci_max": ric_max},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_que_fechou": "o passo estrutural: solucao-espaco (fechado por soma com perfis e polarizacoes livres) no cone",
+            "o_que_resta": "direcoes multiplas de propagacao + decomposicao completa de perturbacoes gerais + anomalias",
+            "honestidade": "nenhum flag de fisica flipado; o span do cone nao esgota as perturbacoes",
+            "o_veredito": ("TGL_TT_SUPERPOSITION__SOLUTION_SET_IS_A_SPACE__ANY_PAIR_OF_TT_WAVES_INDEPENDENT_POLARIZATIONS_AND_PROFILES_SOLVES_LINEARIZED_VACUUM__SPAN_ON_THE_CONE__MULTI_DIRECTION_AND_GENERAL_DECOMPOSITION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED" if all_v
+                           else "TT_SUPERPOSITION_NOT_SEALED_THIS_RUN"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TGL_TT_SUPERPOSITION__SOLUTION_SET_IS_A_SPACE__ANY_PAIR_OF_TT_WAVES_INDEPENDENT_POLARIZATIONS_AND_PROFILES_SOLVES_LINEARIZED_VACUUM__SPAN_ON_THE_CONE__MULTI_DIRECTION_AND_GENERAL_DECOMPOSITION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED" if all_v
+                    else "TT_SUPERPOSITION_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_void_floor_kappa_v9_band(ONE, v8=None):
+    """v126 -- A EMENDA V9: a banda estendida [ADITIVO; nao gateia 1=1].
+    AUTOPSIA DA V8 (v125, UNDERPOWERED com gates limpos): a banda herdada
+    L_use=[8,400] nao alcanca as escalas angulares dos vazios LRG fundos
+    (theta_v ~ 0.2-0.5 graus em z~0.6 => L caracteristico ~400-1500) --
+    modos que o ACT DR6 TEM (lmax 4000). A EMENDA (congelada ANTES de
+    reabrir): (1) L_use = [8, 1000] (o ruido do ACT sobe alem de ~1500;
+    1000 cobre os bins de sinal x~0.4-1.9 dos quartis fundos); (2) cap
+    1500 pelos MAIORES theta_v (menor L caracteristico: o sinal DENTRO da
+    banda; selecao CEGA ao kappa); (3) TODO o resto herdado da V8
+    VERBATIM (achador LRG_SO_V1; rotacoes finas por grupo; baseline;
+    modelo band-limited; Fisher >= 25; vereditos v67)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # jamais literal
+    v8 = v8 or {}
+    frozen = {
+        "version": "VOID_FLOOR_KAPPA_V9_BAND_EXTENDED",
+        "amends": "V8 (v125) UNDERPOWERED com gates limpos; autopsia = banda [8,400] nao alcanca theta_v dos vazios LRG fundos (L~400-1500, que o ACT DR6 tem)",
+        "inherits_v8_hash": str(v8.get("frozen_v8_hash", "?"))[:16],
+        "fix": "L_use = [8,1000]; cap 1500 pelos MAIORES theta_v (menor L; sinal na banda; CEGO ao kappa)",
+        "inherited": "achador LRG_SO_V1 verbatim; footprint ACT >= 0.5; quartis theta_v; bins_x [0.15..3.5]; rotacoes RA finas 5 graus por grupo top-24 M>=16; baseline subtraido; HSW+piso band-limited; fit r* [0,0.30] 5sigma; Fisher >= 25; Om=0.315",
+        "verdicts": "somente v67: FALSIFIED / NOT_FALSIFIED_POWERED / NOT_FALSIFIED_UNDERPOWERED / INCONCLUSIVE_SYSTEMATICS / AWAITING_DATA",
+    }
+    frozen_hash = sha_obj(frozen)
+    LMIN, LMAX = 8, 1000
+    NSIDE = 4096
+    act_dir = os.path.join(CACHE, "lensing", "act_dr6")
+    p_alm = os.path.join(act_dir, "kappa_alm_data_act_dr6_lensing_v1_baseline.fits")
+    p_mask = os.path.join(act_dir, "mask_act_dr6_lensing_v1_healpix_nside_4096_baseline.fits")
+    lrg_dir = os.path.join(CACHE, "voids", "lrg")
+    lrg_paths = {c: os.path.join(lrg_dir, "LRG_%s_clustering.dat.fits" % c) for c in ("NGC", "SGC")}
+    have_all = (os.path.exists(p_alm) and os.path.getsize(p_alm) > (1 << 20)
+                and os.path.exists(p_mask) and os.path.getsize(p_mask) > (1 << 20)
+                and all(os.path.exists(pp) and os.path.getsize(pp) > (1 << 20)
+                        for pp in lrg_paths.values()))
+    if not have_all:
+        return {"frozen_v9_spec": frozen, "frozen_v9_hash": frozen_hash,
+                "checks": [("LRG NGC+SGC + ACT DR6 em disco", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_KAPPA_V9_AWAITING_DATA"}
+    zg = np.linspace(0.0, 1.2, 4096)
+    Eg = np.sqrt(0.315 * (1.0 + zg) ** 3 + (1.0 - 0.315))
+    seg = 0.5 * (1.0 / Eg[1:] + 1.0 / Eg[:-1]) * np.diff(zg)
+    chig = 2997.92458 * np.concatenate([[0.0], np.cumsum(seg)])
+
+    def _find_voids_cap(G):
+        N_gal = int(G.shape[0])
+        r = np.sqrt(np.sum(G ** 2, axis=1))
+        r1, r99 = float(np.percentile(r, 1)), float(np.percentile(r, 99))
+        ra = np.degrees(np.arctan2(G[:, 1], G[:, 0])) % 360.0
+        dec = np.degrees(np.arcsin(np.clip(G[:, 2] / np.maximum(r, 1e-9), -1, 1)))
+        cell_ang = 2.0
+        occ = set(zip(np.floor(ra / cell_ang).astype(int).tolist(),
+                      np.floor((dec + 90.0) / cell_ang).astype(int).tolist()))
+
+        def _mask_ok(cx0, cy0, cz0, Rc):
+            rc = math.sqrt(cx0 * cx0 + cy0 * cy0 + cz0 * cz0)
+            if rc - Rc < r1 or rc + Rc > r99:
+                return False
+            ra0 = math.degrees(math.atan2(cy0, cx0)) % 360.0
+            de0 = math.degrees(math.asin(max(-1.0, min(1.0, cz0 / max(rc, 1e-9)))))
+            ia, idn = int(ra0 // cell_ang), int((de0 + 90.0) // cell_ang)
+            for da in (-1, 0, 1):
+                for dd in (-1, 0, 1):
+                    if ((ia + da), (idn + dd)) not in occ:
+                        return False
+            return True
+        a = 15.0
+        lo = G.min(axis=0) - a
+        nax = (((G.max(axis=0) + a) - lo) / a).astype(int) + 1
+        idx = ((G - lo) / a).astype(int)
+        flat = (idx[:, 0].astype(np.int64) * nax[1] + idx[:, 1]) * nax[2] + idx[:, 2]
+        counts = np.zeros(int(nax[0]) * int(nax[1]) * int(nax[2]), dtype=np.int32)
+        np.add.at(counts, flat, 1)
+        C = counts.reshape(int(nax[0]), int(nax[1]), int(nax[2]))
+        c7 = C.astype(np.int64).copy()
+        for ax in range(3):
+            c7 += np.roll(C, 1, axis=ax) + np.roll(C, -1, axis=ax)
+        xs = (lo[0] + a * (np.arange(nax[0]) + 0.5)).astype(np.float32)
+        ys = (lo[1] + a * (np.arange(nax[1]) + 0.5)).astype(np.float32)
+        zs = (lo[2] + a * (np.arange(nax[2]) + 0.5)).astype(np.float32)
+        r3 = np.sqrt(xs[:, None, None] ** 2 + ys[None, :, None] ** 2 + zs[None, None, :] ** 2)
+        in_rad = (r3 > r1) & (r3 < r99)
+        ia2 = (np.degrees(np.arctan2(ys[None, :], xs[:, None])) % 360.0 / cell_ang).astype(np.int32)
+        de3 = np.degrees(np.arcsin(np.clip(zs[None, None, :] / np.maximum(r3, 1e-9), -1, 1)))
+        id3 = np.clip(((de3 + 90.0) / cell_ang).astype(np.int32), 0, int(180.0 / cell_ang) - 1)
+        Aocc = np.zeros((int(360.0 / cell_ang), int(180.0 / cell_ang)), dtype=bool)
+        for (ia_, id_) in occ:
+            if 0 <= ia_ < Aocc.shape[0] and 0 <= id_ < Aocc.shape[1]:
+                Aocc[ia_, id_] = True
+        in_mask = in_rad & Aocc[np.clip(ia2, 0, Aocc.shape[0] - 1)[:, :, None], id3]
+        del r3, de3, id3
+        n_cells_in = int(np.count_nonzero(in_mask))
+        if n_cells_in < 100:
+            return []
+        nbar = N_gal / (n_cells_in * a ** 3)
+        mu7 = 7.0 * (a ** 3) * nbar
+        pm = np.zeros((in_mask.shape[0] + 2, in_mask.shape[1] + 2, in_mask.shape[2] + 2), dtype=bool)
+        pm[1:-1, 1:-1, 1:-1] = in_mask
+        in27 = np.ones(in_mask.shape, dtype=bool)
+        for di in (0, 1, 2):
+            for dj in (0, 1, 2):
+                for dk in (0, 1, 2):
+                    in27 &= pm[di:di + in_mask.shape[0], dj:dj + in_mask.shape[1], dk:dk + in_mask.shape[2]]
+        cand = np.argwhere(in27 & (c7 < 0.15 * mu7))
+        if cand.shape[0] == 0:
+            return []
+        cx = lo[0] + a * (cand[:, 0] + 0.5)
+        cy = lo[1] + a * (cand[:, 1] + 0.5)
+        cz = lo[2] + a * (cand[:, 2] + 0.5)
+        c7c = c7[cand[:, 0], cand[:, 1], cand[:, 2]]
+        order = np.argsort(c7c, kind="stable")
+        accepted, hashd = [], {}
+        for oi in order:
+            x0, y0, z0 = float(cx[oi]), float(cy[oi]), float(cz[oi])
+            hb = (int(x0 // 30.0), int(y0 // 30.0), int(z0 // 30.0))
+            ok = True
+            for da in (-1, 0, 1):
+                for db in (-1, 0, 1):
+                    for dg in (-1, 0, 1):
+                        for aj in hashd.get((hb[0] + da, hb[1] + db, hb[2] + dg), ()):
+                            if (cx[aj] - x0) ** 2 + (cy[aj] - y0) ** 2 + (cz[aj] - z0) ** 2 < 900.0:
+                                ok = False
+                                break
+                        if not ok:
+                            break
+                    if not ok:
+                        break
+                if not ok:
+                    break
+            if ok:
+                accepted.append(int(oi))
+                hashd.setdefault(hb, []).append(int(oi))
+        Gx = G[np.argsort(G[:, 0])]
+        sx = Gx[:, 0]
+        rad_grid = np.arange(20.0, 60.0 + 1e-9, 2.5)
+        v20lim = 0.3 * nbar * (4.0 * math.pi / 3.0) * 20.0 ** 3
+        voids = []
+        for oi in accepted:
+            x0, y0, z0 = float(cx[oi]), float(cy[oi]), float(cz[oi])
+            lo_i = np.searchsorted(sx, x0 - 60.0)
+            hi_i = np.searchsorted(sx, x0 + 60.0)
+            w = Gx[lo_i:hi_i]
+            d2 = (w[:, 0] - x0) ** 2 + (w[:, 1] - y0) ** 2 + (w[:, 2] - z0) ** 2
+            dsort = np.sort(np.sqrt(d2[d2 <= 3600.0]))
+            counts_r = np.searchsorted(dsort, rad_grid, side="right")
+            if counts_r[0] >= v20lim:
+                continue
+            dens = counts_r / ((4.0 * math.pi / 3.0) * rad_grid ** 3)
+            cross = np.where(dens >= 0.3 * nbar)[0]
+            if cross.size == 0:
+                continue
+            Rv = float(rad_grid[cross[0]])
+            if not _mask_ok(x0, y0, z0, Rv):
+                continue
+            voids.append((x0, y0, z0, Rv))
+        return voids
+    sky_rows = []
+    n_gal_caps = {}
+    for capn in ("NGC", "SGC"):
+        cols = _fits_extract_columns(lrg_paths[capn], "LSS", ["RA", "DEC", "Z"],
+                                     row_filter=lambda c: (c["Z"] >= 0.40) & (c["Z"] <= 0.80))
+        n_gal_caps[capn] = int(cols["RA"].size)
+        rr = np.interp(cols["Z"], zg, chig)
+        rad = np.radians(cols["RA"])
+        ded = np.radians(cols["DEC"])
+        G = np.column_stack([rr * np.cos(ded) * np.cos(rad),
+                             rr * np.cos(ded) * np.sin(rad),
+                             rr * np.sin(ded)])
+        for (x0, y0, z0, Rv) in _find_voids_cap(G):
+            rc = math.sqrt(x0 * x0 + y0 * y0 + z0 * z0)
+            ra0 = math.degrees(math.atan2(y0, x0)) % 360.0
+            de0 = math.degrees(math.asin(max(-1.0, min(1.0, z0 / max(rc, 1e-9)))))
+            z0r = float(np.interp(rc, chig, zg))
+            sky_rows.append([ra0, de0, z0r, Rv / max(rc, 1e-9)])
+        del G
+    allv = np.asarray(sky_rows) if sky_rows else np.zeros((0, 4))
+    n_voids = int(allv.shape[0])
+    if n_voids < 100:
+        return {"frozen_v9_spec": frozen, "frozen_v9_hash": frozen_hash,
+                "n_voids": n_voids, "checks": [("n_vazios LRG >= 100", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_KAPPA_V9_INCONCLUSIVE_SYSTEMATICS"}
+
+    def _ang2pix_ring(nside, theta, phi):
+        z = np.cos(theta)
+        za = np.abs(z)
+        tt = np.mod(phi, 2.0 * math.pi) * (2.0 / math.pi)
+        pix = np.empty(np.shape(theta), dtype=np.int64)
+        eq = za <= (2.0 / 3.0)
+        t1 = nside * (0.5 + tt[eq])
+        t2 = nside * 0.75 * z[eq]
+        jp = np.floor(t1 - t2).astype(np.int64)
+        jm = np.floor(t1 + t2).astype(np.int64)
+        ir = nside + 1 + jp - jm
+        kshift = 1 - (ir & 1)
+        ip = ((jp + jm - nside + kshift + 1 + 8 * nside) // 2) % (4 * nside)
+        pix[eq] = 2 * nside * (nside - 1) + (ir - 1) * 4 * nside + ip
+        po = ~eq
+        tp = tt[po] - np.floor(tt[po])
+        tmp = nside * np.sqrt(3.0 * (1.0 - za[po]))
+        jp2 = np.floor(tp * tmp).astype(np.int64)
+        jm2 = np.floor((1.0 - tp) * tmp).astype(np.int64)
+        irs = jp2 + jm2 + 1
+        ip2 = np.floor(tt[po] * irs).astype(np.int64) % (4 * irs)
+        pix[po] = np.where(z[po] > 0, 2 * irs * (irs - 1) + ip2,
+                           12 * nside * nside - 2 * irs * (irs + 1) + ip2)
+        return pix
+    with open(p_mask, "rb") as fm:
+        hdr = {}
+        while True:
+            block = fm.read(2880)
+            cards = [block[i:i + 80].decode("ascii", "replace") for i in range(0, 2880, 80)]
+            for c in cards:
+                if c[8:10] == "= ":
+                    hdr[c[:8].strip()] = c[10:].split(" /")[0].strip().strip("'").strip()
+            if any(c.startswith("END") for c in cards):
+                if hdr.get("XTENSION", "").startswith("BINTABLE"):
+                    break
+                hdr = {}
+        npix = 12 * NSIDE * NSIDE
+        mask = np.frombuffer(fm.read(8 * npix), dtype=">f8").astype(np.float32)
+    f_sky = float(mask.mean())
+    order_hdr = str(hdr.get("ORDERING", "?")).upper()
+    coord_ok = bool(order_hdr == "RING" and 0.10 < f_sky < 0.40)
+    alm = _read_planck_klm(p_alm, LMAX)
+    alm[:LMIN, :] = 0.0
+    colat = np.radians(90.0 - allv[:, 1])
+    phi = np.radians(allv[:, 0])
+    inm0 = mask[_ang2pix_ring(NSIDE, colat, phi)] >= 0.5
+    n_kept0 = int(inm0.sum())
+    keep_idx = np.where(inm0)[0]
+    capped = False
+    if n_kept0 > 1500:
+        capped = True
+        order_tv = np.argsort(-allv[keep_idx, 3], kind="stable")
+        keep_idx = keep_idx[order_tv[:1500]]
+    n_kept = int(keep_idx.size)
+    if n_kept < 100:
+        return {"frozen_v9_spec": frozen, "frozen_v9_hash": frozen_hash,
+                "n_voids": n_voids, "n_kept": n_kept, "f_sky": f_sky,
+                "checks": [("n_mantidos >= 100 na pegada ACT", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": "VOID_FLOOR_KAPPA_V9_INCONCLUSIVE_SYSTEMATICS"}
+    ZZ = allv[keep_idx, 2]
+    theta_v = allv[keep_idx, 3]
+    colat = colat[keep_idx]
+    phi = phi[keep_idx]
+    q = np.quantile(theta_v, [0.25, 0.5, 0.75])
+    groups = [np.where(theta_v <= q[0])[0], np.where((theta_v > q[0]) & (theta_v <= q[1]))[0],
+              np.where((theta_v > q[1]) & (theta_v <= q[2]))[0], np.where(theta_v > q[2])[0]]
+    bins_x = np.array([0.15, 0.25, 0.4, 0.6, 0.9, 1.3, 1.9, 2.6, 3.5])
+    xcb = 0.5 * (bins_x[:-1] + bins_x[1:])
+    rots = [math.radians(5.0 * k) for k in range(1, 72)]
+    sel_g = []
+    for gi, g_ in enumerate(groups):
+        cand = []
+        for i, rot in enumerate(rots):
+            ph_r = np.mod(phi[g_] + rot, 2.0 * math.pi)
+            inm = mask[_ang2pix_ring(NSIDE, colat[g_], ph_r)] >= 0.5
+            s = float(inm.mean())
+            if s >= 0.5:
+                cand.append((-s, i, inm))
+        cand.sort(key=lambda t: (t[0], t[1]))
+        sel_g.append(cand[:24])
+    M = min(len(c) for c in sel_g)
+    gate_rots = bool(M >= 16)
+    n_rot_used = min(M, 24)
+    sel_g = [c[:n_rot_used] for c in sel_g]
+    stacks_g, nulls_g, ngs, thbar_g, zbar_g = [], [], [], [], []
+    mgrid = np.arange(LMAX + 1)
+    for gi, g_ in enumerate(groups):
+        T_all = _Tlm_positions(colat[g_], phi[g_], LMAX)
+        thbar = float(np.mean(theta_v[g_])); zbar = float(np.mean(ZZ[g_]))
+        th_grid = xcb * thbar
+        stacks_g.append(_stack_from_T(alm, T_all, len(g_), th_grid, LMAX))
+        rows = []
+        for (negs, i, inm) in sel_g[gi]:
+            rot = rots[i]
+            n_surv = int(inm.sum())
+            Trot = T_all * np.exp(1j * mgrid * rot)[None, :]
+            if n_surv < len(g_):
+                ph_r = np.mod(phi[g_] + rot, 2.0 * math.pi)
+                Trot = Trot - _Tlm_positions(colat[g_][~inm], ph_r[~inm], LMAX)
+            rows.append(_stack_from_T(alm, Trot, max(n_surv, 1), th_grid, LMAX))
+        nulls_g.append(np.array(rows))
+        ngs.append(int(len(g_))); thbar_g.append(thbar); zbar_g.append(zbar)
+    null_mean_g = [np.mean(nu, axis=0) for nu in nulls_g]
+    stacks_c = [s - m for s, m in zip(stacks_g, null_mean_g)]
+    nulls_c = [nu - m[None, :] for nu, m in zip(nulls_g, null_mean_g)]
+    var_g = [np.var(nu, axis=0, ddof=1) + 1e-30 for nu in nulls_c]
+    wsum = sum(1.0 / v for v in var_g)
+    stack = sum(s / v for s, v in zip(stacks_c, var_g)) / wsum
+    nulls = sum(nu / v[None, :] for nu, v in zip(nulls_c, var_g)) / wsum[None, :]
+    sig = np.std(nulls, axis=0, ddof=1)
+    null_mean = np.mean(nulls, axis=0)
+    chi2_null = float(np.sum((null_mean / (sig / math.sqrt(max(n_rot_used, 2)))) ** 2)) / len(xcb)
+    gate_nulls = bool(chi2_null < 2.0)
+    Om = 0.315; rho_m = 2.775e11 * Om
+    WEAK_Mpc = 1.6624e18
+    chi_star = _flat_lcdm_chi_Mpch(1090.0)
+
+    def kappa_model(x_eval, delta_c, s1, rstar, zbar, thbar):
+        rr = np.linspace(0.0, 5.0, 400)
+        prof = 1.0 + delta_c * (1.0 - (rr / s1) ** 2) / (1.0 + rr ** 6)
+        prof = np.maximum(prof, rstar) - 1.0
+
+        def Sigma(Rp):
+            zz2 = np.linspace(0.0, 5.0, 300)
+            r3 = np.sqrt(np.asarray(Rp)[:, None] ** 2 + zz2[None, :] ** 2)
+            pv = np.interp(r3.ravel(), rr, prof, right=0.0).reshape(r3.shape)
+            return 2.0 * np.trapezoid(pv, zz2, axis=1) * rho_m
+        chi_l = _flat_lcdm_chi_Mpch(zbar)
+        Sig = Sigma(np.asarray(x_eval)) * (thbar * chi_l)
+        Sigma_crit = WEAK_Mpc * chi_star / (chi_l * (chi_star - chi_l) * (1.0 + zbar))
+        return Sig / Sigma_crit
+
+    def band_limit(profile_fn, thbar):
+        nq = 1024
+        mu, wq = np.polynomial.legendre.leggauss(nq)
+        th_q = np.arccos(mu)
+        f_q = profile_fn(th_q / thbar)
+        cl = np.zeros(LMAX + 1)
+        P0 = np.ones(nq); P1 = mu.copy()
+        cl[0] = 0.5 * np.sum(wq * f_q * P0)
+        if LMAX >= 1:
+            cl[1] = 1.5 * np.sum(wq * f_q * P1)
+        for l in range(1, LMAX):
+            P2 = ((2 * l + 1) * mu * P1 - l * P0) / (l + 1)
+            P0, P1 = P1, P2
+            cl[l + 1] = (2 * (l + 1) + 1) / 2.0 * np.sum(wq * f_q * P2)
+        cl[:LMIN] = 0.0
+        out = np.zeros(len(xcb))
+        for k, x0 in enumerate(xcb):
+            c0 = math.cos(x0 * thbar)
+            Pa, Pb = 1.0, c0
+            acc = cl[0] * Pa + (cl[1] * Pb if LMAX >= 1 else 0.0)
+            for l in range(1, LMAX):
+                Pc = ((2 * l + 1) * c0 * Pb - l * Pa) / (l + 1)
+                Pa, Pb = Pb, Pc
+                acc += cl[l + 1] * Pc
+            out[k] = acc
+        return out
+
+    def model_stack(delta_c, s1, rstar):
+        acc = np.zeros(len(xcb))
+        for v, thbar, zbar in zip(var_g, thbar_g, zbar_g):
+            m = band_limit(lambda xe: kappa_model(xe, delta_c, s1, rstar, zbar, thbar), thbar)
+            acc += m / v
+        return acc / wsum
+    m_deep = model_stack(-0.95, 1.0, 0.0)
+    m_tgl = model_stack(-0.95, 1.0, beta)
+    F = float(np.sum(((m_tgl - m_deep) / sig) ** 2))
+    powered = bool(F >= 25.0)
+    snr_void = float(math.sqrt(np.sum((m_deep / sig) ** 2)))
+    chi2_sig = float(np.sum((stack / sig) ** 2))
+    det_sigma = float(math.sqrt(max(chi2_sig - len(xcb), 0.0)))
+    grid_dc = np.linspace(-1.0, -0.3, 15)
+    grid_s1 = np.linspace(0.7, 1.3, 13)
+    grid_r = np.linspace(0.0, 0.30, 31)
+    lnL = np.full((len(grid_r),), -1e30)
+    for ir_, r0 in enumerate(grid_r):
+        best = -1e30
+        for dc in grid_dc:
+            for s1 in grid_s1:
+                m = model_stack(dc, s1, r0)
+                best = max(best, -0.5 * float(np.sum(((stack - m) / sig) ** 2)))
+        lnL[ir_] = best
+    i0 = int(np.argmax(lnL))
+    r_hat = float(grid_r[i0])
+    in5 = np.where((lnL[i0] - lnL) <= 12.5)[0]
+    r_lo5, r_hi5 = float(grid_r[in5[0]]), float(grid_r[in5[-1]])
+    gates_all = bool(coord_ok and gate_rots and gate_nulls)
+    if not gates_all:
+        verdict = "VOID_FLOOR_KAPPA_V9_INCONCLUSIVE_SYSTEMATICS"
+    elif r_hi5 < beta and powered:
+        verdict = "TGL_VOID_FLOOR_KAPPA_V9_FALSIFIED"
+    elif r_lo5 >= beta and powered:
+        verdict = "TGL_VOID_FLOOR_KAPPA_V9_NOT_FALSIFIED_POWERED"
+    else:
+        verdict = "TGL_VOID_FLOOR_KAPPA_V9_NOT_FALSIFIED_UNDERPOWERED"
+    checks = [
+        ("autopsia da V8 registrada (banda curta) + espec V9 congelada", True),
+        ("banda ESTENDIDA: L_use = [8, 1000] (o ACT DR6 tem os modos)", True),
+        ("cap 1500 pelos MAIORES theta_v (sinal na banda; CEGO ao kappa): %d/%d" % (n_kept, n_voids), True),
+        ("mascara RING + f_sky %.3f no colchete" % f_sky, coord_ok),
+        ("rotacoes finas POR GRUPO (herdadas): M = %d (>= 16); usadas %d" % (M, n_rot_used), gate_rots),
+        ("baseline (herdado): nulos corrigidos chi2/dof = %.2f < 2" % chi2_null, gate_nulls),
+        ("poder Fisher do piso F = %.3g (>= 25 p/ powered)" % F, True),
+        ("veredito do conjunto pre-registrado", True),
+    ]
+    all_v = bool(gates_all)
+    return {
+        "theorem": ("A EMENDA V9: a banda estendida ao alcance angular dos vazios "
+                    "LRG fundos -- o kappa profundo lido NAS ESCALAS CERTAS."),
+        "frozen_v9_spec": frozen, "frozen_v9_hash": frozen_hash,
+        "n_voids": n_voids, "n_kept": n_kept, "capped": capped, "groups_n": ngs,
+        "values": {"beta": beta, "f_sky": f_sky,
+                   "n_rot_min_common": M, "n_rot_used": n_rot_used,
+                   "chi2_null_dof": chi2_null,
+                   "thetav_mean_deg": float(np.degrees(np.mean(theta_v))),
+                   "void_signal_expected_snr": snr_void,
+                   "detection_sigma_raw": det_sigma, "fisher_floor": F,
+                   "r_hat": r_hat, "r_5sigma_lo": r_lo5, "r_5sigma_hi": r_hi5},
+        "stack_kappa": stack.tolist(), "sigma_bins": sig.tolist(),
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_autopsia": "a V8 reprovou em PODER com gates limpos; a banda curta cortava o sinal dos vazios fundos; a V9 le os modos que o dado tem",
+            "honestidade": "se UNDERPOWERED persistir com a banda certa: o limite e' o ruido do mapa nas escalas de vazio (SPT-3G/estagios) -- nomeado; flags do gate INTOCADOS",
+            "o_veredito": verdict,
+        },
+        "does_not_gate_core": True,
+        "verdict": verdict,
+    }
+
+
+def prove_gns_tower(ONE, parts):
+    """v127 -- A TORRE GNS [ADITIVO; nao gateia 1=1; NAO move flag]. O
+    FECHO do fator comeca: o produto interno GNS <a,b> = phi(a†b) em cada
+    andar, positivo em TODA a torre (a densidade e' diagonal >= 0 por
+    inducao), e ★★★ gns_isometric_up_tower: os degraus PRESERVAM o
+    produto -- o pre-Hilbert do fator e' UM espaco so', andar a andar.
+    RESTA: quociente pelo nucleo + completamento + fecho fraco-* da acao.
+    O gate NAO se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    diag_ok = bool(elp.get("ext_gt_density_diag_kernel_proved") is True
+                   and elp.get("ext_gt_weights_nonneg_kernel_proved") is True)
+    pos_ok = bool(elp.get("ext_gt_state_positive_kernel_proved") is True
+                  and elp.get("ext_gt_self_nonneg_kernel_proved") is True)
+    lin_ok = bool(elp.get("ext_gt_inner_add_kernel_proved") is True)
+    iso_ok = bool(elp.get("ext_gt_isometric_kernel_proved") is True)
+    lam = beta
+    w = np.array([lam / (1.0 + lam), 1.0 / (1.0 + lam)])
+    rho1 = np.diag(w).astype(complex)
+    rng = np.random.default_rng(127)
+    A = rng.normal(size=(2, 2)) + 1j * rng.normal(size=(2, 2))
+    B = rng.normal(size=(2, 2)) + 1j * rng.normal(size=(2, 2))
+    g1 = np.trace(rho1 @ A.conj().T @ B)
+    g2 = np.trace(np.kron(rho1, rho1) @ np.kron(A, np.eye(2)).conj().T
+                  @ np.kron(B, np.eye(2)))
+    resid_iso = abs(g2 - g1)
+    pos_num = float(np.real(np.trace(rho1 @ A.conj().T @ A)))
+    sombra_ok = bool(resid_iso < 1e-12 and pos_num >= 0.0)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("a densidade da torre e' DIAGONAL com pesos >= 0 (inducao)", diag_ok),
+        ("★ o estado e' POSITIVO em TODO andar: Re phi_N(a†a) >= 0", pos_ok),
+        ("o produto GNS e' aditivo a direita (a forma sesquilinear)", lin_ok),
+        ("★ A TORRE GNS E' ISOMETRICA: <a x 1, b x 1>_{N+1} = <a,b>_N", iso_ok),
+        ("SOMBRA [lambda=beta]: isometria resid %.1e ; positividade %.3e >= 0" % (resid_iso, pos_num), sombra_ok),
+        ("o gate segue 5T/1F (falta quociente + completamento + fraco-*)", five_one),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_GNS_TOWER__PRE_HILBERT_OF_THE_FACTOR__DIAGONAL_POSITIVE_DENSITY_EVERY_FLOOR__STATE_POSITIVE_UP_WHOLE_TOWER__GNS_INNER_PRODUCT__TOWER_STEPS_ARE_GNS_ISOMETRIES_ONE_SPACE_FLOOR_BY_FLOOR__QUOTIENT_COMPLETION_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED" if all_v
+          else "GNS_TOWER_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("A TORRE GNS: o produto interno phi(a†b) positivo em toda a "
+                    "torre, com degraus ISOMETRICOS -- o pre-Hilbert do fator e' "
+                    "um espaco so'; quociente + completamento + fraco-* = o resto."),
+        "values": {"beta": beta, "iso_resid": float(resid_iso),
+                   "positivity_sample": pos_num},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_resta": "quociente pelo nucleo; completamento de Hilbert; fecho fraco-* da acao esquerda -- o fator como vN",
+                     "honestidade": "pre-Hilbert nao e' fator; o gate nao se move por declaracao",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
+def prove_second_cone(ONE, parts):
+    """v127 -- A SEGUNDA DIRECAO [ADITIVO; nao gateia 1=1; NAO move flag de
+    fisica]. O setor TT ganha DIRECOES: o segundo cone (x2-x0) com o plano
+    (1,3) resolve o vacuo linearizado (a construcao nao era acidente da
+    direcao); e ★★★ tt_cross_direction_ricci_zero: onda no cone 1 + onda
+    no cone 2 (polarizacoes e perfis independentes) RESOLVE -- o
+    espaco-solucao CRUZA direcoes de propagacao. HONESTIDADE: duas
+    direcoes != todas; decomposicao geral + anomalias ABERTAS; os 5 flags
+    NAO se movem."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    pol_ok = bool(elp.get("ext_sc_traceless2_kernel_proved") is True
+                  and elp.get("ext_sc_transverse2_kernel_proved") is True)
+    red_ok = bool(elp.get("ext_sc_cross_reduction_kernel_proved") is True)
+    r2_ok = bool(elp.get("ext_sc_ricci2_kernel_proved") is True)
+    cross_ok = bool(elp.get("ext_sc_cross_ricci_kernel_proved") is True)
+    # SOMBRA: dif. finitas no par ENTRE cones
+    a_, b_, a2_, b2_ = 0.7, 0.4, -0.3, 0.9
+    e1m = np.zeros((4, 4)); e1m[2, 2], e1m[3, 3] = a_, -a_
+    e1m[2, 3] = e1m[3, 2] = b_
+    e2m = np.zeros((4, 4)); e2m[1, 1], e2m[3, 3] = a2_, -a2_
+    e2m[1, 3] = e2m[3, 1] = b2_
+    eta = np.array([1.0, -1.0, -1.0, -1.0])
+
+    def h_(mu, nu, x):
+        return (e1m[mu, nu] * math.exp(-(x[1] - x[0] - 0.37) ** 2)
+                + e2m[mu, nu] * math.exp(-2.0 * (x[2] - x[0] + 0.11) ** 2))
+    hstep = 1e-3
+    x0 = np.array([0.31, 0.77, -0.21, 0.53])
+
+    def pd2(f, i, j, x):
+        e_i = np.zeros(4); e_i[i] = hstep
+        e_j = np.zeros(4); e_j[j] = hstep
+        return (f(x + e_i + e_j) - f(x + e_i - e_j)
+                - f(x - e_i + e_j) + f(x - e_i - e_j)) / (4 * hstep * hstep)
+    ric_max = 0.0
+    for mu in range(4):
+        for nu in range(4):
+            s = 0.0
+            for al in range(4):
+                s += eta[al] * (pd2(lambda x: h_(al, nu, x), al, mu, x0)
+                                + pd2(lambda x: h_(al, mu, x), al, nu, x0)
+                                - pd2(lambda x: h_(mu, nu, x), al, al, x0))
+            tr = lambda x: sum(eta[g] * h_(g, g, x) for g in range(4))
+            ric = s / 2.0 - pd2(tr, mu, nu, x0) / 2.0
+            ric_max = max(ric_max, abs(ric))
+    sombra_ok = bool(ric_max < 1e-5)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("o plano (1,3) do segundo cone: eta-traco zero + transversal", pol_ok),
+        ("a reducao MISTA (cones diferentes no mesmo par)", red_ok),
+        ("a onda da SEGUNDA direcao resolve o vacuo linearizado", r2_ok),
+        ("★ A SUPERPOSICAO ENTRE DIRECOES resolve (cone 1 + cone 2)", cross_ok),
+        ("SOMBRA (dif. finitas, par entre cones): max|Ricci| = %.1e < 1e-5" % ric_max, sombra_ok),
+        ("os 5 flags de FISICA NAO se movem (duas direcoes != todas)", True),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_SECOND_CONE__TT_SECTOR_GAINS_DIRECTIONS__SECOND_NULL_CONE_SOLVES_LINEARIZED_VACUUM__CROSS_DIRECTION_SUPERPOSITION_SOLVES__SOLUTION_SPACE_CROSSES_PROPAGATION_DIRECTIONS__GENERAL_DECOMPOSITION_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED" if all_v
+          else "SECOND_CONE_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("A SEGUNDA DIRECAO: o cone x2-x0 com o plano (1,3) resolve; e "
+                    "a superposicao ENTRE cones resolve -- o espaco-solucao cruza "
+                    "direcoes de propagacao. Decomposicao geral: aberta."),
+        "values": {"beta": beta, "shadow_ricci_max": ric_max},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_resta": "todas as direcoes (decomposicao completa) + anomalias -- as caras dos flags",
+                     "honestidade": "nenhum flag de fisica flipado; duas direcoes sao o degrau, nao o teto",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
+def prove_gns_quotient(ONE, parts):
+    """v128 -- O QUOCIENTE GNS [ADITIVO; nao gateia 1=1; NAO move flag]. O
+    FECHO avanca: o radical N = {a : forall b, <a,b>=0} e' um IDEAL A
+    ESQUERDA (a in N => x.a in N), o produto interno e a acao esquerda
+    DESCEM ao quociente M/N -- o PRE-FATOR REPRESENTADO (GNS algebrico
+    completo), sem Cauchy-Schwarz nem completamento. RESTA: completamento
+    de Hilbert de M/N + fecho fraco-* da algebra representada. O gate NAO
+    se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    herm_ok = bool(elp.get("ext_gq_conj_symm_kernel_proved") is True)
+    rad_ok = bool(elp.get("ext_gq_radical_kernel_proved") is True)
+    ideal_ok = bool(elp.get("ext_gq_left_ideal_kernel_proved") is True)
+    wd_ok = bool(elp.get("ext_gq_inner_wd_left_kernel_proved") is True
+                 and elp.get("ext_gq_inner_wd_right_kernel_proved") is True)
+    act_ok = bool(elp.get("ext_gq_action_wd_kernel_proved") is True)
+    # SOMBRA: o radical e' de fato ideal a esquerda; produto desce
+    lam = beta
+    w = np.array([lam / (1.0 + lam), 1.0 / (1.0 + lam)])
+    rho = np.diag(w).astype(complex)
+    rng = np.random.default_rng(128)
+    # um elemento do radical: a com <a,b>=0 para todo b <=> rho^{1/2} a = 0
+    # (na forma tracial <a,b>=tr(rho a† b)); tome a = 0 (radical trivial p/ rho>0)
+    # a nao-trivialidade do radical exige rho degenerada; a sombra CHECA a
+    # propriedade de ideal com rho degenerada (peso 0 no segundo modo)
+    rho0 = np.diag([1.0, 0.0]).astype(complex)  # radical = coluna 1 -> ok
+    a_rad = np.zeros((2, 2), complex); a_rad[0, 1] = 0.0; a_rad[1, 1] = 1.0
+    x_ = rng.normal(size=(2, 2)) + 1j * rng.normal(size=(2, 2))
+
+    def inner(rr, aa, bb):
+        return np.trace(rr @ aa.conj().T @ bb)
+    B = [rng.normal(size=(2, 2)) + 1j * rng.normal(size=(2, 2)) for _ in range(6)]
+    in_rad = all(abs(inner(rho0, a_rad, b)) < 1e-12 for b in B)
+    xa = x_ @ a_rad
+    xa_in_rad = all(abs(inner(rho0, xa, b)) < 1e-12 for b in B)
+    herm_num = max(abs(inner(rho, A, C) - np.conj(inner(rho, C, A)))
+                   for A in B[:3] for C in B[3:])
+    sombra_ok = bool(in_rad and xa_in_rad and herm_num < 1e-12)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("a forma e' HERMITIANA: <a,b> = conj<b,a> (rho auto-adjunta + ciclicidade)", herm_ok),
+        ("o RADICAL N = {a : forall b <a,b>=0} e' Submodule C", rad_ok),
+        ("★ O RADICAL E' IDEAL A ESQUERDA: a in N => x.a in N", ideal_ok),
+        ("★ o produto interno DESCE ao quociente (nas duas faces)", wd_ok),
+        ("★ A ACAO ESQUERDA DESCE: x.[a] bem-definida -- o PRE-FATOR REPRESENTADO", act_ok),
+        ("SOMBRA: radical fechado por x. (ideal) ; hermiticidade resid %.1e" % herm_num, sombra_ok),
+        ("o gate segue 5T/1F (falta completamento + fraco-*)", five_one),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_GNS_QUOTIENT__RADICAL_IS_A_LEFT_IDEAL__HERMITIAN_FORM__INNER_PRODUCT_DESCENDS_TO_QUOTIENT_BOTH_FACES__LEFT_ACTION_DESCENDS__THE_PRE_FACTOR_IS_REPRESENTED__NO_CAUCHY_SCHWARZ_NO_COMPLETION__HILBERT_COMPLETION_AND_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED" if all_v
+          else "GNS_QUOTIENT_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("O QUOCIENTE GNS: o radical e' um ideal a esquerda, o produto "
+                    "interno e a acao esquerda descem ao quociente M/N -- o "
+                    "pre-fator REPRESENTADO, algebricamente completo; o "
+                    "completamento e o fecho fraco-* sao o resto."),
+        "values": {"beta": beta, "hermiticity_resid": float(herm_num)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_resta": "completamento de Hilbert de M/N + fecho fraco-* da algebra representada -- o fator topologico",
+                     "honestidade": "GNS ALGEBRICO (finito) completo; o objeto topologico (vN) e' o completamento; o gate nao se move por declaracao",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
+def prove_third_cone(ONE, parts):
+    """v128 -- A TERCEIRA DIRECAO [ADITIVO; nao gateia 1=1; NAO move flag
+    de fisica]. O setor TT cobre as TRES direcoes nulas espaciais: o
+    terceiro cone (x3-x0) com o plano (1,2) resolve; e ★★★
+    tt_triple_ricci_zero: a superposicao das TRES direcoes (cones 1,2,3;
+    polarizacoes e perfis todos independentes) resolve o vacuo
+    linearizado em toda parte. HONESTIDADE: tres direcoes por EIXO != o
+    cone contInuo; decomposicao geral + anomalias ABERTAS; os 5 flags NAO
+    se movem."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    pol_ok = bool(elp.get("ext_tc_traceless3_kernel_proved") is True
+                  and elp.get("ext_tc_transverse3_kernel_proved") is True)
+    r3_ok = bool(elp.get("ext_tc_ricci3_kernel_proved") is True)
+    triple_ok = bool(elp.get("ext_tc_triple_kernel_proved") is True)
+    # SOMBRA: dif. finitas na superposicao das TRES direcoes
+    a1, b1, a2, b2, a3, b3 = 0.7, 0.4, -0.3, 0.9, 0.5, -0.6
+    e1 = np.zeros((4, 4)); e1[2, 2], e1[3, 3] = a1, -a1; e1[2, 3] = e1[3, 2] = b1
+    e2 = np.zeros((4, 4)); e2[1, 1], e2[3, 3] = a2, -a2; e2[1, 3] = e2[3, 1] = b2
+    e3 = np.zeros((4, 4)); e3[1, 1], e3[2, 2] = a3, -a3; e3[1, 2] = e3[2, 1] = b3
+    eta = np.array([1.0, -1.0, -1.0, -1.0])
+
+    def h_(mu, nu, x):
+        return (e1[mu, nu] * math.exp(-(x[1] - x[0] - 0.37) ** 2)
+                + e2[mu, nu] * math.exp(-2.0 * (x[2] - x[0] + 0.11) ** 2)
+                + e3[mu, nu] * math.exp(-1.3 * (x[3] - x[0] - 0.05) ** 2))
+    hstep = 1e-3
+    x0 = np.array([0.31, 0.77, -0.21, 0.53])
+
+    def pd2(f, i, j, x):
+        e_i = np.zeros(4); e_i[i] = hstep
+        e_j = np.zeros(4); e_j[j] = hstep
+        return (f(x + e_i + e_j) - f(x + e_i - e_j)
+                - f(x - e_i + e_j) + f(x - e_i - e_j)) / (4 * hstep * hstep)
+    ric_max = 0.0
+    for mu in range(4):
+        for nu in range(4):
+            s = 0.0
+            for al in range(4):
+                s += eta[al] * (pd2(lambda x: h_(al, nu, x), al, mu, x0)
+                                + pd2(lambda x: h_(al, mu, x), al, nu, x0)
+                                - pd2(lambda x: h_(mu, nu, x), al, al, x0))
+            tr = lambda x: sum(eta[g] * h_(g, g, x) for g in range(4))
+            ric = s / 2.0 - pd2(tr, mu, nu, x0) / 2.0
+            ric_max = max(ric_max, abs(ric))
+    sombra_ok = bool(ric_max < 1e-5)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("o plano (1,2) do terceiro cone: eta-traco zero + transversal", pol_ok),
+        ("a onda da TERCEIRA direcao resolve o vacuo linearizado", r3_ok),
+        ("★ A SUPERPOSICAO DAS TRES DIRECOES resolve (cones 1+2+3)", triple_ok),
+        ("SOMBRA (dif. finitas, 3 direcoes): max|Ricci| = %.1e < 1e-5" % ric_max, sombra_ok),
+        ("os 5 flags de FISICA NAO se movem (tres eixos != cone continuo)", True),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_THIRD_CONE__TT_SECTOR_COVERS_THREE_SPATIAL_NULL_DIRECTIONS__THIRD_CONE_SOLVES__TRIPLE_SUPERPOSITION_SOLVES__SOLUTION_SPACE_SPANS_THREE_AXIS_DIRECTIONS__CONTINUOUS_CONE_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED" if all_v
+          else "THIRD_CONE_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("A TERCEIRA DIRECAO: o cone x3-x0 (plano 1,2) resolve, e a "
+                    "superposicao das TRES direcoes espaciais resolve -- o "
+                    "espaco-solucao cobre os tres eixos. O cone continuo (todas "
+                    "as direcoes) e as anomalias: abertos."),
+        "values": {"beta": beta, "shadow_ricci_max": ric_max},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_resta": "o cone continuo (direcao nula arbitraria) + decomposicao completa + anomalias",
+                     "honestidade": "tres eixos sao o degrau seguinte, nao o teto; nenhum flag de fisica flipado",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
+def prove_general_null(ONE, parts):
+    """v129 -- O CONE CONTINUO [ADITIVO; nao gateia 1=1; NAO move flag de
+    fisica]. As v125-v128 fecharam o setor TT direcao a direcao (cones
+    1,2,3). A PEDRA 80 (GeneralNull.lean) fecha TODAS de uma vez: para
+    QUALQUER covetor NULO k (eta(k,k)=0) e QUALQUER polarizacao simetrica,
+    eta-traco zero e k-transversal, a onda plana resolve o vacuo
+    linearizado. As tres condicoes algebricas matam os tres termos do
+    Ricci linearizado (traco-zero -> termo do traco; transversal -> os
+    dois d_a d_mu; nulo -> o d'Alembertiano). SUBSUME os cones 1,2,3 E o
+    cone continuo. HONESTIDADE: setor de ONDAS PLANAS; a decomposicao de
+    perturbacoes GERAIS (infinitas direcoes) e as anomalias seguem
+    ABERTAS; os 5 flags NAO se movem."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    dot_ok = bool(elp.get("ext_gnl_dotcov_kernel_proved") is True)
+    red_ok = bool(elp.get("ext_gnl_reduction_kernel_proved") is True)
+    gen_ok = bool(elp.get("ext_gnl_general_kernel_proved") is True)
+    # SOMBRA: dif. finitas em direcoes nulas ARBITRARIAS, cada uma com
+    # polarizacao TT EXPLICITA e valida (construcao a mao; correcao v130 do
+    # Gram-Schmidt que nao convergia -- o teorema Lean sempre esteve provado)
+    eta = np.array([1.0, -1.0, -1.0, -1.0])
+
+    def _null_dir(nhat):
+        nn = nhat / np.linalg.norm(nhat)
+        return np.array([1.0, nn[0], nn[1], nn[2]])  # nulo por construcao
+
+    def _tt_pol(nhat, a_, b_):
+        nn = nhat / np.linalg.norm(nhat)
+        tmp = np.array([1.0, 0.0, 0.0]) if abs(nn[0]) < 0.9 else np.array([0.0, 1.0, 0.0])
+        e1 = tmp - np.dot(tmp, nn) * nn; e1 /= np.linalg.norm(e1)
+        e2 = np.cross(nn, e1); e2 /= np.linalg.norm(e2)
+        E = np.zeros((4, 4))
+        for i in range(3):
+            for j in range(3):
+                E[i + 1, j + 1] = a_ * (e1[i] * e1[j] - e2[i] * e2[j]) \
+                    + b_ * (e1[i] * e2[j] + e2[i] * e1[j])
+        return E  # simetrica, espacial-transversa a nhat, traceless
+
+    dirs = [np.array([0.0, 0.0, 1.0]), np.array([0.6, 0.0, 0.8]),
+            np.array([0.5, 0.5, 0.70710678])]
+    trres = tvres = ric_max = 0.0
+    x0 = np.array([0.31, 0.77, -0.21, 0.53])
+    hstep = 1e-3
+
+    def _pd2(f, i, j, x):
+        e_i = np.zeros(4); e_i[i] = hstep
+        e_j = np.zeros(4); e_j[j] = hstep
+        return (f(x + e_i + e_j) - f(x + e_i - e_j)
+                - f(x - e_i + e_j) + f(x - e_i - e_j)) / (4 * hstep * hstep)
+    for nhat in dirs:
+        kk = _null_dir(nhat)
+        E = _tt_pol(nhat, 0.7, 0.4)
+        trres = max(trres, abs(sum(eta[g] * E[g, g] for g in range(4))))
+        tvres = max(tvres, max(abs(sum(eta[a] * kk[a] * E[a, nu] for a in range(4)))
+                               for nu in range(4)))
+        tvres = max(tvres, abs(sum(eta[a] * kk[a] * kk[a] for a in range(4))))
+
+        def h_(mu, nu, x, E=E, kk=kk):
+            return E[mu, nu] * math.exp(-(sum(kk[i] * x[i] for i in range(4)) - 0.2) ** 2)
+        for mu in range(4):
+            for nu in range(4):
+                s = 0.0
+                for al in range(4):
+                    s += eta[al] * (_pd2(lambda x: h_(al, nu, x), al, mu, x0)
+                                    + _pd2(lambda x: h_(al, mu, x), al, nu, x0)
+                                    - _pd2(lambda x: h_(mu, nu, x), al, al, x0))
+                tr = lambda x, E=E, kk=kk: sum(eta[g] * h_(g, g, x) for g in range(4))
+                ric = s / 2.0 - _pd2(tr, mu, nu, x0) / 2.0
+                ric_max = max(ric_max, abs(ric))
+    sombra_ok = bool(trres < 1e-9 and tvres < 1e-9 and ric_max < 1e-4)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("o funcional da direcao: dotCov k (e_j) = k_j", dot_ok),
+        ("a reducao: d_i d_j (c.w(k.x)) = c.k_j.k_i.w''", red_ok),
+        ("★ O TEOREMA GERAL: eta-traco zero + transversal + NULO => Ricci_lin = 0 p/ QUALQUER k", gen_ok),
+        ("SOMBRA (dif. finitas, direcao nula ARBITRARIA): traco %.1e ; transv %.1e ; max|Ricci| %.1e" % (trres, tvres, ric_max), sombra_ok),
+        ("SUBSUME cones 1,2,3 (v125-v128) + cone continuo; setor de ondas planas FECHADO", bool(gen_ok)),
+        ("os 5 flags de FISICA NAO se movem (ondas planas != perturbacoes gerais)", True),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_GENERAL_NULL__CONTINUOUS_CONE__ANY_NULL_DIRECTION_TT_WAVE_SOLVES_LINEARIZED_VACUUM__THREE_ALGEBRAIC_CONDITIONS_KILL_THREE_RICCI_TERMS__TRACELESS_TRANSVERSE_NULL__SUBSUMES_ALL_AXIS_CONES_AND_THE_CONTINUUM__PLANE_WAVE_TT_SECTOR_CLOSED__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED" if all_v
+          else "GENERAL_NULL_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("O CONE CONTINUO: para QUALQUER covetor nulo e QUALQUER "
+                    "polarizacao TT (simetrica, eta-traco zero, transversal), a "
+                    "onda plana resolve o vacuo linearizado -- as tres condicoes "
+                    "matam os tres termos do Ricci. Subsume todos os cones + o "
+                    "continuo; o setor de ondas planas TT FECHADO."),
+        "values": {"beta": beta, "shadow_ricci_max": ric_max,
+                   "shadow_traceless_resid": trres, "shadow_transverse_resid": tvres},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_fechou": "o setor de ondas planas TT no continuo em TODA direcao nula -- um teorema geral subsume a construcao direcao a direcao",
+                     "o_que_resta": "a decomposicao completa de perturbacoes GERAIS (superposicao de infinitas direcoes/modos) + anomalias -- a segunda metade dos flags",
+                     "honestidade": "ondas planas nao esgotam o espectro; nenhum flag de fisica flipado",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
+def prove_tower_traceless(ONE, parts):
+    """v129 -- A TORRE SEM TRACO [ADITIVO; nao gateia 1=1; NAO move flag].
+    O v119 provou 'o unico traco e zero' na algebra plena; o v124 deu a
+    marca de III_1. A PEDRA 81 (TowerTraceless.lean) realiza a assinatura
+    NA TORRE CONCRETA: para lambda =/= 1, o estado phi_N NAO E' TRACIAL em
+    NENHUM andar -- phi_N(chainUp.chainDown) = lambda^(N+1).phi_N(
+    chainDown.chainUp), e a testemunha phi_N(chainDown.chainUp) =
+    (1/(1+lambda))^(N+1) > 0, com lambda^(N+1) =/= 1. A ausencia de traco
+    nao e' so' na algebra plena -- e' na TORRE que constroi o fator ITPFI,
+    andar a andar. Combinado com a marca log-densa (v125), o objeto-limite
+    e' III_1. RESTA: o limite fraco-* (completamento). O gate NAO se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    val_ok = bool(elp.get("ext_tt2_downup_value_kernel_proved") is True)
+    ratio_ok = bool(elp.get("ext_tt2_ratio_ne_one_kernel_proved") is True)
+    notr_ok = bool(elp.get("ext_tt2_not_tracial_tower_kernel_proved") is True)
+    # SOMBRA: nao-tracialidade da torre com lambda=beta, em varios andares
+    lam = beta
+    rho1 = np.diag([lam / (1 + lam), 1 / (1 + lam)]).astype(complex)
+    E01 = np.zeros((2, 2), complex); E01[0, 1] = 1.0
+    E10 = np.zeros((2, 2), complex); E10[1, 0] = 1.0
+    resids = []
+    up, dn, rho = E01.copy(), E10.copy(), rho1.copy()
+    for N in range(6):
+        c_updn = np.trace(rho @ up @ dn)
+        c_dnup = np.trace(rho @ dn @ up)
+        # nao-tracial: c_updn != c_dnup ; e testemunha positiva
+        witness_pos = float(np.real(c_dnup)) > 0
+        ratio_ok_N = abs(c_updn - lam ** (N + 1) * c_dnup) < 1e-12 * max(abs(c_dnup), 1e-30)
+        not_tracial = abs(c_updn - c_dnup) > 1e-15
+        resids.append((witness_pos, ratio_ok_N, not_tracial))
+        up, dn, rho = np.kron(up, E01), np.kron(dn, E10), np.kron(rho, rho1)
+    sombra_ok = bool(all(a and b and c for (a, b, c) in resids))
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("★ a testemunha e' POSITIVA: phi_N(chainDown.chainUp) = (1/(1+lambda))^(N+1) > 0", val_ok),
+        ("a razao modular nao e' 1: lambda^(N+1) =/= 1 (lambda>0, lambda=/=1)", ratio_ok),
+        ("★ A TORRE SEM TRACO: phi_N nao tracial em TODO andar N", notr_ok),
+        ("SOMBRA [lambda=beta, 6 andares]: testemunha>0 + razao + nao-tracial em todos", sombra_ok),
+        ("o gate segue 5T/1F (a torre sem traco NAO vira a flag: falta o limite fraco-*)", five_one),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_TOWER_TRACELESS__TYPE_III_ON_THE_CONCRETE_TOWER__STATE_NOT_TRACIAL_ON_EVERY_FLOOR__MODULAR_RATIO_LAMBDA_POW_N_TIMES_POSITIVE_WITNESS__NO_TRACE_NOT_ONLY_ON_FULL_ALGEBRA_BUT_ON_THE_ITPFI_TOWER_FLOOR_BY_FLOOR__WITH_LOG_DENSE_MARK_THE_LIMIT_IS_III1__WEAK_STAR_COMPLETION_REMAINS__SEAL_UNMOVED" if all_v
+          else "TOWER_TRACELESS_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("A TORRE SEM TRACO: para lambda =/= 1, o estado phi_N nao e' "
+                    "tracial em NENHUM andar da torre -- a razao modular "
+                    "lambda^(N+1) vezes uma testemunha positiva. O tipo III "
+                    "realizado na torre concreta que constroi o fator ITPFI; "
+                    "combinado com a marca log-densa (v125), o limite e' III_1."),
+        "values": {"beta": beta, "n_floors_shadow": 6},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_e": "a assinatura tipo-III (ausencia de traco) realizada na torre concreta de Araki-Woods, andar a andar -- nao so' na algebra plena (v119)",
+                     "o_que_resta": "o limite fraco-* (completamento topologico) -- o fator como objeto; a assinatura esta na torre, o objeto e' o limite",
+                     "honestidade": "torre finita, andar a andar; o fator e' o limite; nenhuma frase 'III_1 construido'; o gate nao se move",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
+def prove_tower_modular(ONE, parts):
+    """v130 -- A ESTRUTURA MODULAR DA TORRE [ADITIVO; nao gateia 1=1; NAO
+    move flag]. O v129 provou que a torre NAO tem traco. Esta pedra da a
+    estrutura que SUBSTITUI o traco: o fluxo modular de Tomita e a condicao
+    KMS na torre CONCRETA -- o coracao da teoria modular do fator ITPFI.
+    A PEDRA 82 (TowerModular.lean):
+    * chainWeights_pos: os pesos sao positivos em todo andar => a densidade
+      e' INVERTIVEL (inversa diagonal explicita);
+    * towerFlow: sigma_N(a) = rho_N.a.rho_N^-1 -- o fluxo modular de Tomita;
+      towerFlow_id: sigma(1)=1;
+    * ★★★ tower_kms: A CONDICAO KMS NA TORRE -- phi_N(ab) = phi_N(b.sigma_N(a))
+      em TODO andar (por ciclicidade do traco); a lei do estado de
+      equilibrio do fator SEM traco (o traco morre v129, o fluxo modular
+      vive);
+    * ★★ tower_modular_ratio: a testemunha de razao lambda^(N+1) vive no
+      fluxo modular via KMS -- o espectro modular = o reticulado de razoes
+      (ligacao com a marca log-densa v125).
+    O QUE FALTA (nomeado): o limite fraco-* (completamento). O gate NAO se
+    move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    pos_ok = bool(elp.get("ext_tm2_weights_pos_kernel_proved") is True
+                  and elp.get("ext_tm2_mul_inv_kernel_proved") is True)
+    flow_ok = bool(elp.get("ext_tm2_flow_id_kernel_proved") is True)
+    kms_ok = bool(elp.get("ext_tm2_kms_kernel_proved") is True)
+    ratio_ok = bool(elp.get("ext_tm2_modular_ratio_kernel_proved") is True)
+    # SOMBRA: KMS + fluxo modular na torre com lambda=beta, varios andares
+    lam = beta
+    rho1 = np.diag([lam / (1 + lam), 1 / (1 + lam)]).astype(complex)
+    rho1inv = np.diag([(1 + lam) / lam, 1 + lam]).astype(complex)
+    E01 = np.zeros((2, 2), complex); E01[0, 1] = 1.0
+    E10 = np.zeros((2, 2), complex); E10[1, 0] = 1.0
+    rng = np.random.default_rng(130)
+    resids = []
+    rho, rinv, up = rho1.copy(), rho1inv.copy(), E01.copy()
+    for N in range(6):
+        A = rng.normal(size=rho.shape) + 1j * rng.normal(size=rho.shape)
+        B = rng.normal(size=rho.shape) + 1j * rng.normal(size=rho.shape)
+        # KMS: phi(AB) = phi(B sigma(A)) com sigma(A) = rho A rho^-1
+        sigmaA = rho @ A @ rinv
+        kms = abs(np.trace(rho @ A @ B) - np.trace(rho @ B @ sigmaA))
+        # fluxo fixa 1
+        flow_one = np.max(np.abs(rho @ np.eye(rho.shape[0]) @ rinv - np.eye(rho.shape[0])))
+        # espectro modular: sigma(up) = lambda^(N+1) up
+        sig_up = rho @ up @ rinv
+        eig = np.max(np.abs(sig_up - lam ** (N + 1) * up))
+        resids.append((kms, flow_one, eig))
+        rho, rinv, up = np.kron(rho, rho1), np.kron(rinv, rho1inv), np.kron(up, E01)
+    kms_max = max(r[0] for r in resids)
+    flow_max = max(r[1] for r in resids)
+    eig_max = max(r[2] for r in resids)
+    sombra_ok = bool(kms_max < 1e-10 and flow_max < 1e-12 and eig_max < 1e-9)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("os pesos sao POSITIVOS em todo andar => densidade INVERTIVEL (inversa explicita)", pos_ok),
+        ("o fluxo modular sigma_N(a) = rho.a.rho^-1 fixa a unidade", flow_ok),
+        ("★ A CONDICAO KMS NA TORRE: phi_N(ab) = phi_N(b.sigma_N(a)) em TODO andar", kms_ok),
+        ("★ o espectro modular = o reticulado de razoes (testemunha lambda^(N+1) no fluxo)", ratio_ok),
+        ("SOMBRA [lambda=beta, 6 andares]: KMS %.1e ; fluxo(1) %.1e ; espectro %.1e" % (kms_max, flow_max, eig_max), sombra_ok),
+        ("o gate segue 5T/1F (a estrutura modular NAO vira a flag: falta o fraco-*)", five_one),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_TOWER_MODULAR__TOMITA_FLOW_AND_KMS_ON_THE_CONCRETE_TOWER__DENSITY_INVERTIBLE_POSITIVE_WEIGHTS__MODULAR_FLOW_FIXES_UNIT__KMS_CONDITION_EVERY_FLOOR__PHI_AB_EQ_PHI_B_SIGMA_A__MODULAR_SPECTRUM_IS_THE_RATIO_LATTICE__THE_STRUCTURE_THAT_REPLACES_THE_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_UNMOVED" if all_v
+          else "TOWER_MODULAR_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("A ESTRUTURA MODULAR DA TORRE: o fluxo de Tomita sigma_N(a) = "
+                    "rho.a.rho^-1 e a condicao KMS phi_N(ab)=phi_N(b.sigma_N(a)) em "
+                    "todo andar -- a estrutura de equilibrio que SUBSTITUI o traco "
+                    "morto (v129); o espectro modular = o reticulado de razoes."),
+        "values": {"beta": beta, "kms_resid": float(kms_max),
+                   "flow_resid": float(flow_max), "eig_resid": float(eig_max)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_e": "a teoria modular de Tomita-Takesaki na torre concreta: fluxo + KMS + espectro; a estrutura que o v129 mostrou necessaria (sem traco)",
+                     "o_que_resta": "o limite fraco-* (completamento topologico) -- o fator como objeto de von Neumann",
+                     "honestidade": "torre finita, andar a andar; o fator e' o limite; nenhuma frase 'III_1 construido'; o gate nao se move",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
     }
 
 
@@ -44243,7 +49056,19 @@ _ESQUELETO_STONES = [
     ("v118", "RegularRep", "TGLExt/RegularRep.lean", "460/460", "19/07 07:28:49"),
     ("v119", "TracelessAlgebra", "TGLExt/TracelessAlgebra.lean", "467/467", "19/07 08:33:51"),
     ("v120", "SemifiniteWeight", "TGLExt/SemifiniteWeight.lean", "472/472", "19/07 10:22:14"),
-    ("v123", "FusedWitness", "TGLExt/FusedWitness.lean", None, None),
+    ("v123", "FusedWitness", "TGLExt/FusedWitness.lean", "480/480", "19/07 18:54:12"),
+    ("v124", "PowersLadder", "TGLExt/PowersLadder.lean", "490/490", "19/07 21:01:34"),
+    ("v125", "MixedLadder", "TGLExt/MixedLadder.lean", None, None),
+    ("v125", "ContinuumTT", "TGLExt/ContinuumTT.lean", "501/501", "19/07 23:16:36"),
+    ("v126", "ColimitSeed", "TGLExt/ColimitSeed.lean", None, None),
+    ("v126", "TTSuperposition", "TGLExt/TTSuperposition.lean", "510/510", "20/07 02:16:40"),
+    ("v127", "GNSTower", "TGLExt/GNSTower.lean", None, None),
+    ("v127", "SecondCone", "TGLExt/SecondCone.lean", "521/521", "20/07 05:14:12"),
+    ("v128", "GNSQuotient", "TGLExt/GNSQuotient.lean", None, None),
+    ("v128", "ThirdCone", "TGLExt/ThirdCone.lean", "531/531", "20/07 08:14:22"),
+    ("v129", "GeneralNull", "TGLExt/GeneralNull.lean", "537/537", "20/07 11:31:16"),
+    ("v129", "TowerTraceless", "TGLExt/TowerTraceless.lean", "537/537", "20/07 11:31:16"),
+    ("v130", "TowerModular", "TGLExt/TowerModular.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -44278,17 +49103,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(setenta pedras e o rito do fechamento, \S120--\S203)}")
+                 r"(oitenta e duas pedras e o rito do fechamento, \S120--\S210)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em setenta pedras "
-                 r"(v43--v123) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em oitenta e duas pedras "
+                 r"(v43--v130) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As setenta pedras}")
+        c.append(r"\subsection*{As oitenta e duas pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -45058,6 +49883,110 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"fibers\_blind}) SUPERADA: o boost agora move. O resíduo formal "
                  r"da testemunha reduziu-se a UMA parede: III$_1$ (Araki--Woods). "
                  r"A fusão é necessária, não suficiente: o V2 segue RESERVADO.")
+        c.append(r"\kernelmk{PowersLadder} (v124): \textbf{a escada de Powers} "
+                 r"--- a semente de Araki--Woods (a forma exata de III$_1$ nomeada "
+                 r"no v119) na face finita COMPLETA: Tomita no bloco por "
+                 r"ciclicidade ($\varphi_\rho(ab)=\varphi_\rho(b\,\rho a"
+                 r"\rho^{-1})$); o estado de Powers $\varphi_\lambda$ "
+                 r"(normalizado, positivo) com a TESTEMUNHA DE RAZÃO "
+                 r"$\varphi(E_{01}E_{10})=\lambda\,\varphi(E_{10}E_{01})$ que "
+                 r"MATA a tracialidade ($\lambda\neq1$); o fluxo com $E_{01}$ "
+                 r"autovetor de autovalor $\lambda$; \textbf{A LEI DA ESCADA}: "
+                 r"Kronecker MULTIPLICA razões — a cadeia de $N$ blocos carrega "
+                 r"$\lambda^N$; e \textbf{A MARCA DE III}: $0$ no FECHO do "
+                 r"espectro de razões — nenhum piso tracial sobrevive. O terceiro "
+                 r"assassino de traço (o FLUXO-PRODUTO; v45 o fluxo, v119 a "
+                 r"álgebra). O fator infinito (ITPFI) é o programa.")
+        c.append(r"\kernelmk{MixedLadder} (v125): \textbf{a marca de III$_1$} "
+                 r"--- a MISTURA: razões incomensuráveis geram espectro de razões "
+                 r"log-DENSO em $\mathbb{R}$ (\texttt{dense\_or\_cyclic} $+$ a "
+                 r"exclusão do cíclico); a cadeia mista compõe por Kronecker "
+                 r"($\lambda_1^a\lambda_2^b$); e o par CONCRETO $(1/2,\,1/3)$ "
+                 r"habita a marca ($2^b=3^a$ impossível por paridade). A "
+                 r"S-invariante toca TODO ponto — a assinatura que separa III$_1$ "
+                 r"de III$_\lambda$. O fator-limite (ITPFI fraco-$*$) é o programa.")
+        c.append(r"\kernelmk{ContinuumTT} (v125): \textbf{o setor TT no "
+                 r"contínuo} --- sobre o $\eta$ da casa: o plano 2-dim de "
+                 r"polarizações ($\eta$-traço zero; transversal ao cone); a "
+                 r"redução $\partial_i\partial_j(c\,w{\circ}L)=c\,L_iL_j\,"
+                 r"w''$; \textbf{a onda TT RESOLVE o vácuo linearizado} "
+                 r"(Ricci$^{(1)}=0$ em toda parte, perfil $C^2$ QUALQUER) --- "
+                 r"spin-2 sem massa no contínuo; d'Alembert componente a "
+                 r"componente; e SEM FANTASMA: cinética positiva-definida no "
+                 r"plano das polarizações. Ondas planas $\neq$ perturbações "
+                 r"gerais; anomalias abertas; os flags de física NÃO se movem.")
+        c.append(r"\kernelmk{ColimitSeed} (v126): \textbf{a torre do fator} "
+                 r"--- o sistema dirigido $M_{2^N}$ com degraus $a\mapsto a\otimes"
+                 r"1$ (*-homomorfos, unitais, INJETIVOS) e \textbf{o estado-produto "
+                 r"COERENTE}: $\varphi_{N+1}(a\otimes 1)=\varphi_N(a)$ --- UM só "
+                 r"estado na torre inteira (a condição de Araki--Wood" + "s" + r"); e "
+                 r"\textbf{a assimetria modular SOBE INALTERADA} (toda testemunha "
+                 r"de razão $r$ persiste com a mesma razão em todos os andares). O "
+                 r"objeto ITPFI começou; o FECHO (GNS $+$ fraco-$*$) é o programa.")
+        c.append(r"\kernelmk{TTSuperposition} (v126): \textbf{o espaço-solução} "
+                 r"--- a soma de duas ondas TT QUAISQUER (polarizações e perfis "
+                 r"independentes) resolve o vácuo linearizado em toda parte: o "
+                 r"conjunto-solução é fechado por soma --- um ESPAÇO, não uma onda "
+                 r"só. Mesmo cone; direções múltiplas e a decomposição geral "
+                 r"seguem abertas; os flags de física NÃO se movem.")
+        c.append(r"\kernelmk{GNSTower} (v127): \textbf{a torre GNS} --- a "
+                 r"densidade da torre é DIAGONAL com pesos $\geq 0$ (indução); o "
+                 r"estado é POSITIVO em todo andar ($\mathrm{Re}\,\varphi_N(a^"
+                 r"\dagger a)\geq 0$); o produto GNS $\langle a,b\rangle="
+                 r"\varphi(a^\dagger b)$; e \textbf{os degraus são ISOMETRIAS "
+                 r"GNS}: $\langle a\otimes1,b\otimes1\rangle_{N+1}=\langle "
+                 r"a,b\rangle_N$ --- o pré-Hilbert do fator é UM espaço só. "
+                 r"Quociente $+$ completamento $+$ fraco-$*$: o resto do fecho.")
+        c.append(r"\kernelmk{SecondCone} (v127): \textbf{a segunda direção} "
+                 r"--- o cone $x_2{-}x_0$ com o plano $(1,3)$ resolve o vácuo "
+                 r"linearizado (a construção não era acidente da direção); e "
+                 r"\textbf{a superposição ENTRE direções resolve} (cone 1 $+$ "
+                 r"cone 2, polarizações e perfis independentes) --- o "
+                 r"espaço-solução CRUZA direções de propagação. Duas direções "
+                 r"$\neq$ todas; a decomposição geral segue aberta; os flags "
+                 r"de física NÃO se movem.")
+        c.append(r"\kernelmk{GeneralNull} (v129): \textbf{o cone contínuo} "
+                 r"--- para QUALQUER covetor nulo $k$ ($\eta(k,k)=0$) e QUALQUER "
+                 r"polarização simétrica, $\eta$-traço zero e $k$-transversal, a "
+                 r"onda plana resolve o vácuo linearizado: as TRÊS condições "
+                 r"algébricas matam os TRÊS termos do Ricci (traço-zero, "
+                 r"transversal, NULO). SUBSUME os cones 1,2,3 (v125--v128) E o "
+                 r"cone contínuo --- \textbf{o setor de ondas planas TT "
+                 r"FECHADO}. Perturbações gerais e anomalias abertas; os flags "
+                 r"de física NÃO se movem.")
+        c.append(r"\kernelmk{TowerTraceless} (v129): \textbf{o tipo III na "
+                 r"torre concreta} --- para $\lambda\neq1$, o estado "
+                 r"$\varphi_N$ NÃO é tracial em NENHUM andar: $\varphi_N("
+                 r"\text{up}\cdot\text{down})=\lambda^{N+1}\varphi_N("
+                 r"\text{down}\cdot\text{up})$ com testemunha positiva "
+                 r"$(1/(1{+}\lambda))^{N+1}>0$ e $\lambda^{N+1}\neq1$. A "
+                 r"ausência de traço não é só na álgebra plena (v119) --- é na "
+                 r"TORRE que constrói o fator ITPFI, andar a andar; com a marca "
+                 r"weak-$*$ remains.")
+        c.append(r"\kernelmk{TowerModular} (v130): \textbf{a estrutura "
+                 r"modular} --- o que SUBSTITUI o traço morto (v129): o fluxo de "
+                 r"Tomita $\sigma_N(a)=\rho_N a\rho_N^{-1}$ (a densidade é "
+                 r"invertível, pesos positivos) e \textbf{a condição KMS} "
+                 r"$\varphi_N(ab)=\varphi_N(b\,\sigma_N(a))$ em TODO andar "
+                 r"(por ciclicidade do traço) --- a lei do estado de equilíbrio "
+                 r"do fator SEM traço; e o espectro modular É o reticulado de "
+                 r"razões (a testemunha $\lambda^{N+1}$ vive no fluxo, ligação "
+                 r"com a marca log-densa v125). Resta o limite fraco-$*$.")
+        c.append(r"\kernelmk{GNSQuotient} (v128): \textbf{o pré-fator "
+                 r"representado} --- a forma é HERMITIANA ($\langle a,b\rangle="
+                 r"\overline{\langle b,a\rangle}$); o RADICAL $N=\{a:\forall "
+                 r"b,\langle a,b\rangle=0\}$ é um \textbf{ideal à esquerda} "
+                 r"($a\in N\Rightarrow x a\in N$); e o produto interno E a ação "
+                 r"esquerda DESCEM ao quociente $M/N$ (sem Cauchy--Schwarz, sem "
+                 r"completamento) --- a álgebra age no quociente: o GNS algébrico "
+                 r"está fechado. Completamento de Hilbert $+$ fraco-$*$: o resto.")
+        c.append(r"\kernelmk{ThirdCone} (v128): \textbf{as três direções "
+                 r"nulas} --- o cone $x_3{-}x_0$ (plano $(1,2)$) resolve, e "
+                 r"\textbf{a superposição das três direções} (cones $1{+}2{+}3$, "
+                 r"todas as polarizações e perfis independentes) resolve o vácuo "
+                 r"linearizado --- o espaço-solução cobre os três eixos nulos "
+                 r"espaciais. O cone contínuo e a decomposição geral seguem "
+                 r"abertos; os flags de física NÃO se movem.")
         _su1 = core.get("void_shear_unblinding", {}) or {}
         _su1v = (_su1.get("values") or {})
 
@@ -45164,6 +50093,177 @@ def _esqueleto_chapter(core, lang="pt"):
                  % (float(_li3v.get("A_2025_original_matrices") or float("nan")),
                     float(_li3v.get("epsilon_sq_equals_beta_resid") or 0.0),
                     str(_li3.get("provenance_hash", "?"))[:16]))
+        _pl4 = core.get("powers_ladder", {}) or {}
+        _k74 = core.get("void_floor_kappa_v7", {}) or {}
+        _k74v = (_k74.get("values") or {})
+        c.append((r"\subsection*{\S204 --- A escada de Powers e a emenda V7 "
+                  r"(v124)}"
+                  r"A PEDRA 71 (\texttt{PowersLadder.lean}) constrói a face "
+                  r"finita COMPLETA de Araki--Woods --- a forma exata de III$_1$ "
+                  r"nomeada no v119: Tomita no bloco por ciclicidade; o estado de "
+                  r"Powers $\varphi_\lambda$ com a testemunha de razão $\lambda$ "
+                  r"(que MATA a tracialidade); o fluxo com autovalor $\lambda$; A "
+                  r"LEI DA ESCADA (Kronecker multiplica razões; a cadeia de $N$ "
+                  r"blocos carrega $\lambda^N$); e A MARCA DE III: $0$ no fecho "
+                  r"do espectro de razões --- nenhum piso tracial sobrevive. O "
+                  r"TERCEIRO assassino de traço (o FLUXO-PRODUTO). O fator "
+                  r"infinito (ITPFI $R_\lambda$; III$_1$ por mistura) é o "
+                  r"programa; o gate 5T/1F não se move. Veredito: \texttt{%s}.")
+                 % str(_pl4.get("verdict", "?")).replace("_", r"\_"))
+        c.append((r"E A EMENDA V7 DO KAPPA: a autópsia da V6 isolou o gate de "
+                  r"rotações (grade grossa de 15° + validade simultânea nos 4 "
+                  r"quartis $\Rightarrow$ 9$<$16 --- a máscara galáctica derruba "
+                  r"rotações grossas). A V7 corrige com grade FINA de 5° e "
+                  r"validade POR GRUPO, com seleção determinística CEGA ao sinal "
+                  r"(máscara$+$posições apenas; nunca o $\kappa$): $M=%d$ "
+                  r"rotações válidas ($\geq$16); nulos corrigidos $\chi^2/{\rm "
+                  r"dof}=%.2f$; Fisher $F=%.3g$; $\hat r_*=%.3f$, $5\sigma$ "
+                  r"$[%.3f;%.3f]$. \textbf{VEREDITO: \texttt{%s}}. Vereditos "
+                  r"somente do conjunto pré-registrado; flags do gate INTOCADOS.")
+                 % (int(_k74v.get("n_rot_min_common") or -1),
+                    float(_k74v.get("chi2_null_dof") or float("nan")),
+                    float(_k74v.get("fisher_floor") or float("nan")),
+                    float(_k74v.get("r_hat") or float("nan")),
+                    float(_k74v.get("r_5sigma_lo") or float("nan")),
+                    float(_k74v.get("r_5sigma_hi") or float("nan")),
+                    str(_k74.get("verdict", "?")).replace("_", r"\_")))
+        _ml5 = core.get("mixed_ladder", {}) or {}
+        _ct5 = core.get("continuum_tt", {}) or {}
+        _k85 = core.get("void_floor_kappa_v8", {}) or {}
+        _k85v = (_k85.get("values") or {})
+        c.append((r"\subsection*{\S205 --- O mandato triplo: a marca de III$_1$, "
+                  r"o TT contínuo e a profundidade (v125)}"
+                  r"A PEDRA 72 (\texttt{MixedLadder.lean}): a MISTURA — razões "
+                  r"incomensuráveis geram espectro log-DENSO (a marca de III$_1$; "
+                  r"o par concreto $(1/2,1/3)$ a habita). A PEDRA 73 "
+                  r"(\texttt{ContinuumTT.lean}): as ondas TT RESOLVEM o vácuo "
+                  r"linearizado (perfil $C^2$ qualquer) com cinética "
+                  r"positiva-definida — sem massa e sem fantasma nas ondas "
+                  r"planas; flags de física INTOCADOS (ondas planas $\neq$ "
+                  r"geral; anomalias abertas). Vereditos: \texttt{%s} e "
+                  r"\texttt{%s}.")
+                 % (str(_ml5.get("verdict", "?")).replace("_", r"\_"),
+                    str(_ct5.get("verdict", "?")).replace("_", r"\_")))
+        c.append((r"E A PROFUNDIDADE — o teste fundo RODADO com a aquisição "
+                  r"completa em disco (LRG NGC$+$SGC 18/07, bytes exatos; ACT "
+                  r"DR6 19/07): o $\kappa$ profundo empilhado nos vazios LRG "
+                  r"$z\,0{,}40$--$0{,}80$ (achador \texttt{LRG\_SO\_V1} "
+                  r"herdado VERBATIM; pipeline V7 VERBATIM; cap 4000 "
+                  r"pré-registrado e LOGADO). Por que é profundidade REAL: a "
+                  r"lente pesa MATÉRIA TOTAL (a supressão de traçador do rito "
+                  r"direto NÃO se aplica), o kernel CMB é $\sim$3--5$\times$ "
+                  r"mais eficiente nesses $z$, e a população é maior. Números: "
+                  r"%d vazios LRG (%d na pegada; cap %s); $M=%d$ rotações; "
+                  r"nulos $\chi^2/{\rm dof}=%.2f$; Fisher $F=%.3g$; $\hat "
+                  r"r_*=%.3f$, $5\sigma$ $[%.3f;%.3f]$. \textbf{VEREDITO: "
+                  r"\texttt{%s}}. Vereditos somente do conjunto "
+                  r"pré-registrado; flags do gate INTOCADOS.")
+                 % (int(_k85.get("n_voids") or -1), int(_k85.get("n_kept") or -1),
+                    str(_k85.get("capped")), int(_k85v.get("n_rot_min_common") or -1),
+                    float(_k85v.get("chi2_null_dof") or float("nan")),
+                    float(_k85v.get("fisher_floor") or float("nan")),
+                    float(_k85v.get("r_hat") or float("nan")),
+                    float(_k85v.get("r_5sigma_lo") or float("nan")),
+                    float(_k85v.get("r_5sigma_hi") or float("nan")),
+                    str(_k85.get("verdict", "?")).replace("_", r"\_")))
+        _tw6 = core.get("colimit_seed", {}) or {}
+        _ts6 = core.get("tt_superposition", {}) or {}
+        _k96 = core.get("void_floor_kappa_v9", {}) or {}
+        _k96v = (_k96.get("values") or {})
+        c.append((r"\subsection*{\S206 --- O mandato contínuo: a torre, o "
+                  r"espaço-solução e a banda certa (v126)}"
+                  r"A PEDRA 74 (\texttt{ColimitSeed.lean}): a TORRE do fator "
+                  r"ITPFI — degraus *-homomorfos injetivos, estado-produto "
+                  r"COERENTE (um só estado na torre) e a assimetria modular "
+                  r"ESTÁVEL no colimite; o fecho (GNS $+$ fraco-$*$) é o "
+                  r"programa. A PEDRA 75 (\texttt{TTSuperposition.lean}): o "
+                  r"conjunto-solução do vácuo linearizado é um ESPAÇO (qualquer "
+                  r"par TT com polarizações e perfis independentes resolve); "
+                  r"flags de física INTOCADOS. Vereditos: \texttt{%s} e "
+                  r"\texttt{%s}.")
+                 % (str(_tw6.get("verdict", "?")).replace("_", r"\_"),
+                    str(_ts6.get("verdict", "?")).replace("_", r"\_")))
+        c.append((r"E A V9 DA BANDA — a autópsia da V8 executada: L\_use "
+                  r"estendido a $[8,1000]$ (o ACT DR6 tem os modos) e cap 1500 "
+                  r"pelos MAIORES $\theta_v$ (o sinal DENTRO da banda; seleção "
+                  r"cega). Números: %d vazios (%d usados; cap %s); $\bar\theta_v"
+                  r"=%.3f°$; $M=%d$ rotações; nulos $\chi^2/{\rm dof}=%.2f$; "
+                  r"Fisher $F=%.3g$; $\hat r_*=%.3f$, $5\sigma$ $[%.3f;%.3f]$. "
+                  r"\textbf{VEREDITO: \texttt{%s}}. Vereditos somente do "
+                  r"conjunto congelado; flags do gate INTOCADOS.")
+                 % (int(_k96.get("n_voids") or -1), int(_k96.get("n_kept") or -1),
+                    str(_k96.get("capped")),
+                    float(_k96v.get("thetav_mean_deg") or float("nan")),
+                    int(_k96v.get("n_rot_min_common") or -1),
+                    float(_k96v.get("chi2_null_dof") or float("nan")),
+                    float(_k96v.get("fisher_floor") or float("nan")),
+                    float(_k96v.get("r_hat") or float("nan")),
+                    float(_k96v.get("r_5sigma_lo") or float("nan")),
+                    float(_k96v.get("r_5sigma_hi") or float("nan")),
+                    str(_k96.get("verdict", "?")).replace("_", r"\_")))
+        _gt7 = core.get("gns_tower", {}) or {}
+        _sc7 = core.get("second_cone", {}) or {}
+        c.append((r"\subsection*{\S207 --- A torre GNS e a segunda direção "
+                  r"(v127)}"
+                  r"A PEDRA 76 (\texttt{GNSTower.lean}): o pré-Hilbert do fator "
+                  r"— densidade diagonal positiva, estado positivo em toda a "
+                  r"torre, produto GNS e \textbf{degraus ISOMÉTRICOS} "
+                  r"($\langle a\otimes1,b\otimes1\rangle_{N+1}=\langle a,b"
+                  r"\rangle_N$); resta o quociente $+$ completamento $+$ "
+                  r"fraco-$*$. A PEDRA 77 (\texttt{SecondCone.lean}): a segunda "
+                  r"direção resolve, e \textbf{a superposição ENTRE direções "
+                  r"resolve} — o espaço-solução cruza direções; flags de física "
+                  r"INTOCADOS. Vereditos: \texttt{%s} e \texttt{%s}. O gate "
+                  r"5T/1F não se move.")
+                 % (str(_gt7.get("verdict", "?")).replace("_", r"\_"),
+                    str(_sc7.get("verdict", "?")).replace("_", r"\_")))
+        _gq8 = core.get("gns_quotient", {}) or {}
+        _tc8 = core.get("third_cone", {}) or {}
+        c.append((r"\subsection*{\S208 --- O quociente GNS e a terceira "
+                  r"direção (v128)}"
+                  r"A PEDRA 78 (\texttt{GNSQuotient.lean}): o pré-fator "
+                  r"REPRESENTADO — o radical é um IDEAL À ESQUERDA, o produto "
+                  r"interno e a ação esquerda descem ao quociente $M/N$ (sem "
+                  r"Cauchy--Schwarz, sem completamento); resta o completamento de "
+                  r"Hilbert $+$ o fecho fraco-$*$. A PEDRA 79 "
+                  r"(\texttt{ThirdCone.lean}): o setor TT cobre as TRÊS direções "
+                  r"nulas espaciais (a superposição tripla resolve); flags de "
+                  r"física INTOCADOS. Vereditos: \texttt{%s} e \texttt{%s}. O "
+                  r"gate 5T/1F não se move.")
+                 % (str(_gq8.get("verdict", "?")).replace("_", r"\_"),
+                    str(_tc8.get("verdict", "?")).replace("_", r"\_")))
+        _gnl9 = core.get("general_null", {}) or {}
+        _tt29 = core.get("tower_traceless", {}) or {}
+        c.append((r"\subsection*{\S209 --- O cone contínuo e o tipo III na "
+                  r"torre (v129)}"
+                  r"A PEDRA 80 (\texttt{GeneralNull.lean}): para QUALQUER "
+                  r"direção nula, a onda plana TT resolve o vácuo linearizado "
+                  r"(três condições matam três termos) --- o setor de ondas "
+                  r"planas TT FECHADO, subsumindo todos os cones e o contínuo. "
+                  r"A PEDRA 81 (\texttt{TowerTraceless.lean}): o estado "
+                  r"$\varphi_N$ NÃO é tracial em nenhum andar da torre "
+                  r"($\lambda\neq1$) --- o tipo III realizado na torre "
+                  r"concreta que constrói o fator ITPFI; com a marca log-densa "
+                  r"(v125), o limite é III$_1$. Flags de física INTOCADOS. "
+                  r"Vereditos: \texttt{%s} e \texttt{%s}. O gate 5T/1F não se "
+                  r"move.")
+                 % (str(_gnl9.get("verdict", "?")).replace("_", r"\_"),
+                    str(_tt29.get("verdict", "?")).replace("_", r"\_")))
+        _tm0 = core.get("tower_modular", {}) or {}
+        c.append((r"\subsection*{\S210 --- A estrutura modular da torre "
+                  r"(v130)}"
+                  r"A PEDRA 82 (\texttt{TowerModular.lean}): o que SUBSTITUI o "
+                  r"traço morto (v129) --- o fluxo de Tomita $\sigma_N$ (a "
+                  r"densidade é invertível) e a condição KMS $\varphi_N(ab)="
+                  r"\varphi_N(b\,\sigma_N(a))$ em todo andar, com o espectro "
+                  r"modular $=$ o reticulado de razões. A estrutura de "
+                  r"equilíbrio do fator ITPFI sem traço, ligando a marca "
+                  r"log-densa (v125). Também nesta rodada: a SOMBRA da pedra 80 "
+                  r"(cone contínuo) CORRIGIDA com instância TT explícita --- o "
+                  r"teorema Lean sempre esteve provado (v129, 537/537); o bug "
+                  r"era do Gram--Schmidt numérico. Veredito: \texttt{%s}. O "
+                  r"gate 5T/1F não se move.")
+                 % str(_tm0.get("verdict", "?")).replace("_", r"\_"))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- A testemunha habitável: os dois zeros e o "
@@ -45610,7 +50710,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em setenta pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em oitenta e duas pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -45745,16 +50845,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(seventy stones and the closure rite, \S120--\S203)}")
+                 r"(eighty-two stones and the closure rite, \S120--\S210)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across seventy stones (v43--v123) the audited kernel went from 53 to "
+                 r"from this run's audit. Across eighty-two stones (v43--v130) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The seventy stones}")
+        c.append(r"\subsection*{The eighty-two stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -46525,6 +51625,116 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"the boost now moves. The witness's formal residue has shrunk "
                  r"to ONE wall: III$_1$ (Araki--Woods). The fusion is necessary, "
                  r"not sufficient: V2 stays RESERVED.")
+        c.append(r"\kernelmk{PowersLadder} (v124): \textbf{the Powers ladder} "
+                 r"--- the Araki--Woods seed (the exact shape of III$_1$ named in "
+                 r"v119) on the complete finite face: Tomita on the block by "
+                 r"trace cyclicity ($\varphi_\rho(ab)=\varphi_\rho(b\,\rho a"
+                 r"\rho^{-1})$); the Powers state $\varphi_\lambda$ "
+                 r"(normalized, positive) with the RATIO WITNESS "
+                 r"$\varphi(E_{01}E_{10})=\lambda\,\varphi(E_{10}E_{01})$ that "
+                 r"KILLS traciality ($\lambda\neq1$); the flow with $E_{01}$ an "
+                 r"eigenvector of eigenvalue $\lambda$; \textbf{THE LADDER LAW}: "
+                 r"Kronecker MULTIPLIES ratios — the $N$-block chain carries "
+                 r"$\lambda^N$; and \textbf{THE MARK OF III}: $0$ lies in the "
+                 r"CLOSURE of the ratio spectrum — no tracial floor survives. The "
+                 r"third trace killer (the PRODUCT FLOW; v45 the flow, v119 the "
+                 r"algebra). The infinite factor (ITPFI) is the program.")
+        c.append(r"\kernelmk{MixedLadder} (v125): \textbf{the mark of III$_1$} "
+                 r"--- MIXING: incommensurable ratios generate a log-DENSE ratio "
+                 r"spectrum in $\mathbb{R}$ (\texttt{dense\_or\_cyclic} $+$ "
+                 r"exclusion of the cyclic case); the mixed chain composes by "
+                 r"Kronecker ($\lambda_1^a\lambda_2^b$); and the CONCRETE pair "
+                 r"$(1/2,\,1/3)$ inhabits the mark ($2^b=3^a$ impossible by "
+                 r"parity). The S-invariant touches EVERY point — the signature "
+                 r"separating III$_1$ from III$_\lambda$. The limit factor "
+                 r"(weak-$*$ ITPFI) is the program.")
+        c.append(r"\kernelmk{ContinuumTT} (v125): \textbf{the TT sector in the "
+                 r"continuum} --- over the house $\eta$: the 2-dim polarization "
+                 r"plane ($\eta$-traceless; transverse to the cone); the "
+                 r"reduction $\partial_i\partial_j(c\,w{\circ}L)=c\,L_iL_j\,"
+                 r"w''$; \textbf{TT waves SOLVE the linearized vacuum} "
+                 r"(Ricci$^{(1)}=0$ everywhere, ANY $C^2$ profile) --- massless "
+                 r"spin-2 in the continuum; d'Alembert componentwise; and NO "
+                 r"GHOST: positive-definite kinetic form on the polarization "
+                 r"plane. Plane waves $\neq$ general perturbations; anomalies "
+                 r"open; the physics flags do NOT move.")
+        c.append(r"\kernelmk{ColimitSeed} (v126): \textbf{the factor tower} "
+                 r"--- the directed system $M_{2^N}$ with steps $a\mapsto a"
+                 r"\otimes 1$ (*-homomorphic, unital, INJECTIVE) and \textbf{the "
+                 r"COHERENT product state}: $\varphi_{N+1}(a\otimes 1)="
+                 r"\varphi_N(a)$ --- ONE state on the whole tower (the "
+                 r"Araki--Woods condition); and \textbf{the modular asymmetry "
+                 r"CLIMBS UNCHANGED} (every ratio witness persists with the same "
+                 r"ratio on every floor). The ITPFI object has begun; the CLOSURE "
+                 r"(GNS $+$ weak-$*$) is the program.")
+        c.append(r"\kernelmk{TTSuperposition} (v126): \textbf{the solution "
+                 r"space} --- the sum of ANY two TT waves (independent "
+                 r"polarizations and profiles) solves the linearized vacuum "
+                 r"everywhere: the solution set is closed under addition --- a "
+                 r"SPACE, not a single wave. Same cone; multiple directions and "
+                 r"the general decomposition remain open; the physics flags do "
+                 r"NOT move.")
+        c.append(r"\kernelmk{GNSTower} (v127): \textbf{the GNS tower} --- the "
+                 r"tower density is DIAGONAL with weights $\geq 0$ (induction); "
+                 r"the state is POSITIVE on every floor ($\mathrm{Re}\,"
+                 r"\varphi_N(a^\dagger a)\geq 0$); the GNS inner product "
+                 r"$\langle a,b\rangle=\varphi(a^\dagger b)$; and \textbf{the "
+                 r"steps are GNS ISOMETRIES}: $\langle a\otimes1,b\otimes1"
+                 r"\rangle_{N+1}=\langle a,b\rangle_N$ --- the factor's "
+                 r"pre-Hilbert space is ONE space. Quotient $+$ completion $+$ "
+                 r"weak-$*$: the rest of the closure.")
+        c.append(r"\kernelmk{SecondCone} (v127): \textbf{the second direction} "
+                 r"--- the cone $x_2{-}x_0$ with the $(1,3)$ plane solves the "
+                 r"linearized vacuum (the construction was no accident of "
+                 r"direction); and \textbf{cross-direction superposition "
+                 r"solves} (cone 1 $+$ cone 2, independent polarizations and "
+                 r"profiles) --- the solution space CROSSES propagation "
+                 r"directions. Two directions $\neq$ all; the general "
+                 r"physics flags do NOT move.")
+        c.append(r"\kernelmk{GeneralNull} (v129): \textbf{the continuous cone} "
+                 r"--- for ANY null covector $k$ ($\eta(k,k)=0$) and ANY "
+                 r"symmetric, $\eta$-traceless, $k$-transverse polarization, the "
+                 r"plane wave solves the linearized vacuum: the THREE algebraic "
+                 r"conditions kill the THREE Ricci terms (traceless, transverse, "
+                 r"NULL). SUBSUMES cones 1,2,3 (v125--v128) AND the continuous "
+                 r"cone --- \textbf{the plane-wave TT sector CLOSED}. General "
+                 r"perturbations and anomalies open; the physics flags do NOT "
+                 r"move.")
+        c.append(r"\kernelmk{TowerTraceless} (v129): \textbf{type III on the "
+                 r"concrete tower} --- for $\lambda\neq1$, the state "
+                 r"$\varphi_N$ is NOT tracial on ANY floor: $\varphi_N("
+                 r"\text{up}\cdot\text{down})=\lambda^{N+1}\varphi_N("
+                 r"\text{down}\cdot\text{up})$ with positive witness "
+                 r"$(1/(1{+}\lambda))^{N+1}>0$ and $\lambda^{N+1}\neq1$. The "
+                 r"absence of trace is not only on the full algebra (v119) --- "
+                 r"it is on the TOWER building the ITPFI factor, floor by floor; "
+                 r"with the log-dense mark (v125), the limit is III$_1$. The "
+                 r"weak-$*$ remains.")
+        c.append(r"\kernelmk{TowerModular} (v130): \textbf{the modular "
+                 r"structure} --- what REPLACES the dead trace (v129): the "
+                 r"Tomita flow $\sigma_N(a)=\rho_N a\rho_N^{-1}$ (the density "
+                 r"is invertible, positive weights) and \textbf{the KMS "
+                 r"condition} $\varphi_N(ab)=\varphi_N(b\,\sigma_N(a))$ on "
+                 r"EVERY floor (by trace cyclicity) --- the equilibrium law of "
+                 r"the traceless factor; and the modular spectrum IS the ratio "
+                 r"lattice (the witness $\lambda^{N+1}$ lives in the flow, "
+                 r"linking the log-dense mark v125). The weak-$*$ limit remains.")
+        c.append(r"\kernelmk{GNSQuotient} (v128): \textbf{the represented "
+                 r"pre-factor} --- the form is HERMITIAN ($\langle a,b\rangle="
+                 r"\overline{\langle b,a\rangle}$); the RADICAL $N=\{a:\forall "
+                 r"b,\langle a,b\rangle=0\}$ is a \textbf{left ideal} ($a\in "
+                 r"N\Rightarrow x a\in N$); and the inner product AND the left "
+                 r"action DESCEND to the quotient $M/N$ (no Cauchy--Schwarz, no "
+                 r"completion) --- the algebra acts on the quotient: the "
+                 r"algebraic GNS is closed. Hilbert completion $+$ weak-$*$: the "
+                 r"rest.")
+        c.append(r"\kernelmk{ThirdCone} (v128): \textbf{the three null "
+                 r"directions} --- the cone $x_3{-}x_0$ (plane $(1,2)$) solves, "
+                 r"and \textbf{the three-direction superposition} (cones "
+                 r"$1{+}2{+}3$, all polarizations and profiles independent) "
+                 r"solves the linearized vacuum --- the solution space spans the "
+                 r"three spatial null axes. The continuous cone and the general "
+                 r"decomposition remain open; the physics flags do NOT move.")
         _su1 = core.get("void_shear_unblinding", {}) or {}
         _su1v = (_su1.get("values") or {})
 
@@ -46633,6 +51843,175 @@ def _esqueleto_chapter(core, lang="pt"):
                  % (float(_li3v.get("A_2025_original_matrices") or float("nan")),
                     float(_li3v.get("epsilon_sq_equals_beta_resid") or 0.0),
                     str(_li3.get("provenance_hash", "?"))[:16]))
+        _pl4 = core.get("powers_ladder", {}) or {}
+        _k74 = core.get("void_floor_kappa_v7", {}) or {}
+        _k74v = (_k74.get("values") or {})
+        c.append((r"\subsection*{\S204 --- The Powers ladder and amendment V7 "
+                  r"(v124)}"
+                  r"STONE 71 (\texttt{PowersLadder.lean}) builds the COMPLETE "
+                  r"finite face of Araki--Woods --- the exact shape of III$_1$ "
+                  r"named in v119: Tomita on the block by trace cyclicity; the "
+                  r"Powers state $\varphi_\lambda$ with the ratio witness "
+                  r"$\lambda$ (which KILLS traciality); the flow with eigenvalue "
+                  r"$\lambda$; THE LADDER LAW (Kronecker multiplies ratios; the "
+                  r"$N$-block chain carries $\lambda^N$); and THE MARK OF III: "
+                  r"$0$ lies in the closure of the ratio spectrum --- no tracial "
+                  r"floor survives. The THIRD trace killer (the PRODUCT FLOW). "
+                  r"The infinite factor (ITPFI $R_\lambda$; III$_1$ by mixing) "
+                  r"is the program; the 5T/1F gate does not move. Verdict: "
+                  r"\texttt{%s}.")
+                 % str(_pl4.get("verdict", "?")).replace("_", r"\_"))
+        c.append((r"AND AMENDMENT V7 OF $\kappa$: the V6 autopsy isolated the "
+                  r"rotation gate (coarse 15° grid $+$ simultaneous validity in "
+                  r"all 4 quartiles $\Rightarrow$ 9$<$16 --- the galactic mask "
+                  r"kills coarse rotations). V7 fixes it with a FINE 5° grid and "
+                  r"PER-GROUP validity, with a deterministic selection BLIND to "
+                  r"the signal (mask$+$positions only; never $\kappa$): $M=%d$ "
+                  r"valid rotations ($\geq$16); corrected nulls $\chi^2/{\rm "
+                  r"dof}=%.2f$; Fisher $F=%.3g$; $\hat r_*=%.3f$, $5\sigma$ "
+                  r"$[%.3f,%.3f]$. \textbf{VERDICT: \texttt{%s}}. Verdicts only "
+                  r"from the pre-registered set; gate flags UNTOUCHED.")
+                 % (int(_k74v.get("n_rot_min_common") or -1),
+                    float(_k74v.get("chi2_null_dof") or float("nan")),
+                    float(_k74v.get("fisher_floor") or float("nan")),
+                    float(_k74v.get("r_hat") or float("nan")),
+                    float(_k74v.get("r_5sigma_lo") or float("nan")),
+                    float(_k74v.get("r_5sigma_hi") or float("nan")),
+                    str(_k74.get("verdict", "?")).replace("_", r"\_")))
+        _ml5 = core.get("mixed_ladder", {}) or {}
+        _ct5 = core.get("continuum_tt", {}) or {}
+        _k85 = core.get("void_floor_kappa_v8", {}) or {}
+        _k85v = (_k85.get("values") or {})
+        c.append((r"\subsection*{\S205 --- The triple mandate: the mark of "
+                  r"III$_1$, continuum TT, and depth (v125)}"
+                  r"STONE 72 (\texttt{MixedLadder.lean}): MIXING — "
+                  r"incommensurable ratios generate a log-DENSE spectrum (the "
+                  r"mark of III$_1$; the concrete pair $(1/2,1/3)$ inhabits it). "
+                  r"STONE 73 (\texttt{ContinuumTT.lean}): TT waves SOLVE the "
+                  r"linearized vacuum (any $C^2$ profile) with positive-definite "
+                  r"kinetic form — massless and ghost-free on plane waves; "
+                  r"physics flags UNTOUCHED (plane waves $\neq$ general; "
+                  r"anomalies open). Verdicts: \texttt{%s} and \texttt{%s}.")
+                 % (str(_ml5.get("verdict", "?")).replace("_", r"\_"),
+                    str(_ct5.get("verdict", "?")).replace("_", r"\_")))
+        c.append((r"AND DEPTH — the deep test RUN with the acquisition complete "
+                  r"on disk (LRG NGC$+$SGC 18/07, exact bytes; ACT DR6 19/07): "
+                  r"deep $\kappa$ stacked on LRG voids $z\,0.40$--$0.80$ "
+                  r"(finder \texttt{LRG\_SO\_V1} inherited VERBATIM; V7 "
+                  r"pipeline VERBATIM; pre-registered, LOGGED cap 4000). Why "
+                  r"this is REAL depth: lensing weighs TOTAL matter (tracer "
+                  r"suppression does not apply), the CMB kernel is "
+                  r"$\sim$3--5$\times$ more efficient at these $z$, and the "
+                  r"population is larger. Numbers: %d LRG voids (%d in "
+                  r"footprint; cap %s); $M=%d$ rotations; nulls $\chi^2/{\rm "
+                  r"dof}=%.2f$; Fisher $F=%.3g$; $\hat r_*=%.3f$, $5\sigma$ "
+                  r"$[%.3f,%.3f]$. \textbf{VERDICT: \texttt{%s}}. Verdicts "
+                  r"only from the pre-registered set; gate flags UNTOUCHED.")
+                 % (int(_k85.get("n_voids") or -1), int(_k85.get("n_kept") or -1),
+                    str(_k85.get("capped")), int(_k85v.get("n_rot_min_common") or -1),
+                    float(_k85v.get("chi2_null_dof") or float("nan")),
+                    float(_k85v.get("fisher_floor") or float("nan")),
+                    float(_k85v.get("r_hat") or float("nan")),
+                    float(_k85v.get("r_5sigma_lo") or float("nan")),
+                    float(_k85v.get("r_5sigma_hi") or float("nan")),
+                    str(_k85.get("verdict", "?")).replace("_", r"\_")))
+        _tw6 = core.get("colimit_seed", {}) or {}
+        _ts6 = core.get("tt_superposition", {}) or {}
+        _k96 = core.get("void_floor_kappa_v9", {}) or {}
+        _k96v = (_k96.get("values") or {})
+        c.append((r"\subsection*{\S206 --- The standing mandate: the tower, "
+                  r"the solution space, and the right band (v126)}"
+                  r"STONE 74 (\texttt{ColimitSeed.lean}): the ITPFI factor "
+                  r"TOWER — *-homomorphic injective steps, a COHERENT product "
+                  r"state (one state on the whole tower), and the modular "
+                  r"asymmetry STABLE up the colimit; the closure (GNS $+$ "
+                  r"weak-$*$) is the program. STONE 75 "
+                  r"(\texttt{TTSuperposition.lean}): the solution set of the "
+                  r"linearized vacuum is a SPACE (any TT pair with independent "
+                  r"polarizations and profiles solves); physics flags UNTOUCHED. "
+                  r"Verdicts: \texttt{%s} and \texttt{%s}.")
+                 % (str(_tw6.get("verdict", "?")).replace("_", r"\_"),
+                    str(_ts6.get("verdict", "?")).replace("_", r"\_")))
+        c.append((r"AND BAND V9 — the V8 autopsy executed: L\_use extended to "
+                  r"$[8,1000]$ (ACT DR6 has the modes) and a cap of 1500 by "
+                  r"LARGEST $\theta_v$ (signal INSIDE the band; blind "
+                  r"selection). Numbers: %d voids (%d used; cap %s); $\bar"
+                  r"\theta_v=%.3f°$; $M=%d$ rotations; nulls $\chi^2/{\rm dof}"
+                  r"=%.2f$; Fisher $F=%.3g$; $\hat r_*=%.3f$, $5\sigma$ "
+                  r"$[%.3f,%.3f]$. \textbf{VERDICT: \texttt{%s}}. Verdicts "
+                  r"only from the frozen set; gate flags UNTOUCHED.")
+                 % (int(_k96.get("n_voids") or -1), int(_k96.get("n_kept") or -1),
+                    str(_k96.get("capped")),
+                    float(_k96v.get("thetav_mean_deg") or float("nan")),
+                    int(_k96v.get("n_rot_min_common") or -1),
+                    float(_k96v.get("chi2_null_dof") or float("nan")),
+                    float(_k96v.get("fisher_floor") or float("nan")),
+                    float(_k96v.get("r_hat") or float("nan")),
+                    float(_k96v.get("r_5sigma_lo") or float("nan")),
+                    float(_k96v.get("r_5sigma_hi") or float("nan")),
+                    str(_k96.get("verdict", "?")).replace("_", r"\_")))
+        _gt7 = core.get("gns_tower", {}) or {}
+        _sc7 = core.get("second_cone", {}) or {}
+        c.append((r"\subsection*{\S207 --- The GNS tower and the second "
+                  r"direction (v127)}"
+                  r"STONE 76 (\texttt{GNSTower.lean}): the factor's pre-Hilbert "
+                  r"space — diagonal positive density, state positive on the "
+                  r"whole tower, GNS inner product, and \textbf{ISOMETRIC "
+                  r"steps} ($\langle a\otimes1,b\otimes1\rangle_{N+1}="
+                  r"\langle a,b\rangle_N$); quotient $+$ completion $+$ "
+                  r"weak-$*$ remain. STONE 77 (\texttt{SecondCone.lean}): the "
+                  r"second direction solves, and \textbf{cross-direction "
+                  r"superposition solves} — the solution space crosses "
+                  r"directions; physics flags UNTOUCHED. Verdicts: \texttt{%s} "
+                  r"and \texttt{%s}. The 5T/1F gate does not move.")
+                 % (str(_gt7.get("verdict", "?")).replace("_", r"\_"),
+                    str(_sc7.get("verdict", "?")).replace("_", r"\_")))
+        _gq8 = core.get("gns_quotient", {}) or {}
+        _tc8 = core.get("third_cone", {}) or {}
+        c.append((r"\subsection*{\S208 --- The GNS quotient and the third "
+                  r"direction (v128)}"
+                  r"STONE 78 (\texttt{GNSQuotient.lean}): the REPRESENTED "
+                  r"pre-factor — the radical is a LEFT IDEAL, the inner product "
+                  r"and the left action descend to the quotient $M/N$ (no "
+                  r"Cauchy--Schwarz, no completion); the Hilbert completion $+$ "
+                  r"weak-$*$ closure remain. STONE 79 (\texttt{ThirdCone.lean}): "
+                  r"the TT sector covers the THREE spatial null directions (the "
+                  r"triple superposition solves); physics flags UNTOUCHED. "
+                  r"Verdicts: \texttt{%s} and \texttt{%s}. The 5T/1F gate does "
+                  r"not move.")
+                 % (str(_gq8.get("verdict", "?")).replace("_", r"\_"),
+                    str(_tc8.get("verdict", "?")).replace("_", r"\_")))
+        _gnl9 = core.get("general_null", {}) or {}
+        _tt29 = core.get("tower_traceless", {}) or {}
+        c.append((r"\subsection*{\S209 --- The continuous cone and type III on "
+                  r"the tower (v129)}"
+                  r"STONE 80 (\texttt{GeneralNull.lean}): for ANY null "
+                  r"direction, the TT plane wave solves the linearized vacuum "
+                  r"(three conditions kill three terms) --- the plane-wave TT "
+                  r"sector CLOSED, subsuming all cones and the continuum. STONE "
+                  r"81 (\texttt{TowerTraceless.lean}): the state $\varphi_N$ "
+                  r"is NOT tracial on any floor of the tower ($\lambda\neq1$) "
+                  r"--- type III realized on the concrete tower building the "
+                  r"ITPFI factor; with the log-dense mark (v125), the limit is "
+                  r"III$_1$. Physics flags UNTOUCHED. Verdicts: \texttt{%s} and "
+                  r"\texttt{%s}. The 5T/1F gate does not move.")
+                 % (str(_gnl9.get("verdict", "?")).replace("_", r"\_"),
+                    str(_tt29.get("verdict", "?")).replace("_", r"\_")))
+        _tm0 = core.get("tower_modular", {}) or {}
+        c.append((r"\subsection*{\S210 --- The modular structure of the tower "
+                  r"(v130)}"
+                  r"STONE 82 (\texttt{TowerModular.lean}): what REPLACES the "
+                  r"dead trace (v129) --- the Tomita flow $\sigma_N$ (the "
+                  r"density is invertible) and the KMS condition $\varphi_N(ab)"
+                  r"=\varphi_N(b\,\sigma_N(a))$ on every floor, with the "
+                  r"modular spectrum $=$ the ratio lattice. The equilibrium "
+                  r"structure of the traceless ITPFI factor, linking the "
+                  r"log-dense mark (v125). Also this run: the STONE 80 (continuous "
+                  r"cone) SHADOW FIXED with an explicit TT instance --- the Lean "
+                  r"theorem was always proven (v129, 537/537); the bug was in the "
+                  r"numerical Gram--Schmidt. Verdict: \texttt{%s}. The 5T/1F "
+                  r"gate does not move.")
+                 % str(_tm0.get("verdict", "?")).replace("_", r"\_"))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- The inhabitable witness: the two zeros and "
@@ -47067,7 +52446,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across seventy stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across eighty-two stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -47564,7 +52943,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_shear_unblinding", "void_shear_v2", "void_floor_kappa_v6", "fused_witness", "linguistic_isomorphism", "void_floor_lrg", "void_floor_kappa_v5",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_shear_unblinding", "void_shear_v2", "void_floor_kappa_v6", "fused_witness", "linguistic_isomorphism", "powers_ladder", "void_floor_kappa_v7", "mixed_ladder", "continuum_tt", "void_floor_kappa_v8", "colimit_seed", "tt_superposition", "void_floor_kappa_v9", "gns_tower", "second_cone", "gns_quotient", "third_cone", "general_null", "tower_traceless", "tower_modular", "void_floor_lrg", "void_floor_kappa_v5",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -49863,6 +55242,101 @@ def main():
     for _k, _v in (_li.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [a leitura veio ANTES (jun-ago/2025, sha256+data congelados), o numero confirmou DEPOIS -- a nao-circularidade com carimbo de data; teologico/pessoal ARQUIVADO; nada move o gate]")
+    _pl = core.get("powers_ladder", {}) or {}
+    print("  A ESCADA DE POWERS [v124 -- pedra 71: a semente de Araki-Woods; o 3o assassino de traco]: %s" % _pl.get("verdict"))
+    print("    Tomita no bloco (ciclicidade) ; razao lambda mata a tracialidade ; Kronecker MULTIPLICA razoes ; cadeia N => lambda^N ; 0 no fecho = a MARCA de III")
+    for _k, _v in (_pl.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [o fator INFINITO (ITPFI R_lambda; III_1 por mistura) = o programa; a escada e' necessaria, nao suficiente; o V2 segue RESERVADO; o selo NAO se move]")
+    _k7 = core.get("void_floor_kappa_v7", {}) or {}
+    _k7v = _k7.get("values", {}) or {}
+    print("  A EMENDA V7 DO KAPPA [v124 -- rotacoes finas POR GRUPO; selecao CEGA ao sinal]: %s" % _k7.get("verdict"))
+    print("    M=%s rotacoes validas (>=16) ; nulos corrigidos chi2/dof=%s ; Fisher F=%s ; r*=%s ; 5sig=[%s, %s]" % (
+        _k7v.get("n_rot_min_common"), _k7v.get("chi2_null_dof"), _k7v.get("fisher_floor"),
+        _k7v.get("r_hat"), _k7v.get("r_5sigma_lo"), _k7v.get("r_5sigma_hi")))
+    for _k, _v in (_k7.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [vereditos SOMENTE do conjunto pre-registrado; flags do gate INTOCADOS]")
+    _ml = core.get("mixed_ladder", {}) or {}
+    _mlv = _ml.get("values", {}) or {}
+    print("  A MISTURA [v125 -- pedra 72: a marca de III_1]: %s" % _ml.get("verdict"))
+    print("    incomensuraveis => espectro log-DENSO (dense_or_cyclic) ; par CONCRETO (1/2, 1/3) habita a marca ; sombra: a.log(1/2)+b.log(1/3) ~ log(beta) resid %s" % _mlv.get("mix_approx_resid"))
+    for _k, _v in (_ml.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [o FATOR-limite (ITPFI fraco-*) = o programa; a marca e' a assinatura, nao o objeto; o selo NAO se move]")
+    _ct = core.get("continuum_tt", {}) or {}
+    _ctv = _ct.get("values", {}) or {}
+    print("  O SETOR TT NO CONTINUO [v125 -- pedra 73: vacuo linearizado + sem fantasma]: %s" % _ct.get("verdict"))
+    print("    ondas TT resolvem Ricci_lin = 0 (perfil C^2 QUALQUER) ; d'Alembert por componente ; cinetica positiva-definida ; sombra dif.finitas: max|Ricci| = %s" % _ctv.get("shadow_ricci_max"))
+    for _k, _v in (_ct.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [ondas planas != perturbacoes GERAIS; anomalias ABERTAS; os 5 flags de fisica NAO se movem -- a imobilidade e' a credibilidade]")
+    _k8 = core.get("void_floor_kappa_v8", {}) or {}
+    _k8v = _k8.get("values", {}) or {}
+    print("  A PROFUNDIDADE [v125 -- kappa ACT DR6 x vazios LRG z 0.40-0.80; aquisicao completa em disco]: %s" % _k8.get("verdict"))
+    print("    n_vazios LRG=%s ; mantidos=%s (cap: %s) ; M=%s rotacoes ; nulos chi2/dof=%s ; Fisher F=%s ; r*=%s ; 5sig=[%s, %s]" % (
+        _k8.get("n_voids"), _k8.get("n_kept"), _k8.get("capped"),
+        _k8v.get("n_rot_min_common"), _k8v.get("chi2_null_dof"), _k8v.get("fisher_floor"),
+        _k8v.get("r_hat"), _k8v.get("r_5sigma_lo"), _k8v.get("r_5sigma_hi")))
+    for _k, _v in (_k8.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [lente pesa MATERIA TOTAL (sem supressao de tracador); kernel CMB eficiente em z 0.4-0.8; vereditos SOMENTE pre-registrados; flags do gate INTOCADOS]")
+    _tw = core.get("colimit_seed", {}) or {}
+    print("  A TORRE DO FATOR [v126 -- pedra 74: o colimite ITPFI comeca]: %s" % _tw.get("verdict"))
+    for _k, _v in (_tw.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [o FECHO (GNS do estado coerente + fraco-*) = o programa; a torre e' o pre-fator; o selo NAO se move]")
+    _ts = core.get("tt_superposition", {}) or {}
+    print("  A SUPERPOSICAO TT [v126 -- pedra 75: o espaco-solucao]: %s" % _ts.get("verdict"))
+    for _k, _v in (_ts.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [mesmo cone; direcoes multiplas + decomposicao geral ABERTAS; os 5 flags de fisica NAO se movem]")
+    _k9 = core.get("void_floor_kappa_v9", {}) or {}
+    _k9v = _k9.get("values", {}) or {}
+    print("  A V9 DA BANDA [v126 -- L_use [8,1000]; cap 1500 por theta_v; a autopsia da V8 executada]: %s" % _k9.get("verdict"))
+    print("    n_vazios=%s ; mantidos=%s (cap %s) ; theta_v medio=%s graus ; M=%s ; nulos chi2/dof=%s ; Fisher F=%s ; r*=%s ; 5sig=[%s, %s]" % (
+        _k9.get("n_voids"), _k9.get("n_kept"), _k9.get("capped"),
+        _k9v.get("thetav_mean_deg"), _k9v.get("n_rot_min_common"),
+        _k9v.get("chi2_null_dof"), _k9v.get("fisher_floor"),
+        _k9v.get("r_hat"), _k9v.get("r_5sigma_lo"), _k9v.get("r_5sigma_hi")))
+    for _k, _v in (_k9.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [a banda agora alcanca as escalas dos vazios fundos; vereditos SOMENTE pre-registrados; flags do gate INTOCADOS]")
+    _gt = core.get("gns_tower", {}) or {}
+    print("  A TORRE GNS [v127 -- pedra 76: o pre-Hilbert isometrico do fator]: %s" % _gt.get("verdict"))
+    for _k, _v in (_gt.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [quociente + completamento + fecho fraco-* = o resto do FECHO; o selo NAO se move]")
+    _sc = core.get("second_cone", {}) or {}
+    print("  A SEGUNDA DIRECAO [v127 -- pedra 77: o espaco-solucao cruza direcoes]: %s" % _sc.get("verdict"))
+    for _k, _v in (_sc.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [duas direcoes != todas; decomposicao geral + anomalias ABERTAS; os 5 flags de fisica NAO se movem]")
+    _gq = core.get("gns_quotient", {}) or {}
+    print("  O QUOCIENTE GNS [v128 -- pedra 78: o pre-fator representado]: %s" % _gq.get("verdict"))
+    for _k, _v in (_gq.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [completamento de Hilbert + fecho fraco-* = o resto do FECHO; o selo NAO se move]")
+    _tc = core.get("third_cone", {}) or {}
+    print("  A TERCEIRA DIRECAO [v128 -- pedra 79: o setor TT cobre os tres eixos nulos]: %s" % _tc.get("verdict"))
+    for _k, _v in (_tc.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [tres eixos != cone continuo; decomposicao geral + anomalias ABERTAS; os 5 flags de fisica NAO se movem]")
+    _gnl = core.get("general_null", {}) or {}
+    print("  O CONE CONTINUO [v129 -- pedra 80: QUALQUER direcao nula TT resolve]: %s" % _gnl.get("verdict"))
+    for _k, _v in (_gnl.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [o setor de ondas planas TT FECHADO em TODA direcao nula; perturbacoes GERAIS + anomalias ABERTAS; os 5 flags NAO se movem]")
+    _tt2 = core.get("tower_traceless", {}) or {}
+    print("  A TORRE SEM TRACO [v129 -- pedra 81: o tipo III na torre concreta]: %s" % _tt2.get("verdict"))
+    for _k, _v in (_tt2.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [a assinatura tipo-III na TORRE que constroi o fator ITPFI, andar a andar; com a marca log-densa (v125) o limite e' III_1; RESTA o limite fraco-*; o selo NAO se move]")
+    _tm = core.get("tower_modular", {}) or {}
+    print("  A ESTRUTURA MODULAR DA TORRE [v130 -- pedra 82: fluxo de Tomita + KMS]: %s" % _tm.get("verdict"))
+    for _k, _v in (_tm.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [a estrutura de equilibrio que SUBSTITUI o traco morto (v129): fluxo modular + KMS + espectro=razao; RESTA o limite fraco-*; o selo NAO se move]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (

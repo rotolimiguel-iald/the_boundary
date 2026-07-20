@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-19 18:54:12",
+  "timestamp": "2026-07-20 14:48:09",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "57b6f99b9d0edaa78299afbac7391bbddd531fc29c6cb80e3f4c1129a7b920ed",
+  "formal_source_hash": "958f51b66497628b9cf5b960006973290f0e19058f9251a566c8dd45509de39f",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "2b84b08758af5b94a427aed71e151d7b227d1f6579c80d88cfcf6a6c0e3680a6",
+    "TGLExt.lean": "e151832442ea72f8523ddfce8948e65a53639fb25b022c308af11d1deb7a9cc5",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "5a5ca7a8d88bc23af60b2aec7b098da0f83d33e614759c567a88eac96e508b95",
+    "TGL/Audit.lean": "79518beddc1519da8d5af65e7ab22cee68384678ff2dfea24a89110940ed6b39",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -54,11 +54,13 @@
     "TGLExt/ClosedLattice.lean": "1cc93d55463aaf6108a47361a0622684c79027cc25c1dc7700b45e3d995035e9",
     "TGLExt/ClosureCertificate.lean": "977a24815e7a3eaea64d16318c95f76a854176987205ebb8a809418e0e86de63",
     "TGLExt/Cocycle.lean": "28dd4546e652983126c37d80962b6534a0684b41f7903c58032aeea3d3931ee4",
+    "TGLExt/ColimitSeed.lean": "528d769f4751816fa3a13115d6c30e2975f7c7b34a5a9d8fcf91e9982a60cf53",
     "TGLExt/Commutant.lean": "114782c4fb991da15ae22e3e053ecf6a8c4a5f68e7152afd40102a66c44db19a",
     "TGLExt/ConcreteFourFrame.lean": "4c3d4ab63b2df108961c9875b23853a3315aa96a9a0a89180106d212e1d9f550",
     "TGLExt/CondExpect.lean": "33e0eecd498ec326d8f5bf699b3a5b5aae4a388fa049564bfd8619b096737ede",
     "TGLExt/ContinuousModularZero.lean": "0dad5794f98ba1cb8519b4c105f63d555b5dc3d8fab7884f8265aebff214f376",
     "TGLExt/ContinuumShards.lean": "18e43b74a336360ff7c4458b703e263e06e52f4778aba225073fac65d8614c40",
+    "TGLExt/ContinuumTT.lean": "21c62b855a477119daa3daab0c1e8f80f265bec4b269ce5367e7d9a60de72a96",
     "TGLExt/CornerFamily.lean": "bbceea91341abcf2b2a3f0f33ce88975fd5c529f05918c6982eb4872b66fe105",
     "TGLExt/CovariantCorner.lean": "155cb43d01bb7645bd6bef16d21fbbf2c01114a73fa466e1e4d18ac92a6c5e7d",
     "TGLExt/DimensionTrace.lean": "cdadc9fdf8ed641c7c260e0a5450577b4e190b102a055dc0d2c49e71f49338ea",
@@ -73,6 +75,9 @@
     "TGLExt/FirstCurvature.lean": "d88d4a5fa15462f43850119f39099059a8ae0af87190420aa921dfaf20ebde44",
     "TGLExt/FusedWitness.lean": "3708dde5255559cddcddecbe2ca05eb93e751511db8a8f7bcf6968e60a065e69",
     "TGLExt/GNSBridge.lean": "a625e38824790f94eb6ac54f44cffc0656e6e3fc2f3ae2d42220dac071a11c8b",
+    "TGLExt/GNSQuotient.lean": "d6b3ac4f4306516adf561e1c68f20a5337b49b6c0e9bfd2b17550ed48264b9a6",
+    "TGLExt/GNSTower.lean": "bef660d621d3d5a915832c85e986f901fc64f8e43d31cd76ebea897cc7db64ed",
+    "TGLExt/GeneralNull.lean": "b8704cf7c144db3fe9f064eb13944307e9508115f0ad4cb083422130f6cc2fda",
     "TGLExt/GeometricWitness.lean": "c971c7b2a45420bcb1c9e5e6ac37276e5a5796269b1002765b41b835a03d2afe",
     "TGLExt/GeometryFluctuation.lean": "c70403c706d7b033628bf775ebc8552d5adfb885372c58f2252dbc1c58e7b655",
     "TGLExt/GlobalLiftLadder.lean": "d7cf95aac8c872f7b6ea3849bd9db88412005925a0b4d856e83e266fce56b5d4",
@@ -89,6 +94,7 @@
     "TGLExt/LocalBreuerGap.lean": "8ec73c7d9e703d6c775f53351a784ab98b27ad2dd3d253b79a3d34992e0d5d3d",
     "TGLExt/MarkovTower.lean": "5b542018622975c4b2c498d1727ca20f7280ad108bfc25d0a587958097e2e74b",
     "TGLExt/MinimalSolder.lean": "53dbb33e260a46ebd3c753ec7a4ca61fc5a4721757e310d58c3a4cb1455e7e66",
+    "TGLExt/MixedLadder.lean": "eb43ba5a3ee66412f7f4704a7a435f485f1e53a315188e4f9bb46234f757f861",
     "TGLExt/ModularFirstLaw.lean": "aee3eb49a6d0544e8bb2a3f7b763b04dc46ea425ec4565f77ae1c33ffc27125d",
     "TGLExt/ModularFlow.lean": "62cfa753d4b40a9091aafb383a8edd588a542dddf5e97ee39906ec31c59826b9",
     "TGLExt/NoFullWitness.lean": "fde4ca999c40e6892d1958bee15a066786adb1363b8e3514f41eeb8b8909a654",
@@ -98,12 +104,14 @@
     "TGLExt/PageInformation.lean": "a36b61ba76d0c9d6b22e6fad7a29a05d01ab5b6a240e00de16fabd0e4daf062e",
     "TGLExt/PoincareGroup.lean": "c73c927631381aa78136222d30783aa393735a146607e799371db22b4a4466db",
     "TGLExt/PoincareWitness.lean": "848f2937f35ec50b2ab483336cc3ba17c46135eb52c17418bc1fbc1530f568ad",
+    "TGLExt/PowersLadder.lean": "d6362c6079146ff4d50b46cdbbfe5497cde3e83a586b91e1abe625e4775bd7d4",
     "TGLExt/ProgrammerRule.lean": "89e5e14bee9dc4aa37ded5f8b5269ce9fd93787f16eec9346273042c93fc349d",
     "TGLExt/PsiEmergence.lean": "ff0fd49da7bda187a61454a6b57099e99d1c59c8af038fa43c90c1653736bb04",
     "TGLExt/RGStability.lean": "ae3c1eeee6d86ea43b57ee0afe171bb43c0f24094702130ec3c2604f53aa7bf5",
     "TGLExt/ReducedEmergence.lean": "d11854b264e6e17c551db2e6ffc6eaf804408afa1846c88529487167743eb845",
     "TGLExt/RegularRep.lean": "a3861da9c4d4e8ef8173272ad8843c65dcbe8215d598a52948f608fca7d53590",
     "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
+    "TGLExt/SecondCone.lean": "9bafc9fcbf9fc6eb98f17d2e3122ac01820bc0785e64fb63eb6eef8c0c276e45",
     "TGLExt/SemifiniteLattice.lean": "37ca0a1db916c93954c1a486ddbf5462248a050e58ccb6b670020c5225e46b0f",
     "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
     "TGLExt/SemifiniteWeight.lean": "1b4044715c04a3576e8bc3944f48e53edf02c8d4f23d91b3896771fd8d1eddff",
@@ -114,9 +122,13 @@
     "TGLExt/StrongAssembly.lean": "34758f8d20a242bc8e9f2114b572888a793754dbb681a0368adc3e9d9fa2161e",
     "TGLExt/StrongFrame.lean": "648a6f282bfa8d5ec7297f2e93f2bc0db92f219c6cd1a3a74da4b97b1655af87",
     "TGLExt/SusyRelativeGap.lean": "3aa058b5c4f098e3218ffed0bc8271a28947b56af81750019e1360754873e7f2",
+    "TGLExt/TTSuperposition.lean": "7beb841f082e34be68c11ef8de25b024a448b90afb64752a3a6cb8327c13cde3",
     "TGLExt/TailNet.lean": "e7654368112f1af5d529edbd0d2669a829358651a82014e0d835a88868d7f5e6",
     "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
+    "TGLExt/ThirdCone.lean": "21edba89bf302c075d512e77bf2dada36b5f216f054930eb5a881c57935eb694",
     "TGLExt/ThreeLocksCorner.lean": "51c66b4dca74fa58e221bd9889d468d1f77c816ec8c7ff3cc9f56e3bd7a66d2e",
+    "TGLExt/TowerModular.lean": "e3697a4f628eb1ae5211f004ac17d5867ccf60e705bb955d868229b118ee5550",
+    "TGLExt/TowerTraceless.lean": "d5789535f0e38917ad8a1a90c20ee17ded2b32cf0d2dd3ad919a8acf6aa86f42",
     "TGLExt/TracelessAlgebra.lean": "50c531bd93946a7f8df4bc940e15c3d2f71899e02c50e060e6f695f136a13de5",
     "TGLExt/TransportWitness.lean": "f4219cc2c036999e19e41b006d4899a1a10cd2e8e3562c5a277370faae0364ed",
     "TGLExt/TriadMaster.lean": "64e0899e259693927b051493b8f20cc47885f183d02d79a8772e3b3d869863ae",
@@ -2794,10 +2806,320 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.block_modular_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.powersState_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.powersState_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.powers_ratio_witness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.powersState_not_tracial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.blockFlow_eigen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ratioWitness_kron": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.powers_ladder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.zero_mem_closure_ratio_spectrum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.no_trace_floor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.mixed_chain_ratio": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.mixed_log_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.irrational_log_two_div_log_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_mixing_mark": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.epsTT_traceless": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.epsTT_transverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.pd_pd_scaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_component_wave": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_kinetic_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_kinetic_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerStep_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerStep_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerStep_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainState_towerStep": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainState_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ratio_persists_up_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.pd_scaled_fun_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.pd_pd_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_superposition_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainDensity_eq_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainWeights_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainState_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsInner_add_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsInner_self_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gns_isometric_up_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.epsTT2_traceless": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.epsTT2_transverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.pd_pd_cross": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt2_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_cross_direction_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsInner_conj_symm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsRadical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsRadical_left_ideal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsInner_wd_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsInner_wd_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.leftAction_wd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.epsTT3_traceless": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.epsTT3_transverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt3_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_triple_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.dotCov_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.pd_pd_planeWaveG": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.general_null_tt_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainDownUp_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tower_ratio_ne_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainState_not_tracial_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainWeights_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainDensity_mul_inv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerFlow_id": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tower_kms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tower_modular_ratio": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "a80196a9699ee0adf2472a43be1eff32885ac0ed09ee627d7d0d7601fb4cc60d",
-  "audit_stdout_sha256": "550e6b8f33a28c52caad76a3b398ddb7c1495d602215100aa2058a4481d3c9b1",
+  "build_stdout_sha256": "351a737a483eedaabf68e8a66e5ee9239fa8eda456f494eb9b632e6c32e54b3e",
+  "audit_stdout_sha256": "9c93e0541e7bbfd29949bd746bbf858b908db772e8fd594687ad3b26e8799860",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

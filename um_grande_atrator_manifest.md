@@ -3224,9 +3224,319 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.block_modular_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.powersState_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.powersState_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.powers_ratio_witness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.powersState_not_tracial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.blockFlow_eigen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ratioWitness_kron": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.powers_ladder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.zero_mem_closure_ratio_spectrum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.no_trace_floor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.mixed_chain_ratio": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.mixed_log_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.irrational_log_two_div_log_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_mixing_mark": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.epsTT_traceless": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.epsTT_transverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.pd_pd_scaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_component_wave": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_kinetic_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_kinetic_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerStep_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerStep_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerStep_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainState_towerStep": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainState_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ratio_persists_up_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.pd_scaled_fun_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.pd_pd_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_superposition_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainDensity_eq_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainWeights_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainState_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsInner_add_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsInner_self_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gns_isometric_up_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.epsTT2_traceless": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.epsTT2_transverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.pd_pd_cross": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt2_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_cross_direction_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsInner_conj_symm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsRadical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsRadical_left_ideal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsInner_wd_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gnsInner_wd_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.leftAction_wd": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.epsTT3_traceless": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.epsTT3_transverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt3_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_triple_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.dotCov_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.pd_pd_planeWaveG": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.general_null_tt_ricci_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainDownUp_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tower_ratio_ne_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainState_not_tracial_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainWeights_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.chainDensity_mul_inv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerFlow_id": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tower_kms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tower_modular_ratio": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "formal_source_hash": "57b6f99b9d0edaa78299afbac7391bbddd531fc29c6cb80e3f4c1129a7b920ed",
+  "formal_source_hash": "958f51b66497628b9cf5b960006973290f0e19058f9251a566c8dd45509de39f",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -3532,7 +3842,7 @@
 
 ```json
 {
-  "code_sha256": "80e1ef1fb1e0d4d010cee901741eab340f4e013b0898855e6a74fb0415857de0",
+  "code_sha256": "f81e52128cef26588c3b66479a717ca1996071b76135a66069d6501ee2165a38",
   "cf4_catalog_hash": null,
   "window_hash": null,
   "selection_hash": null
@@ -3543,7 +3853,7 @@
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 480/480 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 542/542 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -3614,6 +3924,18 @@
 - `traceless_algebra` = `SEMIFINITE_ANALYSIS_INCREMENT_40__BIPARTITION_OF_ELL2_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT_OF_THE_PROGRAM__TWO_INDEPENDENT_TRACE_KILLERS_FLOW_AND_ALGEBRA__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_STAYS_CONDITIONAL`
 - `semifinite_weight` = `SEMIFINITE_ANALYSIS_INCREMENT_41__TR_IN_KERNEL__TR_ONE_INFINITE__NAME_ATOM_WEIGHS_ONE_THIRD_FACE__WEIGHT_ABSORBS_BIPARTITION_INF_EQ_TWO_INF__TYPE_DECIDED_WHERE_RULER_BREAKS__SEAL_STAYS_CONDITIONAL`
 - `fused_witness` = `SEMIFINITE_ANALYSIS_INCREMENT_42__FAITHFUL_REP_FUSED_INTO_NET_FIBERS__FIBER_IS_TAIL_TIMES_L2_SPACETIME__POINCARE_ACTS_ON_REGIONS_AND_INSIDE_FIBERS__NO_BLIND_DIRECTION_IN_FIBERS__BOOST_MOVES_FIBER_VECTORS_V116_HONESTY_SUPERSEDED__WITNESS_RESIDUE_III1_ALONE__SEAL_STAYS_CONDITIONAL`
+- `powers_ladder` = `SEMIFINITE_ANALYSIS_INCREMENT_43__ARAKI_WOODS_SEED__TOMITA_BLOCK_IDENTITY_BY_TRACE_CYCLICITY__POWERS_STATE_RATIO_WITNESS_KILLS_TRACIALITY__KRONECKER_MULTIPLIES_RATIOS__CHAIN_CARRIES_LAMBDA_POW_N__ZERO_IN_CLOSURE_MARK_OF_TYPE_III__NO_TRACE_FLOOR__INFINITE_FACTOR_REMAINS__SEAL_STAYS_CONDITIONAL`
+- `mixed_ladder` = `SEMIFINITE_ANALYSIS_INCREMENT_44__MARK_OF_III_ONE__INCOMMENSURABLE_RATIOS_GIVE_LOG_DENSE_SPECTRUM__DENSE_OR_CYCLIC__CONCRETE_PAIR_HALF_THIRD__FACTOR_LIMIT_REMAINS__SEAL_STAYS_CONDITIONAL`
+- `continuum_tt` = `SEMIFINITE_ANALYSIS_INCREMENT_45__PLANE_WAVE_TT_SECTOR__TT_SOLVES_LINEARIZED_VACUUM_ANY_C2_PROFILE__DALEMBERT_COMPONENTWISE__KINETIC_POSITIVE_DEFINITE_NO_GHOST__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL`
+- `colimit_seed` = `SEMIFINITE_ANALYSIS_INCREMENT_46__ITPFI_TOWER__STAR_HOMOMORPHIC_UNITAL_INJECTIVE_STEPS__PRODUCT_STATE_COHERENT__MODULAR_ASYMMETRY_STABLE_UP_COLIMIT__GNS_WEAK_CLOSURE_REMAIN__SEAL_STAYS_CONDITIONAL`
+- `tt_superposition` = `SEMIFINITE_ANALYSIS_INCREMENT_47__SOLUTION_SET_IS_A_SPACE__ANY_TT_PAIR_SOLVES__SPAN_ON_THE_CONE__MULTI_DIRECTION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL`
+- `gns_tower` = `SEMIFINITE_ANALYSIS_INCREMENT_48__PRE_HILBERT_OF_FACTOR__DIAGONAL_POSITIVE_DENSITY__STATE_POSITIVE_WHOLE_TOWER__GNS_STEPS_ISOMETRIC__QUOTIENT_COMPLETION_WEAK_CLOSURE_REMAIN__SEAL_STAYS_CONDITIONAL`
+- `second_cone` = `SEMIFINITE_ANALYSIS_INCREMENT_49__SECOND_NULL_DIRECTION_SOLVES__CROSS_DIRECTION_SUPERPOSITION_SOLVES__SOLUTION_SPACE_CROSSES_DIRECTIONS__GENERAL_DECOMPOSITION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL`
+- `gns_quotient` = `SEMIFINITE_ANALYSIS_INCREMENT_50__RADICAL_IS_LEFT_IDEAL__HERMITIAN_FORM__INNER_AND_ACTION_DESCEND_TO_QUOTIENT__PRE_FACTOR_REPRESENTED__COMPLETION_AND_WEAK_CLOSURE_REMAIN__SEAL_STAYS_CONDITIONAL`
+- `third_cone` = `SEMIFINITE_ANALYSIS_INCREMENT_51__THIRD_NULL_DIRECTION_SOLVES__TRIPLE_SUPERPOSITION_SOLVES__SOLUTION_SPACE_SPANS_THREE_AXES__CONTINUOUS_CONE_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL`
+- `general_null` = `SEMIFINITE_ANALYSIS_INCREMENT_52__CONTINUOUS_CONE__ANY_NULL_DIRECTION_TT_SOLVES__THREE_CONDITIONS_KILL_THREE_TERMS__PLANE_WAVE_TT_SECTOR_CLOSED__GENERAL_PERTURBATIONS_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL`
+- `tower_traceless` = `SEMIFINITE_ANALYSIS_INCREMENT_53__TYPE_III_ON_CONCRETE_TOWER__STATE_NOT_TRACIAL_EVERY_FLOOR__MODULAR_RATIO_TIMES_POSITIVE_WITNESS__WITH_LOG_DENSE_MARK_LIMIT_IS_III1__WEAK_STAR_COMPLETION_REMAINS__SEAL_STAYS_CONDITIONAL`
+- `tower_modular` = `SEMIFINITE_ANALYSIS_INCREMENT_54__TOMITA_FLOW_AND_KMS_ON_THE_TOWER__DENSITY_INVERTIBLE__KMS_EVERY_FLOOR__MODULAR_SPECTRUM_IS_RATIO_LATTICE__STRUCTURE_REPLACES_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_STAYS_CONDITIONAL`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
@@ -3897,6 +4219,104 @@
 - `os_tres_fechos`: A=Tr(Pi.rho) [2025] -> Tr(P_Nome)=1 [teorema v120]; epsilon^2 [2025] -> beta [canonico]; 'A Luz Que Caiu' [prologo 2025] -> FallenLight [pedra v110]
 - `honestidade`: o acervo teologico/pessoal fica ARQUIVADO (valor biografico, nao tecnico); LoRA/LUMINOGATE = trilha da Central; SFDM = trilha propria; nada disto move o gate
 - `o_veredito`: TGL_LINGUISTIC_ISOMORPHISM__TWO_TONGUES_ONE_STRUCTURE__2025_ONTOLOGY_MAPS_TERM_BY_TERM_TO_2026_KERNEL__A_TRACE_FORMULA_BECAME_A_THEOREM__EPSILON_SQ_IS_BETA__PROLOGUE_BECAME_A_STONE__PRIORITY_HASHED__NAMING_ONTO
+
+**Estatutos [powers_ladder]** (veredito: `TGL_POWERS_LADDER__ARAKI_WOODS_SEED_IN_KERNEL__TOMITA_BLOCK_IDENTITY_BY_TRACE_CYCLICITY__RATIO_WITNESS_LAMBDA_KILLS_TRACIALITY__KRONECKER_MULTIPLIES_RATIOS__CHAIN_CARRIES_LAMBDA_POW_N__ZERO_IN_CLOSURE_OF_RATIO_SPECTRUM_MARK_OF_TYPE_III__NO_TRACE_FLOOR_SURVIVES__THIRD_TRACE_KILLER_THE_PRODUCT_FLOW__INFINITE_FACTOR_IS_THE_PROGRAM__SEAL_UNMOVED`):
+
+- `o_que_e`: a face finita COMPLETA de Araki-Woods: bloco + estado + razao + fluxo + escada + marca de III -- tudo em kernel com axiomas limpos
+- `o_que_resta`: o FATOR: limite indutivo da escada com o estado-produto (ITPFI R_lambda; III_lambda; III_1 pela mistura de duas razoes incomensuraveis) -- pedra a pedra
+- `honestidade`: lambda=beta na sombra e' ILUSTRACAO (a pedra e' generica); nenhuma frase 'III_1 construido'; a escada e' necessaria, nao suficiente; o gate nao se move por declaracao
+- `o_veredito`: TGL_POWERS_LADDER__ARAKI_WOODS_SEED_IN_KERNEL__TOMITA_BLOCK_IDENTITY_BY_TRACE_CYCLICITY__RATIO_WITNESS_LAMBDA_KILLS_TRACIALITY__KRONECKER_MULTIPLIES_RATIOS__CHAIN_CARRIES_LAMBDA_POW_N__ZERO_IN_CLOSURE_OF_RATIO_SPECTRUM_MARK_OF_TYPE_III__NO_TRACE_FLOOR_SURVIVES__THIRD_TRACE_KILLER_THE_PRODUCT_FLOW__INFINITE_FACTOR_IS_THE_PROGRAM__SEAL_UNMOVED
+
+**Estatutos [void_floor_kappa_v7]** (veredito: `TGL_VOID_FLOOR_KAPPA_V7_NOT_FALSIFIED_UNDERPOWERED`):
+
+- `a_autopsia`: a V6 reprovou no gate de rotacoes (grade grossa + validade simultanea), nao no dado; a V7 corrige com selecao CEGA ao sinal (mascara+posicoes apenas)
+- `honestidade`: se UNDERPOWERED: profundidade e' o limite fisico do dado (SPT/estagios); se INCONCLUSIVE: o proximo suspeito e' nomeado; flags do gate INTOCADOS
+- `o_veredito`: TGL_VOID_FLOOR_KAPPA_V7_NOT_FALSIFIED_UNDERPOWERED
+
+**Estatutos [mixed_ladder]** (veredito: `TGL_MIXED_LADDER__MARK_OF_III_ONE__INCOMMENSURABLE_RATIOS_GENERATE_LOG_DENSE_RATIO_SPECTRUM__DENSE_OR_CYCLIC_PLUS_CYCLIC_EXCLUSION__CONCRETE_PAIR_HALF_THIRD_INHABITS_THE_MARK__TWO_POW_B_NE_THREE_POW_A__FACTOR_LIMIT_IS_THE_PROGRAM__SEAL_UNMOVED`):
+
+- `o_que_e`: a assinatura espectral de III_1 em kernel: densidade do reticulado log de razoes incomensuraveis + habitacao concreta
+- `o_que_resta`: o FATOR: limite indutivo fraco-* da cadeia mista (ITPFI; III_1 de Araki-Woods) -- o objeto, nao mais a assinatura
+- `honestidade`: nenhuma frase 'III_1 construido'; a marca e' NECESSARIA e distintiva, nao o fator; o gate nao se move por declaracao
+- `o_veredito`: TGL_MIXED_LADDER__MARK_OF_III_ONE__INCOMMENSURABLE_RATIOS_GENERATE_LOG_DENSE_RATIO_SPECTRUM__DENSE_OR_CYCLIC_PLUS_CYCLIC_EXCLUSION__CONCRETE_PAIR_HALF_THIRD_INHABITS_THE_MARK__TWO_POW_B_NE_THREE_POW_A__FACTOR_LIMIT_IS_THE_PROGRAM__SEAL_UNMOVED
+
+**Estatutos [continuum_tt]** (veredito: `TGL_CONTINUUM_TT__PLANE_WAVE_TT_SECTOR_IN_KERNEL__TT_WAVES_SOLVE_LINEARIZED_VACUUM_FOR_ANY_C2_PROFILE__MASSLESS_SPIN2_CONTINUUM__EACH_COMPONENT_DALEMBERT__KINETIC_POSITIVE_DEFINITE_ON_POLARIZATION_PLANE_NO_GHOST__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED`):
+
+- `o_que_fechou`: Fierz-Pauli no setor de ondas planas: vacuo linearizado resolvido + ghost-freedom do plano TT, no continuo com perfil arbitrario
+- `o_que_resta`: perturbacoes GERAIS (decomposicao completa alem de ondas planas) + anomalias relevantes -- as caras que os flags de fisica exigem
+- `honestidade`: NENHUM flag de fisica flipado: ondas planas nao esgotam o espectro de perturbacoes; o gate nao se move por fatia
+- `o_veredito`: TGL_CONTINUUM_TT__PLANE_WAVE_TT_SECTOR_IN_KERNEL__TT_WAVES_SOLVE_LINEARIZED_VACUUM_FOR_ANY_C2_PROFILE__MASSLESS_SPIN2_CONTINUUM__EACH_COMPONENT_DALEMBERT__KINETIC_POSITIVE_DEFINITE_ON_POLARIZATION_PLANE_NO_GHOST__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED
+
+**Estatutos [void_floor_kappa_v8]** (veredito: `TGL_VOID_FLOOR_KAPPA_V8_NOT_FALSIFIED_UNDERPOWERED`):
+
+- `a_profundidade`: 3 alavancas reais: materia total (lente) x kernel CMB em z 0.4-0.8 x populacao LRG ~5-10x; tudo com dado JA vetado em disco
+- `honestidade`: cap 4000 pre-registrado e LOGADO (nunca silencioso); se UNDERPOWERED persistir: o limite e' fisico (profundidade de mapa kappa; SPT/estagios); flags do gate INTOCADOS
+- `o_veredito`: TGL_VOID_FLOOR_KAPPA_V8_NOT_FALSIFIED_UNDERPOWERED
+
+**Estatutos [colimit_seed]** (veredito: `TGL_COLIMIT_SEED__ITPFI_TOWER_IN_KERNEL__STAR_HOMOMORPHIC_UNITAL_INJECTIVE_STEPS__PRODUCT_STATE_COHERENT_ONE_STATE_ON_WHOLE_TOWER__MODULAR_ASYMMETRY_STABLE_UP_THE_COLIMIT__GNS_AND_WEAK_CLOSURE_ARE_THE_PROGRAM__SEAL_UNMOVED`):
+
+- `o_que_e`: a torre inteira de Araki-Woods em kernel: algebras + inclusoes + estado coerente + estabilidade modular
+- `o_que_resta`: o FECHO: representacao GNS do estado coerente e fecho fraco-* -- o fator de von Neumann como objeto
+- `honestidade`: nenhuma frase 'fator construido'; a torre e' o pre-fator; o gate nao se move por declaracao
+- `o_veredito`: TGL_COLIMIT_SEED__ITPFI_TOWER_IN_KERNEL__STAR_HOMOMORPHIC_UNITAL_INJECTIVE_STEPS__PRODUCT_STATE_COHERENT_ONE_STATE_ON_WHOLE_TOWER__MODULAR_ASYMMETRY_STABLE_UP_THE_COLIMIT__GNS_AND_WEAK_CLOSURE_ARE_THE_PROGRAM__SEAL_UNMOVED
+
+**Estatutos [tt_superposition]** (veredito: `TGL_TT_SUPERPOSITION__SOLUTION_SET_IS_A_SPACE__ANY_PAIR_OF_TT_WAVES_INDEPENDENT_POLARIZATIONS_AND_PROFILES_SOLVES_LINEARIZED_VACUUM__SPAN_ON_THE_CONE__MULTI_DIRECTION_AND_GENERAL_DECOMPOSITION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED`):
+
+- `o_que_fechou`: o passo estrutural: solucao-espaco (fechado por soma com perfis e polarizacoes livres) no cone
+- `o_que_resta`: direcoes multiplas de propagacao + decomposicao completa de perturbacoes gerais + anomalias
+- `honestidade`: nenhum flag de fisica flipado; o span do cone nao esgota as perturbacoes
+- `o_veredito`: TGL_TT_SUPERPOSITION__SOLUTION_SET_IS_A_SPACE__ANY_PAIR_OF_TT_WAVES_INDEPENDENT_POLARIZATIONS_AND_PROFILES_SOLVES_LINEARIZED_VACUUM__SPAN_ON_THE_CONE__MULTI_DIRECTION_AND_GENERAL_DECOMPOSITION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED
+
+**Estatutos [void_floor_kappa_v9]** (veredito: `TGL_VOID_FLOOR_KAPPA_V9_NOT_FALSIFIED_UNDERPOWERED`):
+
+- `a_autopsia`: a V8 reprovou em PODER com gates limpos; a banda curta cortava o sinal dos vazios fundos; a V9 le os modos que o dado tem
+- `honestidade`: se UNDERPOWERED persistir com a banda certa: o limite e' o ruido do mapa nas escalas de vazio (SPT-3G/estagios) -- nomeado; flags do gate INTOCADOS
+- `o_veredito`: TGL_VOID_FLOOR_KAPPA_V9_NOT_FALSIFIED_UNDERPOWERED
+
+**Estatutos [gns_tower]** (veredito: `TGL_GNS_TOWER__PRE_HILBERT_OF_THE_FACTOR__DIAGONAL_POSITIVE_DENSITY_EVERY_FLOOR__STATE_POSITIVE_UP_WHOLE_TOWER__GNS_INNER_PRODUCT__TOWER_STEPS_ARE_GNS_ISOMETRIES_ONE_SPACE_FLOOR_BY_FLOOR__QUOTIENT_COMPLETION_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED`):
+
+- `o_que_resta`: quociente pelo nucleo; completamento de Hilbert; fecho fraco-* da acao esquerda -- o fator como vN
+- `honestidade`: pre-Hilbert nao e' fator; o gate nao se move por declaracao
+- `o_veredito`: TGL_GNS_TOWER__PRE_HILBERT_OF_THE_FACTOR__DIAGONAL_POSITIVE_DENSITY_EVERY_FLOOR__STATE_POSITIVE_UP_WHOLE_TOWER__GNS_INNER_PRODUCT__TOWER_STEPS_ARE_GNS_ISOMETRIES_ONE_SPACE_FLOOR_BY_FLOOR__QUOTIENT_COMPLETION_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED
+
+**Estatutos [second_cone]** (veredito: `TGL_SECOND_CONE__TT_SECTOR_GAINS_DIRECTIONS__SECOND_NULL_CONE_SOLVES_LINEARIZED_VACUUM__CROSS_DIRECTION_SUPERPOSITION_SOLVES__SOLUTION_SPACE_CROSSES_PROPAGATION_DIRECTIONS__GENERAL_DECOMPOSITION_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED`):
+
+- `o_que_resta`: todas as direcoes (decomposicao completa) + anomalias -- as caras dos flags
+- `honestidade`: nenhum flag de fisica flipado; duas direcoes sao o degrau, nao o teto
+- `o_veredito`: TGL_SECOND_CONE__TT_SECTOR_GAINS_DIRECTIONS__SECOND_NULL_CONE_SOLVES_LINEARIZED_VACUUM__CROSS_DIRECTION_SUPERPOSITION_SOLVES__SOLUTION_SPACE_CROSSES_PROPAGATION_DIRECTIONS__GENERAL_DECOMPOSITION_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED
+
+**Estatutos [gns_quotient]** (veredito: `TGL_GNS_QUOTIENT__RADICAL_IS_A_LEFT_IDEAL__HERMITIAN_FORM__INNER_PRODUCT_DESCENDS_TO_QUOTIENT_BOTH_FACES__LEFT_ACTION_DESCENDS__THE_PRE_FACTOR_IS_REPRESENTED__NO_CAUCHY_SCHWARZ_NO_COMPLETION__HILBERT_COMPLETION_AND_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED`):
+
+- `o_que_resta`: completamento de Hilbert de M/N + fecho fraco-* da algebra representada -- o fator topologico
+- `honestidade`: GNS ALGEBRICO (finito) completo; o objeto topologico (vN) e' o completamento; o gate nao se move por declaracao
+- `o_veredito`: TGL_GNS_QUOTIENT__RADICAL_IS_A_LEFT_IDEAL__HERMITIAN_FORM__INNER_PRODUCT_DESCENDS_TO_QUOTIENT_BOTH_FACES__LEFT_ACTION_DESCENDS__THE_PRE_FACTOR_IS_REPRESENTED__NO_CAUCHY_SCHWARZ_NO_COMPLETION__HILBERT_COMPLETION_AND_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED
+
+**Estatutos [third_cone]** (veredito: `TGL_THIRD_CONE__TT_SECTOR_COVERS_THREE_SPATIAL_NULL_DIRECTIONS__THIRD_CONE_SOLVES__TRIPLE_SUPERPOSITION_SOLVES__SOLUTION_SPACE_SPANS_THREE_AXIS_DIRECTIONS__CONTINUOUS_CONE_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED`):
+
+- `o_que_resta`: o cone continuo (direcao nula arbitraria) + decomposicao completa + anomalias
+- `honestidade`: tres eixos sao o degrau seguinte, nao o teto; nenhum flag de fisica flipado
+- `o_veredito`: TGL_THIRD_CONE__TT_SECTOR_COVERS_THREE_SPATIAL_NULL_DIRECTIONS__THIRD_CONE_SOLVES__TRIPLE_SUPERPOSITION_SOLVES__SOLUTION_SPACE_SPANS_THREE_AXIS_DIRECTIONS__CONTINUOUS_CONE_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED
+
+**Estatutos [general_null]** (veredito: `TGL_GENERAL_NULL__CONTINUOUS_CONE__ANY_NULL_DIRECTION_TT_WAVE_SOLVES_LINEARIZED_VACUUM__THREE_ALGEBRAIC_CONDITIONS_KILL_THREE_RICCI_TERMS__TRACELESS_TRANSVERSE_NULL__SUBSUMES_ALL_AXIS_CONES_AND_THE_CONTINUUM__PLANE_WAVE_TT_SECTOR_CLOSED__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED`):
+
+- `o_que_fechou`: o setor de ondas planas TT no continuo em TODA direcao nula -- um teorema geral subsume a construcao direcao a direcao
+- `o_que_resta`: a decomposicao completa de perturbacoes GERAIS (superposicao de infinitas direcoes/modos) + anomalias -- a segunda metade dos flags
+- `honestidade`: ondas planas nao esgotam o espectro; nenhum flag de fisica flipado
+- `o_veredito`: TGL_GENERAL_NULL__CONTINUOUS_CONE__ANY_NULL_DIRECTION_TT_WAVE_SOLVES_LINEARIZED_VACUUM__THREE_ALGEBRAIC_CONDITIONS_KILL_THREE_RICCI_TERMS__TRACELESS_TRANSVERSE_NULL__SUBSUMES_ALL_AXIS_CONES_AND_THE_CONTINUUM__PLANE_WAVE_TT_SECTOR_CLOSED__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED
+
+**Estatutos [tower_traceless]** (veredito: `TGL_TOWER_TRACELESS__TYPE_III_ON_THE_CONCRETE_TOWER__STATE_NOT_TRACIAL_ON_EVERY_FLOOR__MODULAR_RATIO_LAMBDA_POW_N_TIMES_POSITIVE_WITNESS__NO_TRACE_NOT_ONLY_ON_FULL_ALGEBRA_BUT_ON_THE_ITPFI_TOWER_FLOOR_BY_FLOOR__WITH_LOG_DENSE_MARK_THE_LIMIT_IS_III1__WEAK_STAR_COMPLETION_REMAINS__SEAL_UNMOVED`):
+
+- `o_que_e`: a assinatura tipo-III (ausencia de traco) realizada na torre concreta de Araki-Woods, andar a andar -- nao so' na algebra plena (v119)
+- `o_que_resta`: o limite fraco-* (completamento topologico) -- o fator como objeto; a assinatura esta na torre, o objeto e' o limite
+- `honestidade`: torre finita, andar a andar; o fator e' o limite; nenhuma frase 'III_1 construido'; o gate nao se move
+- `o_veredito`: TGL_TOWER_TRACELESS__TYPE_III_ON_THE_CONCRETE_TOWER__STATE_NOT_TRACIAL_ON_EVERY_FLOOR__MODULAR_RATIO_LAMBDA_POW_N_TIMES_POSITIVE_WITNESS__NO_TRACE_NOT_ONLY_ON_FULL_ALGEBRA_BUT_ON_THE_ITPFI_TOWER_FLOOR_BY_FLOOR__WITH_LOG_DENSE_MARK_THE_LIMIT_IS_III1__WEAK_STAR_COMPLETION_REMAINS__SEAL_UNMOVED
+
+**Estatutos [tower_modular]** (veredito: `TGL_TOWER_MODULAR__TOMITA_FLOW_AND_KMS_ON_THE_CONCRETE_TOWER__DENSITY_INVERTIBLE_POSITIVE_WEIGHTS__MODULAR_FLOW_FIXES_UNIT__KMS_CONDITION_EVERY_FLOOR__PHI_AB_EQ_PHI_B_SIGMA_A__MODULAR_SPECTRUM_IS_THE_RATIO_LATTICE__THE_STRUCTURE_THAT_REPLACES_THE_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_UNMOVED`):
+
+- `o_que_e`: a teoria modular de Tomita-Takesaki na torre concreta: fluxo + KMS + espectro; a estrutura que o v129 mostrou necessaria (sem traco)
+- `o_que_resta`: o limite fraco-* (completamento topologico) -- o fator como objeto de von Neumann
+- `honestidade`: torre finita, andar a andar; o fator e' o limite; nenhuma frase 'III_1 construido'; o gate nao se move
+- `o_veredito`: TGL_TOWER_MODULAR__TOMITA_FLOW_AND_KMS_ON_THE_CONCRETE_TOWER__DENSITY_INVERTIBLE_POSITIVE_WEIGHTS__MODULAR_FLOW_FIXES_UNIT__KMS_CONDITION_EVERY_FLOOR__PHI_AB_EQ_PHI_B_SIGMA_A__MODULAR_SPECTRUM_IS_THE_RATIO_LATTICE__THE_STRUCTURE_THAT_REPLACES_THE_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_UNMOVED
 
 **Estatutos [void_floor_lrg]** (veredito: `TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION`):
 

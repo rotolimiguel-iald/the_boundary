@@ -4677,17 +4677,327 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.block_modular_identity": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.powersState_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.powersState_positive": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.powers_ratio_witness": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.powersState_not_tracial": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.blockFlow_eigen": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.ratioWitness_kron": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.powers_ladder": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.zero_mem_closure_ratio_spectrum": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.no_trace_floor": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.mixed_chain_ratio": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.mixed_log_dense": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.irrational_log_two_div_log_three": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_mixing_mark": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.epsTT_traceless": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.epsTT_transverse": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.pd_pd_scaled": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tt_ricci_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tt_component_wave": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tt_kinetic_nonneg": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tt_kinetic_pos": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerStep_mul": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerStep_star": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerStep_injective": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.chainState_towerStep": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.chainState_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.ratio_persists_up_tower": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.pd_scaled_fun_add": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.pd_pd_pair": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tt_superposition_ricci_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.chainDensity_eq_diagonal": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.chainWeights_nonneg": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.chainState_positive": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.gnsInner_add_right": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.gnsInner_self_nonneg": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.gns_isometric_up_tower": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.epsTT2_traceless": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.epsTT2_transverse": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.pd_pd_cross": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tt2_ricci_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tt_cross_direction_ricci_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.gnsInner_conj_symm": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.gnsRadical": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.gnsRadical_left_ideal": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.gnsInner_wd_left": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.gnsInner_wd_right": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.leftAction_wd": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.epsTT3_traceless": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.epsTT3_transverse": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tt3_ricci_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tt_triple_ricci_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.dotCov_single": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.pd_pd_planeWaveG": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.general_null_tt_ricci_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.chainDownUp_value": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tower_ratio_ne_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.chainState_not_tracial_tower": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.chainWeights_pos": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.chainDensity_mul_inv": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerFlow_id": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tower_kms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tower_modular_ratio": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "57b6f99b9d0edaa78299afbac7391bbddd531fc29c6cb80e3f4c1129a7b920ed",
+      "formal_source_hash": "958f51b66497628b9cf5b960006973290f0e19058f9251a566c8dd45509de39f",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "2b84b08758af5b94a427aed71e151d7b227d1f6579c80d88cfcf6a6c0e3680a6",
+        "TGLExt.lean": "e151832442ea72f8523ddfce8948e65a53639fb25b022c308af11d1deb7a9cc5",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "5a5ca7a8d88bc23af60b2aec7b098da0f83d33e614759c567a88eac96e508b95",
+        "TGL/Audit.lean": "79518beddc1519da8d5af65e7ab22cee68384678ff2dfea24a89110940ed6b39",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -4723,11 +5033,13 @@
         "TGLExt/ClosedLattice.lean": "1cc93d55463aaf6108a47361a0622684c79027cc25c1dc7700b45e3d995035e9",
         "TGLExt/ClosureCertificate.lean": "977a24815e7a3eaea64d16318c95f76a854176987205ebb8a809418e0e86de63",
         "TGLExt/Cocycle.lean": "28dd4546e652983126c37d80962b6534a0684b41f7903c58032aeea3d3931ee4",
+        "TGLExt/ColimitSeed.lean": "528d769f4751816fa3a13115d6c30e2975f7c7b34a5a9d8fcf91e9982a60cf53",
         "TGLExt/Commutant.lean": "114782c4fb991da15ae22e3e053ecf6a8c4a5f68e7152afd40102a66c44db19a",
         "TGLExt/ConcreteFourFrame.lean": "4c3d4ab63b2df108961c9875b23853a3315aa96a9a0a89180106d212e1d9f550",
         "TGLExt/CondExpect.lean": "33e0eecd498ec326d8f5bf699b3a5b5aae4a388fa049564bfd8619b096737ede",
         "TGLExt/ContinuousModularZero.lean": "0dad5794f98ba1cb8519b4c105f63d555b5dc3d8fab7884f8265aebff214f376",
         "TGLExt/ContinuumShards.lean": "18e43b74a336360ff7c4458b703e263e06e52f4778aba225073fac65d8614c40",
+        "TGLExt/ContinuumTT.lean": "21c62b855a477119daa3daab0c1e8f80f265bec4b269ce5367e7d9a60de72a96",
         "TGLExt/CornerFamily.lean": "bbceea91341abcf2b2a3f0f33ce88975fd5c529f05918c6982eb4872b66fe105",
         "TGLExt/CovariantCorner.lean": "155cb43d01bb7645bd6bef16d21fbbf2c01114a73fa466e1e4d18ac92a6c5e7d",
         "TGLExt/DimensionTrace.lean": "cdadc9fdf8ed641c7c260e0a5450577b4e190b102a055dc0d2c49e71f49338ea",
@@ -4742,6 +5054,9 @@
         "TGLExt/FirstCurvature.lean": "d88d4a5fa15462f43850119f39099059a8ae0af87190420aa921dfaf20ebde44",
         "TGLExt/FusedWitness.lean": "3708dde5255559cddcddecbe2ca05eb93e751511db8a8f7bcf6968e60a065e69",
         "TGLExt/GNSBridge.lean": "a625e38824790f94eb6ac54f44cffc0656e6e3fc2f3ae2d42220dac071a11c8b",
+        "TGLExt/GNSQuotient.lean": "d6b3ac4f4306516adf561e1c68f20a5337b49b6c0e9bfd2b17550ed48264b9a6",
+        "TGLExt/GNSTower.lean": "bef660d621d3d5a915832c85e986f901fc64f8e43d31cd76ebea897cc7db64ed",
+        "TGLExt/GeneralNull.lean": "b8704cf7c144db3fe9f064eb13944307e9508115f0ad4cb083422130f6cc2fda",
         "TGLExt/GeometricWitness.lean": "c971c7b2a45420bcb1c9e5e6ac37276e5a5796269b1002765b41b835a03d2afe",
         "TGLExt/GeometryFluctuation.lean": "c70403c706d7b033628bf775ebc8552d5adfb885372c58f2252dbc1c58e7b655",
         "TGLExt/GlobalLiftLadder.lean": "d7cf95aac8c872f7b6ea3849bd9db88412005925a0b4d856e83e266fce56b5d4",
@@ -4758,6 +5073,7 @@
         "TGLExt/LocalBreuerGap.lean": "8ec73c7d9e703d6c775f53351a784ab98b27ad2dd3d253b79a3d34992e0d5d3d",
         "TGLExt/MarkovTower.lean": "5b542018622975c4b2c498d1727ca20f7280ad108bfc25d0a587958097e2e74b",
         "TGLExt/MinimalSolder.lean": "53dbb33e260a46ebd3c753ec7a4ca61fc5a4721757e310d58c3a4cb1455e7e66",
+        "TGLExt/MixedLadder.lean": "eb43ba5a3ee66412f7f4704a7a435f485f1e53a315188e4f9bb46234f757f861",
         "TGLExt/ModularFirstLaw.lean": "aee3eb49a6d0544e8bb2a3f7b763b04dc46ea425ec4565f77ae1c33ffc27125d",
         "TGLExt/ModularFlow.lean": "62cfa753d4b40a9091aafb383a8edd588a542dddf5e97ee39906ec31c59826b9",
         "TGLExt/NoFullWitness.lean": "fde4ca999c40e6892d1958bee15a066786adb1363b8e3514f41eeb8b8909a654",
@@ -4767,12 +5083,14 @@
         "TGLExt/PageInformation.lean": "a36b61ba76d0c9d6b22e6fad7a29a05d01ab5b6a240e00de16fabd0e4daf062e",
         "TGLExt/PoincareGroup.lean": "c73c927631381aa78136222d30783aa393735a146607e799371db22b4a4466db",
         "TGLExt/PoincareWitness.lean": "848f2937f35ec50b2ab483336cc3ba17c46135eb52c17418bc1fbc1530f568ad",
+        "TGLExt/PowersLadder.lean": "d6362c6079146ff4d50b46cdbbfe5497cde3e83a586b91e1abe625e4775bd7d4",
         "TGLExt/ProgrammerRule.lean": "89e5e14bee9dc4aa37ded5f8b5269ce9fd93787f16eec9346273042c93fc349d",
         "TGLExt/PsiEmergence.lean": "ff0fd49da7bda187a61454a6b57099e99d1c59c8af038fa43c90c1653736bb04",
         "TGLExt/RGStability.lean": "ae3c1eeee6d86ea43b57ee0afe171bb43c0f24094702130ec3c2604f53aa7bf5",
         "TGLExt/ReducedEmergence.lean": "d11854b264e6e17c551db2e6ffc6eaf804408afa1846c88529487167743eb845",
         "TGLExt/RegularRep.lean": "a3861da9c4d4e8ef8173272ad8843c65dcbe8215d598a52948f608fca7d53590",
         "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
+        "TGLExt/SecondCone.lean": "9bafc9fcbf9fc6eb98f17d2e3122ac01820bc0785e64fb63eb6eef8c0c276e45",
         "TGLExt/SemifiniteLattice.lean": "37ca0a1db916c93954c1a486ddbf5462248a050e58ccb6b670020c5225e46b0f",
         "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
         "TGLExt/SemifiniteWeight.lean": "1b4044715c04a3576e8bc3944f48e53edf02c8d4f23d91b3896771fd8d1eddff",
@@ -4783,9 +5101,13 @@
         "TGLExt/StrongAssembly.lean": "34758f8d20a242bc8e9f2114b572888a793754dbb681a0368adc3e9d9fa2161e",
         "TGLExt/StrongFrame.lean": "648a6f282bfa8d5ec7297f2e93f2bc0db92f219c6cd1a3a74da4b97b1655af87",
         "TGLExt/SusyRelativeGap.lean": "3aa058b5c4f098e3218ffed0bc8271a28947b56af81750019e1360754873e7f2",
+        "TGLExt/TTSuperposition.lean": "7beb841f082e34be68c11ef8de25b024a448b90afb64752a3a6cb8327c13cde3",
         "TGLExt/TailNet.lean": "e7654368112f1af5d529edbd0d2669a829358651a82014e0d835a88868d7f5e6",
         "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
+        "TGLExt/ThirdCone.lean": "21edba89bf302c075d512e77bf2dada36b5f216f054930eb5a881c57935eb694",
         "TGLExt/ThreeLocksCorner.lean": "51c66b4dca74fa58e221bd9889d468d1f77c816ec8c7ff3cc9f56e3bd7a66d2e",
+        "TGLExt/TowerModular.lean": "e3697a4f628eb1ae5211f004ac17d5867ccf60e705bb955d868229b118ee5550",
+        "TGLExt/TowerTraceless.lean": "d5789535f0e38917ad8a1a90c20ee17ded2b32cf0d2dd3ad919a8acf6aa86f42",
         "TGLExt/TracelessAlgebra.lean": "50c531bd93946a7f8df4bc940e15c3d2f71899e02c50e060e6f695f136a13de5",
         "TGLExt/TransportWitness.lean": "f4219cc2c036999e19e41b006d4899a1a10cd2e8e3562c5a277370faae0364ed",
         "TGLExt/TriadMaster.lean": "64e0899e259693927b051493b8f20cc47885f183d02d79a8772e3b3d869863ae",
@@ -5337,24 +5659,86 @@
       "ext_fw_fused_witness_kernel_proved": true,
       "ext_fw_fiber_faithful_kernel_proved": true,
       "ext_fw_boost_moves_kernel_proved": true,
+      "ext_pl_modular_identity_kernel_proved": true,
+      "ext_pl_state_one_kernel_proved": true,
+      "ext_pl_state_positive_kernel_proved": true,
+      "ext_pl_ratio_witness_kernel_proved": true,
+      "ext_pl_not_tracial_kernel_proved": true,
+      "ext_pl_flow_eigen_kernel_proved": true,
+      "ext_pl_kron_compose_kernel_proved": true,
+      "ext_pl_ladder_kernel_proved": true,
+      "ext_pl_zero_closure_kernel_proved": true,
+      "ext_pl_no_floor_kernel_proved": true,
+      "ext_ml_mixed_ratio_kernel_proved": true,
+      "ext_ml_dense_of_irrational_kernel_proved": true,
+      "ext_ml_log23_irrational_kernel_proved": true,
+      "ext_ml_mixing_mark_kernel_proved": true,
+      "ext_ct_traceless_kernel_proved": true,
+      "ext_ct_transverse_kernel_proved": true,
+      "ext_ct_pd_pd_kernel_proved": true,
+      "ext_ct_ricci_zero_kernel_proved": true,
+      "ext_ct_component_wave_kernel_proved": true,
+      "ext_ct_kinetic_nonneg_kernel_proved": true,
+      "ext_ct_kinetic_pos_kernel_proved": true,
+      "ext_tw_step_mul_kernel_proved": true,
+      "ext_tw_step_star_kernel_proved": true,
+      "ext_tw_step_injective_kernel_proved": true,
+      "ext_tw_coherence_kernel_proved": true,
+      "ext_tw_state_one_kernel_proved": true,
+      "ext_tw_ratio_persists_kernel_proved": true,
+      "ext_ts_pd_add_kernel_proved": true,
+      "ext_ts_pd_pd_pair_kernel_proved": true,
+      "ext_ts_superposition_kernel_proved": true,
+      "ext_gt_density_diag_kernel_proved": true,
+      "ext_gt_weights_nonneg_kernel_proved": true,
+      "ext_gt_state_positive_kernel_proved": true,
+      "ext_gt_inner_add_kernel_proved": true,
+      "ext_gt_self_nonneg_kernel_proved": true,
+      "ext_gt_isometric_kernel_proved": true,
+      "ext_sc_traceless2_kernel_proved": true,
+      "ext_sc_transverse2_kernel_proved": true,
+      "ext_sc_cross_reduction_kernel_proved": true,
+      "ext_sc_ricci2_kernel_proved": true,
+      "ext_sc_cross_ricci_kernel_proved": true,
+      "ext_gq_conj_symm_kernel_proved": true,
+      "ext_gq_radical_kernel_proved": true,
+      "ext_gq_left_ideal_kernel_proved": true,
+      "ext_gq_inner_wd_left_kernel_proved": true,
+      "ext_gq_inner_wd_right_kernel_proved": true,
+      "ext_gq_action_wd_kernel_proved": true,
+      "ext_tc_traceless3_kernel_proved": true,
+      "ext_tc_transverse3_kernel_proved": true,
+      "ext_tc_ricci3_kernel_proved": true,
+      "ext_tc_triple_kernel_proved": true,
+      "ext_gnl_dotcov_kernel_proved": true,
+      "ext_gnl_reduction_kernel_proved": true,
+      "ext_gnl_general_kernel_proved": true,
+      "ext_tt2_downup_value_kernel_proved": true,
+      "ext_tt2_ratio_ne_one_kernel_proved": true,
+      "ext_tt2_not_tracial_tower_kernel_proved": true,
+      "ext_tm2_weights_pos_kernel_proved": true,
+      "ext_tm2_mul_inv_kernel_proved": true,
+      "ext_tm2_flow_id_kernel_proved": true,
+      "ext_tm2_kms_kernel_proved": true,
+      "ext_tm2_modular_ratio_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "a80196a9699ee0adf2472a43be1eff32885ac0ed09ee627d7d0d7601fb4cc60d",
+      "build_stdout_sha256": "351a737a483eedaabf68e8a66e5ee9239fa8eda456f494eb9b632e6c32e54b3e",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "550e6b8f33a28c52caad76a3b398ddb7c1495d602215100aa2058a4481d3c9b1",
+      "audit_stdout_sha256": "9c93e0541e7bbfd29949bd746bbf858b908db772e8fd594687ad3b26e8799860",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 226697,
+        "stdout": 235731,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 168001,
+        "stdout": 173374,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "a80196a9699ee0adf2472a43be1eff32885ac0ed09ee627d7d0d7601fb4cc60d",
-      "audit_capture_sha256_full": "550e6b8f33a28c52caad76a3b398ddb7c1495d602215100aa2058a4481d3c9b1",
+      "build_capture_sha256_full": "351a737a483eedaabf68e8a66e5ee9239fa8eda456f494eb9b632e6c32e54b3e",
+      "audit_capture_sha256_full": "9c93e0541e7bbfd29949bd746bbf858b908db772e8fd594687ad3b26e8799860",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
       "qgc_concrete_breuer_corner_constructed": true,
@@ -6613,7 +6997,19 @@
         "regular_rep": "SEMIFINITE_ANALYSIS_INCREMENT_39__REGULAR_REPRESENTATION_OF_POINCARE_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION_ABS_DET_ONE__GROUP_LAW_PROVED__FAITHFUL_EVERY_NONIDENTITY_MOVES_A_VECTOR__BOOST_NOW_SEEN__WITNESS_RESIDUE_FIBER_FUSION_PLUS_III1__SEAL_STAYS_CONDITIONAL",
         "traceless_algebra": "SEMIFINITE_ANALYSIS_INCREMENT_40__BIPARTITION_OF_ELL2_IN_KERNEL__EVERY_TRACIAL_STATE_ON_B_L2_IS_ZERO__ONLY_TRACE_IS_ZERO_AT_ALGEBRA_LEVEL__FIRST_VON_NEUMANN_OBJECT_OF_THE_PROGRAM__TWO_INDEPENDENT_TRACE_KILLERS_FLOW_AND_ALGEBRA__III1_WALL_NAMED_WEIGHTS_NORMALITY_ARAKI_WOODS__SEAL_STAYS_CONDITIONAL",
         "semifinite_weight": "SEMIFINITE_ANALYSIS_INCREMENT_41__TR_IN_KERNEL__TR_ONE_INFINITE__NAME_ATOM_WEIGHS_ONE_THIRD_FACE__WEIGHT_ABSORBS_BIPARTITION_INF_EQ_TWO_INF__TYPE_DECIDED_WHERE_RULER_BREAKS__SEAL_STAYS_CONDITIONAL",
-        "fused_witness": "SEMIFINITE_ANALYSIS_INCREMENT_42__FAITHFUL_REP_FUSED_INTO_NET_FIBERS__FIBER_IS_TAIL_TIMES_L2_SPACETIME__POINCARE_ACTS_ON_REGIONS_AND_INSIDE_FIBERS__NO_BLIND_DIRECTION_IN_FIBERS__BOOST_MOVES_FIBER_VECTORS_V116_HONESTY_SUPERSEDED__WITNESS_RESIDUE_III1_ALONE__SEAL_STAYS_CONDITIONAL"
+        "fused_witness": "SEMIFINITE_ANALYSIS_INCREMENT_42__FAITHFUL_REP_FUSED_INTO_NET_FIBERS__FIBER_IS_TAIL_TIMES_L2_SPACETIME__POINCARE_ACTS_ON_REGIONS_AND_INSIDE_FIBERS__NO_BLIND_DIRECTION_IN_FIBERS__BOOST_MOVES_FIBER_VECTORS_V116_HONESTY_SUPERSEDED__WITNESS_RESIDUE_III1_ALONE__SEAL_STAYS_CONDITIONAL",
+        "powers_ladder": "SEMIFINITE_ANALYSIS_INCREMENT_43__ARAKI_WOODS_SEED__TOMITA_BLOCK_IDENTITY_BY_TRACE_CYCLICITY__POWERS_STATE_RATIO_WITNESS_KILLS_TRACIALITY__KRONECKER_MULTIPLIES_RATIOS__CHAIN_CARRIES_LAMBDA_POW_N__ZERO_IN_CLOSURE_MARK_OF_TYPE_III__NO_TRACE_FLOOR__INFINITE_FACTOR_REMAINS__SEAL_STAYS_CONDITIONAL",
+        "mixed_ladder": "SEMIFINITE_ANALYSIS_INCREMENT_44__MARK_OF_III_ONE__INCOMMENSURABLE_RATIOS_GIVE_LOG_DENSE_SPECTRUM__DENSE_OR_CYCLIC__CONCRETE_PAIR_HALF_THIRD__FACTOR_LIMIT_REMAINS__SEAL_STAYS_CONDITIONAL",
+        "continuum_tt": "SEMIFINITE_ANALYSIS_INCREMENT_45__PLANE_WAVE_TT_SECTOR__TT_SOLVES_LINEARIZED_VACUUM_ANY_C2_PROFILE__DALEMBERT_COMPONENTWISE__KINETIC_POSITIVE_DEFINITE_NO_GHOST__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL",
+        "colimit_seed": "SEMIFINITE_ANALYSIS_INCREMENT_46__ITPFI_TOWER__STAR_HOMOMORPHIC_UNITAL_INJECTIVE_STEPS__PRODUCT_STATE_COHERENT__MODULAR_ASYMMETRY_STABLE_UP_COLIMIT__GNS_WEAK_CLOSURE_REMAIN__SEAL_STAYS_CONDITIONAL",
+        "tt_superposition": "SEMIFINITE_ANALYSIS_INCREMENT_47__SOLUTION_SET_IS_A_SPACE__ANY_TT_PAIR_SOLVES__SPAN_ON_THE_CONE__MULTI_DIRECTION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL",
+        "gns_tower": "SEMIFINITE_ANALYSIS_INCREMENT_48__PRE_HILBERT_OF_FACTOR__DIAGONAL_POSITIVE_DENSITY__STATE_POSITIVE_WHOLE_TOWER__GNS_STEPS_ISOMETRIC__QUOTIENT_COMPLETION_WEAK_CLOSURE_REMAIN__SEAL_STAYS_CONDITIONAL",
+        "second_cone": "SEMIFINITE_ANALYSIS_INCREMENT_49__SECOND_NULL_DIRECTION_SOLVES__CROSS_DIRECTION_SUPERPOSITION_SOLVES__SOLUTION_SPACE_CROSSES_DIRECTIONS__GENERAL_DECOMPOSITION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL",
+        "gns_quotient": "SEMIFINITE_ANALYSIS_INCREMENT_50__RADICAL_IS_LEFT_IDEAL__HERMITIAN_FORM__INNER_AND_ACTION_DESCEND_TO_QUOTIENT__PRE_FACTOR_REPRESENTED__COMPLETION_AND_WEAK_CLOSURE_REMAIN__SEAL_STAYS_CONDITIONAL",
+        "third_cone": "SEMIFINITE_ANALYSIS_INCREMENT_51__THIRD_NULL_DIRECTION_SOLVES__TRIPLE_SUPERPOSITION_SOLVES__SOLUTION_SPACE_SPANS_THREE_AXES__CONTINUOUS_CONE_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL",
+        "general_null": "SEMIFINITE_ANALYSIS_INCREMENT_52__CONTINUOUS_CONE__ANY_NULL_DIRECTION_TT_SOLVES__THREE_CONDITIONS_KILL_THREE_TERMS__PLANE_WAVE_TT_SECTOR_CLOSED__GENERAL_PERTURBATIONS_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL",
+        "tower_traceless": "SEMIFINITE_ANALYSIS_INCREMENT_53__TYPE_III_ON_CONCRETE_TOWER__STATE_NOT_TRACIAL_EVERY_FLOOR__MODULAR_RATIO_TIMES_POSITIVE_WITNESS__WITH_LOG_DENSE_MARK_LIMIT_IS_III1__WEAK_STAR_COMPLETION_REMAINS__SEAL_STAYS_CONDITIONAL",
+        "tower_modular": "SEMIFINITE_ANALYSIS_INCREMENT_54__TOMITA_FLOW_AND_KMS_ON_THE_TOWER__DENSITY_INVERTIBLE__KMS_EVERY_FLOOR__MODULAR_SPECTRUM_IS_RATIO_LATTICE__STRUCTURE_REPLACES_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_STAYS_CONDITIONAL"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -7095,10 +7491,72 @@
         "ext_fw_fused_strong_kernel_proved": true,
         "ext_fw_fused_witness_kernel_proved": true,
         "ext_fw_fiber_faithful_kernel_proved": true,
-        "ext_fw_boost_moves_kernel_proved": true
+        "ext_fw_boost_moves_kernel_proved": true,
+        "ext_pl_modular_identity_kernel_proved": true,
+        "ext_pl_state_one_kernel_proved": true,
+        "ext_pl_state_positive_kernel_proved": true,
+        "ext_pl_ratio_witness_kernel_proved": true,
+        "ext_pl_not_tracial_kernel_proved": true,
+        "ext_pl_flow_eigen_kernel_proved": true,
+        "ext_pl_kron_compose_kernel_proved": true,
+        "ext_pl_ladder_kernel_proved": true,
+        "ext_pl_zero_closure_kernel_proved": true,
+        "ext_pl_no_floor_kernel_proved": true,
+        "ext_ml_mixed_ratio_kernel_proved": true,
+        "ext_ml_dense_of_irrational_kernel_proved": true,
+        "ext_ml_log23_irrational_kernel_proved": true,
+        "ext_ml_mixing_mark_kernel_proved": true,
+        "ext_ct_traceless_kernel_proved": true,
+        "ext_ct_transverse_kernel_proved": true,
+        "ext_ct_pd_pd_kernel_proved": true,
+        "ext_ct_ricci_zero_kernel_proved": true,
+        "ext_ct_component_wave_kernel_proved": true,
+        "ext_ct_kinetic_nonneg_kernel_proved": true,
+        "ext_ct_kinetic_pos_kernel_proved": true,
+        "ext_tw_step_mul_kernel_proved": true,
+        "ext_tw_step_star_kernel_proved": true,
+        "ext_tw_step_injective_kernel_proved": true,
+        "ext_tw_coherence_kernel_proved": true,
+        "ext_tw_state_one_kernel_proved": true,
+        "ext_tw_ratio_persists_kernel_proved": true,
+        "ext_ts_pd_add_kernel_proved": true,
+        "ext_ts_pd_pd_pair_kernel_proved": true,
+        "ext_ts_superposition_kernel_proved": true,
+        "ext_gt_density_diag_kernel_proved": true,
+        "ext_gt_weights_nonneg_kernel_proved": true,
+        "ext_gt_state_positive_kernel_proved": true,
+        "ext_gt_inner_add_kernel_proved": true,
+        "ext_gt_self_nonneg_kernel_proved": true,
+        "ext_gt_isometric_kernel_proved": true,
+        "ext_sc_traceless2_kernel_proved": true,
+        "ext_sc_transverse2_kernel_proved": true,
+        "ext_sc_cross_reduction_kernel_proved": true,
+        "ext_sc_ricci2_kernel_proved": true,
+        "ext_sc_cross_ricci_kernel_proved": true,
+        "ext_gq_conj_symm_kernel_proved": true,
+        "ext_gq_radical_kernel_proved": true,
+        "ext_gq_left_ideal_kernel_proved": true,
+        "ext_gq_inner_wd_left_kernel_proved": true,
+        "ext_gq_inner_wd_right_kernel_proved": true,
+        "ext_gq_action_wd_kernel_proved": true,
+        "ext_tc_traceless3_kernel_proved": true,
+        "ext_tc_transverse3_kernel_proved": true,
+        "ext_tc_ricci3_kernel_proved": true,
+        "ext_tc_triple_kernel_proved": true,
+        "ext_gnl_dotcov_kernel_proved": true,
+        "ext_gnl_reduction_kernel_proved": true,
+        "ext_gnl_general_kernel_proved": true,
+        "ext_tt2_downup_value_kernel_proved": true,
+        "ext_tt2_ratio_ne_one_kernel_proved": true,
+        "ext_tt2_not_tracial_tower_kernel_proved": true,
+        "ext_tm2_weights_pos_kernel_proved": true,
+        "ext_tm2_mul_inv_kernel_proved": true,
+        "ext_tm2_flow_id_kernel_proved": true,
+        "ext_tm2_kms_kernel_proved": true,
+        "ext_tm2_modular_ratio_kernel_proved": true
       },
-      "n_theorems_clean": 480,
-      "n_theorems_expected": 480,
+      "n_theorems_clean": 542,
+      "n_theorems_expected": 542,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -11588,6 +12046,887 @@
       "does_not_gate_core": true,
       "verdict": "TGL_LINGUISTIC_ISOMORPHISM__TWO_TONGUES_ONE_STRUCTURE__2025_ONTOLOGY_MAPS_TERM_BY_TERM_TO_2026_KERNEL__A_TRACE_FORMULA_BECAME_A_THEOREM__EPSILON_SQ_IS_BETA__PROLOGUE_BECAME_A_STONE__PRIORITY_HASHED__NAMING_ONTO"
     },
+    "powers_ladder": {
+      "theorem": "A ESCADA DE POWERS: Tomita no bloco (ciclicidade), o estado phi_lambda com testemunha de razao lambda, a LEI DA ESCADA (Kronecker multiplica razoes; cadeia N carrega lambda^N), e a MARCA DE III: 0 no fecho do espectro de razoes -- nenhum piso tracial sobrevive. O terceiro assassino de traco (o FLUXO-PRODUTO) em kernel; o fator infinito e' o programa.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "lambda_shadow": 0.012031300400803142,
+        "ratio_block": 0.012031300400803142,
+        "ratio_chain_N8": 4.3903643590260206e-16,
+        "n_true": 5,
+        "n_false": 1
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "TOMITA NO BLOCO: phi(ab) = phi(b.rho.a.rho^-1) por ciclicidade",
+          true
+        ],
+        [
+          "o estado de Powers: normalizado + positivo",
+          true
+        ],
+        [
+          "a testemunha de razao lambda + a morte da tracialidade (lambda =/= 1)",
+          true
+        ],
+        [
+          "o fluxo do bloco: sigma(E01) = lambda.E01 (espectro modular)",
+          true
+        ],
+        [
+          "A LEI DA ESCADA: Kronecker multiplica razoes; cadeia N => lambda^N",
+          true
+        ],
+        [
+          "A MARCA DE III: 0 no fecho de {lambda^N} + nenhum piso tracial",
+          true
+        ],
+        [
+          "SOMBRA [lambda=beta, ILUSTRACAO]: razao do bloco 1.203e-02 (resid 0.0e+00); cadeia N=8 resid rel 2.2e-16",
+          true
+        ],
+        [
+          "o gate segue 5T/1F (a escada NAO vira a flag: falta o FATOR infinito)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_e": "a face finita COMPLETA de Araki-Woods: bloco + estado + razao + fluxo + escada + marca de III -- tudo em kernel com axiomas limpos",
+        "o_que_resta": "o FATOR: limite indutivo da escada com o estado-produto (ITPFI R_lambda; III_lambda; III_1 pela mistura de duas razoes incomensuraveis) -- pedra a pedra",
+        "honestidade": "lambda=beta na sombra e' ILUSTRACAO (a pedra e' generica); nenhuma frase 'III_1 construido'; a escada e' necessaria, nao suficiente; o gate nao se move por declaracao",
+        "o_veredito": "TGL_POWERS_LADDER__ARAKI_WOODS_SEED_IN_KERNEL__TOMITA_BLOCK_IDENTITY_BY_TRACE_CYCLICITY__RATIO_WITNESS_LAMBDA_KILLS_TRACIALITY__KRONECKER_MULTIPLIES_RATIOS__CHAIN_CARRIES_LAMBDA_POW_N__ZERO_IN_CLOSURE_OF_RATIO_SPECTRUM_MARK_OF_TYPE_III__NO_TRACE_FLOOR_SURVIVES__THIRD_TRACE_KILLER_THE_PRODUCT_FLOW__INFINITE_FACTOR_IS_THE_PROGRAM__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_POWERS_LADDER__ARAKI_WOODS_SEED_IN_KERNEL__TOMITA_BLOCK_IDENTITY_BY_TRACE_CYCLICITY__RATIO_WITNESS_LAMBDA_KILLS_TRACIALITY__KRONECKER_MULTIPLIES_RATIOS__CHAIN_CARRIES_LAMBDA_POW_N__ZERO_IN_CLOSURE_OF_RATIO_SPECTRUM_MARK_OF_TYPE_III__NO_TRACE_FLOOR_SURVIVES__THIRD_TRACE_KILLER_THE_PRODUCT_FLOW__INFINITE_FACTOR_IS_THE_PROGRAM__SEAL_UNMOVED"
+    },
+    "void_floor_kappa_v7": {
+      "theorem": "A EMENDA V7: as rotacoes finas por grupo destravam o ensemble de nulos do ACT -- o canal kappa PROFUNDO com o instrumento inteiro afinado; FALSIFIED segue alcancavel aqui.",
+      "frozen_v7_spec": {
+        "version": "VOID_FLOOR_KAPPA_V7_RA_FINE",
+        "amends": "V6 (v122) INCONCLUSIVE_SYSTEMATICS; autopsia = gate de rotacoes (15 graus + validade em todos os quartis => 9<16); a mascara galactica do ACT derruba rotacoes grossas",
+        "inherits_v6_hash": "d0b706d5b7bc5115",
+        "fix": "grade fina 5 graus (k=1..71); validade POR GRUPO (surv >= 0.5 no grupo); selecao deterministica top-24 por sobrevivencia (desempate k crescente) truncada ao minimo comum M; gate M >= 16",
+        "blindness": "a selecao depende SO' de mascara + posicoes (nunca de kappa) -- cega ao sinal por construcao",
+        "inherited": "ACT DR6 alm+mask; gate equatorial DEC [-62,22] conc>0.90; EMENDA DO BASELINE por grupo; L_use [8,400]; lentes DESIVAST 0.02<z<0.24 R_v>10; quartis theta_v; bins_x [0.15..3.5]; HSW+piso band-limited; fit r* [0,0.30]; Fisher >= 25; Om=0.315",
+        "verdicts": "somente v67: FALSIFIED / NOT_FALSIFIED_POWERED / NOT_FALSIFIED_UNDERPOWERED / INCONCLUSIVE_SYSTEMATICS / AWAITING_DATA"
+      },
+      "frozen_v7_hash": "b7df0b06e498526841edf2609b96f3d6264552e383307f7b738cc9545d4ddfca",
+      "n_voids": 3470,
+      "n_kept": 1020,
+      "groups_n": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "values": {
+        "beta": 0.012031300400803142,
+        "f_sky": 0.23388297855854034,
+        "footprint_concentration": 1.0,
+        "n_rot_min_common": 24,
+        "n_rot_used": 24,
+        "chi2_null_dof": 6.151205769187129e-32,
+        "void_signal_expected_snr": 0.6311505872813415,
+        "detection_sigma_raw": 0.0,
+        "fisher_floor": 0.0,
+        "r_hat": 0.0,
+        "r_5sigma_lo": 0.0,
+        "r_5sigma_hi": 0.3
+      },
+      "stack_kappa": [
+        0.0008279145940262221,
+        -0.0004922364194388411,
+        0.001148260953578209,
+        0.0006074027067928995,
+        0.0002635180013916999,
+        -0.00040336619739635745,
+        4.3760033835398514e-05,
+        0.0003558095578880882
+      ],
+      "sigma_bins": [
+        0.0018094265676053124,
+        0.0012410129671986915,
+        0.0010415266144820563,
+        0.00081720990112488,
+        0.0007930178984659257,
+        0.0005309404217225847,
+        0.00036884809225756196,
+        0.0003490031303700416
+      ],
+      "checks": [
+        [
+          "autopsia da V6 registrada (gate de rotacoes) + espec V7 congelada",
+          true
+        ],
+        [
+          "coordenadas EQUATORIAIS (herdadas): concentracao 1.000 > 0.90; f_sky 0.234; RING",
+          true
+        ],
+        [
+          "centros na pegada ACT: 1020/3470",
+          true
+        ],
+        [
+          "grade fina POR GRUPO: minimo comum M = 24 rotacoes validas (>= 16); usadas 24",
+          true
+        ],
+        [
+          "EMENDA DO BASELINE (herdada): nulos corrigidos chi2/dof = 0.00 < 2",
+          true
+        ],
+        [
+          "poder Fisher do piso F = 0 (>= 25 p/ powered)",
+          true
+        ],
+        [
+          "veredito do conjunto pre-registrado",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "a_autopsia": "a V6 reprovou no gate de rotacoes (grade grossa + validade simultanea), nao no dado; a V7 corrige com selecao CEGA ao sinal (mascara+posicoes apenas)",
+        "honestidade": "se UNDERPOWERED: profundidade e' o limite fisico do dado (SPT/estagios); se INCONCLUSIVE: o proximo suspeito e' nomeado; flags do gate INTOCADOS",
+        "o_veredito": "TGL_VOID_FLOOR_KAPPA_V7_NOT_FALSIFIED_UNDERPOWERED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_VOID_FLOOR_KAPPA_V7_NOT_FALSIFIED_UNDERPOWERED"
+    },
+    "mixed_ladder": {
+      "theorem": "A MISTURA: razoes incomensuraveis geram espectro de razoes log-DENSO em R -- a marca de III_1 (vs o reticulado discreto de III_lambda), HABITADA pelo par concreto (1/2, 1/3). O fator-limite (ITPFI) e' o programa.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "mix_approx_a": 46,
+        "mix_approx_b": -25,
+        "mix_approx_resid": 0.000780569290449229,
+        "n_true": 5,
+        "n_false": 1
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "a cadeia MISTA compoe: l1^a.l2^b por Kronecker",
+          true
+        ],
+        [
+          "A MARCA DE III_1: incomensuraveis => espectro log-DENSO em R",
+          true
+        ],
+        [
+          "o par (1/2, 1/3): log2/log3 IRRACIONAL (2^b=3^a impossivel)",
+          true
+        ],
+        [
+          "A MARCA HABITADA: o par concreto gera densidade",
+          true
+        ],
+        [
+          "SOMBRA [ILUSTRACAO]: a.log(1/2)+b.log(1/3) ~ log(beta): a=46 b=-25 resid 7.81e-04",
+          true
+        ],
+        [
+          "o gate segue 5T/1F (a marca NAO vira a flag: falta o FATOR-limite)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_e": "a assinatura espectral de III_1 em kernel: densidade do reticulado log de razoes incomensuraveis + habitacao concreta",
+        "o_que_resta": "o FATOR: limite indutivo fraco-* da cadeia mista (ITPFI; III_1 de Araki-Woods) -- o objeto, nao mais a assinatura",
+        "honestidade": "nenhuma frase 'III_1 construido'; a marca e' NECESSARIA e distintiva, nao o fator; o gate nao se move por declaracao",
+        "o_veredito": "TGL_MIXED_LADDER__MARK_OF_III_ONE__INCOMMENSURABLE_RATIOS_GENERATE_LOG_DENSE_RATIO_SPECTRUM__DENSE_OR_CYCLIC_PLUS_CYCLIC_EXCLUSION__CONCRETE_PAIR_HALF_THIRD_INHABITS_THE_MARK__TWO_POW_B_NE_THREE_POW_A__FACTOR_LIMIT_IS_THE_PROGRAM__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_MIXED_LADDER__MARK_OF_III_ONE__INCOMMENSURABLE_RATIOS_GENERATE_LOG_DENSE_RATIO_SPECTRUM__DENSE_OR_CYCLIC_PLUS_CYCLIC_EXCLUSION__CONCRETE_PAIR_HALF_THIRD_INHABITS_THE_MARK__TWO_POW_B_NE_THREE_POW_A__FACTOR_LIMIT_IS_THE_PROGRAM__SEAL_UNMOVED"
+    },
+    "continuum_tt": {
+      "theorem": "O SETOR TT NO CONTINUO: as ondas planas TT (plano 2-dim de polarizacoes; eta da casa) RESOLVEM o vacuo linearizado para QUALQUER perfil C^2, cada componente e' onda de d'Alembert, e a cinetica e' positiva-definida no plano das polarizacoes -- spin-2 sem massa e sem fantasma nas ondas planas. Perturbacoes gerais e anomalias: ABERTAS; flags de fisica INTOCADOS.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "shadow_ricci_max": 0.0,
+        "shadow_kinetic_resid": 0.0
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "eta-traco ZERO + transversalidade do plano TT (eta da casa)",
+          true
+        ],
+        [
+          "a reducao algebrica: d_i d_j (c.w(L)) = c.L_i.L_j.w''",
+          true
+        ],
+        [
+          "\u2605 A ONDA TT RESOLVE O VACUO LINEARIZADO (Ricci lin = 0; perfil C^2 QUALQUER)",
+          true
+        ],
+        [
+          "cada componente e' onda (d'Alembert v114, componente a componente)",
+          true
+        ],
+        [
+          "SEM FANTASMA: cinetica TT >= 0 sempre; > 0 onde a onda vive",
+          true
+        ],
+        [
+          "SOMBRA (dif. finitas): max|Ricci_lin| = 0.0e+00 < 1e-5 ; cinetica resid 0.0e+00",
+          true
+        ],
+        [
+          "os 5 flags de FISICA do gate NAO se movem (ondas planas != geral; anomalias abertas)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_fechou": "Fierz-Pauli no setor de ondas planas: vacuo linearizado resolvido + ghost-freedom do plano TT, no continuo com perfil arbitrario",
+        "o_que_resta": "perturbacoes GERAIS (decomposicao completa alem de ondas planas) + anomalias relevantes -- as caras que os flags de fisica exigem",
+        "honestidade": "NENHUM flag de fisica flipado: ondas planas nao esgotam o espectro de perturbacoes; o gate nao se move por fatia",
+        "o_veredito": "TGL_CONTINUUM_TT__PLANE_WAVE_TT_SECTOR_IN_KERNEL__TT_WAVES_SOLVE_LINEARIZED_VACUUM_FOR_ANY_C2_PROFILE__MASSLESS_SPIN2_CONTINUUM__EACH_COMPONENT_DALEMBERT__KINETIC_POSITIVE_DEFINITE_ON_POLARIZATION_PLANE_NO_GHOST__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_CONTINUUM_TT__PLANE_WAVE_TT_SECTOR_IN_KERNEL__TT_WAVES_SOLVE_LINEARIZED_VACUUM_FOR_ANY_C2_PROFILE__MASSLESS_SPIN2_CONTINUUM__EACH_COMPONENT_DALEMBERT__KINETIC_POSITIVE_DEFINITE_ON_POLARIZATION_PLANE_NO_GHOST__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED"
+    },
+    "void_floor_kappa_v8": {
+      "theorem": "A PROFUNDIDADE: o kappa ACT DR6 empilhado nos vazios LRG (z 0.40-0.80) -- lente pesa materia TOTAL (sem supressao de tracador), kernel CMB eficiente, populacao grande. O teste fundo do piso, rodado com todos os dados adquiridos.",
+      "frozen_v8_spec": {
+        "version": "VOID_FLOOR_KAPPA_V8_LRG_DEPTH",
+        "mandate": "profundidade real com dados JA em disco: kappa ACT DR6 x vazios LRG z 0.40-0.80 (lente pesa materia total; kernel CMB eficiente; populacao grande)",
+        "inherits_v7_hash": "b7df0b06e4985268",
+        "finder": "LRG_SO_V1 VERBATIM (v115): grade a=15; bloco-7 < 0.15*mu7; 27 celulas na mascara; separacao gulosa 30; esfera r20 < 0.3*nbar*V20; R_v cruzamento 0.3*nbar em [20,60] passo 2.5; mask_ok(centro, R_v)",
+        "sky": "RA=atan2(y,x); DEC=asin(z/r); z por inversao da grade chig(4096); theta_v = R_v/chi (rad)",
+        "pipeline": "V7 VERBATIM: footprint ACT >= 0.5; quartis theta_v; bins_x [0.15..3.5]; rotacoes RA finas 5 graus POR GRUPO (top-24 por sobrevivencia, minimo comum M >= 16; selecao CEGA); baseline = media dos nulos subtraida; L_use [8,400]; HSW+piso band-limited; fit r* [0,0.30] 5sigma; Fisher >= 25; Om=0.315",
+        "cap": "se n_kept > 4000: poda deterministica aos 4000 maiores R_v (CEGA ao kappa; sinal por vazio maximo) -- logada",
+        "verdicts": "somente v67: FALSIFIED / NOT_FALSIFIED_POWERED / NOT_FALSIFIED_UNDERPOWERED / INCONCLUSIVE_SYSTEMATICS / AWAITING_DATA"
+      },
+      "frozen_v8_hash": "5c63710fadaee9dea49829c9a47be622dd9ea6764260cd520a21406d51832ab3",
+      "n_voids": 31746,
+      "n_kept": 4000,
+      "capped": true,
+      "groups_n": [
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "n_gal_caps": {
+        "NGC": 880716,
+        "SGC": 398089
+      },
+      "values": {
+        "beta": 0.012031300400803142,
+        "f_sky": 0.23388297855854034,
+        "n_rot_min_common": 19,
+        "n_rot_used": 19,
+        "chi2_null_dof": 1.3246043512952752e-31,
+        "zbar_groups": [
+          0.565290050152362,
+          0.5922894175887653,
+          0.6087636940466364,
+          0.5546806995247453
+        ],
+        "void_signal_expected_snr": 9.513685196947868,
+        "detection_sigma_raw": 0.0,
+        "fisher_floor": 0.0,
+        "r_hat": 0.0,
+        "r_5sigma_lo": 0.0,
+        "r_5sigma_hi": 0.3
+      },
+      "stack_kappa": [
+        -0.00017481488750163102,
+        -0.00019065926933377352,
+        -0.00024160595898868275,
+        -0.00024099817708632707,
+        -0.0005177071821628114,
+        6.948956923606151e-05,
+        0.00019400360902691936,
+        1.729199564701703e-05
+      ],
+      "sigma_bins": [
+        0.0009512066262349448,
+        0.0006491885848668111,
+        0.0005835105744435343,
+        0.0005069737941553293,
+        0.0004514799221922499,
+        0.00037799482688473217,
+        0.00028552716717165027,
+        0.00024292566465227265
+      ],
+      "checks": [
+        [
+          "AQUISICAO COMPLETA em disco: LRG NGC+SGC (18/07) + ACT DR6 (19/07)",
+          true
+        ],
+        [
+          "achador LRG_SO_V1 VERBATIM: 31746 vazios LRG (NGC 880716 gal + SGC 398089 gal)",
+          true
+        ],
+        [
+          "pegada ACT: 4000/31746 mantidos (cap 4000 usado: True)",
+          true
+        ],
+        [
+          "mascara RING + f_sky 0.234 no colchete",
+          true
+        ],
+        [
+          "rotacoes finas POR GRUPO (herdadas V7): M = 19 (>= 16); usadas 19",
+          true
+        ],
+        [
+          "EMENDA DO BASELINE (herdada): nulos corrigidos chi2/dof = 0.00 < 2",
+          true
+        ],
+        [
+          "poder Fisher do piso F = 0 (>= 25 p/ powered)",
+          true
+        ],
+        [
+          "veredito do conjunto pre-registrado",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "a_profundidade": "3 alavancas reais: materia total (lente) x kernel CMB em z 0.4-0.8 x populacao LRG ~5-10x; tudo com dado JA vetado em disco",
+        "honestidade": "cap 4000 pre-registrado e LOGADO (nunca silencioso); se UNDERPOWERED persistir: o limite e' fisico (profundidade de mapa kappa; SPT/estagios); flags do gate INTOCADOS",
+        "o_veredito": "TGL_VOID_FLOOR_KAPPA_V8_NOT_FALSIFIED_UNDERPOWERED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_VOID_FLOOR_KAPPA_V8_NOT_FALSIFIED_UNDERPOWERED"
+    },
+    "colimit_seed": {
+      "theorem": "A TORRE DO FATOR: o sistema dirigido M_{2^N} com degraus *-homomorfos injetivos e o estado-produto COERENTE (um so' estado na torre inteira), com a assimetria modular ESTAVEL no colimite -- o objeto ITPFI comecou; o fecho (GNS + fraco-*) e' o programa.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "coherence_resid": 1.5700924586837752e-16,
+        "persistence_resid": 0.0
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "o degrau: *-homomorfismo unital (mul + star + one)",
+          true
+        ],
+        [
+          "o degrau e' INJETIVO: nada se perde subindo",
+          true
+        ],
+        [
+          "\u2605 A COERENCIA: phi_{N+1}(a x 1) = phi_N(a) -- UM estado na torre",
+          true
+        ],
+        [
+          "o estado normalizado em TODO andar (inducao)",
+          true
+        ],
+        [
+          "\u2605 A ASSIMETRIA SOBE INALTERADA: razao r estavel no colimite",
+          true
+        ],
+        [
+          "SOMBRA [lambda=beta]: coerencia resid 1.6e-16 ; persistencia resid 0.0e+00",
+          true
+        ],
+        [
+          "o gate segue 5T/1F (a torre NAO vira a flag: falta o FECHO GNS + fraco-*)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_e": "a torre inteira de Araki-Woods em kernel: algebras + inclusoes + estado coerente + estabilidade modular",
+        "o_que_resta": "o FECHO: representacao GNS do estado coerente e fecho fraco-* -- o fator de von Neumann como objeto",
+        "honestidade": "nenhuma frase 'fator construido'; a torre e' o pre-fator; o gate nao se move por declaracao",
+        "o_veredito": "TGL_COLIMIT_SEED__ITPFI_TOWER_IN_KERNEL__STAR_HOMOMORPHIC_UNITAL_INJECTIVE_STEPS__PRODUCT_STATE_COHERENT_ONE_STATE_ON_WHOLE_TOWER__MODULAR_ASYMMETRY_STABLE_UP_THE_COLIMIT__GNS_AND_WEAK_CLOSURE_ARE_THE_PROGRAM__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_COLIMIT_SEED__ITPFI_TOWER_IN_KERNEL__STAR_HOMOMORPHIC_UNITAL_INJECTIVE_STEPS__PRODUCT_STATE_COHERENT_ONE_STATE_ON_WHOLE_TOWER__MODULAR_ASYMMETRY_STABLE_UP_THE_COLIMIT__GNS_AND_WEAK_CLOSURE_ARE_THE_PROGRAM__SEAL_UNMOVED"
+    },
+    "tt_superposition": {
+      "theorem": "A SUPERPOSICAO TT: o conjunto-solucao do vacuo linearizado contem o ESPACO gerado pelas ondas TT (polarizacoes e perfis independentes) -- nao uma onda so'. Direcoes multiplas e a decomposicao geral: abertas; flags de fisica INTOCADOS.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "shadow_ricci_max": 0.0
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "a derivada distribui sobre o par (HasFDerivAt.add na reducao)",
+          true
+        ],
+        [
+          "a segunda derivada do par: reducao completa",
+          true
+        ],
+        [
+          "\u2605 A SUPERPOSICAO RESOLVE: par TT qualquer => Ricci_lin = 0 em toda parte",
+          true
+        ],
+        [
+          "SOMBRA (dif. finitas, 2 gaussianas independentes): max|Ricci| = 0.0e+00 < 1e-5",
+          true
+        ],
+        [
+          "os 5 flags de FISICA NAO se movem (mesmo cone; geral ABERTO)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_fechou": "o passo estrutural: solucao-espaco (fechado por soma com perfis e polarizacoes livres) no cone",
+        "o_que_resta": "direcoes multiplas de propagacao + decomposicao completa de perturbacoes gerais + anomalias",
+        "honestidade": "nenhum flag de fisica flipado; o span do cone nao esgota as perturbacoes",
+        "o_veredito": "TGL_TT_SUPERPOSITION__SOLUTION_SET_IS_A_SPACE__ANY_PAIR_OF_TT_WAVES_INDEPENDENT_POLARIZATIONS_AND_PROFILES_SOLVES_LINEARIZED_VACUUM__SPAN_ON_THE_CONE__MULTI_DIRECTION_AND_GENERAL_DECOMPOSITION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_TT_SUPERPOSITION__SOLUTION_SET_IS_A_SPACE__ANY_PAIR_OF_TT_WAVES_INDEPENDENT_POLARIZATIONS_AND_PROFILES_SOLVES_LINEARIZED_VACUUM__SPAN_ON_THE_CONE__MULTI_DIRECTION_AND_GENERAL_DECOMPOSITION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED"
+    },
+    "void_floor_kappa_v9": {
+      "theorem": "A EMENDA V9: a banda estendida ao alcance angular dos vazios LRG fundos -- o kappa profundo lido NAS ESCALAS CERTAS.",
+      "frozen_v9_spec": {
+        "version": "VOID_FLOOR_KAPPA_V9_BAND_EXTENDED",
+        "amends": "V8 (v125) UNDERPOWERED com gates limpos; autopsia = banda [8,400] nao alcanca theta_v dos vazios LRG fundos (L~400-1500, que o ACT DR6 tem)",
+        "inherits_v8_hash": "5c63710fadaee9de",
+        "fix": "L_use = [8,1000]; cap 1500 pelos MAIORES theta_v (menor L; sinal na banda; CEGO ao kappa)",
+        "inherited": "achador LRG_SO_V1 verbatim; footprint ACT >= 0.5; quartis theta_v; bins_x [0.15..3.5]; rotacoes RA finas 5 graus por grupo top-24 M>=16; baseline subtraido; HSW+piso band-limited; fit r* [0,0.30] 5sigma; Fisher >= 25; Om=0.315",
+        "verdicts": "somente v67: FALSIFIED / NOT_FALSIFIED_POWERED / NOT_FALSIFIED_UNDERPOWERED / INCONCLUSIVE_SYSTEMATICS / AWAITING_DATA"
+      },
+      "frozen_v9_hash": "83718b7eac476326aebff8e4d19a6805e77ce7519d5ad1be2f1cbfcd959c917c",
+      "n_voids": 31746,
+      "n_kept": 1500,
+      "capped": true,
+      "groups_n": [
+        375,
+        375,
+        375,
+        375
+      ],
+      "values": {
+        "beta": 0.012031300400803142,
+        "f_sky": 0.23388297855854034,
+        "n_rot_min_common": 20,
+        "n_rot_used": 20,
+        "chi2_null_dof": 2.910966440737133e-32,
+        "thetav_mean_deg": 2.010161834191875,
+        "void_signal_expected_snr": 6.69899544004187,
+        "detection_sigma_raw": 2.256672054034309,
+        "fisher_floor": 0.0,
+        "r_hat": 0.0,
+        "r_5sigma_lo": 0.0,
+        "r_5sigma_hi": 0.3
+      },
+      "stack_kappa": [
+        -0.0026859853261062953,
+        0.0028955457135789015,
+        -0.0011755073408918693,
+        1.3488815688289818e-05,
+        -0.00035278546961294976,
+        0.0002501605945276876,
+        2.0457922181263742e-05,
+        0.0004146842460331846
+      ],
+      "sigma_bins": [
+        0.0016675215943076102,
+        0.0010701556396361725,
+        0.0009674867943443296,
+        0.0010046337551815763,
+        0.0008258804431902454,
+        0.00070537060340242,
+        0.00042293097292376143,
+        0.00035172489205505985
+      ],
+      "checks": [
+        [
+          "autopsia da V8 registrada (banda curta) + espec V9 congelada",
+          true
+        ],
+        [
+          "banda ESTENDIDA: L_use = [8, 1000] (o ACT DR6 tem os modos)",
+          true
+        ],
+        [
+          "cap 1500 pelos MAIORES theta_v (sinal na banda; CEGO ao kappa): 1500/31746",
+          true
+        ],
+        [
+          "mascara RING + f_sky 0.234 no colchete",
+          true
+        ],
+        [
+          "rotacoes finas POR GRUPO (herdadas): M = 20 (>= 16); usadas 20",
+          true
+        ],
+        [
+          "baseline (herdado): nulos corrigidos chi2/dof = 0.00 < 2",
+          true
+        ],
+        [
+          "poder Fisher do piso F = 0 (>= 25 p/ powered)",
+          true
+        ],
+        [
+          "veredito do conjunto pre-registrado",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "a_autopsia": "a V8 reprovou em PODER com gates limpos; a banda curta cortava o sinal dos vazios fundos; a V9 le os modos que o dado tem",
+        "honestidade": "se UNDERPOWERED persistir com a banda certa: o limite e' o ruido do mapa nas escalas de vazio (SPT-3G/estagios) -- nomeado; flags do gate INTOCADOS",
+        "o_veredito": "TGL_VOID_FLOOR_KAPPA_V9_NOT_FALSIFIED_UNDERPOWERED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_VOID_FLOOR_KAPPA_V9_NOT_FALSIFIED_UNDERPOWERED"
+    },
+    "gns_tower": {
+      "theorem": "A TORRE GNS: o produto interno phi(a\u2020b) positivo em toda a torre, com degraus ISOMETRICOS -- o pre-Hilbert do fator e' um espaco so'; quociente + completamento + fraco-* = o resto.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "iso_resid": 4.577566798522237e-16,
+        "positivity_sample": 7.790176204810866
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "a densidade da torre e' DIAGONAL com pesos >= 0 (inducao)",
+          true
+        ],
+        [
+          "\u2605 o estado e' POSITIVO em TODO andar: Re phi_N(a\u2020a) >= 0",
+          true
+        ],
+        [
+          "o produto GNS e' aditivo a direita (a forma sesquilinear)",
+          true
+        ],
+        [
+          "\u2605 A TORRE GNS E' ISOMETRICA: <a x 1, b x 1>_{N+1} = <a,b>_N",
+          true
+        ],
+        [
+          "SOMBRA [lambda=beta]: isometria resid 4.6e-16 ; positividade 7.790e+00 >= 0",
+          true
+        ],
+        [
+          "o gate segue 5T/1F (falta quociente + completamento + fraco-*)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_resta": "quociente pelo nucleo; completamento de Hilbert; fecho fraco-* da acao esquerda -- o fator como vN",
+        "honestidade": "pre-Hilbert nao e' fator; o gate nao se move por declaracao",
+        "o_veredito": "TGL_GNS_TOWER__PRE_HILBERT_OF_THE_FACTOR__DIAGONAL_POSITIVE_DENSITY_EVERY_FLOOR__STATE_POSITIVE_UP_WHOLE_TOWER__GNS_INNER_PRODUCT__TOWER_STEPS_ARE_GNS_ISOMETRIES_ONE_SPACE_FLOOR_BY_FLOOR__QUOTIENT_COMPLETION_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_GNS_TOWER__PRE_HILBERT_OF_THE_FACTOR__DIAGONAL_POSITIVE_DENSITY_EVERY_FLOOR__STATE_POSITIVE_UP_WHOLE_TOWER__GNS_INNER_PRODUCT__TOWER_STEPS_ARE_GNS_ISOMETRIES_ONE_SPACE_FLOOR_BY_FLOOR__QUOTIENT_COMPLETION_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED"
+    },
+    "second_cone": {
+      "theorem": "A SEGUNDA DIRECAO: o cone x2-x0 com o plano (1,3) resolve; e a superposicao ENTRE cones resolve -- o espaco-solucao cruza direcoes de propagacao. Decomposicao geral: aberta.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "shadow_ricci_max": 0.0
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "o plano (1,3) do segundo cone: eta-traco zero + transversal",
+          true
+        ],
+        [
+          "a reducao MISTA (cones diferentes no mesmo par)",
+          true
+        ],
+        [
+          "a onda da SEGUNDA direcao resolve o vacuo linearizado",
+          true
+        ],
+        [
+          "\u2605 A SUPERPOSICAO ENTRE DIRECOES resolve (cone 1 + cone 2)",
+          true
+        ],
+        [
+          "SOMBRA (dif. finitas, par entre cones): max|Ricci| = 0.0e+00 < 1e-5",
+          true
+        ],
+        [
+          "os 5 flags de FISICA NAO se movem (duas direcoes != todas)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_resta": "todas as direcoes (decomposicao completa) + anomalias -- as caras dos flags",
+        "honestidade": "nenhum flag de fisica flipado; duas direcoes sao o degrau, nao o teto",
+        "o_veredito": "TGL_SECOND_CONE__TT_SECTOR_GAINS_DIRECTIONS__SECOND_NULL_CONE_SOLVES_LINEARIZED_VACUUM__CROSS_DIRECTION_SUPERPOSITION_SOLVES__SOLUTION_SPACE_CROSSES_PROPAGATION_DIRECTIONS__GENERAL_DECOMPOSITION_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_SECOND_CONE__TT_SECTOR_GAINS_DIRECTIONS__SECOND_NULL_CONE_SOLVES_LINEARIZED_VACUUM__CROSS_DIRECTION_SUPERPOSITION_SOLVES__SOLUTION_SPACE_CROSSES_PROPAGATION_DIRECTIONS__GENERAL_DECOMPOSITION_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED"
+    },
+    "gns_quotient": {
+      "theorem": "O QUOCIENTE GNS: o radical e' um ideal a esquerda, o produto interno e a acao esquerda descem ao quociente M/N -- o pre-fator REPRESENTADO, algebricamente completo; o completamento e o fecho fraco-* sao o resto.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "hermiticity_resid": 8.881784197001252e-16
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "a forma e' HERMITIANA: <a,b> = conj<b,a> (rho auto-adjunta + ciclicidade)",
+          true
+        ],
+        [
+          "o RADICAL N = {a : forall b <a,b>=0} e' Submodule C",
+          true
+        ],
+        [
+          "\u2605 O RADICAL E' IDEAL A ESQUERDA: a in N => x.a in N",
+          true
+        ],
+        [
+          "\u2605 o produto interno DESCE ao quociente (nas duas faces)",
+          true
+        ],
+        [
+          "\u2605 A ACAO ESQUERDA DESCE: x.[a] bem-definida -- o PRE-FATOR REPRESENTADO",
+          true
+        ],
+        [
+          "SOMBRA: radical fechado por x. (ideal) ; hermiticidade resid 8.9e-16",
+          true
+        ],
+        [
+          "o gate segue 5T/1F (falta completamento + fraco-*)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_resta": "completamento de Hilbert de M/N + fecho fraco-* da algebra representada -- o fator topologico",
+        "honestidade": "GNS ALGEBRICO (finito) completo; o objeto topologico (vN) e' o completamento; o gate nao se move por declaracao",
+        "o_veredito": "TGL_GNS_QUOTIENT__RADICAL_IS_A_LEFT_IDEAL__HERMITIAN_FORM__INNER_PRODUCT_DESCENDS_TO_QUOTIENT_BOTH_FACES__LEFT_ACTION_DESCENDS__THE_PRE_FACTOR_IS_REPRESENTED__NO_CAUCHY_SCHWARZ_NO_COMPLETION__HILBERT_COMPLETION_AND_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_GNS_QUOTIENT__RADICAL_IS_A_LEFT_IDEAL__HERMITIAN_FORM__INNER_PRODUCT_DESCENDS_TO_QUOTIENT_BOTH_FACES__LEFT_ACTION_DESCENDS__THE_PRE_FACTOR_IS_REPRESENTED__NO_CAUCHY_SCHWARZ_NO_COMPLETION__HILBERT_COMPLETION_AND_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED"
+    },
+    "third_cone": {
+      "theorem": "A TERCEIRA DIRECAO: o cone x3-x0 (plano 1,2) resolve, e a superposicao das TRES direcoes espaciais resolve -- o espaco-solucao cobre os tres eixos. O cone continuo (todas as direcoes) e as anomalias: abertos.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "shadow_ricci_max": 2.0816681711721685e-11
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "o plano (1,2) do terceiro cone: eta-traco zero + transversal",
+          true
+        ],
+        [
+          "a onda da TERCEIRA direcao resolve o vacuo linearizado",
+          true
+        ],
+        [
+          "\u2605 A SUPERPOSICAO DAS TRES DIRECOES resolve (cones 1+2+3)",
+          true
+        ],
+        [
+          "SOMBRA (dif. finitas, 3 direcoes): max|Ricci| = 2.1e-11 < 1e-5",
+          true
+        ],
+        [
+          "os 5 flags de FISICA NAO se movem (tres eixos != cone continuo)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_resta": "o cone continuo (direcao nula arbitraria) + decomposicao completa + anomalias",
+        "honestidade": "tres eixos sao o degrau seguinte, nao o teto; nenhum flag de fisica flipado",
+        "o_veredito": "TGL_THIRD_CONE__TT_SECTOR_COVERS_THREE_SPATIAL_NULL_DIRECTIONS__THIRD_CONE_SOLVES__TRIPLE_SUPERPOSITION_SOLVES__SOLUTION_SPACE_SPANS_THREE_AXIS_DIRECTIONS__CONTINUOUS_CONE_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_THIRD_CONE__TT_SECTOR_COVERS_THREE_SPATIAL_NULL_DIRECTIONS__THIRD_CONE_SOLVES__TRIPLE_SUPERPOSITION_SOLVES__SOLUTION_SPACE_SPANS_THREE_AXIS_DIRECTIONS__CONTINUOUS_CONE_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED"
+    },
+    "general_null": {
+      "theorem": "O CONE CONTINUO: para QUALQUER covetor nulo e QUALQUER polarizacao TT (simetrica, eta-traco zero, transversal), a onda plana resolve o vacuo linearizado -- as tres condicoes matam os tres termos do Ricci. Subsume todos os cones + o continuo; o setor de ondas planas TT FECHADO.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "shadow_ricci_max": 3.961761474435832e-07,
+        "shadow_traceless_resid": 1.249000902703301e-16,
+        "shadow_transverse_resid": 1.1102230246251565e-16
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "o funcional da direcao: dotCov k (e_j) = k_j",
+          true
+        ],
+        [
+          "a reducao: d_i d_j (c.w(k.x)) = c.k_j.k_i.w''",
+          true
+        ],
+        [
+          "\u2605 O TEOREMA GERAL: eta-traco zero + transversal + NULO => Ricci_lin = 0 p/ QUALQUER k",
+          true
+        ],
+        [
+          "SOMBRA (dif. finitas, direcao nula ARBITRARIA): traco 1.2e-16 ; transv 1.1e-16 ; max|Ricci| 4.0e-07",
+          true
+        ],
+        [
+          "SUBSUME cones 1,2,3 (v125-v128) + cone continuo; setor de ondas planas FECHADO",
+          true
+        ],
+        [
+          "os 5 flags de FISICA NAO se movem (ondas planas != perturbacoes gerais)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_fechou": "o setor de ondas planas TT no continuo em TODA direcao nula -- um teorema geral subsume a construcao direcao a direcao",
+        "o_que_resta": "a decomposicao completa de perturbacoes GERAIS (superposicao de infinitas direcoes/modos) + anomalias -- a segunda metade dos flags",
+        "honestidade": "ondas planas nao esgotam o espectro; nenhum flag de fisica flipado",
+        "o_veredito": "TGL_GENERAL_NULL__CONTINUOUS_CONE__ANY_NULL_DIRECTION_TT_WAVE_SOLVES_LINEARIZED_VACUUM__THREE_ALGEBRAIC_CONDITIONS_KILL_THREE_RICCI_TERMS__TRACELESS_TRANSVERSE_NULL__SUBSUMES_ALL_AXIS_CONES_AND_THE_CONTINUUM__PLANE_WAVE_TT_SECTOR_CLOSED__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_GENERAL_NULL__CONTINUOUS_CONE__ANY_NULL_DIRECTION_TT_WAVE_SOLVES_LINEARIZED_VACUUM__THREE_ALGEBRAIC_CONDITIONS_KILL_THREE_RICCI_TERMS__TRACELESS_TRANSVERSE_NULL__SUBSUMES_ALL_AXIS_CONES_AND_THE_CONTINUUM__PLANE_WAVE_TT_SECTOR_CLOSED__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED"
+    },
+    "tower_traceless": {
+      "theorem": "A TORRE SEM TRACO: para lambda =/= 1, o estado phi_N nao e' tracial em NENHUM andar da torre -- a razao modular lambda^(N+1) vezes uma testemunha positiva. O tipo III realizado na torre concreta que constroi o fator ITPFI; combinado com a marca log-densa (v125), o limite e' III_1.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "n_floors_shadow": 6
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "\u2605 a testemunha e' POSITIVA: phi_N(chainDown.chainUp) = (1/(1+lambda))^(N+1) > 0",
+          true
+        ],
+        [
+          "a razao modular nao e' 1: lambda^(N+1) =/= 1 (lambda>0, lambda=/=1)",
+          true
+        ],
+        [
+          "\u2605 A TORRE SEM TRACO: phi_N nao tracial em TODO andar N",
+          true
+        ],
+        [
+          "SOMBRA [lambda=beta, 6 andares]: testemunha>0 + razao + nao-tracial em todos",
+          true
+        ],
+        [
+          "o gate segue 5T/1F (a torre sem traco NAO vira a flag: falta o limite fraco-*)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_e": "a assinatura tipo-III (ausencia de traco) realizada na torre concreta de Araki-Woods, andar a andar -- nao so' na algebra plena (v119)",
+        "o_que_resta": "o limite fraco-* (completamento topologico) -- o fator como objeto; a assinatura esta na torre, o objeto e' o limite",
+        "honestidade": "torre finita, andar a andar; o fator e' o limite; nenhuma frase 'III_1 construido'; o gate nao se move",
+        "o_veredito": "TGL_TOWER_TRACELESS__TYPE_III_ON_THE_CONCRETE_TOWER__STATE_NOT_TRACIAL_ON_EVERY_FLOOR__MODULAR_RATIO_LAMBDA_POW_N_TIMES_POSITIVE_WITNESS__NO_TRACE_NOT_ONLY_ON_FULL_ALGEBRA_BUT_ON_THE_ITPFI_TOWER_FLOOR_BY_FLOOR__WITH_LOG_DENSE_MARK_THE_LIMIT_IS_III1__WEAK_STAR_COMPLETION_REMAINS__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_TOWER_TRACELESS__TYPE_III_ON_THE_CONCRETE_TOWER__STATE_NOT_TRACIAL_ON_EVERY_FLOOR__MODULAR_RATIO_LAMBDA_POW_N_TIMES_POSITIVE_WITNESS__NO_TRACE_NOT_ONLY_ON_FULL_ALGEBRA_BUT_ON_THE_ITPFI_TOWER_FLOOR_BY_FLOOR__WITH_LOG_DENSE_MARK_THE_LIMIT_IS_III1__WEAK_STAR_COMPLETION_REMAINS__SEAL_UNMOVED"
+    },
+    "tower_modular": {
+      "theorem": "A ESTRUTURA MODULAR DA TORRE: o fluxo de Tomita sigma_N(a) = rho.a.rho^-1 e a condicao KMS phi_N(ab)=phi_N(b.sigma_N(a)) em todo andar -- a estrutura de equilibrio que SUBSTITUI o traco morto (v129); o espectro modular = o reticulado de razoes.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "kms_resid": 3.66205343881779e-15,
+        "flow_resid": 4.440892098500626e-16,
+        "eig_resid": 2.710505431213761e-20
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "os pesos sao POSITIVOS em todo andar => densidade INVERTIVEL (inversa explicita)",
+          true
+        ],
+        [
+          "o fluxo modular sigma_N(a) = rho.a.rho^-1 fixa a unidade",
+          true
+        ],
+        [
+          "\u2605 A CONDICAO KMS NA TORRE: phi_N(ab) = phi_N(b.sigma_N(a)) em TODO andar",
+          true
+        ],
+        [
+          "\u2605 o espectro modular = o reticulado de razoes (testemunha lambda^(N+1) no fluxo)",
+          true
+        ],
+        [
+          "SOMBRA [lambda=beta, 6 andares]: KMS 3.7e-15 ; fluxo(1) 4.4e-16 ; espectro 2.7e-20",
+          true
+        ],
+        [
+          "o gate segue 5T/1F (a estrutura modular NAO vira a flag: falta o fraco-*)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_e": "a teoria modular de Tomita-Takesaki na torre concreta: fluxo + KMS + espectro; a estrutura que o v129 mostrou necessaria (sem traco)",
+        "o_que_resta": "o limite fraco-* (completamento topologico) -- o fator como objeto de von Neumann",
+        "honestidade": "torre finita, andar a andar; o fator e' o limite; nenhuma frase 'III_1 construido'; o gate nao se move",
+        "o_veredito": "TGL_TOWER_MODULAR__TOMITA_FLOW_AND_KMS_ON_THE_CONCRETE_TOWER__DENSITY_INVERTIBLE_POSITIVE_WEIGHTS__MODULAR_FLOW_FIXES_UNIT__KMS_CONDITION_EVERY_FLOOR__PHI_AB_EQ_PHI_B_SIGMA_A__MODULAR_SPECTRUM_IS_THE_RATIO_LATTICE__THE_STRUCTURE_THAT_REPLACES_THE_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_TOWER_MODULAR__TOMITA_FLOW_AND_KMS_ON_THE_CONCRETE_TOWER__DENSITY_INVERTIBLE_POSITIVE_WEIGHTS__MODULAR_FLOW_FIXES_UNIT__KMS_CONDITION_EVERY_FLOOR__PHI_AB_EQ_PHI_B_SIGMA_A__MODULAR_SPECTRUM_IS_THE_RATIO_LATTICE__THE_STRUCTURE_THAT_REPLACES_THE_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_UNMOVED"
+    },
     "triad_master": {
       "residuals": {
         "coeficiente_de_einstein": 6.938893903907228e-18,
@@ -11769,11 +13108,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 480 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 542 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 480/480; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 542/542; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -13627,7 +14966,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-19 18:54:12",
+    "timestamp": "2026-07-20 14:48:09",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -13877,7 +15216,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-19 18:54:12",
+        "prediction_timestamp": "2026-07-20 14:48:09",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -13913,7 +15252,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "55289e833e56e8c93b62bde3dd245a7cb380ffa9c999c3d044607d7c00db933a"
+        "prediction_hash": "d66cb3472e72c1fb166142bc386872c935e721577d0db3e104fab20171bc4364"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -14213,7 +15552,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "680c53dff2321c547f36664fae7f8ba4385523980f0f62edc835b0e2fc606d6d"
+    "result_hash": "63a710ad8e97f665a8d2a67f597ed8a87499f8d9b18d13e6bfd1b29a195a08fd"
   },
   "ga_mass_literature": [
     {
@@ -14240,7 +15579,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "680c53dff2321c547f36664fae7f8ba4385523980f0f62edc835b0e2fc606d6d",
+  "result_hash_before_external_comparison": "63a710ad8e97f665a8d2a67f597ed8a87499f8d9b18d13e6bfd1b29a195a08fd",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -14250,5 +15589,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-19 18:54:12"
+  "timestamp": "2026-07-20 14:48:09"
 }
