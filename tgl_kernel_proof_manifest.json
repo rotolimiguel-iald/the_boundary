@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-20 23:42:50",
+  "timestamp": "2026-07-21 16:55:19",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "fe603747f571cec93a4c9f90c6acb7793dad555165de8dc522f6675655031902",
+  "formal_source_hash": "46862dd0d00948f5c1b0edb38d33a11fddf1eb5bb5a6906ac336d4ffaf38e731",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "ba62686105fc38893776040b56acbf34053ac55a01fea42ca12df9f3bb6c7e58",
+    "TGLExt.lean": "7e13b472a3451d0e617eef51205760c6b3277a059123e18659ee0e1f3a65ff55",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "2826aed8b304b20c34cdadc904bec061a66ccb247aed7605476d177ae1571d99",
+    "TGL/Audit.lean": "5be0600d5d9c869950e6d4e25b5227dc34ba49cd66c45432f4cbd17e0861becf",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -100,6 +100,7 @@
     "TGLExt/ModularFirstLaw.lean": "aee3eb49a6d0544e8bb2a3f7b763b04dc46ea425ec4565f77ae1c33ffc27125d",
     "TGLExt/ModularFlow.lean": "62cfa753d4b40a9091aafb383a8edd588a542dddf5e97ee39906ec31c59826b9",
     "TGLExt/NoFullWitness.lean": "fde4ca999c40e6892d1958bee15a066786adb1363b8e3514f41eeb8b8909a654",
+    "TGLExt/NoNormalTrace.lean": "7c5090ec79fa42399a2cd0f2fe453f2d2c1d3cb229a110806eb1e57494b90266",
     "TGLExt/NumberOperator.lean": "f6b2c0670ed3524d19496819b772547e6757908151055901dae2563bffd8cb77",
     "TGLExt/NumberSelfAdjoint.lean": "72dee88258250dea5bd660657a47cc8ba4d769b5decaa74d5a4f09e5842ffafb",
     "TGLExt/PPIndex.lean": "7f6dc10d57b4852440308ce1c096cbc8e6403d1ac24d0d099e98cb204802060a",
@@ -129,6 +130,7 @@
     "TGLExt/SusyRelativeGap.lean": "3aa058b5c4f098e3218ffed0bc8271a28947b56af81750019e1360754873e7f2",
     "TGLExt/TTSuperposition.lean": "7beb841f082e34be68c11ef8de25b024a448b90afb64752a3a6cb8327c13cde3",
     "TGLExt/TailNet.lean": "e7654368112f1af5d529edbd0d2669a829358651a82014e0d835a88868d7f5e6",
+    "TGLExt/TheCoinage.lean": "63d5a1d80236bb42d965fd82f40bc8fda3321f0f0d969d18eb85397ef8842b17",
     "TGLExt/TheFactorObject.lean": "570ba4fd7b8edba4b7d01e8a3a134a5def93d945c29092b26df126a868b5692a",
     "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
     "TGLExt/ThirdCone.lean": "21edba89bf302c075d512e77bf2dada36b5f216f054930eb5a881c57935eb694",
@@ -144,6 +146,7 @@
     "TGLExt/VariationalInhabitant.lean": "2af4afbc660fdd9c1ca9f8c66a8ad073fbea252949d64b503ed2e8cb81b6c27e",
     "TGLExt/WitnessSeed.lean": "3281a16675fa60c4b1972b4122d083899aad4adf00328500a4a1367e5bfa3ec2",
     "TGLExt/WitnessV2.lean": "35f47bebde47a54e25cd4fb51b8f242f5a8385c45bd9fc1f9544c118f30a8ee1",
+    "TGLExt/WitnessV3.lean": "22bf6476c48eb9ebabb1439800d52b47cc2d24bc2a1462987dd71c60350f644c",
     "TGLExt/WordExistence.lean": "6c1fdfff860cacd0a2edfa1e4a49ebf1701f21c95adae69bbe86fbcd9bd7d5da"
   },
   "axiom_report": {
@@ -3255,10 +3258,140 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.omegaState_seqWOT": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qMark_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qMark_mul_self": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.uMark_mul_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.star_mul_uMark": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qMark_partition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerPi_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerPi_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerPi_qMark_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.inner_qMark_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qMark_wot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tracial_halves_qMark": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.no_normal_tracial_state_seq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.no_normal_tracial_state_mix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.no_normal_tracial_state_const": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_dead_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.finiteDim_normal_trace_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.finiteDim_cannot_feed_witnessV3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theWitnessV3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.witnessV3_infinite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.witnessV3_synthesis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgClosureCertificateV2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgClosureCertificateV2_reduces": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgClosureCertificateV2_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgClosureCertificateV2_infinite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_witness_is_construction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "76445bee9ba04cb45088eb31c29f65cedaef7db54c9bcf9ec36fa7aaf4ba4890",
-  "audit_stdout_sha256": "7b4204c6e2943895436f35491e51aa1b4e282e3f26aa2f3f432dfd97640dc284",
+  "build_stdout_sha256": "c3f9fede95e0e76f95f595e2c25e1ac37dc4d8888f49ce4a6b5229c39bdfc81e",
+  "audit_stdout_sha256": "9ac6714ae2d1307d03c082eddb71c7c0f421f47a10d08e94e91cdc713c0b51f4",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

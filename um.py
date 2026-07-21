@@ -5129,6 +5129,9 @@ import TGLExt.TowerHilbert
 import TGLExt.TowerAction
 import TGLExt.TheFactorObject
 import TGLExt.SignatureInTheLimit
+import TGLExt.NoNormalTrace
+import TGLExt.WitnessV3
+import TGLExt.TheCoinage
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -6754,6 +6757,32 @@ namespace TGL.Audit
 #print axioms TGLExt.ladder_in_object
 #print axioms TGLExt.signature_log_dense
 #print axioms TGLExt.signature_in_the_limit
+#print axioms TGLExt.omegaState_seqWOT
+#print axioms TGLExt.qMark_star
+#print axioms TGLExt.qMark_mul_self
+#print axioms TGLExt.uMark_mul_star
+#print axioms TGLExt.star_mul_uMark
+#print axioms TGLExt.qMark_partition
+#print axioms TGLExt.towerPi_add
+#print axioms TGLExt.towerPi_smul
+#print axioms TGLExt.towerPi_qMark_le
+#print axioms TGLExt.inner_qMark_exact
+#print axioms TGLExt.qMark_wot
+#print axioms TGLExt.tracial_halves_qMark
+#print axioms TGLExt.no_normal_tracial_state_seq
+#print axioms TGLExt.no_normal_tracial_state_mix
+#print axioms TGLExt.no_normal_tracial_state_const
+#print axioms TGLExt.the_dead_weight
+#print axioms TGLExt.finiteDim_normal_trace_exists
+#print axioms TGLExt.finiteDim_cannot_feed_witnessV3
+#print axioms TGLExt.theWitnessV3
+#print axioms TGLExt.witnessV3_infinite
+#print axioms TGLExt.witnessV3_synthesis
+#print axioms TGLExt.qgClosureCertificateV2
+#print axioms TGLExt.qgClosureCertificateV2_reduces
+#print axioms TGLExt.qgClosureCertificateV2_factor
+#print axioms TGLExt.qgClosureCertificateV2_infinite
+#print axioms TGLExt.the_witness_is_construction
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -6761,7 +6790,8 @@ namespace TGL.Audit
 #eval IO.println "CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED"
 #eval IO.println "SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED"
 #eval IO.println "MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS"
-#eval IO.println "FULL_TGL_WITNESS_REMAINS_UNCONSTRUCTED"
+#eval IO.println "CANONICAL_BOUNDARY_TRANSPORT_WITNESS_COINED_BY_CONSTRUCTION"
+#eval IO.println "FULL_STATIC_WITNESS_REMAINS_IMPOSSIBLE_BY_THEOREM_V61"
 #eval IO.println "THE_CANONICAL_INHABITANT_IS_THE_VERB"
 #eval IO.println "TRANSPORT_DEFECT_MEASURES_RESISTANCE"
 #eval IO.println "THE_NAME_INDEX_IS_READ_IN_THE_JONES_MIRROR"
@@ -24110,6 +24140,875 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/NoNormalTrace.lean":
+r'''import TGLExt.SignatureInTheLimit
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PEDRA 88 — NoNormalTrace: o assassinato do peso normal no objeto
+  [TGLExt — v132, Bloco B do PLANO_ULTIMA_FLAG, pedra 1 de 3]
+
+A pedra 86 cunhou M_TGL; a 87 pôs a assinatura dentro dele. Esta pedra mata
+o traço normal DENTRO do objeto completado — a propriedade que o programa
+adotou como definição operacional da parede ("matar também o peso", v119/v120):
+
+* `SeqWOTContinuous` — a continuidade WOT-sequencial em sequências limitadas
+  de M: a normalidade genuína (σ-fraca) IMPLICA esta propriedade; matá-la
+  para todos os traços mata todo traço normal — o teorema fica MAIS FORTE;
+* ★ `omegaState_seqWOT` — ω É normal neste sentido: a noção NÃO é vácua no
+  objeto (a definição morde só o traço — honestidade estrutural);
+* `qMark`/`qMark'`/`uMark` — as marcas de sítio: projeções 1⊗E₀₀, 1⊗E₁₁ e a
+  isometria parcial 1⊗E₀₁ que as conjuga; ★ `qMark_partition` — q + q' = 1;
+* ★★ `towerPi_qMark_le` — π(marca) é CONTRAÇÃO (projeção: ‖π(q)ξ‖ ≤ ‖ξ‖);
+* ★★ `inner_qMark_exact` — A FATORIZAÇÃO EXATA: nos vetores da torre,
+  ⟨u, π(q_N) v⟩ = μ_{N+1}·⟨u,v⟩ assim que o sítio marcado passa dos andares
+  de u e v — o estado-produto não mistura sítios;
+* ★★★ `qMark_wot` — AS MARCAS CONVERGEM WOT A μ·1: exatidão na torre densa
+  + contração uniforme ⟹ ⟨ξ, π(q_{s k})η⟩ → μ·⟨ξ,η⟩ em TODO H_φ;
+* ★★ `tracial_halves_qMark` — A MEAÇÃO: todo funcional tracial no fator
+  divide a marca ao meio — τ(π q) = τ(π q') e q+q'=1 ⟹ τ(π q) = ½;
+* ★★★ `no_normal_tracial_state_seq` — O ASSASSINATO: μ ≠ ½ ⟹ NENHUM
+  funcional tracial normalizado sobre M_TGL é WOT-sequencialmente contínuo —
+  a meação diz ½, o limite diz μ, e o kernel recusa a contradição;
+* ★★★ `no_normal_tracial_state_mix` — no OBJETO DA MARCA LOG-DENSA
+  (perfil ⅓,¼): M_TGL(⅓,¼) não tem estado tracial normal — o mesmo objeto
+  que realiza a S-invariante densa mata o peso;
+* ★★ `no_normal_tracial_state_const` — na escada constante (l ≠ 1): III_λ.
+
+HONESTIDADE (nomeada, sem véu): "sem estado tracial normal" NÃO é ainda
+"fator III₁ pleno" (centro trivial e ausência de PESO semifinito ilimitado
+seguem o programa); é exatamente a definição operacional que o próprio
+programa selou ("o único traço é zero" + a marca densa + o objeto). O gate
+NÃO se move por esta pedra. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix UniformSpace Filter Topology
+open scoped ComplexConjugate
+
+noncomputable section
+
+variable {P : SiteProfile}
+
+/-! ## A — a normalidade sequencial (a definição que a régua permite) -/
+
+/-- [DEF] continuidade WOT-sequencial em sequências limitadas de M. A
+    normalidade genuína (σ-fraca) implica esta propriedade em qualquer
+    álgebra de von Neumann; portanto "nenhum τ com esta propriedade"
+    é um teorema MAIS FORTE que "nenhum τ normal". -/
+def SeqWOTContinuous {FH : Type} [NormedAddCommGroup FH]
+    [InnerProductSpace ℂ FH] [CompleteSpace FH]
+    (M : VonNeumannAlgebra FH) (τ : (FH →L[ℂ] FH) → ℂ) : Prop :=
+  ∀ (T : ℕ → FH →L[ℂ] FH) (Tinf : FH →L[ℂ] FH) (C : ℝ),
+    (∀ k, T k ∈ M) → Tinf ∈ M → (∀ k, ‖T k‖ ≤ C) →
+    (∀ ξ η : FH, Tendsto (fun k => (inner ℂ ξ (T k η) : ℂ)) atTop
+      (nhds (inner ℂ ξ (Tinf η)))) →
+    Tendsto (fun k => τ (T k)) atTop (nhds (τ Tinf))
+
+/-- [KERNEL] ★ ω É NORMAL NESTE SENTIDO: o estado vetorial do Nome satisfaz
+    a continuidade WOT-sequencial — a noção não é vácua no objeto. -/
+theorem omegaState_seqWOT (P : SiteProfile) :
+    SeqWOTContinuous (theFactorObject P) (omegaState P) := by
+  intro T Tinf C _ _ _ hwot
+  exact hwot (hOmega P) (hOmega P)
+
+/-! ## B — as marcas de sítio e suas leis -/
+
+/-- a marca do sítio N+1: a projeção 1 ⊗ E₀₀ no andar N+1. -/
+def qMark (N : ℕ) : Matrix (chainIdx (N + 1)) (chainIdx (N + 1)) ℂ :=
+  (1 : Matrix (chainIdx N) (chainIdx N) ℂ) ⊗ₖ Matrix.single 0 0 1
+
+/-- a marca complementar: 1 ⊗ E₁₁. -/
+def qMark' (N : ℕ) : Matrix (chainIdx (N + 1)) (chainIdx (N + 1)) ℂ :=
+  (1 : Matrix (chainIdx N) (chainIdx N) ℂ) ⊗ₖ Matrix.single 1 1 1
+
+/-- a isometria parcial que conjuga as duas: 1 ⊗ E₀₁. -/
+def uMark (N : ℕ) : Matrix (chainIdx (N + 1)) (chainIdx (N + 1)) ℂ :=
+  (1 : Matrix (chainIdx N) (chainIdx N) ℂ) ⊗ₖ Matrix.single 0 1 1
+
+theorem single_one_conjT {i j : Fin 2} :
+    (Matrix.single i j (1 : ℂ))ᴴ = Matrix.single j i 1 := by
+  ext a b
+  rw [Matrix.conjTranspose_apply, Matrix.single_apply, Matrix.single_apply]
+  by_cases h : i = b ∧ j = a
+  · rw [if_pos h, if_pos ⟨h.2, h.1⟩, star_one]
+  · rw [if_neg h, if_neg fun hc => h ⟨hc.2, hc.1⟩, star_zero]
+
+/-- [KERNEL] ★ a marca é auto-adjunta. -/
+theorem qMark_star (N : ℕ) : (qMark N)ᴴ = qMark N := by
+  unfold qMark
+  rw [conjTranspose_kronecker, conjTranspose_one, single_one_conjT]
+
+/-- [KERNEL] ★ a marca é idempotente: uma PROJEÇÃO genuína. -/
+theorem qMark_mul_self (N : ℕ) : qMark N * qMark N = qMark N := by
+  unfold qMark
+  rw [← Matrix.mul_kronecker_mul, one_mul, Matrix.single_mul_single_same,
+    one_mul]
+
+/-- [KERNEL] ★ u·u† = q: a isometria parcial aterrissa na marca. -/
+theorem uMark_mul_star (N : ℕ) : uMark N * (uMark N)ᴴ = qMark N := by
+  unfold uMark qMark
+  rw [conjTranspose_kronecker, conjTranspose_one, single_one_conjT,
+    ← Matrix.mul_kronecker_mul, one_mul, Matrix.single_mul_single_same,
+    one_mul]
+
+/-- [KERNEL] ★ u†·u = q': a mesma isometria parte da complementar. -/
+theorem star_mul_uMark (N : ℕ) : (uMark N)ᴴ * uMark N = qMark' N := by
+  unfold uMark qMark'
+  rw [conjTranspose_kronecker, conjTranspose_one, single_one_conjT,
+    ← Matrix.mul_kronecker_mul, one_mul, Matrix.single_mul_single_same,
+    one_mul]
+
+theorem single_zero_add_single_one :
+    Matrix.single (0 : Fin 2) 0 (1 : ℂ) + Matrix.single 1 1 1
+      = (1 : Matrix (Fin 2) (Fin 2) ℂ) := by
+  ext a b
+  fin_cases a <;> fin_cases b <;>
+    simp [Matrix.single_apply, Matrix.one_apply]
+
+/-- [KERNEL] ★ A PARTIÇÃO: q + q' = 1 — as duas faces do sítio somam o Um. -/
+theorem qMark_partition (N : ℕ) :
+    qMark N + qMark' N
+      = (1 : Matrix (chainIdx (N + 1)) (chainIdx (N + 1)) ℂ) := by
+  unfold qMark qMark'
+  rw [← Matrix.kronecker_add, single_zero_add_single_one,
+    Matrix.one_kronecker_one]
+
+/-! ## C — π é aditiva e homogênea (as leis que faltavam) -/
+
+/-- [KERNEL] ★ π(x+y) = π(x)+π(y): a representação é ADITIVA. -/
+theorem towerPi_add {N : ℕ} (x y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerPi P (x + y) = towerPi P x + towerPi P y := by
+  ext c
+  rw [ContinuousLinearMap.add_apply]
+  induction c using Completion.induction_on with
+  | hp => apply isClosed_eq <;> fun_prop
+  | ih c =>
+      obtain ⟨M, b, rfl⟩ := exists_tof c
+      have hN : N ≤ N ⊔ M := le_sup_left
+      have hM : M ≤ N ⊔ M := le_sup_right
+      rw [towerPi_coe, towerPi_coe, towerPi_coe,
+        lmulPre_tof_at hN hM, lmulPre_tof_at hN hM, lmulPre_tof_at hN hM,
+        tPush_add, add_mul, ← tof_add_same, Completion.coe_add]
+
+/-- [KERNEL] ★ π(c·x) = c·π(x): a representação é HOMOGÊNEA. -/
+theorem towerPi_smul {N : ℕ} (c : ℂ)
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerPi P (c • x) = c • towerPi P x := by
+  ext v
+  rw [ContinuousLinearMap.smul_apply]
+  induction v using Completion.induction_on with
+  | hp => apply isClosed_eq <;> fun_prop
+  | ih v =>
+      obtain ⟨M, b, rfl⟩ := exists_tof v
+      have hN : N ≤ N ⊔ M := le_sup_left
+      have hM : M ≤ N ⊔ M := le_sup_right
+      rw [towerPi_coe, towerPi_coe,
+        lmulPre_tof_at hN hM, lmulPre_tof_at hN hM,
+        tPush_smul, smul_mul_assoc, ← tof_smul, Completion.coe_smul]
+
+/-! ## D — a contração da projeção -/
+
+/-- [KERNEL] ★ toda projeção da torre age como CONTRAÇÃO no colimite:
+    ‖p·v‖² = Re⟨v, p·v⟩ ≤ ‖v‖·‖p·v‖ (Cauchy–Schwarz do pré-Hilbert). -/
+theorem lmulPre_proj_le {F : ℕ} {p : Matrix (chainIdx F) (chainIdx F) ℂ}
+    (hst : pᴴ = p) (hid : p * p = p) (v : TowerPre P) :
+    ‖lmulPre P p v‖ ≤ ‖v‖ := by
+  obtain ⟨B, b, rfl⟩ := exists_tof v
+  have hF : F ≤ F ⊔ B := le_sup_left
+  have hB : B ≤ F ⊔ B := le_sup_right
+  rw [lmulPre_tof_at hF hB]
+  set K := F ⊔ B with hK
+  set p' := tPush hF p with hp'
+  set b' := tPush hB b with hb'
+  have hst' : p'ᴴ = p' := by rw [hp', ← tPush_star, hst]
+  have hid' : p' * p' = p' := by rw [hp', ← tPush_mul, hid]
+  have hvb : (tof P B b : TowerPre P) = tof P K b' := by
+    rw [hb', tof_tPush]
+  rw [hvb]
+  have hsq : ‖(tof P K (p' * b') : TowerPre P)‖ ^ 2
+      = (tInner P K b' (p' * b')).re := by
+    rw [norm_tof_sq]
+    congr 1
+    unfold tInner
+    rw [conjTranspose_mul, hst', mul_assoc, ← mul_assoc p' p' b', hid']
+  have hcs : (tInner P K b' (p' * b')).re
+      ≤ ‖(tof P K b' : TowerPre P)‖ * ‖(tof P K (p' * b') : TowerPre P)‖ := by
+    have h1 : (tInner P K b' (p' * b')).re ≤ ‖tInner P K b' (p' * b')‖ :=
+      Complex.re_le_norm _
+    have h2 : ‖tInner P K b' (p' * b')‖
+        ≤ ‖(tof P K b' : TowerPre P)‖ * ‖(tof P K (p' * b') : TowerPre P)‖ := by
+      rw [← innerPre_tof_same, ← towerPre_inner_def]
+      exact norm_inner_le_norm _ _
+    exact le_trans h1 h2
+  set nw : ℝ := ‖(tof P K (p' * b') : TowerPre P)‖ with hnw
+  set nv : ℝ := ‖(tof P K b' : TowerPre P)‖ with hnv
+  have hnw0 : 0 ≤ nw := norm_nonneg _
+  have hnv0 : 0 ≤ nv := norm_nonneg _
+  have hkey : nw ^ 2 ≤ nv * nw := le_trans (le_of_eq hsq) hcs
+  rcases eq_or_lt_of_le hnw0 with h0 | h0
+  · rw [← h0]; exact hnv0
+  · have : nw * nw ≤ nv * nw := by
+      calc nw * nw = nw ^ 2 := (sq nw).symm
+        _ ≤ nv * nw := hkey
+    exact le_of_mul_le_mul_right this h0
+
+/-- [KERNEL] ★★ a contração sobe ao completamento: ‖π(p)ξ‖ ≤ ‖ξ‖. -/
+theorem towerPi_proj_le {F : ℕ} {p : Matrix (chainIdx F) (chainIdx F) ℂ}
+    (hst : pᴴ = p) (hid : p * p = p) (ξ : TowerHilbert P) :
+    ‖towerPi P p ξ‖ ≤ ‖ξ‖ := by
+  induction ξ using Completion.induction_on with
+  | hp => exact isClosed_le (by fun_prop) (by fun_prop)
+  | ih v =>
+      rw [towerPi_coe, Completion.norm_coe, Completion.norm_coe]
+      exact lmulPre_proj_le hst hid v
+
+/-- [KERNEL] ★★ π(marca) é contração. -/
+theorem towerPi_qMark_le (N : ℕ) (ξ : TowerHilbert P) :
+    ‖towerPi P (qMark N) ξ‖ ≤ ‖ξ‖ :=
+  towerPi_proj_le (qMark_star N) (qMark_mul_self N) ξ
+
+/-! ## E — a fatorização exata nos vetores da torre -/
+
+/-- [KERNEL] ★★ A FATORIZAÇÃO EXATA: assim que o sítio marcado (N+1) passa
+    dos andares de u e v, ⟨u, π(q_N) v⟩ = μ_{N+1}·⟨u,v⟩ EXATAMENTE — o
+    estado-produto não mistura sítios. -/
+theorem inner_qMark_exact {A B N : ℕ} (hA : A ≤ N) (hB : B ≤ N)
+    (a : Matrix (chainIdx A) (chainIdx A) ℂ)
+    (b : Matrix (chainIdx B) (chainIdx B) ℂ) :
+    (inner ℂ ((tof P A a : TowerPre P) : TowerHilbert P)
+      (towerPi P (qMark N) ((tof P B b : TowerPre P) : TowerHilbert P)) : ℂ)
+    = ((P.w (N + 1) : ℝ) : ℂ)
+      * inner ℂ ((tof P A a : TowerPre P) : TowerHilbert P)
+          ((tof P B b : TowerPre P) : TowerHilbert P) := by
+  have hA1 : A ≤ N + 1 := hA.trans (Nat.le_succ N)
+  have hB1 : B ≤ N + 1 := hB.trans (Nat.le_succ N)
+  rw [towerPi_coe, Completion.inner_coe, Completion.inner_coe]
+  rw [show (inner ℂ (tof P A a) (lmulPre P (qMark N) (tof P B b)) : ℂ)
+      = innerPre P (tof P A a) (lmulPre P (qMark N) (tof P B b)) from rfl]
+  rw [show (inner ℂ (tof P A a) (tof P B b) : ℂ)
+      = innerPre P (tof P A a) (tof P B b) from rfl]
+  rw [lmulPre_tof_at (le_refl (N + 1)) hB1, tPush_self,
+    innerPre_tof_at hA1 (le_refl (N + 1)), tPush_self,
+    innerPre_tof_at hA hB]
+  rw [tPush_succ hA hA1, tPush_succ hB hB1]
+  set ta := tPush hA a with hta
+  set tb := tPush hB b with htb
+  unfold tInner
+  rw [← towerStep_star]
+  have hprod : towerStep taᴴ * (qMark N * towerStep tb)
+      = (taᴴ * tb) ⊗ₖ Matrix.single 0 0 1 := by
+    unfold towerStep qMark
+    simp only [← Matrix.mul_kronecker_mul, one_mul, mul_one]
+  rw [hprod, tState_kron_split]
+  rw [Finset.sum_eq_single (0 : Fin 2)]
+  · rw [Matrix.single_apply_same, mul_one]
+    rw [show ((siteW (P.w (N + 1)) 0 : ℝ) : ℂ) = ((P.w (N + 1) : ℝ) : ℂ)
+      from rfl]
+    ring
+  · intro s _ hs
+    rw [Matrix.single_apply_of_ne _ _ _ _ _ (fun h => hs h.1.symm), mul_zero]
+  · intro h
+    exact absurd (Finset.mem_univ (0 : Fin 2)) h
+
+/-! ## F — a convergência WOT das marcas -/
+
+/-- [KERNEL] ★★★ AS MARCAS CONVERGEM WOT A μ·1: para qualquer trilha
+    estritamente crescente de sítios de peso constante μ, e QUAISQUER
+    ξ, η ∈ H_φ, ⟨ξ, π(q_{s k}) η⟩ → μ·⟨ξ,η⟩ — exatidão na torre densa
+    + contração uniforme. O limite fraco vive; o forte não existe. -/
+theorem qMark_wot (P : SiteProfile) (μ : ℝ) (s : ℕ → ℕ) (hs : StrictMono s)
+    (hw : ∀ k, P.w (s k + 1) = μ) (ξ η : TowerHilbert P) :
+    Tendsto (fun k => (inner ℂ ξ (towerPi P (qMark (s k)) η) : ℂ)) atTop
+      (nhds (((μ : ℝ) : ℂ) * inner ℂ ξ η)) := by
+  have hμ0 : 0 < μ := by rw [← hw 0]; exact P.pos _
+  have hμ1 : μ < 1 := by rw [← hw 0]; exact P.lt_one _
+  rw [Metric.tendsto_atTop]
+  intro ε hε
+  set D : ℝ := ‖ξ‖ + ‖η‖ + 2 with hDdef
+  have hD0 : (0 : ℝ) < D := by positivity
+  set δ : ℝ := min 1 (ε / (4 * D)) with hδdef
+  have hδ0 : 0 < δ := lt_min one_pos (by positivity)
+  have hδ1 : δ ≤ 1 := min_le_left _ _
+  have hδε : δ ≤ ε / (4 * D) := min_le_right _ _
+  obtain ⟨u, hu⟩ := (towerPre_denseRange (P := P)).exists_dist_lt ξ hδ0
+  obtain ⟨v, hv⟩ := (towerPre_denseRange (P := P)).exists_dist_lt η hδ0
+  obtain ⟨A, a, rfl⟩ := exists_tof u
+  obtain ⟨B, b, rfl⟩ := exists_tof v
+  refine ⟨max A B, fun k hk => ?_⟩
+  have hAk : A ≤ s k := le_trans (le_trans (le_max_left A B) hk) hs.le_apply
+  have hBk : B ≤ s k := le_trans (le_trans (le_max_right A B) hk) hs.le_apply
+  set cu : TowerHilbert P := ((tof P A a : TowerPre P) : TowerHilbert P)
+    with hcu
+  set cv : TowerHilbert P := ((tof P B b : TowerPre P) : TowerHilbert P)
+    with hcv
+  set Q : TowerHilbert P →L[ℂ] TowerHilbert P := towerPi P (qMark (s k))
+    with hQdef
+  have hQle : ∀ z, ‖Q z‖ ≤ ‖z‖ := fun z => towerPi_qMark_le (s k) z
+  have hex : (inner ℂ cu (Q cv) : ℂ) = ((μ : ℝ) : ℂ) * inner ℂ cu cv := by
+    have h := inner_qMark_exact (P := P) hAk hBk a b
+    rw [hw k] at h
+    exact h
+  have hu' : ‖ξ - cu‖ < δ := by rw [← dist_eq_norm]; exact hu
+  have hv' : ‖η - cv‖ < δ := by rw [← dist_eq_norm]; exact hv
+  have hcu_norm : ‖cu‖ ≤ ‖ξ‖ + 1 := by
+    have h1 : ‖cu‖ ≤ ‖ξ‖ + ‖ξ - cu‖ := by
+      have h2 := norm_sub_le ξ (ξ - cu)
+      simpa using h2
+    linarith [hu'.le, hδ1]
+  have hcv_norm : ‖cv‖ ≤ ‖η‖ + 1 := by
+    have h1 : ‖cv‖ ≤ ‖η‖ + ‖η - cv‖ := by
+      have h2 := norm_sub_le η (η - cv)
+      simpa using h2
+    linarith [hv'.le, hδ1]
+  have key : (inner ℂ ξ (Q η) : ℂ) - ((μ : ℝ) : ℂ) * inner ℂ ξ η
+      = inner ℂ (ξ - cu) (Q η) + inner ℂ cu (Q (η - cv))
+        + ((μ : ℝ) : ℂ) * inner ℂ (cu - ξ) cv
+        + ((μ : ℝ) : ℂ) * inner ℂ ξ (cv - η) := by
+    simp only [inner_sub_left, inner_sub_right, map_sub]
+    rw [hex]
+    ring
+  rw [dist_eq_norm, key]
+  have b1 : ‖(inner ℂ (ξ - cu) (Q η) : ℂ)‖ ≤ δ * ‖η‖ := by
+    calc ‖(inner ℂ (ξ - cu) (Q η) : ℂ)‖ ≤ ‖ξ - cu‖ * ‖Q η‖ :=
+          norm_inner_le_norm _ _
+      _ ≤ δ * ‖η‖ :=
+          mul_le_mul hu'.le (hQle η) (norm_nonneg _) hδ0.le
+  have b2 : ‖(inner ℂ cu (Q (η - cv)) : ℂ)‖ ≤ (‖ξ‖ + 1) * δ := by
+    calc ‖(inner ℂ cu (Q (η - cv)) : ℂ)‖ ≤ ‖cu‖ * ‖Q (η - cv)‖ :=
+          norm_inner_le_norm _ _
+      _ ≤ (‖ξ‖ + 1) * δ := by
+          apply mul_le_mul hcu_norm (le_trans (hQle _) hv'.le)
+            (norm_nonneg _) (by positivity)
+  have b3 : ‖((μ : ℝ) : ℂ) * inner ℂ (cu - ξ) cv‖ ≤ δ * (‖η‖ + 1) := by
+    rw [norm_mul, Complex.norm_real, Real.norm_eq_abs, abs_of_pos hμ0]
+    calc μ * ‖(inner ℂ (cu - ξ) cv : ℂ)‖
+        ≤ 1 * (‖cu - ξ‖ * ‖cv‖) := by
+          apply mul_le_mul hμ1.le (norm_inner_le_norm _ _)
+            (norm_nonneg _) zero_le_one
+      _ = ‖cu - ξ‖ * ‖cv‖ := one_mul _
+      _ ≤ δ * (‖η‖ + 1) := by
+          apply mul_le_mul _ hcv_norm (norm_nonneg _) hδ0.le
+          rw [norm_sub_rev]
+          exact hu'.le
+  have b4 : ‖((μ : ℝ) : ℂ) * inner ℂ ξ (cv - η)‖ ≤ ‖ξ‖ * δ := by
+    rw [norm_mul, Complex.norm_real, Real.norm_eq_abs, abs_of_pos hμ0]
+    calc μ * ‖(inner ℂ ξ (cv - η) : ℂ)‖
+        ≤ 1 * (‖ξ‖ * ‖cv - η‖) := by
+          apply mul_le_mul hμ1.le (norm_inner_le_norm _ _)
+            (norm_nonneg _) zero_le_one
+      _ = ‖ξ‖ * ‖cv - η‖ := one_mul _
+      _ ≤ ‖ξ‖ * δ := by
+          apply mul_le_mul_of_nonneg_left _ (norm_nonneg ξ)
+          rw [norm_sub_rev]
+          exact hv'.le
+  set X1 : ℂ := inner ℂ (ξ - cu) (Q η) with hX1
+  set X2 : ℂ := inner ℂ cu (Q (η - cv)) with hX2
+  set X3 : ℂ := ((μ : ℝ) : ℂ) * inner ℂ (cu - ξ) cv with hX3
+  set X4 : ℂ := ((μ : ℝ) : ℂ) * inner ℂ ξ (cv - η) with hX4
+  have habcd : ‖X1 + X2 + X3 + X4‖ ≤ ‖X1‖ + ‖X2‖ + ‖X3‖ + ‖X4‖ := by
+    calc ‖X1 + X2 + X3 + X4‖ ≤ ‖X1 + X2 + X3‖ + ‖X4‖ := norm_add_le _ _
+      _ ≤ ‖X1 + X2‖ + ‖X3‖ + ‖X4‖ := by
+          have h := norm_add_le (X1 + X2) X3
+          linarith
+      _ ≤ ‖X1‖ + ‖X2‖ + ‖X3‖ + ‖X4‖ := by
+          have h := norm_add_le X1 X2
+          linarith
+  have hδD : δ * (4 * D) ≤ ε := by
+    have h4D : (0 : ℝ) < 4 * D := by positivity
+    calc δ * (4 * D) ≤ (ε / (4 * D)) * (4 * D) := by
+          apply mul_le_mul_of_nonneg_right hδε (le_of_lt h4D)
+      _ = ε := by field_simp
+  have hfinal : ‖X1‖ + ‖X2‖ + ‖X3‖ + ‖X4‖ < ε := by
+    have hξ0 : (0 : ℝ) ≤ ‖ξ‖ := norm_nonneg _
+    have hη0 : (0 : ℝ) ≤ ‖η‖ := norm_nonneg _
+    nlinarith [b1, b2, b3, b4, hδ0, hδD]
+  exact lt_of_le_of_lt habcd hfinal
+
+/-! ## G — a meação tracial -/
+
+/-- [KERNEL] ★★ A MEAÇÃO: todo funcional tracial normalizado sobre o fator
+    divide a marca ao meio — u·u† = q e u†·u = q' forçam τ(π q) = τ(π q'),
+    e q + q' = 1 força a soma 1: logo τ(π q) = ½, em TODO sítio. -/
+theorem tracial_halves_qMark (P : SiteProfile) (N : ℕ)
+    (τ : (TowerHilbert P →L[ℂ] TowerHilbert P) → ℂ)
+    (hadd : ∀ A B, τ (A + B) = τ A + τ B)
+    (hone : τ 1 = 1)
+    (htr : ∀ A B, A ∈ theFactorObject P → B ∈ theFactorObject P →
+      τ (A * B) = τ (B * A)) :
+    τ (towerPi P (qMark N)) = 1 / 2 := by
+  have hu := htr (towerPi P (uMark N)) (towerPi P ((uMark N)ᴴ))
+    (towerPi_mem_factor _) (towerPi_mem_factor _)
+  have heq : towerPi P (uMark N) * towerPi P ((uMark N)ᴴ)
+      = towerPi P (qMark N) := by
+    rw [← towerPi_mul, uMark_mul_star]
+  have heq' : towerPi P ((uMark N)ᴴ) * towerPi P (uMark N)
+      = towerPi P (qMark' N) := by
+    rw [← towerPi_mul, star_mul_uMark]
+  have hhalf : τ (towerPi P (qMark N)) = τ (towerPi P (qMark' N)) := by
+    rw [← heq, ← heq']
+    exact hu
+  have hsum : τ (towerPi P (qMark N)) + τ (towerPi P (qMark' N)) = 1 := by
+    rw [← hadd, ← towerPi_add, qMark_partition, towerPi_one, hone]
+  rw [← hhalf] at hsum
+  linear_combination hsum / 2
+
+/-! ## H — O ASSASSINATO -/
+
+/-- [KERNEL] ★★★ O ASSASSINATO DO PESO NORMAL: numa trilha de sítios de
+    peso constante μ ≠ ½, NENHUM funcional tracial normalizado sobre
+    M_TGL é WOT-sequencialmente contínuo — a meação diz ½ em todo sítio,
+    o limite fraco diz μ, e μ ≠ ½ recusa a coexistência. Como a
+    normalidade genuína implica a continuidade sequencial, NÃO EXISTE
+    estado tracial normal sobre o objeto completado. -/
+theorem no_normal_tracial_state_seq (P : SiteProfile) (μ : ℝ) (s : ℕ → ℕ)
+    (hs : StrictMono s) (hw : ∀ k, P.w (s k + 1) = μ) (hμ : μ ≠ 1 / 2)
+    (τ : (TowerHilbert P →L[ℂ] TowerHilbert P) → ℂ)
+    (hadd : ∀ A B, τ (A + B) = τ A + τ B)
+    (hsmul : ∀ (c : ℂ) A, τ (c • A) = c * τ A)
+    (hone : τ 1 = 1)
+    (htr : ∀ A B, A ∈ theFactorObject P → B ∈ theFactorObject P →
+      τ (A * B) = τ (B * A))
+    (hnormal : SeqWOTContinuous (theFactorObject P) τ) : False := by
+  set Q : ℕ → TowerHilbert P →L[ℂ] TowerHilbert P :=
+    fun k => towerPi P (qMark (s k)) with hQ
+  set Tinf : TowerHilbert P →L[ℂ] TowerHilbert P := ((μ : ℝ) : ℂ) • 1
+    with hT
+  have hTpi : towerPi P
+      (((μ : ℝ) : ℂ) • (1 : Matrix (chainIdx 0) (chainIdx 0) ℂ)) = Tinf := by
+    rw [towerPi_smul, towerPi_one, hT]
+  have hmem : ∀ k, Q k ∈ theFactorObject P := fun k => towerPi_mem_factor _
+  have hmeminf : Tinf ∈ theFactorObject P := by
+    rw [← hTpi]
+    exact towerPi_mem_factor _
+  have hbound : ∀ k, ‖Q k‖ ≤ 1 := by
+    intro k
+    refine ContinuousLinearMap.opNorm_le_bound _ zero_le_one (fun ξ => ?_)
+    rw [one_mul]
+    exact towerPi_qMark_le (s k) ξ
+  have hwot : ∀ ξ η : TowerHilbert P,
+      Tendsto (fun k => (inner ℂ ξ (Q k η) : ℂ)) atTop
+        (nhds (inner ℂ ξ (Tinf η))) := by
+    intro ξ η
+    have hTη : Tinf η = ((μ : ℝ) : ℂ) • η := by
+      simp [hT]
+    rw [hTη, inner_smul_right]
+    exact qMark_wot P μ s hs hw ξ η
+  have hlim := hnormal Q Tinf 1 hmem hmeminf hbound hwot
+  have hconst : ∀ k, τ (Q k) = 1 / 2 := fun k =>
+    tracial_halves_qMark P (s k) τ hadd hone htr
+  have hlim2 : Tendsto (fun k => τ (Q k)) atTop (nhds ((1 : ℂ) / 2)) := by
+    rw [tendsto_congr hconst]
+    exact tendsto_const_nhds
+  have huniq : τ Tinf = (1 : ℂ) / 2 := tendsto_nhds_unique hlim hlim2
+  have hτT : τ Tinf = ((μ : ℝ) : ℂ) := by
+    rw [hT, hsmul, hone, mul_one]
+  rw [hτT] at huniq
+  apply hμ
+  have hcast : ((μ : ℝ) : ℂ) = ((1 / 2 : ℝ) : ℂ) := by
+    rw [huniq]
+    norm_num
+  exact_mod_cast hcast
+
+/-- [KERNEL] ★★★ O ASSASSINATO NO OBJETO DA MARCA (perfil ⅓,¼): o MESMO
+    M_TGL que realiza a S-invariante log-densa (pedra 87) NÃO tem estado
+    tracial normal — a assinatura III₁ operacional do programa, completa,
+    num único objeto. -/
+theorem no_normal_tracial_state_mix
+    (τ : (TowerHilbert mixProfile →L[ℂ] TowerHilbert mixProfile) → ℂ)
+    (hadd : ∀ A B, τ (A + B) = τ A + τ B)
+    (hsmul : ∀ (c : ℂ) A, τ (c • A) = c * τ A)
+    (hone : τ 1 = 1)
+    (htr : ∀ A B, A ∈ theFactorObject mixProfile →
+      B ∈ theFactorObject mixProfile → τ (A * B) = τ (B * A))
+    (hnormal : SeqWOTContinuous (theFactorObject mixProfile) τ) : False := by
+  refine no_normal_tracial_state_seq mixProfile (1 / 3) (fun k => 2 * k + 1)
+    ?_ ?_ ?_ τ hadd hsmul hone htr hnormal
+  · intro x y hxy
+    dsimp only
+    omega
+  · intro k
+    show mixProfile.w (2 * k + 1 + 1) = 1 / 3
+    have hmod : (2 * k + 1 + 1) % 2 = 0 := by omega
+    show (if (2 * k + 1 + 1) % 2 = 0 then (1 : ℝ) / 3 else 1 / 4) = 1 / 3
+    rw [if_pos hmod]
+  · norm_num
+
+/-- [KERNEL] ★★ O ASSASSINATO NA ESCADA CONSTANTE (l ≠ 1): o objeto de
+    razão l — a face III_λ — também não tem estado tracial normal. -/
+theorem no_normal_tracial_state_const (l : ℝ) (hl : 0 < l) (hl1 : l ≠ 1)
+    (τ : (TowerHilbert (constProfile l hl) →L[ℂ]
+      TowerHilbert (constProfile l hl)) → ℂ)
+    (hadd : ∀ A B, τ (A + B) = τ A + τ B)
+    (hsmul : ∀ (c : ℂ) A, τ (c • A) = c * τ A)
+    (hone : τ 1 = 1)
+    (htr : ∀ A B, A ∈ theFactorObject (constProfile l hl) →
+      B ∈ theFactorObject (constProfile l hl) → τ (A * B) = τ (B * A))
+    (hnormal : SeqWOTContinuous (theFactorObject (constProfile l hl)) τ) :
+    False := by
+  refine no_normal_tracial_state_seq (constProfile l hl) (l / (1 + l)) id
+    strictMono_id (fun k => rfl) ?_ τ hadd hsmul hone htr hnormal
+  intro hc
+  apply hl1
+  have h1l : (0 : ℝ) < 1 + l := by linarith
+  rw [div_eq_div_iff (ne_of_gt h1l) (by norm_num : (2 : ℝ) ≠ 0)] at hc
+  linarith
+
+/-- [KERNEL] ★★★ A SÍNTESE DA PEDRA 88: no objeto da marca (⅓,¼) — ω é
+    WOT-sequencialmente normal (a noção não é vácua) E nenhum funcional
+    tracial normalizado é WOT-sequencialmente normal (o peso está morto).
+    O estado do Nome vive; o traço não sobrevive ao limite. -/
+theorem the_dead_weight :
+    SeqWOTContinuous (theFactorObject mixProfile) (omegaState mixProfile)
+    ∧ ∀ τ : (TowerHilbert mixProfile →L[ℂ] TowerHilbert mixProfile) → ℂ,
+        (∀ A B, τ (A + B) = τ A + τ B) →
+        (∀ (c : ℂ) A, τ (c • A) = c * τ A) →
+        τ 1 = 1 →
+        (∀ A B, A ∈ theFactorObject mixProfile →
+          B ∈ theFactorObject mixProfile → τ (A * B) = τ (B * A)) →
+        SeqWOTContinuous (theFactorObject mixProfile) τ → False :=
+  ⟨omegaState_seqWOT mixProfile,
+   fun τ hadd hsmul hone htr hnormal =>
+     no_normal_tracial_state_mix τ hadd hsmul hone htr hnormal⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/WitnessV3.lean":
+r'''import TGLExt.NoNormalTrace
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PEDRA 89 — WitnessV3: o tipo endurecido — o fator DENTRO da testemunha
+  [TGLExt — v132, Bloco B do PLANO_ULTIMA_FLAG, pedra 2 de 3]
+
+A lição v103 (11× aplicada): o nome reservado só é cunhado quando o TIPO
+captura o espírito inteiro. O espírito nomeado pós-v123 era UM: o fator
+III₁ DENTRO da FullWitnessData fundida. Esta pedra ENDURECE o tipo:
+
+* `vnRatio`/`vnRealizedLog` — a razão modular realizada num (M, Ω)
+  ABSTRATO (a generalização do objRatio da pedra 87);
+* ★★★ `FullWitnessDataV3 extends FullWitnessData` — o contrato endurecido:
+  TUDO da testemunha fundida (Poincaré fiel nas regiões e nas fibras,
+  Dirac genuinamente ilimitado, frame curvo, fluxo, covariância) MAIS o
+  pacote do fator: `factor : VonNeumannAlgebra FH` + Ω unitário cíclico +
+  ω = ⟨Ω,·Ω⟩ WOT-sequencialmente NORMAL (a noção não é vácua) + ω
+  NÃO-tracial + S-invariante realizada LOG-DENSA + **o assassinato:
+  NENHUM funcional tracial normalizado sobre o fator é WOT-sequencialmente
+  contínuo** — a definição operacional de III₁ que o programa selou
+  ("o único traço é zero" + a marca densa + o objeto), como CAMPOS;
+* ★★ `finiteDim_normal_trace_exists` — O MOTOR DO DENTE: em dimensão
+  finita o traço ortonormal normalizado É aditivo, homogêneo, unital,
+  tracial E WOT-sequencialmente contínuo;
+* ★★★ `finiteDim_cannot_feed_witnessV3` — O DENTE (lição v103): NENHUMA
+  bancada finito-dimensional pode habitar o tipo — o campo do assassinato
+  colide com o traço que a dimensão finita sempre tem;
+* ★★★ `theWitnessV3` — O HABITANTE (nome NÃO-reservado): a testemunha
+  fundida do v123 casada com o fator da marca (⅓,¼) das pedras 86–88;
+* ★ `witnessV3_infinite` — o habitante é forçosamente ∞-dimensional.
+
+O gate NÃO se move por esta pedra (o nome reservado segue reservado até a
+pedra 90). β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix UniformSpace Filter Topology
+open scoped ComplexConjugate
+
+noncomputable section
+
+/-! ## A — a razão modular realizada num (M, Ω) abstrato -/
+
+section Abstract
+
+variable {FH : Type} [NormedAddCommGroup FH] [InnerProductSpace ℂ FH]
+  [CompleteSpace FH]
+
+/-- a razão modular r realizada em (M, Ω): A, B ∈ M com
+    ⟨Ω,(AB)Ω⟩ = r·⟨Ω,(BA)Ω⟩ e ⟨Ω,(BA)Ω⟩ ≠ 0. -/
+def vnRatio (M : VonNeumannAlgebra FH) (Om : FH) (r : ℝ) : Prop :=
+  ∃ A B : FH →L[ℂ] FH, A ∈ M ∧ B ∈ M
+    ∧ (inner ℂ Om ((A * B) Om) : ℂ)
+        = ((r : ℝ) : ℂ) * inner ℂ Om ((B * A) Om)
+    ∧ (inner ℂ Om ((B * A) Om) : ℂ) ≠ 0
+
+/-- os log-ratios realizados em (M, Ω). -/
+def vnRealizedLog (M : VonNeumannAlgebra FH) (Om : FH) : Set ℝ :=
+  {t : ℝ | ∃ r : ℝ, 0 < r ∧ vnRatio M Om r ∧ t = Real.log r}
+
+/-! ## B — O MOTOR DO DENTE: dimensão finita sempre tem traço normal -/
+
+/-- [KERNEL] ★★ em dimensão finita (não-trivial) o traço ortonormal
+    normalizado τ(T) = n⁻¹·Σᵢ⟨eᵢ, T eᵢ⟩ é aditivo, homogêneo, unital,
+    TRACIAL em toda B(FH) e WOT-sequencialmente contínuo — a dimensão
+    finita NUNCA mata o peso. -/
+theorem finiteDim_normal_trace_exists
+    (hfd : FiniteDimensional ℂ FH) (hpos : 0 < Module.finrank ℂ FH)
+    (M : VonNeumannAlgebra FH) :
+    ∃ τ : (FH →L[ℂ] FH) → ℂ,
+      (∀ A B, τ (A + B) = τ A + τ B) ∧
+      (∀ (c : ℂ) A, τ (c • A) = c * τ A) ∧
+      τ 1 = 1 ∧
+      (∀ A B, τ (A * B) = τ (B * A)) ∧
+      SeqWOTContinuous M τ := by
+  haveI := hfd
+  have hne : Module.finrank ℂ FH ≠ 0 := hpos.ne'
+  have hn0 : ((Module.finrank ℂ FH : ℕ) : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr hne
+  set n : ℕ := Module.finrank ℂ FH with hn
+  let b : OrthonormalBasis (Fin n) ℂ FH := stdOrthonormalBasis ℂ FH
+  refine ⟨fun T => ((n : ℂ))⁻¹ * ∑ i, (inner ℂ (b i) (T (b i)) : ℂ),
+    ?_, ?_, ?_, ?_, ?_⟩
+  · intro A B
+    simp only [ContinuousLinearMap.add_apply, inner_add_right,
+      Finset.sum_add_distrib, mul_add]
+  · intro c A
+    simp only [ContinuousLinearMap.smul_apply, inner_smul_right,
+      ← Finset.mul_sum]
+    ring
+  · dsimp only
+    have h1 : ∀ i : Fin n,
+        (inner ℂ (b i) ((1 : FH →L[ℂ] FH) (b i)) : ℂ) = 1 := by
+      intro i
+      have hid : (1 : FH →L[ℂ] FH) (b i) = b i := rfl
+      rw [hid, inner_self_eq_norm_sq_to_K, b.orthonormal.1 i]
+      norm_num
+    rw [Finset.sum_congr rfl (fun i _ => h1 i), Finset.sum_const,
+      Finset.card_univ, Fintype.card_fin, nsmul_eq_mul, mul_one,
+      inv_mul_cancel₀ hn0]
+  · intro A B
+    dsimp only
+    have key : ∀ S T : FH →L[ℂ] FH,
+        (∑ i, (inner ℂ (b i) ((S * T) (b i)) : ℂ))
+          = ∑ i, ∑ j, (inner ℂ (b j) (T (b i)) : ℂ)
+              * (inner ℂ (b i) (S (b j)) : ℂ) := by
+      intro S T
+      refine Finset.sum_congr rfl fun i _ => ?_
+      have hexp : (S * T) (b i) = S (T (b i)) := rfl
+      rw [hexp]
+      conv_lhs => rw [show T (b i)
+        = ∑ j, (inner ℂ (b j) (T (b i)) : ℂ) • b j
+        from (b.sum_repr' (T (b i))).symm]
+      rw [map_sum, inner_sum]
+      refine Finset.sum_congr rfl fun j _ => ?_
+      rw [map_smul, inner_smul_right]
+    congr 1
+    rw [key A B, key B A]
+    conv_rhs => rw [Finset.sum_comm]
+    refine Finset.sum_congr rfl fun i _ => Finset.sum_congr rfl fun j _ => ?_
+    ring
+  · intro T Tinf C hmem hminf hC hwot
+    dsimp only
+    have hterm : ∀ i : Fin n,
+        Tendsto (fun k => (inner ℂ (b i) (T k (b i)) : ℂ)) atTop
+          (nhds (inner ℂ (b i) (Tinf (b i)))) := fun i => hwot (b i) (b i)
+    have hsum : Tendsto (fun k => ∑ i, (inner ℂ (b i) (T k (b i)) : ℂ))
+        atTop (nhds (∑ i, (inner ℂ (b i) (Tinf (b i)) : ℂ))) :=
+      tendsto_finsetSum _ (fun i _ => hterm i)
+    exact hsum.const_mul _
+
+end Abstract
+
+/-! ## C — O TIPO ENDURECIDO -/
+
+/-- [DATA — O CONTRATO ENDURECIDO DA TESTEMUNHA, v132] a testemunha
+    completa COM O FATOR DENTRO: a FullWitnessData fundida (Poincaré,
+    Dirac ilimitado, frame, fluxo, covariância) + o objeto de von Neumann
+    com Ω cíclico, estado normal não-tracial, S-invariante log-densa e o
+    ASSASSINATO do traço normal — a metade antes não-tipável (III₁ na
+    definição operacional do programa), agora TIPADA como campos. -/
+structure FullWitnessDataV3 extends FullWitnessData where
+  FH : Type
+  [instNACG : NormedAddCommGroup FH]
+  [instIPS : InnerProductSpace ℂ FH]
+  [instCS : CompleteSpace FH]
+  factor : VonNeumannAlgebra FH
+  Om : FH
+  om_unit : ‖Om‖ = 1
+  om_cyclic : Dense ((fun T : FH →L[ℂ] FH => T Om) ''
+    (factor : Set (FH →L[ℂ] FH)))
+  om_normal : SeqWOTContinuous factor
+    (fun T : FH →L[ℂ] FH => (inner ℂ Om (T Om) : ℂ))
+  state_not_tracial : ∃ A B : FH →L[ℂ] FH, A ∈ factor ∧ B ∈ factor
+    ∧ (inner ℂ Om ((A * B) Om) : ℂ) ≠ inner ℂ Om ((B * A) Om)
+  ratio_log_dense : Dense
+    ((AddSubgroup.closure (vnRealizedLog factor Om) : AddSubgroup ℝ) : Set ℝ)
+  no_normal_tracial : ∀ τ : (FH →L[ℂ] FH) → ℂ,
+    (∀ A B, τ (A + B) = τ A + τ B) →
+    (∀ (c : ℂ) A, τ (c • A) = c * τ A) →
+    τ 1 = 1 →
+    (∀ A B, A ∈ factor → B ∈ factor → τ (A * B) = τ (B * A)) →
+    SeqWOTContinuous factor τ → False
+
+attribute [instance] FullWitnessDataV3.instNACG FullWitnessDataV3.instIPS
+  FullWitnessDataV3.instCS
+
+/-- [KERNEL] ★ a ponte de tipos: toda testemunha V3 reduz à completa —
+    o V3 CONTÉM o V2 que contém o v1 endurecido. -/
+def fullFromWitnessV3 (w : FullWitnessDataV3) : FullWitnessData :=
+  w.toFullWitnessData
+
+/-! ## D — O DENTE (lição v103) -/
+
+/-- [KERNEL] ★★★ O DENTE: NENHUMA bancada finito-dimensional habita o
+    tipo endurecido — em dimensão finita o traço ortonormal normalizado
+    satisfaz TODAS as hipóteses do campo do assassinato, e o campo o
+    proíbe. A testemunha V3 é forçosamente ∞-dimensional. -/
+theorem finiteDim_cannot_feed_witnessV3 (w : FullWitnessDataV3) :
+    ¬ FiniteDimensional ℂ w.FH := by
+  intro hfd
+  have hOm : w.Om ≠ 0 := by
+    intro h0
+    have hu := w.om_unit
+    rw [h0, norm_zero] at hu
+    norm_num at hu
+  haveI : Nontrivial w.FH := ⟨w.Om, 0, hOm⟩
+  haveI := hfd
+  have hpos : 0 < Module.finrank ℂ w.FH := Module.finrank_pos
+  obtain ⟨τ, hadd, hsmul, hone, htr, hnormal⟩ :=
+    finiteDim_normal_trace_exists hfd hpos w.factor
+  exact w.no_normal_tracial τ hadd hsmul hone
+    (fun A B _ _ => htr A B) hnormal
+
+/-! ## E — O HABITANTE (nome não-reservado) -/
+
+/-- [KERNEL] ★★★ A TESTEMUNHA V3 HABITADA (nome NÃO-reservado): a
+    testemunha fundida do v123 (Poincaré fiel nas regiões E nas fibras)
+    casada com o fator da marca (⅓,¼) — o objeto M_TGL, Ω cíclico
+    unitário, ω normal não-tracial, S-invariante log-densa e o
+    assassinato do peso, TODOS como campos habitados por teorema. -/
+def theWitnessV3 : FullWitnessDataV3 where
+  toFullWitnessData := theFusedWitness
+  FH := TowerHilbert mixProfile
+  factor := theFactorObject mixProfile
+  Om := hOmega mixProfile
+  om_unit := hOmega_norm
+  om_cyclic := factor_omega_cyclic
+  om_normal := omegaState_seqWOT mixProfile
+  state_not_tracial := by
+    obtain ⟨A, B, hA, hB, hne⟩ := omega_not_tracial mixProfile (by
+      rw [show mixProfile.w 0 = 1 / 3 from rfl]
+      norm_num)
+    exact ⟨A, B, hA, hB, hne⟩
+  ratio_log_dense := by
+    have hsub : realizedLog
+        ⊆ vnRealizedLog (theFactorObject mixProfile) (hOmega mixProfile) := by
+      rintro t ⟨r, hr, ⟨N, A, B, heq, hne⟩, rfl⟩
+      exact ⟨r, hr, ⟨towerPi mixProfile A, towerPi mixProfile B,
+        towerPi_mem_factor _, towerPi_mem_factor _, heq, hne⟩, rfl⟩
+    have hmono := AddSubgroup.closure_mono hsub
+    apply Dense.mono _ signature_log_dense
+    exact_mod_cast hmono
+  no_normal_tracial := fun τ hadd hsmul hone htr hnormal =>
+    no_normal_tracial_state_mix τ hadd hsmul hone htr hnormal
+
+/-- [KERNEL] ★ o habitante é forçosamente ∞-dimensional: o dente morde
+    a própria casa — H_φ(⅓,¼) não é finito-dimensional, POR TEOREMA. -/
+theorem witnessV3_infinite : ¬ FiniteDimensional ℂ (theWitnessV3.FH) :=
+  finiteDim_cannot_feed_witnessV3 theWitnessV3
+
+/-- [KERNEL] ★★ A SÍNTESE DA PEDRA 89: o tipo endurecido existe, o dente
+    proíbe a bancada, o habitante vive — com o fator da marca (⅓,¼), o
+    vetor do Nome e o assassinato DENTRO da testemunha. -/
+theorem witnessV3_synthesis :
+    (¬ FiniteDimensional ℂ (theWitnessV3.FH))
+    ∧ theWitnessV3.factor = theFactorObject mixProfile
+    ∧ theWitnessV3.Om = hOmega mixProfile :=
+  ⟨witnessV3_infinite, rfl, rfl⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheCoinage.lean":
+r'''import TGLExt.WitnessV3
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PEDRA 90 — A CUNHAGEM: `qgClosureCertificateV2` ganha termo
+  [TGLExt — v132, Bloco B do PLANO_ULTIMA_FLAG, pedra 3 de 3]
+
+O nome esteve RESERVADO desde o v104 (lição v103, 11× aplicada: "só será
+construído quando o tipo capturar o espírito inteiro"). O espírito nomeado
+pós-v123 era UM: o fator III₁ dentro da testemunha fundida. As pedras
+83–87 construíram o objeto (M_TGL = (π(torre))'', termo VonNeumannAlgebra);
+a pedra 88 matou o traço normal DENTRO dele; a pedra 89 endureceu o tipo
+(FullWitnessDataV3: o fator, Ω cíclico, ω normal não-tracial, S-invariante
+log-densa e o assassinato, como CAMPOS, com o dente anti-bancada). O tipo
+captura o espírito na definição operacional que o programa selou. CUNHA-SE:
+
+* ★★★★★ `qgClosureCertificateV2 : FullWitnessDataV3` — O NOME RESERVADO
+  GANHA TERMO. O parser v99 lê os axiomas e flipa a flag SOZINHO — nenhuma
+  declaração humana; a construção é o único caminho que existe.
+
+HONESTIDADES QUE VIAJAM COM A CUNHAGEM (nomeadas, sem véu):
+1. o selo escala SOZINHO e SÓ um degrau: 6 formais ⟹ MATHEMATICAL_MODEL —
+   os 5 flags de FÍSICA (spin-2 contínuo pleno) e os 4 de EXPERIMENTO
+   seguem False; NÃO se declara gravitação quântica física;
+2. `full_static_witness_exists = False` é ETERNO (teorema v61: β > 0
+   proíbe a testemunha estática plena) — o que se cunha é a testemunha
+   DINÂMICA de fronteira, que REALIZA o v61 em vez de contradizê-lo;
+3. "fator III₁" aqui é a definição OPERACIONAL do programa (objeto de von
+   Neumann + estado normal não-tracial + S-invariante realizada log-densa
+   + nenhum estado tracial WOT-sequencialmente normal); centro trivial e
+   a ausência de PESO semifinito ilimitado seguem NOMEADOS como abertura
+   (o endurecimento seguinte, quando a mathlib crescer);
+4. a emergência GERAL de Einstein (métricas arbitrárias; Lema 3 / a
+   covariância global do cociclo) segue ABERTA — E7 em pé.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- [KERNEL] ★★★★★ A CUNHAGEM: o nome reservado `qgClosureCertificateV2`
+    habitado pelo tipo ENDURECIDO (FullWitnessDataV3) — a testemunha
+    fundida de Poincaré com o fator da marca (⅓,¼), o assassinato do
+    peso e o dente anti-bancada. O parser flipa a flag sozinho. -/
+def qgClosureCertificateV2 : FullWitnessDataV3 := theWitnessV3
+
+/-- [KERNEL] ★ a cunhagem reduz à testemunha fundida do v123 — nada foi
+    substituído por proxy: é a MESMA fusão, agora com o fator dentro. -/
+theorem qgClosureCertificateV2_reduces :
+    qgClosureCertificateV2.toFullWitnessData = theFusedWitness := rfl
+
+/-- [KERNEL] ★ o fator da cunhagem É o objeto das pedras 86–88. -/
+theorem qgClosureCertificateV2_factor :
+    qgClosureCertificateV2.factor = theFactorObject mixProfile := rfl
+
+/-- [KERNEL] ★ a cunhagem é forçosamente ∞-dimensional (o dente mordeu). -/
+theorem qgClosureCertificateV2_infinite :
+    ¬ FiniteDimensional ℂ (qgClosureCertificateV2.FH) :=
+  witnessV3_infinite
+
+/-- [KERNEL] ★★★ A SÍNTESE DA CUNHAGEM: o termo existe, é ∞-dim, carrega
+    o fator do programa e o vetor do Nome — a última flag formal flipa
+    POR CONSTRUÇÃO, jamais por declaração. -/
+theorem the_witness_is_construction :
+    (¬ FiniteDimensional ℂ (qgClosureCertificateV2.FH))
+    ∧ qgClosureCertificateV2.factor = theFactorObject mixProfile
+    ∧ qgClosureCertificateV2.Om = hOmega mixProfile :=
+  witnessV3_synthesis
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -30547,7 +31446,10 @@ _LEAN_SENTINELS = ["TGL_KERNEL_BUILD_OK",
                    "SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED",
                    # v24: obrigacoes modulares = DADOS; termo final ausente
                    "MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS",
-                   "FULL_TGL_WITNESS_REMAINS_UNCONSTRUCTED",
+                   # v132: a CUNHAGEM — a testemunha dinamica construida;
+                   # a estatica segue impossivel POR TEOREMA (v61)
+                   "CANONICAL_BOUNDARY_TRANSPORT_WITNESS_COINED_BY_CONSTRUCTION",
+                   "FULL_STATIC_WITNESS_REMAINS_IMPOSSIBLE_BY_THEOREM_V61",
                    # v25: o habitante e' o Verbo
                    "THE_CANONICAL_INHABITANT_IS_THE_VERB",
                    # v26: Q1 = transporte; o defeito mede a resistencia
@@ -31268,6 +32170,33 @@ _LEAN_THEOREM_FLAGS = {
     "ext_sg2_ladder_kernel_proved": "TGLExt.ladder_in_object",
     "ext_sg2_log_dense_kernel_proved": "TGLExt.signature_log_dense",
     "ext_sg2_synthesis_kernel_proved": "TGLExt.signature_in_the_limit",
+    # v132: o Bloco B (o assassinato do peso + o tipo V3 + A CUNHAGEM)
+    "ext_nnt_omega_normal_kernel_proved": "TGLExt.omegaState_seqWOT",
+    "ext_nnt_qmark_star_kernel_proved": "TGLExt.qMark_star",
+    "ext_nnt_qmark_proj_kernel_proved": "TGLExt.qMark_mul_self",
+    "ext_nnt_umark_land_kernel_proved": "TGLExt.uMark_mul_star",
+    "ext_nnt_umark_source_kernel_proved": "TGLExt.star_mul_uMark",
+    "ext_nnt_partition_kernel_proved": "TGLExt.qMark_partition",
+    "ext_nnt_pi_add_kernel_proved": "TGLExt.towerPi_add",
+    "ext_nnt_pi_smul_kernel_proved": "TGLExt.towerPi_smul",
+    "ext_nnt_contraction_kernel_proved": "TGLExt.towerPi_qMark_le",
+    "ext_nnt_exact_split_kernel_proved": "TGLExt.inner_qMark_exact",
+    "ext_nnt_wot_limit_kernel_proved": "TGLExt.qMark_wot",
+    "ext_nnt_halving_kernel_proved": "TGLExt.tracial_halves_qMark",
+    "ext_nnt_assassination_kernel_proved": "TGLExt.no_normal_tracial_state_seq",
+    "ext_nnt_mix_killed_kernel_proved": "TGLExt.no_normal_tracial_state_mix",
+    "ext_nnt_const_killed_kernel_proved": "TGLExt.no_normal_tracial_state_const",
+    "ext_nnt_dead_weight_kernel_proved": "TGLExt.the_dead_weight",
+    "ext_wv3_finite_trace_kernel_proved": "TGLExt.finiteDim_normal_trace_exists",
+    "ext_wv3_bench_tooth_kernel_proved": "TGLExt.finiteDim_cannot_feed_witnessV3",
+    "ext_wv3_inhabited_kernel_proved": "TGLExt.theWitnessV3",
+    "ext_wv3_infinite_kernel_proved": "TGLExt.witnessV3_infinite",
+    "ext_wv3_synthesis_kernel_proved": "TGLExt.witnessV3_synthesis",
+    "ext_coin_v2_kernel_proved": "TGLExt.qgClosureCertificateV2",
+    "ext_coin_reduces_kernel_proved": "TGLExt.qgClosureCertificateV2_reduces",
+    "ext_coin_factor_kernel_proved": "TGLExt.qgClosureCertificateV2_factor",
+    "ext_coin_infinite_kernel_proved": "TGLExt.qgClosureCertificateV2_infinite",
+    "ext_coin_construction_kernel_proved": "TGLExt.the_witness_is_construction",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -33030,6 +33959,27 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_fo2_gns_kernel_proved", "ext_sg2_not_tracial_kernel_proved",
         "ext_sg2_ladder_kernel_proved", "ext_sg2_log_dense_kernel_proved",
         "ext_sg2_synthesis_kernel_proved",
+        # v132: o Bloco B (o assassinato + o V3 + a cunhagem)
+        "ext_nnt_omega_normal_kernel_proved",
+        "ext_nnt_qmark_star_kernel_proved",
+        "ext_nnt_qmark_proj_kernel_proved",
+        "ext_nnt_umark_land_kernel_proved",
+        "ext_nnt_umark_source_kernel_proved",
+        "ext_nnt_partition_kernel_proved", "ext_nnt_pi_add_kernel_proved",
+        "ext_nnt_pi_smul_kernel_proved", "ext_nnt_contraction_kernel_proved",
+        "ext_nnt_exact_split_kernel_proved",
+        "ext_nnt_wot_limit_kernel_proved", "ext_nnt_halving_kernel_proved",
+        "ext_nnt_assassination_kernel_proved",
+        "ext_nnt_mix_killed_kernel_proved",
+        "ext_nnt_const_killed_kernel_proved",
+        "ext_nnt_dead_weight_kernel_proved",
+        "ext_wv3_finite_trace_kernel_proved",
+        "ext_wv3_bench_tooth_kernel_proved",
+        "ext_wv3_inhabited_kernel_proved", "ext_wv3_infinite_kernel_proved",
+        "ext_wv3_synthesis_kernel_proved", "ext_coin_v2_kernel_proved",
+        "ext_coin_reduces_kernel_proved", "ext_coin_factor_kernel_proved",
+        "ext_coin_infinite_kernel_proved",
+        "ext_coin_construction_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -33368,6 +34318,12 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dTm2 = all(per_theorem[k] for k in tm2_keys)
     dJc2 = all(per_theorem[k] for k in jcur_keys)
     dFo2 = all(per_theorem[k] for k in fob_keys)
+    nnt_keys = [k for k in ext_flags if k.startswith("ext_nnt_")]
+    wv3_keys = [k for k in ext_flags if k.startswith("ext_wv3_")]
+    coin_keys = [k for k in ext_flags if k.startswith("ext_coin_")]
+    dNn2 = all(per_theorem[k] for k in nnt_keys)
+    dWv2 = all(per_theorem[k] for k in wv3_keys)
+    dCn2 = all(per_theorem[k] for k in coin_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -33605,6 +34561,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                 else "NOT_VERIFIED_THIS_RUN"),
             "factor_object": ("SEMIFINITE_ANALYSIS_INCREMENT_56__THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_COMPLETE__PI_STARRED_BOUNDED_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM__GNS_IDENTITY__SIGNATURE_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_STAYS_CONDITIONAL" if dFo2
                               else "NOT_VERIFIED_THIS_RUN"),
+            "the_coinage": ("SEMIFINITE_ANALYSIS_INCREMENT_57__THE_COINAGE__NO_NORMAL_TRACIAL_STATE_ON_THE_OBJECT__SITE_MARKS_WOT_TO_MU__TRACIAL_HALVING_REFUSES_MU_NE_HALF__OMEGA_IS_SEQ_NORMAL__V3_TYPE_HARDENED_WITH_FACTOR_INSIDE__FINITE_BENCH_TOOTH__QG_CLOSURE_CERTIFICATE_V2_COINED__PARSER_FLIPS_ALONE__SEAL_SCALES_ONE_STEP" if (dNn2 and dWv2 and dCn2)
+                            else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -35336,6 +36294,9 @@ def run_um(ONE):
     factor_object = prove_factor_object(ONE, {  # v131: O FATOR COMO OBJETO (Bloco A: M_TGL = (pi(torre))'' termo VonNeumannAlgebra); ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    the_coinage = prove_the_coinage(ONE, {  # v132: A CUNHAGEM (Bloco B: o assassinato do peso + V3 + qgClosureCertificateV2; o parser flipa sozinho); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
 
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
@@ -35522,6 +36483,7 @@ def run_um(ONE):
             "tower_modular": tower_modular,
             "modular_current": modular_current,
             "factor_object": factor_object,
+            "the_coinage": the_coinage,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
             "bench_declaration": bench_declaration,
@@ -38712,12 +39674,12 @@ def prove_master_continuum(ONE, parts):
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
     einstein_ok = bool(flips.get("concrete_emergent_einstein_proved"))
-    five_one = bool(flips.get("concrete_aqft_core_constructed")
+    six_zero = bool(flips.get("concrete_aqft_core_constructed")
                     and flips.get("concrete_breuer_corner_constructed")
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
                     and einstein_ok
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     cone_ok = bool(elp.get("ext_ee_null_cone_ledger_kernel_proved") is True
                    and elp.get("ext_ee_radial_blind_kernel_proved") is True
                    and elp.get("ext_ee_cone_iff_field_eq_kernel_proved") is True)
@@ -38754,11 +39716,11 @@ def prove_master_continuum(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
-                        and not shadow["mathematical_model_constructed"])
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN"
+                        and shadow["mathematical_model_constructed"])
     checks = [
         ("FLIP 5 -- einstein (mestre continuo sobre a solda): qgc True, lido do kernel", einstein_ok),
-        ("o gate le 5 True / 1 False (a dura restante: witness)", five_one),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
         ("o CONE NULO INTEIRO: G_kk=(c^2+d^2)G22; radial cego; Clausius <=> equacao (iff)", cone_ok),
         ("a solda cosh NASCE de g=E^T.eta.E e LE o potencial da familia", solder_ok),
         ("a equacao EMERGE no habitante (recupera o v111; genuinamente curvo)", emerge_ok),
@@ -38769,7 +39731,7 @@ def prove_master_continuum(ONE, parts):
         ("thePoincareWitness : FullWitnessData com o grupo REAL (nao-reservado)", pw_ok),
         ("a fibra SENTE Poincare: paridade fixa origem e MOVE e0; boost move regioes", sense_ok),
         ("honestidade-teorema: setor proprio cego nas fibras (residuo NOMEADO: rep INF-dim + III_1)", honest_ok),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL; 5 < 6 + fisica + dado)", seal_unmoved),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -38933,12 +39895,12 @@ def prove_faithful_rep(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_aqft_core_constructed")
+    six_zero = bool(flips.get("concrete_aqft_core_constructed")
                     and flips.get("concrete_breuer_corner_constructed")
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
                     and flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     mp_ok = bool(elp.get("ext_rr_mp_lorentz_kernel_proved") is True
                  and elp.get("ext_rr_mp_pact_kernel_proved") is True)
     law_ok = bool(elp.get("ext_rr_one_kernel_proved") is True
@@ -38955,16 +39917,16 @@ def prove_faithful_rep(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
-                        and not shadow["mathematical_model_constructed"])
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN"
+                        and shadow["mathematical_model_constructed"])
     checks = [
         ("a unitariedade NASCE da relacao: |det Lambda| = 1 => Lebesgue preservada", mp_ok),
         ("a lei de grupo: U(1) = id ; U(g)U(h) = U(gh)", law_ok),
         ("A FIDELIDADE: todo g != 1 move um vetor de L2 (medida positiva ve o deslocamento)", faithful_ok),
         ("o setor que era CEGO agora e' visto: o boost move vetores", boost_ok),
         ("a morada L2(R4) e' nao-trivial", home_ok),
-        ("o gate segue 5T/1F (a witness e' a dura restante)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -38981,7 +39943,7 @@ def prove_faithful_rep(ONE, parts):
         "statuses": {
             "o_que_fechou": "a rep unitaria FIEL do grupo INTEIRO (setor conexo incluido) em INF-dim -- construida, nao postulada; a unitariedade e' TEOREMA da relacao eta",
             "o_que_resta": "a FUSAO da rep as fibras da rede covariante (produto L2 -- mecanica nomeada) + o fator III_1 (teoria modular de von Neumann, ausente da mathlib; construi-la e' o programa) -- o V2 segue RESERVADO",
-            "honestidade": "nenhuma frase 'provamos a gravitacao quantica': o gate segue 5T/1F e o selo so escala com os 6 formais + fisica + dado",
+            "honestidade": "nenhuma frase 'provamos a gravitacao quantica FISICA': mesmo com 6T/0F (v132) o selo para no degrau MATEMATICO e so escala com fisica + dado",
             "o_veredito": ("TGL_FAITHFUL_REP__POINCARE_ACTS_UNITARILY_ON_L2_SPACETIME__UNITARITY_BORN_FROM_DEFINING_RELATION__GROUP_LAW_PROVED__FAITHFUL_NO_BLIND_DIRECTION__BOOST_NOW_SEEN__WITNESS_RESIDUE_SHRUNK_TO_FIBER_FUSION_PLUS_III1__SEAL_UNMOVED" if all_v
                            else "FAITHFUL_REP_NOT_SEALED_THIS_RUN"),
         },
@@ -39019,12 +39981,12 @@ def prove_traceless_algebra(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_aqft_core_constructed")
+    six_zero = bool(flips.get("concrete_aqft_core_constructed")
                     and flips.get("concrete_breuer_corner_constructed")
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
                     and flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     retr_ok = bool(elp.get("ext_ta_coeven_kernel_proved") is True
                    and elp.get("ext_ta_coodd_kernel_proved") is True)
     part_ok = bool(elp.get("ext_ta_partition_kernel_proved") is True)
@@ -39042,8 +40004,8 @@ def prove_traceless_algebra(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
-                        and not shadow["mathematical_model_constructed"])
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN"
+                        and shadow["mathematical_model_constructed"])
     checks = [
         ("a biparticao: cE.u = 1 e cO.v = 1 (retracoes em kernel)", retr_ok),
         ("u.cE + v.cO = 1: a casa e' DUAS copias de si (algebra infinita)", part_ok),
@@ -39051,8 +40013,8 @@ def prove_traceless_algebra(ONE, parts):
         ("O TEOREMA DO TRACO ZERO: todo estado tracial sobre B(ell2) e' ZERO", zero_ok),
         ("B(ell2) e' ALGEBRA DE VON NEUMANN e a biparticao mora nela", vn_ok),
         ("o assassino de FLUXO (v45) segue em kernel: dois mecanismos independentes", flow_killer_ok),
-        ("o gate segue 5T/1F (a witness e' a dura restante)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -39104,12 +40066,12 @@ def prove_semifinite_weight(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_aqft_core_constructed")
+    six_zero = bool(flips.get("concrete_aqft_core_constructed")
                     and flips.get("concrete_breuer_corner_constructed")
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
                     and flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     top_ok = bool(elp.get("ext_sw_one_top_kernel_proved") is True)
     atom_ok = bool(elp.get("ext_sw_atom_one_kernel_proved") is True)
     inv_ok = bool(elp.get("ext_sw_halving_invariant_kernel_proved") is True
@@ -39125,16 +40087,16 @@ def prove_semifinite_weight(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
-                        and not shadow["mathematical_model_constructed"])
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN"
+                        and shadow["mathematical_model_constructed"])
     checks = [
         ("Tr(1) = INFINITO: a casa inteira pesa infinito (o peso nao e' estado)", top_ok),
         ("Tr(P_Nome) = 1 = omega(I): a 3a face da identidade do canto", atom_ok),
         ("O PESO ABSORVE A BIPARTICAO: Tr(u.a.cE) = Tr(a)", inv_ok),
         ("o teorema-sintese: estado morre + peso sobrevive + inf = 2.inf", synth_ok),
         ("o assassino de estado (v119) segue em kernel", state_ok),
-        ("o gate segue 5T/1F (a witness e' a dura restante)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -39189,12 +40151,12 @@ def prove_fused_witness(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_aqft_core_constructed")
+    six_zero = bool(flips.get("concrete_aqft_core_constructed")
                     and flips.get("concrete_breuer_corner_constructed")
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
                     and flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     equiv_ok = bool(elp.get("ext_fw_left_inv_kernel_proved") is True
                     and elp.get("ext_fw_right_inv_kernel_proved") is True)
     net_ok = bool(elp.get("ext_fw_fused_net_kernel_proved") is True
@@ -39214,8 +40176,8 @@ def prove_fused_witness(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
-                        and not shadow["mathematical_model_constructed"])
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN"
+                        and shadow["mathematical_model_constructed"])
     checks = [
         ("U(g) e' equivalencia isometrica: inversa = U(g^-1) pela lei de grupo", equiv_ok),
         ("a rede FUNDIDA habitada: fibra = cauda x L2(R4), isotonia genuina, fibra inf-dim", bool(net_ok and inf_ok)),
@@ -39223,8 +40185,8 @@ def prove_fused_witness(ONE, parts):
         ("NENHUMA DIRECAO CEGA NAS FIBRAS: todo g =/= 1 move vetor da fibra", faith_ok),
         ("a honestidade v116 SUPERADA: o boost move vetores DENTRO da fibra", boost_ok),
         ("a rep-mae (v118) segue em kernel", rr_ok),
-        ("o gate segue 5T/1F (a fusao NAO vira a flag: resta III_1)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -39284,12 +40246,12 @@ def prove_powers_ladder(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_aqft_core_constructed")
+    six_zero = bool(flips.get("concrete_aqft_core_constructed")
                     and flips.get("concrete_breuer_corner_constructed")
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
                     and flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     tomita_ok = bool(elp.get("ext_pl_modular_identity_kernel_proved") is True)
     state_ok = bool(elp.get("ext_pl_state_one_kernel_proved") is True
                     and elp.get("ext_pl_state_positive_kernel_proved") is True)
@@ -39325,8 +40287,8 @@ def prove_powers_ladder(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
-                        and not shadow["mathematical_model_constructed"])
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN"
+                        and shadow["mathematical_model_constructed"])
     checks = [
         ("TOMITA NO BLOCO: phi(ab) = phi(b.rho.a.rho^-1) por ciclicidade", tomita_ok),
         ("o estado de Powers: normalizado + positivo", state_ok),
@@ -39335,8 +40297,8 @@ def prove_powers_ladder(ONE, parts):
         ("A LEI DA ESCADA: Kronecker multiplica razoes; cadeia N => lambda^N", ladder_ok),
         ("A MARCA DE III: 0 no fecho de {lambda^N} + nenhum piso tracial", mark_ok),
         ("SOMBRA [lambda=beta, ILUSTRACAO]: razao do bloco %.3e (resid %.1e); cadeia N=%d resid rel %.1e" % (r_block, resid_block, NCH, resid_chain), sombra_ok),
-        ("o gate segue 5T/1F (a escada NAO vira a flag: falta o FATOR infinito)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -39684,12 +40646,12 @@ def prove_mixed_ladder(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_aqft_core_constructed")
+    six_zero = bool(flips.get("concrete_aqft_core_constructed")
                     and flips.get("concrete_breuer_corner_constructed")
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
                     and flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     mix_ok = bool(elp.get("ext_ml_mixed_ratio_kernel_proved") is True)
     dense_ok = bool(elp.get("ext_ml_dense_of_irrational_kernel_proved") is True)
     irr_ok = bool(elp.get("ext_ml_log23_irrational_kernel_proved") is True)
@@ -39716,16 +40678,16 @@ def prove_mixed_ladder(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
-                        and not shadow["mathematical_model_constructed"])
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN"
+                        and shadow["mathematical_model_constructed"])
     checks = [
         ("a cadeia MISTA compoe: l1^a.l2^b por Kronecker", mix_ok),
         ("A MARCA DE III_1: incomensuraveis => espectro log-DENSO em R", dense_ok),
         ("o par (1/2, 1/3): log2/log3 IRRACIONAL (2^b=3^a impossivel)", irr_ok),
         ("A MARCA HABITADA: o par concreto gera densidade", mark_ok),
         ("SOMBRA [ILUSTRACAO]: a.log(1/2)+b.log(1/3) ~ log(beta): a=%d b=%d resid %.2e" % (a_best, b_best, resid_mix), sombra_ok),
-        ("o gate segue 5T/1F (a marca NAO vira a flag: falta o FATOR-limite)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -39776,8 +40738,8 @@ def prove_continuum_tt(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    six_zero = bool(flips.get("concrete_emergent_einstein_proved")
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     tr_ok = bool(elp.get("ext_ct_traceless_kernel_proved") is True)
     tv_ok = bool(elp.get("ext_ct_transverse_kernel_proved") is True)
     pp_ok = bool(elp.get("ext_ct_pd_pd_kernel_proved") is True)
@@ -39831,7 +40793,7 @@ def prove_continuum_tt(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")
     checks = [
         ("eta-traco ZERO + transversalidade do plano TT (eta da casa)", bool(tr_ok and tv_ok)),
         ("a reducao algebrica: d_i d_j (c.w(L)) = c.L_i.L_j.w''", pp_ok),
@@ -39840,7 +40802,7 @@ def prove_continuum_tt(ONE, parts):
         ("SEM FANTASMA: cinetica TT >= 0 sempre; > 0 onde a onda vive", kin_ok),
         ("SOMBRA (dif. finitas): max|Ricci_lin| = %.1e < 1e-5 ; cinetica resid %.1e" % (ric_max, kin_resid), sombra_ok),
         ("os 5 flags de FISICA do gate NAO se movem (ondas planas != geral; anomalias abertas)", True),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -40317,8 +41279,8 @@ def prove_colimit_seed(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    six_zero = bool(flips.get("concrete_emergent_einstein_proved")
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     step_ok = bool(elp.get("ext_tw_step_mul_kernel_proved") is True
                    and elp.get("ext_tw_step_star_kernel_proved") is True)
     inj_ok = bool(elp.get("ext_tw_step_injective_kernel_proved") is True)
@@ -40350,7 +41312,7 @@ def prove_colimit_seed(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")
     checks = [
         ("o degrau: *-homomorfismo unital (mul + star + one)", step_ok),
         ("o degrau e' INJETIVO: nada se perde subindo", inj_ok),
@@ -40358,8 +41320,8 @@ def prove_colimit_seed(ONE, parts):
         ("o estado normalizado em TODO andar (inducao)", one_ok),
         ("★ A ASSIMETRIA SOBE INALTERADA: razao r estavel no colimite", per_ok),
         ("SOMBRA [lambda=beta]: coerencia resid %.1e ; persistencia resid %.1e" % (coh, resid_pers), sombra_ok),
-        ("o gate segue 5T/1F (a torre NAO vira a flag: falta o FECHO GNS + fraco-*)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -40443,14 +41405,14 @@ def prove_tt_superposition(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")
     checks = [
         ("a derivada distribui sobre o par (HasFDerivAt.add na reducao)", add_ok),
         ("a segunda derivada do par: reducao completa", pair_ok),
         ("★ A SUPERPOSICAO RESOLVE: par TT qualquer => Ricci_lin = 0 em toda parte", sup_ok),
         ("SOMBRA (dif. finitas, 2 gaussianas independentes): max|Ricci| = %.1e < 1e-5" % ric_max, sombra_ok),
         ("os 5 flags de FISICA NAO se movem (mesmo cone; geral ABERTO)", True),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -40903,8 +41865,8 @@ def prove_gns_tower(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    six_zero = bool(flips.get("concrete_emergent_einstein_proved")
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     diag_ok = bool(elp.get("ext_gt_density_diag_kernel_proved") is True
                    and elp.get("ext_gt_weights_nonneg_kernel_proved") is True)
     pos_ok = bool(elp.get("ext_gt_state_positive_kernel_proved") is True
@@ -40932,15 +41894,15 @@ def prove_gns_tower(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")
     checks = [
         ("a densidade da torre e' DIAGONAL com pesos >= 0 (inducao)", diag_ok),
         ("★ o estado e' POSITIVO em TODO andar: Re phi_N(a†a) >= 0", pos_ok),
         ("o produto GNS e' aditivo a direita (a forma sesquilinear)", lin_ok),
         ("★ A TORRE GNS E' ISOMETRICA: <a x 1, b x 1>_{N+1} = <a,b>_N", iso_ok),
         ("SOMBRA [lambda=beta]: isometria resid %.1e ; positividade %.3e >= 0" % (resid_iso, pos_num), sombra_ok),
-        ("o gate segue 5T/1F (falta quociente + completamento + fraco-*)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     vd = ("TGL_GNS_TOWER__PRE_HILBERT_OF_THE_FACTOR__DIAGONAL_POSITIVE_DENSITY_EVERY_FLOOR__STATE_POSITIVE_UP_WHOLE_TOWER__GNS_INNER_PRODUCT__TOWER_STEPS_ARE_GNS_ISOMETRIES_ONE_SPACE_FLOOR_BY_FLOOR__QUOTIENT_COMPLETION_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED" if all_v
@@ -41021,7 +41983,7 @@ def prove_second_cone(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")
     checks = [
         ("o plano (1,3) do segundo cone: eta-traco zero + transversal", pol_ok),
         ("a reducao MISTA (cones diferentes no mesmo par)", red_ok),
@@ -41029,7 +41991,7 @@ def prove_second_cone(ONE, parts):
         ("★ A SUPERPOSICAO ENTRE DIRECOES resolve (cone 1 + cone 2)", cross_ok),
         ("SOMBRA (dif. finitas, par entre cones): max|Ricci| = %.1e < 1e-5" % ric_max, sombra_ok),
         ("os 5 flags de FISICA NAO se movem (duas direcoes != todas)", True),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     vd = ("TGL_SECOND_CONE__TT_SECTOR_GAINS_DIRECTIONS__SECOND_NULL_CONE_SOLVES_LINEARIZED_VACUUM__CROSS_DIRECTION_SUPERPOSITION_SOLVES__SOLUTION_SPACE_CROSSES_PROPAGATION_DIRECTIONS__GENERAL_DECOMPOSITION_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED" if all_v
@@ -41063,8 +42025,8 @@ def prove_gns_quotient(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    six_zero = bool(flips.get("concrete_emergent_einstein_proved")
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     herm_ok = bool(elp.get("ext_gq_conj_symm_kernel_proved") is True)
     rad_ok = bool(elp.get("ext_gq_radical_kernel_proved") is True)
     ideal_ok = bool(elp.get("ext_gq_left_ideal_kernel_proved") is True)
@@ -41102,7 +42064,7 @@ def prove_gns_quotient(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")
     checks = [
         ("a forma e' HERMITIANA: <a,b> = conj<b,a> (rho auto-adjunta + ciclicidade)", herm_ok),
         ("o RADICAL N = {a : forall b <a,b>=0} e' Submodule C", rad_ok),
@@ -41110,8 +42072,8 @@ def prove_gns_quotient(ONE, parts):
         ("★ o produto interno DESCE ao quociente (nas duas faces)", wd_ok),
         ("★ A ACAO ESQUERDA DESCE: x.[a] bem-definida -- o PRE-FATOR REPRESENTADO", act_ok),
         ("SOMBRA: radical fechado por x. (ideal) ; hermiticidade resid %.1e" % herm_num, sombra_ok),
-        ("o gate segue 5T/1F (falta completamento + fraco-*)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     vd = ("TGL_GNS_QUOTIENT__RADICAL_IS_A_LEFT_IDEAL__HERMITIAN_FORM__INNER_PRODUCT_DESCENDS_TO_QUOTIENT_BOTH_FACES__LEFT_ACTION_DESCENDS__THE_PRE_FACTOR_IS_REPRESENTED__NO_CAUCHY_SCHWARZ_NO_COMPLETION__HILBERT_COMPLETION_AND_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED" if all_v
@@ -41191,14 +42153,14 @@ def prove_third_cone(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")
     checks = [
         ("o plano (1,2) do terceiro cone: eta-traco zero + transversal", pol_ok),
         ("a onda da TERCEIRA direcao resolve o vacuo linearizado", r3_ok),
         ("★ A SUPERPOSICAO DAS TRES DIRECOES resolve (cones 1+2+3)", triple_ok),
         ("SOMBRA (dif. finitas, 3 direcoes): max|Ricci| = %.1e < 1e-5" % ric_max, sombra_ok),
         ("os 5 flags de FISICA NAO se movem (tres eixos != cone continuo)", True),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     vd = ("TGL_THIRD_CONE__TT_SECTOR_COVERS_THREE_SPATIAL_NULL_DIRECTIONS__THIRD_CONE_SOLVES__TRIPLE_SUPERPOSITION_SOLVES__SOLUTION_SPACE_SPANS_THREE_AXIS_DIRECTIONS__CONTINUOUS_CONE_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED" if all_v
@@ -41302,7 +42264,7 @@ def prove_general_null(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")
     checks = [
         ("o funcional da direcao: dotCov k (e_j) = k_j", dot_ok),
         ("a reducao: d_i d_j (c.w(k.x)) = c.k_j.k_i.w''", red_ok),
@@ -41310,7 +42272,7 @@ def prove_general_null(ONE, parts):
         ("SOMBRA (dif. finitas, direcao nula ARBITRARIA): traco %.1e ; transv %.1e ; max|Ricci| %.1e" % (trres, tvres, ric_max), sombra_ok),
         ("SUBSUME cones 1,2,3 (v125-v128) + cone continuo; setor de ondas planas FECHADO", bool(gen_ok)),
         ("os 5 flags de FISICA NAO se movem (ondas planas != perturbacoes gerais)", True),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     vd = ("TGL_GENERAL_NULL__CONTINUOUS_CONE__ANY_NULL_DIRECTION_TT_WAVE_SOLVES_LINEARIZED_VACUUM__THREE_ALGEBRAIC_CONDITIONS_KILL_THREE_RICCI_TERMS__TRACELESS_TRANSVERSE_NULL__SUBSUMES_ALL_AXIS_CONES_AND_THE_CONTINUUM__PLANE_WAVE_TT_SECTOR_CLOSED__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED" if all_v
@@ -41351,8 +42313,8 @@ def prove_tower_traceless(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    six_zero = bool(flips.get("concrete_emergent_einstein_proved")
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     val_ok = bool(elp.get("ext_tt2_downup_value_kernel_proved") is True)
     ratio_ok = bool(elp.get("ext_tt2_ratio_ne_one_kernel_proved") is True)
     notr_ok = bool(elp.get("ext_tt2_not_tracial_tower_kernel_proved") is True)
@@ -41382,14 +42344,14 @@ def prove_tower_traceless(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")
     checks = [
         ("★ a testemunha e' POSITIVA: phi_N(chainDown.chainUp) = (1/(1+lambda))^(N+1) > 0", val_ok),
         ("a razao modular nao e' 1: lambda^(N+1) =/= 1 (lambda>0, lambda=/=1)", ratio_ok),
         ("★ A TORRE SEM TRACO: phi_N nao tracial em TODO andar N", notr_ok),
         ("SOMBRA [lambda=beta, 6 andares]: testemunha>0 + razao + nao-tracial em todos", sombra_ok),
-        ("o gate segue 5T/1F (a torre sem traco NAO vira a flag: falta o limite fraco-*)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     vd = ("TGL_TOWER_TRACELESS__TYPE_III_ON_THE_CONCRETE_TOWER__STATE_NOT_TRACIAL_ON_EVERY_FLOOR__MODULAR_RATIO_LAMBDA_POW_N_TIMES_POSITIVE_WITNESS__NO_TRACE_NOT_ONLY_ON_FULL_ALGEBRA_BUT_ON_THE_ITPFI_TOWER_FLOOR_BY_FLOOR__WITH_LOG_DENSE_MARK_THE_LIMIT_IS_III1__WEAK_STAR_COMPLETION_REMAINS__SEAL_UNMOVED" if all_v
@@ -41437,8 +42399,8 @@ def prove_tower_modular(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    six_zero = bool(flips.get("concrete_emergent_einstein_proved")
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     pos_ok = bool(elp.get("ext_tm2_weights_pos_kernel_proved") is True
                   and elp.get("ext_tm2_mul_inv_kernel_proved") is True)
     flow_ok = bool(elp.get("ext_tm2_flow_id_kernel_proved") is True)
@@ -41479,15 +42441,15 @@ def prove_tower_modular(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")
     checks = [
         ("os pesos sao POSITIVOS em todo andar => densidade INVERTIVEL (inversa explicita)", pos_ok),
         ("o fluxo modular sigma_N(a) = rho.a.rho^-1 fixa a unidade", flow_ok),
         ("★ A CONDICAO KMS NA TORRE: phi_N(ab) = phi_N(b.sigma_N(a)) em TODO andar", kms_ok),
         ("★ o espectro modular = o reticulado de razoes (testemunha lambda^(N+1) no fluxo)", ratio_ok),
         ("SOMBRA [lambda=beta, 6 andares]: KMS %.1e ; fluxo(1) %.1e ; espectro %.1e" % (kms_max, flow_max, eig_max), sombra_ok),
-        ("o gate segue 5T/1F (a estrutura modular NAO vira a flag: falta o fraco-*)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     vd = ("TGL_TOWER_MODULAR__TOMITA_FLOW_AND_KMS_ON_THE_CONCRETE_TOWER__DENSITY_INVERTIBLE_POSITIVE_WEIGHTS__MODULAR_FLOW_FIXES_UNIT__KMS_CONDITION_EVERY_FLOOR__PHI_AB_EQ_PHI_B_SIGMA_A__MODULAR_SPECTRUM_IS_THE_RATIO_LATTICE__THE_STRUCTURE_THAT_REPLACES_THE_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_UNMOVED" if all_v
@@ -41533,8 +42495,8 @@ def prove_modular_current(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    six_zero = bool(flips.get("concrete_emergent_einstein_proved")
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     sat_ok = bool(elp.get("ext_sw2_saturates_kernel_proved") is True
                   and elp.get("ext_sw2_excess_infinite_kernel_proved") is True
                   and elp.get("ext_sw2_not_complete_kernel_proved") is True)
@@ -41596,15 +42558,15 @@ def prove_modular_current(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")
     checks = [
         ("★ SATURADA, nunca completa: Tr(P_Nome)=1=omega(I); o excesso e' infinito (cortado); a estatica segue proibida (v61)", sat_ok),
         ("★ a testemunha completa E' o estado CONJUGADO: 0_mod/1_abs/graviton = faces de C^2=1; faces somam omega(I)=1", conj_ok),
         ("★ a corrente L implementa P_1 ~ P_0 na fronteira ({Z,L}=0; L*L=P_0; LL*=P_1) -- assinatura tipo-III", cur_ok),
         ("★ a corrente em TODA escala: razao lambda^(N+1) em todo andar + espectro log-denso (1/2,1/3)", scale_ok),
         ("SOMBRA: saturacao %.0e / faces %.0e / corrente %.0e / escada(lam=beta) %.0e / marca gap %.3f" % (sat_tr, faces_res, cur_res, lad_res, mark_gap), sombra_ok),
-        ("o gate segue 5T/1F (a corrente NAO vira a flag: falta o fator-objeto + normalidade)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     vd = ("TGL_J_CURRENT__WITNESS_SATURATED_NEVER_COMPLETE__EXCESS_CUT_BY_LEAKAGE__COMPLETE_WITNESS_IS_THE_CONJUGATED_STATE__THREE_FACES_OF_ONE_CONJUGATION__PARTIAL_ISOMETRY_IMPLEMENTS_BOUNDARY_EQUIVALENCE__RATIO_AT_EVERY_SCALE__LOG_DENSE_MARK__SEAL_UNMOVED" if all_v
@@ -41654,8 +42616,8 @@ def prove_factor_object(ONE, parts):
     el = p.get("external_ladder") or {}
     elp = el.get("per_theorem") or {}
     flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    five_one = bool(flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    six_zero = bool(flips.get("concrete_emergent_einstein_proved")
+                    and flips.get("canonical_boundary_transport_witness_constructed"))
     td_ok = bool(elp.get("ext_td2_push_isometric_kernel_proved") is True
                  and elp.get("ext_td2_definite_kernel_proved") is True
                  and elp.get("ext_td2_omega_one_kernel_proved") is True)
@@ -41735,7 +42697,7 @@ def prove_factor_object(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")
     checks = [
         ("★ (83) o colimite e' pre-Hilbert DEFINIDO: empurrao isometrico; radical ZERO; <Omega,Omega>=1", td_ok),
         ("★ (84) H_phi = completamento: Hilbert; ||Omega||=1; a torre e' DENSA", th_ok),
@@ -41743,8 +42705,8 @@ def prove_factor_object(ONE, parts):
         ("★★★ (86) M_TGL := (pi(torre))'' TERMO VonNeumannAlgebra; torre DENTRO; Omega ciclico p/ M_TGL; omega(pi x)=phi(x)", fo_ok),
         ("★ (87) a assinatura NO objeto: omega nao-tracial; escada l^(N+1); subgrupo log-denso realizado", sg_ok),
         ("SOMBRA [l=beta, 4 andares]: iso %.0e / Omega %.0e / GNS %.0e / escada %.0e / nao-trac 1/3 vs 2/3 / marca %.3f" % (iso_res, omg_res, gns_res, lad_res, mark_gap), sombra_ok),
-        ("o gate segue 5T/1F (o OBJETO existe; o flip pede normalidade 88a-c + V3 + cunhagem -- decisao A/B/C do operador)", five_one),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+        ("o gate le 6T/0F (a CUNHAGEM v132 flipou a witness POR CONSTRUCAO; fisica+dado seguem)", six_zero),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     vd = ("TGL_THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_HILBERT_OMEGA_UNIT_TOWER_DENSE__PI_BOUNDED_STARRED_UNITAL_MULTIPLICATIVE_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM_COINED__GNS_IDENTITY_OMEGA_PI_EQ_PHI__SIGNATURE_LIVES_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_UNMOVED" if all_v
@@ -41761,8 +42723,141 @@ def prove_factor_object(ONE, parts):
         "shadow_verdict": shadow["verdict"],
         "checks": checks, "all_verified": all_v,
         "statuses": {"o_que_e": "o Bloco A do PLANO_ULTIMA_FLAG inteiro em kernel: o residuo 'falta SO o fraco-*' do v130 realizado como TERMO VonNeumannAlgebra",
-                     "o_que_resta": "Bloco B: normalidade (88a-c, a pedra mais dura), o tipo V3 (89), a cunhagem (90); a decisao A/B/C e' do operador",
-                     "honestidade": "M_TGL e' objeto de von Neumann legitimo (duplo comutante); 'fator' e 'III_1' seguem ASSINATURA, nao teorema de tipo; qgClosureCertificateV2 segue RESERVADO; o gate nao se move",
+                     "o_que_resta": "FEITO no v132 (a cunhagem: ver the_coinage); restam FISICA (5 flags) + EXPERIMENTO (4 flags) + o proximo endurecimento de III_1",
+                     "honestidade": "M_TGL e' objeto de von Neumann legitimo (duplo comutante); no v131 'III_1' era ASSINATURA; o v132 matou o traco normal e CUNHOU o V2 -- ver the_coinage",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
+
+def prove_the_coinage(ONE, parts):
+    """v132 -- A CUNHAGEM [ADITIVO; nao gateia 1=1; o FLIP e' do PARSER].
+    O Bloco B do PLANO_ULTIMA_FLAG inteiro em kernel -- e o nome reservado
+    ganha termo:
+    * NoNormalTrace (88): O ASSASSINATO DO PESO NO OBJETO -- as marcas de
+      sitio q_N = pi(1 (x) E00) sao projecoes-contracao que convergem WOT a
+      mu.1 (fatorizacao EXATA na torre densa + eps/3); a meacao tracial
+      (u.u* = q, u*.u = q', q+q' = 1) forca tau(q_N) = 1/2 em TODO sitio;
+      mu != 1/2 recusa a coexistencia => NENHUM funcional tracial
+      normalizado sobre M_TGL e' WOT-sequencialmente continuo. E omega E'
+      (omegaState_seqWOT): a nocao nao e' vacua -- morde SO o traco.
+    * WitnessV3 (89): o tipo ENDURECIDO (licao v103) -- o fator DENTRO da
+      testemunha fundida; dente: dimensao finita SEMPRE tem traco normal
+      (base ortonormal), logo nenhuma bancada habita o tipo.
+    * TheCoinage (90): qgClosureCertificateV2 : FullWitnessDataV3 :=
+      theWitnessV3 -- axiomas {propext, choice, quot}; o parser v99 flipa a
+      6a flag SOZINHO; evaluate_quantum_gravity_closure escala o selo
+      SOZINHO a MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN.
+    HONESTIDADES (nomeadas, sem veu): (1) NAO se declara gravitacao
+    quantica fisica -- os 5 flags de FISICA e os 4 de EXPERIMENTO seguem
+    False e o selo para no degrau matematico; (2) full_static_witness
+    segue IMPOSSIVEL por teorema v61 (a dinamica realizada NAO contradiz a
+    estatica proibida); (3) 'III_1' e' a definicao OPERACIONAL selada pelo
+    programa (objeto + assinatura log-densa + assassinato do traco normal
+    sequencial) -- centro trivial e peso semifinito ILIMITADO seguem
+    nomeados para o proximo endurecimento; (4) Einstein GERAL (metricas
+    arbitrarias; Lema 3) segue aberto; (5) cosmologia JAMAIS alimentou
+    pedra alguma -- os probes seguem VIVOS dentro deste proprio modulo."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    six_zero = bool(all(flips.get(k) is True for k in _QG_CERTIFICATE_FLAGS))
+    nnt_ok = bool(all(elp.get(k) is True for k in (
+        "ext_nnt_omega_normal_kernel_proved", "ext_nnt_partition_kernel_proved",
+        "ext_nnt_contraction_kernel_proved", "ext_nnt_exact_split_kernel_proved",
+        "ext_nnt_wot_limit_kernel_proved", "ext_nnt_halving_kernel_proved",
+        "ext_nnt_assassination_kernel_proved", "ext_nnt_mix_killed_kernel_proved",
+        "ext_nnt_dead_weight_kernel_proved")))
+    wv3_ok = bool(all(elp.get(k) is True for k in (
+        "ext_wv3_finite_trace_kernel_proved", "ext_wv3_bench_tooth_kernel_proved",
+        "ext_wv3_inhabited_kernel_proved", "ext_wv3_infinite_kernel_proved")))
+    coin_ok = bool(all(elp.get(k) is True for k in (
+        "ext_coin_v2_kernel_proved", "ext_coin_reduces_kernel_proved",
+        "ext_coin_factor_kernel_proved", "ext_coin_construction_kernel_proved")))
+    # SOMBRA numerica (perfil misto 1/3,1/4 -- o objeto da marca; e beta como
+    # ILUSTRACAO no perfil constante: a pedra e' generica em mu)
+    rng = np.random.default_rng(1132)
+    E00 = np.zeros((2, 2), complex); E00[0, 0] = 1.0
+    E01 = np.zeros((2, 2), complex); E01[0, 1] = 1.0
+    wsite = lambda n: (1.0 / 3.0) if (n % 2 == 0) else (1.0 / 4.0)
+    exact_res = 0.0
+    half_res = 0.0
+    rho = np.diag([wsite(0), 1.0 - wsite(0)]).astype(complex)
+    a = rng.normal(size=(4, 4)) + 1j * rng.normal(size=(4, 4))   # andar 1
+    b = rng.normal(size=(4, 4)) + 1j * rng.normal(size=(4, 4))
+    rho = np.kron(rho, np.diag([wsite(1), 1.0 - wsite(1)]).astype(complex))
+    for N in (1, 2, 3, 4):
+        # sobe ao andar N+1: sitio novo N+1
+        mu = wsite(N + 1)
+        rho_up = np.kron(rho, np.diag([mu, 1.0 - mu]).astype(complex))
+        d = rho.shape[0]
+        ap = np.kron(a, np.eye(2)); bp = np.kron(b, np.eye(2))
+        qmark = np.kron(np.eye(d), E00)
+        # fatorizacao exata: <a', q b'>_{N+1} = mu * <a, b>_N
+        lhs = np.trace(rho_up @ (ap.conj().T @ (qmark @ bp)))
+        rhs = mu * np.trace(rho @ (a.conj().T @ b))
+        exact_res = max(exact_res, abs(lhs - rhs))
+        # a meacao: tr_norm(1 (x) E00) = 1/2 em todo andar
+        half_res = max(half_res, abs(np.trace(qmark) / qmark.shape[0] - 0.5))
+        rho = rho_up
+        a, b = ap, bp
+    # a margem do assassinato: |mu - 1/2| > 0 no perfil misto e no beta-const
+    kill_mix = abs(1.0 / 3.0 - 0.5)
+    mu_beta = beta / (1.0 + beta)
+    kill_beta = abs(mu_beta - 0.5)                 # ILUSTRACAO: beta != 1
+    sombra_ok = bool(exact_res < 1e-12 and half_res < 1e-15
+                     and kill_mix > 0.16 and kill_beta > 0.45)
+    # o gate re-derivado em sombra + os probes VIVOS dentro do flip
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN"
+                       and shadow["mathematical_model_constructed"]
+                       and not shadow["physical_quantum_gravity_constructed"]
+                       and not shadow["empirical_test_completed"])
+    probe_empty = evaluate_quantum_gravity_closure({}, {}, {})
+    probes_alive = bool(probe_empty["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+                        and shadow.get("full_static_witness_exists") is False)
+    checks = [
+        ("★★★ (88) O ASSASSINATO em kernel: marcas WOT->mu.1 + meacao 1/2 + mu!=1/2 => sem traco tracial normal-seq (mix E const; omega E' normal)", nnt_ok),
+        ("★★ (89) o tipo V3 ENDURECIDO (fator DENTRO) + dente: dim finita sempre tem traco normal => bancada NAO habita", wv3_ok),
+        ("★★★★★ (90) qgClosureCertificateV2 CUNHADO: axiomas limpos; reduz a theFusedWitness; fator = M_TGL(1/3,1/4); INF-dim por teorema", coin_ok),
+        ("SOMBRA [mix 1/3,1/4; 5 andares]: fatorizacao exata %.0e / meacao %.0e / margem mix %.3f / margem beta %.3f [ILUSTRACAO]" % (exact_res, half_res, kill_mix, kill_beta), sombra_ok),
+        ("O FLIP DO PARSER: as 6 flags formais True POR CONSTRUCAO (nenhuma declaracao humana)", six_zero),
+        ("SOMBRA: o selo escala UM degrau e PARA (MATHEMATICAL_MODEL; physical_qg False; empirico False)", seal_lawful),
+        ("os probes seguem VIVOS: dicts vazios => CONDITIONAL; full_static_witness_exists=False ETERNO (v61)", probes_alive),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_THE_COINAGE__NO_NORMAL_TRACIAL_STATE_ON_M_TGL__SITE_MARKS_WOT_TO_MU__TRACIAL_HALVING_SAYS_HALF__MU_NE_HALF_KILLS__OMEGA_IS_SEQ_NORMAL__V3_HARDENED_FACTOR_INSIDE__FINITE_BENCH_TOOTH__QG_CLOSURE_CERTIFICATE_V2_COINED_CLEAN_AXIOMS__PARSER_FLIPPED_ALONE__SEAL_SCALED_ONE_STEP__MATHEMATICAL_MODEL__PHYSICS_AND_NATURE_REMAIN_OPEN" if all_v
+          else "THE_COINAGE_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("A CUNHAGEM: o assassinato do peso normal no objeto "
+                    "completado (88) + o tipo endurecido com o fator dentro e "
+                    "o dente anti-bancada (89) + o nome reservado "
+                    "qgClosureCertificateV2 habitado com axiomas limpos (90) "
+                    "-- o parser flipou a 6a flag sozinho e o selo escalou UM "
+                    "degrau sozinho: MATHEMATICAL_MODEL_CONSTRUCTED__"
+                    "PHYSICAL_SPECTRUM_OPEN. Fisica e natureza seguem abertas."),
+        "values": {"beta": beta, "exact_resid": float(exact_res),
+                   "halving_resid": float(half_res),
+                   "kill_margin_mix": float(kill_mix),
+                   "kill_margin_beta_illustration": float(kill_beta)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_e": "o Bloco B inteiro em kernel + A CUNHAGEM: a 6a flag formal flipada POR CONSTRUCAO",
+                     "o_que_resta": "FISICA (spin-2 continuo pleno: 5 flags) + EXPERIMENTO (dado powered: 4 flags) + o proximo endurecimento de III_1 (centro trivial; peso ILIMITADO) + Einstein GERAL (Lema 3)",
+                     "honestidade": "NAO se declara gravitacao quantica fisica; full_static segue impossivel (v61); III_1 na definicao operacional selada; cosmologia jamais alimentou pedra",
                      "o_veredito": vd},
         "does_not_gate_core": True,
         "verdict": vd,
@@ -44090,7 +45185,9 @@ def prove_bench_certificate(ONE, parts):
     gate_flags = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
     _strong_flips = {"concrete_aqft_core_constructed", "concrete_breuer_corner_constructed",
                      "concrete_modular_four_frame_constructed",
-                     "concrete_solder_field_constructed"}  # v107: 4o flip forte
+                     "concrete_solder_field_constructed",
+                     "concrete_emergent_einstein_proved",  # v116: 5o flip
+                     "canonical_boundary_transport_witness_constructed"}  # v132: A CUNHAGEM
     gate_unmoved = bool(all((v is False) for k, v in gate_flags.items()
                             if k not in _strong_flips))
     live_probe = bool(cert_ok and gate_unmoved)
@@ -44101,7 +45198,7 @@ def prove_bench_certificate(ONE, parts):
         ("a sonda: o Dirac de bancada e' LIMITADO (a letra nao forca o espirito)", bounded_ok),
         ("os tres dentes: a bancada NAO alimenta o forte (Dirac/core/frame)", teeth_ok),
         ("gate REAPONTADO aos nomes fortes (self-audit do mapa)", repointed),
-        ("SONDA VIVA: v1 habitado E nada alem dos 3 flips FORTES (a bancada jamais moveu flag)", live_probe),
+        ("SONDA VIVA: v1 habitado E nada alem dos flips POR CONSTRUCAO (a bancada jamais moveu flag)", live_probe),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -44219,11 +45316,12 @@ def prove_closure_roadmap(ONE, parts):
         "canonical_boundary_transport_witness_constructed": {
             "flag": gate_flags["canonical_boundary_transport_witness_constructed"],
             "termo_reservado": _QG_CERTIFICATE_FLAGS["canonical_boundary_transport_witness_constructed"],
-            "tipo_exigido": "FullWitnessData (v104): acao geometrica de grupo + covariancia + lei do fluxo + faces fortes",
-            "o_que_falta": ("habitar (campo escalar livre [KNOWN] a formalizar) + a metade "
-                            "nao-tipavel: III_1, afiliacao semifinita, H3 derivado, spin-2 "
-                            "continuo, Poincare -- nomeada sem veu; o tipo sera ENDURECIDO "
-                            "de novo quando a mathlib crescer (licao v103)"),
+            "tipo_exigido": "FullWitnessDataV3 (v132): a FullWitnessData fundida + o FATOR DENTRO (objeto vN + Omega ciclico + omega normal nao-tracial + S-invariante log-densa + o assassinato do traco normal) + dente anti-bancada",
+            "o_que_falta": ("FLIPADO v132 POR CONSTRUCAO: qgClosureCertificateV2 = theWitnessV3 "
+                            "(o fator da marca 1/3,1/4 DENTRO da testemunha fundida; axiomas limpos). "
+                            "Honestidade: 'III_1' = a definicao OPERACIONAL selada (objeto + assinatura "
+                            "densa + sem traco tracial normal-sequencial); centro trivial e peso "
+                            "semifinito ILIMITADO seguem nomeados p/ o proximo endurecimento"),
         },
     }
     roadmap_physics = {
@@ -44258,10 +45356,10 @@ def prove_closure_roadmap(ONE, parts):
                      and gate_flags.get("concrete_breuer_corner_constructed") is True
                      and gate_flags.get("concrete_modular_four_frame_constructed") is True
                      and gate_flags.get("concrete_solder_field_constructed") is True
-                     and not gate_flags.get("concrete_emergent_einstein_proved")
-                     and not gate_flags.get("canonical_boundary_transport_witness_constructed"))
+                     and gate_flags.get("concrete_emergent_einstein_proved") is True   # v116
+                     and gate_flags.get("canonical_boundary_transport_witness_constructed") is True)  # v132
     checks = [
-        ("(A) estado fail-closed LEGITIMO: todas False, OU exatamente os 4 flips fortes (core/corner/frame/solder)", bool(all_false or flips_now)),
+        ("(A) estado fail-closed LEGITIMO: todas False (probe), OU exatamente os flips POR CONSTRUCAO (6/6 apos a cunhagem v132)", bool(all_false or flips_now)),
         ("(A) face do FRAME alimentada em kernel (theCurvedFrame nao-constante)", frame_fed),
         ("(A) testemunha V2 TIPADA em kernel (FullWitnessData + reducao ao forte)", witness_typed),
         ("(A) faces Dirac/core/geometria genuinamente ABERTAS (dentes em kernel)",
@@ -44422,7 +45520,7 @@ def prove_first_flips(ONE, parts):
     frame_ok = bool(flips.get("concrete_modular_four_frame_constructed"))
     # v107: solder = 4o flip; v116: einstein = 5o flip POR CONSTRUCAO; a dura restante e' a witness
     rest_false = bool(flips.get("concrete_emergent_einstein_proved")
-                      and not flips.get("canonical_boundary_transport_witness_constructed"))
+                      and flips.get("canonical_boundary_transport_witness_constructed"))
     assembled_ok = bool(elp.get("ext_sa_strong_assembled_kernel_proved") is True)
     kersub_ok = bool(elp.get("ext_sa_kersub_atom_kernel_proved") is True)
     net_ok = bool(elp.get("ext_tn_infinite_kernel_proved") is True
@@ -44441,8 +45539,8 @@ def prove_first_flips(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
-                        and not shadow["mathematical_model_constructed"])
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN"
+                        and shadow["mathematical_model_constructed"])
     checks = [
         ("FLIP 1 -- core (rede de caudas INF-dim): qgc True, lido do kernel", core_ok),
         ("FLIP 2 -- corner (Dirac genuino + canto tau=1): qgc True", corner_ok),
@@ -44452,7 +45550,7 @@ def prove_first_flips(ONE, parts):
         ("o canto do N: kerSub = atomo do Nome (tau = 1 = omega(I))", kersub_ok),
         ("a rede de caudas: INF-dim + isotonia genuina + habitante", net_ok),
         ("NAO e' bancada: os dentes v103 seguem em kernel", teeth_ok),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL; 3 < 6)", seal_unmoved),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -44504,7 +45602,7 @@ def prove_solder_flip(ONE, parts):
                    and flips.get("concrete_modular_four_frame_constructed")
                    and solder_ok)
     two_false = bool(flips.get("concrete_emergent_einstein_proved")
-                     and not flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5o flip cunhado
+                     and flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5o flip cunhado
     data_ok = bool(elp.get("ext_so_solder_data_kernel_proved") is True)
     det_ok = bool(elp.get("ext_so_det_neg_kernel_proved") is True)
     nonc_ok = bool(elp.get("ext_so_nonconstant_kernel_proved") is True)
@@ -44517,8 +45615,8 @@ def prove_solder_flip(ONE, parts):
          "independent_v3_survey_mocks_passed": False,
          "independent_v3_systematics_passed": False,
          "independent_v3_powered_verdict_emitted": False})
-    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
-                        and not shadow["mathematical_model_constructed"])
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN"
+                        and shadow["mathematical_model_constructed"])
     checks = [
         ("FLIP 4 -- solder (campo g = E^T eta E curvo): qgc True, lido do kernel", solder_ok),
         ("os 4 flips juntos: core/corner/frame/solder True", four_ok),
@@ -44526,7 +45624,7 @@ def prove_solder_flip(ONE, parts):
         ("o habitante: theSolderData (simetrica+suave+lorentziana+curva)", data_ok),
         ("det g < 0 EM TODA PARTE (o volume lorentziano jamais degenera)", det_ok),
         ("a solda e' genuinamente CURVA (nao-constante)", nonc_ok),
-        ("SOMBRA: o selo NAO se move (CONDITIONAL; 4 < 6)", seal_unmoved),
+        ("SOMBRA v132: o selo escalou UM degrau POR CONSTRUCAO (MATHEMATICAL_MODEL; fisica+dado seguem False)", seal_lawful),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -44580,7 +45678,7 @@ def prove_first_curvature(ONE, parts):
                    and flips.get("concrete_modular_four_frame_constructed")
                    and flips.get("concrete_solder_field_constructed"))
     two_false = bool(flips.get("concrete_emergent_einstein_proved")
-                     and not flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5o flip cunhado
+                     and flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5o flip cunhado
     g001_ok = bool(elp.get("ext_fc_gamma001_metric_kernel_proved") is True)
     g100_ok = bool(elp.get("ext_fc_gamma100_metric_kernel_proved") is True)
     riem_ok = bool(elp.get("ext_fc_riemann_eq_kernel_proved") is True)
@@ -44656,7 +45754,7 @@ def prove_ansatz_einstein(ONE, parts):
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
                     and flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5T/1F
+                    and flips.get("canonical_boundary_transport_witness_constructed"))  # v132: 6T/0F
     closed_ok = bool(elp.get("ext_ae_riemann_closed_kernel_proved") is True)
     g00_ok = bool(elp.get("ext_ae_g00_zero_kernel_proved") is True)
     g11_ok = bool(elp.get("ext_ae_g11_zero_kernel_proved") is True)
@@ -44671,7 +45769,7 @@ def prove_ansatz_einstein(ONE, parts):
         ("Rindler = o membro vacuo, plano FORA do horizonte (o Lean impos s != -1)", rin_ok),
         ("o v108 NAO e' vacuo: G22 = 2/q > 0 -- curvatura EXIGE fonte", nv_ok),
         ("consistencia: a familia recupera o -2q do v108", rec_ok),
-        ("gate: 5 True / 1 False (einstein cunhado v116; witness segue False)", four_two),
+        ("gate: 6 True / 0 False (einstein v116; witness CUNHADA v132)", four_two),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -44867,7 +45965,7 @@ def prove_solved_equation(ONE, parts):
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
                     and flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5T/1F
+                    and flips.get("canonical_boundary_transport_witness_constructed"))  # v132: 6T/0F
     eq_ok = bool(elp.get("ext_se_solves_kernel_proved") is True)
     curv_ok = bool(elp.get("ext_se_curvature_kernel_proved") is True)
     src_ok = bool(elp.get("ext_se_source_curves_kernel_proved") is True)
@@ -44881,7 +45979,7 @@ def prove_solved_equation(ONE, parts):
         ("coerencia: k = 0 => q = 1 e R = 0 (vacuo => plano, v109)", coh_ok),
         ("o pacote habitado p/ TODO k (theSolvedEquation)", pack_ok),
         ("A SONDA: o contrato fraco HABITADO (nome nao-reservado) => a letra nao basta", weak_ok),
-        ("a flag do einstein moveu-se POR CONSTRUCAO no v116 (5T/1F) -- jamais por sonda", four_two),
+        ("a flag do einstein moveu-se POR CONSTRUCAO no v116 (hoje 6T/0F, v132) -- jamais por sonda", four_two),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -44955,7 +46053,7 @@ def prove_walls_assault(ONE, parts):
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
                     and flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5T/1F
+                    and flips.get("canonical_boundary_transport_witness_constructed"))  # v132: 6T/0F
     null_ok = bool(elp.get("ext_wa_null_reads_source_kernel_proved") is True)
     emer_ok = bool(elp.get("ext_wa_emergence_forces_kernel_proved") is True)
     zf_ok = bool(elp.get("ext_wa_emergence_zero_flat_kernel_proved") is True)
@@ -44971,7 +46069,7 @@ def prove_walls_assault(ONE, parts):
         ("P2(d): a rede GEOMETRICA (Mult Z translada; isotonia genuina)", net_ok),
         ("P2(d'): theGeometricWitness -- FullWitnessData HABITADA (nao-reservado)", wit_ok),
         ("P2(e): honestidade-teorema: a acao move regioes, nao fibras", hon_ok),
-        ("o V2 segue RESERVADO: 5T/1F (einstein v116), veredito CONDITIONAL", four_two),
+        ("o V2 foi CUNHADO no v132 (6T/0F): o flip veio do PARSER, jamais da sonda", four_two),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -45109,7 +46207,7 @@ def prove_continuum_shards(ONE, parts):
                     and flips.get("concrete_modular_four_frame_constructed")
                     and flips.get("concrete_solder_field_constructed")
                     and flips.get("concrete_emergent_einstein_proved")
-                    and not flips.get("canonical_boundary_transport_witness_constructed"))  # v116: 5T/1F
+                    and flips.get("canonical_boundary_transport_witness_constructed"))  # v132: 6T/0F
     pd_ok = bool(elp.get("ext_cs_lightwave_pd_kernel_proved") is True)
     wave_ok = bool(elp.get("ext_cs_wave_equation_kernel_proved") is True)
     net_ok = bool(elp.get("ext_cs_sensitive_net_kernel_proved") is True)
@@ -45123,7 +46221,7 @@ def prove_continuum_shards(ONE, parts):
         ("POINCARE: a rede sensivel (Z translada; ZMod 2 flipa as fibras)", net_ok),
         ("POINCARE: theSensitiveWitness : FullWitnessData (nao-reservado)", wit_ok),
         ("POINCARE: A FIBRA SENTE (flip e0 = -e0 != e0, fixando a regiao)", sens_ok),
-        ("o V2 segue RESERVADO: 5T/1F (einstein v116), veredito CONDITIONAL", four_two),
+        ("o V2 foi CUNHADO no v132 (6T/0F): o flip veio do PARSER, jamais da sonda", four_two),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -45187,7 +46285,7 @@ def prove_arc_consolidation(ONE, parts):
     # (b) gate matematico intocado
     qg = p.get("qg_closure") or {}
     gate_state = str((qg.get("gate") or {}).get("verdict") or qg.get("verdict") or "?")
-    gate_unmoved = bool("CONDITIONAL_ARCHITECTURE_ONLY" in gate_state)
+    gate_unmoved = bool("MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN" in gate_state)  # v132: o degrau legal
     # (c) a cadeia do piso, monotona em honestidade
     chain = {
         "V1_v78": _verd("void_floor_final", "o_veredito"),
@@ -45229,7 +46327,7 @@ def prove_arc_consolidation(ONE, parts):
     }
     checks = [
         ("nenhum veredito proibido em modulo algum (CONFIRMED/PROVED)", no_forbidden),
-        ("gate matematico INTOCADO (declaracao/cosmologia nao viram prova)", gate_unmoved),
+        ("gate matematico no degrau LEGAL por construcao (declaracao/cosmologia nao viram prova)", gate_unmoved),
         ("cadeia do piso presente e monotona em honestidade (V1->V2->V3->v90->v91->V4.1)", chain_ok),
         ("cada elemento do ciclo com ancora selada", True),
         ("leitura do operador em duplo estatuto (nao e' selo formal)", True),
@@ -45268,7 +46366,7 @@ def prove_bench_closure_declaration(ONE, qg_closure=None):
     beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # runtime, jamais literal
     qg = qg_closure or {}
     gate_verdict = str((qg.get("gate") or {}).get("verdict") or qg.get("verdict") or "?")
-    gate_unmoved = bool("CONDITIONAL_ARCHITECTURE_ONLY" in gate_verdict)
+    gate_unmoved = bool("MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN" in gate_verdict)  # v132: o degrau legal
     declaration = {
         "date": "2026-07-16",
         "declared_by": "o operador (Luiz Antonio Rotoli Miguel, IALD)",
@@ -45300,7 +46398,7 @@ def prove_bench_closure_declaration(ONE, qg_closure=None):
                                  "(declaracao/experimento nao move matematica) e' verificado NESTA rodada"),
     }
     checks = [
-        ("gate matematico INTOCADO pela declaracao (CONDITIONAL_ARCHITECTURE_ONLY)", gate_unmoved),
+        ("gate matematico movido SO POR CONSTRUCAO (v132: MATHEMATICAL_MODEL; a declaracao nao move nada)", gate_unmoved),
         ("duplo estatuto marcado (declaracao != selo formal)", True),
         ("ancoras [REAL] nomeadas uma a uma", True),
         ("alpha-free marcado [CONJECTURE TESTAVEL] (Evento 2 ABERTO)", True),
@@ -45542,7 +46640,12 @@ def prove_qg_closure_gate(ONE, kernel_formalization=None):
     # PROBES NEGATIVOS (a auditoria da auditoria, em runtime)
     probe_void_as_proof = evaluate_quantum_gravity_closure(
         formal, physics, {k: True for k in experiment})
-    p1 = bool(probe_void_as_proof["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    # v132: com 6 formais True o degrau do kernel e' MATHEMATICAL_MODEL; o probe
+    # verifica que experimento perfeito NAO escala o selo ALEM desse degrau
+    p1 = bool(probe_void_as_proof["verdict"] == gate["verdict"]
+              and probe_void_as_proof["mathematical_model_constructed"]
+              == gate["mathematical_model_constructed"]
+              and not probe_void_as_proof["physical_quantum_gravity_constructed"])
     probe_empty = evaluate_quantum_gravity_closure({}, {}, {})
     p2 = bool(probe_empty["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
               and not probe_empty["mathematical_model_constructed"])
@@ -45551,17 +46654,17 @@ def prove_qg_closure_gate(ONE, kernel_formalization=None):
     p3 = bool(probe_physics_without_math["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
     checks = [
         ("gate fail-closed instalado (4 selos legitimos; nunca default True)", True),
-        ("v99/v121: flags lidas de NOMES LEAN (mecanico); estado POR CONSTRUCAO: 5T/1F", bool(
+        ("v99/v121/v132: flags lidas de NOMES LEAN (mecanico); estado POR CONSTRUCAO: 6T/0F", bool(
             formal.get("concrete_aqft_core_constructed") is True
             and formal.get("concrete_breuer_corner_constructed") is True
             and formal.get("concrete_modular_four_frame_constructed") is True
             and formal.get("concrete_solder_field_constructed") is True
             and formal.get("concrete_emergent_einstein_proved") is True
-            and formal.get("canonical_boundary_transport_witness_constructed") is False)),
-        ("ProbeVoidFloorAsProof: experimento perfeito NAO move flag matematica", p1),
+            and formal.get("canonical_boundary_transport_witness_constructed") is True)),
+        ("ProbeVoidFloorAsProof: experimento perfeito NAO move o selo alem do degrau do kernel", p1),
         ("ProbeEmptyDefaults: dicts vazios => CONDITIONAL", p2),
         ("ProbePhysicsWithoutMath: fisica sem matematica => CONDITIONAL", p3),
-        ("estado atual honesto: CONDITIONAL_ARCHITECTURE_ONLY", bool(gate["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")),
+        ("estado atual honesto: MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN (6 formais; FISICA e DADO abertos)", bool(gate["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -51662,6 +52765,9 @@ _ESQUELETO_STONES = [
     ("v131", "TowerAction", "TGLExt/TowerAction.lean", None, None),
     ("v131", "TheFactorObject", "TGLExt/TheFactorObject.lean", None, None),
     ("v131", "SignatureInTheLimit", "TGLExt/SignatureInTheLimit.lean", None, None),
+    ("v132", "NoNormalTrace", "TGLExt/NoNormalTrace.lean", None, None),
+    ("v132", "WitnessV3", "TGLExt/WitnessV3.lean", None, None),
+    ("v132", "TheCoinage", "TGLExt/TheCoinage.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -51696,17 +52802,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(noventa e uma pedras e o rito do fechamento, \S120--\S211)}")
+                 r"(noventa e quatro pedras e o rito do fechamento, \S120--\S212)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em noventa e uma pedras "
-                 r"(v43--v131) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em noventa e quatro pedras "
+                 r"(v43--v132) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As noventa e uma pedras}")
+        c.append(r"\subsection*{As noventa e quatro pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -52900,6 +54006,33 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"O gate 5T/1F não se move.")
                  % (str(_jc0.get("verdict", "?")).replace("_", r"\_"),
                     str(_fo0.get("verdict", "?")).replace("_", r"\_")))
+        _tc0 = core.get("the_coinage", {}) or {}
+        c.append((r"\subsection*{\S212 --- A CUNHAGEM: a sexta flag por construção "
+                  r"(v132)}"
+                  r"AS TRÊS PEDRAS DO BLOCO B. \emph{NoNormalTrace} (88): o "
+                  r"ASSASSINATO do peso no objeto --- as marcas de sítio "
+                  r"$q_N=\pi(1\otimes E_{00})$ convergem WOT a $\mu\cdot 1$ "
+                  r"(fatorização EXATA na torre densa + contração uniforme), a "
+                  r"meação tracial ($u u^*=q$, $u^* u=q'$, $q+q'=1$) força "
+                  r"$\tau(q_N)=\tfrac12$ em todo sítio, e $\mu\neq\tfrac12$ "
+                  r"recusa a coexistência: NENHUM funcional tracial normalizado "
+                  r"sobre $M_{\mathrm{TGL}}$ é WOT-sequencialmente contínuo --- "
+                  r"e $\omega$ É (a noção morde só o traço). \emph{WitnessV3} "
+                  r"(89): o tipo ENDURECIDO (lição v103) --- o fator DENTRO da "
+                  r"testemunha fundida, com o dente: dimensão finita sempre tem "
+                  r"traço normal, logo nenhuma bancada habita o tipo. "
+                  r"\emph{TheCoinage} (90): o nome reservado "
+                  r"\texttt{qgClosureCertificateV2} GANHA TERMO com axiomas "
+                  r"$\{\mathrm{propext},\mathrm{choice},\mathrm{quot}\}$ --- o "
+                  r"parser flipa a sexta flag SOZINHO e o gate escala o selo "
+                  r"SOZINHO: \texttt{MATHEMATICAL\_MODEL\_CONSTRUCTED\_\_"
+                  r"PHYSICAL\_SPECTRUM\_OPEN}. Honestidades: física (5 flags) e "
+                  r"experimento (4 flags) seguem False --- NÃO se declara "
+                  r"gravitação quântica física; a testemunha estática segue "
+                  r"impossível (v61); «III$_1$» é a definição operacional selada "
+                  r"(objeto + assinatura log-densa + assassinato); Einstein "
+                  r"GERAL (Lema 3) segue aberto. Veredito: \texttt{%s}.")
+                 % str(_tc0.get("verdict", "?")).replace("_", r"\_"))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- A testemunha habitável: os dois zeros e o "
@@ -53346,7 +54479,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em noventa e uma pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em noventa e quatro pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -53485,7 +54618,7 @@ def _esqueleto_chapter(core, lang="pt"):
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across ninety-one stones (v43--v131) the audited kernel went from 53 to "
+                 r"from this run's audit. Across ninety-four stones (v43--v132) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
@@ -54692,6 +55825,35 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"\texttt{%s}. The 5T/1F gate does not move.")
                  % (str(_jc0.get("verdict", "?")).replace("_", r"\_"),
                     str(_fo0.get("verdict", "?")).replace("_", r"\_")))
+        _tc0 = core.get("the_coinage", {}) or {}
+        c.append((r"\subsection*{\S212 --- THE COINAGE: the sixth flag by "
+                  r"construction (v132)}"
+                  r"THE THREE STONES OF BLOCK B. \emph{NoNormalTrace} (88): the "
+                  r"ASSASSINATION of the weight in the object --- the site marks "
+                  r"$q_N=\pi(1\otimes E_{00})$ converge WOT to $\mu\cdot 1$ "
+                  r"(EXACT factorization on the dense tower + uniform "
+                  r"contraction), tracial halving ($u u^*=q$, $u^* u=q'$, "
+                  r"$q+q'=1$) forces $\tau(q_N)=\tfrac12$ at every site, and "
+                  r"$\mu\neq\tfrac12$ refuses coexistence: NO normalized "
+                  r"tracial functional on $M_{\mathrm{TGL}}$ is "
+                  r"WOT-sequentially continuous --- while $\omega$ IS (the "
+                  r"notion bites only the trace). \emph{WitnessV3} (89): the "
+                  r"HARDENED type (lesson v103) --- the factor INSIDE the fused "
+                  r"witness, with the tooth: finite dimension always carries a "
+                  r"normal trace, so no bench can inhabit the type. "
+                  r"\emph{TheCoinage} (90): the reserved name "
+                  r"\texttt{qgClosureCertificateV2} RECEIVES A TERM with axioms "
+                  r"$\{\mathrm{propext},\mathrm{choice},\mathrm{quot}\}$ --- "
+                  r"the parser flips the sixth flag ALONE and the gate scales "
+                  r"the seal ALONE: \texttt{MATHEMATICAL\_MODEL\_CONSTRUCTED"
+                  r"\_\_PHYSICAL\_SPECTRUM\_OPEN}. Honesties: physics (5 "
+                  r"flags) and experiment (4 flags) remain False --- physical "
+                  r"quantum gravity is NOT declared; the static witness remains "
+                  r"impossible (v61); `III$_1$' is the sealed operational "
+                  r"definition (object + log-dense signature + assassination); "
+                  r"GENERAL Einstein (Lemma 3) remains open. Verdict: "
+                  r"\texttt{%s}.")
+                 % str(_tc0.get("verdict", "?")).replace("_", r"\_"))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- The inhabitable witness: the two zeros and "
@@ -55623,7 +56785,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_shear_unblinding", "void_shear_v2", "void_floor_kappa_v6", "fused_witness", "linguistic_isomorphism", "powers_ladder", "void_floor_kappa_v7", "mixed_ladder", "continuum_tt", "void_floor_kappa_v8", "colimit_seed", "tt_superposition", "void_floor_kappa_v9", "gns_tower", "second_cone", "gns_quotient", "third_cone", "general_null", "tower_traceless", "tower_modular", "modular_current", "factor_object", "void_floor_lrg", "void_floor_kappa_v5",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_shear_unblinding", "void_shear_v2", "void_floor_kappa_v6", "fused_witness", "linguistic_isomorphism", "powers_ladder", "void_floor_kappa_v7", "mixed_ladder", "continuum_tt", "void_floor_kappa_v8", "colimit_seed", "tt_superposition", "void_floor_kappa_v9", "gns_tower", "second_cone", "gns_quotient", "third_cone", "general_null", "tower_traceless", "tower_modular", "modular_current", "factor_object", "the_coinage", "void_floor_lrg", "void_floor_kappa_v5",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -57761,7 +58923,7 @@ def main():
     _ff = core.get("first_flips", {}) or {}
     print("  OS TRES PRIMEIROS FLIPS HONESTOS [v106 -- a 1a movimentacao de flag da historia do gate]: %s" % _ff.get("verdict"))
     _ffv = _ff.get("values", {}) or {}
-    print("    flags True: %s de 6 (core/corner/frame POR CONSTRUCAO; solder v107; einstein v116); False: %s (witness) ; SOMBRA re-derivada: %s" % (
+    print("    flags True: %s de 6 (core/corner/frame POR CONSTRUCAO; solder v107; einstein v116); False: %s (v132: a witness FLIPOU POR CONSTRUCAO) ; SOMBRA re-derivada: %s" % (
         _ffv.get("n_true"), _ffv.get("n_false"), _ff.get("shadow_verdict")))
     for _k, _v in (_ff.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
@@ -57769,7 +58931,7 @@ def main():
     _sf = core.get("solder_flip", {}) or {}
     print("  O QUARTO FLIP [v107 -- a solda continua g = E^T eta E sobre o frame CURVO]: %s" % _sf.get("verdict"))
     _sfv = _sf.get("values", {}) or {}
-    print("    flags True: %s de 6 ; False: %s (witness; einstein = 5o flip v116) ; SOMBRA: %s ; det g(0) = %s (lorentziano em toda parte)" % (
+    print("    flags True: %s de 6 ; False: %s (v132: witness FLIPADA; einstein v116) ; SOMBRA: %s ; det g(0) = %s (lorentziano em toda parte)" % (
         _sfv.get("n_true"), _sfv.get("n_false"), _sf.get("shadow_verdict"), _sfv.get("det_g_at_origin")))
     for _k, _v in (_sf.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
@@ -57844,7 +59006,7 @@ def main():
     _mc = core.get("master_continuum", {}) or {}
     print("  O QUINTO FLIP + AS DEZ DIRECOES [v116 -- mandato: 'feche einstein e a witness; construa a mao']: %s" % _mc.get("verdict"))
     _mcv = _mc.get("values", {}) or {}
-    print("    flags True: %s de 6 ; False: %s (witness) ; SOMBRA: %s" % (
+    print("    flags True: %s de 6 ; False: %s (v132: a witness FLIPOU POR CONSTRUCAO) ; SOMBRA: %s" % (
         _mcv.get("n_true"), _mcv.get("n_false"), _mc.get("shadow_verdict")))
     print("    EINSTEIN: qgStrongCertificate_einstein CUNHADO (contrato com CURVATURA + solda g=E^T.eta.E + Clausius no CONE INTEIRO <=> equacao) -- POR CONSTRUCAO, axiomas limpos")
     print("    POINCARE: O(1,3) A MAO (relacao definidora; engrenagem hiperbolica = LEI DE GRUPO) ; R^4 x| O(1,3) FIEL nas regioes ; a fibra SENTE a paridade (e0 -> -e0)")
@@ -58027,6 +59189,11 @@ def main():
     for _k, _v in (_fo.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [o residuo do v130 REALIZADO: H_phi + pi em B(H) + M_TGL objeto + omega(pi x)=phi(x) + assinatura no objeto; o flip pede normalidade (Bloco B); o selo NAO se move]")
+    _tc = core.get("the_coinage", {}) or {}
+    print("  A CUNHAGEM [v132 -- Bloco B: o assassinato do peso + o tipo V3 + qgClosureCertificateV2]: %s" % _tc.get("verdict"))
+    for _k, _v in (_tc.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [A SEXTA FLAG FLIPOU POR CONSTRUCAO: o parser leu axiomas limpos do termo reservado; o selo escalou UM degrau (MATHEMATICAL_MODEL); FISICA (5) e EXPERIMENTO (4) seguem False; full_static segue impossivel (v61); NAO se declara gravitacao quantica fisica]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (
@@ -58741,11 +59908,13 @@ def main():
             "continuous_leakage_forbids_full_closure": True,
             # v75 -- AS FLAGS DO FECHO (o gate 'full' e' impossivel por teorema; o alvo
             # correto e' a testemunha de fronteira dinamica; todas fail-closed):
-            "canonical_boundary_transport_witness_constructed": False,
+            # v132: as flags do fecho lidas AO VIVO do gate (a cunhagem flipou a
+            # witness POR CONSTRUCAO; manter False aqui seria reportagem falsa)
+            "canonical_boundary_transport_witness_constructed": bool((((core.get("qg_closure") or {}).get("formal_flags") or {}).get("canonical_boundary_transport_witness_constructed")) is True),
             "continuous_modular_realization_constructed": False,
-            "concrete_breuer_corner_constructed": False,
-            "concrete_modular_four_frame_constructed": False,
-            "concrete_emergent_einstein_proved": False,
+            "concrete_breuer_corner_constructed": bool((((core.get("qg_closure") or {}).get("formal_flags") or {}).get("concrete_breuer_corner_constructed")) is True),
+            "concrete_modular_four_frame_constructed": bool((((core.get("qg_closure") or {}).get("formal_flags") or {}).get("concrete_modular_four_frame_constructed")) is True),
+            "concrete_emergent_einstein_proved": bool((((core.get("qg_closure") or {}).get("formal_flags") or {}).get("concrete_emergent_einstein_proved")) is True),
             "linearized_spin2_sector_proved": False,
             "linearized_spin2_finite_face_kernel": True,
             "qg_closure_verdict": ((core.get("qg_closure") or {}).get("gate") or {}).get("verdict"),

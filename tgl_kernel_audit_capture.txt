@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=175661 len(stderr)=0
+# len(stdout)=178045 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -2199,12 +2199,39 @@ TGLExt.witness_fiber_sensitive : (TGLExt.theSensitiveNet.net.external (1, Multip
 'TGLExt.ladder_in_object' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.signature_log_dense' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.signature_in_the_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.omegaState_seqWOT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qMark_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qMark_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.uMark_mul_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.star_mul_uMark' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qMark_partition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.towerPi_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.towerPi_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.towerPi_qMark_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.inner_qMark_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qMark_wot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.tracial_halves_qMark' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.no_normal_tracial_state_seq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.no_normal_tracial_state_mix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.no_normal_tracial_state_const' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_dead_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.finiteDim_normal_trace_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.finiteDim_cannot_feed_witnessV3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theWitnessV3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.witnessV3_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.witnessV3_synthesis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgClosureCertificateV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgClosureCertificateV2_reduces' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgClosureCertificateV2_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgClosureCertificateV2_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_witness_is_construction' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
 SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED
 MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS
-FULL_TGL_WITNESS_REMAINS_UNCONSTRUCTED
+CANONICAL_BOUNDARY_TRANSPORT_WITNESS_COINED_BY_CONSTRUCTION
+FULL_STATIC_WITNESS_REMAINS_IMPOSSIBLE_BY_THEOREM_V61
 THE_CANONICAL_INHABITANT_IS_THE_VERB
 TRANSPORT_DEFECT_MEASURES_RESISTANCE
 THE_NAME_INDEX_IS_READ_IN_THE_JONES_MIRROR

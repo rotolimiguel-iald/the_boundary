@@ -1,8 +1,8 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE build
 # returncode: 0
-# len(stdout)=238878 len(stderr)=0
+# len(stdout)=243783 len(stderr)=0
 --- STDOUT ---
-⚠ [8560/8679] Replayed TGL.AreaScale
+⚠ [8560/8682] Replayed TGL.AreaScale
 warning: TGL/AreaScale.lean:24:48: Variable name `hk` is not explicitly referenced.
 
 The binding can be removed (if unused) or named `_` (if used implicitly).
@@ -13,7 +13,7 @@ warning: TGL/AreaScale.lean:24:65: Variable name `hG` is not explicitly referenc
 The binding can be removed (if unused) or named `_` (if used implicitly).
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [8567/8679] Replayed TGL.TransportData
+⚠ [8567/8682] Replayed TGL.TransportData
 warning: TGL/TransportData.lean:188:0: automatically included section variable(s) unused in theorem `TGL.TransportData.facePlus_idem`:
   [StarRing A]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
@@ -38,7 +38,7 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [StarRing A] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-⚠ [8570/8679] Replayed TGL.GravitonShadow
+⚠ [8570/8682] Replayed TGL.GravitonShadow
 warning: TGL/GravitonShadow.lean:56:72: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -55,7 +55,7 @@ Hint: Omit it from the simp argument list.
   simp [e00, Matrix.trace, Matrix.diag,̵ ̵F̵i̵n̵.̵s̵u̵m̵_̵u̵n̵i̵v̵_̵t̵w̵o̵]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8571/8679] Replayed TGL.NameRelation
+⚠ [8571/8682] Replayed TGL.NameRelation
 warning: TGL/NameRelation.lean:74:24: Variable name `hb0` is not explicitly referenced.
 
 The binding can be removed (if unused) or named `_` (if used implicitly).
@@ -97,7 +97,7 @@ Hint: Omit it from the simp argument list.
   simp [E1, E2, Matrix.mul_apply, Fin.sum_univ_three,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵a̵p̵p̵l̵y̵] at h00 h12 h21 h22 h11
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8572/8679] Replayed TGL.CoreSupport
+⚠ [8572/8682] Replayed TGL.CoreSupport
 warning: TGL/CoreSupport.lean:50:0: automatically included section variable(s) unused in theorem `TGL.CoreSupport.support_annihilates`:
   [StarRing A]
   [Algebra ℂ A]
@@ -118,7 +118,7 @@ consider restructuring your `variable` declarations so that the variables are no
   omit [StarRing A] [Algebra ℂ A] in theorem ...
 
 Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
-⚠ [8603/8679] Replayed TGLExt.NoFullWitness
+⚠ [8603/8682] Replayed TGLExt.NoFullWitness
 warning: TGLExt/NoFullWitness.lean:113:31: This simp argument is unused:
   Matrix.diagonal_apply_ne _ hij
 
@@ -126,7 +126,7 @@ Hint: Omit it from the simp argument list.
   simp [Matrix.smul_apply, M̵a̵t̵r̵i̵x̵.̵d̵i̵a̵g̵o̵n̵a̵l̵_̵a̵p̵p̵l̵y̵_̵n̵e̵ ̵_̵ ̵h̵i̵j̵,̵ ̵hij]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8604/8679] Replayed TGLExt.Solder4D
+⚠ [8604/8682] Replayed TGLExt.Solder4D
 warning: TGLExt/Solder4D.lean:122:54: This simp argument is unused:
   Fin.sum_univ_four
 
@@ -163,7 +163,7 @@ Hint: Omit it from the simp argument list.
   simp [Matrix.mul_apply,̵ ̵F̵i̵n̵.̵s̵u̵m̵_̵u̵n̵i̵v̵_̵f̵o̵u̵r̵]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8606/8679] Replayed TGLExt.SusyRelativeGap
+⚠ [8606/8682] Replayed TGLExt.SusyRelativeGap
 warning: TGLExt/SusyRelativeGap.lean:111:16: Variable name `p` is not explicitly referenced.
 
 The binding can be removed (if unused) or named `_` (if used implicitly).
@@ -174,7 +174,7 @@ warning: TGLExt/SusyRelativeGap.lean:111:18: Variable name `q` is not explicitly
 The binding can be removed (if unused) or named `_` (if used implicitly).
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [8609/8679] Replayed TGLExt.LinearizedSpin2
+⚠ [8609/8682] Replayed TGLExt.LinearizedSpin2
 warning: TGLExt/LinearizedSpin2.lean:92:25: This simp argument is unused:
   Matrix.smul_apply
 
@@ -209,10 +209,10 @@ Hint: Omit it from the simp argument list.
   ̲  ̲ ̲ ̲Matrix.smul_apply, Matrix.a̵dd̵_̵a̵p̵p̵l̵y̵,̵ ̵M̵a̵t̵r̵ix̵.̵d̵i̵ag]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-ℹ [8615/8679] Replayed TGLExt.InvariantProjection
+ℹ [8615/8682] Replayed TGLExt.InvariantProjection
 info: TGLExt/InvariantProjection.lean:118:8: Try this:
   [apply] abel_nf
-⚠ [8618/8679] Replayed TGLExt.WitnessSeed
+⚠ [8618/8682] Replayed TGLExt.WitnessSeed
 warning: TGLExt/WitnessSeed.lean:84:12: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
@@ -222,11 +222,11 @@ Note: The updated constant is in a different namespace. Dot notation may need to
 warning: TGLExt/WitnessSeed.lean:125:8: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
-⚠ [8620/8679] Replayed TGLExt.WordExistence
+⚠ [8620/8682] Replayed TGLExt.WordExistence
 warning: TGLExt/WordExistence.lean:193:16: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
-⚠ [8621/8679] Replayed TGLExt.InfiniteWord
+⚠ [8621/8682] Replayed TGLExt.InfiniteWord
 warning: TGLExt/InfiniteWord.lean:238:16: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
@@ -236,7 +236,7 @@ Note: The updated constant is in a different namespace. Dot notation may need to
 warning: TGLExt/InfiniteWord.lean:309:10: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
-⚠ [8622/8679] Replayed TGLExt.HilbertInhabitant
+⚠ [8622/8682] Replayed TGLExt.HilbertInhabitant
 warning: TGLExt/HilbertInhabitant.lean:58:10: This simp argument is unused:
   RCLike.inner_apply
 
@@ -244,7 +244,7 @@ Hint: Omit it from the simp argument list.
   simp ̵[̵R̵C̵L̵i̵k̵e̵.̵i̵n̵n̵e̵r̵_̵a̵p̵p̵l̵y̵]̵
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8623/8679] Replayed TGLExt.AQFTCoreInhabitant
+⚠ [8623/8682] Replayed TGLExt.AQFTCoreInhabitant
 warning: TGLExt/AQFTCoreInhabitant.lean:82:23: This simp argument is unused:
   Unitary.coe_linearIsometryEquiv_apply
 
@@ -260,7 +260,7 @@ Hint: Omit it from the simp argument list.
   ̵ ̵ ̵ ̵ ̵s̵e̵l̵f̵A̵d̵j̵o̵i̵n̵t̵.̵e̵x̵p̵U̵n̵i̵t̵a̵r̵y̵_̵c̵o̵e̵]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8624/8679] Replayed TGLExt.ConcreteFourFrame
+⚠ [8624/8682] Replayed TGLExt.ConcreteFourFrame
 warning: TGLExt/ConcreteFourFrame.lean:75:18: This simp argument is unused:
   Fin.sum_univ_four
 
@@ -293,13 +293,13 @@ Hint: Omit it from the simp argument list.
   ̲  ̲ ̲ ̲ ̲ ̲Matrix.one_apply, Matrix.vecHead, M̵a̵t̵r̵i̵x̵.̵v̵e̵c̵T̵a̵i̵l̵,̵ ̵Fin.isValue]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8627/8679] Replayed TGLExt.ProgrammerRule
+⚠ [8627/8682] Replayed TGLExt.ProgrammerRule
 warning: TGLExt/ProgrammerRule.lean:73:46: Variable name `hw0` is not explicitly referenced.
 
 The binding can be removed (if unused) or named `_` (if used implicitly).
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [8628/8679] Replayed TGLExt.IsotoneNet
+⚠ [8628/8682] Replayed TGLExt.IsotoneNet
 warning: TGLExt/IsotoneNet.lean:117:66: This simp argument is unused:
   Nat.le_zero
 
@@ -307,7 +307,7 @@ Hint: Omit it from the simp argument list.
   simp ̵[̵N̵a̵t̵.̵l̵e̵_̵z̵e̵r̵o̵]̵
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8629/8679] Replayed TGLExt.IdealLimit
+⚠ [8629/8682] Replayed TGLExt.IdealLimit
 warning: TGLExt/IdealLimit.lean:81:23: This simp argument is unused:
   Unitary.coe_linearIsometryEquiv_apply
 
@@ -323,7 +323,7 @@ Hint: Omit it from the simp argument list.
   ̵ ̵ ̵ ̵ ̵s̵e̵l̵f̵A̵d̵j̵o̵i̵n̵t̵.̵e̵x̵p̵U̵n̵i̵t̵a̵r̵y̵_̵c̵o̵e̵]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8631/8679] Replayed TGLExt.StrongFrame
+⚠ [8631/8682] Replayed TGLExt.StrongFrame
 warning: TGLExt/StrongFrame.lean:61:16: This simp argument is unused:
   Matrix.diagonal_apply
 
@@ -352,7 +352,7 @@ Hint: Omit it from the simp argument list.
   simp only [Matrix.diagonal_apply,̵ ̵i̵f̵_̵p̵o̵s̵ ̵r̵f̵l̵] at h00
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8633/8679] Replayed TGLExt.NumberOperator
+⚠ [8633/8682] Replayed TGLExt.NumberOperator
 warning: TGLExt/NumberOperator.lean:193:12: This simp argument is unused:
   lp.single_apply_self
 
@@ -360,7 +360,7 @@ Hint: Omit it from the simp argument list.
   simp [̵l̵p̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵_̵s̵e̵l̵f̵,̵ ̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵]̵[̲s̲m̲u̲l̲_̲e̲q̲_̲m̲u̲l̲]̲
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8634/8679] Replayed TGLExt.NumberSelfAdjoint
+⚠ [8634/8682] Replayed TGLExt.NumberSelfAdjoint
 warning: TGLExt/NumberSelfAdjoint.lean:68:21: This simp argument is unused:
   lp.coeFn_zero
 
@@ -368,7 +368,7 @@ Hint: Omit it from the simp argument list.
   simp ̵[̵l̵p̵.̵c̵o̵e̵F̵n̵_̵z̵e̵r̵o̵]̵
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8637/8679] Replayed TGLExt.SolderField
+⚠ [8637/8682] Replayed TGLExt.SolderField
 warning: TGLExt/SolderField.lean:56:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -400,7 +400,7 @@ Hint: Omit it from the simp argument list.
   simp only [Matrix.diagonal_apply,̵ ̵i̵f̵_̵p̵o̵s̵ ̵r̵f̵l̵] at h00
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8638/8679] Replayed TGLExt.FirstCurvature
+⚠ [8638/8682] Replayed TGLExt.FirstCurvature
 warning: TGLExt/FirstCurvature.lean:171:16: This simp argument is unused:
   Matrix.diagonal_apply
 
@@ -453,13 +453,13 @@ Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
 warning: TGLExt/FirstCurvature.lean:247:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [8643/8679] Replayed TGLExt.GeometricWitness
+⚠ [8643/8682] Replayed TGLExt.GeometricWitness
 warning: TGLExt/GeometricWitness.lean:73:32: Variable name `x` is not explicitly referenced.
 
 The binding can be removed (if unused) or named `_` (if used implicitly).
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [8645/8679] Replayed TGLExt.ContinuumShards
+⚠ [8645/8682] Replayed TGLExt.ContinuumShards
 warning: TGLExt/ContinuumShards.lean:46:8: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
@@ -470,7 +470,7 @@ Hint: Omit it from the simp argument list.
   simp ̵[̵C̵o̵n̵t̵i̵n̵u̵o̵u̵s̵L̵i̵n̵e̵a̵r̵M̵a̵p̵.̵s̵u̵b̵_̵a̵p̵p̵l̵y̵]̵
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8646/8679] Replayed TGLExt.EmergentEinstein
+⚠ [8646/8682] Replayed TGLExt.EmergentEinstein
 warning: TGLExt/EmergentEinstein.lean:80:16: This simp argument is unused:
   Matrix.diagonal_apply
 
@@ -516,11 +516,11 @@ Hint: Omit it from the simp argument list.
   simp [M̵a̵t̵r̵i̵x̵.̵d̵i̵a̵g̵o̵n̵a̵l̵_̵a̵p̵p̵l̵y̵,̵ ̵hij]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8654/8679] Replayed TGLExt.MixedLadder
+⚠ [8654/8682] Replayed TGLExt.MixedLadder
 warning: TGLExt/MixedLadder.lean:128:4: 'push_cast at this' tactic does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [8662/8679] Replayed TGLExt.SecondCone
+⚠ [8659/8682] Replayed TGLExt.SecondCone
 warning: TGLExt/SecondCone.lean:48:8: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
@@ -531,7 +531,7 @@ Hint: Omit it from the simp argument list.
   simp ̵[̵C̵o̵n̵t̵i̵n̵u̵o̵u̵s̵L̵i̵n̵e̵a̵r̵M̵a̵p̵.̵s̵u̵b̵_̵a̵p̵p̵l̵y̵]̵
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8665/8679] Replayed TGLExt.GeneralNull
+⚠ [8662/8682] Replayed TGLExt.GeneralNull
 warning: TGLExt/GeneralNull.lean:51:6: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
@@ -544,8 +544,36 @@ Note: The updated constant is in a different namespace. Dot notation may need to
 warning: TGLExt/GeneralNull.lean:85:38: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
-✔ [8675/8679] Built TGL.HalfNat (12s)
-ℹ [8676/8679] Built TGL.Audit (13s)
+⚠ [8673/8682] Replayed TGLExt.NoNormalTrace
+warning: TGLExt/NoNormalTrace.lean:129:10: This simp argument is unused:
+  Matrix.single_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Matrix.s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TGLExt/NoNormalTrace.lean:129:31: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Matrix.single_apply,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TGLExt/NoNormalTrace.lean:145:6: `ContinuousLinearMap.add_apply` has been deprecated: Use `_root_.add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `_root_.add_apply x`).
+warning: TGLExt/NoNormalTrace.lean:161:6: `ContinuousLinearMap.smul_apply` has been deprecated: Use `_root_.smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `_root_.smul_apply x`).
+⚠ [8674/8682] Replayed TGLExt.WitnessV3
+warning: TGLExt/WitnessV3.lean:90:15: `ContinuousLinearMap.add_apply` has been deprecated: Use `_root_.add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `_root_.add_apply x`).
+warning: TGLExt/WitnessV3.lean:93:15: `ContinuousLinearMap.smul_apply` has been deprecated: Use `_root_.smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `_root_.smul_apply x`).
+✔ [8678/8682] Built TGL.HalfNat (12s)
+ℹ [8679/8682] Built TGL.Audit (13s)
 info: TGL/Audit.lean:31:0: HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 info: TGL/Audit.lean:32:0: HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
 info: TGL/Audit.lean:33:0: AreaScale.eta_eq_one_over_two_kappa : ∀ (kappa : ℝ), 1 / 2 / kappa = 1 / (2 * kappa)
@@ -2743,23 +2771,50 @@ info: TGL/Audit.lean:1573:0: 'TGLExt.omega_not_tracial' depends on axioms: [prop
 info: TGL/Audit.lean:1574:0: 'TGLExt.ladder_in_object' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: TGL/Audit.lean:1575:0: 'TGLExt.signature_log_dense' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: TGL/Audit.lean:1576:0: 'TGLExt.signature_in_the_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: TGL/Audit.lean:1579:0: TGL_KERNEL_BUILD_OK
-info: TGL/Audit.lean:1580:0: FINITE_THREE_LOCKS_KERNEL_PROVED
-info: TGL/Audit.lean:1581:0: CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
-info: TGL/Audit.lean:1582:0: SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED
-info: TGL/Audit.lean:1583:0: MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS
-info: TGL/Audit.lean:1584:0: FULL_TGL_WITNESS_REMAINS_UNCONSTRUCTED
-info: TGL/Audit.lean:1585:0: THE_CANONICAL_INHABITANT_IS_THE_VERB
-info: TGL/Audit.lean:1586:0: TRANSPORT_DEFECT_MEASURES_RESISTANCE
-info: TGL/Audit.lean:1587:0: THE_NAME_INDEX_IS_READ_IN_THE_JONES_MIRROR
-info: TGL/Audit.lean:1588:0: HALF_NAT_IS_THE_ONLY_FINITE_MARKOV_MIRROR
-info: TGL/Audit.lean:1589:0: GRAVITON_BELL_SHADOW_CCI_HALF
-info: TGL/Audit.lean:1590:0: THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX
-info: TGL/Audit.lean:1591:0: CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR
-info: TGL/Audit.lean:1592:0: FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED
-✔ [8677/8679] Built TGL.Main (11s)
-✔ [8678/8679] Built TGL (11s)
-Build completed successfully (8679 jobs).
+info: TGL/Audit.lean:1577:0: 'TGLExt.omegaState_seqWOT' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1578:0: 'TGLExt.qMark_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1579:0: 'TGLExt.qMark_mul_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1580:0: 'TGLExt.uMark_mul_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1581:0: 'TGLExt.star_mul_uMark' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1582:0: 'TGLExt.qMark_partition' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1583:0: 'TGLExt.towerPi_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1584:0: 'TGLExt.towerPi_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1585:0: 'TGLExt.towerPi_qMark_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1586:0: 'TGLExt.inner_qMark_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1587:0: 'TGLExt.qMark_wot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1588:0: 'TGLExt.tracial_halves_qMark' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1589:0: 'TGLExt.no_normal_tracial_state_seq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1590:0: 'TGLExt.no_normal_tracial_state_mix' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1591:0: 'TGLExt.no_normal_tracial_state_const' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1592:0: 'TGLExt.the_dead_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1593:0: 'TGLExt.finiteDim_normal_trace_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1594:0: 'TGLExt.finiteDim_cannot_feed_witnessV3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1595:0: 'TGLExt.theWitnessV3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1596:0: 'TGLExt.witnessV3_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1597:0: 'TGLExt.witnessV3_synthesis' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1598:0: 'TGLExt.qgClosureCertificateV2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1599:0: 'TGLExt.qgClosureCertificateV2_reduces' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1600:0: 'TGLExt.qgClosureCertificateV2_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1601:0: 'TGLExt.qgClosureCertificateV2_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1602:0: 'TGLExt.the_witness_is_construction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TGL/Audit.lean:1605:0: TGL_KERNEL_BUILD_OK
+info: TGL/Audit.lean:1606:0: FINITE_THREE_LOCKS_KERNEL_PROVED
+info: TGL/Audit.lean:1607:0: CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
+info: TGL/Audit.lean:1608:0: SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED
+info: TGL/Audit.lean:1609:0: MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS
+info: TGL/Audit.lean:1610:0: CANONICAL_BOUNDARY_TRANSPORT_WITNESS_COINED_BY_CONSTRUCTION
+info: TGL/Audit.lean:1611:0: FULL_STATIC_WITNESS_REMAINS_IMPOSSIBLE_BY_THEOREM_V61
+info: TGL/Audit.lean:1612:0: THE_CANONICAL_INHABITANT_IS_THE_VERB
+info: TGL/Audit.lean:1613:0: TRANSPORT_DEFECT_MEASURES_RESISTANCE
+info: TGL/Audit.lean:1614:0: THE_NAME_INDEX_IS_READ_IN_THE_JONES_MIRROR
+info: TGL/Audit.lean:1615:0: HALF_NAT_IS_THE_ONLY_FINITE_MARKOV_MIRROR
+info: TGL/Audit.lean:1616:0: GRAVITON_BELL_SHADOW_CCI_HALF
+info: TGL/Audit.lean:1617:0: THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX
+info: TGL/Audit.lean:1618:0: CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR
+info: TGL/Audit.lean:1619:0: FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED
+✔ [8680/8682] Built TGL.Main (11s)
+✔ [8681/8682] Built TGL (11s)
+Build completed successfully (8682 jobs).
 
 --- STDERR ---
 
