@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `958f51b66497628b9cf5b960006973290f0e19058f9251a566c8dd45509de39f`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `fe603747f571cec93a4c9f90c6acb7793dad555165de8dc522f6675655031902`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -519,7 +519,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 542/542 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 568/568 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -602,6 +602,8 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `general_null` = `SEMIFINITE_ANALYSIS_INCREMENT_52__CONTINUOUS_CONE__ANY_NULL_DIRECTION_TT_SOLVES__THREE_CONDITIONS_KILL_THREE_TERMS__PLANE_WAVE_TT_SECTOR_CLOSED__GENERAL_PERTURBATIONS_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL`
 - `tower_traceless` = `SEMIFINITE_ANALYSIS_INCREMENT_53__TYPE_III_ON_CONCRETE_TOWER__STATE_NOT_TRACIAL_EVERY_FLOOR__MODULAR_RATIO_TIMES_POSITIVE_WITNESS__WITH_LOG_DENSE_MARK_LIMIT_IS_III1__WEAK_STAR_COMPLETION_REMAINS__SEAL_STAYS_CONDITIONAL`
 - `tower_modular` = `SEMIFINITE_ANALYSIS_INCREMENT_54__TOMITA_FLOW_AND_KMS_ON_THE_TOWER__DENSITY_INVERTIBLE__KMS_EVERY_FLOOR__MODULAR_SPECTRUM_IS_RATIO_LATTICE__STRUCTURE_REPLACES_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_STAYS_CONDITIONAL`
+- `modular_current` = `SEMIFINITE_ANALYSIS_INCREMENT_55__THE_J_CURRENT__WITNESS_SATURATED_NEVER_COMPLETE__CONJUGATED_STATE_IS_THE_COMPLETE_WITNESS__PARTIAL_ISOMETRY_IMPLEMENTS_BOUNDARY_EQUIVALENCE__RATIO_AT_EVERY_SCALE_LOG_DENSE__SEAL_STAYS_CONDITIONAL`
+- `factor_object` = `SEMIFINITE_ANALYSIS_INCREMENT_56__THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_COMPLETE__PI_STARRED_BOUNDED_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM__GNS_IDENTITY__SIGNATURE_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_STAYS_CONDITIONAL`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
@@ -983,6 +985,20 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `o_que_resta`: o limite fraco-* (completamento topologico) -- o fator como objeto de von Neumann
 - `honestidade`: torre finita, andar a andar; o fator e' o limite; nenhuma frase 'III_1 construido'; o gate nao se move
 - `o_veredito`: TGL_TOWER_MODULAR__TOMITA_FLOW_AND_KMS_ON_THE_CONCRETE_TOWER__DENSITY_INVERTIBLE_POSITIVE_WEIGHTS__MODULAR_FLOW_FIXES_UNIT__KMS_CONDITION_EVERY_FLOOR__PHI_AB_EQ_PHI_B_SIGMA_A__MODULAR_SPECTRUM_IS_THE_RATIO_LATTICE__THE_STRUCTURE_THAT_REPLACES_THE_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_UNMOVED
+
+**Estatutos [modular_current]** (veredito: `TGL_J_CURRENT__WITNESS_SATURATED_NEVER_COMPLETE__EXCESS_CUT_BY_LEAKAGE__COMPLETE_WITNESS_IS_THE_CONJUGATED_STATE__THREE_FACES_OF_ONE_CONJUGATION__PARTIAL_ISOMETRY_IMPLEMENTS_BOUNDARY_EQUIVALENCE__RATIO_AT_EVERY_SCALE__LOG_DENSE_MARK__SEAL_UNMOVED`):
+
+- `o_que_e`: a leitura do operador (20/07/2026) em kernel: saturacao em vez de completude; conjugacao em vez de objeto-em-si; a corrente que liga as faces
+- `o_que_resta`: o fator como objeto (Bloco A) e o flip (normalidade + V3 + cunhagem)
+- `honestidade`: full_static_witness_exists=False INTOCADO (teorema v61); nenhuma frase 'testemunha completa construida'; o gate nao se move
+- `o_veredito`: TGL_J_CURRENT__WITNESS_SATURATED_NEVER_COMPLETE__EXCESS_CUT_BY_LEAKAGE__COMPLETE_WITNESS_IS_THE_CONJUGATED_STATE__THREE_FACES_OF_ONE_CONJUGATION__PARTIAL_ISOMETRY_IMPLEMENTS_BOUNDARY_EQUIVALENCE__RATIO_AT_EVERY_SCALE__LOG_DENSE_MARK__SEAL_UNMOVED
+
+**Estatutos [factor_object]** (veredito: `TGL_THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_HILBERT_OMEGA_UNIT_TOWER_DENSE__PI_BOUNDED_STARRED_UNITAL_MULTIPLICATIVE_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM_COINED__GNS_IDENTITY_OMEGA_PI_EQ_PHI__SIGNATURE_LIVES_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_UNMOVED`):
+
+- `o_que_e`: o Bloco A do PLANO_ULTIMA_FLAG inteiro em kernel: o residuo 'falta SO o fraco-*' do v130 realizado como TERMO VonNeumannAlgebra
+- `o_que_resta`: Bloco B: normalidade (88a-c, a pedra mais dura), o tipo V3 (89), a cunhagem (90); a decisao A/B/C e' do operador
+- `honestidade`: M_TGL e' objeto de von Neumann legitimo (duplo comutante); 'fator' e 'III_1' seguem ASSINATURA, nao teorema de tipo; qgClosureCertificateV2 segue RESERVADO; o gate nao se move
+- `o_veredito`: TGL_THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_HILBERT_OMEGA_UNIT_TOWER_DENSE__PI_BOUNDED_STARRED_UNITAL_MULTIPLICATIVE_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM_COINED__GNS_IDENTITY_OMEGA_PI_EQ_PHI__SIGNATURE_LIVES_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_UNMOVED
 
 **Estatutos [void_floor_lrg]** (veredito: `TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION`):
 

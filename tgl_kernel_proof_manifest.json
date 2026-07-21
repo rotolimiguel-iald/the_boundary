@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-20 14:48:09",
+  "timestamp": "2026-07-20 23:42:50",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "958f51b66497628b9cf5b960006973290f0e19058f9251a566c8dd45509de39f",
+  "formal_source_hash": "fe603747f571cec93a4c9f90c6acb7793dad555165de8dc522f6675655031902",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "e151832442ea72f8523ddfce8948e65a53639fb25b022c308af11d1deb7a9cc5",
+    "TGLExt.lean": "ba62686105fc38893776040b56acbf34053ac55a01fea42ca12df9f3bb6c7e58",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "79518beddc1519da8d5af65e7ab22cee68384678ff2dfea24a89110940ed6b39",
+    "TGL/Audit.lean": "2826aed8b304b20c34cdadc904bec061a66ccb247aed7605476d177ae1571d99",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -58,6 +58,7 @@
     "TGLExt/Commutant.lean": "114782c4fb991da15ae22e3e053ecf6a8c4a5f68e7152afd40102a66c44db19a",
     "TGLExt/ConcreteFourFrame.lean": "4c3d4ab63b2df108961c9875b23853a3315aa96a9a0a89180106d212e1d9f550",
     "TGLExt/CondExpect.lean": "33e0eecd498ec326d8f5bf699b3a5b5aae4a388fa049564bfd8619b096737ede",
+    "TGLExt/ConjugateWitness.lean": "09717611e32d86505f7bd65aa57465e355cec29411f87e4776140146476bd9d3",
     "TGLExt/ContinuousModularZero.lean": "0dad5794f98ba1cb8519b4c105f63d555b5dc3d8fab7884f8265aebff214f376",
     "TGLExt/ContinuumShards.lean": "18e43b74a336360ff7c4458b703e263e06e52f4778aba225073fac65d8614c40",
     "TGLExt/ContinuumTT.lean": "21c62b855a477119daa3daab0c1e8f80f265bec4b269ce5367e7d9a60de72a96",
@@ -95,6 +96,7 @@
     "TGLExt/MarkovTower.lean": "5b542018622975c4b2c498d1727ca20f7280ad108bfc25d0a587958097e2e74b",
     "TGLExt/MinimalSolder.lean": "53dbb33e260a46ebd3c753ec7a4ca61fc5a4721757e310d58c3a4cb1455e7e66",
     "TGLExt/MixedLadder.lean": "eb43ba5a3ee66412f7f4704a7a435f485f1e53a315188e4f9bb46234f757f861",
+    "TGLExt/ModularCurrent.lean": "5fe336cadea3140fd8b42f831ff6c74624f3fea961b013c8b2d4f5aa85d76d8c",
     "TGLExt/ModularFirstLaw.lean": "aee3eb49a6d0544e8bb2a3f7b763b04dc46ea425ec4565f77ae1c33ffc27125d",
     "TGLExt/ModularFlow.lean": "62cfa753d4b40a9091aafb383a8edd588a542dddf5e97ee39906ec31c59826b9",
     "TGLExt/NoFullWitness.lean": "fde4ca999c40e6892d1958bee15a066786adb1363b8e3514f41eeb8b8909a654",
@@ -111,10 +113,13 @@
     "TGLExt/ReducedEmergence.lean": "d11854b264e6e17c551db2e6ffc6eaf804408afa1846c88529487167743eb845",
     "TGLExt/RegularRep.lean": "a3861da9c4d4e8ef8173272ad8843c65dcbe8215d598a52948f608fca7d53590",
     "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
+    "TGLExt/SaturatedWitness.lean": "a0a5eed4d46ae5679a9b9ba00212d2d88d77c421f499565dc6087d266454d8c7",
+    "TGLExt/ScaleCurrent.lean": "ca57ab98df3816545f791b0cfb97b0db8821d69317db527ca3a901e7e123f897",
     "TGLExt/SecondCone.lean": "9bafc9fcbf9fc6eb98f17d2e3122ac01820bc0785e64fb63eb6eef8c0c276e45",
     "TGLExt/SemifiniteLattice.lean": "37ca0a1db916c93954c1a486ddbf5462248a050e58ccb6b670020c5225e46b0f",
     "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
     "TGLExt/SemifiniteWeight.lean": "1b4044715c04a3576e8bc3944f48e53edf02c8d4f23d91b3896771fd8d1eddff",
+    "TGLExt/SignatureInTheLimit.lean": "c38a0cef7aa8f409b473fd7706019105661418dc3e908446a59df23b59af539e",
     "TGLExt/Solder4D.lean": "70f3c2aa3336b716a740a70c15759ffdaca612c7c69f975c0281a31e9bb2f35f",
     "TGLExt/SolderField.lean": "5dd64e3c8edb8729e474f64822c3f483a8eb504adcffeec734984bb2be6bc873",
     "TGLExt/SolvedEquation.lean": "052856927e7668d0af050070dd22ec834d1126a1eb5ee8d02e8ecf8b8baa7383",
@@ -124,9 +129,13 @@
     "TGLExt/SusyRelativeGap.lean": "3aa058b5c4f098e3218ffed0bc8271a28947b56af81750019e1360754873e7f2",
     "TGLExt/TTSuperposition.lean": "7beb841f082e34be68c11ef8de25b024a448b90afb64752a3a6cb8327c13cde3",
     "TGLExt/TailNet.lean": "e7654368112f1af5d529edbd0d2669a829358651a82014e0d835a88868d7f5e6",
+    "TGLExt/TheFactorObject.lean": "570ba4fd7b8edba4b7d01e8a3a134a5def93d945c29092b26df126a868b5692a",
     "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
     "TGLExt/ThirdCone.lean": "21edba89bf302c075d512e77bf2dada36b5f216f054930eb5a881c57935eb694",
     "TGLExt/ThreeLocksCorner.lean": "51c66b4dca74fa58e221bd9889d468d1f77c816ec8c7ff3cc9f56e3bd7a66d2e",
+    "TGLExt/TowerAction.lean": "5da61adbc762e54c157456ffa59efe9b596f9c80b625fda106b2ce7547ba8e69",
+    "TGLExt/TowerDefinite.lean": "9f63ebf0cee01833e7fdccb3c356c0faaddded504216c8e21c218c2320d8d9fd",
+    "TGLExt/TowerHilbert.lean": "8b08430d775093588459d649e81fcb7cfc5e02cc94646d8175c9b124f6cdff48",
     "TGLExt/TowerModular.lean": "e3697a4f628eb1ae5211f004ac17d5867ccf60e705bb955d868229b118ee5550",
     "TGLExt/TowerTraceless.lean": "d5789535f0e38917ad8a1a90c20ee17ded2b32cf0d2dd3ad919a8acf6aa86f42",
     "TGLExt/TracelessAlgebra.lean": "50c531bd93946a7f8df4bc940e15c3d2f71899e02c50e060e6f695f136a13de5",
@@ -3116,10 +3125,140 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.witness_saturates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.excess_is_infinite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.saturated_witness_not_complete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.faces_sum_to_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.complete_witness_is_conjugated_state": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.current_anticommutes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.current_implements_boundary_equivalence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.current_at_every_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.current_iii1_mark": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tInner_tPush": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerPre_definite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerOmega_inner_self": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.hOmega_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerPre_denseRange": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.lmul_bound_push": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerPi_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerPi_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerPi_orbit_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theFactorObject": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerPi_mem_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.factor_omega_cyclic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.omegaState_pi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.omega_not_tracial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ladder_in_object": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.signature_log_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.signature_in_the_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "351a737a483eedaabf68e8a66e5ee9239fa8eda456f494eb9b632e6c32e54b3e",
-  "audit_stdout_sha256": "9c93e0541e7bbfd29949bd746bbf858b908db772e8fd594687ad3b26e8799860",
+  "build_stdout_sha256": "76445bee9ba04cb45088eb31c29f65cedaef7db54c9bcf9ec36fa7aaf4ba4890",
+  "audit_stdout_sha256": "7b4204c6e2943895436f35491e51aa1b4e282e3f26aa2f3f432dfd97640dc284",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

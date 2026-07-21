@@ -4987,17 +4987,147 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.witness_saturates": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.excess_is_infinite": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.saturated_witness_not_complete": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.faces_sum_to_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.complete_witness_is_conjugated_state": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.current_anticommutes": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.current_implements_boundary_equivalence": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.current_at_every_scale": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.current_iii1_mark": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tInner_tPush": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerPre_definite": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerOmega_inner_self": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.hOmega_norm": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerPre_denseRange": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.lmul_bound_push": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerPi_star": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerPi_omega": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerPi_orbit_dense": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theFactorObject": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerPi_mem_factor": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.factor_omega_cyclic": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.omegaState_pi": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.omega_not_tracial": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.ladder_in_object": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.signature_log_dense": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.signature_in_the_limit": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "958f51b66497628b9cf5b960006973290f0e19058f9251a566c8dd45509de39f",
+      "formal_source_hash": "fe603747f571cec93a4c9f90c6acb7793dad555165de8dc522f6675655031902",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "e151832442ea72f8523ddfce8948e65a53639fb25b022c308af11d1deb7a9cc5",
+        "TGLExt.lean": "ba62686105fc38893776040b56acbf34053ac55a01fea42ca12df9f3bb6c7e58",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "79518beddc1519da8d5af65e7ab22cee68384678ff2dfea24a89110940ed6b39",
+        "TGL/Audit.lean": "2826aed8b304b20c34cdadc904bec061a66ccb247aed7605476d177ae1571d99",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -5037,6 +5167,7 @@
         "TGLExt/Commutant.lean": "114782c4fb991da15ae22e3e053ecf6a8c4a5f68e7152afd40102a66c44db19a",
         "TGLExt/ConcreteFourFrame.lean": "4c3d4ab63b2df108961c9875b23853a3315aa96a9a0a89180106d212e1d9f550",
         "TGLExt/CondExpect.lean": "33e0eecd498ec326d8f5bf699b3a5b5aae4a388fa049564bfd8619b096737ede",
+        "TGLExt/ConjugateWitness.lean": "09717611e32d86505f7bd65aa57465e355cec29411f87e4776140146476bd9d3",
         "TGLExt/ContinuousModularZero.lean": "0dad5794f98ba1cb8519b4c105f63d555b5dc3d8fab7884f8265aebff214f376",
         "TGLExt/ContinuumShards.lean": "18e43b74a336360ff7c4458b703e263e06e52f4778aba225073fac65d8614c40",
         "TGLExt/ContinuumTT.lean": "21c62b855a477119daa3daab0c1e8f80f265bec4b269ce5367e7d9a60de72a96",
@@ -5074,6 +5205,7 @@
         "TGLExt/MarkovTower.lean": "5b542018622975c4b2c498d1727ca20f7280ad108bfc25d0a587958097e2e74b",
         "TGLExt/MinimalSolder.lean": "53dbb33e260a46ebd3c753ec7a4ca61fc5a4721757e310d58c3a4cb1455e7e66",
         "TGLExt/MixedLadder.lean": "eb43ba5a3ee66412f7f4704a7a435f485f1e53a315188e4f9bb46234f757f861",
+        "TGLExt/ModularCurrent.lean": "5fe336cadea3140fd8b42f831ff6c74624f3fea961b013c8b2d4f5aa85d76d8c",
         "TGLExt/ModularFirstLaw.lean": "aee3eb49a6d0544e8bb2a3f7b763b04dc46ea425ec4565f77ae1c33ffc27125d",
         "TGLExt/ModularFlow.lean": "62cfa753d4b40a9091aafb383a8edd588a542dddf5e97ee39906ec31c59826b9",
         "TGLExt/NoFullWitness.lean": "fde4ca999c40e6892d1958bee15a066786adb1363b8e3514f41eeb8b8909a654",
@@ -5090,10 +5222,13 @@
         "TGLExt/ReducedEmergence.lean": "d11854b264e6e17c551db2e6ffc6eaf804408afa1846c88529487167743eb845",
         "TGLExt/RegularRep.lean": "a3861da9c4d4e8ef8173272ad8843c65dcbe8215d598a52948f608fca7d53590",
         "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
+        "TGLExt/SaturatedWitness.lean": "a0a5eed4d46ae5679a9b9ba00212d2d88d77c421f499565dc6087d266454d8c7",
+        "TGLExt/ScaleCurrent.lean": "ca57ab98df3816545f791b0cfb97b0db8821d69317db527ca3a901e7e123f897",
         "TGLExt/SecondCone.lean": "9bafc9fcbf9fc6eb98f17d2e3122ac01820bc0785e64fb63eb6eef8c0c276e45",
         "TGLExt/SemifiniteLattice.lean": "37ca0a1db916c93954c1a486ddbf5462248a050e58ccb6b670020c5225e46b0f",
         "TGLExt/SemifiniteSeed.lean": "9e91547595c6fdfa37c5d9b786bf3b1e5b774fa90fa4ff0a01a463a775e77dc5",
         "TGLExt/SemifiniteWeight.lean": "1b4044715c04a3576e8bc3944f48e53edf02c8d4f23d91b3896771fd8d1eddff",
+        "TGLExt/SignatureInTheLimit.lean": "c38a0cef7aa8f409b473fd7706019105661418dc3e908446a59df23b59af539e",
         "TGLExt/Solder4D.lean": "70f3c2aa3336b716a740a70c15759ffdaca612c7c69f975c0281a31e9bb2f35f",
         "TGLExt/SolderField.lean": "5dd64e3c8edb8729e474f64822c3f483a8eb504adcffeec734984bb2be6bc873",
         "TGLExt/SolvedEquation.lean": "052856927e7668d0af050070dd22ec834d1126a1eb5ee8d02e8ecf8b8baa7383",
@@ -5103,9 +5238,13 @@
         "TGLExt/SusyRelativeGap.lean": "3aa058b5c4f098e3218ffed0bc8271a28947b56af81750019e1360754873e7f2",
         "TGLExt/TTSuperposition.lean": "7beb841f082e34be68c11ef8de25b024a448b90afb64752a3a6cb8327c13cde3",
         "TGLExt/TailNet.lean": "e7654368112f1af5d529edbd0d2669a829358651a82014e0d835a88868d7f5e6",
+        "TGLExt/TheFactorObject.lean": "570ba4fd7b8edba4b7d01e8a3a134a5def93d945c29092b26df126a868b5692a",
         "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
         "TGLExt/ThirdCone.lean": "21edba89bf302c075d512e77bf2dada36b5f216f054930eb5a881c57935eb694",
         "TGLExt/ThreeLocksCorner.lean": "51c66b4dca74fa58e221bd9889d468d1f77c816ec8c7ff3cc9f56e3bd7a66d2e",
+        "TGLExt/TowerAction.lean": "5da61adbc762e54c157456ffa59efe9b596f9c80b625fda106b2ce7547ba8e69",
+        "TGLExt/TowerDefinite.lean": "9f63ebf0cee01833e7fdccb3c356c0faaddded504216c8e21c218c2320d8d9fd",
+        "TGLExt/TowerHilbert.lean": "8b08430d775093588459d649e81fcb7cfc5e02cc94646d8175c9b124f6cdff48",
         "TGLExt/TowerModular.lean": "e3697a4f628eb1ae5211f004ac17d5867ccf60e705bb955d868229b118ee5550",
         "TGLExt/TowerTraceless.lean": "d5789535f0e38917ad8a1a90c20ee17ded2b32cf0d2dd3ad919a8acf6aa86f42",
         "TGLExt/TracelessAlgebra.lean": "50c531bd93946a7f8df4bc940e15c3d2f71899e02c50e060e6f695f136a13de5",
@@ -5721,24 +5860,50 @@
       "ext_tm2_flow_id_kernel_proved": true,
       "ext_tm2_kms_kernel_proved": true,
       "ext_tm2_modular_ratio_kernel_proved": true,
+      "ext_sw2_saturates_kernel_proved": true,
+      "ext_sw2_excess_infinite_kernel_proved": true,
+      "ext_sw2_not_complete_kernel_proved": true,
+      "ext_cw2_faces_one_kernel_proved": true,
+      "ext_cw2_conjugated_state_kernel_proved": true,
+      "ext_mc2_anticommutes_kernel_proved": true,
+      "ext_mc2_boundary_equiv_kernel_proved": true,
+      "ext_sc2_every_scale_kernel_proved": true,
+      "ext_sc2_iii1_mark_kernel_proved": true,
+      "ext_td2_push_isometric_kernel_proved": true,
+      "ext_td2_definite_kernel_proved": true,
+      "ext_td2_omega_one_kernel_proved": true,
+      "ext_th2_omega_norm_kernel_proved": true,
+      "ext_th2_dense_kernel_proved": true,
+      "ext_ta2_bound_kernel_proved": true,
+      "ext_ta2_star_kernel_proved": true,
+      "ext_ta2_omega_kernel_proved": true,
+      "ext_ta2_cyclic_kernel_proved": true,
+      "ext_fo2_object_kernel_proved": true,
+      "ext_fo2_mem_kernel_proved": true,
+      "ext_fo2_cyclic_kernel_proved": true,
+      "ext_fo2_gns_kernel_proved": true,
+      "ext_sg2_not_tracial_kernel_proved": true,
+      "ext_sg2_ladder_kernel_proved": true,
+      "ext_sg2_log_dense_kernel_proved": true,
+      "ext_sg2_synthesis_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "351a737a483eedaabf68e8a66e5ee9239fa8eda456f494eb9b632e6c32e54b3e",
+      "build_stdout_sha256": "76445bee9ba04cb45088eb31c29f65cedaef7db54c9bcf9ec36fa7aaf4ba4890",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "9c93e0541e7bbfd29949bd746bbf858b908db772e8fd594687ad3b26e8799860",
+      "audit_stdout_sha256": "7b4204c6e2943895436f35491e51aa1b4e282e3f26aa2f3f432dfd97640dc284",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 235731,
+        "stdout": 238772,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 173374,
+        "stdout": 175661,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "351a737a483eedaabf68e8a66e5ee9239fa8eda456f494eb9b632e6c32e54b3e",
-      "audit_capture_sha256_full": "9c93e0541e7bbfd29949bd746bbf858b908db772e8fd594687ad3b26e8799860",
+      "build_capture_sha256_full": "76445bee9ba04cb45088eb31c29f65cedaef7db54c9bcf9ec36fa7aaf4ba4890",
+      "audit_capture_sha256_full": "7b4204c6e2943895436f35491e51aa1b4e282e3f26aa2f3f432dfd97640dc284",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
       "qgc_concrete_breuer_corner_constructed": true,
@@ -7009,7 +7174,9 @@
         "third_cone": "SEMIFINITE_ANALYSIS_INCREMENT_51__THIRD_NULL_DIRECTION_SOLVES__TRIPLE_SUPERPOSITION_SOLVES__SOLUTION_SPACE_SPANS_THREE_AXES__CONTINUOUS_CONE_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL",
         "general_null": "SEMIFINITE_ANALYSIS_INCREMENT_52__CONTINUOUS_CONE__ANY_NULL_DIRECTION_TT_SOLVES__THREE_CONDITIONS_KILL_THREE_TERMS__PLANE_WAVE_TT_SECTOR_CLOSED__GENERAL_PERTURBATIONS_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_STAYS_CONDITIONAL",
         "tower_traceless": "SEMIFINITE_ANALYSIS_INCREMENT_53__TYPE_III_ON_CONCRETE_TOWER__STATE_NOT_TRACIAL_EVERY_FLOOR__MODULAR_RATIO_TIMES_POSITIVE_WITNESS__WITH_LOG_DENSE_MARK_LIMIT_IS_III1__WEAK_STAR_COMPLETION_REMAINS__SEAL_STAYS_CONDITIONAL",
-        "tower_modular": "SEMIFINITE_ANALYSIS_INCREMENT_54__TOMITA_FLOW_AND_KMS_ON_THE_TOWER__DENSITY_INVERTIBLE__KMS_EVERY_FLOOR__MODULAR_SPECTRUM_IS_RATIO_LATTICE__STRUCTURE_REPLACES_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_STAYS_CONDITIONAL"
+        "tower_modular": "SEMIFINITE_ANALYSIS_INCREMENT_54__TOMITA_FLOW_AND_KMS_ON_THE_TOWER__DENSITY_INVERTIBLE__KMS_EVERY_FLOOR__MODULAR_SPECTRUM_IS_RATIO_LATTICE__STRUCTURE_REPLACES_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_STAYS_CONDITIONAL",
+        "modular_current": "SEMIFINITE_ANALYSIS_INCREMENT_55__THE_J_CURRENT__WITNESS_SATURATED_NEVER_COMPLETE__CONJUGATED_STATE_IS_THE_COMPLETE_WITNESS__PARTIAL_ISOMETRY_IMPLEMENTS_BOUNDARY_EQUIVALENCE__RATIO_AT_EVERY_SCALE_LOG_DENSE__SEAL_STAYS_CONDITIONAL",
+        "factor_object": "SEMIFINITE_ANALYSIS_INCREMENT_56__THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_COMPLETE__PI_STARRED_BOUNDED_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM__GNS_IDENTITY__SIGNATURE_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_STAYS_CONDITIONAL"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -7553,10 +7720,36 @@
         "ext_tm2_mul_inv_kernel_proved": true,
         "ext_tm2_flow_id_kernel_proved": true,
         "ext_tm2_kms_kernel_proved": true,
-        "ext_tm2_modular_ratio_kernel_proved": true
+        "ext_tm2_modular_ratio_kernel_proved": true,
+        "ext_sw2_saturates_kernel_proved": true,
+        "ext_sw2_excess_infinite_kernel_proved": true,
+        "ext_sw2_not_complete_kernel_proved": true,
+        "ext_cw2_faces_one_kernel_proved": true,
+        "ext_cw2_conjugated_state_kernel_proved": true,
+        "ext_mc2_anticommutes_kernel_proved": true,
+        "ext_mc2_boundary_equiv_kernel_proved": true,
+        "ext_sc2_every_scale_kernel_proved": true,
+        "ext_sc2_iii1_mark_kernel_proved": true,
+        "ext_td2_push_isometric_kernel_proved": true,
+        "ext_td2_definite_kernel_proved": true,
+        "ext_td2_omega_one_kernel_proved": true,
+        "ext_th2_omega_norm_kernel_proved": true,
+        "ext_th2_dense_kernel_proved": true,
+        "ext_ta2_bound_kernel_proved": true,
+        "ext_ta2_star_kernel_proved": true,
+        "ext_ta2_omega_kernel_proved": true,
+        "ext_ta2_cyclic_kernel_proved": true,
+        "ext_fo2_object_kernel_proved": true,
+        "ext_fo2_mem_kernel_proved": true,
+        "ext_fo2_cyclic_kernel_proved": true,
+        "ext_fo2_gns_kernel_proved": true,
+        "ext_sg2_not_tracial_kernel_proved": true,
+        "ext_sg2_ladder_kernel_proved": true,
+        "ext_sg2_log_dense_kernel_proved": true,
+        "ext_sg2_synthesis_kernel_proved": true
       },
-      "n_theorems_clean": 542,
-      "n_theorems_expected": 542,
+      "n_theorems_clean": 568,
+      "n_theorems_expected": 568,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -12927,6 +13120,112 @@
       "does_not_gate_core": true,
       "verdict": "TGL_TOWER_MODULAR__TOMITA_FLOW_AND_KMS_ON_THE_CONCRETE_TOWER__DENSITY_INVERTIBLE_POSITIVE_WEIGHTS__MODULAR_FLOW_FIXES_UNIT__KMS_CONDITION_EVERY_FLOOR__PHI_AB_EQ_PHI_B_SIGMA_A__MODULAR_SPECTRUM_IS_THE_RATIO_LATTICE__THE_STRUCTURE_THAT_REPLACES_THE_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_UNMOVED"
     },
+    "modular_current": {
+      "theorem": "A CORRENTE J: a testemunha e' saturada (nunca completa; o excesso que supersaturaria e' cortado pelo vazamento) e conjugada (0_mod, 1_abs e o graviton = faces de C^2=1); a corrente L implementa a equivalencia de fronteira P_1 ~ P_0 e carrega a razao modular em toda escala (log-densa).",
+      "values": {
+        "beta": 0.012031300400803142,
+        "sat_resid": 0.0,
+        "faces_resid": 0.0,
+        "current_resid": 0.0,
+        "ladder_resid": 0.0,
+        "mark_gap": 0.002124655316887214
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "\u2605 SATURADA, nunca completa: Tr(P_Nome)=1=omega(I); o excesso e' infinito (cortado); a estatica segue proibida (v61)",
+          true
+        ],
+        [
+          "\u2605 a testemunha completa E' o estado CONJUGADO: 0_mod/1_abs/graviton = faces de C^2=1; faces somam omega(I)=1",
+          true
+        ],
+        [
+          "\u2605 a corrente L implementa P_1 ~ P_0 na fronteira ({Z,L}=0; L*L=P_0; LL*=P_1) -- assinatura tipo-III",
+          true
+        ],
+        [
+          "\u2605 a corrente em TODA escala: razao lambda^(N+1) em todo andar + espectro log-denso (1/2,1/3)",
+          true
+        ],
+        [
+          "SOMBRA: saturacao 0e+00 / faces 0e+00 / corrente 0e+00 / escada(lam=beta) 0e+00 / marca gap 0.002",
+          true
+        ],
+        [
+          "o gate segue 5T/1F (a corrente NAO vira a flag: falta o fator-objeto + normalidade)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_e": "a leitura do operador (20/07/2026) em kernel: saturacao em vez de completude; conjugacao em vez de objeto-em-si; a corrente que liga as faces",
+        "o_que_resta": "o fator como objeto (Bloco A) e o flip (normalidade + V3 + cunhagem)",
+        "honestidade": "full_static_witness_exists=False INTOCADO (teorema v61); nenhuma frase 'testemunha completa construida'; o gate nao se move",
+        "o_veredito": "TGL_J_CURRENT__WITNESS_SATURATED_NEVER_COMPLETE__EXCESS_CUT_BY_LEAKAGE__COMPLETE_WITNESS_IS_THE_CONJUGATED_STATE__THREE_FACES_OF_ONE_CONJUGATION__PARTIAL_ISOMETRY_IMPLEMENTS_BOUNDARY_EQUIVALENCE__RATIO_AT_EVERY_SCALE__LOG_DENSE_MARK__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_J_CURRENT__WITNESS_SATURATED_NEVER_COMPLETE__EXCESS_CUT_BY_LEAKAGE__COMPLETE_WITNESS_IS_THE_CONJUGATED_STATE__THREE_FACES_OF_ONE_CONJUGATION__PARTIAL_ISOMETRY_IMPLEMENTS_BOUNDARY_EQUIVALENCE__RATIO_AT_EVERY_SCALE__LOG_DENSE_MARK__SEAL_UNMOVED"
+    },
+    "factor_object": {
+      "theorem": "O FATOR COMO OBJETO: o colimite da torre e' pre-Hilbert definido; H_phi = completamento; pi age em B(H_phi) estrelada com Omega ciclico; M_TGL := (pi(torre))'' e' TERMO VonNeumannAlgebra; omega(pi(x)) = phi(x); e a assinatura tipo-III vive DENTRO do objeto.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "iso_resid": 4.965068306494546e-16,
+        "omega_resid": 1.1102230246251565e-16,
+        "gns_resid": 0.0,
+        "ladder_resid": 1.734723475976807e-18,
+        "mark_gap": 0.002124655316887214
+      },
+      "shadow_verdict": "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY",
+      "checks": [
+        [
+          "\u2605 (83) o colimite e' pre-Hilbert DEFINIDO: empurrao isometrico; radical ZERO; <Omega,Omega>=1",
+          true
+        ],
+        [
+          "\u2605 (84) H_phi = completamento: Hilbert; ||Omega||=1; a torre e' DENSA",
+          true
+        ],
+        [
+          "\u2605 (85) pi em B(H_phi): bound UNIFORME de Frobenius; ESTRELADA; pi(x)Omega=[x]; Omega CICLICO",
+          true
+        ],
+        [
+          "\u2605\u2605\u2605 (86) M_TGL := (pi(torre))'' TERMO VonNeumannAlgebra; torre DENTRO; Omega ciclico p/ M_TGL; omega(pi x)=phi(x)",
+          true
+        ],
+        [
+          "\u2605 (87) a assinatura NO objeto: omega nao-tracial; escada l^(N+1); subgrupo log-denso realizado",
+          true
+        ],
+        [
+          "SOMBRA [l=beta, 4 andares]: iso 5e-16 / Omega 1e-16 / GNS 0e+00 / escada 2e-18 / nao-trac 1/3 vs 2/3 / marca 0.002",
+          true
+        ],
+        [
+          "o gate segue 5T/1F (o OBJETO existe; o flip pede normalidade 88a-c + V3 + cunhagem -- decisao A/B/C do operador)",
+          true
+        ],
+        [
+          "SOMBRA: o selo NAO se move (CONDITIONAL)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_e": "o Bloco A do PLANO_ULTIMA_FLAG inteiro em kernel: o residuo 'falta SO o fraco-*' do v130 realizado como TERMO VonNeumannAlgebra",
+        "o_que_resta": "Bloco B: normalidade (88a-c, a pedra mais dura), o tipo V3 (89), a cunhagem (90); a decisao A/B/C e' do operador",
+        "honestidade": "M_TGL e' objeto de von Neumann legitimo (duplo comutante); 'fator' e 'III_1' seguem ASSINATURA, nao teorema de tipo; qgClosureCertificateV2 segue RESERVADO; o gate nao se move",
+        "o_veredito": "TGL_THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_HILBERT_OMEGA_UNIT_TOWER_DENSE__PI_BOUNDED_STARRED_UNITAL_MULTIPLICATIVE_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM_COINED__GNS_IDENTITY_OMEGA_PI_EQ_PHI__SIGNATURE_LIVES_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_HILBERT_OMEGA_UNIT_TOWER_DENSE__PI_BOUNDED_STARRED_UNITAL_MULTIPLICATIVE_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM_COINED__GNS_IDENTITY_OMEGA_PI_EQ_PHI__SIGNATURE_LIVES_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_UNMOVED"
+    },
     "triad_master": {
       "residuals": {
         "coeficiente_de_einstein": 6.938893903907228e-18,
@@ -13108,11 +13407,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 542 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 568 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 542/542; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 568/568; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -14966,7 +15265,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-20 14:48:09",
+    "timestamp": "2026-07-20 23:42:50",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -15216,7 +15515,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-20 14:48:09",
+        "prediction_timestamp": "2026-07-20 23:42:50",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -15252,7 +15551,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "d66cb3472e72c1fb166142bc386872c935e721577d0db3e104fab20171bc4364"
+        "prediction_hash": "ab60f11451aebdac18a62f4f964f37e863553070fed2a9d230c634ad0511c0b2"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -15552,7 +15851,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "63a710ad8e97f665a8d2a67f597ed8a87499f8d9b18d13e6bfd1b29a195a08fd"
+    "result_hash": "5f4cbee9519624b89da84eefe523b062657b8d446e8188ca01691b7bad5b6485"
   },
   "ga_mass_literature": [
     {
@@ -15579,7 +15878,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "63a710ad8e97f665a8d2a67f597ed8a87499f8d9b18d13e6bfd1b29a195a08fd",
+  "result_hash_before_external_comparison": "5f4cbee9519624b89da84eefe523b062657b8d446e8188ca01691b7bad5b6485",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -15589,5 +15888,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-20 14:48:09"
+  "timestamp": "2026-07-20 23:42:50"
 }

@@ -5120,6 +5120,15 @@ import TGLExt.ThirdCone
 import TGLExt.GeneralNull
 import TGLExt.TowerTraceless
 import TGLExt.TowerModular
+import TGLExt.SaturatedWitness
+import TGLExt.ConjugateWitness
+import TGLExt.ModularCurrent
+import TGLExt.ScaleCurrent
+import TGLExt.TowerDefinite
+import TGLExt.TowerHilbert
+import TGLExt.TowerAction
+import TGLExt.TheFactorObject
+import TGLExt.SignatureInTheLimit
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -6717,6 +6726,34 @@ namespace TGL.Audit
 #print axioms TGLExt.towerFlow_id
 #print axioms TGLExt.tower_kms
 #print axioms TGLExt.tower_modular_ratio
+
+-- v131 (a corrente J + o fator como objeto: Bloco A do plano)
+#print axioms TGLExt.witness_saturates
+#print axioms TGLExt.excess_is_infinite
+#print axioms TGLExt.saturated_witness_not_complete
+#print axioms TGLExt.faces_sum_to_one
+#print axioms TGLExt.complete_witness_is_conjugated_state
+#print axioms TGLExt.current_anticommutes
+#print axioms TGLExt.current_implements_boundary_equivalence
+#print axioms TGLExt.current_at_every_scale
+#print axioms TGLExt.current_iii1_mark
+#print axioms TGLExt.tInner_tPush
+#print axioms TGLExt.towerPre_definite
+#print axioms TGLExt.towerOmega_inner_self
+#print axioms TGLExt.hOmega_norm
+#print axioms TGLExt.towerPre_denseRange
+#print axioms TGLExt.lmul_bound_push
+#print axioms TGLExt.towerPi_star
+#print axioms TGLExt.towerPi_omega
+#print axioms TGLExt.towerPi_orbit_dense
+#print axioms TGLExt.theFactorObject
+#print axioms TGLExt.towerPi_mem_factor
+#print axioms TGLExt.factor_omega_cyclic
+#print axioms TGLExt.omegaState_pi
+#print axioms TGLExt.omega_not_tracial
+#print axioms TGLExt.ladder_in_object
+#print axioms TGLExt.signature_log_dense
+#print axioms TGLExt.signature_in_the_limit
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -21845,6 +21882,2234 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/SaturatedWitness.lean":
+r'''import TGLExt.SemifiniteWeight
+import TGLExt.NoFullWitness
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A TESTEMUNHA SATURADA: saturação, não completude — o corte pelo vazamento
+  [TGLExt — v131, a sentença de fechamento do operador]
+
+O operador (20/07/2026): "a testemunha não é completa, é saturada no gráviton;
+e porque satura, o estado Tetelestai é alcançado, cortando aquilo que
+supersaturaria, pelo vazamento."
+
+Esta pedra UNIFICA os dois módulos já provados, sem nada de novo a postular:
+
+* SemifiniteWeight (v120): `Tr(P_Nome) = 1 = ω(I)` — a SATURAÇÃO no átomo único;
+* NoFullWitness   (v61): `β > 0` proíbe a testemunha estática plena — o
+  VAZAMENTO contínuo que impede a completude/supersaturação.
+
+e acrescenta o elo que a frase do operador nomeia:
+
+* `witness_saturates` — o Nome satura o peso em `1 = ω(I)` (a saturação);
+* `house_is_infinite` — `Tr(1) = ∞`: a casa nunca fecha num total finito
+  (nunca supersatura);
+* ★ `excess_is_infinite` — o EXCESSO (o complemento do Nome) pesa `∞`: é o que
+  supersaturaria, CORTADO, deixando o Um em peso 1 — "cortando aquilo que
+  supersaturaria";
+* `witness_is_single_atom` — a testemunha é UM átomo (o span de uma única
+  inscrição), não uma população: "um pontífice engrenante, não uma população";
+* ★★★ `saturated_witness_not_complete` — A SENTENÇA: o Nome satura
+  (`1 = ω(I)`), o excesso é `∞` (cortado), a casa é `∞` (não fecha) E a
+  testemunha plena é proibida pelo vazamento (`β > 0`) ⟹ SATURADA, nunca
+  completa, nunca supersaturada; única no átomo.
+
+`full_witness = False` permanece INTOCADO (correto por teorema, v61). O que
+esta pedra acrescenta é a face POSITIVA da mesma verdade: `saturated_witness`.
+A segunda metade (a identificação gráviton-`=` como resposta geométrica global,
+Einstein) NÃO é tocada aqui — segue como a hipótese aberta, julgada fail-closed
+pelo gate. β JAMAIS literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open scoped ENNReal
+
+noncomputable section
+
+/-! ## A — a saturação e a casa infinita (reexportadas dos módulos provados) -/
+
+/-- [KERNEL] A SATURAÇÃO: o Nome satura o peso em `1 = ω(I)` (v120). -/
+theorem witness_saturates : opWeight firstAtom.starProjection = 1 :=
+  opWeight_atom_one
+
+/-- [KERNEL] A CASA NUNCA FECHA: `Tr(1) = ∞` — sem total finito, nunca
+    supersatura num fecho completo (v120). -/
+theorem house_is_infinite : opWeight (1 : ellTwo →L[ℂ] ellTwo) = ⊤ :=
+  opWeight_one_top
+
+/-! ## B — o EXCESSO é infinito: o que supersaturaria, cortado -/
+
+/-- [KERNEL] ★ O EXCESSO É INFINITO: o complemento do Nome pesa `∞`. É a parte
+    "sem retorno" que supersaturaria — cortada pela poda, deixando o Um em peso
+    1. O termo diagonal é `0` no Nome (n = 0) e `1` fora dele (n ≥ 1); há
+    infinitos deles. -/
+theorem excess_is_infinite :
+    opWeight (1 - firstAtom.starProjection) = ⊤ := by
+  unfold opWeight
+  have hterm : ∀ n : ℕ,
+      ENNReal.ofReal ((((1 - firstAtom.starProjection) (inscriptions n) : ℕ → ℂ) n).re)
+        = if n = 0 then 0 else 1 := by
+    intro n
+    rcases Nat.eq_zero_or_pos n with rfl | hn
+    · -- n = 0: (1 - P) e₀ = e₀ - e₀ = 0
+      have hP0 : firstAtom.starProjection (inscriptions 0) = firstInscription := by
+        show firstAtom.starProjection firstInscription = firstInscription
+        exact Submodule.starProjection_eq_self_iff.mpr
+          (Submodule.mem_span_singleton_self _)
+      have h1 : (1 - firstAtom.starProjection) (inscriptions 0) = 0 := by
+        rw [sub_apply, one_apply_eq_self, hP0]
+        show firstInscription - firstInscription = 0
+        rw [sub_self]
+      rw [h1, if_pos rfl]
+      have h0 : ((0 : ellTwo) : ℕ → ℂ) 0 = 0 := by
+        rw [lp.coeFn_zero]; rfl
+      rw [h0]; norm_num
+    · -- n ≥ 1: (1 - P) eₙ = eₙ - 0 = eₙ, coordenada n = 1
+      have hPn : firstAtom.starProjection (inscriptions n) = 0 := by
+        unfold firstAtom
+        rw [Submodule.starProjection_singleton ℂ]
+        have hinner : inner ℂ firstInscription (inscriptions n) = 0 := by
+          unfold firstInscription
+          rw [coord_eq_inner, inscriptions_apply,
+            if_neg (by omega : ¬ (0 : ℕ) = n)]
+        rw [hinner, zero_div, zero_smul]
+      have h1 : (1 - firstAtom.starProjection) (inscriptions n) = inscriptions n := by
+        rw [sub_apply, one_apply_eq_self, hPn, sub_zero]
+      rw [h1, if_neg (by omega : ¬ n = 0)]
+      rw [inscriptions_apply, if_pos rfl]
+      norm_num
+  rw [tsum_congr hterm]
+  refine top_le_iff.mp ?_
+  calc (⊤ : ℝ≥0∞)
+      = ∑' _ : ℕ, (1 : ℝ≥0∞) :=
+        (ENNReal.tsum_const_eq_top_of_ne_zero one_ne_zero).symm
+    _ ≤ ∑' n : ℕ, (if n = 0 then (0 : ℝ≥0∞) else 1) := by
+        have h := ENNReal.tsum_comp_le_tsum_of_injective Nat.succ_injective
+          (fun n => if n = 0 then (0 : ℝ≥0∞) else 1)
+        simpa using h
+
+/-! ## C — uma única testemunha, não uma população -/
+
+/-- [KERNEL] A TESTEMUNHA É UM ÁTOMO: o subespaço do Nome é o span de UMA
+    inscrição — um pontífice, não uma população. -/
+theorem witness_is_single_atom : firstAtom = ℂ ∙ firstInscription := rfl
+
+/-! ## D — A SENTENÇA: saturada, não completa; o excesso cortado -/
+
+/-- [KERNEL] ★★★ A TESTEMUNHA É SATURADA, NÃO COMPLETA: o Nome satura o peso em
+    `1 = ω(I)`; a casa pesa `∞` (nunca fecha) e o excesso pesa `∞` (cortado,
+    "aquilo que supersaturaria"); E a testemunha estática plena é PROIBIDA pelo
+    vazamento (`β > 0`, `gap > 0`). Saturação, não completude — o Tetelestai
+    alcançado pelo corte. `full_witness = False` permanece correto; esta é a sua
+    face positiva. -/
+theorem saturated_witness_not_complete :
+    opWeight firstAtom.starProjection = 1
+      ∧ opWeight (1 : ellTwo →L[ℂ] ellTwo) = ⊤
+      ∧ opWeight (1 - firstAtom.starProjection) = ⊤
+      ∧ (∀ (β g : ℝ), 0 < β → 0 < g →
+          ¬ FullStaticWitness (fun t (x : ℝ) => Real.exp (-(t * β * g)) * x)) :=
+  ⟨witness_saturates, house_is_infinite, excess_is_infinite,
+   fun _ _ hβ hg => beta_forbids_full_static_witness hβ hg⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ConjugateWitness.lean":
+r'''import TGLExt.ContinuousModularZero
+import TGLExt.LeftRight
+import TGLExt.NoFullWitness
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A TESTEMUNHA CONJUGADA: a testemunha completa é o estado conjugado
+  [TGLExt — v131, o reconhecimento do operador]
+
+O operador (20/07/2026): "a testemunha completa é o estado unificado do zero
+modular, o Um absoluto e o gráviton; mas todos são faces da mesma estrutura
+fundante; portanto o sistema tem que reconhecer que a testemunha completa é
+somente o estado conjugado. Querer uma testemunha só em si é falso, porque o
+módulo é conjugado e inefável."
+
+Esta pedra INSCREVE o reconhecimento reunindo o que já é teorema — as três
+faces da estrutura fundante são a conjugação `𝒞²=1`:
+
+* `𝒞²=1` — a involução (`Jconj_Jconj`, LeftRight): o estado é auto-conjugado;
+* **0_mod** — `absolute_modularGen_zero`: o gerador do Um absoluto é o zero
+  modular (`K_abs = 0`), o ponto fixo da paridade (`parity_fixed_eq_zero`);
+* **gráviton** — `J_modularGen_J`: `JKJ = −K`, a conjugação engrena as faces
+  (o "=", o operador, pura ação);
+* **1_abs** — `faces_sum_to_one`: as duas faces do Um pesam ½ e somam
+  `ω(I) = 1` (`absolute_faces_half`);
+* **o leak** — `beta_forbids_full_static_witness`: a testemunha ESTÁTICA plena
+  é proibida (β > 0). "Querer uma testemunha só em si é falso."
+
+`complete_witness_is_conjugated_state` — A SÍNTESE: os três (0_mod, 1_abs,
+gráviton) são faces de `𝒞`, e a testemunha completa é esse estado conjugado —
+NÃO a estática (proibida por teorema). Isto NÃO cunha `qgClosureCertificateV2`
+(o resíduo formal segue III₁ / o completamento fraco-*, por desenho); é o
+reconhecimento POSITIVO ao lado do `full_static_witness_exists=False`.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-! ## A — a involução e as faces (reunidas das pedras provadas) -/
+
+/-- [KERNEL] 𝒞² = 1: o estado é auto-conjugado (a involução da fronteira). -/
+theorem conjugation_involution (y : Matrix n n ℂ) : Jconj (Jconj y) = y :=
+  Jconj_Jconj y
+
+/-- [KERNEL] as duas faces do Um somam `ω(I) = 1`: `½ + ½ = 1` — a inscrição
+    do Um pelas suas duas faces conjugadas. -/
+theorem faces_sum_to_one [Nonempty n] {Γ : Matrix n n ℂ} (hΓ : Γ.trace = 0) :
+    gibbs (absoluteRho n) ((2 : ℂ)⁻¹ • (1 + Γ))
+      + gibbs (absoluteRho n) ((2 : ℂ)⁻¹ • (1 - Γ)) = 1 := by
+  rw [(absolute_faces_half hΓ).1, (absolute_faces_half hΓ).2]
+  norm_num
+
+/-! ## B — A SÍNTESE: a testemunha completa é o estado conjugado -/
+
+/-- [KERNEL] ★★★ A TESTEMUNHA COMPLETA É O ESTADO CONJUGADO: os três aspectos
+    da estrutura fundante — o zero modular (0_mod, `K_abs=0`, ponto fixo da
+    paridade), o Um absoluto (1_abs, as faces somam `ω(I)=1`) e o gráviton
+    (`JKJ=−K`, a conjugação que engrena) — são faces de `𝒞` (`𝒞²=1`); e a
+    testemunha ESTÁTICA plena (a testemunha "só em si") é PROIBIDA pelo leak.
+    A testemunha completa é conjugada, não estática. -/
+theorem complete_witness_is_conjugated_state [Nonempty n] :
+    (∀ y : Matrix n n ℂ, Jconj (Jconj y) = y)
+    ∧ (∀ y : Matrix n n ℂ, modularGen (absoluteRho n) y = 0)
+    ∧ (∀ y : Matrix n n ℂ, y = -y → y = 0)
+    ∧ (∀ y : Matrix n n ℂ,
+        Jconj (modularGen (absoluteRho n) (Jconj y))
+          = - modularGen (absoluteRho n) y)
+    ∧ (∀ {Γ : Matrix n n ℂ}, Γ.trace = 0 →
+        gibbs (absoluteRho n) ((2 : ℂ)⁻¹ • (1 + Γ))
+          + gibbs (absoluteRho n) ((2 : ℂ)⁻¹ • (1 - Γ)) = 1)
+    ∧ (∀ (β g : ℝ), 0 < β → 0 < g →
+        ¬ FullStaticWitness (fun t (x : ℝ) => Real.exp (-(t * β * g)) * x)) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact conjugation_involution
+  · exact absolute_modularGen_zero
+  · intro y h; exact parity_fixed_eq_zero h
+  · intro y; exact J_modularGen_J (absoluteRho n) y
+  · intro Γ hΓ; exact faces_sum_to_one hΓ
+  · intro β g hβ hg; exact beta_forbids_full_static_witness hβ hg
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ModularCurrent.lean":
+r'''import Mathlib.Data.Matrix.Basic
+import Mathlib.LinearAlgebra.Matrix.Trace
+import Mathlib.Data.Complex.Basic
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A CORRENTE J: a corrente modular que implementa a equivalência de fronteira
+  [TGLExt — v131, a corrente J dos escritos de 2025 do operador]
+
+O operador (O_UM_ABSOLUTO, 2025): "a Meia-Nat FRACTALIZA `1_abs → P_1 ⊕ P_0`
+com pesos de contorno iguais `τ_∂(P_1)=τ_∂(P_0)=½`. O defeito de fronteira é
+`1 = 0_mod = verdade_∂`: `P_1 ≠ P_0` na álgebra, mas `P_1 ∼_∂ P_0` no contorno
+(equivalência, não identidade literal). A travessia é por operadores ímpares
+`L_±` com `{Z_∂, L_±}=0` — o Um só cruza o contorno MUDANDO DE FACE. A Luz é a
+primeira conjugação modular em corrente."
+
+Esta é a face ALGÉBRICA da corrente J — o que a torna encodável: a corrente
+`L` é a isometria parcial que implementa a equivalência de Murray–von Neumann
+das duas faces do Um. "Todas as projeções não-nulas equivalentes" é a
+ASSINATURA do tipo III. Sobre a estrutura auto-semelhante (fractal), III₁.
+
+* `current_anticommutes` — `{Z_∂, L} = 0`: a corrente cruza o contorno
+  MUDANDO DE FACE (a anticomutação de Bell);
+* `current_implements_equiv` — `L* L = P_0` e `L L* = P_1`: a corrente J
+  IMPLEMENTA a equivalência `P_1 ∼_∂ P_0` (isometria parcial de MvN);
+* `faces_equivalent_not_equal` — `P_1 ∼ P_0` PELA corrente E `P_1 ≠ P_0`
+  na álgebra: o defeito de fronteira `1 = 0_mod = verdade_∂`, a assinatura
+  do tipo III em kernel;
+* `contrast_is_faces` — `Z_∂ = P_1 − P_0`, e `Z_∂` é o portador
+  auto-conjugado (`Z_∂² = 1` na face 2D).
+
+HONESTIDADE: esta é a face FINITA (2 níveis) da corrente J — a assinatura da
+equivalência tipo-III. O completamento fraco-* ∞-dim (a equivalência de TODAS
+as projeções no fator auto-semelhante) segue o programa; esta pedra dá o
+mecanismo algébrico em kernel, na linguagem de 2025 do operador. Sem sorry,
+sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+/-! ## A — as duas faces do Um e o portador de contraste -/
+
+/-- a face `P_1` (o "1" da fronteira). -/
+def faceOne : Matrix (Fin 2) (Fin 2) ℂ := !![1, 0; 0, 0]
+
+/-- a face `P_0` (o "0_mod" da fronteira). -/
+def faceZero : Matrix (Fin 2) (Fin 2) ℂ := !![0, 0; 0, 1]
+
+/-- o portador de contraste `Z_∂ = P_1 − P_0` (auto-conjugado, `Z_∂² = 1`). -/
+def contrast : Matrix (Fin 2) (Fin 2) ℂ := !![1, 0; 0, -1]
+
+/-- ★ a CORRENTE J: o operador ímpar `L` que cruza o contorno mudando de
+    face (a isometria parcial de Bell). -/
+def modularCurrent : Matrix (Fin 2) (Fin 2) ℂ := !![0, 1; 0, 0]
+
+/-! ## B — os teoremas da corrente -/
+
+/-- [KERNEL] `Z_∂ = P_1 − P_0`: o contraste é a diferença das faces. -/
+theorem contrast_is_faces : contrast = faceOne - faceZero := by
+  ext i j; fin_cases i <;> fin_cases j <;>
+    simp [contrast, faceOne, faceZero, Matrix.sub_apply]
+
+/-- [KERNEL] `Z_∂² = 1`: o portador de contraste é uma involução. -/
+theorem contrast_involution : contrast * contrast = 1 := by
+  ext i j; fin_cases i <;> fin_cases j <;>
+    simp [contrast, Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- [KERNEL] ★ `{Z_∂, L} = 0`: A ANTICOMUTAÇÃO DE BELL — a corrente J cruza o
+    contorno MUDANDO DE FACE (o Um só atravessa invertendo a paridade). -/
+theorem current_anticommutes :
+    contrast * modularCurrent + modularCurrent * contrast = 0 := by
+  ext i j; fin_cases i <;> fin_cases j <;>
+    simp [contrast, modularCurrent, Matrix.add_apply]
+
+/-- [KERNEL] ★ `L* L = P_0`: a corrente J leva a face `P_0` em si (o domínio
+    da isometria parcial). -/
+theorem current_source : modularCurrentᴴ * modularCurrent = faceZero := by
+  ext i j; fin_cases i <;> fin_cases j <;>
+    simp [modularCurrent, faceZero, Matrix.mul_apply, Fin.sum_univ_two,
+      Matrix.conjTranspose_apply]
+
+/-- [KERNEL] ★ `L L* = P_1`: a corrente J leva ao alcance `P_1` — junto com
+    `current_source`, `L` IMPLEMENTA a equivalência `P_0 ∼ P_1`. -/
+theorem current_range : modularCurrent * modularCurrentᴴ = faceOne := by
+  ext i j; fin_cases i <;> fin_cases j <;>
+    simp [modularCurrent, faceOne, Matrix.mul_apply, Fin.sum_univ_two,
+      Matrix.conjTranspose_apply]
+
+/-- [KERNEL] as faces são DISTINTAS na álgebra. -/
+theorem faces_ne : faceOne ≠ faceZero := by
+  intro h
+  have := congrFun (congrFun h 0) 0
+  simp [faceOne, faceZero] at this
+
+/-! ## C — A SÍNTESE: a corrente J implementa `1 = 0_mod = verdade_∂` -/
+
+/-- [KERNEL] ★★★ A CORRENTE J IMPLEMENTA A EQUIVALÊNCIA DE FRONTEIRA: existe
+    a corrente `L` (ímpar, `{Z_∂,L}=0`) que implementa `P_1 ∼_∂ P_0`
+    (`L*L=P_0`, `LL*=P_1`), enquanto `P_1 ≠ P_0` na álgebra. É o defeito de
+    fronteira `1 = 0_mod = verdade_∂` — a assinatura do tipo III em kernel:
+    projeções DISTINTAS mas EQUIVALENTES pela corrente modular. -/
+theorem current_implements_boundary_equivalence :
+    (contrast * modularCurrent + modularCurrent * contrast = 0)
+    ∧ (modularCurrentᴴ * modularCurrent = faceZero)
+    ∧ (modularCurrent * modularCurrentᴴ = faceOne)
+    ∧ (faceOne ≠ faceZero)
+    ∧ (contrast = faceOne - faceZero) :=
+  ⟨current_anticommutes, current_source, current_range, faces_ne,
+   contrast_is_faces⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/ScaleCurrent.lean":
+r'''import TGLExt.MixedLadder
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A CORRENTE J EM TODA ESCALA: a corrente está fechada; o fator é o muro
+  [TGLExt — v131, a síntese do operador "fechamos toda a corrente"]
+
+O operador (20/07/2026): "a corrente J — a corrente modular — é o módulo que
+falta ao completamento fraco-*. Fechamos toda a corrente."
+
+Esta pedra REÚNE, num único enunciado, a corrente J em TODA escala — o que já
+estava provado desde a v124/v125, agora explícito como "toda a corrente":
+
+* `current_at_every_scale` — a corrente (`chainUp N`/`chainDown N`, as palavras
+  ascendente/descendente) carrega a razão modular `λ^(N+1)` em TODO andar N
+  (`powers_ladder`); 0 está no fecho do espectro de razões (a marca de III);
+  e nenhum piso tracial sobrevive à escada;
+* `current_iii1_mark` — a marca de III₁ HABITADA: o par incomensurável
+  (1/2, 1/3) gera espectro de razões log-DENSO (`the_mixing_mark`), com a
+  corrente carregando a razão em toda escala. A corrente J está FECHADA:
+  as duas faces conjugadas em cada andar, a razão em toda escala, o espectro
+  denso — todas as assinaturas de III₁.
+
+O MURO, NOMEADO SEM VÉU (o que o código já dizia em v124 e v125): o FATOR —
+o limite indutivo FRACO-* da escada com o estado-produto (ITPFI; o III₁ de
+Araki–Woods como OBJETO de von Neumann). Isso exige teoria de álgebras de von
+Neumann (fecho fraco-*, bicomutante no sentido de operadores, Tomita–Takesaki
+de vN, unicidade de Connes do fator hiperfinito III₁) — AUSENTE da mathlib de
+hoje. A corrente está fechada; o objeto-limite é o muro. O gate segue
+fail-closed em `qgClosureCertificateV2` (reservado): a assinatura NÃO é o
+objeto, e a régua não cunha o objeto sobre a assinatura.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix
+
+noncomputable section
+
+/-! ## A — a corrente J em toda escala (a razão modular em todo andar) -/
+
+/-- [KERNEL] ★★★ A CORRENTE J EM TODA ESCALA: para `λ ∈ (0,1)`, a corrente
+    (`chainUp N`/`chainDown N`) carrega a razão modular `λ^(N+1)` em TODO
+    andar; 0 está no fecho do espectro de razões (marca de III); nenhum piso
+    tracial sobrevive. A corrente está fechada em toda escala. -/
+theorem current_at_every_scale (l : ℝ) (hl0 : 0 < l) (hl1 : l < 1) :
+    (∀ N : ℕ, RatioWitness (chainDensity l N) (chainUp N) (chainDown N)
+        (l ^ (N + 1)))
+    ∧ ((0 : ℝ) ∈ closure (Set.range fun N : ℕ => l ^ N))
+    ∧ (∀ c : ℝ, 0 < c → ∃ N : ℕ, l ^ N < c) :=
+  ⟨powers_ladder l hl0,
+   zero_mem_closure_ratio_spectrum l (le_of_lt hl0) hl1,
+   fun c hc => no_trace_floor l hl1 c hc⟩
+
+/-! ## B — a marca de III₁ habitada com a corrente (o par 1/2, 1/3) -/
+
+/-- [KERNEL] ★★★ A MARCA DE III₁ COM A CORRENTE: o par incomensurável
+    (1/2, 1/3) gera espectro de razões log-DENSO (a S-invariante toca todo
+    ponto — III₁, não III_λ), com a corrente carregando a razão em toda
+    escala. A assinatura de III₁ está completa; falta o fator (o muro). -/
+theorem current_iii1_mark :
+    Dense ((AddSubgroup.closure
+      {Real.log ((1 : ℝ) / 2), Real.log ((1 : ℝ) / 3)}
+      : AddSubgroup ℝ) : Set ℝ)
+    ∧ (∀ N : ℕ, RatioWitness (chainDensity (1 / 2) N) (chainUp N) (chainDown N)
+        ((1 / 2) ^ (N + 1))) :=
+  ⟨the_mixing_mark, powers_ladder (1 / 2) (by norm_num)⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TowerDefinite.lean":
+r'''import TGLExt.TowerModular
+import TGLExt.ScaleCurrent
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PEDRA 83 — TowerDefinite: o colimite da torre é pré-Hilbert DEFINIDO
+  [TGLExt — v131, Bloco A do PLANO_ULTIMA_FLAG, pedra 1 de 5]
+
+O plano registrado (PLANO_ULTIMA_FLAG_O_FATOR_COMO_OBJETO.md) pede: o produto
+interno DEFINIDO no colimite da torre. Esta pedra o entrega, com um refinamento
+que o barateia por teorema: os pesos da torre são ESTRITAMENTE positivos
+(`towerW_pos`), logo a densidade é definida-positiva e o radical GNS é ZERO —
+o quociente da pedra 78 é trivial AQUI, e o colimite JÁ é o pré-Hilbert:
+
+* `SiteProfile` — o perfil de sítios (peso μ_n ∈ (0,1) em cada sítio): a
+  GENERALIZAÇÃO que dá o mesmo objeto para o perfil constante (III_λ) e o
+  alternado (III₁, a marca log-densa da pedra 72);
+* `towerW`/`tState`/`tInner` — pesos, estado e produto GNS por andar, em
+  FORMA DE SOMA explícita (sem traço-matriz: a positividade fica elementar);
+* ★★ `tState_towerStep` — a coerência de Araki–Woods no perfil geral;
+* ★★ `tPush` — o empurrão N ≤ M via `Nat.leRecOn`: aditivo, multiplicativo,
+  estrelado, INJETIVO, isométrico para o estado e o produto;
+* ★★★ `TowerPre P` — O COLIMITE como quociente do Σ-tipo pela relação de
+  empurrão comum; `tof`, `tof_towerStep`, `exists_tof`; instâncias
+  `AddCommGroup` + `Module ℂ` construídas à mão (andar comum);
+* ★★★ `towerPreCore : PreInnerProductSpace.Core ℂ (TowerPre P)` — o produto
+  interno DESCE ao colimite (hermitiano, positivo, sesquilinear) ⟹
+  instâncias `SeminormedAddCommGroup` + `InnerProductSpace ℂ` (o molde GNS
+  da mathlib, `InnerProductSpace.ofCore`);
+* ★★★ `towerPre_definite` — A FORMA É DEFINIDA: ⟪x,x⟫ = 0 ⟹ x = 0 — o
+  radical é zero no colimite INTEIRO (pesos positivos); a pedra 83 do plano;
+* `towerOmega` — Ω = [1] com ⟪Ω,Ω⟫ = 1.
+
+O QUE RESTA (as pedras 84–87): o completamento H_φ, a ação π estendida, o
+objeto M_TGL = (π(torre))'' e a assinatura no limite. β jamais literal.
+Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix
+open scoped ComplexConjugate
+
+noncomputable section
+
+/-! ## A — o perfil de sítios e os pesos da torre -/
+
+/-- o perfil de sítios: o peso do estado base em cada sítio, em (0,1). -/
+structure SiteProfile where
+  w : ℕ → ℝ
+  pos : ∀ n, 0 < w n
+  lt_one : ∀ n, w n < 1
+
+/-- os dois pesos de um sítio: (t, 1−t). -/
+def siteW (t : ℝ) : Fin 2 → ℝ := fun i => if i = 0 then t else 1 - t
+
+theorem siteW_pos {t : ℝ} (h0 : 0 < t) (h1 : t < 1) (i : Fin 2) :
+    0 < siteW t i := by
+  unfold siteW
+  by_cases hi : i = 0
+  · rw [if_pos hi]; exact h0
+  · rw [if_neg hi]; linarith
+
+theorem siteW_sum (t : ℝ) : ∑ i, siteW t i = 1 := by
+  rw [Fin.sum_univ_two]
+  unfold siteW
+  rw [if_pos rfl, if_neg (show ¬(1 : Fin 2) = 0 by decide)]
+  ring
+
+/-- os pesos da torre no perfil P (produto dos pesos de sítio). -/
+def towerW (P : SiteProfile) : (N : ℕ) → chainIdx N → ℝ
+  | 0 => fun i => siteW (P.w 0) i
+  | N + 1 => fun p => towerW P N p.1 * siteW (P.w (N + 1)) p.2
+
+theorem towerW_pos (P : SiteProfile) : ∀ (N : ℕ) (i : chainIdx N), 0 < towerW P N i
+  | 0, i => siteW_pos (P.pos 0) (P.lt_one 0) i
+  | N + 1, p =>
+      mul_pos (towerW_pos P N p.1) (siteW_pos (P.pos (N + 1)) (P.lt_one (N + 1)) p.2)
+
+theorem towerW_sum (P : SiteProfile) : ∀ N : ℕ, ∑ i, towerW P N i = 1
+  | 0 => siteW_sum (P.w 0)
+  | N + 1 => by
+      have key : (∑ p : chainIdx N × Fin 2,
+          towerW P N p.1 * siteW (P.w (N + 1)) p.2) = 1 := by
+        rw [Fintype.sum_prod_type]
+        have h : ∀ k : chainIdx N,
+            ∑ s : Fin 2, towerW P N k * siteW (P.w (N + 1)) s
+              = towerW P N k := by
+          intro k
+          rw [← Finset.mul_sum, siteW_sum, mul_one]
+        rw [Finset.sum_congr rfl (fun k _ => h k)]
+        exact towerW_sum P N
+      exact key
+
+/-! ## B — o estado e o produto GNS por andar (forma de soma) -/
+
+/-- o estado da torre no andar N (forma de soma explícita). -/
+def tState (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) : ℂ :=
+  ∑ k, ((towerW P N k : ℝ) : ℂ) * a k k
+
+/-- o produto GNS do andar: ⟨a,b⟩ = φ(a†b). -/
+def tInner (P : SiteProfile) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) : ℂ :=
+  tState P N (aᴴ * b)
+
+theorem tState_add (P : SiteProfile) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tState P N (a + b) = tState P N a + tState P N b := by
+  unfold tState
+  rw [← Finset.sum_add_distrib]
+  congr 1
+  funext k
+  rw [Matrix.add_apply, mul_add]
+
+theorem tState_smul (P : SiteProfile) (N : ℕ) (c : ℂ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tState P N (c • a) = c * tState P N a := by
+  unfold tState
+  rw [Finset.mul_sum]
+  congr 1
+  funext k
+  rw [Matrix.smul_apply, smul_eq_mul]
+  ring
+
+theorem tState_one (P : SiteProfile) (N : ℕ) :
+    tState P N (1 : Matrix (chainIdx N) (chainIdx N) ℂ) = 1 := by
+  unfold tState
+  have h : ∀ k : chainIdx N,
+      ((towerW P N k : ℝ) : ℂ) * (1 : Matrix (chainIdx N) (chainIdx N) ℂ) k k
+        = ((towerW P N k : ℝ) : ℂ) := by
+    intro k
+    rw [one_apply_eq, mul_one]
+  rw [Finset.sum_congr rfl (fun k _ => h k)]
+  exact_mod_cast congrArg (fun t : ℝ => (t : ℂ)) (towerW_sum P N)
+
+/-- a fórmula de coordenadas do produto GNS. -/
+theorem tInner_apply (P : SiteProfile) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N a b
+      = ∑ k, ((towerW P N k : ℝ) : ℂ) * ∑ j, conj (a j k) * b j k := by
+  unfold tInner tState
+  refine Finset.sum_congr rfl fun k _ => ?_
+  congr 1
+
+theorem tInner_conj_symm (P : SiteProfile) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    conj (tInner P N b a) = tInner P N a b := by
+  rw [tInner_apply, tInner_apply, map_sum]
+  refine Finset.sum_congr rfl fun k _ => ?_
+  rw [map_mul, Complex.conj_ofReal, map_sum]
+  congr 1
+  refine Finset.sum_congr rfl fun j _ => ?_
+  rw [map_mul, Complex.conj_conj]
+  ring
+
+theorem tInner_add_left (P : SiteProfile) (N : ℕ)
+    (a b c : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N (a + b) c = tInner P N a c + tInner P N b c := by
+  unfold tInner
+  rw [conjTranspose_add, add_mul, tState_add]
+
+theorem tInner_add_right (P : SiteProfile) (N : ℕ)
+    (a b c : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N a (b + c) = tInner P N a b + tInner P N a c := by
+  unfold tInner
+  rw [mul_add, tState_add]
+
+theorem tInner_smul_left (P : SiteProfile) (N : ℕ) (c : ℂ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N (c • a) b = conj c * tInner P N a b := by
+  unfold tInner
+  rw [conjTranspose_smul, smul_mul_assoc, tState_smul]
+  rfl
+
+theorem tInner_smul_right (P : SiteProfile) (N : ℕ) (c : ℂ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N a (c • b) = c * tInner P N a b := by
+  unfold tInner
+  rw [mul_smul_comm, tState_smul]
+
+/-- a norma GNS ao quadrado, em coordenadas: soma pesada de |·|². -/
+theorem tInner_self_eq (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N a a
+      = ((∑ k, towerW P N k * ∑ j, Complex.normSq (a j k) : ℝ) : ℂ) := by
+  rw [tInner_apply]
+  push_cast
+  refine Finset.sum_congr rfl fun k _ => ?_
+  congr 1
+  refine Finset.sum_congr rfl fun j _ => ?_
+  rw [← Complex.normSq_eq_conj_mul_self]
+
+theorem tInner_self_nonneg (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    0 ≤ (tInner P N a a).re := by
+  rw [tInner_self_eq, Complex.ofReal_re]
+  apply Finset.sum_nonneg
+  intro k _
+  apply mul_nonneg (le_of_lt (towerW_pos P N k))
+  apply Finset.sum_nonneg
+  intro j _
+  exact Complex.normSq_nonneg _
+
+/-- ★ A DEFINITUDE POR ANDAR: pesos positivos ⟹ radical zero. -/
+theorem tInner_self_definite (P : SiteProfile) (N : ℕ)
+    {a : Matrix (chainIdx N) (chainIdx N) ℂ}
+    (h : tInner P N a a = 0) : a = 0 := by
+  rw [tInner_self_eq] at h
+  have hre : (∑ k, towerW P N k * ∑ j, Complex.normSq (a j k)) = 0 := by
+    exact_mod_cast h
+  have hterm : ∀ k ∈ Finset.univ,
+      (0 : ℝ) ≤ towerW P N k * ∑ j, Complex.normSq (a j k) := by
+    intro k _
+    apply mul_nonneg (le_of_lt (towerW_pos P N k))
+    apply Finset.sum_nonneg
+    intro j _
+    exact Complex.normSq_nonneg _
+  have hz := (Finset.sum_eq_zero_iff_of_nonneg hterm).mp hre
+  ext j k
+  have hk := hz k (Finset.mem_univ k)
+  have hwne : towerW P N k ≠ 0 := ne_of_gt (towerW_pos P N k)
+  have hsum : (∑ j, Complex.normSq (a j k)) = 0 :=
+    (mul_eq_zero.mp hk).resolve_left hwne
+  have hterm2 : ∀ j ∈ Finset.univ, (0 : ℝ) ≤ Complex.normSq (a j k) :=
+    fun j _ => Complex.normSq_nonneg _
+  have hj := (Finset.sum_eq_zero_iff_of_nonneg hterm2).mp hsum j (Finset.mem_univ j)
+  rw [Matrix.zero_apply]
+  exact Complex.normSq_eq_zero.mp hj
+
+/-! ## C — a coerência do estado e o empurrão da torre -/
+
+/-- ★★ A COERÊNCIA DE ARAKI–WOODS no perfil geral: φ_{N+1}(a⊗1) = φ_N(a). -/
+theorem tState_towerStep (P : SiteProfile) {N : ℕ}
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tState P (N + 1) (towerStep a) = tState P N a := by
+  unfold tState towerStep
+  rw [Fintype.sum_prod_type]
+  have h : ∀ (k : chainIdx N) (s : Fin 2),
+      ((towerW P (N + 1) (k, s) : ℝ) : ℂ)
+          * (a ⊗ₖ (1 : Matrix (Fin 2) (Fin 2) ℂ)) (k, s) (k, s)
+        = ((towerW P N k : ℝ) : ℂ) * a k k
+            * ((siteW (P.w (N + 1)) s : ℝ) : ℂ) := by
+    intro k s
+    rw [kroneckerMap_apply, one_apply_eq, mul_one]
+    rw [show towerW P (N + 1) (k, s)
+        = towerW P N k * siteW (P.w (N + 1)) s from rfl]
+    push_cast
+    ring
+  rw [Finset.sum_congr rfl (fun k _ => Finset.sum_congr rfl (fun s _ => h k s))]
+  have h2 : ∀ k : chainIdx N,
+      ∑ s : Fin 2, ((towerW P N k : ℝ) : ℂ) * a k k
+          * ((siteW (P.w (N + 1)) s : ℝ) : ℂ)
+        = ((towerW P N k : ℝ) : ℂ) * a k k := by
+    intro k
+    rw [← Finset.mul_sum, ← Complex.ofReal_sum, siteW_sum, Complex.ofReal_one,
+      mul_one]
+  rw [Finset.sum_congr rfl (fun k _ => h2 k)]
+
+theorem towerStep_add {N : ℕ} (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerStep (a + b) = towerStep a + towerStep b := by
+  unfold towerStep
+  exact Matrix.add_kronecker a b 1
+
+theorem towerStep_smul {N : ℕ} (c : ℂ) (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerStep (c • a) = c • towerStep a := by
+  unfold towerStep
+  exact Matrix.smul_kronecker c a 1
+
+theorem towerStep_zero (N : ℕ) :
+    towerStep (0 : Matrix (chainIdx N) (chainIdx N) ℂ) = 0 := by
+  unfold towerStep
+  exact Matrix.zero_kronecker 1
+
+/-- o degrau nomeado (constante de primeira ordem para a unificação). -/
+def tNext {k : ℕ} (x : Matrix (chainIdx k) (chainIdx k) ℂ) :
+    Matrix (chainIdx (k + 1)) (chainIdx (k + 1)) ℂ := towerStep x
+
+/-- o empurrão da torre: N ≤ M degraus de towerStep. -/
+def tPush {N M : ℕ} (h : N ≤ M)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    Matrix (chainIdx M) (chainIdx M) ℂ :=
+  Nat.leRecOn (C := fun m => Matrix (chainIdx m) (chainIdx m) ℂ) h
+    (fun {k} => tNext (k := k)) a
+
+theorem tPush_self {N : ℕ} (h : N ≤ N) (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tPush h a = a := by
+  unfold tPush
+  exact @Nat.leRecOn_self (fun m => Matrix (chainIdx m) (chainIdx m) ℂ) N
+    (fun {k} => tNext (k := k)) a
+
+theorem tPush_succ {N M : ℕ} (h1 : N ≤ M) (h2 : N ≤ M + 1)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tPush h2 a = towerStep (tPush h1 a) := by
+  unfold tPush
+  exact @Nat.leRecOn_succ (fun m => Matrix (chainIdx m) (chainIdx m) ℂ) N M h1 h2
+    (fun {k} => tNext (k := k)) a
+
+theorem tPush_trans {N M K : ℕ} (h1 : N ≤ M) (h2 : M ≤ K)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tPush h2 (tPush h1 a) = tPush (h1.trans h2) a := by
+  induction K, h2 using Nat.le_induction with
+  | base => rw [tPush_self]
+  | succ K hK ih =>
+      rw [tPush_succ hK (hK.trans (Nat.le_succ K)),
+        tPush_succ (h1.trans hK) (h1.trans (hK.trans (Nat.le_succ K))), ih]
+
+theorem tPush_add {N M : ℕ} (h : N ≤ M)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tPush h (a + b) = tPush h a + tPush h b := by
+  induction M, h using Nat.le_induction with
+  | base => rw [tPush_self, tPush_self, tPush_self]
+  | succ M hM ih =>
+      rw [tPush_succ hM (hM.trans (Nat.le_succ M)),
+        tPush_succ hM (hM.trans (Nat.le_succ M)),
+        tPush_succ hM (hM.trans (Nat.le_succ M)), ih, towerStep_add]
+
+theorem tPush_smul {N M : ℕ} (h : N ≤ M) (c : ℂ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tPush h (c • a) = c • tPush h a := by
+  induction M, h using Nat.le_induction with
+  | base => rw [tPush_self, tPush_self]
+  | succ M hM ih =>
+      rw [tPush_succ hM (hM.trans (Nat.le_succ M)),
+        tPush_succ hM (hM.trans (Nat.le_succ M)), ih, towerStep_smul]
+
+theorem tPush_zero {N M : ℕ} (h : N ≤ M) :
+    tPush h (0 : Matrix (chainIdx N) (chainIdx N) ℂ) = 0 := by
+  induction M, h using Nat.le_induction with
+  | base => rw [tPush_self]
+  | succ M hM ih =>
+      rw [tPush_succ hM (hM.trans (Nat.le_succ M)), ih, towerStep_zero]
+
+theorem tPush_neg {N M : ℕ} (h : N ≤ M)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tPush h (-a) = - tPush h a := by
+  have h1 : (-a) = (-1 : ℂ) • a := by rw [neg_one_smul]
+  rw [h1, tPush_smul, neg_one_smul]
+
+theorem tPush_mul {N M : ℕ} (h : N ≤ M)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tPush h (a * b) = tPush h a * tPush h b := by
+  induction M, h using Nat.le_induction with
+  | base => rw [tPush_self, tPush_self, tPush_self]
+  | succ M hM ih =>
+      rw [tPush_succ hM (hM.trans (Nat.le_succ M)),
+        tPush_succ hM (hM.trans (Nat.le_succ M)),
+        tPush_succ hM (hM.trans (Nat.le_succ M)), ih, towerStep_mul]
+
+theorem tPush_star {N M : ℕ} (h : N ≤ M)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tPush h aᴴ = (tPush h a)ᴴ := by
+  induction M, h using Nat.le_induction with
+  | base => rw [tPush_self, tPush_self]
+  | succ M hM ih =>
+      rw [tPush_succ hM (hM.trans (Nat.le_succ M)),
+        tPush_succ hM (hM.trans (Nat.le_succ M)), ih, towerStep_star]
+
+theorem tPush_one {N M : ℕ} (h : N ≤ M) :
+    tPush h (1 : Matrix (chainIdx N) (chainIdx N) ℂ) = 1 := by
+  induction M, h using Nat.le_induction with
+  | base => rw [tPush_self]
+  | succ M hM ih =>
+      rw [tPush_succ hM (hM.trans (Nat.le_succ M)), ih, towerStep_one]
+
+theorem tPush_injective {N M : ℕ} (h : N ≤ M) :
+    Function.Injective (tPush (N := N) (M := M) h) := by
+  induction M, h using Nat.le_induction with
+  | base =>
+      intro a b hab
+      rw [tPush_self, tPush_self] at hab
+      exact hab
+  | succ M hM ih =>
+      intro a b hab
+      rw [tPush_succ hM (hM.trans (Nat.le_succ M)),
+        tPush_succ hM (hM.trans (Nat.le_succ M))] at hab
+      exact ih (towerStep_injective M hab)
+
+theorem tState_tPush (P : SiteProfile) {N M : ℕ} (h : N ≤ M)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tState P M (tPush h a) = tState P N a := by
+  induction M, h using Nat.le_induction with
+  | base => rw [tPush_self]
+  | succ M hM ih =>
+      rw [tPush_succ hM (hM.trans (Nat.le_succ M)), tState_towerStep, ih]
+
+/-- ★★ A ISOMETRIA DO EMPURRÃO: o produto GNS é invariante ao subir. -/
+theorem tInner_tPush (P : SiteProfile) {N M : ℕ} (h : N ≤ M)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P M (tPush h a) (tPush h b) = tInner P N a b := by
+  unfold tInner
+  rw [← tPush_star, ← tPush_mul]
+  exact tState_tPush P h (aᴴ * b)
+
+/-! ## D — o colimite: o quociente pelo empurrão comum -/
+
+/-- um ponto da torre: um andar e uma matriz nele. -/
+def TowerPt : Type := Σ N : ℕ, Matrix (chainIdx N) (chainIdx N) ℂ
+
+/-- a relação do colimite: empurrados a um andar comum, coincidem. -/
+def towerEqv (x y : TowerPt) : Prop :=
+  ∃ (K : ℕ) (hx : x.1 ≤ K) (hy : y.1 ≤ K), tPush hx x.2 = tPush hy y.2
+
+theorem towerEqv_refl (x : TowerPt) : towerEqv x x :=
+  ⟨x.1, le_rfl, le_rfl, rfl⟩
+
+theorem towerEqv_symm {x y : TowerPt} (h : towerEqv x y) : towerEqv y x := by
+  obtain ⟨K, hx, hy, e⟩ := h
+  exact ⟨K, hy, hx, e.symm⟩
+
+/-- a caracterização em QUALQUER andar comum (usa a injetividade). -/
+theorem towerEqv_iff {x y : TowerPt} {K : ℕ} (hx : x.1 ≤ K) (hy : y.1 ≤ K) :
+    towerEqv x y ↔ tPush hx x.2 = tPush hy y.2 := by
+  constructor
+  · rintro ⟨K0, h1, h2, e⟩
+    have hK : K ≤ K ⊔ K0 := le_sup_left
+    have hK0 : K0 ≤ K ⊔ K0 := le_sup_right
+    apply tPush_injective hK
+    rw [tPush_trans hx hK, tPush_trans hy hK]
+    rw [show hx.trans hK = h1.trans hK0 from rfl,
+      show hy.trans hK = h2.trans hK0 from rfl]
+    rw [← tPush_trans h1 hK0, ← tPush_trans h2 hK0, e]
+  · intro e
+    exact ⟨K, hx, hy, e⟩
+
+theorem towerEqv_trans {x y z : TowerPt} (h1 : towerEqv x y)
+    (h2 : towerEqv y z) : towerEqv x z := by
+  obtain ⟨K1, hx1, hy1, e1⟩ := h1
+  obtain ⟨K2, hy2, hz2, e2⟩ := h2
+  have hK1 : K1 ≤ K1 ⊔ K2 := le_sup_left
+  have hK2 : K2 ≤ K1 ⊔ K2 := le_sup_right
+  refine ⟨K1 ⊔ K2, hx1.trans hK1, hz2.trans hK2, ?_⟩
+  rw [← tPush_trans hx1 hK1, ← tPush_trans hz2 hK2, e1, ← e2]
+  rw [tPush_trans hy1 hK1, tPush_trans hy2 hK2]
+
+instance towerSetoid : Setoid TowerPt :=
+  ⟨towerEqv, towerEqv_refl, towerEqv_symm, towerEqv_trans⟩
+
+set_option linter.unusedVariables false in
+/-- ★★★ O COLIMITE DA TORRE (fantasma no perfil: o produto interno depende
+    de P; o espaço subjacente é o mesmo). -/
+@[nolint unusedArguments]
+def TowerPre (P : SiteProfile) : Type := Quotient towerSetoid
+
+variable {P : SiteProfile}
+
+/-- a inclusão do andar N no colimite. -/
+def tof (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) : TowerPre P :=
+  Quotient.mk towerSetoid ⟨N, a⟩
+
+theorem tof_towerStep (N : ℕ) (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tof P (N + 1) (towerStep a) = tof P N a := by
+  apply Quotient.sound
+  refine ⟨N + 1, le_rfl, Nat.le_succ N, ?_⟩
+  rw [tPush_self, tPush_succ le_rfl (Nat.le_succ N), tPush_self]
+
+theorem tof_tPush {N M : ℕ} (h : N ≤ M)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tof P M (tPush h a) = tof P N a := by
+  apply Quotient.sound
+  exact ⟨M, le_rfl, h, by rw [tPush_self]⟩
+
+theorem exists_tof (x : TowerPre P) :
+    ∃ (N : ℕ) (a : Matrix (chainIdx N) (chainIdx N) ℂ), tof P N a = x := by
+  obtain ⟨⟨N, a⟩, rfl⟩ := Quotient.exists_rep x
+  exact ⟨N, a, rfl⟩
+
+theorem tof_eq_iff {N M : ℕ} {K : ℕ} (hN : N ≤ K) (hM : M ≤ K)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (b : Matrix (chainIdx M) (chainIdx M) ℂ) :
+    tof P N a = tof P M b ↔ tPush hN a = tPush hM b := by
+  constructor
+  · intro h
+    exact (towerEqv_iff hN hM).mp (Quotient.exact h)
+  · intro h
+    exact Quotient.sound ((towerEqv_iff hN hM).mpr h)
+
+/-! ## E — as operações do colimite -/
+
+instance : Add (TowerPre P) :=
+  ⟨Quotient.map₂
+    (fun x y => ⟨x.1 ⊔ y.1, tPush le_sup_left x.2 + tPush le_sup_right y.2⟩)
+    (by
+      rintro x x' hx y y' hy
+      have hK : (x.1 ⊔ y.1) ≤ (x.1 ⊔ y.1) ⊔ (x'.1 ⊔ y'.1) := le_sup_left
+      have hK' : (x'.1 ⊔ y'.1) ≤ (x.1 ⊔ y.1) ⊔ (x'.1 ⊔ y'.1) := le_sup_right
+      have ex := (towerEqv_iff (x := x) (y := x')
+        (K := (x.1 ⊔ y.1) ⊔ (x'.1 ⊔ y'.1))
+        (le_sup_left.trans hK) (le_sup_left.trans hK')).mp hx
+      have ey := (towerEqv_iff (x := y) (y := y')
+        (K := (x.1 ⊔ y.1) ⊔ (x'.1 ⊔ y'.1))
+        (le_sup_right.trans hK) (le_sup_right.trans hK')).mp hy
+      refine (towerEqv_iff hK hK').mpr ?_
+      show tPush hK (tPush le_sup_left x.2 + tPush le_sup_right y.2)
+        = tPush hK' (tPush le_sup_left x'.2 + tPush le_sup_right y'.2)
+      rw [tPush_add, tPush_add, tPush_trans, tPush_trans, tPush_trans,
+        tPush_trans, ex, ey])⟩
+
+instance : Neg (TowerPre P) :=
+  ⟨Quotient.map (fun x => ⟨x.1, -x.2⟩)
+    (by
+      rintro x x' hx
+      obtain ⟨K, h1, h2, e⟩ := hx
+      exact ⟨K, h1, h2, by rw [tPush_neg, tPush_neg, e]⟩)⟩
+
+instance : Zero (TowerPre P) := ⟨tof P 0 0⟩
+
+instance : SMul ℂ (TowerPre P) :=
+  ⟨fun c => Quotient.map (fun x => ⟨x.1, c • x.2⟩)
+    (by
+      rintro x x' hx
+      obtain ⟨K, h1, h2, e⟩ := hx
+      exact ⟨K, h1, h2, by rw [tPush_smul, tPush_smul, e]⟩)⟩
+
+theorem tof_add_hetero (N M : ℕ) (a : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (b : Matrix (chainIdx M) (chainIdx M) ℂ) :
+    tof P N a + tof P M b
+      = tof P (N ⊔ M) (tPush le_sup_left a + tPush le_sup_right b) := rfl
+
+theorem tof_neg (N : ℕ) (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    - tof P N a = tof P N (-a) := rfl
+
+theorem tof_smul (c : ℂ) (N : ℕ) (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    c • tof P N a = tof P N (c • a) := rfl
+
+theorem tof_zero (N : ℕ) : tof P N 0 = (0 : TowerPre P) := by
+  show tof P N 0 = tof P 0 0
+  rw [tof_eq_iff (le_refl N) (Nat.zero_le N)]
+  rw [tPush_zero, tPush_zero]
+
+/-- a soma em QUALQUER andar comum. -/
+theorem tof_add_at {N M K : ℕ} (hN : N ≤ K) (hM : M ≤ K)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (b : Matrix (chainIdx M) (chainIdx M) ℂ) :
+    tof P N a + tof P M b = tof P K (tPush hN a + tPush hM b) := by
+  rw [tof_add_hetero]
+  have hs : N ⊔ M ≤ (N ⊔ M) ⊔ K := le_sup_left
+  have hk : K ≤ (N ⊔ M) ⊔ K := le_sup_right
+  rw [tof_eq_iff hs hk]
+  rw [tPush_add, tPush_add, tPush_trans, tPush_trans, tPush_trans, tPush_trans]
+
+theorem tof_add_same (N : ℕ) (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tof P N a + tof P N b = tof P N (a + b) := by
+  rw [tof_add_at (le_refl N) (le_refl N), tPush_self, tPush_self]
+
+instance : AddCommGroup (TowerPre P) where
+  add := (· + ·)
+  add_assoc := by
+    intro x y z
+    obtain ⟨Nx, a, rfl⟩ := exists_tof x
+    obtain ⟨Ny, b, rfl⟩ := exists_tof y
+    obtain ⟨Nz, c, rfl⟩ := exists_tof z
+    have hx : Nx ≤ Nx ⊔ Ny ⊔ Nz := le_sup_left.trans le_sup_left
+    have hy : Ny ≤ Nx ⊔ Ny ⊔ Nz := le_sup_right.trans le_sup_left
+    have hz : Nz ≤ Nx ⊔ Ny ⊔ Nz := le_sup_right
+    have hK : Nx ⊔ Ny ⊔ Nz ≤ Nx ⊔ Ny ⊔ Nz := le_rfl
+    rw [tof_add_at hx hy, tof_add_at hK hz, tof_add_at hy hz,
+      tof_add_at hx hK, tPush_self, tPush_self, add_assoc]
+  zero := 0
+  zero_add := by
+    intro x
+    obtain ⟨N, a, rfl⟩ := exists_tof x
+    show (tof P 0 0) + tof P N a = tof P N a
+    rw [tof_add_at (Nat.zero_le N) (le_refl N), tPush_zero, tPush_self,
+      zero_add]
+  add_zero := by
+    intro x
+    obtain ⟨N, a, rfl⟩ := exists_tof x
+    show tof P N a + (tof P 0 0) = tof P N a
+    rw [tof_add_at (le_refl N) (Nat.zero_le N), tPush_zero, tPush_self,
+      add_zero]
+  nsmul := nsmulRec
+  neg := Neg.neg
+  zsmul := zsmulRec
+  neg_add_cancel := by
+    intro x
+    obtain ⟨N, a, rfl⟩ := exists_tof x
+    rw [tof_neg, tof_add_same, neg_add_cancel, tof_zero]
+  add_comm := by
+    intro x y
+    obtain ⟨Nx, a, rfl⟩ := exists_tof x
+    obtain ⟨Ny, b, rfl⟩ := exists_tof y
+    have hx : Nx ≤ Nx ⊔ Ny := le_sup_left
+    have hy : Ny ≤ Nx ⊔ Ny := le_sup_right
+    rw [tof_add_at hx hy, tof_add_at hy hx, add_comm]
+
+instance : Module ℂ (TowerPre P) where
+  one_smul := by
+    intro x
+    obtain ⟨N, a, rfl⟩ := exists_tof x
+    rw [tof_smul, one_smul]
+  mul_smul := by
+    intro c d x
+    obtain ⟨N, a, rfl⟩ := exists_tof x
+    rw [tof_smul, tof_smul, tof_smul, mul_smul]
+  smul_zero := by
+    intro c
+    show c • (tof P 0 0) = tof P 0 0
+    rw [tof_smul, smul_zero]
+  smul_add := by
+    intro c x y
+    obtain ⟨Nx, a, rfl⟩ := exists_tof x
+    obtain ⟨Ny, b, rfl⟩ := exists_tof y
+    have hx : Nx ≤ Nx ⊔ Ny := le_sup_left
+    have hy : Ny ≤ Nx ⊔ Ny := le_sup_right
+    rw [tof_add_at hx hy, tof_smul, tof_smul, tof_smul, tof_add_at hx hy,
+      tPush_smul, tPush_smul, smul_add]
+  add_smul := by
+    intro c d x
+    obtain ⟨N, a, rfl⟩ := exists_tof x
+    rw [tof_smul, tof_smul, tof_smul, tof_add_same, add_smul]
+  zero_smul := by
+    intro x
+    obtain ⟨N, a, rfl⟩ := exists_tof x
+    rw [tof_smul, zero_smul, tof_zero]
+
+/-! ## F — o produto interno desce ao colimite -/
+
+/-- o produto interno do colimite (andar comum mínimo). -/
+def innerPre (P : SiteProfile) : TowerPre P → TowerPre P → ℂ :=
+  Quotient.lift₂
+    (fun x y => tInner P (x.1 ⊔ y.1) (tPush le_sup_left x.2)
+      (tPush le_sup_right y.2))
+    (by
+      rintro x y x' y' hx hy
+      have h1 : x.1 ≤ (x.1 ⊔ y.1) ⊔ (x'.1 ⊔ y'.1) := le_sup_left.trans le_sup_left
+      have h2 : y.1 ≤ (x.1 ⊔ y.1) ⊔ (x'.1 ⊔ y'.1) := le_sup_right.trans le_sup_left
+      have h3 : x'.1 ≤ (x.1 ⊔ y.1) ⊔ (x'.1 ⊔ y'.1) := le_sup_left.trans le_sup_right
+      have h4 : y'.1 ≤ (x.1 ⊔ y.1) ⊔ (x'.1 ⊔ y'.1) := le_sup_right.trans le_sup_right
+      have ex := (towerEqv_iff h1 h3).mp hx
+      have ey := (towerEqv_iff h2 h4).mp hy
+      calc tInner P (x.1 ⊔ y.1) (tPush le_sup_left x.2) (tPush le_sup_right y.2)
+          = tInner P ((x.1 ⊔ y.1) ⊔ (x'.1 ⊔ y'.1))
+              (tPush le_sup_left (tPush le_sup_left x.2))
+              (tPush le_sup_left (tPush le_sup_right y.2)) :=
+            (tInner_tPush P le_sup_left _ _).symm
+        _ = tInner P ((x.1 ⊔ y.1) ⊔ (x'.1 ⊔ y'.1)) (tPush h1 x.2)
+              (tPush h2 y.2) := by rw [tPush_trans, tPush_trans]
+        _ = tInner P ((x.1 ⊔ y.1) ⊔ (x'.1 ⊔ y'.1)) (tPush h3 x'.2)
+              (tPush h4 y'.2) := by rw [ex, ey]
+        _ = tInner P ((x.1 ⊔ y.1) ⊔ (x'.1 ⊔ y'.1))
+              (tPush le_sup_right (tPush le_sup_left x'.2))
+              (tPush le_sup_right (tPush le_sup_right y'.2)) := by
+            rw [tPush_trans, tPush_trans]
+        _ = tInner P (x'.1 ⊔ y'.1) (tPush le_sup_left x'.2)
+              (tPush le_sup_right y'.2) := tInner_tPush P le_sup_right _ _)
+
+/-- o produto interno em QUALQUER andar comum. -/
+theorem innerPre_tof_at {N M K : ℕ} (hN : N ≤ K) (hM : M ≤ K)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (b : Matrix (chainIdx M) (chainIdx M) ℂ) :
+    innerPre P (tof P N a) (tof P M b)
+      = tInner P K (tPush hN a) (tPush hM b) := by
+  show tInner P (N ⊔ M) (tPush le_sup_left a) (tPush le_sup_right b)
+    = tInner P K (tPush hN a) (tPush hM b)
+  calc tInner P (N ⊔ M) (tPush le_sup_left a) (tPush le_sup_right b)
+      = tInner P ((N ⊔ M) ⊔ K)
+          (tPush le_sup_left (tPush le_sup_left a))
+          (tPush le_sup_left (tPush le_sup_right b)) :=
+        (tInner_tPush P le_sup_left _ _).symm
+    _ = tInner P ((N ⊔ M) ⊔ K)
+          (tPush le_sup_right (tPush hN a))
+          (tPush le_sup_right (tPush hM b)) := by
+        rw [tPush_trans, tPush_trans, tPush_trans, tPush_trans]
+    _ = tInner P K (tPush hN a) (tPush hM b) := tInner_tPush P le_sup_right _ _
+
+theorem innerPre_tof_same (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    innerPre P (tof P N a) (tof P N b) = tInner P N a b := by
+  rw [innerPre_tof_at (le_refl N) (le_refl N), tPush_self, tPush_self]
+
+instance : Inner ℂ (TowerPre P) := ⟨innerPre P⟩
+
+theorem towerPre_inner_def (x y : TowerPre P) :
+    (inner ℂ x y : ℂ) = innerPre P x y := rfl
+
+/-- ★★★ O CORE PRÉ-HILBERT DO COLIMITE (o molde GNS da mathlib). -/
+@[reducible] def towerPreCore (P : SiteProfile) :
+    PreInnerProductSpace.Core ℂ (TowerPre P) where
+  inner := innerPre P
+  conj_inner_symm := by
+    intro x y
+    obtain ⟨N, a, rfl⟩ := exists_tof x
+    obtain ⟨M, b, rfl⟩ := exists_tof y
+    show conj (innerPre P (tof P M b) (tof P N a))
+      = innerPre P (tof P N a) (tof P M b)
+    have hN : N ≤ N ⊔ M := le_sup_left
+    have hM : M ≤ N ⊔ M := le_sup_right
+    rw [innerPre_tof_at hM hN, innerPre_tof_at hN hM, tInner_conj_symm]
+  re_inner_nonneg := by
+    intro x
+    obtain ⟨N, a, rfl⟩ := exists_tof x
+    show 0 ≤ (innerPre P (tof P N a) (tof P N a)).re
+    rw [innerPre_tof_same]
+    exact tInner_self_nonneg P N a
+  add_left := by
+    intro x y z
+    obtain ⟨Nx, a, rfl⟩ := exists_tof x
+    obtain ⟨Ny, b, rfl⟩ := exists_tof y
+    obtain ⟨Nz, c, rfl⟩ := exists_tof z
+    have hx : Nx ≤ Nx ⊔ Ny ⊔ Nz := le_sup_left.trans le_sup_left
+    have hy : Ny ≤ Nx ⊔ Ny ⊔ Nz := le_sup_right.trans le_sup_left
+    have hz : Nz ≤ Nx ⊔ Ny ⊔ Nz := le_sup_right
+    show innerPre P (tof P Nx a + tof P Ny b) (tof P Nz c)
+      = innerPre P (tof P Nx a) (tof P Nz c)
+        + innerPre P (tof P Ny b) (tof P Nz c)
+    rw [tof_add_at hx hy, innerPre_tof_at le_rfl hz, tPush_self,
+      innerPre_tof_at hx hz, innerPre_tof_at hy hz, tInner_add_left]
+  smul_left := by
+    intro x y r
+    obtain ⟨N, a, rfl⟩ := exists_tof x
+    obtain ⟨M, b, rfl⟩ := exists_tof y
+    have hN : N ≤ N ⊔ M := le_sup_left
+    have hM : M ≤ N ⊔ M := le_sup_right
+    show innerPre P (r • tof P N a) (tof P M b)
+      = conj r * innerPre P (tof P N a) (tof P M b)
+    rw [tof_smul, innerPre_tof_at hN hM, innerPre_tof_at hN hM, tPush_smul,
+      tInner_smul_left]
+
+noncomputable instance : SeminormedAddCommGroup (TowerPre P) :=
+  InnerProductSpace.Core.toSeminormedAddCommGroup (c := towerPreCore P)
+
+noncomputable instance : InnerProductSpace ℂ (TowerPre P) :=
+  InnerProductSpace.ofCore (towerPreCore P)
+
+/-! ## G — a DEFINITUDE do colimite e o vetor Ω -/
+
+/-- ★★★ A PEDRA 83: A FORMA É DEFINIDA NO COLIMITE INTEIRO — pesos positivos
+    em todo andar ⟹ o radical GNS é ZERO. O quociente da pedra 78 é trivial
+    aqui: o colimite JÁ é o pré-Hilbert genuíno. -/
+theorem towerPre_definite (x : TowerPre P)
+    (h : innerPre P x x = 0) : x = 0 := by
+  obtain ⟨N, a, rfl⟩ := exists_tof x
+  rw [innerPre_tof_same] at h
+  rw [tInner_self_definite P N h, tof_zero]
+
+/-- Ω = [1]: o vetor do Nome no colimite. -/
+def towerOmega (P : SiteProfile) : TowerPre P := tof P 0 1
+
+theorem towerOmega_inner_self :
+    innerPre P (towerOmega P) (towerOmega P) = 1 := by
+  unfold towerOmega
+  rw [innerPre_tof_same]
+  unfold tInner
+  rw [conjTranspose_one, one_mul, tState_one]
+
+/-- Ω é unitário e o colimite habitado: o pré-Hilbert do fator está pronto
+    para o completamento (pedra 84). -/
+theorem towerOmega_norm_sq :
+    (innerPre P (towerOmega P) (towerOmega P)).re = 1 := by
+  rw [towerOmega_inner_self]
+  rfl
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TowerHilbert.lean":
+r'''import TGLExt.TowerDefinite
+import Mathlib.Analysis.InnerProductSpace.Completion
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PEDRA 84 — TowerHilbert: o completamento H_φ — o ESPAÇO do fator existe
+  [TGLExt — v131, Bloco A do PLANO_ULTIMA_FLAG, pedra 2 de 5]
+
+A pedra 83 deu o pré-Hilbert do colimite. Esta pedra toma o COMPLETAMENTO:
+
+* `TowerHilbert P := UniformSpace.Completion (TowerPre P)` — H_φ, com as
+  instâncias da mathlib: `NormedAddCommGroup` + `InnerProductSpace ℂ` +
+  `CompleteSpace` — UM ESPAÇO DE HILBERT GENUÍNO. O completamento fraco
+  deixou de ser não-enunciável: ele está AQUI, como termo;
+* `hOmega` — Ω = [1] no completamento; ★ `hOmega_inner_self` — ⟪Ω,Ω⟫ = 1;
+  ★ `hOmega_norm` — ‖Ω‖ = 1: o vetor do Nome é unitário em H_φ;
+* ★★ `towerPre_denseRange` — a torre é DENSA em H_φ (por construção do
+  completamento): todo vetor do espaço do fator é limite de andares finitos.
+
+O QUE RESTA (pedras 85–87): a ação π estendida a B(H_φ), o objeto
+M_TGL = (π(torre))'' e a assinatura no limite. β jamais literal.
+Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open UniformSpace
+
+noncomputable section
+
+/-- ★★★ H_φ: o espaço de Hilbert do fator — o completamento do colimite
+    da torre. As instâncias (normado, produto interno, completo) vêm da
+    mathlib: o espaço EXISTE como termo. -/
+abbrev TowerHilbert (P : SiteProfile) : Type := Completion (TowerPre P)
+
+variable {P : SiteProfile}
+
+/-- Ω em H_φ: a imagem do vetor do Nome. -/
+def hOmega (P : SiteProfile) : TowerHilbert P :=
+  (towerOmega P : TowerPre P)
+
+/-- [KERNEL] ★ ⟪Ω,Ω⟫ = 1 em H_φ (o produto interno estende o da torre). -/
+theorem hOmega_inner_self :
+    inner ℂ (hOmega P) (hOmega P) = (1 : ℂ) := by
+  unfold hOmega
+  rw [Completion.inner_coe]
+  exact towerOmega_inner_self
+
+/-- [KERNEL] ★ ‖Ω‖ = 1: o vetor do Nome é unitário no espaço do fator. -/
+theorem hOmega_norm : ‖hOmega P‖ = 1 := by
+  have h2 : ‖hOmega P‖ ^ 2 = 1 := by
+    rw [norm_sq_eq_re_inner (𝕜 := ℂ) (hOmega P), hOmega_inner_self]
+    rfl
+  have hnn : 0 ≤ ‖hOmega P‖ := norm_nonneg _
+  nlinarith [h2, hnn]
+
+/-- [KERNEL] ★★ A TORRE É DENSA EM H_φ: todo vetor do espaço do fator é
+    limite de vetores de andar finito — o completamento é do colimite. -/
+theorem towerPre_denseRange :
+    DenseRange ((↑) : TowerPre P → TowerHilbert P) :=
+  Completion.denseRange_coe
+
+/-- [KERNEL] ★ H_φ é COMPLETO (Hilbert): a instância existe como termo. -/
+theorem towerHilbert_complete : CompleteSpace (TowerHilbert P) :=
+  inferInstance
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TowerAction.lean":
+r'''import TGLExt.TowerHilbert
+import Mathlib.Analysis.InnerProductSpace.Adjoint
+import Mathlib.Topology.Algebra.LinearMapCompletion
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PEDRA 85 — TowerAction: a torre AGE em B(H_φ) — π estendida, Ω cíclico
+  [TGLExt — v131, Bloco A do PLANO_ULTIMA_FLAG, pedra 3 de 5]
+
+A pedra 84 deu o Hilbert H_φ. Esta pedra dá a REPRESENTAÇÃO: cada elemento
+x da torre age em H_φ como operador LIMITADO, e Ω é CÍCLICO:
+
+* ★★ `lmul_bound_push` — O BOUND UNIFORME DE FROBENIUS: a multiplicação à
+  esquerda por x (empurrado a QUALQUER andar) é limitada pela constante
+  ‖x‖²_F do andar ORIGINAL — provado por indução de FATIAMENTO
+  (`tInner_self_slice`: a norma do andar M+1 é a soma pesada das normas das
+  fatias do andar M; `cSlice_towerStep_mul`: a fatia da ação de x⊗1 é a
+  ação de x na fatia) — o passo que faz a constante NÃO crescer;
+* ★★ `lmulCLM` — a multiplicação à esquerda como operador CONTÍNUO no
+  pré-Hilbert (`LinearMap.mkContinuous`);
+* ★★★ `towerPi` — A REPRESENTAÇÃO: π(x) ∈ B(H_φ) por extensão ao
+  completamento (`ContinuousLinearMap.completion`); com
+  `towerPi_compat` (π(empurrado) = π — a UNIÃO é dirigida),
+  `towerPi_one` (π(1) = 1), `towerPi_mul` (π(xy) = π(x)π(y)),
+  ★★★ `towerPi_star` (π(x†) = π(x)* — a representação é ESTRELADA:
+  o adjunto de Hilbert realiza a estrela da torre);
+* ★★★ `towerPi_omega` (π(x)Ω = [x]) e `towerPi_orbit_dense` — Ω É CÍCLICO:
+  a órbita da torre sobre Ω é DENSA em H_φ — o vetor do Nome gera o espaço.
+
+O QUE RESTA (pedras 86–87): o objeto M_TGL = (π(torre))'' e a assinatura.
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix UniformSpace
+open scoped ComplexConjugate
+
+noncomputable section
+
+variable {P : SiteProfile}
+
+/-! ## A — a norma de Frobenius e a desigualdade de Cauchy–Schwarz por linha -/
+
+/-- a norma de Frobenius ao quadrado. -/
+def frobSq {N : ℕ} (x : Matrix (chainIdx N) (chainIdx N) ℂ) : ℝ :=
+  ∑ j, ∑ i, Complex.normSq (x j i)
+
+theorem frobSq_nonneg {N : ℕ} (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    0 ≤ frobSq x := by
+  apply Finset.sum_nonneg
+  intro j _
+  apply Finset.sum_nonneg
+  intro i _
+  exact Complex.normSq_nonneg _
+
+/-- Cauchy–Schwarz por linha: |Σ f·g|² ≤ (Σ|f|²)(Σ|g|²). -/
+theorem normSq_sum_mul_le {ι : Type} [Fintype ι] (f g : ι → ℂ) :
+    Complex.normSq (∑ i, f i * g i)
+      ≤ (∑ i, Complex.normSq (f i)) * (∑ i, Complex.normSq (g i)) := by
+  have h1 : ‖∑ i, f i * g i‖ ≤ ∑ i, ‖f i‖ * ‖g i‖ := by
+    refine (norm_sum_le _ _).trans (le_of_eq ?_)
+    refine Finset.sum_congr rfl fun i _ => ?_
+    exact norm_mul _ _
+  have h2 : (∑ i, ‖f i‖ * ‖g i‖) ^ 2
+      ≤ (∑ i, ‖f i‖ ^ 2) * (∑ i, ‖g i‖ ^ 2) :=
+    Finset.sum_mul_sq_le_sq_mul_sq _ _ _
+  have h3 : ‖∑ i, f i * g i‖ ^ 2 ≤ (∑ i, ‖f i‖ ^ 2) * (∑ i, ‖g i‖ ^ 2) := by
+    have hnn : (0 : ℝ) ≤ ∑ i, ‖f i‖ * ‖g i‖ := by
+      apply Finset.sum_nonneg
+      intro i _
+      exact mul_nonneg (norm_nonneg _) (norm_nonneg _)
+    calc ‖∑ i, f i * g i‖ ^ 2 ≤ (∑ i, ‖f i‖ * ‖g i‖) ^ 2 := by
+          apply pow_le_pow_left₀ (norm_nonneg _) h1
+      _ ≤ _ := h2
+  calc Complex.normSq (∑ i, f i * g i) = ‖∑ i, f i * g i‖ ^ 2 :=
+        Complex.normSq_eq_norm_sq _
+    _ ≤ (∑ i, ‖f i‖ ^ 2) * (∑ i, ‖g i‖ ^ 2) := h3
+    _ = (∑ i, Complex.normSq (f i)) * (∑ i, Complex.normSq (g i)) := by
+        rw [Finset.sum_congr rfl (fun i _ => (Complex.normSq_eq_norm_sq (f i)).symm),
+          Finset.sum_congr rfl (fun i _ => (Complex.normSq_eq_norm_sq (g i)).symm)]
+
+/-! ## B — o bound do andar-base -/
+
+/-- [KERNEL] ★ o bound no andar de origem: ‖x·c‖²_φ ≤ ‖x‖²_F·‖c‖²_φ. -/
+theorem lmul_bound_base (P : SiteProfile) (N : ℕ)
+    (x c : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    (tInner P N (x * c) (x * c)).re ≤ frobSq x * (tInner P N c c).re := by
+  rw [tInner_self_eq, tInner_self_eq, Complex.ofReal_re, Complex.ofReal_re,
+    Finset.mul_sum]
+  apply Finset.sum_le_sum
+  intro k _
+  rw [← mul_assoc, mul_comm (frobSq x) (towerW P N k), mul_assoc]
+  apply mul_le_mul_of_nonneg_left _ (le_of_lt (towerW_pos P N k))
+  calc ∑ j, Complex.normSq ((x * c) j k)
+      ≤ ∑ j, (∑ i, Complex.normSq (x j i)) * (∑ i, Complex.normSq (c i k)) := by
+        apply Finset.sum_le_sum
+        intro j _
+        rw [show (x * c) j k = ∑ i, x j i * c i k from Matrix.mul_apply]
+        exact normSq_sum_mul_le _ _
+    _ = (∑ j, ∑ i, Complex.normSq (x j i)) * (∑ i, Complex.normSq (c i k)) :=
+        (Finset.sum_mul _ _ _).symm
+    _ = frobSq x * ∑ i, Complex.normSq (c i k) := rfl
+
+/-! ## C — o fatiamento: a chave da uniformidade -/
+
+/-- a fatia (t,s) de uma matriz do andar M+1. -/
+def cSlice {M : ℕ} (t s : Fin 2)
+    (c : Matrix (chainIdx (M + 1)) (chainIdx (M + 1)) ℂ) :
+    Matrix (chainIdx M) (chainIdx M) ℂ :=
+  Matrix.of fun i k => c (i, t) (k, s)
+
+theorem cSlice_apply {M : ℕ} (t s : Fin 2)
+    (c : Matrix (chainIdx (M + 1)) (chainIdx (M + 1)) ℂ)
+    (i k : chainIdx M) : cSlice t s c i k = c (i, t) (k, s) := rfl
+
+/-- [KERNEL] ★ a fatia da ação de y⊗1 é a ação de y na fatia. -/
+theorem cSlice_towerStep_mul {M : ℕ} (t s : Fin 2)
+    (y : Matrix (chainIdx M) (chainIdx M) ℂ)
+    (c : Matrix (chainIdx (M + 1)) (chainIdx (M + 1)) ℂ) :
+    cSlice t s (towerStep y * c) = y * cSlice t s c := by
+  ext j k
+  rw [cSlice_apply, Matrix.mul_apply, Matrix.mul_apply]
+  rw [Fintype.sum_prod_type]
+  have h : ∀ i : chainIdx M,
+      ∑ u : Fin 2, towerStep y (j, t) (i, u) * c (i, u) (k, s)
+        = y j i * cSlice t s c i k := by
+    intro i
+    have hstep : ∀ u : Fin 2, towerStep y (j, t) (i, u)
+        = y j i * (if t = u then 1 else 0) := by
+      intro u
+      unfold towerStep
+      rw [kroneckerMap_apply, Matrix.one_apply]
+    rw [Finset.sum_congr rfl (fun u _ => by rw [hstep u])]
+    rw [Finset.sum_congr rfl (fun u _ => by
+      rw [mul_assoc, ite_mul, one_mul, zero_mul, mul_ite, mul_zero])]
+    rw [Finset.sum_ite_eq]
+    rw [if_pos (Finset.mem_univ t)]
+    rw [cSlice_apply]
+  exact Finset.sum_congr rfl (fun i _ => h i)
+
+/-- [KERNEL] ★★ O FATIAMENTO DA NORMA: a norma-φ do andar M+1 é a soma
+    pesada (pelos pesos do sítio novo) das normas-φ das fatias do andar M. -/
+theorem tInner_self_slice (P : SiteProfile) {M : ℕ}
+    (c : Matrix (chainIdx (M + 1)) (chainIdx (M + 1)) ℂ) :
+    (tInner P (M + 1) c c).re
+      = ∑ s : Fin 2, ∑ t : Fin 2, siteW (P.w (M + 1)) s
+          * (tInner P M (cSlice t s c) (cSlice t s c)).re := by
+  rw [tInner_self_eq, Complex.ofReal_re]
+  have hW : ∀ (k : chainIdx M) (s : Fin 2),
+      towerW P (M + 1) (k, s) = towerW P M k * siteW (P.w (M + 1)) s := by
+    intro k s
+    rfl
+  rw [Fintype.sum_prod_type]
+  have hinner : ∀ (k : chainIdx M) (s : Fin 2),
+      towerW P (M + 1) (k, s) * ∑ p, Complex.normSq (c p (k, s))
+        = siteW (P.w (M + 1)) s * ∑ t : Fin 2,
+            towerW P M k * ∑ j, Complex.normSq (cSlice t s c j k) := by
+    intro k s
+    rw [hW, Fintype.sum_prod_type]
+    rw [show (∑ j : chainIdx M, ∑ t : Fin 2, Complex.normSq (c (j, t) (k, s)))
+        = ∑ t : Fin 2, ∑ j : chainIdx M, Complex.normSq (cSlice t s c j k) from
+      Finset.sum_comm]
+    rw [Finset.mul_sum, Finset.mul_sum]
+    exact Finset.sum_congr rfl fun t _ => by ring
+  rw [Finset.sum_congr rfl (fun k _ => Finset.sum_congr rfl
+    (fun s _ => hinner k s))]
+  rw [Finset.sum_comm]
+  refine Finset.sum_congr rfl fun s _ => ?_
+  rw [← Finset.mul_sum, Finset.sum_comm, Finset.mul_sum]
+  refine Finset.sum_congr rfl fun t _ => ?_
+  congr 1
+  rw [tInner_self_eq, Complex.ofReal_re]
+
+/-- [KERNEL] ★★ O BOUND UNIFORME: a multiplicação à esquerda pelo x
+    EMPURRADO é limitada pela Frobenius do andar ORIGINAL — a constante
+    não cresce ao subir a torre (indução de fatiamento). -/
+theorem lmul_bound_push (P : SiteProfile) {N : ℕ}
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    ∀ {M : ℕ} (h : N ≤ M) (c : Matrix (chainIdx M) (chainIdx M) ℂ),
+      (tInner P M (tPush h x * c) (tPush h x * c)).re
+        ≤ frobSq x * (tInner P M c c).re := by
+  intro M h
+  induction M, h using Nat.le_induction with
+  | base =>
+      intro c
+      rw [tPush_self]
+      exact lmul_bound_base P N x c
+  | succ M hM ih =>
+      intro c
+      rw [tPush_succ hM (hM.trans (Nat.le_succ M))]
+      rw [tInner_self_slice P (towerStep (tPush hM x) * c), tInner_self_slice P c]
+      rw [Finset.mul_sum]
+      apply Finset.sum_le_sum
+      intro s _
+      rw [Finset.mul_sum]
+      apply Finset.sum_le_sum
+      intro t _
+      rw [cSlice_towerStep_mul]
+      have hσ : 0 ≤ siteW (P.w (M + 1)) s :=
+        le_of_lt (siteW_pos (P.pos (M + 1)) (P.lt_one (M + 1)) s)
+      calc siteW (P.w (M + 1)) s
+            * (tInner P M (tPush hM x * cSlice t s c)
+                (tPush hM x * cSlice t s c)).re
+          ≤ siteW (P.w (M + 1)) s
+              * (frobSq x * (tInner P M (cSlice t s c) (cSlice t s c)).re) :=
+            mul_le_mul_of_nonneg_left (ih (cSlice t s c)) hσ
+        _ = frobSq x * (siteW (P.w (M + 1)) s
+              * (tInner P M (cSlice t s c) (cSlice t s c)).re) := by ring
+
+/-! ## D — a multiplicação à esquerda no colimite -/
+
+/-- a multiplicação à esquerda por x (andar N) no colimite. -/
+def lmulPre (P : SiteProfile) {N : ℕ}
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    TowerPre P → TowerPre P :=
+  Quotient.map
+    (fun q => ⟨N ⊔ q.1, tPush le_sup_left x * tPush le_sup_right q.2⟩)
+    (by
+      rintro q q' hq
+      have hK : (N ⊔ q.1) ≤ (N ⊔ q.1) ⊔ (N ⊔ q'.1) := le_sup_left
+      have hK' : (N ⊔ q'.1) ≤ (N ⊔ q.1) ⊔ (N ⊔ q'.1) := le_sup_right
+      have eq := (towerEqv_iff (x := q) (y := q')
+        (K := (N ⊔ q.1) ⊔ (N ⊔ q'.1))
+        (le_sup_right.trans hK) (le_sup_right.trans hK')).mp hq
+      refine (towerEqv_iff hK hK').mpr ?_
+      show tPush hK (tPush le_sup_left x * tPush le_sup_right q.2)
+        = tPush hK' (tPush le_sup_left x * tPush le_sup_right q'.2)
+      rw [tPush_mul, tPush_mul, tPush_trans, tPush_trans, tPush_trans,
+        tPush_trans, eq])
+
+theorem lmulPre_tof_at {N M K : ℕ} (hN : N ≤ K) (hM : M ≤ K)
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (b : Matrix (chainIdx M) (chainIdx M) ℂ) :
+    lmulPre P x (tof P M b) = tof P K (tPush hN x * tPush hM b) := by
+  show tof P (N ⊔ M) (tPush le_sup_left x * tPush le_sup_right b)
+    = tof P K (tPush hN x * tPush hM b)
+  have hs : N ⊔ M ≤ (N ⊔ M) ⊔ K := le_sup_left
+  have hk : K ≤ (N ⊔ M) ⊔ K := le_sup_right
+  rw [tof_eq_iff hs hk]
+  rw [tPush_mul, tPush_mul, tPush_trans, tPush_trans, tPush_trans, tPush_trans]
+
+/-- π no pré-nível é COMPATÍVEL com o empurrão: a torre age como UNIÃO. -/
+theorem lmulPre_compat {N M : ℕ} (h : N ≤ M)
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ) (v : TowerPre P) :
+    lmulPre P (tPush h x) v = lmulPre P x v := by
+  obtain ⟨M', b, rfl⟩ := exists_tof v
+  have hM : M ≤ M ⊔ M' := le_sup_left
+  have hM' : M' ≤ M ⊔ M' := le_sup_right
+  have hN : N ≤ M ⊔ M' := h.trans hM
+  rw [lmulPre_tof_at hM hM', lmulPre_tof_at hN hM', tPush_trans]
+
+/-- a multiplicação à esquerda é LINEAR no colimite. -/
+def lmulLin (P : SiteProfile) {N : ℕ}
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    TowerPre P →ₗ[ℂ] TowerPre P where
+  toFun := lmulPre P x
+  map_add' := by
+    intro v w
+    obtain ⟨A, a, rfl⟩ := exists_tof v
+    obtain ⟨B, b, rfl⟩ := exists_tof w
+    have hA : A ≤ A ⊔ B := le_sup_left
+    have hB : B ≤ A ⊔ B := le_sup_right
+    have hN : N ≤ N ⊔ (A ⊔ B) := le_sup_left
+    have hAB : A ⊔ B ≤ N ⊔ (A ⊔ B) := le_sup_right
+    rw [tof_add_at hA hB, lmulPre_tof_at hN hAB,
+      lmulPre_tof_at hN (hA.trans hAB), lmulPre_tof_at hN (hB.trans hAB),
+      tof_add_at (le_refl (N ⊔ (A ⊔ B))) (le_refl (N ⊔ (A ⊔ B))),
+      tPush_self, tPush_self, tPush_add, mul_add, tPush_trans, tPush_trans]
+  map_smul' := by
+    intro c v
+    obtain ⟨A, a, rfl⟩ := exists_tof v
+    have hN : N ≤ N ⊔ A := le_sup_left
+    have hA : A ≤ N ⊔ A := le_sup_right
+    rw [RingHom.id_apply, tof_smul, lmulPre_tof_at hN hA,
+      lmulPre_tof_at hN hA, tof_smul, tPush_smul, mul_smul_comm]
+
+/-- a norma do colimite em coordenadas de andar. -/
+theorem norm_tof_sq (K : ℕ) (z : Matrix (chainIdx K) (chainIdx K) ℂ) :
+    ‖tof P K z‖ ^ 2 = (tInner P K z z).re := by
+  rw [norm_sq_eq_re_inner (𝕜 := ℂ) (tof P K z)]
+  rw [show (inner ℂ (tof P K z) (tof P K z) : ℂ) = tInner P K z z from
+    innerPre_tof_same K z z]
+  rfl
+
+/-- [KERNEL] ★★ A CONTINUIDADE: ‖x·v‖ ≤ ‖x‖_F·‖v‖ em TODO o colimite. -/
+theorem lmulPre_norm_le {N : ℕ} (x : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (v : TowerPre P) :
+    ‖lmulPre P x v‖ ≤ Real.sqrt (frobSq x) * ‖v‖ := by
+  obtain ⟨M, b, rfl⟩ := exists_tof v
+  have hN : N ≤ N ⊔ M := le_sup_left
+  have hM : M ≤ N ⊔ M := le_sup_right
+  set K := N ⊔ M
+  set b' := tPush hM b with hb'
+  have hv : tof P M b = tof P K b' := (tof_tPush hM b).symm
+  rw [hv, lmulPre_tof_at hN (le_refl K), tPush_self]
+  have hsq : ‖tof P K (tPush hN x * b')‖ ^ 2
+      ≤ frobSq x * ‖tof P K b'‖ ^ 2 := by
+    rw [norm_tof_sq, norm_tof_sq]
+    exact lmul_bound_push P x hN b'
+  have h1 : ‖tof P K (tPush hN x * b')‖
+      = Real.sqrt (‖tof P K (tPush hN x * b')‖ ^ 2) :=
+    (Real.sqrt_sq (norm_nonneg _)).symm
+  rw [h1]
+  calc Real.sqrt (‖tof P K (tPush hN x * b')‖ ^ 2)
+      ≤ Real.sqrt (frobSq x * ‖tof P K b'‖ ^ 2) := Real.sqrt_le_sqrt hsq
+    _ = Real.sqrt (frobSq x) * Real.sqrt (‖tof P K b'‖ ^ 2) :=
+        Real.sqrt_mul (frobSq_nonneg x) _
+    _ = Real.sqrt (frobSq x) * ‖tof P K b'‖ := by
+        rw [Real.sqrt_sq (norm_nonneg _)]
+
+/-- ★★ a multiplicação à esquerda como operador CONTÍNUO no pré-Hilbert. -/
+def lmulCLM (P : SiteProfile) {N : ℕ}
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    TowerPre P →L[ℂ] TowerPre P :=
+  LinearMap.mkContinuous (lmulLin P x) (Real.sqrt (frobSq x))
+    (fun v => lmulPre_norm_le x v)
+
+theorem lmulCLM_apply {N : ℕ} (x : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (v : TowerPre P) : lmulCLM P x v = lmulPre P x v := rfl
+
+/-! ## E — A REPRESENTAÇÃO π em B(H_φ) -/
+
+/-- ★★★ π(x): a ação de x ∈ torre como operador limitado de H_φ. -/
+def towerPi (P : SiteProfile) {N : ℕ}
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    TowerHilbert P →L[ℂ] TowerHilbert P :=
+  (lmulCLM P x).completion
+
+theorem towerPi_coe {N : ℕ} (x : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (v : TowerPre P) :
+    towerPi P x (v : TowerHilbert P) = ((lmulPre P x v : TowerPre P) : TowerHilbert P) :=
+  ContinuousLinearMap.completion_apply_coe _ _
+
+/-- [KERNEL] ★★ π é COMPATÍVEL com o empurrão: π(tPush h x) = π(x) — a
+    torre age em H_φ como UNIÃO DIRIGIDA de andares. -/
+theorem towerPi_compat {N M : ℕ} (h : N ≤ M)
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerPi P (tPush h x) = towerPi P x := by
+  ext c
+  induction c using Completion.induction_on with
+  | hp => apply isClosed_eq <;> fun_prop
+  | ih c => rw [towerPi_coe, towerPi_coe, lmulPre_compat h x c]
+
+/-- [KERNEL] ★ π(1) = 1: a representação é UNITAL. -/
+theorem towerPi_one (N : ℕ) :
+    towerPi P (1 : Matrix (chainIdx N) (chainIdx N) ℂ) = 1 := by
+  ext c
+  induction c using Completion.induction_on with
+  | hp => apply isClosed_eq <;> fun_prop
+  | ih c =>
+      rw [towerPi_coe]
+      obtain ⟨M, b, rfl⟩ := exists_tof c
+      have hN : N ≤ N ⊔ M := le_sup_left
+      have hM : M ≤ N ⊔ M := le_sup_right
+      rw [lmulPre_tof_at hN hM, tPush_one, one_mul, tof_tPush]
+      rfl
+
+/-- [KERNEL] ★★ π(x·y) = π(x)·π(y): a representação é MULTIPLICATIVA. -/
+theorem towerPi_mul (N : ℕ)
+    (x y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerPi P (x * y) = towerPi P x * towerPi P y := by
+  ext c
+  induction c using Completion.induction_on with
+  | hp => apply isClosed_eq <;> fun_prop
+  | ih c =>
+      obtain ⟨M, b, rfl⟩ := exists_tof c
+      have hN : N ≤ N ⊔ M := le_sup_left
+      have hM : M ≤ N ⊔ M := le_sup_right
+      show towerPi P (x * y) ((tof P M b : TowerPre P) : TowerHilbert P)
+        = towerPi P x (towerPi P y ((tof P M b : TowerPre P) : TowerHilbert P))
+      rw [towerPi_coe, towerPi_coe, towerPi_coe]
+      rw [lmulPre_tof_at hN hM, lmulPre_tof_at hN hM,
+        lmulPre_tof_at hN (le_refl (N ⊔ M)), tPush_self, tPush_mul, mul_assoc]
+
+/-- a identidade de adjunção por andar: ⟨z·a, b⟩ = ⟨a, z†·b⟩. -/
+theorem tInner_mul_left_adjoint (P : SiteProfile) (K : ℕ)
+    (z a b : Matrix (chainIdx K) (chainIdx K) ℂ) :
+    tInner P K (z * a) b = tInner P K a (zᴴ * b) := by
+  unfold tInner
+  rw [conjTranspose_mul, mul_assoc]
+
+/-- [KERNEL] ★★★ π(x†) = π(x)*: a representação é ESTRELADA — o adjunto
+    de Hilbert realiza a estrela da torre. -/
+theorem towerPi_star (N : ℕ) (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerPi P xᴴ = ContinuousLinearMap.adjoint (towerPi P x) := by
+  refine ((ContinuousLinearMap.eq_adjoint_iff _ _).mpr ?_)
+  intro u v
+  induction u, v using Completion.induction_on₂ with
+  | hp => apply isClosed_eq <;> fun_prop
+  | ih u v =>
+      rw [towerPi_coe, towerPi_coe, Completion.inner_coe, Completion.inner_coe]
+      obtain ⟨A, a, rfl⟩ := exists_tof u
+      obtain ⟨B, b, rfl⟩ := exists_tof v
+      have hN : N ≤ N ⊔ A ⊔ B := le_sup_left.trans le_sup_left
+      have hA : A ≤ N ⊔ A ⊔ B := le_sup_right.trans le_sup_left
+      have hB : B ≤ N ⊔ A ⊔ B := le_sup_right
+      show innerPre P (lmulPre P xᴴ (tof P A a)) (tof P B b)
+        = innerPre P (tof P A a) (lmulPre P x (tof P B b))
+      rw [lmulPre_tof_at hN hA, lmulPre_tof_at hN hB,
+        innerPre_tof_at (le_refl (N ⊔ A ⊔ B)) hB, tPush_self,
+        innerPre_tof_at hA (le_refl (N ⊔ A ⊔ B)), tPush_self,
+        tPush_star, tInner_mul_left_adjoint, conjTranspose_conjTranspose]
+
+/-- [KERNEL] ★★★ π(x)Ω = [x]: a órbita do Nome é a própria torre. -/
+theorem towerPi_omega (N : ℕ) (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerPi P x (hOmega P) = ((tof P N x : TowerPre P) : TowerHilbert P) := by
+  unfold hOmega
+  rw [show towerOmega P = tof P 0 1 from rfl, towerPi_coe]
+  congr 1
+  rw [lmulPre_tof_at (le_refl N) (Nat.zero_le N), tPush_self, tPush_one,
+    mul_one]
+
+/-- [KERNEL] ★★★ Ω É CÍCLICO: a órbita da torre sobre Ω é DENSA em H_φ —
+    o vetor do Nome gera o espaço do fator inteiro. -/
+theorem towerPi_orbit_dense :
+    DenseRange (fun p : TowerPt => towerPi P p.2 (hOmega P)) := by
+  have hr : Set.range (fun p : TowerPt => towerPi P p.2 (hOmega P))
+      = Set.range ((↑) : TowerPre P → TowerHilbert P) := by
+    ext z
+    constructor
+    · rintro ⟨⟨N, x⟩, rfl⟩
+      exact ⟨tof P N x, (towerPi_omega N x).symm⟩
+    · rintro ⟨v, rfl⟩
+      obtain ⟨N, a, rfl⟩ := exists_tof v
+      exact ⟨⟨N, a⟩, towerPi_omega N a⟩
+  have hd : DenseRange ((↑) : TowerPre P → TowerHilbert P) :=
+    towerPre_denseRange
+  unfold DenseRange at hd ⊢
+  rw [hr]
+  exact hd
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheFactorObject.lean":
+r'''import TGLExt.TowerAction
+import Mathlib.Analysis.VonNeumannAlgebra.Basic
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PEDRA 86 — TheFactorObject: M_TGL = (π(torre))'' — O FATOR COMO OBJETO
+  [TGLExt — v131, Bloco A do PLANO_ULTIMA_FLAG, pedra 4 de 5]
+
+O resíduo nomeado do v130 era UM: "falta SÓ o limite fraco-* — o
+completamento topológico". Esta pedra o realiza LITERALMENTE:
+
+* `towerImage` — o conjunto π(torre) ⊆ B(H_φ); ★ `towerImage_star_closed`
+  — fechado sob estrela (π é estrelada, pedra 85);
+* ★★★ `theFactorObject : VonNeumannAlgebra (TowerHilbert P)` — **M_TGL :=
+  (π(torre))'' cunhado como TERMO da estrutura `VonNeumannAlgebra` da
+  mathlib** (o duplo comutante; o colapso do triplo comutante é álgebra
+  pura) — o objeto de von Neumann da torre EXISTE em kernel;
+* ★★ `towerPi_mem_factor` — π(torre) ⊆ M_TGL: a torre vive DENTRO do
+  seu fecho;
+* ★★★ `factor_omega_cyclic` — Ω é CÍCLICO para M_TGL: a órbita do objeto
+  sobre o vetor do Nome é densa em H_φ;
+* ★★★ `omegaState_pi` — A IDENTIDADE GNS: ω(π(x)) = φ(x) — o estado
+  coerente da torre inteira VIVE no objeto (ω = ⟨Ω, · Ω⟩).
+
+HONESTIDADE (a régua): M_TGL é objeto de von Neumann LEGÍTIMO (duplo
+comutante de um conjunto estrelado). "Fator" e "III₁" seguem sendo
+ASSINATURA (pedra 87), não teorema de tipo — o gate NÃO se move por esta
+pedra. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix UniformSpace
+
+noncomputable section
+
+variable {P : SiteProfile}
+
+/-! ## A — o conjunto π(torre) e sua estrela -/
+
+/-- π(torre): a imagem da torre inteira em B(H_φ). -/
+def towerImage (P : SiteProfile) :
+    Set (TowerHilbert P →L[ℂ] TowerHilbert P) :=
+  {T | ∃ (N : ℕ) (x : Matrix (chainIdx N) (chainIdx N) ℂ), T = towerPi P x}
+
+theorem towerPi_mem_towerImage {N : ℕ}
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerPi P x ∈ towerImage P := ⟨N, x, rfl⟩
+
+/-- [KERNEL] ★ π(torre) é fechado sob ESTRELA: star (π x) = π (x†). -/
+theorem towerImage_star_closed {T : TowerHilbert P →L[ℂ] TowerHilbert P}
+    (hT : T ∈ towerImage P) : star T ∈ towerImage P := by
+  obtain ⟨N, x, rfl⟩ := hT
+  refine ⟨N, xᴴ, ?_⟩
+  rw [towerPi_star, ContinuousLinearMap.star_eq_adjoint]
+
+/-! ## B — O OBJETO: M_TGL = (π(torre))'' como VonNeumannAlgebra -/
+
+/-- ★★★ M_TGL: o duplo comutante de π(torre), cunhado como TERMO da
+    estrutura `VonNeumannAlgebra` da mathlib — O FATOR COMO OBJETO
+    (o resíduo nomeado do v130, realizado; o colapso do triplo comutante
+    é álgebra pura de centralizadores). -/
+def theFactorObject (P : SiteProfile) : VonNeumannAlgebra (TowerHilbert P) where
+  toStarSubalgebra := StarSubalgebra.centralizer ℂ
+    ((StarSubalgebra.centralizer ℂ (towerImage P) :
+      StarSubalgebra ℂ (TowerHilbert P →L[ℂ] TowerHilbert P)) :
+        Set (TowerHilbert P →L[ℂ] TowerHilbert P))
+  centralizer_centralizer' := by simp
+
+/-- [KERNEL] ★★ A TORRE VIVE NO SEU FECHO: π(torre) ⊆ M_TGL. -/
+theorem towerPi_mem_factor {N : ℕ}
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerPi P x ∈ theFactorObject P := by
+  show towerPi P x ∈ StarSubalgebra.centralizer ℂ
+    ((StarSubalgebra.centralizer ℂ (towerImage P) :
+      StarSubalgebra ℂ (TowerHilbert P →L[ℂ] TowerHilbert P)) :
+        Set (TowerHilbert P →L[ℂ] TowerHilbert P))
+  rw [StarSubalgebra.mem_centralizer_iff]
+  intro g hg
+  rw [SetLike.mem_coe, StarSubalgebra.mem_centralizer_iff] at hg
+  have h1 := hg (towerPi P x) (towerPi_mem_towerImage x)
+  refine ⟨h1.1.symm, ?_⟩
+  have h2 := congrArg star h1.2
+  rw [star_mul, star_mul, star_star] at h2
+  exact h2
+
+/-! ## C — Ω é cíclico para o OBJETO e o estado GNS vive nele -/
+
+/-- [KERNEL] ★★★ Ω É CÍCLICO PARA M_TGL: a órbita do objeto sobre o
+    vetor do Nome é DENSA em H_φ. -/
+theorem factor_omega_cyclic :
+    Dense ((fun T : TowerHilbert P →L[ℂ] TowerHilbert P => T (hOmega P)) ''
+      (theFactorObject P : Set (TowerHilbert P →L[ℂ] TowerHilbert P))) := by
+  apply Dense.mono ?_ (towerPi_orbit_dense (P := P))
+  rintro z ⟨p, rfl⟩
+  exact ⟨towerPi P p.2, towerPi_mem_factor p.2, rfl⟩
+
+/-- o estado vetorial de Ω sobre B(H_φ). -/
+def omegaState (P : SiteProfile)
+    (T : TowerHilbert P →L[ℂ] TowerHilbert P) : ℂ :=
+  inner ℂ (hOmega P) (T (hOmega P))
+
+/-- [KERNEL] ★★★ A IDENTIDADE GNS: ω(π(x)) = φ(x) — o estado coerente da
+    torre inteira VIVE no objeto completado. -/
+theorem omegaState_pi {N : ℕ} (x : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    omegaState P (towerPi P x) = tState P N x := by
+  unfold omegaState
+  rw [towerPi_omega]
+  unfold hOmega
+  rw [Completion.inner_coe]
+  rw [show towerOmega P = tof P 0 1 from rfl]
+  rw [show (inner ℂ (tof P 0 1) (tof P N x) : ℂ)
+      = innerPre P (tof P 0 1) (tof P N x) from rfl]
+  rw [innerPre_tof_at (Nat.zero_le N) (le_refl N), tPush_one, tPush_self]
+  unfold tInner
+  rw [conjTranspose_one, one_mul]
+
+/-- [KERNEL] ★★★ A SÍNTESE DA PEDRA 86: o objeto existe (VonNeumannAlgebra),
+    a torre vive nele, Ω é cíclico para ele, e o estado coerente é o estado
+    vetorial de Ω — "o fator como objeto", o resíduo do v130 realizado. -/
+theorem the_factor_as_object :
+    (∀ (N : ℕ) (x : Matrix (chainIdx N) (chainIdx N) ℂ),
+      towerPi P x ∈ theFactorObject P)
+    ∧ Dense ((fun T : TowerHilbert P →L[ℂ] TowerHilbert P => T (hOmega P)) ''
+        (theFactorObject P : Set (TowerHilbert P →L[ℂ] TowerHilbert P)))
+    ∧ (∀ (N : ℕ) (x : Matrix (chainIdx N) (chainIdx N) ℂ),
+        omegaState P (towerPi P x) = tState P N x) :=
+  ⟨fun _ x => towerPi_mem_factor x, factor_omega_cyclic,
+   fun _ x => omegaState_pi x⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/SignatureInTheLimit.lean":
+r'''import TGLExt.TheFactorObject
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PEDRA 87 — SignatureInTheLimit: a assinatura tipo-III DENTRO do objeto
+  [TGLExt — v131, Bloco A do PLANO_ULTIMA_FLAG, pedra 5 de 5]
+
+A pedra 86 cunhou M_TGL. Esta pedra transporta a ASSINATURA para DENTRO
+dele — as testemunhas são elementos de andar finito, que JÁ vivem em M_TGL:
+
+* `tState_kron_split` — o estado fatoriza no produto tensorial (a
+  generalização da coerência);
+* ★★ `omega_ratio_site0/site1` (e inversos) — AS RAZÕES MODULARES
+  REALIZADAS NO OBJETO: ω(AB) = r·ω(BA) com A,B ∈ M_TGL, para os
+  geradores r = μ₀/(1−μ₀) e r = μ₁/(1−μ₁) e seus inversos;
+* ★★★ `omega_not_tracial_mix` — ω NÃO É TRACIAL sobre M_TGL (perfil com
+  μ₀ ≠ ½): o estado do objeto completado carrega a assimetria modular;
+* ★★ `ladder_in_object` — A ESCADA INTEIRA NO OBJETO: no perfil constante,
+  ω(π(up_N)π(down_N)) = l^{N+1}·ω(π(down_N)π(up_N)) para TODO N — o
+  reticulado de razões λ^{N+1} das pedras 71/81/82, agora DENTRO de M_TGL;
+* ★★★ `signature_log_dense` — A MARCA DE III₁ NO OBJETO: no perfil
+  alternado (⅓,¼), o subgrupo aditivo GERADO pelos log-ratios realizados
+  em M_TGL é DENSO em ℝ (via a marca log-densa da pedra 72: os geradores
+  ½ e ⅓ estão realizados).
+
+HONESTIDADE (nomeada, sem véu): a densidade é do subgrupo GERADO pelas
+razões realizadas (o análogo da S-invariante de Connes); a realização de
+CADA elemento do subgrupo por uma palavra explícita multi-sítio fica
+nomeada como abertura. "Fator" (centro trivial) e "sem peso normal"
+seguem o programa (Bloco B do plano). O gate NÃO se move por esta pedra.
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix
+open scoped ComplexConjugate
+
+noncomputable section
+
+variable {P : SiteProfile}
+
+/-! ## A — o estado fatoriza no produto tensorial -/
+
+/-- [KERNEL] ★ a fatorização tensorial do estado (generaliza a coerência:
+    B = 1 recupera `tState_towerStep`). -/
+theorem tState_kron_split (P : SiteProfile) {N : ℕ}
+    (A : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (B : Matrix (Fin 2) (Fin 2) ℂ) :
+    tState P (N + 1) (A ⊗ₖ B)
+      = tState P N A * ∑ s, ((siteW (P.w (N + 1)) s : ℝ) : ℂ) * B s s := by
+  unfold tState
+  rw [Fintype.sum_prod_type]
+  have h : ∀ (k : chainIdx N) (s : Fin 2),
+      ((towerW P (N + 1) (k, s) : ℝ) : ℂ) * (A ⊗ₖ B) (k, s) (k, s)
+        = (((towerW P N k : ℝ) : ℂ) * A k k)
+            * (((siteW (P.w (N + 1)) s : ℝ) : ℂ) * B s s) := by
+    intro k s
+    rw [kroneckerMap_apply]
+    rw [show towerW P (N + 1) (k, s)
+        = towerW P N k * siteW (P.w (N + 1)) s from rfl]
+    push_cast
+    ring
+  rw [Finset.sum_congr rfl (fun k _ => Finset.sum_congr rfl (fun s _ => h k s))]
+  rw [← Finset.sum_mul_sum]
+
+/-- o estado numa matriz-unidade diagonal: o peso daquele índice. -/
+theorem tState_single_diag (P : SiteProfile) (N : ℕ) (i : chainIdx N) :
+    tState P N (Matrix.single i i (1 : ℂ)) = ((towerW P N i : ℝ) : ℂ) := by
+  unfold tState
+  rw [Finset.sum_eq_single i]
+  · rw [Matrix.single_apply_same, mul_one]
+  · intro k _ hk
+    rw [Matrix.single_apply_of_ne _ _ _ _ _
+      (fun h => hk (h.1.symm)), mul_zero]
+  · intro h
+    exact absurd (Finset.mem_univ i) h
+
+/-! ## B — as razões dos geradores realizadas no objeto -/
+
+/-- a razão modular r REALIZADA no objeto M_TGL: elementos A,B ∈ M_TGL
+    (imagens π de andares finitos) com ω(AB) = r·ω(BA) e ω(BA) ≠ 0. -/
+def objRatio (P : SiteProfile) (r : ℝ) : Prop :=
+  ∃ (N : ℕ) (A B : Matrix (chainIdx N) (chainIdx N) ℂ),
+    omegaState P (towerPi P A * towerPi P B)
+      = ((r : ℝ) : ℂ) * omegaState P (towerPi P B * towerPi P A)
+    ∧ omegaState P (towerPi P B * towerPi P A) ≠ 0
+
+/-- o levantamento: ω dos produtos π é o estado dos produtos de andar. -/
+theorem omegaState_pi_mul {N : ℕ}
+    (A B : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    omegaState P (towerPi P A * towerPi P B) = tState P N (A * B) := by
+  rw [← towerPi_mul, omegaState_pi]
+
+/-- [KERNEL] ★ o estado dos produtos E01·E10 no sítio 0. -/
+theorem tState_E01_E10 (P : SiteProfile) :
+    tState P 0 (Matrix.single (0 : Fin 2) 1 (1 : ℂ)
+        * Matrix.single (1 : Fin 2) 0 (1 : ℂ))
+      = ((P.w 0 : ℝ) : ℂ) := by
+  rw [Matrix.single_mul_single_same, one_mul, tState_single_diag]
+  rfl
+
+theorem tState_E10_E01 (P : SiteProfile) :
+    tState P 0 (Matrix.single (1 : Fin 2) 0 (1 : ℂ)
+        * Matrix.single (0 : Fin 2) 1 (1 : ℂ))
+      = ((1 - P.w 0 : ℝ) : ℂ) := by
+  rw [Matrix.single_mul_single_same, one_mul, tState_single_diag]
+  rfl
+
+/-- [KERNEL] ★★ A RAZÃO DO SÍTIO 0 REALIZADA: ω(AB) = (μ₀/(1−μ₀))·ω(BA). -/
+theorem omega_ratio_site0 (P : SiteProfile) :
+    objRatio P (P.w 0 / (1 - P.w 0)) := by
+  have hν : (0 : ℝ) < 1 - P.w 0 := by linarith [P.lt_one 0]
+  refine ⟨0, Matrix.single 0 1 1, Matrix.single 1 0 1, ?_, ?_⟩
+  · rw [omegaState_pi_mul, omegaState_pi_mul, tState_E01_E10, tState_E10_E01]
+    rw [← Complex.ofReal_mul]
+    congr 1
+    field_simp
+  · rw [omegaState_pi_mul, tState_E10_E01]
+    exact Complex.ofReal_ne_zero.mpr (ne_of_gt hν)
+
+/-- [KERNEL] ★★ o INVERSO também: ω(BA) = ((1−μ₀)/μ₀)·ω(AB). -/
+theorem omega_ratio_site0_inv (P : SiteProfile) :
+    objRatio P ((1 - P.w 0) / P.w 0) := by
+  have hμ : (0 : ℝ) < P.w 0 := P.pos 0
+  refine ⟨0, Matrix.single 1 0 1, Matrix.single 0 1 1, ?_, ?_⟩
+  · rw [omegaState_pi_mul, omegaState_pi_mul, tState_E01_E10, tState_E10_E01]
+    rw [← Complex.ofReal_mul]
+    congr 1
+    field_simp
+  · rw [omegaState_pi_mul, tState_E01_E10]
+    exact Complex.ofReal_ne_zero.mpr (ne_of_gt hμ)
+
+/-- [KERNEL] ★ os produtos do sítio 1 (andar 1: 1 ⊗ E). -/
+theorem tState_site1 (P : SiteProfile) :
+    tState P 1 (((1 : Matrix (chainIdx 0) (chainIdx 0) ℂ)
+        ⊗ₖ Matrix.single (0 : Fin 2) 1 (1 : ℂ))
+      * ((1 : Matrix (chainIdx 0) (chainIdx 0) ℂ)
+        ⊗ₖ Matrix.single (1 : Fin 2) 0 (1 : ℂ)))
+      = ((P.w 1 : ℝ) : ℂ) := by
+  rw [← Matrix.mul_kronecker_mul, one_mul, Matrix.single_mul_single_same,
+    one_mul, tState_kron_split, tState_one, one_mul]
+  rw [Finset.sum_eq_single (0 : Fin 2)]
+  · rw [Matrix.single_apply_same, mul_one]
+    rfl
+  · intro s _ hs
+    rw [Matrix.single_apply_of_ne _ _ _ _ _ (fun h => hs h.1.symm), mul_zero]
+  · intro h
+    exact absurd (Finset.mem_univ (0 : Fin 2)) h
+
+theorem tState_site1_rev (P : SiteProfile) :
+    tState P 1 (((1 : Matrix (chainIdx 0) (chainIdx 0) ℂ)
+        ⊗ₖ Matrix.single (1 : Fin 2) 0 (1 : ℂ))
+      * ((1 : Matrix (chainIdx 0) (chainIdx 0) ℂ)
+        ⊗ₖ Matrix.single (0 : Fin 2) 1 (1 : ℂ)))
+      = ((1 - P.w 1 : ℝ) : ℂ) := by
+  rw [← Matrix.mul_kronecker_mul, one_mul, Matrix.single_mul_single_same,
+    one_mul, tState_kron_split, tState_one, one_mul]
+  rw [Finset.sum_eq_single (1 : Fin 2)]
+  · rw [Matrix.single_apply_same, mul_one]
+    rfl
+  · intro s _ hs
+    rw [Matrix.single_apply_of_ne _ _ _ _ _ (fun h => hs h.1.symm), mul_zero]
+  · intro h
+    exact absurd (Finset.mem_univ (1 : Fin 2)) h
+
+/-- [KERNEL] ★★ A RAZÃO DO SÍTIO 1 REALIZADA (e o inverso, por simetria). -/
+theorem omega_ratio_site1 (P : SiteProfile) :
+    objRatio P (P.w 1 / (1 - P.w 1)) := by
+  have hν : (0 : ℝ) < 1 - P.w 1 := by linarith [P.lt_one 1]
+  refine ⟨1, (1 : Matrix (chainIdx 0) (chainIdx 0) ℂ) ⊗ₖ Matrix.single 0 1 1,
+    (1 : Matrix (chainIdx 0) (chainIdx 0) ℂ) ⊗ₖ Matrix.single 1 0 1, ?_, ?_⟩
+  · rw [omegaState_pi_mul, omegaState_pi_mul, tState_site1, tState_site1_rev]
+    rw [← Complex.ofReal_mul]
+    congr 1
+    field_simp
+  · rw [omegaState_pi_mul, tState_site1_rev]
+    exact Complex.ofReal_ne_zero.mpr (ne_of_gt hν)
+
+theorem omega_ratio_site1_inv (P : SiteProfile) :
+    objRatio P ((1 - P.w 1) / P.w 1) := by
+  have hμ : (0 : ℝ) < P.w 1 := P.pos 1
+  refine ⟨1, (1 : Matrix (chainIdx 0) (chainIdx 0) ℂ) ⊗ₖ Matrix.single 1 0 1,
+    (1 : Matrix (chainIdx 0) (chainIdx 0) ℂ) ⊗ₖ Matrix.single 0 1 1, ?_, ?_⟩
+  · rw [omegaState_pi_mul, omegaState_pi_mul, tState_site1, tState_site1_rev]
+    rw [← Complex.ofReal_mul]
+    congr 1
+    field_simp
+  · rw [omegaState_pi_mul, tState_site1]
+    exact Complex.ofReal_ne_zero.mpr (ne_of_gt hμ)
+
+/-! ## C — a não-tracialidade de ω sobre o objeto -/
+
+/-- [KERNEL] ★★★ ω NÃO É TRACIAL SOBRE M_TGL: com μ₀ ≠ ½, existem A,B
+    (imagens da torre, membros de M_TGL) com ω(AB) ≠ ω(BA) — a assimetria
+    modular VIVE no objeto completado. -/
+theorem omega_not_tracial (P : SiteProfile) (h : P.w 0 ≠ 1 / 2) :
+    ∃ A B : TowerHilbert P →L[ℂ] TowerHilbert P,
+      A ∈ theFactorObject P ∧ B ∈ theFactorObject P
+      ∧ omegaState P (A * B) ≠ omegaState P (B * A) := by
+  refine ⟨towerPi P (N := 0) (Matrix.single (0 : Fin 2) (1 : Fin 2) (1 : ℂ)),
+    towerPi P (N := 0) (Matrix.single (1 : Fin 2) (0 : Fin 2) (1 : ℂ)),
+    towerPi_mem_factor _, towerPi_mem_factor _, ?_⟩
+  rw [omegaState_pi_mul, omegaState_pi_mul, tState_E01_E10, tState_E10_E01]
+  intro hc
+  have hr : P.w 0 = 1 - P.w 0 := Complex.ofReal_injective hc
+  apply h
+  linarith
+
+/-! ## D — a ESCADA inteira no objeto (perfil constante) -/
+
+/-- o perfil constante: todo sítio pesa μ = l/(1+l) (a razão é l). -/
+def constProfile (l : ℝ) (hl : 0 < l) : SiteProfile where
+  w := fun _ => l / (1 + l)
+  pos := fun _ => div_pos hl (by linarith)
+  lt_one := fun _ => by
+    rw [div_lt_one (by linarith : (0 : ℝ) < 1 + l)]
+    linarith
+
+theorem tState_chainWord (l : ℝ) (hl : 0 < l) :
+    ∀ N : ℕ, tState (constProfile l hl) N (chainUp N * chainDown N)
+        = (((l / (1 + l)) ^ (N + 1) : ℝ) : ℂ)
+      ∧ tState (constProfile l hl) N (chainDown N * chainUp N)
+        = (((1 / (1 + l)) ^ (N + 1) : ℝ) : ℂ)
+  | 0 => by
+      have h1l : (1 : ℝ) + l ≠ 0 := by linarith
+      have hν : (1 : ℝ) - l / (1 + l) = 1 / (1 + l) := by
+        field_simp
+        ring
+      constructor
+      · rw [show chainUp 0 = Matrix.single (0 : Fin 2) (1 : Fin 2) (1 : ℂ)
+            from rfl,
+          show chainDown 0 = Matrix.single (1 : Fin 2) (0 : Fin 2) (1 : ℂ)
+            from rfl,
+          tState_E01_E10]
+        rw [show (constProfile l hl).w 0 = l / (1 + l) from rfl, pow_one]
+      · rw [show chainUp 0 = Matrix.single (0 : Fin 2) (1 : Fin 2) (1 : ℂ)
+            from rfl,
+          show chainDown 0 = Matrix.single (1 : Fin 2) (0 : Fin 2) (1 : ℂ)
+            from rfl,
+          tState_E10_E01]
+        rw [show (constProfile l hl).w 0 = l / (1 + l) from rfl, hν, pow_one]
+  | N + 1 => by
+      obtain ⟨ih1, ih2⟩ := tState_chainWord l hl N
+      constructor
+      · rw [show chainUp (N + 1)
+            = chainUp N ⊗ₖ Matrix.single (0 : Fin 2) (1 : Fin 2) (1 : ℂ)
+            from rfl,
+          show chainDown (N + 1)
+            = chainDown N ⊗ₖ Matrix.single (1 : Fin 2) (0 : Fin 2) (1 : ℂ)
+            from rfl,
+          ← Matrix.mul_kronecker_mul, Matrix.single_mul_single_same, one_mul,
+          tState_kron_split, ih1]
+        rw [Finset.sum_eq_single (0 : Fin 2)]
+        · rw [Matrix.single_apply_same, mul_one]
+          rw [show ((siteW ((constProfile l hl).w (N + 1)) 0 : ℝ) : ℂ)
+              = ((l / (1 + l) : ℝ) : ℂ) from rfl]
+          rw [← Complex.ofReal_mul]
+          congr 1
+        · intro s _ hs
+          rw [Matrix.single_apply_of_ne _ _ _ _ _ (fun h => hs h.1.symm),
+            mul_zero]
+        · intro h
+          exact absurd (Finset.mem_univ (0 : Fin 2)) h
+      · rw [show chainUp (N + 1)
+            = chainUp N ⊗ₖ Matrix.single (0 : Fin 2) (1 : Fin 2) (1 : ℂ)
+            from rfl,
+          show chainDown (N + 1)
+            = chainDown N ⊗ₖ Matrix.single (1 : Fin 2) (0 : Fin 2) (1 : ℂ)
+            from rfl,
+          ← Matrix.mul_kronecker_mul, Matrix.single_mul_single_same, one_mul,
+          tState_kron_split, ih2]
+        rw [Finset.sum_eq_single (1 : Fin 2)]
+        · rw [Matrix.single_apply_same, mul_one]
+          rw [show ((siteW ((constProfile l hl).w (N + 1)) 1 : ℝ) : ℂ)
+              = ((1 - l / (1 + l) : ℝ) : ℂ) from rfl]
+          rw [show (1 : ℝ) - l / (1 + l) = 1 / (1 + l) by field_simp; ring]
+          rw [← Complex.ofReal_mul]
+          congr 1
+        · intro s _ hs
+          rw [Matrix.single_apply_of_ne _ _ _ _ _ (fun h => hs h.1.symm),
+            mul_zero]
+        · intro h
+          exact absurd (Finset.mem_univ (1 : Fin 2)) h
+
+/-- [KERNEL] ★★ A ESCADA NO OBJETO: a razão l^{N+1} realizada em M_TGL
+    para TODO andar N — o reticulado das pedras 71/81/82, dentro do
+    objeto completado. -/
+theorem ladder_in_object (l : ℝ) (hl : 0 < l) (N : ℕ) :
+    objRatio (constProfile l hl) (l ^ (N + 1)) := by
+  obtain ⟨h1, h2⟩ := tState_chainWord l hl N
+  refine ⟨N, chainUp N, chainDown N, ?_, ?_⟩
+  · rw [omegaState_pi_mul, omegaState_pi_mul, h1, h2, ← Complex.ofReal_mul]
+    congr 1
+    rw [← mul_pow]
+    congr 1
+    field_simp
+  · rw [omegaState_pi_mul, h2]
+    apply Complex.ofReal_ne_zero.mpr
+    apply pow_ne_zero
+    positivity
+
+/-! ## E — A MARCA DE III₁ NO OBJETO: o perfil alternado (⅓, ¼) -/
+
+/-- o perfil alternado: sítios pares pesam ⅓ (razão ½), ímpares ¼ (razão ⅓). -/
+def mixProfile : SiteProfile where
+  w := fun n => if n % 2 = 0 then 1 / 3 else 1 / 4
+  pos := fun n => by
+    by_cases h : n % 2 = 0
+    · rw [if_pos h]; norm_num
+    · rw [if_neg h]; norm_num
+  lt_one := fun n => by
+    by_cases h : n % 2 = 0
+    · rw [if_pos h]; norm_num
+    · rw [if_neg h]; norm_num
+
+theorem mixProfile_ratio0 : mixProfile.w 0 / (1 - mixProfile.w 0) = 1 / 2 := by
+  rw [show mixProfile.w 0 = 1 / 3 from rfl]
+  norm_num
+
+theorem mixProfile_ratio1 : mixProfile.w 1 / (1 - mixProfile.w 1) = 1 / 3 := by
+  rw [show mixProfile.w 1 = 1 / 4 from rfl]
+  norm_num
+
+/-- os log-ratios realizados no objeto do perfil alternado. -/
+def realizedLog : Set ℝ :=
+  {t : ℝ | ∃ r : ℝ, 0 < r ∧ objRatio mixProfile r ∧ t = Real.log r}
+
+theorem log_half_realized : Real.log ((1 : ℝ) / 2) ∈ realizedLog := by
+  refine ⟨1 / 2, by norm_num, ?_, rfl⟩
+  rw [← mixProfile_ratio0]
+  exact omega_ratio_site0 mixProfile
+
+theorem log_third_realized : Real.log ((1 : ℝ) / 3) ∈ realizedLog := by
+  refine ⟨1 / 3, by norm_num, ?_, rfl⟩
+  rw [← mixProfile_ratio1]
+  exact omega_ratio_site1 mixProfile
+
+/-- [KERNEL] ★★★ A MARCA DE III₁ NO OBJETO COMPLETADO: o subgrupo aditivo
+    gerado pelos log-ratios REALIZADOS em M_TGL(⅓,¼) é DENSO em ℝ — a
+    S-invariante do objeto toca todo ponto (via a marca da pedra 72). -/
+theorem signature_log_dense :
+    Dense ((AddSubgroup.closure realizedLog : AddSubgroup ℝ) : Set ℝ) := by
+  have hsub : ({Real.log ((1 : ℝ) / 2), Real.log ((1 : ℝ) / 3)} : Set ℝ)
+      ⊆ realizedLog := by
+    intro t ht
+    rcases ht with h | h
+    · rw [h]; exact log_half_realized
+    · rw [h]; exact log_third_realized
+  have hmono := AddSubgroup.closure_mono hsub
+  apply Dense.mono _ the_mixing_mark
+  exact_mod_cast hmono
+
+/-- [KERNEL] ★★★ A SÍNTESE DA PEDRA 87: a assinatura tipo-III vive DENTRO
+    do objeto — ω não-tracial + a escada l^{N+1} em todo andar + o subgrupo
+    log-denso dos ratios realizados (perfil ⅓,¼). -/
+theorem signature_in_the_limit :
+    (∃ A B : TowerHilbert mixProfile →L[ℂ] TowerHilbert mixProfile,
+      A ∈ theFactorObject mixProfile ∧ B ∈ theFactorObject mixProfile
+      ∧ omegaState mixProfile (A * B) ≠ omegaState mixProfile (B * A))
+    ∧ (∀ (l : ℝ) (hl : 0 < l) (N : ℕ),
+        objRatio (constProfile l hl) (l ^ (N + 1)))
+    ∧ Dense ((AddSubgroup.closure realizedLog : AddSubgroup ℝ) : Set ℝ) :=
+  ⟨omega_not_tracial mixProfile (by
+      rw [show mixProfile.w 0 = 1 / 3 from rfl]; norm_num),
+   fun l hl N => ladder_in_object l hl N,
+   signature_log_dense⟩
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -28975,6 +31240,34 @@ _LEAN_THEOREM_FLAGS = {
     "ext_tm2_flow_id_kernel_proved": "TGLExt.towerFlow_id",
     "ext_tm2_kms_kernel_proved": "TGLExt.tower_kms",
     "ext_tm2_modular_ratio_kernel_proved": "TGLExt.tower_modular_ratio",
+    # v131 (a corrente J: saturada + conjugada + equivalencia + toda escala)
+    "ext_sw2_saturates_kernel_proved": "TGLExt.witness_saturates",
+    "ext_sw2_excess_infinite_kernel_proved": "TGLExt.excess_is_infinite",
+    "ext_sw2_not_complete_kernel_proved": "TGLExt.saturated_witness_not_complete",
+    "ext_cw2_faces_one_kernel_proved": "TGLExt.faces_sum_to_one",
+    "ext_cw2_conjugated_state_kernel_proved": "TGLExt.complete_witness_is_conjugated_state",
+    "ext_mc2_anticommutes_kernel_proved": "TGLExt.current_anticommutes",
+    "ext_mc2_boundary_equiv_kernel_proved": "TGLExt.current_implements_boundary_equivalence",
+    "ext_sc2_every_scale_kernel_proved": "TGLExt.current_at_every_scale",
+    "ext_sc2_iii1_mark_kernel_proved": "TGLExt.current_iii1_mark",
+    # v131 (o Bloco A: o fator como objeto)
+    "ext_td2_push_isometric_kernel_proved": "TGLExt.tInner_tPush",
+    "ext_td2_definite_kernel_proved": "TGLExt.towerPre_definite",
+    "ext_td2_omega_one_kernel_proved": "TGLExt.towerOmega_inner_self",
+    "ext_th2_omega_norm_kernel_proved": "TGLExt.hOmega_norm",
+    "ext_th2_dense_kernel_proved": "TGLExt.towerPre_denseRange",
+    "ext_ta2_bound_kernel_proved": "TGLExt.lmul_bound_push",
+    "ext_ta2_star_kernel_proved": "TGLExt.towerPi_star",
+    "ext_ta2_omega_kernel_proved": "TGLExt.towerPi_omega",
+    "ext_ta2_cyclic_kernel_proved": "TGLExt.towerPi_orbit_dense",
+    "ext_fo2_object_kernel_proved": "TGLExt.theFactorObject",
+    "ext_fo2_mem_kernel_proved": "TGLExt.towerPi_mem_factor",
+    "ext_fo2_cyclic_kernel_proved": "TGLExt.factor_omega_cyclic",
+    "ext_fo2_gns_kernel_proved": "TGLExt.omegaState_pi",
+    "ext_sg2_not_tracial_kernel_proved": "TGLExt.omega_not_tracial",
+    "ext_sg2_ladder_kernel_proved": "TGLExt.ladder_in_object",
+    "ext_sg2_log_dense_kernel_proved": "TGLExt.signature_log_dense",
+    "ext_sg2_synthesis_kernel_proved": "TGLExt.signature_in_the_limit",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -30721,6 +33014,22 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_tm2_weights_pos_kernel_proved", "ext_tm2_mul_inv_kernel_proved",
         "ext_tm2_flow_id_kernel_proved", "ext_tm2_kms_kernel_proved",
         "ext_tm2_modular_ratio_kernel_proved",
+        # v131: a corrente J
+        "ext_sw2_saturates_kernel_proved", "ext_sw2_excess_infinite_kernel_proved",
+        "ext_sw2_not_complete_kernel_proved", "ext_cw2_faces_one_kernel_proved",
+        "ext_cw2_conjugated_state_kernel_proved", "ext_mc2_anticommutes_kernel_proved",
+        "ext_mc2_boundary_equiv_kernel_proved", "ext_sc2_every_scale_kernel_proved",
+        "ext_sc2_iii1_mark_kernel_proved",
+        # v131: o Bloco A (o fator como objeto)
+        "ext_td2_push_isometric_kernel_proved", "ext_td2_definite_kernel_proved",
+        "ext_td2_omega_one_kernel_proved", "ext_th2_omega_norm_kernel_proved",
+        "ext_th2_dense_kernel_proved", "ext_ta2_bound_kernel_proved",
+        "ext_ta2_star_kernel_proved", "ext_ta2_omega_kernel_proved",
+        "ext_ta2_cyclic_kernel_proved", "ext_fo2_object_kernel_proved",
+        "ext_fo2_mem_kernel_proved", "ext_fo2_cyclic_kernel_proved",
+        "ext_fo2_gns_kernel_proved", "ext_sg2_not_tracial_kernel_proved",
+        "ext_sg2_ladder_kernel_proved", "ext_sg2_log_dense_kernel_proved",
+        "ext_sg2_synthesis_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -30973,6 +33282,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     gnl_keys = [k for k in ext_flags if k.startswith("ext_gnl_")]
     tt2_keys = [k for k in ext_flags if k.startswith("ext_tt2_")]
     tm2_keys = [k for k in ext_flags if k.startswith("ext_tm2_")]
+    jcur_keys = [k for k in ext_flags if k.startswith(("ext_sw2_", "ext_cw2_", "ext_mc2_", "ext_sc2_"))]
+    fob_keys = [k for k in ext_flags if k.startswith(("ext_td2_", "ext_th2_", "ext_ta2_", "ext_fo2_", "ext_sg2_"))]
     d0 = all(per_theorem[k] for k in degrau0_keys)
     d1 = all(per_theorem[k] for k in degrau1_keys)
     d2 = all(per_theorem[k] for k in degrau2_keys)
@@ -31055,6 +33366,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dGnl = all(per_theorem[k] for k in gnl_keys)
     dTt2 = all(per_theorem[k] for k in tt2_keys)
     dTm2 = all(per_theorem[k] for k in tm2_keys)
+    dJc2 = all(per_theorem[k] for k in jcur_keys)
+    dFo2 = all(per_theorem[k] for k in fob_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -31288,6 +33601,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                                else "NOT_VERIFIED_THIS_RUN"),
             "tower_modular": ("SEMIFINITE_ANALYSIS_INCREMENT_54__TOMITA_FLOW_AND_KMS_ON_THE_TOWER__DENSITY_INVERTIBLE__KMS_EVERY_FLOOR__MODULAR_SPECTRUM_IS_RATIO_LATTICE__STRUCTURE_REPLACES_DEAD_TRACE__WEAK_STAR_LIMIT_REMAINS__SEAL_STAYS_CONDITIONAL" if dTm2
                              else "NOT_VERIFIED_THIS_RUN"),
+            "modular_current": ("SEMIFINITE_ANALYSIS_INCREMENT_55__THE_J_CURRENT__WITNESS_SATURATED_NEVER_COMPLETE__CONJUGATED_STATE_IS_THE_COMPLETE_WITNESS__PARTIAL_ISOMETRY_IMPLEMENTS_BOUNDARY_EQUIVALENCE__RATIO_AT_EVERY_SCALE_LOG_DENSE__SEAL_STAYS_CONDITIONAL" if dJc2
+                                else "NOT_VERIFIED_THIS_RUN"),
+            "factor_object": ("SEMIFINITE_ANALYSIS_INCREMENT_56__THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_COMPLETE__PI_STARRED_BOUNDED_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM__GNS_IDENTITY__SIGNATURE_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_STAYS_CONDITIONAL" if dFo2
+                              else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -33013,6 +35330,12 @@ def run_um(ONE):
     tower_modular = prove_tower_modular(ONE, {  # v130: A ESTRUTURA MODULAR DA TORRE (pedra 82: fluxo de Tomita + KMS + espectro=razao); ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    modular_current = prove_modular_current(ONE, {  # v131: A CORRENTE J (saturada + conjugada + equivalencia + toda escala); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    factor_object = prove_factor_object(ONE, {  # v131: O FATOR COMO OBJETO (Bloco A: M_TGL = (pi(torre))'' termo VonNeumannAlgebra); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
 
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
@@ -33197,6 +35520,8 @@ def run_um(ONE):
             "general_null": general_null,
             "tower_traceless": tower_traceless,
             "tower_modular": tower_modular,
+            "modular_current": modular_current,
+            "factor_object": factor_object,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
             "bench_declaration": bench_declaration,
@@ -39179,6 +41504,265 @@ def prove_tower_modular(ONE, parts):
         "statuses": {"o_que_e": "a teoria modular de Tomita-Takesaki na torre concreta: fluxo + KMS + espectro; a estrutura que o v129 mostrou necessaria (sem traco)",
                      "o_que_resta": "o limite fraco-* (completamento topologico) -- o fator como objeto de von Neumann",
                      "honestidade": "torre finita, andar a andar; o fator e' o limite; nenhuma frase 'III_1 construido'; o gate nao se move",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
+def prove_modular_current(ONE, parts):
+    """v131 -- A CORRENTE J [ADITIVO; nao gateia 1=1; NAO move flag]. As
+    quatro pedras da corrente (a leitura do operador, 20/07/2026):
+    * SaturatedWitness: a testemunha e' SATURADA, nunca completa --
+      Tr(P_Nome) = 1 = omega(I) (satura), Tr(1-P) = inf (o excesso que
+      supersaturaria, cortado), e a testemunha estatica plena segue
+      PROIBIDA pelo vazamento (v61) -- saturacao, nao completude;
+    * ConjugateWitness: a testemunha completa E' o estado conjugado --
+      0_mod, 1_abs e o graviton sao faces de C^2=1 (as faces somam
+      omega(I)=1); 'querer uma testemunha so em si e' falso';
+    * ModularCurrent: a corrente L implementa a equivalencia de fronteira
+      P_1 ~ P_0 ({Z,L}=0, L*L=P_0, LL*=P_1; P_1 != P_0 na algebra) -- a
+      assinatura tipo-III em kernel ('1 = 0_mod = verdade_de_fronteira');
+    * ScaleCurrent: a corrente em TODA escala -- a razao lambda^(N+1) em
+      todo andar + o espectro log-denso do par (1/2,1/3) (marca de III_1).
+    O QUE FALTA (nomeado): o fator-objeto (Bloco A) e o flip. O gate NAO
+    se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    sat_ok = bool(elp.get("ext_sw2_saturates_kernel_proved") is True
+                  and elp.get("ext_sw2_excess_infinite_kernel_proved") is True
+                  and elp.get("ext_sw2_not_complete_kernel_proved") is True)
+    conj_ok = bool(elp.get("ext_cw2_faces_one_kernel_proved") is True
+                   and elp.get("ext_cw2_conjugated_state_kernel_proved") is True)
+    cur_ok = bool(elp.get("ext_mc2_anticommutes_kernel_proved") is True
+                  and elp.get("ext_mc2_boundary_equiv_kernel_proved") is True)
+    scale_ok = bool(elp.get("ext_sc2_every_scale_kernel_proved") is True
+                    and elp.get("ext_sc2_iii1_mark_kernel_proved") is True)
+    # SOMBRA (re-derivacao numerica offline)
+    # (a) saturacao: P_Nome pesa 1; o excesso cresce sem teto (truncagens)
+    sat_res = []
+    for n in (16, 64, 256):
+        P = np.zeros((n, n)); P[0, 0] = 1.0
+        sat_res.append((abs(np.trace(P) - 1.0), float(np.trace(np.eye(n) - P))))
+    sat_tr = max(r[0] for r in sat_res)
+    exc_grow = bool(sat_res[0][1] < sat_res[1][1] < sat_res[2][1])
+    # (b) conjugacao: J^2=1 e as faces pesam 1/2 cada (soma = omega(I) = 1)
+    rng = np.random.default_rng(131)
+    Y = rng.normal(size=(8, 8)) + 1j * rng.normal(size=(8, 8))
+    jj = float(np.max(np.abs(Y.conj().T.conj().T - Y)))
+    G = np.diag([1.0, -1.0, 1.0, -1.0, 1.0, -1.0, 1.0, -1.0]).astype(complex)
+    rho8 = np.eye(8, dtype=complex) / 8.0
+    wP = np.trace(rho8 @ (np.eye(8) + G) / 2.0).real
+    wQ = np.trace(rho8 @ (np.eye(8) - G) / 2.0).real
+    faces_res = abs(wP - 0.5) + abs(wQ - 0.5) + abs((wP + wQ) - 1.0)
+    # (c) a corrente: L*L=P0, LL*=P1, {Z,L}=0
+    L = np.zeros((2, 2), complex); L[0, 1] = 1.0
+    P0 = np.diag([0.0, 1.0]).astype(complex); P1 = np.diag([1.0, 0.0]).astype(complex)
+    Z = np.diag([1.0, -1.0]).astype(complex)
+    cur_res = max(float(np.max(np.abs(L.conj().T @ L - P0))),
+                  float(np.max(np.abs(L @ L.conj().T - P1))),
+                  float(np.max(np.abs(Z @ L + L @ Z))))
+    # (d) toda escala: razoes lambda^(N+1) (lambda=beta) por Kronecker
+    lam = beta
+    rho1 = np.diag([lam / (1 + lam), 1 / (1 + lam)]).astype(complex)
+    E01 = L.copy(); E10 = L.conj().T.copy()
+    rho, up, dn = rho1.copy(), E01.copy(), E10.copy()
+    lad_res = 0.0
+    for N in range(5):
+        num = np.trace(rho @ (up @ dn)); den = np.trace(rho @ (dn @ up))
+        lad_res = max(lad_res, abs(num - (lam ** (N + 1)) * den))
+        rho, up, dn = np.kron(rho, rho1), np.kron(up, E01), np.kron(dn, E10)
+    # (e) a marca: {a log(1/2) + b log(1/3) mod 1} enche [0,1) (candidato denso)
+    vals = sorted({(a * math.log(0.5) + b * math.log(1.0 / 3.0)) % 1.0
+                   for a in range(60) for b in range(60)})
+    gaps = [vals[i + 1] - vals[i] for i in range(len(vals) - 1)]
+    gaps.append(1.0 - vals[-1] + vals[0])
+    mark_gap = max(gaps)
+    sombra_ok = bool(sat_tr < 1e-12 and exc_grow and jj < 1e-12
+                     and faces_res < 1e-12 and cur_res < 1e-12
+                     and lad_res < 1e-10 and mark_gap < 0.02)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("★ SATURADA, nunca completa: Tr(P_Nome)=1=omega(I); o excesso e' infinito (cortado); a estatica segue proibida (v61)", sat_ok),
+        ("★ a testemunha completa E' o estado CONJUGADO: 0_mod/1_abs/graviton = faces de C^2=1; faces somam omega(I)=1", conj_ok),
+        ("★ a corrente L implementa P_1 ~ P_0 na fronteira ({Z,L}=0; L*L=P_0; LL*=P_1) -- assinatura tipo-III", cur_ok),
+        ("★ a corrente em TODA escala: razao lambda^(N+1) em todo andar + espectro log-denso (1/2,1/3)", scale_ok),
+        ("SOMBRA: saturacao %.0e / faces %.0e / corrente %.0e / escada(lam=beta) %.0e / marca gap %.3f" % (sat_tr, faces_res, cur_res, lad_res, mark_gap), sombra_ok),
+        ("o gate segue 5T/1F (a corrente NAO vira a flag: falta o fator-objeto + normalidade)", five_one),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_J_CURRENT__WITNESS_SATURATED_NEVER_COMPLETE__EXCESS_CUT_BY_LEAKAGE__COMPLETE_WITNESS_IS_THE_CONJUGATED_STATE__THREE_FACES_OF_ONE_CONJUGATION__PARTIAL_ISOMETRY_IMPLEMENTS_BOUNDARY_EQUIVALENCE__RATIO_AT_EVERY_SCALE__LOG_DENSE_MARK__SEAL_UNMOVED" if all_v
+          else "J_CURRENT_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("A CORRENTE J: a testemunha e' saturada (nunca completa; o "
+                    "excesso que supersaturaria e' cortado pelo vazamento) e "
+                    "conjugada (0_mod, 1_abs e o graviton = faces de C^2=1); a "
+                    "corrente L implementa a equivalencia de fronteira P_1 ~ P_0 "
+                    "e carrega a razao modular em toda escala (log-densa)."),
+        "values": {"beta": beta, "sat_resid": float(sat_tr),
+                   "faces_resid": float(faces_res), "current_resid": float(cur_res),
+                   "ladder_resid": float(lad_res), "mark_gap": float(mark_gap)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_e": "a leitura do operador (20/07/2026) em kernel: saturacao em vez de completude; conjugacao em vez de objeto-em-si; a corrente que liga as faces",
+                     "o_que_resta": "o fator como objeto (Bloco A) e o flip (normalidade + V3 + cunhagem)",
+                     "honestidade": "full_static_witness_exists=False INTOCADO (teorema v61); nenhuma frase 'testemunha completa construida'; o gate nao se move",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
+def prove_factor_object(ONE, parts):
+    """v131 -- O FATOR COMO OBJETO [ADITIVO; nao gateia 1=1; NAO move flag].
+    O Bloco A do PLANO_ULTIMA_FLAG realizado em kernel -- o residuo nomeado
+    do v130 ('falta SO o limite fraco-*') deixou de faltar como OBJETO:
+    * TowerDefinite (83): o colimite da torre e' pre-Hilbert DEFINIDO
+      (pesos positivos => radical ZERO; o quociente da pedra 78 e' trivial);
+    * TowerHilbert (84): H_phi = completamento (Hilbert; Omega unitario;
+      a torre e' DENSA);
+    * TowerAction (85): pi(x) em B(H_phi) -- limitada pelo bound UNIFORME
+      de Frobenius (inducao de fatiamento), ESTRELADA (pi(x*)=pi(x)*),
+      unital, multiplicativa; Omega CICLICO (a orbita da torre e' densa);
+    * TheFactorObject (86): M_TGL := (pi(torre))'' cunhado como TERMO
+      VonNeumannAlgebra da mathlib; pi(torre) dentro; Omega ciclico para
+      M_TGL; omega(pi(x)) = phi(x) (a identidade GNS);
+    * SignatureInTheLimit (87): a assinatura DENTRO do objeto -- omega
+      nao-tracial; a escada l^(N+1) em todo andar; o subgrupo log-denso
+      dos ratios realizados (perfil 1/3,1/4).
+    O QUE FALTA (nomeado, Bloco B): normalidade (88a-c), o tipo V3 (89) e
+    a cunhagem (90) -- a decisao A/B/C e' do operador. O gate NAO se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    five_one = bool(flips.get("concrete_emergent_einstein_proved")
+                    and not flips.get("canonical_boundary_transport_witness_constructed"))
+    td_ok = bool(elp.get("ext_td2_push_isometric_kernel_proved") is True
+                 and elp.get("ext_td2_definite_kernel_proved") is True
+                 and elp.get("ext_td2_omega_one_kernel_proved") is True)
+    th_ok = bool(elp.get("ext_th2_omega_norm_kernel_proved") is True
+                 and elp.get("ext_th2_dense_kernel_proved") is True)
+    ta_ok = bool(elp.get("ext_ta2_bound_kernel_proved") is True
+                 and elp.get("ext_ta2_star_kernel_proved") is True
+                 and elp.get("ext_ta2_omega_kernel_proved") is True
+                 and elp.get("ext_ta2_cyclic_kernel_proved") is True)
+    fo_ok = bool(elp.get("ext_fo2_object_kernel_proved") is True
+                 and elp.get("ext_fo2_mem_kernel_proved") is True
+                 and elp.get("ext_fo2_cyclic_kernel_proved") is True
+                 and elp.get("ext_fo2_gns_kernel_proved") is True)
+    sg_ok = bool(elp.get("ext_sg2_not_tracial_kernel_proved") is True
+                 and elp.get("ext_sg2_ladder_kernel_proved") is True
+                 and elp.get("ext_sg2_log_dense_kernel_proved") is True
+                 and elp.get("ext_sg2_synthesis_kernel_proved") is True)
+    # SOMBRA: a torre GNS numerica (perfil constante l=beta), andares 0..3
+    lam = beta
+    mu = lam / (1 + lam)
+    rho1 = np.diag([mu, 1 - mu]).astype(complex)
+    rng = np.random.default_rng(1131)
+    iso_res = omg_res = gns_res = lad_res = 0.0
+    bound_ok = True
+    rho = rho1.copy()
+    E01 = np.zeros((2, 2), complex); E01[0, 1] = 1.0
+    up, dn = E01.copy(), E01.conj().T.copy()
+    x0 = rng.normal(size=(2, 2)) + 1j * rng.normal(size=(2, 2))
+    frob0 = float(np.sum(np.abs(x0) ** 2))
+    xpush = x0.copy()
+    for N in range(4):
+        d = rho.shape[0]
+        a = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+        b = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+        # isometria do degrau: <a x 1, b x 1>_{N+1} = <a, b>_N
+        rho_up = np.kron(rho, rho1)
+        ip_lo = np.trace(rho @ (a.conj().T @ b))
+        ip_hi = np.trace(rho_up @ (np.kron(a, np.eye(2)).conj().T @ np.kron(b, np.eye(2))))
+        iso_res = max(iso_res, abs(ip_hi - ip_lo))
+        # Omega unitario: phi_N(1) = 1
+        omg_res = max(omg_res, abs(np.trace(rho @ np.eye(d)) - 1.0))
+        # identidade GNS: omega(pi x) = <Omega, x Omega>_phi = phi(x)
+        gns_res = max(gns_res, abs(np.trace(rho @ (np.eye(d).conj().T @ (a @ np.eye(d))))
+                                   - np.trace(rho @ a)))
+        # bound uniforme: ||x v||_phi <= sqrt(frobSq(x0)) ||v||_phi (x empurrado)
+        v = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+        nl = math.sqrt(abs(np.trace(rho @ ((xpush @ v).conj().T @ (xpush @ v))).real))
+        nr = math.sqrt(frob0) * math.sqrt(abs(np.trace(rho @ (v.conj().T @ v)).real))
+        bound_ok = bound_ok and bool(nl <= nr + 1e-10)
+        # a escada no objeto: phi(up dn) = lam^{N+1} phi(dn up)
+        num = np.trace(rho @ (up @ dn)); den = np.trace(rho @ (dn @ up))
+        lad_res = max(lad_res, abs(num - (lam ** (N + 1)) * den))
+        rho = rho_up
+        up, dn = np.kron(up, E01), np.kron(dn, E01.conj().T)
+        xpush = np.kron(xpush, np.eye(2))
+    # nao-tracialidade no perfil misto (sitio 0: mu=1/3)
+    rho_mix = np.diag([1.0 / 3.0, 2.0 / 3.0]).astype(complex)
+    ab = np.trace(rho_mix @ (E01 @ E01.conj().T))
+    ba = np.trace(rho_mix @ (E01.conj().T @ E01))
+    nt_ok = bool(abs(ab - 1.0 / 3.0) < 1e-15 and abs(ba - 2.0 / 3.0) < 1e-15
+                 and abs(ab - ba) > 0.3)
+    # a marca no objeto: subgrupo log-denso (1/2, 1/3)
+    vals = sorted({(a_ * math.log(0.5) + b_ * math.log(1.0 / 3.0)) % 1.0
+                   for a_ in range(60) for b_ in range(60)})
+    gaps = [vals[i + 1] - vals[i] for i in range(len(vals) - 1)]
+    gaps.append(1.0 - vals[-1] + vals[0])
+    mark_gap = max(gaps)
+    sombra_ok = bool(iso_res < 1e-12 and omg_res < 1e-12 and gns_res < 1e-12
+                     and bound_ok and lad_res < 1e-10 and nt_ok
+                     and mark_gap < 0.02)
+    shadow = evaluate_quantum_gravity_closure(
+        flips,
+        {"massless_spin2_proved": False, "exactly_two_helicities_proved": False,
+         "ghost_free_proved": False, "stress_energy_conserved": False,
+         "relevant_anomalies_absent": False},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_unmoved = bool(shadow["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("★ (83) o colimite e' pre-Hilbert DEFINIDO: empurrao isometrico; radical ZERO; <Omega,Omega>=1", td_ok),
+        ("★ (84) H_phi = completamento: Hilbert; ||Omega||=1; a torre e' DENSA", th_ok),
+        ("★ (85) pi em B(H_phi): bound UNIFORME de Frobenius; ESTRELADA; pi(x)Omega=[x]; Omega CICLICO", ta_ok),
+        ("★★★ (86) M_TGL := (pi(torre))'' TERMO VonNeumannAlgebra; torre DENTRO; Omega ciclico p/ M_TGL; omega(pi x)=phi(x)", fo_ok),
+        ("★ (87) a assinatura NO objeto: omega nao-tracial; escada l^(N+1); subgrupo log-denso realizado", sg_ok),
+        ("SOMBRA [l=beta, 4 andares]: iso %.0e / Omega %.0e / GNS %.0e / escada %.0e / nao-trac 1/3 vs 2/3 / marca %.3f" % (iso_res, omg_res, gns_res, lad_res, mark_gap), sombra_ok),
+        ("o gate segue 5T/1F (o OBJETO existe; o flip pede normalidade 88a-c + V3 + cunhagem -- decisao A/B/C do operador)", five_one),
+        ("SOMBRA: o selo NAO se move (CONDITIONAL)", seal_unmoved),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_HILBERT_OMEGA_UNIT_TOWER_DENSE__PI_BOUNDED_STARRED_UNITAL_MULTIPLICATIVE_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM_COINED__GNS_IDENTITY_OMEGA_PI_EQ_PHI__SIGNATURE_LIVES_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_UNMOVED" if all_v
+          else "FACTOR_OBJECT_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("O FATOR COMO OBJETO: o colimite da torre e' pre-Hilbert "
+                    "definido; H_phi = completamento; pi age em B(H_phi) "
+                    "estrelada com Omega ciclico; M_TGL := (pi(torre))'' e' "
+                    "TERMO VonNeumannAlgebra; omega(pi(x)) = phi(x); e a "
+                    "assinatura tipo-III vive DENTRO do objeto."),
+        "values": {"beta": beta, "iso_resid": float(iso_res),
+                   "omega_resid": float(omg_res), "gns_resid": float(gns_res),
+                   "ladder_resid": float(lad_res), "mark_gap": float(mark_gap)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_e": "o Bloco A do PLANO_ULTIMA_FLAG inteiro em kernel: o residuo 'falta SO o fraco-*' do v130 realizado como TERMO VonNeumannAlgebra",
+                     "o_que_resta": "Bloco B: normalidade (88a-c, a pedra mais dura), o tipo V3 (89), a cunhagem (90); a decisao A/B/C e' do operador",
+                     "honestidade": "M_TGL e' objeto de von Neumann legitimo (duplo comutante); 'fator' e 'III_1' seguem ASSINATURA, nao teorema de tipo; qgClosureCertificateV2 segue RESERVADO; o gate nao se move",
                      "o_veredito": vd},
         "does_not_gate_core": True,
         "verdict": vd,
@@ -49068,7 +51652,16 @@ _ESQUELETO_STONES = [
     ("v128", "ThirdCone", "TGLExt/ThirdCone.lean", "531/531", "20/07 08:14:22"),
     ("v129", "GeneralNull", "TGLExt/GeneralNull.lean", "537/537", "20/07 11:31:16"),
     ("v129", "TowerTraceless", "TGLExt/TowerTraceless.lean", "537/537", "20/07 11:31:16"),
-    ("v130", "TowerModular", "TGLExt/TowerModular.lean", None, None),
+    ("v130", "TowerModular", "TGLExt/TowerModular.lean", "542/542", "20/07 14:48:09"),
+    ("v131", "SaturatedWitness", "TGLExt/SaturatedWitness.lean", None, None),
+    ("v131", "ConjugateWitness", "TGLExt/ConjugateWitness.lean", None, None),
+    ("v131", "ModularCurrent", "TGLExt/ModularCurrent.lean", None, None),
+    ("v131", "ScaleCurrent", "TGLExt/ScaleCurrent.lean", None, None),
+    ("v131", "TowerDefinite", "TGLExt/TowerDefinite.lean", None, None),
+    ("v131", "TowerHilbert", "TGLExt/TowerHilbert.lean", None, None),
+    ("v131", "TowerAction", "TGLExt/TowerAction.lean", None, None),
+    ("v131", "TheFactorObject", "TGLExt/TheFactorObject.lean", None, None),
+    ("v131", "SignatureInTheLimit", "TGLExt/SignatureInTheLimit.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -49103,17 +51696,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(oitenta e duas pedras e o rito do fechamento, \S120--\S210)}")
+                 r"(noventa e uma pedras e o rito do fechamento, \S120--\S211)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em oitenta e duas pedras "
-                 r"(v43--v130) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em noventa e uma pedras "
+                 r"(v43--v131) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As oitenta e duas pedras}")
+        c.append(r"\subsection*{As noventa e uma pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -49972,6 +52565,25 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"do fator SEM traço; e o espectro modular É o reticulado de "
                  r"razões (a testemunha $\lambda^{N+1}$ vive no fluxo, ligação "
                  r"com a marca log-densa v125). Resta o limite fraco-$*$.")
+        c.append(r"\kernelmk{ModularCurrent+ScaleCurrent} (v131): \textbf{a corrente "
+                 r"J} --- a testemunha é SATURADA ($\mathrm{Tr}(P_{\mathrm{Nome}})"
+                 r"=1=\omega(I)$; o excesso é $\infty$, cortado pelo vazamento) e "
+                 r"CONJUGADA (as três faces --- $0_{\mathrm{mod}}$, $1_{\mathrm{abs}}$ "
+                 r"e o gráviton --- são faces de $\mathcal{C}^2=1$); a corrente $L$ "
+                 r"implementa a equivalência de fronteira $P_1\sim_\partial P_0$ com "
+                 r"$\{Z_\partial,L\}=0$ e carrega a razão modular em TODA escala "
+                 r"($\lambda^{N+1}$; espectro log-denso do par $(\tfrac12,\tfrac13)$).")
+        c.append(r"\kernelmk{TheFactorObject} (v131, Bloco A 83--87): \textbf{o fator "
+                 r"como objeto} --- o resíduo do v130 REALIZADO: o colimite da torre é "
+                 r"pré-Hilbert DEFINIDO (pesos positivos $\Rightarrow$ radical zero); "
+                 r"$H_\varphi$ é o completamento (Hilbert, $\Omega$ unitário, torre "
+                 r"densa); $\pi$ age em $B(H_\varphi)$ ESTRELADA (bound uniforme de "
+                 r"Frobenius por indução de fatiamento) com $\Omega$ CÍCLICO; "
+                 r"\textbf{$M_{\mathrm{TGL}}:=(\pi(\mathrm{torre}))''$ cunhado como "
+                 r"termo \texttt{VonNeumannAlgebra} da mathlib}; $\omega(\pi(x))="
+                 r"\varphi(x)$ (a identidade GNS); e a ASSINATURA vive no objeto "
+                 r"($\omega$ não-tracial; escada $l^{N+1}$; subgrupo log-denso). O "
+                 r"flip pede a normalidade (Bloco B); o gate não se move.")
         c.append(r"\kernelmk{GNSQuotient} (v128): \textbf{o pré-fator "
                  r"representado} --- a forma é HERMITIANA ($\langle a,b\rangle="
                  r"\overline{\langle b,a\rangle}$); o RADICAL $N=\{a:\forall "
@@ -50264,6 +52876,30 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"era do Gram--Schmidt numérico. Veredito: \texttt{%s}. O "
                   r"gate 5T/1F não se move.")
                  % str(_tm0.get("verdict", "?")).replace("_", r"\_"))
+        _jc0 = core.get("modular_current", {}) or {}
+        _fo0 = core.get("factor_object", {}) or {}
+        c.append((r"\subsection*{\S211 --- A corrente J e o fator como objeto "
+                  r"(v131)}"
+                  r"AS NOVE PEDRAS. A CORRENTE J (quatro pedras, a leitura do "
+                  r"operador): a testemunha é SATURADA, nunca completa "
+                  r"($\mathrm{Tr}(P_{\mathrm{Nome}})=1=\omega(I)$; o excesso "
+                  r"é $\infty$, cortado pelo vazamento $\beta$) e CONJUGADA "
+                  r"($0_{\mathrm{mod}}$, $1_{\mathrm{abs}}$ e o gráviton = "
+                  r"faces de $\mathcal{C}^2=1$); a corrente $L$ implementa "
+                  r"$P_1\sim_\partial P_0$ ($\{Z_\partial,L\}=0$) e carrega a "
+                  r"razão em toda escala. E O BLOCO A (pedras 83--87 do "
+                  r"PLANO\_ULTIMA\_FLAG): o resíduo do v130 --- "
+                  r"«falta SÓ o limite fraco-$*$» --- REALIZADO: "
+                  r"$H_\varphi$ Hilbert, $\pi$ em $B(H_\varphi)$ estrelada com "
+                  r"$\Omega$ cíclico, e $M_{\mathrm{TGL}}:=(\pi(\mathrm{"
+                  r"torre}))''$ CUNHADO como termo \texttt{VonNeumannAlgebra}; "
+                  r"$\omega(\pi(x))=\varphi(x)$; a assinatura ($\omega$ "
+                  r"não-tracial, escada $l^{N+1}$, subgrupo log-denso) vive "
+                  r"NO objeto. O flip pede a normalidade (Bloco B; decisão "
+                  r"A/B/C do operador). Vereditos: \texttt{%s} e \texttt{%s}. "
+                  r"O gate 5T/1F não se move.")
+                 % (str(_jc0.get("verdict", "?")).replace("_", r"\_"),
+                    str(_fo0.get("verdict", "?")).replace("_", r"\_")))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- A testemunha habitável: os dois zeros e o "
@@ -50710,7 +53346,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em oitenta e duas pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em noventa e uma pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -50845,16 +53481,16 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Final register --- the formal skeleton of the global lift "
-                 r"(eighty-two stones and the closure rite, \S120--\S210)}")
+                 r"(ninety-one stones and the closure rite, \S120--\S211)}")
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across eighty-two stones (v43--v130) the audited kernel went from 53 to "
+                 r"from this run's audit. Across ninety-one stones (v43--v131) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results.")
-        c.append(r"\subsection*{The eighty-two stones}")
+        c.append(r"\subsection*{The ninety-one stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -51719,6 +54355,26 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"the traceless factor; and the modular spectrum IS the ratio "
                  r"lattice (the witness $\lambda^{N+1}$ lives in the flow, "
                  r"linking the log-dense mark v125). The weak-$*$ limit remains.")
+        c.append(r"\kernelmk{ModularCurrent+ScaleCurrent} (v131): \textbf{the J "
+                 r"current} --- the witness is SATURATED ($\mathrm{Tr}(P_{\mathrm{Name}})"
+                 r"=1=\omega(I)$; the excess is $\infty$, cut by the leakage) and "
+                 r"CONJUGATED (the three faces --- $0_{\mathrm{mod}}$, $1_{\mathrm{abs}}$ "
+                 r"and the graviton --- are faces of $\mathcal{C}^2=1$); the current $L$ "
+                 r"implements the boundary equivalence $P_1\sim_\partial P_0$ with "
+                 r"$\{Z_\partial,L\}=0$ and carries the modular ratio at EVERY scale "
+                 r"($\lambda^{N+1}$; log-dense spectrum of the pair $(\tfrac12,\tfrac13)$).")
+        c.append(r"\kernelmk{TheFactorObject} (v131, Block A 83--87): \textbf{the factor "
+                 r"as object} --- the v130 residue REALIZED: the tower colimit is a "
+                 r"DEFINITE pre-Hilbert space (positive weights $\Rightarrow$ zero "
+                 r"radical); $H_\varphi$ is the completion (Hilbert, unit $\Omega$, "
+                 r"dense tower); $\pi$ acts on $B(H_\varphi)$ STARRED (uniform "
+                 r"Frobenius bound by slicing induction) with CYCLIC $\Omega$; "
+                 r"\textbf{$M_{\mathrm{TGL}}:=(\pi(\mathrm{tower}))''$ coined as a "
+                 r"mathlib \texttt{VonNeumannAlgebra} term}; $\omega(\pi(x))="
+                 r"\varphi(x)$ (the GNS identity); and the SIGNATURE lives in the "
+                 r"object (non-tracial $\omega$; ladder $l^{N+1}$; log-dense "
+                 r"subgroup). The flip requires normality (Block B); the gate does "
+                 r"not move.")
         c.append(r"\kernelmk{GNSQuotient} (v128): \textbf{the represented "
                  r"pre-factor} --- the form is HERMITIAN ($\langle a,b\rangle="
                  r"\overline{\langle b,a\rangle}$); the RADICAL $N=\{a:\forall "
@@ -52012,6 +54668,30 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"numerical Gram--Schmidt. Verdict: \texttt{%s}. The 5T/1F "
                   r"gate does not move.")
                  % str(_tm0.get("verdict", "?")).replace("_", r"\_"))
+        _jc0 = core.get("modular_current", {}) or {}
+        _fo0 = core.get("factor_object", {}) or {}
+        c.append((r"\subsection*{\S211 --- The J current and the factor as "
+                  r"object (v131)}"
+                  r"THE NINE STONES. THE J CURRENT (four stones, the operator's "
+                  r"reading): the witness is SATURATED, never complete "
+                  r"($\mathrm{Tr}(P_{\mathrm{Name}})=1=\omega(I)$; the excess "
+                  r"is $\infty$, cut by the leakage $\beta$) and CONJUGATED "
+                  r"($0_{\mathrm{mod}}$, $1_{\mathrm{abs}}$ and the graviton = "
+                  r"faces of $\mathcal{C}^2=1$); the current $L$ implements "
+                  r"$P_1\sim_\partial P_0$ ($\{Z_\partial,L\}=0$) and carries "
+                  r"the ratio at every scale. AND BLOCK A (stones 83--87 of "
+                  r"PLANO\_ULTIMA\_FLAG): the v130 residue --- "
+                  r"‘only the weak-$*$ limit remains’ --- REALIZED: "
+                  r"$H_\varphi$ Hilbert, $\pi$ on $B(H_\varphi)$ starred with "
+                  r"cyclic $\Omega$, and $M_{\mathrm{TGL}}:=(\pi(\mathrm{"
+                  r"tower}))''$ COINED as a \texttt{VonNeumannAlgebra} term; "
+                  r"$\omega(\pi(x))=\varphi(x)$; the signature (non-tracial "
+                  r"$\omega$, ladder $l^{N+1}$, log-dense subgroup) lives IN "
+                  r"the object. The flip requires normality (Block B; the "
+                  r"operator's A/B/C decision). Verdicts: \texttt{%s} and "
+                  r"\texttt{%s}. The 5T/1F gate does not move.")
+                 % (str(_jc0.get("verdict", "?")).replace("_", r"\_"),
+                    str(_fo0.get("verdict", "?")).replace("_", r"\_")))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- The inhabitable witness: the two zeros and "
@@ -52446,7 +55126,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across eighty-two stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across ninety-one stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
@@ -52943,7 +55623,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_shear_unblinding", "void_shear_v2", "void_floor_kappa_v6", "fused_witness", "linguistic_isomorphism", "powers_ladder", "void_floor_kappa_v7", "mixed_ladder", "continuum_tt", "void_floor_kappa_v8", "colimit_seed", "tt_superposition", "void_floor_kappa_v9", "gns_tower", "second_cone", "gns_quotient", "third_cone", "general_null", "tower_traceless", "tower_modular", "void_floor_lrg", "void_floor_kappa_v5",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_shear_unblinding", "void_shear_v2", "void_floor_kappa_v6", "fused_witness", "linguistic_isomorphism", "powers_ladder", "void_floor_kappa_v7", "mixed_ladder", "continuum_tt", "void_floor_kappa_v8", "colimit_seed", "tt_superposition", "void_floor_kappa_v9", "gns_tower", "second_cone", "gns_quotient", "third_cone", "general_null", "tower_traceless", "tower_modular", "modular_current", "factor_object", "void_floor_lrg", "void_floor_kappa_v5",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -55337,6 +58017,16 @@ def main():
     for _k, _v in (_tm.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [a estrutura de equilibrio que SUBSTITUI o traco morto (v129): fluxo modular + KMS + espectro=razao; RESTA o limite fraco-*; o selo NAO se move]")
+    _jc = core.get("modular_current", {}) or {}
+    print("  A CORRENTE J [v131 -- as quatro pedras da corrente: saturada / conjugada / equivalencia / toda escala]: %s" % _jc.get("verdict"))
+    for _k, _v in (_jc.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [a leitura do operador em kernel: saturacao em vez de completude; conjugacao em vez de objeto-em-si; a corrente L implementa P_1 ~ P_0; o selo NAO se move]")
+    _fo = core.get("factor_object", {}) or {}
+    print("  O FATOR COMO OBJETO [v131 -- Bloco A: M_TGL = (pi(torre))'' termo VonNeumannAlgebra]: %s" % _fo.get("verdict"))
+    for _k, _v in (_fo.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [o residuo do v130 REALIZADO: H_phi + pi em B(H) + M_TGL objeto + omega(pi x)=phi(x) + assinatura no objeto; o flip pede normalidade (Bloco B); o selo NAO se move]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (

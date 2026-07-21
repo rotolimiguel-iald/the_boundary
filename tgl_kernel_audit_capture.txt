@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=173374 len(stderr)=0
+# len(stdout)=175661 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -2173,6 +2173,32 @@ TGLExt.witness_fiber_sensitive : (TGLExt.theSensitiveNet.net.external (1, Multip
 'TGLExt.towerFlow_id' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.tower_kms' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.tower_modular_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.witness_saturates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.excess_is_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.saturated_witness_not_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.faces_sum_to_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.complete_witness_is_conjugated_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.current_anticommutes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.current_implements_boundary_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.current_at_every_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.current_iii1_mark' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.tInner_tPush' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.towerPre_definite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.towerOmega_inner_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.hOmega_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.towerPre_denseRange' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.lmul_bound_push' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.towerPi_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.towerPi_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.towerPi_orbit_dense' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theFactorObject' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.towerPi_mem_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.factor_omega_cyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.omegaState_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.omega_not_tracial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ladder_in_object' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.signature_log_dense' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.signature_in_the_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
