@@ -3794,9 +3794,64 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.linRicci_planeWave": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ricciSymbol_tt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgPhysicsCertificate_massless": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.kStd_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gauge_fixes_physical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.physical_not_gauge": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgPhysicsCertificate_helicities": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgPhysicsCertificate_ghostfree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgPhysicsCertificate_conservation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgPhysicsCertificate_anomaly": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "formal_source_hash": "46862dd0d00948f5c1b0edb38d33a11fddf1eb5bb5a6906ac336d4ffaf38e731",
+  "formal_source_hash": "c8763dda4e1541f504d01315481eba1177f4a0074f3b12dbb35b1cc60ef677dc",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -4102,7 +4157,7 @@
 
 ```json
 {
-  "code_sha256": "aadfdcaa9601d64180065e8b939bf22426374181440ea673a71f5a156511d4d3",
+  "code_sha256": "28cafb810229771abbef46b5c118831888674ea3b122ca18b89ebacc87ebcd41",
   "cf4_catalog_hash": null,
   "window_hash": null,
   "selection_hash": null
@@ -4113,7 +4168,7 @@
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 594/594 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 605/605 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -4199,6 +4254,7 @@
 - `modular_current` = `SEMIFINITE_ANALYSIS_INCREMENT_55__THE_J_CURRENT__WITNESS_SATURATED_NEVER_COMPLETE__CONJUGATED_STATE_IS_THE_COMPLETE_WITNESS__PARTIAL_ISOMETRY_IMPLEMENTS_BOUNDARY_EQUIVALENCE__RATIO_AT_EVERY_SCALE_LOG_DENSE__SEAL_STAYS_CONDITIONAL`
 - `factor_object` = `SEMIFINITE_ANALYSIS_INCREMENT_56__THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_COMPLETE__PI_STARRED_BOUNDED_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM__GNS_IDENTITY__SIGNATURE_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_STAYS_CONDITIONAL`
 - `the_coinage` = `SEMIFINITE_ANALYSIS_INCREMENT_57__THE_COINAGE__NO_NORMAL_TRACIAL_STATE_ON_THE_OBJECT__SITE_MARKS_WOT_TO_MU__TRACIAL_HALVING_REFUSES_MU_NE_HALF__OMEGA_IS_SEQ_NORMAL__V3_TYPE_HARDENED_WITH_FACTOR_INSIDE__FINITE_BENCH_TOOTH__QG_CLOSURE_CERTIFICATE_V2_COINED__PARSER_FLIPS_ALONE__SEAL_SCALES_ONE_STEP`
+- `the_spectrum` = `PHYSICS_INCREMENT_1__THE_SPECTRUM__MASSLESS_FORCED_BY_THE_CONE__EXACTLY_TWO_HELICITIES_TT_MOD_GAUGE_IS_R2__GHOST_FREE_ON_PHYSICAL_CLASS__LINEARIZED_BIANCHI_IDENTITY_ON_SYMBOL__LINEARIZED_WARD_NO_ANOMALY__FIVE_PHYSICS_FLAGS_READ_FROM_KERNEL__PLANE_WAVE_FAMILY_SCOPE_NAMED`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
@@ -4374,7 +4430,7 @@
 
 - `correcao_do_nome`: o gate 'testemunha full' e' IMPOSSIVEL por teorema (v61); o alvo correto e' canonical_boundary_transport_witness (testemunha de fronteira dinamica) -- flags novas instaladas, todas False (fail-closed)
 - `faces_ja_em_kernel`: spin-2 face finita [v75: helice 2theta, TT>0, 2 polarizacoes]; teorema mestre condicional [v74]; pacotes abstratos [v64-66] -- NENHUMA delas move as flags concretas (probes garantem)
-- `estado`: TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN
+- `estado`: TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN
 - `o_caminho`: a ordem do fecho: SemifiniteAnalysis -> ConcreteAQFTCore -> ConcreteBreuerCorner -> ConcreteModularFourFrame -> ConcreteSolderField -> ConcreteEmergentEinstein -> LinearizedSpin2(continuo) -> CanonicalBoundaryWitness (TERMO, nao Nonempty)
 - `estado_tecnico_ext_confirmado`: [EXT, leitura externa 17/07/2026 -- confirmada pelo runtime] INFINITE_DIMENSIONAL_INHABITANT_CONSTRUCTED__MASTER_THEOREM_FIRES_ON_EXPLICIT_MODEL__PHYSICAL_AQFT_CORE_AND_CONTINUOUS_GEOMETRY_REMAIN_OPEN
 - `v99_certificado`: as flags apontam aos termos Lean do certificado (ClosureCertificate.lean v1 tipa: rede fisica nao-constante c/ grupo nao-trivial; Dirac ILIMITADO star(D)=D c/ gap quadratico; canto no kernel do Dirac; frame-CAMPO suave; a metade nao-tipavel [III1, afiliacao semifinita, H3 derivado, spin-2 continuo] nomeada p/ o v2)
@@ -4601,6 +4657,13 @@
 - `o_que_resta`: FISICA (spin-2 continuo pleno: 5 flags) + EXPERIMENTO (dado powered: 4 flags) + o proximo endurecimento de III_1 (centro trivial; peso ILIMITADO) + Einstein GERAL (Lema 3)
 - `honestidade`: NAO se declara gravitacao quantica fisica; full_static segue impossivel (v61); III_1 na definicao operacional selada; cosmologia jamais alimentou pedra
 - `o_veredito`: TGL_THE_COINAGE__NO_NORMAL_TRACIAL_STATE_ON_M_TGL__SITE_MARKS_WOT_TO_MU__TRACIAL_HALVING_SAYS_HALF__MU_NE_HALF_KILLS__OMEGA_IS_SEQ_NORMAL__V3_HARDENED_FACTOR_INSIDE__FINITE_BENCH_TOOTH__QG_CLOSURE_CERTIFICATE_V2_COINED_CLEAN_AXIOMS__PARSER_FLIPPED_ALONE__SEAL_SCALED_ONE_STEP__MATHEMATICAL_MODEL__PHYSICS_AND_NATURE_REMAIN_OPEN
+
+**Estatutos [the_spectrum]** (veredito: `TGL_THE_SPECTRUM__MASSLESS_FORCED_BY_THE_CONE__EXACTLY_TWO_HELICITIES_R2_EXACT__GHOST_FREE_ON_PHYSICAL_CLASS__BIANCHI_IDENTITY_ON_SYMBOL__WARD_NO_CLASSICAL_ANOMALY__FIVE_PHYSICS_FLAGS_FLIPPED_BY_PARSER__SEAL_SCALED_TO_PHYSICAL_MODEL__EMPIRICAL_TEST_OPEN__NATURE_DECIDES`):
+
+- `o_que_e`: o degrau FISICO do gate por construcao: os 5 flags lidos de qgPhysicsCertificate_* (pedra 95)
+- `o_que_resta`: EXPERIMENTO (4 flags): DADO powered -- adquirir profundidade (SPT-3G/ACT alem da banda, Euclid) e rodar o rito v87; ABERTOS nomeados: perturbacoes gerais, anomalias quanticas, FP completo, Einstein geral
+- `honestidade`: escopo = familia de ondas planas concreta; NAO se declara teste empirico; a natureza pode confirmar OU FALSIFICAR
+- `o_veredito`: TGL_THE_SPECTRUM__MASSLESS_FORCED_BY_THE_CONE__EXACTLY_TWO_HELICITIES_R2_EXACT__GHOST_FREE_ON_PHYSICAL_CLASS__BIANCHI_IDENTITY_ON_SYMBOL__WARD_NO_CLASSICAL_ANOMALY__FIVE_PHYSICS_FLAGS_FLIPPED_BY_PARSER__SEAL_SCALED_TO_PHYSICAL_MODEL__EMPIRICAL_TEST_OPEN__NATURE_DECIDES
 
 **Estatutos [void_floor_lrg]** (veredito: `TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION`):
 

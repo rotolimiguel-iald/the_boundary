@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=178045 len(stderr)=0
+# len(stdout)=179050 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -2225,6 +2225,17 @@ TGLExt.witness_fiber_sensitive : (TGLExt.theSensitiveNet.net.external (1, Multip
 'TGLExt.qgClosureCertificateV2_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.qgClosureCertificateV2_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.the_witness_is_construction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.linRicci_planeWave' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.ricciSymbol_tt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgPhysicsCertificate_massless' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.kStd_null' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.tt_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.gauge_fixes_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.physical_not_gauge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgPhysicsCertificate_helicities' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgPhysicsCertificate_ghostfree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgPhysicsCertificate_conservation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.qgPhysicsCertificate_anomaly' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

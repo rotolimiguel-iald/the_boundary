@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-21 16:55:19",
+  "timestamp": "2026-07-21 20:22:39",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "46862dd0d00948f5c1b0edb38d33a11fddf1eb5bb5a6906ac336d4ffaf38e731",
+  "formal_source_hash": "c8763dda4e1541f504d01315481eba1177f4a0074f3b12dbb35b1cc60ef677dc",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "7e13b472a3451d0e617eef51205760c6b3277a059123e18659ee0e1f3a65ff55",
+    "TGLExt.lean": "a45540cf4a7b160a54bfd7a01291f0d8e9448500b33df348fc0782ee8ed2a23d",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "5be0600d5d9c869950e6d4e25b5227dc34ba49cd66c45432f4cbd17e0861becf",
+    "TGL/Audit.lean": "0198245c51554ac71dfbe1489d3f20909950e3f4ab7ac21d0298f06d0de1ce0c",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -105,6 +105,7 @@
     "TGLExt/NumberSelfAdjoint.lean": "72dee88258250dea5bd660657a47cc8ba4d769b5decaa74d5a4f09e5842ffafb",
     "TGLExt/PPIndex.lean": "7f6dc10d57b4852440308ce1c096cbc8e6403d1ac24d0d099e98cb204802060a",
     "TGLExt/PageInformation.lean": "a36b61ba76d0c9d6b22e6fad7a29a05d01ab5b6a240e00de16fabd0e4daf062e",
+    "TGLExt/PhysicsCertificates.lean": "4ad9adae62d6d787b168bfa1a5f84fcf378a1f17914dbd6731e67cc7753dcef7",
     "TGLExt/PoincareGroup.lean": "c73c927631381aa78136222d30783aa393735a146607e799371db22b4a4466db",
     "TGLExt/PoincareWitness.lean": "848f2937f35ec50b2ab483336cc3ba17c46135eb52c17418bc1fbc1530f568ad",
     "TGLExt/PowersLadder.lean": "d6362c6079146ff4d50b46cdbbfe5497cde3e83a586b91e1abe625e4775bd7d4",
@@ -3388,10 +3389,65 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.linRicci_planeWave": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.ricciSymbol_tt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgPhysicsCertificate_massless": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.kStd_null": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tt_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.gauge_fixes_physical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.physical_not_gauge": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgPhysicsCertificate_helicities": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgPhysicsCertificate_ghostfree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgPhysicsCertificate_conservation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.qgPhysicsCertificate_anomaly": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "c3f9fede95e0e76f95f595e2c25e1ac37dc4d8888f49ce4a6b5229c39bdfc81e",
-  "audit_stdout_sha256": "9ac6714ae2d1307d03c082eddb71c7c0f421f47a10d08e94e91cdc713c0b51f4",
+  "build_stdout_sha256": "203b5766e4742d1b22fc589fc7acec40d49e47635257d1a8972fbfb8641c639a",
+  "audit_stdout_sha256": "084792e170c5dcce7c61d7a9c5f110bdb4777b43638f9708ec07dc8b7ae80ce9",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

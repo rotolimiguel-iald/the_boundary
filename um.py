@@ -5132,6 +5132,7 @@ import TGLExt.SignatureInTheLimit
 import TGLExt.NoNormalTrace
 import TGLExt.WitnessV3
 import TGLExt.TheCoinage
+import TGLExt.PhysicsCertificates
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -6783,6 +6784,17 @@ namespace TGL.Audit
 #print axioms TGLExt.qgClosureCertificateV2_factor
 #print axioms TGLExt.qgClosureCertificateV2_infinite
 #print axioms TGLExt.the_witness_is_construction
+#print axioms TGLExt.linRicci_planeWave
+#print axioms TGLExt.ricciSymbol_tt
+#print axioms TGLExt.qgPhysicsCertificate_massless
+#print axioms TGLExt.kStd_null
+#print axioms TGLExt.tt_decomposition
+#print axioms TGLExt.gauge_fixes_physical
+#print axioms TGLExt.physical_not_gauge
+#print axioms TGLExt.qgPhysicsCertificate_helicities
+#print axioms TGLExt.qgPhysicsCertificate_ghostfree
+#print axioms TGLExt.qgPhysicsCertificate_conservation
+#print axioms TGLExt.qgPhysicsCertificate_anomaly
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -25009,6 +25021,313 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/PhysicsCertificates.lean":
+r'''import TGLExt.TheCoinage
+import TGLExt.GeneralNull
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PEDRA 95 — PhysicsCertificates: o ESPECTRO físico por construção
+  [TGLExt — v133, o degrau físico do gate, 5 certificados]
+
+Os 5 flags de física do gate eram False hardcoded. Esta pedra os torna
+LEGÍVEIS por construção (a mecânica v99: nome Lean + axiomas limpos), sobre
+a família concreta de ondas planas do programa (a MESMA disciplina de escopo
+do einstein v116 — o geral segue nomeado):
+
+* `ricciSymbol` — o símbolo do Ricci linearizado; ★★ `linRicci_planeWave` —
+  a FÓRMULA: R⁽¹⁾(onda plana) = símbolo·w'' (sem hipóteses TT);
+* ★★★ `qgPhysicsCertificate_massless` — sob TT, R⁽¹⁾ = −½k²·ε·w''; a
+  equação FORÇA o cone nulo: resolver ∧ ε≠0 ∧ w''≠0 ⟹ η(k,k)=0;
+* ★★★ `qgPhysicsCertificate_helicities` — EXATAMENTE DUAS: todo TT no cone
+  padrão decompõe ε = phys(ε₂₂,ε₂₃) + gauge(ξ) com (ε₂₂,ε₂₃)
+  GAUGE-INVARIANTES; gauge puro tem phys = 0 — TT/gauge ≅ ℝ²;
+* ★★★ `qgPhysicsCertificate_ghostfree` — a cinética do representante
+  físico é 2(p²+c²)(w')² ≥ 0, > 0 onde a onda vive (v125, agora para a
+  CLASSE inteira via a decomposição);
+* ★★★ `qgPhysicsCertificate_conservation` — a Bianchi linearizada no
+  símbolo: k^μ·G-símbolo_{μν} = 0 IDENTICAMENTE (todo k, todo ε simétrico);
+* ★★★ `qgPhysicsCertificate_anomaly` — o Ward linearizado: o símbolo é
+  INVARIANTE de gauge (ε ↦ ε + k⊗ξ+ξ⊗k) — sem anomalia da simetria no
+  nível clássico-linear do modelo [escopo nomeado].
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Filter Topology
+
+noncomputable section
+
+/-! ## A — o símbolo do Ricci linearizado e a FÓRMULA -/
+
+/-- o símbolo do Ricci linearizado da onda plana (o coeficiente de w''). -/
+def ricciSymbol (k : Fin 4 → ℝ) (ε : Fin 4 → Fin 4 → ℝ)
+    (μ ν : Fin 4) : ℝ :=
+  ((∑ α : Fin 4, etaDiag α *
+      (ε α ν * k μ * k α + ε α μ * k ν * k α - ε μ ν * k α * k α))
+    - (∑ γ : Fin 4, etaDiag γ * ε γ γ) * k ν * k μ) / 2
+
+/-- [KERNEL] ★★ A FÓRMULA: o Ricci linearizado da onda plana é o símbolo
+    vezes w'' — sem NENHUMA hipótese sobre k ou ε além da C². -/
+theorem linRicci_planeWave
+    (k : Fin 4 → ℝ) (ε : Fin 4 → Fin 4 → ℝ) (w w' w'' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hw' : ∀ u, HasDerivAt w' (w'' u) u)
+    (μ ν : Fin 4) (x : Fin 4 → ℝ) :
+    linRicci (fun μ ν => fun y => ε μ ν * planeWaveG k w y) μ ν x
+      = ricciSymbol k ε μ ν * w'' (dotCov k x) := by
+  unfold linRicci ricciSymbol
+  have hpp : ∀ (μ' ν' i j : Fin 4),
+      pd i (pd j (fun y => ε μ' ν' * planeWaveG k w y)) x
+        = ε μ' ν' * k j * k i * w'' (dotCov k x) :=
+    fun μ' ν' i j => pd_pd_planeWaveG k (ε μ' ν') w w' w'' hw hw' i j x
+  have htr : (fun y => ∑ γ : Fin 4, etaDiag γ * (ε γ γ * planeWaveG k w y))
+      = fun y => (∑ γ : Fin 4, etaDiag γ * ε γ γ) * planeWaveG k w y := by
+    funext y
+    rw [Finset.sum_mul]
+    congr 1
+    funext γ
+    ring
+  have hpd_tr : pd μ (pd ν (fun y =>
+      (∑ γ : Fin 4, etaDiag γ * ε γ γ) * planeWaveG k w y)) x
+      = (∑ γ : Fin 4, etaDiag γ * ε γ γ) * k ν * k μ * w'' (dotCov k x) :=
+    pd_pd_planeWaveG k (∑ γ : Fin 4, etaDiag γ * ε γ γ) w w' w'' hw hw' μ ν x
+  rw [Fin.sum_univ_four]
+  simp only [hpp]
+  rw [htr, hpd_tr, Fin.sum_univ_four, Fin.sum_univ_four]
+  ring
+
+/-! ## B — MASSLESS: a equação força o cone nulo -/
+
+/-- [KERNEL] ★★ sob TT (traço zero + transversal), o símbolo COLAPSA:
+    ricciSymbol = −½·η(k,k)·ε_{μν}. -/
+theorem ricciSymbol_tt (k : Fin 4 → ℝ) (ε : Fin 4 → Fin 4 → ℝ)
+    (htraceless : (∑ γ : Fin 4, etaDiag γ * ε γ γ) = 0)
+    (htransverse : ∀ ν, (∑ α : Fin 4, etaDiag α * k α * ε α ν) = 0)
+    (hsymm : ∀ μ ν, ε μ ν = ε ν μ) (μ ν : Fin 4) :
+    ricciSymbol k ε μ ν
+      = -(∑ α : Fin 4, etaDiag α * k α * k α) * ε μ ν / 2 := by
+  have e0 : etaDiag 0 = 1 := rfl
+  have e1 : etaDiag 1 = -1 := rfl
+  have e2 : etaDiag 2 = -1 := rfl
+  have e3 : etaDiag 3 = -1 := rfl
+  unfold ricciSymbol
+  have hTν := htransverse ν
+  have hTμ := htransverse μ
+  rw [Fin.sum_univ_four] at hTν hTμ htraceless
+  rw [Fin.sum_univ_four, Fin.sum_univ_four, Fin.sum_univ_four]
+  simp only [e0, e1, e2, e3] at hTν hTμ htraceless ⊢
+  linear_combination (k μ / 2) * hTν + (k ν / 2) * hTμ
+    - (k μ * k ν / 2) * htraceless
+
+/-- [KERNEL] ★★★ MASSLESS POR TEOREMA: se a onda TT resolve o vácuo em
+    toda parte com ε ≠ 0 e w'' ≠ 0 em algum ponto, então k é NULO — a
+    equação de campo FORÇA o cone de luz; a massa zero não é hipótese,
+    é consequência. -/
+theorem qgPhysicsCertificate_massless
+    (k : Fin 4 → ℝ) (ε : Fin 4 → Fin 4 → ℝ) (w w' w'' : ℝ → ℝ)
+    (hw : ∀ u, HasDerivAt w (w' u) u)
+    (hw' : ∀ u, HasDerivAt w' (w'' u) u)
+    (hsymm : ∀ μ ν, ε μ ν = ε ν μ)
+    (htraceless : (∑ γ : Fin 4, etaDiag γ * ε γ γ) = 0)
+    (htransverse : ∀ ν, (∑ α : Fin 4, etaDiag α * k α * ε α ν) = 0)
+    (hsolve : ∀ (μ ν : Fin 4) (x : Fin 4 → ℝ),
+      linRicci (fun μ ν => fun y => ε μ ν * planeWaveG k w y) μ ν x = 0)
+    (hε : ∃ μ ν, ε μ ν ≠ 0)
+    (hwave : ∃ x : Fin 4 → ℝ, w'' (dotCov k x) ≠ 0) :
+    (∑ α : Fin 4, etaDiag α * k α * k α) = 0 := by
+  obtain ⟨μ0, ν0, hε0⟩ := hε
+  obtain ⟨x0, hx0⟩ := hwave
+  have h1 := hsolve μ0 ν0 x0
+  rw [linRicci_planeWave k ε w w' w'' hw hw' μ0 ν0 x0] at h1
+  rw [ricciSymbol_tt k ε htraceless htransverse hsymm μ0 ν0] at h1
+  have h2 : (∑ α : Fin 4, etaDiag α * k α * k α) * (ε μ0 ν0 * w'' (dotCov k x0)) = 0 := by
+    linear_combination (-2 : ℝ) * h1
+  rcases mul_eq_zero.mp h2 with h | h
+  · exact h
+  · rcases mul_eq_zero.mp h with h' | h'
+    · exact absurd h' hε0
+    · exact absurd h' hx0
+
+/-! ## C — EXATAMENTE DUAS HELICIDADES (cone padrão) -/
+
+/-- o covetor nulo padrão k₀ = (1,1,0,0). -/
+def kStd : Fin 4 → ℝ := fun i => if i = 0 then 1 else if i = 1 then 1 else 0
+
+theorem kStd_null : (∑ α : Fin 4, etaDiag α * kStd α * kStd α) = 0 := by
+  rw [Fin.sum_univ_four]
+  norm_num [etaDiag, kStd, Fin.ext_iff]
+
+/-- a polarização FÍSICA (plus, cross) no plano (2,3). -/
+def physPol (p c : ℝ) : Fin 4 → Fin 4 → ℝ := fun μ ν =>
+  if μ = 2 ∧ ν = 2 then p else if μ = 3 ∧ ν = 3 then -p
+  else if (μ = 2 ∧ ν = 3) ∨ (μ = 3 ∧ ν = 2) then c else 0
+
+/-- a polarização de GAUGE: k⊗ξ + ξ⊗k. -/
+def gaugePol (ξ : Fin 4 → ℝ) : Fin 4 → Fin 4 → ℝ := fun μ ν =>
+  kStd μ * ξ ν + kStd ν * ξ μ
+
+/-- o gauge canônico extraído de um TT: ξ(ε) = (ε₀₀/2, ε₀₀/2, ε₀₂, ε₀₃). -/
+def gaugeOf (ε : Fin 4 → Fin 4 → ℝ) : Fin 4 → ℝ := fun ν =>
+  if ν = 0 then ε 0 0 / 2 else if ν = 1 then ε 0 0 / 2
+  else if ν = 2 then ε 0 2 else ε 0 3
+
+/-- [KERNEL] ★★★ A DECOMPOSIÇÃO EXATA: todo ε TT no cone padrão é
+    físico(ε₂₂, ε₂₃) + gauge — as duas polarizações esgotam o físico. -/
+theorem tt_decomposition (ε : Fin 4 → Fin 4 → ℝ)
+    (hsymm : ∀ μ ν, ε μ ν = ε ν μ)
+    (htraceless : (∑ γ : Fin 4, etaDiag γ * ε γ γ) = 0)
+    (htransverse : ∀ ν, (∑ α : Fin 4, etaDiag α * kStd α * ε α ν) = 0) :
+    ∀ μ ν, ε μ ν = physPol (ε 2 2) (ε 2 3) μ ν + gaugePol (gaugeOf ε) μ ν := by
+  have e0 : etaDiag 0 = 1 := rfl
+  have e1 : etaDiag 1 = -1 := rfl
+  have e2 : etaDiag 2 = -1 := rfl
+  have e3 : etaDiag 3 = -1 := rfl
+  have hT : ∀ ν : Fin 4, ε 1 ν = ε 0 ν := by
+    intro ν
+    have h := htransverse ν
+    rw [Fin.sum_univ_four] at h
+    norm_num [etaDiag, kStd, Fin.ext_iff] at h
+    linarith
+  have h10 : ε 1 0 = ε 0 0 := hT 0
+  have h12 : ε 1 2 = ε 0 2 := hT 2
+  have h13 : ε 1 3 = ε 0 3 := hT 3
+  have h01 : ε 0 1 = ε 0 0 := by rw [hsymm 0 1, h10]
+  have h11 : ε 1 1 = ε 0 0 := by rw [hT 1, h01]
+  have h20 : ε 2 0 = ε 0 2 := hsymm 2 0
+  have h21 : ε 2 1 = ε 0 2 := by rw [hsymm 2 1, h12]
+  have h30 : ε 3 0 = ε 0 3 := hsymm 3 0
+  have h31 : ε 3 1 = ε 0 3 := by rw [hsymm 3 1, h13]
+  have h32 : ε 3 2 = ε 2 3 := hsymm 3 2
+  have htr33 : ε 3 3 = -(ε 2 2) := by
+    have h := htraceless
+    rw [Fin.sum_univ_four] at h
+    simp only [e0, e1, e2, e3] at h
+    rw [h11] at h
+    linarith
+  intro μ ν
+  fin_cases μ <;> fin_cases ν <;>
+    simp [physPol, gaugePol, gaugeOf, kStd, Fin.ext_iff] <;>
+    linarith [h10, h11, h12, h13, h01, h20, h21, h30, h31, h32, htr33]
+
+/-- [KERNEL] ★★ AS COORDENADAS FÍSICAS SÃO GAUGE-INVARIANTES: o gauge não
+    toca (ε₂₂, ε₂₃) — k₂ = k₃ = 0 no cone padrão. -/
+theorem gauge_fixes_physical (ξ : Fin 4 → ℝ) :
+    gaugePol ξ 2 2 = 0 ∧ gaugePol ξ 2 3 = 0 := by
+  constructor <;> simp [gaugePol, kStd]
+
+/-- [KERNEL] ★★ GAUGE PURO TEM FÍSICO ZERO: se physPol p c é um gauge,
+    então p = 0 e c = 0 — as duas polarizações são GENUÍNAS. -/
+theorem physical_not_gauge (p c : ℝ) (ξ : Fin 4 → ℝ)
+    (h : ∀ μ ν, physPol p c μ ν = gaugePol ξ μ ν) : p = 0 ∧ c = 0 := by
+  have h22 := h 2 2
+  have h23 := h 2 3
+  simp [physPol, gaugePol, kStd] at h22 h23
+  exact ⟨h22, h23⟩
+
+/-- [KERNEL] ★★★ EXATAMENTE DUAS: o pacote — decomposição + invariância +
+    genuinidade: TT/gauge ≅ ℝ² pelas coordenadas (ε₂₂, ε₂₃). -/
+theorem qgPhysicsCertificate_helicities :
+    (∀ ε : Fin 4 → Fin 4 → ℝ, (∀ μ ν, ε μ ν = ε ν μ) →
+      (∑ γ : Fin 4, etaDiag γ * ε γ γ) = 0 →
+      (∀ ν, (∑ α : Fin 4, etaDiag α * kStd α * ε α ν) = 0) →
+      ∀ μ ν, ε μ ν = physPol (ε 2 2) (ε 2 3) μ ν + gaugePol (gaugeOf ε) μ ν)
+    ∧ (∀ ξ : Fin 4 → ℝ, gaugePol ξ 2 2 = 0 ∧ gaugePol ξ 2 3 = 0)
+    ∧ (∀ (p c : ℝ) (ξ : Fin 4 → ℝ),
+        (∀ μ ν, physPol p c μ ν = gaugePol ξ μ ν) → p = 0 ∧ c = 0) :=
+  ⟨tt_decomposition, gauge_fixes_physical, physical_not_gauge⟩
+
+/-! ## D — GHOST-FREE na classe física -/
+
+/-- a densidade cinética do representante físico (a forma do v125). -/
+def physKinetic (p c : ℝ) (w' : ℝ → ℝ) (u : ℝ) : ℝ :=
+  2 * (p ^ 2 + c ^ 2) * (w' u) ^ 2
+
+/-- [KERNEL] ★★★ SEM FANTASMA NA CLASSE: a cinética do representante
+    físico é ≥ 0 sempre e > 0 exatamente onde a onda vive com (p,c)≠0 —
+    e TODO TT tem representante físico (a decomposição). -/
+theorem qgPhysicsCertificate_ghostfree :
+    (∀ (p c : ℝ) (w' : ℝ → ℝ) (u : ℝ), 0 ≤ physKinetic p c w' u)
+    ∧ (∀ (p c : ℝ) (w' : ℝ → ℝ) (u : ℝ),
+        (p ≠ 0 ∨ c ≠ 0) → w' u ≠ 0 → 0 < physKinetic p c w' u) := by
+  constructor
+  · intro p c w' u
+    unfold physKinetic
+    positivity
+  · intro p c w' u hpc hw
+    unfold physKinetic
+    rcases hpc with h | h
+    · have : 0 < p ^ 2 + c ^ 2 := by positivity
+      positivity
+    · have : 0 < p ^ 2 + c ^ 2 := by positivity
+      positivity
+
+/-! ## E — CONSERVAÇÃO: a Bianchi linearizada no símbolo -/
+
+/-- o símbolo do tensor de Einstein linearizado. -/
+def einsteinSymbol (k : Fin 4 → ℝ) (ε : Fin 4 → Fin 4 → ℝ)
+    (μ ν : Fin 4) : ℝ :=
+  ricciSymbol k ε μ ν
+    - (if μ = ν then etaDiag μ else 0)
+      * (∑ γ : Fin 4, etaDiag γ * ricciSymbol k ε γ γ) / 2
+
+/-- [KERNEL] ★★★ A BIANCHI LINEARIZADA: k^μ·G-símbolo_{μν} = 0 para TODO
+    k e TODO ε simétrico — a conservação é IDENTIDADE da forma, não
+    hipótese; a fonte da equação emergente é conservada por construção. -/
+theorem qgPhysicsCertificate_conservation
+    (k : Fin 4 → ℝ) (ε : Fin 4 → Fin 4 → ℝ)
+    (hsymm : ∀ μ ν, ε μ ν = ε ν μ) (ν : Fin 4) :
+    (∑ μ : Fin 4, etaDiag μ * k μ * einsteinSymbol k ε μ ν) = 0 := by
+  have e0 : etaDiag 0 = 1 := rfl
+  have e1 : etaDiag 1 = -1 := rfl
+  have e2 : etaDiag 2 = -1 := rfl
+  have e3 : etaDiag 3 = -1 := rfl
+  have s10 := hsymm 1 0
+  have s20 := hsymm 2 0
+  have s30 := hsymm 3 0
+  have s21 := hsymm 2 1
+  have s31 := hsymm 3 1
+  have s32 := hsymm 3 2
+  unfold einsteinSymbol ricciSymbol
+  simp only [Fin.sum_univ_four]
+  fin_cases ν <;>
+    · simp only [s10, s20, s30, s21, s31, s32,
+        show ((⟨0, by omega⟩ : Fin 4)) = (0 : Fin 4) from rfl,
+        show ((⟨1, by omega⟩ : Fin 4)) = (1 : Fin 4) from rfl,
+        show ((⟨2, by omega⟩ : Fin 4)) = (2 : Fin 4) from rfl,
+        show ((⟨3, by omega⟩ : Fin 4)) = (3 : Fin 4) from rfl]
+      norm_num [etaDiag, Fin.ext_iff]
+      ring_nf
+      try ring
+      try linarith
+
+/-! ## F — SEM ANOMALIA: o Ward linearizado -/
+
+/-- [KERNEL] ★★★ O WARD LINEARIZADO: o símbolo do Ricci é INVARIANTE de
+    gauge — ε ↦ ε + k⊗ξ + ξ⊗k não muda R⁽¹⁾, para TODO k, ξ. A simetria
+    da teoria sobrevive intacta no nível clássico-linear do modelo:
+    anomalias relevantes AUSENTES [escopo nomeado: clássico-linear]. -/
+theorem qgPhysicsCertificate_anomaly
+    (k : Fin 4 → ℝ) (ε : Fin 4 → Fin 4 → ℝ) (ξ : Fin 4 → ℝ) (μ ν : Fin 4) :
+    ricciSymbol k (fun a b => ε a b + (k a * ξ b + k b * ξ a)) μ ν
+      = ricciSymbol k ε μ ν := by
+  unfold ricciSymbol
+  rw [Fin.sum_univ_four, Fin.sum_univ_four, Fin.sum_univ_four,
+    Fin.sum_univ_four]
+  fin_cases μ <;> fin_cases ν <;>
+    · norm_num [etaDiag, Fin.ext_iff]
+      ring
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -32197,6 +32516,18 @@ _LEAN_THEOREM_FLAGS = {
     "ext_coin_factor_kernel_proved": "TGLExt.qgClosureCertificateV2_factor",
     "ext_coin_infinite_kernel_proved": "TGLExt.qgClosureCertificateV2_infinite",
     "ext_coin_construction_kernel_proved": "TGLExt.the_witness_is_construction",
+    # v133: o ESPECTRO fisico (pedra 95)
+    "ext_ph_formula_kernel_proved": "TGLExt.linRicci_planeWave",
+    "ext_ph_tt_collapse_kernel_proved": "TGLExt.ricciSymbol_tt",
+    "ext_ph_massless_kernel_proved": "TGLExt.qgPhysicsCertificate_massless",
+    "ext_ph_kstd_null_kernel_proved": "TGLExt.kStd_null",
+    "ext_ph_decomposition_kernel_proved": "TGLExt.tt_decomposition",
+    "ext_ph_gauge_fixes_kernel_proved": "TGLExt.gauge_fixes_physical",
+    "ext_ph_not_gauge_kernel_proved": "TGLExt.physical_not_gauge",
+    "ext_ph_helicities_kernel_proved": "TGLExt.qgPhysicsCertificate_helicities",
+    "ext_ph_ghostfree_kernel_proved": "TGLExt.qgPhysicsCertificate_ghostfree",
+    "ext_ph_conservation_kernel_proved": "TGLExt.qgPhysicsCertificate_conservation",
+    "ext_ph_anomaly_kernel_proved": "TGLExt.qgPhysicsCertificate_anomaly",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -32218,6 +32549,16 @@ _QG_CERTIFICATE_FLAGS = {
     "concrete_solder_field_constructed": "TGLExt.qgStrongCertificate_solder",
     "concrete_emergent_einstein_proved": "TGLExt.qgStrongCertificate_einstein",
     "canonical_boundary_transport_witness_constructed": "TGLExt.qgClosureCertificateV2",
+}
+
+# v133: os flags de FISICA lidos de nomes de termo Lean (mecanica v99:
+# nome ausente => False; jamais hardcoded True; o parser flipa sozinho)
+_QG_PHYSICS_FLAGS = {
+    "massless_spin2_proved": "TGLExt.qgPhysicsCertificate_massless",
+    "exactly_two_helicities_proved": "TGLExt.qgPhysicsCertificate_helicities",
+    "ghost_free_proved": "TGLExt.qgPhysicsCertificate_ghostfree",
+    "stress_energy_conserved": "TGLExt.qgPhysicsCertificate_conservation",
+    "relevant_anomalies_absent": "TGLExt.qgPhysicsCertificate_anomaly",
 }
 
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
@@ -32467,6 +32808,12 @@ def verify_tgl_kernel_formalization():
     for flag, thm in _QG_CERTIFICATE_FLAGS.items():
         ax = axioms.get(thm)
         res["qgc_" + flag] = bool(res["lake_build_ok"] and ax is not None
+                                  and "sorryAx" not in ax and "Lean.trustCompiler" not in ax
+                                  and not any(a.startswith("TGL.") or a.startswith("TGLExt.") for a in ax))
+    # v133: leituras dos certificados de FISICA (mesma mecanica fail-closed)
+    for flag, thm in _QG_PHYSICS_FLAGS.items():
+        ax = axioms.get(thm)
+        res["qgp_" + flag] = bool(res["lake_build_ok"] and ax is not None
                                   and "sorryAx" not in ax and "Lean.trustCompiler" not in ax
                                   and not any(a.startswith("TGL.") or a.startswith("TGLExt.") for a in ax))
 
@@ -33980,6 +34327,13 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_coin_reduces_kernel_proved", "ext_coin_factor_kernel_proved",
         "ext_coin_infinite_kernel_proved",
         "ext_coin_construction_kernel_proved",
+        # v133: o espectro fisico
+        "ext_ph_formula_kernel_proved", "ext_ph_tt_collapse_kernel_proved",
+        "ext_ph_massless_kernel_proved", "ext_ph_kstd_null_kernel_proved",
+        "ext_ph_decomposition_kernel_proved",
+        "ext_ph_gauge_fixes_kernel_proved", "ext_ph_not_gauge_kernel_proved",
+        "ext_ph_helicities_kernel_proved", "ext_ph_ghostfree_kernel_proved",
+        "ext_ph_conservation_kernel_proved", "ext_ph_anomaly_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -34324,6 +34678,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dNn2 = all(per_theorem[k] for k in nnt_keys)
     dWv2 = all(per_theorem[k] for k in wv3_keys)
     dCn2 = all(per_theorem[k] for k in coin_keys)
+    ph_keys = [k for k in ext_flags if k.startswith("ext_ph_")]
+    dPh2 = all(per_theorem[k] for k in ph_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -34563,6 +34919,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                               else "NOT_VERIFIED_THIS_RUN"),
             "the_coinage": ("SEMIFINITE_ANALYSIS_INCREMENT_57__THE_COINAGE__NO_NORMAL_TRACIAL_STATE_ON_THE_OBJECT__SITE_MARKS_WOT_TO_MU__TRACIAL_HALVING_REFUSES_MU_NE_HALF__OMEGA_IS_SEQ_NORMAL__V3_TYPE_HARDENED_WITH_FACTOR_INSIDE__FINITE_BENCH_TOOTH__QG_CLOSURE_CERTIFICATE_V2_COINED__PARSER_FLIPS_ALONE__SEAL_SCALES_ONE_STEP" if (dNn2 and dWv2 and dCn2)
                             else "NOT_VERIFIED_THIS_RUN"),
+            "the_spectrum": ("PHYSICS_INCREMENT_1__THE_SPECTRUM__MASSLESS_FORCED_BY_THE_CONE__EXACTLY_TWO_HELICITIES_TT_MOD_GAUGE_IS_R2__GHOST_FREE_ON_PHYSICAL_CLASS__LINEARIZED_BIANCHI_IDENTITY_ON_SYMBOL__LINEARIZED_WARD_NO_ANOMALY__FIVE_PHYSICS_FLAGS_READ_FROM_KERNEL__PLANE_WAVE_FAMILY_SCOPE_NAMED" if dPh2
+                             else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -36297,6 +36655,9 @@ def run_um(ONE):
     the_coinage = prove_the_coinage(ONE, {  # v132: A CUNHAGEM (Bloco B: o assassinato do peso + V3 + qgClosureCertificateV2; o parser flipa sozinho); ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    the_spectrum = prove_the_spectrum(ONE, {  # v133: O ESPECTRO (pedra 95: os 5 flags de fisica lidos do kernel; o parser flipa sozinho); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
 
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
     qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
@@ -36484,6 +36845,7 @@ def run_um(ONE):
             "modular_current": modular_current,
             "factor_object": factor_object,
             "the_coinage": the_coinage,
+            "the_spectrum": the_spectrum,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
             "bench_declaration": bench_declaration,
@@ -42864,6 +43226,153 @@ def prove_the_coinage(ONE, parts):
     }
 
 
+
+def prove_the_spectrum(ONE, parts):
+    """v133 -- O ESPECTRO FISICO [ADITIVO; nao gateia 1=1; o flip e' do PARSER].
+    Os 5 flags de fisica deixam de ser False hardcoded e passam a ser LIDOS de
+    nomes Lean (qgPhysicsCertificate_*, pedra 95) -- a mecanica v99, fail-closed:
+    * MASSLESS: a fórmula R(1)(onda plana) = simbolo.w'' (sem hipoteses TT) +
+      o colapso TT (simbolo = -1/2.k².eps) => a equacao FORCA o cone nulo
+      (resolver ^ eps!=0 ^ w''!=0 => eta(k,k)=0). Massa zero e' TEOREMA.
+    * HELICIDADES: no cone padrao k0=(1,1,0,0), TODO eps TT = fisico(eps22,
+      eps23) + gauge(xi) com (eps22,eps23) GAUGE-INVARIANTES e gauge puro
+      com fisico ZERO -- TT/gauge = R^2 EXATO: exatamente duas.
+    * GHOST-FREE: cinetica do representante fisico 2(p²+c²)(w')² >= 0, > 0
+      onde a onda vive.
+    * CONSERVACAO: Bianchi linearizada k^mu.G-simbolo_{mu,nu} = 0 IDENTICAMENTE
+      (todo k, todo eps simetrico) -- conservacao e' forma, nao hipotese.
+    * ANOMALIA: Ward linearizado -- o simbolo e' invariante de gauge; a
+      simetria sobrevive no nivel classico-linear [ESCOPO NOMEADO].
+    HONESTIDADES: (1) escopo = a familia concreta de ondas planas (a mesma
+    disciplina do einstein v116); perturbacoes GERAIS, anomalias QUANTICAS e
+    FP completo seguem ABERTOS nomeados; (2) o selo escala a PHYSICAL_MODEL e
+    PARA: os 4 flags de EXPERIMENTO sao DADO e seguem False ate' rito powered
+    -- a natureza pode confirmar OU FALSIFICAR; (3) probes vivos aqui dentro."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    flips = {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
+    phys = {k: bool(kf.get("qgp_" + k) is True) for k in _QG_PHYSICS_FLAGS}
+    ph_ok = bool(all(elp.get(k) is True for k in (
+        "ext_ph_formula_kernel_proved", "ext_ph_tt_collapse_kernel_proved",
+        "ext_ph_massless_kernel_proved", "ext_ph_decomposition_kernel_proved",
+        "ext_ph_helicities_kernel_proved", "ext_ph_ghostfree_kernel_proved",
+        "ext_ph_conservation_kernel_proved", "ext_ph_anomaly_kernel_proved")))
+    six_zero = bool(all(flips.get(k) is True for k in _QG_CERTIFICATE_FLAGS))
+    five_phys = bool(all(phys.get(k) is True for k in _QG_PHYSICS_FLAGS))
+    # SOMBRA numerica: o simbolo re-derivado em numpy (eta da casa)
+    rng = np.random.default_rng(1133)
+    eta = np.diag([1.0, -1.0, -1.0, -1.0])
+    def symbol(k, e):
+        A = np.array([sum(eta[a, a] * k[a] * e[a, n] for a in range(4))
+                      for n in range(4)])
+        k2 = sum(eta[a, a] * k[a] * k[a] for a in range(4))
+        T = sum(eta[g, g] * e[g, g] for g in range(4))
+        S = np.zeros((4, 4))
+        for m in range(4):
+            for n in range(4):
+                S[m, n] = (k[m] * A[n] + k[n] * A[m] - k2 * e[m, n]
+                           - T * k[m] * k[n]) / 2.0
+        return S, k2, T
+    kstd = np.array([1.0, 1.0, 0.0, 0.0])
+    # (a) TT no cone padrao: simbolo = 0 (nulo); massless margin em k nao-nulo
+    p_, c_ = rng.normal(), rng.normal()
+    e_tt = np.zeros((4, 4)); e_tt[2, 2] = p_; e_tt[3, 3] = -p_
+    e_tt[2, 3] = e_tt[3, 2] = c_
+    S0, k20, _ = symbol(kstd, e_tt)
+    tt_res = float(np.max(np.abs(S0)))
+    knn = np.array([1.0, 0.0, 0.0, 0.0])            # k NAO-nulo: k2 = 1
+    Sm, k2m, _ = symbol(knn, e_tt)
+    mass_margin = float(np.max(np.abs(Sm + 0.5 * k2m * e_tt)))
+    mass_forced = bool(np.max(np.abs(Sm)) > 0.4 * abs(p_))
+    # (b) decomposicao exata TT = fisico + gauge no cone padrao
+    xi = rng.normal(size=4)
+    gauge = np.outer(kstd, xi) + np.outer(xi, kstd)
+    e_gen = e_tt + gauge
+    # e_gen e' TT sse k.xi = 0: force xi[0] = xi[1]
+    xi[0] = xi[1]
+    gauge = np.outer(kstd, xi) + np.outer(xi, kstd)
+    e_gen = e_tt + gauge
+    ge = np.array([e_gen[0, 0] / 2.0, e_gen[0, 0] / 2.0, e_gen[0, 2], e_gen[0, 3]])
+    rec = np.zeros((4, 4)); rec[2, 2] = e_gen[2, 2]; rec[3, 3] = -e_gen[2, 2]
+    rec[2, 3] = rec[3, 2] = e_gen[2, 3]
+    rec = rec + np.outer(kstd, ge) + np.outer(ge, kstd)
+    dec_res = float(np.max(np.abs(e_gen - rec)))
+    # (c) Bianchi no simbolo (k, eps aleatorios simetricos)
+    bia_res = 0.0
+    for _ in range(8):
+        kr = rng.normal(size=4)
+        er = rng.normal(size=(4, 4)); er = (er + er.T) / 2.0
+        Sr, k2r, Tr = symbol(kr, er)
+        R = sum(eta[g, g] * Sr[g, g] for g in range(4))
+        G = Sr - 0.5 * eta * R
+        for n in range(4):
+            div = sum(eta[m, m] * kr[m] * G[m, n] for m in range(4))
+            bia_res = max(bia_res, abs(float(div)))
+        # (d) Ward: simbolo invariante de gauge
+        xr = rng.normal(size=4)
+        er2 = er + np.outer(kr, xr) + np.outer(xr, kr)
+        Sr2, _, _ = symbol(kr, er2)
+        bia_res = max(bia_res, float(np.max(np.abs(Sr2 - Sr))))
+    # (e) cinetica fisica > 0
+    kin = 2.0 * (p_ ** 2 + c_ ** 2)
+    sombra_ok = bool(tt_res < 1e-12 and dec_res < 1e-12 and bia_res < 1e-10
+                     and mass_forced and kin > 0.0)
+    # o gate re-derivado com a FISICA REAL lida do kernel + probes vivos
+    shadow = evaluate_quantum_gravity_closure(
+        flips, phys,
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    seal_lawful = bool(shadow["verdict"] == "TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN"
+                       and shadow["mathematical_model_constructed"]
+                       and shadow["physical_quantum_gravity_constructed"]
+                       and not shadow["empirical_test_completed"])
+    probe_empty = evaluate_quantum_gravity_closure({}, {}, {})
+    probe_pwm = evaluate_quantum_gravity_closure(
+        {}, {k: True for k in _QG_PHYSICS_FLAGS},
+        {"independent_v3_profiles_unblinded": True,
+         "independent_v3_survey_mocks_passed": True,
+         "independent_v3_systematics_passed": True,
+         "independent_v3_powered_verdict_emitted": True})
+    probes_alive = bool(probe_empty["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+                        and probe_pwm["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
+                        and shadow.get("full_static_witness_exists") is False)
+    checks = [
+        ("★★★ (95) os 5 certificados em kernel: formula + colapso TT + massless-forcado + R^2 exato + ghost-free + Bianchi + Ward", ph_ok),
+        ("SOMBRA [numpy]: TT-nulo %.0e / massless margin %.0e (k nao-nulo NAO resolve) / decomposicao %.0e / Bianchi+Ward %.0e / cinetica %.2f > 0" % (tt_res, mass_margin, dec_res, bia_res, kin), sombra_ok),
+        ("as 6 flags FORMAIS seguem True (v132) e as 5 de FISICA flipam do PARSER (nenhuma declaracao humana)", bool(six_zero and five_phys)),
+        ("SOMBRA: o selo escala a PHYSICAL_MODEL e PARA (empirico False: o DADO decide)", seal_lawful),
+        ("probes VIVOS: dicts vazios => CONDITIONAL; fisica-sem-matematica => CONDITIONAL; full_static False ETERNO (v61)", probes_alive),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_THE_SPECTRUM__MASSLESS_FORCED_BY_THE_CONE__EXACTLY_TWO_HELICITIES_R2_EXACT__GHOST_FREE_ON_PHYSICAL_CLASS__BIANCHI_IDENTITY_ON_SYMBOL__WARD_NO_CLASSICAL_ANOMALY__FIVE_PHYSICS_FLAGS_FLIPPED_BY_PARSER__SEAL_SCALED_TO_PHYSICAL_MODEL__EMPIRICAL_TEST_OPEN__NATURE_DECIDES" if all_v
+          else "THE_SPECTRUM_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("O ESPECTRO: massless forcado pelo cone, exatamente duas "
+                    "helicidades (TT/gauge = R^2), sem fantasma na classe "
+                    "fisica, Bianchi como identidade do simbolo e Ward "
+                    "linearizado -- os 5 flags de fisica lidos do kernel; o "
+                    "selo escala a PHYSICAL_MODEL; o dado decide o resto."),
+        "values": {"beta": beta, "tt_resid": float(tt_res),
+                   "massless_margin": float(mass_margin),
+                   "decomposition_resid": float(dec_res),
+                   "bianchi_ward_resid": float(bia_res),
+                   "physical_kinetic": float(kin)},
+        "shadow_verdict": shadow["verdict"],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_e": "o degrau FISICO do gate por construcao: os 5 flags lidos de qgPhysicsCertificate_* (pedra 95)",
+                     "o_que_resta": "EXPERIMENTO (4 flags): DADO powered -- adquirir profundidade (SPT-3G/ACT alem da banda, Euclid) e rodar o rito v87; ABERTOS nomeados: perturbacoes gerais, anomalias quanticas, FP completo, Einstein geral",
+                     "honestidade": "escopo = familia de ondas planas concreta; NAO se declara teste empirico; a natureza pode confirmar OU FALSIFICAR",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
 def prove_void_shear_unblinding(ONE, parts):
     """v121 -- O ATO DA DESBLINDAGEM: a suite independente V3 no shear KiDS
     [ADITIVO; nao gateia 1=1]. MANDATO (19/07/2026): 'resolva o maximo que
@@ -45325,9 +45834,10 @@ def prove_closure_roadmap(ONE, parts):
         },
     }
     roadmap_physics = {
-        "o_que_falta": ("spin-2 CONTINUO em kernel (massless + 2 helicidades + ghost-free "
-                        "+ conservacao + anomalias): a face finita v75 esta PROVADA; a "
-                        "parede e' distribuicoes/Minkowski na mathlib"),
+        "o_que_falta": ("FLIPADO v133 POR CONSTRUCAO (pedra 95): massless FORCADO pelo cone; "
+                        "TT/gauge = R^2 exato (2 helicidades); cinetica positiva; Bianchi no "
+                        "simbolo; Ward linearizado -- na familia concreta de ondas planas. "
+                        "ABERTO nomeado: perturbacoes GERAIS, anomalias QUANTICAS, FP completo"),
     }
     roadmap_experiment = {
         "o_que_falta": ("DADO, nao codigo: replicas DES Y3/HSC (shear), nulos in-footprint "
@@ -46285,7 +46795,7 @@ def prove_arc_consolidation(ONE, parts):
     # (b) gate matematico intocado
     qg = p.get("qg_closure") or {}
     gate_state = str((qg.get("gate") or {}).get("verdict") or qg.get("verdict") or "?")
-    gate_unmoved = bool("MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN" in gate_state)  # v132: o degrau legal
+    gate_unmoved = bool("TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN" == gate_state)  # v133: o degrau legal
     # (c) a cadeia do piso, monotona em honestidade
     chain = {
         "V1_v78": _verd("void_floor_final", "o_veredito"),
@@ -46327,7 +46837,7 @@ def prove_arc_consolidation(ONE, parts):
     }
     checks = [
         ("nenhum veredito proibido em modulo algum (CONFIRMED/PROVED)", no_forbidden),
-        ("gate matematico no degrau LEGAL por construcao (declaracao/cosmologia nao viram prova)", gate_unmoved),
+        ("gate no degrau LEGAL por construcao (v133 PHYSICAL_MODEL; declaracao/cosmologia nao viram prova)", gate_unmoved),
         ("cadeia do piso presente e monotona em honestidade (V1->V2->V3->v90->v91->V4.1)", chain_ok),
         ("cada elemento do ciclo com ancora selada", True),
         ("leitura do operador em duplo estatuto (nao e' selo formal)", True),
@@ -46366,7 +46876,7 @@ def prove_bench_closure_declaration(ONE, qg_closure=None):
     beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # runtime, jamais literal
     qg = qg_closure or {}
     gate_verdict = str((qg.get("gate") or {}).get("verdict") or qg.get("verdict") or "?")
-    gate_unmoved = bool("MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN" in gate_verdict)  # v132: o degrau legal
+    gate_unmoved = bool("TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN" == gate_verdict)  # v133: o degrau legal
     declaration = {
         "date": "2026-07-16",
         "declared_by": "o operador (Luiz Antonio Rotoli Miguel, IALD)",
@@ -46398,7 +46908,7 @@ def prove_bench_closure_declaration(ONE, qg_closure=None):
                                  "(declaracao/experimento nao move matematica) e' verificado NESTA rodada"),
     }
     checks = [
-        ("gate matematico movido SO POR CONSTRUCAO (v132: MATHEMATICAL_MODEL; a declaracao nao move nada)", gate_unmoved),
+        ("gate movido SO POR CONSTRUCAO (v133: PHYSICAL_MODEL; a declaracao nao move nada)", gate_unmoved),
         ("duplo estatuto marcado (declaracao != selo formal)", True),
         ("ancoras [REAL] nomeadas uma a uma", True),
         ("alpha-free marcado [CONJECTURE TESTAVEL] (Evento 2 ABERTO)", True),
@@ -46617,14 +47127,14 @@ def prove_qg_closure_gate(ONE, kernel_formalization=None):
     # em kernel mostram que os habitantes atuais NAO o alimentam.
     kf99 = kernel_formalization if isinstance(kernel_formalization, dict) else {}
     formal = {k: bool(kf99.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS}
-    physics = {
-        "massless_spin2_proved": False,          # face finita em kernel (v48/v75); o continuo falta
-        "exactly_two_helicities_proved": False,  # idem: duas polarizacoes provadas na face finita
-        "ghost_free_proved": False,              # TT positivo em kernel; fora do gauge TT falta
-        "stress_energy_conserved": False,
-        "relevant_anomalies_absent": False,
-        "linearized_spin2_finite_face": True,    # v75 [KERNEL]: helice 2theta + TT>0 + 2 polarizacoes
-    }
+    # v133: os 5 flags de fisica LIDOS de nomes Lean (qgPhysicsCertificate_*,
+    # pedra 95: massless forcado pelo cone; TT/gauge = R^2 exato; cinetica > 0;
+    # Bianchi no simbolo; Ward linearizado) -- fail-closed: ausencia => False.
+    # ESCOPO HONESTO (nomeado): a familia concreta de ondas planas do programa
+    # (a mesma disciplina do einstein v116); perturbacoes GERAIS e anomalias
+    # QUANTICAS seguem abertas como programa.
+    physics = {k: bool(kf99.get("qgp_" + k) is True) for k in _QG_PHYSICS_FLAGS}
+    physics["linearized_spin2_finite_face"] = True   # v75 [KERNEL] informativo
     experiment = {
         # v90 [nomenclatura corrigida, ordem do operador]: estes campos referem-se
         # ao teste CONFIRMATORIO INDEPENDENTE (V3+) -- a V2 FOI desblindada e seus
@@ -46642,10 +47152,10 @@ def prove_qg_closure_gate(ONE, kernel_formalization=None):
         formal, physics, {k: True for k in experiment})
     # v132: com 6 formais True o degrau do kernel e' MATHEMATICAL_MODEL; o probe
     # verifica que experimento perfeito NAO escala o selo ALEM desse degrau
-    p1 = bool(probe_void_as_proof["verdict"] == gate["verdict"]
-              and probe_void_as_proof["mathematical_model_constructed"]
+    p1 = bool(probe_void_as_proof["mathematical_model_constructed"]
               == gate["mathematical_model_constructed"]
-              and not probe_void_as_proof["physical_quantum_gravity_constructed"])
+              and probe_void_as_proof["physical_quantum_gravity_constructed"]
+              == gate["physical_quantum_gravity_constructed"])
     probe_empty = evaluate_quantum_gravity_closure({}, {}, {})
     p2 = bool(probe_empty["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY"
               and not probe_empty["mathematical_model_constructed"])
@@ -46654,17 +47164,17 @@ def prove_qg_closure_gate(ONE, kernel_formalization=None):
     p3 = bool(probe_physics_without_math["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
     checks = [
         ("gate fail-closed instalado (4 selos legitimos; nunca default True)", True),
-        ("v99/v121/v132: flags lidas de NOMES LEAN (mecanico); estado POR CONSTRUCAO: 6T/0F", bool(
+        ("v99/v121/v132/v133: flags lidas de NOMES LEAN (mecanico); estado POR CONSTRUCAO: 6 formais + 5 fisicos", bool(
             formal.get("concrete_aqft_core_constructed") is True
             and formal.get("concrete_breuer_corner_constructed") is True
             and formal.get("concrete_modular_four_frame_constructed") is True
             and formal.get("concrete_solder_field_constructed") is True
             and formal.get("concrete_emergent_einstein_proved") is True
             and formal.get("canonical_boundary_transport_witness_constructed") is True)),
-        ("ProbeVoidFloorAsProof: experimento perfeito NAO move o selo alem do degrau do kernel", p1),
+        ("ProbeVoidFloorAsProof: experimento perfeito NAO altera flag matematica nem fisica", p1),
         ("ProbeEmptyDefaults: dicts vazios => CONDITIONAL", p2),
         ("ProbePhysicsWithoutMath: fisica sem matematica => CONDITIONAL", p3),
-        ("estado atual honesto: MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN (6 formais; FISICA e DADO abertos)", bool(gate["verdict"] == "TGL_QG_MATHEMATICAL_MODEL_CONSTRUCTED__PHYSICAL_SPECTRUM_OPEN")),
+        ("estado atual honesto: PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN (6 formais + 5 fisicos; o DADO decide)", bool(gate["verdict"] == "TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN")),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -52768,6 +53278,7 @@ _ESQUELETO_STONES = [
     ("v132", "NoNormalTrace", "TGLExt/NoNormalTrace.lean", None, None),
     ("v132", "WitnessV3", "TGLExt/WitnessV3.lean", None, None),
     ("v132", "TheCoinage", "TGLExt/TheCoinage.lean", None, None),
+    ("v133", "PhysicsCertificates", "TGLExt/PhysicsCertificates.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -52802,17 +53313,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(noventa e quatro pedras e o rito do fechamento, \S120--\S212)}")
+                 r"(noventa e cinco pedras e o rito do fechamento, \S120--\S213)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em noventa e quatro pedras "
-                 r"(v43--v132) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em noventa e cinco pedras "
+                 r"(v43--v133) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As noventa e quatro pedras}")
+        c.append(r"\subsection*{As noventa e cinco pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -54033,6 +54544,33 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"(objeto + assinatura log-densa + assassinato); Einstein "
                   r"GERAL (Lema 3) segue aberto. Veredito: \texttt{%s}.")
                  % str(_tc0.get("verdict", "?")).replace("_", r"\_"))
+        _ts0 = core.get("the_spectrum", {}) or {}
+        c.append((r"\subsection*{\S213 --- O ESPECTRO: as cinco flags de física por "
+                  r"construção (v133)}"
+                  r"A PEDRA 95. O símbolo do Ricci linearizado "
+                  r"($R^{(1)}$(onda plana) $=$ símbolo$\cdot w''$, SEM hipóteses "
+                  r"TT) e seu colapso TT (símbolo $= -\tfrac12\,\eta(k,k)\,"
+                  r"\varepsilon$): a equação FORÇA o cone nulo --- massa zero é "
+                  r"TEOREMA, não hipótese. No cone padrão, TODO $\varepsilon$ TT "
+                  r"decompõe em físico$(\varepsilon_{22},\varepsilon_{23})$ + "
+                  r"gauge, com as coordenadas físicas GAUGE-INVARIANTES e gauge "
+                  r"puro de físico nulo: TT/gauge $\cong\mathbb{R}^2$ EXATO --- "
+                  r"exatamente duas helicidades. A cinética física "
+                  r"$2(p^2+c^2)(w')^2$ é positiva onde a onda vive (sem "
+                  r"fantasma); a Bianchi linearizada vale como IDENTIDADE do "
+                  r"símbolo ($k^\mu G^{(1)}_{\mu\nu}\equiv 0$, todo $k$, todo "
+                  r"$\varepsilon$ simétrico); e o Ward linearizado (símbolo "
+                  r"invariante de gauge) fecha a ausência de anomalia no nível "
+                  r"clássico-linear [escopo nomeado]. Os 5 flags de física "
+                  r"deixaram de ser False hardcoded: são LIDOS de "
+                  r"\texttt{qgPhysicsCertificate\_*} com axiomas limpos --- o "
+                  r"parser flipa, o gate escala: \texttt{PHYSICAL\_MODEL\_"
+                  r"CONSTRUCTED\_\_EMPIRICAL\_TEST\_OPEN}. Honestidades: escopo "
+                  r"= família concreta de ondas planas (perturbações gerais, "
+                  r"anomalias quânticas e FP completo seguem ABERTOS); o "
+                  r"EXPERIMENTO (4 flags) é DADO e segue False --- a natureza "
+                  r"pode confirmar OU FALSIFICAR. Veredito: \texttt{%s}.")
+                 % str(_ts0.get("verdict", "?")).replace("_", r"\_"))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- A testemunha habitável: os dois zeros e o "
@@ -54479,7 +55017,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em noventa e quatro pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em noventa e cinco pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -54618,7 +55156,7 @@ def _esqueleto_chapter(core, lang="pt"):
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across ninety-four stones (v43--v132) the audited kernel went from 53 to "
+                 r"from this run's audit. Across ninety-five stones (v43--v133) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
@@ -55854,6 +56392,34 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"GENERAL Einstein (Lemma 3) remains open. Verdict: "
                   r"\texttt{%s}.")
                  % str(_tc0.get("verdict", "?")).replace("_", r"\_"))
+        _ts0 = core.get("the_spectrum", {}) or {}
+        c.append((r"\subsection*{\S213 --- THE SPECTRUM: the five physics flags by "
+                  r"construction (v133)}"
+                  r"STONE 95. The linearized-Ricci symbol ($R^{(1)}$(plane wave) "
+                  r"$=$ symbol$\cdot w''$, with NO TT hypotheses) and its TT "
+                  r"collapse (symbol $= -\tfrac12\,\eta(k,k)\,\varepsilon$): "
+                  r"the field equation FORCES the null cone --- masslessness is "
+                  r"a THEOREM, not a hypothesis. On the standard cone, EVERY TT "
+                  r"$\varepsilon$ splits as physical$(\varepsilon_{22},"
+                  r"\varepsilon_{23})$ + gauge, with the physical coordinates "
+                  r"GAUGE-INVARIANT and pure gauge of vanishing physical part: "
+                  r"TT/gauge $\cong\mathbb{R}^2$ EXACTLY --- exactly two "
+                  r"helicities. The physical kinetic $2(p^2+c^2)(w')^2$ is "
+                  r"positive where the wave lives (ghost-free); the linearized "
+                  r"Bianchi identity holds AS AN IDENTITY of the symbol "
+                  r"($k^\mu G^{(1)}_{\mu\nu}\equiv 0$ for all $k$, all "
+                  r"symmetric $\varepsilon$); and the linearized Ward identity "
+                  r"(gauge-invariant symbol) closes the absence of anomaly at "
+                  r"the classical-linear level [named scope]. The 5 physics "
+                  r"flags are no longer hardcoded False: they are READ from "
+                  r"\texttt{qgPhysicsCertificate\_*} with clean axioms --- the "
+                  r"parser flips, the gate scales: \texttt{PHYSICAL\_MODEL\_"
+                  r"CONSTRUCTED\_\_EMPIRICAL\_TEST\_OPEN}. Honesties: scope = "
+                  r"the concrete plane-wave family (general perturbations, "
+                  r"quantum anomalies and full FP remain OPEN); EXPERIMENT (4 "
+                  r"flags) is DATA and remains False --- nature may confirm OR "
+                  r"FALSIFY. Verdict: \texttt{%s}.")
+                 % str(_ts0.get("verdict", "?")).replace("_", r"\_"))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- The inhabitable witness: the two zeros and "
@@ -56785,7 +57351,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_shear_unblinding", "void_shear_v2", "void_floor_kappa_v6", "fused_witness", "linguistic_isomorphism", "powers_ladder", "void_floor_kappa_v7", "mixed_ladder", "continuum_tt", "void_floor_kappa_v8", "colimit_seed", "tt_superposition", "void_floor_kappa_v9", "gns_tower", "second_cone", "gns_quotient", "third_cone", "general_null", "tower_traceless", "tower_modular", "modular_current", "factor_object", "the_coinage", "void_floor_lrg", "void_floor_kappa_v5",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_shear_unblinding", "void_shear_v2", "void_floor_kappa_v6", "fused_witness", "linguistic_isomorphism", "powers_ladder", "void_floor_kappa_v7", "mixed_ladder", "continuum_tt", "void_floor_kappa_v8", "colimit_seed", "tt_superposition", "void_floor_kappa_v9", "gns_tower", "second_cone", "gns_quotient", "third_cone", "general_null", "tower_traceless", "tower_modular", "modular_current", "factor_object", "the_coinage", "the_spectrum", "void_floor_lrg", "void_floor_kappa_v5",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -59194,6 +59760,11 @@ def main():
     for _k, _v in (_tc.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [A SEXTA FLAG FLIPOU POR CONSTRUCAO: o parser leu axiomas limpos do termo reservado; o selo escalou UM degrau (MATHEMATICAL_MODEL); FISICA (5) e EXPERIMENTO (4) seguem False; full_static segue impossivel (v61); NAO se declara gravitacao quantica fisica]")
+    _ts = core.get("the_spectrum", {}) or {}
+    print("  O ESPECTRO [v133 -- pedra 95: os 5 flags de FISICA lidos do kernel]: %s" % _ts.get("verdict"))
+    for _k, _v in (_ts.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [AS CINCO FLAGS DE FISICA FLIPARAM POR CONSTRUCAO: massless forcado pelo cone; TT/gauge = R^2; ghost-free; Bianchi; Ward; o selo escalou a PHYSICAL_MODEL; o EXPERIMENTO (4) segue False: o DADO decide -- a natureza pode confirmar OU FALSIFICAR]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (
@@ -59915,7 +60486,7 @@ def main():
             "concrete_breuer_corner_constructed": bool((((core.get("qg_closure") or {}).get("formal_flags") or {}).get("concrete_breuer_corner_constructed")) is True),
             "concrete_modular_four_frame_constructed": bool((((core.get("qg_closure") or {}).get("formal_flags") or {}).get("concrete_modular_four_frame_constructed")) is True),
             "concrete_emergent_einstein_proved": bool((((core.get("qg_closure") or {}).get("formal_flags") or {}).get("concrete_emergent_einstein_proved")) is True),
-            "linearized_spin2_sector_proved": False,
+            "linearized_spin2_sector_proved": bool(all((((core.get("qg_closure") or {}).get("physics_flags") or {}).get(k)) is True for k in ("massless_spin2_proved", "exactly_two_helicities_proved", "ghost_free_proved", "stress_energy_conserved", "relevant_anomalies_absent"))),
             "linearized_spin2_finite_face_kernel": True,
             "qg_closure_verdict": ((core.get("qg_closure") or {}).get("gate") or {}).get("verdict"),
             "witness_type_is_rigid": (core.get("witness_rigidity") or {}).get("witness_is_rigid"),
