@@ -781,7 +781,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 
 - `correcao_do_nome`: o gate 'testemunha full' e' IMPOSSIVEL por teorema (v61); o alvo correto e' canonical_boundary_transport_witness (testemunha de fronteira dinamica) -- flags novas instaladas, todas False (fail-closed)
 - `faces_ja_em_kernel`: spin-2 face finita [v75: helice 2theta, TT>0, 2 polarizacoes]; teorema mestre condicional [v74]; pacotes abstratos [v64-66] -- NENHUMA delas move as flags concretas (probes garantem)
-- `estado`: TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN
+- `estado`: TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED
 - `o_caminho`: a ordem do fecho: SemifiniteAnalysis -> ConcreteAQFTCore -> ConcreteBreuerCorner -> ConcreteModularFourFrame -> ConcreteSolderField -> ConcreteEmergentEinstein -> LinearizedSpin2(continuo) -> CanonicalBoundaryWitness (TERMO, nao Nonempty)
 - `estado_tecnico_ext_confirmado`: [EXT, leitura externa 17/07/2026 -- confirmada pelo runtime] INFINITE_DIMENSIONAL_INHABITANT_CONSTRUCTED__MASTER_THEOREM_FIRES_ON_EXPLICIT_MODEL__PHYSICAL_AQFT_CORE_AND_CONTINUOUS_GEOMETRY_REMAIN_OPEN
 - `v99_certificado`: as flags apontam aos termos Lean do certificado (ClosureCertificate.lean v1 tipa: rede fisica nao-constante c/ grupo nao-trivial; Dirac ILIMITADO star(D)=D c/ gap quadratico; canto no kernel do Dirac; frame-CAMPO suave; a metade nao-tipavel [III1, afiliacao semifinita, H3 derivado, spin-2 continuo] nomeada p/ o v2)
@@ -1015,6 +1015,12 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `o_que_resta`: EXPERIMENTO (4 flags): DADO powered -- adquirir profundidade (SPT-3G/ACT alem da banda, Euclid) e rodar o rito v87; ABERTOS nomeados: perturbacoes gerais, anomalias quanticas, FP completo, Einstein geral
 - `honestidade`: escopo = familia de ondas planas concreta; NAO se declara teste empirico; a natureza pode confirmar OU FALSIFICAR
 - `o_veredito`: TGL_THE_SPECTRUM__MASSLESS_FORCED_BY_THE_CONE__EXACTLY_TWO_HELICITIES_R2_EXACT__GHOST_FREE_ON_PHYSICAL_CLASS__BIANCHI_IDENTITY_ON_SYMBOL__WARD_NO_CLASSICAL_ANOMALY__FIVE_PHYSICS_FLAGS_FLIPPED_BY_PARSER__SEAL_SCALED_TO_PHYSICAL_MODEL__EMPIRICAL_TEST_OPEN__NATURE_DECIDES
+
+**Estatutos [void_floor_v11]** (veredito: `TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`):
+
+- `o_que_e`: a replica INDEPENDENTE DE SURVEY (SDSS DR7 x VAST) do teste powered v92 -- o teste final do canal espectroscopico com o dado publico existente
+- `honestidade`: canal unilateral (b>=1): pode dizer NOT_FALSIFIED_POWERED ou recusar; NAO confirma (consistente com LCDM raso); a falsificacao bilateral pede shear/kappa profundos (Euclid DR1 2027 / CMB-S4); os 4 flags so flipam com o veredito powered DESTE rito
+- `o_veredito`: TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED
 
 **Estatutos [void_floor_lrg]** (veredito: `TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION`):
 

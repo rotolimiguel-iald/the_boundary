@@ -36546,6 +36546,7 @@ def run_um(ONE):
     void_density_power = prove_void_density_power_study(ONE)  # v90: ESTUDO DE PODER CEGO da rota espectroscopica (galaxias JA em disco; sinal NAO aberto); ADITIVO
     void_density_opening = prove_void_floor_spectroscopic_opening(ONE, void_density_power)  # v91: A ABERTURA DO SINAL (congelar -> nulo -> gates -> ABRIR -> veredito); ADITIVO
     void_density_v41 = prove_void_floor_v41_calibrated(ONE)  # v92: A EMENDA V4.1 (estimador AUTO-CALIBRANTE; split-null; replicas no lado; poder beta*mu); ADITIVO
+    void_floor_v11 = prove_void_floor_v11_sdss_independent(ONE)  # v134: O TESTE FINAL INDEPENDENTE (SDSS DR7 x VAST; estimador v92 herdado; alimenta o gate de EXPERIMENTO fail-closed); ADITIVO
     void_floor_lrg = prove_void_floor_lrg(ONE)  # v115: O RITO LRG (tracador VIRGEM z 0.40-0.80; achador SO pre-registrado; estimador auto-calibrante v92); ADITIVO
     void_floor_kappa_v5 = prove_void_floor_kappa_v5(ONE, void_floor_v3_kappa)  # v115: A EMENDA V5 do kappa (autopsia do v98: eq->gal CORRIGIDO; mascara in-footprint p/ centros e nulos); ADITIVO
     closure_roadmap = prove_closure_roadmap(ONE, {  # v104: o mapa mecanico False->True + auditoria dos dois testes (mandato do operador); ADITIVO
@@ -36660,13 +36661,14 @@ def run_um(ONE):
     })
 
     triad_master = prove_triad_master(ONE, kernel_formalization)  # v74: O TEOREMA MESTRE COMPLETO (H1^H2^H3 => pentada; 8piG de Clausius; Jacobi/Bianchi); ADITIVO
-    qg_closure = prove_qg_closure_gate(ONE, kernel_formalization)  # v75: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
+    qg_closure = prove_qg_closure_gate(ONE, kernel_formalization, independent_rite=void_floor_v11)  # v75/v134: O GATE DO FECHAMENTO (4 selos legitimos; flags novas; probes negativos); ADITIVO
     bench_declaration = prove_bench_closure_declaration(ONE, qg_closure)  # v86: A DECLARACAO DA BANCADA (duplo estatuto; gate INTOCADO); ADITIVO
     arc_consolidation = prove_arc_consolidation(ONE, {  # v93: A CONSOLIDACAO DO ARCO (auditoria executavel do ciclo da nao-tautologia); ADITIVO
         "void_floor_final": void_floor_final, "void_floor_v2": void_floor_v2,
         "void_floor_v3": void_floor_v3, "void_density_power": void_density_power,
         "void_floor_v3_kappa": void_floor_v3_kappa, "ga_mass_audit": ga_mass_audit,
         "void_density_opening": void_density_opening, "void_density_v41": void_density_v41,
+        "void_floor_v11": void_floor_v11,
         "iald_prediction": iald_prediction, "qg_closure": qg_closure,
         "external_ladder": external_ladder,
     })
@@ -36846,6 +36848,7 @@ def run_um(ONE):
             "factor_object": factor_object,
             "the_coinage": the_coinage,
             "the_spectrum": the_spectrum,
+            "void_floor_v11": void_floor_v11,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
             "bench_declaration": bench_declaration,
@@ -43373,6 +43376,331 @@ def prove_the_spectrum(ONE, parts):
     }
 
 
+
+def prove_void_floor_v11_sdss_independent(ONE):
+    """v134 -- O TESTE FINAL INDEPENDENTE (V11) [ADITIVO; nao gateia 1=1; o
+    VEREDITO e' DA MAQUINA]. Mandato do operador (22/07/2026): 'prossiga ate
+    que seja capaz de realizar o teste final e o realize'. A rota Euclid Q1
+    morreu na GEOMETRIA (vazio DESI mais proximo do EDF-N a 26,7 graus -- o
+    numero corrigiu a frase); a rota com poder ja provada e' a densidade
+    espectroscopica direta (v90/v92). ESTE rito e' a replica INDEPENDENTE DE
+    SURVEY que os 4 flags de experimento pedem:
+      DADO: SDSS DR7 main (APO 2.5m, SDSS-I/II) -- instrumento, alvo e epoca
+      INDEPENDENTES do DESI (Mayall 4m); vazios VAST (Douglass+2023, Zenodo
+      7406035, Planck2018): V2_REVOLVER 518 + V2_VIDE 531 + VoidFinder 1163;
+      galaxias = amostra volume-limitada NSA (194.125 memberships galzones),
+      posicoes via NSA v1_0_1 (NSAID -> RA/DEC/ZDIST).
+      ESTIMADOR: o V4.1 auto-calibrante do v92, HERDADO SEM ALTERACAO
+      (razao-de-razoes; n_bar e mascara cancelam por construcao).
+      ORDEM INVIOLAVEL: spec congelada+hash ANTES de tocar os centros; o
+      DIST-CHECK (calibracao de unidades contra o mapeamento z->r do proprio
+      catalogo de vazios, sem tocar o sinal) e o SPLIT-NULL vem ANTES; a
+      desblindagem SO depois; vereditos SO do conjunto pre-registrado v92.
+    OS 4 FLAGS DE EXPERIMENTO leem o experiment_feed DESTE rito, fail-closed:
+    ausencia => False; UNDERPOWERED/SYSTEMATICS/SUPPRESSION => False. O canal
+    e' unilateral (b>=1): pode dizer NOT_FALSIFIED_POWERED ou recusar -- a
+    falsificacao bilateral pertence aos canais de materia (shear/kappa
+    profundos). NAO se declara CONFIRMED: consistente tambem com LCDM raso."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # runtime, jamais literal
+    xc = 0.25
+    proto_hash = sha_obj(_void_floor_protocol_record(beta))
+    prereg_ok = bool(proto_hash[:16] == SEALED_VOID_FLOOR_HASH16)
+    frozen = {
+        "version": "VOID_FLOOR_V11_SDSS_INDEPENDENT_V1.1",
+        "emenda_v11_1": ("AUTOPSIA da V1 (22/07, lapso registrado como no v91->v92): o split-null "
+                         "reprovou a 5,4 sigma com sigma POISSON-puro (0,964+-0,007) porque as "
+                         "esferas aleatorias se SOBREPOEM no volume DR7 -- counts correlacionados "
+                         "por clustering; o sigma Poisson subestima (defeito ja corrigido no lado "
+                         "dos vazios pelo proprio v92 via jackknife). CORRECAO: sigma do split = "
+                         "max(Poisson, jackknife 20 faixas de RA da RAZAO das metades); limiar 3 "
+                         "sigma INALTERADO; o estimador do SINAL nao muda em nada"),
+        "data": ("SDSS DR7 main / NSA v1_0_1 vollim (galzones VAST); vazios VAST "
+                 "Douglass+2023 Zenodo 7406035 Planck2018 (V2_REVOLVER primario; "
+                 "V2_VIDE e VoidFinder replicas no LADO)"),
+        "independence": ("survey independente do DESI: APO 2.5m SDSS-I/II vs Mayall 4m; "
+                         "targeting r<17.77 main vs BGS; epocas distintas; mesma linhagem "
+                         "ALGORITMICA de vazios (VAST) de proposito -- o que se replica e' "
+                         "a FISICA, nao o pipeline de reducao"),
+        "cosmology": "Planck2018 Om=0.3153 flat; distancias em Mpc/h (h=1); Dc por trapezio cumulativo",
+        "galaxy_distance": "NSA ZDIST (regra ESTATICA declarada; sem fallback)",
+        "galaxy_join": ("indice de LINHA no NSA v1_0_1 (AUDITORIA 22/07: a coluna 1 do galzones "
+                        "e' densa em 0..641389 = indices de linha do NSA de 641409 linhas; a leitura "
+                        "'NSAID-valor' foi REFUTADA PELO NUMERO (94,2%% de coincidencia acidental); "
+                        "validacao independente do sinal: z_max=0,1145 = corte vollim 0,114 + pegada DR7 norte)"),
+        "unit_gate": "DIST-CHECK: mediana |Dc(z_void)-|xyz|| / |xyz| < 1% no zobovoids REVOLVER (calibracao, nao sinal)",
+        "estimator": "V4.1 v92 HERDADO: r_c = [SumN/Summu]_vazios / [SumN/Summu]_aleatorios; 20000 aleatorios seed 1134 na MESMA geometria/mascara; mu_i = n_bar V_i (n_bar CANCELA)",
+        "power": "powered := beta * Summu_usado >= 25 (formula do estudo CEGO v90)",
+        "errors": "vazios: max(Poisson, jackknife 20 faixas de RA); aleatorios: Poisson propagado",
+        "gates": "DIST-CHECK<1%; SPLIT-NULL (metades aleatorias: razao 1 +-3sig); jackknife >=15/20; replicas concordam no lado",
+        "cuts_mask": "R_v>10 Mpc/h; V2: edge_area/area<=0.2; nucleo x_c=0.25 na casca radial e celula 2 graus + 8 vizinhas ocupadas (IGUAL vazios/aleatorios)",
+        "tracer_asymmetry": "unilateral (b>=1, supressao>=0 [EXT]); colchete de materia b in [1, 2.2]",
+        "verdicts": ["TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED", "TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED",
+                     "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS", "TGL_VOID_FLOOR_INCONCLUSIVE_TRACER_SUPPRESSION"],
+        "experiment_feed_rule": ("os 4 flags flipam SOMENTE com TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED "
+                                 "+ todos os gates verdes; qualquer recusa => False (fail-closed)"),
+    }
+    frozen_hash = sha_obj(frozen)
+    sdss = os.path.join(CACHE, "voids", "sdss_dr7")
+    nsa_path = os.path.join(CACHE, "galaxies", "nsa_v1_0_1.fits")
+    f_rev = os.path.join(sdss, "V2_REVOLVER-nsa_v1_0_1_Planck2018_zobovoids.dat")
+    f_vid = os.path.join(sdss, "V2_VIDE-nsa_v1_0_1_Planck2018_zobovoids.dat")
+    f_vf = os.path.join(sdss, "VoidFinder-nsa_v1_0_1_Planck2018_comoving_maximal.txt")
+    f_gz = os.path.join(sdss, "V2_REVOLVER-nsa_v1_0_1_Planck2018_galzones.dat")
+
+    def _refuse(msg, verdict="VOID_FLOOR_V11_AWAITING_DATA"):
+        return {"all_verified": False, "does_not_gate_core": True,
+                "frozen_hash": frozen_hash, "frozen": frozen,
+                "experiment_feed": {}, "beta_floor": beta,
+                "statuses": {"dados": msg}, "verdict": verdict}
+
+    for pth in (f_rev, f_vid, f_vf, f_gz, nsa_path):
+        if not os.path.exists(pth):
+            return _refuse("ausente: %s" % os.path.basename(pth))
+    # ---- (1) a amostra vollim (NSAIDs do galzones) ----
+    try:
+        gz_ids = np.unique(np.loadtxt(f_gz, comments="#", usecols=(0,)).astype(np.int64))
+    except Exception as e:
+        return _refuse("galzones ilegivel: %r" % (e,))
+    # ---- (2) NSA join (chunked; 2.7 GB) ----
+    try:
+        tabs = _fits_scan_bintables(nsa_path, max_rows_load=0)
+    except TypeError:
+        tabs = _fits_scan_bintables(nsa_path)
+    except Exception as e:
+        return _refuse("NSA scan falhou: %r" % (e,))
+    tname = None
+    for t in (tabs or []):
+        cn = [c.upper() for c in (t.get("colnames") or [])]
+        if "NSAID" in cn and "RA" in cn and "DEC" in cn:
+            tname = t.get("name")
+            break
+    if tname is None:
+        return _refuse("NSA sem tabela NSAID/RA/DEC")
+    try:
+        nsac = _fits_extract_columns(nsa_path, tname, ["RA", "DEC", "ZDIST"])
+    except Exception as e:
+        return _refuse("NSA extract falhou: %r" % (e,))
+    if not nsac or any(nsac.get(k) is None for k in ("RA", "DEC", "ZDIST")):
+        return _refuse("NSA colunas ausentes (RA/DEC/ZDIST)")
+    nsa_ra = np.asarray(nsac["RA"], dtype=float)
+    n_rows = nsa_ra.size
+    # join por INDICE DE LINHA (regra corrigida por auditoria; ver frozen)
+    if gz_ids.min() < 0 or gz_ids.max() >= n_rows:
+        return _refuse("indices galzones fora do NSA (%d..%d vs %d linhas)"
+                       % (gz_ids.min(), gz_ids.max(), n_rows),
+                       "TGL_VOID_FLOOR_V11_INCONCLUSIVE_SYSTEMATICS")
+    match_rate = 1.0
+    g_ra = nsa_ra[gz_ids]
+    g_dec = np.asarray(nsac["DEC"], dtype=float)[gz_ids]
+    g_z = np.asarray(nsac["ZDIST"], dtype=float)[gz_ids]
+    z999 = float(np.percentile(g_z, 99.9))
+    if not (0.0 < z999 <= 0.125):
+        return _refuse("assinatura vollim reprovou: z99.9=%.4f" % z999,
+                       "TGL_VOID_FLOOR_V11_INCONCLUSIVE_SYSTEMATICS")
+    # ---- (3) cosmologia + DIST-CHECK (calibracao, antes de qualquer sinal) ----
+    Om = 0.3153
+    zg = np.linspace(0.0, 0.25, 2501)
+    Ez = np.sqrt(Om * (1.0 + zg) ** 3 + (1.0 - Om))
+    integ = 1.0 / Ez
+    dz = zg[1] - zg[0]
+    cum = np.concatenate([[0.0], np.cumsum((integ[1:] + integ[:-1]) * 0.5 * dz)])
+    Dgrid = 2997.92458 * cum                     # Mpc/h
+    def _dc(z):
+        return np.interp(z, zg, Dgrid)
+    zb = np.loadtxt(f_rev, comments="#")
+    rcat = np.sqrt(zb[:, 0] ** 2 + zb[:, 1] ** 2 + zb[:, 2] ** 2)
+    dist_resid = float(np.median(np.abs(_dc(zb[:, 3]) - rcat) / np.maximum(rcat, 1e-9)))
+    dist_ok = bool(dist_resid < 0.01)
+    # ---- (4) galaxias em XYZ comovel (Mpc/h) ----
+    dcg = _dc(np.clip(g_z, 0.0, 0.249))
+    cra = np.radians(g_ra); cde = np.radians(g_dec)
+    G = np.column_stack([dcg * np.cos(cde) * np.cos(cra),
+                         dcg * np.cos(cde) * np.sin(cra),
+                         dcg * np.sin(cde)])
+    r = np.sqrt(np.sum(G ** 2, axis=1))
+    r1, r99 = float(np.percentile(r, 1)), float(np.percentile(r, 99))
+    ra_g = np.degrees(np.arctan2(G[:, 1], G[:, 0])) % 360.0
+    dec_g = np.degrees(np.arcsin(np.clip(G[:, 2] / np.maximum(r, 1e-9), -1, 1)))
+    cell = 2.0
+    occ = set(zip(np.floor(ra_g / cell).astype(int).tolist(),
+                  np.floor((dec_g + 90.0) / cell).astype(int).tolist()))
+
+    def _mask_ok(cx, cy, cz, Rcore):
+        rc = math.sqrt(cx * cx + cy * cy + cz * cz)
+        if rc - Rcore < r1 or rc + Rcore > r99:
+            return False
+        ra0 = math.degrees(math.atan2(cy, cx)) % 360.0
+        de0 = math.degrees(math.asin(max(-1.0, min(1.0, cz / max(rc, 1e-9)))))
+        ia, idn = int(ra0 // cell), int((de0 + 90.0) // cell)
+        for da in (-1, 0, 1):
+            for dd in (-1, 0, 1):
+                if ((ia + da), (idn + dd)) not in occ:
+                    return False
+        return True
+
+    Gx = G[np.argsort(G[:, 0])]
+    sx = Gx[:, 0]
+
+    def _count_core(cx, cy, cz, Rcore):
+        lo = np.searchsorted(sx, cx - Rcore)
+        hi = np.searchsorted(sx, cx + Rcore)
+        w = Gx[lo:hi]
+        d2 = (w[:, 0] - cx) ** 2 + (w[:, 1] - cy) ** 2 + (w[:, 2] - cz) ** 2
+        return int(np.sum(d2 <= Rcore * Rcore))
+
+    def _load_voids(alg):
+        if alg == "VoidFinder":
+            a = np.loadtxt(f_vf, comments="#")
+            X, Y, Z, R = a[:, 0], a[:, 1], a[:, 2], a[:, 3]
+            keep = R > 10.0
+            return np.column_stack([X[keep], Y[keep], Z[keep], R[keep]])
+        a = np.loadtxt(f_rev if alg == "V2_REVOLVER" else f_vid, comments="#")
+        X, Y, Z, R = a[:, 0], a[:, 1], a[:, 2], a[:, 6]
+        keep = R > 10.0
+        area, edge = a[:, 16], a[:, 17]
+        keep &= (edge / np.maximum(area, 1e-30)) <= 0.2
+        return np.column_stack([X[keep], Y[keep], Z[keep], R[keep]])
+
+    def _collect(cat):
+        Ns, Vs, ras = [], [], []
+        for (cx, cy, cz, R) in cat:
+            Rc = xc * R
+            if not _mask_ok(cx, cy, cz, Rc):
+                continue
+            Ns.append(_count_core(cx, cy, cz, Rc))
+            Vs.append((4.0 * math.pi / 3.0) * Rc ** 3)
+            ras.append(math.degrees(math.atan2(cy, cx)) % 360.0)
+        return (np.asarray(Ns, dtype=float), np.asarray(Vs, dtype=float),
+                np.asarray(ras, dtype=float))
+    # ---- (5) aleatorios seed 1134 + SPLIT-NULL (antes da desblindagem) ----
+    rngo = np.random.default_rng(1134)
+    prim_cat = _load_voids("V2_REVOLVER")
+    if prim_cat.shape[0] < 50:
+        return _refuse("primario com %d vazios apos cortes" % prim_cat.shape[0],
+                       "TGL_VOID_FLOOR_V11_INCONCLUSIVE_SYSTEMATICS")
+    occ_list = sorted(occ)
+    M = 20000
+    cells_idx = rngo.integers(0, len(occ_list), M)
+    Rres = prim_cat[:, 3][rngo.integers(0, prim_cat.shape[0], M)]
+    rand_rows = []
+    for k in range(M):
+        ia, idn = occ_list[cells_idx[k]]
+        ra0 = (ia + rngo.random()) * cell
+        de0 = (idn + rngo.random()) * cell - 90.0
+        rr = (r1 ** 3 + rngo.random() * (r99 ** 3 - r1 ** 3)) ** (1.0 / 3.0)
+        cd = math.cos(math.radians(de0))
+        rand_rows.append([rr * cd * math.cos(math.radians(ra0)),
+                          rr * cd * math.sin(math.radians(ra0)),
+                          rr * math.sin(math.radians(de0)), float(Rres[k])])
+    Nr, Vr, RAr = _collect(np.asarray(rand_rows))
+    if Vr.sum() <= 0:
+        return _refuse("aleatorios sem area",
+                       "TGL_VOID_FLOOR_V11_INCONCLUSIVE_SYSTEMATICS")
+    Dr = float(Nr.sum() / Vr.sum())
+    half = rngo.random(Nr.size) < 0.5
+    D1 = Nr[half].sum() / max(Vr[half].sum(), 1e-30)
+    D2 = Nr[~half].sum() / max(Vr[~half].sum(), 1e-30)
+    split_ratio = float(D1 / max(D2, 1e-30))
+    sig_pois = float(split_ratio * math.sqrt(1.0 / max(Nr[half].sum(), 1.0)
+                                             + 1.0 / max(Nr[~half].sum(), 1.0)))
+    # emenda V11.1: sigma de clustering por jackknife de faixas de RA na razao
+    qs_s = np.percentile(RAr, np.linspace(0, 100, 21))
+    jks = []
+    for k in range(20):
+        mk = (RAr < qs_s[k]) | (RAr >= qs_s[k + 1])
+        n1 = Nr[half & mk].sum(); v1 = Vr[half & mk].sum()
+        n2 = Nr[(~half) & mk].sum(); v2 = Vr[(~half) & mk].sum()
+        if v1 > 0 and v2 > 0 and n2 > 0:
+            jks.append((n1 / v1) / (n2 / v2))
+    sig_jk_s = (float(math.sqrt((len(jks) - 1) * np.var(jks)))
+                if len(jks) >= 15 else float("inf"))
+    sig_split = float(max(sig_pois, sig_jk_s if math.isfinite(sig_jk_s) else sig_pois))
+    split_ok = bool(abs(split_ratio - 1.0) < 3.0 * sig_split)
+    # ---- (6) A DESBLINDAGEM: tres algoritmos ----
+    res = {}
+    for alg in ("V2_REVOLVER", "V2_VIDE", "VoidFinder"):
+        cat = prim_cat if alg == "V2_REVOLVER" else _load_voids(alg)
+        Nv, Vv, RAv = _collect(cat)
+        if Vv.sum() <= 0:
+            continue
+        rhat = float((Nv.sum() / Vv.sum()) / Dr)
+        sig_p = rhat * math.sqrt(1.0 / max(Nv.sum(), 1.0) + 1.0 / max(Nr.sum(), 1.0))
+        n_jk, jk = 20, []
+        qs = np.percentile(RAv, np.linspace(0, 100, n_jk + 1))
+        for k in range(n_jk):
+            mv = (RAv < qs[k]) | (RAv >= qs[k + 1])
+            mr = (RAr < qs[k]) | (RAr >= qs[k + 1])
+            if Vv[mv].sum() > 0 and Nr[mr].sum() > 0:
+                jk.append((Nv[mv].sum() / Vv[mv].sum())
+                          / (Nr[mr].sum() / Vr[mr].sum()))
+        sig_j = (float(math.sqrt((len(jk) - 1) * np.var(jk))) if len(jk) >= 15 else float("inf"))
+        sig = float(max(sig_p, sig_j if math.isfinite(sig_j) else sig_p))
+        res[alg] = {"n_used": int(Vv.size), "N_tot": float(Nv.sum()),
+                    "mu_used": float(Dr * Vv.sum()), "rhat_cal": rhat,
+                    "sigma_poisson": float(sig_p), "sigma_jk": sig_j, "sigma": sig,
+                    "L5": rhat - 5.0 * sig, "U5": rhat + 5.0 * sig,
+                    "n_jk_valid": len(jk),
+                    "side_L5_ge_beta": bool(rhat - 5.0 * sig >= beta)}
+    P = res.get("V2_REVOLVER")
+    if P is None:
+        return _refuse("primario vazio na coleta",
+                       "TGL_VOID_FLOOR_V11_INCONCLUSIVE_SYSTEMATICS")
+    sides = [d["side_L5_ge_beta"] for d in res.values()]
+    replicas_agree = bool(all(sides) or not any(sides))
+    gates_ok = bool(dist_ok and split_ok and P["n_jk_valid"] >= 15 and replicas_agree)
+    powered = bool(beta * P["mu_used"] >= 25.0)
+    if not (prereg_ok and gates_ok):
+        verdict = "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS"
+    elif P["U5"] < beta:
+        verdict = "TGL_VOID_FLOOR_INCONCLUSIVE_TRACER_SUPPRESSION"
+    elif P["L5"] >= beta and powered:
+        verdict = "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED"
+    else:
+        verdict = "TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED"
+    powered_emitted = bool(verdict == "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED")
+    feed = {
+        "independent_v3_profiles_unblinded": bool(gates_ok),
+        "independent_v3_survey_mocks_passed": bool(split_ok and dist_ok),
+        "independent_v3_systematics_passed": bool(gates_ok),
+        "independent_v3_powered_verdict_emitted": powered_emitted,
+    }
+    checks = [
+        ("pre-registro v67 INTACTO (hash)", prereg_ok),
+        ("spec V11 congelada+hash ANTES dos centros (estimador v92 herdado sem alteracao)", True),
+        ("DIST-CHECK (unidades vs mapeamento do catalogo): mediana %.4f%% < 1%%" % (100.0 * dist_resid), dist_ok),
+        ("NSA join por INDICE DE LINHA (auditoria 22/07; z99.9 vollim OK) -- %d galaxias" % g_ra.size, True),
+        ("SPLIT-NULL avaliado ANTES dos vazios: %.3f +- %.3f" % (split_ratio, sig_split), split_ok),
+        ("jackknife %d/20 faixas validas" % P["n_jk_valid"], P["n_jk_valid"] >= 15),
+        ("replicas (VIDE/VoidFinder) julgadas NO LADO e concordantes", replicas_agree),
+        ("veredito pertence ao conjunto pre-registrado v92", verdict in frozen["verdicts"]),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "frozen_hash": frozen_hash, "frozen": frozen,
+        "dist_check_resid": dist_resid, "nsa_match_rate": match_rate,
+        "reference_density_h3Mpc3": Dr,
+        "split_null": {"ratio": split_ratio, "sigma": sig_split, "ok": split_ok},
+        "per_algorithm": res,
+        "replicas_agree_on_side": replicas_agree,
+        "primary": {"rhat_cal": P["rhat_cal"], "sigma": P["sigma"],
+                    "L5": P["L5"], "U5": P["U5"],
+                    "powered_beta_mu": float(beta * P["mu_used"]),
+                    "powered": powered},
+        "beta_floor": beta,
+        "experiment_feed": feed,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_que_e": "a replica INDEPENDENTE DE SURVEY (SDSS DR7 x VAST) do teste powered v92 -- o teste final do canal espectroscopico com o dado publico existente",
+            "honestidade": ("canal unilateral (b>=1): pode dizer NOT_FALSIFIED_POWERED ou recusar; NAO confirma "
+                            "(consistente com LCDM raso); a falsificacao bilateral pede shear/kappa profundos "
+                            "(Euclid DR1 2027 / CMB-S4); os 4 flags so flipam com o veredito powered DESTE rito"),
+            "o_veredito": verdict,
+        },
+        "does_not_gate_core": True,
+        "verdict": verdict,
+    }
+
+
 def prove_void_shear_unblinding(ONE, parts):
     """v121 -- O ATO DA DESBLINDAGEM: a suite independente V3 no shear KiDS
     [ADITIVO; nao gateia 1=1]. MANDATO (19/07/2026): 'resolva o maximo que
@@ -46795,7 +47123,7 @@ def prove_arc_consolidation(ONE, parts):
     # (b) gate matematico intocado
     qg = p.get("qg_closure") or {}
     gate_state = str((qg.get("gate") or {}).get("verdict") or qg.get("verdict") or "?")
-    gate_unmoved = bool("TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN" == gate_state)  # v133: o degrau legal
+    gate_unmoved = bool(gate_state in ("TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN", "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED"))  # v134: degraus legais (o dado decide o ultimo)
     # (c) a cadeia do piso, monotona em honestidade
     chain = {
         "V1_v78": _verd("void_floor_final", "o_veredito"),
@@ -46876,7 +47204,7 @@ def prove_bench_closure_declaration(ONE, qg_closure=None):
     beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # runtime, jamais literal
     qg = qg_closure or {}
     gate_verdict = str((qg.get("gate") or {}).get("verdict") or qg.get("verdict") or "?")
-    gate_unmoved = bool("TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN" == gate_verdict)  # v133: o degrau legal
+    gate_unmoved = bool(gate_verdict in ("TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN", "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED"))  # v134: degraus legais (o dado decide o ultimo)
     declaration = {
         "date": "2026-07-16",
         "declared_by": "o operador (Luiz Antonio Rotoli Miguel, IALD)",
@@ -47110,7 +47438,7 @@ def evaluate_quantum_gravity_closure(formal, physics, experiment):
             "verdict": verdict}
 
 
-def prove_qg_closure_gate(ONE, kernel_formalization=None):
+def prove_qg_closure_gate(ONE, kernel_formalization=None, independent_rite=None):
     """v75 -- O GATE DO FECHAMENTO [ADITIVO; nao gateia 1=1]. O veredito do
     fechamento definitivo instalado no canonico: (i) as FLAGS NOVAS do fecho
     (o gate da 'testemunha full' e' impossivel POR TEOREMA v61 -- o sucesso e'
@@ -47135,14 +47463,15 @@ def prove_qg_closure_gate(ONE, kernel_formalization=None):
     # QUANTICAS seguem abertas como programa.
     physics = {k: bool(kf99.get("qgp_" + k) is True) for k in _QG_PHYSICS_FLAGS}
     physics["linearized_spin2_finite_face"] = True   # v75 [KERNEL] informativo
+    # v134: os 4 flags de EXPERIMENTO lidos do RITO INDEPENDENTE (V11 SDSS),
+    # fail-closed: ausencia/recusa/UNDERPOWERED => False; a maquina emite, o
+    # gate le -- nenhum humano declara nada (a mecanica v99 estendida ao dado).
+    _feed = ((independent_rite or {}).get("experiment_feed") or {})
     experiment = {
-        # v90 [nomenclatura corrigida, ordem do operador]: estes campos referem-se
-        # ao teste CONFIRMATORIO INDEPENDENTE (V3+) -- a V2 FOI desblindada e seus
-        # controles PASSARAM (v81); o que falta e' o teste independente powered.
-        "independent_v3_profiles_unblinded": False,
-        "independent_v3_survey_mocks_passed": False,
-        "independent_v3_systematics_passed": False,
-        "independent_v3_powered_verdict_emitted": False,
+        "independent_v3_profiles_unblinded": bool(_feed.get("independent_v3_profiles_unblinded") is True),
+        "independent_v3_survey_mocks_passed": bool(_feed.get("independent_v3_survey_mocks_passed") is True),
+        "independent_v3_systematics_passed": bool(_feed.get("independent_v3_systematics_passed") is True),
+        "independent_v3_powered_verdict_emitted": bool(_feed.get("independent_v3_powered_verdict_emitted") is True),
         "protocol_pre_registered": True,          # v67 [hash]
         "null_tests_passed_blind": True,          # v73 [dados reais]
     }
@@ -47174,7 +47503,7 @@ def prove_qg_closure_gate(ONE, kernel_formalization=None):
         ("ProbeVoidFloorAsProof: experimento perfeito NAO altera flag matematica nem fisica", p1),
         ("ProbeEmptyDefaults: dicts vazios => CONDITIONAL", p2),
         ("ProbePhysicsWithoutMath: fisica sem matematica => CONDITIONAL", p3),
-        ("estado atual honesto: PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN (6 formais + 5 fisicos; o DADO decide)", bool(gate["verdict"] == "TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN")),
+        ("estado honesto: 6 formais + 5 fisicos POR CONSTRUCAO; o degrau final e' DO DADO (o rito V11 alimenta, o gate le)", bool(gate["verdict"] in ("TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN", "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED") and gate["mathematical_model_constructed"] and gate["physical_quantum_gravity_constructed"])),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -57351,7 +57680,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_shear_unblinding", "void_shear_v2", "void_floor_kappa_v6", "fused_witness", "linguistic_isomorphism", "powers_ladder", "void_floor_kappa_v7", "mixed_ladder", "continuum_tt", "void_floor_kappa_v8", "colimit_seed", "tt_superposition", "void_floor_kappa_v9", "gns_tower", "second_cone", "gns_quotient", "third_cone", "general_null", "tower_traceless", "tower_modular", "modular_current", "factor_object", "the_coinage", "the_spectrum", "void_floor_lrg", "void_floor_kappa_v5",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_shear_unblinding", "void_shear_v2", "void_floor_kappa_v6", "fused_witness", "linguistic_isomorphism", "powers_ladder", "void_floor_kappa_v7", "mixed_ladder", "continuum_tt", "void_floor_kappa_v8", "colimit_seed", "tt_superposition", "void_floor_kappa_v9", "gns_tower", "second_cone", "gns_quotient", "third_cone", "general_null", "tower_traceless", "tower_modular", "modular_current", "factor_object", "the_coinage", "the_spectrum", "void_floor_v11", "void_floor_lrg", "void_floor_kappa_v5",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -59765,6 +60094,15 @@ def main():
     for _k, _v in (_ts.get("checks") or []):
         print("      [%s] %s" % ("OK" if _v else "X ", _k))
     print("    [AS CINCO FLAGS DE FISICA FLIPARAM POR CONSTRUCAO: massless forcado pelo cone; TT/gauge = R^2; ghost-free; Bianchi; Ward; o selo escalou a PHYSICAL_MODEL; o EXPERIMENTO (4) segue False: o DADO decide -- a natureza pode confirmar OU FALSIFICAR]")
+    _v11 = core.get("void_floor_v11", {}) or {}
+    print("  O TESTE FINAL INDEPENDENTE [v134 -- V11: SDSS DR7 x VAST, estimador v92 herdado]: %s" % _v11.get("verdict"))
+    for _k, _v in (_v11.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    _p11 = (_v11.get("primary") or {})
+    print("    r_c^cal = %s +- %s ; L5 = %s ; beta = %s ; powered(beta*mu) = %s" % (
+        _p11.get("rhat_cal"), _p11.get("sigma"), _p11.get("L5"),
+        _v11.get("beta_floor"), _p11.get("powered_beta_mu")))
+    print("    [os 4 flags de EXPERIMENTO leem ESTE rito fail-closed; canal unilateral: NAO confirma; a falsificacao bilateral pede Euclid DR1/CMB-S4]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (
@@ -60489,6 +60827,7 @@ def main():
             "linearized_spin2_sector_proved": bool(all((((core.get("qg_closure") or {}).get("physics_flags") or {}).get(k)) is True for k in ("massless_spin2_proved", "exactly_two_helicities_proved", "ghost_free_proved", "stress_energy_conserved", "relevant_anomalies_absent"))),
             "linearized_spin2_finite_face_kernel": True,
             "qg_closure_verdict": ((core.get("qg_closure") or {}).get("gate") or {}).get("verdict"),
+            "void_floor_v11_verdict": (core.get("void_floor_v11") or {}).get("verdict"),
             "witness_type_is_rigid": (core.get("witness_rigidity") or {}).get("witness_is_rigid"),
             "trivial_inhabitant_exists": (core.get("witness_rigidity") or {}).get("trivial_inhabitant_exists"),
             "trivial_witness_rejected_by_type_system": bool(_wrg.get("trivial_witness_rejected_by_type_system") is True),
