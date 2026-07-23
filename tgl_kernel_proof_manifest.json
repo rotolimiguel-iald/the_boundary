@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-22 16:03:01",
+  "timestamp": "2026-07-23 11:10:55",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "c8763dda4e1541f504d01315481eba1177f4a0074f3b12dbb35b1cc60ef677dc",
+  "formal_source_hash": "aecf07ab9ea9cf1021ccbbb101b45879e4e223ae16750184b08cfe23c67d0836",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "a45540cf4a7b160a54bfd7a01291f0d8e9448500b33df348fc0782ee8ed2a23d",
+    "TGLExt.lean": "56ccec0609ae1524f6108a1ae5e8f4ff1c44bfa5915cd16b8c08ac863e8794e8",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "0198245c51554ac71dfbe1489d3f20909950e3f4ab7ac21d0298f06d0de1ce0c",
+    "TGL/Audit.lean": "452d2d4dc0aa0f380f6f052c2821b3da1760822739dcc1b4d3006fcc2617e850",
     "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -114,6 +114,7 @@
     "TGLExt/RGStability.lean": "ae3c1eeee6d86ea43b57ee0afe171bb43c0f24094702130ec3c2604f53aa7bf5",
     "TGLExt/ReducedEmergence.lean": "d11854b264e6e17c551db2e6ffc6eaf804408afa1846c88529487167743eb845",
     "TGLExt/RegularRep.lean": "a3861da9c4d4e8ef8173272ad8843c65dcbe8215d598a52948f608fca7d53590",
+    "TGLExt/RightMult.lean": "29b5e130da72914ae0fd955eefd4ced00b4b6e26ea88e7ec0e338c561637ca13",
     "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
     "TGLExt/SaturatedWitness.lean": "a0a5eed4d46ae5679a9b9ba00212d2d88d77c421f499565dc6087d266454d8c7",
     "TGLExt/ScaleCurrent.lean": "ca57ab98df3816545f791b0cfb97b0db8821d69317db527ca3a901e7e123f897",
@@ -145,6 +146,7 @@
     "TGLExt/TransportWitness.lean": "f4219cc2c036999e19e41b006d4899a1a10cd2e8e3562c5a277370faae0364ed",
     "TGLExt/TriadMaster.lean": "64e0899e259693927b051493b8f20cc47885f183d02d79a8772e3b3d869863ae",
     "TGLExt/VariationalInhabitant.lean": "2af4afbc660fdd9c1ca9f8c66a8ad073fbea252949d64b503ed2e8cb81b6c27e",
+    "TGLExt/WedgeNet.lean": "85d14862bf4a6a796a1f7905e284fa431f015bf5d1d50ddc93d5fed3904469b4",
     "TGLExt/WitnessSeed.lean": "3281a16675fa60c4b1972b4122d083899aad4adf00328500a4a1367e5bfa3ec2",
     "TGLExt/WitnessV2.lean": "35f47bebde47a54e25cd4fb51b8f242f5a8385c45bd9fc1f9544c118f30a8ee1",
     "TGLExt/WitnessV3.lean": "22bf6476c48eb9ebabb1439800d52b47cc2d24bc2a1462987dd71c60350f644c",
@@ -3444,10 +3446,90 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.tState_kms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.rTowerPi_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.rTowerPi_mem_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.factor_comm_rTowerPi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.rTowerPi_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.factor_omega_separating": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.rw_rw_meet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.lw_lw_meet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.spacelike_disjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.not_hasLW_rightWedge": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.wedgeNet_translate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.theSpecificAQFTWitness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.rmul_bound_push": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.cSlice_mul_towerStep": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerPi_comm_rTowerPi": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tPush_modTwist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "79ca3d3da505b591217e68b61d107c7c25c82539e214c5fc7a3587a5ae233533",
-  "audit_stdout_sha256": "084792e170c5dcce7c61d7a9c5f110bdb4777b43638f9708ec07dc8b7ae80ce9",
+  "build_stdout_sha256": "7802c3f6b54a3f165cfaf5a8c067719f4b5a4c85bf498001c6bd3498bd82d62a",
+  "audit_stdout_sha256": "da2c880b0b3ca52e98eac593d9f1bdb14e8ef73491747b53326af0fffc6952bc",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",
@@ -3524,8 +3606,8 @@
       "graviton_shadow_term_constructed": true,
       "tl3_term_constructed": true,
       "mathematical_external_full_witness_exists": true,
-      "lean_kernel_full_witness_constructed": false,
-      "physical_covariant_representative_selected": false,
+      "lean_kernel_full_witness_constructed": true,
+      "physical_covariant_representative_selected": true,
       "bare_prop_label_fields_remaining": 0,
       "finite_full_witness_rejected": true,
       "prop_only_modular_rejected": true,
@@ -3654,12 +3736,12 @@
     "finite_corner_projection_kernel_proved": true,
     "finite_corner_trace_kernel_proved": true,
     "continuous_corner_implication_kernel_proved": true,
-    "specific_AQFT_witness_constructed": false,
+    "specific_AQFT_witness_constructed": true,
     "unconditional_type_III1_corner_proved": false,
     "all_unconditional_targets_verified": true,
     "all_conditional_implications_verified": true,
     "formal_release_ready": true,
-    "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN"
+    "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED"
   },
   "next_theorem": "TGL_SPECIFIC_AQFT_WITNESS_THEOREM",
   "not_claimed": [

@@ -2006,7 +2006,7 @@
       "trustCompiler_absent": true,
       "custom_TGL_axioms_absent": true,
       "sentinels_present": true,
-      "specific_AQFT_witness_constructed": false,
+      "specific_AQFT_witness_constructed": true,
       "unconditional_type_III1_corner_proved": false,
       "axiom_report": {
         "TGL.HalfNat.halfNat_of_selfConjugate": [
@@ -5302,17 +5302,97 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.tState_kms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.rTowerPi_star": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.rTowerPi_mem_commutant": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.factor_comm_rTowerPi": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.rTowerPi_omega": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.factor_omega_separating": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.rw_rw_meet": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.lw_lw_meet": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.spacelike_disjoint": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.not_hasLW_rightWedge": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.wedgeNet_translate": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.theSpecificAQFTWitness": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.rmul_bound_push": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.cSlice_mul_towerStep": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerPi_comm_rTowerPi": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tPush_modTwist": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "c8763dda4e1541f504d01315481eba1177f4a0074f3b12dbb35b1cc60ef677dc",
+      "formal_source_hash": "aecf07ab9ea9cf1021ccbbb101b45879e4e223ae16750184b08cfe23c67d0836",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "a45540cf4a7b160a54bfd7a01291f0d8e9448500b33df348fc0782ee8ed2a23d",
+        "TGLExt.lean": "56ccec0609ae1524f6108a1ae5e8f4ff1c44bfa5915cd16b8c08ac863e8794e8",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "0198245c51554ac71dfbe1489d3f20909950e3f4ab7ac21d0298f06d0de1ce0c",
+        "TGL/Audit.lean": "452d2d4dc0aa0f380f6f052c2821b3da1760822739dcc1b4d3006fcc2617e850",
         "TGL/Basic.lean": "46e22cc230e7035e8b1598ee1faefa060637c705f9dd1d3779caec2a26a33a1e",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -5408,6 +5488,7 @@
         "TGLExt/RGStability.lean": "ae3c1eeee6d86ea43b57ee0afe171bb43c0f24094702130ec3c2604f53aa7bf5",
         "TGLExt/ReducedEmergence.lean": "d11854b264e6e17c551db2e6ffc6eaf804408afa1846c88529487167743eb845",
         "TGLExt/RegularRep.lean": "a3861da9c4d4e8ef8173272ad8843c65dcbe8215d598a52948f608fca7d53590",
+        "TGLExt/RightMult.lean": "29b5e130da72914ae0fd955eefd4ced00b4b6e26ea88e7ec0e338c561637ca13",
         "TGLExt/SMatrix.lean": "14f7e717a4ef70204eeb825d989e6dcc3397c274f1c45a3820420ea6af12a3b7",
         "TGLExt/SaturatedWitness.lean": "a0a5eed4d46ae5679a9b9ba00212d2d88d77c421f499565dc6087d266454d8c7",
         "TGLExt/ScaleCurrent.lean": "ca57ab98df3816545f791b0cfb97b0db8821d69317db527ca3a901e7e123f897",
@@ -5439,6 +5520,7 @@
         "TGLExt/TransportWitness.lean": "f4219cc2c036999e19e41b006d4899a1a10cd2e8e3562c5a277370faae0364ed",
         "TGLExt/TriadMaster.lean": "64e0899e259693927b051493b8f20cc47885f183d02d79a8772e3b3d869863ae",
         "TGLExt/VariationalInhabitant.lean": "2af4afbc660fdd9c1ca9f8c66a8ad073fbea252949d64b503ed2e8cb81b6c27e",
+        "TGLExt/WedgeNet.lean": "85d14862bf4a6a796a1f7905e284fa431f015bf5d1d50ddc93d5fed3904469b4",
         "TGLExt/WitnessSeed.lean": "3281a16675fa60c4b1972b4122d083899aad4adf00328500a4a1367e5bfa3ec2",
         "TGLExt/WitnessV2.lean": "35f47bebde47a54e25cd4fb51b8f242f5a8385c45bd9fc1f9544c118f30a8ee1",
         "TGLExt/WitnessV3.lean": "22bf6476c48eb9ebabb1439800d52b47cc2d24bc2a1462987dd71c60350f644c",
@@ -5447,7 +5529,7 @@
       "all_unconditional_targets_verified": true,
       "all_conditional_implications_verified": true,
       "all_verified": true,
-      "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN",
+      "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED",
       "not_claimed": [
         "Python did not prove any theorem; the Lean kernel did",
         "Bisognano-Wichmann / Reeh-Schlieder / type III_1 classification are KNOWN/EXTERNAL, not formalized here",
@@ -6101,6 +6183,22 @@
       "ext_coin_factor_kernel_proved": true,
       "ext_coin_infinite_kernel_proved": true,
       "ext_coin_construction_kernel_proved": true,
+      "ext_rm_kms_kernel_proved": true,
+      "ext_rm_bound_kernel_proved": true,
+      "ext_rm_slice_kernel_proved": true,
+      "ext_rm_comm_kernel_proved": true,
+      "ext_rm_omega_kernel_proved": true,
+      "ext_rm_twist_push_kernel_proved": true,
+      "ext_rm_star_kernel_proved": true,
+      "ext_rm_commutant_kernel_proved": true,
+      "ext_rm_factor_comm_kernel_proved": true,
+      "ext_rm_separating_kernel_proved": true,
+      "ext_wn_rw_meet_kernel_proved": true,
+      "ext_wn_lw_meet_kernel_proved": true,
+      "ext_wn_disjoint_kernel_proved": true,
+      "ext_wn_no_left_kernel_proved": true,
+      "ext_wn_covariant_kernel_proved": true,
+      "ext_wn_witness_kernel_proved": true,
       "ext_ph_formula_kernel_proved": true,
       "ext_ph_tt_collapse_kernel_proved": true,
       "ext_ph_massless_kernel_proved": true,
@@ -6113,23 +6211,23 @@
       "ext_ph_conservation_kernel_proved": true,
       "ext_ph_anomaly_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "79ca3d3da505b591217e68b61d107c7c25c82539e214c5fc7a3587a5ae233533",
+      "build_stdout_sha256": "7802c3f6b54a3f165cfaf5a8c067719f4b5a4c85bf498001c6bd3498bd82d62a",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "084792e170c5dcce7c61d7a9c5f110bdb4777b43638f9708ec07dc8b7ae80ce9",
+      "audit_stdout_sha256": "da2c880b0b3ca52e98eac593d9f1bdb14e8ef73491747b53326af0fffc6952bc",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 245001,
+        "stdout": 248049,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 179050,
+        "stdout": 180485,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "79ca3d3da505b591217e68b61d107c7c25c82539e214c5fc7a3587a5ae233533",
-      "audit_capture_sha256_full": "084792e170c5dcce7c61d7a9c5f110bdb4777b43638f9708ec07dc8b7ae80ce9",
+      "build_capture_sha256_full": "7802c3f6b54a3f165cfaf5a8c067719f4b5a4c85bf498001c6bd3498bd82d62a",
+      "audit_capture_sha256_full": "da2c880b0b3ca52e98eac593d9f1bdb14e8ef73491747b53326af0fffc6952bc",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
       "qgc_concrete_breuer_corner_constructed": true,
@@ -6218,8 +6316,8 @@
       "graviton_shadow_term_constructed": true,
       "tl3_term_constructed": true,
       "mathematical_external_full_witness_exists": true,
-      "lean_kernel_full_witness_constructed": false,
-      "physical_covariant_representative_selected": false,
+      "lean_kernel_full_witness_constructed": true,
+      "physical_covariant_representative_selected": true,
       "bare_prop_label_fields_remaining": 0,
       "finite_full_witness_rejected": true,
       "prop_only_modular_rejected": true,
@@ -6323,9 +6421,9 @@
       "ledger": {
         "zero_abs_proved": false,
         "zero_abs_note": "IsEmpty(TGLSpecificAQFTWitness) nunca foi demonstrado; 0_abs NAO e' afirmado nem refutado",
-        "zero_mod_state": true,
-        "zero_mod_note": "vazio tipado: a interface-luz especificada, ainda nao realizada",
-        "one_inscribed": false,
+        "zero_mod_state": false,
+        "zero_mod_note": "vazio tipado ATE a v134; REALIZADO na v135 pela rede das cunhas (WedgeNet: net(O) sobre M_TGL; localidade por centralizador; Omega ciclico E separador)",
+        "one_inscribed": true,
         "trivial_inhabitant_exists": false,
         "witness_is_rigid": true,
         "rigidity_verdict": "WITNESS_TYPE_IS_RIGID__TRIVIAL_INHABITANT_REJECTED",
@@ -6397,8 +6495,8 @@
         "graviton_shadow_term_constructed": true,
         "tl3_term_constructed": true,
         "mathematical_external_full_witness_exists": true,
-        "lean_kernel_full_witness_constructed": false,
-        "physical_covariant_representative_selected": false,
+        "lean_kernel_full_witness_constructed": true,
+        "physical_covariant_representative_selected": true,
         "bare_prop_label_fields_remaining": 0,
         "finite_full_witness_rejected": true,
         "prop_only_modular_rejected": true,
@@ -6526,7 +6624,7 @@
           true
         ],
         [
-          "witness_not_constructed_honest",
+          "witness_constructed_v135_by_wedge_net (a vacancia do 0_mod TERMINOU por construcao)",
           true
         ],
         [
@@ -6534,7 +6632,7 @@
           true
         ],
         [
-          "zero_mod_state_holds",
+          "zero_mod_vacancy_ended_v135",
           true
         ],
         [
@@ -7240,8 +7338,8 @@
       },
       "statuses": {
         "mathematical_external_full_witness_exists": true,
-        "lean_kernel_full_witness_constructed": false,
-        "physical_covariant_representative_selected": false
+        "lean_kernel_full_witness_constructed": true,
+        "physical_covariant_representative_selected": true
       },
       "values": {
         "beta": 0.012031300400803142,
@@ -7409,7 +7507,8 @@
         "modular_current": "SEMIFINITE_ANALYSIS_INCREMENT_55__THE_J_CURRENT__WITNESS_SATURATED_NEVER_COMPLETE__CONJUGATED_STATE_IS_THE_COMPLETE_WITNESS__PARTIAL_ISOMETRY_IMPLEMENTS_BOUNDARY_EQUIVALENCE__RATIO_AT_EVERY_SCALE_LOG_DENSE__SEAL_STAYS_CONDITIONAL",
         "factor_object": "SEMIFINITE_ANALYSIS_INCREMENT_56__THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_COMPLETE__PI_STARRED_BOUNDED_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM__GNS_IDENTITY__SIGNATURE_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_STAYS_CONDITIONAL",
         "the_coinage": "SEMIFINITE_ANALYSIS_INCREMENT_57__THE_COINAGE__NO_NORMAL_TRACIAL_STATE_ON_THE_OBJECT__SITE_MARKS_WOT_TO_MU__TRACIAL_HALVING_REFUSES_MU_NE_HALF__OMEGA_IS_SEQ_NORMAL__V3_TYPE_HARDENED_WITH_FACTOR_INSIDE__FINITE_BENCH_TOOTH__QG_CLOSURE_CERTIFICATE_V2_COINED__PARSER_FLIPS_ALONE__SEAL_SCALES_ONE_STEP",
-        "the_spectrum": "PHYSICS_INCREMENT_1__THE_SPECTRUM__MASSLESS_FORCED_BY_THE_CONE__EXACTLY_TWO_HELICITIES_TT_MOD_GAUGE_IS_R2__GHOST_FREE_ON_PHYSICAL_CLASS__LINEARIZED_BIANCHI_IDENTITY_ON_SYMBOL__LINEARIZED_WARD_NO_ANOMALY__FIVE_PHYSICS_FLAGS_READ_FROM_KERNEL__PLANE_WAVE_FAMILY_SCOPE_NAMED"
+        "the_spectrum": "PHYSICS_INCREMENT_1__THE_SPECTRUM__MASSLESS_FORCED_BY_THE_CONE__EXACTLY_TWO_HELICITIES_TT_MOD_GAUGE_IS_R2__GHOST_FREE_ON_PHYSICAL_CLASS__LINEARIZED_BIANCHI_IDENTITY_ON_SYMBOL__LINEARIZED_WARD_NO_ANOMALY__FIVE_PHYSICS_FLAGS_READ_FROM_KERNEL__PLANE_WAVE_FAMILY_SCOPE_NAMED",
+        "wedge_net": "SEMIFINITE_ANALYSIS_INCREMENT_58__THE_WEDGE_KEY_AND_THE_WEDGE_NET__KMS_LAW_EXPLICIT__RIGHT_MULT_BOUNDED_WITH_MODULAR_ADJOINT__COMMUTANT_INHABITED__OMEGA_SEPARATING_REEH_SCHLIEDER_PAIR__WEDGE_GEOMETRY_PROVED__SPECIFIC_AQFT_WITNESS_INHABITED_AFTER_115_VERSIONS__U_TRIVIAL_OPENNESS_NAMED"
       },
       "per_theorem": {
         "ext_bicommutant_concrete_kernel_proved": true,
@@ -8006,6 +8105,22 @@
         "ext_coin_factor_kernel_proved": true,
         "ext_coin_infinite_kernel_proved": true,
         "ext_coin_construction_kernel_proved": true,
+        "ext_rm_kms_kernel_proved": true,
+        "ext_rm_bound_kernel_proved": true,
+        "ext_rm_slice_kernel_proved": true,
+        "ext_rm_comm_kernel_proved": true,
+        "ext_rm_omega_kernel_proved": true,
+        "ext_rm_twist_push_kernel_proved": true,
+        "ext_rm_star_kernel_proved": true,
+        "ext_rm_commutant_kernel_proved": true,
+        "ext_rm_factor_comm_kernel_proved": true,
+        "ext_rm_separating_kernel_proved": true,
+        "ext_wn_rw_meet_kernel_proved": true,
+        "ext_wn_lw_meet_kernel_proved": true,
+        "ext_wn_disjoint_kernel_proved": true,
+        "ext_wn_no_left_kernel_proved": true,
+        "ext_wn_covariant_kernel_proved": true,
+        "ext_wn_witness_kernel_proved": true,
         "ext_ph_formula_kernel_proved": true,
         "ext_ph_tt_collapse_kernel_proved": true,
         "ext_ph_massless_kernel_proved": true,
@@ -8018,14 +8133,14 @@
         "ext_ph_conservation_kernel_proved": true,
         "ext_ph_anomaly_kernel_proved": true
       },
-      "n_theorems_clean": 605,
-      "n_theorems_expected": 605,
+      "n_theorems_clean": 621,
+      "n_theorems_expected": 621,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
         "continuous_external_theorems_unchanged_in_ledger": true,
         "beta_absent_from_ext_files_by_design": true,
-        "lean_kernel_full_witness_constructed": false
+        "lean_kernel_full_witness_constructed": true
       },
       "checks": [
         [
@@ -8407,7 +8522,7 @@
         "s_channel_fit_U_plus_T1": "KERNEL (sFrame_add + sFrame_tendsto + measurement_channel_endpoint)",
         "core_action_discipline": "P_F fixado por Ad(lambda(s)) tau-preservante; JAMAIS por theta_s (o no-go vira bussola)",
         "physical_einstein_implication": "CONDITIONAL (Lovelock/Jacobson; estatuto E7 INALTERADO)",
-        "lean_kernel_full_witness_constructed": false,
+        "lean_kernel_full_witness_constructed": true,
         "beta_never_literal": true
       },
       "checks": [
@@ -13589,6 +13704,288 @@
       "does_not_gate_core": true,
       "verdict": "TGL_THE_SPECTRUM__MASSLESS_FORCED_BY_THE_CONE__EXACTLY_TWO_HELICITIES_R2_EXACT__GHOST_FREE_ON_PHYSICAL_CLASS__BIANCHI_IDENTITY_ON_SYMBOL__WARD_NO_CLASSICAL_ANOMALY__FIVE_PHYSICS_FLAGS_FLIPPED_BY_PARSER__SEAL_SCALED_TO_PHYSICAL_MODEL__EMPIRICAL_TEST_OPEN__NATURE_DECIDES"
     },
+    "the_wedge_net": {
+      "theorem": "A REDE DAS CUNHAS: o tipo Haag-Kastler rigido do v21 habitado sobre M_TGL -- localidade por centralizador + geometria de Minkowski; Omega ciclico E separador (Reeh-Schlieder); a vacancia do 0_mod terminou.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "kms_resid": 4.577566798522237e-16
+      },
+      "checks": [
+        [
+          "\u2605\u2605\u2605 (96a) a chave: KMS explicito + direita limitada + adjunto modular + comutante habitado + SEPARADOR",
+          true
+        ],
+        [
+          "\u2605\u2605\u2605 (96b) a rede: geometria das cunhas + isotonia + localidade + covariancia + W HABITADO",
+          true
+        ],
+        [
+          "specific_AQFT_witness_constructed LIDO do parser (nome + axiomas limpos)",
+          true
+        ],
+        [
+          "SOMBRA [andar 3 misto]: KMS 5e-16 ; separador (rho^1/2 posto pleno) True ; geometria 200/200 True",
+          true
+        ],
+        [
+          "o gate de 15 flags NAO muda por esta pedra (campo do kernel/selo)",
+          true
+        ],
+        [
+          "probes VIVOS: dicts vazios => CONDITIONAL",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_e": "o W que faltava desde o v21, por construcao",
+        "o_que_resta": "U fiel + espectro de energia (endurecimento futuro); camadas Takesaki (realizacao continua); Einstein geral",
+        "honestidade": "U trivial NOMEADO; a localidade/ciclicidade/separacao sao TEOREMAS",
+        "o_veredito": "TGL_THE_WEDGE_NET__SPECIFIC_AQFT_WITNESS_INHABITED_AFTER_115_VERSIONS__OMEGA_CYCLIC_AND_SEPARATING__LOCALITY_BY_COMMUTANT_PLUS_GEOMETRY__COVARIANCE_BY_DESIGN__U_TRIVIAL_OPENNESS_NAMED__GATE_UNTOUCHED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_THE_WEDGE_NET__SPECIFIC_AQFT_WITNESS_INHABITED_AFTER_115_VERSIONS__OMEGA_CYCLIC_AND_SEPARATING__LOCALITY_BY_COMMUTANT_PLUS_GEOMETRY__COVARIANCE_BY_DESIGN__U_TRIVIAL_OPENNESS_NAMED__GATE_UNTOUCHED"
+    },
+    "falsification_assault": {
+      "theorem": "O ASSALTO: a tentativa ADVERSARIA de matar o piso no teste final V11 -- variacoes legitimas de nucleo, semente, algoritmo e hemisferio; o kill seria reportado como falsificacao; a sobrevivencia e robustez, jamais prova.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "n_variations": 22,
+        "n_kills": 0,
+        "n_tracer_suppression": 0,
+        "min_L5": 0.006345660071564629
+      },
+      "variations": {
+        "REV_xc0.20_s1134": {
+          "rhat": 0.10497,
+          "sigma": 0.00972,
+          "L5": 0.05638,
+          "U5": 0.15356,
+          "powered": false,
+          "n": 438,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        },
+        "REV_xc0.20_s2135": {
+          "rhat": 0.10556,
+          "sigma": 0.00977,
+          "L5": 0.0567,
+          "U5": 0.15442,
+          "powered": false,
+          "n": 438,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        },
+        "REV_xc0.20_s3136": {
+          "rhat": 0.10517,
+          "sigma": 0.00974,
+          "L5": 0.05649,
+          "U5": 0.15385,
+          "powered": false,
+          "n": 438,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        },
+        "REV_xc0.25_s1134": {
+          "rhat": 0.12693,
+          "sigma": 0.00764,
+          "L5": 0.08873,
+          "U5": 0.16512,
+          "powered": true,
+          "n": 438,
+          "class": "NOT_FALSIFIED_POWERED"
+        },
+        "REV_xc0.25_s2135": {
+          "rhat": 0.12731,
+          "sigma": 0.00766,
+          "L5": 0.089,
+          "U5": 0.16562,
+          "powered": true,
+          "n": 438,
+          "class": "NOT_FALSIFIED_POWERED"
+        },
+        "REV_xc0.25_s3136": {
+          "rhat": 0.12787,
+          "sigma": 0.0077,
+          "L5": 0.08939,
+          "U5": 0.16635,
+          "powered": true,
+          "n": 438,
+          "class": "NOT_FALSIFIED_POWERED"
+        },
+        "REV_xc0.30_s1134": {
+          "rhat": 0.14129,
+          "sigma": 0.00613,
+          "L5": 0.11063,
+          "U5": 0.17194,
+          "powered": true,
+          "n": 438,
+          "class": "NOT_FALSIFIED_POWERED"
+        },
+        "REV_xc0.30_s2135": {
+          "rhat": 0.14152,
+          "sigma": 0.00614,
+          "L5": 0.11081,
+          "U5": 0.17222,
+          "powered": true,
+          "n": 438,
+          "class": "NOT_FALSIFIED_POWERED"
+        },
+        "REV_xc0.30_s3136": {
+          "rhat": 0.14267,
+          "sigma": 0.00619,
+          "L5": 0.11172,
+          "U5": 0.17363,
+          "powered": true,
+          "n": 438,
+          "class": "NOT_FALSIFIED_POWERED"
+        },
+        "REV_hemi_lo": {
+          "rhat": 0.14316,
+          "sigma": 0.01178,
+          "L5": 0.08427,
+          "U5": 0.20205,
+          "powered": false,
+          "n": 210,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        },
+        "REV_hemi_hi": {
+          "rhat": 0.11232,
+          "sigma": 0.0099,
+          "L5": 0.06284,
+          "U5": 0.1618,
+          "powered": false,
+          "n": 228,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        },
+        "VIDE_xc0.20_s1134": {
+          "rhat": 0.03618,
+          "sigma": 0.00595,
+          "L5": 0.00643,
+          "U5": 0.06594,
+          "powered": false,
+          "n": 424,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        },
+        "VIDE_xc0.20_s2135": {
+          "rhat": 0.03573,
+          "sigma": 0.00588,
+          "L5": 0.00635,
+          "U5": 0.06512,
+          "powered": false,
+          "n": 424,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        },
+        "VIDE_xc0.20_s3136": {
+          "rhat": 0.03572,
+          "sigma": 0.00588,
+          "L5": 0.00635,
+          "U5": 0.0651,
+          "powered": false,
+          "n": 424,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        },
+        "VIDE_xc0.25_s1134": {
+          "rhat": 0.06287,
+          "sigma": 0.00558,
+          "L5": 0.03495,
+          "U5": 0.09079,
+          "powered": false,
+          "n": 424,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        },
+        "VIDE_xc0.25_s2135": {
+          "rhat": 0.06309,
+          "sigma": 0.0056,
+          "L5": 0.03508,
+          "U5": 0.0911,
+          "powered": false,
+          "n": 424,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        },
+        "VIDE_xc0.25_s3136": {
+          "rhat": 0.06321,
+          "sigma": 0.00561,
+          "L5": 0.03514,
+          "U5": 0.09128,
+          "powered": false,
+          "n": 424,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        },
+        "VIDE_xc0.30_s1134": {
+          "rhat": 0.1013,
+          "sigma": 0.00539,
+          "L5": 0.07435,
+          "U5": 0.12826,
+          "powered": true,
+          "n": 424,
+          "class": "NOT_FALSIFIED_POWERED"
+        },
+        "VIDE_xc0.30_s2135": {
+          "rhat": 0.10166,
+          "sigma": 0.00541,
+          "L5": 0.07461,
+          "U5": 0.12871,
+          "powered": true,
+          "n": 424,
+          "class": "NOT_FALSIFIED_POWERED"
+        },
+        "VIDE_xc0.30_s3136": {
+          "rhat": 0.10208,
+          "sigma": 0.00543,
+          "L5": 0.07492,
+          "U5": 0.12924,
+          "powered": true,
+          "n": 424,
+          "class": "NOT_FALSIFIED_POWERED"
+        },
+        "VIDE_hemi_lo": {
+          "rhat": 0.06075,
+          "sigma": 0.00835,
+          "L5": 0.01901,
+          "U5": 0.10248,
+          "powered": false,
+          "n": 194,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        },
+        "VIDE_hemi_hi": {
+          "rhat": 0.06449,
+          "sigma": 0.0075,
+          "L5": 0.02699,
+          "U5": 0.10199,
+          "powered": false,
+          "n": 230,
+          "class": "NOT_FALSIFIED_UNDERPOWERED"
+        }
+      },
+      "kills": [],
+      "checks": [
+        [
+          "assalto POS-HOC rotulado (nao substitui o rito; procura o KILL honesto)",
+          true
+        ],
+        [
+          "22 variacoes executadas (2 algoritmos x 3 nucleos x 3 seeds + hemisferios)",
+          true
+        ],
+        [
+          "canal UNILATERAL: r_gal < beta nao falsifica a MATERIA (arvore v92 herdada)",
+          true
+        ],
+        [
+          "supressao de tracador no nucleo profundo: 0 variacoes (o fenomeno v115, NOMEADO)",
+          true
+        ],
+        [
+          "KILL genuino (contradicao interna 5-sigma): 0",
+          true
+        ],
+        [
+          "min L5 = 0.0063 vs beta = 0.0120 [supressao de tracador, nao violacao do piso de materia]",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_FALSIFICATION_ASSAULT_SURVIVED__NO_INTERNAL_CONTRADICTION__DEEP_CORE_TRACER_SUPPRESSION_NAMED_NOT_A_KILL__UNILATERAL_CHANNEL_CANNOT_FALSIFY_MATTER__ROBUSTNESS_NOT_PROOF"
+    },
     "void_floor_v11": {
       "frozen_hash": "fdafd16a9907329c2ddd6848a12fc3544e7319b421ec065e2cdb390b461ac0cc",
       "frozen": {
@@ -13903,11 +14300,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 605 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 621 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 605/605; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 621/621; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -15761,7 +16158,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-22 16:03:01",
+    "timestamp": "2026-07-23 11:10:55",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -16011,7 +16408,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-22 16:03:01",
+        "prediction_timestamp": "2026-07-23 11:10:55",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -16047,7 +16444,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "843c92353ab8c3779df8b081f384648d33caf3cc56177321e07f671c6d9e99de"
+        "prediction_hash": "bf4ba50a55dfe13df39f12ee64747640207c762eb999145a170a07cf4612263f"
       },
       "comparison": null,
       "degeneracy_note": "Coma sozinha NAO separa 'vazamento modular 8.07%' de 'H0_local=73.263' -- testa o PAR (Planck+defasagem) vs (Planck s/ defasagem)",
@@ -16275,7 +16672,7 @@
       "custom_TGL_axioms_absent": true,
       "finite_three_locks_kernel_proved": true,
       "continuous_implication_kernel_proved": true,
-      "specific_AQFT_witness_constructed": false,
+      "specific_AQFT_witness_constructed": true,
       "unconditional_continuous_corner_proved": false,
       "witness_is_rigid": true,
       "trivial_inhabitant_exists": false,
@@ -16340,7 +16737,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "2f0a70621944e13a0566e931327ba004fd2a21cc56263ae856397f044dfef882"
+    "result_hash": "87da7d517502a0b71f3d16158aa650ac6afa08c932d4afd057483b8bd42162d7"
   },
   "ga_mass_literature": [
     {
@@ -16367,7 +16764,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "2f0a70621944e13a0566e931327ba004fd2a21cc56263ae856397f044dfef882",
+  "result_hash_before_external_comparison": "87da7d517502a0b71f3d16158aa650ac6afa08c932d4afd057483b8bd42162d7",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -16377,5 +16774,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-22 16:03:01"
+  "timestamp": "2026-07-23 11:10:55"
 }

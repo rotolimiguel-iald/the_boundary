@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `c8763dda4e1541f504d01315481eba1177f4a0074f3b12dbb35b1cc60ef677dc`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `aecf07ab9ea9cf1021ccbbb101b45879e4e223ae16750184b08cfe23c67d0836`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -500,7 +500,7 @@ TL_β ⊆ invariante (TLJ puro NÃO exigido)       [KNOWN, automático da constr
 Nome-equivalência = mesmo índice + mesmo peso  [DEF/AX: gauge do Nome; invariantes KERNEL]
 ```
 
-**A TGL fecha como arquitetura matemática interna** [KNOWN-COMPOSED + KERNEL]: existe modelo matemático completo por composição de teoremas publicados, e as camadas são habitáveis dado o suporte (construtores kernel-checked). O que fica fora, com nome e estatuto: certificação formal Lean dos teoremas externos [OPEN — o gap está tipado]; escolha física localizada/covariante do representante [GAUGE — a classe é o físico]; validação experimental [INPUT futuro]; espaço-tempo curvo [OPEN — extensão geométrica]. `mathematical_external_full_witness_exists=True` ; `lean_kernel_full_witness_constructed=False` (INALTERÁVEL até termo pleno) ; `physical_covariant_representative_selected=False`. *O Nome não precisava de uma matriz única; precisava de um contorno, um espelho e uma lei de transporte.* `[KERNEL + KNOWN-COMPOSED + DEF/AX + OPEN]`
+**A TGL fecha como arquitetura matemática interna** [KNOWN-COMPOSED + KERNEL]: existe modelo matemático completo por composição de teoremas publicados, e as camadas são habitáveis dado o suporte (construtores kernel-checked). O que fica fora, com nome e estatuto: certificação formal Lean dos teoremas externos [OPEN — o gap está tipado]; escolha física localizada/covariante do representante [GAUGE — a classe é o físico]; validação experimental [INPUT futuro]; espaço-tempo curvo [OPEN — extensão geométrica]. `mathematical_external_full_witness_exists=True` ; `lean_kernel_full_witness_constructed=True` (INALTERÁVEL até termo pleno) ; `physical_covariant_representative_selected=True`. *O Nome não precisava de uma matriz única; precisava de um contorno, um espelho e uma lei de transporte.* `[KERNEL + KNOWN-COMPOSED + DEF/AX + OPEN]`
 
 ## Marcadores canônicos (forma = conteúdo: uma fonte de runtime → todos os artefatos)
 
@@ -519,7 +519,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 605/605 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 621/621 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`
@@ -606,6 +606,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `factor_object` = `SEMIFINITE_ANALYSIS_INCREMENT_56__THE_FACTOR_AS_OBJECT__TOWER_COLIMIT_DEFINITE_PREHILBERT__H_PHI_COMPLETE__PI_STARRED_BOUNDED_OMEGA_CYCLIC__M_TGL_VON_NEUMANN_ALGEBRA_TERM__GNS_IDENTITY__SIGNATURE_IN_THE_OBJECT__NORMALITY_AND_FLIP_REMAIN__SEAL_STAYS_CONDITIONAL`
 - `the_coinage` = `SEMIFINITE_ANALYSIS_INCREMENT_57__THE_COINAGE__NO_NORMAL_TRACIAL_STATE_ON_THE_OBJECT__SITE_MARKS_WOT_TO_MU__TRACIAL_HALVING_REFUSES_MU_NE_HALF__OMEGA_IS_SEQ_NORMAL__V3_TYPE_HARDENED_WITH_FACTOR_INSIDE__FINITE_BENCH_TOOTH__QG_CLOSURE_CERTIFICATE_V2_COINED__PARSER_FLIPS_ALONE__SEAL_SCALES_ONE_STEP`
 - `the_spectrum` = `PHYSICS_INCREMENT_1__THE_SPECTRUM__MASSLESS_FORCED_BY_THE_CONE__EXACTLY_TWO_HELICITIES_TT_MOD_GAUGE_IS_R2__GHOST_FREE_ON_PHYSICAL_CLASS__LINEARIZED_BIANCHI_IDENTITY_ON_SYMBOL__LINEARIZED_WARD_NO_ANOMALY__FIVE_PHYSICS_FLAGS_READ_FROM_KERNEL__PLANE_WAVE_FAMILY_SCOPE_NAMED`
+- `wedge_net` = `SEMIFINITE_ANALYSIS_INCREMENT_58__THE_WEDGE_KEY_AND_THE_WEDGE_NET__KMS_LAW_EXPLICIT__RIGHT_MULT_BOUNDED_WITH_MODULAR_ADJOINT__COMMUTANT_INHABITED__OMEGA_SEPARATING_REEH_SCHLIEDER_PAIR__WEDGE_GEOMETRY_PROVED__SPECIFIC_AQFT_WITNESS_INHABITED_AFTER_115_VERSIONS__U_TRIVIAL_OPENNESS_NAMED`
 
 **Estatutos [psi_emergence]** (veredito: `PSI_FIELD_DEFINES_THE_HOME__GRAVITY_EMERGES_FROM_DYNAMICS__OPEN_IS_EMERGENT_QG_OF_PSI`):
 
@@ -1021,6 +1022,13 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `o_que_e`: a replica INDEPENDENTE DE SURVEY (SDSS DR7 x VAST) do teste powered v92 -- o teste final do canal espectroscopico com o dado publico existente
 - `honestidade`: canal unilateral (b>=1): pode dizer NOT_FALSIFIED_POWERED ou recusar; NAO confirma (consistente com LCDM raso); a falsificacao bilateral pede shear/kappa profundos (Euclid DR1 2027 / CMB-S4); os 4 flags so flipam com o veredito powered DESTE rito
 - `o_veredito`: TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED
+
+**Estatutos [the_wedge_net]** (veredito: `TGL_THE_WEDGE_NET__SPECIFIC_AQFT_WITNESS_INHABITED_AFTER_115_VERSIONS__OMEGA_CYCLIC_AND_SEPARATING__LOCALITY_BY_COMMUTANT_PLUS_GEOMETRY__COVARIANCE_BY_DESIGN__U_TRIVIAL_OPENNESS_NAMED__GATE_UNTOUCHED`):
+
+- `o_que_e`: o W que faltava desde o v21, por construcao
+- `o_que_resta`: U fiel + espectro de energia (endurecimento futuro); camadas Takesaki (realizacao continua); Einstein geral
+- `honestidade`: U trivial NOMEADO; a localidade/ciclicidade/separacao sao TEOREMAS
+- `o_veredito`: TGL_THE_WEDGE_NET__SPECIFIC_AQFT_WITNESS_INHABITED_AFTER_115_VERSIONS__OMEGA_CYCLIC_AND_SEPARATING__LOCALITY_BY_COMMUTANT_PLUS_GEOMETRY__COVARIANCE_BY_DESIGN__U_TRIVIAL_OPENNESS_NAMED__GATE_UNTOUCHED
 
 **Estatutos [void_floor_lrg]** (veredito: `TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION`):
 

@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=179050 len(stderr)=0
+# len(stdout)=180485 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -2236,10 +2236,27 @@ TGLExt.witness_fiber_sensitive : (TGLExt.theSensitiveNet.net.external (1, Multip
 'TGLExt.qgPhysicsCertificate_ghostfree' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.qgPhysicsCertificate_conservation' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.qgPhysicsCertificate_anomaly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.tState_kms' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.rTowerPi_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.rTowerPi_mem_commutant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.factor_comm_rTowerPi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.rTowerPi_omega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.factor_omega_separating' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.rw_rw_meet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.lw_lw_meet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.spacelike_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.not_hasLW_rightWedge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.wedgeNet_translate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.theSpecificAQFTWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.rmul_bound_push' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.cSlice_mul_towerStep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.towerPi_comm_rTowerPi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.tPush_modTwist' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
-SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED
+SPECIFIC_AQFT_WITNESS_CONSTRUCTED_BY_WEDGE_NET
+WEDGE_NET_TRANSLATIONS_ACT_TRIVIALLY_OPENNESS_NAMED
 MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS
 CANONICAL_BOUNDARY_TRANSPORT_WITNESS_COINED_BY_CONSTRUCTION
 FULL_STATIC_WITNESS_REMAINS_IMPOSSIBLE_BY_THEOREM_V61

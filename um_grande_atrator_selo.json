@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-07-22 16:03:01",
-  "result_hash": "2f0a70621944e13a0566e931327ba004fd2a21cc56263ae856397f044dfef882",
+  "timestamp": "2026-07-23 11:10:55",
+  "result_hash": "87da7d517502a0b71f3d16158aa650ac6afa08c932d4afd057483b8bd42162d7",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
-  "specific_AQFT_witness_constructed": false,
+  "specific_AQFT_witness_constructed": true,
   "unconditional_continuous_corner_proved": false,
   "modular_realization_constructed": false,
   "full_TGL_witness_constructed": false,
@@ -34,8 +34,8 @@
     "graviton_shadow_term_constructed": true,
     "tl3_term_constructed": true,
     "mathematical_external_full_witness_exists": true,
-    "lean_kernel_full_witness_constructed": false,
-    "physical_covariant_representative_selected": false,
+    "lean_kernel_full_witness_constructed": true,
+    "physical_covariant_representative_selected": true,
     "bare_prop_label_fields_remaining": 0,
     "finite_full_witness_rejected": true,
     "prop_only_modular_rejected": true,
@@ -47,7 +47,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "c8763dda4e1541f504d01315481eba1177f4a0074f3b12dbb35b1cc60ef677dc",
+  "formal_source_hash": "aecf07ab9ea9cf1021ccbbb101b45879e4e223ae16750184b08cfe23c67d0836",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -63,18 +63,18 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "843c92353ab8c3779df8b081f384648d33caf3cc56177321e07f671c6d9e99de",
+    "prediction_hash": "bf4ba50a55dfe13df39f12ee64747640207c762eb999145a170a07cf4612263f",
     "does_not_gate_core": true
   },
   "sha256": {
-    "um.py": "47ce0a035fdf71d3d2b22746b7a872357dade4e3a55342a24472f8f8b6db8da2",
-    "um_grande_atrator_manifest.md": "135829447291ed09955bef974c77a078384e4d9f3390d6d149e105712484c5d5",
-    "um_grande_atrator.json": "ba81c29d4622e35928b50b645a71a4f2d35d46f3a2099e837db0c39549de7646",
-    "um_grande_atrator_forma_canonica.md": "b9a633928494f51799fa9890c9f6d785912fe540cef05dd5fa21a17c8c1132db",
-    "um_grande_atrator_pt.tex": "bc29b16af8ffbbbd627107b918052616b2a160e149114b3a42654c55f4edda00",
-    "um_grande_atrator_en.tex": "a49a5769ab202b8e6a3bb9490ba465d17224f71bb081353676a5f4a131e9eda1",
-    "um_grande_atrator_pt.pdf": "78fe94d1d3aaafca7ba41d9a25aa4db3ccd55128ee50fc83f2acb6b7e656c77c",
-    "um_grande_atrator_en.pdf": "b289a61d1962ab325888740a4d4b0069dd7f627db74b37cd395b4ba6ffcf3269",
-    "tgl_kernel_proof_manifest.json": "98b3e670d3dc09e6eb8b9378e1d86e6d672b2a5f2e04d5c1f73a2472be58d376"
+    "um.py": "2899c85f52164f626e89c75525068c9bc7eb47889db74407d7d6e173ef63491b",
+    "um_grande_atrator_manifest.md": "cd1d4d6d06ed805b0f52afbc905d4322579fce45ec514ccd7b501105bc46b8ba",
+    "um_grande_atrator.json": "41847f028d31ab8bd175f22bac498c26424abb1291f579859613898d204d4964",
+    "um_grande_atrator_forma_canonica.md": "3bcff2c3b3b185d207e8fa61434e4bad07b4d62cdaf7d9382753c9ae8d697a3b",
+    "um_grande_atrator_pt.tex": "56ba2252448930e6342789780393dc37634c023a5517f09153475661677b970e",
+    "um_grande_atrator_en.tex": "ed9e2f7241dd0db92d8bebf65abd6e116d3e9c6ba0daadf23f21e468d72a8608",
+    "um_grande_atrator_pt.pdf": "4eb3e7d8872e62c804509f6258ebe228633949d186e93adee687974e317a1c1d",
+    "um_grande_atrator_en.pdf": "4835127e7e1212a203e177379aba103c14ca4a50fe459145cc4dd455a3bbb5fb",
+    "tgl_kernel_proof_manifest.json": "24324ef9002c54d2e939afa15a68c5b39cbe4ede7f4e887b08263f2e63e985f0"
   }
 }

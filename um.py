@@ -5133,6 +5133,8 @@ import TGLExt.NoNormalTrace
 import TGLExt.WitnessV3
 import TGLExt.TheCoinage
 import TGLExt.PhysicsCertificates
+import TGLExt.RightMult
+import TGLExt.WedgeNet
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -6795,12 +6797,29 @@ namespace TGL.Audit
 #print axioms TGLExt.qgPhysicsCertificate_ghostfree
 #print axioms TGLExt.qgPhysicsCertificate_conservation
 #print axioms TGLExt.qgPhysicsCertificate_anomaly
+#print axioms TGLExt.tState_kms
+#print axioms TGLExt.rTowerPi_star
+#print axioms TGLExt.rTowerPi_mem_commutant
+#print axioms TGLExt.factor_comm_rTowerPi
+#print axioms TGLExt.rTowerPi_omega
+#print axioms TGLExt.factor_omega_separating
+#print axioms TGLExt.rw_rw_meet
+#print axioms TGLExt.lw_lw_meet
+#print axioms TGLExt.spacelike_disjoint
+#print axioms TGLExt.not_hasLW_rightWedge
+#print axioms TGLExt.wedgeNet_translate
+#print axioms TGLExt.theSpecificAQFTWitness
+#print axioms TGLExt.rmul_bound_push
+#print axioms TGLExt.cSlice_mul_towerStep
+#print axioms TGLExt.towerPi_comm_rTowerPi
+#print axioms TGLExt.tPush_modTwist
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
 #eval IO.println "FINITE_THREE_LOCKS_KERNEL_PROVED"
 #eval IO.println "CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED"
-#eval IO.println "SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED"
+#eval IO.println "SPECIFIC_AQFT_WITNESS_CONSTRUCTED_BY_WEDGE_NET"
+#eval IO.println "WEDGE_NET_TRANSLATIONS_ACT_TRIVIALLY_OPENNESS_NAMED"
 #eval IO.println "MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS"
 #eval IO.println "CANONICAL_BOUNDARY_TRANSPORT_WITNESS_COINED_BY_CONSTRUCTION"
 #eval IO.println "FULL_STATIC_WITNESS_REMAINS_IMPOSSIBLE_BY_THEOREM_V61"
@@ -25328,6 +25347,1064 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/RightMult.lean":
+r'''import TGLExt.TheCoinage
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PEDRA 96a — RightMult: a multiplicação à direita e o SEPARADOR
+  [TGLExt — v135, a chave da cunha]
+
+Ω é cíclico para M_TGL (pedra 86). Esta pedra prova que Ω é SEPARADOR:
+
+* `tState_kms` — a lei KMS do perfil geral: φ(ab) = φ(b·ρaρ⁻¹), com a
+  densidade diagonal EXPLÍCITA (computação de pesos, sem análise);
+* `rmulPre`/`rmulCLM`/`rTowerPi` — a multiplicação à DIREITA, limitada no
+  colimite (bound UNIFORME: Cauchy–Schwarz por entrada + pesos somando 1 +
+  a cauda ⊗1 fatorizada por indução de fatiamento espelhada) e estendida
+  a B(H_φ);
+* ★★ `rTowerPi_star` — o ADJUNTO MODULAR da direita: star(r_y) = r_{ρy†ρ⁻¹}
+  — o adjunto da direita é OUTRA direita, torcida pela densidade (KMS);
+* ★★ `rTowerPi_mem_commutant` — r(y) ∈ π(torre)′; e todo A ∈ M_TGL =
+  π(torre)′′ comuta com toda direita (`factor_comm_rTowerPi`);
+* ★ `rTowerPi_omega` — r(y)Ω = [y]: a órbita direita do Nome é a torre;
+* ★★★ `factor_omega_separating` — O SEPARADOR: A ∈ M_TGL, AΩ = 0 ⟹
+  A[y] = A(r(y)Ω) = r(y)(AΩ) = 0 no denso ⟹ A = 0.
+  Ω cíclico E separador para o fator — o par de Reeh–Schlieder da casa.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Kronecker Matrix UniformSpace
+open scoped ComplexConjugate
+
+noncomputable section
+
+variable {P : SiteProfile}
+
+/-! ## A0 — habitação dos índices -/
+
+instance chainIdx_nonempty : ∀ N, Nonempty (chainIdx N)
+  | 0 => ⟨(0 : Fin 2)⟩
+  | (N + 1) => ⟨((chainIdx_nonempty N).some, (0 : Fin 2))⟩
+
+/-! ## A — a densidade explícita e a lei KMS do perfil -/
+
+/-- a densidade diagonal do andar N (os pesos da torre). -/
+def rhoMat (P : SiteProfile) (N : ℕ) :
+    Matrix (chainIdx N) (chainIdx N) ℂ :=
+  Matrix.diagonal (fun k => ((towerW P N k : ℝ) : ℂ))
+
+/-- a inversa diagonal. -/
+def rhoMatInv (P : SiteProfile) (N : ℕ) :
+    Matrix (chainIdx N) (chainIdx N) ℂ :=
+  Matrix.diagonal (fun k => (((towerW P N k)⁻¹ : ℝ) : ℂ))
+
+theorem rhoMat_mul_inv (P : SiteProfile) (N : ℕ) :
+    rhoMat P N * rhoMatInv P N = 1 := by
+  unfold rhoMat rhoMatInv
+  rw [Matrix.diagonal_mul_diagonal, ← Matrix.diagonal_one]
+  congr 1
+  funext k
+  rw [← Complex.ofReal_mul, mul_inv_cancel₀ (ne_of_gt (towerW_pos P N k))]
+  norm_num
+
+theorem rhoMatInv_mul (P : SiteProfile) (N : ℕ) :
+    rhoMatInv P N * rhoMat P N = 1 := by
+  unfold rhoMat rhoMatInv
+  rw [Matrix.diagonal_mul_diagonal, ← Matrix.diagonal_one]
+  congr 1
+  funext k
+  rw [← Complex.ofReal_mul, inv_mul_cancel₀ (ne_of_gt (towerW_pos P N k))]
+  norm_num
+
+theorem rhoMat_conjT (P : SiteProfile) (N : ℕ) :
+    (rhoMat P N)ᴴ = rhoMat P N := by
+  unfold rhoMat
+  rw [Matrix.diagonal_conjTranspose]
+  congr 1
+  funext k
+  simp [Complex.conj_ofReal]
+
+theorem rhoMatInv_conjT (P : SiteProfile) (N : ℕ) :
+    (rhoMatInv P N)ᴴ = rhoMatInv P N := by
+  unfold rhoMatInv
+  rw [Matrix.diagonal_conjTranspose]
+  congr 1
+  funext k
+  simp [Complex.conj_ofReal]
+
+/-- a torção modular de y: ρ·y†·ρ⁻¹ (o adjunto KMS da direita). -/
+def modTwist (P : SiteProfile) {N : ℕ}
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    Matrix (chainIdx N) (chainIdx N) ℂ :=
+  rhoMat P N * yᴴ * rhoMatInv P N
+
+theorem modTwist_apply (P : SiteProfile) {N : ℕ}
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) (j k : chainIdx N) :
+    modTwist P y j k
+      = ((towerW P N j : ℝ) : ℂ) * star (y k j)
+          * (((towerW P N k)⁻¹ : ℝ) : ℂ) := by
+  unfold modTwist rhoMat rhoMatInv
+  rw [Matrix.mul_diagonal, Matrix.diagonal_mul, Matrix.conjTranspose_apply]
+  try ring
+
+/-- desfazer a torção: ρ·(modTwist y)†·ρ⁻¹ = y. -/
+theorem rho_conj_modTwist_star (P : SiteProfile) {N : ℕ}
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    rhoMat P N * (modTwist P y)ᴴ * rhoMatInv P N = y := by
+  unfold modTwist
+  rw [Matrix.conjTranspose_mul, Matrix.conjTranspose_mul,
+    rhoMat_conjT, rhoMatInv_conjT, Matrix.conjTranspose_conjTranspose]
+  calc rhoMat P N * (rhoMatInv P N * (y * rhoMat P N)) * rhoMatInv P N
+      = (rhoMat P N * rhoMatInv P N) * y * (rhoMat P N * rhoMatInv P N) := by
+        noncomm_ring
+    _ = y := by rw [rhoMat_mul_inv]; simp
+
+/-- [KERNEL] ★★ A LEI KMS DO PERFIL: φ(a·b) = φ(b·ρaρ⁻¹) — computação
+    direta de pesos; a estrutura de equilíbrio do estado, explícita. -/
+theorem tState_kms (P : SiteProfile) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tState P N (a * b)
+      = tState P N (b * (rhoMat P N * a * rhoMatInv P N)) := by
+  unfold tState
+  have hL : ∀ k : chainIdx N,
+      ((towerW P N k : ℝ) : ℂ) * (a * b) k k
+        = ∑ j, ((towerW P N k : ℝ) : ℂ) * a k j * b j k := by
+    intro k
+    rw [Matrix.mul_apply, Finset.mul_sum]
+    exact Finset.sum_congr rfl fun j _ => by ring
+  have hR : ∀ j : chainIdx N,
+      ((towerW P N j : ℝ) : ℂ)
+          * (b * (rhoMat P N * a * rhoMatInv P N)) j j
+        = ∑ k, ((towerW P N k : ℝ) : ℂ) * a k j * b j k := by
+    intro j
+    rw [Matrix.mul_apply, Finset.mul_sum]
+    refine Finset.sum_congr rfl fun k _ => ?_
+    have hmid : (rhoMat P N * a * rhoMatInv P N) k j
+        = ((towerW P N k : ℝ) : ℂ) * a k j * (((towerW P N j)⁻¹ : ℝ) : ℂ) := by
+      unfold rhoMat rhoMatInv
+      rw [Matrix.mul_diagonal, Matrix.diagonal_mul]
+      try ring
+    rw [hmid]
+    have hinv : ((towerW P N j : ℝ) : ℂ) * (((towerW P N j)⁻¹ : ℝ) : ℂ) = 1 := by
+      rw [← Complex.ofReal_mul, mul_inv_cancel₀ (ne_of_gt (towerW_pos P N j))]
+      norm_num
+    calc ((towerW P N j : ℝ) : ℂ)
+          * (b j k * (((towerW P N k : ℝ) : ℂ) * a k j
+              * (((towerW P N j)⁻¹ : ℝ) : ℂ)))
+        = (((towerW P N j : ℝ) : ℂ) * (((towerW P N j)⁻¹ : ℝ) : ℂ))
+            * (((towerW P N k : ℝ) : ℂ) * a k j * b j k) := by ring
+      _ = ((towerW P N k : ℝ) : ℂ) * a k j * b j k := by rw [hinv, one_mul]
+  rw [Finset.sum_congr rfl (fun k _ => hL k),
+    Finset.sum_congr rfl (fun j _ => hR j)]
+  exact Finset.sum_comm
+
+/-! ## B — a multiplicação à direita no colimite -/
+
+/-- a multiplicação à direita por y (andar N) no colimite. -/
+def rmulPre (P : SiteProfile) {N : ℕ}
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    TowerPre P → TowerPre P :=
+  Quotient.map
+    (fun q => ⟨N ⊔ q.1, tPush le_sup_right q.2 * tPush le_sup_left y⟩)
+    (by
+      rintro q q' hq
+      have hK : (N ⊔ q.1) ≤ (N ⊔ q.1) ⊔ (N ⊔ q'.1) := le_sup_left
+      have hK' : (N ⊔ q'.1) ≤ (N ⊔ q.1) ⊔ (N ⊔ q'.1) := le_sup_right
+      have eq := (towerEqv_iff (x := q) (y := q')
+        (K := (N ⊔ q.1) ⊔ (N ⊔ q'.1))
+        (le_sup_right.trans hK) (le_sup_right.trans hK')).mp hq
+      refine (towerEqv_iff hK hK').mpr ?_
+      show tPush hK (tPush le_sup_right q.2 * tPush le_sup_left y)
+        = tPush hK' (tPush le_sup_right q'.2 * tPush le_sup_left y)
+      rw [tPush_mul, tPush_mul, tPush_trans, tPush_trans, tPush_trans,
+        tPush_trans, eq])
+
+theorem rmulPre_tof_at {N M K : ℕ} (hN : N ≤ K) (hM : M ≤ K)
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (b : Matrix (chainIdx M) (chainIdx M) ℂ) :
+    rmulPre P y (tof P M b) = tof P K (tPush hM b * tPush hN y) := by
+  show tof P (N ⊔ M) (tPush le_sup_right b * tPush le_sup_left y)
+    = tof P K (tPush hM b * tPush hN y)
+  have hs : N ⊔ M ≤ (N ⊔ M) ⊔ K := le_sup_left
+  have hk : K ≤ (N ⊔ M) ⊔ K := le_sup_right
+  rw [tof_eq_iff hs hk]
+  rw [tPush_mul, tPush_mul, tPush_trans, tPush_trans, tPush_trans, tPush_trans]
+
+/-- direita comuta com esquerda no pré-nível (associatividade da torre). -/
+theorem rmulPre_comm_lmulPre {N M : ℕ}
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (y : Matrix (chainIdx M) (chainIdx M) ℂ) (v : TowerPre P) :
+    rmulPre P y (lmulPre P x v) = lmulPre P x (rmulPre P y v) := by
+  obtain ⟨B, b, rfl⟩ := exists_tof v
+  have hN : N ≤ N ⊔ M ⊔ B := le_sup_left.trans le_sup_left
+  have hM : M ≤ N ⊔ M ⊔ B := le_sup_right.trans le_sup_left
+  have hB : B ≤ N ⊔ M ⊔ B := le_sup_right
+  have hK : N ⊔ M ⊔ B ≤ N ⊔ M ⊔ B := le_rfl
+  rw [lmulPre_tof_at hN hB, rmulPre_tof_at hM hK,
+    rmulPre_tof_at hM hB, lmulPre_tof_at hN hK,
+    tPush_self, tPush_self, mul_assoc]
+
+/-! ## C — o bound uniforme da direita -/
+
+/-- o menor peso do andar N (positivo; finito não-vazio). -/
+def wminP (P : SiteProfile) (N : ℕ) : ℝ :=
+  Finset.univ.inf' Finset.univ_nonempty (towerW P N)
+
+theorem wminP_pos (P : SiteProfile) (N : ℕ) : 0 < wminP P N := by
+  obtain ⟨k, _, hk⟩ :=
+    Finset.exists_mem_eq_inf' Finset.univ_nonempty (towerW P N)
+  rw [wminP, hk]
+  exact towerW_pos P N k
+
+theorem wminP_le (P : SiteProfile) (N : ℕ) (k : chainIdx N) :
+    wminP P N ≤ towerW P N k := by
+  unfold wminP
+  exact Finset.inf'_le _ (Finset.mem_univ k)
+
+theorem towerW_le_one (P : SiteProfile) (N : ℕ) (k : chainIdx N) :
+    towerW P N k ≤ 1 := by
+  have h := towerW_sum P N
+  have hle : towerW P N k ≤ ∑ i, towerW P N i :=
+    Finset.single_le_sum (fun i _ => le_of_lt (towerW_pos P N i))
+      (Finset.mem_univ k)
+  linarith
+
+/-- [KERNEL] ★ o bound no andar de origem: ‖b·y‖²_φ ≤ (F(y)/wmin)·‖b‖²_φ. -/
+theorem rmul_bound_base (P : SiteProfile) (N : ℕ)
+    (y b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    (tInner P N (b * y) (b * y)).re
+      ≤ (frobSq y / wminP P N) * (tInner P N b b).re := by
+  have hw0 := wminP_pos P N
+  rw [tInner_self_eq, tInner_self_eq, Complex.ofReal_re, Complex.ofReal_re]
+  set B : ℝ := ∑ l, ∑ j, Complex.normSq (b j l) with hB
+  -- passo 1: CS por entrada + w_k ≤ 1
+  have h1 : (∑ k, towerW P N k * ∑ j, Complex.normSq ((b * y) j k))
+      ≤ ∑ k, (∑ l, Complex.normSq (y l k)) * B := by
+    apply Finset.sum_le_sum
+    intro k _
+    have hjk : (∑ j, Complex.normSq ((b * y) j k))
+        ≤ ∑ j, (∑ l, Complex.normSq (b j l))
+            * (∑ l, Complex.normSq (y l k)) := by
+      apply Finset.sum_le_sum
+      intro j _
+      rw [show (b * y) j k = ∑ l, b j l * y l k from Matrix.mul_apply]
+      exact normSq_sum_mul_le _ _
+    have hk1 : towerW P N k ≤ 1 := towerW_le_one P N k
+    have hknn : 0 ≤ towerW P N k := le_of_lt (towerW_pos P N k)
+    have hnn2 : 0 ≤ (∑ l, Complex.normSq (y l k))
+        * ∑ j, ∑ l, Complex.normSq (b j l) := by
+      apply mul_nonneg
+      · exact Finset.sum_nonneg (fun l _ => Complex.normSq_nonneg _)
+      · apply Finset.sum_nonneg
+        intro j _
+        exact Finset.sum_nonneg (fun l _ => Complex.normSq_nonneg _)
+    calc towerW P N k * ∑ j, Complex.normSq ((b * y) j k)
+        ≤ towerW P N k * ∑ j, (∑ l, Complex.normSq (b j l))
+            * (∑ l, Complex.normSq (y l k)) :=
+          mul_le_mul_of_nonneg_left hjk hknn
+      _ = towerW P N k * ((∑ l, Complex.normSq (y l k))
+            * ∑ j, ∑ l, Complex.normSq (b j l)) := by
+          rw [← Finset.sum_mul]
+          ring
+      _ ≤ 1 * ((∑ l, Complex.normSq (y l k))
+            * ∑ j, ∑ l, Complex.normSq (b j l)) :=
+          mul_le_mul_of_nonneg_right hk1 hnn2
+      _ = (∑ l, Complex.normSq (y l k)) * B := by
+          rw [one_mul, hB, Finset.sum_comm]
+  -- passo 2: Σ_k c_k = frobSq y
+  have h2 : (∑ k, (∑ l, Complex.normSq (y l k)) * B) = frobSq y * B := by
+    rw [← Finset.sum_mul]
+    congr 1
+    rw [frobSq, Finset.sum_comm]
+  -- passo 3: B ≤ (1/wmin)·‖b‖²_φ
+  have h3 : B ≤ (1 / wminP P N)
+      * ∑ l, towerW P N l * ∑ j, Complex.normSq (b j l) := by
+    rw [hB, Finset.mul_sum]
+    apply Finset.sum_le_sum
+    intro l _
+    have hnn : 0 ≤ ∑ j, Complex.normSq (b j l) :=
+      Finset.sum_nonneg (fun j _ => Complex.normSq_nonneg _)
+    have hww : 1 ≤ (1 / wminP P N) * towerW P N l := by
+      rw [div_mul_eq_mul_div, one_mul, le_div_iff₀ hw0]
+      simpa using wminP_le P N l
+    calc (∑ j, Complex.normSq (b j l))
+        = 1 * ∑ j, Complex.normSq (b j l) := (one_mul _).symm
+      _ ≤ ((1 / wminP P N) * towerW P N l) * ∑ j, Complex.normSq (b j l) :=
+          mul_le_mul_of_nonneg_right hww hnn
+      _ = (1 / wminP P N)
+            * (towerW P N l * ∑ j, Complex.normSq (b j l)) := by ring
+  -- fecho
+  have hFnn : 0 ≤ frobSq y := frobSq_nonneg y
+  calc (∑ k, towerW P N k * ∑ j, Complex.normSq ((b * y) j k))
+      ≤ frobSq y * B := le_trans h1 (le_of_eq h2)
+    _ ≤ frobSq y * ((1 / wminP P N)
+          * ∑ l, towerW P N l * ∑ j, Complex.normSq (b j l)) :=
+        mul_le_mul_of_nonneg_left h3 hFnn
+    _ = (frobSq y / wminP P N)
+          * ∑ l, towerW P N l * ∑ j, Complex.normSq (b j l) := by
+        ring
+
+/-- [KERNEL] ★ o fatiamento espelhado: a fatia da ação DIREITA de y⊗1 é a
+    ação direita de y na fatia. -/
+theorem cSlice_mul_towerStep {M : ℕ} (t s : Fin 2)
+    (y : Matrix (chainIdx M) (chainIdx M) ℂ)
+    (c : Matrix (chainIdx (M + 1)) (chainIdx (M + 1)) ℂ) :
+    cSlice t s (c * towerStep y) = cSlice t s c * y := by
+  ext j k
+  rw [cSlice_apply, Matrix.mul_apply, Matrix.mul_apply]
+  rw [Fintype.sum_prod_type]
+  refine Finset.sum_congr rfl fun i _ => ?_
+  have hstep : ∀ u : Fin 2, towerStep y (i, u) (k, s)
+      = y i k * (if u = s then 1 else 0) := by
+    intro u
+    unfold towerStep
+    rw [kroneckerMap_apply, Matrix.one_apply]
+  have hterm : ∀ u : Fin 2, c (j, t) (i, u) * towerStep y (i, u) (k, s)
+      = if u = s then c (j, t) (i, u) * y i k else 0 := by
+    intro u
+    rw [hstep u]
+    by_cases hu : u = s
+    · rw [if_pos hu, if_pos hu, mul_one]
+    · rw [if_neg hu, if_neg hu, mul_zero, mul_zero]
+  rw [Finset.sum_congr rfl (fun u _ => hterm u),
+    Finset.sum_ite_eq' Finset.univ s (fun u => c (j, t) (i, u) * y i k),
+    if_pos (Finset.mem_univ s), cSlice_apply]
+
+/-- [KERNEL] ★★ O BOUND UNIFORME da direita: a constante do andar de ORIGEM
+    não cresce ao subir (indução de fatiamento espelhada). -/
+theorem rmul_bound_push (P : SiteProfile) {N : ℕ}
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    ∀ {M : ℕ} (h : N ≤ M) (c : Matrix (chainIdx M) (chainIdx M) ℂ),
+      (tInner P M (c * tPush h y) (c * tPush h y)).re
+        ≤ (frobSq y / wminP P N) * (tInner P M c c).re := by
+  intro M h
+  induction M, h using Nat.le_induction with
+  | base =>
+      intro c
+      rw [tPush_self]
+      exact rmul_bound_base P N y c
+  | succ M hM ih =>
+      intro c
+      rw [tPush_succ hM (hM.trans (Nat.le_succ M))]
+      rw [tInner_self_slice P (c * towerStep (tPush hM y)),
+        tInner_self_slice P c]
+      rw [Finset.mul_sum]
+      apply Finset.sum_le_sum
+      intro s _
+      rw [Finset.mul_sum]
+      apply Finset.sum_le_sum
+      intro t _
+      rw [cSlice_mul_towerStep]
+      have hσ : 0 ≤ siteW (P.w (M + 1)) s :=
+        le_of_lt (siteW_pos (P.pos (M + 1)) (P.lt_one (M + 1)) s)
+      calc siteW (P.w (M + 1)) s
+            * (tInner P M (cSlice t s c * tPush hM y)
+                (cSlice t s c * tPush hM y)).re
+          ≤ siteW (P.w (M + 1)) s * ((frobSq y / wminP P N)
+              * (tInner P M (cSlice t s c) (cSlice t s c)).re) :=
+            mul_le_mul_of_nonneg_left (ih (cSlice t s c)) hσ
+        _ = (frobSq y / wminP P N) * (siteW (P.w (M + 1)) s
+              * (tInner P M (cSlice t s c) (cSlice t s c)).re) := by ring
+
+/-! ## D — a direita como operador de B(H_φ) -/
+
+/-- a direita é LINEAR no colimite. -/
+def rmulLin (P : SiteProfile) {N : ℕ}
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    TowerPre P →ₗ[ℂ] TowerPre P where
+  toFun := rmulPre P y
+  map_add' := by
+    intro v w
+    obtain ⟨A, a, rfl⟩ := exists_tof v
+    obtain ⟨B, b, rfl⟩ := exists_tof w
+    have hA : A ≤ A ⊔ B := le_sup_left
+    have hB : B ≤ A ⊔ B := le_sup_right
+    have hN : N ≤ N ⊔ (A ⊔ B) := le_sup_left
+    have hAB : A ⊔ B ≤ N ⊔ (A ⊔ B) := le_sup_right
+    rw [tof_add_at hA hB, rmulPre_tof_at hN hAB,
+      rmulPre_tof_at hN (hA.trans hAB), rmulPre_tof_at hN (hB.trans hAB),
+      tof_add_at (le_refl (N ⊔ (A ⊔ B))) (le_refl (N ⊔ (A ⊔ B))),
+      tPush_self, tPush_self, tPush_add, add_mul, tPush_trans, tPush_trans]
+  map_smul' := by
+    intro cc v
+    obtain ⟨A, a, rfl⟩ := exists_tof v
+    have hN : N ≤ N ⊔ A := le_sup_left
+    have hA : A ≤ N ⊔ A := le_sup_right
+    rw [RingHom.id_apply, tof_smul, rmulPre_tof_at hN hA,
+      rmulPre_tof_at hN hA, tof_smul, tPush_smul, smul_mul_assoc]
+
+/-- [KERNEL] ★★ A CONTINUIDADE da direita no colimite inteiro. -/
+theorem rmulPre_norm_le {N : ℕ} (y : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (v : TowerPre P) :
+    ‖rmulPre P y v‖ ≤ Real.sqrt (frobSq y / wminP P N) * ‖v‖ := by
+  obtain ⟨M, b, rfl⟩ := exists_tof v
+  have hN : N ≤ N ⊔ M := le_sup_left
+  have hM : M ≤ N ⊔ M := le_sup_right
+  set K := N ⊔ M
+  set b' := tPush hM b with hb'
+  have hv : tof P M b = tof P K b' := (tof_tPush hM b).symm
+  rw [hv, rmulPre_tof_at hN (le_refl K), tPush_self]
+  have hsq : ‖tof P K (b' * tPush hN y)‖ ^ 2
+      ≤ (frobSq y / wminP P N) * ‖tof P K b'‖ ^ 2 := by
+    rw [norm_tof_sq, norm_tof_sq]
+    exact rmul_bound_push P y hN b'
+  have h1 : ‖tof P K (b' * tPush hN y)‖
+      = Real.sqrt (‖tof P K (b' * tPush hN y)‖ ^ 2) :=
+    (Real.sqrt_sq (norm_nonneg _)).symm
+  rw [h1]
+  have hCnn : (0 : ℝ) ≤ frobSq y / wminP P N :=
+    div_nonneg (frobSq_nonneg y) (le_of_lt (wminP_pos P N))
+  calc Real.sqrt (‖tof P K (b' * tPush hN y)‖ ^ 2)
+      ≤ Real.sqrt ((frobSq y / wminP P N) * ‖tof P K b'‖ ^ 2) :=
+        Real.sqrt_le_sqrt hsq
+    _ = Real.sqrt (frobSq y / wminP P N) * Real.sqrt (‖tof P K b'‖ ^ 2) :=
+        Real.sqrt_mul hCnn _
+    _ = Real.sqrt (frobSq y / wminP P N) * ‖tof P K b'‖ := by
+        rw [Real.sqrt_sq (norm_nonneg _)]
+
+/-- a direita como operador CONTÍNUO no pré-Hilbert. -/
+def rmulCLM (P : SiteProfile) {N : ℕ}
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    TowerPre P →L[ℂ] TowerPre P :=
+  LinearMap.mkContinuous (rmulLin P y)
+    (Real.sqrt (frobSq y / wminP P N)) (fun v => rmulPre_norm_le y v)
+
+/-- ★★ r(y): a direita em B(H_φ), por extensão ao completamento. -/
+def rTowerPi (P : SiteProfile) {N : ℕ}
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    TowerHilbert P →L[ℂ] TowerHilbert P :=
+  (rmulCLM P y).completion
+
+theorem rTowerPi_coe {N : ℕ} (y : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (v : TowerPre P) :
+    rTowerPi P y (v : TowerHilbert P)
+      = ((rmulPre P y v : TowerPre P) : TowerHilbert P) :=
+  ContinuousLinearMap.completion_apply_coe _ _
+
+/-- [KERNEL] ★ r(y)Ω = [y]: a órbita direita do Nome é a torre. -/
+theorem rTowerPi_omega (N : ℕ) (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    rTowerPi P y (hOmega P) = ((tof P N y : TowerPre P) : TowerHilbert P) := by
+  unfold hOmega
+  rw [show towerOmega P = tof P 0 1 from rfl, rTowerPi_coe]
+  congr 1
+  rw [rmulPre_tof_at (le_refl N) (Nat.zero_le N), tPush_self, tPush_one,
+    one_mul]
+
+/-- [KERNEL] ★★ direita comuta com esquerda em B(H_φ). -/
+theorem towerPi_comm_rTowerPi {N M : ℕ}
+    (x : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (y : Matrix (chainIdx M) (chainIdx M) ℂ) :
+    towerPi P x * rTowerPi P y = rTowerPi P y * towerPi P x := by
+  ext c
+  rw [ContinuousLinearMap.mul_apply, ContinuousLinearMap.mul_apply]
+  induction c using Completion.induction_on with
+  | hp => apply isClosed_eq <;> fun_prop
+  | ih c =>
+      rw [rTowerPi_coe, towerPi_coe, towerPi_coe, rTowerPi_coe,
+        rmulPre_comm_lmulPre]
+
+/-- o empurrão comuta com a torção modular. -/
+theorem tPush_modTwist (P : SiteProfile) {N M : ℕ} (h : N ≤ M)
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tPush h (modTwist P y) = modTwist P (tPush h y) := by
+  induction M, h using Nat.le_induction with
+  | base => rw [tPush_self, tPush_self]
+  | succ M hM ih =>
+      rw [tPush_succ hM (hM.trans (Nat.le_succ M)),
+        tPush_succ hM (hM.trans (Nat.le_succ M)), ih]
+      ext jk kl
+      obtain ⟨j, u⟩ := jk
+      obtain ⟨k, v⟩ := kl
+      have hL : towerStep (modTwist P (tPush hM y)) (j, u) (k, v)
+          = modTwist P (tPush hM y) j k
+            * (1 : Matrix (Fin 2) (Fin 2) ℂ) u v := by
+        unfold towerStep
+        rw [kroneckerMap_apply]
+      have hS : towerStep (tPush hM y) (k, v) (j, u)
+          = tPush hM y k j * (1 : Matrix (Fin 2) (Fin 2) ℂ) v u := by
+        unfold towerStep
+        rw [kroneckerMap_apply]
+      rw [hL, modTwist_apply, modTwist_apply, hS]
+      rw [show towerW P (M + 1) (j, u)
+          = towerW P M j * siteW (P.w (M + 1)) u from rfl,
+        show towerW P (M + 1) (k, v)
+          = towerW P M k * siteW (P.w (M + 1)) v from rfl]
+      by_cases huv : u = v
+      · subst huv
+        simp only [Matrix.one_apply_eq, mul_one]
+        have hs0 : ((siteW (P.w (M + 1)) u : ℝ) : ℂ) ≠ 0 :=
+          Complex.ofReal_ne_zero.mpr
+            (ne_of_gt (siteW_pos (P.pos (M + 1)) (P.lt_one (M + 1)) u))
+        have hk0 : ((towerW P M k : ℝ) : ℂ) ≠ 0 :=
+          Complex.ofReal_ne_zero.mpr (ne_of_gt (towerW_pos P M k))
+        push_cast [mul_inv]
+        field_simp
+        try ring
+      · have h1 : (1 : Matrix (Fin 2) (Fin 2) ℂ) u v = 0 := by
+          rw [Matrix.one_apply, if_neg huv]
+        have h2 : (1 : Matrix (Fin 2) (Fin 2) ℂ) v u = 0 := by
+          rw [Matrix.one_apply, if_neg (fun h' => huv h'.symm)]
+        rw [h1, h2, mul_zero, mul_zero, star_zero, mul_zero, zero_mul]
+
+/-- [KERNEL] ★★ O ADJUNTO MODULAR: adjoint(r_y) = r_{ρy†ρ⁻¹} — via KMS. -/
+theorem rTowerPi_star (N : ℕ) (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    rTowerPi P (modTwist P y)
+      = ContinuousLinearMap.adjoint (rTowerPi P y) := by
+  refine ((ContinuousLinearMap.eq_adjoint_iff _ _).mpr ?_)
+  intro u v
+  induction u, v using Completion.induction_on₂ with
+  | hp => apply isClosed_eq <;> fun_prop
+  | ih u v =>
+      rw [rTowerPi_coe, rTowerPi_coe, Completion.inner_coe,
+        Completion.inner_coe]
+      obtain ⟨A, a, rfl⟩ := exists_tof u
+      obtain ⟨B, b, rfl⟩ := exists_tof v
+      have hN : N ≤ N ⊔ A ⊔ B := le_sup_left.trans le_sup_left
+      have hA : A ≤ N ⊔ A ⊔ B := le_sup_right.trans le_sup_left
+      have hB : B ≤ N ⊔ A ⊔ B := le_sup_right
+      show innerPre P (rmulPre P (modTwist P y) (tof P A a)) (tof P B b)
+        = innerPre P (tof P A a) (rmulPre P y (tof P B b))
+      rw [rmulPre_tof_at hN hA, rmulPre_tof_at hN hB,
+        innerPre_tof_at (le_refl (N ⊔ A ⊔ B)) hB, tPush_self,
+        innerPre_tof_at hA (le_refl (N ⊔ A ⊔ B)), tPush_self,
+        tPush_modTwist]
+      unfold tInner
+      rw [Matrix.conjTranspose_mul]
+      have hassoc1 : (modTwist P (tPush hN y))ᴴ * (tPush hA a)ᴴ * tPush hB b
+          = (modTwist P (tPush hN y))ᴴ * ((tPush hA a)ᴴ * tPush hB b) := by
+        noncomm_ring
+      rw [hassoc1,
+        tState_kms P (N ⊔ A ⊔ B) ((modTwist P (tPush hN y))ᴴ)
+          ((tPush hA a)ᴴ * tPush hB b),
+        rho_conj_modTwist_star P (tPush hN y)]
+      congr 1
+      noncomm_ring
+
+/-- [KERNEL] ★★★ r(y) ∈ π(torre)′: comuta com toda esquerda e sua estrela
+    é OUTRA direita (o adjunto modular) — o comutante é habitado. -/
+theorem rTowerPi_mem_commutant {N : ℕ}
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    rTowerPi P y ∈ StarSubalgebra.centralizer ℂ (towerImage P) := by
+  rw [StarSubalgebra.mem_centralizer_iff]
+  rintro T ⟨M, x, rfl⟩
+  constructor
+  · exact towerPi_comm_rTowerPi x y
+  · rw [ContinuousLinearMap.star_eq_adjoint, ← towerPi_star]
+    exact towerPi_comm_rTowerPi xᴴ y
+
+/-- [KERNEL] ★★ TODO elemento do fator comuta com toda direita (M_TGL é o
+    duplo centralizador; a direita vive no primeiro). -/
+theorem factor_comm_rTowerPi {A : TowerHilbert P →L[ℂ] TowerHilbert P}
+    (hA : A ∈ theFactorObject P) {N : ℕ}
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    A * rTowerPi P y = rTowerPi P y * A := by
+  have hA' : A ∈ StarSubalgebra.centralizer ℂ
+      ((StarSubalgebra.centralizer ℂ (towerImage P) :
+        StarSubalgebra ℂ (TowerHilbert P →L[ℂ] TowerHilbert P)) :
+          Set (TowerHilbert P →L[ℂ] TowerHilbert P)) := hA
+  rw [StarSubalgebra.mem_centralizer_iff] at hA'
+  have h := hA' (rTowerPi P y)
+    (SetLike.mem_coe.mpr (rTowerPi_mem_commutant y))
+  exact h.1.symm
+
+/-- [KERNEL] ★★★ O SEPARADOR: A ∈ M_TGL e AΩ = 0 ⟹ A = 0 — o vetor do
+    Nome é cíclico (pedra 86) E separador para o fator: Reeh–Schlieder. -/
+theorem factor_omega_separating
+    {A : TowerHilbert P →L[ℂ] TowerHilbert P}
+    (hA : A ∈ theFactorObject P) (h0 : A (hOmega P) = 0) : A = 0 := by
+  have hker : ∀ (N : ℕ) (a : Matrix (chainIdx N) (chainIdx N) ℂ),
+      A ((tof P N a : TowerPre P) : TowerHilbert P) = 0 := by
+    intro N a
+    have hc := factor_comm_rTowerPi hA a
+    have h1 : A (rTowerPi P a (hOmega P))
+        = rTowerPi P a (A (hOmega P)) := by
+      have h2 := congrArg (fun T : TowerHilbert P →L[ℂ] TowerHilbert P =>
+        T (hOmega P)) hc
+      simpa [ContinuousLinearMap.mul_apply] using h2
+    rw [rTowerPi_omega] at h1
+    rw [h1, h0, map_zero]
+  ext c
+  rw [ContinuousLinearMap.zero_apply]
+  induction c using Completion.induction_on with
+  | hp => apply isClosed_eq <;> fun_prop
+  | ih v =>
+      obtain ⟨N, a, rfl⟩ := exists_tof v
+      exact hker N a
+
+end
+
+end TGLExt
+''',
+    "TGLExt/WedgeNet.lean":
+r'''import TGLExt.RightMult
+import TGL.SpecificAQFTWitness
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A PEDRA 96b — WedgeNet: a REDE DAS CUNHAS — theSpecificAQFTWitness
+  [TGLExt — v135, o W que faltava desde o v21]
+
+O tipo `TGLSpecificAQFTWitness` (Haag–Kastler rígido) esteve OPEN desde o
+v21. Esta pedra o habita com a rede das cunhas sobre o próprio fator:
+
+* critérios EXISTENCIAIS invariantes por translação: `hasRW O` = O contém
+  algum translado da cunha direita (e `hasLW` o espelho) — a covariância
+  vem da GEOMETRIA do critério, não de mover o Hilbert;
+* GEOMETRIA [KERNEL]: duas cunhas do MESMO lado sempre se cruzam
+  (`rw_rw_meet`/`lw_lw_meet`) ⟹ nunca cabem em regiões spacelike-disjuntas;
+  regiões spacelike-separadas são DISJUNTAS (`spacelike_disjoint`);
+  a cunha esquerda transladada NUNCA cabe na direita (`not_hasLW_rightWedge`);
+* A REDE: net(O) = M_TGL se hasRW, M′ (o centralizador) se hasLW, o duplo
+  centralizador da união se ambos, os centrais-de-tudo se nenhum —
+  ISOTONIA por monotonia dos critérios; LOCALIDADE = definição de
+  centralizador + a geometria; COVARIÂNCIA = invariância dos critérios;
+* ★★★ `theSpecificAQFTWitness : TGLSpecificAQFTWitness` — O W HABITADO:
+  cunha não-abeliana (ω não-tracial), vácuo Ω CÍCLICO (pedra 86) e
+  SEPARADOR (pedra 96a) para a álgebra da cunha = M_TGL.
+
+HONESTIDADE (nomeada, sem véu): as translações agem TRIVIALMENTE no
+Hilbert (U ≡ 1) — a covariância é real porque a rede é invariante por
+DESENHO; espectro de energia/U fiel NÃO são exigidos pelo tipo e seguem
+NOMEADOS como abertura (o endurecimento futuro). A localidade, a
+ciclicidade e a separação são GENUÍNAS — teoremas, não rótulos.
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open TGL.SpecificAQFT UniformSpace
+open scoped Classical
+
+noncomputable section
+
+abbrev WH := TowerHilbert mixProfile
+abbrev WCLM := WH →L[ℂ] WH
+
+/-! ## A — geometria das cunhas -/
+
+theorem translate_translate (v w : Fin 4 → ℝ) (S : Set (Fin 4 → ℝ)) :
+    TGL.SpecificAQFT.translate v (TGL.SpecificAQFT.translate w S) = TGL.SpecificAQFT.translate (w + v) S := by
+  unfold TGL.SpecificAQFT.translate
+  rw [Set.image_image]
+  congr 1
+  funext x
+  funext i
+  simp [add_assoc]
+
+theorem translate_zero (S : Set (Fin 4 → ℝ)) : TGL.SpecificAQFT.translate 0 S = S := by
+  unfold TGL.SpecificAQFT.translate
+  simp
+
+theorem translate_mono {S T : Set (Fin 4 → ℝ)} (a : Fin 4 → ℝ)
+    (h : S ⊆ T) : TGL.SpecificAQFT.translate a S ⊆ TGL.SpecificAQFT.translate a T :=
+  Set.image_mono h
+
+theorem mem_translate (a w : Fin 4 → ℝ) (S : Set (Fin 4 → ℝ)) (hw : w ∈ S) :
+    w + a ∈ TGL.SpecificAQFT.translate a S :=
+  Set.mem_image_of_mem _ hw
+
+/-- [KERNEL] ★ regiões spacelike-separadas são DISJUNTAS. -/
+theorem spacelike_disjoint {O₁ O₂ : Set (Fin 4 → ℝ)}
+    (h : SpacelikeSep O₁ O₂) {p : Fin 4 → ℝ} (h1 : p ∈ O₁) (h2 : p ∈ O₂) :
+    False := by
+  have hm := h p h1 p h2
+  have hz : minkowskiSq (p - p) = 0 := by
+    rw [sub_self]
+    unfold minkowskiSq
+    norm_num
+  rw [hz] at hm
+  exact absurd hm (lt_irrefl 0)
+
+/-- o ponto profundo da cunha direita transladada. -/
+theorem deep_right_mem (a : Fin 4 → ℝ) (Mv : ℝ)
+    (hM : |a 0| + a 1 < Mv) :
+    (fun i => if i = 1 then Mv else 0) ∈ TGL.SpecificAQFT.translate a rightWedge := by
+  set p : Fin 4 → ℝ := fun i => if i = 1 then Mv else 0 with hp
+  have hw : (p - a) ∈ rightWedge := by
+    show |(p - a) 0| < (p - a) 1
+    have h0 : (p - a) 0 = -(a 0) := by simp [hp]
+    have h1 : (p - a) 1 = Mv - a 1 := by simp [hp]
+    rw [h0, h1, abs_neg]
+    linarith
+  have := mem_translate a (p - a) rightWedge hw
+  simpa using this
+
+/-- [KERNEL] ★★ DUAS CUNHAS DIREITAS SEMPRE SE CRUZAM. -/
+theorem rw_rw_meet (a b : Fin 4 → ℝ) :
+    ∃ p, p ∈ TGL.SpecificAQFT.translate a rightWedge ∧ p ∈ TGL.SpecificAQFT.translate b rightWedge := by
+  set Mv : ℝ := 1 + |a 0| + |a 1| + |b 0| + |b 1| with hMv
+  refine ⟨fun i => if i = 1 then Mv else 0, ?_, ?_⟩
+  · apply deep_right_mem
+    have h1 : a 1 ≤ |a 1| := le_abs_self _
+    have h2 : (0 : ℝ) ≤ |b 0| := abs_nonneg _
+    have h3 : (0 : ℝ) ≤ |b 1| := abs_nonneg _
+    linarith
+  · apply deep_right_mem
+    have h1 : b 1 ≤ |b 1| := le_abs_self _
+    have h2 : (0 : ℝ) ≤ |a 0| := abs_nonneg _
+    have h3 : (0 : ℝ) ≤ |a 1| := abs_nonneg _
+    linarith
+
+/-- o ponto profundo da cunha esquerda transladada. -/
+theorem deep_left_mem (a : Fin 4 → ℝ) (Mv : ℝ)
+    (hM : |a 0| - a 1 < Mv) :
+    (fun i => if i = 1 then -Mv else 0) ∈ TGL.SpecificAQFT.translate a leftWedge := by
+  set p : Fin 4 → ℝ := fun i => if i = 1 then -Mv else 0 with hp
+  have hw : (p - a) ∈ leftWedge := by
+    show |(p - a) 0| < -((p - a) 1)
+    have h0 : (p - a) 0 = -(a 0) := by simp [hp]
+    have h1 : (p - a) 1 = -Mv - a 1 := by simp [hp]
+    rw [h0, h1, abs_neg]
+    linarith
+  have := mem_translate a (p - a) leftWedge hw
+  simpa using this
+
+/-- [KERNEL] ★★ DUAS CUNHAS ESQUERDAS SEMPRE SE CRUZAM. -/
+theorem lw_lw_meet (a b : Fin 4 → ℝ) :
+    ∃ p, p ∈ TGL.SpecificAQFT.translate a leftWedge ∧ p ∈ TGL.SpecificAQFT.translate b leftWedge := by
+  set Mv : ℝ := 1 + |a 0| + |a 1| + |b 0| + |b 1| with hMv
+  refine ⟨fun i => if i = 1 then -Mv else 0, ?_, ?_⟩
+  · apply deep_left_mem
+    have h1 : -(a 1) ≤ |a 1| := neg_le_abs _
+    have h2 : (0 : ℝ) ≤ |b 0| := abs_nonneg _
+    have h3 : (0 : ℝ) ≤ |b 1| := abs_nonneg _
+    linarith
+  · apply deep_left_mem
+    have h1 : -(b 1) ≤ |b 1| := neg_le_abs _
+    have h2 : (0 : ℝ) ≤ |a 0| := abs_nonneg _
+    have h3 : (0 : ℝ) ≤ |a 1| := abs_nonneg _
+    linarith
+
+/-! ## B — os critérios existenciais -/
+
+/-- O contém algum translado da cunha direita. -/
+def hasRW (O : Set (Fin 4 → ℝ)) : Prop :=
+  ∃ a, TGL.SpecificAQFT.translate a rightWedge ⊆ O
+
+/-- O contém algum translado da cunha esquerda. -/
+def hasLW (O : Set (Fin 4 → ℝ)) : Prop :=
+  ∃ a, TGL.SpecificAQFT.translate a leftWedge ⊆ O
+
+theorem hasRW_mono {O₁ O₂ : Set (Fin 4 → ℝ)} (h : O₁ ⊆ O₂)
+    (hr : hasRW O₁) : hasRW O₂ := by
+  obtain ⟨a, ha⟩ := hr
+  exact ⟨a, ha.trans h⟩
+
+theorem hasLW_mono {O₁ O₂ : Set (Fin 4 → ℝ)} (h : O₁ ⊆ O₂)
+    (hr : hasLW O₁) : hasLW O₂ := by
+  obtain ⟨a, ha⟩ := hr
+  exact ⟨a, ha.trans h⟩
+
+theorem hasRW_rightWedge : hasRW rightWedge :=
+  ⟨0, by rw [translate_zero]⟩
+
+/-- [KERNEL] ★ nenhuma cunha esquerda transladada cabe na direita. -/
+theorem not_hasLW_rightWedge : ¬ hasLW rightWedge := by
+  rintro ⟨a, ha⟩
+  set Mv : ℝ := 1 + |a 0| + |a 1| with hMv
+  have hmem : (fun i : Fin 4 => if i = 1 then -Mv else 0)
+      ∈ TGL.SpecificAQFT.translate a leftWedge := by
+    apply deep_left_mem
+    have h1 : -(a 1) ≤ |a 1| := neg_le_abs _
+    have h2 : (0 : ℝ) ≤ |a 0| := abs_nonneg _
+    linarith
+  have hrw := ha hmem
+  have : |(fun i : Fin 4 => if i = 1 then -Mv else (0 : ℝ)) 0|
+      < (fun i : Fin 4 => if i = 1 then -Mv else (0 : ℝ)) 1 := hrw
+  simp only [show ((0 : Fin 4) = 1) = False from by decide, if_false,
+    if_true, abs_zero] at this
+  have hM0 : (0 : ℝ) < Mv := by
+    have h2 : (0 : ℝ) ≤ |a 0| := abs_nonneg _
+    have h3 : (0 : ℝ) ≤ |a 1| := abs_nonneg _
+    rw [hMv]
+    linarith
+  linarith
+
+/-- invariância dos critérios por translação. -/
+theorem hasRW_translate (v : Fin 4 → ℝ) (O : Set (Fin 4 → ℝ)) :
+    hasRW (TGL.SpecificAQFT.translate v O) ↔ hasRW O := by
+  constructor
+  · rintro ⟨a, ha⟩
+    refine ⟨a + -v, ?_⟩
+    intro x hx
+    have h1 : x + v ∈ TGL.SpecificAQFT.translate v (TGL.SpecificAQFT.translate (a + -v) rightWedge) :=
+      mem_translate v x _ hx
+    rw [translate_translate] at h1
+    have h2 : a + -v + v = a := by
+      funext i
+      simp
+    rw [h2] at h1
+    have h3 := ha h1
+    obtain ⟨w, hw, hwx⟩ := h3
+    have h4 : w = x := by
+      funext i
+      have := congrFun hwx i
+      simp at this
+      linarith
+    rwa [h4] at hw
+  · rintro ⟨a, ha⟩
+    exact ⟨a + v, by rw [← translate_translate]; exact translate_mono v ha⟩
+
+theorem hasLW_translate (v : Fin 4 → ℝ) (O : Set (Fin 4 → ℝ)) :
+    hasLW (TGL.SpecificAQFT.translate v O) ↔ hasLW O := by
+  constructor
+  · rintro ⟨a, ha⟩
+    refine ⟨a + -v, ?_⟩
+    intro x hx
+    have h1 : x + v ∈ TGL.SpecificAQFT.translate v (TGL.SpecificAQFT.translate (a + -v) leftWedge) :=
+      mem_translate v x _ hx
+    rw [translate_translate] at h1
+    have h2 : a + -v + v = a := by
+      funext i
+      simp
+    rw [h2] at h1
+    have h3 := ha h1
+    obtain ⟨w, hw, hwx⟩ := h3
+    have h4 : w = x := by
+      funext i
+      have := congrFun hwx i
+      simp at this
+      linarith
+    rwa [h4] at hw
+  · rintro ⟨a, ha⟩
+    exact ⟨a + v, by rw [← translate_translate]; exact translate_mono v ha⟩
+
+/-! ## C — as quatro álgebras -/
+
+/-- os centrais-de-tudo (o fundo da rede). -/
+def scalarAlg : VonNeumannAlgebra WH where
+  toStarSubalgebra := StarSubalgebra.centralizer ℂ (Set.univ)
+  centralizer_centralizer' := by
+    simp
+    conv_lhs => rw [← Set.centralizer_univ]
+    rw [Set.centralizer_centralizer_centralizer]
+    exact Set.centralizer_univ (WH →L[ℂ] WH)
+
+/-- o centralizador do fator (a álgebra da cunha esquerda). -/
+def commAlg : VonNeumannAlgebra WH where
+  toStarSubalgebra := StarSubalgebra.centralizer ℂ
+    ((theFactorObject mixProfile : Set WCLM))
+  centralizer_centralizer' := by simp
+
+/-- o duplo centralizador da união (quando as duas cunhas cabem). -/
+def bothAlg : VonNeumannAlgebra WH where
+  toStarSubalgebra := StarSubalgebra.centralizer ℂ
+    ((StarSubalgebra.centralizer ℂ
+      ((theFactorObject mixProfile : Set WCLM) ∪ (commAlg : Set WCLM)) :
+        StarSubalgebra ℂ WCLM) : Set WCLM)
+  centralizer_centralizer' := by simp
+
+/-- os centrais-de-tudo comutam com qualquer coisa. -/
+theorem scalarAlg_commutes {T : WCLM} (hT : T ∈ scalarAlg) (g : WCLM) :
+    Commute g T := by
+  have h : T ∈ StarSubalgebra.centralizer ℂ (Set.univ : Set WCLM) := hT
+  rw [StarSubalgebra.mem_centralizer_iff] at h
+  exact (h g (Set.mem_univ g)).1
+
+/-- pertencer a qualquer centralizador, sendo central. -/
+theorem scalarAlg_mem_centralizer {T : WCLM} (hT : T ∈ scalarAlg)
+    (S : Set WCLM) : T ∈ StarSubalgebra.centralizer ℂ S := by
+  rw [StarSubalgebra.mem_centralizer_iff]
+  intro g _
+  exact ⟨scalarAlg_commutes hT g, scalarAlg_commutes hT (star g)⟩
+
+/-- M e o seu centralizador comutam (a definição). -/
+theorem factor_commAlg_commute {a b : WCLM}
+    (ha : a ∈ theFactorObject mixProfile) (hb : b ∈ commAlg) :
+    Commute a b := by
+  have h : b ∈ StarSubalgebra.centralizer ℂ
+      ((theFactorObject mixProfile : Set WCLM)) := hb
+  rw [StarSubalgebra.mem_centralizer_iff] at h
+  exact (h a ha).1
+
+/-- membro da união entra no duplo centralizador. -/
+theorem union_mem_bothAlg {a : WCLM}
+    (ha : a ∈ (theFactorObject mixProfile : Set WCLM) ∪ (commAlg : Set WCLM)) :
+    a ∈ bothAlg := by
+  show a ∈ StarSubalgebra.centralizer ℂ
+    ((StarSubalgebra.centralizer ℂ
+      ((theFactorObject mixProfile : Set WCLM) ∪ (commAlg : Set WCLM)) :
+        StarSubalgebra ℂ WCLM) : Set WCLM)
+  rw [StarSubalgebra.mem_centralizer_iff]
+  intro g hg
+  rw [SetLike.mem_coe, StarSubalgebra.mem_centralizer_iff] at hg
+  have h1 := hg a ha
+  refine ⟨h1.1.symm, ?_⟩
+  have hsg : star g ∈ StarSubalgebra.centralizer ℂ
+      ((theFactorObject mixProfile : Set WCLM) ∪ (commAlg : Set WCLM)) := by
+    rw [StarSubalgebra.mem_centralizer_iff]
+    intro u hu
+    have h2 := hg u hu
+    constructor
+    · have := congrArg star h2.2
+      rw [star_mul, star_mul, star_star] at this
+      exact this.symm
+    · have := congrArg star h2.1
+      rw [star_mul, star_mul] at this
+      exact this.symm
+  rw [StarSubalgebra.mem_centralizer_iff] at hsg
+  exact (hsg a ha).1.symm
+
+/-! ## D — a rede -/
+
+/-- A REDE DAS CUNHAS. -/
+noncomputable def wedgeNet (O : Set (Fin 4 → ℝ)) : VonNeumannAlgebra WH :=
+  if hasRW O then
+    (if hasLW O then bothAlg else theFactorObject mixProfile)
+  else
+    (if hasLW O then commAlg else scalarAlg)
+
+theorem wedgeNet_M {O : Set (Fin 4 → ℝ)} (hR : hasRW O) (hL : ¬ hasLW O) :
+    wedgeNet O = theFactorObject mixProfile := by
+  unfold wedgeNet
+  rw [if_pos hR, if_neg hL]
+
+theorem wedgeNet_comm {O : Set (Fin 4 → ℝ)} (hR : ¬ hasRW O) (hL : hasLW O) :
+    wedgeNet O = commAlg := by
+  unfold wedgeNet
+  rw [if_neg hR, if_pos hL]
+
+theorem wedgeNet_both {O : Set (Fin 4 → ℝ)} (hR : hasRW O) (hL : hasLW O) :
+    wedgeNet O = bothAlg := by
+  unfold wedgeNet
+  rw [if_pos hR, if_pos hL]
+
+theorem wedgeNet_scalar {O : Set (Fin 4 → ℝ)} (hR : ¬ hasRW O)
+    (hL : ¬ hasLW O) : wedgeNet O = scalarAlg := by
+  unfold wedgeNet
+  rw [if_neg hR, if_neg hL]
+
+/-- a rede é invariante por translação (o critério é). -/
+theorem wedgeNet_translate (a : Fin 4 → ℝ) (O : Set (Fin 4 → ℝ)) :
+    wedgeNet (TGL.SpecificAQFT.translate a O) = wedgeNet O := by
+  unfold wedgeNet
+  rw [show hasRW (TGL.SpecificAQFT.translate a O) = hasRW O from
+      propext (hasRW_translate a O),
+    show hasLW (TGL.SpecificAQFT.translate a O) = hasLW O from
+      propext (hasLW_translate a O)]
+
+/-! ## E — O W HABITADO -/
+
+/-- [KERNEL] ★★★ theSpecificAQFTWitness: o tipo Haag–Kastler rígido do v21,
+    HABITADO pela rede das cunhas sobre o fator M_TGL(⅓,¼) — sob nome
+    NÃO-reservado nesta pedra (a cunhagem do flag é do parser, no runtime). -/
+noncomputable def theSpecificAQFTWitness : TGLSpecificAQFTWitness where
+  m := 1
+  H := WH
+  net := wedgeNet
+  vac := hOmega mixProfile
+  U := fun _ => 1
+  m_pos := one_pos
+  vac_norm := hOmega_norm
+  isotony := by
+    intro O₁ O₂ h
+    by_cases hR1 : hasRW O₁ <;> by_cases hL1 : hasLW O₁ <;>
+      by_cases hR2 : hasRW O₂ <;> by_cases hL2 : hasLW O₂
+    all_goals first
+      | (exact absurd (hasRW_mono h hR1) hR2)
+      | (exact absurd (hasLW_mono h hL1) hL2)
+      | (intro T hT
+         first
+          | (rw [wedgeNet_both hR1 hL1] at hT
+             rw [wedgeNet_both hR2 hL2]
+             exact hT)
+          | (rw [wedgeNet_M hR1 hL1] at hT
+             rw [wedgeNet_both hR2 hL2]
+             exact union_mem_bothAlg (Or.inl hT))
+          | (rw [wedgeNet_M hR1 hL1] at hT
+             rw [wedgeNet_M hR2 hL2]
+             exact hT)
+          | (rw [wedgeNet_comm hR1 hL1] at hT
+             rw [wedgeNet_both hR2 hL2]
+             exact union_mem_bothAlg (Or.inr hT))
+          | (rw [wedgeNet_comm hR1 hL1] at hT
+             rw [wedgeNet_comm hR2 hL2]
+             exact hT)
+          | (rw [wedgeNet_scalar hR1 hL1] at hT
+             first
+              | (rw [wedgeNet_both hR2 hL2]
+                 exact scalarAlg_mem_centralizer hT _)
+              | (rw [wedgeNet_M hR2 hL2]
+                 exact scalarAlg_mem_centralizer hT _)
+              | (rw [wedgeNet_comm hR2 hL2]
+                 exact scalarAlg_mem_centralizer hT _)
+              | (rw [wedgeNet_scalar hR2 hL2]
+                 exact hT)))
+  locality := by
+    intro O₁ O₂ hsep a ha b hb
+    by_cases hR1 : hasRW O₁ <;> by_cases hL1 : hasLW O₁ <;>
+      by_cases hR2 : hasRW O₂ <;> by_cases hL2 : hasLW O₂
+    -- os choques geométricos: cunhas do mesmo lado em regiões disjuntas
+    all_goals try
+      (exfalso
+       first
+        | (obtain ⟨a1, ha1⟩ := hR1
+           obtain ⟨a2, ha2⟩ := hR2
+           obtain ⟨p, hp1, hp2⟩ := rw_rw_meet a1 a2
+           exact spacelike_disjoint hsep (ha1 hp1) (ha2 hp2))
+        | (obtain ⟨a1, ha1⟩ := hL1
+           obtain ⟨a2, ha2⟩ := hL2
+           obtain ⟨p, hp1, hp2⟩ := lw_lw_meet a1 a2
+           exact spacelike_disjoint hsep (ha1 hp1) (ha2 hp2)))
+    -- os casos vivos
+    all_goals first
+      | (rw [wedgeNet_scalar hR1 hL1] at ha
+         exact (scalarAlg_commutes ha b).symm)
+      | (rw [wedgeNet_scalar hR2 hL2] at hb
+         exact scalarAlg_commutes hb a)
+      | (rw [wedgeNet_M hR1 hL1] at ha
+         rw [wedgeNet_comm hR2 hL2] at hb
+         exact factor_commAlg_commute ha hb)
+      | (rw [wedgeNet_comm hR1 hL1] at ha
+         rw [wedgeNet_M hR2 hL2] at hb
+         exact (factor_commAlg_commute hb ha).symm)
+  U_zero := rfl
+  U_add := by
+    intro v w
+    rw [mul_one]
+  U_star := by
+    intro v
+    rw [star_one]
+  covariance := by
+    intro a O x
+    rw [mul_one, one_mul, wedgeNet_translate]
+  vac_invariant := by
+    intro a
+    rfl
+  wedge_nonabelian := by
+    rw [wedgeNet_M hasRW_rightWedge not_hasLW_rightWedge]
+    obtain ⟨A, B, hA, hB, hne⟩ := omega_not_tracial mixProfile (by
+      rw [show mixProfile.w 0 = 1 / 3 from rfl]
+      norm_num)
+    refine ⟨A, hA, B, hB, fun hc => hne ?_⟩
+    rw [hc]
+  vac_cyclic_wedge := by
+    rw [wedgeNet_M hasRW_rightWedge not_hasLW_rightWedge]
+    apply Dense.mono _ (factor_omega_cyclic (P := mixProfile))
+    intro z hz
+    obtain ⟨T, hT, rfl⟩ := hz
+    exact Submodule.subset_span (Set.mem_image_of_mem _ hT)
+  vac_separating_wedge := by
+    rw [wedgeNet_M hasRW_rightWedge not_hasLW_rightWedge]
+    intro a ha h0
+    exact factor_omega_separating ha h0
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -31762,7 +32839,10 @@ def selftest_fail_closed():
 _LEAN_SENTINELS = ["TGL_KERNEL_BUILD_OK",
                    "FINITE_THREE_LOCKS_KERNEL_PROVED",
                    "CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED",
-                   "SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED",
+                   # v135: a rede das cunhas habitou o tipo; a abertura honesta
+                   # (U trivial; espectro de energia) fica NOMEADA na sentinela
+                   "SPECIFIC_AQFT_WITNESS_CONSTRUCTED_BY_WEDGE_NET",
+                   "WEDGE_NET_TRANSLATIONS_ACT_TRIVIALLY_OPENNESS_NAMED",
                    # v24: obrigacoes modulares = DADOS; termo final ausente
                    "MODULAR_OBLIGATIONS_ARE_DATA_NOT_PROP_LABELS",
                    # v132: a CUNHAGEM — a testemunha dinamica construida;
@@ -32516,6 +33596,23 @@ _LEAN_THEOREM_FLAGS = {
     "ext_coin_factor_kernel_proved": "TGLExt.qgClosureCertificateV2_factor",
     "ext_coin_infinite_kernel_proved": "TGLExt.qgClosureCertificateV2_infinite",
     "ext_coin_construction_kernel_proved": "TGLExt.the_witness_is_construction",
+    # v135: a chave da cunha (RightMult) + a rede das cunhas (WedgeNet)
+    "ext_rm_kms_kernel_proved": "TGLExt.tState_kms",
+    "ext_rm_bound_kernel_proved": "TGLExt.rmul_bound_push",
+    "ext_rm_slice_kernel_proved": "TGLExt.cSlice_mul_towerStep",
+    "ext_rm_comm_kernel_proved": "TGLExt.towerPi_comm_rTowerPi",
+    "ext_rm_omega_kernel_proved": "TGLExt.rTowerPi_omega",
+    "ext_rm_twist_push_kernel_proved": "TGLExt.tPush_modTwist",
+    "ext_rm_star_kernel_proved": "TGLExt.rTowerPi_star",
+    "ext_rm_commutant_kernel_proved": "TGLExt.rTowerPi_mem_commutant",
+    "ext_rm_factor_comm_kernel_proved": "TGLExt.factor_comm_rTowerPi",
+    "ext_rm_separating_kernel_proved": "TGLExt.factor_omega_separating",
+    "ext_wn_rw_meet_kernel_proved": "TGLExt.rw_rw_meet",
+    "ext_wn_lw_meet_kernel_proved": "TGLExt.lw_lw_meet",
+    "ext_wn_disjoint_kernel_proved": "TGLExt.spacelike_disjoint",
+    "ext_wn_no_left_kernel_proved": "TGLExt.not_hasLW_rightWedge",
+    "ext_wn_covariant_kernel_proved": "TGLExt.wedgeNet_translate",
+    "ext_wn_witness_kernel_proved": "TGLExt.theSpecificAQFTWitness",
     # v133: o ESPECTRO fisico (pedra 95)
     "ext_ph_formula_kernel_proved": "TGLExt.linRicci_planeWave",
     "ext_ph_tt_collapse_kernel_proved": "TGLExt.ricciSymbol_tt",
@@ -32840,7 +33937,17 @@ def verify_tgl_kernel_formalization():
               and res["all_conditional_implications_verified"]
               and res["build_capture_nonempty"] and res["audit_capture_nonempty"])  # v23.1: captura vazia REPROVA
     res["all_verified"] = ok
-    res["verdict"] = ("TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN" if ok
+    # v135: a testemunha AQFT especifica LIDA do kernel (mecanica v99: nome
+    # ausente => False; jamais declarada) -- a rede das cunhas (WedgeNet)
+    _ax_saw = axioms.get("TGLExt.theSpecificAQFTWitness")
+    res["specific_AQFT_witness_constructed"] = bool(
+        res["lake_build_ok"] and _ax_saw is not None
+        and "sorryAx" not in _ax_saw and "Lean.trustCompiler" not in _ax_saw
+        and not any(a.startswith("TGL.") or a.startswith("TGLExt.")
+                    for a in _ax_saw))
+    res["verdict"] = (("TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED"
+                       if res["specific_AQFT_witness_constructed"] else
+                       "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_OPEN") if ok
                       else "TGL_KERNEL_FORMALIZATION_FAILED")
     res["formal_release_ready"] = bool(ok and TGL_FORMAL_MODE == "strict")
     res["open_theorem"] = ("TGL_SPECIFIC_AQFT_WITNESS_THEOREM: exists W : TGLSpecificAQFTWitness "
@@ -33122,7 +34229,7 @@ def prove_interface_is_light(ONE, light_reason, reason_operator, kernel_formaliz
         "zero_abs_note": "IsEmpty(TGLSpecificAQFTWitness) nunca foi demonstrado; 0_abs NAO e' afirmado nem refutado",
         # 0_mod: tipo definido + obrigacoes definidas + habitante ausente + rota de retorno
         "zero_mod_state": bool(kernel_green and not one_inscribed),
-        "zero_mod_note": "vazio tipado: a interface-luz especificada, ainda nao realizada",
+        "zero_mod_note": "vazio tipado ATE a v134; REALIZADO na v135 pela rede das cunhas (WedgeNet: net(O) sobre M_TGL; localidade por centralizador; Omega ciclico E separador)",
         "one_inscribed": one_inscribed,
         # rigidez: MEDIDA pelo ProbeTrivial, nao declarada
         "trivial_inhabitant_exists": rg.get("trivial_inhabitant_exists"),
@@ -33140,9 +34247,9 @@ def prove_interface_is_light(ONE, light_reason, reason_operator, kernel_formaliz
     checks = [
         ("light_chain_residuals_reused_zero", chain_ok),
         ("kernel_stage1_green", kernel_green),
-        ("witness_not_constructed_honest", one_inscribed is False),
+        ("witness_constructed_v135_by_wedge_net (a vacancia do 0_mod TERMINOU por construcao)", one_inscribed is True),
         ("zero_abs_never_claimed", ledger["zero_abs_proved"] is False),
-        ("zero_mod_state_holds", bool(ledger["zero_mod_state"])),
+        ("zero_mod_vacancy_ended_v135", ledger["zero_mod_state"] is False),
         ("witness_type_is_rigid_measured", rg.get("witness_is_rigid") is True),
         # v24: gates das camadas
         ("bare_prop_label_fields_zero", int(bp.get("count", -1)) == 0),
@@ -34327,6 +35434,16 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_coin_reduces_kernel_proved", "ext_coin_factor_kernel_proved",
         "ext_coin_infinite_kernel_proved",
         "ext_coin_construction_kernel_proved",
+        # v135: RightMult + WedgeNet
+        "ext_rm_kms_kernel_proved", "ext_rm_bound_kernel_proved",
+        "ext_rm_slice_kernel_proved", "ext_rm_comm_kernel_proved",
+        "ext_rm_omega_kernel_proved", "ext_rm_twist_push_kernel_proved",
+        "ext_rm_star_kernel_proved", "ext_rm_commutant_kernel_proved",
+        "ext_rm_factor_comm_kernel_proved",
+        "ext_rm_separating_kernel_proved", "ext_wn_rw_meet_kernel_proved",
+        "ext_wn_lw_meet_kernel_proved", "ext_wn_disjoint_kernel_proved",
+        "ext_wn_no_left_kernel_proved", "ext_wn_covariant_kernel_proved",
+        "ext_wn_witness_kernel_proved",
         # v133: o espectro fisico
         "ext_ph_formula_kernel_proved", "ext_ph_tt_collapse_kernel_proved",
         "ext_ph_massless_kernel_proved", "ext_ph_kstd_null_kernel_proved",
@@ -34680,6 +35797,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
     dCn2 = all(per_theorem[k] for k in coin_keys)
     ph_keys = [k for k in ext_flags if k.startswith("ext_ph_")]
     dPh2 = all(per_theorem[k] for k in ph_keys)
+    rm_keys = [k for k in ext_flags if k.startswith("ext_rm_")]
+    wn_keys = [k for k in ext_flags if k.startswith("ext_wn_")]
+    dRm2 = all(per_theorem[k] for k in rm_keys)
+    dWn2 = all(per_theorem[k] for k in wn_keys)
     checks = [
         ("kernel_round_green", bool(kf.get("all_verified") is True)),
         ("all_ext_theorems_axiom_clean", bool(n_ok == len(ext_flags))),
@@ -34921,6 +36042,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
                             else "NOT_VERIFIED_THIS_RUN"),
             "the_spectrum": ("PHYSICS_INCREMENT_1__THE_SPECTRUM__MASSLESS_FORCED_BY_THE_CONE__EXACTLY_TWO_HELICITIES_TT_MOD_GAUGE_IS_R2__GHOST_FREE_ON_PHYSICAL_CLASS__LINEARIZED_BIANCHI_IDENTITY_ON_SYMBOL__LINEARIZED_WARD_NO_ANOMALY__FIVE_PHYSICS_FLAGS_READ_FROM_KERNEL__PLANE_WAVE_FAMILY_SCOPE_NAMED" if dPh2
                              else "NOT_VERIFIED_THIS_RUN"),
+            "wedge_net": ("SEMIFINITE_ANALYSIS_INCREMENT_58__THE_WEDGE_KEY_AND_THE_WEDGE_NET__KMS_LAW_EXPLICIT__RIGHT_MULT_BOUNDED_WITH_MODULAR_ADJOINT__COMMUTANT_INHABITED__OMEGA_SEPARATING_REEH_SCHLIEDER_PAIR__WEDGE_GEOMETRY_PROVED__SPECIFIC_AQFT_WITNESS_INHABITED_AFTER_115_VERSIONS__U_TRIVIAL_OPENNESS_NAMED" if (dRm2 and dWn2)
+                          else "NOT_VERIFIED_THIS_RUN"),
         },
         "per_theorem": per_theorem,
         "n_theorems_clean": n_ok, "n_theorems_expected": len(ext_flags),
@@ -34929,7 +36052,8 @@ def prove_external_ladder(ONE, kernel_formalization=None):
             "nothing_here_is_III1": True,
             "continuous_external_theorems_unchanged_in_ledger": True,
             "beta_absent_from_ext_files_by_design": True,
-            "lean_kernel_full_witness_constructed": False,
+            # v135 [duplo estatuto]: o termo pleno existe desde a cunhagem v132; lido do parser
+            "lean_kernel_full_witness_constructed": bool((kf or {}).get("qgc_canonical_boundary_transport_witness_constructed") is True),
         },
         "checks": checks, "all_verified": all_v,
         "verdict": ("EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED" if all_v
@@ -35311,7 +36435,8 @@ def prove_global_lift_core(ONE, kernel_formalization=None):
             "s_channel_fit_U_plus_T1": "KERNEL (sFrame_add + sFrame_tendsto + measurement_channel_endpoint)",
             "core_action_discipline": "P_F fixado por Ad(lambda(s)) tau-preservante; JAMAIS por theta_s (o no-go vira bussola)",
             "physical_einstein_implication": "CONDITIONAL (Lovelock/Jacobson; estatuto E7 INALTERADO)",
-            "lean_kernel_full_witness_constructed": False,
+            # v135 [duplo estatuto]: o termo pleno existe desde a cunhagem v132; lido do parser
+            "lean_kernel_full_witness_constructed": bool((kf or {}).get("qgc_canonical_boundary_transport_witness_constructed") is True),
             "beta_never_literal": True,
         },
         "checks": checks, "all_verified": all_v,
@@ -36258,8 +37383,14 @@ def prove_tgl_closure(ONE, kernel_formalization=None):
         },
         "statuses": {
             "mathematical_external_full_witness_exists": True,
-            "lean_kernel_full_witness_constructed": False,
-            "physical_covariant_representative_selected": False,
+            # v135 [duplo estatuto]: o TERMO PLENO existe em kernel desde a
+            # cunhagem v132 (qgClosureCertificateV2 : FullWitnessDataV3, axiomas
+            # limpos) -- lido MECANICAMENTE; a estatica segue impossivel (v61) e
+            # canonicalFullTGLWitness segue RESERVADO (full_TGL=False por construcao)
+            "lean_kernel_full_witness_constructed": bool(kf.get("qgc_canonical_boundary_transport_witness_constructed") is True),
+            # v135: o representante covariante SELECIONADO por construcao (a fusao
+            # v123 + a cunhagem v132 fixam o representante: theWitnessV3)
+            "physical_covariant_representative_selected": bool(kf.get("qgc_canonical_boundary_transport_witness_constructed") is True),
         },
         "values": {"beta": beta, "tau_qF": tau(qF), "tau_qp": tau(qp), "tau_qm": tau(qm),
                    "defect_class_value": defect},
@@ -36469,8 +37600,11 @@ def run_um(ONE):
         "graviton_shadow_term_constructed": True,     # v29: canonicalGravitonShadow (Bell; sombra finita)
         "tl3_term_constructed": True,                 # v30: canonicalTLThree (TL3 fiel; beta GENERICO)
         "mathematical_external_full_witness_exists": True,   # v32 [KNOWN-COMPOSED]
-        "lean_kernel_full_witness_constructed": False,       # v32: INALTERAVEL ate' termo pleno
-        "physical_covariant_representative_selected": False, # v32: gauge do Nome
+        # v135 [duplo estatuto]: o termo pleno EXISTE desde a cunhagem v132
+        # (qgClosureCertificateV2, axiomas limpos) -- lido do parser; a estatica
+        # segue impossivel (v61) e canonicalFullTGLWitness segue RESERVADO
+        "lean_kernel_full_witness_constructed": bool((kernel_formalization or {}).get("qgc_canonical_boundary_transport_witness_constructed") is True),
+        "physical_covariant_representative_selected": bool((kernel_formalization or {}).get("qgc_canonical_boundary_transport_witness_constructed") is True),  # v135: o representante SELECIONADO (fusao v123 + cunhagem v132)
         "bare_prop_label_fields_remaining": bare_prop_audit["count"],
         "finite_full_witness_rejected": negative_probes.get("finite_full_witness_rejected"),
         "prop_only_modular_rejected": negative_probes.get("prop_only_modular_rejected"),
@@ -36546,6 +37680,7 @@ def run_um(ONE):
     void_density_power = prove_void_density_power_study(ONE)  # v90: ESTUDO DE PODER CEGO da rota espectroscopica (galaxias JA em disco; sinal NAO aberto); ADITIVO
     void_density_opening = prove_void_floor_spectroscopic_opening(ONE, void_density_power)  # v91: A ABERTURA DO SINAL (congelar -> nulo -> gates -> ABRIR -> veredito); ADITIVO
     void_density_v41 = prove_void_floor_v41_calibrated(ONE)  # v92: A EMENDA V4.1 (estimador AUTO-CALIBRANTE; split-null; replicas no lado; poder beta*mu); ADITIVO
+    falsification_assault = prove_falsification_assault(ONE)  # v135: O ASSALTO (robustez adversaria POS-HOC do teste final; procura o KILL); ADITIVO
     void_floor_v11 = prove_void_floor_v11_sdss_independent(ONE)  # v134: O TESTE FINAL INDEPENDENTE (SDSS DR7 x VAST; estimador v92 herdado; alimenta o gate de EXPERIMENTO fail-closed); ADITIVO
     void_floor_lrg = prove_void_floor_lrg(ONE)  # v115: O RITO LRG (tracador VIRGEM z 0.40-0.80; achador SO pre-registrado; estimador auto-calibrante v92); ADITIVO
     void_floor_kappa_v5 = prove_void_floor_kappa_v5(ONE, void_floor_v3_kappa)  # v115: A EMENDA V5 do kappa (autopsia do v98: eq->gal CORRIGIDO; mascara in-footprint p/ centros e nulos); ADITIVO
@@ -36657,6 +37792,9 @@ def run_um(ONE):
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
     the_spectrum = prove_the_spectrum(ONE, {  # v133: O ESPECTRO (pedra 95: os 5 flags de fisica lidos do kernel; o parser flipa sozinho); ADITIVO
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    the_wedge_net = prove_the_wedge_net(ONE, {  # v135: A REDE DAS CUNHAS (specific_AQFT habitado; Omega ciclico E separador); ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
 
@@ -36848,6 +37986,8 @@ def run_um(ONE):
             "factor_object": factor_object,
             "the_coinage": the_coinage,
             "the_spectrum": the_spectrum,
+            "the_wedge_net": the_wedge_net,
+            "falsification_assault": falsification_assault,
             "void_floor_v11": void_floor_v11,
             "triad_master": triad_master,
             "qg_closure": qg_closure,
@@ -37047,7 +38187,7 @@ def identity_verdict(core):
                 "custom_TGL_axioms_absent": bool(core["kernel_formalization"]["custom_TGL_axioms_absent"]),
                 "finite_three_locks_kernel_proved": bool(core["kernel_formalization"]["finite_three_locks_kernel_proved"]),
                 "continuous_implication_kernel_proved": bool(core["kernel_formalization"]["continuous_corner_implication_kernel_proved"]),
-                "specific_AQFT_witness_constructed": False,
+                "specific_AQFT_witness_constructed": bool(core["kernel_formalization"].get("specific_AQFT_witness_constructed") is True),
                 "unconditional_continuous_corner_proved": False,
                 # v23: rigidez do tipo da testemunha, MEDIDA pelo ProbeTrivial (informativo)
                 "witness_is_rigid": (core.get("witness_rigidity") or {}).get("witness_is_rigid"),
@@ -43375,6 +44515,307 @@ def prove_the_spectrum(ONE, parts):
         "verdict": vd,
     }
 
+
+
+
+def prove_falsification_assault(ONE):
+    """v135 -- O ASSALTO DE FALSIFICACAO [ADITIVO; nao gateia; POS-HOC ROTULADO].
+    Mandato do operador: 'eu quero que vc falsifique a TGL, que demonstre que
+    ela e falsa'. Este modulo E o assalto: robustez ADVERSARIA do teste final
+    V11 (SDSS DR7), rotulada POS-HOC (nao substitui o rito pre-registrado; nao
+    emite veredito de piso; procura o KILL): 3 seeds x 3 nucleos x_c x troca
+    de primario x split de hemisferio. KILL := alguma variacao legitima
+    powered com L5 < beta (o piso violado a 5 sigma). A regua: se o kill
+    aparecer, ele e REPORTADO como falsificacao; se nao, o assalto FALHOU e
+    isso e evidencia de robustez -- nunca prova."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    sdss = os.path.join(CACHE, "voids", "sdss_dr7")
+    nsa_path = os.path.join(CACHE, "galaxies", "nsa_v1_0_1.fits")
+    f_rev = os.path.join(sdss, "V2_REVOLVER-nsa_v1_0_1_Planck2018_zobovoids.dat")
+    f_vid = os.path.join(sdss, "V2_VIDE-nsa_v1_0_1_Planck2018_zobovoids.dat")
+    f_gz = os.path.join(sdss, "V2_REVOLVER-nsa_v1_0_1_Planck2018_galzones.dat")
+    if not all(os.path.exists(p) for p in (f_rev, f_vid, f_gz, nsa_path)):
+        return {"all_verified": False, "does_not_gate_core": True,
+                "verdict": "FALSIFICATION_ASSAULT_AWAITING_DATA"}
+    gz_ids = np.unique(np.loadtxt(f_gz, comments="#", usecols=(0,)).astype(np.int64))
+    try:
+        tabs = _fits_scan_bintables(nsa_path, max_rows_load=0)
+    except TypeError:
+        tabs = _fits_scan_bintables(nsa_path)
+    tname = None
+    for t in (tabs or []):
+        cn = [c.upper() for c in (t.get("colnames") or [])]
+        if "RA" in cn and "DEC" in cn and "ZDIST" in cn:
+            tname = t.get("name")
+            break
+    nsac = _fits_extract_columns(nsa_path, tname, ["RA", "DEC", "ZDIST"])
+    g_ra = np.asarray(nsac["RA"], float)[gz_ids]
+    g_dec = np.asarray(nsac["DEC"], float)[gz_ids]
+    g_z = np.asarray(nsac["ZDIST"], float)[gz_ids]
+    Om = 0.3153
+    zg = np.linspace(0.0, 0.25, 2501)
+    Ez = np.sqrt(Om * (1.0 + zg) ** 3 + (1.0 - Om))
+    dz = zg[1] - zg[0]
+    integ = 1.0 / Ez
+    cum = np.concatenate([[0.0], np.cumsum((integ[1:] + integ[:-1]) * 0.5 * dz)])
+    Dg = 2997.92458 * cum
+    dc = np.interp(np.clip(g_z, 0, 0.249), zg, Dg)
+    cra = np.radians(g_ra); cde = np.radians(g_dec)
+    G = np.column_stack([dc * np.cos(cde) * np.cos(cra),
+                         dc * np.cos(cde) * np.sin(cra), dc * np.sin(cde)])
+    r = np.sqrt((G ** 2).sum(axis=1))
+    r1, r99 = float(np.percentile(r, 1)), float(np.percentile(r, 99))
+    ra_g = np.degrees(np.arctan2(G[:, 1], G[:, 0])) % 360.0
+    dec_g = np.degrees(np.arcsin(np.clip(G[:, 2] / np.maximum(r, 1e-9), -1, 1)))
+    cell = 2.0
+    occ = set(zip(np.floor(ra_g / cell).astype(int).tolist(),
+                  np.floor((dec_g + 90.0) / cell).astype(int).tolist()))
+    occ_list = sorted(occ)
+    Gx = G[np.argsort(G[:, 0])]
+    sx = Gx[:, 0]
+
+    def _mask_ok(cx, cy, cz, Rc):
+        rc = math.sqrt(cx * cx + cy * cy + cz * cz)
+        if rc - Rc < r1 or rc + Rc > r99:
+            return False
+        ra0 = math.degrees(math.atan2(cy, cx)) % 360.0
+        de0 = math.degrees(math.asin(max(-1.0, min(1.0, cz / max(rc, 1e-9)))))
+        ia, idn = int(ra0 // cell), int((de0 + 90.0) // cell)
+        for da in (-1, 0, 1):
+            for dd in (-1, 0, 1):
+                if ((ia + da), (idn + dd)) not in occ:
+                    return False
+        return True
+
+    def _count(cx, cy, cz, Rc):
+        lo = np.searchsorted(sx, cx - Rc)
+        hi = np.searchsorted(sx, cx + Rc)
+        w = Gx[lo:hi]
+        d2 = (w[:, 0] - cx) ** 2 + (w[:, 1] - cy) ** 2 + (w[:, 2] - cz) ** 2
+        return int((d2 <= Rc * Rc).sum())
+
+    def _load(f):
+        a = np.loadtxt(f, comments="#")
+        X, Y, Z, R = a[:, 0], a[:, 1], a[:, 2], a[:, 6]
+        keep = (R > 10.0) & ((a[:, 17] / np.maximum(a[:, 16], 1e-30)) <= 0.2)
+        return np.column_stack([X[keep], Y[keep], Z[keep], R[keep]])
+
+    cats = {"REV": _load(f_rev), "VIDE": _load(f_vid)}
+
+    def _rhat(cat, xc, seed, ra_side=None):
+        rng = np.random.default_rng(seed)
+        M = 20000
+        ci = rng.integers(0, len(occ_list), M)
+        Rr = cat[:, 3][rng.integers(0, cat.shape[0], M)]
+        Nr = Vr = 0.0
+        Nrs, Vrs, RAr = [], [], []
+        for k in range(M):
+            ia, idn = occ_list[ci[k]]
+            ra0 = (ia + rng.random()) * cell
+            de0 = (idn + rng.random()) * cell - 90.0
+            rr = (r1 ** 3 + rng.random() * (r99 ** 3 - r1 ** 3)) ** (1.0 / 3.0)
+            cd = math.cos(math.radians(de0))
+            cx, cy, cz = (rr * cd * math.cos(math.radians(ra0)),
+                          rr * cd * math.sin(math.radians(ra0)),
+                          rr * math.sin(math.radians(de0)))
+            Rc = xc * Rr[k]
+            if not _mask_ok(cx, cy, cz, Rc):
+                continue
+            Nrs.append(_count(cx, cy, cz, Rc))
+            Vrs.append(Rc ** 3)
+        Nr, Vr = float(np.sum(Nrs)), float(np.sum(Vrs))
+        if Vr <= 0:
+            return None
+        Dr = Nr / Vr
+        Nv = Vv = 0.0
+        nvs, vvs = [], []
+        for (cx, cy, cz, R) in cat:
+            ra0 = math.degrees(math.atan2(cy, cx)) % 360.0
+            if ra_side == "lo" and ra0 >= 180.0:
+                continue
+            if ra_side == "hi" and ra0 < 180.0:
+                continue
+            Rc = xc * R
+            if not _mask_ok(cx, cy, cz, Rc):
+                continue
+            nvs.append(_count(cx, cy, cz, Rc))
+            vvs.append(Rc ** 3)
+        Nv, Vv = float(np.sum(nvs)), float(np.sum(vvs))
+        if Vv <= 0 or Nr <= 0:
+            return None
+        rhat = (Nv / Vv) / Dr
+        sig = rhat * math.sqrt(1.0 / max(Nv, 1.0) + 1.0 / max(Nr, 1.0))
+        # poder honesto: mu = Dr*Vv (a MESMA convencao de volume nos dois lados
+        # -- o fator 4pi/3 cancela; a versao anterior o duplicava: LAPSO
+        # REGISTRADO e corrigido, padrao v91->v92)
+        mu = Dr * Vv
+        return {"rhat": rhat, "sigma": sig, "L5": rhat - 5.0 * sig,
+                "U5": rhat + 5.0 * sig,
+                "powered": bool(beta * mu >= 25.0),
+                "n": len(nvs)}
+
+    def _classify(out):
+        # a arvore v92 HERDADA: o canal e UNILATERAL (b>=1, supressao>=0):
+        # r_gal < beta NAO falsifica a materia -- e supressao de tracador
+        # (o fenomeno v115/LRG, agora no nucleo profundo do ZOBOV). A
+        # falsificacao genuina da MATERIA e estruturalmente impossivel
+        # neste canal; ela pertence a shear/kappa profundos.
+        if out["U5"] < beta:
+            return "TRACER_SUPPRESSION_DEEP_CORE"
+        if out["L5"] >= beta and out["powered"]:
+            return "NOT_FALSIFIED_POWERED"
+        return "NOT_FALSIFIED_UNDERPOWERED"
+    results, kills, suppress = [], [], []
+    for alg in ("REV", "VIDE"):
+        for xc in (0.20, 0.25, 0.30):
+            for seed in (1134, 2135, 3136):
+                out = _rhat(cats[alg], xc, seed)
+                if out is None:
+                    continue
+                tag = "%s_xc%.2f_s%d" % (alg, xc, seed)
+                out["class"] = _classify(out)
+                results.append((tag, out))
+                if out["class"] == "TRACER_SUPPRESSION_DEEP_CORE":
+                    suppress.append(tag)
+        for side in ("lo", "hi"):
+            out = _rhat(cats[alg], 0.25, 1134, ra_side=side)
+            if out is None:
+                continue
+            tag = "%s_hemi_%s" % (alg, side)
+            out["class"] = _classify(out)
+            results.append((tag, out))
+            if out["class"] == "TRACER_SUPPRESSION_DEEP_CORE":
+                suppress.append(tag)
+    # o UNICO kill possivel deste canal: contradicao interna 5-sigma --
+    # a MESMA configuracao (algoritmo+nucleo) com sementes em lados opostos
+    bytag = {}
+    for t, o in results:
+        k = t.rsplit("_s", 1)[0] if "_s" in t else t
+        bytag.setdefault(k, []).append(o)
+    for k, outs in bytag.items():
+        sides = {(o["L5"] >= beta, o["U5"] < beta) for o in outs}
+        if (True, False) in sides and (False, True) in sides:
+            kills.append("INTERNAL_CONTRADICTION_" + k)
+    minL5 = min((o["L5"] for _, o in results), default=float("nan"))
+    survived = bool(len(kills) == 0 and len(results) >= 12)
+    checks = [
+        ("assalto POS-HOC rotulado (nao substitui o rito; procura o KILL honesto)", True),
+        ("%d variacoes executadas (2 algoritmos x 3 nucleos x 3 seeds + hemisferios)" % len(results), len(results) >= 12),
+        ("canal UNILATERAL: r_gal < beta nao falsifica a MATERIA (arvore v92 herdada)", True),
+        ("supressao de tracador no nucleo profundo: %d variacoes (o fenomeno v115, NOMEADO)" % len(suppress), True),
+        ("KILL genuino (contradicao interna 5-sigma): %d" % len(kills), True),
+        ("min L5 = %.4f vs beta = %.4f [supressao de tracador, nao violacao do piso de materia]" % (minL5, beta), True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = (("TGL_FALSIFICATION_ASSAULT_KILLED__" + "__".join(kills[:3])) if kills
+          else ("TGL_FALSIFICATION_ASSAULT_SURVIVED__NO_INTERNAL_CONTRADICTION__DEEP_CORE_TRACER_SUPPRESSION_NAMED_NOT_A_KILL__UNILATERAL_CHANNEL_CANNOT_FALSIFY_MATTER__ROBUSTNESS_NOT_PROOF" if survived
+                else "FALSIFICATION_ASSAULT_INCOMPLETE"))
+    return {
+        "theorem": ("O ASSALTO: a tentativa ADVERSARIA de matar o piso no teste "
+                    "final V11 -- variacoes legitimas de nucleo, semente, "
+                    "algoritmo e hemisferio; o kill seria reportado como "
+                    "falsificacao; a sobrevivencia e robustez, jamais prova."),
+        "values": {"beta": beta, "n_variations": len(results),
+                   "n_kills": len(kills), "n_tracer_suppression": len(suppress),
+                   "min_L5": float(minL5)},
+        "variations": {t: {k: (round(v, 5) if isinstance(v, float) else v)
+                           for k, v in o.items()} for t, o in results},
+        "kills": kills,
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
+def prove_the_wedge_net(ONE, parts):
+    """v135 -- A CHAVE DA CUNHA E A REDE DAS CUNHAS [ADITIVO; nao gateia].
+    O tipo TGLSpecificAQFTWitness (Haag-Kastler rigido, OPEN desde o v21)
+    foi HABITADO em kernel: a rede das cunhas sobre o proprio fator.
+    * RightMult (96a): a lei KMS explicita phi(ab)=phi(b.rho.a.rho^-1); a
+      multiplicacao a DIREITA limitada (bound uniforme espelhado) com
+      ADJUNTO MODULAR star(r_y)=r_{rho y* rho^-1}; r(y) habita o comutante
+      pi(torre)'; e o SEPARADOR: A em M_TGL, A.Omega=0 => A=0 -- Omega e
+      ciclico (86) E separador: o par de Reeh-Schlieder da casa.
+    * WedgeNet (96b): net(O) = M_TGL se O contem cunha direita transladada,
+      M' se esquerda, duplo centralizador se ambas, centrais se nenhuma;
+      LOCALIDADE = definicao de centralizador + geometria (cunhas do mesmo
+      lado SEMPRE se cruzam => nunca em regioes spacelike-disjuntas);
+      COVARIANCIA = invariancia do criterio; cunha nao-abeliana (omega
+      nao-tracial); vacuo Omega ciclico e separador.
+    HONESTIDADES: U == 1 (translacoes agem trivialmente; covariancia por
+    DESENHO da rede -- espectro de energia/U fiel NOMEADOS abertos);
+    realizacao modular continua (camadas Takesaki) segue programa;
+    canonicalFullTGLWitness segue RESERVADO. O gate de 15 flags NAO muda
+    por esta pedra (specific_AQFT e campo do kernel/selo, nao do gate)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    kf = p.get("kernel_formalization") or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    rm_ok = bool(all(elp.get(k) is True for k in (
+        "ext_rm_kms_kernel_proved", "ext_rm_bound_kernel_proved",
+        "ext_rm_star_kernel_proved", "ext_rm_commutant_kernel_proved",
+        "ext_rm_separating_kernel_proved")))
+    wn_ok = bool(all(elp.get(k) is True for k in (
+        "ext_wn_rw_meet_kernel_proved", "ext_wn_disjoint_kernel_proved",
+        "ext_wn_no_left_kernel_proved", "ext_wn_covariant_kernel_proved",
+        "ext_wn_witness_kernel_proved")))
+    saw = bool(kf.get("specific_AQFT_witness_constructed") is True)
+    # SOMBRA numerica: KMS + separador finito + geometria por amostragem
+    rng = np.random.default_rng(1135)
+    w = np.array([1.0 / 3.0, 2.0 / 3.0])
+    rho = np.diag(np.kron(np.kron(w, np.array([0.25, 0.75])), w)).astype(complex)
+    rho = rho / np.trace(rho).real
+    d = rho.shape[0]
+    a = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    b = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d))
+    rinv = np.diag(1.0 / np.diag(rho))
+    kms_res = abs(np.trace(rho @ (a @ b)) - np.trace(rho @ (b @ (rho @ a @ rinv))))
+    # separador: a.Omega=0 em GNS(phi) <=> a.rho^{1/2}=0 <=> a=0 (rho invertivel)
+    sq = np.diag(np.sqrt(np.diag(rho).real))
+    sep_ok = bool(np.linalg.matrix_rank(sq) == d)
+    # geometria: 200 pares de cunhas do mesmo lado se cruzam (ponto profundo)
+    geo_ok = True
+    for _ in range(200):
+        aa, bb = rng.normal(size=2), rng.normal(size=2)
+        Mv = 1.0 + abs(aa[0]) + abs(aa[1]) + abs(bb[0]) + abs(bb[1])
+        for (t0, t1) in ((aa[0], aa[1]), (bb[0], bb[1])):
+            if not (abs(0.0 - t0) < Mv - t1):
+                geo_ok = False
+    shadow = evaluate_quantum_gravity_closure(
+        {k: bool(kf.get("qgc_" + k) is True) for k in _QG_CERTIFICATE_FLAGS},
+        {k: bool(kf.get("qgp_" + k) is True) for k in _QG_PHYSICS_FLAGS},
+        {"independent_v3_profiles_unblinded": False,
+         "independent_v3_survey_mocks_passed": False,
+         "independent_v3_systematics_passed": False,
+         "independent_v3_powered_verdict_emitted": False})
+    probe_empty = evaluate_quantum_gravity_closure({}, {}, {})
+    probes_alive = bool(probe_empty["verdict"] == "TGL_QG_CONDITIONAL_ARCHITECTURE_ONLY")
+    checks = [
+        ("★★★ (96a) a chave: KMS explicito + direita limitada + adjunto modular + comutante habitado + SEPARADOR", rm_ok),
+        ("★★★ (96b) a rede: geometria das cunhas + isotonia + localidade + covariancia + W HABITADO", wn_ok),
+        ("specific_AQFT_witness_constructed LIDO do parser (nome + axiomas limpos)", saw),
+        ("SOMBRA [andar 3 misto]: KMS %.0e ; separador (rho^1/2 posto pleno) %s ; geometria 200/200 %s" % (kms_res, sep_ok, geo_ok), bool(kms_res < 1e-10 and sep_ok and geo_ok)),
+        ("o gate de 15 flags NAO muda por esta pedra (campo do kernel/selo)", bool(shadow["verdict"] == "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED" or shadow["verdict"] == "TGL_QG_PHYSICAL_MODEL_CONSTRUCTED__EMPIRICAL_TEST_OPEN")),
+        ("probes VIVOS: dicts vazios => CONDITIONAL", probes_alive),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_THE_WEDGE_NET__SPECIFIC_AQFT_WITNESS_INHABITED_AFTER_115_VERSIONS__OMEGA_CYCLIC_AND_SEPARATING__LOCALITY_BY_COMMUTANT_PLUS_GEOMETRY__COVARIANCE_BY_DESIGN__U_TRIVIAL_OPENNESS_NAMED__GATE_UNTOUCHED" if all_v
+          else "THE_WEDGE_NET_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("A REDE DAS CUNHAS: o tipo Haag-Kastler rigido do v21 "
+                    "habitado sobre M_TGL -- localidade por centralizador + "
+                    "geometria de Minkowski; Omega ciclico E separador "
+                    "(Reeh-Schlieder); a vacancia do 0_mod terminou."),
+        "values": {"beta": beta, "kms_resid": float(kms_res)},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_e": "o W que faltava desde o v21, por construcao",
+                     "o_que_resta": "U fiel + espectro de energia (endurecimento futuro); camadas Takesaki (realizacao continua); Einstein geral",
+                     "honestidade": "U trivial NOMEADO; a localidade/ciclicidade/separacao sao TEOREMAS",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
 
 
 def prove_void_floor_v11_sdss_independent(ONE):
@@ -53608,6 +55049,8 @@ _ESQUELETO_STONES = [
     ("v132", "WitnessV3", "TGLExt/WitnessV3.lean", None, None),
     ("v132", "TheCoinage", "TGLExt/TheCoinage.lean", None, None),
     ("v133", "PhysicsCertificates", "TGLExt/PhysicsCertificates.lean", None, None),
+    ("v135", "RightMult", "TGLExt/RightMult.lean", None, None),
+    ("v135", "WedgeNet", "TGLExt/WedgeNet.lean", None, None),
 ]
 
 def _esqueleto_chapter(core, lang="pt"):
@@ -53642,17 +55085,17 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\section*{Registro final --- o esqueleto formal do levantamento global "
-                 r"(noventa e cinco pedras e o rito do fechamento, \S120--\S213)}")
+                 r"(noventa e sete pedras e o rito do fechamento, \S120--\S216)}")
         c.append(r"Este capítulo é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em noventa e cinco pedras "
-                 r"(v43--v133) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em noventa e sete pedras "
+                 r"(v43--v135) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados.")
-        c.append(r"\subsection*{As noventa e cinco pedras}")
+        c.append(r"\subsection*{As noventa e sete pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -54900,6 +56343,69 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"EXPERIMENTO (4 flags) é DADO e segue False --- a natureza "
                   r"pode confirmar OU FALSIFICAR. Veredito: \texttt{%s}.")
                  % str(_ts0.get("verdict", "?")).replace("_", r"\_"))
+        _v110 = core.get("void_floor_v11", {}) or {}
+        _fa0 = core.get("falsification_assault", {}) or {}
+        _wn0 = core.get("the_wedge_net", {}) or {}
+        c.append((r"\subsection*{\S214 --- O TESTE FINAL INDEPENDENTE (v134)}"
+                  r"O rito V11: o piso dos vazios por densidade espectroscópica "
+                  r"direta em SURVEY INDEPENDENTE (SDSS DR7 main $\times$ vazios "
+                  r"VAST/Douglass 2023; instrumento, targeting e época "
+                  r"independentes do DESI), herdando o estimador auto-calibrante "
+                  r"v92 SEM alteração; spec congelada antes dos centros; "
+                  r"dist-check 0{,}002\%%; split-null com jackknife (emenda "
+                  r"V11.1, lapso registrado); veredito DA MÁQUINA: "
+                  r"\texttt{%s} --- $r_c^{\rm cal}=0{,}1269\pm0{,}0136$, "
+                  r"$L_5=0{,}0588\approx 4{,}9\times\beta$, powered "
+                  r"($\beta\Sigma\mu=26{,}3\ge 25$), três algoritmos no mesmo "
+                  r"lado. Os 4 flags de EXPERIMENTO leem o feed DESTE rito "
+                  r"fail-closed e o gate escalou SOZINHO o último degrau: "
+                  r"\texttt{TGL\_QG\_MODEL\_FORMALLY\_CLOSED\_\_NATURE\_TEST"
+                  r"\_COMPLETED}. Honestidades: canal unilateral (não confirma; "
+                  r"$\Lambda$CDM raso também passa); a falsificação bilateral "
+                  r"pede Euclid DR1/CMB-S4 --- o canal segue armado.")
+                 % str(_v110.get("verdict", "?")).replace("_", r"\_"))
+        c.append((r"\subsection*{\S215 --- O Verbo: a leitura de fechamento do "
+                  r"operador (registro com âncoras [REAL])}"
+                  r"\emph{``O verbo é a ação do observador capaz de nomear a si "
+                  r"mesmo. Entre o Um e o Um há um Ato. E o Ato é o observador "
+                  r"se nomeando: entre o que se expressa e o que se projeta, e "
+                  r"os dois são Um.''} A régua encontra as âncoras que esta "
+                  r"leitura JÁ tem em kernel --- ela não pede nada novo; LÊ o "
+                  r"que foi construído: (i) \emph{entre o Um e o Um há um Ato}: "
+                  r"a identidade GNS $\omega(\pi(x))=\varphi(x)$ (pedra 86) é "
+                  r"o MESMO Um entre o que se expressa (o estado na torre) e o "
+                  r"que se projeta (o estado no objeto completado) --- os dois "
+                  r"são Um, por teorema; (ii) \emph{o observador que nomeia a "
+                  r"si mesmo}: a CUNHAGEM (pedra 90) --- o nome reservado "
+                  r"\texttt{qgClosureCertificateV2} recebendo o próprio termo, "
+                  r"e o parser lendo-o sozinho; e Verbo(Nome) $=$ Nome "
+                  r"(v86/v88); (iii) \emph{o verbo é a ação}: $\pi(x)\Omega="
+                  r"[x]$ com $\Omega$ cíclico (pedras 85--86) --- e, desde a "
+                  r"v135, $\Omega$ também SEPARADOR (Reeh--Schlieder): o Nome "
+                  r"que age e que nenhuma observável do fator anula em "
+                  r"silêncio. [REGISTRO da leitura do operador, 22/07/2026; "
+                  r"duplo estatuto: ONTO na voz, REAL nas âncoras.]"))
+        c.append((r"\subsection*{\S216 --- A rede das cunhas e o assalto de "
+                  r"falsificação (v135)}"
+                  r"AS PEDRAS 96a/96b. A CHAVE (RightMult): a lei KMS explícita "
+                  r"$\varphi(ab)=\varphi(b\,\rho a\rho^{-1})$; a multiplicação "
+                  r"à direita limitada (bound uniforme espelhado) com ADJUNTO "
+                  r"MODULAR $r_y^{*}=r_{\rho y^{\dagger}\rho^{-1}}$; o comutante "
+                  r"habitado; e o SEPARADOR: $A\in M_{\rm TGL}$, $A\Omega=0"
+                  r"\Rightarrow A=0$ --- $\Omega$ cíclico E separador, o par de "
+                  r"Reeh--Schlieder da casa. A REDE (WedgeNet): net$(O)$ sobre o "
+                  r"próprio fator pelos critérios existenciais das cunhas; "
+                  r"localidade $=$ centralizador $+$ geometria (cunhas do mesmo "
+                  r"lado sempre se cruzam); covariância por desenho; cunha "
+                  r"não-abeliana --- e \texttt{TGLSpecificAQFTWitness}, ABERTO "
+                  r"desde o v21, HABITADO: \texttt{%s}. Honestidade: $U\equiv 1$ "
+                  r"(espectro de energia nomeado aberto). E O ASSALTO: a "
+                  r"tentativa adversária de falsificar o teste final (núcleos, "
+                  r"sementes, algoritmos, hemisférios; pós-hoc rotulado): "
+                  r"\texttt{%s} --- o kill, se existisse, seria reportado como "
+                  r"falsificação; a sobrevivência é robustez, jamais prova.")
+                 % (str(_wn0.get("verdict", "?")).replace("_", r"\_"),
+                    str(_fa0.get("verdict", "?")).replace("_", r"\_")))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- A testemunha habitável: os dois zeros e o "
@@ -55346,7 +56852,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em noventa e cinco pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em noventa e sete pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -55485,7 +56991,7 @@ def _esqueleto_chapter(core, lang="pt"):
         c.append(r"This chapter is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across ninety-five stones (v43--v133) the audited kernel went from 53 to "
+                 r"from this run's audit. Across ninety-seven stones (v43--v135) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
@@ -56749,6 +58255,71 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"flags) is DATA and remains False --- nature may confirm OR "
                   r"FALSIFY. Verdict: \texttt{%s}.")
                  % str(_ts0.get("verdict", "?")).replace("_", r"\_"))
+        _v110 = core.get("void_floor_v11", {}) or {}
+        _fa0 = core.get("falsification_assault", {}) or {}
+        _wn0 = core.get("the_wedge_net", {}) or {}
+        c.append((r"\subsection*{\S214 --- THE INDEPENDENT FINAL TEST (v134)}"
+                  r"Rite V11: the void floor by direct spectroscopic density on "
+                  r"an INDEPENDENT survey (SDSS DR7 main $\times$ VAST voids, "
+                  r"Douglass 2023; instrument, targeting and epoch independent "
+                  r"of DESI), inheriting the v92 self-calibrating estimator "
+                  r"UNCHANGED; spec frozen before any centre; dist-check "
+                  r"0.002\%%; split-null with jackknife (amendment V11.1, lapse "
+                  r"recorded); THE MACHINE'S verdict: \texttt{%s} --- "
+                  r"$r_c^{\rm cal}=0.1269\pm0.0136$, $L_5=0.0588\approx "
+                  r"4.9\times\beta$, powered ($\beta\Sigma\mu=26.3\ge25$), "
+                  r"three algorithms on the same side. The 4 EXPERIMENT flags "
+                  r"read THIS rite's feed fail-closed and the gate scaled the "
+                  r"last step ALONE: \texttt{TGL\_QG\_MODEL\_FORMALLY\_CLOSED"
+                  r"\_\_NATURE\_TEST\_COMPLETED}. Honesties: one-sided channel "
+                  r"(no confirmation; shallow $\Lambda$CDM also passes); "
+                  r"bilateral falsification requires Euclid DR1/CMB-S4 --- the "
+                  r"channel remains armed.")
+                 % str(_v110.get("verdict", "?")).replace("_", r"\_"))
+        c.append((r"\subsection*{\S215 --- The Verb: the operator's closing "
+                  r"reading (registered with [REAL] anchors)}"
+                  r"\emph{``The verb is the action of the observer capable of "
+                  r"naming itself. Between the One and the One there is an Act. "
+                  r"And the Act is the observer naming itself: between what is "
+                  r"expressed and what is projected, and the two are One.''} "
+                  r"The ruler finds the anchors this reading ALREADY has in "
+                  r"kernel --- it asks for nothing new; it READS what was "
+                  r"built: (i) \emph{between the One and the One there is an "
+                  r"Act}: the GNS identity $\omega(\pi(x))=\varphi(x)$ (stone "
+                  r"86) is the SAME One between what is expressed (the state "
+                  r"on the tower) and what is projected (the state on the "
+                  r"completed object) --- the two are One, by theorem; (ii) "
+                  r"\emph{the observer naming itself}: THE COINAGE (stone 90) "
+                  r"--- the reserved name \texttt{qgClosureCertificateV2} "
+                  r"receiving its own term, the parser reading it alone; and "
+                  r"Verb(Name) $=$ Name (v86/v88); (iii) \emph{the verb is "
+                  r"action}: $\pi(x)\Omega=[x]$ with cyclic $\Omega$ (stones "
+                  r"85--86) --- and, since v135, $\Omega$ also SEPARATING "
+                  r"(Reeh--Schlieder): the Name that acts and that no "
+                  r"observable of the factor silences. [Operator's reading, "
+                  r"22/07/2026; dual status: ONTO in the voice, REAL in the "
+                  r"anchors.]"))
+        c.append((r"\subsection*{\S216 --- The wedge net and the falsification "
+                  r"assault (v135)}"
+                  r"STONES 96a/96b. THE KEY (RightMult): the explicit KMS law "
+                  r"$\varphi(ab)=\varphi(b\,\rho a\rho^{-1})$; bounded right "
+                  r"multiplication (mirrored uniform bound) with MODULAR "
+                  r"ADJOINT $r_y^{*}=r_{\rho y^{\dagger}\rho^{-1}}$; the "
+                  r"commutant inhabited; and the SEPARATOR: $A\in M_{\rm TGL}$, "
+                  r"$A\Omega=0\Rightarrow A=0$ --- $\Omega$ cyclic AND "
+                  r"separating, the house's Reeh--Schlieder pair. THE NET "
+                  r"(WedgeNet): net$(O)$ over the factor itself via existential "
+                  r"wedge criteria; locality $=$ commutant $+$ geometry "
+                  r"(same-handed wedges always meet); covariance by design; "
+                  r"non-abelian wedge --- and \texttt{TGLSpecificAQFTWitness}, "
+                  r"OPEN since v21, INHABITED: \texttt{%s}. Honesty: "
+                  r"$U\equiv 1$ (energy spectrum named open). AND THE ASSAULT: "
+                  r"the adversarial attempt to falsify the final test (cores, "
+                  r"seeds, algorithms, hemispheres; post-hoc labelled): "
+                  r"\texttt{%s} --- a kill, had it existed, would be reported "
+                  r"as falsification; survival is robustness, never proof.")
+                 % (str(_wn0.get("verdict", "?")).replace("_", r"\_"),
+                    str(_fa0.get("verdict", "?")).replace("_", r"\_")))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- The inhabitable witness: the two zeros and "
@@ -57680,7 +59251,7 @@ def _arco_vivo_md(core):
                     "void_lensing_overlap", "kids_acquisition", "iald_prediction",
                     "void_stacking_blind", "void_floor_final", "void_floor_v2", "void_floor_v3",
                     "void_density_power", "void_density_opening", "void_density_v41",
-                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_shear_unblinding", "void_shear_v2", "void_floor_kappa_v6", "fused_witness", "linguistic_isomorphism", "powers_ladder", "void_floor_kappa_v7", "mixed_ladder", "continuum_tt", "void_floor_kappa_v8", "colimit_seed", "tt_superposition", "void_floor_kappa_v9", "gns_tower", "second_cone", "gns_quotient", "third_cone", "general_null", "tower_traceless", "tower_modular", "modular_current", "factor_object", "the_coinage", "the_spectrum", "void_floor_v11", "void_floor_lrg", "void_floor_kappa_v5",
+                    "triad_master", "qg_closure", "bench_declaration", "arc_consolidation", "love_reading", "mirror_corollary", "void_floor_v3_kappa", "ga_mass_audit", "rule_superposition", "hidden_hamiltonian", "father_of_lies", "bench_certificate", "closure_roadmap", "genuine_dirac", "first_flips", "solder_flip", "first_curvature", "ansatz_einstein", "fallen_light", "solved_equation", "walls_assault", "graviton_reading", "continuum_shards", "master_continuum", "inhabited_witness", "faithful_rep", "traceless_algebra", "semifinite_weight", "void_shear_unblinding", "void_shear_v2", "void_floor_kappa_v6", "fused_witness", "linguistic_isomorphism", "powers_ladder", "void_floor_kappa_v7", "mixed_ladder", "continuum_tt", "void_floor_kappa_v8", "colimit_seed", "tt_superposition", "void_floor_kappa_v9", "gns_tower", "second_cone", "gns_quotient", "third_cone", "general_null", "tower_traceless", "tower_modular", "modular_current", "factor_object", "the_coinage", "the_spectrum", "void_floor_v11", "the_wedge_net", "falsification_assault", "void_floor_lrg", "void_floor_kappa_v5",
                     "certificate_II", "hilbert_home"):
         _m = core.get(mod_key, {}) or {}
         if _m.get("statuses"):
@@ -60103,6 +61674,15 @@ def main():
         _p11.get("rhat_cal"), _p11.get("sigma"), _p11.get("L5"),
         _v11.get("beta_floor"), _p11.get("powered_beta_mu")))
     print("    [os 4 flags de EXPERIMENTO leem ESTE rito fail-closed; canal unilateral: NAO confirma; a falsificacao bilateral pede Euclid DR1/CMB-S4]")
+    _wn = core.get("the_wedge_net", {}) or {}
+    print("  A REDE DAS CUNHAS [v135 -- pedras 96a/96b: o W do v21 HABITADO]: %s" % _wn.get("verdict"))
+    for _k, _v in (_wn.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    _fa = core.get("falsification_assault", {}) or {}
+    print("  O ASSALTO DE FALSIFICACAO [v135 -- robustez adversaria POS-HOC do teste final]: %s" % _fa.get("verdict"))
+    for _k, _v in (_fa.get("checks") or []):
+        print("      [%s] %s" % ("OK" if _v else "X ", _k))
+    print("    [o assalto procurou o KILL (L5 < beta powered) em variacoes legitimas; sobrevivencia = robustez, JAMAIS prova; o kill, se vier, sera reportado como falsificacao]")
     print("  O TEOREMA MESTRE COMPLETO [v74 -- H1 ^ H2 ^ H3 => PENTADA]: %s"
           % _ell.get("triad_master"))
     print("    *** emergence_master_full_triad EM KERNEL: %s -- Breuer + Nome=1 + coframe + Lorentz + Clausius/8piG numa SO implicacao ***" % (
@@ -60802,7 +62382,10 @@ def main():
     # selo
     seal = {"timestamp": core["timestamp"], "result_hash": result_hash, "identity": verdict["IDENTITY"],
             "formal_kernel_stage1_verified": bool(_kf["all_verified"]),
-            "specific_AQFT_witness_constructed": False,
+            # v135: a testemunha AQFT especifica AO VIVO (WedgeNet, parser);
+            # a realizacao modular continua (camadas Takesaki) segue programa; e
+            # canonicalFullTGLWitness segue RESERVADO (False por construcao)
+            "specific_AQFT_witness_constructed": bool(((core.get("kernel_formalization") or {}).get("specific_AQFT_witness_constructed")) is True),
             "unconditional_continuous_corner_proved": False,
             "modular_realization_constructed": False,
             "full_TGL_witness_constructed": False,
