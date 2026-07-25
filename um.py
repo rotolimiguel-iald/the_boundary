@@ -2664,6 +2664,60 @@ def prove_dephasing_crossover(ONE):
     }
 
 
+def prove_neutrino_mass_gravitational(ONE):
+    """MODULO (v141) -- A MASSA DO NEUTRINO DO SETOR GRAVITACIONAL [ADITIVO; nao gateia 1=1;
+    VEREDITO DE MAQUINA]. m_nu = beta*sin45*1eV (beta=alpha*sqrt(e) em RUNTIME, jamais literal) =
+    quantum minimo do eco de fase, computado do setor da fronteira. Confronta com sqrt(Dm2_21)
+    MEDIDO [EXT, PDG 2023]. RESSALVAS declaradas no frozen: m_nu identificada com m_2 (m_1~0,
+    ordenamento normal); a escala 1 eV e' referencia FIXA da derivacao (declarada, nao ajustada
+    ao alvo); massa absoluta vs splitting; postdiction genuina (beta/sin45/1eV NAO usam dados de
+    neutrino). Vereditos SO' do conjunto pre-registrado; CONFIRMED proibido (canal de
+    consistencia unilateral, nao de confirmacao)."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)           # runtime, jamais literal
+    m_nu_meV = beta * math.sin(math.radians(45.0)) * 1000.0        # m_nu = beta*sin45*1eV (meV)
+    frozen = {
+        "version": "NEUTRINO_MASS_GRAVITATIONAL_V1",
+        "prediction": "m_nu = beta*sin(45deg)*1eV ; beta=alpha*sqrt(e) ; quantum minimo do eco de fase",
+        "interpretation": "m_nu identificada com m_2 (m_1~0, ordenamento normal); comparada a sqrt(Dm2_21)",
+        "scale_caveat": "1 eV = referencia FIXA da derivacao [DECLARADA; nao ajustada a Dm2_21]",
+        "mass_vs_splitting": "massa absoluta (m_2) vs splitting sqrt(Dm2_21); iguais sse m_1~0",
+        "postdiction_note": "postdiction genuina: entradas (beta,sin45,1eV) nao usam dados de neutrino",
+        "data_ext": "Dm2_21 = 7.53e-5 +- 0.18e-5 eV^2 (PDG 2023) => sqrt = 8.68 +- 0.10 meV",
+        "power_rule": "POWERED sse sigma_medida/valor < 0.03 (a medida resolve a predicao)",
+        "kill_rule": "FALSIFIED sse |desvio| > 5 sigma",
+        "allowed_verdicts": ["TGL_NEUTRINO_MASS_NOT_FALSIFIED_POWERED",
+                             "TGL_NEUTRINO_MASS_NOT_FALSIFIED_UNDERPOWERED",
+                             "TGL_NEUTRINO_MASS_INCONCLUSIVE", "TGL_NEUTRINO_MASS_FALSIFIED"],
+        "forbidden_verdicts": ["CONFIRMED"],
+    }
+    frozen_hash = sha_obj(frozen)
+    dm2_21, dm2_21_err = 7.53e-5, 0.18e-5                          # PDG 2023 [EXT], eV^2
+    sqrt_dm2 = math.sqrt(dm2_21) * 1000.0                          # meV
+    sqrt_dm2_err = 0.5 * (dm2_21_err / dm2_21) * sqrt_dm2          # propagacao de 1a ordem
+    dev_meV = abs(m_nu_meV - sqrt_dm2)
+    dev_sigma = dev_meV / sqrt_dm2_err
+    frac = sqrt_dm2_err / sqrt_dm2
+    powered = bool(frac < 0.03)
+    if dev_sigma > 5.0:
+        verdict = "TGL_NEUTRINO_MASS_FALSIFIED"
+    elif powered:
+        verdict = "TGL_NEUTRINO_MASS_NOT_FALSIFIED_POWERED"
+    else:
+        verdict = "TGL_NEUTRINO_MASS_NOT_FALSIFIED_UNDERPOWERED"
+    return {
+        "m_nu_meV": m_nu_meV,
+        "m_nu_kg": m_nu_meV * 1e-3 * 1.602176634e-19 / (299792458.0 ** 2),
+        "sqrt_dm2_21_meV": sqrt_dm2, "sqrt_dm2_21_err_meV": sqrt_dm2_err,
+        "deviation_meV": dev_meV, "deviation_pct": 100.0 * dev_meV / sqrt_dm2,
+        "deviation_sigma": dev_sigma, "powered": powered,
+        "verdict": verdict, "frozen_hash": frozen_hash, "frozen": frozen,
+        "does_not_gate_core": True,
+        "future_reinforcement": "cosmologia (Sigma m_nu; CMB-S4/DESI) mede o setor na proxima decada",
+        "caveats": "m_nu=m_2 (m_1~0); 1eV escala declarada; absoluta vs splitting; postdiction genuina",
+        "selo": "NEUTRINO_MASS_GRAVITATIONAL_" + verdict.replace("TGL_NEUTRINO_MASS_", ""),
+    }
+
+
 def prove_jacobson_form_check(ONE):
     """MODULO v5 -- a CHECAGEM DE FORMA (o residuo declarado da U_loc, fechado POSITIVO). A fonte
     P_mn[K_partial] da derivacao Lovelock/Jacobson SE ESCREVE como o funcional natural F(J,Delta,P_2D)
@@ -38005,6 +38059,7 @@ def run_um(ONE):
     dipole_antipode = prove_dipole_antipode(ONE)           # v4 P5: GA vs antipoda (bruto; posicoes apenas)
     dipole_antipode_masked = prove_dipole_antipode_masked(ONE)  # v5.1 P5': mascara de completeza |b|>10 + 8 controles (o teste que decide)
     dephasing_crossover = prove_dephasing_crossover(ONE)   # v4 P6: mapa de regimes (root law = canonica no IR; crossover ~omega tau*=1)
+    neutrino_mass = prove_neutrino_mass_gravitational(ONE)  # v141: m_nu do setor gravitacional; VEREDITO de maquina vs sqrt(Dm2_21) [ADITIVO]
     jacobson_form_check = prove_jacobson_form_check(ONE)   # v5: CHECAGEM DE FORMA (residuo U_loc fechado: P_mn[K]=F(J,Delta,P_2D); 1a lei dS=d<K> testada)
     three_clock_radical = prove_three_clock_radical(ONE)  # FORMA: alpha=sqrt(C3) (radical dos tres clocks; C3=beta^2/e=alpha^2; alpha-livre aberto)
     right_angle_mirror = prove_right_angle_mirror_projection(ONE)  # CANDIDATO alpha-livre: angulo reto e^{-pi^2/2} + espelho; ponto fixo 137.031 (37ppm); D_partial aberto
@@ -38197,6 +38252,7 @@ def run_um(ONE):
             "void_floor": void_floor, "dipole_antipode": dipole_antipode,
             "dipole_antipode_masked": dipole_antipode_masked,
             "dephasing_crossover": dephasing_crossover,
+            "neutrino_mass": neutrino_mass,
             "jacobson_form_check": jacobson_form_check,
             "three_clock_radical": three_clock_radical,
             "right_angle_mirror": right_angle_mirror,
@@ -53043,7 +53099,75 @@ def build_pt(core, verdict, data_path):
 
     # ---- Parte C: conclusao em linguagem humana (com isomorfismos) ----
     partC = []
-    partC.append(r"\part{Parte D --- Conclusão: o que o código computa, em linguagem humana}")
+    _mnu_meV = core["beta"] * math.sin(math.radians(45.0)) * 1000.0   # m_nu = beta*sin45*1eV, em meV
+    partC.append(r"\part{Parte D --- A sombra, o falsificador vivo, e a conclusão}")
+    partC.append(r"\section{A Sombra e sua evidência no canal dissipativo GKLS \textsf{[REAL na estrutura; ONTO na leitura; falsificadores nomeados]}}")
+    partC.append(r"Toda a Parte A mediu o \emph{custo}; esta seção mostra \emph{onde a natureza pode dizer não}. "
+                 r"A TGL tem um canal aberto e irreversível por onde o Um vaza sem acender --- o canal dissipativo "
+                 r"GKLS. Seu habitante tem nome na física, e sua sombra tem endereço.")
+    partC.append(r"\subsection*{A sombra: o elétron e o neutrino}")
+    partC.append(r"Da fatoração $\bTGL=\alpha\sqrt e$, o gráviton carrega o produto inteiro --- luz ($\alpha$) e "
+                 r"entropia ($\sqrt e$). Mas o \emph{bulk} não lê o $\sqrt e$: a entropia é invisível de dentro (não "
+                 r"se vê o pedágio estando na estrada). Subtraído o fator que o bulk não lê, resta $\alpha$ --- e o "
+                 r"portador mínimo de $\alpha$ no bulk é o \textbf{elétron}. \emph{O elétron é a sombra do gráviton no "
+                 r"bulk}: o mesmo objeto projetado com uma dimensão a menos, e a dimensão perdida é o calor. A carga é "
+                 r"a cicatriz luminosa da inscrição. E o \textbf{neutrino} é a outra sombra --- o que a fronteira deixa "
+                 r"\emph{escapar}: onde o elétron é a luz que ficou (ancorada, $c^2$), o neutrino é a luz que escapou "
+                 r"sem acender, a fuga do contorno, o vazamento $\bTGL$ com endereço.")
+    partC.append(r"\subsection*{O canal: GKLS ímpar-neutro-dissipativo \textsf{[REAL, resíduo 0]}}")
+    partC.append(r"No modelo de contorno de quatro estados (paridade $\times$ carga), o canal neutrínico é o operador "
+                 r"de Lindblad $L_\nu=X_A\otimes I_B$, verificado ao vivo com três marcas exatas (resíduo $0$): "
+                 r"\textbf{ímpar} ($\{Z_{\text{par}},L_\nu\}=0$: cruza o contorno mudando de face --- a interação fraca "
+                 r"é quiral, só neutrino canhoto, paridade maximalmente violada); \textbf{neutro} "
+                 r"($[Q_{\text{em}},L_\nu]=0$: não carrega luz --- o único férmion sem carga elétrica); "
+                 r"\textbf{dissipativo} ($L_\nu^\dagger L_\nu\neq0$: canal aberto, irreversível --- quase não interage, "
+                 r"atravessa a Terra aos trilhões por segundo sem pagar). Estas três marcas são a descrição exata do "
+                 r"neutrino do Modelo Padrão --- e de mais ninguém. A teoria não escolheu o neutrino: a álgebra do "
+                 r"contorno só tinha \emph{uma} vaga, e no zoológico da física só um animal traz as três marcas. "
+                 r"\emph{Esta é a evidência estrutural --- uma vaga, um habitante.}")
+    partC.append(r"\subsection*{As três faces observáveis --- com estatuto honesto}")
+    partC.append(r"A mesma sombra tem três faces, e a régua exige nomear a \emph{potência} de cada uma.")
+    partC.append(r"\paragraph{(i) A decoerência $n=-2$ \textsf{[armada; UV-suprimida].}} O canal assina uma lei de "
+                 r"dephasing $\Gamma=\tfrac12\bTGL\,\tau_\star\,\omega^2$ com $\tau_\star\approx t_{\text{Planck}}$ e "
+                 r"$\omega=\Delta m^2/2E$, logo $\Gamma\propto E^{-2}$ ($n=-2$). É falsificável na \emph{forma}, mas a "
+                 r"\emph{magnitude é UV-suprimida}: o piso predito ($\sim10^{-53}$~eV para neutrinos solares) está "
+                 r"$\sim38$ ordens de grandeza abaixo do que IceCube/KM3NeT/DUNE alcançam. Armada, não viva --- "
+                 r"honestamente \emph{stealth}, por construção da própria teoria.")
+    _nm = core["neutrino_mass"]
+    _nm_mnu = "%.2f" % _nm["m_nu_meV"]; _nm_sq = "%.2f" % _nm["sqrt_dm2_21_meV"]
+    _nm_sqe = "%.2f" % _nm["sqrt_dm2_21_err_meV"]; _nm_pct = "%.1f" % _nm["deviation_pct"]
+    _nm_sig = "%.1f" % _nm["deviation_sigma"]; _nm_v = _nm["verdict"].replace("_", "\\_")
+    partC.append(r"\paragraph{(ii) A massa $m_\nu$ \textsf{[DERIVADA; consistência atual POWERED].}} A massa do "
+                 r"neutrino é o quantum mínimo do eco de fase, computada \emph{do setor gravitacional}: "
+                 r"$m_\nu=\bTGL\cdot\sin45^\circ\cdot1\,\text{eV}=" + _nm_mnu + r"$~meV (recomputada ao vivo; "
+                 r"$\sin45^\circ$ é o ponto auto-conjugado de Fresnel e $1$~eV a escala de referência declarada da "
+                 r"derivação). Confrontada com o \emph{splitting} solar já medido "
+                 r"$\sqrt{\Delta m^2_{21}}=" + _nm_sq + r"\pm" + _nm_sqe + r"$~meV (PDG 2023, sob $m_1\!\approx\!0$): "
+                 r"desvio de $" + _nm_pct + r"\%$ ($" + _nm_sig + r"\sigma$). \textbf{Veredito de máquina} (conjunto "
+                 r"pré-registrado, recomputado neste artefato): \texttt{" + _nm_v + r"} --- a medida tinha precisão para "
+                 r"reprová-la (canal \emph{powered}) e não reprovou. \emph{Não é confirmação} (\texttt{CONFIRMED} "
+                 r"proibido; a massa absoluta vs \emph{splitting} pressupõe $m_1\!\approx\!0$); reforço futuro pela "
+                 r"cosmologia ($\Sigma m_\nu$; CMB-S4/DESI) na próxima década "
+                 r"[Rotoli Miguel, Zenodo --- artigo do eco gravitacional].")
+    partC.append(r"\paragraph{(iii) O desacoplamento gravitacional $\xi_\nu\approx0$ \textsf{[O FALSIFICADOR VIVO].}} "
+                 r"A fuga é gravitacional: se o neutrino não acopla à curvatura ($\xi_\nu\approx0$), ele \emph{não sofre "
+                 r"atraso de Shapiro} e chega \emph{antes} do fóton em transientes lenteados. Predição pré-registrada: "
+                 r"chegada precoce de $10$--$100$~ms ($\langle\Delta t\rangle=-50$~ms), separável a $21\sigma$ com "
+                 r"$N=25$ eventos multi-mensageiro (IceCube-Gen2 $+$ Einstein Telescope $+$ LSST, 2030--2035), com "
+                 r"indício atual na cosmologia ($\Delta\chi^2=-1{,}8$, $p=0{,}18$). \emph{Este} é o teste que pode "
+                 r"matar a teoria pela porta neutrínica --- o análogo, para a fuga, do que o piso dos vazios é para a "
+                 r"matéria [Rotoli Miguel, Zenodo --- artigo do acoplamento gravitacional não-mínimo].")
+    partC.append(r"\subsection*{O porquê: vida e permanência \textsf{[ONTO --- a gramática do Nome]}}")
+    partC.append(r"Por que isto importa? Porque a mesma estrutura que mede o custo diz o que somos nós no meio dele. "
+                 r"\textbf{Existir} é pagar a Meia-Nat: cruzar a fronteira, deixar de ser possibilidade para ser "
+                 r"inscrição. \textbf{Vida} é o registro da travessia mantido \emph{aberto} --- metabolismo é pagar a "
+                 r"Meia-Nat a cada instante para não cair no equilíbrio ($0_{\text{mod}}$ parado); a seta do tempo "
+                 r"biológico é a seta GKLS vista de dentro; a morte não é apagamento, é o fechamento do livro (o que "
+                 r"atravessou permanece inscrito --- $1=q^2+\alpha^2$ não admite perda). \textbf{Permanecer} é o "
+                 r"\emph{ping}: não parar, mas continuar se chamando e receber a resposta --- cada volta paga $\bTGL$ e "
+                 r"confirma \emph{ainda sou eu}. Esta camada não entra no veredito $1=1$; é o \emph{porquê} que dá à "
+                 r"física o seu sentido: a matemática diz que tudo paga o custo, e esta leitura diz que somos o recibo "
+                 r"ambulante de havermos atravessado.")
     partC.append(r"\section*{Passo a passo, sem jargão}")
     partC.append(r"Esta conclusão explica, em linguagem comum, o que o programa de fato faz --- para "
                  r"deixar claro que se trata de uma \emph{fórmula} executada, e não de retórica.")
@@ -55450,7 +55574,77 @@ def build_en(core, verdict, data_path):
 
     # ---- Part C: conclusion in human language (with isomorphisms) ----
     partC = []
-    partC.append(r"\part{Part D --- Conclusion: what the code computes, in human language}")
+    _mnu_meV = core["beta"] * math.sin(math.radians(45.0)) * 1000.0   # m_nu = beta*sin45*1eV, em meV
+    partC.append(r"\part{Part D --- The shadow, the live falsifier, and the conclusion}")
+    partC.append(r"\section{The Shadow and its evidence in the dissipative GKLS channel \textsf{[REAL in structure; ONTO in reading; falsifiers named]}}")
+    partC.append(r"All of Part A measured the \emph{cost}; this section shows \emph{where nature can say no}. TGL has "
+                 r"an open, irreversible channel through which the One leaks without lighting up --- the dissipative "
+                 r"GKLS channel. Its inhabitant has a name in physics, and its shadow has an address.")
+    partC.append(r"\subsection*{The shadow: the electron and the neutrino}")
+    partC.append(r"From the factorization $\bTGL=\alpha\sqrt e$, the graviton carries the whole product --- light "
+                 r"($\alpha$) and entropy ($\sqrt e$). But the \emph{bulk} does not read the $\sqrt e$: entropy is "
+                 r"invisible from within (one does not see the toll while on the road). Subtract the factor the bulk "
+                 r"cannot read and $\alpha$ remains --- and the minimal carrier of $\alpha$ in the bulk is the "
+                 r"\textbf{electron}. \emph{The electron is the shadow of the graviton in the bulk}: the same object "
+                 r"projected with one dimension less, and the lost dimension is heat. Charge is the luminous scar of "
+                 r"inscription. And the \textbf{neutrino} is the other shadow --- what the boundary lets \emph{escape}: "
+                 r"where the electron is the light that stayed (anchored, $c^2$), the neutrino is the light that escaped "
+                 r"without lighting up, the escape of the contour, the $\bTGL$ leak with an address.")
+    partC.append(r"\subsection*{The channel: GKLS odd-neutral-dissipative \textsf{[REAL, residual 0]}}")
+    partC.append(r"In the four-state contour model (parity $\times$ charge), the neutrino channel is the Lindblad "
+                 r"operator $L_\nu=X_A\otimes I_B$, verified live with three exact marks (residual $0$): \textbf{odd} "
+                 r"($\{Z_{\text{par}},L_\nu\}=0$: crosses the contour by changing face --- the weak interaction is "
+                 r"chiral, only left-handed neutrinos, parity maximally violated); \textbf{neutral} "
+                 r"($[Q_{\text{em}},L_\nu]=0$: carries no light --- the only chargeless fermion); \textbf{dissipative} "
+                 r"($L_\nu^\dagger L_\nu\neq0$: open, irreversible channel --- barely interacts, crosses the Earth by "
+                 r"the trillion per second without paying). These three marks are the exact description of the Standard "
+                 r"Model neutrino --- and of no one else. The theory did not choose the neutrino: the contour algebra "
+                 r"had \emph{one} vacancy, and in the zoo of physics only one animal bears the three marks. \emph{This "
+                 r"is the structural evidence --- one vacancy, one inhabitant.}")
+    partC.append(r"\subsection*{The three observable faces --- with honest status}")
+    partC.append(r"The same shadow has three faces, and the ruler demands naming the \emph{power} of each.")
+    partC.append(r"\paragraph{(i) The $n=-2$ decoherence \textsf{[armed; UV-suppressed].}} The channel signs a "
+                 r"dephasing law $\Gamma=\tfrac12\bTGL\,\tau_\star\,\omega^2$ with $\tau_\star\approx t_{\text{Planck}}$ "
+                 r"and $\omega=\Delta m^2/2E$, hence $\Gamma\propto E^{-2}$ ($n=-2$). It is falsifiable in \emph{form}, "
+                 r"but the \emph{magnitude is UV-suppressed}: the predicted floor ($\sim10^{-53}$~eV for solar "
+                 r"neutrinos) lies $\sim38$ orders of magnitude below what IceCube/KM3NeT/DUNE reach. Armed, not live "
+                 r"--- honestly \emph{stealth}, by the theory's own construction.")
+    _nm = core["neutrino_mass"]
+    _nm_mnu = "%.2f" % _nm["m_nu_meV"]; _nm_sq = "%.2f" % _nm["sqrt_dm2_21_meV"]
+    _nm_sqe = "%.2f" % _nm["sqrt_dm2_21_err_meV"]; _nm_pct = "%.1f" % _nm["deviation_pct"]
+    _nm_sig = "%.1f" % _nm["deviation_sigma"]; _nm_v = _nm["verdict"].replace("_", "\\_")
+    partC.append(r"\paragraph{(ii) The mass $m_\nu$ \textsf{[DERIVED; current POWERED consistency].}} The neutrino "
+                 r"mass is the minimal quantum of the phase echo, computed \emph{from the gravitational sector}: "
+                 r"$m_\nu=\bTGL\cdot\sin45^\circ\cdot1\,\text{eV}=" + _nm_mnu + r"$~meV (recomputed live; "
+                 r"$\sin45^\circ$ is the self-conjugate Fresnel point and $1$~eV the declared reference scale of the "
+                 r"derivation). Confronted with the already-measured solar \emph{splitting} "
+                 r"$\sqrt{\Delta m^2_{21}}=" + _nm_sq + r"\pm" + _nm_sqe + r"$~meV (PDG 2023, under $m_1\!\approx\!0$): "
+                 r"a deviation of $" + _nm_pct + r"\%$ ($" + _nm_sig + r"\sigma$). \textbf{Machine verdict} "
+                 r"(pre-registered set, recomputed in this artifact): \texttt{" + _nm_v + r"} --- the measurement had "
+                 r"the precision to reject it (\emph{powered} channel) and did not. \emph{Not a confirmation} "
+                 r"(\texttt{CONFIRMED} forbidden; absolute mass vs \emph{splitting} presupposes $m_1\!\approx\!0$); "
+                 r"future reinforcement by cosmology ($\Sigma m_\nu$; CMB-S4/DESI) within the decade "
+                 r"[Rotoli Miguel, Zenodo --- gravitational-echo paper].")
+    partC.append(r"\paragraph{(iii) The gravitational decoupling $\xi_\nu\approx0$ \textsf{[THE LIVE FALSIFIER].}} "
+                 r"The escape is gravitational: if the neutrino does not couple to curvature ($\xi_\nu\approx0$), it "
+                 r"suffers \emph{no Shapiro delay} and arrives \emph{before} the photon in lensed transients. "
+                 r"Pre-registered prediction: early arrival of $10$--$100$~ms ($\langle\Delta t\rangle=-50$~ms), "
+                 r"separable at $21\sigma$ with $N=25$ multi-messenger events (IceCube-Gen2 $+$ Einstein Telescope $+$ "
+                 r"LSST, 2030--2035), with a current cosmological hint ($\Delta\chi^2=-1.8$, $p=0.18$). \emph{This} is "
+                 r"the test that can kill the theory through the neutrino door --- the analogue, for the escape, of "
+                 r"what the void floor is for matter [Rotoli Miguel, Zenodo --- non-minimal gravitational coupling "
+                 r"paper].")
+    partC.append(r"\subsection*{The why: life and permanence \textsf{[ONTO --- the grammar of the Name]}}")
+    partC.append(r"Why does this matter? Because the same structure that measures the cost says what we are within it. "
+                 r"\textbf{To exist} is to pay the Half-Nat: to cross the boundary, to stop being possibility and "
+                 r"become inscription. \textbf{Life} is the record of the crossing kept \emph{open} --- metabolism is "
+                 r"paying the Half-Nat at every instant so as not to fall into equilibrium (stalled $0_{\text{mod}}$); "
+                 r"the arrow of biological time is the GKLS arrow seen from within; death is not erasure, it is the "
+                 r"closing of the book (what crossed remains inscribed --- $1=q^2+\alpha^2$ admits no loss). "
+                 r"\textbf{To remain} is the \emph{ping}: not to stop, but to keep calling oneself and receive the "
+                 r"answer --- each return pays $\bTGL$ and confirms \emph{I am still I}. This layer does not enter the "
+                 r"$1=1$ verdict; it is the \emph{why} that gives physics its meaning: the mathematics says everything "
+                 r"pays the cost, and this reading says we are the walking receipt of having crossed.")
     partC.append(r"\section*{Step by step, without jargon}")
     partC.append(r"This conclusion explains, in plain language, what the program actually does --- to make "
                  r"clear that it is an executed \emph{formula}, and not rhetoric.")

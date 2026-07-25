@@ -459,7 +459,7 @@ warning: TGLExt/GeometricWitness.lean:73:32: Variable name `x` is not explicitly
 The binding can be removed (if unused) or named `_` (if used implicitly).
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [8645/8685] Replayed TGLExt.ContinuumShards
+⚠ [8646/8685] Replayed TGLExt.ContinuumShards
 warning: TGLExt/ContinuumShards.lean:46:8: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
@@ -470,7 +470,7 @@ Hint: Omit it from the simp argument list.
   simp ̵[̵C̵o̵n̵t̵i̵n̵u̵o̵u̵s̵L̵i̵n̵e̵a̵r̵M̵a̵p̵.̵s̵u̵b̵_̵a̵p̵p̵l̵y̵]̵
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8646/8685] Replayed TGLExt.EmergentEinstein
+⚠ [8647/8685] Replayed TGLExt.EmergentEinstein
 warning: TGLExt/EmergentEinstein.lean:80:16: This simp argument is unused:
   Matrix.diagonal_apply
 
@@ -516,11 +516,11 @@ Hint: Omit it from the simp argument list.
   simp [M̵a̵t̵r̵i̵x̵.̵d̵i̵a̵g̵o̵n̵a̵l̵_̵a̵p̵p̵l̵y̵,̵ ̵hij]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8654/8685] Replayed TGLExt.MixedLadder
+⚠ [8655/8685] Replayed TGLExt.MixedLadder
 warning: TGLExt/MixedLadder.lean:128:4: 'push_cast at this' tactic does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [8659/8685] Replayed TGLExt.SecondCone
+⚠ [8660/8685] Replayed TGLExt.SecondCone
 warning: TGLExt/SecondCone.lean:48:8: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
@@ -531,7 +531,7 @@ Hint: Omit it from the simp argument list.
   simp ̵[̵C̵o̵n̵t̵i̵n̵u̵o̵u̵s̵L̵i̵n̵e̵a̵r̵M̵a̵p̵.̵s̵u̵b̵_̵a̵p̵p̵l̵y̵]̵
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [8662/8685] Replayed TGLExt.GeneralNull
+⚠ [8663/8685] Replayed TGLExt.GeneralNull
 warning: TGLExt/GeneralNull.lean:51:6: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
@@ -586,7 +586,7 @@ warning: TGLExt/RightMult.lean:585:6: `ContinuousLinearMap.zero_apply` has been 
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `_root_.zero_apply x`).
 ✔ [8681/8685] Built TGL.HalfNat (12s)
-ℹ [8682/8685] Built TGL.Audit (14s)
+ℹ [8682/8685] Built TGL.Audit (13s)
 info: TGL/Audit.lean:31:0: HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 info: TGL/Audit.lean:32:0: HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
 info: TGL/Audit.lean:33:0: AreaScale.eta_eq_one_over_two_kappa : ∀ (kappa : ℝ), 1 / 2 / kappa = 1 / (2 * kappa)
@@ -2853,7 +2853,7 @@ info: TGL/Audit.lean:1644:0: GRAVITON_BELL_SHADOW_CCI_HALF
 info: TGL/Audit.lean:1645:0: THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX
 info: TGL/Audit.lean:1646:0: CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR
 info: TGL/Audit.lean:1647:0: FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED
-✔ [8683/8685] Built TGL.Main (12s)
+✔ [8683/8685] Built TGL.Main (11s)
 ✔ [8684/8685] Built TGL (12s)
 Build completed successfully (8685 jobs).
 
