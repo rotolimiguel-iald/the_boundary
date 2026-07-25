@@ -6211,7 +6211,7 @@
       "ext_ph_conservation_kernel_proved": true,
       "ext_ph_anomaly_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "9ed7611d6f91ebf9f28852920bffe2bd9b7f2e1dbff8899b306df3561c1cab8a",
+      "build_stdout_sha256": "7611fe7f8913502681c9cd853f0f5dd3af2c182d301a492af9a9bf2b04da7d30",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "audit_stdout_sha256": "da2c880b0b3ca52e98eac593d9f1bdb14e8ef73491747b53326af0fffc6952bc",
       "build_returncode": 0,
@@ -6226,7 +6226,7 @@
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "9ed7611d6f91ebf9f28852920bffe2bd9b7f2e1dbff8899b306df3561c1cab8a",
+      "build_capture_sha256_full": "7611fe7f8913502681c9cd853f0f5dd3af2c182d301a492af9a9bf2b04da7d30",
       "audit_capture_sha256_full": "da2c880b0b3ca52e98eac593d9f1bdb14e8ef73491747b53326af0fffc6952bc",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
@@ -16158,7 +16158,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-07-24 11:45:39",
+    "timestamp": "2026-07-24 21:07:19",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -16408,7 +16408,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-07-24 11:45:39",
+        "prediction_timestamp": "2026-07-24 21:07:19",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -16444,7 +16444,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "4876336bce75df5061eeed2846454fdcc1831762e61c99753d205a19177cbfe2"
+        "prediction_hash": "0a1f7408941f0fea97034a3146ed682fe67714001551547ef5f97c6171a73fd7"
       },
       "comparison": null,
       "degeneracy_note": "Coma sozinha NAO separa 'vazamento modular 8.07%' de 'H0_local=73.263' -- testa o PAR (Planck+defasagem) vs (Planck s/ defasagem)",
@@ -16747,7 +16747,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "5f4e5b76482ee653caecd4a833f5734f8b9191eb668dae0165bcc35c0a12014b"
+    "result_hash": "91f63f372cf6a0cd110dc0c8c4fdd387f32173be28e559b9e72b7fc38e163e4d"
   },
   "ga_mass_literature": [
     {
@@ -16774,7 +16774,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "5f4e5b76482ee653caecd4a833f5734f8b9191eb668dae0165bcc35c0a12014b",
+  "result_hash_before_external_comparison": "91f63f372cf6a0cd110dc0c8c4fdd387f32173be28e559b9e72b7fc38e163e4d",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -16784,5 +16784,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-07-24 11:45:39"
+  "timestamp": "2026-07-24 21:07:19"
 }

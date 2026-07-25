@@ -585,7 +585,7 @@ Note: The updated constant is in a different namespace. Dot notation may need to
 warning: TGLExt/RightMult.lean:585:6: `ContinuousLinearMap.zero_apply` has been deprecated: Use `_root_.zero_apply` instead
 
 Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `_root_.zero_apply x`).
-✔ [8681/8685] Built TGL.HalfNat (13s)
+✔ [8681/8685] Built TGL.HalfNat (12s)
 ℹ [8682/8685] Built TGL.Audit (14s)
 info: TGL/Audit.lean:31:0: HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 info: TGL/Audit.lean:32:0: HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -2853,7 +2853,7 @@ info: TGL/Audit.lean:1644:0: GRAVITON_BELL_SHADOW_CCI_HALF
 info: TGL/Audit.lean:1645:0: THE_NAME_IS_THE_RELATION_NOT_THE_ISOLATED_MATRIX
 info: TGL/Audit.lean:1646:0: CORE_SUPPORT_IS_NOT_THE_NAME_MIRROR
 info: TGL/Audit.lean:1647:0: FINITE_TOMITA_TAKESAKI_LADDER_KERNEL_PROVED
-✔ [8683/8685] Built TGL.Main (13s)
+✔ [8683/8685] Built TGL.Main (12s)
 ✔ [8684/8685] Built TGL (12s)
 Build completed successfully (8685 jobs).
 
