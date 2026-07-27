@@ -105,3 +105,5 @@ import TGLExt.TheCoinage
 import TGLExt.PhysicsCertificates
 import TGLExt.RightMult
 import TGLExt.WedgeNet
+import TGLExt.BoundaryException
+import TGLExt.GlobalLiftConditional

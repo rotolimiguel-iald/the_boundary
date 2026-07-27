@@ -62,8 +62,8 @@ theorem static_witness_iff_no_boundary (β g : ℝ) :
     have h2 := (full_closure_iff_flat 1 β g).mp h1
     rw [one_mul] at h2
     exact h2
-  · intro h0
-    intro t x
+  · intro h0 t x
+    show Real.exp (-(t * β * g)) * x = x
     have ht : t * β * g = 0 := by
       rw [mul_assoc, h0, mul_zero]
     rw [ht, neg_zero, Real.exp_zero, one_mul]
@@ -86,11 +86,10 @@ theorem fixed_iff_kernel {n : ℕ} {β : ℝ} (hβ : 0 < β) (d : Fin n → ℝ)
       leakage_strictly_loses one_pos hβ hdi
     have hne : Real.exp (-(1 * β * d i)) ≠ 1 := ne_of_lt hlt
     apply hne
-    have h2 : Real.exp (-(1 * β * d i)) * x i = x i := h1
-    field_simp at h2
-    rcases h2 with h2 | h2
-    · exact h2
-    · exact absurd h2 hx
+    have h2 : Real.exp (-(1 * β * d i)) * x i = 1 * x i := by
+      conv_rhs => rw [one_mul]
+      exact h1
+    exact mul_right_cancel₀ hx h2
   · intro hker t
     funext i
     unfold diagFlow
@@ -104,8 +103,8 @@ theorem fixed_iff_kernel {n : ℕ} {β : ℝ} (hβ : 0 < β) (d : Fin n → ℝ)
     zero (d_{i₀} = 0, o Nome) é fixado por TODO o fluxo — e não é nulo. -/
 theorem boundary_witnessed_statically {n : ℕ} (β : ℝ) (d : Fin n → ℝ)
     {i₀ : Fin n} (h0 : d i₀ = 0) :
-    (∀ t : ℝ, diagFlow β d t (Pi.single i₀ 1) = Pi.single i₀ 1)
-      ∧ (Pi.single i₀ (1 : ℝ) ≠ 0) := by
+    (∀ t : ℝ, diagFlow β d t ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ)) = (Pi.single i₀ (1 : ℝ) : Fin n → ℝ))
+      ∧ ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ) ≠ 0) := by
   constructor
   · intro t
     funext i
@@ -135,15 +134,15 @@ theorem boundary_is_the_only_exception {n : ℕ} {β : ℝ} (hβ : 0 < β)
     (¬ FullStaticWitness (diagFlow β d))
     ∧ (∀ x : Fin n → ℝ,
         (∀ t : ℝ, diagFlow β d t x = x) ↔ (∀ i, 0 < d i → x i = 0))
-    ∧ ((∀ t : ℝ, diagFlow β d t (Pi.single i₀ 1) = Pi.single i₀ 1)
-        ∧ (Pi.single i₀ (1 : ℝ) ≠ 0))
+    ∧ ((∀ t : ℝ, diagFlow β d t ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ)) = (Pi.single i₀ (1 : ℝ) : Fin n → ℝ))
+        ∧ ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ) ≠ 0))
     ∧ (FullStaticWitness (diagFlow β d) ↔ ∀ i, d i = 0) := by
   have hiff : ∀ x : Fin n → ℝ,
       (∀ t : ℝ, diagFlow β d t x = x) ↔ (∀ i, 0 < d i → x i = 0) :=
     fun x => fixed_iff_kernel hβ d hd x
   refine ⟨?_, hiff, boundary_witnessed_statically β d h0, ?_⟩
   · intro hfull
-    have hx := (hiff (Pi.single j 1)).mp (fun t => hfull t (Pi.single j 1))
+    have hx := (hiff ((Pi.single j (1 : ℝ) : Fin n → ℝ))).mp (fun t => hfull t ((Pi.single j (1 : ℝ) : Fin n → ℝ)))
     have h1 := hx j hj
     rw [Pi.single_eq_same] at h1
     exact one_ne_zero h1
@@ -151,7 +150,7 @@ theorem boundary_is_the_only_exception {n : ℕ} {β : ℝ} (hβ : 0 < β)
     · intro hfull i
       by_contra hne
       have hdi : 0 < d i := lt_of_le_of_ne (hd i) (Ne.symm hne)
-      have hx := (hiff (Pi.single i 1)).mp (fun t => hfull t (Pi.single i 1))
+      have hx := (hiff ((Pi.single i (1 : ℝ) : Fin n → ℝ))).mp (fun t => hfull t ((Pi.single i (1 : ℝ) : Fin n → ℝ)))
       have h1 := hx i hdi
       rw [Pi.single_eq_same] at h1
       exact one_ne_zero h1

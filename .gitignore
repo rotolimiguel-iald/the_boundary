@@ -6,3 +6,20 @@ README.md.bak_parecer
 README.md.bak_pre_alpha_section
 README.md.bak_rawindex_fix
 VITRINE_COMPREENSAO_FABLE5.md
+# --- banco de dados local: NUNCA vai ao repositorio publico (doutrina 27/07/2026) ---
+cache/*
+!cache/CHAIN_OF_CUSTODY.json
+__pycache__/
+tgl_kernel/.lake/
+# --- rodadas locais e intermediarios de compilacao ---
+run_v*.bat
+run_v*_done.txt
+run_v*_stdout.txt
+run_v*_stderr.txt
+README.md.bak_*
+* - Copia*
+*.aux
+*.toc
+*.out
+um_grande_atrator_pt.log
+um_grande_atrator_en.log

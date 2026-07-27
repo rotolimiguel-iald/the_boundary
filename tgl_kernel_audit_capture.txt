@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=180485 len(stderr)=0
+# len(stdout)=181317 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -2252,6 +2252,15 @@ TGLExt.witness_fiber_sensitive : (TGLExt.theSensitiveNet.net.external (1, Multip
 'TGLExt.cSlice_mul_towerStep' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.towerPi_comm_rTowerPi' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.tPush_modTwist' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.static_witness_iff_no_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.fixed_iff_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.boundary_witnessed_statically' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.boundary_is_the_only_exception' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.frobProjection_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.adU_frob_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.global_lift_conditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.response_covariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.diagExpect_isFrobProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

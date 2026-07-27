@@ -17,7 +17,8 @@ Niveis de estatuto:
   [KERNEL/UNCONDITIONAL]           HalfNat, AreaScale, FiniteThreeLocks
   [KERNEL/CONDITIONAL ON WITNESS]  ContinuousCornerAbstract, SpecificAQFTWitness
   [KNOWN/EXTERNAL]                 BW, Reeh-Schlieder, classificacao III_1 (nao formalizados aqui)
-  [OPEN]                           instancia concreta de TGLSpecificAQFTWitness
+  [HABITADO v135]                  instancia de TGLSpecificAQFTWitness (theSpecificAQFTWitness;
+                                   honestidade declarada: U trivial; rep FIEL + cond. espectral seguem nomeadas)
 -/
 
 namespace TGL

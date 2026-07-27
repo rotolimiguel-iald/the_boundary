@@ -1628,6 +1628,19 @@ namespace TGL.Audit
 #print axioms TGLExt.towerPi_comm_rTowerPi
 #print axioms TGLExt.tPush_modTwist
 
+-- v142 (a excecao da fronteira: a unica testemunha estatica)
+#print axioms TGLExt.static_witness_iff_no_boundary
+#print axioms TGLExt.fixed_iff_kernel
+#print axioms TGLExt.boundary_witnessed_statically
+#print axioms TGLExt.boundary_is_the_only_exception
+
+-- v143 (o GLOBAL_LIFT condicional: o Lema 3 tipado como implicacao)
+#print axioms TGLExt.frobProjection_unique
+#print axioms TGLExt.adU_frob_isometry
+#print axioms TGLExt.global_lift_conditional
+#print axioms TGLExt.response_covariant
+#print axioms TGLExt.diagExpect_isFrobProjection
+
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
 #eval IO.println "FINITE_THREE_LOCKS_KERNEL_PROVED"

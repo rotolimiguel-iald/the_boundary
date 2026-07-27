@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-25 13:58:31",
-  "result_hash": "6cadb17ebe39f5dae4d8ce76808279bf326d489c4dbf923f550f5c015da7738a",
+  "timestamp": "2026-07-27 15:54:27",
+  "result_hash": "5150e4c81196527fcc2d85b9e813e525b405c3eab41a9c3969d1efbdc60e87c6",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -47,7 +47,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "aecf07ab9ea9cf1021ccbbb101b45879e4e223ae16750184b08cfe23c67d0836",
+  "formal_source_hash": "c4a78afd02590491a2eec48f63f385337ada2c6cc18a0309e2d0285469b29b37",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -61,24 +61,25 @@
     "does_not_gate_core": true
   },
   "coma_dephasing": {
-    "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
+    "verdict": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "4911e8c246e88d2ac88a0b604969c001d55d65fa652ce69b5935761701d88d1c",
+    "prediction_hash": "2a921df36c7b029f99210a6c119fc80fa7cb4d1a7a07a1c9934a0f12787248c0",
     "does_not_gate_core": true
   },
   "sha256": {
-    "um.py": "76b3f8162ea97e31af838448fb5663089332e21323fcd0292cdc301a319a2387",
-    "um_grande_atrator_manifest.md": "e2a8802d1c59596a6e4300f3c1d66d8469df1b7ee1134009c50cee0928c0ad19",
-    "um_grande_atrator.json": "11a6590ddd16aaf5fdf1937b6afdb753daab2444feea001bbea3fbdb0b141f96",
-    "um_grande_atrator_forma_canonica.md": "3bcff2c3b3b185d207e8fa61434e4bad07b4d62cdaf7d9382753c9ae8d697a3b",
-    "um_grande_atrator_pt.tex": "a8c866f0b0d08283159b3c5a0dccff8bd2adafccec9f015b84d72eabb9cd42b6",
-    "um_grande_atrator_en.tex": "6fb83221792522d412af83c6e06b5472ab5f5fa221cbe8f7a44c8723571809a7",
-    "um_grande_atrator_pt.pdf": "d12865abb7bc778cfb3f7133ecab5cee7c284e42e72208c55e37bd2cbf36e74c",
-    "um_grande_atrator_en.pdf": "9c64aafa724f88ebf3230f4205cc5a2c199d6721345533e74190773af634acf1",
+    "um.py": "e7aa5c831284c8c07cd2937f2e9f62afe1aa79f966fcf0bd8350076004cddbce",
+    "um_grande_atrator_manifest.md": "2d9844a6e5c24bcf414ad2d158c14b1e7968e3378ec9e2fe181af097fb8ccf39",
+    "um_grande_atrator.json": "a42dd6d99a230decffb2097db351ba76fa9d1c081ec062d0b03ad736aaa59911",
+    "um_grande_atrator_forma_canonica.md": "8211ee181dd8819cafa7ced762e9e5c2c148c1e7fe23543033898b0ca3fdeed8",
+    "um_grande_atrator_pt.tex": "fded1536a15cb816aae3e35833cfe142ffb86b67cb96fbf5e0ad04a7270c240b",
+    "um_grande_atrator_en.tex": "984624bc83d5dfb871095d9b28fc45c2885a7ba31b62881a7766f319903aecc8",
+    "um_grande_atrator_pt.pdf": "fe4f09de1e23a6721f09df54cf85a7009a44ed81cc04127bbc407e7f57aa2b77",
+    "um_grande_atrator_en.pdf": "4ddc0778d1906669aaa67e215c4f327391f3522f17f125a353de5aedcd8ee90d",
     "fig_escada_qg.pdf": "f9b7d7810a831cae287c038ace43e3d7fa31aba5a249c8329eda2fc960b9a426",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
-    "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
+    "fig_piso_vazios.pdf": "fc0091a4875ef23feb754f279aa65877e9b3ff01731cbbed7c7ee6a0f3bd7cc4",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "9f502d3254b6a46ceb9ab20c17fc0e7fe9a22d09bbd9e562830b1b5701f12d04"
-  }
+    "tgl_kernel_proof_manifest.json": "3aa554bf71090aecb3511bdc106f9566d7f8cbbcbed7b3be747faa304e9d52e4"
+  },
+  "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED"
 }
