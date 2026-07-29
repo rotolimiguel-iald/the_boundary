@@ -1641,6 +1641,17 @@ namespace TGL.Audit
 #print axioms TGLExt.response_covariant
 #print axioms TGLExt.diagExpect_isFrobProjection
 
+-- v144 (o resgate do observador: ponto fixo, projecao inversa, falsidade de genero)
+#print axioms TGLExt.permanent_iff_survives_negation
+#print axioms TGLExt.flow_negates_off_kernel
+#print axioms TGLExt.no_fixed_point_no_observer
+#print axioms TGLExt.genre_falsity_inhabited
+#print axioms TGLExt.observerProj_idem
+#print axioms TGLExt.observer_reads_exactly_the_permanent
+#print axioms TGLExt.observer_output_is_permanent
+#print axioms TGLExt.observer_inverse_projection_halfnat
+#print axioms TGLExt.the_standard_of_unification
+
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
 #eval IO.println "FINITE_THREE_LOCKS_KERNEL_PROVED"

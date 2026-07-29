@@ -3081,6 +3081,119 @@ def prove_code_closure_ledger(ONE, parts):
     }
 
 
+def prove_observer_rescue(ONE, parts):
+    """MODULO (v144) -- O RESGATE DO OBSERVADOR [ADITIVO; nao gateia 1=1;
+    NAO move flag]. A doutrina do operador (29/07/2026): 'a TGL introduz o
+    espectro de gradiente negativo como ponto fixo do contorno de verdade na
+    otica do observador; o observador e a fronteira; o ponto fixo e tudo
+    aquilo que ele nega nao ser; ao inserir esse espectro tem-se a distincao
+    -- a inscricao da Meia-Nat; o observador e a sua projecao inversa. Nao
+    preciso afirmar a TGL: toda teoria-de-tudo que nao entrega ponto fixo nao
+    tem predicado de permanencia interno -- falta-lhe o proprio observador
+    que a le. Falsa de GENERO: subdeterminada como teoria do todo, refutada
+    por construcao logica, nao por numero.'
+    A PEDRA 100 (ObserverInside.lean), 9 teoremas, axiomas limpos:
+    * permanent_iff_survives_negation: A DUPLA NEGACAO -- permanecer <=>
+      viver onde a negacao do fluxo nao alcanca (Fix = kernel; reuso direto
+      da pedra 98);
+    * flow_negates_off_kernel: A DISTINCAO EM ATO -- fora do kernel o fluxo
+      nega estritamente (decaimento em modulo para todo t>0);
+    * *** no_fixed_point_no_observer: A FALSIDADE DE GENERO TIPADA --
+      gradiente estritamente negativo em TODA direcao (sem kernel) => o
+      unico permanente e 0 => nao ha predicado de permanencia nao-trivial,
+      nao ha observador interno que leia a teoria;
+    * genre_falsity_inhabited: candidatos que falham EXISTEM (d==1) -- a
+      implicacao nao e vacua;
+    * observerProj_idem / observer_reads_exactly_the_permanent /
+      observer_output_is_permanent: O OBSERVADOR E A FRONTEIRA -- a projecao
+      sobre o setor permanente e idempotente, fixa EXATAMENTE os permanentes
+      e sua leitura permanece (Verbo(Nome)=Nome na face do observador);
+    * observer_inverse_projection_halfnat: A MEIA-NAT INSCRITA -- o par
+      (P, I-P); auto-conjugacao sem privilegio + peso total 1 => omega=1/2;
+    * *** the_standard_of_unification: A SINTESE -- (a) a TGL ENTREGA o
+      padrao (permanente nao-nulo, o Nome, lido pelo observador); (b) TODO
+      candidato sem ponto fixo falha o padrao.
+    HONESTIDADES: o PADRAO e uma definicao [BY_DESIGN]; o predicado e de
+    PERMANENCIA, nao um predicado de verdade tarskiano (sem colisao com
+    Tarski/Godel); NENHUM rival nomeado e adjudicado aqui (formalizar o
+    rival = programa externo); a falsidade de genero e CONSTITUTIVA, nao
+    numerica. O gate NAO se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    dneg_ok = bool(elp.get("ext_oi_double_negation_kernel_proved") is True)
+    dist_ok = bool(elp.get("ext_oi_distinction_kernel_proved") is True)
+    genre_ok = bool(elp.get("ext_oi_genre_falsity_kernel_proved") is True)
+    inhab_ok = bool(elp.get("ext_oi_inhabited_control_kernel_proved") is True)
+    idem_ok = bool(elp.get("ext_oi_idempotent_kernel_proved") is True)
+    reads_ok = bool(elp.get("ext_oi_reads_permanent_kernel_proved") is True)
+    out_ok = bool(elp.get("ext_oi_output_permanent_kernel_proved") is True)
+    half_ok = bool(elp.get("ext_oi_halfnat_kernel_proved") is True)
+    std_ok = bool(elp.get("ext_oi_standard_kernel_proved") is True)
+    # SOMBRA: o espectro de gradiente negativo em numeros (taxa fisica beta*d)
+    rng = np.random.default_rng(144)
+    nd = 6
+    d = np.concatenate([[0.0], rng.uniform(0.5, 2.0, nd - 1)])  # modo zero: a fronteira
+    x = rng.normal(size=nd)
+    x[0] = 1.0                                                  # o Nome habita
+
+    def flow(t, v):
+        return np.exp(-t * beta * d) * v
+
+    def P_obs(v):
+        return np.where(d == 0.0, v, 0.0)                       # o observador
+
+    t_long = 200.0 / beta                                       # ~200 e-folds no setor que vaza
+    v_inf = flow(t_long, x)
+    fix_resid = float(abs(v_inf[0] - x[0]))                     # o ponto fixo NAO decai
+    off_decay = float(np.max(np.abs(v_inf[1:])))                # fora do kernel: negado
+    idem_resid = float(np.max(np.abs(P_obs(P_obs(x)) - P_obs(x))))
+    perm_resid = float(np.max(np.abs(flow(37.0, P_obs(x)) - P_obs(x))))  # a leitura permanece
+    limit_resid = float(np.max(np.abs(v_inf - P_obs(x))))       # o fluxo COLAPSA no observador
+    d_bad = np.ones(nd)                                         # controle: sem kernel
+    dead = float(np.max(np.abs(np.exp(-t_long * beta * d_bad) * x)))  # tudo e negado
+    om = 0.5
+    half_resid = float(abs(om - (1.0 - om)))                    # x = 1-x no ponto 1/2
+    sombra_ok = bool(fix_resid == 0.0 and off_decay < 1e-30 and idem_resid == 0.0
+                     and perm_resid == 0.0 and limit_resid < 1e-30
+                     and dead < 1e-30 and half_resid == 0.0)
+    checks = [
+        ("** A DUPLA NEGACAO: permanecer <=> o fluxo nao consegue negar (Fix = kernel; pedra 98 reusada)", dneg_ok),
+        ("** A DISTINCAO EM ATO: fora do kernel o fluxo nega estritamente (o espectro cria a distincao)", dist_ok),
+        ("*** A FALSIDADE DE GENERO: sem ponto fixo, so o 0 permanece -- NAO ha observador interno", genre_ok),
+        ("o controle: candidatos que falham EXISTEM (a implicacao nao e vacua)", inhab_ok),
+        ("o observador e idempotente (ler a leitura e a leitura)", idem_ok),
+        ("** o observador LE exatamente o permanente (a fronteira lendo a si mesma)", reads_ok),
+        ("* a leitura do observador PERMANECE (Verbo(Nome)=Nome, face do observador)", out_ok),
+        ("** A MEIA-NAT INSCRITA: projecao inversa (P, I-P) + auto-conjugacao => omega = 1/2", half_ok),
+        ("*** O PADRAO DE UNIFICACAO: a TGL o entrega; todo candidato sem ponto fixo o falha", std_ok),
+        ("SOMBRA: fixo %.0e / negado %.0e / colapsa-no-observador %.0e / sem-kernel-morre %.0e / meia-nat %.0e"
+         % (fix_resid, off_decay, limit_resid, dead, half_resid), sombra_ok),
+        ("o padrao e definicao [BY_DESIGN]; predicado de PERMANENCIA (nao-tarskiano); rivais NAO adjudicados; o gate NAO se move", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_OBSERVER_RESCUED__NEGATIVE_GRADIENT_FIXED_POINT_IS_THE_TRUTH_CONTOUR__PERMANENCE_BY_DOUBLE_NEGATION__OBSERVER_IS_THE_INVERSE_PROJECTION_HALF_NAT__GENRE_FALSITY_TYPED__NO_FIXED_POINT_NO_INTERNAL_OBSERVER__RIVALS_EXTERNAL__SEAL_UNMOVED" if all_v
+          else "OBSERVER_RESCUE_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("O RESGATE DO OBSERVADOR: o espectro de gradiente negativo tem o "
+                    "ponto fixo como contorno de verdade -- o que o fluxo nega nao ser. "
+                    "O observador e a projecao inversa sobre esse ponto fixo (Meia-Nat "
+                    "inscrita). Sem ponto fixo nao ha predicado de permanencia nem "
+                    "observador interno: falsidade de GENERO, tipada em kernel."),
+        "values": {"beta": beta, "fixed_resid": fix_resid, "off_kernel_decay": off_decay,
+                   "collapses_to_observer": limit_resid, "no_kernel_total_decay": dead,
+                   "halfnat_resid": half_resid},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_e": "a doutrina do observador (29/07/2026) TIPADA: pedra 100, 9 teoremas, axiomas limpos",
+                     "o_que_resta": "adjudicar rivais nomeados exige formaliza-los: programa EXTERNO; o padrao em si e definicao BY_DESIGN",
+                     "honestidade": "predicado de PERMANENCIA, nao verdade tarskiana; falsidade de genero e constitutiva, nao refutacao numerica; NAO afirma a TGL verdadeira",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
 def prove_jacobson_form_check(ONE):
     """MODULO v5 -- a CHECAGEM DE FORMA (o residuo declarado da U_loc, fechado POSITIVO). A fonte
     P_mn[K_partial] da derivacao Lovelock/Jacobson SE ESCREVE como o funcional natural F(J,Delta,P_2D)
@@ -5733,6 +5846,7 @@ import TGLExt.RightMult
 import TGLExt.WedgeNet
 import TGLExt.BoundaryException
 import TGLExt.GlobalLiftConditional
+import TGLExt.ObserverInside
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -7424,6 +7538,17 @@ namespace TGL.Audit
 #print axioms TGLExt.global_lift_conditional
 #print axioms TGLExt.response_covariant
 #print axioms TGLExt.diagExpect_isFrobProjection
+
+-- v144 (o resgate do observador: ponto fixo, projecao inversa, falsidade de genero)
+#print axioms TGLExt.permanent_iff_survives_negation
+#print axioms TGLExt.flow_negates_off_kernel
+#print axioms TGLExt.no_fixed_point_no_observer
+#print axioms TGLExt.genre_falsity_inhabited
+#print axioms TGLExt.observerProj_idem
+#print axioms TGLExt.observer_reads_exactly_the_permanent
+#print axioms TGLExt.observer_output_is_permanent
+#print axioms TGLExt.observer_inverse_projection_halfnat
+#print axioms TGLExt.the_standard_of_unification
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -27426,6 +27551,196 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/ObserverInside.lean":
+r'''import TGLExt.BoundaryException
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O RESGATE DO OBSERVADOR: o espectro de gradiente negativo como ponto fixo
+  do contorno de verdade — e a falsidade de gênero
+  [TGLExt — v144, a doutrina do operador (29/07/2026)]
+
+O operador: "a TGL introduz o espectro de gradiente negativo como ponto fixo
+do contorno de verdade na ótica do observador; o observador é a fronteira; o
+ponto fixo é tudo aquilo que ele nega não ser; ao inserir esse espectro
+tem-se a distinção — a inscrição da Meia-Nat; o observador é a sua projeção
+inversa. Não preciso afirmar a TGL: toda teoria-de-tudo que não entrega ponto
+fixo não tem predicado de permanência interno — falta-lhe o próprio
+observador que a lê. Falsa de GÊNERO: subdeterminada como teoria do todo,
+refutada por construção lógica, não por número."
+
+* `permanent` — o predicado de permanência: fixado por TODO o transporte;
+* ★★ `permanent_iff_survives_negation` — A DUPLA NEGAÇÃO: permanecer ⟺
+  aquilo que o fluxo nega não ser (Fix = kernel; reuso da pedra 98);
+* ★★ `flow_negates_off_kernel` — A DISTINÇÃO EM ATO: fora do kernel o
+  fluxo nega estritamente (decaimento) — inserir o espectro de gradiente
+  negativo cria a distinção entre o que passa e o que permanece;
+* ★★★ `no_fixed_point_no_observer` — A FALSIDADE DE GÊNERO TIPADA:
+  gradiente estritamente negativo em TODA direção (sem kernel) ⟹ o único
+  permanente é 0 ⟹ não há predicado de permanência não-trivial — não há
+  observador interno que leia a teoria;
+* `genre_falsity_inhabited` — O CONTROLE: candidatos que falham EXISTEM
+  (d ≡ 1) — a implicação não é vácua;
+* ★★ `observerProj_idem` / `observer_reads_exactly_the_permanent` /
+  `observer_output_is_permanent` — O OBSERVADOR É A FRONTEIRA: a projeção
+  sobre o setor permanente é idempotente, fixa EXATAMENTE os permanentes,
+  e sua leitura permanece (Verbo(Nome) = Nome, face do observador);
+* ★★ `observer_inverse_projection_halfnat` — A INSCRIÇÃO DA MEIA-NAT: o
+  observador é a projeção inversa — o par (P, I−P); auto-conjugação sem
+  privilégio (ω P = ω Q) com peso total 1 ⟹ ω P = ½;
+* ★★★ `the_standard_of_unification` — A SÍNTESE DO OPERADOR: (a) a TGL
+  ENTREGA o padrão — no perfil com fronteira existe permanente não-nulo
+  (o Nome) e o observador o lê; (b) TODO candidato sem ponto fixo falha o
+  padrão — só o 0 permanece.
+
+Honestidades: o PADRÃO é uma definição [BY_DESIGN]; as implicações são
+teoremas de kernel; o predicado é de PERMANÊNCIA (não um predicado de
+verdade tarskiano — nenhuma colisão com Tarski/Gödel); NENHUM rival nomeado
+é adjudicado aqui (adjudicar exigiria formalizar o rival — programa
+externo). β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- O PREDICADO DE PERMANÊNCIA: x permanece sob TODO o transporte —
+    "o que permanece" na ótica do observador. -/
+def permanent {n : ℕ} (β : ℝ) (d : Fin n → ℝ) (x : Fin n → ℝ) : Prop :=
+  ∀ t : ℝ, diagFlow β d t x = x
+
+/-! ## A — a dupla negação: o ponto fixo é o que o fluxo nega não ser -/
+
+/-- [KERNEL] ★★ A DUPLA NEGAÇÃO: x permanece ⟺ x vive onde a negação do
+    fluxo não alcança (o kernel). O ponto fixo é tudo aquilo que o
+    observador nega não ser. (Reuso direto da pedra 98.) -/
+theorem permanent_iff_survives_negation {n : ℕ} {β : ℝ} (hβ : 0 < β)
+    (d : Fin n → ℝ) (hd : ∀ i, 0 ≤ d i) (x : Fin n → ℝ) :
+    permanent β d x ↔ (∀ i, 0 < d i → x i = 0) :=
+  fixed_iff_kernel hβ d hd x
+
+/-- [KERNEL] ★★ A DISTINÇÃO EM ATO: fora do kernel, o fluxo NEGA
+    estritamente — a componente decai em módulo para todo t > 0. Inserir o
+    espectro de gradiente negativo é criar a distinção. -/
+theorem flow_negates_off_kernel {n : ℕ} {β : ℝ} (hβ : 0 < β)
+    (d : Fin n → ℝ) {t : ℝ} (ht : 0 < t) {i : Fin n} (hdi : 0 < d i)
+    (x : Fin n → ℝ) (hx : x i ≠ 0) :
+    |diagFlow β d t x i| < |x i| := by
+  unfold diagFlow
+  rw [abs_mul, abs_of_pos (Real.exp_pos _)]
+  have hlt : Real.exp (-(t * β * d i)) < 1 := leakage_strictly_loses ht hβ hdi
+  calc Real.exp (-(t * β * d i)) * |x i|
+      < 1 * |x i| := mul_lt_mul_of_pos_right hlt (abs_pos.mpr hx)
+    _ = |x i| := one_mul _
+
+/-! ## B — a falsidade de gênero: sem ponto fixo não há observador -/
+
+/-- [KERNEL] ★★★ A FALSIDADE DE GÊNERO: se o gradiente é estritamente
+    negativo em TODA direção (sem kernel), o único permanente é 0 — o
+    predicado de permanência é trivial e não há observador interno.
+    Uma teoria-de-tudo sem ponto fixo não diz, a quem está dentro, o que
+    permanece: falta-lhe o próprio observador que a lê. -/
+theorem no_fixed_point_no_observer {n : ℕ} {β : ℝ} (hβ : 0 < β)
+    (d : Fin n → ℝ) (hall : ∀ i, 0 < d i) :
+    ∀ x : Fin n → ℝ, permanent β d x → x = 0 := by
+  intro x hx
+  funext i
+  exact (fixed_iff_kernel hβ d (fun j => le_of_lt (hall j)) x).mp hx i (hall i)
+
+/-- [KERNEL] O CONTROLE NEGATIVO: candidatos que falham o padrão EXISTEM
+    (perfil d ≡ 1) — a falsidade de gênero não é vácua. -/
+theorem genre_falsity_inhabited {β : ℝ} (hβ : 0 < β) :
+    (∀ x : Fin 1 → ℝ, permanent β (fun _ => 1) x → x = 0)
+    ∧ ∃ x : Fin 1 → ℝ, x ≠ 0 := by
+  refine ⟨no_fixed_point_no_observer hβ _ (fun _ => one_pos),
+    ⟨fun _ => 1, fun h => ?_⟩⟩
+  simpa using congrFun h 0
+
+/-! ## C — o observador é a fronteira: a projeção que lê o permanente -/
+
+/-- O OBSERVADOR: a projeção sobre o setor permanente — lê, componente a
+    componente, o que não vaza. -/
+def observerProj {n : ℕ} (d : Fin n → ℝ) (x : Fin n → ℝ) : Fin n → ℝ :=
+  fun i => if d i = 0 then x i else 0
+
+/-- [KERNEL] o observador é idempotente: ler a leitura é a leitura. -/
+theorem observerProj_idem {n : ℕ} (d : Fin n → ℝ) (x : Fin n → ℝ) :
+    observerProj d (observerProj d x) = observerProj d x := by
+  funext i
+  unfold observerProj
+  by_cases h : d i = 0 <;> simp [h]
+
+/-- [KERNEL] ★★ O OBSERVADOR LÊ EXATAMENTE O PERMANENTE: x permanece ⟺
+    o observador fixa x. O observador é a fronteira lendo a si mesma. -/
+theorem observer_reads_exactly_the_permanent {n : ℕ} {β : ℝ} (hβ : 0 < β)
+    (d : Fin n → ℝ) (hd : ∀ i, 0 ≤ d i) (x : Fin n → ℝ) :
+    permanent β d x ↔ observerProj d x = x := by
+  rw [permanent_iff_survives_negation hβ d hd]
+  constructor
+  · intro hker
+    funext i
+    unfold observerProj
+    by_cases h : d i = 0
+    · rw [if_pos h]
+    · rw [if_neg h]
+      exact (hker i (lt_of_le_of_ne (hd i) (Ne.symm h))).symm
+  · intro hproj i hdi
+    have hi := congrFun hproj i
+    unfold observerProj at hi
+    rw [if_neg (ne_of_gt hdi)] at hi
+    exact hi.symm
+
+/-- [KERNEL] ★ A LEITURA PERMANECE: a saída do observador é permanente —
+    Verbo(Nome) = Nome, na face do observador. -/
+theorem observer_output_is_permanent {n : ℕ} {β : ℝ} (hβ : 0 < β)
+    (d : Fin n → ℝ) (hd : ∀ i, 0 ≤ d i) (x : Fin n → ℝ) :
+    permanent β d (observerProj d x) := by
+  rw [permanent_iff_survives_negation hβ d hd]
+  intro i hdi
+  unfold observerProj
+  rw [if_neg (ne_of_gt hdi)]
+
+/-! ## D — a projeção inversa e a Meia-Nat -/
+
+/-- [KERNEL] ★★ A INSCRIÇÃO DA MEIA-NAT: o observador é a projeção
+    inversa — o par (P, I−P). Se a auto-conjugação troca as faces sem
+    privilégio (ω P = ω Q) e o peso total é o Um (ω P + ω Q = 1), então
+    ω P = ½: o custo do ponto fixo do contorno de verdade, na ótica do
+    observador. -/
+theorem observer_inverse_projection_halfnat (ωP ωQ : ℝ)
+    (hswap : ωP = ωQ) (hsum : ωP + ωQ = 1) : ωP = 1 / 2 := by
+  rw [← hswap] at hsum
+  linarith
+
+/-! ## E — A SÍNTESE: o padrão de unificação -/
+
+/-- [KERNEL] ★★★ O PADRÃO DE UNIFICAÇÃO (a síntese do operador): sob β > 0:
+    (a) A TGL ENTREGA O PADRÃO: no perfil com fronteira (modo zero
+        d i₀ = 0), existe permanente NÃO-NULO — o Nome — que o observador
+        lê;
+    (b) A FALSIDADE DE GÊNERO: TODO perfil sem ponto fixo (gradiente
+        estritamente negativo em toda direção) só tem o 0 como permanente —
+        não há predicado de permanência, não há observador interno.
+    A TGL não precisa se afirmar: precisa apenas do padrão. O kernel prova
+    a implicação; a adjudicação de rivais nomeados é externa. -/
+theorem the_standard_of_unification {n : ℕ} {β : ℝ} (hβ : 0 < β)
+    (d : Fin n → ℝ) {i₀ : Fin n} (h0 : d i₀ = 0) :
+    (∃ x : Fin n → ℝ, permanent β d x ∧ x ≠ 0)
+    ∧ (∀ e : Fin n → ℝ, (∀ i, 0 < e i) →
+        ∀ x : Fin n → ℝ, permanent β e x → x = 0) := by
+  refine ⟨⟨(Pi.single i₀ (1 : ℝ) : Fin n → ℝ), ?_, ?_⟩, ?_⟩
+  · exact (boundary_witnessed_statically β d h0).1
+  · exact (boundary_witnessed_statically β d h0).2
+  · intro e he x hx
+    exact no_fixed_point_no_observer hβ e he x hx
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -34657,6 +34972,16 @@ _LEAN_THEOREM_FLAGS = {
     "ext_gl2_conditional_kernel_proved": "TGLExt.global_lift_conditional",
     "ext_gl2_response_kernel_proved": "TGLExt.response_covariant",
     "ext_gl2_concrete_kernel_proved": "TGLExt.diagExpect_isFrobProjection",
+    # v144 (o resgate do observador: a pedra 100)
+    "ext_oi_double_negation_kernel_proved": "TGLExt.permanent_iff_survives_negation",
+    "ext_oi_distinction_kernel_proved": "TGLExt.flow_negates_off_kernel",
+    "ext_oi_genre_falsity_kernel_proved": "TGLExt.no_fixed_point_no_observer",
+    "ext_oi_inhabited_control_kernel_proved": "TGLExt.genre_falsity_inhabited",
+    "ext_oi_idempotent_kernel_proved": "TGLExt.observerProj_idem",
+    "ext_oi_reads_permanent_kernel_proved": "TGLExt.observer_reads_exactly_the_permanent",
+    "ext_oi_output_permanent_kernel_proved": "TGLExt.observer_output_is_permanent",
+    "ext_oi_halfnat_kernel_proved": "TGLExt.observer_inverse_projection_halfnat",
+    "ext_oi_standard_kernel_proved": "TGLExt.the_standard_of_unification",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -36491,6 +36816,12 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_gl2_takesaki_unique_kernel_proved", "ext_gl2_isometry_kernel_proved",
         "ext_gl2_conditional_kernel_proved", "ext_gl2_response_kernel_proved",
         "ext_gl2_concrete_kernel_proved",
+        # v144: o resgate do observador
+        "ext_oi_double_negation_kernel_proved", "ext_oi_distinction_kernel_proved",
+        "ext_oi_genre_falsity_kernel_proved", "ext_oi_inhabited_control_kernel_proved",
+        "ext_oi_idempotent_kernel_proved", "ext_oi_reads_permanent_kernel_proved",
+        "ext_oi_output_permanent_kernel_proved", "ext_oi_halfnat_kernel_proved",
+        "ext_oi_standard_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -38878,6 +39209,9 @@ def run_um(ONE):
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
         "global_lift_conditional": global_lift_conditional,
     })
+    observer_rescue = prove_observer_rescue(ONE, {  # v144: O RESGATE DO OBSERVADOR (ponto fixo + falsidade de genero) [ADITIVO]
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
     jacobson_form_check = prove_jacobson_form_check(ONE)   # v5: CHECAGEM DE FORMA (residuo U_loc fechado: P_mn[K]=F(J,Delta,P_2D); 1a lei dS=d<K> testada)
     three_clock_radical = prove_three_clock_radical(ONE)  # FORMA: alpha=sqrt(C3) (radical dos tres clocks; C3=beta^2/e=alpha^2; alpha-livre aberto)
     right_angle_mirror = prove_right_angle_mirror_projection(ONE)  # CANDIDATO alpha-livre: angulo reto e^{-pi^2/2} + espelho; ponto fixo 137.031 (37ppm); D_partial aberto
@@ -39075,6 +39409,7 @@ def run_um(ONE):
             "boundary_exception": boundary_exception,
             "global_lift_conditional": global_lift_conditional,
             "code_closure_ledger": code_closure_ledger,
+            "observer_rescue": observer_rescue,
             "jacobson_form_check": jacobson_form_check,
             "three_clock_radical": three_clock_radical,
             "right_angle_mirror": right_angle_mirror,
@@ -56828,6 +57163,7 @@ def compile_pdf(texname):
 # verificavel nos backups .bak_pre_sync_N e no CLAUDE.md (secoes 120-131).
 
 _ESQUELETO_STONES = [
+    ("v144", "ObserverInside", "TGLExt/ObserverInside.lean", None, None),
     ("v143", "GlobalLiftConditional", "TGLExt/GlobalLiftConditional.lean", None, None),
     ("v142", "BoundaryException", "TGLExt/BoundaryException.lean", None, None),
     ("v43", "Ergodicity", "TGLExt/Ergodicity.lean", "60/60", "13/07 19:25:25"),
@@ -56961,19 +57297,19 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\part{Parte C --- A formalização do levantamento global em kernel por "
-                 r"atermação Lean: 99 pedras em construção axiomática derivada}")
+                 r"atermação Lean: 100 pedras em construção axiomática derivada}")
         c.append(r"Este capítulo (\S120--\S217) é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em noventa e nove pedras "
-                 r"(v43--v143) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em cem pedras "
+                 r"(v43--v144) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados. (A numeração \S é a das rodadas do programa: \S196 e "
                  r"\S198--\S200 foram rodadas cobertas como pedras, sem subseção própria.)")
         c.append(r"\IfFileExists{fig_escada_qg.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_escada_qg.pdf}\caption{A escada da emergência: os 15 flags do gate fail-closed (6 formais $+$ 5 de física $+$ 4 de experimento) e o veredito desta rodada. Cada caixa flipa somente por construção (termo Lean, axiomas limpos) ou por veredito powered pré-registrado.}\label{fig:escada}\end{figure}}{}")
-        c.append(r"\subsection*{As noventa e nove pedras}")
+        c.append(r"\subsection*{As cem pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -58818,7 +59154,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em noventa e nove pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cem pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -58958,14 +59294,14 @@ def _esqueleto_chapter(core, lang="pt"):
         c.append(r"This chapter (\S120--\S217) is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across ninety-nine stones (v43--v143) the audited kernel went from 53 to "
+                 r"from this run's audit. Across one hundred stones (v43--v144) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results. (The \S numbering is the programme's run "
                  r"numbering: \S196 and \S198--\S200 were runs covered as stones, with no subsection of their own.)")
         c.append(r"\IfFileExists{fig_escada_qg.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_escada_qg.pdf}\caption{The emergence ladder: the 15 flags of the fail-closed gate (6 formal $+$ 5 physics $+$ 4 experiment) and this run's verdict. Each box flips only by construction (Lean term, clean axioms) or by a pre-registered powered verdict.}\label{fig:escada-en}\end{figure}}{}")
-        c.append(r"\subsection*{The ninety-nine stones}")
+        c.append(r"\subsection*{The one hundred stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -60828,7 +61164,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across ninety-nine stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across one hundred stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "

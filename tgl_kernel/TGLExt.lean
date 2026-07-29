@@ -107,3 +107,4 @@ import TGLExt.RightMult
 import TGLExt.WedgeNet
 import TGLExt.BoundaryException
 import TGLExt.GlobalLiftConditional
+import TGLExt.ObserverInside
