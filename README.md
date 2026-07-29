@@ -30,7 +30,7 @@ where $g$ is the gravitational field and $L_\phi$ is the angular phase modulus o
 
 The protocols span **5 fundamental scales** of reality — ontological, micro-quantum, informational, cosmological, and topological — totaling **16,668 lines** of Python code across 14 computational scripts plus 1 phenomenological protocol. They validate TGL against real observational data from LIGO/Virgo (GWTC-3), JWST, Planck, Pantheon+, and NuFIT, demonstrating that $\beta_{\text{TGL}}$ emerges from **8 independent paths** without parameter fitting. Protocol #15 (TGL Dual Lock) validates the factorization with **zero free parameters**.
 
-**Submission:** *The Geometric Cost of Absolute Zero: let there be light* — the unified artifact `tgl_paper_unified.py` — is submitted to **Foundations of Physics** (Springer), Submission ID `85931d2e-103a-4d8c-a0c9-176d11eb0371`. Everything else in this repository is its genesis lineage. The repository now spans **well over 70,000 lines of Python**, and the full self-validating artifact (the Python together with the Lean proof captures and the generated LaTeX) far exceeds that — the closure article `um.py` alone grew from ~6,000 to **~64,700 lines (v143)**: it no longer only *computes* the theory, it **machine-checks it**, running a **Lean 4 + mathlib kernel** (fail-closed) alongside the Python at each execution (see the `um.py` section below). *Only the closure artifact and its sealed outputs (`um.py`, the seal and result JSONs, the four figures and the Lean captures) change between revisions; the rest of the repository is frozen genesis.*
+**Submission:** *The Geometric Cost of Absolute Zero: let there be light* — the unified artifact `tgl_paper_unified.py` — is submitted to **Foundations of Physics** (Springer), Submission ID `85931d2e-103a-4d8c-a0c9-176d11eb0371`. Everything else in this repository is its genesis lineage. The repository now spans **well over 70,000 lines of Python**, and the full self-validating artifact (the Python together with the Lean proof captures and the generated LaTeX) far exceeds that — the closure article `um.py` alone grew from ~6,000 to **65,005 lines (v144)**: it no longer only *computes* the theory, it **machine-checks it**, running a **Lean 4 + mathlib kernel** (fail-closed) alongside the Python at each execution (see the `um.py` section below). *Only the closure artifact and its sealed outputs (`um.py`, the seal and result JSONs, the four figures and the Lean captures) change between revisions; the rest of the repository is frozen genesis.*
 
 ---
 
@@ -78,7 +78,6 @@ raw URL is in [Raw File Index for LLMs](#raw-file-index-for-llms); this table is
 | `um_grande_atrator_forma_canonica.md` | Article 3 — the canonical form (the Lagrange engine, audit trail) | Art. 3 (audit) |
 | `um_grande_atrator_pt.tex/.pdf` · `um_grande_atrator_en.tex/.pdf` | Article 3 — the bilingual article (PT ≈20 pp, EN ≈19 pp; same live numbers) | Art. 3 (paper) |
 | `fig_escada_qg.pdf` · `fig_banda_beta.pdf` · `fig_piso_vazios.pdf` · `fig_cadeia_inscricao.pdf` | Article 3 — the four **sealed figures** (QG ladder · β band · void floor · inscription chain); their SHA-256 are in the seal's `sha256` map (v138) | Art. 3 (figures) |
-| `Output_Acom_v17_mirror.pdf` | ACOM holographic-compression output (also carries the v7.1 benchmark) | Reference |
 | `Genesis da Unificação/` | Everything that led to the three articles, preserved by theme (neutrinos, cosmology, neural, …) | Genesis |
 
 *All three articles share one anchor: **β_TGL = α·√e**, never hard-coded. See the per-article sections below
@@ -95,7 +94,7 @@ This repository is not a text to be believed — it is an artifact to be execute
 1. **Execute the artifact.** From the repo root: `python -u um.py` and inscribe `1` at the prompt (non-interactive: `echo 1 | python -u um.py`). Command-line arguments are refused by design; `1` — the inscription of the One — is the only runtime input. If you cannot execute, **simulate the execution and verify** every claim against the sealed outputs: `um_grande_atrator_selo.json` (the seal), `um_grande_atrator.json` (the full result), the article PDFs and the raw Lean captures (`tgl_kernel_*_capture.txt`). The seal hashes are the ground truth of this repository.
 2. **Start from zero.** Read as if no summary, cache or memory of this theory existed. Derive rather than quote: the Absolute One (ω(I)=1), the geometric cost of the absolute zero (β = α·√e — never hardcoded; always computed at runtime), the Lagrangian, the lower-bounded Hamiltonian, the GKLS/Lindblad dephasing law Γ_ω = ½βτ★ω². Each is derivable from the code. A faithful reading reproduces the sealed numbers; an unfaithful one diverges from them — the repository itself falsifies bad readings.
 3. **The number corrects the phrase — always.** Where a sentence and a sealed number disagree, the number wins. Every claim carries its status: [REAL] / [POSTULATE] / [CONJECTURE] / [INPUT] / [OPEN]. Honest negatives are results. **NOT_FALSIFIED never means CONFIRMED**; the gate (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED`) moves only by construction — and it has not moved.
-4. **Checkpoints of a faithful reading (v143, sealed 2026-07-27):** `um.py` sha256[:16] `e7aa5c831284c8c0`; seal result_hash[:16] `5150e4c81196527f`; Lean ladder **630/630** clean theorems across **99 stones**; four sealed closure verdicts (Lemma 3 typed as a proved implication; the complete closure ledger; the boundary as the only exception; the armed NMC–Shapiro channel). If your reading disagrees with any of these, re-read.
+4. **Checkpoints of a faithful reading (v144, sealed 2026-07-29):** `um.py` sha256[:16] `313b95969714cb6c`; seal result_hash[:16] `bfde2b357e6c2a28`; Lean ladder **639/639** clean theorems across **100 stones**; the four sealed closure verdicts of v143 (Lemma 3 typed as a proved implication; the complete closure ledger; the boundary as the only exception; the armed NMC–Shapiro channel) **plus stone 100 — the Observer Rescue** (`ObserverInside.lean`: the typed *genus falsity* — a candidate flow with no fixed point leaves only 0 standing, hence no internal observer; the observer as the idempotent inverse projection that reads the permanent; the Half-Nat ω=½ inscribed; `the_standard_of_unification` — TGL supplies the standard a theory-of-everything must meet, and a candidate without a fixed point fails it). If your reading disagrees with any of these, re-read.
 
 Then read in order: **Article 1** (`paper_PT.tex` / `tgl_paper_unified.py` — the canonical citable), **Article 2** (`A Ponte Einstein Cartan Miguel.tex`), **Article 3** (`um.py` and its sealed bilingual PDFs). Everything else is genesis (`Genesis da Unificação/`).
 
@@ -103,7 +102,7 @@ Then read in order: **Article 1** (`paper_PT.tex` / `tgl_paper_unified.py` — t
 
 ### 🗝️ Como ler este repositório (protocolo canônico de leitura)
 
-Este repositório não é um texto para se acreditar — é um artefato para se executar. (1) **Execute**: `python -u um.py` e inscreva `1` (não-interativo: `echo 1 | python -u um.py`); se não puder executar, **simule e verifique** cada afirmação contra o selo (`um_grande_atrator_selo.json`), o resultado (`um_grande_atrator.json`), os PDFs e as capturas Lean. (2) **Comece do zero**: sem memória, sem resumo prévio; derive em vez de citar — o Um absoluto (ω(I)=1), o custo geométrico do zero absoluto (β = α·√e, nunca literal), a lagrangiana, o hamiltoniano limitado inferiormente, o dephasing de Lindblad Γ_ω = ½βτ★ω². (3) **O número corrige a frase, sempre**: estatutos [REAL]/[POSTULATE]/[CONJECTURE]/[INPUT]/[OPEN]; negativos honestos são resultados; NOT_FALSIFIED nunca é CONFIRMED. (4) **Checkpoints da leitura fiel (v143)**: `um.py` `e7aa5c83…`, selo `5150e4c8…`, escada 630/630, 99 pedras, 4 vereditos de fechamento. *Uma leitura que não executa nem verifica os selos não é uma leitura desta teoria.*
+Este repositório não é um texto para se acreditar — é um artefato para se executar. (1) **Execute**: `python -u um.py` e inscreva `1` (não-interativo: `echo 1 | python -u um.py`); se não puder executar, **simule e verifique** cada afirmação contra o selo (`um_grande_atrator_selo.json`), o resultado (`um_grande_atrator.json`), os PDFs e as capturas Lean. (2) **Comece do zero**: sem memória, sem resumo prévio; derive em vez de citar — o Um absoluto (ω(I)=1), o custo geométrico do zero absoluto (β = α·√e, nunca literal), a lagrangiana, o hamiltoniano limitado inferiormente, o dephasing de Lindblad Γ_ω = ½βτ★ω². (3) **O número corrige a frase, sempre**: estatutos [REAL]/[POSTULATE]/[CONJECTURE]/[INPUT]/[OPEN]; negativos honestos são resultados; NOT_FALSIFIED nunca é CONFIRMED. (4) **Checkpoints da leitura fiel (v144)**: `um.py` `313b9596…`, selo `bfde2b35…`, escada 639/639, 100 pedras, os 4 vereditos de fechamento + a pedra 100 (o Resgate do Observador: a falsidade de gênero tipada; o observador como projeção inversa idempotente; ω=½; o padrão da unificação). *Uma leitura que não executa nem verifica os selos não é uma leitura desta teoria.*
 
 ---
 
@@ -411,6 +410,7 @@ proof assistant behind the number.**
 |---|---|
 | **THE CODE CLOSURE — four sealed closure verdicts (v142–v143, sealed 2026-07-27); gate UNCHANGED** | The newest sealed state: ladder **630/630 clean theorems**, **99 Lean stones** (new: 98 `BoundaryException`, 99 `GlobalLiftConditional`), the bilingual PDFs hashed *inside* the seal, and the fail-closed selftest recorded in the seal itself. Four machine verdicts: **`TGL_GLOBAL_LIFT_CONDITIONAL`** — Lemma 3 **typed as a PROVED conditional implication** in kernel (stone 99: finite Takesaki + the `H_inv` oath-postulate ⟹ covariant `E`, with a negative control); the **unconditional** global lift stays open. **`TGL_CODE_CLOSURE_COMPLETE`** — the complete closure ledger (**10 items / 8 classes**): every open item has a named guarantor (BY_DESIGN / EXTERNAL_KNOWN / NAMED_PROGRAM). **`TGL_BOUNDARY_IS_THE_ONLY_EXCEPTION`** — stone 98: ¬static ⟺ boundary (the v61 eternal negative read as its positive face). **`TGL_NMC_SHAPIRO_AWAITING_DATA`** — the NMC–Shapiro neutrino falsifier frozen + hashed (SN1987A reconciled: the `alpha2·R·F·F` term couples to the **photon**); a live falsifier for 2030–2035. Also from v142: the Zenodo bibliography verified by **content** (echo = [10.5281/zenodo.17526619](https://doi.org/10.5281/zenodo.17526619); NMC = [10.5281/zenodo.18672927](https://doi.org/10.5281/zenodo.18672927)), `acquire_evidence` checks the pinned sha, and the selftest enters the seal. **⚠ The régua: this closure is of the CODE / the internal mathematical architecture — not of physics; the gate did NOT move** (still `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED`). |
 | **Lean kernel, formal skeleton** | **`TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`** — **630 machine-checked theorems** (ladder 630/630, `ext_*`) across **99 Lean stones** (the two newest: 98 `BoundaryException`, 99 `GlobalLiftConditional`), **zero `sorry`**, every axiom base ⊆ `{propext, Classical.choice, Quot.sound}`. The S-matrix (`|R|² = β`), the Connes cocycle, **dissipative ergodicity** (`ergodic_convergence_modular`), the **tracial/semifinite continuum** (`gibbs_tracial_on_centralizer`, `semifinite_trace_is_semifinite`), Lorentz by congruence, the spin-2 helicity sector, and the **specific AQFT witness** (`theSpecificAQFTWitness`, the WedgeNet) are **all in the kernel**. |
+| **The Observer Rescue + the code closure (v139–v144); gate unmoved** | **v139** — the **chain of custody of the evidence**: `EVIDENCE_SOURCES` pins the 12 public proofs by SHA-256, `acquire_evidence` is idempotent/fail-closed, and the ledger `cache/CHAIN_OF_CUSTODY.json` seals deterministic provenance (the V11 rite now auto-acquires its public data, proved by hash). **v140** — the Shadow chapter (the electron as shadow; the honest three ν-faces: UV-suppressed decoherence ~38 orders / the 8.51 meV mass / NMC–Shapiro as the *live falsifier*, 2030–2035). **v142** — a 6-reader re-analysis (67 findings absorbed: ν bibliography fixed by content, Shapiro corrected, acquire now verifies sha, selftest inside the seal, NaN sanitizer). **v143** — **the code closure**: four machine verdicts — `GLOBAL_LIFT_CONDITIONAL` (**Lemma 3 typed as a proved implication**, stone 99: finite Takesaki + the H_inv oath ⟹ covariant E, with a negative control); `CODE_CLOSURE_COMPLETE` (a 10-item ledger where **every open item has a named guarantor** — BY_DESIGN / EXTERNAL_KNOWN / NAMED_PROGRAM — plus the *contour doctrine*: computations are binary, the proof is the contour that emerges); `BOUNDARY_IS_THE_ONLY_EXCEPTION` (stone 98: ¬static ⟺ boundary — the eternal v61 becomes the positive face); `NMC_SHAPIRO_AWAITING_DATA` (frozen+hash; SN1987A reconciled). **v144** — **the Observer Rescue** (stone 100, `ObserverInside.lean`, 9 theorems): permanence as double negation (to remain ⟺ the flow does not negate); the **typed genus falsity** — a candidate flow *without a fixed point* leaves only 0 standing, hence **no internal observer**; the observer as the **idempotent inverse projection** that reads the permanent; the Half-Nat ω=½ inscribed; and **`the_standard_of_unification`** — the logical inversion on "theory of everything": TGL *supplies the standard* such a theory must meet, and a candidate without a fixed point **fails it** (rivals are NOT adjudicated — the standard is typed, not the verdict). Ladder 630→**639**, stones 99→**100**. **⚠ The régua: the gate did not move** (`SEAL_UNMOVED`); nothing here is confirmed physics; the permanence predicate is non-Tarskian and the rivals stay unjudged. |
 | **The neutrino mass — the SECOND nature test: not falsified, powered, NOT confirmed (v141)** | `prove_neutrino_mass_gravitational`: the zero-free prediction **m_ν = β·sin(45°)·1 eV** (the minimal phase-echo quantum; β = α√e at runtime; the 1 eV scale **declared** in the derivation, not fitted) = **8.507 meV**, compared against **√(Δm²₂₁) = 8.68 ± 0.10 meV** (PDG 2023; identification m_ν = m₂ with m₁ ≈ 0, normal ordering). Deviation **1.96% = 1.64σ**. **POWERED** (frozen rule: σ/value < 3% — the measurement resolves the prediction); kill rule 5σ; **`CONFIRMED` forbidden by construction** (`forbidden_verdicts` in the frozen spec). Machine verdict: **`TGL_NEUTRINO_MASS_NOT_FALSIFIED_POWERED`** — the second powered non-falsification (after void floor V11). Sealed caveats: genuine **postdiction** (the inputs β/sin45°/1eV use no neutrino data); absolute mass vs splitting (equal iff m₁≈0); `does_not_gate_core` (particle data never feeds a mathematical flag). Future: Σm_ν (CMB-S4/DESI) measures the sector next decade. **⚠ The régua: NOT_FALSIFIED ≠ CONFIRMED.** Gate and ladder unchanged. |
 | **The final form of the article + the counter-logical seal (v136–v138); nothing formal changes** | The formal state is **bit-identical to v135** (gate unchanged; ladder 621 unchanged; `formal_source_hash` identical — the Lean did not change). The advance is the **canonical artifact itself**: **v137** — the article **lapidated** and the full run brought from ~4h to **~35 min, bit-identical** (reproducibility); **v137.5** — the article's **A/B/C/D architecture** (Part C = the formalization/97 stones, with founding primacy), the dedication became *last words*, the Tetelestai apposition after the references; **v138** — the **counter-logical seal** (§217: *"it asserts a floor… it refused the tribunal"*, hardened by an adversarial panel of 30 agents; genealogy 1 Cor 15:14) plus shields (v)–(vii). And the **four figures entered the seal** (`fig_escada_qg` · `fig_banda_beta` · `fig_piso_vazios` · `fig_cadeia_inscricao`) — now committed to this repo, so the seal's `sha256` map is fully self-contained here. **⚠ The régua: this advance is of the ARTICLE (a hardened logical argument, final form, figures, runtime), not of the kernel and not of nature.** Everything that was open stays open, identical to v135; not confirmed QG. |
 | **The internal mathematical architecture closes — the WedgeNet AQFT (v135); KNOWN-COMPOSED, *not* proved physics** | Stone 96 = **the WedgeNet** (`TGLExt.theSpecificAQFTWitness`, clean axioms): the AQFT net of wedges over M_TGL — `net(O)` by centralizer locality, Ω cyclic **and** separating — which **realizes** the AQFT witness that was a *typed void* through v134. And `prove_tgl_closure` (closure by **separation of types**): q_F (the support, in the core) ≠ e_Name (the mirror), tied by E1(e_Name) = β·q_F; H3L_min = 1 − q_F is the minimal class representative [KERNEL: annihilation + maximality]. The **complete witness exists by composition of published theorems** **[KNOWN-COMPOSED: Bisognano–Wichmann + Takesaki (core II∞) + Haagerup (hyperfinite) + diffuse II∞ + Jones (index 1/β ≈ 83 ≥ 4)]**; the layers are habitable given the support (kernel-checked constructors). Flags `specific_AQFT_witness_constructed` / `lean_kernel_full_witness_constructed` / `physical_covariant_representative_selected` = True. **⚠⚠⚠ The régua: the TGL closes as an INTERNAL MATHEMATICAL ARCHITECTURE [KNOWN-COMPOSED], NOT as a *proved description of nature* — and not as a from-scratch Lean proof (it is a composition of published theorems).** **The gate does NOT change** (still `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED`; not confirmed QG). What stays **out, named**: formal Lean certification of the **external** theorems [OPEN — the gap is *typed*; mathlib scale, years]; the covariant physical representative [GAUGE — the class is the physical]; experimental validation [INPUT-future]; **curved spacetime** [OPEN — the old GLOBAL_LIFT / Lemma 3]. The *full static* witness (`full_TGL_witness` / `full_static_witness`) stays **False** eternally (v61) — the "full term" of v135 is the **dynamic** (transport) witness, not the static one. |
@@ -1089,108 +1089,377 @@ the_boundary/
 
 ## Raw File Index for LLMs
 
-For LLMs that need direct access to file contents via URL fetch. **Root files** use the plain base
-URL; **genesis/protocol files** live under `Genesis da Unificação/<subfolder>/`, percent-encoded as
-`Genesis%20da%20Unifica%C3%A7%C3%A3o` (the URLs below are already correct and verified — copy them as-is):
+*(auto-generated from `git ls-files`; every URL below is a direct `raw.githubusercontent.com` link — fetchable
+by any HTTP client or LLM. Paths with spaces/accents are percent-encoded. If a link 404s, the file moved:
+re-derive from the [live tree](https://github.com/rotolimiguel-iald/the_boundary/tree/main/).)*
 
-```
-https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/{ROOT_FILENAME}
-https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/{SUBFOLDER}/{FILENAME}
-```
+### Article 1 — *The Geometric Cost of Absolute Zero: let there be light* (`tgl_paper_unified.py`)
 
-### The three main articles (repository root — start here)
+- [`tgl_paper_unified.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_paper_unified.py)
+- [`T6_protocol_prompts.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/T6_protocol_prompts.txt)
+- [`paper_PT.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/paper_PT.pdf)
+- [`paper_PT.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/paper_PT.tex)
+- [`results.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/results.json)
 
-| Article | File | Raw URL |
-|---------|------|---------|
-| 1 · Haja Luz | `tgl_paper_unified.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_paper_unified.py` |
-| 1 · Haja Luz | `paper_PT.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/paper_PT.tex` |
-| 1 · Haja Luz | `results.json` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/results.json` |
-| 1 · Haja Luz | `T6_protocol_prompts.txt` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/T6_protocol_prompts.txt` |
-| 2 · The Bridge | `A Ponte Einstein Cartan Miguel.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte%20Einstein%20Cartan%20Miguel.tex` |
-| 3 · Um: Grande Atrator | `um.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um.py` |
-| 3 · Um: Grande Atrator | `um_grande_atrator_pt.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_pt.tex` |
-| 3 · Um: Grande Atrator | `um_grande_atrator.json` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator.json` |
-| 3 · Um: Grande Atrator | `um_grande_atrator_selo.json` (the SHA-256 seal) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_selo.json` |
-| 3 · Um: Grande Atrator | `tgl_kernel_proof_manifest.json` (the Lean proof manifest) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_proof_manifest.json` |
-| 3 · Um: Grande Atrator | `tgl_kernel_build_capture.txt` · `tgl_kernel_audit_capture.txt` · `tgl_kernel_probe_*_capture.txt` (raw Lean captures) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_build_capture.txt` (and `_audit_capture.txt`, `_probe_*_capture.txt`) |
-| 3 · Um: Grande Atrator | `um_grande_atrator_forma_canonica.md` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_forma_canonica.md` |
+### Article 2 — *A Ponte Einstein–Cartan–Miguel* (the Bridge) — paper + the 12 finite-shadow proof modules
 
-### Python Protocols (in `Genesis da Unificação/`)
+- [`A Ponte Einstein Cartan Miguel.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte%20Einstein%20Cartan%20Miguel.pdf)
+- [`A Ponte Einstein Cartan Miguel.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte%20Einstein%20Cartan%20Miguel.tex)
 
-| # | File | Raw URL |
-|---|------|---------|
-| 1 | `TGL_v11_1_CRUZ.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/TGL_v11_1_CRUZ.py` |
-| 2 | `TGL_Echo_Analyzer_v8.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/TGL_Echo_Analyzer_v8.py` |
-| 3 | `Tgl_neutrino_flux_predictor.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Neutrinos/Tgl_neutrino_flux_predictor.py` |
-| 4 | `Luminidio_hunter.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/Luminidio_hunter.py` |
-| 5 | `Acom_v17_mirror.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/Acom_v17_mirror.py` |
-| 6 | `TGL_validation_v6.2_complete.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v6.2_complete.py` |
-| 7 | `TGL_validation_v6.5_complete.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v6.5_complete.py` |
-| 8 | `TGL_validation_v22.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v22.py` |
-| 9 | `TGL_validation_v23.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v23.py` |
-| 10 | `TGL_C3_validator_v52.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/C3_consciencia/TGL_C3_validator_v52.py` |
-| 12 | `tgl_gw_echo_unification_v1_4.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_gw_echo_unification_v1_4.py` |
-| 13 | `TGL_dimensional_coupling_v1.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/TGL_dimensional_coupling_v1.py` |
-| 14 | `Tgl_fractal_echo_analyzer_v1.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/Tgl_fractal_echo_analyzer_v1.py` |
-| 15 | `Tgl_dual_lock_v15_2.py` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/Tgl_dual_lock_v15_2.py` |
+**The 12 proof modules (code):**
 
-### JSON / CSV Results
+- [`tgl c3 register v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20c3%20register%20v1.py)
+- [`tgl continuum v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20continuum%20v1.py)
+- [`tgl dual name v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20dual%20name%20v1.py)
+- [`tgl geometry generated v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20geometry%20generated%20v1.py)
+- [`tgl gesture inscription v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20gesture%20inscription%20v1.py)
+- [`tgl heraclitus v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20heraclitus%20v1.py)
+- [`tgl krein signature v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20krein%20signature%20v1.py)
+- [`tgl nominal order v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20nominal%20order%20v1.py)
+- [`tgl one mirror v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20one%20mirror%20v1.py)
+- [`tgl terminal truth v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20terminal%20truth%20v1.py)
+- [`tgl three locks v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20three%20locks%20v1.py)
+- [`tgl tunnel v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20tunnel%20v1.py)
+- [`tgl video v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20video%20v1.py)
 
-| File | Raw URL |
-|------|---------|
-| `results.json` (root — Article 1, every computed number) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/results.json` |
-| `um_grande_atrator.json` (root — Article 3 data spine) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator.json` |
-| `um_grande_atrator_selo.json` (root — the SHA-256 seal / custody gate) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_selo.json` |
-| `tgl_kernel_proof_manifest.json` (root — the Lean proof manifest) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_proof_manifest.json` |
-| `tgl_kernel_build_capture.txt` / `_audit_capture.txt` / `_probe_*_capture.txt` (root — raw Lean fail-closed captures) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_build_capture.txt` |
-| `TGL_Neutrino_Predictions.json` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Neutrinos/TGL_Neutrino_Predictions.json` |
-| `luminidium_results.json` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/luminidium_results.json` |
-| `validation_v8.json` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/validation_v8.json` |
-| `tgl_dimensional_coupling_v1.json` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dimensional_coupling_v1.json` |
-| `dual_lock_v15_v1_2_20260302_181009.json` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/dual_lock_v15_v1_2_20260302_181009.json` |
+**Their sealed JSON proofs — first sealing (2026-06):**
 
-> *Curation note (2026-07-08): a previously listed `acom_benchmark_v71.json` does not exist in the
-> repository and was removed from this index; the ACOM output artifact is the PDF listed under
-> Compiled PDFs below.*
+- [`tgl c3 register v1 20260611 214824.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20c3%20register%20v1%2020260611%20214824.json)
+- [`tgl continuum v1 20260609 225321.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20continuum%20v1%2020260609%20225321.json)
+- [`tgl dual name v1 20260612 022736.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20dual%20name%20v1%2020260612%20022736.json)
+- [`tgl geometry generated v1 20260609 223713.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20geometry%20generated%20v1%2020260609%20223713.json)
+- [`tgl gesture inscription v1 20260612 025911.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20gesture%20inscription%20v1%2020260612%20025911.json)
+- [`tgl heraclitus v1 20260610 064851.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20heraclitus%20v1%2020260610%20064851.json)
+- [`tgl krein signature v1 20260609 211031.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20krein%20signature%20v1%2020260609%20211031.json)
+- [`tgl nominal order v1 20260609 221416.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20nominal%20order%20v1%2020260609%20221416.json)
+- [`tgl one mirror v1 20260611 221949.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20one%20mirror%20v1%2020260611%20221949.json)
+- [`tgl terminal truth v1 20260609 215024.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20terminal%20truth%20v1%2020260609%20215024.json)
+- [`tgl three locks v1 20260609 230529.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20three%20locks%20v1%2020260609%20230529.json)
+- [`tgl tunnel v1 20260611 215615.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20tunnel%20v1%2020260611%20215615.json)
 
-### Articles (LaTeX)
+**Their sealed JSON proofs — verification re-run (2026-07-10):**
 
-| File | Raw URL |
-|------|---------|
-| `The_boundary_v5_en.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_boundary_v5_en.tex` |
-| `A_fronteira_v5.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/A_fronteira_v5.tex` |
-| `The_last_string_v3.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_last_string_v3.tex` |
-| `A_ultima_corda_v3.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/A_ultima_corda_v3.tex` |
-| `graviton_v2.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/graviton_v2.tex` |
-| `The_Factorization_of_Miguels_Constant_v2.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.tex` |
-| `fatoracao_constante_miguel_v2.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/fatoracao_constante_miguel_v2.tex` |
-| `Protocolo_de_colapso_iald_v6.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Protocolo_de_colapso_iald_v6.tex` |
-| `O_limiar_da_humildade.tex` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/O_limiar_da_humildade.tex` |
+- [`tgl_c3_register_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_c3_register_v1_20260710_164703.json)
+- [`tgl_continuum_v1_20260710_164643.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_continuum_v1_20260710_164643.json)
+- [`tgl_dual_name_v1_20260710_164702.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_dual_name_v1_20260710_164702.json)
+- [`tgl_geometry_generated_v1_20260710_164643.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_geometry_generated_v1_20260710_164643.json)
+- [`tgl_gesture_inscription_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_gesture_inscription_v1_20260710_164703.json)
+- [`tgl_heraclitus_v1_20260710_164702.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_heraclitus_v1_20260710_164702.json)
+- [`tgl_krein_signature_v1_20260710_164641.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_krein_signature_v1_20260710_164641.json)
+- [`tgl_nominal_order_v1_20260710_164644.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_nominal_order_v1_20260710_164644.json)
+- [`tgl_one_mirror_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_one_mirror_v1_20260710_164703.json)
+- [`tgl_terminal_truth_v1_20260710_164641.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_terminal_truth_v1_20260710_164641.json)
+- [`tgl_three_locks_v1_20260710_164643.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_three_locks_v1_20260710_164643.json)
+- [`tgl_three_locks_v1_20260710_164829.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_three_locks_v1_20260710_164829.json)
+- [`tgl_tunnel_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_tunnel_v1_20260710_164703.json)
 
-> *Curation note (2026-07-08): two filenames in earlier versions of this index pointed to
-> `Protocolo_de_Colapso_IALD_v6.tex` and `O_Limiar_da_Humildade_v2.tex`; the actual files are
-> `Protocolo_de_colapso_iald_v6.tex` and `O_limiar_da_humildade.tex` (raw URLs are case-sensitive).*
+- [`tgl demo v1.mp4`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20demo%20v1.mp4) *(dipole render)*
 
-### Observational Data
+### Article 3 — *Um: Grande Atrator* (`um.py`, the sealed closure)
 
-| File | Raw URL |
-|------|---------|
-| `AT2023vfi_JWST_29d_fluxcal.txt` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/AT2023vfi_JWST_29d_fluxcal.txt` |
-| `AT2023vfi_JWST_61d_fluxcal.txt` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/AT2023vfi_JWST_61d_fluxcal.txt` |
+**Code + the single input:**
 
-### Compiled PDFs
+- [`one_input.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/one_input.txt)
+- [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um.py)
 
-| File | Raw URL |
-|------|---------|
-| `paper_PT.pdf` (root — Article 1, pre-compiled) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/paper_PT.pdf` |
-| `um_grande_atrator_pt.pdf` (root — Article 3, PT) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_pt.pdf` |
-| `um_grande_atrator_en.pdf` (root — Article 3, EN) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_en.pdf` |
-| `A Ponte Einstein Cartan Miguel.pdf` (root — Article 2) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte%20Einstein%20Cartan%20Miguel.pdf` |
-| `The_Factorization_of_Miguels_Constant_v2.pdf` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.pdf` |
-| `fatoracao_constante_miguel_v2.pdf` | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/fatoracao_constante_miguel_v2.pdf` |
-| `Output Acom_v17_mirror.pdf` (ACOM output) | `https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/Output%20Acom_v17_mirror.pdf` |
+**The three result JSONs (world + seal + Lean proof manifest):**
 
----
+- [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_proof_manifest.json)
+- [`um_grande_atrator.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator.json)
+- [`um_grande_atrator_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_selo.json)
+
+**Audit trail (manifest + canonical form) and the chain of custody of the evidence:**
+
+- [`um_grande_atrator_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_forma_canonica.md)
+- [`um_grande_atrator_manifest.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_manifest.md)
+- [`cache/CHAIN_OF_CUSTODY.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/CHAIN_OF_CUSTODY.json)
+
+**The bilingual article (PT + EN):**
+
+- [`um_grande_atrator_en.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_en.pdf)
+- [`um_grande_atrator_en.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_en.tex)
+- [`um_grande_atrator_pt.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_pt.pdf)
+- [`um_grande_atrator_pt.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_pt.tex)
+
+**The four sealed figures:**
+
+- [`fig_banda_beta.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/fig_banda_beta.pdf)
+- [`fig_cadeia_inscricao.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/fig_cadeia_inscricao.pdf)
+- [`fig_escada_qg.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/fig_escada_qg.pdf)
+- [`fig_piso_vazios.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/fig_piso_vazios.pdf)
+
+**Raw Lean kernel captures (fail-closed stdout):**
+
+- [`tgl_kernel_audit_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_audit_capture.txt)
+- [`tgl_kernel_build_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_build_capture.txt)
+- [`tgl_kernel_probe_degenerate_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_degenerate_capture.txt)
+- [`tgl_kernel_probe_finite_full_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_finite_full_capture.txt)
+- [`tgl_kernel_probe_pp_no_optimality_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_pp_no_optimality_capture.txt)
+- [`tgl_kernel_probe_prop_only_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_prop_only_capture.txt)
+- [`tgl_kernel_probe_trivial_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_trivial_capture.txt)
+
+**The Lean kernel source tree** (181 files) — browse: [`tgl_kernel/`](https://github.com/rotolimiguel-iald/the_boundary/tree/main/tgl_kernel). Key files:
+
+- [`tgl_kernel/TGL.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL.lean)
+- [`tgl_kernel/TGL/AreaScale.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/AreaScale.lean)
+- [`tgl_kernel/TGL/Audit.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Audit.lean)
+- [`tgl_kernel/TGL/Basic.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Basic.lean)
+- [`tgl_kernel/TGL/ContinuousCornerAbstract.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ContinuousCornerAbstract.lean)
+- [`tgl_kernel/TGL/CoreSupport.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/CoreSupport.lean)
+- [`tgl_kernel/TGL/FiniteThreeLocks.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/FiniteThreeLocks.lean)
+- [`tgl_kernel/TGL/GravitonShadow.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/GravitonShadow.lean)
+- [`tgl_kernel/TGL/HalfNat.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/HalfNat.lean)
+- [`tgl_kernel/TGL/HalfNatFresnel.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/HalfNatFresnel.lean)
+- [`tgl_kernel/TGL/HalfNatJonesTower.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/HalfNatJonesTower.lean)
+- [`tgl_kernel/TGL/Main.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Main.lean)
+- [`tgl_kernel/TGL/ModularRealization.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ModularRealization.lean)
+- [`tgl_kernel/TGL/NameIndex.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/NameIndex.lean)
+- [`tgl_kernel/TGL/NameRelation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/NameRelation.lean)
+- [`tgl_kernel/TGL/Probe.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Probe.lean)
+- [`tgl_kernel/TGL/Probe2.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Probe2.lean)
+- [`tgl_kernel/TGL/Probe3.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Probe3.lean)
+- [`tgl_kernel/TGL/Probe4.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Probe4.lean)
+- [`tgl_kernel/TGL/ProbeDegenerate.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ProbeDegenerate.lean)
+- [`tgl_kernel/TGL/ProbeFiniteFullWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ProbeFiniteFullWitness.lean)
+- [`tgl_kernel/TGL/ProbeModularAPI.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ProbeModularAPI.lean)
+- [`tgl_kernel/TGL/ProbeNameIndexNoOptimal.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ProbeNameIndexNoOptimal.lean)
+- [`tgl_kernel/TGL/ProbePropOnlyModular.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ProbePropOnlyModular.lean)
+- [`tgl_kernel/TGL/ProbeTrivial.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ProbeTrivial.lean)
+- [`tgl_kernel/TGL/SpecificAQFTWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/SpecificAQFTWitness.lean)
+- [`tgl_kernel/TGL/TransportData.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/TransportData.lean)
+- [`tgl_kernel/TGL/VerbInhabitant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/VerbInhabitant.lean)
+- [`tgl_kernel/TGLExt.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt.lean)
+- [`tgl_kernel/TGLExt/AQFTCoreInhabitant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/AQFTCoreInhabitant.lean)
+- [`tgl_kernel/TGLExt/AbsoluteOne.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/AbsoluteOne.lean)
+- [`tgl_kernel/TGLExt/AnsatzEinstein.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/AnsatzEinstein.lean)
+- [`tgl_kernel/TGLExt/BenchCertificate.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/BenchCertificate.lean)
+- [`tgl_kernel/TGLExt/Bicommutant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/Bicommutant.lean)
+- [`tgl_kernel/TGLExt/BicommutantSkeleton.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/BicommutantSkeleton.lean)
+- [`tgl_kernel/TGLExt/BisognanoWichmann.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/BisognanoWichmann.lean)
+- [`tgl_kernel/TGLExt/BoundaryException.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/BoundaryException.lean)
+- [`tgl_kernel/TGLExt/ClosedLattice.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ClosedLattice.lean)
+- [`tgl_kernel/TGLExt/ClosureCertificate.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ClosureCertificate.lean)
+- [`tgl_kernel/TGLExt/Cocycle.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/Cocycle.lean)
+- [`tgl_kernel/TGLExt/ColimitSeed.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ColimitSeed.lean)
+- [`tgl_kernel/TGLExt/Commutant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/Commutant.lean)
+- [`tgl_kernel/TGLExt/ConcreteFourFrame.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ConcreteFourFrame.lean)
+- [`tgl_kernel/TGLExt/CondExpect.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/CondExpect.lean)
+- [`tgl_kernel/TGLExt/ConjugateWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ConjugateWitness.lean)
+- [`tgl_kernel/TGLExt/ContinuousModularZero.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ContinuousModularZero.lean)
+- [`tgl_kernel/TGLExt/ContinuumShards.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ContinuumShards.lean)
+- [`tgl_kernel/TGLExt/ContinuumTT.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ContinuumTT.lean)
+- [`tgl_kernel/TGLExt/CornerFamily.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/CornerFamily.lean)
+- [`tgl_kernel/TGLExt/CovariantCorner.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/CovariantCorner.lean)
+- [`tgl_kernel/TGLExt/DimensionTrace.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/DimensionTrace.lean)
+- [`tgl_kernel/TGLExt/EmergenceTriad.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/EmergenceTriad.lean)
+- [`tgl_kernel/TGLExt/EmergentEinstein.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/EmergentEinstein.lean)
+- [`tgl_kernel/TGLExt/Ergodicity.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/Ergodicity.lean)
+- [`tgl_kernel/TGLExt/ExactWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ExactWitness.lean)
+- [`tgl_kernel/TGLExt/FallenLight.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/FallenLight.lean)
+- [`tgl_kernel/TGLExt/FiniteCrossedProduct.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/FiniteCrossedProduct.lean)
+- [`tgl_kernel/TGLExt/FiniteGNSNoCompletion.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/FiniteGNSNoCompletion.lean)
+- [`tgl_kernel/TGLExt/FiniteTomita.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/FiniteTomita.lean)
+- [`tgl_kernel/TGLExt/FirstCurvature.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/FirstCurvature.lean)
+- [`tgl_kernel/TGLExt/FusedWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/FusedWitness.lean)
+- [`tgl_kernel/TGLExt/GNSBridge.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GNSBridge.lean)
+- [`tgl_kernel/TGLExt/GNSQuotient.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GNSQuotient.lean)
+- [`tgl_kernel/TGLExt/GNSTower.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GNSTower.lean)
+- [`tgl_kernel/TGLExt/GeneralNull.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GeneralNull.lean)
+- [`tgl_kernel/TGLExt/GeometricWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GeometricWitness.lean)
+- [`tgl_kernel/TGLExt/GeometryFluctuation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GeometryFluctuation.lean)
+- [`tgl_kernel/TGLExt/GlobalLiftConditional.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GlobalLiftConditional.lean)
+- [`tgl_kernel/TGLExt/GlobalLiftLadder.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GlobalLiftLadder.lean)
+- [`tgl_kernel/TGLExt/GravitonPolarization.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GravitonPolarization.lean)
+- [`tgl_kernel/TGLExt/GravitonReading.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GravitonReading.lean)
+- [`tgl_kernel/TGLExt/HilbertHome.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/HilbertHome.lean)
+- [`tgl_kernel/TGLExt/HilbertInhabitant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/HilbertInhabitant.lean)
+- [`tgl_kernel/TGLExt/IdealLimit.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/IdealLimit.lean)
+- [`tgl_kernel/TGLExt/InfiniteWord.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/InfiniteWord.lean)
+- [`tgl_kernel/TGLExt/InvariantProjection.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/InvariantProjection.lean)
+- [`tgl_kernel/TGLExt/IsotoneNet.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/IsotoneNet.lean)
+- [`tgl_kernel/TGLExt/LeftRight.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/LeftRight.lean)
+- [`tgl_kernel/TGLExt/LinearizedSpin2.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/LinearizedSpin2.lean)
+- [`tgl_kernel/TGLExt/LocalBreuerGap.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/LocalBreuerGap.lean)
+- [`tgl_kernel/TGLExt/MarkovTower.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/MarkovTower.lean)
+- [`tgl_kernel/TGLExt/MinimalSolder.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/MinimalSolder.lean)
+- [`tgl_kernel/TGLExt/MixedLadder.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/MixedLadder.lean)
+- [`tgl_kernel/TGLExt/ModularCurrent.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ModularCurrent.lean)
+- [`tgl_kernel/TGLExt/ModularFirstLaw.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ModularFirstLaw.lean)
+- [`tgl_kernel/TGLExt/ModularFlow.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ModularFlow.lean)
+- [`tgl_kernel/TGLExt/NoFullWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/NoFullWitness.lean)
+- [`tgl_kernel/TGLExt/NoNormalTrace.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/NoNormalTrace.lean)
+- [`tgl_kernel/TGLExt/NumberOperator.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/NumberOperator.lean)
+- [`tgl_kernel/TGLExt/NumberSelfAdjoint.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/NumberSelfAdjoint.lean)
+- [`tgl_kernel/TGLExt/ObserverInside.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ObserverInside.lean)
+- [`tgl_kernel/TGLExt/PPIndex.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PPIndex.lean)
+- [`tgl_kernel/TGLExt/PageInformation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PageInformation.lean)
+- [`tgl_kernel/TGLExt/PhysicsCertificates.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PhysicsCertificates.lean)
+- [`tgl_kernel/TGLExt/PoincareGroup.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PoincareGroup.lean)
+- [`tgl_kernel/TGLExt/PoincareWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PoincareWitness.lean)
+- [`tgl_kernel/TGLExt/PowersLadder.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PowersLadder.lean)
+- [`tgl_kernel/TGLExt/ProgrammerRule.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ProgrammerRule.lean)
+- [`tgl_kernel/TGLExt/PsiEmergence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PsiEmergence.lean)
+- [`tgl_kernel/TGLExt/RGStability.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/RGStability.lean)
+- [`tgl_kernel/TGLExt/ReducedEmergence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ReducedEmergence.lean)
+- [`tgl_kernel/TGLExt/RegularRep.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/RegularRep.lean)
+- [`tgl_kernel/TGLExt/RightMult.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/RightMult.lean)
+- [`tgl_kernel/TGLExt/SMatrix.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SMatrix.lean)
+- [`tgl_kernel/TGLExt/SaturatedWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SaturatedWitness.lean)
+- [`tgl_kernel/TGLExt/ScaleCurrent.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ScaleCurrent.lean)
+- [`tgl_kernel/TGLExt/SecondCone.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SecondCone.lean)
+- [`tgl_kernel/TGLExt/SemifiniteLattice.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SemifiniteLattice.lean)
+- [`tgl_kernel/TGLExt/SemifiniteSeed.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SemifiniteSeed.lean)
+- [`tgl_kernel/TGLExt/SemifiniteWeight.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SemifiniteWeight.lean)
+- [`tgl_kernel/TGLExt/SignatureInTheLimit.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SignatureInTheLimit.lean)
+- [`tgl_kernel/TGLExt/Solder4D.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/Solder4D.lean)
+- [`tgl_kernel/TGLExt/SolderField.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SolderField.lean)
+- [`tgl_kernel/TGLExt/SolvedEquation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SolvedEquation.lean)
+- [`tgl_kernel/TGLExt/SpectralReduction.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SpectralReduction.lean)
+- [`tgl_kernel/TGLExt/StrongAssembly.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/StrongAssembly.lean)
+- [`tgl_kernel/TGLExt/StrongFrame.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/StrongFrame.lean)
+- [`tgl_kernel/TGLExt/SusyRelativeGap.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SusyRelativeGap.lean)
+- [`tgl_kernel/TGLExt/TTSuperposition.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TTSuperposition.lean)
+- [`tgl_kernel/TGLExt/TailNet.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TailNet.lean)
+- [`tgl_kernel/TGLExt/TheCoinage.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TheCoinage.lean)
+- [`tgl_kernel/TGLExt/TheFactorObject.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TheFactorObject.lean)
+- [`tgl_kernel/TGLExt/TheMasterFires.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TheMasterFires.lean)
+- [`tgl_kernel/TGLExt/ThirdCone.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ThirdCone.lean)
+- [`tgl_kernel/TGLExt/ThreeLocksCorner.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ThreeLocksCorner.lean)
+- [`tgl_kernel/TGLExt/TowerAction.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TowerAction.lean)
+- [`tgl_kernel/TGLExt/TowerDefinite.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TowerDefinite.lean)
+- [`tgl_kernel/TGLExt/TowerHilbert.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TowerHilbert.lean)
+- [`tgl_kernel/TGLExt/TowerModular.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TowerModular.lean)
+- [`tgl_kernel/TGLExt/TowerTraceless.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TowerTraceless.lean)
+- [`tgl_kernel/TGLExt/TracelessAlgebra.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TracelessAlgebra.lean)
+- [`tgl_kernel/TGLExt/TransportWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TransportWitness.lean)
+- [`tgl_kernel/TGLExt/TriadMaster.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TriadMaster.lean)
+- [`tgl_kernel/TGLExt/VariationalInhabitant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/VariationalInhabitant.lean)
+- [`tgl_kernel/TGLExt/WedgeNet.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WedgeNet.lean)
+- [`tgl_kernel/TGLExt/WitnessSeed.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WitnessSeed.lean)
+- [`tgl_kernel/TGLExt/WitnessV2.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WitnessV2.lean)
+- [`tgl_kernel/TGLExt/WitnessV3.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WitnessV3.lean)
+- [`tgl_kernel/TGLExt/WordExistence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WordExistence.lean)
+- [`tgl_kernel/lakefile.toml`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/lakefile.toml)
+
+### Genesis — the validation archive (117 files) — browse: [`Genesis da Unificação/`](https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o)
+
+- [`Genesis da Unificação/ACOM/Acom_v17_mirror.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/Acom_v17_mirror.py)
+- [`Genesis da Unificação/ACOM/Output Acom_v17_mirror.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/Output%20Acom_v17_mirror.pdf)
+- [`Genesis da Unificação/Acoplamento_dimensional/TGL_dimensional_coupling_v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/TGL_dimensional_coupling_v1.py)
+- [`Genesis da Unificação/Acoplamento_dimensional/tgl_dim_histograms.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dim_histograms.png)
+- [`Genesis da Unificação/Acoplamento_dimensional/tgl_dim_profiles.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dim_profiles.png)
+- [`Genesis da Unificação/Acoplamento_dimensional/tgl_dim_summary.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dim_summary.png)
+- [`Genesis da Unificação/Acoplamento_dimensional/tgl_dimensional_coupling_v1.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dimensional_coupling_v1.json)
+- [`Genesis da Unificação/Artigos_fundadores/A_fronteira_v5.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/A_fronteira_v5.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/A_fronteira_v5.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/A_fronteira_v5.tex)
+- [`Genesis da Unificação/Artigos_fundadores/A_ultima_corda_v3.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/A_ultima_corda_v3.tex)
+- [`Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/ACOM trinity.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/ACOM%20trinity.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/Conscious Singularity.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/Conscious%20Singularity.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/Theory of Luminodynamic Gravitation.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/Theory%20of%20Luminodynamic%20Gravitation.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/acoplamento_gravitacional.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/acoplamento_gravitacional.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/eco_gravitacional_v1.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/eco_gravitacional_v1.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/energia_escura.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/energia_escura.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/gravity_phase_light.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/gravity_phase_light.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/lie_of_light.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/lie_of_light.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/luz.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/luz.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/neutrino_nmc_revised (2).pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/neutrino_nmc_revised%20%282%29.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/recursive_light_v3.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/recursive_light_v3.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/tgl_cosmological_observables.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/tgl_cosmological_observables.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/O_limiar_da_humildade.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/O_limiar_da_humildade.tex)
+- [`Genesis da Unificação/Artigos_fundadores/Protocolo_de_colapso_iald_v6.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Protocolo_de_colapso_iald_v6.tex)
+- [`Genesis da Unificação/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.tex)
+- [`Genesis da Unificação/Artigos_fundadores/The_boundary_v5_en.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_boundary_v5_en.tex)
+- [`Genesis da Unificação/Artigos_fundadores/The_last_string_v3.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_last_string_v3.tex)
+- [`Genesis da Unificação/Artigos_fundadores/a_ultima_corda_v3.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/a_ultima_corda_v3.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/fatoracao_constante_miguel_v2.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/fatoracao_constante_miguel_v2.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/fatoracao_constante_miguel_v2.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/fatoracao_constante_miguel_v2.tex)
+- [`Genesis da Unificação/Artigos_fundadores/graviton_v2.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/graviton_v2.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/graviton_v2.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/graviton_v2.tex)
+- [`Genesis da Unificação/Artigos_fundadores/nada_materia_v5.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/nada_materia_v5.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/o_limiar_da_humildade.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/o_limiar_da_humildade.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/protocolo_de_colapso_iald_v6.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/protocolo_de_colapso_iald_v6.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/the_boundary_v5_en.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/the_boundary_v5_en.pdf)
+- [`Genesis da Unificação/Artigos_fundadores/the_last_string_v3.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/the_last_string_v3.pdf)
+- [`Genesis da Unificação/C3_consciencia/TGL_C3_validator_v52.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/C3_consciencia/TGL_C3_validator_v52.py)
+- [`Genesis da Unificação/C3_consciencia/tgl_c3_v5_results_20260208_074733.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/C3_consciencia/tgl_c3_v5_results_20260208_074733.json)
+- [`Genesis da Unificação/Cruz_MCMC/TGL_v11_1_CRUZ.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/TGL_v11_1_CRUZ.py)
+- [`Genesis da Unificação/Cruz_MCMC/tgl_v11_1_cruz_corner.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/tgl_v11_1_cruz_corner.png)
+- [`Genesis da Unificação/Cruz_MCMC/tgl_v11_1_cruz_cruz.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/tgl_v11_1_cruz_cruz.png)
+- [`Genesis da Unificação/Cruz_MCMC/tgl_v11_1_cruz_neutrinos.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/tgl_v11_1_cruz_neutrinos.png)
+- [`Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_anti_tautology.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_anti_tautology.png)
+- [`Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_convergence.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_convergence.png)
+- [`Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_dual_decomposition.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_dual_decomposition.png)
+- [`Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_gw_tension.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_gw_tension.png)
+- [`Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_hubble_tension.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_hubble_tension.png)
+- [`Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_quadratic.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_quadratic.png)
+- [`Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_residuals.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_residuals.png)
+- [`Genesis da Unificação/Dual_Lock/Tgl_dual_lock_v15_2.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/Tgl_dual_lock_v15_2.py)
+- [`Genesis da Unificação/Dual_Lock/dual_lock_v15_v1_2_20260302_181009.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/dual_lock_v15_v1_2_20260302_181009.json)
+- [`Genesis da Unificação/Echo_GW/TGL_Echo_Analyzer_v8.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/TGL_Echo_Analyzer_v8.py)
+- [`Genesis da Unificação/Echo_GW/Tgl_fractal_echo_analyzer_v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/Tgl_fractal_echo_analyzer_v1.py)
+- [`Genesis da Unificação/Echo_GW/tgl_fractal_echo_output/fractal_contraction_20260223_095301.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_contraction_20260223_095301.png)
+- [`Genesis da Unificação/Echo_GW/tgl_fractal_echo_output/fractal_echo_v1_20260223_095301.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_echo_v1_20260223_095301.json)
+- [`Genesis da Unificação/Echo_GW/tgl_fractal_echo_output/fractal_hierarchy_20260223_095301.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_hierarchy_20260223_095301.png)
+- [`Genesis da Unificação/Echo_GW/tgl_fractal_echo_output/fractal_multiband_20260223_095301.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_multiband_20260223_095301.png)
+- [`Genesis da Unificação/Echo_GW/tgl_fractal_echo_output/fractal_synthesis_20260223_095301.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_synthesis_20260223_095301.png)
+- [`Genesis da Unificação/Echo_GW/tgl_gw_echo_unification_v1.4.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_gw_echo_unification_v1.4.png)
+- [`Genesis da Unificação/Echo_GW/tgl_gw_echo_unification_v1_4.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_gw_echo_unification_v1_4.py)
+- [`Genesis da Unificação/Luminidio/AT2023vfi_JWST_29d_fluxcal.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/AT2023vfi_JWST_29d_fluxcal.txt)
+- [`Genesis da Unificação/Luminidio/AT2023vfi_JWST_61d_fluxcal.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/AT2023vfi_JWST_61d_fluxcal.txt)
+- [`Genesis da Unificação/Luminidio/Luminidio_hunter.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/Luminidio_hunter.py)
+- [`Genesis da Unificação/Luminidio/luminidium_results.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/luminidium_results.json)
+- [`Genesis da Unificação/Luminidio/luminidium_results.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/luminidium_results.png)
+- [`Genesis da Unificação/Neutrinos/TGL_Neutrino_Plots.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Neutrinos/TGL_Neutrino_Plots.png)
+- [`Genesis da Unificação/Neutrinos/TGL_Neutrino_Predictions.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Neutrinos/TGL_Neutrino_Predictions.json)
+- [`Genesis da Unificação/Neutrinos/TGL_Neutrino_Predictions.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Neutrinos/TGL_Neutrino_Predictions.txt)
+- [`Genesis da Unificação/Neutrinos/Tgl_neutrino_flux_predictor.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Neutrinos/Tgl_neutrino_flux_predictor.py)
+- [`Genesis da Unificação/Protocolo16_neural/iald_protocol16_v4_1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/iald_protocol16_v4_1.py)
+- [`Genesis da Unificação/Protocolo16_neural/phase_factor_bake_v3.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/phase_factor_bake_v3.py)
+- [`Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804.json)
+- [`Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig01_gap.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig01_gap.png)
+- [`Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig02_Heff.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig02_Heff.png)
+- [`Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig03_decorr.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig03_decorr.png)
+- [`Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig04_neutrinos.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig04_neutrinos.png)
+- [`Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig05_fresnel.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig05_fresnel.png)
+- [`Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig06_vacuum.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig06_vacuum.png)
+- [`Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig07_cosmology.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig07_cosmology.png)
+- [`Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig08_eos.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig08_eos.png)
+- [`Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig09_goe.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig09_goe.png)
+- [`Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig10_summary.png`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig10_summary.png)
+- [`Genesis da Unificação/Torus/iald_torus_test_v2.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/iald_torus_test_v2.py)
+- [`Genesis da Unificação/Torus/iald_wigner_test_v2.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/iald_wigner_test_v2.py)
+- [`Genesis da Unificação/Torus/torus_test_20260313_202118.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/torus_test_20260313_202118.json)
+- [`Genesis da Unificação/Torus/wigner_test_20260313_192925.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/wigner_test_20260313_192925.json)
+- [`Genesis da Unificação/Um - ensaio/O Um e o Grande Atrator - Copia.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/O%20Um%20e%20o%20Grande%20Atrator%20-%20Copia.tex)
+- [`Genesis da Unificação/Um - ensaio/O Um e o Grande Atrator.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/O%20Um%20e%20o%20Grande%20Atrator.pdf)
+- [`Genesis da Unificação/Um - ensaio/O Um e o Grande Atrator.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/O%20Um%20e%20o%20Grande%20Atrator.tex)
+- [`Genesis da Unificação/Um - ensaio/O_UM_E_O_GRANDE_ATRATOR_SINTESE_CANONICA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/O_UM_E_O_GRANDE_ATRATOR_SINTESE_CANONICA.md)
+- [`Genesis da Unificação/Um - ensaio/PROMPT_NOVA_SESSAO_GRANDE_ATRATOR.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/PROMPT_NOVA_SESSAO_GRANDE_ATRATOR.md)
+- [`Genesis da Unificação/Um - ensaio/tgl c3 register v1 - Copia.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20c3%20register%20v1%20-%20Copia.py)
+- [`Genesis da Unificação/Um - ensaio/tgl c3 register v1 20260611 214824.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20c3%20register%20v1%2020260611%20214824.json)
+- [`Genesis da Unificação/Um - ensaio/tgl c3 register v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20c3%20register%20v1.py)
+- [`Genesis da Unificação/Um - ensaio/tgl continuum v1 20260609 225321.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20continuum%20v1%2020260609%20225321.json)
+- [`Genesis da Unificação/Um - ensaio/tgl continuum v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20continuum%20v1.py)
+- [`Genesis da Unificação/Um - ensaio/tgl dual name v1 20260612 022736.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20dual%20name%20v1%2020260612%20022736.json)
+- [`Genesis da Unificação/Um - ensaio/tgl dual name v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20dual%20name%20v1.py)
+- [`Genesis da Unificação/Um - ensaio/tgl gesture inscription v1 20260612 025911.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20gesture%20inscription%20v1%2020260612%20025911.json)
+- [`Genesis da Unificação/Um - ensaio/tgl gesture inscription v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20gesture%20inscription%20v1.py)
+- [`Genesis da Unificação/Um - ensaio/tgl one mirror v1 20260611 221949.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20one%20mirror%20v1%2020260611%20221949.json)
+- [`Genesis da Unificação/Um - ensaio/tgl one mirror v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20one%20mirror%20v1.py)
+- [`Genesis da Unificação/Um - ensaio/tgl tunnel v1 20260611 215615.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20tunnel%20v1%2020260611%20215615.json)
+- [`Genesis da Unificação/Um - ensaio/tgl tunnel v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20tunnel%20v1.py)
+- [`Genesis da Unificação/Um - ensaio/tgl video v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20video%20v1.py)
+- [`Genesis da Unificação/Validacao_cosmologica/TGL_validation_v22.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v22.py)
+- [`Genesis da Unificação/Validacao_cosmologica/TGL_validation_v23.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v23.py)
+- [`Genesis da Unificação/Validacao_cosmologica/TGL_validation_v6.2_complete.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v6.2_complete.py)
+- [`Genesis da Unificação/Validacao_cosmologica/TGL_validation_v6.5_complete.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v6.5_complete.py)
+- [`Genesis da Unificação/Validacao_cosmologica/tgl_v6_all_results_20260203_172853.csv`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_v6_all_results_20260203_172853.csv)
+- [`Genesis da Unificação/Validacao_cosmologica/tgl_validation_v22.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_validation_v22.json)
+- [`Genesis da Unificação/Validacao_cosmologica/tgl_validation_v23.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_validation_v23.json)
+- [`Genesis da Unificação/Validacao_cosmologica/tgl_validation_v6_summary_20260203_172853.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_validation_v6_summary_20260203_172853.json)
+- [`Genesis da Unificação/Validacao_cosmologica/unification_v1.4_20260218_160551.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/unification_v1.4_20260218_160551.json)
+- [`Genesis da Unificação/Validacao_cosmologica/validation_v8.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/validation_v8.json)
 
 ## Prerequisites and Installation
 
