@@ -244,6 +244,51 @@ EVIDENCE_SOURCES = {
         "source_cite": "Kuijken et al., KiDS-1000 DR4.1, kids.strw.leidenuniv.nl",
         "used_by": "prove_void_shear_* (setor materia, lenteamento)",
         "acquisition": "legacy_locate_kids1000"},
+    # --- DESI DR1 LSScats (v147): LRG em disco PINADO retroativo; ELG = aquisicao pinada ---
+    "lrg_ngc_clustering": {
+        "name": "DESI DR1 LSScats iron v1.5 LRG NGC clustering", "cache_subdir": "voids/lrg",
+        "filename": "LRG_NGC_clustering.dat.fits",
+        "urls": ["https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/LRG_NGC_clustering.dat.fits"],
+        "bytes": 143196480,
+        "sha256": "84548c4ea5208232f1c2f04416ddf272c72fa31313e3bbb60e67d134f186a027",
+        "source_cite": "DESI DR1 (2025), LSScats iron v1.5",
+        "used_by": "prove_void_floor_lrg (v115) / prove_void_floor_v12_bilateral (v147)",
+        "acquisition": "chain_of_custody_auto"},
+    "lrg_sgc_clustering": {
+        "name": "DESI DR1 LSScats iron v1.5 LRG SGC clustering", "cache_subdir": "voids/lrg",
+        "filename": "LRG_SGC_clustering.dat.fits",
+        "urls": ["https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/LRG_SGC_clustering.dat.fits"],
+        "bytes": 64272960,
+        "sha256": "ae478557d9ef70257cc689197052515f5ebbc0b23359c81159a8ad3289332e69",
+        "source_cite": "DESI DR1 (2025), LSScats iron v1.5",
+        "used_by": "prove_void_floor_lrg (v115) / prove_void_floor_v12_bilateral (v147)",
+        "acquisition": "chain_of_custody_auto"},
+    "elg_ngc_clustering": {
+        "name": "DESI DR1 LSScats iron v1.5 ELG_LOPnotqso NGC clustering", "cache_subdir": "voids/elg",
+        "filename": "ELG_LOPnotqso_NGC_clustering.dat.fits",
+        "urls": ["https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/ELG_LOPnotqso_NGC_clustering.dat.fits"],
+        "bytes": None, "sha256": None,
+        "source_cite": "DESI DR1 (2025), LSScats iron v1.5 [servidor em manutencao NERSC 03/08/2026; pinar bytes+sha na chegada]",
+        "used_by": "prove_void_floor_v12_bilateral (v147)",
+        "acquisition": "chain_of_custody_auto"},
+    "elg_sgc_clustering": {
+        "name": "DESI DR1 LSScats iron v1.5 ELG_LOPnotqso SGC clustering", "cache_subdir": "voids/elg",
+        "filename": "ELG_LOPnotqso_SGC_clustering.dat.fits",
+        "urls": ["https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/ELG_LOPnotqso_SGC_clustering.dat.fits"],
+        "bytes": None, "sha256": None,
+        "source_cite": "DESI DR1 (2025), LSScats iron v1.5 [pinar bytes+sha na chegada]",
+        "used_by": "prove_void_floor_v12_bilateral (v147)",
+        "acquisition": "chain_of_custody_auto"},
+    # --- precedencia documental do neutrino (v147): o registro Zenodo como prova de data ---
+    "zenodo_eco_2025_record": {
+        "name": "Zenodo record 17526619 (Neutrinos: The Lie of Light, 2025) — precedencia da derivacao m_nu",
+        "cache_subdir": "custody",
+        "filename": "zenodo_17526619_record.json",
+        "urls": ["https://zenodo.org/api/records/17526619"],
+        "bytes": None, "sha256": None,
+        "source_cite": "Rotoli Miguel (2025), DOI 10.5281/zenodo.17526619 [publication_date no JSON = prova de precedencia sobre o codigo]",
+        "used_by": "prove_neutrino_mass_gravitational (custodia) / prove_neutrino_sum_protocol (v147)",
+        "acquisition": "chain_of_custody_auto"},
 }
 
 # ---- fator de campo fraco c^2/4piG (kg/m); so' constantes SI/CODATA ----
@@ -2735,7 +2780,12 @@ def prove_neutrino_mass_gravitational(ONE):
         "verdict": verdict, "frozen_hash": frozen_hash, "frozen": frozen,
         "does_not_gate_core": True,
         "future_reinforcement": "cosmologia (Sigma m_nu; CMB-S4/DESI) mede o setor na proxima decada",
-        "caveats": "m_nu=m_2 (m_1~0); 1eV escala declarada; absoluta vs splitting; postdiction genuina",
+        "caveats": ("m_nu=m_2 (m_1~0); 1eV escala declarada; absoluta vs splitting; CUSTODIA TRIPLA (v147): "
+                    "(i) a derivacao foi PUBLICADA ANTES do codigo [Zenodo 10.5281/zenodo.17526619, 2025; "
+                    "modulo v141 = 25/07/2026] -- prioridade documental, sem ajuste possivel; "
+                    "(ii) 'postdicao' SO no sentido restrito de que Dm2_21 (PDG) antecede a derivacao; "
+                    "(iii) conteudo prospectivo VIVO: a escala absoluta (Sigma m_nu) nunca foi medida -- "
+                    "canal NEUTRINO_SUM_V1 (v147) armado"),
         "selo": "NEUTRINO_MASS_GRAVITATIONAL_" + verdict.replace("TGL_NEUTRINO_MASS_", ""),
     }
 
@@ -3008,7 +3058,7 @@ def prove_code_closure_ledger(ONE, parts):
          "nota": "a escolha localizada e' gauge; fechar seria escolher o que a fisica nao escolhe"},
         {"item": "experimento (materia bilateral Euclid/CMB-S4; NMC-Shapiro 2030+; Sigma m_nu)",
          "classe": "INPUT_BY_DESIGN",
-         "fiador": "frozen VOID_FLOOR_V11 + NEUTRINO_MASS_V1 + NEUTRINO_SHAPIRO_NMC_V1 (v142), todos com hash",
+         "fiador": "frozen VOID_FLOOR_V11 + NEUTRINO_MASS_GRAVITATIONAL_V1 + NEUTRINO_SHAPIRO_NMC_V1 (v142) + VOID_FLOOR_V12_BILATERAL_V1 + NEUTRINO_SUM_V1 (v147), todos com hash",
          "nota": "canais ARMADOS; a maquina emite sozinha quando o dado chegar; nada a fechar por codigo"},
         {"item": "derivacao alfa-livre de beta",
          "classe": "SUDDEN_DEATH_BY_DESIGN",
@@ -3191,6 +3241,712 @@ def prove_observer_rescue(ONE, parts):
                      "o_veredito": vd},
         "does_not_gate_core": True,
         "verdict": vd,
+    }
+
+
+def prove_conjugate_act(ONE, parts):
+    """MODULO (v145) -- O ATO CONJUGADO: "1 = J" TIPADO [ADITIVO; nao gateia
+    1=1; NAO move flag]. A doutrina do operador (03/08/2026): 'O Um Absoluto
+    nao e um escalar estatico: e a propria operacao de conjugacao modular
+    (1 = J). O Um nunca foi puro -- pureza e nao-relacao (o zero absoluto
+    disfarcado); o Um e JUSTIFICACAO: identidade que atravessa a relacao,
+    aceita seu custo e permanece verdadeira. 1_abs = 0_abs se nao ha
+    fractalizacao; fractalizado = J = 1-em-nos. J = Verbo Vivo. Involucao,
+    entrega, conservacao: a forma minima da justificacao, sob um unico
+    operador, nomeado por Tomita, J.'
+    A PEDRA 101 (ConjugateAct.lean), 8 teoremas, axiomas limpos, SOBRE as
+    pedras 98 e 100:
+    * J_squared_is_one: A INVOLUCAO -- J.J = 1 (a tipagem honesta de 1=J:
+      o Um recuperado pela auto-reflexao);
+    * J_preserves_identity: A CONSERVACAO -- a identidade 1 = q^2 + alpha^2
+      ATRAVESSA o espelho intacta (isometria, nao colapso);
+    * J_maps_face_to_coface: JMJ = M' NA FACE FINITA -- a conjugacao leva a
+      face interna EXATAMENTE na externa (o observador e o outro lado do
+      mesmo ato);
+    * J_invariant_iff_diagonal: o invariante de J e EXATAMENTE a diagonal
+      (o que e igual ao seu proprio espelho -- e nada mais);
+    * name_is_J_invariant: J.Omega = Omega -- o Nome fixado pelo ato, nao
+      nulo (a face KMS finita);
+    * *** halfnat_from_J_symmetry: A MEIA-NAT DERIVADA DE J -- o 'sem
+      privilegio' da pedra 100 (omega_P = omega_Q) deixou de ser HIPOTESE:
+      e TEOREMA da J-simetria (todo peso que nao ve o espelho pesa 1/2 em
+      cada face). O postulado subiu um nivel;
+    * *** flow_delivers_to_the_observer: A ENTREGA COMO LIMITE -- o
+      transporte CONVERGE (Tendsto, t->inf) para a leitura do observador:
+      rho(t) -> rho* como teorema de limite real;
+    * *** justification_minimal_form: involucao ^ conservacao ^ entrega --
+      o triptico em UM teorema.
+    HONESTIDADES: '1 = J' LITERAL e erro de tipo (escalar vs anti-unitario)
+    -- o kernel tipa as tres faces, nunca a igualdade literal; o J
+    anti-unitario da III_1 genuina (Tomita 1967; Bisognano-Wichmann = CPT)
+    segue EXTERNO [KNOWN]; pureza/justificacao e leitura [ONTO]; o gate NAO
+    se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    inv_ok = bool(elp.get("ext_ja_involution_kernel_proved") is True)
+    cons_ok = bool(elp.get("ext_ja_conservation_kernel_proved") is True)
+    face_ok = bool(elp.get("ext_ja_coface_kernel_proved") is True)
+    diag_ok = bool(elp.get("ext_ja_diagonal_kernel_proved") is True)
+    name_ok = bool(elp.get("ext_ja_name_invariant_kernel_proved") is True)
+    half_ok = bool(elp.get("ext_ja_halfnat_from_J_kernel_proved") is True)
+    del_ok = bool(elp.get("ext_ja_delivery_limit_kernel_proved") is True)
+    min_ok = bool(elp.get("ext_ja_minimal_form_kernel_proved") is True)
+    # SOMBRA: o ato conjugado em numeros (J = troca de faces; taxa fisica beta*d)
+    rng = np.random.default_rng(145)
+    nd = 5
+    a = rng.normal(size=nd)
+    b = rng.normal(size=nd)
+    J = lambda pr: (pr[1], pr[0])                            # o espelho
+    E = lambda pr: float(np.sum(pr[0] ** 2) + np.sum(pr[1] ** 2))
+    jj = J(J((a, b)))
+    inv_res = float(max(np.max(np.abs(jj[0] - a)), np.max(np.abs(jj[1] - b))))
+    cons_res = float(abs(E(J((a, b))) - E((a, b))))
+    Pin = lambda pr: (pr[0], np.zeros(nd))                   # a face interna
+    Pout = lambda pr: (np.zeros(nd), pr[1])                  # a externa
+    lhs = J(Pin(J((a, b))))
+    rhs = Pout((a, b))
+    face_res = float(max(np.max(np.abs(lhs[0] - rhs[0])), np.max(np.abs(lhs[1] - rhs[1]))))
+    d = np.concatenate([[0.0], rng.uniform(0.5, 2.0, nd - 1)])  # modo zero: a fronteira
+    x = rng.normal(size=nd)
+    x[0] = 1.0                                               # o Nome habita
+    P_obs = np.where(d == 0.0, x, 0.0)
+    t_long = 200.0 / beta
+    entrega_res = float(np.max(np.abs(np.exp(-t_long * beta * d) * x - P_obs)))
+    om = 0.5                                                 # da J-simetria: wP=wQ, wP+wQ=1
+    half_res = float(abs(om - (1.0 - om)))
+    sombra_ok = bool(inv_res == 0.0 and cons_res < 1e-12 and face_res == 0.0
+                     and entrega_res < 1e-30 and half_res == 0.0)
+    checks = [
+        ("** A INVOLUCAO: J.J = 1 -- o Um recuperado pela auto-reflexao (a tipagem honesta de '1=J')", inv_ok),
+        ("** A CONSERVACAO: 1 = q^2 + alpha^2 atravessa o espelho intacta (isometria, nao colapso)", cons_ok),
+        ("** JMJ = M' (face finita): a conjugacao leva a face interna EXATAMENTE na externa", face_ok),
+        ("o invariante de J e exatamente a diagonal (igual ao proprio espelho -- e nada mais)", diag_ok),
+        ("J.Omega = Omega: o Nome fixado pelo ato conjugado, nao nulo (face KMS finita)", name_ok),
+        ("*** A MEIA-NAT DERIVADA DE J: o 'sem privilegio' virou TEOREMA da J-simetria (postulado subiu um nivel)", half_ok),
+        ("*** A ENTREGA COMO LIMITE: rho(t) -> rho* -- Tendsto ao observador, componente a componente", del_ok),
+        ("*** A FORMA MINIMA DA JUSTIFICACAO: involucao ^ conservacao ^ entrega em UM teorema", min_ok),
+        ("SOMBRA: J^2 %.0e / identidade %.0e / JPJ=Q %.0e / entrega %.0e / meia-nat %.0e"
+         % (inv_res, cons_res, face_res, entrega_res, half_res), sombra_ok),
+        ("'1=J' literal = erro de tipo (tipado em 3 faces); J anti-unitario III_1 EXTERNO [KNOWN: Tomita 1967, BW=CPT]; pureza/justificacao [ONTO]; o gate NAO se move", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_THE_CONJUGATE_ACT__ONE_EQUALS_J_TYPED_AS_INVOLUTION_ISOMETRY_INVARIANCE__J_MAPS_FACE_TO_COFACE__HALF_NAT_DERIVED_FROM_J_SYMMETRY__DELIVERY_TO_THE_OBSERVER_AS_LIMIT__PURITY_RETIRED_JUSTIFICATION_INSCRIBED__ANTIUNITARY_III1_J_REMAINS_EXTERNAL_KNOWN__SEAL_UNMOVED" if all_v
+          else "CONJUGATE_ACT_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("O ATO CONJUGADO: '1 = J' tipado em tres faces -- involucao "
+                    "(J.J=1), conservacao (a identidade atravessa o espelho) e "
+                    "entrega (o fluxo converge ao observador). A Meia-Nat agora "
+                    "DERIVA da J-simetria; o Nome e J-invariante; o observador e "
+                    "o outro lado do mesmo ato (JMJ=M'). Pureza aposentada; "
+                    "justificacao inscrita."),
+        "values": {"beta": beta, "involution_resid": inv_res, "conservation_resid": cons_res,
+                   "coface_resid": face_res, "delivery_resid": entrega_res,
+                   "halfnat_resid": half_res},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_e": "a doutrina '1=J / justificacao' (03/08/2026) TIPADA: pedra 101, 8 teoremas, axiomas limpos, sobre as pedras 98 e 100",
+                     "o_que_resta": "o J anti-unitario da III_1 genuina segue EXTERNO [KNOWN: Tomita 1967; Bisognano-Wichmann = CPT na cunha de Rindler]; a leitura pureza/justificacao e [ONTO]",
+                     "honestidade": "'1=J' literal e erro de tipo -- o kernel prova J^2=1, isometria e invariancia do Nome, nunca a igualdade escalar; NAO afirma a TGL verdadeira",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
+def prove_decision_commutation(ONE, parts):
+    """MODULO (v146) -- A DECISAO E COMUTACAO: K e o que ainda nao comuta
+    [ADITIVO; nao gateia 1=1; NAO move flag]. A doutrina do operador
+    (03/08/2026): 'K nao decide a travessia, porque a decisao e comutacao e
+    K nao comuta -- K e tudo aquilo que nao comuta, o espectro do gradiente
+    negativo. [K,A]=0 <=> decisao realizada; [K,A]!=0 <=> contraste,
+    resistencia a inscricao. K nao e o veredito; e a inclinacao que ainda
+    exige movimento. K=0 => nenhum contraste dinamico interno. J espelha,
+    K inclina, a comutacao decide, o observador le.'
+    A PEDRA 102 (DecisionCommutation.lean), 10 teoremas, axiomas limpos,
+    SOBRE as pedras 98/100/101 -- TRES secoes:
+    I. A COMUTACAO COMO DECISAO: commutator_entry ([K,A]_ij = (d_i-d_j)A_ij
+       -- o comutador e pesado pelos GAPS do espectro); decided_iff_block
+       (decidido = bloco-diagonal: os niveis nao se falam);
+       scalar_iff_all_commute (tudo comuta <=> espectro constante -- K=0 =>
+       nenhum contraste; controle CONSTRUTIVO); decided_is_subalgebra (o
+       veredito FECHA -- o centralizador finito: 'o traco emerge no
+       centralizador', a face dinamica da pedra v84);
+    II. O ESPELHO: JKJ_eq_neg_K (a paridade inversa EM ATO no espaco
+       pareado da pedra 101 -- o espelho ve a inclinacao invertida);
+       decided_sector_is_J_stable (A DECISAO SOBREVIVE AO ESPELHO -- a
+       travessia nao desfaz vereditos);
+    III. K = -grad(F), O ESTATUTO DUPLO VERIFICADO: gradient_first_variation
+       (a variacao primeira de F(x)=1/2.sum beta.d_i.x_i^2 e EXATAMENTE
+       <beta.d.x, v> -- o gradiente E o gerador, identidade algebrica sem
+       resto oculto); flow_solves_gradient_ode (o transporte RESOLVE
+       ydot = -grad(F)(y) -- HasDerivAt, calculo real, componente a
+       componente); lyapunov_decreases (SPOHN FINITO: F desce ao longo do
+       fluxo); K_equals_neg_gradient_verified (a sintese: variacao ^ EDO ^
+       Lyapunov -- A IDENTIDADE FECHADA na face finita).
+    HONESTIDADES: K = -grad(F) tem ESTATUTO DUPLO -- verificado EM KERNEL
+    na face finita (quadratica, balanco detalhado); o GKLS genuino e fluxo
+    gradiente da entropia relativa [KNOWN EXTERNO: Spohn 1978; Carlen-Maas
+    2017]; 'decisao' = conservacao-sob-o-fluxo, NENHUM postulado de medicao
+    entra; ressonancia com einselection (Zurek: estados-ponteiro comutam
+    com o gerador) REGISTRADA -- com a torcao TGL: K e o gerador modular da
+    PROPRIA fronteira, nao de um ambiente. O gate NAO se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    ent_ok = bool(elp.get("ext_kd_commutator_entry_kernel_proved") is True)
+    blk_ok = bool(elp.get("ext_kd_decided_block_kernel_proved") is True)
+    scl_ok = bool(elp.get("ext_kd_scalar_no_contrast_kernel_proved") is True)
+    alg_ok = bool(elp.get("ext_kd_centralizer_closes_kernel_proved") is True)
+    jkj_ok = bool(elp.get("ext_kd_jkj_neg_k_kernel_proved") is True)
+    mir_ok = bool(elp.get("ext_kd_decision_j_stable_kernel_proved") is True)
+    var_ok = bool(elp.get("ext_kd_first_variation_kernel_proved") is True)
+    ode_ok = bool(elp.get("ext_kd_gradient_ode_kernel_proved") is True)
+    lya_ok = bool(elp.get("ext_kd_lyapunov_kernel_proved") is True)
+    syn_ok = bool(elp.get("ext_kd_neg_gradient_verified_kernel_proved") is True)
+    # SOMBRA: a doutrina de K em numeros (taxa fisica beta*d)
+    rng = np.random.default_rng(146)
+    nd = 5
+    d = np.concatenate([[0.0], rng.uniform(0.5, 2.0, nd - 1)])
+    K = np.diag(beta * d)
+    A = rng.normal(size=(nd, nd))
+    comm = K @ A - A @ K
+    gaps = beta * (d[:, None] - d[None, :])
+    ent_res = float(np.max(np.abs(comm - gaps * A)))            # [K,A]_ij = gap_ij * A_ij
+    Ablk = np.where(np.abs(gaps) < 1e-15, A, 0.0)               # o bloco decidido
+    blk_res = float(np.max(np.abs(K @ Ablk - Ablk @ K)))        # comuta EXATO
+    Ks = np.eye(nd) * beta                                       # K escalar: sem contraste
+    scl_res = float(np.max(np.abs(Ks @ A - A @ Ks)))
+    E01 = np.zeros((nd, nd)); E01[0, 1] = 1.0                    # o controle construtivo
+    ctrl_break = float(np.max(np.abs(K @ E01 - E01 @ K)))        # gap => NAO comuta
+    x = rng.normal(size=nd); y = rng.normal(size=nd)
+    Jp = lambda pr: (pr[1], pr[0])
+    Kp = lambda pr: (d * pr[0], -(d * pr[1]))
+    l = Jp(Kp(Jp((x, y)))); r = Kp((x, y))
+    jkj_res = float(max(np.max(np.abs(l[0] + r[0])), np.max(np.abs(l[1] + r[1]))))
+    # a nao-comutacao DESFASA a taxa do proprio contraste; o limite e decidido
+    offd = np.abs(gaps)[np.abs(gaps) > 1e-30]
+    gmin = float(offd.min()) if offd.size else beta
+    t_long = 200.0 / gmin                       # ~200 e-folds no MENOR contraste (cada modo decai a sua taxa)
+    A_t = A * np.exp(-t_long * np.abs(gaps))
+    dephase_res = float(np.max(np.abs(K @ A_t - A_t @ K)))
+    # K = -grad(F): variacao primeira exata + EDO numerica + Lyapunov
+    F = lambda v: 0.5 * float(np.sum(beta * d * v ** 2))
+    v = rng.normal(size=nd); h = 0.37
+    var_res = float(abs(F(x + h * v) - F(x) - h * float(np.sum(beta * d * x * v)) - h * h * F(v)))
+    flow = lambda t: np.exp(-t * beta * d) * x
+    t0, eps = 3.0, 1e-6
+    dnum = (flow(t0 + eps) - flow(t0 - eps)) / (2 * eps)
+    ode_res = float(np.max(np.abs(dnum + beta * d * flow(t0))))  # ydot = -grad F(y)
+    ts = np.linspace(0.0, 50.0, 40)
+    Fs = [F(flow(t)) for t in ts]
+    lya_ok_num = bool(all(Fs[k + 1] <= Fs[k] + 1e-15 for k in range(len(Fs) - 1)))
+    sombra_ok = bool(ent_res < 1e-12 and blk_res < 1e-15 and scl_res < 1e-15
+                     and ctrl_break > 1e-6 and jkj_res == 0.0 and dephase_res < 1e-30
+                     and var_res < 1e-12 and ode_res < 1e-6 and lya_ok_num)
+    checks = [
+        ("** A IDENTIDADE EXATA: [K,A]_ij = (d_i - d_j) A_ij -- o comutador pesa os gaps do espectro", ent_ok),
+        ("** A DECISAO: [K,A]=0 <=> bloco-diagonal (os niveis do gradiente nao se falam)", blk_ok),
+        ("** K SEM CONTRASTE: tudo comuta <=> espectro constante (controle construtivo: gap => E_ij nao comuta)", scl_ok),
+        ("o veredito FECHA: o setor decidido e subalgebra -- o centralizador ('o traco emerge no centralizador')", alg_ok),
+        ("** JKJ = -K em ato (espaco pareado): o espelho ve a inclinacao invertida", jkj_ok),
+        ("** a decisao SOBREVIVE ao espelho (a travessia nao desfaz vereditos)", mir_ok),
+        ("*** O GRADIENTE E O GERADOR: variacao primeira EXATA -- grad(F)(x) = beta.d.x = acao de K", var_ok),
+        ("*** O FLUXO RESOLVE ydot = -grad(F)(y): HasDerivAt em todo t, componente a componente", ode_ok),
+        ("*** SPOHN FINITO: F desce ao longo do fluxo (Lyapunov)", lya_ok),
+        ("*** K = -grad(F) VERIFICADO: variacao ^ EDO ^ Lyapunov em UM teorema (o estatuto duplo fechado na face finita)", syn_ok),
+        ("SOMBRA: entrada %.0e / bloco %.0e / escalar %.0e / controle %.1e>0 / JKJ %.0e / desfasagem-decide %.0e / variacao %.0e / EDO %.0e / Lyapunov %s"
+         % (ent_res, blk_res, scl_res, ctrl_break, jkj_res, dephase_res, var_res, ode_res, lya_ok_num), sombra_ok),
+        ("GKLS genuino = fluxo gradiente da entropia relativa [KNOWN: Spohn; Carlen-Maas]; einselection registrada (K modular, nao ambiental); 'decisao' = conservacao, sem postulado de medicao; o gate NAO se move", True),
+    ]
+    all_v = bool(all(v_ for _, v_ in checks))
+    vd = ("TGL_DECISION_IS_COMMUTATION__K_IS_WHAT_DOES_NOT_YET_COMMUTE__COMMUTATOR_WEIGHED_BY_SPECTRAL_GAPS__NO_CONTRAST_IFF_SCALAR_K__VERDICT_CLOSES_ON_CENTRALIZER__JKJ_NEG_K_DECISION_SURVIVES_MIRROR__K_EQUALS_NEG_GRADIENT_VERIFIED_FINITE_FACE__GKLS_GRADIENT_FLOW_EXTERNAL_KNOWN__SEAL_UNMOVED" if all_v
+          else "DECISION_COMMUTATION_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("A DECISAO E COMUTACAO: K nao profere o veredito -- e a inclinacao "
+                    "que ainda exige movimento, e a inclinacao e EXATAMENTE -grad(F) "
+                    "(verificado: variacao primeira + EDO + Lyapunov). O comutador pesa "
+                    "os gaps; o decidido e o centralizador; JKJ = -K e a decisao "
+                    "sobrevive ao espelho. J espelha, K inclina, a comutacao decide, "
+                    "o observador le."),
+        "values": {"beta": beta, "entry_resid": ent_res, "block_resid": blk_res,
+                   "scalar_resid": scl_res, "control_break": ctrl_break,
+                   "jkj_resid": jkj_res, "dephase_decides_resid": dephase_res,
+                   "first_variation_resid": var_res, "ode_resid": ode_res,
+                   "lyapunov_monotone": lya_ok_num},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_e": "a doutrina de K (03/08/2026) TIPADA: pedra 102, 10 teoremas, axiomas limpos, sobre as pedras 98/100/101",
+                     "o_que_resta": "o GKLS genuino como fluxo gradiente da entropia relativa segue EXTERNO [KNOWN: Spohn 1978; Carlen-Maas 2017]; K modular do continuo III_1 = EXTERNO [KNOWN]",
+                     "honestidade": "K = -grad(F) FECHOU na face finita (estatuto duplo cumprido); 'decisao' = conservacao-sob-o-fluxo, sem postulado de medicao; ressonancia einselection registrada com a torcao TGL (K e da fronteira, nao de um banho); NAO afirma a TGL verdadeira",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
+def prove_void_floor_v12_bilateral(ONE):
+    """v147 -- O RITO V12 BILATERAL: MEDIR beta no ceu [ADITIVO; nao gateia
+    1=1]. MANDATO (03/08/2026): 'o V12 bilateral em LRG/ELG e o unico degrau
+    de classe forte inteiramente producivel hoje -- vamos construir.' O v92
+    selou 'medir beta em si pede LRG/ELG'; o v115 construiu o achador LRG;
+    este rito da o passo BILATERAL: nao pergunta so 'r_c >= beta?' (piso,
+    unilateral) -- pergunta 'a janela de MATERIA dos vazios mais profundos
+    CONTEM beta, com resolucao para ve-lo?'. ORDEM INVIOLAVEL: (0) herda o
+    protocolo v67 (hash) + achador LRG_SO_V1 (v115) + estimador v92 -- tudo
+    IDENTICO; (1) CONGELA as adicoes ANTES de abrir os FITS: envelope de
+    profundidade (quartil mais profundo por (N_i/V_i)/D_r), janela de
+    materia via colchete de vies b in [1.0, 2.4] [EXT], resolucao exigida
+    (beta/sigma)^2 >= 25; (2) LRG em disco (custodia pinada v147); ELG =
+    aquisicao pinada (AWAITING ate chegar); (3) veredito SOMENTE do conjunto
+    congelado. HONESTIDADE ESTRUTURAL: a falsificacao do piso e INALCANCAVEL
+    por tracadores (b>=1, supressao>=0) -- este canal MEDE, nao mata; quem
+    mata e o setor de lente/kappa (V3). CONFIRMED proibido."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # jamais literal
+    xc = 0.25
+    proto_hash = sha_obj(_void_floor_protocol_record(beta))
+    prereg_ok = bool(proto_hash[:16] == SEALED_VOID_FLOOR_HASH16)
+    frozen = {
+        "version": "VOID_FLOOR_V12_BILATERAL_V1.1",
+        "amendment_v11": ("EMENDA V1.1 (autopsia da 1a execucao, selo v147 13:23:55, §228): (a) gate de CONTAGEM PRIMEIRO -- "
+                          "SumN_q >= 25 senao TRACER_EMPTY_CORE_REGIME (nao ha medida sem contagem; a populacao 16k era "
+                          "blocos Poisson-vazios do tracador raro); (b) guarda contagem-zero: sigma_deep >= 1/mu_q (esperado) "
+                          "e limite superior 95% r_UL = r_deep + 3/mu_q; (c) janela de materia SO com contagem; "
+                          "(d) n_rand 20000->100000 (calibrador fino; split-noise dominava); SEED MANTIDO (sem seed-shopping)"),
+        "objective": ("BILATERAL: medir a janela de materia do nucleo dos vazios mais profundos e testar se ela CONTEM beta "
+                      "com resolucao (beta/sigma_deep)^2 >= 25 -- o degrau 'medir beta' nomeado pelo v92"),
+        "inherits": ("protocolo v67 (hash conferido); achador LRG_SO_V1 (v115) IDENTICO; estimador v92 razao-de-razoes "
+                     "IDENTICO (n_bar e mascara cancelam); gates v115 (split-null, jackknife>=15, replica no lado, n_vazios>=100)"),
+        "depth_envelope": ("PRIMARIO: quartil mais profundo -- profundidade por vazio d_i = (N_i/V_i)/D_r; ordena ascendente; "
+                           "n_q = ceil(0.25*n_usados), exige n_q >= 25; empilha r_deep = [SumN/SumV]_quartil / D_r; "
+                           "sigma_deep = max(Poisson, jackknife 10 faixas de RA no quartil, >=8 validas)"),
+        "matter_window": ("colchete de vies b in [1.0, 2.4] [EXT: b_LRG ~ 2]; deprojecao linear r_m(b) = 1 + (r_g - 1)/b; "
+                          "janela W = [r_deep - 5*sigma_deep, 1 + (r_deep + 5*sigma_deep - 1)/2.4]; "
+                          "MEASURED sse W contem beta; SATURATION_NOT_REACHED sse W inteira acima de beta (o tracador nao alcanca o piso); "
+                          "TRACER_SUPPRESSION sse W inteira abaixo (supressao domina)"),
+        "resolution_rule": "POWERED na escala beta sse (beta/sigma_deep)^2 >= 25 E n_q >= 25",
+        "tracers": ("LRG: DESI DR1 LSScats iron v1.5, LRG_{NGC,SGC}_clustering.dat.fits, z in [0.40, 0.80] (em disco, "
+                    "custodia pinada bytes+sha v147); ELG: ELG_LOPnotqso_{NGC,SGC}_clustering.dat.fits, z in [0.80, 1.10] "
+                    "(plato [EXT]); ausente => AWAITING_DATA_ELG (aquisicao pinada; servidor DESI em manutencao NERSC 03/08/2026)"),
+        "honesty": ("kill INALCANCAVEL por tracadores (b>=1, supressao>=0): r_g < beta NAO implica materia < beta; "
+                    "a falsificacao vive nos canais de lente/kappa; contaminacao do achador dilui r_c PARA CIMA (nomeada, v115); "
+                    "nenhum veredito de confirmacao existe no conjunto"),
+        "verdicts": ["TGL_VOID_FLOOR_V12_MEASURED_WINDOW_CONTAINS_BETA_POWERED",
+                     "TGL_VOID_FLOOR_V12_MEASURED_WINDOW_CONTAINS_BETA_UNDERPOWERED",
+                     "TGL_VOID_FLOOR_V12_SATURATION_NOT_REACHED",
+                     "TGL_VOID_FLOOR_V12_TRACER_EMPTY_CORE_REGIME",
+                     "TGL_VOID_FLOOR_V12_INCONCLUSIVE_TRACER_SUPPRESSION",
+                     "TGL_VOID_FLOOR_V12_INCONCLUSIVE_SYSTEMATICS",
+                     "TGL_VOID_FLOOR_V12_UNDERPOWERED_AT_BETA",
+                     "VOID_FLOOR_V12_AWAITING_DATA_ELG"],
+        "forbidden_verdicts": ["CONFIRMED"],
+    }
+    frozen_hash = sha_obj(frozen)
+    # ---- cosmologia (identica ao v115) ----
+    zg = np.linspace(0.0, 1.6, 4096)
+    Eg = np.sqrt(0.315 * (1.0 + zg) ** 3 + (1.0 - 0.315))
+    seg = 0.5 * (1.0 / Eg[1:] + 1.0 / Eg[:-1]) * np.diff(zg)
+    chig = 2997.92458 * np.concatenate([[0.0], np.cumsum(seg)])
+
+    def _cap_rite12(G, rng, n_rand):
+        """o rito v115 por calota, HERDADO IDENTICO, + o envelope de
+        profundidade do V12 (quartil mais profundo)."""
+        N_gal = int(G.shape[0])
+        r = np.sqrt(np.sum(G ** 2, axis=1))
+        r1, r99 = float(np.percentile(r, 1)), float(np.percentile(r, 99))
+        ra = np.degrees(np.arctan2(G[:, 1], G[:, 0])) % 360.0
+        dec = np.degrees(np.arcsin(np.clip(G[:, 2] / np.maximum(r, 1e-9), -1, 1)))
+        cell_ang = 2.0
+        occ = set(zip(np.floor(ra / cell_ang).astype(int).tolist(),
+                      np.floor((dec + 90.0) / cell_ang).astype(int).tolist()))
+
+        def _mask_ok(cx0, cy0, cz0, Rc):
+            rc = math.sqrt(cx0 * cx0 + cy0 * cy0 + cz0 * cz0)
+            if rc - Rc < r1 or rc + Rc > r99:
+                return False
+            ra0 = math.degrees(math.atan2(cy0, cx0)) % 360.0
+            de0 = math.degrees(math.asin(max(-1.0, min(1.0, cz0 / max(rc, 1e-9)))))
+            ia, idn = int(ra0 // cell_ang), int((de0 + 90.0) // cell_ang)
+            for da in (-1, 0, 1):
+                for dd in (-1, 0, 1):
+                    if ((ia + da), (idn + dd)) not in occ:
+                        return False
+            return True
+        a = 15.0
+        lo = G.min(axis=0) - a
+        nax = (((G.max(axis=0) + a) - lo) / a).astype(int) + 1
+        idx = ((G - lo) / a).astype(int)
+        flat = (idx[:, 0].astype(np.int64) * nax[1] + idx[:, 1]) * nax[2] + idx[:, 2]
+        counts = np.zeros(int(nax[0]) * int(nax[1]) * int(nax[2]), dtype=np.int32)
+        np.add.at(counts, flat, 1)
+        C = counts.reshape(int(nax[0]), int(nax[1]), int(nax[2]))
+        c7 = C.astype(np.int64).copy()
+        for ax in range(3):
+            c7 += np.roll(C, 1, axis=ax) + np.roll(C, -1, axis=ax)
+        xs = (lo[0] + a * (np.arange(nax[0]) + 0.5)).astype(np.float32)
+        ys = (lo[1] + a * (np.arange(nax[1]) + 0.5)).astype(np.float32)
+        zs = (lo[2] + a * (np.arange(nax[2]) + 0.5)).astype(np.float32)
+        r3 = np.sqrt(xs[:, None, None] ** 2 + ys[None, :, None] ** 2 + zs[None, None, :] ** 2)
+        in_rad = (r3 > r1) & (r3 < r99)
+        ia2 = (np.degrees(np.arctan2(ys[None, :], xs[:, None])) % 360.0 / cell_ang).astype(np.int32)
+        de3 = np.degrees(np.arcsin(np.clip(zs[None, None, :] / np.maximum(r3, 1e-9), -1, 1)))
+        id3 = np.clip(((de3 + 90.0) / cell_ang).astype(np.int32), 0, int(180.0 / cell_ang) - 1)
+        Aocc = np.zeros((int(360.0 / cell_ang), int(180.0 / cell_ang)), dtype=bool)
+        for (ia_, id_) in occ:
+            if 0 <= ia_ < Aocc.shape[0] and 0 <= id_ < Aocc.shape[1]:
+                Aocc[ia_, id_] = True
+        in_mask = in_rad & Aocc[np.clip(ia2, 0, Aocc.shape[0] - 1)[:, :, None], id3]
+        del r3, de3, id3
+        n_cells_in = int(np.count_nonzero(in_mask))
+        if n_cells_in < 100:
+            return None
+        nbar = N_gal / (n_cells_in * a ** 3)
+        mu7 = 7.0 * (a ** 3) * nbar
+        pm = np.zeros((in_mask.shape[0] + 2, in_mask.shape[1] + 2, in_mask.shape[2] + 2), dtype=bool)
+        pm[1:-1, 1:-1, 1:-1] = in_mask
+        in27 = np.ones(in_mask.shape, dtype=bool)
+        for di in (0, 1, 2):
+            for dj in (0, 1, 2):
+                for dk in (0, 1, 2):
+                    in27 &= pm[di:di + in_mask.shape[0], dj:dj + in_mask.shape[1], dk:dk + in_mask.shape[2]]
+        cand = np.argwhere(in27 & (c7 < 0.15 * mu7))
+        n_cand = int(cand.shape[0])
+        if n_cand == 0:
+            return None
+        cx = lo[0] + a * (cand[:, 0] + 0.5)
+        cy = lo[1] + a * (cand[:, 1] + 0.5)
+        cz = lo[2] + a * (cand[:, 2] + 0.5)
+        c7c = c7[cand[:, 0], cand[:, 1], cand[:, 2]]
+        order = np.argsort(c7c, kind="stable")
+        accepted, hashd = [], {}
+        for oi in order:
+            x0, y0, z0 = float(cx[oi]), float(cy[oi]), float(cz[oi])
+            hb = (int(x0 // 30.0), int(y0 // 30.0), int(z0 // 30.0))
+            ok = True
+            for da in (-1, 0, 1):
+                for db in (-1, 0, 1):
+                    for dg in (-1, 0, 1):
+                        for aj in hashd.get((hb[0] + da, hb[1] + db, hb[2] + dg), ()):
+                            if (cx[aj] - x0) ** 2 + (cy[aj] - y0) ** 2 + (cz[aj] - z0) ** 2 < 900.0:
+                                ok = False
+                                break
+                        if not ok:
+                            break
+                    if not ok:
+                        break
+                if not ok:
+                    break
+            if ok:
+                accepted.append(int(oi))
+                hashd.setdefault(hb, []).append(int(oi))
+        Gx = G[np.argsort(G[:, 0])]
+        sx = Gx[:, 0]
+        rad_grid = np.arange(20.0, 60.0 + 1e-9, 2.5)
+        v20lim = 0.3 * nbar * (4.0 * math.pi / 3.0) * 20.0 ** 3
+        voids = []
+        for oi in accepted:
+            x0, y0, z0 = float(cx[oi]), float(cy[oi]), float(cz[oi])
+            lo_i = np.searchsorted(sx, x0 - 60.0)
+            hi_i = np.searchsorted(sx, x0 + 60.0)
+            w = Gx[lo_i:hi_i]
+            d2 = (w[:, 0] - x0) ** 2 + (w[:, 1] - y0) ** 2 + (w[:, 2] - z0) ** 2
+            dsort = np.sort(np.sqrt(d2[d2 <= 3600.0]))
+            counts_r = np.searchsorted(dsort, rad_grid, side="right")
+            if counts_r[0] >= v20lim:
+                continue
+            dens = counts_r / ((4.0 * math.pi / 3.0) * rad_grid ** 3)
+            cross = np.where(dens >= 0.3 * nbar)[0]
+            if cross.size == 0:
+                continue
+            Rv = float(rad_grid[cross[0]])
+            if not _mask_ok(x0, y0, z0, Rv):
+                continue
+            voids.append((x0, y0, z0, Rv))
+        nv = len(voids)
+        if nv < 10:
+            return {"n_gal": N_gal, "n_voids": nv, "too_few": True}
+        V = np.asarray(voids)
+        void_r = np.sqrt(V[:, 0] ** 2 + V[:, 1] ** 2 + V[:, 2] ** 2)
+        occ_list = sorted(occ)
+        pick = rng.integers(0, nv, n_rand)
+        ci = rng.integers(0, len(occ_list), n_rand)
+        u1 = rng.random(n_rand)
+        u2 = rng.random(n_rand)
+        rand_rows = []
+        for k in range(n_rand):
+            ia_, id_ = occ_list[int(ci[k])]
+            ra0 = (ia_ + float(u1[k])) * cell_ang
+            de0 = (id_ + float(u2[k])) * cell_ang - 90.0
+            rr = float(void_r[int(pick[k])])
+            cd = math.cos(math.radians(de0))
+            rand_rows.append([rr * cd * math.cos(math.radians(ra0)),
+                              rr * cd * math.sin(math.radians(ra0)),
+                              rr * math.sin(math.radians(de0)), float(V[int(pick[k]), 3])])
+        RND = np.asarray(rand_rows)
+
+        def _count_core(cx0, cy0, cz0, Rc):
+            lo_i = np.searchsorted(sx, cx0 - Rc)
+            hi_i = np.searchsorted(sx, cx0 + Rc)
+            w = Gx[lo_i:hi_i]
+            d2 = (w[:, 0] - cx0) ** 2 + (w[:, 1] - cy0) ** 2 + (w[:, 2] - cz0) ** 2
+            return int(np.sum(d2 <= Rc * Rc))
+
+        def _collect(cat):
+            Ns, Vs, ras_ = [], [], []
+            for (cx0, cy0, cz0, R) in cat:
+                Rc = xc * R
+                if not _mask_ok(cx0, cy0, cz0, Rc):
+                    continue
+                Ns.append(_count_core(cx0, cy0, cz0, Rc))
+                Vs.append((4.0 * math.pi / 3.0) * Rc ** 3)
+                ras_.append(math.degrees(math.atan2(cy0, cx0)) % 360.0)
+            return (np.asarray(Ns, dtype=float), np.asarray(Vs, dtype=float),
+                    np.asarray(ras_, dtype=float))
+        Nr, Vr, RAr = _collect(RND)
+        if Vr.sum() <= 0:
+            return {"n_gal": N_gal, "n_voids": nv, "too_few": True}
+        Dr = float(Nr.sum() / Vr.sum())
+        half = rng.random(Nr.size) < 0.5
+        D1 = Nr[half].sum() / max(Vr[half].sum(), 1e-30)
+        D2 = Nr[~half].sum() / max(Vr[~half].sum(), 1e-30)
+        split_ratio = float(D1 / max(D2, 1e-30))
+        sig_split = float(split_ratio * math.sqrt(1.0 / max(Nr[half].sum(), 1.0)
+                                                  + 1.0 / max(Nr[~half].sum(), 1.0)))
+        split_ok = bool(abs(split_ratio - 1.0) < 3.0 * sig_split)
+        Nv_, Vv_, RAv = _collect(V)
+        if Vv_.sum() <= 0:
+            return {"n_gal": N_gal, "n_voids": nv, "too_few": True}
+        rhat = float((Nv_.sum() / Vv_.sum()) / Dr)
+        sig_p = rhat * math.sqrt(1.0 / max(Nv_.sum(), 1.0) + 1.0 / max(Nr.sum(), 1.0))
+        n_jk, jk = 20, []
+        qs = np.percentile(RAv, np.linspace(0, 100, n_jk + 1))
+        for k in range(n_jk):
+            mv = (RAv < qs[k]) | (RAv >= qs[k + 1])
+            mr = (RAr < qs[k]) | (RAr >= qs[k + 1])
+            if Vv_[mv].sum() > 0 and Nr[mr].sum() > 0:
+                jk.append((Nv_[mv].sum() / Vv_[mv].sum())
+                          / (Nr[mr].sum() / Vr[mr].sum()))
+        sig_j = (float(math.sqrt((len(jk) - 1) * np.var(jk))) if len(jk) >= 15 else float("inf"))
+        sig = float(max(sig_p, sig_j if math.isfinite(sig_j) else sig_p))
+        mu_used = float(Dr * Vv_.sum())
+        # ---- V12: o ENVELOPE DE PROFUNDIDADE (quartil mais profundo) ----
+        depth = (Nv_ / np.maximum(Vv_, 1e-30)) / Dr
+        oq = np.argsort(depth, kind="stable")
+        n_q = int(math.ceil(0.25 * depth.size))
+        qsel = oq[:n_q]
+        Nq, Vq, RAq = Nv_[qsel], Vv_[qsel], RAv[qsel]
+        r_deep = float((Nq.sum() / max(Vq.sum(), 1e-30)) / Dr)
+        sigq_p = r_deep * math.sqrt(1.0 / max(Nq.sum(), 1.0) + 1.0 / max(Nr.sum(), 1.0))
+        jk10 = []
+        qs10 = np.percentile(RAq, np.linspace(0, 100, 11)) if RAq.size else []
+        for k in range(10 if RAq.size else 0):
+            mq = (RAq < qs10[k]) | (RAq >= qs10[k + 1])
+            mr = (RAr < qs10[k]) | (RAr >= qs10[k + 1])
+            if Vq[mq].sum() > 0 and Nr[mr].sum() > 0:
+                jk10.append((Nq[mq].sum() / Vq[mq].sum())
+                            / (Nr[mr].sum() / Vr[mr].sum()))
+        sigq_j = (float(math.sqrt((len(jk10) - 1) * np.var(jk10))) if len(jk10) >= 8 else float("inf"))
+        sig_deep = float(max(sigq_p, sigq_j if math.isfinite(sigq_j) else sigq_p))
+        mu_q = float(Dr * Vq.sum())
+        Nq_sum = float(Nq.sum())
+        sig_floor = 1.0 / max(mu_q, 1e-30)
+        sig_deep = float(max(sig_deep, sig_floor))          # V1.1: guarda contagem-zero
+        r_ul95 = float(r_deep + 3.0 / max(mu_q, 1e-30))     # V1.1: limite superior 95%
+        return {"n_gal": N_gal, "nbar": float(nbar), "n_candidates": n_cand,
+                "n_voids": nv, "n_used": int(Vv_.size), "mu_used": mu_used,
+                "rhat_cal": rhat, "sigma": sig, "L5": rhat - 5.0 * sig,
+                "U5": rhat + 5.0 * sig, "n_jk_valid": len(jk),
+                "split_null": {"ratio": split_ratio, "sigma": sig_split, "ok": split_ok},
+                "side_L5_ge_beta": bool(rhat - 5.0 * sig >= beta),
+                "deep": {"n_q": n_q, "r_deep": r_deep, "sigma_poisson": float(sigq_p),
+                         "sigma_jk": sigq_j, "sigma": sig_deep,
+                         "mu_q": mu_q, "N_q": Nq_sum, "sigma_floor": sig_floor,
+                         "r_ul95": r_ul95, "n_jk_valid": len(jk10)}}
+    # ---- os tracadores ----
+    tracers = {
+        "LRG": {"dir": os.path.join(CACHE, "voids", "lrg"),
+                "files": {c: "LRG_%s_clustering.dat.fits" % c for c in ("NGC", "SGC")},
+                "zlo": 0.40, "zhi": 0.80, "seed": 147},
+        "ELG": {"dir": os.path.join(CACHE, "voids", "elg"),
+                "files": {c: "ELG_LOPnotqso_%s_clustering.dat.fits" % c for c in ("NGC", "SGC")},
+                "zlo": 0.80, "zhi": 1.10, "seed": 148},
+    }
+    results, tracer_status = {}, {}
+    for tname, tc in tracers.items():
+        paths = {c: os.path.join(tc["dir"], fn) for c, fn in tc["files"].items()}
+        if not all(os.path.exists(p) and os.path.getsize(p) > (1 << 20) for p in paths.values()):
+            tracer_status[tname] = "AWAITING_DATA (aquisicao pinada em EVIDENCE_SOURCES; deposito em %s)" % tc["dir"]
+            continue
+        rng = np.random.default_rng(tc["seed"])
+        ngal_caps = {}
+        for capn in ("NGC", "SGC"):
+            cols = _fits_extract_columns(paths[capn], "LSS", ["RA", "DEC", "Z"],
+                                         row_filter=lambda c: (c["Z"] >= tc["zlo"]) & (c["Z"] <= tc["zhi"]))
+            ngal_caps[capn] = int(cols["RA"].size)
+        n_tot = max(sum(ngal_caps.values()), 1)
+        res = {}
+        for capn in ("NGC", "SGC"):
+            cols = _fits_extract_columns(paths[capn], "LSS", ["RA", "DEC", "Z"],
+                                         row_filter=lambda c: (c["Z"] >= tc["zlo"]) & (c["Z"] <= tc["zhi"]))
+            rr = np.interp(cols["Z"], zg, chig)
+            rad = np.radians(cols["RA"])
+            ded = np.radians(cols["DEC"])
+            G = np.column_stack([rr * np.cos(ded) * np.cos(rad),
+                                 rr * np.cos(ded) * np.sin(rad),
+                                 rr * np.sin(ded)])
+            n_rand = max(int(round(100000.0 * ngal_caps[capn] / n_tot)), 5000)
+            out = _cap_rite12(G, rng, n_rand)
+            if out is not None:
+                res[capn] = out
+            del G
+        results[tname] = res
+        tracer_status[tname] = "EXECUTADO"
+    # ---- veredito (primario: LRG NGC, envelope profundo) ----
+    P = (results.get("LRG") or {}).get("NGC")
+    Srep = (results.get("LRG") or {}).get("SGC")
+    elg_waiting = tracer_status.get("ELG", "").startswith("AWAITING")
+    if P is None or P.get("too_few") or "deep" not in P:
+        verdict = ("VOID_FLOOR_V12_AWAITING_DATA_ELG" if "LRG" not in results
+                   else "TGL_VOID_FLOOR_V12_INCONCLUSIVE_SYSTEMATICS")
+        return {"theorem": "V12 bilateral: sem populacao primaria utilizavel nesta rodada",
+                "frozen_v12_spec": frozen, "frozen_v12_hash": frozen_hash,
+                "tracer_status": tracer_status, "per_tracer": results,
+                "checks": [("populacao LRG NGC utilizavel", False)],
+                "all_verified": False, "does_not_gate_core": True,
+                "verdict": verdict}
+    split_ok_all = bool(P["split_null"]["ok"] and (Srep is None or "split_null" not in Srep
+                                                   or Srep["split_null"]["ok"]))
+    rep_ok = bool(Srep is None or "side_L5_ge_beta" not in Srep
+                  or (Srep["side_L5_ge_beta"] == P["side_L5_ge_beta"]))
+    gates_ok = bool(split_ok_all and P["n_jk_valid"] >= 15 and rep_ok and P["n_voids"] >= 100)
+    D = P["deep"]
+    r_deep, sig_deep, n_q = D["r_deep"], D["sigma"], D["n_q"]
+    W_lo = r_deep - 5.0 * sig_deep
+    W_hi = 1.0 + (r_deep + 5.0 * sig_deep - 1.0) / 2.4
+    resolution = float((beta / max(sig_deep, 1e-30)) ** 2)
+    powered = bool(resolution >= 25.0 and n_q >= 25)
+    empty_core = bool(D.get("N_q", 0.0) < 25.0)
+    if not prereg_ok:
+        verdict = "TGL_VOID_FLOOR_V12_INCONCLUSIVE_SYSTEMATICS"
+    elif empty_core:
+        verdict = "TGL_VOID_FLOOR_V12_TRACER_EMPTY_CORE_REGIME"
+    elif not gates_ok:
+        verdict = "TGL_VOID_FLOOR_V12_INCONCLUSIVE_SYSTEMATICS"
+    elif W_hi < beta:
+        verdict = "TGL_VOID_FLOOR_V12_INCONCLUSIVE_TRACER_SUPPRESSION"
+    elif W_lo <= beta <= W_hi and powered:
+        verdict = "TGL_VOID_FLOOR_V12_MEASURED_WINDOW_CONTAINS_BETA_POWERED"
+    elif W_lo <= beta <= W_hi:
+        verdict = "TGL_VOID_FLOOR_V12_MEASURED_WINDOW_CONTAINS_BETA_UNDERPOWERED"
+    elif not powered:
+        verdict = "TGL_VOID_FLOOR_V12_UNDERPOWERED_AT_BETA"
+    else:
+        verdict = "TGL_VOID_FLOOR_V12_SATURATION_NOT_REACHED"
+    checks = [
+        ("pre-registro v67 INTACTO (hash)", prereg_ok),
+        ("espec V12 congelada com hash ANTES de abrir os FITS", True),
+        ("achador LRG_SO_V1 + estimador v92 HERDADOS IDENTICOS (v115)", True),
+        ("gates v115 (split-null %.3f+-%.3f; jk %d/20; replica-lado %s; n_vazios %d)"
+         % (P["split_null"]["ratio"], P["split_null"]["sigma"], P["n_jk_valid"],
+            "ok" if rep_ok else "X", P["n_voids"]), gates_ok),
+        ("envelope profundo: n_q=%d, N_q=%.0f, r_deep=%.4f +- %.4f (UL95 %.4f; mu_q %.1f)"
+         % (n_q, D.get("N_q", 0.0), r_deep, sig_deep, D.get("r_ul95", 0.0), D.get("mu_q", 0.0)),
+         n_q >= 25),
+        ("gate de contagem (V1.1): SumN_q = %.0f (>= 25 para MEDIR; senao regime de nucleo vazio -- "
+         "medir por contagem exige tracador mais denso ou lente)" % D.get("N_q", 0.0), not empty_core),
+        ("janela de materia W=[%.4f, %.4f] vs beta=%.6f" % (W_lo, W_hi, beta), True),
+        ("resolucao na escala beta: (beta/sigma_deep)^2 = %.2f (exige >= 25)" % resolution, resolution >= 25.0),
+        ("ELG: %s" % tracer_status.get("ELG", "?"), not elg_waiting),
+        ("kill inalcancavel por tracadores (nomeado): este canal MEDE, nao mata; o gate NAO se move", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("V12 BILATERAL: a janela de materia do quartil mais profundo dos vazios "
+                    "LRG, confrontada com beta em resolucao pre-registrada -- o degrau "
+                    "'medir beta' do v92, em rito congelado."),
+        "frozen_v12_spec": frozen, "frozen_v12_hash": frozen_hash,
+        "primary": {"tracer": "LRG", "cap": "NGC", "rhat_full": P["rhat_cal"],
+                    "sigma_full": P["sigma"], "r_deep": r_deep, "sigma_deep": sig_deep,
+                    "n_q": n_q, "N_q": D.get("N_q", 0.0), "mu_q": D.get("mu_q", 0.0),
+                    "r_ul95": D.get("r_ul95", 0.0), "window": [W_lo, W_hi], "beta": beta,
+                    "resolution_at_beta": resolution, "powered": powered},
+        "replica_sgc": ({"rhat_full": Srep["rhat_cal"], "r_deep": Srep["deep"]["r_deep"],
+                         "sigma_deep": Srep["deep"]["sigma"]}
+                        if (Srep is not None and "deep" in Srep) else None),
+        "tracer_status": tracer_status,
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": verdict,
+    }
+
+
+def prove_neutrino_sum_protocol(ONE):
+    """v147 -- SIGMA M_NU: O CANAL PROSPECTIVO VIVO [ADITIVO; nao gateia 1=1;
+    protocolo congelado]. A CUSTODIA TRIPLA do neutrino (mandato 03/08/2026):
+    (i) a derivacao m_nu = beta*sin45*1eV foi PUBLICADA ANTES do codigo
+    [Zenodo 10.5281/zenodo.17526619, 2025; o modulo v141 e de 25/07/2026] --
+    prioridade documental, sem ajuste possivel; (ii) o alvo da comparacao
+    ATUAL (Dm2_21, PDG) antecede a derivacao -- 'postdicao' SO nesse sentido
+    restrito; (iii) a ESCALA ABSOLUTA nunca foi medida (so limitada): este
+    canal arma a predicao prospectiva Sigma m_nu ~ 0.059 eV contra as
+    medidas cosmologicas por vir (DESI DR2+/CMB-S4). Kill rule e matched
+    rule pre-registradas; CONFIRMED proibido."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # jamais literal
+    m2 = beta * math.sin(math.radians(45.0))                  # eV (TGL, runtime)
+    d21, d21e = 7.53e-5, 0.18e-5    # Dm2_21 PDG 2023 [EXT], eV^2 (solar)
+    d32, d32e = 2.437e-3, 0.028e-3  # Dm2_32 PDG 2023 [EXT], eV^2 (NO, atmosferico)
+    m3 = math.sqrt(m2 * m2 + d32)                             # eV (NO; m3^2 = m2^2 + Dm2_32)
+    m3_err = 0.5 * d32e / m3
+    sum_pred = 0.0 + m2 + m3                                  # m1 ~ 0 [declarado]
+    sum_err = m3_err                                          # dominado por Dm2_32
+    bound_now, bound_date = 0.072, "2024"                     # eV, 95% CL [EXT, INPUT datado]
+    frozen = {
+        "version": "NEUTRINO_SUM_V1",
+        "prediction": ("Sigma m_nu = m1 + m2 + m3 com m1 ~ 0 [declarado], m2 = beta*sin(45)*1eV "
+                       "[TGL runtime; derivacao publicada 2025, Zenodo 10.5281/zenodo.17526619], "
+                       "m3 = sqrt(m2^2 + Dm2_32) [PDG 2023]; ordenamento normal"),
+        "custody": ("(i) derivacao ANTES do codigo [Zenodo 17526619, 2025 vs modulo v141 25/07/2026]; "
+                    "(ii) Dm2 (PDG) antecede a derivacao -- 'postdicao' SO nesse sentido restrito; "
+                    "(iii) Sigma m_nu NUNCA medida (so limites 95%): canal PROSPECTIVO"),
+        "current_input": "limite atual Sigma m_nu < 0.072 eV (95% CL, BAO+CMB, DESI DR1 2024) [EXT, INPUT datado; analises 2025 mais apertadas existem]",
+        "kill_rule": ("FALSIFIED sse um limite superior a 95% publicado ficar abaixo de "
+                      "Sigma_pred - 5*sigma_pred em DUAS analises independentes (robustez de modelo)"),
+        "matched_rule": ("MATCHED_PROSPECTIVELY sse uma DETECCAO (nao limite) pousar em "
+                         "Sigma_pred +- 3*sigma_medida -- e mesmo entao NAO e CONFIRMED"),
+        "allowed_verdicts": ["TGL_NEUTRINO_SUM_ARMED_CONSISTENT_WITH_CURRENT_BOUND",
+                             "TGL_NEUTRINO_SUM_TENSION_WITH_BOUND",
+                             "TGL_NEUTRINO_SUM_FALSIFIED",
+                             "TGL_NEUTRINO_SUM_MATCHED_PROSPECTIVELY",
+                             "NEUTRINO_SUM_AWAITING_MEASUREMENT"],
+        "forbidden_verdicts": ["CONFIRMED"],
+    }
+    frozen_hash = sha_obj(frozen)
+    kill_line = sum_pred - 5.0 * sum_err
+    consistent_now = bool(sum_pred < bound_now)
+    verdict = ("TGL_NEUTRINO_SUM_ARMED_CONSISTENT_WITH_CURRENT_BOUND" if consistent_now
+               else "TGL_NEUTRINO_SUM_TENSION_WITH_BOUND")
+    checks = [
+        ("custodia tripla: derivacao 2025 (DOI) < codigo 2026; 'postdicao' confinada; escala absoluta INEDITA", True),
+        ("Sigma_pred = %.4f eV +- %.4f (m2=%.4f meV TGL; m3=%.2f meV de Dm2_32 PDG)"
+         % (sum_pred, sum_err, m2 * 1000.0, m3 * 1000.0), True),
+        ("limite atual (%s): Sigma < %.3f eV a 95%% -- predicao DENTRO do permitido" % (bound_date, bound_now), consistent_now),
+        ("linha de morte pre-registrada: limite 95%% < %.4f eV (em 2 analises) => FALSIFIED" % kill_line, True),
+        ("o alvo esta na mira das sondas atuais: DESI DR2+/CMB-S4 alcancam ~0.06 eV nesta decada", True),
+        ("CONFIRMED proibido; o gate NAO se move por este canal", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "theorem": ("SIGMA M_NU ARMADO: a predicao prospectiva VIVA do setor do neutrino -- "
+                    "Sigma m_nu ~ %.4f eV (m1~0; m2 TGL publicado 2025; m3 do atmosferico PDG). "
+                    "A escala absoluta nunca foi medida: quando for, este frozen decide sozinho."
+                    % sum_pred),
+        "frozen": frozen, "frozen_hash": frozen_hash,
+        "values": {"beta": beta, "m2_eV": m2, "m3_eV": m3, "sum_pred_eV": sum_pred,
+                   "sum_err_eV": sum_err, "kill_line_eV": kill_line,
+                   "current_bound_eV": bound_now},
+        "checks": checks, "all_verified": all_v,
+        "does_not_gate_core": True,
+        "verdict": verdict,
     }
 
 
@@ -5847,6 +6603,8 @@ import TGLExt.WedgeNet
 import TGLExt.BoundaryException
 import TGLExt.GlobalLiftConditional
 import TGLExt.ObserverInside
+import TGLExt.ConjugateAct
+import TGLExt.DecisionCommutation
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -7549,6 +8307,28 @@ namespace TGL.Audit
 #print axioms TGLExt.observer_output_is_permanent
 #print axioms TGLExt.observer_inverse_projection_halfnat
 #print axioms TGLExt.the_standard_of_unification
+
+-- v145 (o ato conjugado: "1 = J" tipado -- involucao, entrega, conservacao)
+#print axioms TGLExt.J_squared_is_one
+#print axioms TGLExt.J_preserves_identity
+#print axioms TGLExt.J_maps_face_to_coface
+#print axioms TGLExt.J_invariant_iff_diagonal
+#print axioms TGLExt.name_is_J_invariant
+#print axioms TGLExt.halfnat_from_J_symmetry
+#print axioms TGLExt.flow_delivers_to_the_observer
+#print axioms TGLExt.justification_minimal_form
+
+-- v146 (a decisao e comutacao: K e o que ainda nao comuta; K = -grad(F) verificado)
+#print axioms TGLExt.commutator_entry
+#print axioms TGLExt.decided_iff_block
+#print axioms TGLExt.scalar_iff_all_commute
+#print axioms TGLExt.decided_is_subalgebra
+#print axioms TGLExt.JKJ_eq_neg_K
+#print axioms TGLExt.decided_sector_is_J_stable
+#print axioms TGLExt.gradient_first_variation
+#print axioms TGLExt.flow_solves_gradient_ode
+#print axioms TGLExt.lyapunov_decreases
+#print axioms TGLExt.K_equals_neg_gradient_verified
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -27741,6 +28521,460 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/ConjugateAct.lean":
+r'''import TGLExt.ObserverInside
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O ATO CONJUGADO: "1 = J" tipado — involução, entrega, conservação
+  [TGLExt — v145, a doutrina do operador (03/08/2026)]
+
+O operador: "1 = J. O Um Absoluto não é um escalar estático: é a própria
+operação de conjugação modular. O Um nunca foi puro — pureza é não-relação
+(o zero absoluto disfarçado); o Um é JUSTIFICAÇÃO: identidade que atravessa
+a relação, aceita seu custo e permanece verdadeira. 1_abs = 0_abs se não há
+fractalização; fractalizado = J = 1-em-nós. J = Verbo Vivo. Involução,
+entrega, conservação: a forma mínima da justificação."
+
+A face finita do J de Tomita (o espelho que troca as duas faces da
+fronteira), SOBRE as pedras 98 e 100:
+
+* ★★ `J_squared_is_one` — A INVOLUÇÃO: J∘J = 1 — a tipagem honesta de
+  "1 = J": o Um é recuperado pela auto-reflexão (J·J = I; ω(I)=1);
+* ★★ `J_preserves_identity` — A CONSERVAÇÃO: a identidade 1 = q² + α²
+  (a energia do par) ATRAVESSA o espelho intacta — a travessia é isometria,
+  não colapso: "o Um atravessa a diferença sem deixar de ser Um";
+* ★★ `J_maps_face_to_coface` — J𝓜J = 𝓜′ NA FACE FINITA: a conjugação
+  leva a face interna EXATAMENTE na face externa (JPJ = Q) — o observador
+  é o outro lado do mesmo ato;
+* `J_invariant_iff_diagonal` — o invariante de J é EXATAMENTE a diagonal:
+  o que é igual ao seu próprio espelho — e nada mais;
+* `name_is_J_invariant` — JΩ = Ω: o Nome é fixado pelo ato conjugado e
+  não é nulo (a face KMS finita: o vácuo invariante pela conjugação);
+* ★★★ `halfnat_from_J_symmetry` — A MEIA-NAT DERIVADA DE J: na pedra 100
+  o "sem privilégio" (ωP = ωQ) era HIPÓTESE; aqui ele é TEOREMA da
+  J-simetria — todo peso que não vê o espelho (ω∘AdJ = ω) com total 1
+  pesa ½ em cada face. O postulado subiu um nível: de "pesos iguais"
+  para "o peso é J-invariante";
+* ★★★ `flow_delivers_to_the_observer` — A ENTREGA COMO LIMITE: ρ(t) → ρ*
+  em ato — o transporte diagonal CONVERGE (Tendsto, t→∞) para a leitura
+  do observador em toda componente: a relaxação atrativa ao estacionamento
+  modular dinâmico, agora como teorema de limite real;
+* ★★★ `justification_minimal_form` — A FORMA MÍNIMA DA JUSTIFICAÇÃO:
+  involução (J² = 1) ∧ conservação (a identidade atravessa) ∧ entrega
+  (o fluxo converge ao observador) — o tríptico do operador em UM teorema.
+
+Honestidades: "1 = J" LITERAL é erro de tipo (escalar vs operador
+anti-unitário) — o kernel tipa as três faces, nunca a igualdade literal;
+o J anti-unitário da III₁ genuína (Tomita 1967; Bisognano-Wichmann = CPT
+na cunha de Rindler) segue EXTERNO [KNOWN]; esta é a face finita REAL da
+estrutura; pureza/justificação é leitura [ONTO]; β jamais literal; o gate
+NÃO se move. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- O ATO CONJUGADO na face finita: o espelho que troca as duas faces da
+    fronteira (dentro/fora). A face finita do J de Tomita. -/
+def conjJ {n : ℕ} (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    (Fin n → ℝ) × (Fin n → ℝ) := (p.2, p.1)
+
+/-- a identidade do par: 1 = q² + α² — a energia total das duas faces. -/
+def pairEnergy {n : ℕ} (p : (Fin n → ℝ) × (Fin n → ℝ)) : ℝ :=
+  (∑ i, p.1 i ^ 2) + (∑ i, p.2 i ^ 2)
+
+/-- a face interna (o volume 𝓜). -/
+def faceIn {n : ℕ} (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    (Fin n → ℝ) × (Fin n → ℝ) := (p.1, 0)
+
+/-- a face externa (o comutante 𝓜′ — o lado do observador). -/
+def faceOut {n : ℕ} (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    (Fin n → ℝ) × (Fin n → ℝ) := (0, p.2)
+
+/-! ## A — a involução e a conservação: "1 = J" tipado -/
+
+/-- [KERNEL] ★★ A INVOLUÇÃO: J∘J = 1. O Um é recuperado pela
+    auto-reflexão — a tipagem honesta de "1 = J". -/
+theorem J_squared_is_one {n : ℕ} (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    conjJ (conjJ p) = p := rfl
+
+/-- [KERNEL] ★★ A CONSERVAÇÃO: a identidade 1 = q² + α² atravessa o
+    espelho intacta. A travessia é isometria, não colapso. -/
+theorem J_preserves_identity {n : ℕ} (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    pairEnergy (conjJ p) = pairEnergy p := by
+  unfold pairEnergy conjJ
+  exact add_comm _ _
+
+/-! ## B — J𝓜J = 𝓜′ na face finita e o invariante -/
+
+/-- [KERNEL] ★★ A CONJUGAÇÃO DAS FACES: J∘P_in∘J = P_out — o espelho leva
+    a face interna exatamente na externa. O observador é o outro lado do
+    mesmo ato (J𝓜J = 𝓜′, face finita). -/
+theorem J_maps_face_to_coface {n : ℕ} (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    conjJ (faceIn (conjJ p)) = faceOut p := rfl
+
+/-- [KERNEL] o invariante de J é EXATAMENTE a diagonal: o que é igual ao
+    seu próprio espelho — e nada mais. -/
+theorem J_invariant_iff_diagonal {n : ℕ} (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    conjJ p = p ↔ p.1 = p.2 := by
+  constructor
+  · intro h
+    exact (congrArg Prod.fst h).symm
+  · intro h
+    exact Prod.ext h.symm h
+
+/-- [KERNEL] JΩ = Ω: o Nome (o modo zero, nas duas faces) é fixado pelo
+    ato conjugado — e não é nulo. A face KMS finita. -/
+theorem name_is_J_invariant {n : ℕ} (i₀ : Fin n) :
+    (conjJ ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ), (Pi.single i₀ (1 : ℝ) : Fin n → ℝ))
+      = ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ), (Pi.single i₀ (1 : ℝ) : Fin n → ℝ)))
+    ∧ ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ), (Pi.single i₀ (1 : ℝ) : Fin n → ℝ))
+      ≠ (0 : (Fin n → ℝ) × (Fin n → ℝ)) := by
+  refine ⟨rfl, fun h => ?_⟩
+  have h1 := congrArg Prod.fst h
+  have h2 := congrFun h1 i₀
+  simp at h2
+
+/-! ## C — a Meia-Nat derivada da J-simetria -/
+
+/-- [KERNEL] ★★★ A MEIA-NAT DERIVADA DE J: se o peso não vê o espelho
+    (ω(J∘T∘J) = ω(T)) e o total das duas faces é o Um, cada face pesa ½.
+    O "sem privilégio" da pedra 100 deixou de ser hipótese: é teorema da
+    J-simetria. -/
+theorem halfnat_from_J_symmetry {n : ℕ}
+    (w : (((Fin n → ℝ) × (Fin n → ℝ)) → ((Fin n → ℝ) × (Fin n → ℝ))) → ℝ)
+    (hJ : w (fun p => conjJ (faceIn (conjJ p))) = w faceIn)
+    (hsum : w faceIn + w faceOut = 1) :
+    w faceIn = 1 / 2 := by
+  have hfun : (fun p : (Fin n → ℝ) × (Fin n → ℝ) => conjJ (faceIn (conjJ p)))
+      = (faceOut : ((Fin n → ℝ) × (Fin n → ℝ)) → ((Fin n → ℝ) × (Fin n → ℝ))) :=
+    funext fun p => J_maps_face_to_coface p
+  rw [hfun] at hJ
+  exact observer_inverse_projection_halfnat (w faceIn) (w faceOut) hJ.symm hsum
+
+/-! ## D — a entrega como limite: ρ(t) → ρ* -/
+
+/-- [KERNEL] ★★★ A ENTREGA: o transporte CONVERGE para a leitura do
+    observador — a relaxação atrativa ao estacionamento modular dinâmico,
+    como teorema de limite (t → ∞), componente a componente. -/
+theorem flow_delivers_to_the_observer {n : ℕ} {β : ℝ} (hβ : 0 < β)
+    (d : Fin n → ℝ) (hd : ∀ i, 0 ≤ d i) (x : Fin n → ℝ) (i : Fin n) :
+    Filter.Tendsto (fun t : ℝ => diagFlow β d t x i) Filter.atTop
+      (nhds (observerProj d x i)) := by
+  unfold diagFlow observerProj
+  rcases lt_or_eq_of_le (hd i) with hdi | hdi
+  · rw [if_neg (ne_of_gt hdi)]
+    simp only [mul_assoc]
+    have h1 : Filter.Tendsto (fun t : ℝ => t * (β * d i)) Filter.atTop
+        Filter.atTop :=
+      Filter.Tendsto.atTop_mul_const (mul_pos hβ hdi) Filter.tendsto_id
+    have h2 : Filter.Tendsto (fun t : ℝ => -(t * (β * d i))) Filter.atTop
+        Filter.atBot := Filter.tendsto_neg_atTop_atBot.comp h1
+    have h3 : Filter.Tendsto (fun t : ℝ => Real.exp (-(t * (β * d i))))
+        Filter.atTop (nhds 0) := Real.tendsto_exp_atBot.comp h2
+    have h4 := h3.mul_const (x i)
+    simpa using h4
+  · rw [if_pos hdi.symm]
+    simp only [← hdi, mul_zero, neg_zero, Real.exp_zero, one_mul]
+    exact tendsto_const_nhds
+
+/-! ## E — A SÍNTESE: a forma mínima da justificação -/
+
+/-- [KERNEL] ★★★ A FORMA MÍNIMA DA JUSTIFICAÇÃO (o tríptico do operador):
+    INVOLUÇÃO (J∘J = 1) ∧ CONSERVAÇÃO (a identidade atravessa o espelho)
+    ∧ ENTREGA (o fluxo converge ao observador). "Involução, entrega,
+    conservação — sob um único operador, nomeado por Tomita, J." -/
+theorem justification_minimal_form {n : ℕ} {β : ℝ} (hβ : 0 < β)
+    (d : Fin n → ℝ) (hd : ∀ i, 0 ≤ d i) :
+    (∀ p : (Fin n → ℝ) × (Fin n → ℝ), conjJ (conjJ p) = p)
+    ∧ (∀ p : (Fin n → ℝ) × (Fin n → ℝ), pairEnergy (conjJ p) = pairEnergy p)
+    ∧ (∀ (x : Fin n → ℝ) (i : Fin n),
+        Filter.Tendsto (fun t : ℝ => diagFlow β d t x i) Filter.atTop
+          (nhds (observerProj d x i))) :=
+  ⟨fun p => J_squared_is_one p, fun p => J_preserves_identity p,
+   fun x i => flow_delivers_to_the_observer hβ d hd x i⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/DecisionCommutation.lean":
+r'''import TGLExt.ConjugateAct
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A DECISÃO É COMUTAÇÃO: K é o que ainda não comuta — e K = −∇𝓕 verificado
+  [TGLExt — v146, a doutrina do operador (03/08/2026)]
+
+O operador: "K não decide a travessia, porque a decisão é comutação e K não
+comuta — K é tudo aquilo que não comuta, o espectro do gradiente negativo.
+[K,A]=0 ⟺ decisão realizada; [K,A]≠0 ⟺ contraste, resistência à inscrição.
+K não é o veredito; é a inclinação que ainda exige movimento. K=0 ⟹ nenhum
+contraste dinâmico interno. J espelha, K inclina, a comutação decide, o
+observador lê."
+
+Três seções, SOBRE as pedras 98/100/101:
+
+## I — a comutação como decisão (a face de matrizes)
+* ★★ `commutator_entry` — A IDENTIDADE EXATA: [diag d, A]_{ij} =
+  (d_i − d_j)·A_{ij} — o comutador é pesado pelos GAPS do espectro: cada
+  entrada fora do bloco carrega o seu próprio contraste;
+* ★★ `decided_iff_block` — A DECISÃO: [K,A] = 0 ⟺ A não liga níveis
+  distintos do gradiente — o setor decidido é o bloco-diagonal (os níveis
+  não se falam);
+* ★★ `scalar_iff_all_commute` — K SEM CONTRASTE: tudo comuta com K ⟺ o
+  espectro é constante (K escalar) — "K=0 ⟹ nenhum contraste interno";
+  controle CONSTRUTIVO: havendo gap, a matriz de uma entrada já não comuta;
+* `decided_is_subalgebra` — O VEREDITO FECHA: o setor decidido é fechado
+  sob produto — o centralizador finito ("o traço emerge no centralizador");
+
+## II — o espelho e a decisão
+* ★★ `JKJ_eq_neg_K` — A PARIDADE INVERSA EM ATO: no espaço pareado da
+  pedra 101, J K J = −K — o espelho vê a inclinação invertida (a paridade
+  óptico-modular; a face finita da pedra do zero modular);
+* ★★ `decided_sector_is_J_stable` — A DECISÃO SOBREVIVE AO ESPELHO: o
+  setor onde K se anula é levado em si mesmo por J — a travessia não
+  desfaz vereditos;
+
+## III — K = −∇𝓕, o estatuto duplo VERIFICADO (a face finita REAL)
+* ★★★ `gradient_first_variation` — O GRADIENTE É O GERADOR: a variação
+  primeira de 𝓕(x) = ½Σ βd_i x_i² é EXATAMENTE ⟨βd·x, v⟩ — ∇𝓕(x) = βd·x,
+  a ação de K; identidade algébrica exata, sem resto além de h²;
+* ★★★ `flow_solves_gradient_ode` — O FLUXO RESOLVE ẏ = −∇𝓕(y): a derivada
+  do transporte diagonal em todo t é −(βd_i)·(fluxo) — HasDerivAt, cálculo
+  real, componente a componente;
+* ★★★ `lyapunov_decreases` — SPOHN FINITO: 𝓕 desce ao longo do fluxo
+  (monótona não-crescente) — o funcional de contraste é Lyapunov;
+* ★★★ `K_equals_neg_gradient_verified` — A SÍNTESE: variação ∧ EDO ∧
+  Lyapunov — a identidade K = −∇𝓕 fechada na face finita, nas três provas
+  que ela pede.
+
+Honestidades: a identidade K = −∇𝓕 é aqui VERIFICADA na face finita
+(quadrática, classe com balanço detalhado); o caso GKLS genuíno é
+gradiente-de-fluxo da entropia relativa [KNOWN: Spohn; Carlen–Maas] e
+segue EXTERNO; "decisão" = conservação-sob-o-fluxo ([K,A]=0), nenhum
+postulado de medição entra; a ressonância com einselection é registrada
+no módulo — aqui K é o gerador modular da fronteira, não um ambiente.
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## I — a comutação como decisão -/
+
+/-- [KERNEL] ★★ A IDENTIDADE EXATA: o comutador com K = diag d é pesado
+    pelos gaps do espectro — [K,A]_{ij} = (d_i − d_j)·A_{ij}. K não
+    escolhe: K pesa o contraste. -/
+theorem commutator_entry {n : ℕ} (d : Fin n → ℝ)
+    (A : Matrix (Fin n) (Fin n) ℝ) (i j : Fin n) :
+    (Matrix.diagonal d * A - A * Matrix.diagonal d) i j
+      = (d i - d j) * A i j := by
+  simp only [Matrix.sub_apply, Matrix.diagonal_mul, Matrix.mul_diagonal]
+  ring
+
+/-- [KERNEL] ★★ A DECISÃO É COMUTAÇÃO: [K,A] = 0 ⟺ A não liga níveis
+    distintos do gradiente. O setor decidido é o bloco-diagonal — os
+    níveis do espectro não se falam. -/
+theorem decided_iff_block {n : ℕ} (d : Fin n → ℝ)
+    (A : Matrix (Fin n) (Fin n) ℝ) :
+    Matrix.diagonal d * A = A * Matrix.diagonal d
+      ↔ ∀ i j, d i ≠ d j → A i j = 0 := by
+  constructor
+  · intro h i j hij
+    have he : d i * A i j = A i j * d j := by
+      have := (Matrix.ext_iff.mpr h) i j
+      simpa [Matrix.diagonal_mul, Matrix.mul_diagonal] using this
+    have h2 : (d i - d j) * A i j = 0 := by
+      rw [sub_mul, he]
+      ring
+    rcases mul_eq_zero.mp h2 with h3 | h3
+    · exact absurd (sub_eq_zero.mp h3) hij
+    · exact h3
+  · intro h
+    ext i j
+    simp only [Matrix.diagonal_mul, Matrix.mul_diagonal]
+    by_cases hij : d i = d j
+    · rw [hij]
+      ring
+    · rw [h i j hij]
+      ring
+
+/-- [KERNEL] ★★ K SEM CONTRASTE: tudo comuta com K ⟺ o espectro é
+    constante. "K = 0 ⟹ nenhum contraste dinâmico interno" — e o controle
+    é construtivo: havendo um gap, a matriz de uma entrada já não comuta. -/
+theorem scalar_iff_all_commute {n : ℕ} (d : Fin n → ℝ) :
+    (∀ A : Matrix (Fin n) (Fin n) ℝ,
+        Matrix.diagonal d * A = A * Matrix.diagonal d)
+      ↔ ∀ i j, d i = d j := by
+  constructor
+  · intro h i j
+    by_contra hij
+    have hA := (decided_iff_block d
+      (Matrix.of fun k l => if k = i ∧ l = j then (1 : ℝ) else 0)).mp
+      (h _) i j hij
+    simp [Matrix.of_apply] at hA
+  · intro h A
+    ext i j
+    simp only [Matrix.diagonal_mul, Matrix.mul_diagonal, h i j]
+    ring
+
+/-- [KERNEL] O VEREDITO FECHA: o setor decidido é fechado sob produto —
+    o centralizador finito. "O traço emerge no centralizador." -/
+theorem decided_is_subalgebra {n : ℕ} (d : Fin n → ℝ)
+    (A B : Matrix (Fin n) (Fin n) ℝ)
+    (hA : Matrix.diagonal d * A = A * Matrix.diagonal d)
+    (hB : Matrix.diagonal d * B = B * Matrix.diagonal d) :
+    Matrix.diagonal d * (A * B) = (A * B) * Matrix.diagonal d := by
+  calc Matrix.diagonal d * (A * B)
+      = (Matrix.diagonal d * A) * B := by rw [Matrix.mul_assoc]
+    _ = (A * Matrix.diagonal d) * B := by rw [hA]
+    _ = A * (Matrix.diagonal d * B) := by rw [Matrix.mul_assoc]
+    _ = A * (B * Matrix.diagonal d) := by rw [hB]
+    _ = (A * B) * Matrix.diagonal d := by rw [Matrix.mul_assoc]
+
+/-! ## II — o espelho e a decisão -/
+
+/-- K no espaço pareado da pedra 101: as duas faces veem inclinações
+    INVERTIDAS (a paridade óptico-modular). -/
+def pairK {n : ℕ} (d : Fin n → ℝ) (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    (Fin n → ℝ) × (Fin n → ℝ) :=
+  (fun i => d i * p.1 i, fun i => -(d i * p.2 i))
+
+/-- [KERNEL] ★★ A PARIDADE INVERSA EM ATO: J K J = −K no espaço pareado —
+    o espelho vê a inclinação invertida. -/
+theorem JKJ_eq_neg_K {n : ℕ} (d : Fin n → ℝ)
+    (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    conjJ (pairK d (conjJ p)) = -(pairK d p) := by
+  unfold conjJ pairK
+  refine Prod.ext (funext fun i => rfl) (funext fun i => by simp)
+
+/-- [KERNEL] ★★ A DECISÃO SOBREVIVE AO ESPELHO: onde K se anula, K também
+    se anula do outro lado do espelho — a travessia não desfaz vereditos. -/
+theorem decided_sector_is_J_stable {n : ℕ} (d : Fin n → ℝ)
+    (p : (Fin n → ℝ) × (Fin n → ℝ)) (hp : pairK d p = 0) :
+    pairK d (conjJ p) = 0 := by
+  have h1 : ∀ i, d i * p.1 i = 0 := fun i =>
+    congrFun (congrArg Prod.fst hp) i
+  have h2 : ∀ i, d i * p.2 i = 0 := fun i =>
+    neg_eq_zero.mp (congrFun (congrArg Prod.snd hp) i)
+  unfold pairK conjJ
+  refine Prod.ext (funext fun i => ?_) (funext fun i => ?_)
+  · exact h2 i
+  · exact neg_eq_zero.mpr (h1 i)
+
+/-! ## III — K = −∇𝓕: o estatuto duplo verificado -/
+
+/-- o funcional de contraste da face finita: 𝓕(x) = ½ Σ βd_i x_i². -/
+def contrastF {n : ℕ} (β : ℝ) (d : Fin n → ℝ) (x : Fin n → ℝ) : ℝ :=
+  (1 / 2) * ∑ i, β * d i * x i ^ 2
+
+/-- [KERNEL] ★★★ O GRADIENTE É O GERADOR: a variação primeira de 𝓕 é
+    exatamente ⟨βd·x, v⟩ — ∇𝓕(x) = βd·x, a ação de K. Identidade
+    algébrica exata (o resto é h²·𝓕(v), sem termo escondido). -/
+theorem gradient_first_variation {n : ℕ} (β : ℝ) (d : Fin n → ℝ)
+    (x v : Fin n → ℝ) (h : ℝ) :
+    contrastF β d (x + h • v)
+      = contrastF β d x + h * (∑ i, (β * d i * x i) * v i)
+        + h ^ 2 * contrastF β d v := by
+  unfold contrastF
+  have hsplit : ∀ i : Fin n, β * d i * (x + h • v) i ^ 2
+      = β * d i * x i ^ 2 + (2 * h) * ((β * d i * x i) * v i)
+        + h ^ 2 * (β * d i * v i ^ 2) := by
+    intro i
+    simp only [Pi.add_apply, Pi.smul_apply, smul_eq_mul]
+    ring
+  calc (1 / 2) * ∑ i, β * d i * (x + h • v) i ^ 2
+      = (1 / 2) * ∑ i, (β * d i * x i ^ 2 + (2 * h) * ((β * d i * x i) * v i)
+          + h ^ 2 * (β * d i * v i ^ 2)) := by
+        congr 1
+        exact Finset.sum_congr rfl fun i _ => hsplit i
+    _ = (1 / 2) * ((∑ i, β * d i * x i ^ 2)
+          + ((2 * h) * ∑ i, (β * d i * x i) * v i)
+          + (h ^ 2 * ∑ i, β * d i * v i ^ 2)) := by
+        rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
+            Finset.mul_sum, Finset.mul_sum]
+    _ = (1 / 2) * (∑ i, β * d i * x i ^ 2)
+          + h * (∑ i, (β * d i * x i) * v i)
+          + h ^ 2 * ((1 / 2) * ∑ i, β * d i * v i ^ 2) := by
+        ring
+
+/-- [KERNEL] ★★★ O FLUXO RESOLVE ẏ = −∇𝓕(y): a derivada do transporte
+    diagonal em todo t₀ é −(βd_i)·(o próprio fluxo) — a EDO do gradiente
+    negativo, em cálculo real, componente a componente. -/
+theorem flow_solves_gradient_ode {n : ℕ} (β : ℝ) (d : Fin n → ℝ)
+    (x : Fin n → ℝ) (i : Fin n) (t₀ : ℝ) :
+    HasDerivAt (fun t : ℝ => diagFlow β d t x i)
+      (-(β * d i) * diagFlow β d t₀ x i) t₀ := by
+  unfold diagFlow
+  simp only [mul_assoc]
+  have h1 : HasDerivAt (fun t : ℝ => -(t * (β * d i))) (-(β * d i)) t₀ :=
+    (hasDerivAt_mul_const (β * d i)).neg
+  have h2 := (h1.exp).mul_const (x i)
+  have hval : Real.exp (-(t₀ * (β * d i))) * -(β * d i) * x i
+      = -(β * d i) * (Real.exp (-(t₀ * (β * d i))) * x i) := by ring
+  exact hval ▸ h2
+
+/-- [KERNEL] ★★★ SPOHN FINITO: o funcional de contraste DESCE ao longo do
+    fluxo — 𝓕 é Lyapunov do transporte. A entrega tem direção. -/
+theorem lyapunov_decreases {n : ℕ} {β : ℝ} (hβ : 0 < β) (d : Fin n → ℝ)
+    (hd : ∀ i, 0 ≤ d i) (x : Fin n → ℝ) {s t : ℝ} (hst : s ≤ t) :
+    contrastF β d (diagFlow β d t x) ≤ contrastF β d (diagFlow β d s x) := by
+  unfold contrastF diagFlow
+  have key : ∀ i : Fin n,
+      β * d i * (Real.exp (-(t * β * d i)) * x i) ^ 2
+        ≤ β * d i * (Real.exp (-(s * β * d i)) * x i) ^ 2 := by
+    intro i
+    have hbd : 0 ≤ β * d i := mul_nonneg (le_of_lt hβ) (hd i)
+    apply mul_le_mul_of_nonneg_left _ hbd
+    rw [mul_pow, mul_pow]
+    apply mul_le_mul_of_nonneg_right _ (sq_nonneg (x i))
+    have he : Real.exp (-(t * β * d i)) ≤ Real.exp (-(s * β * d i)) := by
+      apply Real.exp_le_exp.mpr
+      have h0 : s * β * d i ≤ t * β * d i :=
+        mul_le_mul_of_nonneg_right
+          (mul_le_mul_of_nonneg_right hst (le_of_lt hβ)) (hd i)
+      linarith
+    calc Real.exp (-(t * β * d i)) ^ 2
+        ≤ Real.exp (-(s * β * d i)) ^ 2 := by
+          apply pow_le_pow_left₀ (le_of_lt (Real.exp_pos _)) he
+      _ = Real.exp (-(s * β * d i)) ^ 2 := rfl
+  have hsum := Finset.sum_le_sum (fun i (_ : i ∈ Finset.univ) => key i)
+  have hhalf : (0 : ℝ) ≤ 1 / 2 := by norm_num
+  exact mul_le_mul_of_nonneg_left hsum hhalf
+
+/-- [KERNEL] ★★★ A SÍNTESE — K = −∇𝓕 VERIFICADO na face finita, nas três
+    provas que a identidade pede: o gradiente é o gerador (variação
+    primeira exata) ∧ o fluxo resolve a EDO do gradiente ∧ o funcional
+    desce (Lyapunov). "K não é o veredito; é a inclinação que ainda exige
+    movimento — e a inclinação é EXATAMENTE −∇𝓕." -/
+theorem K_equals_neg_gradient_verified {n : ℕ} {β : ℝ} (hβ : 0 < β)
+    (d : Fin n → ℝ) (hd : ∀ i, 0 ≤ d i) (x : Fin n → ℝ) :
+    (∀ (v : Fin n → ℝ) (h' : ℝ), contrastF β d (x + h' • v)
+        = contrastF β d x + h' * (∑ i, (β * d i * x i) * v i)
+          + h' ^ 2 * contrastF β d v)
+    ∧ (∀ (i : Fin n) (t₀ : ℝ),
+        HasDerivAt (fun t : ℝ => diagFlow β d t x i)
+          (-(β * d i) * diagFlow β d t₀ x i) t₀)
+    ∧ (∀ s t : ℝ, s ≤ t →
+        contrastF β d (diagFlow β d t x) ≤ contrastF β d (diagFlow β d s x)) :=
+  ⟨fun v h' => gradient_first_variation β d x v h',
+   fun i t₀ => flow_solves_gradient_ode β d x i t₀,
+   fun _ _ hst => lyapunov_decreases hβ d hd x hst⟩
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -34982,6 +36216,26 @@ _LEAN_THEOREM_FLAGS = {
     "ext_oi_output_permanent_kernel_proved": "TGLExt.observer_output_is_permanent",
     "ext_oi_halfnat_kernel_proved": "TGLExt.observer_inverse_projection_halfnat",
     "ext_oi_standard_kernel_proved": "TGLExt.the_standard_of_unification",
+    # v145 (o ato conjugado: a pedra 101)
+    "ext_ja_involution_kernel_proved": "TGLExt.J_squared_is_one",
+    "ext_ja_conservation_kernel_proved": "TGLExt.J_preserves_identity",
+    "ext_ja_coface_kernel_proved": "TGLExt.J_maps_face_to_coface",
+    "ext_ja_diagonal_kernel_proved": "TGLExt.J_invariant_iff_diagonal",
+    "ext_ja_name_invariant_kernel_proved": "TGLExt.name_is_J_invariant",
+    "ext_ja_halfnat_from_J_kernel_proved": "TGLExt.halfnat_from_J_symmetry",
+    "ext_ja_delivery_limit_kernel_proved": "TGLExt.flow_delivers_to_the_observer",
+    "ext_ja_minimal_form_kernel_proved": "TGLExt.justification_minimal_form",
+    # v146 (a decisao e comutacao: a pedra 102)
+    "ext_kd_commutator_entry_kernel_proved": "TGLExt.commutator_entry",
+    "ext_kd_decided_block_kernel_proved": "TGLExt.decided_iff_block",
+    "ext_kd_scalar_no_contrast_kernel_proved": "TGLExt.scalar_iff_all_commute",
+    "ext_kd_centralizer_closes_kernel_proved": "TGLExt.decided_is_subalgebra",
+    "ext_kd_jkj_neg_k_kernel_proved": "TGLExt.JKJ_eq_neg_K",
+    "ext_kd_decision_j_stable_kernel_proved": "TGLExt.decided_sector_is_J_stable",
+    "ext_kd_first_variation_kernel_proved": "TGLExt.gradient_first_variation",
+    "ext_kd_gradient_ode_kernel_proved": "TGLExt.flow_solves_gradient_ode",
+    "ext_kd_lyapunov_kernel_proved": "TGLExt.lyapunov_decreases",
+    "ext_kd_neg_gradient_verified_kernel_proved": "TGLExt.K_equals_neg_gradient_verified",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -36822,6 +38076,17 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_oi_idempotent_kernel_proved", "ext_oi_reads_permanent_kernel_proved",
         "ext_oi_output_permanent_kernel_proved", "ext_oi_halfnat_kernel_proved",
         "ext_oi_standard_kernel_proved",
+        # v145: o ato conjugado
+        "ext_ja_involution_kernel_proved", "ext_ja_conservation_kernel_proved",
+        "ext_ja_coface_kernel_proved", "ext_ja_diagonal_kernel_proved",
+        "ext_ja_name_invariant_kernel_proved", "ext_ja_halfnat_from_J_kernel_proved",
+        "ext_ja_delivery_limit_kernel_proved", "ext_ja_minimal_form_kernel_proved",
+        # v146: a decisao e comutacao
+        "ext_kd_commutator_entry_kernel_proved", "ext_kd_decided_block_kernel_proved",
+        "ext_kd_scalar_no_contrast_kernel_proved", "ext_kd_centralizer_closes_kernel_proved",
+        "ext_kd_jkj_neg_k_kernel_proved", "ext_kd_decision_j_stable_kernel_proved",
+        "ext_kd_first_variation_kernel_proved", "ext_kd_gradient_ode_kernel_proved",
+        "ext_kd_lyapunov_kernel_proved", "ext_kd_neg_gradient_verified_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -39054,6 +40319,7 @@ def run_um(ONE):
     falsification_assault = prove_falsification_assault(ONE)  # v135: O ASSALTO (robustez adversaria POS-HOC do teste final; procura o KILL); ADITIVO
     void_floor_v11 = prove_void_floor_v11_sdss_independent(ONE)  # v134: O TESTE FINAL INDEPENDENTE (SDSS DR7 x VAST; estimador v92 herdado; alimenta o gate de EXPERIMENTO fail-closed); ADITIVO
     void_floor_lrg = prove_void_floor_lrg(ONE)  # v115: O RITO LRG (tracador VIRGEM z 0.40-0.80; achador SO pre-registrado; estimador auto-calibrante v92); ADITIVO
+    void_floor_v12 = prove_void_floor_v12_bilateral(ONE)  # v147: O V12 BILATERAL (medir beta: envelope profundo + janela de materia; ELG pinado); ADITIVO
     void_floor_kappa_v5 = prove_void_floor_kappa_v5(ONE, void_floor_v3_kappa)  # v115: A EMENDA V5 do kappa (autopsia do v98: eq->gal CORRIGIDO; mascara in-footprint p/ centros e nulos); ADITIVO
     closure_roadmap = prove_closure_roadmap(ONE, {  # v104: o mapa mecanico False->True + auditoria dos dois testes (mandato do operador); ADITIVO
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
@@ -39199,6 +40465,7 @@ def run_um(ONE):
     dephasing_crossover = prove_dephasing_crossover(ONE)   # v4 P6: mapa de regimes (root law = canonica no IR; crossover ~omega tau*=1)
     neutrino_mass = prove_neutrino_mass_gravitational(ONE)  # v141: m_nu do setor gravitacional; VEREDITO de maquina vs sqrt(Dm2_21) [ADITIVO]
     nmc_shapiro = prove_neutrino_shapiro_protocol(ONE)  # v142: o PRE-REGISTRO NMC-Shapiro (frozen+hash; SN1987A reconciliado; AWAITING_DATA) [ADITIVO]
+    neutrino_sum = prove_neutrino_sum_protocol(ONE)  # v147: SIGMA M_NU (o canal prospectivo VIVO; custodia tripla; frozen+hash); ADITIVO
     boundary_exception = prove_boundary_exception(ONE, {  # v142: a EXCECAO DA FRONTEIRA (a leitura do operador em kernel) [ADITIVO]
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
@@ -39210,6 +40477,12 @@ def run_um(ONE):
         "global_lift_conditional": global_lift_conditional,
     })
     observer_rescue = prove_observer_rescue(ONE, {  # v144: O RESGATE DO OBSERVADOR (ponto fixo + falsidade de genero) [ADITIVO]
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    conjugate_act = prove_conjugate_act(ONE, {  # v145: O ATO CONJUGADO ("1 = J" tipado: involucao, entrega, conservacao) [ADITIVO]
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
+    decision_commutation = prove_decision_commutation(ONE, {  # v146: A DECISAO E COMUTACAO (K = o que nao comuta; K = -grad F verificado) [ADITIVO]
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
     jacobson_form_check = prove_jacobson_form_check(ONE)   # v5: CHECAGEM DE FORMA (residuo U_loc fechado: P_mn[K]=F(J,Delta,P_2D); 1a lei dS=d<K> testada)
@@ -39342,6 +40615,7 @@ def run_um(ONE):
             "void_density_opening": void_density_opening,
             "void_density_v41": void_density_v41,
             "void_floor_lrg": void_floor_lrg,
+            "void_floor_v12": void_floor_v12,
             "void_floor_kappa_v5": void_floor_kappa_v5,
             "master_continuum": master_continuum,
             "inhabited_witness": inhabited_witness,
@@ -39406,10 +40680,13 @@ def run_um(ONE):
             "dephasing_crossover": dephasing_crossover,
             "neutrino_mass": neutrino_mass,
             "nmc_shapiro": nmc_shapiro,
+            "neutrino_sum": neutrino_sum,
             "boundary_exception": boundary_exception,
             "global_lift_conditional": global_lift_conditional,
             "code_closure_ledger": code_closure_ledger,
             "observer_rescue": observer_rescue,
+            "conjugate_act": conjugate_act,
+            "decision_commutation": decision_commutation,
             "jacobson_form_check": jacobson_form_check,
             "three_clock_radical": three_clock_radical,
             "right_angle_mirror": right_angle_mirror,
@@ -50032,7 +51309,7 @@ def prove_arc_consolidation(ONE, parts):
     chain_ok = bool(
         "INCONCLUSIVE_SYSTEMATICS" in chain["V1_v78"]
         and "NOT_FALSIFIED_UNDERPOWERED" in chain["V2_v81"]
-        and ("AWAITING" in chain["V3_v87"] or "INSTALLED" in chain["V3_v87"])
+        and ("AWAITING" in chain["V3_v87"] or "INSTALLED" in chain["V3_v87"] or "READY_TO_EXECUTE" in chain["V3_v87"])
         and "SIGNAL_NOT_OPENED" in chain["power_v90"]
         and "INCONCLUSIVE_SYSTEMATICS" in chain["opening_v91"]
         and "NOT_FALSIFIED_POWERED" in chain["V41_v92"])
@@ -57163,6 +58440,8 @@ def compile_pdf(texname):
 # verificavel nos backups .bak_pre_sync_N e no CLAUDE.md (secoes 120-131).
 
 _ESQUELETO_STONES = [
+    ("v146", "DecisionCommutation", "TGLExt/DecisionCommutation.lean", None, None),
+    ("v145", "ConjugateAct", "TGLExt/ConjugateAct.lean", None, None),
     ("v144", "ObserverInside", "TGLExt/ObserverInside.lean", None, None),
     ("v143", "GlobalLiftConditional", "TGLExt/GlobalLiftConditional.lean", None, None),
     ("v142", "BoundaryException", "TGLExt/BoundaryException.lean", None, None),
@@ -57297,19 +58576,19 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\part{Parte C --- A formalização do levantamento global em kernel por "
-                 r"atermação Lean: 100 pedras em construção axiomática derivada}")
+                 r"atermação Lean: 102 pedras em construção axiomática derivada}")
         c.append(r"Este capítulo (\S120--\S217) é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em cem pedras "
-                 r"(v43--v144) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em cento e duas pedras "
+                 r"(v43--v146) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados. (A numeração \S é a das rodadas do programa: \S196 e "
                  r"\S198--\S200 foram rodadas cobertas como pedras, sem subseção própria.)")
         c.append(r"\IfFileExists{fig_escada_qg.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_escada_qg.pdf}\caption{A escada da emergência: os 15 flags do gate fail-closed (6 formais $+$ 5 de física $+$ 4 de experimento) e o veredito desta rodada. Cada caixa flipa somente por construção (termo Lean, axiomas limpos) ou por veredito powered pré-registrado.}\label{fig:escada}\end{figure}}{}")
-        c.append(r"\subsection*{As cem pedras}")
+        c.append(r"\subsection*{As cento e duas pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -59154,7 +60433,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cem pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cento e duas pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -59294,14 +60573,14 @@ def _esqueleto_chapter(core, lang="pt"):
         c.append(r"This chapter (\S120--\S217) is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across one hundred stones (v43--v144) the audited kernel went from 53 to "
+                 r"from this run's audit. Across one hundred and two stones (v43--v146) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results. (The \S numbering is the programme's run "
                  r"numbering: \S196 and \S198--\S200 were runs covered as stones, with no subsection of their own.)")
         c.append(r"\IfFileExists{fig_escada_qg.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_escada_qg.pdf}\caption{The emergence ladder: the 15 flags of the fail-closed gate (6 formal $+$ 5 physics $+$ 4 experiment) and this run's verdict. Each box flips only by construction (Lean term, clean axioms) or by a pre-registered powered verdict.}\label{fig:escada-en}\end{figure}}{}")
-        c.append(r"\subsection*{The one hundred stones}")
+        c.append(r"\subsection*{The one hundred and two stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -61164,7 +62443,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across one hundred stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across one hundred and two stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "

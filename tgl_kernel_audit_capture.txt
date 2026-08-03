@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=182184 len(stderr)=0
+# len(stdout)=183814 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -2270,6 +2270,24 @@ TGLExt.witness_fiber_sensitive : (TGLExt.theSensitiveNet.net.external (1, Multip
 'TGLExt.observer_output_is_permanent' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.observer_inverse_projection_halfnat' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.the_standard_of_unification' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.J_squared_is_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.J_preserves_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.J_maps_face_to_coface' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.J_invariant_iff_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.name_is_J_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.halfnat_from_J_symmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.flow_delivers_to_the_observer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.justification_minimal_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.commutator_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.decided_iff_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.scalar_iff_all_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.decided_is_subalgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.JKJ_eq_neg_K' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.decided_sector_is_J_stable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.gradient_first_variation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.flow_solves_gradient_ode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.lyapunov_decreases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.K_equals_neg_gradient_verified' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
