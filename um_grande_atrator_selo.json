@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-03 14:34:01",
-  "result_hash": "d02d387e9682294ec064bc856a8d16a1cae01ec9ba5717453455eb56a133073b",
+  "timestamp": "2026-08-04 09:46:55",
+  "result_hash": "510b4984518652e8b5749c05f099edf09f5420923bff51c4c409294f9d48d5e8",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -47,7 +47,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "023c961a4173961ded188ecc68ef1a886bf435592eae84015acb958e53b69ade",
+  "formal_source_hash": "1e86965014281d7bcadd9be252312357a9cee3e51c3faac88ee4a3cc84af9c74",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -63,23 +63,23 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "15527d30f8e80b6d77885637033728a3ed8d5c17b24240173dbe61ec30de93df",
+    "prediction_hash": "cd7deaf29b3831b93c032c2786abeb04c641ca47b25983719f04bbaf43ddea21",
     "does_not_gate_core": true
   },
   "sha256": {
-    "um.py": "0a8245b52abf4d9e52f5bba283cd430935e1529ac6a77c57b1762c6eda5ed5e0",
-    "um_grande_atrator_manifest.md": "6b270bb51a97926a9bde861ee267c19610e8bf6d913a07b2e38a159e853348dc",
-    "um_grande_atrator.json": "87677566ce869746624ff293c7a68b78dda107d74f22a5d8a0500e0fa957413f",
-    "um_grande_atrator_forma_canonica.md": "7b6d661f706561d8413fe05a226cd513d0d570088ef1ba1d661a2267262e1a07",
-    "um_grande_atrator_pt.tex": "ab27fe743c28d3f48baa743b3ada411307740627af4096e5ba2e5bd029e8e9b6",
-    "um_grande_atrator_en.tex": "f56445df73d3f25c7761b5de7ca5b795ae2592bcb51678448d1b629b21313973",
-    "um_grande_atrator_pt.pdf": "fdc4076b86f80cbcb8e026045ba7f48dcf1d8de1546144355b8e3c267ee5c9c2",
-    "um_grande_atrator_en.pdf": "bf935cd0c6f3a95537ef7bbf796c6754d3fc9f85dcad7ffe9b331dc6429cfa7e",
+    "um.py": "49655f028d91c905958eec79956b4faa89a65aa1551e2cf62f79a9df02f3a47f",
+    "um_grande_atrator_manifest.md": "01122572937e0f9eeec61904a082ad6631d63173381124999620c4d35526227d",
+    "um_grande_atrator.json": "6bed7d7535dd626eb29e6b765bfe4f6ee3887e88a5e010d7552dd4e7254b2eb3",
+    "um_grande_atrator_forma_canonica.md": "336ec14904d782920822ef597ed73ae2b6f0ea7e071ffe1e50d13b465306b092",
+    "um_grande_atrator_pt.tex": "fae86044701bdf8e7549fda0c3a8201ab2c6e0b276dc6947db20035a95dba244",
+    "um_grande_atrator_en.tex": "877b01627af512a8180d5fa350ae6ae9f91a7f070a34245b23b4fe8b07e6e9bf",
+    "um_grande_atrator_pt.pdf": "f2cac9913812102f4484ab5456b82a206a6da4cc5dd00bb993342abbba0710c8",
+    "um_grande_atrator_en.pdf": "41504bc81be200df929538760cd4bafbacadaed3316f8a0ffd7f5a04806d8a69",
     "fig_escada_qg.pdf": "f9b7d7810a831cae287c038ace43e3d7fa31aba5a249c8329eda2fc960b9a426",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "88cf326f6837fff3a0e6f1e2ab6e93cb3a6569a755c7cf4e16c921b963ec7020"
+    "tgl_kernel_proof_manifest.json": "ce9529bbf6469cb293c05bb93c48e2f4899bf52d5754a3ac15b415db2b363b85"
   },
   "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED"
 }

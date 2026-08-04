@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=183814 len(stderr)=0
+# len(stdout)=184479 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -2288,6 +2288,13 @@ TGLExt.witness_fiber_sensitive : (TGLExt.theSensitiveNet.net.external (1, Multip
 'TGLExt.flow_solves_gradient_ode' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.lyapunov_decreases' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.K_equals_neg_gradient_verified' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.self_commutation_is_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.J_fK_J_eq_f_negK' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.even_iff_mirror_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.only_zero_K_is_mirror_fixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.empire_perfection_is_no_contrast' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.absolute_zero_unreachable_in_finite_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_forbidden_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

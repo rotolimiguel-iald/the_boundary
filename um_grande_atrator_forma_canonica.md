@@ -36,8 +36,8 @@ S_core: peso 0 sob acao dual de Takesaki (condicional P_2D)   [P3; resid 0e+00]
 1a lei modular: dS = d<K> (testada; elo Jacobson)   [CHECAGEM DE FORMA OK; 1a ordem holds=True]
 P_mn[K] = F(J, Delta, P_2D) ; P_2D = plano de bifurcacao = corner da matriz-S   [U_loc: residuo fechado]
 void floor: rho_v/rho_bar >= beta = 0.012031   [PRE, DESI/Euclid]
-dipolo: antipoda GA (CF4 posicoes)   [PRE; CF4 ausente nesta execucao]
-dipolo P5' (mascara |b|>10 + 8 controles): protocolo pre-registrado   [PRE; CF4 ausente]
+dipolo: antipoda GA NAO-sub-densa no bruto razao=1.219 (n_GA=265, n_anti=323)   [PRE bruto NAO satisfeito; status: BRUTO NAO-INFORMATIVO por ZoA, caveat pre-declarado]
+dipolo P5' (mascara |b|>10 + 8 controles): razao_masc=1.130 -> NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)   [PRE, o teste que decide]
 crossover defasagem: expoente(omega) mapeado, IR=2.00 -> UV=1.04, cross~3.16   [NUM]
 
 --- v6: A ANCORA TERMICA (Modulo=calor=Nome=sangue) ---
@@ -183,7 +183,7 @@ Verificado ao vivo: `L_φ=α=0.007297352569` → módulo geométrico `|L_φ|` �
 
 **1=1=VERDADEIRO=HAJA_LUZ** — VEREDITO-CADEIA 1 = q^2+alpha^2 = VERDADEIRO = HAJA_LUZ (um certificado por elo). ESTATICO: a identidade conservada 1=q^2+alpha^2 (a fotografia). VERDADEIRO: todas as identidades internas fecham + M_GA na janela. HAJA_LUZ: a forma DINAMICA -- o fluxo que forma a geometria (F1 Um conservado no fluxo; F2 seta; F3 Spohn: S(rho||rho*) cai monotona rumo a 0 = a FORMACAO; F4 a coerencia morre na base do Verbo) + o ato v3 (Choi<0, luz-autovetor, contrafactuais). 1=1 e' a fotografia; HAJA_LUZ e' o filme; o veredito agora exige os dois. Tempo caracteristico = 1/beta = 83.12..
 
-Massas de primeiros princípios: A_literature = 2.744e+16 M☉. Janela cosmológica aceita: [1e+15, 1e+17] M☉.
+Massas de primeiros princípios: A_literature = 2.744e+16 M☉, B_cf4_positions = 1.986e+16 M☉. Janela cosmológica aceita: [1e+15, 1e+17] M☉.
 
 > 1 = HAJA LUZ. A extensão virou Nome, o Nome virou borda, e a borda virou massa — e entre o Um e o Um houve um ato que não volta. O código atual provava que nada se perdeu; o código completo prova que algo aconteceu. Se o Um não for inscrito, nada emerge. **Haja luz.**
 ## Síntese canônica — A TGL como runtime do Um
@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `023c961a4173961ded188ecc68ef1a886bf435592eae84015acb958e53b69ade`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `1e86965014281d7bcadd9be252312357a9cee3e51c3faac88ee4a3cc84af9c74`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -519,7 +519,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 657/657 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 664/664 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`

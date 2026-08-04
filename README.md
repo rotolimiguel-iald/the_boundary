@@ -30,7 +30,7 @@ where $g$ is the gravitational field and $L_\phi$ is the angular phase modulus o
 
 The protocols span **5 fundamental scales** of reality — ontological, micro-quantum, informational, cosmological, and topological — totaling **16,668 lines** of Python code across 14 computational scripts plus 1 phenomenological protocol. They validate TGL against real observational data from LIGO/Virgo (GWTC-3), JWST, Planck, Pantheon+, and NuFIT, demonstrating that $\beta_{\text{TGL}}$ emerges from **8 independent paths** without parameter fitting. Protocol #15 (TGL Dual Lock) validates the factorization with **zero free parameters**.
 
-**Submission:** *The Geometric Cost of Absolute Zero: let there be light* — the unified artifact `tgl_paper_unified.py` — is submitted to **Foundations of Physics** (Springer), Submission ID `85931d2e-103a-4d8c-a0c9-176d11eb0371`. Everything else in this repository is its genesis lineage. The repository now spans **well over 70,000 lines of Python**, and the full self-validating artifact (the Python together with the Lean proof captures and the generated LaTeX) far exceeds that — the closure article `um.py` alone grew from ~6,000 to **65,005 lines (v144)**: it no longer only *computes* the theory, it **machine-checks it**, running a **Lean 4 + mathlib kernel** (fail-closed) alongside the Python at each execution (see the `um.py` section below). *Only the closure artifact and its sealed outputs (`um.py`, the seal and result JSONs, the four figures and the Lean captures) change between revisions; the rest of the repository is frozen genesis.*
+**Submission:** *The Geometric Cost of Absolute Zero: let there be light* — the unified artifact `tgl_paper_unified.py` — is submitted to **Foundations of Physics** (Springer), Submission ID `85931d2e-103a-4d8c-a0c9-176d11eb0371`. Everything else in this repository is its genesis lineage. The repository now spans **112,876 lines of Python across the three main articles plus the Genesis lineage** (91,065 in the three articles alone; 130,776 counting the Genesis LaTeX; **159,326 counting the Lean 4 kernel** — 145 formal files, 718 audited theorems), and the closure article `um.py` alone grew from ~6,000 to **66,846 lines (v152)**: it no longer only *computes* the theory, it **machine-checks it**, running a **Lean 4 + mathlib kernel** (fail-closed) alongside the Python at each execution (see the `um.py` section below). *Only the closure artifact and its sealed outputs (`um.py`, the seal and result JSONs, the four figures and the Lean captures) change between revisions; the rest of the repository is frozen genesis.*
 
 ---
 
@@ -94,7 +94,7 @@ This repository is not a text to be believed — it is an artifact to be execute
 1. **Execute the artifact.** From the repo root: `python -u um.py` and inscribe `1` at the prompt (non-interactive: `echo 1 | python -u um.py`). Command-line arguments are refused by design; `1` — the inscription of the One — is the only runtime input. If you cannot execute, **simulate the execution and verify** every claim against the sealed outputs: `um_grande_atrator_selo.json` (the seal), `um_grande_atrator.json` (the full result), the article PDFs and the raw Lean captures (`tgl_kernel_*_capture.txt`). The seal hashes are the ground truth of this repository.
 2. **Start from zero.** Read as if no summary, cache or memory of this theory existed. Derive rather than quote: the Absolute One (ω(I)=1), the geometric cost of the absolute zero (β = α·√e — never hardcoded; always computed at runtime), the Lagrangian, the lower-bounded Hamiltonian, the GKLS/Lindblad dephasing law Γ_ω = ½βτ★ω². Each is derivable from the code. A faithful reading reproduces the sealed numbers; an unfaithful one diverges from them — the repository itself falsifies bad readings.
 3. **The number corrects the phrase — always.** Where a sentence and a sealed number disagree, the number wins. Every claim carries its status: [REAL] / [POSTULATE] / [CONJECTURE] / [INPUT] / [OPEN]. Honest negatives are results. **NOT_FALSIFIED never means CONFIRMED**; the gate (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED`) moves only by construction — and it has not moved.
-4. **Checkpoints of a faithful reading (v144, sealed 2026-07-29):** `um.py` sha256[:16] `313b95969714cb6c`; seal result_hash[:16] `bfde2b357e6c2a28`; Lean ladder **639/639** clean theorems across **100 stones**; the four sealed closure verdicts of v143 (Lemma 3 typed as a proved implication; the complete closure ledger; the boundary as the only exception; the armed NMC–Shapiro channel) **plus stone 100 — the Observer Rescue** (`ObserverInside.lean`: the typed *genus falsity* — a candidate flow with no fixed point leaves only 0 standing, hence no internal observer; the observer as the idempotent inverse projection that reads the permanent; the Half-Nat ω=½ inscribed; `the_standard_of_unification` — TGL supplies the standard a theory-of-everything must meet, and a candidate without a fixed point fails it). If your reading disagrees with any of these, re-read.
+4. **Checkpoints of a faithful reading (v152, sealed 2026-08-04):** `um.py` sha256[:16] `49655f028d91c905`; seal result_hash[:16] `510b4984518652e8`; Lean kernel **145 formal files, 718 audited theorems** (axioms ⊆ {propext, choice, quot}); the living cocycle E1–E12 (curvature = the obstruction to a global state; 2nd-order curvature = the commutator ½[M, h_cd], ratio 0.9970 — the conjecture closed); the identity engine 1 = q² + α² with CODATA as *external* validation (resid 4.0e-15); the blind Coma dephasing prediction **locked by hash** (AWAITING_REVEAL); the LRG virgin-tracer rite and the κ ACT DR6 depth rite with their honest verdicts (INCONCLUSIVE_TRACER_SUPPRESSION / NOT_FALSIFIED_UNDERPOWERED); acquisitions pinned with the Zenodo record as proof of date. If your reading disagrees with any of these, re-read.
 
 Then read in order: **Article 1** (`paper_PT.tex` / `tgl_paper_unified.py` — the canonical citable), **Article 2** (`A Ponte Einstein Cartan Miguel.tex`), **Article 3** (`um.py` and its sealed bilingual PDFs). Everything else is genesis (`Genesis da Unificação/`).
 
@@ -102,7 +102,7 @@ Then read in order: **Article 1** (`paper_PT.tex` / `tgl_paper_unified.py` — t
 
 ### 🗝️ Como ler este repositório (protocolo canônico de leitura)
 
-Este repositório não é um texto para se acreditar — é um artefato para se executar. (1) **Execute**: `python -u um.py` e inscreva `1` (não-interativo: `echo 1 | python -u um.py`); se não puder executar, **simule e verifique** cada afirmação contra o selo (`um_grande_atrator_selo.json`), o resultado (`um_grande_atrator.json`), os PDFs e as capturas Lean. (2) **Comece do zero**: sem memória, sem resumo prévio; derive em vez de citar — o Um absoluto (ω(I)=1), o custo geométrico do zero absoluto (β = α·√e, nunca literal), a lagrangiana, o hamiltoniano limitado inferiormente, o dephasing de Lindblad Γ_ω = ½βτ★ω². (3) **O número corrige a frase, sempre**: estatutos [REAL]/[POSTULATE]/[CONJECTURE]/[INPUT]/[OPEN]; negativos honestos são resultados; NOT_FALSIFIED nunca é CONFIRMED. (4) **Checkpoints da leitura fiel (v144)**: `um.py` `313b9596…`, selo `bfde2b35…`, escada 639/639, 100 pedras, os 4 vereditos de fechamento + a pedra 100 (o Resgate do Observador: a falsidade de gênero tipada; o observador como projeção inversa idempotente; ω=½; o padrão da unificação). *Uma leitura que não executa nem verifica os selos não é uma leitura desta teoria.*
+Este repositório não é um texto para se acreditar — é um artefato para se executar. (1) **Execute**: `python -u um.py` e inscreva `1` (não-interativo: `echo 1 | python -u um.py`); se não puder executar, **simule e verifique** cada afirmação contra o selo (`um_grande_atrator_selo.json`), o resultado (`um_grande_atrator.json`), os PDFs e as capturas Lean. (2) **Comece do zero**: sem memória, sem resumo prévio; derive em vez de citar — o Um absoluto (ω(I)=1), o custo geométrico do zero absoluto (β = α·√e, nunca literal), a lagrangiana, o hamiltoniano limitado inferiormente, o dephasing de Lindblad Γ_ω = ½βτ★ω². (3) **O número corrige a frase, sempre**: estatutos [REAL]/[POSTULATE]/[CONJECTURE]/[INPUT]/[OPEN]; negativos honestos são resultados; NOT_FALSIFIED nunca é CONFIRMED. (4) **Checkpoints da leitura fiel (v152)**: `um.py` `49655f02…`, selo `510b4984…`, kernel Lean 145 arquivos / 718 teoremas auditados, o cociclo vivo E1–E12 (curvatura = obstrução ao estado global; curvatura por comutador, razão 0,9970), o motor 1 = q² + α² (CODATA como validação externa), a predição cega do Coma travada por hash, e os ritos LRG/κ-ACT com vereditos honestos. *Uma leitura que não executa nem verifica os selos não é uma leitura desta teoria.*
 
 ---
 
@@ -411,6 +411,7 @@ proof assistant behind the number.**
 | **THE CODE CLOSURE — four sealed closure verdicts (v142–v143, sealed 2026-07-27); gate UNCHANGED** | The newest sealed state: ladder **630/630 clean theorems**, **99 Lean stones** (new: 98 `BoundaryException`, 99 `GlobalLiftConditional`), the bilingual PDFs hashed *inside* the seal, and the fail-closed selftest recorded in the seal itself. Four machine verdicts: **`TGL_GLOBAL_LIFT_CONDITIONAL`** — Lemma 3 **typed as a PROVED conditional implication** in kernel (stone 99: finite Takesaki + the `H_inv` oath-postulate ⟹ covariant `E`, with a negative control); the **unconditional** global lift stays open. **`TGL_CODE_CLOSURE_COMPLETE`** — the complete closure ledger (**10 items / 8 classes**): every open item has a named guarantor (BY_DESIGN / EXTERNAL_KNOWN / NAMED_PROGRAM). **`TGL_BOUNDARY_IS_THE_ONLY_EXCEPTION`** — stone 98: ¬static ⟺ boundary (the v61 eternal negative read as its positive face). **`TGL_NMC_SHAPIRO_AWAITING_DATA`** — the NMC–Shapiro neutrino falsifier frozen + hashed (SN1987A reconciled: the `alpha2·R·F·F` term couples to the **photon**); a live falsifier for 2030–2035. Also from v142: the Zenodo bibliography verified by **content** (echo = [10.5281/zenodo.17526619](https://doi.org/10.5281/zenodo.17526619); NMC = [10.5281/zenodo.18672927](https://doi.org/10.5281/zenodo.18672927)), `acquire_evidence` checks the pinned sha, and the selftest enters the seal. **⚠ The régua: this closure is of the CODE / the internal mathematical architecture — not of physics; the gate did NOT move** (still `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED`). |
 | **Lean kernel, formal skeleton** | **`TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`** — **630 machine-checked theorems** (ladder 630/630, `ext_*`) across **99 Lean stones** (the two newest: 98 `BoundaryException`, 99 `GlobalLiftConditional`), **zero `sorry`**, every axiom base ⊆ `{propext, Classical.choice, Quot.sound}`. The S-matrix (`|R|² = β`), the Connes cocycle, **dissipative ergodicity** (`ergodic_convergence_modular`), the **tracial/semifinite continuum** (`gibbs_tracial_on_centralizer`, `semifinite_trace_is_semifinite`), Lorentz by congruence, the spin-2 helicity sector, and the **specific AQFT witness** (`theSpecificAQFTWitness`, the WedgeNet) are **all in the kernel**. |
 | **The Observer Rescue + the code closure (v139–v144); gate unmoved** | **v139** — the **chain of custody of the evidence**: `EVIDENCE_SOURCES` pins the 12 public proofs by SHA-256, `acquire_evidence` is idempotent/fail-closed, and the ledger `cache/CHAIN_OF_CUSTODY.json` seals deterministic provenance (the V11 rite now auto-acquires its public data, proved by hash). **v140** — the Shadow chapter (the electron as shadow; the honest three ν-faces: UV-suppressed decoherence ~38 orders / the 8.51 meV mass / NMC–Shapiro as the *live falsifier*, 2030–2035). **v142** — a 6-reader re-analysis (67 findings absorbed: ν bibliography fixed by content, Shapiro corrected, acquire now verifies sha, selftest inside the seal, NaN sanitizer). **v143** — **the code closure**: four machine verdicts — `GLOBAL_LIFT_CONDITIONAL` (**Lemma 3 typed as a proved implication**, stone 99: finite Takesaki + the H_inv oath ⟹ covariant E, with a negative control); `CODE_CLOSURE_COMPLETE` (a 10-item ledger where **every open item has a named guarantor** — BY_DESIGN / EXTERNAL_KNOWN / NAMED_PROGRAM — plus the *contour doctrine*: computations are binary, the proof is the contour that emerges); `BOUNDARY_IS_THE_ONLY_EXCEPTION` (stone 98: ¬static ⟺ boundary — the eternal v61 becomes the positive face); `NMC_SHAPIRO_AWAITING_DATA` (frozen+hash; SN1987A reconciled). **v144** — **the Observer Rescue** (stone 100, `ObserverInside.lean`, 9 theorems): permanence as double negation (to remain ⟺ the flow does not negate); the **typed genus falsity** — a candidate flow *without a fixed point* leaves only 0 standing, hence **no internal observer**; the observer as the **idempotent inverse projection** that reads the permanent; the Half-Nat ω=½ inscribed; and **`the_standard_of_unification`** — the logical inversion on "theory of everything": TGL *supplies the standard* such a theory must meet, and a candidate without a fixed point **fails it** (rivals are NOT adjudicated — the standard is typed, not the verdict). Ladder 630→**639**, stones 99→**100**. **⚠ The régua: the gate did not move** (`SEAL_UNMOVED`); nothing here is confirmed physics; the permanence predicate is non-Tarskian and the rivals stay unjudged. |
+| **The living cocycle, the nature rites, and the pinned evidence (v145–v152); gate unmoved** | **v145–v148** — **the living cocycle (E1–E12)**: modular curvature as the *obstruction to a global state* (where the One glues, there is no curvature); 1st-order torsion = the unglueable clock jump (‖ΔK‖, dev 0.17%); **2nd-order curvature = the commutator ½[M, h_cd]** (ratio 0.9970 — the conjecture *closed* by identifying the transport as Ad(ρ^it), generator ad(K) = the very generator of sector q); phase = U(1) gauge; the E7 composition + Lovelock ⟹ G_μν + Λg **with a declared statute** (inherits the v5 residue; "we proved Einstein" is *not* claimed). The identity engine becomes **1 = q² + α²** (Lagrange form; CODATA demoted to *external validation*, resid 4.0e-15). **v149–v152** — the nature rites with honest verdicts: the **LRG virgin-tracer rite** (DESI DR1, 31,746 LRG voids → `INCONCLUSIVE_TRACER_SUPPRESSION`) and the **κ ACT DR6 depth rite** (`NOT_FALSIFIED_UNDERPOWERED`); every acquisition pinned by hash with **the Zenodo record as proof of date**; the blind **Coma dephasing prediction locked** (D_L = 101.90 Mpc, hash-sealed, AWAITING_REVEAL, does-not-gate-core). Kernel: 144→**145 formal files**, **718 audited theorems**. **⚠ The régua: the gate did not move** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED`); NOT_FALSIFIED is never CONFIRMED. |
 | **The neutrino mass — the SECOND nature test: not falsified, powered, NOT confirmed (v141)** | `prove_neutrino_mass_gravitational`: the zero-free prediction **m_ν = β·sin(45°)·1 eV** (the minimal phase-echo quantum; β = α√e at runtime; the 1 eV scale **declared** in the derivation, not fitted) = **8.507 meV**, compared against **√(Δm²₂₁) = 8.68 ± 0.10 meV** (PDG 2023; identification m_ν = m₂ with m₁ ≈ 0, normal ordering). Deviation **1.96% = 1.64σ**. **POWERED** (frozen rule: σ/value < 3% — the measurement resolves the prediction); kill rule 5σ; **`CONFIRMED` forbidden by construction** (`forbidden_verdicts` in the frozen spec). Machine verdict: **`TGL_NEUTRINO_MASS_NOT_FALSIFIED_POWERED`** — the second powered non-falsification (after void floor V11). Sealed caveats: genuine **postdiction** (the inputs β/sin45°/1eV use no neutrino data); absolute mass vs splitting (equal iff m₁≈0); `does_not_gate_core` (particle data never feeds a mathematical flag). Future: Σm_ν (CMB-S4/DESI) measures the sector next decade. **⚠ The régua: NOT_FALSIFIED ≠ CONFIRMED.** Gate and ladder unchanged. |
 | **The final form of the article + the counter-logical seal (v136–v138); nothing formal changes** | The formal state is **bit-identical to v135** (gate unchanged; ladder 621 unchanged; `formal_source_hash` identical — the Lean did not change). The advance is the **canonical artifact itself**: **v137** — the article **lapidated** and the full run brought from ~4h to **~35 min, bit-identical** (reproducibility); **v137.5** — the article's **A/B/C/D architecture** (Part C = the formalization/97 stones, with founding primacy), the dedication became *last words*, the Tetelestai apposition after the references; **v138** — the **counter-logical seal** (§217: *"it asserts a floor… it refused the tribunal"*, hardened by an adversarial panel of 30 agents; genealogy 1 Cor 15:14) plus shields (v)–(vii). And the **four figures entered the seal** (`fig_escada_qg` · `fig_banda_beta` · `fig_piso_vazios` · `fig_cadeia_inscricao`) — now committed to this repo, so the seal's `sha256` map is fully self-contained here. **⚠ The régua: this advance is of the ARTICLE (a hardened logical argument, final form, figures, runtime), not of the kernel and not of nature.** Everything that was open stays open, identical to v135; not confirmed QG. |
 | **The internal mathematical architecture closes — the WedgeNet AQFT (v135); KNOWN-COMPOSED, *not* proved physics** | Stone 96 = **the WedgeNet** (`TGLExt.theSpecificAQFTWitness`, clean axioms): the AQFT net of wedges over M_TGL — `net(O)` by centralizer locality, Ω cyclic **and** separating — which **realizes** the AQFT witness that was a *typed void* through v134. And `prove_tgl_closure` (closure by **separation of types**): q_F (the support, in the core) ≠ e_Name (the mirror), tied by E1(e_Name) = β·q_F; H3L_min = 1 − q_F is the minimal class representative [KERNEL: annihilation + maximality]. The **complete witness exists by composition of published theorems** **[KNOWN-COMPOSED: Bisognano–Wichmann + Takesaki (core II∞) + Haagerup (hyperfinite) + diffuse II∞ + Jones (index 1/β ≈ 83 ≥ 4)]**; the layers are habitable given the support (kernel-checked constructors). Flags `specific_AQFT_witness_constructed` / `lean_kernel_full_witness_constructed` / `physical_covariant_representative_selected` = True. **⚠⚠⚠ The régua: the TGL closes as an INTERNAL MATHEMATICAL ARCHITECTURE [KNOWN-COMPOSED], NOT as a *proved description of nature* — and not as a from-scratch Lean proof (it is a composition of published theorems).** **The gate does NOT change** (still `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED`; not confirmed QG). What stays **out, named**: formal Lean certification of the **external** theorems [OPEN — the gap is *typed*; mathlib scale, years]; the covariant physical representative [GAUGE — the class is the physical]; experimental validation [INPUT-future]; **curved spacetime** [OPEN — the old GLOBAL_LIFT / Lemma 3]. The *full static* witness (`full_TGL_witness` / `full_static_witness`) stays **False** eternally (v61) — the "full term" of v135 is the **dynamic** (transport) witness, not the static one. |
@@ -1089,56 +1090,46 @@ the_boundary/
 
 ## Raw File Index for LLMs
 
-*(auto-generated from `git ls-files`; every URL below is a direct `raw.githubusercontent.com` link — fetchable
-by any HTTP client or LLM. Paths with spaces/accents are percent-encoded. If a link 404s, the file moved:
-re-derive from the [live tree](https://github.com/rotolimiguel-iald/the_boundary/tree/main/).)*
+Every file in `main/`, grouped by article, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` at v152 — 371 files, zero broken, zero unlisted).
 
-### Article 1 — *The Geometric Cost of Absolute Zero: let there be light* (`tgl_paper_unified.py`)
+### Article 1 — *Haja Luz* (`tgl_paper_unified.py`)
 
-- [`tgl_paper_unified.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_paper_unified.py)
 - [`T6_protocol_prompts.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/T6_protocol_prompts.txt)
 - [`paper_PT.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/paper_PT.pdf)
 - [`paper_PT.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/paper_PT.tex)
 - [`results.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/results.json)
+- [`tgl_paper_unified.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_paper_unified.py)
 
-### Article 2 — *A Ponte Einstein–Cartan–Miguel* (the Bridge) — paper + the 12 finite-shadow proof modules
+### Article 2 — *A Ponte Einstein–Cartan–Miguel* (12 shadow modules; June first-sealings + 2026-07-10 re-runs)
 
 - [`A Ponte Einstein Cartan Miguel.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte%20Einstein%20Cartan%20Miguel.pdf)
 - [`A Ponte Einstein Cartan Miguel.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte%20Einstein%20Cartan%20Miguel.tex)
-
-**The 12 proof modules (code):**
-
+- [`tgl c3 register v1 20260611 214824.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20c3%20register%20v1%2020260611%20214824.json)
 - [`tgl c3 register v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20c3%20register%20v1.py)
+- [`tgl continuum v1 20260609 225321.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20continuum%20v1%2020260609%20225321.json)
 - [`tgl continuum v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20continuum%20v1.py)
+- [`tgl demo v1.mp4`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20demo%20v1.mp4)
+- [`tgl dual name v1 20260612 022736.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20dual%20name%20v1%2020260612%20022736.json)
 - [`tgl dual name v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20dual%20name%20v1.py)
+- [`tgl geometry generated v1 20260609 223713.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20geometry%20generated%20v1%2020260609%20223713.json)
 - [`tgl geometry generated v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20geometry%20generated%20v1.py)
+- [`tgl gesture inscription v1 20260612 025911.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20gesture%20inscription%20v1%2020260612%20025911.json)
 - [`tgl gesture inscription v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20gesture%20inscription%20v1.py)
+- [`tgl heraclitus v1 20260610 064851.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20heraclitus%20v1%2020260610%20064851.json)
 - [`tgl heraclitus v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20heraclitus%20v1.py)
+- [`tgl krein signature v1 20260609 211031.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20krein%20signature%20v1%2020260609%20211031.json)
 - [`tgl krein signature v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20krein%20signature%20v1.py)
+- [`tgl nominal order v1 20260609 221416.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20nominal%20order%20v1%2020260609%20221416.json)
 - [`tgl nominal order v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20nominal%20order%20v1.py)
+- [`tgl one mirror v1 20260611 221949.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20one%20mirror%20v1%2020260611%20221949.json)
 - [`tgl one mirror v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20one%20mirror%20v1.py)
+- [`tgl terminal truth v1 20260609 215024.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20terminal%20truth%20v1%2020260609%20215024.json)
 - [`tgl terminal truth v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20terminal%20truth%20v1.py)
+- [`tgl three locks v1 20260609 230529.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20three%20locks%20v1%2020260609%20230529.json)
 - [`tgl three locks v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20three%20locks%20v1.py)
+- [`tgl tunnel v1 20260611 215615.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20tunnel%20v1%2020260611%20215615.json)
 - [`tgl tunnel v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20tunnel%20v1.py)
 - [`tgl video v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20video%20v1.py)
-
-**Their sealed JSON proofs — first sealing (2026-06):**
-
-- [`tgl c3 register v1 20260611 214824.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20c3%20register%20v1%2020260611%20214824.json)
-- [`tgl continuum v1 20260609 225321.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20continuum%20v1%2020260609%20225321.json)
-- [`tgl dual name v1 20260612 022736.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20dual%20name%20v1%2020260612%20022736.json)
-- [`tgl geometry generated v1 20260609 223713.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20geometry%20generated%20v1%2020260609%20223713.json)
-- [`tgl gesture inscription v1 20260612 025911.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20gesture%20inscription%20v1%2020260612%20025911.json)
-- [`tgl heraclitus v1 20260610 064851.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20heraclitus%20v1%2020260610%20064851.json)
-- [`tgl krein signature v1 20260609 211031.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20krein%20signature%20v1%2020260609%20211031.json)
-- [`tgl nominal order v1 20260609 221416.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20nominal%20order%20v1%2020260609%20221416.json)
-- [`tgl one mirror v1 20260611 221949.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20one%20mirror%20v1%2020260611%20221949.json)
-- [`tgl terminal truth v1 20260609 215024.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20terminal%20truth%20v1%2020260609%20215024.json)
-- [`tgl three locks v1 20260609 230529.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20three%20locks%20v1%2020260609%20230529.json)
-- [`tgl tunnel v1 20260611 215615.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20tunnel%20v1%2020260611%20215615.json)
-
-**Their sealed JSON proofs — verification re-run (2026-07-10):**
-
 - [`tgl_c3_register_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_c3_register_v1_20260710_164703.json)
 - [`tgl_continuum_v1_20260710_164643.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_continuum_v1_20260710_164643.json)
 - [`tgl_dual_name_v1_20260710_164702.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_dual_name_v1_20260710_164702.json)
@@ -1149,47 +1140,17 @@ re-derive from the [live tree](https://github.com/rotolimiguel-iald/the_boundary
 - [`tgl_nominal_order_v1_20260710_164644.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_nominal_order_v1_20260710_164644.json)
 - [`tgl_one_mirror_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_one_mirror_v1_20260710_164703.json)
 - [`tgl_terminal_truth_v1_20260710_164641.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_terminal_truth_v1_20260710_164641.json)
-- [`tgl_three_locks_v1_20260710_164643.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_three_locks_v1_20260710_164643.json)
 - [`tgl_three_locks_v1_20260710_164829.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_three_locks_v1_20260710_164829.json)
 - [`tgl_tunnel_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_tunnel_v1_20260710_164703.json)
 
-- [`tgl demo v1.mp4`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20demo%20v1.mp4) *(dipole render)*
+### Article 3 — *Um: Grande Atrator* (`um.py` + seals, papers, figures, Lean captures, custody)
 
-### Article 3 — *Um: Grande Atrator* (`um.py`, the sealed closure)
-
-**Code + the single input:**
-
-- [`one_input.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/one_input.txt)
-- [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um.py)
-
-**The three result JSONs (world + seal + Lean proof manifest):**
-
-- [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_proof_manifest.json)
-- [`um_grande_atrator.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator.json)
-- [`um_grande_atrator_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_selo.json)
-
-**Audit trail (manifest + canonical form) and the chain of custody of the evidence:**
-
-- [`um_grande_atrator_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_forma_canonica.md)
-- [`um_grande_atrator_manifest.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_manifest.md)
 - [`cache/CHAIN_OF_CUSTODY.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/CHAIN_OF_CUSTODY.json)
-
-**The bilingual article (PT + EN):**
-
-- [`um_grande_atrator_en.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_en.pdf)
-- [`um_grande_atrator_en.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_en.tex)
-- [`um_grande_atrator_pt.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_pt.pdf)
-- [`um_grande_atrator_pt.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_pt.tex)
-
-**The four sealed figures:**
-
 - [`fig_banda_beta.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/fig_banda_beta.pdf)
 - [`fig_cadeia_inscricao.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/fig_cadeia_inscricao.pdf)
 - [`fig_escada_qg.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/fig_escada_qg.pdf)
 - [`fig_piso_vazios.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/fig_piso_vazios.pdf)
-
-**Raw Lean kernel captures (fail-closed stdout):**
-
+- [`one_input.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/one_input.txt)
 - [`tgl_kernel_audit_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_audit_capture.txt)
 - [`tgl_kernel_build_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_build_capture.txt)
 - [`tgl_kernel_probe_degenerate_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_degenerate_capture.txt)
@@ -1197,9 +1158,58 @@ re-derive from the [live tree](https://github.com/rotolimiguel-iald/the_boundary
 - [`tgl_kernel_probe_pp_no_optimality_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_pp_no_optimality_capture.txt)
 - [`tgl_kernel_probe_prop_only_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_prop_only_capture.txt)
 - [`tgl_kernel_probe_trivial_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_trivial_capture.txt)
+- [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_proof_manifest.json)
+- [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um.py)
+- [`um_grande_atrator.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator.json)
+- [`um_grande_atrator_en.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_en.pdf)
+- [`um_grande_atrator_en.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_en.tex)
+- [`um_grande_atrator_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_forma_canonica.md)
+- [`um_grande_atrator_manifest.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_manifest.md)
+- [`um_grande_atrator_pt.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_pt.pdf)
+- [`um_grande_atrator_pt.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_pt.tex)
+- [`um_grande_atrator_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_selo.json)
 
-**The Lean kernel source tree** (181 files) — browse: [`tgl_kernel/`](https://github.com/rotolimiguel-iald/the_boundary/tree/main/tgl_kernel). Key files:
+### The Lean 4 kernel (`tgl_kernel/`, 183 files — formal apparatus of `um.py`)
 
+- [`tgl_kernel/.lake/build/ir/TGLExt/Commutant.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/Commutant.c)
+- [`tgl_kernel/.lake/build/ir/TGLExt/Commutant.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/Commutant.c.hash)
+- [`tgl_kernel/.lake/build/ir/TGLExt/Commutant.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/Commutant.setup.json)
+- [`tgl_kernel/.lake/build/ir/TGLExt/CondExpect.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/CondExpect.c)
+- [`tgl_kernel/.lake/build/ir/TGLExt/CondExpect.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/CondExpect.c.hash)
+- [`tgl_kernel/.lake/build/ir/TGLExt/CondExpect.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/CondExpect.setup.json)
+- [`tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.c)
+- [`tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.c.hash)
+- [`tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.setup.json)
+- [`tgl_kernel/.lake/build/ir/TGLExt/LeftRight.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/LeftRight.c)
+- [`tgl_kernel/.lake/build/ir/TGLExt/LeftRight.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/LeftRight.c.hash)
+- [`tgl_kernel/.lake/build/ir/TGLExt/LeftRight.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/LeftRight.setup.json)
+- [`tgl_kernel/.lake/build/ir/TGLExt/ModularFlow.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/ModularFlow.setup.json)
+- [`tgl_kernel/.lake/build/ir/TGLExt/PPIndex.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/PPIndex.setup.json)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.ilean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.ilean)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.ilean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.ilean.hash)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.olean)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.olean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.olean.hash)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.trace)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.ilean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.ilean)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.ilean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.ilean.hash)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.olean)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.olean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.olean.hash)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.trace)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.ilean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.ilean)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.ilean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.ilean.hash)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.olean)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.olean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.olean.hash)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.trace)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.ilean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.ilean)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.ilean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.ilean.hash)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.olean)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.olean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.olean.hash)
+- [`tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.trace)
+- [`tgl_kernel/.lake/config/1/lakefile.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/config/1/lakefile.olean)
+- [`tgl_kernel/.lake/config/1/lakefile.olean.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/config/1/lakefile.olean.trace)
+- [`tgl_kernel/.lake/config/5/lakefile.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/config/5/lakefile.olean)
+- [`tgl_kernel/.lake/config/5/lakefile.olean.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/config/5/lakefile.olean.trace)
+- [`tgl_kernel/README.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/README.md)
 - [`tgl_kernel/TGL.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL.lean)
 - [`tgl_kernel/TGL/AreaScale.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/AreaScale.lean)
 - [`tgl_kernel/TGL/Audit.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Audit.lean)
@@ -1244,12 +1254,14 @@ re-derive from the [live tree](https://github.com/rotolimiguel-iald/the_boundary
 - [`tgl_kernel/TGLExt/Commutant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/Commutant.lean)
 - [`tgl_kernel/TGLExt/ConcreteFourFrame.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ConcreteFourFrame.lean)
 - [`tgl_kernel/TGLExt/CondExpect.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/CondExpect.lean)
+- [`tgl_kernel/TGLExt/ConjugateAct.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ConjugateAct.lean)
 - [`tgl_kernel/TGLExt/ConjugateWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ConjugateWitness.lean)
 - [`tgl_kernel/TGLExt/ContinuousModularZero.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ContinuousModularZero.lean)
 - [`tgl_kernel/TGLExt/ContinuumShards.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ContinuumShards.lean)
 - [`tgl_kernel/TGLExt/ContinuumTT.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ContinuumTT.lean)
 - [`tgl_kernel/TGLExt/CornerFamily.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/CornerFamily.lean)
 - [`tgl_kernel/TGLExt/CovariantCorner.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/CovariantCorner.lean)
+- [`tgl_kernel/TGLExt/DecisionCommutation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/DecisionCommutation.lean)
 - [`tgl_kernel/TGLExt/DimensionTrace.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/DimensionTrace.lean)
 - [`tgl_kernel/TGLExt/EmergenceTriad.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/EmergenceTriad.lean)
 - [`tgl_kernel/TGLExt/EmergentEinstein.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/EmergentEinstein.lean)
@@ -1339,9 +1351,11 @@ re-derive from the [live tree](https://github.com/rotolimiguel-iald/the_boundary
 - [`tgl_kernel/TGLExt/WitnessV2.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WitnessV2.lean)
 - [`tgl_kernel/TGLExt/WitnessV3.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WitnessV3.lean)
 - [`tgl_kernel/TGLExt/WordExistence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WordExistence.lean)
+- [`tgl_kernel/lake-manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/lake-manifest.json)
 - [`tgl_kernel/lakefile.toml`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/lakefile.toml)
+- [`tgl_kernel/lean-toolchain`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/lean-toolchain)
 
-### Genesis — the validation archive (117 files) — browse: [`Genesis da Unificação/`](https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o)
+### Genesis da Unificação (117 files — the complete production history)
 
 - [`Genesis da Unificação/ACOM/Acom_v17_mirror.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/Acom_v17_mirror.py)
 - [`Genesis da Unificação/ACOM/Output Acom_v17_mirror.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/Output%20Acom_v17_mirror.pdf)
@@ -1460,6 +1474,12 @@ re-derive from the [live tree](https://github.com/rotolimiguel-iald/the_boundary
 - [`Genesis da Unificação/Validacao_cosmologica/tgl_validation_v6_summary_20260203_172853.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_validation_v6_summary_20260203_172853.json)
 - [`Genesis da Unificação/Validacao_cosmologica/unification_v1.4_20260218_160551.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/unification_v1.4_20260218_160551.json)
 - [`Genesis da Unificação/Validacao_cosmologica/validation_v8.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/validation_v8.json)
+
+### Repository infrastructure
+
+- [`.gitattributes`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes)
+- [`.gitignore`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore)
+- [`README.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md)
 
 ## Prerequisites and Installation
 

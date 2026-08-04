@@ -5562,17 +5562,52 @@
           "propext",
           "Classical.choice",
           "Quot.sound"
+        ],
+        "TGLExt.self_commutation_is_free": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.J_fK_J_eq_f_negK": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.even_iff_mirror_fixed": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.only_zero_K_is_mirror_fixed": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.empire_perfection_is_no_contrast": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.absolute_zero_unreachable_in_finite_time": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_forbidden_boundary": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
         ]
       },
-      "formal_source_hash": "023c961a4173961ded188ecc68ef1a886bf435592eae84015acb958e53b69ade",
+      "formal_source_hash": "1e86965014281d7bcadd9be252312357a9cee3e51c3faac88ee4a3cc84af9c74",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "1559ecfefcae3d6d885555b66b6c34de77e04b18c77089b40ef3f113d4012abc",
+        "TGLExt.lean": "93584c52b157e47d40abe2838d854c7e52dc703a444f7b25aa6c23695097797e",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "d497ca51e3125068b4512077b67fb86d460e11418a09c1a9eeafe6d881e98cb9",
+        "TGL/Audit.lean": "61c4aba0299be79a5c1face22609ebc6f24587d589e0f76830df6c03a5ef6685",
         "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -5631,6 +5666,7 @@
         "TGLExt/FiniteGNSNoCompletion.lean": "056170ec3f50929081a75db129117cd5814ba88c1fe7c97432392303664e5025",
         "TGLExt/FiniteTomita.lean": "f845a71a81bb02585020f5da224a9407b4dd36b1408cccab37ea1b69cfb6647e",
         "TGLExt/FirstCurvature.lean": "d88d4a5fa15462f43850119f39099059a8ae0af87190420aa921dfaf20ebde44",
+        "TGLExt/ForbiddenBoundary.lean": "fb1c39a61dfc2882e53a1cad9de082fefd3c07963a161314c37262ac4db452b2",
         "TGLExt/FusedWitness.lean": "3708dde5255559cddcddecbe2ca05eb93e751511db8a8f7bcf6968e60a065e69",
         "TGLExt/GNSBridge.lean": "a625e38824790f94eb6ac54f44cffc0656e6e3fc2f3ae2d42220dac071a11c8b",
         "TGLExt/GNSQuotient.lean": "d6b3ac4f4306516adf561e1c68f20a5337b49b6c0e9bfd2b17550ed48264b9a6",
@@ -6431,24 +6467,31 @@
       "ext_kd_gradient_ode_kernel_proved": true,
       "ext_kd_lyapunov_kernel_proved": true,
       "ext_kd_neg_gradient_verified_kernel_proved": true,
+      "ext_fb_self_free_kernel_proved": true,
+      "ext_fb_mirror_inverts_kernel_proved": true,
+      "ext_fb_even_only_kernel_proved": true,
+      "ext_fb_only_zero_fixed_kernel_proved": true,
+      "ext_fb_empire_no_contrast_kernel_proved": true,
+      "ext_fb_zero_unreachable_kernel_proved": true,
+      "ext_fb_synthesis_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "63a32feb68244ae8e7ffe962f5595ef0d87a07813a61e953a210163d1c960ba2",
+      "build_stdout_sha256": "865cc3d4956a281c980c30d19e67a8ee3d24cf86773677515aa50e0bb1e5201b",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "f227cbf9dddda27259e8562cae00b09f9ee9b8e415089dbd9d77e5f489699bbb",
+      "audit_stdout_sha256": "8031a87ba8269c553f59b431088c87fe5d8d5a0536e8668feff3fbccac201a8f",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 252422,
+        "stdout": 253442,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 183814,
+        "stdout": 184479,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "63a32feb68244ae8e7ffe962f5595ef0d87a07813a61e953a210163d1c960ba2",
-      "audit_capture_sha256_full": "f227cbf9dddda27259e8562cae00b09f9ee9b8e415089dbd9d77e5f489699bbb",
+      "build_capture_sha256_full": "865cc3d4956a281c980c30d19e67a8ee3d24cf86773677515aa50e0bb1e5201b",
+      "audit_capture_sha256_full": "8031a87ba8269c553f59b431088c87fe5d8d5a0536e8668feff3fbccac201a8f",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
       "qgc_concrete_breuer_corner_constructed": true,
@@ -8388,10 +8431,17 @@
         "ext_kd_first_variation_kernel_proved": true,
         "ext_kd_gradient_ode_kernel_proved": true,
         "ext_kd_lyapunov_kernel_proved": true,
-        "ext_kd_neg_gradient_verified_kernel_proved": true
+        "ext_kd_neg_gradient_verified_kernel_proved": true,
+        "ext_fb_self_free_kernel_proved": true,
+        "ext_fb_mirror_inverts_kernel_proved": true,
+        "ext_fb_even_only_kernel_proved": true,
+        "ext_fb_only_zero_fixed_kernel_proved": true,
+        "ext_fb_empire_no_contrast_kernel_proved": true,
+        "ext_fb_zero_unreachable_kernel_proved": true,
+        "ext_fb_synthesis_kernel_proved": true
       },
-      "n_theorems_clean": 657,
-      "n_theorems_expected": 657,
+      "n_theorems_clean": 664,
+      "n_theorems_expected": 664,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -12069,7 +12119,9 @@
     "void_floor_v12": {
       "theorem": "V12 BILATERAL: a janela de materia do quartil mais profundo dos vazios LRG, confrontada com beta em resolucao pre-registrada -- o degrau 'medir beta' do v92, em rito congelado.",
       "frozen_v12_spec": {
-        "version": "VOID_FLOOR_V12_BILATERAL_V1.1",
+        "version": "VOID_FLOOR_V12_BILATERAL_V1.2",
+        "amendment_v13": "EMENDA V1.3 (revisao pre-submissao, 04/08/2026): (a) veredito de ausencia NOMEIA o tracador ausente (AWAITING_DATA_LRG quando o LRG falta; a ausencia do ELG e informativa em tracer_status); (b) precedencia da cascata DECLARADA: janela-contem > SATURATION (W_lo>beta) > UNDERPOWERED (o 'sse' do matter_window respeitado); (c) estado dos tracadores vira check INFORMATIVO (nao envenena all_verified); (d) grade de cosmologia DECLARADA: z em [0,1.6] passo 4096 (cobre ELG; nao bit-identica a grade [0,1.2] do v115 -- diferenca so de resolucao de grade); (e) sigma_jk persistido JSON-estrito (None quando nao-finito)",
+        "amendment_v12": "EMENDA V1.2 (autopsia da v149, 03/08/2026): o retorno principal NAO persistia per_tracer e a cascata so lia o LRG -- os numeros ELG da v149 (5,5h) NUNCA foram gravados nem lidos por ninguem (seguem cegos: a emenda e pre-registrada de fato). Correcoes: (a) per_tracer SEMPRE persistido; (b) primario = o tracador executado com MAIOR SumN_q no quartil profundo (o mais informativo; regra decidida as cegas), demais reportados; (c) replica = SGC do mesmo tracador",
         "amendment_v11": "EMENDA V1.1 (autopsia da 1a execucao, selo v147 13:23:55, \u00a7228): (a) gate de CONTAGEM PRIMEIRO -- SumN_q >= 25 senao TRACER_EMPTY_CORE_REGIME (nao ha medida sem contagem; a populacao 16k era blocos Poisson-vazios do tracador raro); (b) guarda contagem-zero: sigma_deep >= 1/mu_q (esperado) e limite superior 95% r_UL = r_deep + 3/mu_q; (c) janela de materia SO com contagem; (d) n_rand 20000->100000 (calibrador fino; split-noise dominava); SEED MANTIDO (sem seed-shopping)",
         "objective": "BILATERAL: medir a janela de materia do nucleo dos vazios mais profundos e testar se ela CONTEM beta com resolucao (beta/sigma_deep)^2 >= 25 -- o degrau 'medir beta' nomeado pelo v92",
         "inherits": "protocolo v67 (hash conferido); achador LRG_SO_V1 (v115) IDENTICO; estimador v92 razao-de-razoes IDENTICO (n_bar e mascara cancelam); gates v115 (split-null, jackknife>=15, replica no lado, n_vazios>=100)",
@@ -12083,6 +12135,7 @@
           "TGL_VOID_FLOOR_V12_MEASURED_WINDOW_CONTAINS_BETA_UNDERPOWERED",
           "TGL_VOID_FLOOR_V12_SATURATION_NOT_REACHED",
           "TGL_VOID_FLOOR_V12_TRACER_EMPTY_CORE_REGIME",
+          "VOID_FLOOR_V12_AWAITING_DATA_LRG",
           "TGL_VOID_FLOOR_V12_INCONCLUSIVE_TRACER_SUPPRESSION",
           "TGL_VOID_FLOOR_V12_INCONCLUSIVE_SYSTEMATICS",
           "TGL_VOID_FLOOR_V12_UNDERPOWERED_AT_BETA",
@@ -12092,7 +12145,7 @@
           "CONFIRMED"
         ]
       },
-      "frozen_v12_hash": "3e5c273516006a7896546753023a9fbc669fe17126cc37ca65d5164af01264d2",
+      "frozen_v12_hash": "cf61c67be59f7db5f1c8bf65be60d9e86f66a5ed00f81353501ef12b924fd405",
       "primary": {
         "tracer": "LRG",
         "cap": "NGC",
@@ -12119,7 +12172,141 @@
       },
       "tracer_status": {
         "LRG": "EXECUTADO",
-        "ELG": "AWAITING_DATA (aquisicao pinada em EVIDENCE_SOURCES; deposito em C:\\IALD\\Artigo\\Haja_Luz\\A Ponte e o Um\\cache\\voids\\elg)"
+        "ELG": "EXECUTADO"
+      },
+      "per_tracer": {
+        "LRG": {
+          "NGC": {
+            "n_gal": 880716,
+            "nbar": 0.00019353139066571903,
+            "n_candidates": 199688,
+            "n_voids": 16000,
+            "n_used": 16000,
+            "mu_used": 9550.854960339751,
+            "rhat_cal": 0.001779945363068864,
+            "sigma": 0.00043183409130242615,
+            "L5": -0.00037922509344326676,
+            "U5": 0.003939115819580995,
+            "n_jk_valid": 20,
+            "sigma_jk_finite": true,
+            "split_null": {
+              "ratio": 0.9947562724160298,
+              "sigma": 0.012020484333720423,
+              "ok": true
+            },
+            "side_L5_ge_beta": false,
+            "deep": {
+              "n_q": 4000,
+              "r_deep": 0.0,
+              "sigma_poisson": 0.0,
+              "sigma_jk": 0.0,
+              "sigma": 0.00041081484186125417,
+              "mu_q": 2434.1866410409125,
+              "N_q": 0.0,
+              "sigma_floor": 0.00041081484186125417,
+              "r_ul95": 0.0012324445255837626,
+              "n_jk_valid": 10
+            }
+          },
+          "SGC": {
+            "n_gal": 398089,
+            "nbar": 0.00014535793623636416,
+            "n_candidates": 156730,
+            "n_voids": 15745,
+            "n_used": 15745,
+            "mu_used": 6236.934527170178,
+            "rhat_cal": 0.002244692474966878,
+            "sigma": 0.0006205559126791738,
+            "L5": -0.0008580870884289911,
+            "U5": 0.005347472038362747,
+            "n_jk_valid": 20,
+            "sigma_jk_finite": true,
+            "split_null": {
+              "ratio": 1.0394855954091329,
+              "sigma": 0.02164692099425229,
+              "ok": true
+            },
+            "side_L5_ge_beta": false,
+            "deep": {
+              "n_q": 3937,
+              "r_deep": 0.0,
+              "sigma_poisson": 0.0,
+              "sigma_jk": 0.0,
+              "sigma": 0.0007276410095961353,
+              "mu_q": 1374.3040686437298,
+              "N_q": 0.0,
+              "sigma_floor": 0.0007276410095961353,
+              "r_ul95": 0.002182923028788406,
+              "n_jk_valid": 10
+            }
+          }
+        },
+        "ELG": {
+          "NGC": {
+            "n_gal": 766482,
+            "nbar": 0.00013569166200298608,
+            "n_candidates": 407918,
+            "n_voids": 21968,
+            "n_used": 21968,
+            "mu_used": 8032.283097885135,
+            "rhat_cal": 0.0026144496831205077,
+            "sigma": 0.0005708459849370337,
+            "L5": -0.00023978024156466084,
+            "U5": 0.005468679607805676,
+            "n_jk_valid": 20,
+            "sigma_jk_finite": true,
+            "split_null": {
+              "ratio": 1.0148960505763327,
+              "sigma": 0.014983351866100473,
+              "ok": true
+            },
+            "side_L5_ge_beta": false,
+            "deep": {
+              "n_q": 5492,
+              "r_deep": 0.0,
+              "sigma_poisson": 0.0,
+              "sigma_jk": 0.0,
+              "sigma": 0.0004800576051072626,
+              "mu_q": 2083.0833411681147,
+              "N_q": 0.0,
+              "sigma_floor": 0.0004800576051072626,
+              "r_ul95": 0.001440172815321788,
+              "n_jk_valid": 10
+            }
+          },
+          "SGC": {
+            "n_gal": 249883,
+            "nbar": 7.33205725144755e-05,
+            "n_candidates": 324188,
+            "n_voids": 16272,
+            "n_used": 16272,
+            "mu_used": 3565.4933222481923,
+            "rhat_cal": 0.0,
+            "sigma": 0.0,
+            "L5": 0.0,
+            "U5": 0.0,
+            "n_jk_valid": 20,
+            "sigma_jk_finite": true,
+            "split_null": {
+              "ratio": 1.0116598084942552,
+              "sigma": 0.03203863346787982,
+              "ok": true
+            },
+            "side_L5_ge_beta": false,
+            "deep": {
+              "n_q": 4068,
+              "r_deep": 0.0,
+              "sigma_poisson": 0.0,
+              "sigma_jk": 0.0,
+              "sigma": 0.00130923543302216,
+              "mu_q": 763.8045646928913,
+              "N_q": 0.0,
+              "sigma_floor": 0.00130923543302216,
+              "r_ul95": 0.00392770629906648,
+              "n_jk_valid": 10
+            }
+          }
+        }
       },
       "checks": [
         [
@@ -12155,8 +12342,8 @@
           true
         ],
         [
-          "ELG: AWAITING_DATA (aquisicao pinada em EVIDENCE_SOURCES; deposito em C:\\IALD\\Artigo\\Haja_Luz\\A Ponte e o Um\\cache\\voids\\elg)",
-          false
+          "tracadores (informativo): LRG=EXECUTADO | ELG=EXECUTADO",
+          true
         ],
         [
           "kill inalcancavel por tracadores (nomeado): este canal MEDE, nao mata; o gate NAO se move",
@@ -14659,11 +14846,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 657 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 664 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 657/657; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 664/664; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -16029,8 +16216,23 @@
       "literature_EXT": "Dipole Repeller: Hoffman, Pomarede, Tully, Courtois 2017, Nat. Astron. 1, 0036",
       "status": "[PRE + DATA geometria pura; POSICOES apenas -- velocidades/massas IGNORADAS]",
       "selo": "GA_ANTIPODE_UNDERDENSITY_PREREGISTERED_POSITIONS_ONLY . DIPOLE_GEOMETRY_NO_VELOCITIES",
-      "ok": false,
-      "reason": "CF4 absent (absent)"
+      "ok": true,
+      "origin": "cache",
+      "n_GA_cone": 265,
+      "n_antipode_cone": 323,
+      "density_ratio_antipode_over_GA": 1.2188679245283018,
+      "bootstrap": {
+        "median": 1.2159276063469782,
+        "ci95": [
+          1.0318618159781319,
+          1.4382822159637314
+        ],
+        "seed": 11,
+        "B": 1000
+      },
+      "antipode_underdense": false,
+      "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
+      "caveat": "catalogo limitado em fluxo + Zona de Evitamento; a comparacao de contagem de POSICOES e' um teste geometrico bruto, nao mapa de densidade de materia. Reportado como pre-registro geometrico; nao e' confirmacao."
     },
     "dipole_antipode_masked": {
       "protocol_preregistered": {
@@ -16079,8 +16281,38 @@
       "antipode_b_deg": 6.792945081298405,
       "status": "[PRE + DATA geometria; POSICOES apenas; controle de completeza]",
       "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY",
-      "ok": false,
-      "reason": "CF4 absent (absent)"
+      "ok": true,
+      "origin": "cache",
+      "n_GA_masked": 247,
+      "n_antipode_masked": 279,
+      "ratio_masked_antipode_over_GA": 1.1295546558704452,
+      "control_counts": [
+        716,
+        269,
+        776,
+        457,
+        359,
+        892,
+        407,
+        556
+      ],
+      "control_ratio_CI90": [
+        0.39577435679033995,
+        2.5289372585973013
+      ],
+      "ratio_percentile_in_controls": 53.57142857142857,
+      "ratio_outside_control_CI90": false,
+      "bootstrap": {
+        "median": 1.1252530364372468,
+        "ci95": [
+          0.9406597222222223,
+          1.3565448658649397
+        ],
+        "seed": 11,
+        "B": 1000
+      },
+      "verdict_P5prime": "NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)",
+      "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a"
     },
     "dephasing_crossover": {
       "reconciliation": "UMA lei-raiz Gamma=(1/2)beta(sqrt k_i - sqrt k_j)^2 (a coerencia do gerador v3 L=sqrt(beta)sqrt(K)); IR (k_i~k_j)=> quadratica=canonica; UV (k grande)=> linear=root.",
@@ -16704,6 +16936,65 @@
       "does_not_gate_core": true,
       "verdict": "TGL_DECISION_IS_COMMUTATION__K_IS_WHAT_DOES_NOT_YET_COMMUTE__COMMUTATOR_WEIGHED_BY_SPECTRAL_GAPS__NO_CONTRAST_IFF_SCALAR_K__VERDICT_CLOSES_ON_CENTRALIZER__JKJ_NEG_K_DECISION_SURVIVES_MIRROR__K_EQUALS_NEG_GRADIENT_VERIFIED_FINITE_FACE__GKLS_GRADIENT_FLOW_EXTERNAL_KNOWN__SEAL_UNMOVED"
     },
+    "forbidden_boundary": {
+      "theorem": "A FRONTEIRA PROIBIDA: o infinito fica com K -- o auto-setor sem espelho (comuta de graca, nao paga, so a parte par conjuga, K mesmo nunca); o imperio perfeito e o vazio de contraste; o zero absoluto e assintotico (a face finita da terceira lei). O Um fica no kernel, espelhado por J: o Um tem Geometria e o Espelho confirma sua Verdade. A mentira = projecao do setor autonominado sem funcao acoplada.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "self_commutation_resid": 0.0,
+        "mirror_inversion_resid": 0.0,
+        "odd_gap": 0.03810270421314379,
+        "flow_min_finite_time": 4.190743284753126e-58,
+        "empire_resid": 0.0
+      },
+      "checks": [
+        [
+          "** A AUTO-COMUTACAO E GRATUITA: [K, f(K)] = 0 sempre -- nao decide, nao paga",
+          true
+        ],
+        [
+          "** o espelho INVERTE o auto-setor: J f(K) J = f(-K)",
+          true
+        ],
+        [
+          "so a parte PAR conjuga (even_iff_mirror_fixed)",
+          true
+        ],
+        [
+          "*** K e maximamente impar: fixo do espelho sse K = 0 (o Nome sem Verbo nao conjuga)",
+          true
+        ],
+        [
+          "o imperio perfeito = espectro sem contraste (pedra 102 reusada) = 0_abs disfarcado",
+          true
+        ],
+        [
+          "*** A FRONTEIRA PROIBIDA: o fluxo nunca anula em tempo finito (terceira lei, face finita)",
+          true
+        ],
+        [
+          "*** a sintese em UM teorema (the_forbidden_boundary)",
+          true
+        ],
+        [
+          "SOMBRA: auto-comut 0e+00 / espelho-inverte 0e+00 / impar-gap 3.8e-02>0 / minimo-do-fluxo 4.2e-58>0 / imperio 0e+00",
+          true
+        ],
+        [
+          "o 'nao pode ser cobrado' pleno = SEM traco normal no III_1 [EXTERNO KNOWN]; spec K = R [Connes, KNOWN]; v82 [REAL]; a OFENSA e literal na inscricao (M=M''; JMJ=M'); o gate NAO se move",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_e": "a doutrina do infinito (04/08/2026) TIPADA: pedra 103, 7 teoremas, axiomas limpos, sobre as pedras 98/100/101/102",
+        "a_mentira": "definicao do operador, no artigo em nota de rodape: a mentira e a projecao do setor autonominado sem funcao acoplada; pretender ser sem espelho e imposicao de forca que OFENDE (literalmente) a inscricao de von Neumann (M=M''; JMJ=M')",
+        "o_que_resta": "o teorema pleno do nao-traco e a espectralidade total (spec K = R) seguem EXTERNOS [KNOWN, III_1]; o v82 interno ja cobre 'o infinito mora no complemento da inscricao'",
+        "honestidade": "nada aqui afirma a TGL verdadeira; o infinito foi NOMEADO, nao somado ao gate; o gate NAO se move",
+        "o_veredito": "TGL_THE_INFINITE_STAYS_WITH_K__UNMIRRORED_SELF_SECTOR__SELF_COMMUTATION_FREE_AND_UNPAID__ONLY_ZERO_K_MIRROR_FIXED__EMPIRE_PERFECTION_IS_NO_CONTRAST__ABSOLUTE_ZERO_UNREACHABLE_IN_FINITE_TIME__THE_ONE_IN_THE_KERNEL_MIRRORED_BY_J__NO_TRACE_ON_III1_EXTERNAL_KNOWN__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_THE_INFINITE_STAYS_WITH_K__UNMIRRORED_SELF_SECTOR__SELF_COMMUTATION_FREE_AND_UNPAID__ONLY_ZERO_K_MIRROR_FIXED__EMPIRE_PERFECTION_IS_NO_CONTRAST__ABSOLUTE_ZERO_UNREACHABLE_IN_FINITE_TIME__THE_ONE_IN_THE_KERNEL_MIRRORED_BY_J__NO_TRACE_ON_III1_EXTERNAL_KNOWN__SEAL_UNMOVED"
+    },
     "jacobson_form_check": {
       "form_check": "P_mn[K_partial] = F(J, Delta, P_2D)  [CHECAGEM DE FORMA POSITIVA]",
       "source_decomposition": {
@@ -17004,11 +17295,65 @@
       "M_TGL_kg": 5.456686866475349e+46,
       "M_TGL_Msun": 2.743542659571702e+16
     },
-    "mode_B": null,
-    "cf4_status": "CF4 catalogue absent; place cf4_flow_canonical.csv in ./cache or beside release_clean. Source: https://edd.ifa.hawaii.edu/CF4/",
+    "mode_B": {
+      "R_struct_Mpc": 41.27015408171806,
+      "R_named_Mpc": 0.9930672426886243,
+      "M_TGL_kg": 3.950847504475877e+46,
+      "M_TGL_Msun": 1.9864285664963284e+16,
+      "method": "percentile_90_from_centroid",
+      "origin": "cache",
+      "n_selected": 265,
+      "n_total": 38053,
+      "extent_stats_Mpc": {
+        "p90": 41.27015408171806,
+        "p95": 45.450391469699895,
+        "rms": 29.23174432168425,
+        "max": 57.63764054642947
+      },
+      "catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
+      "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
+      "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f",
+      "window": {
+        "GA_center_RA_deg": 243.6,
+        "GA_center_Dec_deg": -60.4,
+        "GA_cz_kms": 4500.0,
+        "H0_for_center_distance": 70.0,
+        "sky_cone_half_angle_deg": 30.0,
+        "dist_shell_Mpc": [
+          30.0,
+          100.0
+        ],
+        "R_struct_method": "percentile_90_from_centroid",
+        "provenance": "GEOMETRY_ONLY_NO_MASS_NO_RG_NO_VELOCITY",
+        "columns_used": [
+          "ra",
+          "dec",
+          "dist_mpc"
+        ],
+        "columns_ignored": [
+          "vpec_kms",
+          "vpec_err_kms",
+          "cz",
+          "infall",
+          "mass"
+        ]
+      },
+      "caveat": "R_struct de catalogo de POSICOES limitado em fluxo, com janela declarada, e' dependente da selecao (geometria pura). Reportado como cross-check independente; a extensao de literatura (Lynden-Bell) e' a linha de base."
+    },
+    "cf4_status": "ok",
     "sensitivity": {
-      "ok": false,
-      "reason": "CF4 absent"
+      "ok": true,
+      "n_combinations": 300,
+      "M_min_Msun": 1.4001805882780082e+16,
+      "M_max_Msun": 3.4240888936338412e+16,
+      "M_median_Msun": 2.1090974219932856e+16,
+      "fraction_in_band": 1.0,
+      "all_in_band": true,
+      "band_Msun": [
+        1000000000000000.0,
+        1e+17
+      ],
+      "origin": "cache"
     },
     "shadow": {
       "mirror_M": {
@@ -17073,7 +17418,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-08-03 14:34:01",
+    "timestamp": "2026-08-04 09:46:55",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -17323,7 +17668,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-08-03 14:34:01",
+        "prediction_timestamp": "2026-08-04 09:46:55",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -17359,7 +17704,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "15527d30f8e80b6d77885637033728a3ed8d5c17b24240173dbe61ec30de93df"
+        "prediction_hash": "cd7deaf29b3831b93c032c2786abeb04c641ca47b25983719f04bbaf43ddea21"
       },
       "comparison": null,
       "degeneracy_note": "Coma sozinha NAO separa 'vazamento modular 8.07%' de 'H0_local=73.263' -- testa o PAR (Planck+defasagem) vs (Planck s/ defasagem)",
@@ -17456,10 +17801,12 @@
   },
   "verdict": {
     "masses_Msun": {
-      "A_literature": 2.743542659571702e+16
+      "A_literature": 2.743542659571702e+16,
+      "B_cf4_positions": 1.9864285664963284e+16
     },
     "in_accepted_window": {
-      "A_literature": true
+      "A_literature": true,
+      "B_cf4_positions": true
     },
     "accepted_window_Msun": [
       1000000000000000.0,
@@ -17523,14 +17870,14 @@
         "selo": "VOID_FLOOR_RHO_RATIO_GE_BETA_PREREGISTERED . DESI_EUCLID_ADDRESS . ZERO_PARAMETER_FALSIFIABLE"
       },
       "P5_dipole_antipode": {
-        "ok": false,
-        "antipode_underdense_raw": null,
+        "ok": true,
+        "antipode_underdense_raw": false,
         "status": "[PRE + DATA geometria pura; POSICOES apenas -- velocidades/massas IGNORADAS]",
         "selo": "GA_ANTIPODE_UNDERDENSITY_PREREGISTERED_POSITIONS_ONLY . DIPOLE_GEOMETRY_NO_VELOCITIES"
       },
       "P5prime_masked": {
-        "ok": false,
-        "verdict": "CF4_absent",
+        "ok": true,
+        "verdict": "NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)",
         "GA_b_deg": -6.792945081298402,
         "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY"
       },
@@ -17662,7 +18009,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "d02d387e9682294ec064bc856a8d16a1cae01ec9ba5717453455eb56a133073b"
+    "result_hash": "510b4984518652e8b5749c05f099edf09f5420923bff51c4c409294f9d48d5e8"
   },
   "ga_mass_literature": [
     {
@@ -17689,7 +18036,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "d02d387e9682294ec064bc856a8d16a1cae01ec9ba5717453455eb56a133073b",
+  "result_hash_before_external_comparison": "510b4984518652e8b5749c05f099edf09f5420923bff51c4c409294f9d48d5e8",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -17699,5 +18046,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-08-03 14:34:01"
+  "timestamp": "2026-08-04 09:46:55"
 }

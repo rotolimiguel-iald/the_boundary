@@ -233,7 +233,7 @@
   },
   "P5_dipole_antipode_PRE": {
     "prediction": "densidade(antipoda RA+180,Dec->-Dec) < densidade(GA) [POSICOES apenas]",
-    "cf4_ok": false,
+    "cf4_ok": true,
     "raw_note": "teste BRUTO (contagem pura); GA atras da Zona de Evitamento -> enviesado. Rotulo qualitativo DERIVADO do dado (nao hardcoded).",
     "status": "[PRE + DATA geometria pura; POSICOES apenas -- velocidades/massas IGNORADAS]",
     "selo": "GA_ANTIPODE_UNDERDENSITY_PREREGISTERED_POSITIONS_ONLY . DIPOLE_GEOMETRY_NO_VELOCITIES"
@@ -283,8 +283,17 @@
     },
     "GA_b_deg": -6.792945081298402,
     "antipode_b_deg": 6.792945081298405,
-    "cf4_ok": false,
-    "result_obtained": "CF4 ausente nesta execucao",
+    "cf4_ok": true,
+    "result_obtained": {
+      "ratio_masked_antipode_over_GA": 1.1295546558704452,
+      "n_GA_masked": 247,
+      "n_antipode_masked": 279,
+      "control_ratio_CI90": [
+        0.39577435679033995,
+        2.5289372585973013
+      ],
+      "verdict_P5prime": "NAO_INFORMATIVO (razao dentro da dispersao dos controles; CF4 posicoes pode nao bastar)"
+    },
     "note": "PROTOCOLO PRE-REGISTRADO (mascara |b|>10 + 8 controles |b|>30 seed=11) gravado ANTES da execucao com dados",
     "status": "[PRE + DATA geometria; POSICOES apenas; controle de completeza]",
     "selo": "GA_ANTIPODE_MASKED_COMPLETENESS_PREREGISTERED . CONTROL_CONES_CLEAN_SKY . POSITIONS_ONLY"
@@ -4109,9 +4118,44 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.self_commutation_is_free": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.J_fK_J_eq_f_negK": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.even_iff_mirror_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.only_zero_K_is_mirror_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.empire_perfection_is_no_contrast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.absolute_zero_unreachable_in_finite_time": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_forbidden_boundary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "formal_source_hash": "023c961a4173961ded188ecc68ef1a886bf435592eae84015acb958e53b69ade",
+  "formal_source_hash": "1e86965014281d7bcadd9be252312357a9cee3e51c3faac88ee4a3cc84af9c74",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -4417,10 +4461,10 @@
 
 ```json
 {
-  "code_sha256": "0a8245b52abf4d9e52f5bba283cd430935e1529ac6a77c57b1762c6eda5ed5e0",
-  "cf4_catalog_hash": null,
-  "window_hash": null,
-  "selection_hash": null
+  "code_sha256": "49655f028d91c905958eec79956b4faa89a65aa1551e2cf62f79a9df02f3a47f",
+  "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
+  "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
+  "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"
 }
 ```
 
@@ -4428,7 +4472,7 @@
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 657/657 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 664/664 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`

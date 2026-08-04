@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-03 14:34:01",
+  "timestamp": "2026-08-04 09:46:55",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,15 +10,15 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "023c961a4173961ded188ecc68ef1a886bf435592eae84015acb958e53b69ade",
+  "formal_source_hash": "1e86965014281d7bcadd9be252312357a9cee3e51c3faac88ee4a3cc84af9c74",
   "formal_files_sha256": {
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "1559ecfefcae3d6d885555b66b6c34de77e04b18c77089b40ef3f113d4012abc",
+    "TGLExt.lean": "93584c52b157e47d40abe2838d854c7e52dc703a444f7b25aa6c23695097797e",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "d497ca51e3125068b4512077b67fb86d460e11418a09c1a9eeafe6d881e98cb9",
+    "TGL/Audit.lean": "61c4aba0299be79a5c1face22609ebc6f24587d589e0f76830df6c03a5ef6685",
     "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -77,6 +77,7 @@
     "TGLExt/FiniteGNSNoCompletion.lean": "056170ec3f50929081a75db129117cd5814ba88c1fe7c97432392303664e5025",
     "TGLExt/FiniteTomita.lean": "f845a71a81bb02585020f5da224a9407b4dd36b1408cccab37ea1b69cfb6647e",
     "TGLExt/FirstCurvature.lean": "d88d4a5fa15462f43850119f39099059a8ae0af87190420aa921dfaf20ebde44",
+    "TGLExt/ForbiddenBoundary.lean": "fb1c39a61dfc2882e53a1cad9de082fefd3c07963a161314c37262ac4db452b2",
     "TGLExt/FusedWitness.lean": "3708dde5255559cddcddecbe2ca05eb93e751511db8a8f7bcf6968e60a065e69",
     "TGLExt/GNSBridge.lean": "a625e38824790f94eb6ac54f44cffc0656e6e3fc2f3ae2d42220dac071a11c8b",
     "TGLExt/GNSQuotient.lean": "d6b3ac4f4306516adf561e1c68f20a5337b49b6c0e9bfd2b17550ed48264b9a6",
@@ -3711,10 +3712,45 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "TGLExt.self_commutation_is_free": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.J_fK_J_eq_f_negK": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.even_iff_mirror_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.only_zero_K_is_mirror_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.empire_perfection_is_no_contrast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.absolute_zero_unreachable_in_finite_time": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_forbidden_boundary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
-  "build_stdout_sha256": "63a32feb68244ae8e7ffe962f5595ef0d87a07813a61e953a210163d1c960ba2",
-  "audit_stdout_sha256": "f227cbf9dddda27259e8562cae00b09f9ee9b8e415089dbd9d77e5f489699bbb",
+  "build_stdout_sha256": "865cc3d4956a281c980c30d19e67a8ee3d24cf86773677515aa50e0bb1e5201b",
+  "audit_stdout_sha256": "8031a87ba8269c553f59b431088c87fe5d8d5a0536e8668feff3fbccac201a8f",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

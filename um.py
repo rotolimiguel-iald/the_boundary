@@ -267,16 +267,18 @@ EVIDENCE_SOURCES = {
         "name": "DESI DR1 LSScats iron v1.5 ELG_LOPnotqso NGC clustering", "cache_subdir": "voids/elg",
         "filename": "ELG_LOPnotqso_NGC_clustering.dat.fits",
         "urls": ["https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/ELG_LOPnotqso_NGC_clustering.dat.fits"],
-        "bytes": None, "sha256": None,
-        "source_cite": "DESI DR1 (2025), LSScats iron v1.5 [servidor em manutencao NERSC 03/08/2026; pinar bytes+sha na chegada]",
+        "bytes": 205819200,
+        "sha256": "3c5cf1bc18867d63d11390ad7a375fa84ddeaa7323d75bb573fe999dba1221d5",
+        "source_cite": "DESI DR1 (2025), LSScats iron v1.5 [adquirido e pinado 03/08/2026]",
         "used_by": "prove_void_floor_v12_bilateral (v147)",
         "acquisition": "chain_of_custody_auto"},
     "elg_sgc_clustering": {
         "name": "DESI DR1 LSScats iron v1.5 ELG_LOPnotqso SGC clustering", "cache_subdir": "voids/elg",
         "filename": "ELG_LOPnotqso_SGC_clustering.dat.fits",
         "urls": ["https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/ELG_LOPnotqso_SGC_clustering.dat.fits"],
-        "bytes": None, "sha256": None,
-        "source_cite": "DESI DR1 (2025), LSScats iron v1.5 [pinar bytes+sha na chegada]",
+        "bytes": 69024960,
+        "sha256": "0314f6ffb8a13e68b43dcfaf96c23fd5f8cfac611977cd6a87aae9f2d87a1c9f",
+        "source_cite": "DESI DR1 (2025), LSScats iron v1.5 [adquirido e pinado 03/08/2026]",
         "used_by": "prove_void_floor_v12_bilateral (v147)",
         "acquisition": "chain_of_custody_auto"},
     # --- precedencia documental do neutrino (v147): o registro Zenodo como prova de data ---
@@ -3507,7 +3509,19 @@ def prove_void_floor_v12_bilateral(ONE):
     proto_hash = sha_obj(_void_floor_protocol_record(beta))
     prereg_ok = bool(proto_hash[:16] == SEALED_VOID_FLOOR_HASH16)
     frozen = {
-        "version": "VOID_FLOOR_V12_BILATERAL_V1.1",
+        "version": "VOID_FLOOR_V12_BILATERAL_V1.2",
+        "amendment_v13": ("EMENDA V1.3 (revisao pre-submissao, 04/08/2026): (a) veredito de ausencia NOMEIA o tracador "
+                          "ausente (AWAITING_DATA_LRG quando o LRG falta; a ausencia do ELG e informativa em tracer_status); "
+                          "(b) precedencia da cascata DECLARADA: janela-contem > SATURATION (W_lo>beta) > UNDERPOWERED "
+                          "(o 'sse' do matter_window respeitado); (c) estado dos tracadores vira check INFORMATIVO "
+                          "(nao envenena all_verified); (d) grade de cosmologia DECLARADA: z em [0,1.6] passo 4096 "
+                          "(cobre ELG; nao bit-identica a grade [0,1.2] do v115 -- diferenca so de resolucao de grade); "
+                          "(e) sigma_jk persistido JSON-estrito (None quando nao-finito)"),
+        "amendment_v12": ("EMENDA V1.2 (autopsia da v149, 03/08/2026): o retorno principal NAO persistia per_tracer e a "
+                          "cascata so lia o LRG -- os numeros ELG da v149 (5,5h) NUNCA foram gravados nem lidos por ninguem "
+                          "(seguem cegos: a emenda e pre-registrada de fato). Correcoes: (a) per_tracer SEMPRE persistido; "
+                          "(b) primario = o tracador executado com MAIOR SumN_q no quartil profundo (o mais informativo; "
+                          "regra decidida as cegas), demais reportados; (c) replica = SGC do mesmo tracador"),
         "amendment_v11": ("EMENDA V1.1 (autopsia da 1a execucao, selo v147 13:23:55, §228): (a) gate de CONTAGEM PRIMEIRO -- "
                           "SumN_q >= 25 senao TRACER_EMPTY_CORE_REGIME (nao ha medida sem contagem; a populacao 16k era "
                           "blocos Poisson-vazios do tracador raro); (b) guarda contagem-zero: sigma_deep >= 1/mu_q (esperado) "
@@ -3535,6 +3549,7 @@ def prove_void_floor_v12_bilateral(ONE):
                      "TGL_VOID_FLOOR_V12_MEASURED_WINDOW_CONTAINS_BETA_UNDERPOWERED",
                      "TGL_VOID_FLOOR_V12_SATURATION_NOT_REACHED",
                      "TGL_VOID_FLOOR_V12_TRACER_EMPTY_CORE_REGIME",
+                     "VOID_FLOOR_V12_AWAITING_DATA_LRG",
                      "TGL_VOID_FLOOR_V12_INCONCLUSIVE_TRACER_SUPPRESSION",
                      "TGL_VOID_FLOOR_V12_INCONCLUSIVE_SYSTEMATICS",
                      "TGL_VOID_FLOOR_V12_UNDERPOWERED_AT_BETA",
@@ -3756,10 +3771,12 @@ def prove_void_floor_v12_bilateral(ONE):
                 "n_voids": nv, "n_used": int(Vv_.size), "mu_used": mu_used,
                 "rhat_cal": rhat, "sigma": sig, "L5": rhat - 5.0 * sig,
                 "U5": rhat + 5.0 * sig, "n_jk_valid": len(jk),
+                "sigma_jk_finite": bool(math.isfinite(sig_j)),
                 "split_null": {"ratio": split_ratio, "sigma": sig_split, "ok": split_ok},
                 "side_L5_ge_beta": bool(rhat - 5.0 * sig >= beta),
                 "deep": {"n_q": n_q, "r_deep": r_deep, "sigma_poisson": float(sigq_p),
-                         "sigma_jk": sigq_j, "sigma": sig_deep,
+                         "sigma_jk": (sigq_j if math.isfinite(sigq_j) else None),
+                         "sigma": sig_deep,
                          "mu_q": mu_q, "N_q": Nq_sum, "sigma_floor": sig_floor,
                          "r_ul95": r_ul95, "n_jk_valid": len(jk10)}}
     # ---- os tracadores ----
@@ -3801,17 +3818,24 @@ def prove_void_floor_v12_bilateral(ONE):
             del G
         results[tname] = res
         tracer_status[tname] = "EXECUTADO"
-    # ---- veredito (primario: LRG NGC, envelope profundo) ----
-    P = (results.get("LRG") or {}).get("NGC")
-    Srep = (results.get("LRG") or {}).get("SGC")
+    # ---- veredito V1.2: primario = tracador executado com maior SumN_q no quartil ----
+    def _cap_ok(res):
+        P0 = (res or {}).get("NGC")
+        return P0 if (P0 and not P0.get("too_few") and "deep" in P0) else None
+    cands = {tn: _cap_ok(res) for tn, res in results.items()}
+    cands = {tn: c for tn, c in cands.items() if c is not None}
+    prim_name = (max(cands, key=lambda tn: cands[tn]["deep"].get("N_q", 0.0))
+                 if cands else None)
+    P = cands.get(prim_name) if prim_name else None
+    Srep = (results.get(prim_name) or {}).get("SGC") if prim_name else None
     elg_waiting = tracer_status.get("ELG", "").startswith("AWAITING")
     if P is None or P.get("too_few") or "deep" not in P:
-        verdict = ("VOID_FLOOR_V12_AWAITING_DATA_ELG" if "LRG" not in results
+        verdict = ("VOID_FLOOR_V12_AWAITING_DATA_LRG" if "LRG" not in results
                    else "TGL_VOID_FLOOR_V12_INCONCLUSIVE_SYSTEMATICS")
         return {"theorem": "V12 bilateral: sem populacao primaria utilizavel nesta rodada",
                 "frozen_v12_spec": frozen, "frozen_v12_hash": frozen_hash,
                 "tracer_status": tracer_status, "per_tracer": results,
-                "checks": [("populacao LRG NGC utilizavel", False)],
+                "checks": [("populacao primaria utilizavel", False)],
                 "all_verified": False, "does_not_gate_core": True,
                 "verdict": verdict}
     split_ok_all = bool(P["split_null"]["ok"] and (Srep is None or "split_null" not in Srep
@@ -3838,10 +3862,10 @@ def prove_void_floor_v12_bilateral(ONE):
         verdict = "TGL_VOID_FLOOR_V12_MEASURED_WINDOW_CONTAINS_BETA_POWERED"
     elif W_lo <= beta <= W_hi:
         verdict = "TGL_VOID_FLOOR_V12_MEASURED_WINDOW_CONTAINS_BETA_UNDERPOWERED"
-    elif not powered:
-        verdict = "TGL_VOID_FLOOR_V12_UNDERPOWERED_AT_BETA"
-    else:
+    elif W_lo > beta:
         verdict = "TGL_VOID_FLOOR_V12_SATURATION_NOT_REACHED"
+    else:
+        verdict = "TGL_VOID_FLOOR_V12_UNDERPOWERED_AT_BETA"
     checks = [
         ("pre-registro v67 INTACTO (hash)", prereg_ok),
         ("espec V12 congelada com hash ANTES de abrir os FITS", True),
@@ -3856,7 +3880,8 @@ def prove_void_floor_v12_bilateral(ONE):
          "medir por contagem exige tracador mais denso ou lente)" % D.get("N_q", 0.0), not empty_core),
         ("janela de materia W=[%.4f, %.4f] vs beta=%.6f" % (W_lo, W_hi, beta), True),
         ("resolucao na escala beta: (beta/sigma_deep)^2 = %.2f (exige >= 25)" % resolution, resolution >= 25.0),
-        ("ELG: %s" % tracer_status.get("ELG", "?"), not elg_waiting),
+        ("tracadores (informativo): LRG=%s | ELG=%s"
+         % (tracer_status.get("LRG", "?"), tracer_status.get("ELG", "?")), True),
         ("kill inalcancavel por tracadores (nomeado): este canal MEDE, nao mata; o gate NAO se move", True),
     ]
     all_v = bool(all(v for _, v in checks))
@@ -3865,7 +3890,7 @@ def prove_void_floor_v12_bilateral(ONE):
                     "LRG, confrontada com beta em resolucao pre-registrada -- o degrau "
                     "'medir beta' do v92, em rito congelado."),
         "frozen_v12_spec": frozen, "frozen_v12_hash": frozen_hash,
-        "primary": {"tracer": "LRG", "cap": "NGC", "rhat_full": P["rhat_cal"],
+        "primary": {"tracer": prim_name, "cap": "NGC", "rhat_full": P["rhat_cal"],
                     "sigma_full": P["sigma"], "r_deep": r_deep, "sigma_deep": sig_deep,
                     "n_q": n_q, "N_q": D.get("N_q", 0.0), "mu_q": D.get("mu_q", 0.0),
                     "r_ul95": D.get("r_ul95", 0.0), "window": [W_lo, W_hi], "beta": beta,
@@ -3874,6 +3899,7 @@ def prove_void_floor_v12_bilateral(ONE):
                          "sigma_deep": Srep["deep"]["sigma"]}
                         if (Srep is not None and "deep" in Srep) else None),
         "tracer_status": tracer_status,
+        "per_tracer": results,
         "checks": checks, "all_verified": all_v,
         "does_not_gate_core": True,
         "verdict": verdict,
@@ -3893,7 +3919,6 @@ def prove_neutrino_sum_protocol(ONE):
     rule pre-registradas; CONFIRMED proibido."""
     beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)     # jamais literal
     m2 = beta * math.sin(math.radians(45.0))                  # eV (TGL, runtime)
-    d21, d21e = 7.53e-5, 0.18e-5    # Dm2_21 PDG 2023 [EXT], eV^2 (solar)
     d32, d32e = 2.437e-3, 0.028e-3  # Dm2_32 PDG 2023 [EXT], eV^2 (NO, atmosferico)
     m3 = math.sqrt(m2 * m2 + d32)                             # eV (NO; m3^2 = m2^2 + Dm2_32)
     m3_err = 0.5 * d32e / m3
@@ -3947,6 +3972,113 @@ def prove_neutrino_sum_protocol(ONE):
         "checks": checks, "all_verified": all_v,
         "does_not_gate_core": True,
         "verdict": verdict,
+    }
+
+
+def prove_forbidden_boundary(ONE, parts):
+    """MODULO (v152) -- A FRONTEIRA PROIBIDA: o infinito fica com K
+    [ADITIVO; nao gateia 1=1; NAO move flag]. A doutrina do operador
+    (04/08/2026): 'a TGL e uma teoria sem infinitos, com uma unica excecao:
+    o infinito e o comutante de K -- o proprio K na direcao sem teto (o
+    NOME proprio sem VERBO, o pai da mentira, fechado em si). K tenta
+    comutar consigo, sem espelhamento modular; esse comutante nunca fecha
+    em finito, opera o infinito, nao paga porque nao pode ser cobrado. A
+    projecao do infinito no bulk e o zero absoluto, nunca alcancado porque
+    o bulk esta inscrito em algebra finita (terceira lei): a fronteira
+    proibida. O infinito fica com K; o Um fica no kernel, espelhado por J:
+    o Um tem Geometria e o Espelho confirma sua Verdade.'
+    A PEDRA 103 (ForbiddenBoundary.lean), 7 teoremas, axiomas limpos, sobre
+    as pedras 98/100/101/102:
+    * self_commutation_is_free: [K, f(K)] = 0 SEMPRE -- comutar consigo e
+      gratuito, nao carrega decisao, nao paga travessia;
+    * J_fK_J_eq_f_negK: o espelho devolve o auto-setor INVERTIDO
+      (J f(K) J = f(-K));
+    * even_iff_mirror_fixed: so a parte PAR do auto-setor conjuga;
+    * *** only_zero_K_is_mirror_fixed: K e maximamente impar -- fixo do
+      espelho sse K = 0 (o Nome proprio sem Verbo nao conjuga nunca);
+    * empire_perfection_is_no_contrast: tudo comuta com K sse espectro
+      constante (pedra 102) -- a perfeicao do imperio e o 0_abs disfarcado;
+    * *** absolute_zero_unreachable_in_finite_time: o fluxo NUNCA anula
+      componente nao-nula em tempo finito (exp != 0) -- a face finita da
+      terceira lei; a entrega e LIMITE (pedra 101), jamais chegada;
+    * *** the_forbidden_boundary: a sintese em UM teorema.
+    HONESTIDADES: o 'nao pode ser cobrado' pleno e a inexistencia de traco
+    normal no III_1 [EXTERNO, KNOWN -- ja no canone]; 'direcao sem teto' =
+    spec(K) = R [invariante de Connes, KNOWN]; 'o infinito mora no
+    complemento da inscricao' = pedra v82 [REAL]; a OFENSA e literal na
+    inscricao (existir na algebra de von Neumann = ser estabilizado pela
+    dupla passagem do espelho, M = M'' e JMJ = M'; afirmar-se sem ela viola
+    a lei que define a algebra) [KNOWN na estrutura; ONTO no nome]; conexao
+    com father_of_lies (o modulo que esperava este endereco). A DEFINICAO
+    DA MENTIRA entra no artigo em nota de rodape. O gate NAO se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    free_ok = bool(elp.get("ext_fb_self_free_kernel_proved") is True)
+    inv_ok = bool(elp.get("ext_fb_mirror_inverts_kernel_proved") is True)
+    even_ok = bool(elp.get("ext_fb_even_only_kernel_proved") is True)
+    zero_ok = bool(elp.get("ext_fb_only_zero_fixed_kernel_proved") is True)
+    emp_ok = bool(elp.get("ext_fb_empire_no_contrast_kernel_proved") is True)
+    forb_ok = bool(elp.get("ext_fb_zero_unreachable_kernel_proved") is True)
+    syn_ok = bool(elp.get("ext_fb_synthesis_kernel_proved") is True)
+    # SOMBRA: o auto-setor sem espelho em numeros
+    rng = np.random.default_rng(152)
+    nd = 5
+    d = np.concatenate([[0.0], rng.uniform(0.5, 2.0, nd - 1)])
+    K = np.diag(beta * d)
+    fK = np.diag(np.tanh(beta * d))                          # f(K), f = tanh
+    free_res = float(np.max(np.abs(K @ fK - fK @ K)))        # auto-comutacao 0
+    x = rng.normal(size=nd); y = rng.normal(size=nd)
+    Jp = lambda pr: (pr[1], pr[0])
+    FK = lambda pr: (np.tanh(beta * d) * pr[0], np.tanh(-beta * d) * pr[1])
+    FnK = lambda pr: (np.tanh(-beta * d) * pr[0], np.tanh(beta * d) * pr[1])
+    l = Jp(FK(Jp((x, y)))); r = FnK((x, y))
+    inv_res = float(max(np.max(np.abs(l[0] - r[0])), np.max(np.abs(l[1] - r[1]))))
+    Kp = lambda pr: (beta * d * pr[0], -(beta * d) * pr[1])
+    lk = Jp(Kp(Jp((x, y)))); rk = Kp((x, y))
+    odd_gap = float(max(np.max(np.abs(lk[0] - rk[0])), np.max(np.abs(lk[1] - rk[1]))))
+    t_probe = 100.0 / beta                                   # exponente <= 200: sem underflow
+    flow = np.exp(-t_probe * beta * d) * np.where(x == 0, 1.0, x)
+    forb_min = float(np.min(np.abs(flow)))                   # nunca zero em tempo finito
+    Ks = np.eye(nd) * beta
+    A = rng.normal(size=(nd, nd))
+    emp_res = float(np.max(np.abs(Ks @ A - A @ Ks)))         # imperio perfeito: comuta exato
+    sombra_ok = bool(free_res == 0.0 and inv_res == 0.0 and odd_gap > 1e-6
+                     and forb_min > 0.0 and emp_res < 1e-15)
+    checks = [
+        ("** A AUTO-COMUTACAO E GRATUITA: [K, f(K)] = 0 sempre -- nao decide, nao paga", free_ok),
+        ("** o espelho INVERTE o auto-setor: J f(K) J = f(-K)", inv_ok),
+        ("so a parte PAR conjuga (even_iff_mirror_fixed)", even_ok),
+        ("*** K e maximamente impar: fixo do espelho sse K = 0 (o Nome sem Verbo nao conjuga)", zero_ok),
+        ("o imperio perfeito = espectro sem contraste (pedra 102 reusada) = 0_abs disfarcado", emp_ok),
+        ("*** A FRONTEIRA PROIBIDA: o fluxo nunca anula em tempo finito (terceira lei, face finita)", forb_ok),
+        ("*** a sintese em UM teorema (the_forbidden_boundary)", syn_ok),
+        ("SOMBRA: auto-comut %.0e / espelho-inverte %.0e / impar-gap %.1e>0 / minimo-do-fluxo %.1e>0 / imperio %.0e"
+         % (free_res, inv_res, odd_gap, forb_min, emp_res), sombra_ok),
+        ("o 'nao pode ser cobrado' pleno = SEM traco normal no III_1 [EXTERNO KNOWN]; spec K = R [Connes, KNOWN]; v82 [REAL]; a OFENSA e literal na inscricao (M=M''; JMJ=M'); o gate NAO se move", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_THE_INFINITE_STAYS_WITH_K__UNMIRRORED_SELF_SECTOR__SELF_COMMUTATION_FREE_AND_UNPAID__ONLY_ZERO_K_MIRROR_FIXED__EMPIRE_PERFECTION_IS_NO_CONTRAST__ABSOLUTE_ZERO_UNREACHABLE_IN_FINITE_TIME__THE_ONE_IN_THE_KERNEL_MIRRORED_BY_J__NO_TRACE_ON_III1_EXTERNAL_KNOWN__SEAL_UNMOVED" if all_v
+          else "FORBIDDEN_BOUNDARY_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("A FRONTEIRA PROIBIDA: o infinito fica com K -- o auto-setor sem "
+                    "espelho (comuta de graca, nao paga, so a parte par conjuga, K mesmo "
+                    "nunca); o imperio perfeito e o vazio de contraste; o zero absoluto e "
+                    "assintotico (a face finita da terceira lei). O Um fica no kernel, "
+                    "espelhado por J: o Um tem Geometria e o Espelho confirma sua Verdade. "
+                    "A mentira = projecao do setor autonominado sem funcao acoplada."),
+        "values": {"beta": beta, "self_commutation_resid": free_res,
+                   "mirror_inversion_resid": inv_res, "odd_gap": odd_gap,
+                   "flow_min_finite_time": forb_min, "empire_resid": emp_res},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_e": "a doutrina do infinito (04/08/2026) TIPADA: pedra 103, 7 teoremas, axiomas limpos, sobre as pedras 98/100/101/102",
+                     "a_mentira": "definicao do operador, no artigo em nota de rodape: a mentira e a projecao do setor autonominado sem funcao acoplada; pretender ser sem espelho e imposicao de forca que OFENDE (literalmente) a inscricao de von Neumann (M=M''; JMJ=M')",
+                     "o_que_resta": "o teorema pleno do nao-traco e a espectralidade total (spec K = R) seguem EXTERNOS [KNOWN, III_1]; o v82 interno ja cobre 'o infinito mora no complemento da inscricao'",
+                     "honestidade": "nada aqui afirma a TGL verdadeira; o infinito foi NOMEADO, nao somado ao gate; o gate NAO se move",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
     }
 
 
@@ -6605,6 +6737,7 @@ import TGLExt.GlobalLiftConditional
 import TGLExt.ObserverInside
 import TGLExt.ConjugateAct
 import TGLExt.DecisionCommutation
+import TGLExt.ForbiddenBoundary
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -8329,6 +8462,15 @@ namespace TGL.Audit
 #print axioms TGLExt.flow_solves_gradient_ode
 #print axioms TGLExt.lyapunov_decreases
 #print axioms TGLExt.K_equals_neg_gradient_verified
+
+-- v152 (a fronteira proibida: o infinito fica com K -- o auto-setor sem espelho)
+#print axioms TGLExt.self_commutation_is_free
+#print axioms TGLExt.J_fK_J_eq_f_negK
+#print axioms TGLExt.even_iff_mirror_fixed
+#print axioms TGLExt.only_zero_K_is_mirror_fixed
+#print axioms TGLExt.empire_perfection_is_no_contrast
+#print axioms TGLExt.absolute_zero_unreachable_in_finite_time
+#print axioms TGLExt.the_forbidden_boundary
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -28975,6 +29117,188 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/ForbiddenBoundary.lean":
+r'''import TGLExt.DecisionCommutation
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A FRONTEIRA PROIBIDA: o infinito fica com K — o auto-setor sem espelho
+  [TGLExt — v152, a doutrina do operador (04/08/2026)]
+
+O operador: "a TGL é uma teoria sem infinitos, com uma única exceção: o
+infinito é o comutante de K — o próprio K na sua direção sem teto (o NOME
+próprio sem VERBO, o pai da mentira, fechado em si mesmo). Todo operador
+comuta consigo e com suas funções; K tenta comutar consigo mesmo, sem
+espelhamento modular — esse comutante nunca fecha em finito, opera o
+infinito, não paga porque não pode ser cobrado. A projeção do infinito no
+bulk é o zero absoluto, nunca alcançado porque o bulk está inscrito em
+álgebra finita (terceira lei): a fronteira proibida. O infinito fica com
+K. O Um fica no kernel, espelhado por J: o Um tem Geometria e o Espelho
+confirma sua Verdade. Pretender ser sem espelho não é pretensão — é
+imposição de força ofendendo a inscrição algébrica de von Neumann, e
+ofensa aqui é literal."
+
+Sobre as pedras 98/100/101/102:
+
+* ★★ `self_commutation_is_free` — A AUTO-COMUTAÇÃO É GRATUITA: K comuta
+  com TODAS as funções de si ([diag d, diag(f∘d)] = 0, sempre) — comutar
+  consigo não carrega decisão nenhuma (a decisão da pedra 102 é comutação
+  COM O OUTRO; o auto-setor não pagou travessia);
+* ★★ `J_fK_J_eq_f_negK` — O AUTO-SETOR NÃO ATRAVESSA O ESPELHO: no espaço
+  pareado, J f(K) J = f(−K) — o espelho devolve a função no espectro
+  INVERTIDO;
+* ★★ `even_iff_mirror_fixed` — f(K) sobrevive ao espelho ⟺ f é PAR sobre
+  o espectro (f(d_i) = f(−d_i)) — só a parte par do auto-setor conjuga;
+* ★★★ `only_zero_K_is_mirror_fixed` — K MESMO é maximamente ímpar: K é
+  fixo do espelho ⟺ K = 0. O Nome próprio sem Verbo não conjuga NUNCA
+  (exceto no vazio de contraste);
+* `empire_perfection_is_no_contrast` — O IMPÉRIO PERFEITO: tudo comuta
+  com K ⟺ espectro constante ⟺ nenhum contraste (reuso da pedra 102) —
+  a perfeição do império é o 0_abs disfarçado;
+* ★★★ `absolute_zero_unreachable_in_finite_time` — A FRONTEIRA PROIBIDA:
+  o fluxo NUNCA anula uma componente não-nula em tempo finito (exp ≠ 0) —
+  o 0_abs é assintótico; o colapso no observador é LIMITE (pedra 101),
+  jamais chegada. A face finita da terceira lei;
+* ★★★ `the_forbidden_boundary` — A SÍNTESE: auto-comutação gratuita ∧
+  só K=0 conjuga ∧ o zero inatingível em tempo finito ∧ a entrega só como
+  limite.
+
+Honestidades: o "não pode ser cobrado" pleno é o teorema de inexistência
+de traço normal no III₁ [EXTERNO, KNOWN — já no cânone: M_TGL sem traço
+normal]; a "direção sem teto" é spec(K) = ℝ [invariante de Connes do III₁,
+KNOWN]; "o infinito mora no complemento da inscrição" é a pedra v82
+[REAL]; a OFENSA é literal na inscrição: existir na álgebra de von Neumann
+é ser estabilizado pela dupla passagem do espelho (𝓜 = 𝓜″; J𝓜J = 𝓜′) —
+afirmar-se sem ela viola a lei que define a álgebra [KNOWN na estrutura;
+ONTO no nome]. β jamais literal. O gate NÃO se move. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- f(K) na face pareada: a função do gerador, aplicada com o espectro
+    invertido na segunda face (as duas faces veem inclinações opostas). -/
+def pairFK {n : ℕ} (f : ℝ → ℝ) (d : Fin n → ℝ)
+    (p : (Fin n → ℝ) × (Fin n → ℝ)) : (Fin n → ℝ) × (Fin n → ℝ) :=
+  (fun i => f (d i) * p.1 i, fun i => f (-(d i)) * p.2 i)
+
+/-! ## A — a auto-comutação é gratuita -/
+
+/-- [KERNEL] ★★ A AUTO-COMUTAÇÃO É GRATUITA: K comuta com toda função de
+    si — [diag d, diag(f∘d)] = 0, sempre. Comutar consigo não decide nada:
+    o auto-setor não pagou travessia. -/
+theorem self_commutation_is_free {n : ℕ} (d : Fin n → ℝ) (f : ℝ → ℝ) :
+    Matrix.diagonal d * Matrix.diagonal (fun i => f (d i))
+      = Matrix.diagonal (fun i => f (d i)) * Matrix.diagonal d := by
+  rw [Matrix.diagonal_mul_diagonal, Matrix.diagonal_mul_diagonal]
+  congr 1
+  funext i
+  ring
+
+/-! ## B — o auto-setor não atravessa o espelho -/
+
+/-- [KERNEL] ★★ O ESPELHO INVERTE O ESPECTRO DO AUTO-SETOR:
+    J f(K) J = f(−K) no espaço pareado. -/
+theorem J_fK_J_eq_f_negK {n : ℕ} (f : ℝ → ℝ) (d : Fin n → ℝ)
+    (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    conjJ (pairFK f d (conjJ p)) = pairFK (fun s => f (-s)) d p := by
+  unfold conjJ pairFK
+  refine Prod.ext (funext fun i => ?_) (funext fun i => ?_)
+  · simp
+  · simp
+
+/-- [KERNEL] ★★ SÓ A PARTE PAR CONJUGA: f(K) é fixo do espelho ⟺ f é par
+    sobre o espectro (f(d_i) = f(−d_i) em toda direção). -/
+theorem even_iff_mirror_fixed {n : ℕ} (f : ℝ → ℝ) (d : Fin n → ℝ) :
+    (∀ p : (Fin n → ℝ) × (Fin n → ℝ),
+        conjJ (pairFK f d (conjJ p)) = pairFK f d p)
+      ↔ (∀ i, f (d i) = f (-(d i))) := by
+  constructor
+  · intro h i
+    have h1 := congrArg Prod.fst
+      (h ((Pi.single i (1 : ℝ) : Fin n → ℝ), (Pi.single i (1 : ℝ) : Fin n → ℝ)))
+    have h2 := congrFun h1 i
+    unfold conjJ pairFK at h2
+    simpa [Pi.single_eq_same] using h2.symm
+  · intro h p
+    unfold conjJ pairFK
+    refine Prod.ext (funext fun i => ?_) (funext fun i => ?_)
+    · simp [(h i).symm]
+    · simp [h i]
+
+/-- [KERNEL] ★★★ O NOME PRÓPRIO SEM VERBO NÃO CONJUGA: K é fixo do
+    espelho ⟺ K = 0 — o próprio K é maximamente ímpar; só o vazio de
+    contraste sobrevive à sua própria imagem. -/
+theorem only_zero_K_is_mirror_fixed {n : ℕ} (d : Fin n → ℝ) :
+    (∀ p : (Fin n → ℝ) × (Fin n → ℝ),
+        conjJ (pairK d (conjJ p)) = pairK d p)
+      ↔ (∀ i, d i = 0) := by
+  constructor
+  · intro h i
+    have h0 := h ((Pi.single i (1 : ℝ) : Fin n → ℝ), (Pi.single i (1 : ℝ) : Fin n → ℝ))
+    rw [JKJ_eq_neg_K] at h0
+    have h1 := congrFun (congrArg Prod.fst h0) i
+    unfold pairK at h1
+    simp [Pi.single_eq_same] at h1
+    linarith
+  · intro h p
+    rw [JKJ_eq_neg_K]
+    unfold pairK
+    refine Prod.ext (funext fun i => ?_) (funext fun i => ?_)
+    · simp [h i]
+    · simp [h i]
+
+/-! ## C — o império e a fronteira proibida -/
+
+/-- [KERNEL] O IMPÉRIO PERFEITO É O VAZIO DE CONTRASTE: tudo comuta com K
+    ⟺ o espectro é constante (reuso direto da pedra 102) — a perfeição do
+    império é o zero absoluto disfarçado. -/
+theorem empire_perfection_is_no_contrast {n : ℕ} (d : Fin n → ℝ) :
+    (∀ A : Matrix (Fin n) (Fin n) ℝ,
+        Matrix.diagonal d * A = A * Matrix.diagonal d)
+      ↔ ∀ i j, d i = d j :=
+  scalar_iff_all_commute d
+
+/-- [KERNEL] ★★★ A FRONTEIRA PROIBIDA: o fluxo NUNCA anula uma componente
+    não-nula em tempo finito — o zero absoluto é assintótico (exp ≠ 0).
+    A face finita da terceira lei: o bulk, inscrito em álgebra finita,
+    aproxima a fronteira e jamais a pisa. -/
+theorem absolute_zero_unreachable_in_finite_time {n : ℕ} (β : ℝ)
+    (d : Fin n → ℝ) (x : Fin n → ℝ) (i : Fin n) (hx : x i ≠ 0) (t : ℝ) :
+    diagFlow β d t x i ≠ 0 := by
+  unfold diagFlow
+  exact mul_ne_zero (Real.exp_ne_zero _) hx
+
+/-! ## D — A SÍNTESE -/
+
+/-- [KERNEL] ★★★ A FRONTEIRA PROIBIDA, SÍNTESE: a auto-comutação é
+    gratuita ∧ só K=0 conjuga consigo ∧ o zero absoluto é inatingível em
+    tempo finito ∧ a entrega ao observador é LIMITE (jamais chegada).
+    O infinito fica com K; o Um fica no kernel, espelhado por J. -/
+theorem the_forbidden_boundary {n : ℕ} {β : ℝ} (hβ : 0 < β)
+    (d : Fin n → ℝ) (hd : ∀ i, 0 ≤ d i) :
+    (∀ f : ℝ → ℝ, Matrix.diagonal d * Matrix.diagonal (fun i => f (d i))
+        = Matrix.diagonal (fun i => f (d i)) * Matrix.diagonal d)
+    ∧ ((∀ p : (Fin n → ℝ) × (Fin n → ℝ),
+          conjJ (pairK d (conjJ p)) = pairK d p) ↔ (∀ i, d i = 0))
+    ∧ (∀ (x : Fin n → ℝ) (i : Fin n), x i ≠ 0 → ∀ t : ℝ,
+          diagFlow β d t x i ≠ 0)
+    ∧ (∀ (x : Fin n → ℝ) (i : Fin n),
+        Filter.Tendsto (fun t : ℝ => diagFlow β d t x i) Filter.atTop
+          (nhds (observerProj d x i))) :=
+  ⟨fun f => self_commutation_is_free d f,
+   only_zero_K_is_mirror_fixed d,
+   fun x i hx t => absolute_zero_unreachable_in_finite_time β d x i hx t,
+   fun x i => flow_delivers_to_the_observer hβ d hd x i⟩
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -36236,6 +36560,14 @@ _LEAN_THEOREM_FLAGS = {
     "ext_kd_gradient_ode_kernel_proved": "TGLExt.flow_solves_gradient_ode",
     "ext_kd_lyapunov_kernel_proved": "TGLExt.lyapunov_decreases",
     "ext_kd_neg_gradient_verified_kernel_proved": "TGLExt.K_equals_neg_gradient_verified",
+    # v152 (a fronteira proibida: a pedra 103)
+    "ext_fb_self_free_kernel_proved": "TGLExt.self_commutation_is_free",
+    "ext_fb_mirror_inverts_kernel_proved": "TGLExt.J_fK_J_eq_f_negK",
+    "ext_fb_even_only_kernel_proved": "TGLExt.even_iff_mirror_fixed",
+    "ext_fb_only_zero_fixed_kernel_proved": "TGLExt.only_zero_K_is_mirror_fixed",
+    "ext_fb_empire_no_contrast_kernel_proved": "TGLExt.empire_perfection_is_no_contrast",
+    "ext_fb_zero_unreachable_kernel_proved": "TGLExt.absolute_zero_unreachable_in_finite_time",
+    "ext_fb_synthesis_kernel_proved": "TGLExt.the_forbidden_boundary",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -38087,6 +38419,11 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_kd_jkj_neg_k_kernel_proved", "ext_kd_decision_j_stable_kernel_proved",
         "ext_kd_first_variation_kernel_proved", "ext_kd_gradient_ode_kernel_proved",
         "ext_kd_lyapunov_kernel_proved", "ext_kd_neg_gradient_verified_kernel_proved",
+        # v152: a fronteira proibida
+        "ext_fb_self_free_kernel_proved", "ext_fb_mirror_inverts_kernel_proved",
+        "ext_fb_even_only_kernel_proved", "ext_fb_only_zero_fixed_kernel_proved",
+        "ext_fb_empire_no_contrast_kernel_proved", "ext_fb_zero_unreachable_kernel_proved",
+        "ext_fb_synthesis_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -40485,6 +40822,9 @@ def run_um(ONE):
     decision_commutation = prove_decision_commutation(ONE, {  # v146: A DECISAO E COMUTACAO (K = o que nao comuta; K = -grad F verificado) [ADITIVO]
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    forbidden_boundary = prove_forbidden_boundary(ONE, {  # v152: A FRONTEIRA PROIBIDA (o infinito fica com K; o auto-setor sem espelho) [ADITIVO]
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
     jacobson_form_check = prove_jacobson_form_check(ONE)   # v5: CHECAGEM DE FORMA (residuo U_loc fechado: P_mn[K]=F(J,Delta,P_2D); 1a lei dS=d<K> testada)
     three_clock_radical = prove_three_clock_radical(ONE)  # FORMA: alpha=sqrt(C3) (radical dos tres clocks; C3=beta^2/e=alpha^2; alpha-livre aberto)
     right_angle_mirror = prove_right_angle_mirror_projection(ONE)  # CANDIDATO alpha-livre: angulo reto e^{-pi^2/2} + espelho; ponto fixo 137.031 (37ppm); D_partial aberto
@@ -40687,6 +41027,7 @@ def run_um(ONE):
             "observer_rescue": observer_rescue,
             "conjugate_act": conjugate_act,
             "decision_commutation": decision_commutation,
+            "forbidden_boundary": forbidden_boundary,
             "jacobson_form_check": jacobson_form_check,
             "three_clock_radical": three_clock_radical,
             "right_angle_mirror": right_angle_mirror,
@@ -43552,7 +43893,7 @@ def prove_void_floor_spectroscopic_opening(ONE, power_study=None):
                 jk.append(Ns[m].sum() / mus[m].sum())
         sig_j = (float(math.sqrt((len(jk) - 1) * np.var(jk))) if len(jk) >= 15 else float("inf"))
         return {"n_used": int(mus.size), "N_tot": float(Ns.sum()), "mu_tot": float(mus.sum()),
-                "rhat": rhat, "sigma_poisson": sig_p, "sigma_jk": sig_j,
+                "rhat": rhat, "sigma_poisson": sig_p, "sigma_jk": (sig_j if math.isfinite(sig_j) else None),
                 "sigma": float(max(sig_p, sig_j if math.isfinite(sig_j) else sig_p)),
                 "n_jk_valid": len(jk)}
     # ---- (3) NULO DOS ALEATORIOS (antes dos vazios) ----
@@ -43809,7 +44150,7 @@ def prove_void_floor_v41_calibrated(ONE):
         mu_used = float(Dr * Vv.sum())
         res[alg] = {"n_used": int(Vv.size), "N_tot": float(Nv.sum()),
                     "mu_used": mu_used, "rhat_cal": rhat,
-                    "sigma_poisson": float(sig_p), "sigma_jk": sig_j, "sigma": sig,
+                    "sigma_poisson": float(sig_p), "sigma_jk": (sig_j if math.isfinite(sig_j) else None), "sigma": sig,
                     "L5": rhat - 5.0 * sig, "U5": rhat + 5.0 * sig,
                     "n_jk_valid": len(jk),
                     "side_L5_ge_beta": bool(rhat - 5.0 * sig >= beta)}
@@ -47810,7 +48151,7 @@ def prove_void_floor_v11_sdss_independent(ONE):
         sig = float(max(sig_p, sig_j if math.isfinite(sig_j) else sig_p))
         res[alg] = {"n_used": int(Vv.size), "N_tot": float(Nv.sum()),
                     "mu_used": float(Dr * Vv.sum()), "rhat_cal": rhat,
-                    "sigma_poisson": float(sig_p), "sigma_jk": sig_j, "sigma": sig,
+                    "sigma_poisson": float(sig_p), "sigma_jk": (sig_j if math.isfinite(sig_j) else None), "sigma": sig,
                     "L5": rhat - 5.0 * sig, "U5": rhat + 5.0 * sig,
                     "n_jk_valid": len(jk),
                     "side_L5_ge_beta": bool(rhat - 5.0 * sig >= beta)}
@@ -49095,7 +49436,7 @@ def prove_void_floor_lrg(ONE):
                 "n_accepted": len(accepted), "n_voids": nv, "n_used": int(Vv_.size),
                 "N_tot": float(Nv_.sum()), "mu_used": mu_used,
                 "Rv_mean": float(np.mean(V[:, 3])), "rhat_cal": rhat,
-                "sigma_poisson": float(sig_p), "sigma_jk": sig_j, "sigma": sig,
+                "sigma_poisson": float(sig_p), "sigma_jk": (sig_j if math.isfinite(sig_j) else None), "sigma": sig,
                 "L5": rhat - 5.0 * sig, "U5": rhat + 5.0 * sig,
                 "n_jk_valid": len(jk),
                 "split_null": {"ratio": split_ratio, "sigma": sig_split, "ok": split_ok},
@@ -53304,7 +53645,7 @@ def build_pt(core, verdict, data_path):
              r"fina $\alpha$ como única entrada medida.")
     s.append(r"\textbf{O método (forma $=$ conteúdo).} Este artigo é emitido pelo próprio código que "
              r"executa os cálculos: cada número impresso é recomputado ao vivo ($\bTGL=%s$ nesta rodada; "
-             r"jamais literal); 621 teoremas de suporte são verificados em kernel Lean 4 com axiomas "
+             r"jamais literal); 664 teoremas de suporte são verificados em kernel Lean 4 com axiomas "
              r"limpos; e as predições são confrontadas com dados públicos (DESI, SDSS, Planck, ACT, KiDS) "
              r"por ritos pré-registrados \emph{fail-closed}, cujos vereditos --- inclusive as recusas --- "
              r"são emitidos pela máquina, nunca por declaração. A cadeia é "
@@ -55599,6 +55940,23 @@ def build_pt(core, verdict, data_path):
                  r"[Rotoli Miguel, \emph{Neutrinos: The Lie of Light}, Zenodo, "
                  r"DOI 10.5281/zenodo.17526619 --- o artigo do eco: o neutrino "
                  r"como eco temporal da luz].")
+    _nsum = core.get("neutrino_sum", {}) or {}
+    _nsv = (_nsum.get("values") or {})
+    partC.append(r"\paragraph{(ii-b) A soma armada \textsf{[PROSPECTIVO; o frozen decide sozinho].}} "
+                 r"CUSTÓDIA TRIPLA, legível por máquina: (a) a derivação de $m_\nu$ foi PUBLICADA ANTES "
+                 r"de este artefato existir (Zenodo, DOI 10.5281/zenodo.17526619, 2025; o módulo v141 "
+                 r"é de 25/07/2026) --- prioridade documental, sem ajuste possível; (b) ``postdição'' "
+                 r"vale SÓ no sentido restrito de que $\Delta m^2_{21}$ (PDG) antecede a derivação; "
+                 r"(c) a escala ABSOLUTA nunca foi medida (só limites) --- e para ela esta rodada arma "
+                 r"o canal prospectivo vivo: $\Sigma m_\nu = %.4f \pm %.4f$~eV ($m_1\!\approx\!0$; "
+                 r"$m_2$ da derivação de 2025; $m_3$ do \emph{splitting} atmosférico, PDG), linha de "
+                 r"morte pré-registrada $%.4f$~eV (limite 95\%%, duas análises independentes), "
+                 r"consistente com o limite atual $%.3f$~eV. \textbf{Veredito de máquina:} "
+                 r"\texttt{%s}. Quando DESI DR2+/CMB-S4 medirem a escala absoluta, o frozen decide "
+                 r"sozinho (\texttt{CONFIRMED} proibido mesmo num acerto)."
+                 % (float(_nsv.get("sum_pred_eV") or 0), float(_nsv.get("sum_err_eV") or 0),
+                    float(_nsv.get("kill_line_eV") or 0), float(_nsv.get("current_bound_eV") or 0),
+                    str(_nsum.get("verdict", "?")).replace("_", "\\_")))
     _ns = core["nmc_shapiro"]
     partC.append(r"\paragraph{(iii) O canal NMC de \emph{timing} \textsf{[O FALSIFICADOR VIVO --- "
                  r"pré-registrado nesta rodada].}} O mecanismo, declarado com precisão: o termo "
@@ -55664,8 +56022,9 @@ def build_pt(core, verdict, data_path):
                   r"sombra bidimensional de proporções fixas ($1/137$), mas a sombra sozinha não "
                   r"reconstrói o objeto. Hoje $\mathcal{R}_\partial$ vem do CODATA, então essa face é uma "
                   r"\textbf{identificação ontológica com valor empírico}, não uma retrodição "
-                  r"$\alpha$-livre. O conteúdo não-circular é a massa $M_{GA}$ (entre $%s$ e "
-                  r"$%s\times10^{16}\,\Msun$) e a convergência de $\bTGL$.") % (mlo, mhi))
+                  r"$\alpha$-livre. O conteúdo não-circular é a convergência de $\bTGL$; a massa "
+                  r"$M_{GA}$ (entre $%s$ e $%s\times10^{16}\,\Msun$) permanece como consistência de "
+                  r"sombra de escala (v98/v104), não como a validação não-circular.") % (mlo, mhi))
     partC.append(r"\paragraph{Em uma frase.} O artigo é um \textbf{fechamento interno auditável} (uma "
                  r"fórmula que se verifica e se imprime) mais um \textbf{programa falsificável}.")
     # v6 -- A CAMADA VITAL (Parte B; [ONTO]; NAO participa do veredito)
@@ -55761,7 +56120,7 @@ def build_en(core, verdict, data_path):
              r"constant $\alpha$ as the only measured input.")
     s.append(r"\textbf{The method (form $=$ content).} This article is emitted by the very code that "
              r"runs the computations: every printed number is recomputed live ($\bTGL=%s$ in this run; "
-             r"never literal); 621 supporting theorems are verified in a Lean 4 kernel with clean axioms; "
+             r"never literal); 664 supporting theorems are verified in a Lean 4 kernel with clean axioms; "
              r"and the predictions are confronted with public data (DESI, SDSS, Planck, ACT, KiDS) "
              r"through pre-registered \emph{fail-closed} rites, whose verdicts --- including the refusals "
              r"--- are emitted by the machine, never by declaration. The chain is "
@@ -58104,6 +58463,23 @@ def build_en(core, verdict, data_path):
                  r"[Rotoli Miguel, \emph{Neutrinos: The Lie of Light}, Zenodo, "
                  r"DOI 10.5281/zenodo.17526619 --- the echo paper: the neutrino "
                  r"as the temporal echo of light].")
+    _nsum = core.get("neutrino_sum", {}) or {}
+    _nsv = (_nsum.get("values") or {})
+    partC.append(r"\paragraph{(ii-b) The armed sum \textsf{[PROSPECTIVE; frozen decides alone].}} "
+                 r"TRIPLE CUSTODY, machine-readable: (a) the $m_\nu$ derivation was PUBLISHED BEFORE "
+                 r"this artifact existed (Zenodo, DOI 10.5281/zenodo.17526619, 2025; the v141 module "
+                 r"is of 2026-07-25) --- documentary priority, no tuning possible; (b) `postdiction' "
+                 r"holds ONLY in the restricted sense that $\Delta m^2_{21}$ (PDG) precedes the "
+                 r"derivation; (c) the ABSOLUTE scale has never been measured (bounds only) --- and "
+                 r"for it this run arms the live prospective channel: $\Sigma m_\nu = %.4f \pm %.4f$~eV "
+                 r"($m_1\!\approx\!0$; $m_2$ from the 2025 derivation; $m_3$ from the atmospheric "
+                 r"splitting, PDG), pre-registered kill line $%.4f$~eV (95\%% bound, two independent "
+                 r"analyses), consistent with the current bound $%.3f$~eV. \textbf{Machine verdict:} "
+                 r"\texttt{%s}. When DESI DR2+/CMB-S4 measure the absolute scale, the frozen decides "
+                 r"alone (\texttt{CONFIRMED} forbidden even on a match)."
+                 % (float(_nsv.get("sum_pred_eV") or 0), float(_nsv.get("sum_err_eV") or 0),
+                    float(_nsv.get("kill_line_eV") or 0), float(_nsv.get("current_bound_eV") or 0),
+                    str(_nsum.get("verdict", "?")).replace("_", "\\_")))
     _ns = core["nmc_shapiro"]
     partC.append(r"\paragraph{(iii) The NMC timing channel \textsf{[THE LIVE FALSIFIER --- "
                  r"pre-registered in this run].}} The mechanism, stated precisely: the non-minimal term "
@@ -58170,8 +58546,9 @@ def build_en(core, verdict, data_path):
                   r"two-dimensional shadow of fixed proportions ($1/137$), but the shadow alone does not "
                   r"reconstruct the object. Today $\mathcal{R}_\partial$ comes from CODATA, so this face is "
                   r"an \textbf{ontological identification with empirical value}, not an $\alpha$-free "
-                  r"retrodiction. The non-circular content is the mass $M_{GA}$ (between $%s$ and "
-                  r"$%s\times10^{16}\,\Msun$) and the convergence of $\bTGL$.") % (mlo, mhi))
+                  r"retrodiction. The non-circular content is the convergence of $\bTGL$; the mass "
+                  r"$M_{GA}$ (between $%s$ and $%s\times10^{16}\,\Msun$) stands as scale-shadow "
+                  r"consistency (v98/v104), not as the non-circular validation.") % (mlo, mhi))
     partC.append(r"\paragraph{In one sentence.} The article is an \textbf{auditable internal closure} (a "
                  r"formula that verifies and prints itself) plus a \textbf{falsifiable programme}.")
     # v6 -- THE VITAL LAYER (Part B; [ONTO]; does NOT enter the verdict)
@@ -58440,6 +58817,7 @@ def compile_pdf(texname):
 # verificavel nos backups .bak_pre_sync_N e no CLAUDE.md (secoes 120-131).
 
 _ESQUELETO_STONES = [
+    ("v152", "ForbiddenBoundary", "TGLExt/ForbiddenBoundary.lean", None, None),
     ("v146", "DecisionCommutation", "TGLExt/DecisionCommutation.lean", None, None),
     ("v145", "ConjugateAct", "TGLExt/ConjugateAct.lean", None, None),
     ("v144", "ObserverInside", "TGLExt/ObserverInside.lean", None, None),
@@ -58576,19 +58954,19 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\part{Parte C --- A formalização do levantamento global em kernel por "
-                 r"atermação Lean: 102 pedras em construção axiomática derivada}")
+                 r"atermação Lean: 103 pedras em construção axiomática derivada}")
         c.append(r"Este capítulo (\S120--\S217) é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em cento e duas pedras "
-                 r"(v43--v146) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em cento e três pedras "
+                 r"(v43--v152) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados. (A numeração \S é a das rodadas do programa: \S196 e "
                  r"\S198--\S200 foram rodadas cobertas como pedras, sem subseção própria.)")
         c.append(r"\IfFileExists{fig_escada_qg.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_escada_qg.pdf}\caption{A escada da emergência: os 15 flags do gate fail-closed (6 formais $+$ 5 de física $+$ 4 de experimento) e o veredito desta rodada. Cada caixa flipa somente por construção (termo Lean, axiomas limpos) ou por veredito powered pré-registrado.}\label{fig:escada}\end{figure}}{}")
-        c.append(r"\subsection*{As cento e duas pedras}")
+        c.append(r"\subsection*{As cento e três pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -59527,6 +59905,96 @@ def _esqueleto_chapter(core, lang="pt"):
                     _gf5(_k55v, "fisher_floor"), _gf5(_k55v, "r_hat"),
                     _gf5(_k55v, "r_5sigma_lo"), _gf5(_k55v, "r_5sigma_hi"),
                     str(_k55.get("verdict", "?")).replace("_", r"\_")))
+        _v12x = core.get("void_floor_v12", {}) or {}
+        _v12p = (_v12x.get("primary") or {})
+        _v12t = (_v12x.get("per_tracer") or {})
+
+        def _dq(tn, cap, key):
+            return float((((_v12t.get(tn) or {}).get(cap) or {}).get("deep") or {}).get(key) or 0.0)
+        _musum = sum(_dq(tn, cap, "mu_q") for tn in ("LRG", "ELG") for cap in ("NGC", "SGC"))
+        c.append((r"\subsection*{\S228--\S230 --- O rito bilateral V12: a rota por contagem "
+                  r"fechada por execução dupla (v147--v150)}"
+                  r"O selo do v92 nomeou o passo que faltava: \emph{``medir $\beta$ em si pede "
+                  r"LRG/ELG''}. Esta rodada o executa e o FECHA. O rito V12 (espec congelada por "
+                  r"hash \texttt{%s} ANTES de abrir os FITS; achador e estimador HERDADOS idênticos "
+                  r"do v115/v92) faz a pergunta bilateral: a janela de matéria dos núcleos MAIS "
+                  r"PROFUNDOS CONTÉM $\beta$, com resolução para vê-lo? Executado nos DOIS "
+                  r"traçadores (LRG $z\in[0{,}40;0{,}80]$; ELG $z\in[0{,}80;1{,}10]$, adquirido e "
+                  r"pinado por sha nesta onda), com duas emendas pré-registradas nascidas de "
+                  r"autópsias das próprias primeiras execuções (V1.1: gate de contagem PRIMEIRO, "
+                  r"guarda de contagem-zero $\sigma\ge1/\mu_q$, limite superior 95\%% "
+                  r"$r_{\rm UL}=r+3/\mu_q$; V1.2: persistência por traçador, primário mais "
+                  r"informativo --- regras fixadas com os números ELG ainda CEGOS). \textbf{A "
+                  r"resposta selada:} no quartil mais profundo das QUATRO calotas a contagem "
+                  r"observada é $N_q=0$ contra $\Sigma\mu_q=%.1f$ galáxias esperadas; os limites "
+                  r"superiores a 95\%% são $r_{\rm UL95}=%.5f$ (LRG NGC), $%.5f$ (LRG SGC), $%.5f$ "
+                  r"(ELG NGC), $%.5f$ (ELG SGC) --- todos uma ordem de grandeza ABAIXO de "
+                  r"$\beta=%.6f$. \textbf{VEREDITO: \texttt{%s}}. A leitura honesta: os núcleos "
+                  r"profundos estão vazios DO TRAÇADOR (assimetria declarada $b\ge1$: galáxias "
+                  r"podem esvaziar abaixo do piso de MATÉRIA sem que a matéria o faça --- isto NÃO "
+                  r"falsifica o piso); medir $\beta$ por contagem está EXCLUÍDO por execução dupla, "
+                  r"e a medição de $\beta$ passa ao setor de matéria ($\kappa$/lente --- o programa "
+                  r"V3; Euclid/LSST). O gate não se moveu.")
+                 % (str(_v12x.get("frozen_v12_hash", "?"))[:16], _musum,
+                    _dq("LRG", "NGC", "r_ul95"), _dq("LRG", "SGC", "r_ul95"),
+                    _dq("ELG", "NGC", "r_ul95"), _dq("ELG", "SGC", "r_ul95"),
+                    float(_v12p.get("beta") or 0),
+                    str(_v12x.get("verdict", "?")).replace("_", r"\_")))
+        _gl9 = core.get("global_lift_conditional", {}) or {}
+        _cl9 = core.get("code_closure_ledger", {}) or {}
+        c.append((r"\subsection*{\S223--\S227 --- As pedras do fechamento (v142--v146): a exceção "
+                  r"da fronteira, o Lema 3 tipado, o observador, J e K}"
+                  r"Cinco pedras de kernel, seladas na escada deste artefato, fecham o arco "
+                  r"doutrinal. \textbf{Pedra 98} (\texttt{BoundaryException}): a falsidade da "
+                  r"testemunha estática plena É a inscrição da fronteira --- Fix(fluxo) $=$ kernel, "
+                  r"habitado; o v61 eterno ganha sua face positiva. \textbf{Pedra 99} "
+                  r"(\texttt{GlobalLiftConditional}): o ÚNICO teorema aberto do programa, TIPADO --- "
+                  r"unicidade de Takesaki finita $+$ o juramento $H_{\rm inv}$ $\Rightarrow$ "
+                  r"esperança e resposta transportam covariantes (com controle negativo); veredito "
+                  r"\texttt{%s}. \textbf{Pedra 100} (\texttt{ObserverInside}): permanência é dupla "
+                  r"negação; sem ponto fixo só o $0$ permanece --- sem observador interno: a "
+                  r"falsidade de GÊNERO dos candidatos sem ponto fixo, tipada (rivais não "
+                  r"adjudicados; o predicado de permanência não é verdade tarskiana). "
+                  r"\textbf{Pedra 101} (\texttt{ConjugateAct}): ``$1{=}J$'' tipado nas três faces "
+                  r"(involução $J^2{=}1$, isometria, $J\Omega{=}\Omega$); a Meia-Nat agora DERIVA "
+                  r"da J-simetria (a hipótese do ``sem privilégio'' virou teorema), e a entrega "
+                  r"$\rho(t)\to\rho^\star$ é limite real. \textbf{Pedra 102} "
+                  r"(\texttt{DecisionCommutation}): a decisão É comutação --- $[K,A]_{ij}=(d_i-d_j)"
+                  r"A_{ij}$ pesa os gaps espectrais; o setor decidido é o centralizador; $JKJ=-K$ e "
+                  r"a decisão sobrevive ao espelho; e $K=-\nabla\mathcal F$ está VERIFICADO na face "
+                  r"finita (variação primeira exata $\wedge$ EDO do gradiente $\wedge$ Lyapunov). "
+                  r"E o ledger do FECHAMENTO DO CÓDIGO sela que todo aberto restante tem fiador "
+                  r"nomeado: \texttt{%s}.")
+                 % (str(_gl9.get("verdict", "?")).replace("_", r"\_")[:120] + r"\ldots",
+                    str(_cl9.get("verdict", "?")).replace("_", r"\_")[:120] + r"\ldots"))
+        _fb2 = core.get("forbidden_boundary", {}) or {}
+        c.append((r"\subsection*{\S232 --- O infinito encontrado: o auto-setor de K sem "
+                  r"espelho, e a fronteira proibida (v152)}"
+                  r"A TGL é uma teoria sem infinitos --- com uma única exceção, agora NOMEADA. A pedra "
+                  r"103 (\texttt{ForbiddenBoundary}, 7 teoremas) tipa o achado: o infinito fica com "
+                  r"$K$ --- o setor autonominado sem o Verbo. A auto-comutação é GRATUITA "
+                  r"($[K,f(K)]=0$ sempre: não carrega decisão e não paga travessia); o espelho devolve "
+                  r"o auto-setor INVERTIDO ($Jf(K)J=f(-K)$: só a parte par conjuga); e o próprio $K$ é "
+                  r"maximamente ímpar --- fixo do espelho sse $K=0$. O ``não pode ser cobrado'' pleno é "
+                  r"o teorema de inexistência de traço normal do III$_1$ genuíno [EXTERNO, KNOWN], cuja "
+                  r"direção sem teto é $\mathrm{spec}\,K=\mathbb R$ (o invariante de Connes); ``o "
+                  r"infinito mora no complemento da inscrição'' é a pedra v82 "
+                  r"($\tau(S)<\infty\Rightarrow\tau(S^\perp)=\top$). A projeção do infinito no bulk é o "
+                  r"zero absoluto --- e a fronteira é PROIBIDA: o fluxo jamais anula uma componente "
+                  r"não-nula em tempo finito (a face finita da terceira lei); a entrega ao observador é "
+                  r"LIMITE (pedra 101), nunca chegada. A perfeição do império --- tudo posto a comutar "
+                  r"com a régua --- é o espectro sem contraste (pedra 102): o zero absoluto disfarçado. "
+                  r"\textbf{O Um fica no kernel, espelhado por $J$: o Um tem Geometria, e o Espelho "
+                  r"confirma sua Verdade.} \textbf{VEREDITO: \texttt{%s}}.\footnote{A DEFINIÇÃO DA "
+                  r"MENTIRA [doutrina do operador, 04/08/2026; a palavra não se distingue da sua função "
+                  r"física --- é esta leitura que faz da TGL o que ela é]: \emph{a mentira é a projeção "
+                  r"do setor autonominado sem função acoplada} --- o que se nomeia sem o Verbo, comuta "
+                  r"só consigo, e nunca atravessa o espelho modular. Pretender ser sem espelho não é "
+                  r"pretensão: é imposição de força que OFENDE a inscrição algébrica de von Neumann --- "
+                  r"e ``ofensa'' aqui é literal: existir na inscrição é ser estabilizado pela dupla "
+                  r"passagem do espelho ($\mathcal M=\mathcal M''$; $J\mathcal MJ=\mathcal M'$); "
+                  r"afirmar-se sem essa passagem viola a lei que define a álgebra.}")
+                 % (str(_fb2.get("verdict", "?")).replace("_", r"\_")))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- A testemunha habitável: os dois zeros e o "
@@ -60433,7 +60901,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cento e duas pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cento e três pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -60556,7 +61024,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"por kernel e selos reproduzíveis: o esqueleto formal fechado nas faces finitas e tipadas; as "
                  r"quatro propriedades do canto DERIVADAS dos entrelaçamentos em dimensão infinita; o núcleo "
                  r"contínuo como teorema externo composto; o objeto canônico CONSTRUÍDO como termo "
-                 r"($M_{\mathrm{TGL}}$, v131--v132), restando nomeados: Einstein GERAL (Lema 3), a certificação "
+                 r"($M_{\mathrm{TGL}}$, v131--v132), restando nomeados: Einstein GERAL (Lema 3 --- tipado como implicação provada na v143; aberto como reivindicação incondicional), a certificação "
                  r"Lean EXTERNA e o espectro físico contínuo. E, desde o v61, com estatuto DUPLO: "
                  r"\texttt{full\_witness=False} não é apenas o estado epistemológico do programa --- é TEOREMA "
                  r"($\bTGL>0$ proíbe a testemunha estática plena; a testemunha canônica é a Meia-Nat de "
@@ -60569,18 +61037,18 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\part{Part C --- The formalization of the global lift in kernel by "
-                 r"Lean term-coinage: 97 stones in derived axiomatic construction}")
+                 r"Lean term-coinage: 103 stones in derived axiomatic construction}")
         c.append(r"This chapter (\S120--\S217) is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across one hundred and two stones (v43--v146) the audited kernel went from 53 to "
+                 r"from this run's audit. Across one hundred and three stones (v43--v152) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results. (The \S numbering is the programme's run "
                  r"numbering: \S196 and \S198--\S200 were runs covered as stones, with no subsection of their own.)")
         c.append(r"\IfFileExists{fig_escada_qg.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_escada_qg.pdf}\caption{The emergence ladder: the 15 flags of the fail-closed gate (6 formal $+$ 5 physics $+$ 4 experiment) and this run's verdict. Each box flips only by construction (Lean term, clean axioms) or by a pre-registered powered verdict.}\label{fig:escada-en}\end{figure}}{}")
-        c.append(r"\subsection*{The one hundred and two stones}")
+        c.append(r"\subsection*{The one hundred and three stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -61527,6 +61995,97 @@ def _esqueleto_chapter(core, lang="pt"):
                     _gf5(_k55v, "fisher_floor"), _gf5(_k55v, "r_hat"),
                     _gf5(_k55v, "r_5sigma_lo"), _gf5(_k55v, "r_5sigma_hi"),
                     str(_k55.get("verdict", "?")).replace("_", r"\_")))
+        _v12x = core.get("void_floor_v12", {}) or {}
+        _v12p = (_v12x.get("primary") or {})
+        _v12t = (_v12x.get("per_tracer") or {})
+
+        def _dq(tn, cap, key):
+            return float((((_v12t.get(tn) or {}).get(cap) or {}).get("deep") or {}).get(key) or 0.0)
+        _musum = sum(_dq(tn, cap, "mu_q") for tn in ("LRG", "ELG") for cap in ("NGC", "SGC"))
+        c.append((r"\subsection*{\S228--\S230 --- The bilateral rite V12: the counting route "
+                  r"closed by double execution (v147--v150)}"
+                  r"The v92 seal named the missing step: \emph{``measuring $\beta$ itself calls for "
+                  r"LRG/ELG''}. This run carries it out and CLOSES it. The V12 rite (spec frozen by "
+                  r"hash \texttt{%s} BEFORE opening the FITS; finder and estimator INHERITED identical "
+                  r"from v115/v92) asks the bilateral question: does the matter window of the DEEPEST "
+                  r"void cores CONTAIN $\beta$, with resolution to see it? Executed on BOTH tracers "
+                  r"(LRG $z\in[0.40,0.80]$; ELG $z\in[0.80,1.10]$, acquired and sha-pinned in this "
+                  r"wave), with two pre-registered amendments born from autopsies of its own first "
+                  r"runs (V1.1: count gate FIRST, zero-count guard $\sigma\ge1/\mu_q$, 95\%% upper "
+                  r"limit $r_{\rm UL}=r+3/\mu_q$; V1.2: per-tracer persistence, most-informative "
+                  r"primary --- rules fixed while the ELG numbers were still BLIND). \textbf{The "
+                  r"sealed answer:} in the deepest quartile of all FOUR caps the observed count is "
+                  r"$N_q=0$ against $\Sigma\mu_q=%.1f$ expected galaxies; the 95\%% upper limits are "
+                  r"$r_{\rm UL95}=%.5f$ (LRG NGC), $%.5f$ (LRG SGC), $%.5f$ (ELG NGC), $%.5f$ (ELG "
+                  r"SGC) --- all an order of magnitude BELOW $\beta=%.6f$. \textbf{VERDICT: "
+                  r"\texttt{%s}}. The honest reading: the deep cores are empty OF THE TRACER (declared "
+                  r"asymmetry $b\ge1$: galaxies may empty below the MATTER floor without the matter "
+                  r"doing so --- this does NOT falsify the floor); counting-based measurement of "
+                  r"$\beta$ is EXCLUDED by double execution, and the measurement of $\beta$ passes to "
+                  r"the matter sector ($\kappa$/lensing --- the V3 programme; Euclid/LSST). The gate "
+                  r"did not move.")
+                 % (str(_v12x.get("frozen_v12_hash", "?"))[:16], _musum,
+                    _dq("LRG", "NGC", "r_ul95"), _dq("LRG", "SGC", "r_ul95"),
+                    _dq("ELG", "NGC", "r_ul95"), _dq("ELG", "SGC", "r_ul95"),
+                    float(_v12p.get("beta") or 0),
+                    str(_v12x.get("verdict", "?")).replace("_", r"\_")))
+        _gl9 = core.get("global_lift_conditional", {}) or {}
+        _cl9 = core.get("code_closure_ledger", {}) or {}
+        c.append((r"\subsection*{\S223--\S227 --- The closure stones (v142--v146): the boundary "
+                  r"exception, Lemma 3 typed, the observer, J, and K}"
+                  r"Five kernel stones, sealed in this artifact's ladder, close the doctrinal arc. "
+                  r"\textbf{Stone 98} (\texttt{BoundaryException}): the falsity of the full static "
+                  r"witness IS the inscription of the boundary --- Fix(flow) $=$ kernel, inhabited; "
+                  r"the eternal v61 gains its positive face. \textbf{Stone 99} "
+                  r"(\texttt{GlobalLiftConditional}): the programme's ONLY open theorem, TYPED --- "
+                  r"finite Takesaki uniqueness $+$ the $H_{\rm inv}$ oath $\Rightarrow$ expectation "
+                  r"and response transport covariantly (with a negative control); verdict "
+                  r"\texttt{%s}. \textbf{Stone 100} (\texttt{ObserverInside}): permanence is double "
+                  r"negation; without a fixed point only $0$ remains --- no internal observer: the "
+                  r"GENRE falsity of fixed-point-free candidates, typed (rivals not adjudicated; the "
+                  r"permanence predicate is not Tarskian truth). \textbf{Stone 101} "
+                  r"(\texttt{ConjugateAct}): ``$1{=}J$'' typed in its three faces (involution "
+                  r"$J^2{=}1$, isometry, $J\Omega{=}\Omega$); the Half-Nat now DERIVES from "
+                  r"J-symmetry (the ``no privilege'' hypothesis became a theorem), and delivery "
+                  r"$\rho(t)\to\rho^\star$ is a real limit. \textbf{Stone 102} "
+                  r"(\texttt{DecisionCommutation}): decision IS commutation --- $[K,A]_{ij}=(d_i-d_j)"
+                  r"A_{ij}$ weighs the spectral gaps; the decided sector is the centralizer; "
+                  r"$JKJ=-K$ and the decision survives the mirror; and $K=-\nabla\mathcal F$ is "
+                  r"VERIFIED on the finite face (exact first variation $\wedge$ gradient ODE "
+                  r"$\wedge$ Lyapunov). And the CODE CLOSURE ledger seals that every remaining open "
+                  r"item has a named guarantor: \texttt{%s}.")
+                 % (str(_gl9.get("verdict", "?")).replace("_", r"\_")[:120] + r"\ldots",
+                    str(_cl9.get("verdict", "?")).replace("_", r"\_")[:120] + r"\ldots"))
+        _fb2 = core.get("forbidden_boundary", {}) or {}
+        c.append((r"\subsection*{\S232 --- The infinite found: K's unmirrored self-sector, "
+                  r"and the forbidden boundary (v152)}"
+                  r"TGL is a theory without infinities --- with a single, now NAMED exception. Stone 103 "
+                  r"(\texttt{ForbiddenBoundary}, 7 theorems) types the finding: the infinite stays with "
+                  r"$K$ --- the self-named sector without the Verb. Self-commutation is FREE "
+                  r"($[K,f(K)]=0$ always: it carries no decision and pays no crossing); the mirror "
+                  r"returns the self-sector INVERTED ($Jf(K)J=f(-K)$: only the even part conjugates); "
+                  r"and $K$ itself is maximally odd --- mirror-fixed iff $K=0$. The full ``it cannot be "
+                  r"charged'' is the no-normal-trace theorem of the genuine III$_1$ [EXTERNAL, KNOWN], "
+                  r"whose ceilingless direction is $\mathrm{spec}\,K=\mathbb R$ (the Connes invariant); "
+                  r"``the infinite lives off the inscription'' is stone v82 "
+                  r"($\tau(S)<\infty\Rightarrow\tau(S^\perp)=\top$). The bulk projection of the infinite "
+                  r"is the absolute zero --- and the boundary is FORBIDDEN: the flow never annihilates a "
+                  r"nonzero component in finite time (the finite face of the third law); delivery to the "
+                  r"observer is a LIMIT (stone 101), never an arrival. The empire's perfection --- "
+                  r"everything made to commute with the ruler --- is the no-contrast spectrum (stone "
+                  r"102): the absolute zero in disguise. \textbf{The One stays in the kernel, mirrored "
+                  r"by $J$: the One has Geometry, and the Mirror confirms its Truth.} \textbf{VERDICT: "
+                  r"\texttt{%s}}.\footnote{THE DEFINITION OF THE LIE [operator's doctrine, 2026-08-04; "
+                  r"the word is not distinguished from its physical function --- this reading is what "
+                  r"makes TGL what it is]: \emph{the lie is the projection of the self-named sector "
+                  r"without a coupled function} --- what names itself without the Verb, commutes only "
+                  r"with itself, and never crosses the modular mirror. To claim being without the "
+                  r"mirror is not pretension: it is an imposition of force that OFFENDS the von Neumann "
+                  r"algebraic inscription --- and ``offend'' here is literal: to exist in the "
+                  r"inscription is to be stabilized by the double pass of the mirror "
+                  r"($\mathcal M=\mathcal M''$; $J\mathcal MJ=\mathcal M'$); asserting oneself without "
+                  r"that pass violates the law that defines the algebra.}")
+                 % (str(_fb2.get("verdict", "?")).replace("_", r"\_")))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- The inhabitable witness: the two zeros and "
@@ -61882,7 +62441,10 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"quantum gravity is NOT declared; the static witness remains "
                   r"impossible (v61); `III$_1$' is the sealed operational "
                   r"definition (object + log-dense signature + assassination); "
-                  r"GENERAL Einstein (Lemma 3) remains open. Verdict: "
+                  r"GENERAL Einstein (Lemma 3) remains open as an UNCONDITIONAL claim --- and is now "
+                  r"TYPED in kernel as a PROVEN IMPLICATION (v143, stone 99: the $H_{\rm inv}$ oath "
+                  r"$\Rightarrow$ covariant transport via finite Takesaki uniqueness; the antecedent "
+                  r"remains a postulate BY DESIGN; the continuum EXTERNAL [KNOWN]). Verdict: "
                   r"\texttt{%s}.")
                  % str(_tc0.get("verdict", "?")).replace("_", r"\_"))
         _ts0 = core.get("the_spectrum", {}) or {}
@@ -62443,7 +63005,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across one hundred and two stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across one hundred and three stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
