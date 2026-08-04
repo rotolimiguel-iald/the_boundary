@@ -1,6 +1,6 @@
 # cmd: C:\Users\rotol\.elan\bin\lake.EXE env lean TGL/Audit.lean
 # returncode: 0
-# len(stdout)=184479 len(stderr)=0
+# len(stdout)=184968 len(stderr)=0
 --- STDOUT ---
 HalfNat.halfNat_of_selfConjugate : ∀ (x : ℝ), x = 1 - x → x = 1 / 2
 HalfNat.selfConjugate_halfNat_unique : ∀ (x : ℝ), x = 1 - x ↔ x = 1 / 2
@@ -2295,6 +2295,11 @@ TGLExt.witness_fiber_sensitive : (TGLExt.theSensitiveNet.net.external (1, Multip
 'TGLExt.empire_perfection_is_no_contrast' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.absolute_zero_unreachable_in_finite_time' depends on axioms: [propext, Classical.choice, Quot.sound]
 'TGLExt.the_forbidden_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.pairEnergy_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.light_crosses_without_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.light_inverts_the_gradient_preserving_structure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.identity_remains_through_the_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TGLExt.the_closure_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED

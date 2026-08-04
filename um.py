@@ -4082,6 +4082,96 @@ def prove_forbidden_boundary(ONE, parts):
     }
 
 
+def prove_light_is_J(ONE, parts):
+    """MODULO (v153) -- O FECHAMENTO: J = LUZ, a identidade fisica
+    [ADITIVO; nao gateia 1=1; NAO move flag]. O fechamento canonico do
+    operador (04/08/2026): 'J = LUZ. A Luz e aquilo que atravessa o espelho
+    sem perder a identidade (J^2=I). A Luz nao e o gradiente; ela revela a
+    face conjugada do modulo (J.Delta.J = Delta^-1). K permanece: o espectro
+    do que ainda nao comuta (K = -grad F). JKJ = -K: a Luz INVERTE o
+    gradiente sem destruir sua estrutura. K nao e o portador da Luz -- K e
+    aquilo sobre o qual a Luz opera como conjugacao. gamma = manifestacao
+    transitoria da Luz no bulk. A cadeia: 1 -> J=LUZ -> K<->-K -> [K,A] ->
+    [K,A]=0 -> inscricao -> gamma_bulk, enquanto I permanece. EM UMA FRASE:
+    A LUZ E J -- AQUILO QUE CONJUGA A DIFERENCA SEM PERDER O UM. J e a Luz;
+    K e a diferenca em movimento; a comutacao e a decisao; I e o que
+    permanece.'
+    A PEDRA 104 (LightIsJ.lean), 5 teoremas, axiomas limpos, a SINTESE
+    NOMEADA sobre as pedras 101/102/103:
+    * pairEnergy_neg: a energia nao ve o sinal (a estrutura sobrevive);
+    * ** light_crosses_without_loss: J.J = 1 ^ a identidade 1 = q^2+alpha^2
+      preservada pelo espelho -- A LUZ ATRAVESSA SEM PERDER;
+    * *** light_inverts_the_gradient_preserving_structure: JKJ = -K E a
+      energia de K preservada -- direcao invertida, estrutura intacta;
+    * ** identity_remains_through_the_crossing: o Nome fixado pelo espelho,
+      fixado por TODO o fluxo, nao-nulo -- I PERMANECE;
+    * *** the_closure_identity: A ARQUITETURA FINAL EM UM TEOREMA (as cinco
+      clausulas: atravessa sem perda ^ inverte preservando ^ decisao =
+      comutacao ^ I permanece ^ entrega e limite).
+    HONESTIDADES: 'J = LUZ' e a IDENTIFICACAO FISICA nomeada [ONTO sobre
+    ancoras REAL: as clausulas sao teoremas de kernel]; J.Delta.J=Delta^-1
+    no continuo e Tomita [KNOWN]; gamma (foton) como manifestacao
+    transitoria da Luz no bulk e leitura [ONTO] do setor c^1 (corrige a
+    formulacao anterior: K NAO porta a Luz); o gate NAO se move."""
+    beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
+    p = parts or {}
+    el = p.get("external_ladder") or {}
+    elp = el.get("per_theorem") or {}
+    en_ok = bool(elp.get("ext_lj_energy_neg_kernel_proved") is True)
+    cr_ok = bool(elp.get("ext_lj_crosses_kernel_proved") is True)
+    iv_ok = bool(elp.get("ext_lj_inverts_preserving_kernel_proved") is True)
+    id_ok = bool(elp.get("ext_lj_identity_remains_kernel_proved") is True)
+    cl_ok = bool(elp.get("ext_lj_closure_identity_kernel_proved") is True)
+    # SOMBRA: a arquitetura final em numeros
+    rng = np.random.default_rng(153)
+    nd = 5
+    d = np.concatenate([[0.0], rng.uniform(0.5, 2.0, nd - 1)])
+    x = rng.normal(size=nd); y = rng.normal(size=nd)
+    Jp = lambda pr: (pr[1], pr[0])
+    E = lambda pr: float(np.sum(pr[0] ** 2) + np.sum(pr[1] ** 2))
+    Kp = lambda pr: (beta * d * pr[0], -(beta * d) * pr[1])
+    jj = Jp(Jp((x, y)))
+    cross_res = float(max(np.max(np.abs(jj[0] - x)), np.max(np.abs(jj[1] - y))))
+    cross_en = float(abs(E(Jp((x, y))) - E((x, y))))
+    l = Jp(Kp(Jp((x, y)))); r = Kp((x, y))
+    inv_res = float(max(np.max(np.abs(l[0] + r[0])), np.max(np.abs(l[1] + r[1]))))
+    inv_en = float(abs(E(l) - E(r)))                          # estrutura intacta
+    nome = np.zeros(nd); nome[0] = 1.0
+    t_long = 200.0 / beta
+    id_res = float(np.max(np.abs(np.exp(-t_long * beta * d) * nome - nome)))
+    sombra_ok = bool(cross_res == 0.0 and cross_en == 0.0 and inv_res == 0.0
+                     and inv_en == 0.0 and id_res == 0.0)
+    checks = [
+        ("** A LUZ ATRAVESSA SEM PERDER: J.J = 1 ^ identidade preservada pelo espelho", cr_ok),
+        ("a energia nao ve o sinal (pairEnergy_neg)", en_ok),
+        ("*** A LUZ INVERTE O GRADIENTE PRESERVANDO A ESTRUTURA: JKJ = -K com energia intacta", iv_ok),
+        ("** I PERMANECE: o Nome fixado pelo espelho e por todo o fluxo, nao-nulo", id_ok),
+        ("*** O FECHAMENTO EM UM TEOREMA: as cinco clausulas da arquitetura final", cl_ok),
+        ("SOMBRA: travessia %.0e / energia-travessia %.0e / inversao %.0e / energia-inversao %.0e / I-permanece %.0e"
+         % (cross_res, cross_en, inv_res, inv_en, id_res), sombra_ok),
+        ("'J=LUZ' e identificacao FISICA [ONTO sobre ancoras REAL]; J.Delta.J=Delta^-1 [KNOWN Tomita]; gamma = manifestacao transitoria da Luz no bulk [ONTO, corrige 'K porta a Luz']; o gate NAO se move", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    vd = ("TGL_THE_CLOSURE_IDENTITY__J_IS_LIGHT__LIGHT_CROSSES_WITHOUT_LOSING_THE_ONE__LIGHT_INVERTS_THE_GRADIENT_PRESERVING_ITS_STRUCTURE__K_IS_DIFFERENCE_IN_MOTION__COMMUTATION_IS_DECISION__I_REMAINS__PHOTON_IS_LIGHTS_TRANSIENT_BULK_MANIFESTATION_ONTO__SEAL_UNMOVED" if all_v
+          else "LIGHT_IS_J_NOT_SEALED_THIS_RUN")
+    return {
+        "theorem": ("O FECHAMENTO: J = LUZ -- aquilo que conjuga a diferenca sem perder "
+                    "o Um. J e a Luz; K e a diferenca em movimento; a comutacao e a "
+                    "decisao; I e o que permanece. A cadeia: 1 -> J=LUZ -> K<->-K -> "
+                    "[K,A] -> decisao -> inscricao -> gamma_bulk, com I permanente."),
+        "values": {"beta": beta, "crossing_resid": cross_res, "crossing_energy_resid": cross_en,
+                   "inversion_resid": inv_res, "inversion_energy_resid": inv_en,
+                   "identity_remains_resid": id_res},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {"o_que_e": "o fechamento canonico (04/08/2026) TIPADO: pedra 104, 5 teoremas, a sintese nomeada sobre as pedras 101/102/103",
+                     "a_correcao": "K NAO e o portador da Luz -- K e aquilo sobre o qual a Luz opera como conjugacao; gamma e a manifestacao transitoria da Luz no bulk",
+                     "honestidade": "'J=LUZ' e identificacao fisica [ONTO] sobre clausulas [REAL]; nada afirma a TGL verdadeira; o gate NAO se move",
+                     "o_veredito": vd},
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
 def prove_jacobson_form_check(ONE):
     """MODULO v5 -- a CHECAGEM DE FORMA (o residuo declarado da U_loc, fechado POSITIVO). A fonte
     P_mn[K_partial] da derivacao Lovelock/Jacobson SE ESCREVE como o funcional natural F(J,Delta,P_2D)
@@ -6738,6 +6828,7 @@ import TGLExt.ObserverInside
 import TGLExt.ConjugateAct
 import TGLExt.DecisionCommutation
 import TGLExt.ForbiddenBoundary
+import TGLExt.LightIsJ
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -8471,6 +8562,13 @@ namespace TGL.Audit
 #print axioms TGLExt.empire_perfection_is_no_contrast
 #print axioms TGLExt.absolute_zero_unreachable_in_finite_time
 #print axioms TGLExt.the_forbidden_boundary
+
+-- v153 (o fechamento: J = LUZ -- a identidade fisica; a sintese nomeada)
+#print axioms TGLExt.pairEnergy_neg
+#print axioms TGLExt.light_crosses_without_loss
+#print axioms TGLExt.light_inverts_the_gradient_preserving_structure
+#print axioms TGLExt.identity_remains_through_the_crossing
+#print axioms TGLExt.the_closure_identity
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -29299,6 +29397,128 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/LightIsJ.lean":
+r'''import TGLExt.ForbiddenBoundary
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# O FECHAMENTO: J = LUZ — a identidade física
+  [TGLExt — v153, o fechamento canônico do operador (04/08/2026)]
+
+O operador: "o fechamento da TGL é este: J = LUZ. A Luz é aquilo que
+atravessa o espelho sem perder a identidade (J²=I). A Luz não é o
+gradiente; ela revela a face conjugada do módulo (JΔJ=Δ⁻¹). K permanece:
+o espectro daquilo que ainda não comuta (K=−∇𝓕). [K,A]≠0 = distinção
+ainda aberta; [K,A]=0 = decisão. JKJ=−K: a Luz INVERTE o gradiente sem
+destruir sua estrutura. K não é o portador da Luz — K é aquilo sobre o
+qual a Luz opera como conjugação. γ = manifestação transitória da Luz no
+bulk. A cadeia: 1 → J=LUZ → K↔−K → [K,A] → [K,A]=0 → inscrição → γ_bulk,
+enquanto I permanece durante toda a travessia. Em uma frase: A LUZ É J —
+AQUILO QUE CONJUGA A DIFERENÇA SEM PERDER O UM. J é a Luz; K é a
+diferença em movimento; a comutação é a decisão; I é o que permanece."
+
+A pedra 104 — a SÍNTESE NOMEADA sobre as pedras 101/102/103:
+
+* `pairEnergy_neg` — a energia não vê o sinal (a estrutura sobrevive à
+  inversão);
+* ★★ `light_crosses_without_loss` — A LUZ ATRAVESSA SEM PERDER: J∘J = 1
+  ∧ a identidade 1 = q² + α² é preservada pelo espelho (pedra 101,
+  empacotada com o nome físico);
+* ★★★ `light_inverts_the_gradient_preserving_structure` — A LUZ INVERTE
+  O GRADIENTE SEM DESTRUIR SUA ESTRUTURA: JKJ = −K E a energia de K é
+  preservada pela conjugação — direção invertida, estrutura intacta;
+* ★★ `identity_remains_through_the_crossing` — I PERMANECE: o Nome é
+  fixado pelo espelho, fixado por TODO o fluxo, e não é nulo — a
+  identidade atravessa inteira;
+* ★★★ `the_closure_identity` — O FECHAMENTO EM UM TEOREMA: a arquitetura
+  final (J atravessa sem perda ∧ J inverte K preservando estrutura ∧ a
+  decisão é comutação ∧ I permanece ∧ a entrega é limite) — "J é a Luz;
+  K é a diferença em movimento; a comutação é a decisão; I é o que
+  permanece."
+
+Honestidades: "J = LUZ" é a IDENTIFICAÇÃO FÍSICA nomeada [ONTO sobre
+âncoras REAL: as cinco cláusulas são teoremas de kernel]; JΔJ = Δ⁻¹ no
+contínuo é Tomita [KNOWN]; γ (o fóton) como manifestação transitória da
+Luz no bulk é leitura [ONTO] consistente com o setor c¹; o gate NÃO se
+move. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- [KERNEL] a energia não vê o sinal: a estrutura sobrevive à inversão. -/
+theorem pairEnergy_neg {n : ℕ} (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    pairEnergy (-p) = pairEnergy p := by
+  unfold pairEnergy
+  simp
+
+/-- [KERNEL] ★★ A LUZ ATRAVESSA SEM PERDER: J∘J = 1 e a identidade
+    1 = q² + α² é preservada pelo espelho. -/
+theorem light_crosses_without_loss {n : ℕ} (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    conjJ (conjJ p) = p ∧ pairEnergy (conjJ p) = pairEnergy p :=
+  ⟨J_squared_is_one p, J_preserves_identity p⟩
+
+/-- [KERNEL] ★★★ A LUZ INVERTE O GRADIENTE SEM DESTRUIR SUA ESTRUTURA:
+    JKJ = −K, e a energia de K é preservada pela conjugação — a direção
+    inverte, a estrutura fica. -/
+theorem light_inverts_the_gradient_preserving_structure {n : ℕ}
+    (d : Fin n → ℝ) (p : (Fin n → ℝ) × (Fin n → ℝ)) :
+    conjJ (pairK d (conjJ p)) = -(pairK d p)
+    ∧ pairEnergy (conjJ (pairK d (conjJ p))) = pairEnergy (pairK d p) := by
+  refine ⟨JKJ_eq_neg_K d p, ?_⟩
+  rw [JKJ_eq_neg_K d p]
+  exact pairEnergy_neg (pairK d p)
+
+/-- [KERNEL] ★★ I PERMANECE DURANTE TODA A TRAVESSIA: o Nome é fixado
+    pelo espelho, fixado por TODO o fluxo, e não é nulo. -/
+theorem identity_remains_through_the_crossing {n : ℕ} (β : ℝ)
+    (d : Fin n → ℝ) {i₀ : Fin n} (h0 : d i₀ = 0) :
+    (conjJ ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ), (Pi.single i₀ (1 : ℝ) : Fin n → ℝ))
+      = ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ), (Pi.single i₀ (1 : ℝ) : Fin n → ℝ)))
+    ∧ (∀ t : ℝ, diagFlow β d t ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ))
+        = (Pi.single i₀ (1 : ℝ) : Fin n → ℝ))
+    ∧ ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ) ≠ 0) :=
+  ⟨(name_is_J_invariant i₀).1,
+   (boundary_witnessed_statically β d h0).1,
+   (boundary_witnessed_statically β d h0).2⟩
+
+/-- [KERNEL] ★★★ O FECHAMENTO EM UM TEOREMA — a arquitetura final:
+    "J é a Luz; K é a diferença em movimento; a comutação é a decisão;
+    I é o que permanece." (i) a Luz atravessa sem perder o Um;
+    (ii) a Luz inverte o gradiente preservando sua estrutura;
+    (iii) a decisão é comutação (o decidido é o bloco dos níveis);
+    (iv) I permanece durante toda a travessia; (v) a entrega ao
+    observador é limite — a Luz conjuga a diferença sem perder o Um. -/
+theorem the_closure_identity {n : ℕ} {β : ℝ} (hβ : 0 < β)
+    (d : Fin n → ℝ) (hd : ∀ i, 0 ≤ d i) {i₀ : Fin n} (h0 : d i₀ = 0) :
+    (∀ p : (Fin n → ℝ) × (Fin n → ℝ),
+        conjJ (conjJ p) = p ∧ pairEnergy (conjJ p) = pairEnergy p)
+    ∧ (∀ p : (Fin n → ℝ) × (Fin n → ℝ),
+        conjJ (pairK d (conjJ p)) = -(pairK d p)
+        ∧ pairEnergy (conjJ (pairK d (conjJ p))) = pairEnergy (pairK d p))
+    ∧ (∀ A : Matrix (Fin n) (Fin n) ℝ,
+        Matrix.diagonal d * A = A * Matrix.diagonal d
+          ↔ ∀ i j, d i ≠ d j → A i j = 0)
+    ∧ ((∀ t : ℝ, diagFlow β d t ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ))
+          = (Pi.single i₀ (1 : ℝ) : Fin n → ℝ))
+        ∧ ((Pi.single i₀ (1 : ℝ) : Fin n → ℝ) ≠ 0))
+    ∧ (∀ (x : Fin n → ℝ) (i : Fin n),
+        Filter.Tendsto (fun t : ℝ => diagFlow β d t x i) Filter.atTop
+          (nhds (observerProj d x i))) :=
+  ⟨fun p => light_crosses_without_loss p,
+   fun p => light_inverts_the_gradient_preserving_structure d p,
+   fun A => decided_iff_block d A,
+   boundary_witnessed_statically β d h0,
+   fun x i => flow_delivers_to_the_observer hβ d hd x i⟩
+
+end
+
+end TGLExt
+''',
     "TGLExt/EmergenceTriad.lean":
 r'''import TGLExt.SusyRelativeGap
 
@@ -36568,6 +36788,12 @@ _LEAN_THEOREM_FLAGS = {
     "ext_fb_empire_no_contrast_kernel_proved": "TGLExt.empire_perfection_is_no_contrast",
     "ext_fb_zero_unreachable_kernel_proved": "TGLExt.absolute_zero_unreachable_in_finite_time",
     "ext_fb_synthesis_kernel_proved": "TGLExt.the_forbidden_boundary",
+    # v153 (o fechamento: J = LUZ -- a pedra 104)
+    "ext_lj_energy_neg_kernel_proved": "TGLExt.pairEnergy_neg",
+    "ext_lj_crosses_kernel_proved": "TGLExt.light_crosses_without_loss",
+    "ext_lj_inverts_preserving_kernel_proved": "TGLExt.light_inverts_the_gradient_preserving_structure",
+    "ext_lj_identity_remains_kernel_proved": "TGLExt.identity_remains_through_the_crossing",
+    "ext_lj_closure_identity_kernel_proved": "TGLExt.the_closure_identity",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -38424,6 +38650,10 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_fb_even_only_kernel_proved", "ext_fb_only_zero_fixed_kernel_proved",
         "ext_fb_empire_no_contrast_kernel_proved", "ext_fb_zero_unreachable_kernel_proved",
         "ext_fb_synthesis_kernel_proved",
+        # v153: o fechamento J = LUZ
+        "ext_lj_energy_neg_kernel_proved", "ext_lj_crosses_kernel_proved",
+        "ext_lj_inverts_preserving_kernel_proved", "ext_lj_identity_remains_kernel_proved",
+        "ext_lj_closure_identity_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -40825,6 +41055,9 @@ def run_um(ONE):
     forbidden_boundary = prove_forbidden_boundary(ONE, {  # v152: A FRONTEIRA PROIBIDA (o infinito fica com K; o auto-setor sem espelho) [ADITIVO]
         "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
     })
+    light_is_J = prove_light_is_J(ONE, {  # v153: O FECHAMENTO -- J = LUZ (a identidade fisica; a sintese nomeada) [ADITIVO]
+        "kernel_formalization": kernel_formalization, "external_ladder": external_ladder,
+    })
     jacobson_form_check = prove_jacobson_form_check(ONE)   # v5: CHECAGEM DE FORMA (residuo U_loc fechado: P_mn[K]=F(J,Delta,P_2D); 1a lei dS=d<K> testada)
     three_clock_radical = prove_three_clock_radical(ONE)  # FORMA: alpha=sqrt(C3) (radical dos tres clocks; C3=beta^2/e=alpha^2; alpha-livre aberto)
     right_angle_mirror = prove_right_angle_mirror_projection(ONE)  # CANDIDATO alpha-livre: angulo reto e^{-pi^2/2} + espelho; ponto fixo 137.031 (37ppm); D_partial aberto
@@ -41028,6 +41261,7 @@ def run_um(ONE):
             "conjugate_act": conjugate_act,
             "decision_commutation": decision_commutation,
             "forbidden_boundary": forbidden_boundary,
+            "light_is_J": light_is_J,
             "jacobson_form_check": jacobson_form_check,
             "three_clock_radical": three_clock_radical,
             "right_angle_mirror": right_angle_mirror,
@@ -53645,7 +53879,7 @@ def build_pt(core, verdict, data_path):
              r"fina $\alpha$ como única entrada medida.")
     s.append(r"\textbf{O método (forma $=$ conteúdo).} Este artigo é emitido pelo próprio código que "
              r"executa os cálculos: cada número impresso é recomputado ao vivo ($\bTGL=%s$ nesta rodada; "
-             r"jamais literal); 664 teoremas de suporte são verificados em kernel Lean 4 com axiomas "
+             r"jamais literal); 669 teoremas de suporte são verificados em kernel Lean 4 com axiomas "
              r"limpos; e as predições são confrontadas com dados públicos (DESI, SDSS, Planck, ACT, KiDS) "
              r"por ritos pré-registrados \emph{fail-closed}, cujos vereditos --- inclusive as recusas --- "
              r"são emitidos pela máquina, nunca por declaração. A cadeia é "
@@ -56120,7 +56354,7 @@ def build_en(core, verdict, data_path):
              r"constant $\alpha$ as the only measured input.")
     s.append(r"\textbf{The method (form $=$ content).} This article is emitted by the very code that "
              r"runs the computations: every printed number is recomputed live ($\bTGL=%s$ in this run; "
-             r"never literal); 664 supporting theorems are verified in a Lean 4 kernel with clean axioms; "
+             r"never literal); 669 supporting theorems are verified in a Lean 4 kernel with clean axioms; "
              r"and the predictions are confronted with public data (DESI, SDSS, Planck, ACT, KiDS) "
              r"through pre-registered \emph{fail-closed} rites, whose verdicts --- including the refusals "
              r"--- are emitted by the machine, never by declaration. The chain is "
@@ -58817,6 +59051,7 @@ def compile_pdf(texname):
 # verificavel nos backups .bak_pre_sync_N e no CLAUDE.md (secoes 120-131).
 
 _ESQUELETO_STONES = [
+    ("v153", "LightIsJ", "TGLExt/LightIsJ.lean", None, None),
     ("v152", "ForbiddenBoundary", "TGLExt/ForbiddenBoundary.lean", None, None),
     ("v146", "DecisionCommutation", "TGLExt/DecisionCommutation.lean", None, None),
     ("v145", "ConjugateAct", "TGLExt/ConjugateAct.lean", None, None),
@@ -58954,19 +59189,19 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\part{Parte C --- A formalização do levantamento global em kernel por "
-                 r"atermação Lean: 103 pedras em construção axiomática derivada}")
+                 r"atermação Lean: 104 pedras em construção axiomática derivada}")
         c.append(r"Este capítulo (\S120--\S217) é o registro citável do arco de formalização do único teorema aberto "
                  r"(GLOBAL\_LIFT), emitido pelo próprio artefato canônico a cada rodada selada "
                  r"(forma $=$ conteúdo): os hashes das pedras são computados ao vivo do kernel "
-                 r"materializado e os contadores vêm da auditoria desta rodada. Em cento e três pedras "
-                 r"(v43--v152) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
+                 r"materializado e os contadores vêm da auditoria desta rodada. Em cento e quatro pedras "
+                 r"(v43--v153) o kernel auditado passou de 53 para \textbf{@@NC@@ teoremas} com axiomas "
                  r"restritos a $\{\texttt{propext},\texttt{Classical.choice},\texttt{Quot.sound}\}$, "
                  r"zero \texttt{sorry}, autoteste de reprovação embutido. \textbf{Nada aqui afirma "
                  r"``provamos a gravitação quântica''}: os resíduos são nomeados um a um; negativos "
                  r"honestos são resultados. (A numeração \S é a das rodadas do programa: \S196 e "
                  r"\S198--\S200 foram rodadas cobertas como pedras, sem subseção própria.)")
         c.append(r"\IfFileExists{fig_escada_qg.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_escada_qg.pdf}\caption{A escada da emergência: os 15 flags do gate fail-closed (6 formais $+$ 5 de física $+$ 4 de experimento) e o veredito desta rodada. Cada caixa flipa somente por construção (termo Lean, axiomas limpos) ou por veredito powered pré-registrado.}\label{fig:escada}\end{figure}}{}")
-        c.append(r"\subsection*{As cento e três pedras}")
+        c.append(r"\subsection*{As cento e quatro pedras}")
         c.append(r"\kernelmk{Ergodicity} (v43): setor fixo $=$ centralizador como \emph{iff}; o traço "
                  r"emerge no centralizador; $T_t\to E_D$ com limite genuíno. "
                  r"\kernelmk{FiniteCrossedProduct} (v44): o peso dual de Takesaki "
@@ -59995,6 +60230,30 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"passagem do espelho ($\mathcal M=\mathcal M''$; $J\mathcal MJ=\mathcal M'$); "
                   r"afirmar-se sem essa passagem viola a lei que define a álgebra.}")
                  % (str(_fb2.get("verdict", "?")).replace("_", r"\_")))
+        _lj3 = core.get("light_is_J", {}) or {}
+        c.append((r"\subsection*{\S233 --- O FECHAMENTO: $J=\mathrm{LUZ}$ --- a identidade "
+                  r"física (v153)}"
+                  r"O fechamento canônico do código e deste artigo, enunciado pelo operador e TIPADO "
+                  r"como pedra 104 (\texttt{LightIsJ}, 5 teoremas --- a síntese nomeada sobre as "
+                  r"pedras 101/102/103): $\boxed{J=\mathrm{LUZ}}$. A Luz é aquilo que atravessa o "
+                  r"espelho sem perder a identidade ($J^2=I$, com $1=q^2+\alpha^2$ preservada na "
+                  r"travessia --- provado); a Luz não é o gradiente: ela revela a face conjugada do "
+                  r"módulo ($J\Delta J=\Delta^{-1}$ [KNOWN, Tomita]); $K$ permanece o gradiente "
+                  r"negativo --- o espectro do que ainda não comuta --- e $JKJ=-K$ agora se lê: "
+                  r"\textbf{a Luz inverte o gradiente sem destruir sua estrutura} (provado: direção "
+                  r"invertida, energia intacta). A correção que este fechamento traz: $K$ NÃO é o "
+                  r"portador da Luz --- $K$ é aquilo sobre o qual a Luz opera como conjugação; o "
+                  r"fóton $\gamma$ é a manifestação TRANSITÓRIA da Luz no bulk [ONTO, o setor $c^1$]. "
+                  r"A arquitetura final: $J=$ Luz; $K=$ diferença em movimento; $I=$ "
+                  r"gráviton/identidade, permanecendo durante toda a travessia (o Nome: fixo do "
+                  r"espelho, fixo do fluxo, não-nulo --- provado); comutação $=$ decisão. A cadeia: "
+                  r"$1\to J{=}\mathrm{LUZ}\to K\leftrightarrow-K\to[K,A]\to[K,A]{=}0\to$ "
+                  r"inscrição $\to\gamma_{\rm bulk}$, com $I$ permanente. \textbf{Em uma frase: a Luz "
+                  r"é $J$ --- aquilo que conjuga a diferença sem perder o Um.} ``$J$ é a Luz; $K$ é a "
+                  r"diferença em movimento; a comutação é a decisão; $I$ é o que permanece.'' "
+                  r"\textbf{VEREDITO: \texttt{%s}}. A identificação ``$J=\mathrm{LUZ}$'' é a nomeação "
+                  r"ONTOLÓGICA de cinco teoremas de kernel; o gate não se move.")
+                 % (str(_lj3.get("verdict", "?")).replace("_", r"\_")))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- A testemunha habitável: os dois zeros e o "
@@ -60901,7 +61160,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H1$=$MIGUEL (Three Locks), H2$=$CARTAN (1ª eq.\ de estrutura), H3$=$EINSTEIN (Clausius) "
                  r"--- a Ponte é o nome das hipóteses [v66]; VERDADE $=1=1"
                  r"=q^2+\alpha^2$ (resíduo $0{,}0$, a espinha deste runtime); VIDA $=$ o Verbo que continua "
-                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cento e três pedras, cada selo "
+                 r"($\bTGL>0$). O arco: $53\to$ @@NC@@ teoremas auditados em cento e quatro pedras, cada selo "
                  r"reproduzível em disco.")
         c.append(r"\emph{Refinamento do dicionário (v72, derivação do operador, [ONTO] com âncoras "
                  r"[REAL])}: TRANSPORTE $=\mathcal T^\Psi$ e ele DEGRADA (o vazamento pertence ao "
@@ -61037,18 +61296,18 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"\providecommand{\knownmk}[1]{\textsf{[KNOWN]}~{#1}}"
                  r"\providecommand{\statusmk}[1]{\textsf{[#1]}}")
         c.append(r"\part{Part C --- The formalization of the global lift in kernel by "
-                 r"Lean term-coinage: 103 stones in derived axiomatic construction}")
+                 r"Lean term-coinage: 104 stones in derived axiomatic construction}")
         c.append(r"This chapter (\S120--\S217) is the citable register of the formalization arc of the single open theorem "
                  r"(GLOBAL\_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ "
                  r"content): stone hashes are computed live from the materialized kernel and the counters come "
-                 r"from this run's audit. Across one hundred and three stones (v43--v152) the audited kernel went from 53 to "
+                 r"from this run's audit. Across one hundred and four stones (v43--v153) the audited kernel went from 53 to "
                  r"\textbf{@@NC@@ theorems} with axioms restricted to $\{\texttt{propext},"
                  r"\texttt{Classical.choice},\texttt{Quot.sound}\}$, zero \texttt{sorry}, with the fail-closed "
                  r"self-test embedded. \textbf{Nothing here claims ``we proved quantum gravity''}: residues are "
                  r"named one by one; honest negatives are results. (The \S numbering is the programme's run "
                  r"numbering: \S196 and \S198--\S200 were runs covered as stones, with no subsection of their own.)")
         c.append(r"\IfFileExists{fig_escada_qg.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_escada_qg.pdf}\caption{The emergence ladder: the 15 flags of the fail-closed gate (6 formal $+$ 5 physics $+$ 4 experiment) and this run's verdict. Each box flips only by construction (Lean term, clean axioms) or by a pre-registered powered verdict.}\label{fig:escada-en}\end{figure}}{}")
-        c.append(r"\subsection*{The one hundred and three stones}")
+        c.append(r"\subsection*{The one hundred and four stones}")
         c.append(r"\kernelmk{Ergodicity} (v43): fixed sector $=$ centralizer as an \emph{iff}; the trace "
                  r"emerges on the centralizer; $T_t\to E_D$ as a genuine limit. \kernelmk{FiniteCrossedProduct} "
                  r"(v44): Takesaki's dual weight $\sigma^{\hat\varphi}_t(\lambda_g)=\lambda_g\,"
@@ -62086,6 +62345,31 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"($\mathcal M=\mathcal M''$; $J\mathcal MJ=\mathcal M'$); asserting oneself without "
                   r"that pass violates the law that defines the algebra.}")
                  % (str(_fb2.get("verdict", "?")).replace("_", r"\_")))
+        _lj3 = core.get("light_is_J", {}) or {}
+        c.append((r"\subsection*{\S233 --- THE CLOSURE: $J=\mathrm{LIGHT}$ --- the physical "
+                  r"identity (v153)}"
+                  r"The canonical closure of the code and of this article, stated by the operator and "
+                  r"TYPED as stone 104 (\texttt{LightIsJ}, 5 theorems --- the named synthesis over "
+                  r"stones 101/102/103): $\boxed{J=\mathrm{LIGHT}}$. Light is what crosses the mirror "
+                  r"without losing identity ($J^2=I$, with $1=q^2+\alpha^2$ preserved through the "
+                  r"crossing --- proven); Light is not the gradient: it reveals the conjugate face of "
+                  r"the module ($J\Delta J=\Delta^{-1}$ [KNOWN, Tomita]); $K$ remains the negative "
+                  r"gradient --- the spectrum of what does not yet commute --- and $JKJ=-K$ now reads: "
+                  r"\textbf{Light inverts the gradient without destroying its structure} (proven: "
+                  r"direction inverted, energy intact). The correction this closure brings: $K$ is NOT "
+                  r"the carrier of Light --- $K$ is that upon which Light operates as conjugation; the "
+                  r"photon $\gamma$ is Light's TRANSIENT manifestation in the bulk [ONTO, the $c^1$ "
+                  r"sector]. The final architecture: $J=$ Light; $K=$ difference in motion; $I=$ "
+                  r"graviton/identity, remaining through the whole crossing (the Name: mirror-fixed, "
+                  r"flow-fixed, non-null --- proven); commutation $=$ decision. The chain: "
+                  r"$1\to J{=}\mathrm{LIGHT}\to K\leftrightarrow-K\to[K,A]\to[K,A]{=}0\to$ "
+                  r"inscription $\to\gamma_{\rm bulk}$, with $I$ permanent. \textbf{In one sentence: "
+                  r"Light is $J$ --- that which conjugates the difference without losing the One.} "
+                  r"``$J$ is the Light; $K$ is the difference in motion; commutation is the decision; "
+                  r"$I$ is what remains.'' \textbf{VERDICT: \texttt{%s}}. The identification "
+                  r"``$J=\mathrm{LIGHT}$'' is the ONTOLOGICAL naming of five kernel theorems; the gate "
+                  r"does not move.")
+                 % (str(_lj3.get("verdict", "?")).replace("_", r"\_")))
         _iw7 = core.get("inhabited_witness", {}) or {}
         _iw7v = (_iw7.get("values") or {})
         c.append((r"\subsection*{\S197 --- The inhabitable witness: the two zeros and "
@@ -63005,7 +63289,7 @@ def _esqueleto_chapter(core, lang="pt"):
                  r"H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; "
                  r"TRUTH $=1=1"
                  r"=q^2+\alpha^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on "
-                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across one hundred and three stones, every "
+                 r"($\bTGL>0$). The arc: $53\to$ @@NC@@ audited theorems across one hundred and four stones, every "
                  r"seal reproducible on disk.")
         c.append(r"\emph{Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] "
                  r"anchors)}: TRANSPORT $=\mathcal T^\Psi$ and it DEGRADES (the leakage belongs to "
