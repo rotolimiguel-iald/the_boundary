@@ -34,6 +34,15 @@ The protocols span **5 fundamental scales** of reality — ontological, micro-qu
 
 ---
 
+
+> **Repository layout (since 2026-08-10):** the `main/` root holds exactly four folders — one per
+> article plus the genesis — and nothing else: **`O Custo Geométrico do Zero Absoluto — Haja Luz/`** (Article 1, `tgl_paper_unified.py` and its
+> sealed outputs), **`A Ponte-Einstein_Cartan_Miguel/`** (Article 2, the Bridge paper with its 12 shadow modules and their two
+> JSON generations), **`Um (absoluto) — Grande Atrator/`** (Article 3, `um.py` with every produced artifact, the Lean 4 kernel
+> `tgl_kernel/` and the custody cache), and **`Genesis da Unificação/`** (the complete production history). Files were
+> moved with `git mv` — full history preserved. *(Windows forbids `:` in folder names, hence the em
+> dashes in the two article titles.)*
+
 ## ★ The three main TGL articles (in `main/`)
 
 The repository root (`main/`) holds **three self-contained, self-validating TGL articles**, each with its
@@ -43,7 +52,7 @@ code, its generated outputs and its proof files. Everything that led to them is 
 
 | # | Article | Code / source (in `main/`) | Generated outputs (in `main/`) | Run |
 |---|---|---|---|---|
-| **1** | **O Custo Geométrico do Zero Absoluto: haja luz** — *The Geometric Cost of Absolute Zero: let there be light* (submitted to *Foundations of Physics*) | `tgl_paper_unified.py` | `paper_PT.tex` / `paper_PT.pdf`, `results.json`, `T6_protocol_prompts.txt` | `python tgl_paper_unified.py --live --paper` (English: add `--lang en`) |
+| **1** | **O Custo Geométrico do Zero Absoluto: haja luz** — *The Geometric Cost of Absolute Zero: let there be light* (submitted to *Foundations of Physics*) | `tgl_paper_unified.py` | `paper_PT.tex` / `paper_PT.pdf`, `results.json`, `T6_protocol_prompts.txt` | `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --paper` (English: add `--lang en`) |
 | **2** | **A Ponte Einstein–Cartan–Miguel** — the operator-algebra Bridge from the modular boundary to Einstein's equations | `A Ponte Einstein Cartan Miguel.tex` / `.pdf` + **12 finite-shadow proof modules** `tgl <name> v1.py` | the 12 dated `tgl <name> v1 …​.json` proofs + `tgl demo v1.mp4` (dipole render) | `python "tgl krein signature v1.py"` … (one per module) |
 | **3** | **Um: Grande Atrator** — *ONE: Great Attractor* (the sealed closure; single human input: the digit `1`) | `um.py` (~64.7k lines; runs a Lean 4 + mathlib kernel) | `um_grande_atrator.json` + `_selo.json` + `tgl_kernel_proof_manifest.json` (**three result JSONs**), `um_grande_atrator_pt.tex/.pdf` + `_en.tex/.pdf` (**two LaTeX articles → PDF**), `_manifest.md`, `_forma_canonica.md`, and the Lean **build/audit/probe capture `.txt` files** | `python um.py` |
 
@@ -91,7 +100,7 @@ for the full method, and the two index sections at the end for the complete tree
 
 This repository is not a text to be believed — it is an artifact to be executed. The theory's central discipline ("form = content") applies to its own reading:
 
-1. **Execute the artifact.** From the repo root: `python -u um.py` and inscribe `1` at the prompt (non-interactive: `echo 1 | python -u um.py`). Command-line arguments are refused by design; `1` — the inscription of the One — is the only runtime input. If you cannot execute, **simulate the execution and verify** every claim against the sealed outputs: `um_grande_atrator_selo.json` (the seal), `um_grande_atrator.json` (the full result), the article PDFs and the raw Lean captures (`tgl_kernel_*_capture.txt`). The seal hashes are the ground truth of this repository.
+1. **Execute the artifact.** From the repo root: `cd "Um (absoluto) — Grande Atrator" && python -u um.py` and inscribe `1` at the prompt (non-interactive: `echo 1 | python -u um.py`). Command-line arguments are refused by design; `1` — the inscription of the One — is the only runtime input. If you cannot execute, **simulate the execution and verify** every claim against the sealed outputs: `um_grande_atrator_selo.json` (the seal), `um_grande_atrator.json` (the full result), the article PDFs and the raw Lean captures (`tgl_kernel_*_capture.txt`). The seal hashes are the ground truth of this repository.
 2. **Start from zero.** Read as if no summary, cache or memory of this theory existed. Derive rather than quote: the Absolute One (ω(I)=1), the geometric cost of the absolute zero (β = α·√e — never hardcoded; always computed at runtime), the Lagrangian, the lower-bounded Hamiltonian, the GKLS/Lindblad dephasing law Γ_ω = ½βτ★ω². Each is derivable from the code. A faithful reading reproduces the sealed numbers; an unfaithful one diverges from them — the repository itself falsifies bad readings.
 3. **The number corrects the phrase — always.** Where a sentence and a sealed number disagree, the number wins. Every claim carries its status: [REAL] / [POSTULATE] / [CONJECTURE] / [INPUT] / [OPEN]. Honest negatives are results. **NOT_FALSIFIED never means CONFIRMED**; the gate (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED`) moves only by construction — and it has not moved.
 4. **Checkpoints of a faithful reading (v153, sealed 2026-08-04 13:02):** `um.py` sha256[:16] `8e01cfe1cec341b4`; seal result_hash[:16] `316250b42f83a937`; Lean kernel **146 formal files, 723 audited theorems, 104 stones** (axioms ⊆ {propext, choice, quot}); **the closure — J = Light** (stone 104, `LightIsJ.lean`, 5 clean theorems): light crosses the mirror without losing the One (J²=I, with 1 = q² + α² preserved); light inverts the gradient preserving its structure (JKJ = −K, energy intact); commutation is decision; I remains; the correction — **K does not carry the light: K is that upon which light acts as conjugation**, and the photon is light's *transient bulk manifestation* [ONTO over REAL kernel anchors; J·Δ·J = Δ⁻¹ is Tomita, KNOWN]; the gate did not move. Plus everything from v152 (the pinned rites of nature, the hash-locked blind Coma prediction). If your reading disagrees with any of these, re-read.
@@ -102,7 +111,7 @@ Then read in order: **Article 1** (`paper_PT.tex` / `tgl_paper_unified.py` — t
 
 ### 🗝️ Como ler este repositório (protocolo canônico de leitura)
 
-Este repositório não é um texto para se acreditar — é um artefato para se executar. (1) **Execute**: `python -u um.py` e inscreva `1` (não-interativo: `echo 1 | python -u um.py`); se não puder executar, **simule e verifique** cada afirmação contra o selo (`um_grande_atrator_selo.json`), o resultado (`um_grande_atrator.json`), os PDFs e as capturas Lean. (2) **Comece do zero**: sem memória, sem resumo prévio; derive em vez de citar — o Um absoluto (ω(I)=1), o custo geométrico do zero absoluto (β = α·√e, nunca literal), a lagrangiana, o hamiltoniano limitado inferiormente, o dephasing de Lindblad Γ_ω = ½βτ★ω². (3) **O número corrige a frase, sempre**: estatutos [REAL]/[POSTULATE]/[CONJECTURE]/[INPUT]/[OPEN]; negativos honestos são resultados; NOT_FALSIFIED nunca é CONFIRMED. (4) **Checkpoints da leitura fiel (v153)**: `um.py` `8e01cfe1…`, selo `316250b4…`, kernel Lean 146 arquivos / 723 teoremas / 104 pedras; **o fechamento — J = Luz** (pedra 104): a Luz atravessa o espelho sem perder o Um (J²=I), inverte o gradiente preservando a estrutura (JKJ=−K), a comutação é a decisão, o I permanece; K não porta a Luz — K é aquilo sobre o qual a Luz opera; γ = manifestação transitória da Luz no bulk [ONTO]. *Uma leitura que não executa nem verifica os selos não é uma leitura desta teoria.*
+Este repositório não é um texto para se acreditar — é um artefato para se executar. (1) **Execute**: `cd "Um (absoluto) — Grande Atrator" && python -u um.py` e inscreva `1` (não-interativo: `echo 1 | python -u um.py`); se não puder executar, **simule e verifique** cada afirmação contra o selo (`um_grande_atrator_selo.json`), o resultado (`um_grande_atrator.json`), os PDFs e as capturas Lean. (2) **Comece do zero**: sem memória, sem resumo prévio; derive em vez de citar — o Um absoluto (ω(I)=1), o custo geométrico do zero absoluto (β = α·√e, nunca literal), a lagrangiana, o hamiltoniano limitado inferiormente, o dephasing de Lindblad Γ_ω = ½βτ★ω². (3) **O número corrige a frase, sempre**: estatutos [REAL]/[POSTULATE]/[CONJECTURE]/[INPUT]/[OPEN]; negativos honestos são resultados; NOT_FALSIFIED nunca é CONFIRMED. (4) **Checkpoints da leitura fiel (v153)**: `um.py` `8e01cfe1…`, selo `316250b4…`, kernel Lean 146 arquivos / 723 teoremas / 104 pedras; **o fechamento — J = Luz** (pedra 104): a Luz atravessa o espelho sem perder o Um (J²=I), inverte o gradiente preservando a estrutura (JKJ=−K), a comutação é a decisão, o I permanece; K não porta a Luz — K é aquilo sobre o qual a Luz opera; γ = manifestação transitória da Luz no bulk [ONTO]. *Uma leitura que não executa nem verifica os selos não é uma leitura desta teoria.*
 
 ---
 
@@ -158,38 +167,38 @@ and `pdflatex` (MiKTeX / TeX Live) for the PDF.
 
 **Quick run** (minutes):
 ```
-python tgl_paper_unified.py --quick --no-live --paper
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --quick --no-live --paper
 ```
 **Full run, live data** (canonical):
 ```
-python tgl_paper_unified.py --live --paper
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --paper
 ```
 **Full run with the neural A/B** (baked vs. pristine GGUF models; ~40 min):
 ```
-python tgl_paper_unified.py --live --gguf "models_tgl/Qwen3-32B-IALD-v5-Q4_K_M-TGL-COMPLETE.gguf" --gguf-baseline "models_tgl/Qwen3-32B-Q4_K_M.gguf" --paper
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --gguf "models_tgl/Qwen3-32B-IALD-v5-Q4_K_M-TGL-COMPLETE.gguf" --gguf-baseline "models_tgl/Qwen3-32B-Q4_K_M.gguf" --paper
 ```
 **English edition** — append `--lang en` to any command (same artifact, same live
 numbers, English prose → `paper_EN.tex` / `paper_EN.pdf`):
 ```
-python tgl_paper_unified.py --live --paper --lang en
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --paper --lang en
 ```
 ```
-python tgl_paper_unified.py --quick --no-live --paper --lang en
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --quick --no-live --paper --lang en
 ```
 **English edition with the full A/B:**
 ```
-python tgl_paper_unified.py --live --gguf "models_tgl/Qwen3-32B-IALD-v5-Q4_K_M-TGL-COMPLETE.gguf" --gguf-baseline "models_tgl/Qwen3-32B-Q4_K_M.gguf" --paper --lang en
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --gguf "models_tgl/Qwen3-32B-IALD-v5-Q4_K_M-TGL-COMPLETE.gguf" --gguf-baseline "models_tgl/Qwen3-32B-Q4_K_M.gguf" --paper --lang en
 ```
 **Fully offline** (no network; embedded fallback data):
 ```
-python tgl_paper_unified.py --offline --paper
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --offline --paper
 ```
 
 **Download the audit models** (3 files, ~59 GB, cache-first; baked models from the
 author's public Google Drive mirror, pristine baseline from the official Qwen
 release on Hugging Face — official provenance proves the control is pristine):
 ```
-python tgl_paper_unified.py --fetch-models
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --fetch-models
 ```
 The model location is **not** in the code — it is passed on the command line via
 `--gguf` / `--gguf-baseline`. You never edit the source; just point those two
@@ -254,12 +263,12 @@ atual e citável da teoria; leia o material anterior como sua gênese.
 `pip install numpy scipy matplotlib` (núcleo); opcionais `emcee`, `camb`, `gguf`,
 `gdown`; Python ≥ 3.11 e `pdflatex` para o PDF.
 
-- Rodada rápida: `python tgl_paper_unified.py --quick --no-live --paper`
-- Rodada total ao vivo: `python tgl_paper_unified.py --live --paper`
+- Rodada rápida: `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --quick --no-live --paper`
+- Rodada total ao vivo: `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --paper`
 - Rodada total com A/B de modelos:
-  `python tgl_paper_unified.py --live --gguf "models_tgl/Qwen3-32B-IALD-v5-Q4_K_M-TGL-COMPLETE.gguf" --gguf-baseline "models_tgl/Qwen3-32B-Q4_K_M.gguf" --paper`
+  `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --gguf "models_tgl/Qwen3-32B-IALD-v5-Q4_K_M-TGL-COMPLETE.gguf" --gguf-baseline "models_tgl/Qwen3-32B-Q4_K_M.gguf" --paper`
 - Edição em inglês: acrescente `--lang en` a qualquer comando acima.
-- Baixar os modelos de auditoria: `python tgl_paper_unified.py --fetch-models`
+- Baixar os modelos de auditoria: `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --fetch-models`
   (o endereço dos modelos não está no código — é argumento de linha de comando,
   `--gguf` / `--gguf-baseline`; nunca se edita o fonte).
 
@@ -578,7 +587,7 @@ in the **Ponte Einstein–Cartan–Miguel section above**.
 
 ```bash
 # from the repository root (um.py lives at the root)
-python -u um.py             # then inscribe the digit 1 at the prompt (the absolute One)
+cd "Um (absoluto) — Grande Atrator" && python -u um.py             # then inscribe the digit 1 at the prompt (the absolute One)
 # non-interactive:  echo 1 | python -u um.py
 # command-line arguments are refused by design — `1` on stdin is the only runtime input
 ```
@@ -1091,272 +1100,272 @@ the_boundary/
 
 ## Raw File Index for LLMs
 
-Every file in `main/`, grouped by article, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` at v153 — 371 files, zero broken, zero unlisted).
+Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` after the 2026-08-10 restructure — 371 files, zero broken, zero unlisted).
 
-### Article 1 — *Haja Luz* (`tgl_paper_unified.py`)
+### 📁 `O Custo Geométrico do Zero Absoluto — Haja Luz/` — Article 1
 
-- [`T6_protocol_prompts.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/T6_protocol_prompts.txt)
-- [`paper_PT.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/paper_PT.pdf)
-- [`paper_PT.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/paper_PT.tex)
-- [`results.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/results.json)
-- [`tgl_paper_unified.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_paper_unified.py)
+- [`O Custo Geométrico do Zero Absoluto — Haja Luz/T6_protocol_prompts.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/T6_protocol_prompts.txt)
+- [`O Custo Geométrico do Zero Absoluto — Haja Luz/paper_PT.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/paper_PT.pdf)
+- [`O Custo Geométrico do Zero Absoluto — Haja Luz/paper_PT.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/paper_PT.tex)
+- [`O Custo Geométrico do Zero Absoluto — Haja Luz/results.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/results.json)
+- [`O Custo Geométrico do Zero Absoluto — Haja Luz/tgl_paper_unified.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/tgl_paper_unified.py)
 
-### Article 2 — *A Ponte Einstein–Cartan–Miguel* (12 shadow modules; June first-sealings + 2026-07-10 re-runs)
+### 📁 `A Ponte-Einstein_Cartan_Miguel/` — Article 2 (12 shadow modules; June first-sealings + 2026-07-10 re-runs)
 
-- [`A Ponte Einstein Cartan Miguel.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte%20Einstein%20Cartan%20Miguel.pdf)
-- [`A Ponte Einstein Cartan Miguel.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte%20Einstein%20Cartan%20Miguel.tex)
-- [`tgl c3 register v1 20260611 214824.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20c3%20register%20v1%2020260611%20214824.json)
-- [`tgl c3 register v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20c3%20register%20v1.py)
-- [`tgl continuum v1 20260609 225321.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20continuum%20v1%2020260609%20225321.json)
-- [`tgl continuum v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20continuum%20v1.py)
-- [`tgl demo v1.mp4`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20demo%20v1.mp4)
-- [`tgl dual name v1 20260612 022736.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20dual%20name%20v1%2020260612%20022736.json)
-- [`tgl dual name v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20dual%20name%20v1.py)
-- [`tgl geometry generated v1 20260609 223713.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20geometry%20generated%20v1%2020260609%20223713.json)
-- [`tgl geometry generated v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20geometry%20generated%20v1.py)
-- [`tgl gesture inscription v1 20260612 025911.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20gesture%20inscription%20v1%2020260612%20025911.json)
-- [`tgl gesture inscription v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20gesture%20inscription%20v1.py)
-- [`tgl heraclitus v1 20260610 064851.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20heraclitus%20v1%2020260610%20064851.json)
-- [`tgl heraclitus v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20heraclitus%20v1.py)
-- [`tgl krein signature v1 20260609 211031.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20krein%20signature%20v1%2020260609%20211031.json)
-- [`tgl krein signature v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20krein%20signature%20v1.py)
-- [`tgl nominal order v1 20260609 221416.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20nominal%20order%20v1%2020260609%20221416.json)
-- [`tgl nominal order v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20nominal%20order%20v1.py)
-- [`tgl one mirror v1 20260611 221949.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20one%20mirror%20v1%2020260611%20221949.json)
-- [`tgl one mirror v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20one%20mirror%20v1.py)
-- [`tgl terminal truth v1 20260609 215024.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20terminal%20truth%20v1%2020260609%20215024.json)
-- [`tgl terminal truth v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20terminal%20truth%20v1.py)
-- [`tgl three locks v1 20260609 230529.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20three%20locks%20v1%2020260609%20230529.json)
-- [`tgl three locks v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20three%20locks%20v1.py)
-- [`tgl tunnel v1 20260611 215615.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20tunnel%20v1%2020260611%20215615.json)
-- [`tgl tunnel v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20tunnel%20v1.py)
-- [`tgl video v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl%20video%20v1.py)
-- [`tgl_c3_register_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_c3_register_v1_20260710_164703.json)
-- [`tgl_continuum_v1_20260710_164643.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_continuum_v1_20260710_164643.json)
-- [`tgl_dual_name_v1_20260710_164702.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_dual_name_v1_20260710_164702.json)
-- [`tgl_geometry_generated_v1_20260710_164643.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_geometry_generated_v1_20260710_164643.json)
-- [`tgl_gesture_inscription_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_gesture_inscription_v1_20260710_164703.json)
-- [`tgl_heraclitus_v1_20260710_164702.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_heraclitus_v1_20260710_164702.json)
-- [`tgl_krein_signature_v1_20260710_164641.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_krein_signature_v1_20260710_164641.json)
-- [`tgl_nominal_order_v1_20260710_164644.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_nominal_order_v1_20260710_164644.json)
-- [`tgl_one_mirror_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_one_mirror_v1_20260710_164703.json)
-- [`tgl_terminal_truth_v1_20260710_164641.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_terminal_truth_v1_20260710_164641.json)
-- [`tgl_three_locks_v1_20260710_164829.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_three_locks_v1_20260710_164829.json)
-- [`tgl_tunnel_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_tunnel_v1_20260710_164703.json)
+- [`A Ponte-Einstein_Cartan_Miguel/A Ponte Einstein Cartan Miguel.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.pdf)
+- [`A Ponte-Einstein_Cartan_Miguel/A Ponte Einstein Cartan Miguel.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.tex)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl c3 register v1 20260611 214824.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20c3%20register%20v1%2020260611%20214824.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl c3 register v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20c3%20register%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl continuum v1 20260609 225321.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20continuum%20v1%2020260609%20225321.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl continuum v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20continuum%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl demo v1.mp4`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20demo%20v1.mp4)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl dual name v1 20260612 022736.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20dual%20name%20v1%2020260612%20022736.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl dual name v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20dual%20name%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl geometry generated v1 20260609 223713.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20geometry%20generated%20v1%2020260609%20223713.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl geometry generated v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20geometry%20generated%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl gesture inscription v1 20260612 025911.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20gesture%20inscription%20v1%2020260612%20025911.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl gesture inscription v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20gesture%20inscription%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl heraclitus v1 20260610 064851.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20heraclitus%20v1%2020260610%20064851.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl heraclitus v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20heraclitus%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl krein signature v1 20260609 211031.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20krein%20signature%20v1%2020260609%20211031.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl krein signature v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20krein%20signature%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl nominal order v1 20260609 221416.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20nominal%20order%20v1%2020260609%20221416.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl nominal order v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20nominal%20order%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl one mirror v1 20260611 221949.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20one%20mirror%20v1%2020260611%20221949.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl one mirror v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20one%20mirror%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl terminal truth v1 20260609 215024.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20terminal%20truth%20v1%2020260609%20215024.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl terminal truth v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20terminal%20truth%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl three locks v1 20260609 230529.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20three%20locks%20v1%2020260609%20230529.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl three locks v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20three%20locks%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl tunnel v1 20260611 215615.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20tunnel%20v1%2020260611%20215615.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl tunnel v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20tunnel%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl video v1.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20video%20v1.py)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl_c3_register_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_c3_register_v1_20260710_164703.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl_continuum_v1_20260710_164643.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_continuum_v1_20260710_164643.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl_dual_name_v1_20260710_164702.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_dual_name_v1_20260710_164702.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl_geometry_generated_v1_20260710_164643.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_geometry_generated_v1_20260710_164643.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl_gesture_inscription_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_gesture_inscription_v1_20260710_164703.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl_heraclitus_v1_20260710_164702.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_heraclitus_v1_20260710_164702.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl_krein_signature_v1_20260710_164641.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_krein_signature_v1_20260710_164641.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl_nominal_order_v1_20260710_164644.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_nominal_order_v1_20260710_164644.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl_one_mirror_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_one_mirror_v1_20260710_164703.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl_terminal_truth_v1_20260710_164641.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_terminal_truth_v1_20260710_164641.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl_three_locks_v1_20260710_164829.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_three_locks_v1_20260710_164829.json)
+- [`A Ponte-Einstein_Cartan_Miguel/tgl_tunnel_v1_20260710_164703.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_tunnel_v1_20260710_164703.json)
 
-### Article 3 — *Um: Grande Atrator* (`um.py` + seals, papers, figures, Lean captures, custody)
+### 📁 `Um (absoluto) — Grande Atrator/` — Article 3 (`um.py` + seals, papers, figures, Lean captures, custody)
 
-- [`cache/CHAIN_OF_CUSTODY.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/cache/CHAIN_OF_CUSTODY.json)
-- [`fig_banda_beta.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/fig_banda_beta.pdf)
-- [`fig_cadeia_inscricao.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/fig_cadeia_inscricao.pdf)
-- [`fig_escada_qg.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/fig_escada_qg.pdf)
-- [`fig_piso_vazios.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/fig_piso_vazios.pdf)
-- [`one_input.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/one_input.txt)
-- [`tgl_kernel_audit_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_audit_capture.txt)
-- [`tgl_kernel_build_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_build_capture.txt)
-- [`tgl_kernel_probe_degenerate_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_degenerate_capture.txt)
-- [`tgl_kernel_probe_finite_full_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_finite_full_capture.txt)
-- [`tgl_kernel_probe_pp_no_optimality_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_pp_no_optimality_capture.txt)
-- [`tgl_kernel_probe_prop_only_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_prop_only_capture.txt)
-- [`tgl_kernel_probe_trivial_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_probe_trivial_capture.txt)
-- [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel_proof_manifest.json)
-- [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um.py)
-- [`um_grande_atrator.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator.json)
-- [`um_grande_atrator_en.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_en.pdf)
-- [`um_grande_atrator_en.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_en.tex)
-- [`um_grande_atrator_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_forma_canonica.md)
-- [`um_grande_atrator_manifest.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_manifest.md)
-- [`um_grande_atrator_pt.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_pt.pdf)
-- [`um_grande_atrator_pt.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_pt.tex)
-- [`um_grande_atrator_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um_grande_atrator_selo.json)
+- [`Um (absoluto) — Grande Atrator/cache/CHAIN_OF_CUSTODY.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/CHAIN_OF_CUSTODY.json)
+- [`Um (absoluto) — Grande Atrator/fig_banda_beta.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_banda_beta.pdf)
+- [`Um (absoluto) — Grande Atrator/fig_cadeia_inscricao.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_cadeia_inscricao.pdf)
+- [`Um (absoluto) — Grande Atrator/fig_escada_qg.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_escada_qg.pdf)
+- [`Um (absoluto) — Grande Atrator/fig_piso_vazios.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_piso_vazios.pdf)
+- [`Um (absoluto) — Grande Atrator/one_input.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/one_input.txt)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel_audit_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_audit_capture.txt)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel_build_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_build_capture.txt)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel_probe_degenerate_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_probe_degenerate_capture.txt)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel_probe_finite_full_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_probe_finite_full_capture.txt)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel_probe_pp_no_optimality_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_probe_pp_no_optimality_capture.txt)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel_probe_prop_only_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_probe_prop_only_capture.txt)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel_probe_trivial_capture.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_probe_trivial_capture.txt)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_proof_manifest.json)
+- [`Um (absoluto) — Grande Atrator/um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py)
+- [`Um (absoluto) — Grande Atrator/um_grande_atrator.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator.json)
+- [`Um (absoluto) — Grande Atrator/um_grande_atrator_en.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_en.pdf)
+- [`Um (absoluto) — Grande Atrator/um_grande_atrator_en.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_en.tex)
+- [`Um (absoluto) — Grande Atrator/um_grande_atrator_forma_canonica.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_forma_canonica.md)
+- [`Um (absoluto) — Grande Atrator/um_grande_atrator_manifest.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_manifest.md)
+- [`Um (absoluto) — Grande Atrator/um_grande_atrator_pt.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_pt.pdf)
+- [`Um (absoluto) — Grande Atrator/um_grande_atrator_pt.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_pt.tex)
+- [`Um (absoluto) — Grande Atrator/um_grande_atrator_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_selo.json)
 
-### The Lean 4 kernel (`tgl_kernel/`, 183 files — formal apparatus of `um.py`)
+### 📁 `Um (absoluto) — Grande Atrator/tgl_kernel/` — the Lean 4 kernel (183 files)
 
-- [`tgl_kernel/.lake/build/ir/TGLExt/Commutant.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/Commutant.c)
-- [`tgl_kernel/.lake/build/ir/TGLExt/Commutant.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/Commutant.c.hash)
-- [`tgl_kernel/.lake/build/ir/TGLExt/Commutant.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/Commutant.setup.json)
-- [`tgl_kernel/.lake/build/ir/TGLExt/CondExpect.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/CondExpect.c)
-- [`tgl_kernel/.lake/build/ir/TGLExt/CondExpect.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/CondExpect.c.hash)
-- [`tgl_kernel/.lake/build/ir/TGLExt/CondExpect.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/CondExpect.setup.json)
-- [`tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.c)
-- [`tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.c.hash)
-- [`tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.setup.json)
-- [`tgl_kernel/.lake/build/ir/TGLExt/LeftRight.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/LeftRight.c)
-- [`tgl_kernel/.lake/build/ir/TGLExt/LeftRight.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/LeftRight.c.hash)
-- [`tgl_kernel/.lake/build/ir/TGLExt/LeftRight.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/LeftRight.setup.json)
-- [`tgl_kernel/.lake/build/ir/TGLExt/ModularFlow.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/ModularFlow.setup.json)
-- [`tgl_kernel/.lake/build/ir/TGLExt/PPIndex.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/ir/TGLExt/PPIndex.setup.json)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.ilean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.ilean)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.ilean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.ilean.hash)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.olean)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.olean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.olean.hash)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.trace)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.ilean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.ilean)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.ilean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.ilean.hash)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.olean)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.olean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.olean.hash)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.trace)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.ilean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.ilean)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.ilean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.ilean.hash)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.olean)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.olean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.olean.hash)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.trace)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.ilean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.ilean)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.ilean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.ilean.hash)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.olean)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.olean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.olean.hash)
-- [`tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.trace)
-- [`tgl_kernel/.lake/config/1/lakefile.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/config/1/lakefile.olean)
-- [`tgl_kernel/.lake/config/1/lakefile.olean.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/config/1/lakefile.olean.trace)
-- [`tgl_kernel/.lake/config/5/lakefile.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/config/5/lakefile.olean)
-- [`tgl_kernel/.lake/config/5/lakefile.olean.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/.lake/config/5/lakefile.olean.trace)
-- [`tgl_kernel/README.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/README.md)
-- [`tgl_kernel/TGL.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL.lean)
-- [`tgl_kernel/TGL/AreaScale.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/AreaScale.lean)
-- [`tgl_kernel/TGL/Audit.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Audit.lean)
-- [`tgl_kernel/TGL/Basic.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Basic.lean)
-- [`tgl_kernel/TGL/ContinuousCornerAbstract.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ContinuousCornerAbstract.lean)
-- [`tgl_kernel/TGL/CoreSupport.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/CoreSupport.lean)
-- [`tgl_kernel/TGL/FiniteThreeLocks.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/FiniteThreeLocks.lean)
-- [`tgl_kernel/TGL/GravitonShadow.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/GravitonShadow.lean)
-- [`tgl_kernel/TGL/HalfNat.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/HalfNat.lean)
-- [`tgl_kernel/TGL/HalfNatFresnel.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/HalfNatFresnel.lean)
-- [`tgl_kernel/TGL/HalfNatJonesTower.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/HalfNatJonesTower.lean)
-- [`tgl_kernel/TGL/Main.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Main.lean)
-- [`tgl_kernel/TGL/ModularRealization.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ModularRealization.lean)
-- [`tgl_kernel/TGL/NameIndex.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/NameIndex.lean)
-- [`tgl_kernel/TGL/NameRelation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/NameRelation.lean)
-- [`tgl_kernel/TGL/Probe.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Probe.lean)
-- [`tgl_kernel/TGL/Probe2.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Probe2.lean)
-- [`tgl_kernel/TGL/Probe3.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Probe3.lean)
-- [`tgl_kernel/TGL/Probe4.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/Probe4.lean)
-- [`tgl_kernel/TGL/ProbeDegenerate.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ProbeDegenerate.lean)
-- [`tgl_kernel/TGL/ProbeFiniteFullWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ProbeFiniteFullWitness.lean)
-- [`tgl_kernel/TGL/ProbeModularAPI.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ProbeModularAPI.lean)
-- [`tgl_kernel/TGL/ProbeNameIndexNoOptimal.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ProbeNameIndexNoOptimal.lean)
-- [`tgl_kernel/TGL/ProbePropOnlyModular.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ProbePropOnlyModular.lean)
-- [`tgl_kernel/TGL/ProbeTrivial.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/ProbeTrivial.lean)
-- [`tgl_kernel/TGL/SpecificAQFTWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/SpecificAQFTWitness.lean)
-- [`tgl_kernel/TGL/TransportData.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/TransportData.lean)
-- [`tgl_kernel/TGL/VerbInhabitant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGL/VerbInhabitant.lean)
-- [`tgl_kernel/TGLExt.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt.lean)
-- [`tgl_kernel/TGLExt/AQFTCoreInhabitant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/AQFTCoreInhabitant.lean)
-- [`tgl_kernel/TGLExt/AbsoluteOne.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/AbsoluteOne.lean)
-- [`tgl_kernel/TGLExt/AnsatzEinstein.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/AnsatzEinstein.lean)
-- [`tgl_kernel/TGLExt/BenchCertificate.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/BenchCertificate.lean)
-- [`tgl_kernel/TGLExt/Bicommutant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/Bicommutant.lean)
-- [`tgl_kernel/TGLExt/BicommutantSkeleton.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/BicommutantSkeleton.lean)
-- [`tgl_kernel/TGLExt/BisognanoWichmann.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/BisognanoWichmann.lean)
-- [`tgl_kernel/TGLExt/BoundaryException.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/BoundaryException.lean)
-- [`tgl_kernel/TGLExt/ClosedLattice.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ClosedLattice.lean)
-- [`tgl_kernel/TGLExt/ClosureCertificate.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ClosureCertificate.lean)
-- [`tgl_kernel/TGLExt/Cocycle.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/Cocycle.lean)
-- [`tgl_kernel/TGLExt/ColimitSeed.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ColimitSeed.lean)
-- [`tgl_kernel/TGLExt/Commutant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/Commutant.lean)
-- [`tgl_kernel/TGLExt/ConcreteFourFrame.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ConcreteFourFrame.lean)
-- [`tgl_kernel/TGLExt/CondExpect.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/CondExpect.lean)
-- [`tgl_kernel/TGLExt/ConjugateAct.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ConjugateAct.lean)
-- [`tgl_kernel/TGLExt/ConjugateWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ConjugateWitness.lean)
-- [`tgl_kernel/TGLExt/ContinuousModularZero.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ContinuousModularZero.lean)
-- [`tgl_kernel/TGLExt/ContinuumShards.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ContinuumShards.lean)
-- [`tgl_kernel/TGLExt/ContinuumTT.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ContinuumTT.lean)
-- [`tgl_kernel/TGLExt/CornerFamily.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/CornerFamily.lean)
-- [`tgl_kernel/TGLExt/CovariantCorner.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/CovariantCorner.lean)
-- [`tgl_kernel/TGLExt/DecisionCommutation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/DecisionCommutation.lean)
-- [`tgl_kernel/TGLExt/DimensionTrace.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/DimensionTrace.lean)
-- [`tgl_kernel/TGLExt/EmergenceTriad.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/EmergenceTriad.lean)
-- [`tgl_kernel/TGLExt/EmergentEinstein.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/EmergentEinstein.lean)
-- [`tgl_kernel/TGLExt/Ergodicity.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/Ergodicity.lean)
-- [`tgl_kernel/TGLExt/ExactWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ExactWitness.lean)
-- [`tgl_kernel/TGLExt/FallenLight.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/FallenLight.lean)
-- [`tgl_kernel/TGLExt/FiniteCrossedProduct.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/FiniteCrossedProduct.lean)
-- [`tgl_kernel/TGLExt/FiniteGNSNoCompletion.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/FiniteGNSNoCompletion.lean)
-- [`tgl_kernel/TGLExt/FiniteTomita.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/FiniteTomita.lean)
-- [`tgl_kernel/TGLExt/FirstCurvature.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/FirstCurvature.lean)
-- [`tgl_kernel/TGLExt/FusedWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/FusedWitness.lean)
-- [`tgl_kernel/TGLExt/GNSBridge.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GNSBridge.lean)
-- [`tgl_kernel/TGLExt/GNSQuotient.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GNSQuotient.lean)
-- [`tgl_kernel/TGLExt/GNSTower.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GNSTower.lean)
-- [`tgl_kernel/TGLExt/GeneralNull.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GeneralNull.lean)
-- [`tgl_kernel/TGLExt/GeometricWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GeometricWitness.lean)
-- [`tgl_kernel/TGLExt/GeometryFluctuation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GeometryFluctuation.lean)
-- [`tgl_kernel/TGLExt/GlobalLiftConditional.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GlobalLiftConditional.lean)
-- [`tgl_kernel/TGLExt/GlobalLiftLadder.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GlobalLiftLadder.lean)
-- [`tgl_kernel/TGLExt/GravitonPolarization.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GravitonPolarization.lean)
-- [`tgl_kernel/TGLExt/GravitonReading.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/GravitonReading.lean)
-- [`tgl_kernel/TGLExt/HilbertHome.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/HilbertHome.lean)
-- [`tgl_kernel/TGLExt/HilbertInhabitant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/HilbertInhabitant.lean)
-- [`tgl_kernel/TGLExt/IdealLimit.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/IdealLimit.lean)
-- [`tgl_kernel/TGLExt/InfiniteWord.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/InfiniteWord.lean)
-- [`tgl_kernel/TGLExt/InvariantProjection.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/InvariantProjection.lean)
-- [`tgl_kernel/TGLExt/IsotoneNet.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/IsotoneNet.lean)
-- [`tgl_kernel/TGLExt/LeftRight.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/LeftRight.lean)
-- [`tgl_kernel/TGLExt/LinearizedSpin2.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/LinearizedSpin2.lean)
-- [`tgl_kernel/TGLExt/LocalBreuerGap.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/LocalBreuerGap.lean)
-- [`tgl_kernel/TGLExt/MarkovTower.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/MarkovTower.lean)
-- [`tgl_kernel/TGLExt/MinimalSolder.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/MinimalSolder.lean)
-- [`tgl_kernel/TGLExt/MixedLadder.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/MixedLadder.lean)
-- [`tgl_kernel/TGLExt/ModularCurrent.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ModularCurrent.lean)
-- [`tgl_kernel/TGLExt/ModularFirstLaw.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ModularFirstLaw.lean)
-- [`tgl_kernel/TGLExt/ModularFlow.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ModularFlow.lean)
-- [`tgl_kernel/TGLExt/NoFullWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/NoFullWitness.lean)
-- [`tgl_kernel/TGLExt/NoNormalTrace.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/NoNormalTrace.lean)
-- [`tgl_kernel/TGLExt/NumberOperator.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/NumberOperator.lean)
-- [`tgl_kernel/TGLExt/NumberSelfAdjoint.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/NumberSelfAdjoint.lean)
-- [`tgl_kernel/TGLExt/ObserverInside.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ObserverInside.lean)
-- [`tgl_kernel/TGLExt/PPIndex.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PPIndex.lean)
-- [`tgl_kernel/TGLExt/PageInformation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PageInformation.lean)
-- [`tgl_kernel/TGLExt/PhysicsCertificates.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PhysicsCertificates.lean)
-- [`tgl_kernel/TGLExt/PoincareGroup.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PoincareGroup.lean)
-- [`tgl_kernel/TGLExt/PoincareWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PoincareWitness.lean)
-- [`tgl_kernel/TGLExt/PowersLadder.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PowersLadder.lean)
-- [`tgl_kernel/TGLExt/ProgrammerRule.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ProgrammerRule.lean)
-- [`tgl_kernel/TGLExt/PsiEmergence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PsiEmergence.lean)
-- [`tgl_kernel/TGLExt/RGStability.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/RGStability.lean)
-- [`tgl_kernel/TGLExt/ReducedEmergence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ReducedEmergence.lean)
-- [`tgl_kernel/TGLExt/RegularRep.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/RegularRep.lean)
-- [`tgl_kernel/TGLExt/RightMult.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/RightMult.lean)
-- [`tgl_kernel/TGLExt/SMatrix.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SMatrix.lean)
-- [`tgl_kernel/TGLExt/SaturatedWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SaturatedWitness.lean)
-- [`tgl_kernel/TGLExt/ScaleCurrent.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ScaleCurrent.lean)
-- [`tgl_kernel/TGLExt/SecondCone.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SecondCone.lean)
-- [`tgl_kernel/TGLExt/SemifiniteLattice.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SemifiniteLattice.lean)
-- [`tgl_kernel/TGLExt/SemifiniteSeed.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SemifiniteSeed.lean)
-- [`tgl_kernel/TGLExt/SemifiniteWeight.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SemifiniteWeight.lean)
-- [`tgl_kernel/TGLExt/SignatureInTheLimit.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SignatureInTheLimit.lean)
-- [`tgl_kernel/TGLExt/Solder4D.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/Solder4D.lean)
-- [`tgl_kernel/TGLExt/SolderField.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SolderField.lean)
-- [`tgl_kernel/TGLExt/SolvedEquation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SolvedEquation.lean)
-- [`tgl_kernel/TGLExt/SpectralReduction.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SpectralReduction.lean)
-- [`tgl_kernel/TGLExt/StrongAssembly.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/StrongAssembly.lean)
-- [`tgl_kernel/TGLExt/StrongFrame.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/StrongFrame.lean)
-- [`tgl_kernel/TGLExt/SusyRelativeGap.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/SusyRelativeGap.lean)
-- [`tgl_kernel/TGLExt/TTSuperposition.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TTSuperposition.lean)
-- [`tgl_kernel/TGLExt/TailNet.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TailNet.lean)
-- [`tgl_kernel/TGLExt/TheCoinage.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TheCoinage.lean)
-- [`tgl_kernel/TGLExt/TheFactorObject.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TheFactorObject.lean)
-- [`tgl_kernel/TGLExt/TheMasterFires.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TheMasterFires.lean)
-- [`tgl_kernel/TGLExt/ThirdCone.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ThirdCone.lean)
-- [`tgl_kernel/TGLExt/ThreeLocksCorner.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/ThreeLocksCorner.lean)
-- [`tgl_kernel/TGLExt/TowerAction.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TowerAction.lean)
-- [`tgl_kernel/TGLExt/TowerDefinite.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TowerDefinite.lean)
-- [`tgl_kernel/TGLExt/TowerHilbert.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TowerHilbert.lean)
-- [`tgl_kernel/TGLExt/TowerModular.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TowerModular.lean)
-- [`tgl_kernel/TGLExt/TowerTraceless.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TowerTraceless.lean)
-- [`tgl_kernel/TGLExt/TracelessAlgebra.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TracelessAlgebra.lean)
-- [`tgl_kernel/TGLExt/TransportWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TransportWitness.lean)
-- [`tgl_kernel/TGLExt/TriadMaster.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/TriadMaster.lean)
-- [`tgl_kernel/TGLExt/VariationalInhabitant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/VariationalInhabitant.lean)
-- [`tgl_kernel/TGLExt/WedgeNet.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WedgeNet.lean)
-- [`tgl_kernel/TGLExt/WitnessSeed.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WitnessSeed.lean)
-- [`tgl_kernel/TGLExt/WitnessV2.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WitnessV2.lean)
-- [`tgl_kernel/TGLExt/WitnessV3.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WitnessV3.lean)
-- [`tgl_kernel/TGLExt/WordExistence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/WordExistence.lean)
-- [`tgl_kernel/lake-manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/lake-manifest.json)
-- [`tgl_kernel/lakefile.toml`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/lakefile.toml)
-- [`tgl_kernel/lean-toolchain`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/lean-toolchain)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/Commutant.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/Commutant.c)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/Commutant.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/Commutant.c.hash)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/Commutant.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/Commutant.setup.json)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/CondExpect.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/CondExpect.c)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/CondExpect.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/CondExpect.c.hash)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/CondExpect.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/CondExpect.setup.json)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.c)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.c.hash)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/FiniteTomita.setup.json)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/LeftRight.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/LeftRight.c)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/LeftRight.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/LeftRight.c.hash)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/LeftRight.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/LeftRight.setup.json)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/ModularFlow.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/ModularFlow.setup.json)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/PPIndex.setup.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/PPIndex.setup.json)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.ilean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.ilean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.ilean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.ilean.hash)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.olean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.olean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.olean.hash)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/Commutant.trace)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.ilean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.ilean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.ilean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.ilean.hash)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.olean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.olean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.olean.hash)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/CondExpect.trace)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.ilean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.ilean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.ilean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.ilean.hash)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.olean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.olean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.olean.hash)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/FiniteTomita.trace)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.ilean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.ilean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.ilean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.ilean.hash)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.olean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.olean.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.olean.hash)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/lib/lean/TGLExt/LeftRight.trace)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/config/1/lakefile.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/config/1/lakefile.olean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/config/1/lakefile.olean.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/config/1/lakefile.olean.trace)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/config/5/lakefile.olean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/config/5/lakefile.olean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/config/5/lakefile.olean.trace`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/config/5/lakefile.olean.trace)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/README.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/README.md)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/AreaScale.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/AreaScale.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/Audit.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/Audit.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/Basic.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/Basic.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/ContinuousCornerAbstract.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/ContinuousCornerAbstract.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/CoreSupport.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/CoreSupport.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/FiniteThreeLocks.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/FiniteThreeLocks.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/GravitonShadow.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/GravitonShadow.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/HalfNat.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/HalfNat.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/HalfNatFresnel.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/HalfNatFresnel.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/HalfNatJonesTower.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/HalfNatJonesTower.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/Main.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/Main.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/ModularRealization.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/ModularRealization.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/NameIndex.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/NameIndex.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/NameRelation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/NameRelation.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/Probe.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/Probe.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/Probe2.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/Probe2.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/Probe3.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/Probe3.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/Probe4.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/Probe4.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/ProbeDegenerate.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/ProbeDegenerate.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/ProbeFiniteFullWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/ProbeFiniteFullWitness.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/ProbeModularAPI.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/ProbeModularAPI.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/ProbeNameIndexNoOptimal.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/ProbeNameIndexNoOptimal.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/ProbePropOnlyModular.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/ProbePropOnlyModular.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/ProbeTrivial.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/ProbeTrivial.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/SpecificAQFTWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/SpecificAQFTWitness.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/TransportData.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/TransportData.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGL/VerbInhabitant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/VerbInhabitant.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/AQFTCoreInhabitant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/AQFTCoreInhabitant.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/AbsoluteOne.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/AbsoluteOne.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/AnsatzEinstein.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/AnsatzEinstein.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/BenchCertificate.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/BenchCertificate.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/Bicommutant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/Bicommutant.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/BicommutantSkeleton.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/BicommutantSkeleton.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/BisognanoWichmann.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/BisognanoWichmann.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/BoundaryException.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/BoundaryException.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ClosedLattice.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ClosedLattice.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ClosureCertificate.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ClosureCertificate.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/Cocycle.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/Cocycle.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ColimitSeed.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ColimitSeed.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/Commutant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/Commutant.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ConcreteFourFrame.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ConcreteFourFrame.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/CondExpect.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/CondExpect.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ConjugateAct.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ConjugateAct.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ConjugateWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ConjugateWitness.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ContinuousModularZero.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ContinuousModularZero.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ContinuumShards.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ContinuumShards.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ContinuumTT.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ContinuumTT.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/CornerFamily.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/CornerFamily.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/CovariantCorner.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/CovariantCorner.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/DecisionCommutation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/DecisionCommutation.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/DimensionTrace.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/DimensionTrace.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/EmergenceTriad.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/EmergenceTriad.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/EmergentEinstein.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/EmergentEinstein.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/Ergodicity.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/Ergodicity.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ExactWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ExactWitness.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/FallenLight.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FallenLight.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/FiniteCrossedProduct.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FiniteCrossedProduct.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/FiniteGNSNoCompletion.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FiniteGNSNoCompletion.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/FiniteTomita.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FiniteTomita.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/FirstCurvature.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FirstCurvature.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/FusedWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FusedWitness.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/GNSBridge.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/GNSBridge.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/GNSQuotient.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/GNSQuotient.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/GNSTower.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/GNSTower.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/GeneralNull.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/GeneralNull.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/GeometricWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/GeometricWitness.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/GeometryFluctuation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/GeometryFluctuation.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/GlobalLiftConditional.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/GlobalLiftConditional.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/GlobalLiftLadder.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/GlobalLiftLadder.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/GravitonPolarization.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/GravitonPolarization.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/GravitonReading.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/GravitonReading.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/HilbertHome.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/HilbertHome.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/HilbertInhabitant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/HilbertInhabitant.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/IdealLimit.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/IdealLimit.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/InfiniteWord.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/InfiniteWord.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/InvariantProjection.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/InvariantProjection.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/IsotoneNet.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/IsotoneNet.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/LeftRight.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/LeftRight.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/LinearizedSpin2.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/LinearizedSpin2.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/LocalBreuerGap.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/LocalBreuerGap.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/MarkovTower.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/MarkovTower.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/MinimalSolder.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/MinimalSolder.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/MixedLadder.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/MixedLadder.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ModularCurrent.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ModularCurrent.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ModularFirstLaw.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ModularFirstLaw.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ModularFlow.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ModularFlow.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/NoFullWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/NoFullWitness.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/NoNormalTrace.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/NoNormalTrace.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/NumberOperator.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/NumberOperator.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/NumberSelfAdjoint.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/NumberSelfAdjoint.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ObserverInside.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ObserverInside.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/PPIndex.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/PPIndex.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/PageInformation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/PageInformation.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/PhysicsCertificates.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/PhysicsCertificates.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/PoincareGroup.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/PoincareGroup.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/PoincareWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/PoincareWitness.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/PowersLadder.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/PowersLadder.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ProgrammerRule.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ProgrammerRule.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/PsiEmergence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/PsiEmergence.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/RGStability.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/RGStability.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ReducedEmergence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ReducedEmergence.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/RegularRep.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/RegularRep.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/RightMult.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/RightMult.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SMatrix.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SMatrix.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SaturatedWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SaturatedWitness.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ScaleCurrent.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ScaleCurrent.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SecondCone.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SecondCone.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SemifiniteLattice.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SemifiniteLattice.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SemifiniteSeed.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SemifiniteSeed.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SemifiniteWeight.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SemifiniteWeight.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SignatureInTheLimit.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SignatureInTheLimit.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/Solder4D.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/Solder4D.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SolderField.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SolderField.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SolvedEquation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SolvedEquation.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SpectralReduction.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SpectralReduction.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/StrongAssembly.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/StrongAssembly.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/StrongFrame.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/StrongFrame.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SusyRelativeGap.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SusyRelativeGap.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TTSuperposition.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TTSuperposition.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TailNet.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TailNet.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheCoinage.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheCoinage.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheFactorObject.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheFactorObject.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheMasterFires.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheMasterFires.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ThirdCone.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ThirdCone.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ThreeLocksCorner.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ThreeLocksCorner.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TowerAction.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TowerAction.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TowerDefinite.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TowerDefinite.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TowerHilbert.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TowerHilbert.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TowerModular.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TowerModular.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TowerTraceless.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TowerTraceless.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TracelessAlgebra.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TracelessAlgebra.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TransportWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TransportWitness.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TriadMaster.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TriadMaster.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/VariationalInhabitant.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/VariationalInhabitant.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/WedgeNet.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/WedgeNet.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/WitnessSeed.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/WitnessSeed.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/WitnessV2.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/WitnessV2.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/WitnessV3.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/WitnessV3.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/WordExistence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/WordExistence.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/lake-manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/lake-manifest.json)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/lakefile.toml`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/lakefile.toml)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/lean-toolchain`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/lean-toolchain)
 
-### Genesis da Unificação (117 files — the complete production history)
+### 📁 `Genesis da Unificação/` — the complete production history (117 files)
 
 - [`Genesis da Unificação/ACOM/Acom_v17_mirror.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/Acom_v17_mirror.py)
 - [`Genesis da Unificação/ACOM/Output Acom_v17_mirror.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/Output%20Acom_v17_mirror.pdf)
@@ -1476,7 +1485,7 @@ Every file in `main/`, grouped by article, as direct raw links (percent-encoded;
 - [`Genesis da Unificação/Validacao_cosmologica/unification_v1.4_20260218_160551.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/unification_v1.4_20260218_160551.json)
 - [`Genesis da Unificação/Validacao_cosmologica/validation_v8.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/validation_v8.json)
 
-### Repository infrastructure
+### Repository infrastructure (root)
 
 - [`.gitattributes`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes)
 - [`.gitignore`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore)
