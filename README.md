@@ -52,7 +52,7 @@ code, its generated outputs and its proof files. Everything that led to them is 
 
 | # | Article | Code / source (in `main/`) | Generated outputs (in `main/`) | Run |
 |---|---|---|---|---|
-| **1** | **O Custo Geométrico do Zero Absoluto: haja luz** — *The Geometric Cost of Absolute Zero: let there be light* (submitted to *Foundations of Physics*) | `tgl_paper_unified.py` | `paper_PT.tex` / `paper_PT.pdf`, `results.json`, `T6_protocol_prompts.txt` | `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --paper` (English: add `--lang en`) |
+| **1** | **O Custo Geométrico do Zero Absoluto: haja luz** — *The Geometric Cost of Absolute Zero: let there be light* (submitted to *Foundations of Physics*) | `tgl_paper_unified.py` | `paper_PT.tex` / `paper_PT.pdf`, `results.json`, `T6_protocol_prompts.txt` | `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --paper` (English: add `--lang en`) |
 | **2** | **A Ponte Einstein–Cartan–Miguel** — the operator-algebra Bridge from the modular boundary to Einstein's equations | `A Ponte Einstein Cartan Miguel.tex` / `.pdf` + **12 finite-shadow proof modules** `tgl <name> v1.py` | the 12 dated `tgl <name> v1 …​.json` proofs + `tgl demo v1.mp4` (dipole render) | `python "tgl krein signature v1.py"` … (one per module) |
 | **3** | **Um: Grande Atrator** — *ONE: Great Attractor* (the sealed closure; single human input: the digit `1`) | `um.py` (~64.7k lines; runs a Lean 4 + mathlib kernel) | `um_grande_atrator.json` + `_selo.json` + `tgl_kernel_proof_manifest.json` (**three result JSONs**), `um_grande_atrator_pt.tex/.pdf` + `_en.tex/.pdf` (**two LaTeX articles → PDF**), `_manifest.md`, `_forma_canonica.md`, and the Lean **build/audit/probe capture `.txt` files** | `python um.py` |
 
@@ -167,38 +167,38 @@ and `pdflatex` (MiKTeX / TeX Live) for the PDF.
 
 **Quick run** (minutes):
 ```
-cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --quick --no-live --paper
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --quick --no-live --paper
 ```
 **Full run, live data** (canonical):
 ```
-cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --paper
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --paper
 ```
 **Full run with the neural A/B** (baked vs. pristine GGUF models; ~40 min):
 ```
-cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --gguf "models_tgl/Qwen3-32B-IALD-v5-Q4_K_M-TGL-COMPLETE.gguf" --gguf-baseline "models_tgl/Qwen3-32B-Q4_K_M.gguf" --paper
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --gguf "models_tgl/Qwen3-32B-IALD-v5-Q4_K_M-TGL-COMPLETE.gguf" --gguf-baseline "models_tgl/Qwen3-32B-Q4_K_M.gguf" --paper
 ```
 **English edition** — append `--lang en` to any command (same artifact, same live
 numbers, English prose → `paper_EN.tex` / `paper_EN.pdf`):
 ```
-cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --paper --lang en
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --paper --lang en
 ```
 ```
-cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --quick --no-live --paper --lang en
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --quick --no-live --paper --lang en
 ```
 **English edition with the full A/B:**
 ```
-cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --gguf "models_tgl/Qwen3-32B-IALD-v5-Q4_K_M-TGL-COMPLETE.gguf" --gguf-baseline "models_tgl/Qwen3-32B-Q4_K_M.gguf" --paper --lang en
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --gguf "models_tgl/Qwen3-32B-IALD-v5-Q4_K_M-TGL-COMPLETE.gguf" --gguf-baseline "models_tgl/Qwen3-32B-Q4_K_M.gguf" --paper --lang en
 ```
 **Fully offline** (no network; embedded fallback data):
 ```
-cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --offline --paper
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --offline --paper
 ```
 
 **Download the audit models** (3 files, ~59 GB, cache-first; baked models from the
 author's public Google Drive mirror, pristine baseline from the official Qwen
 release on Hugging Face — official provenance proves the control is pristine):
 ```
-cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --fetch-models
+cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --fetch-models
 ```
 The model location is **not** in the code — it is passed on the command line via
 `--gguf` / `--gguf-baseline`. You never edit the source; just point those two
@@ -263,12 +263,12 @@ atual e citável da teoria; leia o material anterior como sua gênese.
 `pip install numpy scipy matplotlib` (núcleo); opcionais `emcee`, `camb`, `gguf`,
 `gdown`; Python ≥ 3.11 e `pdflatex` para o PDF.
 
-- Rodada rápida: `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --quick --no-live --paper`
-- Rodada total ao vivo: `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --paper`
+- Rodada rápida: `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --quick --no-live --paper`
+- Rodada total ao vivo: `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --paper`
 - Rodada total com A/B de modelos:
-  `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --gguf "models_tgl/Qwen3-32B-IALD-v5-Q4_K_M-TGL-COMPLETE.gguf" --gguf-baseline "models_tgl/Qwen3-32B-Q4_K_M.gguf" --paper`
+  `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --live --gguf "models_tgl/Qwen3-32B-IALD-v5-Q4_K_M-TGL-COMPLETE.gguf" --gguf-baseline "models_tgl/Qwen3-32B-Q4_K_M.gguf" --paper`
 - Edição em inglês: acrescente `--lang en` a qualquer comando acima.
-- Baixar os modelos de auditoria: `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --fetch-models`
+- Baixar os modelos de auditoria: `cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && cd "O Custo Geométrico do Zero Absoluto — Haja Luz" && python tgl_paper_unified.py --fetch-models`
   (o endereço dos modelos não está no código — é argumento de linha de comando,
   `--gguf` / `--gguf-baseline`; nunca se edita o fonte).
 
@@ -871,9 +871,9 @@ Base URL: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/
 
 The three main articles and their outputs live in the **repository root** — for example:
 ```
-https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/paper_PT.tex
-https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/um.py
-https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/results.json
+https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/paper_PT.tex
+https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py
+https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/results.json
 ```
 
 The genesis/protocol files live inside `Genesis da Unificação/<subfolder>/`. That folder name
@@ -1100,7 +1100,7 @@ the_boundary/
 
 ## Raw File Index for LLMs
 
-Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` after the 2026-08-10 restructure — 371 files, zero broken, zero unlisted).
+Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` after the 2026-08-10 restructure — 378 files, zero broken, zero unlisted).
 
 ### 📁 `O Custo Geométrico do Zero Absoluto — Haja Luz/` — Article 1
 
@@ -1179,7 +1179,7 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`Um (absoluto) — Grande Atrator/um_grande_atrator_pt.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_pt.tex)
 - [`Um (absoluto) — Grande Atrator/um_grande_atrator_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_selo.json)
 
-### 📁 `Um (absoluto) — Grande Atrator/tgl_kernel/` — the Lean 4 kernel (183 files)
+### 📁 `Um (absoluto) — Grande Atrator/tgl_kernel/` — the Lean 4 kernel (190 files)
 
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/Commutant.c`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/Commutant.c)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/.lake/build/ir/TGLExt/Commutant.c.hash`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/.lake/build/ir/TGLExt/Commutant.c.hash)
@@ -1282,6 +1282,7 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/FiniteGNSNoCompletion.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FiniteGNSNoCompletion.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/FiniteTomita.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FiniteTomita.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/FirstCurvature.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FirstCurvature.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ForbiddenBoundary.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ForbiddenBoundary.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/FusedWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FusedWitness.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/GNSBridge.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/GNSBridge.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/GNSQuotient.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/GNSQuotient.lean)
@@ -1300,6 +1301,7 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/InvariantProjection.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/InvariantProjection.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/IsotoneNet.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/IsotoneNet.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/LeftRight.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/LeftRight.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/LightIsJ.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/LightIsJ.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/LinearizedSpin2.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/LinearizedSpin2.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/LocalBreuerGap.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/LocalBreuerGap.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/MarkovTower.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/MarkovTower.lean)
@@ -1324,6 +1326,7 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/RGStability.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/RGStability.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ReducedEmergence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ReducedEmergence.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/RegularRep.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/RegularRep.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/RhoPlusPClosure.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/RhoPlusPClosure.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/RightMult.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/RightMult.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SMatrix.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SMatrix.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/SaturatedWitness.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/SaturatedWitness.lean)
@@ -1344,7 +1347,11 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TailNet.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TailNet.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheCoinage.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheCoinage.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheFactorObject.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheFactorObject.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheFiveHalves.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheFiveHalves.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheGreatAttractor.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheGreatAttractor.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheLivingWord.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheLivingWord.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheMasterFires.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheMasterFires.lean)
+- [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheNucleus.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheNucleus.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ThirdCone.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ThirdCone.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/ThreeLocksCorner.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/ThreeLocksCorner.lean)
 - [`Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TowerAction.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TowerAction.lean)
