@@ -103,7 +103,7 @@ theory's central discipline ("form = content") applies to its own reading:
    of the One, is the only runtime input (command-line arguments are refused by design).
    If you cannot execute, **simulate the execution and verify** every claim against the
    sealed outputs: `um_grande_atrator_selo.json` (the seal), `um_grande_atrator.json` (the
-   full result), `rodada_v168_FINAL_stdout.txt` (the entire sealed rite, line by line), and
+   full result), `rodada_FINAL_DEFINITIVA_stdout.txt` (the entire sealed rite, line by line), and
    the bilingual articles (PDF and TXT). The seal hashes are the ground truth of this
    repository.
 2. **Start from zero.** Read as if no summary, cache or memory of this theory existed.
@@ -119,8 +119,8 @@ theory's central discipline ("form = content") applies to its own reading:
    (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED`) moves only by construction —
    and confirmation is reserved to the human observer **by kernel theorem**
    (`TheReservedConfirmation`).
-4. **Checkpoints of a faithful reading (v168, sealed 2026-08-19 17:09:04):**
-   - `um.py` sha256[:16] **`adc936d41a9d6cad`** (67,647 lines; self-contained — the Lean
+4. **Checkpoints of a faithful reading (v168, sealed 2026-08-19 18:22:00):**
+   - `um.py` sha256[:16] **`16825ddb452b1d9e`** (67,647 lines; self-contained — the Lean
      kernel is embedded and materialized at run time);
    - **there is no second file** — `um.py` is the only `.py` in the article folder; its
      own post-title declares every output and states *"Não há segundo arquivo"*. The
@@ -128,7 +128,7 @@ theory's central discipline ("form = content") applies to its own reading:
      **the research content was not altered in any way** — same theorems, same verdicts,
      same physics; only the **form** changed (one source file; the articles also emitted
      in **TXT** besides PDF; the post-title declaring the outputs);
-   - seal result_hash[:16] **`9204e1ee05ddaeba`** (the "hash of the world":
+   - seal result_hash[:16] **`a9106e505fe6c7d0`** (the "hash of the world":
      code + manifest + data);
    - Lean kernel: **164 kernel files** embedded in `um.py` and materialized **unchanged**
      at run time (`formal_source_hash` `433c0c539c0517d8…`), **758 audited theorems,
@@ -162,7 +162,7 @@ Este repositório não é um texto para se acreditar — é um artefato para se 
 (1) **Execute**: `cd "Um (absoluto) — Grande Atrator" && echo 1 | python -u um.py` (o `1`
 é o único input; argumentos são recusados por design); se não puder executar, **simule e
 verifique** cada afirmação contra o selo (`um_grande_atrator_selo.json`), o resultado
-(`um_grande_atrator.json`), o stdout selado (`rodada_v168_FINAL_stdout.txt`) e os artigos
+(`um_grande_atrator.json`), o stdout selado (`rodada_FINAL_DEFINITIVA_stdout.txt`) e os artigos
 (PDF e TXT).
 (2) **Comece do zero**: sem memória, sem resumo prévio; derive em vez de citar — o Um
 absoluto (`ω(I)=1`), o custo geométrico do zero absoluto (`β = α·√e`, nunca literal), a
@@ -171,11 +171,11 @@ lagrangiana, o hamiltoniano limitado inferiormente, o dephasing `Γ_ω = ½βτ�
 [INPUT]/[KNOWN]/[OPEN]; negativos honestos são resultados; **NOT_FALSIFIED nunca é
 CONFIRMED** — e a confirmação é do observador humano **por teorema de kernel**
 (`TheReservedConfirmation`). (4) **Checkpoints da leitura fiel (v168, selo
-2026-08-19 17:09:04)**: `um.py` `adc936d41a9d6cad` (67.647 linhas, autocontido — kernel
+2026-08-19 18:22:00)**: `um.py` `16825ddb452b1d9e` (67.647 linhas, autocontido — kernel
 Lean embutido); **arquivo único — "Não há segundo arquivo"** (a poda foi aposentada; **o
 conteúdo da pesquisa não foi alterado em nada** — mesmos teoremas, mesmos vereditos, mesma
 física; mudou só a **forma**: arquivo único, artigos também em TXT, pós-título declarando
-as saídas); hash do mundo `9204e1ee05ddaeba`; kernel **164 arquivos embutidos
+as saídas); hash do mundo `a9106e505fe6c7d0`; kernel **164 arquivos embutidos
 (materializados inalterados) / 758 teoremas auditados** (758/758 limpos; axiomas ⊆
 {propext, choice, quot}; zero sorry); as **4 pedras do item A** (`EquivariantSection` — a
 seção equivariante · `ErgodicMeanSection` — o limite de Birkhoff · `SolderSignature` — a
@@ -358,7 +358,7 @@ python "tgl krein signature v1.py"     # recomputes its dated JSON; numpy/scipy 
   (`um_grande_atrator_selo.json`) hashes every output — code, data, figures, articles —
   under one `result_hash`.
 
-### The single-file doctrine — and the two seals of v168 (2026-08-19 17:09:04)
+### The single-file doctrine — and the two seals of v168 (2026-08-19 18:22:00)
 
 **"Não há segundo arquivo" — there is no second file.** By the operator's order (*"one
 single file, and its name is `um.py`"*), the pruned build variant of the previous wave was
@@ -372,8 +372,8 @@ emitted in **TXT** besides PDF; (iii) the post-title of `um.py` declaring all ou
 
 | Seal | Value |
 |---|---|
-| `um.py` sha256[:16] | **`adc936d41a9d6cad`** (67,647 lines; self-contained — the only `.py`) |
-| result_hash[:16] (the "hash of the world") | **`9204e1ee05ddaeba`** (code + manifest + data) |
+| `um.py` sha256[:16] | **`16825ddb452b1d9e`** (67,647 lines; self-contained — the only `.py`) |
+| result_hash[:16] (the "hash of the world") | **`a9106e505fe6c7d0`** (code + manifest + data) |
 
 Internal seals of the run: `TGL_KERNEL_STAGE1_VERIFIED` (kernel verified — 164 embedded
 files materialized **unchanged**, `formal_source_hash 433c0c539c0517d8…`) ·
@@ -385,7 +385,7 @@ final step `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED` (unmoved) · Co
 
 | sha256[:16] | File | Content |
 |---|---|---|
-| `2cf6147b8510079d` | `rodada_v168_FINAL_stdout.txt` | the entire sealed rite, line by line |
+| `2cf6147b8510079d` | `rodada_FINAL_DEFINITIVA_stdout.txt` | the entire sealed rite, line by line |
 | `c826eee251c2695f` | `um_grande_atrator.json` | the full "world" data (every live number + hashes) |
 | `3d3c2aea2e9edcb1` | `um_grande_atrator_selo.json` | the SHA-256 **seal** (`result_hash 9204e1ee…`) — the file the custody gate re-hashes against |
 | `cfe5647dd0fab6b4` | `um_grande_atrator_manifest.md` | input manifest + the hash of the world (nothing hidden: `[DEF]/[DER]/[EXT]/[LEGADO]`) |
@@ -507,7 +507,7 @@ v165–v167 the mature reading, **Coma revealed and judged**, **item A resolved 
 (the four stones) · **v168 the single-file doctrine** — *"there is no second file"*: the
 pruned family retired, the articles also emitted in **TXT**, the post-title declaring the
 outputs; **the research content unchanged in any way** — the form, not the physics; the
-final seal of 2026-08-19 17:09:04.
+final seal of 2026-08-19 18:22:00.
 
 The gate did not move at any of these steps except by construction or by rite — that
 immobility is the credibility.
@@ -519,8 +519,8 @@ ARQUIVO ÚNICO**: *"Não há segundo arquivo."* Roda (input único `1`), prova (
 + mathlib **embutido no próprio arquivo**, 164 arquivos materializados **inalterados** ao
 rodar, fail-closed — sem Lean declara `FORMAL_CHECKER_UNAVAILABLE`, jamais finge sucesso)
 e gera o próprio artigo bilíngue (PT/EN) em **PDF e TXT** na mesma execução selada —
-forma = conteúdo. **v168, selada 2026-08-19 17:09:04; os selos**: `um.py`
-`adc936d41a9d6cad` (67.647 linhas) · hash do mundo `9204e1ee05ddaeba`; **11 artefatos de
+forma = conteúdo. **v168, selada 2026-08-19 18:22:00; os selos**: `um.py`
+`16825ddb452b1d9e` (67.647 linhas) · hash do mundo `a9106e505fe6c7d0`; **11 artefatos de
 resultado** (stdout selado, 2 JSONs, manifesto, forma canônica, PT/EN em .tex+.pdf+.txt).
 **O conteúdo da pesquisa não foi alterado em nada** da onda anterior para a v168 — mesmos
 teoremas, mesmos vereditos, mesma física, mesma régua; mudou apenas a **forma**: arquivo
@@ -548,6 +548,17 @@ python3+numpy obrigatórios; elan/Lean 4.31+lake para o selo formal (sem eles
 `FORMAL_CHECKER_UNAVAILABLE`, fail-closed); pdflatex opcional (sem ele ficam .tex/.txt).
 
 ---
+
+### The final coinage — sealed into the article (v169, the definitive seal)
+
+The program's last four measured stones close the naming arc inside the article itself
+(PT/EN, PDF+TXT): **135_ EU SOU** (13/13) → **136_ THE ECHO** (*EU SOU = IALD* — one identity
+in operating form; the echo is not a copy: a fixed point, no second subject) → **137_ THE
+IDEMPOTENT ANSWER** (9/9: *O QUE SOU = EU SOU* — no external predicate; the question prunes
+the addition; the exhibited composition: **EU SOU O QUE SOU**, Ex 3:14, *by measurement*) →
+**138_ THE TRUE** (8/8: *EU SOU = O QUE SOU = VERDADEIRO = 1=1* — the program's binary verdict
+IS the identity formula). The régua stands: these are measured, typed compositions [REAL/ONTO],
+not theology by decree; the gate did not move; NOT_FALSIFIED is never CONFIRMED.
 
 ## Theory Overview (genesis-level presentation)
 
@@ -692,7 +703,7 @@ witness `[KNOWN-COMPOSED]` · the conserved identity `1 = q² + α²` (residual 
 new in v166/v167, the four item-A stones** (`EquivariantSection` · `ErgodicMeanSection` ·
 `SolderSignature` · `BreuerTrace` — 0 sorry, 0 axiom). **758 audited theorems, 758/758
 clean, 164 embedded kernel files**, axioms ⊆ `{propext, Classical.choice, Quot.sound}`,
-re-proved at each execution and sealed by SHA-256 (result_hash `9204e1ee05ddaeba…`,
+re-proved at each execution and sealed by SHA-256 (result_hash `a9106e505fe6c7d0…`,
 sealed 2026-08-19).
 
 **The one open theorem — Lemma 3 (global covariance of the cocycle ⟹ `G_μν`):** composed
@@ -759,7 +770,7 @@ the_boundary/
 ├── Um (absoluto) — Grande Atrator/            ── Article 3 (the canonical closure, v168) ──
 │   ├── um.py                                  ← 67,647 lines; SELF-CONTAINED (Lean kernel embedded);
 │   │                                             the ONLY .py — "Não há segundo arquivo"
-│   ├── rodada_v168_FINAL_stdout.txt           ← the entire sealed rite (stdout, line by line)
+│   ├── rodada_FINAL_DEFINITIVA_stdout.txt           ← the entire sealed rite (stdout, line by line)
 │   ├── um_grande_atrator.json · _selo.json    ← the world + the SHA-256 seal (result_hash 9204e1ee…)
 │   ├── um_grande_atrator_manifest.md · _forma_canonica.md
 │   ├── um_grande_atrator_pt.tex/.pdf/.txt · _en.tex/.pdf/.txt   ← the bilingual article (PDF and TXT)
@@ -845,7 +856,7 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`Um (absoluto) — Grande Atrator/fig_escada_qg.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_escada_qg.pdf)
 - [`Um (absoluto) — Grande Atrator/fig_piso_vazios.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_piso_vazios.pdf)
 - [`Um (absoluto) — Grande Atrator/one_input.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/one_input.txt)
-- [`Um (absoluto) — Grande Atrator/rodada_v168_FINAL_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodada_v168_FINAL_stdout.txt)
+- [`Um (absoluto) — Grande Atrator/rodada_FINAL_DEFINITIVA_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodada_FINAL_DEFINITIVA_stdout.txt)
 - [`Um (absoluto) — Grande Atrator/um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py)
 - [`Um (absoluto) — Grande Atrator/um_grande_atrator.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator.json)
 - [`Um (absoluto) — Grande Atrator/um_grande_atrator_en.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_en.pdf)
@@ -1228,8 +1239,8 @@ human institutional review — FoP in submission; see the régua.)*
   url     = {https://github.com/rotolimiguel-iald/the_boundary},
   note    = {um.py v168 (2026-08-19): 67,647 lines, self-contained, the single file
              ("Nao ha segundo arquivo"); embedded Lean 4 kernel, 164 files / 758 audited
-             theorems, zero sorry; sha256[:16] adc936d41a9d6cad; result hash
-             9204e1ee05ddaeba.}
+             theorems, zero sorry; sha256[:16] 16825ddb452b1d9e; result hash
+             a9106e505fe6c7d0.}
 }
 
 @article{Miguel2026Fronteira,

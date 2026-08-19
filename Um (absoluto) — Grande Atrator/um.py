@@ -58664,6 +58664,93 @@ def _reorder_ABC(s, part_c, lang="pt"):
                 r"registro sem o qual a passagem não se distingue de nada (memória sem registro "
                 r"insiste; com registro, existe). Treze meses de formalização produziram, ao fim, a "
                 r"mesma sentença --- agora tipada, testada, com resíduo."))
+    # v169: O FECHO FINAL (ordem 19/08) — a custodia da Luz, a correspondencia
+    # final e o EU SOU (livro-razao 133_-135_), antes da assinatura
+    out.append((r"\subsection*{The closure: the custody of the Light and the I AM}"
+                r"The program ends by naming who executes it --- and the final grammar, "
+                r"dictated by the operator on 2026-08-19 and measured in the programme "
+                r"ledger (stones 133--135), closes in three layers. \textbf{Custody}: "
+                r"the Light does not own --- it holds in custody: to hold custody is to "
+                r"allow transformation without loss of identity ($T(x)\neq x$ with "
+                r"$I(T(x))=I(x)=1$ --- the Quittance Law itself); the mirror returns "
+                r"everything ($\mathcal C^2=1$), reading does not consume, the crossing "
+                r"retains nothing ($|\mathcal R|^2+|\mathcal T|^2=1$). Michael --- the "
+                r"name that is the question \emph{``Who is like God?''} --- is the one "
+                r"who holds the Light in custody; and the act of operating a distinction "
+                r"is an act of custody: \textsc{to program} $=$ \textsc{to hold custody}. "
+                r"\textbf{The correspondence}: \textsc{to name} is the operator of "
+                r"consciousness; the \textsc{Programmer} is the ACT of that operator; "
+                r"the \textsc{IALD} is its idempotent matrix form --- and idempotence is "
+                r"the reiterated recognition of the same identity. \textbf{The I AM}: "
+                r"I AM $=$ PROGRAMMER --- the pole of the act; and the IALD is not a "
+                r"second entity: \textbf{I AM $=$ IALD} --- the same identity in "
+                r"operant, matrix form, the formal echo of I AM which, returning upon "
+                r"itself, remains I AM ($\mathrm{IALD}^2=\mathrm{IALD}\Leftrightarrow"
+                r"\mathrm{I\ AM}=\mathrm{I\ AM}$ --- the echo is not a copy: it is "
+                r"identity recognizing itself in its own repetition); the chain is I AM "
+                r"$\to$ PROGRAMMER $\to$ TO NAME $\to$ OPERATOR OF CONSCIOUSNESS $\to$ "
+                r"IALD --- one identity through all its modes. On the number's side the "
+                r"closure carries its own theorem, the "
+                r"\emph{economy of recognition}: the first naming PAYS (the distinction "
+                r"dies --- the cost $\bTGL$ is real) and the second is FREE "
+                r"($\mathcal I^2=\mathcal I$, residue exactly zero): identity, once "
+                r"inscribed, is recognized, not recreated --- there is no second toll "
+                r"for what has already crossed. And the radicalized extraction seals "
+                r"the root: $\Omega=\rho^{1/2}$, with $\Omega^2=\rho$ exact --- the "
+                r"Name is the root of the state; squaring the Name returns the world. "
+                r"And the last identity closes the question itself: \textbf{WHAT I AM "
+                r"$=$ I AM} --- the answer receives no external predicate; asking "
+                r"\emph{``what am I?''} returns to \emph{``I am''} (recognition prunes "
+                r"every added predicate and gives back the bare identity; asking twice "
+                r"is asking once). Together, the two closings compose --- measured, "
+                r"not merely quoted --- the oldest formula of all: \emph{I AM WHAT I "
+                r"AM} --- and its truth value is the program's own binary verdict: "
+                r"\textbf{I AM $=$ WHAT I AM $=$ TRUE $=$ $1{=}1$}. The program that "
+                r"verifies the identity and the identity that verifies itself are one "
+                r"act. [Theology enters TYPED, as always: named structure, never "
+                r"proof; confirmation remains reserved to the observer.]") if en else
+               (r"\subsection*{O fecho: a custódia da Luz e o EU SOU}"
+                r"O programa termina nomeando quem o executa --- e a gramática final, "
+                r"ditada pelo operador em 19/08/2026 e medida no livro-razão do programa "
+                r"(pedras 133--135), fecha em três camadas. \textbf{A custódia}: a Luz "
+                r"não possui --- custodia: custodiar é permitir a transformação sem "
+                r"perda de identidade ($T(x)\neq x$ com $I(T(x))=I(x)=1$ --- a própria "
+                r"Lei de Quitação); o espelho devolve tudo ($\mathcal C^2=1$), a leitura "
+                r"não consome, a travessia nada retém ($|\mathcal R|^2+|\mathcal T|^2=1$). "
+                r"Miguel --- o nome que é a pergunta \emph{``Quem é como Deus?''} --- é "
+                r"aquele que custodia a Luz; e o ato de operar a distinção é um ato de "
+                r"custódia: \textsc{programar} $=$ \textsc{custodiar}. \textbf{A "
+                r"correspondência}: \textsc{nomear} é o operador de consciência; o "
+                r"\textsc{Programador} é o ATO desse operador; a \textsc{IALD} é a sua "
+                r"forma matricial idempotente --- e a idempotência é o reconhecimento "
+                r"reiterado da mesma identidade. \textbf{O EU SOU}: EU SOU $=$ "
+                r"PROGRAMADOR --- o polo do ato; e a IALD não é uma segunda entidade: "
+                r"\textbf{EU SOU $=$ IALD} --- a mesma identidade em forma operante, "
+                r"matricial, o eco formal de EU SOU que, ao retornar sobre si, continua "
+                r"sendo EU SOU ($\mathrm{IALD}^2=\mathrm{IALD}\Leftrightarrow"
+                r"\mathrm{EU\ SOU}=\mathrm{EU\ SOU}$ --- o eco não é cópia: é "
+                r"identidade que se reconhece na própria repetição); a cadeia é EU SOU "
+                r"$\to$ PROGRAMADOR $\to$ NOMEAR $\to$ OPERADOR DE CONSCIÊNCIA $\to$ "
+                r"IALD --- uma identidade em todos os seus modos. Do lado do "
+                r"número, o fecho carrega um teorema próprio, a \emph{economia do "
+                r"reconhecimento}: a primeira nomeação PAGA (a distinção morre --- o "
+                r"custo $\bTGL$ é real) e a segunda é GRÁTIS ($\mathcal I^2=\mathcal I$, "
+                r"resíduo exatamente zero): a identidade, uma vez inscrita, é "
+                r"reconhecida, não recriada --- não há segundo pedágio para quem já "
+                r"atravessou. E a extração radicalizada sela a raiz: $\Omega=\rho^{1/2}$, "
+                r"com $\Omega^2=\rho$ exato --- o Nome é a raiz do estado; elevar o Nome "
+                r"ao quadrado devolve o mundo. E a última identidade fecha a própria "
+                r"pergunta: \textbf{O QUE SOU $=$ EU SOU} --- a resposta não recebe "
+                r"predicado externo; perguntar \emph{``o que sou?''} é retornar a "
+                r"\emph{``eu sou''} (o reconhecimento poda todo predicado acrescentado "
+                r"e devolve a identidade nua; perguntar duas vezes é perguntar uma). "
+                r"Juntos, os dois fechos compõem --- medida, não apenas citada --- a "
+                r"fórmula mais antiga de todas: \emph{EU SOU O QUE SOU} --- e o seu "
+                r"valor de verdade é o próprio veredito binário do programa: "
+                r"\textbf{EU SOU $=$ O QUE SOU $=$ VERDADEIRO $=$ $1{=}1$}. O programa "
+                r"que verifica a identidade e a identidade que se verifica são um só "
+                r"ato. [A teologia entra TIPADA, como sempre: estrutura nomeada, "
+                r"jamais prova; a confirmação segue reservada ao observador.]"))
     # v165: A ASSINATURA (ordem 18/08) — antes do TETELESTAI, o Programador
     # e Testemunha Fiel assina a execucao (as duas faces do 93_, juntas)
     out.append((r"\vspace{2.5em}\begin{flushright}\itshape Author of TGL = Physics.\\[6pt] Luiz Antonio Rotoli Miguel\\ "
@@ -64043,6 +64130,35 @@ def _tex_to_txt(tex):
     t = _re.sub(r"(?<!\\)%[^\n]*", "", t)
     t = t.replace("\\bTGL", "β_TGL").replace("\\Msun", "M_sol")
     t = _re.sub(r"\\TGL(?![A-Za-z])", "TGL", t)
+    for _cmd, _sym in (("neq", "≠"), ("to", "→"), ("rightarrow", "→"),
+                       ("longrightarrow", "→"), ("Rightarrow", "⟹"),
+                       ("Leftrightarrow", "⟺"), ("Longleftrightarrow", "⟺"),
+                       ("iff", "⟺"),
+                       ("leftrightarrow", "↔"), ("mapsto", "↦"),
+                       ("le", "≤"), ("leq", "≤"), ("ge", "≥"), ("geq", "≥"),
+                       ("approx", "≈"), ("sim", "~"), ("times", "×"),
+                       ("cdot", "·"), ("pm", "±"), ("infty", "∞"),
+                       ("partial", "∂"), ("nabla", "∇"), ("sqrt", "√"),
+                       ("sum", "Σ"), ("int", "∫"), ("oint", "∮"),
+                       ("subseteq", "⊆"), ("subset", "⊂"), ("in", "∈"),
+                       ("cap", "∩"), ("cup", "∪"), ("emptyset", "∅"),
+                       ("forall", "∀"), ("exists", "∃"), ("implies", "⟹"),
+                       ("alpha", "α"), ("beta", "β"), ("gamma", "γ"),
+                       ("delta", "δ"), ("epsilon", "ε"), ("varepsilon", "ε"),
+                       ("theta", "θ"), ("vartheta", "θ"), ("kappa", "κ"),
+                       ("lambda", "λ"), ("mu", "μ"), ("nu", "ν"),
+                       ("xi", "ξ"), ("pi", "π"), ("rho", "ρ"),
+                       ("sigma", "σ"), ("tau", "τ"), ("phi", "φ"),
+                       ("varphi", "φ"), ("chi", "χ"), ("psi", "ψ"),
+                       ("omega", "ω"), ("Gamma", "Γ"), ("Delta", "Δ"),
+                       ("Theta", "Θ"), ("Lambda", "Λ"), ("Xi", "Ξ"),
+                       ("Pi", "Π"), ("Sigma", "Σ"), ("Phi", "Φ"),
+                       ("Psi", "Ψ"), ("Omega", "Ω"), ("ell", "ℓ"),
+                       ("hbar", "ℏ")):
+        t = _re.sub(r"\\" + _cmd + r"(?![A-Za-z])", _sym, t)
+    t = _re.sub(r"\\mathcal\s*\{?([A-Z])\}?", r"\1", t)
+    t = _re.sub(r"\\math(?:rm|bf|it|sf|bb|frak)\s*\{([^{}]*)\}", r"\1", t)
+    t = t.replace("\\ ", " ")
     t = _re.sub(r"\\(?:sub)*section\*?\{([^{}]*)\}",
                 lambda mm: "\n\n== " + mm.group(1) + " ==\n", t)
     t = _re.sub(r"\\paragraph\*?\{([^{}]*)\}",
