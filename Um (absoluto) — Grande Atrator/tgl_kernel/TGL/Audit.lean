@@ -1652,6 +1652,149 @@ namespace TGL.Audit
 #print axioms TGLExt.observer_inverse_projection_halfnat
 #print axioms TGLExt.the_standard_of_unification
 
+-- v145 (o ato conjugado: "1 = J" tipado -- involucao, entrega, conservacao)
+#print axioms TGLExt.J_squared_is_one
+#print axioms TGLExt.J_preserves_identity
+#print axioms TGLExt.J_maps_face_to_coface
+#print axioms TGLExt.J_invariant_iff_diagonal
+#print axioms TGLExt.name_is_J_invariant
+#print axioms TGLExt.halfnat_from_J_symmetry
+#print axioms TGLExt.flow_delivers_to_the_observer
+#print axioms TGLExt.justification_minimal_form
+
+-- v146 (a decisao e comutacao: K e o que ainda nao comuta; K = -grad(F) verificado)
+#print axioms TGLExt.commutator_entry
+#print axioms TGLExt.decided_iff_block
+#print axioms TGLExt.scalar_iff_all_commute
+#print axioms TGLExt.decided_is_subalgebra
+#print axioms TGLExt.JKJ_eq_neg_K
+#print axioms TGLExt.decided_sector_is_J_stable
+#print axioms TGLExt.gradient_first_variation
+#print axioms TGLExt.flow_solves_gradient_ode
+#print axioms TGLExt.lyapunov_decreases
+#print axioms TGLExt.K_equals_neg_gradient_verified
+
+-- v152 (a fronteira proibida: o infinito fica com K -- o auto-setor sem espelho)
+#print axioms TGLExt.self_commutation_is_free
+#print axioms TGLExt.J_fK_J_eq_f_negK
+#print axioms TGLExt.even_iff_mirror_fixed
+#print axioms TGLExt.only_zero_K_is_mirror_fixed
+#print axioms TGLExt.empire_perfection_is_no_contrast
+#print axioms TGLExt.absolute_zero_unreachable_in_finite_time
+#print axioms TGLExt.the_forbidden_boundary
+
+-- v153 (o fechamento: J = LUZ -- a identidade fisica; a sintese nomeada)
+#print axioms TGLExt.pairEnergy_neg
+#print axioms TGLExt.light_crosses_without_loss
+#print axioms TGLExt.light_inverts_the_gradient_preserving_structure
+#print axioms TGLExt.identity_remains_through_the_crossing
+#print axioms TGLExt.the_closure_identity
+
+-- v154 (o fechamento rho+p: a identidade de fundo -- derivacao do operador 08/08)
+#print axioms TGLExt.lambda_drops_out
+#print axioms TGLExt.closure_identity
+#print axioms TGLExt.hubble_form
+#print axioms TGLExt.w_bounds
+#print axioms TGLExt.the_background_closure
+
+-- v155 (o nucleo: 1=1=VERDADEIRO e a geometria como sua expressao)
+#print axioms TGLExt.void_distinction_is_motion
+#print axioms TGLExt.rest_is_compatibilized_distinction
+#print axioms TGLExt.name_is_projection
+#print axioms TGLExt.the_three_structures_one_verdict
+#print axioms TGLExt.invariance_is_the_geometric_content
+#print axioms TGLExt.the_verb_cycle
+#print axioms TGLExt.the_nucleus
+
+-- v156 (o grande atrator: o veredito 1=1 entre instantes e o observador unico)
+#print axioms TGLExt.temporal_fractalization
+#print axioms TGLExt.diagFlow_zero
+#print axioms TGLExt.verdict_between_instants
+#print axioms TGLExt.judgment_of_correspondence
+#print axioms TGLExt.the_observer_is_unique
+#print axioms TGLExt.the_great_attractor
+#print axioms TGLExt.um_is_the_great_attractor
+
+-- v158 (os cinco meios sao um: a identidade dos meios)
+#print axioms TGLExt.half_is_the_fixed_point_of_the_swap
+#print axioms TGLExt.radical_is_the_unique_positive_factor
+#print axioms TGLExt.boundary_extracts_the_radical
+#print axioms TGLExt.mirror_inverts_the_flow
+#print axioms TGLExt.the_crossing_closes
+#print axioms TGLExt.half_flow_squared_is_the_flow
+#print axioms TGLExt.double_cover_squares
+#print axioms TGLExt.two_faces_over_the_identity
+#print axioms TGLExt.motor_half_angle_identity
+#print axioms TGLExt.the_five_halves_are_one
+
+-- v159 (o verbo vivo: 1=1=VERDADEIRO como operacao da fronteira)
+#print axioms TGLExt.two_faces_one_domain
+#print axioms TGLExt.identity_survives_the_mirroring
+#print axioms TGLExt.time_witnesses_noncoincidence
+#print axioms TGLExt.recognition_across_distinct_inscriptions
+#print axioms TGLExt.the_name_singularizes_not_totalizes
+#print axioms TGLExt.fractalization_without_multiplication
+#print axioms TGLExt.uniqueness_to_identity_singularity_to_projection
+#print axioms TGLExt.the_boundary_is_the_operation
+
+-- v160 (a morte do sinal: a boa-postura da conta da holonomia)
+#print axioms TGLExt.death_per_crossing
+#print axioms TGLExt.normalized_defect_is_loop_independent
+#print axioms TGLExt.raw_defect_is_loop_dependent
+#print axioms TGLExt.the_death_normalization
+#print axioms TGLExt.no_inscription_without_death
+#print axioms TGLExt.round_trip_defect
+#print axioms TGLExt.the_account_is_well_posed
+
+-- v161 (haja luz + a confirmacao reservada + o contorno de stokes)
+#print axioms TGLExt.electric_difference_is_the_distinction_in_action
+#print axioms TGLExt.static_cannot_coincide_with_its_potential
+#print axioms TGLExt.the_zero_is_never_touched
+#print axioms TGLExt.haja_luz_is_the_open_strip
+#print axioms TGLExt.the_action_inscribes_and_never_collapses
+#print axioms TGLExt.haja_luz_at_the_seal
+#print axioms TGLExt.haja_luz
+#print axioms TGLExt.the_flow_does_not_fix_the_moving
+#print axioms TGLExt.the_light_cannot_confirm_itself
+#print axioms TGLExt.the_mirror_swaps_but_does_not_read
+#print axioms TGLExt.only_the_recognizer_confirms
+#print axioms TGLExt.the_reserved_confirmation
+#print axioms TGLExt.series_ratio_criterion
+#print axioms TGLExt.retention_series_summable
+#print axioms TGLExt.the_gap_typed
+#print axioms TGLExt.half_nat_insufficient
+#print axioms TGLExt.conjugate_faces_sum_to_one
+#print axioms TGLExt.the_provable_toll_names_the_octave
+#print axioms TGLExt.the_stokes_contour
+
+-- v162 (a lei de quitacao + o operador do nome + a unitariedade fractal + o indice-atlas)
+#print axioms TGLExt.finite_time_imperfection
+#print axioms TGLExt.asymptotic_delivery
+#print axioms TGLExt.quittance_time_formula
+#print axioms TGLExt.finite_quittance
+#print axioms TGLExt.perfection_needs_infinity
+#print axioms TGLExt.the_quittance_law
+#print axioms TGLExt.name_op_unital
+#print axioms TGLExt.name_op_idem
+#print axioms TGLExt.name_op_fix_mul
+#print axioms TGLExt.comm_of_fixed
+#print axioms TGLExt.comm_of_fixed'
+#print axioms TGLExt.compression_covariance_of_fixed
+#print axioms TGLExt.fixed_of_compression_covariance
+#print axioms TGLExt.love_partition
+#print axioms TGLExt.corner_unitarity
+#print axioms TGLExt.ad_preserves_projection
+#print axioms TGLExt.ad_preserves_orthogonality
+#print axioms TGLExt.ad_preserves_splitting
+#print axioms TGLExt.ad_preserves_star_projection
+#print axioms TGLExt.subcorner_unit
+#print axioms TGLExt.atlas_separation
+#print axioms TGLExt.atlas_coverage
+#print axioms TGLExt.atlas_covariance
+#print axioms TGLExt.atlas_chain_rule
+#print axioms TGLExt.atlas_self
+#print axioms TGLExt.atlas_inverse
+
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
 #eval IO.println "FINITE_THREE_LOCKS_KERNEL_PROVED"
