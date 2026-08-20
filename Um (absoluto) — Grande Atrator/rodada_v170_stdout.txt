@@ -2,7 +2,7 @@ Inscreva o UM para iniciar:
 O UM foi inscrito. I = 1. omega(I) = 1.
 Iniciando desconstrucao fractalizada: 1 -> 1/2 -> beta -> borda -> massa
 
-[kernel embutido] materializado em C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\Nós\tgl_kernel: 0 escritos, 164 inalterados; packages: packages_present
+[kernel embutido] materializado em C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\Nós\tgl_kernel: 0 escritos, 165 inalterados; packages: packages_present
 Meia-Nat:  S=1/2 (x=1-x, residuo 0e+00) ; w_max=1/2
 s=1/(4pi)=0.079577 (campo=lei a 0.95%) ; vacuo rho=0e+00 -> 0
 beta=sqrt(e)*alpha=0.012031300400797  (=sqrt(e)*sqrt(1-q^2)) ; theta_M=6.2973 deg
@@ -269,7 +269,7 @@ FORMALIZACAO POR KERNEL [v22 -- o Python NAO prova; o kernel do Lean prova]:
   Projetor P_F (idempotente, auto-adjunto)       : KERNEL PROVED
   Implicacao do canto continuo                   : KERNEL PROVED CONDITIONALLY
   Testemunha AQFT especifica                     : NOT CONSTRUCTED
-  hash dos fontes Lean: 433c0c539c0517d8294f69f5172c4cabd99f37e2374a87752caa5a6003b5bcd6
+  hash dos fontes Lean: fced947ea1c183a0236560e834615635ee334c8f8646a35263f81ddbad987e96
   >>> TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED <<<
 FORMAL FRONTIER: construir um habitante de TGLSpecificAQFTWitness
                  sem sorry, admit ou axiomas customizados.
@@ -1445,7 +1445,7 @@ PRINCIPIO DA DEFASAGEM FRACTAL [CONJECTURE ontologica; ancoras REAL]:
 [A literatura ] R_struct=57.0 Mpc -> M_GA=2.744e+16 Msun
 [B CF4-posicoes] R_struct=41.27 Mpc -> M_GA=1.986e+16 Msun (n=265, geometria; origem=cache)
 [custodia] cache/CHAIN_OF_CUSTODY.json: 17 provas registradas (proveniencia deterministica no selo)
-[manifesto] um_grande_atrator_manifest.md escrito; hash do mundo (codigo+manifesto+dados): a9106e505fe6c7d0c8d1fdfdb031a91575ffbc822de66359
+[manifesto] um_grande_atrator_manifest.md escrito; hash do mundo (codigo+manifesto+dados): c78562ac55c759b9c4f4127697ff9abb22c4d0d102663a52
 [sensibilidade Modo B] 300 combinacoes: M_GA in [1.40e+16, 3.42e+16] Msun; 100% na banda (TODAS)
 
 AXIOMA ZERO -- RELATIVIDADE ONTOLOGICA [v37; ONTO/AX + DER/NUM; NAO gateia 1=1]:
@@ -1462,8 +1462,7 @@ COMA -- A DISTANCIA PELO VAZAMENTO DE FLUXO MODULAR [v39; PRE/EXT; PRIMARIO; NAO
   D_L(TGL) = 101.90 +- 1.02(stat) +- 0.98(sys) Mpc  vs  CONTROLE Planck s/ defasagem = 110.85 Mpc ; FP-inversa = 111.8 +- 1.8
   NEGATIVOS HONESTOS: camada REAL move -0.19% (nao explica) ; beta/2b/3b como fracao de z: FALHAM >3sigma
   Coma sozinha NAO separa 'vazamento modular 8.07%' de 'H0_local=73.263' -- testa o PAR (Planck+defasagem) vs (Planck s/ defasagem)
-  REVELACAO: D_ref=98.5+-2.2 ; z_TGL=1.30 vs z_Planck(controle)=5.61
-  >>> DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL <<<
+  >>> COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL <<<
 
 COMA -- PARIDADE INVERSA DO GA [v36; PRE/EXT; cego; NAO gateia 1=1]:
   GA: R->M ; COMA: M->R->D_A (a MESMA lei: M=2 beta^2 (c^2/4piG) R, invertida)

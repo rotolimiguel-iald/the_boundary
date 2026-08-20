@@ -6034,11 +6034,11 @@
         "TGLExt.ad_preserves_splitting": [],
         "TGLExt.ad_preserves_star_projection": []
       },
-      "formal_source_hash": "433c0c539c0517d8294f69f5172c4cabd99f37e2374a87752caa5a6003b5bcd6",
+      "formal_source_hash": "fced947ea1c183a0236560e834615635ee334c8f8646a35263f81ddbad987e96",
       "formal_files_sha256": {
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "08d29c4a83ae59d909cb3d73a5665535fa0afadd1668ad3eb24e2a2e038939f7",
+        "TGLExt.lean": "66a61b527cf74d9ef7ed7b271ec9ff74bdaa641f0f2dc7bc066c3bdfa1ad9eaa",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
@@ -6182,6 +6182,7 @@
         "TGLExt/TheNucleus.lean": "44de50dd2955f1f7cfce2bdadc27616d3b982bce1f9947bafb36377dcf1dcc5b",
         "TGLExt/TheQuittanceLaw.lean": "dabeac1b5cc32d8211c6282c9a1027aa998cc2985249bb5f6aa54999b2b4b81e",
         "TGLExt/TheReservedConfirmation.lean": "20a15b2077c36cf70cab81d035e91dfe854e5dffae32fe308c88ff6435077450",
+        "TGLExt/TheStation.lean": "c55dc5018297a64cfafe9416e7b4cb29b2f6cff535cfd43f2664e26546801f63",
         "TGLExt/TheStokesContour.lean": "1c310f1d6296cadd59a4ce049974af27e62f708a5abd41699caf50761b00a0ab",
         "TGLExt/ThirdCone.lean": "21edba89bf302c075d512e77bf2dada36b5f216f054930eb5a881c57935eb694",
         "TGLExt/ThreeLocksCorner.lean": "51c66b4dca74fa58e221bd9889d468d1f77c816ec8c7ff3cc9f56e3bd7a66d2e",
@@ -7022,7 +7023,7 @@
       "ext_ai_atlas_self_kernel_proved": true,
       "ext_ai_atlas_inverse_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "8cabc67d3e415b94743b90f77d0dfd8e493d357c534f1798c6e810db75a096e7",
+      "build_stdout_sha256": "02673f03621f797587c5fc8e825d3aa51c304265dd8f32c97ecad733d1a24f01",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "audit_stdout_sha256": "124e2d0a5b8f3d2abf3c0eebf280523a50cf8ee2310137c27073d61fb3315f9e",
       "build_returncode": 0,
@@ -7037,7 +7038,7 @@
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "8cabc67d3e415b94743b90f77d0dfd8e493d357c534f1798c6e810db75a096e7",
+      "build_capture_sha256_full": "02673f03621f797587c5fc8e825d3aa51c304265dd8f32c97ecad733d1a24f01",
       "audit_capture_sha256_full": "124e2d0a5b8f3d2abf3c0eebf280523a50cf8ee2310137c27073d61fb3315f9e",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
@@ -17728,7 +17729,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-08-19 18:22:00",
+    "timestamp": "2026-08-20 08:06:26",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -17978,7 +17979,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-08-19 18:22:00",
+        "prediction_timestamp": "2026-08-20 08:06:26",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -18014,16 +18015,9 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "af69f573d87824562adfb06d1b36ccaf8de01050612e2342ee81ee814ae9ca41"
+        "prediction_hash": "dd101f5b686946a2977db0435888dd4b1c366532ea73379fe2ddbbe5d334ce4a"
       },
-      "comparison": {
-        "reference_Mpc": 98.5,
-        "reference_sigma": 2.2,
-        "z_TGL": 1.302125081134058,
-        "z_planck_control": 5.613532429360956,
-        "residual_TGL_Mpc": 3.402786294748111,
-        "residual_planck_Mpc": 12.349771344594103
-      },
+      "comparison": null,
       "degeneracy_note": "Coma sozinha NAO separa 'vazamento modular 8.07%' de 'H0_local=73.263' -- testa o PAR (Planck+defasagem) vs (Planck s/ defasagem)",
       "seals": [
         "REFEREE_IS_PUBLIC_DECLARED",
@@ -18037,7 +18031,7 @@
       ],
       "all_verified": true,
       "does_not_gate_core": true,
-      "verdict": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL"
+      "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL"
     },
     "coma_inverse_distance": {
       "theorem": "Coma inverse-parity blind distance test",
@@ -18112,14 +18106,14 @@
         "dominios_com_veredito": 9,
         "linhas": {
           "piso dos vazios": "VOID_FLOOR_FINAL_AWAITING_DATA",
-          "Coma (predicao cega por dephasing)": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
+          "Coma (predicao cega por dephasing)": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
           "massa do GA (stealth, sem parametro livre)": "GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE",
           "massa do neutrino m2": "TGL_NU_M2_ARMED_CONSISTENT",
           "canal N_eff": "TGL_NEFF_ARMED_CONSISTENT",
           "dephasing (relogios/229Th; nu n=-2)": "[FINITE_DIM_SANITY] mapa numerico; a reconciliacao analitica completa da root law vs canonica fica [ABERTO] com este mapa como guia.",
           "NMC-Shapiro (2030+)": "TGL_NMC_SHAPIRO_AWAITING_DATA",
           "espectro completo Nivel 2": "NIVEL2_RITE_NOT_SEALED_THIS_RUN",
-          "kernel formal (121 pedras)": "STAGE1_VERIFIED"
+          "kernel formal (122 pedras)": "STAGE1_VERIFIED"
         }
       },
       "checks": [
@@ -18128,7 +18122,7 @@
           true
         ],
         [
-          "[Coma (predicao cega por dephasing)] veredito em custodia: DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
+          "[Coma (predicao cega por dephasing)] veredito em custodia: COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
           true
         ],
         [
@@ -18156,7 +18150,7 @@
           true
         ],
         [
-          "[kernel formal (121 pedras)] veredito em custodia: STAGE1_VERIFIED",
+          "[kernel formal (122 pedras)] veredito em custodia: STAGE1_VERIFIED",
           true
         ],
         [
@@ -18406,7 +18400,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "a9106e505fe6c7d0c8d1fdfdb031a91575ffbc822de66359fe513de99064c1ab"
+    "result_hash": "c78562ac55c759b9c4f4127697ff9abb22c4d0d102663a525652359c3b1e8044"
   },
   "ga_mass_literature": [
     {
@@ -18433,7 +18427,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "a9106e505fe6c7d0c8d1fdfdb031a91575ffbc822de66359fe513de99064c1ab",
+  "result_hash_before_external_comparison": "c78562ac55c759b9c4f4127697ff9abb22c4d0d102663a525652359c3b1e8044",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -18443,5 +18437,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-08-19 18:22:00"
+  "timestamp": "2026-08-20 08:06:26"
 }

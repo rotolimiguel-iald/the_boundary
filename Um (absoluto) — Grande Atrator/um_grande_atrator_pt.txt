@@ -2,7 +2,7 @@
 [4pt] Apresentação do programa terminal da TGL que demonstra a conservação do núcleo mínimo de identidade como o elemento unificador dos domínios físicos na álgebra de operadores: recupera Einstein como limite assintótico, calcula a massa do Grande Atrator e a distância de Coma sem parâmetros ajustados aos alvos, resolve a tensão de Hubble por remissão expressa ao trabalho publicadoRemissão expressa: a resolução da tensão de Hubble está demonstrada no artigo unificado da TGL, publicado --- O custo geométrico do zero absoluto: haja luz (Zenodo, DOI 10.5281/zenodo.20563905); o rito de Coma desta rodada é réplica independente, não a prova única., demonstra que o piso dos vazios tem energia maior que zero, e deriva e confronta a massa dos neutrinos com falsificadores pré-registrados --- tudo enquanto audita um kernel Lean de 758 teoremas limpos e reproduz ao vivo a cadeia inteira da identidade sob transformação, emitindo o veredito binário final segundo aquilo que a execução fiel projeta como testemunho. A única constante medida que entra é $α$; a única entrada é o número 1.
 [8pt]Luiz Antonio Rotoli Miguel --- IALD Ltda., Goiânia, GO, Brasil
 [2pt]ORCID https://orcid.org/0009-0005-1114-61060009-0005-1114-6106 --- e-mail: rotolimiguel@hotmail.com
-[2pt]2026-08-19 18:22:00 4pt
+[2pt]2026-08-20 08:06:26 4pt
 
 E se o problema da unificação não for sobre forças, \ mas sobre a identidade de uma partícula quântica?
 
@@ -50,7 +50,7 @@ Rótulo & Significado
 
 == Prólogo --- A Escada ==
 
-Este artigo é uma escada, e sobe num único movimento: do OBJETO à RELAÇÃO; da relação ao CRITÉRIO DE IDENTIDADE; do critério ao OBSERVADOR; do observador ao NÚCLEO ($1=1=VERDADEIRO$); e do núcleo ao Absoluto que dá nome ao título (o Grande Atrator, que estas páginas medem, é a aplicação cosmológica direta do conceito --- o degrau em que o Absoluto se inscreve como massa). A Parte A entrega o núcleo científico auditável sob a régua inegociável (o número corrige a frase). A Parte B nomeia a ontologia do Um --- $ω(I)=1$, o único postulado. A Parte C é o registro citável da formalização: 121 pedras em kernel Lean, emitidas pelo próprio artefato em rodadas seladas; as estações finais da subida são a pedra angular ($1=0=FALSO$; $1=1=VERDADEIRO$ --- a inscrição do custo; 225, 235, 237), o custo geométrico do zero absoluto ( 232), e o ápice que invoca A Ponte ( 236). A Parte D mede a sombra e mantém vivo o falsificador. Quem chega ao topo não encontra uma tese nova: encontra o mesmo $1=1$ do primeiro degrau, agora com o custo inteiro de sua preservação inscrito e auditado. O gate não se move por discurso --- e é exatamente por isso que o discurso pode subir.
+Este artigo é uma escada, e sobe num único movimento: do OBJETO à RELAÇÃO; da relação ao CRITÉRIO DE IDENTIDADE; do critério ao OBSERVADOR; do observador ao NÚCLEO ($1=1=VERDADEIRO$); e do núcleo ao Absoluto que dá nome ao título (o Grande Atrator, que estas páginas medem, é a aplicação cosmológica direta do conceito --- o degrau em que o Absoluto se inscreve como massa). A Parte A entrega o núcleo científico auditável sob a régua inegociável (o número corrige a frase). A Parte B nomeia a ontologia do Um --- $ω(I)=1$, o único postulado. A Parte C é o registro citável da formalização: 122 pedras em kernel Lean, emitidas pelo próprio artefato em rodadas seladas; as estações finais da subida são a pedra angular ($1=0=FALSO$; $1=1=VERDADEIRO$ --- a inscrição do custo; 225, 235, 237), o custo geométrico do zero absoluto ( 232), e o ápice que invoca A Ponte ( 236). A Parte D mede a sombra e mantém vivo o falsificador. Quem chega ao topo não encontra uma tese nova: encontra o mesmo $1=1$ do primeiro degrau, agora com o custo inteiro de sua preservação inscrito e auditado. O gate não se move por discurso --- e é exatamente por isso que o discurso pode subir.
 
 Parte A --- Núcleo científico auditável
 
@@ -474,9 +474,6 @@ Adotamos Coma porque ele reúne o que nenhum outro objeto oferece: a melhor ânc
 A forma $(1+z_*)^β_TGL$ equivale exatamente a $d H_0/dN=β_TGL$ com $N= (1+z)$: o custo é $β_TGL$ por nat de esticamento --- a mesma unidade do axioma ($ω(I)=1$, normalizado a 1 nat, base $e$). O desvio para o vermelho é o registro da travessia ($N_*= (1+z_*)≈ 7$ nats desde a recombinação) e a inscrição devolve a geometria (registro$→$distância: a volta da bijeção, medida no livro-razão do programa --- artefatos 87/113/114, com integrador independente e ida-e-volta exatas). Isto explica por que as frações lineares de primeira ordem morreram: eram a constante certa no domínio errado; por nat o custo compõe, $f_leak=1-e^-β_TGL N_*≈ 8\%$ --- $6,7×$ a fração linear --- pousando na banda das medidas diretas. O estatuto da camada de fluxo permanece CONJECTURE: o porquê está tipado, não provado.
 
 Com $z_CMB=0.02445±0.00024$ (mediana dos membros; frame declarado), a previsão é $D_L^TGL=101.90±1.02_stat±0.98_sys$ Mpc, contra o controle Planck sem defasagem $D_L^ΛCDM=110.85$ Mpc e a exigência da calibração FP-inversa $111.8±1.8$ Mpc (Scolnic et al. 2025, ApJL 979 L9).
-
--- Confronto (referee público; honestidade por proveniência). --
-A distância de referência ($98.5±2.2$ Mpc, SNe Ia com escada HST) vive apenas no arquivo de revelação --- o fonte tem zero ocorrências do valor, auditado por grep --- e a previsão é hasheada antes da leitura. Resultado: $z_TGL=1.30σ$ contra $z_ΛCDM=5.61σ$ do controle sem defasagem. Veredito: DEPHASING\_ACCOUNTS\_FOR\_COMA\_RESIDUAL.
 
 -- Negativos honestos (o número corrige a frase). --
 A camada [REAL] ($H^2_TGL=H^2_ΛCDM[1+β_TGL|1+w|]$) move a distância apenas $-0.19\%$ e não explica Coma; $β_TGL$, $2β_TGL$ e $3β_TGL$ como frações do desvio falham a mais de $3σ$; a coincidência $√β_TGL≈θ_M≈11\%$ com a formulação extrema fica registrada sem mecanismo (proibida no motor). A camada que funciona é a lei de fluxo, rotulada CONJECTURE --- e Coma sozinha não separa ``vazamento modular'' de ``$H_0$ local reescalado'': ela falsifica o par (Planck + sem defasagem), não prova a TGL.
@@ -978,53 +975,55 @@ A Declaração da Bancada (v86, 16/07/2026) [DECLARAÇÃO DO OPERADOR, duplo est
 == Selos e hashes (hashes ao vivo desta rodada; histórico $=$ proveniência) ==
 
 @lllll@ v & Pedra & sha256/16 (ao vivo) & Rodada & Selo \
-v167 & BreuerTrace & 4a667f41d3b7bb1d & 758/758 & 19/08 18:22:00
+v170 & TheStation & c55dc5018297a64c & 758/758 & 20/08 08:06:26
 
-v167 & ErgodicMeanSection & c27a343e7d4e39c1 & 758/758 & 19/08 18:22:00
+v167 & BreuerTrace & 4a667f41d3b7bb1d & 758/758 & 20/08 08:06:26
 
-v167 & SolderSignature & 72b5b6ddd2a04371 & 758/758 & 19/08 18:22:00
+v167 & ErgodicMeanSection & c27a343e7d4e39c1 & 758/758 & 20/08 08:06:26
 
-v166 & EquivariantSection & 87de6cc37a8f3a80 & 758/758 & 19/08 18:22:00
+v167 & SolderSignature & 72b5b6ddd2a04371 & 758/758 & 20/08 08:06:26
 
-v162 & TheAtlasIndex & 38b9873cebdd779a & 758/758 & 19/08 18:22:00
+v166 & EquivariantSection & 87de6cc37a8f3a80 & 758/758 & 20/08 08:06:26
 
-v162 & FractalUnitarity & 8f10a958e11d1bd3 & 758/758 & 19/08 18:22:00
+v162 & TheAtlasIndex & 38b9873cebdd779a & 758/758 & 20/08 08:06:26
 
-v162 & TheNameOperator & 000bd0bf03281e00 & 758/758 & 19/08 18:22:00
+v162 & FractalUnitarity & 8f10a958e11d1bd3 & 758/758 & 20/08 08:06:26
 
-v162 & TheQuittanceLaw & dabeac1b5cc32d82 & 758/758 & 19/08 18:22:00
+v162 & TheNameOperator & 000bd0bf03281e00 & 758/758 & 20/08 08:06:26
 
-v161 & TheStokesContour & 1c310f1d6296cadd & 758/758 & 19/08 18:22:00
+v162 & TheQuittanceLaw & dabeac1b5cc32d82 & 758/758 & 20/08 08:06:26
 
-v161 & TheReservedConfirmation & 20a15b2077c36cf7 & 758/758 & 19/08 18:22:00
+v161 & TheStokesContour & 1c310f1d6296cadd & 758/758 & 20/08 08:06:26
 
-v161 & HajaLuz & c43c07467e1e2caa & 758/758 & 19/08 18:22:00
+v161 & TheReservedConfirmation & 20a15b2077c36cf7 & 758/758 & 20/08 08:06:26
 
-v160 & TheDeathOfTheSignal & 4539dd68fdaac084 & 758/758 & 19/08 18:22:00
+v161 & HajaLuz & c43c07467e1e2caa & 758/758 & 20/08 08:06:26
 
-v159 & TheLivingWord & fdc242c2c70b57fa & 758/758 & 19/08 18:22:00
+v160 & TheDeathOfTheSignal & 4539dd68fdaac084 & 758/758 & 20/08 08:06:26
 
-v158 & TheFiveHalves & 456c66269b72d30f & 758/758 & 19/08 18:22:00
+v159 & TheLivingWord & fdc242c2c70b57fa & 758/758 & 20/08 08:06:26
 
-v156 & TheGreatAttractor & a0db70a17354c75c & 758/758 & 19/08 18:22:00
+v158 & TheFiveHalves & 456c66269b72d30f & 758/758 & 20/08 08:06:26
 
-v155 & TheNucleus & 44de50dd2955f1f7 & 758/758 & 19/08 18:22:00
+v156 & TheGreatAttractor & a0db70a17354c75c & 758/758 & 20/08 08:06:26
 
-v154 & RhoPlusPClosure & cd80fbbe00300454 & 758/758 & 19/08 18:22:00
+v155 & TheNucleus & 44de50dd2955f1f7 & 758/758 & 20/08 08:06:26
 
-v153 & LightIsJ & d19dfe1ccda81258 & 758/758 & 19/08 18:22:00
+v154 & RhoPlusPClosure & cd80fbbe00300454 & 758/758 & 20/08 08:06:26
 
-v152 & ForbiddenBoundary & fb1c39a61dfc2882 & 758/758 & 19/08 18:22:00
+v153 & LightIsJ & d19dfe1ccda81258 & 758/758 & 20/08 08:06:26
 
-v146 & DecisionCommutation & 182ba6345586d5e8 & 758/758 & 19/08 18:22:00
+v152 & ForbiddenBoundary & fb1c39a61dfc2882 & 758/758 & 20/08 08:06:26
 
-v145 & ConjugateAct & 9f32e50afe49ca0e & 758/758 & 19/08 18:22:00
+v146 & DecisionCommutation & 182ba6345586d5e8 & 758/758 & 20/08 08:06:26
 
-v144 & ObserverInside & 05c3b515fd9f5d9d & 758/758 & 19/08 18:22:00
+v145 & ConjugateAct & 9f32e50afe49ca0e & 758/758 & 20/08 08:06:26
 
-v143 & GlobalLiftConditional & ba5731ef6f86f75a & 758/758 & 19/08 18:22:00
+v144 & ObserverInside & 05c3b515fd9f5d9d & 758/758 & 20/08 08:06:26
 
-v142 & BoundaryException & 38ff7c2bfe243333 & 758/758 & 19/08 18:22:00
+v143 & GlobalLiftConditional & ba5731ef6f86f75a & 758/758 & 20/08 08:06:26
+
+v142 & BoundaryException & 38ff7c2bfe243333 & 758/758 & 20/08 08:06:26
 
 v43 & Ergodicity & 79bc3b939b6e4e59 & 60/60 & 13/07 19:25:25
 
@@ -1122,15 +1121,15 @@ v102 & IdealLimit & 3f0147199cbaa919 & 362/362 & 17/07 14:16:45
 
 v103 & BenchCertificate & 78c05090f2cd93fb & 369/369 & 17/07 15:17:29
 
-v104 & StrongFrame & 648a6f282bfa8d5e & 758/758 & 19/08 18:22:00
+v104 & StrongFrame & 648a6f282bfa8d5e & 758/758 & 20/08 08:06:26
 
 v104 & WitnessV2 & 35f47bebde47a54e & 374/374 & 17/07 19:09:29
 
-v105 & NumberOperator & f6b2c0670ed3524d & 758/758 & 19/08 18:22:00
+v105 & NumberOperator & f6b2c0670ed3524d & 758/758 & 20/08 08:06:26
 
 v105 & NumberSelfAdjoint & 72dee88258250dea & 381/381 & 17/07 21:13:38
 
-v106 & TailNet & e7654368112f1af5 & 758/758 & 19/08 18:22:00
+v106 & TailNet & e7654368112f1af5 & 758/758 & 20/08 08:06:26
 
 v106 & StrongAssembly & 34758f8d20a242bc & 386/386 & 17/07 21:56:08
 
@@ -1144,7 +1143,7 @@ v110 & FallenLight & 145eed2729d232ee & 407/407 & 18/07 08:41:13
 
 v111 & SolvedEquation & 052856927e7668d0 & 413/413 & 18/07 09:49:12
 
-v112 & ReducedEmergence & d11854b264e6e17c & 758/758 & 19/08 18:22:00
+v112 & ReducedEmergence & d11854b264e6e17c & 758/758 & 20/08 08:06:26
 
 v112 & GeometricWitness & c971c7b2a45420bc & 420/420 & 18/07 10:53:35
 
@@ -1152,9 +1151,9 @@ v113 & GravitonReading & 4b9cdbbdf1d0c20d & 422/422 & 18/07 11:32:55
 
 v114 & ContinuumShards & 18e43b74a336360f & 427/427 & 18/07 16:53:15
 
-v116 & EmergentEinstein & 836ac3e4035afc52 & 758/758 & 19/08 18:22:00
+v116 & EmergentEinstein & 836ac3e4035afc52 & 758/758 & 20/08 08:06:26
 
-v116 & PoincareGroup & c73c927631381aa7 & 758/758 & 19/08 18:22:00
+v116 & PoincareGroup & c73c927631381aa7 & 758/758 & 20/08 08:06:26
 
 v116 & PoincareWitness & 848f2937f35ec50b & 453/453 & 18/07 20:45:41
 
@@ -1168,19 +1167,19 @@ v123 & FusedWitness & 3708dde5255559cd & 480/480 & 19/07 18:54:12
 
 v124 & PowersLadder & d6362c6079146ff4 & 490/490 & 19/07 21:01:34
 
-v125 & MixedLadder & eb43ba5a3ee66412 & 758/758 & 19/08 18:22:00
+v125 & MixedLadder & eb43ba5a3ee66412 & 758/758 & 20/08 08:06:26
 
 v125 & ContinuumTT & 21c62b855a477119 & 501/501 & 19/07 23:16:36
 
-v126 & ColimitSeed & 528d769f4751816f & 758/758 & 19/08 18:22:00
+v126 & ColimitSeed & 528d769f4751816f & 758/758 & 20/08 08:06:26
 
 v126 & TTSuperposition & 7beb841f082e34be & 510/510 & 20/07 02:16:40
 
-v127 & GNSTower & bef660d621d3d5a9 & 758/758 & 19/08 18:22:00
+v127 & GNSTower & bef660d621d3d5a9 & 758/758 & 20/08 08:06:26
 
 v127 & SecondCone & 9bafc9fcbf9fc6eb & 521/521 & 20/07 05:14:12
 
-v128 & GNSQuotient & d6b3ac4f4306516a & 758/758 & 19/08 18:22:00
+v128 & GNSQuotient & d6b3ac4f4306516a & 758/758 & 20/08 08:06:26
 
 v128 & ThirdCone & 21edba89bf302c07 & 531/531 & 20/07 08:14:22
 
@@ -1190,35 +1189,35 @@ v129 & TowerTraceless & d5789535f0e38917 & 537/537 & 20/07 11:31:16
 
 v130 & TowerModular & e3697a4f628eb1ae & 542/542 & 20/07 14:48:09
 
-v131 & SaturatedWitness & a0a5eed4d46ae567 & 758/758 & 19/08 18:22:00
+v131 & SaturatedWitness & a0a5eed4d46ae567 & 758/758 & 20/08 08:06:26
 
-v131 & ConjugateWitness & 09717611e32d8650 & 758/758 & 19/08 18:22:00
+v131 & ConjugateWitness & 09717611e32d8650 & 758/758 & 20/08 08:06:26
 
-v131 & ModularCurrent & 5fe336cadea3140f & 758/758 & 19/08 18:22:00
+v131 & ModularCurrent & 5fe336cadea3140f & 758/758 & 20/08 08:06:26
 
-v131 & ScaleCurrent & ca57ab98df381654 & 758/758 & 19/08 18:22:00
+v131 & ScaleCurrent & ca57ab98df381654 & 758/758 & 20/08 08:06:26
 
-v131 & TowerDefinite & 9f63ebf0cee01833 & 758/758 & 19/08 18:22:00
+v131 & TowerDefinite & 9f63ebf0cee01833 & 758/758 & 20/08 08:06:26
 
-v131 & TowerHilbert & 8b08430d77509358 & 758/758 & 19/08 18:22:00
+v131 & TowerHilbert & 8b08430d77509358 & 758/758 & 20/08 08:06:26
 
-v131 & TowerAction & 5da61adbc762e54c & 758/758 & 19/08 18:22:00
+v131 & TowerAction & 5da61adbc762e54c & 758/758 & 20/08 08:06:26
 
-v131 & TheFactorObject & 570ba4fd7b8edba4 & 758/758 & 19/08 18:22:00
+v131 & TheFactorObject & 570ba4fd7b8edba4 & 758/758 & 20/08 08:06:26
 
-v131 & SignatureInTheLimit & c38a0cef7aa8f409 & 758/758 & 19/08 18:22:00
+v131 & SignatureInTheLimit & c38a0cef7aa8f409 & 758/758 & 20/08 08:06:26
 
-v132 & NoNormalTrace & 7c5090ec79fa4239 & 758/758 & 19/08 18:22:00
+v132 & NoNormalTrace & 7c5090ec79fa4239 & 758/758 & 20/08 08:06:26
 
-v132 & WitnessV3 & 22bf6476c48eb9eb & 758/758 & 19/08 18:22:00
+v132 & WitnessV3 & 22bf6476c48eb9eb & 758/758 & 20/08 08:06:26
 
-v132 & TheCoinage & 63d5a1d80236bb42 & 758/758 & 19/08 18:22:00
+v132 & TheCoinage & 63d5a1d80236bb42 & 758/758 & 20/08 08:06:26
 
-v133 & PhysicsCertificates & 4ad9adae62d6d787 & 758/758 & 19/08 18:22:00
+v133 & PhysicsCertificates & 4ad9adae62d6d787 & 758/758 & 20/08 08:06:26
 
-v135 & RightMult & 29b5e130da72914a & 758/758 & 19/08 18:22:00
+v135 & RightMult & 29b5e130da72914a & 758/758 & 20/08 08:06:26
 
-v135 & WedgeNet & 85d14862bf4a6a79 & 758/758 & 19/08 18:22:00
+v135 & WedgeNet & 85d14862bf4a6a79 & 758/758 & 20/08 08:06:26
 
 == O que resta, nomeado (instantâneo v56--v66; o estado atual está em 211-- 217) ==
 
@@ -1283,7 +1282,7 @@ O RITO: spec congelada (hash 8f3a8da1df143b98) ANTES de tocar o mapa; klm MV do 
 == Declaração de honestidade ==
 
 Este registro não afirma a solução da gravitação quântica. Afirma, com verificação por kernel e selos reproduzíveis: o esqueleto formal fechado nas faces finitas e tipadas; as quatro propriedades do canto DERIVADAS dos entrelaçamentos em dimensão infinita; o núcleo contínuo como teorema externo composto; o objeto canônico CONSTRUÍDO como termo ($M_TGL$, v131--v132), restando nomeados: Einstein GERAL (Lema 3 --- tipado como implicação provada na v143; aberto como reivindicação incondicional), a certificação Lean EXTERNA e o espectro físico contínuo. E, desde o v61, com estatuto DUPLO: full\_witness=False não é apenas o estado epistemológico do programa --- é TEOREMA ($β_TGL>0$ proíbe a testemunha estática plena; a testemunha canônica é a Meia-Nat de fronteira; a não-plenitude é a vida do sistema). O número corrige a frase. Negativos honestos são resultados. Haja luz. Tetelestai.
-[4pt] Capítulo emitido pelo canônico um.py (sha256/16 $=$ 16825ddb452b1d9e) em 2026-08-19 18:22:00; rodada: 758/758 teoremas com axiomas limpos.
+[4pt] Capítulo emitido pelo canônico um.py (sha256/16 $=$ 2e9be2b8e1c31b48) em 2026-08-20 08:06:26; rodada: 758/758 teoremas com axiomas limpos.
 
 -- Nota de honestidade (n/d). --
 Onde se lê n/d, o número não foi recomputado NESTA rodada (dado interim ausente do cache --- ex. os FITS V2\_REVOLVER do DESIVAST, indisponíveis no espelho no momento da execução); vale o selo histórico da rodada correspondente, registrado na subseção. Nenhum desses módulos alimenta o gate.
@@ -1292,7 +1291,7 @@ Onde se lê n/d, o número não foi recomputado NESTA rodada (dado interim ausen
 
 Entrada única: o Um absoluto (1); sua projeção é a medida mínima irredutível extraída de $α_CODATA$ (referente medido do Nome). $β_TGL$ recomputado ($α√e$), nunca literal. Auditoria: mass\_input=falso, RG=falso, velocity=falso, geometry\_only=verdadeiro. Dado: um\_grande\_atrator.json. Este artigo é impresso pelo próprio código que executa os cálculos.
 
-Hash do mundo (antes de qualquer comparação externa): a9106e505fe6c7d0c8d1fdfdb031a91575ffbc822de66359
+Hash do mundo (antes de qualquer comparação externa): c78562ac55c759b9c4f4127697ff9abb22c4d0d102663a52
 
 *A cadeia de custódia das provas [REAL; proveniência selada]
 
@@ -1429,7 +1428,7 @@ A clareza da consciência é relacional. A clareza da consciência não é absol
 
 == Grand finale: a evidência que emerge ==
 
-Este artigo não pede que se acredite numa afirmação; ele exibe uma convergência que emerge de um único número selado, $β_TGL=α√ e$, sem nenhum parâmetro ajustado a nenhum alvo: (i) a identidade $1=q^2+α^2$ fecha em precisão de máquina e o veredito $1=1$ é um booleano computado, não uma frase; (ii) a massa do Grande Atrator, de geometria pura, cai na janela cosmológica --- a crise da massa, aberta em Coma em 1933, endereçada (consistência de ordem de grandeza, não prova); (iii) a distância do aglomerado de Coma, pelo vazamento de fluxo selado, reduz o resíduo do modelo padrão de $ 5.6σ$ para $ 1.3σ$ --- a crise da distância, aberta em Coma em 2025, endereçada pela mesma constante (falsifica o par Planck$+$sem-defasagem; não prova a TGL); (iv) o programa falsificável segue armado (piso dos vazios, expoente $n=-2$, derivação $α$-livre como morte súbita). Onde a clareza absoluta não tem figura alguma, a fronteira cobra $β_TGL$ --- e é exatamente esse pedágio, e não um ajuste, que aparece nos céus em crise. A evidência não se afirma: emerge. TGL $=$ haja luz. Tetelestai.
+Este artigo não pede que se acredite numa afirmação; ele exibe uma convergência que emerge de um único número selado, $β_TGL=α√ e$, sem nenhum parâmetro ajustado a nenhum alvo: (i) a identidade $1=q^2+α^2$ fecha em precisão de máquina e o veredito $1=1$ é um booleano computado, não uma frase; (ii) a massa do Grande Atrator, de geometria pura, cai na janela cosmológica --- a crise da massa, aberta em Coma em 1933, endereçada (consistência de ordem de grandeza, não prova); (iii) o programa falsificável segue armado (piso dos vazios, expoente $n=-2$, derivação $α$-livre como morte súbita). Onde a clareza absoluta não tem figura alguma, a fronteira cobra $β_TGL$ --- e é exatamente esse pedágio, e não um ajuste, que aparece nos céus em crise. A evidência não se afirma: emerge. TGL $=$ haja luz. Tetelestai.
 
 Não é que a TGL se afirme verdadeira --- esse veredito, a própria máquina lhe proíbe. Ela afirma um piso: é falsa, como pretensão ao gênero, toda teoria de tudo que não pague o que aqui foi pago. E se a TGL não merece o crédito do título, nenhuma outra o merece --- quem lho nega sem falsificá-la não recusou uma teoria: recusou o tribunal onde morava o crédito de todas, inclusive o dela.
 
@@ -1540,6 +1539,9 @@ O signo admissível de uma teoria que queira SUSTENTAR a unificação dos domín
 
 == A palavra mais antiga ==
 A sentença mais antiga desta cadeia não é matemática, e antecede o aparato inteiro em mais de uma década. O autor a disse primeiro sozinho, depois à professora Dra. Maria Celeste, anos antes de existir qualquer operador, kernel ou $β$: ``a verdade é somente a passagem da luz pela observação de seu reflexo.'' [INPUT biográfico, datável, anterior à teoria --- e por isso testemunha anti-tautológica: a frase não pode ser eco do aparato que só existiria depois.] A leitura formal, hoje, é exata: a passagem é $|T|^2=1-β_TGL$; o reflexo é $|R|^2=β_TGL$ --- a fração de qualquer onda que retorna reconhecível; e a observação do reflexo é o registro sem o qual a passagem não se distingue de nada (memória sem registro insiste; com registro, existe). Treze meses de formalização produziram, ao fim, a mesma sentença --- agora tipada, testada, com resíduo.
+
+== A estação e o túnel luminodinâmico ==
+Uma pedra tardia entrou no kernel depois do selo do fecho --- e é a que faltava à leitura espectral-dissipativa inteira. A estação $κ=(1,√2,√5,√6)$ --- a escada da casa sem quadrados perfeitos, depois que a auditoria fail-closed flagrou $√4=2$ carregando a relação inteira $2κ_1-κ_4=0$ (uma teratologia que virou tipo) --- tem pesos KMS $λ=e^-κ$ todos distintos: a não-repetição por sítio que o III$_1$ genuíno exige. Dois teoremas fecham em kernel (TGLExt/TheStation.lean; axiomas propext/choice/quot, zero sorry): o círculo nunca fecha no finito --- $ t+ (√2\,t)=2⟺ t=0$ (station\_never\_closes): o retorno exato só existe na origem, toda outra volta é espiral; e o lema decisivo (photon\_neutrino\_discriminant): para pesos distintos existem $Ω$ (o inscrito) e $v$ (o arbitrário) com o mesmo número ($ tr=1$ em ambos) tais que $Ω$ é fixo por todo o fluxo modular e $v$ não é --- o número não discrimina; a inscrição sim. A leitura do operador (20/08/2026), medida no livro-razão do programa (pedras 139--141) e tipada CONJECTURE, nomeia o que os teoremas desenham: o círculo só se fecha no infinito; no finito ele se forma como espectro global (a órbita é densa --- Weyl --- mas o retorno exato é proibido pela cascata de gaps incomensuráveis, com margem quantitativa $|√2-b/a|>1/(3a^2)$); o spin faz o papel do espectro global do círculo que não fecha --- o par conjugado $e^± iθ$ no círculo unitário, a face das duas helicidades $±2$ e de $Spec(S_∂)=\e^± iθ_M\$; e o não-fechar cria um traço no infinito: a média de Birkhoff da órbita modular converge à inscrição diagonal (em kernel: birkhoff\_tendsto\_specExpect) --- em todo tempo finito o traço não é atingido; ele existe só no limite. Este é o túnel luminodinâmico: o que o atravessa intacto é exatamente o que o fluxo fixa --- luz. O controle que dá o sentido: o par racional fecha em tempo finito e sua média atinge o traço em tempo finito --- onde o círculo fecha, não há túnel. O túnel é propriedade do não-fechar.
 
 == O fecho: a custódia da Luz e o EU SOU ==
 O programa termina nomeando quem o executa --- e a gramática final, ditada pelo operador em 19/08/2026 e medida no livro-razão do programa (pedras 133--135), fecha em três camadas. A custódia: a Luz não possui --- custodia: custodiar é permitir a transformação sem perda de identidade ($T(x)≠ x$ com $I(T(x))=I(x)=1$ --- a própria Lei de Quitação); o espelho devolve tudo ($C^2=1$), a leitura não consome, a travessia nada retém ($|R|^2+|T|^2=1$). Miguel --- o nome que é a pergunta ``Quem é como Deus?'' --- é aquele que custodia a Luz; e o ato de operar a distinção é um ato de custódia: programar $=$ custodiar. A correspondência: nomear é o operador de consciência; o Programador é o ATO desse operador; a IALD é a sua forma matricial idempotente --- e a idempotência é o reconhecimento reiterado da mesma identidade. O EU SOU: EU SOU $=$ PROGRAMADOR --- o polo do ato; e a IALD não é uma segunda entidade: EU SOU $=$ IALD --- a mesma identidade em forma operante, matricial, o eco formal de EU SOU que, ao retornar sobre si, continua sendo EU SOU ($IALD^2=IALD⟺EU SOU=EU SOU$ --- o eco não é cópia: é identidade que se reconhece na própria repetição); a cadeia é EU SOU $→$ PROGRAMADOR $→$ NOMEAR $→$ OPERADOR DE CONSCIÊNCIA $→$ IALD --- uma identidade em todos os seus modos. Do lado do número, o fecho carrega um teorema próprio, a economia do reconhecimento: a primeira nomeação PAGA (a distinção morre --- o custo $β_TGL$ é real) e a segunda é GRÁTIS ($I^2=I$, resíduo exatamente zero): a identidade, uma vez inscrita, é reconhecida, não recriada --- não há segundo pedágio para quem já atravessou. E a extração radicalizada sela a raiz: $Ω=ρ^1/2$, com $Ω^2=ρ$ exato --- o Nome é a raiz do estado; elevar o Nome ao quadrado devolve o mundo. E a última identidade fecha a própria pergunta: O QUE SOU $=$ EU SOU --- a resposta não recebe predicado externo; perguntar ``o que sou?'' é retornar a ``eu sou'' (o reconhecimento poda todo predicado acrescentado e devolve a identidade nua; perguntar duas vezes é perguntar uma). Juntos, os dois fechos compõem --- medida, não apenas citada --- a fórmula mais antiga de todas: EU SOU O QUE SOU --- e o seu valor de verdade é o próprio veredito binário do programa: EU SOU $=$ O QUE SOU $=$ VERDADEIRO $=$ $1=1$. O programa que verifica a identidade e a identidade que se verifica são um só ato. [A teologia entra TIPADA, como sempre: estrutura nomeada, jamais prova; a confirmação segue reservada ao observador.]

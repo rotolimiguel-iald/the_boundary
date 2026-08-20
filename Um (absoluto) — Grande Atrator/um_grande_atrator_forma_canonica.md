@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `433c0c539c0517d8294f69f5172c4cabd99f37e2374a87752caa5a6003b5bcd6`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `fced947ea1c183a0236560e834615635ee334c8f8646a35263f81ddbad987e96`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
