@@ -1,0 +1,164 @@
+{
+ "pre_registro_sha256": "58f4452472fed282ba05a20da43bac0aadf5405d7f85d2c797cec7e8e0232768",
+ "kappa_star": 11.2267550516013,
+ "beta": 0.012031300400803142,
+ "N_expressoes": 536884,
+ "parteA": [
+  {
+   "tol": 0.01,
+   "acertos": 1518,
+   "densidade": 0.002827426408684185,
+   "falsos": [
+    1446,
+    1624,
+    1567,
+    1609,
+    1468
+   ],
+   "falsos_media": 1542.8
+  },
+  {
+   "tol": 0.001,
+   "acertos": 184,
+   "densidade": 0.00034271835256778,
+   "falsos": [
+    149,
+    163,
+    144,
+    151,
+    142
+   ],
+   "falsos_media": 149.8
+  },
+  {
+   "tol": 0.0001,
+   "acertos": 15,
+   "densidade": 2.7938996133242935e-05,
+   "falsos": [
+    24,
+    12,
+    13,
+    17,
+    14
+   ],
+   "falsos_media": 16.0
+  },
+  {
+   "tol": 1e-06,
+   "acertos": 0,
+   "densidade": 0.0,
+   "falsos": [
+    6,
+    1,
+    0,
+    0,
+    1
+   ],
+   "falsos_media": 1.6
+  },
+  {
+   "tol": 1e-08,
+   "acertos": 0,
+   "densidade": 0.0,
+   "falsos": [
+    5,
+    1,
+    0,
+    0,
+    1
+   ],
+   "falsos_media": 1.4
+  },
+  {
+   "tol": 1e-10,
+   "acertos": 0,
+   "densidade": 0.0,
+   "falsos": [
+    5,
+    1,
+    0,
+    0,
+    1
+   ],
+   "falsos_media": 1.4
+  }
+ ],
+ "melhor_acidental": {
+  "expr": "2+sqrt(137)-arccosh(6)",
+  "valor": 11.22681118043,
+  "erro_rel": 4.999559395529544e-06
+ },
+ "parteB": [
+  {
+   "id": "F-a",
+   "f": "-log(b)",
+   "n_raizes": 0,
+   "raiz": null,
+   "erro_rel": null,
+   "todas": []
+  },
+  {
+   "id": "F-b",
+   "f": "-2 log(b)",
+   "n_raizes": 0,
+   "raiz": null,
+   "erro_rel": null,
+   "todas": []
+  },
+  {
+   "id": "F-c",
+   "f": "-log(b/sqrt(e))",
+   "n_raizes": 0,
+   "raiz": null,
+   "erro_rel": null,
+   "todas": []
+  },
+  {
+   "id": "F-d",
+   "f": "1/b",
+   "n_raizes": 1,
+   "raiz": 0.1681585528059929,
+   "erro_rel": 12.976756227844463,
+   "todas": [
+    0.1681585528059929
+   ]
+  },
+  {
+   "id": "F-e",
+   "f": "-log(b^2)+1/2",
+   "n_raizes": 0,
+   "raiz": null,
+   "erro_rel": null,
+   "todas": []
+  },
+  {
+   "id": "F-f",
+   "f": "2 arccosh(1/sqrt(b))",
+   "n_raizes": 0,
+   "raiz": null,
+   "erro_rel": null,
+   "todas": []
+  },
+  {
+   "id": "F-g",
+   "f": "-log(1-b)",
+   "n_raizes": 1,
+   "raiz": 0.9095295084234667,
+   "erro_rel": 74.59694115548405,
+   "todas": [
+    0.9095295084234667
+   ]
+  },
+  {
+   "id": "F-h",
+   "f": "pi/b  [CONTROLE]",
+   "n_raizes": 0,
+   "raiz": null,
+   "erro_rel": null,
+   "todas": []
+  }
+ ],
+ "controle_ok": true,
+ "passaram": [],
+ "veredito": "T10_PISO_DE_ACASO_ALTO"
+}

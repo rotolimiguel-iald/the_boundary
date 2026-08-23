@@ -1,0 +1,58 @@
+{
+ "pre_registro_sha256": "42b89e70c333d19b51d065e82227d8d1f47107e179721f3f0a7c6dac337337f4",
+ "beta": 0.012031300400803142,
+ "veredito": "T09_FORMA_LINEAR_REPROVADA",
+ "M1_p_ajustado": 1.76542340957305,
+ "M1_err_p": 0.12803355303912545,
+ "M1_disp_p_livre": 0.6597496395739837,
+ "M1_disp_p_forcado_1": 1.0046160766921177,
+ "M1_espalhamento_M_sobre_R": 375.0,
+ "M1_forma_ok": false,
+ "M3_dispersoes": {
+  "0.5": 1.0046160766921175,
+  "1.0": 1.0046160766921175,
+  "1.5": 1.0046160766921175,
+  "2.0": 1.0046160766921175,
+  "2.5": 1.0046160766921175,
+  "3.0": 1.0046160766921175
+ },
+ "M3_degenerado": true,
+ "ancoras": [
+  {
+   "nome": "Via Lactea",
+   "R_Mpc": 0.1,
+   "M_lit": 1000000000000.0,
+   "ref": "McMillan 2017"
+  },
+  {
+   "nome": "Grupo Local",
+   "R_Mpc": 1.5,
+   "M_lit": 5000000000000.0,
+   "ref": "Penarrubia+ 2014"
+  },
+  {
+   "nome": "Coma ACO 1656",
+   "R_Mpc": 3.0,
+   "M_lit": 1200000000000000.0,
+   "ref": "Gavazzi+ 2009"
+  },
+  {
+   "nome": "Norma ACO 3627",
+   "R_Mpc": 2.0,
+   "M_lit": 1000000000000000.0,
+   "ref": "Woudt+ 2008"
+  },
+  {
+   "nome": "bacia do GA",
+   "R_Mpc": 57.0,
+   "M_lit": 5.4e+16,
+   "ref": "Lynden-Bell+ 1988"
+  },
+  {
+   "nome": "Laniakea",
+   "R_Mpc": 80.0,
+   "M_lit": 1e+17,
+   "ref": "Tully+ 2014"
+  }
+ ]
+}

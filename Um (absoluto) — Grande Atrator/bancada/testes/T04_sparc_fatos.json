@@ -1,0 +1,39 @@
+{
+  "o_que_e": "fatos do conjunto SPARC, medidos ANTES de qualquer modelo; nao e veredito sobre a TGL",
+  "n_galaxias": 175,
+  "n_pontos": 3391,
+  "nula_barions_upsilon_fixo": {
+    "chi2nu_mediano": 85.23278224846521,
+    "frac_abaixo_1p2": 0.022857142857142857
+  },
+  "nula_barions_upsilon_livre": {
+    "chi2nu_mediano": 13.262384512175425,
+    "frac_abaixo_1p2": 0.12,
+    "upsilon_mediano": 1.9597033874236094
+  },
+  "btfr": {
+    "expoente": 3.288017379632781,
+    "intercepto": 3.251148260530225,
+    "dispersao_dex": 0.3120517058831918,
+    "n": 172
+  },
+  "rar": {
+    "g_dagger_ajustado": 9.384930864942721e-11,
+    "g_dagger_KNOWN_McGaugh2016": 1.2e-10,
+    "candidatas_H0_70": {
+      "alpha*c*H0": 4.962877177238967e-12,
+      "sqrt(beta)*c*H0": 7.459753604572685e-11,
+      "beta*c*H0": 8.182401165986095e-12,
+      "c*H0/(2pi)": 1.0824013602391998e-10,
+      "c*H0": 6.800928323126138e-10
+    }
+  },
+  "controle_embaralhado": {
+    "chi2nu_mediano": 176.75775593709562,
+    "discrimina": true
+  },
+  "beta_derivado": 0.012031300400803142,
+  "alpha_input": 0.0072973525693,
+  "data": "2026-08-21",
+  "ressalva": "Upsilon fixo = 0,5/0,7 e a pratica padrao de Lelli+2016 [KNOWN]. A NULA e o PISO que qualquer modelo de materia escura precisa bater. Nada aqui aprova ou reprova a TGL: sao fatos do dado. CONFIRMED proibido."
+}

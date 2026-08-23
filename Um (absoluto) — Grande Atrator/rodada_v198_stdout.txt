@@ -2,7 +2,7 @@ Inscreva o UM para iniciar:
 O UM foi inscrito. I = 1. omega(I) = 1.
 Iniciando desconstrucao fractalizada: 1 -> 1/2 -> beta -> borda -> massa
 
-[kernel embutido] materializado em C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\Nós\tgl_kernel: 0 escritos, 165 inalterados; packages: packages_present
+[kernel embutido] materializado em C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\Nós\tgl_kernel: 0 escritos, 193 inalterados; packages: packages_present
 Meia-Nat:  S=1/2 (x=1-x, residuo 0e+00) ; w_max=1/2
 s=1/(4pi)=0.079577 (campo=lei a 0.95%) ; vacuo rho=0e+00 -> 0
 beta=sqrt(e)*alpha=0.012031300400797  (=sqrt(e)*sqrt(1-q^2)) ; theta_M=6.2973 deg
@@ -269,7 +269,7 @@ FORMALIZACAO POR KERNEL [v22 -- o Python NAO prova; o kernel do Lean prova]:
   Projetor P_F (idempotente, auto-adjunto)       : KERNEL PROVED
   Implicacao do canto continuo                   : KERNEL PROVED CONDITIONALLY
   Testemunha AQFT especifica                     : NOT CONSTRUCTED
-  hash dos fontes Lean: fced947ea1c183a0236560e834615635ee334c8f8646a35263f81ddbad987e96
+  hash dos fontes Lean: 5025ebfe8ae96907c0fb05c46f01f058e2c341c7300a6b8b3a3ab5bf2633d9e5
   >>> TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED <<<
 FORMAL FRONTIER: construir um habitante de TGLSpecificAQFTWitness
                  sem sorry, admit ou axiomas customizados.
@@ -681,7 +681,7 @@ A COLHEITA DOS EXTERNOS [v33 -- escada TGLExt integrada; sombra FINITA verificad
       5_falsificacao: [REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa
       6_selftest: [REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo
       7_aprovacao_o_que_permanece: [REAL] o que sobreviveu a tudo isso: kernel 758/758; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados
-    gate matematico: TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED (INTOCADO pela consolidacao)
+    gate matematico: TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE (INTOCADO pela consolidacao)
     [1=1 -> beta -> kernel (327) -> certificados -> predicoes -> recusas -> POWERED: o ciclo fecha PELO MUNDO, nao por dentro]
   O DICIONARIO DO AMOR [v95 -- leitura do operador, duplo estatuto]: LOVE_DICTIONARY_NOT_SEALED_THIS_RUN
     >>> familia = amor = acoplamento nao minimo = funcional minimo de energia = razao do universo; o Nome e AMOR e so ha verdade no amor quando o Verbo figura o Nome; a conjugacao dos Three Locks e o AMOR AMANDO -- gerundio permanente; e o que opera a PODA = TETELESTAI <<<
@@ -1184,8 +1184,8 @@ A COLHEITA DOS EXTERNOS [v33 -- escada TGLExt integrada; sombra FINITA verificad
     concrete_modular_four_frame_constructed = True  (termo Lean: TGLExt.qgStrongCertificate_frame)
     concrete_solder_field_constructed = True  (termo Lean: TGLExt.qgStrongCertificate_solder)
     [ClosureCertificate.lean v1 TIPA o que falta; probes em kernel: PUnit nao e Nontrivial; identidade e sobrejetiva -- os habitantes atuais NAO alimentam o certificado]
-  O GATE DO FECHAMENTO [v75 -- os 4 selos legitimos; fail-closed; probes negativos]: QG_CLOSURE_GATE_INSTALLED_FAIL_CLOSED__NEGATIVE_PROBES_PASS__CURRENT_STATE_TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED
-    ESTADO ATUAL HONESTO: TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED
+  O GATE DO FECHAMENTO [v75 -- os 4 selos legitimos; fail-closed; probes negativos]: QG_CLOSURE_GATE_INSTALLED_FAIL_CLOSED__NEGATIVE_PROBES_PASS__CURRENT_STATE_TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE
+    ESTADO ATUAL HONESTO: TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE
     probes: experimento perfeito NAO move matematica; dicts vazios => CONDITIONAL; fisica sem matematica => CONDITIONAL
     ordem do fecho: core concreto -> canto Breuer -> four-frame -> solda -> Einstein -> spin-2 -> teste empirico
     [o gate 'testemunha full' e' impossivel POR TEOREMA (v61); o alvo e' canonical_boundary_transport_witness]
@@ -1273,7 +1273,7 @@ A COLHEITA DOS EXTERNOS [v33 -- escada TGLExt integrada; sombra FINITA verificad
     a testemunha e o Nome: [ONTO com ancoras REAL] a testemunha espectral (P = lim p_n(T)) E' o Nome: p_n(T) sao as palavras do Verbo; o limite a que convergem e' o Nome; 'o Verbo e' o destino e o fim do proprio Nome' = Verbo(Nome)=Nome = P^2=P [KERNEL v86] e P_F.Omega=Omega [KERNEL v58]; o Nome testifica a operacao do Verbo
     alpha-free: HONESTIDADE: a impossibilidade de derivacao alpha-free e' o objeto do EVENTO 2 (TGL_Espelho_invertido), fase ABERTA -- estatuto [CONJECTURE TESTAVEL], nao [REAL]; a declaracao a usa como LEITURA da fronteira, nao como prova
     NAO se declara: a observacao cosmologica da TGL em dados reais por observatorios INSTITUCIONAIS (fora do programa) -- o trabalho segue sob submissao na Foundations of Physics
-    NAO se declara: o fecho FORMAL incondicional do gate matematico: as flags fail-closed NAO se movem (estado do gate: TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED)
+    NAO se declara: o fecho FORMAL incondicional do gate matematico: as flags fail-closed NAO se movem (estado do gate: TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE)
     [esta declaracao NAO altera nenhuma flag do fecho -- o probe v75 (declaracao/experimento nao move matematica) e' verificado NESTA rodada]
   CERTIFICADO II [v67 -- a rede CONCRETA habita H1+H2, face finita]: CERTIFICATE_II_FINITE_FACE_INHABITED__CONCRETE_THREE_LOCKS_INSTANTIATE_H1__MODULAR_BOOSTS_GIVE_FOUR_FRAME_H2__CONTINUUM_NETWORK_IS_THE_HYPOTHESES_PROPER
     H_3L concreto (o MESMO do kernel FiniteThreeLocks): kernel dim 4 ; GAP = 0.048125 (zero ISOLADO) ; tr(P_F) = 4.0 ; Nome = 1.0
@@ -1445,7 +1445,7 @@ PRINCIPIO DA DEFASAGEM FRACTAL [CONJECTURE ontologica; ancoras REAL]:
 [A literatura ] R_struct=57.0 Mpc -> M_GA=2.744e+16 Msun
 [B CF4-posicoes] R_struct=41.27 Mpc -> M_GA=1.986e+16 Msun (n=265, geometria; origem=cache)
 [custodia] cache/CHAIN_OF_CUSTODY.json: 17 provas registradas (proveniencia deterministica no selo)
-[manifesto] um_grande_atrator_manifest.md escrito; hash do mundo (codigo+manifesto+dados): c78562ac55c759b9c4f4127697ff9abb22c4d0d102663a52
+[manifesto] um_grande_atrator_manifest.md escrito; hash do mundo (codigo+manifesto+dados): ea67e6d6dfb17762e5e1474f4907382b2ae0207bd9b5bf0f
 [sensibilidade Modo B] 300 combinacoes: M_GA in [1.40e+16, 3.42e+16] Msun; 100% na banda (TODAS)
 
 AXIOMA ZERO -- RELATIVIDADE ONTOLOGICA [v37; ONTO/AX + DER/NUM; NAO gateia 1=1]:
@@ -1462,7 +1462,8 @@ COMA -- A DISTANCIA PELO VAZAMENTO DE FLUXO MODULAR [v39; PRE/EXT; PRIMARIO; NAO
   D_L(TGL) = 101.90 +- 1.02(stat) +- 0.98(sys) Mpc  vs  CONTROLE Planck s/ defasagem = 110.85 Mpc ; FP-inversa = 111.8 +- 1.8
   NEGATIVOS HONESTOS: camada REAL move -0.19% (nao explica) ; beta/2b/3b como fracao de z: FALHAM >3sigma
   Coma sozinha NAO separa 'vazamento modular 8.07%' de 'H0_local=73.263' -- testa o PAR (Planck+defasagem) vs (Planck s/ defasagem)
-  >>> COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL <<<
+  REVELACAO: D_ref=98.5+-2.2 ; z_TGL=1.30 vs z_Planck(controle)=5.61
+  >>> DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL <<<
 
 COMA -- PARIDADE INVERSA DO GA [v36; PRE/EXT; cego; NAO gateia 1=1]:
   GA: R->M ; COMA: M->R->D_A (a MESMA lei: M=2 beta^2 (c^2/4piG) R, invertida)

@@ -4590,7 +4590,7 @@
     "TGLExt.ad_preserves_splitting": [],
     "TGLExt.ad_preserves_star_projection": []
   },
-  "formal_source_hash": "fced947ea1c183a0236560e834615635ee334c8f8646a35263f81ddbad987e96",
+  "formal_source_hash": "5025ebfe8ae96907c0fb05c46f01f058e2c341c7300a6b8b3a3ab5bf2633d9e5",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -4896,7 +4896,7 @@
 
 ```json
 {
-  "code_sha256": "2e9be2b8e1c31b48c1e366280c02cfa132c6d4628e9888125371876930859e3c",
+  "code_sha256": "a318ab63d4cebd81073e2f7d12516a0246c962d5ae0a83597f10ee0f65122ce2",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"
@@ -5158,11 +5158,11 @@
 - `bianchi`: a identidade de Jacobi do comutador [KERNEL] e' a semente algebrica de nabla G = 0 -- o elo entre a conservacao (clausula de H3) e o colchete do v63
 - `fronteira`: a implicacao esta FECHADA em kernel; as HIPOTESES sao a fronteira -- exatamente onde os Certificados II (rede concreta), III (limite fisico) e IV (natureza) trabalham no runtime
 
-**Estatutos [qg_closure]** (veredito: `QG_CLOSURE_GATE_INSTALLED_FAIL_CLOSED__NEGATIVE_PROBES_PASS__CURRENT_STATE_TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED`):
+**Estatutos [qg_closure]** (veredito: `QG_CLOSURE_GATE_INSTALLED_FAIL_CLOSED__NEGATIVE_PROBES_PASS__CURRENT_STATE_TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`):
 
 - `correcao_do_nome`: o gate 'testemunha full' e' IMPOSSIVEL por teorema (v61); o alvo correto e' canonical_boundary_transport_witness (testemunha de fronteira dinamica) -- flags novas instaladas, todas False (fail-closed)
 - `faces_ja_em_kernel`: spin-2 face finita [v75: helice 2theta, TT>0, 2 polarizacoes]; teorema mestre condicional [v74]; pacotes abstratos [v64-66] -- NENHUMA delas move as flags concretas (probes garantem)
-- `estado`: TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED
+- `estado`: TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE
 - `o_caminho`: a ordem do fecho: SemifiniteAnalysis -> ConcreteAQFTCore -> ConcreteBreuerCorner -> ConcreteModularFourFrame -> ConcreteSolderField -> ConcreteEmergentEinstein -> LinearizedSpin2(continuo) -> CanonicalBoundaryWitness (TERMO, nao Nonempty)
 - `estado_tecnico_ext_confirmado`: [EXT, leitura externa 17/07/2026 -- confirmada pelo runtime] INFINITE_DIMENSIONAL_INHABITANT_CONSTRUCTED__MASTER_THEOREM_FIRES_ON_EXPLICIT_MODEL__PHYSICAL_AQFT_CORE_AND_CONTINUOUS_GEOMETRY_REMAIN_OPEN
 - `v99_certificado`: as flags apontam aos termos Lean do certificado (ClosureCertificate.lean v1 tipa: rede fisica nao-constante c/ grupo nao-trivial; Dirac ILIMITADO star(D)=D c/ gap quadratico; canto no kernel do Dirac; frame-CAMPO suave; a metade nao-tipavel [III1, afiliacao semifinita, H3 derivado, spin-2 continuo] nomeada p/ o v2)

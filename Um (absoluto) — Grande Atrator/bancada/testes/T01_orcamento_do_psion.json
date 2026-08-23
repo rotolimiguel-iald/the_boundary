@@ -1,0 +1,167 @@
+{
+  "teste": "BANCADA T01 — o orcamento do psion",
+  "tipagem_do_operador": "materia escura = condensado de psions; a inscricao esta em 2D; o graviton e a ligacao de dois psions em 3D; o psion e fase unica",
+  "formula_do_acervo": "m_psion = 2*m_nu*(1-beta_TGL), com m_nu = m_3 = sqrt(Dm2_31)",
+  "o_que_se_mede": "ORCAMENTO e CINEMATICA: cabe? nao se mede se o mecanismo e verdadeiro. Um mecanismo que nao cabe esta morto; um que cabe NAO esta provado.",
+  "leitura_A": {
+    "descricao": "psion = par ligado de neutrinos RELIQUIA (montado do CnuB)",
+    "n_exigida_cm3": 12772.526047295229,
+    "n_disponivel_cm3": 168.0,
+    "razao": 76.0269407577097,
+    "cabe": false
+  },
+  "leitura_B": {
+    "descricao": "psion = quantum de campo em condensado coerente (misalignment)",
+    "Psi_star_GeV": 482853257035.7973,
+    "Psi_star_sobre_MPl": 3.9549284295538276e-08,
+    "T_osc_eV": 11506514751909.375,
+    "z_osc": 4.8991949718094024e+16,
+    "lambda_dB_kpc": 4.058875695121765e-22,
+    "cabe": true
+  },
+  "m_psion_meV": 98.99426650030188,
+  "data": "2026-08-21",
+  "beta_derivado": 0.012031300400803142,
+  "alpha_input": 0.0072973525693,
+  "checks": [
+    {
+      "nome": "m_psion bate os 98,8 meV do acervo (tolerancia 1 meV)",
+      "residuo": 0.19426650030187886,
+      "ok": true
+    },
+    {
+      "nome": "n exigida e positiva e finita",
+      "residuo": 0.0,
+      "ok": true
+    },
+    {
+      "nome": "LEITURA A (pares de neutrinos reliquia) CABE no CnuB (razao <= 1)",
+      "residuo": 75.0269407577097,
+      "ok": false,
+      "medido": 76.0269407577097,
+      "piso": 1.0
+    },
+    {
+      "nome": "LEITURA B: Psi_star e SUB-PLANCKIANO (nao exige transplanckiano)",
+      "residuo": 0.0,
+      "ok": true,
+      "medido": 3.9549284295538276e-08,
+      "piso": 1.0
+    },
+    {
+      "nome": "psion e FRIO: lambda_dB << 1 kpc (razao < 1e-6)",
+      "residuo": 0.0,
+      "ok": true,
+      "medido": 4.058875695121765e-22,
+      "piso": 1e-06
+    },
+    {
+      "nome": "C1 CONTROLE: o ultraleve REPROVA no de Broglie (>= 0,1 kpc) — discrimina",
+      "residuo": 0.0,
+      "ok": true,
+      "medido": 0.40180542225448207,
+      "piso": 0.1
+    },
+    {
+      "nome": "psion respeita o limite de Lyman-alpha (m >= 2e-21 eV)",
+      "residuo": 0.0,
+      "ok": true,
+      "medido": 0.09899426650030188,
+      "piso": 2e-21
+    },
+    {
+      "nome": "oscilacao comeca ANTES da recombinacao (T_osc > T_rec)",
+      "residuo": 0.0,
+      "ok": true,
+      "medido": 11506514751909.375,
+      "piso": 0.26
+    },
+    {
+      "nome": "C2 CONTROLE: massa menor EXIGE MAIS particulas (aparelho responde)",
+      "residuo": 0.0,
+      "ok": true,
+      "medido": 100.0,
+      "piso": 10.0
+    }
+  ],
+  "exibidas": [
+    {
+      "nome": "m_3 = sqrt(Dm2_31)  [eV]",
+      "valor": 0.0500999001995014
+    },
+    {
+      "nome": "m_psion = 2*m_3*(1-beta)  [meV]",
+      "valor": 98.99426650030188
+    },
+    {
+      "nome": "rho_crit  [kg/m^3]",
+      "valor": 8.520199837095231e-27
+    },
+    {
+      "nome": "rho_dm    [kg/m^3]",
+      "valor": 2.2540099403198016e-27
+    },
+    {
+      "nome": "n_psion EXIGIDA  [cm^-3]",
+      "valor": 12772.526047295229
+    },
+    {
+      "nome": "n_nu (CnuB, todas as especies) [cm^-3]",
+      "valor": 336.0
+    },
+    {
+      "nome": "n_pares MAXIMO (n_nu/2)        [cm^-3]",
+      "valor": 168.0
+    },
+    {
+      "nome": "n_exigida / n_pares_max",
+      "valor": 76.0269407577097
+    },
+    {
+      "nome": "T_osc (inicio da oscilacao) [eV]",
+      "valor": 11506514751909.375
+    },
+    {
+      "nome": "T_osc [K]",
+      "valor": 1.3352755895666525e+17
+    },
+    {
+      "nome": "Psi_star exigido [GeV]",
+      "valor": 482853257035.7973
+    },
+    {
+      "nome": "Psi_star / M_Pl",
+      "valor": 3.9549284295538276e-08
+    },
+    {
+      "nome": "lambda_deBroglie do psion [m]",
+      "valor": 0.012524381738497419
+    },
+    {
+      "nome": "lambda_deBroglie [kpc]",
+      "valor": 4.058875695121765e-22
+    },
+    {
+      "nome": "C1 lambda_dB de um ultraleve 1e-22 eV [kpc]",
+      "valor": 0.40180542225448207
+    },
+    {
+      "nome": "T_osc [eV]",
+      "valor": 11506514751909.375
+    },
+    {
+      "nome": "T_recombinacao [eV]",
+      "valor": 0.26
+    },
+    {
+      "nome": "z de inicio da oscilacao",
+      "valor": 4.8991949718094024e+16
+    },
+    {
+      "nome": "C2 n exigida com massa 100x menor [cm^-3]",
+      "valor": 1277252.604729523
+    }
+  ],
+  "veredito": "PSION_LEITURA_A_REFUTADA_POR_ORCAMENTO__LEITURA_B_CONDENSADO_SOBREVIVE__MEDIDO_8_DE_9",
+  "ressalva": "T4 usa a estimativa PADRAO de misalignment (oscilacao em 3H=m, diluicao a^-3, g* constante) — [KNOWN] da literatura, nao derivacao da TGL. O calculo diz que a amplitude CABE, nao que a TGL a FIXA: fixar Psi_star a partir de beta e trabalho ainda por fazer, e e o que falta para a clausula 'sem parametros ajustados'. CONFIRMED proibido."
+}

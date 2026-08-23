@@ -1,0 +1,16 @@
+{
+ "pre_registro_sha256": "6b8447f6499a9705faefc374b27c886aad3953538b205f3dfbacb9d5c2a9462d",
+ "alpha0": 0.0072973525693,
+ "controle_limites_ok": true,
+ "A1_plato_IR_1keV": 5.930539435380551e-10,
+ "A1_passa": true,
+ "A4_razao_exata_sobre_assintotica": 0.9999995896797397,
+ "A4_passa": true,
+ "dalpha_lep_MZ": 0.03142269258416398,
+ "dalpha_had5_INPUT": 0.02761,
+ "A2_inv_alpha_MZ": 128.9463950768242,
+ "A2_passa": true,
+ "A3_corrida": 0.062736178099837,
+ "A3_passa": true,
+ "veredito": "T11_NUMEROS_DA_PONTE_REPRODUZIDOS"
+}

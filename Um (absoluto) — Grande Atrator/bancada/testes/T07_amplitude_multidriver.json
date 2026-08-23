@@ -1,0 +1,98 @@
+{
+  "teste": "T07 — a amplitude da inscricao, multi-driver",
+  "pre_registro_T06_sha256": "3a48655430db0bfd1fba72c523f3a7549b59e5a35ec94598e244069e357333e0",
+  "pre_registro_T07_sha256": "90a59a1c3d2fb4b55dc22a8547600f8dad7335f981b88846a24085129a600a50",
+  "estimador": "IDENTICO ao T06 (M=128, N_MIN=30, mediana, Pearson, grau de saida)",
+  "beta_derivado": 0.012031300400803142,
+  "universo": {
+    "n_teoremas": 316259
+  },
+  "resultados": {
+    "M": {
+      "rotulo": "Mathlib",
+      "n_teoremas": 263297,
+      "n_pares": 164,
+      "Delta": 0.015100905518070196,
+      "Delta_sobre_beta": 1.2551349409463788,
+      "qualificado": true,
+      "nulo": {
+        "mediana": 0.019525437533534584,
+        "ic95": [
+          0.015566367157588214,
+          0.024888725760059523
+        ],
+        "fora_do_ic95": true
+      }
+    },
+    "I": {
+      "rotulo": "Init",
+      "n_teoremas": 26813,
+      "n_pares": 40,
+      "Delta": 0.02219582313390117,
+      "Delta_sobre_beta": 1.8448399087782317,
+      "qualificado": true,
+      "nulo": {
+        "mediana": 0.015253051736245304,
+        "ic95": [
+          0.010247122427271337,
+          0.021991731345382702
+        ],
+        "fora_do_ic95": true
+      }
+    },
+    "S": {
+      "rotulo": "Std",
+      "n_teoremas": 21930,
+      "n_pares": 29,
+      "Delta": 0.03196303326863448,
+      "Delta_sobre_beta": 2.6566565710969035,
+      "qualificado": true,
+      "nulo": {
+        "mediana": 0.016592145837314554,
+        "ic95": [
+          0.010870355944987925,
+          0.024853719910290513
+        ],
+        "fora_do_ic95": true
+      }
+    },
+    "T": {
+      "rotulo": "Batteries",
+      "n_teoremas": 2457,
+      "n_pares": 13,
+      "Delta": 0.03238370405926572,
+      "Delta_sobre_beta": 2.6916212695598527,
+      "qualificado": true,
+      "nulo": {
+        "mediana": 0.021901104590839687,
+        "ic95": [
+          0.013688154850318355,
+          0.03426311919711482
+        ],
+        "fora_do_ic95": false
+      }
+    },
+    "A": {
+      "rotulo": "TGLExt+TGL",
+      "n_teoremas": 1662,
+      "n_pares": 2,
+      "Delta": 0.07524218378782505,
+      "qualificado": false
+    }
+  },
+  "qualificados": [
+    "M",
+    "I",
+    "S",
+    "T"
+  ],
+  "criterio": {
+    "C1_invariancia": false,
+    "C2_valor": false,
+    "C3_nulo": false,
+    "C4_poder": true
+  },
+  "veredito": "NULO_REPRODUZ__SEM_MEDIDA",
+  "data": "2026-08-21",
+  "ressalva": "mede-se amplitude de inscricao em CORPORA DE PROVA FORMAL. Acordo entre Drivers e fato sobre como distincoes matematicas se empilham, NAO sobre o mundo. Alternativa banal que fica dita: pode refletir como humanos organizam demonstracoes — universal de pratica, nao de natureza; o teste NAO separa as duas leituras. Nao decide beta = tau_F(R_J) [CONJECTURE]. CONFIRMED proibido."
+}

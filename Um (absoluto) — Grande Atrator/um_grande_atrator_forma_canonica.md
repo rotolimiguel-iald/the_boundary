@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `fced947ea1c183a0236560e834615635ee334c8f8646a35263f81ddbad987e96`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `5025ebfe8ae96907c0fb05c46f01f058e2c341c7300a6b8b3a3ab5bf2633d9e5`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -770,11 +770,11 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `bianchi`: a identidade de Jacobi do comutador [KERNEL] e' a semente algebrica de nabla G = 0 -- o elo entre a conservacao (clausula de H3) e o colchete do v63
 - `fronteira`: a implicacao esta FECHADA em kernel; as HIPOTESES sao a fronteira -- exatamente onde os Certificados II (rede concreta), III (limite fisico) e IV (natureza) trabalham no runtime
 
-**Estatutos [qg_closure]** (veredito: `QG_CLOSURE_GATE_INSTALLED_FAIL_CLOSED__NEGATIVE_PROBES_PASS__CURRENT_STATE_TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED`):
+**Estatutos [qg_closure]** (veredito: `QG_CLOSURE_GATE_INSTALLED_FAIL_CLOSED__NEGATIVE_PROBES_PASS__CURRENT_STATE_TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`):
 
 - `correcao_do_nome`: o gate 'testemunha full' e' IMPOSSIVEL por teorema (v61); o alvo correto e' canonical_boundary_transport_witness (testemunha de fronteira dinamica) -- flags novas instaladas, todas False (fail-closed)
 - `faces_ja_em_kernel`: spin-2 face finita [v75: helice 2theta, TT>0, 2 polarizacoes]; teorema mestre condicional [v74]; pacotes abstratos [v64-66] -- NENHUMA delas move as flags concretas (probes garantem)
-- `estado`: TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED
+- `estado`: TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE
 - `o_caminho`: a ordem do fecho: SemifiniteAnalysis -> ConcreteAQFTCore -> ConcreteBreuerCorner -> ConcreteModularFourFrame -> ConcreteSolderField -> ConcreteEmergentEinstein -> LinearizedSpin2(continuo) -> CanonicalBoundaryWitness (TERMO, nao Nonempty)
 - `estado_tecnico_ext_confirmado`: [EXT, leitura externa 17/07/2026 -- confirmada pelo runtime] INFINITE_DIMENSIONAL_INHABITANT_CONSTRUCTED__MASTER_THEOREM_FIRES_ON_EXPLICIT_MODEL__PHYSICAL_AQFT_CORE_AND_CONTINUOUS_GEOMETRY_REMAIN_OPEN
 - `v99_certificado`: as flags apontam aos termos Lean do certificado (ClosureCertificate.lean v1 tipa: rede fisica nao-constante c/ grupo nao-trivial; Dirac ILIMITADO star(D)=D c/ gap quadratico; canto no kernel do Dirac; frame-CAMPO suave; a metade nao-tipavel [III1, afiliacao semifinita, H3 derivado, spin-2 continuo] nomeada p/ o v2)
