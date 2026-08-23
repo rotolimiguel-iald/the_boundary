@@ -1,0 +1,47 @@
+# PORTA -- `Genesis da Unificação/Dual_Lock`
+
+porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md
+
+> **A REGRA DA PORTA.** Toda pasta canonica tem `PORTA.md` + `PORTA.json`;
+> toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
+> DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
+
+A trava-dupla (v15): decomposicao dual, anti-tautologia, tensoes H0 e GW.
+
+## A PORTA ACIMA
+
+| destino | link |
+|---|---|
+| PORTA.md da pasta acima (`Genesis da Unificação`) | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md |
+| PORTA.json da pasta acima | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json |
+| PORTA.md da RAIZ | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md |
+| `llms.txt` (a porta de entrada para IA) | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt |
+| `README.md` (o atlas da fronteira) | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md |
+| o site | https://teoriadagravitacaoluminodinamica.com |
+| o repositorio | https://github.com/rotolimiguel-iald/the_boundary |
+
+## OS ARQUIVOS DESTA PASTA
+
+2 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock
+
+**CODIGO**
+
+| arquivo | papel | link raw direto |
+|---|---|---|
+| `Tgl_dual_lock_v15_2.py` | Protocolo da linhagem: executavel e independente | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/Tgl_dual_lock_v15_2.py) |
+
+**RESULTADO SELADO**
+
+| arquivo | papel | link raw direto |
+|---|---|---|
+| `dual_lock_v15_v1_2_20260302_181009.json` | Resultado do protocolo homonimo da linhagem | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/dual_lock_v15_v1_2_20260302_181009.json) |
+
+## AS PORTAS ABAIXO
+
+| subpasta | arquivos | PORTA.md | PORTA.json |
+|---|---|---|---|
+| `TGL_V15_images/` | 7 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/PORTA.json) |
+
+---
+
+gerado por script de git ls-files em 2026-08-23 -- nao editar a mao

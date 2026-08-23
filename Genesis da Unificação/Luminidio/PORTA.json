@@ -1,0 +1,78 @@
+{
+  "porta": "Genesis da Unificação/Luminidio",
+  "porta_id": "Genesis da Unificação/Luminidio",
+  "titulo": "Genesis da Unificação/Luminidio",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "AT2023vfi_JWST_29d_fluxcal.txt",
+      "caminho": "Genesis da Unificação/Luminidio/AT2023vfi_JWST_29d_fluxcal.txt",
+      "papel": "dados",
+      "descricao": "Dado da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/AT2023vfi_JWST_29d_fluxcal.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/AT2023vfi_JWST_29d_fluxcal.txt",
+      "sha256_16": "6846dd48af565ff7",
+      "bytes": 30691
+    },
+    {
+      "nome": "AT2023vfi_JWST_61d_fluxcal.txt",
+      "caminho": "Genesis da Unificação/Luminidio/AT2023vfi_JWST_61d_fluxcal.txt",
+      "papel": "dados",
+      "descricao": "Dado da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/AT2023vfi_JWST_61d_fluxcal.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/AT2023vfi_JWST_61d_fluxcal.txt",
+      "sha256_16": "d84b1a3897f87a76",
+      "bytes": 30619
+    },
+    {
+      "nome": "Luminidio_hunter.py",
+      "caminho": "Genesis da Unificação/Luminidio/Luminidio_hunter.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/Luminidio_hunter.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/Luminidio_hunter.py",
+      "sha256_16": "8e606979c5899c3e",
+      "bytes": 25842
+    },
+    {
+      "nome": "luminidium_results.json",
+      "caminho": "Genesis da Unificação/Luminidio/luminidium_results.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/luminidium_results.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/luminidium_results.json",
+      "sha256_16": "dd9ccaf14d903485",
+      "bytes": 2540
+    },
+    {
+      "nome": "luminidium_results.png",
+      "caminho": "Genesis da Unificação/Luminidio/luminidium_results.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/luminidium_results.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/luminidium_results.png",
+      "sha256_16": "4954d73ae7e80b0d",
+      "bytes": 176794
+    }
+  ],
+  "total_arquivos_nesta_pasta": 5,
+  "total_arquivos_com_subpastas": 5,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

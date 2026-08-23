@@ -1,0 +1,48 @@
+{
+  "porta": "Genesis da Unificação/ACOM",
+  "porta_id": "Genesis da Unificação/ACOM",
+  "titulo": "Genesis da Unificação/ACOM",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "Acom_v17_mirror.py",
+      "caminho": "Genesis da Unificação/ACOM/Acom_v17_mirror.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/Acom_v17_mirror.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/Acom_v17_mirror.py",
+      "sha256_16": "4ffcbbdb96bab4a5",
+      "bytes": 43312
+    },
+    {
+      "nome": "Output Acom_v17_mirror.pdf",
+      "caminho": "Genesis da Unificação/ACOM/Output Acom_v17_mirror.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/Output%20Acom_v17_mirror.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/Output%20Acom_v17_mirror.pdf",
+      "sha256_16": "dc25320a2736d457",
+      "bytes": 3914234
+    }
+  ],
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 2,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

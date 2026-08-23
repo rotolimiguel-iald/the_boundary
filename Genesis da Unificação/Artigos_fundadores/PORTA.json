@@ -1,0 +1,226 @@
+{
+  "porta": "Genesis da Unificação/Artigos_fundadores",
+  "porta_id": "Genesis da Unificação/Artigos_fundadores",
+  "titulo": "Genesis da Unificação/Artigos_fundadores",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "Artigos_complementares_zenodo",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/PORTA.json",
+      "total_arquivos": 12
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "A_fronteira_v5.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/A_fronteira_v5.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/A_fronteira_v5.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/A_fronteira_v5.pdf",
+      "sha256_16": "f41506234d72086c",
+      "bytes": 1038078
+    },
+    {
+      "nome": "A_fronteira_v5.tex",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/A_fronteira_v5.tex",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/A_fronteira_v5.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/A_fronteira_v5.tex",
+      "sha256_16": "bf824b9a0b9b2622",
+      "bytes": 194327
+    },
+    {
+      "nome": "A_ultima_corda_v3.tex",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/A_ultima_corda_v3.tex",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/A_ultima_corda_v3.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/A_ultima_corda_v3.tex",
+      "sha256_16": "8db72ea848f708c1",
+      "bytes": 92186
+    },
+    {
+      "nome": "O_limiar_da_humildade.tex",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/O_limiar_da_humildade.tex",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/O_limiar_da_humildade.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/O_limiar_da_humildade.tex",
+      "sha256_16": "f523d141fce44789",
+      "bytes": 54134
+    },
+    {
+      "nome": "Protocolo_de_colapso_iald_v6.tex",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Protocolo_de_colapso_iald_v6.tex",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Protocolo_de_colapso_iald_v6.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Protocolo_de_colapso_iald_v6.tex",
+      "sha256_16": "24f4154c4a7f62f4",
+      "bytes": 88743
+    },
+    {
+      "nome": "The_Factorization_of_Miguels_Constant_v2.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.pdf",
+      "sha256_16": "8c69fb66840a1711",
+      "bytes": 1248031
+    },
+    {
+      "nome": "The_Factorization_of_Miguels_Constant_v2.tex",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.tex",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_Factorization_of_Miguels_Constant_v2.tex",
+      "sha256_16": "c6b82f6e2da96eff",
+      "bytes": 95177
+    },
+    {
+      "nome": "The_boundary_v5_en.tex",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/The_boundary_v5_en.tex",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_boundary_v5_en.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_boundary_v5_en.tex",
+      "sha256_16": "011160112e79db73",
+      "bytes": 183299
+    },
+    {
+      "nome": "The_last_string_v3.tex",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/The_last_string_v3.tex",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_last_string_v3.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/The_last_string_v3.tex",
+      "sha256_16": "d1279e7324a08708",
+      "bytes": 92656
+    },
+    {
+      "nome": "a_ultima_corda_v3.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/a_ultima_corda_v3.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/a_ultima_corda_v3.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/a_ultima_corda_v3.pdf",
+      "sha256_16": "ded1573be935ba2a",
+      "bytes": 573448
+    },
+    {
+      "nome": "fatoracao_constante_miguel_v2.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/fatoracao_constante_miguel_v2.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/fatoracao_constante_miguel_v2.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/fatoracao_constante_miguel_v2.pdf",
+      "sha256_16": "f184bfff0c3e5d0b",
+      "bytes": 1272551
+    },
+    {
+      "nome": "fatoracao_constante_miguel_v2.tex",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/fatoracao_constante_miguel_v2.tex",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/fatoracao_constante_miguel_v2.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/fatoracao_constante_miguel_v2.tex",
+      "sha256_16": "35955b31f80f4883",
+      "bytes": 96285
+    },
+    {
+      "nome": "graviton_v2.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/graviton_v2.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/graviton_v2.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/graviton_v2.pdf",
+      "sha256_16": "41e13c646aaf3137",
+      "bytes": 703087
+    },
+    {
+      "nome": "graviton_v2.tex",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/graviton_v2.tex",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/graviton_v2.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/graviton_v2.tex",
+      "sha256_16": "b8418043450e2ad9",
+      "bytes": 116770
+    },
+    {
+      "nome": "nada_materia_v5.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/nada_materia_v5.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/nada_materia_v5.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/nada_materia_v5.pdf",
+      "sha256_16": "90e27985ec6aa02c",
+      "bytes": 825816
+    },
+    {
+      "nome": "o_limiar_da_humildade.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/o_limiar_da_humildade.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/o_limiar_da_humildade.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/o_limiar_da_humildade.pdf",
+      "sha256_16": "172d04d07b817692",
+      "bytes": 423258
+    },
+    {
+      "nome": "protocolo_de_colapso_iald_v6.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/protocolo_de_colapso_iald_v6.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/protocolo_de_colapso_iald_v6.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/protocolo_de_colapso_iald_v6.pdf",
+      "sha256_16": "59a53c2e0e4147c1",
+      "bytes": 609978
+    },
+    {
+      "nome": "the_boundary_v5_en.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/the_boundary_v5_en.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/the_boundary_v5_en.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/the_boundary_v5_en.pdf",
+      "sha256_16": "18bebc063318b92e",
+      "bytes": 984585
+    },
+    {
+      "nome": "the_last_string_v3.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/the_last_string_v3.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/the_last_string_v3.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/the_last_string_v3.pdf",
+      "sha256_16": "d5fbae8e4b7b2f87",
+      "bytes": 724673
+    }
+  ],
+  "total_arquivos_nesta_pasta": 19,
+  "total_arquivos_com_subpastas": 31,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

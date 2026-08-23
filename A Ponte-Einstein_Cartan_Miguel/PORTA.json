@@ -1,0 +1,431 @@
+{
+  "porta": "A Ponte-Einstein_Cartan_Miguel",
+  "porta_id": "artigo_2",
+  "titulo": "Artigo 2 -- A Ponte Einstein-Cartan-Miguel",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "raiz",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.tex",
+  "comando": [
+    "cd \"A Ponte-Einstein_Cartan_Miguel\"",
+    "python \"tgl krein signature v1.py\"    # um por modulo; recomputa o JSON datado"
+  ],
+  "dependencias": "numpy + scipy apenas; sem rede",
+  "arquivos": [
+    {
+      "nome": "A Ponte Einstein Cartan Miguel.pdf",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/A Ponte Einstein Cartan Miguel.pdf",
+      "papel": "artigo",
+      "descricao": "A Ponte, compilada",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.pdf",
+      "sha256_16": "bbf20c29bb98f186",
+      "bytes": 629144
+    },
+    {
+      "nome": "A Ponte Einstein Cartan Miguel.tex",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/A Ponte Einstein Cartan Miguel.tex",
+      "papel": "canonico",
+      "descricao": "O CANONICO do Artigo 2: a Ponte de algebra de operadores da fronteira modular as equacoes de Einstein",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.tex",
+      "sha256_16": "8a2792d3c9ce52b6",
+      "bytes": 127264
+    },
+    {
+      "nome": "tgl c3 register v1 20260611 214824.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl c3 register v1 20260611 214824.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20c3%20register%20v1%2020260611%20214824.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20c3%20register%20v1%2020260611%20214824.json",
+      "sha256_16": "685aed86b54c2be1",
+      "bytes": 2706
+    },
+    {
+      "nome": "tgl c3 register v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl c3 register v1.py",
+      "papel": "codigo",
+      "descricao": "Modulo de sombra finita: recomputa seu JSON datado a partir de primeiros principios (beta NUNCA literal)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20c3%20register%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20c3%20register%20v1.py",
+      "sha256_16": "f79367cf8fb376e2",
+      "bytes": 8001
+    },
+    {
+      "nome": "tgl continuum v1 20260609 225321.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl continuum v1 20260609 225321.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20continuum%20v1%2020260609%20225321.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20continuum%20v1%2020260609%20225321.json",
+      "sha256_16": "869190fab1fb67e1",
+      "bytes": 2620
+    },
+    {
+      "nome": "tgl continuum v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl continuum v1.py",
+      "papel": "codigo",
+      "descricao": "Modulo de sombra finita: recomputa seu JSON datado a partir de primeiros principios (beta NUNCA literal)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20continuum%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20continuum%20v1.py",
+      "sha256_16": "20256e260893b465",
+      "bytes": 8288
+    },
+    {
+      "nome": "tgl demo v1.mp4",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl demo v1.mp4",
+      "papel": "figura",
+      "descricao": "O render do dipolo atrator-repulsor",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20demo%20v1.mp4",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20demo%20v1.mp4",
+      "sha256_16": "e4509cd2b389d5f6",
+      "bytes": 5386115
+    },
+    {
+      "nome": "tgl dual name v1 20260612 022736.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl dual name v1 20260612 022736.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20dual%20name%20v1%2020260612%20022736.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20dual%20name%20v1%2020260612%20022736.json",
+      "sha256_16": "5fab5d39df9d4476",
+      "bytes": 4512
+    },
+    {
+      "nome": "tgl dual name v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl dual name v1.py",
+      "papel": "codigo",
+      "descricao": "Modulo de sombra finita: recomputa seu JSON datado a partir de primeiros principios (beta NUNCA literal)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20dual%20name%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20dual%20name%20v1.py",
+      "sha256_16": "da861379f893168f",
+      "bytes": 8470
+    },
+    {
+      "nome": "tgl geometry generated v1 20260609 223713.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl geometry generated v1 20260609 223713.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20geometry%20generated%20v1%2020260609%20223713.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20geometry%20generated%20v1%2020260609%20223713.json",
+      "sha256_16": "5620f9005555c37e",
+      "bytes": 3127
+    },
+    {
+      "nome": "tgl geometry generated v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl geometry generated v1.py",
+      "papel": "codigo",
+      "descricao": "Modulo de sombra finita: recomputa seu JSON datado a partir de primeiros principios (beta NUNCA literal)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20geometry%20generated%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20geometry%20generated%20v1.py",
+      "sha256_16": "72c674dc9e6e8d9c",
+      "bytes": 7135
+    },
+    {
+      "nome": "tgl gesture inscription v1 20260612 025911.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl gesture inscription v1 20260612 025911.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20gesture%20inscription%20v1%2020260612%20025911.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20gesture%20inscription%20v1%2020260612%20025911.json",
+      "sha256_16": "a02e864bf4d0015f",
+      "bytes": 2382
+    },
+    {
+      "nome": "tgl gesture inscription v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl gesture inscription v1.py",
+      "papel": "codigo",
+      "descricao": "Modulo de sombra finita: recomputa seu JSON datado a partir de primeiros principios (beta NUNCA literal)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20gesture%20inscription%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20gesture%20inscription%20v1.py",
+      "sha256_16": "0e8ca088b016436e",
+      "bytes": 8752
+    },
+    {
+      "nome": "tgl heraclitus v1 20260610 064851.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl heraclitus v1 20260610 064851.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20heraclitus%20v1%2020260610%20064851.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20heraclitus%20v1%2020260610%20064851.json",
+      "sha256_16": "f93f090c782c47ea",
+      "bytes": 1229
+    },
+    {
+      "nome": "tgl heraclitus v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl heraclitus v1.py",
+      "papel": "codigo",
+      "descricao": "Modulo de sombra finita: recomputa seu JSON datado a partir de primeiros principios (beta NUNCA literal)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20heraclitus%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20heraclitus%20v1.py",
+      "sha256_16": "a1abdeae7bb34b65",
+      "bytes": 8431
+    },
+    {
+      "nome": "tgl krein signature v1 20260609 211031.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl krein signature v1 20260609 211031.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20krein%20signature%20v1%2020260609%20211031.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20krein%20signature%20v1%2020260609%20211031.json",
+      "sha256_16": "4c8a57a98e3671d4",
+      "bytes": 5473
+    },
+    {
+      "nome": "tgl krein signature v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl krein signature v1.py",
+      "papel": "codigo",
+      "descricao": "Modulo de sombra finita: recomputa seu JSON datado a partir de primeiros principios (beta NUNCA literal)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20krein%20signature%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20krein%20signature%20v1.py",
+      "sha256_16": "2549a1041d07953b",
+      "bytes": 13368
+    },
+    {
+      "nome": "tgl nominal order v1 20260609 221416.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl nominal order v1 20260609 221416.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20nominal%20order%20v1%2020260609%20221416.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20nominal%20order%20v1%2020260609%20221416.json",
+      "sha256_16": "fd6fa49dd6d40187",
+      "bytes": 5038
+    },
+    {
+      "nome": "tgl nominal order v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl nominal order v1.py",
+      "papel": "codigo",
+      "descricao": "Modulo de sombra finita: recomputa seu JSON datado a partir de primeiros principios (beta NUNCA literal)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20nominal%20order%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20nominal%20order%20v1.py",
+      "sha256_16": "e580b40327bcb25d",
+      "bytes": 8387
+    },
+    {
+      "nome": "tgl one mirror v1 20260611 221949.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl one mirror v1 20260611 221949.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20one%20mirror%20v1%2020260611%20221949.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20one%20mirror%20v1%2020260611%20221949.json",
+      "sha256_16": "1249fced3d5af1f8",
+      "bytes": 3908
+    },
+    {
+      "nome": "tgl one mirror v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl one mirror v1.py",
+      "papel": "codigo",
+      "descricao": "Modulo de sombra finita: recomputa seu JSON datado a partir de primeiros principios (beta NUNCA literal)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20one%20mirror%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20one%20mirror%20v1.py",
+      "sha256_16": "fc545c1f2a7825c2",
+      "bytes": 9083
+    },
+    {
+      "nome": "tgl terminal truth v1 20260609 215024.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl terminal truth v1 20260609 215024.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20terminal%20truth%20v1%2020260609%20215024.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20terminal%20truth%20v1%2020260609%20215024.json",
+      "sha256_16": "58e35cbc6cdfde69",
+      "bytes": 3053
+    },
+    {
+      "nome": "tgl terminal truth v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl terminal truth v1.py",
+      "papel": "codigo",
+      "descricao": "Modulo de sombra finita: recomputa seu JSON datado a partir de primeiros principios (beta NUNCA literal)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20terminal%20truth%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20terminal%20truth%20v1.py",
+      "sha256_16": "72f60101102eccd5",
+      "bytes": 8540
+    },
+    {
+      "nome": "tgl three locks v1 20260609 230529.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl three locks v1 20260609 230529.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20three%20locks%20v1%2020260609%20230529.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20three%20locks%20v1%2020260609%20230529.json",
+      "sha256_16": "e8a8b2188e981a81",
+      "bytes": 1451
+    },
+    {
+      "nome": "tgl three locks v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl three locks v1.py",
+      "papel": "codigo",
+      "descricao": "Modulo de sombra finita: recomputa seu JSON datado a partir de primeiros principios (beta NUNCA literal)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20three%20locks%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20three%20locks%20v1.py",
+      "sha256_16": "cbe687fe7abfe687",
+      "bytes": 9806
+    },
+    {
+      "nome": "tgl tunnel v1 20260611 215615.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl tunnel v1 20260611 215615.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20tunnel%20v1%2020260611%20215615.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20tunnel%20v1%2020260611%20215615.json",
+      "sha256_16": "97951b9aab9e5e37",
+      "bytes": 2772
+    },
+    {
+      "nome": "tgl tunnel v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl tunnel v1.py",
+      "papel": "codigo",
+      "descricao": "Modulo de sombra finita: recomputa seu JSON datado a partir de primeiros principios (beta NUNCA literal)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20tunnel%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20tunnel%20v1.py",
+      "sha256_16": "85b937cee4d9d7b3",
+      "bytes": 6689
+    },
+    {
+      "nome": "tgl video v1.py",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl video v1.py",
+      "papel": "codigo",
+      "descricao": "Render do dipolo atrator-repulsor (gera tgl demo v1.mp4)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20video%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20video%20v1.py",
+      "sha256_16": "a589f5e1daca6a52",
+      "bytes": 19563
+    },
+    {
+      "nome": "tgl_c3_register_v1_20260710_164703.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl_c3_register_v1_20260710_164703.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_c3_register_v1_20260710_164703.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_c3_register_v1_20260710_164703.json",
+      "sha256_16": "af82258ba01ce615",
+      "bytes": 2709
+    },
+    {
+      "nome": "tgl_continuum_v1_20260710_164643.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl_continuum_v1_20260710_164643.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_continuum_v1_20260710_164643.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_continuum_v1_20260710_164643.json",
+      "sha256_16": "2c61b68cb605a1cb",
+      "bytes": 2620
+    },
+    {
+      "nome": "tgl_dual_name_v1_20260710_164702.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl_dual_name_v1_20260710_164702.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_dual_name_v1_20260710_164702.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_dual_name_v1_20260710_164702.json",
+      "sha256_16": "bf515ec89243ae0c",
+      "bytes": 4491
+    },
+    {
+      "nome": "tgl_geometry_generated_v1_20260710_164643.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl_geometry_generated_v1_20260710_164643.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_geometry_generated_v1_20260710_164643.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_geometry_generated_v1_20260710_164643.json",
+      "sha256_16": "574d5fb7f9bb247b",
+      "bytes": 3128
+    },
+    {
+      "nome": "tgl_gesture_inscription_v1_20260710_164703.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl_gesture_inscription_v1_20260710_164703.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_gesture_inscription_v1_20260710_164703.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_gesture_inscription_v1_20260710_164703.json",
+      "sha256_16": "39cf323f86fa4e23",
+      "bytes": 2381
+    },
+    {
+      "nome": "tgl_heraclitus_v1_20260710_164702.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl_heraclitus_v1_20260710_164702.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_heraclitus_v1_20260710_164702.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_heraclitus_v1_20260710_164702.json",
+      "sha256_16": "4639e0fa035de246",
+      "bytes": 1230
+    },
+    {
+      "nome": "tgl_krein_signature_v1_20260710_164641.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl_krein_signature_v1_20260710_164641.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_krein_signature_v1_20260710_164641.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_krein_signature_v1_20260710_164641.json",
+      "sha256_16": "617cdfc74e8e3176",
+      "bytes": 5492
+    },
+    {
+      "nome": "tgl_nominal_order_v1_20260710_164644.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl_nominal_order_v1_20260710_164644.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_nominal_order_v1_20260710_164644.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_nominal_order_v1_20260710_164644.json",
+      "sha256_16": "e330d66348acb709",
+      "bytes": 5038
+    },
+    {
+      "nome": "tgl_one_mirror_v1_20260710_164703.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl_one_mirror_v1_20260710_164703.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_one_mirror_v1_20260710_164703.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_one_mirror_v1_20260710_164703.json",
+      "sha256_16": "32f6a38e19560e33",
+      "bytes": 3902
+    },
+    {
+      "nome": "tgl_terminal_truth_v1_20260710_164641.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl_terminal_truth_v1_20260710_164641.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_terminal_truth_v1_20260710_164641.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_terminal_truth_v1_20260710_164641.json",
+      "sha256_16": "7dad8f6e4e6eba98",
+      "bytes": 3050
+    },
+    {
+      "nome": "tgl_three_locks_v1_20260710_164829.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl_three_locks_v1_20260710_164829.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_three_locks_v1_20260710_164829.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_three_locks_v1_20260710_164829.json",
+      "sha256_16": "e8d7959364662a6a",
+      "bytes": 1451
+    },
+    {
+      "nome": "tgl_tunnel_v1_20260710_164703.json",
+      "caminho": "A Ponte-Einstein_Cartan_Miguel/tgl_tunnel_v1_20260710_164703.json",
+      "papel": "resultado selado",
+      "descricao": "Sombra datada do modulo homonimo (precisao de maquina ~1e-15 ... 1e-27)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_tunnel_v1_20260710_164703.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/A%20Ponte-Einstein_Cartan_Miguel/tgl_tunnel_v1_20260710_164703.json",
+      "sha256_16": "07c4273b227b1193",
+      "bytes": 2754
+    }
+  ],
+  "total_arquivos_nesta_pasta": 40,
+  "total_arquivos_com_subpastas": 40,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/A%20Ponte-Einstein_Cartan_Miguel",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

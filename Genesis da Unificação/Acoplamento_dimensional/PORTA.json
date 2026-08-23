@@ -1,0 +1,78 @@
+{
+  "porta": "Genesis da Unificação/Acoplamento_dimensional",
+  "porta_id": "Genesis da Unificação/Acoplamento_dimensional",
+  "titulo": "Genesis da Unificação/Acoplamento_dimensional",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "TGL_dimensional_coupling_v1.py",
+      "caminho": "Genesis da Unificação/Acoplamento_dimensional/TGL_dimensional_coupling_v1.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/TGL_dimensional_coupling_v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/TGL_dimensional_coupling_v1.py",
+      "sha256_16": "676db9a63c3c5808",
+      "bytes": 9648
+    },
+    {
+      "nome": "tgl_dim_histograms.png",
+      "caminho": "Genesis da Unificação/Acoplamento_dimensional/tgl_dim_histograms.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dim_histograms.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dim_histograms.png",
+      "sha256_16": "7f43b68483e82684",
+      "bytes": 110765
+    },
+    {
+      "nome": "tgl_dim_profiles.png",
+      "caminho": "Genesis da Unificação/Acoplamento_dimensional/tgl_dim_profiles.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dim_profiles.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dim_profiles.png",
+      "sha256_16": "39aca0844513ffd9",
+      "bytes": 226783
+    },
+    {
+      "nome": "tgl_dim_summary.png",
+      "caminho": "Genesis da Unificação/Acoplamento_dimensional/tgl_dim_summary.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dim_summary.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dim_summary.png",
+      "sha256_16": "dda040550b0cc70a",
+      "bytes": 136997
+    },
+    {
+      "nome": "tgl_dimensional_coupling_v1.json",
+      "caminho": "Genesis da Unificação/Acoplamento_dimensional/tgl_dimensional_coupling_v1.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dimensional_coupling_v1.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/tgl_dimensional_coupling_v1.json",
+      "sha256_16": "aefb35d9897cb2f9",
+      "bytes": 26241
+    }
+  ],
+  "total_arquivos_nesta_pasta": 5,
+  "total_arquivos_com_subpastas": 5,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

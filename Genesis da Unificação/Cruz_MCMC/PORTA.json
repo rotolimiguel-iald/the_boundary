@@ -1,0 +1,68 @@
+{
+  "porta": "Genesis da Unificação/Cruz_MCMC",
+  "porta_id": "Genesis da Unificação/Cruz_MCMC",
+  "titulo": "Genesis da Unificação/Cruz_MCMC",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "TGL_v11_1_CRUZ.py",
+      "caminho": "Genesis da Unificação/Cruz_MCMC/TGL_v11_1_CRUZ.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/TGL_v11_1_CRUZ.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/TGL_v11_1_CRUZ.py",
+      "sha256_16": "61db3f99967b7be7",
+      "bytes": 84123
+    },
+    {
+      "nome": "tgl_v11_1_cruz_corner.png",
+      "caminho": "Genesis da Unificação/Cruz_MCMC/tgl_v11_1_cruz_corner.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/tgl_v11_1_cruz_corner.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/tgl_v11_1_cruz_corner.png",
+      "sha256_16": "8d41d0af5b694d69",
+      "bytes": 743898
+    },
+    {
+      "nome": "tgl_v11_1_cruz_cruz.png",
+      "caminho": "Genesis da Unificação/Cruz_MCMC/tgl_v11_1_cruz_cruz.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/tgl_v11_1_cruz_cruz.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/tgl_v11_1_cruz_cruz.png",
+      "sha256_16": "c3df96cbfc5343a0",
+      "bytes": 196990
+    },
+    {
+      "nome": "tgl_v11_1_cruz_neutrinos.png",
+      "caminho": "Genesis da Unificação/Cruz_MCMC/tgl_v11_1_cruz_neutrinos.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/tgl_v11_1_cruz_neutrinos.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/tgl_v11_1_cruz_neutrinos.png",
+      "sha256_16": "adf97ecc0f037321",
+      "bytes": 36304
+    }
+  ],
+  "total_arquivos_nesta_pasta": 4,
+  "total_arquivos_com_subpastas": 4,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

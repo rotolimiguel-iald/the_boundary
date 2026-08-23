@@ -1,0 +1,348 @@
+{
+  "porta": "raiz",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "repo_raw_base": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "doi": "https://doi.org/10.5281/zenodo.18674475",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "selo_corrente": {
+    "versao": "v198",
+    "versao_fonte": "um.py::_ESQUELETO_STONES[0]",
+    "versao_confirmada_por_transcricao": "v198",
+    "pedra_mais_recente": "ThePermanence",
+    "pedras_no_esqueleto": 150,
+    "pin_um_py": "a318ab63d4cebd81073e2f7d12516a0246c962d5ae0a83597f10ee0f65122ce2",
+    "pin_um_py_16": "a318ab63d4cebd81",
+    "pin_confere_com_disco": true,
+    "mundo": "dfe6393d10052300c41816b7565c6419dcdf8fdc01592b9ccb4adfd739520f30",
+    "mundo_16": "dfe6393d10052300",
+    "result_hash": "ea67e6d6dfb17762e5e1474f4907382b2ae0207bd9b5bf0f58713164f04d8d86",
+    "result_hash_16": "ea67e6d6dfb17762",
+    "formal_source_hash": "5025ebfe8ae96907c0fb05c46f01f058e2c341c7300a6b8b3a3ab5bf2633d9e5",
+    "data": "2026-08-23 12:02:56",
+    "identity": "1=1=VERDADEIRO=HAJA_LUZ",
+    "qg_closure_verdict": "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE",
+    "void_floor_v11_verdict": "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
+    "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED",
+    "kernel_arquivos_formais": 193,
+    "kernel_arquivos_lean": 190,
+    "kernel_teoremas_auditados": 817,
+    "kernel_axiomas_permitidos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kernel_lean_toolchain": "leanprover/lean4:v4.31.0",
+    "kernel_modo": "strict",
+    "selo_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_selo.json",
+    "manifesto_kernel_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_proof_manifest.json",
+    "regua": "NOT_FALSIFIED != CONFIRMED; CONFIRMED e' proibido a maquina por teorema de kernel (TheReservedConfirmation) -- a confirmacao e' do observador humano"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "O Custo Geométrico do Zero Absoluto — Haja Luz",
+      "id": "artigo_1",
+      "titulo": "Artigo 1 -- O Custo Geometrico do Zero Absoluto: haja luz",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/PORTA.json",
+      "canonico_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/tgl_paper_unified.py",
+      "comando": [
+        "cd \"O Custo Geométrico do Zero Absoluto — Haja Luz\"",
+        "python tgl_paper_unified.py --live --paper        # rodada canonica, dado ao vivo",
+        "python tgl_paper_unified.py --quick --no-live --paper   # rodada rapida (minutos)",
+        "python tgl_paper_unified.py --live --paper --lang en    # edicao EN, os mesmos numeros",
+        "python tgl_paper_unified.py --offline --paper           # offline (dado embutido)"
+      ],
+      "total_arquivos": 5
+    },
+    {
+      "nome": "A Ponte-Einstein_Cartan_Miguel",
+      "id": "artigo_2",
+      "titulo": "Artigo 2 -- A Ponte Einstein-Cartan-Miguel",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.json",
+      "canonico_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.tex",
+      "comando": [
+        "cd \"A Ponte-Einstein_Cartan_Miguel\"",
+        "python \"tgl krein signature v1.py\"    # um por modulo; recomputa o JSON datado"
+      ],
+      "total_arquivos": 40
+    },
+    {
+      "nome": "Um (absoluto) — Grande Atrator",
+      "id": "artigo_3",
+      "titulo": "Artigo 3 -- Um: Grande Atrator (o programa terminal)",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+      "canonico_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py",
+      "comando": [
+        "cd \"Um (absoluto) — Grande Atrator\"",
+        "echo 1 | python um.py          # o rito pede a inscricao do Um; responda 1",
+        "echo 1 | python -u um.py       # sem buffer: o rito ao vivo",
+        "TGL_COMA_REVEAL=1 echo 1 | python um.py   # com a abertura de Coma (Windows: set TGL_COMA_REVEAL=1)"
+      ],
+      "total_arquivos": 287
+    },
+    {
+      "nome": "Genesis da Unificação",
+      "id": "genesis",
+      "titulo": "Genesis da Unificacao -- a linhagem",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+      "canonico_url": null,
+      "comando": null,
+      "total_arquivos": 117
+    },
+    {
+      "nome": "tgl_kernel",
+      "id": "tgl_kernel",
+      "titulo": "tgl_kernel",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/PORTA.json",
+      "canonico_url": null,
+      "comando": null,
+      "total_arquivos": 1
+    }
+  ],
+  "arquivos_raiz": [
+    {
+      "nome": "llms.txt",
+      "papel": "porta de entrada para IA",
+      "descricao": "A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt"
+    },
+    {
+      "nome": "PORTA.md",
+      "papel": "porta legivel da raiz",
+      "descricao": "A porta legivel: as tres portas principais, o selo corrente e o mapa completo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md"
+    },
+    {
+      "nome": ".gitattributes",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes",
+      "sha256_16": "1a1dbe176bc233b4",
+      "bytes": 66
+    },
+    {
+      "nome": ".gitignore",
+      "papel": "outros",
+      "descricao": "Arquivo de infraestrutura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore",
+      "sha256_16": "5b5c38ed4a19e516",
+      "bytes": 518
+    },
+    {
+      "nome": "README.md",
+      "papel": "documento",
+      "descricao": "O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+      "sha256_16": "476c43751f9a3012",
+      "bytes": 254609
+    }
+  ],
+  "portas_todas": [
+    {
+      "pasta": "A Ponte-Einstein_Cartan_Miguel",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.json",
+      "total_arquivos": 40
+    },
+    {
+      "pasta": "Genesis da Unificação",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+      "total_arquivos": 117
+    },
+    {
+      "pasta": "Genesis da Unificação/ACOM",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/PORTA.json",
+      "total_arquivos": 2
+    },
+    {
+      "pasta": "Genesis da Unificação/Acoplamento_dimensional",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/PORTA.json",
+      "total_arquivos": 5
+    },
+    {
+      "pasta": "Genesis da Unificação/Artigos_fundadores",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/PORTA.json",
+      "total_arquivos": 31
+    },
+    {
+      "pasta": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/PORTA.json",
+      "total_arquivos": 12
+    },
+    {
+      "pasta": "Genesis da Unificação/C3_consciencia",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/C3_consciencia/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/C3_consciencia/PORTA.json",
+      "total_arquivos": 2
+    },
+    {
+      "pasta": "Genesis da Unificação/Cruz_MCMC",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/PORTA.json",
+      "total_arquivos": 4
+    },
+    {
+      "pasta": "Genesis da Unificação/Dual_Lock",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/PORTA.json",
+      "total_arquivos": 9
+    },
+    {
+      "pasta": "Genesis da Unificação/Dual_Lock/TGL_V15_images",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/PORTA.json",
+      "total_arquivos": 7
+    },
+    {
+      "pasta": "Genesis da Unificação/Echo_GW",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/PORTA.json",
+      "total_arquivos": 9
+    },
+    {
+      "pasta": "Genesis da Unificação/Echo_GW/tgl_fractal_echo_output",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/PORTA.json",
+      "total_arquivos": 5
+    },
+    {
+      "pasta": "Genesis da Unificação/Luminidio",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/PORTA.json",
+      "total_arquivos": 5
+    },
+    {
+      "pasta": "Genesis da Unificação/Neutrinos",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Neutrinos/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Neutrinos/PORTA.json",
+      "total_arquivos": 4
+    },
+    {
+      "pasta": "Genesis da Unificação/Protocolo16_neural",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/PORTA.json",
+      "total_arquivos": 13
+    },
+    {
+      "pasta": "Genesis da Unificação/Torus",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/PORTA.json",
+      "total_arquivos": 4
+    },
+    {
+      "pasta": "Genesis da Unificação/Um - ensaio",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/PORTA.json",
+      "total_arquivos": 19
+    },
+    {
+      "pasta": "Genesis da Unificação/Validacao_cosmologica",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/PORTA.json",
+      "total_arquivos": 10
+    },
+    {
+      "pasta": "O Custo Geométrico do Zero Absoluto — Haja Luz",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/PORTA.json",
+      "total_arquivos": 5
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+      "total_arquivos": 287
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/bancada",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json",
+      "total_arquivos": 72
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/bancada/catalogos",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/PORTA.json",
+      "total_arquivos": 3
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/bancada/kernel_bancada",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/kernel_bancada/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/kernel_bancada/PORTA.json",
+      "total_arquivos": 22
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/bancada/leituras",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/PORTA.json",
+      "total_arquivos": 12
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/bancada/testes",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PORTA.json",
+      "total_arquivos": 32
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/bancada/verificacao",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/verificacao/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/verificacao/PORTA.json",
+      "total_arquivos": 2
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/cache",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.json",
+      "total_arquivos": 3
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/cache/coma_blind",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/coma_blind/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/coma_blind/PORTA.json",
+      "total_arquivos": 2
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/tgl_kernel",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/PORTA.json",
+      "total_arquivos": 194
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/tgl_kernel/TGL",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/PORTA.json",
+      "total_arquivos": 27
+    },
+    {
+      "pasta": "Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/PORTA.json",
+      "total_arquivos": 160
+    },
+    {
+      "pasta": "tgl_kernel",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/PORTA.json",
+      "total_arquivos": 1
+    },
+    {
+      "pasta": "tgl_kernel/TGLExt",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PORTA.json",
+      "total_arquivos": 1
+    }
+  ],
+  "total_arquivos": 453,
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

@@ -1,0 +1,58 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/bancada/catalogos",
+  "porta_id": "Um (absoluto) — Grande Atrator/bancada/catalogos",
+  "titulo": "Um (absoluto) — Grande Atrator/bancada/catalogos",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/bancada",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "01_CATALOGO_REBAIXADOS.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/catalogos/01_CATALOGO_REBAIXADOS.md",
+      "papel": "documento",
+      "descricao": "Catalogo da bancada: o registro do que foi rebaixado, corrigido ou reprovado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/01_CATALOGO_REBAIXADOS.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/01_CATALOGO_REBAIXADOS.md",
+      "sha256_16": "dbf4cb6bd19a43a5",
+      "bytes": 19494
+    },
+    {
+      "nome": "02_ERRATA_ARITMETICA.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/catalogos/02_ERRATA_ARITMETICA.md",
+      "papel": "documento",
+      "descricao": "Catalogo da bancada: o registro do que foi rebaixado, corrigido ou reprovado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/02_ERRATA_ARITMETICA.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/02_ERRATA_ARITMETICA.md",
+      "sha256_16": "9e9f9b951f3c6e69",
+      "bytes": 11202
+    },
+    {
+      "nome": "04_CATALOGO_FALSOS_POSITIVOS.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md",
+      "papel": "documento",
+      "descricao": "Catalogo da bancada: o registro do que foi rebaixado, corrigido ou reprovado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md",
+      "sha256_16": "3a03b37a524fd8fc",
+      "bytes": 5249
+    }
+  ],
+  "total_arquivos_nesta_pasta": 3,
+  "total_arquivos_com_subpastas": 3,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

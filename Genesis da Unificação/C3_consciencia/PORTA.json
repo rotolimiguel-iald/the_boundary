@@ -1,0 +1,48 @@
+{
+  "porta": "Genesis da Unificação/C3_consciencia",
+  "porta_id": "Genesis da Unificação/C3_consciencia",
+  "titulo": "Genesis da Unificação/C3_consciencia",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "TGL_C3_validator_v52.py",
+      "caminho": "Genesis da Unificação/C3_consciencia/TGL_C3_validator_v52.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/C3_consciencia/TGL_C3_validator_v52.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/C3_consciencia/TGL_C3_validator_v52.py",
+      "sha256_16": "c3a53ef00dd4548d",
+      "bytes": 47524
+    },
+    {
+      "nome": "tgl_c3_v5_results_20260208_074733.json",
+      "caminho": "Genesis da Unificação/C3_consciencia/tgl_c3_v5_results_20260208_074733.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/C3_consciencia/tgl_c3_v5_results_20260208_074733.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/C3_consciencia/tgl_c3_v5_results_20260208_074733.json",
+      "sha256_16": "ec4ec3992364f161",
+      "bytes": 17381
+    }
+  ],
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 2,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/C3_consciencia",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

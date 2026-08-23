@@ -1,0 +1,148 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/bancada/leituras",
+  "porta_id": "Um (absoluto) — Grande Atrator/bancada/leituras",
+  "titulo": "Um (absoluto) — Grande Atrator/bancada/leituras",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/bancada",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "00_INVENTARIO.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras/00_INVENTARIO.md",
+      "papel": "documento",
+      "descricao": "Leitura da bancada: inventario e sintese sobre o acervo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/00_INVENTARIO.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/00_INVENTARIO.md",
+      "sha256_16": "84f07022474c891e",
+      "bytes": 51535
+    },
+    {
+      "nome": "01_ENERGIA_ESCURA.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras/01_ENERGIA_ESCURA.md",
+      "papel": "documento",
+      "descricao": "Leitura da bancada: inventario e sintese sobre o acervo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/01_ENERGIA_ESCURA.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/01_ENERGIA_ESCURA.md",
+      "sha256_16": "c5124c9f0765889b",
+      "bytes": 54739
+    },
+    {
+      "nome": "02_MATERIA_ESCURA_PSIONS.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras/02_MATERIA_ESCURA_PSIONS.md",
+      "papel": "documento",
+      "descricao": "Leitura da bancada: inventario e sintese sobre o acervo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/02_MATERIA_ESCURA_PSIONS.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/02_MATERIA_ESCURA_PSIONS.md",
+      "sha256_16": "81636506b8a1f218",
+      "bytes": 54772
+    },
+    {
+      "nome": "03_GRAVITON.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras/03_GRAVITON.md",
+      "papel": "documento",
+      "descricao": "Leitura da bancada: inventario e sintese sobre o acervo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/03_GRAVITON.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/03_GRAVITON.md",
+      "sha256_16": "e685545cde9804fa",
+      "bytes": 52641
+    },
+    {
+      "nome": "04_FRONTEIRA_FUNDAMENTOS.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras/04_FRONTEIRA_FUNDAMENTOS.md",
+      "papel": "documento",
+      "descricao": "Leitura da bancada: inventario e sintese sobre o acervo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/04_FRONTEIRA_FUNDAMENTOS.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/04_FRONTEIRA_FUNDAMENTOS.md",
+      "sha256_16": "89e7c47568a5238b",
+      "bytes": 46636
+    },
+    {
+      "nome": "05_TRATADO.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras/05_TRATADO.md",
+      "papel": "documento",
+      "descricao": "Leitura da bancada: inventario e sintese sobre o acervo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/05_TRATADO.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/05_TRATADO.md",
+      "sha256_16": "807825d1ed9fed8d",
+      "bytes": 43313
+    },
+    {
+      "nome": "06_IMAC_FUNDADORES.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras/06_IMAC_FUNDADORES.md",
+      "papel": "documento",
+      "descricao": "Leitura da bancada: inventario e sintese sobre o acervo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/06_IMAC_FUNDADORES.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/06_IMAC_FUNDADORES.md",
+      "sha256_16": "9432df3723597f40",
+      "bytes": 35912
+    },
+    {
+      "nome": "07_IMAC_OBSERVAVEIS.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras/07_IMAC_OBSERVAVEIS.md",
+      "papel": "documento",
+      "descricao": "Leitura da bancada: inventario e sintese sobre o acervo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/07_IMAC_OBSERVAVEIS.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/07_IMAC_OBSERVAVEIS.md",
+      "sha256_16": "c385c7698c13a5aa",
+      "bytes": 37752
+    },
+    {
+      "nome": "08_IMAC_SUBPASTAS.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras/08_IMAC_SUBPASTAS.md",
+      "papel": "documento",
+      "descricao": "Leitura da bancada: inventario e sintese sobre o acervo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/08_IMAC_SUBPASTAS.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/08_IMAC_SUBPASTAS.md",
+      "sha256_16": "a2a4899ae812f342",
+      "bytes": 66985
+    },
+    {
+      "nome": "09_TENSAO_FUNDAMENTAL.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras/09_TENSAO_FUNDAMENTAL.md",
+      "papel": "documento",
+      "descricao": "Leitura da bancada: inventario e sintese sobre o acervo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/09_TENSAO_FUNDAMENTAL.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/09_TENSAO_FUNDAMENTAL.md",
+      "sha256_16": "b3a9e412fa5a1d99",
+      "bytes": 34532
+    },
+    {
+      "nome": "10_LACUNAS_ATLAS.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras/10_LACUNAS_ATLAS.md",
+      "papel": "documento",
+      "descricao": "Leitura da bancada: inventario e sintese sobre o acervo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/10_LACUNAS_ATLAS.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/10_LACUNAS_ATLAS.md",
+      "sha256_16": "eff1461700bbca3c",
+      "bytes": 49509
+    },
+    {
+      "nome": "99_SINTESE_INTEGRAL.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras/99_SINTESE_INTEGRAL.md",
+      "papel": "documento",
+      "descricao": "Leitura da bancada: inventario e sintese sobre o acervo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/99_SINTESE_INTEGRAL.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/99_SINTESE_INTEGRAL.md",
+      "sha256_16": "8edd6069ba4c6fe6",
+      "bytes": 71519
+    }
+  ],
+  "total_arquivos_nesta_pasta": 12,
+  "total_arquivos_com_subpastas": 12,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

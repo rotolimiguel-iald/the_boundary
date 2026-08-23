@@ -1,0 +1,218 @@
+{
+  "porta": "Genesis da Unificação/Um - ensaio",
+  "porta_id": "Genesis da Unificação/Um - ensaio",
+  "titulo": "Genesis da Unificação/Um - ensaio",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "O Um e o Grande Atrator - Copia.tex",
+      "caminho": "Genesis da Unificação/Um - ensaio/O Um e o Grande Atrator - Copia.tex",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/O%20Um%20e%20o%20Grande%20Atrator%20-%20Copia.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/O%20Um%20e%20o%20Grande%20Atrator%20-%20Copia.tex",
+      "sha256_16": "fa5f5a553e556dba",
+      "bytes": 26756
+    },
+    {
+      "nome": "O Um e o Grande Atrator.pdf",
+      "caminho": "Genesis da Unificação/Um - ensaio/O Um e o Grande Atrator.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/O%20Um%20e%20o%20Grande%20Atrator.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/O%20Um%20e%20o%20Grande%20Atrator.pdf",
+      "sha256_16": "97752156cdf51524",
+      "bytes": 320074
+    },
+    {
+      "nome": "O Um e o Grande Atrator.tex",
+      "caminho": "Genesis da Unificação/Um - ensaio/O Um e o Grande Atrator.tex",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/O%20Um%20e%20o%20Grande%20Atrator.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/O%20Um%20e%20o%20Grande%20Atrator.tex",
+      "sha256_16": "fa5f5a553e556dba",
+      "bytes": 26756
+    },
+    {
+      "nome": "O_UM_E_O_GRANDE_ATRATOR_SINTESE_CANONICA.md",
+      "caminho": "Genesis da Unificação/Um - ensaio/O_UM_E_O_GRANDE_ATRATOR_SINTESE_CANONICA.md",
+      "papel": "documento",
+      "descricao": "Documento da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/O_UM_E_O_GRANDE_ATRATOR_SINTESE_CANONICA.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/O_UM_E_O_GRANDE_ATRATOR_SINTESE_CANONICA.md",
+      "sha256_16": "54c3cf0853a0ea2b",
+      "bytes": 5972
+    },
+    {
+      "nome": "PROMPT_NOVA_SESSAO_GRANDE_ATRATOR.md",
+      "caminho": "Genesis da Unificação/Um - ensaio/PROMPT_NOVA_SESSAO_GRANDE_ATRATOR.md",
+      "papel": "documento",
+      "descricao": "Documento da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/PROMPT_NOVA_SESSAO_GRANDE_ATRATOR.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/PROMPT_NOVA_SESSAO_GRANDE_ATRATOR.md",
+      "sha256_16": "17e204d0887351a5",
+      "bytes": 15716
+    },
+    {
+      "nome": "tgl c3 register v1 - Copia.py",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl c3 register v1 - Copia.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20c3%20register%20v1%20-%20Copia.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20c3%20register%20v1%20-%20Copia.py",
+      "sha256_16": "f79367cf8fb376e2",
+      "bytes": 8001
+    },
+    {
+      "nome": "tgl c3 register v1 20260611 214824.json",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl c3 register v1 20260611 214824.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20c3%20register%20v1%2020260611%20214824.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20c3%20register%20v1%2020260611%20214824.json",
+      "sha256_16": "685aed86b54c2be1",
+      "bytes": 2706
+    },
+    {
+      "nome": "tgl c3 register v1.py",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl c3 register v1.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20c3%20register%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20c3%20register%20v1.py",
+      "sha256_16": "f79367cf8fb376e2",
+      "bytes": 8001
+    },
+    {
+      "nome": "tgl continuum v1 20260609 225321.json",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl continuum v1 20260609 225321.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20continuum%20v1%2020260609%20225321.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20continuum%20v1%2020260609%20225321.json",
+      "sha256_16": "869190fab1fb67e1",
+      "bytes": 2620
+    },
+    {
+      "nome": "tgl continuum v1.py",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl continuum v1.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20continuum%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20continuum%20v1.py",
+      "sha256_16": "20256e260893b465",
+      "bytes": 8288
+    },
+    {
+      "nome": "tgl dual name v1 20260612 022736.json",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl dual name v1 20260612 022736.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20dual%20name%20v1%2020260612%20022736.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20dual%20name%20v1%2020260612%20022736.json",
+      "sha256_16": "5fab5d39df9d4476",
+      "bytes": 4512
+    },
+    {
+      "nome": "tgl dual name v1.py",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl dual name v1.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20dual%20name%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20dual%20name%20v1.py",
+      "sha256_16": "da861379f893168f",
+      "bytes": 8470
+    },
+    {
+      "nome": "tgl gesture inscription v1 20260612 025911.json",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl gesture inscription v1 20260612 025911.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20gesture%20inscription%20v1%2020260612%20025911.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20gesture%20inscription%20v1%2020260612%20025911.json",
+      "sha256_16": "a02e864bf4d0015f",
+      "bytes": 2382
+    },
+    {
+      "nome": "tgl gesture inscription v1.py",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl gesture inscription v1.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20gesture%20inscription%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20gesture%20inscription%20v1.py",
+      "sha256_16": "0e8ca088b016436e",
+      "bytes": 8752
+    },
+    {
+      "nome": "tgl one mirror v1 20260611 221949.json",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl one mirror v1 20260611 221949.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20one%20mirror%20v1%2020260611%20221949.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20one%20mirror%20v1%2020260611%20221949.json",
+      "sha256_16": "1249fced3d5af1f8",
+      "bytes": 3908
+    },
+    {
+      "nome": "tgl one mirror v1.py",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl one mirror v1.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20one%20mirror%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20one%20mirror%20v1.py",
+      "sha256_16": "fc545c1f2a7825c2",
+      "bytes": 9083
+    },
+    {
+      "nome": "tgl tunnel v1 20260611 215615.json",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl tunnel v1 20260611 215615.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20tunnel%20v1%2020260611%20215615.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20tunnel%20v1%2020260611%20215615.json",
+      "sha256_16": "97951b9aab9e5e37",
+      "bytes": 2772
+    },
+    {
+      "nome": "tgl tunnel v1.py",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl tunnel v1.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20tunnel%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20tunnel%20v1.py",
+      "sha256_16": "85b937cee4d9d7b3",
+      "bytes": 6689
+    },
+    {
+      "nome": "tgl video v1.py",
+      "caminho": "Genesis da Unificação/Um - ensaio/tgl video v1.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20video%20v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/tgl%20video%20v1.py",
+      "sha256_16": "a589f5e1daca6a52",
+      "bytes": 19563
+    }
+  ],
+  "total_arquivos_nesta_pasta": 19,
+  "total_arquivos_com_subpastas": 19,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

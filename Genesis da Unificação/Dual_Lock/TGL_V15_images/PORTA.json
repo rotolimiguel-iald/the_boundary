@@ -1,0 +1,98 @@
+{
+  "porta": "Genesis da Unificação/Dual_Lock/TGL_V15_images",
+  "porta_id": "Genesis da Unificação/Dual_Lock/TGL_V15_images",
+  "titulo": "Genesis da Unificação/Dual_Lock/TGL_V15_images",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação/Dual_Lock",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "tgl_v15_anti_tautology.png",
+      "caminho": "Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_anti_tautology.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_anti_tautology.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_anti_tautology.png",
+      "sha256_16": "1f938c51b99603b4",
+      "bytes": 49879
+    },
+    {
+      "nome": "tgl_v15_convergence.png",
+      "caminho": "Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_convergence.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_convergence.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_convergence.png",
+      "sha256_16": "7abe439b95a11b72",
+      "bytes": 82378
+    },
+    {
+      "nome": "tgl_v15_dual_decomposition.png",
+      "caminho": "Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_dual_decomposition.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_dual_decomposition.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_dual_decomposition.png",
+      "sha256_16": "204d2c2d7555aff3",
+      "bytes": 104866
+    },
+    {
+      "nome": "tgl_v15_gw_tension.png",
+      "caminho": "Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_gw_tension.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_gw_tension.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_gw_tension.png",
+      "sha256_16": "cefefea2d3a257eb",
+      "bytes": 126510
+    },
+    {
+      "nome": "tgl_v15_hubble_tension.png",
+      "caminho": "Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_hubble_tension.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_hubble_tension.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_hubble_tension.png",
+      "sha256_16": "1b947c2d9a23ee90",
+      "bytes": 57648
+    },
+    {
+      "nome": "tgl_v15_quadratic.png",
+      "caminho": "Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_quadratic.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_quadratic.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_quadratic.png",
+      "sha256_16": "6c2bdff4aca467ef",
+      "bytes": 87061
+    },
+    {
+      "nome": "tgl_v15_residuals.png",
+      "caminho": "Genesis da Unificação/Dual_Lock/TGL_V15_images/tgl_v15_residuals.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_residuals.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/tgl_v15_residuals.png",
+      "sha256_16": "1371d2aa8efc5aa4",
+      "bytes": 59604
+    }
+  ],
+  "total_arquivos_nesta_pasta": 7,
+  "total_arquivos_com_subpastas": 7,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

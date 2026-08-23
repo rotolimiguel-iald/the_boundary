@@ -1,0 +1,76 @@
+{
+  "porta": "Genesis da Unificação/Echo_GW",
+  "porta_id": "Genesis da Unificação/Echo_GW",
+  "titulo": "Genesis da Unificação/Echo_GW",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "tgl_fractal_echo_output",
+      "caminho": "Genesis da Unificação/Echo_GW/tgl_fractal_echo_output",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/PORTA.json",
+      "total_arquivos": 5
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "TGL_Echo_Analyzer_v8.py",
+      "caminho": "Genesis da Unificação/Echo_GW/TGL_Echo_Analyzer_v8.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/TGL_Echo_Analyzer_v8.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/TGL_Echo_Analyzer_v8.py",
+      "sha256_16": "2a81ca0ce3365937",
+      "bytes": 41290
+    },
+    {
+      "nome": "Tgl_fractal_echo_analyzer_v1.py",
+      "caminho": "Genesis da Unificação/Echo_GW/Tgl_fractal_echo_analyzer_v1.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/Tgl_fractal_echo_analyzer_v1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/Tgl_fractal_echo_analyzer_v1.py",
+      "sha256_16": "ef9e670a9c1b7535",
+      "bytes": 71295
+    },
+    {
+      "nome": "tgl_gw_echo_unification_v1.4.png",
+      "caminho": "Genesis da Unificação/Echo_GW/tgl_gw_echo_unification_v1.4.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_gw_echo_unification_v1.4.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_gw_echo_unification_v1.4.png",
+      "sha256_16": "001e014d80d6fa9b",
+      "bytes": 708371
+    },
+    {
+      "nome": "tgl_gw_echo_unification_v1_4.py",
+      "caminho": "Genesis da Unificação/Echo_GW/tgl_gw_echo_unification_v1_4.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_gw_echo_unification_v1_4.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_gw_echo_unification_v1_4.py",
+      "sha256_16": "22de9f833334a5e6",
+      "bytes": 80826
+    }
+  ],
+  "total_arquivos_nesta_pasta": 4,
+  "total_arquivos_com_subpastas": 9,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

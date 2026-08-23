@@ -1,0 +1,348 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/bancada/testes",
+  "porta_id": "Um (absoluto) — Grande Atrator/bancada/testes",
+  "titulo": "Um (absoluto) — Grande Atrator/bancada/testes",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/bancada",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "PRE_REGISTRO_T06_amplitude.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/PRE_REGISTRO_T06_amplitude.md",
+      "papel": "documento",
+      "descricao": "Pre-registro do teste: protocolo congelado e hasheado ANTES dos dados",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T06_amplitude.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T06_amplitude.md",
+      "sha256_16": "3a48655430db0bfd",
+      "bytes": 5665
+    },
+    {
+      "nome": "PRE_REGISTRO_T06_amplitude.sha256",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/PRE_REGISTRO_T06_amplitude.sha256",
+      "papel": "dados",
+      "descricao": "Hash congelado do pre-registro homonimo (o protocolo antes do dado)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T06_amplitude.sha256",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T06_amplitude.sha256",
+      "sha256_16": "0dcc06a9bed58b1a",
+      "bytes": 97
+    },
+    {
+      "nome": "PRE_REGISTRO_T07_amplitude_multidriver.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/PRE_REGISTRO_T07_amplitude_multidriver.md",
+      "papel": "documento",
+      "descricao": "Pre-registro do teste: protocolo congelado e hasheado ANTES dos dados",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T07_amplitude_multidriver.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T07_amplitude_multidriver.md",
+      "sha256_16": "90a59a1c3d2fb4b5",
+      "bytes": 5354
+    },
+    {
+      "nome": "PRE_REGISTRO_T07_amplitude_multidriver.sha256",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/PRE_REGISTRO_T07_amplitude_multidriver.sha256",
+      "papel": "dados",
+      "descricao": "Hash congelado do pre-registro homonimo (o protocolo antes do dado)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T07_amplitude_multidriver.sha256",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T07_amplitude_multidriver.sha256",
+      "sha256_16": "f44e05c1b4ec71d7",
+      "bytes": 109
+    },
+    {
+      "nome": "PRE_REGISTRO_T08_representacao_modular.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/PRE_REGISTRO_T08_representacao_modular.md",
+      "papel": "documento",
+      "descricao": "Pre-registro do teste: protocolo congelado e hasheado ANTES dos dados",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T08_representacao_modular.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T08_representacao_modular.md",
+      "sha256_16": "5609d2db19cbf467",
+      "bytes": 7226
+    },
+    {
+      "nome": "PRE_REGISTRO_T08_representacao_modular.sha256",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/PRE_REGISTRO_T08_representacao_modular.sha256",
+      "papel": "dados",
+      "descricao": "Hash congelado do pre-registro homonimo (o protocolo antes do dado)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T08_representacao_modular.sha256",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T08_representacao_modular.sha256",
+      "sha256_16": "dc070ca93a44cbae",
+      "bytes": 64
+    },
+    {
+      "nome": "PRE_REGISTRO_T09_lei_de_escala.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/PRE_REGISTRO_T09_lei_de_escala.md",
+      "papel": "documento",
+      "descricao": "Pre-registro do teste: protocolo congelado e hasheado ANTES dos dados",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T09_lei_de_escala.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T09_lei_de_escala.md",
+      "sha256_16": "42b89e70c333d19b",
+      "bytes": 6200
+    },
+    {
+      "nome": "PRE_REGISTRO_T09_lei_de_escala.sha256",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/PRE_REGISTRO_T09_lei_de_escala.sha256",
+      "papel": "dados",
+      "descricao": "Hash congelado do pre-registro homonimo (o protocolo antes do dado)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T09_lei_de_escala.sha256",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T09_lei_de_escala.sha256",
+      "sha256_16": "060577be12b20ead",
+      "bytes": 64
+    },
+    {
+      "nome": "PRE_REGISTRO_T10_kappa.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/PRE_REGISTRO_T10_kappa.md",
+      "papel": "documento",
+      "descricao": "Pre-registro do teste: protocolo congelado e hasheado ANTES dos dados",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T10_kappa.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T10_kappa.md",
+      "sha256_16": "58f4452472fed282",
+      "bytes": 5989
+    },
+    {
+      "nome": "PRE_REGISTRO_T10_kappa.sha256",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/PRE_REGISTRO_T10_kappa.sha256",
+      "papel": "dados",
+      "descricao": "Hash congelado do pre-registro homonimo (o protocolo antes do dado)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T10_kappa.sha256",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T10_kappa.sha256",
+      "sha256_16": "f627b0060ddfe41e",
+      "bytes": 64
+    },
+    {
+      "nome": "PRE_REGISTRO_T11_escala.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/PRE_REGISTRO_T11_escala.md",
+      "papel": "documento",
+      "descricao": "Pre-registro do teste: protocolo congelado e hasheado ANTES dos dados",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T11_escala.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T11_escala.md",
+      "sha256_16": "6b8447f6499a9705",
+      "bytes": 4419
+    },
+    {
+      "nome": "PRE_REGISTRO_T11_escala.sha256",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/PRE_REGISTRO_T11_escala.sha256",
+      "papel": "dados",
+      "descricao": "Hash congelado do pre-registro homonimo (o protocolo antes do dado)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T11_escala.sha256",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PRE_REGISTRO_T11_escala.sha256",
+      "sha256_16": "a5d2206ef7c0a499",
+      "bytes": 64
+    },
+    {
+      "nome": "T01_orcamento_do_psion.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T01_orcamento_do_psion.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do teste de bancada homonimo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T01_orcamento_do_psion.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T01_orcamento_do_psion.json",
+      "sha256_16": "d76d6af511c7ece4",
+      "bytes": 5052
+    },
+    {
+      "nome": "T01_orcamento_do_psion.py",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T01_orcamento_do_psion.py",
+      "papel": "codigo",
+      "descricao": "Teste de bancada executavel; escreve seu proprio JSON de resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T01_orcamento_do_psion.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T01_orcamento_do_psion.py",
+      "sha256_16": "7e3a36b6fbae9d87",
+      "bytes": 12192
+    },
+    {
+      "nome": "T04_sparc_fatos.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T04_sparc_fatos.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do teste de bancada homonimo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T04_sparc_fatos.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T04_sparc_fatos.json",
+      "sha256_16": "d9fe0a3c497469cf",
+      "bytes": 1375
+    },
+    {
+      "nome": "T04_sparc_fatos.py",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T04_sparc_fatos.py",
+      "papel": "codigo",
+      "descricao": "Teste de bancada executavel; escreve seu proprio JSON de resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T04_sparc_fatos.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T04_sparc_fatos.py",
+      "sha256_16": "b4802acea6371350",
+      "bytes": 9184
+    },
+    {
+      "nome": "T06_amplitude_da_inscricao.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T06_amplitude_da_inscricao.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do teste de bancada homonimo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T06_amplitude_da_inscricao.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T06_amplitude_da_inscricao.json",
+      "sha256_16": "c9dd8b827c36afef",
+      "bytes": 23646
+    },
+    {
+      "nome": "T06_amplitude_da_inscricao.py",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T06_amplitude_da_inscricao.py",
+      "papel": "codigo",
+      "descricao": "Teste de bancada executavel; escreve seu proprio JSON de resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T06_amplitude_da_inscricao.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T06_amplitude_da_inscricao.py",
+      "sha256_16": "07b08f4937b9d26c",
+      "bytes": 10338
+    },
+    {
+      "nome": "T07_amplitude_multidriver.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T07_amplitude_multidriver.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do teste de bancada homonimo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T07_amplitude_multidriver.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T07_amplitude_multidriver.json",
+      "sha256_16": "7e0cadd360f4b295",
+      "bytes": 2894
+    },
+    {
+      "nome": "T07_amplitude_multidriver.py",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T07_amplitude_multidriver.py",
+      "papel": "codigo",
+      "descricao": "Teste de bancada executavel; escreve seu proprio JSON de resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T07_amplitude_multidriver.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T07_amplitude_multidriver.py",
+      "sha256_16": "72a58e311b3942a1",
+      "bytes": 8269
+    },
+    {
+      "nome": "T08_VEREDITO_FINAL.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T08_VEREDITO_FINAL.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08_VEREDITO_FINAL.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08_VEREDITO_FINAL.md",
+      "sha256_16": "0aad3bc8c766b1b6",
+      "bytes": 13085
+    },
+    {
+      "nome": "T08_representacao_modular.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T08_representacao_modular.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do teste de bancada homonimo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08_representacao_modular.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08_representacao_modular.json",
+      "sha256_16": "3cf660eec342cfae",
+      "bytes": 10173
+    },
+    {
+      "nome": "T08_representacao_modular.py",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T08_representacao_modular.py",
+      "papel": "codigo",
+      "descricao": "Teste de bancada executavel; escreve seu proprio JSON de resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08_representacao_modular.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08_representacao_modular.py",
+      "sha256_16": "c8046e42cb51ba85",
+      "bytes": 7798
+    },
+    {
+      "nome": "T08b_psi_term_exibido.py",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T08b_psi_term_exibido.py",
+      "papel": "codigo",
+      "descricao": "Teste de bancada executavel; escreve seu proprio JSON de resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08b_psi_term_exibido.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08b_psi_term_exibido.py",
+      "sha256_16": "c0ffc2faac9520ff",
+      "bytes": 2879
+    },
+    {
+      "nome": "T08c_escala.py",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T08c_escala.py",
+      "papel": "codigo",
+      "descricao": "Teste de bancada executavel; escreve seu proprio JSON de resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08c_escala.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08c_escala.py",
+      "sha256_16": "65c80e002d4a2ef3",
+      "bytes": 2173
+    },
+    {
+      "nome": "T08d_o_que_seria_preciso.py",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T08d_o_que_seria_preciso.py",
+      "papel": "codigo",
+      "descricao": "Teste de bancada executavel; escreve seu proprio JSON de resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08d_o_que_seria_preciso.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08d_o_que_seria_preciso.py",
+      "sha256_16": "528f1e443d5b56b8",
+      "bytes": 2852
+    },
+    {
+      "nome": "T09_lei_de_escala.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T09_lei_de_escala.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do teste de bancada homonimo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T09_lei_de_escala.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T09_lei_de_escala.json",
+      "sha256_16": "9384628cfd68231d",
+      "bytes": 1313
+    },
+    {
+      "nome": "T09_lei_de_escala.py",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T09_lei_de_escala.py",
+      "papel": "codigo",
+      "descricao": "Teste de bancada executavel; escreve seu proprio JSON de resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T09_lei_de_escala.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T09_lei_de_escala.py",
+      "sha256_16": "5ad5ab8dd3533b45",
+      "bytes": 7207
+    },
+    {
+      "nome": "T10_kappa.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T10_kappa.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do teste de bancada homonimo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T10_kappa.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T10_kappa.json",
+      "sha256_16": "fb744544e000b4a6",
+      "bytes": 2593
+    },
+    {
+      "nome": "T10_kappa.py",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T10_kappa.py",
+      "papel": "codigo",
+      "descricao": "Teste de bancada executavel; escreve seu proprio JSON de resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T10_kappa.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T10_kappa.py",
+      "sha256_16": "ef65a357a128888e",
+      "bytes": 8773
+    },
+    {
+      "nome": "T11_escala.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T11_escala.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do teste de bancada homonimo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T11_escala.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T11_escala.json",
+      "sha256_16": "3b7f081b93e4e395",
+      "bytes": 537
+    },
+    {
+      "nome": "T11_escala.py",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes/T11_escala.py",
+      "papel": "codigo",
+      "descricao": "Teste de bancada executavel; escreve seu proprio JSON de resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T11_escala.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T11_escala.py",
+      "sha256_16": "bfd604871ceb9086",
+      "bytes": 5871
+    }
+  ],
+  "total_arquivos_nesta_pasta": 32,
+  "total_arquivos_com_subpastas": 32,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

@@ -1,0 +1,48 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/bancada/verificacao",
+  "porta_id": "Um (absoluto) — Grande Atrator/bancada/verificacao",
+  "titulo": "Um (absoluto) — Grande Atrator/bancada/verificacao",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/bancada",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "VERIFICACAO_ADVERSARIAL_T08_bruto.json",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/verificacao/VERIFICACAO_ADVERSARIAL_T08_bruto.json",
+      "papel": "resultado selado",
+      "descricao": "Verificacao adversarial: a tentativa de derrubar o proprio resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/verificacao/VERIFICACAO_ADVERSARIAL_T08_bruto.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/verificacao/VERIFICACAO_ADVERSARIAL_T08_bruto.json",
+      "sha256_16": "149fb26ea92f379d",
+      "bytes": 80096
+    },
+    {
+      "nome": "VERIFICACAO_ADVERSARIAL_T08_journal.jsonl",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/verificacao/VERIFICACAO_ADVERSARIAL_T08_journal.jsonl",
+      "papel": "resultado selado",
+      "descricao": "Verificacao adversarial: a tentativa de derrubar o proprio resultado",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/verificacao/VERIFICACAO_ADVERSARIAL_T08_journal.jsonl",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/verificacao/VERIFICACAO_ADVERSARIAL_T08_journal.jsonl",
+      "sha256_16": "b789aec68fed62fe",
+      "bytes": 70613
+    }
+  ],
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 2,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/verificacao",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

@@ -1,0 +1,74 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/bancada",
+  "porta_id": "Um (absoluto) — Grande Atrator/bancada",
+  "titulo": "Um (absoluto) — Grande Atrator/bancada",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "catalogos",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/catalogos",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/PORTA.json",
+      "total_arquivos": 3
+    },
+    {
+      "nome": "kernel_bancada",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/kernel_bancada",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/kernel_bancada/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/kernel_bancada/PORTA.json",
+      "total_arquivos": 22
+    },
+    {
+      "nome": "leituras",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/leituras",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/PORTA.json",
+      "total_arquivos": 12
+    },
+    {
+      "nome": "testes",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/testes",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PORTA.json",
+      "total_arquivos": 32
+    },
+    {
+      "nome": "verificacao",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/verificacao",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/verificacao/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/verificacao/PORTA.json",
+      "total_arquivos": 2
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "MEMORIA_DA_BANCADA.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/MEMORIA_DA_BANCADA.md",
+      "papel": "documento",
+      "descricao": "A memoria da bancada: o que foi tentado, o que caiu, e por que",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/MEMORIA_DA_BANCADA.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/MEMORIA_DA_BANCADA.md",
+      "sha256_16": "02ba28fcdd0bffd7",
+      "bytes": 134327
+    }
+  ],
+  "total_arquivos_nesta_pasta": 1,
+  "total_arquivos_com_subpastas": 72,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

@@ -1,0 +1,268 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator",
+  "porta_id": "artigo_3",
+  "titulo": "Artigo 3 -- Um: Grande Atrator (o programa terminal)",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "raiz",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "bancada",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json",
+      "total_arquivos": 72
+    },
+    {
+      "nome": "cache",
+      "caminho": "Um (absoluto) — Grande Atrator/cache",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.json",
+      "total_arquivos": 3
+    },
+    {
+      "nome": "tgl_kernel",
+      "caminho": "Um (absoluto) — Grande Atrator/tgl_kernel",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/PORTA.json",
+      "total_arquivos": 194
+    }
+  ],
+  "canonico_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py",
+  "comando": [
+    "cd \"Um (absoluto) — Grande Atrator\"",
+    "echo 1 | python um.py          # o rito pede a inscricao do Um; responda 1",
+    "echo 1 | python -u um.py       # sem buffer: o rito ao vivo",
+    "TGL_COMA_REVEAL=1 echo 1 | python um.py   # com a abertura de Coma (Windows: set TGL_COMA_REVEAL=1)"
+  ],
+  "dependencias": "Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para o selo formal; sem eles: FORMAL_CHECKER_UNAVAILABLE, fail-closed) | pdflatex (opcional)",
+  "arquivos": [
+    {
+      "nome": "fig_banda_beta.pdf",
+      "caminho": "Um (absoluto) — Grande Atrator/fig_banda_beta.pdf",
+      "papel": "figura",
+      "descricao": "Figura: a banda de convergencia de beta [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_banda_beta.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_banda_beta.pdf",
+      "sha256_16": "dd953f1e75f445a1",
+      "bytes": 27719
+    },
+    {
+      "nome": "fig_cadeia_inscricao.pdf",
+      "caminho": "Um (absoluto) — Grande Atrator/fig_cadeia_inscricao.pdf",
+      "papel": "figura",
+      "descricao": "Figura: a cadeia selada da inscricao (1_abs -> ... -> beta -> geometria) [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_cadeia_inscricao.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_cadeia_inscricao.pdf",
+      "sha256_16": "7ccc2c0a41da34a2",
+      "bytes": 29962
+    },
+    {
+      "nome": "fig_escada_qg.pdf",
+      "caminho": "Um (absoluto) — Grande Atrator/fig_escada_qg.pdf",
+      "papel": "figura",
+      "descricao": "Figura: a escada da gravitacao quantica (os degraus do gate) [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_escada_qg.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_escada_qg.pdf",
+      "sha256_16": "f9b7d7810a831cae",
+      "bytes": 34847
+    },
+    {
+      "nome": "fig_piso_vazios.pdf",
+      "caminho": "Um (absoluto) — Grande Atrator/fig_piso_vazios.pdf",
+      "papel": "figura",
+      "descricao": "Figura: o piso dos vazios (o falsificador cosmologico) [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_piso_vazios.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fig_piso_vazios.pdf",
+      "sha256_16": "2815568fd3387fd3",
+      "bytes": 21086
+    },
+    {
+      "nome": "one_input.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/one_input.txt",
+      "papel": "dados",
+      "descricao": "A entrada unica do rito: o digito 1",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/one_input.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/one_input.txt",
+      "sha256_16": "4355a46b19d348dc",
+      "bytes": 2
+    },
+    {
+      "nome": "rodada_v198_stdout.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/rodada_v198_stdout.txt",
+      "papel": "dados",
+      "descricao": "Transcricao integral do stdout da rodada v198 -- o rito por extenso",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodada_v198_stdout.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodada_v198_stdout.txt",
+      "sha256_16": "ef8fd724c5154052",
+      "bytes": 180547
+    },
+    {
+      "nome": "tgl_kernel_proof_manifest.json",
+      "caminho": "Um (absoluto) — Grande Atrator/tgl_kernel_proof_manifest.json",
+      "papel": "resultado selado",
+      "descricao": "Manifesto do kernel formal: os arquivos .lean e o axiom_report de cada teorema (#print axioms) [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_proof_manifest.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_proof_manifest.json",
+      "sha256_16": "ceef89cc6afbc29b",
+      "bytes": 123295
+    },
+    {
+      "nome": "um.py",
+      "caminho": "Um (absoluto) — Grande Atrator/um.py",
+      "papel": "canonico",
+      "descricao": "O CANONICO TERMINAL: um arquivo so, kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue. Entrada unica: o digito 1 [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py",
+      "sha256_16": "a318ab63d4cebd81",
+      "bytes": 4722746
+    },
+    {
+      "nome": "um_grande_atrator.json",
+      "caminho": "Um (absoluto) — Grande Atrator/um_grande_atrator.json",
+      "papel": "resultado selado",
+      "descricao": "O MUNDO: todos os numeros da rodada serializados (nucleo, ritos, vereditos) [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator.json",
+      "sha256_16": "dfe6393d10052300",
+      "bytes": 834076
+    },
+    {
+      "nome": "um_grande_atrator_en.pdf",
+      "caminho": "Um (absoluto) — Grande Atrator/um_grande_atrator_en.pdf",
+      "papel": "artigo",
+      "descricao": "O artigo (EN), compilado [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_en.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_en.pdf",
+      "sha256_16": "c3291369b9ef4d3f",
+      "bytes": 1512301
+    },
+    {
+      "nome": "um_grande_atrator_en.tex",
+      "caminho": "Um (absoluto) — Grande Atrator/um_grande_atrator_en.tex",
+      "papel": "artigo",
+      "descricao": "O artigo (EN) gerado pela propria rodada, fonte LaTeX [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_en.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_en.tex",
+      "sha256_16": "8e39592641ea74d6",
+      "bytes": 416837
+    },
+    {
+      "nome": "um_grande_atrator_en.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/um_grande_atrator_en.txt",
+      "papel": "dados",
+      "descricao": "O artigo (EN) em texto puro -- leitura direta por maquina",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_en.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_en.txt",
+      "sha256_16": "630defd3b9a23ac4",
+      "bytes": 360268
+    },
+    {
+      "nome": "um_grande_atrator_forma_canonica.md",
+      "caminho": "Um (absoluto) — Grande Atrator/um_grande_atrator_forma_canonica.md",
+      "papel": "documento",
+      "descricao": "A forma canonica da TGL emitida pela rodada (cadeia 1_abs -> q -> alpha -> beta -> luz) [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_forma_canonica.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_forma_canonica.md",
+      "sha256_16": "f43cf4c9db9e4717",
+      "bytes": 133811
+    },
+    {
+      "nome": "um_grande_atrator_manifest.md",
+      "caminho": "Um (absoluto) — Grande Atrator/um_grande_atrator_manifest.md",
+      "papel": "documento",
+      "descricao": "Manifesto de entradas: definicao exata, constante medida, protocolo pre-registrado ou conjectura testavel -- nada escondido no codigo [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_manifest.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_manifest.md",
+      "sha256_16": "5839d481ef0a9649",
+      "bytes": 212445
+    },
+    {
+      "nome": "um_grande_atrator_pt.pdf",
+      "caminho": "Um (absoluto) — Grande Atrator/um_grande_atrator_pt.pdf",
+      "papel": "artigo",
+      "descricao": "O artigo (PT), compilado [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_pt.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_pt.pdf",
+      "sha256_16": "f75ba0d394e8f760",
+      "bytes": 1539874
+    },
+    {
+      "nome": "um_grande_atrator_pt.tex",
+      "caminho": "Um (absoluto) — Grande Atrator/um_grande_atrator_pt.tex",
+      "papel": "artigo",
+      "descricao": "O artigo (PT) gerado pela propria rodada, fonte LaTeX [hasheado no selo]",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_pt.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_pt.tex",
+      "sha256_16": "333cb18cc55a8fd1",
+      "bytes": 420467
+    },
+    {
+      "nome": "um_grande_atrator_pt.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/um_grande_atrator_pt.txt",
+      "papel": "dados",
+      "descricao": "O artigo (PT) em texto puro -- leitura direta por maquina",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_pt.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_pt.txt",
+      "sha256_16": "6c8306d6671951a0",
+      "bytes": 362036
+    },
+    {
+      "nome": "um_grande_atrator_selo.json",
+      "caminho": "Um (absoluto) — Grande Atrator/um_grande_atrator_selo.json",
+      "papel": "resultado selado",
+      "descricao": "O SELO CORRENTE: hash de cada saida, o veredito do gate, o result_hash da rodada. E a verdade de base do repositorio",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_selo.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_selo.json",
+      "sha256_16": "dc2ca89579deefb9",
+      "bytes": 4475
+    }
+  ],
+  "total_arquivos_nesta_pasta": 18,
+  "total_arquivos_com_subpastas": 287,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao",
+  "selo_corrente": {
+    "versao": "v198",
+    "versao_fonte": "um.py::_ESQUELETO_STONES[0]",
+    "versao_confirmada_por_transcricao": "v198",
+    "pedra_mais_recente": "ThePermanence",
+    "pedras_no_esqueleto": 150,
+    "pin_um_py": "a318ab63d4cebd81073e2f7d12516a0246c962d5ae0a83597f10ee0f65122ce2",
+    "pin_um_py_16": "a318ab63d4cebd81",
+    "pin_confere_com_disco": true,
+    "mundo": "dfe6393d10052300c41816b7565c6419dcdf8fdc01592b9ccb4adfd739520f30",
+    "mundo_16": "dfe6393d10052300",
+    "result_hash": "ea67e6d6dfb17762e5e1474f4907382b2ae0207bd9b5bf0f58713164f04d8d86",
+    "result_hash_16": "ea67e6d6dfb17762",
+    "formal_source_hash": "5025ebfe8ae96907c0fb05c46f01f058e2c341c7300a6b8b3a3ab5bf2633d9e5",
+    "data": "2026-08-23 12:02:56",
+    "identity": "1=1=VERDADEIRO=HAJA_LUZ",
+    "qg_closure_verdict": "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE",
+    "void_floor_v11_verdict": "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
+    "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED",
+    "kernel_arquivos_formais": 193,
+    "kernel_arquivos_lean": 190,
+    "kernel_teoremas_auditados": 817,
+    "kernel_axiomas_permitidos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "kernel_lean_toolchain": "leanprover/lean4:v4.31.0",
+    "kernel_modo": "strict",
+    "selo_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_selo.json",
+    "manifesto_kernel_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_proof_manifest.json",
+    "regua": "NOT_FALSIFIED != CONFIRMED; CONFIRMED e' proibido a maquina por teorema de kernel (TheReservedConfirmation) -- a confirmacao e' do observador humano"
+  }
+}

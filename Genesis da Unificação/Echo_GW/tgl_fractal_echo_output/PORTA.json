@@ -1,0 +1,78 @@
+{
+  "porta": "Genesis da Unificação/Echo_GW/tgl_fractal_echo_output",
+  "porta_id": "Genesis da Unificação/Echo_GW/tgl_fractal_echo_output",
+  "titulo": "Genesis da Unificação/Echo_GW/tgl_fractal_echo_output",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação/Echo_GW",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "fractal_contraction_20260223_095301.png",
+      "caminho": "Genesis da Unificação/Echo_GW/tgl_fractal_echo_output/fractal_contraction_20260223_095301.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_contraction_20260223_095301.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_contraction_20260223_095301.png",
+      "sha256_16": "332e84710def7258",
+      "bytes": 172961
+    },
+    {
+      "nome": "fractal_echo_v1_20260223_095301.json",
+      "caminho": "Genesis da Unificação/Echo_GW/tgl_fractal_echo_output/fractal_echo_v1_20260223_095301.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_echo_v1_20260223_095301.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_echo_v1_20260223_095301.json",
+      "sha256_16": "f1f7f8a1f8a8868c",
+      "bytes": 324644
+    },
+    {
+      "nome": "fractal_hierarchy_20260223_095301.png",
+      "caminho": "Genesis da Unificação/Echo_GW/tgl_fractal_echo_output/fractal_hierarchy_20260223_095301.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_hierarchy_20260223_095301.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_hierarchy_20260223_095301.png",
+      "sha256_16": "b5385f500351f967",
+      "bytes": 563497
+    },
+    {
+      "nome": "fractal_multiband_20260223_095301.png",
+      "caminho": "Genesis da Unificação/Echo_GW/tgl_fractal_echo_output/fractal_multiband_20260223_095301.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_multiband_20260223_095301.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_multiband_20260223_095301.png",
+      "sha256_16": "678cef864ba9dfd2",
+      "bytes": 631249
+    },
+    {
+      "nome": "fractal_synthesis_20260223_095301.png",
+      "caminho": "Genesis da Unificação/Echo_GW/tgl_fractal_echo_output/fractal_synthesis_20260223_095301.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_synthesis_20260223_095301.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output/fractal_synthesis_20260223_095301.png",
+      "sha256_16": "9009fe6320e44d5f",
+      "bytes": 193406
+    }
+  ],
+  "total_arquivos_nesta_pasta": 5,
+  "total_arquivos_com_subpastas": 5,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

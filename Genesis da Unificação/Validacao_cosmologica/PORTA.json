@@ -1,0 +1,128 @@
+{
+  "porta": "Genesis da Unificação/Validacao_cosmologica",
+  "porta_id": "Genesis da Unificação/Validacao_cosmologica",
+  "titulo": "Genesis da Unificação/Validacao_cosmologica",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "TGL_validation_v22.py",
+      "caminho": "Genesis da Unificação/Validacao_cosmologica/TGL_validation_v22.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v22.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v22.py",
+      "sha256_16": "557e316571a43c02",
+      "bytes": 51567
+    },
+    {
+      "nome": "TGL_validation_v23.py",
+      "caminho": "Genesis da Unificação/Validacao_cosmologica/TGL_validation_v23.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v23.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v23.py",
+      "sha256_16": "2c51d32e78999ea7",
+      "bytes": 44083
+    },
+    {
+      "nome": "TGL_validation_v6.2_complete.py",
+      "caminho": "Genesis da Unificação/Validacao_cosmologica/TGL_validation_v6.2_complete.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v6.2_complete.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v6.2_complete.py",
+      "sha256_16": "e0cc70bd81d51c94",
+      "bytes": 118417
+    },
+    {
+      "nome": "TGL_validation_v6.5_complete.py",
+      "caminho": "Genesis da Unificação/Validacao_cosmologica/TGL_validation_v6.5_complete.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v6.5_complete.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/TGL_validation_v6.5_complete.py",
+      "sha256_16": "b77453c1e99d3e94",
+      "bytes": 47575
+    },
+    {
+      "nome": "tgl_v6_all_results_20260203_172853.csv",
+      "caminho": "Genesis da Unificação/Validacao_cosmologica/tgl_v6_all_results_20260203_172853.csv",
+      "papel": "dados",
+      "descricao": "Dado da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_v6_all_results_20260203_172853.csv",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_v6_all_results_20260203_172853.csv",
+      "sha256_16": "9a1986edc4a96b69",
+      "bytes": 4553
+    },
+    {
+      "nome": "tgl_validation_v22.json",
+      "caminho": "Genesis da Unificação/Validacao_cosmologica/tgl_validation_v22.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_validation_v22.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_validation_v22.json",
+      "sha256_16": "317356cc6ff8b61d",
+      "bytes": 4301
+    },
+    {
+      "nome": "tgl_validation_v23.json",
+      "caminho": "Genesis da Unificação/Validacao_cosmologica/tgl_validation_v23.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_validation_v23.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_validation_v23.json",
+      "sha256_16": "1bbd1ce31fe29ffe",
+      "bytes": 5108
+    },
+    {
+      "nome": "tgl_validation_v6_summary_20260203_172853.json",
+      "caminho": "Genesis da Unificação/Validacao_cosmologica/tgl_validation_v6_summary_20260203_172853.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_validation_v6_summary_20260203_172853.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_validation_v6_summary_20260203_172853.json",
+      "sha256_16": "16caf715cb221387",
+      "bytes": 21261
+    },
+    {
+      "nome": "unification_v1.4_20260218_160551.json",
+      "caminho": "Genesis da Unificação/Validacao_cosmologica/unification_v1.4_20260218_160551.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/unification_v1.4_20260218_160551.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/unification_v1.4_20260218_160551.json",
+      "sha256_16": "3422e25d78290911",
+      "bytes": 57417
+    },
+    {
+      "nome": "validation_v8.json",
+      "caminho": "Genesis da Unificação/Validacao_cosmologica/validation_v8.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/validation_v8.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/validation_v8.json",
+      "sha256_16": "74ca1951ae1bd3b7",
+      "bytes": 12146
+    }
+  ],
+  "total_arquivos_nesta_pasta": 10,
+  "total_arquivos_com_subpastas": 10,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

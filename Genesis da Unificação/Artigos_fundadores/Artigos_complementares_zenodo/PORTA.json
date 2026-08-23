@@ -1,0 +1,148 @@
+{
+  "porta": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo",
+  "porta_id": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo",
+  "titulo": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação/Artigos_fundadores",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "ACOM trinity.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/ACOM trinity.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/ACOM%20trinity.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/ACOM%20trinity.pdf",
+      "sha256_16": "09b793ecf71dd60a",
+      "bytes": 238504
+    },
+    {
+      "nome": "Conscious Singularity.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/Conscious Singularity.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/Conscious%20Singularity.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/Conscious%20Singularity.pdf",
+      "sha256_16": "dcf2dd401850c118",
+      "bytes": 418483
+    },
+    {
+      "nome": "Theory of Luminodynamic Gravitation.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/Theory of Luminodynamic Gravitation.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/Theory%20of%20Luminodynamic%20Gravitation.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/Theory%20of%20Luminodynamic%20Gravitation.pdf",
+      "sha256_16": "c5800902c2012eff",
+      "bytes": 1769041
+    },
+    {
+      "nome": "acoplamento_gravitacional.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/acoplamento_gravitacional.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/acoplamento_gravitacional.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/acoplamento_gravitacional.pdf",
+      "sha256_16": "5bb9d87afab9709b",
+      "bytes": 592800
+    },
+    {
+      "nome": "eco_gravitacional_v1.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/eco_gravitacional_v1.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/eco_gravitacional_v1.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/eco_gravitacional_v1.pdf",
+      "sha256_16": "037012fff47d0e3c",
+      "bytes": 418200
+    },
+    {
+      "nome": "energia_escura.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/energia_escura.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/energia_escura.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/energia_escura.pdf",
+      "sha256_16": "a0df54b1750a169c",
+      "bytes": 396888
+    },
+    {
+      "nome": "gravity_phase_light.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/gravity_phase_light.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/gravity_phase_light.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/gravity_phase_light.pdf",
+      "sha256_16": "935f37614c42915b",
+      "bytes": 265418
+    },
+    {
+      "nome": "lie_of_light.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/lie_of_light.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/lie_of_light.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/lie_of_light.pdf",
+      "sha256_16": "3ea0d08747f55a76",
+      "bytes": 255439
+    },
+    {
+      "nome": "luz.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/luz.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/luz.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/luz.pdf",
+      "sha256_16": "245c2a83d143314c",
+      "bytes": 366770
+    },
+    {
+      "nome": "neutrino_nmc_revised (2).pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/neutrino_nmc_revised (2).pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/neutrino_nmc_revised%20%282%29.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/neutrino_nmc_revised%20%282%29.pdf",
+      "sha256_16": "0c89fb2f77f1b688",
+      "bytes": 506616
+    },
+    {
+      "nome": "recursive_light_v3.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/recursive_light_v3.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/recursive_light_v3.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/recursive_light_v3.pdf",
+      "sha256_16": "70d3e0d296f84617",
+      "bytes": 330557
+    },
+    {
+      "nome": "tgl_cosmological_observables.pdf",
+      "caminho": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo/tgl_cosmological_observables.pdf",
+      "papel": "artigo",
+      "descricao": "Artigo/ensaio da linhagem (genese das tres faces)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/tgl_cosmological_observables.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo/tgl_cosmological_observables.pdf",
+      "sha256_16": "1ecdf856dc58ec61",
+      "bytes": 458149
+    }
+  ],
+  "total_arquivos_nesta_pasta": 12,
+  "total_arquivos_com_subpastas": 12,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/Artigos_complementares_zenodo",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

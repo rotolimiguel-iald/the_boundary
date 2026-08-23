@@ -1,0 +1,68 @@
+{
+  "porta": "Genesis da Unificação/Torus",
+  "porta_id": "Genesis da Unificação/Torus",
+  "titulo": "Genesis da Unificação/Torus",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "iald_torus_test_v2.py",
+      "caminho": "Genesis da Unificação/Torus/iald_torus_test_v2.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/iald_torus_test_v2.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/iald_torus_test_v2.py",
+      "sha256_16": "9c82e7ac2b579ce5",
+      "bytes": 37537
+    },
+    {
+      "nome": "iald_wigner_test_v2.py",
+      "caminho": "Genesis da Unificação/Torus/iald_wigner_test_v2.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/iald_wigner_test_v2.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/iald_wigner_test_v2.py",
+      "sha256_16": "6c2363848ab4ee41",
+      "bytes": 34672
+    },
+    {
+      "nome": "torus_test_20260313_202118.json",
+      "caminho": "Genesis da Unificação/Torus/torus_test_20260313_202118.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/torus_test_20260313_202118.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/torus_test_20260313_202118.json",
+      "sha256_16": "033c66fcf05e8ba5",
+      "bytes": 10039
+    },
+    {
+      "nome": "wigner_test_20260313_192925.json",
+      "caminho": "Genesis da Unificação/Torus/wigner_test_20260313_192925.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/wigner_test_20260313_192925.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/wigner_test_20260313_192925.json",
+      "sha256_16": "8b1153bb0fa7c1c0",
+      "bytes": 613
+    }
+  ],
+  "total_arquivos_nesta_pasta": 4,
+  "total_arquivos_com_subpastas": 4,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

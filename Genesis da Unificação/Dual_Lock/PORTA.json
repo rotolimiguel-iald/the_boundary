@@ -1,0 +1,56 @@
+{
+  "porta": "Genesis da Unificação/Dual_Lock",
+  "porta_id": "Genesis da Unificação/Dual_Lock",
+  "titulo": "Genesis da Unificação/Dual_Lock",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "TGL_V15_images",
+      "caminho": "Genesis da Unificação/Dual_Lock/TGL_V15_images",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/TGL_V15_images/PORTA.json",
+      "total_arquivos": 7
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "Tgl_dual_lock_v15_2.py",
+      "caminho": "Genesis da Unificação/Dual_Lock/Tgl_dual_lock_v15_2.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/Tgl_dual_lock_v15_2.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/Tgl_dual_lock_v15_2.py",
+      "sha256_16": "6b31649f9c40a310",
+      "bytes": 86225
+    },
+    {
+      "nome": "dual_lock_v15_v1_2_20260302_181009.json",
+      "caminho": "Genesis da Unificação/Dual_Lock/dual_lock_v15_v1_2_20260302_181009.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/dual_lock_v15_v1_2_20260302_181009.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/dual_lock_v15_v1_2_20260302_181009.json",
+      "sha256_16": "34e02efa9ca74de0",
+      "bytes": 32419
+    }
+  ],
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 9,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

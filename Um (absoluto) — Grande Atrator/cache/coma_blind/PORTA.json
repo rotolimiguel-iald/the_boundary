@@ -1,0 +1,48 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/cache/coma_blind",
+  "porta_id": "Um (absoluto) — Grande Atrator/cache/coma_blind",
+  "titulo": "Um (absoluto) — Grande Atrator/cache/coma_blind",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/cache",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "coma_dephasing_prediction.json",
+      "caminho": "Um (absoluto) — Grande Atrator/cache/coma_blind/coma_dephasing_prediction.json",
+      "papel": "resultado selado",
+      "descricao": "A predicao de defasagem para Coma, hasheada antes da abertura",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/coma_blind/coma_dephasing_prediction.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/coma_blind/coma_dephasing_prediction.json",
+      "sha256_16": "31c82c82689075e1",
+      "bytes": 1520
+    },
+    {
+      "nome": "coma_distance_reveal.json",
+      "caminho": "Um (absoluto) — Grande Atrator/cache/coma_blind/coma_distance_reveal.json",
+      "papel": "resultado selado",
+      "descricao": "O revelador cego de Coma -- DADO, nao codigo (o protocolo exige zero ocorrencias do valor na fonte)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/coma_blind/coma_distance_reveal.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/coma_blind/coma_distance_reveal.json",
+      "sha256_16": "d2c3fbc0e7389870",
+      "bytes": 1566
+    }
+  ],
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 2,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/coma_blind",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

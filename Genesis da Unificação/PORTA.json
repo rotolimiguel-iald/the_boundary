@@ -1,0 +1,119 @@
+{
+  "porta": "Genesis da Unificação",
+  "porta_id": "genesis",
+  "titulo": "Genesis da Unificacao -- a linhagem",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "raiz",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "ACOM",
+      "caminho": "Genesis da Unificação/ACOM",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/PORTA.json",
+      "total_arquivos": 2
+    },
+    {
+      "nome": "Acoplamento_dimensional",
+      "caminho": "Genesis da Unificação/Acoplamento_dimensional",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Acoplamento_dimensional/PORTA.json",
+      "total_arquivos": 5
+    },
+    {
+      "nome": "Artigos_fundadores",
+      "caminho": "Genesis da Unificação/Artigos_fundadores",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Artigos_fundadores/PORTA.json",
+      "total_arquivos": 31
+    },
+    {
+      "nome": "C3_consciencia",
+      "caminho": "Genesis da Unificação/C3_consciencia",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/C3_consciencia/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/C3_consciencia/PORTA.json",
+      "total_arquivos": 2
+    },
+    {
+      "nome": "Cruz_MCMC",
+      "caminho": "Genesis da Unificação/Cruz_MCMC",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Cruz_MCMC/PORTA.json",
+      "total_arquivos": 4
+    },
+    {
+      "nome": "Dual_Lock",
+      "caminho": "Genesis da Unificação/Dual_Lock",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Dual_Lock/PORTA.json",
+      "total_arquivos": 9
+    },
+    {
+      "nome": "Echo_GW",
+      "caminho": "Genesis da Unificação/Echo_GW",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/PORTA.json",
+      "total_arquivos": 9
+    },
+    {
+      "nome": "Luminidio",
+      "caminho": "Genesis da Unificação/Luminidio",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Luminidio/PORTA.json",
+      "total_arquivos": 5
+    },
+    {
+      "nome": "Neutrinos",
+      "caminho": "Genesis da Unificação/Neutrinos",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Neutrinos/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Neutrinos/PORTA.json",
+      "total_arquivos": 4
+    },
+    {
+      "nome": "Protocolo16_neural",
+      "caminho": "Genesis da Unificação/Protocolo16_neural",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/PORTA.json",
+      "total_arquivos": 13
+    },
+    {
+      "nome": "Torus",
+      "caminho": "Genesis da Unificação/Torus",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Torus/PORTA.json",
+      "total_arquivos": 4
+    },
+    {
+      "nome": "Um - ensaio",
+      "caminho": "Genesis da Unificação/Um - ensaio",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/PORTA.json",
+      "total_arquivos": 19
+    },
+    {
+      "nome": "Validacao_cosmologica",
+      "caminho": "Genesis da Unificação/Validacao_cosmologica",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/PORTA.json",
+      "total_arquivos": 10
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": "numpy/scipy/matplotlib conforme o protocolo; cada .py roda sozinho",
+  "arquivos": [],
+  "total_arquivos_nesta_pasta": 0,
+  "total_arquivos_com_subpastas": 117,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

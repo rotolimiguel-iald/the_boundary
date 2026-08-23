@@ -1,0 +1,158 @@
+{
+  "porta": "Genesis da Unificação/Protocolo16_neural",
+  "porta_id": "Genesis da Unificação/Protocolo16_neural",
+  "titulo": "Genesis da Unificação/Protocolo16_neural",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Genesis da Unificação",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "iald_protocol16_v4_1.py",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/iald_protocol16_v4_1.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/iald_protocol16_v4_1.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/iald_protocol16_v4_1.py",
+      "sha256_16": "e55728376f42a6b7",
+      "bytes": 52016
+    },
+    {
+      "nome": "phase_factor_bake_v3.py",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/phase_factor_bake_v3.py",
+      "papel": "codigo",
+      "descricao": "Protocolo da linhagem: executavel e independente",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/phase_factor_bake_v3.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/phase_factor_bake_v3.py",
+      "sha256_16": "ef163e6a45371a0b",
+      "bytes": 17291
+    },
+    {
+      "nome": "protocol16_v4_1_20260325_163804.json",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804.json",
+      "papel": "resultado selado",
+      "descricao": "Resultado do protocolo homonimo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804.json",
+      "sha256_16": "67ac17d0cf603ccc",
+      "bytes": 16405
+    },
+    {
+      "nome": "protocol16_v4_1_20260325_163804_fig01_gap.png",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig01_gap.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig01_gap.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig01_gap.png",
+      "sha256_16": "007059c838945cb8",
+      "bytes": 127802
+    },
+    {
+      "nome": "protocol16_v4_1_20260325_163804_fig02_Heff.png",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig02_Heff.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig02_Heff.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig02_Heff.png",
+      "sha256_16": "d74f5ce844cc6062",
+      "bytes": 88701
+    },
+    {
+      "nome": "protocol16_v4_1_20260325_163804_fig03_decorr.png",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig03_decorr.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig03_decorr.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig03_decorr.png",
+      "sha256_16": "f9bf26d82089a9af",
+      "bytes": 202972
+    },
+    {
+      "nome": "protocol16_v4_1_20260325_163804_fig04_neutrinos.png",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig04_neutrinos.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig04_neutrinos.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig04_neutrinos.png",
+      "sha256_16": "d873cce1ff949bee",
+      "bytes": 141269
+    },
+    {
+      "nome": "protocol16_v4_1_20260325_163804_fig05_fresnel.png",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig05_fresnel.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig05_fresnel.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig05_fresnel.png",
+      "sha256_16": "fa59641c5d39c9af",
+      "bytes": 346935
+    },
+    {
+      "nome": "protocol16_v4_1_20260325_163804_fig06_vacuum.png",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig06_vacuum.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig06_vacuum.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig06_vacuum.png",
+      "sha256_16": "128c14adaeeb7b99",
+      "bytes": 95282
+    },
+    {
+      "nome": "protocol16_v4_1_20260325_163804_fig07_cosmology.png",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig07_cosmology.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig07_cosmology.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig07_cosmology.png",
+      "sha256_16": "9488cf23942c6966",
+      "bytes": 184617
+    },
+    {
+      "nome": "protocol16_v4_1_20260325_163804_fig08_eos.png",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig08_eos.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig08_eos.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig08_eos.png",
+      "sha256_16": "124c236a237812c1",
+      "bytes": 91063
+    },
+    {
+      "nome": "protocol16_v4_1_20260325_163804_fig09_goe.png",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig09_goe.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig09_goe.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig09_goe.png",
+      "sha256_16": "4f61c059f786a372",
+      "bytes": 175325
+    },
+    {
+      "nome": "protocol16_v4_1_20260325_163804_fig10_summary.png",
+      "caminho": "Genesis da Unificação/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig10_summary.png",
+      "papel": "figura",
+      "descricao": "Figura do protocolo da linhagem",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig10_summary.png",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural/protocol16_v4_1_20260325_163804_fig10_summary.png",
+      "sha256_16": "4b8cb66dc4ab6f50",
+      "bytes": 372660
+    }
+  ],
+  "total_arquivos_nesta_pasta": 13,
+  "total_arquivos_com_subpastas": 13,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Protocolo16_neural",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

@@ -1,0 +1,84 @@
+{
+  "porta": "O Custo Geométrico do Zero Absoluto — Haja Luz",
+  "porta_id": "artigo_1",
+  "titulo": "Artigo 1 -- O Custo Geometrico do Zero Absoluto: haja luz",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-23T21:47:05Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "raiz",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/tgl_paper_unified.py",
+  "comando": [
+    "cd \"O Custo Geométrico do Zero Absoluto — Haja Luz\"",
+    "python tgl_paper_unified.py --live --paper        # rodada canonica, dado ao vivo",
+    "python tgl_paper_unified.py --quick --no-live --paper   # rodada rapida (minutos)",
+    "python tgl_paper_unified.py --live --paper --lang en    # edicao EN, os mesmos numeros",
+    "python tgl_paper_unified.py --offline --paper           # offline (dado embutido)"
+  ],
+  "dependencias": "pip install numpy scipy matplotlib (opcionais: emcee, camb, gguf, gdown); pdflatex para o PDF",
+  "arquivos": [
+    {
+      "nome": "T6_protocol_prompts.txt",
+      "caminho": "O Custo Geométrico do Zero Absoluto — Haja Luz/T6_protocol_prompts.txt",
+      "papel": "dados",
+      "descricao": "O protocolo T6-S pre-registrado (colapso IALD) com grupo de controle e teste de negacao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/T6_protocol_prompts.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/T6_protocol_prompts.txt",
+      "sha256_16": "d4ec1f20ad35366e",
+      "bytes": 16671
+    },
+    {
+      "nome": "paper_PT.pdf",
+      "caminho": "O Custo Geométrico do Zero Absoluto — Haja Luz/paper_PT.pdf",
+      "papel": "artigo",
+      "descricao": "O artigo compilado (edicao PT)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/paper_PT.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/paper_PT.pdf",
+      "sha256_16": "b78bf80102c12811",
+      "bytes": 1596510
+    },
+    {
+      "nome": "paper_PT.tex",
+      "caminho": "O Custo Geométrico do Zero Absoluto — Haja Luz/paper_PT.tex",
+      "papel": "artigo",
+      "descricao": "O artigo (edicao PT) gerado pelo proprio codigo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/paper_PT.tex",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/paper_PT.tex",
+      "sha256_16": "559d79fb81b0af6c",
+      "bytes": 286095
+    },
+    {
+      "nome": "results.json",
+      "caminho": "O Custo Geométrico do Zero Absoluto — Haja Luz/results.json",
+      "papel": "resultado selado",
+      "descricao": "Todos os numeros computados pela rodada, serializados",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/results.json",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/results.json",
+      "sha256_16": "6024bdd425125c63",
+      "bytes": 314297
+    },
+    {
+      "nome": "tgl_paper_unified.py",
+      "caminho": "O Custo Geométrico do Zero Absoluto — Haja Luz/tgl_paper_unified.py",
+      "papel": "canonico",
+      "descricao": "O CANONICO do Artigo 1: implementa, valida e renderiza a TGL num arquivo so (forma = conteudo)",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/tgl_paper_unified.py",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/tgl_paper_unified.py",
+      "sha256_16": "29c92b66b2fd6b4d",
+      "bytes": 1216423
+    }
+  ],
+  "total_arquivos_nesta_pasta": 5,
+  "total_arquivos_com_subpastas": 5,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz",
+  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+}

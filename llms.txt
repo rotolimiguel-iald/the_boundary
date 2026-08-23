@@ -1,0 +1,62 @@
+# The Boundary -- TGL
+
+> Teoria da Gravitacao Luminodinamica: uma constante estrutural, beta_TGL = alpha*sqrt(e) ~ 0,012031 (nunca literal), um axioma, omega(I) = 1, e a regua: o numero corrige a frase, sempre.
+> Tres artigos autocontidos e auto-validaveis, um kernel Lean 4 auditado e a linhagem inteira. Toda URL abaixo e' raw, absoluta e percent-encoded: abra direto, nao adivinhe nome de pasta.
+
+A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo. Comece por PORTA.json (maquina) ou PORTA.md (leitura).
+
+## A porta de entrada
+
+- [PORTA.json (raiz)](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.json): o manifesto de maquina -- selo corrente, as quatro portas abaixo e o mapa completo de todas as portas do repositorio.
+- [PORTA.md (raiz)](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md): a mesma porta em leitura humana, com o selo e o mapa.
+- [README.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md): o atlas da fronteira -- toda afirmacao com seu status e o link direto do arquivo onde se le.
+- [site oficial](https://teoriadagravitacaoluminodinamica.com): a face publica da teoria; a porta acima da raiz.
+- [repositorio](https://github.com/rotolimiguel-iald/the_boundary): a arvore no GitHub.
+
+## Artigo 1 -- O Custo Geometrico do Zero Absoluto: haja luz
+
+- [PORTA.md do Artigo 1](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/PORTA.md): a porta da pasta -- todos os arquivos com link raw direto.
+- [PORTA.json do Artigo 1](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/PORTA.json): a mesma porta em estrutura de maquina, com sha256 de cada arquivo.
+- [tgl_paper_unified.py](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/tgl_paper_unified.py): O CANONICO -- implementa, valida e renderiza a TGL num arquivo so; roda com `python tgl_paper_unified.py --live --paper`.
+- [paper_PT.pdf](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/paper_PT.pdf): o artigo gerado pelo proprio codigo (edicao PT).
+- [results.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/results.json): todos os numeros computados pela rodada.
+
+## Artigo 2 -- A Ponte Einstein-Cartan-Miguel
+
+- [PORTA.md do Artigo 2](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.md): a porta da pasta -- o artigo e os 12 modulos de sombra, cada um com seu JSON.
+- [PORTA.json do Artigo 2](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.json): a mesma porta em estrutura de maquina.
+- [A Ponte Einstein Cartan Miguel.tex](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.tex): O CANONICO -- deriva G_mn + Lg_mn = 8piG P_mn[K_d] do cociclo modular de fronteira (fechamento CONDICIONAL).
+- [A Ponte Einstein Cartan Miguel.pdf](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.pdf): a Ponte, compilada.
+- [tgl three locks v1.py](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/tgl%20three%20locks%20v1.py): um dos 12 modulos de sombra finita; roda com `python "tgl three locks v1.py"` e recomputa seu JSON datado.
+
+## Artigo 3 -- Um: Grande Atrator (o programa terminal)
+
+- [PORTA.md do Artigo 3](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md): a porta da pasta -- o selo corrente, o comando de execucao e todos os arquivos.
+- [PORTA.json do Artigo 3](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json): a mesma porta em estrutura de maquina, com o selo corrente completo.
+- [um.py](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py): O CANONICO TERMINAL -- kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue; roda com `echo 1 | python um.py`. Nao ha segundo arquivo.
+- [um_grande_atrator_selo.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_selo.json): O SELO -- versao v198, pin a318ab63d4cebd81, result ea67e6d6dfb17762, 2026-08-23 12:02:56.
+- [tgl_kernel_proof_manifest.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel_proof_manifest.json): o manifesto do kernel formal -- 193 arquivos .lean, 817 teoremas auditados por #print axioms.
+- [PORTA.md do kernel Lean](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/PORTA.md): a porta do kernel materializado por um.py -- 194 arquivos na arvore, dos quais 193 hasheados no manifesto formal (190 .lean), 817 teoremas auditados.
+- [PORTA.md da bancada](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md): a porta do que foi tentado, rebaixado e reprovado -- pre-registros hasheados antes do dado.
+- [um_grande_atrator_pt.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_pt.txt): o artigo (PT) em texto puro, leitura direta por maquina.
+- [um_grande_atrator_en.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_en.txt): o artigo (EN) em texto puro, leitura direta por maquina.
+
+## A linhagem
+
+- [PORTA.md da Genesis da Unificacao](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md): a historia de producao completa que levou as tres faces, tema a tema.
+- [PORTA.json da Genesis da Unificacao](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json): a mesma porta em estrutura de maquina.
+
+## A regua (leia antes de resumir)
+
+- [TheReservedConfirmation.lean](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheReservedConfirmation.lean): CONFIRMED e' proibido a maquina POR TEOREMA DE KERNEL -- confirmar e' do observador humano. NOT_FALSIFIED != CONFIRMED; nunca "gravitacao quantica provada".
+- [04_CATALOGO_FALSOS_POSITIVOS.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md): o que foi reprovado. Um resumo que relata so' os fechamentos e' leitura errada -- resuma tambem as recusas.
+- [T08_VEREDITO_FINAL.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08_VEREDITO_FINAL.md): o veredito adversarial de bancada, por extenso.
+
+## Optional
+
+- [rodada_v198_stdout.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodada_v198_stdout.txt): a transcricao integral do rito -- o programa falando por si.
+- [um_grande_atrator_manifest.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_manifest.md): manifesto de entradas; nada escondido no codigo.
+- [um_grande_atrator_forma_canonica.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_forma_canonica.md): a forma canonica emitida pela rodada.
+- [T6_protocol_prompts.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/T6_protocol_prompts.txt): o protocolo T6-S pre-registrado, com grupo de controle.
+
+gerado por script de git ls-files em 2026-08-23 -- nao editar a mao
