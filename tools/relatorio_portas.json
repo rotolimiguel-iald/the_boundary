@@ -1,5 +1,5 @@
 {
-  "gerado_utc": "2026-08-23T21:47:05Z",
+  "gerado_utc": "2026-08-23T21:48:23Z",
   "arquivos_criados": [
     "A Ponte-Einstein_Cartan_Miguel/PORTA.json",
     "A Ponte-Einstein_Cartan_Miguel/PORTA.md",
@@ -66,16 +66,14 @@
     "Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/PORTA.json",
     "Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/PORTA.md",
     "llms.txt",
-    "tgl_kernel/PORTA.json",
-    "tgl_kernel/PORTA.md",
-    "tgl_kernel/TGLExt/PORTA.json",
-    "tgl_kernel/TGLExt/PORTA.md"
+    "tools/PORTA.json",
+    "tools/PORTA.md"
   ],
-  "total_arquivos_criados": 69,
+  "total_arquivos_criados": 67,
   "readme": "atualizado",
-  "urls_geradas_total": 819,
-  "urls_unicas": 555,
-  "urls_verificadas_ok": 555,
+  "urls_geradas_total": 811,
+  "urls_unicas": 554,
+  "urls_verificadas_ok": 554,
   "urls_quebradas": [],
   "pastas_com_porta": [
     "A Ponte-Einstein_Cartan_Miguel",
@@ -109,11 +107,10 @@
     "Um (absoluto) — Grande Atrator/tgl_kernel",
     "Um (absoluto) — Grande Atrator/tgl_kernel/TGL",
     "Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt",
-    "tgl_kernel",
-    "tgl_kernel/TGLExt"
+    "tools"
   ],
-  "total_pastas": 33,
-  "total_arquivos_rastreados_antes": 453,
+  "total_pastas": 32,
+  "total_arquivos_rastreados_antes": 455,
   "selo_corrente": {
     "versao": "v198",
     "versao_fonte": "um.py::_ESQUELETO_STONES[0]",

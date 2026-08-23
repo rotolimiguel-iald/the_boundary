@@ -4,7 +4,7 @@
   "titulo": "Genesis da Unificação/Validacao_cosmologica",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-23T21:47:05Z",
+  "gerado_utc": "2026-08-23T21:48:23Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Genesis da Unificação",

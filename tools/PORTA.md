@@ -1,4 +1,4 @@
-# PORTA -- `tgl_kernel`
+# PORTA -- `tools`
 
 porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md
 
@@ -6,10 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-**Copia solta na raiz do repositorio -- NAO e' o kernel canonico.**
-O kernel CANONICO e' o materializado por `um.py` em
-`Um (absoluto) - Grande Atrator/tgl_kernel/` -- va por la (a porta abaixo
-leva ao arquivo solto; a porta acima leva a raiz e de la ao kernel de verdade).
+Pasta do repositorio the_boundary com 3 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -24,13 +21,20 @@ leva ao arquivo solto; a porta acima leva a raiz e de la ao kernel de verdade).
 
 ## OS ARQUIVOS DESTA PASTA
 
-0 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/tgl_kernel
+3 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools
 
-## AS PORTAS ABAIXO
+**CODIGO**
 
-| subpasta | arquivos | PORTA.md | PORTA.json |
-|---|---|---|---|
-| `TGLExt/` | 1 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PORTA.json) |
+| arquivo | papel | link raw direto |
+|---|---|---|
+| `gerar_portas.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py) |
+| `verificar_portas.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/verificar_portas.py) |
+
+**RESULTADO SELADO**
+
+| arquivo | papel | link raw direto |
+|---|---|---|
+| `relatorio_portas.json` | Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/relatorio_portas.json) |
 
 ---
 

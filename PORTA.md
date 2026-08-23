@@ -56,7 +56,7 @@ Nunca *"gravitacao quantica provada"*.
 
 | pasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
-| `tgl_kernel/` | 1 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/PORTA.json) |
+| `tools/` | 3 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json) |
 
 *Nota: `tgl_kernel/` na raiz e' uma copia solta de um unico modulo.*
 *O kernel CANONICO e' o de [`Um (absoluto) — Grande Atrator/tgl_kernel/`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/PORTA.md).*
@@ -96,9 +96,8 @@ Nunca *"gravitacao quantica provada"*.
 | `Um (absoluto) — Grande Atrator/tgl_kernel/` | 194 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/tgl_kernel/TGL/` | 27 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGL/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/` | 160 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/PORTA.md) |
-| `tgl_kernel/` | 1 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/PORTA.md) |
-| `tgl_kernel/TGLExt/` | 1 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tgl_kernel/TGLExt/PORTA.md) |
+| `tools/` | 3 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) |
 
 ---
 
-Total rastreado por `git ls-files`: **453 arquivos** (antes das portas). gerado por script de git ls-files em 2026-08-23 -- nao editar a mao
+Total rastreado por `git ls-files`: **455 arquivos** (antes das portas). gerado por script de git ls-files em 2026-08-23 -- nao editar a mao
