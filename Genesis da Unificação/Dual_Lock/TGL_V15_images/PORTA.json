@@ -4,7 +4,7 @@
   "titulo": "Genesis da Unificação/Dual_Lock/TGL_V15_images",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-23T21:50:05Z",
+  "gerado_utc": "2026-08-23T21:51:18Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Genesis da Unificação/Dual_Lock",
