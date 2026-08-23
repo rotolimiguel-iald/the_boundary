@@ -4,7 +4,7 @@
   "repo_raw_base": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/",
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
-  "gerado_utc": "2026-08-23T21:48:23Z",
+  "gerado_utc": "2026-08-23T21:48:44Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v198",
@@ -102,7 +102,7 @@
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json",
       "canonico_url": null,
       "comando": null,
-      "total_arquivos": 3
+      "total_arquivos": 2
     }
   ],
   "arquivos_raiz": [
@@ -131,16 +131,16 @@
       "papel": "outros",
       "descricao": "Arquivo de infraestrutura",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore",
-      "sha256_16": "5b5c38ed4a19e516",
-      "bytes": 518
+      "sha256_16": "54a2afb516457c89",
+      "bytes": 676
     },
     {
       "nome": "README.md",
       "papel": "documento",
       "descricao": "O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-      "sha256_16": "476c43751f9a3012",
-      "bytes": 254609
+      "sha256_16": "e17673f637c99ef8",
+      "bytes": 267352
     }
   ],
   "portas_todas": [
@@ -334,9 +334,9 @@
       "pasta": "tools",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json",
-      "total_arquivos": 3
+      "total_arquivos": 2
     }
   ],
-  "total_arquivos": 455,
+  "total_arquivos": 454,
   "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
 }

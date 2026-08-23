@@ -23,3 +23,7 @@ README.md.bak_*
 *.out
 um_grande_atrator_pt.log
 um_grande_atrator_en.log
+
+# artefatos de execucao das portas (regenerados a cada rodada; nao entram em porta nenhuma)
+tools/relatorio_portas.json
+*.bak_*

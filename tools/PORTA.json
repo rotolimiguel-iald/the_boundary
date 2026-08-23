@@ -4,7 +4,7 @@
   "titulo": "tools",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-23T21:48:23Z",
+  "gerado_utc": "2026-08-23T21:48:44Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -31,16 +31,6 @@
       "bytes": 60669
     },
     {
-      "nome": "relatorio_portas.json",
-      "caminho": "tools/relatorio_portas.json",
-      "papel": "resultado selado",
-      "descricao": "Resultado serializado (JSON), recomputavel pelo codigo da mesma pasta",
-      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/relatorio_portas.json",
-      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/relatorio_portas.json",
-      "sha256_16": "18006e36b656cab4",
-      "bytes": 7851
-    },
-    {
       "nome": "verificar_portas.py",
       "caminho": "tools/verificar_portas.py",
       "papel": "codigo",
@@ -51,8 +41,8 @@
       "bytes": 8026
     }
   ],
-  "total_arquivos_nesta_pasta": 3,
-  "total_arquivos_com_subpastas": 3,
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 2,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools",
   "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
 }

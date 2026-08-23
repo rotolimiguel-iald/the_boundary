@@ -1620,7 +1620,7 @@ dialogue throughout the development of TGL.
 
 ## Raw File Index for LLMs
 
-Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` at v168 — 520 files, zero broken, zero unlisted).
+Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` at v168 — 521 files, zero broken, zero unlisted).
 
 ### 📁 `O Custo Geométrico do Zero Absoluto — Haja Luz/` — Article 1
 
@@ -2156,7 +2156,8 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`PORTA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md)
 - [`README.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md)
 - [`llms.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt)
+- [`tools/PORTA.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json)
+- [`tools/PORTA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md)
 - [`tools/gerar_portas.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py)
-- [`tools/relatorio_portas.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/relatorio_portas.json)
 - [`tools/verificar_portas.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/verificar_portas.py)
 
