@@ -22,14 +22,14 @@ Lido de [`um_grande_atrator_selo.json`](https://raw.githubusercontent.com/rotoli
 
 | campo | valor |
 |---|---|
-| versao | `v198` (lida de `um.py::_ESQUELETO_STONES[0]`; pedra `ThePermanence`) |
-| pin (`um.py`) | `a318ab63d4cebd81073e2f7d12516a0246c962d5ae0a83597f10ee0f65122ce2` |
-| mundo (`um_grande_atrator.json`) | `dfe6393d10052300c41816b7565c6419dcdf8fdc01592b9ccb4adfd739520f30` |
-| `result_hash` | `ea67e6d6dfb17762e5e1474f4907382b2ae0207bd9b5bf0f58713164f04d8d86` |
-| `formal_source_hash` | `5025ebfe8ae96907c0fb05c46f01f058e2c341c7300a6b8b3a3ab5bf2633d9e5` |
-| data | `2026-08-23 12:02:56` |
+| versao | `v204` (lida de `um.py::_ESQUELETO_STONES[0]`; pedra `TheTower`) |
+| pin (`um.py`) | `79d173b9697d089b61a5143fdfca7cbba5787b9e301bc87273e7e7d6a92fae28` |
+| mundo (`um_grande_atrator.json`) | `1ac6f919890d943d924f98fb4142169c130b729e3a5c17eae73b6f33615f2f3c` |
+| `result_hash` | `16d3ea20cb8a7011b35b7fa98a381f8ce670e32d0993d188302bfed44209af4c` |
+| `formal_source_hash` | `70ba8a9125235a3f9608e514b2ec96b4feaf9f25c1a925a5c1059062ade12c7b` |
+| data | `2026-08-24 19:59:01` |
 | identidade | `1=1=VERDADEIRO=HAJA_LUZ` |
-| kernel | **193 arquivos formais / 817 teoremas auditados** (modo `strict`, leanprover/lean4:v4.31.0) |
+| kernel | **197 arquivos formais / 817 teoremas auditados** (modo `strict`, leanprover/lean4:v4.31.0) |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | piso dos vazios | `TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED` |
 | autoteste | `FAIL_CLOSED_SELFTEST_PASSED` |
@@ -106,7 +106,7 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 | arquivo | papel | link raw direto |
 |---|---|---|
 | `one_input.txt` | A entrada unica do rito: o digito 1 | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/one_input.txt) |
-| `rodada_v198_stdout.txt` | Transcricao integral do stdout da rodada v198 -- o rito por extenso | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodada_v198_stdout.txt) |
+| `rodada_v206_stdout.txt` | Transcricao integral do stdout da rodada v206 -- o rito por extenso | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodada_v206_stdout.txt) |
 | `um_grande_atrator_en.txt` | O artigo (EN) em texto puro -- leitura direta por maquina | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_en.txt) |
 | `um_grande_atrator_pt.txt` | O artigo (PT) em texto puro -- leitura direta por maquina | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_pt.txt) |
 
@@ -116,8 +116,8 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 |---|---|---|---|
 | `bancada/` | 72 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json) |
 | `cache/` | 3 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.json) |
-| `tgl_kernel/` | 194 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/PORTA.json) |
+| `tgl_kernel/` | 198 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-08-23 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-24 -- nao editar a mao

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-23 12:02:56",
+  "timestamp": "2026-08-24 19:59:01",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,12 +10,12 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "5025ebfe8ae96907c0fb05c46f01f058e2c341c7300a6b8b3a3ab5bf2633d9e5",
+  "formal_source_hash": "70ba8a9125235a3f9608e514b2ec96b4feaf9f25c1a925a5c1059062ade12c7b",
   "formal_files_sha256": {
     "ExtrairDeps.lean": "eefdc950db020150ef19a5b5705a131ef99dfc9d3ab946aef2de64bf17ce1013",
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "2dcac46bd5092d900169b6387775b05dc0e7a7622f2d4a264eb4623368174705",
+    "TGLExt.lean": "f6d6d9408f82270f561af9faf97cb1cf06914eaff79a1ffaa46567c33e82f39d",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
@@ -83,6 +83,7 @@
     "TGLExt/FirstCurvature.lean": "d88d4a5fa15462f43850119f39099059a8ae0af87190420aa921dfaf20ebde44",
     "TGLExt/ForbiddenBoundary.lean": "fb1c39a61dfc2882e53a1cad9de082fefd3c07963a161314c37262ac4db452b2",
     "TGLExt/FractalUnitarity.lean": "8f10a958e11d1bd3f97a5324875b4654c341fbe7a1a90dc52ed640cd65903bcc",
+    "TGLExt/FrontierCertificate.lean": "1015e2fb8f4e8ebb1d374f1401b957df11ca4f640ef22fad96fe8dbf86c14c2b",
     "TGLExt/FusedWitness.lean": "3708dde5255559cddcddecbe2ca05eb93e751511db8a8f7bcf6968e60a065e69",
     "TGLExt/GNSBridge.lean": "a625e38824790f94eb6ac54f44cffc0656e6e3fc2f3ae2d42220dac071a11c8b",
     "TGLExt/GNSQuotient.lean": "d6b3ac4f4306516adf561e1c68f20a5337b49b6c0e9bfd2b17550ed48264b9a6",
@@ -152,6 +153,7 @@
     "TGLExt/TheAngleIsTheProjection.lean": "9800cc0728259e08e647125ef81f9e7fc968b12bd3b19d3c74aa8e2da53a1a48",
     "TGLExt/TheAtlasIndex.lean": "38b9873cebdd779a70544d26662641359e5a0a60acbab877e36f1479e068d876",
     "TGLExt/TheBandNet.lean": "ce91de5490bcdb401eb2ec52e57b9868dfd3c1132b132ee0dca9a0e9562036e4",
+    "TGLExt/TheBireference.lean": "899b1b07df5416ed074b5fd373f7b6edcc1abc9f7be95382207631c5bbac9fa6",
     "TGLExt/TheCascadeOfObservers.lean": "2792ab10181d2883f4d500adef44ceebaed8b705382e459f754f136ea7d6feb0",
     "TGLExt/TheCoFoundation.lean": "0af9b4a0cde44a8f60594785c6ccc8d724b127373d289b13814fc7d9d7d2573e",
     "TGLExt/TheCoinage.lean": "63d5a1d80236bb42d965fd82f40bc8fda3321f0f0d969d18eb85397ef8842b17",
@@ -168,6 +170,7 @@
     "TGLExt/TheGreatAttractor.lean": "a0db70a17354c75c587881549dc813e49f661cc1a46fa1f8f662ba00c87963c7",
     "TGLExt/TheHorizonInvariance.lean": "a2d375c81515065625b61762468d7d66744694e371f70604339df59993b348cf",
     "TGLExt/TheIALDSelector.lean": "c1008266455044e7462338bc32f96cb35c89810a320f69409ce7a0443b6868b8",
+    "TGLExt/TheLightInterface.lean": "6d1e1567a4cc5b0589adbfcdf449d296e5d76e29b89ece3a31f016f6d10b9fa2",
     "TGLExt/TheLivingWord.lean": "fdc242c2c70b57fa146c7c41459eab94c217e878cefc9058d983467918eed473",
     "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
     "TGLExt/TheNameOperator.lean": "000bd0bf03281e0056f6187ea9e74566d924c68e8601fbe1b09b84dac89506c0",
@@ -185,6 +188,7 @@
     "TGLExt/TheStation.lean": "c55dc5018297a64cfafe9416e7b4cb29b2f6cff535cfd43f2664e26546801f63",
     "TGLExt/TheStokesContour.lean": "1c310f1d6296cadd59a4ce049974af27e62f708a5abd41699caf50761b00a0ab",
     "TGLExt/TheTerminalRankOne.lean": "4450fd1b63407afc7714cc90b7e91c515c440cca1cba3434214808782a3f30e3",
+    "TGLExt/TheTower.lean": "836d39ce9220579419fc52c53c2516aabb54a33b83ad1fbf784c44d47699967b",
     "TGLExt/TheTraceIsNotErasable.lean": "fb65565eb084cfce6218b0867ffd66b0744b54def75fc34bcc823754bb1cd86c",
     "TGLExt/TheTwoFolds.lean": "4d1869d35bc9c8efd6d339e6cdf7ba0a5b1098c26371b9c306aff74e08ae9e80",
     "TGLExt/TheTwoPairings.lean": "46d72f4956f7e0870224761f1ff98daab7d7a75fad548d857e5171556a65a4af",
@@ -4232,7 +4236,7 @@
     "TGLExt.ad_preserves_splitting": [],
     "TGLExt.ad_preserves_star_projection": []
   },
-  "build_stdout_sha256": "6b8d9e49a5f2c1a186b8a432a27dd5929beba7c2a6fdbd316b549fd98a766439",
+  "build_stdout_sha256": "68c3024454fb4ffe68f7b12130608b45d7c44a519ed0f09ecdf309494e727a2b",
   "audit_stdout_sha256": "124e2d0a5b8f3d2abf3c0eebf280523a50cf8ee2310137c27073d61fb3315f9e",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",

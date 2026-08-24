@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-23T21:51:18Z",
+  "gerado_utc": "2026-08-24T23:24:08Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/tgl_kernel",
@@ -399,6 +399,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FractalUnitarity.lean",
       "sha256_16": "8f10a958e11d1bd3",
       "bytes": 3762
+    },
+    {
+      "nome": "FrontierCertificate.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/FrontierCertificate.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): FrontierCertificate",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FrontierCertificate.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/FrontierCertificate.lean",
+      "sha256_16": "1015e2fb8f4e8ebb",
+      "bytes": 4606
     },
     {
       "nome": "FusedWitness.lean",
@@ -1091,6 +1101,16 @@
       "bytes": 6221
     },
     {
+      "nome": "TheBireference.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheBireference.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheBireference",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheBireference.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheBireference.lean",
+      "sha256_16": "899b1b07df5416ed",
+      "bytes": 4823
+    },
+    {
       "nome": "TheCascadeOfObservers.lean",
       "caminho": "Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheCascadeOfObservers.lean",
       "papel": "prova formal",
@@ -1249,6 +1269,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheIALDSelector.lean",
       "sha256_16": "c1008266455044e7",
       "bytes": 3985
+    },
+    {
+      "nome": "TheLightInterface.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheLightInterface.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheLightInterface",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheLightInterface.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheLightInterface.lean",
+      "sha256_16": "6d1e1567a4cc5b05",
+      "bytes": 9656
     },
     {
       "nome": "TheLivingWord.lean",
@@ -1419,6 +1449,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheTerminalRankOne.lean",
       "sha256_16": "4450fd1b63407afc",
       "bytes": 6091
+    },
+    {
+      "nome": "TheTower.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt/TheTower.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheTower",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheTower.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/TheTower.lean",
+      "sha256_16": "836d39ce92205794",
+      "bytes": 5261
     },
     {
       "nome": "TheTraceIsNotErasable.lean",
@@ -1621,8 +1661,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 160,
-  "total_arquivos_com_subpastas": 160,
+  "total_arquivos_nesta_pasta": 164,
+  "total_arquivos_com_subpastas": 164,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-08-24 -- nao editar a mao"
 }

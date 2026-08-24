@@ -263,7 +263,7 @@ DESC = {
     A3 + "/fig_escada_qg.pdf": "Figura: a escada da gravitacao quantica (os degraus do gate)",
     A3 + "/fig_piso_vazios.pdf": "Figura: o piso dos vazios (o falsificador cosmologico)",
     A3 + "/one_input.txt": "A entrada unica do rito: o digito 1",
-    A3 + "/rodada_v198_stdout.txt": "Transcricao integral do stdout da rodada v198 -- o rito por extenso",
+    A3 + "/rodada_v206_stdout.txt": "Transcricao integral do stdout da rodada v206 -- o rito por extenso",
     A3 + "/cache/CHAIN_OF_CUSTODY.json": "Cadeia de custodia dos dados externos usados pelos ritos",
     A3 + "/cache/coma_blind/coma_distance_reveal.json": "O revelador cego de Coma -- DADO, nao codigo (o protocolo exige zero ocorrencias do valor na fonte)",
     A3 + "/cache/coma_blind/coma_dephasing_prediction.json": "A predicao de defasagem para Coma, hasheada antes da abertura",
@@ -1014,7 +1014,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("")
     T.append("## Optional")
     T.append("")
-    T.append("- [rodada_v198_stdout.txt](%s): a transcricao integral do rito -- o programa falando por si." % registra(url_raw(A3 + "/rodada_v198_stdout.txt")))
+    T.append("- [rodada_v206_stdout.txt](%s): a transcricao integral do rito -- o programa falando por si." % registra(url_raw(A3 + "/rodada_v206_stdout.txt")))
     T.append("- [um_grande_atrator_manifest.md](%s): manifesto de entradas; nada escondido no codigo." % registra(url_raw(A3 + "/um_grande_atrator_manifest.md")))
     T.append("- [um_grande_atrator_forma_canonica.md](%s): a forma canonica emitida pela rodada." % registra(url_raw(A3 + "/um_grande_atrator_forma_canonica.md")))
     T.append("- [T6_protocol_prompts.txt](%s): o protocolo T6-S pre-registrado, com grupo de controle." % registra(url_raw(A1 + "/T6_protocol_prompts.txt")))

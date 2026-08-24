@@ -2,7 +2,7 @@ Inscreva o UM para iniciar:
 O UM foi inscrito. I = 1. omega(I) = 1.
 Iniciando desconstrucao fractalizada: 1 -> 1/2 -> beta -> borda -> massa
 
-[kernel embutido] materializado em C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\Nós\tgl_kernel: 0 escritos, 193 inalterados; packages: packages_present
+[kernel embutido] materializado em C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\Nós\tgl_kernel: 0 escritos, 197 inalterados; packages: packages_present
 Meia-Nat:  S=1/2 (x=1-x, residuo 0e+00) ; w_max=1/2
 s=1/(4pi)=0.079577 (campo=lei a 0.95%) ; vacuo rho=0e+00 -> 0
 beta=sqrt(e)*alpha=0.012031300400797  (=sqrt(e)*sqrt(1-q^2)) ; theta_M=6.2973 deg
@@ -269,7 +269,7 @@ FORMALIZACAO POR KERNEL [v22 -- o Python NAO prova; o kernel do Lean prova]:
   Projetor P_F (idempotente, auto-adjunto)       : KERNEL PROVED
   Implicacao do canto continuo                   : KERNEL PROVED CONDITIONALLY
   Testemunha AQFT especifica                     : NOT CONSTRUCTED
-  hash dos fontes Lean: 5025ebfe8ae96907c0fb05c46f01f058e2c341c7300a6b8b3a3ab5bf2633d9e5
+  hash dos fontes Lean: 70ba8a9125235a3f9608e514b2ec96b4feaf9f25c1a925a5c1059062ade12c7b
   >>> TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED <<<
 FORMAL FRONTIER: construir um habitante de TGLSpecificAQFTWitness
                  sem sorry, admit ou axiomas customizados.
@@ -1445,7 +1445,7 @@ PRINCIPIO DA DEFASAGEM FRACTAL [CONJECTURE ontologica; ancoras REAL]:
 [A literatura ] R_struct=57.0 Mpc -> M_GA=2.744e+16 Msun
 [B CF4-posicoes] R_struct=41.27 Mpc -> M_GA=1.986e+16 Msun (n=265, geometria; origem=cache)
 [custodia] cache/CHAIN_OF_CUSTODY.json: 17 provas registradas (proveniencia deterministica no selo)
-[manifesto] um_grande_atrator_manifest.md escrito; hash do mundo (codigo+manifesto+dados): ea67e6d6dfb17762e5e1474f4907382b2ae0207bd9b5bf0f
+[manifesto] um_grande_atrator_manifest.md escrito; hash do mundo (codigo+manifesto+dados): 16d3ea20cb8a7011b35b7fa98a381f8ce670e32d0993d188
 [sensibilidade Modo B] 300 combinacoes: M_GA in [1.40e+16, 3.42e+16] Msun; 100% na banda (TODAS)
 
 AXIOMA ZERO -- RELATIVIDADE ONTOLOGICA [v37; ONTO/AX + DER/NUM; NAO gateia 1=1]:
@@ -1479,6 +1479,9 @@ COMA -- PARIDADE INVERSA DO GA [v36; PRE/EXT; cego; NAO gateia 1=1]:
    janela aceita: [1e+15, 1e+17] Msun
 
 --- emitindo o artigo (um / ONE) ---
+   [v200] maquina do veredito-alvo: TGL_QG_FUNCTIONAL_MODEL_ON_THE_BENCH__NOT_REFUTED_BY_PUBLIC_DATA_AT_CURRENT_SENSITIVITY__EXCLUSION_SPECTRUM_MEASURED__NOT_A_CONFIRMATION
+   [v201] emenda de lente: LENS_POWER_GATE_EMENDA_V10_PRE_REGISTERED__F_ZERO_WAS_STRUCTURAL_NOT_DATA__UNDERPOWERED_JUSTIFICATION_RETIRED__REFUSALS_AND_POWERED_CHANNEL_REMAIN
+   [v205] bootstrap: IALD_BOOTSTRAP__EXECUTABLE_WITNESS_OF_THE_TGL_IDENTITY__SELF_ATTESTATION_BY_EXECUTION_NOT_SELF_REFERENCE__ARCHITECTURAL_PROOF_IN_COMPUTATIONAL_ENVIRONMENT__NOT_EMPIRICAL__BOUNDARY_PRESERVED
    [FIG] emitidas: fig_escada_qg.pdf, fig_cadeia_inscricao.pdf, fig_piso_vazios.pdf, fig_banda_beta.pdf
    [PDF] um_grande_atrator_pt.pdf OK
    [PDF] um_grande_atrator_en.pdf OK

@@ -43,4 +43,4 @@ Os complementares depositados no Zenodo -- a face publica da genese.
 
 ---
 
-gerado por script de git ls-files em 2026-08-23 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-24 -- nao editar a mao

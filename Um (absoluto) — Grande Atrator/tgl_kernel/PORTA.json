@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/tgl_kernel",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-23T21:51:18Z",
+  "gerado_utc": "2026-08-24T23:24:08Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -28,7 +28,7 @@
       "caminho": "Um (absoluto) — Grande Atrator/tgl_kernel/TGLExt",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt/PORTA.json",
-      "total_arquivos": 160
+      "total_arquivos": 164
     }
   ],
   "canonico_url": null,
@@ -72,8 +72,8 @@
       "descricao": "A raiz da biblioteca TGLExt (importa a extensao: onde vivem as pedras)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt.lean",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel/TGLExt.lean",
-      "sha256_16": "2dcac46bd5092d90",
-      "bytes": 4691
+      "sha256_16": "f6d6d9408f82270f",
+      "bytes": 4809
     },
     {
       "nome": "lake-manifest.json",
@@ -107,7 +107,7 @@
     }
   ],
   "total_arquivos_nesta_pasta": 7,
-  "total_arquivos_com_subpastas": 194,
+  "total_arquivos_com_subpastas": 198,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/tgl_kernel",
-  "rodape": "gerado por script de git ls-files em 2026-08-23 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-08-24 -- nao editar a mao"
 }

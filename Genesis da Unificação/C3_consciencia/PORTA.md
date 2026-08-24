@@ -38,4 +38,4 @@ C3 -- o validador da consciencia como registro (v52) e seu JSON de resultado.
 
 ---
 
-gerado por script de git ls-files em 2026-08-23 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-24 -- nao editar a mao

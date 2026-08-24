@@ -50,4 +50,4 @@ do artefato unificado corrige a rota -- leia o artefato como a forma citavel.
 
 ---
 
-gerado por script de git ls-files em 2026-08-23 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-24 -- nao editar a mao

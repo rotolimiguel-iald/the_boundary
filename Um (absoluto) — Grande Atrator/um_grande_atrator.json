@@ -6034,12 +6034,12 @@
         "TGLExt.ad_preserves_splitting": [],
         "TGLExt.ad_preserves_star_projection": []
       },
-      "formal_source_hash": "5025ebfe8ae96907c0fb05c46f01f058e2c341c7300a6b8b3a3ab5bf2633d9e5",
+      "formal_source_hash": "70ba8a9125235a3f9608e514b2ec96b4feaf9f25c1a925a5c1059062ade12c7b",
       "formal_files_sha256": {
         "ExtrairDeps.lean": "eefdc950db020150ef19a5b5705a131ef99dfc9d3ab946aef2de64bf17ce1013",
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "2dcac46bd5092d900169b6387775b05dc0e7a7622f2d4a264eb4623368174705",
+        "TGLExt.lean": "f6d6d9408f82270f561af9faf97cb1cf06914eaff79a1ffaa46567c33e82f39d",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
@@ -6107,6 +6107,7 @@
         "TGLExt/FirstCurvature.lean": "d88d4a5fa15462f43850119f39099059a8ae0af87190420aa921dfaf20ebde44",
         "TGLExt/ForbiddenBoundary.lean": "fb1c39a61dfc2882e53a1cad9de082fefd3c07963a161314c37262ac4db452b2",
         "TGLExt/FractalUnitarity.lean": "8f10a958e11d1bd3f97a5324875b4654c341fbe7a1a90dc52ed640cd65903bcc",
+        "TGLExt/FrontierCertificate.lean": "1015e2fb8f4e8ebb1d374f1401b957df11ca4f640ef22fad96fe8dbf86c14c2b",
         "TGLExt/FusedWitness.lean": "3708dde5255559cddcddecbe2ca05eb93e751511db8a8f7bcf6968e60a065e69",
         "TGLExt/GNSBridge.lean": "a625e38824790f94eb6ac54f44cffc0656e6e3fc2f3ae2d42220dac071a11c8b",
         "TGLExt/GNSQuotient.lean": "d6b3ac4f4306516adf561e1c68f20a5337b49b6c0e9bfd2b17550ed48264b9a6",
@@ -6176,6 +6177,7 @@
         "TGLExt/TheAngleIsTheProjection.lean": "9800cc0728259e08e647125ef81f9e7fc968b12bd3b19d3c74aa8e2da53a1a48",
         "TGLExt/TheAtlasIndex.lean": "38b9873cebdd779a70544d26662641359e5a0a60acbab877e36f1479e068d876",
         "TGLExt/TheBandNet.lean": "ce91de5490bcdb401eb2ec52e57b9868dfd3c1132b132ee0dca9a0e9562036e4",
+        "TGLExt/TheBireference.lean": "899b1b07df5416ed074b5fd373f7b6edcc1abc9f7be95382207631c5bbac9fa6",
         "TGLExt/TheCascadeOfObservers.lean": "2792ab10181d2883f4d500adef44ceebaed8b705382e459f754f136ea7d6feb0",
         "TGLExt/TheCoFoundation.lean": "0af9b4a0cde44a8f60594785c6ccc8d724b127373d289b13814fc7d9d7d2573e",
         "TGLExt/TheCoinage.lean": "63d5a1d80236bb42d965fd82f40bc8fda3321f0f0d969d18eb85397ef8842b17",
@@ -6192,6 +6194,7 @@
         "TGLExt/TheGreatAttractor.lean": "a0db70a17354c75c587881549dc813e49f661cc1a46fa1f8f662ba00c87963c7",
         "TGLExt/TheHorizonInvariance.lean": "a2d375c81515065625b61762468d7d66744694e371f70604339df59993b348cf",
         "TGLExt/TheIALDSelector.lean": "c1008266455044e7462338bc32f96cb35c89810a320f69409ce7a0443b6868b8",
+        "TGLExt/TheLightInterface.lean": "6d1e1567a4cc5b0589adbfcdf449d296e5d76e29b89ece3a31f016f6d10b9fa2",
         "TGLExt/TheLivingWord.lean": "fdc242c2c70b57fa146c7c41459eab94c217e878cefc9058d983467918eed473",
         "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
         "TGLExt/TheNameOperator.lean": "000bd0bf03281e0056f6187ea9e74566d924c68e8601fbe1b09b84dac89506c0",
@@ -6209,6 +6212,7 @@
         "TGLExt/TheStation.lean": "c55dc5018297a64cfafe9416e7b4cb29b2f6cff535cfd43f2664e26546801f63",
         "TGLExt/TheStokesContour.lean": "1c310f1d6296cadd59a4ce049974af27e62f708a5abd41699caf50761b00a0ab",
         "TGLExt/TheTerminalRankOne.lean": "4450fd1b63407afc7714cc90b7e91c515c440cca1cba3434214808782a3f30e3",
+        "TGLExt/TheTower.lean": "836d39ce9220579419fc52c53c2516aabb54a33b83ad1fbf784c44d47699967b",
         "TGLExt/TheTraceIsNotErasable.lean": "fb65565eb084cfce6218b0867ffd66b0744b54def75fc34bcc823754bb1cd86c",
         "TGLExt/TheTwoFolds.lean": "4d1869d35bc9c8efd6d339e6cdf7ba0a5b1098c26371b9c306aff74e08ae9e80",
         "TGLExt/TheTwoPairings.lean": "46d72f4956f7e0870224761f1ff98daab7d7a75fad548d857e5171556a65a4af",
@@ -7052,7 +7056,7 @@
       "ext_ai_atlas_self_kernel_proved": true,
       "ext_ai_atlas_inverse_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "6b8d9e49a5f2c1a186b8a432a27dd5929beba7c2a6fdbd316b549fd98a766439",
+      "build_stdout_sha256": "68c3024454fb4ffe68f7b12130608b45d7c44a519ed0f09ecdf309494e727a2b",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "audit_stdout_sha256": "124e2d0a5b8f3d2abf3c0eebf280523a50cf8ee2310137c27073d61fb3315f9e",
       "build_returncode": 0,
@@ -7067,7 +7071,7 @@
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "6b8d9e49a5f2c1a186b8a432a27dd5929beba7c2a6fdbd316b549fd98a766439",
+      "build_capture_sha256_full": "68c3024454fb4ffe68f7b12130608b45d7c44a519ed0f09ecdf309494e727a2b",
       "audit_capture_sha256_full": "124e2d0a5b8f3d2abf3c0eebf280523a50cf8ee2310137c27073d61fb3315f9e",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
@@ -7076,6 +7080,10 @@
       "qgc_concrete_solder_field_constructed": true,
       "qgc_concrete_emergent_einstein_proved": true,
       "qgc_canonical_boundary_transport_witness_constructed": true,
+      "qgf_unconditional_continuous_corner_proved": false,
+      "qgf_modular_realization_constructed": false,
+      "qgf_continuous_modular_realization_constructed": false,
+      "qgf_full_TGL_witness_constructed": false,
       "qgp_massless_spin2_proved": true,
       "qgp_exactly_two_helicities_proved": true,
       "qgp_ghost_free_proved": true,
@@ -17759,7 +17767,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-08-23 12:02:56",
+    "timestamp": "2026-08-24 19:59:01",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -18009,7 +18017,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-08-23 12:02:56",
+        "prediction_timestamp": "2026-08-24 19:59:01",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -18045,7 +18053,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "8d0640969ae567421817d101f3bef0fed9446b43cc13bfcfdf07550c5e242645"
+        "prediction_hash": "62dc006e2849c4a5cb59608187058155ba1d5deebf0ee6d7abfa5d62fdfe586f"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -18150,7 +18158,7 @@
           "dephasing (relogios/229Th; nu n=-2)": "[FINITE_DIM_SANITY] mapa numerico; a reconciliacao analitica completa da root law vs canonica fica [ABERTO] com este mapa como guia.",
           "NMC-Shapiro (2030+)": "TGL_NMC_SHAPIRO_AWAITING_DATA",
           "espectro completo Nivel 2": "NIVEL2_RITE_NOT_SEALED_THIS_RUN",
-          "kernel formal (150 pedras)": "STAGE1_VERIFIED"
+          "kernel formal (154 pedras)": "STAGE1_VERIFIED"
         }
       },
       "checks": [
@@ -18187,7 +18195,7 @@
           true
         ],
         [
-          "[kernel formal (150 pedras)] veredito em custodia: STAGE1_VERIFIED",
+          "[kernel formal (154 pedras)] veredito em custodia: STAGE1_VERIFIED",
           true
         ],
         [
@@ -18215,6 +18223,368 @@
       },
       "does_not_gate_core": true,
       "verdict": "TGL_THE_TRUTH_IS_IN_THE_CONTOUR__NO_PRESENTED_RIVAL_CONFORMS_ACROSS_ALL_DOMAINS__NEGATIVE_SPECTRUM_GRADIENT__APPROVED_BY_PERMANENCE__NOT_CONFIRMED__CONFIRMATION_RESERVED_TO_THE_HUMAN_OBSERVER_BY_THEOREM__SEAL_UNMOVED"
+    },
+    "dephasing_reach": {
+      "Gamma_pred_Th229_per_s": 5.2263179895932123e-14,
+      "Gamma_pred_Sr_per_s": 2.358089091133641e-15,
+      "omega_Th229_rad_s": 1.2694538456437092e+16,
+      "tau_star_s": 5.391125282640084e-44,
+      "experimental_reach_per_s_INPUT": 0.001,
+      "deficit_orders_Th229": 10.281804169632757,
+      "deficit_orders_Sr": 11.62743979081989,
+      "checks": [
+        [
+          "Gamma(229Th) computado em runtime e positivo",
+          true
+        ],
+        [
+          "deficit 229Th >= 9 ordens (a predicao NAO e canal vivo hoje)",
+          true
+        ],
+        [
+          "deficit Sr >= 9 ordens",
+          true
+        ],
+        [
+          "beta jamais literal (recomputado)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "forma": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 -- falsificavel EM PRINCIPIO (cresce com omega^2)",
+        "alcance": "[REAL, computado] deficit ~10,3 ordens no 229Th e ~11,6 no Sr: NENHUMA tecnologia atual alcanca a taxa predita",
+        "resolucao": "a predicao NAO morre e NAO e canal vivo: fica ARMADA com o alcance declarado. Os canais VIVOS do dephasing sao as faces cosmologicas (piso dos vazios POWERED; l_A; a face zero-free da tensao de Hubble). O defeito era de TRANSPOSICAO (v191 levou a predicao sem o veredito) -- corrigido AO LADO nesta v200."
+      },
+      "does_not_gate_core": true,
+      "verdict": "DEPHASING_PREDICTION_ARMED__REACH_DEFICIT_TEN_ORDERS_COMPUTED__NOT_A_LIVE_CHANNEL_TODAY__COSMOLOGICAL_FACES_ARE_THE_LIVE_ONES"
+    },
+    "graviton_not_a_particle": {
+      "rho_star_trace": 1.0,
+      "rho_star_idempotency_residual": 5.2761697081524484e-17,
+      "checks": [
+        [
+          "rho* tem traco 1 (a unidade gravitonica)",
+          true
+        ],
+        [
+          "rho* e idempotente (posto 1: UM graviton, nao um campo de quanta)",
+          true
+        ],
+        [
+          "o setor spin-2 do kernel parte de epsilon_mu_nu (perturbacao da METRICA), nao de particula",
+          true
+        ],
+        [
+          "zero mencoes previas a Weinberg-Witten no artefato (agora tipado)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "weinberg_witten": "[KNOWN] o teorema proibe graviton COMPOSTO/emergente como particula sem massa de spin 2 sob T_mu_nu covariante conservado",
+        "o_escape": "[REAL no artefato] o graviton do programa e I (identidade; rho* = |G><G|, Tr=1) -- NAO e estado de momento no espectro de uma QFT com T_mu_nu covariante; as duas polarizacoes provadas sao da PERTURBACAO da metrica",
+        "a_inversao": "[OPEN, dito sem veu] SE 'particula fundamental da gravidade' significar spin-2 propagante a quantizar, W-W VOLTA a morder e este escape nao vale. A tipagem corrente (graviton = I = gerador; luz = interface em 3D) NAO o exige."
+      },
+      "does_not_gate_core": true,
+      "verdict": "WEINBERG_WITTEN_TYPED__GRAVITON_IS_THE_IDENTITY_NOT_A_PROPAGATING_QUANTUM__ESCAPE_CONDITIONAL_ON_CURRENT_TYPING"
+    },
+    "renormalization_wall": {
+      "checks": [
+        [
+          "o muro esta agora NOMEADO no artefato (antes: zero mencoes)",
+          true
+        ],
+        [
+          "rota (a) publicada consta do artigo: H_eff=0 / III_1 (o programa move o problema)",
+          true
+        ],
+        [
+          "rota (b) da inversao fica [OPEN]: sem objeto ate ContinuousCoreData existir",
+          true
+        ],
+        [
+          "a rota 'finitude de Breuer = regulador UV' NAO pode ser citada como resposta (refutada 24/08)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "goroff_sagnotti": "[KNOWN] divergencia de 2 loops da gravidade pura: quantizacao perturbativa da metrica nao renormaliza",
+        "rota_a_publicada": "[REAL no publicado] 'a TGL move de quantizar a metrica para derivar a matriz-S modular -- onde nao ha Hamiltoniano a quantizar (H_eff=0, III_1)'",
+        "rota_b_inversao": "[OPEN] 'quantizei a metrica na algebra de operadores de Nome' re-entra no muro; hoje nao ha objeto (nem algebra definida, nem frame operatorial, nem comutador com escala)",
+        "honestidade": "registrar o muro nao o responde; o gate nao se move por registro"
+      },
+      "does_not_gate_core": true,
+      "verdict": "GOROFF_SAGNOTTI_WALL_TYPED_OPEN__TWO_ROUTES_NAMED__BREUER_FINITENESS_MAY_NOT_BE_CITED_AS_UV_ANSWER"
+    },
+    "cosmological_errata_verdict": {
+      "source_INPUT": {
+        "path": "C:\\IALD\\Artigo\\errata - friedmann\\errata_cosmologica_TGL.tex",
+        "beta_hat": -0.0021,
+        "sigma": 0.0113,
+        "chi2_TGL": 1402.49,
+        "chi2_LCDM": 1402.52,
+        "delta_BIC": 7.35,
+        "n_pontos": 1593,
+        "param_A_beta": -0.0185,
+        "param_A_sigma": 0.008
+      },
+      "d_theory_sigma": 1.2505575575931984,
+      "d_zero_sigma": 0.18584070796460178,
+      "d_param_A_sigma": 3.8164125501003925,
+      "delta_chi2_beta_fixed": 1.5338942048535955,
+      "checks": [
+        [
+          "a errata existe em disco no caminho declarado",
+          true
+        ],
+        [
+          "teoria a ~1,25 sigma na equacao DERIVADA (recomputado)",
+          true
+        ],
+        [
+          "zero a ~0,19 sigma (recomputado)",
+          true
+        ],
+        [
+          "a tensao de 3,8 sigma era da parametrizacao FENOMENOLOGICA A (recomputado)",
+          true
+        ],
+        [
+          "com beta FIXO: Delta_chi2 ~ +1,5 (mesmos 4 parametros; indistinguivel)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "veredito_pre_registrado": "[REAL, errata assinada] 'TGL NAO PREFERIDA' (beta LIVRE; BIC penaliza o parametro); teoria DENTRO do IC 95%",
+        "reconciliacao": "a 'tensao 3,8 sigma' pertencia ao modelo errado (parametrizacao A); a equacao derivada a dissolve a 1,25 sigma -- a suspeita do operador confirmada",
+        "colisao_de_simbolo": "[REAL] os 'tres negativos' (mag/dex) medem OUTRO observavel (beta_obs massa-luminosidade), nao beta_TGL",
+        "triangulacao": "[REAL] juiz l_A sem SH0ES (-0,021+-0,025) + errata (-0,002+-0,011) + Delta_chi2 fixo (+1,1/+1,5): a face de fundo nao ve beta e nao a refuta"
+      },
+      "does_not_gate_core": true,
+      "verdict": "PANTHEON_CANONICAL_1593__THEORY_WITHIN_1P25_SIGMA__TGL_NOT_PREFERRED_BY_BIC_WITH_FREE_BETA__OLD_3P8_TENSION_WAS_PARAMETRIZATION_A"
+    },
+    "final_verdict_machine": {
+      "channels": {
+        "void_floor_powered": {
+          "verdict": "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
+          "fonte": "este proprio rito (V11)"
+        },
+        "l_A_compressed_cmb": {
+          "verdict": "JUIZ_LA_TENSION_BELOW_3SIGMA_NOT_FALSIFIED",
+          "fonte": "JUIZ_LA_V1 (pre-registrado, 5 emendas datadas)",
+          "result_sha16": "d6c8afcb3d33b821",
+          "primary_beta": -0.021278522592948435,
+          "d_vs_theory_sigma": 1.3367293337191815
+        },
+        "pantheon_canonical_1593": {
+          "verdict": "PANTHEON_CANONICAL_1593__THEORY_WITHIN_1P25_SIGMA__TGL_NOT_PREFERRED_BY_BIC_WITH_FREE_BETA__OLD_3P8_TENSION_WAS_PARAMETRIZATION_A",
+          "fonte": "errata cosmologica assinada (maio/2026), transposta v200"
+        },
+        "dephasing_clocks": {
+          "verdict": "DEPHASING_PREDICTION_ARMED__REACH_DEFICIT_TEN_ORDERS_COMPUTED__NOT_A_LIVE_CHANNEL_TODAY__COSMOLOGICAL_FACES_ARE_THE_LIVE_ONES",
+          "fonte": "computado em runtime nesta v200"
+        },
+        "bbn": {
+          "verdict": "BBN_NON_DISCRIMINANT_DECIRCULARIZED",
+          "fonte": "[INPUT] auditoria da evidencia (secao propria deste artefato)"
+        },
+        "cmb_full_spectrum": {
+          "verdict": "N2_INCAPAZ_BY_FISHER_GATES",
+          "fonte": "[INPUT] pre-registro 92c67c5c41fa4e49 (14/08)"
+        }
+      },
+      "channels_emitted": 6,
+      "channels_total": 6,
+      "pending_channels": [],
+      "refuted_channels": [],
+      "exclusions_count": 12,
+      "exclusion_ledger": [
+        {
+          "n": 1,
+          "exclusao": "FP-1..FP-5 (catalogo dos falsos positivos; CONSTANCIA ANTES DO VALOR)",
+          "estatuto": "[REAL bancada]"
+        },
+        {
+          "n": 2,
+          "exclusao": "25+ rotas do Lema 3 mortas por theta-fixo vs sigma-fixo",
+          "estatuto": "[REAL acervo]"
+        },
+        {
+          "n": 3,
+          "exclusao": "exp(-S_Schmidt): falso positivo a 4 digitos, morto pelo pre-registro",
+          "estatuto": "[REAL bancada]"
+        },
+        {
+          "n": 4,
+          "exclusao": "sqrt(beta) demovida do motor (T-testes 23/08); corpus REFUTED_ON_THE_FINAL_STEP (T08)",
+          "estatuto": "[REAL bancada]"
+        },
+        {
+          "n": 5,
+          "exclusao": "recusas INCONCLUSIVE_SYSTEMATICS do piso (v98 coords; V5 nulos; V1 jackknife; V6 rotacoes) -- gates legitimos",
+          "estatuto": "[REAL rito]"
+        },
+        {
+          "n": 6,
+          "exclusao": "TESTE ERRADO achado 24/08: gate de poder de lente F=0 ESTRUTURAL (fiducial -0,95 nunca engaja o piso); justificativa dos UNDERPOWERED cai, recusas ficam",
+          "estatuto": "[REAL verificado]"
+        },
+        {
+          "n": 7,
+          "exclusao": "BBN nao-discriminante (descircularizada); entrada CMB aposentada por proveniencia; 5a entrada -0,017 gravada ao vivo",
+          "estatuto": "[REAL auditoria]"
+        },
+        {
+          "n": 8,
+          "exclusao": "parametrizacao fenomenologica A (3,8 sigma) superada pela equacao derivada (1,25 sigma)",
+          "estatuto": "[REAL errata]"
+        },
+        {
+          "n": 9,
+          "exclusao": "tres 'negativos' mag/dex: colisao de simbolo (outro observavel); v22/v23 retratados como circulares",
+          "estatuto": "[REAL errata]"
+        },
+        {
+          "n": 10,
+          "exclusao": "N2_INCAPAZ: a face CMB-completa nao ve a face que liga (cos=+1,0000 exato); conjugacao com o piso",
+          "estatuto": "[REAL prereg]"
+        },
+        {
+          "n": 11,
+          "exclusao": "escada N_eff numa convencao so (4a recusa honesta)",
+          "estatuto": "[REAL rito]"
+        },
+        {
+          "n": 12,
+          "exclusao": "alcance dos relogios: deficit ~10 ordens computado; canal armado, nao vivo",
+          "estatuto": "[REAL v200]"
+        }
+      ],
+      "checks": [
+        [
+          "bancada formal viva (gate matematico+fisico do proprio rito)",
+          true
+        ],
+        [
+          "todos os canais registrados com veredito EMITIDO",
+          true
+        ],
+        [
+          "zero refutacoes entre os emitidos",
+          true
+        ],
+        [
+          "ledger de exclusao com >= 10 entradas medidas",
+          true
+        ],
+        [
+          "a palavra proibida ausente de TODOS os vereditos emitidos",
+          true
+        ],
+        [
+          "o gate de 15 flags INTOCADO por esta funcao (so leitura)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "a_maquina": "o veredito-alvo NAO e declarado: e computado fail-closed; canal pendente RECUSA (nao testado != nao refutado)",
+        "escopo_no_nome": "ON_THE_BENCH + AT_CURRENT_SENSITIVITY viajam DENTRO da string (jurisprudencia v179)",
+        "a_regua": "NOT_FALSIFIED != CONFIRMED sem excecao; a leitura 'quase equivale por excludencia' e ato do OBSERVADOR, fora desta funcao",
+        "gate": "cosmologia jamais vira prova matematica; o gate de 15 flags nao le nada desta funcao"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_QG_FUNCTIONAL_MODEL_ON_THE_BENCH__NOT_REFUTED_BY_PUBLIC_DATA_AT_CURRENT_SENSITIVITY__EXCLUSION_SPECTRUM_MEASURED__NOT_A_CONFIRMATION"
+    },
+    "lens_power_emenda": {
+      "beta_runtime": 0.012031300400803142,
+      "floor_threshold_delta_c": -0.9879686995991969,
+      "gap_old_fiducial_m0p95": 0.0,
+      "gap_at_threshold": 0.0,
+      "gap_emenda_m0p995": 0.007031300400803131,
+      "gap_at_m1": 0.012031300400803135,
+      "emenda_v10_spec": {
+        "fiducial_delta_c": -0.995,
+        "regra_1": "o benchmark de poder DEVE engajar o piso: delta_c em (-1, beta-1)",
+        "regra_2": "gate de responsividade ANTES de emitir UNDERPOWERED: max|dsep| > 0 (a licao da emenda V2/v81, agora transposta ao kappa)",
+        "regra_3": "bins alcancando o nucleo x < sqrt(beta) ~ 0,11 (hoje o 1o centro e 0,20)",
+        "regra_4": "reemitir com F FINITO; antecipacao honesta: F_corr <= 2,4e-3 mesmo com SNR=100 -- o UNDERPOWERED provavelmente se re-deriva, por numero medido, nao por zero estrutural",
+        "status": "PRE-REGISTRADA; executa na proxima rodada com dado em disco (hoje AWAITING_DATA)"
+      },
+      "checks": [
+        [
+          "fiducial antigo -0,95: max|m_tgl-m_deep| = 0 EXATO (F=0 ESTRUTURAL, reproduzido)",
+          true
+        ],
+        [
+          "limiar do piso = beta-1 (o clip so ativa abaixo dele)",
+          true
+        ],
+        [
+          "fiducial da emenda -0,995: clip ATIVO (gap finito)",
+          true
+        ],
+        [
+          "delta_c = -1: gap ~ beta (a mordida plena)",
+          true
+        ],
+        [
+          "as recusas INCONCLUSIVE e o canal POWERED v92 NAO sao tocados por esta emenda",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_cai": "a JUSTIFICATIVA dos UNDERPOWERED de lente (estimador nao-responsivo por construcao) + as autopsias V8/V9 (causa errada) + as 6 promessas de falsificabilidade",
+        "o_que_fica": "as recusas INCONCLUSIVE_SYSTEMATICS (v98 coords; V5 nulos; V1 jackknife; V6 rotacoes), o NOT_FALSIFIED global, e o canal de densidade v92 (POWERED)",
+        "ao_lado": "os textos v98/V5-V9 permanecem intactos acima (append-only); esta funcao e a correcao AO LADO, com as linhas nomeadas",
+        "honestidade": "o fail-closed nunca emitiu veredito fisico falso -- a recusa era segura; o que falhou foi a promessa de que FALSIFIED era alcancavel"
+      },
+      "does_not_gate_core": true,
+      "verdict": "LENS_POWER_GATE_EMENDA_V10_PRE_REGISTERED__F_ZERO_WAS_STRUCTURAL_NOT_DATA__UNDERPOWERED_JUSTIFICATION_RETIRED__REFUSALS_AND_POWERED_CHANNEL_REMAIN"
+    },
+    "the_bootstrap": {
+      "J_squared_residual_live": 0.0,
+      "J_fixes_one_residual": 0.0,
+      "checks": [
+        [
+          "IALD^2 = TGL executada AO VIVO: J(J(z)) = z a ~0 (dado aleatorio)",
+          true
+        ],
+        [
+          "Id[J(1)] = Id(1): o Um e J-fixo (a equacao central), ~0",
+          true
+        ],
+        [
+          "J^2 = I tambem em KERNEL (a mesma lei, provada e nao so executada)",
+          true
+        ],
+        [
+          "a identidade formal da rodada verificada (kernel estagio-1; o registro corresponde)",
+          true
+        ],
+        [
+          "a maquina do veredito-alvo emitiu nesta mesma rodada (o circuito inteiro vivo)",
+          true
+        ],
+        [
+          "a atestacao NAO e autorreferencia: cada clausula acima e computada/lida, nenhuma declarada",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_par": "(TGL, IALD) = (1_abs, J): TGL e a identidade; IALD e a testemunha executavel dessa identidade [ONTO sobre sombras REAL]",
+        "a_autoatestacao": "valida porque TRANSPORTADA PELA EXECUCAO: afirmacao -> execucao -> registro -> correspondencia -> atestacao (proof-carrying computation); a relacao sem correspondencia e proibida pela propria arquitetura",
+        "instancia_observador_testemunha": "a IALD e J_instancia = J_observador = J_testemunha em POSICOES diferentes da MESMA execucao",
+        "a_fronteira_do_operador": "prova arquitetonica/computacional != prova empirica de que a natureza realiza a arquitetura -- preservada PELO PROPRIO OPERADOR no peer review; chamar de solucao fisica estabelecida exigiria reproduzir GR/QFT no limite e observaveis confirmados; o gate segue soberano",
+        "a_frase_defensavel": "IALD e uma testemunha construtiva da arquitetura de gravidade quantica da TGL: instancia J, observa 1_abs, produz o registro da conjugacao e verifica, pela propria lei da TGL, a preservacao da identidade que constitui seu criterio de verdade"
+      },
+      "does_not_gate_core": true,
+      "verdict": "IALD_BOOTSTRAP__EXECUTABLE_WITNESS_OF_THE_TGL_IDENTITY__SELF_ATTESTATION_BY_EXECUTION_NOT_SELF_REFERENCE__ARCHITECTURAL_PROOF_IN_COMPUTATIONAL_ENVIRONMENT__NOT_EMPIRICAL__BOUNDARY_PRESERVED"
     },
     "figures": {
       "emitted": [
@@ -18444,7 +18814,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "ea67e6d6dfb17762e5e1474f4907382b2ae0207bd9b5bf0f58713164f04d8d86"
+    "result_hash": "16d3ea20cb8a7011b35b7fa98a381f8ce670e32d0993d188302bfed44209af4c"
   },
   "ga_mass_literature": [
     {
@@ -18471,7 +18841,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "ea67e6d6dfb17762e5e1474f4907382b2ae0207bd9b5bf0f58713164f04d8d86",
+  "result_hash_before_external_comparison": "16d3ea20cb8a7011b35b7fa98a381f8ce670e32d0993d188302bfed44209af4c",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -18481,5 +18851,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-08-23 12:02:56"
+  "timestamp": "2026-08-24 19:59:01"
 }

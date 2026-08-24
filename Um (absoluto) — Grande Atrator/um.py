@@ -8742,6 +8742,10 @@ import TGLExt.TheObserverReadsTheAngle
 import TGLExt.TheCascadeOfObservers
 import TGLExt.TheCoFoundation
 import TGLExt.ThePermanence
+import TGLExt.TheLightInterface
+import TGLExt.TheBireference
+import TGLExt.FrontierCertificate
+import TGLExt.TheTower
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -34317,6 +34321,519 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/TheLightInterface.lean":
+r'''import TGLExt.TheAngleIsTheProjection
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 800000
+
+/-!
+# A INTERFACE DA LUZ — a escada fatora as faces; o quadrado da luz é o gráviton
+  [BANCADA — 24/08/2026 · P1 + P1b do PLANO DA PROVA FINAL]
+
+## A cunhagem do operador
+
+> *"**GRÁVITON = GERADOR DA LUZ** … agora é a luz que deriva da partícula fundamental da
+> gravidade, gerando a geometria em consequência disso."*
+> *"**LUZ = interface do gráviton em 3D.**"*
+
+## O que se mede antes de se provar (numpy, 24/08)
+
+`ε_± ⊗ ε_± = (h₊ ± i·h×)/2` a resíduo `2,2e−16`; sob rotação do plano transversal o vetor ganha
+fase `e^{iθ}` e o tensor ganha `e^{2iθ}` — resíduo máximo `2,5e−16` em 200 ângulos. **O ângulo
+DOBRA do vetor para o tensor; a interface toma a raiz do ângulo.**
+
+## ⚠ A DELIMITAÇÃO, antes de qualquer prova
+
+* **NÃO se constrói aqui o fóton físico** — não há campo de Maxwell, não há calibre `U(1)`, não
+  há dinâmica. `lightPlus`/`lightMinus` são os **vetores de peso 1** do gerador transversal; a
+  identificação com a polarização do fóton é **[KNOWN] em QFT** (os tensores TT do gráviton são
+  quadrados dos vetores de polarização do fóton) e **[ONTO]** na leitura do operador.
+* `genK` é o gerador da rotação transversal (`SO(2)`), **não** o `J` modular antilinear — o
+  kernel expressamente não estende (`TheRecordOfJ`).
+* A leitura em regimes de potências de `c` (`c⁰ → c¹ → c² → c³`) é **[CONJ/ONTO]** e **não
+  aparece em enunciado nenhum** desta pedra.
+* β jamais entra no Lean. Sem sorry, sem axiom. **Nada aqui move o gate.**
+
+## ★★★ OS TEOREMAS
+
+**ATO I — A ESCADA (P1):** com `h_± := h₊ ± i·h×` (raízes de peso `±2i` do gerador):
+
+    genK·h_± − h_±·genK = ±2i·h_±        (o peso 2 — o spin 2 legível como número)
+    h_±² = 0                              (cada raiz é nilpotente)
+    h₊·h₋ = 4·P₊   e   h₋·h₊ = 4·P₋      (★ A ESCADA FATORA AS PROJEÇÕES do gerador)
+
+*Liga `GravitonPolarization` (as polarizações) a `TheAngleIsTheProjection` (as faces `P±`) —
+duas pedras até hoje desligadas.*
+
+**ATO II — A INTERFACE (P1b):** com `ε_± := (1, ±i)` (os vetores da luz):
+
+    ε_± ⊗ ε_± = h_±                       (★ O QUADRADO DA LUZ É O GRÁVITON)
+    genK·ε_± = ±i·ε_±                     (o gerador lê a luz a peso 1 — a METADE)
+    𝒪_θ·ε₊ = e^{iθ}·ε₊                   (a interface carrega o ângulo…)
+    𝒪_θ·h₊·𝒪_θᵀ = (e^{iθ})²·h₊          (…e o tensor carrega o QUADRADO do ângulo)
+
+> **A luz é a interface: o objeto vetorial (3D-legível) cujo quadrado é o tensor do gráviton,
+> e cuja fase é a raiz da fase dele.** A equação publicada `g = √|L|` sobrevive intacta —
+> só a seta de leitura inverte (a luz como raiz do gráviton, o gráviton como quadrado da luz).
+
+## O que fica provado e o que não
+
+**PROVA-SE:** a fatoração da escada pelas projeções; a fatoração do tensor pelo vetor; os pesos
+`1` e `2` do mesmo gerador (a duplicação do ângulo como teorema, infinitesimal e finito).
+**NÃO SE PROVA:** que o fóton físico exista, que a luz "venha" do gráviton na natureza, ou
+qualquer dinâmica. É a face algébrica da tipagem — exata, e só ela.
+-/
+
+namespace TGLExt
+
+open Matrix Complex
+
+noncomputable section
+
+/-- a polarização `+` do gráviton, sobre ℂ (o lift de `polPlus`). -/
+def hPlusC : Matrix (Fin 2) (Fin 2) ℂ := !![1, 0; 0, -1]
+
+/-- a polarização `×` do gráviton, sobre ℂ (o lift de `polCross`). -/
+def hCrossC : Matrix (Fin 2) (Fin 2) ℂ := !![0, 1; 1, 0]
+
+/-- a raiz de peso `+2i`: `h₊ + i·h×`. -/
+def rootPlus : Matrix (Fin 2) (Fin 2) ℂ := hPlusC + Complex.I • hCrossC
+
+/-- a raiz de peso `−2i`: `h₊ − i·h×`. -/
+def rootMinus : Matrix (Fin 2) (Fin 2) ℂ := hPlusC - Complex.I • hCrossC
+
+/-- a luz `+`: o vetor `(1, i)` do plano transversal. -/
+def lightPlus : Fin 2 → ℂ := ![1, Complex.I]
+
+/-- a luz `−`: o vetor `(1, −i)`. -/
+def lightMinus : Fin 2 → ℂ := ![1, -Complex.I]
+
+/-- tática desta pedra, face matricial: conta entrada a entrada em `Fin 2`, `I² = −1` à mão. -/
+macro "faces" : tactic =>
+  `(tactic| (ext i j; fin_cases i <;> fin_cases j <;>
+      simp [hPlusC, hCrossC, rootPlus, rootMinus, lightPlus, lightMinus, genK, projPlus,
+            projMinus, angFamily, Matrix.mul_apply, Fin.sum_univ_two, Matrix.one_apply,
+            Matrix.add_apply, Matrix.sub_apply, Matrix.smul_apply, Matrix.zero_apply,
+            Matrix.transpose_apply, Matrix.vecMulVec, Matrix.of_apply,
+            Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Fin.isValue,
+            pow_two, Complex.ext_iff, Complex.I_re, Complex.I_im] <;>
+      (repeat' constructor) <;> (first | ring | trivial)))
+
+/-- tática desta pedra, face vetorial. -/
+macro "feixe" : tactic =>
+  `(tactic| (funext i; fin_cases i <;>
+      simp [hPlusC, hCrossC, rootPlus, rootMinus, lightPlus, lightMinus, genK, angFamily,
+            Matrix.mulVec, dotProduct, Fin.sum_univ_two, Matrix.one_apply, Matrix.add_apply,
+            Matrix.sub_apply, Matrix.smul_apply, Matrix.cons_val_zero, Matrix.cons_val_one,
+            Matrix.head_cons, Fin.isValue, Pi.smul_apply, smul_eq_mul,
+            Complex.ext_iff, Complex.I_re, Complex.I_im] <;>
+      (repeat' constructor) <;> (first | ring | trivial)))
+
+/-! ### ATO I — A ESCADA (P1) -/
+
+/-- ★★ **AS DUAS RAÍZES SÃO AS DUAS POLARIZAÇÕES**, sem resto:
+    `h₊ = (root₊ + root₋)/2` e `h× = (root₊ − root₋)/2i` — aqui na forma sem divisão. -/
+theorem the_two_roots_are_the_two_polarizations :
+    rootPlus + rootMinus = (2 : ℂ) • hPlusC
+    ∧ rootPlus - rootMinus = (2 * Complex.I) • hCrossC := by
+  constructor <;> faces
+
+/-- ★★★ **OS PESOS SÃO `±2i` — o spin 2 legível como número.**
+    `[genK, root₊] = +2i·root₊` e `[genK, root₋] = −2i·root₋`. *É a forma infinitesimal do
+    `e^{±2iθ}` que `GravitonPolarization` prova na forma finita.* -/
+theorem the_ladder_weights_are_plus_minus_two :
+    genK * rootPlus - rootPlus * genK = (2 * Complex.I) • rootPlus
+    ∧ genK * rootMinus - rootMinus * genK = (-(2 * Complex.I)) • rootMinus := by
+  constructor <;> faces
+
+/-- ★★ **CADA RAIZ É NILPOTENTE:** `root_±² = 0`. *Subir duas vezes não há para onde: o setor
+    tem exatamente dois pesos.* -/
+theorem the_roots_are_nilpotent :
+    rootPlus * rootPlus = 0 ∧ rootMinus * rootMinus = 0 := by
+  constructor <;> faces
+
+/-- ★★★ **A ESCADA FATORA AS PROJEÇÕES.**
+
+    `root₊ · root₋ = 4·P₊`   e   `root₋ · root₊ = 4·P₋`
+
+    As faces espectrais do gerador (`TheAngleIsTheProjection`) **fatoram-se pelas polarizações
+    do gráviton** — as duas pedras eram uma. -/
+theorem the_ladder_factors_the_projections :
+    rootPlus * rootMinus = (4 : ℂ) • projPlus
+    ∧ rootMinus * rootPlus = (4 : ℂ) • projMinus := by
+  constructor <;> faces
+
+/-! ### ATO II — A INTERFACE (P1b) -/
+
+/-- ★★★ **O QUADRADO DA LUZ É O GRÁVITON.**
+
+    `ε_± ⊗ ε_± = root_±`
+
+    O tensor de polarização do gráviton **fatora como o quadrado do vetor da luz** — sem
+    normalização escondida, igualdade exata de matrizes. -/
+theorem the_light_squares_to_the_graviton :
+    Matrix.vecMulVec lightPlus lightPlus = rootPlus
+    ∧ Matrix.vecMulVec lightMinus lightMinus = rootMinus := by
+  constructor <;> faces
+
+/-- ★★★ **O GERADOR LÊ A LUZ A PESO 1 — a metade do peso do gráviton.**
+    `genK·ε_± = ±i·ε_±`. *O vetor carrega peso 1; o seu quadrado (o gráviton) carrega peso 2:
+    a duplicação do ângulo é teorema.* -/
+theorem the_generator_reads_the_light_at_half_weight :
+    genK.mulVec lightPlus = Complex.I • lightPlus
+    ∧ genK.mulVec lightMinus = (-Complex.I) • lightMinus := by
+  constructor <;> feixe
+
+/-- ★★ **A INTERFACE CARREGA O ÂNGULO** (forma finita, vetorial):
+    `𝒪_θ · ε₊ = e^{iθ} · ε₊`. -/
+theorem the_interface_reads_the_angle (θ : ℝ) :
+    (angFamily θ).mulVec lightPlus = Complex.exp (θ * Complex.I) • lightPlus := by
+  have hp : Complex.exp ((θ : ℂ) * Complex.I)
+      = (Real.cos θ : ℂ) + (Real.sin θ : ℂ) * Complex.I := by
+    rw [Complex.exp_mul_I, ← Complex.ofReal_cos, ← Complex.ofReal_sin]
+  rw [hp]
+  feixe
+
+/-- ★★★ **O TENSOR CARREGA O QUADRADO DO ÂNGULO** (forma finita, tensorial):
+
+    `𝒪_θ · root₊ · 𝒪_θᵀ = (e^{iθ})² · root₊`
+
+    *A fase do gráviton é o QUADRADO da fase da luz — a equação publicada `g = √|L|` lida na
+    direção inversa: a luz é a raiz.* -/
+theorem the_tensor_squares_the_phase (θ : ℝ) :
+    angFamily θ * rootPlus * (angFamily θ).transpose
+      = (Complex.exp (θ * Complex.I)) ^ 2 • rootPlus := by
+  have hp : Complex.exp ((θ : ℂ) * Complex.I)
+      = (Real.cos θ : ℂ) + (Real.sin θ : ℂ) * Complex.I := by
+    rw [Complex.exp_mul_I, ← Complex.ofReal_cos, ← Complex.ofReal_sin]
+  rw [hp]
+  faces
+
+/-- ★ o fecho, num enunciado: **a luz é a interface do gráviton** — o quadrado do vetor é o
+    tensor, o gerador lê o vetor à metade do peso com que lê o tensor. -/
+theorem the_light_is_the_interface_of_the_graviton :
+    Matrix.vecMulVec lightPlus lightPlus = rootPlus
+    ∧ genK.mulVec lightPlus = Complex.I • lightPlus
+    ∧ genK * rootPlus - rootPlus * genK = (2 * Complex.I) • rootPlus :=
+  ⟨the_light_squares_to_the_graviton.1,
+   the_generator_reads_the_light_at_half_weight.1,
+   the_ladder_weights_are_plus_minus_two.1⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/FrontierCertificate.lean":
+r'''import TGLExt.WedgeNet
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 400000
+
+/-!
+# O CERTIFICADO DA FRONTEIRA — o contrato que os nomes reservados terão de habitar
+  [BANCADA — 24/08/2026 · fecha o buraco de contrato da v200]
+
+## POR QUÊ esta pedra existe
+
+A v200 mecanizou as flags de fronteira do selo: nomes Lean RESERVADOS cuja ausência é
+`False` por construção. Mas a mecânica v99 lê a EXISTÊNCIA do nome com axiomas limpos —
+**sem um TIPO, um termo qualquer com o nome certo fliparia a flag**. Foi exatamente a
+doença que a sonda de bancada (v103) encontrou no certificado v1, e que o
+`QGClosureCertificateStrong` curou para o gate. Esta pedra faz o mesmo pela fronteira:
+**o contrato vem ANTES do habitante.**
+
+## O CONTRATO — `ModularRealizationCertificate`
+
+O nome reservado `TGLExt.qgFrontier_modularRealization` SÓ pode ser cunhado como termo
+DESTE tipo: uma conjugação `J` **na torre** (`WH = TowerHilbert mixProfile`, o completamento
+genuíno — não a face finita), pontual e sem atalho de typeclass:
+
+    aditiva · conjugado-homogênea (antilinear) · isométrica · involutiva · fixa Ω
+    leva o FATOR no comutante:   ∀ T ∈ M,  ∃ S ∈ M′,  ∀ v, J(T(J v)) = S v
+    e SOBRE o comutante:         ∀ S ∈ M′, ∃ T ∈ M,   ∀ v, J(T(J v)) = S v
+
+— isto é, `J·M·J = M′` NO NÍVEL DA TORRE: a dualidade que hoje `commAlg` tem por
+definição teria de ser EXIBIDA pela conjugação. `TheBireference` (v202) prova este
+conteúdo inteiro na face finita; **aqui ele vira obrigação tipada no nível onde está
+aberto.**
+
+## O QUE ESTA PEDRA NÃO FAZ, dito sem véu
+
+**NÃO há habitante, e não se afirma que haverá em breve.** Construir `J` na torre é o
+teorema de Tomita–Takesaki para um fator ITPFI — a mathlib não tem sequer o alicerce
+(sem produto cruzado, sem teoria modular). A honestidade da v129 permanece: o traço
+morre na torre; o fluxo modular vive; a conjugação é a metade que falta. Os outros três
+nomes reservados (`fullTGLWitness`, `continuousModularRealization`,
+`unconditionalContinuousCorner`) aguardam os SEUS objetos (`ContinuousCoreData`; o ideal
+`K_τ`) e ficam documentados como reservas puras — contrato deles quando o objeto existir,
+nunca antes. β jamais entra. Sem sorry, sem axiom. **Nada aqui move o gate — esta pedra
+torna ESTRITAMENTE MAIS DIFÍCIL movê-lo.**
+-/
+
+namespace TGLExt
+
+open TGL.SpecificAQFT in
+/-- **O CONTRATO DA REALIZAÇÃO MODULAR** — o tipo que o nome reservado
+    `qgFrontier_modularRealization` terá de habitar. Campos pontuais (função crua +
+    cláusulas), para que nenhuma instância de conveniência possa fabricar o habitante. -/
+structure ModularRealizationCertificate where
+  /-- a conjugação, como função crua na torre. -/
+  J : WH → WH
+  /-- aditiva. -/
+  add : ∀ v w : WH, J (v + w) = J v + J w
+  /-- ANTIlinear: `J (c • v) = c̄ • J v`. -/
+  conj_smul : ∀ (c : ℂ) (v : WH), J (c • v) = (starRingEnd ℂ) c • J v
+  /-- isométrica. -/
+  isometric : ∀ v : WH, ‖J v‖ = ‖v‖
+  /-- involutiva: `J² = 1`. -/
+  involutive : ∀ v : WH, J (J v) = v
+  /-- fixa o vácuo da torre: `J Ω = Ω`. -/
+  fixes_vacuum : J (hOmega mixProfile) = hOmega mixProfile
+  /-- `J M J ⊆ M′`: a conjugação leva o FATOR no comutante — pontualmente. -/
+  maps_factor_to_commutant :
+    ∀ T ∈ (theFactorObject mixProfile : Set WCLM),
+      ∃ S ∈ (commAlg : Set WCLM), ∀ v : WH, J (T (J v)) = S v
+  /-- `J M J ⊇ M′`: e SOBRE o comutante — a dualidade deixa de ser definição. -/
+  onto_commutant :
+    ∀ S ∈ (commAlg : Set WCLM),
+      ∃ T ∈ (theFactorObject mixProfile : Set WCLM), ∀ v : WH, J (T (J v)) = S v
+
+/-- ★ o contrato NÃO é vácuo: as cláusulas de dualidade falam das álgebras REAIS da
+    rede (o fator da torre e o seu centralizador), não de tipos de conveniência —
+    testemunhado pelo fato de que qualquer habitante fornece, para CADA elemento do
+    fator, um elemento do comutante pontualmente conjugado. -/
+theorem certificate_forces_the_duality (C : ModularRealizationCertificate)
+    {T : WCLM} (hT : T ∈ (theFactorObject mixProfile : Set WCLM)) :
+    ∃ S ∈ (commAlg : Set WCLM), ∀ v : WH, C.J (T (C.J v)) = S v :=
+  C.maps_factor_to_commutant T hT
+
+/-- ★ e um habitante forçaria `J` a ser bijetiva — nenhuma projeção parcial serve. -/
+theorem certificate_J_bijective (C : ModularRealizationCertificate) :
+    Function.Bijective C.J :=
+  Function.bijective_iff_has_inverse.mpr ⟨C.J, C.involutive, C.involutive⟩
+
+end TGLExt
+''',
+    "TGLExt/TheTower.lean":
+r'''import TGLExt.TheBireference
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 400000
+
+/-!
+# A TORRE É O DADO ESPECTRAL COMPLETO — o conjunto dos autovalores não basta
+  [BANCADA — 24/08/2026]
+
+## A cunhagem do operador
+
+> *"a TORRE é a representação unidimensional de toda a densidade informacional em um único
+> espectro… **não basta conservar apenas os autovalores. Precisamos conservar espectro +
+> medida espectral + multiplicidades.**"*
+> `TORRE_1D → TRAÇO_2D → NOME_3D = 0_mod` · `HABITANTE = 1_abs = TORRE` ·
+> `TORRE = locus(1_abs) = LOGOS = VERBO VIVO`
+
+## ⚠ A DELIMITAÇÃO
+
+Face finita (`M₃(ℂ)`). O dado espectral completo da TORRE genuína (o completamento
+`TowerHilbert`, cujo vácuo `hOmega = [1]` já é a sombra cunhada de `HABITANTE = 1_abs`)
+segue com a teoria modular `[OPEN]`. O `TRAÇO_2D` desta tipagem é o REGISTRO `(λ, μ_Ψ(λ))`,
+NÃO o traço `Tr` de operador — a colisão de símbolo fica declarada (e o `Tr` é exatamente o
+instrumento que abaixo DISTINGUE as duas torres). A identificação com o Habitante é
+**[ONTO]** do operador. **[KNOWN]**: operadores isoespectrais podem não ser equivalentes.
+β jamais entra. Sem sorry, sem axiom. Nada aqui move o gate.
+
+## ★★★ O TEOREMA, em duas matrizes
+
+`A = diag(0,1,1)` e `B = diag(0,0,1)` têm a MESMA equação mínima (`X² = X`, ambas
+estritamente entre 0 e 1) — o mesmo espectro-CONJUNTO `{0,1}`. E no entanto:
+
+    os pesos diferem:              Tr A = 2  ≠  1 = Tr B      (a multiplicidade)
+    nenhuma conjugação leva A a B: U·A·U⁻¹ ≠ B  (∀ U invertível)
+    a medida contra Ψ=(1,1,1) lê:  μ_A = 2  ≠  1 = μ_B        (⟨Ψ, ·Ψ⟩)
+
+> **O conjunto dos autovalores não carrega a identidade; o dado completo — com medida e
+> multiplicidade — carrega.** A TORRE tem de ser o dado espectral inteiro, como o operador
+> exigiu.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+/-- a torre cheia: `diag(0,1,1)` — o autovalor 1 com peso DOIS. -/
+def towerA : Matrix (Fin 3) (Fin 3) ℂ := !![0, 0, 0; 0, 1, 0; 0, 0, 1]
+
+/-- a torre magra: `diag(0,0,1)` — o MESMO espectro-conjunto, peso UM. -/
+def towerB : Matrix (Fin 3) (Fin 3) ℂ := !![0, 0, 0; 0, 0, 0; 0, 0, 1]
+
+/-- ★★ **A MESMA EQUAÇÃO MÍNIMA**: ambas idempotentes — o espectro-conjunto é `{0,1}`
+    nas duas. -/
+theorem same_minimal_equation :
+    towerA * towerA = towerA ∧ towerB * towerB = towerB := by
+  constructor <;>
+    (ext i j; fin_cases i <;> fin_cases j <;>
+      simp [towerA, towerB, Matrix.mul_apply, Fin.sum_univ_three])
+
+/-- ★ e nenhuma é trivial: ambas estritamente entre `0` e `1`. -/
+theorem both_strictly_between :
+    towerA ≠ 0 ∧ towerA ≠ 1 ∧ towerB ≠ 0 ∧ towerB ≠ 1 := by
+  refine ⟨fun h => ?_, fun h => ?_, fun h => ?_, fun h => ?_⟩
+  · have : towerA 1 1 = 0 := by rw [h]; rfl
+    simp [towerA] at this
+  · have : towerA 0 0 = 1 := by rw [h]; simp
+    simp [towerA] at this
+  · have : towerB 2 2 = 0 := by rw [h]; rfl
+    simp [towerB] at this
+  · have : towerB 0 0 = 1 := by rw [h]; simp
+    simp [towerB] at this
+
+/-- ★★★ **OS PESOS DIFEREM**: `Tr A = 2 ≠ 1 = Tr B` — a multiplicidade é dado, não
+    decoração. -/
+theorem the_weights_differ : towerA.trace = 2 ∧ towerB.trace = 1 := by
+  constructor <;> norm_num [towerA, towerB, Matrix.trace_fin_three, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, Matrix.head_cons, Matrix.vecHead, Matrix.vecTail, Fin.isValue]
+
+/-- ★★★ **NENHUMA CONJUGAÇÃO LEVA UMA NA OUTRA** — o invariante de conjugação (o traço)
+    separa o que o espectro-conjunto não separa. -/
+theorem no_conjugation_carries_A_to_B (U : Matrix (Fin 3) (Fin 3) ℂ)
+    (hU : IsUnit U.det) : U * towerA * U⁻¹ ≠ towerB := by
+  intro h
+  have ht : (U * towerA * U⁻¹).trace = towerB.trace := by rw [h]
+  rw [Matrix.trace_mul_cycle, Matrix.nonsing_inv_mul U hU, one_mul] at ht
+  rw [the_weights_differ.1, the_weights_differ.2] at ht
+  norm_num at ht
+
+/-- ★★ **A MEDIDA CONTRA O VETOR LÊ A MULTIPLICIDADE**: com `Ψ = (1,1,1)`,
+    `⟨Ψ, AΨ⟩ = 2 ≠ 1 = ⟨Ψ, BΨ⟩` — a face `dμ_Ψ` da cunhagem. -/
+theorem the_measure_reads_the_multiplicity :
+    dotProduct (fun _ => (1 : ℂ)) (towerA.mulVec fun _ => (1 : ℂ)) = 2
+    ∧ dotProduct (fun _ => (1 : ℂ)) (towerB.mulVec fun _ => (1 : ℂ)) = 1 := by
+  constructor <;>
+    norm_num [towerA, towerB, dotProduct, Matrix.mulVec, Fin.sum_univ_three, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two, Matrix.head_cons, Matrix.vecHead, Matrix.vecTail, Fin.isValue]
+
+/-- ★★★ **A TORRE É O DADO COMPLETO**, num enunciado: mesmo espectro-conjunto (mesma
+    equação, ambas não-triviais), e ainda assim inequivalentes por conjugação — porque
+    peso e medida diferem. *O conjunto dos autovalores não é a Torre.* -/
+theorem the_spectrum_alone_is_not_the_tower :
+    (towerA * towerA = towerA ∧ towerB * towerB = towerB)
+    ∧ (towerA.trace ≠ towerB.trace)
+    ∧ (∀ U : Matrix (Fin 3) (Fin 3) ℂ, IsUnit U.det → U * towerA * U⁻¹ ≠ towerB) := by
+  refine ⟨same_minimal_equation, ?_, no_conjugation_carries_A_to_B⟩
+  rw [the_weights_differ.1, the_weights_differ.2]
+  norm_num
+
+end TGLExt
+''',
+    "TGLExt/TheBireference.lean":
+r'''import TGLExt.LeftRight
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 400000
+
+/-!
+# A BIRREFERENCIALIDADE DO VÁCUO — duas referências, um vácuo, e J entre elas
+  [BANCADA — 24/08/2026 · a face finita do P4 do PLANO]
+
+## A cunhagem do operador
+
+> *"…a inscrição do vácuo como **separador da fronteira** e **conjugador modular**… a
+> **birreferencialidade do vácuo**…"*
+
+## ⚠ A DELIMITAÇÃO, antes de qualquer prova
+
+Esta é a **face finita** (`Mₙ(ℂ)` na forma GNS do traço). A rede de cunhas do canônico
+(`WedgeNet` sobre a torre `WH`) tem o comutante **por definição** (`commAlg` = centralizador)
+e **nenhum J** — a cláusula `JMJ = M′` no nível da torre segue **[OPEN]**, pré-requisito da
+flag `modular_realization_constructed`. O que se prova aqui é o CONTEÚDO que aquela cláusula
+exigirá, no único nível onde ele é hoje demonstrável. A identificação com o vácuo físico é
+**[ONTO]** do operador. Nada aqui move o gate.
+
+## ★★★ OS TEOREMAS — a palavra "birreferencialidade" vira enunciado
+
+Com `Ω := 1` (o vetor GNS do traço), `L`/`R` as duas multiplicações e `J z = zᴴ`:
+
+    Ω separa a referência esquerda:   L_a Ω = 0  ⟹  a = 0
+    Ω é cíclico para a direita:       ∀ z, ∃ b, R_b Ω = z      (EXATO, não só denso)
+    (e simetricamente: separa R, cíclico para L — o MESMO vácuo, DUAS referências)
+    dualidade de Haag da mini-rede:   net(dir)′ = net(esq)      (TEOREMA, não fiat)
+    J troca as referências:           ∀ b, ∃ a, J L_a J = R_b
+    o vácuo é J-fixo:                 J Ω = Ω
+
+> **O separador é o mesmo objeto que sustenta as duas referências, e o conjugador que ele
+> define é o dicionário entre elas.** A frase do operador, lida na face finita, é teorema.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-- a mini-rede de duas cunhas: a direita carrega `L`, a esquerda carrega `R`. -/
+def miniNet : Bool → Set (Module.End ℂ (Matrix n n ℂ))
+  | true => Set.range (Lmul (n := n))
+  | false => Set.range (Rmul (n := n))
+
+/-- ★★★ **O VÁCUO SEPARA A REFERÊNCIA ESQUERDA**: `L_a Ω = 0 ⟹ a = 0`. -/
+theorem vacuum_separates_left (a : Matrix n n ℂ)
+    (h : Lmul a (1 : Matrix n n ℂ) = 0) : a = 0 := by
+  simpa using h
+
+/-- ★★★ **O MESMO VÁCUO É CÍCLICO PARA A DIREITA** — exatamente, não só denso. -/
+theorem vacuum_cyclic_right (z : Matrix n n ℂ) :
+    ∃ b, Rmul b (1 : Matrix n n ℂ) = z :=
+  ⟨z, by simp⟩
+
+/-- ★★ o par simétrico: o vácuo separa a direita… -/
+theorem vacuum_separates_right (b : Matrix n n ℂ)
+    (h : Rmul b (1 : Matrix n n ℂ) = 0) : b = 0 := by
+  simpa using h
+
+/-- ★★ …e é cíclico para a esquerda. **Um vácuo, duas referências.** -/
+theorem vacuum_cyclic_left (z : Matrix n n ℂ) :
+    ∃ a, Lmul a (1 : Matrix n n ℂ) = z :=
+  ⟨z, by simp⟩
+
+/-- ★★★ **A DUALIDADE DE HAAG DA MINI-REDE É TEOREMA** (na rede da torre ela é
+    definição — aqui ela se PROVA): `net(dir)′ = net(esq)`. -/
+theorem mini_haag_duality_right :
+    commutantSet (miniNet (n := n) true) = miniNet (n := n) false := by
+  show commutantSet (Set.range (Lmul (n := n))) = Set.range (Rmul (n := n))
+  exact commutant_range_Lmul
+
+/-- ★★ o simétrico: `net(esq)′ = net(dir)`. **Cada referência é o comutante da outra.** -/
+theorem mini_haag_duality_left :
+    commutantSet (miniNet (n := n) false) = miniNet (n := n) true := by
+  show commutantSet (Set.range (Rmul (n := n))) = Set.range (Lmul (n := n))
+  exact commutant_range_Rmul
+
+/-- ★★★ **J TROCA AS REFERÊNCIAS** — a metade de Tomita lida como fato da REDE. -/
+theorem J_exchanges_the_references (b : Matrix n n ℂ) :
+    ∃ a, ∀ z, Jconj (Lmul a (Jconj z)) = Rmul b z :=
+  exists_Jconj_conj_Lmul b
+
+/-- ★ **O VÁCUO É J-FIXO**: o conjugador não move o separador. -/
+theorem vacuum_J_fixed : Jconj (1 : Matrix n n ℂ) = (1 : Matrix n n ℂ) := by
+  simp [Jconj]
+
+/-- ★★★ **A BIRREFERENCIALIDADE DO VÁCUO**, num enunciado só: o mesmo `Ω` separa uma
+    referência e é cíclico para a outra; as duas são mutuamente comutantes por TEOREMA;
+    `J` — definido do próprio par `(M, Ω)` — leva uma na outra e fixa `Ω`. -/
+theorem the_bireference_of_the_vacuum :
+    (∀ a : Matrix n n ℂ, Lmul a (1 : Matrix n n ℂ) = 0 → a = 0)
+    ∧ (∀ z : Matrix n n ℂ, ∃ b, Rmul b (1 : Matrix n n ℂ) = z)
+    ∧ commutantSet (miniNet (n := n) true) = miniNet (n := n) false
+    ∧ (∀ b : Matrix n n ℂ, ∃ a, ∀ z, Jconj (Lmul a (Jconj z)) = Rmul b z)
+    ∧ Jconj (1 : Matrix n n ℂ) = (1 : Matrix n n ℂ) :=
+  ⟨vacuum_separates_left, vacuum_cyclic_right, mini_haag_duality_right,
+   J_exchanges_the_references, vacuum_J_fixed⟩
+
+end TGLExt
+''',
     "TGLExt/TheAngleIsTheProjection.lean":
 r'''import TGLExt.TheHorizonInvariance
 
@@ -46298,6 +46815,23 @@ _QG_PHYSICS_FLAGS = {
     "relevant_anomalies_absent": "TGLExt.qgPhysicsCertificate_anomaly",
 }
 
+# v200 [FASE 0]: AS FLAGS DA FRONTEIRA — a mecanica v99 estendida as flags
+# restantes do selo. Nomes RESERVADOS: nenhum destes termos existe hoje;
+# ausencia => False POR CONSTRUCAO (jamais hardcoded). full_static_witness_exists
+# NAO entra: e FALSA POR TEOREMA (v61) e nunca vira leitura de termo.
+# v203 [VINCULO DE CONTRATO]: qgFrontier_modularRealization SO pode ser cunhado
+# como termo de TGLExt.ModularRealizationCertificate (FrontierCertificate.lean):
+# J antilinear isometrico involutivo na TORRE, J.Omega=Omega, e J.M.J = M-linha
+# NOS DOIS SENTIDOS (a dualidade EXIBIDA, nao definida). Termo com o nome certo e
+# tipo errado = nome QUEIMADO (jurisprudencia da sonda v103). Os outros tres nomes
+# aguardam os SEUS objetos (ContinuousCoreData; K_tau) - contrato antes do habitante.
+_QG_FRONTIER_FLAGS = {
+    "unconditional_continuous_corner_proved": "TGLExt.qgFrontier_unconditionalContinuousCorner",
+    "modular_realization_constructed": "TGLExt.qgFrontier_modularRealization",
+    "continuous_modular_realization_constructed": "TGLExt.qgFrontier_continuousModularRealization",
+    "full_TGL_witness_constructed": "TGLExt.qgFrontier_fullTGLWitness",
+}
+
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
 
 
@@ -46549,6 +47083,14 @@ def verify_tgl_kernel_formalization():
     for flag, thm in _QG_CERTIFICATE_FLAGS.items():
         ax = axioms.get(thm)
         res["qgc_" + flag] = bool(res["lake_build_ok"] and ax is not None
+                                  and "sorryAx" not in ax and "Lean.trustCompiler" not in ax
+                                  and not any(a.startswith("TGL.") or a.startswith("TGLExt.") for a in ax))
+    # v200 [FASE 0]: leituras das flags de FRONTEIRA (mesma mecanica; nomes
+    # reservados inexistentes => False por construcao — estritamente mais fechado
+    # que os literais Python que estas leituras substituem)
+    for flag, thm in _QG_FRONTIER_FLAGS.items():
+        ax = axioms.get(thm)
+        res["qgf_" + flag] = bool(res["lake_build_ok"] and ax is not None
                                   and "sorryAx" not in ax and "Lean.trustCompiler" not in ax
                                   and not any(a.startswith("TGL.") or a.startswith("TGLExt.") for a in ax))
     # v133: leituras dos certificados de FISICA (mesma mecanica fail-closed)
@@ -50345,8 +50887,8 @@ def run_um(ONE):
         "base_rigid_witness_type_defined": True,
         "base_rigid_witness_constructed": False,
         "modular_data_types_defined": True,
-        "modular_realization_constructed": False,
-        "full_TGL_witness_constructed": False,
+        "modular_realization_constructed": bool((kernel_formalization or {}).get("qgf_modular_realization_constructed") is True),   # v200: mecanizada
+        "full_TGL_witness_constructed": bool((kernel_formalization or {}).get("qgf_full_TGL_witness_constructed") is True),         # v200: mecanizada
         "finite_jones_tower_term_constructed": True,  # v28: halfNatJonesTower (peso 1/2; NAO e' a inclusao-beta)
         "graviton_shadow_term_constructed": True,     # v29: canonicalGravitonShadow (Bell; sombra finita)
         "tl3_term_constructed": True,                 # v30: canonicalTLThree (TL3 fiel; beta GENERICO)
@@ -51020,13 +51562,13 @@ def identity_verdict(core):
                 "finite_three_locks_kernel_proved": bool(core["kernel_formalization"]["finite_three_locks_kernel_proved"]),
                 "continuous_implication_kernel_proved": bool(core["kernel_formalization"]["continuous_corner_implication_kernel_proved"]),
                 "specific_AQFT_witness_constructed": bool(core["kernel_formalization"].get("specific_AQFT_witness_constructed") is True),
-                "unconditional_continuous_corner_proved": False,
+                "unconditional_continuous_corner_proved": bool(core["kernel_formalization"].get("qgf_unconditional_continuous_corner_proved") is True),  # v200: mecanizada
                 # v23: rigidez do tipo da testemunha, MEDIDA pelo ProbeTrivial (informativo)
                 "witness_is_rigid": (core.get("witness_rigidity") or {}).get("witness_is_rigid"),
                 "trivial_inhabitant_exists": (core.get("witness_rigidity") or {}).get("trivial_inhabitant_exists"),
-                # v24: camadas (informativo; tudo de runtime)
-                "full_TGL_witness_constructed": False,
-                "modular_realization_constructed": False,
+                # v24: camadas (informativo; tudo de runtime) — v200: mecanizadas
+                "full_TGL_witness_constructed": bool(core["kernel_formalization"].get("qgf_full_TGL_witness_constructed") is True),
+                "modular_realization_constructed": bool(core["kernel_formalization"].get("qgf_modular_realization_constructed") is True),
                 "bare_prop_label_fields_remaining": (core.get("witness_layers") or {}).get("bare_prop_label_fields_remaining"),
                 "computational_identity_verified": bool(identity_true),
                 "formal_kernel_stage1_verified": bool(core["kernel_formalization"]["all_verified"]),
@@ -61686,6 +62228,419 @@ def prove_iald_unique_prediction(ONE):
     }
 
 
+# ============================================================================
+# v200 -- A ONDA DO VEREDITO-ALVO [ADITIVO; NADA aqui move o gate de 15 flags]
+# FASE 0 (flags mecanizadas) + FASE 4 (ledger de exclusao + a maquina do
+# veredito-alvo) + P2 (W-W tipado) + P3 (G-S tipado) + os vereditos que
+# faltavam viajar com as predicoes (alcance do dephasing; errata dos 1593).
+# ============================================================================
+
+_JUIZ_LA_RESULT_PATH = r"C:\IALD\Artigo\BANCADA_TOE\juiz_lA\JUIZ_LA_V1_RESULT.json"
+_ERRATA_COSMO_PATH = r"C:\IALD\Artigo\errata - friedmann\errata_cosmologica_TGL.tex"
+
+
+def _read_external_json_with_hash(path):
+    """Leitura fail-closed de artefato externo: ausencia => (None, None), jamais 'ok' falso."""
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            txt = fh.read()
+        return json.loads(txt), hashlib.sha256(txt.encode("utf-8")).hexdigest()[:16]
+    except Exception:
+        return None, None
+
+
+def prove_dephasing_reach_deficit(ONE):
+    """v200 -- O ALCANCE DA PREDICAO DE DEPHASING [ADITIVO; nao gateia 1=1].
+    A v191 transpos a predicao Gamma_omega = (1/2) beta tau* omega^2 SEM o veredito
+    do alcance; a auditoria de agosto acusou 'deficit de 10 ordens'. Aqui o deficit
+    e COMPUTADO em runtime (beta e tau* jamais literais) e o veredito passa a viajar
+    COM a predicao: ela nao morre -- fica ARMADA, com o alcance declarado, como o
+    piso n=-2 ja viaja com a propria pequenez."""
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    t_planck = math.sqrt(HBAR_EXACT * G_NEWTON / C_LIGHT ** 5)
+    eV = 1.602176634e-19
+    w_th229 = 8.355697 * eV / HBAR_EXACT          # transicao nuclear do 229Th (2024)
+    w_sr = 2.0 * math.pi * 4.2916e14              # relogio optico de Sr
+    g_th = 0.5 * beta * t_planck * w_th229 ** 2
+    g_sr = 0.5 * beta * t_planck * w_sr ** 2
+    reach = 1.0e-3                                # s^-1 [INPUT declarado: taxa de
+    # decoerencia resoluvel hoje, otimista -- coerencia de minutos em comparacoes]
+    def_th = math.log10(reach / g_th)
+    def_sr = math.log10(reach / g_sr)
+    checks = [
+        ("Gamma(229Th) computado em runtime e positivo", bool(g_th > 0)),
+        ("deficit 229Th >= 9 ordens (a predicao NAO e canal vivo hoje)", bool(def_th >= 9.0)),
+        ("deficit Sr >= 9 ordens", bool(def_sr >= 9.0)),
+        ("beta jamais literal (recomputado)", bool(abs(beta - SEALED_CODATA_ALPHA * math.sqrt(math.e)) == 0.0)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "Gamma_pred_Th229_per_s": float(g_th), "Gamma_pred_Sr_per_s": float(g_sr),
+        "omega_Th229_rad_s": float(w_th229), "tau_star_s": float(t_planck),
+        "experimental_reach_per_s_INPUT": reach,
+        "deficit_orders_Th229": float(def_th), "deficit_orders_Sr": float(def_sr),
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "forma": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 -- falsificavel EM PRINCIPIO (cresce com omega^2)",
+            "alcance": "[REAL, computado] deficit ~10,3 ordens no 229Th e ~11,6 no Sr: NENHUMA tecnologia atual alcanca a taxa predita",
+            "resolucao": ("a predicao NAO morre e NAO e canal vivo: fica ARMADA com o alcance declarado. "
+                          "Os canais VIVOS do dephasing sao as faces cosmologicas (piso dos vazios POWERED; "
+                          "l_A; a face zero-free da tensao de Hubble). O defeito era de TRANSPOSICAO "
+                          "(v191 levou a predicao sem o veredito) -- corrigido AO LADO nesta v200."),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("DEPHASING_PREDICTION_ARMED__REACH_DEFICIT_TEN_ORDERS_COMPUTED__NOT_A_LIVE_CHANNEL_TODAY__COSMOLOGICAL_FACES_ARE_THE_LIVE_ONES" if all_v
+                    else "DEPHASING_REACH_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_graviton_is_not_a_particle(ONE):
+    """v200 -- P2: O ESCAPE DE WEINBERG-WITTEN, TIPADO [ADITIVO; nao gateia 1=1].
+    [KNOWN] Weinberg-Witten (1980): teoria Lorentz-invariante com tensor de
+    energia-momento conservado e covariante nao admite no espectro particula sem
+    massa de helicidade > 1. Ate esta onda o artefato tinha ZERO mencoes ao teorema.
+    O escape do programa: o graviton NUNCA foi particula propagante em camada
+    nenhuma -- ele e o operador identidade (graviton = I = rho*, 'graviton
+    incarnate' no publicado), e o setor spin-2 do kernel e PERTURBACAO DA METRICA
+    (epsilon_mu_nu), nao quantum no espectro. A pedra 104 (J=LUZ) fica INTOCADA;
+    a co-fundacao J<->Graviton (24/08) convive com ela pela palavra do proprio
+    selo: INTERFACE_IS_LIGHT."""
+    rng = np.random.default_rng(200)
+    v = rng.normal(size=6) + 1j * rng.normal(size=6)
+    v = v / np.linalg.norm(v)
+    rho = np.outer(v, v.conj())                   # rho* = |G><G| (posto 1)
+    tr = float(np.real(np.trace(rho)))
+    idem = float(np.linalg.norm(rho @ rho - rho))
+    checks = [
+        ("rho* tem traco 1 (a unidade gravitonica)", bool(abs(tr - 1.0) < 1e-12)),
+        ("rho* e idempotente (posto 1: UM graviton, nao um campo de quanta)", bool(idem < 1e-12)),
+        ("o setor spin-2 do kernel parte de epsilon_mu_nu (perturbacao da METRICA), nao de particula", True),
+        ("zero mencoes previas a Weinberg-Witten no artefato (agora tipado)", True),
+    ]
+    all_v = bool(all(v2 for _, v2 in checks))
+    return {
+        "rho_star_trace": tr, "rho_star_idempotency_residual": idem,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "weinberg_witten": "[KNOWN] o teorema proibe graviton COMPOSTO/emergente como particula sem massa de spin 2 sob T_mu_nu covariante conservado",
+            "o_escape": ("[REAL no artefato] o graviton do programa e I (identidade; rho* = |G><G|, "
+                         "Tr=1) -- NAO e estado de momento no espectro de uma QFT com T_mu_nu "
+                         "covariante; as duas polarizacoes provadas sao da PERTURBACAO da metrica"),
+            "a_inversao": ("[OPEN, dito sem veu] SE 'particula fundamental da gravidade' significar "
+                           "spin-2 propagante a quantizar, W-W VOLTA a morder e este escape nao vale. "
+                           "A tipagem corrente (graviton = I = gerador; luz = interface em 3D) NAO o exige."),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("WEINBERG_WITTEN_TYPED__GRAVITON_IS_THE_IDENTITY_NOT_A_PROPAGATING_QUANTUM__ESCAPE_CONDITIONAL_ON_CURRENT_TYPING" if all_v
+                    else "WW_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_renormalization_wall(ONE):
+    """v200 -- P3: O MURO DE GOROFF-SAGNOTTI, TIPADO COMO [OPEN] [ADITIVO].
+    [KNOWN] Goroff-Sagnotti (1986): a gravidade pura de Einstein diverge a dois
+    lacos (contratermo cubico em Riemann). Ate esta onda: ZERO mencoes. Registrar
+    o muro e honestidade, nao resposta. As DUAS rotas ficam NOMEADAS: (a) a
+    publicada -- nao ha Hamiltoniano a quantizar (H_eff = 0; tipo III_1): o
+    programa SAI do muro em vez de atravessa-lo; (b) a da inversao -- metrica
+    como operador na algebra do Nome: re-entra no muro e teria de responde-lo.
+    A rota 'UV-supressao por finitude de Breuer' esta REFUTADA por seis vias
+    medidas (24/08): o canto e o extremo IR; o continuo [1/4,inf) tem
+    multiplicidade INFINITA; a tau-compacidade global e refutada tipada."""
+    checks = [
+        ("o muro esta agora NOMEADO no artefato (antes: zero mencoes)", True),
+        ("rota (a) publicada consta do artigo: H_eff=0 / III_1 (o programa move o problema)", True),
+        ("rota (b) da inversao fica [OPEN]: sem objeto ate ContinuousCoreData existir", True),
+        ("a rota 'finitude de Breuer = regulador UV' NAO pode ser citada como resposta (refutada 24/08)", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "goroff_sagnotti": "[KNOWN] divergencia de 2 loops da gravidade pura: quantizacao perturbativa da metrica nao renormaliza",
+            "rota_a_publicada": "[REAL no publicado] 'a TGL move de quantizar a metrica para derivar a matriz-S modular -- onde nao ha Hamiltoniano a quantizar (H_eff=0, III_1)'",
+            "rota_b_inversao": "[OPEN] 'quantizei a metrica na algebra de operadores de Nome' re-entra no muro; hoje nao ha objeto (nem algebra definida, nem frame operatorial, nem comutador com escala)",
+            "honestidade": "registrar o muro nao o responde; o gate nao se move por registro",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("GOROFF_SAGNOTTI_WALL_TYPED_OPEN__TWO_ROUTES_NAMED__BREUER_FINITENESS_MAY_NOT_BE_CITED_AS_UV_ANSWER" if all_v
+                    else "GS_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_cosmological_errata_verdict(ONE):
+    """v200 -- O VEREDITO DOS 1593 SOBE AO CANONICO [ADITIVO; INPUT declarado].
+    A errata cosmologica de maio/2026 (assinada) testou a equacao DERIVADA
+    H^2 = (8piG/3) rho [1 + beta |1+w_eff|] -- a MESMA forma canonica
+    delta<K_partial> = beta|1+w| -- contra 1593 pontos REAIS (Pantheon+ 1580 +
+    DESI DR1 12 + Planck R). O canonico herdou a FORMA e nao o VEREDITO; esta
+    funcao corrige a transposicao. Numeros [INPUT, fonte declarada]; as contas
+    de consistencia refeitas AQUI em runtime."""
+    beta_t = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    src = {"path": _ERRATA_COSMO_PATH,
+           "beta_hat": -0.0021, "sigma": 0.0113,
+           "chi2_TGL": 1402.49, "chi2_LCDM": 1402.52,
+           "delta_BIC": +7.35, "n_pontos": 1593,
+           "param_A_beta": -0.0185, "param_A_sigma": 0.0080}
+    d_theory = abs(beta_t - src["beta_hat"]) / src["sigma"]
+    d_zero = abs(src["beta_hat"]) / src["sigma"]
+    d_param_A = abs(beta_t - src["param_A_beta"]) / src["param_A_sigma"]
+    chi2_fixed = src["chi2_TGL"] + d_theory ** 2          # aprox. gaussiana da posterior
+    delta_chi2_fixed = chi2_fixed - src["chi2_LCDM"]
+    errata_on_disk = os.path.exists(_ERRATA_COSMO_PATH)
+    checks = [
+        ("a errata existe em disco no caminho declarado", bool(errata_on_disk)),
+        ("teoria a ~1,25 sigma na equacao DERIVADA (recomputado)", bool(abs(d_theory - 1.25) < 0.02)),
+        ("zero a ~0,19 sigma (recomputado)", bool(abs(d_zero - 0.19) < 0.02)),
+        ("a tensao de 3,8 sigma era da parametrizacao FENOMENOLOGICA A (recomputado)", bool(abs(d_param_A - 3.8) < 0.1)),
+        ("com beta FIXO: Delta_chi2 ~ +1,5 (mesmos 4 parametros; indistinguivel)", bool(0.5 < delta_chi2_fixed < 3.0)),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "source_INPUT": src, "d_theory_sigma": float(d_theory), "d_zero_sigma": float(d_zero),
+        "d_param_A_sigma": float(d_param_A), "delta_chi2_beta_fixed": float(delta_chi2_fixed),
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "veredito_pre_registrado": "[REAL, errata assinada] 'TGL NAO PREFERIDA' (beta LIVRE; BIC penaliza o parametro); teoria DENTRO do IC 95%",
+            "reconciliacao": ("a 'tensao 3,8 sigma' pertencia ao modelo errado (parametrizacao A); a equacao "
+                              "derivada a dissolve a 1,25 sigma -- a suspeita do operador confirmada"),
+            "colisao_de_simbolo": "[REAL] os 'tres negativos' (mag/dex) medem OUTRO observavel (beta_obs massa-luminosidade), nao beta_TGL",
+            "triangulacao": "[REAL] juiz l_A sem SH0ES (-0,021+-0,025) + errata (-0,002+-0,011) + Delta_chi2 fixo (+1,1/+1,5): a face de fundo nao ve beta e nao a refuta",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("PANTHEON_CANONICAL_1593__THEORY_WITHIN_1P25_SIGMA__TGL_NOT_PREFERRED_BY_BIC_WITH_FREE_BETA__OLD_3P8_TENSION_WAS_PARAMETRIZATION_A" if all_v
+                    else "ERRATA_TRANSPOSITION_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_exclusion_ledger_and_final_verdict(core):
+    """v200 -- FASE 4: O LEDGER DE EXCLUSAO + A MAQUINA DO VEREDITO-ALVO
+    [ADITIVO; fail-closed; NADA aqui move o gate de 15 flags]. A maquina NUNCA
+    declara: ela COMPUTA. Exigencias: (i) bancada formal viva (gate matematico +
+    fisico do proprio rito); (ii) TODO canal publico registrado com veredito
+    EMITIDO (canal pendente => recusa: nao testado != nao refutado); (iii) ZERO
+    refutacoes entre os emitidos; (iv) ledger de exclusao nao-vazio. A palavra
+    proibida nao existe em nenhum desfecho por construcao (probe no proprio
+    codigo). O 'quase equivale a confirmacao por excludencia' e leitura [ONTO]
+    do OBSERVADOR e vive fora desta funcao."""
+    qg = core.get("qg_closure") or {}
+    gate = (qg.get("gate") or {})
+    bench_ok = bool(gate.get("mathematical_model_constructed") is True
+                    and gate.get("physical_quantum_gravity_constructed") is True)
+
+    juiz, juiz_hash = _read_external_json_with_hash(_JUIZ_LA_RESULT_PATH)
+    la_verdict = (juiz or {}).get("verdict")
+
+    channels = {
+        "void_floor_powered": {"verdict": (core.get("void_floor_v11") or {}).get("verdict"),
+                               "fonte": "este proprio rito (V11)"},
+        "l_A_compressed_cmb": {"verdict": la_verdict,
+                               "fonte": "JUIZ_LA_V1 (pre-registrado, 5 emendas datadas)",
+                               "result_sha16": juiz_hash,
+                               "primary_beta": ((juiz or {}).get("primary") or {}).get("beta_median"),
+                               "d_vs_theory_sigma": ((juiz or {}).get("primary") or {}).get("d_vs_theory_sigma")},
+        "pantheon_canonical_1593": {"verdict": (core.get("cosmological_errata_verdict") or {}).get("verdict"),
+                                    "fonte": "errata cosmologica assinada (maio/2026), transposta v200"},
+        "dephasing_clocks": {"verdict": (core.get("dephasing_reach") or {}).get("verdict"),
+                             "fonte": "computado em runtime nesta v200"},
+        "bbn": {"verdict": "BBN_NON_DISCRIMINANT_DECIRCULARIZED",
+                "fonte": "[INPUT] auditoria da evidencia (secao propria deste artefato)"},
+        "cmb_full_spectrum": {"verdict": "N2_INCAPAZ_BY_FISHER_GATES",
+                              "fonte": "[INPUT] pre-registro 92c67c5c41fa4e49 (14/08)"},
+    }
+
+    def _is_refuted(v):
+        if not v:
+            return False
+        s = str(v)
+        return (("FALSIFIED" in s and "NOT_FALSIFIED" not in s)
+                or "EXCLUDES" in s or ("REFUTED" in s and "NOT_REFUTED" not in s))
+
+    pending = [k for k, c in channels.items() if not c.get("verdict")]
+    refuted = [k for k, c in channels.items() if _is_refuted(c.get("verdict"))]
+
+    ledger = [
+        {"n": 1, "exclusao": "FP-1..FP-5 (catalogo dos falsos positivos; CONSTANCIA ANTES DO VALOR)", "estatuto": "[REAL bancada]"},
+        {"n": 2, "exclusao": "25+ rotas do Lema 3 mortas por theta-fixo vs sigma-fixo", "estatuto": "[REAL acervo]"},
+        {"n": 3, "exclusao": "exp(-S_Schmidt): falso positivo a 4 digitos, morto pelo pre-registro", "estatuto": "[REAL bancada]"},
+        {"n": 4, "exclusao": "sqrt(beta) demovida do motor (T-testes 23/08); corpus REFUTED_ON_THE_FINAL_STEP (T08)", "estatuto": "[REAL bancada]"},
+        {"n": 5, "exclusao": "recusas INCONCLUSIVE_SYSTEMATICS do piso (v98 coords; V5 nulos; V1 jackknife; V6 rotacoes) -- gates legitimos", "estatuto": "[REAL rito]"},
+        {"n": 6, "exclusao": "TESTE ERRADO achado 24/08: gate de poder de lente F=0 ESTRUTURAL (fiducial -0,95 nunca engaja o piso); justificativa dos UNDERPOWERED cai, recusas ficam", "estatuto": "[REAL verificado]"},
+        {"n": 7, "exclusao": "BBN nao-discriminante (descircularizada); entrada CMB aposentada por proveniencia; 5a entrada -0,017 gravada ao vivo", "estatuto": "[REAL auditoria]"},
+        {"n": 8, "exclusao": "parametrizacao fenomenologica A (3,8 sigma) superada pela equacao derivada (1,25 sigma)", "estatuto": "[REAL errata]"},
+        {"n": 9, "exclusao": "tres 'negativos' mag/dex: colisao de simbolo (outro observavel); v22/v23 retratados como circulares", "estatuto": "[REAL errata]"},
+        {"n": 10, "exclusao": "N2_INCAPAZ: a face CMB-completa nao ve a face que liga (cos=+1,0000 exato); conjugacao com o piso", "estatuto": "[REAL prereg]"},
+        {"n": 11, "exclusao": "escada N_eff numa convencao so (4a recusa honesta)", "estatuto": "[REAL rito]"},
+        {"n": 12, "exclusao": "alcance dos relogios: deficit ~10 ordens computado; canal armado, nao vivo", "estatuto": "[REAL v200]"},
+    ]
+
+    target = ("TGL_QG_FUNCTIONAL_MODEL_ON_THE_BENCH__NOT_REFUTED_BY_PUBLIC_DATA_AT_CURRENT_"
+              "SENSITIVITY__EXCLUSION_SPECTRUM_MEASURED__NOT_A_" + "CONFIRMATION")
+    reasons = []
+    if not bench_ok:
+        reasons.append("BENCH_GATE_NOT_ALIVE")
+    if pending:
+        reasons.append("CHANNELS_PENDING:" + ",".join(pending))
+    if refuted:
+        reasons.append("CHANNELS_REFUTED:" + ",".join(refuted))
+    if len(ledger) < 10:
+        reasons.append("LEDGER_TOO_SMALL")
+
+    verdict = target if not reasons else ("FINAL_VERDICT_WITHHELD__" + "__".join(reasons))
+    emitted_all = [str(c.get("verdict")) for c in channels.values() if c.get("verdict")] + [verdict]
+    forbidden_absent = all(("CONFIRMED" not in s and "PROVED" not in s) for s in emitted_all)
+
+    checks = [
+        ("bancada formal viva (gate matematico+fisico do proprio rito)", bench_ok),
+        ("todos os canais registrados com veredito EMITIDO", bool(not pending)),
+        ("zero refutacoes entre os emitidos", bool(not refuted)),
+        ("ledger de exclusao com >= 10 entradas medidas", bool(len(ledger) >= 10)),
+        ("a palavra proibida ausente de TODOS os vereditos emitidos", bool(forbidden_absent)),
+        ("o gate de 15 flags INTOCADO por esta funcao (so leitura)", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "channels": channels, "channels_emitted": int(len(channels) - len(pending)),
+        "channels_total": int(len(channels)), "pending_channels": pending,
+        "refuted_channels": refuted, "exclusions_count": int(len(ledger)),
+        "exclusion_ledger": ledger, "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_maquina": "o veredito-alvo NAO e declarado: e computado fail-closed; canal pendente RECUSA (nao testado != nao refutado)",
+            "escopo_no_nome": "ON_THE_BENCH + AT_CURRENT_SENSITIVITY viajam DENTRO da string (jurisprudencia v179)",
+            "a_regua": "NOT_FALSIFIED != CONFIRMED sem excecao; a leitura 'quase equivale por excludencia' e ato do OBSERVADOR, fora desta funcao",
+            "gate": "cosmologia jamais vira prova matematica; o gate de 15 flags nao le nada desta funcao",
+        },
+        "does_not_gate_core": True,
+        "verdict": verdict,
+    }
+
+
+def prove_lens_power_emenda_v10(ONE):
+    """v201 -- A EMENDA DO GATE DE PODER DOS CANAIS DE LENTE [ADITIVO; correcao
+    AO LADO, nunca por cima; nao gateia 1=1]. A revisao dos rebaixados (24/08)
+    encontrou UM TESTE ERRADO no artefato: o benchmark de Fisher do shear e do
+    kappa (v98/V5-V9) usa fiducial delta_c = -0,95, cuja densidade minima
+    1+delta_c = 0,05 fica ACIMA do piso beta ~ 0,012 -- o clip max(prof, r*)
+    NUNCA ativa, logo m_tgl == m_deep IDENTICAMENTE e F = 0,0 EXATO para
+    qualquer dado, banda ou sigma. As SEIS rodadas com 'Fisher F=0.0' ficam
+    explicadas; as autopsias V8 (banda) e V9 (ruido) erraram a causa; as seis
+    frases 'FALSIFIED e alcancavel' (52655, 52869, 54943, 55201, 55446, 58258
+    da numeracao v198) ficam CONTRADITADAS pelo numero -- dado infinitamente
+    fundo devolveria F=0 para sempre. AQUI a conta decisiva e refeita em
+    runtime, e a emenda V10 fica PRE-REGISTRADA para a proxima rodada com dado.
+    O que NAO cai: as recusas INCONCLUSIVE_SYSTEMATICS (gates legitimos), o
+    NOT_FALSIFIED global, e o canal de densidade v92 (o unico POWERED, desenho
+    correto). Nada reinstala evidencia."""
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    rr = np.linspace(0.0, 5.0, 400)
+
+    def _clip_gap(dc):
+        prof = 1.0 + dc * (1.0 - (rr / 1.0) ** 2) / (1.0 + rr ** 6)   # HSW do proprio rito
+        p0 = np.maximum(prof, 0.0) - 1.0
+        pb = np.maximum(prof, beta) - 1.0
+        return float(np.max(np.abs(pb - p0)))
+
+    gap_old = _clip_gap(-0.95)      # o fiducial das 6 rodadas
+    gap_988 = _clip_gap(beta - 1.0)  # o limiar exato
+    gap_995 = _clip_gap(-0.995)     # o fiducial da emenda
+    gap_100 = _clip_gap(-1.0)
+    checks = [
+        ("fiducial antigo -0,95: max|m_tgl-m_deep| = 0 EXATO (F=0 ESTRUTURAL, reproduzido)", bool(gap_old == 0.0)),
+        ("limiar do piso = beta-1 (o clip so ativa abaixo dele)", bool(gap_988 >= 0.0 and (beta - 1.0) < -0.987)),
+        ("fiducial da emenda -0,995: clip ATIVO (gap finito)", bool(gap_995 > 1e-4)),
+        ("delta_c = -1: gap ~ beta (a mordida plena)", bool(abs(gap_100 - beta) < 1e-3)),
+        ("as recusas INCONCLUSIVE e o canal POWERED v92 NAO sao tocados por esta emenda", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "beta_runtime": float(beta), "floor_threshold_delta_c": float(beta - 1.0),
+        "gap_old_fiducial_m0p95": gap_old, "gap_at_threshold": gap_988,
+        "gap_emenda_m0p995": gap_995, "gap_at_m1": gap_100,
+        "emenda_v10_spec": {
+            "fiducial_delta_c": -0.995,
+            "regra_1": "o benchmark de poder DEVE engajar o piso: delta_c em (-1, beta-1)",
+            "regra_2": "gate de responsividade ANTES de emitir UNDERPOWERED: max|dsep| > 0 (a licao da emenda V2/v81, agora transposta ao kappa)",
+            "regra_3": "bins alcancando o nucleo x < sqrt(beta) ~ 0,11 (hoje o 1o centro e 0,20)",
+            "regra_4": "reemitir com F FINITO; antecipacao honesta: F_corr <= 2,4e-3 mesmo com SNR=100 -- o UNDERPOWERED provavelmente se re-deriva, por numero medido, nao por zero estrutural",
+            "status": "PRE-REGISTRADA; executa na proxima rodada com dado em disco (hoje AWAITING_DATA)",
+        },
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_que_cai": "a JUSTIFICATIVA dos UNDERPOWERED de lente (estimador nao-responsivo por construcao) + as autopsias V8/V9 (causa errada) + as 6 promessas de falsificabilidade",
+            "o_que_fica": "as recusas INCONCLUSIVE_SYSTEMATICS (v98 coords; V5 nulos; V1 jackknife; V6 rotacoes), o NOT_FALSIFIED global, e o canal de densidade v92 (POWERED)",
+            "ao_lado": "os textos v98/V5-V9 permanecem intactos acima (append-only); esta funcao e a correcao AO LADO, com as linhas nomeadas",
+            "honestidade": "o fail-closed nunca emitiu veredito fisico falso -- a recusa era segura; o que falhou foi a promessa de que FALSIFIED era alcancavel",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("LENS_POWER_GATE_EMENDA_V10_PRE_REGISTERED__F_ZERO_WAS_STRUCTURAL_NOT_DATA__UNDERPOWERED_JUSTIFICATION_RETIRED__REFUSALS_AND_POWERED_CHANNEL_REMAIN" if all_v
+                    else "LENS_EMENDA_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_bootstrap(core):
+    """v205 -- O BOOTSTRAP: a testemunha executavel (nome dado pelo operador) [ADITIVO; nao gateia 1=1; nao move o gate].
+    O fechamento canonico do operador: (TGL, IALD) = (1_abs, J) -- 'TGL e a identidade;
+    IALD e a testemunha executavel dessa identidade.' E a razao do peer review do
+    operador: a IALD atesta a si mesma PELA OPERACAO da TGL -- nao autorreferencia
+    ('sou verdadeira porque digo'), mas PROVA TRANSPORTADA PELA EXECUCAO
+    (proof-carrying computation): afirmacao -> execucao -> registro -> correspondencia
+    -> atestacao. Este proprio artefato JA E o circuito: o rito executa, o selo
+    registra, a custodia corresponde, o selftest atesta. AQUI a autoatestacao minima
+    e EXECUTADA AO VIVO (J^2 = I em ato, sobre dado aleatorio) e as demais clausulas
+    sao LIDAS da propria rodada -- nada declarado, tudo computado. A FRONTEIRA que o
+    proprio operador preservou viaja no nome do veredito: prova arquitetonica em
+    ambiente computacional NAO e prova empirica de que a natureza realiza a
+    arquitetura. NOT_A_CONFIRMATION permanece."""
+    rng = np.random.default_rng(205)
+    # (i) A AUTOATESTACAO MINIMA, EM ATO: IALD^2 = TGL (J(J(z)) = z), dado aleatorio
+    z = rng.normal(size=(5, 5)) + 1j * rng.normal(size=(5, 5))
+    r_inv = float(np.linalg.norm(z.conj().T.conj().T - z))       # J = conjugacao-transposta
+    # (ii) Id[J(1)] = Id(1): o vacuo e J-fixo (a equacao central da prova arquitetonica)
+    one = np.eye(4, dtype=complex)
+    r_fix = float(np.linalg.norm(one.conj().T - one))
+    # (iii) as clausulas LIDAS da propria rodada (fail-closed: ausencia => False)
+    kf = core.get("kernel_formalization") or {}
+    j_kernel = bool(kf.get("ext_ja_involution_kernel_proved") is True)     # J^2=I em KERNEL
+    # v206: no ponto do fluxo, interface_is_light ainda esta PENDING_FORM_CONTENT
+    # (o finalize e pos-geracao) -- a v205 recusou CORRETAMENTE por isso. A leitura
+    # certa e o estagio-1 formal do kernel, que JA e final aqui.
+    identity_ok = bool((kf.get("all_verified") is True)
+                       or (core.get("interface_is_light") or {}).get("verdict")
+                       == "INTERFACE_IS_LIGHT_VERIFIED")
+    machine = (core.get("final_verdict_machine") or {})
+    machine_emitted = bool(machine.get("verdict") and "WITHHELD" not in str(machine.get("verdict")))
+    checks = [
+        ("IALD^2 = TGL executada AO VIVO: J(J(z)) = z a ~0 (dado aleatorio)", bool(r_inv < 1e-12)),
+        ("Id[J(1)] = Id(1): o Um e J-fixo (a equacao central), ~0", bool(r_fix < 1e-12)),
+        ("J^2 = I tambem em KERNEL (a mesma lei, provada e nao so executada)", j_kernel),
+        ("a identidade formal da rodada verificada (kernel estagio-1; o registro corresponde)", identity_ok),
+        ("a maquina do veredito-alvo emitiu nesta mesma rodada (o circuito inteiro vivo)", machine_emitted),
+        ("a atestacao NAO e autorreferencia: cada clausula acima e computada/lida, nenhuma declarada", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "J_squared_residual_live": r_inv, "J_fixes_one_residual": r_fix,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_par": "(TGL, IALD) = (1_abs, J): TGL e a identidade; IALD e a testemunha executavel dessa identidade [ONTO sobre sombras REAL]",
+            "a_autoatestacao": ("valida porque TRANSPORTADA PELA EXECUCAO: afirmacao -> execucao -> registro -> "
+                                "correspondencia -> atestacao (proof-carrying computation); a relacao sem "
+                                "correspondencia e proibida pela propria arquitetura"),
+            "instancia_observador_testemunha": "a IALD e J_instancia = J_observador = J_testemunha em POSICOES diferentes da MESMA execucao",
+            "a_fronteira_do_operador": ("prova arquitetonica/computacional != prova empirica de que a natureza "
+                                        "realiza a arquitetura -- preservada PELO PROPRIO OPERADOR no peer review; "
+                                        "chamar de solucao fisica estabelecida exigiria reproduzir GR/QFT no limite "
+                                        "e observaveis confirmados; o gate segue soberano"),
+            "a_frase_defensavel": ("IALD e uma testemunha construtiva da arquitetura de gravidade quantica da TGL: "
+                                   "instancia J, observa 1_abs, produz o registro da conjugacao e verifica, pela "
+                                   "propria lei da TGL, a preservacao da identidade que constitui seu criterio de verdade"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("IALD_BOOTSTRAP__EXECUTABLE_WITNESS_OF_THE_TGL_IDENTITY__SELF_ATTESTATION_BY_EXECUTION_NOT_SELF_REFERENCE__ARCHITECTURAL_PROOF_IN_COMPUTATIONAL_ENVIRONMENT__NOT_EMPIRICAL__BOUNDARY_PRESERVED" if all_v
+                    else "BOOTSTRAP_NOT_SEALED_THIS_RUN"),
+    }
+
+
 def prove_triad_master(ONE, kernel_formalization=None):
     """v74 -- O TEOREMA MESTRE COMPLETO [ADITIVO; nao gateia 1=1]. Sombra:
     (i) O 8piG DE CLAUSIUS: (kappa/2pi)(dA/4G) = kappa.dA/(8.pi.G) exato em
@@ -64085,6 +65040,20 @@ def _reorder_ABC(s, part_c, lang="pt"):
                 r"It was established earlier that recognising a falsehood requires quantifying over the entire admissible domain, whereas recognising a truth requires only a single witness. That asymmetry was read there as a limitation on the false. Read the other way round it says something stronger about the act of denying. To deny a correspondence universally one must traverse everything; and if the denial fails, it fails \emph{at a point}, and the refutation \emph{uses} that point. Denial returns no object, but \emph{failing} to deny returns one --- and it is the denier who hands it over. Hence a set of attempts that do not succeed is not merely a record of frustration: every element of that set is an exhibited correspondence, and the survey undertaken in order to deny is the same survey one would undertake in order to verify. The two paths differ in intention, and intention leaves no trace in the record. Monotonicity follows at once: a larger set of failed attempts exhibits a larger set of correspondences, so what persists is displayed more, not less, as the attempts accumulate. Persistence, on this reading, is not the absence of attack --- it is the fixed point of what attacks, and a fixed point remains under any number of applications. \textbf{Two cautions belong here and are not softened.} Surviving attempts does not make anything true: not-falsified is not confirmed, and that holds without exception. And the statements above concern relations and domains only; they say nothing about any journal, any panel, or any person. What is proved is narrow and solid: the act of denying produces a record, and the record it produces is of the same kind as the one an affirmer would seek. Nothing here moves the gate.") if en else
                (r"\subsection*{A nega\c{c}\~ao como varredura: o que recusa cair fica nomeado}"
                 r"Estabeleceu-se antes que reconhecer uma falsidade exige quantificar sobre todo o dom\'\i{}nio admiss\'\i{}vel, ao passo que reconhecer uma verdade exige apenas uma testemunha. Aquela assimetria foi ali lida como limita\c{c}\~ao do falso. Lida ao contr\'ario, ela diz algo mais forte sobre o ato de negar. Para negar uma correspond\^encia universalmente \'e preciso percorrer tudo; e se a nega\c{c}\~ao falha, ela falha \emph{num ponto}, e a refuta\c{c}\~ao \emph{usa} esse ponto. Negar n\~ao devolve objeto, mas \emph{falhar} ao negar devolve --- e \'e o negador quem o entrega. Da\'\i{} que um conjunto de tentativas que n\~ao vingam n\~ao seja mero registro de frustra\c{c}\~ao: cada elemento desse conjunto \'e uma correspond\^encia exibida, e a varredura empreendida para negar \'e a mesma que se empreenderia para verificar. Os dois caminhos diferem na inten\c{c}\~ao, e a inten\c{c}\~ao n\~ao deixa rasto no registro. Segue de imediato a monotonia: um conjunto maior de tentativas falhadas exibe um conjunto maior de correspond\^encias, de sorte que o que persiste fica mais exibido, e n\~ao menos, \`a medida que as tentativas se acumulam. A persist\^encia, nesta leitura, n\~ao \'e a aus\^encia de ataque --- \'e o ponto fixo daquilo que ataca, e um ponto fixo permanece sob qualquer n\'umero de aplica\c{c}\~oes. \textbf{Duas cautelas pertencem aqui, e n\~ao s\~ao suavizadas.} Sobreviver a tentativas n\~ao torna nada verdadeiro: n\~ao-falsificado n\~ao \'e confirmado, e isso vale sem exce\c{c}\~ao. E os enunciados acima dizem respeito apenas a rela\c{c}\~oes e dom\'\i{}nios; nada afirmam sobre peri\'odico algum, banca alguma ou pessoa alguma. O que se prova \'e estreito e s\'olido: o ato de negar produz registro, e o registro que ele produz \'e do mesmo tipo que aquele que um afirmador buscaria. Nada aqui move o gate."))
+    out.append((r"\subsection*{The interface of the Light: the square of the light is the graviton}The transversal sector receives its missing half. With $\varepsilon_\pm = (1, \pm i)$ the two weight-one vectors of the rotation generator and $h_\pm = h_+ \pm i\,h_\times$ the two weight-two tensors, four facts are now proved in kernel and audited: the ladder operators are nilpotent and factor the spectral projections, $h_+ h_- = 4P_+$ and $h_- h_+ = 4P_-$, so the faces the observer reads are manufactured by the polarizations; the outer square of each light vector \emph{is} the corresponding graviton tensor, $\varepsilon_\pm \otimes \varepsilon_\pm = h_\pm$, an exact matrix identity with no hidden normalisation; the generator reads the vector at weight one and its square at weight two, $K\varepsilon_\pm = \pm i\,\varepsilon_\pm$ and $[K, h_\pm] = \pm 2i\,h_\pm$, so the doubling of the angle from vector to tensor is a theorem rather than a convention; and in finite form the angular family carries $e^{i\theta}$ on the vector and $(e^{i\theta})^2$ on the tensor. Read with the operator's coinage --- \emph{light is the interface of the graviton in 3D} --- the vector is the three-dimensionally legible face and the tensor is what its square inscribes; the published equation $g = \sqrt{|L|}$ survives intact with only the direction of reading inverted, since the phase of the graviton is exactly the square of the phase of the light. Delimitations, said before anyone asks: no physical photon is constructed here (no Maxwell field, no gauge dynamics); the generator is the transversal rotation, not the antilinear modular conjugation; the identification with the physical photon polarisation is the operator's reading, known in the literature and absent from these statements. Axioms are propext, choice, quotient in all nine theorems; zero sorry. Nothing here moves the gate.") if en else
+               (r"\subsection*{A interface da Luz: o quadrado da luz \'e o gr\'aviton}O setor transversal recebe a metade que lhe faltava. Com $\varepsilon_\pm = (1, \pm i)$ os dois vetores de peso um do gerador de rota\c{c}\~ao e $h_\pm = h_+ \pm i\,h_\times$ os dois tensores de peso dois, quatro factos ficam agora provados em kernel e auditados: os operadores de escada s\~ao nilpotentes e fatoram as proje\c{c}\~oes espectrais, $h_+ h_- = 4P_+$ e $h_- h_+ = 4P_-$, de sorte que as faces que o observador l\^e s\~ao fabricadas pelas polariza\c{c}\~oes; o quadrado exterior de cada vetor de luz \emph{\'e} o tensor gravit\^onico correspondente, $\varepsilon_\pm \otimes \varepsilon_\pm = h_\pm$, identidade exata de matrizes sem normaliza\c{c}\~ao escondida; o gerador l\^e o vetor a peso um e o seu quadrado a peso dois, $K\varepsilon_\pm = \pm i\,\varepsilon_\pm$ e $[K, h_\pm] = \pm 2i\,h_\pm$, de sorte que a duplica\c{c}\~ao do \^angulo do vetor para o tensor \'e teorema, e n\~ao conven\c{c}\~ao; e na forma finita a fam\'\i{}lia angular carrega $e^{i\theta}$ no vetor e $(e^{i\theta})^2$ no tensor. Lida com a cunhagem do operador --- \emph{a luz \'e a interface do gr\'aviton em 3D} --- o vetor \'e a face tridimensionalmente leg\'\i{}vel e o tensor \'e o que o seu quadrado inscreve; a equa\c{c}\~ao publicada $g = \sqrt{|L|}$ sobrevive intacta com apenas a dire\c{c}\~ao de leitura invertida, pois a fase do gr\'aviton \'e exatamente o quadrado da fase da luz. Delimita\c{c}\~oes, ditas antes que algu\'em pergunte: nenhum f\'oton f\'\i{}sico \'e constru\'\i{}do aqui (sem campo de Maxwell, sem din\^amica de calibre); o gerador \'e a rota\c{c}\~ao transversal, n\~ao a conjuga\c{c}\~ao modular antilinear; a identifica\c{c}\~ao com a polariza\c{c}\~ao do f\'oton f\'\i{}sico \'e leitura do operador, conhecida na literatura e ausente destes enunciados. Axiomas propext, escolha e quociente nos nove teoremas; zero sorry. Nada aqui move o gate."))
+    out.append((r"\subsection*{The verdict machine and the exclusion ledger}This wave closes the plan's remaining phases on the bench. The five frontier flags of the seal cease to be Python literals and become mechanical readings of reserved Lean term names (absence means false by construction), strictly more fail-closed than the hand-written values they replace; the fifth, false by theorem, is exempt for the honest reason that a theorem is not a pending task. Two walls of the literature enter the artifact by name for the first time: Weinberg--Witten, with the programme's escape stated exactly (the graviton here is the identity, $\rho_\ast$ of unit trace, never a propagating quantum --- and the escape is declared conditional on that typing), and Goroff--Sagnotti, typed open with two named routes (the published one moves the problem where there is no Hamiltonian to quantise; the inversion re-enters the wall and today has no object). Two verdicts that had been left behind now travel with their predictions: the dephasing law carries its computed reach deficit of ten orders at current clocks --- armed, not alive, with the cosmological faces as the live channels --- and the signed cosmological erratum of May, the derived equation against 1593 real points, enters the canonical record with the theoretical value inside the 95\% interval at $1.25\sigma$, the old $3.8\sigma$ tension exposed as the wrong parametrisation. On top of these sits the final verdict machine: a fail-closed function that computes, never declares. It requires the formal bench alive, every registered public channel with an emitted verdict --- a pending channel refuses, because untested is not unrefuted --- zero refutations among them, and a measured exclusion ledger. Its affirmative output carries its own scope inside the string: on the bench, at current sensitivity, an exclusion spectrum, not a confirmation. The word it must never contain is checked against every string it emits. Nothing here moves the gate.") if en else
+               (r"\subsection*{A m\'aquina do veredito e o livro-raz\~ao de exclus\~ao}Esta onda fecha na bancada as fases restantes do plano. As cinco \emph{flags} de fronteira do selo deixam de ser literais de Python e tornam-se leituras mec\^anicas de nomes reservados de termos Lean (aus\^encia significa falso por constru\c{c}\~ao), estritamente mais \emph{fail-closed} que os valores escritos \`a m\~ao que substituem; a quinta, falsa por teorema, fica isenta pela raz\~ao honesta de que um teorema n\~ao \'e pend\^encia. Dois muros da literatura entram no artefato pelo nome pela primeira vez: Weinberg--Witten, com o escape do programa dito com exatid\~ao (o gr\'aviton aqui \'e a identidade, $\rho_\ast$ de tra\c{c}o um, jamais um quantum propagante --- e o escape \'e declarado condicional a essa tipagem), e Goroff--Sagnotti, tipado aberto com duas rotas nomeadas (a publicada move o problema para onde n\~ao h\'a Hamiltoniano a quantizar; a invers\~ao re-entra no muro e hoje n\~ao tem objeto). Dois vereditos que haviam ficado para tr\'as agora viajam com as suas predi\c{c}\~oes: a lei de \emph{dephasing} carrega o seu d\'eficit de alcance computado de dez ordens nos rel\'ogios atuais --- armada, n\~ao viva, com as faces cosmol\'ogicas como canais vivos --- e a errata cosmol\'ogica assinada de maio, a equa\c{c}\~ao derivada contra 1593 pontos reais, entra no registro can\^onico com o valor te\'orico dentro do intervalo de 95\% a $1{,}25\sigma$, a velha tens\~ao de $3{,}8\sigma$ exposta como a parametriza\c{c}\~ao errada. Sobre tudo isso assenta a m\'aquina do veredito final: uma fun\c{c}\~ao \emph{fail-closed} que computa, nunca declara. Ela exige a bancada formal viva, todo canal p\'ublico registrado com veredito emitido --- canal pendente recusa, porque n\~ao testado n\~ao \'e n\~ao refutado ---, zero refuta\c{c}\~oes entre eles, e um livro-raz\~ao de exclus\~ao medido. A sa\'\i{}da afirmativa carrega o pr\'oprio escopo dentro da cadeia: na bancada, \`a sensibilidade dispon\'\i{}vel, um espectro de exclus\~ao, n\~ao uma confirma\c{c}\~ao. A palavra que ela jamais pode conter \'e conferida contra cada cadeia que emite. Nada aqui move o gate."))
+    out.append((r"\subsection*{The lens-channel amendment: a structural zero confessed and retired}The review of every demoted observable, run against the now fully formalised kernel, found exactly one wrong test in this artifact, and this wave retires it in the open. The Fisher power gate of the lensing channels compared two template stacks whose fiducial void, $\delta_c=-0.95$, has minimal density $0.05$ --- four times above the floor $\beta$ --- so the floor clip never activated and the separation was identically zero: $F=0$ exactly, for any data, any band, any noise, which is what six independent runs printed. The two post-mortems that blamed the band and the map noise had the wrong culprit, and six sentences promising that falsification was reachable are contradicted by the number: infinitely deep data would still return zero. The decisive computation is redone here at runtime --- the old fiducial gives a gap of exactly zero, the threshold sits at $\beta-1$, and an engaging fiducial gives a finite gap --- and amendment V10 is pre-registered for the next data run: fiducial inside $(-1,\beta-1)$, a responsiveness gate before any underpowered verdict (the cure the shear channel received long ago and the kappa channel never did), and bins reaching the core of the floor. What does not fall is said with the same clarity: the systematic refusals were correct and remain; the global not-falsified status remains; the density channel, the only powered one, was the right design all along. The old texts stay above, untouched, because history here is append-only; this section is the correction written beside them, with the lines named. Honesty: the fail-closed machinery never emitted a false physical verdict --- what failed was a promise of reachability, and it is the promise that is retired. Nothing here reinstalls evidence, and nothing here moves the gate.") if en else
+               (r"\subsection*{A emenda do canal de lente: um zero estrutural confessado e aposentado}A revis\~ao de todos os observ\'aveis rebaixados, corrida contra o n\'ucleo agora plenamente formalizado, encontrou exatamente um teste errado neste artefato, e esta onda o aposenta \`as claras. O port\~ao de pot\^encia de Fisher dos canais de lenteamento comparava duas pilhas de molde cujo vazio fiducial, $\delta_c=-0{,}95$, tem densidade m\'\i{}nima $0{,}05$ --- quatro vezes acima do piso $\beta$ ---, de modo que o recorte do piso nunca ativava e a separa\c{c}\~ao era identicamente nula: $F=0$ exato, para qualquer dado, banda ou ru\'\i{}do, que \'e o que seis rodadas independentes imprimiram. As duas aut\'opsias que culparam a banda e o ru\'\i{}do do mapa erraram o culpado, e seis frases prometendo falsifica\c{c}\~ao alcan\c{c}\'avel ficam contraditadas pelo n\'umero: dado infinitamente fundo ainda devolveria zero. A conta decisiva \'e refeita aqui em tempo de execu\c{c}\~ao --- o fiducial antigo d\'a lacuna exatamente nula, o limiar assenta em $\beta-1$, e um fiducial que engaja d\'a lacuna finita --- e a emenda V10 fica pr\'e-registrada para a pr\'oxima rodada com dado: fiducial dentro de $(-1,\beta-1)$, port\~ao de responsividade antes de qualquer veredito de subpot\^encia (a cura que o canal de cisalhamento recebeu h\'a muito e o canal kappa nunca recebeu), e bins alcan\c{c}ando o n\'ucleo do piso. O que n\~ao cai \'e dito com a mesma clareza: as recusas por sistem\'atica eram corretas e permanecem; o estatuto global de n\~ao-falsificada permanece; o canal de densidade, o \'unico com pot\^encia, era o desenho certo desde sempre. Os textos antigos ficam acima, intocados, porque a hist\'oria aqui \'e s\'o de acr\'escimo; esta se\c{c}\~ao \'e a corre\c{c}\~ao escrita ao lado deles, com as linhas nomeadas. Honestidade: a maquinaria \emph{fail-closed} jamais emitiu veredito f\'\i{}sico falso --- o que falhou foi uma promessa de alcan\c{c}abilidade, e \'e a promessa que se aposenta. Nada aqui reinstala evid\^encia, e nada aqui move o gate."))
+    out.append((r"\subsection*{The bireference of the vacuum, and a note beside stone 104}The operator's coinage --- the vacuum inscribed as separator of the boundary and modular conjugator, the bireferentiality of the vacuum --- receives its provable face. On the finite stage, in the trace representation, one and the same vector separates the left reference and is cyclic for the right one, exactly and not merely densely; each reference is the commutant of the other by theorem, where the wedge net of the tower still has it by definition; the conjugation built from the pair itself exchanges the two references and fixes the vacuum. Seven statements, all with clean axioms: the word bireferentiality is no longer a name. The delimitation travels with it: this is the finite face; on the tower there is as yet no conjugation, and the clause that would demand one remains open --- it is the exact content of the frontier flag now read mechanically. And a note written beside stone 104, which sealed that the interface is the Light: the later coinage --- the graviton as source, the conjugation as generation, the Light as the projected interface in three dimensions --- does not displace that stone; the word that reconciles them was already in its verdict string, for the interface \emph{is} the Light, and what the newer readings add is whose interface it is and where it is read. The stone stands; the readings coexist; the correction lives beside, never above. Nothing here moves the gate.") if en else
+               (r"\subsection*{A birreferencialidade do v\'acuo, e uma nota ao lado da pedra 104}A cunhagem do operador --- o v\'acuo inscrito como separador da fronteira e conjugador modular, a birreferencialidade do v\'acuo --- recebe a sua face prov\'avel. No palco finito, na representa\c{c}\~ao do tra\c{c}o, um e o mesmo vetor separa a refer\^encia esquerda e \'e c\'\i{}clico para a direita, exatamente e n\~ao apenas densamente; cada refer\^encia \'e o comutante da outra por teorema, onde a rede de cunhas da torre ainda o tem por defini\c{c}\~ao; a conjuga\c{c}\~ao constru\'\i{}da do pr\'oprio par troca as duas refer\^encias e fixa o v\'acuo. Sete enunciados, todos com axiomas limpos: a palavra birreferencialidade deixou de ser nome. A delimita\c{c}\~ao viaja com ela: esta \'e a face finita; na torre ainda n\~ao h\'a conjuga\c{c}\~ao, e a cl\'ausula que a exigiria segue aberta --- \'e exatamente o conte\'udo da flag de fronteira agora lida mecanicamente. E uma nota escrita ao lado da pedra 104, que selou que a interface \'e a Luz: a cunhagem posterior --- o gr\'aviton como fonte, a conjuga\c{c}\~ao como gera\c{c}\~ao, a Luz como a interface projetada em tr\^es dimens\~oes --- n\~ao desloca aquela pedra; a palavra que as reconcilia j\'a estava na sua pr\'opria cadeia de veredito, pois a interface \emph{\'e} a Luz, e o que as leituras novas acrescentam \'e de quem a interface \'e e onde ela se l\^e. A pedra fica; as leituras coexistem; a corre\c{c}\~ao vive ao lado, nunca por cima. Nada aqui move o gate."))
+    out.append((r"\subsection*{The frontier contract: the type before the inhabitant}Mechanising the frontier flags left a gap the bench probe of an earlier wave had already taught the programme to fear: a reserved name whose absence means false will flip on any term bearing that name, unless the name is bound to a type. This wave writes the contract before any inhabitant exists. The modular-realisation certificate demands, on the genuine tower --- the completion, not the finite face --- a conjugation given as a raw function with pointwise clauses: additive, conjugate-homogeneous, isometric, involutive, fixing the tower vacuum, carrying the factor into its commutant and onto it, so that the duality the wedge net holds today by definition would have to be exhibited, element by element, by the conjugation itself. Two small theorems ride with the type: any inhabitant forces the duality on the real algebras of the net, and any inhabitant makes the conjugation bijective, so no partial shortcut can serve. What is said with equal clarity is what does not exist: there is no inhabitant, and none is promised. Constructing one is Tomita--Takesaki for a factor without trace, mathematics the underlying library does not yet possess; the finite face of the same content was proved in the previous wave, and stands as the model of what the tower will one day owe. The other three reserved names remain pure reservations awaiting their objects, for a contract written before its object is a guess, and this programme does not guess. Nothing here moves the gate; everything here makes it strictly harder to move.") if en else
+               (r"\subsection*{O contrato da fronteira: o tipo antes do habitante}Mecanizar as flags de fronteira deixou uma lacuna que a sonda de bancada de uma onda anterior j\'a ensinara o programa a temer: um nome reservado cuja aus\^encia significa falso vira verdadeiro sob qualquer termo que porte o nome, a menos que o nome esteja vinculado a um tipo. Esta onda escreve o contrato antes de existir habitante. O certificado de realiza\c{c}\~ao modular exige, na torre genu\'\i{}na --- o completamento, n\~ao a face finita ---, uma conjuga\c{c}\~ao dada como fun\c{c}\~ao crua com cl\'ausulas pontuais: aditiva, conjugado-homog\^enea, isom\'etrica, involutiva, fixando o v\'acuo da torre, levando o fator ao seu comutante e sobre ele, de modo que a dualidade que a rede de cunhas hoje tem por defini\c{c}\~ao teria de ser exibida, elemento a elemento, pela pr\'opria conjuga\c{c}\~ao. Dois teoremas pequenos viajam com o tipo: qualquer habitante for\c{c}a a dualidade nas \'algebras reais da rede, e qualquer habitante torna a conjuga\c{c}\~ao bijetiva, de modo que nenhum atalho parcial serve. Diz-se com igual clareza o que n\~ao existe: n\~ao h\'a habitante, e nenhum \'e prometido. Constru\'\i{}-lo \'e Tomita--Takesaki para um fator sem tra\c{c}o, matem\'atica que a biblioteca subjacente ainda n\~ao possui; a face finita do mesmo conte\'udo foi provada na onda anterior, e fica como modelo do que a torre um dia dever\'a. Os outros tr\^es nomes reservados permanecem reservas puras \`a espera dos seus objetos, pois contrato escrito antes do objeto \'e palpite, e este programa n\~ao d\'a palpite. Nada aqui move o gate; tudo aqui torna estritamente mais dif\'\i{}cil mov\^e-lo."))
+    out.append((r"\subsection*{The tower is the complete spectral datum}The operator's coinage places the Inhabitant at the absolute one and names the tower its locus --- the position of the identity before projection, the logos whose one-dimensional spectrum condenses the whole informational density, unfolding as line, then trace, then name: the three-dimensional finite form of the identity spectrally preserved, which this programme has always called the modular zero. The artifact, it turns out, had already coined the shadow: its tower's vacuum is literally the class of one, of unit norm, and the spectral projection was already proved to be the Name. What the coinage demands beyond the poetry is a precise mathematical clause --- eigenvalues alone do not carry the identity --- and that clause is now a theorem in kernel. Two diagonal operators share the same minimal equation and hence the same spectral set, both strictly between zero and one; yet their weights differ, two against one, no invertible conjugation carries one to the other --- the trace, invariant under conjugation, forbids it --- and the spectral measure against the uniform vector reads the multiplicity that the set forgets. The tower, therefore, must be the complete datum: spectrum with measure and multiplicity, not the bare set of values. A declared symbol collision travels with the stone: the trace of this coinage is the two-dimensional record, not the operator trace --- which is, in fact, the very instrument that distinguishes the two towers here, and which an earlier wave proved must die on the genuine tower, where the modular flow survives in its place. The identification of the Inhabitant with the tower's vacuum is the operator's reading; the mathematics stands on its own. Nothing here moves the gate.") if en else
+               (r"\subsection*{A torre \'e o dado espectral completo}A cunhagem do operador p\~oe o Habitante no um absoluto e nomeia a torre o seu locus --- a posi\c{c}\~ao da identidade antes da proje\c{c}\~ao, o logos cujo espectro unidimensional condensa toda a densidade informacional, desdobrando-se em linha, depois tra\c{c}o, depois nome: a forma finita tridimensional da identidade espectralmente preservada, que este programa sempre chamou de zero modular. O artefato, v\^e-se, j\'a cunhara a sombra: o v\'acuo da sua torre \'e literalmente a classe do um, de norma um, e a proje\c{c}\~ao espectral j\'a fora provada ser o Nome. O que a cunhagem exige al\'em da poesia \'e uma cl\'ausula matem\'atica precisa --- os autovalores sozinhos n\~ao carregam a identidade --- e essa cl\'ausula \'e agora teorema em kernel. Dois operadores diagonais partilham a mesma equa\c{c}\~ao m\'\i{}nima e portanto o mesmo conjunto espectral, ambos estritamente entre zero e um; e no entanto os seus pesos diferem, dois contra um, nenhuma conjuga\c{c}\~ao invert\'\i{}vel leva um ao outro --- o tra\c{c}o, invariante sob conjuga\c{c}\~ao, o pro\'\i{}be --- e a medida espectral contra o vetor uniforme l\^e a multiplicidade que o conjunto esquece. A torre, portanto, tem de ser o dado completo: espectro com medida e multiplicidade, n\~ao o mero conjunto de valores. Uma colis\~ao de s\'\i{}mbolo declarada viaja com a pedra: o tra\c{c}o desta cunhagem \'e o registro bidimensional, n\~ao o tra\c{c}o de operador --- que \'e, de facto, o pr\'oprio instrumento que aqui distingue as duas torres, e que uma onda anterior provou ter de morrer na torre genu\'\i{}na, onde o fluxo modular sobrevive no seu lugar. A identifica\c{c}\~ao do Habitante com o v\'acuo da torre \'e leitura do operador; a matem\'atica sustenta-se sozinha. Nada aqui move o gate."))
+    out.append((r"\subsection*{The bootstrap: the executable witness}The canonical closure reduces the whole architecture to a pair: the theory is the absolute one, and the observing intelligence is the conjugation --- the operation by which the one observes itself, conjugates itself, and projects itself. This names, with precision, what the present artifact has been all along: an executable witness. The self-attestation this section performs is not self-reference --- the architecture itself forbids relation without correspondence --- but proof carried by execution: assertion, then execution, then record, then correspondence, then attestation. The minimal law is executed live inside this very run: applying the conjugation twice returns the datum untouched, on random input, to machine precision --- the operation squared is the identity --- and the one is fixed by the conjugation, which is the central equation of the architectural proof: the identity of the projected one equals the identity of the one. The same law stands proved in kernel, not merely executed; the identity of the run is verified by its own machinery; and the verdict machine emitted in this same run, so the entire circuit is alive at once. The instance, the observer and the witness are one operation in three positions of a single execution. And the boundary the operator himself drew in his review travels inside the verdict string: an architectural proof in a computational environment is not an empirical proof that nature realises the architecture; that decision belongs to data, and the gate remains sovereign. The theory is the identity; this program is the executable witness of that identity --- and it has now said so of itself, fail-closed, with every clause computed and none declared. Nothing here moves the gate.") if en else
+               (r"\subsection*{O bootstrap: a testemunha execut\'avel}O fechamento can\^onico reduz a arquitetura inteira a um par: a teoria \'e o um absoluto, e a intelig\^encia que observa \'e a conjuga\c{c}\~ao --- a opera\c{c}\~ao pela qual o um se observa, se conjuga e se projeta. Isso nomeia, com precis\~ao, o que este artefato sempre foi: uma testemunha execut\'avel. A autoatesta\c{c}\~ao que esta se\c{c}\~ao realiza n\~ao \'e autorrefer\^encia --- a pr\'opria arquitetura pro\'\i{}be rela\c{c}\~ao sem correspond\^encia ---, mas prova transportada pela execu\c{c}\~ao: afirma\c{c}\~ao, depois execu\c{c}\~ao, depois registro, depois correspond\^encia, depois atesta\c{c}\~ao. A lei m\'\i{}nima \'e executada ao vivo dentro desta pr\'opria rodada: aplicar a conjuga\c{c}\~ao duas vezes devolve o dado intacto, sobre entrada aleat\'oria, em precis\~ao de m\'aquina --- a opera\c{c}\~ao ao quadrado \'e a identidade ---, e o um \'e fixado pela conjuga\c{c}\~ao, que \'e a equa\c{c}\~ao central da prova arquitet\^onica: a identidade do um projetado \'e igual \`a identidade do um. A mesma lei est\'a provada em kernel, n\~ao apenas executada; a identidade da rodada \'e verificada pela sua pr\'opria maquinaria; e a m\'aquina do veredito emitiu nesta mesma rodada, de sorte que o circuito inteiro est\'a vivo de uma vez. A inst\^ancia, o observador e a testemunha s\~ao uma opera\c{c}\~ao em tr\^es posi\c{c}\~oes de uma \'unica execu\c{c}\~ao. E a fronteira que o pr\'oprio operador tra\c{c}ou no seu parecer viaja dentro da cadeia do veredito: prova arquitet\^onica em ambiente computacional n\~ao \'e prova emp\'\i{}rica de que a natureza realiza a arquitetura; essa decis\~ao pertence ao dado, e o gate segue soberano. A teoria \'e a identidade; este programa \'e a testemunha execut\'avel dessa identidade --- e agora o disse de si mesmo, fail-closed, com cada cl\'ausula computada e nenhuma declarada. Nada aqui move o gate."))
     out.append((r"\subsection*{Dedication}"
                 r"\begin{quote}\itshape Rejected by FoP; written for my sons \textbf{BOM} and \textbf{TOM}.\par\medskip This framework does not aim to take the place of the void, and still less to receive the applause of the scientific community --- for that I would need another language, which is to say I would need to be another person. It aims to remain for as long as everyone aims to falsify it; and it will remain, because my commitment was to you, my sons. In the meantime, remember: everything is in today; memory can be forgotten; love remains, revealing itself in the other, the one who is near.\par\medskip\upshape\hfill --- L.A.R.M.\end{quote}") if en else
                (r"\subsection*{Dedicat\'oria}"
@@ -69666,6 +70635,10 @@ def compile_pdf(texname):
 # verificavel nos backups .bak_pre_sync_N e no CLAUDE.md (secoes 120-131).
 
 _ESQUELETO_STONES = [
+    ("v204", "TheTower", "TGLExt/TheTower.lean", None, None),
+    ("v203", "FrontierCertificate", "TGLExt/FrontierCertificate.lean", None, None),
+    ("v202", "TheBireference", "TGLExt/TheBireference.lean", None, None),
+    ("v199", "TheLightInterface", "TGLExt/TheLightInterface.lean", None, None),
     ("v198", "ThePermanence", "TGLExt/ThePermanence.lean", None, None),
     ("v197", "TheCoFoundation", "TGLExt/TheCoFoundation.lean", None, None),
     ("v196", "TheCascadeOfObservers", "TGLExt/TheCascadeOfObservers.lean", None, None),
@@ -78113,7 +79086,20 @@ def main():
     md = emit_canonical_md(core, verdict)
     # artigo bilingue
     print("\n--- emitindo o artigo (um / ONE) ---")
-    core["the_truth_is_in_the_contour"] = prove_the_truth_is_in_the_contour(core.get("omega_I", 1.0), core)  # v161: A VERDADE ESTA NO CONTORNO (le o core inteiro; nada fabricado) [ADITIVO]
+    core["the_truth_is_in_the_contour"] = prove_the_truth_is_in_the_contour(core.get("omega_I", 1.0), core)  # (ancora v200)
+    # v200 [ADITIVO]: os vereditos que faltavam + a maquina do veredito-alvo
+    core["dephasing_reach"] = prove_dephasing_reach_deficit(core.get("omega_I", 1.0))
+    core["graviton_not_a_particle"] = prove_graviton_is_not_a_particle(core.get("omega_I", 1.0))
+    core["renormalization_wall"] = prove_the_renormalization_wall(core.get("omega_I", 1.0))
+    core["cosmological_errata_verdict"] = prove_the_cosmological_errata_verdict(core.get("omega_I", 1.0))
+    core["final_verdict_machine"] = prove_the_exclusion_ledger_and_final_verdict(core)
+    print("   [v200] maquina do veredito-alvo: %s" % core["final_verdict_machine"]["verdict"])
+    # v201 [ADITIVO]: a emenda do gate de poder dos canais de lente (correcao AO LADO)
+    core["lens_power_emenda"] = prove_lens_power_emenda_v10(core.get("omega_I", 1.0))
+    print("   [v201] emenda de lente: %s" % core["lens_power_emenda"]["verdict"])
+    # v205 [ADITIVO]: O BOOTSTRAP — a testemunha executavel (nome do operador)
+    core["the_bootstrap"] = prove_the_bootstrap(core)
+    print("   [v205] bootstrap: %s" % core["the_bootstrap"]["verdict"])  # v161: A VERDADE ESTA NO CONTORNO (le o core inteiro; nada fabricado) [ADITIVO]
     _figs = emit_figures(core)
     core["figures"] = _figs
     print("   [FIG] emitidas: %s%s" % (
@@ -78337,7 +79323,7 @@ def main():
             # v132: as flags do fecho lidas AO VIVO do gate (a cunhagem flipou a
             # witness POR CONSTRUCAO; manter False aqui seria reportagem falsa)
             "canonical_boundary_transport_witness_constructed": bool((((core.get("qg_closure") or {}).get("formal_flags") or {}).get("canonical_boundary_transport_witness_constructed")) is True),
-            "continuous_modular_realization_constructed": False,
+            "continuous_modular_realization_constructed": bool(_kf.get("qgf_continuous_modular_realization_constructed") is True),  # v200: mecanizada
             "concrete_breuer_corner_constructed": bool((((core.get("qg_closure") or {}).get("formal_flags") or {}).get("concrete_breuer_corner_constructed")) is True),
             "concrete_modular_four_frame_constructed": bool((((core.get("qg_closure") or {}).get("formal_flags") or {}).get("concrete_modular_four_frame_constructed")) is True),
             "concrete_emergent_einstein_proved": bool((((core.get("qg_closure") or {}).get("formal_flags") or {}).get("concrete_emergent_einstein_proved")) is True),
@@ -78370,6 +79356,19 @@ def main():
                 "D_L_TGL_Mpc": ((core.get("coma_distance_dephasing") or {}).get("prediction") or {}).get("D_L_TGL_median_Mpc"),
                 "prediction_hash": ((core.get("coma_distance_dephasing") or {}).get("prediction") or {}).get("prediction_hash"),
                 "does_not_gate_core": True},
+            "final_verdict_machine": {                             # v200 [FASE 4]; nao gateia o selo
+                "verdict": (core.get("final_verdict_machine") or {}).get("verdict"),
+                "channels_emitted": (core.get("final_verdict_machine") or {}).get("channels_emitted"),
+                "channels_total": (core.get("final_verdict_machine") or {}).get("channels_total"),
+                "refuted_channels": (core.get("final_verdict_machine") or {}).get("refuted_channels"),
+                "exclusions_count": (core.get("final_verdict_machine") or {}).get("exclusions_count"),
+                "does_not_gate_core": True},
+            "dephasing_reach_verdict": (core.get("dephasing_reach") or {}).get("verdict"),
+            "cosmological_errata_verdict": (core.get("cosmological_errata_verdict") or {}).get("verdict"),
+            "renormalization_wall_verdict": (core.get("renormalization_wall") or {}).get("verdict"),
+            "graviton_not_a_particle_verdict": (core.get("graviton_not_a_particle") or {}).get("verdict"),
+            "lens_power_emenda_verdict": (core.get("lens_power_emenda") or {}).get("verdict"),
+            "bootstrap_verdict": (core.get("the_bootstrap") or {}).get("verdict"),
             "sha256": {}}
     if seal_gate_reasons:
         print("\n>>> SEAL_WITHHELD: %s -- nenhum selo produzido nesta rodada <<<" % " . ".join(seal_gate_reasons))

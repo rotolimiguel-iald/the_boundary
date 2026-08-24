@@ -158,3 +158,7 @@ import TGLExt.TheObserverReadsTheAngle
 import TGLExt.TheCascadeOfObservers
 import TGLExt.TheCoFoundation
 import TGLExt.ThePermanence
+import TGLExt.TheLightInterface
+import TGLExt.TheBireference
+import TGLExt.FrontierCertificate
+import TGLExt.TheTower
