@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/rodadas",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-25T11:56:10Z",
+  "gerado_utc": "2026-08-25T13:07:54Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -24,15 +24,25 @@
       "nome": "rodada_v206_stdout.txt",
       "caminho": "Um (absoluto) — Grande Atrator/rodadas/rodada_v206_stdout.txt",
       "papel": "dados",
-      "descricao": "Transcricao integral do stdout da rodada v206 -- o rito por extenso",
+      "descricao": "Dado ou saida de execucao",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v206_stdout.txt",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v206_stdout.txt",
       "sha256_16": "54fbfb3f631256b6",
       "bytes": 181108
+    },
+    {
+      "nome": "rodada_v212_stdout.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/rodadas/rodada_v212_stdout.txt",
+      "papel": "dados",
+      "descricao": "Transcricao integral do stdout da rodada v206 -- o rito por extenso",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v212_stdout.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v212_stdout.txt",
+      "sha256_16": "14b08a1374026a74",
+      "bytes": 181597
     }
   ],
-  "total_arquivos_nesta_pasta": 1,
-  "total_arquivos_com_subpastas": 1,
+  "total_arquivos_nesta_pasta": 2,
+  "total_arquivos_com_subpastas": 2,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas",
   "rodape": "gerado por script de git ls-files em 2026-08-25 -- nao editar a mao"
 }

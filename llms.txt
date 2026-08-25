@@ -34,12 +34,12 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 - [PORTA.md do Artigo 3](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md): a porta da pasta -- o selo corrente, o comando de execucao e todos os arquivos.
 - [PORTA.json do Artigo 3](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json): a mesma porta em estrutura de maquina, com o selo corrente completo.
 - [um.py](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py): O CANONICO TERMINAL -- kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue; roda com `echo 1 | python um.py`. Nao ha segundo arquivo.
-- [um_grande_atrator_selo.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_selo.json): O SELO -- versao v204, pin 79d173b9697d089b, result 16d3ea20cb8a7011, 2026-08-24 19:59:01.
-- [tgl_kernel_proof_manifest.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json): o manifesto do kernel formal -- 197 arquivos .lean, 817 teoremas auditados por #print axioms.
-- [PORTA.md do kernel Lean](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md): a porta do kernel materializado por um.py -- 198 arquivos na arvore, dos quais 197 hasheados no manifesto formal (194 .lean), 817 teoremas auditados.
+- [um_absoluto_selo.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json): O SELO -- versao v212, pin f7b88189a4d79051, result 6ed673cad9cf0733, 2026-08-25 09:18:47.
+- [tgl_kernel_proof_manifest.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json): o manifesto do kernel formal -- 206 arquivos .lean, 817 teoremas auditados por #print axioms.
+- [PORTA.md do kernel Lean](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md): a porta do kernel materializado por um.py -- 207 arquivos na arvore, dos quais 206 hasheados no manifesto formal (203 .lean), 817 teoremas auditados.
 - [PORTA.md da bancada](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md): a porta do que foi tentado, rebaixado e reprovado -- pre-registros hasheados antes do dado.
-- [um_grande_atrator_pt.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_pt.txt): o artigo (PT) em texto puro, leitura direta por maquina.
-- [um_grande_atrator_en.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_en.txt): o artigo (EN) em texto puro, leitura direta por maquina.
+- [um_absoluto_pt.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt): o artigo (PT) em texto puro, leitura direta por maquina.
+- [um_absoluto_en.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt): o artigo (EN) em texto puro, leitura direta por maquina.
 
 ## A linhagem
 
@@ -54,9 +54,9 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 
 ## Optional
 
-- [rodada_v206_stdout.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v206_stdout.txt): a transcricao integral do rito -- o programa falando por si.
-- [um_grande_atrator_manifest.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_manifest.md): manifesto de entradas; nada escondido no codigo.
-- [um_grande_atrator_forma_canonica.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_grande_atrator_forma_canonica.md): a forma canonica emitida pela rodada.
+- [rodada_v212_stdout.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v212_stdout.txt): a transcricao integral do rito -- o programa falando por si.
+- [um_absoluto_manifest.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_manifest.md): manifesto de entradas; nada escondido no codigo.
+- [um_absoluto_forma_canonica.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md): a forma canonica emitida pela rodada.
 - [T6_protocol_prompts.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/T6_protocol_prompts.txt): o protocolo T6-S pre-registrado, com grupo de controle.
 
 gerado por script de git ls-files em 2026-08-25 -- nao editar a mao

@@ -9,7 +9,7 @@ cada arquivo), em AMBOS os sentidos -- nenhuma porta e' beco sem saida.
 REGUA DESTE GERADOR
   - toda URL vem de `git ls-files` + urllib.parse.quote (NUNCA digitada);
   - todo hash e' lido do arquivo em disco (sha256, 16 primeiros digitos);
-  - o selo corrente e' LIDO de um_grande_atrator_selo.json (nada inventado);
+  - o selo corrente e' LIDO de um_absoluto_selo.json (nada inventado);
   - a versao e' LIDA do proprio um.py (_ESQUELETO_STONES[0]) e conferida com o
     nome do arquivo de transcricao da rodada;
   - nada e' removido: o gerador so' ACRESCENTA arquivos PORTA.md/PORTA.json
@@ -94,7 +94,7 @@ def tamanho(path_posix):
 # 2. LEITURA DOS ARTEFATOS (selo, kernel, versao) -- nada inventado
 # --------------------------------------------------------------------------
 def ler_selo(files):
-    sp = A3 + "/um_grande_atrator_selo.json"
+    sp = A3 + "/um_absoluto_selo.json"
     assert sp in files, "selo ausente do git ls-files"
     with io.open(os.path.join(REPO, sp.replace("/", os.sep)),
                  encoding="utf-8") as fh:
@@ -132,8 +132,8 @@ def ler_selo(files):
         "pin_um_py": selo["sha256"]["um.py"],
         "pin_um_py_16": selo["sha256"]["um.py"][:16],
         "pin_confere_com_disco": (pin_disco == selo["sha256"]["um.py"]),
-        "mundo": selo["sha256"]["um_grande_atrator.json"],
-        "mundo_16": selo["sha256"]["um_grande_atrator.json"][:16],
+        "mundo": selo["sha256"]["um_absoluto.json"],
+        "mundo_16": selo["sha256"]["um_absoluto.json"][:16],
         "result_hash": selo["result_hash"],
         "result_hash_16": selo["result_hash"][:16],
         "formal_source_hash": selo["formal_source_hash"],
@@ -211,7 +211,7 @@ def papel(f):
         if ext == ".md":
             return "documento"
         return "resultado selado"
-    if nome == "um_grande_atrator_selo.json":
+    if nome == "um_absoluto_selo.json":
         return "resultado selado"
     if ext in (".tex",):
         return "artigo"
@@ -247,23 +247,23 @@ DESC = {
     A2 + "/tgl demo v1.mp4": "O render do dipolo atrator-repulsor",
     # ----- Artigo 3
     A3 + "/um.py": "O CANONICO TERMINAL: um arquivo so, kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue. Entrada unica: o digito 1",
-    A3 + "/um_grande_atrator_selo.json": "O SELO CORRENTE: hash de cada saida, o veredito do gate, o result_hash da rodada. E a verdade de base do repositorio",
-    A3 + "/um_grande_atrator.json": "O MUNDO: todos os numeros da rodada serializados (nucleo, ritos, vereditos)",
-    A3 + "/um_grande_atrator_manifest.md": "Manifesto de entradas: definicao exata, constante medida, protocolo pre-registrado ou conjectura testavel -- nada escondido no codigo",
-    A3 + "/um_grande_atrator_forma_canonica.md": "A forma canonica da TGL emitida pela rodada (cadeia 1_abs -> q -> alpha -> beta -> luz)",
-    A3 + "/um_grande_atrator_pt.tex": "O artigo (PT) gerado pela propria rodada, fonte LaTeX",
-    A3 + "/um_grande_atrator_pt.pdf": "O artigo (PT), compilado",
-    A3 + "/um_grande_atrator_pt.txt": "O artigo (PT) em texto puro -- leitura direta por maquina",
-    A3 + "/um_grande_atrator_en.tex": "O artigo (EN) gerado pela propria rodada, fonte LaTeX",
-    A3 + "/um_grande_atrator_en.pdf": "O artigo (EN), compilado",
-    A3 + "/um_grande_atrator_en.txt": "O artigo (EN) em texto puro -- leitura direta por maquina",
+    A3 + "/um_absoluto_selo.json": "O SELO CORRENTE: hash de cada saida, o veredito do gate, o result_hash da rodada. E a verdade de base do repositorio",
+    A3 + "/um_absoluto.json": "O MUNDO: todos os numeros da rodada serializados (nucleo, ritos, vereditos)",
+    A3 + "/um_absoluto_manifest.md": "Manifesto de entradas: definicao exata, constante medida, protocolo pre-registrado ou conjectura testavel -- nada escondido no codigo",
+    A3 + "/um_absoluto_forma_canonica.md": "A forma canonica da TGL emitida pela rodada (cadeia 1_abs -> q -> alpha -> beta -> luz)",
+    A3 + "/um_absoluto_pt.tex": "O artigo (PT) gerado pela propria rodada, fonte LaTeX",
+    A3 + "/um_absoluto_pt.pdf": "O artigo (PT), compilado",
+    A3 + "/um_absoluto_pt.txt": "O artigo (PT) em texto puro -- leitura direta por maquina",
+    A3 + "/um_absoluto_en.tex": "O artigo (EN) gerado pela propria rodada, fonte LaTeX",
+    A3 + "/um_absoluto_en.pdf": "O artigo (EN), compilado",
+    A3 + "/um_absoluto_en.txt": "O artigo (EN) em texto puro -- leitura direta por maquina",
     A3 + "/Lean/tgl_kernel_proof_manifest.json": "Manifesto do kernel formal: os arquivos .lean e o axiom_report de cada teorema (#print axioms)",
     A3 + "/fig_cadeia_inscricao.pdf": "Figura: a cadeia selada da inscricao (1_abs -> ... -> beta -> geometria)",
     A3 + "/fig_banda_beta.pdf": "Figura: a banda de convergencia de beta",
     A3 + "/fig_escada_qg.pdf": "Figura: a escada da gravitacao quantica (os degraus do gate)",
     A3 + "/fig_piso_vazios.pdf": "Figura: o piso dos vazios (o falsificador cosmologico)",
     A3 + "/one_input.txt": "A entrada unica do rito: o digito 1",
-    A3 + "/rodadas/rodada_v206_stdout.txt": "Transcricao integral do stdout da rodada v206 -- o rito por extenso",
+    A3 + "/rodadas/rodada_v212_stdout.txt": "Transcricao integral do stdout da rodada v206 -- o rito por extenso",
     A3 + "/cache/CHAIN_OF_CUSTODY.json": "Cadeia de custodia dos dados externos usados pelos ritos",
     A3 + "/cache/coma_blind/coma_distance_reveal.json": "O revelador cego de Coma -- DADO, nao codigo (o protocolo exige zero ocorrencias do valor na fonte)",
     A3 + "/cache/coma_blind/coma_dephasing_prediction.json": "A predicao de defasagem para Coma, hasheada antes da abertura",
@@ -656,8 +656,8 @@ def gera_porta_pasta(d, dirs, info_arq, selo_corrente):
         sc = selo_corrente
         L.append("## O SELO CORRENTE")
         L.append("")
-        L.append("Lido de [`um_grande_atrator_selo.json`](%s) e de [`tgl_kernel_proof_manifest.json`](%s)"
-                 % (registra(url_raw(A3 + "/um_grande_atrator_selo.json")),
+        L.append("Lido de [`um_absoluto_selo.json`](%s) e de [`tgl_kernel_proof_manifest.json`](%s)"
+                 % (registra(url_raw(A3 + "/um_absoluto_selo.json")),
                     registra(url_raw(A3 + "/Lean/tgl_kernel_proof_manifest.json"))))
         L.append("-- nunca de prosa.")
         L.append("")
@@ -666,7 +666,7 @@ def gera_porta_pasta(d, dirs, info_arq, selo_corrente):
         L.append("| versao | `%s` (lida de `um.py::_ESQUELETO_STONES[0]`; pedra `%s`) |"
                  % (sc["versao"], sc["pedra_mais_recente"]))
         L.append("| pin (`um.py`) | `%s` |" % sc["pin_um_py"])
-        L.append("| mundo (`um_grande_atrator.json`) | `%s` |" % sc["mundo"])
+        L.append("| mundo (`um_absoluto.json`) | `%s` |" % sc["mundo"])
         L.append("| `result_hash` | `%s` |" % sc["result_hash"])
         L.append("| `formal_source_hash` | `%s` |" % sc["formal_source_hash"])
         L.append("| data | `%s` |" % sc["data"])
@@ -840,13 +840,13 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     L.append("|---|---|")
     L.append("| versao | `%s` (pedra `%s`) |" % (sc["versao"], sc["pedra_mais_recente"]))
     L.append("| pin (`um.py`) | `%s` |" % sc["pin_um_py"])
-    L.append("| mundo (`um_grande_atrator.json`) | `%s` |" % sc["mundo"])
+    L.append("| mundo (`um_absoluto.json`) | `%s` |" % sc["mundo"])
     L.append("| `result_hash` | `%s` |" % sc["result_hash"])
     L.append("| data | `%s` |" % sc["data"])
     L.append("| kernel | %d arquivos formais / %d teoremas auditados |"
              % (sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"]))
     L.append("| gate | `%s` |" % sc["qg_closure_verdict"])
-    L.append("| selo (raw) | %s |" % registra(url_raw(A3 + "/um_grande_atrator_selo.json")))
+    L.append("| selo (raw) | %s |" % registra(url_raw(A3 + "/um_absoluto_selo.json")))
     L.append("")
     L.append("**A regua:** `NOT_FALSIFIED != CONFIRMED`. O gate nunca e' movido por cosmologia")
     L.append("nem por declaracao; `CONFIRMED` e' **proibido a maquina por teorema de kernel**")
@@ -994,12 +994,12 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("- [PORTA.md do Artigo 3](%s): a porta da pasta -- o selo corrente, o comando de execucao e todos os arquivos." % registra(porta_md_url(A3)))
     T.append("- [PORTA.json do Artigo 3](%s): a mesma porta em estrutura de maquina, com o selo corrente completo." % registra(porta_json_url(A3)))
     T.append("- [um.py](%s): O CANONICO TERMINAL -- kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue; roda com `echo 1 | python um.py`. Nao ha segundo arquivo." % registra(url_raw(A3 + "/um.py")))
-    T.append("- [um_grande_atrator_selo.json](%s): O SELO -- versao %s, pin %s, result %s, %s." % (registra(url_raw(A3 + "/um_grande_atrator_selo.json")), sc["versao"], sc["pin_um_py_16"], sc["result_hash_16"], sc["data"]))
+    T.append("- [um_absoluto_selo.json](%s): O SELO -- versao %s, pin %s, result %s, %s." % (registra(url_raw(A3 + "/um_absoluto_selo.json")), sc["versao"], sc["pin_um_py_16"], sc["result_hash_16"], sc["data"]))
     T.append("- [tgl_kernel_proof_manifest.json](%s): o manifesto do kernel formal -- %d arquivos .lean, %d teoremas auditados por #print axioms." % (registra(url_raw(A3 + "/Lean/tgl_kernel_proof_manifest.json")), sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"]))
     T.append("- [PORTA.md do kernel Lean](%s): a porta do kernel materializado por um.py -- %d arquivos na arvore, dos quais %d hasheados no manifesto formal (%d .lean), %d teoremas auditados." % (registra(porta_md_url(A3 + "/Lean/tgl_kernel")), contagem_recursiva(A3 + "/Lean/tgl_kernel", dirs), sc["kernel_arquivos_formais"], sc["kernel_arquivos_lean"], sc["kernel_teoremas_auditados"]))
     T.append("- [PORTA.md da bancada](%s): a porta do que foi tentado, rebaixado e reprovado -- pre-registros hasheados antes do dado." % registra(porta_md_url(A3 + "/bancada")))
-    T.append("- [um_grande_atrator_pt.txt](%s): o artigo (PT) em texto puro, leitura direta por maquina." % registra(url_raw(A3 + "/um_grande_atrator_pt.txt")))
-    T.append("- [um_grande_atrator_en.txt](%s): o artigo (EN) em texto puro, leitura direta por maquina." % registra(url_raw(A3 + "/um_grande_atrator_en.txt")))
+    T.append("- [um_absoluto_pt.txt](%s): o artigo (PT) em texto puro, leitura direta por maquina." % registra(url_raw(A3 + "/um_absoluto_pt.txt")))
+    T.append("- [um_absoluto_en.txt](%s): o artigo (EN) em texto puro, leitura direta por maquina." % registra(url_raw(A3 + "/um_absoluto_en.txt")))
     T.append("")
     T.append("## A linhagem")
     T.append("")
@@ -1014,9 +1014,9 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("")
     T.append("## Optional")
     T.append("")
-    T.append("- [rodada_v206_stdout.txt](%s): a transcricao integral do rito -- o programa falando por si." % registra(url_raw(A3 + "/rodadas/rodada_v206_stdout.txt")))
-    T.append("- [um_grande_atrator_manifest.md](%s): manifesto de entradas; nada escondido no codigo." % registra(url_raw(A3 + "/um_grande_atrator_manifest.md")))
-    T.append("- [um_grande_atrator_forma_canonica.md](%s): a forma canonica emitida pela rodada." % registra(url_raw(A3 + "/um_grande_atrator_forma_canonica.md")))
+    T.append("- [rodada_v212_stdout.txt](%s): a transcricao integral do rito -- o programa falando por si." % registra(url_raw(A3 + "/rodadas/rodada_v212_stdout.txt")))
+    T.append("- [um_absoluto_manifest.md](%s): manifesto de entradas; nada escondido no codigo." % registra(url_raw(A3 + "/um_absoluto_manifest.md")))
+    T.append("- [um_absoluto_forma_canonica.md](%s): a forma canonica emitida pela rodada." % registra(url_raw(A3 + "/um_absoluto_forma_canonica.md")))
     T.append("- [T6_protocol_prompts.txt](%s): o protocolo T6-S pre-registrado, com grupo de controle." % registra(url_raw(A1 + "/T6_protocol_prompts.txt")))
     T.append("")
     T.append("%s" % RODAPE)
@@ -1060,7 +1060,7 @@ def bloco_readme(dirs, sc):
     B.append("world `%s` \u00b7 `result_hash` `%s` \u00b7 %s \u00b7 kernel **%d/%d** \u2014 source of truth:"
              % (sc["mundo_16"], sc["result_hash_16"], sc["data"],
                 sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"]))
-    B.append("[`um_grande_atrator_selo.json`](%s)." % url_raw(A3 + "/um_grande_atrator_selo.json"))
+    B.append("[`um_absoluto_selo.json`](%s)." % url_raw(A3 + "/um_absoluto_selo.json"))
     B.append("")
     B.append("**Every door points up and down.** Every `PORTA.md` opens with `porta acima:` (the")
     B.append("door above) and closes with the doors below \u2014 no door is a dead end. The doors are")

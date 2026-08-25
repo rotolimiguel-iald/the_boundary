@@ -22,7 +22,7 @@ As validacoes cosmologicas sucessivas (v6.2, v6.5, v22, v23) e seus resultados.
 
 ## OS ARQUIVOS DESTA PASTA
 
-10 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica
+11 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica
 
 **CODIGO**
 
@@ -42,6 +42,12 @@ As validacoes cosmologicas sucessivas (v6.2, v6.5, v22, v23) e seus resultados.
 | `tgl_validation_v6_summary_20260203_172853.json` | Resultado do protocolo homonimo da linhagem | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/tgl_validation_v6_summary_20260203_172853.json) |
 | `unification_v1.4_20260218_160551.json` | Resultado do protocolo homonimo da linhagem | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/unification_v1.4_20260218_160551.json) |
 | `validation_v8.json` | Resultado do protocolo homonimo da linhagem | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/validation_v8.json) |
+
+**DOCUMENTO**
+
+| arquivo | papel | link raw direto |
+|---|---|---|
+| `RETRATACAO_v22_v23.md` | Documento da linhagem | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/RETRATACAO_v22_v23.md) |
 
 **DADOS**
 

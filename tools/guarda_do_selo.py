@@ -31,7 +31,8 @@ def sha256(p: Path) -> str:
 
 def main() -> int:
     erros = 0
-    selos = sorted(RAIZ.rglob("um_grande_atrator_selo.json"))
+    selos = sorted(RAIZ.rglob("um_grande_atrator_selo.json")) + sorted(
+        RAIZ.rglob("um_absoluto_selo.json"))  # renome v209: os dois nomes valem
     if not selos:
         print("nenhum selo encontrado — nada a conferir")
         return 0

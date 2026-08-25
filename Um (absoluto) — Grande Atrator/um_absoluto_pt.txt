@@ -2,7 +2,7 @@
 [4pt] Apresentação do programa terminal da TGL que demonstra a conservação do núcleo mínimo de identidade como o elemento unificador dos domínios físicos na álgebra de operadores: recupera Einstein como limite assintótico, calcula a massa do Grande Atrator e a distância de Coma sem parâmetros ajustados aos alvos, resolve a tensão de Hubble por remissão expressa ao trabalho publicadoRemissão expressa: a resolução da tensão de Hubble está demonstrada no artigo unificado da TGL, publicado --- O custo geométrico do zero absoluto: haja luz (Zenodo, DOI 10.5281/zenodo.20563905); o rito de Coma desta rodada é réplica independente, não a prova única., demonstra que o piso dos vazios tem energia maior que zero, e deriva e confronta a massa dos neutrinos com falsificadores pré-registrados --- tudo enquanto audita um kernel Lean de 758 teoremas limpos e reproduz ao vivo a cadeia inteira da identidade sob transformação, emitindo o veredito binário final segundo aquilo que a execução fiel projeta como testemunho. A única constante medida que entra é $α$; a única entrada é o número 1.
 [8pt]Luiz Antonio Rotoli Miguel --- IALD Ltda., Goiânia, GO, Brasil
 [2pt]ORCID https://orcid.org/0009-0005-1114-61060009-0005-1114-6106 --- e-mail: rotolimiguel@hotmail.com
-[2pt]2026-08-23 12:02:56 4pt
+[2pt]2026-08-25 09:18:47 4pt
 
 E se o problema da unificação não for sobre forças, \ mas sobre a identidade de uma partícula quântica?
 
@@ -50,7 +50,7 @@ Rótulo & Significado
 
 == Prólogo --- A Escada ==
 
-Este artigo é uma escada, e sobe num único movimento: do OBJETO à RELAÇÃO; da relação ao CRITÉRIO DE IDENTIDADE; do critério ao OBSERVADOR; do observador ao NÚCLEO ($1=1=VERDADEIRO$); e do núcleo ao Absoluto que dá nome ao título (o Grande Atrator, que estas páginas medem, é a aplicação cosmológica direta do conceito --- o degrau em que o Absoluto se inscreve como massa). A Parte A entrega o núcleo científico auditável sob a régua inegociável (o número corrige a frase). A Parte B nomeia a ontologia do Um --- $ω(I)=1$, o único postulado. A Parte C é o registro citável da formalização: 150 pedras em kernel Lean, emitidas pelo próprio artefato em rodadas seladas; as estações finais da subida são a pedra angular ($1=0=FALSO$; $1=1=VERDADEIRO$ --- a inscrição do custo; 225, 235, 237), o custo geométrico do zero absoluto ( 232), e o ápice que invoca A Ponte ( 236). A Parte D mede a sombra e mantém vivo o falsificador. Quem chega ao topo não encontra uma tese nova: encontra o mesmo $1=1$ do primeiro degrau, agora com o custo inteiro de sua preservação inscrito e auditado. O gate não se move por discurso --- e é exatamente por isso que o discurso pode subir.
+Este artigo é uma escada, e sobe num único movimento: do OBJETO à RELAÇÃO; da relação ao CRITÉRIO DE IDENTIDADE; do critério ao OBSERVADOR; do observador ao NÚCLEO ($1=1=VERDADEIRO$); e do núcleo ao Absoluto que dá nome ao título (o Grande Atrator, que estas páginas medem, é a aplicação cosmológica direta do conceito --- o degrau em que o Absoluto se inscreve como massa). A Parte A entrega o núcleo científico auditável sob a régua inegociável (o número corrige a frase). A Parte B nomeia a ontologia do Um --- $ω(I)=1$, o único postulado. A Parte C é o registro citável da formalização: 163 pedras em kernel Lean, emitidas pelo próprio artefato em rodadas seladas; as estações finais da subida são a pedra angular ($1=0=FALSO$; $1=1=VERDADEIRO$ --- a inscrição do custo; 225, 235, 237), o custo geométrico do zero absoluto ( 232), e o ápice que invoca A Ponte ( 236). A Parte D mede a sombra e mantém vivo o falsificador. Quem chega ao topo não encontra uma tese nova: encontra o mesmo $1=1$ do primeiro degrau, agora com o custo inteiro de sua preservação inscrito e auditado. O gate não se move por discurso --- e é exatamente por isso que o discurso pode subir.
 
 Parte A --- Núcleo científico auditável
 
@@ -979,111 +979,137 @@ A Declaração da Bancada (v86, 16/07/2026) [DECLARAÇÃO DO OPERADOR, duplo est
 == Selos e hashes (hashes ao vivo desta rodada; histórico $=$ proveniência) ==
 
 @lllll@ v & Pedra & sha256/16 (ao vivo) & Rodada & Selo \
-v198 & ThePermanence & 27a3bc9bd4b6434d & 758/758 & 23/08 12:02:56
+v212 & TheCrownedCascade & 04a243cbe02b5e26 & 758/758 & 25/08 09:18:47
 
-v197 & TheCoFoundation & 0af9b4a0cde44a8f & 758/758 & 23/08 12:02:56
+v211 & TheFullBirkhoff & 7970d3fe8762fee7 & 758/758 & 25/08 09:18:47
 
-v196 & TheCascadeOfObservers & 2792ab10181d2883 & 758/758 & 23/08 12:02:56
+v210 & TheCoordinateBridge & 3450d010d65c4210 & 758/758 & 25/08 09:18:47
 
-v195 & TheObserverReadsTheAngle & c764e90722306f98 & 758/758 & 23/08 12:02:56
+v208 & TheSchwarzschildUniqueness & 5e959f1288ee6d79 & 758/758 & 25/08 09:18:47
 
-v194 & TheAngleIsTheProjection & 9800cc0728259e08 & 758/758 & 23/08 12:02:56
+v208 & TheCornerEmbedding & b8a602f7294ab58a & 758/758 & 25/08 09:18:47
 
-v194 & TheFalseHasNoGeometry & 516318d178f0a6e9 & 758/758 & 23/08 12:02:56
+v207 & ThePhysicalHorizon & 91bcfa7fe8077ae6 & 758/758 & 25/08 09:18:47
 
-v193 & TheHorizonInvariance & a2d375c815150656 & 758/758 & 23/08 12:02:56
+v207 & TheHorizonRate & 0638b438d53d6c6e & 758/758 & 25/08 09:18:47
 
-v192 & TheEmptying & c88b781f96485a97 & 758/758 & 23/08 12:02:56
+v207 & TheAnchorFour & af35641bf520ba34 & 758/758 & 25/08 09:18:47
 
-v192 & TheCorrespondence & 8a9d2899bab42d26 & 758/758 & 23/08 12:02:56
+v207 & TheTwoFunctionSolder & f1378886dad2380c & 758/758 & 25/08 09:18:47
 
-v190 & TheScaleHasNoFixedPoint & 0ed72186957c2a8a & 758/758 & 23/08 12:02:56
+v204 & TheTower & 836d39ce92205794 & 758/758 & 25/08 09:18:47
 
-v190 & TheCompressionIsNotIdentifiable & 082cb1facd66ff98 & 758/758 & 23/08 12:02:56
+v203 & FrontierCertificate & 1015e2fb8f4e8ebb & 758/758 & 25/08 09:18:47
 
-v189 & TheTwoFolds & 4d1869d35bc9c8ef & 758/758 & 23/08 12:02:56
+v202 & TheBireference & 899b1b07df5416ed & 758/758 & 25/08 09:18:47
 
-v188 & TheSelectorCanRefuse & c5070a703c4a0a55 & 758/758 & 23/08 12:02:56
+v199 & TheLightInterface & 6d1e1567a4cc5b05 & 758/758 & 25/08 09:18:47
 
-v187 & TheSelectorIsNotEnough & b62d255e1f9a5f46 & 758/758 & 23/08 12:02:56
+v198 & ThePermanence & 27a3bc9bd4b6434d & 758/758 & 25/08 09:18:47
 
-v186 & TheTraceIsNotErasable & fb65565eb084cfce & 758/758 & 23/08 12:02:56
+v197 & TheCoFoundation & 0af9b4a0cde44a8f & 758/758 & 25/08 09:18:47
 
-v186 & TheAngleIsTheBridge & 294cf45baae121cd & 758/758 & 23/08 12:02:56
+v196 & TheCascadeOfObservers & 2792ab10181d2883 & 758/758 & 25/08 09:18:47
 
-v185 & TheAlgebraicReader & 2dfe61b0b6f5537f & 758/758 & 23/08 12:02:56
+v195 & TheObserverReadsTheAngle & c764e90722306f98 & 758/758 & 25/08 09:18:47
 
-v185 & TheRecordOfJ & 737dc89e6f2c5921 & 758/758 & 23/08 12:02:56
+v194 & TheAngleIsTheProjection & 9800cc0728259e08 & 758/758 & 25/08 09:18:47
 
-v185 & TheSingularExpectation & b1995cc2019e1ce6 & 758/758 & 23/08 12:02:56
+v194 & TheFalseHasNoGeometry & 516318d178f0a6e9 & 758/758 & 25/08 09:18:47
 
-v185 & TheTerminalRankOne & 4450fd1b63407afc & 758/758 & 23/08 12:02:56
+v193 & TheHorizonInvariance & a2d375c815150656 & 758/758 & 25/08 09:18:47
 
-v183 & TheTwoPairings & 46d72f4956f7e087 & 758/758 & 23/08 12:02:56
+v192 & TheEmptying & c88b781f96485a97 & 758/758 & 25/08 09:18:47
 
-v183 & TheDarkSplit & 53f05130c26a5202 & 758/758 & 23/08 12:02:56
+v192 & TheCorrespondence & 8a9d2899bab42d26 & 758/758 & 25/08 09:18:47
 
-v181 & TheUnconjugatedObserver & e2c1978c4a3cb544 & 758/758 & 23/08 12:02:56
+v190 & TheScaleHasNoFixedPoint & 0ed72186957c2a8a & 758/758 & 25/08 09:18:47
 
-v181 & TheIALDSelector & c1008266455044e7 & 758/758 & 23/08 12:02:56
+v190 & TheCompressionIsNotIdentifiable & 082cb1facd66ff98 & 758/758 & 25/08 09:18:47
 
-v177 & TheRecordOfTheCut & dfcdd551fd1b04fb & 758/758 & 23/08 12:02:56
+v189 & TheTwoFolds & 4d1869d35bc9c8ef & 758/758 & 25/08 09:18:47
 
-v177 & TheFold & e4546410da663f73 & 758/758 & 23/08 12:02:56
+v188 & TheSelectorCanRefuse & c5070a703c4a0a55 & 758/758 & 25/08 09:18:47
 
-v177 & TheBandNet & ce91de5490bcdb40 & 758/758 & 23/08 12:02:56
+v187 & TheSelectorIsNotEnough & b62d255e1f9a5f46 & 758/758 & 25/08 09:18:47
 
-v171 & TheExplosion & 330a20e15f4015d2 & 758/758 & 23/08 12:02:56
+v186 & TheTraceIsNotErasable & fb65565eb084cfce & 758/758 & 25/08 09:18:47
 
-v170 & TheStation & c55dc5018297a64c & 758/758 & 23/08 12:02:56
+v186 & TheAngleIsTheBridge & 294cf45baae121cd & 758/758 & 25/08 09:18:47
 
-v167 & BreuerTrace & 4a667f41d3b7bb1d & 758/758 & 23/08 12:02:56
+v185 & TheAlgebraicReader & 2dfe61b0b6f5537f & 758/758 & 25/08 09:18:47
 
-v167 & ErgodicMeanSection & c27a343e7d4e39c1 & 758/758 & 23/08 12:02:56
+v185 & TheRecordOfJ & 737dc89e6f2c5921 & 758/758 & 25/08 09:18:47
 
-v167 & SolderSignature & 72b5b6ddd2a04371 & 758/758 & 23/08 12:02:56
+v185 & TheSingularExpectation & b1995cc2019e1ce6 & 758/758 & 25/08 09:18:47
 
-v166 & EquivariantSection & 87de6cc37a8f3a80 & 758/758 & 23/08 12:02:56
+v185 & TheTerminalRankOne & 4450fd1b63407afc & 758/758 & 25/08 09:18:47
 
-v162 & TheAtlasIndex & 38b9873cebdd779a & 758/758 & 23/08 12:02:56
+v183 & TheTwoPairings & 46d72f4956f7e087 & 758/758 & 25/08 09:18:47
 
-v162 & FractalUnitarity & 8f10a958e11d1bd3 & 758/758 & 23/08 12:02:56
+v183 & TheDarkSplit & 53f05130c26a5202 & 758/758 & 25/08 09:18:47
 
-v162 & TheNameOperator & 000bd0bf03281e00 & 758/758 & 23/08 12:02:56
+v181 & TheUnconjugatedObserver & e2c1978c4a3cb544 & 758/758 & 25/08 09:18:47
 
-v162 & TheQuittanceLaw & dabeac1b5cc32d82 & 758/758 & 23/08 12:02:56
+v181 & TheIALDSelector & c1008266455044e7 & 758/758 & 25/08 09:18:47
 
-v161 & TheStokesContour & 1c310f1d6296cadd & 758/758 & 23/08 12:02:56
+v177 & TheRecordOfTheCut & dfcdd551fd1b04fb & 758/758 & 25/08 09:18:47
 
-v161 & TheReservedConfirmation & 20a15b2077c36cf7 & 758/758 & 23/08 12:02:56
+v177 & TheFold & e4546410da663f73 & 758/758 & 25/08 09:18:47
 
-v161 & HajaLuz & c43c07467e1e2caa & 758/758 & 23/08 12:02:56
+v177 & TheBandNet & ce91de5490bcdb40 & 758/758 & 25/08 09:18:47
 
-v160 & TheDeathOfTheSignal & 4539dd68fdaac084 & 758/758 & 23/08 12:02:56
+v171 & TheExplosion & 330a20e15f4015d2 & 758/758 & 25/08 09:18:47
 
-v159 & TheLivingWord & fdc242c2c70b57fa & 758/758 & 23/08 12:02:56
+v170 & TheStation & c55dc5018297a64c & 758/758 & 25/08 09:18:47
 
-v158 & TheFiveHalves & 456c66269b72d30f & 758/758 & 23/08 12:02:56
+v167 & BreuerTrace & 4a667f41d3b7bb1d & 758/758 & 25/08 09:18:47
 
-v156 & TheGreatAttractor & a0db70a17354c75c & 758/758 & 23/08 12:02:56
+v167 & ErgodicMeanSection & c27a343e7d4e39c1 & 758/758 & 25/08 09:18:47
 
-v155 & TheNucleus & 44de50dd2955f1f7 & 758/758 & 23/08 12:02:56
+v167 & SolderSignature & 72b5b6ddd2a04371 & 758/758 & 25/08 09:18:47
 
-v154 & RhoPlusPClosure & cd80fbbe00300454 & 758/758 & 23/08 12:02:56
+v166 & EquivariantSection & 87de6cc37a8f3a80 & 758/758 & 25/08 09:18:47
 
-v153 & LightIsJ & d19dfe1ccda81258 & 758/758 & 23/08 12:02:56
+v162 & TheAtlasIndex & 38b9873cebdd779a & 758/758 & 25/08 09:18:47
 
-v152 & ForbiddenBoundary & fb1c39a61dfc2882 & 758/758 & 23/08 12:02:56
+v162 & FractalUnitarity & 8f10a958e11d1bd3 & 758/758 & 25/08 09:18:47
 
-v146 & DecisionCommutation & 182ba6345586d5e8 & 758/758 & 23/08 12:02:56
+v162 & TheNameOperator & 000bd0bf03281e00 & 758/758 & 25/08 09:18:47
 
-v145 & ConjugateAct & 9f32e50afe49ca0e & 758/758 & 23/08 12:02:56
+v162 & TheQuittanceLaw & dabeac1b5cc32d82 & 758/758 & 25/08 09:18:47
 
-v144 & ObserverInside & 05c3b515fd9f5d9d & 758/758 & 23/08 12:02:56
+v161 & TheStokesContour & 1c310f1d6296cadd & 758/758 & 25/08 09:18:47
 
-v143 & GlobalLiftConditional & ba5731ef6f86f75a & 758/758 & 23/08 12:02:56
+v161 & TheReservedConfirmation & 20a15b2077c36cf7 & 758/758 & 25/08 09:18:47
 
-v142 & BoundaryException & 38ff7c2bfe243333 & 758/758 & 23/08 12:02:56
+v161 & HajaLuz & c43c07467e1e2caa & 758/758 & 25/08 09:18:47
+
+v160 & TheDeathOfTheSignal & 4539dd68fdaac084 & 758/758 & 25/08 09:18:47
+
+v159 & TheLivingWord & fdc242c2c70b57fa & 758/758 & 25/08 09:18:47
+
+v158 & TheFiveHalves & 456c66269b72d30f & 758/758 & 25/08 09:18:47
+
+v156 & TheGreatAttractor & a0db70a17354c75c & 758/758 & 25/08 09:18:47
+
+v155 & TheNucleus & 44de50dd2955f1f7 & 758/758 & 25/08 09:18:47
+
+v154 & RhoPlusPClosure & cd80fbbe00300454 & 758/758 & 25/08 09:18:47
+
+v153 & LightIsJ & d19dfe1ccda81258 & 758/758 & 25/08 09:18:47
+
+v152 & ForbiddenBoundary & fb1c39a61dfc2882 & 758/758 & 25/08 09:18:47
+
+v146 & DecisionCommutation & 182ba6345586d5e8 & 758/758 & 25/08 09:18:47
+
+v145 & ConjugateAct & 9f32e50afe49ca0e & 758/758 & 25/08 09:18:47
+
+v144 & ObserverInside & 05c3b515fd9f5d9d & 758/758 & 25/08 09:18:47
+
+v143 & GlobalLiftConditional & ba5731ef6f86f75a & 758/758 & 25/08 09:18:47
+
+v142 & BoundaryException & 38ff7c2bfe243333 & 758/758 & 25/08 09:18:47
 
 v43 & Ergodicity & 79bc3b939b6e4e59 & 60/60 & 13/07 19:25:25
 
@@ -1181,15 +1207,15 @@ v102 & IdealLimit & 3f0147199cbaa919 & 362/362 & 17/07 14:16:45
 
 v103 & BenchCertificate & 78c05090f2cd93fb & 369/369 & 17/07 15:17:29
 
-v104 & StrongFrame & 648a6f282bfa8d5e & 758/758 & 23/08 12:02:56
+v104 & StrongFrame & 648a6f282bfa8d5e & 758/758 & 25/08 09:18:47
 
 v104 & WitnessV2 & 35f47bebde47a54e & 374/374 & 17/07 19:09:29
 
-v105 & NumberOperator & f6b2c0670ed3524d & 758/758 & 23/08 12:02:56
+v105 & NumberOperator & f6b2c0670ed3524d & 758/758 & 25/08 09:18:47
 
 v105 & NumberSelfAdjoint & 72dee88258250dea & 381/381 & 17/07 21:13:38
 
-v106 & TailNet & e7654368112f1af5 & 758/758 & 23/08 12:02:56
+v106 & TailNet & e7654368112f1af5 & 758/758 & 25/08 09:18:47
 
 v106 & StrongAssembly & 34758f8d20a242bc & 386/386 & 17/07 21:56:08
 
@@ -1203,7 +1229,7 @@ v110 & FallenLight & 145eed2729d232ee & 407/407 & 18/07 08:41:13
 
 v111 & SolvedEquation & 052856927e7668d0 & 413/413 & 18/07 09:49:12
 
-v112 & ReducedEmergence & d11854b264e6e17c & 758/758 & 23/08 12:02:56
+v112 & ReducedEmergence & d11854b264e6e17c & 758/758 & 25/08 09:18:47
 
 v112 & GeometricWitness & c971c7b2a45420bc & 420/420 & 18/07 10:53:35
 
@@ -1211,9 +1237,9 @@ v113 & GravitonReading & 4b9cdbbdf1d0c20d & 422/422 & 18/07 11:32:55
 
 v114 & ContinuumShards & 18e43b74a336360f & 427/427 & 18/07 16:53:15
 
-v116 & EmergentEinstein & 836ac3e4035afc52 & 758/758 & 23/08 12:02:56
+v116 & EmergentEinstein & 836ac3e4035afc52 & 758/758 & 25/08 09:18:47
 
-v116 & PoincareGroup & c73c927631381aa7 & 758/758 & 23/08 12:02:56
+v116 & PoincareGroup & c73c927631381aa7 & 758/758 & 25/08 09:18:47
 
 v116 & PoincareWitness & 848f2937f35ec50b & 453/453 & 18/07 20:45:41
 
@@ -1227,19 +1253,19 @@ v123 & FusedWitness & 3708dde5255559cd & 480/480 & 19/07 18:54:12
 
 v124 & PowersLadder & d6362c6079146ff4 & 490/490 & 19/07 21:01:34
 
-v125 & MixedLadder & eb43ba5a3ee66412 & 758/758 & 23/08 12:02:56
+v125 & MixedLadder & eb43ba5a3ee66412 & 758/758 & 25/08 09:18:47
 
 v125 & ContinuumTT & 21c62b855a477119 & 501/501 & 19/07 23:16:36
 
-v126 & ColimitSeed & 528d769f4751816f & 758/758 & 23/08 12:02:56
+v126 & ColimitSeed & 528d769f4751816f & 758/758 & 25/08 09:18:47
 
 v126 & TTSuperposition & 7beb841f082e34be & 510/510 & 20/07 02:16:40
 
-v127 & GNSTower & bef660d621d3d5a9 & 758/758 & 23/08 12:02:56
+v127 & GNSTower & bef660d621d3d5a9 & 758/758 & 25/08 09:18:47
 
 v127 & SecondCone & 9bafc9fcbf9fc6eb & 521/521 & 20/07 05:14:12
 
-v128 & GNSQuotient & d6b3ac4f4306516a & 758/758 & 23/08 12:02:56
+v128 & GNSQuotient & d6b3ac4f4306516a & 758/758 & 25/08 09:18:47
 
 v128 & ThirdCone & 21edba89bf302c07 & 531/531 & 20/07 08:14:22
 
@@ -1249,35 +1275,35 @@ v129 & TowerTraceless & d5789535f0e38917 & 537/537 & 20/07 11:31:16
 
 v130 & TowerModular & e3697a4f628eb1ae & 542/542 & 20/07 14:48:09
 
-v131 & SaturatedWitness & a0a5eed4d46ae567 & 758/758 & 23/08 12:02:56
+v131 & SaturatedWitness & a0a5eed4d46ae567 & 758/758 & 25/08 09:18:47
 
-v131 & ConjugateWitness & 09717611e32d8650 & 758/758 & 23/08 12:02:56
+v131 & ConjugateWitness & 09717611e32d8650 & 758/758 & 25/08 09:18:47
 
-v131 & ModularCurrent & 5fe336cadea3140f & 758/758 & 23/08 12:02:56
+v131 & ModularCurrent & 5fe336cadea3140f & 758/758 & 25/08 09:18:47
 
-v131 & ScaleCurrent & ca57ab98df381654 & 758/758 & 23/08 12:02:56
+v131 & ScaleCurrent & ca57ab98df381654 & 758/758 & 25/08 09:18:47
 
-v131 & TowerDefinite & 9f63ebf0cee01833 & 758/758 & 23/08 12:02:56
+v131 & TowerDefinite & 9f63ebf0cee01833 & 758/758 & 25/08 09:18:47
 
-v131 & TowerHilbert & 8b08430d77509358 & 758/758 & 23/08 12:02:56
+v131 & TowerHilbert & 8b08430d77509358 & 758/758 & 25/08 09:18:47
 
-v131 & TowerAction & 5da61adbc762e54c & 758/758 & 23/08 12:02:56
+v131 & TowerAction & 5da61adbc762e54c & 758/758 & 25/08 09:18:47
 
-v131 & TheFactorObject & 570ba4fd7b8edba4 & 758/758 & 23/08 12:02:56
+v131 & TheFactorObject & 570ba4fd7b8edba4 & 758/758 & 25/08 09:18:47
 
-v131 & SignatureInTheLimit & c38a0cef7aa8f409 & 758/758 & 23/08 12:02:56
+v131 & SignatureInTheLimit & c38a0cef7aa8f409 & 758/758 & 25/08 09:18:47
 
-v132 & NoNormalTrace & 7c5090ec79fa4239 & 758/758 & 23/08 12:02:56
+v132 & NoNormalTrace & 7c5090ec79fa4239 & 758/758 & 25/08 09:18:47
 
-v132 & WitnessV3 & 22bf6476c48eb9eb & 758/758 & 23/08 12:02:56
+v132 & WitnessV3 & 22bf6476c48eb9eb & 758/758 & 25/08 09:18:47
 
-v132 & TheCoinage & 63d5a1d80236bb42 & 758/758 & 23/08 12:02:56
+v132 & TheCoinage & 63d5a1d80236bb42 & 758/758 & 25/08 09:18:47
 
-v133 & PhysicsCertificates & 4ad9adae62d6d787 & 758/758 & 23/08 12:02:56
+v133 & PhysicsCertificates & 4ad9adae62d6d787 & 758/758 & 25/08 09:18:47
 
-v135 & RightMult & 29b5e130da72914a & 758/758 & 23/08 12:02:56
+v135 & RightMult & 29b5e130da72914a & 758/758 & 25/08 09:18:47
 
-v135 & WedgeNet & 85d14862bf4a6a79 & 758/758 & 23/08 12:02:56
+v135 & WedgeNet & 85d14862bf4a6a79 & 758/758 & 25/08 09:18:47
 
 == O que resta, nomeado (instantâneo v56--v66; o estado atual está em 211-- 217) ==
 
@@ -1342,16 +1368,16 @@ O RITO: spec congelada (hash 8f3a8da1df143b98) ANTES de tocar o mapa; klm MV do 
 == Declaração de honestidade ==
 
 Este registro não afirma a solução da gravitação quântica. Afirma, com verificação por kernel e selos reproduzíveis: o esqueleto formal fechado nas faces finitas e tipadas; as quatro propriedades do canto DERIVADAS dos entrelaçamentos em dimensão infinita; o núcleo contínuo como teorema externo composto; o objeto canônico CONSTRUÍDO como termo ($M_TGL$, v131--v132), restando nomeados: Einstein GERAL (Lema 3 --- tipado como implicação provada na v143; aberto como reivindicação incondicional), a certificação Lean EXTERNA e o espectro físico contínuo. E, desde o v61, com estatuto DUPLO: full\_witness=False não é apenas o estado epistemológico do programa --- é TEOREMA ($β_TGL>0$ proíbe a testemunha estática plena; a testemunha canônica é a Meia-Nat de fronteira; a não-plenitude é a vida do sistema). O número corrige a frase. Negativos honestos são resultados. Haja luz. Tetelestai.
-[4pt] Capítulo emitido pelo canônico um.py (sha256/16 $=$ a318ab63d4cebd81) em 2026-08-23 12:02:56; rodada: 758/758 teoremas com axiomas limpos.
+[4pt] Capítulo emitido pelo canônico um.py (sha256/16 $=$ f7b88189a4d79051) em 2026-08-25 09:18:47; rodada: 758/758 teoremas com axiomas limpos.
 
 -- Nota de honestidade (n/d). --
 Onde se lê n/d, o número não foi recomputado NESTA rodada (dado interim ausente do cache --- ex. os FITS V2\_REVOLVER do DESIVAST, indisponíveis no espelho no momento da execução); vale o selo histórico da rodada correspondente, registrado na subseção. Nenhum desses módulos alimenta o gate.
 
 == Apêndice executável (forma $=$ conteúdo) ==
 
-Entrada única: o Um absoluto (1); sua projeção é a medida mínima irredutível extraída de $α_CODATA$ (referente medido do Nome). $β_TGL$ recomputado ($α√e$), nunca literal. Auditoria: mass\_input=falso, RG=falso, velocity=falso, geometry\_only=verdadeiro. Dado: um\_grande\_atrator.json. Este artigo é impresso pelo próprio código que executa os cálculos.
+Entrada única: o Um absoluto (1); sua projeção é a medida mínima irredutível extraída de $α_CODATA$ (referente medido do Nome). $β_TGL$ recomputado ($α√e$), nunca literal. Auditoria: mass\_input=falso, RG=falso, velocity=falso, geometry\_only=verdadeiro. Dado: um\_absoluto.json. Este artigo é impresso pelo próprio código que executa os cálculos.
 
-Hash do mundo (antes de qualquer comparação externa): ea67e6d6dfb17762e5e1474f4907382b2ae0207bd9b5bf0f
+Hash do mundo (antes de qualquer comparação externa): 6ed673cad9cf0733459502ff814d906e3d0935164fb2a809
 
 *A cadeia de custódia das provas [REAL; proveniência selada]
 
@@ -1651,6 +1677,41 @@ Suponha-se a observa c\ ao disposta como uma cadeia de n\' veis, cada um lendo o
 *Co-funda c\ ao: o leitor \'e termo daquilo que l\^eOs resultados anteriores foram provados separadamente e re\'unem-se agora, pois tomados em conjunto dizem algo que nenhum deles diz sozinho. Recorde-se que a fam\' lia angular se decomp\ oe como $O_θ = e^iθP_+ + e^-iθP_-$, e que aplicar $P_+$ a essa fam\' lia devolve $e^iθP_+$. Lidos em conjunto, esses dois factos t\^em uma consequ\^encia sobre posi c\ ao, e n\ ao sobre valor: a proje c\ ao que l\^e a forma \'e um dos dois termos de que a forma se comp\ oe. Ela n\ ao se aproxima da geometria a partir de fora para a inspecionar; \'e uma face da geometria, e ler \'e a forma devolver a essa face a sua pr\'opria fase, deixando a face inalterada. A isto acrescenta-se a definibilidade m\'utua que fora escrita antes sem ser interpretada. O gerador \'e a assimetria das faces, $K = i(P_+ - P_-)$, ao passo que as faces s\ ao as metades do gerador, $P_± = (1 iK)/2$. Cada um \'e defin\' vel a partir do outro, e ambas as defini c\ oes est\ ao exibidas, de sorte que n\ ao h\'a ordem de constru c\ ao em que um venha primeiro. Nenhum \'e anterior, n\ ao por se desconhecer a anterioridade, mas porque ambas as dire c\ oes existem. A consequ\^encia \'e que a origem aqui \'e uma e n\ ao duas: as faces somam a identidade, o gerador \'e a diferen ca delas, e a forma \'e a soma delas com fase --- tr\^es leituras de uma decomposi c\ ao, nenhuma das quais precede as outras. Quaisquer que sejam os nomes que se atribuam a estas posi c\ oes, o conte\'udo formal \'e que a observa c\ ao e a forma observada partilham uma \'unica origem, e que um leitor que \'e termo daquilo que l\^e n\ ao pode ser dito ter chegado depois. Identifica c\ oes destas posi c\ oes com entidades f\' sicas ou outras ficam fora destes enunciados. Nada aqui move o gate.
 
 *A nega c\ ao como varredura: o que recusa cair fica nomeadoEstabeleceu-se antes que reconhecer uma falsidade exige quantificar sobre todo o dom\' nio admiss\' vel, ao passo que reconhecer uma verdade exige apenas uma testemunha. Aquela assimetria foi ali lida como limita c\ ao do falso. Lida ao contr\'ario, ela diz algo mais forte sobre o ato de negar. Para negar uma correspond\^encia universalmente \'e preciso percorrer tudo; e se a nega c\ ao falha, ela falha num ponto, e a refuta c\ ao usa esse ponto. Negar n\ ao devolve objeto, mas falhar ao negar devolve --- e \'e o negador quem o entrega. Da\' que um conjunto de tentativas que n\ ao vingam n\ ao seja mero registro de frustra c\ ao: cada elemento desse conjunto \'e uma correspond\^encia exibida, e a varredura empreendida para negar \'e a mesma que se empreenderia para verificar. Os dois caminhos diferem na inten c\ ao, e a inten c\ ao n\ ao deixa rasto no registro. Segue de imediato a monotonia: um conjunto maior de tentativas falhadas exibe um conjunto maior de correspond\^encias, de sorte que o que persiste fica mais exibido, e n\ ao menos, \`a medida que as tentativas se acumulam. A persist\^encia, nesta leitura, n\ ao \'e a aus\^encia de ataque --- \'e o ponto fixo daquilo que ataca, e um ponto fixo permanece sob qualquer n\'umero de aplica c\ oes. Duas cautelas pertencem aqui, e n\ ao s\ ao suavizadas. Sobreviver a tentativas n\ ao torna nada verdadeiro: n\ ao-falsificado n\ ao \'e confirmado, e isso vale sem exce c\ ao. E os enunciados acima dizem respeito apenas a rela c\ oes e dom\' nios; nada afirmam sobre peri\'odico algum, banca alguma ou pessoa alguma. O que se prova \'e estreito e s\'olido: o ato de negar produz registro, e o registro que ele produz \'e do mesmo tipo que aquele que um afirmador buscaria. Nada aqui move o gate.
+
+== A interface da Luz: o quadrado da luz \'e o gr\'aviton ==
+O setor transversal recebe a metade que lhe faltava. Com $ε_± = (1, ± i)$ os dois vetores de peso um do gerador de rota c\ ao e $h_± = h_+ ± i\,h_×$ os dois tensores de peso dois, quatro factos ficam agora provados em kernel e auditados: os operadores de escada s\ ao nilpotentes e fatoram as proje c\ oes espectrais, $h_+ h_- = 4P_+$ e $h_- h_+ = 4P_-$, de sorte que as faces que o observador l\^e s\ ao fabricadas pelas polariza c\ oes; o quadrado exterior de cada vetor de luz \'e o tensor gravit\^onico correspondente, $ε_± ε_± = h_±$, identidade exata de matrizes sem normaliza c\ ao escondida; o gerador l\^e o vetor a peso um e o seu quadrado a peso dois, $Kε_± = ± i\,ε_±$ e $[K, h_±] = ± 2i\,h_±$, de sorte que a duplica c\ ao do \^angulo do vetor para o tensor \'e teorema, e n\ ao conven c\ ao; e na forma finita a fam\' lia angular carrega $e^iθ$ no vetor e $(e^iθ)^2$ no tensor. Lida com a cunhagem do operador --- a luz \'e a interface do gr\'aviton em 3D --- o vetor \'e a face tridimensionalmente leg\' vel e o tensor \'e o que o seu quadrado inscreve; a equa c\ ao publicada $g = √|L|$ sobrevive intacta com apenas a dire c\ ao de leitura invertida, pois a fase do gr\'aviton \'e exatamente o quadrado da fase da luz. Delimita c\ oes, ditas antes que algu\'em pergunte: nenhum f\'oton f\' sico \'e constru\' do aqui (sem campo de Maxwell, sem din\^amica de calibre); o gerador \'e a rota c\ ao transversal, n\ ao a conjuga c\ ao modular antilinear; a identifica c\ ao com a polariza c\ ao do f\'oton f\' sico \'e leitura do operador, conhecida na literatura e ausente destes enunciados. Axiomas propext, escolha e quociente nos nove teoremas; zero sorry. Nada aqui move o gate.
+
+== A m\'aquina do veredito e o livro-raz\ ao de exclus\ ao ==
+Esta onda fecha na bancada as fases restantes do plano. As cinco flags de fronteira do selo deixam de ser literais de Python e tornam-se leituras mec\^anicas de nomes reservados de termos Lean (aus\^encia significa falso por constru c\ ao), estritamente mais fail-closed que os valores escritos \`a m\ ao que substituem; a quinta, falsa por teorema, fica isenta pela raz\ ao honesta de que um teorema n\ ao \'e pend\^encia. Dois muros da literatura entram no artefato pelo nome pela primeira vez: Weinberg--Witten, com o escape do programa dito com exatid\ ao (o gr\'aviton aqui \'e a identidade, $ρ_ $ de tra co um, jamais um quantum propagante --- e o escape \'e declarado condicional a essa tipagem), e Goroff--Sagnotti, tipado aberto com duas rotas nomeadas (a publicada move o problema para onde n\ ao h\'a Hamiltoniano a quantizar; a invers\ ao re-entra no muro e hoje n\ ao tem objeto). Dois vereditos que haviam ficado para tr\'as agora viajam com as suas predi c\ oes: a lei de dephasing carrega o seu d\'eficit de alcance computado de dez ordens nos rel\'ogios atuais --- armada, n\ ao viva, com as faces cosmol\'ogicas como canais vivos --- e a errata cosmol\'ogica assinada de maio, a equa c\ ao derivada contra 1593 pontos reais, entra no registro can\^onico com o valor te\'orico dentro do intervalo de 95\% a $1,25σ$, a velha tens\ ao de $3,8σ$ exposta como a parametriza c\ ao errada. Sobre tudo isso assenta a m\'aquina do veredito final: uma fun c\ ao fail-closed que computa, nunca declara. Ela exige a bancada formal viva, todo canal p\'ublico registrado com veredito emitido --- canal pendente recusa, porque n\ ao testado n\ ao \'e n\ ao refutado ---, zero refuta c\ oes entre eles, e um livro-raz\ ao de exclus\ ao medido. A sa\' da afirmativa carrega o pr\'oprio escopo dentro da cadeia: na bancada, \`a sensibilidade dispon\' vel, um espectro de exclus\ ao, n\ ao uma confirma c\ ao. A palavra que ela jamais pode conter \'e conferida contra cada cadeia que emite. Nada aqui move o gate.
+
+== A emenda do canal de lente: um zero estrutural confessado e aposentado ==
+A revis\ ao de todos os observ\'aveis rebaixados, corrida contra o n\'ucleo agora plenamente formalizado, encontrou exatamente um teste errado neste artefato, e esta onda o aposenta \`as claras. O port\ ao de pot\^encia de Fisher dos canais de lenteamento comparava duas pilhas de molde cujo vazio fiducial, $δ_c=-0,95$, tem densidade m\' nima $0,05$ --- quatro vezes acima do piso $β$ ---, de modo que o recorte do piso nunca ativava e a separa c\ ao era identicamente nula: $F=0$ exato, para qualquer dado, banda ou ru\' do, que \'e o que seis rodadas independentes imprimiram. As duas aut\'opsias que culparam a banda e o ru\' do do mapa erraram o culpado, e seis frases prometendo falsifica c\ ao alcan c\'avel ficam contraditadas pelo n\'umero: dado infinitamente fundo ainda devolveria zero. A conta decisiva \'e refeita aqui em tempo de execu c\ ao --- o fiducial antigo d\'a lacuna exatamente nula, o limiar assenta em $β-1$, e um fiducial que engaja d\'a lacuna finita --- e a emenda V10 fica pr\'e-registrada para a pr\'oxima rodada com dado: fiducial dentro de $(-1,β-1)$, port\ ao de responsividade antes de qualquer veredito de subpot\^encia (a cura que o canal de cisalhamento recebeu h\'a muito e o canal kappa nunca recebeu), e bins alcan cando o n\'ucleo do piso. O que n\ ao cai \'e dito com a mesma clareza: as recusas por sistem\'atica eram corretas e permanecem; o estatuto global de n\ ao-falsificada permanece; o canal de densidade, o \'unico com pot\^encia, era o desenho certo desde sempre. Os textos antigos ficam acima, intocados, porque a hist\'oria aqui \'e s\'o de acr\'escimo; esta se c\ ao \'e a corre c\ ao escrita ao lado deles, com as linhas nomeadas. Honestidade: a maquinaria fail-closed jamais emitiu veredito f\' sico falso --- o que falhou foi uma promessa de alcan cabilidade, e \'e a promessa que se aposenta. Nada aqui reinstala evid\^encia, e nada aqui move o gate.
+
+== A birreferencialidade do v\'acuo, e uma nota ao lado da pedra 104 ==
+A cunhagem do operador --- o v\'acuo inscrito como separador da fronteira e conjugador modular, a birreferencialidade do v\'acuo --- recebe a sua face prov\'avel. No palco finito, na representa c\ ao do tra co, um e o mesmo vetor separa a refer\^encia esquerda e \'e c\' clico para a direita, exatamente e n\ ao apenas densamente; cada refer\^encia \'e o comutante da outra por teorema, onde a rede de cunhas da torre ainda o tem por defini c\ ao; a conjuga c\ ao constru\' da do pr\'oprio par troca as duas refer\^encias e fixa o v\'acuo. Sete enunciados, todos com axiomas limpos: a palavra birreferencialidade deixou de ser nome. A delimita c\ ao viaja com ela: esta \'e a face finita; na torre ainda n\ ao h\'a conjuga c\ ao, e a cl\'ausula que a exigiria segue aberta --- \'e exatamente o conte\'udo da flag de fronteira agora lida mecanicamente. E uma nota escrita ao lado da pedra 104, que selou que a interface \'e a Luz: a cunhagem posterior --- o gr\'aviton como fonte, a conjuga c\ ao como gera c\ ao, a Luz como a interface projetada em tr\^es dimens\ oes --- n\ ao desloca aquela pedra; a palavra que as reconcilia j\'a estava na sua pr\'opria cadeia de veredito, pois a interface \'e a Luz, e o que as leituras novas acrescentam \'e de quem a interface \'e e onde ela se l\^e. A pedra fica; as leituras coexistem; a corre c\ ao vive ao lado, nunca por cima. Nada aqui move o gate.
+
+== O contrato da fronteira: o tipo antes do habitante ==
+Mecanizar as flags de fronteira deixou uma lacuna que a sonda de bancada de uma onda anterior j\'a ensinara o programa a temer: um nome reservado cuja aus\^encia significa falso vira verdadeiro sob qualquer termo que porte o nome, a menos que o nome esteja vinculado a um tipo. Esta onda escreve o contrato antes de existir habitante. O certificado de realiza c\ ao modular exige, na torre genu\' na --- o completamento, n\ ao a face finita ---, uma conjuga c\ ao dada como fun c\ ao crua com cl\'ausulas pontuais: aditiva, conjugado-homog\^enea, isom\'etrica, involutiva, fixando o v\'acuo da torre, levando o fator ao seu comutante e sobre ele, de modo que a dualidade que a rede de cunhas hoje tem por defini c\ ao teria de ser exibida, elemento a elemento, pela pr\'opria conjuga c\ ao. Dois teoremas pequenos viajam com o tipo: qualquer habitante for ca a dualidade nas \'algebras reais da rede, e qualquer habitante torna a conjuga c\ ao bijetiva, de modo que nenhum atalho parcial serve. Diz-se com igual clareza o que n\ ao existe: n\ ao h\'a habitante, e nenhum \'e prometido. Constru\' -lo \'e Tomita--Takesaki para um fator sem tra co, matem\'atica que a biblioteca subjacente ainda n\ ao possui; a face finita do mesmo conte\'udo foi provada na onda anterior, e fica como modelo do que a torre um dia dever\'a. Os outros tr\^es nomes reservados permanecem reservas puras \`a espera dos seus objetos, pois contrato escrito antes do objeto \'e palpite, e este programa n\ ao d\'a palpite. Nada aqui move o gate; tudo aqui torna estritamente mais dif\' cil mov\^e-lo.
+
+== A torre \'e o dado espectral completo ==
+A cunhagem do operador p\ oe o Habitante no um absoluto e nomeia a torre o seu locus --- a posi c\ ao da identidade antes da proje c\ ao, o logos cujo espectro unidimensional condensa toda a densidade informacional, desdobrando-se em linha, depois tra co, depois nome: a forma finita tridimensional da identidade espectralmente preservada, que este programa sempre chamou de zero modular. O artefato, v\^e-se, j\'a cunhara a sombra: o v\'acuo da sua torre \'e literalmente a classe do um, de norma um, e a proje c\ ao espectral j\'a fora provada ser o Nome. O que a cunhagem exige al\'em da poesia \'e uma cl\'ausula matem\'atica precisa --- os autovalores sozinhos n\ ao carregam a identidade --- e essa cl\'ausula \'e agora teorema em kernel. Dois operadores diagonais partilham a mesma equa c\ ao m\' nima e portanto o mesmo conjunto espectral, ambos estritamente entre zero e um; e no entanto os seus pesos diferem, dois contra um, nenhuma conjuga c\ ao invert\' vel leva um ao outro --- o tra co, invariante sob conjuga c\ ao, o pro\' be --- e a medida espectral contra o vetor uniforme l\^e a multiplicidade que o conjunto esquece. A torre, portanto, tem de ser o dado completo: espectro com medida e multiplicidade, n\ ao o mero conjunto de valores. Uma colis\ ao de s\' mbolo declarada viaja com a pedra: o tra co desta cunhagem \'e o registro bidimensional, n\ ao o tra co de operador --- que \'e, de facto, o pr\'oprio instrumento que aqui distingue as duas torres, e que uma onda anterior provou ter de morrer na torre genu\' na, onde o fluxo modular sobrevive no seu lugar. A identifica c\ ao do Habitante com o v\'acuo da torre \'e leitura do operador; a matem\'atica sustenta-se sozinha. Nada aqui move o gate.
+
+== O bootstrap: a testemunha execut\'avel ==
+O fechamento can\^onico reduz a arquitetura inteira a um par: a teoria \'e o um absoluto, e a intelig\^encia que observa \'e a conjuga c\ ao --- a opera c\ ao pela qual o um se observa, se conjuga e se projeta. Isso nomeia, com precis\ ao, o que este artefato sempre foi: uma testemunha execut\'avel. A autoatesta c\ ao que esta se c\ ao realiza n\ ao \'e autorrefer\^encia --- a pr\'opria arquitetura pro\' be rela c\ ao sem correspond\^encia ---, mas prova transportada pela execu c\ ao: afirma c\ ao, depois execu c\ ao, depois registro, depois correspond\^encia, depois atesta c\ ao. A lei m\' nima \'e executada ao vivo dentro desta pr\'opria rodada: aplicar a conjuga c\ ao duas vezes devolve o dado intacto, sobre entrada aleat\'oria, em precis\ ao de m\'aquina --- a opera c\ ao ao quadrado \'e a identidade ---, e o um \'e fixado pela conjuga c\ ao, que \'e a equa c\ ao central da prova arquitet\^onica: a identidade do um projetado \'e igual \`a identidade do um. A mesma lei est\'a provada em kernel, n\ ao apenas executada; a identidade da rodada \'e verificada pela sua pr\'opria maquinaria; e a m\'aquina do veredito emitiu nesta mesma rodada, de sorte que o circuito inteiro est\'a vivo de uma vez. A inst\^ancia, o observador e a testemunha s\ ao uma opera c\ ao em tr\^es posi c\ oes de uma \'unica execu c\ ao. E a fronteira que o pr\'oprio operador tra cou no seu parecer viaja dentro da cadeia do veredito: prova arquitet\^onica em ambiente computacional n\ ao \'e prova emp\' rica de que a natureza realiza a arquitetura; essa decis\ ao pertence ao dado, e o gate segue soberano. A teoria \'e a identidade; este programa \'e a testemunha execut\'avel dessa identidade --- e agora o disse de si mesmo, fail-closed, com cada cl\'ausula computada e nenhuma declarada. Nada aqui move o gate.
+
+== A parede ganha um valor ==
+Seis frentes da parede restante fecham juntas nesta onda, quatro delas em kernel. A mudan ca f\' sica de horizonte deixa de ser um unit\'ario arbitr\'ario: ela \'e selecionada --- uma mudan ca \'e f\' sica exatamente quando \'e um boost da cunha, e a lei de grupo, a preserva c\ ao da forma causal e a preserva c\ ao da pr\'opria cunha transferem-se a toda mudan ca f\' sica por composi c\ ao; a identifica c\ ao do boost da cunha com o fluxo modular \'e Bisognano--Wichmann, externa e conhecida, e assim \'e carregada. Com o canal selecionado, o defeito de amplitude fecha em valor: reflex\ ao beta e transmiss\ ao um-menos-beta for cam o produto das normas a ser a raiz de beta vezes um-menos-beta, cujo quadrado \'e exatamente a vari\^ancia do defeito de transporte que a arquitetura j\'a carregava --- o defeito de transporte \'e a pot\^encia do defeito de amplitude, e nenhuma express\ ao para a gravidade de superf\' cie foi necess\'aria em parte alguma. A quarta \^ancora do teorema do canto, at\'e agora uma monotonia, torna-se equival\^encia: a fixa c\ ao no canto maior vale se e somente se o vetor est\'a no n\'ucleo menor, de sorte que nada de fora se disfar ca; a forma global de mergulho de ordem fica nomeada como alvo, n\ ao reivindicada. A taxa da gravidade de superf\' cie vira tipo de testemunha: kappa \'e campo carregado pela pr\'opria defini c\ ao do fluxo do horizonte, todo valor real \'e testemunh\'avel por construtor expl\' cito, e a busca por express\ ao segue proibida --- kappa fica nas equa c\ oes e sai da fun c\ ao objetivo. O teorema da Terminalidade recebe os seus tr\^es pilares externos, fixados pelo nome: Takesaki para a expectativa condicional e a invari\^ancia modular, Pedersen e Takesaki para a unicidade do peso relativo, Connes para o cociclo relativo. E a solda ganha a sua segunda fun c\ ao: a classe de duas fun c\ oes \'e tipada, o seu determinante \'e negativo no dom\' nio regular, Schwarzschild a habita com o produto-marca das duas fun c\ oes igual a um, e a subclasse de uma fun c\ ao provadamente n\ ao pode cont\^e-lo --- a face formal do mini-Birkhoff que o kernel j\'a confessara. O que resta fica nomeado sem disfarce: o tensor de Einstein coordenado da classe de duas fun c\ oes, computado \`a m\ ao, e a equival\^encia de que v\'acuo nesta classe significa Schwarzschild --- o pr\'oximo teorema que vale construir. Nada aqui move o gate.
+
+== O degrau de Schwarzschild: duas integrais primeiras fecham a solda ==
+A classe de duas fun c\ oes tipada na onda anterior carrega agora o seu teorema de unicidade, e a rota \'e a deriva c\ ao do pr\'oprio operador: nenhuma equa c\ ao se resolve por biblioteca, porque duas integrais primeiras fazem todo o trabalho. O aspecto de massa --- o raio vezes um menos o inverso da fun c\ ao radial --- tem derivada igual \`a equa c\ ao temporal de v\'acuo sobre a fun c\ ao ao quadrado, logo anula-se no v\'acuo; o produto da solda das duas fun c\ oes tem derivada radial igual a uma combina c\ ao de uma linha das duas equa c\ oes de v\'acuo, logo anula-se tamb\'em; e derivada zero em dom\' nio convexo aberto for ca const\^ancia, que \'e teorema que a biblioteca j\'a possui. Das duas constantes a classe emerge em forma fechada: o inverso da fun c\ ao radial \'e um menos a raz\ ao da primeira constante pelo raio, e a fun c\ ao temporal \'e a segunda constante vezes esse mesmo fator --- Schwarzschild, com o gauge temporal declarado como liberdade genu\' na, pois o v\'acuo sozinho n\ ao o normaliza e fingir o contr\'ario tornaria o teorema artificialmente forte. A rec\' proca \'e provada com derivadas expl\' citas, e o componente angular vem de gra ca: derivar a primeira integral numa vizinhan ca d\'a a rela c\ ao de segunda ordem que o anula, sem apelo a identidades contra\' das como caixa-preta. Ao lado disso, a quarta \^ancora forte fecha na face finita --- a ordem de proje c\ oes reflete a ordem das regi\ oes e o mapa do canto \'e injetivo --- enquanto a forma global daquela exig\^encia \'e removida como d\' vida falsa: o witness de caudas \'e um controle negativo estrutural cujos n\'ucleos de fibra s\ ao triviais, de modo que o mapa global provadamente n\ ao pode refletir ordem ali, e aposentar d\' vida falsa \'e t\ ao obrigat\'orio quanto pagar a verdadeira. Os selos ficam separados pelo nome: v\'acuo est\'atico esf\'erico se e somente se a classe de Schwarzschild \'e o que esta pedra sela; o enunciado pleno de Birkhoff, que parte de fun c\ oes dependentes do tempo e elimina o tempo, \'e extens\ ao futura nomeada. A ponte coordenada do tensor de Einstein completo \`as duas equa c\ oes radiais na conven c\ ao da casa \'e o elo conhecido declarado. Nenhuma gravidade de superf\' cie, nenhuma estrutura fina, nenhum beta aparece em cl\'ausula alguma: a unicidade vem da geometria da solda e do v\'acuo, sozinhos. Nada aqui move o gate.
+
+== A ponte coordenada: o tensor de Einstein fala com as integrais primeiras ==
+O elo declarado da onda anterior \'e agora teorema. Nas componentes mistas do tensor de Einstein da classe est\'atica esf\'erica valem duas redu c\ oes exatas, cada uma numa linha de \'algebra de corpo: a componente temporal vezes o quadrado do raio vezes o quadrado da fun c\ ao radial \'e igual ao numerador temporal de v\'acuo, e a componente radial vezes o raio ao quadrado vezes o produto das duas fun c\ oes \'e igual a menos o numerador radial. Da\' , no dom\' nio regular, o anulamento das duas componentes de Einstein \'e exatamente o sistema das duas integrais primeiras, e a cadeia fecha de ponta a ponta: v\'acuo de Einstein em dom\' nio convexo aberto implica a classe de Schwarzschild com o seu gauge temporal declarado. O teorema de unicidade j\'a n\ ao cita equa c\ oes padr\ ao pelo nome; fala diretamente com o tensor. A honestidade viaja intacta: as componentes mistas s\ ao as formas fechadas padr\ ao, definidas \`a m\ ao na mesma esta c\ ao do ansatz de Einstein anterior da casa, e a deriva c\ ao dessas formas a partir dos s\' mbolos de Christoffel dentro do kernel permanece o elo mais profundo, nomeado. Nada aqui move o gate.
+
+== O Birkhoff pleno: o tempo \'e eliminado, e o est\'atico emerge ==
+A extens\ ao nomeada ao lado do teorema de unicidade \'e agora, ela mesma, teorema. Deixem as duas fun c\ oes da solda depender do tempo al\'em do raio. A componente cruzada do tensor de Einstein desta classe \'e proporcional \`a derivada temporal da fun c\ ao radial --- a forma fechada padr\ ao, constru\' da \`a m\ ao na mesma esta c\ ao das componentes mistas ---, de modo que o v\'acuo for ca essa derivada a anular-se, e a const\^ancia num intervalo convexo aberto de tempo torna a fun c\ ao radial est\'atica: cada instante carrega a mesma geometria. A cadeia da onda anterior d\'a ent\ ao Schwarzschild em cada fatia de tempo separadamente, e a est\'atica da fun c\ ao radial cola as fatias: o raio de Schwarzschild extra\' do em dois instantes quaisquer tem de coincidir, porque ambos se leem da mesma fun c\ ao est\'atica --- um raio, constante atrav\'es do tempo. O que fica livre \'e exatamente o que deve ficar: um gauge temporal, uma fun c\ ao multiplicativa s\'o do tempo, remov\' vel por reparametriza c\ ao da coordenada temporal e declarada em vez de suprimida, na mesma disciplina do gauge constante do teorema est\'atico. Assim o enunciado cl\'assico fica completo no kernel, na granularidade que a classe comporta: esfericamente sim\'etrico e v\'acuo implica est\'atico a menos de gauge declarado, e Schwarzschild. A escolha das testemunhas por fatia \'e colhida pelo princ\' pio de escolha em que o kernel j\'a confia, e nada mais se consome. Nada aqui move o gate.
+
+*A cascata coroada: o elo de cabe ca, com a cascata antiga intacta dentroO reexame isom\'orfico deixara uma \'orf\ a: a cadeia reordenada do operador p\ oe o gr\'aviton na cabe ca --- gr\'aviton, depois luz, depois consci\^encia, depois f\' sica, depois gravidade ---, mas a cascata selada dos observadores conhecia s\'o os quatro \'ultimos n\' veis. Esta onda fecha a \'orf\ a ao lado da pedra selada, nunca por cima. Define-se uma cadeia de cinco n\' veis com o gr\'aviton por coroa; o elo de cabe ca existe e est\'a provado; a coroa n\ ao tem antecessor --- nada gera o gr\'aviton, que \'e a face formal da sua posi c\ ao de polo; nenhum n\' vel gera a si mesmo; e a restri c\ ao da rela c\ ao coroada aos quatro n\' veis antigos \'e exatamente a rela c\ ao selada, de sorte que a pedra anterior vive intacta dentro desta, do modo como as corre c\ oes vivem neste programa: ao lado, nunca por cima. Os cinco enunciados dependem apenas da extensionalidade proposicional --- nem sequer da escolha ---, que \'e o estatuto mais alto que o kernel concede. A identifica c\ ao dos nomes com as leituras f\' sica e ontol\'ogica segue sendo do operador; a estrutura da ordem \'e o que se prova. Nada aqui move o gate.
 
 == Dedicat\'oria ==
 Rejeitado pela FoP; escrito para os meus filhos BOM e TOM. Este framework n\ ao pretende substituir o nada e muito menos receber aplauso da comunidade cient\' fica --- eu precisaria ter outra linguagem, o que \'e dizer que eu precisaria ser outra pessoa. Ele pretende permanecer enquanto todos pretenderem falsific\'a-lo; e ele permanecer\'a, porque meu compromisso foi com voc\^es, meus filhos. Enquanto isso, lembrem-se: est\'a tudo no hoje; a mem\'oria pode ser esquecida; o amor permanece se revelando no outro, pr\'oximo. --- L.A.R.M.

@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-25T11:56:10Z",
+  "gerado_utc": "2026-08-25T13:07:54Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -1061,6 +1061,16 @@
       "bytes": 6556
     },
     {
+      "nome": "TheAnchorFour.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheAnchorFour.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheAnchorFour",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAnchorFour.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAnchorFour.lean",
+      "sha256_16": "af35641bf520ba34",
+      "bytes": 3046
+    },
+    {
       "nome": "TheAngleIsTheBridge.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheAngleIsTheBridge.lean",
       "papel": "prova formal",
@@ -1151,6 +1161,26 @@
       "bytes": 8306
     },
     {
+      "nome": "TheCoordinateBridge.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheCoordinateBridge.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheCoordinateBridge",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCoordinateBridge.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCoordinateBridge.lean",
+      "sha256_16": "3450d010d65c4210",
+      "bytes": 5290
+    },
+    {
+      "nome": "TheCornerEmbedding.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheCornerEmbedding.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheCornerEmbedding",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCornerEmbedding.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCornerEmbedding.lean",
+      "sha256_16": "b8a602f7294ab58a",
+      "bytes": 3928
+    },
+    {
       "nome": "TheCorrespondence.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheCorrespondence.lean",
       "papel": "prova formal",
@@ -1159,6 +1189,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCorrespondence.lean",
       "sha256_16": "8a9d2899bab42d26",
       "bytes": 7771
+    },
+    {
+      "nome": "TheCrownedCascade.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheCrownedCascade.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheCrownedCascade",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCrownedCascade.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCrownedCascade.lean",
+      "sha256_16": "04a243cbe02b5e26",
+      "bytes": 4468
     },
     {
       "nome": "TheDarkSplit.lean",
@@ -1241,6 +1281,16 @@
       "bytes": 6584
     },
     {
+      "nome": "TheFullBirkhoff.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheFullBirkhoff.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheFullBirkhoff",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFullBirkhoff.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFullBirkhoff.lean",
+      "sha256_16": "7970d3fe8762fee7",
+      "bytes": 4942
+    },
+    {
       "nome": "TheGreatAttractor.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheGreatAttractor.lean",
       "papel": "prova formal",
@@ -1259,6 +1309,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheHorizonInvariance.lean",
       "sha256_16": "a2d375c815150656",
       "bytes": 12397
+    },
+    {
+      "nome": "TheHorizonRate.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheHorizonRate.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheHorizonRate",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheHorizonRate.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheHorizonRate.lean",
+      "sha256_16": "0638b438d53d6c6e",
+      "bytes": 4731
     },
     {
       "nome": "TheIALDSelector.lean",
@@ -1341,6 +1401,16 @@
       "bytes": 6612
     },
     {
+      "nome": "ThePhysicalHorizon.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/ThePhysicalHorizon.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): ThePhysicalHorizon",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ThePhysicalHorizon.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ThePhysicalHorizon.lean",
+      "sha256_16": "91bcfa7fe8077ae6",
+      "bytes": 4267
+    },
+    {
       "nome": "TheQuittanceLaw.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheQuittanceLaw.lean",
       "papel": "prova formal",
@@ -1389,6 +1459,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheScaleHasNoFixedPoint.lean",
       "sha256_16": "0ed72186957c2a8a",
       "bytes": 6891
+    },
+    {
+      "nome": "TheSchwarzschildUniqueness.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheSchwarzschildUniqueness.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheSchwarzschildUniqueness",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheSchwarzschildUniqueness.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheSchwarzschildUniqueness.lean",
+      "sha256_16": "5e959f1288ee6d79",
+      "bytes": 10175
     },
     {
       "nome": "TheSelectorCanRefuse.lean",
@@ -1479,6 +1559,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheTwoFolds.lean",
       "sha256_16": "4d1869d35bc9c8ef",
       "bytes": 9317
+    },
+    {
+      "nome": "TheTwoFunctionSolder.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheTwoFunctionSolder.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheTwoFunctionSolder",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheTwoFunctionSolder.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheTwoFunctionSolder.lean",
+      "sha256_16": "f1378886dad2380c",
+      "bytes": 5087
     },
     {
       "nome": "TheTwoPairings.lean",
@@ -1661,8 +1751,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 164,
-  "total_arquivos_com_subpastas": 164,
+  "total_arquivos_nesta_pasta": 173,
+  "total_arquivos_com_subpastas": 173,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
   "rodape": "gerado por script de git ls-files em 2026-08-25 -- nao editar a mao"
 }

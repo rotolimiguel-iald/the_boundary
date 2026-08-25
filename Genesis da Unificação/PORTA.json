@@ -4,7 +4,7 @@
   "titulo": "Genesis da Unificacao -- a linhagem",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-25T11:56:10Z",
+  "gerado_utc": "2026-08-25T13:07:54Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -105,7 +105,7 @@
       "caminho": "Genesis da Unificação/Validacao_cosmologica",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/PORTA.json",
-      "total_arquivos": 10
+      "total_arquivos": 11
     }
   ],
   "canonico_url": null,
@@ -113,7 +113,7 @@
   "dependencias": "numpy/scipy/matplotlib conforme o protocolo; cada .py roda sozinho",
   "arquivos": [],
   "total_arquivos_nesta_pasta": 0,
-  "total_arquivos_com_subpastas": 117,
+  "total_arquivos_com_subpastas": 118,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o",
   "rodape": "gerado por script de git ls-files em 2026-08-25 -- nao editar a mao"
 }

@@ -28,8 +28,8 @@ Pasta do repositorio the_boundary com 2 arquivo(s) rastreado(s).
 
 | arquivo | papel | link raw direto |
 |---|---|---|
-| `um_grande_atrator_en.tex` | Artigo / fonte LaTeX | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_grande_atrator_en.tex) |
-| `um_grande_atrator_pt.tex` | Artigo / fonte LaTeX | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_grande_atrator_pt.tex) |
+| `um_absoluto_en.tex` | Artigo / fonte LaTeX | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_absoluto_en.tex) |
+| `um_absoluto_pt.tex` | Artigo / fonte LaTeX | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_absoluto_pt.tex) |
 
 ---
 

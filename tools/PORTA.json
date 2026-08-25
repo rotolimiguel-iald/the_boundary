@@ -4,7 +4,7 @@
   "titulo": "tools",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-25T11:56:10Z",
+  "gerado_utc": "2026-08-25T13:07:54Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -27,8 +27,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_portas.py",
-      "sha256_16": "8c2343a1ceba99d4",
-      "bytes": 62058
+      "sha256_16": "d90dad3232112349",
+      "bytes": 61866
     },
     {
       "nome": "guarda_do_selo.py",
@@ -37,8 +37,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/guarda_do_selo.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/guarda_do_selo.py",
-      "sha256_16": "ccde722d5791da8c",
-      "bytes": 3340
+      "sha256_16": "bfca90638e331d45",
+      "bytes": 3432
     },
     {
       "nome": "verificar_portas.py",
@@ -47,8 +47,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/verificar_portas.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/verificar_portas.py",
-      "sha256_16": "c570ae7877947d3f",
-      "bytes": 8026
+      "sha256_16": "9d20bbdd0b67e9c5",
+      "bytes": 8202
     }
   ],
   "total_arquivos_nesta_pasta": 3,

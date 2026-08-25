@@ -162,3 +162,12 @@ import TGLExt.TheLightInterface
 import TGLExt.TheBireference
 import TGLExt.FrontierCertificate
 import TGLExt.TheTower
+import TGLExt.ThePhysicalHorizon
+import TGLExt.TheHorizonRate
+import TGLExt.TheAnchorFour
+import TGLExt.TheTwoFunctionSolder
+import TGLExt.TheSchwarzschildUniqueness
+import TGLExt.TheCornerEmbedding
+import TGLExt.TheCoordinateBridge
+import TGLExt.TheFullBirkhoff
+import TGLExt.TheCrownedCascade

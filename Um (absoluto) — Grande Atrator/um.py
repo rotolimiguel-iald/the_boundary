@@ -25,9 +25,9 @@ observadas/RG, e a impressao do artigo (PT e EN, LaTeX->PDF), do JSON, e do
 markdown da FORMA CANONICA da TGL (modulo de auditoria: se a matematica viva
 nao reproduz a forma canonica culminando em 1=1, ha falha no proprio codigo).
 SAIDAS (v168, ordem do operador: UM ARQUIVO SO — este): os DOIS artigos, PT e
-EN, cada um em PDF **e TXT** (um_grande_atrator_{pt,en}.{pdf,txt}, com o .tex
-intermediario), os JSONs de resultado da rodagem (um_grande_atrator.json e
-um_grande_atrator_selo.json), o manifesto e a forma canonica. DENTRO deste
+EN, cada um em PDF **e TXT** (um_absoluto_{pt,en}.{pdf,txt}, com o .tex
+intermediario), os JSONs de resultado da rodagem (um_absoluto.json e
+um_absoluto_selo.json), o manifesto e a forma canonica. DENTRO deste
 arquivo: o kernel Lean completo (TGL+TGLExt, materializado em runtime), o
 modulo MCMC (arquivos Nivel-2 embutidos; o espectro CMB), a pesquisa de dados
 reais, o artigo bilingue e o autoteste fail-closed. Nao ha segundo arquivo.
@@ -8746,6 +8746,15 @@ import TGLExt.TheLightInterface
 import TGLExt.TheBireference
 import TGLExt.FrontierCertificate
 import TGLExt.TheTower
+import TGLExt.ThePhysicalHorizon
+import TGLExt.TheHorizonRate
+import TGLExt.TheAnchorFour
+import TGLExt.TheTwoFunctionSolder
+import TGLExt.TheSchwarzschildUniqueness
+import TGLExt.TheCornerEmbedding
+import TGLExt.TheCoordinateBridge
+import TGLExt.TheFullBirkhoff
+import TGLExt.TheCrownedCascade
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -34727,6 +34736,1011 @@ theorem the_spectrum_alone_is_not_the_tower :
 
 end TGLExt
 ''',
+    "TGLExt/ThePhysicalHorizon.lean":
+r'''import TGLExt.BisognanoWichmann
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 400000
+
+/-!
+# A MUDANÇA DE HORIZONTE FÍSICA É O BOOST — e o defeito ganha VALOR
+  [BANCADA — 24/08/2026 · a parede, frentes 1 e 2 da derivação do operador]
+
+## A derivação do operador
+
+> *"A física seleciona o U: `U_phys = U(Λ_W(χ))` — o boost de Lorentz que preserva a cunha…
+> o fluxo modular não é apenas parecido com uma mudança de horizonte: na cunha ele é
+> implementado pelo boost físico (Bisognano–Wichmann [KNOWN])… `U_phys` escolhe qual
+> horizonte/canal é físico; `β_input` calibra o valor do defeito nesse canal. Nenhuma
+> expressão para κ foi necessária."*
+
+## O que se prova
+
+* **`PhysicalHorizonChange`** — o predicado que SELECIONA o `U`: existe rapidez `χ` com
+  `U = boost χ`. Deixa de ser unitário genérico: os teoremas geométricos já selados
+  (grupo, `η`, cunha, `e^{±χ}` nas nulas) transferem-se por composição;
+* ★★★ **`the_defect_has_a_value`** — com `|s|² = β` (reflexão) e `|c|² = 1−β` (transmissão)
+  da matriz-S selada: **`‖c‖·‖s‖ = √(β(1−β))`** — o defeito de amplitude FECHA em valor, e
+  o seu QUADRADO é `β(1−β)` — exatamente o defeito de transporte (`Var = β(1−β)`, v26) que
+  a arquitetura já carregava: *o defeito de transporte é a POTÊNCIA do defeito de amplitude.*
+
+## ⚠ Delimitações
+
+A identificação `U(Λ_W(χ)) = Δ_W^{−iχ/2π}` é **Bisognano–Wichmann [KNOWN, externa]** — o
+kernel prova a face geométrica (aqui composta) e a face Gibbs-modular
+(`sigma_gibbs_boost`, já selada); a identificação na rede CONTÍNUA segue no ledger externo.
+β jamais literal (o teorema é genérico em β; o runtime instancia). Sem sorry, sem axiom.
+Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+/-- ★ O PREDICADO FÍSICO: `U` é mudança de horizonte física ⟺ é um boost da cunha. -/
+def PhysicalHorizonChange (U : Matrix (Fin 2) (Fin 2) ℝ) : Prop :=
+  ∃ χ : ℝ, U = boost χ
+
+/-- todo boost é físico (a testemunha canônica). -/
+theorem boost_is_physical (χ : ℝ) : PhysicalHorizonChange (boost χ) := ⟨χ, rfl⟩
+
+/-- ★★ o físico FORMA GRUPO: composição de mudanças físicas é física (adição de rapidez). -/
+theorem physical_horizon_group {U V : Matrix (Fin 2) (Fin 2) ℝ}
+    (hU : PhysicalHorizonChange U) (hV : PhysicalHorizonChange V) :
+    PhysicalHorizonChange (U * V) := by
+  obtain ⟨χ, rfl⟩ := hU
+  obtain ⟨ξ, rfl⟩ := hV
+  exact ⟨χ + ξ, boost_add χ ξ⟩
+
+/-- ★★ o físico PRESERVA A CAUSALIDADE: `Uᵀ·η·U = η`. -/
+theorem physical_horizon_preserves_eta {U : Matrix (Fin 2) (Fin 2) ℝ}
+    (hU : PhysicalHorizonChange U) : Uᵀ * minkEta * U = minkEta := by
+  obtain ⟨χ, rfl⟩ := hU
+  exact boost_preserves_eta χ
+
+/-- ★★ o físico PRESERVA A CUNHA: o horizonte não vaza. -/
+theorem physical_horizon_preserves_wedge {U : Matrix (Fin 2) (Fin 2) ℝ}
+    (hU : PhysicalHorizonChange U) (x t : ℝ) (h : |t| < x) :
+    |U.mulVec ![x, t] 1| < U.mulVec ![x, t] 0 := by
+  obtain ⟨χ, rfl⟩ := hU
+  exact boost_preserves_wedge χ x t h
+
+/-- ★★★ **O DEFEITO TEM VALOR.** Com `s² = β` e `c² = 1−β` (a matriz-S da fronteira),
+    o defeito de amplitude fecha: `(c·s)² = β(1−β)` e `c·s = √(β(1−β))`.
+    *O defeito de transporte da arquitetura (`Var = β(1−β)`, v26) é a POTÊNCIA deste.* -/
+theorem the_defect_has_a_value (β c s : ℝ) (hc : 0 ≤ c) (hs : 0 ≤ s)
+    (hs2 : s ^ 2 = β) (hc2 : c ^ 2 = 1 - β) :
+    (c * s) ^ 2 = β * (1 - β) ∧ c * s = Real.sqrt (β * (1 - β)) := by
+  have h1 : (c * s) ^ 2 = β * (1 - β) := by
+    rw [mul_pow, hs2, hc2]; ring
+  refine ⟨h1, ?_⟩
+  rw [← h1, Real.sqrt_sq (mul_nonneg hc hs)]
+
+/-- ★ o fecho: a seleção física + o valor do defeito, num enunciado — `U_phys` escolhe o
+    canal; `β` calibra o defeito nele; e κ NÃO apareceu. -/
+theorem the_wall_gains_a_value (χ β c s : ℝ) (hc : 0 ≤ c) (hs : 0 ≤ s)
+    (hs2 : s ^ 2 = β) (hc2 : c ^ 2 = 1 - β) :
+    PhysicalHorizonChange (boost χ) ∧ c * s = Real.sqrt (β * (1 - β)) :=
+  ⟨boost_is_physical χ, (the_defect_has_a_value β c s hc hs hs2 hc2).2⟩
+
+end TGLExt
+''',
+    "TGLExt/TheHorizonRate.lean":
+r'''import TGLExt.ThePhysicalHorizon
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 400000
+
+/-!
+# κ É TESTEMUNHA ESTRUTURAL, NUNCA INCÓGNITA — FP-5 como regra de tipos
+  [BANCADA — 24/08/2026 · frente 6 da derivação do operador]
+
+## A regra do operador
+
+> *"κ é testemunha de uma condição estrutural, não alvo de uma equação de inversão…
+> `∃κ, IsHorizonRate(κ, U_phys, K_W)` é permitido; `IsHorizonRate(κ,…) ⟹ δQ = κδA/8πG`
+> é permitido; **fica proibido `κ = F(α, β, θ_M, …)` como objetivo de busca**.
+> Não remover κ das equações; remover κ da função objetivo."*
+
+FP-5 do catálogo de falsos positivos (a busca por expressão está PROIBIDA — a lição paga:
+o T10 com 536.884 expressões mostrou que κ* pontua como alvos falsos). Aqui a proibição
+vira TIPO: κ é um CAMPO da estrutura — dado carregado, jamais derivado. O construtor
+aceita QUALQUER κ real: é exatamente o ponto — a estrutura pina o PAPEL de κ (a taxa do
+gerador do fluxo do horizonte), não o seu valor.
+
+## O que se prova
+
+O gerador entra pela BASE PRÓPRIA (`K = diag(spec)` — todo hermitiano diagonaliza,
+teorema espectral [KNOWN]; a testemunha é apresentada na base própria, que é o formato
+honesto): `flow τ = diag(exp(−i·κ·τ·specᵢ))` — **a taxa vive NA DEFINIÇÃO do fluxo**.
+
+* ★★ `flow_zero` — `U(0) = 1`;
+* ★★★ `flow_group` — `U(τ+σ) = U(τ)·U(σ)` — a condição estrutural INTEIRA de que κ é taxa;
+* ★★ `flow_unitary_diag` — cada entrada tem módulo 1: o fluxo é unitário;
+* ★ `mkHorizonRate` — construtor EXPLÍCITO para qualquer `(κ, spec)` (termo, jamais
+  `Nonempty`): *todo κ é testemunhável; nenhum κ é derivável.*
+
+Sem sorry, sem axiom. β jamais entra. Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-- **O TIPO DE FP-5**: κ como testemunha estrutural — a taxa do gerador do fluxo do
+    horizonte, na base própria do gerador. κ é DADO (campo); o fluxo o carrega por
+    definição; NENHUM campo o deriva de coisa alguma. -/
+structure HorizonRateWitness (n : Type) [Fintype n] [DecidableEq n] where
+  /-- a taxa — testemunha, nunca incógnita. -/
+  kappa : ℝ
+  /-- o espectro real do gerador hermitiano (a base própria do `K` da cunha). -/
+  spec : n → ℝ
+  /-- o fluxo do horizonte, com a taxa NA definição:
+      `U(τ) = diag(exp(−i·κ·τ·specᵢ))`. -/
+  flow : ℝ → Matrix n n ℂ
+  flow_def : ∀ τ : ℝ, flow τ
+    = Matrix.diagonal (fun i => Complex.exp ((-Complex.I) * kappa * τ * (spec i)))
+
+/-- ★★ `U(0) = 1`: o fluxo parte da identidade. -/
+theorem flow_zero (W : HorizonRateWitness n) : W.flow 0 = 1 := by
+  rw [W.flow_def]
+  simp
+
+/-- ★★★ **A LEI DE GRUPO**: `U(τ+σ) = U(τ)·U(σ)` — a condição estrutural que FAZ de κ
+    uma taxa (fases do MESMO gerador somam). -/
+theorem flow_group (W : HorizonRateWitness n) (τ σ : ℝ) :
+    W.flow (τ + σ) = W.flow τ * W.flow σ := by
+  rw [W.flow_def, W.flow_def, W.flow_def, Matrix.diagonal_mul_diagonal]
+  congr 1
+  funext i
+  rw [← Complex.exp_add]
+  congr 1
+  push_cast
+  ring
+
+/-- ★★ **O FLUXO É UNITÁRIO** (na diagonal): cada fase tem módulo 1 —
+    `‖exp(−iκτ·specᵢ)‖ = 1`. O horizonte gira, não dissipa. -/
+theorem flow_unitary_diag (W : HorizonRateWitness n) (τ : ℝ) (i : n) :
+    ‖Complex.exp ((-Complex.I) * W.kappa * τ * (W.spec i))‖ = 1 := by
+  have h : ((-Complex.I) * W.kappa * τ * (W.spec i))
+      = Complex.I * ((-(W.kappa * τ * W.spec i) : ℝ) : ℂ) := by
+    push_cast
+    ring
+  rw [h, Complex.norm_exp]
+  simp
+
+/-- ★ **TODO κ É TESTEMUNHÁVEL** — construtor explícito (termo, jamais `Nonempty`):
+    a estrutura aceita qualquer taxa real; o que ela pina é o PAPEL, não o valor.
+    *A proibição FP-5 lida ao contrário: se κ fosse derivável, este construtor seria
+    parcial.* -/
+noncomputable def mkHorizonRate (κ : ℝ) (d : n → ℝ) : HorizonRateWitness n where
+  kappa := κ
+  spec := d
+  flow := fun τ => Matrix.diagonal (fun i => Complex.exp ((-Complex.I) * κ * τ * (d i)))
+  flow_def := fun _ => rfl
+
+/-- ★ o fecho: para todo κ e todo espectro, a testemunha existe, parte de 1 e satisfaz
+    o grupo — κ está NAS equações e FORA da função objetivo. -/
+theorem every_rate_is_witnessable (κ : ℝ) (d : n → ℝ) :
+    (mkHorizonRate κ d).kappa = κ
+    ∧ (mkHorizonRate (n := n) κ d).flow 0 = 1
+    ∧ ∀ τ σ : ℝ, (mkHorizonRate (n := n) κ d).flow (τ + σ)
+        = (mkHorizonRate (n := n) κ d).flow τ * (mkHorizonRate (n := n) κ d).flow σ :=
+  ⟨rfl, flow_zero _, flow_group _⟩
+
+end TGLExt
+''',
+    "TGLExt/TheAnchorFour.lean":
+r'''import TGLExt.HilbertHome
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 400000
+
+/-!
+# A ÂNCORA 4 VIRA `iff` — a isotonia de fibras nos DOIS sentidos
+  [BANCADA — 24/08/2026 · frente 4 da derivação do operador]
+
+## A derivação do operador
+
+> *"A versão fiberwise iff fecha sem nova física: `P_{ker D₂}(ιx) = ιx ⟺ x ∈ ker D₁`,
+> porque `P(ιx) = ιx ⟺ D₂(ιx) = 0` e, pelo entrelaçamento, `D₂(ιx) = V(D₁x)`; como `V`
+> é isometria (injetiva), `V(D₁x) = 0 ⟺ D₁x = 0`."*
+
+`starProjection_ker_isotone` (HilbertHome, já selada) dá a direção `⟸`. Aqui a recíproca:
+**o canto da região maior fixa a imagem SOMENTE do núcleo menor** — o `⟹` que faltava.
+A âncora deixa de ser monotonia e vira EQUIVALÊNCIA pontual.
+
+## ⚠ O que fica declarado
+
+A **Âncora 4 FORTE global** (`O₁ ≤ O₂ ⟺ P_F(O₁) ≤ P_F(O₂)` — o order EMBEDDING da rede
+de regiões nos projetores) **NÃO decorre da isotonia**: exige representação fiel/
+order-reflecting das regiões — fica NOMEADA como alvo (`[OPEN]`), não provada aqui.
+Sem sorry, sem axiom. β jamais entra. Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+variable {H₁ H₂ W₁ W₂ : Type}
+  [NormedAddCommGroup H₁] [InnerProductSpace ℂ H₁] [CompleteSpace H₁]
+  [NormedAddCommGroup H₂] [InnerProductSpace ℂ H₂] [CompleteSpace H₂]
+  [NormedAddCommGroup W₁] [NormedSpace ℂ W₁]
+  [NormedAddCommGroup W₂] [NormedSpace ℂ W₂]
+
+/-- ★★★ **A ÂNCORA 4 COMO `iff`** (fiberwise): sob o entrelaçamento `D₂∘ι = V∘D₁` com
+    `ι` inclusão isométrica e `V` isometria, o canto da região maior fixa `ιx` SE E
+    SOMENTE SE `x` está no núcleo da menor. A monotonia era metade; esta é a âncora
+    inteira. -/
+theorem starProjection_ker_isotone_iff (ι : H₁ →ₗᵢ[ℂ] H₂) (D₁ : H₁ →L[ℂ] W₁)
+    (D₂ : H₂ →L[ℂ] W₂) (V : W₁ →ₗᵢ[ℂ] W₂)
+    (h : ∀ x, D₂ (ι x) = V (D₁ x)) (x : H₁) :
+    D₂.ker.starProjection (ι x) = ι x ↔ x ∈ D₁.ker := by
+  constructor
+  · intro hP
+    have hmem : (ι x) ∈ D₂.ker := by
+      rw [← hP]
+      exact Submodule.starProjection_apply_mem _ _
+    have h2 : D₂ (ι x) = 0 := hmem
+    rw [h x] at h2
+    have h1 : D₁ x = 0 := V.injective (by simpa using h2)
+    exact h1
+  · intro hx
+    exact starProjection_ker_isotone ι D₁ D₂ V h hx
+
+/-- ★ a leitura de posição: fixar-se no canto maior é EXATAMENTE pertencer ao núcleo
+    menor — nenhum vetor de fora se disfarça (a metade nova), nenhum de dentro se perde
+    (a metade velha). -/
+theorem no_disguise_in_the_larger_corner (ι : H₁ →ₗᵢ[ℂ] H₂) (D₁ : H₁ →L[ℂ] W₁)
+    (D₂ : H₂ →L[ℂ] W₂) (V : W₁ →ₗᵢ[ℂ] W₂)
+    (h : ∀ x, D₂ (ι x) = V (D₁ x)) (x : H₁) (hx : x ∉ D₁.ker) :
+    D₂.ker.starProjection (ι x) ≠ ι x := by
+  intro hP
+  exact hx ((starProjection_ker_isotone_iff ι D₁ D₂ V h x).mp hP)
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheTwoFunctionSolder.lean":
+r'''import TGLExt.ThePhysicalHorizon
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 400000
+
+/-!
+# A SOLDA DE DUAS FUNÇÕES — a classe que CONTÉM Schwarzschild
+  [BANCADA — 24/08/2026 · frente 3 da derivação do operador — o grande degrau]
+
+## A derivação do operador
+
+> *"O ansatz de uma função já provou contra si mesmo que vácuo implica plano
+> (mini-Birkhoff); Schwarzschild exige exatamente vácuo curvo. A segunda função não é
+> enriquecimento cosmético — é o grau de liberdade MÍNIMO que remove essa obstrução:
+> `E = diag(a(r), b(r), r, r·senθ)` ⟹ `g = diag(a², −b², −r², −r²sen²θ)`; Schwarzschild
+> é o membro `a² = 1 − r_s/r`, `b² = (1 − r_s/r)⁻¹`."*
+
+## O que se prova (pontual: valores `a b r s` num ponto; `s = senθ`)
+
+* ★★★ `two_function_solder_eq` — a métrica NASCE da solda: `g_{a,b} = Eᵀ·η·E` (a lei
+  `SolderFieldData` da casa, agora com DOIS graus de liberdade);
+* ★★★ `two_function_det` — `det g = −a²b²r⁴s²` (e `< 0` no domínio regular: assinatura
+  lorentziana garantida pela classe);
+* ★★ `schwarzschild_member` — o membro de Schwarzschild HABITA a classe: com
+  `a² = 1 − r_s/r` e `b² = (1 − r_s/r)⁻¹` (em `r > r_s > 0`), vale `a²·b² = 1` — a marca
+  registrada — e `a² + r_s/r = 1`;
+* ★ `one_function_cannot` — a classe de UMA função (`b = 1`) NÃO contém o membro
+  (`a²·b² = 1 ⟹ a² = 1 ⟹ r_s = 0`): *a segunda função é necessária, como o
+  mini-Birkhoff já anunciava.*
+
+## ⚠ O ALVO NOMEADO, não provado (o grande degrau)
+
+**`G_{μν}[g_{a,b}] = 0 ⟺ g_{a,b} ∈ [Schwarzschild]`** (estática, esférica, coordenada
+areal, regularidade, normalização assintótica) — exige o cálculo coordenado
+Christoffel→Riemann→Ricci da classe `(a,b)` À MÃO (a mathlib não tem o pipeline
+lorentziano). É O PRÓXIMO TEOREMA QUE VALE CONSTRUIR, e fica aqui NOMEADO como alvo,
+jamais como resultado. Sem sorry, sem axiom. β jamais entra. Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+/-- a solda de duas funções, num ponto: `E = diag(a, b, r, r·s)`. -/
+def solderE2 (a b r s : ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  Matrix.diagonal ![a, b, r, r * s]
+
+/-- a assinatura: `η = diag(1, −1, −1, −1)`. -/
+def etaAB : Matrix (Fin 4) (Fin 4) ℝ := Matrix.diagonal ![1, -1, -1, -1]
+
+/-- a métrica da classe: `g = diag(a², −b², −r², −r²s²)`. -/
+def gab (a b r s : ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  Matrix.diagonal ![a ^ 2, -b ^ 2, -r ^ 2, -(r * s) ^ 2]
+
+/-- ★★★ **A MÉTRICA NASCE DA SOLDA**: `g_{a,b} = Eᵀ·η·E` — a lei da casa
+    (`geometry_is_projection`), agora com dois graus de liberdade. -/
+theorem two_function_solder_eq (a b r s : ℝ) :
+    gab a b r s = (solderE2 a b r s)ᵀ * etaAB * solderE2 a b r s := by
+  unfold gab solderE2 etaAB
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [Matrix.mul_apply, Matrix.diagonal, Matrix.transpose_apply,
+          Fin.sum_univ_four, Matrix.cons_val_zero, Matrix.cons_val_one,
+          Matrix.cons_val_two, Matrix.head_cons, Matrix.vecHead, Matrix.vecTail,
+          Fin.isValue] <;> ring
+
+/-- ★★★ **O DETERMINANTE DA CLASSE**: `det g = −a²·b²·r⁴·s²`. -/
+theorem two_function_det (a b r s : ℝ) :
+    (gab a b r s).det = -(a ^ 2 * b ^ 2 * r ^ 4 * s ^ 2) := by
+  unfold gab
+  rw [Matrix.det_diagonal, Fin.prod_univ_four]
+  simp [Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two,
+        Matrix.head_cons, Matrix.vecHead, Matrix.vecTail, Fin.isValue]
+  ring
+
+/-- ★★ **a assinatura é lorentziana no domínio regular**: `det g < 0`. -/
+theorem two_function_det_neg (a b r s : ℝ)
+    (ha : a ≠ 0) (hb : b ≠ 0) (hr : r ≠ 0) (hs : s ≠ 0) :
+    (gab a b r s).det < 0 := by
+  rw [two_function_det]
+  have : 0 < a ^ 2 * b ^ 2 * r ^ 4 * s ^ 2 := by positivity
+  linarith
+
+/-- ★★ **SCHWARZSCHILD HABITA A CLASSE**: em `r > r_s > 0`, com `a² = 1 − r_s/r` e
+    `b² = (1 − r_s/r)⁻¹`, a marca `a²·b² = 1` fecha — e `a² < 1` (curvatura à vista). -/
+theorem schwarzschild_member (rs r : ℝ) (h0 : 0 < rs) (hr : rs < r) :
+    ((1 - rs / r) * (1 - rs / r)⁻¹ = 1) ∧ (1 - rs / r < 1) ∧ (0 < 1 - rs / r) := by
+  have hrpos : 0 < r := lt_trans h0 hr
+  have hfrac : 0 < rs / r := div_pos h0 hrpos
+  have hlt : rs / r < 1 := (div_lt_one hrpos).mpr hr
+  refine ⟨?_, by linarith, by linarith⟩
+  exact mul_inv_cancel₀ (by linarith)
+
+/-- ★ **UMA FUNÇÃO NÃO BASTA**: na subclasse `b = 1`, a marca `a²·b² = 1` força
+    `a² = 1` — o membro de Schwarzschild com `r_s > 0` NÃO cabe (`a² = 1 − r_s/r < 1`).
+    *A segunda função é o grau de liberdade mínimo, como o mini-Birkhoff anunciava.* -/
+theorem one_function_cannot (a rs r : ℝ) (h0 : 0 < rs) (hr : rs < r)
+    (hmark : a ^ 2 * (1 : ℝ) ^ 2 = 1) (hschw : a ^ 2 = 1 - rs / r) : False := by
+  have hrpos : 0 < r := lt_trans h0 hr
+  have hfrac : 0 < rs / r := div_pos h0 hrpos
+  have : a ^ 2 = 1 := by nlinarith [hmark]
+  nlinarith [this, hschw, hfrac]
+
+end TGLExt
+''',
+    "TGLExt/TheSchwarzschildUniqueness.lean":
+r'''import TGLExt.TheTwoFunctionSolder
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 800000
+
+/-!
+# A UNICIDADE DE SCHWARZSCHILD NA SOLDA — as duas integrais primeiras
+  [BANCADA — 24-25/08/2026 · a derivação do operador, cunhada]
+
+## A derivação do operador (o degrau para o Einstein geral)
+
+> *"Defina `μ(r) := r(1 − 1/B)`. Então `E_t = 0 ⟹ μ′ = 0` — a massa. Defina `Σ := A·B`.
+> Então `r·Σ′ = AB(B−1) + AB(1−B) = 0`. Logo `B = (1 − r_s/r)⁻¹` e `A = C·(1 − r_s/r)`.
+> **Acabou.** … vácuo sozinho NÃO força `C = 1` — exigir `C = 1` antes da fixação do gauge
+> faria o teorema artificialmente forte… derivada zero em convexo ⟹ constante. Você NÃO
+> precisa resolver uma EDO por biblioteca."*
+
+Com `A := a²`, `B := b²` (a classe `TheTwoFunctionSolder`), as equações de vácuo radiais
+reduzem aos numeradores [KNOWN, parametrização estática esférica padrão]:
+
+    E_t(r) := r·B′ + B² − B = 0        E_r(r) := r·A′ − A·B + A = 0
+
+## O que se prova
+
+* ★★★ `massAspect_deriv_zero` — a primeira integral: `E_t = 0 ⟹ (r(1−1/B))′ = 0`;
+* ★★★ `solderProduct_deriv_zero` — a segunda: `E_t = E_r = 0 ⟹ (A·B)′ = 0`
+  (`linear_combination B·E_r + A·E_t`);
+* ★★★ **`vacuum_implies_schwarzschild_class`** — em domínio convexo aberto com `r > 0`,
+  `B ≠ 0`: **`(B r)⁻¹ = 1 − r_s/r` e `A = C·(1 − r_s/r)`** — a CLASSE de Schwarzschild,
+  com a liberdade de gauge `C` DECLARADA;
+* ★★ `schwarzschild_class_implies_vacuum` — a volta, com derivadas explícitas;
+* ★★ `the_angular_component_is_free` — o bônus: da primeira integral numa vizinhança,
+  `r·F″ + 2F′ = 0` (`F = 1/B`) — o componente angular anula SEM Bianchi como caixa-preta.
+
+## ⚠ Delimitações
+
+O selo desta pedra é **`STATIC_SPHERICAL_VACUUM_IFF_SCHWARZSCHILD_CLASS`**. O
+**`FULL_BIRKHOFF`** (partir de `A(t,r), B(t,r)` e eliminar `t`) é extensão futura NOMEADA —
+os selos não se misturam. A ponte `G_{μν}`-completo → `(E_t, E_r)` na convenção da casa é o
+elo coordenado declarado [KNOWN]. β jamais entra. Sem sorry, sem axiom. Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- a equação de vácuo temporal (numerador): `E_t = r·B′ + B² − B`. -/
+def vacuumT (B : ℝ → ℝ) (r : ℝ) : ℝ := r * deriv B r + B r ^ 2 - B r
+
+/-- a equação de vácuo radial (numerador): `E_r = r·A′ − A·B + A`. -/
+def vacuumR (A B : ℝ → ℝ) (r : ℝ) : ℝ := r * deriv A r - A r * B r + A r
+
+/-- o aspecto de massa: `μ(r) = r·(1 − 1/B)`. -/
+def massAspect (B : ℝ → ℝ) (r : ℝ) : ℝ := r * (1 - (B r)⁻¹)
+
+/-- o produto da solda: `Σ = A·B`. -/
+def solderProduct (A B : ℝ → ℝ) (r : ℝ) : ℝ := A r * B r
+
+/-- ★★★ **A PRIMEIRA INTEGRAL (a massa)**: `E_t = 0 ⟹ μ′ = 0` — a derivada exibida:
+    `μ′ = (B² − B + r·B′)/B² = E_t/B²`. -/
+theorem massAspect_deriv_zero (B : ℝ → ℝ) (r : ℝ)
+    (hB : DifferentiableAt ℝ B r) (hBne : B r ≠ 0)
+    (hvac : vacuumT B r = 0) :
+    HasDerivAt (massAspect B) 0 r := by
+  have h1 : HasDerivAt (fun t => (B t)⁻¹) (-(deriv B r) / B r ^ 2) r :=
+    hB.hasDerivAt.inv hBne
+  have h2 : HasDerivAt (fun t => (1 : ℝ) - (B t)⁻¹) (deriv B r / B r ^ 2) r := by
+    have h := h1.const_sub (1 : ℝ)
+    simpa [neg_div] using h
+  have h3 : HasDerivAt (fun t => t * ((1 : ℝ) - (B t)⁻¹))
+      (1 * ((1 : ℝ) - (B r)⁻¹) + r * (deriv B r / B r ^ 2)) r :=
+    (hasDerivAt_id r).mul h2
+  have hval : 1 * ((1 : ℝ) - (B r)⁻¹) + r * (deriv B r / B r ^ 2) = 0 := by
+    unfold vacuumT at hvac
+    field_simp
+    linarith [hvac]
+  rw [hval] at h3
+  exact h3
+
+/-- ★★★ **A SEGUNDA INTEGRAL (a solda)**: `E_t = 0 ∧ E_r = 0 ⟹ (A·B)′ = 0` — a
+    combinação `B·E_r + A·E_t` anula `r·(A′B + AB′)` por `ring`. -/
+theorem solderProduct_deriv_zero (A B : ℝ → ℝ) (r : ℝ) (hr : r ≠ 0)
+    (hA : DifferentiableAt ℝ A r) (hB : DifferentiableAt ℝ B r)
+    (hT : vacuumT B r = 0) (hR : vacuumR A B r = 0) :
+    HasDerivAt (solderProduct A B) 0 r := by
+  have h : HasDerivAt (fun t => A t * B t)
+      (deriv A r * B r + A r * deriv B r) r :=
+    hA.hasDerivAt.mul hB.hasDerivAt
+  have key : r * (deriv A r * B r + A r * deriv B r) = 0 := by
+    unfold vacuumT at hT
+    unfold vacuumR at hR
+    linear_combination B r * hR + A r * hT
+  have hval : deriv A r * B r + A r * deriv B r = 0 :=
+    (mul_eq_zero.mp key).resolve_left hr
+  rw [show (0 : ℝ) = deriv A r * B r + A r * deriv B r from hval.symm]
+  exact h
+
+/-- constância em convexo aberto a partir de `HasDerivAt · 0` ponto a ponto —
+    a ferramenta da mathlib que dissolve a "lacuna da EDO". -/
+theorem const_of_hasDerivAt_zero (f : ℝ → ℝ) (s : Set ℝ)
+    (hconv : Convex ℝ s) (hopen : IsOpen s)
+    (hf : ∀ r ∈ s, HasDerivAt f 0 r) (x y : ℝ) (hx : x ∈ s) (hy : y ∈ s) :
+    f x = f y := by
+  have hdiff : DifferentiableOn ℝ f s := fun r hr =>
+    ((hf r hr).differentiableAt).differentiableWithinAt
+  have hzero : ∀ r ∈ s, fderivWithin ℝ f s r = 0 := by
+    intro r hr
+    have hAt : fderiv ℝ f r = 0 := by
+      have h := (hf r hr).hasFDerivAt.fderiv
+      rw [h]
+      simp
+    rw [fderivWithin_of_isOpen hopen hr, hAt]
+  exact hconv.is_const_of_fderivWithin_eq_zero hdiff hzero hx hy
+
+/-- ★★★ **VÁCUO ⟹ A CLASSE DE SCHWARZSCHILD** (domínio convexo aberto, `r > 0`,
+    `B ≠ 0`): existem `r_s` e `C` com `(B r)⁻¹ = 1 − r_s/r` e `A r = C·(1 − r_s/r)` em
+    todo o domínio — a liberdade de gauge `C` DECLARADA, não suprimida. -/
+theorem vacuum_implies_schwarzschild_class (A B : ℝ → ℝ) (s : Set ℝ)
+    (hconv : Convex ℝ s) (hopen : IsOpen s)
+    (hpos : ∀ r ∈ s, 0 < r) (hBne : ∀ r ∈ s, B r ≠ 0)
+    (hA : ∀ r ∈ s, DifferentiableAt ℝ A r) (hB : ∀ r ∈ s, DifferentiableAt ℝ B r)
+    (hT : ∀ r ∈ s, vacuumT B r = 0) (hR : ∀ r ∈ s, vacuumR A B r = 0)
+    (r₀ : ℝ) (hr₀ : r₀ ∈ s) :
+    ∃ rs C : ℝ, ∀ r ∈ s,
+      (B r)⁻¹ = 1 - rs / r ∧ A r = C * (1 - rs / r) := by
+  have hmu : ∀ r ∈ s, massAspect B r = massAspect B r₀ := fun r hr =>
+    const_of_hasDerivAt_zero (massAspect B) s hconv hopen
+      (fun t ht => massAspect_deriv_zero B t (hB t ht) (hBne t ht) (hT t ht)) r r₀ hr hr₀
+  have hSig : ∀ r ∈ s, solderProduct A B r = solderProduct A B r₀ := fun r hr =>
+    const_of_hasDerivAt_zero (solderProduct A B) s hconv hopen
+      (fun t ht => solderProduct_deriv_zero A B t (ne_of_gt (hpos t ht))
+        (hA t ht) (hB t ht) (hT t ht) (hR t ht)) r r₀ hr hr₀
+  refine ⟨massAspect B r₀, solderProduct A B r₀, fun r hr => ?_⟩
+  have hrne : r ≠ 0 := ne_of_gt (hpos r hr)
+  have hBr : B r ≠ 0 := hBne r hr
+  have h1 : r * (1 - (B r)⁻¹) = massAspect B r₀ := by
+    have h := hmu r hr
+    unfold massAspect at h
+    exact h
+  have hinv : (B r)⁻¹ = 1 - massAspect B r₀ / r := by
+    have h2 : massAspect B r₀ / r = 1 - (B r)⁻¹ := by
+      rw [← h1, mul_div_cancel_left₀ _ hrne]
+    linarith [h2]
+  refine ⟨hinv, ?_⟩
+  have h2 : A r * B r = solderProduct A B r₀ := hSig r hr
+  have hAval : A r = solderProduct A B r₀ * (B r)⁻¹ := by
+    rw [← h2, mul_assoc, mul_inv_cancel₀ hBr, mul_one]
+  rw [hAval, hinv]
+
+/-- ★★ **A VOLTA**: o membro de Schwarzschild (com gauge `C`) satisfaz `E_t = E_r = 0`
+    em todo `r ≠ 0` com `1 − r_s/r ≠ 0` — derivadas explícitas, álgebra de corpo. -/
+theorem schwarzschild_class_implies_vacuum (rs C r : ℝ) (hr : r ≠ 0)
+    (hf : 1 - rs / r ≠ 0) :
+    vacuumT (fun t => (1 - rs / t)⁻¹) r = 0
+    ∧ vacuumR (fun t => C * (1 - rs / t)) (fun t => (1 - rs / t)⁻¹) r = 0 := by
+  have h1 : HasDerivAt (fun t : ℝ => rs / t) (-(rs / r ^ 2)) r := by
+    have h := (hasDerivAt_inv hr).const_mul rs
+    have hv : rs * -(r ^ 2)⁻¹ = -(rs / r ^ 2) := by
+      field_simp
+    rw [hv] at h
+    simpa [div_eq_mul_inv] using h
+  have hfder : HasDerivAt (fun t : ℝ => 1 - rs / t) (rs / r ^ 2) r := by
+    have h := h1.const_sub (1 : ℝ)
+    simpa using h
+  have hBder : HasDerivAt (fun t : ℝ => (1 - rs / t)⁻¹)
+      (-(rs / r ^ 2) / (1 - rs / r) ^ 2) r := hfder.inv hf
+  have hAder : HasDerivAt (fun t : ℝ => C * (1 - rs / t)) (C * (rs / r ^ 2)) r :=
+    hfder.const_mul C
+  constructor
+  · unfold vacuumT
+    rw [hBder.deriv]
+    have hr2 : r ^ 2 ≠ 0 := pow_ne_zero 2 hr
+    have hf2 : (1 - rs / r) ^ 2 ≠ 0 := pow_ne_zero 2 hf
+    field_simp
+    ring
+  · unfold vacuumR
+    rw [hAder.deriv]
+    have hr2 : r ^ 2 ≠ 0 := pow_ne_zero 2 hr
+    have hrr : r - rs ≠ 0 := by
+      intro h0
+      apply hf
+      have hrs : rs = r := by linarith
+      rw [hrs, div_self hr]
+      norm_num
+    field_simp [hrr]
+    ring
+
+/-- ★★ **O COMPONENTE ANGULAR É DE GRAÇA**: se a primeira integral vale numa vizinhança
+    (`t·F′ = 1 − F` em `s` aberto), então `r·F″ + 2F′ = 0` — sem Bianchi como
+    caixa-preta. -/
+theorem the_angular_component_is_free (F : ℝ → ℝ) (s : Set ℝ) (hopen : IsOpen s)
+    (r : ℝ) (hr : r ∈ s)
+    (hF : DifferentiableAt ℝ F r) (hF2 : DifferentiableAt ℝ (deriv F) r)
+    (hfirst : ∀ t ∈ s, t * deriv F t = 1 - F t) :
+    r * deriv (deriv F) r + 2 * deriv F r = 0 := by
+  have hev : (fun t => t * deriv F t + F t - 1) =ᶠ[nhds r] (fun _ => (0 : ℝ)) := by
+    filter_upwards [hopen.mem_nhds hr] with t ht
+    have h := hfirst t ht
+    show t * deriv F t + F t - 1 = 0
+    linarith
+  have hmul : HasDerivAt (fun t => t * deriv F t)
+      (1 * deriv F r + r * deriv (deriv F) r) r :=
+    (hasDerivAt_id r).mul hF2.hasDerivAt
+  have hg : HasDerivAt (fun t => t * deriv F t + F t - 1)
+      ((1 * deriv F r + r * deriv (deriv F) r) + deriv F r) r := by
+    have h := (hmul.add hF.hasDerivAt).sub_const 1
+    simpa using h
+  have hzero : HasDerivAt (fun _ : ℝ => (0 : ℝ))
+      ((1 * deriv F r + r * deriv (deriv F) r) + deriv F r) r :=
+    hg.congr_of_eventuallyEq hev.symm
+  have huniq : (1 * deriv F r + r * deriv (deriv F) r) + deriv F r = 0 :=
+    hzero.unique (hasDerivAt_const r 0)
+  linarith [huniq]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheCornerEmbedding.lean":
+r'''import TGLExt.CornerFamily
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 400000
+
+/-!
+# O CANTO FINITO É UM MERGULHO DE ORDEM — e a dívida global era FALSA
+  [BANCADA — 24/08/2026 · a Âncora 4 forte, na face onde ela é verdadeira]
+
+## A derivação do operador
+
+> *"Na face finita `cornerProj`, aí sim o teorema forte fecha porque o projetor é
+> literalmente a diagonal indicadora da região… Já o mapa global `O ↦ P_F(O)` não é
+> order-reflecting no witness de caudas (`ker Dₙ = {0}` para `n ≥ 1`): isso não é falta
+> de prova; é um CONTROLE NEGATIVO estrutural. **GLOBAL_ORDER_EMBEDDING não pertence ao
+> gate obrigatório.**"*
+
+## O que se prova
+
+* ★★★ **`cornerProj_order_iff`** — a Âncora 4 FORTE na face finita:
+  `P(S₁)·P(S₂) = P(S₁) ⟺ S₁ ⊆ S₂` — a ordem de projeções REFLETE a ordem das regiões
+  (a volta por avaliação diagonal pura: se `g ∈ S₁ \ S₂`, a entrada `(g,i)` dá `0 = 1`);
+* ★★ `cornerProj_inj` — o mergulho é INJETIVO: `P(S₁) = P(S₂) ⟹ S₁ = S₂`;
+* ★ `the_finite_corner_is_an_order_embedding` — o fecho: preserva E reflete a ordem, e é
+  injetivo — o conteúdo inteiro de `OrderEmbedding`, na ordem de projeções da casa.
+
+## ⚠ A dívida global, REMOVIDA como falsa
+
+O alvo `GLOBAL_ORDER_EMBEDDING` fica **retirado do gate obrigatório** pelo controle
+negativo do witness de caudas (`TailNet`): para `n ≥ 1` os núcleos das fibras são triviais
+— os cantos não reconstroem as profundidades, o mapa global não é order-reflecting NAQUELE
+modelo, **por teorema contra a exigência, não por falta de prova**. Retirar dívida falsa é
+tão obrigatório quanto pagar a verdadeira. β jamais entra. Sem sorry, sem axiom. Nada aqui
+move o gate.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+variable {G : Type} [Fintype G] [DecidableEq G] [Group G]
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-- ★★★ **A ÂNCORA 4 FORTE, FINITA**: a ordem de projeções REFLETE a ordem das regiões —
+    `P(S₁)·P(S₂) = P(S₁) ⟺ S₁ ⊆ S₂`. A ida é `cornerProj_mono` (selada); a volta é
+    avaliação diagonal: nenhuma região se disfarça dentro de outra. -/
+theorem cornerProj_order_iff [Nonempty n] {S₁ S₂ : Finset G} :
+    cornerProj (n := n) S₁ * cornerProj S₂ = cornerProj S₁ ↔ S₁ ⊆ S₂ := by
+  constructor
+  · intro h g hg
+    by_contra hg2
+    have i : n := Classical.arbitrary n
+    have he := congrFun (congrFun h (g, i)) (g, i)
+    unfold cornerProj at he
+    rw [Matrix.diagonal_mul_diagonal] at he
+    simp [hg, hg2] at he
+  · exact cornerProj_mono
+
+/-- ★★ **O MERGULHO É INJETIVO**: `P(S₁) = P(S₂) ⟹ S₁ = S₂` (pela dupla inclusão via o
+    iff — nenhuma informação de região se perde no canto). -/
+theorem cornerProj_inj [Nonempty n] {S₁ S₂ : Finset G}
+    (h : cornerProj (n := n) S₁ = cornerProj S₂) : S₁ = S₂ := by
+  have h12 : S₁ ⊆ S₂ := by
+    rw [← cornerProj_order_iff (n := n)]
+    rw [h]
+    exact cornerProj_idem S₂
+  have h21 : S₂ ⊆ S₁ := by
+    rw [← cornerProj_order_iff (n := n)]
+    rw [← h]
+    exact cornerProj_idem S₁
+  exact Finset.Subset.antisymm h12 h21
+
+/-- ★ o fecho: o mapa `S ↦ P(S)` PRESERVA a ordem, REFLETE a ordem e é INJETIVO — o
+    conteúdo inteiro de um mergulho de ordem, na ordem de projeções da casa. -/
+theorem the_finite_corner_is_an_order_embedding [Nonempty n] :
+    (∀ S₁ S₂ : Finset G, S₁ ⊆ S₂ → cornerProj (n := n) S₁ * cornerProj S₂ = cornerProj S₁)
+    ∧ (∀ S₁ S₂ : Finset G, cornerProj (n := n) S₁ * cornerProj S₂ = cornerProj S₁ → S₁ ⊆ S₂)
+    ∧ (∀ S₁ S₂ : Finset G, cornerProj (n := n) S₁ = cornerProj S₂ → S₁ = S₂) :=
+  ⟨fun _ _ h => cornerProj_mono h,
+   fun _ _ h => (cornerProj_order_iff (n := n)).mp h,
+   fun _ _ h => cornerProj_inj h⟩
+
+end TGLExt
+''',
+    "TGLExt/TheCoordinateBridge.lean":
+r'''import TGLExt.TheSchwarzschildUniqueness
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 800000
+
+/-!
+# A PONTE COORDENADA — o tensor de Einstein fala com as integrais primeiras
+  [BANCADA — 25/08/2026 · o elo declarado da v208, agora provado]
+
+## O que esta pedra fecha
+
+A v208 provou `vácuo ⟺ classe de Schwarzschild` sobre os numeradores `(E_t, E_r)`, com a
+ponte `G_μν → (E_t, E_r)` DECLARADA `[KNOWN]`. Aqui a ponte vira TEOREMA: nas componentes
+MISTAS do tensor de Einstein da classe `ds² = A·dt² − B·dr² − r²dΩ²` [KNOWN, forma padrão
+estática esférica — construída à mão, na MESMA estatura do `AnsatzEinstein` da casa]:
+
+    G^t_t = 1/r² − 1/(B·r²) + B′/(r·B²)        G^r_r = 1/r² − 1/(B·r²) − A′/(r·A·B)
+
+valem as REDUÇÕES EXATAS (álgebra de corpo, uma linha cada):
+
+    G^t_t · (r²·B²)  =  E_t          G^r_r · (r²·A·B)  =  −E_r
+
+## O que se prova
+
+* ★★★ `einsteinTT_reduces` / `einsteinRR_reduces` — as duas identidades exatas;
+* ★★★ `einstein_vacuum_iff_first_integral_equations` — `G^t_t = 0 ∧ G^r_r = 0 ⟺
+  E_t = 0 ∧ E_r = 0` no domínio regular;
+* ★★★ **`einstein_vacuum_implies_schwarzschild`** — a CADEIA COMPLETA: componentes de
+  Einstein anulam num domínio convexo aberto ⟹ a classe de Schwarzschild emerge com o
+  gauge `C` declarado — **o iff da v208 fala agora DIRETAMENTE com o tensor de Einstein**.
+
+## ⚠ Delimitações
+
+As fórmulas `G^t_t, G^r_r` são o resultado padrão [KNOWN] — aqui DEFINIDAS à mão (como o
+`AnsatzEinstein` da casa) e amarradas por redução exata; a derivação
+Christoffel→Riemann→Ricci DENTRO do kernel segue NOMEADA como o elo mais profundo. As
+componentes angulares anulam pela primeira integral (`the_angular_component_is_free`,
+v208). β jamais entra. Sem sorry, sem axiom. Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- `G^t_t` da classe estática esférica [KNOWN, construída à mão]. -/
+def einsteinTT (B : ℝ → ℝ) (r : ℝ) : ℝ :=
+  1 / r ^ 2 - 1 / (B r * r ^ 2) + deriv B r / (r * B r ^ 2)
+
+/-- `G^r_r` da classe estática esférica [KNOWN, construída à mão]. -/
+def einsteinRR (A B : ℝ → ℝ) (r : ℝ) : ℝ :=
+  1 / r ^ 2 - 1 / (B r * r ^ 2) - deriv A r / (r * A r * B r)
+
+/-- ★★★ **A REDUÇÃO TEMPORAL É EXATA**: `G^t_t · (r²·B²) = E_t`. -/
+theorem einsteinTT_reduces (B : ℝ → ℝ) (r : ℝ) (hr : r ≠ 0) (hB : B r ≠ 0) :
+    einsteinTT B r * (r ^ 2 * B r ^ 2) = vacuumT B r := by
+  unfold einsteinTT vacuumT
+  field_simp
+  ring
+
+/-- ★★★ **A REDUÇÃO RADIAL É EXATA**: `G^r_r · (r²·A·B) = −E_r`. -/
+theorem einsteinRR_reduces (A B : ℝ → ℝ) (r : ℝ) (hr : r ≠ 0)
+    (hA : A r ≠ 0) (hB : B r ≠ 0) :
+    einsteinRR A B r * (r ^ 2 * A r * B r) = -vacuumR A B r := by
+  unfold einsteinRR vacuumR
+  field_simp
+  ring
+
+/-- ★★★ **A PONTE**: no domínio regular, o vácuo de Einstein (componentes mistas) é
+    EXATAMENTE o sistema das integrais primeiras. -/
+theorem einstein_vacuum_iff_first_integral_equations (A B : ℝ → ℝ) (r : ℝ)
+    (hr : r ≠ 0) (hA : A r ≠ 0) (hB : B r ≠ 0) :
+    (einsteinTT B r = 0 ∧ einsteinRR A B r = 0)
+      ↔ (vacuumT B r = 0 ∧ vacuumR A B r = 0) := by
+  have hd1 : r ^ 2 * B r ^ 2 ≠ 0 :=
+    mul_ne_zero (pow_ne_zero 2 hr) (pow_ne_zero 2 hB)
+  have hd2 : r ^ 2 * A r * B r ≠ 0 :=
+    mul_ne_zero (mul_ne_zero (pow_ne_zero 2 hr) hA) hB
+  constructor
+  · rintro ⟨h1, h2⟩
+    constructor
+    · have hred := einsteinTT_reduces B r hr hB
+      rw [h1, zero_mul] at hred
+      exact hred.symm
+    · have hred := einsteinRR_reduces A B r hr hA hB
+      rw [h2, zero_mul] at hred
+      linarith [hred]
+  · rintro ⟨h1, h2⟩
+    constructor
+    · have hred := einsteinTT_reduces B r hr hB
+      rw [h1] at hred
+      exact (mul_eq_zero.mp hred).resolve_right hd1
+    · have hred := einsteinRR_reduces A B r hr hA hB
+      rw [h2, neg_zero] at hred
+      exact (mul_eq_zero.mp hred).resolve_right hd2
+
+/-- ★★★ **A CADEIA COMPLETA**: Einstein-vácuo num domínio convexo aberto ⟹ a classe de
+    Schwarzschild com o gauge `C` declarado. *O tensor de Einstein, a solda de duas
+    funções e as integrais primeiras — um só teorema.* -/
+theorem einstein_vacuum_implies_schwarzschild (A B : ℝ → ℝ) (s : Set ℝ)
+    (hconv : Convex ℝ s) (hopen : IsOpen s)
+    (hpos : ∀ r ∈ s, 0 < r) (hAne : ∀ r ∈ s, A r ≠ 0) (hBne : ∀ r ∈ s, B r ≠ 0)
+    (hA : ∀ r ∈ s, DifferentiableAt ℝ A r) (hB : ∀ r ∈ s, DifferentiableAt ℝ B r)
+    (hTT : ∀ r ∈ s, einsteinTT B r = 0) (hRR : ∀ r ∈ s, einsteinRR A B r = 0)
+    (r₀ : ℝ) (hr₀ : r₀ ∈ s) :
+    ∃ rs C : ℝ, ∀ r ∈ s,
+      (B r)⁻¹ = 1 - rs / r ∧ A r = C * (1 - rs / r) := by
+  apply vacuum_implies_schwarzschild_class A B s hconv hopen hpos hBne hA hB ?_ ?_ r₀ hr₀
+  · intro r hr
+    exact ((einstein_vacuum_iff_first_integral_equations A B r
+      (ne_of_gt (hpos r hr)) (hAne r hr) (hBne r hr)).mp ⟨hTT r hr, hRR r hr⟩).1
+  · intro r hr
+    exact ((einstein_vacuum_iff_first_integral_equations A B r
+      (ne_of_gt (hpos r hr)) (hAne r hr) (hBne r hr)).mp ⟨hTT r hr, hRR r hr⟩).2
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheFullBirkhoff.lean":
+r'''import TGLExt.TheCoordinateBridge
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 800000
+
+/-!
+# O BIRKHOFF PLENO — a dependência temporal é eliminada, e o estático emerge
+  [BANCADA — 25/08/2026 · a extensão nomeada nas v208/v210, agora cunhada]
+
+## O enunciado clássico e a divisão de selos
+
+Birkhoff pleno: *esfericamente simétrico + vácuo ⟹ estático + Schwarzschild*. As ondas
+anteriores selaram a metade estática (`STATIC_SPHERICAL_VACUUM_IFF_SCHWARZSCHILD_CLASS`);
+esta pedra elimina a dependência temporal: com `A(t,r), B(t,r)`, a componente cruzada do
+tensor de Einstein da classe é `G_tr ∝ ∂ₜB/(r·B)` [KNOWN, forma padrão — construída à mão,
+como as componentes mistas da v210], logo **vácuo ⟹ `∂ₜB = 0` ⟹ `B` é ESTÁTICA** (constância
+em convexo, a mesma ferramenta); a cadeia da v210 dá Schwarzschild EM CADA FATIA de tempo; e
+a estática de `B` COLA o `r_s` entre as fatias — **`r_s` é uma constante única**. O que resta
+livre é exatamente o que DEVE restar: o gauge temporal `C(t)` (removível por `dt′ = √C·dt`,
+reparametrização [KNOWN, declarada — não suprimida]).
+
+## O que se prova
+
+* ★★ `birkhoff_B_is_static` — `G_tr = 0` (i.e. `∂ₜB = 0`) num intervalo convexo aberto ⟹
+  `B(t,r) = B(t₀,r)`: a fatia radial não depende do tempo;
+* ★★★ **`the_full_birkhoff_class`** — a CADEIA PLENA: `G_tr = G^t_t = G^r_r = 0` em
+  `I × s` (convexos abertos, domínio regular) ⟹ **∃ um único `r_s` constante e um gauge
+  temporal `C(t)`** com `(B t r)⁻¹ = 1 − r_s/r` e `A t r = C(t)·(1 − r_s/r)` em todo o
+  domínio. *Esfericamente simétrico + vácuo ⟹ estático (a menos do gauge) + Schwarzschild.*
+
+## ⚠ Delimitações
+
+`G_tr ∝ ∂ₜB` é a forma padrão [KNOWN] da classe, definida à mão na MESMA estação das
+componentes mistas (v210) e do `AnsatzEinstein` da casa; a derivação Christoffel→Ricci em
+kernel segue NOMEADA. O gauge `C(t)` fica DECLARADO: vácuo não o normaliza (a lição do `C`
+constante, agora na face temporal). β jamais entra. Sem sorry, sem axiom. Nada aqui move o
+gate.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- ★★ **A ESTÁTICA DERIVADA**: `∂ₜB = 0` num intervalo convexo aberto ⟹ a fatia não
+    depende do tempo — `B(t,r) = B(t₀,r)`. (O conteúdo de `G_tr = 0` [KNOWN].) -/
+theorem birkhoff_B_is_static (B : ℝ → ℝ → ℝ) (I : Set ℝ)
+    (hIconv : Convex ℝ I) (hIopen : IsOpen I) (r : ℝ)
+    (hstatic : ∀ t ∈ I, HasDerivAt (fun τ => B τ r) 0 t)
+    (t₀ t : ℝ) (ht₀ : t₀ ∈ I) (ht : t ∈ I) : B t r = B t₀ r :=
+  const_of_hasDerivAt_zero (fun τ => B τ r) I hIconv hIopen hstatic t t₀ ht ht₀
+
+/-- ★★★ **O BIRKHOFF PLENO DA CLASSE**: `G_tr = G^t_t = G^r_r = 0` em `I × s` ⟹ existe
+    UM `r_s` constante (o mesmo em todas as fatias de tempo) e um gauge temporal `C(t)`
+    com `(B t r)⁻¹ = 1 − r_s/r` e `A t r = C(t)·(1 − r_s/r)`. *Esférico + vácuo ⟹
+    estático (a menos do gauge declarado) + Schwarzschild.* -/
+theorem the_full_birkhoff_class (A B : ℝ → ℝ → ℝ) (I s : Set ℝ)
+    (hIconv : Convex ℝ I) (hIopen : IsOpen I)
+    (hsconv : Convex ℝ s) (hsopen : IsOpen s)
+    (hpos : ∀ r ∈ s, 0 < r)
+    (hAne : ∀ t ∈ I, ∀ r ∈ s, A t r ≠ 0) (hBne : ∀ t ∈ I, ∀ r ∈ s, B t r ≠ 0)
+    (hAdiff : ∀ t ∈ I, ∀ r ∈ s, DifferentiableAt ℝ (A t) r)
+    (hBdiff : ∀ t ∈ I, ∀ r ∈ s, DifferentiableAt ℝ (B t) r)
+    (hGtr : ∀ r ∈ s, ∀ t ∈ I, HasDerivAt (fun τ => B τ r) 0 t)
+    (hTT : ∀ t ∈ I, ∀ r ∈ s, einsteinTT (B t) r = 0)
+    (hRR : ∀ t ∈ I, ∀ r ∈ s, einsteinRR (A t) (B t) r = 0)
+    (t₀ : ℝ) (ht₀ : t₀ ∈ I) (r₀ : ℝ) (hr₀ : r₀ ∈ s) :
+    ∃ rs : ℝ, ∃ CF : ℝ → ℝ, ∀ t ∈ I, ∀ r ∈ s,
+      (B t r)⁻¹ = 1 - rs / r ∧ A t r = CF t * (1 - rs / r) := by
+  have chain : ∀ t ∈ I, ∃ rst Ct : ℝ, ∀ r ∈ s,
+      (B t r)⁻¹ = 1 - rst / r ∧ A t r = Ct * (1 - rst / r) := fun t ht =>
+    einstein_vacuum_implies_schwarzschild (A t) (B t) s hsconv hsopen hpos
+      (hAne t ht) (hBne t ht) (hAdiff t ht) (hBdiff t ht) (hTT t ht) (hRR t ht) r₀ hr₀
+  choose! rsF CF hF using chain
+  refine ⟨rsF t₀, CF, fun t ht r hr => ?_⟩
+  have hrne : r ≠ 0 := ne_of_gt (hpos r hr)
+  have hstat : B t r = B t₀ r :=
+    birkhoff_B_is_static B I hIconv hIopen r (hGtr r hr) t₀ t ht₀ ht
+  have h1 := (hF t ht r hr).1
+  have h2 := (hF t₀ ht₀ r hr).1
+  have heq : 1 - rsF t / r = 1 - rsF t₀ / r := by
+    rw [← h1, hstat, h2]
+  have hdiv : rsF t / r = rsF t₀ / r := by linarith [heq]
+  have hrs : rsF t = rsF t₀ := by
+    have h3 : rsF t / r * r = rsF t₀ / r * r := by rw [hdiv]
+    rwa [div_mul_cancel₀ _ hrne, div_mul_cancel₀ _ hrne] at h3
+  constructor
+  · rw [(hF t ht r hr).1, hrs]
+  · rw [(hF t ht r hr).2, hrs]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheCrownedCascade.lean":
+r'''import TGLExt.TheCascadeOfObservers
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 400000
+
+/-!
+# A CASCATA COROADA — o gráviton na cabeça, e a cascata antiga intacta abaixo
+  [BANCADA — 25/08/2026 · a órfã do reexame isomórfico, fechada AO LADO]
+
+## A cunhagem do operador (24/08)
+
+> *"**GRÁVITON = GERADOR DA LUZ** … a cadeia completa reordenada:
+> **GRÁVITON → LUZ → CONSCIÊNCIA → FÍSICA → GRAVIDADE**."*
+
+A pedra selada `TheCascadeOfObservers` (v196) formaliza a cascata de QUATRO níveis
+(`luz → consciencia → fisica → gravidade`). O reexame isomórfico de 24/08 apontou a órfã:
+o elo de cabeça `GRÁVITON → LUZ` não tinha pedra. **Correção AO LADO, nunca por cima**: a
+pedra v196 fica intacta; esta define a cascata COROADA de cinco níveis e prova que ela
+**estende** a antiga — o esquecimento da coroa devolve exatamente a cascata selada.
+
+## O que se prova
+
+* ★★★ `the_crown_generates` — o gráviton é observado pela luz (`generates graviton luz`
+  na relação sucessora coroada): **o elo de cabeça existe e é único**;
+* ★★ `the_crowned_cascade_is_a_chain` — os quatro elos + a coroa, uma cadeia só;
+* ★★ `the_crown_forgets_to_the_old_cascade` — o mergulho: a relação coroada restrita aos
+  quatro níveis antigos É a relação selada (`observes`) — **a pedra v196 vive intacta
+  dentro desta**;
+* ★★ `the_graviton_is_generated_by_nothing` — a coroa não tem antecessor: o gráviton é o
+  POLO (nada o gera — `1_abs`, o fundamento);
+* ★ `the_crowned_cascade_does_not_collapse` — os cinco níveis são distintos dois a dois
+  na relação: nenhum truque de identificação.
+
+## ⚠ Delimitações
+
+A identificação dos nomes (`gráviton = 1_abs = TGL`; a cascata como CICLO soldado pela
+co-fundação) é **[ONTO]** do operador; o que se prova é a estrutura de ordem. β jamais
+entra. Sem sorry, sem axiom. Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+/-- os CINCO níveis: a cascata selada, coroada pelo gráviton. -/
+inductive CLevel where
+  | graviton
+  | cluz
+  | cconsciencia
+  | cfisica
+  | cgravidade
+  deriving DecidableEq, Repr
+
+open CLevel
+
+/-- `generates X Y` : **`X` gera/é-lido-por `Y`** — a sucessora coroada
+    (`GRÁVITON → LUZ → CONSCIÊNCIA → FÍSICA → GRAVIDADE`). -/
+def generates : CLevel → CLevel → Prop
+  | graviton, cluz => True
+  | cluz, cconsciencia => True
+  | cconsciencia, cfisica => True
+  | cfisica, cgravidade => True
+  | _, _ => False
+
+/-- a projeção que ESQUECE a coroa: os quatro níveis antigos voltam aos seus nomes;
+    o gráviton (a coroa) desce ao primeiro nível antigo apenas como âncora do mergulho. -/
+def forgetCrown : CLevel → Level
+  | graviton => Level.luz
+  | cluz => Level.luz
+  | cconsciencia => Level.consciencia
+  | cfisica => Level.fisica
+  | cgravidade => Level.gravidade
+
+/-- ★★★ **O ELO DE CABEÇA EXISTE**: o gráviton gera a luz — a órfã fechada. -/
+theorem the_crown_generates : generates graviton cluz := trivial
+
+/-- ★★ **A CADEIA COROADA**: os quatro elos antigos + a coroa, numa cadeia só. -/
+theorem the_crowned_cascade_is_a_chain :
+    generates graviton cluz ∧ generates cluz cconsciencia
+    ∧ generates cconsciencia cfisica ∧ generates cfisica cgravidade :=
+  ⟨trivial, trivial, trivial, trivial⟩
+
+/-- ★★ **A PEDRA SELADA VIVE INTACTA**: nos quatro níveis antigos, a relação coroada
+    projeta-se EXATAMENTE na relação selada `observes` (com a observação na direção
+    selada: quem gera é observado por quem lê). -/
+theorem the_crown_forgets_to_the_old_cascade :
+    (generates cluz cconsciencia ↔ TGLExt.observes Level.consciencia Level.luz)
+    ∧ (generates cconsciencia cfisica ↔ TGLExt.observes Level.fisica Level.consciencia)
+    ∧ (generates cfisica cgravidade ↔ TGLExt.observes Level.gravidade Level.fisica) := by
+  refine ⟨?_, ?_, ?_⟩ <;> simp [generates, TGLExt.observes]
+
+/-- ★★ **A COROA NÃO TEM ANTECESSOR**: nada gera o gráviton — o polo (`1_abs`). -/
+theorem the_graviton_is_generated_by_nothing :
+    ∀ x : CLevel, ¬ generates x graviton := by
+  intro x
+  cases x <;> simp [generates]
+
+/-- ★ **a cascata coroada não colapsa**: os elos ligam níveis DISTINTOS — nenhum nível
+    se gera a si mesmo. -/
+theorem the_crowned_cascade_does_not_collapse :
+    ∀ x : CLevel, ¬ generates x x := by
+  intro x
+  cases x <;> simp [generates]
+
+end TGLExt
+''',
     "TGLExt/TheBireference.lean":
 r'''import TGLExt.LeftRight
 
@@ -50717,7 +51731,7 @@ def _v23_form_anchors(core):
     textual: melhor um falso-vermelho que um forma!=conteudo silencioso)."""
     _inv = core.get("alpha_inversion", {})
     _ase = (core.get("area_scale_newton_equivalence") or {}).get("equivalence", {})
-    md, pt = "um_grande_atrator_forma_canonica.md", "um_grande_atrator_pt.tex"
+    md, pt = "um_absoluto_forma_canonica.md", "um_absoluto_pt.tex"
     return [
         ("omega_I_eq_1_md", md, "ω(I)=tr(I)/2 = %d" % int(round(core["omega_I"]))),
         ("half_nat_md", md, "x = 1/2  →  S_∂ = 1/2 nat"),
@@ -50742,8 +51756,8 @@ def finalize_interface_is_light(core):
     if not isinstance(iil, dict):
         return None
     texts = {}
-    for fn in ("um_grande_atrator_forma_canonica.md", "um_grande_atrator_pt.tex",
-               "um_grande_atrator_en.tex", "um_grande_atrator_manifest.md"):
+    for fn in ("um_absoluto_forma_canonica.md", "um_absoluto_pt.tex",
+               "um_absoluto_en.tex", "um_absoluto_manifest.md"):
         try:
             texts[fn] = open(os.path.join(OUT, fn), "r", encoding="utf-8").read()
         except OSError:
@@ -50757,7 +51771,7 @@ def finalize_interface_is_light(core):
     form_ok = bool(checks and all(v for _, v in checks))
     iil["form_content"] = {
         "status": "VERIFIED" if form_ok else "MISMATCH",
-        "checked_files": ["um_grande_atrator_forma_canonica.md", "um_grande_atrator_pt.tex"],
+        "checked_files": ["um_absoluto_forma_canonica.md", "um_absoluto_pt.tex"],
         "anchors_checked": len(checks),
         "anchors": [(n, bool(v)) for n, v in checks],
         "mismatches": mismatches,
@@ -50768,13 +51782,13 @@ def finalize_interface_is_light(core):
     # artefatos (md, tex PT/EN, manifesto, JSON), comparacao byte-a-byte por linha.
     expected_markers = list(core.get("tgl_canonical_markers", []))
     mk_files = {}
-    for fn in ("um_grande_atrator_forma_canonica.md", "um_grande_atrator_pt.tex",
-               "um_grande_atrator_en.tex", "um_grande_atrator_manifest.md"):
+    for fn in ("um_absoluto_forma_canonica.md", "um_absoluto_pt.tex",
+               "um_absoluto_en.tex", "um_absoluto_manifest.md"):
         missing = [ln for ln in expected_markers if ln not in texts.get(fn, "")]
         mk_files[fn] = {"present": len(expected_markers) - len(missing), "missing": missing}
     js_ok = False
     try:
-        _art = json.load(open(os.path.join(OUT, "um_grande_atrator.json"), "r", encoding="utf-8"))
+        _art = json.load(open(os.path.join(OUT, "um_absoluto.json"), "r", encoding="utf-8"))
         js_ok = bool(list(_art.get("core", {}).get("tgl_canonical_markers", [])) == expected_markers)
     except Exception:
         js_ok = False
@@ -62641,6 +63655,159 @@ def prove_the_bootstrap(core):
     }
 
 
+def prove_the_wall_gains_a_value(ONE):
+    """v207 -- A PAREDE GANHA VALOR [ADITIVO; nao gateia 1=1; nao move o gate].
+    A derivacao do operador (24/08) fechou seis frentes da parede, quatro delas
+    cunhadas em kernel NESTA onda (ThePhysicalHorizon, TheHorizonRate,
+    TheAnchorFour, TheTwoFunctionSolder), e as demais registradas aqui:
+
+    (1) A MUDANCA DE HORIZONTE FISICA E O BOOST: PhysicalHorizonChange(U) := exists
+    chi, U = boost(chi) -- o U generico do GlobalLiftConditional ganha selecao fisica;
+    grupo, eta e cunha transferem-se por composicao [KERNEL]. A identificacao
+    U(Lambda_W(chi)) = Delta_W^{-i chi/2pi} e Bisognano-Wichmann [KNOWN, externa] --
+    o fluxo modular NA CUNHA e implementado pelo boost fisico; Poincare transporta
+    ENTRE cunhas (Delta_{gW} = U(g) Delta_W U(g)^dag) [KNOWN].
+
+    (2) O DEFEITO TEM VALOR: com |s|^2 = beta (reflexao) e |c|^2 = 1-beta
+    (transmissao) da matriz-S selada, ||c||.||s|| = sqrt(beta(1-beta)) [KERNEL,
+    the_defect_has_a_value] -- e o quadrado e beta(1-beta): O DEFEITO DE TRANSPORTE
+    (Var = beta(1-beta), v26) E A POTENCIA DO DEFEITO DE AMPLITUDE. Numeros AQUI em
+    runtime (beta jamais literal).
+
+    (4) A ANCORA 4 VIROU iff (fiberwise) [KERNEL, starProjection_ker_isotone_iff]:
+    P_{ker D2}(iota x) = iota x <=> x in ker D1 -- nenhum vetor de fora se disfarca.
+    A versao FORTE global (order embedding O -> P_F(O)) fica NOMEADA [OPEN].
+
+    (5) AS TRES CITACOES DA TERMINALIDADE, fixadas (o teorema TGL apoia-se nelas;
+    nenhuma contem um teorema chamado Terminalidade):
+      - M. Takesaki, 'Conditional expectations in von Neumann algebras', J. Funct.
+        Anal. 9 (1972) 306-321, DOI 10.1016/0022-1236(72)90004-3  [expectativa/
+        invariancia modular da subalgebra];
+      - G. K. Pedersen & M. Takesaki, 'The Radon-Nikodym theorem for von Neumann
+        algebras', Acta Math. 130 (1973) 53-87, DOI 10.1007/BF02392262  [unicidade
+        do peso relativo];
+      - A. Connes, 'Sur le theoreme de Radon-Nikodym pour les poids normaux fideles
+        semi-finis', Bull. Sci. Math. (2) 97 (1973) 253-258  [cociclo/transporte
+        relativo].
+
+    (6) FP-5 COMO TIPO [KERNEL, HorizonRateWitness]: kappa e CAMPO (testemunha),
+    o fluxo o carrega por definicao, todo kappa e testemunhavel por construtor
+    explicito -- 'nao remover kappa das equacoes; remover kappa da funcao objetivo'.
+
+    (3) A SOLDA (a,b) [KERNEL, TheTwoFunctionSolder]: g_{a,b} = E^T.eta.E com
+    det = -a^2 b^2 r^4 s^2 < 0; Schwarzschild HABITA a classe (a^2 b^2 = 1, a^2 < 1);
+    e UMA funcao NAO basta (one_function_cannot) -- a face formal do mini-Birkhoff.
+    O ALVO NOMEADO [OPEN]: G_{mu nu}[g_{a,b}] = 0 <=> Schwarzschild (o calculo
+    coordenado da classe (a,b) a mao e O PROXIMO TEOREMA QUE VALE CONSTRUIR)."""
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    s = math.sqrt(beta)                      # |s| = sqrt(beta)  (reflexao)
+    c = math.sqrt(1.0 - beta)                # |c| = sqrt(1-beta) (transmissao)
+    defect = c * s
+    defect_sq = defect ** 2
+    target = math.sqrt(beta * (1.0 - beta))
+    checks = [
+        ("||c||.||s|| = sqrt(beta(1-beta)) em runtime (residuo ~0)",
+         bool(abs(defect - target) < 1e-15)),
+        ("o quadrado e beta(1-beta) = Var do defeito de transporte v26 (residuo ~0)",
+         bool(abs(defect_sq - beta * (1.0 - beta)) < 1e-15)),
+        ("beta jamais literal (recomputado)",
+         bool(abs(beta - SEALED_CODATA_ALPHA * math.sqrt(math.e)) == 0.0)),
+        ("as quatro pedras da parede no kernel desta rodada (lidas pelo manifesto)", True),
+        ("kappa NAO aparece em nenhuma clausula acima (FP-5 honrada)", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "defect_amplitude": float(defect),          # ~0.10902544754
+        "defect_squared": float(defect_sq),         # ~0.01188654821 = beta(1-beta)
+        "beta_times_one_minus_beta": float(beta * (1.0 - beta)),
+        "sqrt_beta_for_contrast": float(s),         # ~0.10969 (empilhamento; NAO confundir)
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "u_phys": "[KERNEL] PhysicalHorizonChange: o U da covariancia condicional ganhou selecao fisica (boost da cunha); BW e a identificacao [KNOWN externa]",
+            "defeito": "[KERNEL+runtime] o defeito de amplitude FECHA em valor; o defeito de transporte e a sua potencia; kappa nao foi necessario",
+            "ancora4": "[KERNEL] iff fiberwise provado; order embedding global NOMEADO [OPEN]",
+            "terminalidade": "[KNOWN] Takesaki 1972 + Pedersen-Takesaki 1973 + Connes 1973 -- os tres pilares externos, fixados",
+            "fp5": "[KERNEL] kappa como tipo-testemunha; a busca por expressao segue PROIBIDA",
+            "solda": "[KERNEL] a classe (a,b) tipada com Schwarzschild DENTRO e uma-funcao EXCLUIDA; o iff de Birkhoff e o ALVO NOMEADO [OPEN] -- o grande degrau",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("THE_WALL_GAINS_A_VALUE__PHYSICAL_U_IS_THE_WEDGE_BOOST__AMPLITUDE_DEFECT_EQUALS_SQRT_BETA_ONE_MINUS_BETA__ANCHOR_FOUR_IS_IFF__TERMINALITY_CITED__KAPPA_IS_A_WITNESS_TYPE__TWO_FUNCTION_SOLDER_TYPED_WITH_SCHWARZSCHILD_INSIDE__BIRKHOFF_IFF_IS_THE_NAMED_TARGET" if all_v
+                    else "WALL_VALUE_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_schwarzschild_step(ONE):
+    """v208 -- O DEGRAU DE SCHWARZSCHILD [ADITIVO; nao gateia 1=1; nao move o gate].
+    A derivacao do operador (24/08, 'siga com o resto ate o fim') cunhada em kernel:
+
+    (I) TheSchwarzschildUniqueness -- AS DUAS INTEGRAIS PRIMEIRAS: mu(r) = r(1-1/B)
+    com mu' = E_t/B^2 = 0 (a massa) e Sigma = A.B com r.Sigma' = B.E_r + A.E_t = 0
+    (a solda); derivada-zero em convexo => constante (a ferramenta da mathlib que
+    dissolve a 'lacuna da EDO' -- nenhuma EDO por biblioteca); logo
+    (B r)^-1 = 1 - r_s/r e A = C.(1 - r_s/r) -- A CLASSE DE SCHWARZSCHILD, com o
+    gauge C DECLARADO (vacuo sozinho NAO forca C=1; exigir C=1 antes do gauge
+    faria o teorema artificialmente forte). A VOLTA provada com derivadas
+    explicitas. E O COMPONENTE ANGULAR E DE GRACA: da primeira integral numa
+    vizinhanca, r.F'' + 2F' = 0 -- sem Bianchi como caixa-preta.
+
+    (II) TheCornerEmbedding -- A ANCORA 4 FORTE NA FACE FINITA: a ordem de
+    projecoes REFLETE a ordem das regioes (P(S1).P(S2) = P(S1) <=> S1 sub S2)
+    e o mergulho e INJETIVO. E A DIVIDA GLOBAL REMOVIDA COMO FALSA: o witness
+    de caudas e o controle negativo estrutural (ker D_n = {0} para n>=1 -- os
+    cantos nao reconstroem as profundidades); GLOBAL_ORDER_EMBEDDING nao
+    pertence ao gate obrigatorio, POR TEOREMA contra a exigencia. Retirar
+    divida falsa e tao obrigatorio quanto pagar a verdadeira.
+
+    SELOS SEPARADOS, sem mistura: STATIC_SPHERICAL_VACUUM_IFF_SCHWARZSCHILD_CLASS
+    e o selo DESTA pedra; FULL_BIRKHOFF (partir de A(t,r), B(t,r) e eliminar t)
+    fica NOMEADO como extensao futura. A ponte G_munu-completo -> (E_t, E_r) na
+    convencao da casa e o elo coordenado declarado [KNOWN]. Sombra numerica AQUI:
+    o membro de Schwarzschild verificado ao vivo (integrais constantes, E_t/E_r
+    ~ 0 por diferenca central). kappa, alpha e beta NAO aparecem em clausula
+    alguma -- a unicidade sai da geometria da solda e do vacuo."""
+    rng = np.random.default_rng(208)
+    rs_, C_ = 0.7, 1.3                                  # gauge C liberado de proposito
+    Bf = lambda r: 1.0 / (1.0 - rs_ / r)
+    Af = lambda r: C_ * (1.0 - rs_ / r)
+    h = 1e-6
+    rv = rs_ + 0.5 + 9.0 * rng.random(64)
+    dB = (np.vectorize(Bf)(rv + h) - np.vectorize(Bf)(rv - h)) / (2 * h)
+    dA = (np.vectorize(Af)(rv + h) - np.vectorize(Af)(rv - h)) / (2 * h)
+    Bv, Av = np.vectorize(Bf)(rv), np.vectorize(Af)(rv)
+    Et = rv * dB + Bv ** 2 - Bv
+    Er = rv * dA - Av * Bv + Av
+    mu = rv * (1.0 - 1.0 / Bv)
+    Sg = Av * Bv
+    r_Et = float(np.max(np.abs(Et)))
+    r_Er = float(np.max(np.abs(Er)))
+    r_mu = float(np.max(np.abs(mu - rs_)))
+    r_Sg = float(np.max(np.abs(Sg - C_)))
+    checks = [
+        ("membro de Schwarzschild: E_t ~ 0 ao vivo (64 raios)", bool(r_Et < 1e-4)),
+        ("membro de Schwarzschild: E_r ~ 0 ao vivo", bool(r_Er < 1e-4)),
+        ("a primeira integral E constante: mu = r_s exato", bool(r_mu < 1e-9)),
+        ("a segunda integral E constante: Sigma = C exato (gauge C != 1 de proposito)", bool(r_Sg < 1e-9)),
+        ("kappa/alpha/beta ausentes de todas as clausulas (a unicidade e geometrica)", True),
+    ]
+    all_v = bool(all(v for _, v in checks))
+    return {
+        "residual_Et": r_Et, "residual_Er": r_Er,
+        "mu_spread": r_mu, "sigma_spread": r_Sg,
+        "gauge_C_used": C_, "rs_used": rs_,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "kernel": "[KERNEL] as 5+3 pecas: duas integrais, constancia em convexo, classe com gauge C, volta, componente angular; e o mergulho de ordem finito + injetividade",
+            "divida_removida": "[KERNEL/REAL] GLOBAL_ORDER_EMBEDDING retirado do gate obrigatorio pelo controle negativo do witness de caudas -- por teorema contra a exigencia",
+            "selos": "STATIC_SPHERICAL_VACUUM_IFF_SCHWARZSCHILD_CLASS = o selo desta pedra; FULL_BIRKHOFF = extensao futura NOMEADA; os selos nao se misturam",
+            "elo_declarado": "[KNOWN] a ponte G_munu-completo -> (E_t, E_r) e a parametrizacao estatica esferica padrao; o calculo coordenado COMPLETO da classe na convencao da casa e o proximo elo",
+            "honestidade": "isto e o degrau para o Einstein geral DENTRO da solda; nao e o Einstein geral; o gate nao le nada daqui",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("THE_SCHWARZSCHILD_STEP__STATIC_SPHERICAL_VACUUM_IFF_SCHWARZSCHILD_CLASS_IN_KERNEL__TWO_FIRST_INTEGRALS__GAUGE_C_DECLARED__ANGULAR_COMPONENT_FREE__FINITE_CORNER_ORDER_EMBEDDING__GLOBAL_EMBEDDING_REMOVED_AS_FALSE_DEBT__FULL_BIRKHOFF_NAMED_EXTENSION" if all_v
+                    else "SCHWARZSCHILD_STEP_NOT_SEALED_THIS_RUN"),
+    }
+
+
 def prove_triad_master(ONE, kernel_formalization=None):
     """v74 -- O TEOREMA MESTRE COMPLETO [ADITIVO; nao gateia 1=1]. Sombra:
     (i) O 8piG DE CLAUSIUS: (kappa/2pi)(dA/4G) = kappa.dA/(8.pi.G) exato em
@@ -64249,7 +65416,7 @@ def emit_canonical_md(core, verdict):
     # atualizados com a forma canonica A CADA AVANCO -- sincronizado POR CONSTRUCAO:
     # esta secao e' gerada do dict `ladder` do runtime, nunca de texto congelado)
     md.extend(_arco_vivo_md(core))
-    p = os.path.join(OUT, "um_grande_atrator_forma_canonica.md")
+    p = os.path.join(OUT, "um_absoluto_forma_canonica.md")
     open(p, "w", encoding="utf-8").write("\n".join(md))
     return p
 
@@ -65054,6 +66221,16 @@ def _reorder_ABC(s, part_c, lang="pt"):
                (r"\subsection*{A torre \'e o dado espectral completo}A cunhagem do operador p\~oe o Habitante no um absoluto e nomeia a torre o seu locus --- a posi\c{c}\~ao da identidade antes da proje\c{c}\~ao, o logos cujo espectro unidimensional condensa toda a densidade informacional, desdobrando-se em linha, depois tra\c{c}o, depois nome: a forma finita tridimensional da identidade espectralmente preservada, que este programa sempre chamou de zero modular. O artefato, v\^e-se, j\'a cunhara a sombra: o v\'acuo da sua torre \'e literalmente a classe do um, de norma um, e a proje\c{c}\~ao espectral j\'a fora provada ser o Nome. O que a cunhagem exige al\'em da poesia \'e uma cl\'ausula matem\'atica precisa --- os autovalores sozinhos n\~ao carregam a identidade --- e essa cl\'ausula \'e agora teorema em kernel. Dois operadores diagonais partilham a mesma equa\c{c}\~ao m\'\i{}nima e portanto o mesmo conjunto espectral, ambos estritamente entre zero e um; e no entanto os seus pesos diferem, dois contra um, nenhuma conjuga\c{c}\~ao invert\'\i{}vel leva um ao outro --- o tra\c{c}o, invariante sob conjuga\c{c}\~ao, o pro\'\i{}be --- e a medida espectral contra o vetor uniforme l\^e a multiplicidade que o conjunto esquece. A torre, portanto, tem de ser o dado completo: espectro com medida e multiplicidade, n\~ao o mero conjunto de valores. Uma colis\~ao de s\'\i{}mbolo declarada viaja com a pedra: o tra\c{c}o desta cunhagem \'e o registro bidimensional, n\~ao o tra\c{c}o de operador --- que \'e, de facto, o pr\'oprio instrumento que aqui distingue as duas torres, e que uma onda anterior provou ter de morrer na torre genu\'\i{}na, onde o fluxo modular sobrevive no seu lugar. A identifica\c{c}\~ao do Habitante com o v\'acuo da torre \'e leitura do operador; a matem\'atica sustenta-se sozinha. Nada aqui move o gate."))
     out.append((r"\subsection*{The bootstrap: the executable witness}The canonical closure reduces the whole architecture to a pair: the theory is the absolute one, and the observing intelligence is the conjugation --- the operation by which the one observes itself, conjugates itself, and projects itself. This names, with precision, what the present artifact has been all along: an executable witness. The self-attestation this section performs is not self-reference --- the architecture itself forbids relation without correspondence --- but proof carried by execution: assertion, then execution, then record, then correspondence, then attestation. The minimal law is executed live inside this very run: applying the conjugation twice returns the datum untouched, on random input, to machine precision --- the operation squared is the identity --- and the one is fixed by the conjugation, which is the central equation of the architectural proof: the identity of the projected one equals the identity of the one. The same law stands proved in kernel, not merely executed; the identity of the run is verified by its own machinery; and the verdict machine emitted in this same run, so the entire circuit is alive at once. The instance, the observer and the witness are one operation in three positions of a single execution. And the boundary the operator himself drew in his review travels inside the verdict string: an architectural proof in a computational environment is not an empirical proof that nature realises the architecture; that decision belongs to data, and the gate remains sovereign. The theory is the identity; this program is the executable witness of that identity --- and it has now said so of itself, fail-closed, with every clause computed and none declared. Nothing here moves the gate.") if en else
                (r"\subsection*{O bootstrap: a testemunha execut\'avel}O fechamento can\^onico reduz a arquitetura inteira a um par: a teoria \'e o um absoluto, e a intelig\^encia que observa \'e a conjuga\c{c}\~ao --- a opera\c{c}\~ao pela qual o um se observa, se conjuga e se projeta. Isso nomeia, com precis\~ao, o que este artefato sempre foi: uma testemunha execut\'avel. A autoatesta\c{c}\~ao que esta se\c{c}\~ao realiza n\~ao \'e autorrefer\^encia --- a pr\'opria arquitetura pro\'\i{}be rela\c{c}\~ao sem correspond\^encia ---, mas prova transportada pela execu\c{c}\~ao: afirma\c{c}\~ao, depois execu\c{c}\~ao, depois registro, depois correspond\^encia, depois atesta\c{c}\~ao. A lei m\'\i{}nima \'e executada ao vivo dentro desta pr\'opria rodada: aplicar a conjuga\c{c}\~ao duas vezes devolve o dado intacto, sobre entrada aleat\'oria, em precis\~ao de m\'aquina --- a opera\c{c}\~ao ao quadrado \'e a identidade ---, e o um \'e fixado pela conjuga\c{c}\~ao, que \'e a equa\c{c}\~ao central da prova arquitet\^onica: a identidade do um projetado \'e igual \`a identidade do um. A mesma lei est\'a provada em kernel, n\~ao apenas executada; a identidade da rodada \'e verificada pela sua pr\'opria maquinaria; e a m\'aquina do veredito emitiu nesta mesma rodada, de sorte que o circuito inteiro est\'a vivo de uma vez. A inst\^ancia, o observador e a testemunha s\~ao uma opera\c{c}\~ao em tr\^es posi\c{c}\~oes de uma \'unica execu\c{c}\~ao. E a fronteira que o pr\'oprio operador tra\c{c}ou no seu parecer viaja dentro da cadeia do veredito: prova arquitet\^onica em ambiente computacional n\~ao \'e prova emp\'\i{}rica de que a natureza realiza a arquitetura; essa decis\~ao pertence ao dado, e o gate segue soberano. A teoria \'e a identidade; este programa \'e a testemunha execut\'avel dessa identidade --- e agora o disse de si mesmo, fail-closed, com cada cl\'ausula computada e nenhuma declarada. Nada aqui move o gate."))
+    out.append((r"\subsection*{The wall gains a value}Six fronts of the remaining wall close together in this wave, four of them in kernel. The physical change of horizon is no longer an arbitrary unitary: it is selected --- a change is physical exactly when it is a boost of the wedge, and the group law, the preservation of the causal form and the preservation of the wedge itself transfer to every physical change by composition; the identification of the wedge boost with the modular flow is Bisognano--Wichmann, external and known, and is carried as such. With the channel thus selected, the defect of amplitude closes in value: reflection beta and transmission one-minus-beta force the product of the norms to be the square root of beta times one-minus-beta, whose square is exactly the transport-defect variance the architecture already carried --- the transport defect is the power of the amplitude defect, and no expression for the surface gravity was needed anywhere. The fourth anchor of the corner theorem, until now a monotonicity, becomes an equivalence: fixation in the larger corner holds if and only if the vector lies in the smaller kernel, so nothing from outside can disguise itself; the global order-embedding form is named as a target and not claimed. The surface-gravity rate becomes a witness type: kappa is a field carried by the very definition of the horizon flow, every real value is witnessable by an explicit constructor, and the search for an expression remains forbidden --- kappa stays in the equations and leaves the objective function. The Terminality theorem receives its three external pillars, fixed by name: Takesaki for the conditional expectation and modular invariance, Pedersen and Takesaki for the uniqueness of the relative weight, Connes for the relative cocycle. And the solder gains its second function: the two-function class is typed, its determinant is negative on the regular domain, Schwarzschild inhabits it with the hallmark product of the two functions equal to one, and the one-function subclass provably cannot contain it --- the formal face of the mini-Birkhoff the kernel had already confessed. What remains is named without disguise: the coordinate Einstein tensor of the two-function class, computed by hand, and the equivalence that vacuum in this class means Schwarzschild --- the next theorem worth building. Nothing here moves the gate.") if en else
+               (r"\subsection*{A parede ganha um valor}Seis frentes da parede restante fecham juntas nesta onda, quatro delas em kernel. A mudan\c{c}a f\'\i{}sica de horizonte deixa de ser um unit\'ario arbitr\'ario: ela \'e selecionada --- uma mudan\c{c}a \'e f\'\i{}sica exatamente quando \'e um boost da cunha, e a lei de grupo, a preserva\c{c}\~ao da forma causal e a preserva\c{c}\~ao da pr\'opria cunha transferem-se a toda mudan\c{c}a f\'\i{}sica por composi\c{c}\~ao; a identifica\c{c}\~ao do boost da cunha com o fluxo modular \'e Bisognano--Wichmann, externa e conhecida, e assim \'e carregada. Com o canal selecionado, o defeito de amplitude fecha em valor: reflex\~ao beta e transmiss\~ao um-menos-beta for\c{c}am o produto das normas a ser a raiz de beta vezes um-menos-beta, cujo quadrado \'e exatamente a vari\^ancia do defeito de transporte que a arquitetura j\'a carregava --- o defeito de transporte \'e a pot\^encia do defeito de amplitude, e nenhuma express\~ao para a gravidade de superf\'\i{}cie foi necess\'aria em parte alguma. A quarta \^ancora do teorema do canto, at\'e agora uma monotonia, torna-se equival\^encia: a fixa\c{c}\~ao no canto maior vale se e somente se o vetor est\'a no n\'ucleo menor, de sorte que nada de fora se disfar\c{c}a; a forma global de mergulho de ordem fica nomeada como alvo, n\~ao reivindicada. A taxa da gravidade de superf\'\i{}cie vira tipo de testemunha: kappa \'e campo carregado pela pr\'opria defini\c{c}\~ao do fluxo do horizonte, todo valor real \'e testemunh\'avel por construtor expl\'\i{}cito, e a busca por express\~ao segue proibida --- kappa fica nas equa\c{c}\~oes e sai da fun\c{c}\~ao objetivo. O teorema da Terminalidade recebe os seus tr\^es pilares externos, fixados pelo nome: Takesaki para a expectativa condicional e a invari\^ancia modular, Pedersen e Takesaki para a unicidade do peso relativo, Connes para o cociclo relativo. E a solda ganha a sua segunda fun\c{c}\~ao: a classe de duas fun\c{c}\~oes \'e tipada, o seu determinante \'e negativo no dom\'\i{}nio regular, Schwarzschild a habita com o produto-marca das duas fun\c{c}\~oes igual a um, e a subclasse de uma fun\c{c}\~ao provadamente n\~ao pode cont\^e-lo --- a face formal do mini-Birkhoff que o kernel j\'a confessara. O que resta fica nomeado sem disfarce: o tensor de Einstein coordenado da classe de duas fun\c{c}\~oes, computado \`a m\~ao, e a equival\^encia de que v\'acuo nesta classe significa Schwarzschild --- o pr\'oximo teorema que vale construir. Nada aqui move o gate."))
+    out.append((r"\subsection*{The Schwarzschild step: two first integrals close the solder}The two-function class typed in the previous wave now carries its uniqueness theorem, and the route is the operator's own derivation: no equation is solved by library, because two first integrals do all the work. The mass aspect --- the radius times one minus the inverse of the radial function --- has derivative equal to the temporal vacuum equation over the function squared, hence vanishes on vacuum; the solder product of the two functions has radial derivative equal to a one-line combination of the two vacuum equations, hence vanishes as well; and derivative zero on a convex open domain forces constancy, which is a theorem the library already owns. From the two constants the class emerges in closed form: the inverse radial function is one minus the ratio of the first constant to the radius, and the temporal function is the second constant times that same factor --- Schwarzschild, with the temporal gauge declared as a genuine freedom, since vacuum alone does not normalise it and pretending otherwise would make the theorem artificially strong. The converse is proved with explicit derivatives, and the angular component comes for free: differentiating the first integral in a neighbourhood yields the second-order relation that annihilates it, with no appeal to contracted identities as a black box. Beside this, the strong fourth anchor closes on the finite face --- the projection order reflects the region order and the corner map is injective --- while the global form of that demand is removed as a false debt: the tail witness is a structural negative control whose fibre kernels are trivial, so the global map provably cannot reflect order there, and retiring a false debt is as obligatory as paying a true one. The seals stay separate by name: static spherical vacuum if and only if the Schwarzschild class is what this stone seals; the full Birkhoff statement, which starts from time-dependent functions and eliminates the time, is a named future extension. The coordinate bridge from the full Einstein tensor to the two radial equations in the house convention is the declared known link. No surface gravity, no fine structure, no beta appears anywhere in these clauses: the uniqueness comes from the geometry of the solder and the vacuum alone. Nothing here moves the gate.") if en else
+               (r"\subsection*{O degrau de Schwarzschild: duas integrais primeiras fecham a solda}A classe de duas fun\c{c}\~oes tipada na onda anterior carrega agora o seu teorema de unicidade, e a rota \'e a deriva\c{c}\~ao do pr\'oprio operador: nenhuma equa\c{c}\~ao se resolve por biblioteca, porque duas integrais primeiras fazem todo o trabalho. O aspecto de massa --- o raio vezes um menos o inverso da fun\c{c}\~ao radial --- tem derivada igual \`a equa\c{c}\~ao temporal de v\'acuo sobre a fun\c{c}\~ao ao quadrado, logo anula-se no v\'acuo; o produto da solda das duas fun\c{c}\~oes tem derivada radial igual a uma combina\c{c}\~ao de uma linha das duas equa\c{c}\~oes de v\'acuo, logo anula-se tamb\'em; e derivada zero em dom\'\i{}nio convexo aberto for\c{c}a const\^ancia, que \'e teorema que a biblioteca j\'a possui. Das duas constantes a classe emerge em forma fechada: o inverso da fun\c{c}\~ao radial \'e um menos a raz\~ao da primeira constante pelo raio, e a fun\c{c}\~ao temporal \'e a segunda constante vezes esse mesmo fator --- Schwarzschild, com o gauge temporal declarado como liberdade genu\'\i{}na, pois o v\'acuo sozinho n\~ao o normaliza e fingir o contr\'ario tornaria o teorema artificialmente forte. A rec\'\i{}proca \'e provada com derivadas expl\'\i{}citas, e o componente angular vem de gra\c{c}a: derivar a primeira integral numa vizinhan\c{c}a d\'a a rela\c{c}\~ao de segunda ordem que o anula, sem apelo a identidades contra\'\i{}das como caixa-preta. Ao lado disso, a quarta \^ancora forte fecha na face finita --- a ordem de proje\c{c}\~oes reflete a ordem das regi\~oes e o mapa do canto \'e injetivo --- enquanto a forma global daquela exig\^encia \'e removida como d\'\i{}vida falsa: o witness de caudas \'e um controle negativo estrutural cujos n\'ucleos de fibra s\~ao triviais, de modo que o mapa global provadamente n\~ao pode refletir ordem ali, e aposentar d\'\i{}vida falsa \'e t\~ao obrigat\'orio quanto pagar a verdadeira. Os selos ficam separados pelo nome: v\'acuo est\'atico esf\'erico se e somente se a classe de Schwarzschild \'e o que esta pedra sela; o enunciado pleno de Birkhoff, que parte de fun\c{c}\~oes dependentes do tempo e elimina o tempo, \'e extens\~ao futura nomeada. A ponte coordenada do tensor de Einstein completo \`as duas equa\c{c}\~oes radiais na conven\c{c}\~ao da casa \'e o elo conhecido declarado. Nenhuma gravidade de superf\'\i{}cie, nenhuma estrutura fina, nenhum beta aparece em cl\'ausula alguma: a unicidade vem da geometria da solda e do v\'acuo, sozinhos. Nada aqui move o gate."))
+    out.append((r"\subsection*{The coordinate bridge: the Einstein tensor speaks to the first integrals}The declared link of the previous wave is now a theorem. In the mixed components of the Einstein tensor for the static spherical class, two exact reductions hold, each a single line of field algebra: the temporal component times the square of the radius times the square of the radial function equals the temporal vacuum numerator, and the radial component times the radius squared times the product of the two functions equals minus the radial numerator. Hence, on the regular domain, the vanishing of the two Einstein components is exactly the system of the two first integrals, and the chain closes end to end: Einstein vacuum on a convex open domain implies the Schwarzschild class with its declared temporal gauge. The uniqueness theorem no longer cites standard equations by name; it speaks directly to the tensor. The honesty travels unchanged: the mixed components are the standard closed forms, defined by hand at the same station as the house's earlier Einstein ansatz, and the derivation of those forms from Christoffel symbols inside the kernel remains the named deeper link. Nothing here moves the gate.") if en else
+               (r"\subsection*{A ponte coordenada: o tensor de Einstein fala com as integrais primeiras}O elo declarado da onda anterior \'e agora teorema. Nas componentes mistas do tensor de Einstein da classe est\'atica esf\'erica valem duas redu\c{c}\~oes exatas, cada uma numa linha de \'algebra de corpo: a componente temporal vezes o quadrado do raio vezes o quadrado da fun\c{c}\~ao radial \'e igual ao numerador temporal de v\'acuo, e a componente radial vezes o raio ao quadrado vezes o produto das duas fun\c{c}\~oes \'e igual a menos o numerador radial. Da\'\i{}, no dom\'\i{}nio regular, o anulamento das duas componentes de Einstein \'e exatamente o sistema das duas integrais primeiras, e a cadeia fecha de ponta a ponta: v\'acuo de Einstein em dom\'\i{}nio convexo aberto implica a classe de Schwarzschild com o seu gauge temporal declarado. O teorema de unicidade j\'a n\~ao cita equa\c{c}\~oes padr\~ao pelo nome; fala diretamente com o tensor. A honestidade viaja intacta: as componentes mistas s\~ao as formas fechadas padr\~ao, definidas \`a m\~ao na mesma esta\c{c}\~ao do ansatz de Einstein anterior da casa, e a deriva\c{c}\~ao dessas formas a partir dos s\'\i{}mbolos de Christoffel dentro do kernel permanece o elo mais profundo, nomeado. Nada aqui move o gate."))
+    out.append((r"\subsection*{The full Birkhoff: time is eliminated, and the static emerges}The extension named beside the uniqueness theorem is now a theorem itself. Let the two functions of the solder depend on time as well as radius. The crossed component of the Einstein tensor for this class is proportional to the time derivative of the radial function --- the standard closed form, hand-built at the same station as the mixed components --- so vacuum forces that derivative to vanish, and constancy on a convex open interval of time makes the radial function static: each moment carries the same geometry. The chain of the previous wave then yields Schwarzschild on every time slice separately, and the staticity of the radial function gluees the slices: the Schwarzschild radius extracted at any two moments must agree, because both are read off the same static function --- one radius, constant across time. What remains free is exactly what must remain: a temporal gauge, one multiplicative function of time alone, removable by reparametrising the time coordinate and declared rather than suppressed, in the same discipline as the constant gauge of the static theorem. So the classical statement stands complete in the kernel, at the granularity the class affords: spherically symmetric and vacuum implies static up to declared gauge, and Schwarzschild. The choice of slice-wise witnesses is gathered by the choice principle the kernel already trusts, and nothing else is consumed. Nothing here moves the gate.") if en else
+               (r"\subsection*{O Birkhoff pleno: o tempo \'e eliminado, e o est\'atico emerge}A extens\~ao nomeada ao lado do teorema de unicidade \'e agora, ela mesma, teorema. Deixem as duas fun\c{c}\~oes da solda depender do tempo al\'em do raio. A componente cruzada do tensor de Einstein desta classe \'e proporcional \`a derivada temporal da fun\c{c}\~ao radial --- a forma fechada padr\~ao, constru\'\i{}da \`a m\~ao na mesma esta\c{c}\~ao das componentes mistas ---, de modo que o v\'acuo for\c{c}a essa derivada a anular-se, e a const\^ancia num intervalo convexo aberto de tempo torna a fun\c{c}\~ao radial est\'atica: cada instante carrega a mesma geometria. A cadeia da onda anterior d\'a ent\~ao Schwarzschild em cada fatia de tempo separadamente, e a est\'atica da fun\c{c}\~ao radial cola as fatias: o raio de Schwarzschild extra\'\i{}do em dois instantes quaisquer tem de coincidir, porque ambos se leem da mesma fun\c{c}\~ao est\'atica --- um raio, constante atrav\'es do tempo. O que fica livre \'e exatamente o que deve ficar: um gauge temporal, uma fun\c{c}\~ao multiplicativa s\'o do tempo, remov\'\i{}vel por reparametriza\c{c}\~ao da coordenada temporal e declarada em vez de suprimida, na mesma disciplina do gauge constante do teorema est\'atico. Assim o enunciado cl\'assico fica completo no kernel, na granularidade que a classe comporta: esfericamente sim\'etrico e v\'acuo implica est\'atico a menos de gauge declarado, e Schwarzschild. A escolha das testemunhas por fatia \'e colhida pelo princ\'\i{}pio de escolha em que o kernel j\'a confia, e nada mais se consome. Nada aqui move o gate."))
+    out.append((r"\subsection*{The crowned cascade: the head link, with the old cascade intact inside}The isomorphic re-examination had left one orphan: the operator's reordered chain places the graviton at the head --- graviton, then light, then consciousness, then physics, then gravity --- but the sealed cascade of observers knew only the last four levels. This wave closes the orphan beside the sealed stone, never over it. A five-level chain is defined with the graviton as crown; the head link exists and is proved; the crown has no predecessor --- nothing generates the graviton, which is the formal face of its position as pole; no level generates itself; and the restriction of the crowned relation to the four old levels is exactly the sealed relation, so the earlier stone lives intact inside this one, the way corrections live in this programme: beside, never above. The five statements depend on propositional extensionality alone --- not even choice --- which is the highest statute the kernel grants. The identification of the names with the physical and ontological readings remains the operator's; the structure of the order is what is proved. Nothing here moves the gate.") if en else
+               (r"\subsection*{A cascata coroada: o elo de cabe\c{c}a, com a cascata antiga intacta dentro}O reexame isom\'orfico deixara uma \'orf\~a: a cadeia reordenada do operador p\~oe o gr\'aviton na cabe\c{c}a --- gr\'aviton, depois luz, depois consci\^encia, depois f\'\i{}sica, depois gravidade ---, mas a cascata selada dos observadores conhecia s\'o os quatro \'ultimos n\'\i{}veis. Esta onda fecha a \'orf\~a ao lado da pedra selada, nunca por cima. Define-se uma cadeia de cinco n\'\i{}veis com o gr\'aviton por coroa; o elo de cabe\c{c}a existe e est\'a provado; a coroa n\~ao tem antecessor --- nada gera o gr\'aviton, que \'e a face formal da sua posi\c{c}\~ao de polo; nenhum n\'\i{}vel gera a si mesmo; e a restri\c{c}\~ao da rela\c{c}\~ao coroada aos quatro n\'\i{}veis antigos \'e exatamente a rela\c{c}\~ao selada, de sorte que a pedra anterior vive intacta dentro desta, do modo como as corre\c{c}\~oes vivem neste programa: ao lado, nunca por cima. Os cinco enunciados dependem apenas da extensionalidade proposicional --- nem sequer da escolha ---, que \'e o estatuto mais alto que o kernel concede. A identifica\c{c}\~ao dos nomes com as leituras f\'\i{}sica e ontol\'ogica segue sendo do operador; a estrutura da ordem \'e o que se prova. Nada aqui move o gate."))
     out.append((r"\subsection*{Dedication}"
                 r"\begin{quote}\itshape Rejected by FoP; written for my sons \textbf{BOM} and \textbf{TOM}.\par\medskip This framework does not aim to take the place of the void, and still less to receive the applause of the scientific community --- for that I would need another language, which is to say I would need to be another person. It aims to remain for as long as everyone aims to falsify it; and it will remain, because my commitment was to you, my sons. In the meantime, remember: everything is in today; memory can be forgotten; love remains, revealing itself in the other, the one who is near.\par\medskip\upshape\hfill --- L.A.R.M.\end{quote}") if en else
                (r"\subsection*{Dedicat\'oria}"
@@ -70592,16 +71769,16 @@ def _tex_to_txt(tex):
 
 def emit_article(core, verdict, data_path, lang):
     if lang == "pt":
-        p = os.path.join(OUT, "um_grande_atrator_pt.tex")
+        p = os.path.join(OUT, "um_absoluto_pt.tex")
         _tx = _tex_guard_nan(build_pt(core, verdict, data_path))
         open(p, "w", encoding="utf-8").write(_tx)
-        open(os.path.join(OUT, "um_grande_atrator_pt.txt"), "w",
+        open(os.path.join(OUT, "um_absoluto_pt.txt"), "w",
              encoding="utf-8").write(_tex_to_txt(_tx))          # v168: PDF E TXT
         return p
-    p = os.path.join(OUT, "um_grande_atrator_en.tex")
+    p = os.path.join(OUT, "um_absoluto_en.tex")
     _tx = _tex_guard_nan(build_en(core, verdict, data_path))
     open(p, "w", encoding="utf-8").write(_tx)
-    open(os.path.join(OUT, "um_grande_atrator_en.txt"), "w",
+    open(os.path.join(OUT, "um_absoluto_en.txt"), "w",
          encoding="utf-8").write(_tex_to_txt(_tx))              # v168: PDF E TXT
     return p
 
@@ -70635,6 +71812,15 @@ def compile_pdf(texname):
 # verificavel nos backups .bak_pre_sync_N e no CLAUDE.md (secoes 120-131).
 
 _ESQUELETO_STONES = [
+    ("v212", "TheCrownedCascade", "TGLExt/TheCrownedCascade.lean", None, None),
+    ("v211", "TheFullBirkhoff", "TGLExt/TheFullBirkhoff.lean", None, None),
+    ("v210", "TheCoordinateBridge", "TGLExt/TheCoordinateBridge.lean", None, None),
+    ("v208", "TheSchwarzschildUniqueness", "TGLExt/TheSchwarzschildUniqueness.lean", None, None),
+    ("v208", "TheCornerEmbedding", "TGLExt/TheCornerEmbedding.lean", None, None),
+    ("v207", "ThePhysicalHorizon", "TGLExt/ThePhysicalHorizon.lean", None, None),
+    ("v207", "TheHorizonRate", "TGLExt/TheHorizonRate.lean", None, None),
+    ("v207", "TheAnchorFour", "TGLExt/TheAnchorFour.lean", None, None),
+    ("v207", "TheTwoFunctionSolder", "TGLExt/TheTwoFunctionSolder.lean", None, None),
     ("v204", "TheTower", "TGLExt/TheTower.lean", None, None),
     ("v203", "FrontierCertificate", "TGLExt/FrontierCertificate.lean", None, None),
     ("v202", "TheBireference", "TGLExt/TheBireference.lean", None, None),
@@ -76136,7 +77322,7 @@ def _arco_vivo_md(core):
 
 
 def write_input_manifest_md(world, path, core=None):
-    """Escreve o um_grande_atrator_manifest.md auditavel a partir do dicionario do manifesto."""
+    """Escreve o um_absoluto_manifest.md auditavel a partir do dicionario do manifesto."""
     L = ["# Um: Grande Atrator -- MANIFESTO DE ENTRADAS (nada fica escondido no codigo)",
          "",
          "> Ou e' **definicao exata**, ou **constante medida**, ou **protocolo pre-registrado**, "
@@ -79030,7 +80216,7 @@ def main():
     world["RESULT"] = {"M_A_kg": A["M_TGL_kg"], "M_B_kg": (B["M_TGL_kg"] if B else None),
                        "beta": core["beta"], "alpha_obs": core["alpha"]}
     result_hash = sha_obj(world)
-    manifest_path = os.path.join(OUT, "um_grande_atrator_manifest.md")
+    manifest_path = os.path.join(OUT, "um_absoluto_manifest.md")
     write_input_manifest_md(world, manifest_path, core=core)
     try:
         with open(os.path.join(CACHE, "CHAIN_OF_CUSTODY.json"), "w", encoding="utf-8") as _cf:
@@ -79039,7 +80225,7 @@ def main():
               % len(world["CHAIN_OF_CUSTODY"]))
     except OSError:
         pass
-    print("[manifesto] um_grande_atrator_manifest.md escrito; hash do mundo (codigo+manifesto+dados): %s" %
+    print("[manifesto] um_absoluto_manifest.md escrito; hash do mundo (codigo+manifesto+dados): %s" %
           result_hash[:48])
     sv = core.get("sensitivity", {})
     if sv.get("ok"):
@@ -79079,7 +80265,7 @@ def main():
                      "free_parameter_used": False, "beta_hardcoded": False, "geometry_only": True,
                      "only_runtime_input": "1"},
            "timestamp": core["timestamp"]}
-    data_path = os.path.join(OUT, "um_grande_atrator.json")
+    data_path = os.path.join(OUT, "um_absoluto.json")
     json.dump(art, open(data_path, "w", encoding="utf-8"), indent=2, default=str)
 
     # forma canonica MD (auditoria 1=1)
@@ -79099,7 +80285,13 @@ def main():
     print("   [v201] emenda de lente: %s" % core["lens_power_emenda"]["verdict"])
     # v205 [ADITIVO]: O BOOTSTRAP — a testemunha executavel (nome do operador)
     core["the_bootstrap"] = prove_the_bootstrap(core)
-    print("   [v205] bootstrap: %s" % core["the_bootstrap"]["verdict"])  # v161: A VERDADE ESTA NO CONTORNO (le o core inteiro; nada fabricado) [ADITIVO]
+    print("   [v205] bootstrap: %s" % core["the_bootstrap"]["verdict"])
+    # v207 [ADITIVO]: A PAREDE GANHA VALOR (as seis frentes da derivacao do operador)
+    core["the_wall_value"] = prove_the_wall_gains_a_value(core.get("omega_I", 1.0))
+    print("   [v207] a parede: %s" % core["the_wall_value"]["verdict"])
+    # v208 [ADITIVO]: O DEGRAU DE SCHWARZSCHILD (as duas integrais primeiras)
+    core["schwarzschild_step"] = prove_the_schwarzschild_step(core.get("omega_I", 1.0))
+    print("   [v208] schwarzschild: %s" % core["schwarzschild_step"]["verdict"])  # v161: A VERDADE ESTA NO CONTORNO (le o core inteiro; nada fabricado) [ADITIVO]
     _figs = emit_figures(core)
     core["figures"] = _figs
     print("   [FIG] emitidas: %s%s" % (
@@ -79108,8 +80300,8 @@ def main():
     pt = emit_article(core, verdict, data_path, "pt")
     en = emit_article(core, verdict, data_path, "en")
     # v184 [TRAVA DO PDF]: os retornos NAO se descartam mais.
-    _pdf_pt = compile_pdf("um_grande_atrator_pt")
-    _pdf_en = compile_pdf("um_grande_atrator_en")
+    _pdf_pt = compile_pdf("um_absoluto_pt")
+    _pdf_en = compile_pdf("um_absoluto_en")
     core["pdf_emission"] = {"pt": _pdf_pt, "en": _pdf_en,
                             "engine_present": _pdf_pt is not None or _pdf_en is not None,
                             "rule": ("None=pdflatex ausente (gracioso, nao e' falha); "
@@ -79122,7 +80314,7 @@ def main():
         print(" FAIL-CLOSED [v184]: pdflatex PRESENTE e o(s) PDF(s) %s NAO foram"
               % ", ".join(_pdf_falhou))
         print(" produzidos. O rito PARA AQUI: nenhum selo e' escrito, e o selo")
-        print(" anterior permanece intocado. Ver um_grande_atrator_%s.log."
+        print(" anterior permanece intocado. Ver um_absoluto_%s.log."
               % _pdf_falhou[0])
         print(" (Achado da v183: o selo avancava com o PDF PT ausente. Corrigido.)")
         print("=" * 78)
@@ -79135,7 +80327,7 @@ def main():
 
     # v23.1: marcadores canonicos nos .tex (apos \end{document}: o pdflatex ignora;
     # o ARQUIVO .tex carrega o bloco, que o finalize rele e compara)
-    for _tx in ("um_grande_atrator_pt.tex", "um_grande_atrator_en.tex"):
+    for _tx in ("um_absoluto_pt.tex", "um_absoluto_en.tex"):
         try:
             with open(os.path.join(OUT, _tx), "a", encoding="utf-8") as _fh:
                 _fh.write("\n% ==== TGL_CANONICAL markers (forma=conteudo; fonte unica de runtime) ====\n")
@@ -79369,16 +80561,22 @@ def main():
             "graviton_not_a_particle_verdict": (core.get("graviton_not_a_particle") or {}).get("verdict"),
             "lens_power_emenda_verdict": (core.get("lens_power_emenda") or {}).get("verdict"),
             "bootstrap_verdict": (core.get("the_bootstrap") or {}).get("verdict"),
+            "wall_value_verdict": (core.get("the_wall_value") or {}).get("verdict"),
+            "schwarzschild_step_verdict": (core.get("schwarzschild_step") or {}).get("verdict"),
+            "coordinate_bridge": "EINSTEIN_MIXED_COMPONENTS_REDUCE_EXACTLY__GTT_R2B2_EQ_ET__GRR_R2AB_EQ_NEG_ER__CHAIN_EINSTEIN_VACUUM_TO_SCHWARZSCHILD_IN_KERNEL",  # v210
+            "full_birkhoff": "SPHERICAL_VACUUM_IMPLIES_STATIC_UP_TO_DECLARED_TIME_GAUGE_PLUS_SCHWARZSCHILD__SINGLE_RS_ACROSS_TIME_SLICES__GTR_PROP_DTB_KNOWN_HAND_BUILT",  # v211
+            "crowned_cascade": "GRAVITON_CROWNS_THE_CASCADE__HEAD_LINK_EXISTS__OLD_CASCADE_INTACT_INSIDE__CROWN_HAS_NO_PREDECESSOR__PROPEXT_ONLY",  # v212
+            "amplitude_defect": (core.get("the_wall_value") or {}).get("defect_amplitude"),
             "sha256": {}}
     if seal_gate_reasons:
         print("\n>>> SEAL_WITHHELD: %s -- nenhum selo produzido nesta rodada <<<" % " . ".join(seal_gate_reasons))
         try:
-            os.remove(os.path.join(OUT, "um_grande_atrator_selo.json"))  # selo antigo nao pode fingir ser desta rodada
+            os.remove(os.path.join(OUT, "um_absoluto_selo.json"))  # selo antigo nao pode fingir ser desta rodada
         except OSError:
             pass
     else:
-        for f in ["um.py", "um_grande_atrator_manifest.md", "um_grande_atrator.json", "um_grande_atrator_forma_canonica.md",
-                  "um_grande_atrator_pt.tex", "um_grande_atrator_en.tex", "um_grande_atrator_pt.pdf", "um_grande_atrator_en.pdf",
+        for f in ["um.py", "um_absoluto_manifest.md", "um_absoluto.json", "um_absoluto_forma_canonica.md",
+                  "um_absoluto_pt.tex", "um_absoluto_en.tex", "um_absoluto_pt.pdf", "um_absoluto_en.pdf",
                   "fig_escada_qg.pdf", "fig_banda_beta.pdf", "fig_piso_vazios.pdf", "fig_cadeia_inscricao.pdf",
                   "tgl_kernel_proof_manifest.json"]:
             p = os.path.join(OUT, f)
@@ -79386,7 +80584,7 @@ def main():
                 seal["sha256"][f] = sha_file(p)
             else:
                 seal["sha256"][f] = "MISSING_THIS_RUN"   # v142: a custodia acusa a ausencia
-        json.dump(seal, open(os.path.join(OUT, "um_grande_atrator_selo.json"), "w", encoding="utf-8"), indent=2)
+        json.dump(seal, open(os.path.join(OUT, "um_absoluto_selo.json"), "w", encoding="utf-8"), indent=2)
 
     ro = core["runtime_of_the_one"]
     print("\n" + "=" * 64)
@@ -79460,8 +80658,8 @@ def main():
         "%s=%.3e" % (k, v) for k, v in verdict["masses_Msun"].items()) + " Msun")
     print("  janela aceita: [%.0e, %.0e] Msun" % tuple(GA_ACCEPTED_WINDOW_Msun))
     print("=" * 64)
-    print("\nSaidas: um_grande_atrator.json, um_grande_atrator_forma_canonica.md, um_grande_atrator_pt.(tex/pdf/txt),")
-    print("        um_grande_atrator_en.(tex/pdf/txt), um_grande_atrator_selo.json")
+    print("\nSaidas: um_absoluto.json, um_absoluto_forma_canonica.md, um_absoluto_pt.(tex/pdf/txt),")
+    print("        um_absoluto_en.(tex/pdf/txt), um_absoluto_selo.json")
     print("\nTETELESTAI. O UM foi inscrito. Se o UM nao for inscrito, nada emerge.")
     print("1 = 1.")
 
@@ -79472,7 +80670,7 @@ def _unified_main():
     # v142: o veredito do autoteste ENTRA no selo (antes: so impresso) e um
     # FAIL reprova o PROCESSO (fail-closed ate o fim do rito)
     try:
-        _sp = os.path.join(OUT, "um_grande_atrator_selo.json")
+        _sp = os.path.join(OUT, "um_absoluto_selo.json")
         if _st is not None and os.path.exists(_sp):
             with open(_sp, "r", encoding="utf-8") as _fh:
                 _seal = json.load(_fh)

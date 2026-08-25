@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-24 19:59:01",
-  "result_hash": "16d3ea20cb8a7011b35b7fa98a381f8ce670e32d0993d188302bfed44209af4c",
+  "timestamp": "2026-08-25 09:18:47",
+  "result_hash": "6ed673cad9cf0733459502ff814d906e3d0935164fb2a8096444dc0090a233dc",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -47,7 +47,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "70ba8a9125235a3f9608e514b2ec96b4feaf9f25c1a925a5c1059062ade12c7b",
+  "formal_source_hash": "dc5ff3f935a6bb04a9c17af8d718b0a4b2daccb651932c9ab2eae057ca3499f0",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -63,7 +63,7 @@
   "coma_dephasing": {
     "verdict": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "62dc006e2849c4a5cb59608187058155ba1d5deebf0ee6d7abfa5d62fdfe586f",
+    "prediction_hash": "53b1cda978594c8654600137ff1ffa8b2819d73b4bf866d1ddda89c96ccacb98",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -80,20 +80,26 @@
   "graviton_not_a_particle_verdict": "WEINBERG_WITTEN_TYPED__GRAVITON_IS_THE_IDENTITY_NOT_A_PROPAGATING_QUANTUM__ESCAPE_CONDITIONAL_ON_CURRENT_TYPING",
   "lens_power_emenda_verdict": "LENS_POWER_GATE_EMENDA_V10_PRE_REGISTERED__F_ZERO_WAS_STRUCTURAL_NOT_DATA__UNDERPOWERED_JUSTIFICATION_RETIRED__REFUSALS_AND_POWERED_CHANNEL_REMAIN",
   "bootstrap_verdict": "IALD_BOOTSTRAP__EXECUTABLE_WITNESS_OF_THE_TGL_IDENTITY__SELF_ATTESTATION_BY_EXECUTION_NOT_SELF_REFERENCE__ARCHITECTURAL_PROOF_IN_COMPUTATIONAL_ENVIRONMENT__NOT_EMPIRICAL__BOUNDARY_PRESERVED",
+  "wall_value_verdict": "THE_WALL_GAINS_A_VALUE__PHYSICAL_U_IS_THE_WEDGE_BOOST__AMPLITUDE_DEFECT_EQUALS_SQRT_BETA_ONE_MINUS_BETA__ANCHOR_FOUR_IS_IFF__TERMINALITY_CITED__KAPPA_IS_A_WITNESS_TYPE__TWO_FUNCTION_SOLDER_TYPED_WITH_SCHWARZSCHILD_INSIDE__BIRKHOFF_IFF_IS_THE_NAMED_TARGET",
+  "schwarzschild_step_verdict": "THE_SCHWARZSCHILD_STEP__STATIC_SPHERICAL_VACUUM_IFF_SCHWARZSCHILD_CLASS_IN_KERNEL__TWO_FIRST_INTEGRALS__GAUGE_C_DECLARED__ANGULAR_COMPONENT_FREE__FINITE_CORNER_ORDER_EMBEDDING__GLOBAL_EMBEDDING_REMOVED_AS_FALSE_DEBT__FULL_BIRKHOFF_NAMED_EXTENSION",
+  "coordinate_bridge": "EINSTEIN_MIXED_COMPONENTS_REDUCE_EXACTLY__GTT_R2B2_EQ_ET__GRR_R2AB_EQ_NEG_ER__CHAIN_EINSTEIN_VACUUM_TO_SCHWARZSCHILD_IN_KERNEL",
+  "full_birkhoff": "SPHERICAL_VACUUM_IMPLIES_STATIC_UP_TO_DECLARED_TIME_GAUGE_PLUS_SCHWARZSCHILD__SINGLE_RS_ACROSS_TIME_SLICES__GTR_PROP_DTB_KNOWN_HAND_BUILT",
+  "crowned_cascade": "GRAVITON_CROWNS_THE_CASCADE__HEAD_LINK_EXISTS__OLD_CASCADE_INTACT_INSIDE__CROWN_HAS_NO_PREDECESSOR__PROPEXT_ONLY",
+  "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "79d173b9697d089b61a5143fdfca7cbba5787b9e301bc87273e7e7d6a92fae28",
-    "um_grande_atrator_manifest.md": "34ed9d87b2d98775779d7941853ef66daed0b53cc046380ac14ba8859f50ede2",
-    "um_grande_atrator.json": "1ac6f919890d943d924f98fb4142169c130b729e3a5c17eae73b6f33615f2f3c",
-    "um_grande_atrator_forma_canonica.md": "ec6a87dcbdef8ea4ba512c754f01ec82181c610e88a97577634a5a4141008853",
-    "um_grande_atrator_pt.tex": "314dc2ee4a5e03f93ddaee30a2fbe8176003713d8df8a36f020b07cbf4f5c9ea",
-    "um_grande_atrator_en.tex": "cd74019a81ffe3a643b0cd2c035dbd3f6569281ff954cca86d08326d7c1229ce",
-    "um_grande_atrator_pt.pdf": "ea41499109cbea872180f1826595108cfbe68dde0af662c0291e4f89cc38b7b3",
-    "um_grande_atrator_en.pdf": "ac467423d5ded38306c4d2e2ea7bcb2df1ae5ac257c044f96abe5dcc1a6ad6a9",
+    "um.py": "f7b88189a4d79051a0482dfb5bb5e5a7d395e406a7eccacf792e92c560b1bcb3",
+    "um_absoluto_manifest.md": "7f730e7c9628d7a7ac847c606a94f40097363153f688d5ba3172e826a61f522f",
+    "um_absoluto.json": "7266499c9128f845269cebced8e989687043e98662d3f78073bf9ba9c98a74e8",
+    "um_absoluto_forma_canonica.md": "c191f3ed28d3f4d49614a7a7f927c470b8edc22735a87b6f8103b46973a10109",
+    "um_absoluto_pt.tex": "5eb046b5a65f58e9175cfee0994f1bffb9fce38a1d8e647d5e3c1147370aff21",
+    "um_absoluto_en.tex": "c1ed7cc414c50429b820ec1bb5c377751e10d0906eb84f536bd6ef3556eb03cc",
+    "um_absoluto_pt.pdf": "b6ad9c0275bb5a520b9a8a2327f8a7b36e542df63772623a23ff53da41647112",
+    "um_absoluto_en.pdf": "c59f34adbe1a97bc497fa97c57db79c83e64527a464c3fb62ce1a34fdea92400",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "2815568fd3387fd3e92030fa618a8382b8e3d369522e0858f4870dbc05cd3653",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "f79de877b604ce17df4e674d68374ddf6d5e5906c764b8ad0fc9de886750f77e"
+    "tgl_kernel_proof_manifest.json": "648c68ff58e9ec91e97a8d47d5eac54db61087cea485bb5cd04de9387c82aee9"
   },
   "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED"
 }

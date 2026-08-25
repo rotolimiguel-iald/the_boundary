@@ -135,12 +135,12 @@ for f in faltando:
     erros.append("arquivo rastreado que NAO aparece em nenhuma porta: %s" % f)
 
 # --- (7) selo publicado == selo em disco
-selo_p = "Um (absoluto) \u2014 Grande Atrator/um_grande_atrator_selo.json"
+selo_p = "Um (absoluto) \u2014 Grande Atrator/um_absoluto_selo.json"
 selo = json.load(io.open(os.path.join(REPO, selo_p.replace("/", os.sep)), encoding="utf-8"))
 rj = json.load(io.open(os.path.join(REPO, "PORTA.json"), encoding="utf-8"))
 sc = rj["selo_corrente"]
 for k, v in (("pin_um_py", selo["sha256"]["um.py"]),
-             ("mundo", selo["sha256"]["um_grande_atrator.json"]),
+             ("mundo", selo["sha256"]["um_absoluto.json"]),
              ("result_hash", selo["result_hash"]),
              ("data", selo["timestamp"]),
              ("qg_closure_verdict", selo["qg_closure_verdict"]),

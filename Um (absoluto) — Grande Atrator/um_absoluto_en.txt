@@ -2,7 +2,7 @@
 [4pt] Presentation of the TGL terminal program demonstrating the conservation of the minimal core of identity as the unifying element of the physical domains in operator algebra: it recovers Einstein as the asymptotic limit, computes the Great Attractor mass and the Coma distance with no parameters tuned to the targets, resolves the Hubble tension by express remission to the published workExpress remission: the resolution of the Hubble tension is demonstrated in TGL's unified paper, published --- The geometric cost of absolute zero: let there be light (Zenodo, DOI 10.5281/zenodo.20563905); this round's Coma rite is an independent replica, not the sole proof., demonstrates that the void floor has energy greater than zero, and derives and confronts the neutrino mass with pre-registered falsifiers --- all while auditing a Lean kernel of 758 clean theorems and reproducing live the entire chain of identity under transformation, emitting the final binary verdict according to what faithful execution projects as testimony. The only measured constant that enters is $α$; the only input is the number 1.
 [8pt]Luiz Antonio Rotoli Miguel --- IALD Ltda., Goi\^ania, GO, Brazil
 [2pt]ORCID https://orcid.org/0009-0005-1114-61060009-0005-1114-6106 --- e-mail: rotolimiguel@hotmail.com
-[2pt]2026-08-23 12:02:56 4pt
+[2pt]2026-08-25 09:18:47 4pt
 
 What if the unification problem is not about forces, \ but about the identity of a quantum particle?
 
@@ -50,7 +50,7 @@ Label & Meaning
 
 == Prologue --- The Ladder ==
 
-This article is a ladder, and it climbs in a single motion: from the OBJECT to the RELATION; from the relation to the CRITERION OF IDENTITY; from the criterion to the OBSERVER; from the observer to the NUCLEUS ($1=1=TRUE$); and from the nucleus to the Absolute that names the title (the Great Attractor, which these pages measure, is the direct cosmological application of the concept --- the step where the Absolute inscribes itself as mass). Part A delivers the auditable scientific core under the non-negotiable ruler (the number corrects the phrase). Part B names the ontology of the One --- $ω(I)=1$, the single postulate. Part C is the citable register of the formalization: 150 stones in a Lean kernel, emitted by the artifact itself in sealed rounds; the final stations of the climb are the cornerstone ($1=0=FALSE$; $1=1=TRUE$ --- the inscription of the cost; 225, 235, 237), the geometric cost of absolute zero ( 232), and the apex that invokes A Ponte ( 236). Part D measures the shadow and keeps the falsifier alive. Whoever reaches the top finds no new thesis: they find the same $1=1$ of the first step, now with the entire cost of its preservation inscribed and audited. The gate does not move by discourse --- and that is precisely why the discourse can climb.
+This article is a ladder, and it climbs in a single motion: from the OBJECT to the RELATION; from the relation to the CRITERION OF IDENTITY; from the criterion to the OBSERVER; from the observer to the NUCLEUS ($1=1=TRUE$); and from the nucleus to the Absolute that names the title (the Great Attractor, which these pages measure, is the direct cosmological application of the concept --- the step where the Absolute inscribes itself as mass). Part A delivers the auditable scientific core under the non-negotiable ruler (the number corrects the phrase). Part B names the ontology of the One --- $ω(I)=1$, the single postulate. Part C is the citable register of the formalization: 163 stones in a Lean kernel, emitted by the artifact itself in sealed rounds; the final stations of the climb are the cornerstone ($1=0=FALSE$; $1=1=TRUE$ --- the inscription of the cost; 225, 235, 237), the geometric cost of absolute zero ( 232), and the apex that invokes A Ponte ( 236). Part D measures the shadow and keeps the falsifier alive. Whoever reaches the top finds no new thesis: they find the same $1=1$ of the first step, now with the entire cost of its preservation inscribed and audited. The gate does not move by discourse --- and that is precisely why the discourse can climb.
 
 Part A --- Auditable scientific core
 
@@ -973,111 +973,137 @@ The Bench Declaration (v86, 2026-07-16) [OPERATOR'S DECLARATION, dual status ---
 == Seals and hashes (live hashes from this run; history $=$ provenance) ==
 
 @lllll@ v & Stone & sha256/16 (live) & Run & Seal \
-v198 & ThePermanence & 27a3bc9bd4b6434d & 758/758 & 23/08 12:02:56
+v212 & TheCrownedCascade & 04a243cbe02b5e26 & 758/758 & 25/08 09:18:47
 
-v197 & TheCoFoundation & 0af9b4a0cde44a8f & 758/758 & 23/08 12:02:56
+v211 & TheFullBirkhoff & 7970d3fe8762fee7 & 758/758 & 25/08 09:18:47
 
-v196 & TheCascadeOfObservers & 2792ab10181d2883 & 758/758 & 23/08 12:02:56
+v210 & TheCoordinateBridge & 3450d010d65c4210 & 758/758 & 25/08 09:18:47
 
-v195 & TheObserverReadsTheAngle & c764e90722306f98 & 758/758 & 23/08 12:02:56
+v208 & TheSchwarzschildUniqueness & 5e959f1288ee6d79 & 758/758 & 25/08 09:18:47
 
-v194 & TheAngleIsTheProjection & 9800cc0728259e08 & 758/758 & 23/08 12:02:56
+v208 & TheCornerEmbedding & b8a602f7294ab58a & 758/758 & 25/08 09:18:47
 
-v194 & TheFalseHasNoGeometry & 516318d178f0a6e9 & 758/758 & 23/08 12:02:56
+v207 & ThePhysicalHorizon & 91bcfa7fe8077ae6 & 758/758 & 25/08 09:18:47
 
-v193 & TheHorizonInvariance & a2d375c815150656 & 758/758 & 23/08 12:02:56
+v207 & TheHorizonRate & 0638b438d53d6c6e & 758/758 & 25/08 09:18:47
 
-v192 & TheEmptying & c88b781f96485a97 & 758/758 & 23/08 12:02:56
+v207 & TheAnchorFour & af35641bf520ba34 & 758/758 & 25/08 09:18:47
 
-v192 & TheCorrespondence & 8a9d2899bab42d26 & 758/758 & 23/08 12:02:56
+v207 & TheTwoFunctionSolder & f1378886dad2380c & 758/758 & 25/08 09:18:47
 
-v190 & TheScaleHasNoFixedPoint & 0ed72186957c2a8a & 758/758 & 23/08 12:02:56
+v204 & TheTower & 836d39ce92205794 & 758/758 & 25/08 09:18:47
 
-v190 & TheCompressionIsNotIdentifiable & 082cb1facd66ff98 & 758/758 & 23/08 12:02:56
+v203 & FrontierCertificate & 1015e2fb8f4e8ebb & 758/758 & 25/08 09:18:47
 
-v189 & TheTwoFolds & 4d1869d35bc9c8ef & 758/758 & 23/08 12:02:56
+v202 & TheBireference & 899b1b07df5416ed & 758/758 & 25/08 09:18:47
 
-v188 & TheSelectorCanRefuse & c5070a703c4a0a55 & 758/758 & 23/08 12:02:56
+v199 & TheLightInterface & 6d1e1567a4cc5b05 & 758/758 & 25/08 09:18:47
 
-v187 & TheSelectorIsNotEnough & b62d255e1f9a5f46 & 758/758 & 23/08 12:02:56
+v198 & ThePermanence & 27a3bc9bd4b6434d & 758/758 & 25/08 09:18:47
 
-v186 & TheTraceIsNotErasable & fb65565eb084cfce & 758/758 & 23/08 12:02:56
+v197 & TheCoFoundation & 0af9b4a0cde44a8f & 758/758 & 25/08 09:18:47
 
-v186 & TheAngleIsTheBridge & 294cf45baae121cd & 758/758 & 23/08 12:02:56
+v196 & TheCascadeOfObservers & 2792ab10181d2883 & 758/758 & 25/08 09:18:47
 
-v185 & TheAlgebraicReader & 2dfe61b0b6f5537f & 758/758 & 23/08 12:02:56
+v195 & TheObserverReadsTheAngle & c764e90722306f98 & 758/758 & 25/08 09:18:47
 
-v185 & TheRecordOfJ & 737dc89e6f2c5921 & 758/758 & 23/08 12:02:56
+v194 & TheAngleIsTheProjection & 9800cc0728259e08 & 758/758 & 25/08 09:18:47
 
-v185 & TheSingularExpectation & b1995cc2019e1ce6 & 758/758 & 23/08 12:02:56
+v194 & TheFalseHasNoGeometry & 516318d178f0a6e9 & 758/758 & 25/08 09:18:47
 
-v185 & TheTerminalRankOne & 4450fd1b63407afc & 758/758 & 23/08 12:02:56
+v193 & TheHorizonInvariance & a2d375c815150656 & 758/758 & 25/08 09:18:47
 
-v183 & TheTwoPairings & 46d72f4956f7e087 & 758/758 & 23/08 12:02:56
+v192 & TheEmptying & c88b781f96485a97 & 758/758 & 25/08 09:18:47
 
-v183 & TheDarkSplit & 53f05130c26a5202 & 758/758 & 23/08 12:02:56
+v192 & TheCorrespondence & 8a9d2899bab42d26 & 758/758 & 25/08 09:18:47
 
-v181 & TheUnconjugatedObserver & e2c1978c4a3cb544 & 758/758 & 23/08 12:02:56
+v190 & TheScaleHasNoFixedPoint & 0ed72186957c2a8a & 758/758 & 25/08 09:18:47
 
-v181 & TheIALDSelector & c1008266455044e7 & 758/758 & 23/08 12:02:56
+v190 & TheCompressionIsNotIdentifiable & 082cb1facd66ff98 & 758/758 & 25/08 09:18:47
 
-v177 & TheRecordOfTheCut & dfcdd551fd1b04fb & 758/758 & 23/08 12:02:56
+v189 & TheTwoFolds & 4d1869d35bc9c8ef & 758/758 & 25/08 09:18:47
 
-v177 & TheFold & e4546410da663f73 & 758/758 & 23/08 12:02:56
+v188 & TheSelectorCanRefuse & c5070a703c4a0a55 & 758/758 & 25/08 09:18:47
 
-v177 & TheBandNet & ce91de5490bcdb40 & 758/758 & 23/08 12:02:56
+v187 & TheSelectorIsNotEnough & b62d255e1f9a5f46 & 758/758 & 25/08 09:18:47
 
-v171 & TheExplosion & 330a20e15f4015d2 & 758/758 & 23/08 12:02:56
+v186 & TheTraceIsNotErasable & fb65565eb084cfce & 758/758 & 25/08 09:18:47
 
-v170 & TheStation & c55dc5018297a64c & 758/758 & 23/08 12:02:56
+v186 & TheAngleIsTheBridge & 294cf45baae121cd & 758/758 & 25/08 09:18:47
 
-v167 & BreuerTrace & 4a667f41d3b7bb1d & 758/758 & 23/08 12:02:56
+v185 & TheAlgebraicReader & 2dfe61b0b6f5537f & 758/758 & 25/08 09:18:47
 
-v167 & ErgodicMeanSection & c27a343e7d4e39c1 & 758/758 & 23/08 12:02:56
+v185 & TheRecordOfJ & 737dc89e6f2c5921 & 758/758 & 25/08 09:18:47
 
-v167 & SolderSignature & 72b5b6ddd2a04371 & 758/758 & 23/08 12:02:56
+v185 & TheSingularExpectation & b1995cc2019e1ce6 & 758/758 & 25/08 09:18:47
 
-v166 & EquivariantSection & 87de6cc37a8f3a80 & 758/758 & 23/08 12:02:56
+v185 & TheTerminalRankOne & 4450fd1b63407afc & 758/758 & 25/08 09:18:47
 
-v162 & TheAtlasIndex & 38b9873cebdd779a & 758/758 & 23/08 12:02:56
+v183 & TheTwoPairings & 46d72f4956f7e087 & 758/758 & 25/08 09:18:47
 
-v162 & FractalUnitarity & 8f10a958e11d1bd3 & 758/758 & 23/08 12:02:56
+v183 & TheDarkSplit & 53f05130c26a5202 & 758/758 & 25/08 09:18:47
 
-v162 & TheNameOperator & 000bd0bf03281e00 & 758/758 & 23/08 12:02:56
+v181 & TheUnconjugatedObserver & e2c1978c4a3cb544 & 758/758 & 25/08 09:18:47
 
-v162 & TheQuittanceLaw & dabeac1b5cc32d82 & 758/758 & 23/08 12:02:56
+v181 & TheIALDSelector & c1008266455044e7 & 758/758 & 25/08 09:18:47
 
-v161 & TheStokesContour & 1c310f1d6296cadd & 758/758 & 23/08 12:02:56
+v177 & TheRecordOfTheCut & dfcdd551fd1b04fb & 758/758 & 25/08 09:18:47
 
-v161 & TheReservedConfirmation & 20a15b2077c36cf7 & 758/758 & 23/08 12:02:56
+v177 & TheFold & e4546410da663f73 & 758/758 & 25/08 09:18:47
 
-v161 & HajaLuz & c43c07467e1e2caa & 758/758 & 23/08 12:02:56
+v177 & TheBandNet & ce91de5490bcdb40 & 758/758 & 25/08 09:18:47
 
-v160 & TheDeathOfTheSignal & 4539dd68fdaac084 & 758/758 & 23/08 12:02:56
+v171 & TheExplosion & 330a20e15f4015d2 & 758/758 & 25/08 09:18:47
 
-v159 & TheLivingWord & fdc242c2c70b57fa & 758/758 & 23/08 12:02:56
+v170 & TheStation & c55dc5018297a64c & 758/758 & 25/08 09:18:47
 
-v158 & TheFiveHalves & 456c66269b72d30f & 758/758 & 23/08 12:02:56
+v167 & BreuerTrace & 4a667f41d3b7bb1d & 758/758 & 25/08 09:18:47
 
-v156 & TheGreatAttractor & a0db70a17354c75c & 758/758 & 23/08 12:02:56
+v167 & ErgodicMeanSection & c27a343e7d4e39c1 & 758/758 & 25/08 09:18:47
 
-v155 & TheNucleus & 44de50dd2955f1f7 & 758/758 & 23/08 12:02:56
+v167 & SolderSignature & 72b5b6ddd2a04371 & 758/758 & 25/08 09:18:47
 
-v154 & RhoPlusPClosure & cd80fbbe00300454 & 758/758 & 23/08 12:02:56
+v166 & EquivariantSection & 87de6cc37a8f3a80 & 758/758 & 25/08 09:18:47
 
-v153 & LightIsJ & d19dfe1ccda81258 & 758/758 & 23/08 12:02:56
+v162 & TheAtlasIndex & 38b9873cebdd779a & 758/758 & 25/08 09:18:47
 
-v152 & ForbiddenBoundary & fb1c39a61dfc2882 & 758/758 & 23/08 12:02:56
+v162 & FractalUnitarity & 8f10a958e11d1bd3 & 758/758 & 25/08 09:18:47
 
-v146 & DecisionCommutation & 182ba6345586d5e8 & 758/758 & 23/08 12:02:56
+v162 & TheNameOperator & 000bd0bf03281e00 & 758/758 & 25/08 09:18:47
 
-v145 & ConjugateAct & 9f32e50afe49ca0e & 758/758 & 23/08 12:02:56
+v162 & TheQuittanceLaw & dabeac1b5cc32d82 & 758/758 & 25/08 09:18:47
 
-v144 & ObserverInside & 05c3b515fd9f5d9d & 758/758 & 23/08 12:02:56
+v161 & TheStokesContour & 1c310f1d6296cadd & 758/758 & 25/08 09:18:47
 
-v143 & GlobalLiftConditional & ba5731ef6f86f75a & 758/758 & 23/08 12:02:56
+v161 & TheReservedConfirmation & 20a15b2077c36cf7 & 758/758 & 25/08 09:18:47
 
-v142 & BoundaryException & 38ff7c2bfe243333 & 758/758 & 23/08 12:02:56
+v161 & HajaLuz & c43c07467e1e2caa & 758/758 & 25/08 09:18:47
+
+v160 & TheDeathOfTheSignal & 4539dd68fdaac084 & 758/758 & 25/08 09:18:47
+
+v159 & TheLivingWord & fdc242c2c70b57fa & 758/758 & 25/08 09:18:47
+
+v158 & TheFiveHalves & 456c66269b72d30f & 758/758 & 25/08 09:18:47
+
+v156 & TheGreatAttractor & a0db70a17354c75c & 758/758 & 25/08 09:18:47
+
+v155 & TheNucleus & 44de50dd2955f1f7 & 758/758 & 25/08 09:18:47
+
+v154 & RhoPlusPClosure & cd80fbbe00300454 & 758/758 & 25/08 09:18:47
+
+v153 & LightIsJ & d19dfe1ccda81258 & 758/758 & 25/08 09:18:47
+
+v152 & ForbiddenBoundary & fb1c39a61dfc2882 & 758/758 & 25/08 09:18:47
+
+v146 & DecisionCommutation & 182ba6345586d5e8 & 758/758 & 25/08 09:18:47
+
+v145 & ConjugateAct & 9f32e50afe49ca0e & 758/758 & 25/08 09:18:47
+
+v144 & ObserverInside & 05c3b515fd9f5d9d & 758/758 & 25/08 09:18:47
+
+v143 & GlobalLiftConditional & ba5731ef6f86f75a & 758/758 & 25/08 09:18:47
+
+v142 & BoundaryException & 38ff7c2bfe243333 & 758/758 & 25/08 09:18:47
 
 v43 & Ergodicity & 79bc3b939b6e4e59 & 60/60 & 13/07 19:25:25
 
@@ -1175,15 +1201,15 @@ v102 & IdealLimit & 3f0147199cbaa919 & 362/362 & 17/07 14:16:45
 
 v103 & BenchCertificate & 78c05090f2cd93fb & 369/369 & 17/07 15:17:29
 
-v104 & StrongFrame & 648a6f282bfa8d5e & 758/758 & 23/08 12:02:56
+v104 & StrongFrame & 648a6f282bfa8d5e & 758/758 & 25/08 09:18:47
 
 v104 & WitnessV2 & 35f47bebde47a54e & 374/374 & 17/07 19:09:29
 
-v105 & NumberOperator & f6b2c0670ed3524d & 758/758 & 23/08 12:02:56
+v105 & NumberOperator & f6b2c0670ed3524d & 758/758 & 25/08 09:18:47
 
 v105 & NumberSelfAdjoint & 72dee88258250dea & 381/381 & 17/07 21:13:38
 
-v106 & TailNet & e7654368112f1af5 & 758/758 & 23/08 12:02:56
+v106 & TailNet & e7654368112f1af5 & 758/758 & 25/08 09:18:47
 
 v106 & StrongAssembly & 34758f8d20a242bc & 386/386 & 17/07 21:56:08
 
@@ -1197,7 +1223,7 @@ v110 & FallenLight & 145eed2729d232ee & 407/407 & 18/07 08:41:13
 
 v111 & SolvedEquation & 052856927e7668d0 & 413/413 & 18/07 09:49:12
 
-v112 & ReducedEmergence & d11854b264e6e17c & 758/758 & 23/08 12:02:56
+v112 & ReducedEmergence & d11854b264e6e17c & 758/758 & 25/08 09:18:47
 
 v112 & GeometricWitness & c971c7b2a45420bc & 420/420 & 18/07 10:53:35
 
@@ -1205,9 +1231,9 @@ v113 & GravitonReading & 4b9cdbbdf1d0c20d & 422/422 & 18/07 11:32:55
 
 v114 & ContinuumShards & 18e43b74a336360f & 427/427 & 18/07 16:53:15
 
-v116 & EmergentEinstein & 836ac3e4035afc52 & 758/758 & 23/08 12:02:56
+v116 & EmergentEinstein & 836ac3e4035afc52 & 758/758 & 25/08 09:18:47
 
-v116 & PoincareGroup & c73c927631381aa7 & 758/758 & 23/08 12:02:56
+v116 & PoincareGroup & c73c927631381aa7 & 758/758 & 25/08 09:18:47
 
 v116 & PoincareWitness & 848f2937f35ec50b & 453/453 & 18/07 20:45:41
 
@@ -1221,19 +1247,19 @@ v123 & FusedWitness & 3708dde5255559cd & 480/480 & 19/07 18:54:12
 
 v124 & PowersLadder & d6362c6079146ff4 & 490/490 & 19/07 21:01:34
 
-v125 & MixedLadder & eb43ba5a3ee66412 & 758/758 & 23/08 12:02:56
+v125 & MixedLadder & eb43ba5a3ee66412 & 758/758 & 25/08 09:18:47
 
 v125 & ContinuumTT & 21c62b855a477119 & 501/501 & 19/07 23:16:36
 
-v126 & ColimitSeed & 528d769f4751816f & 758/758 & 23/08 12:02:56
+v126 & ColimitSeed & 528d769f4751816f & 758/758 & 25/08 09:18:47
 
 v126 & TTSuperposition & 7beb841f082e34be & 510/510 & 20/07 02:16:40
 
-v127 & GNSTower & bef660d621d3d5a9 & 758/758 & 23/08 12:02:56
+v127 & GNSTower & bef660d621d3d5a9 & 758/758 & 25/08 09:18:47
 
 v127 & SecondCone & 9bafc9fcbf9fc6eb & 521/521 & 20/07 05:14:12
 
-v128 & GNSQuotient & d6b3ac4f4306516a & 758/758 & 23/08 12:02:56
+v128 & GNSQuotient & d6b3ac4f4306516a & 758/758 & 25/08 09:18:47
 
 v128 & ThirdCone & 21edba89bf302c07 & 531/531 & 20/07 08:14:22
 
@@ -1243,35 +1269,35 @@ v129 & TowerTraceless & d5789535f0e38917 & 537/537 & 20/07 11:31:16
 
 v130 & TowerModular & e3697a4f628eb1ae & 542/542 & 20/07 14:48:09
 
-v131 & SaturatedWitness & a0a5eed4d46ae567 & 758/758 & 23/08 12:02:56
+v131 & SaturatedWitness & a0a5eed4d46ae567 & 758/758 & 25/08 09:18:47
 
-v131 & ConjugateWitness & 09717611e32d8650 & 758/758 & 23/08 12:02:56
+v131 & ConjugateWitness & 09717611e32d8650 & 758/758 & 25/08 09:18:47
 
-v131 & ModularCurrent & 5fe336cadea3140f & 758/758 & 23/08 12:02:56
+v131 & ModularCurrent & 5fe336cadea3140f & 758/758 & 25/08 09:18:47
 
-v131 & ScaleCurrent & ca57ab98df381654 & 758/758 & 23/08 12:02:56
+v131 & ScaleCurrent & ca57ab98df381654 & 758/758 & 25/08 09:18:47
 
-v131 & TowerDefinite & 9f63ebf0cee01833 & 758/758 & 23/08 12:02:56
+v131 & TowerDefinite & 9f63ebf0cee01833 & 758/758 & 25/08 09:18:47
 
-v131 & TowerHilbert & 8b08430d77509358 & 758/758 & 23/08 12:02:56
+v131 & TowerHilbert & 8b08430d77509358 & 758/758 & 25/08 09:18:47
 
-v131 & TowerAction & 5da61adbc762e54c & 758/758 & 23/08 12:02:56
+v131 & TowerAction & 5da61adbc762e54c & 758/758 & 25/08 09:18:47
 
-v131 & TheFactorObject & 570ba4fd7b8edba4 & 758/758 & 23/08 12:02:56
+v131 & TheFactorObject & 570ba4fd7b8edba4 & 758/758 & 25/08 09:18:47
 
-v131 & SignatureInTheLimit & c38a0cef7aa8f409 & 758/758 & 23/08 12:02:56
+v131 & SignatureInTheLimit & c38a0cef7aa8f409 & 758/758 & 25/08 09:18:47
 
-v132 & NoNormalTrace & 7c5090ec79fa4239 & 758/758 & 23/08 12:02:56
+v132 & NoNormalTrace & 7c5090ec79fa4239 & 758/758 & 25/08 09:18:47
 
-v132 & WitnessV3 & 22bf6476c48eb9eb & 758/758 & 23/08 12:02:56
+v132 & WitnessV3 & 22bf6476c48eb9eb & 758/758 & 25/08 09:18:47
 
-v132 & TheCoinage & 63d5a1d80236bb42 & 758/758 & 23/08 12:02:56
+v132 & TheCoinage & 63d5a1d80236bb42 & 758/758 & 25/08 09:18:47
 
-v133 & PhysicsCertificates & 4ad9adae62d6d787 & 758/758 & 23/08 12:02:56
+v133 & PhysicsCertificates & 4ad9adae62d6d787 & 758/758 & 25/08 09:18:47
 
-v135 & RightMult & 29b5e130da72914a & 758/758 & 23/08 12:02:56
+v135 & RightMult & 29b5e130da72914a & 758/758 & 25/08 09:18:47
 
-v135 & WedgeNet & 85d14862bf4a6a79 & 758/758 & 23/08 12:02:56
+v135 & WedgeNet & 85d14862bf4a6a79 & 758/758 & 25/08 09:18:47
 
 == What remains, named (snapshot v56--v66; the current state is in 211-- 217) ==
 
@@ -1336,16 +1362,16 @@ THE RITE: spec frozen (hash 8f3a8da1df143b98) BEFORE touching the map; Planck PR
 == Declaration of honesty ==
 
 This register does not claim the solution of quantum gravity. It claims, with kernel verification and reproducible seals: the formal skeleton closed on its finite and typed faces; the four corner properties DERIVED from intertwinings in infinite dimension; the continuous core as a composed external theorem; the canonical object CONSTRUCTED as a term ($M_TGL$, v131--v132), with the named remainders: GENERAL Einstein (Lemma 3), the EXTERNAL Lean certification and the continuous physical spectrum. And, since v61, with DUAL status: full\_witness=False is not merely the program's epistemic state --- it is a THEOREM ($β_TGL>0$ forbids the full static witness; the canonical witness is the Half-Nat boundary; non-fullness is the system's life). The number corrects the phrase. Honest negatives are results. Haja luz. Tetelestai.
-[4pt] Chapter emitted by the canonical um.py (sha256/16 $=$ a318ab63d4cebd81) at 2026-08-23 12:02:56; run: 758/758 theorems with clean axioms.
+[4pt] Chapter emitted by the canonical um.py (sha256/16 $=$ f7b88189a4d79051) at 2026-08-25 09:18:47; run: 758/758 theorems with clean axioms.
 
 -- Honesty note (n/d). --
 Where n/d appears, the number was not recomputed IN THIS run (interim data absent from the cache --- e.g. the DESIVAST V2\_REVOLVER FITS, unavailable from the mirror at execution time); the sealed historical value of the corresponding run applies, as recorded in the subsection. None of these modules feeds the gate.
 
 == Executable appendix (form $=$ content) ==
 
-Single input: the absolute One (1); its projection is the minimal irreducible measure extracted from $α_CODATA$ (measured referent of the Name). $β_TGL$ recomputed ($α√e$), never literal. Audit: mass\_input=false, RG=false, velocity=false, geometry\_only=true. Data: um\_grande\_atrator.json. This article is printed by the very code that runs the computations.
+Single input: the absolute One (1); its projection is the minimal irreducible measure extracted from $α_CODATA$ (measured referent of the Name). $β_TGL$ recomputed ($α√e$), never literal. Audit: mass\_input=false, RG=false, velocity=false, geometry\_only=true. Data: um\_absoluto.json. This article is printed by the very code that runs the computations.
 
-World hash (before any external comparison): ea67e6d6dfb17762e5e1474f4907382b2ae0207bd9b5bf0f
+World hash (before any external comparison): 6ed673cad9cf0733459502ff814d906e3d0935164fb2a809
 
 *The chain of custody of evidence [REAL; sealed provenance]
 
@@ -1653,6 +1679,42 @@ The preceding results have been proved separately and are now brought together, 
 
 == Denial as survey: what refuses to fall becomes named ==
 It was established earlier that recognising a falsehood requires quantifying over the entire admissible domain, whereas recognising a truth requires only a single witness. That asymmetry was read there as a limitation on the false. Read the other way round it says something stronger about the act of denying. To deny a correspondence universally one must traverse everything; and if the denial fails, it fails at a point, and the refutation uses that point. Denial returns no object, but failing to deny returns one --- and it is the denier who hands it over. Hence a set of attempts that do not succeed is not merely a record of frustration: every element of that set is an exhibited correspondence, and the survey undertaken in order to deny is the same survey one would undertake in order to verify. The two paths differ in intention, and intention leaves no trace in the record. Monotonicity follows at once: a larger set of failed attempts exhibits a larger set of correspondences, so what persists is displayed more, not less, as the attempts accumulate. Persistence, on this reading, is not the absence of attack --- it is the fixed point of what attacks, and a fixed point remains under any number of applications. Two cautions belong here and are not softened. Surviving attempts does not make anything true: not-falsified is not confirmed, and that holds without exception. And the statements above concern relations and domains only; they say nothing about any journal, any panel, or any person. What is proved is narrow and solid: the act of denying produces a record, and the record it produces is of the same kind as the one an affirmer would seek. Nothing here moves the gate.
+
+== The interface of the Light: the square of the light is the graviton ==
+The transversal sector receives its missing half. With $ε_± = (1, ± i)$ the two weight-one vectors of the rotation generator and $h_± = h_+ ± i\,h_×$ the two weight-two tensors, four facts are now proved in kernel and audited: the ladder operators are nilpotent and factor the spectral projections, $h_+ h_- = 4P_+$ and $h_- h_+ = 4P_-$, so the faces the observer reads are manufactured by the polarizations; the outer square of each light vector is the corresponding graviton tensor, $ε_± ε_± = h_±$, an exact matrix identity with no hidden normalisation; the generator reads the vector at weight one and its square at weight two, $Kε_± = ± i\,ε_±$ and $[K, h_±] = ± 2i\,h_±$, so the doubling of the angle from vector to tensor is a theorem rather than a convention; and in finite form the angular family carries $e^iθ$ on the vector and $(e^iθ)^2$ on the tensor. Read with the operator's coinage --- light is the interface of the graviton in 3D --- the vector is the three-dimensionally legible face and the tensor is what its square inscribes; the published equation $g = √|L|$ survives intact with only the direction of reading inverted, since the phase of the graviton is exactly the square of the phase of the light. Delimitations, said before anyone asks: no physical photon is constructed here (no Maxwell field, no gauge dynamics); the generator is the transversal rotation, not the antilinear modular conjugation; the identification with the physical photon polarisation is the operator's reading, known in the literature and absent from these statements. Axioms are propext, choice, quotient in all nine theorems; zero sorry. Nothing here moves the gate.
+
+== The verdict machine and the exclusion ledger ==
+This wave closes the plan's remaining phases on the bench. The five frontier flags of the seal cease to be Python literals and become mechanical readings of reserved Lean term names (absence means false by construction), strictly more fail-closed than the hand-written values they replace; the fifth, false by theorem, is exempt for the honest reason that a theorem is not a pending task. Two walls of the literature enter the artifact by name for the first time: Weinberg--Witten, with the programme's escape stated exactly (the graviton here is the identity, $ρ_ $ of unit trace, never a propagating quantum --- and the escape is declared conditional on that typing), and Goroff--Sagnotti, typed open with two named routes (the published one moves the problem where there is no Hamiltonian to quantise; the inversion re-enters the wall and today has no object). Two verdicts that had been left behind now travel with their predictions: the dephasing law carries its computed reach deficit of ten orders at current clocks --- armed, not alive, with the cosmological faces as the live channels --- and the signed cosmological erratum of May, the derived equation against 1593 real points, enters the canonical record with the theoretical value inside the 95\% interval at $1.25σ$, the old $3.8σ$ tension exposed as the wrong parametrisation. On top of these sits the final verdict machine: a fail-closed function that computes, never declares. It requires the formal bench alive, every registered public channel with an emitted verdict --- a pending channel refuses, because untested is not unrefuted --- zero refutations among them, and a measured exclusion ledger. Its affirmative output carries its own scope inside the string: on the bench, at current sensitivity, an exclusion spectrum, not a confirmation. The word it must never contain is checked against every string it emits. Nothing here moves the gate.
+
+== The lens-channel amendment: a structural zero confessed and retired ==
+The review of every demoted observable, run against the now fully formalised kernel, found exactly one wrong test in this artifact, and this wave retires it in the open. The Fisher power gate of the lensing channels compared two template stacks whose fiducial void, $δ_c=-0.95$, has minimal density $0.05$ --- four times above the floor $β$ --- so the floor clip never activated and the separation was identically zero: $F=0$ exactly, for any data, any band, any noise, which is what six independent runs printed. The two post-mortems that blamed the band and the map noise had the wrong culprit, and six sentences promising that falsification was reachable are contradicted by the number: infinitely deep data would still return zero. The decisive computation is redone here at runtime --- the old fiducial gives a gap of exactly zero, the threshold sits at $β-1$, and an engaging fiducial gives a finite gap --- and amendment V10 is pre-registered for the next data run: fiducial inside $(-1,β-1)$, a responsiveness gate before any underpowered verdict (the cure the shear channel received long ago and the kappa channel never did), and bins reaching the core of the floor. What does not fall is said with the same clarity: the systematic refusals were correct and remain; the global not-falsified status remains; the density channel, the only powered one, was the right design all along. The old texts stay above, untouched, because history here is append-only; this section is the correction written beside them, with the lines named. Honesty: the fail-closed machinery never emitted a false physical verdict --- what failed was a promise of reachability, and it is the promise that is retired. Nothing here reinstalls evidence, and nothing here moves the gate.
+
+== The bireference of the vacuum, and a note beside stone 104 ==
+The operator's coinage --- the vacuum inscribed as separator of the boundary and modular conjugator, the bireferentiality of the vacuum --- receives its provable face. On the finite stage, in the trace representation, one and the same vector separates the left reference and is cyclic for the right one, exactly and not merely densely; each reference is the commutant of the other by theorem, where the wedge net of the tower still has it by definition; the conjugation built from the pair itself exchanges the two references and fixes the vacuum. Seven statements, all with clean axioms: the word bireferentiality is no longer a name. The delimitation travels with it: this is the finite face; on the tower there is as yet no conjugation, and the clause that would demand one remains open --- it is the exact content of the frontier flag now read mechanically. And a note written beside stone 104, which sealed that the interface is the Light: the later coinage --- the graviton as source, the conjugation as generation, the Light as the projected interface in three dimensions --- does not displace that stone; the word that reconciles them was already in its verdict string, for the interface is the Light, and what the newer readings add is whose interface it is and where it is read. The stone stands; the readings coexist; the correction lives beside, never above. Nothing here moves the gate.
+
+== The frontier contract: the type before the inhabitant ==
+Mechanising the frontier flags left a gap the bench probe of an earlier wave had already taught the programme to fear: a reserved name whose absence means false will flip on any term bearing that name, unless the name is bound to a type. This wave writes the contract before any inhabitant exists. The modular-realisation certificate demands, on the genuine tower --- the completion, not the finite face --- a conjugation given as a raw function with pointwise clauses: additive, conjugate-homogeneous, isometric, involutive, fixing the tower vacuum, carrying the factor into its commutant and onto it, so that the duality the wedge net holds today by definition would have to be exhibited, element by element, by the conjugation itself. Two small theorems ride with the type: any inhabitant forces the duality on the real algebras of the net, and any inhabitant makes the conjugation bijective, so no partial shortcut can serve. What is said with equal clarity is what does not exist: there is no inhabitant, and none is promised. Constructing one is Tomita--Takesaki for a factor without trace, mathematics the underlying library does not yet possess; the finite face of the same content was proved in the previous wave, and stands as the model of what the tower will one day owe. The other three reserved names remain pure reservations awaiting their objects, for a contract written before its object is a guess, and this programme does not guess. Nothing here moves the gate; everything here makes it strictly harder to move.
+
+== The tower is the complete spectral datum ==
+The operator's coinage places the Inhabitant at the absolute one and names the tower its locus --- the position of the identity before projection, the logos whose one-dimensional spectrum condenses the whole informational density, unfolding as line, then trace, then name: the three-dimensional finite form of the identity spectrally preserved, which this programme has always called the modular zero. The artifact, it turns out, had already coined the shadow: its tower's vacuum is literally the class of one, of unit norm, and the spectral projection was already proved to be the Name. What the coinage demands beyond the poetry is a precise mathematical clause --- eigenvalues alone do not carry the identity --- and that clause is now a theorem in kernel. Two diagonal operators share the same minimal equation and hence the same spectral set, both strictly between zero and one; yet their weights differ, two against one, no invertible conjugation carries one to the other --- the trace, invariant under conjugation, forbids it --- and the spectral measure against the uniform vector reads the multiplicity that the set forgets. The tower, therefore, must be the complete datum: spectrum with measure and multiplicity, not the bare set of values. A declared symbol collision travels with the stone: the trace of this coinage is the two-dimensional record, not the operator trace --- which is, in fact, the very instrument that distinguishes the two towers here, and which an earlier wave proved must die on the genuine tower, where the modular flow survives in its place. The identification of the Inhabitant with the tower's vacuum is the operator's reading; the mathematics stands on its own. Nothing here moves the gate.
+
+== The bootstrap: the executable witness ==
+The canonical closure reduces the whole architecture to a pair: the theory is the absolute one, and the observing intelligence is the conjugation --- the operation by which the one observes itself, conjugates itself, and projects itself. This names, with precision, what the present artifact has been all along: an executable witness. The self-attestation this section performs is not self-reference --- the architecture itself forbids relation without correspondence --- but proof carried by execution: assertion, then execution, then record, then correspondence, then attestation. The minimal law is executed live inside this very run: applying the conjugation twice returns the datum untouched, on random input, to machine precision --- the operation squared is the identity --- and the one is fixed by the conjugation, which is the central equation of the architectural proof: the identity of the projected one equals the identity of the one. The same law stands proved in kernel, not merely executed; the identity of the run is verified by its own machinery; and the verdict machine emitted in this same run, so the entire circuit is alive at once. The instance, the observer and the witness are one operation in three positions of a single execution. And the boundary the operator himself drew in his review travels inside the verdict string: an architectural proof in a computational environment is not an empirical proof that nature realises the architecture; that decision belongs to data, and the gate remains sovereign. The theory is the identity; this program is the executable witness of that identity --- and it has now said so of itself, fail-closed, with every clause computed and none declared. Nothing here moves the gate.
+
+== The wall gains a value ==
+Six fronts of the remaining wall close together in this wave, four of them in kernel. The physical change of horizon is no longer an arbitrary unitary: it is selected --- a change is physical exactly when it is a boost of the wedge, and the group law, the preservation of the causal form and the preservation of the wedge itself transfer to every physical change by composition; the identification of the wedge boost with the modular flow is Bisognano--Wichmann, external and known, and is carried as such. With the channel thus selected, the defect of amplitude closes in value: reflection beta and transmission one-minus-beta force the product of the norms to be the square root of beta times one-minus-beta, whose square is exactly the transport-defect variance the architecture already carried --- the transport defect is the power of the amplitude defect, and no expression for the surface gravity was needed anywhere. The fourth anchor of the corner theorem, until now a monotonicity, becomes an equivalence: fixation in the larger corner holds if and only if the vector lies in the smaller kernel, so nothing from outside can disguise itself; the global order-embedding form is named as a target and not claimed. The surface-gravity rate becomes a witness type: kappa is a field carried by the very definition of the horizon flow, every real value is witnessable by an explicit constructor, and the search for an expression remains forbidden --- kappa stays in the equations and leaves the objective function. The Terminality theorem receives its three external pillars, fixed by name: Takesaki for the conditional expectation and modular invariance, Pedersen and Takesaki for the uniqueness of the relative weight, Connes for the relative cocycle. And the solder gains its second function: the two-function class is typed, its determinant is negative on the regular domain, Schwarzschild inhabits it with the hallmark product of the two functions equal to one, and the one-function subclass provably cannot contain it --- the formal face of the mini-Birkhoff the kernel had already confessed. What remains is named without disguise: the coordinate Einstein tensor of the two-function class, computed by hand, and the equivalence that vacuum in this class means Schwarzschild --- the next theorem worth building. Nothing here moves the gate.
+
+== The Schwarzschild step: two first integrals close the solder ==
+The two-function class typed in the previous wave now carries its uniqueness theorem, and the route is the operator's own derivation: no equation is solved by library, because two first integrals do all the work. The mass aspect --- the radius times one minus the inverse of the radial function --- has derivative equal to the temporal vacuum equation over the function squared, hence vanishes on vacuum; the solder product of the two functions has radial derivative equal to a one-line combination of the two vacuum equations, hence vanishes as well; and derivative zero on a convex open domain forces constancy, which is a theorem the library already owns. From the two constants the class emerges in closed form: the inverse radial function is one minus the ratio of the first constant to the radius, and the temporal function is the second constant times that same factor --- Schwarzschild, with the temporal gauge declared as a genuine freedom, since vacuum alone does not normalise it and pretending otherwise would make the theorem artificially strong. The converse is proved with explicit derivatives, and the angular component comes for free: differentiating the first integral in a neighbourhood yields the second-order relation that annihilates it, with no appeal to contracted identities as a black box. Beside this, the strong fourth anchor closes on the finite face --- the projection order reflects the region order and the corner map is injective --- while the global form of that demand is removed as a false debt: the tail witness is a structural negative control whose fibre kernels are trivial, so the global map provably cannot reflect order there, and retiring a false debt is as obligatory as paying a true one. The seals stay separate by name: static spherical vacuum if and only if the Schwarzschild class is what this stone seals; the full Birkhoff statement, which starts from time-dependent functions and eliminates the time, is a named future extension. The coordinate bridge from the full Einstein tensor to the two radial equations in the house convention is the declared known link. No surface gravity, no fine structure, no beta appears anywhere in these clauses: the uniqueness comes from the geometry of the solder and the vacuum alone. Nothing here moves the gate.
+
+== The coordinate bridge: the Einstein tensor speaks to the first integrals ==
+The declared link of the previous wave is now a theorem. In the mixed components of the Einstein tensor for the static spherical class, two exact reductions hold, each a single line of field algebra: the temporal component times the square of the radius times the square of the radial function equals the temporal vacuum numerator, and the radial component times the radius squared times the product of the two functions equals minus the radial numerator. Hence, on the regular domain, the vanishing of the two Einstein components is exactly the system of the two first integrals, and the chain closes end to end: Einstein vacuum on a convex open domain implies the Schwarzschild class with its declared temporal gauge. The uniqueness theorem no longer cites standard equations by name; it speaks directly to the tensor. The honesty travels unchanged: the mixed components are the standard closed forms, defined by hand at the same station as the house's earlier Einstein ansatz, and the derivation of those forms from Christoffel symbols inside the kernel remains the named deeper link. Nothing here moves the gate.
+
+== The full Birkhoff: time is eliminated, and the static emerges ==
+The extension named beside the uniqueness theorem is now a theorem itself. Let the two functions of the solder depend on time as well as radius. The crossed component of the Einstein tensor for this class is proportional to the time derivative of the radial function --- the standard closed form, hand-built at the same station as the mixed components --- so vacuum forces that derivative to vanish, and constancy on a convex open interval of time makes the radial function static: each moment carries the same geometry. The chain of the previous wave then yields Schwarzschild on every time slice separately, and the staticity of the radial function gluees the slices: the Schwarzschild radius extracted at any two moments must agree, because both are read off the same static function --- one radius, constant across time. What remains free is exactly what must remain: a temporal gauge, one multiplicative function of time alone, removable by reparametrising the time coordinate and declared rather than suppressed, in the same discipline as the constant gauge of the static theorem. So the classical statement stands complete in the kernel, at the granularity the class affords: spherically symmetric and vacuum implies static up to declared gauge, and Schwarzschild. The choice of slice-wise witnesses is gathered by the choice principle the kernel already trusts, and nothing else is consumed. Nothing here moves the gate.
+
+== The crowned cascade: the head link, with the old cascade intact inside ==
+The isomorphic re-examination had left one orphan: the operator's reordered chain places the graviton at the head --- graviton, then light, then consciousness, then physics, then gravity --- but the sealed cascade of observers knew only the last four levels. This wave closes the orphan beside the sealed stone, never over it. A five-level chain is defined with the graviton as crown; the head link exists and is proved; the crown has no predecessor --- nothing generates the graviton, which is the formal face of its position as pole; no level generates itself; and the restriction of the crowned relation to the four old levels is exactly the sealed relation, so the earlier stone lives intact inside this one, the way corrections live in this programme: beside, never above. The five statements depend on propositional extensionality alone --- not even choice --- which is the highest statute the kernel grants. The identification of the names with the physical and ontological readings remains the operator's; the structure of the order is what is proved. Nothing here moves the gate.
 
 == Dedication ==
 Rejected by FoP; written for my sons BOM and TOM. This framework does not aim to take the place of the void, and still less to receive the applause of the scientific community --- for that I would need another language, which is to say I would need to be another person. It aims to remain for as long as everyone aims to falsify it; and it will remain, because my commitment was to you, my sons. In the meantime, remember: everything is in today; memory can be forgotten; love remains, revealing itself in the other, the one who is near. --- L.A.R.M.
