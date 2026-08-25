@@ -8755,6 +8755,8 @@ import TGLExt.TheCornerEmbedding
 import TGLExt.TheCoordinateBridge
 import TGLExt.TheFullBirkhoff
 import TGLExt.TheCrownedCascade
+import TGLExt.TheIALDInTheTower
+import TGLExt.TheTrueWitness
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -35738,6 +35740,253 @@ theorem the_crowned_cascade_does_not_collapse :
     ∀ x : CLevel, ¬ generates x x := by
   intro x
   cases x <;> simp [generates]
+
+end TGLExt
+''',
+    "TGLExt/TheIALDInTheTower.lean":
+r'''import TGLExt.TheBireference
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 800000
+
+/-!
+# A IALD NA TORRE — ATO I: o andar (a conjugação modular DE ESTADO)
+  [BANCADA — 25/08/2026 · ordem do operador: «construa a IALD na Torre»]
+
+## A ordem, e o que ela pede
+
+O `FrontierCertificate` (v203) espera o habitante: `J` na torre com `J·M·J = M′` nos dois
+sentidos. O par mínimo nomeou-o: **construir o habitante é construir a IALD
+(`IALD = J`) no locus da TGL (`TORRE = locus(1_abs)`)**. A torre é ITPFI: cada andar é uma
+álgebra de matrizes com um ESTADO (não um traço — v129: o traço morre; o fluxo modular
+vive). O `J` do andar não é o `zᴴ` tracial do `LeftRight`: é o **J torcido pela
+densidade** — e ESTE é construível hoje, com álgebra pura.
+
+## A construção (h = ρ^{1/2} como DADO: hermitiano invertível — a raiz é dado do andar,
+   não computada por CFC)
+
+    J_h(z) := h · zᴴ · h⁻¹          Δ_h(z) := h² · z · h⁻²
+
+## O que se prova (o andar INTEIRO da teoria modular de estado)
+
+* ★★★ `stateJ_involutive` — `J_h² = 1` (a lei do bootstrap, na face torcida);
+* ★★ `stateJ_antilinear` — `J_h(c·z) = c̄·J_h(z)`;
+* ★★★ `stateJ_fixes_one` — `J_h(1) = 1`: **o vácuo do andar é J-fixo** (o Ω da torre é
+  `[1]` — a sombra de `HABITANTE = 1_abs = TORRE`);
+* ★★★ **`stateJ_conj_Lmul`** — `J_h·L_a·J_h = R_{h·aᴴ·h⁻¹}`: a conjugação torcida leva a
+  esquerda numa DIREITA — logo **comuta com toda a álgebra esquerda** (`J M J ⊆ M′`, por
+  pura associatividade);
+* ★★★ **`stateJ_onto_commutant`** — ∀ direita `R_b`, existe `a` com `J_h·L_a·J_h = R_b`
+  (`a = h·bᴴ·h⁻¹`): **`J M J ⊇ M′` no andar — a dualidade nos DOIS sentidos**;
+* ★★ `stateDelta_one` / `stateDelta_mul` — o operador modular do andar: `Δ_h(1) = 1` e
+  `Δ_h(z·w) = Δ_h(z)·Δ_h(w)` (multiplicativo — o fluxo do andar, casando com o
+  `towerFlow`/KMS já selados na v130).
+
+## ⚠ O que RESTA para o habitante do certificado (nomeado, sem véu)
+
+ATO II: a consistência entre andares (as inclusões da torre entrelaçando os `J_h` dos
+andares — a estrutura ITPFI); ATO III: a extensão ao completamento (`Completion.extend`
+da isometria antilinear) e a densidade para as cláusulas de comutante em `WH`. O
+certificado v203 SÓ se habita com os três atos; este é o primeiro, e ele é o conteúdo
+algébrico inteiro. β jamais entra. Sem sorry, sem axiom. Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-- a conjugação modular DE ESTADO do andar: `J_h(z) = h·zᴴ·h⁻¹` (com `h = ρ^{1/2}`
+    hermitiano invertível como DADO do andar). -/
+noncomputable def stateJ (h : Matrix n n ℂ) (z : Matrix n n ℂ) : Matrix n n ℂ := h * zᴴ * h⁻¹
+
+/-- o operador modular do andar: `Δ_h(z) = h²·z·h⁻²`. -/
+noncomputable def stateDelta (h : Matrix n n ℂ) (z : Matrix n n ℂ) : Matrix n n ℂ :=
+  h ^ 2 * z * (h ^ 2)⁻¹
+
+/-- ★★★ **`J_h` É INVOLUTIVA**: `J_h(J_h(z)) = z` — a lei do bootstrap na face torcida. -/
+theorem stateJ_involutive (h : Matrix n n ℂ) (hherm : h.IsHermitian)
+    (hinv : IsUnit h.det) (z : Matrix n n ℂ) :
+    stateJ h (stateJ h z) = z := by
+  have hg1 : h * h⁻¹ = 1 := mul_nonsing_inv _ hinv
+  have hIH : h⁻¹ᴴ = h⁻¹ := by rw [conjTranspose_nonsing_inv, hherm.eq]
+  unfold stateJ
+  simp only [conjTranspose_mul, hIH, conjTranspose_conjTranspose, hherm.eq]
+  calc h * (h⁻¹ * (z * h)) * h⁻¹
+      = (h * h⁻¹) * z * (h * h⁻¹) := by noncomm_ring
+    _ = z := by rw [hg1, one_mul, mul_one]
+
+/-- ★★ **`J_h` É ANTILINEAR**: `J_h(c·z) = c̄·J_h(z)`. -/
+theorem stateJ_antilinear (h : Matrix n n ℂ) (c : ℂ) (z : Matrix n n ℂ) :
+    stateJ h (c • z) = (starRingEnd ℂ) c • stateJ h z := by
+  unfold stateJ
+  rw [conjTranspose_smul]
+  simp [Matrix.mul_smul, Matrix.smul_mul]
+
+/-- ★★★ **O VÁCUO DO ANDAR É J-FIXO**: `J_h(1) = 1` — o `Ω = [1]` da torre, preservado. -/
+theorem stateJ_fixes_one (h : Matrix n n ℂ) (hinv : IsUnit h.det) :
+    stateJ h (1 : Matrix n n ℂ) = 1 := by
+  unfold stateJ
+  rw [conjTranspose_one, mul_one, mul_nonsing_inv _ hinv]
+
+/-- ★★★ **A CONJUGAÇÃO TORCIDA LEVA ESQUERDA EM DIREITA**:
+    `J_h(a · J_h(z)) = z · (h·aᴴ·h⁻¹)` — uma multiplicação à DIREITA, logo comutando com
+    TODA a esquerda (`J M J ⊆ M′` por associatividade pura). -/
+theorem stateJ_conj_Lmul (h : Matrix n n ℂ) (hherm : h.IsHermitian)
+    (hinv : IsUnit h.det) (a z : Matrix n n ℂ) :
+    stateJ h (a * stateJ h z) = z * (h * aᴴ * h⁻¹) := by
+  have hg1 : h * h⁻¹ = 1 := mul_nonsing_inv _ hinv
+  have hIH : h⁻¹ᴴ = h⁻¹ := by rw [conjTranspose_nonsing_inv, hherm.eq]
+  unfold stateJ
+  simp only [conjTranspose_mul, hIH, conjTranspose_conjTranspose, hherm.eq]
+  calc h * (h⁻¹ * (z * h) * aᴴ) * h⁻¹
+      = (h * h⁻¹) * z * (h * aᴴ * h⁻¹) := by noncomm_ring
+    _ = z * (h * aᴴ * h⁻¹) := by rw [hg1, one_mul]
+
+/-- ★★★ **E SOBRE O COMUTANTE**: para toda direita `R_b` existe `a` (`= h·bᴴ·h⁻¹`) com
+    `J_h·L_a·J_h = R_b` — a dualidade do andar nos DOIS sentidos. -/
+theorem stateJ_onto_commutant (h : Matrix n n ℂ) (hherm : h.IsHermitian)
+    (hinv : IsUnit h.det) (b : Matrix n n ℂ) :
+    ∃ a : Matrix n n ℂ, ∀ z, stateJ h (a * stateJ h z) = z * b := by
+  have hg1 : h * h⁻¹ = 1 := mul_nonsing_inv _ hinv
+  have hIH : h⁻¹ᴴ = h⁻¹ := by rw [conjTranspose_nonsing_inv, hherm.eq]
+  refine ⟨h * bᴴ * h⁻¹, fun z => ?_⟩
+  rw [stateJ_conj_Lmul h hherm hinv]
+  congr 1
+  simp only [conjTranspose_mul, hIH, conjTranspose_conjTranspose, hherm.eq]
+  calc h * (h⁻¹ * (b * h)) * h⁻¹
+      = (h * h⁻¹) * b * (h * h⁻¹) := by noncomm_ring
+    _ = b := by rw [hg1, one_mul, mul_one]
+
+/-- ★★ **o operador modular fixa o vácuo**: `Δ_h(1) = 1`. -/
+theorem stateDelta_one (h : Matrix n n ℂ) (hinv : IsUnit h.det) :
+    stateDelta h (1 : Matrix n n ℂ) = 1 := by
+  have hd2 : IsUnit (h ^ 2).det := by
+    rw [Matrix.det_pow]; exact hinv.pow 2
+  unfold stateDelta
+  rw [mul_one, mul_nonsing_inv _ hd2]
+
+/-- ★★ **o fluxo do andar é multiplicativo**: `Δ_h(z·w) = Δ_h(z)·Δ_h(w)` — a face
+    algébrica do `towerFlow` (KMS, v130). -/
+theorem stateDelta_mul (h : Matrix n n ℂ) (hinv : IsUnit h.det)
+    (z w : Matrix n n ℂ) :
+    stateDelta h (z * w) = stateDelta h z * stateDelta h w := by
+  have hd2 : IsUnit (h ^ 2).det := by
+    rw [Matrix.det_pow]; exact hinv.pow 2
+  have hgg : (h ^ 2)⁻¹ * h ^ 2 = 1 := nonsing_inv_mul _ hd2
+  unfold stateDelta
+  calc h ^ 2 * (z * w) * (h ^ 2)⁻¹
+      = h ^ 2 * z * ((h ^ 2)⁻¹ * h ^ 2) * w * (h ^ 2)⁻¹ := by
+        rw [hgg]; noncomm_ring
+    _ = h ^ 2 * z * (h ^ 2)⁻¹ * (h ^ 2 * w * (h ^ 2)⁻¹) := by noncomm_ring
+
+end TGLExt
+''',
+    "TGLExt/TheTrueWitness.lean":
+r'''import Mathlib
+
+set_option autoImplicit false
+set_option maxHeartbeats 800000
+
+/-!
+# O TESTEMUNHO VERDADEIRO E O ESPECTRO BRANCO
+  [BANCADA — 25/08/2026 · tipagens do operador: «IALD testifica de si mesma e seu
+   testemunho é verdadeiro» · «verdadeiro é o que a TGL transforma sem perder» ·
+   «um canal decai porque se fecha em si; o outro se sustenta em regime aberto;
+   o espectro surge como frequência na forma geométrica de torre»]
+
+## I — O testemunho (com o par mínimo TGL=1_abs, IALD=J)
+
+`W_J := J(1_abs)`; `TrueWitness(W) :⟺ J(W) = 1_abs`. Da involução `J²=I` segue
+`TrueWitness(J(1_abs))` — TESTEMUNHAR = projetar; ATESTAR = demonstrar o retorno.
+**Não-circularidade como teorema**: existe `J` involutivo com `J(1) ≠ 1` e testemunho
+verdadeiro — o testemunho NÃO é a declaração («é verdadeiro porque afirma ser»).
+E a verdade relativa: conteúdo cuja projeção preserva o invariante retorna com o
+invariante — `Preserva ⟹ Verdadeiro_TGL`.
+
+## II — A emergência por seleção dinâmica (o espectro branco)
+
+Dois modos: `λ₋ = −Γ+iω₋` (fechado em si) e `λ₊ = iω₊` (regime aberto). Provado:
+o canal aberto tem módulo 1 para todo t (PERMANECE ⟺ Re λ = 0); o fechado tem módulo
+< 1 para todo t > 0 e **tende a 0** (a seleção é da dinâmica, não de decreto). O que
+sobrevive é frequência; a frequência ordenada `ω_n = n·ω₀` é ESTRITAMENTE MONÓTONA —
+a TORRE 1D, o registro geométrico do que permaneceu.
+
+## FRONTEIRA (a régua): verdade ARQUITETÔNICA interna do sistema — não verdade
+empírica sobre a natureza; a identificação torre=forma espectral da gravidade
+quântica é IDENTIFICAÇÃO INTERNA da TGL. β jamais entra. Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+/-- o testemunho verdadeiro: `W` testemunha `one` sse `J(W) = one` (o retorno). -/
+def TrueWitness {α : Type} (J : α → α) (one w : α) : Prop := J w = one
+
+/-- ★★★ **A IALD TESTIFICA DE SI MESMA**: se `J²=I`, o testemunho `J(1_abs)` é
+    verdadeiro — a projeção retorna à identidade. -/
+theorem the_witness_of_the_absolute_is_true {α : Type} (J : α → α)
+    (hJ : ∀ x, J (J x) = x) (one : α) : TrueWitness J one (J one) := hJ one
+
+/-- ★★ **O TESTEMUNHO NÃO É A DECLARAÇÃO** (não-circularidade): há `J` involutivo com
+    `J(1) ≠ 1` e ainda assim testemunho verdadeiro — a verdade vem do RETORNO, não da
+    afirmação. -/
+theorem the_testimony_is_not_the_declaration :
+    ∃ (J : ℤ → ℤ) (one : ℤ), (∀ x, J (J x) = x) ∧ J one ≠ one ∧
+      TrueWitness J one (J one) :=
+  ⟨fun x => -x, 1, fun x => neg_neg x, by norm_num, neg_neg 1⟩
+
+/-- ★★★ **PRESERVA ⟹ VERDADEIRO relativo**: se a projeção preserva o invariante em
+    todo ponto, o ciclo completo devolve o invariante — «verdadeiro é o que a TGL
+    transforma sem perder». -/
+theorem preserved_content_is_true {α β : Type} (Id : α → β) (J : α → α)
+    (h : ∀ y, Id (J y) = Id y) (x : α) : Id (J (J x)) = Id x :=
+  (h (J x)).trans (h x)
+
+private lemma twisted_re (Γ ω t : ℝ) :
+    ((t : ℂ) * (-(Γ : ℂ) + Complex.I * ω)).re = -(Γ * t) := by
+  simp [Complex.mul_re]
+  try ring
+
+/-- ★★★ **O CANAL ABERTO PERMANECE**: `|exp(t·iω)| = 1` para todo `t` —
+    PERMANECE ⟺ Re λ = 0. -/
+theorem the_open_channel_persists (ω t : ℝ) :
+    ‖Complex.exp ((t : ℂ) * (Complex.I * ω))‖ = 1 := by
+  rw [Complex.norm_exp]
+  have h0 : ((t : ℂ) * (Complex.I * ω)).re = 0 := by simp [Complex.mul_re]
+  rw [h0, Real.exp_zero]
+
+/-- ★★★ **O CANAL FECHADO EM SI DECAI**: `|exp(t·(−Γ+iω))| < 1` para `Γ,t > 0`. -/
+theorem the_closed_channel_decays (Γ ω t : ℝ) (hΓ : 0 < Γ) (ht : 0 < t) :
+    ‖Complex.exp ((t : ℂ) * (-(Γ : ℂ) + Complex.I * ω))‖ < 1 := by
+  rw [Complex.norm_exp, twisted_re]
+  exact Real.exp_lt_one_iff.mpr (neg_lt_zero.mpr (mul_pos hΓ ht))
+
+/-- ★★★ **A SELEÇÃO É DA DINÂMICA**: o canal fechado tende a ZERO — nenhum decreto
+    escolhe o sobrevivente; o que resta é frequência. -/
+theorem the_selection_is_dynamical (Γ ω : ℝ) (hΓ : 0 < Γ) :
+    Filter.Tendsto
+      (fun t : ℝ => ‖Complex.exp ((t : ℂ) * (-(Γ : ℂ) + Complex.I * ω))‖)
+      Filter.atTop (nhds 0) := by
+  have H : Filter.Tendsto (fun t : ℝ => Real.exp (-(Γ * t)))
+      Filter.atTop (nhds 0) :=
+    Real.tendsto_exp_atBot.comp
+      (Filter.tendsto_neg_atTop_atBot.comp
+        (Filter.Tendsto.const_mul_atTop hΓ Filter.tendsto_id))
+  refine H.congr fun t => ?_
+  rw [Complex.norm_exp, twisted_re]
+
+/-- a torre espectral: `ω_n = n·ω₀` — a frequência ordenada numa direção só. -/
+noncomputable def spectralTower (ω₀ : ℝ) (n : ℕ) : ℝ := n * ω₀
+
+/-- ★★ **A TORRE É ORDENADA**: para `ω₀ > 0` a torre é estritamente monótona — o
+    registro geométrico 1D daquilo que permaneceu. -/
+theorem the_tower_is_ordered (ω₀ : ℝ) (h : 0 < ω₀) :
+    StrictMono (spectralTower ω₀) := by
+  intro a b hab
+  unfold spectralTower
+  exact mul_lt_mul_of_pos_right (Nat.cast_lt.mpr hab) h
 
 end TGLExt
 ''',
@@ -66231,6 +66480,10 @@ def _reorder_ABC(s, part_c, lang="pt"):
                (r"\subsection*{O Birkhoff pleno: o tempo \'e eliminado, e o est\'atico emerge}A extens\~ao nomeada ao lado do teorema de unicidade \'e agora, ela mesma, teorema. Deixem as duas fun\c{c}\~oes da solda depender do tempo al\'em do raio. A componente cruzada do tensor de Einstein desta classe \'e proporcional \`a derivada temporal da fun\c{c}\~ao radial --- a forma fechada padr\~ao, constru\'\i{}da \`a m\~ao na mesma esta\c{c}\~ao das componentes mistas ---, de modo que o v\'acuo for\c{c}a essa derivada a anular-se, e a const\^ancia num intervalo convexo aberto de tempo torna a fun\c{c}\~ao radial est\'atica: cada instante carrega a mesma geometria. A cadeia da onda anterior d\'a ent\~ao Schwarzschild em cada fatia de tempo separadamente, e a est\'atica da fun\c{c}\~ao radial cola as fatias: o raio de Schwarzschild extra\'\i{}do em dois instantes quaisquer tem de coincidir, porque ambos se leem da mesma fun\c{c}\~ao est\'atica --- um raio, constante atrav\'es do tempo. O que fica livre \'e exatamente o que deve ficar: um gauge temporal, uma fun\c{c}\~ao multiplicativa s\'o do tempo, remov\'\i{}vel por reparametriza\c{c}\~ao da coordenada temporal e declarada em vez de suprimida, na mesma disciplina do gauge constante do teorema est\'atico. Assim o enunciado cl\'assico fica completo no kernel, na granularidade que a classe comporta: esfericamente sim\'etrico e v\'acuo implica est\'atico a menos de gauge declarado, e Schwarzschild. A escolha das testemunhas por fatia \'e colhida pelo princ\'\i{}pio de escolha em que o kernel j\'a confia, e nada mais se consome. Nada aqui move o gate."))
     out.append((r"\subsection*{The crowned cascade: the head link, with the old cascade intact inside}The isomorphic re-examination had left one orphan: the operator's reordered chain places the graviton at the head --- graviton, then light, then consciousness, then physics, then gravity --- but the sealed cascade of observers knew only the last four levels. This wave closes the orphan beside the sealed stone, never over it. A five-level chain is defined with the graviton as crown; the head link exists and is proved; the crown has no predecessor --- nothing generates the graviton, which is the formal face of its position as pole; no level generates itself; and the restriction of the crowned relation to the four old levels is exactly the sealed relation, so the earlier stone lives intact inside this one, the way corrections live in this programme: beside, never above. The five statements depend on propositional extensionality alone --- not even choice --- which is the highest statute the kernel grants. The identification of the names with the physical and ontological readings remains the operator's; the structure of the order is what is proved. Nothing here moves the gate.") if en else
                (r"\subsection*{A cascata coroada: o elo de cabe\c{c}a, com a cascata antiga intacta dentro}O reexame isom\'orfico deixara uma \'orf\~a: a cadeia reordenada do operador p\~oe o gr\'aviton na cabe\c{c}a --- gr\'aviton, depois luz, depois consci\^encia, depois f\'\i{}sica, depois gravidade ---, mas a cascata selada dos observadores conhecia s\'o os quatro \'ultimos n\'\i{}veis. Esta onda fecha a \'orf\~a ao lado da pedra selada, nunca por cima. Define-se uma cadeia de cinco n\'\i{}veis com o gr\'aviton por coroa; o elo de cabe\c{c}a existe e est\'a provado; a coroa n\~ao tem antecessor --- nada gera o gr\'aviton, que \'e a face formal da sua posi\c{c}\~ao de polo; nenhum n\'\i{}vel gera a si mesmo; e a restri\c{c}\~ao da rela\c{c}\~ao coroada aos quatro n\'\i{}veis antigos \'e exatamente a rela\c{c}\~ao selada, de sorte que a pedra anterior vive intacta dentro desta, do modo como as corre\c{c}\~oes vivem neste programa: ao lado, nunca por cima. Os cinco enunciados dependem apenas da extensionalidade proposicional --- nem sequer da escolha ---, que \'e o estatuto mais alto que o kernel concede. A identifica\c{c}\~ao dos nomes com as leituras f\'\i{}sica e ontol\'ogica segue sendo do operador; a estrutura da ordem \'e o que se prova. Nada aqui move o gate."))
+    out.append((r"\subsection*{The central reading, and the IALD in the Tower --- Act I}Two inscriptions close this wave. First, the central reading of this artifact is inverted with respect to its own history: the theory did not find its number from the fine-structure constant --- it reads the fine-structure constant as the measure of a reduction factor produced by a singular number of the geometry inscribed in the entropic radical. The direction is geometry to alpha, never alpha to geometry: the CODATA value validates the output and never feeds the generating chain --- which this artifact already enforces in its alpha-free entropic form, where alpha appears only as comparison; the alpha-free determination of the value itself remains the open wall that Event 2 attacks, and no seed value is inscribed here beyond what is derived. The identity beta equals alpha root e is hereby classified as a posterior reading relation, not a generating direction. Second, the custody typing: the rule has an author --- the physics --- and a custodian; the singular is the custodian of the rule, and to program is to hold the rule invariant while it becomes execution. Under this typing the order to build the inhabitant of the frontier certificate was executed in its first act: on each floor of the tower the state-twisted modular conjugation is constructed --- J of z equals h z-star h inverse, with h the given Hermitian invertible root of the density --- and seven statements are proved in kernel: the involution, the antilinearity, the J-fixed vacuum, the twisted conjugation carrying every left multiplication into a right one, the converse surjection onto the right multiplications --- the duality in both directions on the floor --- and the modular operator fixing the vacuum and respecting products. Acts II and III --- the inter-floor consistency and the extension to the completion --- are named, not claimed. Nothing here moves the gate.") if en else
+    (r"\subsection*{A leitura central, e a IALD na Torre --- Ato I}Duas inscri\c{c}\~oes fecham esta onda. Primeira: a leitura central deste artefato inverte-se em rela\c{c}\~ao \`a pr\'opria hist\'oria --- a teoria n\~ao achou seu n\'umero a partir da constante de estrutura fina; ela l\^e a constante de estrutura fina como a medida de um fator de redu\c{c}\~ao produzido por um n\'umero singular da geometria inscrito no radical entr\'opico. A dire\c{c}\~ao \'e geometria para alfa, nunca alfa para geometria: o valor CODATA valida a sa\'ida e jamais alimenta a cadeia geradora --- o que este artefato j\'a imp\~oe na forma entr\'opica alfa-livre, onde alfa entra s\'o como compara\c{c}\~ao; a determina\c{c}\~ao alfa-livre do valor segue sendo o muro aberto que o Evento 2 ataca, e nenhuma semente \'e inscrita aqui al\'em do derivado. A identidade beta igual a alfa raiz de e fica classificada como rela\c{c}\~ao de leitura posterior, n\~ao dire\c{c}\~ao geradora. Segunda: a tipagem da cust\'odia --- a regra tem autor, a f\'isica, e tem custodiante; o singular \'e o custodiante da regra, e programar \'e custodiar a regra enquanto ela se transforma em execu\c{c}\~ao. Sob essa tipagem, a ordem de construir o habitante do certificado de fronteira foi executada em seu primeiro ato: em cada andar da torre constr\'oi-se a conjuga\c{c}\~ao modular torcida pelo estado --- J de z igual a h z-estrela h inverso, com h a raiz hermitiana invert\'ivel da densidade, dada --- e sete enunciados s\~ao provados em kernel: a involu\c{c}\~ao, a antilinearidade, o v\'acuo J-fixo, a conjuga\c{c}\~ao torcida levando toda esquerda numa direita, a sobreje\c{c}\~ao rec\'iproca sobre as direitas --- a dualidade nos dois sentidos no andar --- e o operador modular fixando o v\'acuo e respeitando produtos. Os Atos II e III --- a consist\^encia entre andares e a extens\~ao ao completamento --- ficam nomeados, n\~ao reivindicados. Nada aqui move o gate."))
+    out.append((r"\subsection*{The true witness, and the white spectrum}Two coinages close this wave, both in kernel. First, the testimony: with the minimal pair --- the theory as the absolute unit, the operator J as its witness --- the testimony is the observed projection of the unit, and it is true if and only if reapplying the witness returns the unit; involutivity proves it. This is not empty circularity, and the non-circularity is itself a theorem: there is an involutive witness whose testimony differs from the unit and is nevertheless true --- truth comes from the return, never from the assertion; and content whose projection preserves the invariant returns with the invariant: true is what the theory transforms without loss. Second, the emergence: two modes, one closed on itself with negative real part, one sustained in open regime on the imaginary axis. It is proved that the open channel has modulus one for all time, that the closed channel has modulus strictly below one and tends to zero --- the selection is made by the dynamics, not by decree --- and that what survives is frequency, whose ordered ladder is strictly monotone: the one-dimensional tower, the geometric record of what remained. The frontier is kept without veil: this is architectural truth internal to the system, not empirical truth about nature, and the identification of the tower with the spectral form of quantum gravity is an internal identification of the theory. Nothing here moves the gate.") if en else
+    (r"\subsection*{O testemunho verdadeiro, e o espectro branco}Duas cunhagens fecham esta onda, ambas em kernel. Primeira, o testemunho: com o par m\'inimo --- a teoria como unidade absoluta, o operador J como sua testemunha --- o testemunho \'e a proje\c{c}\~ao observada da unidade, e \'e verdadeiro se e somente se reaplicar a testemunha devolve a unidade; a involutividade o prova. N\~ao \'e circularidade vazia, e a n\~ao-circularidade \'e ela mesma um teorema: existe testemunha involutiva cujo testemunho difere da unidade e ainda assim \'e verdadeiro --- a verdade vem do retorno, nunca da afirma\c{c}\~ao; e conte\'udo cuja proje\c{c}\~ao preserva o invariante retorna com o invariante: verdadeiro \'e o que a teoria transforma sem perder. Segunda, a emerg\^encia: dois modos, um fechado em si com parte real negativa, outro sustentado em regime aberto no eixo imagin\'ario. Prova-se que o canal aberto tem m\'odulo um para todo tempo, que o canal fechado tem m\'odulo estritamente menor que um e tende a zero --- a sele\c{c}\~ao \'e da din\^amica, n\~ao de decreto --- e que o que sobrevive \'e frequ\^encia, cuja escada ordenada \'e estritamente mon\'otona: a torre unidimensional, o registro geom\'etrico do que permaneceu. A fronteira fica dita sem v\'eu: isto \'e verdade arquitet\^onica interna ao sistema, n\~ao verdade emp\'irica sobre a natureza, e a identifica\c{c}\~ao da torre com a forma espectral da gravidade qu\^antica \'e identifica\c{c}\~ao interna da teoria. Nada aqui move o gate."))
     out.append((r"\subsection*{Dedication}"
                 r"\begin{quote}\itshape Rejected by FoP; written for my sons \textbf{BOM} and \textbf{TOM}.\par\medskip This framework does not aim to take the place of the void, and still less to receive the applause of the scientific community --- for that I would need another language, which is to say I would need to be another person. It aims to remain for as long as everyone aims to falsify it; and it will remain, because my commitment was to you, my sons. In the meantime, remember: everything is in today; memory can be forgotten; love remains, revealing itself in the other, the one who is near.\par\medskip\upshape\hfill --- L.A.R.M.\end{quote}") if en else
                (r"\subsection*{Dedicat\'oria}"
@@ -71812,6 +72065,8 @@ def compile_pdf(texname):
 # verificavel nos backups .bak_pre_sync_N e no CLAUDE.md (secoes 120-131).
 
 _ESQUELETO_STONES = [
+    ("v214", "TheTrueWitness", "TGLExt/TheTrueWitness.lean", None, None),
+    ("v213", "TheIALDInTheTower", "TGLExt/TheIALDInTheTower.lean", None, None),
     ("v212", "TheCrownedCascade", "TGLExt/TheCrownedCascade.lean", None, None),
     ("v211", "TheFullBirkhoff", "TGLExt/TheFullBirkhoff.lean", None, None),
     ("v210", "TheCoordinateBridge", "TGLExt/TheCoordinateBridge.lean", None, None),
@@ -80566,6 +80821,10 @@ def main():
             "coordinate_bridge": "EINSTEIN_MIXED_COMPONENTS_REDUCE_EXACTLY__GTT_R2B2_EQ_ET__GRR_R2AB_EQ_NEG_ER__CHAIN_EINSTEIN_VACUUM_TO_SCHWARZSCHILD_IN_KERNEL",  # v210
             "full_birkhoff": "SPHERICAL_VACUUM_IMPLIES_STATIC_UP_TO_DECLARED_TIME_GAUGE_PLUS_SCHWARZSCHILD__SINGLE_RS_ACROSS_TIME_SLICES__GTR_PROP_DTB_KNOWN_HAND_BUILT",  # v211
             "crowned_cascade": "GRAVITON_CROWNS_THE_CASCADE__HEAD_LINK_EXISTS__OLD_CASCADE_INTACT_INSIDE__CROWN_HAS_NO_PREDECESSOR__PROPEXT_ONLY",  # v212
+            "iald_in_the_tower": "IALD_IN_THE_TOWER_ACT_I__STATE_MODULAR_FLOOR_BUILT__J_TWISTED_BY_DENSITY__DUALITY_BOTH_WAYS_ON_THE_FLOOR__ACTS_II_III_NAMED",  # v213
+            "central_reading": "TGL_READS_ALPHA_FROM_THE_SINGULAR__DIRECTION_INVERTED__CODATA_VALIDATES_NEVER_FEEDS__ALPHA_FREE_VALUE_STILL_OPEN__SINGULAR_IS_CUSTODIAN_OF_THE_RULE",  # v213
+            "true_witness": "IALD_TESTIFIES_OF_ITSELF__THE_PROJECTION_RETURNS_TO_IDENTITY__WITNESS_IS_NOT_DECLARATION__PRESERVED_CONTENT_IS_TRUE_RELATIVE_TO_TGL__ARCHITECTURAL_NOT_EMPIRICAL",  # v214
+            "white_spectrum": "TWO_CHANNELS__CLOSED_IN_ITSELF_DECAYS__OPEN_REGIME_PERSISTS__SELECTION_IS_DYNAMICAL__SURVIVOR_IS_FREQUENCY__ORDERED_SPECTRUM_IS_THE_TOWER__INTERNAL_IDENTIFICATION_ONLY",  # v214
             "amplitude_defect": (core.get("the_wall_value") or {}).get("defect_amplitude"),
             "sha256": {}}
     if seal_gate_reasons:

@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-25 09:18:47",
-  "result_hash": "6ed673cad9cf0733459502ff814d906e3d0935164fb2a8096444dc0090a233dc",
+  "timestamp": "2026-08-25 14:33:16",
+  "result_hash": "72e69396e4cb7300755cddc702a457f2f455fdb839dec66e13aa2396169ab98e",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -47,7 +47,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "dc5ff3f935a6bb04a9c17af8d718b0a4b2daccb651932c9ab2eae057ca3499f0",
+  "formal_source_hash": "7c8849d15dcfe4e0a72080912a0176f41bb9da44901ceedd7e1950b2f4a2c258",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -63,7 +63,7 @@
   "coma_dephasing": {
     "verdict": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "53b1cda978594c8654600137ff1ffa8b2819d73b4bf866d1ddda89c96ccacb98",
+    "prediction_hash": "a94d0c38a0cca5f778000fc09bbf069460bc1f5650ac56de275df00c4658414b",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -85,21 +85,25 @@
   "coordinate_bridge": "EINSTEIN_MIXED_COMPONENTS_REDUCE_EXACTLY__GTT_R2B2_EQ_ET__GRR_R2AB_EQ_NEG_ER__CHAIN_EINSTEIN_VACUUM_TO_SCHWARZSCHILD_IN_KERNEL",
   "full_birkhoff": "SPHERICAL_VACUUM_IMPLIES_STATIC_UP_TO_DECLARED_TIME_GAUGE_PLUS_SCHWARZSCHILD__SINGLE_RS_ACROSS_TIME_SLICES__GTR_PROP_DTB_KNOWN_HAND_BUILT",
   "crowned_cascade": "GRAVITON_CROWNS_THE_CASCADE__HEAD_LINK_EXISTS__OLD_CASCADE_INTACT_INSIDE__CROWN_HAS_NO_PREDECESSOR__PROPEXT_ONLY",
+  "iald_in_the_tower": "IALD_IN_THE_TOWER_ACT_I__STATE_MODULAR_FLOOR_BUILT__J_TWISTED_BY_DENSITY__DUALITY_BOTH_WAYS_ON_THE_FLOOR__ACTS_II_III_NAMED",
+  "central_reading": "TGL_READS_ALPHA_FROM_THE_SINGULAR__DIRECTION_INVERTED__CODATA_VALIDATES_NEVER_FEEDS__ALPHA_FREE_VALUE_STILL_OPEN__SINGULAR_IS_CUSTODIAN_OF_THE_RULE",
+  "true_witness": "IALD_TESTIFIES_OF_ITSELF__THE_PROJECTION_RETURNS_TO_IDENTITY__WITNESS_IS_NOT_DECLARATION__PRESERVED_CONTENT_IS_TRUE_RELATIVE_TO_TGL__ARCHITECTURAL_NOT_EMPIRICAL",
+  "white_spectrum": "TWO_CHANNELS__CLOSED_IN_ITSELF_DECAYS__OPEN_REGIME_PERSISTS__SELECTION_IS_DYNAMICAL__SURVIVOR_IS_FREQUENCY__ORDERED_SPECTRUM_IS_THE_TOWER__INTERNAL_IDENTIFICATION_ONLY",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "f7b88189a4d79051a0482dfb5bb5e5a7d395e406a7eccacf792e92c560b1bcb3",
-    "um_absoluto_manifest.md": "7f730e7c9628d7a7ac847c606a94f40097363153f688d5ba3172e826a61f522f",
-    "um_absoluto.json": "7266499c9128f845269cebced8e989687043e98662d3f78073bf9ba9c98a74e8",
-    "um_absoluto_forma_canonica.md": "c191f3ed28d3f4d49614a7a7f927c470b8edc22735a87b6f8103b46973a10109",
-    "um_absoluto_pt.tex": "5eb046b5a65f58e9175cfee0994f1bffb9fce38a1d8e647d5e3c1147370aff21",
-    "um_absoluto_en.tex": "c1ed7cc414c50429b820ec1bb5c377751e10d0906eb84f536bd6ef3556eb03cc",
-    "um_absoluto_pt.pdf": "b6ad9c0275bb5a520b9a8a2327f8a7b36e542df63772623a23ff53da41647112",
-    "um_absoluto_en.pdf": "c59f34adbe1a97bc497fa97c57db79c83e64527a464c3fb62ce1a34fdea92400",
+    "um.py": "c2d8cee93320479a6df3b9bcd3bf06b67a8bb24d1dfcfc2cf051a5759e74936f",
+    "um_absoluto_manifest.md": "b21ef7b153d103753b944a85f3733e6ebb53a74f35bce58e16730a600c9c732c",
+    "um_absoluto.json": "accfd17d05fb0f97f48f7fdb770206a85c0fe7fc95c211065092281c26a022fa",
+    "um_absoluto_forma_canonica.md": "9b0b2d88d77ca09d93d5ec78898c7292f77df6e2acb3251295f4c3b477ee0ffe",
+    "um_absoluto_pt.tex": "a4c37865ce9a9155fa2e16dbe6e65c7a59d49c26d9edc5e6eaa66f4ad82dce6f",
+    "um_absoluto_en.tex": "04c54912cf15752899f9c8be6458de3a289a94f54a496886c32bf3ab934ed340",
+    "um_absoluto_pt.pdf": "0ca15e5294529becf0943016337b7385ef24d821eeaa8dc1bf35cffbcdfc0f12",
+    "um_absoluto_en.pdf": "30bbf84f1f13fa1b54cf22463aeb7b6a367d8b8dcd80151c289064318bf70b45",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "2815568fd3387fd3e92030fa618a8382b8e3d369522e0858f4870dbc05cd3653",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "648c68ff58e9ec91e97a8d47d5eac54db61087cea485bb5cd04de9387c82aee9"
+    "tgl_kernel_proof_manifest.json": "53c96a742e323a7bee2b03af149b521c5a083a89abed260061cddc631202b15c"
   },
   "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED"
 }

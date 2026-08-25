@@ -4,7 +4,7 @@
   "titulo": "Genesis da Unificação/Artigos_fundadores",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-25T13:07:54Z",
+  "gerado_utc": "2026-08-25T18:10:12Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Genesis da Unificação",

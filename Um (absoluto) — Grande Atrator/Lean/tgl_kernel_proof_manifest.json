@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-25 09:18:47",
+  "timestamp": "2026-08-25 14:33:16",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,12 +10,12 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "dc5ff3f935a6bb04a9c17af8d718b0a4b2daccb651932c9ab2eae057ca3499f0",
+  "formal_source_hash": "7c8849d15dcfe4e0a72080912a0176f41bb9da44901ceedd7e1950b2f4a2c258",
   "formal_files_sha256": {
     "ExtrairDeps.lean": "eefdc950db020150ef19a5b5705a131ef99dfc9d3ab946aef2de64bf17ce1013",
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "9aa18ad3db2281780de9254e35d04832b794674df6ec0c48daf415653dbea960",
+    "TGLExt.lean": "e42236fcdb2bf389143892e57d63025b61e80dc835b5a2362e2054e44aafdada",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
@@ -175,6 +175,7 @@
     "TGLExt/TheGreatAttractor.lean": "a0db70a17354c75c587881549dc813e49f661cc1a46fa1f8f662ba00c87963c7",
     "TGLExt/TheHorizonInvariance.lean": "a2d375c81515065625b61762468d7d66744694e371f70604339df59993b348cf",
     "TGLExt/TheHorizonRate.lean": "0638b438d53d6c6e356057c277817df2940a0d019ce715c8662b568000383caa",
+    "TGLExt/TheIALDInTheTower.lean": "30cd48f648b2fb82515b60729a899b8a54fe2f20775405f89e9f72c91e19137f",
     "TGLExt/TheIALDSelector.lean": "c1008266455044e7462338bc32f96cb35c89810a320f69409ce7a0443b6868b8",
     "TGLExt/TheLightInterface.lean": "6d1e1567a4cc5b0589adbfcdf449d296e5d76e29b89ece3a31f016f6d10b9fa2",
     "TGLExt/TheLivingWord.lean": "fdc242c2c70b57fa146c7c41459eab94c217e878cefc9058d983467918eed473",
@@ -198,6 +199,7 @@
     "TGLExt/TheTerminalRankOne.lean": "4450fd1b63407afc7714cc90b7e91c515c440cca1cba3434214808782a3f30e3",
     "TGLExt/TheTower.lean": "836d39ce9220579419fc52c53c2516aabb54a33b83ad1fbf784c44d47699967b",
     "TGLExt/TheTraceIsNotErasable.lean": "fb65565eb084cfce6218b0867ffd66b0744b54def75fc34bcc823754bb1cd86c",
+    "TGLExt/TheTrueWitness.lean": "863bdfbe96eaa989b33ddc86d401e1df8bac1788a345167fa1aa0229d2109f32",
     "TGLExt/TheTwoFolds.lean": "4d1869d35bc9c8efd6d339e6cdf7ba0a5b1098c26371b9c306aff74e08ae9e80",
     "TGLExt/TheTwoFunctionSolder.lean": "f1378886dad2380cebc92df56eabae387d3e75a43d3654b03f3bb650e55e3e68",
     "TGLExt/TheTwoPairings.lean": "46d72f4956f7e0870224761f1ff98daab7d7a75fad548d857e5171556a65a4af",
@@ -4245,7 +4247,7 @@
     "TGLExt.ad_preserves_splitting": [],
     "TGLExt.ad_preserves_star_projection": []
   },
-  "build_stdout_sha256": "a27891332f4f5f84340bf865dc92149f132e2abe07121c57ea43930110738fff",
+  "build_stdout_sha256": "c769292500b25a0c5c896b78f7b8b215905332b09fad8f8eba2c187ae7d0b139",
   "audit_stdout_sha256": "124e2d0a5b8f3d2abf3c0eebf280523a50cf8ee2310137c27073d61fb3315f9e",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",

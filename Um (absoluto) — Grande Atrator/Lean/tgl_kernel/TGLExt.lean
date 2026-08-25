@@ -171,3 +171,5 @@ import TGLExt.TheCornerEmbedding
 import TGLExt.TheCoordinateBridge
 import TGLExt.TheFullBirkhoff
 import TGLExt.TheCrownedCascade
+import TGLExt.TheIALDInTheTower
+import TGLExt.TheTrueWitness
