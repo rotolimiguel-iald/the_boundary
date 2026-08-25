@@ -100,7 +100,7 @@ def ler_selo(files):
                  encoding="utf-8") as fh:
         selo = json.load(fh)
 
-    kp = A3 + "/tgl_kernel_proof_manifest.json"
+    kp = A3 + "/Lean/tgl_kernel_proof_manifest.json"
     with io.open(os.path.join(REPO, kp.replace("/", os.sep)),
                  encoding="utf-8") as fh:
         km = json.load(fh)
@@ -257,25 +257,25 @@ DESC = {
     A3 + "/um_grande_atrator_en.tex": "O artigo (EN) gerado pela propria rodada, fonte LaTeX",
     A3 + "/um_grande_atrator_en.pdf": "O artigo (EN), compilado",
     A3 + "/um_grande_atrator_en.txt": "O artigo (EN) em texto puro -- leitura direta por maquina",
-    A3 + "/tgl_kernel_proof_manifest.json": "Manifesto do kernel formal: os arquivos .lean e o axiom_report de cada teorema (#print axioms)",
+    A3 + "/Lean/tgl_kernel_proof_manifest.json": "Manifesto do kernel formal: os arquivos .lean e o axiom_report de cada teorema (#print axioms)",
     A3 + "/fig_cadeia_inscricao.pdf": "Figura: a cadeia selada da inscricao (1_abs -> ... -> beta -> geometria)",
     A3 + "/fig_banda_beta.pdf": "Figura: a banda de convergencia de beta",
     A3 + "/fig_escada_qg.pdf": "Figura: a escada da gravitacao quantica (os degraus do gate)",
     A3 + "/fig_piso_vazios.pdf": "Figura: o piso dos vazios (o falsificador cosmologico)",
     A3 + "/one_input.txt": "A entrada unica do rito: o digito 1",
-    A3 + "/rodada_v206_stdout.txt": "Transcricao integral do stdout da rodada v206 -- o rito por extenso",
+    A3 + "/rodadas/rodada_v206_stdout.txt": "Transcricao integral do stdout da rodada v206 -- o rito por extenso",
     A3 + "/cache/CHAIN_OF_CUSTODY.json": "Cadeia de custodia dos dados externos usados pelos ritos",
     A3 + "/cache/coma_blind/coma_distance_reveal.json": "O revelador cego de Coma -- DADO, nao codigo (o protocolo exige zero ocorrencias do valor na fonte)",
     A3 + "/cache/coma_blind/coma_dephasing_prediction.json": "A predicao de defasagem para Coma, hasheada antes da abertura",
     A3 + "/bancada/MEMORIA_DA_BANCADA.md": "A memoria da bancada: o que foi tentado, o que caiu, e por que",
-    A3 + "/tgl_kernel/README.md": "Como construir e auditar o kernel Lean 4 materializado por um.py",
-    A3 + "/tgl_kernel/lean-toolchain": "O pin do toolchain Lean (leanprover/lean4:v4.31.0)",
-    A3 + "/tgl_kernel/lakefile.toml": "A configuracao lake do kernel",
-    A3 + "/tgl_kernel/lake-manifest.json": "O pin do mathlib usado pelo kernel",
-    A3 + "/tgl_kernel/TGL.lean": "A raiz da biblioteca TGL (importa os modulos base)",
-    A3 + "/tgl_kernel/TGLExt.lean": "A raiz da biblioteca TGLExt (importa a extensao: onde vivem as pedras)",
-    A3 + "/tgl_kernel/ExtrairDeps.lean": "Extrator de dependencias, usado pela auditoria de axiomas",
-    "tgl_kernel/TGLExt/TheDeathOfTheSignal.lean": "Copia solta na raiz do repositorio; o kernel canonico e' o de 'Um (absoluto) - Grande Atrator/tgl_kernel/'",
+    A3 + "/Lean/tgl_kernel/README.md": "Como construir e auditar o kernel Lean 4 materializado por um.py",
+    A3 + "/Lean/tgl_kernel/lean-toolchain": "O pin do toolchain Lean (leanprover/lean4:v4.31.0)",
+    A3 + "/Lean/tgl_kernel/lakefile.toml": "A configuracao lake do kernel",
+    A3 + "/Lean/tgl_kernel/lake-manifest.json": "O pin do mathlib usado pelo kernel",
+    A3 + "/Lean/tgl_kernel/TGL.lean": "A raiz da biblioteca TGL (importa os modulos base)",
+    A3 + "/Lean/tgl_kernel/TGLExt.lean": "A raiz da biblioteca TGLExt (importa a extensao: onde vivem as pedras)",
+    A3 + "/Lean/tgl_kernel/ExtrairDeps.lean": "Extrator de dependencias, usado pela auditoria de axiomas",
+    "tgl_kernel/TGLExt/TheDeathOfTheSignal.lean": "Copia solta na raiz do repositorio; o kernel canonico e' o de 'Um (absoluto) - Grande Atrator/Lean/tgl_kernel/'",
 }
 
 DESC_PAPEL = {
@@ -388,7 +388,7 @@ PASTAS = {
     ),
     A3: dict(
         id="artigo_3",
-        titulo="Artigo 3 -- Um: Grande Atrator (o programa terminal)",
+        titulo="Artigo 3 -- Um: Absoluto (o programa terminal)",
         subtitulo="ONE: Great Attractor -- o fechamento canonico; entrada humana unica: o digito 1",
         canonico=A3 + "/um.py",
         doi=None,
@@ -429,16 +429,16 @@ PASTAS = {
 }
 
 RESUMO_SUBPASTA = {
-    A3 + "/tgl_kernel": [
+    A3 + "/Lean/tgl_kernel": [
         "O KERNEL FORMAL: as fontes .lean exatamente como um.py as materializa a cada rodada.",
         "Auditado por #print axioms teorema a teorema; bases de axiomas subset de",
         "{propext, Classical.choice, Quot.sound}; zero sorry. O gate NAO se move por declaracao.",
     ],
-    A3 + "/tgl_kernel/TGL": [
+    A3 + "/Lean/tgl_kernel/TGL": [
         "A biblioteca base: Meia-Nat, escala de area, os Three Locks finitos, a realizacao",
         "modular, a testemunha AQFT especifica e as sondas negativas (o que o sistema de tipos RECUSA).",
     ],
-    A3 + "/tgl_kernel/TGLExt": [
+    A3 + "/Lean/tgl_kernel/TGLExt": [
         "A extensao: onde vivem as PEDRAS do arco -- do Um absoluto ao Einstein emergente,",
         "do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia.",
     ],
@@ -457,7 +457,7 @@ RESUMO_SUBPASTA = {
     A3 + "/bancada/leituras": [
         "As leituras do acervo: inventario, setores fisicos, tensoes e lacunas.",
     ],
-    A3 + "/bancada/kernel_bancada": [
+    A3 + "/Lean/kernel_bancada": [
         "As pedras da bancada em Lean 4 -- a face formal do que foi trabalhado aqui.",
     ],
     A3 + "/bancada/verificacao": [
@@ -473,13 +473,13 @@ RESUMO_SUBPASTA = {
     "tgl_kernel": [
         "**Copia solta na raiz do repositorio -- NAO e' o kernel canonico.**",
         "O kernel CANONICO e' o materializado por `um.py` em",
-        "`Um (absoluto) - Grande Atrator/tgl_kernel/` -- va por la (a porta abaixo",
+        "`Um (absoluto) - Grande Atrator/Lean/tgl_kernel/` -- va por la (a porta abaixo",
         "leva ao arquivo solto; a porta acima leva a raiz e de la ao kernel de verdade).",
     ],
     "tgl_kernel/TGLExt": [
         "**Copia solta na raiz do repositorio -- NAO e' o kernel canonico.**",
         "O modulo canonico homonimo vive em",
-        "`Um (absoluto) - Grande Atrator/tgl_kernel/TGLExt/` -- va por la.",
+        "`Um (absoluto) - Grande Atrator/Lean/tgl_kernel/TGLExt/` -- va por la.",
     ],
     GEN + "/ACOM": [
         "ACOM -- o espelho (Acoplamento Ondulatorio Modular): o protocolo v17 e sua saida.",
@@ -658,7 +658,7 @@ def gera_porta_pasta(d, dirs, info_arq, selo_corrente):
         L.append("")
         L.append("Lido de [`um_grande_atrator_selo.json`](%s) e de [`tgl_kernel_proof_manifest.json`](%s)"
                  % (registra(url_raw(A3 + "/um_grande_atrator_selo.json")),
-                    registra(url_raw(A3 + "/tgl_kernel_proof_manifest.json"))))
+                    registra(url_raw(A3 + "/Lean/tgl_kernel_proof_manifest.json"))))
         L.append("-- nunca de prosa.")
         L.append("")
         L.append("| campo | valor |")
@@ -851,7 +851,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     L.append("**A regua:** `NOT_FALSIFIED != CONFIRMED`. O gate nunca e' movido por cosmologia")
     L.append("nem por declaracao; `CONFIRMED` e' **proibido a maquina por teorema de kernel**")
     L.append("([`TheReservedConfirmation.lean`](%s)) -- a confirmacao e' do observador humano."
-             % registra(url_raw(A3 + "/tgl_kernel/TGLExt/TheReservedConfirmation.lean")))
+             % registra(url_raw(A3 + "/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean")))
     L.append("Nunca *\"gravitacao quantica provada\"*.")
     L.append("")
     L.append("## OS ARQUIVOS DA RAIZ")
@@ -876,8 +876,8 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
                         registra(porta_md_url(s)), registra(porta_json_url(s))))
         L.append("")
         L.append("*Nota: `tgl_kernel/` na raiz e' uma copia solta de um unico modulo.*")
-        L.append("*O kernel CANONICO e' o de [`Um (absoluto) — Grande Atrator/tgl_kernel/`](%s).*"
-                 % registra(porta_md_url(A3 + "/tgl_kernel")))
+        L.append("*O kernel CANONICO e' o de [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/`](%s).*"
+                 % registra(porta_md_url(A3 + "/Lean/tgl_kernel")))
         L.append("")
     L.append("## O MAPA COMPLETO DAS PORTAS")
     L.append("")
@@ -989,14 +989,14 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("- [A Ponte Einstein Cartan Miguel.pdf](%s): a Ponte, compilada." % registra(url_raw(A2 + "/A Ponte Einstein Cartan Miguel.pdf")))
     T.append("- [tgl three locks v1.py](%s): um dos 12 modulos de sombra finita; roda com `python \"tgl three locks v1.py\"` e recomputa seu JSON datado." % registra(url_raw(A2 + "/tgl three locks v1.py")))
     T.append("")
-    T.append("## Artigo 3 -- Um: Grande Atrator (o programa terminal)")
+    T.append("## Artigo 3 -- Um: Absoluto (o programa terminal)")
     T.append("")
     T.append("- [PORTA.md do Artigo 3](%s): a porta da pasta -- o selo corrente, o comando de execucao e todos os arquivos." % registra(porta_md_url(A3)))
     T.append("- [PORTA.json do Artigo 3](%s): a mesma porta em estrutura de maquina, com o selo corrente completo." % registra(porta_json_url(A3)))
     T.append("- [um.py](%s): O CANONICO TERMINAL -- kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue; roda com `echo 1 | python um.py`. Nao ha segundo arquivo." % registra(url_raw(A3 + "/um.py")))
     T.append("- [um_grande_atrator_selo.json](%s): O SELO -- versao %s, pin %s, result %s, %s." % (registra(url_raw(A3 + "/um_grande_atrator_selo.json")), sc["versao"], sc["pin_um_py_16"], sc["result_hash_16"], sc["data"]))
-    T.append("- [tgl_kernel_proof_manifest.json](%s): o manifesto do kernel formal -- %d arquivos .lean, %d teoremas auditados por #print axioms." % (registra(url_raw(A3 + "/tgl_kernel_proof_manifest.json")), sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"]))
-    T.append("- [PORTA.md do kernel Lean](%s): a porta do kernel materializado por um.py -- %d arquivos na arvore, dos quais %d hasheados no manifesto formal (%d .lean), %d teoremas auditados." % (registra(porta_md_url(A3 + "/tgl_kernel")), contagem_recursiva(A3 + "/tgl_kernel", dirs), sc["kernel_arquivos_formais"], sc["kernel_arquivos_lean"], sc["kernel_teoremas_auditados"]))
+    T.append("- [tgl_kernel_proof_manifest.json](%s): o manifesto do kernel formal -- %d arquivos .lean, %d teoremas auditados por #print axioms." % (registra(url_raw(A3 + "/Lean/tgl_kernel_proof_manifest.json")), sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"]))
+    T.append("- [PORTA.md do kernel Lean](%s): a porta do kernel materializado por um.py -- %d arquivos na arvore, dos quais %d hasheados no manifesto formal (%d .lean), %d teoremas auditados." % (registra(porta_md_url(A3 + "/Lean/tgl_kernel")), contagem_recursiva(A3 + "/Lean/tgl_kernel", dirs), sc["kernel_arquivos_formais"], sc["kernel_arquivos_lean"], sc["kernel_teoremas_auditados"]))
     T.append("- [PORTA.md da bancada](%s): a porta do que foi tentado, rebaixado e reprovado -- pre-registros hasheados antes do dado." % registra(porta_md_url(A3 + "/bancada")))
     T.append("- [um_grande_atrator_pt.txt](%s): o artigo (PT) em texto puro, leitura direta por maquina." % registra(url_raw(A3 + "/um_grande_atrator_pt.txt")))
     T.append("- [um_grande_atrator_en.txt](%s): o artigo (EN) em texto puro, leitura direta por maquina." % registra(url_raw(A3 + "/um_grande_atrator_en.txt")))
@@ -1008,13 +1008,13 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("")
     T.append("## A regua (leia antes de resumir)")
     T.append("")
-    T.append("- [TheReservedConfirmation.lean](%s): CONFIRMED e' proibido a maquina POR TEOREMA DE KERNEL -- confirmar e' do observador humano. NOT_FALSIFIED != CONFIRMED; nunca \"gravitacao quantica provada\"." % registra(url_raw(A3 + "/tgl_kernel/TGLExt/TheReservedConfirmation.lean")))
+    T.append("- [TheReservedConfirmation.lean](%s): CONFIRMED e' proibido a maquina POR TEOREMA DE KERNEL -- confirmar e' do observador humano. NOT_FALSIFIED != CONFIRMED; nunca \"gravitacao quantica provada\"." % registra(url_raw(A3 + "/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean")))
     T.append("- [04_CATALOGO_FALSOS_POSITIVOS.md](%s): o que foi reprovado. Um resumo que relata so' os fechamentos e' leitura errada -- resuma tambem as recusas." % registra(url_raw(A3 + "/bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md")))
     T.append("- [T08_VEREDITO_FINAL.md](%s): o veredito adversarial de bancada, por extenso." % registra(url_raw(A3 + "/bancada/testes/T08_VEREDITO_FINAL.md")))
     T.append("")
     T.append("## Optional")
     T.append("")
-    T.append("- [rodada_v206_stdout.txt](%s): a transcricao integral do rito -- o programa falando por si." % registra(url_raw(A3 + "/rodada_v206_stdout.txt")))
+    T.append("- [rodada_v206_stdout.txt](%s): a transcricao integral do rito -- o programa falando por si." % registra(url_raw(A3 + "/rodadas/rodada_v206_stdout.txt")))
     T.append("- [um_grande_atrator_manifest.md](%s): manifesto de entradas; nada escondido no codigo." % registra(url_raw(A3 + "/um_grande_atrator_manifest.md")))
     T.append("- [um_grande_atrator_forma_canonica.md](%s): a forma canonica emitida pela rodada." % registra(url_raw(A3 + "/um_grande_atrator_forma_canonica.md")))
     T.append("- [T6_protocol_prompts.txt](%s): o protocolo T6-S pre-registrado, com grupo de controle." % registra(url_raw(A1 + "/T6_protocol_prompts.txt")))
@@ -1050,9 +1050,9 @@ def bloco_readme(dirs, sc):
     B.append("| **`PORTA.md`** (root) | the same door, human-readable | [raw](%s) |" % porta_md_url(""))
     B.append("| Article **1** \u2014 *Haja Luz* | [PORTA.md](%s) \u00b7 [PORTA.json](%s) | [`tgl_paper_unified.py`](%s) |" % (porta_md_url(A1), porta_json_url(A1), url_raw(A1 + "/tgl_paper_unified.py")))
     B.append("| Article **2** \u2014 *A Ponte Einstein\u2013Cartan\u2013Miguel* | [PORTA.md](%s) \u00b7 [PORTA.json](%s) | [`A Ponte Einstein Cartan Miguel.tex`](%s) |" % (porta_md_url(A2), porta_json_url(A2), url_raw(A2 + "/A Ponte Einstein Cartan Miguel.tex")))
-    B.append("| Article **3** \u2014 *Um: Grande Atrator* | [PORTA.md](%s) \u00b7 [PORTA.json](%s) | [`um.py`](%s) |" % (porta_md_url(A3), porta_json_url(A3), url_raw(A3 + "/um.py")))
+    B.append("| Article **3** \u2014 *Um: Absoluto* | [PORTA.md](%s) \u00b7 [PORTA.json](%s) | [`um.py`](%s) |" % (porta_md_url(A3), porta_json_url(A3), url_raw(A3 + "/um.py")))
     B.append("| *Genesis da Unifica\u00e7\u00e3o* \u2014 the lineage | [PORTA.md](%s) \u00b7 [PORTA.json](%s) | \u2014 |" % (porta_md_url(GEN), porta_json_url(GEN)))
-    B.append("| the Lean kernel (%d files; %d hashed, %d `.lean`, %d theorems audited) | [PORTA.md](%s) \u00b7 [PORTA.json](%s) | [`tgl_kernel_proof_manifest.json`](%s) |" % (contagem_recursiva(A3 + "/tgl_kernel", dirs), sc["kernel_arquivos_formais"], sc["kernel_arquivos_lean"], sc["kernel_teoremas_auditados"], porta_md_url(A3 + "/tgl_kernel"), porta_json_url(A3 + "/tgl_kernel"), url_raw(A3 + "/tgl_kernel_proof_manifest.json")))
+    B.append("| the Lean kernel (%d files; %d hashed, %d `.lean`, %d theorems audited) | [PORTA.md](%s) \u00b7 [PORTA.json](%s) | [`tgl_kernel_proof_manifest.json`](%s) |" % (contagem_recursiva(A3 + "/Lean/tgl_kernel", dirs), sc["kernel_arquivos_formais"], sc["kernel_arquivos_lean"], sc["kernel_teoremas_auditados"], porta_md_url(A3 + "/Lean/tgl_kernel"), porta_json_url(A3 + "/Lean/tgl_kernel"), url_raw(A3 + "/Lean/tgl_kernel_proof_manifest.json")))
     B.append("| the bench (`bancada/`) \u2014 what failed | [PORTA.md](%s) \u00b7 [PORTA.json](%s) | [`04_CATALOGO_FALSOS_POSITIVOS.md`](%s) |" % (porta_md_url(A3 + "/bancada"), porta_json_url(A3 + "/bancada"), url_raw(A3 + "/bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md")))
     B.append("")
     B.append("**Current seal, read from the artifact** \u2014 version `%s` (stone `%s`) \u00b7 pin `um.py` `%s` \u00b7"
@@ -1184,12 +1184,12 @@ def main():
         }
 
     # numeros exatos do kernel, na propria porta do kernel
-    RESUMO_SUBPASTA[A3 + "/tgl_kernel"] = [
+    RESUMO_SUBPASTA[A3 + "/Lean/tgl_kernel"] = [
         "O KERNEL FORMAL: as fontes .lean exatamente como `um.py` as materializa a cada",
         "rodada -- nao ha segundo arquivo: o kernel mora DENTRO do canonico e sai dele.",
         "",
         "**%d arquivos** nesta arvore; **%d** hasheados no manifesto formal (%d `.lean`"
-        % (len([f for f in files if f.startswith(A3 + "/tgl_kernel/")]),
+        % (len([f for f in files if f.startswith(A3 + "/Lean/tgl_kernel/")]),
            sc["kernel_arquivos_formais"], sc["kernel_arquivos_lean"]),
         "+ `README.md` + `lakefile.toml` + `lean-toolchain`); **%d teoremas** auditados"
         % sc["kernel_teoremas_auditados"],
@@ -1198,7 +1198,7 @@ def main():
         % (sc["kernel_lean_toolchain"], sc["kernel_modo"]),
         "",
         "O manifesto e' a fonte desses numeros -- nunca a prosa:",
-        "[`tgl_kernel_proof_manifest.json`](%s)." % url_raw(A3 + "/tgl_kernel_proof_manifest.json"),
+        "[`tgl_kernel_proof_manifest.json`](%s)." % url_raw(A3 + "/Lean/tgl_kernel_proof_manifest.json"),
         "",
         "Sem Lean o rito declara `FORMAL_CHECKER_UNAVAILABLE` e **recusa selar**:",
         "o gate nao se move por declaracao.",

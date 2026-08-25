@@ -49,9 +49,21 @@ def main() -> int:
         for nome, esperado in mapa.items():
             alvo = pasta / nome
             if not alvo.is_file():
-                print(f"  ! ARTEFATO AUSENTE: {rel}/{nome} (o selo o cita)")
-                erros += 1
-                continue
+                # o main pode ter sido organizado em subpastas (25/08): resolver por
+                # nome na arvore da pasta do selo — fail-closed: exige exatamente os
+                # candidatos cujo hash bate; nome achado com hash errado e' divergencia.
+                cands = [c for c in pasta.rglob(Path(nome).name) if c.is_file()]
+                certo = [c for c in cands if sha256(c) == esperado]
+                if len(certo) >= 1:
+                    alvo = certo[0]
+                elif cands:
+                    print(f"  ! DIVERGE DO SELO (achado em subpasta, hash errado): {rel}/{nome}")
+                    erros += 1
+                    continue
+                else:
+                    print(f"  ! ARTEFATO AUSENTE: {rel}/{nome} (o selo o cita)")
+                    erros += 1
+                    continue
             got = sha256(alvo)
             if got != esperado:
                 print(f"  ! DIVERGE DO SELO: {rel}/{nome}")

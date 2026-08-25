@@ -38,4 +38,4 @@ ACOM -- o espelho (Acoplamento Ondulatorio Modular): o protocolo v17 e sua saida
 
 ---
 
-gerado por script de git ls-files em 2026-08-24 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-25 -- nao editar a mao

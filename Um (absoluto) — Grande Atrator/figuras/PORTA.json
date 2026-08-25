@@ -1,0 +1,68 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/figuras",
+  "porta_id": "Um (absoluto) — Grande Atrator/figuras",
+  "titulo": "Um (absoluto) — Grande Atrator/figuras",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-08-25T11:56:10Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "fig_banda_beta.pdf",
+      "caminho": "Um (absoluto) — Grande Atrator/figuras/fig_banda_beta.pdf",
+      "papel": "figura",
+      "descricao": "Figura gerada pelo codigo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_banda_beta.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_banda_beta.pdf",
+      "sha256_16": "dd953f1e75f445a1",
+      "bytes": 27719
+    },
+    {
+      "nome": "fig_cadeia_inscricao.pdf",
+      "caminho": "Um (absoluto) — Grande Atrator/figuras/fig_cadeia_inscricao.pdf",
+      "papel": "figura",
+      "descricao": "Figura gerada pelo codigo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_cadeia_inscricao.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_cadeia_inscricao.pdf",
+      "sha256_16": "7ccc2c0a41da34a2",
+      "bytes": 29962
+    },
+    {
+      "nome": "fig_escada_qg.pdf",
+      "caminho": "Um (absoluto) — Grande Atrator/figuras/fig_escada_qg.pdf",
+      "papel": "figura",
+      "descricao": "Figura gerada pelo codigo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_escada_qg.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_escada_qg.pdf",
+      "sha256_16": "bfbe30776b05c9cc",
+      "bytes": 36304
+    },
+    {
+      "nome": "fig_piso_vazios.pdf",
+      "caminho": "Um (absoluto) — Grande Atrator/figuras/fig_piso_vazios.pdf",
+      "papel": "figura",
+      "descricao": "Figura gerada pelo codigo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_piso_vazios.pdf",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_piso_vazios.pdf",
+      "sha256_16": "2815568fd3387fd3",
+      "bytes": 21086
+    }
+  ],
+  "total_arquivos_nesta_pasta": 4,
+  "total_arquivos_com_subpastas": 4,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras",
+  "rodape": "gerado por script de git ls-files em 2026-08-25 -- nao editar a mao"
+}

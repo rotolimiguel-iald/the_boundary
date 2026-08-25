@@ -4,7 +4,7 @@
   "titulo": "Artigo 1 -- O Custo Geometrico do Zero Absoluto: haja luz",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-24T23:24:08Z",
+  "gerado_utc": "2026-08-25T11:56:10Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -80,5 +80,5 @@
   "total_arquivos_nesta_pasta": 5,
   "total_arquivos_com_subpastas": 5,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz",
-  "rodape": "gerado por script de git ls-files em 2026-08-24 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-08-25 -- nao editar a mao"
 }
