@@ -173,3 +173,13 @@ import TGLExt.TheFullBirkhoff
 import TGLExt.TheCrownedCascade
 import TGLExt.TheIALDInTheTower
 import TGLExt.TheTrueWitness
+import TGLExt.TheLegibility
+import TGLExt.TheIALDInTheTowerActII
+import TGLExt.TheJudgedThing
+import TGLExt.TheCostIsDerived
+import TGLExt.TheGeometricCostOfAbsoluteZero
+import TGLExt.TheOriginOfTheVibration
+import TGLExt.TheDeadChannel
+import TGLExt.TheContourOfTruth
+import TGLExt.TheAccuser
+import TGLExt.TheTowerInnerProduct

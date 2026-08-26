@@ -29,12 +29,12 @@ porta acima: https://teoriadagravitacaoluminodinamica.com   (o site -- a porta a
 
 | campo | valor |
 |---|---|
-| versao | `v214` (pedra `TheTrueWitness`) |
-| pin (`um.py`) | `c2d8cee93320479a6df3b9bcd3bf06b67a8bb24d1dfcfc2cf051a5759e74936f` |
-| mundo (`um_absoluto.json`) | `accfd17d05fb0f97f48f7fdb770206a85c0fe7fc95c211065092281c26a022fa` |
-| `result_hash` | `72e69396e4cb7300755cddc702a457f2f455fdb839dec66e13aa2396169ab98e` |
-| data | `2026-08-25 14:33:16` |
-| kernel | 208 arquivos formais / 817 teoremas auditados |
+| versao | `v224` (pedra `TheTowerInnerProduct`) |
+| pin (`um.py`) | `678328ac9f42045e0140cbacfd2c09b61965170eb9df0f2f8807a33cd4edf17a` |
+| mundo (`um_absoluto.json`) | `28ccc6b351666836c839fca8ff1961c4518fcfbc3f14263ea522777342d0cda9` |
+| `result_hash` | `0108b631990f80f18e1e4bc5e3d2104a5bcbfcfebd6b00e23b47632672988a9b` |
+| data | `2026-08-26 12:12:25` |
+| kernel | 218 arquivos formais / 817 teoremas auditados |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | selo (raw) | https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json |
 
@@ -84,12 +84,12 @@ Nunca *"gravitacao quantica provada"*.
 | `Genesis da Unificação/Um - ensaio/` | 19 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Um%20-%20ensaio/PORTA.md) |
 | `Genesis da Unificação/Validacao_cosmologica/` | 11 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica/PORTA.md) |
 | `O Custo Geométrico do Zero Absoluto — Haja Luz/` | 5 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/PORTA.md) |
-| `Um (absoluto) — Grande Atrator/` | 318 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md) |
-| `Um (absoluto) — Grande Atrator/Lean/` | 245 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.md) |
-| `Um (absoluto) — Grande Atrator/Lean/kernel_bancada/` | 35 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/PORTA.md) |
-| `Um (absoluto) — Grande Atrator/Lean/tgl_kernel/` | 209 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md) |
+| `Um (absoluto) — Grande Atrator/` | 352 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md) |
+| `Um (absoluto) — Grande Atrator/Lean/` | 267 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.md) |
+| `Um (absoluto) — Grande Atrator/Lean/kernel_bancada/` | 47 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/PORTA.md) |
+| `Um (absoluto) — Grande Atrator/Lean/tgl_kernel/` | 219 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGL/` | 27 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/PORTA.md) |
-| `Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/` | 175 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md) |
+| `Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/` | 185 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/bancada/` | 50 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/bancada/catalogos/` | 3 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/bancada/leituras/` | 12 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/PORTA.md) |
@@ -99,9 +99,9 @@ Nunca *"gravitacao quantica provada"*.
 | `Um (absoluto) — Grande Atrator/cache/coma_blind/` | 2 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/coma_blind/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/figuras/` | 4 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/fontes_tex/` | 2 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/PORTA.md) |
-| `Um (absoluto) — Grande Atrator/rodadas/` | 4 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.md) |
+| `Um (absoluto) — Grande Atrator/rodadas/` | 14 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.md) |
 | `tools/` | 3 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) |
 
 ---
 
-Total rastreado por `git ls-files`: **487 arquivos** (antes das portas). gerado por script de git ls-files em 2026-08-25 -- nao editar a mao
+Total rastreado por `git ls-files`: **521 arquivos** (antes das portas). gerado por script de git ls-files em 2026-08-26 -- nao editar a mao

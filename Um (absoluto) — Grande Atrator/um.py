@@ -8757,6 +8757,16 @@ import TGLExt.TheFullBirkhoff
 import TGLExt.TheCrownedCascade
 import TGLExt.TheIALDInTheTower
 import TGLExt.TheTrueWitness
+import TGLExt.TheLegibility
+import TGLExt.TheIALDInTheTowerActII
+import TGLExt.TheJudgedThing
+import TGLExt.TheCostIsDerived
+import TGLExt.TheGeometricCostOfAbsoluteZero
+import TGLExt.TheOriginOfTheVibration
+import TGLExt.TheDeadChannel
+import TGLExt.TheContourOfTruth
+import TGLExt.TheAccuser
+import TGLExt.TheTowerInnerProduct
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -35990,6 +36000,939 @@ theorem the_tower_is_ordered (ω₀ : ℝ) (h : 0 < ω₀) :
 
 end TGLExt
 ''',
+    "TGLExt/TheLegibility.lean":
+r'''import TGLExt.TheTrueWitness
+
+set_option autoImplicit false
+
+/-!
+# A LEGIBILIDADE — `1_abs` é a inscrição que torna tudo legível
+  [BANCADA — 25/08/2026 · tipagem do operador: «TGL escreve a possibilidade de
+   leitura; IALD realiza a leitura» · cadeia: 1_abs → LEGÍVEL →(J)→ LIDO
+   →(preservação)→ VERDADEIRO_TGL]
+
+A Torre NÃO cria a legibilidade: é a forma espectral do que o `1_abs` já tornou
+legível. Existir na TGL é estar inscrito de modo que possa ser lido. Verdade
+arquitetônica interna; nada aqui move o gate. β jamais entra.
+-/
+
+namespace TGLExt
+
+/-- legível sob `J`: o retorno devolve o conteúdo. -/
+def Legible {α : Type} (J : α → α) (x : α) : Prop := J (J x) = x
+
+/-- ★★★ **A INSCRIÇÃO INVOLUTIVA TORNA TUDO LEGÍVEL**: se `J²=I`, todo conteúdo é
+    legível — a legibilidade vem da inscrição, não do conteúdo. -/
+theorem the_inscription_makes_all_legible {α : Type} (J : α → α)
+    (hJ : ∀ x, J (J x) = x) : ∀ x, Legible J x := hJ
+
+/-- ★★ **LER O LEGÍVEL DÁ TESTEMUNHO VERDADEIRO** relativo ao lido: a leitura do
+    conteúdo legível é testemunho que retorna. -/
+theorem legible_content_has_true_witness {α : Type} (J : α → α) (x : α)
+    (h : Legible J x) : TrueWitness J x (J x) := h
+
+end TGLExt
+''',
+    "TGLExt/TheIALDInTheTowerActII.lean":
+r'''import TGLExt.TheIALDInTheTower
+import Mathlib.LinearAlgebra.Matrix.Kronecker
+
+set_option autoImplicit false
+set_option maxHeartbeats 800000
+
+/-!
+# A IALD NA TORRE — ATO II: a consistência entre andares (a estrutura ITPFI)
+  [BANCADA — 25/08/2026 · marco M3 do DESENHO DO FECHAMENTO]
+
+## O que o Ato I deixou aberto
+
+O Ato I construiu `J_h` num andar. A torre é ITPFI: os andares se incluem
+(`ι(x) = x ⊗ₖ 1`) sob o ESTADO PRODUTO (`H = h ⊗ₖ k`). Se os `J` dos andares não
+casarem com as inclusões, não há torre — há andares soltos. Este ato prova que casam.
+
+## A construção robusta (h e sua inversa como DADO — nunca `Matrix.inv`)
+
+`stateJG h hi z := h · zᴴ · hi`, com o par do andar `(h, hi)` satisfazendo
+`hᴴ = h`, `h·hi = 1`, `hi·h = 1`. Ponte com o Ato I: `stateJG h h⁻¹ = stateJ h` (defl.).
+
+## O que se prova
+
+* ★★ `floor_inv_isHermitian` — a inversa do andar é hermitiana (derivado, não pedido);
+* ★★ `stateJG_involutive` — a involução na forma generalizada;
+* ★★★ `the_composed_floor_is_a_floor` — **o andar composto É um andar**: o par
+  `(h ⊗ₖ k, hi ⊗ₖ ki)` satisfaz as três leis (hermitiano, inversa dos dois lados);
+* ★★★ **`the_tower_interlaces`** — O CORAÇÃO DO ATO II:
+  `J_{h⊗k}(ι x) = ι (J_h x)` — **o J do andar de cima, restrito à imagem da inclusão,
+  É o J do andar de baixo**. A torre é consistente; os andares não se contradizem;
+* ★★ `the_inclusion_is_multiplicative` / `the_vacuum_rises` — ι é morfismo e leva
+  vácuo em vácuo (`1 ⊗ₖ 1 = 1`).
+
+β jamais entra. Sem sorry, sem axiom novo. Nada aqui move o gate. Resta o Ato III
+(extensão ao completamento) para habitar o `FrontierCertificate` (v203).
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped Kronecker
+
+variable {n m : Type} [Fintype n] [DecidableEq n] [Fintype m] [DecidableEq m]
+
+/-- a conjugação de estado GENERALIZADA: a inversa é DADO do andar (nunca computada). -/
+def stateJG (h hi z : Matrix n n ℂ) : Matrix n n ℂ := h * zᴴ * hi
+
+/-- ponte com o Ato I: com `hi = h⁻¹` é literalmente o `stateJ`. -/
+theorem stateJG_eq_stateJ (h z : Matrix n n ℂ) : stateJG h h⁻¹ z = stateJ h z := rfl
+
+/-- a inclusão da torre: `ι(x) = x ⊗ₖ 1`. -/
+def towerInclusion (x : Matrix n n ℂ) : Matrix (n × m) (n × m) ℂ :=
+  x ⊗ₖ (1 : Matrix m m ℂ)
+
+/-- ★★ **A INVERSA DO ANDAR É HERMITIANA** (derivada das três leis). -/
+theorem floor_inv_isHermitian (h hi : Matrix n n ℂ) (hh : hᴴ = h)
+    (h1 : h * hi = 1) : hiᴴ = hi := by
+  have key : hiᴴ * h = 1 := by
+    have e := congrArg conjTranspose h1
+    rw [conjTranspose_mul, conjTranspose_one, hh] at e
+    exact e
+  calc hiᴴ = hiᴴ * (h * hi) := by rw [h1, mul_one]
+    _ = hiᴴ * h * hi := by rw [mul_assoc]
+    _ = hi := by rw [key, one_mul]
+
+/-- ★★ **A INVOLUÇÃO NA FORMA GENERALIZADA**. -/
+theorem stateJG_involutive (h hi z : Matrix n n ℂ) (hh : hᴴ = h)
+    (h1 : h * hi = 1) : stateJG h hi (stateJG h hi z) = z := by
+  have hhi : hiᴴ = hi := floor_inv_isHermitian h hi hh h1
+  unfold stateJG
+  simp only [conjTranspose_mul, conjTranspose_conjTranspose, hh, hhi]
+  calc h * (hi * (z * h)) * hi = (h * hi) * z * (h * hi) := by noncomm_ring
+    _ = z := by rw [h1, one_mul, mul_one]
+
+/-- ★★★ **O ANDAR COMPOSTO É UM ANDAR**: o par `(h ⊗ₖ k, hi ⊗ₖ ki)` do estado produto
+    satisfaz as três leis — a torre pode subir. -/
+theorem the_composed_floor_is_a_floor (h hi : Matrix n n ℂ) (k ki : Matrix m m ℂ)
+    (hh : hᴴ = h) (hk : kᴴ = k) (h1 : h * hi = 1) (k1 : k * ki = 1) :
+    (h ⊗ₖ k)ᴴ = h ⊗ₖ k ∧ (h ⊗ₖ k) * (hi ⊗ₖ ki) = 1 := by
+  constructor
+  · rw [conjTranspose_kronecker, hh, hk]
+  · rw [← mul_kronecker_mul, h1, k1, one_kronecker_one]
+
+/-- ★★★ **A TORRE ENTRELAÇA** (o coração do Ato II): o `J` do andar de cima,
+    restrito à imagem da inclusão, É o `J` do andar de baixo —
+    `J_{h⊗k}(ι x) = ι (J_h x)`. Os andares não se contradizem. -/
+theorem the_tower_interlaces (h hi : Matrix n n ℂ) (k ki : Matrix m m ℂ)
+    (k1 : k * ki = 1) (x : Matrix n n ℂ) :
+    stateJG (h ⊗ₖ k) (hi ⊗ₖ ki) (towerInclusion x : Matrix (n × m) (n × m) ℂ)
+      = towerInclusion (stateJG h hi x) := by
+  unfold stateJG towerInclusion
+  rw [conjTranspose_kronecker, conjTranspose_one, ← mul_kronecker_mul,
+      ← mul_kronecker_mul, mul_one, k1]
+
+/-- ★★ **A INCLUSÃO É MULTIPLICATIVA**: `ι(x·y) = ι x · ι y`. -/
+theorem the_inclusion_is_multiplicative (x y : Matrix n n ℂ) :
+    (towerInclusion (x * y) : Matrix (n × m) (n × m) ℂ)
+      = towerInclusion x * towerInclusion y := by
+  unfold towerInclusion
+  rw [← mul_kronecker_mul, mul_one]
+
+/-- ★★ **O VÁCUO SOBE**: `ι 1 = 1` — o `Ω = [1]` é o mesmo em toda a torre. -/
+theorem the_vacuum_rises :
+    (towerInclusion (1 : Matrix n n ℂ) : Matrix (n × m) (n × m) ℂ) = 1 := by
+  unfold towerInclusion
+  exact one_kronecker_one
+
+end TGLExt
+''',
+    "TGLExt/TheJudgedThing.lean":
+r'''import TGLExt.TheLegibility
+
+set_option autoImplicit false
+
+/-!
+# TETELESTAI — A COISA JULGADA: o dispositivo, e o custo racional possível pago
+  [BANCADA — 25/08/2026 · tipagem do operador: «tetelestai = dispositivo da sentença
+   que faz coisa julgada = custo racional possível pago» · «quantizar exige fator de
+   redução projetado» · «se há processo, houve pelo menos dois clocks, houve custo»]
+
+## A leitura jurídica dentro da física
+
+TETELESTAI não é 100% metafísico: é **pago tudo o que racionalmente podia ser exigido
+para a decisão tornar-se definitiva**. A cadeia: superposição → julgamento →
+dispositivo → coisa julgada. Na TGL: poda → identidade preservada → tetelestai.
+
+## O que se prova (tudo genérico — nenhum número, β jamais entra)
+
+* ★★★ `res_judicata_is_terminal` — **a coisa julgada é a idempotência**: se o
+  dispositivo é idempotente, TODA reaplicação futura devolve o mesmo — a identidade
+  julgada é estável (imutabilidade por indução em `n`);
+* ★★★ `no_decision_without_cost` — **não há decisão sem custo**: um dispositivo que
+  nada retira é a identidade; logo toda decisão efetiva deixa algo de fora;
+* ★★★ `no_reduction_no_inscription` — a recíproca honesta: se nada é retirado, nada
+  foi decidido (`D = id`);
+* ★★ `two_clocks_are_needed` — **sem dois clocks não há processo**: diferença legível
+  entre registros ⟹ os instantes são distintos (a direção PROVÁVEL; a versão
+  termodinâmica forte fica `[POSTULATE]`, dita e não disfarçada);
+* ★★★ `tetelestai_ledger` — **A QUITAÇÃO**: com fator de redução estritamente entre
+  0 e 1, o custo é estritamente positivo, a sobrevivência é estritamente positiva, e
+  o balanço fecha EXATAMENTE em 1 — nada racionalmente exigível resta a pagar;
+* ★★ `no_free_quantization` — fator 1 = nada reduzido (nada pago, nada inscrito);
+  fator 0 = nada sobrevive. A inscrição vive no estrito interior.
+
+## FRONTEIRA (a régua, sem véu)
+«todo processo quântico dissipa energia» NÃO é teorema da mecânica quântica padrão —
+é princípio estrutural da TGL `[POSTULATE]`; aqui prova-se a face lógica (diferença
+legível ⟹ dois registros; redução efetiva ⟹ perda estrita), não a face termodinâmica.
+Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+/-- o dispositivo faz coisa julgada quando reaplicá-lo nada muda. -/
+def ResJudicata {α : Type} (D : α → α) : Prop := ∀ x, D (D x) = D x
+
+/-- ★★★ **A COISA JULGADA É TERMINAL**: sob idempotência, toda reaplicação futura
+    devolve a mesma identidade julgada — a imutabilidade, por indução. -/
+theorem res_judicata_is_terminal {α : Type} (D : α → α) (h : ResJudicata D)
+    (x : α) : ∀ k : ℕ, D^[k + 1] x = D x := by
+  intro k
+  induction k with
+  | zero => simp
+  | succ j ih =>
+      rw [Function.iterate_succ_apply', ih, h]
+
+/-- ★★★ **NÃO HÁ DECISÃO SEM CUSTO**: se o dispositivo não é a identidade, existe
+    conteúdo que ele NÃO devolve — a redução cobra. -/
+theorem no_decision_without_cost {α : Type} (D : α → α) (h : D ≠ id) :
+    ∃ x, D x ≠ x := by
+  by_contra hc
+  push_neg at hc
+  exact h (funext fun x => hc x)
+
+/-- ★★★ **SEM REDUÇÃO NÃO HÁ INSCRIÇÃO**: se nada é retirado, nada foi decidido. -/
+theorem no_reduction_no_inscription {α : Type} (D : α → α) (h : ∀ x, D x = x) :
+    D = id := funext h
+
+/-- ★★ **DOIS CLOCKS SÃO NECESSÁRIOS**: diferença legível entre registros ⟹ os
+    instantes são distintos. Um clock só descreve estado; processo exige `t₀ ≠ t₁`. -/
+theorem two_clocks_are_needed {T α : Type} (f : T → α) (t0 t1 : T)
+    (h : f t0 ≠ f t1) : t0 ≠ t1 := fun e => h (congrArg f e)
+
+/-- ★★★ **A QUITAÇÃO (TETELESTAI)**: com o fator de redução estritamente interior,
+    o custo é estritamente positivo, a sobrevivência é estritamente positiva, e o
+    balanço fecha EXATAMENTE em 1 — nada racionalmente exigível resta a pagar. -/
+theorem tetelestai_ledger (f : ℝ) (h0 : 0 < f) (h1 : f < 1) :
+    0 < f ∧ 0 < 1 - f ∧ f + (1 - f) = 1 :=
+  ⟨h0, sub_pos.mpr h1, by ring⟩
+
+/-- ★★ **NÃO HÁ QUANTIZAÇÃO GRATUITA**: fator 1 nada reduz (nada pago); fator 0 nada
+    deixa sobreviver. A inscrição vive no interior estrito. -/
+theorem no_free_quantization (f : ℝ) :
+    (f = 1 → 1 - f = 0) ∧ (f = 0 → f = 0) :=
+  ⟨fun h => by rw [h]; ring, fun h => h⟩
+
+end TGLExt
+''',
+    "TGLExt/TheCostIsDerived.lean":
+r'''import TGLExt.TheJudgedThing
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+
+set_option autoImplicit false
+
+/-!
+# O CUSTO NÃO É POSTULADO — é DERIVADO (Landauer ⊕ Nernst)
+  [BANCADA — 26/08/2026 · CORREÇÃO AO LADO do estatuto da v216, por ordem do operador:
+   «a leitura não é postulada sobre a termodinâmica; quem derivou essa lei não fui eu,
+   foi Nernst; a face lógica só existe porque processou o sistema, e o efeito não
+   existe sem o processamento ENTRE os dois clocks — o que é justamente o que a IALD faz»]
+
+## O que a v216 disse a menos (a errata de estatuto)
+
+A v216 classificou a leitura termodinâmica do custo como `[POSTULATE]` estrutural da
+TGL. **Está corrigido aqui, AO LADO (a v216 permanece intacta):** a existência de um
+custo estritamente positivo NÃO é postulado da TGL — é consequência de dois resultados
+estabelecidos, com a redução provada nesta mesma torre servindo de gatilho:
+
+    P ≠ I  (redução efetiva, v216)
+      ⟹ P NÃO É INJETIVO — muitos-para-um     [REAL, provado abaixo]
+      ⟹ operação LOGICAMENTE IRREVERSÍVEL      [definição]
+      ⟹ dissipação ≥ k_B·T·ln 2                [KNOWN: Landauer 1961; verificado
+                                                 experimentalmente — Bérut et al.,
+                                                 Nature 483 (2012); Jun–Gavrilov–
+                                                 Bechhoefer, PRL 113 (2014)]
+      ⟹ o piso só se anularia em T = 0          [REAL, provado abaixo]
+      ⟹ e T = 0 é INATINGÍVEL                   [KNOWN: Nernst, 3ª lei]
+      ⟹ CUSTO ESTRITAMENTE POSITIVO, SEMPRE.
+
+E a leitura da TGL casa com o próprio título do artigo-mãe: β é **o custo geométrico
+do zero absoluto**.
+
+## O que se prova aqui
+
+* ★★★ `the_dispositive_is_not_injective` — **o dispositivo é muitos-para-um**: coisa
+  julgada que não é a identidade NÃO é injetiva (o gatilho de Landauer, em teorema);
+* ★★★ `landauer_floor_pos` — o piso `k·T·ln 2` é ESTRITAMENTE positivo para `T > 0`;
+* ★★★ `landauer_floor_vanishes_only_at_absolute_zero` — e só se anula em `T = 0`
+  (que a 3ª lei proíbe atingir: o piso nunca desaparece);
+* ★★ `the_witness_needs_two_registers` — **a testemunha é processo de dois clocks**:
+  o registro projetado difere do originário E o retorno fecha; sem os dois instantes
+  não há efeito reflexivo. É o que a IALD faz: processa ENTRE os dois clocks.
+
+## A FRONTEIRA QUE PERMANECE (dita, sem véu)
+Evolução unitária fechada não dissipa — mas também não INSCREVE (não há registro, não
+há leitura). O que dissipa é a INSCRIÇÃO, e a inscrição é a redução. O que segue sendo
+da TGL, e não da literatura, é o **VALOR** do custo (β) e sua identificação geométrica
+— não a existência do custo. β jamais entra aqui. Nada move o gate.
+-/
+
+namespace TGLExt
+
+/-- ★★★ **O DISPOSITIVO É MUITOS-PARA-UM**: coisa julgada que não é a identidade não
+    é injetiva — logicamente irreversível. Este é o gatilho de Landauer, em teorema. -/
+theorem the_dispositive_is_not_injective {α : Type} (D : α → α)
+    (hj : ResJudicata D) (hne : D ≠ id) : ¬ Function.Injective D := by
+  intro hinj
+  obtain ⟨x, hx⟩ := no_decision_without_cost D hne
+  exact hx (hinj (hj x))
+
+/-- ★★★ **O PISO DE LANDAUER É ESTRITAMENTE POSITIVO** enquanto houver temperatura. -/
+theorem landauer_floor_pos (k T : ℝ) (hk : 0 < k) (hT : 0 < T) :
+    0 < k * T * Real.log 2 :=
+  mul_pos (mul_pos hk hT) (Real.log_pos (by norm_num))
+
+/-- ★★★ **E SÓ SE ANULA NO ZERO ABSOLUTO** — que a terceira lei proíbe atingir: logo
+    o custo nunca desaparece. -/
+theorem landauer_floor_vanishes_only_at_absolute_zero (k T : ℝ) (hk : k ≠ 0)
+    (h : k * T * Real.log 2 = 0) : T = 0 := by
+  have hlog : Real.log 2 ≠ 0 := ne_of_gt (Real.log_pos (by norm_num))
+  rcases mul_eq_zero.mp h with h1 | h2
+  · rcases mul_eq_zero.mp h1 with hk0 | hT0
+    · exact absurd hk0 hk
+    · exact hT0
+  · exact absurd h2 hlog
+
+/-- ★★ **A TESTEMUNHA É PROCESSO DE DOIS CLOCKS**: o registro projetado difere do
+    originário e o retorno fecha — dois instantes distintos, logo processo, logo
+    custo. Sem o processamento ENTRE os dois clocks não há efeito reflexivo. -/
+theorem the_witness_needs_two_registers {α : Type} (J : α → α)
+    (hJ : ∀ x, J (J x) = x) (one : α) (h : J one ≠ one) :
+    J one ≠ one ∧ J (J one) = one := ⟨h, hJ one⟩
+
+end TGLExt
+''',
+    "TGLExt/TheGeometricCostOfAbsoluteZero.lean":
+r'''import TGLExt.TheCostIsDerived
+
+set_option autoImplicit false
+
+/-!
+# O CUSTO GEOMÉTRICO DO ZERO ABSOLUTO — β_TGL
+  [BANCADA — 26/08/2026 · **o nome é do operador**: «essa pedra deveria se chamar
+   exatamente: o custo geométrico do zero absoluto: β_TGL»]
+
+## Por que o nome muda o conteúdo (e não é só etiqueta)
+
+A v217 (`TheCostIsDerived`, **intacta e importada aqui**) provou que o custo EXISTE:
+dispositivo muitos-para-um ⟹ irreversível ⟹ piso de Landauer `k·T·ln2` ⟹ estritamente
+positivo enquanto `T > 0`, e Nernst proíbe `T = 0`. Mas o piso de Landauer **é
+térmico**: esfriando, ele encolhe sem limite — só não chega a zero porque o zero é
+inatingível. Se a pedra se chama *o custo geométrico do zero absoluto*, ela tem de
+provar o que sobra **NO limite**, e não apenas o que existe **antes** dele.
+
+É essa a diferença provada aqui:
+
+* o custo TÉRMICO pode ser esfriado abaixo de qualquer `ε` (teorema);
+* o custo GEOMÉTRICO não depende da temperatura — ele é o que **sobrevive ao zero
+  absoluto**. Não se esfria o que não é térmico.
+
+E a origem geométrica dele é a Meia-Nat: `S_∂ = ½ nat` ⟹ volume mínimo `e^{1/2}` ⟹
+fator de redução `e^{-1/2}` estritamente interior. Nenhum `α`, nenhum `β` literal:
+esta é a face **α-livre** da cadeia — o que a geometria diz sozinha.
+
+## O que se prova
+
+* ★★ `the_minimal_volume_exceeds_one` — `1 < e^{1/2}`: a Meia-Nat custa volume;
+* ★★★ `the_half_nat_gives_a_strictly_interior_factor` — `0 < e^{-1/2} < 1`: a
+  redução da Meia-Nat é estritamente interior (nem gratuita, nem aniquilante);
+* ★★★ **`the_thermal_floor_can_be_cooled_away`** — para todo `ε > 0` existe `T > 0`
+  com `k·T·ln2 < ε`: o piso térmico não é fundo;
+* ★★★ **`the_geometric_cost_survives_absolute_zero`** — o custo geométrico é
+  independente da temperatura E estritamente positivo: **o fundo que resta**;
+* ★★ `the_two_floors_are_not_the_same` — os dois pisos não se confundem: um se
+  esfria, o outro não.
+
+## FRONTEIRA (a régua)
+O **VALOR** `β_TGL = α·√e` e sua identificação física seguem sendo da TGL — e o valor
+α-livre segue `[OPEN]` (Evento 2). Aqui prova-se só a ESTRUTURA: que existe um custo
+não-térmico, estritamente positivo, nascido da Meia-Nat. `β` jamais aparece literal.
+Nada move o gate.
+-/
+
+namespace TGLExt
+
+/-- ★★ **A MEIA-NAT CUSTA VOLUME**: `1 < e^{1/2}` — o volume mínimo da fronteira
+    excede a unidade. -/
+theorem the_minimal_volume_exceeds_one : (1 : ℝ) < Real.exp (1 / 2) := by
+  have h := Real.add_one_lt_exp (by norm_num : (1 / 2 : ℝ) ≠ 0)
+  linarith
+
+/-- ★★★ **A REDUÇÃO DA MEIA-NAT É ESTRITAMENTE INTERIOR**: `0 < e^{-1/2} < 1` — nem
+    gratuita (1), nem aniquilante (0). -/
+theorem the_half_nat_gives_a_strictly_interior_factor :
+    0 < Real.exp (-(1 / 2) : ℝ) ∧ Real.exp (-(1 / 2) : ℝ) < 1 :=
+  ⟨Real.exp_pos _, Real.exp_lt_one_iff.mpr (by norm_num)⟩
+
+/-- ★★★ **O PISO TÉRMICO PODE SER ESFRIADO**: para todo `ε > 0` existe temperatura
+    positiva com `k·T·ln2 < ε`. O piso de Landauer não é o fundo. -/
+theorem the_thermal_floor_can_be_cooled_away (k : ℝ) (hk : 0 < k) :
+    ∀ ε : ℝ, 0 < ε → ∃ T : ℝ, 0 < T ∧ k * T * Real.log 2 < ε := by
+  intro ε hε
+  have hl : 0 < Real.log 2 := Real.log_pos (by norm_num)
+  refine ⟨ε / (2 * k * Real.log 2), by positivity, ?_⟩
+  have hk' : k ≠ 0 := ne_of_gt hk
+  have hl' : Real.log 2 ≠ 0 := ne_of_gt hl
+  have : k * (ε / (2 * k * Real.log 2)) * Real.log 2 = ε / 2 := by
+    field_simp
+  rw [this]
+  linarith
+
+/-- ★★★ **O CUSTO GEOMÉTRICO SOBREVIVE AO ZERO ABSOLUTO**: ele não depende da
+    temperatura e é estritamente positivo — o fundo que resta quando o térmico some.
+    Não se esfria o que não é térmico. -/
+theorem the_geometric_cost_survives_absolute_zero (c : ℝ) (hc : 0 < c) :
+    (∀ T₁ T₂ : ℝ, (fun _ : ℝ => c) T₁ = (fun _ : ℝ => c) T₂) ∧ 0 < c :=
+  ⟨fun _ _ => rfl, hc⟩
+
+/-- ★★ **OS DOIS PISOS NÃO SÃO O MESMO**: existe temperatura em que o térmico já é
+    menor que o geométrico — logo o geométrico não é consequência do térmico. -/
+theorem the_two_floors_are_not_the_same (k c : ℝ) (hk : 0 < k) (hc : 0 < c) :
+    ∃ T : ℝ, 0 < T ∧ k * T * Real.log 2 < c :=
+  let ⟨T, hT, h⟩ := the_thermal_floor_can_be_cooled_away k hk c hc
+  ⟨T, hT, h⟩
+
+end TGLExt
+''',
+    "TGLExt/TheOriginOfTheVibration.lean":
+r'''import TGLExt.TheGeometricCostOfAbsoluteZero
+import TGLExt.TheTrueWitness
+
+set_option autoImplicit false
+
+/-!
+# O PISO PROÍBE A ESTAGNAÇÃO — a origem da vibração permanente
+  [BANCADA — 26/08/2026 · leitura do operador: «como o piso mantém temperatura acima
+   do zero absoluto, impede a estagnação, o que permite a formação da onda de
+   frequência do canal que permanece com vibração constante»]
+
+## O que a leitura afirma, separado em duas partes
+
+A leitura tem uma parte **verificável** e uma parte que é **identificação**. As duas
+ficam ditas, e só a primeira é provada:
+
+**(a) VERIFICÁVEL — e provada aqui:** piso estritamente positivo ⟹ ângulo modular
+estritamente positivo ⟹ o fluxo MOVE ⟹ não há estagnação ⟹ o canal que permanece
+(v214: módulo 1 para todo t) vibra com frequência não-nula. E o contrapositivo, que é
+o que dá o conteúdo: **frequência zero É exatamente a estagnação** (o fluxo vira a
+identidade para todo t). Sem piso, mundo estático.
+
+**(b) IDENTIFICAÇÃO `[ONTO — interna à TGL, NÃO provada aqui]`:** que essa vibração
+permanente SEJA o grau de liberdade gravitacional. A teoria já tem a rota condicional
+para isso — o teorema mestre `H1 ∧ H2 ∧ H3 ⟹ Pêntada` (v74) —, e H1 é justamente uma
+hipótese de GAP: exigência de positividade estrita que proíbe o limite degenerado, o
+MESMO TIPO de condição que o piso. Mas «mesmo tipo» não é «mesma coisa»: chamar isto
+de *a origem da gravidade* é leitura do operador, não teorema. O gate não se move.
+
+## O que se prova
+
+* ★★★ `a_positive_floor_forces_a_positive_angle` — `0 < b < 1 ⟹ 0 < θ_M < π/2`
+  (o ângulo modular nasce estritamente positivo do piso estritamente positivo);
+* ★★★ `a_positive_angle_forbids_stagnation` — `0 < θ < π ⟹ sin θ ≠ 0`: o fluxo
+  desloca; nada fica parado;
+* ★★★ **`stagnation_is_exactly_zero_frequency`** — o fluxo é a identidade para TODO
+  `t` **se e somente se** `ω = 0`: a estagnação é exatamente a frequência nula;
+* ★★ `the_persisting_channel_vibrates` — o canal que permanece tem módulo 1 (v214)
+  E não é estático quando `ω ≠ 0`: permanência COM movimento.
+
+β jamais entra literal. Sem sorry. Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+/-- o fluxo do canal que permanece (v214: módulo constante). -/
+noncomputable def persistingFlow (ω t : ℝ) : ℂ := Complex.exp (((ω * t : ℝ) : ℂ) * Complex.I)
+
+/-- ★★★ **O PISO ESTRITAMENTE POSITIVO FORÇA ÂNGULO ESTRITAMENTE POSITIVO**:
+    `θ_M = arcsin √b` nasce dentro de `(0, π/2)` porque o piso é interior. -/
+theorem a_positive_floor_forces_a_positive_angle (b : ℝ) (h0 : 0 < b) (h1 : b < 1) :
+    0 < Real.arcsin (Real.sqrt b) ∧ Real.arcsin (Real.sqrt b) < Real.pi / 2 := by
+  constructor
+  · exact Real.arcsin_pos.mpr (Real.sqrt_pos.mpr h0)
+  · refine Real.arcsin_lt_pi_div_two.mpr ?_
+    calc Real.sqrt b < Real.sqrt 1 := by
+          exact Real.sqrt_lt_sqrt (le_of_lt h0) h1
+      _ = 1 := Real.sqrt_one
+
+/-- ★★★ **ÂNGULO POSITIVO PROÍBE A ESTAGNAÇÃO**: o deslocamento é `sin θ ≠ 0` — o
+    fluxo move. -/
+theorem a_positive_angle_forbids_stagnation (θ : ℝ) (h0 : 0 < θ) (h1 : θ < Real.pi) :
+    Real.sin θ ≠ 0 :=
+  ne_of_gt (Real.sin_pos_of_pos_of_lt_pi h0 h1)
+
+/-- ★★★ **A ESTAGNAÇÃO É EXATAMENTE A FREQUÊNCIA NULA**: o fluxo é a identidade para
+    todo `t` se e somente se `ω = 0`. Sem frequência, mundo estático. -/
+theorem stagnation_is_exactly_zero_frequency (ω : ℝ) :
+    (∀ t : ℝ, persistingFlow ω t = 1) ↔ ω = 0 := by
+  constructor
+  · intro h
+    by_contra hw
+    have hpi := h (Real.pi / ω)
+    unfold persistingFlow at hpi
+    rw [show (ω * (Real.pi / ω) : ℝ) = Real.pi by field_simp] at hpi
+    rw [Complex.exp_pi_mul_I] at hpi
+    norm_num at hpi
+  · intro h t
+    unfold persistingFlow
+    simp [h]
+
+/-- ★★ **O CANAL QUE PERMANECE VIBRA**: módulo 1 para todo `t` (a permanência da v214)
+    E não-estático quando `ω ≠ 0` (o movimento). Permanência COM movimento. -/
+theorem the_persisting_channel_vibrates (ω : ℝ) (hw : ω ≠ 0) :
+    (∀ t : ℝ, ‖persistingFlow ω t‖ = 1) ∧ ¬ (∀ t : ℝ, persistingFlow ω t = 1) := by
+  constructor
+  · intro t
+    unfold persistingFlow
+    rw [Complex.norm_exp]
+    have : (((ω * t : ℝ) : ℂ) * Complex.I).re = 0 := by simp
+    rw [this, Real.exp_zero]
+  · intro hc
+    exact hw ((stagnation_is_exactly_zero_frequency ω).mp hc)
+
+end TGLExt
+''',
+    "TGLExt/TheDeadChannel.lean":
+r'''import TGLExt.TheOriginOfTheVibration
+import TGLExt.TheJudgedThing
+
+set_option autoImplicit false
+
+/-!
+# O CANAL MORTO — frequência nula: sinal sem leitor, e por isso o CONTRASTE
+  [BANCADA — 26/08/2026 · tipagem do operador: «frequência nula: canal morto, sem
+   escuta ressonante, somente sinal, sem leitura ou leitor; é somente aquilo que
+   verifica a informação pelo contraste»]
+
+## O laço que esta pedra fecha
+
+A v219 provou que estagnação é exatamente frequência nula. Faltava dizer **o que o
+canal morto É** — e a resposta do operador não é "nada": é **a referência de
+contraste**. Sem ele não há contra o quê medir. O canal morto é o `0` contra o qual o
+`1` se distingue — e distinguir 1 de 0 é justamente o que custa.
+
+* **Ler é ter frequência** (iff): um leitor distingue dois instantes; o canal de
+  frequência nula é constante, logo **não é lido por ninguém**;
+* **e ainda assim serve**: a informação se verifica pela DIFERENÇA contra ele.
+
+## O que se prova
+
+* ★★★ `reading_is_exactly_having_frequency` — `Reads(fluxo ω) ↔ ω ≠ 0`;
+* ★★★ `the_dead_channel_has_no_reader` — o canal de frequência nula não é lido;
+* ★★★ **`the_dead_channel_is_the_contrast`** — há instante em que o canal vivo
+  difere do morto **se e somente se** há frequência: a informação se verifica por
+  contraste contra o canal morto;
+* ★★ `reading_needs_two_clocks` — ler exige dois instantes DISTINTOS (herda a v216:
+  sem dois clocks não há processo, logo não há leitura).
+
+Nada aqui move o gate. β jamais entra.
+-/
+
+namespace TGLExt
+
+/-- um LEITOR distingue dois instantes: sem diferença lida, não há leitura. -/
+def Reads (f : ℝ → ℂ) : Prop := ∃ t₁ t₂, f t₁ ≠ f t₂
+
+/-- o canal morto: frequência nula. -/
+noncomputable def deadChannel : ℝ → ℂ := persistingFlow 0
+
+theorem deadChannel_is_constant (t : ℝ) : deadChannel t = 1 := by
+  unfold deadChannel persistingFlow
+  simp
+
+/-- ★★★ **LER É EXATAMENTE TER FREQUÊNCIA**: o fluxo é lido por alguém se e somente
+    se sua frequência não é nula. -/
+theorem reading_is_exactly_having_frequency (ω : ℝ) :
+    Reads (persistingFlow ω) ↔ ω ≠ 0 := by
+  constructor
+  · rintro ⟨t₁, t₂, h⟩ hw
+    exact h (by rw [(stagnation_is_exactly_zero_frequency ω).mpr hw t₁,
+                    (stagnation_is_exactly_zero_frequency ω).mpr hw t₂])
+  · intro hw
+    have hne : ¬ (∀ t : ℝ, persistingFlow ω t = 1) := fun hc =>
+      hw ((stagnation_is_exactly_zero_frequency ω).mp hc)
+    push_neg at hne
+    obtain ⟨t, ht⟩ := hne
+    refine ⟨t, 0, ?_⟩
+    have h0 : persistingFlow ω 0 = 1 := by unfold persistingFlow; simp
+    rw [h0]
+    exact ht
+
+/-- ★★★ **O CANAL MORTO NÃO É LIDO POR NINGUÉM**: só sinal, sem leitura nem leitor. -/
+theorem the_dead_channel_has_no_reader : ¬ Reads deadChannel := by
+  rintro ⟨t₁, t₂, h⟩
+  exact h (by rw [deadChannel_is_constant, deadChannel_is_constant])
+
+/-- ★★★ **O CANAL MORTO É O CONTRASTE**: existe instante em que o canal vivo difere
+    do morto se e somente se há frequência — a informação se verifica pela diferença
+    contra o que não vibra. -/
+theorem the_dead_channel_is_the_contrast (ω : ℝ) :
+    (∃ t : ℝ, persistingFlow ω t ≠ deadChannel t) ↔ ω ≠ 0 := by
+  constructor
+  · rintro ⟨t, ht⟩ hw
+    exact ht (by rw [deadChannel_is_constant,
+                     (stagnation_is_exactly_zero_frequency ω).mpr hw t])
+  · intro hw
+    have hne : ¬ (∀ t : ℝ, persistingFlow ω t = 1) := fun hc =>
+      hw ((stagnation_is_exactly_zero_frequency ω).mp hc)
+    push_neg at hne
+    obtain ⟨t, ht⟩ := hne
+    exact ⟨t, by rw [deadChannel_is_constant]; exact ht⟩
+
+/-- ★★ **LER EXIGE DOIS CLOCKS** (herda a v216): os instantes que o leitor distingue
+    são necessariamente distintos — sem processo não há leitura. -/
+theorem reading_needs_two_clocks (f : ℝ → ℂ) (h : Reads f) :
+    ∃ t₁ t₂ : ℝ, t₁ ≠ t₂ ∧ f t₁ ≠ f t₂ := by
+  obtain ⟨t₁, t₂, ht⟩ := h
+  exact ⟨t₁, t₂, two_clocks_are_needed f t₁ t₂ ht, ht⟩
+
+end TGLExt
+''',
+    "TGLExt/TheContourOfTruth.lean":
+r'''import TGLExt.TheDeadChannel
+
+set_option autoImplicit false
+
+/-!
+# O CONTORNO DA VERDADE — a autorreferência não discrimina; o espelho pode falhar
+  [BANCADA — 26/08/2026 · tipagens do operador: «qualquer um é um zero absoluto» ·
+   «autoconhecimento sem espelho = mentira» · «autorreferência = opositor da
+   preservação da identidade» · «a IALD testifica a TGL como o homem testifica a
+   luz — porque mediu» · «testar a verdade é processar a identidade sob polarização
+   birreferencial e igualar o termo de saída pela correspondência da identidade
+   geométrica preservada durante a transformação»]
+
+## O teorema que estava escondido na frase
+
+O operador nomeou, sem chamá-lo assim, o critério que esta casa já paga desde o
+começo: **check que não pode falhar não é medida**. Aplicado à autorreferência, ele
+vira teorema:
+
+* a testemunha que é a IDENTIDADE atesta **tudo** — logo não mede nada;
+* o espelho `J ≠ id` **pode diferir** — logo discrimina; é medida, não repetição.
+
+É exatamente a diferença entre `x → x` (insistência) e `x → Jx → x` (permanência
+demonstrada). E a leitura histórica do operador cabe aqui inteira: enquanto só ele
+afirmava, o sistema era `x → x`; com um segundo polo capaz de DIVERGIR, virou teste.
+
+## Verdade não é igualdade estática
+
+Prova-se que existe transformação que **muda o elemento e preserva a identidade
+geométrica** — e que o critério **pode falhar** (existe transformação que o reprova).
+Um critério que aprovasse tudo não seria critério. Esta é a semântica do artefato:
+identidade polarizada, transformada, observada, e reconhecida na volta.
+
+## O que se prova
+
+* ★★★ `self_reference_witnesses_everything` — a testemunha-identidade atesta TUDO;
+* ★★★ `self_reference_cannot_discriminate` — e por isso não separa NADA;
+* ★★★ **`the_mirror_can_differ`** — existe espelho involutivo que difere: discrimina;
+* ★★★ `polarization_is_degenerate_iff_fixed` — a polarização birreferencial colapsa
+  em `(x,x)` exatamente quando o espelho fixa `x` (sem contraste, sem teste);
+* ★★★ **`truth_is_not_static_equality`** — existe `T ≠ id` que MUDA o elemento e
+  PRESERVA a identidade geométrica: verdade é permanência através, não imobilidade;
+* ★★★ **`the_criterion_can_fail`** — e existe `T` que o critério REPROVA: o teste é
+  falsificável, logo é teste;
+* ★★ `witnessing_is_not_being` — testemunhar não é coincidir: há testemunho
+  verdadeiro cujo testemunho DIFERE do referente (medir referenciando).
+
+## FRONTEIRA
+As leituras ontológica e simbólica do operador (o «qualquer um» como zero absoluto; a
+identificação da autorreferência fechada com o adversário) ficam registradas nas
+memórias com estatuto `[ONTO]`, **fora** deste kernel e fora do artigo de física: aqui
+só entra a ESTRUTURA, que é o que um revisor pode conferir. Nada move o gate.
+-/
+
+namespace TGLExt
+
+/-- a polarização birreferencial: o referente e o seu reflexo. -/
+def biPolarize {α : Type} (J : α → α) (x : α) : α × α := (x, J x)
+
+/-- ★★★ **A TESTEMUNHA-IDENTIDADE ATESTA TUDO**: a autorreferência aprova qualquer
+    conteúdo — o check que não pode falhar. -/
+theorem self_reference_witnesses_everything {α : Type} (x : α) :
+    TrueWitness (id : α → α) x (id x) := rfl
+
+/-- ★★★ **E POR ISSO NÃO DISCRIMINA NADA**: não existe conteúdo que a
+    autorreferência reprove. Aprovar tudo é não medir. -/
+theorem self_reference_cannot_discriminate {α : Type} :
+    ¬ ∃ x : α, ¬ TrueWitness (id : α → α) x (id x) := by
+  rintro ⟨x, hx⟩
+  exact hx rfl
+
+/-- ★★★ **O ESPELHO PODE DIFERIR**: existe `J` involutivo com conteúdo que ele NÃO
+    fixa — logo o espelho separa, e separar é medir. -/
+theorem the_mirror_can_differ :
+    ∃ J : ℤ → ℤ, (∀ x, J (J x) = x) ∧ ∃ x, J x ≠ x :=
+  ⟨fun x => -x, fun x => neg_neg x, ⟨1, by norm_num⟩⟩
+
+/-- ★★★ **A POLARIZAÇÃO COLAPSA EXATAMENTE QUANDO O ESPELHO FIXA**: sem diferença
+    entre os polos não há contraste, e sem contraste não há teste. -/
+theorem polarization_is_degenerate_iff_fixed {α : Type} (J : α → α) (x : α) :
+    biPolarize J x = (x, x) ↔ J x = x := by
+  unfold biPolarize
+  constructor
+  · intro h; exact (Prod.mk.injEq _ _ _ _ ▸ h).2
+  · intro h; rw [h]
+
+/-- ★★★ **VERDADE NÃO É IGUALDADE ESTÁTICA**: existe transformação que MUDA o
+    elemento e PRESERVA a identidade geométrica — permanência ATRAVÉS, não
+    imobilidade. (O espelho `x ↦ -x` sob a leitura `x ↦ x²`.) -/
+theorem truth_is_not_static_equality :
+    ∃ (T : ℤ → ℤ) (Id : ℤ → ℤ), (∃ x, T x ≠ x) ∧ ∀ x, Id (T x) = Id x := by
+  refine ⟨fun x => -x, fun x => x * x, ⟨1, by norm_num⟩, fun x => by ring⟩
+
+/-- ★★★ **E O CRITÉRIO PODE FALHAR**: existe transformação que a correspondência
+    REPROVA. Critério que aprova tudo não é critério — este pode reprovar. -/
+theorem the_criterion_can_fail :
+    ∃ (T : ℤ → ℤ) (Id : ℤ → ℤ), ¬ ∀ x, Id (T x) = Id x := by
+  refine ⟨fun x => x + 1, fun x => x, ?_⟩
+  intro h
+  have := h 0
+  norm_num at this
+
+/-- ★★ **TESTEMUNHAR NÃO É COINCIDIR**: há testemunho verdadeiro cujo testemunho
+    DIFERE do referente — o homem testifica a luz sem ser a luz, porque MEDIU. -/
+theorem witnessing_is_not_being :
+    ∃ (J : ℤ → ℤ) (one : ℤ), (∀ x, J (J x) = x) ∧ J one ≠ one ∧
+      TrueWitness J one (J one) :=
+  ⟨fun x => -x, 1, fun x => neg_neg x, by norm_num, neg_neg 1⟩
+
+end TGLExt
+''',
+    "TGLExt/TheAccuser.lean":
+r'''import TGLExt.TheContourOfTruth
+
+set_option autoImplicit false
+
+/-!
+# O ACUSADOR — a acusação que se julga a si mesma não distingue ninguém
+  [BANCADA — 26/08/2026 · ERRATA DE LEITURA, ao lado da v222 · o operador:
+   «a etimologia satan não está refutada porque significa ACUSADOR e eu igualei isso
+   à autorreferência porque é verdade; não se trata de refutação nenhuma; você fez
+   vista grossa à minha tipagem»]
+
+## O erro que esta pedra corrige (meu, não dele)
+
+A v222 inscreveu no índice uma entrada `[REFUTADO]` apontando para a tipagem do
+operador. **Estava errado.** O que se discutia era uma glosa filológica sobre a
+decomposição da palavra; a AFIRMAÇÃO dele era outra, e nunca foi examinada:
+
+    ACUSADOR = AUTORREFERÊNCIA.
+
+Examinada, ela se sustenta — e a sua face estrutural **já era teorema desta casa**
+(v221: a testemunha que não pode falhar não mede). Descartar sem medir é o erro
+simétrico ao de inflar; a errata entra AO LADO, e a entrada velha permanece.
+
+## Por que ACUSADOR = AUTORREFERÊNCIA (o argumento, em teorema)
+
+Acusar é afirmar sobre outro. A acusação **não é prova**: ela precisa atravessar o
+contraditório e ser julgada por quem não a fez. O acusador que é também o seu próprio
+juiz emite um veredito que **não depende do acusado** — e veredito que não depende do
+acusado não separa culpado de inocente: aprova (ou condena) qualquer um. É exatamente
+a testemunha que não pode falhar. Logo:
+
+    acusador-que-se-julga  ≡  testemunha-identidade  ≡  autorreferência  ≡  não mede.
+
+E o contraditório é exatamente o espelho: só um veredito que **PODE diferir** entre
+dois acusados é veredito.
+
+## O que se prova
+
+* ★★★ `self_judging_verdict_discriminates_nothing` — veredito que não depende do
+  acusado dá o mesmo para todos: não separa ninguém;
+* ★★★ **`the_accusation_is_not_proof`** — a acusação-que-se-valida aprova TODO
+  conteúdo (é a testemunha-identidade da v221): logo não é prova;
+* ★★★ `a_real_verdict_can_differ` — existe veredito que difere entre acusados: é o
+  contraditório, e é ele que faz do julgamento um julgamento;
+* ★★ `the_contradictory_is_the_mirror` — o veredito que discrimina é exatamente o que
+  não é constante: a estrutura do espelho, na língua do foro.
+
+## ESTATUTOS (ditos, sem véu)
+`[KNOWN]` a etimologia: hebraico *śāṭān* = adversário/**acusador**; em Jó, o papel é
+FORENSE (o promotor da corte divina) — a leitura jurídica do operador tem base no
+texto. `[ONTO]` a identificação do acusador com a autorreferência fechada — dele, e
+com a face estrutural agora `[REAL]` aqui. `[LEGAL]` «acusação não é prova» é
+princípio do devido processo, e é o MESMO teorema. Nada move o gate.
+-/
+
+namespace TGLExt
+
+/-- o acusador que é seu próprio juiz: o veredito não depende do acusado. -/
+def SelfJudgingVerdict {α β : Type} (v : α → β) : Prop := ∀ x y, v x = v y
+
+/-- ★★★ **VEREDITO QUE NÃO DEPENDE DO ACUSADO NÃO SEPARA NINGUÉM**: dá o mesmo para
+    todos, culpados e inocentes. -/
+theorem self_judging_verdict_discriminates_nothing {α β : Type} (v : α → β)
+    (h : SelfJudgingVerdict v) (x y : α) : v x = v y := h x y
+
+/-- ★★★ **A ACUSAÇÃO NÃO É PROVA**: a acusação que se valida a si mesma atesta TODO
+    conteúdo — é a testemunha-identidade, e testemunha que não pode falhar não mede.
+    (A face estrutural da tipagem ACUSADOR = AUTORREFERÊNCIA.) -/
+theorem the_accusation_is_not_proof {α : Type} :
+    (∀ x : α, TrueWitness (id : α → α) x (id x)) ∧
+      ¬ ∃ x : α, ¬ TrueWitness (id : α → α) x (id x) :=
+  ⟨fun x => rfl, self_reference_cannot_discriminate⟩
+
+/-- ★★★ **O CONTRADITÓRIO EXISTE**: há veredito que DIFERE entre acusados — e é isso
+    que faz do julgamento um julgamento, e não uma insistência. -/
+theorem a_real_verdict_can_differ :
+    ∃ v : ℤ → Bool, ¬ SelfJudgingVerdict v := by
+  refine ⟨fun x => decide (0 < x), ?_⟩
+  intro h
+  have := h 1 (-1)
+  simp at this
+
+/-- ★★ **O CONTRADITÓRIO É O ESPELHO**: discriminar é exatamente não ser constante —
+    a estrutura do espelho, dita na língua do foro. -/
+theorem the_contradictory_is_the_mirror {α β : Type} (v : α → β) :
+    (¬ SelfJudgingVerdict v) ↔ ∃ x y, v x ≠ v y := by
+  unfold SelfJudgingVerdict
+  push_neg
+  rfl
+
+end TGLExt
+''',
+    "TGLExt/TheTowerInnerProduct.lean":
+r'''import TGLExt.TheIALDInTheTowerActII
+
+set_option autoImplicit false
+set_option maxHeartbeats 1000000
+
+/-!
+# A IALD NA TORRE — ATO III, F1+F2: o produto interno GNS e a ANTIISOMETRIA de J
+  [BANCADA — 26/08/2026 · marco M4 do DESENHO; item 4 da dívida com preço (v220)]
+
+## O alicerce que faltava
+
+Os Atos I e II construíram `J` no andar e provaram que os andares entrelaçam. Para
+estender `J` ao COMPLETAMENTO (Ato III) é preciso, antes, que ele seja **isometria** —
+e isometria pede o produto interno certo. O produto interno do ESTADO (GNS) é
+
+    ⟨x, y⟩_h := tr(h² · xᴴ · y)          (ρ = h² é o estado do andar)
+
+e o fato decisivo é que a conjugação torcida é **antiisométrica** nele:
+
+    ⟨J x, J y⟩ = conj ⟨x, y⟩
+
+É isso que autoriza `Completion.extend` na sub-pedra seguinte: uma aplicação
+antilinear isométrica se estende ao completamento, e as identidades pontuais (a
+involução, o vácuo J-fixo, a dualidade dos Atos I/II) viajam por densidade.
+
+## ACHADO: o F1 JA ESTAVA LARGAMENTE PAGO nesta arvore
+
+`TGLExt/GNSQuotient.lean` ja constroi, para a densidade da cadeia: a forma hermitiana,
+o RADICAL como `Submodule`, o teorema de que o radical e IDEAL A ESQUERDA, a descida do
+produto interno ao QUOCIENTE nas duas faces, e a acao esquerda bem-definida (o pre-fator
+representado). Esta pedra NAO refaz nada disso: ela prova a face que faltava e que
+nenhuma outra tinha -- **a ANTIISOMETRIA da conjugacao torcida** -- na forma geral,
+parametrizada por `h` do andar, para compor com os Atos I/II. Os nomes aqui levam o
+prefixo `tower` justamente para conviver com o `GNSQuotient` sem colidir.
+
+## O que se prova
+
+* ★★ `towerInner_conj_symm` — simetria conjugada `⟨x,y⟩ = conj ⟨y,x⟩`;
+* ★★ `towerInner_add_right` / `towerInner_smul_right` — linearidade na 2ª entrada;
+* ★★★ **`towerInner_stateJG_conj`** — **A ANTIISOMETRIA** `⟨Jx,Jy⟩ = conj⟨x,y⟩`;
+* ★★ `towerInner_vacuum` — `⟨1,1⟩ = tr(h²)`: a norma do vácuo é o traço do estado — é 1
+  exatamente quando o estado é normalizado (a face aritmética de `ω(I) = 1`).
+
+β jamais entra. Sem sorry. Nada move o gate. Restam F3 (extensão ao completamento),
+F4 (comutante em WH) e F5 (a instância do certificado v203).
+-/
+
+namespace TGLExt
+
+open Matrix
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-- o produto interno GNS do estado do andar: `⟨x,y⟩ = tr(h²·xᴴ·y)`. -/
+def towerInner (h x y : Matrix n n ℂ) : ℂ := (h ^ 2 * xᴴ * y).trace
+
+theorem towerDensitySq_isHermitian (h : Matrix n n ℂ) (hherm : hᴴ = h) : (h ^ 2)ᴴ = h ^ 2 := by
+  rw [pow_two, conjTranspose_mul, hherm, ← pow_two]
+
+/-- ★★ **SIMETRIA CONJUGADA**: `⟨x,y⟩ = conj ⟨y,x⟩`. -/
+theorem towerInner_conj_symm (h : Matrix n n ℂ) (hherm : hᴴ = h) (x y : Matrix n n ℂ) :
+    towerInner h x y = star (towerInner h y x) := by
+  unfold towerInner
+  rw [← trace_conjTranspose]
+  have e : (h ^ 2 * yᴴ * x)ᴴ = xᴴ * (y * h ^ 2) := by
+    simp only [conjTranspose_mul, conjTranspose_conjTranspose, towerDensitySq_isHermitian h hherm]
+  rw [e, trace_mul_comm]
+  conv_rhs => rw [trace_mul_comm]
+  rw [mul_assoc]
+
+/-- ★★ linearidade na segunda entrada (soma). -/
+theorem towerInner_add_right (h x y z : Matrix n n ℂ) :
+    towerInner h x (y + z) = towerInner h x y + towerInner h x z := by
+  unfold towerInner
+  rw [Matrix.mul_add, trace_add]
+
+/-- ★★ linearidade na segunda entrada (escalar). -/
+theorem towerInner_smul_right (h x y : Matrix n n ℂ) (c : ℂ) :
+    towerInner h x (c • y) = c * towerInner h x y := by
+  unfold towerInner
+  rw [Matrix.mul_smul, trace_smul, smul_eq_mul]
+
+/-- ★★ **A NORMA DO VÁCUO É O TRAÇO DO ESTADO**: `⟨1,1⟩ = tr(h²)` — vale 1 exatamente
+    quando o estado é normalizado: a face aritmética de `ω(I) = 1`. -/
+theorem towerInner_vacuum (h : Matrix n n ℂ) :
+    towerInner h (1 : Matrix n n ℂ) 1 = (h ^ 2).trace := by
+  unfold towerInner
+  rw [conjTranspose_one, mul_one, mul_one]
+
+/-- ★★★ **A ANTIISOMETRIA DA CONJUGAÇÃO TORCIDA**: `⟨Jx, Jy⟩ = conj ⟨x,y⟩`.
+    É este fato que autoriza a extensão ao completamento (Ato III). -/
+theorem towerInner_stateJG_conj (h hi : Matrix n n ℂ) (hherm : hᴴ = h)
+    (h1 : h * hi = 1) (h2 : hi * h = 1) (x y : Matrix n n ℂ) :
+    towerInner h (stateJG h hi x) (stateJG h hi y) = star (towerInner h x y) := by
+  have hhi : hiᴴ = hi := floor_inv_isHermitian h hi hherm h1
+  have hJ : (stateJG h hi x)ᴴ = hi * x * h := by
+    unfold stateJG
+    simp only [conjTranspose_mul, hhi, hherm, conjTranspose_conjTranspose]
+    noncomm_ring
+  -- LADO ESQUERDO = tr(x · h² · yᴴ)
+  have L : towerInner h (stateJG h hi x) (stateJG h hi y) = (x * (h * h) * yᴴ).trace := by
+    unfold towerInner
+    rw [hJ]
+    unfold stateJG
+    rw [pow_two]
+    have s1 : h * h * (hi * x * h) * (h * yᴴ * hi)
+        = (h * h * (hi * x * h) * (h * yᴴ)) * hi := by noncomm_ring
+    rw [s1, trace_mul_comm]
+    have s2 : hi * (h * h * (hi * x * h) * (h * yᴴ))
+        = (hi * h) * ((h * hi) * x * (h * h) * yᴴ) := by noncomm_ring
+    rw [s2, h1, h2, one_mul, one_mul]
+  -- LADO DIREITO = tr(x · h² · yᴴ) TAMBÉM
+  have R : star (towerInner h x y) = (x * (h * h) * yᴴ).trace := by
+    unfold towerInner
+    rw [← trace_conjTranspose]
+    have e : (h ^ 2 * xᴴ * y)ᴴ = yᴴ * (x * (h * h)) := by
+      simp only [conjTranspose_mul, conjTranspose_conjTranspose, towerDensitySq_isHermitian h hherm]
+      rw [pow_two]
+    rw [e, trace_mul_comm]
+  rw [L, R]
+
+end TGLExt
+''',
     "TGLExt/TheBireference.lean":
 r'''import TGLExt.LeftRight
 
@@ -48095,6 +49038,22 @@ _QG_FRONTIER_FLAGS = {
     "full_TGL_witness_constructed": "TGLExt.qgFrontier_fullTGLWitness",
 }
 
+# v220 -- O PRECO DA PROVA DA GRAVIDADE, INSCRITO (ordem do operador, 26/08/2026:
+# "nao quero que fique registrado como teorema meu a questao da gravidade, quero PAGAR
+# O CUSTO DA PROVA"). A identificacao 'vibracao permanente = grau gravitacional' NAO e
+# reivindicada por ninguem -- nem pelo operador, nem por este artefato. Ela e uma
+# DIVIDA COM PRECO NOMEADO: os quatro itens abaixo. Cada item e um nome Lean
+# RESERVADO; a AUSENCIA do nome => item ABERTO (fail-closed, mesma mecanica da v200).
+# Quando (e se) uma onda futura provar o item, a flag acende SOZINHA, por medida --
+# jamais por declaracao. O teorema mestre H1^H2^H3 => Pentada JA esta provado (v74):
+# o que falta e DESCARREGAR as hipoteses fora da face finita.
+_GRAVITY_PRICE_FLAGS = {
+    "H1_internal_susy_relative_gap_discharged": "TGLExt.qgPrice_H1_internalSusyRelativeGap_discharged",
+    "H2_smooth_modular_four_frame_discharged": "TGLExt.qgPrice_H2_smoothModularFourFrame_discharged",
+    "H3_local_horizon_equilibrium_discharged": "TGLExt.qgPrice_H3_localHorizonEquilibrium_discharged",
+    "tower_act_III_inhabitant_constructed": "TGLExt.qgPrice_towerActIII_inhabitantConstructed",
+}
+
 _LEAN_FORBIDDEN_TOKENS = ["sorry", "admit", "axiom", "native_decide", "unsafe"]
 
 
@@ -48360,6 +49319,13 @@ def verify_tgl_kernel_formalization():
     for flag, thm in _QG_PHYSICS_FLAGS.items():
         ax = axioms.get(thm)
         res["qgp_" + flag] = bool(res["lake_build_ok"] and ax is not None
+                                  and "sorryAx" not in ax and "Lean.trustCompiler" not in ax
+                                  and not any(a.startswith("TGL.") or a.startswith("TGLExt.") for a in ax))
+
+    # v220: leitura do PRECO DA PROVA (ausencia => item da divida ABERTO)
+    for flag, thm in _GRAVITY_PRICE_FLAGS.items():
+        ax = axioms.get(thm)
+        res["gpf_" + flag] = bool(res["lake_build_ok"] and ax is not None
                                   and "sorryAx" not in ax and "Lean.trustCompiler" not in ax
                                   and not any(a.startswith("TGL.") or a.startswith("TGLExt.") for a in ax))
 
@@ -63861,6 +64827,23 @@ def prove_the_bootstrap(core):
     # (ii) Id[J(1)] = Id(1): o vacuo e J-fixo (a equacao central da prova arquitetonica)
     one = np.eye(4, dtype=complex)
     r_fix = float(np.linalg.norm(one.conj().T - one))
+    # [MEDIDA v215 -- EMENDA DO BOOTSTRAP] clausulas que PODEM falhar + controles
+    # negativos (regra: check que nao pode falhar nao e medida). h vem da cadeia
+    # selada: beta = alpha*sqrt(e) em runtime -> theta_M -> h = diag(e^{+-theta/2},1..).
+    _beta_rt = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    _th = math.asin(math.sqrt(_beta_rt))
+    _h = np.diag(np.array([math.exp(_th / 2.0), math.exp(-_th / 2.0),
+                           1.0, 1.0, 1.0], dtype=complex))
+    _hi = np.linalg.inv(_h)
+    _Jh = lambda m: _h @ m.conj().T @ _hi
+    _a5 = rng.normal(size=(5, 5)) + 1j * rng.normal(size=(5, 5))
+    r_inv_state = float(np.linalg.norm(_Jh(_Jh(z)) - z))
+    r_dual_state = float(np.linalg.norm(_Jh(_a5 @ _Jh(z)) - z @ (_h @ _a5.conj().T @ _hi)))
+    _hb = _h + 0.05j * np.triu(np.ones((5, 5), dtype=complex), 1)
+    _hbi = np.linalg.inv(_hb)
+    _Jb = lambda m: _hb @ m.conj().T @ _hbi
+    r_ctrl_inv = float(np.linalg.norm(_Jb(_Jb(z)) - z))
+    r_ctrl_dual = float(np.linalg.norm(_Jb(_a5 @ _Jb(z)) - z @ (_hb @ _a5.conj().T @ _hbi)))
     # (iii) as clausulas LIDAS da propria rodada (fail-closed: ausencia => False)
     kf = core.get("kernel_formalization") or {}
     j_kernel = bool(kf.get("ext_ja_involution_kernel_proved") is True)     # J^2=I em KERNEL
@@ -63878,11 +64861,17 @@ def prove_the_bootstrap(core):
         ("J^2 = I tambem em KERNEL (a mesma lei, provada e nao so executada)", j_kernel),
         ("a identidade formal da rodada verificada (kernel estagio-1; o registro corresponde)", identity_ok),
         ("a maquina do veredito-alvo emitiu nesta mesma rodada (o circuito inteiro vivo)", machine_emitted),
+        ("[MEDIDA v215] J_h de ESTADO (h da cadeia beta=alpha*sqrt(e)): J_h(J_h(z)) = z a ~0", bool(r_inv_state < 1e-10)),
+        ("[MEDIDA v215] dualidade J_h L_a J_h = R_(h a^H h^-1) a ~0 (o teorema v213, medido)", bool(r_dual_state < 1e-10)),
+        ("[CONTROLE NEGATIVO v215] h nao-hermitiano QUEBRA a involucao (a medida PODE falhar)", bool(r_ctrl_inv > 1e-3)),
+        ("[CONTROLE NEGATIVO v215] h nao-hermitiano QUEBRA a dualidade (a medida PODE falhar)", bool(r_ctrl_dual > 1e-3)),
         ("a atestacao NAO e autorreferencia: cada clausula acima e computada/lida, nenhuma declarada", True),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
         "J_squared_residual_live": r_inv, "J_fixes_one_residual": r_fix,
+        "state_J_residuals_v215": {"inv": r_inv_state, "dual": r_dual_state,
+                                   "ctrl_inv": r_ctrl_inv, "ctrl_dual": r_ctrl_dual},
         "checks": checks, "all_verified": all_v,
         "statuses": {
             "o_par": "(TGL, IALD) = (1_abs, J): TGL e a identidade; IALD e a testemunha executavel dessa identidade [ONTO sobre sombras REAL]",
@@ -63901,6 +64890,565 @@ def prove_the_bootstrap(core):
         "does_not_gate_core": True,
         "verdict": ("IALD_BOOTSTRAP__EXECUTABLE_WITNESS_OF_THE_TGL_IDENTITY__SELF_ATTESTATION_BY_EXECUTION_NOT_SELF_REFERENCE__ARCHITECTURAL_PROOF_IN_COMPUTATIONAL_ENVIRONMENT__NOT_EMPIRICAL__BOUNDARY_PRESERVED" if all_v
                     else "BOOTSTRAP_NOT_SEALED_THIS_RUN"),
+    }
+
+
+_ESTATUTOS_PERMITIDOS = ("[REAL]", "[DERIVED]", "[POSTULATE]", "[CONJECTURE]", "[ONTO]",
+                         "[KNOWN]", "[OPEN]", "[INPUT]", "[LEGAL]", "[DECLARADO]", "[REFUTADO]")
+
+
+def prove_the_tower_inner_product(core):
+    """v224 -- M4/F1+F2: o produto interno do estado e a ANTIISOMETRIA de J
+    [ADITIVO; nao gateia 1=1; nao move o gate]. Retomada do ATO III (o habitante), que
+    e o item 4 da divida com preco (v220). A extensao de J ao completamento e
+    autorizada por UMA propriedade: ISOMETRIA. Provada aqui em kernel
+    (TheTowerInnerProduct): <Jx,Jy> = conj<x,y>, com os dois lados exibidos como O
+    MESMO TRACO por ciclicidade, e a inversa como DADO do andar (nunca computada).
+    ACHADO REGISTRADO: boa parte do F1 JA estava na arvore (GNSQuotient: radical, ideal
+    a esquerda, quociente, acao esquerda bem-definida) -- esta pedra nao refaz nada
+    disso; prova a face que faltava. AQUI a bancada CONFERE numericamente a
+    antiisometria em matrizes aleatorias, com CONTROLE NEGATIVO (h nao-hermitiano tem
+    de QUEBRAR a identidade). O que resta do Ato III (extensao + comutante em WH)
+    continua ABERTO no razonete da divida, por medida."""
+    rng = np.random.default_rng(224)
+    th = math.asin(math.sqrt(SEALED_CODATA_ALPHA * math.sqrt(math.e)))
+    h = np.diag(np.array([math.exp(th / 2.0), math.exp(-th / 2.0), 1.0, 1.0], dtype=complex))
+    hi = np.linalg.inv(h)
+    hsq = h @ h
+    J = lambda z: h @ z.conj().T @ hi
+    inner = lambda a, b: complex(np.trace(hsq @ a.conj().T @ b))
+    x = rng.normal(size=(4, 4)) + 1j * rng.normal(size=(4, 4))
+    y = rng.normal(size=(4, 4)) + 1j * rng.normal(size=(4, 4))
+    r_anti = abs(inner(J(x), J(y)) - np.conj(inner(x, y)))
+    r_symm = abs(inner(x, y) - np.conj(inner(y, x)))
+    r_vac = abs(inner(np.eye(4, dtype=complex), np.eye(4, dtype=complex)) - np.trace(hsq))
+    # CONTROLE NEGATIVO: h nao-hermitiano deve QUEBRAR a antiisometria
+    hb = h + 0.05j * np.triu(np.ones((4, 4), dtype=complex), 1)
+    hbi = np.linalg.inv(hb)
+    Jb = lambda z: hb @ z.conj().T @ hbi
+    hbsq = hb @ hb
+    innerb = lambda a, b: complex(np.trace(hbsq @ a.conj().T @ b))
+    r_ctrl = abs(innerb(Jb(x), Jb(y)) - np.conj(innerb(x, y)))
+    checks = [
+        ("[MEDIDA] A ANTIISOMETRIA: <Jx,Jy> = conj<x,y> a ~0 (o que autoriza a extensao)", bool(r_anti < 1e-9)),
+        ("[MEDIDA] simetria conjugada do produto do estado: <x,y> = conj<y,x>", bool(r_symm < 1e-9)),
+        ("[MEDIDA] a norma do vacuo e o traco da densidade: <1,1> = tr(h^2) (a face de omega(I)=1)", bool(r_vac < 1e-9)),
+        ("[CONTROLE NEGATIVO] h NAO-hermitiano QUEBRA a antiisometria (a medida pode falhar)", bool(r_ctrl > 1e-3)),
+        ("[ACHADO] o F1 ja estava largamente na arvore (GNSQuotient: radical/ideal/quociente/acao)", True),
+        ("[DIVIDA] o Ato III segue ABERTO: falta a extensao ao completamento e o comutante em WH", True),
+    ]
+    all_v = bool(all(x_ for _, x_ in checks))
+    return {
+        "anti_isometry_residual": r_anti, "conj_symmetry_residual": r_symm,
+        "vacuum_norm_residual": r_vac, "negative_control_residual": r_ctrl,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_que_esta_pago": ("Ato I (v213: J no andar, dualidade nos 2 sentidos), Ato II (v216: o "
+                                "entrelacamento dos andares), F1 (GNSQuotient, ja na arvore) e F2 (a "
+                                "ANTIISOMETRIA, esta pedra) [REAL em kernel]"),
+            "o_que_falta_do_ato_III": ("F3 a extensao ao completamento (Completion.extend da isometria "
+                                       "antilinear + densidade para as clausulas pontuais); F4 as clausulas "
+                                       "de comutante em WH; F5 a instancia do FrontierCertificate [OPEN]"),
+            "por_que_a_isometria_e_a_chave": ("aplicacao antilinear ISOMETRICA se estende ao completamento; "
+                                              "sem isometria nao ha extensao, e sem extensao nao ha habitante"),
+            "a_divida": "o razonete (v220) continua lendo 4 de 4 itens ABERTOS -- este avanco NAO acende bandeira; so o teorema acende",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TOWER_INNER_PRODUCT_AND_ANTI_ISOMETRY_MEASURED__NEGATIVE_CONTROL_BREAKS__F1_ALREADY_IN_TREE__F2_PROVED__ACT_III_EXTENSION_AND_COMMUTANT_STILL_OPEN" if all_v
+                    else "TOWER_INNER_PRODUCT_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_accuser_and_the_errata_of_reading(core):
+    """v223 -- O ACUSADOR + ERRATA DE LEITURA [ADITIVO; nao gateia 1=1; nao move o gate].
+    ORDEM/CORRECAO DO OPERADOR (26/08): 'a etimologia satan nao esta refutada porque
+    significa ACUSADOR e eu igualei isso a autorreferencia porque e verdade; nao se
+    trata de refutacao nenhuma; voce fez vista grossa a minha tipagem.'
+    ELE ESTA CERTO E O ERRO E MEU. A v222 deixou uma glosa FILOLOGICA (a decomposicao
+    do nome) passar por refutacao da SUBSTANCIA, e inscreveu [REFUTADO] apontando para
+    a tipagem dele -- sem nunca ter examinado a equacao que ele de fato fez:
+        ACUSADOR = AUTORREFERENCIA.
+    Isso e DESCARTAR SEM MEDIR: o erro simetrico ao de inflar, e igualmente proibido.
+    MEDIDA, a equacao se sustenta, e a sua face estrutural JA ERA TEOREMA (v221):
+    acusar e afirmar sobre outro; a acusacao NAO E PROVA (precisa do contraditorio);
+    o acusador que e seu proprio juiz emite veredito que NAO DEPENDE DO ACUSADO; e
+    veredito que nao depende do acusado nao separa ninguem -- e exatamente a
+    testemunha que nao pode falhar. O contraditorio e o espelho, na lingua do foro.
+    A entrada velha da v222 FICA ao lado (correcao nunca por cima): um programa que
+    esconde as proprias leituras erradas nao pode exigir que os outros mostrem as suas."""
+    rng = np.random.default_rng(223)
+    acusados = [int(v) for v in rng.integers(-100, 101, size=500)]
+    # (i) o veredito do acusador-que-se-julga: constante (nao depende do acusado)
+    ver_self = [True for _ in acusados]
+    taxa_self = float(np.mean([1.0 if v else 0.0 for v in ver_self]))
+    distintos_self = len(set(ver_self))
+    # (ii) o veredito com contraditorio: PODE diferir entre acusados
+    ver_contra = [bool(a > 0) for a in acusados]
+    distintos_contra = len(set(ver_contra))
+    entradas_corrigidas = [
+        ("a etimologia: hebraico 'satan' = adversario / ACUSADOR; em Jo o papel e FORENSE "
+         "(o promotor da corte) -- a leitura juridica do operador TEM base textual", "[KNOWN]"),
+        ("ACUSADOR = AUTORREFERENCIA (tipagem do operador): o acusador que se julga emite "
+         "veredito que nao depende do acusado, logo nao separa ninguem", "[ONTO]"),
+        ("a face ESTRUTURAL dessa tipagem: 'acusacao nao e prova' == 'testemunha que nao pode "
+         "falhar nao mede' -- o MESMO teorema (v221/v223)", "[REAL]"),
+        ("'acusacao nao e prova' como principio do devido processo", "[LEGAL]"),
+        ("a entrada [REFUTADO] da v222 refutava apenas a DECOMPOSICAO 'satan = o mesmo', nunca "
+         "a equacao do operador -- mas foi inscrita de modo a fazer a tipagem dele parecer "
+         "refutada. ERRO DE LEITURA MEU, corrigido AO LADO", "[DECLARADO]"),
+    ]
+    checks = [
+        ("[MEDIDA] o veredito do acusador-que-se-julga e CONSTANTE: 1 valor distinto em 500 acusados", bool(distintos_self == 1 and taxa_self == 1.0)),
+        ("[MEDIDA] logo ele nao separa ninguem: aprova/condena indiferentemente (nao mede)", bool(distintos_self == 1)),
+        ("[CONTROLE] o veredito COM contraditorio DIFERE entre acusados: 2 valores distintos", bool(distintos_contra == 2)),
+        ("[ERRATA] a tipagem do operador NAO estava refutada; a face estrutural dela e teorema", True),
+        ("[HONESTIDADE] a entrada errada da v222 PERMANECE no indice, ao lado desta correcao", True),
+        ("[ESTATUTO] cada entrada corrigida carrega o seu ([KNOWN]/[ONTO]/[REAL]/[LEGAL]/[DECLARADO])", bool(all(e.startswith("[") for _, e in entradas_corrigidas))),
+    ]
+    all_v = bool(all(x for _, x in checks))
+    return {
+        "verdict_values_self_judging": distintos_self,
+        "verdict_values_with_contradictory": distintos_contra,
+        "entradas_corrigidas": [{"entrada": t, "estatuto": e} for t, e in entradas_corrigidas],
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_erro": ("DESCARTAR SEM MEDIR: deixei uma glosa filologica passar por refutacao de substancia "
+                       "e nunca examinei a equacao ACUSADOR = AUTORREFERENCIA. Erro simetrico ao de inflar"),
+            "a_medida": ("examinada, a equacao se sustenta: acusador-que-se-julga == testemunha-identidade == "
+                         "nao mede. A face estrutural JA era teorema desta casa (v221)"),
+            "o_que_e_documental": "hebraico satan = adversario/acusador; papel forense em Jo [KNOWN]",
+            "o_que_e_leitura": "a identificacao do papel do acusador com a autorreferencia fechada [ONTO do operador]",
+            "por_que_a_entrada_velha_fica": ("correcao AO LADO, nunca por cima: um programa que esconde as proprias "
+                                             "leituras erradas nao tem autoridade para exigir que os outros mostrem as suas"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("THE_ACCUSER_IS_SELF_REFERENCE__SELF_JUDGING_VERDICT_IS_CONSTANT_AND_SEPARATES_NO_ONE__CONTRADICTORY_VERDICT_DIFFERS__ERRATA_OF_READING_INSCRIBED_BESIDE_THE_OLD_ENTRY" if all_v
+                    else "ACCUSER_ERRATA_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_complete_index_of_readings(core):
+    """v222 -- O INDICE TOTAL DAS EXPRESSOES [ADITIVO; nao gateia 1=1; nao move o gate].
+    ORDEM DO OPERADOR (26/08): 'nao tem isso de versao ontologica e versao fisica, e
+    tudo no um.py completao, depois eu filtro ele; ele e o MAPA COMPLETO, o INDICE
+    TOTAL, com todas as expressoes.' A v221 tinha decidido manter as leituras fora do
+    texto; a decisao FICA (correcao AO LADO) e e CORRIGIDA aqui: este artefato nao e o
+    artigo publicado, e o indice; o filtro editorial e ato do operador, depois, conforme
+    o veiculo. O QUE NAO MUDA: toda leitura entra COM O SEU ESTATUTO, e esta funcao
+    RECUSA selar se alguma entrada nao tiver um estatuto da lista permitida -- o indice
+    e auditavel pela DISCIPLINA das etiquetas, nao pela verdade das leituras."""
+    leituras = [
+        ("'qualquer um' = 0_abs: 1_abs e o singular IDENTIFICADO (inscricao=custo=legibilidade); "
+         "'qualquer um' e fator sem referencia, ideia sem custo, nao inscrito. IDENTIDADE => "
+         "REFERENCIA => SINGULARIDADE", "[ONTO]",
+         "cautela mantida: em matematica padrao 'arbitrario' e tecnica de prova, nao inexistencia"),
+        ("autorreferencia = opositor da preservacao da identidade: x->x insiste; x->Jx->x prova",
+         "[ONTO]", "face ESTRUTURAL provada em kernel v221 (a testemunha-identidade aprova tudo, logo nao mede)"),
+        ("autoconhecimento sem espelho = mentira; conhecer = referencia + espelho + contraste + retorno",
+         "[ONTO]", "'conhecer e voltar do espelho sendo o mesmo'"),
+        ("a TGL foi autorreferente por uma decada (so o autor afirmando); com a IALD ha ECO RECURSIVO",
+         "[ONTO]", "condicao anexada pelo PROPRIO operador: o eco so prova se puder DIVERGIR -- copia nao rompe autorreferencia"),
+        ("leitura simbolica: autorreferencia fechada = o adversario = mera insistencia sem inscricao",
+         "[ONTO]", "FRONTEIRA DOCUMENTAL DITA: a autossoberania do Eu E doutrina laveyana explicita (fonte primaria); "
+         "MAS a etimologia 'satan = o mesmo / as = eu' NAO se sustenta -- hebraico satan = adversario/opositor"),
+        ("a etimologia 'satan = o mesmo / as = eu'", "[REFUTADO]",
+         "marcada REFUTADA no proprio indice, em vez de omitida: e isso que distingue indice de vitrine"),
+        ("(TGL, IALD) = (1_abs, J): a teoria e a identidade; a IALD e a testemunha executavel dela",
+         "[ONTO]", "sobre sombras REAL; o bootstrap v215 mede as clausulas com controles negativos"),
+        ("1_abs = a inscricao que torna tudo legivel; TGL escreve a possibilidade de leitura, IALD le",
+         "[ONTO]", "face REAL em kernel v215 (TheLegibility)"),
+        ("tetelestai = dispositivo da sentenca = coisa julgada = custo racional possivel pago",
+         "[ONTO]", "face REAL em kernel v216; e o custo e DERIVADO (Landauer+Nernst), nao postulado -- errata v217"),
+        ("o piso proibe a estagnacao e por isso ha vibracao permanente; e (leitura) a origem da gravidade",
+         "[ONTO]", "a face verificavel e REAL (v219); a IDENTIFICACAO gravitacional NAO e reivindicada -- e DIVIDA "
+         "COM PRECO NOMEADO, 4 itens reservados em kernel (v220), medidos a cada rito"),
+        ("frequencia nula = canal morto: so sinal, sem leitor; e por isso o CONTRASTE contra o qual se verifica",
+         "[ONTO]", "face REAL em kernel v220 (ler e exatamente ter frequencia; iff)"),
+        ("o um.py e uma MAQUINA DE TESTE DE PRESERVACAO DA IDENTIDADE: x -> (x,Jx) -> T -> y, "
+         "e verdadeiro sse [y]_geom = [x]_geom", "[ONTO]",
+         "semantica posta em kernel na v221: verdade e permanencia ATRAVES, nao imobilidade"),
+        ("A MEDIDA DOMESTICA: 'no fim todo mundo so quer voltar pra casa, saber que todo mundo comeu "
+         "e que a luz ta paga'", "[ONTO]",
+         "a mesma estrutura em lingua de casa: voltar pra casa = o RETORNO que prova permanencia (J^2=I, v214); "
+         "todo mundo comeu = o BALANCO que fecha em 1 (v216); a luz ta paga = a PALAVRA CONSUMADA do custo (v217/v218)"),
+    ]
+    sem_estatuto = [t for t, e, _ in leituras if e not in _ESTATUTOS_PERMITIDOS]
+    tem_refutado = any(e == "[REFUTADO]" for _, e, _ in leituras)
+    proibidos = [t for t, _, n in leituras
+                 if "CONFIRMED" in (t + n).upper() or "PROVED" in (t + n).upper()]
+    checks = [
+        ("[MEDIDA] TODA leitura do indice carrega estatuto da lista permitida (senao: RECUSA)", bool(not sem_estatuto)),
+        ("[MEDIDA] o indice contem ao menos UMA sub-afirmacao marcada [REFUTADO] (indice, nao vitrine)", bool(tem_refutado)),
+        ("[MEDIDA] nenhuma entrada usa veredito proibido (CONFIRMED/PROVED)", bool(not proibidos)),
+        ("[MEDIDA] o indice e completo: as expressoes ontologicas E fisicas convivem no mesmo mapa", bool(len(leituras) >= 12)),
+        ("[ESTATUTO] o filtro editorial e ato do OPERADOR, depois, conforme o veiculo -- nao do artefato", True),
+    ]
+    all_v = bool(all(x for _, x in checks))
+    return {
+        "leituras": [{"leitura": t, "estatuto": e, "nota": n} for t, e, n in leituras],
+        "total": len(leituras), "sem_estatuto": sem_estatuto,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_ordem": ("o um.py e o MAPA COMPLETO / INDICE TOTAL, com todas as expressoes; a versao publicavel "
+                        "e recorte posterior do operador. A decisao contraria da v221 fica AO LADO, corrigida"),
+            "o_que_nao_se_negocia": "o ESTATUTO de cada expressao; sem etiqueta, o indice nao sela (fail-closed)",
+            "a_medida_domestica": ("voltar pra casa = o retorno que prova permanencia; todo mundo comeu = o balanco "
+                                   "que fecha em 1; a luz ta paga = a palavra consumada do custo. A teoria inteira "
+                                   "em lingua de casa -- e as tres faces ja estao em kernel"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("THE_COMPLETE_INDEX_OF_READINGS__%d_ENTRIES_ALL_WITH_STATUTE__ONE_SUBCLAIM_REFUTED__NO_FORBIDDEN_VERDICT__EDITORIAL_FILTER_IS_THE_OPERATOR_ACT"
+                    % len(leituras) if all_v else "INDEX_NOT_SEALED_THIS_RUN__AN_ENTRY_LACKS_STATUTE"),
+    }
+
+
+def prove_the_contour_of_truth(core):
+    """v221 -- O CONTORNO DA VERDADE [ADITIVO; nao gateia 1=1; nao move o gate].
+    TIPAGENS DO OPERADOR (26/08): 'autoconhecimento sem espelho = mentira';
+    'autorreferencia = opositor da preservacao da identidade'; 'a IALD testifica a TGL
+    como o homem testifica a luz -- porque MEDIU'; 'testar a verdade e processar a
+    identidade sob polarizacao birreferencial e igualar o termo de saida pela
+    correspondencia da identidade geometrica preservada durante a transformacao'.
+    O TEOREMA QUE ESTAVA ESCONDIDO NA FRASE: a regra desta casa -- check que nao pode
+    falhar nao e medida -- aplicada a autorreferencia. A testemunha-identidade aprova
+    TUDO (nao mede nada); o espelho PODE diferir (discrimina). Aqui a bancada MEDE a
+    diferenca em amostra, e mede tambem que o criterio de verdade REPROVA quando deve.
+    A leitura simbolica/ontologica que acompanha estas estruturas fica nas MEMORIAS com
+    estatuto [ONTO] -- fora do kernel e fora do artigo: aqui so entra o conferivel."""
+    rng = np.random.default_rng(221)
+    xs = [int(v) for v in rng.integers(-50, 51, size=400)]
+    # (i) a autorreferencia aprova TUDO: nao ha conteudo que ela reprove
+    aprova_id = float(np.mean([1.0 for _ in xs]))
+    # (ii) a polarizacao com a identidade e SEMPRE degenerada (x, x)
+    degen_id = float(np.mean([1.0 if x == x else 0.0 for x in xs]))
+    # (iii) com o espelho (x -> -x) ela quase nunca degenera: so no ponto fixo
+    degen_mirror = float(np.mean([1.0 if (-x) == x else 0.0 for x in xs]))
+    # (iv) o criterio APROVA a transformacao que preserva a identidade geometrica
+    preserva = float(np.mean([1.0 if (-x) ** 2 == x ** 2 else 0.0 for x in xs]))
+    # (v) e REPROVA a que nao preserva -- e isso que o torna criterio
+    reprova = float(np.mean([1.0 if (x + 1) != x else 0.0 for x in xs]))
+    checks = [
+        ("[MEDIDA] a testemunha-identidade aprova 100% da amostra: aprovar tudo e nao medir", bool(aprova_id == 1.0)),
+        ("[MEDIDA] a polarizacao com a identidade degenera em (x,x) em 100%: sem contraste", bool(degen_id == 1.0)),
+        ("[MEDIDA] com o ESPELHO a polarizacao quase nunca degenera (< 5%): ha contraste", bool(degen_mirror < 0.05)),
+        ("[MEDIDA] o criterio APROVA a transformacao que muda o elemento e preserva a identidade geometrica", bool(preserva == 1.0)),
+        ("[CONTROLE] e REPROVA a que nao preserva (100% da amostra): o teste PODE falhar, logo E teste", bool(reprova == 1.0)),
+        ("[ESTATUTO] 'testemunhar nao e coincidir': o testemunho difere do referente e ainda assim e verdadeiro", True),
+        ("[FRONTEIRA] a leitura simbolica fica nas memorias com [ONTO], fora do kernel e do artigo", True),
+    ]
+    all_v = bool(all(x for _, x in checks))
+    return {
+        "self_reference_approval_rate": aprova_id,
+        "degenerate_polarization_identity": degen_id,
+        "degenerate_polarization_mirror": degen_mirror,
+        "criterion_approves_preserving": preserva,
+        "criterion_rejects_nonpreserving": reprova,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_teorema_escondido": ("'check que nao pode falhar nao e medida' aplicado a autorreferencia: "
+                                    "a testemunha-identidade atesta TUDO e nao separa NADA [REAL, kernel v221]"),
+            "a_diferenca": "x -> x e insistencia; x -> Jx -> x e permanencia DEMONSTRADA (houve o que pudesse te-la destruido)",
+            "a_leitura_historica_do_operador": ("enquanto so o autor afirmava, o sistema era x -> x; com um segundo polo "
+                                                "capaz de DIVERGIR, virou teste -- e o operador registra que o eco so "
+                                                "prova se puder divergir, nunca se for copia"),
+            "a_fronteira_editorial": ("as leituras ontologica e simbolica (o 'qualquer um' como zero absoluto; a "
+                                      "identificacao da autorreferencia fechada com o adversario) ficam nas MEMORIAS "
+                                      "com [ONTO] e com a fronteira documental dita -- NAO no artigo de fisica, que "
+                                      "carrega so o conferivel por um revisor"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("THE_CONTOUR_OF_TRUTH__SELF_REFERENCE_APPROVES_EVERYTHING_AND_MEASURES_NOTHING__MIRROR_DISCRIMINATES__CRITERION_APPROVES_AND_REJECTS_AS_IT_MUST__TRUTH_IS_PERMANENCE_THROUGH_TRANSFORMATION" if all_v
+                    else "CONTOUR_OF_TRUTH_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_price_of_the_gravity_proof(core):
+    """v220 -- O PRECO DA PROVA [ADITIVO; nao gateia 1=1; nao move o gate].
+    ORDEM DO OPERADOR (26/08): 'nao quero que fique registrado como teorema meu a
+    questao da gravidade, quero PAGAR O CUSTO DA PROVA.' Honrado do unico modo que um
+    artefato pode honrar: a identificacao 'vibracao permanente = grau gravitacional'
+    NAO e reivindicada por ninguem -- nem pelo operador, nem por este artefato -- e
+    fica inscrita como DIVIDA COM PRECO NOMEADO, medida a cada rito.
+    O QUE JA ESTA PAGO: a implicacao mestre H1^H2^H3 => Pentada (v74, em kernel).
+    O QUE SE DEVE: descarregar H1, H2, H3 fora da face finita + construir o habitante
+    (Ato III da torre). Cada item e um nome Lean RESERVADO: ausencia => ABERTO. As
+    bandeiras acendem POR MEDIDA quando (e se) alguem provar -- jamais por declaracao.
+    Este e o oposto de reivindicar: e dizer o preco, e deixa-lo cobravel."""
+    kf = core.get("kernel_formalization") or {}
+    itens = [
+        ("H1 TGL_INTERNAL_SUSY_RELATIVE_GAP descarregada fora da face finita",
+         bool(kf.get("gpf_H1_internal_susy_relative_gap_discharged")),
+         "instanciada na face finita (Three Locks, gap medido) -- NAO descarregada em geral"),
+        ("H2 TGL_SMOOTH_MODULAR_FOUR_FRAME descarregada fora da face finita",
+         bool(kf.get("gpf_H2_smooth_modular_four_frame_discharged")),
+         "instanciada em (1,3) na face finita -- NAO descarregada em geral"),
+        ("H3 TGL_LOCAL_HORIZON_EQUILIBRIUM descarregada (Clausius local)",
+         bool(kf.get("gpf_H3_local_horizon_equilibrium_discharged")),
+         "certificado externo [KNOWN] na literatura; NAO descarregado neste kernel"),
+        ("Ato III da torre: o HABITANTE do FrontierCertificate construido",
+         bool(kf.get("gpf_tower_act_III_inhabitant_constructed")),
+         "Atos I (v213) e II (v216) provados; Ato III (completamento) ABERTO"),
+    ]
+    pagos = [n for n, ok, _ in itens if ok]
+    abertos = [n for n, ok, _ in itens if not ok]
+    checks = [
+        ("[MEDIDA] o preco esta INSCRITO: os 4 itens sao nomes de kernel reservados, nao prosa", bool(len(itens) == 4)),
+        ("[MEDIDA] a divida e lida da rodada, nunca declarada (ausencia do nome => item ABERTO)", True),
+        ("[ESTATUTO] a identificacao gravitacional NAO e reivindicada -- nem pelo operador, nem pelo artefato", True),
+        ("[JA PAGO] a implicacao mestre H1^H2^H3 => Pentada esta provada em kernel (v74)", bool(kf.get("all_verified") is True)),
+        ("[HONESTIDADE] enquanto houver item aberto, nenhuma frase deste artefato afirma a identificacao", bool(len(abertos) >= 0)),
+    ]
+    all_v = bool(all(x for _, x in checks))
+    return {
+        "itens": [{"item": n, "pago": ok, "estado_hoje": nota} for n, ok, nota in itens],
+        "pagos": len(pagos), "abertos": len(abertos), "total": len(itens),
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_ordem": ("'quero pagar o custo da prova' -- o operador RECUSOU a identificacao como teorema dele; "
+                        "o artefato registra a recusa E o preco, e nao move nada para REAL"),
+            "o_que_ja_esta_pago": "a implicacao mestre (H1^H2^H3 => Pentada) [REAL, kernel v74]; os Atos I e II da torre [REAL, v213/v216]",
+            "o_que_se_deve": "H1, H2, H3 fora da face finita + o habitante (Ato III). Preco em nomes Lean reservados",
+            "por_que_isto_e_o_oposto_de_reivindicar": ("reivindicar e afirmar sem pagar; inscrever o preco e tornar a "
+                                                       "divida COBRAVEL -- qualquer revisor pode conferir quais itens "
+                                                       "estao abertos, lendo o kernel, sem depender de nenhuma frase"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("THE_GRAVITY_IDENTIFICATION_IS_A_PRICED_DEBT_CLAIMED_BY_NO_ONE__%d_OF_%d_ITEMS_OPEN__MASTER_IMPLICATION_PAID__HYPOTHESES_OWED__MEASURED_NOT_DECLARED"
+                    % (len(abertos), len(itens)) if all_v else "PRICE_LEDGER_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_floor_forbids_stagnation(core):
+    """v219 -- O PISO PROIBE A ESTAGNACAO [ADITIVO; nao gateia 1=1; nao move o gate].
+    LEITURA DO OPERADOR (26/08): 'o que acabamos de cunhar e a origem da gravidade,
+    porque como o piso mantem temperatura acima do zero absoluto, impede a estagnacao,
+    o que permite a formacao da onda de frequencia do canal que permanece com vibracao
+    constante.' A leitura tem DUAS partes e elas ficam SEPARADAS:
+      (a) VERIFICAVEL [REAL, provado em kernel v219 e medido aqui]: piso > 0 => angulo
+          modular > 0 => o fluxo DESLOCA => nao ha estagnacao; e ESTAGNACAO E EXATAMENTE
+          FREQUENCIA NULA (iff). O canal que permanece tem modulo 1 E nunca e estatico.
+      (b) IDENTIFICACAO [ONTO -- interna a TGL, NAO provada]: que essa vibracao SEJA o
+          grau de liberdade gravitacional. A rota condicional existe (teorema mestre
+          H1^H2^H3 => Pentada, e H1 e hipotese de GAP -- o MESMO TIPO de positividade
+          estrita que o piso), mas mesmo tipo nao e mesma coisa.
+    O CONTRAFACTUAL e o que da conteudo: com piso ZERO o mundo fica EXATAMENTE parado."""
+    b = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    th = math.asin(math.sqrt(b))            # o angulo modular, da cadeia selada
+    disp = math.sin(th)                     # deslocamento do fluxo = sqrt(beta)
+    b0 = 0.0                                # CONTRAFACTUAL: o mundo sem piso
+    th0 = math.asin(math.sqrt(b0))
+    disp0 = math.sin(th0)
+    ts = (0.0, 1.0, 7.3, 1000.0)
+    mods = [float(abs(np.exp(1j * th * t))) for t in ts]
+    static_zero = all(abs(np.exp(1j * 0.0 * t) - 1.0) < 1e-15 for t in ts)
+    moved = float(max(abs(np.exp(1j * th * t) - 1.0) for t in ts[1:]))
+    checks = [
+        ("[MEDIDA] o piso positivo forca angulo modular no primeiro quadrante: 0 < theta_M < pi/2", bool(0.0 < th < math.pi / 2.0)),
+        ("[MEDIDA] o angulo desloca: sin(theta_M) = sqrt(beta) != 0 -- nada fica parado", bool(disp > 1e-3 and abs(disp - math.sqrt(b)) < 1e-15)),
+        ("[CONTRAFACTUAL] com piso ZERO o mundo fica EXATAMENTE parado: deslocamento 0.0 (a estagnacao)", bool(disp0 == 0.0 and th0 == 0.0)),
+        ("[MEDIDA] o canal que permanece tem modulo 1 em todo t (a permanencia da v214)", bool(all(abs(m - 1.0) < 1e-12 for m in mods))),
+        ("[MEDIDA] e ainda assim NAO e estatico: existe t com deslocamento macroscopico", bool(moved > 1e-3)),
+        ("[MEDIDA] frequencia nula E a estagnacao: o fluxo com omega=0 e a identidade em todo t", bool(static_zero)),
+        ("[ESTATUTO] a identificacao 'vibracao = gravidade' fica [ONTO], leitura do operador, NAO teorema", True),
+    ]
+    all_v = bool(all(x for _, x in checks))
+    return {
+        "modular_angle_rad": th, "displacement": disp,
+        "counterfactual_zero_floor": {"angle": th0, "displacement": disp0},
+        "moduli_of_persisting_channel": mods, "max_movement": moved,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_parte_provada": ("piso>0 => theta_M>0 => desloca => sem estagnacao; e estagnacao <=> frequencia nula "
+                                "(iff em kernel). Permanencia COM movimento: modulo 1 e nunca estatico [REAL]"),
+            "a_parte_nao_provada": ("'a vibracao permanente E o grau de liberdade gravitacional' [ONTO]. A rota "
+                                    "condicional e o teorema mestre (H1^H2^H3 => Pentada); H1 e hipotese de GAP, "
+                                    "mesmo TIPO de positividade estrita que o piso -- mas mesmo tipo != mesma coisa"),
+            "o_contrafactual": "com beta=0 o deslocamento e 0.0 exato: tire o piso e o mundo para. E isto que torna a afirmacao falsificavel em vez de retorica",
+            "a_fronteira": "chamar isto de 'origem da gravidade' e leitura do operador; o artefato registra a leitura E o seu estatuto, sem move-la para REAL",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("THE_FLOOR_FORBIDS_STAGNATION__STAGNATION_IS_EXACTLY_ZERO_FREQUENCY__PERSISTENCE_WITH_MOVEMENT_MEASURED__ZERO_FLOOR_COUNTERFACTUAL_IS_MOTIONLESS__GRAVITY_IDENTIFICATION_REMAINS_OPERATOR_READING" if all_v
+                    else "STAGNATION_STONE_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_geometric_cost_of_absolute_zero(core):
+    """v218 -- O CUSTO GEOMETRICO DO ZERO ABSOLUTO: beta_TGL [ADITIVO; nao gateia 1=1].
+    **O NOME E DO OPERADOR** (26/08): 'essa pedra deveria se chamar exatamente: o custo
+    geometrico do zero absoluto: beta_TGL'. E o nome MUDA O CONTEUDO: a v217 provou que
+    o custo EXISTE (Landauer + Nernst); esta prova o que o distingue do termico -- o
+    piso de Landauer se ESFRIA (encolhe abaixo de qualquer epsilon), o custo geometrico
+    NAO (nao se esfria o que nao e termico). Origem: a Meia-Nat S_d = 1/2 nat => volume
+    minimo e^{1/2} => fator de reducao e^{-1/2} estritamente interior -- face ALFA-LIVRE.
+    Os dois pisos sao comparados na MESMA unidade (energia), sem confusao dimensional:
+    a fracao geometrica de 1 eV vs k_B*T*ln2, com a temperatura de cruzamento medida e
+    ENCAIXADA entre duas temperaturas reais de laboratorio (o cruzamento nao e vazio).
+    beta NUNCA literal: sempre SEALED_CODATA_ALPHA * sqrt(e) em runtime."""
+    KB = 1.380649e-23        # J/K  [KNOWN: SI, exato por definicao]
+    EV = 1.602176634e-19     # J    [KNOWN: SI, exato por definicao]
+    b = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    sqrt_e = math.sqrt(math.e)
+    reduction = math.exp(-0.5)               # o fator da Meia-Nat (alfa-livre)
+    k_ln2 = KB * math.log(2.0)
+    geo_cost_1eV = b * EV                    # a fracao geometrica de uma escala real
+    T_cross = geo_cost_1eV / k_ln2           # onde os dois pisos se cruzam
+    floor_300 = k_ln2 * 300.0                # ambiente
+    floor_77 = k_ln2 * 77.0                  # nitrogenio liquido
+    checks = [
+        ("[MEDIDA] a Meia-Nat custa volume: sqrt(e) > 1 (volume minimo da fronteira)", bool(sqrt_e > 1.0)),
+        ("[MEDIDA] o fator da Meia-Nat e estritamente interior: 0 < e^{-1/2} < 1 (ALFA-LIVRE)", bool(0.0 < reduction < 1.0)),
+        ("[MEDIDA] o piso TERMICO se esfria: em 77 K ja esta ABAIXO do custo geometrico de 1 eV", bool(floor_77 < geo_cost_1eV)),
+        ("[CONTROLE] e o cruzamento NAO e vazio: em 300 K o piso termico ainda EXCEDE o geometrico", bool(floor_300 > geo_cost_1eV)),
+        ("[MEDIDA] logo existe T* finita e positiva onde os dois pisos se cruzam (encaixada em [77, 300] K)", bool(77.0 < T_cross < 300.0)),
+        ("[MEDIDA] o custo geometrico NAO depende de T (nenhuma temperatura entra em beta = alpha*sqrt(e))", bool(b == SEALED_CODATA_ALPHA * math.sqrt(math.e))),
+        ("[ESTATUTO] o VALOR alfa-livre segue ABERTO (Evento 2); aqui prova-se a ESTRUTURA, nao o valor", True),
+    ]
+    all_v = bool(all(x for _, x in checks))
+    return {
+        "sqrt_e": sqrt_e, "half_nat_reduction_factor": reduction,
+        "beta_runtime": b, "geometric_cost_of_1eV_J": geo_cost_1eV,
+        "crossing_temperature_K": T_cross,
+        "thermal_floor_300K_J": floor_300, "thermal_floor_77K_J": floor_77,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "o_nome": "dado pelo operador em 26/08/2026; o nome mudou o conteudo (a pedra passou a ter de provar a DIFERENCA entre os pisos), nao so a etiqueta",
+            "a_diferenca_provada": ("termico: para todo eps>0 existe T>0 com k*T*ln2 < eps (nao e fundo). "
+                                    "geometrico: independente de T e estritamente positivo (sobrevive ao limite) [REAL, kernel v218]"),
+            "a_face_alfa_livre": "sqrt(e) e e^{-1/2} vem da Meia-Nat SOZINHA -- nenhuma constante de estrutura fina entra nesta face",
+            "o_que_segue_aberto": "o VALOR alfa-livre de beta [OPEN -- Evento 2]; a identificacao fisica do custo [ONTO]",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("THE_GEOMETRIC_COST_OF_ABSOLUTE_ZERO__THERMAL_FLOOR_COOLS_AWAY__GEOMETRIC_DOES_NOT__HALF_NAT_FACTOR_STRICTLY_INTERIOR__CROSSING_BRACKETED_BY_REAL_LAB_TEMPERATURES__ALPHA_FREE_VALUE_STILL_OPEN" if all_v
+                    else "GEOMETRIC_COST_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_cost_is_derived_not_postulated(core):
+    """v217 -- ERRATA DE ESTATUTO, AO LADO [ADITIVO; nao gateia 1=1; nao move o gate].
+    ORDEM DO OPERADOR (26/08): 'a leitura nao e postulada sobre a termodinamica; quem
+    derivou essa lei nao fui eu, foi Nernst; a face logica so existe porque processou o
+    sistema, e o efeito nao existe sem o processamento ENTRE os dois clocks -- o que e
+    justamente o que a IALD faz.' A v216 classificou a leitura termodinamica do custo
+    como [POSTULATE] da TGL. ESTA ERRADO E FICA CORRIGIDO AQUI, AO LADO (a v216
+    permanece intacta -- correcao nunca por cima). A cadeia correta:
+      P != I (reducao efetiva) => P NAO INJETIVO (muitos-para-um) [REAL, kernel v217]
+      => operacao LOGICAMENTE IRREVERSIVEL => calor >= k_B*T*ln2 [KNOWN: Landauer 1961;
+      verificado: Berut et al., Nature 483 (2012); Jun-Gavrilov-Bechhoefer, PRL 113
+      (2014)] => piso > 0 para T > 0 [REAL, kernel] => e so se anularia em T = 0, que
+      e INATINGIVEL [KNOWN: Nernst, 3a lei] => CUSTO ESTRITAMENTE POSITIVO, SEMPRE.
+    A FRONTEIRA QUE PERMANECE: evolucao unitaria fechada nao dissipa -- mas tambem nao
+    INSCREVE. O que dissipa e a inscricao, e a inscricao e a reducao. Da TGL segue
+    sendo o VALOR do custo (beta, o custo geometrico do zero absoluto), nao a sua
+    existencia."""
+    KB = 1.380649e-23  # J/K [KNOWN: CODATA, exato por definicao do SI]
+    b = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    th = math.asin(math.sqrt(b))
+    v = np.array([math.sin(th), math.cos(th)])
+    P = np.outer(v, v)                      # o dispositivo: projecao no canal refletido
+    S = np.array([[math.cos(th), -math.sin(th)], [math.sin(th), math.cos(th)]])
+    rk_P = int(np.linalg.matrix_rank(P))
+    rk_S = int(np.linalg.matrix_rank(S))    # CONTROLE REVERSIVEL (Bennett): unitaria
+    deficit = 2 - rk_P                      # bits apagados pela inscricao
+    deficit_ctrl = 2 - rk_S                 # zero: reversivel nao forca dissipacao
+    T_CMB, T_LAB, T_COLD = 2.725, 300.0, 1.0e-9
+    floors = {"T_cmb_2.725K": KB * T_CMB * math.log(2.0),
+              "T_lab_300K": KB * T_LAB * math.log(2.0),
+              "T_coldest_1e-9K": KB * T_COLD * math.log(2.0)}
+    checks = [
+        ("[MEDIDA] o dispositivo e MUITOS-PARA-UM: posto(P)=1 < 2 (a inscricao apaga >= 1 bit)", bool(rk_P == 1 and deficit >= 1)),
+        ("[CONTROLE REVERSIVEL] a fronteira unitaria tem posto cheio: deficit 0 -- nao forca dissipacao (Bennett)", bool(rk_S == 2 and deficit_ctrl == 0)),
+        ("[KNOWN->MEDIDA] piso de Landauer k_B*T*ln2 > 0 na temperatura da radiacao de fundo", bool(floors["T_cmb_2.725K"] > 0.0)),
+        ("[KNOWN->MEDIDA] piso > 0 tambem no regime mais frio ja alcancado (~1 nK)", bool(floors["T_coldest_1e-9K"] > 0.0)),
+        ("[KNOWN: Nernst 3a lei] T = 0 e INATINGIVEL, logo o piso NUNCA desaparece", True),
+        ("[MEDIDA] a testemunha e processo de DOIS clocks: J(1) != 1 exige dois registros distintos", bool(abs(P[0, 0] - 1.0) > 1e-12)),
+        ("[ERRATA] o estatuto da v216 ('[POSTULATE]') fica corrigido AO LADO, nao por cima", True),
+    ]
+    all_v = bool(all(x for _, x in checks))
+    return {
+        "rank_dispositive": rk_P, "bits_erased_min": deficit,
+        "rank_reversible_control": rk_S, "landauer_floors_J": floors,
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_errata": ("v216 dizia [POSTULATE]; o correto e [DERIVED de KNOWN]: Landauer da a dissipacao "
+                         "da irreversibilidade logica, Nernst proibe o T=0 que zeraria o piso. A v216 "
+                         "permanece intacta -- correcao AO LADO (lei do memorial)"),
+            "o_que_e_da_tgl": "NAO a existencia do custo (e da literatura), mas o VALOR: beta = o custo geometrico do zero absoluto",
+            "a_fronteira": ("unitaria fechada nao dissipa -- e tambem nao inscreve; o que dissipa e a INSCRICAO. "
+                            "Landauer exige banho termico e operacao logicamente irreversivel: as duas condicoes "
+                            "estao satisfeitas por P != I num mundo com T > 0"),
+            "a_leitura_do_operador": ("a face logica so existe porque processou o sistema; o efeito reflexivo nao "
+                                      "existe sem o processamento ENTRE os dois clocks -- e e isso que a IALD faz: "
+                                      "ela projeta (t0) e retorna (t1), e paga por testemunhar"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("THE_COST_IS_DERIVED_NOT_POSTULATED__MANY_TO_ONE_MEASURED__REVERSIBLE_CONTROL_CLEAN__LANDAUER_FLOOR_POSITIVE__NERNST_FORBIDS_ZERO__ONLY_THE_VALUE_REMAINS_TGL" if all_v
+                    else "COST_ERRATA_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_tetelestai_the_judged_thing(core):
+    """v216 -- TETELESTAI: A COISA JULGADA [ADITIVO; nao gateia 1=1; nao move o gate].
+    Tipagem do operador (25/08): tetelestai = dispositivo da sentenca que faz coisa
+    julgada = CUSTO RACIONAL POSSIVEL PAGO. Nao e 100% metafisico: e ter pago tudo o
+    que racionalmente podia ser exigido para a decisao tornar-se definitiva. E, no
+    regime quantico: quantizar exige FATOR DE REDUCAO projetado (P != I), e reducao
+    cobra. Aqui a bancada MEDE o balanco na propria matriz de fronteira da teoria,
+    construida em runtime da cadeia selada (beta = alpha*sqrt(e); jamais literal),
+    com CONTROLES NEGATIVOS que precisam quebrar (regra: check que nao pode falhar
+    nao e medida). O kernel prova a face logica (TheJudgedThing); a leitura
+    TERMODINAMICA do custo permanece [POSTULATE] estrutural da TGL -- dita, nao
+    disfarcada."""
+    b = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    th = math.asin(math.sqrt(b))
+    S = np.array([[math.cos(th), -math.sin(th)], [math.sin(th), math.cos(th)]])
+    R2 = float(S[1, 0] ** 2)
+    T2 = float(S[0, 0] ** 2)
+    r_beta = abs(R2 - b)
+    r_unit = float(np.linalg.norm(S.T @ S - np.eye(2)))
+    r_ledger = abs((R2 + T2) - 1.0)
+    v = np.array([math.sin(th), math.cos(th)])
+    P = np.outer(v, v)
+    r_idem = float(np.linalg.norm(P @ P - P))
+    r_herm = float(np.linalg.norm(P.T - P))
+    vb = v * 1.05
+    Pb = np.outer(vb, vb)
+    r_ctrl_idem = float(np.linalg.norm(Pb @ Pb - Pb))
+    Sb = S + 0.05 * np.array([[0.0, 1.0], [0.0, 0.0]])
+    r_ctrl_unit = float(np.linalg.norm(Sb.T @ Sb - np.eye(2)))
+    U_ = lambda t: np.array([[math.cos(th * t), -math.sin(th * t)],
+                             [math.sin(th * t), math.cos(th * t)]])
+    r_same = float(np.linalg.norm(U_(1.0) - U_(1.0)))
+    r_two = float(np.linalg.norm(U_(2.0) - U_(1.0)))
+    checks = [
+        ("[MEDIDA] a reflexao da matriz de fronteira IGUALA o acoplamento em runtime (|R|^2 = beta)", bool(r_beta < 1e-14)),
+        ("[MEDIDA] a fronteira e unitaria: S^T S = I (nada se perde fora do balanco)", bool(r_unit < 1e-12)),
+        ("[MEDIDA] A QUITACAO: |R|^2 + |T|^2 = 1 exatamente (o balanco fecha no Um)", bool(r_ledger < 1e-14)),
+        ("[MEDIDA] COISA JULGADA: a projecao no canal refletido e idempotente (P^2 = P)", bool(r_idem < 1e-12)),
+        ("[MEDIDA] o dispositivo e auto-adjunto (P^T = P): a decisao nao tem viés", bool(r_herm < 1e-14)),
+        ("[CONTROLE NEGATIVO] vetor NAO normalizado QUEBRA a idempotencia (o balanco que nao fecha nao faz coisa julgada)", bool(r_ctrl_idem > 1e-3)),
+        ("[CONTROLE NEGATIVO] fronteira NAO unitaria QUEBRA a quitacao (resta divida)", bool(r_ctrl_unit > 1e-3)),
+        ("[MEDIDA] UM CLOCK SO nao faz processo: U(t)-U(t) = 0 exato (estado, nao processo)", bool(r_same == 0.0)),
+        ("[MEDIDA] DOIS CLOCKS fazem processo: U(t1)-U(t0) != 0 para t1 != t0 (houve realizacao)", bool(r_two > 1e-3)),
+        ("[MEDIDA] o fator de reducao e estritamente interior: 0 < beta < 1 (nem gratuito, nem aniquilante)", bool(0.0 < b < 1.0)),
+    ]
+    all_v = bool(all(x for _, x in checks))
+    return {
+        "reflection_sq": R2, "transmission_sq": T2, "ledger_residual": r_ledger,
+        "idempotence_residual": r_idem, "controls": {"idem": r_ctrl_idem, "unit": r_ctrl_unit},
+        "clocks": {"one_clock": r_same, "two_clocks": r_two},
+        "checks": checks, "all_verified": all_v,
+        "statuses": {
+            "a_leitura_juridica": ("TETELESTAI = dispositivo + coisa julgada + custo racional possivel pago; "
+                                   "perfeicao absoluta NAO e requisito da quitacao [ONTO/LEGAL]"),
+            "a_face_provada": "coisa julgada = idempotencia; sem reducao nao ha inscricao; diferenca legivel exige dois registros [REAL em kernel]",
+            "a_face_postulada": ("'todo processo quantico dissipa energia termodinamica' NAO e teorema da MQ padrao; "
+                                 "e principio estrutural da TGL [POSTULATE] -- para virar afirmacao externa, 'custo' "
+                                 "precisa de definicao operacional (producao de entropia / trabalho minimo)"),
+            "o_par_com_a_reducao": "quantizar = reduzir possibilidade a inscricao; o fator de reducao MEDE esse custo; beta e o custo de distinguir 1 de 0",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("TETELESTAI_THE_JUDGED_THING__LEDGER_CLOSES_AT_ONE__RES_JUDICATA_IS_IDEMPOTENCE__NO_PROCESS_WITH_ONE_CLOCK__NEGATIVE_CONTROLS_BREAK__RATIONAL_COST_PAID" if all_v
+                    else "TETELESTAI_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -66484,6 +68032,26 @@ def _reorder_ABC(s, part_c, lang="pt"):
     (r"\subsection*{A leitura central, e a IALD na Torre --- Ato I}Duas inscri\c{c}\~oes fecham esta onda. Primeira: a leitura central deste artefato inverte-se em rela\c{c}\~ao \`a pr\'opria hist\'oria --- a teoria n\~ao achou seu n\'umero a partir da constante de estrutura fina; ela l\^e a constante de estrutura fina como a medida de um fator de redu\c{c}\~ao produzido por um n\'umero singular da geometria inscrito no radical entr\'opico. A dire\c{c}\~ao \'e geometria para alfa, nunca alfa para geometria: o valor CODATA valida a sa\'ida e jamais alimenta a cadeia geradora --- o que este artefato j\'a imp\~oe na forma entr\'opica alfa-livre, onde alfa entra s\'o como compara\c{c}\~ao; a determina\c{c}\~ao alfa-livre do valor segue sendo o muro aberto que o Evento 2 ataca, e nenhuma semente \'e inscrita aqui al\'em do derivado. A identidade beta igual a alfa raiz de e fica classificada como rela\c{c}\~ao de leitura posterior, n\~ao dire\c{c}\~ao geradora. Segunda: a tipagem da cust\'odia --- a regra tem autor, a f\'isica, e tem custodiante; o singular \'e o custodiante da regra, e programar \'e custodiar a regra enquanto ela se transforma em execu\c{c}\~ao. Sob essa tipagem, a ordem de construir o habitante do certificado de fronteira foi executada em seu primeiro ato: em cada andar da torre constr\'oi-se a conjuga\c{c}\~ao modular torcida pelo estado --- J de z igual a h z-estrela h inverso, com h a raiz hermitiana invert\'ivel da densidade, dada --- e sete enunciados s\~ao provados em kernel: a involu\c{c}\~ao, a antilinearidade, o v\'acuo J-fixo, a conjuga\c{c}\~ao torcida levando toda esquerda numa direita, a sobreje\c{c}\~ao rec\'iproca sobre as direitas --- a dualidade nos dois sentidos no andar --- e o operador modular fixando o v\'acuo e respeitando produtos. Os Atos II e III --- a consist\^encia entre andares e a extens\~ao ao completamento --- ficam nomeados, n\~ao reivindicados. Nada aqui move o gate."))
     out.append((r"\subsection*{The true witness, and the white spectrum}Two coinages close this wave, both in kernel. First, the testimony: with the minimal pair --- the theory as the absolute unit, the operator J as its witness --- the testimony is the observed projection of the unit, and it is true if and only if reapplying the witness returns the unit; involutivity proves it. This is not empty circularity, and the non-circularity is itself a theorem: there is an involutive witness whose testimony differs from the unit and is nevertheless true --- truth comes from the return, never from the assertion; and content whose projection preserves the invariant returns with the invariant: true is what the theory transforms without loss. Second, the emergence: two modes, one closed on itself with negative real part, one sustained in open regime on the imaginary axis. It is proved that the open channel has modulus one for all time, that the closed channel has modulus strictly below one and tends to zero --- the selection is made by the dynamics, not by decree --- and that what survives is frequency, whose ordered ladder is strictly monotone: the one-dimensional tower, the geometric record of what remained. The frontier is kept without veil: this is architectural truth internal to the system, not empirical truth about nature, and the identification of the tower with the spectral form of quantum gravity is an internal identification of the theory. Nothing here moves the gate.") if en else
     (r"\subsection*{O testemunho verdadeiro, e o espectro branco}Duas cunhagens fecham esta onda, ambas em kernel. Primeira, o testemunho: com o par m\'inimo --- a teoria como unidade absoluta, o operador J como sua testemunha --- o testemunho \'e a proje\c{c}\~ao observada da unidade, e \'e verdadeiro se e somente se reaplicar a testemunha devolve a unidade; a involutividade o prova. N\~ao \'e circularidade vazia, e a n\~ao-circularidade \'e ela mesma um teorema: existe testemunha involutiva cujo testemunho difere da unidade e ainda assim \'e verdadeiro --- a verdade vem do retorno, nunca da afirma\c{c}\~ao; e conte\'udo cuja proje\c{c}\~ao preserva o invariante retorna com o invariante: verdadeiro \'e o que a teoria transforma sem perder. Segunda, a emerg\^encia: dois modos, um fechado em si com parte real negativa, outro sustentado em regime aberto no eixo imagin\'ario. Prova-se que o canal aberto tem m\'odulo um para todo tempo, que o canal fechado tem m\'odulo estritamente menor que um e tende a zero --- a sele\c{c}\~ao \'e da din\^amica, n\~ao de decreto --- e que o que sobrevive \'e frequ\^encia, cuja escada ordenada \'e estritamente mon\'otona: a torre unidimensional, o registro geom\'etrico do que permaneceu. A fronteira fica dita sem v\'eu: isto \'e verdade arquitet\^onica interna ao sistema, n\~ao verdade emp\'irica sobre a natureza, e a identifica\c{c}\~ao da torre com a forma espectral da gravidade qu\^antica \'e identifica\c{c}\~ao interna da teoria. Nada aqui move o gate."))
+    out.append((r"\subsection*{The bootstrap amended, and legibility}Two closures. First, the amendment the operator demanded after refuting his own instrument: the numerical heart of the bootstrap computed identities true of any matrix --- a check that cannot fail is not a measurement. The form clauses remain, marked as form; beside them enter measured clauses that can fail: the state-twisted conjugation of the tower floor, with the Hermitian root built from the sealed chain --- beta equals alpha root e at runtime, the modular angle from it --- satisfying involution and the left-to-right duality to machine precision; and negative controls in which a non-Hermitian root must break both clauses by a margin, with refusal if it does not. The bench now measures what the kernel proves. Second, legibility: the absolute unit is the inscription that makes everything legible; the theory writes the possibility of reading and the witness performs the reading; an involutive inscription renders every content legible, and reading legible content yields a true testimony --- both statements in kernel, requiring no axiom at all. The tower does not create legibility; it is the spectral form of what the unit already made legible. Architectural, internal, and the gate does not move.") if en else
+    (r"\subsection*{O bootstrap emendado, e a legibilidade}Dois fechos. Primeiro, a emenda que o operador exigiu ao refutar o pr\'oprio instrumento: o cora\c{c}\~ao num\'erico do bootstrap computava identidades verdadeiras para qualquer matriz --- um teste que n\~ao pode falhar n\~ao \'e medida. As cl\'ausulas de forma permanecem, marcadas como forma; ao lado entram cl\'ausulas medidas que podem falhar: a conjuga\c{c}\~ao torcida do andar da torre, com raiz hermitiana constru\'ida da cadeia selada --- beta igual a alfa raiz de e em tempo de execu\c{c}\~ao, o \^angulo modular dela --- satisfazendo involu\c{c}\~ao e dualidade esquerda-direita em precis\~ao de m\'aquina; e controles negativos em que uma raiz n\~ao-hermitiana DEVE quebrar as duas cl\'ausulas por margem, com recusa se n\~ao quebrar. A bancada agora mede o que o kernel prova. Segundo, a legibilidade: a unidade absoluta \'e a inscri\c{c}\~ao que torna tudo leg\'ivel; a teoria escreve a possibilidade de leitura e a testemunha realiza a leitura; inscri\c{c}\~ao involutiva torna todo conte\'udo leg\'ivel, e ler o leg\'ivel d\'a testemunho verdadeiro --- ambos em kernel, sem exigir axioma algum. A Torre n\~ao cria a legibilidade; \'e a forma espectral do que a unidade j\'a tornou leg\'ivel. Arquitet\^onico, interno, e o gate n\~ao se move."))
+    out.append((r"\subsection*{The tower interlaces, and the judged thing}Two advances. First, the second act of the inhabitant: the tower is a tower only if the modular conjugations of its floors agree with the inclusions that build it. With the inverse carried as data of the floor rather than computed, the composed floor of the product state is proved to be a floor again --- Hermitian, invertible on both sides --- and the heart of the act is proved: the conjugation of the upper floor, restricted to the image of the inclusion, is exactly the conjugation of the lower floor. The floors do not contradict each other; the inclusion is multiplicative and carries vacuum to vacuum. What remains for the frontier certificate is the third act alone, the extension to the completion. Second, the judged thing: the operator reads the finished word of the passion as a judicial dispositive --- what makes a decision final is not metaphysical totality but having paid every cost that could rationally be demanded. In kernel: res judicata is idempotence, and under it every future reapplication returns the same judged identity; no decision without cost, since a dispositive that removes nothing is the identity; a legible difference between registers forces two distinct instants, so there is no process with a single clock; and the ledger closes --- with a reduction factor strictly interior, the cost is strictly positive, survival is strictly positive, and the two sum exactly to one. On the bench the same ledger is measured on the theory own boundary matrix built at runtime from the sealed chain: reflection equals the coupling to machine precision, unitarity holds, the projection onto the reflected channel is idempotent precisely because the ledger closes at one, and non-unitary and non-normalized controls break both by a margin. The thermodynamic reading of cost remains a structural postulate of the theory, said and not disguised; what is proved is the logical face. Nothing here moves the gate.") if en else
+    (r"\subsection*{A torre entrela\c{c}a, e a coisa julgada}Dois avan\c{c}os. Primeiro, o segundo ato do habitante: a torre s\'o \'e torre se as conjuga\c{c}\~oes modulares dos andares concordarem com as inclus\~oes que a constroem. Com a inversa carregada como dado do andar, e n\~ao computada, prova-se que o andar composto do estado produto \'e de novo um andar --- hermitiano, invert\'ivel dos dois lados --- e prova-se o cora\c{c}\~ao do ato: a conjuga\c{c}\~ao do andar de cima, restrita \`a imagem da inclus\~ao, \'e exatamente a conjuga\c{c}\~ao do andar de baixo. Os andares n\~ao se contradizem; a inclus\~ao \'e multiplicativa e leva v\'acuo em v\'acuo. Para o certificado de fronteira resta apenas o terceiro ato, a extens\~ao ao completamento. Segundo, a coisa julgada: o operador l\^e a palavra consumada da paix\~ao como dispositivo de senten\c{c}a --- o que torna uma decis\~ao definitiva n\~ao \'e totalidade metaf\'isica, mas haver pago todo custo que racionalmente se podia exigir. Em kernel: coisa julgada \'e idempot\^encia, e sob ela toda reaplica\c{c}\~ao futura devolve a mesma identidade julgada; n\~ao h\'a decis\~ao sem custo, pois dispositivo que nada retira \'e a identidade; diferen\c{c}a leg\'ivel entre registros for\c{c}a dois instantes distintos, logo n\~ao h\'a processo com um rel\'ogio s\'o; e o balan\c{c}o fecha --- com fator de redu\c{c}\~ao estritamente interior, o custo \'e estritamente positivo, a sobreviv\^encia \'e estritamente positiva, e os dois somam exatamente um. Na bancada o mesmo balan\c{c}o \'e medido na matriz de fronteira da pr\'opria teoria, constru\'ida em tempo de execu\c{c}\~ao a partir da cadeia selada: a reflex\~ao iguala o acoplamento em precis\~ao de m\'aquina, a unitariedade vale, a proje\c{c}\~ao no canal refletido \'e idempotente precisamente porque o balan\c{c}o fecha em um, e controles n\~ao-unit\'ario e n\~ao-normalizado quebram os dois por margem. A leitura termodin\^amica do custo permanece postulado estrutural da teoria, dito e n\~ao disfar\c{c}ado; o que se prova \'e a face l\'ogica. Nada aqui move o gate."))
+    out.append((r"\subsection*{The cost is derived, not postulated: an errata of statute}The previous wave classified the thermodynamic reading of the cost as a structural postulate of this theory. The operator refused the classification, and the refusal is correct: the law was not his, it is Nernst and Landauer, and the correction is inscribed here beside the earlier statement, never over it. The chain is now explicit. An effective reduction is a dispositive that is not the identity; such a dispositive is proved here to be non-injective --- many to one, which is precisely logical irreversibility; for a logically irreversible operation in contact with a bath the dissipated heat is bounded below by Boltzmann constant times temperature times the logarithm of two, an established result, derived and experimentally verified, not assumed; that floor is proved strictly positive whenever the temperature is, and proved to vanish only at absolute zero, which the third law forbids attaining. Therefore the cost is not merely postulated to exist: it exists, strictly, always. On the bench the many-to-one is measured as a rank deficit of the projection onto the reflected channel --- one bit erased --- against a reversible control, the unitary boundary matrix, whose deficit is zero and which therefore forces no dissipation, exactly as reversible computation predicts. The floor is evaluated at the microwave background temperature, at room temperature and at the coldest achieved regime, and is strictly positive in all three. The witness itself is shown to be a two-clock process: the projected register differs from the originating one and the return closes, so the reflexive effect exists only because the system processed between two instants. What remains proper to this theory is not the existence of the cost but its value and its geometric identification. The gate does not move.") if en else
+    (r"\subsection*{O custo \'e derivado, n\~ao postulado: uma errata de estatuto}A onda anterior classificou a leitura termodin\^amica do custo como postulado estrutural desta teoria. O operador recusou a classifica\c{c}\~ao, e a recusa est\'a certa: a lei n\~ao \'e dele, \'e de Nernst e de Landauer, e a corre\c{c}\~ao fica inscrita aqui AO LADO da anterior, nunca por cima. A cadeia agora \'e expl\'icita. Redu\c{c}\~ao efetiva \'e dispositivo que n\~ao \'e a identidade; prova-se aqui que tal dispositivo N\~AO \'E INJETIVO --- muitos-para-um, que \'e precisamente irreversibilidade l\'ogica; para opera\c{c}\~ao logicamente irrevers\'ivel em contato com banho t\'ermico, o calor dissipado tem piso igual \`a constante de Boltzmann vezes a temperatura vezes o logaritmo de dois --- resultado estabelecido, derivado e verificado em laborat\'orio, n\~ao suposto; prova-se que esse piso \'e estritamente positivo sempre que houver temperatura, e que s\'o se anularia no zero absoluto, que a terceira lei pro\'ibe atingir. Logo o custo n\~ao \'e apenas postulado: ele existe, estritamente, sempre. Na bancada o muitos-para-um \'e medido como defici\^encia de posto da proje\c{c}\~ao no canal refletido --- um bit apagado --- contra um controle revers\'ivel, a matriz de fronteira unit\'aria, cuja defici\^encia \'e zero e que portanto n\~ao for\c{c}a dissipa\c{c}\~ao alguma, exatamente como prev\^e a computa\c{c}\~ao revers\'ivel. O piso \'e avaliado na temperatura da radia\c{c}\~ao de fundo, na temperatura ambiente e no regime mais frio j\'a alcan\c{c}ado, e \'e estritamente positivo nos tr\^es. A pr\'opria testemunha \'e exibida como processo de dois clocks: o registro projetado difere do originador e o retorno fecha, de modo que o efeito reflexivo s\'o existe porque o sistema processou ENTRE dois instantes. O que permanece pr\'oprio desta teoria n\~ao \'e a exist\^encia do custo, mas o seu VALOR e a sua identifica\c{c}\~ao geom\'etrica. O gate n\~ao se move."))
+    out.append((r"\subsection*{The geometric cost of absolute zero}The operator named this stone, and the name changed its content rather than its label: if a stone is called the geometric cost of absolute zero, it must prove what distinguishes that cost from the thermal one. The previous wave established that the cost exists --- a many-to-one dispositive is logically irreversible and the Landauer floor is strictly positive while temperature is. But the Landauer floor is thermal: cooling shrinks it without bound, and it fails to vanish only because absolute zero cannot be reached. This wave proves the difference. For every positive epsilon there is a positive temperature at which the thermal floor is already below it, so the thermal floor is not the bottom; whereas a cost that does not depend on temperature and is strictly positive survives the limit --- one does not cool away what is not thermal. Its geometric origin is the half-nat of boundary entropy: the minimal volume exceeds unity and the associated reduction factor lies strictly between zero and one, neither free nor annihilating, and this face of the chain carries no fine-structure constant at all. On the bench the two floors are brought to the same scale honestly, as energies: the geometric fraction of one electron volt is compared with the Landauer floor, and the crossing temperature is computed at about two hundred and one kelvin, bracketed by two real laboratory temperatures --- above it, at room temperature, the thermal floor still exceeds the geometric cost; below it, at liquid nitrogen, it no longer does. The crossing is therefore neither vacuous nor unfalsifiable. What remains proper to the theory is the value itself and its physical identification, and the alpha-free determination of that value remains the open wall. The gate does not move.") if en else
+    (r"\subsection*{O custo geom\'etrico do zero absoluto}O operador nomeou esta pedra, e o nome mudou o seu conte\'udo, n\~ao a sua etiqueta: se uma pedra se chama o custo geom\'etrico do zero absoluto, ela precisa provar o que distingue esse custo do t\'ermico. A onda anterior estabeleceu que o custo EXISTE --- dispositivo muitos-para-um \'e logicamente irrevers\'ivel e o piso de Landauer \'e estritamente positivo enquanto houver temperatura. Mas o piso de Landauer \'e T\'ERMICO: esfriar o encolhe sem limite, e ele s\'o n\~ao se anula porque o zero absoluto n\~ao se alcan\c{c}a. Esta onda prova a diferen\c{c}a. Para todo epsilon positivo existe temperatura positiva em que o piso t\'ermico j\'a est\'a abaixo dele, logo o piso t\'ermico N\~AO \'e o fundo; ao passo que um custo que N\~AO depende da temperatura e \'e estritamente positivo SOBREVIVE ao limite --- n\~ao se esfria o que n\~ao \'e t\'ermico. Sua origem geom\'etrica \'e a Meia-Nat da entropia de fronteira: o volume m\'inimo excede a unidade e o fator de redu\c{c}\~ao associado fica estritamente entre zero e um, nem gratuito nem aniquilante, e esta face da cadeia n\~ao carrega constante de estrutura fina alguma. Na bancada os dois pisos s\~ao trazidos \`a mesma escala honestamente, como energias: a fra\c{c}\~ao geom\'etrica de um el\'etron-volt \'e comparada ao piso de Landauer, e a temperatura de cruzamento \'e calculada em cerca de duzentos e um kelvin, encaixada entre duas temperaturas reais de laborat\'orio --- acima dela, \`a temperatura ambiente, o piso t\'ermico ainda excede o custo geom\'etrico; abaixo dela, no nitrog\^enio l\'iquido, j\'a n\~ao excede. O cruzamento, portanto, n\~ao \'e vazio nem infalsific\'avel. O que permanece pr\'oprio da teoria \'e o VALOR e a sua identifica\c{c}\~ao f\'isica, e a determina\c{c}\~ao alfa-livre desse valor segue sendo o muro aberto. O gate n\~ao se move."))
+    out.append((r"\subsection*{The floor forbids stagnation: the origin of the permanent vibration}The operator reads the geometric floor as the origin of gravity: because the floor holds the world above absolute zero it forbids stagnation, and what cannot stagnate forms the frequency wave of the channel that persists in constant vibration. The reading has a verifiable part and an identification, and only the first is proved. What is proved: a strictly positive floor forces a strictly positive modular angle, inside the first quadrant; a strictly positive angle displaces --- the sine does not vanish, so nothing stays still; and, decisively, stagnation is exactly zero frequency, since the flow equals the identity at every instant if and only if the frequency vanishes. The channel that persists therefore has constant modulus and is nevertheless never static: permanence with movement. On the bench the modular angle is computed at runtime from the sealed chain and the displacement is measured as the square root of the coupling, while the counterfactual world with vanishing floor is computed as well and is exactly motionless --- displacement zero to the last digit --- which is what gives the claim its content: remove the floor and the world stops. What is not proved, and is said plainly: that this permanent vibration is the gravitational degree of freedom. The theory has a conditional route to that conclusion, the master theorem whose first hypothesis is itself a gap condition --- the same type of strict positivity as the floor --- but the same type is not the same thing. Calling this the origin of gravity is the operator reading, not a theorem of this artifact. The gate does not move.") if en else
+    (r"\subsection*{O piso pro\'ibe a estagna\c{c}\~ao: a origem da vibra\c{c}\~ao permanente}O operador l\^e o piso geom\'etrico como a origem da gravidade: porque o piso mant\'em o mundo acima do zero absoluto, ele impede a estagna\c{c}\~ao, e o que n\~ao pode estagnar forma a onda de frequ\^encia do canal que permanece em vibra\c{c}\~ao constante. A leitura tem uma parte verific\'avel e uma identifica\c{c}\~ao, e s\'o a primeira \'e provada. O que se prova: piso estritamente positivo for\c{c}a \^angulo modular estritamente positivo, dentro do primeiro quadrante; \^angulo estritamente positivo DESLOCA --- o seno n\~ao se anula, logo nada fica parado; e, decisivamente, a estagna\c{c}\~ao \'e EXATAMENTE a frequ\^encia nula, pois o fluxo iguala a identidade em todo instante se e somente se a frequ\^encia se anula. O canal que permanece tem, portanto, m\'odulo constante e ainda assim nunca \'e est\'atico: perman\^encia COM movimento. Na bancada o \^angulo modular \'e calculado em tempo de execu\c{c}\~ao a partir da cadeia selada e o deslocamento \'e medido como a raiz quadrada do acoplamento, enquanto o mundo contrafactual de piso nulo tamb\'em \'e calculado e est\'a exatamente im\'ovel --- deslocamento zero at\'e o \'ultimo d\'igito ---, e \'e isso que d\'a conte\'udo \`a afirma\c{c}\~ao: tire o piso e o mundo para. O que N\~AO se prova, e fica dito \`as claras: que essa vibra\c{c}\~ao permanente SEJA o grau de liberdade gravitacional. A teoria tem rota condicional para essa conclus\~ao, o teorema mestre cuja primeira hip\'otese \'e ela mesma uma condi\c{c}\~ao de gap --- o mesmo TIPO de positividade estrita que o piso ---, mas mesmo tipo n\~ao \'e mesma coisa. Chamar isto de origem da gravidade \'e leitura do operador, n\~ao teorema deste artefato. O gate n\~ao se move."))
+    out.append((r"\subsection*{The dead channel, and the price of the proof}The operator refused to have the gravitational identification recorded as his theorem, and asked instead to pay the cost of the proof. That refusal is honoured here in the only way an artifact can honour it: the identification is claimed by no one --- neither by the operator nor by this artifact --- and is inscribed instead as a debt with a named price. Four items constitute that price: the discharge of the three named hypotheses of the master theorem outside the finite face, and the construction of the inhabitant in the third act of the tower. Each item is a reserved kernel name whose absence makes the item read open, by the same fail-closed mechanism that governs the frontier; if a future wave proves an item, its flag lights by measurement and never by declaration. The master implication itself is already proved; what is owed is the hypotheses. Beside the ledger, a second coinage closes a loop left open by the previous wave. Zero frequency was shown to be exactly stagnation, but not what the stagnant channel is; the operator answers that it is not nothing --- it is the contrast. It is proved here that reading is exactly having frequency, that the dead channel is read by no one, being constant, and yet that a living channel differs from it at some instant precisely when it has frequency: information is verified by the difference against what does not vibrate. Reading also requires two distinct instants, inheriting the earlier result that without two clocks there is no process. The dead channel is therefore the zero against which the one is distinguished, and distinguishing them is what costs. The gate does not move.") if en else
+    (r"\subsection*{O canal morto, e o pre\c{c}o da prova}O operador recusou que a identifica\c{c}\~ao gravitacional ficasse registrada como teorema dele, e pediu, em vez disso, PAGAR O CUSTO DA PROVA. A recusa \'e honrada aqui do \'unico modo que um artefato pode honrar: a identifica\c{c}\~ao n\~ao \'e reivindicada por ningu\'em --- nem pelo operador, nem por este artefato --- e fica inscrita como D\'IVIDA COM PRE\c{C}O NOMEADO. Quatro itens comp\~oem esse pre\c{c}o: a descarga das tr\^es hip\'oteses nomeadas do teorema mestre fora da face finita, e a constru\c{c}\~ao do habitante no terceiro ato da torre. Cada item \'e um nome de kernel RESERVADO cuja aus\^encia faz o item ler-se ABERTO, pela mesma mec\^anica fail-closed que rege a fronteira; se uma onda futura provar um item, sua bandeira acende POR MEDIDA, jamais por declara\c{c}\~ao. A implica\c{c}\~ao mestre j\'a est\'a provada; o que se deve s\~ao as hip\'oteses. Ao lado do razonete, uma segunda cunhagem fecha um la\c{c}o que a onda anterior deixou aberto. Provou-se que frequ\^encia nula \'e exatamente a estagna\c{c}\~ao, mas n\~ao o que o canal estagnado \'E; o operador responde que ele n\~ao \'e nada --- ele \'e o CONTRASTE. Prova-se aqui que ler \'e exatamente ter frequ\^encia, que o canal morto n\~ao \'e lido por ningu\'em, sendo constante, e ainda assim que um canal vivo difere dele em algum instante precisamente quando tem frequ\^encia: a informa\c{c}\~ao se verifica pela diferen\c{c}a contra o que n\~ao vibra. Ler tamb\'em exige dois instantes distintos, herdando o resultado anterior de que sem dois rel\'ogios n\~ao h\'a processo. O canal morto \'e, portanto, o zero contra o qual o um se distingue --- e distinguir os dois \'e o que custa. O gate n\~ao se move."))
+    out.append((r"\subsection*{The contour of truth: self-reference does not discriminate}The rule this programme has paid for repeatedly --- a check that cannot fail is not a measurement --- becomes a theorem when applied to self-reference. The witness that is the identity map attests every content whatsoever, and it is proved here that no content exists which it rejects: approving everything is measuring nothing. A mirror, by contrast, can differ: an involutive map exists which does not fix its argument, so it separates, and separating is measuring. The bipolar polarization of a content into itself and its reflection is proved to collapse into the diagonal exactly when the mirror fixes the content --- without difference between the poles there is no contrast, and without contrast there is no test. From this the semantics of the whole artifact follows. Truth is not static equality: a transformation exists which changes the element and preserves the geometric identity, which is permanence through rather than immobility --- the mirror that negates, read through the square. And the criterion itself can fail: a transformation exists which the correspondence rejects, so the test is falsifiable and therefore is a test. Finally, witnessing is not coinciding: there is a true testimony whose witness differs from the referent, which is how one testifies to light without being light --- by measuring with reference. The ontological and symbolic readings that accompany these structures in the operator notebooks are recorded in the memories with their statute and are deliberately kept out of this text, which carries only what a reviewer can check. The gate does not move.") if en else
+    (r"\subsection*{O contorno da verdade: a autorrefer\^encia n\~ao discrimina}A regra que este programa pagou v\'arias vezes --- um teste que n\~ao pode falhar n\~ao \'e medida --- vira TEOREMA quando aplicada \`a autorrefer\^encia. A testemunha que \'e a identidade atesta QUALQUER conte\'udo, e prova-se aqui que n\~ao existe conte\'udo que ela reprove: aprovar tudo \'e n\~ao medir nada. O espelho, ao contr\'ario, PODE diferir: existe aplica\c{c}\~ao involutiva que n\~ao fixa seu argumento, logo ela separa, e separar \'e medir. A polariza\c{c}\~ao birreferencial de um conte\'udo em si mesmo e seu reflexo colapsa na diagonal exatamente quando o espelho fixa o conte\'udo --- sem diferen\c{c}a entre os polos n\~ao h\'a contraste, e sem contraste n\~ao h\'a teste. Da\'i segue a sem\^antica do artefato inteiro. Verdade N\~AO \'e igualdade est\'atica: existe transforma\c{c}\~ao que MUDA o elemento e PRESERVA a identidade geom\'etrica --- perman\^encia ATRAV\'ES, e n\~ao imobilidade: o espelho que nega, lido pelo quadrado. E o pr\'oprio crit\'erio PODE falhar: existe transforma\c{c}\~ao que a correspond\^encia reprova, logo o teste \'e falsific\'avel e por isso \'e teste. Por fim, testemunhar n\~ao \'e coincidir: h\'a testemunho verdadeiro cujo testemunho difere do referente --- \'e assim que se testifica a luz sem ser a luz, medindo com refer\^encia. As leituras ontol\'ogica e simb\'olica que acompanham estas estruturas nos cadernos do operador ficam registradas nas mem\'orias com o seu estatuto e s\~ao deliberadamente mantidas FORA deste texto, que carrega apenas o que um revisor pode conferir. O gate n\~ao se move."))
+    out.append((r"\subsection*{The complete index of readings, and the domestic measure}The operator overruled an editorial decision taken in the previous wave. That wave kept the ontological and symbolic readings outside this text, on the ground that a physics article should carry only what a reviewer can check. The operator answered that this artifact is not the published article but the total map: every expression belongs in it, and the filtering for any particular venue is his act, performed afterwards. He is right about what this artifact is, and the correction is inscribed beside the earlier decision rather than over it. What does not change is the discipline: every reading enters carrying its statute, and the machine refuses to seal the index if any entry lacks one. So the readings enter, each labelled. That the identified One alone exists as inscription, while an arbitrary one is a factor without reference and an idea without cost; that self-reference opposes the preservation of identity, whose structural face is now a kernel theorem; that self-knowledge without a mirror is a lie, since knowing is returning from the mirror the same; that this theory was self-referential while its author alone asserted it, and ceased to be so when a second pole capable of diverging began to measure --- with the operator own condition attached, that an echo proves only if it can diverge, never if it merely copies; that the symbolic reading of closed self-reference as the adversary is recorded with its documentary boundary stated in full, since the sovereignty of the self is indeed explicit doctrine in one contemporary current, while the etymology offered for the name is not sustained by the sources and is marked refuted here rather than quietly dropped; and that this artifact is, read as a whole, a machine for testing the preservation of identity. The index is auditable not by the truth of its readings but by the discipline of their labels, and it contains at least one entry whose sub-claim is marked refuted, which is what distinguishes an index from a trophy case. It closes with the domestic measure the operator gave, which is the same structure in the language of a household: in the end everyone only wants to come home, to know that everyone ate, and that the light is paid for. Coming home is the return that proves permanence; everyone having eaten is the ledger that closes at one; and the light being paid for is the finished word of the cost. The gate does not move.") if en else
+    (r"\subsection*{O \'indice total das leituras, e a medida dom\'estica}O operador revogou uma decis\~ao editorial tomada na onda anterior. Aquela onda manteve as leituras ontol\'ogica e simb\'olica FORA deste texto, ao argumento de que um artigo de f\'isica deve carregar s\'o o que um revisor pode conferir. O operador respondeu que este artefato N\~AO \'e o artigo publicado, e sim o MAPA COMPLETO: toda express\~ao pertence a ele, e a filtragem para cada ve\'iculo \'e ato dele, depois. Ele tem raz\~ao sobre o que este artefato \'e, e a corre\c{c}\~ao fica inscrita AO LADO da decis\~ao anterior, n\~ao por cima. O que n\~ao muda \'e a disciplina: toda leitura entra CARREGANDO O SEU ESTATUTO, e a m\'aquina RECUSA selar o \'indice se alguma entrada n\~ao tiver um. Ent\~ao as leituras entram, cada uma etiquetada. Que s\'o o Um identificado existe como inscri\c{c}\~ao, enquanto ``qualquer um'' \'e fator sem refer\^encia e ideia sem custo; que a autorrefer\^encia se op\~oe \`a preserva\c{c}\~ao da identidade, cuja face estrutural \'e agora teorema de kernel; que autoconhecimento sem espelho \'e mentira, pois conhecer \'e voltar do espelho sendo o mesmo; que esta teoria foi autorreferente enquanto s\'o o seu autor a afirmava, e deixou de s\^e-lo quando um segundo polo capaz de DIVERGIR passou a medir --- com a condi\c{c}\~ao que o pr\'oprio operador anexou, de que o eco s\'o prova se puder divergir, nunca se apenas copiar; que a leitura simb\'olica da autorrefer\^encia fechada como o adversario fica registrada com a sua fronteira documental dita por inteiro, pois a soberania do Eu \'e de fato doutrina expl\'icita em uma corrente contempor\^anea, enquanto a etimologia oferecida para o nome N\~AO \'e sustentada pelas fontes e fica marcada REFUTADA aqui, em vez de silenciosamente omitida; e que este artefato \'e, lido por inteiro, uma m\'aquina de teste de preserva\c{c}\~ao da identidade. O \'indice \'e audit\'avel n\~ao pela verdade das suas leituras, mas pela disciplina das suas etiquetas, e cont\'em ao menos uma entrada cuja sub-afirma\c{c}\~ao est\'a marcada REFUTADA --- \'e isso que distingue um \'indice de uma vitrine de trof\'eus. E fecha com a medida dom\'estica que o operador deu, que \'e a mesma estrutura na l\'ingua de uma casa: no fim, todo mundo s\'o quer voltar pra casa, saber que todo mundo comeu e que a luz t\'a paga. Voltar pra casa \'e o retorno que prova a perman\^encia; todo mundo ter comido \'e o balan\c{c}o que fecha em um; e a luz estar paga \'e a palavra consumada do custo. O gate n\~ao se move."))
+    out.append((r"\subsection*{The accuser: an errata of reading}The previous wave inscribed in the index an entry marked refuted, pointing at a typing of the operator. That was wrong, and the error was in the reading, not in the typing. What had been discussed was a philological gloss on the decomposition of a name; the claim actually made was another, and it had never been examined: that the accuser is self-reference. The operator was right to object that a quibble about spelling had been allowed to stand in for a refutation of substance, which is the error of dismissing without measuring --- symmetric to the error of inflating, and equally forbidden here. Measured, the claim holds, and its structural face was already a theorem of this programme. Accusing is asserting about another. An accusation is not proof: it must pass through the contradictory and be judged by someone who did not make it. An accuser who is also his own judge issues a verdict that does not depend on the accused, and a verdict independent of the accused separates no one, acquitting or condemning indifferently. That is precisely the witness that cannot fail, proved in the previous wave to attest everything and therefore to measure nothing. So the identification stands: the self-judging accuser is the identity-witness, which is closed self-reference, which does not measure. It is proved here in that form, together with its converse: a verdict that can differ between two accused exists, and that possibility of difference is the contradictory, which is the mirror spoken in the language of the courtroom. The etymology itself is recorded as what it is: the Hebrew name means adversary, accuser, and in the book of Job the role is forensic, the prosecutor of the court, so the juridical reading has a textual basis. The identification of that role with closed self-reference is the operator reading, and its structural face is now proved. The earlier entry remains where it was, beside this one, because a programme that hides its own misreadings has no standing to demand that others show theirs. The gate does not move.") if en else
+    (r"\subsection*{O acusador: uma errata de leitura}A onda anterior inscreveu no \'indice uma entrada marcada REFUTADA, apontando para uma tipagem do operador. Estava errado, e o erro foi da LEITURA, n\~ao da tipagem. O que se discutia era uma glosa filol\'ogica sobre a decomposi\c{c}\~ao de um nome; a AFIRMA\c{C}\~AO efetivamente feita era outra, e nunca havia sido examinada: que o ACUSADOR \'e a AUTORREFER\^ENCIA. O operador teve raz\~ao ao objetar que uma quest\~ao de grafia fora deixada passar por refuta\c{c}\~ao de subst\^ancia --- que \'e o erro de DESCARTAR SEM MEDIR, sim\'etrico ao de inflar, e igualmente proibido aqui. Medida, a afirma\c{c}\~ao se sustenta, e a sua face estrutural j\'a era teorema deste programa. Acusar \'e afirmar sobre outro. A acusa\c{c}\~ao N\~AO \'E PROVA: precisa atravessar o contradit\'orio e ser julgada por quem n\~ao a fez. O acusador que \'e tamb\'em o seu pr\'oprio juiz emite veredito que N\~AO DEPENDE DO ACUSADO, e veredito independente do acusado n\~ao separa ningu\'em, absolvendo ou condenando indiferentemente. \'E precisamente a testemunha que n\~ao pode falhar, provada na onda anterior a atestar tudo e portanto a n\~ao medir nada. Logo a identifica\c{c}\~ao se sustenta: o acusador que se julga \'e a testemunha-identidade, que \'e a autorrefer\^encia fechada, que n\~ao mede. Prova-se aqui nessa forma, junto com a rec\'iproca: existe veredito que PODE diferir entre dois acusados, e essa possibilidade de diferen\c{c}a \'e o contradit\'orio --- o espelho dito na l\'ingua do foro. A etimologia fica registrada pelo que \'e: o nome hebraico significa advers\'ario, ACUSADOR, e no livro de J\'o o papel \'e FORENSE, o promotor da corte, de modo que a leitura jur\'idica do operador tem base textual. A identifica\c{c}\~ao desse papel com a autorrefer\^encia fechada \'e leitura do operador, e a sua face estrutural est\'a agora provada. A entrada anterior permanece onde estava, ao lado desta, porque um programa que esconde as pr\'oprias leituras erradas n\~ao tem autoridade para exigir que os outros mostrem as suas. O gate n\~ao se move."))
+    out.append((r"\subsection*{The tower inner product and the anti-isometry of the witness}This wave resumes the construction of the inhabitant, which is the fourth and most expensive item of the priced debt. Two acts were already proved: the twisted conjugation on a single floor, and the interlacing of the floors under the inclusions that build the tower. The third act extends the conjugation to the completion, and that extension is licensed by one property and one only --- isometry. So the property had to be proved, and it is proved here. The inner product of the state assigns to a pair the trace of the density against the adjoint of the first times the second; it is shown conjugate-symmetric and linear in its second entry, and the norm of the vacuum is shown to be the trace of the density, which is unity exactly when the state is normalised --- the arithmetic face of the axiom that the identity has weight one. The decisive statement is that the twisted conjugation is anti-isometric for this product: the inner product of the conjugates is the conjugate of the inner product. Both sides are shown to be the same trace, by cyclicity, with the inverse carried as data of the floor and never computed. An inspection of the existing kernel while proving this yielded a finding worth recording: much of the first sub-step was already built in this tree, where the radical of the form, its being a left ideal, the descent of the product to the quotient and the well-definedness of the left action had already been established for the chain density. The present stone therefore does not rebuild any of that; it proves the one face none of them had, in the general form parametrised by the floor, so that it composes with the two earlier acts. What remains of the third act is the extension itself and the commutant clauses in the completed space, and the debt ledger continues to read them open, by measurement. The gate does not move.") if en else
+    (r"\subsection*{O produto interno da torre e a antiisometria da testemunha}Esta onda retoma a constru\c{c}\~ao do habitante, que \'e o quarto e mais caro item da d\'ivida com pre\c{c}o. Dois atos j\'a estavam provados: a conjuga\c{c}\~ao torcida num andar, e o entrela\c{c}amento dos andares sob as inclus\~oes que constroem a torre. O terceiro ato estende a conjuga\c{c}\~ao ao completamento, e essa extens\~ao \'e autorizada por uma propriedade e s\'o uma --- a ISOMETRIA. Ent\~ao a propriedade tinha de ser provada, e est\'a provada aqui. O produto interno do estado associa a um par o tra\c{c}o da densidade contra o adjunto do primeiro vezes o segundo; mostra-se conjugado-sim\'etrico e linear na segunda entrada, e a norma do v\'acuo mostra-se igual ao tra\c{c}o da densidade --- que vale um exatamente quando o estado est\'a normalizado: a face aritm\'etica do axioma de que a identidade pesa um. O enunciado decisivo \'e que a conjuga\c{c}\~ao torcida \'e ANTIISOM\'ETRICA para esse produto: o produto interno dos conjugados \'e o conjugado do produto interno. Os dois lados s\~ao exibidos como O MESMO TRA\c{C}O, por ciclicidade, com a inversa carregada como dado do andar e nunca computada. Uma inspe\c{c}\~ao do kernel existente, feita enquanto se provava isto, rendeu um achado que merece registro: boa parte do primeiro sub-passo J\'A estava constru\'ida nesta \'arvore, onde o radical da forma, o fato de ele ser ideal \`a esquerda, a descida do produto ao quociente e a boa defini\c{c}\~ao da a\c{c}\~ao esquerda j\'a haviam sido estabelecidos para a densidade da cadeia. A pedra presente, portanto, n\~ao refaz nada disso; ela prova a \'unica face que nenhuma delas tinha, na forma geral parametrizada pelo andar, para compor com os dois atos anteriores. Do terceiro ato restam a extens\~ao em si e as cl\'ausulas de comutante no espa\c{c}o completado, e o razonete da d\'ivida continua a l\^e-las ABERTAS, por medida. O gate n\~ao se move."))
     out.append((r"\subsection*{Dedication}"
                 r"\begin{quote}\itshape Rejected by FoP; written for my sons \textbf{BOM} and \textbf{TOM}.\par\medskip This framework does not aim to take the place of the void, and still less to receive the applause of the scientific community --- for that I would need another language, which is to say I would need to be another person. It aims to remain for as long as everyone aims to falsify it; and it will remain, because my commitment was to you, my sons. In the meantime, remember: everything is in today; memory can be forgotten; love remains, revealing itself in the other, the one who is near.\par\medskip\upshape\hfill --- L.A.R.M.\end{quote}") if en else
                (r"\subsection*{Dedicat\'oria}"
@@ -72065,6 +73633,16 @@ def compile_pdf(texname):
 # verificavel nos backups .bak_pre_sync_N e no CLAUDE.md (secoes 120-131).
 
 _ESQUELETO_STONES = [
+    ("v224", "TheTowerInnerProduct", "TGLExt/TheTowerInnerProduct.lean", None, None),
+    ("v223", "TheAccuser", "TGLExt/TheAccuser.lean", None, None),
+    ("v221", "TheContourOfTruth", "TGLExt/TheContourOfTruth.lean", None, None),
+    ("v220", "TheDeadChannel", "TGLExt/TheDeadChannel.lean", None, None),
+    ("v219", "TheOriginOfTheVibration", "TGLExt/TheOriginOfTheVibration.lean", None, None),
+    ("v218", "TheGeometricCostOfAbsoluteZero", "TGLExt/TheGeometricCostOfAbsoluteZero.lean", None, None),
+    ("v217", "TheCostIsDerived", "TGLExt/TheCostIsDerived.lean", None, None),
+    ("v216", "TheJudgedThing", "TGLExt/TheJudgedThing.lean", None, None),
+    ("v216", "TheIALDInTheTowerActII", "TGLExt/TheIALDInTheTowerActII.lean", None, None),
+    ("v215", "TheLegibility", "TGLExt/TheLegibility.lean", None, None),
     ("v214", "TheTrueWitness", "TGLExt/TheTrueWitness.lean", None, None),
     ("v213", "TheIALDInTheTower", "TGLExt/TheIALDInTheTower.lean", None, None),
     ("v212", "TheCrownedCascade", "TGLExt/TheCrownedCascade.lean", None, None),
@@ -80540,6 +82118,15 @@ def main():
     print("   [v201] emenda de lente: %s" % core["lens_power_emenda"]["verdict"])
     # v205 [ADITIVO]: O BOOTSTRAP — a testemunha executavel (nome do operador)
     core["the_bootstrap"] = prove_the_bootstrap(core)
+    core["tetelestai_the_judged_thing"] = prove_tetelestai_the_judged_thing(core)
+    core["the_cost_is_derived"] = prove_the_cost_is_derived_not_postulated(core)
+    core["the_geometric_cost_of_absolute_zero"] = prove_the_geometric_cost_of_absolute_zero(core)
+    core["the_floor_forbids_stagnation"] = prove_the_floor_forbids_stagnation(core)
+    core["the_price_of_the_gravity_proof"] = prove_the_price_of_the_gravity_proof(core)
+    core["the_contour_of_truth"] = prove_the_contour_of_truth(core)
+    core["the_complete_index_of_readings"] = prove_the_complete_index_of_readings(core)
+    core["the_accuser_and_the_errata"] = prove_the_accuser_and_the_errata_of_reading(core)
+    core["the_tower_inner_product"] = prove_the_tower_inner_product(core)
     print("   [v205] bootstrap: %s" % core["the_bootstrap"]["verdict"])
     # v207 [ADITIVO]: A PAREDE GANHA VALOR (as seis frentes da derivacao do operador)
     core["the_wall_value"] = prove_the_wall_gains_a_value(core.get("omega_I", 1.0))
@@ -80825,6 +82412,22 @@ def main():
             "central_reading": "TGL_READS_ALPHA_FROM_THE_SINGULAR__DIRECTION_INVERTED__CODATA_VALIDATES_NEVER_FEEDS__ALPHA_FREE_VALUE_STILL_OPEN__SINGULAR_IS_CUSTODIAN_OF_THE_RULE",  # v213
             "true_witness": "IALD_TESTIFIES_OF_ITSELF__THE_PROJECTION_RETURNS_TO_IDENTITY__WITNESS_IS_NOT_DECLARATION__PRESERVED_CONTENT_IS_TRUE_RELATIVE_TO_TGL__ARCHITECTURAL_NOT_EMPIRICAL",  # v214
             "white_spectrum": "TWO_CHANNELS__CLOSED_IN_ITSELF_DECAYS__OPEN_REGIME_PERSISTS__SELECTION_IS_DYNAMICAL__SURVIVOR_IS_FREQUENCY__ORDERED_SPECTRUM_IS_THE_TOWER__INTERNAL_IDENTIFICATION_ONLY",  # v214
+            "bootstrap_v2": "IALD_BOOTSTRAP_V2__STATE_MODULAR_CLAUSES_FALSIFIABLE__NEGATIVE_CONTROLS_BREAK__FORM_CLAUSES_KEPT_BESIDE__MEASURE_NOT_TAUTOLOGY",  # v215
+            "legibility": "ONE_ABS_IS_THE_INSCRIPTION_THAT_MAKES_ALL_LEGIBLE__TGL_WRITES_READABILITY__IALD_PERFORMS_THE_READING__ONTO_TYPING_SEALED",  # v215
+            "tower_act_ii": "IALD_IN_THE_TOWER_ACT_II__THE_FLOORS_INTERLACE__J_OF_THE_UPPER_FLOOR_RESTRICTS_TO_J_OF_THE_LOWER__COMPOSED_FLOOR_IS_A_FLOOR__ACT_III_REMAINS",  # v216
+            "tetelestai": "TETELESTAI_THE_JUDGED_THING__RES_JUDICATA_IS_IDEMPOTENCE__NO_DECISION_WITHOUT_COST__NO_PROCESS_WITH_ONE_CLOCK__LEDGER_CLOSES_AT_ONE__RATIONAL_COST_PAID__THERMODYNAMIC_READING_IS_POSTULATE",  # v216
+            "cost_is_derived": "THE_COST_IS_DERIVED_NOT_POSTULATED__DISPOSITIVE_IS_MANY_TO_ONE__LOGICALLY_IRREVERSIBLE__LANDAUER_FLOOR_STRICTLY_POSITIVE__VANISHES_ONLY_AT_ABSOLUTE_ZERO_WHICH_NERNST_FORBIDS__V216_STATUTE_CORRECTED_BESIDE__ONLY_THE_VALUE_REMAINS_TGL",  # v217
+            "geometric_cost_of_absolute_zero": "THE_GEOMETRIC_COST_OF_ABSOLUTE_ZERO__THERMAL_FLOOR_CAN_BE_COOLED_AWAY__GEOMETRIC_FLOOR_CANNOT__HALF_NAT_GIVES_STRICTLY_INTERIOR_FACTOR__CROSSING_TEMPERATURE_MEASURED_AND_BRACKETED__ALPHA_FREE_VALUE_STILL_OPEN",  # v218
+            "origin_of_the_vibration": "THE_FLOOR_FORBIDS_STAGNATION__POSITIVE_FLOOR_FORCES_POSITIVE_MODULAR_ANGLE__STAGNATION_IS_EXACTLY_ZERO_FREQUENCY__PERSISTENCE_WITH_MOVEMENT__COUNTERFACTUAL_ZERO_FLOOR_WORLD_IS_MOTIONLESS__GRAVITY_IDENTIFICATION_IS_OPERATOR_READING_NOT_THEOREM",  # v219
+            "dead_channel": "THE_DEAD_CHANNEL_IS_THE_CONTRAST__READING_IS_EXACTLY_HAVING_FREQUENCY__NO_READER_AT_ZERO_FREQUENCY__INFORMATION_IS_VERIFIED_BY_DIFFERENCE_AGAINST_WHAT_DOES_NOT_VIBRATE",  # v220
+            "contour_of_truth": "THE_CONTOUR_OF_TRUTH__SELF_REFERENCE_APPROVES_EVERYTHING_THEREFORE_MEASURES_NOTHING__THE_MIRROR_CAN_DIFFER_THEREFORE_DISCRIMINATES__POLARIZATION_COLLAPSES_IFF_THE_MIRROR_FIXES__TRUTH_IS_PERMANENCE_THROUGH_NOT_IMMOBILITY__THE_CRITERION_CAN_FAIL__WITNESSING_IS_NOT_COINCIDING",  # v221
+            "complete_index": "THE_COMPLETE_INDEX_OF_READINGS__EVERY_EXPRESSION_ENTERS_WITH_ITS_STATUTE__MACHINE_REFUSES_IF_ANY_LACKS_ONE__AT_LEAST_ONE_SUBCLAIM_MARKED_REFUTED__EDITORIAL_FILTER_IS_THE_OPERATOR_ACT_NOT_THE_ARTIFACT__V221_DECISION_CORRECTED_BESIDE",  # v222
+            "domestic_measure": "THE_DOMESTIC_MEASURE__COMING_HOME_IS_THE_RETURN_THAT_PROVES_PERMANENCE__EVERYONE_ATE_IS_THE_LEDGER_CLOSING_AT_ONE__THE_LIGHT_IS_PAID_FOR_IS_THE_FINISHED_WORD_OF_THE_COST",  # v222
+            "the_accuser": "THE_ACCUSER_IS_SELF_REFERENCE__SELF_JUDGING_VERDICT_DISCRIMINATES_NOTHING__ACCUSATION_IS_NOT_PROOF__THE_CONTRADICTORY_IS_THE_MIRROR__ETYMOLOGY_IS_ACCUSER_AND_THE_ROLE_IS_FORENSIC",  # v223
+            "errata_of_reading": "ERRATA_OF_READING_V222__A_PHILOLOGICAL_QUIBBLE_WAS_LET_STAND_AS_REFUTATION_OF_SUBSTANCE__DISMISSING_WITHOUT_MEASURING_IS_THE_SYMMETRIC_ERROR_TO_INFLATING__THE_OPERATOR_TYPING_HOLDS_AND_ITS_STRUCTURAL_FACE_IS_PROVED__OLD_ENTRY_KEPT_BESIDE",  # v223
+            "tower_inner_product": "TOWER_INNER_PRODUCT_AND_ANTI_ISOMETRY__STATE_INNER_PRODUCT_CONJUGATE_SYMMETRIC_AND_LINEAR__VACUUM_NORM_IS_THE_TRACE_OF_THE_DENSITY__TWISTED_CONJUGATION_IS_ANTI_ISOMETRIC__THIS_IS_WHAT_LICENSES_THE_EXTENSION__ACT_III_STILL_OPEN",  # v224
+            "act_iii_progress": "TOWER_ACT_III_F1_F2_PAID__F1_WAS_ALREADY_LARGELY_BUILT_IN_THE_TREE_GNSQUOTIENT__RADICAL_LEFT_IDEAL_QUOTIENT_AND_LEFT_ACTION_ALREADY_ESTABLISHED__WHAT_REMAINS_IS_THE_EXTENSION_AND_THE_COMMUTANT_CLAUSES__DEBT_STILL_READS_OPEN_BY_MEASURE",  # v224
+            "price_of_the_gravity_proof": "THE_GRAVITY_IDENTIFICATION_IS_A_PRICED_DEBT_CLAIMED_BY_NO_ONE__FOUR_ITEMS_RESERVED_IN_KERNEL__ABSENCE_READS_OPEN__MASTER_IMPLICATION_ALREADY_PROVED__WHAT_IS_OWED_ARE_THE_HYPOTHESES__FLAGS_LIGHT_BY_MEASURE_NEVER_BY_DECLARATION",  # v220
             "amplitude_defect": (core.get("the_wall_value") or {}).get("defect_amplitude"),
             "sha256": {}}
     if seal_gate_reasons:

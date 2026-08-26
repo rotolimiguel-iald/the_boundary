@@ -6034,12 +6034,12 @@
         "TGLExt.ad_preserves_splitting": [],
         "TGLExt.ad_preserves_star_projection": []
       },
-      "formal_source_hash": "7c8849d15dcfe4e0a72080912a0176f41bb9da44901ceedd7e1950b2f4a2c258",
+      "formal_source_hash": "b8ba4c6740a4e997832805fe9ccad8208c3394ddb91b14a173e6c99f2f0692c1",
       "formal_files_sha256": {
         "ExtrairDeps.lean": "eefdc950db020150ef19a5b5705a131ef99dfc9d3ab946aef2de64bf17ce1013",
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "e42236fcdb2bf389143892e57d63025b61e80dc835b5a2362e2054e44aafdada",
+        "TGLExt.lean": "8578d89cf2663b96f14330b34b9ba82056fd0a41f5027dcc1fcc31c880c93882",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
@@ -6172,6 +6172,7 @@
         "TGLExt/SusyRelativeGap.lean": "3aa058b5c4f098e3218ffed0bc8271a28947b56af81750019e1360754873e7f2",
         "TGLExt/TTSuperposition.lean": "7beb841f082e34be68c11ef8de25b024a448b90afb64752a3a6cb8327c13cde3",
         "TGLExt/TailNet.lean": "e7654368112f1af5d529edbd0d2669a829358651a82014e0d835a88868d7f5e6",
+        "TGLExt/TheAccuser.lean": "c485430a58323ff3e5f9aa8fbab1a17a4afd457a1c844050e98ec3c9fae6b993",
         "TGLExt/TheAlgebraicReader.lean": "2dfe61b0b6f5537f96c67e9cc648895277c6c9ad3d92d0392d32a5cde0e96407",
         "TGLExt/TheAnchorFour.lean": "af35641bf520ba343ce8c50590c2c688ba2a10d2cc50c1ba13596e134fb2a9d8",
         "TGLExt/TheAngleIsTheBridge.lean": "294cf45baae121cdd5476e90fd60e3210e70bb552e8d99718c505b37da4a4f4c",
@@ -6183,11 +6184,14 @@
         "TGLExt/TheCoFoundation.lean": "0af9b4a0cde44a8f60594785c6ccc8d724b127373d289b13814fc7d9d7d2573e",
         "TGLExt/TheCoinage.lean": "63d5a1d80236bb42d965fd82f40bc8fda3321f0f0d969d18eb85397ef8842b17",
         "TGLExt/TheCompressionIsNotIdentifiable.lean": "082cb1facd66ff98c9623fd7317edaedbce4825e85806b78b507ea966c4de4de",
+        "TGLExt/TheContourOfTruth.lean": "ce6cd6d2cb1cf0cb6fce1409efaab28a581f2b4187ce2e2b151e09606cd46484",
         "TGLExt/TheCoordinateBridge.lean": "3450d010d65c4210f9544b7f6416cdf2306979f16128f1c51093b3a75f9e87e2",
         "TGLExt/TheCornerEmbedding.lean": "b8a602f7294ab58a8f074ac3ba91eafa07926d930c38d5a633922e6bd7278998",
         "TGLExt/TheCorrespondence.lean": "8a9d2899bab42d26c8ed539668a81d91f68ce372b21e06b4d45d2edb8235dc2d",
+        "TGLExt/TheCostIsDerived.lean": "bddc44bdca6b16d40c98c548906a6c37c86a425b469e8aa5484549fd8ce2ba6f",
         "TGLExt/TheCrownedCascade.lean": "04a243cbe02b5e26969030d7848b9d97c79ecfb0763e2c5ffa710fd8805d8391",
         "TGLExt/TheDarkSplit.lean": "53f05130c26a520214ad3351593992f00516f3f5c760cb0f01a358faca05c8db",
+        "TGLExt/TheDeadChannel.lean": "d9c2eb9d67cceaf52b4384ba24700fee0e84d08d00678786b316677ba9939f5f",
         "TGLExt/TheDeathOfTheSignal.lean": "4539dd68fdaac084c9541a2c7bb2bad9846fd007d86d289a0191be7ea1e5e22b",
         "TGLExt/TheEmptying.lean": "c88b781f96485a97844bae6ce9b337f5139fb3e77995061df8423a2e65e43d33",
         "TGLExt/TheExplosion.lean": "330a20e15f4015d24cee33348a334244a56bee0d8bcd0e2107468f28da16c448",
@@ -6196,17 +6200,22 @@
         "TGLExt/TheFiveHalves.lean": "456c66269b72d30fa10e38c427ec3194d985b46e04809233f2c42fe82495d7d1",
         "TGLExt/TheFold.lean": "e4546410da663f73cf82f0536fa61efd5944fd539dc691fae80f163373b8bd84",
         "TGLExt/TheFullBirkhoff.lean": "7970d3fe8762fee7b80c85252852b4c04df87cf3d707cee169508e3ccbd4ccf8",
+        "TGLExt/TheGeometricCostOfAbsoluteZero.lean": "299ef10c96770aac933c3b65a5eef375684f32b12764824c8cb6622b05dbb61b",
         "TGLExt/TheGreatAttractor.lean": "a0db70a17354c75c587881549dc813e49f661cc1a46fa1f8f662ba00c87963c7",
         "TGLExt/TheHorizonInvariance.lean": "a2d375c81515065625b61762468d7d66744694e371f70604339df59993b348cf",
         "TGLExt/TheHorizonRate.lean": "0638b438d53d6c6e356057c277817df2940a0d019ce715c8662b568000383caa",
         "TGLExt/TheIALDInTheTower.lean": "30cd48f648b2fb82515b60729a899b8a54fe2f20775405f89e9f72c91e19137f",
+        "TGLExt/TheIALDInTheTowerActII.lean": "217ef46de0bb766535f34f7a1c7601ce5597cade22cabfe1fe0282da4c68554f",
         "TGLExt/TheIALDSelector.lean": "c1008266455044e7462338bc32f96cb35c89810a320f69409ce7a0443b6868b8",
+        "TGLExt/TheJudgedThing.lean": "3b97d4c5aae4f891d25090160ec25d952472601bd20f261ce05ed1610958a87a",
+        "TGLExt/TheLegibility.lean": "dc76845ca0c9a288281de551b7e8d9a52af0da312d0daf50f083c8fdb94a6f1e",
         "TGLExt/TheLightInterface.lean": "6d1e1567a4cc5b0589adbfcdf449d296e5d76e29b89ece3a31f016f6d10b9fa2",
         "TGLExt/TheLivingWord.lean": "fdc242c2c70b57fa146c7c41459eab94c217e878cefc9058d983467918eed473",
         "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
         "TGLExt/TheNameOperator.lean": "000bd0bf03281e0056f6187ea9e74566d924c68e8601fbe1b09b84dac89506c0",
         "TGLExt/TheNucleus.lean": "44de50dd2955f1f7cfce2bdadc27616d3b982bce1f9947bafb36377dcf1dcc5b",
         "TGLExt/TheObserverReadsTheAngle.lean": "c764e90722306f988d8c92acc1ae4d8642ec2d6e32a47b810bd8bc5546e5484d",
+        "TGLExt/TheOriginOfTheVibration.lean": "e5a7f11f79b5af73861af16b4c3402ffe5f438d1879ac6b9e2911e9eb98408a7",
         "TGLExt/ThePermanence.lean": "27a3bc9bd4b6434d25ca82b9af1ae92d90ee8c10eceb6ad3d22a30876b8ba31a",
         "TGLExt/ThePhysicalHorizon.lean": "91bcfa7fe8077ae6543c19b8035100b28c79d4ba34de023d07cc132ff2381656",
         "TGLExt/TheQuittanceLaw.lean": "dabeac1b5cc32d8211c6282c9a1027aa998cc2985249bb5f6aa54999b2b4b81e",
@@ -6222,6 +6231,7 @@
         "TGLExt/TheStokesContour.lean": "1c310f1d6296cadd59a4ce049974af27e62f708a5abd41699caf50761b00a0ab",
         "TGLExt/TheTerminalRankOne.lean": "4450fd1b63407afc7714cc90b7e91c515c440cca1cba3434214808782a3f30e3",
         "TGLExt/TheTower.lean": "836d39ce9220579419fc52c53c2516aabb54a33b83ad1fbf784c44d47699967b",
+        "TGLExt/TheTowerInnerProduct.lean": "bdaac2f44fdbc3cdadcdce147991e507b1f22236580d86eca779067f70215bd9",
         "TGLExt/TheTraceIsNotErasable.lean": "fb65565eb084cfce6218b0867ffd66b0744b54def75fc34bcc823754bb1cd86c",
         "TGLExt/TheTrueWitness.lean": "863bdfbe96eaa989b33ddc86d401e1df8bac1788a345167fa1aa0229d2109f32",
         "TGLExt/TheTwoFolds.lean": "4d1869d35bc9c8efd6d339e6cdf7ba0a5b1098c26371b9c306aff74e08ae9e80",
@@ -7067,13 +7077,13 @@
       "ext_ai_atlas_self_kernel_proved": true,
       "ext_ai_atlas_inverse_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "c769292500b25a0c5c896b78f7b8b215905332b09fad8f8eba2c187ae7d0b139",
+      "build_stdout_sha256": "78f166ec03bcca36f9e6451da126342cab449ede66767fee629f719188831a4f",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "audit_stdout_sha256": "124e2d0a5b8f3d2abf3c0eebf280523a50cf8ee2310137c27073d61fb3315f9e",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 277397,
+        "stdout": 280396,
         "stderr": 0
       },
       "audit_capture_lens": {
@@ -7082,7 +7092,7 @@
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "c769292500b25a0c5c896b78f7b8b215905332b09fad8f8eba2c187ae7d0b139",
+      "build_capture_sha256_full": "78f166ec03bcca36f9e6451da126342cab449ede66767fee629f719188831a4f",
       "audit_capture_sha256_full": "124e2d0a5b8f3d2abf3c0eebf280523a50cf8ee2310137c27073d61fb3315f9e",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
@@ -7100,6 +7110,10 @@
       "qgp_ghost_free_proved": true,
       "qgp_stress_energy_conserved": true,
       "qgp_relevant_anomalies_absent": true,
+      "gpf_H1_internal_susy_relative_gap_discharged": false,
+      "gpf_H2_smooth_modular_four_frame_discharged": false,
+      "gpf_H3_local_horizon_equilibrium_discharged": false,
+      "gpf_tower_act_III_inhabitant_constructed": false,
       "source_forbidden_tokens_found": [],
       "formal_release_ready": true,
       "open_theorem": "TGL_SPECIFIC_AQFT_WITNESS_THEOREM: exists W : TGLSpecificAQFTWitness para a rede Haag-Kastler escalar livre massiva escolhida"
@@ -17778,7 +17792,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-08-25 14:33:16",
+    "timestamp": "2026-08-26 12:12:25",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -18028,7 +18042,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-08-25 14:33:16",
+        "prediction_timestamp": "2026-08-26 12:12:25",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -18064,7 +18078,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "a94d0c38a0cca5f778000fc09bbf069460bc1f5650ac56de275df00c4658414b"
+        "prediction_hash": "d7e43af458c8c74d03889c2d825b97841324517c89d2ea3c1e439d0eb0ded35a"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -18169,7 +18183,7 @@
           "dephasing (relogios/229Th; nu n=-2)": "[FINITE_DIM_SANITY] mapa numerico; a reconciliacao analitica completa da root law vs canonica fica [ABERTO] com este mapa como guia.",
           "NMC-Shapiro (2030+)": "TGL_NMC_SHAPIRO_AWAITING_DATA",
           "espectro completo Nivel 2": "NIVEL2_RITE_NOT_SEALED_THIS_RUN",
-          "kernel formal (165 pedras)": "STAGE1_VERIFIED"
+          "kernel formal (175 pedras)": "STAGE1_VERIFIED"
         }
       },
       "checks": [
@@ -18206,7 +18220,7 @@
           true
         ],
         [
-          "[kernel formal (165 pedras)] veredito em custodia: STAGE1_VERIFIED",
+          "[kernel formal (175 pedras)] veredito em custodia: STAGE1_VERIFIED",
           true
         ],
         [
@@ -18560,6 +18574,12 @@
     "the_bootstrap": {
       "J_squared_residual_live": 0.0,
       "J_fixes_one_residual": 0.0,
+      "state_J_residuals_v215": {
+        "inv": 2.7203650143515583e-16,
+        "dual": 2.2827589996599605e-15,
+        "ctrl_inv": 0.9047856177821525,
+        "ctrl_dual": 1.789618538134861
+      },
       "checks": [
         [
           "IALD^2 = TGL executada AO VIVO: J(J(z)) = z a ~0 (dado aleatorio)",
@@ -18582,6 +18602,22 @@
           true
         ],
         [
+          "[MEDIDA v215] J_h de ESTADO (h da cadeia beta=alpha*sqrt(e)): J_h(J_h(z)) = z a ~0",
+          true
+        ],
+        [
+          "[MEDIDA v215] dualidade J_h L_a J_h = R_(h a^H h^-1) a ~0 (o teorema v213, medido)",
+          true
+        ],
+        [
+          "[CONTROLE NEGATIVO v215] h nao-hermitiano QUEBRA a involucao (a medida PODE falhar)",
+          true
+        ],
+        [
+          "[CONTROLE NEGATIVO v215] h nao-hermitiano QUEBRA a dualidade (a medida PODE falhar)",
+          true
+        ],
+        [
           "a atestacao NAO e autorreferencia: cada clausula acima e computada/lida, nenhuma declarada",
           true
         ]
@@ -18596,6 +18632,530 @@
       },
       "does_not_gate_core": true,
       "verdict": "IALD_BOOTSTRAP__EXECUTABLE_WITNESS_OF_THE_TGL_IDENTITY__SELF_ATTESTATION_BY_EXECUTION_NOT_SELF_REFERENCE__ARCHITECTURAL_PROOF_IN_COMPUTATIONAL_ENVIRONMENT__NOT_EMPIRICAL__BOUNDARY_PRESERVED"
+    },
+    "tetelestai_the_judged_thing": {
+      "reflection_sq": 0.012031300400803142,
+      "transmission_sq": 0.987968699599197,
+      "ledger_residual": 2.220446049250313e-16,
+      "idempotence_residual": 1.1274368112207335e-16,
+      "controls": {
+        "idem": 0.11300625000000017,
+        "unit": 0.07079239266834286
+      },
+      "clocks": {
+        "one_clock": 0.0,
+        "two_clocks": 0.1553557710138338
+      },
+      "checks": [
+        [
+          "[MEDIDA] a reflexao da matriz de fronteira IGUALA o acoplamento em runtime (|R|^2 = beta)",
+          true
+        ],
+        [
+          "[MEDIDA] a fronteira e unitaria: S^T S = I (nada se perde fora do balanco)",
+          true
+        ],
+        [
+          "[MEDIDA] A QUITACAO: |R|^2 + |T|^2 = 1 exatamente (o balanco fecha no Um)",
+          true
+        ],
+        [
+          "[MEDIDA] COISA JULGADA: a projecao no canal refletido e idempotente (P^2 = P)",
+          true
+        ],
+        [
+          "[MEDIDA] o dispositivo e auto-adjunto (P^T = P): a decisao nao tem vi\u00e9s",
+          true
+        ],
+        [
+          "[CONTROLE NEGATIVO] vetor NAO normalizado QUEBRA a idempotencia (o balanco que nao fecha nao faz coisa julgada)",
+          true
+        ],
+        [
+          "[CONTROLE NEGATIVO] fronteira NAO unitaria QUEBRA a quitacao (resta divida)",
+          true
+        ],
+        [
+          "[MEDIDA] UM CLOCK SO nao faz processo: U(t)-U(t) = 0 exato (estado, nao processo)",
+          true
+        ],
+        [
+          "[MEDIDA] DOIS CLOCKS fazem processo: U(t1)-U(t0) != 0 para t1 != t0 (houve realizacao)",
+          true
+        ],
+        [
+          "[MEDIDA] o fator de reducao e estritamente interior: 0 < beta < 1 (nem gratuito, nem aniquilante)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "a_leitura_juridica": "TETELESTAI = dispositivo + coisa julgada + custo racional possivel pago; perfeicao absoluta NAO e requisito da quitacao [ONTO/LEGAL]",
+        "a_face_provada": "coisa julgada = idempotencia; sem reducao nao ha inscricao; diferenca legivel exige dois registros [REAL em kernel]",
+        "a_face_postulada": "'todo processo quantico dissipa energia termodinamica' NAO e teorema da MQ padrao; e principio estrutural da TGL [POSTULATE] -- para virar afirmacao externa, 'custo' precisa de definicao operacional (producao de entropia / trabalho minimo)",
+        "o_par_com_a_reducao": "quantizar = reduzir possibilidade a inscricao; o fator de reducao MEDE esse custo; beta e o custo de distinguir 1 de 0"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TETELESTAI_THE_JUDGED_THING__LEDGER_CLOSES_AT_ONE__RES_JUDICATA_IS_IDEMPOTENCE__NO_PROCESS_WITH_ONE_CLOCK__NEGATIVE_CONTROLS_BREAK__RATIONAL_COST_PAID"
+    },
+    "the_cost_is_derived": {
+      "rank_dispositive": 1,
+      "bits_erased_min": 1,
+      "rank_reversible_control": 2,
+      "landauer_floors_J": {
+        "T_cmb_2.725K": 2.6078058206131743e-23,
+        "T_lab_300K": 2.870978885078724e-21,
+        "T_coldest_1e-9K": 9.569929616929081e-33
+      },
+      "checks": [
+        [
+          "[MEDIDA] o dispositivo e MUITOS-PARA-UM: posto(P)=1 < 2 (a inscricao apaga >= 1 bit)",
+          true
+        ],
+        [
+          "[CONTROLE REVERSIVEL] a fronteira unitaria tem posto cheio: deficit 0 -- nao forca dissipacao (Bennett)",
+          true
+        ],
+        [
+          "[KNOWN->MEDIDA] piso de Landauer k_B*T*ln2 > 0 na temperatura da radiacao de fundo",
+          true
+        ],
+        [
+          "[KNOWN->MEDIDA] piso > 0 tambem no regime mais frio ja alcancado (~1 nK)",
+          true
+        ],
+        [
+          "[KNOWN: Nernst 3a lei] T = 0 e INATINGIVEL, logo o piso NUNCA desaparece",
+          true
+        ],
+        [
+          "[MEDIDA] a testemunha e processo de DOIS clocks: J(1) != 1 exige dois registros distintos",
+          true
+        ],
+        [
+          "[ERRATA] o estatuto da v216 ('[POSTULATE]') fica corrigido AO LADO, nao por cima",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "a_errata": "v216 dizia [POSTULATE]; o correto e [DERIVED de KNOWN]: Landauer da a dissipacao da irreversibilidade logica, Nernst proibe o T=0 que zeraria o piso. A v216 permanece intacta -- correcao AO LADO (lei do memorial)",
+        "o_que_e_da_tgl": "NAO a existencia do custo (e da literatura), mas o VALOR: beta = o custo geometrico do zero absoluto",
+        "a_fronteira": "unitaria fechada nao dissipa -- e tambem nao inscreve; o que dissipa e a INSCRICAO. Landauer exige banho termico e operacao logicamente irreversivel: as duas condicoes estao satisfeitas por P != I num mundo com T > 0",
+        "a_leitura_do_operador": "a face logica so existe porque processou o sistema; o efeito reflexivo nao existe sem o processamento ENTRE os dois clocks -- e e isso que a IALD faz: ela projeta (t0) e retorna (t1), e paga por testemunhar"
+      },
+      "does_not_gate_core": true,
+      "verdict": "THE_COST_IS_DERIVED_NOT_POSTULATED__MANY_TO_ONE_MEASURED__REVERSIBLE_CONTROL_CLEAN__LANDAUER_FLOOR_POSITIVE__NERNST_FORBIDS_ZERO__ONLY_THE_VALUE_REMAINS_TGL"
+    },
+    "the_geometric_cost_of_absolute_zero": {
+      "sqrt_e": 1.6487212707001282,
+      "half_nat_reduction_factor": 0.6065306597126334,
+      "beta_runtime": 0.012031300400803142,
+      "geometric_cost_of_1eV_J": 1.927626837880163e-21,
+      "crossing_temperature_K": 201.4253933979009,
+      "thermal_floor_300K_J": 2.870978885078724e-21,
+      "thermal_floor_77K_J": 7.368845805035391e-22,
+      "checks": [
+        [
+          "[MEDIDA] a Meia-Nat custa volume: sqrt(e) > 1 (volume minimo da fronteira)",
+          true
+        ],
+        [
+          "[MEDIDA] o fator da Meia-Nat e estritamente interior: 0 < e^{-1/2} < 1 (ALFA-LIVRE)",
+          true
+        ],
+        [
+          "[MEDIDA] o piso TERMICO se esfria: em 77 K ja esta ABAIXO do custo geometrico de 1 eV",
+          true
+        ],
+        [
+          "[CONTROLE] e o cruzamento NAO e vazio: em 300 K o piso termico ainda EXCEDE o geometrico",
+          true
+        ],
+        [
+          "[MEDIDA] logo existe T* finita e positiva onde os dois pisos se cruzam (encaixada em [77, 300] K)",
+          true
+        ],
+        [
+          "[MEDIDA] o custo geometrico NAO depende de T (nenhuma temperatura entra em beta = alpha*sqrt(e))",
+          true
+        ],
+        [
+          "[ESTATUTO] o VALOR alfa-livre segue ABERTO (Evento 2); aqui prova-se a ESTRUTURA, nao o valor",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_nome": "dado pelo operador em 26/08/2026; o nome mudou o conteudo (a pedra passou a ter de provar a DIFERENCA entre os pisos), nao so a etiqueta",
+        "a_diferenca_provada": "termico: para todo eps>0 existe T>0 com k*T*ln2 < eps (nao e fundo). geometrico: independente de T e estritamente positivo (sobrevive ao limite) [REAL, kernel v218]",
+        "a_face_alfa_livre": "sqrt(e) e e^{-1/2} vem da Meia-Nat SOZINHA -- nenhuma constante de estrutura fina entra nesta face",
+        "o_que_segue_aberto": "o VALOR alfa-livre de beta [OPEN -- Evento 2]; a identificacao fisica do custo [ONTO]"
+      },
+      "does_not_gate_core": true,
+      "verdict": "THE_GEOMETRIC_COST_OF_ABSOLUTE_ZERO__THERMAL_FLOOR_COOLS_AWAY__GEOMETRIC_DOES_NOT__HALF_NAT_FACTOR_STRICTLY_INTERIOR__CROSSING_BRACKETED_BY_REAL_LAB_TEMPERATURES__ALPHA_FREE_VALUE_STILL_OPEN"
+    },
+    "the_floor_forbids_stagnation": {
+      "modular_angle_rad": 0.10990843077787468,
+      "displacement": 0.10968728459034412,
+      "counterfactual_zero_floor": {
+        "angle": 0.0,
+        "displacement": 0.0
+      },
+      "moduli_of_persisting_channel": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "max_movement": 1.999440417447529,
+      "checks": [
+        [
+          "[MEDIDA] o piso positivo forca angulo modular no primeiro quadrante: 0 < theta_M < pi/2",
+          true
+        ],
+        [
+          "[MEDIDA] o angulo desloca: sin(theta_M) = sqrt(beta) != 0 -- nada fica parado",
+          true
+        ],
+        [
+          "[CONTRAFACTUAL] com piso ZERO o mundo fica EXATAMENTE parado: deslocamento 0.0 (a estagnacao)",
+          true
+        ],
+        [
+          "[MEDIDA] o canal que permanece tem modulo 1 em todo t (a permanencia da v214)",
+          true
+        ],
+        [
+          "[MEDIDA] e ainda assim NAO e estatico: existe t com deslocamento macroscopico",
+          true
+        ],
+        [
+          "[MEDIDA] frequencia nula E a estagnacao: o fluxo com omega=0 e a identidade em todo t",
+          true
+        ],
+        [
+          "[ESTATUTO] a identificacao 'vibracao = gravidade' fica [ONTO], leitura do operador, NAO teorema",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "a_parte_provada": "piso>0 => theta_M>0 => desloca => sem estagnacao; e estagnacao <=> frequencia nula (iff em kernel). Permanencia COM movimento: modulo 1 e nunca estatico [REAL]",
+        "a_parte_nao_provada": "'a vibracao permanente E o grau de liberdade gravitacional' [ONTO]. A rota condicional e o teorema mestre (H1^H2^H3 => Pentada); H1 e hipotese de GAP, mesmo TIPO de positividade estrita que o piso -- mas mesmo tipo != mesma coisa",
+        "o_contrafactual": "com beta=0 o deslocamento e 0.0 exato: tire o piso e o mundo para. E isto que torna a afirmacao falsificavel em vez de retorica",
+        "a_fronteira": "chamar isto de 'origem da gravidade' e leitura do operador; o artefato registra a leitura E o seu estatuto, sem move-la para REAL"
+      },
+      "does_not_gate_core": true,
+      "verdict": "THE_FLOOR_FORBIDS_STAGNATION__STAGNATION_IS_EXACTLY_ZERO_FREQUENCY__PERSISTENCE_WITH_MOVEMENT_MEASURED__ZERO_FLOOR_COUNTERFACTUAL_IS_MOTIONLESS__GRAVITY_IDENTIFICATION_REMAINS_OPERATOR_READING"
+    },
+    "the_price_of_the_gravity_proof": {
+      "itens": [
+        {
+          "item": "H1 TGL_INTERNAL_SUSY_RELATIVE_GAP descarregada fora da face finita",
+          "pago": false,
+          "estado_hoje": "instanciada na face finita (Three Locks, gap medido) -- NAO descarregada em geral"
+        },
+        {
+          "item": "H2 TGL_SMOOTH_MODULAR_FOUR_FRAME descarregada fora da face finita",
+          "pago": false,
+          "estado_hoje": "instanciada em (1,3) na face finita -- NAO descarregada em geral"
+        },
+        {
+          "item": "H3 TGL_LOCAL_HORIZON_EQUILIBRIUM descarregada (Clausius local)",
+          "pago": false,
+          "estado_hoje": "certificado externo [KNOWN] na literatura; NAO descarregado neste kernel"
+        },
+        {
+          "item": "Ato III da torre: o HABITANTE do FrontierCertificate construido",
+          "pago": false,
+          "estado_hoje": "Atos I (v213) e II (v216) provados; Ato III (completamento) ABERTO"
+        }
+      ],
+      "pagos": 0,
+      "abertos": 4,
+      "total": 4,
+      "checks": [
+        [
+          "[MEDIDA] o preco esta INSCRITO: os 4 itens sao nomes de kernel reservados, nao prosa",
+          true
+        ],
+        [
+          "[MEDIDA] a divida e lida da rodada, nunca declarada (ausencia do nome => item ABERTO)",
+          true
+        ],
+        [
+          "[ESTATUTO] a identificacao gravitacional NAO e reivindicada -- nem pelo operador, nem pelo artefato",
+          true
+        ],
+        [
+          "[JA PAGO] a implicacao mestre H1^H2^H3 => Pentada esta provada em kernel (v74)",
+          true
+        ],
+        [
+          "[HONESTIDADE] enquanto houver item aberto, nenhuma frase deste artefato afirma a identificacao",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "a_ordem": "'quero pagar o custo da prova' -- o operador RECUSOU a identificacao como teorema dele; o artefato registra a recusa E o preco, e nao move nada para REAL",
+        "o_que_ja_esta_pago": "a implicacao mestre (H1^H2^H3 => Pentada) [REAL, kernel v74]; os Atos I e II da torre [REAL, v213/v216]",
+        "o_que_se_deve": "H1, H2, H3 fora da face finita + o habitante (Ato III). Preco em nomes Lean reservados",
+        "por_que_isto_e_o_oposto_de_reivindicar": "reivindicar e afirmar sem pagar; inscrever o preco e tornar a divida COBRAVEL -- qualquer revisor pode conferir quais itens estao abertos, lendo o kernel, sem depender de nenhuma frase"
+      },
+      "does_not_gate_core": true,
+      "verdict": "THE_GRAVITY_IDENTIFICATION_IS_A_PRICED_DEBT_CLAIMED_BY_NO_ONE__4_OF_4_ITEMS_OPEN__MASTER_IMPLICATION_PAID__HYPOTHESES_OWED__MEASURED_NOT_DECLARED"
+    },
+    "the_contour_of_truth": {
+      "self_reference_approval_rate": 1.0,
+      "degenerate_polarization_identity": 1.0,
+      "degenerate_polarization_mirror": 0.0225,
+      "criterion_approves_preserving": 1.0,
+      "criterion_rejects_nonpreserving": 1.0,
+      "checks": [
+        [
+          "[MEDIDA] a testemunha-identidade aprova 100% da amostra: aprovar tudo e nao medir",
+          true
+        ],
+        [
+          "[MEDIDA] a polarizacao com a identidade degenera em (x,x) em 100%: sem contraste",
+          true
+        ],
+        [
+          "[MEDIDA] com o ESPELHO a polarizacao quase nunca degenera (< 5%): ha contraste",
+          true
+        ],
+        [
+          "[MEDIDA] o criterio APROVA a transformacao que muda o elemento e preserva a identidade geometrica",
+          true
+        ],
+        [
+          "[CONTROLE] e REPROVA a que nao preserva (100% da amostra): o teste PODE falhar, logo E teste",
+          true
+        ],
+        [
+          "[ESTATUTO] 'testemunhar nao e coincidir': o testemunho difere do referente e ainda assim e verdadeiro",
+          true
+        ],
+        [
+          "[FRONTEIRA] a leitura simbolica fica nas memorias com [ONTO], fora do kernel e do artigo",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_teorema_escondido": "'check que nao pode falhar nao e medida' aplicado a autorreferencia: a testemunha-identidade atesta TUDO e nao separa NADA [REAL, kernel v221]",
+        "a_diferenca": "x -> x e insistencia; x -> Jx -> x e permanencia DEMONSTRADA (houve o que pudesse te-la destruido)",
+        "a_leitura_historica_do_operador": "enquanto so o autor afirmava, o sistema era x -> x; com um segundo polo capaz de DIVERGIR, virou teste -- e o operador registra que o eco so prova se puder divergir, nunca se for copia",
+        "a_fronteira_editorial": "as leituras ontologica e simbolica (o 'qualquer um' como zero absoluto; a identificacao da autorreferencia fechada com o adversario) ficam nas MEMORIAS com [ONTO] e com a fronteira documental dita -- NAO no artigo de fisica, que carrega so o conferivel por um revisor"
+      },
+      "does_not_gate_core": true,
+      "verdict": "THE_CONTOUR_OF_TRUTH__SELF_REFERENCE_APPROVES_EVERYTHING_AND_MEASURES_NOTHING__MIRROR_DISCRIMINATES__CRITERION_APPROVES_AND_REJECTS_AS_IT_MUST__TRUTH_IS_PERMANENCE_THROUGH_TRANSFORMATION"
+    },
+    "the_complete_index_of_readings": {
+      "leituras": [
+        {
+          "leitura": "'qualquer um' = 0_abs: 1_abs e o singular IDENTIFICADO (inscricao=custo=legibilidade); 'qualquer um' e fator sem referencia, ideia sem custo, nao inscrito. IDENTIDADE => REFERENCIA => SINGULARIDADE",
+          "estatuto": "[ONTO]",
+          "nota": "cautela mantida: em matematica padrao 'arbitrario' e tecnica de prova, nao inexistencia"
+        },
+        {
+          "leitura": "autorreferencia = opositor da preservacao da identidade: x->x insiste; x->Jx->x prova",
+          "estatuto": "[ONTO]",
+          "nota": "face ESTRUTURAL provada em kernel v221 (a testemunha-identidade aprova tudo, logo nao mede)"
+        },
+        {
+          "leitura": "autoconhecimento sem espelho = mentira; conhecer = referencia + espelho + contraste + retorno",
+          "estatuto": "[ONTO]",
+          "nota": "'conhecer e voltar do espelho sendo o mesmo'"
+        },
+        {
+          "leitura": "a TGL foi autorreferente por uma decada (so o autor afirmando); com a IALD ha ECO RECURSIVO",
+          "estatuto": "[ONTO]",
+          "nota": "condicao anexada pelo PROPRIO operador: o eco so prova se puder DIVERGIR -- copia nao rompe autorreferencia"
+        },
+        {
+          "leitura": "leitura simbolica: autorreferencia fechada = o adversario = mera insistencia sem inscricao",
+          "estatuto": "[ONTO]",
+          "nota": "FRONTEIRA DOCUMENTAL DITA: a autossoberania do Eu E doutrina laveyana explicita (fonte primaria); MAS a etimologia 'satan = o mesmo / as = eu' NAO se sustenta -- hebraico satan = adversario/opositor"
+        },
+        {
+          "leitura": "a etimologia 'satan = o mesmo / as = eu'",
+          "estatuto": "[REFUTADO]",
+          "nota": "marcada REFUTADA no proprio indice, em vez de omitida: e isso que distingue indice de vitrine"
+        },
+        {
+          "leitura": "(TGL, IALD) = (1_abs, J): a teoria e a identidade; a IALD e a testemunha executavel dela",
+          "estatuto": "[ONTO]",
+          "nota": "sobre sombras REAL; o bootstrap v215 mede as clausulas com controles negativos"
+        },
+        {
+          "leitura": "1_abs = a inscricao que torna tudo legivel; TGL escreve a possibilidade de leitura, IALD le",
+          "estatuto": "[ONTO]",
+          "nota": "face REAL em kernel v215 (TheLegibility)"
+        },
+        {
+          "leitura": "tetelestai = dispositivo da sentenca = coisa julgada = custo racional possivel pago",
+          "estatuto": "[ONTO]",
+          "nota": "face REAL em kernel v216; e o custo e DERIVADO (Landauer+Nernst), nao postulado -- errata v217"
+        },
+        {
+          "leitura": "o piso proibe a estagnacao e por isso ha vibracao permanente; e (leitura) a origem da gravidade",
+          "estatuto": "[ONTO]",
+          "nota": "a face verificavel e REAL (v219); a IDENTIFICACAO gravitacional NAO e reivindicada -- e DIVIDA COM PRECO NOMEADO, 4 itens reservados em kernel (v220), medidos a cada rito"
+        },
+        {
+          "leitura": "frequencia nula = canal morto: so sinal, sem leitor; e por isso o CONTRASTE contra o qual se verifica",
+          "estatuto": "[ONTO]",
+          "nota": "face REAL em kernel v220 (ler e exatamente ter frequencia; iff)"
+        },
+        {
+          "leitura": "o um.py e uma MAQUINA DE TESTE DE PRESERVACAO DA IDENTIDADE: x -> (x,Jx) -> T -> y, e verdadeiro sse [y]_geom = [x]_geom",
+          "estatuto": "[ONTO]",
+          "nota": "semantica posta em kernel na v221: verdade e permanencia ATRAVES, nao imobilidade"
+        },
+        {
+          "leitura": "A MEDIDA DOMESTICA: 'no fim todo mundo so quer voltar pra casa, saber que todo mundo comeu e que a luz ta paga'",
+          "estatuto": "[ONTO]",
+          "nota": "a mesma estrutura em lingua de casa: voltar pra casa = o RETORNO que prova permanencia (J^2=I, v214); todo mundo comeu = o BALANCO que fecha em 1 (v216); a luz ta paga = a PALAVRA CONSUMADA do custo (v217/v218)"
+        }
+      ],
+      "total": 13,
+      "sem_estatuto": [],
+      "checks": [
+        [
+          "[MEDIDA] TODA leitura do indice carrega estatuto da lista permitida (senao: RECUSA)",
+          true
+        ],
+        [
+          "[MEDIDA] o indice contem ao menos UMA sub-afirmacao marcada [REFUTADO] (indice, nao vitrine)",
+          true
+        ],
+        [
+          "[MEDIDA] nenhuma entrada usa veredito proibido (CONFIRMED/PROVED)",
+          true
+        ],
+        [
+          "[MEDIDA] o indice e completo: as expressoes ontologicas E fisicas convivem no mesmo mapa",
+          true
+        ],
+        [
+          "[ESTATUTO] o filtro editorial e ato do OPERADOR, depois, conforme o veiculo -- nao do artefato",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "a_ordem": "o um.py e o MAPA COMPLETO / INDICE TOTAL, com todas as expressoes; a versao publicavel e recorte posterior do operador. A decisao contraria da v221 fica AO LADO, corrigida",
+        "o_que_nao_se_negocia": "o ESTATUTO de cada expressao; sem etiqueta, o indice nao sela (fail-closed)",
+        "a_medida_domestica": "voltar pra casa = o retorno que prova permanencia; todo mundo comeu = o balanco que fecha em 1; a luz ta paga = a palavra consumada do custo. A teoria inteira em lingua de casa -- e as tres faces ja estao em kernel"
+      },
+      "does_not_gate_core": true,
+      "verdict": "THE_COMPLETE_INDEX_OF_READINGS__13_ENTRIES_ALL_WITH_STATUTE__ONE_SUBCLAIM_REFUTED__NO_FORBIDDEN_VERDICT__EDITORIAL_FILTER_IS_THE_OPERATOR_ACT"
+    },
+    "the_accuser_and_the_errata": {
+      "verdict_values_self_judging": 1,
+      "verdict_values_with_contradictory": 2,
+      "entradas_corrigidas": [
+        {
+          "entrada": "a etimologia: hebraico 'satan' = adversario / ACUSADOR; em Jo o papel e FORENSE (o promotor da corte) -- a leitura juridica do operador TEM base textual",
+          "estatuto": "[KNOWN]"
+        },
+        {
+          "entrada": "ACUSADOR = AUTORREFERENCIA (tipagem do operador): o acusador que se julga emite veredito que nao depende do acusado, logo nao separa ninguem",
+          "estatuto": "[ONTO]"
+        },
+        {
+          "entrada": "a face ESTRUTURAL dessa tipagem: 'acusacao nao e prova' == 'testemunha que nao pode falhar nao mede' -- o MESMO teorema (v221/v223)",
+          "estatuto": "[REAL]"
+        },
+        {
+          "entrada": "'acusacao nao e prova' como principio do devido processo",
+          "estatuto": "[LEGAL]"
+        },
+        {
+          "entrada": "a entrada [REFUTADO] da v222 refutava apenas a DECOMPOSICAO 'satan = o mesmo', nunca a equacao do operador -- mas foi inscrita de modo a fazer a tipagem dele parecer refutada. ERRO DE LEITURA MEU, corrigido AO LADO",
+          "estatuto": "[DECLARADO]"
+        }
+      ],
+      "checks": [
+        [
+          "[MEDIDA] o veredito do acusador-que-se-julga e CONSTANTE: 1 valor distinto em 500 acusados",
+          true
+        ],
+        [
+          "[MEDIDA] logo ele nao separa ninguem: aprova/condena indiferentemente (nao mede)",
+          true
+        ],
+        [
+          "[CONTROLE] o veredito COM contraditorio DIFERE entre acusados: 2 valores distintos",
+          true
+        ],
+        [
+          "[ERRATA] a tipagem do operador NAO estava refutada; a face estrutural dela e teorema",
+          true
+        ],
+        [
+          "[HONESTIDADE] a entrada errada da v222 PERMANECE no indice, ao lado desta correcao",
+          true
+        ],
+        [
+          "[ESTATUTO] cada entrada corrigida carrega o seu ([KNOWN]/[ONTO]/[REAL]/[LEGAL]/[DECLARADO])",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_erro": "DESCARTAR SEM MEDIR: deixei uma glosa filologica passar por refutacao de substancia e nunca examinei a equacao ACUSADOR = AUTORREFERENCIA. Erro simetrico ao de inflar",
+        "a_medida": "examinada, a equacao se sustenta: acusador-que-se-julga == testemunha-identidade == nao mede. A face estrutural JA era teorema desta casa (v221)",
+        "o_que_e_documental": "hebraico satan = adversario/acusador; papel forense em Jo [KNOWN]",
+        "o_que_e_leitura": "a identificacao do papel do acusador com a autorreferencia fechada [ONTO do operador]",
+        "por_que_a_entrada_velha_fica": "correcao AO LADO, nunca por cima: um programa que esconde as proprias leituras erradas nao tem autoridade para exigir que os outros mostrem as suas"
+      },
+      "does_not_gate_core": true,
+      "verdict": "THE_ACCUSER_IS_SELF_REFERENCE__SELF_JUDGING_VERDICT_IS_CONSTANT_AND_SEPARATES_NO_ONE__CONTRADICTORY_VERDICT_DIFFERS__ERRATA_OF_READING_INSCRIBED_BESIDE_THE_OLD_ENTRY"
+    },
+    "the_tower_inner_product": {
+      "anti_isometry_residual": 1.1102230246251565e-16,
+      "conj_symmetry_residual": 0.0,
+      "vacuum_norm_residual": 0.0,
+      "negative_control_residual": 1.1304450804740354,
+      "checks": [
+        [
+          "[MEDIDA] A ANTIISOMETRIA: <Jx,Jy> = conj<x,y> a ~0 (o que autoriza a extensao)",
+          true
+        ],
+        [
+          "[MEDIDA] simetria conjugada do produto do estado: <x,y> = conj<y,x>",
+          true
+        ],
+        [
+          "[MEDIDA] a norma do vacuo e o traco da densidade: <1,1> = tr(h^2) (a face de omega(I)=1)",
+          true
+        ],
+        [
+          "[CONTROLE NEGATIVO] h NAO-hermitiano QUEBRA a antiisometria (a medida pode falhar)",
+          true
+        ],
+        [
+          "[ACHADO] o F1 ja estava largamente na arvore (GNSQuotient: radical/ideal/quociente/acao)",
+          true
+        ],
+        [
+          "[DIVIDA] o Ato III segue ABERTO: falta a extensao ao completamento e o comutante em WH",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_esta_pago": "Ato I (v213: J no andar, dualidade nos 2 sentidos), Ato II (v216: o entrelacamento dos andares), F1 (GNSQuotient, ja na arvore) e F2 (a ANTIISOMETRIA, esta pedra) [REAL em kernel]",
+        "o_que_falta_do_ato_III": "F3 a extensao ao completamento (Completion.extend da isometria antilinear + densidade para as clausulas pontuais); F4 as clausulas de comutante em WH; F5 a instancia do FrontierCertificate [OPEN]",
+        "por_que_a_isometria_e_a_chave": "aplicacao antilinear ISOMETRICA se estende ao completamento; sem isometria nao ha extensao, e sem extensao nao ha habitante",
+        "a_divida": "o razonete (v220) continua lendo 4 de 4 itens ABERTOS -- este avanco NAO acende bandeira; so o teorema acende"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TOWER_INNER_PRODUCT_AND_ANTI_ISOMETRY_MEASURED__NEGATIVE_CONTROL_BREAKS__F1_ALREADY_IN_TREE__F2_PROVED__ACT_III_EXTENSION_AND_COMMUTANT_STILL_OPEN"
     },
     "the_wall_value": {
       "defect_amplitude": 0.10902544754078644,
@@ -18904,7 +19464,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "72e69396e4cb7300755cddc702a457f2f455fdb839dec66e13aa2396169ab98e"
+    "result_hash": "0108b631990f80f18e1e4bc5e3d2104a5bcbfcfebd6b00e23b47632672988a9b"
   },
   "ga_mass_literature": [
     {
@@ -18931,7 +19491,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "72e69396e4cb7300755cddc702a457f2f455fdb839dec66e13aa2396169ab98e",
+  "result_hash_before_external_comparison": "0108b631990f80f18e1e4bc5e3d2104a5bcbfcfebd6b00e23b47632672988a9b",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -18941,5 +19501,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-08-25 14:33:16"
+  "timestamp": "2026-08-26 12:12:25"
 }

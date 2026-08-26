@@ -4590,7 +4590,7 @@
     "TGLExt.ad_preserves_splitting": [],
     "TGLExt.ad_preserves_star_projection": []
   },
-  "formal_source_hash": "7c8849d15dcfe4e0a72080912a0176f41bb9da44901ceedd7e1950b2f4a2c258",
+  "formal_source_hash": "b8ba4c6740a4e997832805fe9ccad8208c3394ddb91b14a173e6c99f2f0692c1",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -4896,7 +4896,7 @@
 
 ```json
 {
-  "code_sha256": "c2d8cee93320479a6df3b9bcd3bf06b67a8bb24d1dfcfc2cf051a5759e74936f",
+  "code_sha256": "678328ac9f42045e0140cbacfd2c09b61965170eb9df0f2f8807a33cd4edf17a",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"

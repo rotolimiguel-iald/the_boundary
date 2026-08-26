@@ -70,4 +70,4 @@ Dependencias: pip install numpy scipy matplotlib (opcionais: emcee, camb, gguf, 
 
 ---
 
-gerado por script de git ls-files em 2026-08-25 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-26 -- nao editar a mao

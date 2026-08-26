@@ -51,4 +51,4 @@ O Luminidio -- o cacador e os fluxos JWST calibrados de AT2023vfi (29d e 61d).
 
 ---
 
-gerado por script de git ls-files em 2026-08-25 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-26 -- nao editar a mao

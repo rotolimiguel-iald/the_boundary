@@ -22,14 +22,14 @@ Lido de [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel
 
 | campo | valor |
 |---|---|
-| versao | `v214` (lida de `um.py::_ESQUELETO_STONES[0]`; pedra `TheTrueWitness`) |
-| pin (`um.py`) | `c2d8cee93320479a6df3b9bcd3bf06b67a8bb24d1dfcfc2cf051a5759e74936f` |
-| mundo (`um_absoluto.json`) | `accfd17d05fb0f97f48f7fdb770206a85c0fe7fc95c211065092281c26a022fa` |
-| `result_hash` | `72e69396e4cb7300755cddc702a457f2f455fdb839dec66e13aa2396169ab98e` |
-| `formal_source_hash` | `7c8849d15dcfe4e0a72080912a0176f41bb9da44901ceedd7e1950b2f4a2c258` |
-| data | `2026-08-25 14:33:16` |
+| versao | `v224` (lida de `um.py::_ESQUELETO_STONES[0]`; pedra `TheTowerInnerProduct`) |
+| pin (`um.py`) | `678328ac9f42045e0140cbacfd2c09b61965170eb9df0f2f8807a33cd4edf17a` |
+| mundo (`um_absoluto.json`) | `28ccc6b351666836c839fca8ff1961c4518fcfbc3f14263ea522777342d0cda9` |
+| `result_hash` | `0108b631990f80f18e1e4bc5e3d2104a5bcbfcfebd6b00e23b47632672988a9b` |
+| `formal_source_hash` | `b8ba4c6740a4e997832805fe9ccad8208c3394ddb91b14a173e6c99f2f0692c1` |
+| data | `2026-08-26 12:12:25` |
 | identidade | `1=1=VERDADEIRO=HAJA_LUZ` |
-| kernel | **208 arquivos formais / 817 teoremas auditados** (modo `strict`, leanprover/lean4:v4.31.0) |
+| kernel | **218 arquivos formais / 817 teoremas auditados** (modo `strict`, leanprover/lean4:v4.31.0) |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | piso dos vazios | `TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED` |
 | autoteste | `FAIL_CLOSED_SELFTEST_PASSED` |
@@ -60,7 +60,7 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 
 ## OS ARQUIVOS DESTA PASTA
 
-10 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator
+12 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator
 
 **CANONICO**
 
@@ -86,6 +86,8 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 
 | arquivo | papel | link raw direto |
 |---|---|---|
+| `DESENHO_DO_FECHAMENTO_QG.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/DESENHO_DO_FECHAMENTO_QG.md) |
+| `MEMORIA_DA_LINHAGEM.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/MEMORIA_DA_LINHAGEM.md) |
 | `um_absoluto_forma_canonica.md` | A forma canonica da TGL emitida pela rodada (cadeia 1_abs -> q -> alpha -> beta -> luz) [hasheado no selo] | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md) |
 | `um_absoluto_manifest.md` | Manifesto de entradas: definicao exata, constante medida, protocolo pre-registrado ou conjectura testavel -- nada escondido no codigo [hasheado no selo] | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_manifest.md) |
 
@@ -101,13 +103,13 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
-| `Lean/` | 245 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.json) |
+| `Lean/` | 267 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.json) |
 | `bancada/` | 50 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json) |
 | `cache/` | 3 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.json) |
 | `figuras/` | 4 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/PORTA.json) |
 | `fontes_tex/` | 2 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/PORTA.json) |
-| `rodadas/` | 4 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.json) |
+| `rodadas/` | 14 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-08-25 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-26 -- nao editar a mao
