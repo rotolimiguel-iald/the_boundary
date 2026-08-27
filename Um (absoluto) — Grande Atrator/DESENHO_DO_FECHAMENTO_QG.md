@@ -241,3 +241,184 @@ F1→F5 na ordem do §2. Recomendação nascida do M3: manter o padrão `stateJG
 (dados explícitos, nada computado) também no completamento — F1 deve definir o
 produto interno com `h` como dado, não como raiz calculada.
 Selo corrente ao fim desta sessão: `um.py 5a86ce2434e24752`.
+
+---
+
+## ADENDO 27/08/2026 — A REGRA DO MODO DE QUITAÇÃO (v253) + A REDUÇÃO DO ÚLTIMO ENUNCIADO
+
+### A regra nova (ordem do operador, 27/08) — vale para toda sessão sucessora
+
+> *"levar a H3 como KNOWN não é falta de prova, é justamente usar prova
+> pré-concebida, ou prova emprestada, eu não preciso pagar o preço de nada que já
+> foi pago antes de mim."*
+
+O razonete da v220 só sabia **duas** palavras: pago-em-kernel ou aberto. Faltava a
+terceira, que é a mais comum na ciência. A distinção agora está **em kernel**
+(`TheImportedEquilibrium.lean`) e é exata:
+
+| Modo | O que é | Como se mede |
+|---|---|---|
+| `KERNEL` | provado neste kernel, axiomas ⊆ {propext, choice, Quot.sound} | bandeira `gpf_*` |
+| `IMPORTED` | condicional cuja hipótese **está disponível** + **ponte nossa provada** | bandeira `gpi_*` + citação na face |
+| `OPEN` | condicional cuja hipótese é **problema aberto** | ausência das duas |
+
+**A régua do modo IMPORTED** (herda a régua-mãe, sem exceção):
+
+1. **A ponte é sempre nossa e sempre medida.** Importar só vale se um teorema
+   NOSSO, incondicional, mostrar que os nossos objetos fornecem *exatamente* a
+   forma que a implicação importada consome. Sem ponte, `IMPORTED` seria sinônimo
+   de `DECLARADO` — que é o que o operador proibiu.
+2. **Citação na face**: autor, ano, periódico. Nunca "é conhecido que".
+3. **`IMPORTED` jamais acende `gpf_`.** Controle negativo obrigatório no razonete:
+   a bandeira de kernel do item tem de continuar **apagada**.
+4. **Importar não é declarar**: `the_import_alone_concludes_nothing` fica em kernel
+   ao lado — existe implicação verdadeira de consequente falso.
+
+### O que a v253 quitou por importação
+
+**H3 `TGL_LOCAL_HORIZON_EQUILIBRIUM`.** Citado: Bisognano–Wichmann (1975/76),
+Unruh (1976), Bekenstein (1973)/Hawking (1975), **Jacobson (1995) PRL 75 1260**.
+Ponte nossa, provada sem condição em todo andar: a torre concreta fornece um fluxo
+que fixa a unidade e um estado KMS a respeito dele
+(`qgImport_H3_localHorizonEquilibrium_bridged`).
+
+**Consequência medida** (`the_trio_is_a_pair`): dado o teorema mestre e a implicação
+importada, **H1∧H2∧H3 ⟹ P reduz-se a H1∧H2 ⟹ P**. A dívida de kernel encolheu de
+um item: **não são três hipóteses nomeadas, são duas — mais o habitante.**
+
+### A redução do último enunciado (item 4)
+
+`TheIntersectionOfCommutants.lean` (a construir/embutir na próxima onda):
+
+- `commutant_iUnion` — comutante da união = interseção dos comutantes;
+- `commutant_towerImage_eq_iInter` — **M′ = ⋂_N (M_N)′** (porque `towerImage`
+  É uma união sobre andares, por definição);
+- `the_missing_clause_is_a_distributivity` — a hipótese do certificado condicional
+  (v251) equivale, palavra por palavra, a uma **distributividade da conjugação
+  sobre essa interseção**;
+- `image_does_not_commute_with_intersection` — **e essa distributividade é FALSA em
+  geral.** Existe função e existem dois conjuntos com imagem-da-interseção vazia e
+  interseção-das-imagens não vazia.
+
+⇒ **O alvo mudou de forma, não de tamanho.** Deixou de ser "prove Tomita" e passou
+a ser: *mostrar que a estrutura específica da torre faz valer uma distributividade
+que no caso geral é falsa.* A v250 já deu o andar (comutante do andar =
+multiplicação à direita); o que falta é o passo do limite, e agora se sabe **por
+que** ele é duro. Nomear a forma do obstáculo **não o remove** (v252).
+
+### Estado do razonete ao fim desta sessão
+
+`0 por kernel · 1 por importação · 3 abertos` — H1, H2 e o habitante (Ato III).
+As quatro bandeiras `gpf_*` continuam **apagadas**, e continuam sendo a única coisa
+que pode acender por prova. **A imobilidade do gate é a credibilidade.**
+
+### A rota nomeada do item 4 `[KNOWN — rota padrão de Araki–Woods; NÃO é teorema nosso]`
+
+⚠ **Estatuto**: o que segue é a rota que a literatura usa para fatores ITPFI. Está
+aqui como **mapa**, não como resultado. Nenhuma destas três peças está provada no
+nosso kernel; nenhuma acende bandeira.
+
+Provar `M′ ⊆ J M″ J` para esta torre, pela rota padrão, pede **três tijolos**:
+
+1. **A cisão tensorial em cada andar** — `WH ≅ H_N ⊗ H^{(N)}`, com `π(M_N) = L ⊗ 1`.
+   Vem de o estado ser **produto** (é o que `chainState_towerStep` já garante no
+   nível do estado: `φ_{N+1}(a ⊗ 1) = φ_N(a)`).
+2. **O teorema de comutação tensorial** — `(A ⊗ 1)′ = A′ ⊗ B(H₂)`. Combinado com a
+   v250 (comutante do andar = multiplicação à direita), dá
+   `(M_N)′ = R(M_N) ⊗ B(H^{(N)})`.
+3. **A trivialidade da cauda** — `⋂_N [R(M_N) ⊗ B(H^{(N)})] = (∪_N R(M_N))″`.
+   **É aqui que mora a dificuldade**, e é exatamente a distributividade que a
+   `TheIntersectionOfCommutants` mostra ser **falsa no caso geral**.
+
+⇒ O tijolo 3 é o item 4. Os tijolos 1 e 2 são infraestrutura que a mathlib **não
+tem** para álgebras de von Neumann — construí-los é trabalho de porte próprio, e
+deve ser medido como tal antes de ser prometido.
+
+**Aviso à sessão sucessora**: a rota falsa já foi fechada **por teorema** na v251 —
+"mostre que `T(Ω)` está na torre" é **falso**, não difícil (denso ≠ pertencente; o
+fenômeno é o operador *afiliado*). Não a reabra.
+
+---
+
+### ⚠ ERRATA v253 → v254 (mesma sessão, 27/08) — **o número corrigiu a frase**
+
+Acima escrevi *"Estado do razonete ao fim desta sessão: 0 por kernel · 1 por
+importação · 3 abertos"*. **Está errado, e quem me desmentiu foi a medida.**
+
+A rodada v253 (`um.py 7c75e1f51e5ffb23`, selftest **PASSED**) leu:
+
+```
+gpi_H3_local_horizon_equilibrium_bridged = FALSE
+razonete = 0 por kernel · 0 por importação · 4 abertos
+veredito = MODE_OF_DISCHARGE_NOT_SEALED_THIS_RUN
+```
+
+**Causa, medida e não adivinhada**: a bandeira `gpi_*` é lida do mapa de axiomas
+produzido por `TGL/Audit.lean`, e eu **não acrescentei** a linha
+`#print axioms TGLExt.qgImport_H3_localHorizonEquilibrium_bridged` a esse arquivo.
+Nome ausente do mapa ⟹ `axioms.get()` devolve `None` ⟹ bandeira **falsa**. O
+teorema existe, compila e audita limpo (axiomas ⊆ {propext, choice, Quot.sound});
+**o que faltou foi a MEDIÇÃO, não a prova.**
+
+⚠ **REGRA NOVA, paga com uma rodada**: *criar um nome reservado é só metade do
+trabalho — a outra metade é **inscrevê-lo no `Audit.lean`**.* Bandeira que não
+pode acender não é fail-closed, é **cego**: ela reprovaria para sempre, e por
+motivo errado. Vale para `gpf_`, `gpi_` e qualquer bandeira futura.
+
+**Isto é o fail-closed funcionando**: o artefato preferiu dizer `NOT_SEALED` a
+deixar passar um modo que ele não sabia medir.
+
+---
+
+## ★ PROPOSTA v255 — **o item 4 também pode ser CITAÇÃO** `[PROPOSTA — a medir, não é resultado]`
+
+⚠ **Estatuto**: o que segue é **proposta de rota**, nascida da regra do operador de
+27/08. Nada aqui está provado. Nenhuma bandeira acende com isto.
+
+A regra nova aplicada ao item 4 muda a pergunta. Eu vinha tratando
+`M′ ⊆ J M″ J` como **dívida**. Mas essa é **a metade difícil de
+Tomita–Takesaki**, e Tomita–Takesaki **está publicado** — para toda álgebra de von
+Neumann com vetor cíclico e separante. Pela sua régua, **não se paga de novo**.
+
+### Por que a ponte é plausível aqui (evidência lida do kernel, não suposta)
+
+| Peça exigida pela importação | Onde já está |
+|---|---|
+| a torre é ITPFI / Araki–Woods | `ColimitSeed.lean:91` diz textualmente *"a condição de Araki–Woods"*; `PowersLadder`, `MixedLadder` idem |
+| estado-produto coerente | `chainState_towerStep` — φ_{N+1}(a⊗1) = φ_N(a) |
+| estado fiel (pesos > 0) | `chainWeights_pos` |
+| Ω cíclico | `towerPre_denseRange` (a torre é densa) |
+| **J é a conjugação modular** | `profileJlevel := stateJG (profileRoot) (profileRootInv)` = **ρ^½ a† ρ^{−½}** — que **é** a forma de Tomita para o estado de Gibbs |
+| J fixa o vácuo, é isometria e involução | `towerJpre_fixes_omega`, `towerJ_isometry`, involutividade |
+
+⇒ **Cinco das seis peças já estão em kernel.** A que falta é a identificação
+explícita: *provar que a nossa `conjByJ` é a conjugação modular do estado*, e não
+apenas um mapa antilinear involutivo com a forma certa.
+
+### O que a v255 teria de provar (a ponte, nossa)
+
+- **B1** — em cada andar, `profileJlevel` implementa a conjugação modular do estado
+  de Gibbs (é **cálculo**, não teoria: `ρ^½ a† ρ^{−½}`, com `profileRoot` já
+  definido e a errata da v231 já aplicada — foi exatamente por causa dela que os
+  pesos do perfil entraram no lugar certo);
+- **B2** — Ω é cíclico (✓) **e separante** (do estado fiel);
+- **B3** — transporte por densidade para `WH` (o lema usado sete vezes neste arco).
+
+### O que seria CITADO
+Tomita (1967) · **Takesaki (1970), *Tomita's theory of modular Hilbert algebras*,
+Lecture Notes in Math. 128** · Araki (1964) · **Araki–Woods (1968), Publ. RIMS 4,
+51–130** (classificação dos fatores ITPFI).
+
+### ⚠ A régua, aqui, aperta mais — e é onde eu poderia me enganar
+
+Este é **exatamente o ponto em que um artefato se ilude**: chamar de "importação" o
+que na verdade é a coisa que faltava provar. Por isso as travas:
+
+1. **Sem B1 provado, não há importação nenhuma** — a forma antilinear involutiva
+   *não basta*; há muitos mapas assim que **não** são a conjugação modular.
+2. **A citação tem de nomear a hipótese, não só o teorema**: Tomita–Takesaki exige
+   **cíclico e separante**; se B2 não for provado, a citação não se aplica.
+3. **O modo continua sendo `IMPORTED`, nunca `KERNEL`** — e a `gpf_*` do item 4
+   segue **apagada** por construção.
+4. **Se B1 se mostrar difícil, isso é resultado**: quer dizer que a identificação
+   *era* a dívida, e o item volta a `OPEN` sem drama.

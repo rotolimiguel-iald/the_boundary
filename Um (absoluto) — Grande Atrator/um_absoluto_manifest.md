@@ -4579,6 +4579,195 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.qgImport_H3_localHorizonEquilibrium_bridged": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.commutant_iUnion": [
+      "propext",
+      "Quot.sound"
+    ],
+    "TGLExt.commutant_towerImage_eq_iInter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_missing_clause_is_a_distributivity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.equal_split_is_strictly_between": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.unequal_split_may_be_trivial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.split_forbids_minimality": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_split_is_inhabited": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.bell_compression_is_scalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_rank_determines_the_name": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_name_is_blind_to_every_rank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_name_does_not_see_the_rank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_index_does_see_the_rank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_two_indices_agree_only_at_the_atom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_atom_vanishes_in_the_infinite_house": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_atom_never_weighs_zero_on_a_floor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.psionCorner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.scalarCorner_forces_trace_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.psionCorner_trace_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_identity_does_not_scalarise": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.faceOneCorner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.faceZeroCorner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_current_connects_two_scalar_corners": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_current_carries_the_atom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.equivalent_but_not_equal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.e00_eq_faceOne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.boundary_faces_sum_to_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.current_symmetrised_is_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_psion_reduces_to_the_symmetrised_current": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_unbonded_reduces_to_one_face_only": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.bonding_splits_and_not_bonding_does_not": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.firstAtom_le_fiber": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_net_corners_are_isotone": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_net_corner_is_externally_covariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_net_corner_is_internally_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_net_inclusion_is_not_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_net_group_is_nontrivial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_old_decision_statement_holds_for_any_proposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.constant_net_group_trivial": [],
     "TGLExt.identity_inclusion_cannot_witness": [],
     "TGLExt.ideal_zero_has_name_not_inhabitant": [],
@@ -4588,9 +4777,15 @@
     "TGLExt.comm_of_fixed'": [],
     "TGLExt.fixed_of_compression_covariance": [],
     "TGLExt.ad_preserves_splitting": [],
-    "TGLExt.ad_preserves_star_projection": []
+    "TGLExt.ad_preserves_star_projection": [],
+    "TGLExt.the_trio_is_a_pair": [],
+    "TGLExt.discharge_by_import": [],
+    "TGLExt.the_import_alone_concludes_nothing": [],
+    "TGLExt.image_does_not_commute_with_intersection": [],
+    "TGLExt.the_two_poles_see_different_things": [],
+    "TGLExt.only_the_pair_determines_the_point": []
   },
-  "formal_source_hash": "b8ba4c6740a4e997832805fe9ccad8208c3394ddb91b14a173e6c99f2f0692c1",
+  "formal_source_hash": "ab63bfaf433fa6496edbbdd725d1c2039e329eadb1e63bef00601b0968c6c7bc",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -4896,7 +5091,7 @@
 
 ```json
 {
-  "code_sha256": "678328ac9f42045e0140cbacfd2c09b61965170eb9df0f2f8807a33cd4edf17a",
+  "code_sha256": "9587d421a1e3e0f718dc1d0d4f5f12d2e6cfb004da4ab09b7270824b4863d757",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"

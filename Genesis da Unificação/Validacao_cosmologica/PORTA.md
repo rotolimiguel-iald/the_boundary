@@ -57,4 +57,4 @@ As validacoes cosmologicas sucessivas (v6.2, v6.5, v22, v23) e seus resultados.
 
 ---
 
-gerado por script de git ls-files em 2026-08-26 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-27 -- nao editar a mao

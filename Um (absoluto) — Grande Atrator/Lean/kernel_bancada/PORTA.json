@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-26T15:29:08Z",
+  "gerado_utc": "2026-08-27T20:55:56Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean",
@@ -181,6 +181,16 @@
       "bytes": 4468
     },
     {
+      "nome": "TheCurrentConnectsTheCorners.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada/TheCurrentConnectsTheCorners.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheCurrentConnectsTheCorners",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheCurrentConnectsTheCorners.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheCurrentConnectsTheCorners.lean",
+      "sha256_16": "b4aa59a76ea6c84c",
+      "bytes": 6872
+    },
+    {
       "nome": "TheDarkSplit.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada/TheDarkSplit.lean",
       "papel": "prova formal",
@@ -281,6 +291,26 @@
       "bytes": 4988
     },
     {
+      "nome": "TheImportedEquilibrium.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada/TheImportedEquilibrium.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheImportedEquilibrium",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheImportedEquilibrium.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheImportedEquilibrium.lean",
+      "sha256_16": "6ce0e9c29fd92670",
+      "bytes": 6817
+    },
+    {
+      "nome": "TheIntersectionOfCommutants.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada/TheIntersectionOfCommutants.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheIntersectionOfCommutants",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheIntersectionOfCommutants.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheIntersectionOfCommutants.lean",
+      "sha256_16": "7e4db767b978ddb8",
+      "bytes": 5453
+    },
+    {
       "nome": "TheJudgedThing.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada/TheJudgedThing.lean",
       "papel": "prova formal",
@@ -309,6 +339,26 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheLightInterface.lean",
       "sha256_16": "6d1e1567a4cc5b05",
       "bytes": 9656
+    },
+    {
+      "nome": "TheNetFiresTheCorner.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada/TheNetFiresTheCorner.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheNetFiresTheCorner",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNetFiresTheCorner.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNetFiresTheCorner.lean",
+      "sha256_16": "b35d65a50b52d92f",
+      "bytes": 4765
+    },
+    {
+      "nome": "TheNonLinearCausality.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada/TheNonLinearCausality.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheNonLinearCausality",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNonLinearCausality.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNonLinearCausality.lean",
+      "sha256_16": "27ff96e7969f25ef",
+      "bytes": 3792
     },
     {
       "nome": "TheObserverReadsTheAngle.lean",
@@ -349,6 +399,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/ThePhysicalHorizon.lean",
       "sha256_16": "91bcfa7fe8077ae6",
       "bytes": 4267
+    },
+    {
+      "nome": "ThePsionReducesToTheCurrent.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada/ThePsionReducesToTheCurrent.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): ThePsionReducesToTheCurrent",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/ThePsionReducesToTheCurrent.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/ThePsionReducesToTheCurrent.lean",
+      "sha256_16": "474a9d4c527f8fec",
+      "bytes": 5275
     },
     {
       "nome": "TheRecordOfJ.lean",
@@ -489,10 +549,20 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheTwoPairings.lean",
       "sha256_16": "46d72f4956f7e087",
       "bytes": 6119
+    },
+    {
+      "nome": "TheTwoPolesHaveContent.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada/TheTwoPolesHaveContent.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheTwoPolesHaveContent",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheTwoPolesHaveContent.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheTwoPolesHaveContent.lean",
+      "sha256_16": "1e17af908c1d6025",
+      "bytes": 4681
     }
   ],
-  "total_arquivos_nesta_pasta": 47,
-  "total_arquivos_com_subpastas": 47,
+  "total_arquivos_nesta_pasta": 54,
+  "total_arquivos_com_subpastas": 54,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada",
-  "rodape": "gerado por script de git ls-files em 2026-08-26 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-08-27 -- nao editar a mao"
 }

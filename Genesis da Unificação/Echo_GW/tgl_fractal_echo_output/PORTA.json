@@ -4,7 +4,7 @@
   "titulo": "Genesis da Unificação/Echo_GW/tgl_fractal_echo_output",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-26T15:29:08Z",
+  "gerado_utc": "2026-08-27T20:55:56Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Genesis da Unificação/Echo_GW",
@@ -74,5 +74,5 @@
   "total_arquivos_nesta_pasta": 5,
   "total_arquivos_com_subpastas": 5,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Echo_GW/tgl_fractal_echo_output",
-  "rodape": "gerado por script de git ls-files em 2026-08-26 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-08-27 -- nao editar a mao"
 }

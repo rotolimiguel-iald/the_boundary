@@ -1794,6 +1794,68 @@ namespace TGL.Audit
 #print axioms TGLExt.atlas_chain_rule
 #print axioms TGLExt.atlas_self
 #print axioms TGLExt.atlas_inverse
+-- v254: a PONTE de importacao (v253 criou a bandeira e NAO a inscreveu aqui;
+-- nome ausente do mapa de axiomas => bandeira falsa por cegueira, nao por rigor)
+#print axioms TGLExt.qgImport_H3_localHorizonEquilibrium_bridged
+#print axioms TGLExt.the_trio_is_a_pair
+#print axioms TGLExt.discharge_by_import
+#print axioms TGLExt.the_import_alone_concludes_nothing
+-- v254: a REDUCAO do ultimo enunciado
+#print axioms TGLExt.commutant_iUnion
+#print axioms TGLExt.commutant_towerImage_eq_iInter
+#print axioms TGLExt.the_missing_clause_is_a_distributivity
+#print axioms TGLExt.image_does_not_commute_with_intersection
+-- v255: o acoplamento nao minimo (a particao proibe a minimalidade)
+#print axioms TGLExt.equal_split_is_strictly_between
+#print axioms TGLExt.unequal_split_may_be_trivial
+#print axioms TGLExt.split_forbids_minimality
+#print axioms TGLExt.the_split_is_inhabited
+#print axioms TGLExt.bell_compression_is_scalar
+-- v256: o peso nao e o posto; e o rank1 torna-se o indice
+#print axioms TGLExt.the_rank_determines_the_name
+#print axioms TGLExt.the_name_is_blind_to_every_rank
+#print axioms TGLExt.the_name_does_not_see_the_rank
+#print axioms TGLExt.the_index_does_see_the_rank
+#print axioms TGLExt.the_two_indices_agree_only_at_the_atom
+#print axioms TGLExt.the_atom_vanishes_in_the_infinite_house
+#print axioms TGLExt.the_atom_never_weighs_zero_on_a_floor
+-- v257: o canto escalar (a propriedade nomeada; escalarizar forca o traco 1)
+#print axioms TGLExt.psionCorner
+#print axioms TGLExt.scalarCorner_forces_trace_one
+#print axioms TGLExt.psionCorner_trace_one
+#print axioms TGLExt.the_identity_does_not_scalarise
+-- v258: a corrente liga os cantos (o primeiro morfismo entre duas instancias)
+#print axioms TGLExt.faceOneCorner
+#print axioms TGLExt.faceZeroCorner
+#print axioms TGLExt.the_current_connects_two_scalar_corners
+#print axioms TGLExt.the_current_carries_the_atom
+#print axioms TGLExt.equivalent_but_not_equal
+-- v259: o psion reduz a corrente simetrizada (a ponte M4 -> M2)
+#print axioms TGLExt.e00_eq_faceOne
+#print axioms TGLExt.boundary_faces_sum_to_one
+#print axioms TGLExt.current_symmetrised_is_one
+#print axioms TGLExt.the_psion_reduces_to_the_symmetrised_current
+#print axioms TGLExt.the_unbonded_reduces_to_one_face_only
+#print axioms TGLExt.bonding_splits_and_not_bonding_does_not
+-- v260: a REDE dos cantos (teoremas que JA existiam e nunca haviam sido medidos)
+#print axioms TGLExt.HilbertHomeData.PF_internal_fix
+#print axioms TGLExt.HilbertHomeData.PF_external_covariant
+#print axioms TGLExt.HilbertHomeData.PF_isotone
+#print axioms TGLExt.theIsotoneNet
+#print axioms TGLExt.theFlip_comm_eraseFirst
+#print axioms TGLExt.ker_eraseFirst
+#print axioms TGLExt.firstAtom_le_fiber
+#print axioms TGLExt.fiberIncl_not_surjective
+-- v261: a rede DISPARA o canto (as aplicacoes que a varredura mediu inexistentes)
+#print axioms TGLExt.the_net_corners_are_isotone
+#print axioms TGLExt.the_net_corner_is_externally_covariant
+#print axioms TGLExt.the_net_corner_is_internally_fixed
+#print axioms TGLExt.the_net_inclusion_is_not_surjective
+#print axioms TGLExt.the_net_group_is_nontrivial
+-- v262: a ERRATA da v248 -- os dois polos ganham conteudo
+#print axioms TGLExt.the_old_decision_statement_holds_for_any_proposition
+#print axioms TGLExt.the_two_poles_see_different_things
+#print axioms TGLExt.only_the_pair_determines_the_point
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
