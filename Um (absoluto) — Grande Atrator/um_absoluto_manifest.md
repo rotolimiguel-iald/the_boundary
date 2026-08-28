@@ -4763,7 +4763,227 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.preserving_does_not_operate": [
+      "propext"
+    ],
+    "TGLExt.being_needs_both": [
+      "propext"
+    ],
+    "TGLExt.the_reading_descends_for_any_lens": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJ_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJ_conj_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJ_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJ_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJ_fixes_hOmega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.J_M_J_in_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.the_old_decision_statement_holds_for_any_proposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.an_involution_distributes_over_iInter": [
+      "propext",
+      "Quot.sound"
+    ],
+    "TGLExt.conjByJ_distributes_over_iInter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_conjugated_commutant_is_the_intersection_of_the_floors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_clause_is_exactly_a_commutant_inclusion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_generator_form_is_sufficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_two_forms_agree_iff_the_tower_is_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.one_half_is_already_paid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_conjecture_is_the_unpaid_half": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_conjecture_discharges_the_missing_clause": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_conjecture_says_the_fractal_covers_the_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.every_floor_acts_on_the_right_inside_the_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_target_is_the_v254_target": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_driver_is_still_where_it_is_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_driver_witnesses_being": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJequiv_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJequiv_symm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJequiv_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJequiv_fixes_hOmega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_sector_folds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.JInvariant_iff_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.JInvariant_top": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.JInvariant_bot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.JInvariant_span_hOmega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_omega_sector_is_not_bot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_eighth_clause_is_an_equality_with_one_half_paid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_paid_half_of_the_eighth_clause": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.conjugation_exchanges_the_light_phases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.conjugation_exchanges_the_graviton_phases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_conjugation_crosses_the_squaring": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_conjugated_light_squares_to_the_minus_graviton": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_generator_preserves_what_the_conjugation_exchanges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_hypotheses_are_discharged_in_house": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_input_is_one_field": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.discharge_the_clause_by_import": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.imported_commutation_gives_the_equality": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_hypotheses_alone_are_equivalent_to_true": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -4782,10 +5002,21 @@
     "TGLExt.discharge_by_import": [],
     "TGLExt.the_import_alone_concludes_nothing": [],
     "TGLExt.image_does_not_commute_with_intersection": [],
+    "TGLExt.operating_does_not_preserve": [],
+    "TGLExt.preserving_is_the_TGL_verdict": [],
     "TGLExt.the_two_poles_see_different_things": [],
-    "TGLExt.only_the_pair_determines_the_point": []
+    "TGLExt.only_the_pair_determines_the_point": [],
+    "TGLExt.fold_through_an_involution": [],
+    "TGLExt.the_generator_form_needs_nothing_about_J": [],
+    "TGLExt.separates_needs_contrast": [],
+    "TGLExt.a_separating_reading_yields_form": [],
+    "TGLExt.the_unread_image_yields_no_form": [],
+    "TGLExt.without_contrast_no_reading_yields_form": [],
+    "TGLExt.the_unread_image_is_not_the_absolute_zero": [],
+    "TGLExt.the_reader_adds_condition_not_content": [],
+    "TGLExt.the_lens_is_irrelevant_exactly_where_there_is_nothing_to_read": []
   },
-  "formal_source_hash": "ab63bfaf433fa6496edbbdd725d1c2039e329eadb1e63bef00601b0968c6c7bc",
+  "formal_source_hash": "ddb59b35697fd59aad54244e4eecc3731d7d09f50f698a93e8494fa0cf3962aa",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -5091,7 +5322,7 @@
 
 ```json
 {
-  "code_sha256": "9587d421a1e3e0f718dc1d0d4f5f12d2e6cfb004da4ab09b7270824b4863d757",
+  "code_sha256": "77c2b2bd1b8329fb0979e36a39a6621ab61e4558c79bc4c33d0ff735edb1243c",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"

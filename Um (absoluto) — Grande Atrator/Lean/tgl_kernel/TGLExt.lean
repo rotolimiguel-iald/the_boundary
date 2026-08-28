@@ -226,3 +226,9 @@ import TGLExt.TheCurrentConnectsTheCorners
 import TGLExt.ThePsionReducesToTheCurrent
 import TGLExt.TheNetFiresTheCorner
 import TGLExt.TheTwoPolesHaveContent
+import TGLExt.TheAtomOfIdentity
+import TGLExt.TheFoldThroughJ
+import TGLExt.TheAntiunitaryInhabitant
+import TGLExt.TheGravitonIsTheConjugatedPhase
+import TGLExt.TheImageAndTheReading
+import TGLExt.TheImportedCommutation

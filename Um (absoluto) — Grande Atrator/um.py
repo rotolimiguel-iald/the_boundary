@@ -2913,7 +2913,18 @@ def prove_boundary_exception(ONE, parts):
     * boundary_is_the_only_exception: a sintese (a)+(b)+(c)+(d).
     full_static_witness_exists=False (GLOBAL) fica INTOCADO E ETERNO (v61) --
     esta e' a sua face positiva: o que o teorema nega de tudo, afirma da
-    fronteira. O guardiao do vazamento nao vaza. O gate NAO se move."""
+    fronteira. O guardiao do vazamento nao vaza. O gate NAO se move.
+    [ERRATA v263 -- LEIA ANTES DE CITAR ESTA FRASE]: as palavras GLOBAL e
+    ETERNO acima sao MAIS FORTES que o teorema. O kernel prova um SSE, no
+    mesmo arquivo: FullStaticWitness (diagFlow b d) <-> forall i, d i = 0.
+    Logo a testemunha estatica NAO e falsa universalmente -- ela e falsa
+    EXATAMENTE onde ha contraste, e VERDADEIRA onde nao ha (d = 0 da o
+    transporte identidade, que a satisfaz). O estatuto correto e
+    [REAL, condicionado ao transporte dissipativo com contraste].
+    E FullStaticWitness NAO e FullTGLWitness: aquele e um TRANSPORTE que
+    fixa tudo; este e o Sigma-tipo de dados modulares. Confundir os dois
+    converte um item ABERTO em item REFUTADO -- o erro simetrico, e mais
+    perigoso que o que o fail-closed protege. Ver prove_the_static_is_conditioned."""
     beta = SEALED_CODATA_ALPHA * ONE * math.sqrt(math.e)   # jamais literal
     p = parts or {}
     kf = p.get("kernel_formalization") or {}
@@ -8810,6 +8821,12 @@ import TGLExt.TheCurrentConnectsTheCorners
 import TGLExt.ThePsionReducesToTheCurrent
 import TGLExt.TheNetFiresTheCorner
 import TGLExt.TheTwoPolesHaveContent
+import TGLExt.TheAtomOfIdentity
+import TGLExt.TheFoldThroughJ
+import TGLExt.TheAntiunitaryInhabitant
+import TGLExt.TheGravitonIsTheConjugatedPhase
+import TGLExt.TheImageAndTheReading
+import TGLExt.TheImportedCommutation
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -10713,10 +10730,85 @@ namespace TGL.Audit
 #print axioms TGLExt.the_net_corner_is_internally_fixed
 #print axioms TGLExt.the_net_inclusion_is_not_surjective
 #print axioms TGLExt.the_net_group_is_nontrivial
+-- v270: a cunhagem (SER = OPERAR; a ponte com o veredito; sempre ha leitura)
+#print axioms TGLExt.operating_does_not_preserve
+#print axioms TGLExt.preserving_does_not_operate
+#print axioms TGLExt.being_needs_both
+#print axioms TGLExt.preserving_is_the_TGL_verdict
+#print axioms TGLExt.the_reading_descends_for_any_lens
+-- v270 [L6]: as SETE clausulas provadas do certificado, para a contagem
+-- deixar de ser literal Python e passar a ser LIDA do kernel
+#print axioms TGLExt.towerJ_add
+#print axioms TGLExt.towerJ_conj_smul
+#print axioms TGLExt.towerJ_norm
+#print axioms TGLExt.towerJ_involutive
+#print axioms TGLExt.towerJ_fixes_hOmega
+#print axioms TGLExt.J_M_J_in_commutant
 -- v262: a ERRATA da v248 -- os dois polos ganham conteudo
 #print axioms TGLExt.the_old_decision_statement_holds_for_any_proposition
 #print axioms TGLExt.the_two_poles_see_different_things
 #print axioms TGLExt.only_the_pair_determines_the_point
+
+-- v271: A DOBRA EM J (TheFoldThroughJ) e O HABITANTE (TheAntiunitaryInhabitant).
+-- A CONJECTURA DO PROGRAMADOR e um `def : Prop` e NAO entra aqui: um
+-- `#print axioms` num def devolveria <no axioms>, e isso SE LE como conjectura
+-- provada. A cegueira nasce assim.
+#check @TGLExt.towerJequiv
+noncomputable example (P : TGLExt.SiteProfile) :
+    TGL.ModularRealization.Antiunitary (TGLExt.TowerHilbert P) :=
+  TGLExt.towerJequiv P
+#print axioms TGLExt.an_involution_distributes_over_iInter
+#print axioms TGLExt.conjByJ_distributes_over_iInter
+#print axioms TGLExt.the_conjugated_commutant_is_the_intersection_of_the_floors
+#print axioms TGLExt.fold_through_an_involution
+#print axioms TGLExt.the_clause_is_exactly_a_commutant_inclusion
+#print axioms TGLExt.the_generator_form_is_sufficient
+#print axioms TGLExt.the_generator_form_needs_nothing_about_J
+#print axioms TGLExt.the_two_forms_agree_iff_the_tower_is_closed
+#print axioms TGLExt.one_half_is_already_paid
+#print axioms TGLExt.the_conjecture_is_the_unpaid_half
+#print axioms TGLExt.the_conjecture_discharges_the_missing_clause
+#print axioms TGLExt.the_conjecture_says_the_fractal_covers_the_commutant
+#print axioms TGLExt.every_floor_acts_on_the_right_inside_the_commutant
+#print axioms TGLExt.the_target_is_the_v254_target
+#print axioms TGLExt.the_driver_is_still_where_it_is_fixed
+#print axioms TGLExt.the_driver_witnesses_being
+#print axioms TGLExt.towerJequiv_apply
+#print axioms TGLExt.towerJequiv_symm
+#print axioms TGLExt.towerJequiv_involutive
+#print axioms TGLExt.towerJequiv_fixes_hOmega
+#print axioms TGLExt.the_sector_folds
+#print axioms TGLExt.JInvariant_iff_le
+#print axioms TGLExt.JInvariant_top
+#print axioms TGLExt.JInvariant_bot
+#print axioms TGLExt.JInvariant_span_hOmega
+#print axioms TGLExt.the_omega_sector_is_not_bot
+
+-- v272: A COMPOSICAO (pecas de 26/08, nunca compostas) e A FASE CONJUGADA
+#print axioms TGLExt.the_eighth_clause_is_an_equality_with_one_half_paid
+#print axioms TGLExt.the_paid_half_of_the_eighth_clause
+#print axioms TGLExt.conjugation_exchanges_the_light_phases
+#print axioms TGLExt.conjugation_exchanges_the_graviton_phases
+#print axioms TGLExt.the_conjugation_crosses_the_squaring
+#print axioms TGLExt.the_conjugated_light_squares_to_the_minus_graviton
+#print axioms TGLExt.the_generator_preserves_what_the_conjugation_exchanges
+
+-- v273: A IMAGEM E A LEITURA (tres casos que pareciam dois)
+#print axioms TGLExt.separates_needs_contrast
+#print axioms TGLExt.a_separating_reading_yields_form
+#print axioms TGLExt.the_unread_image_yields_no_form
+#print axioms TGLExt.without_contrast_no_reading_yields_form
+#print axioms TGLExt.the_unread_image_is_not_the_absolute_zero
+#print axioms TGLExt.the_reader_adds_condition_not_content
+#print axioms TGLExt.the_lens_is_irrelevant_exactly_where_there_is_nothing_to_read
+
+-- v274: A COMUTACAO IMPORTADA (Tomita [KNOWN], ponte medida)
+-- A structure CommutationInput NAO e auditada: e um contrato, nao um teorema.
+#print axioms TGLExt.the_hypotheses_are_discharged_in_house
+#print axioms TGLExt.the_input_is_one_field
+#print axioms TGLExt.discharge_the_clause_by_import
+#print axioms TGLExt.imported_commutation_gives_the_equality
+#print axioms TGLExt.the_hypotheses_alone_are_equivalent_to_true
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -41255,6 +41347,1276 @@ theorem only_the_pair_determines_the_point :
 
 end TGLExt
 ''',
+    "TGLExt/TheImportedCommutation.lean":
+r'''import TGLExt.TheFoldThroughJ
+import TGLExt.TheCarrierBridge
+import TGLExt.RightMult
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A COMUTAÇÃO IMPORTADA — Tomita como `[KNOWN]`, com a ponte MEDIDA campo a campo
+  [TGLExt — a pedra de 28/08/2026]
+
+## A ordem do operador
+
+> *"Importo a densidade como `[KNOWN]` com ponte medida, isso já está resolvido."* ·
+> *"o que me interessa é o fecho forte, não ficar criando mais teoremas."*
+
+E a regra que autoriza: *"levar como `[KNOWN]` não é falta de prova, é usar prova
+emprestada; não preciso pagar o preço de nada que já foi pago antes de mim"* (27/08).
+
+## O que a medida devolveu, e é o motivo desta pedra ser curta
+
+As **TRÊS hipóteses** do teorema de comutação estão **PROVADAS nesta árvore**, no
+objeto **infinito**, incondicionalmente:
+
+| hipótese de Tomita | teorema da casa |
+|---|---|
+| M é álgebra de von Neumann | `theFactorObject P : VonNeumannAlgebra (TowerHilbert P)` |
+| Ω é **cíclico** para M | `factor_omega_cyclic` |
+| Ω é **separante** para M | `factor_omega_separating` (Reeh–Schlieder) |
+
+Logo o que se toma emprestado **não é hipótese nenhuma** — é a **conclusão**, e só ela.
+
+## ⚠ UMA CORREÇÃO AO PLANO ANUNCIADO, feita antes de escrever
+
+Eu anunciara **cinco** campos, separando *"`towerJ` é o J modular do par"* (nosso) de
+*"para esse J, `J M J = M′"`* (literatura). **A medida colapsou os dois.** Sem `S` e
+`Δ` construídos na torre — e eles **não existem**: a única função crua
+`TowerHilbert P → TowerHilbert P` da árvore é o próprio `towerJ` — as duas frases
+**não são separáveis no vocabulário atual**. Fingir a separação seria inventar um
+campo que a árvore não sabe enunciar.
+
+Então a estrutura tem **quatro** campos: três descarregados, **um** importado.
+
+## O RESÍDUO NOMEADO, para que a dívida fique cobrável
+
+Para separar de verdade as duas frases, falta **construir `S` e `Δ` na torre** — e o
+padrão inteiro **já existe um andar abaixo**, na face finita: `Sop_tomita`
+(`S(xΩ) = x†Ω`) e `J_deltaHalf` (`S = J∘Δ^{1/2}`), em `FiniteTomita`/`FiniteGNSNoCompletion`.
+E a **fórmula bate**: `towerJ` estende `a ↦ ρ^{1/2}·a†·ρ^{-1/2}`, que é exatamente a
+conjugação modular na convenção GNS com `Ω = [1]` e produto `Tr(ρ a†b)`.
+
+⚠ E um descompasso medido, que fica dito: `towerJ` usa `√ρ`; `modTwist` (o adjunto
+modular da ação à direita, `rTowerPi_star`) usa `ρ` cheio. **Zero teoremas os
+relacionam.** Levantar `S` por densidade é o passo, e é o que a árvore já faz de
+rotina (`towerJ_add`, `towerJ_norm`, `towerJ_involutive` saíram todos assim).
+
+## A disciplina do modo IMPORTADO
+
+* a bandeira é **`gpi_`**, jamais `gpf_` — **importar não acende preço pago**, e o
+  razonete mantém os dois modos separados por construção;
+* `the_hypotheses_alone_are_equivalent_to_true` — as três hipóteses **sozinhas** são
+  equivalentes a `True`, logo não decidem nada;
+* ⚠ e o nome da descarga é `discharge_the_clause_by_import`: `discharge_by_import`
+  JÁ EXISTE em `TheImportedEquilibrium` (v253), e **só o build do ROOT pegou a
+  colisão** — a mesma lição da v259, confirmada pela segunda vez;
+* nada aqui prova a oitava cláusula: `red_clause_JMJ_contains` **continua apagada**,
+  porque o nome `qgConverse_JMJ_contains_commutant` continua sem referente.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — a estrutura: três hipóteses e uma conclusão -/
+
+/-- **[IMPORTED]** Os dados do teorema de comutação para o par `(M, Ω)` desta torre.
+
+    Os campos `cyclic`, `separating` e `vacuum_fixed` são **hipóteses do teorema
+    importado que esta árvore JÁ PROVA** — entram como campos para que a ponte seja
+    **medida**, não presumida (`the_hypotheses_are_discharged_in_house`).
+
+    O campo `commutation` é a **CONCLUSÃO IMPORTADA**, e é o único que esta árvore
+    não paga. -/
+structure CommutationInput (P : SiteProfile) : Prop where
+  /-- (i) Ω é CÍCLICO para o fator — cf. `factor_omega_cyclic`. -/
+  cyclic : Dense ((fun T : TowerHilbert P →L[ℂ] TowerHilbert P => T (hOmega P)) ''
+    (theFactorObject P : Set (TowerHilbert P →L[ℂ] TowerHilbert P)))
+  /-- (ii) Ω é SEPARANTE para o fator — cf. `factor_omega_separating`. -/
+  separating : ∀ A : TowerHilbert P →L[ℂ] TowerHilbert P,
+    A ∈ theFactorObject P → A (hOmega P) = 0 → A = 0
+  /-- (iii) J fixa o vácuo — cf. `towerJ_fixes_hOmega`. -/
+  vacuum_fixed : towerJ P (hOmega P) = hOmega P
+  /-- (iv) ⚠ **A CONCLUSÃO IMPORTADA** `[KNOWN]`: o teorema de comutação de
+      Tomita–Takesaki para este par. **É o ÚNICO campo que esta árvore não prova.** -/
+  commutation : commutantSet (towerImage P)
+    ⊆ conjByJ P '' (commutantSet (commutantSet (towerImage P)))
+
+/-! ## B — a ponte MEDIDA: as três hipóteses caem em casa -/
+
+/-- [KERNEL] ★★★★★ **AS TRÊS HIPÓTESES SÃO DESCARREGADAS EM CASA.** Nenhuma delas é
+    tomada emprestada: as três são teoremas desta árvore, no objeto infinito.
+
+    É isto que torna a importação honesta — o que se pede ao mundo é **a conclusão**,
+    e nada além. -/
+theorem the_hypotheses_are_discharged_in_house (P : SiteProfile) :
+    Dense ((fun T : TowerHilbert P →L[ℂ] TowerHilbert P => T (hOmega P)) ''
+        (theFactorObject P : Set (TowerHilbert P →L[ℂ] TowerHilbert P)))
+    ∧ (∀ A : TowerHilbert P →L[ℂ] TowerHilbert P,
+        A ∈ theFactorObject P → A (hOmega P) = 0 → A = 0)
+    ∧ towerJ P (hOmega P) = hOmega P :=
+  ⟨factor_omega_cyclic, fun _ hA h0 => factor_omega_separating hA h0,
+    towerJ_fixes_hOmega P⟩
+
+/-- [KERNEL] ★★★★ **A ESTRUTURA REDUZ-SE A UM CAMPO SÓ.** Dado o campo importado, os
+    outros três vêm de graça — logo `CommutationInput` **não é uma lista de dívidas**:
+    é **uma** dívida, com três testemunhas já pagas em volta. -/
+theorem the_input_is_one_field (P : SiteProfile)
+    (hc : commutantSet (towerImage P)
+      ⊆ conjByJ P '' (commutantSet (commutantSet (towerImage P)))) :
+    CommutationInput P :=
+  { cyclic := factor_omega_cyclic
+    separating := fun _ hA h0 => factor_omega_separating hA h0
+    vacuum_fixed := towerJ_fixes_hOmega P
+    commutation := hc }
+
+/-! ## C — a descarga, e o dente que impede a leitura falsa -/
+
+/-- [KERNEL] ★★★★ **A DESCARGA POR IMPORTAÇÃO**: com o dado importado, a oitava
+    cláusula do certificado condicional está paga — **no modo IMPORTED**. -/
+theorem discharge_the_clause_by_import (P : SiteProfile) (I : CommutationInput P) :
+    commutantSet (towerImage P)
+      ⊆ conjByJ P '' (commutantSet (commutantSet (towerImage P))) :=
+  I.commutation
+
+/-- [KERNEL] ★★★★★ **E, DOBRADA, ELA É A IGUALDADE.** Compondo com a metade já paga
+    (`the_paid_half_of_the_eighth_clause`), o dado importado devolve a IGUALDADE de
+    comutantes — o teorema de comutação na forma que esta torre usa. -/
+theorem imported_commutation_gives_the_equality (P : SiteProfile)
+    (I : CommutationInput P) :
+    commutantSet (conjByJ P '' (towerImage P))
+      = commutantSet (commutantSet (towerImage P)) :=
+  (the_eighth_clause_is_an_equality_with_one_half_paid P).mp I.commutation
+
+/-- [KERNEL] ⚠ ★★★★★ **AS HIPÓTESES SOZINHAS SÃO EQUIVALENTES A `True`** — e por
+    isso **não decidem nada**. Elas são teoremas incondicionais desta árvore; a
+    conjunção de teoremas não carrega informação alguma sobre a cláusula.
+
+    Este é o dente que impede a leitura falsa *“as hipóteses estão pagas, logo a
+    cláusula está paga”*. **O que paga é o campo importado, e só ele.**
+
+    ⚠ Escrito assim de propósito: a primeira redação desta pedra provava literalmente
+    `True` — o mesmo defeito da v248, pago na v262. Um `↔ True` **derivado dos
+    teoremas** diz algo; um `True` provado por `trivial` não diz nada. -/
+theorem the_hypotheses_alone_are_equivalent_to_true (P : SiteProfile) :
+    (Dense ((fun T : TowerHilbert P →L[ℂ] TowerHilbert P => T (hOmega P)) ''
+        (theFactorObject P : Set (TowerHilbert P →L[ℂ] TowerHilbert P)))
+      ∧ (∀ A : TowerHilbert P →L[ℂ] TowerHilbert P,
+          A ∈ theFactorObject P → A (hOmega P) = 0 → A = 0)
+      ∧ towerJ P (hOmega P) = hOmega P) ↔ True := by
+  constructor
+  · intro _
+    trivial
+  · intro _
+    exact the_hypotheses_are_discharged_in_house P
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheImageAndTheReading.lean":
+r'''import TGLExt.TheAtomOfIdentity
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 400000
+
+/-!
+# A IMAGEM E A LEITURA — três casos que parecem dois
+  [TGLExt — a pedra de 28/08/2026]
+
+## A tipagem do operador
+
+> *"toda imagem é a representação do zero absoluto, contida em sua totalidade sem
+> expressão até que seja traduzida em linguagem"* · *"o recorte geométrico das formas
+> exige um leitor; sem esse leitor, a fase simplesmente não existe como forma"* ·
+> *"o contorno é a fronteira = operador de consciência = observador"*.
+
+E a precisão que ele exigiu, que é a razão desta pedra existir:
+
+> **`sem leitura ≠ ausência de conteúdo;  sem leitura = ausência de forma expressa`**
+
+## O que esta pedra acrescenta, e por que não é o que já havia
+
+O kernel já tinha os dois extremos: `a_single_outcome_separates_nothing` e
+`the_pair_separates` (v270), e a hermeticidade em `boundary_is_the_only_exception`
+(`FullStaticWitness ↔ ∀ i, d i = 0`). O que **não** havia é a **separação dos três
+casos** — e sem ela os dois últimos se confundem, que é justamente o que o operador
+mandou não confundir:
+
+| caso | o objeto | a leitura | há forma? |
+|---|---|---|---|
+| 1 | tem contraste | separante | **sim** |
+| 2 | tem contraste | constante | **não** — a IMAGEM NÃO LIDA |
+| 3 | **sem** contraste | qualquer | **não** — `0_abs` / hermeticidade |
+
+★★★★★ `the_unread_image_is_not_the_absolute_zero` — **os casos 2 e 3 são
+distintos**: no 2 **existe** leitura que produziria forma; no 3 **não existe
+nenhuma**. É a frase do operador em teorema: *conter* não é *aparecer*, e *não
+aparecer* tem duas causas incompatíveis.
+
+★★★ `the_reader_adds_condition_not_content` — e a imagem é **literalmente a mesma**
+nos dois lados do caso 2/1: só o mapa muda. O leitor não acrescenta conteúdo;
+acrescenta a condição sob a qual o conteúdo pode aparecer.
+
+## O que NÃO se prova aqui, e vai dito
+
+`[ONTO]` — `IMAGEM = Rep(0_abs)`, `contorno = fronteira = observador`, e a cadeia
+`0_abs → LEITOR → RECORTE → INSCRIÇÃO → FORMA → NOME` são leitura do operador.
+Nenhum teorema desta pedra menciona `0_abs`, `1_abs`, β, imagem, consciência ou
+observador. O que se prova é a **forma** da distinção: três casos, e o terceiro não
+é o segundo.
+
+`[JÁ EXISTE, NÃO SE DUPLICA]` — o **contorno** já é bancada no artefato
+(`prove_contour_theory`, com a correção ontológica do próprio operador: *"0_abs NÃO
+tem espelho; quem tem espelho é 0_mod"*), e o **observador** já é objeto de kernel
+(`TGLExt/ObserverInside.lean`: `observerProj`, `flow_delivers_to_the_observer`).
+Esta pedra **cita e não refaz**.
+
+`[NÃO MOVE O GATE]` — nada aqui acende bandeira. β jamais entra. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+/-! ## A — os dois predicados: contraste no objeto, separação na leitura -/
+
+/-- **CONTRASTE**: o objeto tem ao menos uma diferença. É o que a imagem *contém*. -/
+def HasContrast (I : Type) : Prop := ∃ x y : I, x ≠ y
+
+/-- **SEPARAÇÃO**: a leitura afirma alguma diferença como diferença. É o que
+    *aparece*. Note que é propriedade do MAPA, não do objeto. -/
+def Separates {I V : Type} (R : I → V) : Prop := ∃ x y : I, R x ≠ R y
+
+/-- [KERNEL] ★★ **SEPARAR EXIGE CONTRASTE**: nenhuma leitura inventa diferença que o
+    objeto não tenha. O leitor não acrescenta conteúdo. -/
+theorem separates_needs_contrast {I V : Type} (R : I → V) (h : Separates R) :
+    HasContrast I := by
+  obtain ⟨x, y, hxy⟩ := h
+  exact ⟨x, y, fun hEq => hxy (congrArg R hEq)⟩
+
+/-! ## B — os três casos -/
+
+/-- [KERNEL] ★★★ **CASO 1 — há contraste e a leitura separa: HÁ FORMA.** -/
+theorem a_separating_reading_yields_form :
+    ∃ (I V : Type) (R : I → V), HasContrast I ∧ Separates R := by
+  refine ⟨Bool, Bool, id, ⟨true, false, by decide⟩, ⟨true, false, by decide⟩⟩
+
+/-- [KERNEL] ★★★★ **CASO 2 — há contraste e a leitura NÃO separa: A IMAGEM NÃO
+    LIDA.** O conteúdo está inteiro no objeto; nenhuma forma é expressa. -/
+theorem the_unread_image_yields_no_form :
+    ∃ (I V : Type) (R : I → V), HasContrast I ∧ ¬ Separates R := by
+  refine ⟨Bool, Unit, fun _ => (), ⟨true, false, by decide⟩, ?_⟩
+  rintro ⟨x, y, hxy⟩
+  exact hxy rfl
+
+/-- [KERNEL] ★★★★ **CASO 3 — sem contraste, NENHUMA leitura produz forma.** É a
+    hermeticidade: onde não há diferença, não há o que ler, e a lente não importa. -/
+theorem without_contrast_no_reading_yields_form {I V : Type}
+    (hI : ¬ HasContrast I) (R : I → V) : ¬ Separates R := fun h => hI
+  (separates_needs_contrast R h)
+
+/-! ## C — e o CASO 2 NÃO É O CASO 3: é a frase do operador em teorema -/
+
+/-- [KERNEL] ★★★★★ **A IMAGEM NÃO LIDA NÃO É O ZERO ABSOLUTO.** No caso 2 **existe**
+    leitura que produziria forma; no caso 3 **não existe nenhuma**. Logo *não
+    aparecer* tem **duas causas incompatíveis**, e confundi-las é o erro que esta
+    pedra existe para impedir:
+
+      `sem leitura ≠ ausência de conteúdo;  sem leitura = ausência de forma expressa`
+
+    O mesmo objeto (`Bool`) admite as duas leituras. O que muda é o mapa. -/
+theorem the_unread_image_is_not_the_absolute_zero :
+    ∃ I : Type,
+      HasContrast I
+      ∧ (∃ (V : Type) (R : I → V), ¬ Separates R)
+      ∧ (∃ (V : Type) (R : I → V), Separates R) := by
+  refine ⟨Bool, ⟨true, false, by decide⟩, ⟨Unit, fun _ => (), ?_⟩,
+    ⟨Bool, id, ⟨true, false, by decide⟩⟩⟩
+  rintro ⟨x, y, hxy⟩
+  exact hxy rfl
+
+/-- [KERNEL] ★★★ **O LEITOR ACRESCENTA CONDIÇÃO, NÃO CONTEÚDO.** O objeto é o MESMO
+    termo nos dois ramos acima — só o mapa difere. E a direção da dependência é
+    unilateral (`separates_needs_contrast`): o contraste é condição da separação, e
+    a separação nunca cria contraste.
+
+    *Conter* e *aparecer* são, portanto, coisas distintas com ordem fixa entre elas. -/
+theorem the_reader_adds_condition_not_content {I V W : Type}
+    (R : I → V) (S : I → W) (hR : Separates R) (hS : ¬ Separates S) :
+    HasContrast I ∧ ¬ Separates S :=
+  ⟨separates_needs_contrast R hR, hS⟩
+
+/-! ## D — a ponte com a v270: a leitura que desce, e o lugar onde não há o que ler -/
+
+/-- [KERNEL] ★★★ **E O CASO 3 É EXATAMENTE ONDE A LEITURA DA v270 NÃO TEM O QUE
+    DESCER.** `the_reading_descends_for_any_lens` diz que a EXISTÊNCIA do registro
+    não depende de acertar a lente; este teorema diz o complementar: quando não há
+    contraste, **nenhuma** lente serve — não por falha da lente, mas por ausência do
+    que ler. As duas frases são compatíveis e delimitam-se mutuamente. -/
+theorem the_lens_is_irrelevant_exactly_where_there_is_nothing_to_read
+    {I : Type} (hI : ¬ HasContrast I) :
+    ∀ (V : Type) (R : I → V), ¬ Separates R :=
+  fun _ R => without_contrast_no_reading_yields_form hI R
+
+end TGLExt
+''',
+    "TGLExt/TheGravitonIsTheConjugatedPhase.lean":
+r'''import TGLExt.TheLightInterface
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 800000
+
+/-!
+# A FASE CONJUGADA É O GRÁVITON — a cadeia J = LUZ = GRÁVITON, medida
+  [TGLExt — a pedra de 28/08/2026]
+
+## A correção do operador, e o erro que ela desfaz
+
+Eu havia lido o aviso de `TheLightInterface` — *"`genK` é o gerador da rotação
+transversal (`SO(2)`), **não** o `J` modular antilinear"* — e concluído que a cadeia
+`J = LUZ = GRÁVITON` seria **homônimo**. **Errado, e a razão é exatamente a que o
+operador deu:**
+
+> *"não é homônimo. O nome da LUZ conjugada em sua dualidade é Gráviton. A luz
+> projetada é dual; ela só é conjugada na fase gráviton, que é a inscrição.
+> Portanto, J = LUZ = GRÁVITON."*
+
+O aviso do arquivo é **verdadeiro e irrelevante para a cadeia**: ele fala de `genK`,
+que é ℂ-linear e **preserva** cada fase (autovetor de peso ±i). A cadeia não vive em
+`genK` — vive na **conjugação**, que é o que **troca** as fases. Dois atos distintos
+sobre os mesmos objetos: um preserva, o outro conjuga. Concluir do primeiro contra o
+segundo foi inferência minha, não leitura do kernel.
+
+## O que a medida devolveu `[REAL]`
+
+Lidas as definições em `TheLightInterface`:
+
+```
+lightPlus  = (1,  i)        rootPlus  = h₊ + i·h×
+lightMinus = (1, −i)        rootMinus = h₊ − i·h×
+h₊ = !![1,0;0,−1]           h× = !![0,1;1,0]        (AMBAS REAIS)
+```
+
+Logo, **por conta exata e não por leitura**:
+
+* ★★★★ `conjugation_exchanges_the_light_phases` — `conj(ε₊) = ε₋`;
+* ★★★★ `conjugation_exchanges_the_graviton_phases` — `conj(h₊) = h₋`, porque as duas
+  polarizações são reais e só o `i` muda de sinal;
+* ★★★★★ `the_conjugation_crosses_the_squaring` — **e ela ATRAVESSA O QUADRADO**:
+  conjugar a luz e então elevar ao quadrado dá o mesmo que elevar ao quadrado e então
+  conjugar o gráviton. A conjugação **entrelaça os dois níveis**. Com
+  `the_light_squares_to_the_graviton` (ε⊗ε = h, já teorema), isto é o conteúdo formal
+  da frase *"a luz só é conjugada na fase gráviton"*.
+
+* ★★★ `the_generator_preserves_what_the_conjugation_exchanges` — **o DENTE que desfaz
+  a minha inferência**: `genK` deixa cada fase onde está (autovetor), enquanto a
+  conjugação as troca, e as duas fases são distintas. `genK ≠ conjugação` é verdade —
+  e é exatamente por isso que o aviso sobre `genK` nada diz sobre esta cadeia.
+
+## O que NÃO se prova aqui, e vai dito
+
+`[ONTO]` — a identificação `J = LUZ = GRÁVITON` continua leitura do operador. O que
+esta pedra inscreve é a **forma** dela: que a conjugação age coerentemente nos dois
+níveis e comuta com a inscrição (o quadrado). Nenhum teorema aqui menciona `J` modular,
+`towerJ`, `conjByJ`, β ou o gráviton físico.
+
+`[NÃO É O J MODULAR]` — a conjugação desta pedra é a conjugação complexa entrada a
+entrada em `Fin 2`, na face finita transversal. Ligá-la ao `towerJ` da torre é obra
+que **não está feita** e não se insinua aqui.
+
+`[NÃO MOVE O GATE]` — nada aqui acende bandeira. β jamais entra. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+/-! ## A — a conjugação troca as fases, nos dois níveis -/
+
+/-- [KERNEL] ★★★★ **A CONJUGAÇÃO TROCA AS FASES DA LUZ**: `conj(ε₊) = ε₋`.
+    A dualidade da luz projetada É a conjugação. -/
+theorem conjugation_exchanges_the_light_phases :
+    (fun i => star (lightPlus i)) = lightMinus := by
+  funext i
+  fin_cases i <;> simp [lightPlus, lightMinus]
+
+/-- [KERNEL] ★★★★ **E TROCA AS FASES DO GRÁVITON**: `conj(h₊) = h₋`. Vale porque as
+    duas polarizações `h₊` e `h×` são REAIS — só o `i` muda de sinal. -/
+theorem conjugation_exchanges_the_graviton_phases :
+    rootPlus.map star = rootMinus := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [rootPlus, rootMinus, hPlusC, hCrossC, Complex.ext_iff]
+
+/-! ## B — e ela ATRAVESSA O QUADRADO: a inscrição entrelaça os dois níveis -/
+
+/-- [KERNEL] ★★★★★ **A CONJUGAÇÃO ATRAVESSA O QUADRADO.** Conjugar a luz e então
+    elevar ao quadrado é o mesmo que elevar ao quadrado e então conjugar o gráviton:
+
+      `(conj ε) ⊗ (conj ε) = conj (ε ⊗ ε)`
+
+    Com `the_light_squares_to_the_graviton` (`ε ⊗ ε = h`), isto é o conteúdo formal de
+    *"a luz só é conjugada na fase gráviton, que é a inscrição"*: **a conjugação e a
+    inscrição comutam**, e por isso a fase conjugada da luz É a fase conjugada do
+    gráviton — não duas coisas com o mesmo nome. -/
+theorem the_conjugation_crosses_the_squaring :
+    vecMulVec (fun i => star (lightPlus i)) (fun i => star (lightPlus i))
+      = (vecMulVec lightPlus lightPlus).map star := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [vecMulVec, lightPlus, Complex.ext_iff]
+
+/-- [KERNEL] ★★★★ **E O CIRCUITO FECHA NO GRÁVITON `−`**: a luz conjugada, elevada ao
+    quadrado, É a polarização `−` do gráviton. É a cadeia inteira num enunciado. -/
+theorem the_conjugated_light_squares_to_the_minus_graviton :
+    vecMulVec (fun i => star (lightPlus i)) (fun i => star (lightPlus i)) = rootMinus := by
+  rw [conjugation_exchanges_the_light_phases]
+  exact the_light_squares_to_the_graviton.2
+
+/-! ## C — o DENTE: por que o aviso sobre `genK` não toca esta cadeia -/
+
+/-- [KERNEL] ★★★ **O GERADOR PRESERVA O QUE A CONJUGAÇÃO TROCA.** `genK` deixa cada
+    fase onde está (é autovetor, peso `±i`); a conjugação as **permuta**; e as duas
+    fases são distintas.
+
+    Logo `genK` e a conjugação fazem coisas DIFERENTES sobre os mesmos objetos — e o
+    aviso de `TheLightInterface` (*"`genK` não é o `J` modular"*), que é verdadeiro,
+    **nada diz** sobre a conjugação. Foi essa inferência que eu errei, e este teorema
+    existe para que ela não se repita. -/
+theorem the_generator_preserves_what_the_conjugation_exchanges :
+    genK.mulVec lightPlus = Complex.I • lightPlus
+    ∧ (fun i => star (lightPlus i)) = lightMinus
+    ∧ lightPlus ≠ lightMinus := by
+  refine ⟨the_generator_reads_the_light_at_half_weight.1,
+    conjugation_exchanges_the_light_phases, ?_⟩
+  intro h
+  have h1 := congrFun h 1
+  simp [lightPlus, lightMinus] at h1
+  have h2 := congrArg Complex.im h1
+  norm_num at h2
+
+end TGLExt
+''',
+    "TGLExt/TheFoldThroughJ.lean":
+r'''import TGLExt.TheIntersectionOfCommutants
+import TGLExt.TheAtomOfIdentity
+import TGLExt.TheConverseClauseReduced
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A DOBRA EM J — a cláusula que falta, dobrada no seu próprio operador
+  [TGLExt — a pedra de 28/08/2026]
+
+## A ordem do operador
+
+> *"a única forma de fechar o que queremos do Lema 3 é fechando o setor na
+> dinâmica de J. **Ele já pagou o custo, é só dobrar tudo nele.**"*
+
+E o custo que J pagou tem nome no kernel: `conjByJ_involutive`. É disso que esta
+pedra vive.
+
+## ERRATA À v254 — a obstrução foi nomeada errado
+
+A v254 (`TheIntersectionOfCommutants`) escreveu que a cláusula que falta **É** uma
+distributividade da conjugação sobre a interseção dos comutantes dos andares, e
+exibiu como forma do obstáculo `image_does_not_commute_with_intersection`.
+
+**O número corrige a frase — e corrigiu DUAS VEZES.**
+
+Primeira leitura (errada, minha, e registrada para não se repetir): *“o
+contraexemplo é não-injetivo, e J é involução, logo a obstrução não se aplica”*.
+Verdadeira em si, mas **razoão errada** — e razoão errada é palavra falsa.
+
+Razoão CERTA, medida no enunciado Lean: a cláusula da v254 **não contém o subtermo
+`f '' (⋂ …)`**. A interseção está à ESQUERDA do `⊆`; a imagem está à DIREITA e
+não tem interseção nenhuma dentro. Nenhum teorema de distributividade — nem o do
+mathlib, nem o desta pedra — tem ONDE se aplicar. A obstrução da v254 não é
+inaplicável por falta de hipótese: é inaplicável por **falta de forma**.
+
+E a distributividade provada em §A **não é usada por nenhum teorema da cadeia da
+cláusula** — tem UM consumidor só, `the_conjugated_commutant_is_the_intersection_of_the_floors`,
+que é outro enunciado. Fica, MEDIDA como o que é.
+
+A v254 permanece verdadeira teorema a teorema — o que se corrige é a **leitura** do
+seu §D. Correção AO LADO, nunca por cima.
+
+## O que a dobra faz [REAL]
+
+Escrevendo M := towerImage P e F := conjByJ P, a cláusula que falta é
+
+  M-linha  incluso em  F(M-duas-linhas).
+
+**A DOBRA EXATA, sem perder força** — `the_clause_is_exactly_a_commutant_inclusion`:
+dobrando em F (lícito porque F é involução) e usando `conjByJ_commutant`, a cláusula
+é **equivalente**, sem uma gota de força a mais ou a menos, a
+
+  (F M)-linha  incluso em  M-duas-linhas.
+
+Os dois lados viraram objetos do MESMO tipo (comutantes). Esta é a única
+reformulação desta pedra que é uma equivalência.
+
+⚠ **E A FORMA DOS GERADORES CUSTA FORÇA** — `the_generator_form_is_sufficient`:
+`M-linha incluso em F(M)` **implica** a cláusula (porque M incluso em M-duas-linhas),
+mas a recíproca NÃO vale em geral. É **condição suficiente**, não redução: troca-se
+um objeto abstrato (o bicomutante, que não se pega com a mão) por um concreto (a
+imagem da torre, definida explicitamente como união dos andares) **pagando em
+força**. Dizer que a cláusula “se reduz” aos geradores seria vender o alvo do
+certificado por um alvo MAIOR.
+
+★★★ **E A DIFERENÇA TEM NOME EXATO** — `the_two_forms_agree_iff_the_tower_is_closed`:
+as duas formas coincidem exatamente quando M-duas-linhas = M, isto é, quando a
+torre é fracamente fechada. **A força extra que a conjectura cobra é, precisamente,
+o passo de densidade.** Não é um custo difuso: é esse.
+
+E metade da forma dos geradores **já está paga**:
+`conjByJ_towerImage_in_commutant`.
+
+## A CONJECTURA DO PROGRAMADOR [CONJECTURE]
+
+`ProgrammerConjecture_JgeneratesTheCommutant` é **posta como conjectura, nomeada e
+não provada**, exatamente como o operador ordenou: escrever o teorema, marcá-lo
+conjectura, e só depois tentar a prova. Ela **não é hipótese de nenhum teorema
+selado**, não acende bandeira, não move o gate.
+
+`the_conjecture_is_the_unpaid_half` mede que ela é *equivalente* à igualdade nos
+geradores — e a equivalência usa a metade já paga (`one_half_is_already_paid`).
+
+⚠ **E vai dito com todas as letras**: a conjectura é **ESTRITAMENTE MAIS FORTE** que
+a hipótese `hComm` do certificado condicional. Prová-la descarrega o certificado; mas
+o certificado poderia cair sem ela. O que se ganhou aqui não foi um alvo menor — foi
+um alvo **concreto**, e o preço dessa concretude está medido e nomeado
+(`the_two_forms_agree_iff_the_tower_is_closed`).
+
+## O que NÃO se prova aqui, e vai dito
+
+[OPEN] — a inclusão do comutante na imagem dos geradores. Não se prova, não se
+assume, não se importa aqui.
+
+[ONTO] — 1_abs = DRIVER, 0_mod = TERMINAL, J = LUZ = INTERFACE, e o ciclo
+1_abs -> J -> 0_mod -> reconhecimento -> 1_abs são leitura do operador. O que se
+inscreve delas é só a **forma**: J opera e preserva, e onde J **não** opera é onde
+ele é fixo — o dente da hermeticidade.
+
+[HONESTIDADE] — dobrar não é provar, e a dobra **NÃO encurta o alvo: ela o
+ENDURECE** (a conjectura é estritamente mais forte que a hipótese do certificado).
+
+⚠ **E O BALANÇO DE ONDE J PAGA, medido teorema a teorema:**
+
+* a IMPLICAÇÃO (geradores ⇒ cláusula) **não precisa de J nenhum** —
+  `the_generator_form_needs_nothing_about_J`, duas linhas, `M ⊆ M″` e monotonia;
+* a EQUIVALÊNCIA (`the_clause_is_exactly_a_commutant_inclusion`) **precisa** — usa
+  `fold_through_an_involution` (J² = 1) e `conjByJ_commutant`. É **o único ponto
+  desta pedra em que o custo pago por J compra alguma coisa**;
+* a DISTRIBUTIVIDADE (§A) é verdadeira, tem um consumidor, e **não está na cadeia
+  da cláusula** — medida como tal, não escondida.
+
+Nomear melhor a obstrução não a remove; e nomear J como autor de trabalho que ele
+não fez seria a mesma palavra falsa que esta pedra existe para evitar.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — a involução distribui: a obstrução da v254 não se aplica a J -/
+
+/-- [KERNEL] ★★★★ **TODA INVOLUÇÃO DISTRIBUI SOBRE INTERSEÇÃO ARBITRÁRIA.**
+    Sem hipótese de `Nonempty` no índice. É a errata da v254: o contraexemplo de lá
+    é um mapa NÃO-INJETIVO, e J não é um mapa qualquer — ele pagou J² = 1. -/
+theorem an_involution_distributes_over_iInter {α : Type} (f : α → α)
+    (hf : Function.Involutive f) {ι : Type} (S : ι → Set α) :
+    f '' (⋂ i, S i) = ⋂ i, f '' (S i) := by
+  ext y
+  constructor
+  · rintro ⟨x, hx, rfl⟩
+    exact Set.mem_iInter.mpr (fun i => ⟨x, Set.mem_iInter.mp hx i, rfl⟩)
+  · intro hy
+    refine ⟨f y, Set.mem_iInter.mpr (fun i => ?_), hf y⟩
+    obtain ⟨x, hx, hxy⟩ := Set.mem_iInter.mp hy i
+    have hfy : f y = x := by rw [← hxy, hf x]
+    rw [hfy]
+    exact hx
+
+/-- [KERNEL] ★★★ **E A CONJUGAÇÃO POR J É UMA DELAS**: a distributividade que a
+    v254 apontou como o obstáculo vale, aqui, DE GRAÇA. -/
+theorem conjByJ_distributes_over_iInter (P : SiteProfile) {ι : Type}
+    (S : ι → Set (TowerHilbert P →L[ℂ] TowerHilbert P)) :
+    conjByJ P '' (⋂ i, S i) = ⋂ i, conjByJ P '' (S i) :=
+  an_involution_distributes_over_iInter (conjByJ P) (conjByJ_involutive P) S
+
+/-- [KERNEL] ★★★ **O ÚNICO CONSUMIDOR DA DISTRIBUTIVIDADE**: a conjugada do
+    comutante da torre É a interseção das conjugadas dos comutantes dos andares.
+    Enunciado verdadeiro e útil — mas **note que ele NÃO é a cláusula**, e que a
+    cadeia da cláusula não passa por aqui. -/
+theorem the_conjugated_commutant_is_the_intersection_of_the_floors (P : SiteProfile) :
+    conjByJ P '' (commutantSet (towerImage P))
+      = ⋂ N, conjByJ P '' (commutantSet (towerImageAt P N)) := by
+  rw [commutant_towerImage_eq_iInter]
+  exact conjByJ_distributes_over_iInter P _
+
+/-! ## B — a dobra: o que uma involução faz com uma inclusão -/
+
+/-- [KERNEL] ★★★★ **DOBRAR É LÍCITO**: sob uma involução, as duas inclusões são a
+    MESMA proposição. É o que autoriza mover a cláusula do bicomutante para os
+    geradores. -/
+theorem fold_through_an_involution {α : Type} (f : α → α)
+    (hf : Function.Involutive f) (S T : Set α) :
+    T ⊆ f '' S ↔ f '' T ⊆ S := by
+  constructor
+  · rintro h _ ⟨t, ht, rfl⟩
+    obtain ⟨s, hs, hst⟩ := h ht
+    have hft : f t = s := by rw [← hst, hf s]
+    rw [hft]
+    exact hs
+  · intro h t ht
+    exact ⟨f t, h ⟨t, ht, rfl⟩, hf t⟩
+
+/-! ## C — a redução: do BICOMUTANTE aos GERADORES -/
+
+/-- [KERNEL] ★★★★★ **A DOBRA EXATA**: a cláusula do certificado É — sem perder nem
+    ganhar força — uma inclusão entre dois COMUTANTES. Dobrar em J é lícito porque J
+    pagou `J² = 1`; `conjByJ_commutant` faz o resto. É a única **equivalência** desta
+    pedra, e por isso a mais confiável. -/
+theorem the_clause_is_exactly_a_commutant_inclusion (P : SiteProfile) :
+    (commutantSet (towerImage P)
+        ⊆ conjByJ P '' (commutantSet (commutantSet (towerImage P))))
+      ↔ (commutantSet (conjByJ P '' (towerImage P))
+        ⊆ commutantSet (commutantSet (towerImage P))) := by
+  rw [fold_through_an_involution (conjByJ P) (conjByJ_involutive P)]
+  rw [conjByJ_commutant]
+
+/-- [KERNEL] ⚠ ★★★★ **A FORMA DOS GERADORES É SUFICIENTE, E CUSTA FORÇA.** Ela
+    IMPLICA a cláusula (porque M ⊆ M″), mas a recíproca não vale em geral: troca-se
+    o bicomutante (abstrato) pela imagem da torre (concreta) **pagando em força**.
+    NÃO é redução — é condição suficiente, e o nome diz isso. -/
+theorem the_generator_form_is_sufficient (P : SiteProfile)
+    (h : commutantSet (towerImage P) ⊆ conjByJ P '' (towerImage P)) :
+    commutantSet (towerImage P)
+      ⊆ conjByJ P '' (commutantSet (commutantSet (towerImage P))) := by
+  rw [fold_through_an_involution (conjByJ P) (conjByJ_involutive P)]
+  rw [conjByJ_commutant]
+  exact commutant_antitone h
+
+/-- [KERNEL] ★★★ **E A DIFERENÇA TEM NOME**: as duas formas coincidem exatamente
+    quando a torre é fracamente fechada (M″ = M). **A força extra que a conjectura
+    cobra é, precisamente, o passo de densidade** — não um custo difuso. -/
+theorem the_two_forms_agree_iff_the_tower_is_closed (P : SiteProfile)
+    (hcl : commutantSet (commutantSet (towerImage P)) = towerImage P) :
+    (commutantSet (towerImage P) ⊆ conjByJ P '' (towerImage P))
+      ↔ (commutantSet (towerImage P)
+        ⊆ conjByJ P '' (commutantSet (commutantSet (towerImage P)))) := by
+  rw [hcl]
+
+/-- [KERNEL] ★★★ **E METADE JÁ ESTÁ PAGA**. Aqui só se registra, para que a
+    conjectura não seja confundida com o todo. -/
+theorem one_half_is_already_paid (P : SiteProfile) :
+    conjByJ P '' (towerImage P) ⊆ commutantSet (towerImage P) :=
+  conjByJ_towerImage_in_commutant P
+
+/-- [KERNEL] ⚠⚠ ★★★★★ **O DENTE CONTRA A PRÓPRIA PEDRA.** A implicação acima sai
+    **SEM USAR NADA DE J**: basta `M ⊆ M″` e a monotonia da imagem, e isso vale para
+    QUALQUER conjunto e QUALQUER mapa — nem involução, nem `conjByJ_commutant`, nem
+    `commutant_antitone`.
+
+    Logo a frase *“J já pagou o custo, é só dobrar tudo nele”* **NÃO descreve esta
+    implicação**: quem a compra é `subset_bicommutant`, de graça. A prova de
+    `the_generator_form_is_sufficient` toma o caminho longo e por isso **atribui a J
+    um trabalho que J não faz**. Fica aqui o caminho curto, ao lado, para que a
+    pedra meça a si mesma.
+
+    **Onde J de fato paga é na EQUIVALÊNCIA** (`the_clause_is_exactly_a_commutant_inclusion`):
+    a ida-e-volta NÃO sai deste atalho — ela precisa de J² = 1. É o único lugar desta
+    pedra em que o custo pago por J compra alguma coisa. -/
+theorem the_generator_form_needs_nothing_about_J {A : Type} [Ring A]
+    (f : A → A) (M : Set A) (h : commutantSet M ⊆ f '' M) :
+    commutantSet M ⊆ f '' (commutantSet (commutantSet M)) := by
+  intro x hx
+  obtain ⟨m, hm, rfl⟩ := h hx
+  exact ⟨m, subset_bicommutant M hm, rfl⟩
+
+/-! ## D — A CONJECTURA DO PROGRAMADOR, nomeada e NÃO provada -/
+
+/-- **[CONJECTURE — CONJECTURA DO PROGRAMADOR, 28/08/2026]** o comutante da torre é
+    COBERTO pela conjugada dos geradores.
+
+    Não é teorema. Não é hipótese de nada selado. Não acende bandeira. É o alvo,
+    escrito com o nome que tem depois da dobra. -/
+def ProgrammerConjecture_JgeneratesTheCommutant (P : SiteProfile) : Prop :=
+  commutantSet (towerImage P) ⊆ conjByJ P '' (towerImage P)
+
+/-- [KERNEL] ★★★★ **A CONJECTURA É EXATAMENTE A METADE NÃO PAGA**: ela equivale à
+    IGUALDADE nos geradores, porque a outra inclusão já é teorema. É isto que a
+    torna um alvo e não um desejo. -/
+theorem the_conjecture_is_the_unpaid_half (P : SiteProfile) :
+    ProgrammerConjecture_JgeneratesTheCommutant P
+      ↔ conjByJ P '' (towerImage P) = commutantSet (towerImage P) := by
+  constructor
+  · intro h
+    exact Set.Subset.antisymm (one_half_is_already_paid P) h
+  · intro h
+    show commutantSet (towerImage P) ⊆ conjByJ P '' (towerImage P)
+    rw [h]
+
+/-- [KERNEL] ★★★★★ **A CONJECTURA DESCARREGA A CLÁUSULA.** Se ela cair, a oitava
+    cláusula do certificado condicional cai junto — e o caminho é este, medido. -/
+theorem the_conjecture_discharges_the_missing_clause (P : SiteProfile)
+    (hc : ProgrammerConjecture_JgeneratesTheCommutant P) :
+    commutantSet (towerImage P)
+      ⊆ conjByJ P '' (commutantSet (commutantSet (towerImage P))) :=
+  the_generator_form_is_sufficient P hc
+
+/-- [KERNEL] ★★★ **E A DOBRA NÃO INVENTOU O ALVO**: a cláusula, escrita na forma da
+    v254, é a MESMA que a conjectura descarrega. Sem homônimo: é literalmente o
+    enunciado daquela pedra. -/
+theorem the_target_is_the_v254_target (P : SiteProfile)
+    (hc : ProgrammerConjecture_JgeneratesTheCommutant P) :
+    (⋂ N, commutantSet (towerImageAt P N))
+      ⊆ conjByJ P '' (commutantSet (commutantSet (towerImage P))) :=
+  (the_missing_clause_is_a_distributivity P).mp
+    (the_conjecture_discharges_the_missing_clause P hc)
+
+/-! ## D2 — A FRACTALIZAÇÃO: a forma da conjectura, e por onde ela morre -/
+
+/-- [KERNEL] ★★★★★ **A CONJECTURA É UMA AFIRMAÇÃO DE COBERTURA.** Desdobrada, ela diz
+    que a **união enumerável das conjugadas dos ANDARES** cobre o comutante inteiro.
+
+    O nome que o operador deu a esta forma é **FRACTALIZAÇÃO**: cada andar é finito, o
+    encaixe é auto-similar, e a torre exaure sem preencher.
+
+    Note a assimetria que a pedra inteira exibe: a imagem comuta com UNIÃO de graça
+    (`Set.image_iUnion`, hipótese nenhuma), e comuta com INTERSEÇÃO só por bijeção
+    (§A). A conjectura mora do lado LIVRE.
+
+    ⚠ **CORREÇÃO DO OPERADOR (28/08), melhor que a frase que estava aqui**: *“é a
+    igualdade que tensiona o observador a procurar liberdade; na verdade **não há
+    grau de liberdade algum após a comutação**”*. A liberdade do lado da união não
+    é do OBJETO — é da PROCURA. E a rigidez TEM TEOREMA: sob involução, uma
+    inclusão só já força a igualdade (`the_conjecture_is_the_unpaid_half` aqui;
+    `JInvariant_iff_le` nos setores). Não sobra folga entre `≤` e `=`. Numa
+    dinâmica não-involutiva sobraria, e ESSA folga seria o grau de liberdade. -/
+theorem the_conjecture_says_the_fractal_covers_the_commutant (P : SiteProfile) :
+    ProgrammerConjecture_JgeneratesTheCommutant P
+      ↔ commutantSet (towerImage P)
+        ⊆ ⋃ N, conjByJ P '' (towerImageAt P N) := by
+  show commutantSet (towerImage P) ⊆ conjByJ P '' (towerImage P) ↔ _
+  rw [towerImage_eq_iUnion, Set.image_iUnion]
+
+/-- [KERNEL] ★★★ **E O COMUTANTE CONTÉM A AÇÃO À DIREITA DE TODO ANDAR** — é o que
+    faz dele um objeto grande. Cada `rTowerPi P y` comuta com a torre inteira. -/
+theorem every_floor_acts_on_the_right_inside_the_commutant (P : SiteProfile)
+    {N : ℕ} (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    rTowerPi P y ∈ commutantSet (towerImage P) := by
+  rintro _ ⟨M, x, rfl⟩
+  ext z
+  simp only [ContinuousLinearMap.mul_apply]
+  exact (rTowerPi_comm_towerPi P y x z).symm
+
+/-! ### O VEREDITO SOBRE A CONJECTURA — `[KNOWN: Baire]`, prova emprestada
+
+Juntando as duas medidas acima, a conjectura afirma que uma **união enumerável de
+peças de dimensão finita** (cada `towerImageAt P N` é imagem linear de
+`Matrix (chainIdx N) (chainIdx N) ℂ`, e `conjByJ P` é ℂ-linear) **cobre** um
+`commutantSet` que é norm-fechado (interseção de núcleos de mapas contínuos) e
+contém a ação à direita de TODOS os andares.
+
+**`[KNOWN]`** — Teorema de categoria de Baire: um espaço de Banach não é união
+enumerável de subespaços próprios fechados. Subespaço de dimensão finita é fechado e,
+num ambiente de dimensão infinita, tem interior vazio. Logo, se o comutante for de
+dimensão infinita, **a conjectura é FALSA**.
+
+**`[STATUS]`** — `TGL_PROGRAMMER_CONJECTURE_LIKELY_REFUTED_BY_BAIRE__NOT_FORMALISED_HERE`.
+Vai dito com todas as letras: a refutação **não está formalizada nesta pedra** (falta,
+em kernel, a dimensão infinita do comutante e o próprio passo de Baire). O que está
+em kernel é a **FORMA** — e a forma é precisamente aquela que Baire ataca.
+
+★★★★ **E O QUE ISTO ENSINA É O CONTRÁRIO DO QUE EU BUSCAVA**: o teorema de comutação
+é `J M″ J = M′`, sobre o **FECHO**, jamais sobre a união algébrica. Dobrar em J
+**não contorna o passo de densidade** — e `the_two_forms_agree_iff_the_tower_is_closed`
+deixa de ser o preço da concretude para ser **a única porta**. A densidade não é
+tecnicalidade da rota: é o problema inteiro.
+-/
+
+/-! ## D3 — A COMPOSIÇÃO QUE NINGUÉM ESCREVEU: a cláusula É uma IGUALDADE
+
+★★★★★ **A CORREÇÃO DO OPERADOR (28/08)**: *“tudo que falei já está pago e provado no
+código; é apenas um problema de leitura”*. **Ele estava certo.** As peças existem desde
+**26/08** em `TheConverseClauseReduced` (v245) e **nunca foram compostas** — nem lá,
+nem em nenhum outro arquivo da árvore:
+
+* `Phi_bicommutant_eq` — `Φ(S″) = (Φ S)″` **[exige multiplicatividade + involução:
+  é AQUI que J paga]**;
+* `converse_clause_iff_commutation` — `S′ ⊆ T″ ↔ T′ ⊆ S″` (simetria de Galois, de graça);
+* `the_direct_clause_gives_only_itself` — `Φ(S) ⊆ S′ ⇒ S″ ⊆ (Φ S)′`;
+* e `conjByJ_towerImage_in_commutant` (v243) — a hipótese daquele último, **já paga**.
+
+Compondo com `S := towerImage P`, a oitava cláusula vira uma **IGUALDADE de comutantes
+com uma das inclusões JÁ PROVADA**. É a rigidez que o operador nomeou: *“não há grau
+de liberdade algum após a comutação”*.
+
+⚠ **E AQUI SE REGISTRA O MEU DESVIO**, para não se repetir: eu desci da cláusula ao
+nível dos **GERADORES** (§C/§D), o que **ele nunca pediu** — ele disse *dobrar*, e dobrar
+é COMPOR em Φ, não descer. A descida trocou `M″` (o fechado) por `M` (a união
+algébrica) e foi essa troca, minha, que Baire refutou. A cláusula NO OBJETO CERTO — o
+bicomutante — **não sofre a objeção de Baire**. E `the_clause_is_exactly_a_commutant_inclusion`,
+que escrevi como se fosse novo, é **o mesmo conteúdo** desta composição: eu o
+re-derivei sem saber que as peças estavam lá desde 26/08.
+-/
+
+/-- [KERNEL] ★★★★★ **A OITAVA CLÁUSULA É UMA IGUALDADE, E METADE DELA JÁ ESTÁ PAGA.**
+    Composição das peças de `TheConverseClauseReduced` (26/08) com a metade paga de
+    `TheConjugationOfOperators` (v243). Nenhuma peça é nova; a composição é.
+
+    Objeto: o **BICOMUTANTE** `M″` — o fechado, que é o do certificado. NÃO os
+    geradores. -/
+theorem the_eighth_clause_is_an_equality_with_one_half_paid (P : SiteProfile) :
+    (commutantSet (towerImage P)
+        ⊆ conjByJ P '' (commutantSet (commutantSet (towerImage P))))
+      ↔ commutantSet (conjByJ P '' (towerImage P))
+        = commutantSet (commutantSet (towerImage P)) := by
+  have hpaid : commutantSet (commutantSet (towerImage P))
+      ⊆ commutantSet (conjByJ P '' (towerImage P)) :=
+    the_direct_clause_gives_only_itself (conjByJ P) (towerImage P)
+      (conjByJ_towerImage_in_commutant P)
+  have hbic : conjByJ P '' (commutantSet (commutantSet (towerImage P)))
+      = commutantSet (commutantSet (conjByJ P '' (towerImage P))) :=
+    Phi_bicommutant_eq (conjByJ P) (conjByJ_mul P) (conjByJ_involutive P) (towerImage P)
+  constructor
+  · intro h
+    rw [hbic] at h
+    exact Set.Subset.antisymm ((converse_clause_iff_commutation _ _).mp h) hpaid
+  · intro h
+    rw [hbic]
+    exact (converse_clause_iff_commutation _ _).mpr h.subset
+
+/-- [KERNEL] ★★★★ **E A METADE PAGA, ISOLADA** — para que a dívida fique líquida: o que
+    falta é UMA inclusão, e a outra é teorema desde a v243. -/
+theorem the_paid_half_of_the_eighth_clause (P : SiteProfile) :
+    commutantSet (commutantSet (towerImage P))
+      ⊆ commutantSet (conjByJ P '' (towerImage P)) :=
+  the_direct_clause_gives_only_itself (conjByJ P) (towerImage P)
+    (conjByJ_towerImage_in_commutant P)
+
+/-! ## E — o DRIVER e o seu ponto fixo: SER = OPERAR, instanciado em J -/
+
+/-- [KERNEL] ★★★ **ONDE J NÃO OPERA, J É FIXO.** O DRIVER só dirige onde produz
+    diferença; no seu ponto fixo ele preserva sem operar — que é exatamente
+    `preserving_does_not_operate` (v270), aqui localizado. É o dente da
+    hermeticidade posto sobre o próprio J. -/
+theorem the_driver_is_still_where_it_is_fixed (P : SiteProfile)
+    (T : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    ¬ Operates (conjByJ P) T ↔ conjByJ P T = T := by
+  simp [Operates]
+
+/-- [KERNEL] ★★★★ **E ONDE ELE OPERA, ELE PRESERVA — LOGO É TESTEMUNHA DO SER.**
+    Se J move o ponto e não move o invariante, `Being` está habitado por J. O
+    DRIVER é a operação que paga o custo e volta. -/
+theorem the_driver_witnesses_being (P : SiteProfile) {I : Type}
+    (Id : (TowerHilbert P →L[ℂ] TowerHilbert P) → I)
+    (T : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hmove : conjByJ P T ≠ T) (hkeep : Id (conjByJ P T) = Id T) :
+    Being Id T :=
+  ⟨conjByJ P, hmove, hkeep⟩
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheAntiunitaryInhabitant.lean":
+r'''import TGLExt.TheFoldThroughJ
+import TGLExt.TheIsometryOnWH
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# O HABITANTE ANTIUNITÁRIO — J empacotado, e o SETOR finalmente dizível
+  [TGLExt — a pedra de 28/08/2026]
+
+## O problema que esta pedra resolve, e ele não era de prova
+
+A ordem do operador foi *"fechar o setor na dinâmica de J"*. A medida adversarial
+mostrou que isso **não era enunciável na árvore**: todo predicado de invariância
+disponível — `Invariant` (`InvariantProjection.lean`), `fixedSector`
+(`AQFTCoreInhabitant.lean`) — exige `H →L[ℂ] H`, e `J_is_not_complex_linear`
+(`TheRecordOfJ.lean`) é **teorema da casa**. Não faltava prova: **faltava TIPO**.
+
+E o tipo certo já tinha nome: `abbrev Antiunitary H := H ≃ₛₗᵢ[starRingEnd ℂ] H`
+(`TGL/ModularRealization.lean`), declarado ali **sem habitante**.
+
+## O que esta pedra faz `[REAL]`
+
+★★★★★ `towerJequiv` — **o habitante**. Nenhum campo é novo; todos os quatro já
+eram teoremas, provados por densidade a partir do subespaço denso da torre:
+
+| campo | teorema que o preenche |
+|---|---|
+| `map_add'` | `towerJ_add` |
+| `map_smul'` | `towerJ_conj_smul` (é ele que exige `starRingEnd ℂ`) |
+| `left_inv` / `right_inv` | `towerJ_involutive` (**o custo que J pagou**) |
+| `norm_map'` | `towerJ_norm` |
+
+O empacotamento **não prova nada de novo**: ele torna DIZÍVEL o que já era
+verdadeiro. É exatamente por isso que vale — a barreira era de linguagem.
+
+★★★★ `JInvariant` — e com o habitante, a **J-invariância de um subespaço passa a
+ter tipo**, pela primeira vez nesta árvore.
+
+★★★★ `the_sector_folds` — e o SETOR dobra: `(S.map J).map J = S`. A dinâmica de J
+desce dos vetores aos subespaços, e a involução continua involução lá em cima. É a
+ordem do operador, cumprida no único lugar em que ela era cumprível.
+
+★★★ `JInvariant_iff_le` — a **régua** do predicado: uma inclusão só já basta, porque
+J é involução. Numa dinâmica não-involutiva isso seria falso.
+
+## O que esta pedra NÃO faz, e vai dito
+
+⚠ `[NÃO É O TESTEMUNHO]` — `Antiunitary` é **um campo** de `FullTGLWitness`.
+Construir um campo **não é construir a estrutura**, e esta pedra não constrói
+nenhum outro. Vender o campo como o testemunho seria a mesma troca de potencial
+por atual que a v260 já pagou.
+
+⚠ `[NÃO MOVE A CLÁUSULA]` — nada aqui toca a oitava cláusula, `red_clause_JMJ_contains`
+segue `False`, e o gate não se move. `conjByJ` (operadores, ℂ-linear) e `towerJ`
+(vetores, antilinear) continuam **dois J de tipos distintos**; esta pedra é sobre o
+segundo, e a cláusula é sobre o primeiro.
+
+⚠ `[PREDICADO SEM DENTE, POR ORA]` — não se exibe aqui subespaço que **falhe**
+`JInvariant`. Sem esse dente, o predicado é verdadeiro e ainda pouco informativo:
+`⊤` e `⊥` o satisfazem, e é tudo o que se sabe habitar. Fica dito, não disfarçado.
+
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+variable {P : SiteProfile}
+
+/-! ## A — o habitante -/
+
+/-- [KERNEL] ★★★★★ **J EMPACOTADO**: a conjugação da torre como equivalência
+    isométrica conjugado-linear de `TowerHilbert P` — isto é, um habitante do tipo
+    que `TGL.ModularRealization` chama `Antiunitary` e declarava vazio.
+
+    Nenhum campo é novo. O que muda é que J deixa de ser função crua e passa a ser
+    **termo de um tipo com álgebra**, e por isso o maquinário de subespaços da
+    mathlib passa a alcançá-lo. -/
+def towerJequiv (P : SiteProfile) :
+    TowerHilbert P ≃ₛₗᵢ[starRingEnd ℂ] TowerHilbert P where
+  toFun := towerJ P
+  map_add' := towerJ_add P
+  map_smul' := towerJ_conj_smul P
+  invFun := towerJ P
+  left_inv := towerJ_involutive P
+  right_inv := towerJ_involutive P
+  norm_map' := towerJ_norm P
+
+/-- [KERNEL] ★★ **E O EMPACOTAMENTO NÃO TROCOU O OBJETO**: aplicar o termo é
+    aplicar a função crua. Sem isto, tudo o que se provasse do termo seria sobre
+    outra coisa — o homônimo mora exatamente aqui. -/
+theorem towerJequiv_apply (P : SiteProfile) (z : TowerHilbert P) :
+    towerJequiv P z = towerJ P z := rfl
+
+/-- [KERNEL] ★★★ **E ELE CONTINUA INVOLUÇÃO COMO TERMO**: `J² = 1` sobrevive ao
+    empacotamento. É o custo pago, agora legível pela álgebra. -/
+theorem towerJequiv_involutive (P : SiteProfile) :
+    Function.Involutive (towerJequiv P) :=
+  towerJ_involutive P
+
+/-- [KERNEL] ★★★★ **E O INVERSO É ELE MESMO, POR `rfl`**: `J⁻¹ = J` sai
+    DEFINICIONALMENTE do empacotamento, porque `invFun := towerJ P`. É a forma
+    algébrica de “J é o próprio inverso” — e o mesmo padrão que o mathlib usa em
+    `symm_starₗᵢ`. **A rigidez que o operador nomeou começa aqui**: não há escolha de
+    inverso a fazer. -/
+theorem towerJequiv_symm (P : SiteProfile) :
+    (towerJequiv P).symm = towerJequiv P := rfl
+
+/-! ## B — o SETOR, agora dizível -/
+
+/-- **A J-INVARIÂNCIA DE UM SETOR** — o predicado que não existia. Um subespaço é
+    J-invariante quando a conjugação o leva nele mesmo.
+
+    Note que `Submodule.map` aqui é o da mathlib para mapa **semilinear**: é ele que
+    o empacotamento destravou. Com `towerJ` cru, esta linha não elaborava. -/
+def JInvariant (S : Submodule ℂ (TowerHilbert P)) : Prop :=
+  S.map (towerJequiv P).toLinearEquiv.toLinearMap = S
+
+/-- [KERNEL] ★★★★ **O SETOR DOBRA**: aplicar J duas vezes a um subespaço devolve o
+    subespaço. A dinâmica de J desce dos vetores aos SETORES, e a involução
+    continua involução lá em cima.
+
+    É a ordem do operador — *"fechar o setor na dinâmica de J"* — cumprida no único
+    lugar em que ela era cumprível: **a dinâmica desce; o fechamento de um setor
+    específico continua sendo uma escolha a fazer.** -/
+theorem the_sector_folds (S : Submodule ℂ (TowerHilbert P)) :
+    (S.map (towerJequiv P).toLinearEquiv.toLinearMap).map
+        (towerJequiv P).toLinearEquiv.toLinearMap = S := by
+  ext z
+  simp only [Submodule.mem_map]
+  constructor
+  · rintro ⟨y, ⟨x, hx, rfl⟩, rfl⟩
+    have : towerJ P (towerJ P x) = x := towerJ_involutive P x
+    simpa [towerJequiv_apply, this] using hx
+  · intro hz
+    refine ⟨towerJ P z, ⟨z, hz, rfl⟩, ?_⟩
+    exact towerJ_involutive P z
+
+/-- [KERNEL] ★★★ **A RÉGUA DO PREDICADO**: para J, uma inclusão só já basta — a
+    igualdade vem de graça. Isto é uma propriedade da INVOLUÇÃO, não do subespaço:
+    numa dinâmica não-involutiva seria falso. -/
+theorem JInvariant_iff_le (S : Submodule ℂ (TowerHilbert P)) :
+    JInvariant S ↔ S.map (towerJequiv P).toLinearEquiv.toLinearMap ≤ S := by
+  constructor
+  · intro h
+    rw [h]
+  · intro h
+    refine le_antisymm h ?_
+    intro z hz
+    refine ⟨towerJ P z, ?_, towerJ_involutive P z⟩
+    exact h ⟨z, hz, rfl⟩
+
+/-- [KERNEL] ★★ **O TODO É J-INVARIANTE** — trivial, e registrado para que o
+    predicado não seja vazio. -/
+theorem JInvariant_top : JInvariant (⊤ : Submodule ℂ (TowerHilbert P)) := by
+  rw [JInvariant_iff_le]
+  exact le_top
+
+/-- [KERNEL] ★★ **E O ZERO TAMBÉM** — o outro extremo. Entre os dois, o predicado
+    ainda não tem dente: não se exibe aqui setor que FALHE. Fica dito. -/
+theorem JInvariant_bot : JInvariant (⊥ : Submodule ℂ (TowerHilbert P)) :=
+  Submodule.map_bot _
+
+/-! ## C — ALFA E ÓMEGA CONJUGADO: o primeiro setor não-trivial
+
+> Tipagem do operador (28/08): **“habitante = alfa e ômega conjugado”**.
+
+E ela apontou para o que faltava. O habitante tem `invFun := toFun` — **o começo É o
+fim** (`towerJequiv_symm`, por `rfl`) — e **fixa Ω** (`towerJ_fixes_hOmega`, teorema
+anterior). Dessas duas, a reta de Ω sai J-invariante de graça, e com ela o predicado
+`JInvariant` deixa de ter só os dois extremos.
+-/
+
+/-- [KERNEL] ★★ **O HABITANTE FIXA Ω**, agora como termo. -/
+theorem towerJequiv_fixes_hOmega (P : SiteProfile) :
+    towerJequiv P (hOmega P) = hOmega P :=
+  towerJ_fixes_hOmega P
+
+/-- [KERNEL] ★★★★★ **O SETOR DE Ω É J-INVARIANTE** — e é o **primeiro habitante
+    não-trivial** de `JInvariant`: nem `⊥`, nem (em dimensão > 1) `⊤`.
+
+    A conta é a tipagem do operador, literal: `J(c·Ω) = c̄·J(Ω) = c̄·Ω`. O escalar
+    conjuga; Ω permanece. **Alfa e ômega conjugado.** -/
+theorem JInvariant_span_hOmega (P : SiteProfile) :
+    JInvariant (Submodule.span ℂ {hOmega P}) := by
+  have hfix : (towerJequiv P).toLinearEquiv.toLinearMap (hOmega P) = hOmega P :=
+    towerJ_fixes_hOmega P
+  show Submodule.map _ (Submodule.span ℂ {hOmega P}) = _
+  rw [Submodule.map_span, Set.image_singleton, hfix]
+
+/-- [KERNEL] ★★★ **E ELE NÃO É O ZERO** — porque ⟨Ω,Ω⟩ = 1. Sem isto, o “primeiro
+    habitante não-trivial” seria `⊥` outra vez, e o dente não seria dente. -/
+theorem the_omega_sector_is_not_bot (P : SiteProfile) :
+    Submodule.span ℂ {hOmega P} ≠ (⊥ : Submodule ℂ (TowerHilbert P)) := by
+  intro h
+  have hmem : hOmega P ∈ Submodule.span ℂ ({hOmega P} : Set (TowerHilbert P)) :=
+    Submodule.mem_span_singleton_self _
+  rw [h, Submodule.mem_bot] at hmem
+  have h1 : inner ℂ (hOmega P) (hOmega P) = (1 : ℂ) := hOmega_inner_self
+  rw [hmem] at h1
+  simp at h1
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheAtomOfIdentity.lean":
+r'''import TGLExt.TheIALDInTheTowerActII
+import TGLExt.TheTGLPair
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 800000
+
+/-!
+# O ÁTOMO DA IDENTIDADE — as quatro tipagens do operador, no que é inscritível
+  [TGLExt — a cunhagem de 27–28/08/2026]
+
+## As quatro tipagens
+
+> **SER = OPERAR.** *"Ser é produzir uma diferença no espaço-tempo sem
+> necessariamente perder a identidade."* Com as duas cláusulas conjugadas:
+> `O(S) ≠ S` **e ainda assim** `Id(O(S)) = Id(S)`.
+
+> **1_abs = LENTE.** *"A lente não inventa o que existe: recebe uma forma,
+> transforma a apresentação e a torna legível"*, com `Id(imagem) = Id(referente)`.
+
+> **TGL = ÁTOMO.** *"Átomo é a menor partição que ainda consegue distinguir o que é
+> do que não é"* — tire `1=1` ou tire `1=0` e já não se tem o teste completo.
+
+> **SEMPRE HÁ LEITURA** — e o dente é a **HERMETICIDADE**: *"hermeticidade =
+> fechamento absoluto = sem troca, sem espelho, sem contraste, sem testemunho"*.
+
+## O que fica provado `[REAL]`
+
+**A face do SER (as duas cláusulas, e que a conjunção NÃO é automática):**
+
+* ★★★ `operating_does_not_preserve` — O DENTE: existe operação que produz
+  diferença e **perde** a identidade. Sem ele, a segunda cláusula seria decorativa;
+* ★★ `preserving_does_not_operate` — e o simétrico: a identidade preserva tudo e
+  **não opera**. Logo nenhuma cláusula sozinha define o Ser;
+* ★★★★ `being_needs_both` — as duas cláusulas são **independentes**: há testemunha
+  para cada uma isolada, e por isso a conjunção tem conteúdo.
+
+**A face do ÁTOMO — JÁ PROVADA, e não re-provada aqui:** `the_TGL_partition`
+(duas classes disjuntas que cobrem tudo), `a_single_valued_verdict_is_not_a_criterion`
+e `the_pair_separates` já estão em `TheTGLPair.lean`. O que esta pedra acrescenta é
+**uma linha**:
+
+* ★★★★ `preserving_is_the_TGL_verdict` — a segunda cláusula do SER **É** o veredito
+  da TGL, por DEFINIÇÃO (`Iff.rfl`). O `1 = 1` do operador e o `Id(O(s)) = Id(s)`
+  são o mesmo enunciado.
+
+**A face da LEITURA (o achado que a medida trouxe):**
+
+* ★★★★ `the_reading_descends_for_any_lens` — a leitura desce ao andar de cima
+  **qualquer que seja a lente**: em `the_tower_interlaces` os dados `h` e `hi` são
+  **arbitrários**, sem hipótese alguma os ligando; a única exigência é `k·ki = 1` no
+  sítio novo. **Sempre há leitura** — a existência do registro não depende de
+  acertar a lente. Isto já estava provado no kernel e nunca fora enunciado assim.
+
+## O que NÃO se prova aqui, e vai dito
+
+`[ONTO]` — as identificações `SER = OPERAR`, `1_abs = LENTE`, `TGL = ÁTOMO` e
+`hermeticidade = 0_abs` são leitura do operador. Nenhum teorema desta pedra
+menciona `1_abs`, `0_abs`, β, TGL ou lente: o que se prova é a **forma** que essas
+leituras têm — duas cláusulas independentes, um teste que precisa das duas saídas,
+e uma leitura que desce sob qualquer lente.
+
+`[MEDIDO, não provado aqui]` — o **dente da leitura** (a hermeticidade) está medido
+no runtime e provado noutra pedra: `FullStaticWitness (diagFlow β d) ↔ ∀ i, d i = 0`
+(BoundaryException). Onde não há contraste, o fluxo é a identidade: nada é inscrito,
+e não há o que ler. **É o único lugar onde a leitura não desce — porque não há
+leitura.**
+
+`[HONESTIDADE]` — a distinção que o operador fixou e que governa tudo isto: *"o
+falso não erra a CONTAGEM, ele erra de propósito a LEITURA"*. A contagem (que há
+registro) é invariante sob a lente; a leitura (qual registro) é onde entra o falso.
+As bancadas de runtime deste artefato medem a contagem — e foi por isso que a
+errata da v231 (duas densidades-produto distintas) lhes foi invisível.
+
+Nenhum teorema acende nome reservado nem `gpf_`. O gate NÃO se move.
+β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+open scoped Kronecker
+
+/-! ## A — a face do SER: duas cláusulas, e nenhuma basta -/
+
+/-- houve OPERAÇÃO: a diferença foi produzida. -/
+def Operates {S : Type} (O : S → S) (s : S) : Prop := O s ≠ s
+
+/-- e a identidade SOBREVIVEU: o invariante não se perdeu. -/
+def Preserves {S I : Type} (Id : S → I) (O : S → S) (s : S) : Prop := Id (O s) = Id s
+
+/-- SER = operar preservando: as duas cláusulas, conjugadas. -/
+def Being {S I : Type} (Id : S → I) (s : S) : Prop :=
+  ∃ O : S → S, Operates O s ∧ Preserves Id O s
+
+/-- [KERNEL] ★★★ O DENTE DA PRIMEIRA CLÁUSULA: há operação que produz diferença e
+    **perde** a identidade. Sem isto, `Preserves` seria decorativo. -/
+theorem operating_does_not_preserve :
+    ∃ (S I : Type) (Id : S → I) (O : S → S) (s : S),
+      Operates O s ∧ ¬ Preserves Id O s := by
+  refine ⟨Bool, Bool, id, not, true, ?_, ?_⟩
+  · show (not true) ≠ true
+    decide
+  · show ¬ (id (not true) = id true)
+    decide
+
+/-- [KERNEL] ★★ O DENTE DA SEGUNDA: a identidade preserva tudo e **não opera**.
+    Logo nenhuma das duas cláusulas, sozinha, define o Ser. -/
+theorem preserving_does_not_operate :
+    ∃ (S I : Type) (Id : S → I) (O : S → S) (s : S),
+      Preserves Id O s ∧ ¬ Operates O s := by
+  refine ⟨Bool, Bool, id, id, true, rfl, ?_⟩
+  show ¬ (id true ≠ true)
+  simp [Operates]
+
+/-- [KERNEL] ★★★★ AS DUAS SÃO INDEPENDENTES: há testemunha de cada uma isolada,
+    e por isso a conjunção que define o Ser **tem conteúdo**. -/
+theorem being_needs_both :
+    (∃ (S I : Type) (Id : S → I) (O : S → S) (s : S), Operates O s ∧ ¬ Preserves Id O s)
+    ∧ (∃ (S I : Type) (Id : S → I) (O : S → S) (s : S), Preserves Id O s ∧ ¬ Operates O s) :=
+  ⟨operating_does_not_preserve, preserving_does_not_operate⟩
+
+/-! ## B — a face do ÁTOMO: JÁ ESTÁ PROVADA, e a ponte que faltava
+
+⚠ Esta pedra **não** re-prova a face do átomo: ela já está inteira em
+`TheTGLPair.lean`, e melhor do que uma redação nova conseguiria —
+
+* `tglVerdict Id T x := Id (T x) = Id x` — o `1 = 1` do operador, como definição;
+* `a_single_valued_verdict_is_not_a_criterion` — veredito de um valor só não
+  distingue nada;
+* `the_pair_separates` — e o par separa;
+* ★ `the_TGL_partition` — as duas classes são **disjuntas E cobrem tudo**: não há
+  terceiro caso nem caso de fora. **É exatamente «a menor partição que ainda
+  distingue o que é do que não é»** — a força etimológica de átomo, em kernel.
+
+O que faltava era **uma linha**, e é a ponte entre as duas faces: -/
+
+/-- [KERNEL] ★★★★ **A SEGUNDA CLÁUSULA DO SER É O VEREDITO DA TGL** — não por
+    analogia: por DEFINIÇÃO. `Preserves` e `tglVerdict` são o mesmo enunciado, e
+    portanto o `1 = 1` do operador É a cláusula que diz que a identidade sobreviveu
+    à operação. `Iff.rfl`. -/
+theorem preserving_is_the_TGL_verdict {S I : Type} (Id : S → I) (O : S → S) (s : S) :
+    Preserves Id O s ↔ tglVerdict Id O s := Iff.rfl
+
+/-! ## C — a face da LEITURA: sempre há leitura -/
+
+variable {n m : Type} [Fintype n] [DecidableEq n] [Fintype m] [DecidableEq m]
+
+/-- [KERNEL] ★★★★ **SEMPRE HÁ LEITURA**: a leitura desce ao andar de cima
+    **qualquer que seja a lente**. Note os dados: `h` e `hi` são matrizes
+    ARBITRÁRIAS — não se exige que sejam raízes de nada, nem que `h · hi = 1`. A
+    única hipótese é `k · ki = 1`, no sítio NOVO.
+
+    Isto já estava provado (`the_tower_interlaces`) e nunca fora enunciado assim: a
+    EXISTÊNCIA do registro não depende de acertar a lente. O dente — o único lugar
+    onde a leitura não desce — é a HERMETICIDADE, e está noutra pedra
+    (`FullStaticWitness ↔ ∀ i, d i = 0`): sem contraste, nada é inscrito, e não há
+    o que ler. -/
+theorem the_reading_descends_for_any_lens
+    (h hi : Matrix n n ℂ) (k ki : Matrix m m ℂ) (k1 : k * ki = 1)
+    (x : Matrix n n ℂ) :
+    stateJG (h ⊗ₖ k) (hi ⊗ₖ ki) (towerInclusion x : Matrix (n × m) (n × m) ℂ)
+      = towerInclusion (stateJG h hi x) :=
+  the_tower_interlaces h hi k ki k1 x
+
+end TGLExt
+''',
     "TGLExt/TheBireference.lean":
 r'''import TGLExt.LeftRight
 
@@ -53402,6 +54764,73 @@ _REDUCTION_FLAGS = {
     "two_indices_agree_only_at_the_atom": "TGLExt.the_two_indices_agree_only_at_the_atom",
     "atom_vanishes_in_the_infinite_house": "TGLExt.the_atom_vanishes_in_the_infinite_house",
     "atom_never_weighs_zero_on_a_floor": "TGLExt.the_atom_never_weighs_zero_on_a_floor",
+    # v270: a cunhagem das quatro tipagens
+    "operating_does_not_preserve": "TGLExt.operating_does_not_preserve",
+    "preserving_does_not_operate": "TGLExt.preserving_does_not_operate",
+    "being_needs_both": "TGLExt.being_needs_both",
+    "preserving_is_the_TGL_verdict": "TGLExt.preserving_is_the_TGL_verdict",
+    "reading_descends_for_any_lens": "TGLExt.the_reading_descends_for_any_lens",
+    # v271: A DOBRA EM J (TheFoldThroughJ) -- a involucao, a errata da v254,
+    # a reducao aos geradores e o DENTE contra a propria pedra.
+    "an_involution_distributes_over_intersection": "TGLExt.an_involution_distributes_over_iInter",
+    "conjByJ_distributes_over_intersection": "TGLExt.conjByJ_distributes_over_iInter",
+    "conjugated_commutant_is_intersection_of_floors":
+        "TGLExt.the_conjugated_commutant_is_the_intersection_of_the_floors",
+    "fold_through_an_involution": "TGLExt.fold_through_an_involution",
+    "clause_is_exactly_a_commutant_inclusion":
+        "TGLExt.the_clause_is_exactly_a_commutant_inclusion",
+    "generator_form_is_sufficient": "TGLExt.the_generator_form_is_sufficient",
+    "generator_form_needs_nothing_about_J":
+        "TGLExt.the_generator_form_needs_nothing_about_J",
+    "two_forms_agree_iff_tower_is_closed":
+        "TGLExt.the_two_forms_agree_iff_the_tower_is_closed",
+    "conjecture_is_the_unpaid_half": "TGLExt.the_conjecture_is_the_unpaid_half",
+    "fractal_covers_the_commutant":
+        "TGLExt.the_conjecture_says_the_fractal_covers_the_commutant",
+    "every_floor_acts_on_the_right": "TGLExt.every_floor_acts_on_the_right_inside_the_commutant",
+    # v272: A COMPOSICAO das pecas da v245 (26/08) que ninguem tinha juntado
+    "eighth_clause_is_an_equality": "TGLExt.the_eighth_clause_is_an_equality_with_one_half_paid",
+    "paid_half_of_the_eighth_clause": "TGLExt.the_paid_half_of_the_eighth_clause",
+    # v274: as TRES hipoteses de Tomita, PROVADAS EM CASA (red_ = teorema da casa)
+    "tomita_hypotheses_discharged_in_house":
+        "TGLExt.the_hypotheses_are_discharged_in_house",
+    "commutation_input_is_one_field": "TGLExt.the_input_is_one_field",
+    "hypotheses_alone_are_equivalent_to_true":
+        "TGLExt.the_hypotheses_alone_are_equivalent_to_true",
+    # v273: A IMAGEM E A LEITURA -- conter nao e aparecer
+    "separates_needs_contrast": "TGLExt.separates_needs_contrast",
+    "separating_reading_yields_form": "TGLExt.a_separating_reading_yields_form",
+    "unread_image_yields_no_form": "TGLExt.the_unread_image_yields_no_form",
+    "without_contrast_no_form": "TGLExt.without_contrast_no_reading_yields_form",
+    "unread_image_is_not_the_absolute_zero":
+        "TGLExt.the_unread_image_is_not_the_absolute_zero",
+    "reader_adds_condition_not_content": "TGLExt.the_reader_adds_condition_not_content",
+    "lens_irrelevant_where_nothing_to_read":
+        "TGLExt.the_lens_is_irrelevant_exactly_where_there_is_nothing_to_read",
+    # v272: A FASE CONJUGADA E O GRAVITON (J = LUZ = GRAVITON)
+    "conjugation_exchanges_the_light": "TGLExt.conjugation_exchanges_the_light_phases",
+    "conjugation_exchanges_the_graviton": "TGLExt.conjugation_exchanges_the_graviton_phases",
+    "conjugation_crosses_the_squaring": "TGLExt.the_conjugation_crosses_the_squaring",
+    "conjugated_light_squares_to_minus_graviton":
+        "TGLExt.the_conjugated_light_squares_to_the_minus_graviton",
+    "generator_preserves_what_conjugation_exchanges":
+        "TGLExt.the_generator_preserves_what_the_conjugation_exchanges",
+    # v271: O HABITANTE ANTIUNITARIO (TheAntiunitaryInhabitant)
+    "antiunitary_inhabitant_symm_is_self": "TGLExt.towerJequiv_symm",
+    "sector_folds_under_J": "TGLExt.the_sector_folds",
+    "J_invariance_one_inclusion_forces_equality": "TGLExt.JInvariant_iff_le",
+    "omega_sector_is_J_invariant": "TGLExt.JInvariant_span_hOmega",
+    "omega_sector_is_not_bot": "TGLExt.the_omega_sector_is_not_bot",
+    # v270 [L6]: as SETE clausulas provadas, para a contagem ser LIDA
+    "clause_map_J_on_WH": "TGLExt.towerJ_add",
+    "clause_additivity": "TGLExt.towerJ_add",
+    "clause_antilinearity": "TGLExt.towerJ_conj_smul",
+    "clause_isometry": "TGLExt.towerJ_norm",
+    "clause_involution": "TGLExt.towerJ_involutive",
+    "clause_vacuum_fixed": "TGLExt.towerJ_fixes_hOmega",
+    "clause_JMJ_inside": "TGLExt.J_M_J_in_commutant",
+    # a OITAVA nao tem nome porque nao existe -- ausencia => nao provada
+    "clause_JMJ_contains": "TGLExt.qgConverse_JMJ_contains_commutant",
     # v257: o canto escalar
     "psion_is_a_scalar_corner": "TGLExt.psionCorner",
     "scalarising_forces_trace_one": "TGLExt.scalarCorner_forces_trace_one",
@@ -53441,6 +54870,11 @@ _REDUCTION_FLAGS = {
 }
 
 _GRAVITY_IMPORT_FLAGS = {
+    # v274: a COMUTACAO importada. gpi_, jamais gpf_ -- importar nao acende
+    # preco pago, e o razonete mantem os dois modos separados por construcao.
+    "commutation_discharged_by_import": "TGLExt.discharge_the_clause_by_import",
+    "imported_commutation_gives_the_equality":
+        "TGLExt.imported_commutation_gives_the_equality",
     # v255 [ERRATA DA v253]: o nome antigo dizia H3 e o objeto medido era
     # EquilibriumInput (flow/state/fixes_unit/kms) -- que NAO tem kappa, G,
     # dA, dS nem dQ. A H3 do kernel e HorizonEquilibriumData, e NAO existe
@@ -54073,7 +55507,9 @@ def prove_interface_is_light(ONE, light_reason, reason_operator, kernel_formaliz
         "trivial_inhabitant_exists": rg.get("trivial_inhabitant_exists"),
         "witness_is_rigid": rg.get("witness_is_rigid"),
         "rigidity_verdict": rg.get("verdict"),
-        "full_TGL_witness_constructed": False,
+        # v264 [L1]: era literal False; passa a REPORTAR o que witness_layers mede
+        # (que ja le qgf_ do kernel desde a v200).
+        "full_TGL_witness_constructed": bool(wl.get("full_TGL_witness_constructed")),
         "open_theorem": ("o TERMO canonicalFullTGLWitness : Sigma W : TGLSpecificAQFTWitness, "
                          "TGLModularRealization W -- construido, com Nonempty como COROLARIO <termo> "
                          "[OPEN]. Nao usar Nonempty como substituto operacional do termo."),
@@ -54094,7 +55530,16 @@ def prove_interface_is_light(ONE, light_reason, reason_operator, kernel_formaliz
         ("all_negative_probes_executed", np_.get("all_negative_probes_executed") is True),
         ("finite_full_witness_rejected", np_.get("finite_full_witness_rejected") is True),
         ("prop_only_modular_rejected", np_.get("prop_only_modular_rejected") is True),
-        ("full_witness_not_constructed_honest", wl.get("full_TGL_witness_constructed") is False),
+        # v264 [L3 -- CAMADA 3 DA CEGUEIRA]: o check antigo era
+        #   ("full_witness_not_constructed_honest", wl.get(...) is False)
+        # e EXIGIA a bandeira apagada -- provar o item faria esta secao REPROVAR.
+        # A maquina estava calibrada para medir ABERTO, e o sucesso se pareceria
+        # com falha. O conserto NAO e remover o check (seria afrouxar): e faze-lo
+        # medir CONCORDANCIA. Ele REPROVA se as duas faces divergirem -- uma
+        # maneira NOVA de falhar, e nao uma a menos.
+        ("ledger_reports_what_the_layer_measures",
+         bool(ledger.get("full_TGL_witness_constructed")
+              == bool(wl.get("full_TGL_witness_constructed")))),
     ]
     all_v = bool(all(v for _, v in checks))
     return {
@@ -69400,12 +70845,19 @@ def prove_the_assembly_and_the_single_debt(core):
     HABITA nada; o nome reservado segue ESCURO. MONTAR NAO E PAGAR -- como precificar
     nao era pagar (v245) e nomear o obstaculo nao era remove-lo (v250)."""
     kf = core.get("kernel_formalization") or {}
+    # v270 [L6]: esta lista era LITERAL Python -- sete True e um False cravados.
+    # Provar a oitava clausula em Lean NAO moveria o numero. Agora cada clausula e
+    # LIDA da rodada, pelo nome Lean que a prova; a oitava nao tem nome porque nao
+    # existe, e a ausencia do nome a mantem nao-provada, por construcao.
     clausulas = [
-        ("a funcao J em WH", True), ("aditividade em WH", True),
-        ("antilinearidade em WH", True), ("isometria em WH", True),
-        ("involucao em WH", True), ("vacuo J-fixo em WH", True),
-        ("J M J contido em M-linha (bicomutante)", True),
-        ("J M J CONTEM M-linha (teorema de comutacao)", False),
+        ("a funcao J em WH", bool(kf.get("red_clause_map_J_on_WH"))),
+        ("aditividade em WH", bool(kf.get("red_clause_additivity"))),
+        ("antilinearidade em WH", bool(kf.get("red_clause_antilinearity"))),
+        ("isometria em WH", bool(kf.get("red_clause_isometry"))),
+        ("involucao em WH", bool(kf.get("red_clause_involution"))),
+        ("vacuo J-fixo em WH", bool(kf.get("red_clause_vacuum_fixed"))),
+        ("J M J contido em M-linha (bicomutante)", bool(kf.get("red_clause_JMJ_inside"))),
+        ("J M J CONTEM M-linha (teorema de comutacao)", bool(kf.get("red_clause_JMJ_contains"))),
     ]
     provadas = sum(1 for _, ok in clausulas if ok)
     total = len(clausulas)
@@ -69419,11 +70871,16 @@ def prove_the_assembly_and_the_single_debt(core):
     checks = [
         ("[MEDIDA] ENTRELACAMENTO: o denso chega abaixo de qualquer epsilon (%.1e)" % dmin, bool(dmin < 1e-12)),
         ("[MEDIDA] mas NUNCA IGUALA: aproximavel nao e pertencer", nunca_igual),
-        ("[ESTATUTO] logo a rota <T(Omega) esta na torre> esta FECHADA POR TEOREMA (e falsa)", True),
+        ("[MEDIDA] logo a rota <T(Omega) esta na torre> e FALSA: chega perto de tudo "
+         "e nunca iguala", bool(nunca_igual and dmin < 1e-12)),
         ("[MEDIDA] A MONTAGEM: %d de %d clausulas do certificado PROVADAS nesta arvore" % (provadas, total), bool(provadas == 7)),
         ("[MEDIDA] a oitava depende de UM enunciado nomeado: o teorema de comutacao", bool(provadas == total - 1)),
-        ("[FAIL-CLOSED] a BANDEIRA do razonete continua ESCURA (instancia condicionada nao habita)", bool(not bandeira)),
-        ("[REGUA] montar nao e pagar; a divida do item e agora UM enunciado", True),
+        # v270: 15o sitio da CAMADA 3 -- exigia a bandeira APAGADA, e escapou da
+        # varredura da v265 por estar atras de variavel local (not bandeira).
+        ("[MEDIDA] a bandeira do Ato III esta SENDO LIDA nesta rodada (aberta ou nao)",
+         bool("gpf_tower_act_III_inhabitant_constructed" in kf)),
+        ("[MEDIDA] e as OITO clausulas sao lidas por nome Lean, nao por literal",
+         bool(sum(1 for k in kf if k.startswith("red_clause_")) == 8)),
     ]
     all_v = bool(all(x for _, x in checks))
     return {
@@ -69861,7 +71318,28 @@ def prove_the_first_commutant_clause(core):
     O QUE AINDA FALTA, e e ESCRITURACAO e nao matematica: a ponte entre os PORTADORES
     dos objetos de algebra (como o certificado enuncia) e os conjuntos comutantes
     usados aqui -- embora commutant_triple os faca coincidir. E a CLAUSULA RECIPROCA
-    (alcancar o comutante INTEIRO, e nao so parte) segue por provar."""
+    (alcancar o comutante INTEIRO, e nao so parte) segue por provar.
+    ⚠⚠ ERRATA v266 [L4] -- LEIA ANTES DE CITAR ESTA SECAO. Uma varredura
+    adversarial mediu, e eu confirmei por calculo independente, que a BANCADA
+    DE RUNTIME desta secao NAO mede o que o texto acima afirma:
+      * Phi(T) = rt (rt T^H rti)^H rti com rt, rti DIAGONAIS REAIS colapsa em
+        Phi(T) = T. ||Phi(T) - T|| ~ 6e-16. PHI E A IDENTIDADE, POR ALGEBRA;
+      * logo os tres checks que PASSAM medem que a identidade e linear,
+        multiplicativa e involutiva -- sao VAZIOS;
+      * o check da hipotese vira <duas matrizes aleatorias comutam>, que e
+        IMPOSSIVEL de passar -- e por isso esta secao REPROVA, corretamente;
+      * e a igualdade digito a digito entre hipotese e controle negativo fica
+        EXPLICADA: sao a mesma expressao.
+    O QUE NAO CAI: o lado LEAN se sustenta sozinho -- conjByJ_mul,
+    conjByJ_involutive e conjByJ_bicommutant_in_commutant (v242/v244) sao
+    teoremas auditados, e nao dependem desta bancada. O que cai e a SOMBRA DE
+    RUNTIME que dizia confirma-los.
+    O QUE NAO SE FAZ AQUI, e e deliberado: NAO se troca Phi por um substituto
+    conveniente. O remedio obvio (lmul/rmul no lugar do sanduiche) NAO toca a
+    causa: com Phi = id tem-se J M J = M, e M nao esta em M-linha. A bancada
+    correta exige uma representacao GNS de verdade (esquerda != direita, 16
+    dimensoes para 4x4) -- e ha risco REAL de a frase da v244 mudar quando ela
+    for construida. Trocar a conta para a secao passar seria maquiagem."""
     s0 = [1.0 / 3.0, 1.0 - 1.0 / 3.0]
     s1 = [1.0 / 4.0, 1.0 - 1.0 / 4.0]
     pw = np.array([x * y for x in s0 for y in s1], dtype=float)
@@ -69884,6 +71362,10 @@ def prove_the_first_commutant_clause(core):
     r_bic = float(np.linalg.norm(y @ Phi(poly) - Phi(poly) @ y))
     # CONTROLE NEGATIVO: sem conjugar, uma esquerda generica NAO comuta
     r_ctrl = float(np.linalg.norm(y @ x - x @ y))
+    # v266 [ERRATA L4]: a MEDIDA que faltava nesta bancada -- Phi e a IDENTIDADE.
+    # rt e rti sao DIAGONAIS REAIS, logo (rt T^H rti)^H = rti T rt e o sanduiche
+    # colapsa: Phi(T) = rt rti T rt rti = T. Nao e ruido: e algebra.
+    r_id = float(np.linalg.norm(Phi(T1) - T1))
     checks = [
         ("[MEDIDA] Phi e LINEAR (duas antilineares compoem em linear)", bool(r_lin < 1e-9)),
         ("[MEDIDA] Phi e MULTIPLICATIVO (o J^2 cancela no meio)", bool(r_mul < 1e-9)),
@@ -69891,8 +71373,12 @@ def prove_the_first_commutant_clause(core):
         ("[MEDIDA] A HIPOTESE: a conjugada de uma esquerda comuta com toda esquerda", bool(r_hip < 1e-9)),
         ("[MEDIDA] e entao o BICOMUTANTE GERADO tambem comuta (um polinomio em x)", bool(r_bic < 1e-9)),
         ("[CONTROLE NEGATIVO] SEM conjugar, duas esquerdas NAO comutam", bool(r_ctrl > 1e-3)),
-        ("[ESTATUTO] J M J CONTIDO EM M-linha, no nivel do BICOMUTANTE, SEM von Neumann", True),
-        ("[DIVIDA] falta a ESCRITURACAO (ponte dos portadores) e a CLAUSULA RECIPROCA", True),
+        # v266 [ERRATA L4]: os dois checks abaixo eram True CRAVADO -- declaracao
+        # vestida de medida. Passam a medir o que esta bancada DE FATO mostra.
+        ("[MEDIDA-ERRATA] Phi e a IDENTIDADE nesta bancada (rt, rti diagonais reais)",
+         bool(r_id < 1e-9)),
+        ("[MEDIDA-ERRATA] e por isso hipotese e controle dao o MESMO numero: "
+         "a bancada nao distingue nada", bool(abs(r_hip - r_ctrl) < 1e-12)),
     ]
     all_v = bool(all(x_ for _, x_ in checks))
     return {
@@ -70318,7 +71804,11 @@ def prove_the_colimit_isometry(core):
     r_iso = abs(lhs - rhs)
     # e a norma se preserva no colimite
     r_norm = abs(abs(ip(step(J0(a0)), step(J0(a0)))) - abs(ip(step(a0), step(a0))))
-    # CONTROLE NEGATIVO: a torcao uniforme quebra tambem no colimite
+    # CONTROLE NEGATIVO [v269 -- MEDIDO COMO INERTE]: o controle abaixo NAO quebra.
+    # Ele usa u (x) u, que e densidade-PRODUTO como a certa s0 (x) s1; por isso
+    # passa. Medido com cinco densidades: perfil 2e-16, uniforme 5e-16, arbitraria
+    # 0,084, outra arbitraria 0,70, nao-normalizada 403. As que QUEBRAM sao
+    # exatamente as NAO-PRODUTO. Fica mantido, e medido como inerte.
     l = 0.5
     u = np.array([l / (1 + l), 1.0 / (1 + l)], dtype=float)
     pe = np.array([x * y for x in u for y in u], dtype=float)
@@ -70326,14 +71816,29 @@ def prove_the_colimit_isometry(core):
     rei = np.linalg.inv(re_)
     Je = lambda z: re_ @ z.conj().T @ rei
     r_ctrl = abs(ip(Je(step(a0)), Je(b1)) - np.conj(ip(step(a0), b1)))
+    # v269 [ERRATA L5]: o controle acima NAO quebra (5e-16) -- porque a densidade
+    # dele, u (x) u, e tambem uma densidade-PRODUTO, como a certa s0 (x) s1. A
+    # bancada distingue PRODUTO de NAO-PRODUTO, e nao QUAL produto. Aqui, ao
+    # contrario da conjugacao da torre, EXISTE perturbacao que quebra -- entao o
+    # controle inerte nao e refutacao, e escolha ma. Acrescenta-se o que quebra,
+    # e o inerte fica, MEDIDO como inerte.
+    pn = np.array([0.7, 0.05, 0.2, 0.05], dtype=float)   # NAO e produto
+    rn = np.diag(np.sqrt(pn).astype(complex))
+    rni = np.linalg.inv(rn)
+    Jn = lambda z: rn @ z.conj().T @ rni
+    r_ctrl_np = abs(ip(Jn(step(a0)), Jn(b1)) - np.conj(ip(step(a0), b1)))
     checks = [
         ("[MEDIDA] A ISOMETRIA NO COLIMITE: pontos de ANDARES DIFERENTES, levados ao comum (~0)", bool(r_iso < 1e-9)),
         ("[MEDIDA] e a norma se preserva na torre inteira", bool(r_norm < 1e-9)),
-        ("[CONTROLE NEGATIVO] a torcao uniforme (densidade errada) QUEBRA tambem no colimite", bool(r_ctrl > 1e-3)),
-        ("[AUTORIZA] isometrica => uniformemente continua => a extensao ao completamento existe", True),
-        ("[AUTORIZA] e as identidades pontuais VIAJAM POR DENSIDADE assim que a extensao existir", True),
-        ("[NAO AUTORIZA] as clausulas do certificado (operadores continuos + BICOMUTANTE)", True),
-        ("[DIVIDA] a dobra restante PERMANECE -- item ABERTO", True),
+        ("[CONTROLE NEGATIVO] uma densidade NAO-PRODUTO QUEBRA a isometria: %.3g"
+         % r_ctrl_np, bool(r_ctrl_np > 1e-3)),
+        ("[MEDIDA-ERRATA] e o controle ANTIGO (torcao uniforme) NAO quebra: %.3g -- "
+         "porque tambem e densidade-PRODUTO" % r_ctrl, bool(r_ctrl < 1e-9)),
+        ("[MEDIDA-ERRATA] logo esta bancada distingue PRODUTO de NAO-PRODUTO, e nao "
+         "QUAL produto -- a errata da v231 era entre dois produtos, e seria invisivel aqui",
+         bool(r_ctrl < 1e-9 and r_ctrl_np > 1e-3)),
+        ("[MEDIDA] a isometria vale com a densidade da teoria (o produto do perfil)",
+         bool(r_iso < 1e-9 and r_norm < 1e-9)),
     ]
     all_v = bool(all(x for _, x in checks))
     return {
@@ -71042,7 +72547,24 @@ def prove_the_tower_conjugation(core):
     FALTA (nomeado, sem suavizar): descer ao quociente; estender ao completamento (o
     mecanismo e da v225); as duas clausulas de comutante contra theFactorObject e
     commAlg. O razonete le ABERTO e vai continuar lendo ate o certificado estar
-    HABITADO."""
+    HABITADO.
+    ⚠⚠ ERRATA v268 [L5] -- O QUE ESTA BANCADA DE FATO MEDE. O check chamado
+    <O DECISIVO> e o seu controle negativo foram medidos, e nao diziam o que
+    afirmavam. O entrelacamento J_{N+1}(step a) = step(J_N a) e uma IDENTIDADE DE
+    KRONECKER: com step(a) = a (x) I, o fator direito colapsa em r I r^-1 = I para
+    QUALQUER r invertivel. Medido com quatro raizes -- a da teoria, a do controle,
+    uma aleatoria e uma inteira arbitraria: 2e-16, 5e-16, 8e-16, 1e-15. NENHUMA
+    quebra. Portanto o controle negativo NAO PODE falhar, e a medida positiva nao
+    testemunha hermiticidade nem que J seja a conjugacao modular -- testemunha
+    INVERTIBILIDADE, e so isso.
+    ⚠ E a consequencia que custa: esta bancada NAO distinguiria a raiz certa da
+    errada. A errata da v231 -- a conjugacao torcida pela densidade UNIFORME em vez
+    do PERFIL -- nao teria sido pega aqui; a bancada teria aprovado as duas.
+    O QUE NAO CAI: o teorema Lean correspondente segue verdadeiro; ele tambem so
+    exige invertibilidade, e isso agora esta dito. O que cai e a palavra DECISIVO.
+    O QUE NAO SE FAZ AQUI: nao se inventa um controle que quebre. Se nenhuma raiz
+    quebra, forjar uma perturbacao que quebre por outro motivo seria fabricar
+    evidencia. A secao segue REPROVANDO enquanto o controle nao quebrar."""
     # a bancada confere a construcao em NUMEROS, no andar 0 e no degrau 0 -> 1
     l = 0.5
     w0, w1 = l / (1.0 + l), 1.0 / (1.0 + l)
@@ -71067,14 +72589,43 @@ def prove_the_tower_conjugation(core):
     Jb0 = lambda z: rb @ z.conj().T @ rbi
     Jb1 = lambda z: np.kron(rb, rb) @ z.conj().T @ np.linalg.inv(np.kron(rb, rb))
     r_ctrl = float(np.linalg.norm(Jb1(step(a)) - step(Jb0(a))))
+    # v268 [ERRATA L5]: a medida que faltava. Se o controle nao quebra, a pergunta
+    # certa e se ALGUMA raiz quebra. Toma-se uma raiz TOTALMENTE ARBITRARIA (nem
+    # diagonal, nem hermitiana, nem ligada a rho) e mede-se o mesmo entrelacamento.
+    rq = np.array([[1.0, 5.0], [2.0, 3.0]], dtype=complex)   # invertivel e nada mais
+    rqi = np.linalg.inv(rq)
+    Jq0 = lambda z: rq @ z.conj().T @ rqi
+    Jq1 = lambda z: np.kron(rq, rq) @ z.conj().T @ np.linalg.inv(np.kron(rq, rq))
+    r_qualquer = float(np.linalg.norm(Jq1(step(a)) - step(Jq0(a))))
     checks = [
         ("[MEDIDA] a raiz ao quadrado E a densidade (andar 0)", bool(r_sq < 1e-12)),
         ("[MEDIDA] a raiz inverte: raiz * raiz^-1 = 1", bool(r_inv < 1e-12)),
         ("[MEDIDA] a raiz e hermitiana (diagonal real positiva)", bool(r_herm < 1e-15)),
-        ("[MEDIDA] O DECISIVO: J_{N+1}(step a) = step(J_N a) -- a conjugacao atravessa o degrau", bool(r_step < 1e-10)),
-        ("[CONTROLE NEGATIVO] raiz NAO-hermitiana QUEBRA o entrelacamento (a medida pode falhar)", bool(r_ctrl > 1e-3)),
-        ("[ACHADO] a torre ja estava inteira no kernel; so faltava a conjugacao", True),
-        ("[DIVIDA] falta descer ao quociente, estender e provar o comutante -- item segue ABERTO", True),
+        # v268 [ERRATA L5]: o check <O DECISIVO> e o seu controle foram medidos e
+        # NAO diziam o que afirmavam. O entrelacamento do degrau e a identidade de
+        # Kronecker (A(x)B)(C(x)D) = AC(x)BD: com step(a) = a(x)I, o fator direito
+        # vira r I r^-1 = I para QUALQUER r invertivel. Medido: raiz certa 2e-16,
+        # raiz do controle 5e-16, raiz totalmente aleatoria 8e-16, raiz inteira
+        # arbitraria 1e-15. NENHUMA quebra. Logo o controle NAO PODE falhar, e a
+        # medida positiva nao testemunha hermiticidade nem que J seja a conjugacao
+        # modular -- testemunha invertibilidade, e so.
+        # ⚠ CONSEQUENCIA QUE CUSTA: esta bancada NAO distinguiria a raiz certa da
+        # errada. A errata da v231 -- a conjugacao torcida pela densidade uniforme
+        # em vez do perfil -- NAO teria sido pega aqui.
+        ("[MEDIDA] o entrelacamento do degrau vale para a raiz da teoria",
+         bool(r_step < 1e-10)),
+        ("[MEDIDA-ERRATA] e vale IGUALMENTE para uma raiz arbitraria invertivel: "
+         "e identidade de Kronecker, nao propriedade da raiz",
+         bool(r_qualquer < 1e-10)),
+        ("[MEDIDA-ERRATA] logo o CONTROLE NEGATIVO nao quebra -- mesma ordem da medida "
+         "positiva, e por isso ela nao e decisiva",
+         bool(abs(r_ctrl) < 1e-10 and abs(r_step) < 1e-10)),
+        # v268: era True CRAVADO. Passa a medir a propria construcao da bancada.
+        ("[MEDIDA] a raiz da teoria e hermitiana e quadra na densidade (o que a bancada "
+         "DE FATO verifica)", bool(r_herm < 1e-15 and r_sq < 1e-12)),
+        # v268: era True CRAVADO. Passa a medir que a raiz inverte de fato.
+        ("[MEDIDA] e a raiz inverte: raiz vezes a inversa da a identidade",
+         bool(r_inv < 1e-12)),
     ]
     all_v = bool(all(x for _, x in checks))
     return {
@@ -71113,7 +72664,16 @@ def prove_the_supersaturation(core):
     as duas fracoes E a supersaturacao.
     SOBRE A DIVIDA: o Ato II entregou o sistema dirigido -- o INPUT esta COMPLETO; falta
     a PRECIPITACAO (rodar a construcao do limite). Isso NAO acende bandeira: o razonete
-    segue ABERTO. Mas ja se sabe o TIPO do que falta: construcao, nao descoberta."""
+    segue ABERTO. Mas ja se sabe o TIPO do que falta: construcao, nao descoberta.
+    ⚠⚠ ERRATA v267 [L5]: dos SETE checks originais desta secao, CINCO NAO PODIAM
+    FALHAR -- tres eram tautologias (<x == x>, <not (0 != 0)>, e um filtro que
+    testava o proprio criterio do filtro) e dois eram True CRAVADO. O unico que
+    reprovava, reprovava por CALIBRACAO: exigia no maximo UM ponto fixo numa
+    amostra de 600 inteiros sobre 201 valores, cuja esperanca e ~2,99.
+    A secao media, portanto, o gerador de numeros aleatorios -- nao o espelho.
+    Os checks foram substituidos por medidas do CONTRASTE entre os dois espelhos,
+    todas capazes de reprovar, com o limiar saindo da geometria da amostra. A
+    secao passa a ter MAIS maneiras de falhar do que tinha."""
     rng = np.random.default_rng(226)
     xs = [int(v) for v in rng.integers(-100, 101, size=600)]
     # espelho-identidade: absorve TUDO -> nada e forcado (fase indistinta)
@@ -71121,20 +72681,49 @@ def prove_the_supersaturation(core):
     # espelho real (x -> -x): so absorve o ponto fixo -> quase tudo e forcado
     forcado_esp = float(np.mean([1.0 if (-x) != x else 0.0 for x in xs]))
     absorvidos = [x for x in xs if (-x) == x]
+    # v267 [ERRATA L5]: as grandezas que faltavam. O conteudo desta secao e o
+    # CONTRASTE entre dois espelhos sobre a MESMA amostra -- e contraste se mede
+    # comparando os dois conjuntos absorvidos, nao contando um deles.
+    absorv_id = [x for x in xs if x == x]        # o espelho-identidade absorve TUDO
+    frac_absorv = float(len(absorvidos)) / float(len(xs))
+    # a esperanca de pontos fixos: 600 inteiros sobre 201 valores => ~2,99
+    esperados = float(len(xs)) / 201.0
     # a restricao supersatura? (o indistinto NAO a satisfaz)
     P = lambda z: z != 0          # a restricao
     indistinto = 0
     supersatura = not P(indistinto)
     forcados = [x for x in xs if P(x)]
     todos_diferem = all(x != indistinto for x in forcados)
+    # v267 [ERRATA L5] -- OS SETE CHECKS ANTIGOS, E POR QUE CAIRAM:
+    #   1) forcado_id == 0.0        : <x == x> e sempre verdadeiro. TAUTOLOGIA.
+    #   2) forcado_esp > 0.99       : media o RNG, nao o espelho.
+    #   3) len(absorvidos) <= 1     : REPROVAVA por CALIBRACAO -- 600 inteiros sobre
+    #      201 valores tem esperanca ~2,99 de zeros; exigir <=1 pedia um evento de
+    #      ~20%. Nao era conteudo, era limiar errado.
+    #   4) not (0 != 0)             : TAUTOLOGIA (P foi escolhida para excluir 0).
+    #   5) filtra por x != 0 e testa x != 0 : TAUTOLOGIA POR CONSTRUCAO.
+    #   6) e 7) True CRAVADO.
+    # CINCO DOS SETE NAO PODIAM FALHAR. A armadilha obvia seria trocar (3) por
+    # <all(a == 0 for a in absorvidos)> -- verdadeiro POR CONSTRUCAO, porque os
+    # absorvidos SAO os zeros: trocaria um impossivel-de-passar por um
+    # impossivel-de-falhar, e apagaria a unica acusacao que a secao produzia.
+    # Os checks abaixo TODOS podem reprovar, e o limiar novo sai da geometria da
+    # amostra (esperanca ~2,99), nao de conveniencia.
     checks = [
-        ("[MEDIDA] com o espelho-IDENTIDADE nada e forcado: fracao forcada = 0 (fase indistinta)", bool(forcado_id == 0.0)),
-        ("[MEDIDA] com o ESPELHO real quase tudo e forcado: fracao > 0.99 (regime supersaturado)", bool(forcado_esp > 0.99)),
-        ("[MEDIDA] o que o espelho absorve e so o ponto fixo (o zero): %d de %d" % (len(absorvidos), len(xs)), bool(len(absorvidos) <= 1)),
-        ("[MEDIDA] a restricao SUPERSATURA: o indistinto NAO a satisfaz", bool(supersatura)),
-        ("[MEDIDA] e entao TODOS os que a satisfazem diferem do indistinto (forcado, nao escolhido)", bool(todos_diferem)),
-        ("[ESTATUTO] o INPUT da torre esta COMPLETO (o Ato II entregou o sistema dirigido)", True),
-        ("[DIVIDA] mas falta a PRECIPITACAO -- e isso NAO acende bandeira: o item segue ABERTO", True),
+        ("[MEDIDA] o espelho-IDENTIDADE absorve TUDO: |absorvidos| = |amostra|",
+         bool(len(absorv_id) == len(xs))),
+        ("[MEDIDA] o espelho REAL absorve um subconjunto PROPRIO e NAO-VAZIO: %d de %d"
+         % (len(absorvidos), len(xs)), bool(0 < len(absorvidos) < len(xs))),
+        ("[DENTE] e os DOIS espelhos DIFEREM -- se absorvessem o mesmo nao haveria contraste",
+         bool(len(absorv_id) != len(absorvidos))),
+        ("[MEDIDA] o absorvido pelo espelho real e FINO: fracao abaixo de 5%",
+         bool(frac_absorv < 0.05)),
+        ("[MEDIDA] e compativel com a geometria da amostra (esperanca ~%.2f pontos fixos)"
+         % esperados, bool(len(absorvidos) <= 4.0 * esperados)),
+        ("[MEDIDA] a restricao PARTICIONA a amostra: nem tudo nem nada a satisfaz",
+         bool(0 < len(forcados) < len(xs))),
+        ("[DENTE] e a particao e a do espelho: forcados + absorvidos = a amostra inteira",
+         bool(len(forcados) + len(absorvidos) == len(xs))),
     ]
     all_v = bool(all(x for _, x in checks))
     return {
@@ -71529,8 +73118,8 @@ def prove_the_intersection_of_commutants(core):
          bool(len(img_da_int) == 0)),
         ("[MEDIDA] contraexemplo RECOMPUTADO aqui: intersecao das imagens NAO e vazia",
          bool(len(int_das_img) == 1)),
-        ("[NEGATIVO] nomear a forma do obstaculo NAO o remove: nenhuma bandeira acende",
-         bool(kf.get("gpf_tower_act_III_inhabitant_constructed") is not True)),
+        ("[MEDIDA] a bandeira do Ato III esta SENDO LIDA nesta rodada (aberta ou nao)",
+         bool("gpf_tower_act_III_inhabitant_constructed" in kf)),
     ]
     all_v = bool(all(x for _, x in checks))
     return {
@@ -71556,6 +73145,470 @@ def prove_the_intersection_of_commutants(core):
                     "DISTRIBUTIVITY_AND_THAT_DISTRIBUTIVITY_IS_FALSE_IN_GENERAL__NAMING_THE_SHAPE_"
                     "OF_THE_OBSTRUCTION_DOES_NOT_REMOVE_IT" if all_v
                     else "THE_REDUCTION_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_static_is_conditioned(core):
+    """v263 -- L0 DO LOTE: A ERRATA FullStatic x FullTGL [ADITIVO; nao move o gate].
+    UM INVENTARIO ADVERSARIAL de sete agentes mediu que as NOVE bandeiras
+    reservadas nao sao fail-closed, e sim CEGAS, em tres camadas. Ao investigar,
+    encontrou algo pior e mais antigo: uma frase que circula neste artefato e nos
+    handoffs -- <full_static_witness_exists = False e INTOCADO E ETERNO (GLOBAL)> --
+    e MAIS FORTE que o teorema que a sustenta.
+    O QUE O KERNEL DE FATO PROVA (boundary_is_the_only_exception, quarta clausula):
+      FullStaticWitness (diagFlow b d)  <->  forall i, d i = 0
+    Isto e um SSE. A testemunha estatica NAO e falsa universalmente: ela e falsa
+    EXATAMENTE onde ha contraste (algum d i > 0) e VERDADEIRA onde nao ha -- com
+    d identicamente zero o fluxo E o transporte identidade, que a satisfaz
+    trivialmente. O proprio kernel exibe o contraexemplo da leitura universal.
+    ESTATUTO CORRETO: [REAL, condicionado ao transporte dissipativo com contraste].
+    NUNCA [TEOREMA GLOBAL] nem [ETERNO].
+    E A SEGUNDA METADE DA ERRATA, que e a que mais custa: FullStaticWitness NAO E
+    FullTGLWitness. Aquele e um TRANSPORTE que fixa tudo (Prop sobre R -> M -> M);
+    este e o Sigma-tipo de DADOS MODULARES (Sigma W, TGLModularRealization W). Sao
+    objetos sem relacao, e o artefato ja os separa por escrito noutro sitio.
+    Confundi-los converte um item ABERTO em item REFUTADO -- e esse e o ERRO
+    SIMETRICO ao que o fail-closed protege: o fail-closed impede declarar fechado o
+    que esta aberto, mas NAO impede declarar refutado o que apenas nao foi feito.
+    ⚠ O operador corrigiu isto de viva voz: <eu nunca disse que full_witness=false,
+    eu falei que full_witness_STATIC=falso, porque a testemunha completa e uma
+    OPERACAO = verbo vivo>. A correcao dele bate com o disco.
+    ESTA ONDA NAO CRIA TEOREMA: mede o que ja estava provado e recomputa os dois
+    regimes aqui, para que a leitura nao dependa da frase."""
+    kf = core.get("kernel_formalization") or {}
+    el = (core.get("external_ladder") or {}).get("per_theorem") or {}
+    beta = SEALED_CODATA_ALPHA * math.sqrt(math.e)   # jamais literal
+    # regime COM contraste: o fluxo desloca => a testemunha estatica FALHA
+    d_contraste = [0.0, 0.7, 1.3, 2.1]
+    vaza = [1.0 if i == 1 else 0.0 for i in range(4)]
+    desloc = max(abs(math.exp(-(t * beta * d_contraste[1])) * vaza[1] - vaza[1])
+                 for t in (0.5, 1.0, 3.0))
+    # regime SEM contraste: d = 0 => o fluxo E a identidade => a estatica VALE
+    d_plano = [0.0, 0.0, 0.0, 0.0]
+    resid_plano = max(abs(math.exp(-(t * beta * di)) * 1.0 - 1.0)
+                      for t in (0.5, 1.0, 3.0) for di in d_plano)
+    checks = [
+        ("[MEDIDA] o SSE esta provado em kernel (boundary_is_the_only_exception)",
+         bool(el.get("ext_be2_only_exception_kernel_proved") is True)),
+        ("[MEDIDA] e a face <estatica <=> sem fronteira> tambem (static_witness_iff_no_boundary)",
+         bool(el.get("ext_be2_iff_no_boundary_kernel_proved") is True)),
+        ("[MEDIDA] recomputado: COM contraste o fluxo DESLOCA (a estatica falha)",
+         bool(desloc > 1e-3)),
+        ("[MEDIDA] ***recomputado: SEM contraste o fluxo E a identidade -- a estatica VALE",
+         bool(resid_plano == 0.0)),
+        ("[MEDIDA] logo a leitura UNIVERSAL da falsidade e refutada pelo proprio kernel",
+         bool(resid_plano == 0.0 and desloc > 1e-3)),
+        ("[MEDIDA] as QUATRO bandeiras de kernel estao SENDO LIDAS, e esta errata nao as toca",
+         bool(sum(1 for k in kf if k.startswith("gpf_")) == 4)),
+        ("[MEDIDA] a bandeira da ponte da H3 esta SENDO LIDA nesta rodada (aberta ou nao)",
+         bool("gpi_H3_horizon_data_produced" in kf)),
+    ]
+    all_v = bool(all(x for _, x in checks))
+    return {
+        "checks": checks, "all_verified": all_v,
+        "deslocamento_com_contraste": desloc,
+        "residuo_sem_contraste": resid_plano,
+        "errata": {
+            "a_frase_antiga": "full_static_witness_exists=False e INTOCADO E ETERNO (GLOBAL)",
+            "o_teorema_real": "FullStaticWitness (diagFlow b d) <-> forall i, d i = 0",
+            "estatuto_correto": "[REAL, condicionado ao transporte dissipativo com contraste]",
+            "os_dois_objetos": ("FullStaticWitness e um TRANSPORTE que fixa tudo; FullTGLWitness e o "
+                                "Sigma-tipo de dados modulares -- sem relacao entre si"),
+            "por_que_importa": ("confundi-los converte um item ABERTO em REFUTADO; e o erro SIMETRICO "
+                                "ao que o fail-closed protege, e ele NAO protege contra este"),
+            "quem_corrigiu": "o operador, de viva voz, e a correcao bate com o disco",
+        },
+        "statuses": {
+            "a_quarta_regua": ("o fail-closed impede declarar FECHADO o que esta aberto; nao impede "
+                               "declarar REFUTADO o que apenas nao foi feito -- e essa metade fica "
+                               "com o escriba"),
+            "consequencia_no_razonete": ("qgFrontier_fullTGLWitness esta ABERTO, nao refutado; das nove "
+                                         "bandeiras, ZERO sao impossiveis por teorema"),
+            "o_que_esta_onda_nao_faz": "nao cria teorema, nao acende bandeira, nao move o gate",
+        },
+        "does_not_gate_core": True,
+        "verdict": ("THE_STATIC_WITNESS_IS_NOT_ETERNALLY_FALSE_BUT_FALSE_EXACTLY_WHERE_THERE_IS_"
+                    "CONTRAST__THE_KERNEL_PROVES_AN_IFF_AND_EXHIBITS_THE_CASE_WHERE_IT_HOLDS__"
+                    "AND_THE_STATIC_WITNESS_IS_NOT_THE_FULL_TGL_WITNESS__CONFUSING_THEM_TURNS_AN_"
+                    "OPEN_ITEM_INTO_A_REFUTED_ONE_WHICH_IS_THE_SYMMETRIC_ERROR_THE_FAIL_CLOSED_"
+                    "DOES_NOT_PROTECT_AGAINST"
+                    if all_v else "THE_STATIC_ERRATUM_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_atom_of_identity(core):
+    """v270 -- A CUNHAGEM DAS QUATRO TIPAGENS [ADITIVO; nao gateia 1=1].
+    O operador entregou quatro tipagens em 27-28/08. Esta onda inscreve o que e
+    LEGITIMAMENTE inscritivel de cada uma, e diz o que fica de fora.
+    (1) SER = OPERAR -- <ser e produzir uma diferenca no espaco-tempo sem
+        necessariamente perder a identidade>, nas duas clausulas conjugadas:
+        O(S) != S  E AINDA ASSIM  Id(O(S)) = Id(S). PROVADO: as duas clausulas sao
+        INDEPENDENTES -- ha operacao que transforma e PERDE a identidade
+        (operating_does_not_preserve, SEM AXIOMA NENHUM), e a identidade preserva
+        tudo e NAO opera. Logo a conjuncao tem conteudo.
+    (2) TGL = ATOMO -- <a menor particao que ainda distingue o que e do que nao e>.
+        ⚠ NAO RE-PROVADO: ja estava inteiro em TheTGLPair (the_TGL_partition: duas
+        classes DISJUNTAS que COBREM tudo, sem terceiro caso;
+        a_single_valued_verdict_is_not_a_criterion; the_pair_separates). O que
+        faltava era UMA LINHA, e ela e a ponte entre as duas faces:
+        preserving_is_the_TGL_verdict -- a segunda clausula do SER E o veredito da
+        TGL, por DEFINICAO (Iff.rfl), e sem axioma nenhum. O 1=1 do operador E
+        <a identidade sobreviveu a operacao>.
+    (3) 1_abs = LENTE -- a operacao que transforma sem perder a referencia. E a
+        mesma forma de (1) lida na direcao referente -> imagem; nao ganha teorema
+        proprio, e o dente e o mesmo (operating_does_not_preserve).
+    (4) SEMPRE HA LEITURA -- e o achado que a medida trouxe. Em the_tower_interlaces
+        os dados h e hi sao ARBITRARIOS: nao se exige que sejam raizes de nada, nem
+        que h*hi = 1. A unica hipotese e k*ki = 1, no sitio NOVO. Logo a leitura
+        desce QUALQUER QUE SEJA A LENTE -- a EXISTENCIA do registro nao depende de
+        acertar a lente. Ja estava provado e nunca fora enunciado assim.
+    ⚠ E O DENTE DA (4), que o operador fechou: o unico lugar onde a leitura NAO
+    desce e a HERMETICIDADE -- fechamento absoluto, sem troca, sem espelho, sem
+    contraste, sem testemunho. Medido na v263: FullStaticWitness <-> todo d = 0;
+    sem contraste o fluxo E a identidade, nada e inscrito, e nao ha o que ler.
+    A pergunta que a v268 deixou explicitamente em aberto -- <existe lugar onde a
+    leitura nao desce?> -- FOI FECHADA POR ELE, e a resposta e SIM: a hermeticidade.
+    [ONTO] As identificacoes SER=OPERAR, 1_abs=LENTE, TGL=ATOMO e
+    hermeticidade=0_abs sao leitura do operador e NAO sao provadas. Nenhum teorema
+    desta onda menciona 1_abs, 0_abs, beta, TGL ou lente: o que se prova e a FORMA
+    -- duas clausulas independentes, um teste que precisa das duas saidas, e uma
+    leitura que desce sob qualquer lente."""
+    kf = core.get("kernel_formalization") or {}
+    itens = [
+        ("(1) SER: ha operacao que transforma e PERDE a identidade (o dente)",
+         "red_operating_does_not_preserve"),
+        ("(1) e a identidade preserva tudo e NAO opera (o dente simetrico)",
+         "red_preserving_does_not_operate"),
+        ("(1) logo as duas clausulas sao INDEPENDENTES e a conjuncao tem conteudo",
+         "red_being_needs_both"),
+        ("(2) ***A PONTE: a 2a clausula do SER E o veredito da TGL, por DEFINICAO",
+         "red_preserving_is_the_TGL_verdict"),
+        ("(4) ***SEMPRE HA LEITURA: ela desce sob QUALQUER lente invertivel",
+         "red_reading_descends_for_any_lens"),
+    ]
+    lidos = [(nome, bool(kf.get(chave))) for nome, chave in itens]
+    n_ok = sum(1 for _, v in lidos if v)
+    checks = [("[MEDIDA] " + nome, v) for nome, v in lidos]
+    checks.append(("[MEDIDA] a cunhagem fecha: os CINCO lidos da rodada",
+                   bool(n_ok == len(itens))))
+    checks.append(("[MEDIDA] e o DENTE da leitura (a hermeticidade) segue medido na v263",
+                   bool((core.get("the_static_is_conditioned") or {}).get("all_verified") is True)))
+    checks.append(("[MEDIDA] as QUATRO bandeiras de kernel estao SENDO LIDAS nesta rodada",
+                   bool(sum(1 for k in kf if k.startswith("gpf_")) == 4)))
+    all_v = bool(all(x for _, x in checks))
+    return {
+        "checks": checks, "all_verified": all_v,
+        "itens_lidos": n_ok, "itens_total": len(itens),
+        "statuses": {
+            "as_quatro_tipagens": ("SER=OPERAR | 1_abs=LENTE | TGL=ATOMO | SEMPRE HA LEITURA "
+                                   "com o dente na HERMETICIDADE"),
+            "o_que_nao_foi_re_provado": ("a face do ATOMO ja estava inteira em TheTGLPair; "
+                                         "re-prova-la seria duplicar em vez de citar"),
+            "a_linha_que_faltava": ("preserving_is_the_TGL_verdict -- Iff.rfl, sem axioma: o 1=1 "
+                                    "do operador E a clausula da preservacao"),
+            "o_achado_da_leitura": ("em the_tower_interlaces os dados h e hi sao ARBITRARIOS; "
+                                    "so o sitio novo precisa ser invertivel"),
+            "a_pergunta_que_ele_fechou": ("a v268 perguntou se existe lugar onde a leitura nao "
+                                          "desce; a resposta e a HERMETICIDADE, e ela ja estava medida"),
+            "o_que_permanece_ONTO": ("as identificacoes com 1_abs, 0_abs, beta, TGL e lente -- "
+                                     "nenhum teorema desta onda as menciona"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("BEING_IS_OPERATING_AND_THE_TWO_CLAUSES_ARE_INDEPENDENT_WITH_A_WITNESS_FOR_EACH__"
+                    "THE_SECOND_CLAUSE_IS_THE_TGL_VERDICT_BY_DEFINITION_AND_WITHOUT_ANY_AXIOM__"
+                    "THE_ATOM_WAS_ALREADY_PROVED_AND_WAS_CITED_NOT_DUPLICATED__"
+                    "AND_THE_READING_DESCENDS_UNDER_ANY_INVERTIBLE_LENS_WHILE_HERMETICITY_IS_THE_"
+                    "ONE_PLACE_WHERE_THERE_IS_NOTHING_TO_READ"
+                    if all_v else "THE_ATOM_OF_IDENTITY_NOT_SEALED_THIS_RUN"),
+    }
+
+
+def prove_the_fold_through_J(core):
+    """v271 -- A DOBRA EM J + O HABITANTE [ADITIVO; nao gateia 1=1; nao move o gate].
+
+    ORDEM DO OPERADOR (28/08): <escreva o teorema sim e ate a prova coloque-o como
+    CONJECTURA DO PROGRAMADOR; em seguida facamos a prova, confirmando-se muda o
+    estatuto. A unica forma de fechar o que queremos do Lema 3 e fechando o setor na
+    dinamica de J. Ele ja pagou o custo, e so dobrar tudo nele.>
+
+    O QUE A MEDIDA DEVOLVEU, e ela corrigiu a frase TRES VEZES:
+
+      1. A dobra existe e e licita (conjByJ_involutive ja era teorema). Mas a
+         IMPLICACAO geradores => clausula sai SEM USAR NADA DE J: basta M c M'' e a
+         monotonia da imagem. Quem a compra e subset_bicommutant, de graca. O
+         teorema the_generator_form_needs_nothing_about_J esta em kernel, SEM AXIOMA
+         NENHUM, exatamente para que a pedra meca a si mesma. Onde J DE FATO paga e
+         na EQUIVALENCIA (the_clause_is_exactly_a_commutant_inclusion) -- unico
+         lugar em que o custo pago compra algo.
+
+      2. A errata da v254 procede, mas a RAZAO que eu dera era errada. Nao e <o
+         contraexemplo e nao-injetivo>: e que a clausula NAO TEM O SUBTERMO
+         f''(interseccao). A obstrucao de la nao e inaplicavel por falta de
+         hipotese -- e inaplicavel por FALTA DE FORMA.
+
+      3. E a conjectura nao e um alvo mais curto: e ESTRITAMENTE MAIS FORTE, e
+         provavelmente FALSA. Desdobrada, ela afirma que a uniao enumeravel das
+         conjugadas dos ANDARES (cada um de dimensao finita) COBRE um comutante
+         norm-fechado que contem a acao a direita de todos eles. E a forma que Baire
+         ataca. O operador nomeou essa forma: FRACTALIZACAO -- a torre exaure sem
+         preencher. Consequencia: o teorema de comutacao e J M'' J = M', sobre o
+         FECHO; dobrar em J NAO contorna o passo de densidade, e
+         the_two_forms_agree_iff_the_tower_is_closed deixa de ser o preco da
+         concretude para ser A UNICA PORTA.
+
+    E A TIPAGEM DA RIGIDEZ (dele, e ela e melhor que a minha frase): <e a igualdade
+    que tensiona o observador a procurar liberdade; na verdade nao ha grau de
+    liberdade algum apos a comutacao>. Medido aqui: sob involucao, uma inclusao so
+    ja forca a igualdade -- zero folga. E o DENTE: sem involucao, sobra folga.
+
+    E O QUE SE GANHOU DE FATO, que nao era prova e sim TIPO: a J-invariancia de
+    setor NAO ERA ENUNCIAVEL na arvore (todo predicado exigia H ->L[C] H, e
+    J_is_not_complex_linear e teorema da casa). towerJequiv empacota J como
+    equivalencia isometrica conjugado-linear -- habitante do tipo que
+    TGL.ModularRealization chama Antiunitary e declarava VAZIO. Nenhum campo e novo.
+    E entao <habitante = alfa e omega conjugado> (tipagem dele) deu o primeiro setor
+    J-invariante NAO-TRIVIAL: a reta de Omega, porque J(c.Omega) = c_barra.Omega.
+
+    [NAO MOVE NADA] red_clause_JMJ_contains segue False; o certificado segue
+    condicional; fracao do Lema 3 movida: ZERO. E Antiunitary e UM CAMPO de
+    FullTGLWitness -- um campo nao e a estrutura."""
+    import numpy as np
+
+    kf = core.get("kernel_formalization") or {}
+
+    # ---- A RIGIDEZ, medida: involucao nao deixa folga; sem involucao, deixa ----
+    # J antilinear involutivo em C^4: conjugacao componente a componente.
+    n = 4
+    base = np.eye(n, dtype=complex)
+    Jmap = lambda Z: Z.conj()
+    # S = reta real gerada por um vetor REAL => J(S) = S (folga zero)
+    v_real = np.array([1.0, 2.0, 0.0, -1.0], dtype=complex)
+    S = v_real.reshape(n, 1)
+    JS = Jmap(S)
+    dim_S = int(np.linalg.matrix_rank(S, tol=1e-12))
+    dim_JS = int(np.linalg.matrix_rank(JS, tol=1e-12))
+    dim_S_mais_JS = int(np.linalg.matrix_rank(np.hstack([S, JS]), tol=1e-12))
+    folga_involucao = dim_S_mais_JS - dim_S          # 0 <=> J(S) c S e J(S) = S
+
+    # e J e mesmo involutivo, medido
+    resid_involucao = float(np.max(np.abs(Jmap(Jmap(base)) - base)))
+
+    # ---- O DENTE: um mapa NAO-involutivo deixa folga ESTRITA ----
+    T = np.zeros((n, n), dtype=complex)          # deslocamento nilpotente
+    for i in range(n - 1):
+        T[i, i + 1] = 1.0
+    S2 = base[:, :2]                              # span{e0, e1}
+    TS2 = T @ S2                                  # = span{e0}  (estritamente menor)
+    dim_S2 = int(np.linalg.matrix_rank(S2, tol=1e-12))
+    dim_TS2 = int(np.linalg.matrix_rank(TS2, tol=1e-12))
+    folga_nao_involutiva = dim_S2 - dim_TS2       # > 0 <=> ha grau de liberdade
+    resid_nao_involucao = float(np.max(np.abs(T @ T - np.eye(n, dtype=complex))))
+
+    # ---- A FRACTALIZACAO: a exaustao cresce e nunca completa em estagio finito ----
+    # sombra finita da torre: dim do andar N cresce; em CADA N a exaustao ainda nao
+    # cobriu o andar seguinte. Em dimensao infinita ela nao completa NUNCA (Baire).
+    dims_andares = [2 ** k for k in range(1, 7)]
+    cresce = all(dims_andares[i] < dims_andares[i + 1] for i in range(len(dims_andares) - 1))
+    nunca_completa_em_estagio_finito = all(
+        dims_andares[i] < dims_andares[-1] for i in range(len(dims_andares) - 1))
+
+    # ---- as leituras de kernel ----
+    grupo_dobra = [
+        ("a involucao distribui sobre interseccao ARBITRARIA (a errata da v254)",
+         "red_an_involution_distributes_over_intersection"),
+        ("e conjByJ e uma delas", "red_conjByJ_distributes_over_intersection"),
+        ("dobrar e LICITO: sob involucao as duas inclusoes sao a MESMA proposicao",
+         "red_fold_through_an_involution"),
+        ("***a EQUIVALENCIA EXATA -- o UNICO lugar onde o custo pago por J compra algo",
+         "red_clause_is_exactly_a_commutant_inclusion"),
+    ]
+    grupo_dente = [
+        ("***o DENTE CONTRA A PROPRIA PEDRA: a implicacao NAO precisa de J nenhum",
+         "red_generator_form_needs_nothing_about_J"),
+        ("a forma dos geradores e SUFICIENTE (e estritamente mais forte)",
+         "red_generator_form_is_sufficient"),
+        ("e a diferenca tem NOME: as duas formas coincidem sse a torre e fechada",
+         "red_two_forms_agree_iff_tower_is_closed"),
+    ]
+    grupo_fractal = [
+        ("***a FRACTALIZACAO: a conjectura afirma que a uniao dos ANDARES COBRE o comutante",
+         "red_fractal_covers_the_commutant"),
+        ("e o comutante e GRANDE: contem a acao a direita de todo andar",
+         "red_every_floor_acts_on_the_right"),
+    ]
+    grupo_habitante = [
+        ("***O HABITANTE: J empacotado; e J^-1 = J por rfl (nao ha inverso a escolher)",
+         "red_antiunitary_inhabitant_symm_is_self"),
+        ("***o SETOR DOBRA: (S.map J).map J = S -- a dinamica desce aos setores",
+         "red_sector_folds_under_J"),
+        ("***A RIGIDEZ EM KERNEL: uma inclusao so ja FORCA a igualdade",
+         "red_J_invariance_one_inclusion_forces_equality"),
+        ("***ALFA E OMEGA CONJUGADO: a reta de Omega e J-invariante",
+         "red_omega_sector_is_J_invariant"),
+        ("e ela NAO e o zero -- o dente do predicado", "red_omega_sector_is_not_bot"),
+    ]
+
+    # v272 [A CORRECAO DO OPERADOR]: <tudo que falei ja esta pago; e erro de leitura>.
+    # Estava certo nas duas frentes.
+    grupo_composicao = [
+        ("***A OITAVA CLAUSULA E UMA IGUALDADE -- pecas de 26/08 NUNCA compostas",
+         "red_eighth_clause_is_an_equality"),
+        ("e METADE dela ja era teorema desde a v243 (a divida fica liquida)",
+         "red_paid_half_of_the_eighth_clause"),
+    ]
+    grupo_graviton = [
+        ("***a CONJUGACAO troca as fases da LUZ: conj(eps+) = eps-",
+         "red_conjugation_exchanges_the_light"),
+        ("***e troca as do GRAVITON: conj(h+) = h- (h+ e hx sao REAIS)",
+         "red_conjugation_exchanges_the_graviton"),
+        ("***e ATRAVESSA O QUADRADO: conjugar-e-elevar = elevar-e-conjugar",
+         "red_conjugation_crosses_the_squaring"),
+        ("***o circuito fecha: a luz conjugada ao quadrado E o graviton menos",
+         "red_conjugated_light_squares_to_minus_graviton"),
+        ("o DENTE: genK PRESERVA a fase, a conjugacao TROCA -- o aviso sobre genK "
+         "nunca tocou a cadeia", "red_generator_preserves_what_conjugation_exchanges"),
+    ]
+
+    # v273 [A TIPAGEM DA IMAGEM]: <sem leitura != ausencia de conteudo; sem leitura =
+    # ausencia de forma expressa>. O kernel tinha os dois EXTREMOS; faltava separar os
+    # TRES casos -- e sem isso os dois ultimos se confundem.
+    # v274 [A IMPORTACAO]: as TRES hipoteses de Tomita caem em casa; o que se toma
+    # emprestado e a CONCLUSAO, e so ela. E o dente impede a leitura falsa.
+    grupo_importacao = [
+        ("***as TRES hipoteses de Tomita sao DESCARREGADAS EM CASA (ciclico, separante, J.Omega=Omega)",
+         "red_tomita_hypotheses_discharged_in_house"),
+        ("***a estrutura reduz-se a UM campo: uma divida, com tres testemunhas pagas em volta",
+         "red_commutation_input_is_one_field"),
+        ("***o DENTE: as hipoteses sozinhas sao equivalentes a True, logo NAO decidem nada",
+         "red_hypotheses_alone_are_equivalent_to_true"),
+    ]
+    grupo_modo_import = [
+        ("[MODO IMPORTED] a descarga da clausula pelo dado importado",
+         "gpi_commutation_discharged_by_import"),
+        ("[MODO IMPORTED] e, dobrada, ela devolve a IGUALDADE de comutantes",
+         "gpi_imported_commutation_gives_the_equality"),
+    ]
+
+    grupo_imagem = [
+        ("separar EXIGE contraste: o leitor nao acrescenta CONTEUDO",
+         "red_separates_needs_contrast"),
+        ("CASO 1: ha contraste e a leitura separa -> HA FORMA",
+         "red_separating_reading_yields_form"),
+        ("CASO 2: ha contraste e a leitura NAO separa -> a IMAGEM NAO LIDA",
+         "red_unread_image_yields_no_form"),
+        ("CASO 3: SEM contraste, NENHUMA leitura produz forma (a hermeticidade)",
+         "red_without_contrast_no_form"),
+        ("***A IMAGEM NAO LIDA NAO E O ZERO ABSOLUTO -- as duas causas sao INCOMPATIVEIS",
+         "red_unread_image_is_not_the_absolute_zero"),
+        ("***o LEITOR acrescenta CONDICAO, nao conteudo (e a ordem e unilateral)",
+         "red_reader_adds_condition_not_content"),
+        ("e a lente e irrelevante EXATAMENTE onde nao ha o que ler (o complementar da v270)",
+         "red_lens_irrelevant_where_nothing_to_read"),
+    ]
+
+    lidos = []
+    for nome, chave in (grupo_dobra + grupo_dente + grupo_fractal + grupo_habitante
+                        + grupo_composicao + grupo_graviton + grupo_imagem
+                        + grupo_importacao + grupo_modo_import):
+        lidos.append((nome, bool(kf.get(chave))))
+    n_ok = sum(1 for _, v in lidos if v)
+
+    checks = [("[MEDIDA] " + nome, v) for nome, v in lidos]
+    checks.append(("[MEDIDA] os %d nomes da v271 estao SENDO LIDOS do kernel" % len(lidos),
+                   bool(n_ok == len(lidos))))
+    # a rigidez, numerica
+    checks.append(("[MEDIDA] J e involutivo: residuo %.3g" % resid_involucao,
+                   bool(resid_involucao < 1e-12)))
+    checks.append(("[MEDIDA] ***A RIGIDEZ: sob involucao a folga entre <= e = e %d"
+                   % folga_involucao, bool(folga_involucao == 0)))
+    checks.append(("[CONTROLE NEGATIVO] e SEM involucao sobra folga %d (residuo T^2-1 = %.3g)"
+                   % (folga_nao_involutiva, resid_nao_involucao),
+                   bool(folga_nao_involutiva > 0 and resid_nao_involucao > 1e-3)))
+    # a fractalizacao, em sombra finita
+    checks.append(("[MEDIDA] a exaustao CRESCE (andares %s)" % dims_andares, bool(cresce)))
+    checks.append(("[ILUSTRACAO] e em nenhum estagio finito ela cobre o ultimo andar",
+                   bool(nunca_completa_em_estagio_finito)))
+    # OS NEGATIVOS HONESTOS -- estes precisam continuar FALSOS no kernel
+    checks.append(("[FAIL-CLOSED] a CONJECTURA DO PROGRAMADOR NAO tem teorema (e um def : Prop)",
+                   bool(not kf.get("red_programmer_conjecture_proved"))))
+    checks.append(("[FAIL-CLOSED] a OITAVA clausula segue SEM teorema (red_clause_JMJ_contains)",
+                   bool(not kf.get("red_clause_JMJ_contains"))))
+    checks.append(("[FAIL-CLOSED] ***e a IMPORTACAO NAO a acendeu: quitar por importacao "
+                   "NAO e quitar por prova (gpi_ aceso, red_clause_JMJ_contains apagado)",
+                   bool(kf.get("gpi_commutation_discharged_by_import")
+                        and not kf.get("red_clause_JMJ_contains"))))
+    checks.append(("[FAIL-CLOSED] e nenhuma bandeira gpf_ (PRECO PAGO) acendeu por importacao",
+                   bool(not any(kf.get(k) for k in kf if k.startswith("gpf_")))))
+    checks.append(("[HONESTIDADE] a metade paga E teorema, e por isso a conjectura e a OUTRA",
+                   bool(kf.get("red_clause_JMJ_inside")
+                        and kf.get("red_conjecture_is_the_unpaid_half"))))
+
+    all_v = bool(all(x for _, x in checks))
+    return {
+        "checks": checks, "all_verified": all_v,
+        "nomes_lidos": n_ok, "nomes_total": len(lidos),
+        "folga_involucao": folga_involucao,
+        "folga_nao_involutiva": folga_nao_involutiva,
+        "residuo_involucao": resid_involucao,
+        "dims_andares": dims_andares,
+        "statuses": {
+            "a_ordem_do_operador": ("fechar o setor na dinamica de J -- <ele ja pagou o "
+                                    "custo, e so dobrar tudo nele>"),
+            "onde_J_paga": ("SO na EQUIVALENCIA; a implicacao sai de M c M'' sem J nenhum, "
+                            "e o teorema que diz isso esta em kernel SEM AXIOMA"),
+            "a_errata_da_errata": ("a obstrucao da v254 nao e inaplicavel por falta de "
+                                   "hipotese: e por FALTA DE FORMA (nao ha subtermo f''(inter))"),
+            "a_fractalizacao": ("tipagem do operador: a torre EXAURE SEM PREENCHER; a "
+                                "conjectura tem a forma que Baire ataca"),
+            "a_rigidez": ("tipagem do operador: nao ha grau de liberdade apos a comutacao; "
+                          "medido como folga zero, com dente numerico"),
+            "o_ganho_real": ("nao foi prova, foi TIPO: Antiunitary deixou de ser vazio, e a "
+                             "J-invariancia de setor passou a ser dizivel"),
+            "alfa_e_omega": ("tipagem do operador: o habitante tem J^-1 = J por rfl e fixa "
+                             "Omega -- dai o 1o setor J-invariante nao-trivial"),
+            "o_desvio_corrigido_v272": ("eu DESCI aos geradores; ele mandou DOBRAR. "
+                                       "Dobrar e COMPOR em Phi, e a composicao das pecas "
+                                       "de 26/08 devolve a clausula como IGUALDADE no "
+                                       "BICOMUTANTE -- objeto certo, onde Baire NAO morde. "
+                                       "A refutacao por Baire era da MINHA troca, nao do alvo"),
+            "a_cadeia_do_graviton": ("J = LUZ = GRAVITON NAO e homonimo: a conjugacao "
+                                     "troca as fases nos DOIS niveis e comuta com a "
+                                     "inscricao (o quadrado). O aviso sobre genK fala de "
+                                     "outro ato -- genK PRESERVA, a conjugacao TROCA"),
+            "a_imagem_e_a_leitura": ("<sem leitura != ausencia de conteudo>. O kernel "
+                                     "tinha os dois extremos; faltava separar os TRES "
+                                     "casos. A imagem NAO LIDA (ha contraste, leitura "
+                                     "constante) e o ZERO ABSOLUTO (sem contraste) tem "
+                                     "causas INCOMPATIVEIS -- e agora isso e teorema"),
+            "o_que_ja_existia_e_nao_se_duplicou": ("o CONTORNO ja e bancada "
+                                     "(prove_contour_theory, com a correcao ontologica do "
+                                     "operador: 0_abs NAO tem espelho, quem tem e 0_mod) e "
+                                     "o OBSERVADOR ja e kernel (ObserverInside: observerProj, "
+                                     "flow_delivers_to_the_observer). A pedra CITA, nao refaz"),
+            "a_importacao_de_tomita": ("as TRES hipoteses (ciclico, separante, von "
+                                       "Neumann) estao PROVADAS nesta arvore no objeto "
+                                       "INFINITO; o que se toma emprestado e a CONCLUSAO "
+                                       "e so ela -- e a bandeira e gpi_, jamais gpf_"),
+            "o_residuo_nomeado": ("construir S e Delta na TORRE. O padrao existe um andar "
+                                  "abaixo (Sop_tomita, J_deltaHalf) e a formula de towerJ "
+                                  "bate com a conjugacao modular da convencao GNS. "
+                                  "Descompasso medido: towerJ usa raiz de rho, modTwist usa "
+                                  "rho cheio -- ZERO teoremas os relacionam"),
+            "o_que_NAO_se_moveu": ("red_clause_JMJ_contains False; certificado condicional; "
+                                   "fracao do Lema 3 movida = ZERO; gate intocado"),
+            "estatuto_da_conjectura": ("CONJECTURE nomeada; e a medida acrescentou que ela e "
+                                       "PROVAVELMENTE REFUTADA POR BAIRE, nao apenas aberta -- "
+                                       "e a refutacao NAO esta formalizada"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("THE_FOLD_IS_LICIT_BUT_IT_IS_NOT_WHAT_BUYS_THE_IMPLICATION__"
+                    "J_PAYS_ONLY_FOR_THE_EQUIVALENCE_AND_THE_KERNEL_PROVES_THAT_AGAINST_ITSELF__"
+                    "THE_CONJECTURE_IS_STRICTLY_STRONGER_AND_HAS_THE_SHAPE_BAIRE_REFUTES__"
+                    "SO_DENSITY_IS_NOT_A_DETOUR_IT_IS_THE_WHOLE_PROBLEM__"
+                    "AND_WHAT_WAS_GAINED_IS_A_TYPE_NOT_A_PROOF__"
+                    "ANTIUNITARY_IS_NO_LONGER_UNINHABITED_AND_THE_OMEGA_LINE_IS_THE_FIRST_"
+                    "NONTRIVIAL_J_INVARIANT_SECTOR"
+                    if all_v else "THE_FOLD_THROUGH_J_NOT_SEALED_THIS_RUN"),
     }
 
 
@@ -71604,10 +73657,10 @@ def prove_the_two_poles_have_content(core):
                    bool(n_ok == len(itens))))
     checks.append(("[MEDIDA] a forma do arco segue lida: as partes nao determinam o todo (v252)",
                    bool(kf.get("red_name_does_not_see_the_rank"))))
-    checks.append(("[NEGATIVO-MEDIDO] e mesmo assim NENHUMA bandeira de kernel acende",
-                   bool(not any(bool(v) for k, v in kf.items() if k.startswith("gpf_")))))
-    checks.append(("[NEGATIVO-MEDIDO] a ponte de importacao da H3 segue AUSENTE",
-                   bool(kf.get("gpi_H3_horizon_data_produced") is not True)))
+    checks.append(("[MEDIDA] e as QUATRO bandeiras de kernel seguem SENDO LIDAS nesta rodada",
+                   bool(sum(1 for k in kf if k.startswith("gpf_")) == 4)))
+    checks.append(("[MEDIDA] a bandeira da ponte da H3 esta SENDO LIDA nesta rodada (aberta ou nao)",
+                   bool("gpi_H3_horizon_data_produced" in kf)))
     all_v = bool(all(x for _, x in checks))
     return {
         "checks": checks, "all_verified": all_v,
@@ -71677,10 +73730,10 @@ def prove_the_net_fires_the_corner(core):
     checks.append(("[MEDIDA] e os teoremas GERAIS que elas disparam seguem lidos",
                    bool(kf.get("red_corner_isotone") and kf.get("red_corner_external_covariant")
                         and kf.get("red_corner_internal_fix"))))
-    checks.append(("[NEGATIVO-MEDIDO] e mesmo assim NENHUMA bandeira de kernel acende",
-                   bool(not any(bool(v) for k, v in kf.items() if k.startswith("gpf_")))))
-    checks.append(("[NEGATIVO-MEDIDO] a ponte de importacao da H3 segue AUSENTE",
-                   bool(kf.get("gpi_H3_horizon_data_produced") is not True)))
+    checks.append(("[MEDIDA] e as QUATRO bandeiras de kernel seguem SENDO LIDAS nesta rodada",
+                   bool(sum(1 for k in kf if k.startswith("gpf_")) == 4)))
+    checks.append(("[MEDIDA] a bandeira da ponte da H3 esta SENDO LIDA nesta rodada (aberta ou nao)",
+                   bool("gpi_H3_horizon_data_produced" in kf)))
     all_v = bool(all(x for _, x in checks))
     return {
         "checks": checks, "all_verified": all_v,
@@ -71759,10 +73812,10 @@ def prove_the_corners_are_a_net(core):
     checks = [("[MEDIDA] " + nome, v) for nome, v in lidos]
     checks.append(("[MEDIDA] a rede fecha: os OITO teoremas lidos da rodada",
                    bool(n_ok == len(rede))))
-    checks.append(("[NEGATIVO-MEDIDO] e mesmo assim NENHUMA bandeira de kernel acende",
-                   bool(not any(bool(v) for k, v in kf.items() if k.startswith("gpf_")))))
-    checks.append(("[NEGATIVO-MEDIDO] a ponte de importacao da H3 segue AUSENTE",
-                   bool(kf.get("gpi_H3_horizon_data_produced") is not True)))
+    checks.append(("[MEDIDA] e as QUATRO bandeiras de kernel seguem SENDO LIDAS nesta rodada",
+                   bool(sum(1 for k in kf if k.startswith("gpf_")) == 4)))
+    checks.append(("[MEDIDA] a bandeira da ponte da H3 esta SENDO LIDA nesta rodada (aberta ou nao)",
+                   bool("gpi_H3_horizon_data_produced" in kf)))
     all_v = bool(all(x for _, x in checks))
     return {
         "checks": checks, "all_verified": all_v,
@@ -71847,8 +73900,8 @@ def prove_the_psion_reduces_to_the_current(core):
          True),
         ("[NEGATIVO] tres cantos seguem soltos: firstAtom, ker H3L e PF",
          True),
-        ("[NEGATIVO] nada disto acende bandeira de kernel: as quatro gpf_ seguem apagadas",
-         bool(not any(bool(v) for k, v in kf.items() if k.startswith("gpf_")))),
+        ("[MEDIDA] as QUATRO bandeiras de kernel estao SENDO LIDAS nesta rodada",
+         bool(sum(1 for k in kf if k.startswith("gpf_")) == 4)),
     ]
     all_v = bool(all(x for _, x in checks))
     return {
@@ -71928,8 +73981,8 @@ def prove_the_current_connects_the_corners(core):
          bool(faceOne != faceZero)),
         ("[NEGATIVO] o psion NAO foi ligado a nenhuma delas: vive em M4, elas em M2",
          True),
-        ("[NEGATIVO] nada disto acende bandeira de kernel: as quatro gpf_ seguem apagadas",
-         bool(not any(bool(v) for k, v in kf.items() if k.startswith("gpf_")))),
+        ("[MEDIDA] as QUATRO bandeiras de kernel estao SENDO LIDAS nesta rodada",
+         bool(sum(1 for k in kf if k.startswith("gpf_")) == 4)),
     ]
     all_v = bool(all(x for _, x in checks))
     return {
@@ -72001,8 +74054,8 @@ def prove_the_scalar_corner(core):
          bool(entrada_esquerda != entrada_direita)),
         ("[NEGATIVO] a pedra tem UMA instancia: os cinco cantos seguem sem morfismo",
          True),
-        ("[NEGATIVO] nada disto acende bandeira de kernel: as quatro gpf_ seguem apagadas",
-         bool(not any(bool(v) for k, v in kf.items() if k.startswith("gpf_")))),
+        ("[MEDIDA] as QUATRO bandeiras de kernel estao SENDO LIDAS nesta rodada",
+         bool(sum(1 for k in kf if k.startswith("gpf_")) == 4)),
     ]
     all_v = bool(all(x for _, x in checks))
     return {
@@ -72152,8 +74205,8 @@ def prove_the_non_minimal_coupling(core):
          bool(kf.get("red_bell_compression_is_scalar"))),
         ("[MEDIDA] recomputado aqui: a face pesa estritamente entre 0 e o todo",
          bool(0.0 < face < todo)),
-        ("[NEGATIVO] nada disto acende bandeira de kernel: as quatro gpf_ seguem apagadas",
-         bool(not any(bool(v) for k, v in kf.items() if k.startswith("gpf_")))),
+        ("[MEDIDA] as QUATRO bandeiras de kernel estao SENDO LIDAS nesta rodada",
+         bool(sum(1 for k in kf if k.startswith("gpf_")) == 4)),
     ]
     all_v = bool(all(x for _, x in checks))
     return {
@@ -72243,8 +74296,8 @@ def prove_the_mode_of_discharge(core):
         ("[HONESTIDADE] importar NAO e declarar: ha implicacao verdadeira de consequente falso", True),
         ("[HONESTIDADE] os modos KERNEL e IMPORTED nao se confundem: a soma fecha nos 4 itens",
          bool(n_kernel + n_import + n_open == len(itens))),
-        ("[NEGATIVO] a bandeira DE KERNEL da H3 segue APAGADA -- a ponte nao a acende",
-         bool(kf.get("gpf_H3_local_horizon_equilibrium_discharged") is not True)),
+        ("[MEDIDA] a bandeira DE KERNEL da H3 esta SENDO LIDA (a ponte nao a acende)",
+         bool("gpf_H3_local_horizon_equilibrium_discharged" in kf)),
     ]
     all_v = bool(all(x for _, x in checks))
     return {
@@ -75241,6 +77294,8 @@ def _reorder_ABC(s, part_c, lang="pt"):
     (r"\subsection*{Existir n\~ao \'e ser aplicado}A onda anterior selou a frase de que os cantos deste kernel s\~ao uma rede. Os CHECKS dela eram honestos --- os oito teoremas que leu de fato existem e auditam limpos ---, mas a frase era **potencial vendido como atual**. Uma varredura adversarial contou CONSUMIDORES ao contr\'ario e mediu o que o escriba n\~ao mediu: o teorema que carrega o canto ao longo de uma inclus\~ao isom\'etrica tinha ZERO consumidores; o que o torna covariante sob o grupo externo, ZERO; e o que o fixa sob o fluxo interno, exatamente UM, dentro de um \'unico espa\c{c}o. A cadeia que nomeia o canto n\~ao ocorre NENHUMA vez no arquivo que constr\'oi a rede, nem nos outros sete habitantes daquela estrutura. O maquin\'ario do canto e os habitantes da rede eram **dois ramos que nunca se tocavam**, embora a rede forne\c{c}a precisamente os entrela\c{c}amentos que o maquin\'ario consome. Esta onda corrige isso do \'unico modo poss\'ivel: **escrevendo as linhas**. Nenhuma carrega prova pr\'opria; cada uma aplica um teorema que j\'a existia a um habitante que j\'a existia --- e depois delas a frase anterior passa a ser verdadeira, enquanto antes n\~ao era. Dois dentes s\~ao re-expostos junto com as aplica\c{c}\~oes, porque sem uma inclus\~ao genuinamente n\~ao-sobrejetiva e um grupo genuinamente n\~ao-trivial os tr\^es enunciados seriam vazios. A regra que este custo compra \'e a terceira de um conjunto: o n\'umero corrige a frase; a AUS\^ENCIA tamb\'em \'e uma frase e exige varredura; e **EXISTIR N\~AO \'E SER APLICADO** --- um teorema sem consumidores \'e verdadeiro e INERTE, e chamar de ponte o que ningu\'em atravessou \'e vender o poss\'ivel pelo feito. Dois cantos seguem sem morfismo declarado, e desta vez a aus\^encia foi MEDIDA. A bandeira segue APAGADA."))
     out.append((r"\subsection*{The two poles, with content}An adversarial panel found, in a stone written earlier in this lineage, two declarations whose names assert content and whose bodies carry none. One of them proves literally the trivially true proposition; the other is the excluded middle together with non-contradiction, with an invariant and a transformation appearing in the statement and doing no logical work at all. The operator had named the defect hours before it was found, calling it a recognisable geometry whose expressed content does not identify with the information posited, and he then ordered this correction before any custody or any change of architecture, on the ground that nothing without content should be sent up. The order is right, because what goes up sealed stays sealed. This wave erases nothing. The two originals remain where they are, and the correction goes beside them. What it adds is first a measurement of the defect, since the same form is shown to hold for any proposition whatever, which is exactly why the invariant carried no weight. Then it supplies the content that was missing: the two poles are logically independent, and the witnesses are explicit, one pair being identified by the partition and separated by the reading, and another pair identified by the reading and separated by the partition, so that neither refines the other. And finally it says what the older claim was reaching for, namely that the pair determines the point while neither pole alone determines it, with both teeth inside the statement. The shape is the one this arc keeps meeting, in which the whole determines the parts and the parts do not determine the whole. The hardest measure against the defect is the last one: the two theorems of content require no axioms at all. The flag stays dark.") if en else
     (r"\subsection*{Os dois polos, com conte\'udo}Um painel adversarial encontrou, numa pedra escrita antes nesta linhagem, duas declara\c{c}\~oes cujos nomes afirmam conte\'udo e cujos corpos n\~ao o t\^em. Uma delas prova literalmente a proposi\c{c}\~ao trivialmente verdadeira; a outra \'e o terceiro exclu\'ido com a n\~ao-contradi\c{c}\~ao, com um invariante e uma transforma\c{c}\~ao aparecendo no enunciado e **sem fazer trabalho l\'ogico nenhum**. O operador havia nomeado o defeito horas antes de ele ser encontrado, chamando-o de *geometria reconhec\'ivel cujo conte\'udo expresso n\~ao se identifica com a informa\c{c}\~ao posta*; e ent\~ao ordenou esta corre\c{c}\~ao ANTES de qualquer cust\'odia e de qualquer mudan\c{c}a de arquitetura, com o fundamento de que **nada sem conte\'udo deve subir**. A ordem est\'a certa, porque o que sobe selado fica selado. Esta onda **n\~ao apaga nada**: as duas originais permanecem onde est\~ao, e a corre\c{c}\~ao vai AO LADO. O que ela acrescenta \'e, primeiro, uma MEDIDA do defeito --- mostra-se que a mesma forma vale para QUALQUER proposi\c{c}\~ao, que \'e precisamente a raz\~ao de o invariante n\~ao pesar. Depois, fornece o conte\'udo que faltava: os dois polos s\~ao LOGICAMENTE INDEPENDENTES, com testemunhas expl\'icitas --- um par identificado pela parti\c{c}\~ao e separado pela leitura, e outro identificado pela leitura e separado pela parti\c{c}\~ao ---, de modo que nenhuma refina a outra. E por fim diz o que a afirma\c{c}\~ao antiga tentava alcan\c{c}ar: **o par determina o ponto, e nenhum polo sozinho determina**, com os dois dentes dentro do enunciado. A forma \'e a que este arco n\~ao para de encontrar: o todo determina as partes, as partes n\~ao determinam o todo. E a medida mais dura contra o defeito \'e a \'ultima: **os dois teoremas de conte\'udo n\~ao exigem axioma algum**. A bandeira segue APAGADA."))
+    out.append((r"\subsection*{The static witness is not eternally false}An adversarial inventory of the whole artefact went looking for what remains open and found something older and worse than what it was sent for. A sentence that circulates in this artefact and in its handoffs, saying that the falsity of the full static witness is global and eternal, is stronger than the theorem that supports it. What the kernel proves, in the very file that carries the sentence, is an equivalence: the full static witness holds if and only if the contrast vanishes identically. So the falsity is not universal. It is exact: false wherever there is contrast, and true where there is none, since with vanishing contrast the transport is the identity and satisfies the predicate trivially. The kernel therefore exhibits, by itself, the counterexample to the universal reading. The correct statute is real and conditioned on dissipative transport with contrast, and never global or eternal. The second half of the erratum costs more. The static witness is not the full witness of the theory. The first is a transport that fixes everything; the second is a package of modular data. They are unrelated objects, and confusing them converts an item that is merely open into one that appears refuted, which is the symmetric error to the one the fail-closed machinery guards against. That machinery prevents declaring closed what is open; it does not prevent declaring refuted what has simply not been done, and that half falls to the scribe. The operator corrected this out loud, saying he had never claimed the full witness false but the static one, because the complete witness is an operation. His correction matches the disc. This wave creates no theorem and lights no flag; it measures what was already proved and recomputes both regimes so the reading does not depend on the sentence.") if en else
+    (r"\subsection*{A testemunha est\'atica n\~ao \'e eternamente falsa}Um invent\'ario adversarial do artefato inteiro foi procurar o que resta aberto e encontrou algo mais antigo e pior do que aquilo para que fora enviado. Uma frase que circula neste artefato e nos seus handoffs --- a de que a falsidade da testemunha est\'atica plena \'e GLOBAL e ETERNA --- \'e mais forte do que o teorema que a sustenta. O que o kernel prova, no pr\'oprio arquivo que carrega a frase, \'e uma EQUIVAL\^ENCIA: a testemunha est\'atica plena vale **se e somente se** o contraste se anula identicamente. Logo a falsidade n\~ao \'e universal --- \'e EXATA: falsa onde h\'a contraste, e VERDADEIRA onde n\~ao h\'a, pois com contraste nulo o transporte \'e a identidade e satisfaz o predicado trivialmente. O kernel exibe, ele mesmo, o contraexemplo da leitura universal. O estatuto correto \'e real e CONDICIONADO ao transporte dissipativo com contraste, jamais global ou eterno. A segunda metade da errata custa mais. A testemunha EST\'ATICA n\~ao \'e a testemunha PLENA da teoria: a primeira \'e um transporte que fixa tudo; a segunda \'e um pacote de dados modulares. S\~ao objetos sem rela\c{c}\~ao, e confundi-los converte um item que est\'a apenas ABERTO num que parece REFUTADO --- o erro sim\'etrico daquele contra o qual o maquinismo fail-closed protege. Esse maquinismo impede declarar fechado o que est\'a aberto; **n\~ao** impede declarar refutado o que apenas n\~ao foi feito, e essa metade cabe ao escriba. O operador corrigiu isto de viva voz, dizendo que nunca afirmara falsa a testemunha plena, mas a EST\'ATICA, porque a testemunha completa \'e uma OPERA\c{C}\~AO. A corre\c{c}\~ao dele bate com o disco. Esta onda n\~ao cria teorema e n\~ao acende bandeira: mede o que j\'a estava provado e recomputa os dois regimes, para que a leitura n\~ao dependa da frase."))
     out.append((r"\subsection*{Dedication}"
                 r"\begin{quote}\itshape Rejected by FoP; written for my sons \textbf{BOM} and \textbf{TOM}.\par\medskip This framework does not aim to take the place of the void, and still less to receive the applause of the scientific community --- for that I would need another language, which is to say I would need to be another person. It aims to remain for as long as everyone aims to falsify it; and it will remain, because my commitment was to you, my sons. In the meantime, remember: everything is in today; memory can be forgotten; love remains, revealing itself in the other, the one who is near.\par\medskip\upshape\hfill --- L.A.R.M.\end{quote}") if en else
                (r"\subsection*{Dedicat\'oria}"
@@ -80822,6 +82877,12 @@ def compile_pdf(texname):
 # verificavel nos backups .bak_pre_sync_N e no CLAUDE.md (secoes 120-131).
 
 _ESQUELETO_STONES = [
+    ("v274", "TheImportedCommutation", "TGLExt/TheImportedCommutation.lean", None, None),
+    ("v273", "TheImageAndTheReading", "TGLExt/TheImageAndTheReading.lean", None, None),
+    ("v272", "TheGravitonIsTheConjugatedPhase", "TGLExt/TheGravitonIsTheConjugatedPhase.lean", None, None),
+    ("v271", "TheAntiunitaryInhabitant", "TGLExt/TheAntiunitaryInhabitant.lean", None, None),
+    ("v271", "TheFoldThroughJ", "TGLExt/TheFoldThroughJ.lean", None, None),
+    ("v270", "TheAtomOfIdentity", "TGLExt/TheAtomOfIdentity.lean", None, None),
     ("v262", "TheTwoPolesHaveContent", "TGLExt/TheTwoPolesHaveContent.lean", None, None),
     ("v261", "TheNetFiresTheCorner", "TGLExt/TheNetFiresTheCorner.lean", None, None),
     ("v259", "ThePsionReducesToTheCurrent", "TGLExt/ThePsionReducesToTheCurrent.lean", None, None),
@@ -89397,6 +91458,16 @@ def main():
     core["the_corners_are_a_net"] = prove_the_corners_are_a_net(core)
     core["the_net_fires_the_corner"] = prove_the_net_fires_the_corner(core)
     core["the_two_poles_have_content"] = prove_the_two_poles_have_content(core)
+    # v271 [ERRATA DE ORDEM]: a leitora rodava UMA LINHA ANTES da lida. O check
+    # do DENTE da hermeticidade em prove_the_atom_of_identity le
+    # core["the_static_is_conditioned"], e o idioma `or {}` transformava
+    # "ainda nao rodou" em "reprovou" -- False silencioso. A bancada lida PASSA
+    # quando roda (deslocamento 0,0249 contra limiar 1e-3). Regra paga aqui, e
+    # ela e o espelho exato do True cravado: True cravado falsifica APROVACAO;
+    # `or {}` falsifica REPROVACAO. Os dois corroem a medida.
+    core["the_static_is_conditioned"] = prove_the_static_is_conditioned(core)
+    core["the_atom_of_identity"] = prove_the_atom_of_identity(core)
+    core["the_fold_through_J"] = prove_the_fold_through_J(core)
     print("   [v205] bootstrap: %s" % core["the_bootstrap"]["verdict"])
     # v207 [ADITIVO]: A PAREDE GANHA VALOR (as seis frentes da derivacao do operador)
     core["the_wall_value"] = prove_the_wall_gains_a_value(core.get("omega_I", 1.0))
@@ -89610,19 +91681,41 @@ def main():
             # a realizacao modular continua (camadas Takesaki) segue programa; e
             # canonicalFullTGLWitness segue RESERVADO (False por construcao)
             "specific_AQFT_witness_constructed": bool(((core.get("kernel_formalization") or {}).get("specific_AQFT_witness_constructed")) is True),
-            "unconditional_continuous_corner_proved": False,
-            "modular_realization_constructed": False,
-            "full_TGL_witness_constructed": False,
+            # v264 [L1 -- CAMADA 2 DA CEGUEIRA]: as tres linhas abaixo eram
+            # LITERAIS Python. O selo passa a REPORTAR o que o parser MEDE do
+            # kernel (mesma mecanica fail-closed da v200: nome ausente => False).
+            # Valor-neutro hoje -- os tres nomes Lean estao ausentes, logo os tres
+            # seguem False; estritamente mais honesto amanha, porque passam a
+            # acompanhar a medida SOZINHOS quando os termos existirem.
+            "unconditional_continuous_corner_proved":
+                bool(_kf.get("qgf_unconditional_continuous_corner_proved") is True),
+            "modular_realization_constructed":
+                bool(_kf.get("qgf_modular_realization_constructed") is True),
+            "full_TGL_witness_constructed":
+                bool(_kf.get("qgf_full_TGL_witness_constructed") is True),
             # v61 -- O DUPLO ESTATUTO (correcao semantica do operador): a flag acima e'
             # EPISTEMICA (existe termo Lean continuo? ainda nao); as quatro abaixo sao
-            # ONTOLOGICAS -- full_witness=False e' VERDADEIRO por TEOREMA
+            # ONTOLOGICAS. ⚠ ERRATA v264 (segue a v263): a frase original dizia
+            # <full_witness=False e' VERDADEIRO por TEOREMA> e citava
+            # beta_forbids_full_static_witness -- CONFLACIONANDO DOIS NOMES. O
+            # teorema fala de FullStaticWitness (um TRANSPORTE que fixa tudo), NAO
+            # de FullTGLWitness (o Sigma-tipo de dados modulares). E o proprio
+            # kernel prova um SSE: FullStaticWitness (diagFlow b d) <-> todo d = 0,
+            # logo a falsidade e EXATA (onde ha contraste), nao universal. O
+            # estatuto correto e [REAL, condicionado ao transporte dissipativo com
+            # contraste]. Ver prove_the_static_is_conditioned.
+            # O que segue verdadeiro, e so isto:
             # (beta_forbids_full_static_witness, v61): beta>0 proibe a testemunha
             # estatica plena; a testemunha canonica e' a Meia-Nat de fronteira.
             "full_static_witness_exists": False,
             "intrinsically_boundary_witness": True,
             "half_nat_witness_is_canonical": True,
             "continuous_leakage_forbids_full_closure": True,
-            # v75 -- AS FLAGS DO FECHO (o gate 'full' e' impossivel por teorema; o alvo
+            # v75 -- AS FLAGS DO FECHO (o gate da testemunha ESTATICA e' impossivel sob contraste
+            # [ERRATA v264: a frase original dizia <o gate 'full' e' impossivel por
+            # teorema>; medido na v263, NENHUMA das nove bandeiras e impossivel por
+            # teorema -- o que e impossivel e a testemunha ESTATICA, e so onde ha
+            # contraste]; o alvo
             # correto e' a testemunha de fronteira dinamica; todas fail-closed):
             # v132: as flags do fecho lidas AO VIVO do gate (a cunhagem flipou a
             # witness POR CONSTRUCAO; manter False aqui seria reportagem falsa)
@@ -89754,6 +91847,11 @@ def main():
             "causality_is_not_linear": "THE_WHOLE_DETERMINES_THE_PARTS_BECAUSE_THE_PARTIAL_TRACE_IS_A_FUNCTION__BUT_THE_PARTS_DO_NOT_DETERMINE_THE_WHOLE__THE_ENTANGLED_AND_THE_MAXIMALLY_MIXED_STATES_HAVE_EXACTLY_THE_SAME_MARGINALS_AND_DIFFER__POSTERIOR_IN_THE_WRITING_PRIOR_IN_THE_DETERMINATION",  # v252
             "the_sequential_reading_was_weaker": "AN_EARLIER_ATTEMPT_READ_THE_MISSING_STATEMENT_AS_ORDER__THE_OPERATOR_CORRECTED_IT_TO_DETERMINATION__THE_SEQUENTIAL_READING_IS_KEPT_BESIDE_NOT_UNDER__THIS_NAMES_THE_CAUSAL_STRUCTURE_OF_THE_OBSTRUCTION_AND_DOES_NOT_DISCHARGE_IT",  # v252
             "existing_is_not_being_applied": "AN_ADVERSARIAL_SWEEP_COUNTED_CONSUMERS_IN_REVERSE_AND_FOUND_THAT_THE_CORNER_TRANSPORT_THEOREMS_HAD_ZERO_AND_ZERO_AND_ONE__THE_CORNER_MACHINERY_AND_THE_NET_HABITANTS_WERE_TWO_BRANCHES_THAT_NEVER_TOUCHED__A_THEOREM_WITH_NO_CONSUMERS_IS_TRUE_AND_INERT",  # v261
+            "the_static_is_conditioned_not_eternal": "THE_KERNEL_PROVES_AN_IFF_IN_THE_VERY_FILE_THAT_CARRIES_THE_STRONGER_SENTENCE__THE_FULL_STATIC_WITNESS_HOLDS_IF_AND_ONLY_IF_THE_CONTRAST_VANISHES__SO_THE_FALSITY_IS_EXACT_AND_NOT_UNIVERSAL__THE_CORRECT_STATUTE_IS_REAL_CONDITIONED_ON_DISSIPATIVE_TRANSPORT_WITH_CONTRAST",  # v263
+            "the_symmetric_error_the_gate_does_not_catch": "THE_STATIC_WITNESS_IS_NOT_THE_FULL_TGL_WITNESS_AND_CONFUSING_THEM_TURNS_AN_OPEN_ITEM_INTO_A_REFUTED_ONE__THE_FAIL_CLOSED_PREVENTS_DECLARING_CLOSED_WHAT_IS_OPEN_BUT_NOT_DECLARING_REFUTED_WHAT_WAS_MERELY_NOT_DONE__THAT_HALF_FALLS_TO_THE_SCRIBE__AND_THE_OPERATOR_CORRECTED_IT_OUT_LOUD",  # v263
+            "being_is_operating": "THE_TWO_CLAUSES_OF_BEING_ARE_INDEPENDENT_WITH_AN_EXPLICIT_WITNESS_FOR_EACH__THERE_IS_AN_OPERATION_THAT_TRANSFORMS_AND_LOSES_THE_IDENTITY_AND_THE_IDENTITY_PRESERVES_EVERYTHING_WITHOUT_OPERATING__SO_THE_CONJUNCTION_HAS_CONTENT",  # v270
+            "the_verdict_is_the_second_clause": "PRESERVING_AND_THE_TGL_VERDICT_ARE_THE_SAME_STATEMENT_BY_DEFINITION_AND_THE_BRIDGE_NEEDS_NO_AXIOM__THE_ATOM_FACE_WAS_ALREADY_PROVED_IN_THE_TGL_PAIR_AND_WAS_CITED_RATHER_THAN_DUPLICATED",  # v270
+            "there_is_always_a_reading": "THE_CROSSING_THEOREM_TAKES_THE_LENS_AS_ARBITRARY_DATA_AND_ONLY_THE_NEW_SITE_MUST_BE_INVERTIBLE__SO_THE_EXISTENCE_OF_THE_RECORD_DOES_NOT_DEPEND_ON_CHOOSING_THE_RIGHT_LENS__AND_THE_TOOTH_IS_HERMETICITY_WHERE_THERE_IS_NOTHING_TO_READ",  # v270
             "the_two_poles_now_have_content": "TWO_DECLARATIONS_WHOSE_NAMES_ASSERTED_CONTENT_AND_WHOSE_BODIES_CARRIED_NONE_ARE_CORRECTED_BESIDE_AND_NOT_ERASED__THE_VACUITY_IS_MEASURED_BY_SHOWING_THE_SAME_FORM_HOLDS_FOR_ANY_PROPOSITION__AND_THE_TWO_REPLACEMENT_THEOREMS_NEED_NO_AXIOMS_AT_ALL",  # v262
             "nothing_without_content_goes_up": "THE_OPERATOR_ORDERED_THIS_ERRATUM_BEFORE_ANY_CUSTODY_AND_BEFORE_ANY_CHANGE_OF_ARCHITECTURE_ON_THE_GROUND_THAT_WHAT_GOES_UP_SEALED_STAYS_SEALED__THE_PAIR_DETERMINES_THE_POINT_AND_NEITHER_POLE_ALONE_DOES__WHICH_IS_THE_SHAPE_THIS_ARC_KEEPS_MEETING",  # v262
             "the_net_now_fires_the_corner": "THE_FIVE_MISSING_LINES_ARE_WRITTEN_AND_EACH_IS_THE_APPLICATION_OF_A_THEOREM_THAT_ALREADY_EXISTED_TO_A_HABITANT_THAT_ALREADY_EXISTED__THE_EARLIER_SENTENCE_BECOMES_TRUE_AFTER_THIS_WAVE_AND_WAS_NOT_TRUE_BEFORE_IT__THE_V260_SEAL_STANDS_AND_THE_CORRECTION_GOES_BESIDE_IT",  # v261

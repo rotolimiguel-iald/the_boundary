@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-27T20:55:56Z",
+  "gerado_utc": "2026-08-28T14:44:52Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -1101,6 +1101,16 @@
       "bytes": 7840
     },
     {
+      "nome": "TheAntiunitaryInhabitant.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheAntiunitaryInhabitant.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheAntiunitaryInhabitant",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAntiunitaryInhabitant.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAntiunitaryInhabitant.lean",
+      "sha256_16": "98772d9fd38a4af6",
+      "bytes": 9377
+    },
+    {
       "nome": "TheAtlasIndex.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheAtlasIndex.lean",
       "papel": "prova formal",
@@ -1109,6 +1119,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAtlasIndex.lean",
       "sha256_16": "38b9873cebdd779a",
       "bytes": 3305
+    },
+    {
+      "nome": "TheAtomOfIdentity.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheAtomOfIdentity.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheAtomOfIdentity",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAtomOfIdentity.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAtomOfIdentity.lean",
+      "sha256_16": "916056ff895447f5",
+      "bytes": 8134
     },
     {
       "nome": "TheBandNet.lean",
@@ -1481,6 +1501,16 @@
       "bytes": 3378
     },
     {
+      "nome": "TheFoldThroughJ.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheFoldThroughJ.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheFoldThroughJ",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFoldThroughJ.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheFoldThroughJ.lean",
+      "sha256_16": "d54e7fd1c6336a76",
+      "bytes": 22152
+    },
+    {
       "nome": "TheFullBirkhoff.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheFullBirkhoff.lean",
       "papel": "prova formal",
@@ -1499,6 +1529,16 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheGeometricCostOfAbsoluteZero.lean",
       "sha256_16": "299ef10c96770aac",
       "bytes": 4439
+    },
+    {
+      "nome": "TheGravitonIsTheConjugatedPhase.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheGravitonIsTheConjugatedPhase.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheGravitonIsTheConjugatedPhase",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheGravitonIsTheConjugatedPhase.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheGravitonIsTheConjugatedPhase.lean",
+      "sha256_16": "6f5f04ab96dd16f8",
+      "bytes": 6420
     },
     {
       "nome": "TheGreatAttractor.lean",
@@ -1569,6 +1609,26 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheIdentityOfIdentity.lean",
       "sha256_16": "5353469e1c4d0bae",
       "bytes": 3678
+    },
+    {
+      "nome": "TheImageAndTheReading.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheImageAndTheReading.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheImageAndTheReading",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheImageAndTheReading.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheImageAndTheReading.lean",
+      "sha256_16": "839b4abfaab83237",
+      "bytes": 7052
+    },
+    {
+      "nome": "TheImportedCommutation.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheImportedCommutation.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheImportedCommutation",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheImportedCommutation.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheImportedCommutation.lean",
+      "sha256_16": "ea339fe189ea40bf",
+      "bytes": 8588
     },
     {
       "nome": "TheImportedEquilibrium.lean",
@@ -2301,8 +2361,8 @@
       "bytes": 10880
     }
   ],
-  "total_arquivos_nesta_pasta": 228,
-  "total_arquivos_com_subpastas": 228,
+  "total_arquivos_nesta_pasta": 234,
+  "total_arquivos_com_subpastas": 234,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt",
-  "rodape": "gerado por script de git ls-files em 2026-08-27 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-08-28 -- nao editar a mao"
 }

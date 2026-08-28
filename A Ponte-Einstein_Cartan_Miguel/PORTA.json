@@ -4,7 +4,7 @@
   "titulo": "Artigo 2 -- A Ponte Einstein-Cartan-Miguel",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-27T20:55:56Z",
+  "gerado_utc": "2026-08-28T14:44:52Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -427,5 +427,5 @@
   "total_arquivos_nesta_pasta": 40,
   "total_arquivos_com_subpastas": 40,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/A%20Ponte-Einstein_Cartan_Miguel",
-  "rodape": "gerado por script de git ls-files em 2026-08-27 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-08-28 -- nao editar a mao"
 }

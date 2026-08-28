@@ -1852,10 +1852,85 @@ namespace TGL.Audit
 #print axioms TGLExt.the_net_corner_is_internally_fixed
 #print axioms TGLExt.the_net_inclusion_is_not_surjective
 #print axioms TGLExt.the_net_group_is_nontrivial
+-- v270: a cunhagem (SER = OPERAR; a ponte com o veredito; sempre ha leitura)
+#print axioms TGLExt.operating_does_not_preserve
+#print axioms TGLExt.preserving_does_not_operate
+#print axioms TGLExt.being_needs_both
+#print axioms TGLExt.preserving_is_the_TGL_verdict
+#print axioms TGLExt.the_reading_descends_for_any_lens
+-- v270 [L6]: as SETE clausulas provadas do certificado, para a contagem
+-- deixar de ser literal Python e passar a ser LIDA do kernel
+#print axioms TGLExt.towerJ_add
+#print axioms TGLExt.towerJ_conj_smul
+#print axioms TGLExt.towerJ_norm
+#print axioms TGLExt.towerJ_involutive
+#print axioms TGLExt.towerJ_fixes_hOmega
+#print axioms TGLExt.J_M_J_in_commutant
 -- v262: a ERRATA da v248 -- os dois polos ganham conteudo
 #print axioms TGLExt.the_old_decision_statement_holds_for_any_proposition
 #print axioms TGLExt.the_two_poles_see_different_things
 #print axioms TGLExt.only_the_pair_determines_the_point
+
+-- v271: A DOBRA EM J (TheFoldThroughJ) e O HABITANTE (TheAntiunitaryInhabitant).
+-- A CONJECTURA DO PROGRAMADOR e um `def : Prop` e NAO entra aqui: um
+-- `#print axioms` num def devolveria <no axioms>, e isso SE LE como conjectura
+-- provada. A cegueira nasce assim.
+#check @TGLExt.towerJequiv
+noncomputable example (P : TGLExt.SiteProfile) :
+    TGL.ModularRealization.Antiunitary (TGLExt.TowerHilbert P) :=
+  TGLExt.towerJequiv P
+#print axioms TGLExt.an_involution_distributes_over_iInter
+#print axioms TGLExt.conjByJ_distributes_over_iInter
+#print axioms TGLExt.the_conjugated_commutant_is_the_intersection_of_the_floors
+#print axioms TGLExt.fold_through_an_involution
+#print axioms TGLExt.the_clause_is_exactly_a_commutant_inclusion
+#print axioms TGLExt.the_generator_form_is_sufficient
+#print axioms TGLExt.the_generator_form_needs_nothing_about_J
+#print axioms TGLExt.the_two_forms_agree_iff_the_tower_is_closed
+#print axioms TGLExt.one_half_is_already_paid
+#print axioms TGLExt.the_conjecture_is_the_unpaid_half
+#print axioms TGLExt.the_conjecture_discharges_the_missing_clause
+#print axioms TGLExt.the_conjecture_says_the_fractal_covers_the_commutant
+#print axioms TGLExt.every_floor_acts_on_the_right_inside_the_commutant
+#print axioms TGLExt.the_target_is_the_v254_target
+#print axioms TGLExt.the_driver_is_still_where_it_is_fixed
+#print axioms TGLExt.the_driver_witnesses_being
+#print axioms TGLExt.towerJequiv_apply
+#print axioms TGLExt.towerJequiv_symm
+#print axioms TGLExt.towerJequiv_involutive
+#print axioms TGLExt.towerJequiv_fixes_hOmega
+#print axioms TGLExt.the_sector_folds
+#print axioms TGLExt.JInvariant_iff_le
+#print axioms TGLExt.JInvariant_top
+#print axioms TGLExt.JInvariant_bot
+#print axioms TGLExt.JInvariant_span_hOmega
+#print axioms TGLExt.the_omega_sector_is_not_bot
+
+-- v272: A COMPOSICAO (pecas de 26/08, nunca compostas) e A FASE CONJUGADA
+#print axioms TGLExt.the_eighth_clause_is_an_equality_with_one_half_paid
+#print axioms TGLExt.the_paid_half_of_the_eighth_clause
+#print axioms TGLExt.conjugation_exchanges_the_light_phases
+#print axioms TGLExt.conjugation_exchanges_the_graviton_phases
+#print axioms TGLExt.the_conjugation_crosses_the_squaring
+#print axioms TGLExt.the_conjugated_light_squares_to_the_minus_graviton
+#print axioms TGLExt.the_generator_preserves_what_the_conjugation_exchanges
+
+-- v273: A IMAGEM E A LEITURA (tres casos que pareciam dois)
+#print axioms TGLExt.separates_needs_contrast
+#print axioms TGLExt.a_separating_reading_yields_form
+#print axioms TGLExt.the_unread_image_yields_no_form
+#print axioms TGLExt.without_contrast_no_reading_yields_form
+#print axioms TGLExt.the_unread_image_is_not_the_absolute_zero
+#print axioms TGLExt.the_reader_adds_condition_not_content
+#print axioms TGLExt.the_lens_is_irrelevant_exactly_where_there_is_nothing_to_read
+
+-- v274: A COMUTACAO IMPORTADA (Tomita [KNOWN], ponte medida)
+-- A structure CommutationInput NAO e auditada: e um contrato, nao um teorema.
+#print axioms TGLExt.the_hypotheses_are_discharged_in_house
+#print axioms TGLExt.the_input_is_one_field
+#print axioms TGLExt.discharge_the_clause_by_import
+#print axioms TGLExt.imported_commutation_gives_the_equality
+#print axioms TGLExt.the_hypotheses_alone_are_equivalent_to_true
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"

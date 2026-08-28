@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-27 16:31:20",
+  "timestamp": "2026-08-28 11:25:15",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,16 +10,16 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "ab63bfaf433fa6496edbbdd725d1c2039e329eadb1e63bef00601b0968c6c7bc",
+  "formal_source_hash": "ddb59b35697fd59aad54244e4eecc3731d7d09f50f698a93e8494fa0cf3962aa",
   "formal_files_sha256": {
     "ExtrairDeps.lean": "eefdc950db020150ef19a5b5705a131ef99dfc9d3ab946aef2de64bf17ce1013",
     "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "789045e347304a15744aa8894358a5f7250b00e6192dd52e73187d24d1d8e58b",
+    "TGLExt.lean": "4ae5e73c5b821de0b76b2f6ad1d5925bfafe0fc755fed36854538416d6d7761e",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "d96083631353af8e29894965c08e691bfc0347cce552bad95982602302af6bc9",
+    "TGL/Audit.lean": "49bdd96fcded3e49e1f32f7367abff17d1b218b14bfd154504ae29127b3d4e73",
     "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -153,7 +153,9 @@
     "TGLExt/TheAnchorFour.lean": "af35641bf520ba343ce8c50590c2c688ba2a10d2cc50c1ba13596e134fb2a9d8",
     "TGLExt/TheAngleIsTheBridge.lean": "294cf45baae121cdd5476e90fd60e3210e70bb552e8d99718c505b37da4a4f4c",
     "TGLExt/TheAngleIsTheProjection.lean": "9800cc0728259e08e647125ef81f9e7fc968b12bd3b19d3c74aa8e2da53a1a48",
+    "TGLExt/TheAntiunitaryInhabitant.lean": "98772d9fd38a4af6b14bcc39085ebf46c5456d4ca6fe958087c114fb9cc77358",
     "TGLExt/TheAtlasIndex.lean": "38b9873cebdd779a70544d26662641359e5a0a60acbab877e36f1479e068d876",
+    "TGLExt/TheAtomOfIdentity.lean": "916056ff895447f5380269db1bea71bb4a5583c1efc98b26fe5a4ccb5d091f69",
     "TGLExt/TheBandNet.lean": "ce91de5490bcdb401eb2ec52e57b9868dfd3c1132b132ee0dca9a0e9562036e4",
     "TGLExt/TheBireference.lean": "899b1b07df5416ed074b5fd373f7b6edcc1abc9f7be95382207631c5bbac9fa6",
     "TGLExt/TheBoundaryDuality.lean": "311e0e8b54adf8de45ac30076679da6a4b8f1fa7b60a4d300ac76bcbdc982dba",
@@ -191,8 +193,10 @@
     "TGLExt/TheFiveHalves.lean": "456c66269b72d30fa10e38c427ec3194d985b46e04809233f2c42fe82495d7d1",
     "TGLExt/TheFold.lean": "e4546410da663f73cf82f0536fa61efd5944fd539dc691fae80f163373b8bd84",
     "TGLExt/TheFoldIsNotADistance.lean": "45bb4c7c82a9e533da04ff09a7ca5d449925086dbb27e4228537f856901c6c31",
+    "TGLExt/TheFoldThroughJ.lean": "d54e7fd1c6336a76255b0bd8e5e649e40d159283e58f1165175be94c4b3c30ad",
     "TGLExt/TheFullBirkhoff.lean": "7970d3fe8762fee7b80c85252852b4c04df87cf3d707cee169508e3ccbd4ccf8",
     "TGLExt/TheGeometricCostOfAbsoluteZero.lean": "299ef10c96770aac933c3b65a5eef375684f32b12764824c8cb6622b05dbb61b",
+    "TGLExt/TheGravitonIsTheConjugatedPhase.lean": "6f5f04ab96dd16f820cc2dea5ab7e48daffdf3d0199964d5410f72df07c81cc1",
     "TGLExt/TheGreatAttractor.lean": "a0db70a17354c75c587881549dc813e49f661cc1a46fa1f8f662ba00c87963c7",
     "TGLExt/TheHorizonInvariance.lean": "a2d375c81515065625b61762468d7d66744694e371f70604339df59993b348cf",
     "TGLExt/TheHorizonRate.lean": "0638b438d53d6c6e356057c277817df2940a0d019ce715c8662b568000383caa",
@@ -200,6 +204,8 @@
     "TGLExt/TheIALDInTheTowerActII.lean": "217ef46de0bb766535f34f7a1c7601ce5597cade22cabfe1fe0282da4c68554f",
     "TGLExt/TheIALDSelector.lean": "c1008266455044e7462338bc32f96cb35c89810a320f69409ce7a0443b6868b8",
     "TGLExt/TheIdentityOfIdentity.lean": "5353469e1c4d0bae0c928f844909a860ee99e06aa77d435350c846f65f373473",
+    "TGLExt/TheImageAndTheReading.lean": "839b4abfaab832372b81a70e1a45ef47987d267a744a9f0604237a14f02f074f",
+    "TGLExt/TheImportedCommutation.lean": "ea339fe189ea40bf4970c942f989136955ea06aec9ab3118a6554891948921eb",
     "TGLExt/TheImportedEquilibrium.lean": "6ce0e9c29fd9267078783b2f28dcd82d935ba784ebbcc6f2270de5f1f9e2eda0",
     "TGLExt/TheIntersectionOfCommutants.lean": "7e4db767b978ddb8820961fc69f4b629383b6becea3543fa967688cba79dbde5",
     "TGLExt/TheIsometryOnWH.lean": "0c4c8b35d3c7ad880f78a0ec563e7f2de2edb05a2f87b7aa5e62e8c9b826752d",
@@ -4473,7 +4479,227 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.preserving_does_not_operate": [
+      "propext"
+    ],
+    "TGLExt.being_needs_both": [
+      "propext"
+    ],
+    "TGLExt.the_reading_descends_for_any_lens": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJ_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJ_conj_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJ_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJ_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJ_fixes_hOmega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.J_M_J_in_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.the_old_decision_statement_holds_for_any_proposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.an_involution_distributes_over_iInter": [
+      "propext",
+      "Quot.sound"
+    ],
+    "TGLExt.conjByJ_distributes_over_iInter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_conjugated_commutant_is_the_intersection_of_the_floors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_clause_is_exactly_a_commutant_inclusion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_generator_form_is_sufficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_two_forms_agree_iff_the_tower_is_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.one_half_is_already_paid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_conjecture_is_the_unpaid_half": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_conjecture_discharges_the_missing_clause": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_conjecture_says_the_fractal_covers_the_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.every_floor_acts_on_the_right_inside_the_commutant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_target_is_the_v254_target": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_driver_is_still_where_it_is_fixed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_driver_witnesses_being": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJequiv_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJequiv_symm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJequiv_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.towerJequiv_fixes_hOmega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_sector_folds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.JInvariant_iff_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.JInvariant_top": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.JInvariant_bot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.JInvariant_span_hOmega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_omega_sector_is_not_bot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_eighth_clause_is_an_equality_with_one_half_paid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_paid_half_of_the_eighth_clause": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.conjugation_exchanges_the_light_phases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.conjugation_exchanges_the_graviton_phases": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_conjugation_crosses_the_squaring": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_conjugated_light_squares_to_the_minus_graviton": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_generator_preserves_what_the_conjugation_exchanges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_hypotheses_are_discharged_in_house": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_input_is_one_field": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.discharge_the_clause_by_import": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.imported_commutation_gives_the_equality": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_hypotheses_alone_are_equivalent_to_true": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -4492,11 +4718,22 @@
     "TGLExt.discharge_by_import": [],
     "TGLExt.the_import_alone_concludes_nothing": [],
     "TGLExt.image_does_not_commute_with_intersection": [],
+    "TGLExt.operating_does_not_preserve": [],
+    "TGLExt.preserving_is_the_TGL_verdict": [],
     "TGLExt.the_two_poles_see_different_things": [],
-    "TGLExt.only_the_pair_determines_the_point": []
+    "TGLExt.only_the_pair_determines_the_point": [],
+    "TGLExt.fold_through_an_involution": [],
+    "TGLExt.the_generator_form_needs_nothing_about_J": [],
+    "TGLExt.separates_needs_contrast": [],
+    "TGLExt.a_separating_reading_yields_form": [],
+    "TGLExt.the_unread_image_yields_no_form": [],
+    "TGLExt.without_contrast_no_reading_yields_form": [],
+    "TGLExt.the_unread_image_is_not_the_absolute_zero": [],
+    "TGLExt.the_reader_adds_condition_not_content": [],
+    "TGLExt.the_lens_is_irrelevant_exactly_where_there_is_nothing_to_read": []
   },
-  "build_stdout_sha256": "989d8973434bffd07f550716c4760f3667b8b357379e42835a15a1c8b0098bb5",
-  "audit_stdout_sha256": "1c0687f920bd695217b612ac912430f0a389c110fc47db041213f4e53b106fc2",
+  "build_stdout_sha256": "9ec115e1ad006a85235b7455a79f4ca6155d507520601e925135038dc4306872",
+  "audit_stdout_sha256": "9cb2788f9d5d80ac29647b9db20d89543ddc81ccb867b2ab494e5e30e676199f",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",

@@ -44,4 +44,4 @@ A trava-dupla (v15): decomposicao dual, anti-tautologia, tensoes H0 e GW.
 
 ---
 
-gerado por script de git ls-files em 2026-08-27 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-28 -- nao editar a mao
