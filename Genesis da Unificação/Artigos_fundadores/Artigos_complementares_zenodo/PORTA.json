@@ -4,7 +4,7 @@
   "titulo": "Genesis da Unificação/Artigos_fundadores/Artigos_complementares_zenodo",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-28T14:44:52Z",
+  "gerado_utc": "2026-08-28T17:50:47Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Genesis da Unificação/Artigos_fundadores",
