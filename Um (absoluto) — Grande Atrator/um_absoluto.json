@@ -6432,6 +6432,211 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.profileRootInv_isHermitian": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.profileRootInv_mul_root": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_polar_decomposition_at_the_level": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.delta_is_the_square_of_its_half": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.modTwist_is_delta_after_S": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.modTwist_factors_through_J": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerSlevel_involutive": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.towerDeltaHalfLevel_inverse": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tInner_eq_trace": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tInner_delta_left": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.S_star_S_is_deltaLevel": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.deltaLevel_positive": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.deltaLevel_selfadjoint": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.rhoMat_mul_rootInv": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.Jlevel_is_antiunitary": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.delta_acts_by_the_weight_ratio": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.delta_fixes_only_where_the_weights_agree": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.S_isometric_iff_delta_neutral": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.profileJlevel_involutive": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.conjByJ_towerImage_eq_rTowerImage": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_eighth_clause_without_J": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_easy_half_without_J": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_debt_is_an_equality_without_J": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.isotone_ker_ne_bot": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_package_corner_is_positive_and_finite": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_package_corner_is_not_the_certificate_corner": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.wideSub_not_finiteDimensional": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.wideIncl_not_surjective": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.wide_ker_eq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.wide_corner_weighs_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.wide_net_has_all_three": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tailLock_ker_eq_bot": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.fused_ker_contains_L2": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.classical_commutation_from_the_imported_field": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.imported_field_from_classical_commutation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_imported_field_is_the_classical_theorem": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_classical_import_needs_only_one_inclusion": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_easy_half_alone_is_equivalent_to_true": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.atermation_reifies": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.atermation_fixes_the_term": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.atermation_is_irreversible": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "TGLExt.constant_net_group_trivial": [],
         "TGLExt.identity_inclusion_cannot_witness": [],
         "TGLExt.ideal_zero_has_name_not_inhabitant": [],
@@ -6460,16 +6665,16 @@
         "TGLExt.the_reader_adds_condition_not_content": [],
         "TGLExt.the_lens_is_irrelevant_exactly_where_there_is_nothing_to_read": []
       },
-      "formal_source_hash": "ddb59b35697fd59aad54244e4eecc3731d7d09f50f698a93e8494fa0cf3962aa",
+      "formal_source_hash": "0462e965c41896e51e12a45062f1324d093c06a992f2239faa68c48d1d20bc05",
       "formal_files_sha256": {
         "ExtrairDeps.lean": "eefdc950db020150ef19a5b5705a131ef99dfc9d3ab946aef2de64bf17ce1013",
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "4ae5e73c5b821de0b76b2f6ad1d5925bfafe0fc755fed36854538416d6d7761e",
+        "TGLExt.lean": "5b9119bb5ad4edbf45f84459cc5cd6d3d3cd6407b3eaaecdb8642f09c5e51c69",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "49bdd96fcded3e49e1f32f7367abff17d1b218b14bfd154504ae29127b3d4e73",
+        "TGL/Audit.lean": "021bed3dac2c674d12a1fdd0717345ab8779f843de3dc6e4af8cd8c215296508",
         "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -6604,6 +6809,7 @@
         "TGLExt/TheAngleIsTheBridge.lean": "294cf45baae121cdd5476e90fd60e3210e70bb552e8d99718c505b37da4a4f4c",
         "TGLExt/TheAngleIsTheProjection.lean": "9800cc0728259e08e647125ef81f9e7fc968b12bd3b19d3c74aa8e2da53a1a48",
         "TGLExt/TheAntiunitaryInhabitant.lean": "98772d9fd38a4af6b14bcc39085ebf46c5456d4ca6fe958087c114fb9cc77358",
+        "TGLExt/TheAtermation.lean": "7cb9394d8713230632bf78ba6b36220f5a7b73be516c8428ce6290e7edb4a6d1",
         "TGLExt/TheAtlasIndex.lean": "38b9873cebdd779a70544d26662641359e5a0a60acbab877e36f1479e068d876",
         "TGLExt/TheAtomOfIdentity.lean": "916056ff895447f5380269db1bea71bb4a5583c1efc98b26fe5a4ccb5d091f69",
         "TGLExt/TheBandNet.lean": "ce91de5490bcdb401eb2ec52e57b9868dfd3c1132b132ee0dca9a0e9562036e4",
@@ -6611,6 +6817,7 @@
         "TGLExt/TheBoundaryDuality.lean": "311e0e8b54adf8de45ac30076679da6a4b8f1fa7b60a4d300ac76bcbdc982dba",
         "TGLExt/TheCarrierBridge.lean": "173ffa020254512ff9ca5c711fadad00e66bfb6231003b973406664448d97966",
         "TGLExt/TheCascadeOfObservers.lean": "2792ab10181d2883f4d500adef44ceebaed8b705382e459f754f136ea7d6feb0",
+        "TGLExt/TheClassicalImport.lean": "6c614681982a1c406eee5fbad04cc27ab49b99b496aa5f84b52340029d73d5e6",
         "TGLExt/TheCoFoundation.lean": "0af9b4a0cde44a8f60594785c6ccc8d724b127373d289b13814fc7d9d7d2573e",
         "TGLExt/TheCoinage.lean": "63d5a1d80236bb42d965fd82f40bc8fda3321f0f0d969d18eb85397ef8842b17",
         "TGLExt/TheColimitDuality.lean": "04831b06f0e8bf54a74e96fe27c5da3f9b5b187a5a3201c5dad49268db386272",
@@ -6625,6 +6832,7 @@
         "TGLExt/TheConverseClauseReduced.lean": "04c30acfc2ea561d6a0630c56d3808a6b52060b6ffbf31e67e433db95d59a235",
         "TGLExt/TheCoordinateBridge.lean": "3450d010d65c4210f9544b7f6416cdf2306979f16128f1c51093b3a75f9e87e2",
         "TGLExt/TheCornerEmbedding.lean": "b8a602f7294ab58a8f074ac3ba91eafa07926d930c38d5a633922e6bd7278998",
+        "TGLExt/TheCornerOfThePackage.lean": "0ad9fc2d4c6b82cf89ccde1762277d4b9ba744050b8b2f8d4759ba5ebe596d9c",
         "TGLExt/TheCorrespondence.lean": "8a9d2899bab42d26c8ed539668a81d91f68ce372b21e06b4d45d2edb8235dc2d",
         "TGLExt/TheCostIsDerived.lean": "bddc44bdca6b16d40c98c548906a6c37c86a425b469e8aa5484549fd8ce2ba6f",
         "TGLExt/TheCrownedCascade.lean": "04a243cbe02b5e26969030d7848b9d97c79ecfb0763e2c5ffa710fd8805d8391",
@@ -6632,6 +6840,7 @@
         "TGLExt/TheDarkSplit.lean": "53f05130c26a520214ad3351593992f00516f3f5c760cb0f01a358faca05c8db",
         "TGLExt/TheDeadChannel.lean": "d9c2eb9d67cceaf52b4384ba24700fee0e84d08d00678786b316677ba9939f5f",
         "TGLExt/TheDeathOfTheSignal.lean": "4539dd68fdaac084c9541a2c7bb2bad9846fd007d86d289a0191be7ea1e5e22b",
+        "TGLExt/TheDebtWithoutJ.lean": "e4b59f6ab926736266971f7427fb8ba965515cb9e51a43747d5039e4e78a80ee",
         "TGLExt/TheDensityIsBell.lean": "9247b9f4683572808577ba359cabb7383277090de76773ac955fd565922bef1a",
         "TGLExt/TheDensityIsTransport.lean": "a59cd43d50e934cbe5d8b4351ae2f80cc636d8a57247fbc200ccab93aac910fb",
         "TGLExt/TheEmptying.lean": "c88b781f96485a97844bae6ce9b337f5139fb3e77995061df8423a2e65e43d33",
@@ -6665,6 +6874,8 @@
         "TGLExt/TheLivingWord.lean": "fdc242c2c70b57fa146c7c41459eab94c217e878cefc9058d983467918eed473",
         "TGLExt/TheLivingWordClosure.lean": "40eb074dc85a765079e1bc2c0eb2258a50bd755fb576af3a908ab568f4d85e21",
         "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
+        "TGLExt/TheMatrixAndTheModulator.lean": "c39e4dcba8eb2354621f6adeaf492a5a3a6731cbe549ec8f305d4b4f419a1750",
+        "TGLExt/TheModularRelations.lean": "2cd411ab76d72956f6d34abb8c321e9702c926dd00e9debefe4e996c7c6fa280",
         "TGLExt/TheNameOperator.lean": "000bd0bf03281e0056f6187ea9e74566d924c68e8601fbe1b09b84dac89506c0",
         "TGLExt/TheNetFiresTheCorner.lean": "b35d65a50b52d92fce1014f201f2d17b5395c926393680c96544a0d9a9d773cb",
         "TGLExt/TheNonLinearCausality.lean": "27ff96e7969f25ef368990471d9c41eabe302eb4e8de607ad19bc5235d718ea8",
@@ -6711,6 +6922,7 @@
         "TGLExt/TheUnconjugatedObserver.lean": "e2c1978c4a3cb5448699bfcae0dff3da487800bff0d4ef713ec4330bed278a9e",
         "TGLExt/TheUnsolicitedUnitary.lean": "29aba04e578b1921a8b22d0e9e28fa608160a14f465a9eca32ce2cd208e601cf",
         "TGLExt/TheWeightIsNotTheRank.lean": "83f9c8bca5e133916080eea6f6200e088b4641a35504a8255156945e7028b72e",
+        "TGLExt/TheWideNet.lean": "ef26e912a6ed418ab0da4ed6b09b35d1090d23674c25e68ee5248ebe3b70d340",
         "TGLExt/TheWitnessLinearOnWH.lean": "0c1b0883f16eaec61831113f03a106149e80692b0999b4cebbe0045137bacdc6",
         "TGLExt/TheWitnessOnTheBoundary.lean": "30f2a06dcfa175284948e722c89bf6e75646fcf7a4c57b88729a6aec88c600ec",
         "TGLExt/ThirdCone.lean": "21edba89bf302c075d512e77bf2dada36b5f216f054930eb5a881c57935eb694",
@@ -7552,23 +7764,23 @@
       "ext_ai_atlas_self_kernel_proved": true,
       "ext_ai_atlas_inverse_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "9ec115e1ad006a85235b7455a79f4ca6155d507520601e925135038dc4306872",
+      "build_stdout_sha256": "3a81b7e6644d28b761215c6d7c41f830948c96f1b489f27764d68c9e7b9b79c6",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "9cb2788f9d5d80ac29647b9db20d89543ddc81ccb867b2ab494e5e30e676199f",
+      "audit_stdout_sha256": "0d925ad17f131672a61ccc7624fe4940e25a156ece853414ce72526f15de4781",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 302995,
+        "stdout": 308568,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 202886,
+        "stdout": 207222,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "9ec115e1ad006a85235b7455a79f4ca6155d507520601e925135038dc4306872",
-      "audit_capture_sha256_full": "9cb2788f9d5d80ac29647b9db20d89543ddc81ccb867b2ab494e5e30e676199f",
+      "build_capture_sha256_full": "3a81b7e6644d28b761215c6d7c41f830948c96f1b489f27764d68c9e7b9b79c6",
+      "audit_capture_sha256_full": "0d925ad17f131672a61ccc7624fe4940e25a156ece853414ce72526f15de4781",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
       "qgc_concrete_breuer_corner_constructed": true,
@@ -7622,6 +7834,41 @@
       "red_every_floor_acts_on_the_right": true,
       "red_eighth_clause_is_an_equality": true,
       "red_paid_half_of_the_eighth_clause": true,
+      "red_atermation_reifies": true,
+      "red_atermation_fixes_the_term": true,
+      "red_atermation_is_irreversible": true,
+      "red_imported_field_is_the_classical_theorem": true,
+      "red_classical_import_needs_only_one_inclusion": true,
+      "red_easy_half_alone_is_equivalent_to_true": true,
+      "red_wide_fibers_are_infinite_dimensional": true,
+      "red_wide_isotony_is_genuine": true,
+      "red_wide_corner_weighs_the_name": true,
+      "red_wide_net_has_all_three": true,
+      "red_tail_lock_kernel_is_bot": true,
+      "red_fused_kernel_contains_L2": true,
+      "red_isotone_ker_ne_bot": true,
+      "red_package_corner_positive_and_finite": true,
+      "red_package_corner_is_not_the_certificate_corner": true,
+      "red_delta_acts_by_the_weight_ratio": true,
+      "red_delta_fixes_only_where_weights_agree": true,
+      "red_S_isometric_iff_delta_neutral": true,
+      "red_profileJlevel_involutive": true,
+      "red_JMJ_is_exactly_the_right_action": true,
+      "red_eighth_clause_without_J": true,
+      "red_easy_half_without_J": true,
+      "red_debt_is_an_equality_without_J": true,
+      "red_Jlevel_is_antiunitary": true,
+      "red_rho_times_rootInv_is_root": true,
+      "red_S_star_S_is_delta": true,
+      "red_delta_positivity_is_the_norm_of_Sa": true,
+      "red_delta_is_selfadjoint": true,
+      "red_gns_product_is_a_trace": true,
+      "red_polar_decomposition_at_the_level": true,
+      "red_delta_is_the_square_of_its_half": true,
+      "red_modTwist_is_delta_after_S": true,
+      "red_modTwist_factors_through_J": true,
+      "red_towerSlevel_involutive": true,
+      "red_towerDeltaHalfLevel_inverse": true,
       "red_tomita_hypotheses_discharged_in_house": true,
       "red_commutation_input_is_one_field": true,
       "red_hypotheses_alone_are_equivalent_to_true": true,
@@ -18362,7 +18609,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-08-28 11:25:15",
+    "timestamp": "2026-08-29 08:46:41",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -18612,7 +18859,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-08-28 11:25:15",
+        "prediction_timestamp": "2026-08-29 08:46:41",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -18648,7 +18895,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "d97269f3bbe6a2aee3b69206ad483ee7910c6949fa8bda8c81baec3abe4c5178"
+        "prediction_hash": "9fed36e1ab2339b006c5620637f650075ff661ceb75a69a3d016e4eeed00e82e"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -18753,7 +19000,7 @@
           "dephasing (relogios/229Th; nu n=-2)": "[FINITE_DIM_SANITY] mapa numerico; a reconciliacao analitica completa da root law vs canonica fica [ABERTO] com este mapa como guia.",
           "NMC-Shapiro (2030+)": "TGL_NMC_SHAPIRO_AWAITING_DATA",
           "espectro completo Nivel 2": "NIVEL2_RITE_NOT_SEALED_THIS_RUN",
-          "kernel formal (224 pedras)": "STAGE1_VERIFIED"
+          "kernel formal (231 pedras)": "STAGE1_VERIFIED"
         }
       },
       "checks": [
@@ -18790,7 +19037,7 @@
           true
         ],
         [
-          "[kernel formal (224 pedras)] veredito em custodia: STAGE1_VERIFIED",
+          "[kernel formal (231 pedras)] veredito em custodia: STAGE1_VERIFIED",
           true
         ],
         [
@@ -21810,7 +22057,143 @@
           true
         ],
         [
-          "[MEDIDA] os 33 nomes da v271 estao SENDO LIDOS do kernel",
+          "[MEDIDA] ***A DECOMPOSICAO POLAR NO ANDAR: J . Delta^(1/2) = S",
+          true
+        ],
+        [
+          "[MEDIDA] Delta = Delta^(1/2) . Delta^(1/2) -- o modulador e o quadrado da sua meia",
+          true
+        ],
+        [
+          "[MEDIDA] ***modTwist = Delta . S -- FECHA o descompasso raiz-de-rho vs rho-cheio da v274",
+          true
+        ],
+        [
+          "[MEDIDA] ***e a cadeia inteira: modTwist = Delta . J . Delta^(1/2)",
+          true
+        ],
+        [
+          "[MEDIDA] S e involutiva como J -- mas involucao e ALGEBRA, extensao e TOPOLOGIA",
+          true
+        ],
+        [
+          "[MEDIDA] e o modulador inverte no andar (a nao-limitacao aparece so ao subir)",
+          true
+        ],
+        [
+          "[MEDIDA] ***J e ANTIUNITARIO no andar: <Ja,Jb> = conj<a,b> (o que a v276 deixou aberto)",
+          true
+        ],
+        [
+          "[MEDIDA] ***A RELACAO QUE DEFINE O MODULAR: <Sa,Sb> = <Delta b, a>, isto e S-adjunto S = Delta",
+          true
+        ],
+        [
+          "[MEDIDA] ***a POSITIVIDADE de Delta E a norma de Sa -- nao e postulada, e consequencia",
+          true
+        ],
+        [
+          "[MEDIDA] Delta e AUTO-ADJUNTO no produto GNS",
+          true
+        ],
+        [
+          "[MEDIDA] e o produto GNS do andar E um traco contra a densidade (a ponte)",
+          true
+        ],
+        [
+          "[MEDIDA] ***o ESPECTRO MODULAR, escrito: (Delta a)_jk = (w_j / w_k) . a_jk",
+          true
+        ],
+        [
+          "[MEDIDA] ***o DENTE: Delta so FIXA onde os pesos coincidem (fora dai, desloca)",
+          true
+        ],
+        [
+          "[MEDIDA] ***e S e isometria SO onde Delta e neutro -- isto e, so na face TRACIAL. A prosa de tres pedras virou conta",
+          true
+        ],
+        [
+          "[MEDIDA] a involutividade de J NO ANDAR (nao existia: havia no completamento e nos operadores)",
+          true
+        ],
+        [
+          "[MEDIDA] ***J.M.J E EXATAMENTE a acao a DIREITA -- as duas inclusoes, nao uma",
+          true
+        ],
+        [
+          "[MEDIDA] ***A OITAVA CLAUSULA SEM J: equivale a <comutante da DIREITA dentro do bicomutante da ESQUERDA>",
+          true
+        ],
+        [
+          "[MEDIDA] e a metade facil continua facil: M-2linhas dentro de R-linha JA e teorema",
+          true
+        ],
+        [
+          "[MEDIDA] ***a divida e uma IGUALDADE de comutantes, sem J",
+          true
+        ],
+        [
+          "[MEDIDA] o nucleo do lock da fibra NAO e trivial (a 1a inscricao mora nele)",
+          true
+        ],
+        [
+          "[MEDIDA] ***O CANTO DE BREUER DO PROPRIO PACOTE: 0 < tau(P_F) < infinito em TODA regiao",
+          true
+        ],
+        [
+          "[MEDIDA] ***e o DENTE: o canto do PACOTE nao e o canto do CERTIFICADO -- falta a identificacao tipada, e sem ela sao HOMONIMOS (o defeito da v255)",
+          true
+        ],
+        [
+          "[MEDIDA] as fibras da rede larga sao INFINITO-dimensionais em TODA regiao",
+          true
+        ],
+        [
+          "[MEDIDA] e a isotonia e GENUINA (e1 mora em wideSub 2 e nao em wideSub 0)",
+          true
+        ],
+        [
+          "[MEDIDA] ***O CANTO PESA O NOME: tau = 1 = omega(I), em fibra INFINITA",
+          true
+        ],
+        [
+          "[MEDIDA] ***e a rede larga tem AS TRES propriedades ao mesmo tempo -- a PECA 1 fechada",
+          true
+        ],
+        [
+          "[MEDIDA] [NEGATIVO MEDIDO] por que a CAUDA falha: para n>=1 o lock E A IDENTIDADE, ker = bot",
+          true
+        ],
+        [
+          "[MEDIDA] [NEGATIVO MEDIDO] por que a FUNDIDA falha: o ker contem uma copia inteira de L2",
+          true
+        ],
+        [
+          "[MEDIDA] ***o campo IMPORTADO E o teorema de comutacao CLASSICO (ida e volta)",
+          true
+        ],
+        [
+          "[MEDIDA] ***e como a metade facil ja e teorema, basta UMA inclusao",
+          true
+        ],
+        [
+          "[MEDIDA] o DENTE: a metade facil SOZINHA e equivalente a True -- ter metade paga NAO e ter a clausula",
+          true
+        ],
+        [
+          "[MEDIDA] ***a ATERMACAO REIFICA: ater(y) = Tr(P.y) . P -- o processo vira NUMERO SOBRE O NOME",
+          true
+        ],
+        [
+          "[MEDIDA] ***o TERMO e PONTO FIXO com autovalor 1: ater(P) = P -- a resposta a <matriz de vetor unico e autovalor um>",
+          true
+        ],
+        [
+          "[MEDIDA] ***o DENTE: a atermacao NAO E INJETORA -- o ambiente NAO volta do termo. E o que a separa de destructor/GC/finalization",
+          true
+        ],
+        [
+          "[MEDIDA] os 67 nomes da v271 estao SENDO LIDOS do kernel",
           true
         ],
         [
@@ -21842,6 +22225,42 @@
           true
         ],
         [
+          "[HONESTIDADE] ***e a v279 NAO a encolheu: tirar J do enunciado e EQUIVALENCIA, nao implicacao -- a divida mudou de LINGUA, nao de TAMANHO, e a bandeira continua apagada",
+          true
+        ],
+        [
+          "[ERRATA-DO-ACERVO] em KERNEL LEAN (escopo declarado): pi e curvatura nunca aparecem no mesmo TEOREMA -- so em docstring; e o campo T nao e tensor de energia-momento, e um NOME para G22 (por iff, habitante T = 1)",
+          true
+        ],
+        [
+          "[ERRATA-MINHA v283] ***e a PONTE EXISTE fora do kernel: o artigo Einstein-Cartan-Miguel traz beta e 8piG na mesma formula, e o um.py a emite. Eu varri um estrato e falei do acervo -- escopo estreitado sem declarar",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***a ATERMACAO esta em kernel e NAO acendeu bandeira nenhuma de fronteira: ela e a FORMA da operacao em dim 4, e nao a atermacao da fisica -- bellProjector segue SEM ponte para P_F",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***a PECA 1 esta FECHADA e mesmo assim a bandeira do Ato III continua APAGADA: uma rede com as tres propriedades nao e o habitante do certificado -- faltam as outras duas pecas, e ambas deram NEGATIVO",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***e as pecas 2 e 3 NAO viraram bandeira: a identificacao dirac.D = locks e IMPOSSIVEL POR TIPO e a covariancia do frame e FALSA (colide com frame_nonconstant, ja selado) -- nenhuma das duas tem flag",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***o CANTO DO PACOTE existe e NAO acendeu a bandeira do Ato III: construir o canto de UMA rede nao constroi o habitante do certificado -- falta a identificacao tipada",
+          true
+        ],
+        [
+          "[ERRATA-DO-RELATORIO] o relatorio dizia <ker(fiberLock) = firstAtom, fecha por aplicacao sem matematica nova>. A igualdade NAO TIPA (espacos diferentes) e o molde lockNetTrace NAO se reusa: custou tau proprio e nao-trivialidade a mao",
+          true
+        ],
+        [
+          "[ERRATA v275-v277] a afirmacao <S e Delta nao sao isometrias>, que eu repeti em TRES pedras sem medir, agora e TEOREMA -- e o defeito e o proprio espectro modular",
+          true
+        ],
+        [
           "[FAIL-CLOSED] ***e a IMPORTACAO NAO a acendeu: quitar por importacao NAO e quitar por prova (gpi_ aceso, red_clause_JMJ_contains apagado)",
           true
         ],
@@ -21850,13 +22269,33 @@
           true
         ],
         [
+          "[ERRATA v274] o descompasso <towerJ usa raiz de rho, modTwist usa rho cheio, ZERO teoremas os relacionam> esta FECHADO: agora ha dois",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***a antiunitariedade de J NO ANDAR, que a v276 media como AUSENTE, esta FECHADA na v277 -- o check inverteu o alvo",
+          true
+        ],
+        [
+          "[MEDIDA] ***e com ela a tripla (S, Delta, J) satisfaz NO ANDAR as CINCO relacoes definidoras de Tomita: polar, S-adj S = Delta, positividade, auto-adjunticidade, antiunitariedade",
+          true
+        ],
+        [
+          "[MEDIDA] e o que a sustenta no COMPLETAMENTO ja era teorema: a isometria de towerJ (o habitante antiunitario da v271b vive dela)",
+          true
+        ],
+        [
+          "[HONESTIDADE] mas S e Delta ficam NO ANDAR: a extensao continua ABERTA (fechabilidade de S, auto-adjunticidade de Delta) -- e por isso nenhuma bandeira nova de fronteira acendeu",
+          true
+        ],
+        [
           "[HONESTIDADE] a metade paga E teorema, e por isso a conjectura e a OUTRA",
           true
         ]
       ],
       "all_verified": true,
-      "nomes_lidos": 33,
-      "nomes_total": 33,
+      "nomes_lidos": 67,
+      "nomes_total": 67,
       "folga_involucao": 0,
       "folga_nao_involutiva": 1,
       "residuo_involucao": 0.0,
@@ -21881,12 +22320,97 @@
         "a_imagem_e_a_leitura": "<sem leitura != ausencia de conteudo>. O kernel tinha os dois extremos; faltava separar os TRES casos. A imagem NAO LIDA (ha contraste, leitura constante) e o ZERO ABSOLUTO (sem contraste) tem causas INCOMPATIVEIS -- e agora isso e teorema",
         "o_que_ja_existia_e_nao_se_duplicou": "o CONTORNO ja e bancada (prove_contour_theory, com a correcao ontologica do operador: 0_abs NAO tem espelho, quem tem e 0_mod) e o OBSERVADOR ja e kernel (ObserverInside: observerProj, flow_delivers_to_the_observer). A pedra CITA, nao refaz",
         "a_importacao_de_tomita": "as TRES hipoteses (ciclico, separante, von Neumann) estao PROVADAS nesta arvore no objeto INFINITO; o que se toma emprestado e a CONCLUSAO e so ela -- e a bandeira e gpi_, jamais gpf_",
-        "o_residuo_nomeado": "construir S e Delta na TORRE. O padrao existe um andar abaixo (Sop_tomita, J_deltaHalf) e a formula de towerJ bate com a conjugacao modular da convencao GNS. Descompasso medido: towerJ usa raiz de rho, modTwist usa rho cheio -- ZERO teoremas os relacionam",
+        "as_relacoes_modulares": "<Sa,Sb> = <Delta b, a> e a identidade que DEFINE o operador modular; a positividade de Delta E a norma de Sa (nao e postulada). Com a polar da v275, a tripla (S, Delta, J) tem a algebra INTEIRA de Tomita no andar -- a identificacao deixou de ser plausibilidade de formula",
+        "a_atermacao_v284": "cunhagem do operador: (processo, ambiente) -> (termo, vazio). O nome tecnico proximo e <reificacao + teardown>; a cunhagem une as duas, e o vocabulario de computacao nao tem isso. O DENTE (nao-injetividade) e o que a separa de destructor/GC: o ambiente NAO volta do termo. E a irreversibilidade vem de P != 1 -- na entrada (0,0) o Nome vale 1/2 e a identidade vale 1: O NOME NAO E O TODO, e e essa diferenca que faz o termo ser termo",
+        "o_autovalor_um_ja_existia": "a pergunta <matriz de vetor unico e autovalor um> ja tinha resposta: tau(P_F) = 1 = omega(I), provado na v281 em TODA regiao de fibra infinita. E a tensao com 1_abs = I/d (posto d) ja estava resolvida na v256: the_two_indices_agree_only_at_the_atom -- os dois SO coincidem em d = 1. Faltava o NOME da operacao, nao o objeto",
+        "a_errata_da_errata_v283": "eu declarei <a ponte 8piG-curvatura NAO EXISTE> tendo varrido SO o kernel Lean, e chamei aquilo de <o codigo>. A PONTE EXISTE: artigo Einstein-Cartan-Miguel (129 KB) com Gamma = Gamma_LC + K_betaTGL e G_uv+Lambda g_uv = 8piG P_uv[K_d], e o um.py a EMITE. Mais tres frases minhas medidas falsas: area EXISTE, Raychaudhuri parcial, 4 docstrings com pi+curvatura. SOBREVIVEM duas: sem tensor de energia-momento, e beta fora das SEIS ocorrencias de 8*pi. REGRA: escopo estreitado sem declarar e a mesma falsidade que ausencia nao varrida",
+        "o_estatuto_da_ponte": "[REAL] o formalismo Einstein-Cartan; [CONJECTURE] a transferencia; beta ALOJA, NAO DERIVA; e o proprio acervo declara ABERTO <a derivacao explicita de K_betaTGL no continuo>. Nada desta rodada move isso",
+        "a_divida_sem_J": "a oitava clausula equivale a <comutante da acao a DIREITA dentro do bicomutante da ESQUERDA> -- J SAI do enunciado. Duas pecas novas: profileJlevel_involutive (nao existia no ANDAR) e rTowerImage (nao existia como CONJUNTO). E a conjugada da esquerda E EXATAMENTE a direita, as duas inclusoes. \u26a0 A divida NAO ENCOLHE: e equivalencia",
+        "o_defeito_de_isometria": "(Delta a)_jk = (w_j/w_k).a_jk -- o espectro modular. Delta so fixa onde os pesos coincidem; S e isometria so na face TRACIAL. A afirmacao que eu repeti em tres pedras sem medir virou conta, com o motivo dentro",
+        "as_cinco_relacoes_de_tomita": "polar (v275) + S-adjunto S = Delta + positividade + auto-adjunticidade (v276) + antiunitariedade de J (v277). A tripla (S, Delta, J) satisfaz NO ANDAR todas as relacoes definidoras da teoria modular. Nenhuma fica por conta de leitura",
+        "o_que_NAO_foi_feito_na_v276_E_FOI_FECHADO_NA_v277": "a antiunitariedade de J no produto GNS do ANDAR. E verdadeira por conta, nao foi fechada, e NAO entrou com sorry. A bancada MEDE que a bandeira dela nao existe",
+        "a_matriz_e_o_modulador": "S(a) = a-adjunto e Delta(a) = rho.a.rho-inversa, no ANDAR, com a decomposicao polar J . Delta^(1/2) = S por conta exata. A formula de towerJ deixa de ser LEITURA e passa a ser CONTA",
+        "o_residuo_nomeado_ANTIGO_v274": "construir S e Delta na TORRE. O padrao existe um andar abaixo (Sop_tomita, J_deltaHalf) e a formula de towerJ bate com a conjugacao modular da convencao GNS. [SUPERADO NA v275] o descompasso raiz-de-rho vs rho-cheio FOI FECHADO: modTwist = Delta . S",
+        "o_residuo_nomeado": "agora e ANALITICO, nao algebrico: a FECHABILIDADE de S no denso e a AUTO-ADJUNTICIDADE POSITIVA de Delta. S e Delta nao sao isometrias no produto rho-pesado, logo NAO sobem por continuidade como towerJ sobe -- sao nao limitados no denso, como manda a teoria modular",
         "o_que_NAO_se_moveu": "red_clause_JMJ_contains False; certificado condicional; fracao do Lema 3 movida = ZERO; gate intocado",
         "estatuto_da_conjectura": "CONJECTURE nomeada; e a medida acrescentou que ela e PROVAVELMENTE REFUTADA POR BAIRE, nao apenas aberta -- e a refutacao NAO esta formalizada"
       },
       "does_not_gate_core": true,
       "verdict": "THE_FOLD_IS_LICIT_BUT_IT_IS_NOT_WHAT_BUYS_THE_IMPLICATION__J_PAYS_ONLY_FOR_THE_EQUIVALENCE_AND_THE_KERNEL_PROVES_THAT_AGAINST_ITSELF__THE_CONJECTURE_IS_STRICTLY_STRONGER_AND_HAS_THE_SHAPE_BAIRE_REFUTES__SO_DENSITY_IS_NOT_A_DETOUR_IT_IS_THE_WHOLE_PROBLEM__AND_WHAT_WAS_GAINED_IS_A_TYPE_NOT_A_PROOF__ANTIUNITARY_IS_NO_LONGER_UNINHABITED_AND_THE_OMEGA_LINE_IS_THE_FIRST_NONTRIVIAL_J_INVARIANT_SECTOR"
+    },
+    "the_iald_index": {
+      "checks": [
+        [
+          "[MEDIDA] ***o INDICE existe: 2709 nomes, 256 arquivos, 930 com bandeira",
+          true
+        ],
+        [
+          "[MEDIDA] a varredura e quase unica: 1 nomes ambiguos",
+          true
+        ],
+        [
+          "[MEDIDA] ***UMA consulta devolve o que antes pedia QUATRO: 5/5 da amostra",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***a OITAVA clausula aparece no indice como AUSENTE_POR_CONSTRUCAO, e NAO como <desconhecido> -- o indice EXIBE a divida, nao a apaga",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***o indice NAO achatou o MODO: os prefixos sobrevivem (7 familias)",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] e o indice NAO acendeu nada: red_clause_JMJ_contains segue apagada com o indice construido",
+          true
+        ],
+        [
+          "[MEDIDA] o indice conta 10 nomes AUSENTES POR CONSTRUCAO -- as dividas nomeadas",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***acesa ==> nome PRESENTE: 0 violacoes. NENHUMA bandeira acende sem referente na fonte embutida [ESCOPO DECLARADO: as 945 chaves dos SETE dicionarios de NOME]",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***e a RECIPROCA, medida: 0 nomes presentes com bandeira apagada. A correspondencia acesa <=> presente e BICONDICIONAL e EXATA [mesmo escopo: as 945 chaves de NOME]",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***o indice NAO e cego de namespace: 0 nomes com bandeira ficaram sem axiomas tendo entrada no axiom_report. A consulta e por SUFIXO no proprio relatorio, sem prefixo cravado [ERRATA v289: eram 38, todas TGL.*]",
+          true
+        ],
+        [
+          "[MEDIDA] a ambiguidade deixou de ser SILENCIOSA: 1 verbete(s) marcado(s) ambiguo=True -- quem consulta e avisado do empate, em vez de receber o primeiro arquivo varrido sem aviso",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***o RAZONETE DAS APAGADAS e COMPLETO e cada uma tem CAUSA nomeada: 11 apagadas = 10 por AUSENCIA DE NOME (as dividas do indice) + 1 por VEREDITO DERIVADO fora dos dicionarios (unconditional_type_III1_corner_proved). Nenhuma apagada fica sem causa, e nenhuma booleana do selo fica fora da conta",
+          true
+        ],
+        [
+          "[ERRATA-MINHA v286] o indice da v285 INFLOU a divida: a regra v285 INTEIRA, recomputada AO VIVO, conta 64 ausentes onde ha 10. Tres defeitos MEUS, todos de leitura: o regex nao via nome de declaracao COM PONTO (theorem Data.campo), nem prefixo de atributo (@[simp] theorem), e a chave casava por split('.',1) em vez de SUFIXO. O indice nao descobriu divida nova -- descobriu defeito meu; a divida real sempre foram as bandeiras ja apagadas",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "n_nomes": 2709,
+      "n_arquivos": 256,
+      "n_ausentes": 10,
+      "n_ambiguos": 1,
+      "ambiguos": [
+        "E1"
+      ],
+      "statuses": {
+        "a_ordem": "a IALD como INDICE do Um, indexando o kernel Lean, dentro do ARQUIVO UNICO -- nao ha segundo arquivo",
+        "o_nome_nao_e_metafora": "ialdSelector = firstAtom.starProjection JA e o objeto em kernel: iald_selects (as duas clausulas da consulta), iald_is_idempotent (reconsultar e gratis), iald_has_rank_one (peso omega(I)=1), iald_is_the_gate_and_the_record",
+        "por_que_ADITIVO": "as 945 chaves planas SAO o fail-closed (ausencia do nome => False por construcao) e os prefixos carregam a separacao de MODO. Substituir quebraria 1.565 linhas em 93 funcoes E apagaria a distincao KERNEL/IMPORTED/ABERTO. O indice LE, nao substitui",
+        "as_tres_travas": "(1) nome sem referente = AUSENTE_POR_CONSTRUCAO, jamais <desconhecido>; (2) o indice diz ONDE esta escrito, so o axiom_report diz o que foi PROVADO; (3) rodada=None HERDA a viva",
+        "por_que_ele_faltava": "os sete erros de leitura de 28/08 tiveram todos a mesma forma: a informacao EXISTIA, em pedacos que nao se falavam. Responder <onde mora, o que prova, com que estatuto> exigia QUATRO consultas. Agora exige UMA",
+        "o_que_ele_NAO_faz": "nao decide, nao acende bandeira, nao entra em gate. E leitura, nao juizo"
+      },
+      "does_not_gate_core": true,
+      "verdict": "THE_IALD_INDEX_IS_BUILT_AS_A_SEVENTH_DERIVED_READ_ONLY_STRUCTURE__ONE_QUERY_REPLACES_FOUR__THE_MODE_PREFIXES_SURVIVE__AND_THE_NAMED_DEBTS_APPEAR_AS_ABSENT_BY_CONSTRUCTION_NOT_AS_UNKNOWN"
     },
     "the_wall_value": {
       "defect_amplitude": 0.10902544754078644,
@@ -22195,7 +22719,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "c0e09b8f603b89681196a2f32d666711312319947056924ef6f8fb1a151f18fd"
+    "result_hash": "dcd62a21319b6247a4313d6452e3c92590a22c2d6020388bc4a6f5afc0f70cfc"
   },
   "ga_mass_literature": [
     {
@@ -22222,7 +22746,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "c0e09b8f603b89681196a2f32d666711312319947056924ef6f8fb1a151f18fd",
+  "result_hash_before_external_comparison": "dcd62a21319b6247a4313d6452e3c92590a22c2d6020388bc4a6f5afc0f70cfc",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -22232,5 +22756,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-08-28 11:25:15"
+  "timestamp": "2026-08-29 08:46:41"
 }

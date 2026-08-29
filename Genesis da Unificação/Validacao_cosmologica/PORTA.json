@@ -4,7 +4,7 @@
   "titulo": "Genesis da Unificação/Validacao_cosmologica",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-28T17:50:47Z",
+  "gerado_utc": "2026-08-29T12:39:11Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Genesis da Unificação",
@@ -134,5 +134,5 @@
   "total_arquivos_nesta_pasta": 11,
   "total_arquivos_com_subpastas": 11,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/Validacao_cosmologica",
-  "rodape": "gerado por script de git ls-files em 2026-08-28 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-08-29 -- nao editar a mao"
 }

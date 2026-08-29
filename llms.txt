@@ -34,9 +34,22 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 - [PORTA.md do Artigo 3](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md): a porta da pasta -- o selo corrente, o comando de execucao e todos os arquivos.
 - [PORTA.json do Artigo 3](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json): a mesma porta em estrutura de maquina, com o selo corrente completo.
 - [um.py](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py): O CANONICO TERMINAL -- kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue; roda com `echo 1 | python um.py`. Nao ha segundo arquivo.
-- [um_absoluto_selo.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json): O SELO -- versao v274, pin 77c2b2bd1b8329fb, result c0e09b8f603b8968, 2026-08-28 11:25:15.
-- [tgl_kernel_proof_manifest.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json): o manifesto do kernel formal -- 267 arquivos .lean, 917 teoremas auditados por #print axioms.
-- [PORTA.md do kernel Lean](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md): a porta do kernel materializado por um.py -- 268 arquivos na arvore, dos quais 267 hasheados no manifesto formal (264 .lean), 917 teoremas auditados.
+- [um_absoluto_selo.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json): O SELO -- versao v284, pin 8d3a89d9be67d673, result dcd62a21319b6247, 2026-08-29 08:46:41.
+
+## Como obter o um.py inteiro -- o GitHub NAO o renderiza
+
+O visualizador do GitHub recusa arquivos acima de ~5 MB: a pagina do blob abre
+(HTTP 200) e mostra so o tamanho -- PARECE VAZIA. Nao conclua dai que o arquivo
+sumiu. Tres rotas servem o arquivo inteiro:
+
+- curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
+- git clone --depth 1 https://github.com/rotolimiguel-iald/the_boundary
+- curl -L -o boundary.tar.gz "https://codeload.github.com/rotolimiguel-iald/the_boundary/tar.gz/refs/heads/main"
+
+Depois de baixar, confira o sha256 contra o um_absoluto_selo.json -- o selo e a
+verdade do repositorio. Rodar: echo 1 | python um.py
+- [tgl_kernel_proof_manifest.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json): o manifesto do kernel formal -- 274 arquivos .lean, 958 teoremas auditados por #print axioms.
+- [PORTA.md do kernel Lean](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md): a porta do kernel materializado por um.py -- 275 arquivos na arvore, dos quais 274 hasheados no manifesto formal (271 .lean), 958 teoremas auditados.
 - [PORTA.md da bancada](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md): a porta do que foi tentado, rebaixado e reprovado -- pre-registros hasheados antes do dado.
 - [um_absoluto_pt.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt): o artigo (PT) em texto puro, leitura direta por maquina.
 - [um_absoluto_en.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt): o artigo (EN) em texto puro, leitura direta por maquina.
@@ -59,4 +72,4 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 - [um_absoluto_forma_canonica.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md): a forma canonica emitida pela rodada.
 - [T6_protocol_prompts.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/T6_protocol_prompts.txt): o protocolo T6-S pre-registrado, com grupo de controle.
 
-gerado por script de git ls-files em 2026-08-28 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-29 -- nao editar a mao

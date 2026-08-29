@@ -232,3 +232,10 @@ import TGLExt.TheAntiunitaryInhabitant
 import TGLExt.TheGravitonIsTheConjugatedPhase
 import TGLExt.TheImageAndTheReading
 import TGLExt.TheImportedCommutation
+import TGLExt.TheMatrixAndTheModulator
+import TGLExt.TheModularRelations
+import TGLExt.TheDebtWithoutJ
+import TGLExt.TheCornerOfThePackage
+import TGLExt.TheWideNet
+import TGLExt.TheClassicalImport
+import TGLExt.TheAtermation

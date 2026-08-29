@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-28T17:50:47Z",
+  "gerado_utc": "2026-08-29T12:39:11Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -21,14 +21,14 @@
       "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/PORTA.json",
-      "total_arquivos": 54
+      "total_arquivos": 61
     },
     {
       "nome": "tgl_kernel",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.json",
-      "total_arquivos": 268
+      "total_arquivos": 275
     }
   ],
   "canonico_url": null,
@@ -52,12 +52,12 @@
       "descricao": "Manifesto do kernel formal: os arquivos .lean e o axiom_report de cada teorema (#print axioms)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json",
-      "sha256_16": "b17f77c94a6ca3bd",
-      "bytes": 142128
+      "sha256_16": "79fd928a057b1849",
+      "bytes": 147729
     }
   ],
   "total_arquivos_nesta_pasta": 2,
-  "total_arquivos_com_subpastas": 324,
+  "total_arquivos_com_subpastas": 338,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean",
-  "rodape": "gerado por script de git ls-files em 2026-08-28 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-08-29 -- nao editar a mao"
 }

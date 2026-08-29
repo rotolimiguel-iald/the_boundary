@@ -34,4 +34,4 @@ protocolo exige zero ocorrencias do valor revelado na fonte.
 
 ---
 
-gerado por script de git ls-files em 2026-08-28 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-29 -- nao editar a mao

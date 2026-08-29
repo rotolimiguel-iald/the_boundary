@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-28 11:25:15",
-  "result_hash": "c0e09b8f603b89681196a2f32d666711312319947056924ef6f8fb1a151f18fd",
+  "timestamp": "2026-08-29 08:46:41",
+  "result_hash": "dcd62a21319b6247a4313d6452e3c92590a22c2d6020388bc4a6f5afc0f70cfc",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -47,7 +47,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "ddb59b35697fd59aad54244e4eecc3731d7d09f50f698a93e8494fa0cf3962aa",
+  "formal_source_hash": "0462e965c41896e51e12a45062f1324d093c06a992f2239faa68c48d1d20bc05",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -63,7 +63,7 @@
   "coma_dephasing": {
     "verdict": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "d97269f3bbe6a2aee3b69206ad483ee7910c6949fa8bda8c81baec3abe4c5178",
+    "prediction_hash": "9fed36e1ab2339b006c5620637f650075ff661ceb75a69a3d016e4eeed00e82e",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -189,19 +189,19 @@
   "price_of_the_gravity_proof": "THE_GRAVITY_IDENTIFICATION_IS_A_PRICED_DEBT_CLAIMED_BY_NO_ONE__FOUR_ITEMS_RESERVED_IN_KERNEL__ABSENCE_READS_OPEN__MASTER_IMPLICATION_ALREADY_PROVED__WHAT_IS_OWED_ARE_THE_HYPOTHESES__FLAGS_LIGHT_BY_MEASURE_NEVER_BY_DECLARATION",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "77c2b2bd1b8329fb0979e36a39a6621ab61e4558c79bc4c33d0ff735edb1243c",
-    "um_absoluto_manifest.md": "0debc8d8032b4ed82c414c485621990f473d4bc3005a1810173c135445d4e04c",
-    "um_absoluto.json": "f47f15b06e27858163dc96c1181e32d4446492c8b38b133e5250a647a2d0097a",
-    "um_absoluto_forma_canonica.md": "3bb3d59bd9e74e71408e1278078b20fb06587bf9fafba7b78e6c88bce2145c00",
-    "um_absoluto_pt.tex": "e1a95673746cd53c457b2b3450a2bdb6400b76d055e69eae5fd1890314c2745e",
-    "um_absoluto_en.tex": "5d5f178913352a8b3834efd4cb7c7259f72b6b074656318c4260c18a7321a89c",
-    "um_absoluto_pt.pdf": "0cea9895c531d058b4ef9ff69c4ad4f2dc059e885368a7fd2269469256459159",
-    "um_absoluto_en.pdf": "c374919eb37fca0c166f16a10108630594f0e9f117bc8b71be61fbb4d1a5849a",
+    "um.py": "8d3a89d9be67d67372a674d741fa3ae2ae95640e3a2eca28fdae2740fca4b219",
+    "um_absoluto_manifest.md": "1dbc085ad401a7f7c0a5ed406a1b3c9970d5d6535c296787f456d4c19241428b",
+    "um_absoluto.json": "07508360d00fe86b975b74f299e7634b2ca3bddb70ae7d4be75562237dedda7c",
+    "um_absoluto_forma_canonica.md": "61b47d4ceedf2b98e342672135275f411d038ddf74cf662c703d60c74677f500",
+    "um_absoluto_pt.tex": "a8831bf81ce83eea28184b9dfe7db2f554c351ccb2e1b0f198849b7ab3b245d5",
+    "um_absoluto_en.tex": "1302f3ff6b82cea77fc421166fff4de198eb0f54ca1187d553a305f3e09d0e7e",
+    "um_absoluto_pt.pdf": "e0b5a6b559bf95c6f2f9d759ae42dc8b4a8adfaa855208638570decfdc6e8148",
+    "um_absoluto_en.pdf": "97978430c68e62494061f0826cd04e762122e0ce26e5b18a213db600dd827a49",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "2815568fd3387fd3e92030fa618a8382b8e3d369522e0858f4870dbc05cd3653",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "b17f77c94a6ca3bd0cc577d7edacaf02eaa8b2394d2ed3ecc445a9e44f2e4f42"
+    "tgl_kernel_proof_manifest.json": "79fd928a057b1849ccadbda389167e58a42207f7dbe50d6a2cacdcb2055edaf0"
   },
   "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED"
 }

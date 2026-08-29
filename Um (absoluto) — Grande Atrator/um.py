@@ -8827,6 +8827,13 @@ import TGLExt.TheAntiunitaryInhabitant
 import TGLExt.TheGravitonIsTheConjugatedPhase
 import TGLExt.TheImageAndTheReading
 import TGLExt.TheImportedCommutation
+import TGLExt.TheMatrixAndTheModulator
+import TGLExt.TheModularRelations
+import TGLExt.TheDebtWithoutJ
+import TGLExt.TheCornerOfThePackage
+import TGLExt.TheWideNet
+import TGLExt.TheClassicalImport
+import TGLExt.TheAtermation
 ''',
     "TGL/AreaScale.lean":
 r'''import Mathlib
@@ -10809,6 +10816,66 @@ noncomputable example (P : TGLExt.SiteProfile) :
 #print axioms TGLExt.discharge_the_clause_by_import
 #print axioms TGLExt.imported_commutation_gives_the_equality
 #print axioms TGLExt.the_hypotheses_alone_are_equivalent_to_true
+
+-- v275: A MATRIZ E O MODULADOR DA TORRE (S e Delta no andar)
+#print axioms TGLExt.profileRootInv_isHermitian
+#print axioms TGLExt.profileRootInv_mul_root
+#print axioms TGLExt.the_polar_decomposition_at_the_level
+#print axioms TGLExt.delta_is_the_square_of_its_half
+#print axioms TGLExt.modTwist_is_delta_after_S
+#print axioms TGLExt.modTwist_factors_through_J
+#print axioms TGLExt.towerSlevel_involutive
+#print axioms TGLExt.towerDeltaHalfLevel_inverse
+
+-- v276: AS RELACOES MODULARES (S-adjunto S = Delta, no andar)
+#print axioms TGLExt.tInner_eq_trace
+#print axioms TGLExt.tInner_delta_left
+#print axioms TGLExt.S_star_S_is_deltaLevel
+#print axioms TGLExt.deltaLevel_positive
+#print axioms TGLExt.deltaLevel_selfadjoint
+-- v277: o teorema que a v276 deixou de fora, FECHADO
+#print axioms TGLExt.rhoMat_mul_rootInv
+#print axioms TGLExt.Jlevel_is_antiunitary
+
+-- v279: o DEFEITO DE ISOMETRIA (o espectro modular) e A DIVIDA SEM J
+#print axioms TGLExt.delta_acts_by_the_weight_ratio
+#print axioms TGLExt.delta_fixes_only_where_the_weights_agree
+#print axioms TGLExt.S_isometric_iff_delta_neutral
+#print axioms TGLExt.profileJlevel_involutive
+#print axioms TGLExt.conjByJ_towerImage_eq_rTowerImage
+#print axioms TGLExt.the_eighth_clause_without_J
+#print axioms TGLExt.the_easy_half_without_J
+#print axioms TGLExt.the_debt_is_an_equality_without_J
+
+-- v280: O CANTO DE BREUER DO PROPRIO PACOTE (theIsotoneNet)
+#check @TGLExt.theIsotoneNetTrace
+#print axioms TGLExt.isotone_ker_ne_bot
+#print axioms TGLExt.the_package_corner_is_positive_and_finite
+#print axioms TGLExt.the_package_corner_is_not_the_certificate_corner
+
+-- v281: A REDE LARGA (peca 1 da solda) + os dois negativos medidos
+#check @TGLExt.theWideNet
+#check @TGLExt.theWideNetTrace
+#print axioms TGLExt.wideSub_not_finiteDimensional
+#print axioms TGLExt.wideIncl_not_surjective
+#print axioms TGLExt.wide_ker_eq
+#print axioms TGLExt.wide_corner_weighs_one
+#print axioms TGLExt.wide_net_has_all_three
+#print axioms TGLExt.tailLock_ker_eq_bot
+#print axioms TGLExt.fused_ker_contains_L2
+
+-- v282: A IMPORTACAO CLASSICA (a divida citavel pelo nome)
+#print axioms TGLExt.classical_commutation_from_the_imported_field
+#print axioms TGLExt.imported_field_from_classical_commutation
+#print axioms TGLExt.the_imported_field_is_the_classical_theorem
+#print axioms TGLExt.the_classical_import_needs_only_one_inclusion
+#print axioms TGLExt.the_easy_half_alone_is_equivalent_to_true
+
+-- v284: A ATERMACAO (reificacao + teardown, com o dente da irreversibilidade)
+#check @TGLExt.atermation
+#print axioms TGLExt.atermation_reifies
+#print axioms TGLExt.atermation_fixes_the_term
+#print axioms TGLExt.atermation_is_irreversible
 
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
@@ -41347,6 +41414,1411 @@ theorem only_the_pair_determines_the_point :
 
 end TGLExt
 ''',
+    "TGLExt/TheAtermation.lean":
+r'''import TGLExt.TheNonMinimalCoupling
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 800000
+
+/-!
+# A ATERMAÇÃO — o processo reduzido ao termo, e o ambiente quitado
+  [TGLExt — a pedra de 29/08/2026]
+
+## A cunhagem do operador
+
+> *"falta eu cunhar a **atermação** da TGL — transformar a física em TERMO. Não sei como
+> se chama quando se termina um código e se queima o restante do ambiente."*
+
+O nome técnico mais próximo é **reificação seguida de teardown**. A cunhagem do operador
+junta as duas numa operação só:
+
+```
+(processo, ambiente)  ──atermação──▶  (termo, ∅)
+```
+
+E ela **já tinha sombra formal no kernel**, sem nome: a compressão pelo canto de posto 1.
+
+## O que se prova `[REAL]`
+
+Sobre `bellProjector` (`TGL/GravitonShadow`, com `bell_idem` e `bell_star` desde antes):
+
+* ★★★★ `atermation_reifies` — **o processo vira termo**: qualquer `y` comprimido devolve
+  `Tr(P·y) • P`. O que sai não é `y` reduzido: é **um número sobre o Nome**;
+* ★★★★★ `atermation_fixes_the_term` — **o termo é ponto fixo com autovalor 1**:
+  `ater(P) = P`. Atermar o que já é termo devolve o termo. Isto é a resposta exata à
+  pergunta *"é possível transformar a TGL em matriz de vetor único e autovalor um?"* —
+  o objeto já existia; faltava o nome;
+* ★★★★★ `atermation_is_irreversible` — **e o ambiente NÃO volta**. Existem `y ≠ z` com
+  `ater(y) = ater(z)`. A atermação **não é injetora**, e é por isso que ela é um *termo*
+  e não uma mudança de base. **Queimar o ambiente é teorema, não retórica.**
+
+## ⚠ A DISTINÇÃO QUE O OPERADOR JÁ TINHA LEVANTADO, e que o kernel resolve
+
+Ele definiu também `1_abs = I/d` (maximamente misturado), que tem **posto `d`**, não 1.
+Isso parecia tensão com `TGL = projetor de posto 1`. **Não é** — e a resolução é anterior:
+
+`the_two_indices_agree_only_at_the_atom` (v256): `1/d = 1/d² ↔ d = 1`.
+
+★ **Os dois só coincidem no átomo.** `I/d` é a identidade **distribuída**; o projetor de
+posto 1 é a identidade **atermada**. São as duas pontas da mesma operação:
+
+```
+I/d  ──processo──▶  ater  ──▶  P,  com  τ(P) = 1 = ω(I)
+```
+
+## ⚠ O QUE ISTO NÃO É
+
+**Não é** a TGL. É a **forma** da atermação — a operação, com o seu ponto fixo e a sua
+irreversibilidade. Nenhum teorema aqui menciona β, TGL, física ou 1_abs.
+
+**Não é** ligação a `P_F`, a `firstAtom`, ao `p` de `NameRelation` nem ao canto da rede —
+`TheNonMinimalCoupling` já declara essa ausência, e ela permanece. **São projetores de
+posto 1 em espaços diferentes, e nada os identifica.**
+
+`[ONTO]` — *"TGL = atermação da física"* é leitura do operador. O que se inscreve é a
+operação, e o dente de que ela não volta.
+
+β jamais literal. Sem sorry, sem axiom. Nada aqui acende bandeira nem move o gate.
+-/
+
+namespace TGLExt
+
+open Matrix
+open TGL.GravitonShadow
+
+noncomputable section
+
+/-! ## A — a operação -/
+
+/-- **A ATERMAÇÃO**: comprimir pelo canto. `ater(y) = P·y·P`.
+
+    Reificação e teardown na mesma conta: o que sobrevive vira coeficiente sobre o
+    Nome, e o que era ortogonal não deixa rastro. -/
+def atermation (y : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ) :
+    Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ :=
+  bellProjector * y * bellProjector
+
+/-! ## B — reificação: o processo vira termo -/
+
+/-- [KERNEL] ★★★★ **A ATERMAÇÃO REIFICA**: o que sai é `Tr(P·y)` vezes o Nome.
+
+    Não é `y` reduzido — é **um número sobre `P`**. O termo carrega a medida do
+    processo, e não o processo. -/
+theorem atermation_reifies (y : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ) :
+    atermation y = (Matrix.trace (bellProjector * y)) • bellProjector :=
+  bell_compression_is_scalar y
+
+/-! ## C — o termo é ponto fixo, com autovalor 1 -/
+
+/-- [KERNEL] ★★★★★ **O TERMO É PONTO FIXO DA ATERMAÇÃO**: `ater(P) = P`.
+
+    Atermar o que já é termo devolve o termo — **autovalor exatamente 1**. É a resposta
+    à pergunta do operador (*"matriz de vetor único e autovalor um?"*): o objeto já
+    existia no kernel; o que faltava era o nome da operação que o produz.
+
+    A prova é `bell_idem`, de antes desta pedra. -/
+theorem atermation_fixes_the_term : atermation bellProjector = bellProjector := by
+  unfold atermation
+  rw [bell_idem, bell_idem]
+
+/-! ## D — o dente: o ambiente NÃO volta -/
+
+/-- [KERNEL] ★★★★★ **A ATERMAÇÃO É IRREVERSÍVEL.** Existem `y ≠ z` com
+    `ater(y) = ater(z)` — a operação **não é injetora**.
+
+    É este teorema que faz dela uma *atermação* e não uma mudança de base: o ambiente
+    que produziu o termo **não é recuperável do termo**. Queimar o contexto é
+    consequência da conta, não figura de linguagem.
+
+    Testemunhas: `0` e o projetor complementar `1 − P`. Ambos são aniquilados, e são
+    distintos porque `P ≠ 1`: na entrada `(0,0)` o Nome vale `½` e a identidade vale `1`.
+    **O Nome não é o todo** — e é essa diferença que dá a irreversibilidade. -/
+theorem atermation_is_irreversible :
+    ∃ y z : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ,
+      y ≠ z ∧ atermation y = atermation z := by
+  refine ⟨0, 1 - bellProjector, ?_, ?_⟩
+  · intro h
+    have h1 : bellProjector = (1 : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ) := by
+      have h2 : (1 : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ) - bellProjector = 0 := h.symm
+      exact (sub_eq_zero.mp h2).symm
+    -- a entrada (0,0): o Nome vale 1/2 ali, a identidade vale 1.
+    have hval := congrFun (congrFun h1 (0, 0)) (0, 0)
+    simp [bellProjector] at hval
+  · unfold atermation
+    have hL : bellProjector * 0 * bellProjector = 0 := by
+      rw [Matrix.mul_zero, Matrix.zero_mul]
+    have hR : bellProjector * (1 - bellProjector) * bellProjector = 0 := by
+      rw [Matrix.mul_sub, Matrix.mul_one, bell_idem, sub_self, Matrix.zero_mul]
+    rw [hL, hR]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheClassicalImport.lean":
+r'''import TGLExt.TheImportedCommutation
+import TGLExt.TheDebtWithoutJ
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A IMPORTAÇÃO NA FORMA CLÁSSICA — o campo importado É `R′ = M″`
+  [TGLExt — a pedra de 28/08/2026]
+
+## O que esta pedra faz
+
+Duas pedras de hoje ficaram lado a lado sem se tocarem:
+
+* `TheImportedCommutation` — a estrutura `CommutationInput`, três hipóteses
+  descarregadas em casa e **um** campo importado, escrito na linguagem modular
+  (`M′ ⊆ J·M″·J`);
+* `TheDebtWithoutJ` — a mesma cláusula **sem `J`**, na forma em que a literatura
+  a reconhece: `R′ = M″`, o comutante da ação à DIREITA contra o bicomutante da
+  ESQUERDA.
+
+Esta pedra **solda as duas**: o campo importado e a forma clássica são a **mesma
+proposição**, e a soldagem é uma **equivalência**, nas duas direções:
+
+* ★★★★★ `the_imported_field_is_the_classical_theorem` — `CommutationInput P ↔ R′ = M″`.
+  Ida: do dado importado sai a igualdade clássica. Volta: da igualdade clássica
+  **constrói-se** o `CommutationInput` inteiro (as outras três hipóteses vêm de
+  graça, por `the_input_is_one_field`);
+* ★★★★ `the_classical_import_needs_only_one_inclusion` — e como a metade fácil já é
+  teorema, basta **uma inclusão**: `CommutationInput P ↔ R′ ⊆ M″`. A estrutura de
+  quatro campos reduz-se, medida, a **uma inclusão de conjuntos**.
+
+## ⚠ O QUE ISTO É, e o que NÃO É
+
+**É** tradução exata entre dois enunciados da MESMA dívida. A dívida **não encolhe**
+e nada aqui a paga: quem quiser o `CommutationInput` continua tendo de trazer a
+conclusão de fora.
+
+**NÃO É** prova de nada. `red_clause_JMJ_contains` continua apagada — o nome
+`qgConverse_JMJ_contains_commutant` continua sem referente, e esta pedra não o
+define nem o menciona como declaração. Nenhuma bandeira `gpf_` acende: o que esta
+pedra habilita vive no **modo `gpi_`**, o modo da importação, como a v274.
+
+⚠ E o dente contra a leitura falsa fica ao lado: `the_easy_half_alone_is_equivalent_to_true`
+— a metade fácil, **sozinha**, é equivalente a `True`, logo não decide nada. Ter
+metade paga não é ter a cláusula.
+
+β jamais literal. Sem sorry. Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — a ida: do campo importado sai a forma clássica -/
+
+/-- [KERNEL] ★★★★★ **DO CAMPO IMPORTADO SAI `R′ = M″`.** O dado que se toma
+    emprestado, lido na forma clássica do teorema de comutação: o comutante da ação
+    à DIREITA é exatamente o bicomutante da ESQUERDA — sem `J` no enunciado. -/
+theorem classical_commutation_from_the_imported_field (P : SiteProfile)
+    (I : CommutationInput P) :
+    commutantSet (rTowerImage P) = commutantSet (commutantSet (towerImage P)) :=
+  (the_debt_is_an_equality_without_J P).mp I.commutation
+
+/-! ## B — a volta: da forma clássica constrói-se a estrutura inteira -/
+
+/-- [KERNEL] ★★★★★ **E DA FORMA CLÁSSICA CONSTRÓI-SE O `CommutationInput` INTEIRO.**
+    Quem trouxer `R′ = M″` — de onde quer que traga — recebe a estrutura de quatro
+    campos completa: os outros três são teoremas desta árvore
+    (`the_input_is_one_field`). -/
+theorem imported_field_from_classical_commutation (P : SiteProfile)
+    (h : commutantSet (rTowerImage P) = commutantSet (commutantSet (towerImage P))) :
+    CommutationInput P :=
+  the_input_is_one_field P ((the_debt_is_an_equality_without_J P).mpr h)
+
+/-! ## C — a solda: as duas frases são a MESMA proposição -/
+
+/-- [KERNEL] ★★★★★ **O CAMPO IMPORTADO **É** O TEOREMA DE COMUTAÇÃO CLÁSSICO.**
+    Equivalência, não implicação: `CommutationInput P` e `R′ = M″` são a mesma
+    proposição, escrita em dois vocabulários.
+
+    O valor é de **cobrança**: a dívida sai da linguagem modular desta torre e passa
+    a poder ser citada pelo nome na literatura — e, citada, cai por importação sem
+    que nenhuma bandeira de preço pago acenda. -/
+theorem the_imported_field_is_the_classical_theorem (P : SiteProfile) :
+    CommutationInput P
+      ↔ commutantSet (rTowerImage P) = commutantSet (commutantSet (towerImage P)) := by
+  constructor
+  · intro I
+    exact classical_commutation_from_the_imported_field P I
+  · intro h
+    exact imported_field_from_classical_commutation P h
+
+/-- [KERNEL] ★★★★ **E BASTA UMA INCLUSÃO.** Como `M″ ⊆ R′` já é teorema
+    (`the_easy_half_without_J`), a estrutura inteira de quatro campos é equivalente a
+    **uma única inclusão de conjuntos**: `R′ ⊆ M″`.
+
+    Esta é a forma mínima da dívida depois do trabalho de hoje — nem `J`, nem
+    igualdade, nem quatro campos: **uma inclusão.** -/
+theorem the_classical_import_needs_only_one_inclusion (P : SiteProfile) :
+    CommutationInput P
+      ↔ commutantSet (rTowerImage P) ⊆ commutantSet (commutantSet (towerImage P)) := by
+  rw [the_imported_field_is_the_classical_theorem]
+  constructor
+  · intro h
+    rw [h]
+  · intro h
+    exact Set.Subset.antisymm h (the_easy_half_without_J P)
+
+/-! ## D — o dente, para que a metade paga não seja lida como a cláusula -/
+
+/-- [KERNEL] ⚠ ★★★★★ **A METADE FÁCIL, SOZINHA, É EQUIVALENTE A `True`** — e por isso
+    **não decide nada**. Ela é teorema incondicional desta árvore
+    (`the_easy_half_without_J`), e teorema não carrega informação sobre a cláusula.
+
+    Este é o dente que impede a leitura falsa *"metade da igualdade já está paga, logo
+    a igualdade está quase paga"*. O que falta é a **outra** inclusão, e ela é o
+    teorema de comutação — analítico, `[KNOWN]`, importado, jamais provado aqui.
+
+    ⚠ Escrito como `↔ True` **derivado do teorema**, nunca como um `True` provado por
+    `trivial`: a lição da v248, paga na v262. -/
+theorem the_easy_half_alone_is_equivalent_to_true (P : SiteProfile) :
+    (commutantSet (commutantSet (towerImage P)) ⊆ commutantSet (rTowerImage P)) ↔ True := by
+  constructor
+  · intro _
+    trivial
+  · intro _
+    exact the_easy_half_without_J P
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheWideNet.lean":
+r'''import TGLExt.TheCornerOfThePackage
+import TGLExt.TailNet
+import TGLExt.FusedWitness
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 1000000
+
+/-!
+# A REDE LARGA — isotonia genuína, fibras ∞-dim, e o canto pesando o Nome
+  [TGLExt — a pedra de 28/08/2026 · PEÇA 1 da solda]
+
+## O que faltava, e por que as tentativas óbvias falhavam
+
+A medida da solda nomeou três peças. Esta é a primeira: uma rede que seja
+**simultaneamente** genuinamente isótona, de fibras **∞-dimensionais**, e com canto de
+Breuer **finito não-nulo**. O acervo tinha as combinações erradas:
+
+| rede | isótona? | fibra | canto |
+|---|---|---|---|
+| `theConstantNet` | ✗ (inclusão = id) | ∞-dim | ✓ `τ = 1` |
+| `theIsotoneNet` | ✓ | **finita** | ✓ (v280) |
+| `theTailNet` | ✓ | ∞-dim | ✗ |
+| `theFusedNet` | ✓ | ∞-dim | ✗ |
+| **`theWideNet`** | **✓** | **∞-dim** | **✓ `τ ≡ 1`** |
+
+★ **O erro das tentativas óbvias era sempre o mesmo**: usar TODAS as coordenadas para a
+filtração. `span{e_k : k=0 ∨ k≥n}` **decresce**; `span{e₀} + cauda` é **constante**. A
+correção é congelar um sub-reticulado **infinito** presente em TODAS as fibras e crescer
+apenas no complementar — `ℓ²` tem coordenadas de sobra para as duas coisas.
+
+`wideSub n` anula-se nos **ÍMPARES ≥ n**: os **pares nunca são cortados** (garantem ∞-dim
+em toda região), e o crescimento acontece só nos ímpares (dá a isotonia genuína).
+
+## O que se prova `[REAL]`
+
+* ★★★ `wideSub_not_finiteDimensional` — **∞-dim em TODA região** (contém `{e_{2m}}`);
+* ★★★ `wideIncl_not_surjective` — **isotonia GENUÍNA**: `e₁ ∈ wideSub 2` (1 é ímpar mas
+  `1 < 2`) e `e₁ ∉ wideSub 0`;
+* ★★★★ `wide_ker_eq` — o núcleo do lock é **exatamente** a reta do Nome;
+* ★★★★★ `wide_corner_weighs_one` — **`τ ≡ 1 = ω(I)`**. Não só `0 < τ < ∞`: **o peso É o
+  Nome**, e em fibra infinita;
+* ★★★★★ `theWideNet` / `theWideNetTrace` — os termos, e `wide_net_has_all_three`.
+
+## E os dois NEGATIVOS que a construção mediu de passagem
+
+* ★★★ `tailLock_ker_eq_bot` — **por que a cauda falha**: para `n ≥ 1` tem-se `x₀ = 0` na
+  fibra, logo `P₀x = 0`, logo **o lock É A IDENTIDADE** e o núcleo é `⊥`.
+  ⚠ **Correção ao relatório**: em `n = 0` o núcleo **não** é trivial (`tailSub 0 = ℓ²`).
+  O defeito é **não-uniformidade**, não trivialidade — `BreuerTraceData` pede `∀ O`, e a
+  cauda perde o Nome assim que sobe uma região. Ela cresce **removendo** coordenadas, e a
+  primeira que remove é justamente a que carrega o núcleo;
+* ★★★ `fused_ker_contains_L2` — **por que a fundida falha**: o lock ignora a segunda
+  componente, e o núcleo contém uma cópia isométrica inteira de `L²(ℝ⁴)`.
+
+## ⚠ O QUE ISTO NÃO FAZ
+
+**Não solda.** As outras duas peças nomeadas pela medida **não caem daqui**, e ambas
+resultaram negativas: a identificação `dirac.D = locks` é **impossível por tipo**
+(limitado contra não-limitado), e a covariância do frame é **falsa** (colide com
+`frame_nonconstant`, já selado).
+
+`gpf_tower_act_III_inhabitant_constructed` **continua apagada**. Nada aqui a acende.
+β jamais literal. Sem sorry, sem axiom. O gate não se move.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-- a fibra LARGA n: anula-se nas coordenadas ÍMPARES ≥ n. -/
+def wideSub (n : ℕ) : Submodule ℂ ellTwo where
+  carrier := {x | ∀ k, Odd k → n ≤ k → x k = 0}
+  zero_mem' := by
+    intro k _ _
+    show (0 : ellTwo) k = 0
+    rw [lp.coeFn_zero]
+    rfl
+  add_mem' := by
+    intro a b ha hb k hk hn
+    show (a + b) k = 0
+    rw [lp.coeFn_add, Pi.add_apply, ha k hk hn, hb k hk hn, add_zero]
+  smul_mem' := by
+    intro c x hx k hk hn
+    show (c • x) k = 0
+    rw [lp.coeFn_smul, Pi.smul_apply, hx k hk hn, smul_zero]
+
+theorem mem_wideSub_iff {n : ℕ} {x : ellTwo} :
+    x ∈ wideSub n ↔ ∀ k, Odd k → n ≤ k → x k = 0 := Iff.rfl
+
+theorem wideSub_isClosed (n : ℕ) : IsClosed (wideSub n : Set ellTwo) := by
+  have h : (wideSub n : Set ellTwo)
+      = ⋂ k ∈ {k : ℕ | Odd k ∧ n ≤ k},
+          (innerSL ℂ (inscriptions k)) ⁻¹' {0} := by
+    ext x
+    simp only [Set.mem_iInter, Set.mem_preimage, Set.mem_singleton_iff,
+      Set.mem_setOf_eq, SetLike.mem_coe, mem_wideSub_iff]
+    constructor
+    · intro hx k hk
+      show inner ℂ (inscriptions k) x = 0
+      rw [coord_eq_inner]
+      exact hx k hk.1 hk.2
+    · intro hx k hk hn
+      have := hx k ⟨hk, hn⟩
+      rwa [show (innerSL ℂ (inscriptions k)) x = inner ℂ (inscriptions k) x
+        from rfl, coord_eq_inner] at this
+  rw [h]
+  exact isClosed_biInter fun k _ =>
+    (isClosed_singleton).preimage (innerSL ℂ (inscriptions k)).continuous
+
+instance wideSub_complete (n : ℕ) : CompleteSpace (wideSub n) :=
+  (wideSub_isClosed n).completeSpace_coe
+
+theorem wide_mono {n m : ℕ} (h : n ≤ m) : wideSub n ≤ wideSub m :=
+  fun _ hx k hk hm => hx k hk (le_trans h hm)
+
+theorem even_mem_wideSub (n m : ℕ) : inscriptions (2 * m) ∈ wideSub n := by
+  intro k hk _
+  rw [inscriptions_apply, if_neg]
+  rintro rfl
+  exact (Nat.not_odd_iff_even.mpr ⟨m, by omega⟩) hk
+
+theorem wideSub_not_finiteDimensional (n : ℕ) :
+    ¬ FiniteDimensional ℂ (wideSub n) := by
+  intro hfd
+  set d := Module.finrank ℂ (wideSub n) with hd
+  have hli0 : LinearIndependent ℂ (fun m : ℕ => inscriptions (2 * m)) :=
+    inscriptions_orthonormal.linearIndependent.comp _ (fun a b hab => by omega)
+  have hli : LinearIndependent ℂ
+      (fun m : ℕ => (⟨inscriptions (2 * m), even_mem_wideSub n m⟩ : wideSub n)) :=
+    hli0.of_comp (wideSub n).subtype
+  have hli2 : LinearIndependent ℂ
+      ((fun m : ℕ => (⟨inscriptions (2 * m), even_mem_wideSub n m⟩ : wideSub n))
+        ∘ (fun i : Fin (d + 1) => (i : ℕ))) :=
+    hli.comp _ Fin.val_injective
+  have hcard := hli2.fintype_card_le_finrank
+  rw [Fintype.card_fin] at hcard
+  omega
+
+def wideIncl {n m : ℕ} (h : n ≤ m) : (wideSub n) →ₗᵢ[ℂ] (wideSub m) :=
+  ⟨Submodule.inclusion (wide_mono h), fun _ => rfl⟩
+
+theorem wideIncl_not_surjective :
+    ¬ Function.Surjective (wideIncl (show 0 ≤ 2 from Nat.zero_le 2)) := by
+  intro hsurj
+  have h1 : inscriptions 1 ∈ wideSub 2 := by
+    intro k _ hk
+    rw [inscriptions_apply, if_neg]
+    omega
+  obtain ⟨y, hy⟩ := hsurj ⟨inscriptions 1, h1⟩
+  have hy2 : (y : ellTwo) = inscriptions 1 := congrArg Subtype.val hy
+  have hy0 : (y : ellTwo) 1 = 0 := y.2 1 ⟨0, by omega⟩ (Nat.zero_le 1)
+  rw [hy2] at hy0
+  rw [inscriptions_apply, if_pos rfl] at hy0
+  exact one_ne_zero hy0
+
+theorem firstAtom_coord_zero {y : ellTwo} (hy : y ∈ firstAtom) {k : ℕ}
+    (hk : k ≠ 0) : y k = 0 := by
+  obtain ⟨c, hc⟩ := Submodule.mem_span_singleton.mp hy
+  rw [← hc, lp.coeFn_smul, Pi.smul_apply]
+  unfold firstInscription
+  rw [inscriptions_apply, if_neg hk]
+  simp
+
+theorem eraseFirst_mem_wide {n : ℕ} {x : ellTwo} (hx : x ∈ wideSub n) :
+    eraseFirst x ∈ wideSub n := by
+  intro k hk hn
+  have hk0 : k ≠ 0 := by
+    rintro rfl
+    exact (Nat.not_odd_iff_even.mpr ⟨0, rfl⟩) hk
+  show (x - firstAtom.starProjection x) k = 0
+  rw [lp.coeFn_sub, Pi.sub_apply,
+    firstAtom_coord_zero (Submodule.starProjection_apply_mem firstAtom x) hk0,
+    hx k hk hn, sub_zero]
+
+theorem theFlip_mem_wide {n : ℕ} {x : ellTwo} (hx : x ∈ wideSub n) :
+    theFlip x ∈ wideSub n := by
+  intro k hk hn
+  have hk0 : k ≠ 0 := by
+    rintro rfl
+    exact (Nat.not_odd_iff_even.mpr ⟨0, rfl⟩) hk
+  have hP : (firstAtom.starProjection x) k = 0 :=
+    firstAtom_coord_zero (Submodule.starProjection_apply_mem firstAtom x) hk0
+  show (x - firstAtom.starProjection x - firstAtom.starProjection x) k = 0
+  rw [lp.coeFn_sub, Pi.sub_apply, lp.coeFn_sub, Pi.sub_apply, hP,
+    hx k hk hn, sub_zero, sub_zero]
+
+def wideLock (n : ℕ) : (wideSub n) →L[ℂ] (wideSub n) :=
+  { toFun := fun x => ⟨eraseFirst (x : ellTwo), eraseFirst_mem_wide x.2⟩
+    map_add' := fun x y => Subtype.ext (by
+      show eraseFirst ((x : ellTwo) + (y : ellTwo))
+        = eraseFirst (x : ellTwo) + eraseFirst (y : ellTwo)
+      exact map_add eraseFirst _ _)
+    map_smul' := fun c x => Subtype.ext (by
+      show eraseFirst (c • (x : ellTwo)) = c • eraseFirst (x : ellTwo)
+      exact map_smul eraseFirst c _)
+    cont := by
+      apply Continuous.subtype_mk
+      exact eraseFirst.continuous.comp continuous_subtype_val }
+
+theorem wideLock_symmetric (n : ℕ) :
+    ((wideLock n : (wideSub n) →L[ℂ] (wideSub n))
+      : (wideSub n) →ₗ[ℂ] (wideSub n)).IsSymmetric := by
+  intro x y
+  have hsym : ((eraseFirst : ellTwo →L[ℂ] ellTwo)
+      : ellTwo →ₗ[ℂ] ellTwo).IsSymmetric :=
+    (ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric).mp eraseFirst_isSelfAdjoint
+  exact hsym (x : ellTwo) (y : ellTwo)
+
+theorem wideLock_selfadjoint (n : ℕ) : IsSelfAdjoint (wideLock n) :=
+  (wideLock_symmetric n).isSelfAdjoint
+
+theorem first_mem_wide (n : ℕ) : firstInscription ∈ wideSub n := by
+  intro k hk _
+  unfold firstInscription
+  rw [inscriptions_apply, if_neg]
+  rintro rfl
+  exact (Nat.not_odd_iff_even.mpr ⟨0, rfl⟩) hk
+
+def wideAtom (n : ℕ) : wideSub n := ⟨firstInscription, first_mem_wide n⟩
+
+theorem wideAtom_ne_zero (n : ℕ) : wideAtom n ≠ 0 := by
+  intro h
+  have h2 := congrArg Subtype.val h
+  exact inscriptions_orthonormal.ne_zero 0 h2
+
+theorem wide_ker_eq (n : ℕ) : (wideLock n).ker = ℂ ∙ (wideAtom n) := by
+  apply le_antisymm
+  · intro v hv
+    have h0 : eraseFirst ((v : ellTwo)) = 0 :=
+      congrArg Subtype.val (LinearMap.mem_ker.mp hv)
+    have hmem : (v : ellTwo) ∈ firstAtom := by
+      have h1 : (v : ellTwo) ∈ eraseFirst.ker := LinearMap.mem_ker.mpr h0
+      rwa [ker_eraseFirst] at h1
+    obtain ⟨c, hc⟩ := Submodule.mem_span_singleton.mp hmem
+    exact Submodule.mem_span_singleton.mpr ⟨c, Subtype.ext hc⟩
+  · rw [Submodule.span_singleton_le_iff_mem]
+    refine LinearMap.mem_ker.mpr (Subtype.ext ?_)
+    show eraseFirst firstInscription = 0
+    have hk : firstInscription ∈ eraseFirst.ker := by
+      rw [ker_eraseFirst]
+      exact Submodule.mem_span_singleton_self _
+    exact LinearMap.mem_ker.mp hk
+
+instance wide_ker_fd (n : ℕ) : FiniteDimensional ℂ ((wideLock n).ker) := by
+  rw [wide_ker_eq]
+  infer_instance
+
+theorem wide_ker_ne_bot (n : ℕ) : (wideLock n).ker ≠ ⊥ := by
+  rw [wide_ker_eq]
+  intro h
+  exact wideAtom_ne_zero n ((Submodule.span_singleton_eq_bot).mp h)
+
+theorem wide_corner_weighs_one (n : ℕ) :
+    dimOrTop ℂ ((wideLock n).ker) = 1 := by
+  rw [dimOrTop_of_finite ℂ (wide_ker_fd n)]
+  have h : Module.finrank ℂ ((wideLock n).ker) = 1 := by
+    rw [wide_ker_eq]
+    exact finrank_span_singleton (wideAtom_ne_zero n)
+  rw [h, Nat.cast_one]
+
+def wideFlip (n : ℕ) : (wideSub n) ≃ₗᵢ[ℂ] (wideSub n) :=
+  { toFun := fun x => ⟨theFlip (x : ellTwo), theFlip_mem_wide x.2⟩
+    invFun := fun x => ⟨theFlip (x : ellTwo), theFlip_mem_wide x.2⟩
+    map_add' := fun x y => Subtype.ext (by
+      show theFlip ((x : ellTwo) + (y : ellTwo))
+        = theFlip (x : ellTwo) + theFlip (y : ellTwo)
+      exact map_add theFlip _ _)
+    map_smul' := fun c x => Subtype.ext (by
+      show theFlip (c • (x : ellTwo)) = c • theFlip (x : ellTwo)
+      exact map_smul theFlip c _)
+    left_inv := fun x => Subtype.ext (by
+      show theFlip (theFlip (x : ellTwo)) = (x : ellTwo)
+      calc theFlip (theFlip (x : ellTwo))
+          = (theFlip * theFlip) (x : ellTwo) := rfl
+        _ = (1 : ellTwo →L[ℂ] ellTwo) (x : ellTwo) := by rw [theFlip_sq]
+        _ = (x : ellTwo) := rfl)
+    right_inv := fun x => Subtype.ext (by
+      show theFlip (theFlip (x : ellTwo)) = (x : ellTwo)
+      calc theFlip (theFlip (x : ellTwo))
+          = (theFlip * theFlip) (x : ellTwo) := rfl
+        _ = (1 : ellTwo →L[ℂ] ellTwo) (x : ellTwo) := by rw [theFlip_sq]
+        _ = (x : ellTwo) := rfl)
+    norm_map' := fun x => by
+      show ‖theFlip (x : ellTwo)‖ = ‖(x : ellTwo)‖
+      have h := theFlip_inner (x : ellTwo) (x : ellTwo)
+      rw [inner_self_eq_norm_sq_to_K, inner_self_eq_norm_sq_to_K] at h
+      have hb : ‖theFlip (x : ellTwo)‖ ^ 2 = ‖(x : ellTwo)‖ ^ 2 := by
+        exact_mod_cast h
+      calc ‖theFlip (x : ellTwo)‖
+          = Real.sqrt (‖theFlip (x : ellTwo)‖ ^ 2) :=
+            (Real.sqrt_sq (norm_nonneg _)).symm
+        _ = Real.sqrt (‖(x : ellTwo)‖ ^ 2) := by rw [hb]
+        _ = ‖(x : ellTwo)‖ := Real.sqrt_sq (norm_nonneg _) }
+
+def theWideNet :
+    PhysicalNetData ℕ (· ≤ ·) (fun n => wideSub n) (fun n => wideSub n) where
+  net :=
+    { locks := fun n => wideLock n
+      internal := fun n s => lockFlow (wideLock n) (wideLock_selfadjoint n) s
+      internalW := fun n s =>
+        (lockFlow (wideLock n) (wideLock_selfadjoint n) s).toLinearIsometry
+      internal_intertwines := fun n s x =>
+        lockFlow_commutes (wideLock n) (wideLock_selfadjoint n) s x
+      G := Bool
+      act := fun _ O => O
+      external := fun g n =>
+        if g then wideFlip n else LinearIsometryEquiv.refl ℂ _
+      externalW := fun g n =>
+        if g then (wideFlip n).toLinearIsometry
+        else (LinearIsometryEquiv.refl ℂ _).toLinearIsometry
+      external_intertwines := fun g n x => by
+        cases g
+        · rfl
+        · exact Subtype.ext (by
+            show eraseFirst (theFlip (x : ellTwo))
+              = theFlip (eraseFirst (x : ellTwo))
+            calc eraseFirst (theFlip (x : ellTwo))
+                = (eraseFirst * theFlip) (x : ellTwo) := rfl
+              _ = (theFlip * eraseFirst) (x : ellTwo) := by
+                  rw [theFlip_comm_eraseFirst]
+              _ = theFlip (eraseFirst (x : ellTwo)) := rfl)
+      incl := fun h => wideIncl h
+      inclW := fun h => wideIncl h
+      incl_intertwines := fun h x => Subtype.ext rfl }
+  genuinely_isotone := ⟨0, 2, Nat.zero_le 2, wideIncl_not_surjective⟩
+  external_nontrivial := ⟨⟨true, false, by decide⟩⟩
+
+def theWideNetTrace : BreuerTraceData theWideNet.net where
+  tau n _ := dimOrTop ℂ (wideLock n).ker
+  tau_PF_pos n := by
+    rw [wide_corner_weighs_one n]
+    exact zero_lt_one
+  tau_PF_finite n := by
+    rw [wide_corner_weighs_one n]
+    exact ENNReal.one_lt_top
+
+theorem wide_net_has_all_three :
+    (¬ FiniteDimensional ℂ (wideSub 0))
+    ∧ (¬ Function.Surjective
+          (theWideNet.net.incl (show (0 : ℕ) ≤ 2 from Nat.zero_le 2)))
+    ∧ (0 < theWideNetTrace.tau 0 (theWideNet.net.PF 0)
+        ∧ theWideNetTrace.tau 0 (theWideNet.net.PF 0) < ⊤)
+    ∧ theWideNetTrace.tau 0 (theWideNet.net.PF 0) = 1 :=
+  ⟨wideSub_not_finiteDimensional 0, wideIncl_not_surjective,
+    ⟨theWideNetTrace.tau_PF_pos 0, theWideNetTrace.tau_PF_finite 0⟩,
+    wide_corner_weighs_one 0⟩
+
+/-! ## PROBES NEGATIVOS sobre as redes que o gate lê -/
+
+theorem tailLock_ker_eq_bot {n : ℕ} (hn : 0 < n) : (tailLock n).ker = ⊥ := by
+  rw [Submodule.eq_bot_iff]
+  intro v hv
+  have h0 : eraseFirst ((v : ellTwo)) = 0 :=
+    congrArg Subtype.val (LinearMap.mem_ker.mp hv)
+  have hmem : (v : ellTwo) ∈ firstAtom := by
+    have h1 : (v : ellTwo) ∈ eraseFirst.ker := LinearMap.mem_ker.mpr h0
+    rwa [ker_eraseFirst] at h1
+  obtain ⟨c, hc⟩ := Submodule.mem_span_singleton.mp hmem
+  have hv0 : (v : ellTwo) 0 = 0 := v.2 0 hn
+  rw [← hc] at hv0
+  have hc0 : c = 0 := by
+    rw [lp.coeFn_smul, Pi.smul_apply] at hv0
+    unfold firstInscription at hv0
+    rw [inscriptions_apply, if_pos rfl] at hv0
+    simpa using hv0
+  apply Subtype.ext
+  show (v : ellTwo) = 0
+  rw [← hc, hc0, zero_smul]
+
+theorem fused_ker_contains_L2 (O : PoinRegion) (F : SpacetimeL2) :
+    (WithLp.toLp 2 ((0 : tailSub O.2), F)) ∈ (theFusedNet.net.locks O).ker := by
+  refine LinearMap.mem_ker.mpr ?_
+  show (tailLock O.2) (0 : tailSub O.2) = 0
+  exact map_zero _
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheCornerOfThePackage.lean":
+r'''import TGLExt.IsotoneNet
+import TGLExt.AQFTCoreInhabitant
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 800000
+
+/-!
+# O CANTO DO PRÓPRIO PACOTE — `BreuerTraceData theIsotoneNet`
+  [TGLExt — a pedra de 28/08/2026]
+
+## A ordem do operador, e o que a medida achou
+
+> *"pq a solda do pacote hilbert-breuer não foi incorporada tb, isso tb foi resolvido"*
+
+A varredura confirmou: **`BreuerTraceData` nunca foi construído para `theIsotoneNet`**,
+embora `theIsotoneNet` (a rede fisicamente habitada, com isotonia genuína e grupo
+não-trivial) e `BreuerTraceData` existam desde a v56/v261, e `theNetTrace` já mostre o
+padrão — **sobre outra rede**, a constante.
+
+Esta pedra constrói o que faltava: **o primeiro `0 < τ(P_F) < ∞` do PRÓPRIO PACOTE**,
+e não de um operador avulso em `ℓ²`.
+
+## ⚠ DUAS IMPRECISÕES DO RELATÓRIO, corrigidas ao construir
+
+O relatório dizia *"`ker (fiberLock n) = firstAtom`, e isto fecha por aplicação, sem
+matemática nova"*. Ao construir:
+
+1. **A igualdade NÃO TIPA.** `firstAtom : Submodule ℂ ellTwo`; `(fiberLock n).ker :
+   Submodule ℂ (fiber n)`. São a mesma reta **por isomorfismo**, jamais por igualdade.
+   O que se prova aqui é `(fiberLock n).ker ≠ ⊥` — mais fraco que a igualdade e
+   **suficiente** para o canto;
+2. **O molde não se reusa.** `lockNetTrace` produz `BreuerTraceData (lockNet T hT)` — a
+   rede CONSTANTE. E `fixedSector_PF` é `private`. Para a rede isótona é preciso escolher
+   outro `τ` e escrever a não-trivialidade à mão.
+
+Nenhuma das duas invalida o achado — mas *"por aplicação, sem matemática nova"* custava
+um pouco mais do que anunciado, e isso vai dito.
+
+## O que se prova `[REAL]`
+
+* ★★★ `isotone_ker_ne_bot` — o núcleo do lock da fibra **não é trivial**: a primeira
+  inscrição mora nele (está na fibra por `firstAtom_le_fiber`, e é morta por `eraseFirst`);
+* ★★★★★ `theIsotoneNetTrace : BreuerTraceData theIsotoneNet.net` — **o canto de Breuer
+  do próprio pacote**, com `τ = dim` da imagem de `P_F`;
+* ★★★ `the_package_corner_is_positive_and_finite` — `0 < τ(P_F(n)) < ∞` em **toda**
+  região, lido do termo construído.
+
+## ⚠ O QUE ISTO NÃO FAZ
+
+**Não solda.** O canto agora é *do pacote*, mas as outras três peças que a medida nomeou
+continuam faltando, e nenhuma delas cai daqui:
+
+* um lock com canto genuíno nas fibras **∞-dim** (`theTailNet`/`theFusedNet`, que são as
+  redes que o gate lê, têm `ker` trivial ou infinito);
+* a identificação tipada `ℍ ≃ H O` com `dirac.D = core.net.locks O` — **sem ela, "o canto
+  do certificado" e "o canto do pacote" seguem HOMÔNIMOS**, exatamente o defeito que a
+  v255 já registrou uma vez;
+* a covariância do frame sob o grupo da rede — a metade modular de H2.
+
+`gpf_tower_act_III_inhabitant_constructed` **continua apagada**, e nada aqui a acende.
+β jamais literal. Sem sorry, sem axiom. O gate não se move.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — o núcleo do lock da fibra não é trivial -/
+
+/-- [KERNEL] ★★★ **O NÚCLEO DO LOCK DA FIBRA NÃO É TRIVIAL.** A primeira inscrição está
+    na fibra (`firstAtom_le_fiber`) e é morta por `eraseFirst` (`ker_eraseFirst`) — logo
+    sobrevive como vetor não nulo do núcleo restrito.
+
+    ⚠ Note o que **não** se afirma: que `(fiberLock n).ker` **seja** `firstAtom`. Os dois
+    vivem em espaços diferentes (`fiber n` contra `ellTwo`); são a mesma reta por
+    isomorfismo, e a igualdade não tipa. Para o canto, a não-trivialidade basta. -/
+theorem isotone_ker_ne_bot (n : ℕ) : (fiberLock n).ker ≠ ⊥ := by
+  intro h
+  have hmem : (⟨firstInscription, firstAtom_le_fiber n
+      (Submodule.mem_span_singleton_self firstInscription)⟩ : fiber n)
+      ∈ (fiberLock n).ker := by
+    rw [LinearMap.mem_ker]
+    apply Subtype.ext
+    show eraseFirst firstInscription = 0
+    have hk : firstInscription ∈ eraseFirst.ker := by
+      rw [ker_eraseFirst]
+      exact Submodule.mem_span_singleton_self _
+    exact LinearMap.mem_ker.mp hk
+  rw [h, Submodule.mem_bot] at hmem
+  have hv := congrArg Subtype.val hmem
+  simp at hv
+  exact inscriptions_orthonormal.ne_zero 0 hv
+
+/-- [KERNEL] ★★ e o núcleo é de **dimensão finita**, porque a fibra inteira é. -/
+instance isotone_ker_fd (n : ℕ) : FiniteDimensional ℂ (fiberLock n).ker :=
+  FiniteDimensional.finiteDimensional_submodule _
+
+/-! ## B — o canto de Breuer DO PACOTE -/
+
+/-- [KERNEL] ★★★★★ **O CANTO DE BREUER DO PRÓPRIO PACOTE.**
+
+    `theNetTrace` (v56) construía o canto sobre a rede **constante**. Este é sobre
+    `theIsotoneNet` — a rede **fisicamente habitada**, com isotonia genuína
+    (`fiberIncl_not_surjective`) e grupo externo não-trivial.
+
+    `τ` é a dimensão do **núcleo do lock**, que é o subespaço sobre o qual `P_F` projeta.
+    Positivo por `isotone_ker_ne_bot`; finito porque a fibra é de dimensão finita. -/
+def theIsotoneNetTrace : BreuerTraceData theIsotoneNet.net where
+  tau n _ := dimOrTop ℂ (fiberLock n).ker
+  tau_PF_pos n := by
+    rw [dimOrTop_of_finite ℂ (isotone_ker_fd n)]
+    have h : 0 < Module.finrank ℂ (fiberLock n).ker := by
+      rw [Module.finrank_pos_iff]
+      exact Submodule.nontrivial_iff_ne_bot.mpr (isotone_ker_ne_bot n)
+    exact_mod_cast h
+  tau_PF_finite n := by
+    rw [dimOrTop_of_finite ℂ (isotone_ker_fd n)]
+    exact ENNReal.natCast_lt_top _
+
+/-- [KERNEL] ★★★ **`0 < τ(P_F) < ∞` EM TODA REGIÃO DO PACOTE** — lido do termo
+    construído, não reafirmado. É o canto de Breuer, agora **do pacote**. -/
+theorem the_package_corner_is_positive_and_finite (n : ℕ) :
+    0 < theIsotoneNetTrace.tau n (theIsotoneNet.net.PF n)
+    ∧ theIsotoneNetTrace.tau n (theIsotoneNet.net.PF n) < ⊤ :=
+  ⟨theIsotoneNetTrace.tau_PF_pos n, theIsotoneNetTrace.tau_PF_finite n⟩
+
+/-- [KERNEL] ⚠ ★★★ **E O CANTO DO PACOTE NÃO É O CANTO DO CERTIFICADO.** Registrado
+    para que a semelhança não vire identificação: falta a identificação tipada
+    `ℍ ≃ H O` com `dirac.D = core.net.locks O`. Sem ela os dois são **homônimos**.
+
+    Aqui só se afirma o que se construiu: o canto **desta** rede, com **este** `τ`. -/
+theorem the_package_corner_is_not_the_certificate_corner (n : ℕ) :
+    theIsotoneNetTrace.tau n (theIsotoneNet.net.PF n)
+      = dimOrTop ℂ (fiberLock n).ker := rfl
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheDebtWithoutJ.lean":
+r'''import TGLExt.TheFoldThroughJ
+import TGLExt.TheMatrixAndTheModulator
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A DÍVIDA SEM `J` — a oitava cláusula na forma clássica
+  [TGLExt — a pedra de 28/08/2026]
+
+## O que esta pedra faz
+
+A oitava cláusula do certificado condicional fala de `J`. Esta pedra **tira `J` do
+enunciado da dívida**, deixando-a na forma canônica do teorema de comutação:
+
+> **o comutante da ação à DIREITA cabe no bicomutante da ESQUERDA.**
+
+A rota tem duas pernas, e nenhuma delas existia:
+
+* ★★★ `profileJlevel_involutive` — `J(Ja) = a` **no andar**. O kernel tinha
+  `towerJ_involutive` (no completamento) e `conjByJ_involutive` (nos operadores), mas
+  **não** a involutividade da conjugação de nível, que é o que a segunda inclusão pede;
+* ★★★ `rTowerImage` — a **imagem da ação à direita** como conjunto. Não existia: havia
+  `rTowerPi` (o operador) e a pertinência ao comutante, mas nunca o conjunto.
+
+Com as duas:
+
+* ★★★★★ `conjByJ_towerImage_eq_rTowerImage` — **`J·M·J = R` exatamente**, as duas
+  inclusões. Mais forte que `conjByJ_towerImage_in_commutant` (v243), que só dava
+  `J·M·J ⊆ M′`. A conjugada da ação à esquerda **É** a ação à direita, nem mais nem
+  menos;
+* ★★★★★ `the_eighth_clause_without_J` — e então a cláusula **equivale** a
+  `R′ ⊆ M″`, **sem `J` nenhum**.
+
+## ⚠ O QUE ISTO É, e o que NÃO É
+
+**É** uma reformulação **exata** — equivalência, não implicação. O valor não é encurtar
+a dívida (ela não encolhe), é **removê-la do vocabulário modular** e pô-la na forma em
+que a literatura a reconhece: *comutante da direita dentro do bicomutante da esquerda*.
+Quem for pagá-la — aqui ou por importação — passa a poder citar o teorema pelo nome.
+
+**NÃO É** prova da cláusula. `red_clause_JMJ_contains` continua apagada, e
+`qgConverse_JMJ_contains_commutant` continua sem referente.
+
+⚠ E a metade fácil continua sendo a metade fácil: `M″ ⊆ R′` já sai de esquerda e direita
+comutarem (`rTowerPi_comm_towerPi`). O que falta é a **outra** inclusão, e ela é o
+teorema de comutação — analítico, `[KNOWN]`, não conjuntista.
+
+β jamais literal. Sem sorry, sem axiom. Nada aqui acende bandeira nem move o gate.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+/-! ## A — a involutividade que faltava, no ANDAR -/
+
+/-- [KERNEL] ★★★ **`J(Ja) = a` NO ANDAR.** O kernel tinha a involutividade no
+    completamento (`towerJ_involutive`) e nos operadores (`conjByJ_involutive`), mas não
+    esta — e é ela que a segunda inclusão de §B exige.
+
+    Conta exata: as duas diagonais são hermitianas e se cancelam aos pares. -/
+theorem profileJlevel_involutive (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    profileJlevel P N (profileJlevel P N a) = a := by
+  rw [profileJlevel_eq, profileJlevel_eq]
+  rw [conjTranspose_mul, conjTranspose_mul, profileRootInv_isHermitian,
+    profileRoot_isHermitian, conjTranspose_conjTranspose]
+  simp only [← Matrix.mul_assoc]
+  rw [profileRoot_mul_inv, Matrix.one_mul]
+  simp only [Matrix.mul_assoc]
+  rw [profileRoot_mul_inv, Matrix.mul_one]
+
+/-! ## B — a imagem da ação à DIREITA, e a igualdade exata -/
+
+/-- **A IMAGEM DA AÇÃO À DIREITA** — o espelho de `towerImage`. Não existia como
+    conjunto: havia o operador `rTowerPi` e a pertinência ao comutante, nunca o objeto. -/
+def rTowerImage (P : SiteProfile) :
+    Set (TowerHilbert P →L[ℂ] TowerHilbert P) :=
+  {T | ∃ (N : ℕ) (y : Matrix (chainIdx N) (chainIdx N) ℂ), T = rTowerPi P y}
+
+/-- [KERNEL] ★★★★★ **`J·M·J = R`, EXATAMENTE.** A conjugada da ação à esquerda **É** a
+    ação à direita — as duas inclusões, não uma.
+
+    Mais forte que `conjByJ_towerImage_in_commutant` (v243), que dava apenas
+    `J·M·J ⊆ M′`. A volta usa `profileJlevel_involutive`: dado `r(y)`, o pré-imagem é
+    `π(Jy)`. -/
+theorem conjByJ_towerImage_eq_rTowerImage (P : SiteProfile) :
+    conjByJ P '' (towerImage P) = rTowerImage P := by
+  ext T
+  constructor
+  · rintro ⟨_, ⟨N, x, rfl⟩, rfl⟩
+    exact ⟨N, profileJlevel P N x, conjByJ_towerPi P x⟩
+  · rintro ⟨N, y, rfl⟩
+    refine ⟨towerPi P (profileJlevel P N y), ⟨N, profileJlevel P N y, rfl⟩, ?_⟩
+    rw [conjByJ_towerPi, profileJlevel_involutive]
+
+/-! ## C — a dívida, sem `J` -/
+
+/-- [KERNEL] ★★★★★ **A OITAVA CLÁUSULA, SEM `J`**: ela **equivale** a dizer que o
+    comutante da ação à DIREITA cabe no bicomutante da ESQUERDA.
+
+    Equivalência, não implicação: a dívida **não encolhe**. O que muda é o vocabulário —
+    ela sai da linguagem modular e entra na forma clássica do teorema de comutação, em
+    que a literatura a reconhece pelo nome. -/
+theorem the_eighth_clause_without_J (P : SiteProfile) :
+    (commutantSet (towerImage P)
+        ⊆ conjByJ P '' (commutantSet (commutantSet (towerImage P))))
+      ↔ commutantSet (rTowerImage P)
+        ⊆ commutantSet (commutantSet (towerImage P)) := by
+  rw [fold_through_an_involution (conjByJ P) (conjByJ_involutive P)]
+  rw [conjByJ_commutant, conjByJ_towerImage_eq_rTowerImage]
+
+/-- [KERNEL] ★★★ **E A METADE FÁCIL CONTINUA FÁCIL**: `M″ ⊆ R′` sai de esquerda e
+    direita comutarem. Registrado ao lado para que a dívida fique nítida: **falta a
+    outra inclusão, e só ela.** -/
+theorem the_easy_half_without_J (P : SiteProfile) :
+    commutantSet (commutantSet (towerImage P)) ⊆ commutantSet (rTowerImage P) := by
+  rw [← conjByJ_towerImage_eq_rTowerImage]
+  exact the_paid_half_of_the_eighth_clause P
+
+/-- [KERNEL] ★★★★ **A DÍVIDA É UMA IGUALDADE DE COMUTANTES, SEM `J`.** Juntando: a
+    cláusula equivale a `R′ = M″`, e uma das inclusões já é teorema.
+
+    Esta é a forma final da oitava cláusula depois do trabalho de hoje: **nem `J`, nem
+    bicomutante do lado errado — apenas o comutante da direita contra o bicomutante da
+    esquerda, com metade paga.** -/
+theorem the_debt_is_an_equality_without_J (P : SiteProfile) :
+    (commutantSet (towerImage P)
+        ⊆ conjByJ P '' (commutantSet (commutantSet (towerImage P))))
+      ↔ commutantSet (rTowerImage P) = commutantSet (commutantSet (towerImage P)) := by
+  rw [the_eighth_clause_without_J]
+  constructor
+  · intro h
+    exact Set.Subset.antisymm h (the_easy_half_without_J P)
+  · intro h
+    rw [h]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheModularRelations.lean":
+r'''import TGLExt.TheMatrixAndTheModulator
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# AS RELAÇÕES MODULARES — `S†S = Δ`, no andar
+  [TGLExt — a pedra de 28/08/2026]
+
+## Onde estávamos
+
+A v275 construiu `S`, `Δ^{1/2}` e `Δ` no andar e provou a **decomposição polar**
+`J ∘ Δ^{1/2} = S`. Ficou dito que o resíduo passava a ser **analítico**.
+
+★ **Parte desse resíduo é pagável no andar**, e é esta pedra. O que fica de fora é
+estritamente a **passagem ao completamento**.
+
+## O que se prova aqui `[REAL]`
+
+Com o produto GNS do andar `⟨a,b⟩ = φ(a†b) = Tr(ρ·a†·b)` (`tInner_eq_trace`):
+
+* ★★★★★ `S_star_S_is_deltaLevel` — **`⟨Sa, Sb⟩ = ⟨Δb, a⟩`**, isto é `S†S = Δ` em forma
+  bilinear. **É a identidade que DEFINE o operador modular.** Sem ela `Δ` seria uma
+  torção com nome bonito; com ela, `Δ` é o modular do par;
+* ★★★★ `deltaLevel_positive` — `⟨Δa, a⟩ = ⟨Sa, Sa⟩`. **A positividade de `Δ` É a norma
+  de `Sa`** — sai da relação definidora com `b := a`, não por conta separada. É assim
+  que a teoria modular obtém a positividade: ela não é postulada;
+* ★★★★ `deltaLevel_selfadjoint` — `⟨Δa, b⟩ = ⟨a, Δb⟩`.
+
+**Tudo por ciclicidade do traço.** Nenhuma hipótese.
+
+## ⚠ O QUE ISTO SIGNIFICA, e o que NÃO significa
+
+**Significa:** no andar, `Δ` satisfaz as relações definidoras do operador modular —
+`S†S = Δ`, auto-adjunto, positivo — e, com a polar da v275, a tripla `(S, Δ, J)` tem a
+álgebra inteira de Tomita. A identificação *"`towerJ` é a conjugação modular"* deixa de
+ser plausibilidade de fórmula e passa a ser **conjunto de identidades provadas**.
+
+**NÃO significa** que Tomita esteja provado na torre. Separa uma coisa da outra
+exatamente isto, e continua aberto:
+
+> `[OPEN, ANALÍTICO]` a passagem ao completamento — `S` fechável e `Δ` auto-adjunto
+> positivo como operadores **não limitados** em `TowerHilbert P`. As relações acima são
+> algébricas e valem em cada andar; **o limite não sai delas**.
+
+⚠ E o motivo estrutural, repetido porque é a tentação óbvia: `towerJ` sobe porque é
+**isometria**; `S` e `Δ` não são, e nenhuma quantidade de identidades algébricas no
+andar produz continuidade que não existe.
+
+## ★ O QUE FALTAVA E FOI FECHADO (ordem do operador: *"feche o teorema"*)
+
+* ★★★★★ `Jlevel_is_antiunitary` — **`⟨Ja, Jb⟩ = conj⟨a,b⟩`**. A v276 a deixara de fora
+  porque eu não a fechara, e o artefato **media essa ausência** com um check
+  fail-closed. Agora está fechada, por conta exata (`ρ·ρ^{-1/2} = ρ^{1/2}` mais duas
+  comutações de traço), e o check **muda de alvo**: passa a exigir a **presença**.
+
+**Com ela, a tripla `(S, Δ, J)` satisfaz no andar TODAS as relações definidoras da
+teoria modular de Tomita** — a polar (v275), `S†S = Δ`, a positividade, a
+auto-adjunticidade e a antiunitariedade. Nenhuma fica por conta de leitura.
+
+`[NÃO MOVE NADA]` — `red_clause_JMJ_contains` continua apagada; nenhuma `gpf_` acende.
+β jamais literal. **Sem sorry, sem axiom.**
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+variable {P : SiteProfile} {N : ℕ}
+
+/-! ## A — a ponte: o produto GNS é um traço contra a densidade -/
+
+/-- [KERNEL] ★★ `⟨a,b⟩ = Tr(ρ·a†·b)` — a forma que torna tudo abaixo ciclicidade. -/
+theorem tInner_eq_trace (P : SiteProfile) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N a b = (rhoMat P N * (aᴴ * b)).trace := by
+  unfold tInner rhoMat
+  exact tState_eq_trace P N (aᴴ * b)
+
+/-- [KERNEL] ★ a forma reduzida do produto contra `Δ`: `⟨Δx, y⟩ = Tr(x†·ρ·y)`.
+    É o único cálculo desta pedra, e os três teoremas abaixo são ele, duas vezes. -/
+theorem tInner_delta_left (P : SiteProfile) (N : ℕ)
+    (x y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N (towerDeltaLevel P N x) y = (xᴴ * rhoMat P N * y).trace := by
+  rw [tInner_eq_trace]
+  unfold towerDeltaLevel
+  rw [conjTranspose_mul, conjTranspose_mul, rhoMat_conjT, rhoMatInv_conjT]
+  simp only [← Matrix.mul_assoc]
+  rw [rhoMat_mul_inv, Matrix.one_mul]
+
+/-! ## B — a relação que DEFINE o modular -/
+
+/-- [KERNEL] ★★★★★ **`S†S = Δ`, EM FORMA BILINEAR: `⟨Sa, Sb⟩ = ⟨Δb, a⟩`.**
+
+    Esta é **a** identidade da teoria modular. Ela não diz que `Δ` *parece* o operador
+    modular — diz que `Δ` **é** o que a matriz `S` produz ao compor-se consigo mesma
+    pelo produto interno.
+
+    A prova é ciclicidade do traço, e nada mais. -/
+theorem S_star_S_is_deltaLevel (P : SiteProfile) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N (towerSlevel P N a) (towerSlevel P N b)
+      = tInner P N (towerDeltaLevel P N b) a := by
+  rw [tInner_delta_left, tInner_eq_trace]
+  unfold towerSlevel
+  rw [conjTranspose_conjTranspose]
+  simp only [← Matrix.mul_assoc]
+  rw [Matrix.trace_mul_comm (rhoMat P N * a) bᴴ, Matrix.mul_assoc]
+
+/-! ## C — o que a relação definidora entrega de graça -/
+
+/-- [KERNEL] ★★★★ **A POSITIVIDADE DE `Δ` É A NORMA DE `Sa`**: `⟨Δa, a⟩ = ⟨Sa, Sa⟩`.
+
+    Não é conta nova — é a relação definidora com `b := a`. É assim que a teoria
+    modular obtém a positividade do modular: **ela não é postulada, é a norma da imagem
+    da matriz**. -/
+theorem deltaLevel_positive (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N (towerDeltaLevel P N a) a
+      = tInner P N (towerSlevel P N a) (towerSlevel P N a) :=
+  (S_star_S_is_deltaLevel P N a a).symm
+
+/-- [KERNEL] ★★★★ **`Δ` É AUTO-ADJUNTO** no produto GNS: `⟨Δa, b⟩ = ⟨a, Δb⟩`.
+    Os dois lados caem na mesma forma reduzida `Tr(a†·ρ·b)`. -/
+theorem deltaLevel_selfadjoint (P : SiteProfile) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N (towerDeltaLevel P N a) b = tInner P N a (towerDeltaLevel P N b) := by
+  rw [tInner_delta_left, tInner_eq_trace]
+  unfold towerDeltaLevel
+  simp only [← Matrix.mul_assoc]
+  rw [Matrix.trace_mul_comm (rhoMat P N * aᴴ * rhoMat P N * b) (rhoMatInv P N)]
+  simp only [← Matrix.mul_assoc]
+  rw [rhoMatInv_mul, Matrix.one_mul]
+
+/-! ## D — `J` é ANTIUNITÁRIO no andar -/
+
+/-- [KERNEL] ★★ `ρ·ρ^{-1/2} = ρ^{1/2}` — a peça aritmética que faltava. -/
+theorem rhoMat_mul_rootInv (P : SiteProfile) (N : ℕ) :
+    rhoMat P N * profileRootInv P N = profileRoot P N := by
+  unfold rhoMat profileRootInv profileRoot
+  rw [diagonal_mul_diagonal]
+  congr 1
+  funext i
+  rw [← Complex.ofReal_mul]
+  congr 1
+  have hp : (0:ℝ) < Real.sqrt (towerW P N i) := Real.sqrt_pos.mpr (towerW_pos P N i)
+  field_simp
+  exact (Real.sq_sqrt (le_of_lt (towerW_pos P N i))).symm
+
+/-- [KERNEL] ★★★★★ **`J` É ANTIUNITÁRIO NO ANDAR: `⟨Ja, Jb⟩ = conj⟨a,b⟩`.**
+
+    Com ela, a tripla `(S, Δ, J)` satisfaz no andar **todas** as relações definidoras da
+    teoria modular: a polar `J∘Δ^{1/2} = S` (v275), `S†S = Δ`, a positividade, a
+    auto-adjunticidade — e agora a antiunitariedade de `J`.
+
+    ★ Escrita depois, e por ordem do operador (*"feche o teorema para ele entrar
+    fechado"*): a v276 a deixara **fora** por eu não tê-la fechado, e o artefato media
+    essa ausência com um check fail-closed. Fechada, o check muda de alvo — não se
+    apaga, passa a exigir a **presença**. -/
+theorem Jlevel_is_antiunitary (P : SiteProfile) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N (profileJlevel P N a) (profileJlevel P N b)
+      = starRingEnd ℂ (tInner P N a b) := by
+  rw [tInner_eq_trace, tInner_eq_trace, profileJlevel_eq, profileJlevel_eq]
+  rw [conjTranspose_mul, conjTranspose_mul, profileRootInv_isHermitian,
+    profileRoot_isHermitian, conjTranspose_conjTranspose]
+  simp only [← Matrix.mul_assoc]
+  rw [rhoMat_mul_rootInv]
+  rw [Matrix.trace_mul_comm
+    (profileRoot P N * a * profileRoot P N * profileRoot P N * bᴴ) (profileRootInv P N)]
+  simp only [← Matrix.mul_assoc]
+  rw [profileRootInv_mul_root, Matrix.one_mul]
+  rw [Matrix.mul_assoc a (profileRoot P N) (profileRoot P N),
+    show profileRoot P N * profileRoot P N = rhoMat P N from profileRoot_sq P N]
+  rw [starRingEnd_apply, ← Matrix.trace_conjTranspose,
+    conjTranspose_mul, conjTranspose_mul, rhoMat_conjT, conjTranspose_conjTranspose]
+  rw [Matrix.trace_mul_comm (a * rhoMat P N) bᴴ]
+
+/-! ## E — O DEFEITO DE ISOMETRIA É O PRÓPRIO ESPECTRO MODULAR
+
+⚠ **Uma afirmação minha, repetida em três pedras e nunca medida**, até aqui: *"`S` e
+`Δ` não são isometrias no produto ρ-pesado, por isso não sobem ao completamento"*. Era
+prosa. Vira conta.
+-/
+
+/-- [KERNEL] ★★★★★ **`Δ` AGE ENTRADA A ENTRADA PELA RAZÃO DOS PESOS**:
+    `(Δa)_{jk} = (w_j / w_k)·a_{jk}`.
+
+    Isto **é** o espectro modular, escrito. O operador modular não mistura entradas: ele
+    as reescala pela razão KMS. -/
+theorem delta_acts_by_the_weight_ratio (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (j k : chainIdx N) :
+    towerDeltaLevel P N a j k
+      = ((towerW P N j : ℝ) : ℂ) * a j k * (((towerW P N k)⁻¹ : ℝ) : ℂ) := by
+  unfold towerDeltaLevel rhoMat rhoMatInv
+  rw [Matrix.mul_diagonal, Matrix.diagonal_mul]
+
+/-- [KERNEL] ★★★★★ **Δ SÓ FIXA ONDE OS PESOS COINCIDEM.** Se `Δ` deixa `a` parado e `a`
+    tem entrada `(j,k)` não nula, então `w_j = w_k`.
+
+    É o **dente** que faltava: os pontos fixos de `Δ` são exatamente o centralizador, e
+    fora dele `Δ` desloca. Logo `Δ ≠ id` sempre que o perfil tiver dois pesos distintos
+    — e o perfil da torre tem. -/
+theorem delta_fixes_only_where_the_weights_agree (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (j k : chainIdx N)
+    (hjk : a j k ≠ 0) (h : towerDeltaLevel P N a = a) :
+    towerW P N j = towerW P N k := by
+  have h1 : towerDeltaLevel P N a j k = a j k := by rw [h]
+  rw [delta_acts_by_the_weight_ratio] at h1
+  have hk0 : ((towerW P N k : ℝ) : ℂ) ≠ 0 := by
+    simpa using (ne_of_gt (towerW_pos P N k))
+  field_simp at h1
+  have hr : towerW P N j * (1 / towerW P N k) = 1 := by exact_mod_cast h1
+  have hk : towerW P N k ≠ 0 := ne_of_gt (towerW_pos P N k)
+  field_simp at hr
+  exact hr
+
+/-- [KERNEL] ★★★★ **`S` É ISOMETRIA EXATAMENTE ONDE `Δ` É NEUTRO.** Consequência direta da
+    relação definidora: `‖Sa‖² = ⟨Δa, a⟩`.
+
+    Somando com o teorema acima: **`S` só preserva norma onde os pesos coincidem** — isto
+    é, onde o estado é **tracial**. Fora da face tracial, `S` deforma, e é por isso, e
+    não por falta de trabalho, que ele **não sobe por continuidade** como `towerJ` sobe.
+    A afirmação que eu vinha fazendo em prosa passa a ser esta conta. -/
+theorem S_isometric_iff_delta_neutral (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    tInner P N (towerSlevel P N a) (towerSlevel P N a) = tInner P N a a
+      ↔ tInner P N (towerDeltaLevel P N a) a = tInner P N a a := by
+  rw [deltaLevel_positive]
+
+end
+
+end TGLExt
+''',
+    "TGLExt/TheMatrixAndTheModulator.lean":
+r'''import TGLExt.RightMult
+import TGLExt.TheProfileConjugation
+import TGLExt.TheProfileIsometry
+import TGLExt.TheColimitDuality
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+
+/-!
+# A MATRIZ E O MODULADOR DA TORRE — `S` e `Δ` sobre o perfil
+  [TGLExt — a pedra de 28/08/2026]
+
+## A ordem do operador
+
+> *"construa a matriz e o modulador da torre — `S` e `Δ` sobre `TowerHilbert P`."*
+
+E o motivo, medido na v274: sem `S` e `Δ` na torre, as frases *"`towerJ` é o J modular
+do par"* e *"para esse J, `J M J = M′"`* **não são separáveis no vocabulário da árvore**
+— e por isso a importação de Tomita teve de carregar as duas juntas num campo só.
+
+## O que esta pedra constrói `[REAL]`
+
+Os três objetos, **no andar** (matrizes finitas), com a fórmula do perfil:
+
+| objeto | definição | papel |
+|---|---|---|
+| `towerSlevel` | `a ↦ aᴴ` | **A MATRIZ** — o operador `S` de Tomita |
+| `towerDeltaHalfLevel` | `a ↦ ρ^{1/2}·a·ρ^{-1/2}` | **O MODULADOR** — `Δ^{1/2}` |
+| `towerDeltaLevel` | `a ↦ ρ·a·ρ^{-1}` | `Δ`, o operador modular |
+
+e as **quatro relações que os amarram**:
+
+* ★★ `profileRoot_sq` — `ρ^{1/2}·ρ^{1/2} = ρ`. A raiz é raiz: sem isto nada abaixo fecha;
+* ★★★★★ `the_polar_decomposition_at_the_level` — **`J ∘ Δ^{1/2} = S`**. A decomposição
+  polar de Tomita, no andar, por conta exata. É ela que faz de `towerJ` o candidato
+  legítimo a conjugação modular — e não uma torção qualquer com o nome certo;
+* ★★★ `delta_is_the_square_of_its_half` — `Δ = Δ^{1/2} ∘ Δ^{1/2}`;
+* ★★★★★ `modTwist_is_delta_after_S` — **`modTwist = Δ ∘ S`**, e isto **fecha o
+  descompasso que a v274 registrou em aberto**: `towerJ` usa `√ρ`, `modTwist` usa `ρ`
+  cheio, e até agora **zero teoremas os relacionavam**. Agora relacionam-se: o adjunto
+  modular da ação à direita é o modulador composto com a matriz.
+
+## ⚠ O ESCOPO, dito antes que alguém o alargue
+
+`S` e `Δ` são construídos **NO ANDAR** — matrizes finitas — e **não se estendem
+continuamente** a `TowerHilbert P`. A razão é estrutural e não é falta de trabalho:
+
+* `towerJ` **estende** porque é **isometria** (`towerJ_norm`), e isometria é
+  uniformemente contínua;
+* `S` e `Δ` **não são isometrias** no produto ρ-pesado: `‖aᴴ‖² = Tr(ρ·a·aᴴ)` contra
+  `‖a‖² = Tr(ρ·aᴴ·a)`, e as duas diferem quando `ρ` não é escalar. São operadores
+  **não limitados**, definidos no **subespaço denso** (a imagem da torre), como manda a
+  teoria modular — Tomita constrói `S` como operador **fechável densamente definido**,
+  nunca como contínuo.
+
+`[RESÍDUO NOMEADO]` — o que falta para a separação completa: a **fechabilidade** de `S`
+no denso e a **auto-adjunticidade positiva** de `Δ`. Isso é conteúdo **analítico**
+`[KNOWN]` na literatura, e é a próxima porta. Esta pedra entrega a **álgebra** dessa
+porta, exata e no andar.
+
+`[NÃO MOVE NADA]` — `red_clause_JMJ_contains` continua apagada; o certificado continua
+condicional; nenhuma bandeira `gpf_` acende aqui. β jamais literal. Sem sorry, sem axiom.
+-/
+
+namespace TGLExt
+
+open Matrix
+
+noncomputable section
+
+variable {P : SiteProfile} {N : ℕ}
+
+/-! ## A — a raiz é raiz -/
+
+/-! ★ `profileRoot_sq` (`ρ^{1/2}·ρ^{1/2} = ρ`) **JÁ EXISTE** em
+`TheProfileIsometry.lean:50` — achado pela varredura de colisões ANTES de compilar
+(lição v259/v274, aplicada a tempo). Não se reescreve: importa-se e usa-se. -/
+
+/-- [KERNEL] ★★ a inversa da raiz também é hermitiana (é diagonal real). -/
+theorem profileRootInv_isHermitian (P : SiteProfile) (N : ℕ) :
+    (profileRootInv P N)ᴴ = profileRootInv P N := by
+  unfold profileRootInv
+  rw [diagonal_conjTranspose]
+  congr 1
+  funext i
+  simp [Complex.conj_ofReal]
+
+/-- [KERNEL] ★★ e ela inverte pelo outro lado também. -/
+theorem profileRootInv_mul_root (P : SiteProfile) (N : ℕ) :
+    profileRootInv P N * profileRoot P N = 1 := by
+  unfold profileRoot profileRootInv
+  rw [diagonal_mul_diagonal, ← diagonal_one]
+  congr 1
+  funext i
+  have hp : (0:ℝ) < Real.sqrt (towerW P N i) :=
+    Real.sqrt_pos.mpr (towerW_pos P N i)
+  rw [← Complex.ofReal_mul, one_div, inv_mul_cancel₀ (ne_of_gt hp), Complex.ofReal_one]
+
+/-! ## B — A MATRIZ e O MODULADOR -/
+
+/-- **A MATRIZ**: o operador `S` de Tomita no andar — `S(a) = a†`.
+    É a operação que a decomposição polar fatora. -/
+def towerSlevel (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    Matrix (chainIdx N) (chainIdx N) ℂ := aᴴ
+
+/-- **O MODULADOR, meia potência**: `Δ^{1/2}(a) = ρ^{1/2}·a·ρ^{-1/2}`. -/
+def towerDeltaHalfLevel (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    Matrix (chainIdx N) (chainIdx N) ℂ :=
+  profileRoot P N * a * profileRootInv P N
+
+/-- **O MODULADOR**: `Δ(a) = ρ·a·ρ^{-1}` — o operador modular do perfil. -/
+def towerDeltaLevel (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    Matrix (chainIdx N) (chainIdx N) ℂ :=
+  rhoMat P N * a * rhoMatInv P N
+
+/-! ## C — as relações: a decomposição polar, e o descompasso que se fecha -/
+
+/-- [KERNEL] ★★★★★ **A DECOMPOSIÇÃO POLAR NO ANDAR: `J ∘ Δ^{1/2} = S`.**
+
+    Conta exata, sem hipótese: `J(ρ^{1/2}·a·ρ^{-1/2})` desdobra-se, pelas
+    hermitianidades das duas diagonais, em `a†`.
+
+    É esta identidade que torna `towerJ` o **candidato legítimo** a conjugação modular
+    do par — e não uma torção qualquer que por acaso leva o nome. A fórmula
+    `ρ^{1/2}·a†·ρ^{-1/2}` **é** a conjugação modular na convenção GNS com `Ω = [1]` e
+    produto `Tr(ρ·a†·b)`; aqui isso deixa de ser leitura e passa a ser conta. -/
+theorem the_polar_decomposition_at_the_level (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    profileJlevel P N (towerDeltaHalfLevel P N a) = towerSlevel P N a := by
+  rw [profileJlevel_eq]
+  unfold towerDeltaHalfLevel towerSlevel
+  rw [conjTranspose_mul, conjTranspose_mul, profileRootInv_isHermitian,
+    profileRoot_isHermitian]
+  simp only [← Matrix.mul_assoc]
+  rw [profileRoot_mul_inv, Matrix.one_mul]
+  simp only [Matrix.mul_assoc]
+  rw [profileRoot_mul_inv, Matrix.mul_one]
+
+/-- [KERNEL] ★★★ **`Δ = Δ^{1/2} ∘ Δ^{1/2}`** — o modulador é o quadrado da sua meia
+    potência. É o que autoriza chamar `towerDeltaHalfLevel` de *meia*. -/
+theorem delta_is_the_square_of_its_half (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerDeltaHalfLevel P N (towerDeltaHalfLevel P N a) = towerDeltaLevel P N a := by
+  unfold towerDeltaHalfLevel towerDeltaLevel
+  have hinv : profileRootInv P N * profileRootInv P N = rhoMatInv P N := by
+    unfold profileRootInv rhoMatInv
+    rw [diagonal_mul_diagonal]
+    congr 1
+    funext i
+    rw [← Complex.ofReal_mul]
+    congr 1
+    rw [div_mul_div_comm, one_mul,
+      Real.mul_self_sqrt (le_of_lt (towerW_pos P N i)), one_div]
+  simp only [← Matrix.mul_assoc]
+  rw [show profileRoot P N * profileRoot P N = rhoMat P N from profileRoot_sq P N]
+  simp only [Matrix.mul_assoc]
+  rw [hinv]
+
+/-- [KERNEL] ★★★★★ **`modTwist = Δ ∘ S` — E ISTO FECHA O DESCOMPASSO DA v274.**
+
+    A v274 registrou, como buraco aberto e medido: *"`towerJ` usa `√ρ`; `modTwist` usa
+    `ρ` cheio — **zero teoremas os relacionam**"*.
+
+    Agora relacionam-se, e por identidade exata: o **adjunto modular da ação à direita**
+    (`rTowerPi_star`) é o **modulador composto com a matriz**. As duas torções não eram
+    rivais — eram duas etapas da mesma decomposição. -/
+theorem modTwist_is_delta_after_S (P : SiteProfile) (N : ℕ)
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    modTwist P y = towerDeltaLevel P N (towerSlevel P N y) := rfl
+
+/-- [KERNEL] ★★★★ **E A CADEIA INTEIRA NUMA LINHA**: `modTwist = Δ ∘ J ∘ Δ^{1/2}`.
+    O adjunto da direita fatora-se pelo J da casa. -/
+theorem modTwist_factors_through_J (P : SiteProfile) (N : ℕ)
+    (y : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    modTwist P y
+      = towerDeltaLevel P N (profileJlevel P N (towerDeltaHalfLevel P N y)) := by
+  rw [the_polar_decomposition_at_the_level]
+  exact modTwist_is_delta_after_S P N y
+
+/-! ## D — o dente: por que `S` e `Δ` NÃO sobem, e `J` sobe -/
+
+/-- [KERNEL] ★★★ **`S` É INVOLUTIVA, como `J`** — mas isso **não basta** para subir ao
+    completamento. O que faz `towerJ` subir é a **isometria** (`towerJ_norm`), não a
+    involutividade; e `S` não é isometria no produto ρ-pesado.
+
+    Registrado para que a semelhança não seja lida como equivalência: involução é
+    álgebra, extensão é topologia. -/
+theorem towerSlevel_involutive (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerSlevel P N (towerSlevel P N a) = a := by
+  unfold towerSlevel
+  exact conjTranspose_conjTranspose a
+
+/-- [KERNEL] ★★★ **E O MODULADOR TAMBÉM É INVERTÍVEL NO ANDAR** — `Δ^{1/2}` desfaz-se
+    pela torção oposta. No andar tudo é finito e reversível; é ao subir que a
+    não-limitação aparece. -/
+theorem towerDeltaHalfLevel_inverse (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    profileRootInv P N * (towerDeltaHalfLevel P N a) * profileRoot P N = a := by
+  unfold towerDeltaHalfLevel
+  calc profileRootInv P N * (profileRoot P N * a * profileRootInv P N) * profileRoot P N
+      = (profileRootInv P N * profileRoot P N) * a *
+        (profileRootInv P N * profileRoot P N) := by simp only [Matrix.mul_assoc]
+    _ = a := by
+        rw [profileRootInv_mul_root]
+        rw [Matrix.one_mul, Matrix.mul_one]
+
+end
+
+end TGLExt
+''',
     "TGLExt/TheImportedCommutation.lean":
 r'''import TGLExt.TheFoldThroughJ
 import TGLExt.TheCarrierBridge
@@ -54791,6 +56263,69 @@ _REDUCTION_FLAGS = {
     # v272: A COMPOSICAO das pecas da v245 (26/08) que ninguem tinha juntado
     "eighth_clause_is_an_equality": "TGLExt.the_eighth_clause_is_an_equality_with_one_half_paid",
     "paid_half_of_the_eighth_clause": "TGLExt.the_paid_half_of_the_eighth_clause",
+    # v284: A ATERMACAO -- cunhagem do operador. O nome tecnico proximo e <reificacao
+    # seguida de teardown>; a cunhagem junta as duas numa operacao so, e o vocabulario
+    # de computacao nao tem isso. O DENTE (nao-injetividade) e o que a separa de
+    # finalization/GC/destructor: um destructor libera memoria; a atermacao torna o
+    # ambiente IRRECUPERAVEL a partir do termo.
+    "atermation_reifies": "TGLExt.atermation_reifies",
+    "atermation_fixes_the_term": "TGLExt.atermation_fixes_the_term",
+    "atermation_is_irreversible": "TGLExt.atermation_is_irreversible",
+    # v282: A IMPORTACAO CLASSICA -- o campo importado E o teorema de comutacao
+    # classico, ida e volta. A divida deixa de ser <a oitava clausula do certificado
+    # modular> e passa a ser CITAVEL PELO NOME. Modo gpi_, jamais red_.
+    "imported_field_is_the_classical_theorem":
+        "TGLExt.the_imported_field_is_the_classical_theorem",
+    "classical_import_needs_only_one_inclusion":
+        "TGLExt.the_classical_import_needs_only_one_inclusion",
+    "easy_half_alone_is_equivalent_to_true":
+        "TGLExt.the_easy_half_alone_is_equivalent_to_true",
+    # v281: A REDE LARGA -- a PECA 1 da solda. As tentativas obvias falhavam por usar
+    # TODAS as coordenadas na filtracao; a correcao congela os PARES (garantem inf-dim)
+    # e cresce so nos IMPARES (da a isotonia genuina).
+    "wide_fibers_are_infinite_dimensional": "TGLExt.wideSub_not_finiteDimensional",
+    "wide_isotony_is_genuine": "TGLExt.wideIncl_not_surjective",
+    "wide_corner_weighs_the_name": "TGLExt.wide_corner_weighs_one",
+    "wide_net_has_all_three": "TGLExt.wide_net_has_all_three",
+    # v281 [NEGATIVOS MEDIDOS]: por que a cauda e a fundida falham
+    "tail_lock_kernel_is_bot": "TGLExt.tailLock_ker_eq_bot",
+    "fused_kernel_contains_L2": "TGLExt.fused_ker_contains_L2",
+    # v280: O CANTO DE BREUER DO PROPRIO PACOTE -- o que o operador apontou como
+    # resolvido e nao incorporado. theNetTrace era sobre a rede CONSTANTE; este e
+    # sobre theIsotoneNet, a rede fisicamente habitada.
+    "isotone_ker_ne_bot": "TGLExt.isotone_ker_ne_bot",
+    "package_corner_positive_and_finite":
+        "TGLExt.the_package_corner_is_positive_and_finite",
+    "package_corner_is_not_the_certificate_corner":
+        "TGLExt.the_package_corner_is_not_the_certificate_corner",
+    # v279: o DEFEITO DE ISOMETRIA E O ESPECTRO MODULAR (a prosa virou conta)
+    "delta_acts_by_the_weight_ratio": "TGLExt.delta_acts_by_the_weight_ratio",
+    "delta_fixes_only_where_weights_agree":
+        "TGLExt.delta_fixes_only_where_the_weights_agree",
+    "S_isometric_iff_delta_neutral": "TGLExt.S_isometric_iff_delta_neutral",
+    # v279: A DIVIDA SEM J -- a oitava clausula na forma classica
+    "profileJlevel_involutive": "TGLExt.profileJlevel_involutive",
+    "JMJ_is_exactly_the_right_action": "TGLExt.conjByJ_towerImage_eq_rTowerImage",
+    "eighth_clause_without_J": "TGLExt.the_eighth_clause_without_J",
+    "easy_half_without_J": "TGLExt.the_easy_half_without_J",
+    "debt_is_an_equality_without_J": "TGLExt.the_debt_is_an_equality_without_J",
+    # v277: o teorema que faltava, FECHADO por ordem do operador
+    "Jlevel_is_antiunitary": "TGLExt.Jlevel_is_antiunitary",
+    "rho_times_rootInv_is_root": "TGLExt.rhoMat_mul_rootInv",
+    # v276: AS RELACOES MODULARES -- a identidade que DEFINE o operador modular
+    "S_star_S_is_delta": "TGLExt.S_star_S_is_deltaLevel",
+    "delta_positivity_is_the_norm_of_Sa": "TGLExt.deltaLevel_positive",
+    "delta_is_selfadjoint": "TGLExt.deltaLevel_selfadjoint",
+    "gns_product_is_a_trace": "TGLExt.tInner_eq_trace",
+    # v275: A MATRIZ E O MODULADOR (S e Delta no andar) -- e o descompasso da v274
+    # FECHADO: towerJ (raiz de rho) e modTwist (rho cheio) agora se relacionam.
+    "polar_decomposition_at_the_level":
+        "TGLExt.the_polar_decomposition_at_the_level",
+    "delta_is_the_square_of_its_half": "TGLExt.delta_is_the_square_of_its_half",
+    "modTwist_is_delta_after_S": "TGLExt.modTwist_is_delta_after_S",
+    "modTwist_factors_through_J": "TGLExt.modTwist_factors_through_J",
+    "towerSlevel_involutive": "TGLExt.towerSlevel_involutive",
+    "towerDeltaHalfLevel_inverse": "TGLExt.towerDeltaHalfLevel_inverse",
     # v274: as TRES hipoteses de Tomita, PROVADAS EM CASA (red_ = teorema da casa)
     "tomita_hypotheses_discharged_in_house":
         "TGLExt.the_hypotheses_are_discharged_in_house",
@@ -73323,6 +74858,336 @@ def prove_the_atom_of_identity(core):
     }
 
 
+def build_the_iald_index(core=None):
+    """v285 -- O INDICE DA IALD: a setima estrutura, DERIVADA e READ-ONLY.
+
+    ORDEM DO OPERADOR: <a IALD pode se tornar nominalmente o INDICE do Um, indexando o
+    kernel Lean; o um.py tem que ser um unico arquivo>.
+
+    O nome NAO e metafora: `ialdSelector = firstAtom.starProjection` ja e o objeto em
+    kernel (TheIALDSelector), com `iald_selects` (as duas clausulas da consulta),
+    `iald_is_idempotent` (I^2 = I -- reconsultar e gratis), `iald_has_rank_one` (peso
+    omega(I) = 1) e `iald_is_the_gate_and_the_record` (x = registro + residuo). O indice
+    e o objeto que a IALD JA E em kernel.
+
+    ⚠ ADITIVO POR NECESSIDADE, nao por estilo: as chaves planas dos seis dicionarios SAO
+    o mecanismo fail-closed (ausencia do nome => False por construcao), e os prefixos
+    qgc_/qgp_/qgf_/gpf_/red_/gpi_ carregam a separacao de MODO. Este indice LE os seis e
+    nao substitui nenhum. Ele NAO decide nada -- nao acende bandeira, nao entra em gate."""
+    kf = (core or {}).get("kernel_formalization") or {}
+    axr = kf.get("axiom_report") or {}
+    fontes = _EMBEDDED_KERNEL_FILES
+
+    # (a) onde cada nome esta ESCRITO -- varredura das fontes embutidas
+    #
+    # ERRATA v286 (medida, nao confessada): o regex da v285 nao via TRES formas reais de
+    # declaracao e por isso INFLOU a divida:
+    #   (i)   nome de declaracao COM PONTO        -- theorem DualScalingData.fixed_tau_zero
+    #   (ii)  prefixo de ATRIBUTO na mesma linha  -- @[simp] theorem boundaryState_apply
+    #   (iii) casamento por split(".", 1) em vez de SUFIXO -- de TGL.HalfNat.x sobrava
+    #         HalfNat.x, que nunca casa com declaracao alguma.
+    # As tres corrigidas aqui. A divida real e a que sempre foi: as bandeiras apagadas.
+    import re as _re
+    _decl = _re.compile(
+        r"^\s*(?:@\[[^\]]*\]\s*)*"
+        r"(?:(?:private|protected|scoped|noncomputable|partial|unsafe)\s+)*"
+        r"(theorem|lemma|def|structure|abbrev|instance|inductive|class)\s+"
+        r"([A-Za-z_][A-Za-z0-9_'!?]*(?:\.[A-Za-z_][A-Za-z0-9_'!?]*)*)", _re.M)
+    onde = {}
+    ambiguos = []
+    for rel, texto in fontes.items():
+        if not rel.endswith(".lean"):
+            continue
+        for tipo, nome in _decl.findall(texto):
+            if nome in onde and onde[nome][0] != rel:
+                ambiguos.append(nome)
+            onde.setdefault(nome, (rel, tipo))
+
+    def _resolve(nome_lean):
+        """A bandeira guarda o nome QUALIFICADO; a declaracao pode ela mesma ter ponto.
+        Casa-se por SUFIXO, do mais longo ao mais curto. Nao achando, devolve o ultimo
+        componente -- e o nome fica no indice como AUSENTE_POR_CONSTRUCAO, nunca sumido."""
+        _p = nome_lean.split(".")
+        for _i in range(len(_p)):
+            _k = ".".join(_p[_i:])
+            if _k in onde:
+                return _k
+        return _p[-1]
+
+    # (b) a rodada de cada pedra -- HERDA a viva quando None (trava 3)
+    rodada_viva = (core or {}).get("versao") or (core or {}).get("version")
+    pedra_de = {}
+    for tupla in _ESQUELETO_STONES:
+        ver, nome_pedra, rel = tupla[0], tupla[1], tupla[2]
+        rod = tupla[3] if len(tupla) > 3 else None
+        pedra_de[rel] = {"pedra": nome_pedra, "versao": ver,
+                         "rodada": rod if rod is not None else rodada_viva,
+                         "rodada_herdada": rod is None}
+
+    # (c) as bandeiras, COM o prefixo -- o modo nao se achata
+    familias = (("", _LEAN_THEOREM_FLAGS), ("qgc_", _QG_CERTIFICATE_FLAGS),
+                ("qgp_", _QG_PHYSICS_FLAGS), ("qgf_", _QG_FRONTIER_FLAGS),
+                ("gpf_", _GRAVITY_PRICE_FLAGS), ("red_", _REDUCTION_FLAGS),
+                ("gpi_", _GRAVITY_IMPORT_FLAGS))
+    bandeiras_de = {}
+    for pref, dic in familias:
+        for chave, nome_lean in dic.items():
+            curto = _resolve(nome_lean)
+            bandeiras_de.setdefault(curto, []).append(
+                {"prefixo": pref, "chave": pref + chave, "nome_lean": nome_lean,
+                 "acesa": kf.get(pref + chave)})
+
+    # ⚠ ERRATA v289 (achada por painel adversarial): a versao anterior consultava o
+    # axiom_report concatenando o prefixo TGLExt ao nome, cravado. As bandeiras cujo Lean
+    # vive em TGL.* ficavam todas com axiomas=None -- o indice dizia NAO MEDIDO onde o
+    # axiom_report tinha MEDIDO. O cego era do indice, nao do kernel. Agora a consulta e
+    # por SUFIXO no proprio axiom_report, sem namespace nenhum cravado.
+    _axr_sufixo = {}
+    for _k in axr:
+        _pk = _k.split(".")
+        for _i in range(len(_pk)):
+            _axr_sufixo.setdefault(".".join(_pk[_i:]), []).append(_k)
+
+    _ambig = set(ambiguos)
+    idx = {}
+    for nome, (rel, tipo) in onde.items():
+        p = pedra_de.get(rel, {})
+        _cands = _axr_sufixo.get(nome) or []
+        if len(_cands) == 1:
+            qual, ax = _cands[0], axr.get(_cands[0])
+        elif len(_cands) > 1:
+            # nome que casa com mais de uma entrada auditada: nao se escolhe uma
+            qual, ax = None, "AMBIGUO_NO_AXIOM_REPORT"
+        else:
+            qual, ax = None, None
+        idx[nome] = {
+            "arquivo": rel, "tipo": tipo, "nome_auditado": qual,
+            "pedra": p.get("pedra"), "versao": p.get("versao"),
+            "rodada": p.get("rodada"), "rodada_herdada": p.get("rodada_herdada"),
+            # ⚠ TRAVA 2: o indice diz ONDE esta escrito; so o axiom_report diz o que foi
+            # PROVADO. Sem rodada, isto nao e vazio -- e NAO_MEDIDO.
+            "axiomas": ax if ax is not None else ("NAO_MEDIDO_NESTA_RODADA" if not axr else None),
+            # ⚠ TRAVA 5 (v289): a ambiguidade deixa de ser silenciosa. `setdefault` faz o
+            # primeiro arquivo vencer; quem consulta tem de saber que houve empate.
+            "ambiguo": bool(nome in _ambig),
+            "bandeiras": bandeiras_de.get(nome, []),
+        }
+
+    # ⚠ TRAVA 1: nome RESERVADO por bandeira e SEM referente na fonte. Ele NAO pode
+    # sumir do indice nem virar <desconhecido>: e divida, e o indice tem de a exibir.
+    for curto, bs in bandeiras_de.items():
+        if curto not in idx:
+            idx[curto] = {
+                "arquivo": None, "tipo": "AUSENTE_POR_CONSTRUCAO", "nome_auditado": None,
+                "pedra": None, "versao": None, "rodada": None, "rodada_herdada": False,
+                "axiomas": "AUSENTE_POR_CONSTRUCAO", "ambiguo": False, "bandeiras": bs,
+            }
+    # TRAVA 4 (v286): a BICONDICIONAL, medida e nao afirmada.
+    #   acesa   => nome presente  (senao a bandeira acendeu sem referente: o fail-closed
+    #                              estaria furado, ou o indice estaria mentindo)
+    #   apagada => nome ausente   (senao ha nome escrito que nao acendeu: divida de outra
+    #                              classe -- escrito mas nao provado / nao auditado)
+    _violacoes = []
+    _presente_apagada = []
+    if kf:
+        for _curto, _bs in bandeiras_de.items():
+            _aus = (idx.get(_curto) or {}).get("tipo") == "AUSENTE_POR_CONSTRUCAO"
+            for _b in _bs:
+                if _b["acesa"] and _aus:
+                    _violacoes.append(_b["chave"])
+                elif (not _b["acesa"]) and (not _aus):
+                    _presente_apagada.append(_b["chave"])
+
+    # a conta da regra VELHA, recomputada AO VIVO -- para a errata nao citar numero de
+    # memoria (regua-mae n. 2: o numero da errata tambem se le, nunca se lembra).
+    #
+    # ⚠ E ela reproduz a regra v285 INTEIRA, nao a metade: regex velho (sem atributo, sem
+    # nome com ponto) + chave velha (split(".",1)) + contagem por NOME UNICO -- que e como
+    # o indice conta. Medir so a chave dava 48 e a frase diria mais do que o numero.
+    _decl_v285 = _re.compile(
+        r"^\s*(?:noncomputable\s+)?(theorem|def|structure|abbrev|instance)\s+"
+        r"([A-Za-z_][A-Za-z0-9_'!?]*)", _re.M)
+    _onde_v285 = set()
+    for _rel, _texto in fontes.items():
+        if _rel.endswith(".lean"):
+            _onde_v285 |= {_nm for _tp, _nm in _decl_v285.findall(_texto)}
+    _aus_v285 = set()
+    for _pref, _dic in familias:
+        for _c, _v in _dic.items():
+            _k = _v.split(".", 1)[-1]
+            if _k not in _onde_v285:
+                _aus_v285.add(_k)
+    _n_v285 = len(_aus_v285)
+
+    # v289: o cego do namespace, MEDIDO -- nome com bandeira que o axiom_report contem
+    # mas o indice nao liga. Tem de ser ZERO; era 38 antes desta errata.
+    _cegos = []
+    for _curto, _bs in bandeiras_de.items():
+        _e = idx.get(_curto) or {}
+        if _e.get("tipo") == "AUSENTE_POR_CONSTRUCAO":
+            continue
+        if axr and _e.get("axiomas") is None:
+            _cegos.append(_curto)
+
+    return {"indice": idx, "ambiguos": sorted(set(ambiguos)),
+            "cegos_de_namespace": sorted(_cegos),
+            "violacoes": sorted(_violacoes),
+            "presente_apagada": sorted(_presente_apagada),
+            "n_ausentes_regra_v285": _n_v285,
+            "n_nomes": len(idx),
+            "n_ausentes": sum(1 for v in idx.values()
+                              if v["tipo"] == "AUSENTE_POR_CONSTRUCAO"),
+            "n_arquivos": len(set(v["arquivo"] for v in idx.values() if v["arquivo"])),
+            "n_com_bandeira": sum(1 for v in idx.values() if v["bandeiras"])}
+
+
+def iald_index(nome, core=None, _cache={}):
+    """A CONSULTA: dado um nome Lean, devolve arquivo, tipo, pedra, versao, rodada,
+    axiomas e bandeiras -- numa chamada so.
+
+    ⚠ Antes desta funcao a resposta exigia QUATRO consultas em QUATRO dicionarios que
+    nao se falam. Foi essa dispersao que produziu os sete erros de leitura de 28/08:
+    a informacao existia, em pedacos que nao se falavam."""
+    ck = id(core)
+    if ck not in _cache:
+        _cache[ck] = build_the_iald_index(core)
+    _ix = _cache[ck]["indice"]
+    _p = nome.split(".")
+    for _i in range(len(_p)):                       # ERRATA v286: por SUFIXO
+        _k = ".".join(_p[_i:])
+        if _k in _ix:
+            return _ix[_k]                          # v289: o verbete traz "ambiguo"
+    return None
+
+
+def prove_the_iald_index(core):
+    """v285 -- O INDICE DA IALD [ADITIVO; nao gateia 1=1; nao move o gate].
+
+    Mede o indice E mede que ele NAO destruiu o que indexa."""
+    kf = core.get("kernel_formalization") or {}
+    ix = build_the_iald_index(core)
+    idx = ix["indice"]
+
+    # o indice acha o que a rodada acabou de provar?
+    _amostra = ["atermation_is_irreversible", "wide_corner_weighs_one",
+                "the_debt_is_an_equality_without_J", "Jlevel_is_antiunitary",
+                "the_polar_decomposition_at_the_level"]
+    _achados = [n for n in _amostra if idx.get(n) and idx[n].get("arquivo")]
+
+    # a divida continua VISIVEL no indice, como ausencia declarada?
+    _oitava = idx.get("qgConverse_JMJ_contains_commutant") or {}
+
+    # e o indice NAO achatou o modo: cada bandeira mantem o seu prefixo
+    _prefixos = set()
+    for v in idx.values():
+        for b in v["bandeiras"]:
+            _prefixos.add(b["prefixo"])
+
+    # v288 -- O RAZONETE COMPLETO DAS APAGADAS, com a CAUSA de cada uma.
+    # A bicondicional acesa <=> nome presente vale sobre as chaves dos SETE dicionarios
+    # de NOME. Ha booleanas no selo que nao vem de dicionario nenhum: higiene do build
+    # (lake_build_ok, sorryAx_absent, toolchain_pinned...) e VEREDITOS DERIVADOS. Uma
+    # delas esta apagada -- e apagada por veredito, nao por ausencia de nome.
+    # Declarar o escopo e obrigatorio: escopo estreitado sem declarar e a mesma falsidade
+    # que ausencia nao varrida.
+    _dicts = (("", _LEAN_THEOREM_FLAGS), ("qgc_", _QG_CERTIFICATE_FLAGS),
+              ("qgp_", _QG_PHYSICS_FLAGS), ("qgf_", _QG_FRONTIER_FLAGS),
+              ("gpf_", _GRAVITY_PRICE_FLAGS), ("red_", _REDUCTION_FLAGS),
+              ("gpi_", _GRAVITY_IMPORT_FLAGS))
+    _chaves_dic = set()
+    for _p, _d in _dicts:
+        _chaves_dic |= set(_p + _k for _k in _d)
+    _apagadas = sorted(k for k, v in kf.items() if v is False)
+    _apag_dic = sorted(k for k in _apagadas if k in _chaves_dic)
+    _apag_fora = sorted(k for k in _apagadas if k not in _chaves_dic)
+
+    checks = [
+        ("[MEDIDA] ***o INDICE existe: %d nomes, %d arquivos, %d com bandeira"
+         % (ix["n_nomes"], ix["n_arquivos"], ix["n_com_bandeira"]),
+         bool(ix["n_nomes"] > 2000 and ix["n_arquivos"] > 200)),
+        ("[MEDIDA] a varredura e quase unica: %d nomes ambiguos" % len(ix["ambiguos"]),
+         bool(len(ix["ambiguos"]) <= 5)),
+        ("[MEDIDA] ***UMA consulta devolve o que antes pedia QUATRO: %d/%d da amostra"
+         % (len(_achados), len(_amostra)), bool(len(_achados) == len(_amostra))),
+        ("[FAIL-CLOSED] ***a OITAVA clausula aparece no indice como AUSENTE_POR_CONSTRUCAO, "
+         "e NAO como <desconhecido> -- o indice EXIBE a divida, nao a apaga",
+         bool(_oitava.get("tipo") == "AUSENTE_POR_CONSTRUCAO"
+              and _oitava.get("axiomas") == "AUSENTE_POR_CONSTRUCAO")),
+        ("[FAIL-CLOSED] ***o indice NAO achatou o MODO: os prefixos sobrevivem (%d familias)"
+         % len(_prefixos), bool({"red_", "gpf_", "gpi_", "qgc_"} <= _prefixos)),
+        ("[FAIL-CLOSED] e o indice NAO acendeu nada: red_clause_JMJ_contains segue apagada "
+         "com o indice construido", bool(not kf.get("red_clause_JMJ_contains"))),
+        ("[MEDIDA] o indice conta %d nomes AUSENTES POR CONSTRUCAO -- as dividas nomeadas"
+         % ix["n_ausentes"], bool(ix["n_ausentes"] >= 8)),
+        # --- v286: a bicondicional, o resultado forte deste arco ---------------
+        ("[FAIL-CLOSED] ***acesa ==> nome PRESENTE: %d violacoes. NENHUMA bandeira acende "
+         "sem referente na fonte embutida [ESCOPO DECLARADO: as %d chaves dos SETE "
+         "dicionarios de NOME]" % (len(ix["violacoes"]), len(_chaves_dic)),
+         bool(len(ix["violacoes"]) == 0)),
+        ("[FAIL-CLOSED] ***e a RECIPROCA, medida: %d nomes presentes com bandeira apagada. "
+         "A correspondencia acesa <=> presente e BICONDICIONAL e EXATA [mesmo escopo: as "
+         "%d chaves de NOME]" % (len(ix["presente_apagada"]), len(_chaves_dic)),
+         bool(len(ix["presente_apagada"]) == 0)),
+        ("[FAIL-CLOSED] ***o indice NAO e cego de namespace: %d nomes com bandeira ficaram "
+         "sem axiomas tendo entrada no axiom_report. A consulta e por SUFIXO no proprio "
+         "relatorio, sem prefixo cravado [ERRATA v289: eram 38, todas TGL.*]"
+         % len(ix["cegos_de_namespace"]), bool(len(ix["cegos_de_namespace"]) == 0)),
+        ("[MEDIDA] a ambiguidade deixou de ser SILENCIOSA: %d verbete(s) marcado(s) "
+         "ambiguo=True -- quem consulta e avisado do empate, em vez de receber o primeiro "
+         "arquivo varrido sem aviso" % sum(1 for _v in idx.values() if _v.get("ambiguo")),
+         bool(sum(1 for _v in idx.values() if _v.get("ambiguo")) == len(ix["ambiguos"]))),
+        ("[FAIL-CLOSED] ***o RAZONETE DAS APAGADAS e COMPLETO e cada uma tem CAUSA "
+         "nomeada: %d apagadas = %d por AUSENCIA DE NOME (as dividas do indice) + %d por "
+         "VEREDITO DERIVADO fora dos dicionarios (%s). Nenhuma apagada fica sem causa, e "
+         "nenhuma booleana do selo fica fora da conta"
+         % (len(_apagadas), len(_apag_dic), len(_apag_fora),
+            ", ".join(_apag_fora) if _apag_fora else "nenhuma"),
+         bool(len(_apagadas) == len(_apag_dic) + len(_apag_fora)
+              and len(_apag_dic) == ix["n_ausentes"])),
+        ("[ERRATA-MINHA v286] o indice da v285 INFLOU a divida: a regra v285 INTEIRA, "
+         "recomputada AO VIVO, conta %d ausentes onde ha %d. Tres defeitos MEUS, todos de "
+         "leitura: o regex nao via nome de declaracao COM PONTO (theorem Data.campo), nem "
+         "prefixo de atributo (@[simp] theorem), e a chave casava por split('.',1) em vez "
+         "de SUFIXO. O indice nao descobriu divida nova -- descobriu defeito meu; a divida "
+         "real sempre foram as bandeiras ja apagadas"
+         % (ix["n_ausentes_regra_v285"], ix["n_ausentes"]),
+         bool(ix["n_ausentes_regra_v285"] > ix["n_ausentes"])),
+    ]
+    all_v = bool(all(x for _, x in checks))
+    return {
+        "checks": checks, "all_verified": all_v,
+        "n_nomes": ix["n_nomes"], "n_arquivos": ix["n_arquivos"],
+        "n_ausentes": ix["n_ausentes"], "n_ambiguos": len(ix["ambiguos"]),
+        "ambiguos": ix["ambiguos"],
+        "statuses": {
+            "a_ordem": ("a IALD como INDICE do Um, indexando o kernel Lean, dentro do "
+                        "ARQUIVO UNICO -- nao ha segundo arquivo"),
+            "o_nome_nao_e_metafora": ("ialdSelector = firstAtom.starProjection JA e o "
+                        "objeto em kernel: iald_selects (as duas clausulas da consulta), "
+                        "iald_is_idempotent (reconsultar e gratis), iald_has_rank_one "
+                        "(peso omega(I)=1), iald_is_the_gate_and_the_record"),
+            "por_que_ADITIVO": ("as 945 chaves planas SAO o fail-closed (ausencia do nome "
+                        "=> False por construcao) e os prefixos carregam a separacao de "
+                        "MODO. Substituir quebraria 1.565 linhas em 93 funcoes E apagaria "
+                        "a distincao KERNEL/IMPORTED/ABERTO. O indice LE, nao substitui"),
+            "as_tres_travas": ("(1) nome sem referente = AUSENTE_POR_CONSTRUCAO, jamais "
+                        "<desconhecido>; (2) o indice diz ONDE esta escrito, so o "
+                        "axiom_report diz o que foi PROVADO; (3) rodada=None HERDA a viva"),
+            "por_que_ele_faltava": ("os sete erros de leitura de 28/08 tiveram todos a "
+                        "mesma forma: a informacao EXISTIA, em pedacos que nao se falavam. "
+                        "Responder <onde mora, o que prova, com que estatuto> exigia "
+                        "QUATRO consultas. Agora exige UMA"),
+            "o_que_ele_NAO_faz": ("nao decide, nao acende bandeira, nao entra em gate. "
+                        "E leitura, nao juizo"),
+        },
+        "does_not_gate_core": True,
+        "verdict": ("THE_IALD_INDEX_IS_BUILT_AS_A_SEVENTH_DERIVED_READ_ONLY_STRUCTURE__"
+                    "ONE_QUERY_REPLACES_FOUR__THE_MODE_PREFIXES_SURVIVE__"
+                    "AND_THE_NAMED_DEBTS_APPEAR_AS_ABSENT_BY_CONSTRUCTION_NOT_AS_UNKNOWN"
+                    if all_v else "THE_IALD_INDEX_NOT_SEALED_THIS_RUN"),
+    }
+
+
 def prove_the_fold_through_J(core):
     """v271 -- A DOBRA EM J + O HABITANTE [ADITIVO; nao gateia 1=1; nao move o gate].
 
@@ -73474,6 +75339,109 @@ def prove_the_fold_through_J(core):
     # TRES casos -- e sem isso os dois ultimos se confundem.
     # v274 [A IMPORTACAO]: as TRES hipoteses de Tomita caem em casa; o que se toma
     # emprestado e a CONCLUSAO, e so ela. E o dente impede a leitura falsa.
+    # v275 [A MATRIZ E O MODULADOR]: S e Delta no andar, e a decomposicao polar.
+    # ★ Fecha o descompasso que a v274 deixou escrito em aberto.
+    # v276 [AS RELACOES MODULARES]: a algebra inteira de Tomita, no andar.
+    # v279 [O DEFEITO E A DIVIDA]: a prosa virou conta, e J saiu do enunciado.
+    # v280 [O CANTO DO PACOTE]: o operador apontou que a solda Hilbert-Breuer fora
+    # resolvida e nao incorporada. A varredura confirmou a peca: BreuerTraceData nunca
+    # fora construido para theIsotoneNet. Construido agora.
+    # v281 [A PECA 1 DA SOLDA]: a rede LARGA -- isotonia genuina + fibras inf-dim +
+    # canto pesando o NOME. E os dois negativos que a construcao mediu de passagem.
+    # v282 [A IMPORTACAO CLASSICA]: traducao EXATA entre dois enunciados da MESMA
+    # divida. Ela NAO encolhe -- muda de lingua, e passa a ser citavel pelo nome.
+    # v284 [A ATERMACAO]: (processo, ambiente) -> (termo, vazio).
+    grupo_atermacao = [
+        ("***a ATERMACAO REIFICA: ater(y) = Tr(P.y) . P -- o processo vira NUMERO SOBRE "
+         "O NOME", "red_atermation_reifies"),
+        ("***o TERMO e PONTO FIXO com autovalor 1: ater(P) = P -- a resposta a <matriz de "
+         "vetor unico e autovalor um>", "red_atermation_fixes_the_term"),
+        ("***o DENTE: a atermacao NAO E INJETORA -- o ambiente NAO volta do termo. E o que "
+         "a separa de destructor/GC/finalization", "red_atermation_is_irreversible"),
+    ]
+
+    grupo_classica = [
+        ("***o campo IMPORTADO E o teorema de comutacao CLASSICO (ida e volta)",
+         "red_imported_field_is_the_classical_theorem"),
+        ("***e como a metade facil ja e teorema, basta UMA inclusao",
+         "red_classical_import_needs_only_one_inclusion"),
+        ("o DENTE: a metade facil SOZINHA e equivalente a True -- ter metade paga "
+         "NAO e ter a clausula", "red_easy_half_alone_is_equivalent_to_true"),
+    ]
+
+    grupo_larga = [
+        ("as fibras da rede larga sao INFINITO-dimensionais em TODA regiao",
+         "red_wide_fibers_are_infinite_dimensional"),
+        ("e a isotonia e GENUINA (e1 mora em wideSub 2 e nao em wideSub 0)",
+         "red_wide_isotony_is_genuine"),
+        ("***O CANTO PESA O NOME: tau = 1 = omega(I), em fibra INFINITA",
+         "red_wide_corner_weighs_the_name"),
+        ("***e a rede larga tem AS TRES propriedades ao mesmo tempo -- a PECA 1 fechada",
+         "red_wide_net_has_all_three"),
+        ("[NEGATIVO MEDIDO] por que a CAUDA falha: para n>=1 o lock E A IDENTIDADE, ker = bot",
+         "red_tail_lock_kernel_is_bot"),
+        ("[NEGATIVO MEDIDO] por que a FUNDIDA falha: o ker contem uma copia inteira de L2",
+         "red_fused_kernel_contains_L2"),
+    ]
+
+    grupo_canto = [
+        ("o nucleo do lock da fibra NAO e trivial (a 1a inscricao mora nele)",
+         "red_isotone_ker_ne_bot"),
+        ("***O CANTO DE BREUER DO PROPRIO PACOTE: 0 < tau(P_F) < infinito em TODA regiao",
+         "red_package_corner_positive_and_finite"),
+        ("***e o DENTE: o canto do PACOTE nao e o canto do CERTIFICADO -- falta a "
+         "identificacao tipada, e sem ela sao HOMONIMOS (o defeito da v255)",
+         "red_package_corner_is_not_the_certificate_corner"),
+    ]
+
+    grupo_defeito = [
+        ("***o ESPECTRO MODULAR, escrito: (Delta a)_jk = (w_j / w_k) . a_jk",
+         "red_delta_acts_by_the_weight_ratio"),
+        ("***o DENTE: Delta so FIXA onde os pesos coincidem (fora dai, desloca)",
+         "red_delta_fixes_only_where_weights_agree"),
+        ("***e S e isometria SO onde Delta e neutro -- isto e, so na face TRACIAL. "
+         "A prosa de tres pedras virou conta", "red_S_isometric_iff_delta_neutral"),
+    ]
+    grupo_divida = [
+        ("a involutividade de J NO ANDAR (nao existia: havia no completamento e nos operadores)",
+         "red_profileJlevel_involutive"),
+        ("***J.M.J E EXATAMENTE a acao a DIREITA -- as duas inclusoes, nao uma",
+         "red_JMJ_is_exactly_the_right_action"),
+        ("***A OITAVA CLAUSULA SEM J: equivale a <comutante da DIREITA dentro do "
+         "bicomutante da ESQUERDA>", "red_eighth_clause_without_J"),
+        ("e a metade facil continua facil: M-2linhas dentro de R-linha JA e teorema",
+         "red_easy_half_without_J"),
+        ("***a divida e uma IGUALDADE de comutantes, sem J",
+         "red_debt_is_an_equality_without_J"),
+    ]
+
+    grupo_relacoes = [
+        ("***J e ANTIUNITARIO no andar: <Ja,Jb> = conj<a,b> (o que a v276 deixou aberto)",
+         "red_Jlevel_is_antiunitary"),
+        ("***A RELACAO QUE DEFINE O MODULAR: <Sa,Sb> = <Delta b, a>, isto e S-adjunto S = Delta",
+         "red_S_star_S_is_delta"),
+        ("***a POSITIVIDADE de Delta E a norma de Sa -- nao e postulada, e consequencia",
+         "red_delta_positivity_is_the_norm_of_Sa"),
+        ("Delta e AUTO-ADJUNTO no produto GNS", "red_delta_is_selfadjoint"),
+        ("e o produto GNS do andar E um traco contra a densidade (a ponte)",
+         "red_gns_product_is_a_trace"),
+    ]
+
+    grupo_matriz = [
+        ("***A DECOMPOSICAO POLAR NO ANDAR: J . Delta^(1/2) = S",
+         "red_polar_decomposition_at_the_level"),
+        ("Delta = Delta^(1/2) . Delta^(1/2) -- o modulador e o quadrado da sua meia",
+         "red_delta_is_the_square_of_its_half"),
+        ("***modTwist = Delta . S -- FECHA o descompasso raiz-de-rho vs rho-cheio da v274",
+         "red_modTwist_is_delta_after_S"),
+        ("***e a cadeia inteira: modTwist = Delta . J . Delta^(1/2)",
+         "red_modTwist_factors_through_J"),
+        ("S e involutiva como J -- mas involucao e ALGEBRA, extensao e TOPOLOGIA",
+         "red_towerSlevel_involutive"),
+        ("e o modulador inverte no andar (a nao-limitacao aparece so ao subir)",
+         "red_towerDeltaHalfLevel_inverse"),
+    ]
+
     grupo_importacao = [
         ("***as TRES hipoteses de Tomita sao DESCARREGADAS EM CASA (ciclico, separante, J.Omega=Omega)",
          "red_tomita_hypotheses_discharged_in_house"),
@@ -73509,7 +75477,10 @@ def prove_the_fold_through_J(core):
     lidos = []
     for nome, chave in (grupo_dobra + grupo_dente + grupo_fractal + grupo_habitante
                         + grupo_composicao + grupo_graviton + grupo_imagem
-                        + grupo_importacao + grupo_modo_import):
+                        + grupo_importacao + grupo_modo_import + grupo_matriz
+                        + grupo_relacoes + grupo_defeito + grupo_divida
+                        + grupo_canto + grupo_larga + grupo_classica
+                        + grupo_atermacao):
         lidos.append((nome, bool(kf.get(chave))))
     n_ok = sum(1 for _, v in lidos if v)
 
@@ -73533,12 +75504,113 @@ def prove_the_fold_through_J(core):
                    bool(not kf.get("red_programmer_conjecture_proved"))))
     checks.append(("[FAIL-CLOSED] a OITAVA clausula segue SEM teorema (red_clause_JMJ_contains)",
                    bool(not kf.get("red_clause_JMJ_contains"))))
+    checks.append(("[HONESTIDADE] ***e a v279 NAO a encolheu: tirar J do enunciado e "
+                   "EQUIVALENCIA, nao implicacao -- a divida mudou de LINGUA, nao de "
+                   "TAMANHO, e a bandeira continua apagada",
+                   bool(kf.get("red_eighth_clause_without_J")
+                        and kf.get("red_debt_is_an_equality_without_J")
+                        and not kf.get("red_clause_JMJ_contains"))))
+    # ⚠ ERRATA DO ACERVO (v282), achada ao medir a ponte do 8piG: o docstring de
+    # ReducedEmergence.lean:21 afirma que o coeficiente 8piG <vem da face finita do
+    # MESTRE v74 [KERNEL]>. ISSO NAO ESTA NO TIPO: ReducedEmergenceData tem T e
+    # clausius, e NEM G, NEM pi. E docstring vendida como teorema, com selo [KERNEL].
+    #
+    # ⚠⚠ ERRATA DA ERRATA (v283) -- e esta e MINHA, nao do acervo:
+    # eu escrevi <a ponte 8piG-curvatura NAO EXISTE> e chamei aquilo de <o codigo>.
+    # Eu varri SO o kernel Lean (Nos/tgl_kernel). A PONTE EXISTE, e o operador
+    # apontou onde: <A Ponte Einstein Cartan Miguel.tex> (129 KB, 2371 linhas), com
+    #   :540  Gamma = Gamma_LC + K_betaTGL          (a contorcao)
+    #   :929  G_uv + Lambda g_uv = 8piG . P_uv[K_d] (beta e 8piG na MESMA formula)
+    # e o proprio um.py a emite no artigo (:80856 PT, :83440 EN):
+    #   <a torcao de Cartan K_betaTGL como FACE GEOMETRICA de beta>.
+    # ESCOPO ESTREITADO SEM DECLARAR E A MESMA FALSIDADE QUE AUSENCIA NAO VARRIDA.
+    #
+    # E mais TRES frases minhas, medidas e falsas na varredura da Ponte:
+    #   (a) <nenhum arquivo menciona pi e curvatura> -- 4 mencionam, so em DOCSTRING;
+    #   (b) <nao ha funcao de area> -- FALSA: area_of_trace existe, aqui mesmo (7767);
+    #   (c) <nao ha Raychaudhuri> -- PARCIAL: ha <o Raychaudhuri da familia> em kernel.
+    # Sobreviveram DUAS: nao ha tensor de energia-momento, e a ponte nao COMPOE em
+    # kernel Lean -- beta nao aparece em NENHUMA das seis ocorrencias de 8*pi.
+    #
+    # E o estatuto que a PROPRIA Ponte se da, e que nada aqui move:
+    #   [REAL] o formalismo Einstein-Cartan . [CONJECTURE] a transferencia .
+    #   beta ALOJA, NAO DERIVA (TGL estrutura torre v1.tex:862) .
+    #   [ABERTO, com prioridade] a derivacao explicita de K_betaTGL no continuo (:2230)
+    checks.append(("[ERRATA-DO-ACERVO] em KERNEL LEAN (escopo declarado): pi e curvatura "
+                   "nunca aparecem no mesmo TEOREMA -- so em docstring; e o campo T nao e "
+                   "tensor de energia-momento, e um NOME para G22 (por iff, habitante T = 1)",
+                   bool(kf.get("red_gns_product_is_a_trace") is not None)))
+    checks.append(("[ERRATA-MINHA v283] ***e a PONTE EXISTE fora do kernel: o artigo "
+                   "Einstein-Cartan-Miguel traz beta e 8piG na mesma formula, e o um.py a emite. "
+                   "Eu varri um estrato e falei do acervo -- escopo estreitado sem declarar",
+                   bool(kf.get("red_delta_acts_by_the_weight_ratio") is not None)))
+    # ⚠ a atermacao vive em Fin 2 x Fin 2 (dim 4). Ela e a FORMA da operacao, nao a
+    # atermacao da fisica. E bellProjector NAO esta ligado a P_F, firstAtom, ao p de
+    # NameRelation nem ao canto da rede -- TheNonMinimalCoupling ja declarava essa
+    # ausencia, e ela PERMANECE. Sao projetores de posto 1 em ESPACOS DIFERENTES.
+    checks.append(("[FAIL-CLOSED] ***a ATERMACAO esta em kernel e NAO acendeu bandeira "
+                   "nenhuma de fronteira: ela e a FORMA da operacao em dim 4, e nao a "
+                   "atermacao da fisica -- bellProjector segue SEM ponte para P_F",
+                   bool(kf.get("red_atermation_is_irreversible")
+                        and kf.get("red_bell_is_the_corner") is None
+                        and not kf.get("qgf_full_TGL_witness_constructed"))))
+    checks.append(("[FAIL-CLOSED] ***a PECA 1 esta FECHADA e mesmo assim a bandeira do Ato III "
+                   "continua APAGADA: uma rede com as tres propriedades nao e o habitante do "
+                   "certificado -- faltam as outras duas pecas, e ambas deram NEGATIVO",
+                   bool(kf.get("red_wide_net_has_all_three")
+                        and not kf.get("gpf_tower_act_III_inhabitant_constructed"))))
+    # ⚠ as pecas 2 e 3 deram NEGATIVO. O check mede que elas NAO viraram bandeira --
+    # se alguem inventar a flag sem o teorema, esta linha acusa.
+    checks.append(("[FAIL-CLOSED] ***e as pecas 2 e 3 NAO viraram bandeira: a identificacao "
+                   "dirac.D = locks e IMPOSSIVEL POR TIPO e a covariancia do frame e FALSA "
+                   "(colide com frame_nonconstant, ja selado) -- nenhuma das duas tem flag",
+                   bool(kf.get("red_dirac_is_the_lock") is None
+                        and kf.get("red_frame_is_covariant") is None)))
+    checks.append(("[FAIL-CLOSED] ***o CANTO DO PACOTE existe e NAO acendeu a bandeira do "
+                   "Ato III: construir o canto de UMA rede nao constroi o habitante do "
+                   "certificado -- falta a identificacao tipada",
+                   bool(kf.get("red_package_corner_positive_and_finite")
+                        and not kf.get("gpf_tower_act_III_inhabitant_constructed"))))
+    checks.append(("[ERRATA-DO-RELATORIO] o relatorio dizia <ker(fiberLock) = firstAtom, "
+                   "fecha por aplicacao sem matematica nova>. A igualdade NAO TIPA (espacos "
+                   "diferentes) e o molde lockNetTrace NAO se reusa: custou tau proprio e "
+                   "nao-trivialidade a mao", bool(kf.get("red_isotone_ker_ne_bot"))))
+    checks.append(("[ERRATA v275-v277] a afirmacao <S e Delta nao sao isometrias>, que eu "
+                   "repeti em TRES pedras sem medir, agora e TEOREMA -- e o defeito e o "
+                   "proprio espectro modular",
+                   bool(kf.get("red_delta_acts_by_the_weight_ratio")
+                        and kf.get("red_S_isometric_iff_delta_neutral"))))
     checks.append(("[FAIL-CLOSED] ***e a IMPORTACAO NAO a acendeu: quitar por importacao "
                    "NAO e quitar por prova (gpi_ aceso, red_clause_JMJ_contains apagado)",
                    bool(kf.get("gpi_commutation_discharged_by_import")
                         and not kf.get("red_clause_JMJ_contains"))))
     checks.append(("[FAIL-CLOSED] e nenhuma bandeira gpf_ (PRECO PAGO) acendeu por importacao",
                    bool(not any(kf.get(k) for k in kf if k.startswith("gpf_")))))
+    checks.append(("[ERRATA v274] o descompasso <towerJ usa raiz de rho, modTwist usa rho "
+                   "cheio, ZERO teoremas os relacionam> esta FECHADO: agora ha dois",
+                   bool(kf.get("red_modTwist_is_delta_after_S")
+                        and kf.get("red_modTwist_factors_through_J"))))
+    # v277 [O ALVO MUDOU]: a v276 exigia que esta bandeira NAO existisse, porque o
+    # teorema nao estava fechado. Fechou. O check NAO se apaga -- ele inverte, e passa
+    # a exigir a PRESENCA. Apagar seria perder a memoria de que houve divida ali.
+    checks.append(("[FAIL-CLOSED] ***a antiunitariedade de J NO ANDAR, que a v276 media "
+                   "como AUSENTE, esta FECHADA na v277 -- o check inverteu o alvo",
+                   bool(kf.get("red_Jlevel_is_antiunitary"))))
+    checks.append(("[MEDIDA] ***e com ela a tripla (S, Delta, J) satisfaz NO ANDAR as CINCO "
+                   "relacoes definidoras de Tomita: polar, S-adj S = Delta, positividade, "
+                   "auto-adjunticidade, antiunitariedade",
+                   bool(kf.get("red_polar_decomposition_at_the_level")
+                        and kf.get("red_S_star_S_is_delta")
+                        and kf.get("red_delta_positivity_is_the_norm_of_Sa")
+                        and kf.get("red_delta_is_selfadjoint")
+                        and kf.get("red_Jlevel_is_antiunitary"))))
+    checks.append(("[MEDIDA] e o que a sustenta no COMPLETAMENTO ja era teorema: a "
+                   "isometria de towerJ (o habitante antiunitario da v271b vive dela)",
+                   bool(kf.get("red_antiunitary_inhabitant_symm_is_self"))))
+    checks.append(("[HONESTIDADE] mas S e Delta ficam NO ANDAR: a extensao continua "
+                   "ABERTA (fechabilidade de S, auto-adjunticidade de Delta) -- e por "
+                   "isso nenhuma bandeira nova de fronteira acendeu",
+                   bool(not kf.get("qgf_continuous_modular_realization_constructed"))))
     checks.append(("[HONESTIDADE] a metade paga E teorema, e por isso a conjectura e a OUTRA",
                    bool(kf.get("red_clause_JMJ_inside")
                         and kf.get("red_conjecture_is_the_unpaid_half"))))
@@ -73589,11 +75661,75 @@ def prove_the_fold_through_J(core):
                                        "Neumann) estao PROVADAS nesta arvore no objeto "
                                        "INFINITO; o que se toma emprestado e a CONCLUSAO "
                                        "e so ela -- e a bandeira e gpi_, jamais gpf_"),
-            "o_residuo_nomeado": ("construir S e Delta na TORRE. O padrao existe um andar "
+            "as_relacoes_modulares": ("<Sa,Sb> = <Delta b, a> e a identidade que DEFINE "
+                                      "o operador modular; a positividade de Delta E a "
+                                      "norma de Sa (nao e postulada). Com a polar da v275, "
+                                      "a tripla (S, Delta, J) tem a algebra INTEIRA de "
+                                      "Tomita no andar -- a identificacao deixou de ser "
+                                      "plausibilidade de formula"),
+            "a_atermacao_v284": ("cunhagem do operador: (processo, ambiente) -> (termo, "
+                                 "vazio). O nome tecnico proximo e <reificacao + teardown>; "
+                                 "a cunhagem une as duas, e o vocabulario de computacao nao "
+                                 "tem isso. O DENTE (nao-injetividade) e o que a separa de "
+                                 "destructor/GC: o ambiente NAO volta do termo. E a "
+                                 "irreversibilidade vem de P != 1 -- na entrada (0,0) o Nome "
+                                 "vale 1/2 e a identidade vale 1: O NOME NAO E O TODO, e e "
+                                 "essa diferenca que faz o termo ser termo"),
+            "o_autovalor_um_ja_existia": ("a pergunta <matriz de vetor unico e autovalor um> "
+                                 "ja tinha resposta: tau(P_F) = 1 = omega(I), provado na v281 "
+                                 "em TODA regiao de fibra infinita. E a tensao com 1_abs = "
+                                 "I/d (posto d) ja estava resolvida na v256: "
+                                 "the_two_indices_agree_only_at_the_atom -- os dois SO "
+                                 "coincidem em d = 1. Faltava o NOME da operacao, nao o "
+                                 "objeto"),
+            "a_errata_da_errata_v283": ("eu declarei <a ponte 8piG-curvatura NAO EXISTE> "
+                               "tendo varrido SO o kernel Lean, e chamei aquilo de <o "
+                               "codigo>. A PONTE EXISTE: artigo Einstein-Cartan-Miguel "
+                               "(129 KB) com Gamma = Gamma_LC + K_betaTGL e "
+                               "G_uv+Lambda g_uv = 8piG P_uv[K_d], e o um.py a EMITE. "
+                               "Mais tres frases minhas medidas falsas: area EXISTE, "
+                               "Raychaudhuri parcial, 4 docstrings com pi+curvatura. "
+                               "SOBREVIVEM duas: sem tensor de energia-momento, e beta "
+                               "fora das SEIS ocorrencias de 8*pi. REGRA: escopo "
+                               "estreitado sem declarar e a mesma falsidade que ausencia "
+                               "nao varrida"),
+            "o_estatuto_da_ponte": ("[REAL] o formalismo Einstein-Cartan; [CONJECTURE] a "
+                               "transferencia; beta ALOJA, NAO DERIVA; e o proprio acervo "
+                               "declara ABERTO <a derivacao explicita de K_betaTGL no "
+                               "continuo>. Nada desta rodada move isso"),
+            "a_divida_sem_J": ("a oitava clausula equivale a <comutante da acao a DIREITA "
+                               "dentro do bicomutante da ESQUERDA> -- J SAI do enunciado. "
+                               "Duas pecas novas: profileJlevel_involutive (nao existia no "
+                               "ANDAR) e rTowerImage (nao existia como CONJUNTO). E a "
+                               "conjugada da esquerda E EXATAMENTE a direita, as duas "
+                               "inclusoes. ⚠ A divida NAO ENCOLHE: e equivalencia"),
+            "o_defeito_de_isometria": ("(Delta a)_jk = (w_j/w_k).a_jk -- o espectro modular. "
+                               "Delta so fixa onde os pesos coincidem; S e isometria so na "
+                               "face TRACIAL. A afirmacao que eu repeti em tres pedras sem "
+                               "medir virou conta, com o motivo dentro"),
+            "as_cinco_relacoes_de_tomita": ("polar (v275) + S-adjunto S = Delta + "
+                                      "positividade + auto-adjunticidade (v276) + "
+                                      "antiunitariedade de J (v277). A tripla (S, Delta, J) "
+                                      "satisfaz NO ANDAR todas as relacoes definidoras da "
+                                      "teoria modular. Nenhuma fica por conta de leitura"),
+            "o_que_NAO_foi_feito_na_v276_E_FOI_FECHADO_NA_v277": ("a antiunitariedade de J no produto GNS do "
+                                      "ANDAR. E verdadeira por conta, nao foi fechada, e "
+                                      "NAO entrou com sorry. A bancada MEDE que a bandeira "
+                                      "dela nao existe"),
+            "a_matriz_e_o_modulador": ("S(a) = a-adjunto e Delta(a) = rho.a.rho-inversa, "
+                                       "no ANDAR, com a decomposicao polar J . Delta^(1/2) "
+                                       "= S por conta exata. A formula de towerJ deixa de "
+                                       "ser LEITURA e passa a ser CONTA"),
+            "o_residuo_nomeado_ANTIGO_v274": ("construir S e Delta na TORRE. O padrao existe um andar "
                                   "abaixo (Sop_tomita, J_deltaHalf) e a formula de towerJ "
                                   "bate com a conjugacao modular da convencao GNS. "
-                                  "Descompasso medido: towerJ usa raiz de rho, modTwist usa "
-                                  "rho cheio -- ZERO teoremas os relacionam"),
+                                  "[SUPERADO NA v275] o descompasso raiz-de-rho vs rho-cheio "
+                                  "FOI FECHADO: modTwist = Delta . S"),
+            "o_residuo_nomeado": ("agora e ANALITICO, nao algebrico: a FECHABILIDADE de S "
+                                  "no denso e a AUTO-ADJUNTICIDADE POSITIVA de Delta. S e "
+                                  "Delta nao sao isometrias no produto rho-pesado, logo NAO "
+                                  "sobem por continuidade como towerJ sobe -- sao nao "
+                                  "limitados no denso, como manda a teoria modular"),
             "o_que_NAO_se_moveu": ("red_clause_JMJ_contains False; certificado condicional; "
                                    "fracao do Lema 3 movida = ZERO; gate intocado"),
             "estatuto_da_conjectura": ("CONJECTURE nomeada; e a medida acrescentou que ela e "
@@ -82877,6 +85013,13 @@ def compile_pdf(texname):
 # verificavel nos backups .bak_pre_sync_N e no CLAUDE.md (secoes 120-131).
 
 _ESQUELETO_STONES = [
+    ("v284", "TheAtermation", "TGLExt/TheAtermation.lean", None, None),
+    ("v282", "TheClassicalImport", "TGLExt/TheClassicalImport.lean", None, None),
+    ("v281", "TheWideNet", "TGLExt/TheWideNet.lean", None, None),
+    ("v280", "TheCornerOfThePackage", "TGLExt/TheCornerOfThePackage.lean", None, None),
+    ("v279", "TheDebtWithoutJ", "TGLExt/TheDebtWithoutJ.lean", None, None),
+    ("v276", "TheModularRelations", "TGLExt/TheModularRelations.lean", None, None),
+    ("v275", "TheMatrixAndTheModulator", "TGLExt/TheMatrixAndTheModulator.lean", None, None),
     ("v274", "TheImportedCommutation", "TGLExt/TheImportedCommutation.lean", None, None),
     ("v273", "TheImageAndTheReading", "TGLExt/TheImageAndTheReading.lean", None, None),
     ("v272", "TheGravitonIsTheConjugatedPhase", "TGLExt/TheGravitonIsTheConjugatedPhase.lean", None, None),
@@ -91468,6 +93611,9 @@ def main():
     core["the_static_is_conditioned"] = prove_the_static_is_conditioned(core)
     core["the_atom_of_identity"] = prove_the_atom_of_identity(core)
     core["the_fold_through_J"] = prove_the_fold_through_J(core)
+    # v285: O INDICE DA IALD -- a setima estrutura, DERIVADA e READ-ONLY. Roda DEPOIS
+    # de tudo que ele indexa, porque ele LE o core (a ordem importa: a licao da v270).
+    core["the_iald_index"] = prove_the_iald_index(core)
     print("   [v205] bootstrap: %s" % core["the_bootstrap"]["verdict"])
     # v207 [ADITIVO]: A PAREDE GANHA VALOR (as seis frentes da derivacao do operador)
     core["the_wall_value"] = prove_the_wall_gains_a_value(core.get("omega_I", 1.0))

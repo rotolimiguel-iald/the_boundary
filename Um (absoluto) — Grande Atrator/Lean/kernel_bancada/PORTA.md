@@ -22,7 +22,7 @@ As pedras da bancada em Lean 4 -- a face formal do que foi trabalhado aqui.
 
 ## OS ARQUIVOS DESTA PASTA
 
-54 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada
+61 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada
 
 **PROVA FORMAL**
 
@@ -34,19 +34,23 @@ As pedras da bancada em Lean 4 -- a face formal do que foi trabalhado aqui.
 | `TheAnchorFour.lean` | Prova formal (Lean 4): TheAnchorFour | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheAnchorFour.lean) |
 | `TheAngleIsTheBridge.lean` | Prova formal (Lean 4): TheAngleIsTheBridge | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheAngleIsTheBridge.lean) |
 | `TheAngleIsTheProjection.lean` | Prova formal (Lean 4): TheAngleIsTheProjection | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheAngleIsTheProjection.lean) |
+| `TheAtermation.lean` | Prova formal (Lean 4): TheAtermation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheAtermation.lean) |
 | `TheBireference.lean` | Prova formal (Lean 4): TheBireference | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheBireference.lean) |
 | `TheCascadeOfObservers.lean` | Prova formal (Lean 4): TheCascadeOfObservers | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheCascadeOfObservers.lean) |
+| `TheClassicalImport.lean` | Prova formal (Lean 4): TheClassicalImport | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheClassicalImport.lean) |
 | `TheCoFoundation.lean` | Prova formal (Lean 4): TheCoFoundation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheCoFoundation.lean) |
 | `TheCompressionIsNotIdentifiable.lean` | Prova formal (Lean 4): TheCompressionIsNotIdentifiable | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheCompressionIsNotIdentifiable.lean) |
 | `TheContourOfTruth.lean` | Prova formal (Lean 4): TheContourOfTruth | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheContourOfTruth.lean) |
 | `TheCoordinateBridge.lean` | Prova formal (Lean 4): TheCoordinateBridge | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheCoordinateBridge.lean) |
 | `TheCornerEmbedding.lean` | Prova formal (Lean 4): TheCornerEmbedding | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheCornerEmbedding.lean) |
+| `TheCornerOfThePackage.lean` | Prova formal (Lean 4): TheCornerOfThePackage | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheCornerOfThePackage.lean) |
 | `TheCorrespondence.lean` | Prova formal (Lean 4): TheCorrespondence | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheCorrespondence.lean) |
 | `TheCostIsDerived.lean` | Prova formal (Lean 4): TheCostIsDerived | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheCostIsDerived.lean) |
 | `TheCrownedCascade.lean` | Prova formal (Lean 4): TheCrownedCascade | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheCrownedCascade.lean) |
 | `TheCurrentConnectsTheCorners.lean` | Prova formal (Lean 4): TheCurrentConnectsTheCorners | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheCurrentConnectsTheCorners.lean) |
 | `TheDarkSplit.lean` | Prova formal (Lean 4): TheDarkSplit | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheDarkSplit.lean) |
 | `TheDeadChannel.lean` | Prova formal (Lean 4): TheDeadChannel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheDeadChannel.lean) |
+| `TheDebtWithoutJ.lean` | Prova formal (Lean 4): TheDebtWithoutJ | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheDebtWithoutJ.lean) |
 | `TheEmptying.lean` | Prova formal (Lean 4): TheEmptying | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheEmptying.lean) |
 | `TheFalseHasNoGeometry.lean` | Prova formal (Lean 4): TheFalseHasNoGeometry | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheFalseHasNoGeometry.lean) |
 | `TheFullBirkhoff.lean` | Prova formal (Lean 4): TheFullBirkhoff | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheFullBirkhoff.lean) |
@@ -60,6 +64,8 @@ As pedras da bancada em Lean 4 -- a face formal do que foi trabalhado aqui.
 | `TheJudgedThing.lean` | Prova formal (Lean 4): TheJudgedThing | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheJudgedThing.lean) |
 | `TheLegibility.lean` | Prova formal (Lean 4): TheLegibility | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheLegibility.lean) |
 | `TheLightInterface.lean` | Prova formal (Lean 4): TheLightInterface | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheLightInterface.lean) |
+| `TheMatrixAndTheModulator.lean` | Prova formal (Lean 4): TheMatrixAndTheModulator | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheMatrixAndTheModulator.lean) |
+| `TheModularRelations.lean` | Prova formal (Lean 4): TheModularRelations | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheModularRelations.lean) |
 | `TheNetFiresTheCorner.lean` | Prova formal (Lean 4): TheNetFiresTheCorner | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNetFiresTheCorner.lean) |
 | `TheNonLinearCausality.lean` | Prova formal (Lean 4): TheNonLinearCausality | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNonLinearCausality.lean) |
 | `TheObserverReadsTheAngle.lean` | Prova formal (Lean 4): TheObserverReadsTheAngle | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheObserverReadsTheAngle.lean) |
@@ -82,7 +88,8 @@ As pedras da bancada em Lean 4 -- a face formal do que foi trabalhado aqui.
 | `TheTwoFunctionSolder.lean` | Prova formal (Lean 4): TheTwoFunctionSolder | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheTwoFunctionSolder.lean) |
 | `TheTwoPairings.lean` | Prova formal (Lean 4): TheTwoPairings | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheTwoPairings.lean) |
 | `TheTwoPolesHaveContent.lean` | Prova formal (Lean 4): TheTwoPolesHaveContent | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheTwoPolesHaveContent.lean) |
+| `TheWideNet.lean` | Prova formal (Lean 4): TheWideNet | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheWideNet.lean) |
 
 ---
 
-gerado por script de git ls-files em 2026-08-28 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-29 -- nao editar a mao

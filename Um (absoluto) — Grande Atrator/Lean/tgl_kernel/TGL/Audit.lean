@@ -1932,6 +1932,66 @@ noncomputable example (P : TGLExt.SiteProfile) :
 #print axioms TGLExt.imported_commutation_gives_the_equality
 #print axioms TGLExt.the_hypotheses_alone_are_equivalent_to_true
 
+-- v275: A MATRIZ E O MODULADOR DA TORRE (S e Delta no andar)
+#print axioms TGLExt.profileRootInv_isHermitian
+#print axioms TGLExt.profileRootInv_mul_root
+#print axioms TGLExt.the_polar_decomposition_at_the_level
+#print axioms TGLExt.delta_is_the_square_of_its_half
+#print axioms TGLExt.modTwist_is_delta_after_S
+#print axioms TGLExt.modTwist_factors_through_J
+#print axioms TGLExt.towerSlevel_involutive
+#print axioms TGLExt.towerDeltaHalfLevel_inverse
+
+-- v276: AS RELACOES MODULARES (S-adjunto S = Delta, no andar)
+#print axioms TGLExt.tInner_eq_trace
+#print axioms TGLExt.tInner_delta_left
+#print axioms TGLExt.S_star_S_is_deltaLevel
+#print axioms TGLExt.deltaLevel_positive
+#print axioms TGLExt.deltaLevel_selfadjoint
+-- v277: o teorema que a v276 deixou de fora, FECHADO
+#print axioms TGLExt.rhoMat_mul_rootInv
+#print axioms TGLExt.Jlevel_is_antiunitary
+
+-- v279: o DEFEITO DE ISOMETRIA (o espectro modular) e A DIVIDA SEM J
+#print axioms TGLExt.delta_acts_by_the_weight_ratio
+#print axioms TGLExt.delta_fixes_only_where_the_weights_agree
+#print axioms TGLExt.S_isometric_iff_delta_neutral
+#print axioms TGLExt.profileJlevel_involutive
+#print axioms TGLExt.conjByJ_towerImage_eq_rTowerImage
+#print axioms TGLExt.the_eighth_clause_without_J
+#print axioms TGLExt.the_easy_half_without_J
+#print axioms TGLExt.the_debt_is_an_equality_without_J
+
+-- v280: O CANTO DE BREUER DO PROPRIO PACOTE (theIsotoneNet)
+#check @TGLExt.theIsotoneNetTrace
+#print axioms TGLExt.isotone_ker_ne_bot
+#print axioms TGLExt.the_package_corner_is_positive_and_finite
+#print axioms TGLExt.the_package_corner_is_not_the_certificate_corner
+
+-- v281: A REDE LARGA (peca 1 da solda) + os dois negativos medidos
+#check @TGLExt.theWideNet
+#check @TGLExt.theWideNetTrace
+#print axioms TGLExt.wideSub_not_finiteDimensional
+#print axioms TGLExt.wideIncl_not_surjective
+#print axioms TGLExt.wide_ker_eq
+#print axioms TGLExt.wide_corner_weighs_one
+#print axioms TGLExt.wide_net_has_all_three
+#print axioms TGLExt.tailLock_ker_eq_bot
+#print axioms TGLExt.fused_ker_contains_L2
+
+-- v282: A IMPORTACAO CLASSICA (a divida citavel pelo nome)
+#print axioms TGLExt.classical_commutation_from_the_imported_field
+#print axioms TGLExt.imported_field_from_classical_commutation
+#print axioms TGLExt.the_imported_field_is_the_classical_theorem
+#print axioms TGLExt.the_classical_import_needs_only_one_inclusion
+#print axioms TGLExt.the_easy_half_alone_is_equivalent_to_true
+
+-- v284: A ATERMACAO (reificacao + teardown, com o dente da irreversibilidade)
+#check @TGLExt.atermation
+#print axioms TGLExt.atermation_reifies
+#print axioms TGLExt.atermation_fixes_the_term
+#print axioms TGLExt.atermation_is_irreversible
+
 -- ---- sentinelas ----
 #eval IO.println "TGL_KERNEL_BUILD_OK"
 #eval IO.println "FINITE_THREE_LOCKS_KERNEL_PROVED"
