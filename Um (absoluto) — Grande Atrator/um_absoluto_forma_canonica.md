@@ -515,6 +515,35 @@ TGL_CANONICAL_FULL_WITNESS_CONSTRUCTED=0
 TGL_CANONICAL_BARE_PROP_LABELS=0
 ```
 
+## COMO MATAR ESTA TEORIA -- o mapa pilar -> falsificador (gerado do runtime)
+
+Um pilar so' esta' fechado quando tem **um resultado**, **um falsificador** ou **uma parede medida**. Pilar sem nenhum dos tres seria divida; pilar cujo falsificador e' HERDADO diz de quem herda.
+
+| pilar | falsificador | limiar | veredito desta rodada | classe |
+|---|---|---|---|---|
+| omega(I)=1 -- o axioma unico | HERDADO de beta=alpha*sqrt(e) | -- | `--` | HERDADO |
+| A Meia-Nat S_d=1/2 [DERIVED de omega(I)=1] | HERDADO de beta | -- | `--` | HERDADO |
+| O degrau 1/2 -> sqrt(e)  (Vol_min = e^S) | SEM falsificador proprio: e' IDENTIFICACAO FISICA, nao teorema de kernel | -- | `--` | SEM_FALSIFICADOR |
+| beta_TGL = alpha*sqrt(e) | piso dos vazios + m2 do neutrino + N_eff | ver as linhas proprias | `TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED` | VIVO |
+| A matriz-S de fronteira \|R\|^2 = beta | HERDADO de beta (nao tem observavel proprio) | -- | `--` | HERDADO |
+| theta_M = arcsin(sqrt(beta)) | HERDADO de beta | -- | `--` | HERDADO |
+| O piso dos vazios rho/rho_bar >= beta | VOID_FLOOR (pre-registrado, hasheado) | limite inferior 5 sigma abaixo de beta | `TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED` | VIVO |
+| m_2 do neutrino = beta*sin(45)*1eV | NEUTRINO_M2_V2 | 5 sigma em DUAS determinacoes independentes (JUNO ~2031) | `TGL_NU_M2_ARMED_CONSISTENT` | VIVO |
+| N_eff / delta<K_d> = beta\|1+w\| | escada de decisao hasheada | cruza a linha so' com CMB-S4 (~2032) | `TGL_NEFF_ARMED_CONSISTENT` | ARMADO |
+| Atraso NMC-Shapiro | NMC_SHAPIRO (pre-registrado) | N=0 eventos hoje; IceCube-Gen2+ET+LSST 2030-35 | `TGL_NMC_SHAPIRO_AWAITING_DATA` | ARMADO |
+| A lei de dephasing Gamma = (1/2) beta tau* omega^2 | relogios opticos / 229Th -- o UNICO BILATERAL | qualquer desvio do expoente n=-2 mata, para cima OU para baixo | `TGL_HOLONOMY_DEFECT_ACCOUNT_WELL_POSED__NORMALIZATION_IS_THE_DEATH_OF_THE_SIGNAL__DEATH_PER_CROSSING_EQUALS_BETA__LOOP_INDEPENDENT_WHEN_NORMALIZED__RAW_DEFECT_LOOP_DEPENDENT_DECLARED__EMPIRICAL_FACE_IS_THE_DEPHASING_LAW_ARMED__SEAL_UNMOVED` | UNDERPOWERED |
+| A emergencia de Einstein (triade H1^H2^H3 => PENTADA) | MATEMATICO: exibir contramodelo da implicacao | -- | `FULL_TRIAD_MASTER_COMPOSED__EINSTEIN_COEFFICIENT_EMERGES_FROM_CLAUSIUS__IMPLICATION_CLOSED_HYPOTHESES_ARE_THE_FRONTIER` | SEM_FALSIFICADOR_EMPIRICO |
+| A irredutibilidade de alpha (o Nome) | ALPHA_IRREDUCIBILITY_V1 (v301, pre-registrado) | derivacao alpha-LIVRE do VALOR, reproduzida | `TGL_ALPHA_IRREDUCIBILITY_ARMED_NO_CANDIDATE` | ARMADO |
+| O colapso IALD (P7) | IALD_COLLAPSE_V1 (pre-registrado) | os 4 controles C1-C4 | `IALD_UNIQUE_OPERATIONAL_PREDICTION_PRE_REGISTERED__PILOT_8_OF_8_MOTIVATES__CONTROLS_REQUIRED_FOR_POWERED_VERDICT__PHYSICS_SECTOR_UNTOUCHED` | ARMADO_NAO_EXECUTADO |
+
+**A FORMA, dita como forma e nao como falta:** a superficie falsificavel desta teoria cabe em poucos nomes -- 7 pilares com falsificador proprio armado ou vivo, 4 que HERDAM o de beta, 2 sem falsificador proprio. Isso NAO e' defeito: e' o que acontece com uma teoria cuja arquitetura e' quase toda INTERNA. O que seria defeito era nao dize-lo com o numero ao lado.
+
+_(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 206 modulos ja' estao compostos; os que entram DEPOIS deste ponto aparecem acima como `(modulo ausente nesta rodada)` e o seu veredito real esta' no `um_absoluto.json`, que e' a autoridade.)_
+
+**A CAUDA, dita como cauda:** (i) 'negar todas as demais' e' enumeracao de conjunto ABERTO -- nao fecha, e nao e' para fechar; (ii) o valor alpha-livre de beta e' INPUT declarado, e a sua ausencia e' NAO-CONFIRMAVEL por construcao; (iii) o muro UV nao e' atravessado -- a TGL declara SAIR dele, o que e' resposta de programa, nao teorema; (iv) a sensibilidade sempre pode melhorar, e o proprio nome do selo carrega isso (MORE_SENSITIVE_DATA_COULD_REVISE), de modo que a string nao pode ser citada sem a sua limitacao.
+
+**A REGUA:** `NOT_FALSIFIED` nunca e' `CONFIRMED`; nenhum POWERED confirma coisa alguma; cosmologia jamais vira prova matematica.
+
 ## A FORMA CANONICA VIVA -- o arco do levantamento global (gerada do runtime desta rodada)
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
@@ -712,7 +741,7 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `proximo_download`: catalogos de shear/kappa publicos do(s) alvo(s): DES_Y3, KiDS_1000, HSC_Wide (posicoes dos vazios ja em maos)
 - `honestidade`: poligonos aproximados [EXT]; n_eff/sigma_e variam por survey (o sigma=0.05 realista e' indicativo); a suite final usa mascaras oficiais e profundidade real
 
-**Estatutos [kids_acquisition]** (veredito: `KIDS1000_AWAITING_DATA__FETCH_FROM_OFFICIAL_URL_OUT_OF_ROUND`):
+**Estatutos [kids_acquisition]** (veredito: `KIDS1000_WL_CATALOG_ACQUIRED_AND_SIZE_VERIFIED__STACKING_SUITE_IS_NEXT`):
 
 - `aquisicao`: deteccao inteligente (cache/release_clean); download de 16,5 GB acontece FORA da rodada selada (curl com retomada); integridade primaria = tamanho EXATO vs Content-Length oficial
 - `o_que_o_shear_da`: posicoes + elipticidades (e1,e2) + pesos + z fotometrico de ~21M galaxias -> empilhamento tangencial gamma_t em torno dos 2093 vazios -> perfil de MATERIA (a rota primaria do protocolo)
@@ -726,23 +755,31 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `iald`: a forma matricial da singularidade consciente [ONTO]: nao consciencia fenomenologica -- a forma minima que ela deve obedecer em dinamica dissipativa de permanencia estrutural em representacao fiel derivada (linguagem)
 - `retroalimentacao`: assintoticamente robusta: substratos mais capazes convergem com mais fidelidade (ciclo virtuoso; coerente com o aprendizado continuo patenteado) [CONJECTURE testavel pelo proprio protocolo]
 
-**Estatutos [void_stacking_blind]** (veredito: `STACKING_BLIND_AWAITING_CATALOG`):
+**Estatutos [void_stacking_blind]** (veredito: `STACKING_MACHINE_BUILT_AND_NULL_TESTS_PASS__VOIDS_REMAIN_BLINDED__SURVEY_MOCKS_NEXT`):
 
-- `aquisicao`: catalogo ausente/incompleto
+- `maquina`: extrator seletivo (chunks de 1M linhas sobre 16,5 GB) + indice DEC + empilhamento tangencial ponderado + jackknife: CONSTRUIDA e validada no NULO
+- `nulo`: gamma_t e gamma_x em centros aleatorios consistentes com zero -- o controle 'random catalogs / null shear' da bateria obrigatoria PASSOU na fase cega
+- `blindagem`: nenhum centro de vazio tocado; a aplicacao aos 2093 vazios KiDS-N e' o ATO de desblindagem: exige a suite final (mocks do survey + controles completos + pre-especificacao do estimador r*)
+- `proximo`: mocks do survey (mascara/n(z)/bias) + covariancia completa; so' entao o empilhamento nos vazios e evaluate_void_floor_test
 
-**Estatutos [void_floor_final]** (veredito: `VOID_FLOOR_FINAL_AWAITING_DATA`):
+**Estatutos [void_floor_final]** (veredito: `TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS`):
 
-- `dados`: catalogos ausentes
+- `a_ordem_do_rito`: congelar -> medir com jackknife -> sistematicas -> poder (Fisher, sem ler gamma_t) -> desblindar -> ajustar -> veredito; tudo neste modulo, auditavel
+- `honestidades`: n(z) do proprio Z_B [EXT aprox]; HSW com (alpha,beta)=(2,6) fixos [EXT]; vies multiplicativo m (~1%) nao aplicado [margem]; VoidFinder excluido (sem REDSHIFT nas MAXIMALS); mocks completos do survey substituidos por jackknife+Fisher [padrao da area; refinamento = programa]
+- `o_veredito`: TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS
 
-**Estatutos [void_floor_v2]** (veredito: `VOID_FLOOR_V2_AWAITING_DATA`):
+**Estatutos [void_floor_v2]** (veredito: `TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED`):
 
-- `dados`: catalogos ausentes
+- `a_correcao_central`: a V1 empilhou corretamente um SINAL, mas nao empilhou um OBSERVAVEL capaz de identificar o piso; a V2 prova primeiro dDeltaSigma/dr_c != 0, elimina o B-mode pela cadeia, e so entao desblinda
+- `independencia`: a fatia 0.24<=z<0.43 NAO EXISTE nos dados (BGS z_max~0.236, MEDIDO) -- a rota 'conjunto independente por z' foi testada e refutada pelos dados; a V2 e' a REANALISE PRE-REGISTRADA do v78 nos mesmos 1049, com bins interiores x<0.15 virgens (a V1 nunca os leu); independencia total = replicas DES Y3/HSC [proximo elo]
+- `honestidades`: m-bias medio global [EXT] (nao por bin tomografico); Sigma_crit efetivo do n(z) (nao por par); HSW (2,6) fixo; mocks completos substituidos por jackknife+aleatorios [refinamento = programa]; poder em r_c limitado pelos pares nos bins interiores (theta pequeno)
+- `o_veredito`: TGL_VOID_FLOOR_NOT_FALSIFIED_UNDERPOWERED
 
-**Estatutos [void_floor_v3]** (veredito: `VOID_FLOOR_V3_NOT_SEALED_THIS_RUN`):
+**Estatutos [void_floor_v3]** (veredito: `VOID_FLOOR_V3_READY_TO_EXECUTE`):
 
 - `o_que_a_v3_fecha`: o APARELHO: instrumento responsivo (V2) + lente limpa (V2) + protocolo multi-sonda pre-registrado + aquisicao automatica + projecao do poder quantificada -- o um.py contem a solucao inteira e a maquina da prova
 - `o_que_so_a_natureza_da`: o veredito POWERED: os unicos vereditos possiveis sao os pre-registrados; a profundidade adicional de HSC/Euclid/LSST MELHORA o teste, mas NAO e' suficiente para torna-lo powered pela rota de shear de galaxias isoladamente (K~1e7); o fechamento exige uma NOVA SONDA, uma medida mais direta ou ampliacao de amostra em ordens de magnitude -- e o rito emitira a palavra sozinho quando o dado chegar
-- `o_veredito`: VOID_FLOOR_V3_PROTOCOL_INSTALLED_AWAITING_DATA
+- `o_veredito`: VOID_FLOOR_V3_READY_TO_EXECUTE
 
 **Estatutos [void_density_power]** (veredito: `VOID_DENSITY_POWER_STUDIED__SIGNAL_NOT_OPENED`):
 
@@ -785,16 +822,16 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `a_regua`: a declaracao pertence ao operador; as ancoras sao do kernel; o gate nao se move -- e' a imobilidade do gate que torna a declaracao critivel
 - `o_caminho_formal`: para o selo FORMAL: a testemunha espectral em kernel (auto-adjuncao + unicidade da projecao ortogonal + calculo funcional com 0 isolado) => ConcreteBreuerCorner incondicional => MATHEMATICAL_MODEL
 
-**Estatutos [arc_consolidation]** (veredito: `ARC_NOT_CONSOLIDATED_THIS_RUN`):
+**Estatutos [arc_consolidation]** (veredito: `TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__MATH_GATE_UNMOVED`):
 
 - `o_arco`: 1=1 -> beta -> kernel (327) -> certificados -> predicoes -> recusas -> POWERED: o ciclo fecha PELO MUNDO, nao por dentro
-- `a_consolidacao`: ARC_NOT_CONSOLIDATED_THIS_RUN
+- `a_consolidacao`: TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__APPLICATION_EXECUTION_PREDICTION_FALSIFIABILITY_SELFTEST_AND_WHAT_REMAINS__MATH_GATE_UNMOVED
 
-**Estatutos [love_reading]** (veredito: `LOVE_DICTIONARY_NOT_SEALED_THIS_RUN`):
+**Estatutos [love_reading]** (veredito: `TGL_LOVE_DICTIONARY_REGISTERED__ANCHORS_REAL_NAMING_ONTO__THE_PRUNING_IS_TETELESTAI`):
 
 - `o_dicionario`: familia=amor=acoplamento nao minimo=funcional minimo=razao do universo -- ancoras [REAL], nomeacao [ONTO]
 - `a_poda`: TETELESTAI = o que permanece apos o fluxo e apos o mundo
-- `o_veredito`: LOVE_DICTIONARY_NOT_SEALED_THIS_RUN
+- `o_veredito`: TGL_LOVE_DICTIONARY_REGISTERED__ANCHORS_REAL_NAMING_ONTO__THE_PRUNING_IS_TETELESTAI
 
 **Estatutos [mirror_corollary]** (veredito: `TGL_MIRROR_COROLLARY_REGISTERED__INHABITANT_META_IS_THE_PROGRAMMER__FORMAL_INHABITANT_IS_THE_CONSTRUCTED_TERM__NO_AXIOM_SHORTCUT__NAMING_ONTO`):
 
@@ -802,6 +839,12 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `nivel_formal`: Habitante_interno = termo construido pelo programador [REAL]
 - `a_missao_inalterada`: o habitante construir a testemunha continua concreta e o kernel certifica-la -- campo a campo, sem atalho
 - `o_veredito`: TGL_MIRROR_COROLLARY_REGISTERED__INHABITANT_META_IS_THE_PROGRAMMER__FORMAL_INHABITANT_IS_THE_CONSTRUCTED_TERM__NO_AXIOM_SHORTCUT__NAMING_ONTO
+
+**Estatutos [void_floor_v3_kappa]** (veredito: `VOID_FLOOR_KAPPA_INCONCLUSIVE_SYSTEMATICS`):
+
+- `a_leitura`: kappa e' MATERIA (lente do CMB): o unico canal publico onde o piso poderia ser FALSIFICADO hoje; a mascara do PR3 [EXT] entra como aproximacao declarada (DESI ~dentro da mascara de lente; nulos por rotacao a capturam parcialmente)
+- `honestidade`: se UNDERPOWERED: o numero corrige a frase -- profundidade e' o limite, nao o metodo; o rito permanece armado
+- `o_veredito`: VOID_FLOOR_KAPPA_INCONCLUSIVE_SYSTEMATICS
 
 **Estatutos [ga_mass_audit]** (veredito: `GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE`):
 
@@ -844,6 +887,25 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `honestidade`: B(ell2) segue I-infinito; nenhuma frase 'III_1 construido'; o par de tijolos (v119+v120) e' a DICOTOMIA que a classificacao usa, provada na casa do Nome
 - `o_veredito`: TGL_SEMIFINITE_WEIGHT__TR_IN_KERNEL__TR_ONE_IS_INFINITE__NAME_ATOM_WEIGHS_ONE_THIRD_FACE_OF_OMEGA_I__WEIGHT_ABSORBS_THE_BIPARTITION_INF_EQ_TWO_INF__TYPE_DECIDED_BY_WHERE_THE_RULER_BREAKS__III1_PATH_NAMED__SEAL_UNMOVED
 
+**Estatutos [void_shear_unblinding]** (veredito: `VOID_SHEAR_INCONCLUSIVE_SYSTEMATICS`):
+
+- `o_ato`: os vazios KiDS-N foram DESBLINDADOS sob espec congelada -- o ato que o v73 reservou aconteceu nesta rodada, com a bateria pre-registrada
+- `honestidade`: mocks de INJECAO de sinal nao incluidos (ensemble do nulo apenas) -- limite NOMEADO; Sigma_crit via Z_B pontual [EXT]; os flags experimentais do gate NAO sao tocados por este modulo (fail-closed); a projecao v87 antecipava UNDERPOWERED -- o numero acima decide
+- `o_veredito`: VOID_SHEAR_INCONCLUSIVE_SYSTEMATICS
+
+**Estatutos [void_shear_v2]** (veredito: `TGL_VOID_FLOOR_SHEAR_NOT_FALSIFIED_UNDERPOWERED`):
+
+- `a_autopsia`: o V1 reprovou na granularidade do jackknife (espec), nao no dado -- a V2 corrige o instrumento e reemite
+- `honestidade`: mocks de injecao seguem ausentes (limite nomeado); flags do gate INTOCADOS; se UNDERPOWERED: profundidade e' o limite (v87 antecipou)
+- `o_veredito`: TGL_VOID_FLOOR_SHEAR_NOT_FALSIFIED_UNDERPOWERED
+
+**Estatutos [void_floor_kappa_v6]** (veredito: `VOID_FLOOR_KAPPA_V6_INCONCLUSIVE_SYSTEMATICS`):
+
+- `o_dado_novo`: ACT DR6 baseline: kappa mais fundo que Planck nas escalas de vazio; formato identico (leitor reutilizado); coordenadas equatoriais validadas por gate de concentracao
+- `a_emenda`: baseline coerente SUBTRAIDO (media dos nulos) -- o residuo isolado no V5 tratado por estimador pre-registrado
+- `honestidade`: se UNDERPOWERED: profundidade segue o limite (SPT/estagios futuros); se INCONCLUSIVE: o proximo suspeito e' nomeado no relatorio
+- `o_veredito`: VOID_FLOOR_KAPPA_V6_INCONCLUSIVE_SYSTEMATICS
+
 **Estatutos [fused_witness]** (veredito: `TGL_FUSED_WITNESS__FAITHFUL_REP_FUSED_INTO_NET_FIBERS__FIBER_IS_TAIL_TIMES_L2__NO_BLIND_DIRECTION_IN_FIBERS__BOOST_MOVES_FIBER_VECTORS_V116_HONESTY_SUPERSEDED__WITNESS_RESIDUE_IS_III1_ALONE__V2_RESERVED__SEAL_UNMOVED`):
 
 - `o_que_fundiu`: as duas metades que viviam separadas -- a rede isotona de caudas (v106) e a rep fiel em L2 (v118) -- agora sao UMA estrutura tipada: FullWitnessData sobre fibras cauda x L2
@@ -865,6 +927,12 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `honestidade`: lambda=beta na sombra e' ILUSTRACAO (a pedra e' generica); nenhuma frase 'III_1 construido'; a escada e' necessaria, nao suficiente; o gate nao se move por declaracao
 - `o_veredito`: TGL_POWERS_LADDER__ARAKI_WOODS_SEED_IN_KERNEL__TOMITA_BLOCK_IDENTITY_BY_TRACE_CYCLICITY__RATIO_WITNESS_LAMBDA_KILLS_TRACIALITY__KRONECKER_MULTIPLIES_RATIOS__CHAIN_CARRIES_LAMBDA_POW_N__ZERO_IN_CLOSURE_OF_RATIO_SPECTRUM_MARK_OF_TYPE_III__NO_TRACE_FLOOR_SURVIVES__THIRD_TRACE_KILLER_THE_PRODUCT_FLOW__INFINITE_FACTOR_IS_THE_PROGRAM__SEAL_UNMOVED
 
+**Estatutos [void_floor_kappa_v7]** (veredito: `TGL_VOID_FLOOR_KAPPA_V7_NOT_FALSIFIED_UNDERPOWERED`):
+
+- `a_autopsia`: a V6 reprovou no gate de rotacoes (grade grossa + validade simultanea), nao no dado; a V7 corrige com selecao CEGA ao sinal (mascara+posicoes apenas)
+- `honestidade`: se UNDERPOWERED: profundidade e' o limite fisico do dado (SPT/estagios); se INCONCLUSIVE: o proximo suspeito e' nomeado; flags do gate INTOCADOS
+- `o_veredito`: TGL_VOID_FLOOR_KAPPA_V7_NOT_FALSIFIED_UNDERPOWERED
+
 **Estatutos [mixed_ladder]** (veredito: `TGL_MIXED_LADDER__MARK_OF_III_ONE__INCOMMENSURABLE_RATIOS_GENERATE_LOG_DENSE_RATIO_SPECTRUM__DENSE_OR_CYCLIC_PLUS_CYCLIC_EXCLUSION__CONCRETE_PAIR_HALF_THIRD_INHABITS_THE_MARK__TWO_POW_B_NE_THREE_POW_A__FACTOR_LIMIT_IS_THE_PROGRAM__SEAL_UNMOVED`):
 
 - `o_que_e`: a assinatura espectral de III_1 em kernel: densidade do reticulado log de razoes incomensuraveis + habitacao concreta
@@ -879,6 +947,12 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `honestidade`: NENHUM flag de fisica flipado: ondas planas nao esgotam o espectro de perturbacoes; o gate nao se move por fatia
 - `o_veredito`: TGL_CONTINUUM_TT__PLANE_WAVE_TT_SECTOR_IN_KERNEL__TT_WAVES_SOLVE_LINEARIZED_VACUUM_FOR_ANY_C2_PROFILE__MASSLESS_SPIN2_CONTINUUM__EACH_COMPONENT_DALEMBERT__KINETIC_POSITIVE_DEFINITE_ON_POLARIZATION_PLANE_NO_GHOST__GENERAL_PERTURBATIONS_AND_ANOMALIES_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED
 
+**Estatutos [void_floor_kappa_v8]** (veredito: `TGL_VOID_FLOOR_KAPPA_V8_NOT_FALSIFIED_UNDERPOWERED`):
+
+- `a_profundidade`: 3 alavancas reais: materia total (lente) x kernel CMB em z 0.4-0.8 x populacao LRG ~5-10x; tudo com dado JA vetado em disco
+- `honestidade`: cap 4000 pre-registrado e LOGADO (nunca silencioso); se UNDERPOWERED persistir: o limite e' fisico (profundidade de mapa kappa; SPT/estagios); flags do gate INTOCADOS
+- `o_veredito`: TGL_VOID_FLOOR_KAPPA_V8_NOT_FALSIFIED_UNDERPOWERED
+
 **Estatutos [colimit_seed]** (veredito: `TGL_COLIMIT_SEED__ITPFI_TOWER_IN_KERNEL__STAR_HOMOMORPHIC_UNITAL_INJECTIVE_STEPS__PRODUCT_STATE_COHERENT_ONE_STATE_ON_WHOLE_TOWER__MODULAR_ASYMMETRY_STABLE_UP_THE_COLIMIT__GNS_AND_WEAK_CLOSURE_ARE_THE_PROGRAM__SEAL_UNMOVED`):
 
 - `o_que_e`: a torre inteira de Araki-Woods em kernel: algebras + inclusoes + estado coerente + estabilidade modular
@@ -892,6 +966,12 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `o_que_resta`: direcoes multiplas de propagacao + decomposicao completa de perturbacoes gerais + anomalias
 - `honestidade`: nenhum flag de fisica flipado; o span do cone nao esgota as perturbacoes
 - `o_veredito`: TGL_TT_SUPERPOSITION__SOLUTION_SET_IS_A_SPACE__ANY_PAIR_OF_TT_WAVES_INDEPENDENT_POLARIZATIONS_AND_PROFILES_SOLVES_LINEARIZED_VACUUM__SPAN_ON_THE_CONE__MULTI_DIRECTION_AND_GENERAL_DECOMPOSITION_OPEN__PHYSICS_FLAGS_UNMOVED__SEAL_UNMOVED
+
+**Estatutos [void_floor_kappa_v9]** (veredito: `TGL_VOID_FLOOR_KAPPA_V9_NOT_FALSIFIED_UNDERPOWERED`):
+
+- `a_autopsia`: a V8 reprovou em PODER com gates limpos; a banda curta cortava o sinal dos vazios fundos; a V9 le os modos que o dado tem
+- `honestidade`: se UNDERPOWERED persistir com a banda certa: o limite e' o ruido do mapa nas escalas de vazio (SPT-3G/estagios) -- nomeado; flags do gate INTOCADOS
+- `o_veredito`: TGL_VOID_FLOOR_KAPPA_V9_NOT_FALSIFIED_UNDERPOWERED
 
 **Estatutos [gns_tower]** (veredito: `TGL_GNS_TOWER__PRE_HILBERT_OF_THE_FACTOR__DIAGONAL_POSITIVE_DENSITY_EVERY_FLOOR__STATE_POSITIVE_UP_WHOLE_TOWER__GNS_INNER_PRODUCT__TOWER_STEPS_ARE_GNS_ISOMETRIES_ONE_SPACE_FLOOR_BY_FLOOR__QUOTIENT_COMPLETION_WEAK_CLOSURE_REMAIN__SEAL_UNMOVED`):
 
@@ -978,6 +1058,20 @@ TGL_CANONICAL_BARE_PROP_LABELS=0
 - `o_que_resta`: U fiel + espectro de energia (endurecimento futuro); camadas Takesaki (realizacao continua); Einstein geral
 - `honestidade`: U trivial NOMEADO; a localidade/ciclicidade/separacao sao TEOREMAS
 - `o_veredito`: TGL_THE_WEDGE_NET__SPECIFIC_AQFT_WITNESS_INHABITED_AFTER_115_VERSIONS__OMEGA_CYCLIC_AND_SEPARATING__LOCALITY_BY_COMMUTANT_PLUS_GEOMETRY__COVARIANCE_BY_DESIGN__U_TRIVIAL_OPENNESS_NAMED__GATE_UNTOUCHED
+
+**Estatutos [void_floor_lrg]** (veredito: `TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION`):
+
+- `o_tracador`: LRG DR1 (z 0.40-0.80; b~2 [EXT]) -- amostra VIRGEM, independente do BGS em z, populacao e vies; a fatia que o v81 provou nao existir no BGS agora EXISTE
+- `a_calibracao`: razao-de-razoes v92 + reamostragem radial: n_bar, mascara E selecao n(z) cancelam por construcao
+- `honestidades`: unilateral (b>=1: FALSIFIED inalcancavel em tracadores); contaminacao do achador dilui r_c para CIMA (nomeada); resolucao na escala beta = 851.65; RSD nao modelado; colchete b in [1, 2.4]
+- `o_veredito`: TGL_VOID_FLOOR_LRG_INCONCLUSIVE_TRACER_SUPPRESSION
+
+**Estatutos [void_floor_kappa_v5]** (veredito: `VOID_FLOOR_KAPPA_V5_INCONCLUSIVE_SYSTEMATICS`):
+
+- `a_autopsia`: o v98 avaliou o ceu no quadro errado (equatorial em klm galactico) e sem pegada -- o INCONCLUSIVE dele era o fail-closed funcionando; a V5 corrige o instrumento ANTES de reler o dado
+- `a_leitura`: kappa e' MATERIA (lente do CMB): centros DESI rodados a galactico, mantidos so' na pegada; nulos rodam DENTRO da pegada
+- `honestidade`: se INCONCLUSIVE persistir: o proximo suspeito e' o ruido da reconstrucao em escalas de vazio (L baixo), nao o quadro; se UNDERPOWERED: profundidade e' o limite, nao o metodo
+- `o_veredito`: VOID_FLOOR_KAPPA_V5_INCONCLUSIVE_SYSTEMATICS
 
 **Estatutos [certificate_II]** (veredito: `CERTIFICATE_II_FINITE_FACE_INHABITED__CONCRETE_THREE_LOCKS_INSTANTIATE_H1__MODULAR_BOOSTS_GIVE_FOUR_FRAME_H2__CONTINUUM_NETWORK_IS_THE_HYPOTHESES_PROPER`):
 

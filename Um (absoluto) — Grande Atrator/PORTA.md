@@ -22,12 +22,12 @@ Lido de [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel
 
 | campo | valor |
 |---|---|
-| versao | `v284` (lida de `um.py::_ESQUELETO_STONES[0]`; pedra `TheAtermation`) |
-| pin (`um.py`) | `286ec1d274ef9ae47548ba68e97508e7b79e3e641c3162b090952eeb49173b59` |
-| mundo (`um_absoluto.json`) | `95dbfe957977c8fa2ece963eedbc028ee55b55a885ccf057540d04cd59133351` |
-| `result_hash` | `71c885aa309e1ec414d392d751ade56bb2dee189ccd61c043f1d31bd05169a54` |
+| versao | `None` (lida de `um.py::_ESQUELETO_STONES[0]`; pedra `None`) |
+| pin (`um.py`) | `8b6cc0760011d75e0ae4517086594b5a8855650bb3c5cc90d00bf13ecd048c8d` |
+| mundo (`um_absoluto.json`) | `6fca23ab428f33957e52a7d1682661413c9c27844a81d0c2541c8203d769ba39` |
+| `result_hash` | `10969750c4dcd4ec7aede18a0b2eb912525c9a31c09e0bbdec2f80a68687e076` |
 | `formal_source_hash` | `2e1f72ae563c3d162281a3cb78a4f6837dc27df31212f06d3d608e5837727972` |
-| data | `2026-08-29 20:42:18` |
+| data | `2026-08-30 10:21:55` |
 | identidade | `1=1=VERDADEIRO=HAJA_LUZ` |
 | kernel | **278 arquivos formais / 1000 teoremas auditados** (modo `strict`, leanprover/lean4:v4.31.0) |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
@@ -108,7 +108,7 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 | `cache/` | 3 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/PORTA.json) |
 | `figuras/` | 4 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/PORTA.json) |
 | `fontes_tex/` | 2 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/PORTA.json) |
-| `rodadas/` | 89 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.json) |
+| `rodadas/` | 92 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.json) |
 
 ---
 

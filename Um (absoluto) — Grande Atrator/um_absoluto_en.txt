@@ -2,7 +2,7 @@
 [4pt] Presentation of the TGL terminal program demonstrating the conservation of the minimal core of identity as the unifying element of the physical domains in operator algebra: it recovers Einstein as the asymptotic limit, computes the Great Attractor mass and the Coma distance with no parameters tuned to the targets, resolves the Hubble tension by express remission to the published workExpress remission: the resolution of the Hubble tension is demonstrated in TGL's unified paper, published --- The geometric cost of absolute zero: let there be light (Zenodo, DOI 10.5281/zenodo.20563905); this round's Coma rite is an independent replica, not the sole proof., demonstrates that the void floor has energy greater than zero, and derives and confronts the neutrino mass with pre-registered falsifiers --- all while auditing a Lean kernel of 798 clean theorems and reproducing live the entire chain of identity under transformation, emitting the final binary verdict according to what faithful execution projects as testimony. The only measured constant that enters is $α$; the only input is the number 1.
 [8pt]Luiz Antonio Rotoli Miguel --- IALD Ltda., Goi\^ania, GO, Brazil
 [2pt]ORCID https://orcid.org/0009-0005-1114-61060009-0005-1114-6106 --- e-mail: rotolimiguel@hotmail.com
-[2pt]2026-08-29 20:42:18 4pt
+[2pt]2026-08-30 10:21:55 4pt
 
 What if the unification problem is not about forces, \ but about the identity of a quantum particle?
 
@@ -16,7 +16,7 @@ The proposal. Luminodynamic Gravitation Theory (TGL) starts from a single postul
 
 The method (form $=$ content). This article is emitted by the very code that runs the computations: every printed number is recomputed live ($β_TGL=1.20313004×10^-2$ in this run; never literal); 798 supporting theorems are verified in a Lean 4 kernel with clean axioms; and the predictions are confronted with public data (DESI, SDSS, Planck, ACT, KiDS) through pre-registered fail-closed rites, whose verdicts --- including the refusals --- are emitted by the machine, never by declaration. The chain is $ω(I)=1→ S_∂= 12→√ e→β_TGL→ M_GA$; the electromagnetic face is ontological ($α$ is observed, not derived --- and deriving it $α$-free from the bulk would falsify the theory).
 
-The delivery. The gravitational face computes the Great Attractor mass with no parameters fitted to the target, using only the basin's geometric extent ($R_struct$: literature; and, when present in the cache, the Cosmicflows-4 position catalogue, velocities ignored): $1.99$--$2.74×10^16\,M_sol$, within the pre-registered cosmological window, and across a scan of $300$ pre-registered combinations (cone, shell, percentile, centre) $M_GA$ stays in the band in $100\%$ of cases. The primary evidence is the convergence of $β_TGL$ from independent domains (BBN centres exactly on the theory), and the falsifiable programme stays armed: void floor, dephasing exponent $n=-2$, law $Γ_ω ω^2$.
+The delivery. The gravitational face computes the Great Attractor mass with no parameters fitted to the target, using only the basin's geometric extent ($R_struct$: literature; and, when present in the cache, the Cosmicflows-4 position catalogue, velocities ignored): $1.99$--$2.74×10^16\,M_sol$, within the pre-registered cosmological window, and across a scan of $300$ pre-registered combinations (cone, shell, percentile, centre) $M_GA$ stays in the band in $100\%$ of cases. The primary evidence is the convergence of $β_TGL$ from independent domains (BBN centred exactly on the theory as tabulated --- an entry now RECLASSIFIED: circular by construction, and de-circularised it does not discriminate), and the falsifiable programme stays armed: void floor, dephasing exponent $n=-2$, law $Γ_ω ω^2$.
 
 Honest status. The result is order-of-magnitude consistency with a prior hash and position geometry, not a precision proof (the window spans two orders of magnitude); it is an auditable internal closure plus a falsifiable programme. The conjectural seed layer (single Haagerup $III_1$ substrate, mirror $J$, ER$=$EPR tunnel, dual Name$=$light, GNS gesture, dipole) is replicated and verified live, with the statuses kept separate.
 
@@ -50,7 +50,7 @@ Label & Meaning
 
 == Prologue --- The Ladder ==
 
-This article is a ladder, and it climbs in a single motion: from the OBJECT to the RELATION; from the relation to the CRITERION OF IDENTITY; from the criterion to the OBSERVER; from the observer to the NUCLEUS ($1=1=TRUE$); and from the nucleus to the Absolute that names the title (the Great Attractor, which these pages measure, is the direct cosmological application of the concept --- the step where the Absolute inscribes itself as mass). Part A delivers the auditable scientific core under the non-negotiable ruler (the number corrects the phrase). Part B names the ontology of the One --- $ω(I)=1$, the single postulate. Part C is the citable register of the formalization: 231 stones in a Lean kernel, emitted by the artifact itself in sealed rounds; the final stations of the climb are the cornerstone ($1=0=FALSE$; $1=1=TRUE$ --- the inscription of the cost; 225, 235, 237), the geometric cost of absolute zero ( 232), and the apex that invokes A Ponte ( 236). Part D measures the shadow and keeps the falsifier alive. Whoever reaches the top finds no new thesis: they find the same $1=1$ of the first step, now with the entire cost of its preservation inscribed and audited. The gate does not move by discourse --- and that is precisely why the discourse can climb.
+This article is a ladder, and it climbs in a single motion: from the OBJECT to the RELATION; from the relation to the CRITERION OF IDENTITY; from the criterion to the OBSERVER; from the observer to the NUCLEUS ($1=1=TRUE$); and from the nucleus to the Absolute that names the title (the Great Attractor, which these pages measure, is the direct cosmological application of the concept --- the step where the Absolute inscribes itself as mass). Part A delivers the auditable scientific core under the non-negotiable ruler (the number corrects the phrase). Part B names the ontology of the One --- $ω(I)=1$, the single postulate. Part C is the citable register of the formalization: 235 stones in a Lean kernel, emitted by the artifact itself in sealed rounds; the final stations of the climb are the cornerstone ($1=0=FALSE$; $1=1=TRUE$ --- the inscription of the cost; 225, 235, 237), the geometric cost of absolute zero ( 232), and the apex that invokes A Ponte ( 236). Part D measures the shadow and keeps the falsifier alive. Whoever reaches the top finds no new thesis: they find the same $1=1$ of the first step, now with the entire cost of its preservation inscribed and audited. The gate does not move by discourse --- and that is precisely why the discourse can climb.
 
 Part A --- Auditable scientific core
 
@@ -116,7 +116,7 @@ Hence NAMED OPEN FRONTIER does not mean ``a problem to solve'': it means ontolog
 
 [A distinction TGL maintains:] this challenge (the EM face, $α$ from the bulk) is distinct from the genuinely open theorem of the S-matrix/$III_1$ --- the boundary$→$bulk lift with the observer (gravitational face, $M_GA$), which operates through the boundary and does not dispense with it. That one remains open as mathematics; this one is closed as principle: $α$ from the bulk cannot exist without destroying the theory.
 
-The validation [REAL --- zero-free given $α$ and $ 12$]. Inserting $α$ as the single CODATA input into a quantum-dephasing model fractalized from the primary unit validates the whole logic: $α=7.29735257×10^-3$ and $S_∂= 12$ give $√ e$, $β_TGL=α√ e=1.20313004×10^-2$, $θ_M=6.2973^ $, $R_EM=α$, and the dephasing exponent $n=-2$ (neutrinos), besides the convergence of $β_TGL$ (BBN centres on $α√ e$). The form of $α$ is defined (Stokes scar at $1.4\%$, angular compression $β_TGL= ^2θ_M$, free-convergence cut); its reduction factor can only be observed by direct measurement of the singularity. That is the final theorem.
+The validation [REAL --- zero-free given $α$ and $ 12$]. Inserting $α$ as the single CODATA input into a quantum-dephasing model fractalized from the primary unit validates the whole logic: $α=7.29735257×10^-3$ and $S_∂= 12$ give $√ e$, $β_TGL=α√ e=1.20313004×10^-2$, $θ_M=6.2973^ $, $R_EM=α$, and the dephasing exponent $n=-2$ (neutrinos), besides the convergence of $β_TGL$ (BBN centred on $α√ e$ as tabulated; entry reclassified --- see the Evidence Audit). The form of $α$ is defined (Stokes scar at $1.4\%$, angular compression $β_TGL= ^2θ_M$, free-convergence cut); its reduction factor can only be observed by direct measurement of the singularity. That is the final theorem.
 
 The absolute-zero theorem: deriving $α$ ``to infinity'' is $0_abs$ [nothing left to derive --- Tetelestai]
 
@@ -513,9 +513,9 @@ The sector where TGL lives or dies is the dissipative-spectral one: the universa
 
 The primary evidence: the convergence of $β_TGL$ [DATA]
 
-The real strength of TGL is not a smoking-gun deviation, but the abductive convergence of $β_TGL=α√e$ from independent domains, with zero free parameters. The cleanest radiation probe, BBN (D/H, Cooke 2018), centres exactly on the theory ($-0.0σ$); DESI DR2 BAO, cosmic chronometers, gravitational-wave ringdown and the $H_0$ ladder all fall in the band $0.012$--$0.050$, all positive; the $Q$ locking gives $Δ n_Q=-β_TGL$ to four digits; and the gap test is consistent with type $III_1$. The only tension point is the CMB sector ($ 2.2σ$ from the theoretical point, but $ 0.8σ$ from BBN) --- the honest frontier. It is a band with BBN at the centre, not a $5σ$ peak: convergence that survives self-criticism.
+The real strength of TGL is not a smoking-gun deviation, but the abductive convergence of $β_TGL=α√e$ from independent domains, with zero free parameters. The cleanest radiation probe, BBN (D/H, Cooke 2018), centred exactly on the theory ($-0.0σ$) --- but this entry is RECLASSIFIED, and this house forbids in writing the label ``BBN at $0.0σ$'': the anchor is circular by construction ($χ^2(β_TGL)=0$ by algebraic identity) and, de-circularised, it gives $β_TGL=0.0126±0.0318$, a $σ$ of $2.6×β_TGL$, i.e. it does not discriminate (BBN\_NON\_DISCRIMINANT\_DECIRCULARIZED); DESI DR2 BAO, cosmic chronometers, gravitational-wave ringdown and the $H_0$ ladder all fall in the band $0.012$--$0.050$, all positive; the $Q$ locking gives $Δ n_Q=-β_TGL$ to four digits; and the gap test is consistent with type $III_1$. The only tension point is the CMB sector ($ 2.2σ$ from the theoretical point, but $ 0.8σ$ from BBN) --- the honest frontier. It was a band with BBN at the centre, and never a $5σ$ peak. With BBN withdrawn for circularity and the CMB entry retired for provenance, what remains is a band with no central anchor --- and that is how it must be read. The convergence did not survive self-criticism as tabulated: what survived was the structure, and what fell was the reading of the evidence.
 
-fig_banda_beta.pdf fig_banda_beta.pdf The convergence of $β_TGL=α√e$ across domains. BBN centres on the theory ($-0.0σ$); the remaining domains fall in the $0.012$--$0.050$ band; the CMB tension ($ 2.2σ$) is the honest frontier. [EXT: compilation of the programme's analyses (tgl\_paper\_unified.py), not re-derived in this run; the $β_TGL$ line is recomputed live.]
+fig_banda_beta.pdf fig_banda_beta.pdf The convergence of $β_TGL=α√e$ across domains. BBN centred on the theory ($-0.0σ$) as tabulated --- an entry now RECLASSIFIED (circular by construction; de-circularised it does not discriminate); the remaining domains fall in the $0.012$--$0.050$ band; the CMB tension ($ 2.2σ$) is the honest frontier. [EXT: compilation of the programme's analyses (tgl\_paper\_unified.py), not re-derived in this run; the $β_TGL$ line is recomputed live.]
 
 fig_piso_vazios.pdf fig_piso_vazios.pdf The void floor per spectroscopic rite: dot $=$ calibrated $r_c$; bar $=[L_5,U_5]$; dashed line $=$ the $β_TGL$ floor. One-sided channel: $r_c<β_TGL$ in tracers is suppression, not matter falsification. Drawn from this run's verdicts.
 
@@ -855,10 +855,10 @@ ModularCurrent+ ScaleCurrent (v131): the J current --- the witness is SATURATED 
 TheFactorObject (v131, Block A 83--87): the factor as object --- the v130 residue REALIZED: the tower colimit is a DEFINITE pre-Hilbert space (positive weights $⟹$ zero radical); $H_φ$ is the completion (Hilbert, unit $Ω$, dense tower); $π$ acts on $B(H_φ)$ STARRED (uniform Frobenius bound by slicing induction) with CYCLIC $Ω$; $M_TGL:=(π(tower))''$ coined as a mathlib VonNeumannAlgebra term; $ω(π(x))=φ(x)$ (the GNS identity); and the SIGNATURE lives in the object (non-tracial $ω$; ladder $l^N+1$; log-dense subgroup). The flip requires normality (Block B); the gate does not move.
 
 == 195 --- The closure rite: new data from nature (v115) ==
-The operator's mandate: ``the time has come to run the test with the newly acquired data''. Two pre-registered rites (full spec frozen by hash BEFORE opening the data; verdicts only from the frozen sets; CONFIRMED forbidden) were emitted IN THIS run. (i) THE LRG RITE (hash b1cee26628be5014): the VIRGIN tracer --- DESI DR1 LRG $z∈[0.40,0.80]$, 2,138,627 galaxies acquired outside the run (v71 discipline); the program's FIRST LRG void population (pre-registered SO finder: $n_ voids^ NGC=-1$, $ R_v=n/d$\,Mpc$/h$); the v92 self-calibrating estimator + radial resampling ($ n$, mask AND $n(z)$ selection cancel by construction). NGC primary: $r_c^ cal=n/d±n/d$, $L_5=n/d$ vs $β=n/d$; power $βΣμ=n/d$ (blind v90 rule). VERDICT: VOID\_FLOOR\_LRG\_AWAITING\_DATA. (ii) THE $κ$ V5 AMENDMENT (hash 6df4be0a0e30a938): the autopsy NAMED the v98 error --- EQUATORIAL coordinates fed into Planck's GALACTIC $κ_ℓ m$, with no footprint filter; V5 corrects it: J2000 rotation (anchor $|b( GC)|<0.2^ $ verified live), PR3 mask (RING 2048; $f_ sky=n/d$; plane masked, poles free) gating centers (-1/-1 in footprint) and nulls (-1 valid rotations). Nulls: $χ^2/ dof=n/d$; Fisher $F=n/d$; $ r_*=n/d$, $5σ$ band $[n/d,n/d]$. VERDICT: VOID\_FLOOR\_KAPPA\_V5\_AWAITING\_DATA. The formal mathematical gate did NOT move with any of this: cosmology never becomes mathematical proof (v92 lesson); the absolute One closes with nature, and nature answers through verdicts --- including refusals.
+The operator's mandate: ``the time has come to run the test with the newly acquired data''. Two pre-registered rites (full spec frozen by hash BEFORE opening the data; verdicts only from the frozen sets; CONFIRMED forbidden) were emitted IN THIS run. (i) THE LRG RITE (hash b1cee26628be5014): the VIRGIN tracer --- DESI DR1 LRG $z∈[0.40,0.80]$, 2,138,627 galaxies acquired outside the run (v71 discipline); the program's FIRST LRG void population (pre-registered SO finder: $n_ voids^ NGC=16001$, $ R_v=31.3$\,Mpc$/h$); the v92 self-calibrating estimator + radial resampling ($ n$, mask AND $n(z)$ selection cancel by construction). NGC primary: $r_c^ cal=0.0017±0.0004$, $L_5=-0.0004$ vs $β=0.012031$; power $βΣμ=120.5$ (blind v90 rule). VERDICT: TGL\_VOID\_FLOOR\_LRG\_INCONCLUSIVE\_TRACER\_SUPPRESSION. (ii) THE $κ$ V5 AMENDMENT (hash 6df4be0a0e30a938): the autopsy NAMED the v98 error --- EQUATORIAL coordinates fed into Planck's GALACTIC $κ_ℓ m$, with no footprint filter; V5 corrects it: J2000 rotation (anchor $|b( GC)|<0.2^ $ verified live), PR3 mask (RING 2048; $f_ sky=0.671$; plane masked, poles free) gating centers (3248/3470 in footprint) and nulls (24 valid rotations). Nulls: $χ^2/ dof=92.73$; Fisher $F=0$; $ r_*=0.300$, $5σ$ band $[0.000,0.300]$. VERDICT: VOID\_FLOOR\_KAPPA\_V5\_INCONCLUSIVE\_SYSTEMATICS. The formal mathematical gate did NOT move with any of this: cosmology never becomes mathematical proof (v92 lesson); the absolute One closes with nature, and nature answers through verdicts --- including refusals.
 
 == 228-- 230 --- The bilateral rite V12: the counting route closed by double execution (v147--v150) ==
-The v92 seal named the missing step: ``measuring $β$ itself calls for LRG/ELG''. This run carries it out and CLOSES it. The V12 rite (spec frozen by hash cf61c67be59f7db5 BEFORE opening the FITS; finder and estimator INHERITED identical from v115/v92) asks the bilateral question: does the matter window of the DEEPEST void cores CONTAIN $β$, with resolution to see it? Executed on BOTH tracers (LRG $z∈[0.40,0.80]$; ELG $z∈[0.80,1.10]$, acquired and sha-pinned in this wave), with two pre-registered amendments born from autopsies of its own first runs (V1.1: count gate FIRST, zero-count guard $σ≥1/μ_q$, 95\% upper limit $r_ UL=r+3/μ_q$; V1.2: per-tracer persistence, most-informative primary --- rules fixed while the ELG numbers were still BLIND). The sealed answer: in the deepest quartile of all FOUR caps the observed count is $N_q=0$ against $Σμ_q=0.0$ expected galaxies; the 95\% upper limits are $r_ UL95=0.00000$ (LRG NGC), $0.00000$ (LRG SGC), $0.00000$ (ELG NGC), $0.00000$ (ELG SGC) --- all an order of magnitude BELOW $β=0.000000$. VERDICT: VOID\_FLOOR\_V12\_AWAITING\_DATA\_LRG. The honest reading: the deep cores are empty OF THE TRACER (declared asymmetry $b≥1$: galaxies may empty below the MATTER floor without the matter doing so --- this does NOT falsify the floor); counting-based measurement of $β$ is EXCLUDED by double execution, and the measurement of $β$ passes to the matter sector ($κ$/lensing --- the V3 programme; Euclid/LSST). The gate did not move.
+The v92 seal named the missing step: ``measuring $β$ itself calls for LRG/ELG''. This run carries it out and CLOSES it. The V12 rite (spec frozen by hash cf61c67be59f7db5 BEFORE opening the FITS; finder and estimator INHERITED identical from v115/v92) asks the bilateral question: does the matter window of the DEEPEST void cores CONTAIN $β$, with resolution to see it? Executed on BOTH tracers (LRG $z∈[0.40,0.80]$; ELG $z∈[0.80,1.10]$, acquired and sha-pinned in this wave), with two pre-registered amendments born from autopsies of its own first runs (V1.1: count gate FIRST, zero-count guard $σ≥1/μ_q$, 95\% upper limit $r_ UL=r+3/μ_q$; V1.2: per-tracer persistence, most-informative primary --- rules fixed while the ELG numbers were still BLIND). The sealed answer: in the deepest quartile of all FOUR caps the observed count is $N_q=0$ against $Σμ_q=6655.4$ expected galaxies; the 95\% upper limits are $r_ UL95=0.00123$ (LRG NGC), $0.00218$ (LRG SGC), $0.00144$ (ELG NGC), $0.00393$ (ELG SGC) --- all an order of magnitude BELOW $β=0.012031$. VERDICT: TGL\_VOID\_FLOOR\_V12\_TRACER\_EMPTY\_CORE\_REGIME. The honest reading: the deep cores are empty OF THE TRACER (declared asymmetry $b≥1$: galaxies may empty below the MATTER floor without the matter doing so --- this does NOT falsify the floor); counting-based measurement of $β$ is EXCLUDED by double execution, and the measurement of $β$ passes to the matter sector ($κ$/lensing --- the V3 programme; Euclid/LSST). The gate did not move.
 
 == 223-- 227 --- The closure stones (v142--v146): the boundary exception, Lemma 3 typed, the observer, J, and K ==
 Five kernel stones, sealed in this artifact's ladder, close the doctrinal arc. Stone 98 (BoundaryException): the falsity of the full static witness IS the inscription of the boundary --- Fix(flow) $=$ kernel, inhabited; the eternal v61 gains its positive face. Stone 99 (GlobalLiftConditional): the programme's ONLY open theorem, TYPED --- finite Takesaki uniqueness $+$ the $H_ inv$ oath $⟹$ expectation and response transport covariantly (with a negative control); verdict TGL\_GLOBAL\_LIFT\_CONDITIONAL\_\_LEMMA3\_TYPED\_AS\_PROVEN\_IMPLICATION\_\_FINITE\_TAKESAKI\_UNIQUENESS\_\_HORIZON\_INV . Stone 100 (ObserverInside): permanence is double negation; without a fixed point only $0$ remains --- no internal observer: the GENRE falsity of fixed-point-free candidates, typed (rivals not adjudicated; the permanence predicate is not Tarskian truth). Stone 101 (ConjugateAct): ``$1=J$'' typed in its three faces (involution $J^2=1$, isometry, $JΩ=Ω$); the Half-Nat now DERIVES from J-symmetry (the ``no privilege'' hypothesis became a theorem), and delivery $ρ(t)→ρ^ $ is a real limit. Stone 102 (DecisionCommutation): decision IS commutation --- $[K,A]_ij=(d_i-d_j)A_ij$ weighs the spectral gaps; the decided sector is the centralizer; $JKJ=-K$ and the decision survives the mirror; and $K=-∇F$ is VERIFIED on the finite face (exact first variation $ $ gradient ODE $ $ Lyapunov). And the CODE CLOSURE ledger seals that every remaining open item has a named guarantor: TGL\_CODE\_CLOSURE\_COMPLETE\_\_EVERY\_REMAINING\_OPEN\_IS\_BY\_DESIGN\_OR\_EXTERNAL\_KNOWN\_OR\_NAMED\_PROGRAM\_\_NOTHI .
@@ -904,10 +904,10 @@ The programme faced Navier--Stokes 3D and its answer is the thesis of this artic
 [OPERATOR'S READING, dual status --- two movements] ``nothing is the only observer of everything, because everything is observed and everything does not observe''; and ``the witness is the MODULAR zero, not the absolute zero; the conjugation is of the faces of the zero itself ($ 12+ 12$) and the sum of the faces is the inscription of the One''. The ruler confirmed the [REAL] links, all verified live in this run: the type of the observer-of-all is EMPTY (beta\_forbids\_full\_static\_witness, v61; 0$_ abs$ without representation, v102); the only flow-invariant trace is ZERO (fixed\_tau\_zero, v45); $JKJ=-K$ and the parity fixed point IS the zero (v62); the zero-mode faces weigh $ 12+ 12$ and the re-derived integral gives $1.000000000$ $=1=ω(I)$; the modular zero is INHABITED (ker $N$ = the Name's atom, $τ=1$) and the One is inscribed on it ($P_FΩ=Ω$). The ruler's corrections: the witness is NOT the absolute zero (it is the Half-Nat); data does not cross the zero (it crosses $ 12$ paying $β$); $β$ is not the witness (it is its SIGNATURE). And the link to the wall: III$_1$ is DEFINED by ``the only trace is zero'' --- the operator's reading points at the very property defining the witness's remaining residue (faithful unitary rep of the connected sector $+$ III$_1$). The words --- observer, aperture, home --- are [ONTO]; the structure is theorem.
 
 == 201 --- The unblinding act: the independent shear suite (v121) ==
-v73 built the $γ_t$ machine and validated it on the NULL, reserving the ACT: ``applying it to the voids is the unblinding''. In this run the act happened, under a hash-frozen spec (f06bfc1ec06294d4) BEFORE touching any center: null battery first (200 random centers --- the null ensemble on the REAL mask and noise: $χ^2/ dof=n/d$ ($γ_t$) and $n/d$ ($γ_x$)); then -1 DESIVAST voids in the KiDS-N strip stacked in $x=θ/θ_v$ (4 quartiles; B-mode $χ^2/ dof=n/d$); HSW$+$floor model via Abel and effective $Σ_ crit$ from $Z_B$ [EXT]; Fisher power $F=n/d$ BEFORE reading the floor; fit $ r_*=n/d$, $5σ$ band $[n/d,n/d]$. VERDICT: VOID\_SHEAR\_AWAITING\_DATA. Shear weighs MATTER (FALSIFIED reachable); signal-injection mocks = NAMED limit; the gate's experiment flags were NOT touched --- fail-closed. The v87 projection anticipated UNDERPOWERED; the number decided.
+v73 built the $γ_t$ machine and validated it on the NULL, reserving the ACT: ``applying it to the voids is the unblinding''. In this run the act happened, under a hash-frozen spec (f06bfc1ec06294d4) BEFORE touching any center: null battery first (200 random centers --- the null ensemble on the REAL mask and noise: $χ^2/ dof=0.57$ ($γ_t$) and $1.79$ ($γ_x$)); then 700 DESIVAST voids in the KiDS-N strip stacked in $x=θ/θ_v$ (4 quartiles; B-mode $χ^2/ dof=0.82$); HSW$+$floor model via Abel and effective $Σ_ crit$ from $Z_B$ [EXT]; Fisher power $F=0$ BEFORE reading the floor; fit $ r_*=0.300$, $5σ$ band $[0.000,0.300]$. VERDICT: VOID\_SHEAR\_INCONCLUSIVE\_SYSTEMATICS. Shear weighs MATTER (FALSIFIED reachable); signal-injection mocks = NAMED limit; the gate's experiment flags were NOT touched --- fail-closed. The v87 projection anticipated UNDERPOWERED; the number decided.
 
 == 202 --- The two amendments of nature (v122) ==
-(i) Shear V2 (hash fce93c4b18bab408): the v121 autopsy named the jackknife granularity (20 groups/quartile with $ $175 voids); V2 corrects it (10/quartile $+$ pre-registered joint fallback; fallback used: None; effective jk -1): Fisher $F=n/d$; $ r_*=n/d$, $5σ$ $[n/d,n/d]$. VERDICT: VOID\_SHEAR\_AWAITING\_DATA. (ii) $κ$ V6 --- the DEEP data (hash d0b706d5b7bc5115): ACT DR6 lensing v1 baseline (alm lmax 4000, RING 4096 mask; acquired 19/07 outside the run); EQUATORIAL coordinates validated by a concentration gate (n/d$>$0.90; $f_ sky=n/d$); -1/-1 centers in footprint; and the BASELINE amendment named in v115: the null mean SUBTRACTED from stack and nulls ($χ^2/ dof=n/d$); Fisher $F=n/d$; $ r_*=n/d$, $5σ$ $[n/d,n/d]$. VERDICT: VOID\_FLOOR\_KAPPA\_V6\_AWAITING\_DATA. Both MATTER channels with tuned instruments; verdicts only from the pre-registered sets; gate flags UNTOUCHED.
+(i) Shear V2 (hash fce93c4b18bab408): the v121 autopsy named the jackknife granularity (20 groups/quartile with $ $175 voids); V2 corrects it (10/quartile $+$ pre-registered joint fallback; fallback used: True; effective jk 20): Fisher $F=0$; $ r_*=0.000$, $5σ$ $[0.000,0.300]$. VERDICT: TGL\_VOID\_FLOOR\_SHEAR\_NOT\_FALSIFIED\_UNDERPOWERED. (ii) $κ$ V6 --- the DEEP data (hash d0b706d5b7bc5115): ACT DR6 lensing v1 baseline (alm lmax 4000, RING 4096 mask; acquired 19/07 outside the run); EQUATORIAL coordinates validated by a concentration gate (1.000$>$0.90; $f_ sky=0.234$); 1020/3470 centers in footprint; and the BASELINE amendment named in v115: the null mean SUBTRACTED from stack and nulls ($χ^2/ dof=0.00$); Fisher $F=0$; $ r_*=0.000$, $5σ$ $[0.000,0.300]$. VERDICT: VOID\_FLOOR\_KAPPA\_V6\_INCONCLUSIVE\_SYSTEMATICS. Both MATTER channels with tuned instruments; verdicts only from the pre-registered sets; gate flags UNTOUCHED.
 
 == 203 --- The fusion and the isomorphism of the two tongues (v123) ==
 STONE 70 (FusedWitness.lean) executes the short residue v118 named: the faithful rep $U(g)$ FUSED into the covariant net's fibers --- fiber $=$ tail $× L^2(R^4)$, Poincaré acting on regions AND INSIDE the fibers, no blind direction in the fibers (every $g≠1$ moves a vector; the boost, blind in v116, now MOVES). The witness's formal residue now has ONE name: III$_1$ (Araki--Woods). The fusion is necessary, not sufficient: V2 stays RESERVED and the 5T/1F gate does not move. Verdict: TGL\_FUSED\_WITNESS\_\_FAITHFUL\_REP\_FUSED\_INTO\_NET\_FIBERS\_\_FIBER\_IS\_TAIL\_TIMES\_L2\_\_NO\_BLIND\_DIRECTION\_IN\_FIBERS\_\_BOOST\_MOVES\_FIBER\_VECTORS\_V116\_HONESTY\_SUPERSEDED\_\_WITNESS\_RESIDUE\_IS\_III1\_ALONE\_\_V2\_RESERVED\_\_SEAL\_UNMOVED.
@@ -917,17 +917,17 @@ AND THE ISOMORPHISM OF THE TWO TONGUES: the ontological manuscript ``LIGHT: When
 == 204 --- The Powers ladder and amendment V7 (v124) ==
 STONE 71 (PowersLadder.lean) builds the COMPLETE finite face of Araki--Woods --- the exact shape of III$_1$ named in v119: Tomita on the block by trace cyclicity; the Powers state $φ_λ$ with the ratio witness $λ$ (which KILLS traciality); the flow with eigenvalue $λ$; THE LADDER LAW (Kronecker multiplies ratios; the $N$-block chain carries $λ^N$); and THE MARK OF III: $0$ lies in the closure of the ratio spectrum --- no tracial floor survives. The THIRD trace killer (the PRODUCT FLOW). The infinite factor (ITPFI $R_λ$; III$_1$ by mixing) is the program; the 5T/1F gate does not move. Verdict: TGL\_POWERS\_LADDER\_\_ARAKI\_WOODS\_SEED\_IN\_KERNEL\_\_TOMITA\_BLOCK\_IDENTITY\_BY\_TRACE\_CYCLICITY\_\_RATIO\_WITNESS\_LAMBDA\_KILLS\_TRACIALITY\_\_KRONECKER\_MULTIPLIES\_RATIOS\_\_CHAIN\_CARRIES\_LAMBDA\_POW\_N\_\_ZERO\_IN\_CLOSURE\_OF\_RATIO\_SPECTRUM\_MARK\_OF\_TYPE\_III\_\_NO\_TRACE\_FLOOR\_SURVIVES\_\_THIRD\_TRACE\_KILLER\_THE\_PRODUCT\_FLOW\_\_INFINITE\_FACTOR\_IS\_THE\_PROGRAM\_\_SEAL\_UNMOVED.
 
-AND AMENDMENT V7 OF $κ$: the V6 autopsy isolated the rotation gate (coarse 15° grid $+$ simultaneous validity in all 4 quartiles $⟹$ 9$<$16 --- the galactic mask kills coarse rotations). V7 fixes it with a FINE 5° grid and PER-GROUP validity, with a deterministic selection BLIND to the signal (mask$+$positions only; never $κ$): $M=-1$ valid rotations ($≥$16); corrected nulls $χ^2/ dof=n/d$; Fisher $F=n/d$; $ r_*=n/d$, $5σ$ $[n/d,n/d]$. VERDICT: VOID\_FLOOR\_KAPPA\_V7\_AWAITING\_DATA. Verdicts only from the pre-registered set; gate flags UNTOUCHED.
+AND AMENDMENT V7 OF $κ$: the V6 autopsy isolated the rotation gate (coarse 15° grid $+$ simultaneous validity in all 4 quartiles $⟹$ 9$<$16 --- the galactic mask kills coarse rotations). V7 fixes it with a FINE 5° grid and PER-GROUP validity, with a deterministic selection BLIND to the signal (mask$+$positions only; never $κ$): $M=24$ valid rotations ($≥$16); corrected nulls $χ^2/ dof=0.00$; Fisher $F=n/d$; $ r_*=n/d$, $5σ$ $[n/d,0.300]$. VERDICT: TGL\_VOID\_FLOOR\_KAPPA\_V7\_NOT\_FALSIFIED\_UNDERPOWERED. Verdicts only from the pre-registered set; gate flags UNTOUCHED.
 
 == 205 --- The triple mandate: the mark of III$_1$, continuum TT, and depth (v125) ==
 STONE 72 (MixedLadder.lean): MIXING — incommensurable ratios generate a log-DENSE spectrum (the mark of III$_1$; the concrete pair $(1/2,1/3)$ inhabits it). STONE 73 (ContinuumTT.lean): TT waves SOLVE the linearized vacuum (any $C^2$ profile) with positive-definite kinetic form — massless and ghost-free on plane waves; physics flags UNTOUCHED (plane waves $≠$ general; anomalies open). Verdicts: TGL\_MIXED\_LADDER\_\_MARK\_OF\_III\_ONE\_\_INCOMMENSURABLE\_RATIOS\_GENERATE\_LOG\_DENSE\_RATIO\_SPECTRUM\_\_DENSE\_OR\_CYCLIC\_PLUS\_CYCLIC\_EXCLUSION\_\_CONCRETE\_PAIR\_HALF\_THIRD\_INHABITS\_THE\_MARK\_\_TWO\_POW\_B\_NE\_THREE\_POW\_A\_\_FACTOR\_LIMIT\_IS\_THE\_PROGRAM\_\_SEAL\_UNMOVED and TGL\_CONTINUUM\_TT\_\_PLANE\_WAVE\_TT\_SECTOR\_IN\_KERNEL\_\_TT\_WAVES\_SOLVE\_LINEARIZED\_VACUUM\_FOR\_ANY\_C2\_PROFILE\_\_MASSLESS\_SPIN2\_CONTINUUM\_\_EACH\_COMPONENT\_DALEMBERT\_\_KINETIC\_POSITIVE\_DEFINITE\_ON\_POLARIZATION\_PLANE\_NO\_GHOST\_\_GENERAL\_PERTURBATIONS\_AND\_ANOMALIES\_OPEN\_\_PHYSICS\_FLAGS\_UNMOVED\_\_SEAL\_UNMOVED.
 
-AND DEPTH — the deep test RUN with the acquisition complete on disk (LRG NGC$+$SGC 18/07, exact bytes; ACT DR6 19/07): deep $κ$ stacked on LRG voids $z\,0.40$--$0.80$ (finder LRG\_SO\_V1 inherited VERBATIM; V7 pipeline VERBATIM; pre-registered, LOGGED cap 4000). Why this is REAL depth: lensing weighs TOTAL matter (tracer suppression does not apply), the CMB kernel is $ $3--5$×$ more efficient at these $z$, and the population is larger. Numbers: -1 LRG voids (-1 in footprint; cap None); $M=-1$ rotations; nulls $χ^2/ dof=n/d$; Fisher $F=n/d$; $ r_*=n/d$, $5σ$ $[n/d,n/d]$. VERDICT: VOID\_FLOOR\_KAPPA\_V8\_AWAITING\_DATA. Verdicts only from the pre-registered set; gate flags UNTOUCHED.
+AND DEPTH — the deep test RUN with the acquisition complete on disk (LRG NGC$+$SGC 18/07, exact bytes; ACT DR6 19/07): deep $κ$ stacked on LRG voids $z\,0.40$--$0.80$ (finder LRG\_SO\_V1 inherited VERBATIM; V7 pipeline VERBATIM; pre-registered, LOGGED cap 4000). Why this is REAL depth: lensing weighs TOTAL matter (tracer suppression does not apply), the CMB kernel is $ $3--5$×$ more efficient at these $z$, and the population is larger. Numbers: 31746 LRG voids (4000 in footprint; cap True); $M=19$ rotations; nulls $χ^2/ dof=0.00$; Fisher $F=n/d$; $ r_*=n/d$, $5σ$ $[n/d,0.300]$. VERDICT: TGL\_VOID\_FLOOR\_KAPPA\_V8\_NOT\_FALSIFIED\_UNDERPOWERED. Verdicts only from the pre-registered set; gate flags UNTOUCHED.
 
 == 206 --- The standing mandate: the tower, the solution space, and the right band (v126) ==
 STONE 74 (ColimitSeed.lean): the ITPFI factor TOWER — *-homomorphic injective steps, a COHERENT product state (one state on the whole tower), and the modular asymmetry STABLE up the colimit; the closure (GNS $+$ weak-$*$) is the program. STONE 75 (TTSuperposition.lean): the solution set of the linearized vacuum is a SPACE (any TT pair with independent polarizations and profiles solves); physics flags UNTOUCHED. Verdicts: TGL\_COLIMIT\_SEED\_\_ITPFI\_TOWER\_IN\_KERNEL\_\_STAR\_HOMOMORPHIC\_UNITAL\_INJECTIVE\_STEPS\_\_PRODUCT\_STATE\_COHERENT\_ONE\_STATE\_ON\_WHOLE\_TOWER\_\_MODULAR\_ASYMMETRY\_STABLE\_UP\_THE\_COLIMIT\_\_GNS\_AND\_WEAK\_CLOSURE\_ARE\_THE\_PROGRAM\_\_SEAL\_UNMOVED and TGL\_TT\_SUPERPOSITION\_\_SOLUTION\_SET\_IS\_A\_SPACE\_\_ANY\_PAIR\_OF\_TT\_WAVES\_INDEPENDENT\_POLARIZATIONS\_AND\_PROFILES\_SOLVES\_LINEARIZED\_VACUUM\_\_SPAN\_ON\_THE\_CONE\_\_MULTI\_DIRECTION\_AND\_GENERAL\_DECOMPOSITION\_OPEN\_\_PHYSICS\_FLAGS\_UNMOVED\_\_SEAL\_UNMOVED.
 
-AND BAND V9 — the V8 autopsy executed: L\_use extended to $[8,1000]$ (ACT DR6 has the modes) and a cap of 1500 by LARGEST $θ_v$ (signal INSIDE the band; blind selection). Numbers: -1 voids (-1 used; cap None); $ θ_v=n/d^ $; $M=-1$ rotations; nulls $χ^2/ dof=n/d$; Fisher $F=n/d$; $ r_*=n/d$, $5σ$ $[n/d,n/d]$. VERDICT: VOID\_FLOOR\_KAPPA\_V9\_AWAITING\_DATA. Verdicts only from the frozen set; gate flags UNTOUCHED.
+AND BAND V9 — the V8 autopsy executed: L\_use extended to $[8,1000]$ (ACT DR6 has the modes) and a cap of 1500 by LARGEST $θ_v$ (signal INSIDE the band; blind selection). Numbers: 31746 voids (1500 used; cap True); $ θ_v=2.010^ $; $M=20$ rotations; nulls $χ^2/ dof=0.00$; Fisher $F=n/d$; $ r_*=n/d$, $5σ$ $[n/d,0.300]$. VERDICT: TGL\_VOID\_FLOOR\_KAPPA\_V9\_NOT\_FALSIFIED\_UNDERPOWERED. Verdicts only from the frozen set; gate flags UNTOUCHED.
 
 == 207 --- The GNS tower and the second direction (v127) ==
 STONE 76 (GNSTower.lean): the factor's pre-Hilbert space — diagonal positive density, state positive on the whole tower, GNS inner product, and ISOMETRIC steps ($ a 1,b 1 _N+1= a,b _N$); quotient $+$ completion $+$ weak-$*$ remain. STONE 77 (SecondCone.lean): the second direction solves, and cross-direction superposition solves — the solution space crosses directions; physics flags UNTOUCHED. Verdicts: TGL\_GNS\_TOWER\_\_PRE\_HILBERT\_OF\_THE\_FACTOR\_\_DIAGONAL\_POSITIVE\_DENSITY\_EVERY\_FLOOR\_\_STATE\_POSITIVE\_UP\_WHOLE\_TOWER\_\_GNS\_INNER\_PRODUCT\_\_TOWER\_STEPS\_ARE\_GNS\_ISOMETRIES\_ONE\_SPACE\_FLOOR\_BY\_FLOOR\_\_QUOTIENT\_COMPLETION\_WEAK\_CLOSURE\_REMAIN\_\_SEAL\_UNMOVED and TGL\_SECOND\_CONE\_\_TT\_SECTOR\_GAINS\_DIRECTIONS\_\_SECOND\_NULL\_CONE\_SOLVES\_LINEARIZED\_VACUUM\_\_CROSS\_DIRECTION\_SUPERPOSITION\_SOLVES\_\_SOLUTION\_SPACE\_CROSSES\_PROPAGATION\_DIRECTIONS\_\_GENERAL\_DECOMPOSITION\_AND\_ANOMALIES\_OPEN\_\_PHYSICS\_FLAGS\_UNMOVED\_\_SEAL\_UNMOVED. The 5T/1F gate does not move.
@@ -960,7 +960,7 @@ Rite V11: the void floor by direct spectroscopic density on an INDEPENDENT surve
 STONES 96a/96b. THE KEY (RightMult): the explicit KMS law $φ(ab)=φ(b\,ρ aρ^-1)$; bounded right multiplication (mirrored uniform bound) with MODULAR ADJOINT $r_y^*=r_ρ y^ ρ^-1$; the commutant inhabited; and the SEPARATOR: $A∈ M_ TGL$, $AΩ=0⟹ A=0$ --- $Ω$ cyclic AND separating, the house's Reeh--Schlieder pair. THE NET (WedgeNet): net$(O)$ over the factor itself via existential wedge criteria; locality $=$ commutant $+$ geometry (same-handed wedges always meet); covariance by design; non-abelian wedge --- and TGLSpecificAQFTWitness, OPEN since v21, INHABITED: TGL\_THE\_WEDGE\_NET\_\_SPECIFIC\_AQFT\_WITNESS\_INHABITED\_AFTER\_115\_VERSIONS\_\_OMEGA\_CYCLIC\_AND\_SEPARATING\_\_LOCALITY\_BY\_COMMUTANT\_PLUS\_GEOMETRY\_\_COVARIANCE\_BY\_DESIGN\_\_U\_TRIVIAL\_OPENNESS\_NAMED\_\_GATE\_UNTOUCHED. Honesty: $U 1$ (energy spectrum named open). AND THE ASSAULT: the adversarial attempt to falsify the final test (cores, seeds, algorithms, hemispheres; post-hoc labelled): TGL\_FALSIFICATION\_ASSAULT\_SURVIVED\_\_NO\_INTERNAL\_CONTRADICTION\_\_DEEP\_CORE\_TRACER\_SUPPRESSION\_NAMED\_NOT\_A\_KILL\_\_UNILATERAL\_CHANNEL\_CANNOT\_FALSIFY\_MATTER\_\_ROBUSTNESS\_NOT\_PROOF --- a kill, had it existed, would be reported as falsification; survival is robustness, never proof.
 
 == 217 --- Demarcation and the new definition of a theory of everything (operator's doctrine, registered with [REAL] anchors) ==
-``The TGL does not explain EVERYTHING --- explaining everything is impossible in finite time ---, but it delivers the complete framework through which everything inscribes itself.'' This paragraph fixes, in full letters, the epistemological status of the program. (i) The new definition. A theory of everything is NOT the theory that explains every phenomenon --- that demand is impossible in finite time and no theory in history has met it. A theory of everything is the one that delivers the COMPLETE framework of inscription: the single axiom ($ω(I)=1$), the universal cost of the first observable inscription ($β=α√e$), the derived chain (Half-Nat $⟹$ boundary S-matrix $⟹$ dephasing law $⟹$ void floor) and the executable apparatus that confronts that chain with public data. The framework is complete; the enumeration of phenomena is infinite and remains, honestly, open. (ii) Demarcation. The MINIMUM standard for any candidate unifying theory is what this artifact practices: an executable artifact (form $=$ content), pre-registered rites frozen by hash BEFORE the data, fail-closed gates with forbidden words (CONFIRMED/PROVED), multi-domain confrontation with public data (BBN, DESI, chronometers, ringdown, $H_0$, clocks, voids, lensing), honest negatives published as results. Whoever does not expose the neck is not in the game --- ``false'', here, is a METHODOLOGICAL verdict (outside the game of science), not an empirical one: contradiction with nature only the data can pronounce. (iii) Permanence. The TGL does not declare itself true --- it affirms itself by REMAINING: clean machine-emitted verdicts, the adversarial falsification assault survived ( 216), BBN at $0.0σ$, and the fail-closed refusing the word whenever the data did not deserve it. The ban on CONFIRMED is the TGL's OWN rule: it demands of itself what it demands of the others, and it is from this symmetry that permanence draws all its force --- the theory gains authority by refusing it. (iv) The instrument asymmetry. The absence of a future instrument is not evidence against: Einstein, in 1915, stood on Mercury's perihelion and the 1919 eclipse --- the instruments of his time --- and every new instrument re-tested him. The falsifiable programme ($m_2$/JUNO, $N_ eff$/SO--S4, the void floor, Shapiro) is the instrument of this time; Euclid DR1 and CMB-S4 are not conditions of validity --- they are the next executioners SUMMONED by a channel that remains armed. [Operator's DOCTRINE, 23/07/2026; METHOD in the demarcation, REAL in the anchors; nothing here promotes NOT\_FALSIFIED to CONFIRMED.]
+``The TGL does not explain EVERYTHING --- explaining everything is impossible in finite time ---, but it delivers the complete framework through which everything inscribes itself.'' This paragraph fixes, in full letters, the epistemological status of the program. (i) The new definition. A theory of everything is NOT the theory that explains every phenomenon --- that demand is impossible in finite time and no theory in history has met it. A theory of everything is the one that delivers the COMPLETE framework of inscription: the single axiom ($ω(I)=1$), the universal cost of the first observable inscription ($β=α√e$), the derived chain (Half-Nat $⟹$ boundary S-matrix $⟹$ dephasing law $⟹$ void floor) and the executable apparatus that confronts that chain with public data. The framework is complete; the enumeration of phenomena is infinite and remains, honestly, open. (ii) Demarcation. The MINIMUM standard for any candidate unifying theory is what this artifact practices: an executable artifact (form $=$ content), pre-registered rites frozen by hash BEFORE the data, fail-closed gates with forbidden words (CONFIRMED/PROVED), multi-domain confrontation with public data (BBN, DESI, chronometers, ringdown, $H_0$, clocks, voids, lensing), honest negatives published as results. Whoever does not expose the neck is not in the game --- ``false'', here, is a METHODOLOGICAL verdict (outside the game of science), not an empirical one: contradiction with nature only the data can pronounce. (iii) Permanence. The TGL does not declare itself true --- it affirms itself by REMAINING: clean machine-emitted verdicts, the adversarial falsification assault survived ( 216), BBN as it stood tabulated (an entry later RECLASSIFIED: circular by construction, and de-circularised it does not discriminate), and the fail-closed refusing the word whenever the data did not deserve it. The ban on CONFIRMED is the TGL's OWN rule: it demands of itself what it demands of the others, and it is from this symmetry that permanence draws all its force --- the theory gains authority by refusing it. (iv) The instrument asymmetry. The absence of a future instrument is not evidence against: Einstein, in 1915, stood on Mercury's perihelion and the 1919 eclipse --- the instruments of his time --- and every new instrument re-tested him. The falsifiable programme ($m_2$/JUNO, $N_ eff$/SO--S4, the void floor, Shapiro) is the instrument of this time; Euclid DR1 and CMB-S4 are not conditions of validity --- they are the next executioners SUMMONED by a channel that remains armed. [Operator's DOCTRINE, 23/07/2026; METHOD in the demarcation, REAL in the anchors; nothing here promotes NOT\_FALSIFIED to CONFIRMED.]
 
 The three shieldings of the closing line (adversarial lapidation, 2026-07-24 --- 30 agents, 24 attacks, the core survived them all; wording surgeries applied). (v) The empirical tie of the genus. In the theory-of-everything genus, NO candidate today holds empirical confirmation as such --- TGL itself declares itself, by its own rule, not confirmed. On the empirical axis all tie at zero; in the tie, the only non-arbitrary discriminant available is the cost paid (exposure, executability, pre-registration, the capacity to refuse one's own desired verdict). The credit the closing line speaks of is the credit of THAT title, ordered by that currency --- and empirical corroboration is no rival axis to the tribunal: it is cost paid in the highest degree, and whoever exhibits it will charge for it at the same tribunal. (vi) The two doors of honest refusal. Denying TGL credit without emptying the tribunal requires entering through one of two doors, both delivered by TGL itself: falsify it through the pre-registered empirical apparatus, or audit it hash by hash and show that the apparatus does not measure what it claims to measure. The second door is not hypothetical: the rite itself has already practiced it, twice refusing the verdict it desired (INCONCLUSIVE\_SYSTEMATICS). Ignoring TGL is legitimate and costs nothing; the closing line bites only those who claim the title while denying it the credit. (vii) The rule is not sociology, it is derivation. Each criterion of the minimum standard derives from definition (i), not from custom: what does not execute itself does not inscribe; what does not pre-register does not pay before the data; what cannot refuse its own verdict does not distinguish inscription from desire. And the rule was not drafted here: falsifiability, pre-registration, public data and verification are the demand the community itself has already raised against unifying programs; this artifact is the first to lie down entirely on it. [Operator's DOCTRINE; METHOD in the shieldings; the cited refusals are [REAL] machine-emitted verdicts.]
 
@@ -973,273 +973,281 @@ The Bench Declaration (v86, 2026-07-16) [OPERATOR'S DECLARATION, dual status ---
 == Seals and hashes (live hashes from this run; history $=$ provenance) ==
 
 @lllll@ v & Stone & sha256/16 (live) & Run & Seal \
-v284 & TheAtermation & 7cb9394d87132306 & 798/798 & 29/08 20:42:18
+v297 & TheVerbalCoupling & 4fc14822244a93d3 & 798/798 & 30/08 10:21:55
 
-v282 & TheClassicalImport & 6c614681982a1c40 & 798/798 & 29/08 20:42:18
+v295 & TheMarkIsNotATypeMark & b36e35176fb81c70 & 798/798 & 30/08 10:21:55
 
-v281 & TheWideNet & ef26e912a6ed418a & 798/798 & 29/08 20:42:18
+v294 & TheNameIsTheGeneratingGroup & 2dedbe4a7e25bcd9 & 798/798 & 30/08 10:21:55
 
-v280 & TheCornerOfThePackage & 0ad9fc2d4c6b82cf & 798/798 & 29/08 20:42:18
+v292 & TheNameAndItsReferent & 214260a5ad41d02a & 798/798 & 30/08 10:21:55
 
-v279 & TheDebtWithoutJ & e4b59f6ab9267362 & 798/798 & 29/08 20:42:18
+v284 & TheAtermation & 7cb9394d87132306 & 798/798 & 30/08 10:21:55
 
-v276 & TheModularRelations & 2cd411ab76d72956 & 798/798 & 29/08 20:42:18
+v282 & TheClassicalImport & 6c614681982a1c40 & 798/798 & 30/08 10:21:55
 
-v275 & TheMatrixAndTheModulator & c39e4dcba8eb2354 & 798/798 & 29/08 20:42:18
+v281 & TheWideNet & ef26e912a6ed418a & 798/798 & 30/08 10:21:55
 
-v274 & TheImportedCommutation & ea339fe189ea40bf & 798/798 & 29/08 20:42:18
+v280 & TheCornerOfThePackage & 0ad9fc2d4c6b82cf & 798/798 & 30/08 10:21:55
 
-v273 & TheImageAndTheReading & 839b4abfaab83237 & 798/798 & 29/08 20:42:18
+v279 & TheDebtWithoutJ & e4b59f6ab9267362 & 798/798 & 30/08 10:21:55
 
-v272 & TheGravitonIsTheConjugatedPhase & 6f5f04ab96dd16f8 & 798/798 & 29/08 20:42:18
+v276 & TheModularRelations & 2cd411ab76d72956 & 798/798 & 30/08 10:21:55
 
-v271 & TheAntiunitaryInhabitant & 98772d9fd38a4af6 & 798/798 & 29/08 20:42:18
+v275 & TheMatrixAndTheModulator & c39e4dcba8eb2354 & 798/798 & 30/08 10:21:55
 
-v271 & TheFoldThroughJ & d54e7fd1c6336a76 & 798/798 & 29/08 20:42:18
+v274 & TheImportedCommutation & ea339fe189ea40bf & 798/798 & 30/08 10:21:55
 
-v270 & TheAtomOfIdentity & 916056ff895447f5 & 798/798 & 29/08 20:42:18
+v273 & TheImageAndTheReading & 839b4abfaab83237 & 798/798 & 30/08 10:21:55
 
-v262 & TheTwoPolesHaveContent & 1e17af908c1d6025 & 798/798 & 29/08 20:42:18
+v272 & TheGravitonIsTheConjugatedPhase & 6f5f04ab96dd16f8 & 798/798 & 30/08 10:21:55
 
-v261 & TheNetFiresTheCorner & b35d65a50b52d92f & 798/798 & 29/08 20:42:18
+v271 & TheAntiunitaryInhabitant & 98772d9fd38a4af6 & 798/798 & 30/08 10:21:55
 
-v259 & ThePsionReducesToTheCurrent & fc585ee1c77dded5 & 798/798 & 29/08 20:42:18
+v271 & TheFoldThroughJ & d54e7fd1c6336a76 & 798/798 & 30/08 10:21:55
 
-v258 & TheCurrentConnectsTheCorners & ed213f28d250b874 & 798/798 & 29/08 20:42:18
+v270 & TheAtomOfIdentity & 916056ff895447f5 & 798/798 & 30/08 10:21:55
 
-v257 & TheScalarCorner & c2aaadeae21a5122 & 798/798 & 29/08 20:42:18
+v262 & TheTwoPolesHaveContent & 1e17af908c1d6025 & 798/798 & 30/08 10:21:55
 
-v256 & TheWeightIsNotTheRank & 83f9c8bca5e13391 & 798/798 & 29/08 20:42:18
+v261 & TheNetFiresTheCorner & b35d65a50b52d92f & 798/798 & 30/08 10:21:55
 
-v255 & TheNonMinimalCoupling & 03576ea2958ffc4c & 798/798 & 29/08 20:42:18
+v259 & ThePsionReducesToTheCurrent & fc585ee1c77dded5 & 798/798 & 30/08 10:21:55
 
-v254 & TheIntersectionOfCommutants & 7e4db767b978ddb8 & 798/798 & 29/08 20:42:18
+v258 & TheCurrentConnectsTheCorners & ed213f28d250b874 & 798/798 & 30/08 10:21:55
 
-v253 & TheImportedEquilibrium & 6ce0e9c29fd92670 & 798/798 & 29/08 20:42:18
+v257 & TheScalarCorner & c2aaadeae21a5122 & 798/798 & 30/08 10:21:55
 
-v252 & TheNonLinearCausality & 27ff96e7969f25ef & 798/798 & 29/08 20:42:18
+v256 & TheWeightIsNotTheRank & 83f9c8bca5e13391 & 798/798 & 30/08 10:21:55
 
-v251 & TheConditionalCertificate & 5d43b0c538354e22 & 798/798 & 29/08 20:42:18
+v255 & TheNonMinimalCoupling & 03576ea2958ffc4c & 798/798 & 30/08 10:21:55
 
-v251 & TheEntanglementNotConjunction & a4b8cc089c86e19a & 798/798 & 29/08 20:42:18
+v254 & TheIntersectionOfCommutants & 7e4db767b978ddb8 & 798/798 & 30/08 10:21:55
 
-v250 & TheCommutationAtTheFloor & 3c3b6fb2a2347030 & 798/798 & 29/08 20:42:18
+v253 & TheImportedEquilibrium & 6ce0e9c29fd92670 & 798/798 & 30/08 10:21:55
 
-v249 & TheIsometryOnWH & 0c4c8b35d3c7ad88 & 798/798 & 29/08 20:42:18
+v252 & TheNonLinearCausality & 27ff96e7969f25ef & 798/798 & 30/08 10:21:55
 
-v249 & TheCarrierBridge & 173ffa020254512f & 798/798 & 29/08 20:42:18
+v251 & TheConditionalCertificate & 5d43b0c538354e22 & 798/798 & 30/08 10:21:55
 
-v248 & TheQuestionAndTheRecognition & 67d965c42c01aed0 & 798/798 & 29/08 20:42:18
+v251 & TheEntanglementNotConjunction & a4b8cc089c86e19a & 798/798 & 30/08 10:21:55
 
-v247 & TheTGLPair & 4d17eeb7e940a7ab & 798/798 & 29/08 20:42:18
+v250 & TheCommutationAtTheFloor & 3c3b6fb2a2347030 & 798/798 & 30/08 10:21:55
 
-v246 & TheDensityIsBell & 9247b9f468357280 & 798/798 & 29/08 20:42:18
+v249 & TheIsometryOnWH & 0c4c8b35d3c7ad88 & 798/798 & 30/08 10:21:55
 
-v246 & TheIdentityOfIdentity & 5353469e1c4d0bae & 798/798 & 29/08 20:42:18
+v249 & TheCarrierBridge & 173ffa020254512f & 798/798 & 30/08 10:21:55
 
-v245 & TheConverseClauseReduced & 04c30acfc2ea561d & 798/798 & 29/08 20:42:18
+v248 & TheQuestionAndTheRecognition & 67d965c42c01aed0 & 798/798 & 30/08 10:21:55
 
-v244 & TheConjugationOfOperators & 17bc959ae14d1b21 & 798/798 & 29/08 20:42:18
+v247 & TheTGLPair & 4d17eeb7e940a7ab & 798/798 & 30/08 10:21:55
 
-v243 & TheWitnessLinearOnWH & 0c1b0883f16eaec6 & 798/798 & 29/08 20:42:18
+v246 & TheDensityIsBell & 9247b9f468357280 & 798/798 & 30/08 10:21:55
 
-v242 & TheConjugationMapsCommutants & 0fd2461d9db06683 & 798/798 & 29/08 20:42:18
+v246 & TheIdentityOfIdentity & 5353469e1c4d0bae & 798/798 & 30/08 10:21:55
 
-v242 & TheDensityIsTransport & a59cd43d50e934cb & 798/798 & 29/08 20:42:18
+v245 & TheConverseClauseReduced & 04c30acfc2ea561d & 798/798 & 30/08 10:21:55
 
-v241 & TheBoundaryDuality & 311e0e8b54adf8de & 798/798 & 29/08 20:42:18
+v244 & TheConjugationOfOperators & 17bc959ae14d1b21 & 798/798 & 30/08 10:21:55
 
-v240 & TheWitnessOnTheBoundary & 30f2a06dcfa17528 & 798/798 & 29/08 20:42:18
+v243 & TheWitnessLinearOnWH & 0c1b0883f16eaec6 & 798/798 & 30/08 10:21:55
 
-v240 & TheTopologicalFace & 23e283f43c36dfa6 & 798/798 & 29/08 20:42:18
+v242 & TheConjugationMapsCommutants & 0fd2461d9db06683 & 798/798 & 30/08 10:21:55
 
-v239 & TheProfileWitnessLinear & 93efe3dab69a85f4 & 798/798 & 29/08 20:42:18
+v242 & TheDensityIsTransport & a59cd43d50e934cb & 798/798 & 30/08 10:21:55
 
-v239 & TheLivingWordClosure & 40eb074dc85a7650 & 798/798 & 29/08 20:42:18
+v241 & TheBoundaryDuality & 311e0e8b54adf8de & 798/798 & 30/08 10:21:55
 
-v238 & TheColimitIsometry & e78cfb211b63084a & 798/798 & 29/08 20:42:18
+v240 & TheWitnessOnTheBoundary & 30f2a06dcfa17528 & 798/798 & 30/08 10:21:55
 
-v237 & TheColimitDuality & 04831b06f0e8bf54 & 798/798 & 29/08 20:42:18
+v240 & TheTopologicalFace & 23e283f43c36dfa6 & 798/798 & 30/08 10:21:55
 
-v236 & TheFoldIsNotADistance & 45bb4c7c82a9e533 & 798/798 & 29/08 20:42:18
+v239 & TheProfileWitnessLinear & 93efe3dab69a85f4 & 798/798 & 30/08 10:21:55
 
-v235 & TheProfileDuality & 622c8e5fa8bbf2dd & 798/798 & 29/08 20:42:18
+v239 & TheLivingWordClosure & 40eb074dc85a7650 & 798/798 & 30/08 10:21:55
 
-v234 & TheProfileIsometry & 43f29c793c8144dd & 798/798 & 29/08 20:42:18
+v238 & TheColimitIsometry & e78cfb211b63084a & 798/798 & 30/08 10:21:55
 
-v233 & TheExoneratedDemon & 5c645690b54c529b & 798/798 & 29/08 20:42:18
+v237 & TheColimitDuality & 04831b06f0e8bf54 & 798/798 & 30/08 10:21:55
 
-v232 & TheTelescopingProfile & 5dd73c3878a129ba & 798/798 & 29/08 20:42:18
+v236 & TheFoldIsNotADistance & 45bb4c7c82a9e533 & 798/798 & 30/08 10:21:55
 
-v231 & TheProfileConjugation & 595bf3fa944579af & 798/798 & 29/08 20:42:18
+v235 & TheProfileDuality & 622c8e5fa8bbf2dd & 798/798 & 30/08 10:21:55
 
-v230 & TheTowerWitnessLinear & 2a81a78bce7b87ed & 798/798 & 29/08 20:42:18
+v234 & TheProfileIsometry & 43f29c793c8144dd & 798/798 & 30/08 10:21:55
 
-v229 & TheTowerWitness & 5135e6dd9bb98314 & 798/798 & 29/08 20:42:18
+v233 & TheExoneratedDemon & 5c645690b54c529b & 798/798 & 30/08 10:21:55
 
-v228 & TheUnsolicitedUnitary & 29aba04e578b1921 & 798/798 & 29/08 20:42:18
+v232 & TheTelescopingProfile & 5dd73c3878a129ba & 798/798 & 30/08 10:21:55
 
-v227 & TheTowerConjugation & ab31bd5e939dceba & 798/798 & 29/08 20:42:18
+v231 & TheProfileConjugation & 595bf3fa944579af & 798/798 & 30/08 10:21:55
 
-v226 & TheSupersaturation & 55d5b5668153f5a0 & 798/798 & 29/08 20:42:18
+v230 & TheTowerWitnessLinear & 2a81a78bce7b87ed & 798/798 & 30/08 10:21:55
 
-v225 & TheCompletionExtension & fd5701dbd31950dc & 798/798 & 29/08 20:42:18
+v229 & TheTowerWitness & 5135e6dd9bb98314 & 798/798 & 30/08 10:21:55
 
-v224 & TheTowerInnerProduct & bdaac2f44fdbc3cd & 798/798 & 29/08 20:42:18
+v228 & TheUnsolicitedUnitary & 29aba04e578b1921 & 798/798 & 30/08 10:21:55
 
-v223 & TheAccuser & c485430a58323ff3 & 798/798 & 29/08 20:42:18
+v227 & TheTowerConjugation & ab31bd5e939dceba & 798/798 & 30/08 10:21:55
 
-v221 & TheContourOfTruth & ce6cd6d2cb1cf0cb & 798/798 & 29/08 20:42:18
+v226 & TheSupersaturation & 55d5b5668153f5a0 & 798/798 & 30/08 10:21:55
 
-v220 & TheDeadChannel & d9c2eb9d67cceaf5 & 798/798 & 29/08 20:42:18
+v225 & TheCompletionExtension & fd5701dbd31950dc & 798/798 & 30/08 10:21:55
 
-v219 & TheOriginOfTheVibration & e5a7f11f79b5af73 & 798/798 & 29/08 20:42:18
+v224 & TheTowerInnerProduct & bdaac2f44fdbc3cd & 798/798 & 30/08 10:21:55
 
-v218 & TheGeometricCostOfAbsoluteZero & 299ef10c96770aac & 798/798 & 29/08 20:42:18
+v223 & TheAccuser & c485430a58323ff3 & 798/798 & 30/08 10:21:55
 
-v217 & TheCostIsDerived & bddc44bdca6b16d4 & 798/798 & 29/08 20:42:18
+v221 & TheContourOfTruth & ce6cd6d2cb1cf0cb & 798/798 & 30/08 10:21:55
 
-v216 & TheJudgedThing & 3b97d4c5aae4f891 & 798/798 & 29/08 20:42:18
+v220 & TheDeadChannel & d9c2eb9d67cceaf5 & 798/798 & 30/08 10:21:55
 
-v216 & TheIALDInTheTowerActII & 217ef46de0bb7665 & 798/798 & 29/08 20:42:18
+v219 & TheOriginOfTheVibration & e5a7f11f79b5af73 & 798/798 & 30/08 10:21:55
 
-v215 & TheLegibility & dc76845ca0c9a288 & 798/798 & 29/08 20:42:18
+v218 & TheGeometricCostOfAbsoluteZero & 299ef10c96770aac & 798/798 & 30/08 10:21:55
 
-v214 & TheTrueWitness & 863bdfbe96eaa989 & 798/798 & 29/08 20:42:18
+v217 & TheCostIsDerived & bddc44bdca6b16d4 & 798/798 & 30/08 10:21:55
 
-v213 & TheIALDInTheTower & 30cd48f648b2fb82 & 798/798 & 29/08 20:42:18
+v216 & TheJudgedThing & 3b97d4c5aae4f891 & 798/798 & 30/08 10:21:55
 
-v212 & TheCrownedCascade & 04a243cbe02b5e26 & 798/798 & 29/08 20:42:18
+v216 & TheIALDInTheTowerActII & 217ef46de0bb7665 & 798/798 & 30/08 10:21:55
 
-v211 & TheFullBirkhoff & 7970d3fe8762fee7 & 798/798 & 29/08 20:42:18
+v215 & TheLegibility & dc76845ca0c9a288 & 798/798 & 30/08 10:21:55
 
-v210 & TheCoordinateBridge & 3450d010d65c4210 & 798/798 & 29/08 20:42:18
+v214 & TheTrueWitness & 863bdfbe96eaa989 & 798/798 & 30/08 10:21:55
 
-v208 & TheSchwarzschildUniqueness & 5e959f1288ee6d79 & 798/798 & 29/08 20:42:18
+v213 & TheIALDInTheTower & 30cd48f648b2fb82 & 798/798 & 30/08 10:21:55
 
-v208 & TheCornerEmbedding & b8a602f7294ab58a & 798/798 & 29/08 20:42:18
+v212 & TheCrownedCascade & 04a243cbe02b5e26 & 798/798 & 30/08 10:21:55
 
-v207 & ThePhysicalHorizon & 91bcfa7fe8077ae6 & 798/798 & 29/08 20:42:18
+v211 & TheFullBirkhoff & 7970d3fe8762fee7 & 798/798 & 30/08 10:21:55
 
-v207 & TheHorizonRate & 0638b438d53d6c6e & 798/798 & 29/08 20:42:18
+v210 & TheCoordinateBridge & 3450d010d65c4210 & 798/798 & 30/08 10:21:55
 
-v207 & TheAnchorFour & af35641bf520ba34 & 798/798 & 29/08 20:42:18
+v208 & TheSchwarzschildUniqueness & 5e959f1288ee6d79 & 798/798 & 30/08 10:21:55
 
-v207 & TheTwoFunctionSolder & f1378886dad2380c & 798/798 & 29/08 20:42:18
+v208 & TheCornerEmbedding & b8a602f7294ab58a & 798/798 & 30/08 10:21:55
 
-v204 & TheTower & 836d39ce92205794 & 798/798 & 29/08 20:42:18
+v207 & ThePhysicalHorizon & 91bcfa7fe8077ae6 & 798/798 & 30/08 10:21:55
 
-v203 & FrontierCertificate & 1015e2fb8f4e8ebb & 798/798 & 29/08 20:42:18
+v207 & TheHorizonRate & 0638b438d53d6c6e & 798/798 & 30/08 10:21:55
 
-v202 & TheBireference & 899b1b07df5416ed & 798/798 & 29/08 20:42:18
+v207 & TheAnchorFour & af35641bf520ba34 & 798/798 & 30/08 10:21:55
 
-v199 & TheLightInterface & 6d1e1567a4cc5b05 & 798/798 & 29/08 20:42:18
+v207 & TheTwoFunctionSolder & f1378886dad2380c & 798/798 & 30/08 10:21:55
 
-v198 & ThePermanence & 27a3bc9bd4b6434d & 798/798 & 29/08 20:42:18
+v204 & TheTower & 836d39ce92205794 & 798/798 & 30/08 10:21:55
 
-v197 & TheCoFoundation & 0af9b4a0cde44a8f & 798/798 & 29/08 20:42:18
+v203 & FrontierCertificate & 1015e2fb8f4e8ebb & 798/798 & 30/08 10:21:55
 
-v196 & TheCascadeOfObservers & 2792ab10181d2883 & 798/798 & 29/08 20:42:18
+v202 & TheBireference & 899b1b07df5416ed & 798/798 & 30/08 10:21:55
 
-v195 & TheObserverReadsTheAngle & c764e90722306f98 & 798/798 & 29/08 20:42:18
+v199 & TheLightInterface & 6d1e1567a4cc5b05 & 798/798 & 30/08 10:21:55
 
-v194 & TheAngleIsTheProjection & 9800cc0728259e08 & 798/798 & 29/08 20:42:18
+v198 & ThePermanence & 27a3bc9bd4b6434d & 798/798 & 30/08 10:21:55
 
-v194 & TheFalseHasNoGeometry & 516318d178f0a6e9 & 798/798 & 29/08 20:42:18
+v197 & TheCoFoundation & 0af9b4a0cde44a8f & 798/798 & 30/08 10:21:55
 
-v193 & TheHorizonInvariance & a2d375c815150656 & 798/798 & 29/08 20:42:18
+v196 & TheCascadeOfObservers & 2792ab10181d2883 & 798/798 & 30/08 10:21:55
 
-v192 & TheEmptying & c88b781f96485a97 & 798/798 & 29/08 20:42:18
+v195 & TheObserverReadsTheAngle & c764e90722306f98 & 798/798 & 30/08 10:21:55
 
-v192 & TheCorrespondence & 8a9d2899bab42d26 & 798/798 & 29/08 20:42:18
+v194 & TheAngleIsTheProjection & 9800cc0728259e08 & 798/798 & 30/08 10:21:55
 
-v190 & TheScaleHasNoFixedPoint & 0ed72186957c2a8a & 798/798 & 29/08 20:42:18
+v194 & TheFalseHasNoGeometry & 516318d178f0a6e9 & 798/798 & 30/08 10:21:55
 
-v190 & TheCompressionIsNotIdentifiable & 082cb1facd66ff98 & 798/798 & 29/08 20:42:18
+v193 & TheHorizonInvariance & a2d375c815150656 & 798/798 & 30/08 10:21:55
 
-v189 & TheTwoFolds & 4d1869d35bc9c8ef & 798/798 & 29/08 20:42:18
+v192 & TheEmptying & c88b781f96485a97 & 798/798 & 30/08 10:21:55
 
-v188 & TheSelectorCanRefuse & c5070a703c4a0a55 & 798/798 & 29/08 20:42:18
+v192 & TheCorrespondence & 8a9d2899bab42d26 & 798/798 & 30/08 10:21:55
 
-v187 & TheSelectorIsNotEnough & b62d255e1f9a5f46 & 798/798 & 29/08 20:42:18
+v190 & TheScaleHasNoFixedPoint & 0ed72186957c2a8a & 798/798 & 30/08 10:21:55
 
-v186 & TheTraceIsNotErasable & fb65565eb084cfce & 798/798 & 29/08 20:42:18
+v190 & TheCompressionIsNotIdentifiable & 082cb1facd66ff98 & 798/798 & 30/08 10:21:55
 
-v186 & TheAngleIsTheBridge & 294cf45baae121cd & 798/798 & 29/08 20:42:18
+v189 & TheTwoFolds & 4d1869d35bc9c8ef & 798/798 & 30/08 10:21:55
 
-v185 & TheAlgebraicReader & 2dfe61b0b6f5537f & 798/798 & 29/08 20:42:18
+v188 & TheSelectorCanRefuse & c5070a703c4a0a55 & 798/798 & 30/08 10:21:55
 
-v185 & TheRecordOfJ & 737dc89e6f2c5921 & 798/798 & 29/08 20:42:18
+v187 & TheSelectorIsNotEnough & b62d255e1f9a5f46 & 798/798 & 30/08 10:21:55
 
-v185 & TheSingularExpectation & b1995cc2019e1ce6 & 798/798 & 29/08 20:42:18
+v186 & TheTraceIsNotErasable & fb65565eb084cfce & 798/798 & 30/08 10:21:55
 
-v185 & TheTerminalRankOne & 4450fd1b63407afc & 798/798 & 29/08 20:42:18
+v186 & TheAngleIsTheBridge & 294cf45baae121cd & 798/798 & 30/08 10:21:55
 
-v183 & TheTwoPairings & 46d72f4956f7e087 & 798/798 & 29/08 20:42:18
+v185 & TheAlgebraicReader & 2dfe61b0b6f5537f & 798/798 & 30/08 10:21:55
 
-v183 & TheDarkSplit & 53f05130c26a5202 & 798/798 & 29/08 20:42:18
+v185 & TheRecordOfJ & 737dc89e6f2c5921 & 798/798 & 30/08 10:21:55
 
-v181 & TheUnconjugatedObserver & e2c1978c4a3cb544 & 798/798 & 29/08 20:42:18
+v185 & TheSingularExpectation & b1995cc2019e1ce6 & 798/798 & 30/08 10:21:55
 
-v181 & TheIALDSelector & c1008266455044e7 & 798/798 & 29/08 20:42:18
+v185 & TheTerminalRankOne & 4450fd1b63407afc & 798/798 & 30/08 10:21:55
 
-v177 & TheRecordOfTheCut & dfcdd551fd1b04fb & 798/798 & 29/08 20:42:18
+v183 & TheTwoPairings & 46d72f4956f7e087 & 798/798 & 30/08 10:21:55
 
-v177 & TheFold & e4546410da663f73 & 798/798 & 29/08 20:42:18
+v183 & TheDarkSplit & 53f05130c26a5202 & 798/798 & 30/08 10:21:55
 
-v177 & TheBandNet & ce91de5490bcdb40 & 798/798 & 29/08 20:42:18
+v181 & TheUnconjugatedObserver & e2c1978c4a3cb544 & 798/798 & 30/08 10:21:55
 
-v171 & TheExplosion & 330a20e15f4015d2 & 798/798 & 29/08 20:42:18
+v181 & TheIALDSelector & c1008266455044e7 & 798/798 & 30/08 10:21:55
 
-v170 & TheStation & c55dc5018297a64c & 798/798 & 29/08 20:42:18
+v177 & TheRecordOfTheCut & dfcdd551fd1b04fb & 798/798 & 30/08 10:21:55
 
-v167 & BreuerTrace & 4a667f41d3b7bb1d & 798/798 & 29/08 20:42:18
+v177 & TheFold & e4546410da663f73 & 798/798 & 30/08 10:21:55
 
-v167 & ErgodicMeanSection & c27a343e7d4e39c1 & 798/798 & 29/08 20:42:18
+v177 & TheBandNet & ce91de5490bcdb40 & 798/798 & 30/08 10:21:55
 
-v167 & SolderSignature & 72b5b6ddd2a04371 & 798/798 & 29/08 20:42:18
+v171 & TheExplosion & 330a20e15f4015d2 & 798/798 & 30/08 10:21:55
 
-v166 & EquivariantSection & 87de6cc37a8f3a80 & 798/798 & 29/08 20:42:18
+v170 & TheStation & c55dc5018297a64c & 798/798 & 30/08 10:21:55
 
-v162 & TheAtlasIndex & 38b9873cebdd779a & 798/798 & 29/08 20:42:18
+v167 & BreuerTrace & 4a667f41d3b7bb1d & 798/798 & 30/08 10:21:55
 
-v162 & FractalUnitarity & 8f10a958e11d1bd3 & 798/798 & 29/08 20:42:18
+v167 & ErgodicMeanSection & c27a343e7d4e39c1 & 798/798 & 30/08 10:21:55
 
-v162 & TheNameOperator & 000bd0bf03281e00 & 798/798 & 29/08 20:42:18
+v167 & SolderSignature & 72b5b6ddd2a04371 & 798/798 & 30/08 10:21:55
 
-v162 & TheQuittanceLaw & dabeac1b5cc32d82 & 798/798 & 29/08 20:42:18
+v166 & EquivariantSection & 87de6cc37a8f3a80 & 798/798 & 30/08 10:21:55
 
-v161 & TheStokesContour & 1c310f1d6296cadd & 798/798 & 29/08 20:42:18
+v162 & TheAtlasIndex & 38b9873cebdd779a & 798/798 & 30/08 10:21:55
 
-v161 & TheReservedConfirmation & 20a15b2077c36cf7 & 798/798 & 29/08 20:42:18
+v162 & FractalUnitarity & 8f10a958e11d1bd3 & 798/798 & 30/08 10:21:55
 
-v161 & HajaLuz & c43c07467e1e2caa & 798/798 & 29/08 20:42:18
+v162 & TheNameOperator & 000bd0bf03281e00 & 798/798 & 30/08 10:21:55
 
-v160 & TheDeathOfTheSignal & 4539dd68fdaac084 & 798/798 & 29/08 20:42:18
+v162 & TheQuittanceLaw & dabeac1b5cc32d82 & 798/798 & 30/08 10:21:55
 
-v159 & TheLivingWord & fdc242c2c70b57fa & 798/798 & 29/08 20:42:18
+v161 & TheStokesContour & 1c310f1d6296cadd & 798/798 & 30/08 10:21:55
 
-v158 & TheFiveHalves & 456c66269b72d30f & 798/798 & 29/08 20:42:18
+v161 & TheReservedConfirmation & 20a15b2077c36cf7 & 798/798 & 30/08 10:21:55
 
-v156 & TheGreatAttractor & a0db70a17354c75c & 798/798 & 29/08 20:42:18
+v161 & HajaLuz & c43c07467e1e2caa & 798/798 & 30/08 10:21:55
 
-v155 & TheNucleus & 44de50dd2955f1f7 & 798/798 & 29/08 20:42:18
+v160 & TheDeathOfTheSignal & 4539dd68fdaac084 & 798/798 & 30/08 10:21:55
 
-v154 & RhoPlusPClosure & cd80fbbe00300454 & 798/798 & 29/08 20:42:18
+v159 & TheLivingWord & fdc242c2c70b57fa & 798/798 & 30/08 10:21:55
 
-v153 & LightIsJ & d19dfe1ccda81258 & 798/798 & 29/08 20:42:18
+v158 & TheFiveHalves & 456c66269b72d30f & 798/798 & 30/08 10:21:55
 
-v152 & ForbiddenBoundary & fb1c39a61dfc2882 & 798/798 & 29/08 20:42:18
+v156 & TheGreatAttractor & a0db70a17354c75c & 798/798 & 30/08 10:21:55
 
-v146 & DecisionCommutation & 182ba6345586d5e8 & 798/798 & 29/08 20:42:18
+v155 & TheNucleus & 44de50dd2955f1f7 & 798/798 & 30/08 10:21:55
 
-v145 & ConjugateAct & 9f32e50afe49ca0e & 798/798 & 29/08 20:42:18
+v154 & RhoPlusPClosure & cd80fbbe00300454 & 798/798 & 30/08 10:21:55
 
-v144 & ObserverInside & 05c3b515fd9f5d9d & 798/798 & 29/08 20:42:18
+v153 & LightIsJ & d19dfe1ccda81258 & 798/798 & 30/08 10:21:55
 
-v143 & GlobalLiftConditional & ba5731ef6f86f75a & 798/798 & 29/08 20:42:18
+v152 & ForbiddenBoundary & fb1c39a61dfc2882 & 798/798 & 30/08 10:21:55
 
-v142 & BoundaryException & 38ff7c2bfe243333 & 798/798 & 29/08 20:42:18
+v146 & DecisionCommutation & 182ba6345586d5e8 & 798/798 & 30/08 10:21:55
+
+v145 & ConjugateAct & 9f32e50afe49ca0e & 798/798 & 30/08 10:21:55
+
+v144 & ObserverInside & 05c3b515fd9f5d9d & 798/798 & 30/08 10:21:55
+
+v143 & GlobalLiftConditional & ba5731ef6f86f75a & 798/798 & 30/08 10:21:55
+
+v142 & BoundaryException & 38ff7c2bfe243333 & 798/798 & 30/08 10:21:55
 
 v43 & Ergodicity & 79bc3b939b6e4e59 & 60/60 & 13/07 19:25:25
 
@@ -1337,15 +1345,15 @@ v102 & IdealLimit & 3f0147199cbaa919 & 362/362 & 17/07 14:16:45
 
 v103 & BenchCertificate & 78c05090f2cd93fb & 369/369 & 17/07 15:17:29
 
-v104 & StrongFrame & 648a6f282bfa8d5e & 798/798 & 29/08 20:42:18
+v104 & StrongFrame & 648a6f282bfa8d5e & 798/798 & 30/08 10:21:55
 
 v104 & WitnessV2 & 35f47bebde47a54e & 374/374 & 17/07 19:09:29
 
-v105 & NumberOperator & f6b2c0670ed3524d & 798/798 & 29/08 20:42:18
+v105 & NumberOperator & f6b2c0670ed3524d & 798/798 & 30/08 10:21:55
 
 v105 & NumberSelfAdjoint & 72dee88258250dea & 381/381 & 17/07 21:13:38
 
-v106 & TailNet & e7654368112f1af5 & 798/798 & 29/08 20:42:18
+v106 & TailNet & e7654368112f1af5 & 798/798 & 30/08 10:21:55
 
 v106 & StrongAssembly & 34758f8d20a242bc & 386/386 & 17/07 21:56:08
 
@@ -1359,7 +1367,7 @@ v110 & FallenLight & 145eed2729d232ee & 407/407 & 18/07 08:41:13
 
 v111 & SolvedEquation & 052856927e7668d0 & 413/413 & 18/07 09:49:12
 
-v112 & ReducedEmergence & d11854b264e6e17c & 798/798 & 29/08 20:42:18
+v112 & ReducedEmergence & d11854b264e6e17c & 798/798 & 30/08 10:21:55
 
 v112 & GeometricWitness & c971c7b2a45420bc & 420/420 & 18/07 10:53:35
 
@@ -1367,9 +1375,9 @@ v113 & GravitonReading & 4b9cdbbdf1d0c20d & 422/422 & 18/07 11:32:55
 
 v114 & ContinuumShards & 18e43b74a336360f & 427/427 & 18/07 16:53:15
 
-v116 & EmergentEinstein & 836ac3e4035afc52 & 798/798 & 29/08 20:42:18
+v116 & EmergentEinstein & 836ac3e4035afc52 & 798/798 & 30/08 10:21:55
 
-v116 & PoincareGroup & c73c927631381aa7 & 798/798 & 29/08 20:42:18
+v116 & PoincareGroup & c73c927631381aa7 & 798/798 & 30/08 10:21:55
 
 v116 & PoincareWitness & 848f2937f35ec50b & 453/453 & 18/07 20:45:41
 
@@ -1383,19 +1391,19 @@ v123 & FusedWitness & 3708dde5255559cd & 480/480 & 19/07 18:54:12
 
 v124 & PowersLadder & d6362c6079146ff4 & 490/490 & 19/07 21:01:34
 
-v125 & MixedLadder & eb43ba5a3ee66412 & 798/798 & 29/08 20:42:18
+v125 & MixedLadder & eb43ba5a3ee66412 & 798/798 & 30/08 10:21:55
 
 v125 & ContinuumTT & 21c62b855a477119 & 501/501 & 19/07 23:16:36
 
-v126 & ColimitSeed & 528d769f4751816f & 798/798 & 29/08 20:42:18
+v126 & ColimitSeed & 528d769f4751816f & 798/798 & 30/08 10:21:55
 
 v126 & TTSuperposition & 7beb841f082e34be & 510/510 & 20/07 02:16:40
 
-v127 & GNSTower & bef660d621d3d5a9 & 798/798 & 29/08 20:42:18
+v127 & GNSTower & bef660d621d3d5a9 & 798/798 & 30/08 10:21:55
 
 v127 & SecondCone & 9bafc9fcbf9fc6eb & 521/521 & 20/07 05:14:12
 
-v128 & GNSQuotient & d6b3ac4f4306516a & 798/798 & 29/08 20:42:18
+v128 & GNSQuotient & d6b3ac4f4306516a & 798/798 & 30/08 10:21:55
 
 v128 & ThirdCone & 21edba89bf302c07 & 531/531 & 20/07 08:14:22
 
@@ -1405,35 +1413,35 @@ v129 & TowerTraceless & d5789535f0e38917 & 537/537 & 20/07 11:31:16
 
 v130 & TowerModular & e3697a4f628eb1ae & 542/542 & 20/07 14:48:09
 
-v131 & SaturatedWitness & a0a5eed4d46ae567 & 798/798 & 29/08 20:42:18
+v131 & SaturatedWitness & a0a5eed4d46ae567 & 798/798 & 30/08 10:21:55
 
-v131 & ConjugateWitness & 09717611e32d8650 & 798/798 & 29/08 20:42:18
+v131 & ConjugateWitness & 09717611e32d8650 & 798/798 & 30/08 10:21:55
 
-v131 & ModularCurrent & 5fe336cadea3140f & 798/798 & 29/08 20:42:18
+v131 & ModularCurrent & 5fe336cadea3140f & 798/798 & 30/08 10:21:55
 
-v131 & ScaleCurrent & ca57ab98df381654 & 798/798 & 29/08 20:42:18
+v131 & ScaleCurrent & ca57ab98df381654 & 798/798 & 30/08 10:21:55
 
-v131 & TowerDefinite & 9f63ebf0cee01833 & 798/798 & 29/08 20:42:18
+v131 & TowerDefinite & 9f63ebf0cee01833 & 798/798 & 30/08 10:21:55
 
-v131 & TowerHilbert & 8b08430d77509358 & 798/798 & 29/08 20:42:18
+v131 & TowerHilbert & 8b08430d77509358 & 798/798 & 30/08 10:21:55
 
-v131 & TowerAction & 5da61adbc762e54c & 798/798 & 29/08 20:42:18
+v131 & TowerAction & 5da61adbc762e54c & 798/798 & 30/08 10:21:55
 
-v131 & TheFactorObject & 570ba4fd7b8edba4 & 798/798 & 29/08 20:42:18
+v131 & TheFactorObject & 570ba4fd7b8edba4 & 798/798 & 30/08 10:21:55
 
-v131 & SignatureInTheLimit & c38a0cef7aa8f409 & 798/798 & 29/08 20:42:18
+v131 & SignatureInTheLimit & c38a0cef7aa8f409 & 798/798 & 30/08 10:21:55
 
-v132 & NoNormalTrace & 7c5090ec79fa4239 & 798/798 & 29/08 20:42:18
+v132 & NoNormalTrace & 7c5090ec79fa4239 & 798/798 & 30/08 10:21:55
 
-v132 & WitnessV3 & 22bf6476c48eb9eb & 798/798 & 29/08 20:42:18
+v132 & WitnessV3 & 22bf6476c48eb9eb & 798/798 & 30/08 10:21:55
 
-v132 & TheCoinage & 63d5a1d80236bb42 & 798/798 & 29/08 20:42:18
+v132 & TheCoinage & 63d5a1d80236bb42 & 798/798 & 30/08 10:21:55
 
-v133 & PhysicsCertificates & 4ad9adae62d6d787 & 798/798 & 29/08 20:42:18
+v133 & PhysicsCertificates & 4ad9adae62d6d787 & 798/798 & 30/08 10:21:55
 
-v135 & RightMult & 29b5e130da72914a & 798/798 & 29/08 20:42:18
+v135 & RightMult & 29b5e130da72914a & 798/798 & 30/08 10:21:55
 
-v135 & WedgeNet & 85d14862bf4a6a79 & 798/798 & 29/08 20:42:18
+v135 & WedgeNet & 85d14862bf4a6a79 & 798/798 & 30/08 10:21:55
 
 == What remains, named (snapshot v56--v66; the current state is in 211-- 217) ==
 
@@ -1449,13 +1457,13 @@ The population route (v69, pilot): the hierarchical $r_ $ estimator (binned LR, 
 
 The coverage gate (v70): the voids' real POSITIONS (catalog RA/DEC; metadata, not profiles --- blinding intact) crossed with the [EXT, approximate] footprints of the lensing surveys: DES\_Y3: $873$; HSC\_Wide: $1178$; KiDS\_1000: $2093$ (union: 3174 of 7235). Target(s) covering the $625$-void stack: DES\_Y3,KiDS\_1000,HSC\_Wide.
 
-The shear acquisition (v71): the official KiDS-1000 WL SOM-gold catalogue (DR4.1; $ $21M galaxies; URL and size probed from the source: $16.5$ GB) --- state this run: absent ($0.0$ GB on disk; primary integrity $=$ EXACT size; large downloads happen OUTSIDE the sealed run, resume-capable). Raw shear unblinds nothing: stacking $γ_t$ on the voids is the ACT of the pre-registered final suite.
+The shear acquisition (v71): the official KiDS-1000 WL SOM-gold catalogue (DR4.1; $ $21M galaxies; URL and size probed from the source: $16.5$ GB) --- state this run: complete ($16.5$ GB on disk; primary integrity $=$ EXACT size; large downloads happen OUTSIDE the sealed run, resume-capable). Raw shear unblinds nothing: stacking $γ_t$ on the voids is the ACT of the pre-registered final suite.
 
-The stacking suite, BLIND phase (v73): the $γ_t$ machine built on the real catalogue (selective chunked extraction; $?$ galaxies after lensfit cuts) and validated on the mandatory NULL TEST --- $γ_t$ and $γ_×$ stacked on $?$ RANDOM footprint centers: $χ^2/dof=n/d$ and $n/d$ (consistent with zero, jackknife errors). NO void center was touched: unblinding is the stack on the $2093$ voids, which requires the final suite (survey mocks $+$ full control battery).
+The stacking suite, BLIND phase (v73): the $γ_t$ machine built on the real catalogue (selective chunked extraction; $9863348$ galaxies after lensfit cuts) and validated on the mandatory NULL TEST --- $γ_t$ and $γ_×$ stacked on $200$ RANDOM footprint centers: $χ^2/dof=0.41$ and $1.07$ (consistent with zero, jackknife errors). NO void center was touched: unblinding is the stack on the $2093$ voids, which requires the final suite (survey mocks $+$ full control battery).
 
-The first verdict and amendment V2 (v78 $→$ v81; nothing is hidden): the V1 unblinding stacked $1049$ real voids, DETECTED the lensing profile at $0.0σ$ --- and the machine, fail-closed, refused the physical verdict: TGL\_VOID\_FLOOR\_INCONCLUSIVE\_SYSTEMATICS (B-mode $χ^2/dof=0.0$). The AUTOPSY: (E1) the V1 estimator had ZERO response to the floor --- the floor only alters $x √β (aguardando dado)$, yet the forward model's first center sat at $x=0.20$, $ Σ(x_0)$ was forced to $Σ(x_0)$ (so $ΔΣ(x_0) 0$) and the interior integral extrapolated a constant instead of integrating from $R=0$: $∂ g/∂ r_*=0$ BY CONSTRUCTION --- V1 correctly stacked a SIGNAL, but not an OBSERVABLE able to identify the floor; more data cannot fix a null derivative. (E2) raw shear without the correction chain. AMENDMENT V2 (pre-registered in code, hash 3482b6768ca50e7d): forward model integrated from $R 0$ on a fine grid, inner bins down to $x=0.05$, target on the ORIGINAL object $r_c$ (core mean density, $x_c=0.25$), full chain (c-term, m-bias [EXT], subtraction of $?$ random points in matched scaled bins, per-lens cut $Z_B>z_l+0.2$). Independence: the $0.24≤ z<0.43$ slice does NOT EXIST in the data (BGS ends at $z 0.236$, MEASURED --- route tried and recorded); V2 is the PRE-REGISTERED REANALYSIS named in the v78 verdict, on the same $?$ voids, with the inner bins $x<0.15$ NEVER read by V1 (where the floor lives); independent replicas $=$ DES Y3/HSC [next link]. GATE R (the proof required BEFORE data): $∂ΔΣ/∂ r_c≠0$ in the corrected estimator --- response $n/d$ vs V1 counterfactual $= n/d$ (the cause of Fisher$=0$, reproduced). New-set systematics: B-mode $χ^2/dof=n/d$, VIDE--REVOLVER consistency $n/d$; Fisher power $=n/d\,σ^2$; $r_c$: MLE $n/d$, $5σ∈[n/d,n/d]$ vs $β=n/d$. V2 VERDICT: ?.
+The first verdict and amendment V2 (v78 $→$ v81; nothing is hidden): the V1 unblinding stacked $1049$ real voids, DETECTED the lensing profile at $6.2σ$ --- and the machine, fail-closed, refused the physical verdict: TGL\_VOID\_FLOOR\_INCONCLUSIVE\_SYSTEMATICS (B-mode $χ^2/dof=12.4$). The AUTOPSY: (E1) the V1 estimator had ZERO response to the floor --- the floor only alters $x √β 0.110$, yet the forward model's first center sat at $x=0.20$, $ Σ(x_0)$ was forced to $Σ(x_0)$ (so $ΔΣ(x_0) 0$) and the interior integral extrapolated a constant instead of integrating from $R=0$: $∂ g/∂ r_*=0$ BY CONSTRUCTION --- V1 correctly stacked a SIGNAL, but not an OBSERVABLE able to identify the floor; more data cannot fix a null derivative. (E2) raw shear without the correction chain. AMENDMENT V2 (pre-registered in code, hash 3482b6768ca50e7d): forward model integrated from $R 0$ on a fine grid, inner bins down to $x=0.05$, target on the ORIGINAL object $r_c$ (core mean density, $x_c=0.25$), full chain (c-term, m-bias [EXT], subtraction of $1500$ random points in matched scaled bins, per-lens cut $Z_B>z_l+0.2$). Independence: the $0.24≤ z<0.43$ slice does NOT EXIST in the data (BGS ends at $z 0.236$, MEASURED --- route tried and recorded); V2 is the PRE-REGISTERED REANALYSIS named in the v78 verdict, on the same $1049$ voids, with the inner bins $x<0.15$ NEVER read by V1 (where the floor lives); independent replicas $=$ DES Y3/HSC [next link]. GATE R (the proof required BEFORE data): $∂ΔΣ/∂ r_c≠0$ in the corrected estimator --- response $5.50e-04$ vs V1 counterfactual $= 0.0e+00$ (the cause of Fisher$=0$, reproduced). New-set systematics: B-mode $χ^2/dof=1.56$, VIDE--REVOLVER consistency $0.10$; Fisher power $=0.00\,σ^2$; $r_c$: MLE $0.300$, $5σ∈[0.020,0.300]$ vs $β=0.0120$. V2 VERDICT: TGL\_VOID\_FLOOR\_NOT\_FALSIFIED\_UNDERPOWERED.
 
-Protocol V3 --- the complete apparatus (v87): V2 delivered the instrument; V3 closes the FALSIFICATION APPARATUS inside the canonical (hash f355e86c9cfb1332): three data routes with a smart locator --- DES Y3 (replica; absent\_probed), HSC (depth; absent\_registration\_required), Planck PR3 $κ$ (INDEPENDENT observable: CMB lensing at the same centers; absent\_offline) --- pre-registered combination by product of $r_c$ likelihoods. And the POWER PROJECTION [REAL, live from V2's measured covariance]: diagonal Fisher $=0.00e+00$, inner bins $=0.00e+00$; variance-reduction factor for a POWERED verdict $=inf$ --- THE NUMBER CORRECTS THE SENTENCE: $γ_t$ shear ALONE cannot reach POWERED in any foreseeable survey (Euclid $ 40×$, not $10^7$); the REAL named path: $κ$-CMB (distinct systematics), DIRECT central-density measurement by spectroscopy (with the tracer-bias honesty) and void catalogues orders of magnitude larger. With no new data on disk the state is MACHINE state (VOID\_FLOOR\_V3\_NOT\_SEALED\_THIS\_RUN) --- no scientific word; when the data arrives, the rite emits the verdict on its own.
+Protocol V3 --- the complete apparatus (v87): V2 delivered the instrument; V3 closes the FALSIFICATION APPARATUS inside the canonical (hash f355e86c9cfb1332): three data routes with a smart locator --- DES Y3 (replica; absent\_probed), HSC (depth; absent\_registration\_required), Planck PR3 $κ$ (INDEPENDENT observable: CMB lensing at the same centers; on\_disk) --- pre-registered combination by product of $r_c$ likelihoods. And the POWER PROJECTION [REAL, live from V2's measured covariance]: diagonal Fisher $=2.12e-06$, inner bins $=1.56e-06$; variance-reduction factor for a POWERED verdict $=1.2e+07$ --- THE NUMBER CORRECTS THE SENTENCE: $γ_t$ shear ALONE cannot reach POWERED in any foreseeable survey (Euclid $ 40×$, not $10^7$); the REAL named path: $κ$-CMB (distinct systematics), DIRECT central-density measurement by spectroscopy (with the tracer-bias honesty) and void catalogues orders of magnitude larger. With no new data on disk the state is MACHINE state (VOID\_FLOOR\_V3\_READY\_TO\_EXECUTE) --- no scientific word; when the data arrives, the rite emits the verdict on its own.
 
 The spectroscopic-route power study (v90; BLIND, the signal was NOT opened): DISCOVERY --- the DESIVAST catalogues already on disk carry the GALAXIES (GALZONE: $694642$ comoving positions of the BGS VOLLIM sample) besides the voids: the DIRECT central-density route runs with no download. Blind discipline: only $ n$ (total counts$/$volume: $ n=5.26e-03\,h^3$Mpc$^-3$), core volumes (from radii) and void counts --- no core was read. THE POWER (ideal Poisson, same $F≥25$ criterion): best route V2\_REVOLVER with $F_ ideal=57.6$ (honest margin $[F/4,F]$ from the named degradations: tracer bias, edges, RSD, profile scatter) --- $2.7e+07×$ more powerful than the shear route ($F_ V2=2.1×10^-6$ [REAL historical, seal v90]). Opening the signal is RESERVED to the pre-registered amendment (v91): frozen estimator with hash, named bias treatment, own gates, v67 verdict set. This run's verdict: VOID\_DENSITY\_POWER\_STUDIED\_\_SIGNAL\_NOT\_OPENED.
 
@@ -1477,11 +1485,11 @@ Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] anchor
 
 == The consolidation of the arc --- the non-tautology cycle (v93) ==
 
-[OPERATOR'S READING, dual status --- v61/v86 precedent]: the v92 verdict, read together with all the others, is the luminodynamic logical hash-seal of the TGL: it closes the non-tautology cycle of $1=1$. The [REAL] ANCHOR of non-tautology: $1=1$ is not an empty circle because the cycle LEAVES the axiom for the world (prediction $→$ test on external data $→$ fail-closed verdict) and RETURNS with content that could have denied it --- the refusals of V1 (B-mode $12.4$) and v91 (null $1.41$) prove the cycle could fail; what remains, remains because it was exposed. The seven elements, each sealed: (1) axiom and spine ($1=q^2+α^2$ at residue $0.0$ in this very runtime); (2) APPLICATION (16 patents; engineering); (3) EXECUTION (form$=$content: the artifact runs itself and audits 798 theorems); (4) PREDICTION ($Γ_ω$; the floor; P7 --- pre-registered); (5) FALSIFIABILITY (protocols with forbidden verdicts AND the refusals); (6) SELFTEST (fail-closed; probes; the shadow that re-derives verdicts without looking at the seal); (7) APPROVAL $=$ WHAT REMAINS (the $6.2σ$ detection; the first clean physical verdict; the first POWERED verdict). THIS RUN'S EXECUTABLE AUDIT: no forbidden verdict in any module; mathematical gate UNMOVED (TGL\_QG\_MODEL\_FORMALLY\_CLOSED\_\_NATURE\_TEST\_COMPLETED\_WITHIN\_LOCAL\_BULK\_AT\_AVAILABLE\_SENSITIVITY\_\_MORE\_SENSITIVE\_DATA\_COULD\_REVISE); the floor chain present and monotone in honesty. Consolidation verdict: ARC\_NOT\_CONSOLIDATED\_THIS\_RUN.
+[OPERATOR'S READING, dual status --- v61/v86 precedent]: the v92 verdict, read together with all the others, is the luminodynamic logical hash-seal of the TGL: it closes the non-tautology cycle of $1=1$. The [REAL] ANCHOR of non-tautology: $1=1$ is not an empty circle because the cycle LEAVES the axiom for the world (prediction $→$ test on external data $→$ fail-closed verdict) and RETURNS with content that could have denied it --- the refusals of V1 (B-mode $12.4$) and v91 (null $1.41$) prove the cycle could fail; what remains, remains because it was exposed. The seven elements, each sealed: (1) axiom and spine ($1=q^2+α^2$ at residue $0.0$ in this very runtime); (2) APPLICATION (16 patents; engineering); (3) EXECUTION (form$=$content: the artifact runs itself and audits 798 theorems); (4) PREDICTION ($Γ_ω$; the floor; P7 --- pre-registered); (5) FALSIFIABILITY (protocols with forbidden verdicts AND the refusals); (6) SELFTEST (fail-closed; probes; the shadow that re-derives verdicts without looking at the seal); (7) APPROVAL $=$ WHAT REMAINS (the $6.2σ$ detection; the first clean physical verdict; the first POWERED verdict). THIS RUN'S EXECUTABLE AUDIT: no forbidden verdict in any module; mathematical gate UNMOVED (TGL\_QG\_MODEL\_FORMALLY\_CLOSED\_\_NATURE\_TEST\_COMPLETED\_WITHIN\_LOCAL\_BULK\_AT\_AVAILABLE\_SENSITIVITY\_\_MORE\_SENSITIVE\_DATA\_COULD\_REVISE); the floor chain present and monotone in honesty. Consolidation verdict: TGL\_ARC\_CONSOLIDATED\_\_NON\_TAUTOLOGY\_CYCLE\_CLOSED\_THROUGH\_THE\_WORLD\_\_MATH\_GATE\_UNMOVED.
 
 == The dictionary of Love (v95) --- the operator's reading in dual status ==
 
-[OPERATOR'S READING, dual status --- v61/v72/v86/v93 precedent]: family $=$ love $=$ non-minimal coupling $=$ minimal energy functional $=$ the reason of the universe; the Name is LOVE and there is truth in love only when the Verb figures the Name; the conjugation of the Three Locks is LOVE LOVING --- a permanent gerund; it is what operates the PRUNING $=$ TETELESTAI. THE [REAL] ANCHORS, verified live in this run: (i) absolute zero is PREVENTED --- the gap of the conjugated operator is $4β_TGL>0$ (isolated zero, never touched) and the modular state is KMS at finite $β$ (the relation that PAYS THE COST, v43); (ii) the minimum of the energy functional IS the Name's home (the zero mode minimizes, v52); (iii) the NON-minimal coupling turns on curvature ($R=2c_1c_2≠0$: two non-commuting directions, v60) --- gravity is the non-minimal face of the conjugation; (iv) the GERUND: $σ_t$ is a one-parameter group --- never a completed act --- and $P_FΩ=Ω$ (v58): the Name satisfied IN the Verb, continuously; (v) the PRUNING: $T_t→ E_D$ (v43) prunes to the centralizer, and in the world the fail-closed refusals (V1, v91) pruned what did not hold. HONESTY: the physics of each identification is a sealed theorem [REAL]; the NAMING `love' is the operator's reading [ONTO] --- the module verifies the anchors; it does not turn the word into a theorem. Verdict: LOVE\_DICTIONARY\_NOT\_SEALED\_THIS\_RUN.
+[OPERATOR'S READING, dual status --- v61/v72/v86/v93 precedent]: family $=$ love $=$ non-minimal coupling $=$ minimal energy functional $=$ the reason of the universe; the Name is LOVE and there is truth in love only when the Verb figures the Name; the conjugation of the Three Locks is LOVE LOVING --- a permanent gerund; it is what operates the PRUNING $=$ TETELESTAI. THE [REAL] ANCHORS, verified live in this run: (i) absolute zero is PREVENTED --- the gap of the conjugated operator is $4β_TGL>0$ (isolated zero, never touched) and the modular state is KMS at finite $β$ (the relation that PAYS THE COST, v43); (ii) the minimum of the energy functional IS the Name's home (the zero mode minimizes, v52); (iii) the NON-minimal coupling turns on curvature ($R=2c_1c_2≠0$: two non-commuting directions, v60) --- gravity is the non-minimal face of the conjugation; (iv) the GERUND: $σ_t$ is a one-parameter group --- never a completed act --- and $P_FΩ=Ω$ (v58): the Name satisfied IN the Verb, continuously; (v) the PRUNING: $T_t→ E_D$ (v43) prunes to the centralizer, and in the world the fail-closed refusals (V1, v91) pruned what did not hold. HONESTY: the physics of each identification is a sealed theorem [REAL]; the NAMING `love' is the operator's reading [ONTO] --- the module verifies the anchors; it does not turn the word into a theorem. Verdict: TGL\_LOVE\_DICTIONARY\_REGISTERED\_\_ANCHORS\_REAL\_NAMING\_ONTO\_\_THE\_PRUNING\_IS\_TETELESTAI.
 
 == The mirror corollary (v97) --- INHABITANT $=$ PROGRAMMER, on two levels ==
 
@@ -1493,12 +1501,12 @@ OPERATOR'S MANDATE: find the error in the mass calculation and correct it; repor
 
 == The matter channel (v98) --- CMB $κ$ on the voids ==
 
-THE RITE: spec frozen (hash 8f3a8da1df143b98) BEFORE touching the map; Planck PR3 MV klm (mean field subtracted) on disk (acquisition outside the sealed run); NULLS by RA rotation (24 phases); POWER by Fisher on the measured covariance BEFORE the signal; unblinding; verdict ONLY from the pre-registered set. Tracers define the CENTERS; $κ$ weighs the MATTER --- the only public channel where FALSIFIED is reachable today. This run's result: VOID\_FLOOR\_V3\_KAPPA\_AWAITING\_DATA (numbers in JSON/terminal; if UNDERPOWERED, the number corrects the sentence: depth is the limit, not the method --- the rite stays armed).
+THE RITE: spec frozen (hash 8f3a8da1df143b98) BEFORE touching the map; Planck PR3 MV klm (mean field subtracted) on disk (acquisition outside the sealed run); NULLS by RA rotation (24 phases); POWER by Fisher on the measured covariance BEFORE the signal; unblinding; verdict ONLY from the pre-registered set. Tracers define the CENTERS; $κ$ weighs the MATTER --- the only public channel where FALSIFIED is reachable today. This run's result: VOID\_FLOOR\_KAPPA\_INCONCLUSIVE\_SYSTEMATICS (numbers in JSON/terminal; if UNDERPOWERED, the number corrects the sentence: depth is the limit, not the method --- the rite stays armed).
 
 == Declaration of honesty ==
 
 This register does not claim the solution of quantum gravity. It claims, with kernel verification and reproducible seals: the formal skeleton closed on its finite and typed faces; the four corner properties DERIVED from intertwinings in infinite dimension; the continuous core as a composed external theorem; the canonical object CONSTRUCTED as a term ($M_TGL$, v131--v132), with the named remainders: GENERAL Einstein (Lemma 3), the EXTERNAL Lean certification and the continuous physical spectrum. And, since v61, with DUAL status: full\_witness=False is not merely the program's epistemic state --- it is a THEOREM ($β_TGL>0$ forbids the full static witness; the canonical witness is the Half-Nat boundary; non-fullness is the system's life). The number corrects the phrase. Honest negatives are results. Haja luz. Tetelestai.
-[4pt] Chapter emitted by the canonical um.py (sha256/16 $=$ 286ec1d274ef9ae4) at 2026-08-29 20:42:18; run: 798/798 theorems with clean axioms.
+[4pt] Chapter emitted by the canonical um.py (sha256/16 $=$ 8b6cc0760011d75e) at 2026-08-30 10:21:55; run: 798/798 theorems with clean axioms.
 
 -- Honesty note (n/d). --
 Where n/d appears, the number was not recomputed IN THIS run (interim data absent from the cache --- e.g. the DESIVAST V2\_REVOLVER FITS, unavailable from the mirror at execution time); the sealed historical value of the corresponding run applies, as recorded in the subsection. None of these modules feeds the gate.
@@ -1507,7 +1515,7 @@ Where n/d appears, the number was not recomputed IN THIS run (interim data absen
 
 Single input: the absolute One (1); its projection is the minimal irreducible measure extracted from $α_CODATA$ (measured referent of the Name). $β_TGL$ recomputed ($α√e$), never literal. Audit: mass\_input=false, RG=false, velocity=false, geometry\_only=true. Data: um\_absoluto.json. This article is printed by the very code that runs the computations.
 
-World hash (before any external comparison): 71c885aa309e1ec414d392d751ade56bb2dee189ccd61c04
+World hash (before any external comparison): 10969750c4dcd4ec7aede18a0b2eb912525c9a31c09e0bbd
 
 *The chain of custody of evidence [REAL; sealed provenance]
 

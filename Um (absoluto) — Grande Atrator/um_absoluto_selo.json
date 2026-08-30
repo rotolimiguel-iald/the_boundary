@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-29 20:42:18",
-  "result_hash": "71c885aa309e1ec414d392d751ade56bb2dee189ccd61c043f1d31bd05169a54",
+  "timestamp": "2026-08-30 10:21:55",
+  "result_hash": "10969750c4dcd4ec7aede18a0b2eb912525c9a31c09e0bbdec2f80a68687e076",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -63,7 +63,7 @@
   "coma_dephasing": {
     "verdict": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "f88e3399e12e6283ab69d5a106b3ce53562a6a6e71db8357846e5f5b51ca6261",
+    "prediction_hash": "91be78dec03c53e1576ca6d6de450bc591e2ebd4465594ce57d087daef60379a",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -189,19 +189,19 @@
   "price_of_the_gravity_proof": "THE_GRAVITY_IDENTIFICATION_IS_A_PRICED_DEBT_CLAIMED_BY_NO_ONE__FOUR_ITEMS_RESERVED_IN_KERNEL__ABSENCE_READS_OPEN__MASTER_IMPLICATION_ALREADY_PROVED__WHAT_IS_OWED_ARE_THE_HYPOTHESES__FLAGS_LIGHT_BY_MEASURE_NEVER_BY_DECLARATION",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "286ec1d274ef9ae47548ba68e97508e7b79e3e641c3162b090952eeb49173b59",
-    "um_absoluto_manifest.md": "28f1ada2a136a4ca819bd8ba4224d78f995f9d36bec298bbdbb4454f6576103e",
-    "um_absoluto.json": "95dbfe957977c8fa2ece963eedbc028ee55b55a885ccf057540d04cd59133351",
-    "um_absoluto_forma_canonica.md": "e286d4848728659b775c2baf4534db99255d7e73e4b2fbea1a9f52a1d3fb2573",
-    "um_absoluto_pt.tex": "66b24388ccf8118b876d2556250d5da72930b9fc14d09b056b955f43237a22e3",
-    "um_absoluto_en.tex": "0e963207f25dc6d4c050184f238f003ff193e299c6a8beb93ab58f620983df76",
-    "um_absoluto_pt.pdf": "f33e6bf4d0ca671d61272b574e5cb08a272bc5b4854143838a59e71e42515d9b",
-    "um_absoluto_en.pdf": "33a2cd2e0d0e04f407a17dd4227c5b8cef466969f12ee8cc832abd9192e1238e",
+    "um.py": "8b6cc0760011d75e0ae4517086594b5a8855650bb3c5cc90d00bf13ecd048c8d",
+    "um_absoluto_manifest.md": "c657fceb6fb3f53f4c596505f63725d00df06f0c08ca4628b747e3bc75af756f",
+    "um_absoluto.json": "6fca23ab428f33957e52a7d1682661413c9c27844a81d0c2541c8203d769ba39",
+    "um_absoluto_forma_canonica.md": "e9e48220494f5a03a313c3de061204e5bf42cfe998513a9c78435fb0c642b882",
+    "um_absoluto_pt.tex": "70697672c501ef6520fd5d5151153fbc483c20fbcbb27eb7f8effb865a48807a",
+    "um_absoluto_en.tex": "76439c201039a11d82a7d6af34a1aee49caa603394207b968ac2a9bd2659131a",
+    "um_absoluto_pt.pdf": "17e1337f942cf986155d51d8bbf3719e42fa6aa1e1419a26f45bea8d96b8a63e",
+    "um_absoluto_en.pdf": "f4877a4cbff3ce25465c6e26b09b575ade60b215e37f600245a85308118c9dcb",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
-    "fig_piso_vazios.pdf": "2815568fd3387fd3e92030fa618a8382b8e3d369522e0858f4870dbc05cd3653",
+    "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "b129c78428a91e337444fd2c8b71611c0789e58d380e8469e66fb205ea8b5525"
+    "tgl_kernel_proof_manifest.json": "fb9b014cf2faf8e1b3719be97409b03aa61cbb0c1284955dab79844c42cccc8a"
   },
   "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED"
 }

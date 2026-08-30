@@ -39,4 +39,4 @@ hash e o papel. **Uma requisicao, zero navegacao, zero adivinhacao.**
 Porta acima: [`PORTA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md) · [`llms.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt) · site: <https://teoriadagravitacaoluminodinamica.com>
 
 *Gerado por `tools/gerar_portas.py` a partir de `git ls-files`. URL nunca digitada,
-hash lido do arquivo. 673 arquivos mapeados.*
+hash lido do arquivo. 676 arquivos mapeados.*

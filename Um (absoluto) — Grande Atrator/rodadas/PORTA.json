@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/rodadas",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-30T09:54:18Z",
+  "gerado_utc": "2026-08-30T14:18:23Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -909,10 +909,40 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v299_stdout.txt",
       "sha256_16": "ebb0f3bc727422b8",
       "bytes": 181597
+    },
+    {
+      "nome": "rodada_v300_stdout.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/rodadas/rodada_v300_stdout.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v300_stdout.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v300_stdout.txt",
+      "sha256_16": "5c9d4dab6b2a106d",
+      "bytes": 187071
+    },
+    {
+      "nome": "rodada_v301_stdout.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/rodadas/rodada_v301_stdout.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v301_stdout.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v301_stdout.txt",
+      "sha256_16": "296ddcb19167398b",
+      "bytes": 187071
+    },
+    {
+      "nome": "rodada_v302_stdout.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/rodadas/rodada_v302_stdout.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v302_stdout.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v302_stdout.txt",
+      "sha256_16": "6cc0443e65ee8e47",
+      "bytes": 187071
     }
   ],
-  "total_arquivos_nesta_pasta": 89,
-  "total_arquivos_com_subpastas": 89,
+  "total_arquivos_nesta_pasta": 92,
+  "total_arquivos_com_subpastas": 92,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas",
   "rodape": "gerado por script de git ls-files em 2026-08-30 -- nao editar a mao"
 }

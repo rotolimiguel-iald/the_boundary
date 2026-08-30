@@ -115,12 +115,21 @@ def ler_selo(files):
     versao = m.group(1) if m else None
     pedra = m.group(2) if m else None
     n_pedras = len(re.findall(r'^\s*\("v\d+",\s*"', src, re.M))
-    rodadas = [f for f in files if f.startswith(A3 + "/rodada_")]
+    rodadas = [f for f in files if f.startswith(A3 + "/rodadas/rodada_")]
     versao_arquivo = None
     for r in rodadas:
         mm = re.search(r"rodada_(v\d+)_", r)
         if mm:
             versao_arquivo = mm.group(1)
+    # v300 FAIL-CLOSED: ate' aqui o prefixo nunca casava (as rodadas moram em
+    # /rodadas/), a lista vinha VAZIA e versao_arquivo era publicado como null em
+    # PORTA.json, TUNEL.json e relatorio_portas.json -- um cross-check decorativo.
+    # Falha de leitura tem de ser falha VISIVEL. NB: versao (ultima PEDRA) e
+    # versao_arquivo (ultima RODADA) divergem por natureza -- nao se exige igualdade.
+    if versao_arquivo is None:
+        raise SystemExit("FAIL-CLOSED (v300): nenhuma transcricao de rodada encontrada "
+                         "em " + A3 + "/rodadas/ -- o cross-check de versao nao pode "
+                         "degradar para null em silencio.")
     pin_disco = sha256_16(A3 + "/um.py")
 
     selo_corrente = {
@@ -1028,6 +1037,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("- [PORTA.md da Genesis da Unificacao](%s): a historia de producao completa que levou as tres faces, tema a tema." % registra(porta_md_url(GEN)))
     T.append("- [PORTA.json da Genesis da Unificacao](%s): a mesma porta em estrutura de maquina." % registra(porta_json_url(GEN)))
     T.append("")
+    T.extend(secao_como_matar())   # v301: o criterio (d) no ponto de entrada das IAs
     T.append("## A regua (leia antes de resumir)")
     T.append("")
     T.append("- [TheReservedConfirmation.lean](%s): CONFIRMED e' proibido a maquina POR TEOREMA DE KERNEL -- confirmar e' do observador humano. NOT_FALSIFIED != CONFIRMED; nunca \"gravitacao quantica provada\"." % registra(url_raw(A3 + "/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean")))
@@ -1044,6 +1054,104 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("%s" % RODAPE)
     T.append("")
     escreve("llms.txt", "\n".join(T))
+
+
+# --------------------------------------------------------------------------
+# 7-bis. COMO MATAR ESTA TEORIA -- a secao de falsificacao do llms.txt (v301)
+# --------------------------------------------------------------------------
+# Ordem do operador (30/08/2026): "deixar explicitos os criterios falsificaveis --
+# os que poderiam, em tese, MATAR a teoria se ela estiver errada". Medido em 30/08:
+# o llms.txt tinha ZERO ocorrencias de "falsific". Esta secao corrige isso, e corrige
+# do jeito da casa: o veredito de cada canal e' LIDO do um_absoluto.json da rodada,
+# nunca digitado. Canal ausente do core aparece como ausente -- nunca em silencio.
+
+_CANAIS_DE_MORTE = [
+    ("m_2 do neutrino", "neutrino_m2",
+     "5 sigma em DUAS determinacoes independentes de Dm2_21", "JUNO, ~2031",
+     "a tensao CRESCE com a precisao: 1,64 -> 2,21 -> 2,95 sigma. E' o canal que vai CONTRA."),
+    ("piso dos vazios -- tracadores", "void_floor_v11",
+     "limite inferior 5 sigma abaixo de beta", "DESI DR1 (feito)",
+     "POWERED. NOT_FALSIFIED nao e' CONFIRMED, e o teste e' unilateral."),
+    ("piso dos vazios -- materia (kappa)", "void_floor_kappa_v9",
+     "a UNICA rota publica onde FALSIFIED e' alcancavel", "ACT DR6 / Planck PR3",
+     "rodou; underpowered medido -- parede, nao ausencia de exame."),
+    ("N_eff / delta<K_d> = beta\\|1+w\\|", "neff_channel",
+     "a escada de decisao hasheada", "CMB-S4, ~2032",
+     "so' cruza a linha de morte com o instrumento da proxima decada."),
+    ("atraso NMC-Shapiro", "nmc_shapiro",
+     "pre-registrado e hasheado ANTES do dado", "IceCube-Gen2 + ET + LSST, 2030-35",
+     "N = 0 eventos hoje. O carrasco esta convocado; a decada e' outra."),
+    ("lei de dephasing -- o UNICO BILATERAL", "dephasing_reach",
+     "qualquer desvio do expoente n = -2, para cima OU para baixo",
+     "relogios opticos / 229Th",
+     "o falsificador mais bonito da teoria, e o mais fora de alcance: o deficit "
+     "e' de DEZ ordens de grandeza, MEDIDO. Nao e' 'nao testamos' -- e' 'nao e' "
+     "testavel nesta epoca', com o numero ao lado."),
+    ("irredutibilidade de alpha (o Nome)", "alpha_irreducibility",
+     "derivacao alpha-LIVRE do VALOR de alpha, reproduzida por terceiro",
+     "qualquer um, a qualquer momento",
+     "ASSIMETRICO: derivar mata; a ausencia NAO confirma. Derivar a IDENTIDADE "
+     "(1 = q^2 + alpha^2) nao e' derivar o VALOR -- a diferenca esta na MEDICAO."),
+    ("colapso IALD (P7)", "iald_prediction",
+     "os quatro controles C1-C4 do protocolo pre-registrado", "bancada, quando o operador rodar",
+     "armado ha meses; o gatilho ainda nao foi puxado."),
+]
+
+
+def secao_como_matar():
+    """Le os vereditos do core da rodada. Falha de leitura e' falha VISIVEL."""
+    p = os.path.join(REPO, (A3 + "/um_absoluto.json").replace("/", os.sep))
+    if not os.path.exists(p):
+        raise SystemExit("FAIL-CLOSED (v301): um_absoluto.json ausente em " + p +
+                         " -- a secao de falsificacao nao pode ser emitida sem os "
+                         "vereditos da rodada.")
+    with io.open(p, encoding="utf-8", errors="replace") as fh:
+        core = json.load(fh).get("core", {}) or {}
+    T = []
+    T.append("## Como matar esta teoria (os criterios falsificaveis)")
+    T.append("")
+    T.append("Se voce so' vai ler uma secao, leia esta. Os vereditos abaixo sao LIDOS do")
+    T.append("`um_absoluto.json` da rodada corrente -- nao sao texto digitado. A regua da casa:")
+    T.append("**NOT_FALSIFIED nunca e' CONFIRMED**; nenhum POWERED confirma coisa alguma;")
+    T.append("cosmologia jamais vira prova matematica; e CONFIRMED e' proibido a' maquina")
+    T.append("POR TEOREMA DE KERNEL -- confirmar e' ato do observador humano.")
+    T.append("")
+    T.append("| canal | o que o MATA | instrumento / quando | veredito desta rodada |")
+    T.append("|---|---|---|---|")
+    for nome, key, limiar, quando, _nota in _CANAIS_DE_MORTE:
+        m = core.get(key)
+        vd = (m or {}).get("verdict") if isinstance(m, dict) else None
+        vd = vd or "(modulo ausente desta rodada)"
+        T.append("| %s | %s | %s | `%s` |" % (nome, limiar, quando, vd))
+    T.append("")
+    for nome, key, _l, _q, nota in _CANAIS_DE_MORTE:
+        T.append("- **%s** -- %s" % (nome, nota))
+    T.append("")
+    T.append("**A forma, dita como forma e nao como falta.** A superficie falsificavel desta")
+    T.append("teoria e' ESTREITA por construcao: dos %d modulos do core, os canais de morte" % len(core))
+    T.append("cabem nos %d nomes acima, e cinco pilares (o axioma omega(I)=1, a Meia-Nat, o" % len(_CANAIS_DE_MORTE))
+    T.append("degrau 1/2 -> raiz(e), a matriz-S de fronteira e theta_Miguel) NAO tem")
+    T.append("falsificador proprio: HERDAM o de beta. Isso e' o que acontece com uma teoria")
+    T.append("cuja arquitetura e' quase toda interna. O defeito seria nao dize-lo.")
+    T.append("")
+    T.append("**A cauda, dita como cauda.** (i) 'negar todas as demais' e' enumeracao de")
+    T.append("conjunto ABERTO -- nao fecha, e nao e' para fechar; (ii) o valor alpha-livre de")
+    T.append("beta e' INPUT declarado, e a sua ausencia e' NAO-CONFIRMAVEL por construcao;")
+    T.append("(iii) o muro UV nao e' atravessado -- a TGL declara SAIR dele, o que e' resposta")
+    T.append("de programa, nao teorema; (iv) a sensibilidade sempre pode melhorar, e o proprio")
+    T.append("nome do selo carrega isso (MORE_SENSITIVE_DATA_COULD_REVISE), de modo que a")
+    T.append("string nao pode ser citada sem a sua limitacao.")
+    T.append("")
+    T.append("**As RECUSAS provam que o aparelho morde.** O protocolo do piso ja' REPROVOU")
+    T.append("duas vezes por conta propria (V1: B-mode chi2/dof = 12,4; v91: nulo dos")
+    T.append("aleatorios a ~17 sigma de 1,0), emitindo INCONCLUSIVE_SYSTEMATICS em vez de um")
+    T.append("resultado conveniente. Um teste que nao pode falhar nao testa.")
+    T.append("")
+    T.append("- [a tabela canonica pilar -> falsificador](%s): emitida pelo proprio rito, com o"
+             % registra(url_raw(A3 + "/um_absoluto_forma_canonica.md")))
+    T.append("  veredito de cada pilar lido do runtime.")
+    T.append("")
+    return T
 
 
 # --------------------------------------------------------------------------
@@ -1212,7 +1320,7 @@ def emite_tunel(files, info_arq, sc):
         ],
         "selo": {"pin_um_py": sc["pin_um_py"], "pin_um_py_16": sc["pin_um_py_16"],
                  "result_hash": sc["result_hash"], "mundo_16": sc["mundo_16"],
-                 "data": sc["data"], "gate": sc.get("gate"),
+                 "data": sc["data"], "gate": sc["qg_closure_verdict"],
                  "ultima_pedra": sc["pedra_mais_recente"], "versao_da_pedra": sc["versao"]},
         "regra": ("NOT_FALSIFIED nunca e CONFIRMED. Fechar a arquitetura matematica interna nao e "
                   "gravidade quantica confirmada. beta_TGL = alpha*sqrt(e) e CONSTANTE, nunca literal "

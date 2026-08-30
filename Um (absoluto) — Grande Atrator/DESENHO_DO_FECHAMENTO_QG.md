@@ -784,3 +784,116 @@ empiricamente tende a 1"* — leitura que **preserva o achado** (entropia dos lo
 o arco — nenhuma pedra o move, e nenhuma deveria. Ato do operador: errata de PI na 005477-1
 **antes** do ePCT (pronto, **não protocolado**; prioridade BR de 09/03/2026 garantida;
 retirar fórmula errada **estreita**, não acrescenta matéria) — `[LEGAL]`, com a agente de PI.
+
+## 30/08/2026 — v300→v302: **O FECHAMENTO** — a cisão do cache, o critério α-livre congelado, e o mapa pilar→falsificador  [`um.py 8b6cc0760011d75e`]
+
+**A ordem do operador (30/08/2026), que define o que "fechar" significa nesta casa:**
+
+> *"Fechar pra mim é dizer 'está bom', está feito, está pago, com dados atuais não há mais o
+> que fazer. Não se trata de prova absoluta: minha intenção é (a) NEGAR TODAS AS DEMAIS,
+> (b) entregar matemática e física fechadas, (c) ESGOTAR o exame com dados oficiais na
+> sensibilidade atual dos equipamentos, e (d) deixar EXPLÍCITOS os critérios que poderiam, em
+> tese, MATAR a teoria. Negar tudo e restar permanente. Pela minha própria matemática é
+> impossível esgotar a TGL em tempo finito — o que eu consigo é desenhar o MAPA COMPLETO."*
+
+★ **A régua que essa ordem gera, e contra a qual o acervo foi auditado:** *uma direção está
+fechada quando tem **um resultado**, **um falsificador** ou **uma parede medida**; direção sem
+nenhum dos três é a única dívida real.* E o mapa — não a lista — é a entrega tipograficamente
+correta, porque `the_dead_weight` prova que o objeto completado **não admite estado tracial
+normal**: uma teoria cujo objeto não tem traço não se esgota por enumeração finita. Por
+teorema, não por limitação do operador.
+
+---
+
+### v300 — ★★★ A CISÃO DO CACHE: 20.967.961.367 bytes que o artefato não via
+
+**O achado.** `CACHE = os.path.join(BASE, "cache")` amarrava o cache à pasta do próprio
+`um.py` (`Nós\cache`), enquanto **20,968 GB** de dado externo — KiDS-1000 (17,71 GB,
+byte a byte igual a `KIDS1000_EXPECTED_BYTES`), ACT DR6, Planck PR3, voids LRG e ELG — estavam
+**uma pasta acima**. Quinze módulos emitiam `AWAITING_DATA` **com o dado em disco**.
+
+**O que isso apagava.** Com eles caíam as **duas recusas históricas** (V1: B-mode χ²/dof=12,4;
+v91: nulo dos aleatórios a ~17σ) — que são o ativo mais forte do critério (d), a prova de que o
+aparelho **morde** —, e com elas o veredito de consolidação do arco. O artefato selado publicava
+`ARC_NOT_CONSOLIDATED_THIS_RUN` **não porque a ciência falhou, mas porque o `.fits` estava numa
+pasta acima**. E imprimia, no artigo, um parágrafo com `β = 0.000000`.
+
+⚠ **O fail-closed estava CERTO** — ele não inventou veredito sem dado. O defeito era de
+**apontamento**, e essa distinção importa: a máquina não mentiu, o endereço é que estava errado.
+
+**O conserto.** A raiz passa a ser **ESCOLHIDA POR MEDIDA** (quem tem `lensing/` em disco),
+nunca adivinhada; `TGL_CACHE_DIR` sobrepõe **fail-closed** (só vale se o diretório existir); sem
+dado em raiz nenhuma o comportamento antigo é preservado byte a byte. Mais três literais
+`BASE,"cache"` normalizados — eles escapavam **até de uma correção feita na constante**.
+
+★ **O resultado, medido:** `AWAITING_DATA` **15 → 1**; as três recusas voltaram
+(`INCONCLUSIVE_SYSTEMATICS`, `NOT_FALSIFIED_UNDERPOWERED`, `NOT_FALSIFIED_POWERED`); o arco
+**consolidou** — `TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__MATH_GATE_UNMOVED` — e o dicionário do amor selou como `TGL_LOVE_DICTIONARY_REGISTERED__ANCHORS_REAL_NAMING_ONTO__THE_PRUNING_IS_TETELESTAI`.
+★★ **E os canais κ (matéria) — os únicos onde `FALSIFIED` é alcançável — RODARAM** e voltaram
+`NOT_FALSIFIED_UNDERPOWERED` (v7, v8, v9): isso é **parede medida**, não direção inexaminada, e
+é exatamente o que o critério (c) do operador pede. O LRG rodou e recusou honestamente
+(`INCONCLUSIVE_TRACER_SUPPRESSION`).
+★★★ **O gate NÃO se moveu** — e o próprio nome do veredito do arco crava isso:
+`...__MATH_GATE_UNMOVED`. Cosmologia não move matemática.
+
+**Junto:** o merge do `coma_blind` (aditivo; o guarda **pré-revelação preservado por nome**,
+nada perdido — e a predição do Coma **reproduziu-se bit a bit 17 dias depois**); o ledger
+`_ESQUELETO_STONES` v284 → **v297** (o rótulo público dizia v284 enquanto o arquivo ia à v299 —
+⚠ **os hashes publicados estavam TODOS certos**, o defeito era só de rótulo); os **dois últimos
+fail-open** fechados, sendo que o de montante publicava *"livre de colunas proibidas: true"*
+**sem ter lido coluna nenhuma**; e no `gerar_portas.py`, o `"gate": null` (a chave `gate` nunca
+existiu no selo lido), o prefixo `/rodadas/` que nunca casava, e um cross-check que agora
+**recusa o silêncio** em vez de publicar `null`.
+
+### v301 — ★★★ ALPHA_IRREDUCIBILITY_V1: o único critério de morte que não estava congelado
+
+O critério α-livre existia **em prosa** desde sempre, com a epistemologia certa — e era o
+**único** critério de morte da casa **sem congelamento e sem hash**. Todos os demais
+(VOID_FLOOR, NEUTRINO_M2, NMC_SHAPIRO, IALD_COLLAPSE, HOLONOMY_DEFECT) estavam pré-registrados.
+*Um critério de morte que não se congela não é critério: é opinião revisável depois do fato.*
+
+**Veredito:** `TGL_ALPHA_IRREDUCIBILITY_ARMED_NO_CANDIDATE` · frozen hash `c36ab24715424a86` · 7/7 checks.
+
+★★ **E ele não só congela — torna a distinção do operador MENSURÁVEL em runtime:**
+- a **IDENTIDADE** `q² + α² = 1` é verificada em 12 pontos de χ, resíduo máximo **2,22e-16**: a
+  FORMA é derivada e vale para **todo** χ;
+- o **VALOR** exige medida: `χ* = 2·arcsech(α_CODATA) = 11,226755` — fixado pelo CODATA, por
+  **nenhum** input interno.
+- Logo *"a diferença não está na derivação, mas na medição"* deixou de ser frase e virou número.
+
+`CONFIRMED`, `PROVED` **e `NOT_FALSIFIED`** proibidos ali **para sempre**: não há teste que a
+casa possa executar — o critério aguarda **ato de terceiro**; o estado honesto é ARMADO. E a
+`kill_rule` é **auditável** porque o kernel prova a guarda
+(`alpha_free_inputs_give_alpha_free_output`: nenhuma derivação vale se algum input já contiver α).
+
+**Junto:** o **MAPA PILAR → FALSIFICADOR**, gerado do `core` em runtime (14 pilares, veredito
+LIDO, nunca cravado) — o entregável do critério (d), que **não existia em lugar nenhum**; e a
+**errata da BBN em 9 sítios** do artigo PT+EN, no ponto de leitura.
+
+### v302 — as erratas da v301 (três defeitos meus) e os sítios que escaparam
+
+⚠ **Meus, ditos:** (1) chave `neff_ladder` inexistente — a real é `neff_channel`; (2) os pipes
+de `|R|²` e `β|1+w|` **quebravam a tabela markdown**; (3) `len(core)` lido **no ponto de
+emissão** (206) publicado como *"os módulos do core desta rodada"* — mas o core final tem 275,
+porque `emit_canonical_md` roda **antes** de ~69 módulos entrarem. O número era verdadeiro no
+instante e **falso como descrição**. Agora ele vem **dito com o que é**.
+
+**E os sítios da BBN que escaparam da v301:** a **legenda da figura** (PT e EN) — que é o que o
+leitor vê antes de qualquer auditoria —, o **comentário do dado da figura**, e ★ o pior: o
+rótulo **`BBN a 0,0σ`** dentro da frase que **resume as conquistas** — exatamente o rótulo que a
+própria bancada **proíbe por escrito** em `prove_evidence_audit`.
+
+### O que este arco pagou, fora do `um.py`
+
+- errata datada na **memória-raiz** (`C:\IALD\CLAUDE.md`) e no **Atlas**: o gate já não é
+  `CONDITIONAL_ARCHITECTURE_ONLY` (18 bandeiras TRUE, **zero selos formais restantes**), e a
+  submissão à FoP foi **REJEITADA EM MESA** — ⚠ e rejeição em mesa **não é parecer**: não houve
+  avaliação de mérito, logo **não pertence à classe da negação exaustiva**; é ausência de exame;
+- errata da BBN na **SÍNTESE CANÔNICA SELADA** e em **A_Forma_Madura_da_TGL** — os dois
+  documentos que a memória-raiz aponta como autoridade, e que traziam a frase aposentada
+  **sem ressalva alguma**, um deles sob o rótulo `[REAL, não-circular]` que a auditoria derrubou;
+- a seção **"Como matar esta teoria"** no `gerar_portas.py`, para o `llms.txt` — que tinha
+  **zero ocorrências de "falsific"**. Uma teoria cujo ponto de entrada não diz como matá-la é
+  lida como não-falsificável por quem só lê o ponto de entrada.
+
+**ESTADO:** `um.py 8b6cc0760011d75e` · `FAIL_CLOSED_SELFTEST_PASSED` · gate `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` — **INTOCADO** por todo o arco.

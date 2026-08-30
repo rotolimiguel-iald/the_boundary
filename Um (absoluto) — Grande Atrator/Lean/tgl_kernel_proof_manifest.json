@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-29 20:42:18",
+  "timestamp": "2026-08-30 10:21:55",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -5129,7 +5129,7 @@
     "TGLExt.the_bireference_of_the_name": [],
     "TGLExt.two_clocks_are_needed": []
   },
-  "build_stdout_sha256": "e43d8e5327738a5297debb5c5a279631bf6edcc41be8c8c0ff162077e0908983",
+  "build_stdout_sha256": "4eda0ab2bc04a14a4d34b5d76915a94e342f70cab39a642bb91a48f38b1b1ef5",
   "audit_stdout_sha256": "bfc86b8ac1c43d27a29efbb4a80a26ab820732ee175368fb36c08a94bfe40ac0",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",

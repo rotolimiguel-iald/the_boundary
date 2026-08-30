@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/figuras",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-30T09:54:18Z",
+  "gerado_utc": "2026-08-30T14:18:23Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -57,8 +57,8 @@
       "descricao": "Figura gerada pelo codigo",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_piso_vazios.pdf",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_piso_vazios.pdf",
-      "sha256_16": "2815568fd3387fd3",
-      "bytes": 21086
+      "sha256_16": "c6e8260ceff24114",
+      "bytes": 21839
     }
   ],
   "total_arquivos_nesta_pasta": 4,

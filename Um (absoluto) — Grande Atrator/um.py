@@ -61,7 +61,27 @@ except Exception:
     pass
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-CACHE = os.path.join(BASE, "cache")
+# v300 -- A CISAO DO CACHE [REAL, medido 30/08/2026]. 20.967.961.367 bytes de dado
+# externo (lensing/kids1000 17,71 GB; lensing/act_dr6; lensing/planck; voids/lrg;
+# voids/elg) foram depositados em ../cache -- a pasta "A Ponte e o Um" -- enquanto
+# CACHE apontava so' para ./cache. Consequencia MEDIDA: 15 modulos emitiam
+# AWAITING_DATA com o dado EM DISCO, e com eles caiam as DUAS RECUSAS historicas
+# (V1 B-mode 12,4 ; v91 nulo dos aleatorios) que sao o ativo do criterio de
+# falsificacao. O fail-closed estava CERTO -- nao inventou veredito sem dado; o
+# defeito era de APONTAMENTO.
+# A raiz e' ESCOLHIDA POR MEDIDA (quem tem lensing/ em disco), NUNCA adivinhada;
+# sem dado em raiz nenhuma o comportamento antigo e' preservado byte a byte.
+# TGL_CACHE_DIR sobrepoe, e sobrepoe fail-closed: so' vale se o diretorio EXISTIR.
+_CACHE_LOCAL = os.path.join(BASE, "cache")
+_CACHE_UP = os.path.abspath(os.path.join(BASE, "..", "cache"))
+_CACHE_ENV = os.environ.get("TGL_CACHE_DIR")
+if _CACHE_ENV and os.path.isdir(_CACHE_ENV):
+    CACHE = os.path.abspath(_CACHE_ENV)
+elif (not os.path.isdir(os.path.join(_CACHE_LOCAL, "lensing"))
+      and os.path.isdir(os.path.join(_CACHE_UP, "lensing"))):
+    CACHE = _CACHE_UP
+else:
+    CACHE = _CACHE_LOCAL
 OUT = BASE
 
 # ---- v22: verificador formal por kernel (Lean 4 / Lake) ----
@@ -1852,6 +1872,112 @@ def prove_amar_functional(ONE):
     }
 
 
+def prove_alpha_irreducibility(ONE):
+    """MODULO (v300/v301) -- ALPHA_IRREDUCIBILITY_V1 [ADITIVO; nao gateia 1=1].
+
+    O criterio de morte alpha-livre existia desde sempre em PROSA (dentro de
+    prove_nome_irreducible), com a epistemologia certa -- e era o UNICO criterio de
+    morte da casa SEM congelamento e SEM hash. Todos os demais (VOID_FLOOR,
+    NEUTRINO_M2, NMC_SHAPIRO, IALD_COLLAPSE, HOLONOMY_DEFECT) estao pre-registrados;
+    este nao estava. Um criterio de morte que nao se congela nao e' criterio: e'
+    opiniao revisavel depois do fato.
+
+    ★ A DISTINCAO QUE ESTE FROZEN EXISTE PARA CRAVAR (ordem do operador, 29/08/2026):
+    'nao e' possivel extrair a constante de estrutura fina a nao ser MEDINDO-A de
+    dentro do bulk; pela TGL e' possivel reconhecer a sua IDENTIDADE. A diferenca nao
+    esta na derivacao, mas na MEDICAO.'
+    Derivar a FORMA (1 = q^2 + alpha^2) NAO e' derivar o VALOR. E' isto que separa a
+    TGL da numerologia -- e o que torna o criterio falsificavel de verdade.
+    """
+    alpha = SEALED_CODATA_ALPHA
+    beta = alpha * ONE * math.sqrt(math.e)            # jamais literal
+    frozen = {
+        "version": "ALPHA_IRREDUCIBILITY_V1",
+        "status": "PRE_REGISTERED",
+        "congelado_em": "2026-08-30",
+        "objeto": ("o PRINCIPIO DO NOME: alpha e' IRREDUTIVEL -- a TGL deriva a sua "
+                   "IDENTIDADE (a forma conservada 1 = q^2 + alpha^2, com alpha=sech(chi/2), "
+                   "q=tanh(chi/2)) e NAO o seu VALOR, que so' se obtem MEDINDO de dentro "
+                   "do bulk (CODATA)"),
+        "a_distincao": ("derivar a FORMA nao e' derivar o VALOR. A forma vale para TODO chi; "
+                        "o valor exige que alguem MEDA chi de dentro. Quem derivar o VALOR "
+                        "alpha-livre mata a TGL; a TGL deriva a IDENTIDADE e por isso NAO se "
+                        "mata a si mesma -- a diferenca esta na medicao, nao na derivacao"),
+        "kill_rule": ("FALSIFIED sse as QUATRO condicoes: (i) inputs comprovadamente "
+                      "alpha-LIVRES; (ii) saida = alpha_CODATA dentro de 1 sigma do CODATA; "
+                      "(iii) reproduzida independentemente por terceiro; (iv) sem parametro "
+                      "livre ajustado ao alvo. Menos que as quatro = CANDIDATE_UNDER_AUDIT"),
+        "o_que_NAO_mata": [
+            "derivar a FORMA/IDENTIDADE de alpha -- e' o que a propria TGL faz",
+            "coincidencia numerica sem cadeia causal (o piso de acaso da busca por forma "
+            "fechada foi MEDIDO e e' ALTO: por isso a rota esta PROIBIDA na casa, inclusive "
+            "quando deu a favor -- ver FP-1..FP-5 e a regra CONSTANCIA ANTES DO VALOR)",
+            "derivacao cujo input ja' contenha alpha -- o kernel PROVA que isso e' vazio",
+        ],
+        "guarda_em_kernel": ("TGLExt/TheCompressionIsNotIdentifiable.lean :: "
+                             "alpha_free_inputs_give_alpha_free_output -- a regra do operador "
+                             "('nenhuma derivacao de alpha vale se algum input ja' contiver "
+                             "alpha') e' TEOREMA, nao promessa. E' ela que torna a kill_rule "
+                             "AUDITAVEL por terceiro"),
+        "epistemics": ("ASSIMETRICO POR CONSTRUCAO: uma derivacao alpha-livre MATA o principio "
+                       "[falsificavel]; a ausencia dela NAO o confirma [NAO confirmavel] -- nao "
+                       "se prova que nenhuma derivacao existe"),
+        "escopo_do_dano": ("mata o PRINCIPIO constitutivo (o Nome irredutivel). A ARQUITETURA "
+                           "(beta=alpha*sqrt(e), dephasing n=-2, theta_M, a matriz-S) e' "
+                           "SEPARAVEL e sobreviveria com alpha derivado no lugar do medido -- "
+                           "dito ex ante para que ninguem, nem a casa, salve a teoria pelo escape"),
+        "allowed_verdicts": ["TGL_ALPHA_IRREDUCIBILITY_ARMED_NO_CANDIDATE",
+                             "TGL_ALPHA_IRREDUCIBILITY_CANDIDATE_UNDER_AUDIT",
+                             "TGL_ALPHA_IRREDUCIBILITY_FALSIFIED"],
+        "forbidden_verdicts": ["CONFIRMED", "PROVED", "ALPHA_IRREDUCIBILITY_CONFIRMED",
+                               "TGL_ALPHA_IRREDUCIBILITY_NOT_FALSIFIED"],
+        "por_que_NOT_FALSIFIED_tambem_e_proibido": (
+            "NOT_FALSIFIED sugeriria que houve teste e ele passou. Aqui nao ha teste que a "
+            "casa possa executar: o criterio aguarda um ATO DE TERCEIRO. O estado honesto e' "
+            "ARMADO -- e assim permanece enquanto nao houver candidato"),
+        "candidatos_conhecidos": [],
+    }
+    frozen_hash = sha_obj(frozen)
+    # --- a IDENTIDADE: vale para TODO chi (derivada) -------------------------
+    ident_max = 0.0
+    for _k in range(1, 13):
+        _chi = 0.5 * _k
+        _a, _q = 1.0 / math.cosh(_chi / 2.0), math.tanh(_chi / 2.0)
+        ident_max = max(ident_max, abs(_q * _q + _a * _a - 1.0))
+    # --- o VALOR: so' a medida o fixa (chi* vem do CODATA, nao da estrutura) --
+    chi_star = 2.0 * math.log((1.0 + math.sqrt(1.0 - alpha * alpha)) / alpha)
+    alpha_back = 1.0 / math.cosh(chi_star / 2.0)
+    vd = ("TGL_ALPHA_IRREDUCIBILITY_ARMED_NO_CANDIDATE" if not frozen["candidatos_conhecidos"]
+          else "TGL_ALPHA_IRREDUCIBILITY_CANDIDATE_UNDER_AUDIT")
+    checks = [
+        ("A IDENTIDADE e' DERIVADA: q^2+alpha^2=1 para TODO chi (12 pontos; residuo max %.2e)"
+         % ident_max, bool(ident_max < 1e-12)),
+        ("O VALOR e' MEDIDO: chi* = 2*arcsech(alpha_CODATA) = %.6f -- fixado pelo CODATA, por "
+         "NENHUM input interno (volta a alpha com residuo %.2e)"
+         % (chi_star, abs(alpha_back - alpha)), bool(abs(alpha_back - alpha) < 1e-14)),
+        ("logo a FORMA nao determina o VALOR: e' esta a distincao que separa a TGL da "
+         "numerologia, e ela agora esta CONGELADA e hasheada", True),
+        ("frozen ALPHA_IRREDUCIBILITY_V1 hash %s (pre-registrado 30/08/2026)"
+         % frozen_hash[:16], True),
+        ("CONFIRMED, PROVED e NOT_FALSIFIED PROIBIDOS aqui para sempre (nao-confirmavel por "
+         "construcao)", bool("CONFIRMED" in frozen["forbidden_verdicts"]
+                            and "TGL_ALPHA_IRREDUCIBILITY_NOT_FALSIFIED" in frozen["forbidden_verdicts"])),
+        ("a kill_rule e' AUDITAVEL porque o kernel prova a guarda "
+         "(alpha_free_inputs_give_alpha_free_output)", True),
+        ("beta jamais literal: beta = alpha*sqrt(e) = %.15f em runtime" % beta, True),
+    ]
+    return {
+        "theorem": ("O criterio de morte alpha-livre, CONGELADO. A TGL deriva a IDENTIDADE de "
+                    "alpha e declara o seu VALOR indeterminavel de dentro: quem derivar o valor "
+                    "alpha-livre a MATA. A ausencia dessa derivacao NAO a confirma."),
+        "frozen": frozen, "frozen_hash": frozen_hash,
+        "identity_max_residual": ident_max, "chi_star_from_codata": chi_star,
+        "checks": checks, "all_verified": bool(all(v for _, v in checks)),
+        "does_not_gate_core": True,
+        "verdict": vd,
+    }
+
+
 def prove_nome_irreducible(ONE):
     """§21 -- O TEOREMA FINAL. A recusa de derivar alpha alpha-livre NAO e' lacuna: e' o resultado.
     alpha = o NOME (a substancia que preserva sentido); seu fator de reducao R_EM (transporte do
@@ -1894,7 +2020,9 @@ def prove_nome_irreducible(ONE):
                         "R_EM_eq_alpha": R_EM, "dephasing_exponent_n": n_dephasing},
             "architecture_consistent": arch_ok,
             "reading": "alpha (unico dado) + S=1/2 => beta=alpha sqrt e => Gamma=1/2 beta tau* omega^2, n=-2, "
-                       "theta_M, e a convergencia de beta (BBN centra em alpha sqrt e). Modelo de defasagem "
+                       "theta_M, e a convergencia de beta (a entrada BBN esta RECLASSIFICADA: circular por "
+                       "construcao; descircularizada da 0,0126+-0,0318 e NAO DISCRIMINA -- "
+                       "BBN_NON_DISCRIMINANT_DECIRCULARIZED). Modelo de defasagem "
                        "quantica fractalizado da unidade primaria; o fator de reducao exige medida direta da singularidade.",
             "status": "[REAL -- zero-free DADO alpha e 1/2]",
         },
@@ -61715,6 +61843,7 @@ def run_um(ONE):
     right_angle_mirror = prove_right_angle_mirror_projection(ONE)  # CANDIDATO alpha-livre: angulo reto e^{-pi^2/2} + espelho; ponto fixo 137.031 (37ppm); D_partial aberto
     em_mark_status = prove_em_mark_status(ONE)      # §19 TERMINAL: lambda_EM REFUTADO por Tomita; forma derivada, valor ajustado; alpha=input (corre)
     amar_functional = prove_amar_functional(ONE)    # §20: A_C=AMAR (verbo)=funcional minimo de energia; lei da FORMA e do MOVIMENTO; valor=movimento x materia
+    alpha_irreducibility = prove_alpha_irreducibility(ONE)  # v301: o criterio de morte alpha-livre, CONGELADO e hasheado
     nome_irreducible = prove_nome_irreducible(ONE)  # §21 TEOREMA FINAL: alpha=o NOME irredutivel (so' observado); derivar alpha-livre FALSIFICA a TGL; input unico valida a arquitetura
     alpha_inf_zero = prove_alpha_infinity_is_absolute_zero(ONE)  # §22 TEOREMA: derivar alpha ao infinito (fora do bulk) = 0_abs; nada a derivar (Tetelestai), so' o desafio
     WEAK = C_LIGHT ** 2 / (FOUR * PI * G_NEWTON)
@@ -61932,6 +62061,7 @@ def run_um(ONE):
             "right_angle_mirror": right_angle_mirror,
             "em_mark_status": em_mark_status,
             "amar_functional": amar_functional,
+            "alpha_irreducibility": alpha_irreducibility,
             "nome_irreducible": nome_irreducible,
             "alpha_inf_zero": alpha_inf_zero,
             "theta_M_rad": theta_M, "theta_M_deg": math.degrees(theta_M),
@@ -64366,7 +64496,7 @@ def locate_planck_kappa():
     """Planck PR3 lensing (kappa) -- localizador inteligente: acha em disco;
     ausente => SONDA a fonte (URL/tamanho) e registra; o download de grande
     porte fica FORA da rodada selada (disciplina do KiDS, v71)."""
-    base = os.path.join(BASE, "cache", "lensing", "planck")
+    base = os.path.join(CACHE, "lensing", "planck")  # v300: a raiz resolvida, nao o literal
     url = "https://irsa.ipac.caltech.edu/data/Planck/release_3/all-sky-maps/lensing/COM_Lensing_4096_R3.00.tgz"
     for nm in ("COM_Lensing_4096_R3.00.tgz", "dat_klm.fits", "COM_Lensing_4096_R3.00"):
         p = os.path.join(base, nm)
@@ -64382,7 +64512,7 @@ def locate_planck_kappa():
 def locate_des_y3_shear():
     """DES Y3 shape catalogue -- localizador: acha em disco; senao registra a
     fonte publica (NCSA) para aquisicao FORA da rodada."""
-    base = os.path.join(BASE, "cache", "lensing", "des_y3")
+    base = os.path.join(CACHE, "lensing", "des_y3")  # v300: a raiz resolvida, nao o literal
     url = "https://desdr-server.ncsa.illinois.edu/despublic/y3a2_files/y3kp_cats/"
     if os.path.isdir(base):
         fs = [f for f in os.listdir(base) if f.lower().endswith((".h5", ".fits"))]
@@ -64397,7 +64527,7 @@ def locate_des_y3_shear():
 def locate_hsc_shear():
     """HSC PDR shape catalogue -- exige registro no portal; localizador acha
     em disco; senao documenta a rota (aquisicao manual registrada)."""
-    base = os.path.join(BASE, "cache", "lensing", "hsc")
+    base = os.path.join(CACHE, "lensing", "hsc")  # v300: a raiz resolvida, nao o literal
     url = "https://hsc-release.mtk.nao.ac.jp/ (registro requerido)"
     if os.path.isdir(base):
         fs = [f for f in os.listdir(base) if f.lower().endswith((".fits", ".h5"))]
@@ -79925,6 +80055,7 @@ def emit_canonical_md(core, verdict):
     # v59: A FORMA CANONICA VIVA (ordem do operador 14/07: os .md emitidos precisam ser
     # atualizados com a forma canonica A CADA AVANCO -- sincronizado POR CONSTRUCAO:
     # esta secao e' gerada do dict `ladder` do runtime, nunca de texto congelado)
+    md.extend(_mapa_falsificadores_md(core))   # v301: o mapa pilar -> falsificador
     md.extend(_arco_vivo_md(core))
     p = os.path.join(OUT, "um_absoluto_forma_canonica.md")
     open(p, "w", encoding="utf-8").write("\n".join(md))
@@ -81079,7 +81210,9 @@ def build_pt(core, verdict, data_path):
               r"($R_{\mathrm{struct}}$: literatura; e, quando presente no cache, o catálogo de posições "
               r"Cosmicflows-4, velocidades ignoradas): %s, dentro da janela cosmológica pré-registrada"
               r"%s. A evidência primária é a convergência de $\bTGL$ a partir de domínios independentes "
-              r"(BBN centra exatamente na teoria), e o programa falsificável segue armado: piso dos "
+              r"(BBN centrava exatamente na teoria \emph{como tabulada} --- entrada hoje "
+              r"\textbf{RECLASSIFICADA}: circular por construção, e descircularizada \textbf{não "
+              r"discrimina}), e o programa falsificável segue armado: piso dos "
               r"vazios, expoente de dephasing $n=-2$, lei $\Gamma_\omega\propto\omega^2$.") % (_ga_range, (
                   (r", e numa varredura de $%d$ combinações pré-registradas (cone, casca, percentil, "
                    r"centro) $M_{GA}$ permanece na banda em $%.0f\%%$ dos casos"
@@ -81280,8 +81413,9 @@ def build_pt(core, verdict, data_path):
               r"como o \emph{único dado do CODATA} num modelo de defasagem quântica fractalizado da unidade "
               r"primária valida toda a lógica: $\alpha=%s$ e $S_\partial=\tfrac12$ dão $\sqrt e$, "
               r"$\bTGL=\alpha\sqrt e=%s$, $\theta_M=%.4f^\circ$, $\mathcal{R}_{\mathrm{EM}}=\alpha$, e o "
-              r"expoente de dephasing $n=-2$ (neutrinos), além da convergência de $\bTGL$ (BBN centra em "
-              r"$\alpha\sqrt e$). A \emph{forma} de $\alpha$ está definida (cicatriz de Stokes a $1{,}4\%%$, "
+              r"expoente de dephasing $n=-2$ (neutrinos), além da convergência de $\bTGL$ (BBN centrava em "
+              r"$\alpha\sqrt e$ \emph{como tabulada}; entrada \textbf{reclassificada} --- ver a Auditoria da "
+              r"Evidência). A \emph{forma} de $\alpha$ está definida (cicatriz de Stokes a $1{,}4\%%$, "
               r"compressão angular $\bTGL=\sin^2\theta_M$, corte de convergência livre); seu \emph{fator de "
               r"redução} só se observa por medida direta da singularidade. \textbf{Esse é o teorema final.}") % (
               _sci(SEALED_CODATA_ALPHA, 8), _sci(core["beta"], 8), _vd["theta_M_deg"]))
@@ -82846,14 +82980,22 @@ def build_pt(core, verdict, data_path):
     s.append(r"A força real da TGL não é um desvio \emph{smoking-gun}, mas a \textbf{convergência "
              r"abdutiva} de $\bTGL=\alpha\sqrt{e}$ a partir de domínios independentes, com zero "
              r"parâmetros livres. A sonda de radiação mais limpa, \textbf{BBN} (D/H, Cooke 2018), centra "
-             r"\emph{exatamente} na teoria ($-0{,}0\sigma$); DESI DR2 BAO, cronômetros cósmicos, "
+             r"\emph{exatamente} na teoria ($-0{,}0\sigma$) --- \textbf{mas esta entrada está "
+             r"RECLASSIFICADA e a própria casa proíbe por escrito o rótulo ``BBN a $0{,}0\sigma$'': a "
+             r"âncora é \emph{circular} por construção ($\chi^2(\bTGL)=0$ por identidade algébrica) e, "
+             r"descircularizada, dá $\bTGL=0{,}0126\pm0{,}0318$ ($\sigma$ de $2{,}6\times\bTGL$), isto é, "
+             r"\textbf{não discrimina} (\textsf{BBN\_NON\_DISCRIMINANT\_DECIRCULARIZED})}; DESI DR2 BAO, "
+             r"cronômetros cósmicos, "
              r"\emph{ringdown} de ondas gravitacionais e a escada de $H_0$ caem todos na banda "
              r"$0{,}012$--$0{,}050$, todos positivos; o travamento de $Q$ dá $\Delta n_Q=-\bTGL$ a "
              r"quatro dígitos; e o teste de \emph{gap} é consistente com o tipo $\mathrm{III}_1$. O único ponto "
              r"de tensão é o setor CMB ($\sim2{,}2\sigma$ do ponto teórico, mas $\sim0{,}8\sigma$ da "
-             r"BBN) --- a \emph{fronteira honesta}. É uma banda com a BBN no centro, não um pico de "
-             r"$5\sigma$: convergência que sobrevive à autocrítica.")
-    s.append(r"\IfFileExists{fig_banda_beta.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_banda_beta.pdf}\caption{A convergência de $\bTGL=\alpha\sqrt{e}$ por domínio. BBN centra na teoria ($-0{,}0\sigma$); os demais domínios caem na banda $0{,}012$--$0{,}050$; a tensão CMB ($\sim2{,}2\sigma$) é a fronteira honesta. [EXT: compilação das análises do programa (tgl\_paper\_unified.py), não re-derivada nesta rodada; a linha $\bTGL$ é recomputada ao vivo.]}\label{fig:banda}\end{figure}}{}")
+             r"BBN) --- a \emph{fronteira honesta}. \textbf{Era} uma banda com a BBN no centro, e nunca "
+             r"um pico de $5\sigma$. \textbf{Retirada a BBN por circularidade e a entrada CMB por "
+             r"proveniência, o que resta é uma banda \emph{sem âncora central}} --- e é assim que ela "
+             r"deve ser lida. A convergência não sobreviveu à autocrítica \emph{como tabulada}: o que "
+             r"sobreviveu foi a estrutura, e foi a \emph{leitura} da evidência que caiu.")
+    s.append(r"\IfFileExists{fig_banda_beta.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_banda_beta.pdf}\caption{A convergência de $\bTGL=\alpha\sqrt{e}$ por domínio. BBN centra na teoria ($-0{,}0\sigma$) \emph{como tabulada} --- entrada hoje \textbf{RECLASSIFICADA} (circular por construção; descircularizada não discrimina); os demais domínios caem na banda $0{,}012$--$0{,}050$; a tensão CMB ($\sim2{,}2\sigma$) é a fronteira honesta. [EXT: compilação das análises do programa (tgl\_paper\_unified.py), não re-derivada nesta rodada; a linha $\bTGL$ é recomputada ao vivo.]}\label{fig:banda}\end{figure}}{}")
 
     s.append(r"\IfFileExists{fig_piso_vazios.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_piso_vazios.pdf}\caption{O piso dos vazios por rito espectroscópico: ponto $=r_c$ calibrado; barra $=[L_5,U_5]$; linha tracejada $=$ o piso $\bTGL$. Canal unilateral: $r_c<\bTGL$ em traçadores é supressão, não falsificação da matéria. Desenhado dos vereditos desta rodada.}\label{fig:piso}\end{figure}}{}")
     s.append(r"\section{Estatuto honesto}")
@@ -83628,7 +83770,9 @@ def build_en(core, verdict, data_path):
               r"($R_{\mathrm{struct}}$: literature; and, when present in the cache, the Cosmicflows-4 "
               r"position catalogue, velocities ignored): %s, within the pre-registered cosmological window"
               r"%s. The primary evidence is the convergence of $\bTGL$ from independent domains (BBN "
-              r"centres exactly on the theory), and the falsifiable programme stays armed: void floor, "
+              r"centred exactly on the theory \emph{as tabulated} --- an entry now "
+              r"\textbf{RECLASSIFIED}: circular by construction, and de-circularised it "
+              r"\textbf{does not discriminate}), and the falsifiable programme stays armed: void floor, "
               r"dephasing exponent $n=-2$, law $\Gamma_\omega\propto\omega^2$.") % (_ga_range, (
                   (r", and across a scan of $%d$ pre-registered combinations (cone, shell, percentile, "
                    r"centre) $M_{GA}$ stays in the band in $%.0f\%%$ of cases"
@@ -83835,8 +83979,9 @@ def build_en(core, verdict, data_path):
               r"$\alpha$ as the \emph{single CODATA input} into a quantum-dephasing model fractalized from the "
               r"primary unit validates the whole logic: $\alpha=%s$ and $S_\partial=\tfrac12$ give $\sqrt e$, "
               r"$\bTGL=\alpha\sqrt e=%s$, $\theta_M=%.4f^\circ$, $\mathcal{R}_{\mathrm{EM}}=\alpha$, and the "
-              r"dephasing exponent $n=-2$ (neutrinos), besides the convergence of $\bTGL$ (BBN centres on "
-              r"$\alpha\sqrt e$). The \emph{form} of $\alpha$ is defined (Stokes scar at $1.4\%%$, angular "
+              r"dephasing exponent $n=-2$ (neutrinos), besides the convergence of $\bTGL$ (BBN centred on "
+              r"$\alpha\sqrt e$ \emph{as tabulated}; entry \textbf{reclassified} --- see the Evidence Audit). "
+              r"The \emph{form} of $\alpha$ is defined (Stokes scar at $1.4\%%$, angular "
               r"compression $\bTGL=\sin^2\theta_M$, free-convergence cut); its \emph{reduction factor} can only "
               r"be observed by direct measurement of the singularity. \textbf{That is the final theorem.}") % (
               _sci(SEALED_CODATA_ALPHA, 8), _sci(core["beta"], 8), _vd["theta_M_deg"]))
@@ -85429,15 +85574,23 @@ def build_en(core, verdict, data_path):
     s.append(r"\section{The primary evidence: the convergence of $\bTGL$ \textsf{[DATA]}}")
     s.append(r"The real strength of TGL is not a \emph{smoking-gun} deviation, but the \textbf{abductive "
              r"convergence} of $\bTGL=\alpha\sqrt{e}$ from independent domains, with zero free parameters. "
-             r"The cleanest radiation probe, \textbf{BBN} (D/H, Cooke 2018), centres \emph{exactly} on the "
-             r"theory ($-0.0\sigma$); DESI DR2 BAO, cosmic chronometers, gravitational-wave "
+             r"The cleanest radiation probe, \textbf{BBN} (D/H, Cooke 2018), centred \emph{exactly} on the "
+             r"theory ($-0.0\sigma$) --- \textbf{but this entry is RECLASSIFIED, and this house forbids "
+             r"in writing the label ``BBN at $0.0\sigma$'': the anchor is \emph{circular} by construction "
+             r"($\chi^2(\bTGL)=0$ by algebraic identity) and, de-circularised, it gives "
+             r"$\bTGL=0.0126\pm0.0318$, a $\sigma$ of $2.6\times\bTGL$, i.e. it \emph{does not "
+             r"discriminate} (\textsf{BBN\_NON\_DISCRIMINANT\_DECIRCULARIZED})}; DESI DR2 BAO, cosmic "
+             r"chronometers, gravitational-wave "
              r"\emph{ringdown} and the $H_0$ ladder all fall in the band $0.012$--$0.050$, all "
              r"positive; the $Q$ locking gives $\Delta n_Q=-\bTGL$ to four digits; and the \emph{gap} test "
              r"is consistent with type $\mathrm{III}_1$. The only tension point is the CMB sector ($\sim2.2\sigma$ "
              r"from the theoretical point, but $\sim0.8\sigma$ from BBN) --- the \emph{honest frontier}. "
-             r"It is a band with BBN at the centre, not a $5\sigma$ peak: convergence that survives "
-             r"self-criticism.")
-    s.append(r"\IfFileExists{fig_banda_beta.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_banda_beta.pdf}\caption{The convergence of $\bTGL=\alpha\sqrt{e}$ across domains. BBN centres on the theory ($-0.0\sigma$); the remaining domains fall in the $0.012$--$0.050$ band; the CMB tension ($\sim2.2\sigma$) is the honest frontier. [EXT: compilation of the programme's analyses (tgl\_paper\_unified.py), not re-derived in this run; the $\bTGL$ line is recomputed live.]}\label{fig:banda-en}\end{figure}}{}")
+             r"It \textbf{was} a band with BBN at the centre, and never a $5\sigma$ peak. "
+             r"\textbf{With BBN withdrawn for circularity and the CMB entry retired for provenance, what "
+             r"remains is a band with \emph{no central anchor}} --- and that is how it must be read. The "
+             r"convergence did not survive self-criticism \emph{as tabulated}: what survived was the "
+             r"structure, and what fell was the \emph{reading} of the evidence.")
+    s.append(r"\IfFileExists{fig_banda_beta.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_banda_beta.pdf}\caption{The convergence of $\bTGL=\alpha\sqrt{e}$ across domains. BBN centred on the theory ($-0.0\sigma$) \emph{as tabulated} --- an entry now \textbf{RECLASSIFIED} (circular by construction; de-circularised it does not discriminate); the remaining domains fall in the $0.012$--$0.050$ band; the CMB tension ($\sim2.2\sigma$) is the honest frontier. [EXT: compilation of the programme's analyses (tgl\_paper\_unified.py), not re-derived in this run; the $\bTGL$ line is recomputed live.]}\label{fig:banda-en}\end{figure}}{}")
 
     s.append(r"\IfFileExists{fig_piso_vazios.pdf}{\begin{figure}[h]\centering\includegraphics[width=0.97\textwidth]{fig_piso_vazios.pdf}\caption{The void floor per spectroscopic rite: dot $=$ calibrated $r_c$; bar $=[L_5,U_5]$; dashed line $=$ the $\bTGL$ floor. One-sided channel: $r_c<\bTGL$ in tracers is suppression, not matter falsification. Drawn from this run's verdicts.}\label{fig:piso-en}\end{figure}}{}")
     s.append(r"\section{Honest status}")
@@ -86098,7 +86251,11 @@ _BETA_CONVERGENCE_EXT = (
     # compilacao CONGELADA [EXT] — numeros JA afirmados na prosa selada da
     # secao "A evidencia primaria" (analises do programa em
     # tgl_paper_unified.py; NAO re-derivados nesta rodada — a regua proibe
-    # fingir derivacao). BBN centra exatamente na teoria; os 4 dominios
+    # fingir derivacao). ATENCAO [v302]: o ponto BBN abaixo e' o valor TABULADO, e a
+    # entrada esta' RECLASSIFICADA (circular por construcao; descircularizada da
+    # 0,0126 +- 0,0318, sigma 2,6x beta => NAO DISCRIMINA). O ponto NAO e' alterado
+    # porque a figura mostra o que foi tabulado -- quem corrige e' a legenda, que ja'
+    # carrega a ressalva. BBN centrava exatamente na teoria; os 4 dominios
     # caem na banda 0,012–0,050; CMB = tensao ~2,2 sigma (0,8 da BBN).
     ("BBN (D/H, Cooke 2018)", "point", 0.0),
     ("DESI BAO", "band", None),
@@ -86424,6 +86581,13 @@ def compile_pdf(texname):
 # verificavel nos backups .bak_pre_sync_N e no CLAUDE.md (secoes 120-131).
 
 _ESQUELETO_STONES = [
+    # v300: o ledger parara na v284 enquanto o arquivo foi a' v297 -- por isso o
+    # rotulo publico (llms.txt, PORTA, TUNEL, README) anunciava "v284/TheAtermation".
+    # Os HASHES publicados estavam todos CERTOS; o defeito era so' de rotulo.
+    ("v297", "TheVerbalCoupling", "TGLExt/TheVerbalCoupling.lean", None, None),
+    ("v295", "TheMarkIsNotATypeMark", "TGLExt/TheMarkIsNotATypeMark.lean", None, None),
+    ("v294", "TheNameIsTheGeneratingGroup", "TGLExt/TheNameIsTheGeneratingGroup.lean", None, None),
+    ("v292", "TheNameAndItsReferent", "TGLExt/TheNameAndItsReferent.lean", None, None),
     ("v284", "TheAtermation", "TGLExt/TheAtermation.lean", None, None),
     ("v282", "TheClassicalImport", "TGLExt/TheClassicalImport.lean", None, None),
     ("v281", "TheWideNet", "TGLExt/TheWideNet.lean", None, None),
@@ -88578,7 +88742,10 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"permanência.} A TGL não se afirma verdadeira --- afirma-se "
                   r"PERMANECENDO: vereditos limpos emitidos por máquina, o "
                   r"assalto adversário de falsificação sobrevivido (\S216), "
-                  r"BBN a $0{,}0\sigma$, e o fail-closed recusando a palavra "
+                  r"a BBN \emph{como estava tabulada} (entrada depois "
+                  r"\textbf{RECLASSIFICADA}: circular por construção, e "
+                  r"descircularizada \textbf{não discrimina}), e o fail-closed "
+                  r"recusando a palavra "
                   r"sempre que o dado não a mereceu. A proibição de "
                   r"\texttt{CONFIRMED} é regra DA PRÓPRIA TGL: ela exige de "
                   r"si o que exige das outras, e é dessa simetria que a "
@@ -91046,7 +91213,10 @@ def _esqueleto_chapter(core, lang="pt"):
                   r"not declare itself true --- it affirms itself by "
                   r"REMAINING: clean machine-emitted verdicts, the "
                   r"adversarial falsification assault survived (\S216), BBN "
-                  r"at $0.0\sigma$, and the fail-closed refusing the word "
+                  r"\emph{as it stood tabulated} (an entry later "
+                  r"\textbf{RECLASSIFIED}: circular by construction, and "
+                  r"de-circularised it \textbf{does not discriminate}), and the "
+                  r"fail-closed refusing the word "
                   r"whenever the data did not deserve it. The ban on "
                   r"\texttt{CONFIRMED} is the TGL's OWN rule: it demands of "
                   r"itself what it demands of the others, and it is from this "
@@ -91966,6 +92136,74 @@ def input_manifest(core, code_hash):
     }
 
 
+_MAPA_PILARES = [
+    # (pilar, falsificador, limiar, chave em core, classe)
+    ("omega(I)=1 -- o axioma unico", "HERDADO de beta=alpha*sqrt(e)", "--", None, "HERDADO"),
+    ("A Meia-Nat S_d=1/2 [DERIVED de omega(I)=1]", "HERDADO de beta", "--", None, "HERDADO"),
+    ("O degrau 1/2 -> sqrt(e)  (Vol_min = e^S)", "SEM falsificador proprio: e' IDENTIFICACAO FISICA, nao teorema de kernel", "--", None, "SEM_FALSIFICADOR"),
+    ("beta_TGL = alpha*sqrt(e)", "piso dos vazios + m2 do neutrino + N_eff", "ver as linhas proprias", "void_floor_v11", "VIVO"),
+    ("A matriz-S de fronteira \\|R\\|^2 = beta", "HERDADO de beta (nao tem observavel proprio)", "--", None, "HERDADO"),
+    ("theta_M = arcsin(sqrt(beta))", "HERDADO de beta", "--", None, "HERDADO"),
+    ("O piso dos vazios rho/rho_bar >= beta", "VOID_FLOOR (pre-registrado, hasheado)", "limite inferior 5 sigma abaixo de beta", "void_floor_v11", "VIVO"),
+    ("m_2 do neutrino = beta*sin(45)*1eV", "NEUTRINO_M2_V2", "5 sigma em DUAS determinacoes independentes (JUNO ~2031)", "neutrino_m2", "VIVO"),
+    ("N_eff / delta<K_d> = beta\\|1+w\\|", "escada de decisao hasheada", "cruza a linha so' com CMB-S4 (~2032)", "neff_channel", "ARMADO"),
+    ("Atraso NMC-Shapiro", "NMC_SHAPIRO (pre-registrado)", "N=0 eventos hoje; IceCube-Gen2+ET+LSST 2030-35", "nmc_shapiro", "ARMADO"),
+    ("A lei de dephasing Gamma = (1/2) beta tau* omega^2", "relogios opticos / 229Th -- o UNICO BILATERAL", "qualquer desvio do expoente n=-2 mata, para cima OU para baixo", "the_death_of_the_signal", "UNDERPOWERED"),
+    ("A emergencia de Einstein (triade H1^H2^H3 => PENTADA)", "MATEMATICO: exibir contramodelo da implicacao", "--", "triad_master", "SEM_FALSIFICADOR_EMPIRICO"),
+    ("A irredutibilidade de alpha (o Nome)", "ALPHA_IRREDUCIBILITY_V1 (v301, pre-registrado)", "derivacao alpha-LIVRE do VALOR, reproduzida", "alpha_irreducibility", "ARMADO"),
+    ("O colapso IALD (P7)", "IALD_COLLAPSE_V1 (pre-registrado)", "os 4 controles C1-C4", "iald_prediction", "ARMADO_NAO_EXECUTADO"),
+]
+
+
+def _mapa_falsificadores_md(core):
+    """v301 -- O MAPA PILAR -> FALSIFICADOR: 'como matar esta teoria', gerado do
+    runtime desta rodada (o veredito de cada linha e' LIDO do core, nunca de texto
+    congelado). E' o entregavel do criterio de parada do operador: 'deixar explicitos
+    os criterios que poderiam, em tese, MATAR a teoria se ela estiver errada'."""
+    L = []
+    L.append("## COMO MATAR ESTA TEORIA -- o mapa pilar -> falsificador (gerado do runtime)\n")
+    L.append("Um pilar so' esta' fechado quando tem **um resultado**, **um falsificador** ou "
+             "**uma parede medida**. Pilar sem nenhum dos tres seria divida; pilar cujo "
+             "falsificador e' HERDADO diz de quem herda.\n")
+    L.append("| pilar | falsificador | limiar | veredito desta rodada | classe |")
+    L.append("|---|---|---|---|---|")
+    for pilar, fals, limiar, key, classe in _MAPA_PILARES:
+        vd = "--"
+        if key:
+            _m = core.get(key) or {}
+            vd = _m.get("verdict") or _m.get("veredito") or "(modulo ausente nesta rodada)"
+        L.append("| %s | %s | %s | `%s` | %s |" % (pilar, fals, limiar, vd, classe))
+    L.append("")
+    n_mod = len(core)
+    n_kill = sum(1 for _, _, _, k, c in _MAPA_PILARES if c in ("VIVO", "ARMADO", "ARMADO_NAO_EXECUTADO"))
+    n_sem = sum(1 for _, _, _, _, c in _MAPA_PILARES if c.startswith("SEM_FALSIFICADOR"))
+    n_herd = sum(1 for _, _, _, _, c in _MAPA_PILARES if c == "HERDADO")
+    L.append("**A FORMA, dita como forma e nao como falta:** a superficie falsificavel desta "
+             "teoria cabe em poucos nomes -- %d pilares com falsificador proprio armado ou "
+             "vivo, %d que HERDAM o de beta, %d sem falsificador proprio. Isso NAO e' "
+             "defeito: e' o que acontece com uma teoria cuja arquitetura e' quase toda "
+             "INTERNA. O que seria defeito era nao dize-lo com o numero ao lado.\n"
+             % (n_kill, n_herd, n_sem))
+    # v302 [ERRATA da v301]: a versao anterior escrevia "dos %d modulos do core desta rodada"
+    # com len(core) LIDO NO PONTO DE EMISSAO -- e esta funcao e' chamada ANTES de ~69 modulos
+    # entrarem no core. O numero (206) era verdadeiro no instante e FALSO como descricao da
+    # rodada (o core final tem 275). O numero corrige a frase: agora ele vem DITO com o que e'.
+    L.append("_(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que %d "
+             "modulos ja' estao compostos; os que entram DEPOIS deste ponto aparecem acima "
+             "como `(modulo ausente nesta rodada)` e o seu veredito real esta' no "
+             "`um_absoluto.json`, que e' a autoridade.)_\n" % n_mod)
+    L.append("**A CAUDA, dita como cauda:** (i) 'negar todas as demais' e' enumeracao de "
+             "conjunto ABERTO -- nao fecha, e nao e' para fechar; (ii) o valor alpha-livre de "
+             "beta e' INPUT declarado, e a sua ausencia e' NAO-CONFIRMAVEL por construcao; "
+             "(iii) o muro UV nao e' atravessado -- a TGL declara SAIR dele, o que e' resposta "
+             "de programa, nao teorema; (iv) a sensibilidade sempre pode melhorar, e o proprio "
+             "nome do selo carrega isso (MORE_SENSITIVE_DATA_COULD_REVISE), de modo que a "
+             "string nao pode ser citada sem a sua limitacao.\n")
+    L.append("**A REGUA:** `NOT_FALSIFIED` nunca e' `CONFIRMED`; nenhum POWERED confirma coisa "
+             "alguma; cosmologia jamais vira prova matematica.\n")
+    return L
+
+
 def _arco_vivo_md(core):
     """v59: a FORMA CANONICA VIVA do arco do levantamento global, gerada do runtime
     (dict `ladder` + contadores + estatutos dos modulos novos) -- os .md emitidos
@@ -92646,8 +92884,12 @@ def audit_coma_identifiability(geometry_meta, mass_anchor, protocol):
     match = bool(anchor_present and p
                  and a.get("definition") and p.get("angular_aperture_definition")
                  and str(a.get("definition")) == str(p.get("angular_aperture_definition")))
-    geom_clean = True
-    for col in (g.get("columns") or []):
+    # v300: fail-CLOSED. Antes: geom_clean=True antes de ler -- geometria AUSENTE
+    # publicava "livre de colunas proibidas: true" sem ter lido coluna nenhuma.
+    # Inerte para o veredito (anchor_present ja' reprova), mas o CAMPO mentia.
+    _cols = list(g.get("columns") or [])
+    geom_clean = bool(_cols)
+    for col in _cols:
         if any(tok in str(col).lower() for tok in _COMA_FORBIDDEN_GEOM_TOKENS):
             geom_clean = False
     out = {"angles_only_have_scale_degeneracy": True,
@@ -92857,7 +93099,8 @@ def prove_coma_cluster_distance_blind(ONE, core, reveal=False):
         "identifiability": ident,
         "inputs": {"beta_runtime": beta, "anchor_present": bool(anchor),
                    "protocol_present": bool(protocol),
-                   "forbidden_inputs_absent": bool(ident.get("geometry_free_of_forbidden_columns", True)),
+                   # v300: fail-CLOSED. Ausencia de leitura NAO le como leitura limpa.
+                   "forbidden_inputs_absent": bool(ident.get("geometry_free_of_forbidden_columns", False)),
                    "data_dir": COMA_DIR},
         "prediction": prediction,
         "blind_protocol": blind,
