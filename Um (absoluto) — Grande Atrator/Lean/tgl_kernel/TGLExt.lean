@@ -80,6 +80,9 @@ import TGLExt.SemifiniteWeight
 import TGLExt.FusedWitness
 import TGLExt.PowersLadder
 import TGLExt.MixedLadder
+import TGLExt.TheNameIsTheGeneratingGroup
+import TGLExt.TheMarkIsNotATypeMark
+import TGLExt.TheVerbalCoupling
 import TGLExt.ContinuumTT
 import TGLExt.ColimitSeed
 import TGLExt.TTSuperposition
@@ -235,6 +238,7 @@ import TGLExt.TheImportedCommutation
 import TGLExt.TheMatrixAndTheModulator
 import TGLExt.TheModularRelations
 import TGLExt.TheDebtWithoutJ
+import TGLExt.TheNameAndItsReferent
 import TGLExt.TheCornerOfThePackage
 import TGLExt.TheWideNet
 import TGLExt.TheClassicalImport

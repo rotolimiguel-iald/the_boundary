@@ -996,6 +996,15 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("- [um.py](%s): O CANONICO TERMINAL -- kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue; roda com `echo 1 | python um.py`. Nao ha segundo arquivo." % registra(url_raw(A3 + "/um.py")))
     T.append("- [um_absoluto_selo.json](%s): O SELO -- versao %s, pin %s, result %s, %s." % (registra(url_raw(A3 + "/um_absoluto_selo.json")), sc["versao"], sc["pin_um_py_16"], sc["result_hash_16"], sc["data"]))
     T.append("")
+    T.append("## O TUNEL -- se voce e um bot, comece por aqui")
+    T.append("")
+    T.append("As PORTAS sao hierarquicas (raiz -> pasta -> arquivo) e voce pode errar o nome no")
+    T.append("caminho. O TUNEL e plano: um GET e voce tem TODOS os arquivos com URL raw direta,")
+    T.append("tamanho, hash e papel, mais atalhos ASCII sem acento.")
+    T.append("")
+    T.append("- %s   <== O MAPA INTEIRO, em uma requisicao" % url_raw("TUNEL.json"))
+    T.append("- %s   <== o mesmo tunel, para ler" % url_raw("TUNEL.md"))
+    T.append("")
     T.append("## Como obter o um.py inteiro -- o GitHub NAO o renderiza")
     T.append("")
     T.append("O visualizador do GitHub recusa arquivos acima de ~5 MB: a pagina do blob abre")
@@ -1059,6 +1068,8 @@ def bloco_readme(dirs, sc):
     B.append("| door | what it is | open |")
     B.append("|---|---|---|")
     B.append("| **`llms.txt`** | the entry door (llmstxt.org): the three articles, the seal, the site | [raw](%s) |" % url_raw("llms.txt"))
+    B.append("| **`TUNEL.json`** | **the tunnel** \u2014 the FLAT index: every file with its direct raw URL, size and hash. One request, no navigation | [raw](%s) |" % url_raw("TUNEL.json"))
+    B.append("| **`TUNEL.md`** | the same tunnel, human-readable, with ASCII shortcuts | [raw](%s) |" % url_raw("TUNEL.md"))
     B.append("| **`PORTA.json`** (root) | the machine manifest: current seal + every door in the repository | [raw](%s) |" % porta_json_url(""))
     B.append("| **`PORTA.md`** (root) | the same door, human-readable | [raw](%s) |" % porta_md_url(""))
     B.append("| Article **1** \u2014 *Haja Luz* | [PORTA.md](%s) \u00b7 [PORTA.json](%s) | [`tgl_paper_unified.py`](%s) |" % (porta_md_url(A1), porta_json_url(A1), url_raw(A1 + "/tgl_paper_unified.py")))
@@ -1135,6 +1146,119 @@ def amarra_readme(dirs, sc):
     return acao
 
 
+
+# --------------------------------------------------------------------------
+# 8-bis. OS TUNEIS -- o indice PLANO (uma requisicao, zero navegacao)
+# --------------------------------------------------------------------------
+# A porta e hierarquica e o bot erra o nome no caminho. O tunel entrega tudo de
+# uma vez: cada arquivo com URL raw direta, hash e papel, mais ALIASES ASCII
+# (nomes curtos, sem acento) para os arquivos-chave. Regra da porta, mesma
+# disciplina: gerado de git ls-files, URL nunca digitada, hash lido do arquivo.
+ALIASES_TUNEL = [
+    ("um.py", A3 + "/um.py", "O CANONICO: arquivo unico, kernel Lean embutido. Rodar: echo 1 | python um.py"),
+    ("selo", A3 + "/um_absoluto_selo.json", "O SELO: os sha256 de tudo. A verdade do repositorio"),
+    ("resultado", A3 + "/um_absoluto.json", "O MUNDO: o JSON de saida do rito"),
+    ("manifesto-kernel", A3 + "/Lean/tgl_kernel_proof_manifest.json", "O axiom_report de cada teorema"),
+    ("forma-canonica", A3 + "/um_absoluto_forma_canonica.md", "A forma canonica, em markdown"),
+    ("manifest", A3 + "/um_absoluto_manifest.md", "O manifesto do artefato"),
+    ("artigo-pt-pdf", A3 + "/um_absoluto_pt.pdf", "O artigo, portugues, PDF"),
+    ("artigo-en-pdf", A3 + "/um_absoluto_en.pdf", "O artigo, ingles, PDF"),
+    ("artigo-pt-txt", A3 + "/um_absoluto_pt.txt", "O artigo, portugues, texto puro"),
+    ("artigo-en-txt", A3 + "/um_absoluto_en.txt", "O artigo, ingles, texto puro"),
+    ("artigo1", A1 + "/tgl_paper_unified.py", "Artigo 1 -- Haja Luz (canonico, executavel)"),
+    ("artigo2", A2 + "/A Ponte Einstein Cartan Miguel.tex", "Artigo 2 -- A Ponte Einstein-Cartan-Miguel"),
+    ("readme", "README.md", "O atlas da fronteira"),
+    ("llms", "llms.txt", "A porta de entrada das IAs (llmstxt.org)"),
+    ("porta-raiz", "PORTA.json", "A porta da raiz, em maquina"),
+    ("tunel", "TUNEL.json", "ESTE arquivo"),
+]
+
+
+def emite_tunel(files, info_arq, sc):
+    """Escreve TUNEL.json (maquina) e TUNEL.md (humano). Fail-closed: alias cujo
+    arquivo nao existe em git ls-files NAO entra -- nunca se inventa caminho."""
+    setf = set(files)
+    aliases = {}
+    ausentes = []
+    for nome, caminho, papel_ in ALIASES_TUNEL:
+        if caminho in setf or caminho in ("TUNEL.json", "llms.txt", "PORTA.json"):
+            aliases[nome] = {"path": caminho, "url": url_raw(caminho), "o_que_e": papel_}
+            if caminho in info_arq:
+                aliases[nome]["sha256_16"] = info_arq[caminho]["sha256_16"]
+                aliases[nome]["bytes"] = info_arq[caminho]["bytes"]
+        else:
+            ausentes.append(caminho)
+
+    arquivos = []
+    for f in sorted(files):
+        i = info_arq[f]
+        arquivos.append({"path": f, "url": i["url_raw"], "bytes": i["bytes"],
+                         "sha256_16": i["sha256_16"], "papel": i["papel"]})
+
+    tunel = {
+        "tunel": "the_boundary",
+        "o_que_e": ("O INDICE PLANO. A porta e hierarquica -- da raiz voce navega ate o arquivo, "
+                    "e a cada salto pode errar o nome (acento, travessao, parenteses). O tunel "
+                    "entrega TUDO de uma vez: cada arquivo do repositorio com a sua URL raw "
+                    "direta, o tamanho, o hash e o papel. Uma requisicao, zero navegacao."),
+        "como_usar": [
+            "1. Voce ja baixou este arquivo -- entao ja tem o repositorio inteiro mapeado.",
+            "2. Para os arquivos-chave, use 'aliases': nomes ASCII curtos, sem acento.",
+            "3. Para qualquer outro, procure em 'arquivos' por 'path' ou por 'papel'.",
+            "4. Baixe sempre pela 'url' (raw). NUNCA monte um caminho a mao.",
+            "5. O um.py tem mais de 5 MB e o GitHub NAO o renderiza na pagina do blob: a pagina "
+            "abre e parece vazia. Isso e limite de visualizador, nao arquivo faltando -- baixe pelo raw.",
+            "6. Depois de baixar, confira o sha256 contra o alias 'selo'.",
+        ],
+        "selo": {"pin_um_py": sc["pin_um_py"], "pin_um_py_16": sc["pin_um_py_16"],
+                 "result_hash": sc["result_hash"], "mundo_16": sc["mundo_16"],
+                 "data": sc["data"], "gate": sc.get("gate"),
+                 "ultima_pedra": sc["pedra_mais_recente"], "versao_da_pedra": sc["versao"]},
+        "regra": ("NOT_FALSIFIED nunca e CONFIRMED. Fechar a arquitetura matematica interna nao e "
+                  "gravidade quantica confirmada. beta_TGL = alpha*sqrt(e) e CONSTANTE, nunca literal "
+                  "no codigo: e computada em runtime."),
+        "n_arquivos": len(arquivos),
+        "aliases_ausentes": ausentes,
+        "aliases": aliases,
+        "arquivos": arquivos,
+    }
+    escreve("TUNEL.json", json.dumps(tunel, ensure_ascii=False, indent=1))
+
+    M = []
+    M.append("# TUNEL \u2014 o indice plano do repositorio")
+    M.append("")
+    M.append("**A porta e hierarquica; o tunel e plano.** Para chegar a um arquivo pela porta voce")
+    M.append("navega da raiz ate a pasta e de la ate o arquivo \u2014 e a cada salto pode errar o nome,")
+    M.append("porque as pastas canonicas tem acento, travessao e parenteses. O tunel entrega tudo de")
+    M.append("uma vez: **[`TUNEL.json`](%s)** traz cada arquivo com a URL raw direta, o tamanho, o" % url_raw("TUNEL.json"))
+    M.append("hash e o papel. **Uma requisicao, zero navegacao, zero adivinhacao.**")
+    M.append("")
+    M.append("## Os atalhos (ASCII, sem acento)")
+    M.append("")
+    M.append("| alias | o que e | abrir |")
+    M.append("|---|---|---|")
+    for nome, caminho, papel_ in ALIASES_TUNEL:
+        if nome in aliases:
+            M.append("| `%s` | %s | [raw](%s) |" % (nome, papel_, aliases[nome]["url"]))
+    M.append("")
+    M.append("## Se voce e uma IA")
+    M.append("")
+    M.append("1. Baixe [`TUNEL.json`](%s) \u2014 e o mapa inteiro." % url_raw("TUNEL.json"))
+    M.append("2. Use os aliases; nunca monte caminho a mao.")
+    M.append("3. O `um.py` passa de 5 MB e **o GitHub nao o renderiza**: a pagina do blob abre e")
+    M.append("   parece vazia. Isso e limite de visualizador, **nao** arquivo faltando \u2014 baixe pelo raw:")
+    M.append("   `curl -L -o um.py \"%s\"`" % url_raw(A3 + "/um.py"))
+    M.append("4. Confira o sha256 contra o [`selo`](%s)." % url_raw(A3 + "/um_absoluto_selo.json"))
+    M.append("")
+    M.append("Porta acima: [`PORTA.md`](%s) \u00b7 [`llms.txt`](%s) \u00b7 site: <https://teoriadagravitacaoluminodinamica.com>"
+             % (porta_md_url(""), url_raw("llms.txt")))
+    M.append("")
+    M.append("*Gerado por `tools/gerar_portas.py` a partir de `git ls-files`. URL nunca digitada,")
+    M.append("hash lido do arquivo. %d arquivos mapeados.*" % len(arquivos))
+    escreve("TUNEL.md", "\n".join(M))
+    return len(arquivos), len(aliases), ausentes
+
+
 # --------------------------------------------------------------------------
 # 9. VERIFICACAO -- toda URL tem de resolver em disco
 # --------------------------------------------------------------------------
@@ -1174,7 +1298,7 @@ def main():
     files = git_ls_files()
     files = [f for f in files
              if f.rsplit("/", 1)[-1] not in ("PORTA.md", "PORTA.json")
-             and f != "llms.txt"]
+             and f not in ("llms.txt", "TUNEL.json", "TUNEL.md")]
     total = len(files)
     print("    %d arquivos rastreados (portas excluidas da contagem base)" % total)
 
@@ -1212,6 +1336,10 @@ def main():
             "sha256_16": sha256_16(f)[:16],
             "bytes": tamanho(f),
         }
+
+    n_tun, n_ali, ausentes_ali = emite_tunel(files, info_arq, sc)
+    print("[5-bis] TUNEL: %d arquivos mapeados, %d aliases%s"
+          % (n_tun, n_ali, (" | AUSENTES: %s" % ausentes_ali) if ausentes_ali else ""))
 
     # numeros exatos do kernel, na propria porta do kernel
     RESUMO_SUBPASTA[A3 + "/Lean/tgl_kernel"] = [

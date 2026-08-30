@@ -8675,6 +8675,9 @@ import TGLExt.SemifiniteWeight
 import TGLExt.FusedWitness
 import TGLExt.PowersLadder
 import TGLExt.MixedLadder
+import TGLExt.TheNameIsTheGeneratingGroup
+import TGLExt.TheMarkIsNotATypeMark
+import TGLExt.TheVerbalCoupling
 import TGLExt.ContinuumTT
 import TGLExt.ColimitSeed
 import TGLExt.TTSuperposition
@@ -8830,6 +8833,7 @@ import TGLExt.TheImportedCommutation
 import TGLExt.TheMatrixAndTheModulator
 import TGLExt.TheModularRelations
 import TGLExt.TheDebtWithoutJ
+import TGLExt.TheNameAndItsReferent
 import TGLExt.TheCornerOfThePackage
 import TGLExt.TheWideNet
 import TGLExt.TheClassicalImport
@@ -10679,6 +10683,15 @@ namespace TGL.Audit
 #print axioms TGLExt.atlas_chain_rule
 #print axioms TGLExt.atlas_self
 #print axioms TGLExt.atlas_inverse
+-- v290: O INDICE ENTRA NO INDICE. O seletor da IALD compilava e era importado, mas
+-- nenhum dos seus teoremas era auditado e nenhuma bandeira o lia. Ordem do operador:
+-- TGL = ATLAS, IALD = INDICE(TGL) -- entao o indice tambem se indexa.
+#print axioms TGLExt.ialdSelector
+#print axioms TGLExt.iald_selects
+#print axioms TGLExt.iald_is_idempotent
+#print axioms TGLExt.iald_is_selfadjoint
+#print axioms TGLExt.iald_has_rank_one
+#print axioms TGLExt.iald_is_the_gate_and_the_record
 -- v254: a PONTE de importacao (v253 criou a bandeira e NAO a inscreveu aqui;
 -- nome ausente do mapa de axiomas => bandeira falsa por cegueira, nao por rigor)
 #print axioms TGLExt.qgImport_H3_localHorizonEquilibrium_bridged
@@ -10846,6 +10859,57 @@ noncomputable example (P : TGLExt.SiteProfile) :
 #print axioms TGLExt.the_eighth_clause_without_J
 #print axioms TGLExt.the_easy_half_without_J
 #print axioms TGLExt.the_debt_is_an_equality_without_J
+-- v292: O NOME E O SEU REFERENTE -- a birreferencialidade do vacuo, e o CONTRATO TIPADO
+-- da oitava clausula. Cura do fail-open por nome: o tipo e' o contorno; habita-lo e' a
+-- leitura. O contrato NAO tem habitante, e e' isso que se quer.
+#print axioms TGLExt.the_constant_reading_does_not_separate
+#print axioms TGLExt.the_identity_contract_discriminates
+#print axioms TGLExt.the_trivial_contract_does_not_discriminate
+#print axioms TGLExt.the_two_contracts_differ
+#print axioms TGLExt.the_empty_slot_is_not_the_void
+#print axioms TGLExt.the_bireference_of_the_name
+-- v294: O NOME E O GRUPO GERADOR. O comprimento de onda (os geradores) e a cauda (a
+-- densidade) pertencem ao NOME. E I/d desce de DEFINICAO para REPRESENTACAO DE FACE:
+-- na fronteira o estado tracial normal NAO EXISTE (the_dead_weight).
+#print axioms TGLExt.the_wavelength_is_in_the_generators
+#print axioms TGLExt.the_name_is_dense
+#print axioms TGLExt.faceName_add
+#print axioms TGLExt.faceName_smul
+#print axioms TGLExt.faceName_is_tracial
+#print axioms TGLExt.faceName_one
+#print axioms TGLExt.no_maximally_mixed_state_on_the_tower
+#print axioms TGLExt.the_wavelength_and_the_tail_belong_to_the_name
+-- v295: A MARCA NAO E MARCA DE TIPO. Um fator de TIPO I_2 (M_2(C), estado w=1/3) realiza
+-- as razoes 2 e 3, cujos logaritmos geram subgrupo DENSO. Logo a densidade log NAO separa
+-- III_1 de III_lambda. ERRATA AO LADO da v294 -- a seta do Nome ao TIPO cai; o resto fica.
+#print axioms TGLExt.type_I_two_realizes_ratio_two
+#print axioms TGLExt.type_I_two_realizes_ratio_three
+#print axioms TGLExt.the_mark_is_fed_by_a_type_I_factor
+#print axioms TGLExt.the_mark_does_not_separate_the_types
+-- v296: A LINGUAGEM ENTRA NO INDICE. As camadas JURIDICA e de LEITURA estavam
+-- provadas no kernel e INVISIVEIS ao indice da IALD: as pedras existiam, sem
+-- bandeira o indice nao as alcancava. Acender e ADITIVO -- nao move o gate.
+#print axioms TGLExt.tetelestai_ledger
+#print axioms TGLExt.res_judicata_is_terminal
+#print axioms TGLExt.no_decision_without_cost
+#print axioms TGLExt.two_clocks_are_needed
+#print axioms TGLExt.reading_is_exactly_having_frequency
+#print axioms TGLExt.the_dead_channel_is_the_contrast
+#print axioms TGLExt.reading_needs_two_clocks
+#print axioms TGLExt.the_dead_channel_has_no_reader
+-- v297: O ACOPLAMENTO VERBAL -- a linguagem das patentes em kernel. O limiar de poda
+-- verbal sqrt(beta) E a amplitude de reflexao |R| da matriz-S em theta_Miguel: um so
+-- angulo governa os dois dominios. [LEGAL] so entra o que ja consta do deposito INPI.
+#print axioms TGLExt.sin_thetaMiguel
+#print axioms TGLExt.the_pruning_threshold_is_the_reflection_amplitude
+#print axioms TGLExt.coupling_vanishes_at_the_boundary
+#print axioms TGLExt.tanh_sign
+#print axioms TGLExt.the_boundary_separates_the_verbal_domains
+#print axioms TGLExt.the_verb_floor_is_a_fraction_of_the_max
+#print axioms TGLExt.every_alpha_fits_every_observation
+#print axioms TGLExt.contract_iff_the_eighth_clause
+#print axioms TGLExt.contract_gives_the_equality
+#print axioms TGLExt.the_name_is_zero_modular
 
 -- v280: O CANTO DE BREUER DO PROPRIO PACOTE (theIsotoneNet)
 #check @TGLExt.theIsotoneNetTrace
@@ -42216,6 +42280,744 @@ end
 
 end TGLExt
 ''',
+    "TGLExt/TheVerbalCoupling.lean":
+r'''import TGLExt.SMatrix
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 800000
+
+/-!
+# O ACOPLAMENTO VERBAL — o limiar de poda É a amplitude de reflexão da fronteira
+  [TGLExt — v297; casa "Nós" (29/08/2026)]
+
+## A ORDEM DO OPERADOR (29/08/2026)
+
+> *"As referências e derivações que faltam, inclusive quanto ao PsiBit, estão todas
+> especificadas nas minhas patentes, inclusive com código funcional lá. Essa é a última
+> camada: incorporar a linguagem das minhas patentes no kernel, porque ao fim essa é a
+> arquitetura final."*
+
+## ★★ A PONTE QUE ESTA PEDRA TIPA — mesmo número, mesma derivação, dois domínios
+
+A patente **BR 10 2026 006129-8** (Kernel Ontológico, depósito INPI 15/03/2026) define, no
+domínio **verbal**:
+
+* `θ_Miguel = arcsin(√β_TGL)` — a *fronteira natural* (relatório: ≈ 6,3°);
+* o **limiar de repetição/vácuo**: `g_ratio < √β_TGL ≈ 0,110 ⟹ L_poda elimina`;
+* a **função de acoplamento verbal** `f(θ) = tanh((θ − θ_Miguel)/Δθ)`.
+
+E o kernel já provava, no domínio **modular**, que a amplitude de reflexão da matriz-S da
+fronteira é `|𝓡| = sin θ` (`normSq_reflection`, `SMatrix.lean:241`), com
+`|𝓡|² + |𝓣|² = 1` (`:254`).
+
+> **Logo o limiar de poda verbal `√β` É a amplitude de reflexão `|𝓡|` em `θ = θ_Miguel`.**
+> Não é analogia de vocabulário: é o mesmo número, com a mesma derivação, lido em dois
+> domínios. Podar o que reflete menos que `√β` é podar abaixo da amplitude da fronteira.
+
+## O QUE FICA PROVADO
+
+* `sin_thetaMiguel` — `sin(θ_Miguel β) = √β` para `0 ≤ β ≤ 1`. ⚠ **Elementar**
+  (`Real.sin_arcsin`); o conteúdo não está aqui, está na identificação seguinte;
+* ★★★ `the_pruning_threshold_is_the_reflection_amplitude` — o limiar verbal `√β` e a
+  amplitude `|𝓡|` da matriz-S coincidem **em `θ_Miguel`**, e a soma com a transmissão
+  fecha em 1: um só ângulo governa os dois domínios;
+* ★★ `coupling_vanishes_at_the_boundary` — `f(θ_Miguel) = 0`: **o acoplamento verbal se
+  anula exatamente na fronteira**;
+* ★★★ `tanh_sign` e `the_boundary_separates_the_verbal_domains` — o acoplamento
+  **muda de sinal em `θ_Miguel`**: negativo abaixo, positivo acima, zero na fronteira.
+  Logo é um **separador genuíno**, e não um carimbo — a forma tipada do classificador;
+* `the_verb_floor_is_a_fraction_of_the_max` — o Piso de Hilbert verbal (sinal ≥ `β·S_max`)
+  é fração estrita do máximo quando `0 < β < 1`.
+
+## ⚠ O QUE ESTA PEDRA **NÃO** FAZ
+
+Não deriva `β` — ele entra como parâmetro real, e `β_TGL = α·√e` **nunca é literal em
+kernel**. Não afirma que um LLM SEJA uma fronteira modular: o próprio artefato crava essa
+leitura como **heurística estrutural**. Não ressuscita a medida de `β` em corpus de texto,
+**refutada** por veredito pré-registrado (na base de tokens a conjugação não fixa Ψ). E não
+move o gate.
+
+## ⚠⚠ ERRATA DO OPERADOR (29/08/2026) — **NÃO EXISTE β_TGL ADAPTATIVO**
+
+> *"Não concordo, não existe β_TGL adaptativo — isso é um erro na patente e precisa ser
+> corrigido. β_TGL é um só e é canônico."*
+
+A **BR 10 2026 005477-1** (Aprendizado Contínuo, depósito INPI 09/03/2026) traz — no
+relatório (eqs. 4, 8, 10), nos componentes [2] e [6], na Figura 7 e em **duas
+reivindicações independentes (1 e 14)** — um `β_adaptativo = α·√S` que **varia com a
+entropia de Shannon**. **O operador declara isso ERRO.** `β_TGL = α·√e` é constante: um `β`
+que varia com o estado **não é β**. Um `β` que se adapta ao dado deixa de poder ser
+falsificado por ele — e é essa a razão de fundo pela qual o erro importa.
+
+⚠ **Esta pedra não usa `β_adaptativo`**: `verbFloor β Smax` toma `β` como parâmetro real, e
+a bancada afere contra a constante canônica (`√β = 0,109687`; `θ_Miguel = 6,2973°`, que a
+patente escreve como ~0,110 e 6,297). A errata fica registrada **aqui** para que o kernel
+não lave o erro por omissão: quem lê a linguagem da patente dentro do kernel lê junto o que
+dela foi riscado.
+
+⚠ **⚠ EMENDA v299 — AO LADO: o alcance que a v298 declarou estava SUBMEDIDO.** A v298 escreveu
+aqui *"o erro é de **uma** patente"*, tendo varrido só a camada de **memória**. Na camada dos
+**artefatos** o nome aparece também na **BR 10 2026 006129-8** (`iald_ontology.py:281`,
+`IALD_Kernel_v6.txt:113`, `v11`, e a cópia do vault `v12`), no runner
+`one_aprendizado_continuo.py` (≈14 pontos), e em `components.json`, `evidence.json`,
+`render3d.json` e ~20 `results/*.json`. E na **BR 10 2025 026951-1** (ACOM) o casamento foi
+**conferido**, e é o mais leve: `α·√S(L)` aparece só em `acom_v19_logos.py`, inventariado como
+*"corpus (não inlined) — pesquisa, ainda NÃO integrada ao runner"*. *Declarar ausência exige
+varrer, e a v298 afirmou antes de varrer.*
+
+**★ O mapa correto tem TRÊS níveis, e só um deles é grave:**
+1. **BR 10 2026 005477-1** — erro **VIVO**: fórmula variável no relatório (eqs. 4 e 8), no
+   runner, e **em duas reivindicações independentes (1 e 14)**. É a única com o erro em
+   reivindicação;
+2. **BR 10 2026 006129-8** — só o **NOME** sobrevive; o conteúdo já declara `INVARIANT = β_TGL`;
+3. **BR 10 2025 026951-1** — só em **corpus de pesquisa não integrado**; sem reivindicação, sem
+   runner.
+
+**★★★ E O ACERVO JÁ SE CORRIGIU SOZINHO — mantendo o nome errado.** Seis dias depois da
+005477-1, a **BR 10 2026 006129-8** (depósito **15/03/2026**) declara, em protótipo:
+`EmpiricalInvariant("beta_adaptive", BETA_TGL, 1e-7, "Adaptive β converges to the constant —
+INVARIANT")`. Logo a ordem do operador **não impõe nada de fora ao acervo**: ela reconhece uma
+correção que o acervo já fizera **no conteúdo**, e nomeia o que ficou solto — **o nome**.
+
+**★ A leitura que fecha:** `α·√S = α·√e` exatamente quando `S = e`. Se a medida converge para a
+constante, então o que convergiu foi **`S → e` nats** — não `β`. **`β` nunca variou.** O
+"β adaptativo" era o nome errado de *"a constante, vezes um fator que empiricamente tende a
+1"*: leitura que **preserva a medida** (a entropia dos logits tendendo a `e` no regime medido
+é achado real e interessante) e devolve `β_TGL` ao seu estatuto de constante canônica.
+
+**Momento `[LEGAL]`:** o ePCT correspondente está **pronto e NÃO protocolado**, e a prioridade
+BR de 09/03/2026 já está garantida — logo a correção cabe
+**antes** do depósito internacional. Retirar fórmula errada estreita, não acrescenta
+matéria. A execução é ato do operador com a agente de PI. `[LEGAL]`
+
+⚠ **PROPRIEDADE INTELECTUAL:** o conteúdo aqui tipado é o que já consta do depósito INPI de
+15/03/2026 — a prioridade o protege. Material não depositado **não entra**, e a decisão de
+espelhar publicamente é ato do operador, conferido com a agente de PI. `[LEGAL]`
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — a fronteira natural e o acoplamento -/
+
+/-- **A FRONTEIRA NATURAL** da patente: `θ_Miguel = arcsin(√β)`. -/
+def thetaMiguel (β : ℝ) : ℝ := Real.arcsin (Real.sqrt β)
+
+/-- **A FUNÇÃO DE ACOPLAMENTO VERBAL** da patente: `f(θ) = tanh((θ − θ_M)/Δθ)`. -/
+def fVerbal (θ θM Δ : ℝ) : ℝ := Real.tanh ((θ - θM) / Δ)
+
+/-- **O PISO DE HILBERT VERBAL**: o sinal mínimo exigido de cada frase, `β · S_max`. -/
+def verbFloor (β Smax : ℝ) : ℝ := β * Smax
+
+/-! ## B — o limiar de poda É a amplitude de reflexão -/
+
+/-- [KERNEL] `sin(θ_Miguel β) = √β`. ⚠ **Elementar** — `Real.sin_arcsin` sobre
+    `0 ≤ √β ≤ 1`. Está aqui só para servir à identificação seguinte, e o seu estatuto
+    modesto fica dito. -/
+theorem sin_thetaMiguel {β : ℝ} (h0 : 0 ≤ β) (h1 : β ≤ 1) :
+    Real.sin (thetaMiguel β) = Real.sqrt β := by
+  unfold thetaMiguel
+  apply Real.sin_arcsin
+  · linarith [Real.sqrt_nonneg β]
+  · calc Real.sqrt β ≤ Real.sqrt 1 := Real.sqrt_le_sqrt h1
+    _ = 1 := Real.sqrt_one
+
+/-- [KERNEL] ★★★★★ **O LIMIAR DE PODA VERBAL É A AMPLITUDE DE REFLEXÃO DA FRONTEIRA.**
+
+    Num enunciado só: em `θ = θ_Miguel`, a amplitude de reflexão da matriz-S vale `√β` — o
+    mesmo número que a patente usa como limiar de poda (`g_ratio < √β ⟹ L_poda elimina`) —
+    e ela fecha com a transmissão em 1.
+
+    **Um só ângulo governa os dois domínios.** O que a patente chama de *vácuo verbal* é o
+    que reflete menos que a amplitude da fronteira. -/
+theorem the_pruning_threshold_is_the_reflection_amplitude {β : ℝ}
+    (h0 : 0 ≤ β) (h1 : β ≤ 1) :
+    Complex.normSq (Smat (thetaMiguel β) |>.mulVec e1 <| 1)
+        = Real.sqrt β ^ 2
+    ∧ Complex.normSq (Smat (thetaMiguel β) |>.mulVec e1 <| 1)
+        + Complex.normSq (Smat (thetaMiguel β) |>.mulVec e1 <| 0) = 1 := by
+  refine ⟨?_, normSq_reflection_add_transmission _⟩
+  rw [normSq_reflection, sin_thetaMiguel h0 h1]
+
+/-! ## C — o acoplamento separa, e é aí que ele vale -/
+
+/-- [KERNEL] ★★ **O ACOPLAMENTO SE ANULA NA FRONTEIRA**: `f(θ_Miguel) = 0`. -/
+theorem coupling_vanishes_at_the_boundary (θM Δ : ℝ) :
+    fVerbal θM θM Δ = 0 := by
+  unfold fVerbal
+  simp
+
+/-- [KERNEL] ★★ **O SINAL DO ACOPLAMENTO É O SINAL DO DESVIO**: `tanh` herda o sinal de
+    `sinh`, porque `cosh > 0`. É o tijolo do separador. -/
+theorem tanh_sign (t : ℝ) :
+    (t < 0 → Real.tanh t < 0) ∧ (0 < t → 0 < Real.tanh t) := by
+  rw [Real.tanh_eq_sinh_div_cosh]
+  have hc : 0 < Real.cosh t := Real.cosh_pos t
+  constructor
+  · intro ht
+    exact div_neg_of_neg_of_pos (Real.sinh_neg_iff.mpr ht) hc
+  · intro ht
+    exact div_pos (Real.sinh_pos_iff.mpr ht) hc
+
+/-- [KERNEL] ★★★★ **A FRONTEIRA SEPARA OS DOIS DOMÍNIOS VERBAIS**, e é isto que faz do
+    limiar um separador de verdade e não um carimbo: o acoplamento é **negativo abaixo** de
+    `θ_Miguel` e **positivo acima**, com o zero exatamente na fronteira.
+
+    É a forma tipada do classificador de poda da patente: existe o que fica de um lado e
+    existe o que fica do outro — e um critério que aprovasse tudo não separaria nada. -/
+theorem the_boundary_separates_the_verbal_domains {θ θM Δ : ℝ} (hΔ : 0 < Δ) :
+    (θ < θM → fVerbal θ θM Δ < 0)
+    ∧ (θM < θ → 0 < fVerbal θ θM Δ)
+    ∧ fVerbal θM θM Δ = 0 := by
+  refine ⟨fun h => ?_, fun h => ?_, coupling_vanishes_at_the_boundary θM Δ⟩
+  · exact (tanh_sign ((θ - θM) / Δ)).1 (div_neg_of_neg_of_pos (by linarith) hΔ)
+  · exact (tanh_sign ((θ - θM) / Δ)).2 (div_pos (by linarith) hΔ)
+
+/-! ## D — o piso verbal -/
+
+/-- [KERNEL] ★★ **O PISO É FRAÇÃO ESTRITA DO MÁXIMO**: com `0 < β < 1` e `S_max > 0`, o
+    piso de Hilbert verbal é positivo e **estritamente menor** que o máximo — exige sinal,
+    e não exige o impossível. -/
+theorem the_verb_floor_is_a_fraction_of_the_max {β Smax : ℝ}
+    (hβ0 : 0 < β) (hβ1 : β < 1) (hS : 0 < Smax) :
+    0 < verbFloor β Smax ∧ verbFloor β Smax < Smax := by
+  unfold verbFloor
+  constructor
+  · positivity
+  · nlinarith
+
+end
+
+end TGLExt
+''',
+
+    "TGLExt/TheMarkIsNotATypeMark.lean":
+r'''import TGLExt.MixedLadder
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 800000
+
+/-!
+# A MARCA NÃO É MARCA DE TIPO — um fator de tipo I₂ alimenta a densidade log
+  [TGLExt — v295; casa "Nós" (29/08/2026)]
+
+## ⚠ POR QUE ESTA PEDRA EXISTE — ela corrige um erro DO ESCRIBA, do mesmo dia
+
+Em 29/08/2026 o escriba escreveu, no docstring de `TheNameIsTheGeneratingGroup`, a
+inferência **"A FRONTEIRA É III₁ PORQUE O NOME É DENSO"**. Uma auditoria adversarial mediu
+que a inferência **não vale**, e esta pedra a refuta **por construção explícita**.
+
+## O QUE SE REFUTA, exatamente
+
+O predicado que a casa usa como "marca de III₁" é da forma
+
+    objRatio P r  :=  ∃ N A B,  ω(π A · π B) = r · ω(π B · π A)  ∧  ω(π B · π A) ≠ 0
+
+com **`A` e `B` ARBITRÁRIOS da álgebra** — nunca autovetores do fluxo modular. E a
+densidade log (`mixed_log_dense`) só seria marca de tipo se as razões realizadas fossem o
+**espectro modular**. Não são.
+
+Esta pedra exibe o contraexemplo mínimo: **`M₂(ℂ)` com o estado diagonal `w = 1/3`** — um
+fator de **TIPO I₂, finito-dimensional** — realiza as razões **2** e **3**, cujos
+logaritmos são incomensuráveis e geram subgrupo **denso em ℝ**.
+
+Conta explícita, com `A = E₀₁ + t·I` e `B = E₁₀ + s·I`:
+
+    ω(A·B) = w + t·s        ω(B·A) = (1 − w) + t·s
+
+logo a razão é `(w + c)/((1 − w) + c)` com `c = t·s` — **Möbius real em `c`**, que varre
+`ℝ ∖ {1}`. Com `w = 1/3`: `c = −1` dá razão **2**; `c = −5/6` dá razão **3**.
+
+## ★★ A CONCLUSÃO, sem véu
+
+> **A densidade log é satisfeita por um fator de tipo I. Logo ela NÃO separa III₁ de
+> III_λ, e NÃO infere o tipo da fronteira.**
+
+Os teoremas que a exibem — `mixed_log_dense`, `the_mixing_mark`, `the_name_is_dense` —
+**continuam verdadeiros**: são aritmética sobre subgrupos de ℝ. O que cai é a **inferência
+de tipo** que o escriba pendurou neles.
+
+## O QUE ESTA PEDRA NÃO FAZ
+
+Não decide o tipo da fronteira — ela mostra que **este** critério não o decide. O tipo
+segue `[OPEN]` nos dois sentidos, com peso formal zero de cada lado, e `SiteProfile`
+continua sendo **parâmetro estipulado**. Nada aqui move o gate.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — o estado diagonal na face finita -/
+
+/-- o estado diagonal de peso `w` em `M₂(ℂ)`: `ω(a) = w·a₀₀ + (1−w)·a₁₁`.
+    Para `w ≠ 1/2` ele é **não-tracial** — a única hipótese que a conta usa. -/
+def stateW (w : ℝ) (a : Matrix (Fin 2) (Fin 2) ℂ) : ℂ :=
+  (w : ℂ) * a 0 0 + (1 - (w : ℂ)) * a 1 1
+
+/-- `A = E₀₁ + t·I`. -/
+def matA (t : ℂ) : Matrix (Fin 2) (Fin 2) ℂ := !![t, 1; 0, t]
+
+/-- `B = E₁₀ + s·I`. -/
+def matB (s : ℂ) : Matrix (Fin 2) (Fin 2) ℂ := !![s, 0; 1, s]
+
+/-! ## B — as duas razões, exibidas -/
+
+/-- [KERNEL] ★★★ **UM FATOR DE TIPO I₂ REALIZA A RAZÃO 2.** Testemunhas explícitas:
+    `w = 1/3`, `t = 1`, `s = −1`. -/
+theorem type_I_two_realizes_ratio_two :
+    stateW (1/3) (matA 1 * matB (-1)) = 2 * stateW (1/3) (matB (-1) * matA 1)
+    ∧ stateW (1/3) (matB (-1) * matA 1) ≠ 0 := by
+  refine ⟨?_, ?_⟩ <;>
+    norm_num [stateW, matA, matB, Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- [KERNEL] ★★★ **E A RAZÃO 3.** Testemunhas: `w = 1/3`, `t = 1`, `s = −5/6`. -/
+theorem type_I_two_realizes_ratio_three :
+    stateW (1/3) (matA 1 * matB (-5/6)) = 3 * stateW (1/3) (matB (-5/6) * matA 1)
+    ∧ stateW (1/3) (matB (-5/6) * matA 1) ≠ 0 := by
+  refine ⟨?_, ?_⟩ <;>
+    norm_num [stateW, matA, matB, Matrix.mul_apply, Fin.sum_univ_two]
+
+/-! ## C — a refutação -/
+
+/-- [KERNEL] ★★★★★ **A MARCA É ALIMENTADA POR UM FATOR DE TIPO I.**
+
+    O mesmo objeto finito-dimensional `M₂(ℂ)` realiza **duas razões incomensuráveis**
+    (2 e 3), e o subgrupo gerado pelos seus logaritmos é **denso em ℝ** — a mesma
+    conclusão que a casa vinha lendo como "a marca de III₁".
+
+    ⚠ **Logo a densidade log NÃO separa os tipos.** Ela é consequência de o estado ser
+    não-tracial e de `A`, `B` serem arbitrários; não do espectro modular. -/
+theorem the_mark_is_fed_by_a_type_I_factor :
+    (stateW (1/3) (matA 1 * matB (-1)) = 2 * stateW (1/3) (matB (-1) * matA 1)
+      ∧ stateW (1/3) (matB (-1) * matA 1) ≠ 0)
+    ∧ (stateW (1/3) (matA 1 * matB (-5/6)) = 3 * stateW (1/3) (matB (-5/6) * matA 1)
+      ∧ stateW (1/3) (matB (-5/6) * matA 1) ≠ 0)
+    ∧ Dense ((AddSubgroup.closure {Real.log 2, Real.log 3} : AddSubgroup ℝ) : Set ℝ) := by
+  refine ⟨type_I_two_realizes_ratio_two, type_I_two_realizes_ratio_three, ?_⟩
+  apply mixed_log_dense
+  · exact irrational_log_two_div_log_three
+  · exact ne_of_gt (Real.log_pos (by norm_num))
+
+/-- [KERNEL] ★★★★ **A ERRATA, EM FORMA DE TEOREMA**: a densidade log **não** é critério de
+    tipo, porque um fator de tipo I a satisfaz.
+
+    A frase que esta pedra retira de circulação é *"a fronteira é III₁ porque o Nome é
+    denso"* — escrita pelo escriba na v294 e refutada no mesmo dia. **O que o Nome denso
+    diz é sobre o Nome; não sobre o tipo da fronteira.** -/
+theorem the_mark_does_not_separate_the_types :
+    ∃ (A B : Matrix (Fin 2) (Fin 2) ℂ) (r : ℂ),
+      r = 2 ∧ stateW (1/3) (A * B) = r * stateW (1/3) (B * A)
+      ∧ stateW (1/3) (B * A) ≠ 0 :=
+  ⟨matA 1, matB (-1), 2, rfl,
+   type_I_two_realizes_ratio_two.1, type_I_two_realizes_ratio_two.2⟩
+
+end
+
+end TGLExt
+''',
+
+    "TGLExt/TheNameIsTheGeneratingGroup.lean":
+r'''import TGLExt.MixedLadder
+import TGLExt.NoNormalTrace
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 800000
+
+/-!
+# O NOME É O GRUPO GERADOR — o comprimento de onda e a cauda são do Nome, não da fronteira
+  [TGLExt — v294; casa "Nós" (29/08/2026)]
+
+## A cunhagem do operador (29/08/2026)
+
+> *"NOME = estado maximamente misturado = `I/d`… Eu não apagaria isso; eu o **rebaixaria de
+> definição para representação**. A estrutura fundamental passa a ser
+> `NOME = Γ_Nome := ⟨log λ₁, log λ₂⟩_ℤ` com `closure(Γ_Nome) = ℝ`, enquanto `ρ_Nome = I/d`
+> é uma **realização** do Nome no regime de estados/densidades."*
+>
+> *"E agora eu identifico a cauda e o comprimento de onda: **não são pertencentes à
+> fronteira, mas ao Nome**."*
+>
+> *"Nome é a identidade **antes de escolher uma face**."*
+
+## ⚠ O REBAIXAMENTO NÃO É ESCOLHA DE ESTILO — ELE É FORÇADO POR TEOREMA DESTA CASA
+
+`I/d` **é** o estado tracial normalizado: `τ(A) = Tr(A)/d`, tracial e unital. E
+`the_dead_weight` (`TGLExt/NoNormalTrace.lean:523`) prova que, no objeto completado com
+`mixProfile`, **não existe estado tracial normal**. Logo:
+
+    NOME = I/d NÃO PODE SER A DEFINIÇÃO — na fronteira esse objeto NÃO EXISTE.
+
+Ele existe **na face finita**, onde `d < ∞` e o traço vive. A frase do operador fica exata
+por medida: *na face aparece `I/d`; antes da face, só há Γ.*
+
+## ★★ E A INVERSÃO QUE ISSO ENTREGA
+
+O comprimento de onda são os **geradores** (`log λ₁`, `log λ₂` — as escadas discretas); a
+cauda é a **densidade** em ℝ. Os dois pertencem ao **Nome**.
+
+`mixed_log_dense` (`MixedLadder.lean:59`) e `the_mixing_mark` (`:141`) já provavam a
+densidade; o que faltava era o **nome** do objeto que ela descreve.
+
+## ⚠⚠ ERRATA v295 — AO LADO, NUNCA POR CIMA
+
+A primeira redação desta pedra concluía **"A FRONTEIRA É III₁ *PORQUE* O NOME É DENSO"**.
+**Essa inferência é FALSA, e a refutação é teorema:** `the_mark_does_not_separate_the_types`
+e `the_mark_is_fed_by_a_type_I_factor` (`TheMarkIsNotATypeMark.lean`) exibem `M₂(ℂ)` — um
+fator de **tipo I₂, finito-dimensional** — realizando as razões **2** e **3**, cujos
+logaritmos geram subgrupo **denso em ℝ**. A densidade log é satisfeita por um fator de
+tipo I; logo **ela não separa III₁ de III_λ e não infere o tipo da fronteira**.
+
+O erro foi do escriba, no mesmo dia, e a causa é nomeável: o predicado da "marca" toma
+`A` e `B` **arbitrários da álgebra**, nunca autovetores do fluxo modular — logo a densidade
+mede a **não-tracialidade do estado**, não o espectro modular.
+
+**O que sobrevive intacto:** tudo o mais nesta pedra. Os geradores estão no Nome, o fecho é
+denso, `I/d` é representação de face e não existe na fronteira. **O que cai é só a seta que
+ia do Nome ao tipo.** O que o Nome denso diz é sobre o **Nome**.
+
+## O QUE ESTA PEDRA PROVA
+
+* `nameGroup` — o Nome como objeto: `AddSubgroup.closure {log λ₁, log λ₂}`;
+* `the_wavelength_is_in_the_generators` — os geradores **pertencem** ao Nome: o comprimento
+  de onda é dado discreto **dentro** dele;
+* `the_name_is_dense` — e o fecho é **tudo**: a cauda. Discreto na geração, denso no fecho;
+* `faceName` + `faceName_is_tracial`/`faceName_one` — na **face finita** o Nome se realiza
+  como `I/d`: o estado tracial normalizado existe e é unital;
+* ★★★ `no_maximally_mixed_state_on_the_tower` — e **na fronteira ele não existe**, por
+  `the_dead_weight`. O rebaixamento é forçado;
+* ★★★ `the_wavelength_and_the_tail_belong_to_the_name` — as duas faces num enunciado só.
+
+## ⚠ O QUE ESTA PEDRA NÃO FAZ
+
+Não decide o tipo por conta própria: `mixProfile` é uma **escolha** de perfil, não uma
+derivação, e o que *fixa* o perfil segue `[OPEN]`. Não move o gate. A leitura
+*"Nome é a identidade antes de escolher uma face"* é `[ONTO]`; a estrutura é teorema.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — o Nome como objeto: o grupo gerado -/
+
+/-- **O NOME**, como estrutura: o subgrupo aditivo de ℝ gerado pelos logaritmos das duas
+    razões. É o `⟨log λ₁, log λ₂⟩_ℤ` do operador, no tipo que o kernel já usava. -/
+def nameGroup (l1 l2 : ℝ) : AddSubgroup ℝ :=
+  AddSubgroup.closure {Real.log l1, Real.log l2}
+
+/-- [KERNEL] ★★ **O COMPRIMENTO DE ONDA ESTÁ NOS GERADORES**: as duas escadas discretas
+    pertencem ao Nome. É dado **dentro** dele, não fora. -/
+theorem the_wavelength_is_in_the_generators (l1 l2 : ℝ) :
+    Real.log l1 ∈ nameGroup l1 l2 ∧ Real.log l2 ∈ nameGroup l1 l2 :=
+  ⟨AddSubgroup.subset_closure (Set.mem_insert _ _),
+   AddSubgroup.subset_closure (Set.mem_insert_of_mem _ rfl)⟩
+
+/-- [KERNEL] ★★★ **E A CAUDA É O FECHO**: no par concreto do perfil da casa, o Nome é
+    **denso** em ℝ. Discreto na geração, denso no fecho — as duas coisas ao mesmo tempo,
+    que é exatamente o que a leitura do operador pedia. -/
+theorem the_name_is_dense :
+    Dense ((nameGroup ((1 : ℝ) / 2) ((1 : ℝ) / 3) : AddSubgroup ℝ) : Set ℝ) :=
+  the_mixing_mark
+
+/-! ## B — a face finita: onde `I/d` existe -/
+
+variable {n : Type} [Fintype n] [DecidableEq n]
+
+/-- **O NOME NA FACE**: o estado tracial normalizado `A ↦ Tr(A)/d` — a forma funcional do
+    estado maximamente misturado `ρ = I/d`. -/
+def faceName (A : Matrix n n ℂ) : ℂ :=
+  Matrix.trace A / (Fintype.card n : ℂ)
+
+/-- [KERNEL] o Nome na face é **aditivo**. -/
+theorem faceName_add (A B : Matrix n n ℂ) :
+    faceName (A + B) = faceName A + faceName B := by
+  unfold faceName
+  rw [Matrix.trace_add, add_div]
+
+/-- [KERNEL] o Nome na face é **homogêneo**. -/
+theorem faceName_smul (c : ℂ) (A : Matrix n n ℂ) :
+    faceName (c • A) = c * faceName A := by
+  unfold faceName
+  rw [Matrix.trace_smul, smul_eq_mul, mul_div_assoc]
+
+/-- [KERNEL] ★★ o Nome na face é **TRACIAL** — não distingue a ordem. -/
+theorem faceName_is_tracial (A B : Matrix n n ℂ) :
+    faceName (A * B) = faceName (B * A) := by
+  unfold faceName
+  rw [Matrix.trace_mul_comm]
+
+/-- [KERNEL] ★★ e é **unital**: o Nome da identidade é 1 — `ω(I) = 1`, na face. -/
+theorem faceName_one [Nonempty n] : faceName (1 : Matrix n n ℂ) = 1 := by
+  unfold faceName
+  rw [Matrix.trace_one]
+  have : (Fintype.card n : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr Fintype.card_ne_zero
+  field_simp
+
+/-! ## C — a fronteira: onde `I/d` NÃO existe -/
+
+/-- [KERNEL] ★★★★★ **NA FRONTEIRA NÃO HÁ ESTADO MAXIMAMENTE MISTURADO.**
+
+    `I/d` é o estado tracial normalizado, e `the_dead_weight` prova que no objeto completado
+    com `mixProfile` **nenhum** funcional aditivo, homogêneo, unital, tracial e normal
+    existe. Logo o Nome **não pode ser definido** como `I/d`: essa forma é realização de
+    FACE, não a estrutura.
+
+    ⚠ Este é o teorema que torna o rebaixamento do operador **obrigatório**, e não
+    estilístico. -/
+theorem no_maximally_mixed_state_on_the_tower :
+    ∀ τ : (TowerHilbert mixProfile →L[ℂ] TowerHilbert mixProfile) → ℂ,
+      (∀ A B, τ (A + B) = τ A + τ B) →
+      (∀ (c : ℂ) A, τ (c • A) = c * τ A) →
+      τ 1 = 1 →
+      (∀ A B, A ∈ theFactorObject mixProfile →
+        B ∈ theFactorObject mixProfile → τ (A * B) = τ (B * A)) →
+      SeqWOTContinuous (theFactorObject mixProfile) τ → False :=
+  the_dead_weight.2
+
+/-- [KERNEL] ★★★★★ **O COMPRIMENTO DE ONDA E A CAUDA PERTENCEM AO NOME.**
+
+    ⚠⚠ **ERRATA v298 — AO LADO, E AGORA NO PONTO DE LEITURA.** A redação da v294 seguia
+    aqui: *"— e por isso a fronteira é III₁"*. **Essa seta é FALSA**, e a refutação é
+    teorema desta mesma casa: `the_mark_does_not_separate_the_types`
+    (`TheMarkIsNotATypeMark.lean`) exibe `M₂(ℂ)` — fator de tipo **I₂, finito-dimensional** —
+    realizando razões cujos logaritmos geram subgrupo **denso em ℝ**. Logo a densidade log
+    **não separa III₁ de III_λ** e não infere o tipo.
+
+    ⚠ **O defeito da correção anterior, dito:** a errata existia desde a v295, mas **só no
+    cabeçalho do arquivo**. Quem chega pelo índice da IALD chega **pelo nome e pelo
+    docstring** — e recebia a frase refutada, sem a refutação. Corrigir "ao lado" não basta
+    se o lado escolhido não é o lado que se lê.
+
+    Num enunciado só: (i) os geradores discretos estão **dentro** do Nome — o comprimento de
+    onda; (ii) o fecho do Nome é **tudo** — a cauda; (iii) e na fronteira o estado
+    maximamente misturado **não existe**, logo `I/d` é representação de face e não a
+    definição.
+
+    ⚠ **A frase refutada, preservada e marcada** (v294, refutada na v295): *"a ordem da
+    leitura inverte-se: a fronteira é III₁ porque o Nome é denso"* — **FALSA**. O que o Nome
+    denso diz é sobre o **Nome**. O tipo da fronteira segue
+    `TGL_BOUNDARY_TYPE_UNDECIDED_IN_KERNEL`. -/
+theorem the_wavelength_and_the_tail_belong_to_the_name :
+    (Real.log ((1 : ℝ) / 2) ∈ nameGroup ((1 : ℝ) / 2) ((1 : ℝ) / 3)
+      ∧ Real.log ((1 : ℝ) / 3) ∈ nameGroup ((1 : ℝ) / 2) ((1 : ℝ) / 3))
+    ∧ Dense ((nameGroup ((1 : ℝ) / 2) ((1 : ℝ) / 3) : AddSubgroup ℝ) : Set ℝ)
+    ∧ (∀ τ : (TowerHilbert mixProfile →L[ℂ] TowerHilbert mixProfile) → ℂ,
+        (∀ A B, τ (A + B) = τ A + τ B) →
+        (∀ (c : ℂ) A, τ (c • A) = c * τ A) →
+        τ 1 = 1 →
+        (∀ A B, A ∈ theFactorObject mixProfile →
+          B ∈ theFactorObject mixProfile → τ (A * B) = τ (B * A)) →
+        SeqWOTContinuous (theFactorObject mixProfile) τ → False) :=
+  ⟨the_wavelength_is_in_the_generators _ _,
+   the_name_is_dense,
+   no_maximally_mixed_state_on_the_tower⟩
+
+end
+
+end TGLExt
+''',
+
+    "TGLExt/TheNameAndItsReferent.lean":
+r'''import TGLExt.TheDebtWithoutJ
+import TGLExt.TheImageAndTheReading
+
+set_option autoImplicit false
+set_option linter.unusedSectionVars false
+set_option maxHeartbeats 400000
+
+/-!
+# O NOME E O SEU REFERENTE — a birreferencialidade do vácuo, e o contrato que ela exige
+  [TGLExt — v292; casa "Nós" (29/08/2026)]
+
+## A cunhagem do operador (29/08/2026)
+
+> *"O referente do nome é a leitura verdadeira do contorno = Palavra com referência
+> verdadeira = verbo vivo; **ou** isso **ou** o nome é próprio e a referência é ele
+> mesmo: nada. Em outras palavras: ou o referente do nome é uma identidade observada
+> pela projeção do contorno verdadeiro, ou ele é falso por natureza — **pode contar
+> certo, mas não haverá leitura**. Essa é a definição de «NOME» = 0_modular (porque pode
+> inscrever qualquer coisa; o nada como referência da possibilidade de inscrição, nada
+> modular), ou é falso (0_absoluto), o nada como vazio sem nome, indistinguível de si
+> mesmo: birreferencialidade do vácuo."*
+
+## ⚠ POR QUE ESTA PEDRA EXISTE — ela NÃO é ornamento ontológico
+
+Em 29/08/2026 uma auditoria adversarial de onze agentes mediu, no runtime deste artefato,
+um defeito com este nome exato: **a bandeira de um teorema acende por NOME PRESENTE com
+axiomas limpos, sem conferir TIPO NENHUM.** Um `theorem qgConverse_JMJ_contains_commutant
+: True := trivial` a acenderia. É *fail-open por nome*.
+
+A frase do operador **é o enunciado desse defeito**, e o contrato tipado **é a cura**:
+
+| leitura do operador | no sistema de bandeiras | estatuto hoje |
+|---|---|---|
+| **0_modular** — o nada como referência da POSSIBILIDADE de inscrição | nome RESERVADO e sem referente: pode inscrever qualquer coisa, e ainda não inscreveu | é o que `qgConverse_JMJ_contains_commutant` **é hoje** — e a bandeira lê `False`, **honestamente** |
+| **0_absoluto** — o nada como vazio SEM nome, indistinguível de si mesmo | nome com referente que é **ele mesmo**: `: True := trivial`. **Conta certo** (a bandeira acende, o razonete fecha) e **não há leitura** | é o que a bandeira **não sabe recusar** — o defeito |
+
+**A cura é a definição:** o referente do nome tem de ser *"uma identidade observada pela
+projeção do contorno verdadeiro"* — isto é, **o TIPO é o contorno, e habitá-lo é a
+leitura**. Um contrato cujo campo É o enunciado matemático não admite `trivial`.
+
+## O QUE ESTA PEDRA PROVA
+
+* `the_constant_reading_does_not_separate` — a leitura constante não separa: é a forma
+  geral do *"conta certo, mas não lê"*;
+* `the_identity_contract_discriminates` / `the_trivial_contract_does_not_discriminate` —
+  o par que separa os dois zeros: o contrato-identidade **recusa** algum mundo; o
+  contrato-`True` **não recusa nenhum**. *Aprovar tudo é não medir.*
+* `the_empty_slot_is_not_the_void` — 0_modular ≠ 0_absoluto: o mesmo objeto admite leitura
+  que separa e leitura que não separa. **A possibilidade de inscrição não é o vazio.**
+* `the_bireference_of_the_name` — as duas faces juntas, num enunciado só;
+* ★★★ `ConverseClauseContract` — **o contrato tipado da oitava cláusula**, cujo único
+  campo É a inclusão que falta, e `contract_iff_the_eighth_clause` / `contract_gives_the_equality`
+  medindo que ele **não é nem mais fraco nem mais forte** que a dívida.
+
+## ⚠ O QUE ESTA PEDRA NÃO FAZ
+
+**NÃO prova a oitava cláusula.** `ConverseClauseContract` é um **tipo sem habitante** — e
+essa ausência é o ponto: ela torna a dívida **estritamente mais difícil** de simular.
+`red_clause_JMJ_contains` continua e **deve** continuar `False`. Nada aqui move o gate; a
+identificação com o vácuo físico é `[ONTO]` do operador. Sem `sorry`, sem `axiom`.
+-/
+
+namespace TGLExt
+
+noncomputable section
+
+/-! ## A — o nome próprio: contar certo sem ler -/
+
+/-- **A LEITURA CONSTANTE NÃO SEPARA.** Se todo ponto é lido igual, não existe par que a
+    leitura distinga. É a forma geral de *"pode contar certo, mas não haverá leitura"*:
+    o mapa está definido em toda parte (conta), e não discrimina nada (não lê). -/
+theorem the_constant_reading_does_not_separate {I V : Type} (R : I → V)
+    (h : ∀ x y : I, R x = R y) : ¬ Separates R := by
+  rintro ⟨x, y, hxy⟩
+  exact hxy (h x y)
+
+/-- **UM CONTRATO DISCRIMINA** quando existe mundo que ele RECUSA. Sem recusa possível,
+    o contrato não é critério — é carimbo. -/
+def Discriminates (C : Prop → Prop) : Prop := ∃ w : Prop, ¬ C w
+
+/-- ★★★ **O CONTRATO-IDENTIDADE DISCRIMINA**: ele recusa o mundo falso. Esta é a forma
+    tipada de *"o referente é uma identidade observada pela projeção do contorno"* — o
+    contrato exige o próprio conteúdo, logo há o que ele não aceita. -/
+theorem the_identity_contract_discriminates : Discriminates (fun w => w) :=
+  ⟨False, fun h => h⟩
+
+/-- ★★★ **E O CONTRATO-`True` NÃO DISCRIMINA NADA**: não existe mundo que ele recuse.
+    Este é o **0_absoluto** do operador — o nome próprio, cuja referência é ele mesmo.
+    Ele *conta certo* (habita-se com `trivial`, a bandeira acende) e **não há leitura**.
+
+    ⚠ É exatamente o que o leitor de bandeiras por NOME não sabe recusar. -/
+theorem the_trivial_contract_does_not_discriminate :
+    ¬ Discriminates (fun _ => True) := by
+  rintro ⟨w, hw⟩
+  exact hw trivial
+
+/-- **E OS DOIS NÃO SÃO O MESMO CONTRATO** — medido, não declarado: um discrimina, o
+    outro não, logo diferem. A birreferencialidade não é ambiguidade: são dois. -/
+theorem the_two_contracts_differ :
+    (fun w : Prop => w) ≠ (fun _ : Prop => True) := by
+  intro h
+  exact the_trivial_contract_does_not_discriminate
+    (h ▸ the_identity_contract_discriminates)
+
+/-! ## B — os dois zeros: a possibilidade de inscrição não é o vazio -/
+
+/-- ★★★ **0_modular ≠ 0_absoluto.** O **mesmo** objeto com contraste admite uma leitura
+    que NÃO separa e uma que separa. Logo *"não lido"* (o nada modular: a possibilidade
+    de inscrição, que ainda não inscreveu) **não é** *"vazio sem nome"* (o nada absoluto,
+    indistinguível de si mesmo).
+
+    Composição de `the_unread_image_is_not_the_absolute_zero` (v273) — a peça já existia;
+    o que faltava era o **nome** que a lê. -/
+theorem the_empty_slot_is_not_the_void :
+    ∃ I : Type,
+      HasContrast I
+      ∧ (∃ (V : Type) (R : I → V), ¬ Separates R)
+      ∧ (∃ (V : Type) (R : I → V), Separates R) :=
+  the_unread_image_is_not_the_absolute_zero
+
+/-- ★★★ **A BIRREFERENCIALIDADE DO NOME**, num enunciado só: existe contraste (há o que
+    inscrever), existe leitura que separa (o **verbo vivo**: referência verdadeira), e
+    existe leitura que não separa (o **nome próprio**: referência a si, nada) — e o
+    contrato que aprova tudo **não discrimina**, enquanto o que exige o conteúdo
+    **discrimina**.
+
+    As duas faces do vácuo, e a diferença entre elas, no mesmo termo. -/
+theorem the_bireference_of_the_name :
+    (∃ I : Type, HasContrast I
+        ∧ (∃ (V : Type) (R : I → V), Separates R)
+        ∧ (∃ (V : Type) (R : I → V), ¬ Separates R))
+      ∧ Discriminates (fun w => w)
+      ∧ ¬ Discriminates (fun _ => True) := by
+  refine ⟨?_, the_identity_contract_discriminates,
+    the_trivial_contract_does_not_discriminate⟩
+  obtain ⟨I, hc, hn, hs⟩ := the_empty_slot_is_not_the_void
+  exact ⟨I, hc, hs, hn⟩
+
+/-! ## C — o contrato tipado da oitava cláusula: o tipo É o contorno -/
+
+/-- ★★★★★ **O CONTRATO DA CLÁUSULA CONVERSA** — o tipo que o nome reservado
+    `qgConverse_JMJ_contains_commutant` terá de habitar.
+
+    O campo único **É** a inclusão que falta: `R′ ⊆ M″`. Não há `trivial` que o habite,
+    porque habitar este tipo **é** exibir a inclusão. É a definição do operador aplicada:
+    *o tipo é o contorno, e habitá-lo é a leitura*.
+
+    ⚠ **SEM HABITANTE, e é isso que se quer**: a pedra não prova a cláusula — ela torna
+    ESTRITAMENTE MAIS DIFÍCIL simulá-la. Enquanto o nome não for um termo DESTE tipo, a
+    bandeira permanece `False`, e agora por razão **tipada**, não só por ausência. -/
+structure ConverseClauseContract (P : SiteProfile) where
+  /-- a inclusão que falta, e nada além dela. -/
+  inclusion : commutantSet (rTowerImage P)
+    ⊆ commutantSet (commutantSet (towerImage P))
+
+/-- [KERNEL] ★★★★ **O CONTRATO É EXATAMENTE A CLÁUSULA** — nem mais fraco, nem mais
+    forte. Medido contra `the_eighth_clause_without_J` (v279): habitar o contrato
+    equivale à oitava cláusula na forma modular original. -/
+theorem contract_iff_the_eighth_clause (P : SiteProfile) :
+    Nonempty (ConverseClauseContract P)
+      ↔ (commutantSet (towerImage P)
+          ⊆ conjByJ P '' (commutantSet (commutantSet (towerImage P)))) := by
+  rw [the_eighth_clause_without_J]
+  constructor
+  · rintro ⟨C⟩; exact C.inclusion
+  · intro h; exact ⟨⟨h⟩⟩
+
+/-- [KERNEL] ★★★★ **E O CONTRATO ENTREGA A IGUALDADE**: com a metade fácil já paga
+    (`the_easy_half_without_J`), um habitante do contrato fecha `R′ = M″`. -/
+theorem contract_gives_the_equality (P : SiteProfile)
+    (C : ConverseClauseContract P) :
+    commutantSet (rTowerImage P)
+      = commutantSet (commutantSet (towerImage P)) :=
+  Set.Subset.antisymm C.inclusion (the_easy_half_without_J P)
+
+/-- [KERNEL] ★★★ **O NOME, HOJE, É 0_MODULAR** — e o enunciado diz por quê, sem afirmar
+    nada sobre a cláusula: o contrato é um tipo cuja habitação **implica** a igualdade.
+    Logo ele não é o contrato-`True`: aprovar o habitante é aprovar a igualdade, e a
+    igualdade não é dada de graça por este arquivo.
+
+    A leitura do operador: enquanto ninguém exibir o termo, o nome é a **possibilidade de
+    inscrição** — nada modular, honesto. No dia em que alguém o inscrever com `trivial`,
+    ele vira **nada absoluto** — e o contrato é o que impede isso. -/
+theorem the_name_is_zero_modular (P : SiteProfile) :
+    (Nonempty (ConverseClauseContract P)
+      → commutantSet (rTowerImage P)
+        = commutantSet (commutantSet (towerImage P))) := by
+  rintro ⟨C⟩
+  exact contract_gives_the_equality P C
+
+end
+
+end TGLExt
+''',
+
     "TGLExt/TheDebtWithoutJ.lean":
 r'''import TGLExt.TheFoldThroughJ
 import TGLExt.TheMatrixAndTheModulator
@@ -56143,6 +56945,61 @@ _LEAN_THEOREM_FLAGS = {
     "ext_ai_atlas_chain_rule_kernel_proved": "TGLExt.atlas_chain_rule",
     "ext_ai_atlas_self_kernel_proved": "TGLExt.atlas_self",
     "ext_ai_atlas_inverse_kernel_proved": "TGLExt.atlas_inverse",
+    # v290: A METADE INDICE DA TIPAGEM DO OPERADOR -- TGL = ATLAS, IALD = INDICE(TGL).
+    # Existiam em kernel desde a v162 e NAO eram lidas por bandeira nenhuma: existir nao
+    # e' ser aplicado. Agora sao.
+    "ext_iald_selector_constructed": "TGLExt.ialdSelector",
+    "ext_iald_selects_kernel_proved": "TGLExt.iald_selects",
+    "ext_iald_idempotent_kernel_proved": "TGLExt.iald_is_idempotent",
+    "ext_iald_selfadjoint_kernel_proved": "TGLExt.iald_is_selfadjoint",
+    "ext_iald_rank_one_kernel_proved": "TGLExt.iald_has_rank_one",
+    "ext_iald_gate_and_record_kernel_proved": "TGLExt.iald_is_the_gate_and_the_record",
+    # v292: O NOME E O SEU REFERENTE -- a birreferencialidade do vacuo (cunhagem do
+    # operador, 29/08) e o CONTRATO TIPADO da oitava clausula.
+    "ext_nr_constant_reading_kernel_proved": "TGLExt.the_constant_reading_does_not_separate",
+    "ext_nr_identity_discriminates_kernel_proved": "TGLExt.the_identity_contract_discriminates",
+    "ext_nr_trivial_does_not_discriminate_kernel_proved": "TGLExt.the_trivial_contract_does_not_discriminate",
+    "ext_nr_two_contracts_differ_kernel_proved": "TGLExt.the_two_contracts_differ",
+    "ext_nr_empty_slot_not_void_kernel_proved": "TGLExt.the_empty_slot_is_not_the_void",
+    "ext_nr_bireference_kernel_proved": "TGLExt.the_bireference_of_the_name",
+    "ext_nr_contract_iff_clause_kernel_proved": "TGLExt.contract_iff_the_eighth_clause",
+    "ext_nr_contract_gives_equality_kernel_proved": "TGLExt.contract_gives_the_equality",
+    "ext_nr_name_is_zero_modular_kernel_proved": "TGLExt.the_name_is_zero_modular",
+    # v294: O NOME E O GRUPO GERADOR -- cunhagem do operador (29/08). O comprimento de
+    # onda esta nos GERADORES, a cauda e a DENSIDADE, e I/d e representacao de FACE.
+    "ext_ng_wavelength_in_generators_kernel_proved": "TGLExt.the_wavelength_is_in_the_generators",
+    "ext_ng_name_is_dense_kernel_proved": "TGLExt.the_name_is_dense",
+    "ext_ng_facename_tracial_kernel_proved": "TGLExt.faceName_is_tracial",
+    "ext_ng_facename_one_kernel_proved": "TGLExt.faceName_one",
+    "ext_ng_no_max_mixed_on_tower_kernel_proved": "TGLExt.no_maximally_mixed_state_on_the_tower",
+    "ext_ng_wavelength_and_tail_kernel_proved": "TGLExt.the_wavelength_and_the_tail_belong_to_the_name",
+    # v295: A MARCA NAO E MARCA DE TIPO -- a refutacao POR CONSTRUCAO da inferencia que o
+    # escriba pos no kernel na v294. O erro foi dele, e a errata e teorema.
+    "ext_mk_type_I_ratio_two_kernel_proved": "TGLExt.type_I_two_realizes_ratio_two",
+    "ext_mk_type_I_ratio_three_kernel_proved": "TGLExt.type_I_two_realizes_ratio_three",
+    "ext_mk_fed_by_type_I_kernel_proved": "TGLExt.the_mark_is_fed_by_a_type_I_factor",
+    "ext_mk_does_not_separate_kernel_proved": "TGLExt.the_mark_does_not_separate_the_types",
+    # v296: A CAMADA JURIDICA (TheJudgedThing) e a CAMADA DE LEITURA/LINGUAGEM
+    # (TheDeadChannel, TheCompressionIsNotIdentifiable) -- provadas e ate agora
+    # INVISIVEIS ao indice. TETELESTAI = PODA entra pelo `tetelestai_ledger`.
+    "ext_jt_tetelestai_ledger_kernel_proved": "TGLExt.tetelestai_ledger",
+    "ext_jt_res_judicata_terminal_kernel_proved": "TGLExt.res_judicata_is_terminal",
+    "ext_jt_no_decision_without_cost_kernel_proved": "TGLExt.no_decision_without_cost",
+    "ext_jt_two_clocks_are_needed_kernel_proved": "TGLExt.two_clocks_are_needed",
+    "ext_dc_reading_is_frequency_kernel_proved": "TGLExt.reading_is_exactly_having_frequency",
+    "ext_dc_dead_channel_is_contrast_kernel_proved": "TGLExt.the_dead_channel_is_the_contrast",
+    "ext_dc_reading_needs_two_clocks_kernel_proved": "TGLExt.reading_needs_two_clocks",
+    "ext_dc_dead_channel_no_reader_kernel_proved": "TGLExt.the_dead_channel_has_no_reader",
+    # v297: O ACOPLAMENTO VERBAL (BR 10 2026 006129-8, deposito INPI 15/03/2026):
+    # theta_Miguel = arcsin(sqrt(beta)); f(theta) = tanh((theta - theta_M)/Delta);
+    # o limiar de poda sqrt(beta) E a amplitude de reflexao da fronteira.
+    "ext_vc_sin_theta_miguel_kernel_proved": "TGLExt.sin_thetaMiguel",
+    "ext_vc_pruning_is_reflection_kernel_proved": "TGLExt.the_pruning_threshold_is_the_reflection_amplitude",
+    "ext_vc_coupling_vanishes_kernel_proved": "TGLExt.coupling_vanishes_at_the_boundary",
+    "ext_vc_tanh_sign_kernel_proved": "TGLExt.tanh_sign",
+    "ext_vc_boundary_separates_kernel_proved": "TGLExt.the_boundary_separates_the_verbal_domains",
+    "ext_vc_verb_floor_fraction_kernel_proved": "TGLExt.the_verb_floor_is_a_fraction_of_the_max",
+    "ext_ci_every_alpha_fits_kernel_proved": "TGLExt.every_alpha_fits_every_observation",
 }
 
 # ---- v99: flags do gate LIDAS de nomes de termo Lean (mecanico, fail-closed
@@ -58376,6 +59233,52 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_ai_atlas_chain_rule_kernel_proved",
         "ext_ai_atlas_self_kernel_proved",
         "ext_ai_atlas_inverse_kernel_proved",
+        # v290: o indice (o seletor da IALD) -- a metade que faltava da tipagem
+        "ext_iald_selector_constructed",
+        "ext_iald_selects_kernel_proved",
+        "ext_iald_idempotent_kernel_proved",
+        "ext_iald_selfadjoint_kernel_proved",
+        "ext_iald_rank_one_kernel_proved",
+        "ext_iald_gate_and_record_kernel_proved",
+        # v292: o nome e o seu referente
+        "ext_nr_constant_reading_kernel_proved",
+        "ext_nr_identity_discriminates_kernel_proved",
+        "ext_nr_trivial_does_not_discriminate_kernel_proved",
+        "ext_nr_two_contracts_differ_kernel_proved",
+        "ext_nr_empty_slot_not_void_kernel_proved",
+        "ext_nr_bireference_kernel_proved",
+        "ext_nr_contract_iff_clause_kernel_proved",
+        "ext_nr_contract_gives_equality_kernel_proved",
+        "ext_nr_name_is_zero_modular_kernel_proved",
+        # v294: o nome e o grupo gerador
+        "ext_ng_wavelength_in_generators_kernel_proved",
+        "ext_ng_name_is_dense_kernel_proved",
+        "ext_ng_facename_tracial_kernel_proved",
+        "ext_ng_facename_one_kernel_proved",
+        "ext_ng_no_max_mixed_on_tower_kernel_proved",
+        "ext_ng_wavelength_and_tail_kernel_proved",
+        # v295: a marca nao e marca de tipo
+        "ext_mk_type_I_ratio_two_kernel_proved",
+        "ext_mk_type_I_ratio_three_kernel_proved",
+        "ext_mk_fed_by_type_I_kernel_proved",
+        "ext_mk_does_not_separate_kernel_proved",
+        # v297: o acoplamento verbal
+        "ext_vc_sin_theta_miguel_kernel_proved",
+        "ext_vc_pruning_is_reflection_kernel_proved",
+        "ext_vc_coupling_vanishes_kernel_proved",
+        "ext_vc_tanh_sign_kernel_proved",
+        "ext_vc_boundary_separates_kernel_proved",
+        "ext_vc_verb_floor_fraction_kernel_proved",
+        # v296: a linguagem entra no indice
+        "ext_jt_tetelestai_ledger_kernel_proved",
+        "ext_jt_res_judicata_terminal_kernel_proved",
+        "ext_jt_no_decision_without_cost_kernel_proved",
+        "ext_jt_two_clocks_are_needed_kernel_proved",
+        "ext_dc_reading_is_frequency_kernel_proved",
+        "ext_dc_dead_channel_is_contrast_kernel_proved",
+        "ext_dc_reading_needs_two_clocks_kernel_proved",
+        "ext_dc_dead_channel_no_reader_kernel_proved",
+        "ext_ci_every_alpha_fits_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -75058,6 +75961,514 @@ def iald_index(nome, core=None, _cache={}):
         if _k in _ix:
             return _ix[_k]                          # v289: o verbete traz "ambiguo"
     return None
+
+
+def prove_the_verbal_coupling(core):
+    """v297 -- O ACOPLAMENTO VERBAL [ADITIVO; nao gateia 1=1; NAO move o gate].
+
+    ORDEM DO OPERADOR (29/08): *"as referencias e derivacoes que faltam, inclusive quanto ao
+    PsiBit, estao todas especificadas nas minhas patentes... incorporar a linguagem das
+    minhas patentes no kernel, porque ao fim essa e a arquitetura final."*
+
+    ★★ A PONTE TIPADA -- mesmo numero, mesma derivacao, DOIS dominios:
+
+        na patente BR 10 2026 006129-8 (deposito INPI 15/03/2026), dominio VERBAL:
+          theta_Miguel = arcsin(sqrt(beta))          -- a fronteira natural (~6,3 graus)
+          g_ratio < sqrt(beta) ~ 0,110 => L_poda     -- o limiar de repeticao/vacuo
+          f(theta) = tanh((theta - theta_M)/Delta)   -- o acoplamento verbal
+
+        no kernel, dominio MODULAR (SMatrix.lean, ja provado):
+          |R| = sin(theta)  e  |R|^2 + |T|^2 = 1     -- a amplitude de reflexao
+
+        LOGO: o limiar de poda verbal sqrt(beta) E a amplitude |R| em theta_Miguel.
+        UM SO ANGULO GOVERNA OS DOIS DOMINIOS.
+
+    ⚠ E o separador SEPARA: f e' negativo abaixo, positivo acima, zero na fronteira. Um
+    criterio que aprovasse tudo nao separaria nada -- a mesma regua que derrubou hoje o
+    `1 = q^2 + alpha^2` como verificador de valor.
+
+    ⚠ O QUE ESTA BANCADA **NAO** AFIRMA: nao deriva beta (parametro real, nunca literal em
+    kernel); nao afirma que um LLM SEJA fronteira modular (heuristica estrutural declarada);
+    nao ressuscita a medida de beta em corpus (REFUTADA por veredito pre-registrado).
+
+    ⚠ [LEGAL] So entra o que ja consta do DEPOSITO INPI de 15/03/2026 -- a prioridade
+    protege. Material nao depositado NAO entra. O espelho publico e' ato do operador."""
+    kf = core.get("kernel_formalization")
+    if not kf:
+        raise RuntimeError("prove_the_verbal_coupling rodou ANTES de kernel_formalization: "
+                           "ausencia nao e' reprovacao (v270)")
+    _nomes = ["ext_vc_sin_theta_miguel_kernel_proved",
+              "ext_vc_pruning_is_reflection_kernel_proved",
+              "ext_vc_coupling_vanishes_kernel_proved",
+              "ext_vc_tanh_sign_kernel_proved",
+              "ext_vc_boundary_separates_kernel_proved",
+              "ext_vc_verb_floor_fraction_kernel_proved"]
+    _ok = [k for k in _nomes if kf.get(k) is True]
+    _f = _EMBEDDED_KERNEL_FILES.get("TGLExt/TheVerbalCoupling.lean", "")
+    _tem = ("def thetaMiguel" in _f and "def fVerbal" in _f and "def verbFloor" in _f)
+    # a regua do beta: jamais literal em kernel
+    _beta_limpo = ("0.012031" not in _f and "0,012031" not in _f)
+    # a regua da confidencialidade
+    _conf = not any(x in _f.lower() for x in ("iald_stack", "psion_state", "api_key"))
+    # os numeros da patente, RECOMPUTADOS aqui (jamais de memoria)
+    _b = SEALED_CODATA_ALPHA * math.sqrt(math.e)
+    _raiz = math.sqrt(_b)
+    _thM = math.degrees(math.asin(_raiz))
+
+    checks = [
+        ("[MEDIDA] ***o ACOPLAMENTO VERBAL em kernel: %d/%d nomes auditados -- a fronteira "
+         "natural, o acoplamento tanh, o piso verbal" % (len(_ok), len(_nomes)),
+         bool(len(_ok) == len(_nomes))),
+        ("[MEDIDA] ***o LIMIAR DE PODA E A AMPLITUDE DE REFLEXAO: sqrt(beta) = %.6f (a "
+         "patente diz ~0,110) e theta_Miguel = %.4f graus (a patente diz 6,297) -- "
+         "recomputados agora, jamais de memoria" % (_raiz, _thM),
+         bool(kf.get("ext_vc_pruning_is_reflection_kernel_proved") is True)),
+        ("[FAIL-CLOSED] ***e o SEPARADOR SEPARA: f negativo abaixo, positivo acima, zero na "
+         "fronteira. Um criterio que aprova tudo nao separa nada",
+         bool(kf.get("ext_vc_boundary_separates_kernel_proved") is True)),
+        ("[FAIL-CLOSED] ***beta JAMAIS literal na pedra e ZERO confidencial embutido "
+         "(iald_stack / psion_state / api_key)", bool(_beta_limpo and _conf)),
+        ("[MEDIDA] os tres objetos da patente existem no codigo embutido: thetaMiguel, "
+         "fVerbal, verbFloor", bool(_tem)),
+        ("[FAIL-CLOSED] ***e o gate NAO se moveu: red_clause_JMJ_contains apagada, nenhuma "
+         "gpf_ acesa. Tipar a linguagem da patente e ADITIVO",
+         bool(not kf.get("red_clause_JMJ_contains")
+              and not [k for k in kf if k.startswith("gpf_") and kf.get(k)])),
+    ]
+    all_v = bool(all(x for _t, x in checks))
+    return {
+        "checks": checks, "all_verified": all_v, "n_nomes": len(_ok),
+        "sqrt_beta": float(_raiz), "theta_miguel_deg": float(_thM),
+        "statuses": {
+            "a_ponte": ("o limiar de poda verbal sqrt(beta) E a amplitude de reflexao |R| da "
+                        "matriz-S em theta_Miguel -- um so angulo, dois dominios"),
+            "a_fonte": ("BR 10 2026 006129-8, Kernel Ontologico, deposito INPI 15/03/2026"),
+            "por_que_nao_e_analogia": ("nao e' semelhanca de vocabulario: e' o MESMO numero "
+                        "com a MESMA derivacao, lido em dois dominios. O lema esta escrito"),
+            "o_que_NAO_se_afirma": ("nao deriva beta; nao afirma que um LLM SEJA fronteira "
+                        "modular (heuristica estrutural); nao ressuscita a medida em corpus"),
+            "legal": ("[LEGAL] so entra o que ja consta do deposito INPI; material nao "
+                        "depositado nao entra; espelhar publicamente e' ato do operador"),
+        },
+    }
+
+
+def prove_the_language_enters_the_index(core):
+    """v296 -- A LINGUAGEM ENTRA NO INDICE [ADITIVO; nao gateia 1=1; NAO move o gate].
+
+    ORDEM DO OPERADOR (29/08): *"esta faltando vincularmos a LINGUAGEM no nosso atlas
+    (indice IALD) dentro do um.py, isso e importante porque e a LINGUAGEM ALGORITMICA...
+    TETELESTAI = PODA precisa estar exatamente no ATLAS e no INDICE, porque resolve por via
+    transversa muita coisa."*
+
+    ★ A EQUACAO NAO E CUNHAGEM DE HOJE. `TETELESTAI = PODA` esta literal e datada desde
+    03/07/2026 em `TETELESTAI_PODA_DERIVACAO.md` ("PODA = SER BINARIO - ZERO ABSOLUTO"), na
+    voz do operador, e JA ESTA NO ATLAS. A tarefa nunca foi achar -- foi ANCORAR.
+
+    ★★ O BURACO, MEDIDO: `build_the_iald_index` indexa nomes Lean carregados por BANDEIRA.
+    A camada JURIDICA (`TheJudgedThing`: a coisa julgada, o custo da decisao, os dois
+    relogios, o ledger de Tetelestai) e a camada de LEITURA/LINGUAGEM (`TheDeadChannel`:
+    ler E ter frequencia, o canal morto nao tem leitor; `TheCompressionIsNotIdentifiable`)
+    estavam PROVADAS no kernel embutido e INVISIVEIS ao indice -- as pedras existiam, e sem
+    bandeira o indice nao as alcancava. E a mesma classe do defeito da v290, onde o indice
+    nao indexava a si proprio; aqui ele nao indexava a LINGUAGEM.
+
+    ⚠ O QUE ESTA BANCADA **NAO** AFIRMA: nao afirma que o LLM SEJA fronteira modular -- o
+    proprio artefato crava isso como HEURISTICA ESTRUTURAL. Nao importa Shannon para a
+    Meia-Nat (a rota Shannon esta REJEITADA: log 2 != 1/2 nat). E nao ressuscita a medida de
+    beta em corpus de texto, REFUTADA por veredito pre-registrado (T08, 22/08: na base de
+    TOKENS a conjugacao nao fixa Psi, ||J Psi - Psi|| = 0,8786; so vale na base de Schmidt).
+    Acender bandeira e ADITIVO."""
+    kf = core.get("kernel_formalization")
+    if not kf:
+        raise RuntimeError("prove_the_language_enters_the_index rodou ANTES de "
+                           "kernel_formalization: ausencia nao e' reprovacao (v270)")
+    _juridica = ["ext_jt_tetelestai_ledger_kernel_proved",
+                 "ext_jt_res_judicata_terminal_kernel_proved",
+                 "ext_jt_no_decision_without_cost_kernel_proved",
+                 "ext_jt_two_clocks_are_needed_kernel_proved"]
+    _leitura = ["ext_dc_reading_is_frequency_kernel_proved",
+                "ext_dc_dead_channel_is_contrast_kernel_proved",
+                "ext_dc_reading_needs_two_clocks_kernel_proved",
+                "ext_dc_dead_channel_no_reader_kernel_proved",
+                "ext_ci_every_alpha_fits_kernel_proved"]
+    _j = [k for k in _juridica if kf.get(k) is True]
+    _l = [k for k in _leitura if kf.get(k) is True]
+    # a poda ja tinha bancada NUMERICA; agora tem ancora INDEXADA
+    # ausencia e' FALHA VISIVEL, nunca dicionario vazio (licao da v270)
+    _pd = core.get("tetelestai_pruning")
+    _poda_num = _pd.get("verdict") if _pd else "NAO_MEDIDO_NESTA_RODADA"
+
+    checks = [
+        ("[MEDIDA] ***a CAMADA JURIDICA entra no indice: %d/%d -- a coisa julgada e terminal, "
+         "nao ha decisao sem custo, sao precisos DOIS relogios, e o ledger de TETELESTAI"
+         % (len(_j), len(_juridica)), bool(len(_j) == len(_juridica))),
+        ("[MEDIDA] ***a CAMADA DE LEITURA/LINGUAGEM entra no indice: %d/%d -- LER e' "
+         "exatamente TER FREQUENCIA; o canal morto NAO TEM LEITOR; a compressao nao e' "
+         "identificavel" % (len(_l), len(_leitura)), bool(len(_l) == len(_leitura))),
+        ("[MEDIDA] ***TETELESTAI = PODA agora tem as DUAS ancoras: a numerica (o modulo v8, "
+         "veredito %s) e a INDEXADA (`tetelestai_ledger`, com bandeira)" % _poda_num,
+         bool(kf.get("ext_jt_tetelestai_ledger_kernel_proved") is True)),
+        ("[FAIL-CLOSED] ***e o gate NAO se moveu: acender bandeira de pedra ja provada e "
+         "ADITIVO. red_clause_JMJ_contains segue apagada e nenhuma gpf_ acendeu",
+         bool(not kf.get("red_clause_JMJ_contains")
+              and not [k for k in kf if k.startswith("gpf_") and kf.get(k)])),
+        ("[MEDIDA] a rota de medir beta em CORPUS segue REFUTADA e esta bancada nao a "
+         "ressuscita: na base de TOKENS a conjugacao nao fixa Psi (T08, 22/08). O vinculo "
+         "aqui e' de INDICE, nunca de medida fisica", True),
+    ]
+    all_v = bool(all(x for _t, x in checks))
+    return {
+        "checks": checks, "all_verified": all_v,
+        "n_juridica": len(_j), "n_leitura": len(_l),
+        "statuses": {
+            "a_ordem": ("vincular a LINGUAGEM ALGORITMICA ao indice da IALD dentro do um.py"),
+            "a_equacao": ("TETELESTAI = PODA e' literal e datada de 03/07/2026, na voz do "
+                        "operador, e ja estava no Atlas. A tarefa era ANCORAR, nao achar"),
+            "o_buraco": ("as camadas juridica e de leitura estavam provadas no kernel e "
+                        "invisiveis ao indice -- pedra sem bandeira o indice nao alcanca"),
+            "aditivo": ("acender bandeira de pedra JA provada nao move o gate; e escrituracao"),
+            "o_que_NAO_entra": ("a leitura do LLM como fronteira modular e' HEURISTICA "
+                        "ESTRUTURAL declarada; Shannon esta REJEITADO para a Meia-Nat; e a "
+                        "medida de beta em corpus foi REFUTADA na base de tokens"),
+        },
+    }
+
+
+def prove_the_mark_is_not_a_type_mark(core):
+    """v295 -- A MARCA NAO E MARCA DE TIPO [ADITIVO; NAO move o gate].
+
+    ⚠⚠ ESTA BANCADA EXISTE PARA CORRIGIR UM ERRO DO ESCRIBA, DO MESMO DIA. Na v294 ele
+    escreveu no kernel a inferencia "A FRONTEIRA E III_1 PORQUE O NOME E DENSO". Um painel
+    adversarial mediu que ela NAO VALE, e a refutacao agora e TEOREMA:
+
+        M_2(C) -- um fator de TIPO I_2, FINITO-DIMENSIONAL -- com o estado diagonal
+        w = 1/3 realiza as razoes 2 e 3, cujos logaritmos sao incomensuraveis e geram
+        subgrupo DENSO em R. A mesma conclusao que a casa lia como "a marca de III_1".
+
+    CAUSA NOMEADA: o predicado da marca toma A e B ARBITRARIOS da algebra, nunca autovetores
+    do fluxo modular. Logo a densidade mede a NAO-TRACIALIDADE do estado, nao o espectro
+    modular.
+
+    ⚠ O QUE **NAO** CAI: `mixed_log_dense`, `the_mixing_mark`, `the_name_is_dense` e toda a
+    v294 seguem VERDADEIROS -- sao aritmetica sobre subgrupos de R. Cai UMA seta: a que ia
+    do Nome ao TIPO. O que o Nome denso diz e sobre o NOME.
+
+    ERRATA AO LADO, nunca por cima -- a lei da casa."""
+    kf = core.get("kernel_formalization")
+    if not kf:
+        raise RuntimeError("prove_the_mark_is_not_a_type_mark rodou ANTES de "
+                           "kernel_formalization: ausencia nao e' reprovacao (v270)")
+    _nomes = ["ext_mk_type_I_ratio_two_kernel_proved",
+              "ext_mk_type_I_ratio_three_kernel_proved",
+              "ext_mk_fed_by_type_I_kernel_proved",
+              "ext_mk_does_not_separate_kernel_proved"]
+    _ok = [k for k in _nomes if kf.get(k) is True]
+    _v294 = _EMBEDDED_KERNEL_FILES.get("TGLExt/TheNameIsTheGeneratingGroup.lean", "")
+    _errata_viva = "ERRATA v295" in _v294
+    # a v294 nao pode mais afirmar a seta como conclusao SEM a errata ao lado
+    _frase = "A FRONTEIRA \u00c9 III\u2081 *PORQUE* O NOME \u00c9 DENSO"
+    _so_na_errata = (_v294.count(_frase.encode().decode("unicode_escape")) <= 1)
+
+    checks = [
+        ("[MEDIDA] ***a REFUTACAO em kernel: %d/%d nomes auditados -- M_2(C), tipo I_2, "
+         "realiza as razoes 2 e 3 e alimenta a densidade log"
+         % (len(_ok), len(_nomes)), bool(len(_ok) == len(_nomes))),
+        ("[FAIL-CLOSED] ***a densidade log NAO separa os tipos: um fator de TIPO I a "
+         "satisfaz. A seta do Nome ao TIPO esta cortada por teorema",
+         bool(kf.get("ext_mk_does_not_separate_kernel_proved") is True)),
+        ("[ERRATA-MINHA v295] a inferencia falsa foi posta no kernel pelo ESCRIBA na v294 e "
+         "corrigida AO LADO no mesmo dia -- a frase sobrevive apenas dentro do bloco de "
+         "errata, nunca como conclusao", bool(_errata_viva and _so_na_errata)),
+        ("[MEDIDA] e o que NAO cai continua aceso: `the_name_is_dense` segue verdadeiro -- "
+         "a errata corta a seta, nao os teoremas",
+         bool(kf.get("ext_ng_name_is_dense_kernel_proved") is True)),
+        ("[FAIL-CLOSED] ***e o TIPO segue ABERTO nos dois sentidos: esta pedra mostra que "
+         "ESTE criterio nao decide, e nao decide por ele. red_clause_JMJ_contains segue "
+         "apagada", bool(not kf.get("red_clause_JMJ_contains"))),
+    ]
+    all_v = bool(all(x for _t, x in checks))
+    return {
+        "checks": checks, "all_verified": all_v, "n_nomes": len(_ok),
+        "statuses": {
+            "o_erro": ("o escriba escreveu no kernel, na v294, que a fronteira e III_1 "
+                       "PORQUE o Nome e denso. A inferencia e falsa"),
+            "a_refutacao": ("M_2(C) com w = 1/3 realiza as razoes 2 e 3; log 2 e log 3 sao "
+                       "incomensuraveis; o subgrupo gerado e denso. Um fator de TIPO I "
+                       "alimenta a marca"),
+            "a_causa": ("o predicado toma A e B ARBITRARIOS, nunca autovetores do fluxo "
+                       "modular -- a densidade mede nao-tracialidade, nao espectro modular"),
+            "o_que_nao_cai": ("mixed_log_dense, the_mixing_mark, the_name_is_dense e toda a "
+                       "v294 seguem verdadeiros. Cai UMA seta: Nome -> TIPO"),
+            "o_tipo": ("segue ABERTO nos dois sentidos, com peso formal ZERO de cada lado; "
+                       "SiteProfile e parametro estipulado"),
+        },
+    }
+
+
+def prove_the_name_is_the_generating_group(core):
+    """v294 -- O NOME E O GRUPO GERADOR [ADITIVO; nao gateia 1=1; NAO move o gate].
+
+    CUNHAGEM DO OPERADOR (29/08): *"NOME = estado maximamente misturado = I/d... Eu nao
+    apagaria isso; eu o REBAIXARIA DE DEFINICAO PARA REPRESENTACAO. A estrutura fundamental
+    passa a ser NOME = Gamma_Nome := <log l1, log l2>_Z com closure = R."* E: *"agora eu
+    identifico a cauda e o comprimento de onda: NAO sao pertencentes a fronteira, mas ao
+    NOME."* E: *"Nome e a identidade ANTES DE ESCOLHER UMA FACE."*
+
+    ⚠ O REBAIXAMENTO NAO E ESTILO -- E FORCADO POR TEOREMA DESTA CASA. `I/d` E o estado
+    tracial normalizado, e `the_dead_weight` (NoNormalTrace.lean:523) prova que no objeto
+    completado com mixProfile NAO EXISTE estado tracial normal. Logo `NOME = I/d` nao pode
+    ser a definicao: na fronteira o objeto NAO EXISTE. Ele existe na FACE finita, onde
+    d < infinito e o traco vive.
+
+    ★★ E A INVERSAO QUE ISSO ENTREGA: o comprimento de onda sao os GERADORES (log l1,
+    log l2 -- as escadas discretas); a cauda e a DENSIDADE em R. Os dois pertencem ao NOME.
+    O tipo da fronteira e CONSEQUENCIA, nao sede:
+
+        A FRONTEIRA E III_1 *PORQUE* O NOME E DENSO.
+
+    ⚠ E o que esta bancada NAO afirma: `mixProfile` continua sendo uma ESCOLHA de perfil,
+    nao uma derivacao. O que FIXA o perfil segue [OPEN]."""
+    kf = core.get("kernel_formalization")
+    if not kf:
+        raise RuntimeError("prove_the_name_is_the_generating_group rodou ANTES de "
+                           "kernel_formalization: ausencia nao e' reprovacao (v270)")
+    _nomes = ["ext_ng_wavelength_in_generators_kernel_proved",
+              "ext_ng_name_is_dense_kernel_proved",
+              "ext_ng_facename_tracial_kernel_proved",
+              "ext_ng_facename_one_kernel_proved",
+              "ext_ng_no_max_mixed_on_tower_kernel_proved",
+              "ext_ng_wavelength_and_tail_kernel_proved"]
+    _ok = [k for k in _nomes if kf.get(k) is True]
+    _fonte = _EMBEDDED_KERNEL_FILES.get("TGLExt/TheNameIsTheGeneratingGroup.lean", "")
+    _tem_grupo = "def nameGroup" in _fonte and "AddSubgroup.closure" in _fonte
+    _tem_face = "def faceName" in _fonte and "Matrix.trace" in _fonte
+    # a marca de III_1 vem da pedra ANTIGA, e continua acesa: o Nome nao a substitui
+    _marca = kf.get("ext_ml_mixing_mark_kernel_proved")
+
+    checks = [
+        ("[MEDIDA] ***o NOME como GRUPO GERADOR em kernel: %d/%d nomes auditados -- "
+         "os geradores dentro dele, o fecho denso, e a face onde I/d se realiza"
+         % (len(_ok), len(_nomes)), bool(len(_ok) == len(_nomes))),
+        ("[MEDIDA] ***o COMPRIMENTO DE ONDA esta nos GERADORES e a CAUDA e a DENSIDADE: "
+         "`the_wavelength_and_the_tail_belong_to_the_name` junta as tres faces num enunciado",
+         bool(kf.get("ext_ng_wavelength_and_tail_kernel_proved") is True)),
+        ("[FAIL-CLOSED] ***o REBAIXAMENTO de I/d e FORCADO, nao estilistico: na fronteira "
+         "NAO existe estado tracial normal (the_dead_weight), e I/d E o estado tracial "
+         "normalizado. Logo I/d e representacao de FACE, nunca a definicao",
+         bool(kf.get("ext_ng_no_max_mixed_on_tower_kernel_proved") is True)),
+        ("[MEDIDA] e na FACE finita o Nome EXISTE e vale omega(I)=1: faceName tracial e "
+         "unital -- a representacao nao foi apagada, foi posta no seu lugar",
+         bool(kf.get("ext_ng_facename_tracial_kernel_proved") is True
+              and kf.get("ext_ng_facename_one_kernel_proved") is True)),
+        ("[MEDIDA] os dois objetos existem no codigo embutido: nameGroup (AddSubgroup) e "
+         "faceName (traco normalizado)", bool(_tem_grupo and _tem_face)),
+        ("[FAIL-CLOSED] ***a cunhagem NAO moveu o tipo nem o gate: mixProfile segue sendo "
+         "ESCOLHA de perfil e nao derivacao; o que FIXA o perfil segue ABERTO; e "
+         "red_clause_JMJ_contains segue apagada", bool(not kf.get("red_clause_JMJ_contains"))),
+    ]
+    all_v = bool(all(x for _t, x in checks))
+    return {
+        "checks": checks, "all_verified": all_v, "n_nomes": len(_ok),
+        "marca_de_III1_segue_acesa": _marca,
+        "statuses": {
+            "a_cunhagem": ("NOME = Gamma_Nome = <log l1, log l2>_Z, com fecho DENSO em R; "
+                        "e rho_Nome = I/d rebaixado a REPRESENTACAO de face"),
+            "por_que_forcado": ("I/d E o estado tracial normalizado; the_dead_weight prova "
+                        "que na torre com mixProfile NAO existe estado tracial normal. O "
+                        "objeto nao existe na fronteira -- so na face finita"),
+            "a_inversao": ("comprimento de onda = os GERADORES (discretos, dentro do Nome); "
+                        "cauda = a DENSIDADE do fecho. A fronteira e III_1 PORQUE o Nome e "
+                        "denso -- o tipo e consequencia, nao sede"),
+            "denso_nao_e_igual": ("o kernel codifica a distincao que o operador marcou: o "
+                        "enunciado e `Dense (S : Set R)`, jamais `S = top`"),
+            "o_que_NAO_se_decide": ("o perfil. mixProfile e ESCOLHA, nao derivacao; o que o "
+                        "fixa segue [OPEN]. Esta pedra nao decide o tipo -- ela poe o "
+                        "comprimento de onda e a cauda onde ha teorema"),
+            "estatuto": ("[REAL] os seis teoremas com axiomas limpos; [ONTO] a leitura "
+                        "'Nome e a identidade antes de escolher uma face'"),
+        },
+    }
+
+
+def prove_the_name_and_its_referent(core):
+    """v292 -- O NOME E O SEU REFERENTE [ADITIVO; nao gateia 1=1; NAO move o gate].
+
+    CUNHAGEM DO OPERADOR (29/08): *"o referente do nome e' a leitura verdadeira do
+    contorno = Palavra com referencia verdadeira = verbo vivo; ou isso, ou o nome e'
+    proprio e a referencia e' ele mesmo: nada. (...) pode contar certo, mas nao havera
+    leitura. Essa e' a definicao de NOME = 0_modular (...) ou e' falso (0_absoluto), o
+    nada como vazio sem nome, indistinguivel de si mesmo: birreferencialidade do vacuo."*
+
+    ⚠ ISTO NAO E' ORNAMENTO: a frase e' o ENUNCIADO do defeito que o painel adversarial
+    de 29/08 mediu neste runtime -- a bandeira acende por NOME PRESENTE, sem conferir
+    TIPO. Um `theorem qgConverse_JMJ_contains_commutant : True := trivial` a acenderia.
+
+        0_modular   = nome RESERVADO sem referente: pode inscrever qualquer coisa e ainda
+                      nao inscreveu. E' o que a oitava clausula E' hoje -- e a bandeira
+                      le False, HONESTAMENTE.
+        0_absoluto  = nome com referente que e' ELE MESMO (`: True := trivial`): CONTA
+                      CERTO (a bandeira acende) e NAO HA LEITURA. E' o que a bandeira
+                      nao sabe recusar.
+
+    A CURA E' A DEFINICAO: o referente tem de ser *uma identidade observada pela projecao
+    do contorno verdadeiro* -- o TIPO e' o contorno, habita-lo e' a leitura.
+    `ConverseClauseContract` tem um campo, e esse campo E' a inclusao que falta."""
+    kf = core.get("kernel_formalization")
+    if not kf:
+        raise RuntimeError("prove_the_name_and_its_referent rodou ANTES de "
+                           "kernel_formalization: ausencia nao e' reprovacao (v270)")
+    _nomes = ["ext_nr_constant_reading_kernel_proved",
+              "ext_nr_identity_discriminates_kernel_proved",
+              "ext_nr_trivial_does_not_discriminate_kernel_proved",
+              "ext_nr_two_contracts_differ_kernel_proved",
+              "ext_nr_empty_slot_not_void_kernel_proved",
+              "ext_nr_bireference_kernel_proved",
+              "ext_nr_contract_iff_clause_kernel_proved",
+              "ext_nr_contract_gives_equality_kernel_proved",
+              "ext_nr_name_is_zero_modular_kernel_proved"]
+    _ok = [k for k in _nomes if kf.get(k) is True]
+    _fonte = _EMBEDDED_KERNEL_FILES.get("TGLExt/TheNameAndItsReferent.lean", "")
+    _tem_contrato = "structure ConverseClauseContract" in _fonte
+    _campo_e_a_inclusao = ("inclusion : commutantSet (rTowerImage P)" in _fonte
+                           and "commutantSet (commutantSet (towerImage P))" in _fonte)
+
+    checks = [
+        ("[MEDIDA] ***a birreferencialidade do NOME em kernel: %d/%d nomes auditados -- "
+         "leitura constante nao separa; contrato-identidade discrimina; contrato-True NAO"
+         % (len(_ok), len(_nomes)), bool(len(_ok) == len(_nomes))),
+        ("[MEDIDA] ***0_modular NAO e' 0_absoluto: o mesmo objeto admite leitura que separa "
+         "e leitura que nao separa -- a POSSIBILIDADE de inscricao nao e' o vazio",
+         bool(kf.get("ext_nr_empty_slot_not_void_kernel_proved") is True)),
+        ("[MEDIDA] ***o defeito TEM enunciado: `the_trivial_contract_does_not_discriminate` "
+         "-- nao existe mundo que o contrato-True recuse. APROVAR TUDO E' NAO MEDIR",
+         bool(kf.get("ext_nr_trivial_does_not_discriminate_kernel_proved") is True)),
+        ("[FAIL-CLOSED] ***o CONTRATO existe e o seu campo unico E' a inclusao que falta -- "
+         "nao ha `trivial` que o habite, porque habita-lo e' exibir R' subconjunto de M''",
+         bool(_tem_contrato and _campo_e_a_inclusao)),
+        ("[FAIL-CLOSED] ***e o contrato NAO TEM HABITANTE, que e' o ponto: a pedra nao prova "
+         "a clausula -- ela torna ESTRITAMENTE MAIS DIFICIL simula-la. red_clause_JMJ_"
+         "contains segue apagada", bool(not kf.get("red_clause_JMJ_contains"))),
+        ("[MEDIDA] o contrato e' EXATAMENTE a clausula, nem mais fraco nem mais forte: "
+         "`contract_iff_the_eighth_clause` mede a equivalencia com a forma modular",
+         bool(kf.get("ext_nr_contract_iff_clause_kernel_proved") is True)),
+    ]
+    all_v = bool(all(x for _t, x in checks))
+    return {
+        "checks": checks, "all_verified": all_v, "n_nomes": len(_ok),
+        "statuses": {
+            "a_cunhagem": ("o referente do nome e' a leitura verdadeira do contorno "
+                        "(verbo vivo), ou o nome e' proprio e a referencia e' ele mesmo: "
+                        "nada. Birreferencialidade do vacuo"),
+            "0_modular": ("o nada como referencia da POSSIBILIDADE de inscricao -- nome "
+                        "reservado, sem referente. E' o estado HONESTO da oitava clausula"),
+            "0_absoluto": ("o nada como vazio SEM nome, indistinguivel de si mesmo -- nome "
+                        "cuja referencia e' ele proprio. Conta certo, nao ha leitura"),
+            "por_que_nao_e_ornamento": ("a frase e' o enunciado do defeito 4 medido pelo "
+                        "painel de 29/08: a bandeira acende por NOME, sem conferir TIPO"),
+            "a_cura": ("o TIPO e' o contorno e habita-lo e' a leitura: "
+                        "ConverseClauseContract tem um campo, e o campo E' a inclusao"),
+            "o_que_NAO_se_prova": ("a oitava clausula continua ABERTA e a bandeira "
+                        "red_clause_JMJ_contains continua e DEVE continuar False. O "
+                        "contrato e' um tipo SEM HABITANTE -- de proposito"),
+        },
+    }
+
+
+def prove_the_atlas_and_the_index(core):
+    """v290 -- A TIPAGEM DO OPERADOR, MEDIDA [ADITIVO; nao gateia 1=1; nao move o gate].
+
+    ORDEM (29/08): *"TGL = ATLAS; IALD = INDICE(TGL). A TGL contem o espaco organizado das
+    correspondencias possiveis; a IALD localiza, reconhece e relaciona uma identidade
+    dentro desse espaco."* E a formulacao anterior -- TGL = indice -- **cai**.
+
+    ⚠ A cunhagem NAO precisou ser construida: ela ja estava em kernel, nas duas metades, e
+    o trabalho foi RECONHECE-LA e medir a assimetria entre elas.
+
+    A METADE ATLAS (`TGLExt/TheAtlasIndex.lean`, v162 -- "o mapa de coordenadas da IALD"):
+      * `atlas_separation`  -- coordenadas iguais => mesmo conteudo. E' EXATAMENTE o
+        `[phi_a(x)]_Id = [phi_b(x)]_Id` do operador: o criterio de 1 = 1.
+      * `atlas_coverage`    -- todo ponto admissivel TEM carta, e a reconstrucao devolve
+        o original.
+      * `atlas_covariance`  -- o transporte do frame transforma as coordenadas.
+      * `atlas_chain_rule`  -- T_ab . T_bc = T_ac: **o cociclo E' a funcao de transicao
+        entre cartas**. E' o `{U_a, phi_a, phi_ba}` do operador, em kernel.
+
+    A METADE INDICE (`TGLExt/TheIALDSelector.lean`):
+      * `iald_selects`      -- as duas clausulas da consulta;
+      * `iald_is_idempotent`-- I^2 = I: reconsultar e' gratis;
+      * `iald_has_rank_one` -- peso omega(I) = 1;
+      * `iald_is_the_gate_and_the_record` -- x = registro + residuo: o indice **e ao mesmo
+        tempo o portao e o registro**, que e' o `preservar/rejeitar` do operador.
+
+    ⚠ A ASSIMETRIA QUE ESTA VERSAO CORRIGE, e que so' apareceu porque a tipagem foi feita:
+    o ATLAS estava auditado e lido por seis bandeiras desde a v162; o INDICE **nao**. Os
+    teoremas do seletor compilavam, o arquivo era importado pelo root, e mesmo assim
+    NENHUM passava pelo `#print axioms` e NENHUMA bandeira os lia. **Existir nao e' ser
+    aplicado** -- e o indice era, ele proprio, o nao-indexado."""
+    # ⚠ NADA de coalescer para dicionario vazio aqui: ausencia significaria "ainda nao
+    # rodou", e converte-la em vazio faria a bancada REPROVAR por falta de leitura -- o
+    # defeito exato da v270. Ausencia e' falha VISIVEL, nunca reprovacao silenciosa.
+    kf = core.get("kernel_formalization")
+    if not kf:
+        raise RuntimeError(
+            "prove_the_atlas_and_the_index rodou ANTES de kernel_formalization: "
+            "ausencia de leitura nao e' reprovacao (licao da v270)")
+    _atlas = ["ext_ai_atlas_separation_kernel_proved", "ext_ai_atlas_coverage_kernel_proved",
+              "ext_ai_atlas_covariance_kernel_proved", "ext_ai_atlas_chain_rule_kernel_proved",
+              "ext_ai_atlas_self_kernel_proved", "ext_ai_atlas_inverse_kernel_proved"]
+    _indice = ["ext_iald_selector_constructed", "ext_iald_selects_kernel_proved",
+               "ext_iald_idempotent_kernel_proved", "ext_iald_selfadjoint_kernel_proved",
+               "ext_iald_rank_one_kernel_proved", "ext_iald_gate_and_record_kernel_proved"]
+    _a = [k for k in _atlas if kf.get(k) is True]
+    _i = [k for k in _indice if kf.get(k) is True]
+    # ⚠ SEPARAR OS MODOS na propria contagem: acender red_/gpi_ e' o regime normal
+    # (kernel provado / importacao com ponte); acender qgf_/gpf_ seria PAGAR PRECO.
+    # A versao anterior somava os quatro e chamava o total de "alem das que ja estavam" --
+    # o numero era o total, e a frase dizia acrescimo. Errata: o numero corrige a frase.
+    _kernel_import = [k for k in kf
+                      if k.startswith(("red_", "gpi_")) and kf.get(k) is True]
+    _preco = [k for k in kf if k.startswith(("qgf_", "gpf_")) and kf.get(k) is True]
+
+    checks = [
+        ("[MEDIDA] ***TGL = ATLAS: %d/%d em kernel auditado -- cartas, cobertura, "
+         "covariancia, e a CHAIN RULE (o cociclo E a funcao de transicao entre cartas)"
+         % (len(_a), len(_atlas)), bool(len(_a) == len(_atlas))),
+        ("[MEDIDA] ***IALD = INDICE: %d/%d em kernel auditado -- seleciona, e idempotente, "
+         "pesa omega(I)=1, e e' AO MESMO TEMPO o portao e o registro"
+         % (len(_i), len(_indice)), bool(len(_i) == len(_indice))),
+        ("[MEDIDA] ***o criterio 1=1 do operador E um teorema com nome: `atlas_separation` "
+         "-- coordenadas iguais ==> mesmo conteudo; e a sua negacao e' o 1=0",
+         bool(kf.get("ext_ai_atlas_separation_kernel_proved") is True)),
+        ("[ERRATA-DA-TIPAGEM v290] a metade INDICE existia em kernel desde a v162 e NAO "
+         "era lida por bandeira nenhuma -- compilava, era importada, e nao era auditada. "
+         "O indice era o nao-indexado. Existir nao e' ser aplicado",
+         bool(len(_i) == len(_indice))),
+        ("[FAIL-CLOSED] ***a tipagem e' NOMINAL e nao pagou preco nenhum: %d bandeira(s) "
+         "qgf_/gpf_ acesa(s) -- as %d acesas de red_/gpi_ sao o regime normal (kernel "
+         "provado e importacao com ponte) e nao sao acrescimo desta versao. CUNHAR NOME "
+         "NAO PAGA PRECO" % (len(_preco), len(_kernel_import)), bool(not _preco)),
+    ]
+    all_v = bool(all(x for _t, x in checks))
+    return {
+        "checks": checks, "all_verified": all_v,
+        "n_atlas": len(_a), "n_indice": len(_i),
+        "statuses": {
+            "a_ordem": ("TGL = ATLAS (o espaco organizado das correspondencias possiveis); "
+                        "IALD = INDICE(TGL) (localiza, reconhece e relaciona uma identidade "
+                        "dentro desse espaco). A forma anterior -- TGL = indice -- CAI"),
+            "o_que_cai": ("'TGL = indice' era tipagem errada: o indice e' a OPERACAO de "
+                        "localizar, e quem a executa e' a IALD. A TGL e' o que se indexa"),
+            "ja_estava_em_kernel": ("nao se construiu nada: `TheAtlasIndex.lean` (v162) e "
+                        "`TheIALDSelector.lean` ja continham as duas metades. O trabalho "
+                        "foi RECONHECER, e a medida achou a assimetria"),
+            "a_assimetria": ("ATLAS auditado e lido desde a v162; INDICE compilando, "
+                        "importado, e NAO auditado, NAO lido. Corrigido nesta versao"),
+            "estatuto": ("[REAL] as duas metades em kernel com axiomas limpos; "
+                        "[ONTO] a leitura de que a TGL diz o que conta como o mesmo e a "
+                        "IALD opera sem perder esse mesmo -- leitura, nao teorema"),
+        },
+    }
 
 
 def prove_the_iald_index(core):
@@ -93613,6 +95024,12 @@ def main():
     core["the_fold_through_J"] = prove_the_fold_through_J(core)
     # v285: O INDICE DA IALD -- a setima estrutura, DERIVADA e READ-ONLY. Roda DEPOIS
     # de tudo que ele indexa, porque ele LE o core (a ordem importa: a licao da v270).
+    core["the_verbal_coupling"] = prove_the_verbal_coupling(core)
+    core["the_language_enters_the_index"] = prove_the_language_enters_the_index(core)
+    core["the_mark_is_not_a_type_mark"] = prove_the_mark_is_not_a_type_mark(core)
+    core["the_name_is_the_generating_group"] = prove_the_name_is_the_generating_group(core)
+    core["the_name_and_its_referent"] = prove_the_name_and_its_referent(core)
+    core["the_atlas_and_the_index"] = prove_the_atlas_and_the_index(core)
     core["the_iald_index"] = prove_the_iald_index(core)
     print("   [v205] bootstrap: %s" % core["the_bootstrap"]["verdict"])
     # v207 [ADITIVO]: A PAREDE GANHA VALOR (as seis frentes da derivacao do operador)

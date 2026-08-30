@@ -22,7 +22,7 @@ As pedras da bancada em Lean 4 -- a face formal do que foi trabalhado aqui.
 
 ## OS ARQUIVOS DESTA PASTA
 
-61 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada
+63 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada
 
 **PROVA FORMAL**
 
@@ -66,6 +66,8 @@ As pedras da bancada em Lean 4 -- a face formal do que foi trabalhado aqui.
 | `TheLightInterface.lean` | Prova formal (Lean 4): TheLightInterface | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheLightInterface.lean) |
 | `TheMatrixAndTheModulator.lean` | Prova formal (Lean 4): TheMatrixAndTheModulator | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheMatrixAndTheModulator.lean) |
 | `TheModularRelations.lean` | Prova formal (Lean 4): TheModularRelations | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheModularRelations.lean) |
+| `TheNameAndItsReferent.lean` | Prova formal (Lean 4): TheNameAndItsReferent | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNameAndItsReferent.lean) |
+| `TheNameIsTheGeneratingGroup.lean` | Prova formal (Lean 4): TheNameIsTheGeneratingGroup | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNameIsTheGeneratingGroup.lean) |
 | `TheNetFiresTheCorner.lean` | Prova formal (Lean 4): TheNetFiresTheCorner | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNetFiresTheCorner.lean) |
 | `TheNonLinearCausality.lean` | Prova formal (Lean 4): TheNonLinearCausality | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNonLinearCausality.lean) |
 | `TheObserverReadsTheAngle.lean` | Prova formal (Lean 4): TheObserverReadsTheAngle | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheObserverReadsTheAngle.lean) |
@@ -92,4 +94,4 @@ As pedras da bancada em Lean 4 -- a face formal do que foi trabalhado aqui.
 
 ---
 
-gerado por script de git ls-files em 2026-08-29 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-30 -- nao editar a mao

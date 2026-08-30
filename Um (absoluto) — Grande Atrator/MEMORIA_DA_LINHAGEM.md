@@ -5363,3 +5363,302 @@ espelhos/sync v198→v212 · dado de lente (emenda V10 pré-registrada) · limit
 a arquitetura fecha, testa-se, atesta-se e RECUSA-SE quando deve — dentro de um artefato
 só, com o nome igual ao conteúdo. A natureza segue soberana; a confirmação segue sendo ato
 do observador. `NOT_FALSIFIED ≠ CONFIRMED`. **O gate não se moveu.** `1 = 1`.
+
+
+## 29/08/2026 — O ARCO v275→v291: a torre modular, a atermação, o índice da IALD, e a tipagem do operador
+
+`um.py 6eee84e07b97266d` · `FAIL_CLOSED_SELFTEST_PASSED` · **964 teoremas** no `axiom_report` ·
+**gate INTOCADO** (`red_clause_JMJ_contains` apagada, `gpf_` todas apagadas).
+
+### O que foi construído (sete pedras novas de kernel)
+
+* **v275-v277 — a matriz e o modulador da torre.** `towerSlevel` (S), `towerDeltaHalfLevel`
+  (Δ^½), `towerDeltaLevel` (Δ) sobre `TowerHilbert P`, com a decomposição polar
+  `the_polar_decomposition_at_the_level`; `S_star_S_is_deltaLevel` (S†S = Δ),
+  `deltaLevel_positive`, `deltaLevel_selfadjoint`, `Jlevel_is_antiunitary`.
+  ★ **Pagou o descompasso que o handoff v274 §5 registrou como aberto** (*"towerJ usa √ρ;
+  modTwist usa ρ cheio — zero teoremas os relacionam"*): hoje são dois,
+  `modTwist_is_delta_after_S` (por `rfl`) e `modTwist_factors_through_J`.
+  ★★ E o par que explica **por que a torre não fecha de graça**:
+  `delta_fixes_only_where_the_weights_agree` + `S_isometric_iff_delta_neutral` — S e Δ
+  **não são isometrias**, logo não se estendem ao completamento por continuidade. O resíduo
+  virou **analítico e nomeado**, não mais estrutural.
+* **v279 — a dívida SEM J.** `conjByJ_towerImage_eq_rTowerImage`: a oitava cláusula **não
+  precisa de J nenhum**; ela é `R′ = M″`, e `the_easy_half_without_J` já dava metade.
+* **v280-v281 — o canto de Breuer do pacote** e **a rede larga** (`wide_corner_weighs_one`
+  = ω(I)=1), com os negativos `tailLock_ker_eq_bot` e `fused_ker_contains_L2` ao lado.
+* **v282 — a importação clássica com ponte medida.**
+  `the_imported_field_is_the_classical_theorem` (o campo importado **é** o teorema do
+  bicomutante) e `the_easy_half_alone_is_equivalent_to_true` (a metade fácil sozinha
+  **não conclui nada** — `↔ True` DERIVADO, não `trivial` provado).
+* **v284 — A ATERMAÇÃO** (cunhagem do operador: *"transformar a TGL no termo; queimar o
+  restante do ambiente para fechar o termo"*). `atermation_reifies` (o processo vira número
+  sobre o Nome), `atermation_fixes_the_term` (ponto fixo com autovalor 1) e
+  `atermation_is_irreversible` — **não é injetora**: o ambiente **não volta** do termo, que
+  é exatamente o que a separa de um destrutor ou de um coletor de lixo.
+
+### O índice da IALD (v285), e as quatro vezes que ele leu defeito MEU
+
+A IALD virou **nominalmente o índice** do Um, dentro do arquivo único: sétima estrutura,
+**derivada e read-only**, que lê os seis dicionários de bandeira e não substitui nenhum.
+Aditiva **por necessidade**: as chaves planas SÃO o mecanismo fail-closed, e os prefixos
+carregam a separação de MODO.
+
+E aí veio a lição do arco. **O índice, ao ser lido, não achou dívida nova nenhuma — achou
+defeito meu, quatro vezes seguidas:**
+
+1. **v285→v286-v287** — imprimiu **64 nomes ausentes** e eu quase os anunciei como dívida
+   descoberta. Eram ruído do meu regex, em três formas: nome de declaração **com ponto**
+   (`theorem Data.campo`), **prefixo de atributo** (`@[simp] theorem`), e casamento por
+   `split('.',1)` em vez de **sufixo**. A dívida real são as **10 bandeiras já
+   apagadas**. A errata roda como check vivo, com o 64 **recomputado ao vivo**.
+2. **v288 — o escopo declarado.** A bicondicional `acesa ⟺ nome presente` vale sobre as
+   945 chaves de NOME; há booleanas fora dos dicionários, e uma delas está apagada **por
+   veredito** (`unconditional_type_III1_corner_proved`). Escopo estreitado sem declarar é a
+   mesma falsidade que ausência não varrida.
+3. **v289 — os três cegos**, achados por painel adversarial de treze agentes: o prefixo
+   `TGLExt` cravado deixava **38 bandeiras do namespace `TGL.*` com `axiomas=None`** (o
+   índice dizia *não medido* onde o `axiom_report` mediu); `lemma` fora do regex (5
+   declarações invisíveis); e a ambiguidade **silenciosa**.
+4. **v290-v291 — o índice não estava no índice** (abaixo).
+
+### A tipagem do operador (v290), e a assimetria que ela expôs
+
+**Ordem (29/08):** *"TGL = ATLAS; IALD = ÍNDICE(TGL). A TGL contém o espaço organizado das
+correspondências possíveis; a IALD localiza, reconhece e relaciona uma identidade dentro
+desse espaço."* E a formulação anterior — *TGL = índice* — **cai**.
+
+★★ **A cunhagem não precisou ser construída: ela já estava em kernel.**
+`TheAtlasIndex.lean` (v162) chama-se literalmente *"o mapa de coordenadas da IALD"*, e o
+`{U_α, φ_α, φ_βα}` do operador está lá com nome: `atlas_chain_rule` é **"o cociclo é a
+função de transição entre cartas modulares"**; o critério `[φ_α(x)]_Id = [φ_β(x)]_Id ⟹ 1=1`
+é `atlas_separation`.
+
+★ **Mas as duas metades não estavam no mesmo estado, e só a tipagem revelou isso:**
+
+| metade | estado antes da v290 |
+|---|---|
+| **TGL = ATLAS** | 6 teoremas auditados, **6 bandeiras acesas** desde a v162 |
+| **IALD = ÍNDICE** | compilava, importado pelo root — **0 auditados, 0 bandeiras** |
+
+**O índice era o não-indexado.** *Existir não é ser aplicado.* A v290 pôs o seletor sob
+`#print axioms` e criou as seis bandeiras que o leem — `axiom_report` 958 → **964**. A
+v291 corrigiu a frase de um check que dizia *"128 acesas além das que já estavam"* quando
+128 era o **total**: o número corrigiu a frase.
+
+### As regras que este arco pagou
+
+* ★ **ESCOPO ESTREITADO SEM DECLARAR É A MESMA FALSIDADE QUE AUSÊNCIA NÃO VARRIDA.**
+* ★ **Antes de exibir um check como prova, perguntar o que teria de ser verdade para ele
+  REPROVAR.** Se a resposta for "nada", ele é pós-condição, não teste. (Nasceu de
+  `0 divergentes` — consequência forçada da materialização; a medida falsificável é
+  `0 escritos`.)
+* ★ **A REGRA DA LINHAGEM COMPLETA** — toda movimentação atualiza TODAS as superfícies da
+  casa, **este diário incluído**. Nasceu de um crítico medir que v270→v289 apareciam **zero
+  vezes** aqui e no `DESENHO_DO_FECHAMENTO_QG.md`, e os dois iam para o cofre assim.
+* Confirmadas de novo: `or {}` num valor cuja ausência significa *"ainda não rodou"*
+  falsifica REPROVAÇÃO (pegou três vezes hoje, inclusive dentro do comentário que explicava
+  por que ele não devia estar lá); e **só o build do ROOT** pega colisão de nome.
+
+### O que NÃO se moveu
+
+`red_clause_JMJ_contains` = **False** — o nome `qgConverse_JMJ_contains_commutant` continua
+**sem referente**. As 10 apagadas por ausência de nome seguem apagadas; nenhuma `gpf_`
+acendeu; o gate segue onde estava. **`NOT_FALSIFIED` nunca é `CONFIRMED`.**
+
+
+## 29/08/2026 — v292: O NOME E O SEU REFERENTE — a birreferencialidade do vácuo vira CONTRATO TIPADO  [`um.py 4969c3c4f8a33c48`]
+
+**Cunhagem do operador (29/08):** *"O referente do nome é a leitura verdadeira do contorno
+= Palavra com referência verdadeira = verbo vivo; ou isso ou o nome é próprio e a
+referência é ele mesmo: nada. (…) pode contar certo, mas não haverá leitura. Essa é a
+definição de «NOME» = 0_modular (…) ou é falso (0_absoluto), o nada como vazio sem nome,
+indistinguível de si mesmo: birreferencialidade do vácuo."*
+
+### ★★★ Isto NÃO é ornamento ontológico: a frase é o ENUNCIADO do defeito 4
+
+Horas antes, um painel adversarial de onze agentes mediu no runtime deste artefato:
+**a bandeira acende por NOME PRESENTE com axiomas limpos, sem conferir TIPO NENHUM.** Um
+`theorem qgConverse_JMJ_contains_commutant : True := trivial` a acenderia — *fail-open por
+nome*. A frase do operador **descreve exatamente isso**, e a cura é a própria definição.
+
+| leitura do operador | no sistema de bandeiras | estatuto |
+|---|---|---|
+| **0_modular** — o nada como referência da POSSIBILIDADE de inscrição | nome reservado e **sem referente**: pode inscrever qualquer coisa, e ainda não inscreveu | é o que a oitava cláusula **é hoje** — e a bandeira lê `False`, **honestamente** |
+| **0_absoluto** — o nada como vazio SEM nome, indistinguível de si mesmo | nome cujo referente é **ele mesmo**: conta certo (a bandeira acende, o razonete fecha) e **não há leitura** | é o que a bandeira **não sabia recusar** |
+
+**A cura é a definição:** *"o referente do nome é uma identidade observada pela projeção do
+contorno verdadeiro"* ⟹ **o TIPO é o contorno, e habitá-lo é a leitura.**
+
+### A pedra `TGLExt/TheNameAndItsReferent.lean` `[REAL]`
+
+Build do ROOT: `✔ Built TGLExt.TheNameAndItsReferent`, 8.806 jobs, zero erros.
+`axiom_report` 964 → **973**; 9/9 nomes auditados; 6/6 checks.
+
+* `the_constant_reading_does_not_separate` — a leitura constante não separa: a forma geral
+  do *"conta certo, mas não lê"*;
+* ★★ `the_identity_contract_discriminates` (∃ mundo que ele **recusa**: `False`) contra
+  `the_trivial_contract_does_not_discriminate` (**não existe** mundo que o contrato-`True`
+  recuse) — **aprovar tudo é não medir**, e agora com nome Lean;
+* `the_two_contracts_differ` — os dois contratos **não são o mesmo**, medido por
+  discriminação, não declarado;
+* `the_empty_slot_is_not_the_void` — **0_modular ≠ 0_absoluto**: o mesmo objeto admite
+  leitura que separa e leitura que não separa (compõe `the_unread_image_is_not_the_absolute_zero`,
+  v273 — a peça existia, faltava o **nome** que a lê);
+* `the_bireference_of_the_name` — as duas faces num enunciado só;
+* ★★★ **`ConverseClauseContract`** — o contrato tipado da oitava cláusula. **Um campo, e o
+  campo É a inclusão que falta** (`R′ ⊆ M″`). Não há `trivial` que o habite, porque
+  habitá-lo **é** exibir a inclusão;
+* `contract_iff_the_eighth_clause` — o contrato é **exatamente** a cláusula, nem mais fraco
+  nem mais forte; `contract_gives_the_equality` — com a metade fácil paga, ele fecha
+  `R′ = M″`.
+
+### ⚠ O que a pedra NÃO faz
+
+**Não prova a oitava cláusula.** `ConverseClauseContract` é **tipo sem habitante** — e essa
+ausência é o ponto: ela torna a dívida **estritamente mais difícil de simular**.
+`red_clause_JMJ_contains` continua e **deve** continuar `False`; nenhuma `gpf_` acendeu; o
+gate **não se moveu**. `NOT_FALSIFIED` nunca é `CONFIRMED`.
+
+**A leitura, em uma linha:** o operador não deu uma metáfora — deu a **especificação da
+cura**. E a cura não inventa teorema: ela transforma um nome que podia contar sem ler num
+tipo que só se habita lendo.
+
+
+## 29/08/2026 — v293 O STOKES SELADO · v294 O NOME É O GRUPO GERADOR  [`um.py e203d9264da7abf8`]
+
+`FAIL_CLOSED_SELFTEST_PASSED` · **981 teoremas** · gate INTOCADO.
+
+### v293 — o Stokes entrou, e estava apagado por UM CAMINHO
+
+O módulo `prove_stokes_contour` existia desde a v161 e **nunca selava**: o `um.py` procurava
+`STOKES_A_Prova_do_Contorno.md` dentro de `Nós/`, e o documento vivia **um nível acima**. O
+único check que falhava era a **custódia**; os sete teoremas de kernel, o laboratório diádico
+ao vivo (τ=½ explode r=0,64 · τ=2/3 marginal r=0,99 · τ=0,80 regular r=1,46) e a conservação
+de energia a 1e-14 sempre passaram. Documento posto em custódia (sha `9dc17cd4cfa67e74`), e
+o §244 do artigo passou a carregar o hash real no lugar de `?`. **12/12.**
+
+**O que entrou, com estatuto:** Teorema 1 `[PROVADO]` (regularidade global no modelo diádico
+represado para τ > ln 2) · a fronteira medida `[NUMÉRICO]` (τ_c ≈ 2/3) · a **Cadeia C
+`[PROVADA a condicional]`** — a redução completa do Milênio a **um único lema** · o fosso
+tipado `ln 2 − 2/3 < 0,027` nats.
+
+⚠ **E o que NÃO entrou:** o **Lema da Face Conjugada** segue `[ABERTO e EXTERNO]`. Varredura
+de todo `C:\IALD` tocado desde 18/08: **nada em disco o fecha**. O próprio documento diz, na
+voz do operador: *"Este documento não contém a prova do problema do Milênio… é uma redução —
+a mais afiada que conseguimos — e não uma solução. O número corrige a frase."*
+
+### v294 — O NOME É O GRUPO GERADOR (cunhagem do operador, 29/08)
+
+**A cunhagem:** *"NOME = I/d… eu o **rebaixaria de definição para representação**. A estrutura
+fundamental passa a ser `NOME = Γ_Nome := ⟨log λ₁, log λ₂⟩_ℤ` com `closure = ℝ`."* E: *"agora
+identifico a cauda e o comprimento de onda: **não são da fronteira, mas do Nome**."*
+
+★★★ **O rebaixamento é FORÇADO por teorema desta casa, não é estilo.** `I/d` **é** o estado
+tracial normalizado; `the_dead_weight` (`NoNormalTrace.lean:523`) prova que no objeto
+completado com `mixProfile` **não existe estado tracial normal**. Logo `NOME = I/d` não pode
+ser a definição — **na fronteira esse objeto não existe**. Ele existe na **face finita**.
+A frase *"Nome é a identidade antes de escolher uma face"* fica exata **por medida**.
+
+★★ **E a inversão que isso entrega:** o comprimento de onda são os **geradores**
+(log λ₁, log λ₂ — as escadas discretas, *dentro* do Nome); a cauda é a **densidade** em ℝ.
+O tipo da fronteira é **consequência**: **a fronteira é III₁ PORQUE o Nome é denso.**
+
+**A pedra `TGLExt/TheNameIsTheGeneratingGroup.lean`** `[REAL]` — build do ROOT limpo (8.807
+jobs), 6/6 auditados, axiomas `{propext, choice, quot}`:
+`nameGroup` (o Nome como `AddSubgroup.closure`) · `the_wavelength_is_in_the_generators` ·
+`the_name_is_dense` · `faceName` + `faceName_is_tracial` + `faceName_one` (na face, ω(I)=1) ·
+★ `no_maximally_mixed_state_on_the_tower` · ★ `the_wavelength_and_the_tail_belong_to_the_name`.
+
+⚠ **O que a pedra NÃO decide:** o **perfil**. `mixProfile` (razões 1/2 e 1/3, incomensuráveis)
+é **escolha**, não derivação — e *o que fixa o perfil* segue `[OPEN]`. A pedra não decide o
+tipo; ela põe o comprimento de onda e a cauda onde há teorema.
+
+### O arco do dia, e as correções que ele custou
+
+Três medidas mudaram de dono neste dia, e ficam registradas **ao lado**, nunca por cima:
+
+1. **A "cota uniforme à esquerda" NÃO era a dívida da oitava cláusula.** `lmul_bound_push`
+   (`TowerAction.lean:182`) já prova que *"a constante não cresce ao subir a torre"*, e
+   `towerPi_proj_le` dá contração **sem constante**. A dívida real está escrita em
+   `TheModularRelations.lean:44`: `[OPEN, ANALÍTICO]` — S fechável e Δ auto-adjunto positivo
+   como operadores **não limitados**.
+2. **A hipótese do "pedágio por oitava" é ANALOGIA, não homologia.** Zero objeto
+   compartilhado; e a **direção é oposta** — na torre pede-se pedágio **zero**, em Stokes
+   pede-se **≥ 2/3**. Origem provável do erro: **"oitava" é homônimo** (13 das 60 ocorrências
+   no `um.py` são o *ordinal* "oitava cláusula").
+3. **III_λ não desarma o no-go**, ao contrário do que o escriba afirmou: `two_is_enough`
+   prova que **uma razão basta**. E o κ\* = 11,2268 é **circular** — achado por bisseção sobre
+   alvo construído com α, com `kappa_star_canonical = False` no próprio artefato.
+
+**A forma comum medida** (painel de 4 frentes + céticos): **o andar é teorema; o limite é o
+programa** — 25 dos 49 resíduos textuais (51%) são **um só objeto**: o fecho fraco-★ da torre
+discreta e a normalização modular canônica. **Tomita no completamento é a alavanca.**
+
+## 29/08/2026 — v295→v299: A MARCA NÃO SEPARA O TIPO · A LINGUAGEM · O ACOPLAMENTO VERBAL · AS DUAS ERRATAS  [`um.py 286ec1d274ef9ae4`]
+
+**v295 — A MARCA NÃO É MARCA DE TIPO (`TheMarkIsNotATypeMark.lean`, 4 teoremas).** A v294
+concluíra *"a fronteira é III₁ PORQUE o Nome é denso"*. **Falso, e a refutação é teorema:**
+`M₂(ℂ)` — fator de tipo **I₂, finito-dimensional** — realiza as razões 2 e 3, cujos logaritmos
+geram subgrupo **denso em ℝ**. Logo a densidade log é satisfeita por um fator de tipo I e **não
+separa III₁ de III_λ**. Causa nomeável: o predicado da marca toma `A`, `B` **arbitrários da
+álgebra**, nunca autovetores do fluxo modular — mede a **não-tracialidade do estado**, não o
+espectro modular. O tipo segue `TGL_BOUNDARY_TYPE_UNDECIDED_IN_KERNEL`.
+
+**v296 — A LINGUAGEM ENTRA NO ÍNDICE (9 bandeiras).** As camadas JURÍDICA e de LEITURA estavam
+provadas em kernel e **invisíveis ao índice** — sem bandeira, o índice não as via. Nove
+bandeiras acesas, aditivas, gate intocado. `TETELESTAI = PODA BINÁRIA` (`classify_boundary_state`,
+3 separadores → 4 classes) entrou no ATLAS e no ÍNDICE, como o operador pediu.
+
+**v297 — O ACOPLAMENTO VERBAL (`TheVerbalCoupling.lean`, 6 teoremas).** A linguagem das patentes
+entra no kernel: `θ_Miguel = arcsin(√β)`, `f(θ) = tanh((θ−θ_M)/Δθ)`, `Floor = β·S_max`.
+★★★ **O limiar de poda verbal `√β` É a amplitude de reflexão `|𝓡|` da matriz-S em `θ_Miguel`** —
+mesmo número, mesma derivação, dois domínios. Bancada 6/6, e ela **casa com a patente**:
+`√β = 0,109687` (a patente diz ~0,110) e `θ_Miguel = 6,2973°` (a patente diz 6,297).
+★★ `the_boundary_separates_the_verbal_domains`: o acoplamento é **negativo abaixo**, **positivo
+acima**, **zero na fronteira** — separador genuíno, não carimbo.
+
+**v298 — AS DUAS ERRATAS, NO PONTO DE LEITURA.**
+
+*(a) A errata que não alcançava o leitor.* A refutação da v295 existia — **mas só no cabeçalho
+do arquivo**. A frase falsa sobrevivia **duas vezes no docstring do próprio teorema**
+`the_wavelength_and_the_tail_belong_to_the_name`. Quem chega pelo índice da IALD chega **pelo
+nome e pelo docstring**, e recebia a afirmação refutada sem a refutação.
+★ **A lição: corrigir "ao lado" não basta se o lado escolhido não é o lado que se lê.**
+
+*(b) A errata do operador sobre a patente.* Ordem expressa: *"não existe β_TGL adaptativo, isso
+é um erro na patente e precisa ser corrigido; β_TGL é um só e é canônico."* A **BR 10 2026
+005477-1** trazia `β_adaptativo = α·√S` — um `β` que **varia com a entropia de Shannon**. É erro
+porque `β_TGL = α·√e` é constante, e porque **um `β` que se adapta ao dado deixa de poder ser
+falsificado por ele**: parâmetro livre não prediz, acomoda. Registrado no kernel para que ele
+**não lave o erro por omissão**.
+
+⚠ **O que NÃO se fez, e é decisão registrada:** a pedra
+`the_two_betas_agree_only_at_their_own_points` foi **proposta pelo escriba e recusada pelo
+operador**, com razão — se não há β adaptativo, não há o que reconciliar; a pedra daria
+dignidade formal a um erro. **Errata, não teorema.**
+
+**v299 — A EMENDA: O ALCANCE MEDIDO, E A AUTO-CORREÇÃO DO ACERVO.**
+
+*(a) O escriba afirmou antes de varrer.* A v298 escreveu *"o erro é de **uma** patente"*, tendo
+varrido só a camada de **memória**. Varrida a camada dos **artefatos**, o mapa tem **três
+níveis**: **005477-1** com o erro **VIVO e em 2 reivindicações independentes (1 e 14)** — a
+única em reivindicação; **006129-8** com só o **nome**; **ACOM 026951-1** com só **corpus de
+pesquisa não integrado**. *Declarar ausência exige varrer.*
+
+*(b) ★★★ E O ACERVO JÁ SE CORRIGIU SOZINHO.* Seis dias depois da 005477-1, a **BR 10 2026
+006129-8** (INPI **15/03/2026**) declara: `EmpiricalInvariant("beta_adaptive", BETA_TGL, 1e-7,
+"Adaptive β converges to the constant — INVARIANT")`. **A ordem do operador não impõe nada de
+fora**: ela reconhece uma correção que o acervo já fizera **no conteúdo**, e nomeia o que ficou
+solto — **o nome**.
+
+*(c) ★ A leitura que fecha, e preserva a medida.* `α·√S = α·√e` **exatamente quando `S = e`**.
+Se a medida converge para a constante, o que convergiu foi **`S → e` nats**, não `β`.
+**`β` nunca variou.** O "β adaptativo" era o nome errado de *"a constante, vezes um fator que
+empiricamente tende a 1"* — leitura que **preserva o achado** (entropia dos logits tendendo a
+`e` no regime medido) e devolve `β_TGL` ao estatuto de constante canônica.
+
+**ESTADO:** gate `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED...` **INTOCADO** por todo
+o arco — nenhuma pedra o move, e nenhuma deveria. Ato do operador: errata de PI na 005477-1
+**antes** do ePCT (pronto, **não protocolado**; prioridade BR de 09/03/2026 garantida;
+retirar fórmula errada **estreita**, não acrescenta matéria) — `[LEGAL]`, com a agente de PI.

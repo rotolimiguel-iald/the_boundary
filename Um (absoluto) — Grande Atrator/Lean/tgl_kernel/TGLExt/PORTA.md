@@ -23,7 +23,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ## OS ARQUIVOS DESTA PASTA
 
-241 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
+245 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt
 
 **PROVA FORMAL**
 
@@ -202,9 +202,12 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `TheLightInterface.lean` | Prova formal (Lean 4): TheLightInterface | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheLightInterface.lean) |
 | `TheLivingWord.lean` | Prova formal (Lean 4): TheLivingWord | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheLivingWord.lean) |
 | `TheLivingWordClosure.lean` | Prova formal (Lean 4): TheLivingWordClosure | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheLivingWordClosure.lean) |
+| `TheMarkIsNotATypeMark.lean` | Prova formal (Lean 4): TheMarkIsNotATypeMark | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheMarkIsNotATypeMark.lean) |
 | `TheMasterFires.lean` | Prova formal (Lean 4): TheMasterFires | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheMasterFires.lean) |
 | `TheMatrixAndTheModulator.lean` | Prova formal (Lean 4): TheMatrixAndTheModulator | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheMatrixAndTheModulator.lean) |
 | `TheModularRelations.lean` | Prova formal (Lean 4): TheModularRelations | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheModularRelations.lean) |
+| `TheNameAndItsReferent.lean` | Prova formal (Lean 4): TheNameAndItsReferent | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheNameAndItsReferent.lean) |
+| `TheNameIsTheGeneratingGroup.lean` | Prova formal (Lean 4): TheNameIsTheGeneratingGroup | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheNameIsTheGeneratingGroup.lean) |
 | `TheNameOperator.lean` | Prova formal (Lean 4): TheNameOperator | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheNameOperator.lean) |
 | `TheNetFiresTheCorner.lean` | Prova formal (Lean 4): TheNetFiresTheCorner | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheNetFiresTheCorner.lean) |
 | `TheNonLinearCausality.lean` | Prova formal (Lean 4): TheNonLinearCausality | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheNonLinearCausality.lean) |
@@ -250,6 +253,7 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 | `TheTwoPolesHaveContent.lean` | Prova formal (Lean 4): TheTwoPolesHaveContent | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheTwoPolesHaveContent.lean) |
 | `TheUnconjugatedObserver.lean` | Prova formal (Lean 4): TheUnconjugatedObserver | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheUnconjugatedObserver.lean) |
 | `TheUnsolicitedUnitary.lean` | Prova formal (Lean 4): TheUnsolicitedUnitary | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheUnsolicitedUnitary.lean) |
+| `TheVerbalCoupling.lean` | Prova formal (Lean 4): TheVerbalCoupling | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheVerbalCoupling.lean) |
 | `TheWeightIsNotTheRank.lean` | Prova formal (Lean 4): TheWeightIsNotTheRank | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheWeightIsNotTheRank.lean) |
 | `TheWideNet.lean` | Prova formal (Lean 4): TheWideNet | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheWideNet.lean) |
 | `TheWitnessLinearOnWH.lean` | Prova formal (Lean 4): TheWitnessLinearOnWH | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheWitnessLinearOnWH.lean) |
@@ -273,4 +277,4 @@ do canto de Breuer ao spin-2 linearizado, da Confirmacao Reservada a Permanencia
 
 ---
 
-gerado por script de git ls-files em 2026-08-29 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-30 -- nao editar a mao

@@ -4579,6 +4579,36 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.ialdSelector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.iald_selects": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.iald_is_idempotent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.iald_is_selfadjoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.iald_has_rank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.iald_is_the_gate_and_the_record": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.qgImport_H3_localHorizonEquilibrium_bridged": [
       "propext",
       "Classical.choice",
@@ -5103,6 +5133,150 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.the_wavelength_is_in_the_generators": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_name_is_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.faceName_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.faceName_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.faceName_is_tracial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.faceName_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.no_maximally_mixed_state_on_the_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_wavelength_and_the_tail_belong_to_the_name": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.type_I_two_realizes_ratio_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.type_I_two_realizes_ratio_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_mark_is_fed_by_a_type_I_factor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_mark_does_not_separate_the_types": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tetelestai_ledger": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.res_judicata_is_terminal": [
+      "propext",
+      "Quot.sound"
+    ],
+    "TGLExt.no_decision_without_cost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.reading_is_exactly_having_frequency": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_dead_channel_is_the_contrast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.reading_needs_two_clocks": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_dead_channel_has_no_reader": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.sin_thetaMiguel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_pruning_threshold_is_the_reflection_amplitude": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.coupling_vanishes_at_the_boundary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tanh_sign": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_boundary_separates_the_verbal_domains": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_verb_floor_is_a_fraction_of_the_max": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.every_alpha_fits_every_observation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.contract_iff_the_eighth_clause": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.contract_gives_the_equality": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_name_is_zero_modular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.isotone_ker_ne_bot": [
       "propext",
       "Classical.choice",
@@ -5219,9 +5393,16 @@
     "TGLExt.without_contrast_no_reading_yields_form": [],
     "TGLExt.the_unread_image_is_not_the_absolute_zero": [],
     "TGLExt.the_reader_adds_condition_not_content": [],
-    "TGLExt.the_lens_is_irrelevant_exactly_where_there_is_nothing_to_read": []
+    "TGLExt.the_lens_is_irrelevant_exactly_where_there_is_nothing_to_read": [],
+    "TGLExt.the_constant_reading_does_not_separate": [],
+    "TGLExt.the_identity_contract_discriminates": [],
+    "TGLExt.the_trivial_contract_does_not_discriminate": [],
+    "TGLExt.the_two_contracts_differ": [],
+    "TGLExt.the_empty_slot_is_not_the_void": [],
+    "TGLExt.the_bireference_of_the_name": [],
+    "TGLExt.two_clocks_are_needed": []
   },
-  "formal_source_hash": "0462e965c41896e51e12a45062f1324d093c06a992f2239faa68c48d1d20bc05",
+  "formal_source_hash": "2e1f72ae563c3d162281a3cb78a4f6837dc27df31212f06d3d608e5837727972",
   "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED",
   "selo": "LEAN_KERNEL_CHECKED . LAKE_BUILD_REPRODUCIBLE . NO_SORRY_AX . NO_TRUST_COMPILER . NO_CUSTOM_TGL_AXIOMS . HALF_NAT_KERNEL_PROVED . AREA_SCALE_EQUIVALENCE_KERNEL_PROVED . FINITE_THREE_LOCKS_CORNER_KERNEL_PROVED"
 }
@@ -5527,7 +5708,7 @@
 
 ```json
 {
-  "code_sha256": "8d3a89d9be67d67372a674d741fa3ae2ae95640e3a2eca28fdae2740fca4b219",
+  "code_sha256": "286ec1d274ef9ae47548ba68e97508e7b79e3e641c3162b090952eeb49173b59",
   "cf4_catalog_hash": "a2d33204458119225b059193cc1fd26fb085e90de2b8c1bc2397f4156692443a",
   "window_hash": "8a1f4745cb2d91fc0448bbf5214dfa3b64273598ff9e2b8523d160d76c3caf68",
   "selection_hash": "351c308aafd509b418399b5f03db64f274f1189e0d684bfd5d28604181f30a5f"
@@ -5538,7 +5719,7 @@
 
 **A cadeia canonica:** `PSI = 1_abs` -> `omega_PSI` (Nome; omega(I)=1 EMERGE) -> `H_PSI` (morada = pacote de Hilbert) -> `L_PSI` (Palavra; EL seleciona ker D) -> `D_PSI` (locks; comutadores anulam o Um) -> `P_F` (canto DERIVADO; P_F.Omega=Omega) -> `nabla/T` (Verbo; transporte do absoluto TRIVIAL) -> `F` (curvatura da INSCRICAO q!=0) -> `g` (solda). VERDADE = 1=1; `1 = q^2 + alpha^2` = decomposicao pitagorica da inscricao.
 
-**Escada auditada (kernel Lean, 758/758 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
+**Escada auditada (kernel Lean, 798/798 teoremas limpos nesta rodada; veredito: EXTERNAL_LADDER_INTEGRATED_FINITE_TOMITA_KERNEL_PROVED):**
 
 - `degrau_0_finite_tomita_takesaki` = `CLOSED_IN_KERNEL`
 - `degrau_1_von_neumann_basics` = `CLOSED_IN_KERNEL__INCLUDING_GENERAL_BICOMMUTANT`

@@ -1794,6 +1794,15 @@ namespace TGL.Audit
 #print axioms TGLExt.atlas_chain_rule
 #print axioms TGLExt.atlas_self
 #print axioms TGLExt.atlas_inverse
+-- v290: O INDICE ENTRA NO INDICE. O seletor da IALD compilava e era importado, mas
+-- nenhum dos seus teoremas era auditado e nenhuma bandeira o lia. Ordem do operador:
+-- TGL = ATLAS, IALD = INDICE(TGL) -- entao o indice tambem se indexa.
+#print axioms TGLExt.ialdSelector
+#print axioms TGLExt.iald_selects
+#print axioms TGLExt.iald_is_idempotent
+#print axioms TGLExt.iald_is_selfadjoint
+#print axioms TGLExt.iald_has_rank_one
+#print axioms TGLExt.iald_is_the_gate_and_the_record
 -- v254: a PONTE de importacao (v253 criou a bandeira e NAO a inscreveu aqui;
 -- nome ausente do mapa de axiomas => bandeira falsa por cegueira, nao por rigor)
 #print axioms TGLExt.qgImport_H3_localHorizonEquilibrium_bridged
@@ -1961,6 +1970,57 @@ noncomputable example (P : TGLExt.SiteProfile) :
 #print axioms TGLExt.the_eighth_clause_without_J
 #print axioms TGLExt.the_easy_half_without_J
 #print axioms TGLExt.the_debt_is_an_equality_without_J
+-- v292: O NOME E O SEU REFERENTE -- a birreferencialidade do vacuo, e o CONTRATO TIPADO
+-- da oitava clausula. Cura do fail-open por nome: o tipo e' o contorno; habita-lo e' a
+-- leitura. O contrato NAO tem habitante, e e' isso que se quer.
+#print axioms TGLExt.the_constant_reading_does_not_separate
+#print axioms TGLExt.the_identity_contract_discriminates
+#print axioms TGLExt.the_trivial_contract_does_not_discriminate
+#print axioms TGLExt.the_two_contracts_differ
+#print axioms TGLExt.the_empty_slot_is_not_the_void
+#print axioms TGLExt.the_bireference_of_the_name
+-- v294: O NOME E O GRUPO GERADOR. O comprimento de onda (os geradores) e a cauda (a
+-- densidade) pertencem ao NOME. E I/d desce de DEFINICAO para REPRESENTACAO DE FACE:
+-- na fronteira o estado tracial normal NAO EXISTE (the_dead_weight).
+#print axioms TGLExt.the_wavelength_is_in_the_generators
+#print axioms TGLExt.the_name_is_dense
+#print axioms TGLExt.faceName_add
+#print axioms TGLExt.faceName_smul
+#print axioms TGLExt.faceName_is_tracial
+#print axioms TGLExt.faceName_one
+#print axioms TGLExt.no_maximally_mixed_state_on_the_tower
+#print axioms TGLExt.the_wavelength_and_the_tail_belong_to_the_name
+-- v295: A MARCA NAO E MARCA DE TIPO. Um fator de TIPO I_2 (M_2(C), estado w=1/3) realiza
+-- as razoes 2 e 3, cujos logaritmos geram subgrupo DENSO. Logo a densidade log NAO separa
+-- III_1 de III_lambda. ERRATA AO LADO da v294 -- a seta do Nome ao TIPO cai; o resto fica.
+#print axioms TGLExt.type_I_two_realizes_ratio_two
+#print axioms TGLExt.type_I_two_realizes_ratio_three
+#print axioms TGLExt.the_mark_is_fed_by_a_type_I_factor
+#print axioms TGLExt.the_mark_does_not_separate_the_types
+-- v296: A LINGUAGEM ENTRA NO INDICE. As camadas JURIDICA e de LEITURA estavam
+-- provadas no kernel e INVISIVEIS ao indice da IALD: as pedras existiam, sem
+-- bandeira o indice nao as alcancava. Acender e ADITIVO -- nao move o gate.
+#print axioms TGLExt.tetelestai_ledger
+#print axioms TGLExt.res_judicata_is_terminal
+#print axioms TGLExt.no_decision_without_cost
+#print axioms TGLExt.two_clocks_are_needed
+#print axioms TGLExt.reading_is_exactly_having_frequency
+#print axioms TGLExt.the_dead_channel_is_the_contrast
+#print axioms TGLExt.reading_needs_two_clocks
+#print axioms TGLExt.the_dead_channel_has_no_reader
+-- v297: O ACOPLAMENTO VERBAL -- a linguagem das patentes em kernel. O limiar de poda
+-- verbal sqrt(beta) E a amplitude de reflexao |R| da matriz-S em theta_Miguel: um so
+-- angulo governa os dois dominios. [LEGAL] so entra o que ja consta do deposito INPI.
+#print axioms TGLExt.sin_thetaMiguel
+#print axioms TGLExt.the_pruning_threshold_is_the_reflection_amplitude
+#print axioms TGLExt.coupling_vanishes_at_the_boundary
+#print axioms TGLExt.tanh_sign
+#print axioms TGLExt.the_boundary_separates_the_verbal_domains
+#print axioms TGLExt.the_verb_floor_is_a_fraction_of_the_max
+#print axioms TGLExt.every_alpha_fits_every_observation
+#print axioms TGLExt.contract_iff_the_eighth_clause
+#print axioms TGLExt.contract_gives_the_equality
+#print axioms TGLExt.the_name_is_zero_modular
 
 -- v280: O CANTO DE BREUER DO PROPRIO PACOTE (theIsotoneNet)
 #check @TGLExt.theIsotoneNetTrace

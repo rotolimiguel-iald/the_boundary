@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-29T12:39:11Z",
+  "gerado_utc": "2026-08-30T09:54:18Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean",
@@ -401,6 +401,26 @@
       "bytes": 11220
     },
     {
+      "nome": "TheNameAndItsReferent.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada/TheNameAndItsReferent.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheNameAndItsReferent",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNameAndItsReferent.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNameAndItsReferent.lean",
+      "sha256_16": "214260a5ad41d02a",
+      "bytes": 10251
+    },
+    {
+      "nome": "TheNameIsTheGeneratingGroup.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada/TheNameIsTheGeneratingGroup.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): TheNameIsTheGeneratingGroup",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNameIsTheGeneratingGroup.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada/TheNameIsTheGeneratingGroup.lean",
+      "sha256_16": "7f0bca1980afd1c4",
+      "bytes": 7775
+    },
+    {
       "nome": "TheNetFiresTheCorner.lean",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada/TheNetFiresTheCorner.lean",
       "papel": "prova formal",
@@ -631,8 +651,8 @@
       "bytes": 15885
     }
   ],
-  "total_arquivos_nesta_pasta": 61,
-  "total_arquivos_com_subpastas": 61,
+  "total_arquivos_nesta_pasta": 63,
+  "total_arquivos_com_subpastas": 63,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/kernel_bancada",
-  "rodape": "gerado por script de git ls-files em 2026-08-29 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-08-30 -- nao editar a mao"
 }

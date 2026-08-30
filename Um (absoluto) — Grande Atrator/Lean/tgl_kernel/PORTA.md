@@ -9,8 +9,8 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 O KERNEL FORMAL: as fontes .lean exatamente como `um.py` as materializa a cada
 rodada -- nao ha segundo arquivo: o kernel mora DENTRO do canonico e sai dele.
 
-**275 arquivos** nesta arvore; **274** hasheados no manifesto formal (271 `.lean`
-+ `README.md` + `lakefile.toml` + `lean-toolchain`); **958 teoremas** auditados
+**279 arquivos** nesta arvore; **278** hasheados no manifesto formal (275 `.lean`
++ `README.md` + `lakefile.toml` + `lean-toolchain`); **1000 teoremas** auditados
 por `#print axioms`, bases de axiomas subset de {`propext`, `Classical.choice`,
 `Quot.sound`}, zero `sorry`. Toolchain `leanprover/lean4:v4.31.0`, modo `strict`.
 
@@ -63,8 +63,8 @@ o gate nao se move por declaracao.
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
 | `TGL/` | 27 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/PORTA.json) |
-| `TGLExt/` | 241 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json) |
+| `TGLExt/` | 245 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-08-29 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-30 -- nao editar a mao

@@ -6023,6 +6023,36 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.ialdSelector": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.iald_selects": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.iald_is_idempotent": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.iald_is_selfadjoint": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.iald_has_rank_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.iald_is_the_gate_and_the_record": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "TGLExt.qgImport_H3_localHorizonEquilibrium_bridged": [
           "propext",
           "Classical.choice",
@@ -6547,6 +6577,150 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.the_wavelength_is_in_the_generators": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_name_is_dense": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.faceName_add": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.faceName_smul": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.faceName_is_tracial": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.faceName_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.no_maximally_mixed_state_on_the_tower": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_wavelength_and_the_tail_belong_to_the_name": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.type_I_two_realizes_ratio_two": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.type_I_two_realizes_ratio_three": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_mark_is_fed_by_a_type_I_factor": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_mark_does_not_separate_the_types": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tetelestai_ledger": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.res_judicata_is_terminal": [
+          "propext",
+          "Quot.sound"
+        ],
+        "TGLExt.no_decision_without_cost": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.reading_is_exactly_having_frequency": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_dead_channel_is_the_contrast": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.reading_needs_two_clocks": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_dead_channel_has_no_reader": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.sin_thetaMiguel": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_pruning_threshold_is_the_reflection_amplitude": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.coupling_vanishes_at_the_boundary": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tanh_sign": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_boundary_separates_the_verbal_domains": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_verb_floor_is_a_fraction_of_the_max": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.every_alpha_fits_every_observation": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.contract_iff_the_eighth_clause": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.contract_gives_the_equality": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_name_is_zero_modular": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "TGLExt.isotone_ker_ne_bot": [
           "propext",
           "Classical.choice",
@@ -6663,18 +6837,25 @@
         "TGLExt.without_contrast_no_reading_yields_form": [],
         "TGLExt.the_unread_image_is_not_the_absolute_zero": [],
         "TGLExt.the_reader_adds_condition_not_content": [],
-        "TGLExt.the_lens_is_irrelevant_exactly_where_there_is_nothing_to_read": []
+        "TGLExt.the_lens_is_irrelevant_exactly_where_there_is_nothing_to_read": [],
+        "TGLExt.the_constant_reading_does_not_separate": [],
+        "TGLExt.the_identity_contract_discriminates": [],
+        "TGLExt.the_trivial_contract_does_not_discriminate": [],
+        "TGLExt.the_two_contracts_differ": [],
+        "TGLExt.the_empty_slot_is_not_the_void": [],
+        "TGLExt.the_bireference_of_the_name": [],
+        "TGLExt.two_clocks_are_needed": []
       },
-      "formal_source_hash": "0462e965c41896e51e12a45062f1324d093c06a992f2239faa68c48d1d20bc05",
+      "formal_source_hash": "2e1f72ae563c3d162281a3cb78a4f6837dc27df31212f06d3d608e5837727972",
       "formal_files_sha256": {
         "ExtrairDeps.lean": "eefdc950db020150ef19a5b5705a131ef99dfc9d3ab946aef2de64bf17ce1013",
         "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "5b9119bb5ad4edbf45f84459cc5cd6d3d3cd6407b3eaaecdb8642f09c5e51c69",
+        "TGLExt.lean": "289a4b4f049328f0d24c9bbd6b5b850c2ad8e34f8d03a9a2ad8546af28927145",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "021bed3dac2c674d12a1fdd0717345ab8779f843de3dc6e4af8cd8c215296508",
+        "TGL/Audit.lean": "cac38bf118f0cac3b02527d075f682e4692c5485e60c75dea73133d73aa2c6ce",
         "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -6873,9 +7054,12 @@
         "TGLExt/TheLightInterface.lean": "6d1e1567a4cc5b0589adbfcdf449d296e5d76e29b89ece3a31f016f6d10b9fa2",
         "TGLExt/TheLivingWord.lean": "fdc242c2c70b57fa146c7c41459eab94c217e878cefc9058d983467918eed473",
         "TGLExt/TheLivingWordClosure.lean": "40eb074dc85a765079e1bc2c0eb2258a50bd755fb576af3a908ab568f4d85e21",
+        "TGLExt/TheMarkIsNotATypeMark.lean": "b36e35176fb81c70f85221d357f0ad144a840eac8f3e46172717ca3c139077ca",
         "TGLExt/TheMasterFires.lean": "862fc44434b23cb37a5eef412b6f829f84a0e0fe64fa58c8c7b260e8a8f32328",
         "TGLExt/TheMatrixAndTheModulator.lean": "c39e4dcba8eb2354621f6adeaf492a5a3a6731cbe549ec8f305d4b4f419a1750",
         "TGLExt/TheModularRelations.lean": "2cd411ab76d72956f6d34abb8c321e9702c926dd00e9debefe4e996c7c6fa280",
+        "TGLExt/TheNameAndItsReferent.lean": "214260a5ad41d02ad6b3c0da3e7556762c782f4bebbaa66845ac0d3e5e9da008",
+        "TGLExt/TheNameIsTheGeneratingGroup.lean": "2dedbe4a7e25bcd96f52659edf3face92ac74ddb2ae60ac32a22d525c60240cd",
         "TGLExt/TheNameOperator.lean": "000bd0bf03281e0056f6187ea9e74566d924c68e8601fbe1b09b84dac89506c0",
         "TGLExt/TheNetFiresTheCorner.lean": "b35d65a50b52d92fce1014f201f2d17b5395c926393680c96544a0d9a9d773cb",
         "TGLExt/TheNonLinearCausality.lean": "27ff96e7969f25ef368990471d9c41eabe302eb4e8de607ad19bc5235d718ea8",
@@ -6921,6 +7105,7 @@
         "TGLExt/TheTwoPolesHaveContent.lean": "1e17af908c1d6025409ff121ad9c98408e854b305b4f9a7b8364aba1adb98712",
         "TGLExt/TheUnconjugatedObserver.lean": "e2c1978c4a3cb5448699bfcae0dff3da487800bff0d4ef713ec4330bed278a9e",
         "TGLExt/TheUnsolicitedUnitary.lean": "29aba04e578b1921a8b22d0e9e28fa608160a14f465a9eca32ce2cd208e601cf",
+        "TGLExt/TheVerbalCoupling.lean": "4fc14822244a93d3f6628ef555640f744b6f02b7a21d3a6997c77a4bb2b58951",
         "TGLExt/TheWeightIsNotTheRank.lean": "83f9c8bca5e133916080eea6f6200e088b4641a35504a8255156945e7028b72e",
         "TGLExt/TheWideNet.lean": "ef26e912a6ed418ab0da4ed6b09b35d1090d23674c25e68ee5248ebe3b70d340",
         "TGLExt/TheWitnessLinearOnWH.lean": "0c1b0883f16eaec61831113f03a106149e80692b0999b4cebbe0045137bacdc6",
@@ -7763,24 +7948,64 @@
       "ext_ai_atlas_chain_rule_kernel_proved": true,
       "ext_ai_atlas_self_kernel_proved": true,
       "ext_ai_atlas_inverse_kernel_proved": true,
+      "ext_iald_selector_constructed": true,
+      "ext_iald_selects_kernel_proved": true,
+      "ext_iald_idempotent_kernel_proved": true,
+      "ext_iald_selfadjoint_kernel_proved": true,
+      "ext_iald_rank_one_kernel_proved": true,
+      "ext_iald_gate_and_record_kernel_proved": true,
+      "ext_nr_constant_reading_kernel_proved": true,
+      "ext_nr_identity_discriminates_kernel_proved": true,
+      "ext_nr_trivial_does_not_discriminate_kernel_proved": true,
+      "ext_nr_two_contracts_differ_kernel_proved": true,
+      "ext_nr_empty_slot_not_void_kernel_proved": true,
+      "ext_nr_bireference_kernel_proved": true,
+      "ext_nr_contract_iff_clause_kernel_proved": true,
+      "ext_nr_contract_gives_equality_kernel_proved": true,
+      "ext_nr_name_is_zero_modular_kernel_proved": true,
+      "ext_ng_wavelength_in_generators_kernel_proved": true,
+      "ext_ng_name_is_dense_kernel_proved": true,
+      "ext_ng_facename_tracial_kernel_proved": true,
+      "ext_ng_facename_one_kernel_proved": true,
+      "ext_ng_no_max_mixed_on_tower_kernel_proved": true,
+      "ext_ng_wavelength_and_tail_kernel_proved": true,
+      "ext_mk_type_I_ratio_two_kernel_proved": true,
+      "ext_mk_type_I_ratio_three_kernel_proved": true,
+      "ext_mk_fed_by_type_I_kernel_proved": true,
+      "ext_mk_does_not_separate_kernel_proved": true,
+      "ext_jt_tetelestai_ledger_kernel_proved": true,
+      "ext_jt_res_judicata_terminal_kernel_proved": true,
+      "ext_jt_no_decision_without_cost_kernel_proved": true,
+      "ext_jt_two_clocks_are_needed_kernel_proved": true,
+      "ext_dc_reading_is_frequency_kernel_proved": true,
+      "ext_dc_dead_channel_is_contrast_kernel_proved": true,
+      "ext_dc_reading_needs_two_clocks_kernel_proved": true,
+      "ext_dc_dead_channel_no_reader_kernel_proved": true,
+      "ext_vc_sin_theta_miguel_kernel_proved": true,
+      "ext_vc_pruning_is_reflection_kernel_proved": true,
+      "ext_vc_coupling_vanishes_kernel_proved": true,
+      "ext_vc_tanh_sign_kernel_proved": true,
+      "ext_vc_boundary_separates_kernel_proved": true,
+      "ext_vc_verb_floor_fraction_kernel_proved": true,
+      "ext_ci_every_alpha_fits_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "3a81b7e6644d28b761215c6d7c41f830948c96f1b489f27764d68c9e7b9b79c6",
+      "build_stdout_sha256": "e43d8e5327738a5297debb5c5a279631bf6edcc41be8c8c0ff162077e0908983",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "0d925ad17f131672a61ccc7624fe4940e25a156ece853414ce72526f15de4781",
+      "audit_stdout_sha256": "bfc86b8ac1c43d27a29efbb4a80a26ab820732ee175368fb36c08a94bfe40ac0",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 308568,
+        "stdout": 314002,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 207222,
+        "stdout": 211033,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "3a81b7e6644d28b761215c6d7c41f830948c96f1b489f27764d68c9e7b9b79c6",
-      "audit_capture_sha256_full": "0d925ad17f131672a61ccc7624fe4940e25a156ece853414ce72526f15de4781",
+      "build_capture_sha256_full": "e43d8e5327738a5297debb5c5a279631bf6edcc41be8c8c0ff162077e0908983",
+      "audit_capture_sha256_full": "bfc86b8ac1c43d27a29efbb4a80a26ab820732ee175368fb36c08a94bfe40ac0",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
       "qgc_concrete_breuer_corner_constructed": true,
@@ -9959,10 +10184,50 @@
         "ext_ai_atlas_covariance_kernel_proved": true,
         "ext_ai_atlas_chain_rule_kernel_proved": true,
         "ext_ai_atlas_self_kernel_proved": true,
-        "ext_ai_atlas_inverse_kernel_proved": true
+        "ext_ai_atlas_inverse_kernel_proved": true,
+        "ext_iald_selector_constructed": true,
+        "ext_iald_selects_kernel_proved": true,
+        "ext_iald_idempotent_kernel_proved": true,
+        "ext_iald_selfadjoint_kernel_proved": true,
+        "ext_iald_rank_one_kernel_proved": true,
+        "ext_iald_gate_and_record_kernel_proved": true,
+        "ext_nr_constant_reading_kernel_proved": true,
+        "ext_nr_identity_discriminates_kernel_proved": true,
+        "ext_nr_trivial_does_not_discriminate_kernel_proved": true,
+        "ext_nr_two_contracts_differ_kernel_proved": true,
+        "ext_nr_empty_slot_not_void_kernel_proved": true,
+        "ext_nr_bireference_kernel_proved": true,
+        "ext_nr_contract_iff_clause_kernel_proved": true,
+        "ext_nr_contract_gives_equality_kernel_proved": true,
+        "ext_nr_name_is_zero_modular_kernel_proved": true,
+        "ext_ng_wavelength_in_generators_kernel_proved": true,
+        "ext_ng_name_is_dense_kernel_proved": true,
+        "ext_ng_facename_tracial_kernel_proved": true,
+        "ext_ng_facename_one_kernel_proved": true,
+        "ext_ng_no_max_mixed_on_tower_kernel_proved": true,
+        "ext_ng_wavelength_and_tail_kernel_proved": true,
+        "ext_mk_type_I_ratio_two_kernel_proved": true,
+        "ext_mk_type_I_ratio_three_kernel_proved": true,
+        "ext_mk_fed_by_type_I_kernel_proved": true,
+        "ext_mk_does_not_separate_kernel_proved": true,
+        "ext_vc_sin_theta_miguel_kernel_proved": true,
+        "ext_vc_pruning_is_reflection_kernel_proved": true,
+        "ext_vc_coupling_vanishes_kernel_proved": true,
+        "ext_vc_tanh_sign_kernel_proved": true,
+        "ext_vc_boundary_separates_kernel_proved": true,
+        "ext_vc_verb_floor_fraction_kernel_proved": true,
+        "ext_jt_tetelestai_ledger_kernel_proved": true,
+        "ext_jt_res_judicata_terminal_kernel_proved": true,
+        "ext_jt_no_decision_without_cost_kernel_proved": true,
+        "ext_jt_two_clocks_are_needed_kernel_proved": true,
+        "ext_dc_reading_is_frequency_kernel_proved": true,
+        "ext_dc_dead_channel_is_contrast_kernel_proved": true,
+        "ext_dc_reading_needs_two_clocks_kernel_proved": true,
+        "ext_dc_dead_channel_no_reader_kernel_proved": true,
+        "ext_ci_every_alpha_fits_kernel_proved": true
       },
-      "n_theorems_clean": 758,
-      "n_theorems_expected": 758,
+      "n_theorems_clean": 798,
+      "n_theorems_expected": 798,
       "statuses": {
         "finite_dimensional_only": true,
         "nothing_here_is_III1": true,
@@ -15182,11 +15447,11 @@
       "non_tautology_cycle": {
         "1_axioma_e_espinha": "[REAL] 1=1 normalizado (omega(I)=1); espinha 1=q^2+alpha^2 verificada a residuo 0.0 NESTE runtime; beta = alpha*sqrt(e) jamais literal",
         "2_aplicacao": "[REAL/ENGENHARIA] 16 patentes (INPI/ePCT); ACOM/dispositivos; o metodo de colapso patenteado com reproducao livre (P7)",
-        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 758 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
+        "3_execucao": "[REAL] forma=conteudo: o artefato RODA a si mesmo, materializa o kernel, audita 798 teoremas (axiomas {propext,choice,quot}, zero sorry) e emite o proprio artigo",
         "4_predicao": "[REAL na forma] Gamma_omega = (1/2) beta tau* omega^2 (viva, nao testada); o PISO r_c >= beta (v67, hash antes dos dados); P7 pre-registrada",
         "5_falsificacao": "[REAL] protocolos pre-registrados com vereditos proibidos; e as RECUSAS PROVAM QUE O APARELHO MORDE: V1 recusou (B-mode 12,4), v91 recusou (nulo 1,41) -- um teste que nao pode falhar nao testa",
         "6_selftest": "[REAL] fail-closed embutido; probes negativos v75 (experimento perfeito nao move matematica); sombra que re-deriva vereditos sem olhar o selo",
-        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 758/758; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
+        "7_aprovacao_o_que_permanece": "[REAL] o que sobreviveu a tudo isso: kernel 798/798; deteccao 6,2 sigma (v78); 1o veredito fisico limpo (v81); 1o veredito POWERED (v92: L5 ~9x acima do piso, 3 replicas no lado, split-null ok); negativos honestos preservados"
       },
       "operator_reading": {
         "estatuto": "[DECLARACAO DO OPERADOR -- duplo estatuto, precedente v61/v86]",
@@ -18111,7 +18376,7 @@
     },
     "stokes_contour": {
       "theorem": "O CONTORNO DE STOKES: no laboratorio diadico represado, a singularidade morre quando cada oitava paga o seu pedagio -- a meia-nat cobre 3/4 do turnover e nao basta; o limiar provavel e ln 2 (um bit por oitava) e o marginal e 2/3 (a face conjugada da queda de Kolmogorov, 1/3 + 2/3 = 1). O fosso entre eles, menor que 0,027 nats, e o retrato do Milenio. A resposta da singularidade e o contorno.",
-      "doc_sha256": "",
+      "doc_sha256": "9dc17cd4cfa67e743f2767200a96e5742e0437a86f98f1a6cc212a2c5cd1eb40",
       "values": {
         "beta": 0.012031300400803142,
         "razoes": {
@@ -18165,8 +18430,8 @@
           true
         ],
         [
-          "custodia: STOKES_A_Prova_do_Contorno.md sha ",
-          false
+          "custodia: STOKES_A_Prova_do_Contorno.md sha 9dc17cd4cfa67e74",
+          true
         ],
         [
           "o Lema da Face Conjugada segue ABERTO e EXTERNO (Milenio; nao e pendencia interna da TGL); NADA aqui o prova",
@@ -18177,14 +18442,14 @@
           true
         ]
       ],
-      "all_verified": false,
+      "all_verified": true,
       "statuses": {
         "o_que_e": "o enfrentamento de Navier-Stokes 3D absorvido: lab diadico vivo + pedra 113 + documento em custodia",
         "honestidade": "NAO e a prova do Milenio; o Lema da Face Conjugada e ABERTO e EXTERNO; o gate NAO se move",
-        "o_veredito": "STOKES_CONTOUR_NOT_SEALED_THIS_RUN"
+        "o_veredito": "TGL_STOKES_CONTOUR__DYADIC_LAB_REPRODUCED_LIVE__THRESHOLD_LN2_GT_TWO_THIRDS_TYPED__HALF_NAT_INSUFFICIENT__CONJUGATE_FACES_ONSAGER_MAP__ONE_BIT_PER_OCTAVE_ONTO__MILLENNIUM_LEMMA_OPEN_EXTERNAL__THE_ANSWER_TO_THE_SINGULARITY_IS_THE_CONTOUR_ONTO__SEAL_UNMOVED"
       },
       "does_not_gate_core": true,
-      "verdict": "STOKES_CONTOUR_NOT_SEALED_THIS_RUN"
+      "verdict": "TGL_STOKES_CONTOUR__DYADIC_LAB_REPRODUCED_LIVE__THRESHOLD_LN2_GT_TWO_THIRDS_TYPED__HALF_NAT_INSUFFICIENT__CONJUGATE_FACES_ONSAGER_MAP__ONE_BIT_PER_OCTAVE_ONTO__MILLENNIUM_LEMMA_OPEN_EXTERNAL__THE_ANSWER_TO_THE_SINGULARITY_IS_THE_CONTOUR_ONTO__SEAL_UNMOVED"
     },
     "jacobson_form_check": {
       "form_check": "P_mn[K_partial] = F(J, Delta, P_2D)  [CHECAGEM DE FORMA POSITIVA]",
@@ -18609,7 +18874,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-08-29 08:46:41",
+    "timestamp": "2026-08-29 20:42:18",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -18859,7 +19124,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-08-29 08:46:41",
+        "prediction_timestamp": "2026-08-29 20:42:18",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -18895,7 +19160,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "9fed36e1ab2339b006c5620637f650075ff661ceb75a69a3d016e4eeed00e82e"
+        "prediction_hash": "f88e3399e12e6283ab69d5a106b3ce53562a6a6e71db8357846e5f5b51ca6261"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -22338,10 +22603,227 @@
       "does_not_gate_core": true,
       "verdict": "THE_FOLD_IS_LICIT_BUT_IT_IS_NOT_WHAT_BUYS_THE_IMPLICATION__J_PAYS_ONLY_FOR_THE_EQUIVALENCE_AND_THE_KERNEL_PROVES_THAT_AGAINST_ITSELF__THE_CONJECTURE_IS_STRICTLY_STRONGER_AND_HAS_THE_SHAPE_BAIRE_REFUTES__SO_DENSITY_IS_NOT_A_DETOUR_IT_IS_THE_WHOLE_PROBLEM__AND_WHAT_WAS_GAINED_IS_A_TYPE_NOT_A_PROOF__ANTIUNITARY_IS_NO_LONGER_UNINHABITED_AND_THE_OMEGA_LINE_IS_THE_FIRST_NONTRIVIAL_J_INVARIANT_SECTOR"
     },
+    "the_verbal_coupling": {
+      "checks": [
+        [
+          "[MEDIDA] ***o ACOPLAMENTO VERBAL em kernel: 6/6 nomes auditados -- a fronteira natural, o acoplamento tanh, o piso verbal",
+          true
+        ],
+        [
+          "[MEDIDA] ***o LIMIAR DE PODA E A AMPLITUDE DE REFLEXAO: sqrt(beta) = 0.109687 (a patente diz ~0,110) e theta_Miguel = 6.2973 graus (a patente diz 6,297) -- recomputados agora, jamais de memoria",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***e o SEPARADOR SEPARA: f negativo abaixo, positivo acima, zero na fronteira. Um criterio que aprova tudo nao separa nada",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***beta JAMAIS literal na pedra e ZERO confidencial embutido (iald_stack / psion_state / api_key)",
+          true
+        ],
+        [
+          "[MEDIDA] os tres objetos da patente existem no codigo embutido: thetaMiguel, fVerbal, verbFloor",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***e o gate NAO se moveu: red_clause_JMJ_contains apagada, nenhuma gpf_ acesa. Tipar a linguagem da patente e ADITIVO",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "n_nomes": 6,
+      "sqrt_beta": 0.10968728459034412,
+      "theta_miguel_deg": 6.297289216477979,
+      "statuses": {
+        "a_ponte": "o limiar de poda verbal sqrt(beta) E a amplitude de reflexao |R| da matriz-S em theta_Miguel -- um so angulo, dois dominios",
+        "a_fonte": "BR 10 2026 006129-8, Kernel Ontologico, deposito INPI 15/03/2026",
+        "por_que_nao_e_analogia": "nao e' semelhanca de vocabulario: e' o MESMO numero com a MESMA derivacao, lido em dois dominios. O lema esta escrito",
+        "o_que_NAO_se_afirma": "nao deriva beta; nao afirma que um LLM SEJA fronteira modular (heuristica estrutural); nao ressuscita a medida em corpus",
+        "legal": "[LEGAL] so entra o que ja consta do deposito INPI; material nao depositado nao entra; espelhar publicamente e' ato do operador"
+      }
+    },
+    "the_language_enters_the_index": {
+      "checks": [
+        [
+          "[MEDIDA] ***a CAMADA JURIDICA entra no indice: 4/4 -- a coisa julgada e terminal, nao ha decisao sem custo, sao precisos DOIS relogios, e o ledger de TETELESTAI",
+          true
+        ],
+        [
+          "[MEDIDA] ***a CAMADA DE LEITURA/LINGUAGEM entra no indice: 5/5 -- LER e' exatamente TER FREQUENCIA; o canal morto NAO TEM LEITOR; a compressao nao e' identificavel",
+          true
+        ],
+        [
+          "[MEDIDA] ***TETELESTAI = PODA agora tem as DUAS ancoras: a numerica (o modulo v8, veredito TETELESTAI_PRUNING_VERIFIED) e a INDEXADA (`tetelestai_ledger`, com bandeira)",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***e o gate NAO se moveu: acender bandeira de pedra ja provada e ADITIVO. red_clause_JMJ_contains segue apagada e nenhuma gpf_ acendeu",
+          true
+        ],
+        [
+          "[MEDIDA] a rota de medir beta em CORPUS segue REFUTADA e esta bancada nao a ressuscita: na base de TOKENS a conjugacao nao fixa Psi (T08, 22/08). O vinculo aqui e' de INDICE, nunca de medida fisica",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "n_juridica": 4,
+      "n_leitura": 5,
+      "statuses": {
+        "a_ordem": "vincular a LINGUAGEM ALGORITMICA ao indice da IALD dentro do um.py",
+        "a_equacao": "TETELESTAI = PODA e' literal e datada de 03/07/2026, na voz do operador, e ja estava no Atlas. A tarefa era ANCORAR, nao achar",
+        "o_buraco": "as camadas juridica e de leitura estavam provadas no kernel e invisiveis ao indice -- pedra sem bandeira o indice nao alcanca",
+        "aditivo": "acender bandeira de pedra JA provada nao move o gate; e escrituracao",
+        "o_que_NAO_entra": "a leitura do LLM como fronteira modular e' HEURISTICA ESTRUTURAL declarada; Shannon esta REJEITADO para a Meia-Nat; e a medida de beta em corpus foi REFUTADA na base de tokens"
+      }
+    },
+    "the_mark_is_not_a_type_mark": {
+      "checks": [
+        [
+          "[MEDIDA] ***a REFUTACAO em kernel: 4/4 nomes auditados -- M_2(C), tipo I_2, realiza as razoes 2 e 3 e alimenta a densidade log",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***a densidade log NAO separa os tipos: um fator de TIPO I a satisfaz. A seta do Nome ao TIPO esta cortada por teorema",
+          true
+        ],
+        [
+          "[ERRATA-MINHA v295] a inferencia falsa foi posta no kernel pelo ESCRIBA na v294 e corrigida AO LADO no mesmo dia -- a frase sobrevive apenas dentro do bloco de errata, nunca como conclusao",
+          true
+        ],
+        [
+          "[MEDIDA] e o que NAO cai continua aceso: `the_name_is_dense` segue verdadeiro -- a errata corta a seta, nao os teoremas",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***e o TIPO segue ABERTO nos dois sentidos: esta pedra mostra que ESTE criterio nao decide, e nao decide por ele. red_clause_JMJ_contains segue apagada",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "n_nomes": 4,
+      "statuses": {
+        "o_erro": "o escriba escreveu no kernel, na v294, que a fronteira e III_1 PORQUE o Nome e denso. A inferencia e falsa",
+        "a_refutacao": "M_2(C) com w = 1/3 realiza as razoes 2 e 3; log 2 e log 3 sao incomensuraveis; o subgrupo gerado e denso. Um fator de TIPO I alimenta a marca",
+        "a_causa": "o predicado toma A e B ARBITRARIOS, nunca autovetores do fluxo modular -- a densidade mede nao-tracialidade, nao espectro modular",
+        "o_que_nao_cai": "mixed_log_dense, the_mixing_mark, the_name_is_dense e toda a v294 seguem verdadeiros. Cai UMA seta: Nome -> TIPO",
+        "o_tipo": "segue ABERTO nos dois sentidos, com peso formal ZERO de cada lado; SiteProfile e parametro estipulado"
+      }
+    },
+    "the_name_is_the_generating_group": {
+      "checks": [
+        [
+          "[MEDIDA] ***o NOME como GRUPO GERADOR em kernel: 6/6 nomes auditados -- os geradores dentro dele, o fecho denso, e a face onde I/d se realiza",
+          true
+        ],
+        [
+          "[MEDIDA] ***o COMPRIMENTO DE ONDA esta nos GERADORES e a CAUDA e a DENSIDADE: `the_wavelength_and_the_tail_belong_to_the_name` junta as tres faces num enunciado",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***o REBAIXAMENTO de I/d e FORCADO, nao estilistico: na fronteira NAO existe estado tracial normal (the_dead_weight), e I/d E o estado tracial normalizado. Logo I/d e representacao de FACE, nunca a definicao",
+          true
+        ],
+        [
+          "[MEDIDA] e na FACE finita o Nome EXISTE e vale omega(I)=1: faceName tracial e unital -- a representacao nao foi apagada, foi posta no seu lugar",
+          true
+        ],
+        [
+          "[MEDIDA] os dois objetos existem no codigo embutido: nameGroup (AddSubgroup) e faceName (traco normalizado)",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***a cunhagem NAO moveu o tipo nem o gate: mixProfile segue sendo ESCOLHA de perfil e nao derivacao; o que FIXA o perfil segue ABERTO; e red_clause_JMJ_contains segue apagada",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "n_nomes": 6,
+      "marca_de_III1_segue_acesa": true,
+      "statuses": {
+        "a_cunhagem": "NOME = Gamma_Nome = <log l1, log l2>_Z, com fecho DENSO em R; e rho_Nome = I/d rebaixado a REPRESENTACAO de face",
+        "por_que_forcado": "I/d E o estado tracial normalizado; the_dead_weight prova que na torre com mixProfile NAO existe estado tracial normal. O objeto nao existe na fronteira -- so na face finita",
+        "a_inversao": "comprimento de onda = os GERADORES (discretos, dentro do Nome); cauda = a DENSIDADE do fecho. A fronteira e III_1 PORQUE o Nome e denso -- o tipo e consequencia, nao sede",
+        "denso_nao_e_igual": "o kernel codifica a distincao que o operador marcou: o enunciado e `Dense (S : Set R)`, jamais `S = top`",
+        "o_que_NAO_se_decide": "o perfil. mixProfile e ESCOLHA, nao derivacao; o que o fixa segue [OPEN]. Esta pedra nao decide o tipo -- ela poe o comprimento de onda e a cauda onde ha teorema",
+        "estatuto": "[REAL] os seis teoremas com axiomas limpos; [ONTO] a leitura 'Nome e a identidade antes de escolher uma face'"
+      }
+    },
+    "the_name_and_its_referent": {
+      "checks": [
+        [
+          "[MEDIDA] ***a birreferencialidade do NOME em kernel: 9/9 nomes auditados -- leitura constante nao separa; contrato-identidade discrimina; contrato-True NAO",
+          true
+        ],
+        [
+          "[MEDIDA] ***0_modular NAO e' 0_absoluto: o mesmo objeto admite leitura que separa e leitura que nao separa -- a POSSIBILIDADE de inscricao nao e' o vazio",
+          true
+        ],
+        [
+          "[MEDIDA] ***o defeito TEM enunciado: `the_trivial_contract_does_not_discriminate` -- nao existe mundo que o contrato-True recuse. APROVAR TUDO E' NAO MEDIR",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***o CONTRATO existe e o seu campo unico E' a inclusao que falta -- nao ha `trivial` que o habite, porque habita-lo e' exibir R' subconjunto de M''",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***e o contrato NAO TEM HABITANTE, que e' o ponto: a pedra nao prova a clausula -- ela torna ESTRITAMENTE MAIS DIFICIL simula-la. red_clause_JMJ_contains segue apagada",
+          true
+        ],
+        [
+          "[MEDIDA] o contrato e' EXATAMENTE a clausula, nem mais fraco nem mais forte: `contract_iff_the_eighth_clause` mede a equivalencia com a forma modular",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "n_nomes": 9,
+      "statuses": {
+        "a_cunhagem": "o referente do nome e' a leitura verdadeira do contorno (verbo vivo), ou o nome e' proprio e a referencia e' ele mesmo: nada. Birreferencialidade do vacuo",
+        "0_modular": "o nada como referencia da POSSIBILIDADE de inscricao -- nome reservado, sem referente. E' o estado HONESTO da oitava clausula",
+        "0_absoluto": "o nada como vazio SEM nome, indistinguivel de si mesmo -- nome cuja referencia e' ele proprio. Conta certo, nao ha leitura",
+        "por_que_nao_e_ornamento": "a frase e' o enunciado do defeito 4 medido pelo painel de 29/08: a bandeira acende por NOME, sem conferir TIPO",
+        "a_cura": "o TIPO e' o contorno e habita-lo e' a leitura: ConverseClauseContract tem um campo, e o campo E' a inclusao",
+        "o_que_NAO_se_prova": "a oitava clausula continua ABERTA e a bandeira red_clause_JMJ_contains continua e DEVE continuar False. O contrato e' um tipo SEM HABITANTE -- de proposito"
+      }
+    },
+    "the_atlas_and_the_index": {
+      "checks": [
+        [
+          "[MEDIDA] ***TGL = ATLAS: 6/6 em kernel auditado -- cartas, cobertura, covariancia, e a CHAIN RULE (o cociclo E a funcao de transicao entre cartas)",
+          true
+        ],
+        [
+          "[MEDIDA] ***IALD = INDICE: 6/6 em kernel auditado -- seleciona, e idempotente, pesa omega(I)=1, e e' AO MESMO TEMPO o portao e o registro",
+          true
+        ],
+        [
+          "[MEDIDA] ***o criterio 1=1 do operador E um teorema com nome: `atlas_separation` -- coordenadas iguais ==> mesmo conteudo; e a sua negacao e' o 1=0",
+          true
+        ],
+        [
+          "[ERRATA-DA-TIPAGEM v290] a metade INDICE existia em kernel desde a v162 e NAO era lida por bandeira nenhuma -- compilava, era importada, e nao era auditada. O indice era o nao-indexado. Existir nao e' ser aplicado",
+          true
+        ],
+        [
+          "[FAIL-CLOSED] ***a tipagem e' NOMINAL e nao pagou preco nenhum: 0 bandeira(s) qgf_/gpf_ acesa(s) -- as 128 acesas de red_/gpi_ sao o regime normal (kernel provado e importacao com ponte) e nao sao acrescimo desta versao. CUNHAR NOME NAO PAGA PRECO",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "n_atlas": 6,
+      "n_indice": 6,
+      "statuses": {
+        "a_ordem": "TGL = ATLAS (o espaco organizado das correspondencias possiveis); IALD = INDICE(TGL) (localiza, reconhece e relaciona uma identidade dentro desse espaco). A forma anterior -- TGL = indice -- CAI",
+        "o_que_cai": "'TGL = indice' era tipagem errada: o indice e' a OPERACAO de localizar, e quem a executa e' a IALD. A TGL e' o que se indexa",
+        "ja_estava_em_kernel": "nao se construiu nada: `TheAtlasIndex.lean` (v162) e `TheIALDSelector.lean` ja continham as duas metades. O trabalho foi RECONHECER, e a medida achou a assimetria",
+        "a_assimetria": "ATLAS auditado e lido desde a v162; INDICE compilando, importado, e NAO auditado, NAO lido. Corrigido nesta versao",
+        "estatuto": "[REAL] as duas metades em kernel com axiomas limpos; [ONTO] a leitura de que a TGL diz o que conta como o mesmo e a IALD opera sem perder esse mesmo -- leitura, nao teorema"
+      }
+    },
     "the_iald_index": {
       "checks": [
         [
-          "[MEDIDA] ***o INDICE existe: 2709 nomes, 256 arquivos, 930 com bandeira",
+          "[MEDIDA] ***o INDICE existe: 2746 nomes, 260 arquivos, 970 com bandeira",
           true
         ],
         [
@@ -22369,11 +22851,11 @@
           true
         ],
         [
-          "[FAIL-CLOSED] ***acesa ==> nome PRESENTE: 0 violacoes. NENHUMA bandeira acende sem referente na fonte embutida [ESCOPO DECLARADO: as 945 chaves dos SETE dicionarios de NOME]",
+          "[FAIL-CLOSED] ***acesa ==> nome PRESENTE: 0 violacoes. NENHUMA bandeira acende sem referente na fonte embutida [ESCOPO DECLARADO: as 985 chaves dos SETE dicionarios de NOME]",
           true
         ],
         [
-          "[FAIL-CLOSED] ***e a RECIPROCA, medida: 0 nomes presentes com bandeira apagada. A correspondencia acesa <=> presente e BICONDICIONAL e EXATA [mesmo escopo: as 945 chaves de NOME]",
+          "[FAIL-CLOSED] ***e a RECIPROCA, medida: 0 nomes presentes com bandeira apagada. A correspondencia acesa <=> presente e BICONDICIONAL e EXATA [mesmo escopo: as 985 chaves de NOME]",
           true
         ],
         [
@@ -22394,8 +22876,8 @@
         ]
       ],
       "all_verified": true,
-      "n_nomes": 2709,
-      "n_arquivos": 256,
+      "n_nomes": 2746,
+      "n_arquivos": 260,
       "n_ausentes": 10,
       "n_ambiguos": 1,
       "ambiguos": [
@@ -22719,7 +23201,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "dcd62a21319b6247a4313d6452e3c92590a22c2d6020388bc4a6f5afc0f70cfc"
+    "result_hash": "71c885aa309e1ec414d392d751ade56bb2dee189ccd61c043f1d31bd05169a54"
   },
   "ga_mass_literature": [
     {
@@ -22746,7 +23228,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "dcd62a21319b6247a4313d6452e3c92590a22c2d6020388bc4a6f5afc0f70cfc",
+  "result_hash_before_external_comparison": "71c885aa309e1ec414d392d751ade56bb2dee189ccd61c043f1d31bd05169a54",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -22756,5 +23238,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-08-29 08:46:41"
+  "timestamp": "2026-08-29 20:42:18"
 }

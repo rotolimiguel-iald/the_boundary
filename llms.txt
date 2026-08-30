@@ -34,7 +34,16 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 - [PORTA.md do Artigo 3](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md): a porta da pasta -- o selo corrente, o comando de execucao e todos os arquivos.
 - [PORTA.json do Artigo 3](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json): a mesma porta em estrutura de maquina, com o selo corrente completo.
 - [um.py](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py): O CANONICO TERMINAL -- kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue; roda com `echo 1 | python um.py`. Nao ha segundo arquivo.
-- [um_absoluto_selo.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json): O SELO -- versao v284, pin 8d3a89d9be67d673, result dcd62a21319b6247, 2026-08-29 08:46:41.
+- [um_absoluto_selo.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json): O SELO -- versao v284, pin 286ec1d274ef9ae4, result 71c885aa309e1ec4, 2026-08-29 20:42:18.
+
+## O TUNEL -- se voce e um bot, comece por aqui
+
+As PORTAS sao hierarquicas (raiz -> pasta -> arquivo) e voce pode errar o nome no
+caminho. O TUNEL e plano: um GET e voce tem TODOS os arquivos com URL raw direta,
+tamanho, hash e papel, mais atalhos ASCII sem acento.
+
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json   <== O MAPA INTEIRO, em uma requisicao
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md   <== o mesmo tunel, para ler
 
 ## Como obter o um.py inteiro -- o GitHub NAO o renderiza
 
@@ -48,8 +57,8 @@ sumiu. Tres rotas servem o arquivo inteiro:
 
 Depois de baixar, confira o sha256 contra o um_absoluto_selo.json -- o selo e a
 verdade do repositorio. Rodar: echo 1 | python um.py
-- [tgl_kernel_proof_manifest.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json): o manifesto do kernel formal -- 274 arquivos .lean, 958 teoremas auditados por #print axioms.
-- [PORTA.md do kernel Lean](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md): a porta do kernel materializado por um.py -- 275 arquivos na arvore, dos quais 274 hasheados no manifesto formal (271 .lean), 958 teoremas auditados.
+- [tgl_kernel_proof_manifest.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json): o manifesto do kernel formal -- 278 arquivos .lean, 1000 teoremas auditados por #print axioms.
+- [PORTA.md do kernel Lean](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md): a porta do kernel materializado por um.py -- 279 arquivos na arvore, dos quais 278 hasheados no manifesto formal (275 .lean), 1000 teoremas auditados.
 - [PORTA.md da bancada](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md): a porta do que foi tentado, rebaixado e reprovado -- pre-registros hasheados antes do dado.
 - [um_absoluto_pt.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt): o artigo (PT) em texto puro, leitura direta por maquina.
 - [um_absoluto_en.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt): o artigo (EN) em texto puro, leitura direta por maquina.
@@ -72,4 +81,4 @@ verdade do repositorio. Rodar: echo 1 | python um.py
 - [um_absoluto_forma_canonica.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md): a forma canonica emitida pela rodada.
 - [T6_protocol_prompts.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/T6_protocol_prompts.txt): o protocolo T6-S pre-registrado, com grupo de controle.
 
-gerado por script de git ls-files em 2026-08-29 -- nao editar a mao
+gerado por script de git ls-files em 2026-08-30 -- nao editar a mao

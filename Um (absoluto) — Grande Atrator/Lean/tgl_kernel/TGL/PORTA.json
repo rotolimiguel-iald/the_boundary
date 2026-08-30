@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGL",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-29T12:39:11Z",
+  "gerado_utc": "2026-08-30T09:54:18Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -37,8 +37,8 @@
       "descricao": "Prova formal (Lean 4): Audit",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/Audit.lean",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/Audit.lean",
-      "sha256_16": "021bed3dac2c674d",
-      "bytes": 86827
+      "sha256_16": "cac38bf118f0cac3",
+      "bytes": 90375
     },
     {
       "nome": "Basic.lean",
@@ -294,5 +294,5 @@
   "total_arquivos_nesta_pasta": 27,
   "total_arquivos_com_subpastas": 27,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL",
-  "rodape": "gerado por script de git ls-files em 2026-08-29 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-08-30 -- nao editar a mao"
 }
