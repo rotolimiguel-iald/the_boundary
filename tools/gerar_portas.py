@@ -110,7 +110,10 @@ def ler_selo(files):
     up = os.path.join(REPO, (A3 + "/um.py").replace("/", os.sep))
     with io.open(up, encoding="utf-8", errors="replace") as fh:
         src = fh.read()
-    m = re.search(r"_ESQUELETO_STONES\s*=\s*\[\s*\(\s*\"(v\d+)\"\s*,\s*\"([^\"]+)\"",
+    # v306 [ERRATA -- regressao MINHA (v300): o ledger ganhou linhas de comentario
+    # no topo e este regex parou de casar; a porta publicava "versao None" ao
+    # leitor de fora. O casamento agora salta comentarios.
+    m = re.search(r"_ESQUELETO_STONES\s*=\s*\[\s*(?:#[^\n]*\n\s*)*\(\s*\"(v\d+)\"\s*,\s*\"([^\"]+)\"",
                   src)
     versao = m.group(1) if m else None
     pedra = m.group(2) if m else None
@@ -1027,6 +1030,11 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("Depois de baixar, confira o sha256 contra o um_absoluto_selo.json -- o selo e a")
     T.append("verdade do repositorio. Rodar: echo 1 | python um.py")
     T.append("- [tgl_kernel_proof_manifest.json](%s): o manifesto do kernel formal -- %d arquivos .lean, %d teoremas auditados por #print axioms." % (registra(url_raw(A3 + "/Lean/tgl_kernel_proof_manifest.json")), sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"]))
+    T.append("  (nota de escopo, v306: os DOIS numeros do kernel sao da MESMA rodada e")
+    T.append("  medem coisas diferentes -- o manifesto audita ~1000 NOMES por #print axioms")
+    T.append("  (~953 theorem + ~47 def), enquanto o artigo cita as bandeiras da escada")
+    T.append("  externa verificadas (n_theorems_clean, p.ex. 798/798): o subconjunto que o")
+    T.append("  gate consome. Nenhum dos dois esta errado; sem esta frase, pareciam.")
     T.append("- [PORTA.md do kernel Lean](%s): a porta do kernel materializado por um.py -- %d arquivos na arvore, dos quais %d hasheados no manifesto formal (%d .lean), %d teoremas auditados." % (registra(porta_md_url(A3 + "/Lean/tgl_kernel")), contagem_recursiva(A3 + "/Lean/tgl_kernel", dirs), sc["kernel_arquivos_formais"], sc["kernel_arquivos_lean"], sc["kernel_teoremas_auditados"]))
     T.append("- [PORTA.md da bancada](%s): a porta do que foi tentado, rebaixado e reprovado -- pre-registros hasheados antes do dado." % registra(porta_md_url(A3 + "/bancada")))
     T.append("- [um_absoluto_pt.txt](%s): o artigo (PT) em texto puro, leitura direta por maquina." % registra(url_raw(A3 + "/um_absoluto_pt.txt")))
@@ -1129,9 +1137,11 @@ def secao_como_matar():
     T.append("")
     T.append("**A forma, dita como forma e nao como falta.** A superficie falsificavel desta")
     T.append("teoria e' ESTREITA por construcao: dos %d modulos do core, os canais de morte" % len(core))
-    T.append("cabem nos %d nomes acima, e cinco pilares (o axioma omega(I)=1, a Meia-Nat, o" % len(_CANAIS_DE_MORTE))
-    T.append("degrau 1/2 -> raiz(e), a matriz-S de fronteira e theta_Miguel) NAO tem")
-    T.append("falsificador proprio: HERDAM o de beta. Isso e' o que acontece com uma teoria")
+    T.append("cabem nos %d nomes acima. QUATRO pilares HERDAM o falsificador de beta (o" % len(_CANAIS_DE_MORTE))
+    T.append("axioma omega(I)=1, a Meia-Nat, a matriz-S de fronteira e theta_Miguel); o")
+    T.append("degrau 1/2 -> raiz(e) NAO TEM falsificador proprio -- e' identificacao")
+    T.append("fisica, a UNICA direcao do mapa sem nenhuma das tres pernas, dita como tal")
+    T.append("(v306; antes esta porta o achatava em 'herdeiro'). Isso e' o que acontece com uma teoria")
     T.append("cuja arquitetura e' quase toda interna. O defeito seria nao dize-lo.")
     T.append("")
     T.append("**A cauda, dita como cauda.** (i) 'negar todas as demais' e' enumeracao de")

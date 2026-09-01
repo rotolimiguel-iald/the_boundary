@@ -4,30 +4,30 @@
   "repo_raw_base": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/",
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
-  "gerado_utc": "2026-08-30T14:18:23Z",
+  "gerado_utc": "2026-09-01T15:45:08Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
-    "versao": null,
+    "versao": "v310",
     "versao_fonte": "um.py::_ESQUELETO_STONES[0]",
-    "versao_confirmada_por_transcricao": "v302",
-    "pedra_mais_recente": null,
-    "pedras_no_esqueleto": 235,
-    "pin_um_py": "8b6cc0760011d75e0ae4517086594b5a8855650bb3c5cc90d00bf13ecd048c8d",
-    "pin_um_py_16": "8b6cc0760011d75e",
+    "versao_confirmada_por_transcricao": "v307",
+    "pedra_mais_recente": "TheAlphaAndTheOmega",
+    "pedras_no_esqueleto": 240,
+    "pin_um_py": "0969fc4809ca1229e0c50c10d88f4da44a9bfa5819aa3d81f0264ffb5d656bdc",
+    "pin_um_py_16": "0969fc4809ca1229",
     "pin_confere_com_disco": true,
-    "mundo": "6fca23ab428f33957e52a7d1682661413c9c27844a81d0c2541c8203d769ba39",
-    "mundo_16": "6fca23ab428f3395",
-    "result_hash": "10969750c4dcd4ec7aede18a0b2eb912525c9a31c09e0bbdec2f80a68687e076",
-    "result_hash_16": "10969750c4dcd4ec",
-    "formal_source_hash": "2e1f72ae563c3d162281a3cb78a4f6837dc27df31212f06d3d608e5837727972",
-    "data": "2026-08-30 10:21:55",
+    "mundo": "207a294e99ce097ca2181b83424c11e7140da03ac54d98e2e5f9894f51ff43e2",
+    "mundo_16": "207a294e99ce097c",
+    "result_hash": "9168a4ee309abba84f14725c8ddf4173e8fbe4b911e45ff8663da68c9bebc119",
+    "result_hash_16": "9168a4ee309abba8",
+    "formal_source_hash": "b7705f10809b29595c34424d5f96828cc294cf6fe1a95ace2c77950dbb2e216a",
+    "data": "2026-09-01 12:06:08",
     "identity": "1=1=VERDADEIRO=HAJA_LUZ",
     "qg_closure_verdict": "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE",
     "void_floor_v11_verdict": "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
     "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED",
-    "kernel_arquivos_formais": 278,
-    "kernel_arquivos_lean": 275,
-    "kernel_teoremas_auditados": 1000,
+    "kernel_arquivos_formais": 284,
+    "kernel_arquivos_lean": 280,
+    "kernel_teoremas_auditados": 1042,
     "kernel_axiomas_permitidos": [
       "propext",
       "Classical.choice",
@@ -82,7 +82,7 @@
         "echo 1 | python -u um.py       # sem buffer: o rito ao vivo",
         "TGL_COMA_REVEAL=1 echo 1 | python um.py   # com a abertura de Coma (Windows: set TGL_COMA_REVEAL=1)"
       ],
-      "total_arquivos": 507
+      "total_arquivos": 518
     },
     {
       "nome": "Genesis da Unificação",
@@ -139,8 +139,8 @@
       "papel": "documento",
       "descricao": "O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-      "sha256_16": "b2a0c4157691f0ce",
-      "bytes": 344600
+      "sha256_16": "8cbc4cf58a118969",
+      "bytes": 350429
     }
   ],
   "portas_todas": [
@@ -262,13 +262,13 @@
       "pasta": "Um (absoluto) — Grande Atrator",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json",
-      "total_arquivos": 507
+      "total_arquivos": 518
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/Lean",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/PORTA.json",
-      "total_arquivos": 344
+      "total_arquivos": 350
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/Lean/kernel_bancada",
@@ -280,7 +280,7 @@
       "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.json",
-      "total_arquivos": 279
+      "total_arquivos": 285
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGL",
@@ -292,7 +292,7 @@
       "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json",
-      "total_arquivos": 245
+      "total_arquivos": 250
     },
     {
       "pasta": "Um (absoluto) — Grande Atrator/bancada",
@@ -352,7 +352,7 @@
       "pasta": "Um (absoluto) — Grande Atrator/rodadas",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.json",
-      "total_arquivos": 92
+      "total_arquivos": 97
     },
     {
       "pasta": "tools",
@@ -361,6 +361,6 @@
       "total_arquivos": 3
     }
   ],
-  "total_arquivos": 676,
-  "rodape": "gerado por script de git ls-files em 2026-08-30 -- nao editar a mao"
+  "total_arquivos": 687,
+  "rodape": "gerado por script de git ls-files em 2026-09-01 -- nao editar a mao"
 }

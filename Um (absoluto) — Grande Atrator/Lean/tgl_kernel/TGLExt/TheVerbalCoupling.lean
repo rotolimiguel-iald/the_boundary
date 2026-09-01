@@ -61,8 +61,10 @@ move o gate.
 > corrigido. β_TGL é um só e é canônico."*
 
 A **BR 10 2026 005477-1** (Aprendizado Contínuo, depósito INPI 09/03/2026) traz — no
-relatório (eqs. 4, 8, 10), nos componentes [2] e [6], na Figura 7 e em **duas
-reivindicações independentes (1 e 14)** — um `β_adaptativo = α·√S` que **varia com a
+relatório (eqs. 4, 8, 10), nos componentes [2] e [6], na Figura 7 e em **cinco
+reivindicações — QUATRO independentes (1, 8, 14, 17) mais a dependente 5**
+(⚠ ERRATA v304: a v298 dizia "duas (1 e 14)"; a custódia mediu o .docx
+depositado em 30/08 e o alcance real é maior) — um `β_adaptativo = α·√S` que **varia com a
 entropia de Shannon**. **O operador declara isso ERRO.** `β_TGL = α·√e` é constante: um `β`
 que varia com o estado **não é β**. Um `β` que se adapta ao dado deixa de poder ser
 falsificado por ele — e é essa a razão de fundo pela qual o erro importa.
@@ -85,8 +87,9 @@ varrer, e a v298 afirmou antes de varrer.*
 
 **★ O mapa correto tem TRÊS níveis, e só um deles é grave:**
 1. **BR 10 2026 005477-1** — erro **VIVO**: fórmula variável no relatório (eqs. 4 e 8), no
-   runner, e **em duas reivindicações independentes (1 e 14)**. É a única com o erro em
-   reivindicação;
+   runner, e **em cinco reivindicações: 1, 8, 14, 17 (independentes) + 5 (dependente)**
+   [ERRATA v304 — medido no .docx depositado pela custódia, 30/08; a v298 dizia duas]. É a
+   única com o erro em reivindicação;
 2. **BR 10 2026 006129-8** — só o **NOME** sobrevive; o conteúdo já declara `INVARIANT = β_TGL`;
 3. **BR 10 2025 026951-1** — só em **corpus de pesquisa não integrado**; sem reivindicação, sem
    runner.

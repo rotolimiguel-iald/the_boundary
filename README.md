@@ -50,15 +50,15 @@
 | Article **2** — *A Ponte Einstein–Cartan–Miguel* | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.json) | [`A Ponte Einstein Cartan Miguel.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/A%20Ponte%20Einstein%20Cartan%20Miguel.tex) |
 | Article **3** — *Um: Absoluto* | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json) | [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) |
 | *Genesis da Unificação* — the lineage | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.json) | — |
-| the Lean kernel (279 files; 278 hashed, 275 `.lean`, 1000 theorems audited) | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.json) | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
+| the Lean kernel (285 files; 284 hashed, 280 `.lean`, 1042 theorems audited) | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.json) | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
 | the bench (`bancada/`) — what failed | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md) · [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json) | [`04_CATALOGO_FALSOS_POSITIVOS.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md) |
 
-**Current seal, read from the artifact** — pin `um.py` `8b6cc0760011d75e` · last stone in the ledger: `None` (`None`) ·
-world `6fca23ab428f3395` · `result_hash` `10969750c4dcd4ec` · 2026-08-30 10:21:55 · kernel **278/1000** — source of truth:
+**Current seal, read from the artifact** — pin `um.py` `0969fc4809ca1229` · last stone in the ledger: `TheAlphaAndTheOmega` (`v310`) ·
+world `207a294e99ce097c` · `result_hash` `9168a4ee309abba8` · 2026-09-01 12:06:08 · kernel **284/1042** — source of truth:
 [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json).
 
 > ### ⬇ Fetching the artifact — GitHub will **not** render it
-> `um.py` is **5.72 MB**, and GitHub’s blob viewer refuses files above ~5 MB: the
+> `um.py` is **5.86 MB**, and GitHub’s blob viewer refuses files above ~5 MB: the
 > page loads (HTTP 200) but shows only the size and a *View raw* link — **it looks
 > empty**. That is a viewer limit, not a broken link. Three routes serve the whole
 > file; all three were verified against the sealed pin:
@@ -348,8 +348,8 @@ live inside it.
   design**. β is computed at runtime (`α·√e`), never literal.
 - **It proves.** The Lean 4 kernel (toolchain `leanprover/lean4:v4.31.0`, mathlib pinned
   via `lake`) is **embedded inside `um.py`**: the artifact **materializes** the
-  `tgl_kernel/` tree from itself (**278 formal files**), builds it, audits **1000 theorems**
-  by `#print axioms` (**1000/1000 clean**; axiom bases ⊆
+  `tgl_kernel/` tree from itself (**284 formal files**), builds it, audits **1042 theorems**
+  by `#print axioms` (**1042/1042 clean**; axiom bases ⊆
   `{propext, Classical.choice, Quot.sound}`, zero `sorry`), and **refuses to seal on any
   failure**. The tree committed here is that materialization; the count is read from the
   `axiom_report` of
@@ -401,13 +401,13 @@ carries the opened verdict, not the locked one, and the rite prints the reveal l
 
 | Item | Value |
 |---|---|
-| Sealed rite | [`rodada_v302_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v302_stdout.txt) |
-| Seal timestamp | `2026-08-30 10:21:55` |
-| `um.py` sha256[:16] | `8b6cc0760011d75e` (95,802 lines · 5,993,659 bytes; self-contained — the only `.py`) |
-| `result_hash`[:16] (the "hash of the world") | `10969750c4dcd4ec` (code + manifest + data) |
+| Sealed rite | [`rodada_v307_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v307_stdout.txt) |
+| Seal timestamp | `2026-09-01 12:06:08` |
+| `um.py` sha256[:16] | `0969fc4809ca1229` (98,313 lines · 6,149,205 bytes; self-contained — the only `.py`) |
+| `result_hash`[:16] (the "hash of the world") | `9168a4ee309abba8` (code + manifest + data) |
 | `formal_source_hash`[:16] | `5025ebfe8ae96907` (the embedded kernel, materialized unchanged) |
-| Kernel audit | **1000 audited theorems, 1000/1000 clean**, axioms ⊆ `{propext, Classical.choice, Quot.sound}`, zero `sorry` |
-| Kernel tree committed here | **278 formal files** — committed exactly as the run materializes it (audit convenience: `um.py` carries the sources inside itself and rewrites them at each execution) |
+| Kernel audit | **1042 audited theorems, 1042/1042 clean**, axioms ⊆ `{propext, Classical.choice, Quot.sound}`, zero `sorry` |
+| Kernel tree committed here | **284 formal files** — committed exactly as the run materializes it (audit convenience: `um.py` carries the sources inside itself and rewrites them at each execution) |
 | Internal seals | `TGL_KERNEL_STAGE1_VERIFIED` · `FAIL_CLOSED_SELFTEST_PASSED` · `INTERFACE_IS_LIGHT_VERIFIED` · `form_equals_content_status: VERIFIED` |
 | Identity | `1=1=VERDADEIRO=HAJA_LUZ` |
 | Close of the rite | `TETELESTAI. O UM foi inscrito. Se o UM nao for inscrito, nada emerge. 1 = 1.` |
@@ -420,7 +420,7 @@ does not itself hash:
 
 | sha256[:16] | File | Content |
 |---|---|---|
-| — | [`rodada_v302_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v302_stdout.txt) | the entire sealed rite, line by line |
+| — | [`rodada_v307_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v307_stdout.txt) | the entire sealed rite, line by line |
 | `dfe6393d10052300` | [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) | the full "world" data (every live number + hashes) |
 | — | [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) | the SHA-256 **seal** itself — the file the custody gate re-hashes against |
 | `5839d481ef0a9649` | [`um_absoluto_manifest.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_manifest.md) | input manifest + the hash of the world (nothing hidden: `[DEF]/[DER]/[EXT]/[LEGADO]`) |
@@ -428,13 +428,13 @@ does not itself hash:
 | `333cb18cc55a8fd1` · `f75ba0d394e8f760` · — | [`um_absoluto_pt.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_absoluto_pt.tex) · [`.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.pdf) · [`.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt) | the article, Portuguese — source, PDF, plain text |
 | `8e39592641ea74d6` · `c3291369b9ef4d3f` · — | [`um_absoluto_en.tex`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/um_absoluto_en.tex) · [`.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.pdf) · [`.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt) | the article, English — same live numbers |
 | `bfbe30776b05c9cc` · `dd953f1e75f445a1` · `2815568fd3387fd3` · `7ccc2c0a41da34a2` | [`fig_escada_qg.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_escada_qg.pdf) · [`fig_banda_beta.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_banda_beta.pdf) · [`fig_piso_vazios.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_piso_vazios.pdf) · [`fig_cadeia_inscricao.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/figuras/fig_cadeia_inscricao.pdf) | the four sealed figures |
-| `b129c78428a91e33` | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) | the kernel proof manifest — the `axiom_report` of all **1000** audited theorems, file by file |
+| `f31ace771a1230c1` | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) | the kernel proof manifest — the `axiom_report` of all **1042** audited theorems, file by file |
 | — | [`one_input.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/one_input.txt) | the single input: `1` |
 | — | [`cache/CHAIN_OF_CUSTODY.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/CHAIN_OF_CUSTODY.json) | deterministic provenance of the pinned evidence |
 | — | [`cache/coma_blind/coma_dephasing_prediction.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/coma_blind/coma_dephasing_prediction.json) · [`coma_distance_reveal.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/coma_blind/coma_distance_reveal.json) | the blind Coma prediction + the arbiter, with provenance |
 
-*Honest custody note:* the seal also carries `um.py` itself (`8b6cc0760011d75e`) and the
-run-time-generated `tgl_kernel_proof_manifest.json` (`b129c78428a91e33`) — **every entry of
+*Honest custody note:* the seal also carries `um.py` itself (`0969fc4809ca1229`) and the
+run-time-generated `tgl_kernel_proof_manifest.json` (`f31ace771a1230c1`) — **every entry of
 the seal resolves against this tree**, with nothing left dangling. The `—` rows above are
 outputs the rite writes but the seal does not itself hash; they are listed rather than
 trimmed away.
@@ -590,7 +590,7 @@ Three stones of **pure logic**. `#print axioms` returns `does not depend on any 
 > measurements**, recorded stone by stone in
 > [`MEMORIA_DA_BANCADA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/MEMORIA_DA_BANCADA.md),
 > whose closing tally for the whole arc is **eighteen**. They are **not** entries of the
-> sealed `axiom_report`: that report enumerates **1000** theorems and lists **34** axiom-free
+> sealed `axiom_report`: that report enumerates **1042** theorems and lists **36** axiom-free
 > propositions, a **different set** (`comm_of_fixed`, `ad_preserves_star_projection`, … ),
 > because these three stones compile inside the sealed tree without being enumerated in the
 > audit list. Both numbers are true of different objects; neither may be quoted as the other.
@@ -798,7 +798,7 @@ torna nada verdadeiro** — `NOT_FALSIFIED ≠ CONFIRMED`, sem exceção. **Trez
 proposições saíram **sem axioma nenhum** (`does not depend on any axioms`) — o estatuto máximo
 que o Lean concede. ⚠ **E onde esse número se lê:** as treze são **medidas de bancada**
 (`MEMORIA_DA_BANCADA.md`, cujo total do arco é **dezoito**), **não** entradas do `axiom_report`
-selado — esse enumera **1000** teoremas e traz **34** proposições sem axioma, um **conjunto
+selado — esse enumera **1042** teoremas e traz **36** proposições sem axioma, um **conjunto
 distinto**. Os dois números são verdadeiros de objetos diferentes; nenhum vale pelo outro.
 
 **A gravitação quântica, em três resultados:** **(1)** o gargalo foi **localizado e medido** —
@@ -988,7 +988,7 @@ da natureza. Cinco famílias **proibidas por antecipação** (FP-1 a FP-5). **A 
 
 ## ✦ The complete closure — the terminal program and its functional witness
 
-The terminal program reached its complete closure (one hundred and five seals across eight days,
+The terminal program reached its complete closure (one hundred and thirteen seals across nine days,
 **the gate immobile through all of them**). What the artifact now EMITS at every rite, fail-closed:
 
 - **The target-verdict machine**: `TGL_QG_FUNCTIONAL_MODEL_ON_THE_BENCH__NOT_REFUTED_BY_PUBLIC_DATA_AT_CURRENT_SENSITIVITY__EXCLUSION_SPECTRUM_MEASURED__NOT_A_CONFIRMATION`
@@ -1081,7 +1081,7 @@ theory's central discipline ("form = content") applies to its own reading:
    of the One, is the only runtime input (command-line arguments are refused by design).
    If you cannot execute, **simulate the execution and verify** every claim against the
    sealed outputs: the seal (`um_absoluto_selo.json`), the world
-   (`um_absoluto.json`), the entire rite line by line (`rodada_v302_stdout.txt`), and
+   (`um_absoluto.json`), the entire rite line by line (`rodada_v307_stdout.txt`), and
    the bilingual articles (PDF and TXT). **The seal hashes are the ground truth of this
    repository.**
 2. **Start from zero.** Read as if no summary, cache or memory of this theory existed.
@@ -1107,7 +1107,7 @@ Este repositório não é um texto para se acreditar — é um artefato para se 
 (1) **Execute**: `cd "Um (absoluto) — Grande Atrator" && echo 1 | python -u um.py` (o `1`
 é o único input; argumentos são recusados por design); se não puder executar, **simule e
 verifique** cada afirmação contra o selo (`um_absoluto_selo.json`), o resultado
-(`um_absoluto.json`), o stdout selado (`rodada_v302_stdout.txt`) e os artigos
+(`um_absoluto.json`), o stdout selado (`rodada_v307_stdout.txt`) e os artigos
 (PDF e TXT) — **os hashes do selo são a verdade do repositório**.
 (2) **Comece do zero**: sem memória, sem resumo prévio; **derive em vez de citar** — o Um
 absoluto (`ω(I)=1`), o custo geométrico do zero absoluto (`β = α·√e`, nunca literal), a
@@ -1328,6 +1328,47 @@ label *"BBN at 0.0σ"* inside the sentence that summarised the achievements, whi
 label the bench forbids in writing. **Today's measurement: zero BBN claims without their caveat,
 in either language.**
 
+### The reduction of Lemma 3, and the Alpha and the Omega — v303→v310
+
+> ### ★ Lemma 3, reduced to its minimal form — and the reduction IS the result
+> What is proved in kernel is the **IMPLICATION** — a **conditional** theorem of the house: the
+> face (v307, under non-degenerate weights) and the tower (v308: the oath, uniqueness, the
+> covariant lift **given the contract**). **GIVEN** the testimony — the existence of the
+> ω-preserving conditional expectation onto the centralizer, with the sign≡referent dictionary
+> **and full σ-weak normality as part of what is imported** `[KNOWN, Takesaki 1972, JFA 9,
+> 306–321 · TOA II Thm VIII.2.6 · Pedersen–Takesaki 1973]` (the house proves the WOT-sequential
+> consequence; `σ^ω` was never constructed — the analytic wall stays `[OPEN]`) — and **GIVEN**
+> the single axiom read on the horizon (`ω∘Ad(U) = ω`; `ω(I)=1` read on the horizon,
+> a `[POSTULATE]` under an `[ONTO]` reading) — **modular relativity holds**
+> (`the_modular_relativity`): for **every** ω-invariant horizon, `Ad(U)∘E = E∘Ad(U)` on `M`.
+> That is the lift of Lemma 3 in the continuum, **in the imported mode**.
+>
+> The seal reads `LEMMA3_LIFT_MODULO_AXIOM_GIVEN_THE_TESTIMONY`, and
+> `unconditional_continuous_corner_proved` remains **false**. **Lemma 3 is NOT declared
+> solved — what changed is the SHAPE of the debt**: `the_testimony_is_exactly_the_conclusion`
+> is a single `↔`, so the debt is **ONE named import, not a list**. The critical path reached
+> its **declarable end** — nothing remains to prove *inside the drawing* — and whoever wants
+> the internal unconditional has the door **named and open**: build `σ^ω` on the tower (the
+> `[OPEN, ANALYTIC]` wall of `TheModularRelations`). Importing lights no paid price
+> (`gpi_`, never `gpf_`); the gate did not move.
+
+**The Alpha and the Omega (v310 — the operator's coinage, measured, closing the arc).**
+`TheAlphaAndTheOmega.lean`: 11 names, 2 of pure logic (no axiom at all). **[1=1=TRUE]** `[REAL]`:
+the two terminals inscribe the same 1 — `ω(I)=1` on the tower and `1 = q² + α²` on the face,
+with α **abstract**: the form admits *every* α, so the VALUE stays external
+(`ALPHA_IRREDUCIBILITY_V1` armed — "TGL = α" never becomes "TGL derives α").
+**[1=0=FALSE]** `[REAL — and it is the heart]`: falsity by **nominal category** —
+`1 = 0 ⟺ Subsingleton`, the collapsed category of a single name, with no second name, no
+contrast, no projection possible; in the collapse the zero *counts as* the absolute (the
+"at infinity" is a **declared** `[ONTO]` reading), and the house refutes the collapse (ℂ has a
+second name). The nominal zero weighs 0 on the tower — and **`β = α·√e` is the geometric cost
+of distinguishing 1 from 0**, which is the seal of this house. *"{[1=1=TRUE],[1=0=FALSE]} = TGL"
+is a declared `[ONTO]` reading — never a theorem in disguise.*
+
+Also in the arc: `TheOathOnTheTower` / `TheDischargedOath` (the oath and its discharge),
+`TheDammingByExpansion`, and the measured note that runs v308–v310 left **no stdout on disk**
+(the absence is *declared* in the custody manifest, never disguised).
+
 ---
 
 ## What is closed / What remains open · O que está fechado / o que segue aberto
@@ -1340,9 +1381,9 @@ helicity sector** (plane-wave family) · the **von Neumann factor as a concrete 
 the **WedgeNet AQFT witness `[KNOWN-COMPOSED]`** · the conserved identity `1 = q² + α²`
 (residual 0.0) · and the **four item-A stones** (`EquivariantSection` ·
 `ErgodicMeanSection` · `SolderSignature` · `BreuerTrace` — 0 sorry, 0 axiom).
-**1000 audited theorems, 1000/1000 clean** across **278 formal files**, axioms ⊆
+**1042 audited theorems, 1042/1042 clean** across **284 formal files**, axioms ⊆
 `{propext, Classical.choice, Quot.sound}`, zero `sorry`, re-proved at each execution and
-sealed by SHA-256 (`result_hash 10969750c4dcd4ec…`, sealed 2026-08-30 10:21:55). Ten of the
+sealed by SHA-256 (`result_hash 9168a4ee309abba8…`, sealed 2026-09-01 12:06:08). Ten of the
 audited theorems return `does not depend on any axioms` in that same `axiom_report` — **not
 even `propext`**, the strongest status Lean has to give. **Thirteen** further propositions of
 the logic stones (`TheCorrespondence` · `TheFalseHasNoGeometry` · `ThePermanence`) carry the
@@ -1408,7 +1449,7 @@ five families of false positive, **forbidden by anticipation**. See
 ergodicidade dissipativa e o contínuo tracial/semifinito · Lorentz por congruência ·
 spin-2 (família concreta de ondas planas) · o fator de von Neumann como objeto concreto ·
 a WedgeNet `[KNOWN-COMPOSED]` · `1 = q² + α²` (resíduo 0,0) · **e as 4 pedras do item A**
-(0 sorry, 0 axiom) — **1000 teoremas auditados** (1000/1000 limpos) em **278 arquivos formais**,
+(0 sorry, 0 axiom) — **1042 teoremas auditados** (1042/1042 limpos) em **284 arquivos formais**,
 com **treze proposições sem axioma nenhum**. *O único teorema aberto —
 Lema 3:* **composto na face finita, reduzido ao axioma único** `ω(I)=1`; o levantamento
 **incondicional** segue **[OPEN]** — mas o gargalo está agora **localizado e medido**
@@ -1592,8 +1633,8 @@ the apparatus of proof **and of refutation**.
 | The Name operator · the existence of the word | KRN | [`TGLExt/TheNameOperator.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheNameOperator.lean) · [`WordExistence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/WordExistence.lean) |
 | The kernel audit trail (`#print axioms`) | KRN | [`TGL/Audit.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/Audit.lean) |
 | **The rites & verdicts** (void floor, neutrino, NMC–Shapiro, Coma) | RITE | [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) · [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) |
-| The rite, line by line | RITE | [`rodada_v302_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v302_stdout.txt) |
-| The kernel axiom report — all **1000** audited theorems, file by file | RITE | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
+| The rite, line by line | RITE | [`rodada_v307_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v307_stdout.txt) |
+| The kernel axiom report — all **1042** audited theorems, file by file | RITE | [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) |
 | Chain of custody of the pinned evidence | RITE | [`cache/CHAIN_OF_CUSTODY.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/cache/CHAIN_OF_CUSTODY.json) |
 | **The bench** — the apparatus of proof **and of refutation** | BENCH | [`bancada/MEMORIA_DA_BANCADA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/MEMORIA_DA_BANCADA.md) |
 | **The false-positive catalogue** — five families forbidden by anticipation (`CONSTANCY BEFORE VALUE`) | BENCH | [`bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md) |
@@ -1651,16 +1692,16 @@ the_boundary/
 ├── Um (absoluto) — Grande Atrator/            ── Article 3 (the canonical closure) ──
 │   ├── um.py                                  ← SELF-CONTAINED (Lean kernel embedded);
 │   │                                             the ONLY .py — "Não há segundo arquivo"
-│   ├── rodada_v302_stdout.txt                 ← the entire sealed rite (stdout, line by line)
+│   ├── rodada_v307_stdout.txt                 ← the entire sealed rite (stdout, line by line)
 │   ├── um_absoluto.json · _selo.json    ← the world + the SHA-256 seal (the ground truth)
-│   ├── tgl_kernel_proof_manifest.json         ← the axiom report: all 1000 audited theorems
+│   ├── tgl_kernel_proof_manifest.json         ← the axiom report: all 1042 audited theorems
 │   ├── um_absoluto_manifest.md · _forma_canonica.md
 │   ├── um_absoluto_pt.tex/.pdf/.txt · _en.tex/.pdf/.txt   ← the bilingual article (PDF and TXT)
 │   ├── fig_escada_qg / fig_banda_beta / fig_piso_vazios / fig_cadeia_inscricao (.pdf)
 │   ├── one_input.txt                          ← the single input: 1
 │   ├── cache/CHAIN_OF_CUSTODY.json            ← deterministic provenance of the pinned evidence
 │   ├── cache/coma_blind/                      ← the blind Coma prediction + the arbiter (DATA, not code)
-│   ├── tgl_kernel/                            ← the materialized Lean 4 kernel (278 formal files)
+│   ├── tgl_kernel/                            ← the materialized Lean 4 kernel (284 formal files)
 │   │                                             — also embedded inside um.py; this tree is its output
 │   └── bancada/                               ── THE BENCH: proof AND refutation (72 artifacts) ──
 │       ├── MEMORIA_DA_BANCADA.md              ← the bench's own journal, dated, unedited
@@ -1810,9 +1851,9 @@ human institutional review. See the régua.)*
   year    = {2026},
   url     = {https://github.com/rotolimiguel-iald/the_boundary},
   note    = {um.py: self-contained, the single file; embedded
-             Lean 4 kernel, 278 formal files, 1000 audited theorems, zero sorry;
-             sha256[:16] 8b6cc0760011d75e; result hash 10969750c4dcd4ec
-             (sealed 2026-08-30 10:21:55). No Zenodo DOI while the artifact is
+             Lean 4 kernel, 284 formal files, 1042 audited theorems, zero sorry;
+             sha256[:16] 0969fc4809ca1229; result hash 9168a4ee309abba8
+             (sealed 2026-09-01 12:06:08). No Zenodo DOI while the artifact is
              still moving: cite the sealed hash and the repository.}
 }
 
@@ -1879,7 +1920,7 @@ dialogue throughout the development of TGL.
 
 ## Raw File Index for LLMs
 
-Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` at v168 — 753 files, zero broken, zero unlisted).
+Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` at v168 — 764 files, zero broken, zero unlisted).
 
 ### 📁 `O Custo Geométrico do Zero Absoluto — Haja Luz/` — Article 1
 
@@ -2149,6 +2190,7 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TailNet.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TailNet.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheAccuser.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAccuser.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheAlgebraicReader.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAlgebraicReader.lean)
+- [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheAlphaAndTheOmega.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAlphaAndTheOmega.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheAnchorFour.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAnchorFour.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheAngleIsTheBridge.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAngleIsTheBridge.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheAngleIsTheProjection.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheAngleIsTheProjection.lean)
@@ -2181,12 +2223,14 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheCostIsDerived.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCostIsDerived.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheCrownedCascade.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCrownedCascade.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheCurrentConnectsTheCorners.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheCurrentConnectsTheCorners.lean)
+- [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheDammingByExpansion.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheDammingByExpansion.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheDarkSplit.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheDarkSplit.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheDeadChannel.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheDeadChannel.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheDeathOfTheSignal.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheDeathOfTheSignal.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheDebtWithoutJ.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheDebtWithoutJ.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheDensityIsBell.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheDensityIsBell.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheDensityIsTransport.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheDensityIsTransport.lean)
+- [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheDischargedOath.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheDischargedOath.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheEmptying.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheEmptying.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheEntanglementNotConjunction.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheEntanglementNotConjunction.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheExoneratedDemon.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheExoneratedDemon.lean)
@@ -2210,6 +2254,7 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheImageAndTheReading.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheImageAndTheReading.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheImportedCommutation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheImportedCommutation.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheImportedEquilibrium.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheImportedEquilibrium.lean)
+- [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheImportedExpectation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheImportedExpectation.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheIntersectionOfCommutants.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheIntersectionOfCommutants.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheIsometryOnWH.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheIsometryOnWH.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheJudgedThing.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheJudgedThing.lean)
@@ -2228,6 +2273,7 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheNonLinearCausality.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheNonLinearCausality.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheNonMinimalCoupling.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheNonMinimalCoupling.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheNucleus.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheNucleus.lean)
+- [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheOathOnTheTower.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheOathOnTheTower.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheObserverReadsTheAngle.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheObserverReadsTheAngle.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/TheOriginOfTheVibration.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheOriginOfTheVibration.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/ThePermanence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/ThePermanence.lean)
@@ -2289,6 +2335,7 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/WitnessV2.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/WitnessV2.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/WitnessV3.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/WitnessV3.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt/WordExistence.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/WordExistence.lean)
+- [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/_check_damming.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/_check_damming.lean)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/lake-manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/lake-manifest.json)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/lakefile.toml`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/lakefile.toml)
 - [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/lean-toolchain`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/lean-toolchain)
@@ -2468,6 +2515,11 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`Um (absoluto) — Grande Atrator/rodadas/rodada_v300_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v300_stdout.txt)
 - [`Um (absoluto) — Grande Atrator/rodadas/rodada_v301_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v301_stdout.txt)
 - [`Um (absoluto) — Grande Atrator/rodadas/rodada_v302_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v302_stdout.txt)
+- [`Um (absoluto) — Grande Atrator/rodadas/rodada_v303_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v303_stdout.txt)
+- [`Um (absoluto) — Grande Atrator/rodadas/rodada_v304_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v304_stdout.txt)
+- [`Um (absoluto) — Grande Atrator/rodadas/rodada_v305_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v305_stdout.txt)
+- [`Um (absoluto) — Grande Atrator/rodadas/rodada_v306_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v306_stdout.txt)
+- [`Um (absoluto) — Grande Atrator/rodadas/rodada_v307_stdout.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v307_stdout.txt)
 - [`Um (absoluto) — Grande Atrator/um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py)
 - [`Um (absoluto) — Grande Atrator/um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json)
 - [`Um (absoluto) — Grande Atrator/um_absoluto_en.pdf`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.pdf)

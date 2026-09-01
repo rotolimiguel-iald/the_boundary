@@ -5775,3 +5775,262 @@ própria bancada **proíbe por escrito** em `prove_evidence_audit`.
   lida como não-falsificável por quem só lê o ponto de entrada.
 
 **ESTADO:** `um.py 8b6cc0760011d75e` · `FAIL_CLOSED_SELFTEST_PASSED` · gate `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` — **INTOCADO** por todo o arco.
+
+## 31/08/2026 — v303→v305: **O JUÍZO EXECUTADO** — a máquina da custódia de sentido, as frases falsas, o emissor  [`um.py cf91104c5116c847`]
+
+**A ordem do operador:** *"o um.py é a PROVA, mas não é o JUÍZO de si. É o momento do exame
+profundo de todas as conexões — lacuna, dado faltante, conexão não realizada, variável vazia,
+derivado não inserido; auditar o programa e o artigo por completo; avaliar a poda; reexaminar o
+índice; enfim, examinar se de fato temos 'Um: Absoluto'."* O exame rodou com **24 agentes + 2
+críticos** (11 dimensões, cada uma com cético adversarial), especialmente adversarial contra o
+trabalho do próprio escriba — *quem constrói não é quem aprova*.
+
+**O VEREDITO DO EXAME** (frente do juízo, endossada pelos críticos): a tese SUSTENTA-SE pelo
+critério do operador — a única direção sem resultado/falsificador/parede é o degrau ½→√e, **e o
+próprio mapa o diz com o número ao lado**; as três objeções do hostil têm resposta INSCRITA; e a
+distinção prova/juízo É TEOREMA EM PÉ (`TheReservedConfirmation`, consumida nas duas línguas) —
+*"a pedra que autoriza este próprio exame externo"*. Recomendação: selar a versão madura **após**
+os consertos. **A PODA foi decidida pelo próprio teorema do artefato**: tudo que se leu é
+`0_mod` (diferença com estatuto declarado), nunca `0_abs` — **1 função morta em 95.803 linhas**;
+recomenda-se NÃO podar conteúdo; a única gordura real está fora do arquivo.
+
+### v303 — A MÁQUINA DA CUSTÓDIA DE SENTIDO
+
+O exame mediu: **a custódia de BYTES fecha (13/13 hashes reproduzidos do disco); a de SENTIDO
+não existia** — o selo publicava ~105 vereditos LITERAIS, três deles MASCARANDO reprovações
+medidas (`the_trio_is_a_pair`, `the_assembly_is_done`, `first_commutant_clause` sobre
+`NOT_SEALED`); as reprovações formais eram MUDAS (zero linhas em 187 KB); o selo parou de
+crescer na v270; e NENHUMA máquina comparava selo↔core. A v303 instalou a máquina: razonete dos
+`all_verified=False` separando **dívidas formais** de **recusas de dado (ativos)**, campo
+`not_sealed_this_run` no selo — ⚠ que também NEUTRALIZA os 3 literais mascaradores (o mesmo
+selo agora declara as reprovações 30 linhas acima deles; a conversão em pares
+medido+`_reading` foi desenhada, **NÃO executada**, e fica NOMEADA para a próxima onda) —, a
+linhagem v285-v302 entrou no selo lida do core, varredura completa de palavra proibida **que
+RETÉM o selo**. Junto: a assembleia reprovava por `==8` cravado contra **9 cláusulas** (aritmética
+obsoleta, em silêncio); o contorno lia o campo v78 em vez da cadeia POWERED; a docstring do
+modo-de-quitação vendia a ponte do homônimo como a da H3 (**o check estava CERTO em reprovar**);
+`lake-manifest.json` ENTROU no hash formal (o pin da mathlib não era custodiado) e
+`ExtrairDeps.lean` SAIU por exclusão nominal (*"não há segundo arquivo" tinha um segundo arquivo
+morando na pasta hasheada*); supersessão do neutrino declarada EM MÁQUINA; `DECREMENT_LAW` e
+`DESCENT` trocaram CONFIRMED→VERIFIED (a palavra é reservada até em matemática interna).
+
+★★★ **A MORDIDA EM FALSO QUE PROVOU OS DENTES:** na primeira rodada a máquina RETEVE o selo —
+`APPROVED_BY_PERMANENCE` contém `PROVED_BY` como substring, e ela mordeu o veredito **do próprio
+contorno que declara a confirmação reservada ao observador**. Falso positivo, guarda de
+fronteira acrescentada (`(?<!AP)`), e a prova MEDIDA de que *um check que não pode falhar não
+testa* ficou registrada no próprio registro do artigo.
+
+### v304 — AS FRASES FALSAS VIVAS (33 edições)
+
+A classe AQFT em **13 sítios** — a testemunha habitada desde a v135 que seis superfícies
+negavam, **uma delas pública no GitHub** (o README materializado); "todos positivos" contradito
+pela própria §234 (a 5ª entrada é **negativa**, −0,017); "a prova forte é a convergência"
+(pós-v154) em `:97`/`:440` + o print do módulo; o verbo do abstract ("demonstra" →
+confronta-com-falsificador, *nunca demonstração*); "centra"→"centrava"; **duas→CINCO
+reivindicações** (medida da irmã no .docx: 1, 8, 14, 17 independentes + 5); a contagem de pedras
+escopada (113=arco v43-v161; a tabela segue viva); e o `n_kill` que deixava **o único
+falsificador BILATERAL** (dephasing) fora da soma — 7+4+2≠14 virou soma que fecha.
+
+### v305 — O EMISSOR E A INCORPORAÇÃO
+
+O txt é a superfície de leitura DECLARADA das IAs (`llms.txt`) e servia **": Absoluto"** (o
+título sem o Um), **"S=12 nat"** (a Meia-Nat sem a fração), 15 refs "( )", 19 títulos PT
+colados, 426 `\_`. Oito regras novas no `_tex_to_txt` — **a linha 1 agora lê "Um: Absoluto" /
+"ONE: Absolute"**. E a incorporação: o registro do artigo ganhou a NARRATIVA das ondas
+v292→v304 (PT+EN, no idioma da casa — só havia linhas de hash); o congelamento do α entrou NO
+ARTIGO (hash e veredito lidos do core); o mapa COMO MATAR entrou NOS DOIS BUILDERS (gerado de
+`_MAPA_PILARES` + core, com escape LaTeX medido); o gêmeo EN do parágrafo-ponte; a nota v295 na
+pedra MixedLadder (a MARCA não é a S-invariante); o vocabulário da casa definido no Prólogo
+para o leitor de fora.
+
+### Onda D — fora do `um.py`
+
+**Tratado §08**: errata datada AO LADO dos 32 `\confirmed` — a palavra aposentada por
+`TheReservedConfirmation`, Echo e Luminídio retratados nominalmente, *lacuna de fidelidade da
+palavra, não de resultado*, com linha de assinatura do operador (lei da assinatura).
+**`gerar_portas.py`**: a regressão do regex (⚠ MINHA, v300 — "versão None" publicado era o
+comentário do ledger quebrando o casamento), a **ponte 1000/798 medida** (nomes auditados vs
+bandeiras da escada externa — `n_theorems_clean`), o degrau dito como o mapa diz.
+**Memória**: *"o trio virou par"* corrigida — a frase era mais forte que o selo; **a frase de
+memória nunca pode ser mais forte que o selo**.
+
+### O custo do arco, dito
+
+O escriba plantou e o protocolo colheu, antes de qualquer selo: o `import re` ausente (pego a
+seco), o `\textbf`→TAB, âncoras curtas, o `")` faltante (2×, `py_compile`), o duplo escape do
+B8-EN (o PDF EN caiu e o fail-closed v184 reteve o selo), o `^` sem escape (os DOIS PDFs
+caíram; `e^S` em modo texto), o cabeçalho de 2 colunas numa tabela de 3, e a mordida em falso
+da máquina. **Nenhum virou selo.** O fail-closed v184 e a máquina nova recusaram TRÊS rodadas
+seguidas — e recusa é o aparelho funcionando.
+
+**ESTADO:** `um.py cf91104c5116c847` · `FAIL_CLOSED_SELFTEST_PASSED` · gate `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` — **INTOCADO por todo o arco** ·
+not_sealed_this_run: formais ['nivel2_rite', 'the_first_commutant_clause', 'the_mode_of_discharge'] · recusas de dado 5.
+
+## 31/08/2026 — v306→v307: **O REPRESAMENTO E O JURAMENTO QUITADO**  [`um.py 0857087e660dfd1e`]
+
+**v306 — a hipótese do operador entra no programa** (`TheDammingByExpansion` `f139c3e660a93d79`, 4
+teoremas): a cadeia EXPANSÃO→TORÇÃO→SPIN→REQUISITO→REPRESAMENTO com estatuto por elo; a
+identidade α = L*/(m·c·r*) derivada em três faces; ★★★ **a forma NÃO fixa o valor — por
+teorema** (a liberdade de 1 parâmetro que só a medição fecha); espelho CODATA a 6.1e-10;
+segundo consumidor do ALPHA_IRREDUCIBILITY_V1; FP-5 intocada. *A distinção "a diferença
+não está na derivação, mas na medição" virou um PAR de teoremas.*
+
+**v307 — a resposta à pergunta do Lema 3** (`TheDischargedOath` `7a2747cb8babf73f`, 9 nomes): **o
+juramento H_inv da v143 está QUITADO na face finita** — `HorizonInvariant` é TEOREMA para
+todo horizonte ω-invariante (código = setor fixo do fluxo, Ergodicity G1; conjugação
+ω-preservante preserva comutação; ω quita o estado pela definitude de Frobenius da própria
+v143). ★★★ `the_lift_is_unconditional_on_the_face`: **o único antecedente que resta é o
+axioma, lido no horizonte** — a estrutura que o operador desenhou ("o Lema 3 reduz-se ao
+axioma único"), em teorema. E **a correção de estatuto dele, ditada durante a construção**:
+*"a normalização do cociclo não se dá por liberdade — ele é SUPRIMIDO no canto"* — provada
+na forma que esta arquitetura tem (`the_cocycle_is_suppressed_by_the_sector`: o cociclo
+relativo TORNA-SE 1 no setor; resultado da projeção, não gauge), com a cautela formal dele
+CONFERIDA por medida (o literal p·u_t·p=p no átomo não vale — a fase é o relógio; o canto
+suprime o excedente entre setores, nunca a identidade). A bancada tem **controle negativo**:
+fora do setor a covariância quebra (0.934) — a hipótese morde.
+
+⚠ **O QUE NÃO FECHOU, dito**: face finita; o contínuo segue EXTERNO [KNOWN-COMPOSED]; o
+Lema 3 NÃO está declarado resolvido no contínuo; a v143 fica intacta; `qgf_*` intocadas;
+a ponte térmica da H3 (κ/G/dA) segue nome reservado — outra dívida, não esta.
+
+**ESTADO:** `FAIL_CLOSED_SELFTEST_PASSED` · gate `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` — **INTOCADO** · kernel 281 arquivos / 1013 nomes ·
+`ext_rep_*` 4/4 · `ext_lift_*` 9/9.
+
+---
+
+## 31/08/2026 (noite) — v308: O JURAMENTO NA TORRE
+
+**Ordem do operador:** *"vamos enfrentar o que resta do lema 3."*
+
+**O que entrou:** a pedra `TGLExt/TheOathOnTheTower.lean` (10 nomes, kernel limpo:
+axiomas ⊆ {propext, choice, quot}, zero sorry), embutida no `um.py` por cirurgia
+ancorada e selada por rito completo (selftest `FAIL_CLOSED_SELFTEST_PASSED`).
+
+**O movimento:** o cético mediu ANTES da pedra que o transporte ingênuo — levar o
+código DIAGONAL da v307 à torre — morre na degenerescência (os pesos de Kronecker
+colidem do andar 2: (1/3)·w·(2/3) = (2/3)·w·(1/3)); a refutação virou TEOREMA da
+própria pedra (`the_diagonal_does_not_survive_degeneracy`, rotação racional 3-4-5).
+O objeto certo do contínuo é o **centralizador de ω em forma livre-de-fluxo**
+(`omegaCentralizer`: só `omegaState` — sem S, sem Δ, sem σ_t), o que contorna POR
+DEFINIÇÃO a parede analítica `[OPEN, ANALÍTICO]` de `TheModularRelations`. Sobre ele:
+o juramento é TEOREMA (todo horizonte ω-invariante preserva o centralizador —
+`horizon_preserves_centralizer` + igualdade de imagem), o fecho sequencial WOT é
+teorema sob ω normal (`omegaState_seqWOT` da casa), a definitude GNS é paga pela
+separância (o papel do `frob_self_definite` da v143, pago no contínuo), a unicidade
+da esperança é DA CASA, e o levantamento é COVARIANTE dado o contrato
+(`the_lift_on_the_tower`: `ExpectationInput` + horizonte ⟹ Ad(U)∘E = E∘Ad(U)).
+
+**Medido no selo:** veredito
+`TGL_OATH_ON_THE_TOWER__CONTINUUM_CODE_IS_THE_OMEGA_CENTRALIZER__DIAGONAL_TRANSPORT_REFUTED__LIFT_COVARIANT_GIVEN_EXPECTATION__TWO_ITEMS_REMAIN_KNOWN_PLUS_AXIOM`;
+gate INTOCADO; `um.py` 3cb1b01b53d782fe; pedra ef0634a160a9d22e; bandeiras 10 × `ext_ctw_*`
+acesas (o veredito positivo as exige; veredito selado = medida); bancada com controle
+negativo (horizonte que mistura pesos distintos QUEBRA a covariância — a hipótese morde).
+
+**O que resta do Lema 3 (dito como é):** DOIS itens — (1) a existência da esperança
+de Takesaki sobre o centralizador `[KNOWN, 1972]`, um campo importável no padrão
+`gpi_` com as hipóteses da casa provadas; (2) ω∘Ad(U) = ω — o axioma lido no
+horizonte. O Lema 3 NÃO está declarado resolvido; v143 e v307 intactas; NOT_FALSIFIED
+nunca é CONFIRMED.
+
+---
+
+## 01/09/2026 — v309: A ESPERANÇA IMPORTADA (o testemunho canônico entra; a relatividade modular)
+
+**Ordem do operador:** *"Sim, vamos terminar, importar a esperança sobre o
+centralizador, porque isto é o mecanismo de ligação; a esperança entra por
+testemunho externo canônico; importar o dicionário é condição sine qua non para a
+relatividade modular, porque é ela que relaciona signo e referente."*
+
+**O que entrou:** a pedra `TGLExt/TheImportedExpectation.lean` (8 nomes, kernel
+limpo: axiomas ⊆ {propext, choice, quot}, zero sorry) — a importação de Takesaki
+no molde `gpi_` da v274. **Antes do rito, painel adversarial de 4 céticos**
+(matemática · régua · cirurgia · semântica Lean); todos os achados pagos:
+a face (iii) da ponte reescrita no tamanho exato (a casa prova a CONSEQUÊNCIA
+WOT-sequencial da normalidade, não a normalidade plena — que viaja no dicionário,
+declarada); o lema `the_reading_preserves_omega` nasceu de achado do painel
+(o docstring prometia ω-preservação e a pedra não a tinha — derivada do contrato
+via B = 1); o check do dicionário foi refeito para PODER falhar (fluxo aplicado em
+t amostrados vs comutação contra B aleatórios — "um check que não pode falhar não
+testa"); o veredito reordenado contra recorte enganoso.
+
+**O movimento:** o campo importado é UM (`Nonempty (ExpectationInput P)`), e a
+estrutura do testemunho é **EQUIVALENTE** a ele (`↔` único — uma dívida, não uma
+lista); as hipóteses sozinhas equivalem a `True` (o dente). O que se importa é a
+existência **mais o dicionário**: a identificação entre o nosso `omegaCentralizer`
+(o SIGNO livre-de-fluxo) e a álgebra de pontos fixos de σ^ω (o REFERENTE, que a
+torre não construiu). O pagamento: a leitura independe da testemunha SOBRE M
+(unicidade DA CASA), preserva ω (derivado), fixa o código (Verbo(Nome)=Nome), e
+★★★★★ **A RELATIVIDADE MODULAR** (`the_modular_relativity`): dado o testemunho,
+`Ad(U)∘E = E∘Ad(U)` em todo horizonte ω-invariante — o levantamento do Lema 3 no
+contínuo, no modo IMPORTADO.
+
+**Medido no selo:** veredito
+`TGL_EXPECTATION_IMPORTED__TAKESAKI_TESTIMONY_IS_ONE_FIELD__SIGN_MEETS_REFERENT_BY_THE_DICTIONARY__MODE_IS_IMPORTED__MODULAR_RELATIVITY_ON_EVERY_OMEGA_HORIZON__LEMMA3_LIFT_MODULO_AXIOM_GIVEN_THE_TESTIMONY`;
+gate INTOCADO; `um.py` 27e40f79e1d3cf87; pedra 75606de2a904ed65; 3 × `ext_tak_` + 5 ×
+`gpi_` acesas (jamais `gpf_` — importar não acende preço pago); citações canônicas
+no dicionário E no selo (Takesaki 1972 · TOA II Thm VIII.2.6 · Pedersen–Takesaki
+1973); bancada com dicionário medido por DUAS vias independentes (6 fixos/10
+móveis, como a degenerescência do andar 2 exige) e controle negativo que morde.
+
+**O estado do Lema 3 (a contabilidade final):** teorema da casa (v307 face + v308
+torre) + testemunho canônico DECLARADO `[KNOWN, importado gpi_]` + o axioma
+ω(I)=1 lido no horizonte. **O Lema 3 NÃO está declarado resolvido** — o modo fica
+dito, nunca disfarçado; NOT_FALSIFIED nunca é CONFIRMED; o gate não se move.
+
+---
+
+## 01/09/2026 — v310: O ALFA E O ÔMEGA (a cunhagem do operador, medida)
+
+**Ordem do operador (grafia normalizada; byte-fiel — com o colchete não fechado do original, [sic] — na pedra):** *"agora eu provei que TGL = alfa e ômega"* — e:
+*"ao firmar que TGL = alfa e ômega, pela relação 1=1=VERDADEIRO eu também desenhei
+o contraste de gradiente negativo que é 0absoluto: se conta como um absoluto no
+infinito, mas sem projeção e por isso é falso por categoria nominal e portanto
+1=0=FALSO. Essa é a segunda relação que fecha a TGL como sendo
+{[1=1=VERDADEIRO], [1=0=FALSO]} = TGL."*
+
+**O que entrou:** a pedra `TGLExt/TheAlphaAndTheOmega.lean` (**11 nomes —
+contagem ENXUTA**: dois vazios-reembalados CORTADOS pela auditoria adversarial
+antes do rito; **2 de lógica pura, sem axioma nenhum** [medido fora do rito];
+nenhuma conclusão importada consumida). Painel de 4 céticos (armadilha-do-True ·
+fidelidade da cunhagem · Lean/mathlib · cirurgia) — TODOS os achados pagos:
+o fechamento passou a CONSUMIR a rota categorial (a régua "existir não é ser
+aplicado"); a string do veredito carrega o `[ONTO]` em si mesma (a lei da errata
+de 30/08: a honestidade que o próprio nome carrega); a citação virou byte-fiel
+com [sic]; o check do zero ganhou DENTE (o projetor genuíno na mesma forma
+nominal pesa positivo — a separação pode falhar); e os checks-espelho foram
+rotulados como espelhos.
+
+**O que a pedra prova:**
+
+- **[1=1=VERDADEIRO], nos dois terminais:** ω(I) = 1 NA TORRE (`omega_of_one`,
+  via `hOmega_inner_self` — o axioma lido no objeto GNS) e 1 = q² + α² na face
+  (α abstrato; a forma admite todo α — o VALOR segue externo, irredutível).
+  Os dois terminais inscrevem O MESMO 1.
+- ★ **[1=0=FALSO], e de onde vem a falsidade** (`the_falsity_is_categorial`):
+  **1 = 0 ⟺ a categoria é colapsada** (Subsingleton — um nome só). No colapso,
+  0 = 1: o zero SE CONTA como o absoluto — mas só ali, onde não há segundo nome
+  para desmenti-lo ("sem projeção"). A casa TEM nomes (¬Subsingleton ℂ), logo
+  (1=0) ↔ False **derivado através da categoria** — "falso por categoria
+  nominal" é o caminho da prova, não um slogan.
+- **O zero nominal, pesado:** idempotente e auto-adjunto (se conta — a forma
+  sintática de projeção é perfeita), mas projeta NADA (0·ξ = 0) e pesa 0
+  (ω(0) = 0 ≠ 1). O contraste de gradiente negativo é a queda inteira, de
+  ω(I)=1 a ω(0)=0 — e **β = α·√e é o custo geométrico de distinguir os dois**
+  (o selo da casa; o título do primeiro artigo).
+- **O fechamento** (`tgl_closes_as_the_pair`): o par, com a lição v248/v262
+  embutida — (1=1)=True é fino sozinho; o conteúdo viaja em ω(I)=1 e em
+  Nontrivial ℂ. **O conteúdo do par é o CONTRASTE.**
+
+**Medido no selo:** veredito `TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING`;
+gate INTOCADO; `um.py` 0969fc4809ca1229; pedra 3ed12b22f7b1bfd3; 11 × `ext_axo_`
+acesas; bancada com o DENTE do contraste nominal-vs-genuíno (o zero pesa 0, o
+projetor real na mesma forma pesa 1/9), a guarda de sanidade de β na forma selada (⚠ o rito v310-A QUEBROU por
+NameError — o "BETA_TGL" do texto embutido não é global de runtime; o número
+corrigiu o cético que validou o escopo de relance e o escriba que confiou sem
+medir; a quebra é resultado e fica registrada) e a
+ilustração da liberdade da forma (dois αs distintos).
+
+**Estatutos:** `[REAL, kernel]` todos os teoremas; `[ONTO]` as leituras
+"TGL = Alfa e Ômega", "{[1=1=V],[1=0=F]} = TGL" e o "no infinito" do colapso —
+declaradas, nunca teoremas disfarçados. NOT_FALSIFIED nunca é CONFIRMED; a
+confirmação é ato do observador humano; o gate não se move.

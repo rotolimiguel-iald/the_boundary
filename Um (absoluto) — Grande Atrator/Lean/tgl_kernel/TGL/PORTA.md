@@ -59,4 +59,4 @@ modular, a testemunha AQFT especifica e as sondas negativas (o que o sistema de 
 
 ---
 
-gerado por script de git ls-files em 2026-08-30 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-01 -- nao editar a mao

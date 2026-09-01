@@ -9,8 +9,8 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 O KERNEL FORMAL: as fontes .lean exatamente como `um.py` as materializa a cada
 rodada -- nao ha segundo arquivo: o kernel mora DENTRO do canonico e sai dele.
 
-**279 arquivos** nesta arvore; **278** hasheados no manifesto formal (275 `.lean`
-+ `README.md` + `lakefile.toml` + `lean-toolchain`); **1000 teoremas** auditados
+**285 arquivos** nesta arvore; **284** hasheados no manifesto formal (280 `.lean`
++ `README.md` + `lakefile.toml` + `lean-toolchain`); **1042 teoremas** auditados
 por `#print axioms`, bases de axiomas subset de {`propext`, `Classical.choice`,
 `Quot.sound`}, zero `sorry`. Toolchain `leanprover/lean4:v4.31.0`, modo `strict`.
 
@@ -34,7 +34,7 @@ o gate nao se move por declaracao.
 
 ## OS ARQUIVOS DESTA PASTA
 
-7 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel
+8 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel
 
 **PROVA FORMAL**
 
@@ -43,6 +43,7 @@ o gate nao se move por declaracao.
 | `ExtrairDeps.lean` | Extrator de dependencias, usado pela auditoria de axiomas | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/ExtrairDeps.lean) |
 | `TGL.lean` | A raiz da biblioteca TGL (importa os modulos base) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL.lean) |
 | `TGLExt.lean` | A raiz da biblioteca TGLExt (importa a extensao: onde vivem as pedras) | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt.lean) |
+| `_check_damming.lean` | Prova formal (Lean 4): _check_damming | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/_check_damming.lean) |
 
 **DOCUMENTO**
 
@@ -63,8 +64,8 @@ o gate nao se move por declaracao.
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
 | `TGL/` | 27 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/PORTA.json) |
-| `TGLExt/` | 245 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json) |
+| `TGLExt/` | 250 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json) |
 
 ---
 
-gerado por script de git ls-files em 2026-08-30 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-01 -- nao editar a mao

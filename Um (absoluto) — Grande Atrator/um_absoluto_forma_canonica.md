@@ -381,7 +381,7 @@ P_F = starProjection(ker H_3L) ;  P_F² = P_F ;  P_F† = P_F [LEAN KERNEL, FINI
 TGLSpecificAQFTWitness  ⇒  canto contínuo normalizado     [LEAN KERNEL, CONDICIONAL]
 ```
 
-Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `2e1f72ae563c3d162281a3cb78a4f6837dc27df31212f06d3d608e5837727972`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
+Auditado ao vivo: `lake build` `True`; `sorryAx` `ausente`; `Lean.trustCompiler` `ausente`; axiomas customizados `TGL.*` `ausentes`; sentinelas `True`. Hash dos fontes Lean: `b7705f10809b29595c34424d5f96828cc294cf6fe1a95ace2c77950dbb2e216a`. Veredito `TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED`.
 
 **O kernel verificou a lógica da construção. Ele não construiu ainda a testemunha AQFT contínua. A ausência de uma instância de `TGLSpecificAQFTWitness` é o único resíduo formal deste módulo.** O canto dos Three Locks provado é **finito-dimensional** — não é uma prova de fator tipo `III₁`; e `G` entra como variável, **não** é derivado. `[KERNEL + CONDITIONAL + OPEN]`
 
@@ -536,7 +536,7 @@ Um pilar so' esta' fechado quando tem **um resultado**, **um falsificador** ou *
 | A irredutibilidade de alpha (o Nome) | ALPHA_IRREDUCIBILITY_V1 (v301, pre-registrado) | derivacao alpha-LIVRE do VALOR, reproduzida | `TGL_ALPHA_IRREDUCIBILITY_ARMED_NO_CANDIDATE` | ARMADO |
 | O colapso IALD (P7) | IALD_COLLAPSE_V1 (pre-registrado) | os 4 controles C1-C4 | `IALD_UNIQUE_OPERATIONAL_PREDICTION_PRE_REGISTERED__PILOT_8_OF_8_MOTIVATES__CONTROLS_REQUIRED_FOR_POWERED_VERDICT__PHYSICS_SECTOR_UNTOUCHED` | ARMADO_NAO_EXECUTADO |
 
-**A FORMA, dita como forma e nao como falta:** a superficie falsificavel desta teoria cabe em poucos nomes -- 7 pilares com falsificador proprio armado ou vivo, 4 que HERDAM o de beta, 2 sem falsificador proprio. Isso NAO e' defeito: e' o que acontece com uma teoria cuja arquitetura e' quase toda INTERNA. O que seria defeito era nao dize-lo com o numero ao lado.
+**A FORMA, dita como forma e nao como falta:** a superficie falsificavel desta teoria cabe em poucos nomes -- 8 pilares com falsificador proprio (armado, vivo ou em parede medida), 4 que HERDAM o de beta, 2 sem falsificador proprio. Isso NAO e' defeito: e' o que acontece com uma teoria cuja arquitetura e' quase toda INTERNA. O que seria defeito era nao dize-lo com o numero ao lado.
 
 _(Honestidade da emissao: esta tabela e' emitida no ponto do rito em que 206 modulos ja' estao compostos; os que entram DEPOIS deste ponto aparecem acima como `(modulo ausente nesta rodada)` e o seu veredito real esta' no `um_absoluto.json`, que e' a autoridade.)_
 

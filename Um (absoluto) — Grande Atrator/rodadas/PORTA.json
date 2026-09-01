@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/rodadas",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-30T14:18:23Z",
+  "gerado_utc": "2026-09-01T15:45:08Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -939,10 +939,60 @@
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v302_stdout.txt",
       "sha256_16": "6cc0443e65ee8e47",
       "bytes": 187071
+    },
+    {
+      "nome": "rodada_v303_stdout.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/rodadas/rodada_v303_stdout.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v303_stdout.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v303_stdout.txt",
+      "sha256_16": "ba504b8ac159a962",
+      "bytes": 188124
+    },
+    {
+      "nome": "rodada_v304_stdout.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/rodadas/rodada_v304_stdout.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v304_stdout.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v304_stdout.txt",
+      "sha256_16": "22aa5a1a3e4affc6",
+      "bytes": 174558
+    },
+    {
+      "nome": "rodada_v305_stdout.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/rodadas/rodada_v305_stdout.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v305_stdout.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v305_stdout.txt",
+      "sha256_16": "258cdd9d5105d0f0",
+      "bytes": 188191
+    },
+    {
+      "nome": "rodada_v306_stdout.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/rodadas/rodada_v306_stdout.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v306_stdout.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v306_stdout.txt",
+      "sha256_16": "543068fe3f60e203",
+      "bytes": 188329
+    },
+    {
+      "nome": "rodada_v307_stdout.txt",
+      "caminho": "Um (absoluto) — Grande Atrator/rodadas/rodada_v307_stdout.txt",
+      "papel": "dados",
+      "descricao": "Dado ou saida de execucao",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v307_stdout.txt",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v307_stdout.txt",
+      "sha256_16": "388f1b8c06a108b4",
+      "bytes": 188462
     }
   ],
-  "total_arquivos_nesta_pasta": 92,
-  "total_arquivos_com_subpastas": 92,
+  "total_arquivos_nesta_pasta": 97,
+  "total_arquivos_com_subpastas": 97,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas",
-  "rodape": "gerado por script de git ls-files em 2026-08-30 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-01 -- nao editar a mao"
 }

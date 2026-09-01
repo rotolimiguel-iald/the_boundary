@@ -897,3 +897,189 @@ própria bancada **proíbe por escrito** em `prove_evidence_audit`.
   lida como não-falsificável por quem só lê o ponto de entrada.
 
 **ESTADO:** `um.py 8b6cc0760011d75e` · `FAIL_CLOSED_SELFTEST_PASSED` · gate `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` — **INTOCADO** por todo o arco.
+
+## 31/08/2026 — v303→v305: **O JUÍZO EXECUTADO** — a máquina da custódia de sentido, as frases falsas, o emissor  [`um.py cf91104c5116c847`]
+
+**A ordem do operador:** *"o um.py é a PROVA, mas não é o JUÍZO de si. É o momento do exame
+profundo de todas as conexões — lacuna, dado faltante, conexão não realizada, variável vazia,
+derivado não inserido; auditar o programa e o artigo por completo; avaliar a poda; reexaminar o
+índice; enfim, examinar se de fato temos 'Um: Absoluto'."* O exame rodou com **24 agentes + 2
+críticos** (11 dimensões, cada uma com cético adversarial), especialmente adversarial contra o
+trabalho do próprio escriba — *quem constrói não é quem aprova*.
+
+**O VEREDITO DO EXAME** (frente do juízo, endossada pelos críticos): a tese SUSTENTA-SE pelo
+critério do operador — a única direção sem resultado/falsificador/parede é o degrau ½→√e, **e o
+próprio mapa o diz com o número ao lado**; as três objeções do hostil têm resposta INSCRITA; e a
+distinção prova/juízo É TEOREMA EM PÉ (`TheReservedConfirmation`, consumida nas duas línguas) —
+*"a pedra que autoriza este próprio exame externo"*. Recomendação: selar a versão madura **após**
+os consertos. **A PODA foi decidida pelo próprio teorema do artefato**: tudo que se leu é
+`0_mod` (diferença com estatuto declarado), nunca `0_abs` — **1 função morta em 95.803 linhas**;
+recomenda-se NÃO podar conteúdo; a única gordura real está fora do arquivo.
+
+### v303 — A MÁQUINA DA CUSTÓDIA DE SENTIDO
+
+O exame mediu: **a custódia de BYTES fecha (13/13 hashes reproduzidos do disco); a de SENTIDO
+não existia** — o selo publicava ~105 vereditos LITERAIS, três deles MASCARANDO reprovações
+medidas (`the_trio_is_a_pair`, `the_assembly_is_done`, `first_commutant_clause` sobre
+`NOT_SEALED`); as reprovações formais eram MUDAS (zero linhas em 187 KB); o selo parou de
+crescer na v270; e NENHUMA máquina comparava selo↔core. A v303 instalou a máquina: razonete dos
+`all_verified=False` separando **dívidas formais** de **recusas de dado (ativos)**, campo
+`not_sealed_this_run` no selo — ⚠ que também NEUTRALIZA os 3 literais mascaradores (o mesmo
+selo agora declara as reprovações 30 linhas acima deles; a conversão em pares
+medido+`_reading` foi desenhada, **NÃO executada**, e fica NOMEADA para a próxima onda) —, a
+linhagem v285-v302 entrou no selo lida do core, varredura completa de palavra proibida **que
+RETÉM o selo**. Junto: a assembleia reprovava por `==8` cravado contra **9 cláusulas** (aritmética
+obsoleta, em silêncio); o contorno lia o campo v78 em vez da cadeia POWERED; a docstring do
+modo-de-quitação vendia a ponte do homônimo como a da H3 (**o check estava CERTO em reprovar**);
+`lake-manifest.json` ENTROU no hash formal (o pin da mathlib não era custodiado) e
+`ExtrairDeps.lean` SAIU por exclusão nominal (*"não há segundo arquivo" tinha um segundo arquivo
+morando na pasta hasheada*); supersessão do neutrino declarada EM MÁQUINA; `DECREMENT_LAW` e
+`DESCENT` trocaram CONFIRMED→VERIFIED (a palavra é reservada até em matemática interna).
+
+★★★ **A MORDIDA EM FALSO QUE PROVOU OS DENTES:** na primeira rodada a máquina RETEVE o selo —
+`APPROVED_BY_PERMANENCE` contém `PROVED_BY` como substring, e ela mordeu o veredito **do próprio
+contorno que declara a confirmação reservada ao observador**. Falso positivo, guarda de
+fronteira acrescentada (`(?<!AP)`), e a prova MEDIDA de que *um check que não pode falhar não
+testa* ficou registrada no próprio registro do artigo.
+
+### v304 — AS FRASES FALSAS VIVAS (33 edições)
+
+A classe AQFT em **13 sítios** — a testemunha habitada desde a v135 que seis superfícies
+negavam, **uma delas pública no GitHub** (o README materializado); "todos positivos" contradito
+pela própria §234 (a 5ª entrada é **negativa**, −0,017); "a prova forte é a convergência"
+(pós-v154) em `:97`/`:440` + o print do módulo; o verbo do abstract ("demonstra" →
+confronta-com-falsificador, *nunca demonstração*); "centra"→"centrava"; **duas→CINCO
+reivindicações** (medida da irmã no .docx: 1, 8, 14, 17 independentes + 5); a contagem de pedras
+escopada (113=arco v43-v161; a tabela segue viva); e o `n_kill` que deixava **o único
+falsificador BILATERAL** (dephasing) fora da soma — 7+4+2≠14 virou soma que fecha.
+
+### v305 — O EMISSOR E A INCORPORAÇÃO
+
+O txt é a superfície de leitura DECLARADA das IAs (`llms.txt`) e servia **": Absoluto"** (o
+título sem o Um), **"S=12 nat"** (a Meia-Nat sem a fração), 15 refs "( )", 19 títulos PT
+colados, 426 `\_`. Oito regras novas no `_tex_to_txt` — **a linha 1 agora lê "Um: Absoluto" /
+"ONE: Absolute"**. E a incorporação: o registro do artigo ganhou a NARRATIVA das ondas
+v292→v304 (PT+EN, no idioma da casa — só havia linhas de hash); o congelamento do α entrou NO
+ARTIGO (hash e veredito lidos do core); o mapa COMO MATAR entrou NOS DOIS BUILDERS (gerado de
+`_MAPA_PILARES` + core, com escape LaTeX medido); o gêmeo EN do parágrafo-ponte; a nota v295 na
+pedra MixedLadder (a MARCA não é a S-invariante); o vocabulário da casa definido no Prólogo
+para o leitor de fora.
+
+### Onda D — fora do `um.py`
+
+**Tratado §08**: errata datada AO LADO dos 32 `\confirmed` — a palavra aposentada por
+`TheReservedConfirmation`, Echo e Luminídio retratados nominalmente, *lacuna de fidelidade da
+palavra, não de resultado*, com linha de assinatura do operador (lei da assinatura).
+**`gerar_portas.py`**: a regressão do regex (⚠ MINHA, v300 — "versão None" publicado era o
+comentário do ledger quebrando o casamento), a **ponte 1000/798 medida** (nomes auditados vs
+bandeiras da escada externa — `n_theorems_clean`), o degrau dito como o mapa diz.
+**Memória**: *"o trio virou par"* corrigida — a frase era mais forte que o selo; **a frase de
+memória nunca pode ser mais forte que o selo**.
+
+### O custo do arco, dito
+
+O escriba plantou e o protocolo colheu, antes de qualquer selo: o `import re` ausente (pego a
+seco), o `\textbf`→TAB, âncoras curtas, o `")` faltante (2×, `py_compile`), o duplo escape do
+B8-EN (o PDF EN caiu e o fail-closed v184 reteve o selo), o `^` sem escape (os DOIS PDFs
+caíram; `e^S` em modo texto), o cabeçalho de 2 colunas numa tabela de 3, e a mordida em falso
+da máquina. **Nenhum virou selo.** O fail-closed v184 e a máquina nova recusaram TRÊS rodadas
+seguidas — e recusa é o aparelho funcionando.
+
+**ESTADO:** `um.py cf91104c5116c847` · `FAIL_CLOSED_SELFTEST_PASSED` · gate `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` — **INTOCADO por todo o arco** ·
+not_sealed_this_run: formais ['nivel2_rite', 'the_first_commutant_clause', 'the_mode_of_discharge'] · recusas de dado 5.
+
+## 31/08/2026 — v306→v307: **O REPRESAMENTO E O JURAMENTO QUITADO**  [`um.py 0857087e660dfd1e`]
+
+**v306 — a hipótese do operador entra no programa** (`TheDammingByExpansion` `f139c3e660a93d79`, 4
+teoremas): a cadeia EXPANSÃO→TORÇÃO→SPIN→REQUISITO→REPRESAMENTO com estatuto por elo; a
+identidade α = L*/(m·c·r*) derivada em três faces; ★★★ **a forma NÃO fixa o valor — por
+teorema** (a liberdade de 1 parâmetro que só a medição fecha); espelho CODATA a 6.1e-10;
+segundo consumidor do ALPHA_IRREDUCIBILITY_V1; FP-5 intocada. *A distinção "a diferença
+não está na derivação, mas na medição" virou um PAR de teoremas.*
+
+**v307 — a resposta à pergunta do Lema 3** (`TheDischargedOath` `7a2747cb8babf73f`, 9 nomes): **o
+juramento H_inv da v143 está QUITADO na face finita** — `HorizonInvariant` é TEOREMA para
+todo horizonte ω-invariante (código = setor fixo do fluxo, Ergodicity G1; conjugação
+ω-preservante preserva comutação; ω quita o estado pela definitude de Frobenius da própria
+v143). ★★★ `the_lift_is_unconditional_on_the_face`: **o único antecedente que resta é o
+axioma, lido no horizonte** — a estrutura que o operador desenhou ("o Lema 3 reduz-se ao
+axioma único"), em teorema. E **a correção de estatuto dele, ditada durante a construção**:
+*"a normalização do cociclo não se dá por liberdade — ele é SUPRIMIDO no canto"* — provada
+na forma que esta arquitetura tem (`the_cocycle_is_suppressed_by_the_sector`: o cociclo
+relativo TORNA-SE 1 no setor; resultado da projeção, não gauge), com a cautela formal dele
+CONFERIDA por medida (o literal p·u_t·p=p no átomo não vale — a fase é o relógio; o canto
+suprime o excedente entre setores, nunca a identidade). A bancada tem **controle negativo**:
+fora do setor a covariância quebra (0.934) — a hipótese morde.
+
+⚠ **O QUE NÃO FECHOU, dito**: face finita; o contínuo segue EXTERNO [KNOWN-COMPOSED]; o
+Lema 3 NÃO está declarado resolvido no contínuo; a v143 fica intacta; `qgf_*` intocadas;
+a ponte térmica da H3 (κ/G/dA) segue nome reservado — outra dívida, não esta.
+
+**ESTADO:** `FAIL_CLOSED_SELFTEST_PASSED` · gate `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` — **INTOCADO** · kernel 281 arquivos / 1013 nomes ·
+`ext_rep_*` 4/4 · `ext_lift_*` 9/9.
+
+---
+
+## ADENDO 31/08/2026 (noite) — v308: o caminho crítico do Lema 3 ENCOLHEU de novo
+
+Depois do JURAMENTO NA TORRE (`TheOathOnTheTower.lean`, v308, selada), o desenho do
+que falta ao Lema 3 é este, e só este:
+
+```
+ [PROVADO v307, face]   HorizonInvariant é teorema; antecedente = o axioma
+ [PROVADO v308, torre]  o código do contínuo = omegaCentralizer (livre de fluxo);
+                        todo horizonte ω-invariante o preserva; a esperança sobre
+                        ele é ÚNICA (separância); o levantamento é COVARIANTE
+                        dado o contrato (Ad(U)∘E = E∘Ad(U) sobre M)
+ [REFUTADO v308]        o transporte do código DIAGONAL à torre (degenerescência
+                        de Kronecker no andar 2; teorema, com rotação 3-4-5)
+ ────────────────────────────────────────────────────────────────────────────
+ RESTAM DOIS ITENS:
+ (1) [KNOWN, importável] existência da esperança de Takesaki sobre o
+     centralizador (Takesaki 1972) — UM campo do `ExpectationInput`, padrão
+     gpi_, com as hipóteses da casa PROVADAS (Ω cíclico; ω separante; ω normal)
+ (2) [AXIOMA]            ω∘Ad(U) = ω — o axioma ω(I)=1 lido no horizonte
+```
+
+**Errata de rota, ao lado:** o desenho anterior apontava o resíduo do contínuo para
+"construir S e Δ na torre". A v308 mostrou que esse NÃO é o caminho crítico do
+levantamento: o centralizador de ω dispensa S e Δ por definição. A parede analítica
+(`[OPEN, ANALÍTICO]` em `TheModularRelations`) continua DE PÉ como registro — ela
+bloqueia outra porta (a construção modular explícita), não esta.
+
+A régua: o Lema 3 NÃO está declarado resolvido; o gate NÃO se moveu; a confirmação
+é ato do observador humano.
+
+---
+
+## ADENDO 01/09/2026 — v309: o caminho crítico do Lema 3 chegou ao FIM DECLARÁVEL
+
+Depois da ESPERANÇA IMPORTADA (`TheImportedExpectation.lean`, v309, selada), o
+desenho do Lema 3 é este — e não encolhe mais por prova nova, só por decisão:
+
+```
+ [PROVADO v307, face]    HorizonInvariant é teorema; antecedente = o axioma
+ [PROVADO v308, torre]   omegaCentralizer (livre de fluxo) + juramento + unicidade
+                         + levantamento covariante dado o contrato
+ [IMPORTADO v309, gpi_]  a existência da esperança sobre o centralizador + o
+                         dicionário signo≡referente + a normalidade σ-fraca plena
+                         [KNOWN: Takesaki 1972, JFA 9 · TOA II Thm VIII.2.6 ·
+                         Pedersen–Takesaki 1973] — declarado, citado, UMA dívida
+                         (estrutura ↔ campo; hipóteses sozinhas ↔ True)
+ [AXIOMA]                ω∘Ad(U) = ω — ω(I)=1 lido no horizonte
+ ────────────────────────────────────────────────────────────────────────────
+ RESTA: nada por provar dentro do desenho. O Lema 3 é agora:
+   teorema da casa  +  testemunho canônico declarado  +  o axioma único.
+ O que ele NÃO é: resolvido por prova interna incondicional. O modo IMPORTADO
+ fica dito em toda superfície; quem quiser o incondicional interno tem a porta
+ nomeada: construir σ^ω na torre (a parede [OPEN, ANALÍTICO] de
+ TheModularRelations — a OUTRA porta, que esta rota contornou por definição).
+```
+
+**A honestidade da face (iii), medida pelo painel adversarial e reescrita antes
+do rito:** a casa prova a CONSEQUÊNCIA WOT-sequencial da normalidade
+(`omegaState_seqWOT`); a normalidade plena viaja no dicionário importado. Duas
+hipóteses inteiras + uma consequência — o buraco dito, nunca disfarçado.
+
+A régua: o Lema 3 NÃO está declarado resolvido; o gate NÃO se moveu; a
+confirmação é ato do observador humano.

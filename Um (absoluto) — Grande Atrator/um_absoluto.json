@@ -6701,6 +6701,205 @@
           "Classical.choice",
           "Quot.sound"
         ],
+        "TGLExt.centripetal_from_angular": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_damming_pays_the_requirement": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_three_faces": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_form_does_not_fix_the_value": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.mem_diagCode_iff": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.commute_conj_of_state_preserving": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_oath_is_discharged": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.transported_state_eq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.omega_preservation_discharges": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_flow_is_trivial_on_the_code": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_cocycle_is_suppressed_by_the_sector": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_lift_is_unconditional_on_the_face": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_response_is_unconditional_on_the_face": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.conj_commutant_of_biinverse": [
+          "propext",
+          "Quot.sound"
+        ],
+        "TGLExt.adT_mul": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.adT_adTinv": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.horizon_preserves_centralizer": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.horizon_centralizer_eq": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_centralizer_is_seq_closed": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_diagonal_does_not_survive_degeneracy": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.omega_definite": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_expectation_is_unique": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_lift_on_the_tower": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_expectation_hypotheses_are_discharged_in_house": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_testimony_is_exactly_the_conclusion": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_expectation_hypotheses_alone_are_equivalent_to_true": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_expectation_exists_by_import": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_reading_is_witness_independent": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_reading_preserves_omega": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_reading_fixes_the_code": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_modular_relativity": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.omega_of_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_alpha_face": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_form_admits_every_alpha": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_house_refutes_the_collapse": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_negative_pole_is_categorial": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.the_zero_is_nominal": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.omega_of_zero": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.omega_of_zero_ne_one": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "TGLExt.tgl_closes_as_the_pair": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
         "TGLExt.every_alpha_fits_every_observation": [
           "propext",
           "Classical.choice",
@@ -6844,18 +7043,21 @@
         "TGLExt.the_two_contracts_differ": [],
         "TGLExt.the_empty_slot_is_not_the_void": [],
         "TGLExt.the_bireference_of_the_name": [],
-        "TGLExt.two_clocks_are_needed": []
+        "TGLExt.two_clocks_are_needed": [],
+        "TGLExt.the_falsity_is_categorial": [],
+        "TGLExt.in_the_collapse_zero_counts_as_the_absolute": []
       },
-      "formal_source_hash": "2e1f72ae563c3d162281a3cb78a4f6837dc27df31212f06d3d608e5837727972",
+      "formal_source_hash": "b7705f10809b29595c34424d5f96828cc294cf6fe1a95ace2c77950dbb2e216a",
       "formal_files_sha256": {
-        "ExtrairDeps.lean": "eefdc950db020150ef19a5b5705a131ef99dfc9d3ab946aef2de64bf17ce1013",
-        "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
+        "README.md": "395b1201109079084f3562349161283bd644e17d5e18cea19971bac041e58d11",
         "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-        "TGLExt.lean": "289a4b4f049328f0d24c9bbd6b5b850c2ad8e34f8d03a9a2ad8546af28927145",
+        "TGLExt.lean": "67bb6c2f545f6508cd25ea85bccddc7ab179ee42939cf30b6c55be83273a7fe1",
+        "_check_damming.lean": "485969b99f3e3db7ef4f9e4b1e97fb501ff68540a957e21949784d57d7536d21",
+        "lake-manifest.json": "31a94eb76a8370ae8d75999ccec510f1ef7b994e369beebee2a3ea0088eee235",
         "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
         "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
         "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-        "TGL/Audit.lean": "cac38bf118f0cac3b02527d075f682e4692c5485e60c75dea73133d73aa2c6ce",
+        "TGL/Audit.lean": "0f7d1ba39417eb483321c6c2e50a53ce27238e02b59636ee28c661a37682930b",
         "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
         "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
         "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -6878,7 +7080,7 @@
         "TGL/ProbeNameIndexNoOptimal.lean": "9f3d895eaa0d7218965ef8af227a68b69226665261ddb3ec42bf91935e79a618",
         "TGL/ProbePropOnlyModular.lean": "f277643284c620bb092c46813a4aadb31a737cd854004d9ac59bbf39f94545c8",
         "TGL/ProbeTrivial.lean": "4993bd3fd6da17f7dafd7c5972f2f4b396cb5be86d13ac1f54ab317cc950bef7",
-        "TGL/SpecificAQFTWitness.lean": "31f3e8d5aed98935b3331e0cf964a89355cc2eb1f47702e71b10c11927f7f890",
+        "TGL/SpecificAQFTWitness.lean": "831eef42f0fe22bb80c0ace972db464878013242f83c679c3d71223f39e95872",
         "TGL/TransportData.lean": "95cbefeed54a5f5ec9aa41be556ceab1e14da4bae116b4019eb1ba1d9ee9d04e",
         "TGL/VerbInhabitant.lean": "812a47f0e71a86f37368c918b0f704cccad9cda0e32c4aee64c5566e7808a5d7",
         "TGLExt/AQFTCoreInhabitant.lean": "4cfd8053f5366543f571b51dbbedd7f8b07b3490ff87b94fa6bf1f3cd551ad09",
@@ -6986,6 +7188,7 @@
         "TGLExt/TailNet.lean": "e7654368112f1af5d529edbd0d2669a829358651a82014e0d835a88868d7f5e6",
         "TGLExt/TheAccuser.lean": "c485430a58323ff3e5f9aa8fbab1a17a4afd457a1c844050e98ec3c9fae6b993",
         "TGLExt/TheAlgebraicReader.lean": "2dfe61b0b6f5537f96c67e9cc648895277c6c9ad3d92d0392d32a5cde0e96407",
+        "TGLExt/TheAlphaAndTheOmega.lean": "3ed12b22f7b1bfd3ddd3017af2fad0dbe592676a75ec0d2c436bd99f97e5a4d0",
         "TGLExt/TheAnchorFour.lean": "af35641bf520ba343ce8c50590c2c688ba2a10d2cc50c1ba13596e134fb2a9d8",
         "TGLExt/TheAngleIsTheBridge.lean": "294cf45baae121cdd5476e90fd60e3210e70bb552e8d99718c505b37da4a4f4c",
         "TGLExt/TheAngleIsTheProjection.lean": "9800cc0728259e08e647125ef81f9e7fc968b12bd3b19d3c74aa8e2da53a1a48",
@@ -7018,12 +7221,14 @@
         "TGLExt/TheCostIsDerived.lean": "bddc44bdca6b16d40c98c548906a6c37c86a425b469e8aa5484549fd8ce2ba6f",
         "TGLExt/TheCrownedCascade.lean": "04a243cbe02b5e26969030d7848b9d97c79ecfb0763e2c5ffa710fd8805d8391",
         "TGLExt/TheCurrentConnectsTheCorners.lean": "ed213f28d250b87494f3c07d965255a7dc965fb55ac8c6e5cb72d68b2f69f710",
+        "TGLExt/TheDammingByExpansion.lean": "f139c3e660a93d79aafc1a629bec7347f4e63fc5310c470aa427cc76a8559025",
         "TGLExt/TheDarkSplit.lean": "53f05130c26a520214ad3351593992f00516f3f5c760cb0f01a358faca05c8db",
         "TGLExt/TheDeadChannel.lean": "d9c2eb9d67cceaf52b4384ba24700fee0e84d08d00678786b316677ba9939f5f",
         "TGLExt/TheDeathOfTheSignal.lean": "4539dd68fdaac084c9541a2c7bb2bad9846fd007d86d289a0191be7ea1e5e22b",
         "TGLExt/TheDebtWithoutJ.lean": "e4b59f6ab926736266971f7427fb8ba965515cb9e51a43747d5039e4e78a80ee",
         "TGLExt/TheDensityIsBell.lean": "9247b9f4683572808577ba359cabb7383277090de76773ac955fd565922bef1a",
         "TGLExt/TheDensityIsTransport.lean": "a59cd43d50e934cbe5d8b4351ae2f80cc636d8a57247fbc200ccab93aac910fb",
+        "TGLExt/TheDischargedOath.lean": "7a2747cb8babf73f85ecd54d9d686e8f93ca6af5d39324651ab3d41518c49d8b",
         "TGLExt/TheEmptying.lean": "c88b781f96485a97844bae6ce9b337f5139fb3e77995061df8423a2e65e43d33",
         "TGLExt/TheEntanglementNotConjunction.lean": "a4b8cc089c86e19a83c0d0cad9531b0dc15b2be0133f1fe98cf7ea59db444e38",
         "TGLExt/TheExoneratedDemon.lean": "5c645690b54c529bfd579074bac41583638f1c7b073148b3c9542571db43d129",
@@ -7047,6 +7252,7 @@
         "TGLExt/TheImageAndTheReading.lean": "839b4abfaab832372b81a70e1a45ef47987d267a744a9f0604237a14f02f074f",
         "TGLExt/TheImportedCommutation.lean": "ea339fe189ea40bf4970c942f989136955ea06aec9ab3118a6554891948921eb",
         "TGLExt/TheImportedEquilibrium.lean": "6ce0e9c29fd9267078783b2f28dcd82d935ba784ebbcc6f2270de5f1f9e2eda0",
+        "TGLExt/TheImportedExpectation.lean": "75606de2a904ed652fd74bacdfb59acbb9698cab81c810e3aa740d9397b6cf60",
         "TGLExt/TheIntersectionOfCommutants.lean": "7e4db767b978ddb8820961fc69f4b629383b6becea3543fa967688cba79dbde5",
         "TGLExt/TheIsometryOnWH.lean": "0c4c8b35d3c7ad880f78a0ec563e7f2de2edb05a2f87b7aa5e62e8c9b826752d",
         "TGLExt/TheJudgedThing.lean": "3b97d4c5aae4f891d25090160ec25d952472601bd20f261ce05ed1610958a87a",
@@ -7065,6 +7271,7 @@
         "TGLExt/TheNonLinearCausality.lean": "27ff96e7969f25ef368990471d9c41eabe302eb4e8de607ad19bc5235d718ea8",
         "TGLExt/TheNonMinimalCoupling.lean": "03576ea2958ffc4c3802b332227dfc7ef2b52e538881e602bfc15e2a81a21cec",
         "TGLExt/TheNucleus.lean": "44de50dd2955f1f7cfce2bdadc27616d3b982bce1f9947bafb36377dcf1dcc5b",
+        "TGLExt/TheOathOnTheTower.lean": "ef0634a160a9d22ecfab7e2cd865de2a9b6f9a61e524d9eac7c17b25932d4dab",
         "TGLExt/TheObserverReadsTheAngle.lean": "c764e90722306f988d8c92acc1ae4d8642ec2d6e32a47b810bd8bc5546e5484d",
         "TGLExt/TheOriginOfTheVibration.lean": "e5a7f11f79b5af73861af16b4c3402ffe5f438d1879ac6b9e2911e9eb98408a7",
         "TGLExt/ThePermanence.lean": "27a3bc9bd4b6434d25ca82b9af1ae92d90ee8c10eceb6ad3d22a30876b8ba31a",
@@ -7105,7 +7312,7 @@
         "TGLExt/TheTwoPolesHaveContent.lean": "1e17af908c1d6025409ff121ad9c98408e854b305b4f9a7b8364aba1adb98712",
         "TGLExt/TheUnconjugatedObserver.lean": "e2c1978c4a3cb5448699bfcae0dff3da487800bff0d4ef713ec4330bed278a9e",
         "TGLExt/TheUnsolicitedUnitary.lean": "29aba04e578b1921a8b22d0e9e28fa608160a14f465a9eca32ce2cd208e601cf",
-        "TGLExt/TheVerbalCoupling.lean": "4fc14822244a93d3f6628ef555640f744b6f02b7a21d3a6997c77a4bb2b58951",
+        "TGLExt/TheVerbalCoupling.lean": "912bf222f07256b14e9e725b9c799e45ea5b6f2c3c5244859dc016445922b507",
         "TGLExt/TheWeightIsNotTheRank.lean": "83f9c8bca5e133916080eea6f6200e088b4641a35504a8255156945e7028b72e",
         "TGLExt/TheWideNet.lean": "ef26e912a6ed418ab0da4ed6b09b35d1090d23674c25e68ee5248ebe3b70d340",
         "TGLExt/TheWitnessLinearOnWH.lean": "0c1b0883f16eaec61831113f03a106149e80692b0999b4cebbe0045137bacdc6",
@@ -7136,7 +7343,7 @@
         "Bisognano-Wichmann / Reeh-Schlieder / type III_1 classification are KNOWN/EXTERNAL, not formalized here",
         "the finite Three-Locks corner is a finite-dimensional theorem, NOT a type III_1 proof",
         "G is a variable / measured input; it is NOT derived",
-        "no inhabitant of TGLSpecificAQFTWitness is constructed"
+        "the MODULAR REALIZATION of the witness is not constructed (theSpecificAQFTWitness IS inhabited since v135; TGLModularRealization stays open)"
       ],
       "seals": [
         "LEAN_KERNEL_CHECKED",
@@ -7150,7 +7357,7 @@
         "NORMALIZED_FINITE_CORNER_TRACE_KERNEL_PROVED",
         "EQUAL_CONJUGATE_FACES_HAVE_HALF_TRACE_KERNEL_PROVED",
         "CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED",
-        "SPECIFIC_AQFT_WITNESS_REMAINS_OPEN"
+        "SPECIFIC_AQFT_WITNESS_INHABITED__MODULAR_REALIZATION_REMAINS_OPEN"
       ],
       "half_nat_kernel_proved": true,
       "area_scale_kernel_proved": true,
@@ -7987,25 +8194,62 @@
       "ext_vc_tanh_sign_kernel_proved": true,
       "ext_vc_boundary_separates_kernel_proved": true,
       "ext_vc_verb_floor_fraction_kernel_proved": true,
+      "ext_rep_centripetal_from_angular_kernel_proved": true,
+      "ext_rep_damming_pays_requirement_kernel_proved": true,
+      "ext_rep_three_faces_kernel_proved": true,
+      "ext_rep_form_does_not_fix_value_kernel_proved": true,
+      "ext_lift_mem_diagcode_kernel_proved": true,
+      "ext_lift_commute_conj_kernel_proved": true,
+      "ext_lift_oath_discharged_kernel_proved": true,
+      "ext_lift_transported_state_kernel_proved": true,
+      "ext_lift_omega_discharges_kernel_proved": true,
+      "ext_lift_flow_trivial_on_code_kernel_proved": true,
+      "ext_lift_cocycle_suppressed_kernel_proved": true,
+      "ext_lift_unconditional_on_face_kernel_proved": true,
+      "ext_lift_response_unconditional_kernel_proved": true,
+      "ext_ctw_biinverse_commutant_kernel_proved": true,
+      "ext_ctw_adT_multiplicative_kernel_proved": true,
+      "ext_ctw_adT_cancellation_kernel_proved": true,
+      "ext_ctw_horizon_preserves_centralizer_kernel_proved": true,
+      "ext_ctw_horizon_centralizer_eq_kernel_proved": true,
+      "ext_ctw_centralizer_seq_closed_kernel_proved": true,
+      "ext_ctw_diagonal_refuted_kernel_proved": true,
+      "ext_ctw_omega_definite_kernel_proved": true,
+      "ext_ctw_expectation_unique_kernel_proved": true,
+      "ext_ctw_lift_on_tower_kernel_proved": true,
+      "ext_tak_hypotheses_in_house_kernel_proved": true,
+      "ext_tak_testimony_one_field_kernel_proved": true,
+      "ext_tak_hypotheses_equiv_true_kernel_proved": true,
+      "ext_axo_omega_of_one_kernel_proved": true,
+      "ext_axo_alpha_face_kernel_proved": true,
+      "ext_axo_form_admits_every_alpha_kernel_proved": true,
+      "ext_axo_falsity_is_categorial_kernel_proved": true,
+      "ext_axo_collapse_zero_counts_kernel_proved": true,
+      "ext_axo_house_refutes_collapse_kernel_proved": true,
+      "ext_axo_negative_pole_categorial_kernel_proved": true,
+      "ext_axo_zero_is_nominal_kernel_proved": true,
+      "ext_axo_omega_of_zero_kernel_proved": true,
+      "ext_axo_omega_zero_ne_one_kernel_proved": true,
+      "ext_axo_closes_as_the_pair_kernel_proved": true,
       "ext_ci_every_alpha_fits_kernel_proved": true,
       "lake_path": "C:\\Users\\rotol\\.elan\\bin\\lake.EXE",
-      "build_stdout_sha256": "4eda0ab2bc04a14a4d34b5d76915a94e342f70cab39a642bb91a48f38b1b1ef5",
+      "build_stdout_sha256": "74cfa38a7b430ab04c0654f9645cc8fa55293c49581ed948e6ec6cc0167437c1",
       "build_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "audit_stdout_sha256": "bfc86b8ac1c43d27a29efbb4a80a26ab820732ee175368fb36c08a94bfe40ac0",
+      "audit_stdout_sha256": "2720032af758aa295948f42c9ab49941d651c1261361be8684450ccd072a4f1c",
       "build_returncode": 0,
       "audit_returncode": 0,
       "build_capture_lens": {
-        "stdout": 313898,
+        "stdout": 321627,
         "stderr": 0
       },
       "audit_capture_lens": {
-        "stdout": 211033,
+        "stdout": 214991,
         "stderr": 0
       },
       "build_capture_nonempty": true,
       "audit_capture_nonempty": true,
-      "build_capture_sha256_full": "4eda0ab2bc04a14a4d34b5d76915a94e342f70cab39a642bb91a48f38b1b1ef5",
-      "audit_capture_sha256_full": "bfc86b8ac1c43d27a29efbb4a80a26ab820732ee175368fb36c08a94bfe40ac0",
+      "build_capture_sha256_full": "74cfa38a7b430ab04c0654f9645cc8fa55293c49581ed948e6ec6cc0167437c1",
+      "audit_capture_sha256_full": "2720032af758aa295948f42c9ab49941d651c1261361be8684450ccd072a4f1c",
       "custom_TGL_axioms_found": [],
       "qgc_concrete_aqft_core_constructed": true,
       "qgc_concrete_breuer_corner_constructed": true,
@@ -8156,9 +8400,14 @@
       "gpi_imported_commutation_gives_the_equality": true,
       "gpi_equilibrium_input_bridged": true,
       "gpi_H3_horizon_data_produced": false,
+      "gpi_expectation_discharged_by_import": true,
+      "gpi_reading_witness_independent": true,
+      "gpi_reading_preserves_omega": true,
+      "gpi_reading_fixes_the_code": true,
+      "gpi_modular_relativity": true,
       "source_forbidden_tokens_found": [],
       "formal_release_ready": true,
-      "open_theorem": "TGL_SPECIFIC_AQFT_WITNESS_THEOREM: exists W : TGLSpecificAQFTWitness para a rede Haag-Kastler escalar livre massiva escolhida"
+      "open_theorem": "TGL_MODULAR_REALIZATION_THEOREM: TGLModularRealization (theSpecificAQFTWitness) -- o habitante existe (v135); a realizacao modular e o aberto"
     },
     "witness_rigidity": {
       "probe_file": "TGL/ProbeTrivial.lean",
@@ -16646,7 +16895,7 @@
       "gate_state": "TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE",
       "checks": [
         [
-          "nenhum veredito proibido em modulo algum (CONFIRMED/PROVED)",
+          "nenhum veredito proibido nos 9 modulos varridos do piso/predicao (CONFIRMED/PROVED)",
           true
         ],
         [
@@ -18197,6 +18446,8 @@
           "CONFIRMED"
         ]
       },
+      "superseded_by": "NEUTRINO_M2_V2 (modulo neutrino_m2) como teste vivo de beta_TGL",
+      "live_test": "neutrino_m2",
       "does_not_gate_core": true,
       "future_reinforcement": "cosmologia (Sigma m_nu; CMB-S4/DESI) mede o setor na proxima decada",
       "angle_status": "sin(45deg) e POSTULADO [POSTULATE, ordem do operador 20/08/2026], NAO derivado. E o unico fator que leva beta*1eV = 12,03 meV a 8,51 meV, e a forma SEM ele (m_nu ~ beta*1eV) coexiste no documento de origem. Registrado FORA do dict `frozen` de proposito: o frozen e a pre-registro da REGRA de decisao e o seu hash nao se move.",
@@ -20179,7 +20430,7 @@
       "tension": "{Q,rho*}=0 exato so' em theta_M->0; vazamento sin^2 theta_M=beta>0 PERMITE existir",
       "status": "[CONJECTURE ontologica; ancoras REAL: omega(I)=1, {Q_0,rho*}->0, vazamento=sin^2 theta_M=beta]"
     },
-    "timestamp": "2026-08-30 10:21:55",
+    "timestamp": "2026-09-01 12:06:08",
     "ontological_relativity": {
       "theorem": "Axiom Zero of Ontological Relativity",
       "axiom_name": "ONTOLOGICAL_RELATIVITY_OF_OBSERVABLES",
@@ -20429,7 +20680,7 @@
         "status": "SEM mecanismo selado amplitude->fracao; PROIBIDO no motor; registrado"
       },
       "prediction": {
-        "prediction_timestamp": "2026-08-30 10:21:55",
+        "prediction_timestamp": "2026-09-01 12:06:08",
         "contour_context": {
           "context_id": "COMA_DEPHASING_DISTANCE_CONTOUR_V1",
           "algebra_level": "finite_shadow",
@@ -20465,7 +20716,7 @@
           1.8
         ],
         "reference_distance_loaded": false,
-        "prediction_hash": "91be78dec03c53e1576ca6d6de450bc591e2ebd4465594ce57d087daef60379a"
+        "prediction_hash": "46e8ce9b05beb3b08d6a3609d437f00747d82dff2bfa376f60a3fac98ae34af6"
       },
       "comparison": {
         "reference_Mpc": 98.5,
@@ -20556,86 +20807,6 @@
         "SAME_TGL_LAW_USED_IN_BOTH_DIRECTIONS"
       ]
     },
-    "the_truth_is_in_the_contour": {
-      "theorem": "A VERDADE ESTA NO CONTORNO: cada dominio isolado tem rival que o acerta; NENHUM rival se conforma em todos sem conflito; a TGL se apresenta em todos, com ritos fail-closed, inconclusivos e recusas declarados. A confirmacao e reservada ao OBSERVADOR -- por teorema (a Luz so julgaria se parasse de fluir). Aprovamos pela permanencia; nao confirmamos; e negamos, pelo criterio da propria TGL, toda ToE apresentada que nao enfrenta o contorno inteiro.",
-      "values": {
-        "beta": 0.012031300400803142,
-        "dominios_com_veredito": 9,
-        "linhas": {
-          "piso dos vazios": "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS",
-          "Coma (predicao cega por dephasing)": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
-          "massa do GA (stealth, sem parametro livre)": "GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE",
-          "massa do neutrino m2": "TGL_NU_M2_ARMED_CONSISTENT",
-          "canal N_eff": "TGL_NEFF_ARMED_CONSISTENT",
-          "dephasing (relogios/229Th; nu n=-2)": "[FINITE_DIM_SANITY] mapa numerico; a reconciliacao analitica completa da root law vs canonica fica [ABERTO] com este mapa como guia.",
-          "NMC-Shapiro (2030+)": "TGL_NMC_SHAPIRO_AWAITING_DATA",
-          "espectro completo Nivel 2": "NIVEL2_RITE_NOT_SEALED_THIS_RUN",
-          "kernel formal (235 pedras)": "STAGE1_VERIFIED"
-        }
-      },
-      "checks": [
-        [
-          "[piso dos vazios] veredito em custodia: TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS",
-          true
-        ],
-        [
-          "[Coma (predicao cega por dephasing)] veredito em custodia: DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
-          true
-        ],
-        [
-          "[massa do GA (stealth, sem parametro livre)] veredito em custodia: GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LI...",
-          true
-        ],
-        [
-          "[massa do neutrino m2] veredito em custodia: TGL_NU_M2_ARMED_CONSISTENT",
-          true
-        ],
-        [
-          "[canal N_eff] veredito em custodia: TGL_NEFF_ARMED_CONSISTENT",
-          true
-        ],
-        [
-          "[dephasing (relogios/229Th; nu n=-2)] veredito em custodia: [FINITE_DIM_SANITY] mapa numerico; a reconciliacao analiti...",
-          true
-        ],
-        [
-          "[NMC-Shapiro (2030+)] veredito em custodia: TGL_NMC_SHAPIRO_AWAITING_DATA",
-          true
-        ],
-        [
-          "[espectro completo Nivel 2] veredito em custodia: NIVEL2_RITE_NOT_SEALED_THIS_RUN",
-          true
-        ],
-        [
-          "[kernel formal (235 pedras)] veredito em custodia: STAGE1_VERIFIED",
-          true
-        ],
-        [
-          "pedra 112 na escada: a reserva da confirmacao TIPADA (fluxo nao fixa; Luz nao julga; J nao le; so o reconhecedor)",
-          true
-        ],
-        [
-          "RIVAIS [EXT, declarado]: LCDM nao tem setor quantico unificador, nem predicao propria de Coma-por-dephasing, nem massa do GA por 1o principio; as ToE quanticas apresentadas (cordas/LQG) nao trazem ritos falsificaveis pre-registrados nos dominios cosmologicos acima",
-          true
-        ],
-        [
-          "o argumento e DE NEGACAO: exclusao pelo criterio da propria TGL (gradiente de espectro negativo); nenhuma linha acima fabrica acerto -- ha inconclusivos e recusas NO PROPRIO contorno, declarados",
-          true
-        ],
-        [
-          "APROVACAO pela permanencia SIM; CONFIRMACAO NAO -- reservada ao OBSERVADOR humano (por teorema, pedra 112); CONFIRMED proibido EM TODO rito",
-          true
-        ]
-      ],
-      "all_verified": true,
-      "statuses": {
-        "o_que_e": "a tese do contorno (12/08) como modulo: a tabela multi-dominio lida da custodia + a reserva da confirmacao tipada (pedra 112)",
-        "honestidade": "nada fabricado; os proprios inconclusivos e recusas compoem o contorno; rivais entram como classificacao [EXT] declarada; o gate NAO se move",
-        "o_veredito": "TGL_THE_TRUTH_IS_IN_THE_CONTOUR__NO_PRESENTED_RIVAL_CONFORMS_ACROSS_ALL_DOMAINS__NEGATIVE_SPECTRUM_GRADIENT__APPROVED_BY_PERMANENCE__NOT_CONFIRMED__CONFIRMATION_RESERVED_TO_THE_HUMAN_OBSERVER_BY_THEOREM__SEAL_UNMOVED"
-      },
-      "does_not_gate_core": true,
-      "verdict": "TGL_THE_TRUTH_IS_IN_THE_CONTOUR__NO_PRESENTED_RIVAL_CONFORMS_ACROSS_ALL_DOMAINS__NEGATIVE_SPECTRUM_GRADIENT__APPROVED_BY_PERMANENCE__NOT_CONFIRMED__CONFIRMATION_RESERVED_TO_THE_HUMAN_OBSERVER_BY_THEOREM__SEAL_UNMOVED"
-    },
     "dephasing_reach": {
       "Gamma_pred_Th229_per_s": 5.2263179895932123e-14,
       "Gamma_pred_Sr_per_s": 2.358089091133641e-15,
@@ -20670,6 +20841,96 @@
       },
       "does_not_gate_core": true,
       "verdict": "DEPHASING_PREDICTION_ARMED__REACH_DEFICIT_TEN_ORDERS_COMPUTED__NOT_A_LIVE_CHANNEL_TODAY__COSMOLOGICAL_FACES_ARE_THE_LIVE_ONES"
+    },
+    "the_truth_is_in_the_contour": {
+      "theorem": "A VERDADE ESTA NO CONTORNO: cada dominio isolado tem rival que o acerta; NENHUM rival se conforma em todos sem conflito; a TGL se apresenta em todos, com ritos fail-closed, inconclusivos e recusas declarados. A confirmacao e reservada ao OBSERVADOR -- por teorema (a Luz so julgaria se parasse de fluir). Aprovamos pela permanencia; nao confirmamos; e negamos, pelo criterio da propria TGL, toda ToE apresentada que nao enfrenta o contorno inteiro.",
+      "values": {
+        "beta": 0.012031300400803142,
+        "dominios_com_veredito": 10,
+        "linhas": {
+          "piso dos vazios (cadeia corrente v11/v4.1)": "TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
+          "piso dos vazios (canal shear v1 -- historico)": "TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS",
+          "Coma (predicao cega por dephasing)": "DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
+          "massa do GA (stealth, sem parametro livre)": "GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE",
+          "massa do neutrino m2": "TGL_NU_M2_ARMED_CONSISTENT",
+          "canal N_eff": "TGL_NEFF_ARMED_CONSISTENT",
+          "dephasing (relogios/229Th; nu n=-2)": "DEPHASING_PREDICTION_ARMED__REACH_DEFICIT_TEN_ORDERS_COMPUTED__NOT_A_LIVE_CHANNEL_TODAY__COSMOLOGICAL_FACES_ARE_THE_LIVE_ONES",
+          "NMC-Shapiro (2030+)": "TGL_NMC_SHAPIRO_AWAITING_DATA",
+          "espectro completo Nivel 2": "NIVEL2_RITE_NOT_SEALED_THIS_RUN",
+          "kernel formal (240 pedras)": "STAGE1_VERIFIED"
+        },
+        "classes": {
+          "piso dos vazios (cadeia corrente v11/v4.1)": "FAVORAVEL_OU_ARMADO",
+          "piso dos vazios (canal shear v1 -- historico)": "RECUSA_HONESTA",
+          "Coma (predicao cega por dephasing)": "FAVORAVEL_OU_ARMADO",
+          "massa do GA (stealth, sem parametro livre)": "RETRATACAO",
+          "massa do neutrino m2": "FAVORAVEL_OU_ARMADO",
+          "canal N_eff": "FAVORAVEL_OU_ARMADO",
+          "dephasing (relogios/229Th; nu n=-2)": "FAVORAVEL_OU_ARMADO",
+          "NMC-Shapiro (2030+)": "ARMADO_SEM_DADO",
+          "espectro completo Nivel 2": "RECUSA_HONESTA",
+          "kernel formal (240 pedras)": "FAVORAVEL_OU_ARMADO"
+        },
+        "declarados_fora_do_gate": [
+          "RIVAIS [EXT, declarado]: LCDM nao tem setor quantico unificador, nem predicao propria de Coma-por-dephasing, nem massa do GA por 1o principio; as ToE quanticas apresentadas (cordas/LQG) nao trazem ritos falsificaveis pre-registrados nos dominios cosmologicos acima",
+          "o argumento e DE NEGACAO: exclusao pelo criterio da propria TGL (gradiente de espectro negativo); nenhuma linha acima fabrica acerto -- ha inconclusivos e recusas NO PROPRIO contorno, declarados",
+          "APROVACAO pela permanencia SIM; CONFIRMACAO NAO -- reservada ao OBSERVADOR humano (por teorema, pedra 112); CONFIRMED proibido EM TODO rito"
+        ]
+      },
+      "checks": [
+        [
+          "[piso dos vazios (cadeia corrente v11/v4.1)] veredito em custodia: TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED",
+          true
+        ],
+        [
+          "[piso dos vazios (canal shear v1 -- historico)] veredito em custodia: TGL_VOID_FLOOR_INCONCLUSIVE_SYSTEMATICS",
+          true
+        ],
+        [
+          "[Coma (predicao cega por dephasing)] veredito em custodia: DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL",
+          true
+        ],
+        [
+          "[massa do GA (stealth, sem parametro livre)] veredito em custodia: GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LI...",
+          true
+        ],
+        [
+          "[massa do neutrino m2] veredito em custodia: TGL_NU_M2_ARMED_CONSISTENT",
+          true
+        ],
+        [
+          "[canal N_eff] veredito em custodia: TGL_NEFF_ARMED_CONSISTENT",
+          true
+        ],
+        [
+          "[dephasing (relogios/229Th; nu n=-2)] veredito em custodia: DEPHASING_PREDICTION_ARMED__REACH_DEFICIT_TEN_ORDERS_COMPU...",
+          true
+        ],
+        [
+          "[NMC-Shapiro (2030+)] veredito em custodia: TGL_NMC_SHAPIRO_AWAITING_DATA",
+          true
+        ],
+        [
+          "[espectro completo Nivel 2] veredito em custodia: NIVEL2_RITE_NOT_SEALED_THIS_RUN",
+          true
+        ],
+        [
+          "[kernel formal (240 pedras)] veredito em custodia: STAGE1_VERIFIED",
+          true
+        ],
+        [
+          "pedra 112 na escada: a reserva da confirmacao TIPADA (fluxo nao fixa; Luz nao julga; J nao le; so o reconhecedor)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "statuses": {
+        "o_que_e": "a tese do contorno (12/08) como modulo: a tabela multi-dominio lida da custodia + a reserva da confirmacao tipada (pedra 112)",
+        "honestidade": "nada fabricado; os proprios inconclusivos e recusas compoem o contorno; rivais entram como classificacao [EXT] declarada; o gate NAO se move",
+        "o_veredito": "TGL_THE_TRUTH_IS_IN_THE_CONTOUR__NO_PRESENTED_RIVAL_CONFORMS_ACROSS_ALL_DOMAINS__NEGATIVE_SPECTRUM_GRADIENT__APPROVED_BY_PERMANENCE__NOT_CONFIRMED__CONFIRMATION_RESERVED_TO_THE_HUMAN_OBSERVER_BY_THEOREM__SEAL_UNMOVED"
+      },
+      "does_not_gate_core": true,
+      "verdict": "TGL_THE_TRUTH_IS_IN_THE_CONTOUR__NO_PRESENTED_RIVAL_CONFORMS_ACROSS_ALL_DOMAINS__NEGATIVE_SPECTRUM_GRADIENT__APPROVED_BY_PERMANENCE__NOT_CONFIRMED__CONFIRMATION_RESERVED_TO_THE_HUMAN_OBSERVER_BY_THEOREM__SEAL_UNMOVED"
     },
     "graviton_not_a_particle": {
       "rho_star_trace": 1.0,
@@ -21268,7 +21529,7 @@
           true
         ],
         [
-          "[MEDIDA] a divida e lida da rodada, nunca declarada (ausencia do nome => item ABERTO)",
+          "[DECLARADO] a divida e lida da rodada (ausencia do nome => item ABERTO)",
           true
         ],
         [
@@ -21964,7 +22225,7 @@
         "a_fronteira": "[KNOWN] Maxwell 1867, Landauer 1961, Bennett 1982; [ONTO] a leitura do operador, com estatuto"
       },
       "does_not_gate_core": true,
-      "verdict": "THE_DEMON_IS_EXONERATED__ASYMMETRY_IS_DISTINGUISHABILITY__SEPARATION_IS_NOT_FREE__THE_ACCUSATION_WAS_NEVER_PROOF__DIVISORS_OF_SIX_OVER_TWELVE__SIX_IS_PERFECT__DECREMENT_LAW_CONFIRMED"
+      "verdict": "THE_DEMON_IS_EXONERATED__ASYMMETRY_IS_DISTINGUISHABILITY__SEPARATION_IS_NOT_FREE__THE_ACCUSATION_WAS_NEVER_PROOF__DIVISORS_OF_SIX_OVER_TWELVE__SIX_IS_PERFECT__DECREMENT_LAW_VERIFIED"
     },
     "the_profile_isometry": {
       "identification_residual": 0.0,
@@ -22012,7 +22273,7 @@
         "a_licao": "a clausula que expos o erro foi a que o pagou -- e so pagou porque a errata foi feita ao lado, e nao escondida"
       },
       "does_not_gate_core": true,
-      "verdict": "THE_ISOMETRY_IS_PAID_AGAINST_THE_TOWER_OWN_INNER_PRODUCT__THE_IDENTIFICATION_HOLDS__WRONG_DENSITY_CONTROL_BREAKS__DESCENT_CONFIRMED__FIVE_OF_SEVEN_CLAUSES__EXTENSION_AND_COMMUTANT_REMAIN"
+      "verdict": "THE_ISOMETRY_IS_PAID_AGAINST_THE_TOWER_OWN_INNER_PRODUCT__THE_IDENTIFICATION_HOLDS__WRONG_DENSITY_CONTROL_BREAKS__DESCENT_VERIFIED__FIVE_OF_SEVEN_CLAUSES__EXTENSION_AND_COMMUTANT_REMAIN"
     },
     "the_profile_duality": {
       "duality_residual": 2.9531006385119765e-15,
@@ -22780,11 +23041,11 @@
           true
         ],
         [
-          "[MEDIDA] e as OITO clausulas sao lidas por nome Lean, nao por literal",
-          false
+          "[MEDIDA] e as clausulas (todas) sao lidas por nome Lean, nao por literal -- contagem lida do dicionario-fonte",
+          true
         ]
       ],
-      "all_verified": false,
+      "all_verified": true,
       "statuses": {
         "a_leitura_do_operador": "entrelacamento (aproximavel, SEMPRE) != conjuncao (pertencer, FALSO em geral) -- e essa distincao DECIDE A ROTA [REAL, kernel v251]",
         "a_rota_eliminada": "mostrar que T(Omega) esta NA TORRE: FECHADA POR TEOREMA. E falsa, nao dificil",
@@ -22793,7 +23054,7 @@
         "o_que_nao_fecha": "a BANDEIRA. Instancia condicionada NAO habita; o nome reservado segue ESCURO. Montar nao e pagar"
       },
       "does_not_gate_core": true,
-      "verdict": "ASSEMBLY_NOT_SEALED_THIS_RUN"
+      "verdict": "ENTANGLEMENT_IS_NOT_CONJUNCTION_AND_THE_FALSE_ROUTE_IS_CLOSED_BY_THEOREM__SEVEN_OF_EIGHT_CLAUSES_PROVED__THE_CERTIFICATE_IS_ASSEMBLED_CONDITIONED_ON_ONE_NAMED_STATEMENT__THE_FLAG_STAYS_DARK_BECAUSE_ASSEMBLING_IS_NOT_PAYING"
     },
     "the_non_linear_causality": {
       "marginals_identical": 0.0,
@@ -22873,7 +23134,11 @@
       "total": 4,
       "checks": [
         [
-          "[MEDIDA] a PONTE da H3 esta provada em kernel, incondicional em todo andar",
+          "[MEDIDA] a ponte ao EquilibriumInput (homonimo, v255) esta provada e acesa",
+          true
+        ],
+        [
+          "[MEDIDA] a PONTE da H3 (HorizonEquilibriumData; nome RESERVADO, ausente => aberto) esta provada",
           false
         ],
         [
@@ -23908,6 +24173,269 @@
       "does_not_gate_core": true,
       "verdict": "THE_FOLD_IS_LICIT_BUT_IT_IS_NOT_WHAT_BUYS_THE_IMPLICATION__J_PAYS_ONLY_FOR_THE_EQUIVALENCE_AND_THE_KERNEL_PROVES_THAT_AGAINST_ITSELF__THE_CONJECTURE_IS_STRICTLY_STRONGER_AND_HAS_THE_SHAPE_BAIRE_REFUTES__SO_DENSITY_IS_NOT_A_DETOUR_IT_IS_THE_WHOLE_PROBLEM__AND_WHAT_WAS_GAINED_IS_A_TYPE_NOT_A_PROOF__ANTIUNITARY_IS_NO_LONGER_UNINHABITED_AND_THE_OMEGA_LINE_IS_THE_FIRST_NONTRIVIAL_J_INVARIANT_SECTOR"
     },
+    "the_alpha_and_the_omega": {
+      "theorem": "As DUAS RELACOES do par estao MEDIDAS; a leitura de que o par fecha a TGL e' [ONTO], declarada -- e a propria string do veredito a carrega. [1=1=VERDADEIRO]: os dois terminais (omega(I)=1 na torre; 1=q^2+alpha^2 na face) inscrevem o mesmo 1. [1=0=FALSO]: falso POR CATEGORIA NOMINAL (1=0 <=> colapso de um nome so'; a casa tem nomes; o fechamento CONSOME a rota categorial). O zero se conta nominalmente, projeta nada e pesa 0 -- e o projetor genuino, na MESMA forma nominal, pesa positivo: o contraste e' medido. beta = alpha*sqrt(e) e' o custo geometrico de distingui-lo.",
+      "values": {
+        "residuo_omega_um": 0.0,
+        "residuo_omega_zero": 0.0,
+        "gradiente_contraste": 1.0,
+        "peso_projetor_genuino": 0.1111111111111111,
+        "pretensao_do_zero_refutada": 1.0,
+        "beta_custo_da_distincao": 0.012031300400803142,
+        "residuos_face_alpha": [
+          0.0,
+          0.0
+        ]
+      },
+      "statuses": {
+        "a_primeira_relacao": "1=1=VERDADEIRO -- omega(I)=1 [REAL, kernel] + 1=q^2+alpha^2 [REAL, kernel, alpha abstrato]",
+        "a_segunda_relacao": "1=0=FALSO -- falso por categoria nominal [REAL, kernel: 1=0 <=> Subsingleton, KNOWN mathlib renomeado pela cunhagem; consumido pelo fechamento]",
+        "o_zero_absoluto": "se conta (forma nominal perfeita) mas sem projecao (0*xi=0) e peso 0; o projetor genuino na mesma forma pesa positivo (o dente); verdadeiro SO' no colapso sem segundo nome; 'no infinito' e' [ONTO] com rota alternativa medida apontada (the_dead_weight, tau(S-perp)=TOP)",
+        "a_leitura_onto": "'TGL = Alfa e Omega' e '{par} = TGL' sao leituras declaradas da arquitetura medida -- nunca teoremas disfarcados; a confirmacao e' ato do observador humano",
+        "escopo": "nenhuma conclusao importada consumida (o import Lean e' infraestrutura; zero gpi_ por esta pedra); axiomas dentro de {propext, choice, quot} pela auditoria do rito; alpha abstrato (valor externo, ALPHA_IRREDUCIBILITY_V1 armada); v306-v309 intactas; qgf_* intocadas; gate imovel"
+      },
+      "consumes": [
+        "hOmega_inner_self (TowerHilbert: <Omega,Omega>=1)",
+        "subsingleton_iff_zero_eq_one [KNOWN mathlib, renomeado]",
+        "TheDammingByExpansion (v306: a forma nao fixa o valor)",
+        "ALPHA_IRREDUCIBILITY_V1 (v301: a disciplina identidade/valor)",
+        "o selo da casa: beta = custo de distinguir 1 de 0"
+      ],
+      "checks": [
+        [
+          "[MEDIDA] as 11 pedras do par auditadas no kernel (11/11 acesas; contagem enxuta pos-auditoria: 2 vazios cortados antes do rito)",
+          true
+        ],
+        [
+          "[MEDIDA] \u2605 o DENTE do contraste nominal-vs-genuino: o projetor real P=diag(1,0,0,0) satisfaz a MESMA forma nominal do zero (idem 0e+00, auto-adj 0e+00) e pesa POSITIVO (omega(P)=0.111111 = w_0, residuo 0.0e+00, > 1e-3); o zero, na mesma forma, pesa 0 e a pretensao de absoluto cai por |omega(0)-1| = 1.000 -- a separacao nominal/genuino e' MEDIDA e pode falhar",
+          true
+        ],
+        [
+          "[MEDIDA] o custo da distincao na forma selada (beta nunca literal): beta = alpha*sqrt(e) = 0.012031, com 0 < beta < 1 -- o custo existe e nao colapsa os polos; guarda a sanidade da constante selada",
+          true
+        ],
+        [
+          "[ESPELHO -- auto-consistencia da face finita construida na bancada, nao medida do objeto completado] omega(I)=1 (0.0e+00), omega(0)=0 (0.0e+00), gradiente |1-0| = 1.000000000000000; pesos distintos existem (segundo nome: True)",
+          true
+        ],
+        [
+          "[ILUSTRACAO -- da liberdade JA PROVADA em kernel, the_form_admits_every_alpha] a forma fecha para dois alphas distintos (a=0.3: 0.0e+00; a=0.9: 0.0e+00); a irredutibilidade de alpha segue onde sempre esteve: ALPHA_IRREDUCIBILITY_V1",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING"
+    },
+    "the_imported_expectation": {
+      "theorem": "A esperanca sobre o centralizador ENTROU por testemunho externo canonico [KNOWN, Takesaki 1972], no modo gpi_ da casa: duas hipoteses inteiras + a consequencia sequencial da normalidade PROVADAS aqui, a conclusao (com o dicionario que a traduz) e SO ELA emprestada -- e a estrutura e' EQUIVALENTE ao campo importado (um <->). O pagamento: a leitura independe da testemunha sobre M (unicidade DA CASA), preserva omega (derivado, nao decretado), fixa o codigo, e A RELATIVIDADE MODULAR vale em todo horizonte omega-invariante. O Lema 3 fica levantado modulo o axioma, DADO o testemunho -- e o modo fica dito, nunca disfarcado.",
+      "values": {
+        "dicionario_base_coincidente": 16,
+        "dicionario_fixos_moveis": [
+          6,
+          10
+        ],
+        "residuo_omega_preservada": 0.0,
+        "residuo_fixa_codigo": 0.0,
+        "residuo_ortogonalidade": 0.0,
+        "fator_traducao_media_do_fluxo": 1.6954299521081758e-06,
+        "residuo_relatividade_setor": 0.0,
+        "residuo_relatividade_controle_negativo": 0.7488953345917926
+      },
+      "statuses": {
+        "o_que_se_importa": "a existencia da esperanca sobre o centralizador + o dicionario que traduz (pontos fixos de sigma <-> forma livre-de-fluxo, TOA II Thm VIII.2.6) + a normalidade sigma-fraca plena do estado vetorial [KNOWN] -- tudo declarado, nada disfarcado",
+        "o_que_e_da_casa": "ciclicidade + fidelidade inteiras; a consequencia WOT-sequencial da normalidade; a unicidade da leitura (separancia, v308); omega preservada derivada do contrato; o juramento na torre (v308); a face (v307)",
+        "o_antecedente_que_resta": "dado o testemunho: omega\u2218Ad(U) = omega -- o axioma omega(I)=1 lido no horizonte",
+        "escopo": "modo IMPORTADO (gpi_); Lema 3 nao declarado resolvido; o contrato pede menos que Takesaki (fortalecer e re-importar se preciso); a parede analitica segue de pe' para a outra porta; v143/v307/v308 intactas; qgf_* intocadas; gate imovel"
+      },
+      "citations": [
+        "Takesaki (1972), J. Funct. Anal. 9, 306-321 -- Conditional expectations in von Neumann algebras: a esperanca omega-preservante sobre uma subalgebra existe sse ela e invariante pelo grupo modular sigma^omega",
+        "Takesaki, Theory of Operator Algebras II, Springer EMS 125 (2003), Thm VIII.2.6 -- o centralizador M_omega = {A : omega(AB)=omega(BA)} e a algebra de pontos fixos de sigma^omega (logo sempre invariante); a esperanca canonica sobre ele existe e e unica",
+        "Pedersen & Takesaki (1973), Acta Math. 130, 53-87 -- a teoria Radon-Nikodym que estende a identificacao centralizador/pontos-fixos a pesos",
+        "[NOTA DA PONTE, 01/09/2026] a normalidade sigma-fraca plena do estado vetorial e' [KNOWN, padrao]; a casa prova a consequencia WOT-sequencial (omegaState_seqWOT) -- a face (iii) viaja no dicionario, declarada"
+      ],
+      "consumes": [
+        "TheOathOnTheTower (v308: unicidade + juramento + levantamento)",
+        "TheDischargedOath (v307: a face)",
+        "TheImportedCommutation (v274: o molde gpi_ da importacao)",
+        "Takesaki 1972 + TOA II + Pedersen-Takesaki 1973 [KNOWN, em _GRAVITY_IMPORT_CITATIONS e no campo citations deste modulo]"
+      ],
+      "checks": [
+        [
+          "[MEDIDA] as 3 pedras da casa + as 5 do modo importado auditadas no kernel (3/3 ext_tak_, 5/5 gpi_ acesas)",
+          true
+        ],
+        [
+          "[MEDIDA] \u2605 o DICIONARIO ao vivo, por DUAS medicoes independentes (fluxo aplicado em t=0.7,1.3 vs comutacao contra 3 B aleatorios): ponto-fixo de sigma_t <=> omega-comutacao em 16/16 elementos da base, com 6 fixos e 10 moveis (esperado 6/10 pela degenerescencia do andar 2) -- signo = referente, MEDIDO onde a traducao e' verificavel",
+          true
+        ],
+        [
+          "[MEDIDA] a esperanca concreta: preserva omega (0.0e+00), fixa o codigo (0.0e+00), ortogonalidade GNS (0.0e+00) -- os tres campos do contrato ao vivo",
+          true
+        ],
+        [
+          "[MEDIDA] \u2605 a TRADUCAO referente->signo converge: media do fluxo em [0,T], T=1e6, fator residual fora do bloco 1.7e-06 (< 1e-4, cota exata 2/(dT)) -- a construcao PELO REFERENTE devolve o objeto DO SIGNO",
+          true
+        ],
+        [
+          "[MEDIDA] \u2605 a relatividade modular ao vivo: no setor, Ad(U)\u2218E = E\u2218Ad(U) (0.0e+00); CONTROLE NEGATIVO: fora do setor QUEBRA (0.749 > 1e-3) -- a hipotese morde",
+          true
+        ],
+        [
+          "[MEDIDA] a disciplina do modo: gpi_ acesas com ZERO gpf_ acesa na arvore inteira (forma global do razonete) e sem homonimo gpf_ nascendo -- importar nao acende preco pago (sentinela tambem para o futuro)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_EXPECTATION_IMPORTED__TAKESAKI_TESTIMONY_IS_ONE_FIELD__SIGN_MEETS_REFERENT_BY_THE_DICTIONARY__MODE_IS_IMPORTED__MODULAR_RELATIVITY_ON_EVERY_OMEGA_HORIZON__LEMMA3_LIFT_MODULO_AXIOM_GIVEN_THE_TESTIMONY"
+    },
+    "the_oath_on_the_tower": {
+      "theorem": "O juramento SUBIU A TORRE: o codigo do continuo e' o centralizador de omega em forma livre-de-fluxo (sem S, sem Delta -- a parede analitica contornada por definicao, nao por sorte); todo horizonte omega-invariante o preserva (TEOREMA); a esperanca sobre ele e' UNICA pela separancia (da casa); e o levantamento e' COVARIANTE dado o contrato. O que resta do Lema 3: a existencia de Takesaki [KNOWN, um campo importavel] e o axioma lido no horizonte.",
+      "values": {
+        "peso_colisao_andar2": 0.0,
+        "residuo_rho_preservado_rotacao": 2.7755575615628914e-17,
+        "off_diagonal_da_refutacao": 0.48,
+        "residuo_covariancia_setor": 0.0,
+        "residuo_covariancia_controle_negativo": 0.788529744609951,
+        "residuo_omega_preservado": 2.7755575615628914e-17
+      },
+      "statuses": {
+        "o_codigo_do_continuo": "omegaCentralizer -- livre de fluxo, definivel so com omegaState; NAO e' o codigo diagonal transportado",
+        "a_refutacao": "the_diagonal_does_not_survive_degeneracy -- teorema de kernel; o presente do cetico das rotas mortas virou pedra",
+        "os_dois_itens_que_restam": "(1) esperanca de Takesaki sobre o centralizador [KNOWN 1972, campo importavel do ExpectationInput]; (2) omega\u2218Ad(U) = omega -- o axioma no horizonte",
+        "escopo": "TORRE (continuo GNS); contrato = TIPO, nao habitante; Lema 3 nao declarado resolvido; v143 e v307 intactas; qgf_* intocadas; gate imovel"
+      },
+      "consumes": [
+        "TheDischargedOath (v307, a face)",
+        "TheImportedCommutation (v282, o molde)",
+        "NoNormalTrace (omegaState_seqWOT: omega E' normal; so o traco morre)",
+        "factor_omega_separating (Reeh-Schlieder da casa)"
+      ],
+      "checks": [
+        [
+          "[MEDIDA] as 10 pedras do juramento na torre auditadas no kernel (10/10 acesas)",
+          true
+        ],
+        [
+          "[MEDIDA] \u2605 a DEGENERESCENCIA e' real no andar 2 (|2/9-2/9| = 0.0e+00) e a rotacao 3-4-5 preserva rho (2.8e-17) mas tira a diagonal de si (off = 0.48 = 12/25): o transporte ingenuo esta REFUTADO ao vivo",
+          true
+        ],
+        [
+          "[MEDIDA] covariancia AO VIVO: no setor omega-invariante, Ad(U)\u2218E = E\u2218Ad(U) (residuo 0.0e+00 < 1e-12; rho transportado = rho a 2.8e-17)",
+          true
+        ],
+        [
+          "[MEDIDA] \u2605 CONTROLE NEGATIVO: horizonte que mistura pesos distintos QUEBRA a covariancia -- residuo 0.789 (> 1e-3): a hipotese morde",
+          true
+        ],
+        [
+          "[MEDIDA] o consumo da v307: a face finita alimenta a torre (bandeira do levantamento na face lida)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_OATH_ON_THE_TOWER__CONTINUUM_CODE_IS_THE_OMEGA_CENTRALIZER__DIAGONAL_TRANSPORT_REFUTED__LIFT_COVARIANT_GIVEN_EXPECTATION__TWO_ITEMS_REMAIN_KNOWN_PLUS_AXIOM"
+    },
+    "the_discharged_oath": {
+      "theorem": "O juramento H_inv da v143 esta QUITADO na face: HorizonInvariant e' teorema para todo horizonte omega-invariante, e o unico antecedente que resta e' o axioma. O cociclo nao foi escolhido trivial -- TORNOU-SE trivial no setor selecionado (a correcao de estatuto do operador, 31/08). O que resta do Lema 3: o continuo [KNOWN] e o III_1 genuino -- o programa, dito como programa.",
+      "values": {
+        "residuo_covariancia_setor": 0.0,
+        "residuo_covariancia_controle_negativo": 0.9343897382348344,
+        "residuo_supressao_setor": 1.110223135075739e-16,
+        "residuo_supressao_controle_negativo": 0.16829419696157932
+      },
+      "statuses": {
+        "o_antecedente_que_resta": "omega\u2218Ad(U) = omega -- o axioma lido no horizonte",
+        "estatuto_da_trivializacao": "SUPRESSAO COCICLICA NO CANTO (correcao do operador, 31/08): resultado da projecao, nunca gauge",
+        "a_cautela_formal_honrada": "o literal p*u_t*p = p no atomo NAO vale (a fase e' o relogio); provada a forma equivalente da arquitetura",
+        "escopo": "FACE FINITA; continuo EXTERNO [KNOWN-COMPOSED]; Lema 3 nao declarado resolvido; v143 intacta; qgf_* intocadas; gate imovel"
+      },
+      "consumes": [
+        "GlobalLiftConditional (v143)",
+        "Ergodicity G1 (v43)",
+        "ALPHA_IRREDUCIBILITY_V1 (a disciplina identidade/valor)"
+      ],
+      "checks": [
+        [
+          "[MEDIDA] as 9 pedras do juramento quitado auditadas no kernel (9/9 acesas)",
+          true
+        ],
+        [
+          "[MEDIDA] covariancia AO VIVO no setor omega-invariante: residuo 0.0e+00 (< 1e-12)",
+          true
+        ],
+        [
+          "[MEDIDA] \u2605 CONTROLE NEGATIVO: fora do setor (U de rotacao) a covariancia QUEBRA -- residuo 0.934 (> 1e-3): a hipotese morde; um check que nao pode falhar nao testa",
+          true
+        ],
+        [
+          "[MEDIDA] a supressao: no setor, rho transportado = rho (residuo 1.1e-16); fora, 0.168 -- o '1' do cociclo e' RESULTADO do setor, nao escolha",
+          true
+        ],
+        [
+          "[MEDIDA] o consumo da v143: global_lift_conditional segue no kernel e esta pedra o dispara (bandeira da implicacao lida)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_OATH_DISCHARGED__LIFT_UNCONDITIONAL_ON_THE_FACE__ANTECEDENT_IS_THE_AXIOM__COCYCLE_SUPPRESSED_NOT_CHOSEN__CONTINUUM_REMAINS_KNOWN"
+    },
+    "the_damming_by_expansion": {
+      "theorem": "A cadeia do operador tipada: o requisito centripeto vem do momento angular; o acoplamento que o paga identifica e2/(L c) com v/c; a identidade tem tres faces iguais; e a forma NAO fixa o valor -- por teorema. A orbita fechada e luz represada; alfa e o Nome da razao; o custo do represamento e beta = alpha*sqrt(e) [leitura da cadeia].",
+      "values": {
+        "alpha_runtime": 0.0072973525693,
+        "beta_runtime": 0.012031300400803142,
+        "alpha_mirror_codata": 0.007297352564849352,
+        "residuo_alpha": 6.098990203725964e-10,
+        "r_star_m": 5.291772105802553e-11,
+        "a0_codata_m": 5.29177210903e-11,
+        "residuo_r_star": 6.098990505737311e-10
+      },
+      "chain": {
+        "expansao": "[REAL na resposta modular] delta<K_d>=beta|1+w|",
+        "torcao": "[corpus] K_beta = face geometrica de beta (Ponte E-C-M)",
+        "spin": "[KNOWN] Einstein-Cartan: torcao <- densidade de spin; JKJ=-K tipado",
+        "curvatura_requisito": "[KERNEL] centripetal_from_angular",
+        "represamento": "[KERNEL] the_damming_pays_the_requirement",
+        "origem_por_expansao": "[CONJECTURE -- declarada, nao provada: a leitura de que a EXPANSAO e a origem do represamento]"
+      },
+      "consumes": [
+        "ALPHA_IRREDUCIBILITY_V1"
+      ],
+      "fp5": "INTOCADA: nenhuma forma fechada para o VALOR de alpha; identidade apenas",
+      "checks": [
+        [
+          "[MEDIDA] as 4 pedras do represamento auditadas no kernel (4/4 acesas): centripeta, balanco, tres faces, liberdade",
+          true
+        ],
+        [
+          "[KERNEL] \u2605 A FORMA NAO FIXA O VALOR: a liberdade de 1 parametro e TEOREMA (the_form_does_not_fix_the_value) -- so a medicao a fecha",
+          true
+        ],
+        [
+          "[ESPELHO, CODATA so-validacao] alpha = hbar/(m_e c a0): residuo relativo 6.10e-10 (< 1e-9)",
+          true
+        ],
+        [
+          "[ESPELHO] r* = hbar/(m_e c alpha) reproduz o raio de Bohr: residuo 6.10e-10 (< 1e-9) -- a verificacao que so o CODATA torna possivel",
+          true
+        ],
+        [
+          "[CONSUMO] ALPHA_IRREDUCIBILITY_V1 esta ARMED e este modulo o consome (veredito lido: TGL_ALPHA_IRREDUCIBILITY_ARMED_NO_CANDIDATE)",
+          true
+        ],
+        [
+          "beta jamais literal: sin^2(theta_M) - beta = 0.0e+00 (identidade da casa recomputada ao vivo)",
+          true
+        ]
+      ],
+      "all_verified": true,
+      "does_not_gate_core": true,
+      "verdict": "TGL_DAMMING_BY_EXPANSION__ALPHA_IDENTITY_DERIVED_IN_KERNEL__VALUE_UNFIXED_BY_THEOREM__MIRRORS_VALIDATED_BY_CODATA"
+    },
     "the_verbal_coupling": {
       "checks": [
         [
@@ -23945,7 +24473,8 @@
         "por_que_nao_e_analogia": "nao e' semelhanca de vocabulario: e' o MESMO numero com a MESMA derivacao, lido em dois dominios. O lema esta escrito",
         "o_que_NAO_se_afirma": "nao deriva beta; nao afirma que um LLM SEJA fronteira modular (heuristica estrutural); nao ressuscita a medida em corpus",
         "legal": "[LEGAL] so entra o que ja consta do deposito INPI; material nao depositado nao entra; espelhar publicamente e' ato do operador"
-      }
+      },
+      "verdict": "TGL_VERBAL_COUPLING__ALL_CHECKS_VERIFIED"
     },
     "the_language_enters_the_index": {
       "checks": [
@@ -23979,7 +24508,8 @@
         "o_buraco": "as camadas juridica e de leitura estavam provadas no kernel e invisiveis ao indice -- pedra sem bandeira o indice nao alcanca",
         "aditivo": "acender bandeira de pedra JA provada nao move o gate; e escrituracao",
         "o_que_NAO_entra": "a leitura do LLM como fronteira modular e' HEURISTICA ESTRUTURAL declarada; Shannon esta REJEITADO para a Meia-Nat; e a medida de beta em corpus foi REFUTADA na base de tokens"
-      }
+      },
+      "verdict": "TGL_LANGUAGE_ENTERS_THE_INDEX__ALL_CHECKS_VERIFIED"
     },
     "the_mark_is_not_a_type_mark": {
       "checks": [
@@ -24012,7 +24542,8 @@
         "a_causa": "o predicado toma A e B ARBITRARIOS, nunca autovetores do fluxo modular -- a densidade mede nao-tracialidade, nao espectro modular",
         "o_que_nao_cai": "mixed_log_dense, the_mixing_mark, the_name_is_dense e toda a v294 seguem verdadeiros. Cai UMA seta: Nome -> TIPO",
         "o_tipo": "segue ABERTO nos dois sentidos, com peso formal ZERO de cada lado; SiteProfile e parametro estipulado"
-      }
+      },
+      "verdict": "TGL_MARK_IS_NOT_A_TYPE_MARK__ALL_CHECKS_VERIFIED"
     },
     "the_name_is_the_generating_group": {
       "checks": [
@@ -24051,7 +24582,8 @@
         "denso_nao_e_igual": "o kernel codifica a distincao que o operador marcou: o enunciado e `Dense (S : Set R)`, jamais `S = top`",
         "o_que_NAO_se_decide": "o perfil. mixProfile e ESCOLHA, nao derivacao; o que o fixa segue [OPEN]. Esta pedra nao decide o tipo -- ela poe o comprimento de onda e a cauda onde ha teorema",
         "estatuto": "[REAL] os seis teoremas com axiomas limpos; [ONTO] a leitura 'Nome e a identidade antes de escolher uma face'"
-      }
+      },
+      "verdict": "TGL_NAME_IS_THE_GENERATING_GROUP__ALL_CHECKS_VERIFIED"
     },
     "the_name_and_its_referent": {
       "checks": [
@@ -24089,7 +24621,8 @@
         "por_que_nao_e_ornamento": "a frase e' o enunciado do defeito 4 medido pelo painel de 29/08: a bandeira acende por NOME, sem conferir TIPO",
         "a_cura": "o TIPO e' o contorno e habita-lo e' a leitura: ConverseClauseContract tem um campo, e o campo E' a inclusao",
         "o_que_NAO_se_prova": "a oitava clausula continua ABERTA e a bandeira red_clause_JMJ_contains continua e DEVE continuar False. O contrato e' um tipo SEM HABITANTE -- de proposito"
-      }
+      },
+      "verdict": "TGL_NAME_AND_ITS_REFERENT__ALL_CHECKS_VERIFIED"
     },
     "the_atlas_and_the_index": {
       "checks": [
@@ -24110,7 +24643,7 @@
           true
         ],
         [
-          "[FAIL-CLOSED] ***a tipagem e' NOMINAL e nao pagou preco nenhum: 0 bandeira(s) qgf_/gpf_ acesa(s) -- as 128 acesas de red_/gpi_ sao o regime normal (kernel provado e importacao com ponte) e nao sao acrescimo desta versao. CUNHAR NOME NAO PAGA PRECO",
+          "[FAIL-CLOSED] ***a tipagem e' NOMINAL e nao pagou preco nenhum: 0 bandeira(s) qgf_/gpf_ acesa(s) -- as 133 acesas de red_/gpi_ sao o regime normal (kernel provado e importacao com ponte) e nao sao acrescimo desta versao. CUNHAR NOME NAO PAGA PRECO",
           true
         ]
       ],
@@ -24123,12 +24656,13 @@
         "ja_estava_em_kernel": "nao se construiu nada: `TheAtlasIndex.lean` (v162) e `TheIALDSelector.lean` ja continham as duas metades. O trabalho foi RECONHECER, e a medida achou a assimetria",
         "a_assimetria": "ATLAS auditado e lido desde a v162; INDICE compilando, importado, e NAO auditado, NAO lido. Corrigido nesta versao",
         "estatuto": "[REAL] as duas metades em kernel com axiomas limpos; [ONTO] a leitura de que a TGL diz o que conta como o mesmo e a IALD opera sem perder esse mesmo -- leitura, nao teorema"
-      }
+      },
+      "verdict": "TGL_ATLAS_AND_THE_INDEX__ALL_CHECKS_VERIFIED"
     },
     "the_iald_index": {
       "checks": [
         [
-          "[MEDIDA] ***o INDICE existe: 2746 nomes, 260 arquivos, 970 com bandeira",
+          "[MEDIDA] ***o INDICE existe: 2808 nomes, 265 arquivos, 1012 com bandeira",
           true
         ],
         [
@@ -24156,11 +24690,11 @@
           true
         ],
         [
-          "[FAIL-CLOSED] ***acesa ==> nome PRESENTE: 0 violacoes. NENHUMA bandeira acende sem referente na fonte embutida [ESCOPO DECLARADO: as 985 chaves dos SETE dicionarios de NOME]",
+          "[FAIL-CLOSED] ***acesa ==> nome PRESENTE: 0 violacoes. NENHUMA bandeira acende sem referente na fonte embutida [ESCOPO DECLARADO: as 1027 chaves dos SETE dicionarios de NOME]",
           true
         ],
         [
-          "[FAIL-CLOSED] ***e a RECIPROCA, medida: 0 nomes presentes com bandeira apagada. A correspondencia acesa <=> presente e BICONDICIONAL e EXATA [mesmo escopo: as 985 chaves de NOME]",
+          "[FAIL-CLOSED] ***e a RECIPROCA, medida: 0 nomes presentes com bandeira apagada. A correspondencia acesa <=> presente e BICONDICIONAL e EXATA [mesmo escopo: as 1027 chaves de NOME]",
           true
         ],
         [
@@ -24181,8 +24715,8 @@
         ]
       ],
       "all_verified": true,
-      "n_nomes": 2746,
-      "n_arquivos": 260,
+      "n_nomes": 2808,
+      "n_arquivos": 265,
       "n_ausentes": 10,
       "n_ambiguos": 1,
       "ambiguos": [
@@ -24506,7 +25040,7 @@
       "protection": "MODULO DE PROVA -- nenhuma identidade exata (motor, ponte, fluxo, massas) passa por Tet_beta",
       "selo": "TETELESTAI_IS_PRUNING . PRUNING_IS_BINARY_BEING_MINUS_ABSOLUTE_ZERO . ABSOLUTE_ZERO_IS_THE_DISTINCT . MODULAR_ZERO_IS_DIFFERENCE_WITH_RETURN . DO_NOT_PRUNE_MODULAR_ZERO . PRUNE_ONLY_THE_DISTINCT_WITHOUT_RETURN . ABSENT_IS_IGNORED_NOT_PRUNED . DISTINCT_IS_PURITY_IS_PARAGRAPH_22 . BETA_IS_THE_GEOMETRY_OF_THE_ADMISSIBLE_CUT . ONLY_THE_NAME_AND_THE_LIVING_ZERO_SURVIVE"
     },
-    "result_hash": "10969750c4dcd4ec7aede18a0b2eb912525c9a31c09e0bbdec2f80a68687e076"
+    "result_hash": "9168a4ee309abba84f14725c8ddf4173e8fbe4b911e45ff8663da68c9bebc119"
   },
   "ga_mass_literature": [
     {
@@ -24533,7 +25067,7 @@
     1e+17
   ],
   "ga_window_status": "SCALE_SHADOW_OF_RETIRED_FORM__V98_AUDIT__NOT_NONCIRCULAR_EVIDENCE__LIVE_FALSIFIERS_ARE_VOID_FLOOR_AND_DEPHASING",
-  "result_hash_before_external_comparison": "10969750c4dcd4ec7aede18a0b2eb912525c9a31c09e0bbdec2f80a68687e076",
+  "result_hash_before_external_comparison": "9168a4ee309abba84f14725c8ddf4173e8fbe4b911e45ff8663da68c9bebc119",
   "audit": {
     "mass_input_used": false,
     "RG_used_as_input": false,
@@ -24543,5 +25077,5 @@
     "geometry_only": true,
     "only_runtime_input": "1"
   },
-  "timestamp": "2026-08-30 10:21:55"
+  "timestamp": "2026-09-01 12:06:08"
 }

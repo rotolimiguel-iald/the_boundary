@@ -4,7 +4,7 @@ import TGL.ContinuousCornerAbstract
 set_option autoImplicit false
 
 /-!
-# Testemunha AQFT especifica RIGIDA   [KERNEL/CONDITIONAL]   witness_constructed = false
+# Testemunha AQFT especifica RIGIDA   [KERNEL/CONDITIONAL]   witness_constructed = TRUE desde v135 (TGLExt/WedgeNet: theSpecificAQFTWitness; nesta v23 era false)
 
 v23 -- RIGIDIFICACAO (interface = luz = (forma = conteudo)).
 
@@ -31,6 +31,8 @@ Nesta versao a testemunha e' o CONTEUDO CARREGANDO A PROVA DE QUE E' A FORMA:
                   Formaliza-lo E' parte do teorema aberto.
 
   -- No inhabitant of TGLSpecificAQFTWitness is constructed in v23.
+  -- ERRATA v304 (ao lado): desde a v135, TGLExt.theSpecificAQFTWitness O HABITA
+  -- (WedgeNet). O aberto que resta e a realizacao modular (TGLModularRealization).
 
 O criterio de rigidez e' MEDIDO, nao declarado: `TGL/ProbeTrivial.lean` (o habitante
 trivial da versao frouxa) DEVE deixar de compilar contra esta estrutura. Nenhum

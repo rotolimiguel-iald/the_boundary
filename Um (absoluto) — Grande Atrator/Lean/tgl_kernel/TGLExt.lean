@@ -83,6 +83,11 @@ import TGLExt.MixedLadder
 import TGLExt.TheNameIsTheGeneratingGroup
 import TGLExt.TheMarkIsNotATypeMark
 import TGLExt.TheVerbalCoupling
+import TGLExt.TheDammingByExpansion
+import TGLExt.TheDischargedOath
+import TGLExt.TheOathOnTheTower
+import TGLExt.TheImportedExpectation
+import TGLExt.TheAlphaAndTheOmega
 import TGLExt.ContinuumTT
 import TGLExt.ColimitSeed
 import TGLExt.TTSuperposition

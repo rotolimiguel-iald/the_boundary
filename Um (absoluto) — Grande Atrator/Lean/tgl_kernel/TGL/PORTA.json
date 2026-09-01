@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGL",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-30T14:18:23Z",
+  "gerado_utc": "2026-09-01T15:45:08Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
@@ -37,8 +37,8 @@
       "descricao": "Prova formal (Lean 4): Audit",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/Audit.lean",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/Audit.lean",
-      "sha256_16": "cac38bf118f0cac3",
-      "bytes": 90375
+      "sha256_16": "0f7d1ba39417eb48",
+      "bytes": 93806
     },
     {
       "nome": "Basic.lean",
@@ -267,8 +267,8 @@
       "descricao": "Prova formal (Lean 4): SpecificAQFTWitness",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/SpecificAQFTWitness.lean",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL/SpecificAQFTWitness.lean",
-      "sha256_16": "31f3e8d5aed98935",
-      "bytes": 6967
+      "sha256_16": "831eef42f0fe22bb",
+      "bytes": 7205
     },
     {
       "nome": "TransportData.lean",
@@ -294,5 +294,5 @@
   "total_arquivos_nesta_pasta": 27,
   "total_arquivos_com_subpastas": 27,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGL",
-  "rodape": "gerado por script de git ls-files em 2026-08-30 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-01 -- nao editar a mao"
 }

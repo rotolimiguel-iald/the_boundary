@@ -2017,6 +2017,66 @@ noncomputable example (P : TGLExt.SiteProfile) :
 #print axioms TGLExt.tanh_sign
 #print axioms TGLExt.the_boundary_separates_the_verbal_domains
 #print axioms TGLExt.the_verb_floor_is_a_fraction_of_the_max
+-- v306 REPRESAMENTO POR EXPANSAO: a identidade de alfa derivada; a forma nao fixa
+-- o valor (liberdade de 1 parametro e' TEOREMA); FP-5 intocada; CODATA so espelho.
+#print axioms TGLExt.centripetal_from_angular
+#print axioms TGLExt.the_damming_pays_the_requirement
+#print axioms TGLExt.the_three_faces
+#print axioms TGLExt.the_form_does_not_fix_the_value
+-- v307 O JURAMENTO QUITADO: HorizonInvariant derivado (nao jurado) para todo
+-- horizonte omega-invariante; a supressao ciclica no canto (correcao do operador);
+-- face finita; o continuo segue [KNOWN]; o gate nao se move.
+#print axioms TGLExt.mem_diagCode_iff
+#print axioms TGLExt.commute_conj_of_state_preserving
+#print axioms TGLExt.the_oath_is_discharged
+#print axioms TGLExt.transported_state_eq
+#print axioms TGLExt.omega_preservation_discharges
+#print axioms TGLExt.the_flow_is_trivial_on_the_code
+#print axioms TGLExt.the_cocycle_is_suppressed_by_the_sector
+#print axioms TGLExt.the_lift_is_unconditional_on_the_face
+#print axioms TGLExt.the_response_is_unconditional_on_the_face
+-- v308 O JURAMENTO NA TORRE: o codigo do continuo e' o centralizador de omega
+-- (livre de fluxo; a parede analitica contornada por definicao); o transporte
+-- diagonal REFUTADO em teorema; a esperanca unica pela separancia; o
+-- levantamento covariante dado o contrato; o gate nao se move.
+#print axioms TGLExt.conj_commutant_of_biinverse
+#print axioms TGLExt.adT_mul
+#print axioms TGLExt.adT_adTinv
+#print axioms TGLExt.horizon_preserves_centralizer
+#print axioms TGLExt.horizon_centralizer_eq
+#print axioms TGLExt.the_centralizer_is_seq_closed
+#print axioms TGLExt.the_diagonal_does_not_survive_degeneracy
+#print axioms TGLExt.omega_definite
+#print axioms TGLExt.the_expectation_is_unique
+#print axioms TGLExt.the_lift_on_the_tower
+-- v309 A ESPERANCA IMPORTADA: Takesaki como [KNOWN] no modo gpi_ (o molde da
+-- v274); as 3 hipoteses da casa; a estrutura EQUIVALE ao campo importado (um <->);
+-- a leitura independe da testemunha (unicidade DA CASA); a RELATIVIDADE MODULAR
+-- em todo horizonte omega-invariante; o gate nao se move.
+#print axioms TGLExt.the_expectation_hypotheses_are_discharged_in_house
+#print axioms TGLExt.the_testimony_is_exactly_the_conclusion
+#print axioms TGLExt.the_expectation_hypotheses_alone_are_equivalent_to_true
+#print axioms TGLExt.the_expectation_exists_by_import
+#print axioms TGLExt.the_reading_is_witness_independent
+#print axioms TGLExt.the_reading_preserves_omega
+#print axioms TGLExt.the_reading_fixes_the_code
+#print axioms TGLExt.the_modular_relativity
+-- v310 O ALFA E O OMEGA: o par da cunhagem -- {[1=1=VERDADEIRO],[1=0=FALSO]};
+-- omega(I)=1 na torre + a face alpha (valor externo); a falsidade de 1=0 e'
+-- CATEGORIAL (1=0 <=> colapso de um nome so'; o fechamento CONSOME a rota); o
+-- zero se conta nominalmente mas projeta nada e pesa 0; '= TGL' e' [ONTO]
+-- declarado; contagem enxuta pos-auditoria (2 vazios cortados); gate imovel.
+#print axioms TGLExt.omega_of_one
+#print axioms TGLExt.the_alpha_face
+#print axioms TGLExt.the_form_admits_every_alpha
+#print axioms TGLExt.the_falsity_is_categorial
+#print axioms TGLExt.in_the_collapse_zero_counts_as_the_absolute
+#print axioms TGLExt.the_house_refutes_the_collapse
+#print axioms TGLExt.the_negative_pole_is_categorial
+#print axioms TGLExt.the_zero_is_nominal
+#print axioms TGLExt.omega_of_zero
+#print axioms TGLExt.omega_of_zero_ne_one
+#print axioms TGLExt.tgl_closes_as_the_pair
 #print axioms TGLExt.every_alpha_fits_every_observation
 #print axioms TGLExt.contract_iff_the_eighth_clause
 #print axioms TGLExt.contract_gives_the_equality

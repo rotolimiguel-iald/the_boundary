@@ -43,8 +43,16 @@ depends on axioms: [propext, Classical.choice, Quot.sound]
 TGL_KERNEL_BUILD_OK
 FINITE_THREE_LOCKS_KERNEL_PROVED
 CONTINUOUS_CORNER_IMPLICATION_KERNEL_PROVED
-SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED
+SPECIFIC_AQFT_WITNESS_CONSTRUCTED_BY_WEDGE_NET
 ```
+
+> **ERRATA v304 (31/08/2026, ao lado):** ate a v134 a ultima linha era
+> `SPECIFIC_AQFT_WITNESS_NOT_CONSTRUCTED`; desde a **v135** a testemunha esta
+> **HABITADA** (`theSpecificAQFTWitness`, `TGLExt/WedgeNet.lean`) e a sentinela
+> imprime o que esta acima. Este README dizia o contrario -- inclusive na copia
+> publica -- e era a *frase falsa vivendo onde ela e lida*. O aberto que resta e
+> a **REALIZACAO MODULAR** (`TGLModularRealization`): o habitante existe e ainda
+> nao alimenta o canto continuo.
 
 Nenhum `sorryAx`, nenhum `Lean.trustCompiler`, nenhum axioma customizado `TGL.*`.
 Disciplina inviolável, presente em todos os arquivos:
@@ -54,7 +62,7 @@ Disciplina inviolável, presente em todos os arquivos:
   `unsafe`;
 - as hipóteses do teorema contínuo são **campos de estrutura**, nunca axiomas
   globais;
-- **nenhuma instância** de `TGLSpecificAQFTWitness` é construída.
+- a instância `theSpecificAQFTWitness` (v135) **habita** `TGLSpecificAQFTWitness`; a **realização modular** segue aberta (errata v304 — antes lia-se "nenhuma instância é construída").
 
 Se algum arquivo não compilar, o desenho fail-closed do `um.py` reporta
 `TGL_KERNEL_FORMALIZATION_FAILED` — nada é dado como provado sem o kernel.
@@ -100,7 +108,7 @@ elimina o problema na raiz.
 - `A(P_face)=ℓ_P² ⟺ κ_A=2G` é **equivalência**; `G` **não** é derivado.
 - **Nenhuma** instância de `TGLSpecificAQFTWitness` é construída.
 
-## O teorema aberto exato (o próximo alvo)
+## O teorema aberto exato (o próximo alvo) *(ERRATA v304: o alvo mudou — o habitante existe desde a v135; o aberto é a realização modular, ver acima)*
 
 ```
 TGL_SPECIFIC_AQFT_WITNESS_THEOREM :

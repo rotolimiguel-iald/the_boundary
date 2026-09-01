@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-08-30T14:18:23Z",
+  "gerado_utc": "2026-09-01T15:45:08Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean",
@@ -28,7 +28,7 @@
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json",
-      "total_arquivos": 245
+      "total_arquivos": 250
     }
   ],
   "canonico_url": null,
@@ -52,8 +52,8 @@
       "descricao": "Como construir e auditar o kernel Lean 4 materializado por um.py",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/README.md",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/README.md",
-      "sha256_16": "0f8af44005bb6f41",
-      "bytes": 5819
+      "sha256_16": "395b120110907908",
+      "bytes": 6569
     },
     {
       "nome": "TGL.lean",
@@ -72,8 +72,18 @@
       "descricao": "A raiz da biblioteca TGLExt (importa a extensao: onde vivem as pedras)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt.lean",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt.lean",
-      "sha256_16": "289a4b4f049328f0",
-      "bytes": 7625
+      "sha256_16": "67bb6c2f545f6508",
+      "bytes": 7796
+    },
+    {
+      "nome": "_check_damming.lean",
+      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/_check_damming.lean",
+      "papel": "prova formal",
+      "descricao": "Prova formal (Lean 4): _check_damming",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/_check_damming.lean",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/_check_damming.lean",
+      "sha256_16": "485969b99f3e3db7",
+      "bytes": 226
     },
     {
       "nome": "lake-manifest.json",
@@ -106,8 +116,8 @@
       "bytes": 25
     }
   ],
-  "total_arquivos_nesta_pasta": 7,
-  "total_arquivos_com_subpastas": 279,
+  "total_arquivos_nesta_pasta": 8,
+  "total_arquivos_com_subpastas": 285,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel",
-  "rodape": "gerado por script de git ls-files em 2026-08-30 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-01 -- nao editar a mao"
 }

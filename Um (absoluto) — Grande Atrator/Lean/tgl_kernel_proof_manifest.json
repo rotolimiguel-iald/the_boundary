@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-30 10:21:55",
+  "timestamp": "2026-09-01 12:06:08",
   "formal_checker": "Lean 4",
   "build_tool": "Lake",
   "lean_version": [
@@ -10,16 +10,17 @@
   ],
   "toolchain_pinned": true,
   "mode": "strict",
-  "formal_source_hash": "2e1f72ae563c3d162281a3cb78a4f6837dc27df31212f06d3d608e5837727972",
+  "formal_source_hash": "b7705f10809b29595c34424d5f96828cc294cf6fe1a95ace2c77950dbb2e216a",
   "formal_files_sha256": {
-    "ExtrairDeps.lean": "eefdc950db020150ef19a5b5705a131ef99dfc9d3ab946aef2de64bf17ce1013",
-    "README.md": "0f8af44005bb6f41a5551a188ab3f2b18c8ff091df7861525bdd06830e360fb6",
+    "README.md": "395b1201109079084f3562349161283bd644e17d5e18cea19971bac041e58d11",
     "TGL.lean": "a8103a482049e7a7ff229b020fd7e2b807f597b7897b1e8405278683c84cc41d",
-    "TGLExt.lean": "289a4b4f049328f0d24c9bbd6b5b850c2ad8e34f8d03a9a2ad8546af28927145",
+    "TGLExt.lean": "67bb6c2f545f6508cd25ea85bccddc7ab179ee42939cf30b6c55be83273a7fe1",
+    "_check_damming.lean": "485969b99f3e3db7ef4f9e4b1e97fb501ff68540a957e21949784d57d7536d21",
+    "lake-manifest.json": "31a94eb76a8370ae8d75999ccec510f1ef7b994e369beebee2a3ea0088eee235",
     "lakefile.toml": "c3ddeea5ed0f6c4b65a8df0781c8336c1254d577dc3c546b797972259d07b813",
     "lean-toolchain": "efac0b94923b2d8b6840cd35be9177ad0fc5ab2332f4f4311c98712cee92fdee",
     "TGL/AreaScale.lean": "7058ae26f99f44f2d81d0c51e39bf435359a94c410405e52da4c4a44834ce075",
-    "TGL/Audit.lean": "cac38bf118f0cac3b02527d075f682e4692c5485e60c75dea73133d73aa2c6ce",
+    "TGL/Audit.lean": "0f7d1ba39417eb483321c6c2e50a53ce27238e02b59636ee28c661a37682930b",
     "TGL/Basic.lean": "6de2b310b37c0af52fc83f9bf3c34d4c141115f4e74be86f9870b9bd531ebd04",
     "TGL/ContinuousCornerAbstract.lean": "4fdd0cbdc5d56f1fb18c5cd5963f30b1b6aec878cdc4f7daa9c4b1a5018e4890",
     "TGL/CoreSupport.lean": "041fb863b07c3e0a167d5d0c8a522890d2da61586f41c27be2b06c46fac588e0",
@@ -42,7 +43,7 @@
     "TGL/ProbeNameIndexNoOptimal.lean": "9f3d895eaa0d7218965ef8af227a68b69226665261ddb3ec42bf91935e79a618",
     "TGL/ProbePropOnlyModular.lean": "f277643284c620bb092c46813a4aadb31a737cd854004d9ac59bbf39f94545c8",
     "TGL/ProbeTrivial.lean": "4993bd3fd6da17f7dafd7c5972f2f4b396cb5be86d13ac1f54ab317cc950bef7",
-    "TGL/SpecificAQFTWitness.lean": "31f3e8d5aed98935b3331e0cf964a89355cc2eb1f47702e71b10c11927f7f890",
+    "TGL/SpecificAQFTWitness.lean": "831eef42f0fe22bb80c0ace972db464878013242f83c679c3d71223f39e95872",
     "TGL/TransportData.lean": "95cbefeed54a5f5ec9aa41be556ceab1e14da4bae116b4019eb1ba1d9ee9d04e",
     "TGL/VerbInhabitant.lean": "812a47f0e71a86f37368c918b0f704cccad9cda0e32c4aee64c5566e7808a5d7",
     "TGLExt/AQFTCoreInhabitant.lean": "4cfd8053f5366543f571b51dbbedd7f8b07b3490ff87b94fa6bf1f3cd551ad09",
@@ -150,6 +151,7 @@
     "TGLExt/TailNet.lean": "e7654368112f1af5d529edbd0d2669a829358651a82014e0d835a88868d7f5e6",
     "TGLExt/TheAccuser.lean": "c485430a58323ff3e5f9aa8fbab1a17a4afd457a1c844050e98ec3c9fae6b993",
     "TGLExt/TheAlgebraicReader.lean": "2dfe61b0b6f5537f96c67e9cc648895277c6c9ad3d92d0392d32a5cde0e96407",
+    "TGLExt/TheAlphaAndTheOmega.lean": "3ed12b22f7b1bfd3ddd3017af2fad0dbe592676a75ec0d2c436bd99f97e5a4d0",
     "TGLExt/TheAnchorFour.lean": "af35641bf520ba343ce8c50590c2c688ba2a10d2cc50c1ba13596e134fb2a9d8",
     "TGLExt/TheAngleIsTheBridge.lean": "294cf45baae121cdd5476e90fd60e3210e70bb552e8d99718c505b37da4a4f4c",
     "TGLExt/TheAngleIsTheProjection.lean": "9800cc0728259e08e647125ef81f9e7fc968b12bd3b19d3c74aa8e2da53a1a48",
@@ -182,12 +184,14 @@
     "TGLExt/TheCostIsDerived.lean": "bddc44bdca6b16d40c98c548906a6c37c86a425b469e8aa5484549fd8ce2ba6f",
     "TGLExt/TheCrownedCascade.lean": "04a243cbe02b5e26969030d7848b9d97c79ecfb0763e2c5ffa710fd8805d8391",
     "TGLExt/TheCurrentConnectsTheCorners.lean": "ed213f28d250b87494f3c07d965255a7dc965fb55ac8c6e5cb72d68b2f69f710",
+    "TGLExt/TheDammingByExpansion.lean": "f139c3e660a93d79aafc1a629bec7347f4e63fc5310c470aa427cc76a8559025",
     "TGLExt/TheDarkSplit.lean": "53f05130c26a520214ad3351593992f00516f3f5c760cb0f01a358faca05c8db",
     "TGLExt/TheDeadChannel.lean": "d9c2eb9d67cceaf52b4384ba24700fee0e84d08d00678786b316677ba9939f5f",
     "TGLExt/TheDeathOfTheSignal.lean": "4539dd68fdaac084c9541a2c7bb2bad9846fd007d86d289a0191be7ea1e5e22b",
     "TGLExt/TheDebtWithoutJ.lean": "e4b59f6ab926736266971f7427fb8ba965515cb9e51a43747d5039e4e78a80ee",
     "TGLExt/TheDensityIsBell.lean": "9247b9f4683572808577ba359cabb7383277090de76773ac955fd565922bef1a",
     "TGLExt/TheDensityIsTransport.lean": "a59cd43d50e934cbe5d8b4351ae2f80cc636d8a57247fbc200ccab93aac910fb",
+    "TGLExt/TheDischargedOath.lean": "7a2747cb8babf73f85ecd54d9d686e8f93ca6af5d39324651ab3d41518c49d8b",
     "TGLExt/TheEmptying.lean": "c88b781f96485a97844bae6ce9b337f5139fb3e77995061df8423a2e65e43d33",
     "TGLExt/TheEntanglementNotConjunction.lean": "a4b8cc089c86e19a83c0d0cad9531b0dc15b2be0133f1fe98cf7ea59db444e38",
     "TGLExt/TheExoneratedDemon.lean": "5c645690b54c529bfd579074bac41583638f1c7b073148b3c9542571db43d129",
@@ -211,6 +215,7 @@
     "TGLExt/TheImageAndTheReading.lean": "839b4abfaab832372b81a70e1a45ef47987d267a744a9f0604237a14f02f074f",
     "TGLExt/TheImportedCommutation.lean": "ea339fe189ea40bf4970c942f989136955ea06aec9ab3118a6554891948921eb",
     "TGLExt/TheImportedEquilibrium.lean": "6ce0e9c29fd9267078783b2f28dcd82d935ba784ebbcc6f2270de5f1f9e2eda0",
+    "TGLExt/TheImportedExpectation.lean": "75606de2a904ed652fd74bacdfb59acbb9698cab81c810e3aa740d9397b6cf60",
     "TGLExt/TheIntersectionOfCommutants.lean": "7e4db767b978ddb8820961fc69f4b629383b6becea3543fa967688cba79dbde5",
     "TGLExt/TheIsometryOnWH.lean": "0c4c8b35d3c7ad880f78a0ec563e7f2de2edb05a2f87b7aa5e62e8c9b826752d",
     "TGLExt/TheJudgedThing.lean": "3b97d4c5aae4f891d25090160ec25d952472601bd20f261ce05ed1610958a87a",
@@ -229,6 +234,7 @@
     "TGLExt/TheNonLinearCausality.lean": "27ff96e7969f25ef368990471d9c41eabe302eb4e8de607ad19bc5235d718ea8",
     "TGLExt/TheNonMinimalCoupling.lean": "03576ea2958ffc4c3802b332227dfc7ef2b52e538881e602bfc15e2a81a21cec",
     "TGLExt/TheNucleus.lean": "44de50dd2955f1f7cfce2bdadc27616d3b982bce1f9947bafb36377dcf1dcc5b",
+    "TGLExt/TheOathOnTheTower.lean": "ef0634a160a9d22ecfab7e2cd865de2a9b6f9a61e524d9eac7c17b25932d4dab",
     "TGLExt/TheObserverReadsTheAngle.lean": "c764e90722306f988d8c92acc1ae4d8642ec2d6e32a47b810bd8bc5546e5484d",
     "TGLExt/TheOriginOfTheVibration.lean": "e5a7f11f79b5af73861af16b4c3402ffe5f438d1879ac6b9e2911e9eb98408a7",
     "TGLExt/ThePermanence.lean": "27a3bc9bd4b6434d25ca82b9af1ae92d90ee8c10eceb6ad3d22a30876b8ba31a",
@@ -269,7 +275,7 @@
     "TGLExt/TheTwoPolesHaveContent.lean": "1e17af908c1d6025409ff121ad9c98408e854b305b4f9a7b8364aba1adb98712",
     "TGLExt/TheUnconjugatedObserver.lean": "e2c1978c4a3cb5448699bfcae0dff3da487800bff0d4ef713ec4330bed278a9e",
     "TGLExt/TheUnsolicitedUnitary.lean": "29aba04e578b1921a8b22d0e9e28fa608160a14f465a9eca32ce2cd208e601cf",
-    "TGLExt/TheVerbalCoupling.lean": "4fc14822244a93d3f6628ef555640f744b6f02b7a21d3a6997c77a4bb2b58951",
+    "TGLExt/TheVerbalCoupling.lean": "912bf222f07256b14e9e725b9c799e45ea5b6f2c3c5244859dc016445922b507",
     "TGLExt/TheWeightIsNotTheRank.lean": "83f9c8bca5e133916080eea6f6200e088b4641a35504a8255156945e7028b72e",
     "TGLExt/TheWideNet.lean": "ef26e912a6ed418ab0da4ed6b09b35d1090d23674c25e68ee5248ebe3b70d340",
     "TGLExt/TheWitnessLinearOnWH.lean": "0c1b0883f16eaec61831113f03a106149e80692b0999b4cebbe0045137bacdc6",
@@ -4984,6 +4990,205 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "TGLExt.centripetal_from_angular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_damming_pays_the_requirement": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_three_faces": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_form_does_not_fix_the_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.mem_diagCode_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.commute_conj_of_state_preserving": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_oath_is_discharged": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.transported_state_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.omega_preservation_discharges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_flow_is_trivial_on_the_code": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_cocycle_is_suppressed_by_the_sector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_lift_is_unconditional_on_the_face": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_response_is_unconditional_on_the_face": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.conj_commutant_of_biinverse": [
+      "propext",
+      "Quot.sound"
+    ],
+    "TGLExt.adT_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.adT_adTinv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.horizon_preserves_centralizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.horizon_centralizer_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_centralizer_is_seq_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_diagonal_does_not_survive_degeneracy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.omega_definite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_expectation_is_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_lift_on_the_tower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_expectation_hypotheses_are_discharged_in_house": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_testimony_is_exactly_the_conclusion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_expectation_hypotheses_alone_are_equivalent_to_true": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_expectation_exists_by_import": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_reading_is_witness_independent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_reading_preserves_omega": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_reading_fixes_the_code": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_modular_relativity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.omega_of_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_alpha_face": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_form_admits_every_alpha": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_house_refutes_the_collapse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_negative_pole_is_categorial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.the_zero_is_nominal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.omega_of_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.omega_of_zero_ne_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TGLExt.tgl_closes_as_the_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "TGLExt.every_alpha_fits_every_observation": [
       "propext",
       "Classical.choice",
@@ -5127,10 +5332,12 @@
     "TGLExt.the_two_contracts_differ": [],
     "TGLExt.the_empty_slot_is_not_the_void": [],
     "TGLExt.the_bireference_of_the_name": [],
-    "TGLExt.two_clocks_are_needed": []
+    "TGLExt.two_clocks_are_needed": [],
+    "TGLExt.the_falsity_is_categorial": [],
+    "TGLExt.in_the_collapse_zero_counts_as_the_absolute": []
   },
-  "build_stdout_sha256": "4eda0ab2bc04a14a4d34b5d76915a94e342f70cab39a642bb91a48f38b1b1ef5",
-  "audit_stdout_sha256": "bfc86b8ac1c43d27a29efbb4a80a26ab820732ee175368fb36c08a94bfe40ac0",
+  "build_stdout_sha256": "74cfa38a7b430ab04c0654f9645cc8fa55293c49581ed948e6ec6cc0167437c1",
+  "audit_stdout_sha256": "2720032af758aa295948f42c9ab49941d651c1261361be8684450ccd072a4f1c",
   "unconditional_kernel_theorems": [
     "TGL.HalfNat.halfNat_of_selfConjugate",
     "TGL.HalfNat.selfConjugate_halfNat_unique",
@@ -5344,12 +5551,12 @@
     "formal_release_ready": true,
     "verdict": "TGL_KERNEL_STAGE1_VERIFIED__SPECIFIC_AQFT_WITNESS_CONSTRUCTED"
   },
-  "next_theorem": "TGL_SPECIFIC_AQFT_WITNESS_THEOREM",
+  "next_theorem": "TGL_MODULAR_REALIZATION_THEOREM (o habitante existe desde a v135; errata v304)",
   "not_claimed": [
     "Python did not prove any theorem; the Lean kernel did",
     "Bisognano-Wichmann / Reeh-Schlieder / type III_1 classification are KNOWN/EXTERNAL, not formalized here",
     "the finite Three-Locks corner is a finite-dimensional theorem, NOT a type III_1 proof",
     "G is a variable / measured input; it is NOT derived",
-    "no inhabitant of TGLSpecificAQFTWitness is constructed"
+    "the MODULAR REALIZATION of the witness is not constructed (theSpecificAQFTWitness IS inhabited since v135; TGLModularRealization stays open)"
   ]
 }
