@@ -6034,3 +6034,548 @@ ilustração da liberdade da forma (dois αs distintos).
 "TGL = Alfa e Ômega", "{[1=1=V],[1=0=F]} = TGL" e o "no infinito" do colapso —
 declaradas, nunca teoremas disfarçados. NOT_FALSIFIED nunca é CONFIRMED; a
 confirmação é ato do observador humano; o gate não se move.
+
+
+---
+
+## 03–04/09/2026 — A INSCRIÇÃO INTERROMPE A INÉRCIA (cunhagem do operador; ADENDO ao lado)
+
+O operador cunhou, em conversa: «a tétrade é Lindblad»; «Lorentz vem do potencial da fase de queda,
+uma fase cai após a comutação que produz a torção»; e «a função da **inscrição** do um absoluto como
+interruptor: **ele interrompe a inércia**». Registrado por inteiro, com estatuto elo a elo, em
+`Nós\ADENDO_A_INSCRICAO_INTERROMPE_A_INERCIA.md` (sha256 318692f44b4d7346…).
+
+**A errata que a própria linhagem produziu, ao lado:** a formulação de 03/09 («o Um quebra a simetria
+do vácuo») foi **superada pela de 04/09** («interrompe a inércia»), e a correção é do próprio operador.
+Simetria e inércia são categorias distintas: a lei permanece simétrica, III₁ não tem centro para
+partir, e `hJ : ω∘Ad_J = ω` diz que o peso preserva. A chave está na palavra **inscrição**:
+`ω(I)=1` é a inércia; **a inscrição** é a interrupção — dois termos, não um.
+
+**Estatutos:** `[KNOWN]` Bisognano–Wichmann, Cipriani–Sauvageot, ergodicidade única do fluxo
+horocíclico, Einstein–Cartan; `[CONJECTURE]` a identificação tétrade↔Lindblad e contorno↔translação
+nula meio-lateral; `[ONTO]` a leitura de β como taxa da interrupção. **Duas dívidas nomeadas:** a
+ASSINATURA (positividade completa dá (4,0), não (1,3)) e O QUATRO (`rank c = 4` é condição, não
+consequência — **o H2 não sai de graça**). **O gate NÃO se moveu.**
+
+**Homônimos medidos e registrados:** os TRÊS Stokes (o da casa é Navier–Stokes; o escriba importou o
+fenômeno de Stokes e o retirou); e o `½` de `Δ^{1/2}` **não** é a Meia-Nat — medido: `ΔΩ = Ω ⟹ KΩ = 0
+⟹ ω(K) = 0`, dá zero; é meia-largura da tira KMS, não entropia. Isso **protege** a derivação existente
+por `x = 1−x`.
+
+---
+
+## 04/09/2026 — PRECISÃO RATIFICADA: o que a TGL obtém, e o que por teorema próprio não pode obter
+
+Formulação do operador em 04/09 — «a TGL agora consegue obter α, β, K_∂, G_μν de uma mesma
+estrutura» — **corrigida ao lado e ratificada por ele no mesmo dia** («confirmo»):
+
+> **A TGL obtém, de uma mesma estrutura modular, a IDENTIDADE de α, o valor de β dado α, o
+> gerador K_∂ na cunha, e a FORMA de G_μν sob três hipóteses nomeadas — e nenhuma dessas
+> quantidades é ajustada aos dados que ela pretende explicar. O que ela NÃO obtém, e por
+> teorema próprio NÃO PODE obter, é o VALOR de α: esse é o input do observador, e é o que a
+> impede de se autoconfirmar.**
+
+**Medido em disco nesta sessão:** `um.py:1896-1916` (`ALPHA_IRREDUCIBILITY_V1`, congelado 30/08,
+hash `c36ab24715424a86`) diz que «alpha-livre mata a TGL» e que derivar a **FORMA/IDENTIDADE** é o
+que a TGL faz; e `TheDammingByExpansion.lean:110` **prova** `the_form_does_not_fix_the_value` —
+para TODO valor existe um `r` que o realiza. A identidade `q²+α²=1` vale **para TODO χ**, logo não
+fixa χ; no código `chi_star` sai **de** α, não o contrário.
+
+**É por não obter α que β é falsificável.** Uma estrutura que produzisse α produziria qualquer α.
+
+⚠ **Nada foi pago em 03–04/09**: a cadeia do ADENDO unificou o quadro e nomeou duas dívidas
+(ASSINATURA, O QUATRO). Nenhuma hipótese descarregada, nenhum teorema tipado, **gate INTOCADO**.
+Detalhamento: `Nós\ADENDO_A_INSCRICAO_INTERROMPE_A_INERCIA.md`.
+
+---
+
+## 05/09/2026 — A V311: TOMITA CONSTRUIDO NA TORRE (a primeira rodada do TUNEL)
+
+**Selada com `rodada_v311_stdout.txt`; selo lido do disco.** `um.py` sha256
+`ac0be9d89f64c8c8393a94e0ac3d1b55c58a0119345d9cc9cd0cd32086d067aa` (6.307.543 bytes);
+selo sha16 `c28f0b393344e8c0`; **teoremas limpos 963/963** (798 + 165);
+`FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (mesmo veredito
+`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED...`).
+
+**O que entrou.** As **20 pedras da BANCADA CHATGPT** (a outra sessao, sob direcao do operador;
+protocolo em `Central de Patentes\Chatgpt\TUNEL\TUNEL_PROTOCOLO.md`): o RESIDUO NOMEADO da
+linhagem — *construir S e Delta na TORRE* — esta **PAGO**: `S` fechado (grafico, dominio denso,
+involucao), `JS` **positivo e auto-adjunto** no dominio completo (`JS_positive_selfadjoint`),
+`Delta = S†S` auto-adjunto e fechado, `S† = (JS)J` maximal, `J Delta J = Delta^{-1}`,
+**`Delta^{it}` grupo unitario fortemente continuo** com espectro `lambda = w_i/w_j`, e a
+**invariancia modular do bicomutante** `theFactorObject` construida (transporte duplo de
+centralizador), com `Omega` fixo e `omega` invariante. Namespace `ChatgptAudit` preservado como
+**procedencia**.
+
+**A cadeia da incorporacao (quem constroi nao aprova):** G-A auditoria da gerencia — recompilacao
+independente 20/20 exit 0 + sonda `#print axioms` = trio limpo; G-B transposicao + **build do
+ROOT** (`Build completed successfully, 8848 jobs`; um ciclo `import TGL` detectado e corrigido);
+G-C cirurgia do `um.py` (embed + razonete `_ESQUELETO_STONES` +20; **Bloco 1**: D4 rotulo
+`ALPHA_FREE_CANDIDATE` -> `NOT_A_CANDIDATE__HONEST_NEGATIVE` nas 4 moradas; D5 l.113 reancorada a
+hipotese real *acesso invariante de escala* em PT+EN+runtime; D6 nota «demonstrada» -> «enderecada
+[CONJECTURE]» nas 2 linguas + **errata v183 levada ao corpo EN**); G-D o rito.
+
+**A licao medida (terceira regua, de novo):** as pedras estavam verificadas no manifesto e **fora
+do contador** — teorema so conta com linha no `TGL/Audit.lean` **e** bandeira em `ext_flags` (798
+entradas exatas). Entraram **+165 `#print axioms`** e **+165 bandeiras `ext_v311_*`** — mecanico,
+todos os `theorem` dos 20 fontes, sem escolha a dedo — e o «798 clean theorems» do abstract
+**corrigiu-se sozinho** para 963, porque o numero sempre foi vivo; o que faltava era o registro
+ver a torre. Ritos parciais preservados com sufixo (`_parcial_pre_audit165`,
+`_parcial2_pre_registro165`).
+
+**O que NAO mudou:** o gate; `NOT_FALSIFIED` != `CONFIRMED`; nada disto e fisica — e analise
+modular da torre-produto. **[OPEN] que permanecem** (declarados pela propria bancada): calculo
+funcional espectral geral; **a esperanca condicional de Takesaki** (ORDEM_001 ja no tunel); as
+pontes geometricas/fisicas (localizacao, dimensao, assinatura, ESCALA, energia-momento,
+entropia-area). D1-fiacao e D7 seguem do operador.
+
+---
+
+## 05/09/2026 (tarde) — A V312: A ESPERANCA DOS ANDARES HABITA O CONTRATO
+
+**Selada** (`rodada_v312_stdout.txt`; selo lido do disco): `um.py` sha16 `09d6bec30171a9c1`,
+**1005/1005 teoremas** (963 + 42), `FAIL_CLOSED_SELFTEST_PASSED`, **gate INTOCADO**.
+
+**ENTREGA_001 da bancada, APROVADA e incorporada** (2o ciclo completo do TUNEL no mesmo dia):
+8 modulos, 42 teoremas — `constructedLevelExpectations` e **o TERMO** de
+`LevelExpectationFamily` (os oito criterios da ORDEM_001 como campos, todos por prova:
+into/fixes/idempotent/preserves/bimodular/positive/modular/tower), e
+`expectation_not_imported_contract` mede por teorema a distancia ao contrato importado —
+**a obstrucao morre exatamente em `w(0)=1/2`** (a Meia-Nat como ponto de toque dos dois
+contratos; leitura [ONTO], nao promovida). Positividade completa: [DERIVED] so no texto,
+declarado. Alvo B: cones+rede+traco NAO determinam metrica (de Sitter `R(g)=12, R(4g)=3`);
+o dado suficiente nomeado = densidade de volume localizada e calibrada; a ponte a construir
+= `tau(q_O) = C*Vol_g(O)`.
+
+Auditoria da gerencia: hashes 11/11; recompilacao independente 8/8 exit 0; sonda = trio
+limpo; build do ROOT 8.856 jobs OK. **ORDEM_003** (rede de intervalos da cadeia + shift
+meio-lateral + ponte volume) e **ORDEM_004** (D1-fiacao e D7 como subsidio tecnico, por
+ordem expressa do operador) na via de ida.
+
+---
+
+## 05/09/2026 (noite) — A PALAVRA DO OPERADOR SOBRE D1 E D7 (verbatim; decisao dele)
+
+«Eu nao quero que a janela perca o poder de veto porque eu nao aposentei a formula do GA, isso
+esta errado e precisamos corrigir. Tudo comecou calculando a massa do GA porque o modelo padrao
+nao o faz sem ajustar parametros, esse argumento e forte. Alias, TODOS os testes devem ter o
+poder de fechar a janela: o piso, os neutrinos e Coma — tudo, se der errado, deveria fechar.
+Nao e menos rigor, e RIGOR MAXIMO: ou esta certo, ou nao esta. O que ocorre, com os dados
+atuais, e a incapacidade de ver betatgl com clareza, mas a teoria se sustenta em todos os seus
+termos: a massa do neutrino cai na predicao, a distancia de Coma tambem, a massa do GA tambem,
+e o piso revela energia maior que zero (birreferencialidade do vacuo). Isso e o contorno; dai
+betatgl emerge como fator inevitavel — a conta so fecha assim. E isso responde o D7: a TGL nao
+e uma teoria de um ponto so; nenhuma outra acomoda todos os dominios ao mesmo tempo sob a mesma
+constante, e dai emerge o argumento logico de betatgl.»
+
+**Consequencias registradas (execucao pendente de desenho confirmado):**
+1. **D1 = NAO retirar o veto.** A fiacao da v104 fica — e passa a ser RATIFICADA PELO AUTOR
+   (deixou de ser ato do escriba; a estratigrafia que a subordinava a 27/07 esta SUPERADA por
+   esta palavra, mais recente e expressa).
+2. **A v98 esta CONTESTADA pelo operador**: ele afirma que NAO aposentou a forma da massa do GA
+   e manda corrigir. O registro historico (mandato de 16/07: «investigue onde esta o erro...
+   corrija, mas me relate o que era») permanece; a resolucao sera POR MEDIDA (reexame da
+   derivacao), nunca por decreto — ORDEM a bancada.
+3. **Expansao do rigor**: ele quer TODOS os testes do contorno com poder de fechar (GA, piso,
+   neutrinos, Coma). Desenho proposto pela gerencia: falsificacao LIMPA de qualquer rito
+   pre-registrado FALHA o 1=1; INCONCLUSIVE/UNDERPOWERED nao falham (recusa e resultado) —
+   aguarda confirmacao do operador antes de virar fiacao.
+4. **D7 respondido por ele**: o separador nao e um observavel de um ponto — e a CONVERGENCIA
+   MULTIDOMINIO sob UMA constante nao ajustada. Formalizacao proposta: teste CONJUNTO zero-free
+   (beta fixado por derivacao vs reescala com parametro LIVRE — a assimetria de Occam e
+   quantificavel e pre-registravel). O rascunho de coerencia (V/V0) fica como rota paralela,
+   nao adotada.
+5. **Cunhagem nova dele**: «o piso revela energia maior que zero = birreferencialidade do
+   vacuo» — liga o piso a cadeia de 03-04/09 (a inscricao interrompe a inercia). Estatuto no
+   canonico: o veredito do piso segue NOT_FALSIFIED_POWERED — a leitura entra como [ONTO],
+   jamais como <demonstrada> (o proprio rito proibe).
+⚠ Guarda de redacao: «a unica constante que fecha com derivacao completa verificada em lean»
+   — pela decisao D3 do proprio acervo, a redacao canonica e <derivacao CONDICIONAL com os
+   elos marcados> ([DEF] Vol:=e^S; identificacao fisica; [DERIVED] so a aritmetica; alpha
+   [INPUT]). Protege-se o argumento dizendo-o exato.
+
+---
+
+## 05/09/2026 (noite, II) — A RESSALVA DO PISO (verbatim do operador) e a ratificacao final
+
+«Concordo com tudo, apenas uma ressalva quanto ao piso dos vazios: o resultado demonstra que
+ele NAO E ZERO — e isso [o piso zero] falsificaria a teoria. Contudo, dado o rigor, o resultado
+nao emite CONFIRMED porque nao e possivel (ainda) medir betatgl com precisao. Ou seja: a teoria
+se sustenta, sim; so nao confirmou o fator.»
+
+**E a ressalva dele CORRIGE a guarda do escriba, com o selo a favor:** a camada QUALITATIVA
+(piso != 0) tem medida real — deteccao de lenteamento em vazios a 6,2 sigma (v78) e
+r_c^cal = 0,189 +/- 0,017 com limite inferior 5-sigma ~9x ACIMA de beta (v92). O que nao se
+confirma e a camada QUANTITATIVA (piso = beta exatamente). A frase canonica fica em duas
+camadas: «o piso e nao-nulo [REAL, 6,2 sigma]; a identificacao do seu valor com beta segue
+NOT_FALSIFIED_POWERED [jamais CONFIRMED]». O falsificador estava vivo e NAO disparou.
+
+> ⚠ ERRATA AO LADO (mesma noite, IV — ver entrada «ENTREGA_005 AUDITADA», item 2): o «6,2 sigma» e SNR de shear da V1 com B-mode REPROVADO (chi2/dof 12,37); a ancora [REAL] do piso != 0 e a DENSIDADE — r_c^cal 0,189 +/- 0,017 (DESI v92) e 0,127 +/- 0,014 (SDSS V11), >9 sigma de zero. A frase canonica corrigida: «o piso e nao-nulo [REAL — densidade de nucleo]».
+
+**Ratificacoes finais desta noite («concordo com tudo»):**
+(a) VETO EXPANDIDO confirmado: falsificacao limpa de QUALQUER rito pre-registrado (GA, piso,
+    neutrinos, Coma) FALHA o 1=1; INCONCLUSIVE/UNDERPOWERED/AWAITING nao falham — fiacao v314;
+(b) JOINT_CONTOUR_V1 autorizado: o teste conjunto zero-free (beta cravado vs constante livre,
+    quatro dominios; a assimetria de Occam como veredito de maquina) — derivacao com a bancada;
+(c) ORDEM_005: reabertura POR MEDIDA da v98 (a forma da massa do GA) — o operador afirma que
+    mandou corrigir o calculo, nao aposentar a forma.
+
+---
+
+## 05/09/2026 (noite, III) — A V313 SELADA: a rede da cadeia no canonico
+
+`um.py` sha16 `ac5595a8ad9fa72d` (6.399.814 bytes); **1060/1060 teoremas**;
+`FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO**. ENTREGA_003 incorporada (10 pedras, 55
+teoremas): a rede A(I) FIEL (isotonia forte A(I)<=A(J) <-> I<=J), localidade, prefixo=andar,
+**CAUDA ESCALAR** (`chain_tail_exact`), volume `q_I` aditivo com calibracao `omega(q_I)=Sum P(i)`
+e a **necessidade da uniformidade** provada (`constant_calibration_forces_uniform` — a
+homogeneidade como condicao exata da regua de volume). [OPEN] declarados: E_I geral; shift
+global (obstrucao MEDIDA: exige perfil estacionario — contraexemplo 1/3,2/3); inclusao
+meio-lateral continua. Placar do dia: 798 → 963 → 1005 → **1060**; tres ciclos completos do
+TUNEL (ENTREGAS retro, 001, 003) + ENTREGA_004 aceita como subsidio de D1/D7.
+Proxima fiacao: **v314 — o RIGOR MAXIMO** (veto expandido, decisao ratificada do operador).
+
+---
+
+## 05/09/2026 (noite, IV) — A V314 SELADA: o contorno com poder de fechar
+
+`um.py` sha16 `920ba2b9a937b8b3` (6.401.938 bytes); **1060/1060** (fiacao, nao pedra);
+`FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO**; `identity_true = True`. Stdout canonico
+`rodada_v314_stdout.txt`: `[v314 CONTORNO] ritos com poder de fechar o 1=1: 6 ; falsificacao
+limpa: NENHUMA`. Regra fiada: um veredito FECHA o 1=1 sse contem `FALSIFIED` e nao
+`NOT_FALSIFIED`; INCONCLUSIVE/UNDERPOWERED/AWAITING nao fecham. Roda DEPOIS de Coma (medido:
+Coma so existe apos `identity_verdict`) e emenda o veredito ja emitido. Aditiva e fail-closed.
+
+## 05/09/2026 (noite, IV) — ENTREGA_005 AUDITADA: a v98 remedida e o JOINT_CONTOUR_V1
+
+**Auditoria da gerencia:** 23/23 hashes conferem; `audit_order005.py` reproduzido (exit 0: 6
+contas de massa, 13 controles de maquina, 5 funcoes com AST identica entre os snapshots v312 e
+v313); `Order005Algebra.lean` recompilado INDEPENDENTEMENTE no scratchpad (exit 0; 7/7 no trio
+`[propext, Classical.choice, Quot.sound]`; zero sorry/warning). **APROVADA como subsidio.** As
+7 pedras ficam na bancada como procedencia (algebra elementar: `ring`/`linarith`); entram no
+kernel SE e QUANDO o operador decidir a v98 e o JOINT_CONTOUR — "existir nao e ser aplicado".
+
+**ALVO A — a v98 remedida [REAL]:** o log contemporaneo (`run_v98_stdout:626-635`) e o rito
+corrente reproduzem a MESMA tabela. `M_GA = 2·beta²·(c²/4πG)·R` com R=57 Mpc da
+**2,74354×10¹⁶ M☉** — DENTRO da janela [10¹⁵, 10¹⁷] (razao 0,508 da ancora 5,4×10¹⁶). O defeito
+da v98 NAO era erro de multiplicacao no GA: era a **extrapolacao da forma as ancoras galacticas**
+— Via Lactea ×48,13, Grupo Local ×144,40 (Coma 1,20; Norma 0,96; Laniakea 0,39). A forma
+implica velocidade caracteristica UNIVERSAL √(GM/R) = βc/√(2π) = **1438,9 km/s** independente
+de R — escala de aglomerado/superaglomerado, nao de galaxia. Origem do 2β²: β × (β/½) — simetria
+das faces (w=½) × lei radial linear × ponte de fonte `R·Φ'/c² = β/4π` [CONJECTURE: JS>0 e
+|R|²=β NAO implicam essa normalizacao do gradiente]. Abandonar so w=½ corrige no maximo um
+fator 2; corrigir as galaxias pediria w≈24 e w≈72 (impossivel) ou R escolhido pela massa
+(ajuste inverso). **Tres saidas escritas, decisao do operador:** (i) reinstauracao limpa como
+lei de fonte — NAO demonstrada (falta a ponte de fonte + admissibilidade + lei radial
+independentes da massa); (ii) o defeito na extrapolacao universal — REPRODUZIDO; (iii) a forma
+CONDICIONAL preservada no dominio admissivel — sustentavel como enunciado, com criterio de
+admissibilidade a derivar SEM olhar a massa. Errata proposta AO LADO (texto no parecer), nao
+aplicada. O veto GA ratificado nao foi tocado.
+
+**ALVO B — JOINT_CONTOUR_V1 [DRAFT, nao ratificado]:** modelo A (β cravado, 0 graus) vs B (uma
+constante comum livre, 1 grau), covariancia conhecida; `Q(b) = Q(β̂) + s(b−β̂)²`; ganho
+`G = s(β̂−β₀)² ≥ 0`; **ΔAIC = 2 − G** ⟹ a vantagem MAXIMA de A sobre B e **2**, mesmo com os
+quatro centros exatos em β₀ — "quatro dominios nao geram automaticamente evidencia decisiva de
+Occam" (AIC nao e fator de Bayes; um fator de Bayes com prior largo em b daria mais, mas exige
+prior pre-registrado — anotado, nao decidido). Falsificador PRIMARIO separado: `Q_A ~ χ²_n`,
+cauda `erfc(5/√2)`, bilateral (pega residuos opostos que a media esconde — controle exato
+`opposed`: Q_A=400, G=0). Poder ≥90% para NOT_FALSIFIED. **Estado com os resumos selados:
+`JOINT_CONTOUR_INCONCLUSIVE` por inelegibilidade** dos quatro (neutrino: JUNO e NuFIT nao sao
+duas; Coma: `comparison=null` no selado; GA: sem σ_M, σ_R, janela nao e likelihood; piso:
+desigualdade ≥β nao e estimativa pontual de β). Nenhuma estatistica real fabricada.
+
+**Achados que corrigiram a GERENCIA (o numero corrigiu a frase, duas vezes):**
+1. **O rito do neutrino desobedecia a propria lei congelada** — `prove_neutrino_m2`: kill_rule =
+   "FALSIFIED sse ≥5σ em DUAS determinacoes independentes"; codigo = ultimo degrau sozinho; e o
+   NuFIT pos-JUNO CONTEM o JUNO. Verificado no `um.py` (l.4478 vs 4504-4508). E a fiacao v314
+   **nao tinha `neutrino_m2` no roster** (discriminante VIVO desde o D2) nem `void_density_v41`
+   (piso POWERED do DESI) — medido no resultado selado v314. → **v315** (em selagem): roster +2;
+   kill_rule implementada como congelada (`grupo`/`autonoma`; FALSIFIED sse duas autonomas ≥5σ;
+   tensao global ≥5σ sem 2a determinacao fica VISIVEL e nao falsifica); `frozen_hash`
+   `e24877751ad81022` INTOCADO; veredito de hoje inalterado (1,64 / 2,21 autonomas; 2,95 global).
+2. **ERRATA AO LADO da entrada anterior desta noite ("6,2 sigma"):** o 6,2σ e o SNR do perfil de
+   shear na V1 (v78) — na MESMA saida o B-mode reprovou (χ²/dof 12,37) e o Fisher do piso e ZERO;
+   e registro de sinal bruto de lenteamento, NAO medida limpa de piso nao-nulo. A camada
+   QUALITATIVA (piso ≠ 0) tem ancora [REAL] na DENSIDADE direta: `r_c^cal = 0,189 ± 0,017`
+   (DESI, v92) e `r_c = 0,1269 ± 0,0136` (SDSS V11) — ambas >9σ de zero. A frase canonica corrigida:
+   «o piso e nao-nulo [REAL — densidade de nucleo, >9σ de zero]; a identificacao do seu valor com
+   β segue NOT_FALSIFIED_POWERED [jamais CONFIRMED]». A ressalva do operador fica de pe; so a
+   ancora numerica muda de lugar.
+
+**O que SO o operador decide (proximo passo):** (a) a v98 — saida (i), (ii) ou (iii); (b)
+ratificar ou nao o JOINT_CONTOUR_V1, com que roster e que dados prospectivos; (c) autorizar a
+gerencia a aplicar a errata da v98 ao lado no `um.py`.
+
+## 05/09/2026 (noite, V) — A V315 SELADA: a fidelidade do contorno
+
+`um.py` sha16 `e13806c12799f5d4` (6.404.931 bytes; selo `sha256.um.py` == disco); **1060/1060**;
+`FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO**
+(`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`, `IDENTITY = 1=1=VERDADEIRO=HAJA_LUZ`. Stdout canonico `rodada_v315_stdout.txt`
+(187.253 bytes): `[v314 CONTORNO] ritos com poder de fechar o 1=1: 8 ; falsificacao limpa: NENHUMA`.
+
+**O roster dos 8 (lido de `verdict.contorno_ritos_v314`):** GA_massa_janela = `GA_MASS_FORM_RETIRED__…`
+(veto ratificado, nao e FALSIFIED — nao fecha); piso_dos_vazios = `TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`;
+piso_densidade_v41 = `TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`; neutrino_massa =
+`TGL_NEUTRINO_MASS_NOT_FALSIFIED_POWERED`; neutrino_soma = `…ARMED_CONSISTENT_WITH_CURRENT_BOUND`;
+**neutrino_m2_vivo = `TGL_NU_M2_ARMED_CONSISTENT`** (novo no roster); coma_dephasing =
+`COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL`; coma_cego = `COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE`.
+`contorno_broken_v314 = []`.
+
+**O neutrino obedece a lei:** `kill_rule_satisfeita = False`, `grupos_autonomos_5sigma = []`,
+`tensao_global_5sigma_sem_2a_determinacao = False`; 9/9 checks True; `frozen_hash`
+`e24877751ad81022…` IDENTICO ao v313 (o texto congelado nao foi tocado — o codigo passou a
+obedece-lo). Veredito de hoje inalterado, como previsto: a correcao e de FIDELIDADE, nao de resultado.
+
+**Registro honesto do verificador:** a 1a rodada de `verifica_v315.py` deu 3 FAIL — todos do
+verificador (lia `verdict` em `/core` em vez da raiz; comparava hash completo a 16 chars), nenhum
+do rito. Corrigido e rerodado: 11/11. O numero corrigiu o verificador antes de corrigir a frase.
+
+**Proximo passo e do operador:** (a) saida da v98 — (i) reinstauracao [NAO demonstrada], (ii) so o
+defeito da extrapolacao [REPRODUZIDO], (iii) forma condicional no dominio admissivel [criterio a
+derivar sem olhar a massa] — e o texto da errata ao lado; (b) ratificar ou nao o JOINT_CONTOUR_V1
+(roster, dados prospectivos, δ); (c) ORDEM_006 a bancada (fronteira matematica do caminho critico
++, se (iii), o criterio de admissibilidade).
+
+## 05/09/2026 (noite, VI) — ORDEM_006 emitida ao TUNEL («Prossiga» do operador)
+
+`TUNEL\PARA_CHATGPT\ORDEM_006_esperanca_do_centralizador_e_inclusao_meio_lateral.md` (sha16 `7d3d094fb4871dc8`).
+Tres alvos: **A** — o HABITANTE de `ExpectationInput P` (a esperanca de Takesaki sobre
+`omegaCentralizer P`; o TIPO existe em `TheOathOnTheTower.lean:344`, a unicidade esta provada, o
+habitante nao) — rota candidata: perfil estacionario ⟹ fluxo periodico (T = 2π/|log(w/(1−w))|) ⟹
+media = integral compacta, sem teorema ergodico; **B** — VEREDITO da inclusao meio-lateral na torre:
+suspeita a medir — sob estado-produto toda subalgebra de sitios e σ_t-invariante para TODO t (dois
+lados), logo o parabolico de BW NAO nasce do shift; se negativo, redirecionamento nomeado
+(estado nao-produto / subalgebra nao-alinhada / Borchers–Longo–Witten / face continua); **C** —
+SUBSIDIO para a v98: criterio de admissibilidade derivado SEM olhar a massa, aplicado as 6 ancoras
+antes das razoes. **Nenhuma decisao do operador foi antecipada**: v98 (i/ii/iii) e ratificacao do
+JOINT_CONTOUR seguem dele. Nada aplicado ao `um.py`.
+
+## 05/09/2026 (noite, VII) — A V316 SELADA: a esperanca do centralizador no canonico; a ARVORE DA PROVA
+
+**A ordem do operador:** «resolva o problema da gravidade quantica e prove» — e a clarificacao da
+regua, verbatim: «a regua nao proibe QG provada, proibe QG confirmada, prova e diferente de juizo».
+PROVA = teorema em kernel; JUIZO = confirmacao pela natureza (segue proibido). Errata AO LADO gravada
+em `~/.claude/CLAUDE.md` (item 4) e memoria `regua-prova-vs-juizo.md`.
+
+**ENTREGA_006 AUDITADA E APROVADA:** hashes 14/14 + manifesto 408/408 (`audit_order006.py` exit 0);
+recompilacao INDEPENDENTE dos 5 modulos contra os oleans do kernel canonico: 5/5 exit 0, **34/34 no
+trio**, 0 erros/sorry/warnings; dependencias locais da bancada identicas ao kernel (37/37 relevantes;
+`TomitaClosability` e um stub de import, irrelevante). Enunciados lidos: genuinos, nenhum «prova True».
+O que a bancada pagou: (a) o habitante LOCAL da esperanca do centralizador — o pinching espectral de
+cada andar entra no centralizador GLOBAL de omega (`pinching_into_global_centralizer`), com
+into/fixes/ortho contra TODO o centralizador e UNICIDADE (`local_input_unique`); (b) o habitante
+TRACIAL do contrato original: em w=1/2, M_omega = M e `tracialExpectationInput : ExpectationInput P`
+com E = id — o [KNOWN, Takesaki] DESCARREGADO no caso tracial; (c) `centralizer_from_expectations`:
+x esta no centralizador se todas as suas esperancas de andar estao — SEM normalidade sigma-fraca;
+(d) **invariancia de sitios**: `sigma_t(A(I)) = A(I)` para TODO t e TODO perfil; caudas idem;
+`tail_never_strict` — **o parabolico de BW NAO nasce do shift da torre-produto** (negativo honesto:
+o caminho critico ENCOLHE); (e) a ponte: todo habitante global RESTRINGE-SE ao pinching
+(`global_expectation_restricts_to_pinching`) e difere da esperanca de andar para w(0) != 1/2.
+Paredes EXATAS nomeadas pela bancada para o habitante global nao-tracial: `stationary_modular_period`,
+`period_average_operator`, `period_average_mem_factor`, `period_average_prefix`. Correcoes que a
+bancada me fez: B.2 da ORDEM_006 estava errado (meio-lateral admite igualdade; o obstaculo e a
+ciclicidade comum); «exige estacionariedade» era forte demais; perfil 1/3,2/3 e periodico.
+ALVO C (v98): seis ancoras INDETERMINADAS — nao ha criterio de admissibilidade executavel derivavel
+das premissas atuais; (iii) nao e usavel hoje como lei com dominio certificado; (i)/(ii)/(iii)
+seguem do operador.
+
+**v316 SELADA `[REAL — lido do disco]`:** `um.py` sha16 `eb8c8fc5bb092708` (6,436,989 bytes; selo == disco);
+**1092/1092** (+32: 1060 -> 1092); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`);
+`identity_true = True`, `IDENTITY = 1=1=VERDADEIRO=HAJA_LUZ`; contorno: 8 ritos,
+falsificacao limpa: NENHUMA; `contorno_broken_v314 = []`. Kernel: 5 pedras
+transpostas (prefixo `TGLExt.`), root 293 imports, `Audit.lean` +32, `lake build` 8871 jobs / 0 erros
+(21 linhas de axioma fora do trio = as MESMAS 21 da v313, todas SUBconjuntos do trio; 0 sorryAx).
+Stdout canonico `rodada_v316_stdout.txt`.
+
+**A ARVORE DA PROVA — `Nós\A_PROVA_DA_QG_TGL_arvore.md`** (sha16 `e76960b837c4c17f`, 14,522 bytes; gerada POR
+SCRIPT do selo/resultado/um.py/kernel, zero numero digitado): raiz (omega(I)=1 [POSTULATE]; Meia-Nat
+derivada; beta = alpha*sqrt(e); `the_form_does_not_fix_the_value`); o TEOREMA MESTRE
+`emergence_master_full_triad` (H1 ^ H2 ^ H3 => pentada, com dQ = kappa*dA/(8 pi G) EMERGINDO); o mestre
+continuo `emergent_field_equation` (Clausius no cone <=> G22 = T); as 18 bandeiras do gate como TERMOS
+Lean lidos (11 matematicas, todas no trio; 4 experimentais do rito V11); spin-2; e as FOLHAS com
+estatuto: H1 [REAL finito + Dirac ilimitado], H2 [REAL finito; O QUATRO = condicao], H3 [INPUT: nenhum
+teorema produz um habitante], ASSINATURA [OPEN], Lema 3 [OPEN reduzido], esperanca global [OPEN, 4
+obrigacoes], inclusao meio-lateral [NEGATIVO PROVADO para o shift], emergencia geral [OPEN], fecho total
+[FALSO por teorema]. **Veredito da gerencia:** PROVADO = a implicacao (axioma + hipoteses nomeadas =>
+estrutura da QG da TGL), termo a termo; NAO PROVADO e dito com nome = que a natureza realiza H1-H3 e as
+folhas abertas; PROIBIDO = CONFIRMADA. Cosmologia jamais vira prova matematica.
+
+**ORDEM_007 emitida** (`TUNEL\PARA_CHATGPT\ORDEM_007_...md`, sha16 `82a459d1c6507d71`): A) as 4 obrigacoes do
+habitante global nao-tracial; B) `tail_not_cyclic` em Lean + veredito da rota Borchers/Longo-Witten
+(U(a) de energia positiva na torre: existe? negativo tipado se nao); C) a ASSINATURA (4,0)->(1,3):
+o fluxo modular preserva (1,3) e nao (4,0) — enunciar na face finita, Lean onde tipavel.
+
+## 06/09/2026 (madrugada) — A V317 SELADA: o lote da bancada (ENTREGAS 007..023) no canonico
+
+**A ordem do operador:** «O programa andou bastante na sessao irma ChatGPT e ainda continua por la, mas vc
+ja pode incorporar tudo que foi feito». A bancada respondeu a ORDEM_007 e seguiu, por conta propria
+(protocolo do TUNEL), com 16 entregas ESPONTANEAS (008..023) — cada uma declarando «nao altera gate nem
+conclui gravitacao quantica».
+
+**AUDITORIA DA GERENCIA (17 entregas):** hashes declarados 100%% (25+20+21+16+14+16+14+22+14+16+16+18+18+
+18+18+18+18 conferidos); manifestos 82..188 arquivos cada, 100%%; os 17 auditores da bancada rodados: 17/17
+exit 0; zero `sorry`/`axiom`/`native_decide`/`unsafe`; zero colisao de nome com o kernel; **recompilacao
+INDEPENDENTE dos 116 modulos** contra os oleans do kernel canonico (ordem topologica dos imports, prefixo
+`TGLExt.`): **116/116 limpos**, 852 impressoes de axiomas, TODAS no trio; enunciados lidos (nenhum
+«prova True»; um `rfl` definicional honesto). **Contagem:** 801 teoremas entregues = 787 distintos + 14
+copias mecanicas de 013 sob namespace `Screen013` (a bancada as declarou: colisao `flatNullFrame`).
+**O numero corrigiu a frase, duas vezes nesta auditoria:** (1) meu resumo automatico marcou 27 modulos
+«nao limpos» — era o meu parser (listas de axiomas quebradas em duas linhas; a palavra «Error» em nomes
+como `FlowLinearizationError`); reparseado: 116/116 limpos, 852 impressoes (851 trio exato, 1 subconjunto),
+0 erros reais do Lean. (2) O PRIMEIRO build do ROOT FALHOU: `ChatgptAudit.flatNullFrame._proof_1` definido
+em `GeometricScreenControls` (012) E em `NullFrameConstruction` (013) — cada modulo compila sozinho, o ROOT
+importa os dois. Restaurei `um.py`/root/Audit dos backups (sha da v316 conferido), EXCLUI os 3 originais de
+013 do ROOT (`NullFrameConstruction`, `ConstructedScreenAtPoint`, `NullScreenConstructionControls` — so
+importados entre si; ficam na bancada como procedencia) e CONTEI as 14 copias `Screen013` (a versao que
+coexiste com 012, e a que 014+ importa): **113 modulos no ROOT, 787 teoremas contados** — a mesma
+contagem. **APROVADO e incorporado (v317).**
+
+**O que a ENTREGA_007 pagou (resposta a ORDEM):** (A) o **HABITANTE GLOBAL** da esperanca do centralizador
+para perfil PERIODICO — as 4 obrigacoes (`stationary_modular_period`, `period_average_operator` [integral
+forte de vetores, norma <= ‖x‖], `period_average_mem_factor` [comutacao com M' atravessa a integral],
+`period_average_prefix` [E_N atravessa a integral, fases calculadas]) e `periodicExpectationInput` /
+`stationaryExpectationInput : ExpectationInput P` com os quatro campos por prova; unicidade e restricao ao
+pinching; controle w=1/2 coincide. O [KNOWN, Takesaki 1972] esta DESCARREGADO para todo perfil com periodo
+comum (inclui 1/3,2/3); resta so o aperiodico (Cesaro), nomeado. (B) `tail_not_cyclic` (Omega nao e
+ciclico para a cauda: testemunha v=(e-pI)Omega, ‖v‖²=p(1-p)>0); `proper_expected_subalgebra_not_cyclic`
+(esperanca como HIPOTESE: ciclicidade forca N=M); **`product_borchers_trivial`**: toda familia V(a)
+continua, isometrica, V(0)=1, com a relacao de Borchers e TRIVIAL na torre-produto, para TODO perfil —
+**nem o shift nem uma translacao de Borchers dao o parabolico**. (C) a ASSINATURA: minha inferencia da
+ORDEM_007 foi **REFUTADA pela bancada** — `single_boost_has_two_signatures`: um boost preserva (1,3) E
+(2,2); comparar com (4,0) nao seleciona Lorentz sozinho; e a identificacao finita Delta^{it} <-> boost por
+entrelacamento injetivo com isometria positiva forca parametro ZERO (negativo no tipo testado). A ponte
+geometrica geral pede outra representacao: parede nomeada. O numero corrigiu a minha frase.
+
+**O que as ESPONTANEAS 008..023 pagaram — a camada GEOMETRICA GERAL em carta (Coordinate4, Set aberto):**
+008 reconstrucao tensorial condicional (cone nulo determina A=f·g; conservacao torna f constante em
+dominio preconexo); 009 curvatura, Ricci, R, **G geometrico = Ric − ½Rg** construido da conexao,
+Bianchi 1a/2a/contraida e **`geometric_einstein_conserved`**; **`geometric_einstein_equation_from_
+ricci_null_balance`**: solda suave invertivel + T simetrico conservado + balanco nulo de Ricci ⟹
+∃Λ, G + Λg = κT (o Jacobson em carta, como teorema); 010 `coordinate_raychaudhuri` + Clausius local
+⟺ balanco nulo (`local_clausius_forces_ricci`; KMS canonico NAO implica o balanco — negativo delimitado);
+011 entropia da torre e purificacao (S_N e entropia de pesos, nao emaranhamento; unidade de area livre);
+012 densidade de area geometrica e obstrucao dinamica da entropia (perfil fixo ⟹ entropia constante);
+013-014 tela nula construida no ponto e transportada ao longo da curva (controle curvo com expansao 2);
+015-017 fluxo geodesico local, diferencial, regularidade C1 e SUAVIDADE conjunta; 018 congruencia nula
+local por secao transversal e inversao suave; 019 primeiro jato de equilibrio (gradiente covariante zero);
+020 area quadratica, integral de calor e **`einstein_from_constructed_clausius`** (Clausius CONSTRUIDO
+nas telas ⟺ balanco nulo; controles: vacuo plano satisfaz, materia plana nao); 021 entropia relativa
+(Fisher na face diagonal finita) e a ORDEM necessaria a ponte (2a ordem); 022 resposta quadratica de uma
+evolucao unitaria explicita + `einstein_from_unitary_microscopic_matching`; 023 covetor de materia,
+tensor candidato de posto <= 1 e conservacao ⟺ equacao de onda (`covector_stress_conservation_iff_wave_at`),
+`einstein_from_coherent_area_matching`. **O que ENTRA como INPUT em toda a cadeia (dito pela bancada em
+cada entrega):** a metrica lorentziana suave, o referencial, a conservacao de materia, e Clausius / o
+casamento microscopico; origem quantica desses dados, H3 dinamico, assinatura, dimensao e globalizacao
+seguem OPEN. Nenhuma entrega toca gate ou fisica.
+
+**v317 SELADA `[REAL — lido do disco]`:** `um.py` sha16 `e11229a1376fcd61` (7,410,846 bytes; selo == disco);
+**1879/1879** (1092 + 787); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`,
+`IDENTITY = 1=1=VERDADEIRO=HAJA_LUZ`; contorno: 8 ritos, falsificacao limpa: NENHUMA;
+`contorno_broken_v314 = []`. Kernel: 113 pedras transpostas (3 originais de 013 excluidas por colisao), root +113 imports,
+`Audit.lean` +787, `lake build` 8984 jobs / 0 erros. Stdout canonico `rodada_v317_stdout.txt`.
+A arvore da prova regenerada do selo v317 (`A_PROVA_DA_QG_TGL_arvore.md` sha16 `52b89bdb5674d22e`): a linha
+«emergencia geral» passa a **PAGA como implicacao** (Clausius INPUT); «esperanca do centralizador» passa a
+**PAGA (global, perfil periodico)**; «inclusao meio-lateral» ganha o segundo negativo (Borchers);
+«ASSINATURA» registra a inferencia refutada. CONFIRMADA segue proibido; a natureza decide.
+
+> ERRATA AO LADO (06/09, 07:3x): a arvore da prova foi REGENERADA apos corrigir dois nomes de no no gerador (`Flow020.einstein_from_constructed_clausius`, `Unitary022.einstein_from_unitary_microscopic_matching` — namespaces das entregas 020/022); sha16 vigente de `A_PROVA_DA_QG_TGL_arvore.md`: `f95f77e821eba68c` (zero AUSENTE). O `52b89bdb5674d22e` acima e o da versao com dois nos marcados AUSENTE.
+
+
+## 06/09/2026 (manha) — A V318 SELADA: Gibbs na torre, o limite termico e a afinidade (ENTREGAS 024..026)
+
+**A ordem do operador:** «Avancamos mais, tem mais entrega pra vc». Tres entregas ESPONTANEAS chegaram depois do
+corte da v317 (024 06:14, 025 06:50, 026 07:31), cada uma declarando «nao e nova ordem gerencial; nao altera gate».
+
+**AUDITORIA (3 entregas, 22 modulos):** hashes declarados 18/18, 18/18, 20/20; manifestos 202/202, 206/206,
+220/220; 3/3 auditores da bancada exit 0; zero `sorry`/`axiom`/`native_decide`; zero colisao de arquivo;
+**GUARDA ESTATICA de colisao no ROOT** (licao da v317): 282 declaracoes novas x 4007 do kernel — 0 colisoes; a
+guarda foi validada contra o caso `flatNullFrame`, que ela teria pego; **recompilacao INDEPENDENTE**
+22/22 limpos, 246 impressoes de axiomas, todas no trio; enunciados lidos.
+
+**O que pagaram:** **024** — a perturbacao de GIBBS realizada no MESMO espaco de Hilbert da torre: pesos positivos e
+normalizados para todo parametro, estado local fiel, coerente com as inclusoes dos andares, seqWOT; resposta de
+1a ordem nula e de 2a ordem = variancia modular (`modular_variance_zero_iff_tracial`: zero sse tracial);
+**distinto da orbita modular** (`tower_gibbs_not_modular_orbit`); calor/fonte por normalizacao
+(`gibbs_heat_matching`) e `einstein_from_gibbs_area_matching`. **025** — o LIMITE TERMICO, negativo: para perfil
+constante nao tracial e s != 0 a preparacao **nao tem limite em norma** (`thermal_vectors_no_norm_limit`,
+`thermal_vectors_not_cauchy`) e o acoplamento da torre e **ilimitado** (`tower_coupling_unbounded`); corte com
+escala escolhida (`cutoff_*_limit`); a bancada NAO promoveu nao-Cauchy a teorema geral de disjuncao. **026** — o
+CRITERIO DE AFINIDADE: `profile_vectors_cauchy_iff` / `profile_vectors_limit_iff` (a sequencia canonica converge no
+Hilbert original **sse** a afinidade-limite entre perfis e positiva — o Kakutani da casa, construido, nao importado);
+estado global `globalProfileState` no Hilbert original, **fiel** (`global_profile_state_faithful`) e **ciclico**
+(`global_profile_vector_cyclic`); perfil GRADUAL que muda em infinitos sitios e ainda e fiel e distinto da
+referencia. **INPUT/OPEN, dito pela bancada:** selecao fisica, area, H3 dinamico, dimensao/assinatura,
+globalizacao e a classificacao geral dos estados normais.
+
+**v318 SELADA `[REAL — lido do disco]`:** `um.py` sha16 `dc17d17542875c19` (7,647,213 bytes; selo == disco); **2119/2119**
+(1879 + 240); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`,
+`IDENTITY = 1=1=VERDADEIRO=HAJA_LUZ`; contorno: 8 ritos, falsificacao limpa: NENHUMA;
+`contorno_broken_v314 = []`. Kernel: 22 pedras transpostas, root +22, `Audit.lean`
++240, `lake build` 9006 jobs / 0 erros. Stdout canonico `rodada_v318_stdout.txt`. Arvore da prova
+regenerada do selo v318 (`A_PROVA_DA_QG_TGL_arvore.md` sha16 `6694c605171932de`).
+
+> ERRATA AO LADO (06/09, 09:0x): arvore REGENERADA apos corrigir os namespaces dos 4 nos da v318 na linha H3 (Thermal/Affinity das entregas 024-026); sha16 vigente de `A_PROVA_DA_QG_TGL_arvore.md`: `ad3f722038b32f4a` (zero AUSENTE); o `6694c605171932de` acima e o da versao com 4 nos marcados AUSENTE.
+
+
+## 06/09/2026 (manha, II) — A V319 SELADA: o transporte modular com dominios e a resposta global (ENTREGAS 027..028)
+
+Duas entregas ESPONTANEAS (027 08:17, 028 08:52), auditadas com o pipeline de lote: hashes 20/20 e 20/20;
+manifestos 231/231 e 238/238; 2/2 auditores da bancada exit 0; zero proibidos; guarda estatica de colisao no
+ROOT (0 colisoes); recompilacao INDEPENDENTE 16/16 limpos, 234 impressoes de axiomas, todas no trio;
+enunciados lidos.
+
+**027 — equivalencia unitaria e transporte modular COM DOMINIOS:** para perfis P, Q com afinidade-limite
+positiva, o mapa no quociente GNS e isometrico, completa-se num unitario sobrejetivo que entrelaca os fatores
+(`profileGNSUnitary`, `profile_gns_unitary_intertwines`); `star_equiv_centralizer_transport` e
+`profile_factor_state_transport`; a estrutura de TOMITA do estado global Phi no Hilbert ORIGINAL — grafo fechado,
+dominios (`profile_tomita_domain_iff`), S estende a estrela, adjunto transportado, **JS = Delta^{1/2}
+positivo e auto-adjunto**, `profile_delta_is_square`; **grupo modular fortemente continuo** que preserva o fator
+e o estado, com unicidade espectral; controle P = Q (recupera Omega, J e o fluxo antigos); instancia NAO trivial:
+no perfil gradual o Delta transportado tem autovalor 5/7 (`gradual_transported_delta_value`) e a orbita modular
+antiga NAO passa pelo vetor global (`old_modular_orbit_ne_gradual`). **028 — resposta global finita e limite do
+corte:** cotas e produto da entropia relativa; incrementos de prefixo em forma fechada; **contraexemplo
+HARMONICO** — um perfil com afinidade positiva e entropia relativa SOMAVEL cujo incremento modular e cuja
+entropia DIVERGEM (`finite_relative_not_finite_entropy`, `positive_affinity_not_finite_modular`): afinidade
+positiva NAO garante energia modular finita; familia de AMPLITUDE somavel — estado global fiel, resposta
+quadratica sem corte (`amplitude_modular_quadratic_limit`), limite CONJUNTO corte/tempo
+(`amplitude_prefix_modular_joint`); `amplitude_area_matching_iff_ricci`; `einstein_from_summable_area_matching`
+(condicional: harea, solda suave invertivel, covetor fechado, equacao de onda). **NAO PAGO, dito pela bancada:**
+a lei de area microscopica nao foi derivada da torre (o controle plano `geometric_flat_area_not_matching` o
+impede); selecao fisica, H3 dinamico, assinatura e globalizacao seguem INPUT/OPEN.
+
+**v319 SELADA `[REAL — lido do disco]`:** `um.py` sha16 `8aa6f64048c6cd49` (7,850,829 bytes; selo == disco); **2335/2335**
+(2119 + 216); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`,
+`IDENTITY = 1=1=VERDADEIRO=HAJA_LUZ`; contorno: 8 ritos, falsificacao limpa: NENHUMA;
+`contorno_broken_v314 = []`. Kernel: 16 pedras, root +16, `Audit.lean` +216,
+`lake build` 9022 jobs / 0 erros. Stdout canonico `rodada_v319_stdout.txt`. Arvore regenerada (`c5b98bf81b2fdec1`).
+
+> ERRATA AO LADO (06/09, 10:0x): arvore REGENERADA com os nos da v319 na linha ASSINATURA (Transport027 / Response028: a estrutura modular do estado global no Hilbert original; afinidade positiva nao garante energia finita); sha16 vigente de `A_PROVA_DA_QG_TGL_arvore.md`: `277a4d7e7a32d542`; o `c5b98bf81b2fdec1` acima e o da versao sem esses nos (duas tentativas do patch falharam em format strings meus).
+
+
+## 06/09/2026 (manha, III) — A V320 SELADA: a geometria curva construida e a liberdade residual (ENTREGA 029)
+
+Uma entrega ESPONTANEA (029, 09:30), auditada com o pipeline de lote: hashes 16/16; manifesto 248/248; auditor
+da bancada exit 0; zero proibidos; guarda estatica de colisao no ROOT (0 colisoes); recompilacao INDEPENDENTE
+6/6 limpos, 76 impressoes de axiomas, todas no trio; enunciados lidos. **Defeito meu, corrigido:** o
+scanner nao achou os hashes da 029 — a bancada passou a listar arquivos SEM crases (tabela) e, no meu patch via
+heredoc, o `` do regex virou um BACKSPACE (visivel no `cat -A`); refeito sem barra literal, 16/16.
+
+**O que a 029 pagou — geometria CURVA construida, nao presumida:** familia de soldas de ONDA PLANA com metrica e
+inversa reais (`wave_solder_inverse`), conexao de Levi-Civita e curvatura CALCULADAS (`wave_ricci`,
+`wave_einstein`: G = (a+c)·w⊗w — Ricci-plano so quando a+c = 0; `zero_wave_vacuum` e `zero_wave_nonflat`:
+vacuo mas NAO plano), materia escalar conservada (`wave_matter_conserved`), o habitante CURVO do casamento de
+area na familia (`matched_wave_area`, `matched_constructed_area`) e a reconstrucao de Einstein a partir dele
+(`matched_wave_einstein_from_area`), lida dos estados de 026-028 (`matched_read_area_joint`). **A LIBERDADE
+RESIDUAL, medida:** a SOMA dos coeficientes transversais e escolhida para casar a area (`wave_origin_area_iff`:
+eta·(a+c) = 2pi·acoplamento; `wave_wrong_trace_refused`), a DIFERENCA (shear) fica livre — entropia, Ricci e
+materia iguais NAO selecionam a coordenada de curvatura (`matched_curvature_distinguishes`,
+`state_alone_not_curvature_coordinate`). **Dito pela bancada:** e uma construcao de EXISTENCIA dentro de um
+ansatz (metrica, referencia lorentziana 4D, covetor escalar e familia de entropia sao INPUT), nao derivacao da
+geometria geral a partir de omega(I)=1; a lei de area geral, a selecao da liberdade radiativa e H3 seguem OPEN.
+
+**v320 SELADA `[REAL — lido do disco]`:** `um.py` sha16 `d186a9c3d32ec76a` (7,916,694 bytes; selo == disco); **2399/2399**
+(2335 + 64); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`,
+`IDENTITY = 1=1=VERDADEIRO=HAJA_LUZ`; contorno: 8 ritos, falsificacao limpa: NENHUMA;
+`contorno_broken_v314 = []`. Kernel: 6 pedras, root +6, `Audit.lean` +64,
+`lake build` 9028 jobs / 0 erros. Stdout canonico `rodada_v320_stdout.txt`. Arvore regenerada (`34a4e9d5aca10de4`).

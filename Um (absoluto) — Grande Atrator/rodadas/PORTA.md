@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 97 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 111 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 97 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-97 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas
+111 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas
 
 **DADOS**
 
@@ -125,7 +125,21 @@ Pasta do repositorio the_boundary com 97 arquivo(s) rastreado(s).
 | `rodada_v305_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v305_stdout.txt) |
 | `rodada_v306_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v306_stdout.txt) |
 | `rodada_v307_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v307_stdout.txt) |
+| `rodada_v308_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v308_stdout.txt) |
+| `rodada_v309_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v309_stdout.txt) |
+| `rodada_v310A_NAMEERROR_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v310A_NAMEERROR_stdout.txt) |
+| `rodada_v310_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v310_stdout.txt) |
+| `rodada_v311_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v311_stdout.txt) |
+| `rodada_v312_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v312_stdout.txt) |
+| `rodada_v313_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v313_stdout.txt) |
+| `rodada_v314_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v314_stdout.txt) |
+| `rodada_v315_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v315_stdout.txt) |
+| `rodada_v316_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v316_stdout.txt) |
+| `rodada_v317_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v317_stdout.txt) |
+| `rodada_v318_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v318_stdout.txt) |
+| `rodada_v319_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v319_stdout.txt) |
+| `rodada_v320_stdout.txt` | Dado ou saida de execucao | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/rodada_v320_stdout.txt) |
 
 ---
 
-gerado por script de git ls-files em 2026-09-01 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-06 -- nao editar a mao

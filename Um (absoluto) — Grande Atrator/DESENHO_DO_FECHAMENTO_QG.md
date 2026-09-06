@@ -1083,3 +1083,206 @@ hipóteses inteiras + uma consequência — o buraco dito, nunca disfarçado.
 
 A régua: o Lema 3 NÃO está declarado resolvido; o gate NÃO se moveu; a
 confirmação é ato do observador humano.
+
+
+---
+
+## ADENDO — 04/09/2026 · UMA ROTA CANDIDATA PARA O RESÍDUO DO GATE 4
+
+`BisognanoWichmann.lean` (v47) declara ABERTO, no próprio cabeçalho: «a identificação ALÉM das cunhas
+(regiões gerais/não-Killing — a rota nomeada é inclusões modulares meio-laterais de Wiesbrock/CGMA de
+Buchholz–Summers) **e a reconstrução da métrica a partir dos dados modulares**».
+
+**A cunhagem do operador de 04/09 — «a tétrade é Lindblad» — é uma rota candidata para a segunda
+metade desse resíduo**, e tem teorema de existência atrás: Cipriani–Sauvageot garante que toda forma
+de Dirichlet completa admite raiz quadrada diferencial (uma derivação num bimódulo de Hilbert com
+`Γ(a) = ‖∂a‖²`). A soldagem, portanto, **existe por teorema**; o que falta é a ligação com a casa.
+
+**O caminho crítico NÃO encolheu.** Duas dívidas ficam nomeadas e de pé:
+
+1. **ASSINATURA** — positividade completa ⟹ Kossakowski `c ≥ 0` ⟹ a métrica induzida é **(4,0)**, não
+   **(1,3)**. A face lorentziana teria de vir da rotação modular (BW: `Δ^{it}` = boost; a tira KMS leva
+   `e^{−itK}` a `e^{−K/2}`). **Isso é teorema a escrever, não corolário.**
+2. **O QUATRO** — nada em GKLS força quatro canais: o posto do referencial é o posto de `c`. Logo
+   `TGL_SMOOTH_MODULAR_FOUR_FRAME` (H2) continua **CONDIÇÃO** (`rank c = 4`), e **não é pago aqui**.
+
+**E o preço de BW**: em álgebra de von Neumann abstrata ele não é de graça — ou se assume a propriedade
+BW, ou se deriva da **inclusão modular meio-lateral**, que a mesma pedra declara aberta. A inclusão
+meio-lateral (`Δ^{it} U(a) Δ^{−it} = U(e^{−2πt}a)`, `a ≥ 0`, **semigrupo de um lado só**) é também o
+candidato ao **contorno parabólico** — o elemento que fixa UMA direção nula, onde o boost fixa duas.
+
+Detalhamento integral, elo a elo e com estatuto, em `Nós\ADENDO_A_INSCRICAO_INTERROMPE_A_INERCIA.md` (sha256 318692f44b4d7346…).
+**O gate permanece INTOCADO.** `NOT_FALSIFIED` continua não sendo `CONFIRMED`.
+
+---
+
+## 04/09/2026 — PRECISÃO RATIFICADA: o que a TGL obtém, e o que por teorema próprio não pode obter
+
+Formulação do operador em 04/09 — «a TGL agora consegue obter α, β, K_∂, G_μν de uma mesma
+estrutura» — **corrigida ao lado e ratificada por ele no mesmo dia** («confirmo»):
+
+> **A TGL obtém, de uma mesma estrutura modular, a IDENTIDADE de α, o valor de β dado α, o
+> gerador K_∂ na cunha, e a FORMA de G_μν sob três hipóteses nomeadas — e nenhuma dessas
+> quantidades é ajustada aos dados que ela pretende explicar. O que ela NÃO obtém, e por
+> teorema próprio NÃO PODE obter, é o VALOR de α: esse é o input do observador, e é o que a
+> impede de se autoconfirmar.**
+
+**Medido em disco nesta sessão:** `um.py:1896-1916` (`ALPHA_IRREDUCIBILITY_V1`, congelado 30/08,
+hash `c36ab24715424a86`) diz que «alpha-livre mata a TGL» e que derivar a **FORMA/IDENTIDADE** é o
+que a TGL faz; e `TheDammingByExpansion.lean:110` **prova** `the_form_does_not_fix_the_value` —
+para TODO valor existe um `r` que o realiza. A identidade `q²+α²=1` vale **para TODO χ**, logo não
+fixa χ; no código `chi_star` sai **de** α, não o contrário.
+
+**É por não obter α que β é falsificável.** Uma estrutura que produzisse α produziria qualquer α.
+
+⚠ **Nada foi pago em 03–04/09**: a cadeia do ADENDO unificou o quadro e nomeou duas dívidas
+(ASSINATURA, O QUATRO). Nenhuma hipótese descarregada, nenhum teorema tipado, **gate INTOCADO**.
+Detalhamento: `Nós\ADENDO_A_INSCRICAO_INTERROMPE_A_INERCIA.md`.
+
+---
+
+## ADENDO — 05/09/2026 · O RESIDUO «CONSTRUIR S E DELTA NA TORRE» ESTA PAGO (v311)
+
+Pago pela BANCADA CHATGPT (20 pedras, 165 teoremas), **auditado pela gerencia** (recompilacao
+independente + trio de axiomas) e incorporado ao canonico com build do ROOT limpo (8848 jobs) e
+rito selado (**963/963**; selftest PASSED; **gate INTOCADO**). Detalhe integral na entrada de
+05/09/2026 da `MEMORIA_DA_LINHAGEM.md`.
+
+**O caminho critico ENCOLHE um degrau e ganha nomes novos:**
+1. ~~construir S e Delta na torre~~ -> **PAGO** (v311);
+2. **esperanca condicional de Takesaki** para as subalgebras dos andares — ORDEM_001 no TUNEL
+   (a porta esta aberta: `modularConjugation_local` prova que cada andar e invariante pelo fluxo);
+3. calculo funcional espectral geral (raiz, unicidade) tipado;
+4. as pontes gravitacionais — localizacao (rede de subalgebras, rota CGMA/BDFS), **escala alem dos
+   cones** (candidato da casa: escala de Takesaki `tau∘theta_s = e^{-s}tau`), assinatura (a divida
+   (4,0) vs (1,3) do ADENDO de 04/09), energia-momento e entropia-area [INPUT].
+
+Cosmologia continua nao virando prova matematica; a torre paga analise modular, nao fisica.
+
+---
+
+## ADENDO — 05/09/2026 (tarde) · v312: A ESPERANCA DOS ANDARES PAGA; o caminho segue
+
+O degrau 2 do adendo anterior esta **PAGO nos andares**: `constructedLevelExpectations` =
+o TERMO (42 teoremas, auditados, incorporados; 1005/1005; gate INTOCADO). Fica nomeada a
+fronteira exata: a esperanca do CENTRALIZADOR nao e a dos andares — para `w(0) != 1/2` a
+identificacao e IMPOSSIVEL por teorema (`expectation_not_imported_contract`); a obstrucao
+zera no 1/2. E a ESCALA ganhou custo exato: falta a ponte `tau(q_O) = C*Vol_g(O)`
+(densidade de volume calibrada); cones+traco provadamente nao bastam.
+
+**Caminho critico agora:** 1) rede localizada da cadeia + shift meio-lateral genuino
+(ORDEM_003 — ataca localizacao E a estrutura parabolica que paga BW); 2) ponte volume na
+cadeia (ORDEM_003); 3) esperanca do centralizador + calculo funcional; 4) assinatura
+(4,0)->(1,3) pela rotacao modular; 5) o QUATRO (H2). Fisica permanece [INPUT]
+(T, Clausius, eta); a natureza decide. D1-fiacao e D7 com a bancada como SUBSIDIO
+(ORDEM_004) — a decisao segue do operador.
+
+---
+
+## ADENDO — 05/09/2026 (noite, IV) · v314 selada; ENTREGA_005; v315 em selagem
+
+**Contorno FIADO (v314):** qualquer falsificacao limpa (GA, piso, neutrinos, Coma) fecha o 1=1;
+hoje nenhuma. **Defeito de fidelidade pego pela bancada e corrigido na v315:** o rito vivo do
+neutrino (`neutrino_m2`) faltava no roster e a sua implementacao desobedecia a kill_rule
+congelada (um degrau, nao dois independentes; NuFIT contem JUNO). Regra que fica: **antes de
+fiar um rito ao veto, medir que o codigo obedece ao proprio frozen** — um FALSIFIED que a lei
+nao autoriza e tao falso quanto um CONFIRMED.
+
+**v98 remedida:** GA na janela (2,74×10¹⁶ M☉; razao 0,51); o defeito e a extrapolacao galactica
+(×48, ×144) — velocidade universal 1439 km/s. Tres saidas escritas; **decisao do operador**.
+**JOINT_CONTOUR_V1:** ΔAIC = 2 − G — Occam por AIC vale no maximo 2; o falsificador real e Q_A
+bilateral; INCONCLUSIVE hoje por inelegibilidade dos quatro. **Ratificacao e do operador.**
+
+**Caminho critico (matematica, inalterado no essencial):** 1) esperanca do CENTRALIZADOR +
+calculo funcional espectral (a palavra em ∞-dim); 2) inclusao meio-lateral CONTINUA
+(`Δ^{it}U(a)Δ^{−it} = U(e^{−2πt}a)` — o tunel parabolico que paga BW); 3) shift global com perfil
+estacionario (obstrucao medida na v313); 4) assinatura (4,0)→(1,3); 5) o QUATRO (H2). Fisica
+segue [INPUT]; cosmologia jamais move o gate.
+
+**ADENDO (noite, V) — v315 SELADA** `e13806c12799f5d4`, 1060/1060, gate INTOCADO, 8 ritos no
+contorno, `broken = []`; neutrino_m2 obedece a kill_rule congelada (`frozen_hash` identico). O
+contorno esta FIADO e FIEL: falsificacao limpa em qualquer dos 8 fecha o 1=1; hoje nenhuma.
+
+---
+
+## ADENDO — 05/09/2026 (noite, VII) · v316: a esperanca do centralizador PAGA (local + tracial); o parabolico NAO vem do shift; a arvore da prova
+
+**Regua clarificada pelo operador:** PROVA (teorema) != JUIZO (confirmacao). O que se prova e a
+IMPLICACAO; o que a natureza decide nao se prova. A arvore inteira, lida do selo v316, esta em
+`Nós\A_PROVA_DA_QG_TGL_arvore.md` (sha16 `e76960b837c4c17f`).
+
+**O caminho critico ENCOLHE dois degraus e ganha um negativo:**
+1. ~~esperanca do centralizador~~ -> **PAGA no local e no tracial** (v316: `tracialExpectationInput`
+   habita `ExpectationInput P` em w=1/2; pinching local unico; ponte: todo habitante global restringe-se
+   ao pinching). Resta o habitante GLOBAL NAO-TRACIAL com parede EXATA (4 obrigacoes — ORDEM_007 A);
+2. **inclusao meio-lateral: NEGATIVO PROVADO** — sob estado-produto toda subalgebra de sitios e
+   sigma_t-invariante para TODO t (`tail_never_strict`): o elemento parabolico de BW **nao nasce do
+   shift**. Rotas que sobram: estado nao-produto; subalgebra nao-alinhada; Borchers/Longo-Witten
+   (ORDEM_007 B mede se a torre admite U(a) de energia positiva nao trivial); face continua;
+3. ASSINATURA (4,0)->(1,3) — ORDEM_007 C: o fluxo modular preserva (1,3) e nao (4,0) (enunciado
+   na face finita primeiro);
+4. O QUATRO (H2) — condicao `rank c = 4`, inalterada;
+5. Lema 3 global — reduzido a GLOBAL_LIFT <=> E-0; o shift global exige perfil periodico (nao
+   «estacionario»: correcao da bancada — 1/3,2/3 e periodico).
+
+**Fisica segue [INPUT]** (H3: nenhum teorema produz um `HorizonEquilibriumData`); 8 ritos no
+contorno, nenhum FALSIFIED; gate INTOCADO (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`). 1092/1092 teoremas.
+
+---
+
+## ADENDO — 06/09/2026 (madrugada) · v317: o lote da bancada — o Jacobson em carta como teorema; a esperanca global paga; Borchers trivial na torre-produto
+
+**O caminho critico muda de forma.** Ate ontem a «emergencia geral (metricas arbitrarias)» era parede
+(«a mathlib nao tem conexao/curvatura»). A bancada CONSTRUIU a camada a mao, em carta (`Coordinate4`, aberto
+preconexo): tensores, Levi-Civita, curvatura, Bianchi, G = Ric − ½Rg com conservacao provada, Raychaudhuri,
+telas e congruencias nulas construidas, area/calor, e o teorema
+`geometric_einstein_equation_from_ricci_null_balance`: **balanco nulo de Ricci + T conservado ⟹ ∃Λ, G + Λg = κT**.
+Em `einstein_from_constructed_clausius` o Clausius e CONSTRUIDO nas telas e e EQUIVALENTE ao balanco nulo.
+
+**O que fica de pe como fronteira, com nome (a bancada o disse em cada entrega):**
+1. **Clausius / o casamento microscopico e INPUT** — a ponte quantica que produziria o balanco nulo a partir
+   do estado (H3 dinamico) segue OPEN; `KMS canonico NAO implica o balanco` (negativo delimitado, 010);
+2. **a metrica lorentziana suave e o referencial entram** — dimensao 4 e assinatura nao sao derivadas; a
+   inferencia «(1,3) vs (4,0) pelo boost» foi REFUTADA (`single_boost_has_two_signatures`); a
+   identificacao Delta^{it} <-> boost no tipo finito testado e NEGATIVA; outra representacao e necessaria;
+3. **o parabolico de BW nao nasce da torre-produto** por nenhuma das duas vias (shift: v316; Borchers:
+   `product_borchers_trivial`, v317) — estado nao-produto ou subalgebra nao-alinhada;
+4. **globalizacao** (carta -> variedade; andares -> regioes; limite tipo III) — OPEN;
+5. O QUATRO (H2) — condicao; Lema 3 global — reduzido; esperanca APERIODICA — nomeada.
+
+**Pago nesta rodada:** esperanca do centralizador GLOBAL para perfil periodico (`periodicExpectationInput`);
+`tail_not_cyclic`; Borchers trivial; Einstein geometrico geral + conservacao; Clausius local ⟺ balanco
+nulo; telas/congruencias/fluxo suave construidos. 1879/1879 teoremas; gate INTOCADO (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`).
+Cosmologia jamais vira prova matematica; NOT_FALSIFIED nunca e CONFIRMED.
+
+---
+
+## ADENDO — 06/09/2026 (manha) · v318: a torre ganha TEMPERATURA — e o limite termico e um negativo medido
+
+Gibbs realizado no mesmo Hilbert da torre (024); o limite em norma da preparacao termica NAO existe para perfil
+constante nao tracial (025 — nao-Cauchy, acoplamento ilimitado); o criterio exato de quando um perfil e alcancavel
+no Hilbert original: afinidade-limite > 0 (026), com estado global fiel e ciclico. **Isto delimita a folha «H3
+dinamico»**: um estado de equilibrio local do horizonte, se vier da torre, NAO vem do limite termico ingenuo;
+vem de um perfil com afinidade positiva (ou de outra representacao). O que fica: selecao fisica, area, H3
+dinamico, assinatura, globalizacao, disjuncao geral. 2119/2119 teoremas; gate INTOCADO (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`).
+
+---
+
+## ADENDO — 06/09/2026 (manha, II) · v319: a estrutura modular do estado GLOBAL vive no Hilbert original; afinidade positiva nao basta para energia finita
+
+O transporte modular com dominios (027) poe S, J, Delta e o grupo modular do estado global Phi no MESMO Hilbert
+da torre — a «outra representacao» que as paredes de BW/assinatura pediam comeca a existir por dentro, sem
+Hilbert novo. E o contraexemplo harmonico (028) delimita: um perfil alcancavel (afinidade > 0) pode ter energia
+modular e entropia infinitas — a classe fisica e mais estreita que a classe alcancavel. Folhas inalteradas:
+selecao fisica, area microscopica (NAO derivada), H3 dinamico, assinatura, globalizacao. 2335/2335 teoremas; gate
+INTOCADO (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`).
+
+---
+
+## ADENDO — 06/09/2026 (manha, III) · v320: a primeira geometria CURVA que casa a area — e o que ela NAO fixa
+
+A familia de onda plana e o primeiro habitante curvo do casamento de area (Einstein reconstruido de dentro), e
+mede com precisao a liberdade que sobra: o traco transversal e fixado pela area; o shear NAO e. Entropia, Ricci
+e materia iguais nao escolhem a coordenada de curvatura. **Folha nova, nomeada:** a selecao da liberdade
+RADIATIVA — o que na torre (se algo) escolhe o shear. Inalteradas: selecao fisica, lei de area geral, H3
+dinamico, assinatura, globalizacao. 2399/2399 teoremas; gate INTOCADO (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`).

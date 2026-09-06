@@ -1,8 +1,8 @@
 ONE: Absolute
-Presentation of the TGL terminal program demonstrating the conservation of the minimal core of identity as the unifying element of the physical domains in operator algebra: it recovers Einstein as the asymptotic limit, computes the Great Attractor mass and the Coma distance with no parameters tuned to the targets, resolves the Hubble tension by express remission to the published work (nota: Express remission: the resolution of the Hubble tension is demonstrated in TGL's unified paper, published --- The geometric cost of absolute zero: let there be light (Zenodo, DOI 10.5281/zenodo.20563905); this round's Coma rite is an independent replica, not the sole proof.), derives the void floor ($ρ_v/ ρ≥β_TGL$) and confronts it with a pre-registered falsifier (live verdict: NOT_FALSIFIED_POWERED --- never a demonstration), and derives and confronts the neutrino mass with pre-registered falsifiers --- all while auditing a Lean kernel of 798 clean theorems and reproducing live the entire chain of identity under transformation, emitting the final binary verdict according to what faithful execution projects as testimony. The only measured constant that enters is $α$; the only input is the number 1.
+Presentation of the TGL terminal program demonstrating the conservation of the minimal core of identity as the unifying element of the physical domains in operator algebra: it recovers Einstein as the asymptotic limit, computes the Great Attractor mass and the Coma distance with no parameters tuned to the targets, resolves the Hubble tension by express remission to the published work (nota: Express remission: the resolution of the Hubble tension is addressed in TGL's unified paper (body statute: [CONJECTURE] mechanism; declared postdiction; zero fitted parameters), published --- The geometric cost of absolute zero: let there be light (Zenodo, DOI 10.5281/zenodo.20563905); this round's Coma rite is an independent replica, not the sole proof.), derives the void floor ($ρ_v/ ρ≥β_TGL$) and confronts it with a pre-registered falsifier (live verdict: NOT_FALSIFIED_POWERED --- never a demonstration), and derives and confronts the neutrino mass with pre-registered falsifiers --- all while auditing a Lean kernel of 2399 clean theorems and reproducing live the entire chain of identity under transformation, emitting the final binary verdict according to what faithful execution projects as testimony. The only measured constant that enters is $α$; the only input is the number 1.
 Luiz Antonio Rotoli Miguel --- IALD Ltda., Goiânia, GO, Brazil
 ORCID 0009-0005-1114-6106 --- e-mail: rotolimiguel@hotmail.com
-2026-09-01 12:06:08 4pt
+2026-09-06 10:41:53 4pt
 
 What if the unification problem is not about forces, \ but about the identity of a quantum particle?
 
@@ -14,7 +14,7 @@ What this article is --- the binary falsification test. This article is emitted 
 
 The proposal. Luminodynamic Gravitation Theory (TGL) starts from a single postulate --- preserved identity, $ω(I)=1$: the One --- and asserts that every observable inscription pays a universal boundary cost. Given the axiom of the minimal self-conjugate boundary ($x=1-x$), that cost is derived, not fitted: the minimal crossing entropy is the Half-Nat ($S_∂=1/2$ nat), the minimal boundary volume is $√ e$, and the theory's coupling is $β_TGL=α√ e$, with the fine-structure constant $α$ as the only measured input.
 
-The method (form $=$ content). This article is emitted by the very code that runs the computations: every printed number is recomputed live ($β_TGL=1.20313004×10^-2$ in this run; never literal); 798 supporting theorems are verified in a Lean 4 kernel with clean axioms; and the predictions are confronted with public data (DESI, SDSS, Planck, ACT, KiDS) through pre-registered fail-closed rites, whose verdicts --- including the refusals --- are emitted by the machine, never by declaration. The chain is $ω(I)=1→ S_∂=1/2→√ e→β_TGL→ M_GA$; the electromagnetic face is ontological ($α$ is observed, not derived --- and deriving it $α$-free from the bulk would falsify the theory).
+The method (form $=$ content). This article is emitted by the very code that runs the computations: every printed number is recomputed live ($β_TGL=1.20313004×10^-2$ in this run; never literal); 2399 supporting theorems are verified in a Lean 4 kernel with clean axioms; and the predictions are confronted with public data (DESI, SDSS, Planck, ACT, KiDS) through pre-registered fail-closed rites, whose verdicts --- including the refusals --- are emitted by the machine, never by declaration. The chain is $ω(I)=1→ S_∂=1/2→√ e→β_TGL→ M_GA$; the electromagnetic face is ontological ($α$ is observed, not derived --- and deriving it $α$-free from the bulk would falsify the theory).
 
 The delivery. The gravitational face computes the Great Attractor mass with no parameters fitted to the target, using only the basin's geometric extent ($R_struct$: literature; and, when present in the cache, the Cosmicflows-4 position catalogue, velocities ignored): $1.99$--$2.74×10^16\,M_sol$, within the pre-registered cosmological window, and across a scan of $300$ pre-registered combinations (cone, shell, percentile, centre) $M_GA$ stays in the band in $100\%$ of cases. The primary evidence is the convergence of $β_TGL$ from independent domains (BBN centred exactly on the theory as tabulated --- an entry now RECLASSIFIED: circular by construction, and de-circularised it does not discriminate), and the falsifiable programme stays armed: void floor, dephasing exponent $n=-2$, law $Γ_ω ω^2$.
 
@@ -50,7 +50,7 @@ Label & Meaning
 
 == Prologue --- The Ladder ==
 
-This article is a ladder, and it climbs in a single motion: from the OBJECT to the RELATION; from the relation to the CRITERION OF IDENTITY; from the criterion to the OBSERVER; from the observer to the NUCLEUS ($1=1=TRUE$); and from the nucleus to the Absolute that names the title (the Great Attractor, which these pages measure, is the direct cosmological application of the concept --- the step where the Absolute inscribes itself as mass). Part A delivers the auditable scientific core under the non-negotiable ruler (the number corrects the phrase). Part B names the ontology of the One --- $ω(I)=1$, the single postulate. Part C is the citable register of the formalization: 240 stones in a Lean kernel, emitted by the artifact itself in sealed rounds; the final stations of the climb are the cornerstone ($1=0=FALSE$; $1=1=TRUE$ --- the inscription of the cost; §225, §235, §237), the geometric cost of absolute zero (§232), and the apex that invokes A Ponte (§236). Part D measures the shadow and keeps the falsifier alive. Whoever reaches the top finds no new thesis: they find the same $1=1$ of the first step, now with the entire cost of its preservation inscribed and audited. The gate does not move by discourse --- and that is precisely why the discourse can climb. [House vocabulary, for the outside reader: a run/rite is one full execution of this program; the bench is its measured check suite; the seal is the hash-anchored record a run emits; the gate is the fail-closed flag ladder that only construction can flip; a wave (onda) is one dated work session; a razonete is its little ledger.]
+This article is a ladder, and it climbs in a single motion: from the OBJECT to the RELATION; from the relation to the CRITERION OF IDENTITY; from the criterion to the OBSERVER; from the observer to the NUCLEUS ($1=1=TRUE$); and from the nucleus to the Absolute that names the title (the Great Attractor, which these pages measure, is the direct cosmological application of the concept --- the step where the Absolute inscribes itself as mass). Part A delivers the auditable scientific core under the non-negotiable ruler (the number corrects the phrase). Part B names the ontology of the One --- $ω(I)=1$, the single postulate. Part C is the citable register of the formalization: 440 stones in a Lean kernel, emitted by the artifact itself in sealed rounds; the final stations of the climb are the cornerstone ($1=0=FALSE$; $1=1=TRUE$ --- the inscription of the cost; §225, §235, §237), the geometric cost of absolute zero (§232), and the apex that invokes A Ponte (§236). Part D measures the shadow and keeps the falsifier alive. Whoever reaches the top finds no new thesis: they find the same $1=1$ of the first step, now with the entire cost of its preservation inscribed and audited. The gate does not move by discourse --- and that is precisely why the discourse can climb. [House vocabulary, for the outside reader: a run/rite is one full execution of this program; the bench is its measured check suite; the seal is the hash-anchored record a run emits; the gate is the fail-closed flag ladder that only construction can flip; a wave (onda) is one dated work session; a razonete is its little ledger.]
 
 Part A --- Auditable scientific core
 
@@ -110,7 +110,7 @@ Why deriving $α$ from the bulk would falsify TGL [the deep, holographic reason]
 
 that is, $α$ is the luminous transmission through the modular boundary and $q$ the reflection. This is why $α$ belongs to the QED sector --- and this is not a defect of the theory; it is its structure. If someone derived $α$ from first principles without using the boundary/bulk structure (a purely bulk computation), that would imply that the boundary/bulk separation is illusory or redundant: the boundary would cease to be genuinely irreducible as projecting structure, and the observer would be removed from TGL. $α$ is the fissure through which the bulk reads the boundary --- it is the boundary measuring itself. Deriving it without it is a structural contradiction.
 
-Hence $α$-free is closed by refutation (reductio), not open. Within TGL, deriving $α$ from the bulk is structurally excluded --- there is nothing to find. It is a theorem (conditional on the type-$III_1$ boundary axiom), not a gap nor a pending item: what remains is only the falsification challenge. Falsifiable (an $α$-free derivation refutes it), not confirmable (its absence does not prove it). $α$ is the measure observed from within --- it requires the observer --- and it is the ontological foundation of TGL. It is not the limit of the thesis; it is its closure.
+Hence $α$-free is closed by refutation (reductio), not open. Within TGL, deriving the value of $α$ through scale-invariant access is structurally excluded --- there is no value to find without measurement (the form, TGL itself derives: $1=q^2+α^2$). The guard is a kernel theorem --- actual hypothesis: scale-invariant access (the_compression_is_not_identifiable), not the $III_1$ axiom ---, and the irreducibility of the value is an armed principle, not a gap nor a pending item: what remains is only the falsification challenge. Falsifiable (an $α$-free derivation refutes it), not confirmable (its absence does not prove it). $α$ is the measure observed from within --- it requires the observer --- and it is the ontological foundation of TGL. It is not the limit of the thesis; it is its closure.
 
 And the criterion is FROZEN (v301): ALPHA_IRREDUCIBILITY_V1, hash c36ab24715424a86, live verdict TGL_ALPHA_IRREDUCIBILITY_ARMED_NO_CANDIDATE. CONFIRMED, PROVED and NOT_FALSIFIED are forbidden there forever: there is no test this house can run --- the criterion awaits an act of a third party, and the honest state is ARMED. The guard is a kernel theorem (alpha_free_inputs_give_alpha_free_output): no derivation of $α$ counts if any input already contains $α$.
 
@@ -267,7 +267,7 @@ The structural finding: the modular clock's base $e$ cancels exactly the $e$ tha
 
 Status [the ruler]. It makes sense as a canonical form --- the same radical grammar the modules already use. But it does not close the $α$-free value: the dissipative and spectral clocks carry $β_TGL=α√ e$, so $C_3=β_TGL^2/e=α^2$ is the identity $β_TGL^2=α^2 e$ re-read through the three clocks --- $α$ enters via $β_TGL$. The research question (the wall): is there a canonical functional $C_3= F[σ_t,T_t,D_β]$ built only from the three clocks, without $α$, with $C_3=α^2≈5.3251×10^-5$? It is the same debt as the polarization-$χ$ wall. Verdict: THREE_CLOCK_RADICAL_FORM_FORMULATED, ALPHA_VALUE_QED_CHALLENGE.
 
-The right-angle projection and the mirror operation [ALPHA-FREE CANDIDATE; MIRROR_FUNCTION_D_OPEN]
+The right-angle projection and the mirror operation [HONEST NEGATIVE --- NOT A CANDIDATE; MIRROR_FUNCTION_D_OPEN]
 
 An $α$-free route: the input is not $α$, nor $Z_0$, nor $β_TGL$, nor $q_ QED$ --- it is only the right angle $Θ_⊥=π/2$. The two-face crossing (inverse parity) is $2Θ_⊥=π$; the three-clock factor is an intensity (quadratic in the angle), $C_3,⊥=e^-(2Θ_⊥)^2=e^-π^2$, and the luminodynamic radical gives the bare projection:
 
@@ -509,9 +509,6 @@ The form $(1+z_*)^β_TGL$ is exactly equivalent to $dln H_0/dN=β_TGL$ with $N=l
 
 With $z_CMB=0.02445±0.00024$ (member median; frame declared), the prediction is $D_L^TGL=101.90±1.02_stat±0.98_sys$ Mpc, against the no-dephasing Planck control $D_L^ΛCDM=110.85$ Mpc and the inverse-FP requirement $111.8±1.8$ Mpc (Scolnic et al. 2025, ApJL 979 L9).
 
--- Confrontation (public referee; honesty by provenance). --
-The reference distance ($98.5±2.2$ Mpc, HST-ladder SNe Ia) lives only in the reveal file --- the source has zero occurrences of the value, grep-audited --- and the prediction is hashed before reading it. Result: $z_TGL=1.30σ$ against $z_ΛCDM=5.61σ$ for the no-dephasing control. Verdict: DEPHASING_ACCOUNTS_FOR_COMA_RESIDUAL.
-
 -- Honest negatives (the number corrects the sentence). --
 The [REAL] layer ($H^2_TGL=H^2_ΛCDM[1+β_TGL|1+w|]$) moves the distance by only $-0.19\%$ and does not explain Coma; $β_TGL$, $2β_TGL$, $3β_TGL$ as redshift fractions fail at more than $3σ$; the coincidence $√β_TGL≈θ_M≈11\%$ with the extreme formulation is recorded without a mechanism (barred from the engine). The working layer is the flow law, labelled CONJECTURE --- and Coma alone cannot separate ``modular leakage'' from ``rescaled local $H_0$'': it falsifies the pair (Planck + no dephasing); it does not prove TGL.
 
@@ -520,6 +517,8 @@ The redshift-free counter-test ($M→ R=M/(2β_TGL^2 c^2/4π G)→ D_A=R/tanθ$)
 
 -- Universality: two crises, one $β_TGL$. --
 The counterpoint that closes the section is the same metric on both crisis phenomena: the Great Attractor mass comes from $M=2β_TGL^2(c^2/4π G)R_struct$ and lands in the cosmological window; the Coma distance comes from $H_0^local=H_0^CMB(1+z_*)^β_TGL$ and lands in the band of the direct measurements --- the same sealed $β_TGL=α√ e$, with no parameter fitted to either, in the same auditable file. The mass crisis (1933) and the distance crisis (2025) were born under the same sky and are answered by the same boundary toll: where the standard model needs ad hoc invisible matter and impossible peculiar velocities, TGL charges a single constant --- two crises, one inscription.
+
+Erratum (v183, carried to the English body in v311; the Portuguese body has carried it since v183): the Great Attractor hit is a scale coincidence, not evidence --- the mass form was retired as a source law by the v98 audit (GA_MASS_FORM_RETIRED); the window is reported as contour, and the live falsifiers are the void floor and the dephasing law. One crisis remains addressed; the other is not.
 
 The distance does not come from blindly converted redshift; it comes from the same law in both directions --- and from the $β_TGL$ toll the standard ruler never charges.
 
@@ -754,7 +753,7 @@ The technical bridge (the thermal anchor). The identity $α= sech(χ/2)=2√p_lo
 
 Part C --- The formalization of the global lift in kernel by Lean term-coinage: the 113 stones of the v43--v161 arc, and the later waves
 
-This chapter (§120--§237) is the citable register of the formalization arc of the single open theorem (GLOBAL_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ content): stone hashes are computed live from the materialized kernel and the counters come from this run's audit. Across one hundred and thirteen stones (v43--v161) the audited kernel went from 53 to 798 theorems with axioms restricted to $\propext,Classical.choice,Quot.sound\$, zero sorry, with the fail-closed self-test embedded. Nothing here claims ``we proved quantum gravity'': residues are named one by one; honest negatives are results. (The § numbering is the programme's run numbering: §196 and §198--§200 were runs covered as stones, with no subsection of their own.)
+This chapter (§120--§237) is the citable register of the formalization arc of the single open theorem (GLOBAL_LIFT), emitted by the canonical artifact itself at every sealed run (form $=$ content): stone hashes are computed live from the materialized kernel and the counters come from this run's audit. Across one hundred and thirteen stones (v43--v161) the audited kernel went from 53 to 2399 theorems with axioms restricted to $\propext,Classical.choice,Quot.sound\$, zero sorry, with the fail-closed self-test embedded. Nothing here claims ``we proved quantum gravity'': residues are named one by one; honest negatives are results. (The § numbering is the programme's run numbering: §196 and §198--§200 were runs covered as stones, with no subsection of their own.)
 
 The emergence ladder: the 15 flags of the fail-closed gate (6 formal $+$ 5 physics $+$ 4 experiment) and this run's verdict. Each box flips only by construction (Lean term, clean axioms) or by a pre-registered powered verdict.
 
@@ -1009,291 +1008,691 @@ The Bench Declaration (v86, 2026-07-16) [OPERATOR'S DECLARATION, dual status ---
 == Seals and hashes (live hashes from this run; history $=$ provenance) ==
 
 @lllll@ v & Stone & sha256/16 (live) & Run & Seal \
-v310 & TheAlphaAndTheOmega & 3ed12b22f7b1bfd3 & 798/798 & 01/09 12:06:08
+v320 & PlaneWaveSolder & 46257e161441ca5e & 2399/2399 & 06/09 10:41:53
 
-v309 & TheImportedExpectation & 75606de2a904ed65 & 798/798 & 01/09 12:06:08
+v320 & PlaneWaveReconstructionControls & 720b3cf1dc3ee450 & 2399/2399 & 06/09 10:41:53
 
-v308 & TheOathOnTheTower & ef0634a160a9d22e & 798/798 & 01/09 12:06:08
+v320 & PlaneWaveMatter & 396197f6bdd0b1f4 & 2399/2399 & 06/09 10:41:53
 
-v307 & TheDischargedOath & 7a2747cb8babf73f & 798/798 & 01/09 12:06:08
+v320 & PlaneWaveEntropyMatching & 10498567256c87c8 & 2399/2399 & 06/09 10:41:53
 
-v306 & TheDammingByExpansion & f139c3e660a93d79 & 798/798 & 01/09 12:06:08
+v320 & PlaneWaveCurvature & 10ed4df63f3781cf & 2399/2399 & 06/09 10:41:53
 
-v297 & TheVerbalCoupling & 912bf222f07256b1 & 798/798 & 01/09 12:06:08
+v320 & PlaneWaveConnection & fac5b7de42cd0e29 & 2399/2399 & 06/09 10:41:53
 
-v295 & TheMarkIsNotATypeMark & b36e35176fb81c70 & 798/798 & 01/09 12:06:08
+v319 & UniformQuadraticResponse & e6da974d6af9878a & 2399/2399 & 06/09 10:41:53
 
-v294 & TheNameIsTheGeneratingGroup & 2dedbe4a7e25bcd9 & 798/798 & 01/09 12:06:08
+v319 & SummableStateThermodynamics & 634ee1e34ca39d75 & 2399/2399 & 06/09 10:41:53
 
-v292 & TheNameAndItsReferent & 214260a5ad41d02a & 798/798 & 01/09 12:06:08
+v319 & SummableProfileCurve & f28ea6a1d59f5a53 & 2399/2399 & 06/09 10:41:53
 
-v284 & TheAtermation & 7cb9394d87132306 & 798/798 & 01/09 12:06:08
+v319 & SummableGravityControls & 06e9fe6d45db5fec & 2399/2399 & 06/09 10:41:53
 
-v282 & TheClassicalImport & 6c614681982a1c40 & 798/798 & 01/09 12:06:08
+v319 & SummableGravityBridge & 123e4aa79e59a727 & 2399/2399 & 06/09 10:41:53
 
-v281 & TheWideNet & ef26e912a6ed418a & 798/798 & 01/09 12:06:08
+v319 & RelativeEntropyProductBounds & 5c9e974ff0b55533 & 2399/2399 & 06/09 10:41:53
 
-v280 & TheCornerOfThePackage & 0ad9fc2d4c6b82cf & 798/798 & 01/09 12:06:08
+v319 & ProfileEntropyLimits & 6bc1aa79f5436582 & 2399/2399 & 06/09 10:41:53
 
-v279 & TheDebtWithoutJ & e4b59f6ab9267362 & 798/798 & 01/09 12:06:08
+v319 & HarmonicEnergyObstruction & 52013ac1958a7964 & 2399/2399 & 06/09 10:41:53
 
-v276 & TheModularRelations & 2cd411ab76d72956 & 798/798 & 01/09 12:06:08
+v319 & UnitaryPartialTransport & b107efb63dafc990 & 2399/2399 & 06/09 10:41:53
 
-v275 & TheMatrixAndTheModulator & c39e4dcba8eb2354 & 798/798 & 01/09 12:06:08
+v319 & ProfileTransportControls & d97a140bf76842f6 & 2399/2399 & 06/09 10:41:53
 
-v274 & TheImportedCommutation & ea339fe189ea40bf & 798/798 & 01/09 12:06:08
+v319 & ProfileTomitaTransport & 6b22d32d7be4a0b5 & 2399/2399 & 06/09 10:41:53
 
-v273 & TheImageAndTheReading & 839b4abfaab83237 & 798/798 & 01/09 12:06:08
+v319 & ProfileModularTransport & 5459c12c956ae827 & 2399/2399 & 06/09 10:41:53
 
-v272 & TheGravitonIsTheConjugatedPhase & 6f5f04ab96dd16f8 & 798/798 & 01/09 12:06:08
+v319 & ProfileGNSUnitary & 9589c7c663bdb9be & 2399/2399 & 06/09 10:41:53
 
-v271 & TheAntiunitaryInhabitant & 98772d9fd38a4af6 & 798/798 & 01/09 12:06:08
+v319 & ProfileGNSPre & d566c9df87fbb86d & 2399/2399 & 06/09 10:41:53
 
-v271 & TheFoldThroughJ & d54e7fd1c6336a76 & 798/798 & 01/09 12:06:08
+v319 & ProfileFlowTransport & 0f9e78f0af0a1c94 & 2399/2399 & 06/09 10:41:53
 
-v270 & TheAtomOfIdentity & 916056ff895447f5 & 798/798 & 01/09 12:06:08
+v319 & ProfileFactorTransport & 0f57072103057c42 & 2399/2399 & 06/09 10:41:53
 
-v262 & TheTwoPolesHaveContent & 1e17af908c1d6025 & 798/798 & 01/09 12:06:08
+v318 & RelativeProfilePreparation & c3a87fb787855473 & 2399/2399 & 06/09 10:41:53
 
-v261 & TheNetFiresTheCorner & b35d65a50b52d92f & 798/798 & 01/09 12:06:08
+v318 & ProfileOverlapFactorization & 2f82d1ff144dd126 & 2399/2399 & 06/09 10:41:53
 
-v259 & ThePsionReducesToTheCurrent & fc585ee1c77dded5 & 798/798 & 01/09 12:06:08
+v318 & ProfileAffinityBound & ab11815e048629f6 & 2399/2399 & 06/09 10:41:53
 
-v258 & TheCurrentConnectsTheCorners & ed213f28d250b874 & 798/798 & 01/09 12:06:08
+v318 & GlobalProfileState & 1ebad0292f612b8d & 2399/2399 & 06/09 10:41:53
 
-v257 & TheScalarCorner & c2aaadeae21a5122 & 798/798 & 01/09 12:06:08
+v318 & GlobalProfileFaithfulness & 8adc7e88f412a3b7 & 2399/2399 & 06/09 10:41:53
 
-v256 & TheWeightIsNotTheRank & 83f9c8bca5e13391 & 798/798 & 01/09 12:06:08
+v318 & GlobalProfileControls & 444b2453c5ed2adc & 2399/2399 & 06/09 10:41:53
 
-v255 & TheNonMinimalCoupling & 03576ea2958ffc4c & 798/798 & 01/09 12:06:08
+v318 & AffinityVectorCriterion & e639455ca310e010 & 2399/2399 & 06/09 10:41:53
 
-v254 & TheIntersectionOfCommutants & 7e4db767b978ddb8 & 798/798 & 01/09 12:06:08
+v318 & AffinityProducts & aca7047c57cb8ab9 & 2399/2399 & 06/09 10:41:53
 
-v253 & TheImportedEquilibrium & 6ce0e9c29fd92670 & 798/798 & 01/09 12:06:08
+v318 & TowerThermalProfile & a9e4971f9f3e6283 & 2399/2399 & 06/09 10:41:53
 
-v252 & TheNonLinearCausality & 27ff96e7969f25ef & 798/798 & 01/09 12:06:08
+v318 & TowerThermalOverlap & 3b1c9b391d585d61 & 2399/2399 & 06/09 10:41:53
 
-v251 & TheConditionalCertificate & 5d43b0c538354e22 & 798/798 & 01/09 12:06:08
+v318 & ThermalLimitControls & 0124283356ef9120 & 2399/2399 & 06/09 10:41:53
 
-v251 & TheEntanglementNotConjunction & a4b8cc089c86e19a & 798/798 & 01/09 12:06:08
+v318 & ThermalCutoffResponse & c82562e512acf62d & 2399/2399 & 06/09 10:41:53
 
-v250 & TheCommutationAtTheFloor & 3c3b6fb2a2347030 & 798/798 & 01/09 12:06:08
+v318 & GibbsProductVariance & 18d3b732f1069c94 & 2399/2399 & 06/09 10:41:53
 
-v249 & TheIsometryOnWH & 0c4c8b35d3c7ad88 & 798/798 & 01/09 12:06:08
+v318 & GibbsProductLaw & 201ab5d28dfb4c98 & 2399/2399 & 06/09 10:41:53
 
-v249 & TheCarrierBridge & 173ffa020254512f & 798/798 & 01/09 12:06:08
+v318 & GibbsAffinity & df6a1755b431c800 & 2399/2399 & 06/09 10:41:53
 
-v248 & TheQuestionAndTheRecognition & 67d965c42c01aed0 & 798/798 & 01/09 12:06:08
+v318 & TowerGibbsPerturbation & 715270b381362fff & 2399/2399 & 06/09 10:41:53
 
-v247 & TheTGLPair & 4d17eeb7e940a7ab & 798/798 & 01/09 12:06:08
+v318 & QuadraticGibbsCurve & 7f0ac98561719a4c & 2399/2399 & 06/09 10:41:53
 
-v246 & TheDensityIsBell & 9247b9f468357280 & 798/798 & 01/09 12:06:08
+v318 & GibbsVarianceResponse & f4d0ae5eeb531526 & 2399/2399 & 06/09 10:41:53
 
-v246 & TheIdentityOfIdentity & 5353469e1c4d0bae & 798/798 & 01/09 12:06:08
+v318 & GibbsTilt & 0ef5daea88f03832 & 2399/2399 & 06/09 10:41:53
 
-v245 & TheConverseClauseReduced & 04c30acfc2ea561d & 798/798 & 01/09 12:06:08
+v318 & GibbsMatterBridge & cb0d25363d8e6c2c & 2399/2399 & 06/09 10:41:53
 
-v244 & TheConjugationOfOperators & 17bc959ae14d1b21 & 798/798 & 01/09 12:06:08
+v318 & GibbsGravityControls & 7ae7a7fb82df2973 & 2399/2399 & 06/09 10:41:53
 
-v243 & TheWitnessLinearOnWH & 0c1b0883f16eaec6 & 798/798 & 01/09 12:06:08
+v318 & CanonicalModularStationarity & c90d705932ede27b & 2399/2399 & 06/09 10:41:53
 
-v242 & TheConjugationMapsCommutants & 0fd2461d9db06683 & 798/798 & 01/09 12:06:08
+v317 & ScalarStressConservation & 20160941dacf802d & 2399/2399 & 06/09 10:41:53
 
-v242 & TheDensityIsTransport & a59cd43d50e934cb & 798/798 & 01/09 12:06:08
+v317 & DirectionalUnitaryFamily & b836a4da8a3c921a & 2399/2399 & 06/09 10:41:53
 
-v241 & TheBoundaryDuality & 311e0e8b54adf8de & 798/798 & 01/09 12:06:08
+v317 & CovectorStressCalculus & fedb5ad4f5aed68a & 2399/2399 & 06/09 10:41:53
 
-v240 & TheWitnessOnTheBoundary & 30f2a06dcfa17528 & 798/798 & 01/09 12:06:08
+v317 & CoherentScalarStress & 77836a308409ab67 & 2399/2399 & 06/09 10:41:53
 
-v240 & TheTopologicalFace & 23e283f43c36dfa6 & 798/798 & 01/09 12:06:08
+v317 & CoherentMatterControls & 0aeb327642c2a176 & 2399/2399 & 06/09 10:41:53
 
-v239 & TheProfileWitnessLinear & 93efe3dab69a85f4 & 798/798 & 01/09 12:06:08
+v317 & CoherentHeatMatching & ebf755fb4b29560d & 2399/2399 & 06/09 10:41:53
 
-v239 & TheLivingWordClosure & 40eb074dc85a7650 & 798/798 & 01/09 12:06:08
+v317 & CoherentEinsteinBridge & 2c50fd4fb0175606 & 2399/2399 & 06/09 10:41:53
 
-v238 & TheColimitIsometry & e78cfb211b63084a & 798/798 & 01/09 12:06:08
+v317 & UnitaryResponseControls & 447b94bf08061a99 & 2399/2399 & 06/09 10:41:53
 
-v237 & TheColimitDuality & 04831b06f0e8bf54 & 798/798 & 01/09 12:06:08
+v317 & UnitaryMarginalDynamics & 787d6131dc31cc6a & 2399/2399 & 06/09 10:41:53
 
-v236 & TheFoldIsNotADistance & 45bb4c7c82a9e533 & 798/798 & 01/09 12:06:08
+v317 & UnitaryEntropyResponse & 136915bb5a1bf522 & 2399/2399 & 06/09 10:41:53
 
-v235 & TheProfileDuality & 622c8e5fa8bbf2dd & 798/798 & 01/09 12:06:08
+v317 & UnitaryClausiusBridge & e96cedf4e5493d13 & 2399/2399 & 06/09 10:41:53
 
-v234 & TheProfileIsometry & 43f29c793c8144dd & 798/798 & 01/09 12:06:08
+v317 & TwoLevelSchrodinger & b8d2f0351cae5223 & 2399/2399 & 06/09 10:41:53
 
-v233 & TheExoneratedDemon & 5c645690b54c529b & 798/798 & 01/09 12:06:08
+v317 & HermitianTwoLevelFlow & 5786ffecfca87987 & 2399/2399 & 06/09 10:41:53
 
-v232 & TheTelescopingProfile & 5dd73c3878a129ba & 798/798 & 01/09 12:06:08
+v317 & CorrelatedUnitaryState & 6802f01cb85cae60 & 2399/2399 & 06/09 10:41:53
 
-v231 & TheProfileConjugation & 595bf3fa944579af & 798/798 & 01/09 12:06:08
+v317 & RelativeEntropyGravityControls & beb2546e00d97e4c & 2399/2399 & 06/09 10:41:53
 
-v230 & TheTowerWitnessLinear & 2a81a78bce7b87ed & 798/798 & 01/09 12:06:08
+v317 & RelativeEntropyFisherLimit & dd40a848022753f1 & 2399/2399 & 06/09 10:41:53
 
-v229 & TheTowerWitness & 5135e6dd9bb98314 & 798/798 & 01/09 12:06:08
+v317 & QuadraticStateResponse & ddd80e0d4322a0df & 2399/2399 & 06/09 10:41:53
 
-v228 & TheUnsolicitedUnitary & 29aba04e578b1921 & 798/798 & 01/09 12:06:08
+v317 & MicroscopicEinsteinBridge & 4186f6aa6cac28da & 2399/2399 & 06/09 10:41:53
 
-v227 & TheTowerConjugation & ab31bd5e939dceba & 798/798 & 01/09 12:06:08
+v317 & MicroscopicClausiusBridge & 6094cdb81b56cd7c & 2399/2399 & 06/09 10:41:53
 
-v226 & TheSupersaturation & 55d5b5668153f5a0 & 798/798 & 01/09 12:06:08
+v317 & DiagonalStateCurve & 3718f20b8e3c20a6 & 2399/2399 & 06/09 10:41:53
 
-v225 & TheCompletionExtension & fd5701dbd31950dc & 798/798 & 01/09 12:06:08
+v317 & DiagonalRelativeEntropy & 02b20499659b5270 & 2399/2399 & 06/09 10:41:53
 
-v224 & TheTowerInnerProduct & bdaac2f44fdbc3cd & 798/798 & 01/09 12:06:08
+v317 & ScreenClausiusCoefficient & b5418548f2ac69d5 & 2399/2399 & 06/09 10:41:53
 
-v223 & TheAccuser & c485430a58323ff3 & 798/798 & 01/09 12:06:08
+v317 & PastContinuousExtension & 508a762c4d975221 & 2399/2399 & 06/09 10:41:53
 
-v221 & TheContourOfTruth & ce6cd6d2cb1cf0cb & 798/798 & 01/09 12:06:08
+v317 & EquilibriumAreaExpansion & e670ae6fba4e8f8a & 2399/2399 & 06/09 10:41:53
 
-v220 & TheDeadChannel & d9c2eb9d67cceaf5 & 798/798 & 01/09 12:06:08
+v317 & ConstructedHorizonPencil & 84a5ad14883d24c5 & 2399/2399 & 06/09 10:41:53
 
-v219 & TheOriginOfTheVibration & e5a7f11f79b5af73 & 798/798 & 01/09 12:06:08
+v317 & ConstructedHeatPrimitive & 3403ff4c3a890914 & 2399/2399 & 06/09 10:41:53
 
-v218 & TheGeometricCostOfAbsoluteZero & 299ef10c96770aac & 798/798 & 01/09 12:06:08
+v317 & ConstructedEinsteinReconstruction & 32c90b78d290bbda & 2399/2399 & 06/09 10:41:53
 
-v217 & TheCostIsDerived & bddc44bdca6b16d4 & 798/798 & 01/09 12:06:08
+v317 & ConstructedClausiusControls & ea7c02fb94d1f10a & 2399/2399 & 06/09 10:41:53
 
-v216 & TheJudgedThing & 3b97d4c5aae4f891 & 798/798 & 01/09 12:06:08
+v317 & ShootingJetTransfer & f7dfa249af25e864 & 2399/2399 & 06/09 10:41:53
 
-v216 & TheIALDInTheTowerActII & 217ef46de0bb7665 & 798/798 & 01/09 12:06:08
+v317 & PrescribedCovariantJet & 70c9f069ae181895 & 2399/2399 & 06/09 10:41:53
 
-v215 & TheLegibility & dc76845ca0c9a288 & 798/798 & 01/09 12:06:08
+v317 & NullSeedWithJet & 02e0f615d9748984 & 2399/2399 & 06/09 10:41:53
 
-v214 & TheTrueWitness & 863bdfbe96eaa989 & 798/798 & 01/09 12:06:08
+v317 & NullJetAlgebra & 591d2b1693b345c4 & 2399/2399 & 06/09 10:41:53
 
-v213 & TheIALDInTheTower & 30cd48f648b2fb82 & 798/798 & 01/09 12:06:08
+v317 & EquilibriumScreenIntegration & 04821ca36872c8bb & 2399/2399 & 06/09 10:41:53
 
-v212 & TheCrownedCascade & 04a243cbe02b5e26 & 798/798 & 01/09 12:06:08
+v317 & EquilibriumNullCongruence & 0c8c7dfb164d012a & 2399/2399 & 06/09 10:41:53
 
-v211 & TheFullBirkhoff & 7970d3fe8762fee7 & 798/798 & 01/09 12:06:08
+v317 & EquilibriumCongruenceControls & d377a134ab3ae157 & 2399/2399 & 06/09 10:41:53
 
-v210 & TheCoordinateBridge & 3450d010d65c4210 & 798/798 & 01/09 12:06:08
+v317 & TransverseInitialData & b42047ad7f12ac75 & 2399/2399 & 06/09 10:41:53
 
-v208 & TheSchwarzschildUniqueness & 5e959f1288ee6d79 & 798/798 & 01/09 12:06:08
+v317 & ShootingLocalInverse & 724f481f92a2051f & 2399/2399 & 06/09 10:41:53
 
-v208 & TheCornerEmbedding & b8a602f7294ab58a & 798/798 & 01/09 12:06:08
+v317 & NullCongruenceField & 7380fb5f7734a480 & 2399/2399 & 06/09 10:41:53
 
-v207 & ThePhysicalHorizon & 91bcfa7fe8077ae6 & 798/798 & 01/09 12:06:08
+v317 & NullCongruenceControls & faf1776a0f1421f8 & 2399/2399 & 06/09 10:41:53
 
-v207 & TheHorizonRate & 0638b438d53d6c6e & 798/798 & 01/09 12:06:08
+v317 & GeodesicShooting & 97c154b1a22b26b1 & 2399/2399 & 06/09 10:41:53
 
-v207 & TheAnchorFour & af35641bf520ba34 & 798/798 & 01/09 12:06:08
+v317 & ConstructedNullCongruence & 02e35fc0b9c100cd & 2399/2399 & 06/09 10:41:53
 
-v207 & TheTwoFunctionSolder & f1378886dad2380c & 798/798 & 01/09 12:06:08
+v317 & CongruenceScreenIntegration & dd4aa5c4913f9e27 & 2399/2399 & 06/09 10:41:53
 
-v204 & TheTower & 836d39ce92205794 & 798/798 & 01/09 12:06:08
+v317 & SmoothGeodesicFlow & 21374c7627926c49 & 2399/2399 & 06/09 10:41:53
 
-v203 & FrontierCertificate & 1015e2fb8f4e8ebb & 798/798 & 01/09 12:06:08
+v317 & SmoothFlowControls & ab8716093ff62c3e & 2399/2399 & 06/09 10:41:53
 
-v202 & TheBireference & 899b1b07df5416ed & 798/798 & 01/09 12:06:08
+v317 & FlowTimePropagation & a94614c8793c243f & 2399/2399 & 06/09 10:41:53
 
-v199 & TheLightInterface & 6d1e1567a4cc5b05 & 798/798 & 01/09 12:06:08
+v317 & FlowSmoothGerm & 77fc61a43fe30568 & 2399/2399 & 06/09 10:41:53
 
-v198 & ThePermanence & 27a3bc9bd4b6434d & 798/798 & 01/09 12:06:08
+v317 & FlowRegularityInduction & bf65cd5fd224d083 & 2399/2399 & 06/09 10:41:53
 
-v197 & TheCoFoundation & 0af9b4a0cde44a8f & 798/798 & 01/09 12:06:08
+v317 & FlowGermUniqueness & b91fb095080e212b & 2399/2399 & 06/09 10:41:53
 
-v196 & TheCascadeOfObservers & 2792ab10181d2883 & 798/798 & 01/09 12:06:08
+v317 & VariationalFlow & 061b6d105f0792ba & 2399/2399 & 06/09 10:41:53
 
-v195 & TheObserverReadsTheAngle & c764e90722306f98 & 798/798 & 01/09 12:06:08
+v317 & GeodesicInitialRegularity & 0884dbaac718e00b & 2399/2399 & 06/09 10:41:53
 
-v194 & TheAngleIsTheProjection & 9800cc0728259e08 & 798/798 & 01/09 12:06:08
+v317 & FlowLinearizationError & 2b919351f54f4a62 & 2399/2399 & 06/09 10:41:53
 
-v194 & TheFalseHasNoGeometry & 516318d178f0a6e9 & 798/798 & 01/09 12:06:08
+v317 & FlowDifferentiabilityControls & c79dc1df3428c4ee & 2399/2399 & 06/09 10:41:53
 
-v193 & TheHorizonInvariance & a2d375c815150656 & 798/798 & 01/09 12:06:08
+v317 & FlowDifferentiability & aee805e8c99da0be & 2399/2399 & 06/09 10:41:53
 
-v192 & TheEmptying & c88b781f96485a97 & 798/798 & 01/09 12:06:08
+v317 & DifferentialFlowExistence & 5e567f89d53c6ae6 & 2399/2399 & 06/09 10:41:53
 
-v192 & TheCorrespondence & 8a9d2899bab42d26 & 798/798 & 01/09 12:06:08
+v317 & NullGeodesicConservation & d93e08b7eefaf277 & 2399/2399 & 06/09 10:41:53
 
-v190 & TheScaleHasNoFixedPoint & 0ed72186957c2a8a & 798/798 & 01/09 12:06:08
+v317 & LocalGeodesicFlow & a46b495447e1617f & 2399/2399 & 06/09 10:41:53
 
-v190 & TheCompressionIsNotIdentifiable & 082cb1facd66ff98 & 798/798 & 01/09 12:06:08
+v317 & GeodesicSpray & bbd3e06e01237c37 & 2399/2399 & 06/09 10:41:53
 
-v189 & TheTwoFolds & 4d1869d35bc9c8ef & 798/798 & 01/09 12:06:08
+v317 & GeodesicFlowRegularity & 19a994553c4c260c & 2399/2399 & 06/09 10:41:53
 
-v188 & TheSelectorCanRefuse & c5070a703c4a0a55 & 798/798 & 01/09 12:06:08
+v317 & GeodesicFlowControls & 4e334cb6f9ebcdda & 2399/2399 & 06/09 10:41:53
 
-v187 & TheSelectorIsNotEnough & b62d255e1f9a5f46 & 798/798 & 01/09 12:06:08
+v317 & TransportedScreenExistence & 3274513ddce86ac9 & 2399/2399 & 06/09 10:41:53
 
-v186 & TheTraceIsNotErasable & fb65565eb084cfce & 798/798 & 01/09 12:06:08
+v317 & TransportedScreenControls & e4439fc13f2b7087 & 2399/2399 & 06/09 10:41:53
 
-v186 & TheAngleIsTheBridge & 294cf45baae121cd & 798/798 & 01/09 12:06:08
+v317 & ScreenTransportODE & a73a65d8dc3a736a & 2399/2399 & 06/09 10:41:53
 
-v185 & TheAlgebraicReader & 2dfe61b0b6f5537f & 798/798 & 01/09 12:06:08
+v317 & ScreenPairTransport & 9bc9d10b22b39e71 & 2399/2399 & 06/09 10:41:53
 
-v185 & TheRecordOfJ & 737dc89e6f2c5921 & 798/798 & 01/09 12:06:08
+v317 & ScreenImportIntegration & b431322016df3d9d & 2399/2399 & 06/09 10:41:53
 
-v185 & TheSingularExpectation & b1995cc2019e1ce6 & 798/798 & 01/09 12:06:08
+v317 & ScreenFrameCompletion & e4d0f43cee374ac7 & 2399/2399 & 06/09 10:41:53
 
-v185 & TheTerminalRankOne & 4450fd1b63407afc & 798/798 & 01/09 12:06:08
+v317 & Screen013NullFrame & b6fd07ce21c5f6ce & 2399/2399 & 06/09 10:41:53
 
-v183 & TheTwoPairings & 46d72f4956f7e087 & 798/798 & 01/09 12:06:08
+v317 & Screen013Controls & 0c7821172c6117c7 & 2399/2399 & 06/09 10:41:53
 
-v183 & TheDarkSplit & 53f05130c26a5202 & 798/798 & 01/09 12:06:08
+v317 & Screen013Constructed & 0e4f7d49ede35e61 & 2399/2399 & 06/09 10:41:53
 
-v181 & TheUnconjugatedObserver & e2c1978c4a3cb544 & 798/798 & 01/09 12:06:08
+v317 & SpatialScreenConstruction & 568f49adad56c643 & 2399/2399 & 06/09 10:41:53
 
-v181 & TheIALDSelector & c1008266455044e7 & 798/798 & 01/09 12:06:08
+v317 & CovariantNullPreservation & b8ba72e62abb0ba2 & 2399/2399 & 06/09 10:41:53
 
-v177 & TheRecordOfTheCut & dfcdd551fd1b04fb & 798/798 & 01/09 12:06:08
+v317 & ScreenEntropyObstruction & f08d82a155f08af8 & 2399/2399 & 06/09 10:41:53
 
-v177 & TheFold & e4546410da663f73 & 798/798 & 01/09 12:06:08
+v317 & ScreenAreaCalculus & 3b5091f88ee6bb97 & 2399/2399 & 06/09 10:41:53
 
-v177 & TheBandNet & ce91de5490bcdb40 & 798/798 & 01/09 12:06:08
+v317 & NullScreenAlgebra & c612ed2dde86fc5f & 2399/2399 & 06/09 10:41:53
 
-v171 & TheExplosion & 330a20e15f4015d2 & 798/798 & 01/09 12:06:08
+v317 & GeometricScreenTransport & fcb340fcff4b0566 & 2399/2399 & 06/09 10:41:53
 
-v170 & TheStation & c55dc5018297a64c & 798/798 & 01/09 12:06:08
+v317 & GeometricScreenControls & b4ca43288bd20a46 & 2399/2399 & 06/09 10:41:53
 
-v167 & BreuerTrace & 4a667f41d3b7bb1d & 798/798 & 01/09 12:06:08
+v317 & GeometricAreaHorizon & c9d158213947b668 & 2399/2399 & 06/09 10:41:53
 
-v167 & ErgodicMeanSection & c27a343e7d4e39c1 & 798/798 & 01/09 12:06:08
+v317 & TowerEntropyScaling & 4f048734c88a877e & 2399/2399 & 06/09 10:41:53
 
-v167 & SolderSignature & 72b5b6ddd2a04371 & 798/798 & 01/09 12:06:08
+v317 & SchmidtCutPurification & 994b278bd7d7e21e & 2399/2399 & 06/09 10:41:53
 
-v166 & EquivariantSection & 87de6cc37a8f3a80 & 798/798 & 01/09 12:06:08
+v317 & FiniteEntropyAlgebra & 1181bf39dfd29af1 & 2399/2399 & 06/09 10:41:53
 
-v162 & TheAtlasIndex & 38b9873cebdd779a & 798/798 & 01/09 12:06:08
+v317 & EntropyGeometryControls & 83ce196f970c816e & 2399/2399 & 06/09 10:41:53
 
-v162 & FractalUnitarity & 8f10a958e11d1bd3 & 798/798 & 01/09 12:06:08
+v317 & BoundaryEntropyBridge & 395bf58304e4e8b2 & 2399/2399 & 06/09 10:41:53
 
-v162 & TheNameOperator & 000bd0bf03281e00 & 798/798 & 01/09 12:06:08
+v317 & VectorCurvatureCommutator & c0074f805eb673d0 & 2399/2399 & 06/09 10:41:53
 
-v162 & TheQuittanceLaw & dabeac1b5cc32d82 & 798/798 & 01/09 12:06:08
+v317 & LocalHorizonBalance & b3dcb033522681ba & 2399/2399 & 06/09 10:41:53
 
-v161 & TheStokesContour & 1c310f1d6296cadd & 798/798 & 01/09 12:06:08
+v317 & HorizonEinsteinReconstruction & 77180ae46c3ed6e8 & 2399/2399 & 06/09 10:41:53
 
-v161 & TheReservedConfirmation & 20a15b2077c36cf7 & 798/798 & 01/09 12:06:08
+v317 & HorizonBalanceControls & 7e06684f99380dbd & 2399/2399 & 06/09 10:41:53
 
-v161 & HajaLuz & c43c07467e1e2caa & 798/798 & 01/09 12:06:08
+v317 & CovariantVectorCalculus & 47eb4c5f69183cb3 & 2399/2399 & 06/09 10:41:53
 
-v160 & TheDeathOfTheSignal & 4539dd68fdaac084 & 798/798 & 01/09 12:06:08
+v317 & CoordinateRaychaudhuri & 4bbac36ebd8bbc87 & 2399/2399 & 06/09 10:41:53
 
-v159 & TheLivingWord & fdc242c2c70b57fa & 798/798 & 01/09 12:06:08
+v317 & SmoothMatrixCalculus & 416cd91167831f80 & 2399/2399 & 06/09 10:41:53
 
-v158 & TheFiveHalves & 456c66269b72d30f & 798/798 & 01/09 12:06:08
+v317 & MetricCurvatureSymmetries & 6070daffdf63f24e & 2399/2399 & 06/09 10:41:53
 
-v156 & TheGreatAttractor & a0db70a17354c75c & 798/798 & 01/09 12:06:08
+v317 & GeometricEinsteinReconstruction & a66ea61bec9a9bd4 & 2399/2399 & 06/09 10:41:53
 
-v155 & TheNucleus & 44de50dd2955f1f7 & 798/798 & 01/09 12:06:08
+v317 & CurvatureJetAlgebra & 85287748b45debe3 & 2399/2399 & 06/09 10:41:53
 
-v154 & RhoPlusPClosure & cd80fbbe00300454 & 798/798 & 01/09 12:06:08
+v317 & CurvatureControls & 8c27b78d1e672056 & 2399/2399 & 06/09 10:41:53
 
-v153 & LightIsJ & d19dfe1ccda81258 & 798/798 & 01/09 12:06:08
+v317 & CovariantCurvatureBianchi & 4dafb97e6ae7ad5c & 2399/2399 & 06/09 10:41:53
 
-v152 & ForbiddenBoundary & fb1c39a61dfc2882 & 798/798 & 01/09 12:06:08
+v317 & CoordinateCurvature & 8a3af4a1c80c18f4 & 2399/2399 & 06/09 10:41:53
 
-v146 & DecisionCommutation & 182ba6345586d5e8 & 798/798 & 01/09 12:06:08
+v317 & ContractedBianchi & 26037e693c190c45 & 2399/2399 & 06/09 10:41:53
 
-v145 & ConjugateAct & 9f32e50afe49ca0e & 798/798 & 01/09 12:06:08
+v317 & TensorReconstructionControls & 135bcc53d9c3e625 & 2399/2399 & 06/09 10:41:53
 
-v144 & ObserverInside & 05c3b515fd9f5d9d & 798/798 & 01/09 12:06:08
+v317 & TensorNullCone & 7af25b51d5aa4a50 & 2399/2399 & 06/09 10:41:53
 
-v143 & GlobalLiftConditional & ba5731ef6f86f75a & 798/798 & 01/09 12:06:08
+v317 & TensorFieldLinearity & 9f0063d0abf4fc6d & 2399/2399 & 06/09 10:41:53
 
-v142 & BoundaryException & 38ff7c2bfe243333 & 798/798 & 01/09 12:06:08
+v317 & MetricFieldConnection & f5134b7ed4a069fc & 2399/2399 & 06/09 10:41:53
+
+v317 & MetricCompatibleJet & d20de372f56b28d5 & 2399/2399 & 06/09 10:41:53
+
+v317 & LorentzMetricField & 9e47cde222d0cfd3 & 2399/2399 & 06/09 10:41:53
+
+v317 & GeneralTensorReconstruction & 9b9208bdc0e2402d & 2399/2399 & 06/09 10:41:53
+
+v317 & CovariantScalarConservation & 69183bf0fed81f16 & 2399/2399 & 06/09 10:41:53
+
+v317 & TailNotCyclic & f04d0ac1b7717551 & 2399/2399 & 06/09 10:41:53
+
+v317 & StationaryModularPeriod & 6419ae791f07b729 & 2399/2399 & 06/09 10:41:53
+
+v317 & ProductBorchersObstruction & a7c1fb2bf199a769 & 2399/2399 & 06/09 10:41:53
+
+v317 & PeriodicCentralizerExpectation & 4b8cc413d246350b & 2399/2399 & 06/09 10:41:53
+
+v317 & PeriodicBorchersObstruction & 632e33bd36d763b2 & 2399/2399 & 06/09 10:41:53
+
+v317 & PeriodAveragePrefix & 5b7d1bc02a21119c & 2399/2399 & 06/09 10:41:53
+
+v317 & PeriodAverageOperator & 558df534100e41e5 & 2399/2399 & 06/09 10:41:53
+
+v317 & Order007Bridges & 83d56e87453685ed & 2399/2399 & 06/09 10:41:53
+
+v317 & ModularSignatureObstruction & 8d1197d5989171ca & 2399/2399 & 06/09 10:41:53
+
+v317 & CyclicExpectationObstruction & 6b21047553efb3da & 2399/2399 & 06/09 10:41:53
+
+v316 & CentralizerContractBridge & 5293db8b121db928 & 2399/2399 & 06/09 10:41:53
+
+v316 & SiteModularInvariance & eb41b4297e2b3ee4 & 2399/2399 & 06/09 10:41:53
+
+v316 & TracialCentralizerExpectation & f5b33400cc9424fe & 2399/2399 & 06/09 10:41:53
+
+v316 & LocalCentralizerExpectation & e4b6660a9d146e05 & 2399/2399 & 06/09 10:41:53
+
+v316 & CentralizerLocal & 6ee14bef4788bc99 & 2399/2399 & 06/09 10:41:53
+
+v313 & ChainFaithful & 202cce85dcc6b618 & 2399/2399 & 06/09 10:41:53
+
+v313 & ChainTailClosure & b3be47bf0fcc0d93 & 2399/2399 & 06/09 10:41:53
+
+v313 & ChainVolumePositive & 9fa681525efcaced & 2399/2399 & 06/09 10:41:53
+
+v313 & ChainTail & fdfe27e5f54e96e0 & 2399/2399 & 06/09 10:41:53
+
+v313 & ChainSiteFlow & 90a1e0e2d74bdb80 & 2399/2399 & 06/09 10:41:53
+
+v313 & ChainVolume & 72f02a317a9b28f5 & 2399/2399 & 06/09 10:41:53
+
+v313 & ChainPrefix & 57a790434cd8bae9 & 2399/2399 & 06/09 10:41:53
+
+v313 & ChainLocality & 9e0ce48c9cf735d4 & 2399/2399 & 06/09 10:41:53
+
+v313 & ChainSiteOperators & bcffce7e08d267df & 2399/2399 & 06/09 10:41:53
+
+v313 & TowerTailRigidity & 943048ff5cffb999 & 2399/2399 & 06/09 10:41:53
+
+v312 & LevelExpectationFamily & 5342b44c7fecd462 & 2399/2399 & 06/09 10:41:53
+
+v312 & ExpectationContractGap & f0917b893d2da8a6 & 2399/2399 & 06/09 10:41:53
+
+v312 & ExpectationSlice & f472b2f505c80ad0 & 2399/2399 & 06/09 10:41:53
+
+v312 & ExpectationPositive & 0d0bd84320ebb2dd & 2399/2399 & 06/09 10:41:53
+
+v312 & ExpectationBimodule & 59df6a514db887ac & 2399/2399 & 06/09 10:41:53
+
+v312 & ExpectationBounded & 83e690806b4b43fe & 2399/2399 & 06/09 10:41:53
+
+v312 & ExpectationProjection & 211c301670b9f135 & 2399/2399 & 06/09 10:41:53
+
+v312 & TowerExpectation & 1ce1986087c3ab8d & 2399/2399 & 06/09 10:41:53
+
+v311 & ModularPower & 54beb442c52e9127 & 2399/2399 & 06/09 10:41:53
+
+v311 & ModularFlowSpectrum & 49eaf5a1556de26c & 2399/2399 & 06/09 10:41:53
+
+v311 & ModularFlowAlgebra & 28901cdfdd69d05d & 2399/2399 & 06/09 10:41:53
+
+v311 & ModularFlowHilbert & cbdb1b3ff9f2728d & 2399/2399 & 06/09 10:41:53
+
+v311 & ModularFlowPre & 8a65e5b027028c88 & 2399/2399 & 06/09 10:41:53
+
+v311 & ModularFlowLevel & dd0b03747826991f & 2399/2399 & 06/09 10:41:53
+
+v311 & ModularInverse & 310eec1fa0c2219f & 2399/2399 & 06/09 10:41:53
+
+v311 & TomitaAdjoint & e023aa70d05dc785 & 2399/2399 & 06/09 10:41:53
+
+v311 & ModularSquareAdjoint & be31d1fdff4f4ed4 & 2399/2399 & 06/09 10:41:53
+
+v311 & ModularSquare & 7b0952e001607556 & 2399/2399 & 06/09 10:41:53
+
+v311 & ModulatorPolar & 46b78bd3619ebc81 & 2399/2399 & 06/09 10:41:53
+
+v311 & ModulatorPositive & e82885c6385f04ba & 2399/2399 & 06/09 10:41:53
+
+v311 & ModulatorSelfAdjoint & 48d6510f6d823c9e & 2399/2399 & 06/09 10:41:53
+
+v311 & LocalTowerProjections & 1a593da7dbf8c593 & 2399/2399 & 06/09 10:41:53
+
+v311 & GeneralNullCone & 6b9a2e6ee041d461 & 2399/2399 & 06/09 10:41:53
+
+v311 & ModularProbe & 189ebfa321d8ff5d & 2399/2399 & 06/09 10:41:53
+
+v311 & DiagonalOperator & 912c55816847252e & 2399/2399 & 06/09 10:41:53
+
+v311 & ClosedModulatorCandidate & b1826bdbbc560588 & 2399/2399 & 06/09 10:41:53
+
+v311 & ClosedTomitaOperator & 6908e22eb36aaebc & 2399/2399 & 06/09 10:41:53
+
+v311 & TomitaClosability & 0872fa8fd32c55d2 & 2399/2399 & 06/09 10:41:53
+
+v310 & TheAlphaAndTheOmega & 3ed12b22f7b1bfd3 & 2399/2399 & 06/09 10:41:53
+
+v309 & TheImportedExpectation & 75606de2a904ed65 & 2399/2399 & 06/09 10:41:53
+
+v308 & TheOathOnTheTower & ef0634a160a9d22e & 2399/2399 & 06/09 10:41:53
+
+v307 & TheDischargedOath & 7a2747cb8babf73f & 2399/2399 & 06/09 10:41:53
+
+v306 & TheDammingByExpansion & f139c3e660a93d79 & 2399/2399 & 06/09 10:41:53
+
+v297 & TheVerbalCoupling & 912bf222f07256b1 & 2399/2399 & 06/09 10:41:53
+
+v295 & TheMarkIsNotATypeMark & b36e35176fb81c70 & 2399/2399 & 06/09 10:41:53
+
+v294 & TheNameIsTheGeneratingGroup & 2dedbe4a7e25bcd9 & 2399/2399 & 06/09 10:41:53
+
+v292 & TheNameAndItsReferent & 214260a5ad41d02a & 2399/2399 & 06/09 10:41:53
+
+v284 & TheAtermation & 7cb9394d87132306 & 2399/2399 & 06/09 10:41:53
+
+v282 & TheClassicalImport & 6c614681982a1c40 & 2399/2399 & 06/09 10:41:53
+
+v281 & TheWideNet & ef26e912a6ed418a & 2399/2399 & 06/09 10:41:53
+
+v280 & TheCornerOfThePackage & 0ad9fc2d4c6b82cf & 2399/2399 & 06/09 10:41:53
+
+v279 & TheDebtWithoutJ & e4b59f6ab9267362 & 2399/2399 & 06/09 10:41:53
+
+v276 & TheModularRelations & 2cd411ab76d72956 & 2399/2399 & 06/09 10:41:53
+
+v275 & TheMatrixAndTheModulator & c39e4dcba8eb2354 & 2399/2399 & 06/09 10:41:53
+
+v274 & TheImportedCommutation & ea339fe189ea40bf & 2399/2399 & 06/09 10:41:53
+
+v273 & TheImageAndTheReading & 839b4abfaab83237 & 2399/2399 & 06/09 10:41:53
+
+v272 & TheGravitonIsTheConjugatedPhase & 6f5f04ab96dd16f8 & 2399/2399 & 06/09 10:41:53
+
+v271 & TheAntiunitaryInhabitant & 98772d9fd38a4af6 & 2399/2399 & 06/09 10:41:53
+
+v271 & TheFoldThroughJ & d54e7fd1c6336a76 & 2399/2399 & 06/09 10:41:53
+
+v270 & TheAtomOfIdentity & 916056ff895447f5 & 2399/2399 & 06/09 10:41:53
+
+v262 & TheTwoPolesHaveContent & 1e17af908c1d6025 & 2399/2399 & 06/09 10:41:53
+
+v261 & TheNetFiresTheCorner & b35d65a50b52d92f & 2399/2399 & 06/09 10:41:53
+
+v259 & ThePsionReducesToTheCurrent & fc585ee1c77dded5 & 2399/2399 & 06/09 10:41:53
+
+v258 & TheCurrentConnectsTheCorners & ed213f28d250b874 & 2399/2399 & 06/09 10:41:53
+
+v257 & TheScalarCorner & c2aaadeae21a5122 & 2399/2399 & 06/09 10:41:53
+
+v256 & TheWeightIsNotTheRank & 83f9c8bca5e13391 & 2399/2399 & 06/09 10:41:53
+
+v255 & TheNonMinimalCoupling & 03576ea2958ffc4c & 2399/2399 & 06/09 10:41:53
+
+v254 & TheIntersectionOfCommutants & 7e4db767b978ddb8 & 2399/2399 & 06/09 10:41:53
+
+v253 & TheImportedEquilibrium & 6ce0e9c29fd92670 & 2399/2399 & 06/09 10:41:53
+
+v252 & TheNonLinearCausality & 27ff96e7969f25ef & 2399/2399 & 06/09 10:41:53
+
+v251 & TheConditionalCertificate & 5d43b0c538354e22 & 2399/2399 & 06/09 10:41:53
+
+v251 & TheEntanglementNotConjunction & a4b8cc089c86e19a & 2399/2399 & 06/09 10:41:53
+
+v250 & TheCommutationAtTheFloor & 3c3b6fb2a2347030 & 2399/2399 & 06/09 10:41:53
+
+v249 & TheIsometryOnWH & 0c4c8b35d3c7ad88 & 2399/2399 & 06/09 10:41:53
+
+v249 & TheCarrierBridge & 173ffa020254512f & 2399/2399 & 06/09 10:41:53
+
+v248 & TheQuestionAndTheRecognition & 67d965c42c01aed0 & 2399/2399 & 06/09 10:41:53
+
+v247 & TheTGLPair & 4d17eeb7e940a7ab & 2399/2399 & 06/09 10:41:53
+
+v246 & TheDensityIsBell & 9247b9f468357280 & 2399/2399 & 06/09 10:41:53
+
+v246 & TheIdentityOfIdentity & 5353469e1c4d0bae & 2399/2399 & 06/09 10:41:53
+
+v245 & TheConverseClauseReduced & 04c30acfc2ea561d & 2399/2399 & 06/09 10:41:53
+
+v244 & TheConjugationOfOperators & 17bc959ae14d1b21 & 2399/2399 & 06/09 10:41:53
+
+v243 & TheWitnessLinearOnWH & 0c1b0883f16eaec6 & 2399/2399 & 06/09 10:41:53
+
+v242 & TheConjugationMapsCommutants & 0fd2461d9db06683 & 2399/2399 & 06/09 10:41:53
+
+v242 & TheDensityIsTransport & a59cd43d50e934cb & 2399/2399 & 06/09 10:41:53
+
+v241 & TheBoundaryDuality & 311e0e8b54adf8de & 2399/2399 & 06/09 10:41:53
+
+v240 & TheWitnessOnTheBoundary & 30f2a06dcfa17528 & 2399/2399 & 06/09 10:41:53
+
+v240 & TheTopologicalFace & 23e283f43c36dfa6 & 2399/2399 & 06/09 10:41:53
+
+v239 & TheProfileWitnessLinear & 93efe3dab69a85f4 & 2399/2399 & 06/09 10:41:53
+
+v239 & TheLivingWordClosure & 40eb074dc85a7650 & 2399/2399 & 06/09 10:41:53
+
+v238 & TheColimitIsometry & e78cfb211b63084a & 2399/2399 & 06/09 10:41:53
+
+v237 & TheColimitDuality & 04831b06f0e8bf54 & 2399/2399 & 06/09 10:41:53
+
+v236 & TheFoldIsNotADistance & 45bb4c7c82a9e533 & 2399/2399 & 06/09 10:41:53
+
+v235 & TheProfileDuality & 622c8e5fa8bbf2dd & 2399/2399 & 06/09 10:41:53
+
+v234 & TheProfileIsometry & 43f29c793c8144dd & 2399/2399 & 06/09 10:41:53
+
+v233 & TheExoneratedDemon & 5c645690b54c529b & 2399/2399 & 06/09 10:41:53
+
+v232 & TheTelescopingProfile & 5dd73c3878a129ba & 2399/2399 & 06/09 10:41:53
+
+v231 & TheProfileConjugation & 595bf3fa944579af & 2399/2399 & 06/09 10:41:53
+
+v230 & TheTowerWitnessLinear & 2a81a78bce7b87ed & 2399/2399 & 06/09 10:41:53
+
+v229 & TheTowerWitness & 5135e6dd9bb98314 & 2399/2399 & 06/09 10:41:53
+
+v228 & TheUnsolicitedUnitary & 29aba04e578b1921 & 2399/2399 & 06/09 10:41:53
+
+v227 & TheTowerConjugation & ab31bd5e939dceba & 2399/2399 & 06/09 10:41:53
+
+v226 & TheSupersaturation & 55d5b5668153f5a0 & 2399/2399 & 06/09 10:41:53
+
+v225 & TheCompletionExtension & fd5701dbd31950dc & 2399/2399 & 06/09 10:41:53
+
+v224 & TheTowerInnerProduct & bdaac2f44fdbc3cd & 2399/2399 & 06/09 10:41:53
+
+v223 & TheAccuser & c485430a58323ff3 & 2399/2399 & 06/09 10:41:53
+
+v221 & TheContourOfTruth & ce6cd6d2cb1cf0cb & 2399/2399 & 06/09 10:41:53
+
+v220 & TheDeadChannel & d9c2eb9d67cceaf5 & 2399/2399 & 06/09 10:41:53
+
+v219 & TheOriginOfTheVibration & e5a7f11f79b5af73 & 2399/2399 & 06/09 10:41:53
+
+v218 & TheGeometricCostOfAbsoluteZero & 299ef10c96770aac & 2399/2399 & 06/09 10:41:53
+
+v217 & TheCostIsDerived & bddc44bdca6b16d4 & 2399/2399 & 06/09 10:41:53
+
+v216 & TheJudgedThing & 3b97d4c5aae4f891 & 2399/2399 & 06/09 10:41:53
+
+v216 & TheIALDInTheTowerActII & 217ef46de0bb7665 & 2399/2399 & 06/09 10:41:53
+
+v215 & TheLegibility & dc76845ca0c9a288 & 2399/2399 & 06/09 10:41:53
+
+v214 & TheTrueWitness & 863bdfbe96eaa989 & 2399/2399 & 06/09 10:41:53
+
+v213 & TheIALDInTheTower & 30cd48f648b2fb82 & 2399/2399 & 06/09 10:41:53
+
+v212 & TheCrownedCascade & 04a243cbe02b5e26 & 2399/2399 & 06/09 10:41:53
+
+v211 & TheFullBirkhoff & 7970d3fe8762fee7 & 2399/2399 & 06/09 10:41:53
+
+v210 & TheCoordinateBridge & 3450d010d65c4210 & 2399/2399 & 06/09 10:41:53
+
+v208 & TheSchwarzschildUniqueness & 5e959f1288ee6d79 & 2399/2399 & 06/09 10:41:53
+
+v208 & TheCornerEmbedding & b8a602f7294ab58a & 2399/2399 & 06/09 10:41:53
+
+v207 & ThePhysicalHorizon & 91bcfa7fe8077ae6 & 2399/2399 & 06/09 10:41:53
+
+v207 & TheHorizonRate & 0638b438d53d6c6e & 2399/2399 & 06/09 10:41:53
+
+v207 & TheAnchorFour & af35641bf520ba34 & 2399/2399 & 06/09 10:41:53
+
+v207 & TheTwoFunctionSolder & f1378886dad2380c & 2399/2399 & 06/09 10:41:53
+
+v204 & TheTower & 836d39ce92205794 & 2399/2399 & 06/09 10:41:53
+
+v203 & FrontierCertificate & 1015e2fb8f4e8ebb & 2399/2399 & 06/09 10:41:53
+
+v202 & TheBireference & 899b1b07df5416ed & 2399/2399 & 06/09 10:41:53
+
+v199 & TheLightInterface & 6d1e1567a4cc5b05 & 2399/2399 & 06/09 10:41:53
+
+v198 & ThePermanence & 27a3bc9bd4b6434d & 2399/2399 & 06/09 10:41:53
+
+v197 & TheCoFoundation & 0af9b4a0cde44a8f & 2399/2399 & 06/09 10:41:53
+
+v196 & TheCascadeOfObservers & 2792ab10181d2883 & 2399/2399 & 06/09 10:41:53
+
+v195 & TheObserverReadsTheAngle & c764e90722306f98 & 2399/2399 & 06/09 10:41:53
+
+v194 & TheAngleIsTheProjection & 9800cc0728259e08 & 2399/2399 & 06/09 10:41:53
+
+v194 & TheFalseHasNoGeometry & 516318d178f0a6e9 & 2399/2399 & 06/09 10:41:53
+
+v193 & TheHorizonInvariance & a2d375c815150656 & 2399/2399 & 06/09 10:41:53
+
+v192 & TheEmptying & c88b781f96485a97 & 2399/2399 & 06/09 10:41:53
+
+v192 & TheCorrespondence & 8a9d2899bab42d26 & 2399/2399 & 06/09 10:41:53
+
+v190 & TheScaleHasNoFixedPoint & 0ed72186957c2a8a & 2399/2399 & 06/09 10:41:53
+
+v190 & TheCompressionIsNotIdentifiable & 082cb1facd66ff98 & 2399/2399 & 06/09 10:41:53
+
+v189 & TheTwoFolds & 4d1869d35bc9c8ef & 2399/2399 & 06/09 10:41:53
+
+v188 & TheSelectorCanRefuse & c5070a703c4a0a55 & 2399/2399 & 06/09 10:41:53
+
+v187 & TheSelectorIsNotEnough & b62d255e1f9a5f46 & 2399/2399 & 06/09 10:41:53
+
+v186 & TheTraceIsNotErasable & fb65565eb084cfce & 2399/2399 & 06/09 10:41:53
+
+v186 & TheAngleIsTheBridge & 294cf45baae121cd & 2399/2399 & 06/09 10:41:53
+
+v185 & TheAlgebraicReader & 2dfe61b0b6f5537f & 2399/2399 & 06/09 10:41:53
+
+v185 & TheRecordOfJ & 737dc89e6f2c5921 & 2399/2399 & 06/09 10:41:53
+
+v185 & TheSingularExpectation & b1995cc2019e1ce6 & 2399/2399 & 06/09 10:41:53
+
+v185 & TheTerminalRankOne & 4450fd1b63407afc & 2399/2399 & 06/09 10:41:53
+
+v183 & TheTwoPairings & 46d72f4956f7e087 & 2399/2399 & 06/09 10:41:53
+
+v183 & TheDarkSplit & 53f05130c26a5202 & 2399/2399 & 06/09 10:41:53
+
+v181 & TheUnconjugatedObserver & e2c1978c4a3cb544 & 2399/2399 & 06/09 10:41:53
+
+v181 & TheIALDSelector & c1008266455044e7 & 2399/2399 & 06/09 10:41:53
+
+v177 & TheRecordOfTheCut & dfcdd551fd1b04fb & 2399/2399 & 06/09 10:41:53
+
+v177 & TheFold & e4546410da663f73 & 2399/2399 & 06/09 10:41:53
+
+v177 & TheBandNet & ce91de5490bcdb40 & 2399/2399 & 06/09 10:41:53
+
+v171 & TheExplosion & 330a20e15f4015d2 & 2399/2399 & 06/09 10:41:53
+
+v170 & TheStation & c55dc5018297a64c & 2399/2399 & 06/09 10:41:53
+
+v167 & BreuerTrace & 4a667f41d3b7bb1d & 2399/2399 & 06/09 10:41:53
+
+v167 & ErgodicMeanSection & c27a343e7d4e39c1 & 2399/2399 & 06/09 10:41:53
+
+v167 & SolderSignature & 72b5b6ddd2a04371 & 2399/2399 & 06/09 10:41:53
+
+v166 & EquivariantSection & 87de6cc37a8f3a80 & 2399/2399 & 06/09 10:41:53
+
+v162 & TheAtlasIndex & 38b9873cebdd779a & 2399/2399 & 06/09 10:41:53
+
+v162 & FractalUnitarity & 8f10a958e11d1bd3 & 2399/2399 & 06/09 10:41:53
+
+v162 & TheNameOperator & 000bd0bf03281e00 & 2399/2399 & 06/09 10:41:53
+
+v162 & TheQuittanceLaw & dabeac1b5cc32d82 & 2399/2399 & 06/09 10:41:53
+
+v161 & TheStokesContour & 1c310f1d6296cadd & 2399/2399 & 06/09 10:41:53
+
+v161 & TheReservedConfirmation & 20a15b2077c36cf7 & 2399/2399 & 06/09 10:41:53
+
+v161 & HajaLuz & c43c07467e1e2caa & 2399/2399 & 06/09 10:41:53
+
+v160 & TheDeathOfTheSignal & 4539dd68fdaac084 & 2399/2399 & 06/09 10:41:53
+
+v159 & TheLivingWord & fdc242c2c70b57fa & 2399/2399 & 06/09 10:41:53
+
+v158 & TheFiveHalves & 456c66269b72d30f & 2399/2399 & 06/09 10:41:53
+
+v156 & TheGreatAttractor & a0db70a17354c75c & 2399/2399 & 06/09 10:41:53
+
+v155 & TheNucleus & 44de50dd2955f1f7 & 2399/2399 & 06/09 10:41:53
+
+v154 & RhoPlusPClosure & cd80fbbe00300454 & 2399/2399 & 06/09 10:41:53
+
+v153 & LightIsJ & d19dfe1ccda81258 & 2399/2399 & 06/09 10:41:53
+
+v152 & ForbiddenBoundary & fb1c39a61dfc2882 & 2399/2399 & 06/09 10:41:53
+
+v146 & DecisionCommutation & 182ba6345586d5e8 & 2399/2399 & 06/09 10:41:53
+
+v145 & ConjugateAct & 9f32e50afe49ca0e & 2399/2399 & 06/09 10:41:53
+
+v144 & ObserverInside & 05c3b515fd9f5d9d & 2399/2399 & 06/09 10:41:53
+
+v143 & GlobalLiftConditional & ba5731ef6f86f75a & 2399/2399 & 06/09 10:41:53
+
+v142 & BoundaryException & 38ff7c2bfe243333 & 2399/2399 & 06/09 10:41:53
 
 v43 & Ergodicity & 79bc3b939b6e4e59 & 60/60 & 13/07 19:25:25
 
@@ -1391,15 +1790,15 @@ v102 & IdealLimit & 3f0147199cbaa919 & 362/362 & 17/07 14:16:45
 
 v103 & BenchCertificate & 78c05090f2cd93fb & 369/369 & 17/07 15:17:29
 
-v104 & StrongFrame & 648a6f282bfa8d5e & 798/798 & 01/09 12:06:08
+v104 & StrongFrame & 648a6f282bfa8d5e & 2399/2399 & 06/09 10:41:53
 
 v104 & WitnessV2 & 35f47bebde47a54e & 374/374 & 17/07 19:09:29
 
-v105 & NumberOperator & f6b2c0670ed3524d & 798/798 & 01/09 12:06:08
+v105 & NumberOperator & f6b2c0670ed3524d & 2399/2399 & 06/09 10:41:53
 
 v105 & NumberSelfAdjoint & 72dee88258250dea & 381/381 & 17/07 21:13:38
 
-v106 & TailNet & e7654368112f1af5 & 798/798 & 01/09 12:06:08
+v106 & TailNet & e7654368112f1af5 & 2399/2399 & 06/09 10:41:53
 
 v106 & StrongAssembly & 34758f8d20a242bc & 386/386 & 17/07 21:56:08
 
@@ -1413,7 +1812,7 @@ v110 & FallenLight & 145eed2729d232ee & 407/407 & 18/07 08:41:13
 
 v111 & SolvedEquation & 052856927e7668d0 & 413/413 & 18/07 09:49:12
 
-v112 & ReducedEmergence & d11854b264e6e17c & 798/798 & 01/09 12:06:08
+v112 & ReducedEmergence & d11854b264e6e17c & 2399/2399 & 06/09 10:41:53
 
 v112 & GeometricWitness & c971c7b2a45420bc & 420/420 & 18/07 10:53:35
 
@@ -1421,9 +1820,9 @@ v113 & GravitonReading & 4b9cdbbdf1d0c20d & 422/422 & 18/07 11:32:55
 
 v114 & ContinuumShards & 18e43b74a336360f & 427/427 & 18/07 16:53:15
 
-v116 & EmergentEinstein & 836ac3e4035afc52 & 798/798 & 01/09 12:06:08
+v116 & EmergentEinstein & 836ac3e4035afc52 & 2399/2399 & 06/09 10:41:53
 
-v116 & PoincareGroup & c73c927631381aa7 & 798/798 & 01/09 12:06:08
+v116 & PoincareGroup & c73c927631381aa7 & 2399/2399 & 06/09 10:41:53
 
 v116 & PoincareWitness & 848f2937f35ec50b & 453/453 & 18/07 20:45:41
 
@@ -1437,19 +1836,19 @@ v123 & FusedWitness & 3708dde5255559cd & 480/480 & 19/07 18:54:12
 
 v124 & PowersLadder & d6362c6079146ff4 & 490/490 & 19/07 21:01:34
 
-v125 & MixedLadder & eb43ba5a3ee66412 & 798/798 & 01/09 12:06:08
+v125 & MixedLadder & eb43ba5a3ee66412 & 2399/2399 & 06/09 10:41:53
 
 v125 & ContinuumTT & 21c62b855a477119 & 501/501 & 19/07 23:16:36
 
-v126 & ColimitSeed & 528d769f4751816f & 798/798 & 01/09 12:06:08
+v126 & ColimitSeed & 528d769f4751816f & 2399/2399 & 06/09 10:41:53
 
 v126 & TTSuperposition & 7beb841f082e34be & 510/510 & 20/07 02:16:40
 
-v127 & GNSTower & bef660d621d3d5a9 & 798/798 & 01/09 12:06:08
+v127 & GNSTower & bef660d621d3d5a9 & 2399/2399 & 06/09 10:41:53
 
 v127 & SecondCone & 9bafc9fcbf9fc6eb & 521/521 & 20/07 05:14:12
 
-v128 & GNSQuotient & d6b3ac4f4306516a & 798/798 & 01/09 12:06:08
+v128 & GNSQuotient & d6b3ac4f4306516a & 2399/2399 & 06/09 10:41:53
 
 v128 & ThirdCone & 21edba89bf302c07 & 531/531 & 20/07 08:14:22
 
@@ -1459,35 +1858,35 @@ v129 & TowerTraceless & d5789535f0e38917 & 537/537 & 20/07 11:31:16
 
 v130 & TowerModular & e3697a4f628eb1ae & 542/542 & 20/07 14:48:09
 
-v131 & SaturatedWitness & a0a5eed4d46ae567 & 798/798 & 01/09 12:06:08
+v131 & SaturatedWitness & a0a5eed4d46ae567 & 2399/2399 & 06/09 10:41:53
 
-v131 & ConjugateWitness & 09717611e32d8650 & 798/798 & 01/09 12:06:08
+v131 & ConjugateWitness & 09717611e32d8650 & 2399/2399 & 06/09 10:41:53
 
-v131 & ModularCurrent & 5fe336cadea3140f & 798/798 & 01/09 12:06:08
+v131 & ModularCurrent & 5fe336cadea3140f & 2399/2399 & 06/09 10:41:53
 
-v131 & ScaleCurrent & ca57ab98df381654 & 798/798 & 01/09 12:06:08
+v131 & ScaleCurrent & ca57ab98df381654 & 2399/2399 & 06/09 10:41:53
 
-v131 & TowerDefinite & 9f63ebf0cee01833 & 798/798 & 01/09 12:06:08
+v131 & TowerDefinite & 9f63ebf0cee01833 & 2399/2399 & 06/09 10:41:53
 
-v131 & TowerHilbert & 8b08430d77509358 & 798/798 & 01/09 12:06:08
+v131 & TowerHilbert & 8b08430d77509358 & 2399/2399 & 06/09 10:41:53
 
-v131 & TowerAction & 5da61adbc762e54c & 798/798 & 01/09 12:06:08
+v131 & TowerAction & 5da61adbc762e54c & 2399/2399 & 06/09 10:41:53
 
-v131 & TheFactorObject & 570ba4fd7b8edba4 & 798/798 & 01/09 12:06:08
+v131 & TheFactorObject & 570ba4fd7b8edba4 & 2399/2399 & 06/09 10:41:53
 
-v131 & SignatureInTheLimit & c38a0cef7aa8f409 & 798/798 & 01/09 12:06:08
+v131 & SignatureInTheLimit & c38a0cef7aa8f409 & 2399/2399 & 06/09 10:41:53
 
-v132 & NoNormalTrace & 7c5090ec79fa4239 & 798/798 & 01/09 12:06:08
+v132 & NoNormalTrace & 7c5090ec79fa4239 & 2399/2399 & 06/09 10:41:53
 
-v132 & WitnessV3 & 22bf6476c48eb9eb & 798/798 & 01/09 12:06:08
+v132 & WitnessV3 & 22bf6476c48eb9eb & 2399/2399 & 06/09 10:41:53
 
-v132 & TheCoinage & 63d5a1d80236bb42 & 798/798 & 01/09 12:06:08
+v132 & TheCoinage & 63d5a1d80236bb42 & 2399/2399 & 06/09 10:41:53
 
-v133 & PhysicsCertificates & 4ad9adae62d6d787 & 798/798 & 01/09 12:06:08
+v133 & PhysicsCertificates & 4ad9adae62d6d787 & 2399/2399 & 06/09 10:41:53
 
-v135 & RightMult & 29b5e130da72914a & 798/798 & 01/09 12:06:08
+v135 & RightMult & 29b5e130da72914a & 2399/2399 & 06/09 10:41:53
 
-v135 & WedgeNet & 85d14862bf4a6a79 & 798/798 & 01/09 12:06:08
+v135 & WedgeNet & 85d14862bf4a6a79 & 2399/2399 & 06/09 10:41:53
 
 == What remains, named (snapshot v56--v66; the current state is in §211--§217) ==
 
@@ -1525,13 +1924,13 @@ TGL makes a prediction no other unifying theory states: any sufficiently capable
 
 == The synthesis of the arc (the canonical dictionary, each face sealed) ==
 
-ABSOLUTE ONE $=1_abs$; FIELD $=Ψ=1_abs$ [canonical term, v58]; NAME $=ω_Ψ=$ trace [v58]; HOME $=H_Ψ$ [GNS term, v54/v57]; WORD $=L_Ψ$ ($\|DΦ\|^2$; EL selects the kernel) [v54]; VERB $=T^Ψ$ [laws, v54]; INHABITANT $= _Ψ 1_abs$ [v58]; CORNER $=P_F,Ψ$ with $P_FΩ=Ω$ [v55--58]; PARITY: $JKJ=-K$ and $0_mod=1/2-1/2$ [v59]; TRANSPORT: $α'=-(q/2)\,α$ with SUSY threshold $1/4$ [v59]; GEOMETRY: $F_12=2c_1c_2\,J$, Lorentzian $g$, unique $R$ [v60] and $so(1,3)$ with the non-compact mark and unique recovery in kernel [v63]; WITNESS $=S_∂=1/2$, non-full BY THEOREM [v61]; WEIGHT: $τ(1_\0\)=\|φ_0\|^2=1=ω(I)$ --- the Name weighs 1, the faces weigh $1/2$; the continuum weighs $⊤$ and need NOT be finite [v64]; RANK: $dimker≤rank$ of the inscription --- the zero mode is UNIQUE [v65]; TRIAD: H1$=$MIGUEL (Three Locks), H2$=$CARTAN (first structure equation), H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; TRUTH $=1=1=q^2+α^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on ($β_TGL>0$). The arc: $53→$ 798 audited theorems across one hundred and thirteen stones, every seal reproducible on disk.
+ABSOLUTE ONE $=1_abs$; FIELD $=Ψ=1_abs$ [canonical term, v58]; NAME $=ω_Ψ=$ trace [v58]; HOME $=H_Ψ$ [GNS term, v54/v57]; WORD $=L_Ψ$ ($\|DΦ\|^2$; EL selects the kernel) [v54]; VERB $=T^Ψ$ [laws, v54]; INHABITANT $= _Ψ 1_abs$ [v58]; CORNER $=P_F,Ψ$ with $P_FΩ=Ω$ [v55--58]; PARITY: $JKJ=-K$ and $0_mod=1/2-1/2$ [v59]; TRANSPORT: $α'=-(q/2)\,α$ with SUSY threshold $1/4$ [v59]; GEOMETRY: $F_12=2c_1c_2\,J$, Lorentzian $g$, unique $R$ [v60] and $so(1,3)$ with the non-compact mark and unique recovery in kernel [v63]; WITNESS $=S_∂=1/2$, non-full BY THEOREM [v61]; WEIGHT: $τ(1_\0\)=\|φ_0\|^2=1=ω(I)$ --- the Name weighs 1, the faces weigh $1/2$; the continuum weighs $⊤$ and need NOT be finite [v64]; RANK: $dimker≤rank$ of the inscription --- the zero mode is UNIQUE [v65]; TRIAD: H1$=$MIGUEL (Three Locks), H2$=$CARTAN (first structure equation), H3$=$EINSTEIN (Clausius) --- the Bridge is the hypotheses' name [v66]; TRUTH $=1=1=q^2+α^2$ (residue $0.0$, this runtime's spine); LIFE $=$ the Verb that goes on ($β_TGL>0$). The arc: $53→$ 2399 audited theorems across one hundred and thirteen stones, every seal reproducible on disk.
 
 Dictionary refinement (v72, the operator's derivation, [ONTO] with [REAL] anchors): TRANSPORT $=T^Ψ$ and it DEGRADES (the leakage belongs to transport: $e^-tβ_TGL g<1$ always, v61); the SIGNAL (non-minimal coupling) PRESERVES ($S $ preserves; the metric class is preserved by isometric transport, v65--66); the VERB is the READING of the flux (the gradient; the observer) --- it separates from transport: the earlier ``VERB$=T$'' (v54) is refined; the FIGURE is the Name read by the Verb ($Fig_γ(Ψ)=T^Ψ_γΨ$; on a closed circuit $Fig=Hol\,Ψ$ --- curvature is the figure's memory; GRAVITY is the difference between figures of the same One transported); and the only perfect light occurs when the Verb figures the Name --- perfection is not a state, it is the COINCIDENCE $Verb(Name)=Name$, whose kernel face is the fixed point $P_FΩ=Ω$ (v55--58) and the equivariant section $φ(UAU^ H)=φ(A)$ when $UΩ=Ω$ (v66).
 
 == The consolidation of the arc --- the non-tautology cycle (v93) ==
 
-[OPERATOR'S READING, dual status --- v61/v86 precedent]: the v92 verdict, read together with all the others, is the luminodynamic logical hash-seal of the TGL: it closes the non-tautology cycle of $1=1$. The [REAL] ANCHOR of non-tautology: $1=1$ is not an empty circle because the cycle LEAVES the axiom for the world (prediction $→$ test on external data $→$ fail-closed verdict) and RETURNS with content that could have denied it --- the refusals of V1 (B-mode $12.4$) and v91 (null $1.41$) prove the cycle could fail; what remains, remains because it was exposed. The seven elements, each sealed: (1) axiom and spine ($1=q^2+α^2$ at residue $0.0$ in this very runtime); (2) APPLICATION (16 patents; engineering); (3) EXECUTION (form$=$content: the artifact runs itself and audits 798 theorems); (4) PREDICTION ($Γ_ω$; the floor; P7 --- pre-registered); (5) FALSIFIABILITY (protocols with forbidden verdicts AND the refusals); (6) SELFTEST (fail-closed; probes; the shadow that re-derives verdicts without looking at the seal); (7) APPROVAL $=$ WHAT REMAINS (the $6.2σ$ detection; the first clean physical verdict; the first POWERED verdict). THIS RUN'S EXECUTABLE AUDIT: no forbidden verdict in any module; mathematical gate UNMOVED (TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE); the floor chain present and monotone in honesty. Consolidation verdict: TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__MATH_GATE_UNMOVED.
+[OPERATOR'S READING, dual status --- v61/v86 precedent]: the v92 verdict, read together with all the others, is the luminodynamic logical hash-seal of the TGL: it closes the non-tautology cycle of $1=1$. The [REAL] ANCHOR of non-tautology: $1=1$ is not an empty circle because the cycle LEAVES the axiom for the world (prediction $→$ test on external data $→$ fail-closed verdict) and RETURNS with content that could have denied it --- the refusals of V1 (B-mode $12.4$) and v91 (null $1.41$) prove the cycle could fail; what remains, remains because it was exposed. The seven elements, each sealed: (1) axiom and spine ($1=q^2+α^2$ at residue $0.0$ in this very runtime); (2) APPLICATION (16 patents; engineering); (3) EXECUTION (form$=$content: the artifact runs itself and audits 2399 theorems); (4) PREDICTION ($Γ_ω$; the floor; P7 --- pre-registered); (5) FALSIFIABILITY (protocols with forbidden verdicts AND the refusals); (6) SELFTEST (fail-closed; probes; the shadow that re-derives verdicts without looking at the seal); (7) APPROVAL $=$ WHAT REMAINS (the $6.2σ$ detection; the first clean physical verdict; the first POWERED verdict). THIS RUN'S EXECUTABLE AUDIT: no forbidden verdict in any module; mathematical gate UNMOVED (TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE); the floor chain present and monotone in honesty. Consolidation verdict: TGL_ARC_CONSOLIDATED__NON_TAUTOLOGY_CYCLE_CLOSED_THROUGH_THE_WORLD__MATH_GATE_UNMOVED.
 
 == The dictionary of Love (v95) --- the operator's reading in dual status ==
 
@@ -1552,7 +1951,7 @@ THE RITE: spec frozen (hash 8f3a8da1df143b98) BEFORE touching the map; Planck PR
 == Declaration of honesty ==
 
 This register does not claim the solution of quantum gravity. It claims, with kernel verification and reproducible seals: the formal skeleton closed on its finite and typed faces; the four corner properties DERIVED from intertwinings in infinite dimension; the continuous core as a composed external theorem; the canonical object CONSTRUCTED as a term ($M_TGL$, v131--v132), with the named remainders: GENERAL Einstein (Lemma 3), the EXTERNAL Lean certification and the continuous physical spectrum. And, since v61, with DUAL status: full_witness=False is not merely the program's epistemic state --- it is a THEOREM ($β_TGL>0$ forbids the full static witness; the canonical witness is the Half-Nat boundary; non-fullness is the system's life). The number corrects the phrase. Honest negatives are results. Haja luz. Tetelestai.
-Chapter emitted by the canonical um.py (sha256/16 $=$ 0969fc4809ca1229) at 2026-09-01 12:06:08; run: 798/798 theorems with clean axioms.
+Chapter emitted by the canonical um.py (sha256/16 $=$ d186a9c3d32ec76a) at 2026-09-06 10:41:53; run: 2399/2399 theorems with clean axioms.
 
 -- Honesty note (n/d). --
 Where n/d appears, the number was not recomputed IN THIS run (interim data absent from the cache --- e.g. the DESIVAST V2_REVOLVER FITS, unavailable from the mirror at execution time); the sealed historical value of the corresponding run applies, as recorded in the subsection. None of these modules feeds the gate.
@@ -1561,7 +1960,7 @@ Where n/d appears, the number was not recomputed IN THIS run (interim data absen
 
 Single input: the absolute One (1); its projection is the minimal irreducible measure extracted from $α_CODATA$ (measured referent of the Name). $β_TGL$ recomputed ($α√e$), never literal. Audit: mass_input=false, RG=false, velocity=false, geometry_only=true. Data: um_absoluto.json. This article is printed by the very code that runs the computations.
 
-World hash (before any external comparison): 9168a4ee309abba84f14725c8ddf4173e8fbe4b911e45ff8
+World hash (before any external comparison): 4ebd07bdcd1c007cd0275dfa9f0e152080a0f526b5baed4f
 
 *The chain of custody of evidence [REAL; sealed provenance]
 
@@ -1698,7 +2097,7 @@ The clarity of consciousness is relational. It is not absolute: it is relative t
 
 == Grand finale: the evidence that emerges ==
 
-This article does not ask for belief in a claim; it exhibits a convergence that emerges from a single sealed number, $β_TGL=α√ e$, with no parameter fitted to any target: (i) the identity $1=q^2+α^2$ closes at machine precision and the verdict $1=1$ is a computed boolean, not a phrase; (ii) the Great Attractor mass, from pure geometry, lands in the cosmological window --- the mass crisis, opened in Coma in 1933, addressed (order-of-magnitude consistency, not proof); (iii) the Coma cluster distance, through the sealed flow leakage, reduces the standard model's residual from $ 5.6σ$ to $ 1.3σ$ --- the distance crisis, opened in Coma in 2025, addressed by the same constant (it falsifies the Planck$+$no-dephasing pair; it does not prove TGL); (iv) the falsifiable programme stays armed (void floor, $n=-2$ exponent, an $α$-free derivation as sudden death). Where absolute clarity holds no figure at all, the boundary charges $β_TGL$ --- and it is exactly this toll, not a fit, that shows up in the skies in crisis. The evidence is not asserted: it emerges. TGL $=$ let there be light. Tetelestai.
+This article does not ask for belief in a claim; it exhibits a convergence that emerges from a single sealed number, $β_TGL=α√ e$, with no parameter fitted to any target: (i) the identity $1=q^2+α^2$ closes at machine precision and the verdict $1=1$ is a computed boolean, not a phrase; (ii) the Great Attractor mass, from pure geometry, lands in the cosmological window --- the mass crisis, opened in Coma in 1933, addressed (order-of-magnitude consistency, not proof); (iii) the falsifiable programme stays armed (void floor, $n=-2$ exponent, an $α$-free derivation as sudden death). Where absolute clarity holds no figure at all, the boundary charges $β_TGL$ --- and it is exactly this toll, not a fit, that shows up in the skies in crisis. The evidence is not asserted: it emerges. TGL $=$ let there be light. Tetelestai.
 
 It is not that TGL asserts itself true --- that verdict, its own machine forbids. What it asserts is a floor: false, as a pretension to the genus, is any theory of everything that does not pay what was paid here. And if TGL does not merit the credit of the title, none other merits it --- to deny it that credit without falsifying it is not to refuse a theory: it is to refuse the tribunal where the credit of all of them lived, including its own.
 

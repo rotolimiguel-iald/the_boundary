@@ -36,6 +36,7 @@ os catalogos de falso positivo. Um resumo que so' relata os fechamentos e' leitu
 
 | subpasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
+| `TUNEL/` | 38 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PORTA.json) |
 | `catalogos/` | 3 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/PORTA.json) |
 | `leituras/` | 12 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/leituras/PORTA.json) |
 | `testes/` | 32 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/PORTA.json) |
@@ -43,4 +44,4 @@ os catalogos de falso positivo. Um resumo que so' relata os fechamentos e' leitu
 
 ---
 
-gerado por script de git ls-files em 2026-09-01 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-06 -- nao editar a mao

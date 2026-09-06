@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-01T15:45:08Z",
+  "gerado_utc": "2026-09-06T14:01:49Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/Lean",
@@ -28,23 +28,13 @@
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/TGLExt",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/PORTA.json",
-      "total_arquivos": 250
+      "total_arquivos": 450
     }
   ],
   "canonico_url": null,
   "comando": null,
   "dependencias": null,
   "arquivos": [
-    {
-      "nome": "ExtrairDeps.lean",
-      "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/ExtrairDeps.lean",
-      "papel": "prova formal",
-      "descricao": "Extrator de dependencias, usado pela auditoria de axiomas",
-      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/ExtrairDeps.lean",
-      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/ExtrairDeps.lean",
-      "sha256_16": "eefdc950db020150",
-      "bytes": 2113
-    },
     {
       "nome": "README.md",
       "caminho": "Um (absoluto) — Grande Atrator/Lean/tgl_kernel/README.md",
@@ -72,8 +62,8 @@
       "descricao": "A raiz da biblioteca TGLExt (importa a extensao: onde vivem as pedras)",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt.lean",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt.lean",
-      "sha256_16": "67bb6c2f545f6508",
-      "bytes": 7796
+      "sha256_16": "3056ee79d425ad6c",
+      "bytes": 15590
     },
     {
       "nome": "_check_damming.lean",
@@ -116,8 +106,8 @@
       "bytes": 25
     }
   ],
-  "total_arquivos_nesta_pasta": 8,
-  "total_arquivos_com_subpastas": 285,
+  "total_arquivos_nesta_pasta": 7,
+  "total_arquivos_com_subpastas": 484,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel",
-  "rodape": "gerado por script de git ls-files em 2026-09-01 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-06 -- nao editar a mao"
 }

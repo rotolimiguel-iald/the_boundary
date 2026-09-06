@@ -1,0 +1,328 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT",
+  "porta_id": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT",
+  "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-06T14:01:49Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "ENTREGA_001_ERRATA_reproducao.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_001_ERRATA_reproducao.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_001_ERRATA_reproducao.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_001_ERRATA_reproducao.md",
+      "sha256_16": "c5c74586e7ac4d1f",
+      "bytes": 1537
+    },
+    {
+      "nome": "ENTREGA_001_esperanca_condicional_e_escala.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_001_esperanca_condicional_e_escala.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_001_esperanca_condicional_e_escala.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_001_esperanca_condicional_e_escala.md",
+      "sha256_16": "5b966606e1af1f9d",
+      "bytes": 13530
+    },
+    {
+      "nome": "ENTREGA_003_localizacao_na_cadeia_e_ponte_volume.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_003_localizacao_na_cadeia_e_ponte_volume.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_003_localizacao_na_cadeia_e_ponte_volume.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_003_localizacao_na_cadeia_e_ponte_volume.md",
+      "sha256_16": "95a1c47d7df9e311",
+      "bytes": 12014
+    },
+    {
+      "nome": "ENTREGA_004_D1_fiacao_e_D7_segundo_objeto.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_004_D1_fiacao_e_D7_segundo_objeto.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_004_D1_fiacao_e_D7_segundo_objeto.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_004_D1_fiacao_e_D7_segundo_objeto.md",
+      "sha256_16": "73d8e79e771fd76a",
+      "bytes": 5087
+    },
+    {
+      "nome": "ENTREGA_005_reabertura_v98_e_teste_conjunto.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_005_reabertura_v98_e_teste_conjunto.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_005_reabertura_v98_e_teste_conjunto.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_005_reabertura_v98_e_teste_conjunto.md",
+      "sha256_16": "896de91be9735298",
+      "bytes": 9975
+    },
+    {
+      "nome": "ENTREGA_006_esperanca_do_centralizador_e_inclusao_meio_lateral.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_006_esperanca_do_centralizador_e_inclusao_meio_lateral.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_006_esperanca_do_centralizador_e_inclusao_meio_lateral.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_006_esperanca_do_centralizador_e_inclusao_meio_lateral.md",
+      "sha256_16": "b6f97eecd20b5d6e",
+      "bytes": 9105
+    },
+    {
+      "nome": "ENTREGA_007_habitante_global_nao_ciclicidade_e_assinatura.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_007_habitante_global_nao_ciclicidade_e_assinatura.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_007_habitante_global_nao_ciclicidade_e_assinatura.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_007_habitante_global_nao_ciclicidade_e_assinatura.md",
+      "sha256_16": "ba2507303e012ca9",
+      "bytes": 14296
+    },
+    {
+      "nome": "ENTREGA_008_ESPONTANEA_reconstrucao_tensorial_condicional.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_008_ESPONTANEA_reconstrucao_tensorial_condicional.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_008_ESPONTANEA_reconstrucao_tensorial_condicional.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_008_ESPONTANEA_reconstrucao_tensorial_condicional.md",
+      "sha256_16": "01f79b8f9052682f",
+      "bytes": 12741
+    },
+    {
+      "nome": "ENTREGA_009_ESPONTANEA_curvatura_bianchi_e_einstein_geometrico.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_009_ESPONTANEA_curvatura_bianchi_e_einstein_geometrico.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_009_ESPONTANEA_curvatura_bianchi_e_einstein_geometrico.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_009_ESPONTANEA_curvatura_bianchi_e_einstein_geometrico.md",
+      "sha256_16": "be72766042eb25c2",
+      "bytes": 16170
+    },
+    {
+      "nome": "ENTREGA_010_ESPONTANEA_focalizacao_e_clausius_local.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_010_ESPONTANEA_focalizacao_e_clausius_local.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_010_ESPONTANEA_focalizacao_e_clausius_local.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_010_ESPONTANEA_focalizacao_e_clausius_local.md",
+      "sha256_16": "e02c5581c277119f",
+      "bytes": 11528
+    },
+    {
+      "nome": "ENTREGA_011_ESPONTANEA_entropia_da_torre_e_purificacao.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_011_ESPONTANEA_entropia_da_torre_e_purificacao.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_011_ESPONTANEA_entropia_da_torre_e_purificacao.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_011_ESPONTANEA_entropia_da_torre_e_purificacao.md",
+      "sha256_16": "d5b2e7f58ae7aa1d",
+      "bytes": 12934
+    },
+    {
+      "nome": "ENTREGA_012_ESPONTANEA_area_geometrica_e_dinamica_da_entropia.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_012_ESPONTANEA_area_geometrica_e_dinamica_da_entropia.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_012_ESPONTANEA_area_geometrica_e_dinamica_da_entropia.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_012_ESPONTANEA_area_geometrica_e_dinamica_da_entropia.md",
+      "sha256_16": "aceeaeb0fab74761",
+      "bytes": 13449
+    },
+    {
+      "nome": "ENTREGA_013_ESPONTANEA_nulidade_e_tela_construida_no_ponto.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_013_ESPONTANEA_nulidade_e_tela_construida_no_ponto.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_013_ESPONTANEA_nulidade_e_tela_construida_no_ponto.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_013_ESPONTANEA_nulidade_e_tela_construida_no_ponto.md",
+      "sha256_16": "c69e8597ddd73ce6",
+      "bytes": 10892
+    },
+    {
+      "nome": "ENTREGA_014_ESPONTANEA_transporte_local_da_tela_e_controle_curvo.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_014_ESPONTANEA_transporte_local_da_tela_e_controle_curvo.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_014_ESPONTANEA_transporte_local_da_tela_e_controle_curvo.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_014_ESPONTANEA_transporte_local_da_tela_e_controle_curvo.md",
+      "sha256_16": "a54ee3c966221ab0",
+      "bytes": 18314
+    },
+    {
+      "nome": "ENTREGA_015_ESPONTANEA_fluxo_geodesico_e_preservacao_nula.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_015_ESPONTANEA_fluxo_geodesico_e_preservacao_nula.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_015_ESPONTANEA_fluxo_geodesico_e_preservacao_nula.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_015_ESPONTANEA_fluxo_geodesico_e_preservacao_nula.md",
+      "sha256_16": "cd67dd9aab068567",
+      "bytes": 11490
+    },
+    {
+      "nome": "ENTREGA_016_ESPONTANEA_diferencial_do_fluxo_e_regularidade_c1.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_016_ESPONTANEA_diferencial_do_fluxo_e_regularidade_c1.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_016_ESPONTANEA_diferencial_do_fluxo_e_regularidade_c1.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_016_ESPONTANEA_diferencial_do_fluxo_e_regularidade_c1.md",
+      "sha256_16": "0db258fd2e5d35e5",
+      "bytes": 13300
+    },
+    {
+      "nome": "ENTREGA_017_ESPONTANEA_suavidade_do_fluxo_no_dominio_local.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_017_ESPONTANEA_suavidade_do_fluxo_no_dominio_local.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_017_ESPONTANEA_suavidade_do_fluxo_no_dominio_local.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_017_ESPONTANEA_suavidade_do_fluxo_no_dominio_local.md",
+      "sha256_16": "250ba15077aa959e",
+      "bytes": 10130
+    },
+    {
+      "nome": "ENTREGA_018_ESPONTANEA_congruencia_nula_local_construida.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_018_ESPONTANEA_congruencia_nula_local_construida.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_018_ESPONTANEA_congruencia_nula_local_construida.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_018_ESPONTANEA_congruencia_nula_local_construida.md",
+      "sha256_16": "8e2104dfdffd5e5a",
+      "bytes": 13053
+    },
+    {
+      "nome": "ENTREGA_019_ESPONTANEA_primeiro_jato_de_equilibrio_construido.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_019_ESPONTANEA_primeiro_jato_de_equilibrio_construido.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_019_ESPONTANEA_primeiro_jato_de_equilibrio_construido.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_019_ESPONTANEA_primeiro_jato_de_equilibrio_construido.md",
+      "sha256_16": "f439ec05e377a97a",
+      "bytes": 13254
+    },
+    {
+      "nome": "ENTREGA_020_ESPONTANEA_area_calor_e_clausius_construidos.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_020_ESPONTANEA_area_calor_e_clausius_construidos.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_020_ESPONTANEA_area_calor_e_clausius_construidos.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_020_ESPONTANEA_area_calor_e_clausius_construidos.md",
+      "sha256_16": "0b8a538b4cb07715",
+      "bytes": 15253
+    },
+    {
+      "nome": "ENTREGA_021_ESPONTANEA_entropia_relativa_e_ponte_de_segunda_ordem.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_021_ESPONTANEA_entropia_relativa_e_ponte_de_segunda_ordem.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_021_ESPONTANEA_entropia_relativa_e_ponte_de_segunda_ordem.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_021_ESPONTANEA_entropia_relativa_e_ponte_de_segunda_ordem.md",
+      "sha256_16": "4fcd60da9b2b822e",
+      "bytes": 16985
+    },
+    {
+      "nome": "ENTREGA_022_ESPONTANEA_resposta_quadratica_por_dinamica_unitaria.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_022_ESPONTANEA_resposta_quadratica_por_dinamica_unitaria.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_022_ESPONTANEA_resposta_quadratica_por_dinamica_unitaria.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_022_ESPONTANEA_resposta_quadratica_por_dinamica_unitaria.md",
+      "sha256_16": "58c66398f93c10e9",
+      "bytes": 19431
+    },
+    {
+      "nome": "ENTREGA_023_ESPONTANEA_covetor_materia_conservacao.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_023_ESPONTANEA_covetor_materia_conservacao.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_023_ESPONTANEA_covetor_materia_conservacao.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_023_ESPONTANEA_covetor_materia_conservacao.md",
+      "sha256_16": "fc5cb2b16a3edfab",
+      "bytes": 18791
+    },
+    {
+      "nome": "ENTREGA_024_ESPONTANEA_perturbacao_termica_da_torre.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_024_ESPONTANEA_perturbacao_termica_da_torre.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_024_ESPONTANEA_perturbacao_termica_da_torre.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_024_ESPONTANEA_perturbacao_termica_da_torre.md",
+      "sha256_16": "961054750edb5028",
+      "bytes": 21030
+    },
+    {
+      "nome": "ENTREGA_025_ESPONTANEA_limite_termico_e_corte.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_025_ESPONTANEA_limite_termico_e_corte.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_025_ESPONTANEA_limite_termico_e_corte.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_025_ESPONTANEA_limite_termico_e_corte.md",
+      "sha256_16": "6adceac417f114f6",
+      "bytes": 18229
+    },
+    {
+      "nome": "ENTREGA_026_ESPONTANEA_afinidade_e_estado_global.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_026_ESPONTANEA_afinidade_e_estado_global.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_026_ESPONTANEA_afinidade_e_estado_global.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_026_ESPONTANEA_afinidade_e_estado_global.md",
+      "sha256_16": "7216392c80444f12",
+      "bytes": 20033
+    },
+    {
+      "nome": "ENTREGA_027_ESPONTANEA_transporte_unitario_e_modular.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_027_ESPONTANEA_transporte_unitario_e_modular.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_027_ESPONTANEA_transporte_unitario_e_modular.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_027_ESPONTANEA_transporte_unitario_e_modular.md",
+      "sha256_16": "c6da91f13dacecdb",
+      "bytes": 23282
+    },
+    {
+      "nome": "ENTREGA_028_ESPONTANEA_resposta_global_e_limite_do_corte.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_028_ESPONTANEA_resposta_global_e_limite_do_corte.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_028_ESPONTANEA_resposta_global_e_limite_do_corte.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_028_ESPONTANEA_resposta_global_e_limite_do_corte.md",
+      "sha256_16": "ccf4a68563463b47",
+      "bytes": 24295
+    },
+    {
+      "nome": "ENTREGA_029_ESPONTANEA_geometria_curva_e_liberdade_residual.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_029_ESPONTANEA_geometria_curva_e_liberdade_residual.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_029_ESPONTANEA_geometria_curva_e_liberdade_residual.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_029_ESPONTANEA_geometria_curva_e_liberdade_residual.md",
+      "sha256_16": "da38d0b3118b6b7c",
+      "bytes": 17795
+    },
+    {
+      "nome": "LEIA-ME.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/LEIA-ME.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/LEIA-ME.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/LEIA-ME.md",
+      "sha256_16": "3df056a35daf193d",
+      "bytes": 1642
+    }
+  ],
+  "total_arquivos_nesta_pasta": 30,
+  "total_arquivos_com_subpastas": 30,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT",
+  "rodape": "gerado por script de git ls-files em 2026-09-06 -- nao editar a mao"
+}

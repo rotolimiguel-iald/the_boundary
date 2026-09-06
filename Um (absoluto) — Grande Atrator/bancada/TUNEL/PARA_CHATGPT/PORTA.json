@@ -1,0 +1,98 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
+  "porta_id": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
+  "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-06T14:01:49Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "ORDEM_001_esperanca_condicional_e_escala.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_001_esperanca_condicional_e_escala.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_001_esperanca_condicional_e_escala.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_001_esperanca_condicional_e_escala.md",
+      "sha256_16": "837ebe9627f84567",
+      "bytes": 5172
+    },
+    {
+      "nome": "ORDEM_002_veredito_da_auditoria_e_incorporacao.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_002_veredito_da_auditoria_e_incorporacao.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_002_veredito_da_auditoria_e_incorporacao.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_002_veredito_da_auditoria_e_incorporacao.md",
+      "sha256_16": "2014fc71b11734ac",
+      "bytes": 1838
+    },
+    {
+      "nome": "ORDEM_003_localizacao_na_cadeia_e_ponte_volume.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_003_localizacao_na_cadeia_e_ponte_volume.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_003_localizacao_na_cadeia_e_ponte_volume.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_003_localizacao_na_cadeia_e_ponte_volume.md",
+      "sha256_16": "7188ec6dd8510e2b",
+      "bytes": 5216
+    },
+    {
+      "nome": "ORDEM_004_D1_fiacao_e_D7_segundo_objeto.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_004_D1_fiacao_e_D7_segundo_objeto.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_004_D1_fiacao_e_D7_segundo_objeto.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_004_D1_fiacao_e_D7_segundo_objeto.md",
+      "sha256_16": "27f7dd98e5622c41",
+      "bytes": 6158
+    },
+    {
+      "nome": "ORDEM_005_reabertura_v98_e_teste_conjunto.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_005_reabertura_v98_e_teste_conjunto.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_005_reabertura_v98_e_teste_conjunto.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_005_reabertura_v98_e_teste_conjunto.md",
+      "sha256_16": "ecb43149d1a05722",
+      "bytes": 4940
+    },
+    {
+      "nome": "ORDEM_006_esperanca_do_centralizador_e_inclusao_meio_lateral.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_006_esperanca_do_centralizador_e_inclusao_meio_lateral.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_006_esperanca_do_centralizador_e_inclusao_meio_lateral.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_006_esperanca_do_centralizador_e_inclusao_meio_lateral.md",
+      "sha256_16": "7d3d094fb4871dc8",
+      "bytes": 11486
+    },
+    {
+      "nome": "ORDEM_007_habitante_global_nao_ciclicidade_e_assinatura.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_007_habitante_global_nao_ciclicidade_e_assinatura.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_007_habitante_global_nao_ciclicidade_e_assinatura.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/ORDEM_007_habitante_global_nao_ciclicidade_e_assinatura.md",
+      "sha256_16": "82a459d1c6507d71",
+      "bytes": 8521
+    }
+  ],
+  "total_arquivos_nesta_pasta": 7,
+  "total_arquivos_com_subpastas": 7,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT",
+  "rodape": "gerado por script de git ls-files em 2026-09-06 -- nao editar a mao"
+}

@@ -1,0 +1,53 @@
+{
+  "porta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
+  "porta_id": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
+  "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
+  "repo": "https://github.com/rotolimiguel-iald/the_boundary",
+  "site": "https://teoriadagravitacaoluminodinamica.com",
+  "gerado_utc": "2026-09-06T14:01:49Z",
+  "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
+  "porta_acima": {
+    "pasta": "Um (absoluto) — Grande Atrator/bancada",
+    "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md",
+    "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.json",
+    "raiz_porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md",
+    "llms_txt_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt",
+    "readme_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
+    "site_url": "https://teoriadagravitacaoluminodinamica.com"
+  },
+  "portas_abaixo": [
+    {
+      "nome": "DO_CHATGPT",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/PORTA.json",
+      "total_arquivos": 30
+    },
+    {
+      "nome": "PARA_CHATGPT",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/PORTA.json",
+      "total_arquivos": 7
+    }
+  ],
+  "canonico_url": null,
+  "comando": null,
+  "dependencias": null,
+  "arquivos": [
+    {
+      "nome": "TUNEL_PROTOCOLO.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/TUNEL_PROTOCOLO.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/TUNEL_PROTOCOLO.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/TUNEL_PROTOCOLO.md",
+      "sha256_16": "4234902dc6f5e03c",
+      "bytes": 5425
+    }
+  ],
+  "total_arquivos_nesta_pasta": 1,
+  "total_arquivos_com_subpastas": 38,
+  "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL",
+  "rodape": "gerado por script de git ls-files em 2026-09-06 -- nao editar a mao"
+}
