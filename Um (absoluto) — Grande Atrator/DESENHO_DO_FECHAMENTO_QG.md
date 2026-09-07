@@ -1286,3 +1286,107 @@ mede com precisao a liberdade que sobra: o traco transversal e fixado pela area;
 e materia iguais nao escolhem a coordenada de curvatura. **Folha nova, nomeada:** a selecao da liberdade
 RADIATIVA — o que na torre (se algo) escolhe o shear. Inalteradas: selecao fisica, lei de area geral, H3
 dinamico, assinatura, globalizacao. 2399/2399 teoremas; gate INTOCADO (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`).
+
+---
+
+## ADENDO — 06/09/2026 (meio-dia) · v321: o custo do rito medido; checkpoints para as intermediarias
+
+86% do `run_um` (~1872 s de 2175) sao os nove ritos do piso dos vazios recalculando empilhamentos; o kernel
+Lean custa 1,5-4 min. A v321 poe checkpoint de RESULTADO nesses ritos (`TGL_RITE_CHECKPOINT=1`; chave por fonte
++ entrada + dados; resultado inalterado; selo registra). Intermediarias rapidas; a versao FINAL roda completa.
+Nada muda no caminho critico; 2399/2399 teoremas; gate INTOCADO.
+
+---
+
+## ADENDO — 06/09/2026 (tarde) · v322: o cociclo global de Connes na perturbacao somavel — o Lema 3 ganha o seu objeto
+
+A ENTREGA 030 constroi, para a perturbacao somavel da referencia, o COCICLO unitario com a identidade torcida
+u(s+r) = u(s)·sigma_s(u(r)) e a covariancia no fator inteiro — o objeto que o «unico teorema aberto» (covariancia
+global do cociclo de Connes) pede, numa familia especificada. O que fica, dito pela bancada: o Tomita RELATIVO
+nao limitado e o Connes-RN geral nao estao formalizados; a leitura angular quadratica e positiva mas nao
+seleciona tela/escala/dinamica; area e H3 geral OPEN. 2499/2499 teoremas; gate INTOCADO. Rodada intermediaria
+com checkpoints (reaproveitados 9).
+
+---
+
+## ADENDO — 06/09/2026 (tarde, II) · v323: o Tomita RELATIVO existe com dominio, e Delta_rel = L x Delta_omega
+
+A parede que a 030 nomeou («operador de Tomita relativo nao limitado e dominios por construir») foi PAGA na
+familia especificada: S_rel com grafico fechado, adjunto maximal, Delta_rel positivo auto-adjunto, e a
+comutacao modular que iguala os dominios e fatora Delta_rel = (verossimilhanca) x Delta_omega. O que fica:
+calculo funcional relativo (potencias Delta_rel^{it}), a identificacao Connes-RN/Araki completa, e — como
+sempre — area, tela, escala e dinamica (H3). 2590/2590 teoremas; gate INTOCADO. Rodada intermediaria
+(reaproveitados 9).
+
+---
+
+## ADENDO — 06/09/2026 (tarde, III) · v324: a densidade centralizante tem logaritmo unico — e o ROOT e o juiz da coexistencia
+
+A 033 poe a densidade da perturbacao no CENTRALIZADOR de omega, com logaritmo unico e potencia imaginaria =
+cociclo; a identificacao de Connes fica [KNOWN/DERIVED] (Hiai 9.4(2) especializado), nao teorema novo. Licao de
+processo, paga com uma falha medida: modulos que compilam sozinhos podem NAO coexistir no ROOT (instancias anonimas
+com o mesmo nome automatico) — a recompilacao independente da gerencia e o build do ROOT sao a auditoria que a
+bancada nao tem no seu ambiente. Regra 3 de transposicao declarada; ORDEM_008. 2624/2624 teoremas; gate INTOCADO.
+
+---
+
+## ADENDO — 06/09/2026 (tarde, IV) · v325: a area angular de dois sitios — um observavel construido, nao uma lei
+
+A 034 constroi a metrica angular da tela e a OBSERVABILIDADE da area angular em dois sitios da familia
+especificada (orbita de fase do centralizador; covariancia de fase por sitio). E um teste operacional dentro do
+ansatz; a lei geral de area, a selecao fisica, a escala e a dinamica (H3) seguem INPUT/OPEN. 2680/2680 teoremas;
+gate INTOCADO.
+
+---
+
+## ADENDO — 06/09/2026 (tarde, V) · v326: a quarta ordem diz NAO ao casamento ingenuo — e o relogio relativo o absorve
+
+O casamento entropia-area que fecha em 2a ordem (H3 quadratico) NAO fecha em 4a ordem com o parametro comum
+fixado (delta4 >= 7B/48 > 0, teorema): a inscricao angular nao e uma lei de area em toda ordem; sobra um
+RELOGIO RELATIVO (t + lambda t³) que o cancela. E a area optica dos campos de Jacobi e a area de Fisher da medicao
+sao agora objetos construidos, com o que cada um NAO e (area de coordenadas, nao de espaco-tempo). Folhas
+inalteradas: area fisica, retorno estabilizador, ponte regiao-algebra, escala, assinatura, H3 geral. 2963/2963
+teoremas; gate INTOCADO.
+
+---
+
+## ADENDO — 06/09/2026 (noite) · v327: a ORDEM_009 devolveu uma obstrucao — nenhum relogio canonico do estado fecha a 4a ordem
+
+O relogio relativo que a 037 exigia NAO e o parametro modular (o estado global e invariante), NAO e o relogio de
+Fisher (lambda_F excede lambda*), NAO e o relogio entropico (lambda_D excede lambda*), NAO e o afim (lambda = 0);
+e a area nao e escalar so da algebra e do estado. **A folha H3 muda de forma:** o que falta nao e «escolher o
+relogio», e a fonte GEOMETRICA (sigma, anisotropia de mare) ou um estado diferente que produza o lambda* — ou o
+teorema de que nao existe. Caminho critico: 1) H3 dinamico (agora com esta obstrucao como dado); 2) ponte
+regiao–algebra (isotonia paga; identificacao fisica OPEN; area nao-escalar); 3) assinatura (Delta^(it) como boost
+segue NAO pago na 039); 4) BW; 5) globalizacao. 3157/3157 teoremas; gate INTOCADO.
+
+---
+
+## ADENDO — 06/09/2026 (noite, II) · v328: a tela de equilibrio nasce so da geometria; o balanco quadratico e a condicao, a 4a ordem o residuo
+
+A 043 constroi o habitante de `EquilibriumScreenData` so com (a, c) da metrica — o casamento entropia–area NAO
+esta escondido na tela: e a condicao eta(a+c) = 2πm, com residuo positivo em 4a ordem. A 042 da o criterio
+completo de conservacao para a resposta nula e um contraexemplo que exclui toda fonte conservada. Folhas
+inalteradas (H3 dinamico segue a 1a). 3269/3269 teoremas; gate INTOCADO.
+
+---
+
+## ADENDO — 06/09/2026 (noite, III) · v329: o Lema 3 ganha antecedente CONSTRUIDO — o levantamento dispara
+
+Ate aqui o unico teorema aberto era uma implicacao com dois antecedentes: a esperanca de Takesaki (importada) e a
+invariancia por horizonte (postulada). Na torre, a segunda e TEOREMA (v308) e a primeira agora e TERMO (v317, perfil
+periodico): `the_lift_fires_on_the_periodic_tower`. E o primeiro horizonte nao trivial — o proprio fluxo modular —
+da `E ∘ σ_t = σ_t ∘ E`. **O caminho critico do Lema 3 encolhe para:** (i) horizontes concretos nao modulares
+(trocas de sitios; o shift nao e unitario); (ii) o perfil aperiodico; (iii) andares → regioes (a mesma ponte
+regiao–algebra de H3). H3 dinamico segue a folha 1, com a obstrucao do relogio (040) como dado. 3283/3283 teoremas;
+gate INTOCADO.
+
+---
+
+## ADENDO — 06/09/2026 (noite, V) · v330 (COMPLETA): a dicotomia do relogio fecha o cerco a H3; o Lema 3 ganha o horizonte de troca
+
+Tres negativos tipados cercam H3: nenhum relogio canonico do estado (040), nenhum relogio comum a telas de
+geometria distinta (045: gap eta r²/96), a igualdade finita falha (041/043) — e um positivo: cada tela tem o seu
+relogio. Logo H3 dinamico = uma LEI que escolha a geometria — a ponte regiao–algebra, cuja normalizacao a
+covariancia por horizontes NAO fixa (045 C). No Lema 3: `swapHorizon` e as permutacoes finitas sao horizontes
+concretos com covariancia das esperancas; o shift e o aperiodico seguem OPEN. 3442/3442 teoremas; gate INTOCADO.

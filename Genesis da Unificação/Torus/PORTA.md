@@ -40,4 +40,4 @@ Os testes de toro e de Wigner, com seus JSONs datados.
 
 ---
 
-gerado por script de git ls-files em 2026-09-06 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-07 -- nao editar a mao

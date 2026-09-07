@@ -6579,3 +6579,392 @@ geometria geral a partir de omega(I)=1; a lei de area geral, a selecao da liberd
 `IDENTITY = 1=1=VERDADEIRO=HAJA_LUZ`; contorno: 8 ritos, falsificacao limpa: NENHUMA;
 `contorno_broken_v314 = []`. Kernel: 6 pedras, root +6, `Audit.lean` +64,
 `lake build` 9028 jobs / 0 erros. Stdout canonico `rodada_v320_stdout.txt`. Arvore regenerada (`34a4e9d5aca10de4`).
+
+## 06/09/2026 (meio-dia) — A V321: O CHECKPOINT DOS RITOS PESADOS (a pergunta do operador: «por que 45 minutos?»)
+
+**A pergunta, verbatim:** «por que que as rodadas agora estao demorando 45 minutos, vc deixou de usar os
+checkpoints (stdout)? antes estavamos rodando cada versao nova muito rapido aproveitando os chekpoints
+anteriores, de modo que so precisariamos rodar a versao completa quando tivermos a versao final».
+
+**MEDIDO (cProfile na rerrodada da v320, 10:52-11:32, 2417 s):** `run_um` = 2175 s, dos quais **~1872 s (86%)
+sao os NOVE ritos do piso dos vazios**, que recalculam do zero, em toda rodada, os empilhamentos KiDS/kappa e
+os limites de banda: `prove_void_floor_v2` 550 s (stack ×3), `_kappa_v9_band` 341, `_definitive` 234
+(stack ×2), `_kappa_v8_lrg` 145, `_v3_kappa` 126, `_kappa_v5` 125, `_v7_ra` 125, `_v6_act` 125,
+`prove_void_shear_v2` 101. O kernel Lean inteiro e BARATO: `lake build` incremental (replay de 9028 jobs em
+6 s) + `lake env lean TGL/Audit.lean` (2614 `#print axioms`, 23 s); tres passes por rodada (rito + autoteste
+com sorry + restauracao) = 1,5-4 min. **O stdout nunca foi checkpoint de tempo:** o `run_um` roda em
+silencio e o `main()` imprime os vereditos em rajada no fim (visto ao vivo: silencio 10:52-11:28, rajada as
+11:28:15). Os checkpoints que existiam (HDF5 do MCMC; cache dos dados; kernel incremental) continuam vivos —
+o que NAO existia era checkpoint de RESULTADO dos ritos pesados. Os selos v167-v182 (20/08) saiam a 5-20 min;
+v305-v307 (31/08) ja levavam 40-75 min: o custo entrou com os ritos do piso, nao com o kernel.
+
+**A v321 (fiacao, nao pedra): `_rite_checkpointed(name, fn, ONE, arg)` envolvendo os nove ritos.**
+Fail-closed e honesto: (i) so age com `TGL_RITE_CHECKPOINT=1` — sem a chave o programa e byte-identico ao
+anterior; (ii) chave = sha256(nome + FONTE da funcao + pickle da entrada + inventario nome/tamanho de
+`cache/lensing|galaxies|voids` + ONE) — mudou a funcao, a entrada ou o dado, muda a chave e recalcula;
+(iii) o resultado reaproveitado NAO e alterado (`result_hash` identico ao de uma rodada completa); (iv) o
+selo registra `rite_checkpoints` (chave ligada; reaproveitados; calculados+gravados; leitura) e o stdout
+anuncia cada reuso. **Politica:** versoes INTERMEDIARIAS rodam com a chave; a versao FINAL (a que vai a
+custodia/espelho) roda SEM a chave. A v320, entregue a irma no HANDOFF, foi rodada COMPLETA.
+
+**v321 RODADA DE SEMEADURA `[REAL — lido do disco]`:** com `TGL_RITE_CHECKPOINT=1`, 11:35:44 → 12:12:09;
+`um.py` sha16 `542f671db782af8d` (7,921,231 bytes; selo == disco); **2399/2399** (inalterado: fiacao); `FAIL_CLOSED_SELFTEST_PASSED`;
+**gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`; contorno 8 ritos, falsificacao
+limpa NENHUMA; `rite_checkpoints`: chave LIGADA, reaproveitados
+0, calculados+gravados 9 — `RODADA_COMPLETA__NENHUM_RITO_REAPROVEITADO`.
+Checkpoints em `cache/checkpoints/`: 9 arquivos. Stdout canonico `rodada_v321_stdout.txt`.
+A proxima rodada intermediaria (v322, ENTREGA_030) e a medida real do ganho. Memoria:
+`rito-checkpoints-v321.md`.
+
+## 06/09/2026 (tarde) — A V322: o cociclo global (ENTREGA 030) — e a primeira rodada INTERMEDIARIA com checkpoints
+
+**ENTREGA 030 (11:11) + ERRATA NOMINAL 001 (11:12), auditadas:** hashes 16/16; manifesto 260/260; auditor da
+bancada exit 0; zero proibidos; guarda de colisao no ROOT (0 colisoes); recompilacao INDEPENDENTE 6/6, axiomas
+no trio; enunciados lidos. A errata corrige um NOME na tabela de criterios (`likelihood_terms_summable` le-se
+`likelihood_summable`, o teorema efetivamente compilado) — erro de referencia, nao de demonstracao; ao lado.
+**Contexto:** a bancada diz trabalhar «sob a pergunta do operador sobre cociclo e area» — o operador esta em
+dialogo direto com a bancada sobre o Lema 3 (o cociclo global).
+
+**O que pagou — o COCICLO GLOBAL de uma perturbacao somavel:** gerador de log-verossimilhanca somavel,
+auto-adjunto e no fator (`likelihood_summable`, `likelihood_generator_selfadjoint`,
+`likelihood_generator_mem_factor`); o cociclo unitario u(t,s) (`likelihood_cocycle_unitary`, grupo em s,
+estrela, inverso, continuo, no fator, fixo pelo fluxo modular de referencia) com a **identidade TORCIDA de
+Connes** `u(s+r) = u(s)·sigma_s(u(r))` (`likelihood_cocycle_twisted`) e o limite dos prefixos
+(`likelihood_prefix_cocycle_limit`); o estado preparado reproduzido (filtro positivo e invertivel); covariancia
+no fator INTEIRO pelo duplo comutante, sem postular WOT (`likelihood_global_covariance`); leitura entropica no
+limite dos prefixos; e a **LEITURA ANGULAR QUADRATICA** como objeto positivo (`phase_quadratic_positive`,
+`_read`, `_modular_limit`) com coeficiente de ordem t² NULO por limite e cota de 4a ordem
+(`phase_quadratic_fourth_order_bound`). **NAO pago, dito pela bancada:** a familia e comutante e especificada
+(referencia 1/3,2/3; 0 <= b_n <= 1/12 somavel; h(t) = t²/(1+t²)) — nao e teorema sobre todo par de estados
+fieis; o operador de Tomita RELATIVO nao limitado, o Connes–Radon–Nikodym e a entropia de Araki gerais NAO
+sao reclamados; a fase quadratica positiva nao seleciona tela, escala nem dinamica; area geometrica e H3
+geral seguem OPEN. A identificacao de L com a «cauda/poco» do operador nao esta estabelecida.
+
+**v322 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 12:15:16 → 12:22:45;
+`um.py` sha16 `888ecbefa25ad207` (8,012,437 bytes; selo == disco); **2499/2499** (2399 + 100); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO**
+(`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA;
+`rite_checkpoints`: reaproveitados 9, calculados+gravados 0 —
+`RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`. Kernel: 6 pedras, root +6, `Audit.lean` +100, `lake build` 9034 jobs / 0 erros.
+Stdout canonico `rodada_v322_stdout.txt`. Arvore regenerada (`5f08ca0d98efca48`). **A versao FINAL (custodia) roda
+SEM a chave; a v320 foi a ultima completa.**
+
+## 06/09/2026 (tarde, II) — A V323: o operador modular RELATIVO e a comutacao modular (ENTREGAS 031..032)
+
+Duas entregas ESPONTANEAS (031 11:47, 032 12:04), auditadas com o pipeline de lote: hashes 12/12 e 12/12;
+manifestos 254/254 e 259/259; 2/2 auditores da bancada exit 0; zero proibidos; guarda estatica de colisao no
+ROOT (0 colisoes); recompilacao INDEPENDENTE 8/8, axiomas no trio; enunciados lidos.
+
+**031 — o OPERADOR MODULAR RELATIVO com dominio e fecho:** filtro inverso efetivo (auto-adjunto, no fator);
+S^0_(psi|omega)(A·Omega) = A*·Psi com o grafico relativo FECHADO por homeomorfismo dos graficos algebricos
+(`relative_tomita_closed_graph_eq`), dominio efetivo denso (`relative_tomita_domain_dense`), S estende a estrela;
+adjunto antilinear MAXIMAL (`relative_tomita_adjoint_maximal`); congruencia limitada auto-adjunta e positiva;
+**Delta_rel** com dominio denso, fechado, auto-adjunto e positivo (`relative_delta_selfadjoint`,
+`relative_delta_positive`); composicao com dominio (`relative_tomita_adjoint_comp_is_delta`,
+`relative_delta_quadratic_is_tomita_norm`). NAO pago (dito): D_rel = D_original e Delta_rel = exp(L)·Delta_omega
+ficaram para a 032; potencias e identificacao Connes/Araki; area.
+**032 — a COMUTACAO MODULAR e o dominio:** separacao das frequencias reais (`modular_phase_frequency_iff`);
+reconhecimento do grafico de Delta por testes fracos (`delta_graph_of_eigen_tests`); B limitado auto-adjunto
+que comuta com o fluxo PRESERVA o dominio de Delta e comuta (`commuting_operator_preserves_delta_domain`,
+`commuting_operator_delta_apply`); o filtro e o inverso preservam o dominio; **IGUALDADE dos dominios**
+(`relative_delta_original_domain`) e **dos operadores parciais**: Delta_rel = (produto de verossimilhanca) x
+Delta_omega como LinearPMap (`relative_delta_eq_likelihood_product`), positivo, auto-adjunto, fechado; o gerador
+preserva o dominio e comuta; controle de referencia. **NAO pago, dito pela bancada:** calculo funcional e
+potencias relativas (a comutacao no dominio nao e cálculo espectral generico); identificacao Connes/Araki
+completa; area geometrica e reconstrucao gravitacional. A familia segue a comutante especificada.
+
+**v323 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 12:28:50 → 12:36:25;
+`um.py` sha16 `c6cba05bb4ce921f` (8,108,720 bytes; selo == disco); **2590/2590** (2499 + 91); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO**
+(`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA;
+`rite_checkpoints`: reaproveitados 9, calculados+gravados 0 —
+`RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`. Kernel: 8 pedras, root +8, `Audit.lean` +91, `lake build` 9042 jobs / 0 erros.
+Stdout canonico `rodada_v323_stdout.txt`. Arvore regenerada (`61b5f5492a6eb7cd`). A v320 segue como ultima COMPLETA.
+
+## 06/09/2026 (tarde, III) — A V324: a densidade centralizante (ENTREGA 033) — e a REGRA 3 de transposicao
+
+**ENTREGA 033 (12:24), auditada:** hashes 10/10; manifesto 265/265; auditor da bancada exit 0; zero proibidos;
+enunciados lidos. **A recompilacao independente REPROVOU a entrega como entregue (2/3):** `DensityStateUniqueness`
+falha ao importar `CentralizerDensity` depois de `LikelihoodDensityLog` — «environment already contains
+`ChatgptAudit.Density033.instNormedAlgebraRatContinuousLinearMapComplexIdTowerHilbert`»: os dois modulos declaram,
+no MESMO namespace, a mesma `local instance (P : SiteProfile) : NormedAlgebra ℚ ...` ANONIMA, e um compilador limpo
+lhes da o mesmo nome automatico. **Medido nos oleans da bancada:** la os nomes sairam com SUFIXO de arquivo
+(`..._centralizer…`, `..._likelihoodD…`) — que um compilador limpo nao gera; o `verify_stage.ps1` da bancada
+reaproveita oleans/estados de tentativas anteriores. O ROOT canonico (lake) reproduziria a minha falha, nao o
+sucesso dela. **Decisao (declarada no cabecalho de cada pedra):** REGRA 3 de transposicao — toda `local instance (`
+anonima vira `local instance inst_<Modulo>_<k> (`; mecanica e deterministica; muda so o NOME da declaracao,
+nenhuma prova. Aplicada IDENTICAMENTE no harness de recompilacao independente e na cirurgia: 3/3 limpos, 3/3
+no trio. ORDEM_008 emitida: instancias NOMEADAS daqui em diante; compilar o lote junto num diretorio limpo antes
+de publicar. (A 034, ja lida, importa a 033 e entra a seguir.)
+
+**O que a 033 pagou:** a algebra do CENTRALIZADOR de omega definida SEM o fluxo (fechada; soma, produto,
+exponencial); L, R, H e u no centralizador; a DENSIDADE positiva, auto-adjunta, invertivel, no fator e
+NORMALIZADA (`likelihood_density_normalized`); o LOGARITMO genuino e unico (`likelihood_density_log`,
+`likelihood_density_log_unique`, via CFC.log_exp); potencia imaginaria limitada = cociclo, unitaria
+(`bounded_density_power_eq_cocycle`); o estado da densidade e a UNICIDADE da densidade no fator
+(`factor_density_state_unique` — H, K no fator, sem supor positividade das concorrentes); controle da leitura
+angular (`phase_quadratic_time_even`; `reference_state_cocycle_invariant`). **[KNOWN/DERIVED], dito pela
+bancada:** a identificacao de Connes e a especializacao explicita de Hiai 9.4(2) a densidade centralizante
+limitada — NAO um Pedersen–Takesaki geral compilado. **NAO pago:** area, retorno estabilizante, gravidade geral.
+
+**v324 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 12:49:26 → 12:56:54;
+`um.py` sha16 `5142a5829d6cf27a` (8,142,560 bytes; selo == disco); **2624/2624** (2590 + 34); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO**
+(`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA;
+`rite_checkpoints`: reaproveitados 9 — `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`. Kernel: 3 pedras, root +3,
+`Audit.lean` +34, `lake build` 9045 jobs / 0 erros. Stdout canonico `rodada_v324_stdout.txt`. Arvore
+regenerada (`84fc71ec08296214`). A v320 segue como ultima COMPLETA.
+
+## 06/09/2026 (tarde, IV) — A V325: a area angular de dois sitios e a observabilidade (ENTREGA 034)
+
+**ENTREGA 034 (12:40), auditada:** hashes 12/12; manifesto 278/278; auditor da bancada exit 0; zero proibidos;
+guarda estatica de colisao no ROOT (0); recompilacao INDEPENDENTE 4/4 contra o kernel ja com a 033 (regra 3),
+axiomas no trio; enunciados lidos. Modulos: `CentralizerPhaseOrbit` (orbita de fase do centralizador; importa
+`DensityStateUniqueness`), `SitePhaseCovariance` (covariancia de fase por sitio; importa `TailNotCyclic` e
+`CentralizerDensity`), `AngularScreenMetric` (metrica angular da tela; importa `ScreenAreaCalculus` da 012) e
+`AngularAreaObservability` (o teste operacional da area angular). Estatuto da propria entrega
+[REAL / DERIVED / INPUT / OPEN]: construcao de DOIS SITIOS na familia especificada; selecao fisica, escala,
+dinamica e a lei geral de area seguem INPUT/OPEN.
+
+**v325 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 13:00:25 → 13:07:55;
+`um.py` sha16 `9ced0345f9cc5e96` (8,189,594 bytes; selo == disco); **2680/2680** (2624 + 56); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO**
+(`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA;
+`rite_checkpoints`: reaproveitados 9 — `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`. Kernel: 4 pedras, root +4,
+`Audit.lean` +56, `lake build` 9049 jobs / 0 erros. Stdout canonico `rodada_v325_stdout.txt`. Arvore
+regenerada (`e3113e0ad14d18eb`). A v320 segue como ultima COMPLETA.
+
+## 06/09/2026 (tarde, V) — A V326: Fisher, area optica e a quarta ordem — com um NEGATIVO medido (ENTREGAS 035..037)
+
+Tres entregas ESPONTANEAS (035 13:31, 036 14:06, 037 15:08), auditadas com o pipeline de lote: hashes 14/14, 8/8
+(via manifesto — a bancada passou a listar arquivos como links, e o scanner aprendeu o 3o estilo), 10/10;
+manifestos 1051/1051 e 977/977; 3/3 auditores da bancada exit 0; zero proibidos; guarda estatica de colisao;
+recompilacao INDEPENDENTE 15/15, axiomas no trio; enunciados lidos. **A bancada CUMPRIU a ORDEM_008:** zero
+instancias anonimas (censo), lote compilado junto num diretorio limpo (`Imports036All`, `Imports037All`).
+
+**035 — deformacoes observaveis e AREA DE FISHER:** derivada da conjugacao unitaria e do estado nulas na origem;
+observaveis de Pauli por sitio NA TORRE REAL, fatorizacao do estado-produto; duas leituras independentes
+(`pauli_observable_jacobian_nondegenerate`); medicao conjunta efetiva em sitios distintos (projecoes
+ortogonais que somam 1, no fator); probabilidades normalizadas e suas 1a/2a derivadas; matriz de FISHER da
+medicao na origem (diagonal, determinante, forma quadratica >= 0); densidade de area de Fisher
+(`pauli_fisher_area_formula`, 4/9 = area de COORDENADAS num espaco de parametros, nao area de espaco-tempo).
+INPUT dito: a escolha de X, de Y, dos sitios e da normalizacao. **036 — AREA OPTICA e liberdade radiativa:** a
+area induzida dos campos de Jacobi da metrica 029 ligada a CURVATURA REAL — A''(0) = −Ric(d,d),
+A''''(0) = 2(tr K)² − 2 tr(K_TFᵀ K_TF) (`optical_jacobi_area_quartic_limit`); em a = r/2+s, c = r/2−s a 2a
+derivada e −r e a 4a e 2r² − 4s²; shears distintos dao germes de area DISTINTOS. Escopo: carta e assinatura 029,
+geodesica central k(d)=1, tela inicial unidade; sem resto de Taylor em Lean, sem selecao da metrica a partir de
+L. **037 — QUARTA ORDEM, area e relogio, com NEGATIVO:** D(t)/t⁴ → (9/4)B² e (S(t) + log2·B·t²)/t⁴ → C
+(`binary_relative_quartic_limit`); coeficiente optico r²/12 − s²/6; **para eta > 0 e 0 < B <= eta, delta4 >=
+(7/48)B > 0: o casamento ADICIONAL em 4a ordem com o parametro comum fixado FALHA** — nao contradiz o H3
+quadratico; a reparametrizacao do relogio t + lambda·t³ (lambda = delta4/(2 log2 B)) cancela o defeito ate
+4a ordem (controle do relogio relativo). **NAO pago, dito pela bancada:** identificacao fisica da inscricao
+angular com area, retorno estabilizador, ponte regiao–algebra, escala, assinatura, dinamica gravitacional, H3
+geral; a familia optica lorentziana e INPUT.
+
+**v326 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 15:32:09 → 15:40:36;
+`um.py` sha16 `aa9f1b290197a78b` (8,443,484 bytes; selo == disco); **2963/2963** (2680 + 283); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO**
+(`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA;
+`rite_checkpoints`: reaproveitados 9 — `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`. Kernel: 15 pedras, root +15,
+`Audit.lean` +283, `lake build` 9064 jobs / 0 erros. Stdout canonico `rodada_v326_stdout.txt`. Arvore
+regenerada (`8e471c01e1c8ade0`). A v320 segue como ultima COMPLETA.
+
+## 06/09/2026 (fim de tarde) — «O que falta para provarmos a QG?» — a lista folha a folha, e a ORDEM_009
+
+**ENTREGA_038 (15:26, `cb68e1ff312b1f22`): nota analitica, sem Lean** — a leitura angular pela norma concorda com o deficit
+optico em 2a ordem apos calibracao e FALHA em 4a ordem na classe 0 < B <= eta (contraexemplo b0 = 1/24:
+(C − (1−A))/t⁴ → r²/12 − 15r/32 < 0); recusa a igualdade funcional nessa escolha, nao a hipotese ampla do operador.
+Nada a incorporar; registrada.
+
+**A resposta dada ao operador (regua: PROVADA = teorema; CONFIRMADA = juizo, proibido):** provado, a implicacao
+(axioma + hipoteses nomeadas ⟹ pentada; em carta, balanco nulo + T conservado ⟹ G + Λg = κT; esperanca de
+Takesaki, cociclo de Connes, Tomita relativo, densidade centralizante — na familia especificada; spin-2; gate com
+18 bandeiras lidas). **Falta, cada um como teorema a escrever:** (1) **H3 DINAMICO** — Clausius/balanco nulo
+DERIVADO do estado (hoje INPUT; a 037 mostra que nao e casamento em toda ordem com relogio fixo — sobra o RELOGIO
+RELATIVO como objeto a fixar por lei); (2) a ponte REGIAO–ALGEBRA e a escala `τ(q_O) = C·Vol_g(O)`; (3) dimensao 4
+e assinatura (1,3) derivadas (O QUATRO; a inferencia do boost refutada; rota viva: a estrutura modular de Φ no
+Hilbert original); (4) o parabolico de BW (dois negativos na torre-produto); (5) lei de area geral e selecao da
+liberdade radiativa (shear livre; 4a ordem impoe o relogio); (6) globalizacao (carta → variedade; andares →
+regioes; tipo III; esperanca aperiodica; Lema 3 global); (7) os [KNOWN] importados (Connes–RN/Araki geral,
+Pedersen–Takesaki, calculo funcional relativo). **Enunciado-alvo:** o teorema mestre SEM H3 como hipotese — de
+ω(I)=1 e da torre, construir (regioes, estado) com Clausius como TEOREMA; entao G + Λg = κT emerge com um unico
+INPUT, α. O que nunca sera prova: que a natureza realiza as hipoteses (8 ritos NOT_FALSIFIED; CONFIRMADA proibido).
+
+**ORDEM_009 emitida** («Quero» do operador; `2a0f91c40cef732a`): A) a LEI DO RELOGIO RELATIVO — testar como teorema se um relogio
+CANONICO do estado (parametro modular de Φ; tempo proprio de Fisher/entropia relativa; parametro afim da geodesica
+nula) produz o λ₃ = δ₄/(2 log2·B) que a 4a ordem exige, ou o teorema de obstrucao; 6a ordem: lei ou ajuste;
+B) Clausius como teorema do estado na familia — habitante de H3 construido, `emergence_master_full_triad`
+disparando sem H3 como hipotese; C) a ponte regiao–algebra minima (tela de dois sitios ↔ subalgebra da rede A(I),
+isotonia). Guarda explicita: nenhum parametro escolhido para acertar o alvo apresentado como lei.
+
+## 06/09/2026 (noite) — A V327: o cone local, a OBSTRUCAO do relogio relativo (resposta a ORDEM_009) e o fluxo de calor (ENTREGAS 039..041)
+
+Tres entregas (039 16:02 espontanea; **040 17:12 = resposta a ORDEM_009**; 041 17:43 complemento), auditadas com o
+pipeline de lote (scanner aprendeu a excluir os agregadores `ImportsNNNAll` do build limpo da bancada): hashes
+16/16, 18/18, 8/8; manifesto 1202/1202 (040); 3/3 auditores da bancada exit 0; zero proibidos; guarda estatica de
+colisao; recompilacao INDEPENDENTE 11/11, axiomas no trio; enunciados lidos. ORDEM_008 cumprida nas tres.
+
+**039 — cone local e filtro:** coordenadas de todo Herm2 e produtos externos positivos singulares
+(`HermitianLocalCoordinates`); rigidez quadratica por positivos singulares, CONDICIONAL (`HermitianConeRigidity`);
+filtro e fase dos logaritmos locais existentes (fatores, sinais, det, nao unitalidade — `LocalFilterLorentzAction`);
+reducao global a todo o bloco 0 (igualdade de operadores, matriz decodificada, compressao GNS —
+`GlobalFilterLocalReduction`). **NAO pago (ORDEM_007C(1)):** Delta^(it) agindo como boost sobre a tetrade — a
+congruencia por filtro e OUTRA acao; a obstrucao finita anterior nao foi removida.
+
+**040 — a resposta a ORDEM_009, e e uma OBSTRUCAO PRECISA:** (A.i) o estado e o vetor globais do perfil fixo sao
+INVARIANTES pelo fluxo modular — ele nao percorre a curva nao constante `amplitudeState`; nenhuma reparametrizacao
+de derivada 1 identifica a orbita; nao se define um lambda modular ficticio. A curva global e PAR: toda leitura
+bilateral diferenciavel do estado tem derivada zero na origem (orientacao/historia sao dado adicional). (A.ii) o
+relogio de FISHER construido (peso, derivadas, velocidade, comprimento, inversao de h) da lambda_F = 1/2 − 3k/16;
+toda inversa local normalizada do relogio ENTROPICO (6a ordem da divergencia real; leitura por raiz quarta) da
+lambda_D = 1/2 − k/8; **para 0 < k <= 1/12, eta > 0, |sigma| < r/2: lambda_F e lambda_D EXCEDEM estritamente
+lambda* = 1/2 − 9B2/(8 log2·B) − eta·O/(2 log2·B)** — o defeito tem coeficiente negativo, **casamento quartico
+impossivel** nesses casos (formas fechadas e negativos em `StateClockMatchingControls`); (A.iii) o relogio AFIM da
+lambda = 0 (nao identifica o parametro dos estados com o optico); (A.3) nenhum candidato estatistico passa a 4a
+ordem na classe de um sitio — sem alegacao de casamento funcional geral; nao ha sinal universal do excesso de
+Fisher em toda a classe (perfil finito b0 = 1/12, b1..b2000 = 1/1200 da excesso negativo); anisotropia de mare
+sigma: geometrias sigma = 0 e sigma = r/4 com mesmo estado e Ricci exigem coeficientes diferentes — **outro negativo
+tipado para a selecao de um unico relogio sem dado geometrico**. (B) **habitante de H3: OPEN** — o tipo canonico
+foi usado para PROVAR o negativo das familias com incrementos finitos exatos; preservacao quadratica provada;
+nao se disparou o mestre sem H3. (C) A(I) <= A(J) sse I ⊆ J na rede discreta com representacao local fiel;
+identificacao com regioes fisicas OPEN; **NEGATIVO:** a mesma algebra gerada e o mesmo estado admitem dois
+protocolos de tangentes com densidades de area DISTINTAS — a area nao e escalar so da algebra e do estado.
+
+**041 — fluxo de calor efetivo:** Q(t) = ∫₀ᵗ −kappa·u·m·A(u) du com A a area induzida da tela 036, o integrando
+ligado por teorema a metrica, geodesica, waveMatter e colunas de Jacobi (`OpticalHeatFlow`, `OpticalHeatClausius`);
+(Q + kappa m t²/2)/t⁴ → kappa m (a+c)/8; C = Q − kappa eta (A−1)/(2 pi) tem C/t² → 0 e C/t⁴ → kappa eta
+(a²+c²)/(24 pi) > 0: **a igualdade FINITA exata falha** nesta familia; a relacao infinitesimal segue compativel.
+OPEN: `EquilibriumScreenData` compativel; igualdade com `constructedHeat(P)`; materia/geometria/normalizacao.
+
+**Leitura da gerencia:** a ORDEM_009 foi respondida com o que a regua mais valoriza — um negativo tipado. A lei
+do relogio, SE existir, nao e nenhum dos relogios estatisticos canonicos do estado; ou entra dado geometrico
+(sigma) ou entra outro estado. H3 dinamico continua a folha 1.
+
+**v327 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 17:55:36 → 18:03:13;
+`um.py` sha16 `27084702d0ebfca6` (8,654,491 bytes; selo == disco); **3157/3157** (2963 + 194); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO**
+(`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA;
+`rite_checkpoints`: reaproveitados 9 — `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`. Kernel: 11 pedras, root +11,
+`Audit.lean` +194, `lake build` 9075 jobs / 0 erros. Stdout canonico `rodada_v327_stdout.txt`. Arvore
+regenerada (`c89623b4516b1cc1`). A v320 segue como ultima COMPLETA.
+
+## 06/09/2026 (noite, II) — A V328: a resposta nula conservada e a tela efetiva de Jacobi (ENTREGAS 042..043)
+
+Duas entregas complementares a ORDEM_009 (042 18:15, 043 19:04), auditadas: hashes 10/10 e 10/10 (listagem por
+links; conferencia via os proprios hashes na linha); 2/2 auditores da bancada exit 0 (auditoria selada, somente
+leitura); zero proibidos; guarda estatica de colisao; recompilacao INDEPENDENTE 8/8, axiomas no trio;
+enunciados lidos. ORDEM_008 cumprida.
+
+**042 — completamento CONSERVADO da resposta nula:** criterio COMPLETO, na familia e no fundo plano fixados, para
+decidir se a resposta nula admite fonte conservada — com a liberdade de traco variavel incluida (nao se toma um
+representante e a sua falha por falha de todos): para w suave e fechado e c constante, TODA fonte suave simetrica
+com T(d,d) = c[w(d)]² nos nulos e S + f·g, S = c(w⊗w − g⁻¹(w,w)g/2), e a conservacao equivale a df = −c(div w)w;
+o criterio e a existencia de potencial suave (fechamento nao promovido a exatidao global). Controle phi = t²/2
+admite f = −c t²/2; **contraexemplo phi = t²x**: forca J com ∂₁J₀ − ∂₀J₁ = 4ctx — para c ≠ 0, no ponto (1,1,0,0),
+exclui TODA fonte conservada com as mesmas leituras num aberto, inclusive traco variavel. Ligacao 028 → 042 pelo
+c_b = log2·B/π. A precisao angular do operador preservada: L distinguido da forma quadratica extraida da variacao
+de fase; area geral de duas direcoes = sqrt(det G), G_ab = Re⟨D_a xi, D_b xi⟩.
+**043 — tela EFETIVA de Jacobi e calor construido:** habitante explicito de `EquilibriumScreenData` para a curva
+e as colunas de Jacobi 036, cujo construtor recebe SO (a, c ≥ 0) da metrica — nao recebe estado, materia,
+entropia, calor, eta nem casamento; perfis de Riccati q_a = F'/F, q_c = G'/G; campo V nulo, geodesico, gradiente
+diag(0, q_a, q_c, 0) na curva; `opticalScreenHeat` = `constructedHeat` com essa tela, igual a `opticalHeat` 041
+como GERME em t → 0⁻. **Sem casamento: lim D/t² = kappa[eta(a+c) − 2πm]/(4π)** — o balanco quadratico equivale a
+eta(a+c) = 2πm (a construcao da tela NAO esconde a condicao fisica; no controle a = c = 0, A = 1 e m ≠ 0 impede);
+**com casamento: lim D/t⁴ = kappa·eta(a²+c²)/(24π) > 0** — a igualdade finita exata FALHA, o balanco
+infinitesimal fica. Ilustracao angular separada dos teoremas (amplitude projetada; tela isotropica: area cos²(√a t)).
+
+**v328 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 19:24:54 → 19:32:28;
+`um.py` sha16 `d59888400f7327f3` (8,784,825 bytes; selo == disco); **3269/3269** (3157 + 112); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO**
+(`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA;
+`rite_checkpoints`: reaproveitados 9 — `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`. Kernel: 8 pedras, root +8,
+`Audit.lean` +112, `lake build` 9083 jobs / 0 erros. Stdout canonico `rodada_v328_stdout.txt`. Arvore
+regenerada (`04f9d4ffe3f6562e`). A v320 segue como ultima COMPLETA.
+
+## 06/09/2026 (noite, III) — A V329: as PEDRAS DA GERENCIA — o levantamento do Lema 3 DISPARA na torre periodica; o fluxo modular e um horizonte
+
+**A ordem do operador:** «tente evoluir voce mesmo com o que ja temos antes de deixar a nova ordem […] observe o
+que o ChatGPT esta fazendo para voce nao entrar em conflito com o que ele ja esta derivando». A bancada esta em H3
+(relogio relativo, area, tela de equilibrio, fluxo de calor, resposta nula). A gerencia foi a OUTRA folha — o Lema 3
+— por COMPOSICAO de teoremas ja no kernel, sem hipotese nova e sem axioma novo.
+
+**1. `TheLiftFiresOnThePeriodicTower.lean` (sha16 `d6994dae74feb809`, 6 teoremas).** `the_lift_on_the_tower` (v308) prova:
+contrato da esperanca `I : ExpectationInput P` + horizonte omega-invariante `h` ⟹ `Ad(h) ∘ E = E ∘ Ad(h)` sobre M.
+Ate a v316 o contrato NAO tinha habitante (importado [KNOWN, Takesaki]); a bancada construiu-o: tracial (v316),
+periodico e estacionario (v317). Logo: **`the_lift_fires_on_the_periodic_tower`** — para todo perfil com periodo
+comum e todo horizonte omega-invariante, a esperanca CONSTRUIDA e covariante (o antecedente virou termo);
+`the_lift_fires_on_the_stationary_tower` (w = p ≠ 1/2, periodo 2π/|log p − log(1−p)|);
+`the_lift_fires_on_the_tracial_tower`; **`every_expectation_on_the_periodic_tower_is_covariant`** (unicidade +
+covariancia: nenhuma esperanca «alternativa» escapa); **`response_covariant_on_the_periodic_tower`** — se a fonte K
+preserva M e transporta covariante, E ∘ K transporta covariante: a forma do G_μν global condicional (o corolario
+`response_covariant` da face finita, v143) SOBE A TORRE; `the_lift_on_the_aperiodic_tower_is_still_conditional`
+— o que NAO se prova, dito como enunciado.
+**2. `TheModularFlowIsAHorizon.lean` (sha16 `df9dac92716643a4`, 8 teoremas + 2 def).** O primeiro habitante NAO TRIVIAL de
+`TowerHorizon P`: `modularFlowCLM P t` (= Δ^{it} como operador limitado), com `modularFlowCLM_star`
+(adjunto = Δ^{−it}), `modularConjugation_eq_sandwich` (σ_t A = U A U*), e **`modularHorizon P t : TowerHorizon P`**
+— unitario, normaliza M (`modularConjugation_preserves_factor`), preserva ω (`modularConjugation_preserves_state`).
+Corolarios: **`periodic_expectation_commutes_with_modular_flow`** — E(σ_t A) = σ_t(E A) para a esperanca
+construida; **`every_expectation_commutes_with_modular_flow`** — para QUALQUER habitante do contrato.
+**Leitura:** o «juramento» H_inv do Lema 3 (v143, postulado na face finita) e, na torre, TEOREMA quando o codigo e
+o centralizador (v308: `horizon_preserves_centralizer`) — e agora a esperanca que ele governa EXISTE (perfil
+periodico) e COMUTA com o fluxo modular. **O que fica do Lema 3:** horizontes concretos NAO modulares (trocas de
+sitios no perfil estacionario; o shift nao e unitario); o perfil aperiodico (Cesaro); a globalizacao
+(andares → regioes). Nada disto colide com a bancada (ela esta em H3/area/relogio) — e o teorema
+`every_expectation_commutes_with_modular_flow` e util a analise dela do relogio modular (040 A.i).
+
+**Auditoria da propria gerencia:** compilacao INDEPENDENTE em raiz propria (`gerencia_root`, oleans do kernel por
+hardlink): 2/2 exit 0, 6 + 6 impressoes de axiomas no trio, 0 sorryAx, 0 warnings (uma tentativa falhou num `rw`
+de `neg_neg` — corrigida com `hst`, registrada); guarda de colisao no ROOT; copia byte a byte para o kernel
+(sem transposicao: os arquivos ja nascem com prefixo TGLExt. e cabecalho proprio); relatorio de axiomas do selo:
+15/15 termos da gerencia no trio.
+
+**v329 SELADA `[REAL — lido do disco]` — rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1):** 19:33:49 → 19:41:29;
+`um.py` sha16 `69218263303ce8a4` (8,801,091 bytes; selo == disco); **3283/3283** (3269 + 14); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO**
+(`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`; contorno 8 ritos, falsificacao limpa NENHUMA;
+`rite_checkpoints`: reaproveitados 9 — `RODADA_INTERMEDIARIA__9_RITOS_REAPROVEITADOS__A_VERSAO_FINAL_RODA_SEM_A_CHAVE`. Kernel: 2 pedras, root +2,
+`Audit.lean` +14, `lake build` 9085 jobs / 0 erros. Stdout canonico `rodada_v329_stdout.txt`. Arvore
+regenerada (`3beca230db0a424c`). A v320 segue como ultima COMPLETA.
+
+## 06/09/2026 (noite, IV) — ORDEM_010 emitida (`735308cf70aff21d`): o que a gerencia NAO fechou, e a continuacao da bancada sem colisao
+
+A) horizontes concretos NAO modulares (troca de sitios no perfil estacionario; permutacoes finitas; `shift_is_not_a_horizon`; perfil aperiodico via teorema ergodico medio, ou a parede exata); B) a DICOTOMIA do relogio depois da obstrucao da 040 — classe `StateClock` (funcionais do estado, invariantes por unitarios que preservam o estado, incluindo sigma_t pela v329): negativo UNIVERSAL «nenhum funcional so do estado fixa lambda*, porque lambda* depende de sigma e o estado nao», ou o relogio que fecha e a 6a ordem; consequencia: H3 infinitesimal + residual como o que a torre PAGA, H3 finito como o que ela REFUTA; C) o dado que fixa o protocolo de area (covariancia por horizontes). Guarda: nao refazer a v329 (importar `TGLExt.TheLiftFiresOnThePeriodicTower` e `TGLExt.TheModularFlowIsAHorizon`).
+
+## 06/09/2026 (noite, V) — A V330: boost aproximado, horizontes de permutacao e a DICOTOMIA do relogio (ENTREGAS 044..045) — RODADA COMPLETA
+
+Duas entregas (044 19:49; **045 20:45 = resposta a ORDEM_010**), auditadas: hashes 10/10 e 8/8 (o scanner aprendeu a
+variante de link `</C:/...>`); 2/2 auditores da bancada exit 0; zero proibidos; guarda estatica de colisao;
+recompilacao INDEPENDENTE 8/8, axiomas no trio; enunciados lidos. A bancada recompilou as duas pedras da
+gerencia (v329) como DEPENDENCIA e declarou: «NAO incorporar novamente como novidade» — respeitado.
+
+**044 — boost aproximado e orientacao do calor:** o peso −kappa·t da 041 e REALIZADO por um campo de boost
+chi = −kappa u ∂_u + kappa v ∂_v com fluxo explicito (grupo, inversa, jacobiano; preservacao plana); o pullback
+literal da metrica difere de g por (e^{−2kappa s} − 1)(aX² + cY²)du²; a derivada de Lie e −2kappa(aX² + cY²)du²
+(zera com o 1o jato na central); **controle negativo:** para kappa ≠ 0 e (a, c) ≠ 0 o campo NAO e Killing em
+aberto algum contendo 0; T(chi(γ(t)), d) = −kappa t T(d,d); Q_boost = opticalHeat041 globalmente e =
+opticalScreenHeat043 como germe; a ORIENTACAO do passado ate a origem certificada (Q_segment e DeltaA_segment
+nao negativos; calor e area invertem sinal juntos; casamento quadratico segue eta(a+c) = 2πm). INPUT: familia,
+carta, kappa; kappa/(2π) e normalizacao herdada (sem Unruh/KMS). Anotado [DERIVED/OPEN]: o fluxo aproxima a origem
+para s → +∞ mas a direcao conjugada cresce exponencialmente — nao e estavel a perturbacoes gerais.
+
+**045 — a resposta a ORDEM_010:** (A1) **`swapHorizon P p hp i j`** — a troca de sitios no perfil estacionario e
+um `TowerHorizon` POR PROVA (acao literal, unitariedade, normalizacao do fator, preservacao do estado) — o segundo
+horizonte concreto depois do modular (v329); (A2) **permutacoes finitas** com lei de grupo e acao n → σ(n), cauda
+fixa, **covariancia das esperancas estacionaria/tracial** (`FiniteSitePermutations`, `FiniteSiteHorizons`); se um
+sitio e movido, a sua projecao DISTINGUE a acao de todo tempo modular (horizontes algebricos ≠ modulares);
+**shift unilateral NAO construido** neste lote (nao se inventa `shift_is_not_a_horizon`); (A3) aperiodico OPEN
+com a rota nomeada (Cesaro → limite em Ω → levantamento pela acao direita → identidade prefixal → into/fixes/
+ortho; normalidade/CP exigem mais); (B1) **`StateClock`** como classe CINEMATICA (origem, derivada 1, jato) — sem
+supor difeomorfismo local; (B2) **a DICOTOMIA, tipada:** eta > 0, B > 0, duas telas sigma = 0 e sigma = r/4 com o
+MESMO estado e o MESMO Ricci (r = R(d,d)): diferenca dos residuos/t⁴ → +eta r²/96 — **para todo relogio comum g
+alguma tela falha; cada tela isolada admite relogio que cancela a 4a ordem; gap λ* = r/96**
+(`StateClockDichotomy`). Nao se conclui falha de todo relogio em toda geometria; (B3) H3: casamento quadratico
+condicionado preservado e residual quartico explicito; H3 fisico e lei finita geral OPEN; **nao ha lei de 6a
+ordem** — «uma lei adicional pode selecionar a geometria e restringir as telas»; (C) area: com a mesma acao e as
+mesmas tangentes, h e αh (α > 0) sao ambos invariantes/simetricos/positivos e a area multiplica por α —
+**covariancia NAO fixa a normalizacao** (`HorizonAreaScale`); acao fisica em tangentes e ponte regiao–algebra OPEN.
+
+**Leitura da gerencia:** a folha H3 esta agora delimitada por TRES negativos tipados (040: nenhum relogio canonico;
+045: nenhum relogio COMUM a geometrias distintas; 041/043: igualdade finita falha) e por um positivo: cada tela
+isolada tem o seu relogio. O que sobra para H3 e uma LEI que escolha a geometria (ou o estado por geometria) —
+exatamente a ponte regiao–algebra. O Lema 3 ganhou o segundo horizonte concreto (swap) e a covariancia por
+permutacoes; faltam o shift e o aperiodico.
+
+**v330 SELADA `[REAL — lido do disco]` — RODADA COMPLETA (sem TGL_RITE_CHECKPOINT; a versao da custodia):**
+21:03:27 → 21:39:41; `um.py` sha16 `cc026bc7915f6622` (8,944,290 bytes; selo == disco); **3442/3442** (3283 + 159); `FAIL_CLOSED_SELFTEST_PASSED`;
+**gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true = True`; contorno 8 ritos, falsificacao limpa
+NENHUMA; `rite_checkpoints`: `RODADA_COMPLETA__NENHUM_RITO_REAPROVEITADO` (chave desligada; reaproveitados 0). Kernel:
+8 pedras, root +8, `Audit.lean` +159, `lake build` 9093 jobs / 0 erros. Stdout canonico
+`rodada_v330_stdout.txt`. Arvore regenerada (`b56512f0f61bca3e`). **HANDOFF_v330 para a irma** (custodia).

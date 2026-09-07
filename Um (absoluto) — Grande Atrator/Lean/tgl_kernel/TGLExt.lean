@@ -464,3 +464,86 @@ import TGLExt.PlaneWaveCurvature
 import TGLExt.PlaneWaveMatter
 import TGLExt.PlaneWaveEntropyMatching
 import TGLExt.PlaneWaveReconstructionControls
+
+-- BANCADA CHATGPT ENTREGA 030 06/09/2026 (transpostas; auditadas 6/6 trio)
+import TGLExt.SiteLogLikelihood
+import TGLExt.SummableLikelihoodGenerator
+import TGLExt.LikelihoodCocycle
+import TGLExt.LikelihoodPreparedState
+import TGLExt.LikelihoodStateCovariance
+import TGLExt.LikelihoodCocycleControls
+
+-- BANCADA CHATGPT ENTREGAS 031..032 06/09/2026 (transpostas; auditadas 8/8 trio)
+import TGLExt.BoundedPositiveCongruence
+import TGLExt.RelativeFilterInverse
+import TGLExt.RelativeTomitaClosure
+import TGLExt.RelativeModularOperator
+import TGLExt.PhaseFrequencySeparation
+import TGLExt.ModularEigenRecognition
+import TGLExt.ModularDomainCommutation
+import TGLExt.RelativeModularProduct
+
+-- BANCADA CHATGPT ENTREGA 033 06/09/2026 (transpostas; auditadas 3/3 trio)
+import TGLExt.CentralizerDensity
+import TGLExt.LikelihoodDensityLog
+import TGLExt.DensityStateUniqueness
+
+-- BANCADA CHATGPT ENTREGA 034 06/09/2026 (transpostas; auditadas 4/4 trio)
+import TGLExt.CentralizerPhaseOrbit
+import TGLExt.SitePhaseCovariance
+import TGLExt.AngularScreenMetric
+import TGLExt.AngularAreaObservability
+
+-- BANCADA CHATGPT ENTREGAS 035..037 06/09/2026 (transpostas; auditadas 15/15 trio)
+import TGLExt.UnitaryStateDerivative
+import TGLExt.SitePauliObservables
+import TGLExt.PauliOperationalSurface
+import TGLExt.PauliProbabilityModel
+import TGLExt.PauliMeasurementFisher
+import TGLExt.OpticalTidalScreen
+import TGLExt.OpticalScreenInvariant
+import TGLExt.OpticalJacobiArea
+import TGLExt.OpticalAreaFreedom
+import TGLExt.QuarticClockTransport
+import TGLExt.BinaryRelativeQuartic
+import TGLExt.SummableRelativeQuartic
+import TGLExt.JacobiAreaQuarticLimit
+import TGLExt.FourthOrderMatchingControls
+import TGLExt.QuarticMatchingClockControls
+
+-- BANCADA CHATGPT ENTREGAS 039..041 06/09/2026 (transpostas; auditadas 11/11 trio)
+import TGLExt.HermitianLocalCoordinates
+import TGLExt.HermitianConeRigidity
+import TGLExt.LocalFilterLorentzAction
+import TGLExt.GlobalFilterLocalReduction
+import TGLExt.RelativeEntropyClock
+import TGLExt.StateClockObstruction
+import TGLExt.IntrinsicFisherClock
+import TGLExt.AffineClockAndRegion
+import TGLExt.StateClockMatchingControls
+import TGLExt.OpticalHeatFlow
+import TGLExt.OpticalHeatClausius
+
+-- BANCADA CHATGPT ENTREGAS 042..043 06/09/2026 (transpostas; auditadas 8/8 trio)
+import TGLExt.NullStressCompletion
+import TGLExt.ConservativeNullResponse
+import TGLExt.NonintegrablePotential
+import TGLExt.SummableNullIntegrability
+import TGLExt.JacobiRiccatiProfile
+import TGLExt.OpticalNullCongruence
+import TGLExt.OpticalEquilibriumScreen
+import TGLExt.OpticalConstructedHeat
+
+-- GERENCIA (Claude) 06/09/2026 — o levantamento do Lema 3 dispara na torre periodica; o fluxo modular e horizonte
+import TGLExt.TheLiftFiresOnThePeriodicTower
+import TGLExt.TheModularFlowIsAHorizon
+
+-- BANCADA CHATGPT ENTREGAS 044..045 06/09/2026 (transpostas; auditadas 8/8 trio)
+import TGLExt.ApproximateBoostFlow
+import TGLExt.BoostMetricPullback
+import TGLExt.BoostMetricJets
+import TGLExt.BoostHeatConstruction
+import TGLExt.FiniteSitePermutations
+import TGLExt.FiniteSiteHorizons
+import TGLExt.StateClockDichotomy
+import TGLExt.HorizonAreaScale

@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 30 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 54 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,7 +22,7 @@ Pasta do repositorio the_boundary com 30 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-30 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT
+54 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT
 
 **DOCUMENTO**
 
@@ -57,8 +57,32 @@ Pasta do repositorio the_boundary com 30 arquivo(s) rastreado(s).
 | `ENTREGA_027_ESPONTANEA_transporte_unitario_e_modular.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_027_ESPONTANEA_transporte_unitario_e_modular.md) |
 | `ENTREGA_028_ESPONTANEA_resposta_global_e_limite_do_corte.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_028_ESPONTANEA_resposta_global_e_limite_do_corte.md) |
 | `ENTREGA_029_ESPONTANEA_geometria_curva_e_liberdade_residual.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_029_ESPONTANEA_geometria_curva_e_liberdade_residual.md) |
+| `ENTREGA_030_ERRATA001_referencia_nominal.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_030_ERRATA001_referencia_nominal.md) |
+| `ENTREGA_030_ESPONTANEA_cociclo_global_e_leitura_angular.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_030_ESPONTANEA_cociclo_global_e_leitura_angular.md) |
+| `ENTREGA_031_ESPONTANEA_operador_modular_relativo.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_031_ESPONTANEA_operador_modular_relativo.md) |
+| `ENTREGA_032_ESPONTANEA_comutacao_modular_e_dominio.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_032_ESPONTANEA_comutacao_modular_e_dominio.md) |
+| `ENTREGA_033_ESPONTANEA_densidade_logaritmo_e_cociclo.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_033_ESPONTANEA_densidade_logaritmo_e_cociclo.md) |
+| `ENTREGA_034_ESPONTANEA_area_angular_e_observabilidade.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_034_ESPONTANEA_area_angular_e_observabilidade.md) |
+| `ENTREGA_035_ESPONTANEA_deformacoes_observaveis_e_area_fisher.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_035_ESPONTANEA_deformacoes_observaveis_e_area_fisher.md) |
+| `ENTREGA_036_ESPONTANEA_area_optica_e_liberdade_radiativa.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_036_ESPONTANEA_area_optica_e_liberdade_radiativa.md) |
+| `ENTREGA_037_ESPONTANEA_quarta_ordem_area_e_relogio.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_037_ESPONTANEA_quarta_ordem_area_e_relogio.md) |
+| `ENTREGA_038_ESPONTANEA_modulo_angular_e_area.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_038_ESPONTANEA_modulo_angular_e_area.md) |
+| `ENTREGA_039_ESPONTANEA_cone_local_e_filtro.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_039_ESPONTANEA_cone_local_e_filtro.md) |
+| `ENTREGA_040_H3_dinamico_e_o_relogio_relativo.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_040_H3_dinamico_e_o_relogio_relativo.md) |
+| `ENTREGA_041_fluxo_efetivo_e_area_angular.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_041_fluxo_efetivo_e_area_angular.md) |
+| `ENTREGA_042_completamento_conservado_da_resposta_nula.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_042_completamento_conservado_da_resposta_nula.md) |
+| `ENTREGA_043_tela_efetiva_e_calor_construido.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_043_tela_efetiva_e_calor_construido.md) |
+| `ENTREGA_044_boost_aproximado_e_orientacao_do_calor.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_044_boost_aproximado_e_orientacao_do_calor.md) |
+| `ENTREGA_045_horizontes_relogio_e_escala_da_area.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_045_horizontes_relogio_e_escala_da_area.md) |
+| `ENTREGA_046_media_modular_e_expectativa.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_046_media_modular_e_expectativa.md) |
+| `ENTREGA_047_propriedades_da_expectativa.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_047_propriedades_da_expectativa.md) |
+| `ENTREGA_048_obstrucoes_da_identificacao_geometrica.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_048_obstrucoes_da_identificacao_geometrica.md) |
+| `ENTREGA_049_subespaco_padrao_continuo.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_049_subespaco_padrao_continuo.md) |
+| `ENTREGA_050_adjunto_quadrado_e_resolvente.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_050_adjunto_quadrado_e_resolvente.md) |
+| `ENTREGA_051_balanco_optico_finito.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_051_balanco_optico_finito.md) |
+| `ENTREGA_052_setor_horizontal_e_area.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_052_setor_horizontal_e_area.md) |
 | `LEIA-ME.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/LEIA-ME.md) |
 
 ---
 
-gerado por script de git ls-files em 2026-09-06 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-07 -- nao editar a mao

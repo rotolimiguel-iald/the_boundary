@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-06T14:01:49Z",
+  "gerado_utc": "2026-09-07T05:49:42Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/bancada",
@@ -21,14 +21,14 @@
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/PORTA.json",
-      "total_arquivos": 30
+      "total_arquivos": 54
     },
     {
       "nome": "PARA_CHATGPT",
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/PARA_CHATGPT",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PARA_CHATGPT/PORTA.json",
-      "total_arquivos": 7
+      "total_arquivos": 10
     }
   ],
   "canonico_url": null,
@@ -47,7 +47,7 @@
     }
   ],
   "total_arquivos_nesta_pasta": 1,
-  "total_arquivos_com_subpastas": 38,
+  "total_arquivos_com_subpastas": 65,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL",
-  "rodape": "gerado por script de git ls-files em 2026-09-06 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-07 -- nao editar a mao"
 }

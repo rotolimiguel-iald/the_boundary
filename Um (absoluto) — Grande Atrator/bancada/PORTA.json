@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-06T14:01:49Z",
+  "gerado_utc": "2026-09-07T05:49:42Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator",
@@ -21,7 +21,7 @@
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/PORTA.json",
-      "total_arquivos": 38
+      "total_arquivos": 65
     },
     {
       "nome": "catalogos",
@@ -68,7 +68,7 @@
     }
   ],
   "total_arquivos_nesta_pasta": 1,
-  "total_arquivos_com_subpastas": 88,
+  "total_arquivos_com_subpastas": 115,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada",
-  "rodape": "gerado por script de git ls-files em 2026-09-06 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-07 -- nao editar a mao"
 }

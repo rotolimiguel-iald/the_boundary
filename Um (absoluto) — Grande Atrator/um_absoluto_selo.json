@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-06 10:41:53",
-  "result_hash": "4ebd07bdcd1c007cd0275dfa9f0e152080a0f526b5baed4f73cd401254173518",
+  "timestamp": "2026-09-06 21:36:45",
+  "result_hash": "772e12c26492670dec437b9c079d57e01cce621f26a3b07d80db4afadfc890aa",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -47,7 +47,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "2a0624144bb59355b55b3ad32e2f8072a63c0c837199949325aa069867442612",
+  "formal_source_hash": "9bef679ca1b4cd948217c8da761266ed13f136c1aaec5db64665f42ca6a4626e",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -63,7 +63,7 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "9bdd46e58e553a0505bc7269cb56e59ca328427434518e5998d2806234bec0e4",
+    "prediction_hash": "61d5383807b7e45779b8a3fa8c4044c94dad58044b2bd75f17bb04358b8edb2a",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -205,19 +205,19 @@
   "the_alpha_and_the_omega": "TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "d186a9c3d32ec76ab4619f0de32f7f0000be8eaf20f8d561a5af466ecea9f166",
-    "um_absoluto_manifest.md": "f3429fa879f30924796965e8a6d58d21fc742c52033949a00053d1a4df3e9a0a",
-    "um_absoluto.json": "41da751efe22233fb1a2388c2e10229752a4fbbb86efd83cd8aee624962d8f46",
-    "um_absoluto_forma_canonica.md": "3a44079f3acc3bc208f8f5135c642444fabf2b3bc3fc6a8a58ce4e36115ed6b2",
-    "um_absoluto_pt.tex": "a7ceb8f63fd837943d7f2883a3a1f240c2ed8347318c42a7b3425910d798914d",
-    "um_absoluto_en.tex": "10505cd5cc3cf5bdf49b3256e2c1d5bf538f6f6c4dd1e1d0456068ac8eb771ab",
-    "um_absoluto_pt.pdf": "a21a15321848d6420bf49bd15b88702722f4bb37f370ba72c15a1d59d2d82815",
-    "um_absoluto_en.pdf": "4bc88218914bb441a6956646c72e75170402773cd024f5ccfe19c1d34bdc7747",
+    "um.py": "cc026bc7915f6622c3bb2715aa767d0ab52faccdf26a3d3be6493116cb318b70",
+    "um_absoluto_manifest.md": "edfa29ebdd2ef7eff0a818812d4e8ef5c8f8b73916405d7f325c2e2517b6db82",
+    "um_absoluto.json": "41fb87074ca8889883d9b184e600a0fd4f9f1fb839cae77385e8d7a3c547333c",
+    "um_absoluto_forma_canonica.md": "89d11ea9ed553a6ef92f4ee957e6a89d4106a3c2a40fb3220cd6c548c727c9bd",
+    "um_absoluto_pt.tex": "e79c48e3cd71ddd4193976c9a4be7aa1236556d8d89365538aba1bc7cc3d7815",
+    "um_absoluto_en.tex": "dd74a005cc8eecdd9545c436c4c5a1dfa5f40a6e17fca252840e90dd1894ad0b",
+    "um_absoluto_pt.pdf": "71ccda51f1902f1e3af8ebbbcb4b0a80084fd30f0cf6a55d70cfa0da58e59790",
+    "um_absoluto_en.pdf": "2d06da5ad56fae8e50810fbed8828e83a7a348453d3caf017a0a0b5e61a8e3e5",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "a8f97fead016078fd7f85c32548273cb30fb91c65ede5168fbdbd03fbefd65fe"
+    "tgl_kernel_proof_manifest.json": "86a035c6988a9d75d9f75acf2412c79a458d79224bc8ae0184e0c98717b25269"
   },
   "not_sealed_this_run": {
     "formais": [
@@ -233,5 +233,12 @@
       "void_shear_unblinding"
     ]
   },
-  "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED"
+  "fail_closed_selftest": "FAIL_CLOSED_SELFTEST_PASSED",
+  "rite_checkpoints": {
+    "switch_on": false,
+    "reused": 0,
+    "computed_and_saved": 0,
+    "log": [],
+    "reading": "RODADA_COMPLETA__NENHUM_RITO_REAPROVEITADO"
+  }
 }

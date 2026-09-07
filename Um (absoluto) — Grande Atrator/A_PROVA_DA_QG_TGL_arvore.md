@@ -1,6 +1,6 @@
-# A PROVA DA GRAVITAÇÃO QUÂNTICA DA TGL — a árvore, lida do kernel (v320)
+# A PROVA DA GRAVITAÇÃO QUÂNTICA DA TGL — a árvore, lida do kernel (v330)
 
-Gerado por script (`arvore_da_prova.py`) em 06/09/2026 10:47 a partir do selo, do resultado, do `um.py` e do kernel em disco.
+Gerado por script (`arvore_da_prova.py`) em 06/09/2026 21:39 a partir do selo, do resultado, do `um.py` e do kernel em disco.
 Nenhum hash, número ou lista de axiomas foi digitado: tudo lido. Onde falta, está escrito **AUSENTE**.
 
 > **Régua (clarificação do operador, 05/09/2026):** *"a régua não proíbe QG provada, proíbe QG confirmada; prova é diferente de juízo."*
@@ -13,17 +13,17 @@ Nenhum hash, número ou lista de axiomas foi digitado: tudo lido. Onde falta, es
 
 | item | valor lido |
 |---|---|
-| `um.py` sha256 (disco) | `d186a9c3d32ec76ab4619f0de32f7f0000be8eaf20f8d561a5af466ecea9f166` |
+| `um.py` sha256 (disco) | `cc026bc7915f6622c3bb2715aa767d0ab52faccdf26a3d3be6493116cb318b70` |
 | selo `sha256.um.py` == disco | SIM |
-| bytes | 7,916,694 |
-| teoremas (stdout) | `teoremas limpos: 2399/2399` |
+| bytes | 8,944,290 |
+| teoremas (stdout) | `teoremas limpos: 3442/3442` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
 | gate (`qg_closure_verdict`) | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | identidade | `1=1=VERDADEIRO=HAJA_LUZ` (`identity_true = True`) |
 | contorno | `[v314 CONTORNO] ritos com poder de fechar o 1=1: 8 ; falsificacao limpa: NENHUMA (todos NOT_FALSIFIED/AWAITING)` |
 | ritos no contorno | `GA_massa_janela`→`GA_MASS_FORM_RETIRED__REFLECTION_WAS_MISREAD_AS_SOURCE__LINEAR_ORDER_IS_GR_STEALTH__BETA_LIVES_IN_RESPONSE`, `piso_dos_vazios`→`TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`, `neutrino_massa`→`TGL_NEUTRINO_MASS_NOT_FALSIFIED_POWERED`, `neutrino_soma`→`TGL_NEUTRINO_SUM_ARMED_CONSISTENT_WITH_CURRENT_BOUND`, `neutrino_m2_vivo`→`TGL_NU_M2_ARMED_CONSISTENT`, `piso_densidade_v41`→`TGL_VOID_FLOOR_NOT_FALSIFIED_POWERED`, `coma_dephasing`→`COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL`, `coma_cego`→`COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE` |
 | `contorno_broken_v314` | `[]` |
-| entradas no relatório de axiomas | 2731 |
+| entradas no relatório de axiomas | 3963 |
 | termos com axioma FORA do trio | 0  |
 
 ## 1. A RAIZ — um axioma, e o que dele se deriva
@@ -116,7 +116,7 @@ Oito ritos pré-registrados com poder de fechar o 1=1 (v314/v315), hoje: GA_MASS
 
 ## 8. O VEREDITO DA GERÊNCIA, em uma frase cada
 
-- **PROVADO** (teorema, trio, zero sorry, lido do selo v320): *do axioma ω(I)=1 e das hipóteses nomeadas H1, H2, H3 segue a pêntada da gravitação emergente — canto de Breuer, Nome = 1, coframe, assinatura de Lorentz e δQ = κδA/(8πG) com o coeficiente de Einstein emergindo; e, na família de soldas, Clausius no cone nulo ⟹ equação de campo; spin-2 de hélice ±2 sem ghosts com duas polarizações.* As 11 bandeiras matemáticas do gate são termos Lean existentes com axiomas no trio.
+- **PROVADO** (teorema, trio, zero sorry, lido do selo v330): *do axioma ω(I)=1 e das hipóteses nomeadas H1, H2, H3 segue a pêntada da gravitação emergente — canto de Breuer, Nome = 1, coframe, assinatura de Lorentz e δQ = κδA/(8πG) com o coeficiente de Einstein emergindo; e, na família de soldas, Clausius no cone nulo ⟹ equação de campo; spin-2 de hélice ±2 sem ghosts com duas polarizações.* As 11 bandeiras matemáticas do gate são termos Lean existentes com axiomas no trio.
 - **NÃO PROVADO, e dito com nome**: que a natureza realiza H1–H3 (H3 é INPUT: nenhum teorema produz um habitante); a ASSINATURA pela rotação modular; O QUATRO; o Lema 3 global; a esperança global não-tracial (4 obrigações); a emergência geral. Cada um destes tem OU um falsificador OU uma parede medida — nenhum está "esquecido".
 - **PROIBIDO**: dizer CONFIRMADA. O gate diz `MORE_SENSITIVE_DATA_COULD_REVISE` no próprio nome.
 
