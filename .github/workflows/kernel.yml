@@ -72,13 +72,19 @@ jobs:
           sealed = man["axiom_report"]
           txt = open(os.path.join(os.path.dirname(os.environ["KERNEL"]), "ci_audit.txt"), encoding="utf-8", errors="replace").read()
           TRIO = {"propext", "Classical.choice", "Quot.sound"}
-          # Lean prints either "'X' depends on axioms: [a, b]" or "'X' does not depend on any axioms"
+          # Lean prints either "'X' depends on axioms: [a, b]" (the list may WRAP over several lines) or
+          # "'X' does not depend on any axioms". Names may END with an apostrophe (TGLExt.comm_of_fixed'),
+          # so the name is captured non-greedily up to the closing quote that precedes the keyword.
           got = {}
-          for m in re.finditer(r"'([^']+)' depends on axioms: \[([^\]]*)\]", txt):
+          for m in re.finditer(r"'(.+?)' depends on axioms: \[([^\]]*)\]", txt):
               got[m.group(1)] = [a.strip() for a in m.group(2).split(",") if a.strip()]
-          for m in re.finditer(r"'([^']+)' does not depend on any axioms", txt):
+          for m in re.finditer(r"'(.+?)' does not depend on any axioms", txt):
               got[m.group(1)] = []
-          errors = [l for l in txt.splitlines() if "error" in l.lower()]
+          # a Lean error looks like "CIAudit.lean:12:0: error: unknown constant ..." — match THAT, never a
+          # theorem whose NAME contains "error" (five sealed terms do: *_error_limit, *_error_bound_*).
+          # First run (07/09/2026) failed exactly on that: build ok, audit ok, judge wrong. The number corrected it.
+          errors = [l for l in txt.splitlines()
+                    if re.match(r"^\S+\.lean:\d+:\d+: error", l) or "unknown constant" in l or "unknown identifier" in l]
           missing = sorted(set(sealed) - set(got))
           dirty = {k: v for k, v in got.items() if not set(v) <= TRIO}
           print("sealed terms ......", len(sealed))
