@@ -1,2 +1,5 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# 07/09/2026 — CUSTODIA POR HASH: o git JAMAIS converte fim de linha neste espelho.
+# Medido: com "* text=auto" + core.autocrlf=true, 229 arquivos (um.py, selo, JSON, MD, TXT, .lean) eram guardados
+# com LF enquanto o disco e o selo tem CRLF — o raw do GitHub servia bytes cujo sha256 NAO era o do selo.
+# "-text" = bytes exatos; o que se publica e o que o selo descreve, tambem pelo raw.
+* -text
