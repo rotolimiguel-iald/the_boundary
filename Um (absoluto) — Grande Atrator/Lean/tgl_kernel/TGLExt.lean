@@ -547,3 +547,51 @@ import TGLExt.FiniteSitePermutations
 import TGLExt.FiniteSiteHorizons
 import TGLExt.StateClockDichotomy
 import TGLExt.HorizonAreaScale
+
+-- BANCADA CHATGPT ENTREGAS 046..054 07/09/2026 (transpostas; auditadas 43/43 trio)
+import TGLExt.AperiodicPhaseAverage
+import TGLExt.BoundedOmegaLimit
+import TGLExt.AperiodicVectorAverage
+import TGLExt.AperiodicAveragePrefix
+import TGLExt.AperiodicCentralizerExpectation
+import TGLExt.AperiodicTowerLift
+import TGLExt.ExpectationAlgebra
+import TGLExt.GeneralExpectationPositive
+import TGLExt.OperatorBlockRepresentation
+import TGLExt.ExpectationBlockPositive
+import TGLExt.GeneralExpectationCP
+import TGLExt.ExpectationContinuity
+import TGLExt.MonotoneOperatorLimit
+import TGLExt.ExpectationNormality
+import TGLExt.TransportedBorchersObstruction
+import TGLExt.FaithfulGeometricLocalization
+import TGLExt.BoundedGraphOperator
+import TGLExt.ClosedAntilinearStandardSubspace
+import TGLExt.ContinuousModularMultipliers
+import TGLExt.BoundedGraphStandardSubspace
+import TGLExt.ContinuousModularDomain
+import TGLExt.ContinuousModularStandardSubspace
+import TGLExt.GenericAntilinearAdjoint
+import TGLExt.ContinuousModularSquare
+import TGLExt.ContinuousModularReconstruction
+import TGLExt.ContinuousModularResolvent
+import TGLExt.OpticalVolterraBalance
+import TGLExt.OpticalRiccatiInvariant
+import TGLExt.OpticalFiniteBalance
+import TGLExt.OpticalBalanceControls
+import TGLExt.LocalHorizontalPauli
+import TGLExt.ModularHorizontalRotation
+import TGLExt.HorizontalAreaSelection
+import TGLExt.QuantumOrbitArea
+import TGLExt.HorizonGNSImplementation
+import TGLExt.SymplecticPolarizer
+import TGLExt.TowerStatePolarizer
+import TGLExt.LocalPolarizerWitness
+import TGLExt.CovariantAreaCounterexample
+import TGLExt.PolarizerModularCost
+import TGLExt.PolarizerCostSeries
+import TGLExt.TowerModularCost
+import TGLExt.ModularCostDerivative
+
+-- GERENCIA (Claude) 07/09/2026 — A RAIZ DA ARVORE DA PROVA; o grupo dos horizontes da torre
+import TGLExt.TheRootOfTheProofTree

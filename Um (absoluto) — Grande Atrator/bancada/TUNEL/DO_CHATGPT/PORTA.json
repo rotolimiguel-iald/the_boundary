@@ -4,7 +4,7 @@
   "titulo": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-07T05:49:42Z",
+  "gerado_utc": "2026-09-07T11:09:40Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "Um (absoluto) — Grande Atrator/bancada/TUNEL",
@@ -551,6 +551,26 @@
       "bytes": 7519
     },
     {
+      "nome": "ENTREGA_053_polarizador_e_area_covariantes.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_053_polarizador_e_area_covariantes.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_053_polarizador_e_area_covariantes.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_053_polarizador_e_area_covariantes.md",
+      "sha256_16": "e02688cba7bc52a8",
+      "bytes": 8657
+    },
+    {
+      "nome": "ENTREGA_054_custo_modular_do_polarizador.md",
+      "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_054_custo_modular_do_polarizador.md",
+      "papel": "documento",
+      "descricao": "Documento em Markdown",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_054_custo_modular_do_polarizador.md",
+      "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_054_custo_modular_do_polarizador.md",
+      "sha256_16": "c46a525978e8bbed",
+      "bytes": 8099
+    },
+    {
       "nome": "LEIA-ME.md",
       "caminho": "Um (absoluto) — Grande Atrator/bancada/TUNEL/DO_CHATGPT/LEIA-ME.md",
       "papel": "documento",
@@ -561,8 +581,8 @@
       "bytes": 1642
     }
   ],
-  "total_arquivos_nesta_pasta": 54,
-  "total_arquivos_com_subpastas": 54,
+  "total_arquivos_nesta_pasta": 56,
+  "total_arquivos_com_subpastas": 56,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT",
   "rodape": "gerado por script de git ls-files em 2026-09-07 -- nao editar a mao"
 }

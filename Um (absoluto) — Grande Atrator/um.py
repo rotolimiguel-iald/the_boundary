@@ -9347,6 +9347,10277 @@ import TGLExt.FiniteSitePermutations
 import TGLExt.FiniteSiteHorizons
 import TGLExt.StateClockDichotomy
 import TGLExt.HorizonAreaScale
+
+-- BANCADA CHATGPT ENTREGAS 046..054 07/09/2026 (transpostas; auditadas 43/43 trio)
+import TGLExt.AperiodicPhaseAverage
+import TGLExt.BoundedOmegaLimit
+import TGLExt.AperiodicVectorAverage
+import TGLExt.AperiodicAveragePrefix
+import TGLExt.AperiodicCentralizerExpectation
+import TGLExt.AperiodicTowerLift
+import TGLExt.ExpectationAlgebra
+import TGLExt.GeneralExpectationPositive
+import TGLExt.OperatorBlockRepresentation
+import TGLExt.ExpectationBlockPositive
+import TGLExt.GeneralExpectationCP
+import TGLExt.ExpectationContinuity
+import TGLExt.MonotoneOperatorLimit
+import TGLExt.ExpectationNormality
+import TGLExt.TransportedBorchersObstruction
+import TGLExt.FaithfulGeometricLocalization
+import TGLExt.BoundedGraphOperator
+import TGLExt.ClosedAntilinearStandardSubspace
+import TGLExt.ContinuousModularMultipliers
+import TGLExt.BoundedGraphStandardSubspace
+import TGLExt.ContinuousModularDomain
+import TGLExt.ContinuousModularStandardSubspace
+import TGLExt.GenericAntilinearAdjoint
+import TGLExt.ContinuousModularSquare
+import TGLExt.ContinuousModularReconstruction
+import TGLExt.ContinuousModularResolvent
+import TGLExt.OpticalVolterraBalance
+import TGLExt.OpticalRiccatiInvariant
+import TGLExt.OpticalFiniteBalance
+import TGLExt.OpticalBalanceControls
+import TGLExt.LocalHorizontalPauli
+import TGLExt.ModularHorizontalRotation
+import TGLExt.HorizontalAreaSelection
+import TGLExt.QuantumOrbitArea
+import TGLExt.HorizonGNSImplementation
+import TGLExt.SymplecticPolarizer
+import TGLExt.TowerStatePolarizer
+import TGLExt.LocalPolarizerWitness
+import TGLExt.CovariantAreaCounterexample
+import TGLExt.PolarizerModularCost
+import TGLExt.PolarizerCostSeries
+import TGLExt.TowerModularCost
+import TGLExt.ModularCostDerivative
+
+-- GERENCIA (Claude) 07/09/2026 — A RAIZ DA ARVORE DA PROVA; o grupo dos horizontes da torre
+import TGLExt.TheRootOfTheProofTree
+''',
+    # ===== v331: PEDRA DA GERENCIA (Claude, 07/09/2026) — A RAIZ DA ARVORE DA PROVA =====
+    # Um unico termo, `the_root_of_the_proof_tree`, auditado por #print axioms (trio), enuncia e prova em conjuncao:
+    # (i) o TEOREMA MESTRE H1 ∧ H2 ∧ H3 ⟹ pentada (v74); (ii) o LEMA 3 NA TORRE para TODO perfil — a esperanca de
+    # Takesaki CONSTRUIDA (046, Cesaro do fluxo modular) e covariante por todo horizonte omega-invariante: a divida
+    # importada [KNOWN, Takesaki] esta DESCARREGADA na torre; (iii) unicidade; (iv) fluxo modular; (v) trocas de sitios
+    # (045); (vi) a PAREDE de H3 (045): nenhum relogio do estado fecha as duas telas — H3 nao se deriva do estado
+    # sozinho, e INPUT com teorema de nao-derivabilidade; (vii) a forma nao fixa o valor (alpha e INPUT do observador).
+    # E os horizontes formam GRUPO (composicao e inverso; adT respeita ambos); a esperanca e covariante por toda
+    # composicao. Composicao pura de teoremas do kernel; nenhum axioma novo. A pedra v329 «still_conditional» fica
+    # SUPERADA AO LADO (the_aperiodic_antecedent_is_now_a_term). PROVADA = teorema em kernel; CONFIRMADA proibido.
+    "TGLExt/TheRootOfTheProofTree.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA GERENCIA (Claude, sessao d554e796) — 07/09/2026 — v331
+-- A RAIZ DA ARVORE DA PROVA: um unico termo, auditado por `print axioms` (Audit.lean), que
+-- ENUNCIA e PROVA em conjuncao o que a casa chama de «a solucao provada» da
+-- gravitacao quantica da TGL — no sentido da regua (05/09/2026): PROVADA e
+-- teorema em kernel; CONFIRMADA e juizo do observador, e segue proibida.
+--   (i)   o TEOREMA MESTRE (v74): H1 ∧ H2 ∧ H3 ⟹ pentada (canto de Breuer,
+--         Nome = 1, coframe, Lorentz por congruencia, δQ = κδA/(8πG));
+--   (ii)  o LEMA 3 NA TORRE, TODO PERFIL (v308 + ENTREGA_046): a esperanca de
+--         Takesaki CONSTRUIDA (`aperiodicExpectationInput`, media de Cesaro do
+--         fluxo modular) e covariante por TODO horizonte omega-invariante —
+--         a divida importada [KNOWN, Takesaki] esta DESCARREGADA na torre;
+--   (iii) a UNICIDADE: todo habitante do contrato coincide com ela sobre M;
+--   (iv)  o FLUXO MODULAR comuta com a esperanca (v329 + 046);
+--   (v)   as TROCAS DE SITIOS (ENTREGA_045) comutam com a esperanca;
+--   (vi)  a PAREDE de H3 (ENTREGA_045): para todo relogio do estado, alguma das
+--         duas telas de mesmo estado e mesmo Ricci falha na 4a ordem — H3 nao
+--         se deriva do estado sozinho; e INPUT com teorema de nao-derivabilidade;
+--   (vii) a FORMA NAO FIXA O VALOR (v2xx): para todo valor existe r que o
+--         realiza — alpha e INPUT do observador; e por isso beta e falsificavel.
+-- Mais: os horizontes da torre formam GRUPO (composicao e inverso sao horizontes;
+-- `adT` respeita ambos) e a esperanca e covariante por toda composicao.
+-- Composicao PURA de teoremas ja no kernel: nenhum axioma novo, nenhuma hipotese
+-- nova. O que fica de hipotese esta NOMEADO nos antecedentes: H1, H2, H3 e o
+-- horizonte omega-invariante (o juramento constitutivo, tipado `TowerHorizon`).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.TriadMaster
+import TGLExt.TheDammingByExpansion
+import TGLExt.TheOathOnTheTower
+import TGLExt.TheModularFlowIsAHorizon
+import TGLExt.TheLiftFiresOnThePeriodicTower
+import TGLExt.FiniteSiteHorizons
+import TGLExt.StateClockDichotomy
+import TGLExt.AperiodicTowerLift
+
+set_option autoImplicit false
+set_option maxHeartbeats 400000
+namespace TGLExt
+open ChatgptAudit ChatgptAudit.Aperiodic046 ChatgptAudit.Horizons045 ChatgptAudit.Clock045
+open ChatgptAudit.Response028 ChatgptAudit.Quartic037
+noncomputable section
+variable {P : SiteProfile}
+
+/-! ## A — o grupo dos horizontes da torre -/
+
+/-- [KERNEL] ★ a COMPOSICAO de dois horizontes omega-invariantes e um horizonte:
+    `U = h.U * k.U` e unitario, normaliza o fator (nos dois sentidos) e preserva omega. -/
+def TowerHorizon.comp (h k : TowerHorizon P) : TowerHorizon P where
+  U := h.U * k.U
+  unitary_left := by
+    rw [star_mul, mul_assoc, ← mul_assoc (star h.U), h.unitary_left, one_mul, k.unitary_left]
+  unitary_right := by
+    rw [star_mul, mul_assoc, ← mul_assoc k.U, k.unitary_right, one_mul, h.unitary_right]
+  normalizes := by
+    intro A hA
+    have e : h.U * k.U * A * star (h.U * k.U) = h.U * (k.U * A * star k.U) * star h.U := by
+      rw [star_mul]; simp only [mul_assoc]
+    rw [e]; exact h.normalizes _ (k.normalizes A hA)
+  normalizes_inv := by
+    intro A hA
+    have e : star (h.U * k.U) * A * (h.U * k.U) = star k.U * (star h.U * A * h.U) * k.U := by
+      rw [star_mul]; simp only [mul_assoc]
+    rw [e]; exact k.normalizes_inv _ (h.normalizes_inv A hA)
+  preserves := by
+    intro A hA
+    have e : h.U * k.U * A * star (h.U * k.U) = h.U * (k.U * A * star k.U) * star h.U := by
+      rw [star_mul]; simp only [mul_assoc]
+    rw [e, h.preserves _ (k.normalizes A hA), k.preserves A hA]
+
+-- (o INVERSO `TowerHorizon.inv` (U = star h.U) ja e do kernel — TheOathOnTheTower, v308; reutilizado, nao duplicado.)
+
+/-- [KERNEL] `adT` respeita a composicao: `Ad(h ∘ k) = Ad(h) ∘ Ad(k)`. -/
+theorem adT_comp (h k : TowerHorizon P) (A : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    adT (h.comp k) A = adT h (adT k A) := by
+  simp only [adT, TowerHorizon.comp, star_mul, mul_assoc]
+
+/-- [KERNEL] `Ad(h⁻¹) ∘ Ad(h) = id` sobre TODO operador. -/
+theorem adT_inv_adT (h : TowerHorizon P) (A : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    adT h.inv (adT h A) = A := by
+  simp only [adT, TowerHorizon.inv, star_star]
+  calc star h.U * (h.U * A * star h.U) * h.U
+      = (star h.U * h.U) * A * (star h.U * h.U) := by simp only [mul_assoc]
+    _ = A := by rw [h.unitary_left, one_mul, mul_one]
+
+/-- [KERNEL] `Ad(h) ∘ Ad(h⁻¹) = id` sobre TODO operador. -/
+theorem adT_adT_inv (h : TowerHorizon P) (A : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    adT h (adT h.inv A) = A := by
+  simp only [adT, TowerHorizon.inv, star_star]
+  calc h.U * (star h.U * A * h.U) * star h.U
+      = (h.U * star h.U) * A * (h.U * star h.U) := by simp only [mul_assoc]
+    _ = A := by rw [h.unitary_right, one_mul, mul_one]
+
+/-- [KERNEL] ★★ a esperanca e covariante por TODA composicao de horizontes — o
+    levantamento do Lema 3 (`the_lift_on_the_tower`) vale sobre o GRUPO gerado
+    (fluxo modular, trocas de sitios, permutacoes finitas e suas composicoes). -/
+theorem expectation_covariant_under_horizon_composition (I : ExpectationInput P)
+    (h k : TowerHorizon P) :
+    ∀ A ∈ theFactorObject P, adT h (adT k (I.E A)) = I.E (adT h (adT k A)) := by
+  intro A hA
+  rw [← adT_comp, ← adT_comp]
+  exact the_lift_on_the_tower I (h.comp k) A hA
+
+/-- [KERNEL] ★★ a esperanca APERIODICA (046) e covariante pelo inverso de todo horizonte. -/
+theorem aperiodic_expectation_covariant_under_inverse (h : TowerHorizon P) :
+    ∀ A ∈ theFactorObject P,
+      adT h.inv ((aperiodicExpectationInput P).E A) =
+        (aperiodicExpectationInput P).E (adT h.inv A) :=
+  the_lift_on_the_tower (aperiodicExpectationInput P) h.inv
+
+/-! ## B — a raiz -/
+
+/-- [KERNEL] ★★★ **A RAIZ DA ARVORE DA PROVA.** Um termo so, sete conjuntos, cada um
+    ja teorema no kernel; a raiz NAO acrescenta hipotese nem axioma — ela NOMEIA, num
+    unico `print axioms` (Audit.lean), o que esta provado e onde ficam as folhas:
+    (i) H1 ∧ H2 ∧ H3 ⟹ pentada; (ii) o Lema 3 na torre para TODO perfil;
+    (iii) unicidade; (iv) fluxo modular; (v) trocas de sitios; (vi) a parede de H3;
+    (vii) a forma nao fixa o valor. O que a natureza decide nao esta aqui — por
+    construcao, nao por omissao. -/
+theorem the_root_of_the_proof_tree :
+    -- (i) o TEOREMA MESTRE: H1 ∧ H2 ∧ H3 ⟹ pentada
+    (∀ {L : Type} [Lattice L] [BoundedOrder L] {T : SubadditiveTraceData L}
+        (S : SusyRelativeData L T) (E : Matrix (Fin 4) (Fin 4) ℝ) (_hE : IsUnit E.det)
+        (H : HorizonEquilibriumData),
+        (0 < T.tau S.ker ∧ T.tau S.ker < ⊤) ∧
+          T.tau S.ker / T.tau S.ker = 1 ∧
+          (E⁻¹ * E = 1 ∧ LorentzByCongruence (solderMetric4 E⁻¹)) ∧
+          H.dQ = H.kappa * H.dA / (8 * Real.pi * H.G)) ∧
+    -- (ii) o LEMA 3 NA TORRE: todo perfil, todo horizonte omega-invariante
+    (∀ (P : SiteProfile) (h : TowerHorizon P), ∀ A ∈ theFactorObject P,
+        adT h ((aperiodicExpectationInput P).E A) =
+          (aperiodicExpectationInput P).E (adT h A)) ∧
+    -- (iii) a UNICIDADE do habitante do contrato
+    (∀ (P : SiteProfile) (I : ExpectationInput P), ∀ A ∈ theFactorObject P,
+        I.E A = (aperiodicExpectationInput P).E A) ∧
+    -- (iv) o FLUXO MODULAR comuta com a esperanca
+    (∀ (P : SiteProfile) (t : ℝ), ∀ A ∈ theFactorObject P,
+        modularConjugation P t ((aperiodicExpectationInput P).E A) =
+          (aperiodicExpectationInput P).E (modularConjugation P t A)) ∧
+    -- (v) as TROCAS DE SITIOS comutam com a esperanca (perfil estacionario)
+    (∀ (P : SiteProfile) (p : ℝ) (hp : ∀ n, P.w n = p) (i j : ℕ), ∀ A ∈ theFactorObject P,
+        adT (swapHorizon P p hp i j) ((aperiodicExpectationInput P).E A) =
+          (aperiodicExpectationInput P).E (adT (swapHorizon P p hp i j) A)) ∧
+    -- (vi) a PAREDE de H3: nenhum relogio do estado fecha as duas telas
+    (∀ (b : SummableAmplitude) (eta : ℝ) (clock : StateClock),
+        0 < eta → 0 < amplitudeMass b →
+        ¬ FourthOrderMatch b eta 0 clock.time ∨
+          ¬ FourthOrderMatch b eta (quarticMatchedRicci b eta / 4) clock.time) ∧
+    -- (vii) a FORMA NAO FIXA O VALOR: alpha e INPUT do observador
+    (∀ {L m c : ℝ}, L ≠ 0 → m ≠ 0 → c ≠ 0 →
+        ∀ a : ℝ, a ≠ 0 → ∃ r : ℝ, r ≠ 0 ∧ alphaIdentity L m c r = a) :=
+  ⟨fun S E hE H => emergence_master_full_triad S E hE H,
+   fun P h => the_lift_fires_on_the_aperiodic_tower P h,
+   fun P I A hA => the_expectation_is_unique I (aperiodicExpectationInput P) A hA,
+   fun P t => aperiodic_expectation_commutes_with_modular_flow P t,
+   fun P p hp i j => the_lift_fires_on_the_aperiodic_tower P (swapHorizon P p hp i j),
+   fun b eta clock heta hB => state_clock_dichotomy b eta clock heta hB,
+   fun hL hm hc => the_form_does_not_fix_the_value hL hm hc⟩
+
+/-- [KERNEL] ★ a pedra v329 `the_lift_on_the_aperiodic_tower_is_still_conditional` esta
+    SUPERADA AO LADO (nao apagada): o antecedente que ela deixava como hipotese e agora
+    termo — para todo perfil existe habitante do contrato. -/
+theorem the_aperiodic_antecedent_is_now_a_term (P : SiteProfile) :
+    ∃ I : ExpectationInput P, ∀ h : TowerHorizon P, ∀ A ∈ theFactorObject P,
+      adT h (I.E A) = I.E (adT h A) :=
+  ⟨aperiodicExpectationInput P, fun h => the_lift_fires_on_the_aperiodic_tower P h⟩
+
+end
+
+end TGLExt
+''',
+    # ===== v331: ENTREGAS 046..054 DA BANCADA CHATGPT (07/09/2026) — 43 pedras =====
+    # 046: ESPERANCA APERIODICA para TODO perfil (Cesaro do fluxo modular) — o levantamento do Lema 3 dispara em toda
+    # torre; 047: E e linear, CP, normal, contracao GNS; 048: obstrucoes (Borchers transportado; periodo x localizacao);
+    # 049-050: subespaco padrao CONTINUO em L^2 (S_c = J T_c, Delta_c = T_c^2 = T_2c, resolvente); 051: balanco optico
+    # finito (E >= 0); 052-054: setor horizontal, polarizador covariante (contraexemplo da unicidade da area) e custo
+    # modular. [INPUT]: calibracao por Omega. [OPEN]: H3, area fisica/escala, regiao-algebra, BW, reconstrucao geral.
+    # Auditoria: hashes 100%; 9/9 auditores; recompilacao independente 43/43 trio; guarda; ORDEM_008 cumprida.
+    "TGLExt/AperiodicPhaseAverage.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_046 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.PeriodAveragePrefix
+import Mathlib.Analysis.SpecificLimits.Basic
+
+set_option autoImplicit false
+
+namespace ChatgptAudit.Aperiodic046
+
+open TGLExt Matrix MeasureTheory Filter
+open scoped Topology
+
+noncomputable section
+
+/-- The normalized interval average of one modular phase. No period is specified. -/
+def phaseAverage (T r : ℝ) : ℂ :=
+  T⁻¹ • (∫ t in (0 : ℝ)..T, modularPhase t r)
+
+/-- The zero frequency survives every nondegenerate averaging interval. -/
+theorem phase_average_zero (T : ℝ) (hT : T ≠ 0) :
+    phaseAverage T 0 = 1 := by
+  have hz (t : ℝ) : modularPhase t 0 = 1 := by
+    simp [modularPhase]
+  unfold phaseAverage
+  simp_rw [hz]
+  rw [intervalIntegral.integral_const, sub_zero, smul_smul,
+    inv_mul_cancel₀ hT, one_smul]
+
+/-- An exact primitive for a nonzero frequency; no endpoint phase is assumed. -/
+theorem integral_phase_nonzero (T r : ℝ) (hr : r ≠ 0) :
+    (∫ t in (0 : ℝ)..T, modularPhase t r) =
+      (modularPhase T r - 1) / ((r : ℂ) * Complex.I) := by
+  have hc : (r : ℂ) * Complex.I ≠ 0 :=
+    mul_ne_zero (by exact_mod_cast hr) Complex.I_ne_zero
+  have he (t : ℝ) :
+      modularPhase t r = Complex.exp (((r : ℂ) * Complex.I) * t) := by
+    unfold modularPhase
+    congr 1
+    push_cast
+    ring
+  simp_rw [he]
+  rw [integral_exp_mul_complex hc]
+  simp only [Complex.ofReal_zero, mul_zero, Complex.exp_zero]
+
+/-- The nonresonant average is bounded by an explicit inverse-length estimate. -/
+theorem phase_average_norm_le (T r : ℝ) (hT : 0 < T) (hr : r ≠ 0) :
+    ‖phaseAverage T r‖ ≤ T⁻¹ * (2 / |r|) := by
+  have hn : ‖modularPhase T r - 1‖ ≤ 2 := by
+    calc
+      ‖modularPhase T r - 1‖ ≤ ‖modularPhase T r‖ + ‖(1 : ℂ)‖ :=
+        norm_sub_le _ _
+      _ = 2 := by rw [modularPhase_norm, norm_one]; norm_num
+  have hd : ‖(r : ℂ) * Complex.I‖ = |r| := by simp
+  calc
+    ‖phaseAverage T r‖ = T⁻¹ * (‖modularPhase T r - 1‖ / |r|) := by
+      rw [phaseAverage, integral_phase_nonzero T r hr, norm_smul,
+        norm_div, hd, Real.norm_eq_abs, abs_of_pos (inv_pos.mpr hT)]
+    _ ≤ T⁻¹ * (2 / |r|) :=
+      mul_le_mul_of_nonneg_left
+        (div_le_div_of_nonneg_right hn (abs_nonneg r)) (inv_nonneg.mpr hT.le)
+
+/-- Cesaro cancellation at every nonzero real frequency. -/
+theorem phase_average_nonzero_limit (r : ℝ) (hr : r ≠ 0) :
+    Tendsto (fun n : ℕ => phaseAverage ((n : ℝ) + 1) r)
+      atTop (𝓝 0) := by
+  apply squeeze_zero_norm (fun n : ℕ => phase_average_norm_le ((n : ℝ) + 1) r
+    (by positivity) hr)
+  have hi : Tendsto (fun n : ℕ => ((n : ℝ) + 1)⁻¹) atTop (𝓝 0) := by
+    simpa only [one_div] using
+      (tendsto_one_div_add_atTop_nhds_zero_nat :
+        Tendsto (fun n : ℕ => 1 / ((n : ℝ) + 1)) atTop (𝓝 0))
+  simpa only [zero_mul] using hi.mul_const (2 / |r|)
+
+/-- Resonant and nonresonant frequencies are handled without a common period. -/
+theorem phase_average_limit (r : ℝ) :
+    Tendsto (fun n : ℕ => phaseAverage ((n : ℝ) + 1) r)
+      atTop (𝓝 (if r = 0 then 1 else 0)) := by
+  by_cases hr : r = 0
+  · rw [if_pos hr]
+    subst r
+    have he : (fun n : ℕ => phaseAverage ((n : ℝ) + 1) 0) =
+        fun _ : ℕ => (1 : ℂ) := by
+      funext n
+      exact phase_average_zero _ (ne_of_gt (by positivity))
+    rw [he]
+    exact tendsto_const_nhds
+  · rw [if_neg hr]
+    exact phase_average_nonzero_limit r hr
+
+/-- The finite matrix average of the actual local modular flow. -/
+def flowAverage (P : SiteProfile) (T : ℝ) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    Matrix (chainIdx N) (chainIdx N) ℂ :=
+  T⁻¹ • (∫ t in (0 : ℝ)..T, flowLevel P t N a)
+
+theorem flow_average_entry (P : SiteProfile) (T : ℝ) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (i j : chainIdx N) :
+    flowAverage P T N a i j =
+      phaseAverage T (Real.log (towerW P N i) - Real.log (towerW P N j)) *
+        a i j := by
+  have hi := (matrixEntryCLM N i j).intervalIntegral_comp_comm (μ := volume)
+    ((flowLevel_continuous (P := P) N a).intervalIntegrable 0 T)
+  change (∫ t in (0 : ℝ)..T, flowLevel P t N a i j) =
+    (∫ t in (0 : ℝ)..T, flowLevel P t N a) i j at hi
+  change T⁻¹ • ((∫ t in (0 : ℝ)..T, flowLevel P t N a) i j) = _
+  rw [← hi]
+  simp only [flowLevel, intervalIntegral.integral_mul_const]
+  rw [phaseAverage, smul_mul_assoc]
+
+/-- The whole finite matrix converges to spectral pinching, including degenerate blocks. -/
+theorem flow_average_limit (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    Tendsto (fun n : ℕ => flowAverage P ((n : ℝ) + 1) N a)
+      atTop (𝓝 (specExpect (towerW P N) a)) := by
+  apply tendsto_pi_nhds.mpr
+  intro i
+  apply tendsto_pi_nhds.mpr
+  intro j
+  have he : Real.log (towerW P N i) - Real.log (towerW P N j) = 0 ↔
+      towerW P N i = towerW P N j := by
+    rw [sub_eq_zero]
+    exact ⟨Real.log_injOn_pos (towerW_pos P N i) (towerW_pos P N j),
+      congrArg Real.log⟩
+  have h := (phase_average_limit
+    (Real.log (towerW P N i) - Real.log (towerW P N j))).mul_const (a i j)
+  by_cases hij : towerW P N i = towerW P N j
+  · have hr := he.mpr hij
+    rw [if_pos hr, one_mul] at h
+    simpa only [flow_average_entry, specExpect, Matrix.of_apply, if_pos hij] using h
+  · have hr : Real.log (towerW P N i) - Real.log (towerW P N j) ≠ 0 :=
+      fun hzero => hij (he.mp hzero)
+    rw [if_neg hr, zero_mul] at h
+    simpa only [flow_average_entry, specExpect, Matrix.of_apply, if_neg hij] using h
+
+/-- The finite matrix average is exactly the average of its existing GNS image. -/
+theorem local_average_eq_embedding (P : SiteProfile) (T : ℝ) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    T⁻¹ • (∫ t in (0 : ℝ)..T, modularFlow P t (levelEmbedding P N a)) =
+      levelEmbeddingCLM P N (flowAverage P T N a) := by
+  have h (t : ℝ) : modularFlow P t (levelEmbedding P N a) =
+      levelEmbeddingCLM P N (flowLevel P t N a) := by
+    change modularFlow P t ((tof P N a : TowerPre P) : TowerHilbert P) = _
+    rw [modularFlow_coe, flowPre_tof]
+    rfl
+  simp_rw [h]
+  rw [(levelEmbeddingCLM P N).intervalIntegral_comp_comm
+    ((flowLevel_continuous (P := P) N a).intervalIntegrable 0 T),
+    flowAverage, (levelEmbeddingCLM P N).map_smul_of_tower]
+
+/-- Local GNS vectors have an aperiodic Cesaro limit; this is not an expectation on M. -/
+theorem local_average_limit (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    Tendsto
+      (fun n : ℕ => ((n : ℝ) + 1)⁻¹ •
+        (∫ t in (0 : ℝ)..((n : ℝ) + 1),
+          modularFlow P t (levelEmbedding P N a)))
+      atTop (𝓝 (levelEmbedding P N (specExpect (towerW P N) a))) := by
+  have h := ((levelEmbeddingCLM P N).continuous.tendsto
+    (specExpect (towerW P N) a)).comp (flow_average_limit P N a)
+  have he : levelEmbeddingCLM P N (specExpect (towerW P N) a) =
+      levelEmbedding P N (specExpect (towerW P N) a) := rfl
+  rw [he] at h
+  apply h.congr'
+  exact Filter.Eventually.of_forall (fun n =>
+    (local_average_eq_embedding P ((n : ℝ) + 1) N a).symm)
+
+#print axioms phaseAverage
+#print axioms phase_average_zero
+#print axioms integral_phase_nonzero
+#print axioms phase_average_norm_le
+#print axioms phase_average_nonzero_limit
+#print axioms phase_average_limit
+#print axioms flowAverage
+#print axioms flow_average_entry
+#print axioms flow_average_limit
+#print axioms local_average_eq_embedding
+#print axioms local_average_limit
+
+end
+
+end ChatgptAudit.Aperiodic046
+''',
+    "TGLExt/BoundedOmegaLimit.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_046 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.TomitaClosability
+import Mathlib.Analysis.Normed.Operator.Completeness
+import Mathlib.Topology.MetricSpace.Cauchy
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Aperiodic046
+
+open TGLExt Filter
+open scoped Topology
+
+noncomputable section
+
+/-- Convergence on the cyclic vector propagates to each local right orbit. -/
+theorem omega_limit_on_local (P : SiteProfile)
+    (C : ℕ → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hmem : ∀ n, C n ∈ theFactorObject P)
+    (z : TowerHilbert P)
+    (hz : Tendsto (fun n => C n (hOmega P)) atTop (𝓝 z))
+    (N : ℕ) (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    Tendsto
+      (fun n => C n ((tof P N a : TowerPre P) : TowerHilbert P))
+      atTop (𝓝 (rTowerPi P a z)) := by
+  rw [← rTowerPi_omega (P := P) N a]
+  have he : (fun n => C n (rTowerPi P a (hOmega P))) =
+      (fun n => rTowerPi P a (C n (hOmega P))) := by
+    funext n
+    simpa only [mul_apply_eq_comp] using
+      congrArg (fun A : TowerHilbert P →L[ℂ] TowerHilbert P => A (hOmega P))
+        (factor_comm_rTowerPi (hmem n) a)
+  rw [he]
+  exact ((rTowerPi P a).continuous.tendsto z).comp hz
+
+/-- A common operator bound extends local Cauchy convergence to every Hilbert vector. -/
+theorem bounded_local_cauchy (P : SiteProfile)
+    (C : ℕ → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (bound : ℝ) (hbound : 0 ≤ bound)
+    (hnorm : ∀ n, ‖C n‖ ≤ bound)
+    (hlocal : ∀ w : TowerPre P,
+      CauchySeq (fun n => C n (w : TowerHilbert P)))
+    (v : TowerHilbert P) :
+    CauchySeq (fun n => C n v) := by
+  apply Metric.cauchySeq_iff.mpr
+  intro ε hε
+  have hden : 0 < 4 * (bound + 1) := by positivity
+  obtain ⟨w, hw⟩ := (towerPre_denseRange (P := P)).exists_dist_lt v
+    (div_pos hε hden)
+  have hshort : bound * dist v (w : TowerHilbert P) < ε / 4 := by
+    have hmul := (lt_div_iff₀ hden).mp hw
+    nlinarith [(dist_nonneg : 0 ≤ dist v (w : TowerHilbert P))]
+  obtain ⟨N, hN⟩ := Metric.cauchySeq_iff.mp (hlocal w) (ε / 2) (by positivity)
+  refine ⟨N, ?_⟩
+  intro m hm n hn
+  have hmshort : dist (C m v) (C m (w : TowerHilbert P)) < ε / 4 :=
+    lt_of_le_of_lt
+      ((C m).dist_le_opNorm v (w : TowerHilbert P) |>.trans
+        (mul_le_mul_of_nonneg_right (hnorm m)
+          (dist_nonneg : 0 ≤ dist v (w : TowerHilbert P)))) hshort
+  have hnshort : dist (C n (w : TowerHilbert P)) (C n v) < ε / 4 := by
+    rw [dist_comm]
+    exact lt_of_le_of_lt
+      ((C n).dist_le_opNorm v (w : TowerHilbert P) |>.trans
+        (mul_le_mul_of_nonneg_right (hnorm n)
+          (dist_nonneg : 0 ≤ dist v (w : TowerHilbert P)))) hshort
+  have hmid := hN m hm n hn
+  have htri := dist_triangle (C m v) (C m (w : TowerHilbert P)) (C n v)
+  have htri' := dist_triangle (C m (w : TowerHilbert P))
+    (C n (w : TowerHilbert P)) (C n v)
+  linarith
+
+/-- Strong limits preserve a fixed commutation relation, without a norm limit. -/
+theorem strong_limit_commutes (P : SiteProfile)
+    (C : ℕ → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (B Y : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hlim : ∀ v, Tendsto (fun n => C n v) atTop (𝓝 (B v)))
+    (hcomm : ∀ n, Y * C n = C n * Y) :
+    Y * B = B * Y := by
+  ext v
+  change Y (B v) = B (Y v)
+  have he : (fun n => Y (C n v)) = (fun n => C n (Y v)) := by
+    funext n
+    simpa only [mul_apply_eq_comp] using
+      congrArg (fun A : TowerHilbert P →L[ℂ] TowerHilbert P => A v) (hcomm n)
+  have hl := (Y.continuous.tendsto (B v)).comp (hlim v)
+  change Tendsto (fun n => Y (C n v)) atTop (𝓝 (Y (B v))) at hl
+  rw [he] at hl
+  exact tendsto_nhds_unique hl (hlim (Y v))
+
+/-- Membership in the factor passes to a strong limit through its defining bicommutant. -/
+theorem factor_mem_of_strong_limit (P : SiteProfile)
+    (C : ℕ → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hmem : ∀ n, C n ∈ theFactorObject P)
+    (hlim : ∀ v, Tendsto (fun n => C n v) atTop (𝓝 (B v))) :
+    B ∈ theFactorObject P := by
+  change B ∈ StarSubalgebra.centralizer ℂ
+    ((StarSubalgebra.centralizer ℂ (towerImage P) :
+      StarSubalgebra ℂ (TowerHilbert P →L[ℂ] TowerHilbert P)) : Set _)
+  rw [StarSubalgebra.mem_centralizer_iff]
+  intro Y hY
+  have hc (n : ℕ) : Y * C n = C n * Y ∧ star Y * C n = C n * star Y := by
+    have hn := hmem n
+    change C n ∈ StarSubalgebra.centralizer ℂ
+      ((StarSubalgebra.centralizer ℂ (towerImage P) :
+        StarSubalgebra ℂ (TowerHilbert P →L[ℂ] TowerHilbert P)) : Set _) at hn
+    rw [StarSubalgebra.mem_centralizer_iff] at hn
+    exact hn Y hY
+  exact ⟨strong_limit_commutes P C B Y hlim (fun n => (hc n).1),
+    strong_limit_commutes P C B (star Y) hlim (fun n => (hc n).2)⟩
+
+/-- Construct a bounded operator in the factor from a bounded sequence and its limit on Ω.
+The strong limit and the operator itself are conclusions, not inputs. -/
+theorem bounded_omega_limit_lift (P : SiteProfile)
+    (C : ℕ → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (bound : ℝ) (hbound : 0 ≤ bound)
+    (hmem : ∀ n, C n ∈ theFactorObject P)
+    (hnorm : ∀ n, ‖C n‖ ≤ bound)
+    (z : TowerHilbert P)
+    (hz : Tendsto (fun n => C n (hOmega P)) atTop (𝓝 z)) :
+    ∃ B : TowerHilbert P →L[ℂ] TowerHilbert P,
+      B ∈ theFactorObject P ∧ ‖B‖ ≤ bound ∧ B (hOmega P) = z ∧
+      ∀ v, Tendsto (fun n => C n v) atTop (𝓝 (B v)) := by
+  have hlocal (w : TowerPre P) :
+      CauchySeq (fun n => C n (w : TowerHilbert P)) := by
+    obtain ⟨N, a, rfl⟩ := exists_tof w
+    exact (omega_limit_on_local P C hmem z hz N a).cauchySeq
+  have hex (v : TowerHilbert P) :
+      ∃ y, Tendsto (fun n => C n v) atTop (𝓝 y) :=
+    cauchySeq_tendsto_of_complete
+      (bounded_local_cauchy P C bound hbound hnorm hlocal v)
+  choose f hf using hex
+  have hrange : Bornology.IsBounded (Set.range C) := by
+    refine isBounded_iff_forall_norm_le.mpr ⟨bound, ?_⟩
+    rintro D ⟨n, rfl⟩
+    exact hnorm n
+  let B : TowerHilbert P →L[ℂ] TowerHilbert P :=
+    ContinuousLinearMap.ofTendstoOfBoundedRange f C (tendsto_pi_nhds.mpr hf) hrange
+  have hBlim (v : TowerHilbert P) :
+      Tendsto (fun n => C n v) atTop (𝓝 (B v)) := hf v
+  have hBnorm : ‖B‖ ≤ bound := by
+    apply B.opNorm_le_bound hbound
+    intro v
+    exact le_of_tendsto (hBlim v).norm
+      (Filter.Eventually.of_forall fun n => (C n).le_of_opNorm_le (hnorm n) v)
+  exact ⟨B, factor_mem_of_strong_limit P C B hmem hBlim, hBnorm,
+    tendsto_nhds_unique (hBlim (hOmega P)) hz, hBlim⟩
+
+/-- The constructed factor element is uniquely determined by its value on Ω. -/
+theorem omega_lift_unique (P : SiteProfile)
+    (B D : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hB : B ∈ theFactorObject P) (hD : D ∈ theFactorObject P)
+    (z : TowerHilbert P) (hBz : B (hOmega P) = z) (hDz : D (hOmega P) = z) :
+    B = D := by
+  apply sub_eq_zero.mp
+  apply factor_omega_separating ((theFactorObject P).sub_mem hB hD)
+  change B (hOmega P) - D (hOmega P) = 0
+  rw [hBz, hDz, sub_self]
+
+#print axioms omega_limit_on_local
+#print axioms bounded_local_cauchy
+#print axioms strong_limit_commutes
+#print axioms factor_mem_of_strong_limit
+#print axioms bounded_omega_limit_lift
+#print axioms omega_lift_unique
+
+end
+
+end ChatgptAudit.Aperiodic046
+''',
+    "TGLExt/AperiodicVectorAverage.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_046 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.AperiodicPhaseAverage
+import TGLExt.BoundedOmegaLimit
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Aperiodic046
+
+open TGLExt MeasureTheory Filter
+open scoped Topology
+
+noncomputable section
+
+/-- A normalized interval average of the actual modular flow on Hilbert vectors. -/
+def modularAverageVector (P : SiteProfile) (T : ℝ)
+    (v : TowerHilbert P) : TowerHilbert P :=
+  T⁻¹ • ∫ t in (0 : ℝ)..T, modularFlow P t v
+
+theorem modular_average_vector_add (P : SiteProfile) (T : ℝ)
+    (v w : TowerHilbert P) :
+    modularAverageVector P T (v+w) =
+      modularAverageVector P T v + modularAverageVector P T w := by
+  simp only [modularAverageVector, modularFlow_add]
+  rw [intervalIntegral.integral_add
+    ((modularFlow_strongly_continuous v).intervalIntegrable 0 T)
+    ((modularFlow_strongly_continuous w).intervalIntegrable 0 T), smul_add]
+
+theorem modular_average_vector_smul (P : SiteProfile) (T : ℝ)
+    (c : ℂ) (v : TowerHilbert P) :
+    modularAverageVector P T (c • v) = c • modularAverageVector P T v := by
+  simp only [modularAverageVector, modularFlow_smul, intervalIntegral.integral_smul]
+  exact smul_comm _ _ _
+
+/-- This vector estimate, rather than an estimate only on AΩ, permits dense approximation. -/
+theorem modular_average_vector_bound (P : SiteProfile) (T : ℝ) (hT : 0 < T)
+    (v : TowerHilbert P) :
+    ‖modularAverageVector P T v‖ ≤ ‖v‖ := by
+  have hb := intervalIntegral.norm_integral_le_of_norm_le_const
+    (a := (0 : ℝ)) (b := T)
+    (fun t _ => le_of_eq (modularFlow_norm (P := P) t v))
+  simp only [sub_zero, abs_of_pos hT] at hb
+  calc
+    ‖modularAverageVector P T v‖ =
+        T⁻¹ * ‖∫ t in (0 : ℝ)..T, modularFlow P t v‖ := by
+      rw [modularAverageVector, norm_smul, Real.norm_eq_abs,
+        abs_of_pos (inv_pos.mpr hT)]
+    _ ≤ T⁻¹ * (‖v‖ * T) :=
+      mul_le_mul_of_nonneg_left hb (le_of_lt (inv_pos.mpr hT))
+    _ = ‖v‖ := by field_simp
+
+/-- The vector average as a complex continuous linear contraction. -/
+def modularVectorAverage (P : SiteProfile) (T : ℝ) (hT : 0 < T) :
+    TowerHilbert P →L[ℂ] TowerHilbert P :=
+  ({ toFun := modularAverageVector P T
+     map_add' := modular_average_vector_add P T
+     map_smul' := fun c v => modular_average_vector_smul P T c v } :
+    TowerHilbert P →ₗ[ℂ] TowerHilbert P).mkContinuous 1
+      (fun v => by
+        change ‖modularAverageVector P T v‖ ≤ 1 * ‖v‖
+        simpa only [one_mul] using modular_average_vector_bound P T hT v)
+
+theorem modular_vector_average_apply (P : SiteProfile) (T : ℝ) (hT : 0 < T)
+    (v : TowerHilbert P) :
+    modularVectorAverage P T hT v =
+      T⁻¹ • ∫ t in (0 : ℝ)..T, modularFlow P t v := rfl
+
+theorem modular_vector_average_norm_le_one (P : SiteProfile) (T : ℝ) (hT : 0 < T) :
+    ‖modularVectorAverage P T hT‖ ≤ 1 := by
+  apply ContinuousLinearMap.opNorm_le_bound _ (by norm_num)
+  intro v
+  change ‖modularAverageVector P T v‖ ≤ 1 * ‖v‖
+  simpa only [one_mul] using modular_average_vector_bound P T hT v
+
+/-- Local convergence is spectral pinching, with no common phase period. -/
+theorem modular_vector_average_local_limit (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    Tendsto
+      (fun n : ℕ => modularVectorAverage P ((n : ℝ)+1) (by positivity)
+        (levelEmbedding P N a))
+      atTop (𝓝 (levelEmbedding P N (specExpect (towerW P N) a))) := by
+  simpa only [modular_vector_average_apply] using local_average_limit P N a
+
+/-- The uniform contraction bound extends Cauchy convergence from the dense pre-Hilbert space. -/
+theorem modular_vector_average_cauchy (P : SiteProfile) (v : TowerHilbert P) :
+    CauchySeq
+      (fun n : ℕ => modularVectorAverage P ((n : ℝ)+1) (by positivity) v) := by
+  apply bounded_local_cauchy P
+    (fun n : ℕ => modularVectorAverage P ((n : ℝ)+1) (by positivity))
+    1 (by norm_num)
+    (fun n => modular_vector_average_norm_le_one P ((n : ℝ)+1) (by positivity))
+    ?_ v
+  intro w
+  obtain ⟨N, a, rfl⟩ := exists_tof w
+  change CauchySeq
+    (fun n : ℕ => modularVectorAverage P ((n : ℝ)+1) (by positivity)
+      (levelEmbedding P N a))
+  exact (modular_vector_average_local_limit P N a).cauchySeq
+
+/-- The Hilbert limit is constructed by completeness for every vector. -/
+theorem modular_vector_average_limit_exists (P : SiteProfile) (v : TowerHilbert P) :
+    ∃ z : TowerHilbert P,
+      Tendsto
+        (fun n : ℕ => modularVectorAverage P ((n : ℝ)+1) (by positivity) v)
+        atTop (𝓝 z) :=
+  cauchySeq_tendsto_of_complete (modular_vector_average_cauchy P v)
+
+/-- Conjugation averages on Ω are exactly the vector averages of AΩ. -/
+theorem period_average_omega_eq_vector_average (P : SiteProfile) (T : ℝ)
+    (hT : 0 < T) (A : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    periodAverage P T hT A (hOmega P) =
+      modularVectorAverage P T hT (A (hOmega P)) := by
+  change T⁻¹ • (∫ t in (0 : ℝ)..T, modularConjugation P t A (hOmega P)) =
+    T⁻¹ • (∫ t in (0 : ℝ)..T, modularFlow P t (A (hOmega P)))
+  congr 1
+  apply intervalIntegral.integral_congr
+  intro t _
+  change modularFlow P t (A (modularFlow P (-t) (hOmega P))) =
+    modularFlow P t (A (hOmega P))
+  rw [modularFlow_fixes_omega]
+
+/-- Aperiodic convergence on Ω follows without assuming A belongs to the factor. -/
+theorem aperiodic_average_omega_limit (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    ∃ z : TowerHilbert P,
+      Tendsto
+        (fun n : ℕ => periodAverage P ((n : ℝ)+1) (by positivity) A (hOmega P))
+        atTop (𝓝 z) := by
+  obtain ⟨z, hz⟩ := modular_vector_average_limit_exists P (A (hOmega P))
+  refine ⟨z, ?_⟩
+  simpa only [period_average_omega_eq_vector_average] using hz
+
+/-- The limiting factor element and its strong convergence are conclusions.
+No expectation, periodicity, or operator limit is supplied as a hypothesis. -/
+theorem aperiodic_average_operator (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    ∃ B : TowerHilbert P →L[ℂ] TowerHilbert P,
+      B ∈ theFactorObject P ∧ ‖B‖ ≤ ‖A‖ ∧
+      ∀ v : TowerHilbert P,
+        Tendsto
+          (fun n : ℕ => periodAverage P ((n : ℝ)+1) (by positivity) A v)
+          atTop (𝓝 (B v)) := by
+  obtain ⟨z, hz⟩ := aperiodic_average_omega_limit P A
+  obtain ⟨B, hB, hnorm, _, hlim⟩ := bounded_omega_limit_lift P
+    (fun n : ℕ => periodAverage P ((n : ℝ)+1) (by positivity) A)
+    ‖A‖ (norm_nonneg A)
+    (fun n => period_average_mem_factor (P := P) ((n : ℝ)+1) (by positivity) A hA)
+    (fun n => (period_average_operator (P := P) ((n : ℝ)+1) (by positivity) A).2)
+    z hz
+  exact ⟨B, hB, hnorm, hlim⟩
+
+#print axioms modularAverageVector
+#print axioms modular_average_vector_add
+#print axioms modular_average_vector_smul
+#print axioms modular_average_vector_bound
+#print axioms modularVectorAverage
+#print axioms modular_vector_average_apply
+#print axioms modular_vector_average_norm_le_one
+#print axioms modular_vector_average_local_limit
+#print axioms modular_vector_average_cauchy
+#print axioms modular_vector_average_limit_exists
+#print axioms period_average_omega_eq_vector_average
+#print axioms aperiodic_average_omega_limit
+#print axioms aperiodic_average_operator
+
+end
+end ChatgptAudit.Aperiodic046
+''',
+    "TGLExt/AperiodicAveragePrefix.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_046 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.AperiodicPhaseAverage
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Aperiodic046
+
+open TGLExt Matrix MeasureTheory Filter
+open scoped Topology
+
+noncomputable section
+
+/-- Projecting a finite-time average is exactly the local finite matrix average. -/
+theorem period_average_prefix_vector (P : SiteProfile) (T : ℝ) (hT : 0 < T)
+    (N : ℕ) (A : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    towerExpectation P N (periodAverage P T hT A) (hOmega P) =
+      levelEmbeddingCLM P N (flowAverage P T N (expectationMatrix P N A)) := by
+  rw [expectation_omega, (period_average_operator T hT A).1]
+  have ho (t : ℝ) : modularConjugation P t A (hOmega P) =
+      modularFlow P t (A (hOmega P)) := by
+    change modularFlow P t (A (modularFlow P (-t) (hOmega P))) = _
+    rw [modularFlow_fixes_omega]
+  simp_rw [ho]
+  rw [(levelProject P N).map_smul_of_tower,
+    ← (levelProject P N).intervalIntegral_comp_comm
+      ((modularFlow_strongly_continuous (A (hOmega P))).intervalIntegrable 0 T)]
+  simp_rw [project_flow_commutes, ← expectation_omega]
+  change T⁻¹ • (∫ t in (0 : ℝ)..T,
+    modularFlow P t (towerPi P (expectationMatrix P N A) (hOmega P))) = _
+  simp_rw [towerPi_omega]
+  exact local_average_eq_embedding P T N (expectationMatrix P N A)
+
+/-- Each finite cut of the time averages has the spectral-pinching limit. -/
+theorem period_average_prefix_omega_limit (P : SiteProfile) (N : ℕ)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    Tendsto
+      (fun n : ℕ => towerExpectation P N
+        (periodAverage P ((n : ℝ) + 1) (by positivity) A) (hOmega P))
+      atTop (𝓝 (levelEmbedding P N
+        (specExpect (towerW P N) (expectationMatrix P N A)))) := by
+  have h := ((levelEmbeddingCLM P N).continuous.tendsto
+      (specExpect (towerW P N) (expectationMatrix P N A))).comp
+    (flow_average_limit P N (expectationMatrix P N A))
+  have he : levelEmbeddingCLM P N
+      (specExpect (towerW P N) (expectationMatrix P N A)) =
+      levelEmbedding P N (specExpect (towerW P N) (expectationMatrix P N A)) := rfl
+  rw [he] at h
+  apply h.congr'
+  exact Filter.Eventually.of_forall (fun n =>
+    (period_average_prefix_vector P ((n : ℝ) + 1) (by positivity) N A).symm)
+
+/-- A limit on Ω forces the exact prefix identity; existence of that limit is separate. -/
+theorem aperiodic_average_prefix_of_limit (P : SiteProfile) (N : ℕ)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hlim : Tendsto
+      (fun n : ℕ => periodAverage P ((n : ℝ) + 1) (by positivity) A (hOmega P))
+      atTop (𝓝 (B (hOmega P)))) :
+    towerExpectation P N B =
+      towerPi P (specExpect (towerW P N) (expectationMatrix P N A)) := by
+  apply factor_eq_of_omega (expectation_mem_factor _ _) (towerPi_mem_factor _)
+  rw [towerPi_omega]
+  have h : Tendsto
+      (fun n : ℕ => towerExpectation P N
+        (periodAverage P ((n : ℝ) + 1) (by positivity) A) (hOmega P))
+      atTop (𝓝 (towerExpectation P N B (hOmega P))) := by
+    have hcomp := ((levelProject P N).continuous.tendsto (B (hOmega P))).comp hlim
+    have he : levelProject P N (B (hOmega P)) =
+        towerExpectation P N B (hOmega P) := by rw [expectation_omega]
+    rw [he] at hcomp
+    apply hcomp.congr'
+    exact Filter.Eventually.of_forall (fun n : ℕ => by
+      change levelProject P N
+          (periodAverage P ((n : ℝ) + 1) (by positivity) A (hOmega P)) =
+        towerExpectation P N
+          (periodAverage P ((n : ℝ) + 1) (by positivity) A) (hOmega P)
+      rw [expectation_omega])
+  exact tendsto_nhds_unique h (period_average_prefix_omega_limit P N A)
+
+#print axioms period_average_prefix_vector
+#print axioms period_average_prefix_omega_limit
+#print axioms aperiodic_average_prefix_of_limit
+
+end
+
+end ChatgptAudit.Aperiodic046
+''',
+    "TGLExt/AperiodicCentralizerExpectation.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_046 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.AperiodicVectorAverage
+import TGLExt.AperiodicAveragePrefix
+import TGLExt.TracialCentralizerExpectation
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Aperiodic046
+
+open TGLExt Filter
+open scoped Topology
+
+noncomputable section
+
+/-- Choose the constructed strong limit on the factor; the contract ignores values outside it. -/
+def aperiodicExpectation (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    TowerHilbert P →L[ℂ] TowerHilbert P := by
+  classical
+  exact if hA : A ∈ theFactorObject P then
+    Classical.choose (aperiodic_average_operator P A hA)
+  else 0
+
+/-- Membership, norm bound, and strong convergence are proved by the operator construction. -/
+theorem aperiodic_expectation_spec (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    aperiodicExpectation P A ∈ theFactorObject P ∧
+      ‖aperiodicExpectation P A‖ ≤ ‖A‖ ∧
+      ∀ v, Tendsto
+        (fun n : ℕ => periodAverage P ((n : ℝ) + 1) (by positivity) A v)
+        atTop (𝓝 (aperiodicExpectation P A v)) := by
+  simpa only [aperiodicExpectation, dif_pos hA] using
+    Classical.choose_spec (aperiodic_average_operator P A hA)
+
+/-- The selected limit has the local pinching as every finite prefix. -/
+theorem aperiodic_expectation_prefix (P : SiteProfile) (N : ℕ)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    towerExpectation P N (aperiodicExpectation P A) =
+      towerPi P (specExpect (towerW P N) (expectationMatrix P N A)) :=
+  aperiodic_average_prefix_of_limit P N A (aperiodicExpectation P A)
+    ((aperiodic_expectation_spec P A hA).2.2 (hOmega P))
+
+/-- The limit lies in the global centralizer, without a common local phase period. -/
+theorem aperiodic_expectation_into (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    aperiodicExpectation P A ∈ omegaCentralizer P := by
+  apply centralizer_from_expectations _ (aperiodic_expectation_spec P A hA).1
+  intro N
+  rw [aperiodic_expectation_prefix P N A hA]
+  exact pinching_into_global_centralizer _ _
+
+/-- Every element of the centralizer is fixed by the constructed map. -/
+theorem aperiodic_expectation_fixes (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ omegaCentralizer P) :
+    aperiodicExpectation P A = A := by
+  have he (N : ℕ) :
+      towerExpectation P N (aperiodicExpectation P A) = towerExpectation P N A := by
+    rw [aperiodic_expectation_prefix P N A hA.1,
+      pinching_fixes_global_local N _
+        (expectation_of_centralizer_is_centralizer N A hA)]
+    rfl
+  apply factor_eq_of_omega (aperiodic_expectation_spec P A hA.1).1 hA.1
+  have ht := expectation_omega_limit (aperiodicExpectation P A)
+  simp only [he] at ht
+  exact tendsto_nhds_unique ht (expectation_omega_limit A)
+
+/-- The finite pinching orthogonalities pass to the GNS limit. -/
+theorem aperiodic_expectation_ortho (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hB : B ∈ omegaCentralizer P) :
+    omegaState P (star B * (A - aperiodicExpectation P A)) = 0 := by
+  have hn (N : ℕ) : inner ℂ (towerExpectation P N B (hOmega P))
+      (towerExpectation P N A (hOmega P) -
+        towerExpectation P N (aperiodicExpectation P A) (hOmega P)) = 0 := by
+    have h := pinching_global_ortho N (expectationMatrix P N A)
+      (towerExpectation P N B) (expectation_of_centralizer_is_centralizer N B hB)
+    rw [omega_product_inner, star_star] at h
+    rw [aperiodic_expectation_prefix P N A hA]
+    exact h
+  have ht : Tendsto (fun N => inner ℂ (towerExpectation P N B (hOmega P))
+      (towerExpectation P N A (hOmega P) -
+        towerExpectation P N (aperiodicExpectation P A) (hOmega P)))
+      atTop (𝓝 (inner ℂ (B (hOmega P))
+        (A (hOmega P) - aperiodicExpectation P A (hOmega P)))) :=
+    (expectation_omega_limit B).inner
+      ((expectation_omega_limit A).sub
+        (expectation_omega_limit (aperiodicExpectation P A)))
+  have he : (fun N => inner ℂ (towerExpectation P N B (hOmega P))
+      (towerExpectation P N A (hOmega P) -
+        towerExpectation P N (aperiodicExpectation P A) (hOmega P))) =
+      (fun _ : ℕ => (0 : ℂ)) := funext hn
+  rw [he] at ht
+  have hz := tendsto_nhds_unique ht tendsto_const_nhds
+  rw [omega_product_inner, star_star]
+  exact hz
+
+/-- A constructed inhabitant for every admissible profile, including aperiodic ones. -/
+def aperiodicExpectationInput (P : SiteProfile) : ExpectationInput P where
+  E := aperiodicExpectation P
+  into := aperiodic_expectation_into P
+  fixes := aperiodic_expectation_fixes P
+  ortho := fun A hA B hB => aperiodic_expectation_ortho P A B hA hB
+
+theorem aperiodic_contract_inhabited (P : SiteProfile) : Nonempty (ExpectationInput P) :=
+  ⟨aperiodicExpectationInput P⟩
+
+theorem aperiodic_expectation_contractive (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    ‖(aperiodicExpectationInput P).E A‖ ≤ ‖A‖ :=
+  (aperiodic_expectation_spec P A hA).2.1
+
+theorem aperiodic_expectation_idempotent (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    (aperiodicExpectationInput P).E ((aperiodicExpectationInput P).E A) =
+      (aperiodicExpectationInput P).E A :=
+  (aperiodicExpectationInput P).fixes _ ((aperiodicExpectationInput P).into A hA)
+
+#print axioms aperiodicExpectation
+#print axioms aperiodic_expectation_spec
+#print axioms aperiodic_expectation_prefix
+#print axioms aperiodic_expectation_into
+#print axioms aperiodic_expectation_fixes
+#print axioms aperiodic_expectation_ortho
+#print axioms aperiodicExpectationInput
+#print axioms aperiodic_contract_inhabited
+#print axioms aperiodic_expectation_contractive
+#print axioms aperiodic_expectation_idempotent
+
+end
+
+end ChatgptAudit.Aperiodic046
+''',
+    "TGLExt/AperiodicTowerLift.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_046 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.AperiodicCentralizerExpectation
+import TGLExt.TheLiftFiresOnThePeriodicTower
+import TGLExt.TheModularFlowIsAHorizon
+
+set_option autoImplicit false
+
+namespace ChatgptAudit.Aperiodic046
+
+open TGLExt
+
+noncomputable section
+
+/-- The lift now has a constructed expectation for every admissible profile. -/
+theorem the_lift_fires_on_the_aperiodic_tower (P : SiteProfile) (h : TowerHorizon P) :
+    ∀ A ∈ theFactorObject P,
+      adT h ((aperiodicExpectationInput P).E A) =
+        (aperiodicExpectationInput P).E (adT h A) :=
+  the_lift_on_the_tower (aperiodicExpectationInput P) h
+
+/-- Every other inhabitant agrees on the factor and has the same covariance. -/
+theorem every_expectation_on_the_general_tower_is_covariant (P : SiteProfile)
+    (I : ExpectationInput P) (h : TowerHorizon P) :
+    ∀ A ∈ theFactorObject P,
+      I.E A = (aperiodicExpectationInput P).E A ∧
+        adT h (I.E A) = I.E (adT h A) :=
+  fun A hA => ⟨the_expectation_is_unique I (aperiodicExpectationInput P) A hA,
+    the_lift_on_the_tower I h A hA⟩
+
+theorem aperiodic_expectation_agrees_periodic (P : SiteProfile)
+    (T : ℝ) (hT : 0 < T) (hp : LocalPhasePeriod P T)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    (aperiodicExpectationInput P).E A = (periodicExpectationInput P T hT hp).E A :=
+  the_expectation_is_unique (aperiodicExpectationInput P)
+    (periodicExpectationInput P T hT hp) A hA
+
+theorem aperiodic_expectation_agrees_tracial (P : SiteProfile)
+    (hp : ∀ n, P.w n = 1 / 2)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    (aperiodicExpectationInput P).E A = (tracialExpectationInput P hp).E A :=
+  the_expectation_is_unique (aperiodicExpectationInput P) (tracialExpectationInput P hp) A hA
+
+theorem aperiodic_expectation_commutes_with_modular_flow (P : SiteProfile) (t : ℝ) :
+    ∀ A ∈ theFactorObject P,
+      modularConjugation P t ((aperiodicExpectationInput P).E A) =
+        (aperiodicExpectationInput P).E (modularConjugation P t A) :=
+  every_expectation_commutes_with_modular_flow (aperiodicExpectationInput P) t
+
+/-- The response composition remains conditional on a factor-preserving covariant source. -/
+theorem response_covariant_on_the_general_tower (P : SiteProfile) (h : TowerHorizon P)
+    (K : (TowerHilbert P →L[ℂ] TowerHilbert P) → (TowerHilbert P →L[ℂ] TowerHilbert P))
+    (hKmem : ∀ A ∈ theFactorObject P, K A ∈ theFactorObject P)
+    (hKcov : ∀ A ∈ theFactorObject P, adT h (K A) = K (adT h A)) :
+    ∀ A ∈ theFactorObject P,
+      adT h ((aperiodicExpectationInput P).E (K A)) =
+        (aperiodicExpectationInput P).E (K (adT h A)) := by
+  intro A hA
+  rw [the_lift_on_the_tower (aperiodicExpectationInput P) h (K A) (hKmem A hA),
+    hKcov A hA]
+
+#print axioms the_lift_fires_on_the_aperiodic_tower
+#print axioms every_expectation_on_the_general_tower_is_covariant
+#print axioms aperiodic_expectation_agrees_periodic
+#print axioms aperiodic_expectation_agrees_tracial
+#print axioms aperiodic_expectation_commutes_with_modular_flow
+#print axioms response_covariant_on_the_general_tower
+
+end
+
+end ChatgptAudit.Aperiodic046
+''',
+    "TGLExt/ExpectationAlgebra.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_047 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.CentralizerDensity
+import TGLExt.AperiodicCentralizerExpectation
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Expectation047
+
+open TGLExt ChatgptAudit.Density033 ChatgptAudit.Aperiodic046
+
+noncomputable section
+
+/-- The vector state takes adjoints to scalar conjugates. -/
+theorem omega_state_star (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    omegaState P (star A) = star (omegaState P A) := by
+  change inner ℂ (hOmega P) (ContinuousLinearMap.adjoint A (hOmega P)) =
+    star (inner ℂ (hOmega P) (A (hOmega P)))
+  rw [ContinuousLinearMap.adjoint_inner_right]
+  exact (inner_conj_symm (A (hOmega P)) (hOmega P)).symm
+
+/-- The state centralizer is closed under adjoints. -/
+theorem omega_centralizer_star (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ omegaCentralizer P) :
+    star A ∈ omegaCentralizer P := by
+  refine ⟨star_mem hA.1, ?_⟩
+  intro B hB
+  have h := hA.2 (star B) (star_mem hB)
+  have hs : omegaState P (star (A * star B)) =
+      omegaState P (star (star B * A)) := by
+    simpa only [omega_state_star] using congrArg star h
+  simpa only [star_mul, star_star] using hs.symm
+
+/-- Orthogonality determines a single image, without positing a second expectation. -/
+theorem expectation_eq_of_ortho (P : SiteProfile) (I : ExpectationInput P)
+    (A C : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hC : C ∈ omegaCentralizer P)
+    (h : ∀ B ∈ omegaCentralizer P, omegaState P (star B * (A-C)) = 0) :
+    I.E A = C := by
+  have hE := I.into A hA
+  have hD : I.E A-C ∈ omegaCentralizer P := by
+    refine ⟨sub_mem hE.1 hC.1, ?_⟩
+    intro B hB
+    rw [sub_mul, mul_sub, omegaState_sub, omegaState_sub, hE.2 B hB, hC.2 B hB]
+  apply sub_eq_zero.mp
+  apply omega_definite hD.1
+  have hid : I.E A-C = (A-C)-(A-I.E A) := by abel
+  calc
+    omegaState P (star (I.E A-C) * (I.E A-C)) =
+        omegaState P (star (I.E A-C) * ((A-C)-(A-I.E A))) :=
+      congrArg (fun X => omegaState P (star (I.E A-C) * X)) hid
+    _ = 0 := by
+      rw [mul_sub, omegaState_sub, h _ hD, I.ortho A hA _ hD, sub_self]
+
+theorem expectation_zero (P : SiteProfile) (I : ExpectationInput P) :
+    I.E 0 = 0 :=
+  I.fixes 0 (omega_centralizer_zero P)
+
+theorem expectation_one (P : SiteProfile) (I : ExpectationInput P) :
+    I.E 1 = 1 :=
+  I.fixes 1 (omega_centralizer_one P)
+
+theorem expectation_add (P : SiteProfile) (I : ExpectationInput P)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hB : B ∈ theFactorObject P) :
+    I.E (A+B) = I.E A+I.E B := by
+  apply expectation_eq_of_ortho P I (A+B) (I.E A+I.E B) (add_mem hA hB)
+    (omega_centralizer_add P (I.into A hA) (I.into B hB))
+  intro C hC
+  have hid : A+B-(I.E A+I.E B) = (A-I.E A)+(B-I.E B) := by abel
+  rw [hid, mul_add, omega_state_add, I.ortho A hA C hC, I.ortho B hB C hC, add_zero]
+
+theorem expectation_smul (P : SiteProfile) (I : ExpectationInput P) (c : ℂ)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    I.E (c • A) = c • I.E A := by
+  apply expectation_eq_of_ortho P I (c • A) (c • I.E A)
+    ((theFactorObject P).toStarSubalgebra.smul_mem hA c)
+    (omega_centralizer_smul P c (I.into A hA))
+  intro B hB
+  rw [← smul_sub, mul_smul_comm, omega_state_smul, I.ortho A hA B hB, mul_zero]
+
+theorem expectation_sub (P : SiteProfile) (I : ExpectationInput P)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hB : B ∈ theFactorObject P) :
+    I.E (A-B) = I.E A-I.E B := by
+  have hE : I.E A-I.E B ∈ omegaCentralizer P := by
+    refine ⟨sub_mem (I.into A hA).1 (I.into B hB).1, ?_⟩
+    intro C hC
+    rw [sub_mul, mul_sub, omegaState_sub, omegaState_sub,
+      (I.into A hA).2 C hC, (I.into B hB).2 C hC]
+  apply expectation_eq_of_ortho P I (A-B) (I.E A-I.E B) (sub_mem hA hB) hE
+  intro C hC
+  have hid : A-B-(I.E A-I.E B) = (A-I.E A)-(B-I.E B) := by abel
+  rw [hid, mul_sub, omegaState_sub, I.ortho A hA C hC, I.ortho B hB C hC, sub_self]
+
+theorem expectation_preserves_omega (P : SiteProfile) (I : ExpectationInput P)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    omegaState P (I.E A) = omegaState P A := by
+  have h := I.ortho A hA 1 (omega_centralizer_one P)
+  rw [star_one, one_mul, omegaState_sub] at h
+  exact (sub_eq_zero.mp h).symm
+
+/-- Adjoint preservation uses centralizer cyclicity and orthogonality. -/
+theorem expectation_star (P : SiteProfile) (I : ExpectationInput P)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    I.E (star A) = star (I.E A) := by
+  apply expectation_eq_of_ortho P I (star A) (star (I.E A)) (star_mem hA)
+    (omega_centralizer_star P (I.E A) (I.into A hA))
+  intro B hB
+  have h := I.ortho A hA (star B) (omega_centralizer_star P B hB)
+  simp only [star_star] at h
+  have hr : omegaState P ((A-I.E A)*B) = 0 :=
+    (hB.2 (A-I.E A) (sub_mem hA (I.into A hA).1)).symm.trans h
+  have hs : omegaState P (star ((A-I.E A)*B)) = 0 := by
+    rw [omega_state_star, hr, star_zero]
+  simpa only [star_mul, star_sub] using hs
+
+theorem expectation_mul_left (P : SiteProfile) (I : ExpectationInput P)
+    (C A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hC : C ∈ omegaCentralizer P) (hA : A ∈ theFactorObject P) :
+    I.E (C*A) = C*I.E A := by
+  apply expectation_eq_of_ortho P I (C*A) (C*I.E A) (mul_mem hC.1 hA)
+    (omega_centralizer_mul P hC (I.into A hA))
+  intro B hB
+  have h := I.ortho A hA (star C*B)
+    (omega_centralizer_mul P (omega_centralizer_star P C hC) hB)
+  rw [star_mul, star_star] at h
+  calc
+    omegaState P (star B*(C*A-C*I.E A)) =
+        omegaState P ((star B*C)*(A-I.E A)) := by
+      congr 1
+      noncomm_ring
+    _ = 0 := h
+
+theorem expectation_mul_right (P : SiteProfile) (I : ExpectationInput P)
+    (A D : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hD : D ∈ omegaCentralizer P) :
+    I.E (A*D) = I.E A*D := by
+  apply expectation_eq_of_ortho P I (A*D) (I.E A*D) (mul_mem hA hD.1)
+    (omega_centralizer_mul P (I.into A hA) hD)
+  intro B hB
+  have h := I.ortho A hA (B*star D)
+    (omega_centralizer_mul P hB (omega_centralizer_star P D hD))
+  rw [star_mul, star_star] at h
+  calc
+    omegaState P (star B*(A*D-I.E A*D)) =
+        omegaState P ((star B*(A-I.E A))*D) := by
+      congr 1
+    _ = omegaState P (D*(star B*(A-I.E A))) :=
+      (hD.2 (star B*(A-I.E A))
+        (mul_mem (star_mem hB.1) (sub_mem hA (I.into A hA).1))).symm
+    _ = omegaState P ((D*star B)*(A-I.E A)) := by rw [mul_assoc]
+    _ = 0 := h
+
+theorem expectation_bimodular (P : SiteProfile) (I : ExpectationInput P)
+    (C A D : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hC : C ∈ omegaCentralizer P) (hA : A ∈ theFactorObject P)
+    (hD : D ∈ omegaCentralizer P) :
+    I.E (C*A*D) = C*I.E A*D := by
+  rw [expectation_mul_right P I (C*A) D (mul_mem hC.1 hA) hD,
+    expectation_mul_left P I C A hC hA]
+
+/-- Any contract inherits the constructed norm estimate by uniqueness on the factor. -/
+theorem expectation_norm_le (P : SiteProfile) (I : ExpectationInput P)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    ‖I.E A‖ ≤ ‖A‖ := by
+  rw [the_expectation_is_unique I (aperiodicExpectationInput P) A hA]
+  exact aperiodic_expectation_contractive P A hA
+
+/-- The expectation is linear on the factor; no assertion concerns external inputs. -/
+def expectationLinearMap (P : SiteProfile) (I : ExpectationInput P) :
+    (theFactorObject P).toStarSubalgebra →ₗ[ℂ]
+      (TowerHilbert P →L[ℂ] TowerHilbert P) where
+  toFun := fun A => I.E A
+  map_add' := fun A B => expectation_add P I A B A.property B.property
+  map_smul' := fun c A => expectation_smul P I c A A.property
+
+theorem expectation_linear_map_apply (P : SiteProfile) (I : ExpectationInput P)
+    (A : (theFactorObject P).toStarSubalgebra) :
+    expectationLinearMap P I A = I.E A := rfl
+
+/-- Continuity follows from the norm bound, which was derived rather than added to the contract. -/
+def expectationContinuousLinearMap (P : SiteProfile) (I : ExpectationInput P) :
+    (theFactorObject P).toStarSubalgebra →L[ℂ]
+      (TowerHilbert P →L[ℂ] TowerHilbert P) :=
+  (expectationLinearMap P I).mkContinuous 1 (fun A => by
+    change ‖I.E A‖ ≤ 1*‖(A : TowerHilbert P →L[ℂ] TowerHilbert P)‖
+    simpa only [one_mul] using expectation_norm_le P I A A.property)
+
+theorem expectation_continuous_linear_map_apply (P : SiteProfile) (I : ExpectationInput P)
+    (A : (theFactorObject P).toStarSubalgebra) :
+    expectationContinuousLinearMap P I A = I.E A := rfl
+
+theorem expectation_continuous_linear_map_norm_le_one (P : SiteProfile)
+    (I : ExpectationInput P) :
+    ‖expectationContinuousLinearMap P I‖ ≤ 1 := by
+  apply ContinuousLinearMap.opNorm_le_bound _ (by norm_num)
+  intro A
+  change ‖I.E A‖ ≤ 1*‖(A : TowerHilbert P →L[ℂ] TowerHilbert P)‖
+  simpa only [one_mul] using expectation_norm_le P I A A.property
+
+#print axioms omega_state_star
+#print axioms omega_centralizer_star
+#print axioms expectation_eq_of_ortho
+#print axioms expectation_zero
+#print axioms expectation_one
+#print axioms expectation_add
+#print axioms expectation_smul
+#print axioms expectation_sub
+#print axioms expectation_preserves_omega
+#print axioms expectation_star
+#print axioms expectation_mul_left
+#print axioms expectation_mul_right
+#print axioms expectation_bimodular
+#print axioms expectation_norm_le
+#print axioms expectationLinearMap
+#print axioms expectation_linear_map_apply
+#print axioms expectationContinuousLinearMap
+#print axioms expectation_continuous_linear_map_apply
+#print axioms expectation_continuous_linear_map_norm_le_one
+
+end
+
+end ChatgptAudit.Expectation047
+''',
+    "TGLExt/GeneralExpectationPositive.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_047 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.ExpectationAlgebra
+import Mathlib.Analysis.InnerProductSpace.Positive
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Expectation047
+
+open TGLExt Filter MeasureTheory
+open ChatgptAudit.Aperiodic046
+open scoped Topology ComplexOrder
+
+noncomputable section
+
+/-- Simultaneous modular transport of both test vectors is the actual conjugation form. -/
+theorem modular_conjugation_inner (P : SiteProfile) (t : ℝ)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (v w : TowerHilbert P) :
+    inner ℂ v (modularConjugation P t A w) =
+      inner ℂ (modularFlow P (-t) v) (A (modularFlow P (-t) w)) := by
+  have h := (modularFlowIsometry P t).inner_map_map
+    (modularFlow P (-t) v) (A (modularFlow P (-t) w))
+  change inner ℂ (modularFlow P t (modularFlow P (-t) v))
+      (modularFlow P t (A (modularFlow P (-t) w))) = _ at h
+  rw [modularFlow_group, add_neg_cancel, modularFlow_zero_time] at h
+  exact h
+
+theorem modular_conjugation_inner_continuous (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (v w : TowerHilbert P) :
+    Continuous (fun t : ℝ => inner ℂ v (modularConjugation P t A w)) :=
+  continuous_const.inner (modular_orbit_continuous A w)
+
+/-- The continuous vector functional commutes with the finite-time average. -/
+theorem period_average_inner (P : SiteProfile) (T : ℝ) (hT : 0 < T)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (v w : TowerHilbert P) :
+    inner ℂ v (periodAverage P T hT A w) =
+      T⁻¹ • (∫ t in (0 : ℝ)..T, inner ℂ v (modularConjugation P t A w)) := by
+  rw [(period_average_operator T hT A).1]
+  change (innerSL ℂ v)
+      (T⁻¹ • (∫ t in (0 : ℝ)..T, modularConjugation P t A w)) = _
+  rw [(innerSL ℂ v).map_smul_of_tower,
+    ← (innerSL ℂ v).intervalIntegral_comp_comm
+      ((modular_orbit_continuous A w).intervalIntegrable 0 T)]
+  rfl
+
+theorem period_average_re_inner (P : SiteProfile) (T : ℝ) (hT : 0 < T)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (v w : TowerHilbert P) :
+    (inner ℂ v (periodAverage P T hT A w)).re =
+      T⁻¹ * (∫ t in (0 : ℝ)..T, (inner ℂ v (modularConjugation P t A w)).re) := by
+  have hi := Complex.reCLM.intervalIntegral_comp_comm (μ := volume)
+    ((modular_conjugation_inner_continuous P A v w).intervalIntegrable 0 T)
+  change (∫ t in (0 : ℝ)..T, (inner ℂ v (modularConjugation P t A w)).re) =
+    (∫ t in (0 : ℝ)..T, inner ℂ v (modularConjugation P t A w)).re at hi
+  rw [period_average_inner P T hT A v w]
+  change Complex.reCLM
+      (T⁻¹ • (∫ t in (0 : ℝ)..T, inner ℂ v (modularConjugation P t A w))) = _
+  rw [Complex.reCLM.map_smul]
+  change T⁻¹ * (∫ t in (0 : ℝ)..T, inner ℂ v (modularConjugation P t A w)).re = _
+  rw [← hi]
+
+/-- Positive input gives a nonnegative real diagonal form for every interval length T>0. -/
+theorem period_average_re_inner_nonneg (P : SiteProfile) (T : ℝ) (hT : 0 < T)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A.IsPositive)
+    (v : TowerHilbert P) :
+    0 ≤ (inner ℂ v (periodAverage P T hT A v)).re := by
+  rw [period_average_re_inner P T hT A v v]
+  apply mul_nonneg (inv_nonneg.mpr hT.le)
+  apply intervalIntegral.integral_nonneg_of_forall hT.le
+  intro t
+  rw [modular_conjugation_inner]
+  exact hA.re_inner_nonneg_right _
+
+/-- Nonnegativity passes through the strong limit; any contract agrees with the constructed one. -/
+theorem expectation_re_inner_nonneg (P : SiteProfile) (I : ExpectationInput P)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hmem : A ∈ theFactorObject P) (hA : A.IsPositive) (v : TowerHilbert P) :
+    0 ≤ (inner ℂ v (I.E A v)).re := by
+  have he : I.E A = aperiodicExpectation P A :=
+    the_expectation_is_unique I (aperiodicExpectationInput P) A hmem
+  rw [he]
+  have hv := (aperiodic_expectation_spec P A hmem).2.2 v
+  have hi := (tendsto_const_nhds (x := v)).inner (𝕜 := ℂ) hv
+  have hr := (Complex.continuous_re.tendsto
+    (inner ℂ v (aperiodicExpectation P A v))).comp hi
+  change Tendsto
+    (fun n : ℕ => (inner ℂ v
+      (periodAverage P ((n : ℝ) + 1) (by positivity) A v)).re)
+    atTop (𝓝 (inner ℂ v (aperiodicExpectation P A v)).re) at hr
+  exact le_of_tendsto_of_tendsto tendsto_const_nhds hr
+    (Filter.Eventually.of_forall fun n =>
+      period_average_re_inner_nonneg P ((n : ℝ) + 1) (by positivity) A hA v)
+
+/-- Positivity on the factor is proved from averages and adjoint preservation. -/
+theorem general_expectation_isPositive (P : SiteProfile) (I : ExpectationInput P)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hmem : A ∈ theFactorObject P) (hA : A.IsPositive) :
+    (I.E A).IsPositive := by
+  apply ContinuousLinearMap.isPositive_def'.mpr
+  constructor
+  · change star (I.E A) = I.E A
+    rw [← expectation_star P I A hmem, hA.isSelfAdjoint.star_eq]
+  · intro v
+    change 0 ≤ RCLike.re (inner ℂ (I.E A v) v)
+    rw [inner_re_symm]
+    exact expectation_re_inner_nonneg P I A hmem hA v
+
+/-- The order-theoretic form of positivity, restricted to the actual factor. -/
+theorem general_expectation_nonnegative (P : SiteProfile) (I : ExpectationInput P)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hmem : A ∈ theFactorObject P) (hA : 0 ≤ A) :
+    0 ≤ I.E A := by
+  apply (ContinuousLinearMap.nonneg_iff_isPositive _).mpr
+  exact general_expectation_isPositive P I A hmem
+    ((ContinuousLinearMap.nonneg_iff_isPositive A).mp hA)
+
+#print axioms modular_conjugation_inner
+#print axioms modular_conjugation_inner_continuous
+#print axioms period_average_inner
+#print axioms period_average_re_inner
+#print axioms period_average_re_inner_nonneg
+#print axioms expectation_re_inner_nonneg
+#print axioms general_expectation_isPositive
+#print axioms general_expectation_nonnegative
+
+end
+
+end ChatgptAudit.Expectation047
+''',
+    "TGLExt/OperatorBlockRepresentation.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_047 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import Mathlib.Analysis.CStarAlgebra.CompletelyPositiveMap
+import Mathlib.Analysis.InnerProductSpace.PiL2
+import Mathlib.Analysis.InnerProductSpace.StarOrder
+
+set_option autoImplicit false
+set_option maxHeartbeats 1600000
+
+namespace ChatgptAudit.Expectation047
+
+open scoped ComplexOrder
+
+noncomputable section
+
+variable (H : Type*) [NormedAddCommGroup H] [InnerProductSpace ℂ H]
+
+/-- Finite operator matrices act on the Hilbert direct sum by row times column. -/
+def operatorBlockCLM (k : ℕ) (M : CStarMatrix (Fin k) (Fin k) (H →L[ℂ] H)) :
+    (PiLp 2 (fun _ : Fin k => H)) →L[ℂ] (PiLp 2 (fun _ : Fin k => H)) :=
+  (PiLp.continuousLinearEquiv 2 ℂ (fun _ : Fin k => H)).symm.toContinuousLinearMap.comp
+    (ContinuousLinearMap.pi (fun i =>
+      ∑ j, (M i j).comp (PiLp.proj 2 (fun _ : Fin k => H) j)))
+
+theorem operator_block_apply (k : ℕ)
+    (M : CStarMatrix (Fin k) (Fin k) (H →L[ℂ] H))
+    (v : PiLp 2 (fun _ : Fin k => H)) (i : Fin k) :
+    operatorBlockCLM H k M v i = ∑ j, M i j (v j) := by
+  simp [operatorBlockCLM]
+
+/-- Recover one entry of an arbitrary operator on the finite Hilbert direct sum. -/
+def operatorBlockEntry (k : ℕ)
+    (T : (PiLp 2 (fun _ : Fin k => H)) →L[ℂ] (PiLp 2 (fun _ : Fin k => H)))
+    (i j : Fin k) : H →L[ℂ] H :=
+  (PiLp.proj 2 (fun _ : Fin k => H) i).comp
+    (T.comp ((PiLp.continuousLinearEquiv 2 ℂ (fun _ : Fin k => H)).symm.toContinuousLinearMap.comp
+      (ContinuousLinearMap.single ℂ (fun _ : Fin k => H) j)))
+
+theorem operator_block_entry_apply (k : ℕ)
+    (T : (PiLp 2 (fun _ : Fin k => H)) →L[ℂ] (PiLp 2 (fun _ : Fin k => H)))
+    (i j : Fin k) (v : H) :
+    operatorBlockEntry H k T i j v = T (PiLp.single 2 j v) i := rfl
+
+theorem operator_block_entry_recover (k : ℕ)
+    (M : CStarMatrix (Fin k) (Fin k) (H →L[ℂ] H)) (i j : Fin k) :
+    operatorBlockEntry H k (operatorBlockCLM H k M) i j = M i j := by
+  ext v
+  simp [operator_block_entry_apply, operator_block_apply, PiLp.single_apply, apply_ite]
+
+/-- No coordinate is lost, including the vacuous zero dimensional case. -/
+theorem operator_block_injective (k : ℕ) :
+    Function.Injective (operatorBlockCLM H k) := by
+  intro M N h
+  apply CStarMatrix.ext
+  intro i j
+  have he := congrArg (fun T => operatorBlockEntry H k T i j) h
+  simpa only [operator_block_entry_recover] using he
+
+omit [InnerProductSpace ℂ H] in
+theorem operator_block_sum_single (k : ℕ) (v : PiLp 2 (fun _ : Fin k => H)) :
+    ∑ j, PiLp.single 2 j (v j) = v := by
+  apply PiLp.ext
+  intro i
+  simp
+
+/-- Every bounded operator on a finite direct sum has a matrix of bounded entries. -/
+theorem operator_block_surjective (k : ℕ) :
+    Function.Surjective (operatorBlockCLM H k) := by
+  intro T
+  refine ⟨CStarMatrix.ofMatrix (fun i j => operatorBlockEntry H k T i j), ?_⟩
+  ext v i
+  rw [operator_block_apply]
+  change (∑ j, operatorBlockEntry H k T i j (v j)) = T v i
+  simp only [operator_block_entry_apply]
+  have hs : (∑ j, T (PiLp.single 2 j (v j))) = T v := by
+    rw [← map_sum, operator_block_sum_single]
+  simpa only [map_sum, PiLp.proj_apply] using
+    congrArg (PiLp.proj (𝕜 := ℂ) 2 (fun _ : Fin k => H) i) hs
+
+theorem operator_block_add (k : ℕ)
+    (M N : CStarMatrix (Fin k) (Fin k) (H →L[ℂ] H)) :
+    operatorBlockCLM H k (M+N) = operatorBlockCLM H k M+operatorBlockCLM H k N := by
+  ext v i
+  simp [operator_block_apply, Finset.sum_add_distrib]
+
+theorem operator_block_smul (k : ℕ) (c : ℂ)
+    (M : CStarMatrix (Fin k) (Fin k) (H →L[ℂ] H)) :
+    operatorBlockCLM H k (c • M) = c • operatorBlockCLM H k M := by
+  ext v i
+  simp [operator_block_apply, Finset.smul_sum]
+
+theorem operator_block_mul (k : ℕ)
+    (M N : CStarMatrix (Fin k) (Fin k) (H →L[ℂ] H)) :
+    operatorBlockCLM H k (M*N) = operatorBlockCLM H k M*operatorBlockCLM H k N := by
+  ext v i
+  simp only [mul_apply_eq_comp, operator_block_apply, CStarMatrix.mul_apply,
+    _root_.sum_apply, map_sum]
+  exact Finset.sum_comm
+
+variable [CompleteSpace H]
+
+theorem operator_block_star (k : ℕ)
+    (M : CStarMatrix (Fin k) (Fin k) (H →L[ℂ] H)) :
+    operatorBlockCLM H k (star M) = star (operatorBlockCLM H k M) := by
+  apply ContinuousLinearMap.ext
+  intro v
+  apply ext_inner_left ℂ
+  intro w
+  rw [ContinuousLinearMap.star_eq_adjoint, ContinuousLinearMap.adjoint_inner_right]
+  simp only [PiLp.inner_apply, operator_block_apply, CStarMatrix.star_apply,
+    inner_sum, sum_inner, ContinuousLinearMap.star_eq_adjoint,
+    ContinuousLinearMap.adjoint_inner_right]
+  exact Finset.sum_comm
+
+/-- A concrete star algebra equivalence, with an explicit entrywise inverse. -/
+def operatorBlockRepresentation (k : ℕ) :
+    CStarMatrix (Fin k) (Fin k) (H →L[ℂ] H) ≃⋆ₐ[ℂ]
+      ((PiLp 2 (fun _ : Fin k => H)) →L[ℂ] (PiLp 2 (fun _ : Fin k => H))) where
+  toFun := operatorBlockCLM H k
+  invFun := fun T => CStarMatrix.ofMatrix (fun i j => operatorBlockEntry H k T i j)
+  left_inv := by
+    intro M
+    apply CStarMatrix.ext
+    intro i j
+    exact operator_block_entry_recover H k M i j
+  right_inv := by
+    intro T
+    obtain ⟨M, rfl⟩ := operator_block_surjective H k T
+    congr 1
+    apply CStarMatrix.ext
+    intro i j
+    exact operator_block_entry_recover H k M i j
+  map_add' := operator_block_add H k
+  map_mul' := operator_block_mul H k
+  map_smul' := operator_block_smul H k
+  map_star' := operator_block_star H k
+
+theorem operator_block_representation_apply (k : ℕ)
+    (M : CStarMatrix (Fin k) (Fin k) (H →L[ℂ] H))
+    (v : PiLp 2 (fun _ : Fin k => H)) (i : Fin k) :
+    operatorBlockRepresentation H k M v i = ∑ j, M i j (v j) :=
+  operator_block_apply H k M v i
+
+theorem operator_block_nonneg_representation_iff (k : ℕ)
+    (M : CStarMatrix (Fin k) (Fin k) (H →L[ℂ] H)) :
+    0 ≤ operatorBlockRepresentation H k M ↔ 0 ≤ M := by
+  constructor
+  · intro h
+    have hs := map_nonneg (operatorBlockRepresentation H k).symm h
+    simpa only [StarAlgEquiv.symm_apply_apply] using hs
+  · exact map_nonneg (operatorBlockRepresentation H k)
+
+/-- The represented quadratic form is exactly the finite block quadratic form. -/
+theorem operator_block_inner (k : ℕ)
+    (M : CStarMatrix (Fin k) (Fin k) (H →L[ℂ] H))
+    (v : PiLp 2 (fun _ : Fin k => H)) :
+    inner ℂ v (operatorBlockRepresentation H k M v) =
+      ∑ i, ∑ j, inner ℂ (v i) (M i j (v j)) := by
+  simp only [PiLp.inner_apply, operator_block_representation_apply, inner_sum]
+
+/-- C-star positivity is equivalent to entrywise Hermiticity and all Hilbert block tests. -/
+theorem operator_block_nonneg_iff (k : ℕ)
+    (M : CStarMatrix (Fin k) (Fin k) (H →L[ℂ] H)) :
+    0 ≤ M ↔
+      (∀ i j, star (M i j) = M j i) ∧
+      ∀ v : Fin k → H, 0 ≤ (∑ i, ∑ j, inner ℂ (v i) (M i j (v j))).re := by
+  constructor
+  · intro hM
+    have hT : (operatorBlockRepresentation H k M).IsPositive :=
+      (ContinuousLinearMap.nonneg_iff_isPositive _).mp
+        ((operator_block_nonneg_representation_iff H k M).mpr hM)
+    refine ⟨?_, ?_⟩
+    · intro i j
+      exact CStarMatrix.star_apply_of_isSelfAdjoint hM.isSelfAdjoint
+    · intro v
+      change 0 ≤ RCLike.re (∑ i, ∑ j, inner ℂ (v i) (M i j (v j)))
+      have hv := hT.re_inner_nonneg_right (WithLp.toLp 2 v)
+      simpa only [operator_block_inner, PiLp.toLp_apply] using hv
+  · rintro ⟨hstar, hq⟩
+    have hM : IsSelfAdjoint M := by
+      change star M = M
+      apply CStarMatrix.ext
+      intro i j
+      exact hstar j i
+    apply (operator_block_nonneg_representation_iff H k M).mp
+    apply (ContinuousLinearMap.nonneg_iff_isPositive _).mpr
+    apply ContinuousLinearMap.isPositive_def'.mpr
+    refine ⟨hM.map (operatorBlockRepresentation H k), ?_⟩
+    intro v
+    change 0 ≤ (inner ℂ (operatorBlockRepresentation H k M v) v).re
+    change 0 ≤ RCLike.re (inner ℂ (operatorBlockRepresentation H k M v) v)
+    rw [inner_re_symm, operator_block_inner]
+    exact hq (fun i => v i)
+
+#print axioms operatorBlockCLM
+#print axioms operator_block_apply
+#print axioms operatorBlockEntry
+#print axioms operator_block_entry_apply
+#print axioms operator_block_entry_recover
+#print axioms operator_block_injective
+#print axioms operator_block_sum_single
+#print axioms operator_block_surjective
+#print axioms operator_block_add
+#print axioms operator_block_smul
+#print axioms operator_block_mul
+#print axioms operator_block_star
+#print axioms operatorBlockRepresentation
+#print axioms operator_block_representation_apply
+#print axioms operator_block_nonneg_representation_iff
+#print axioms operator_block_inner
+#print axioms operator_block_nonneg_iff
+
+end
+
+end ChatgptAudit.Expectation047
+''',
+    "TGLExt/ExpectationBlockPositive.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_047 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.GeneralExpectationPositive
+
+set_option autoImplicit false
+set_option maxHeartbeats 1600000
+
+namespace ChatgptAudit.Expectation047
+
+open TGLExt Filter MeasureTheory
+open ChatgptAudit.Aperiodic046
+open scoped Topology ComplexOrder
+
+noncomputable section
+
+/-- The quadratic form of a finite operator block on arbitrary Hilbert vectors. -/
+def blockQuadratic (P : SiteProfile) (k : ℕ)
+    (A : Matrix (Fin k) (Fin k) (TowerHilbert P →L[ℂ] TowerHilbert P))
+    (v : Fin k → TowerHilbert P) : ℂ :=
+  ∑ i, ∑ j, inner ℂ (v i) (A i j (v j))
+
+/-- Full block positivity; this is not entrywise positivity. -/
+def BlockPositive (P : SiteProfile) (k : ℕ)
+    (A : Matrix (Fin k) (Fin k) (TowerHilbert P →L[ℂ] TowerHilbert P)) : Prop :=
+  (∀ i j, star (A i j) = A j i) ∧ ∀ v, 0 ≤ (blockQuadratic P k A v).re
+
+theorem block_modular_quadratic (P : SiteProfile) (k : ℕ)
+    (A : Matrix (Fin k) (Fin k) (TowerHilbert P →L[ℂ] TowerHilbert P))
+    (t : ℝ) (v : Fin k → TowerHilbert P) :
+    blockQuadratic P k (fun i j => modularConjugation P t (A i j)) v =
+      blockQuadratic P k A (fun i => modularFlow P (-t) (v i)) := by
+  simp only [blockQuadratic, modular_conjugation_inner]
+
+/-- Finite sums and continuous real vector functionals commute with the actual averages. -/
+theorem block_period_average_quadratic (P : SiteProfile) (k : ℕ)
+    (A : Matrix (Fin k) (Fin k) (TowerHilbert P →L[ℂ] TowerHilbert P))
+    (T : ℝ) (hT : 0 < T) (v : Fin k → TowerHilbert P) :
+    (blockQuadratic P k (fun i j => periodAverage P T hT (A i j)) v).re =
+      T⁻¹ * (∫ t in (0 : ℝ)..T,
+        (blockQuadratic P k A (fun i => modularFlow P (-t) (v i))).re) := by
+  have hi (i j : Fin k) :
+      IntervalIntegrable
+        (fun t : ℝ => (inner ℂ (v i) (modularConjugation P t (A i j) (v j))).re)
+        volume 0 T :=
+    (Complex.continuous_re.comp
+      (modular_conjugation_inner_continuous P (A i j) (v i) (v j))).intervalIntegrable 0 T
+  have hsum (i : Fin k) :
+      IntervalIntegrable
+        (fun t : ℝ => ∑ j, (inner ℂ (v i)
+          (modularConjugation P t (A i j) (v j))).re) volume 0 T := by
+    apply Continuous.intervalIntegrable
+    exact continuous_finsetSum Finset.univ (fun j _ =>
+      Complex.continuous_re.comp
+        (modular_conjugation_inner_continuous P (A i j) (v i) (v j)))
+  simp_rw [← block_modular_quadratic P k A, blockQuadratic, Complex.re_sum,
+    period_average_re_inner]
+  rw [intervalIntegral.integral_finsetSum (fun i _ => hsum i)]
+  simp_rw [intervalIntegral.integral_finsetSum (fun j _ => hi _ j),
+    Finset.mul_sum]
+
+theorem block_period_average_nonnegative (P : SiteProfile) (k : ℕ)
+    (A : Matrix (Fin k) (Fin k) (TowerHilbert P →L[ℂ] TowerHilbert P))
+    (hA : BlockPositive P k A) (T : ℝ) (hT : 0 < T)
+    (v : Fin k → TowerHilbert P) :
+    0 ≤ (blockQuadratic P k (fun i j => periodAverage P T hT (A i j)) v).re := by
+  rw [block_period_average_quadratic P k A T hT v]
+  exact mul_nonneg (inv_nonneg.mpr hT.le)
+    (intervalIntegral.integral_nonneg_of_forall hT.le (fun t => hA.2 _))
+
+/-- The block form converges because every entry converges strongly and the sums are finite. -/
+theorem block_average_quadratic_tendsto (P : SiteProfile) (I : ExpectationInput P)
+    (k : ℕ)
+    (A : Matrix (Fin k) (Fin k) (TowerHilbert P →L[ℂ] TowerHilbert P))
+    (hmem : ∀ i j, A i j ∈ theFactorObject P) (v : Fin k → TowerHilbert P) :
+    Tendsto
+      (fun n : ℕ => (blockQuadratic P k
+        (fun i j => periodAverage P ((n : ℝ) + 1) (by positivity) (A i j)) v).re)
+      atTop (𝓝 (blockQuadratic P k (fun i j => I.E (A i j)) v).re) := by
+  have he (i j : Fin k) : I.E (A i j) = aperiodicExpectation P (A i j) :=
+    the_expectation_is_unique I (aperiodicExpectationInput P) (A i j) (hmem i j)
+  have hentry (i j : Fin k) :
+      Tendsto (fun n : ℕ =>
+        inner ℂ (v i) (periodAverage P ((n : ℝ) + 1) (by positivity) (A i j) (v j)))
+        atTop (𝓝 (inner ℂ (v i) (I.E (A i j) (v j)))) := by
+    rw [he i j]
+    exact (tendsto_const_nhds (x := v i)).inner (𝕜 := ℂ)
+      ((aperiodic_expectation_spec P (A i j) (hmem i j)).2.2 (v j))
+  have hs := tendsto_finsetSum Finset.univ
+    (fun i _ => tendsto_finsetSum Finset.univ (fun j _ => hentry i j))
+  exact (Complex.continuous_re.tendsto _).comp hs
+
+/-- Every finite amplification preserves the full Hilbert block form. -/
+theorem general_expectation_block_positive (P : SiteProfile) (I : ExpectationInput P)
+    (k : ℕ)
+    (A : Matrix (Fin k) (Fin k) (TowerHilbert P →L[ℂ] TowerHilbert P))
+    (hmem : ∀ i j, A i j ∈ theFactorObject P) (hA : BlockPositive P k A) :
+    BlockPositive P k (fun i j => I.E (A i j)) := by
+  constructor
+  · intro i j
+    rw [← expectation_star P I (A i j) (hmem i j), hA.1 i j]
+  · intro v
+    exact le_of_tendsto_of_tendsto tendsto_const_nhds
+      (block_average_quadratic_tendsto P I k A hmem v)
+      (Filter.Eventually.of_forall fun n =>
+        block_period_average_nonnegative P k A hA ((n : ℝ) + 1) (by positivity) v)
+
+/-- Gram blocks are nonvacuous examples of the full condition. -/
+theorem gram_block_quadratic (P : SiteProfile) (k : ℕ)
+    (B : Fin k → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (v : Fin k → TowerHilbert P) :
+    blockQuadratic P k (fun i j => star (B i) * B j) v =
+      inner ℂ (∑ i, B i (v i)) (∑ j, B j (v j)) := by
+  simp only [blockQuadratic, mul_apply_eq_comp,
+    ContinuousLinearMap.star_eq_adjoint, ContinuousLinearMap.adjoint_inner_right,
+    sum_inner, inner_sum]
+  exact Finset.sum_comm
+
+theorem gram_block_positive (P : SiteProfile) (k : ℕ)
+    (B : Fin k → TowerHilbert P →L[ℂ] TowerHilbert P) :
+    BlockPositive P k (fun i j => star (B i) * B j) := by
+  constructor
+  · intro i j
+    simp only [star_mul, star_star]
+  · intro v
+    rw [gram_block_quadratic]
+    exact inner_self_nonneg (𝕜 := ℂ) (x := ∑ i, B i (v i))
+
+#print axioms blockQuadratic
+#print axioms BlockPositive
+#print axioms block_modular_quadratic
+#print axioms block_period_average_quadratic
+#print axioms block_period_average_nonnegative
+#print axioms block_average_quadratic_tendsto
+#print axioms general_expectation_block_positive
+#print axioms gram_block_quadratic
+#print axioms gram_block_positive
+
+end
+
+end ChatgptAudit.Expectation047
+''',
+    "TGLExt/GeneralExpectationCP.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_047 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.ExpectationBlockPositive
+import TGLExt.OperatorBlockRepresentation
+import TGLExt.SummableLikelihoodGenerator
+import Mathlib.Analysis.CStarAlgebra.ContinuousFunctionalCalculus.Range
+import Mathlib.Analysis.SpecialFunctions.ContinuousFunctionalCalculus.Rpow.Basic
+
+set_option autoImplicit false
+set_option maxHeartbeats 1600000
+
+namespace ChatgptAudit.Expectation047
+
+open TGLExt
+open scoped ComplexOrder
+
+noncomputable section
+
+/-- Norm closure supplies the actual C-star structure on the factor subtype. -/
+instance factor_subalgebra_closed (P : SiteProfile) :
+    IsClosed ((theFactorObject P).toStarSubalgebra :
+      Set (TowerHilbert P →L[ℂ] TowerHilbert P)) :=
+  ChatgptAudit.Cocycle030.factor_norm_closed P
+
+/-- The ambient positive square root remains in the norm-closed factor. -/
+theorem factor_positive_sqrt_mem (P : SiteProfile)
+    (A : (theFactorObject P).toStarSubalgebra) (hA : 0 ≤ A) :
+    CFC.sqrt (A : TowerHilbert P →L[ℂ] TowerHilbert P) ∈
+      (theFactorObject P).toStarSubalgebra := by
+  have hAop : 0 ≤ (A : TowerHilbert P →L[ℂ] TowerHilbert P) := hA
+  rw [CFC.sqrt_eq_real_sqrt _ hAop]
+  exact cfcₙ_mem (𝕜' := ℂ) Real.sqrt A.property
+
+/-- The inherited operator order is exactly the star-square order on the factor. -/
+theorem factor_nonnegative_iff_star_square (P : SiteProfile)
+    (A : (theFactorObject P).toStarSubalgebra) :
+    0 ≤ A ↔ ∃ B : (theFactorObject P).toStarSubalgebra, A = star B * B := by
+  constructor
+  · intro hA
+    have hAop : 0 ≤ (A : TowerHilbert P →L[ℂ] TowerHilbert P) := hA
+    let B : (theFactorObject P).toStarSubalgebra :=
+      ⟨CFC.sqrt (A : TowerHilbert P →L[ℂ] TowerHilbert P),
+        factor_positive_sqrt_mem P A hA⟩
+    refine ⟨B, Subtype.ext ?_⟩
+    change (A : TowerHilbert P →L[ℂ] TowerHilbert P) =
+      star (CFC.sqrt (A : TowerHilbert P →L[ℂ] TowerHilbert P)) *
+        CFC.sqrt (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    rw [(CFC.sqrt_nonneg (A : TowerHilbert P →L[ℂ] TowerHilbert P)).isSelfAdjoint.star_eq,
+      CFC.sqrt_mul_sqrt_self _ hAop]
+  · rintro ⟨B, rfl⟩
+    change 0 ≤ star (B : TowerHilbert P →L[ℂ] TowerHilbert P) *
+      (B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    exact star_mul_self_nonneg _
+
+/-- This instance keeps the subtype order inherited from bounded operators. -/
+instance factor_subalgebra_star_ordered (P : SiteProfile) :
+    StarOrderedRing (theFactorObject P).toStarSubalgebra :=
+  StarOrderedRing.of_nonneg_iff'
+    (fun {x y} h z => by
+      change (z : TowerHilbert P →L[ℂ] TowerHilbert P) +
+          (x : TowerHilbert P →L[ℂ] TowerHilbert P) ≤
+        (z : TowerHilbert P →L[ℂ] TowerHilbert P) +
+          (y : TowerHilbert P →L[ℂ] TowerHilbert P)
+      have hxy : (x : TowerHilbert P →L[ℂ] TowerHilbert P) ≤
+          (y : TowerHilbert P →L[ℂ] TowerHilbert P) := h
+      simpa only [add_comm] using
+        add_le_add_left hxy (z : TowerHilbert P →L[ℂ] TowerHilbert P))
+    (factor_nonnegative_iff_star_square P)
+
+/-- Genuine C-star matrix positivity follows from the represented block form. -/
+theorem expectation_cstarMatrix_nonnegative (P : SiteProfile) (I : ExpectationInput P)
+    (k : ℕ)
+    (M : CStarMatrix (Fin k) (Fin k) (theFactorObject P).toStarSubalgebra)
+    (hM : 0 ≤ M) :
+    0 ≤ M.map (expectationLinearMap P I) := by
+  have hinc :
+      0 ≤ M.map (theFactorObject P).toStarSubalgebra.subtype :=
+    CompletelyPositiveMapClass.map_cstarMatrix_nonneg'
+      (theFactorObject P).toStarSubalgebra.subtype k M hM
+  have hblock :
+      BlockPositive P k
+        (fun i j => (M i j : TowerHilbert P →L[ℂ] TowerHilbert P)) :=
+    (operator_block_nonneg_iff (TowerHilbert P) k _).mp hinc
+  apply (operator_block_nonneg_iff (TowerHilbert P) k _).mpr
+  exact general_expectation_block_positive P I k
+    (fun i j => (M i j : TowerHilbert P →L[ℂ] TowerHilbert P))
+    (fun i j => (M i j).property) hblock
+
+/-- The constructed expectation, restricted to its actual algebra, as a genuine CP map. -/
+def generalExpectationCompletelyPositiveMap (P : SiteProfile) (I : ExpectationInput P) :
+    CompletelyPositiveMap (theFactorObject P).toStarSubalgebra
+      (TowerHilbert P →L[ℂ] TowerHilbert P) where
+  toLinearMap := expectationLinearMap P I
+  map_cstarMatrix_nonneg' := expectation_cstarMatrix_nonnegative P I
+
+theorem general_expectation_cp_apply (P : SiteProfile) (I : ExpectationInput P)
+    (A : (theFactorObject P).toStarSubalgebra) :
+    generalExpectationCompletelyPositiveMap P I A = I.E A := rfl
+
+theorem general_expectation_cp_toLinearMap (P : SiteProfile) (I : ExpectationInput P) :
+    (generalExpectationCompletelyPositiveMap P I).toLinearMap =
+      expectationLinearMap P I := rfl
+
+#print axioms factor_subalgebra_closed
+#print axioms factor_positive_sqrt_mem
+#print axioms factor_nonnegative_iff_star_square
+#print axioms factor_subalgebra_star_ordered
+#print axioms expectation_cstarMatrix_nonnegative
+#print axioms generalExpectationCompletelyPositiveMap
+#print axioms general_expectation_cp_apply
+#print axioms general_expectation_cp_toLinearMap
+
+end
+
+end ChatgptAudit.Expectation047
+''',
+    "TGLExt/ExpectationContinuity.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_047 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.ExpectationAlgebra
+import TGLExt.AperiodicVectorAverage
+
+set_option autoImplicit false
+set_option maxHeartbeats 1600000
+
+namespace ChatgptAudit.Expectation047
+
+open TGLExt Filter ChatgptAudit.Aperiodic046
+open scoped Topology
+
+noncomputable section
+
+/-- The constructed averages yield the GNS norm bound; uniqueness transfers it to every contract. -/
+theorem expectation_gns_norm_le (P : SiteProfile) (I : ExpectationInput P)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    ‖I.E A (hOmega P)‖ ≤ ‖A (hOmega P)‖ := by
+  have hl := (aperiodic_expectation_spec P A hA).2.2 (hOmega P)
+  have hb (n : ℕ) :
+      ‖periodAverage P ((n : ℝ) + 1) (by positivity) A (hOmega P)‖ ≤
+        ‖A (hOmega P)‖ := by
+    rw [period_average_omega_eq_vector_average]
+    change ‖modularAverageVector P ((n : ℝ) + 1) (A (hOmega P))‖ ≤ _
+    exact modular_average_vector_bound P ((n : ℝ) + 1) (by positivity) _
+  have h := le_of_tendsto hl.norm (Filter.Eventually.of_forall hb)
+  have he := the_expectation_is_unique I (aperiodicExpectationInput P) A hA
+  change I.E A = aperiodicExpectation P A at he
+  rw [he]
+  exact h
+
+/-- The GNS metric contracts on pairs of factor elements. -/
+theorem expectation_gns_dist_le (P : SiteProfile) (I : ExpectationInput P)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hB : B ∈ theFactorObject P) :
+    dist (I.E A (hOmega P)) (I.E B (hOmega P)) ≤
+      dist (A (hOmega P)) (B (hOmega P)) := by
+  have h := expectation_gns_norm_le P I (A - B) ((theFactorObject P).sub_mem hA hB)
+  rw [expectation_sub P I A B hA hB] at h
+  simpa only [dist_eq_norm, _root_.sub_apply] using h
+
+/-- Convergence in the GNS metric is preserved for an arbitrary index filter. -/
+theorem expectation_omega_tendsto (P : SiteProfile) (I : ExpectationInput P)
+    {ι : Type*} (l : Filter ι)
+    (A : ι → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : ∀ i, A i ∈ theFactorObject P) (hB : B ∈ theFactorObject P)
+    (hlim : Tendsto (fun i => A i (hOmega P)) l (𝓝 (B (hOmega P)))) :
+    Tendsto (fun i => I.E (A i) (hOmega P)) l (𝓝 (I.E B (hOmega P))) := by
+  rw [Metric.tendsto_nhds] at hlim ⊢
+  intro ε hε
+  filter_upwards [hlim ε hε] with i hi
+  exact lt_of_le_of_lt (expectation_gns_dist_le P I (A i) B (hA i) hB) hi
+
+/-- Uniformly bounded operators converging on the dense local space converge on every vector. -/
+theorem bounded_local_tendsto (P : SiteProfile) {ι : Type*} (l : Filter ι)
+    (C : ι → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (bound : ℝ) (hbound : 0 ≤ bound) (hnorm : ∀ i, ‖C i‖ ≤ bound)
+    (hlocal : ∀ w : TowerPre P,
+      Tendsto (fun i => C i (w : TowerHilbert P)) l (𝓝 (B (w : TowerHilbert P))))
+    (v : TowerHilbert P) :
+    Tendsto (fun i => C i v) l (𝓝 (B v)) := by
+  rw [Metric.tendsto_nhds]
+  intro ε hε
+  have hden : 0 < 4 * (bound + ‖B‖ + 1) := by positivity
+  obtain ⟨w, hw⟩ := (towerPre_denseRange (P := P)).exists_dist_lt v (div_pos hε hden)
+  have hshort : bound * dist v (w : TowerHilbert P) < ε / 4 := by
+    have hm := (lt_div_iff₀ hden).mp hw
+    nlinarith [norm_nonneg B, (dist_nonneg : 0 ≤ dist v (w : TowerHilbert P))]
+  have hBshort : ‖B‖ * dist v (w : TowerHilbert P) < ε / 4 := by
+    have hm := (lt_div_iff₀ hden).mp hw
+    nlinarith [(dist_nonneg : 0 ≤ dist v (w : TowerHilbert P))]
+  have hmid := Metric.tendsto_nhds.mp (hlocal w) (ε / 2) (by positivity)
+  filter_upwards [hmid] with i hi
+  have hleft : dist (C i v) (C i (w : TowerHilbert P)) < ε / 4 :=
+    lt_of_le_of_lt ((C i).dist_le_opNorm v (w : TowerHilbert P) |>.trans
+      (mul_le_mul_of_nonneg_right (hnorm i)
+        (dist_nonneg : 0 ≤ dist v (w : TowerHilbert P)))) hshort
+  have hright : dist (B (w : TowerHilbert P)) (B v) < ε / 4 := by
+    rw [dist_comm]
+    exact lt_of_le_of_lt (B.dist_le_opNorm v (w : TowerHilbert P)) hBshort
+  have ht := dist_triangle (C i v) (C i (w : TowerHilbert P)) (B v)
+  have ht' := dist_triangle (C i (w : TowerHilbert P)) (B (w : TowerHilbert P)) (B v)
+  linarith
+
+/-- The right local orbit turns bounded convergence on Ω into strong convergence for any filter. -/
+theorem bounded_omega_tendsto (P : SiteProfile) {ι : Type*} (l : Filter ι)
+    (C : ι → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (bound : ℝ) (hbound : 0 ≤ bound)
+    (hmem : ∀ i, C i ∈ theFactorObject P) (hB : B ∈ theFactorObject P)
+    (hnorm : ∀ i, ‖C i‖ ≤ bound)
+    (hlim : Tendsto (fun i => C i (hOmega P)) l (𝓝 (B (hOmega P)))) :
+    ∀ v, Tendsto (fun i => C i v) l (𝓝 (B v)) := by
+  apply bounded_local_tendsto P l C B bound hbound hnorm
+  intro w
+  obtain ⟨N, a, rfl⟩ := exists_tof w
+  rw [← rTowerPi_omega (P := P) N a]
+  have hc (i : ι) : C i (rTowerPi P a (hOmega P)) =
+      rTowerPi P a (C i (hOmega P)) := by
+    simpa only [mul_apply_eq_comp] using
+      congrArg (fun T : TowerHilbert P →L[ℂ] TowerHilbert P => T (hOmega P))
+        (factor_comm_rTowerPi (hmem i) a)
+  have hb : B (rTowerPi P a (hOmega P)) = rTowerPi P a (B (hOmega P)) := by
+    simpa only [mul_apply_eq_comp] using
+      congrArg (fun T : TowerHilbert P →L[ℂ] TowerHilbert P => T (hOmega P))
+        (factor_comm_rTowerPi hB a)
+  rw [hb]
+  exact (((rTowerPi P a).continuous.tendsto (B (hOmega P))).comp hlim).congr'
+    (Filter.Eventually.of_forall (fun i => (hc i).symm))
+
+/-- Every expectation contract preserves bounded strong convergence, with arbitrary net indices. -/
+theorem expectation_strong_tendsto_of_omega (P : SiteProfile) (I : ExpectationInput P)
+    {ι : Type*} (l : Filter ι)
+    (A : ι → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : ∀ i, A i ∈ theFactorObject P) (hB : B ∈ theFactorObject P)
+    (bound : ℝ) (hbound : 0 ≤ bound) (hnorm : ∀ i, ‖A i‖ ≤ bound)
+    (hlim : Tendsto (fun i => A i (hOmega P)) l (𝓝 (B (hOmega P)))) :
+    ∀ v, Tendsto (fun i => I.E (A i) v) l (𝓝 (I.E B v)) := by
+  apply bounded_omega_tendsto P l (fun i => I.E (A i)) (I.E B) bound hbound
+    (fun i => (I.into (A i) (hA i)).1) (I.into B hB).1
+  · intro i
+    exact (expectation_norm_le P I (A i) (hA i)).trans (hnorm i)
+  · exact expectation_omega_tendsto P I l A B hA hB hlim
+
+#print axioms expectation_gns_norm_le
+#print axioms expectation_gns_dist_le
+#print axioms expectation_omega_tendsto
+#print axioms bounded_local_tendsto
+#print axioms bounded_omega_tendsto
+#print axioms expectation_strong_tendsto_of_omega
+
+end
+
+end ChatgptAudit.Expectation047
+''',
+    "TGLExt/MonotoneOperatorLimit.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_047 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import Mathlib.Analysis.InnerProductSpace.StarOrder
+import Mathlib.Analysis.CStarAlgebra.ContinuousFunctionalCalculus.Order
+import Mathlib.Analysis.SpecialFunctions.ContinuousFunctionalCalculus.Rpow.Basic
+import Mathlib.Analysis.Normed.Operator.Completeness
+import Mathlib.Topology.Order.MonotoneConvergence
+import Mathlib.Topology.MetricSpace.Cauchy
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+
+set_option autoImplicit false
+set_option maxHeartbeats 1600000
+
+namespace ChatgptAudit.Expectation047
+
+open Filter Set
+open scoped Topology ComplexOrder
+
+noncomputable section
+
+variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
+
+/-- The scalar quadratic reading of a bounded operator. -/
+def operatorQuadratic (A : H →L[ℂ] H) (v : H) : ℝ :=
+  RCLike.re (inner ℂ v (A v))
+
+/-- A positive operator satisfies the quadratic order estimate. -/
+theorem positive_square_le_norm_smul (D : H →L[ℂ] H) (hD : 0 ≤ D) :
+    D * D ≤ ‖D‖ • D := by
+  let S := CFC.sqrt D
+  have hS : S * S = D := CFC.sqrt_mul_sqrt_self D hD
+  have hSstar : star S = S := (IsSelfAdjoint.of_nonneg (CFC.sqrt_nonneg D)).star_eq
+  have hc := CStarAlgebra.star_left_conjugate_le_norm_smul
+    (a := S) (b := D) (IsSelfAdjoint.of_nonneg hD)
+  rw [hSstar, hS] at hc
+  have he : S * D * S = D * D := by
+    rw [← hS]
+    simp only [mul_assoc]
+  rwa [he] at hc
+
+/-- The estimate that converts scalar monotone convergence to strong Cauchy convergence. -/
+theorem positive_apply_norm_sq_le (D : H →L[ℂ] H) (hD : 0 ≤ D) (v : H) :
+    ‖D v‖ ^ 2 ≤ ‖D‖ * operatorQuadratic D v := by
+  have hp := (ContinuousLinearMap.nonneg_iff_isPositive D).mp hD
+  have hi := ((ContinuousLinearMap.le_def (D * D) (‖D‖ • D)).mp
+    (positive_square_le_norm_smul D hD)).re_inner_nonneg_right v
+  have he : RCLike.re (inner ℂ v ((D * D) v)) = ‖D v‖ ^ 2 := by
+    change RCLike.re (inner ℂ v (D (D v))) = _
+    rw [← hp.inner_left_eq_inner_right v (D v), inner_self_eq_norm_sq]
+  simp only [_root_.sub_apply, inner_sub_right, map_sub,
+    _root_.smul_apply] at hi
+  rw [RCLike.real_smul_eq_coe_smul (K := ℂ), inner_smul_right, RCLike.re_ofReal_mul] at hi
+  rw [he] at hi
+  change 0 ≤ ‖D‖ * operatorQuadratic D v - ‖D v‖ ^ 2 at hi
+  linarith
+
+/-- Ordered positive increments have their norms controlled by their quadratic readings. -/
+theorem positive_increment_norm_sq_le (A B : H →L[ℂ] H)
+    (hA : 0 ≤ A) (hAB : A ≤ B) (C : ℝ) (hB : ‖B‖ ≤ C) (v : H) :
+    ‖(B - A) v‖ ^ 2 ≤ C * (operatorQuadratic B v - operatorQuadratic A v) := by
+  have hd : 0 ≤ B - A := sub_nonneg.mpr hAB
+  have hn : ‖B - A‖ ≤ C :=
+    (CStarAlgebra.norm_le_norm_of_nonneg_of_le hd (sub_le_self B hA)).trans hB
+  have hq := ((ContinuousLinearMap.nonneg_iff_isPositive (B - A)).mp hd).re_inner_nonneg_right v
+  calc
+    ‖(B - A) v‖ ^ 2 ≤ ‖B - A‖ * operatorQuadratic (B - A) v :=
+      positive_apply_norm_sq_le (B - A) hd v
+    _ ≤ C * operatorQuadratic (B - A) v := mul_le_mul_of_nonneg_right hn hq
+    _ = C * (operatorQuadratic B v - operatorQuadratic A v) := by
+      simp only [operatorQuadratic, _root_.sub_apply, inner_sub_right, map_sub]
+
+omit [CompleteSpace H] in
+/-- Positivity survives pointwise strong limits along any nontrivial filter. -/
+theorem positive_of_strong_limit {ι : Type*} {l : Filter ι} [l.NeBot]
+    (A : ι → H →L[ℂ] H) (B : H →L[ℂ] H)
+    (hpos : ∀ᶠ i in l, 0 ≤ A i)
+    (hlim : ∀ v, Tendsto (fun i => A i v) l (𝓝 (B v))) : 0 ≤ B := by
+  rw [ContinuousLinearMap.nonneg_iff_isPositive, ContinuousLinearMap.isPositive_def]
+  constructor
+  · intro v w
+    have hl : Tendsto (fun i => inner ℂ (A i v) w) l (𝓝 (inner ℂ (B v) w)) :=
+      (hlim v).inner tendsto_const_nhds
+    have hr : Tendsto (fun i => inner ℂ v (A i w)) l (𝓝 (inner ℂ v (B w))) :=
+      tendsto_const_nhds.inner (hlim w)
+    apply tendsto_nhds_unique hl
+    apply hr.congr'
+    filter_upwards [hpos] with i hi
+    exact (((ContinuousLinearMap.nonneg_iff_isPositive (A i)).mp hi).inner_left_eq_inner_right v w).symm
+  · intro v
+    have hi : Tendsto (fun i => inner ℂ (A i v) v) l (𝓝 (inner ℂ (B v) v)) :=
+      (hlim v).inner tendsto_const_nhds
+    have hr := (RCLike.continuous_re.tendsto (inner ℂ (B v) v)).comp hi
+    exact le_of_tendsto_of_tendsto tendsto_const_nhds hr (hpos.mono fun i hi =>
+      ((ContinuousLinearMap.nonneg_iff_isPositive (A i)).mp hi).re_inner_nonneg_left v)
+
+variable {ι : Type*} [Preorder ι] [IsDirectedOrder ι] [Nonempty ι]
+
+omit [CompleteSpace H] [IsDirectedOrder ι] [Nonempty ι] in
+/-- The scalar readings form bounded monotone nets. -/
+theorem monotone_quadratic_limit (A : ι → H →L[ℂ] H)
+    (hmono : Monotone A) (C : ℝ) (hbound : ∀ i, ‖A i‖ ≤ C) (v : H) :
+    Tendsto (fun i => operatorQuadratic (A i) v) atTop
+      (𝓝 (⨆ i, operatorQuadratic (A i) v)) := by
+  have hm : Monotone (fun i => operatorQuadratic (A i) v) := by
+    intro i j hij
+    have h := ((ContinuousLinearMap.le_def (A i) (A j)).mp (hmono hij)).re_inner_nonneg_right v
+    simpa only [operatorQuadratic, _root_.sub_apply, inner_sub_right,
+      map_sub, sub_nonneg] using h
+  have hb : BddAbove (Set.range (fun i => operatorQuadratic (A i) v)) := by
+    refine ⟨C * ‖v‖ ^ 2, ?_⟩
+    rintro _ ⟨i, rfl⟩
+    calc
+      operatorQuadratic (A i) v ≤ ‖inner ℂ v (A i v)‖ := RCLike.re_le_norm _
+      _ ≤ ‖v‖ * ‖A i v‖ := norm_inner_le_norm _ _
+      _ ≤ ‖v‖ * (C * ‖v‖) := mul_le_mul_of_nonneg_left
+        ((A i).le_of_opNorm_le (hbound i) v) (norm_nonneg v)
+      _ = C * ‖v‖ ^ 2 := by ring
+  exact tendsto_atTop_ciSup hm hb
+
+/-- An arbitrary directed positive bounded net is Cauchy on every Hilbert vector. -/
+theorem monotone_operator_vector_cauchy (A : ι → H →L[ℂ] H)
+    (hpos : ∀ i, 0 ≤ A i) (hmono : Monotone A)
+    (C : ℝ) (hC : 0 ≤ C) (hbound : ∀ i, ‖A i‖ ≤ C) (v : H) :
+    Cauchy (Filter.map (fun i => A i v) atTop) := by
+  let q : ι → ℝ := fun i => operatorQuadratic (A i) v
+  let qsup : ℝ := ⨆ i, q i
+  have hb : BddAbove (Set.range q) := by
+    refine ⟨C * ‖v‖ ^ 2, ?_⟩
+    rintro _ ⟨i, rfl⟩
+    calc
+      q i ≤ ‖inner ℂ v (A i v)‖ := RCLike.re_le_norm _
+      _ ≤ ‖v‖ * ‖A i v‖ := norm_inner_le_norm _ _
+      _ ≤ ‖v‖ * (C * ‖v‖) := mul_le_mul_of_nonneg_left
+        ((A i).le_of_opNorm_le (hbound i) v) (norm_nonneg v)
+      _ = C * ‖v‖ ^ 2 := by ring
+  have ht : Tendsto q atTop (𝓝 qsup) := monotone_quadratic_limit A hmono C hbound v
+  apply Metric.cauchy_iff.mpr
+  refine ⟨inferInstance, ?_⟩
+  intro eps heps
+  let delta : ℝ := eps ^ 2 / (4 * (C + 1))
+  have hden : 0 < 4 * (C + 1) := by positivity
+  have hd : 0 < delta := div_pos (sq_pos_of_pos heps) hden
+  have hid : delta * (4 * (C + 1)) = eps ^ 2 := div_mul_cancel₀ _ (ne_of_gt hden)
+  have hcd : C * delta < (eps / 2) ^ 2 := by nlinarith
+  have hn := (Metric.tendsto_nhds.mp ht) delta hd
+  obtain ⟨N, hN⟩ := eventually_atTop.mp hn
+  have hs (i k : ι) (hi : N ≤ i) (hik : i ≤ k) :
+      ‖(A k - A i) v‖ < eps / 2 := by
+    have hnear := hN i hi
+    rw [Real.dist_eq] at hnear
+    have hks : q k ≤ qsup := le_ciSup hb k
+    have hdif : q k - q i < delta := by
+      have hlo := (abs_lt.mp hnear).1
+      linarith
+    have hinc := positive_increment_norm_sq_le (A i) (A k) (hpos i) (hmono hik) C (hbound k) v
+    have hlast : C * (q k - q i) < (eps / 2) ^ 2 :=
+      lt_of_le_of_lt (mul_le_mul_of_nonneg_left hdif.le hC) hcd
+    change ‖(A k - A i) v‖ ^ 2 ≤ C * (q k - q i) at hinc
+    nlinarith [norm_nonneg ((A k - A i) v)]
+  refine ⟨(fun i => A i v) '' Set.Ici N,
+    Filter.image_mem_map (show Set.Ici N ∈ (atTop : Filter ι) from eventually_ge_atTop N), ?_⟩
+  rintro _ ⟨i, hi, rfl⟩ _ ⟨j, hj, rfl⟩
+  obtain ⟨k, hik, hjk⟩ := exists_ge_ge i j
+  have h1 : dist (A i v) (A k v) < eps / 2 := by
+    rw [dist_comm, dist_eq_norm]
+    exact hs i k hi hik
+  have h2 : dist (A k v) (A j v) < eps / 2 := by
+    rw [dist_eq_norm]
+    exact hs j k hj hjk
+  exact lt_of_le_of_lt (dist_triangle (A i v) (A k v) (A j v)) (by linarith)
+
+/-- Any existing strong limit of an increasing net is its least upper bound. -/
+theorem monotone_strong_limit_isLUB (A : ι → H →L[ℂ] H)
+    (hmono : Monotone A) (B : H →L[ℂ] H)
+    (hlim : ∀ v, Tendsto (fun i => A i v) atTop (𝓝 (B v))) :
+    IsLUB (Set.range A) B := by
+  constructor
+  · rintro _ ⟨j, rfl⟩
+    apply sub_nonneg.mp
+    apply positive_of_strong_limit (l := (atTop : Filter ι)) (fun i => A i - A j) (B - A j)
+    · exact (eventually_ge_atTop j).mono fun i hi => sub_nonneg.mpr (hmono hi)
+    · intro v
+      exact (hlim v).sub tendsto_const_nhds
+  · intro D hD
+    apply sub_nonneg.mp
+    apply positive_of_strong_limit (l := (atTop : Filter ι)) (fun i => D - A i) (D - B)
+    · exact Eventually.of_forall fun i => sub_nonneg.mpr (hD (Set.mem_range_self i))
+    · intro v
+      exact tendsto_const_nhds.sub (hlim v)
+
+/-- A positive increasing uniformly bounded net has a constructed strong limit and supremum. -/
+theorem monotone_operator_limit (A : ι → H →L[ℂ] H)
+    (hpos : ∀ i, 0 ≤ A i) (hmono : Monotone A)
+    (C : ℝ) (hC : 0 ≤ C) (hbound : ∀ i, ‖A i‖ ≤ C) :
+    ∃ B : H →L[ℂ] H, 0 ≤ B ∧ ‖B‖ ≤ C ∧
+      (∀ v, Tendsto (fun i => A i v) atTop (𝓝 (B v))) ∧
+      IsLUB (Set.range A) B := by
+  have hex (v : H) : ∃ z, Tendsto (fun i => A i v) atTop (𝓝 z) :=
+    cauchy_map_iff_exists_tendsto.mp (monotone_operator_vector_cauchy A hpos hmono C hC hbound v)
+  choose f hf using hex
+  have hb : Bornology.IsBounded (Set.range A) := by
+    refine isBounded_iff_forall_norm_le.mpr ⟨C, ?_⟩
+    rintro _ ⟨i, rfl⟩
+    exact hbound i
+  let B : H →L[ℂ] H :=
+    ContinuousLinearMap.ofTendstoOfBoundedRange f A (tendsto_pi_nhds.mpr hf) hb
+  have hlim (v : H) : Tendsto (fun i => A i v) atTop (𝓝 (B v)) := hf v
+  have hBpos : 0 ≤ B := positive_of_strong_limit A B (Eventually.of_forall hpos) hlim
+  have hBbound : ‖B‖ ≤ C := by
+    apply B.opNorm_le_bound hC
+    intro v
+    exact le_of_tendsto (hlim v).norm
+      (Eventually.of_forall fun i => (A i).le_of_opNorm_le (hbound i) v)
+  exact ⟨B, hBpos, hBbound, hlim, monotone_strong_limit_isLUB A hmono B hlim⟩
+
+#print axioms operatorQuadratic
+#print axioms positive_square_le_norm_smul
+#print axioms positive_apply_norm_sq_le
+#print axioms positive_increment_norm_sq_le
+#print axioms positive_of_strong_limit
+#print axioms monotone_quadratic_limit
+#print axioms monotone_operator_vector_cauchy
+#print axioms monotone_strong_limit_isLUB
+#print axioms monotone_operator_limit
+
+end
+end ChatgptAudit.Expectation047
+''',
+    "TGLExt/ExpectationNormality.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_047 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.ExpectationContinuity
+import TGLExt.GeneralExpectationPositive
+import TGLExt.MonotoneOperatorLimit
+
+set_option autoImplicit false
+set_option maxHeartbeats 1600000
+
+namespace ChatgptAudit.Expectation047
+
+open TGLExt Filter ChatgptAudit.Aperiodic046
+open scoped Topology ComplexOrder
+
+noncomputable section
+
+/-- A fixed commutation relation survives a strong limit along any nontrivial filter. -/
+theorem strong_net_limit_commutes (P : SiteProfile)
+    {ι : Type*} (l : Filter ι) [l.NeBot]
+    (A : ι → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (B Y : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hlim : ∀ v, Tendsto (fun i => A i v) l (𝓝 (B v)))
+    (hcomm : ∀ i, Y * A i = A i * Y) :
+    Y * B = B * Y := by
+  ext v
+  change Y (B v) = B (Y v)
+  have he : (fun i => Y (A i v)) = (fun i => A i (Y v)) := by
+    funext i
+    simpa only [mul_apply_eq_comp] using
+      congrArg (fun T : TowerHilbert P →L[ℂ] TowerHilbert P => T v) (hcomm i)
+  have hl := (Y.continuous.tendsto (B v)).comp (hlim v)
+  change Tendsto (fun i => Y (A i v)) l (𝓝 (Y (B v))) at hl
+  rw [he] at hl
+  exact tendsto_nhds_unique hl (hlim (Y v))
+
+/-- The bicommutant defining M is strongly closed for arbitrary nets. -/
+theorem factor_mem_of_net_strong_limit (P : SiteProfile)
+    {ι : Type*} (l : Filter ι) [l.NeBot]
+    (A : ι → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hmem : ∀ i, A i ∈ theFactorObject P)
+    (hlim : ∀ v, Tendsto (fun i => A i v) l (𝓝 (B v))) :
+    B ∈ theFactorObject P := by
+  change B ∈ StarSubalgebra.centralizer ℂ
+    ((StarSubalgebra.centralizer ℂ (towerImage P) :
+      StarSubalgebra ℂ (TowerHilbert P →L[ℂ] TowerHilbert P)) : Set _)
+  rw [StarSubalgebra.mem_centralizer_iff]
+  intro Y hY
+  have hc (i : ι) : Y * A i = A i * Y ∧ star Y * A i = A i * star Y := by
+    have hi := hmem i
+    change A i ∈ StarSubalgebra.centralizer ℂ
+      ((StarSubalgebra.centralizer ℂ (towerImage P) :
+        StarSubalgebra ℂ (TowerHilbert P →L[ℂ] TowerHilbert P)) : Set _) at hi
+    rw [StarSubalgebra.mem_centralizer_iff] at hi
+    exact hi Y hY
+  exact ⟨strong_net_limit_commutes P l A B Y hlim (fun i => (hc i).1),
+    strong_net_limit_commutes P l A B (star Y) hlim (fun i => (hc i).2)⟩
+
+/-- Linearity and positivity imply monotonicity on the actual factor domain. -/
+theorem expectation_order_preserving (P : SiteProfile) (I : ExpectationInput P)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hB : B ∈ theFactorObject P) (hAB : A ≤ B) :
+    I.E A ≤ I.E B := by
+  have h := general_expectation_nonnegative P I (B - A)
+    ((theFactorObject P).sub_mem hB hA) (sub_nonneg.mpr hAB)
+  rw [expectation_sub P I B A hB hA] at h
+  exact sub_nonneg.mp h
+
+/-- The supremum is constructed in M, and E preserves it for every bounded positive directed net. -/
+theorem factor_monotone_supremum_and_expectation (P : SiteProfile) (I : ExpectationInput P)
+    {ι : Type*} [Preorder ι] [IsDirectedOrder ι] [Nonempty ι]
+    (A : ι → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hmem : ∀ i, A i ∈ theFactorObject P)
+    (hpos : ∀ i, 0 ≤ A i) (hmono : Monotone A)
+    (C : ℝ) (hC : 0 ≤ C) (hbound : ∀ i, ‖A i‖ ≤ C) :
+    ∃ B : TowerHilbert P →L[ℂ] TowerHilbert P,
+      B ∈ theFactorObject P ∧ 0 ≤ B ∧ ‖B‖ ≤ C ∧
+      IsLUB (Set.range A) B ∧
+      IsLUB (Set.range (fun i => I.E (A i))) (I.E B) ∧
+      (∀ v, Tendsto (fun i => A i v) atTop (𝓝 (B v))) ∧
+      (∀ v, Tendsto (fun i => I.E (A i) v) atTop (𝓝 (I.E B v))) := by
+  obtain ⟨B, hBpos, hBbound, hlim, hsup⟩ :=
+    monotone_operator_limit A hpos hmono C hC hbound
+  have hBmem := factor_mem_of_net_strong_limit P atTop A B hmem hlim
+  have hElim := expectation_strong_tendsto_of_omega P I atTop A B
+    hmem hBmem C hC hbound (hlim (hOmega P))
+  have hEmono : Monotone (fun i => I.E (A i)) := by
+    intro i j hij
+    exact expectation_order_preserving P I (A i) (A j) (hmem i) (hmem j) (hmono hij)
+  exact ⟨B, hBmem, hBpos, hBbound, hsup,
+    monotone_strong_limit_isLUB (fun i => I.E (A i)) hEmono (I.E B) hElim,
+    hlim, hElim⟩
+
+/-- An order bound suffices: positivity converts it into a uniform norm bound. -/
+theorem expectation_preserves_order_bounded_nets (P : SiteProfile) (I : ExpectationInput P)
+    {ι : Type*} [Preorder ι] [IsDirectedOrder ι] [Nonempty ι]
+    (A : ι → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hmem : ∀ i, A i ∈ theFactorObject P)
+    (hpos : ∀ i, 0 ≤ A i) (hmono : Monotone A)
+    (D : TowerHilbert P →L[ℂ] TowerHilbert P) (hbound : ∀ i, A i ≤ D) :
+    ∃ B : TowerHilbert P →L[ℂ] TowerHilbert P,
+      B ∈ theFactorObject P ∧ IsLUB (Set.range A) B ∧
+      IsLUB (Set.range (fun i => I.E (A i))) (I.E B) := by
+  have hn (i : ι) : ‖A i‖ ≤ ‖D‖ :=
+    CStarAlgebra.norm_le_norm_of_nonneg_of_le (hpos i) (hbound i)
+  obtain ⟨B, hBmem, _, _, hsup, hEsup, _, _⟩ :=
+    factor_monotone_supremum_and_expectation P I A hmem hpos hmono ‖D‖ (norm_nonneg D) hn
+  exact ⟨B, hBmem, hsup, hEsup⟩
+
+/-- Normality in the order sense: every positive increasing directed supremum is preserved. -/
+theorem general_expectation_normal_order (P : SiteProfile) (I : ExpectationInput P)
+    {ι : Type*} [Preorder ι] [IsDirectedOrder ι] [Nonempty ι]
+    (A : ι → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hmem : ∀ i, A i ∈ theFactorObject P)
+    (hpos : ∀ i, 0 ≤ A i) (hmono : Monotone A)
+    (B : TowerHilbert P →L[ℂ] TowerHilbert P) (hB : IsLUB (Set.range A) B) :
+    B ∈ theFactorObject P ∧ IsLUB (Set.range (fun i => I.E (A i))) (I.E B) := by
+  obtain ⟨D, hDmem, hDsup, hEDsup⟩ :=
+    expectation_preserves_order_bounded_nets P I A hmem hpos hmono B
+      (fun i => hB.1 (Set.mem_range_self i))
+  have he : D = B := hDsup.unique hB
+  subst D
+  exact ⟨hDmem, hEDsup⟩
+
+/-- The aperiodic expectation constructed in046 is normal in this full directed-order sense. -/
+theorem aperiodic_expectation_normal_order (P : SiteProfile)
+    {ι : Type*} [Preorder ι] [IsDirectedOrder ι] [Nonempty ι]
+    (A : ι → TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hmem : ∀ i, A i ∈ theFactorObject P)
+    (hpos : ∀ i, 0 ≤ A i) (hmono : Monotone A)
+    (B : TowerHilbert P →L[ℂ] TowerHilbert P) (hB : IsLUB (Set.range A) B) :
+    B ∈ theFactorObject P ∧
+      IsLUB (Set.range (fun i => aperiodicExpectation P (A i))) (aperiodicExpectation P B) := by
+  exact general_expectation_normal_order P (aperiodicExpectationInput P) A hmem hpos hmono B hB
+
+#print axioms strong_net_limit_commutes
+#print axioms factor_mem_of_net_strong_limit
+#print axioms expectation_order_preserving
+#print axioms factor_monotone_supremum_and_expectation
+#print axioms expectation_preserves_order_bounded_nets
+#print axioms general_expectation_normal_order
+#print axioms aperiodic_expectation_normal_order
+
+end
+
+end ChatgptAudit.Expectation047
+''',
+    "TGLExt/TransportedBorchersObstruction.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_048 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.ProductBorchersObstruction
+import TGLExt.ProfileFlowTransport
+
+set_option autoImplicit false
+
+namespace ChatgptAudit.Geometry048
+
+open TGLExt ChatgptAudit.Profile026 ChatgptAudit.Transport027
+
+noncomputable section
+
+/-- A product-profile modular flow transported by the concrete GNS unitary027
+still admits only the trivial norm-preserving Borchers family. No common period
+is assumed. This does not rule out Bisognano-Wichmann for other modular data. -/
+theorem profile_borchers_trivial
+    (P Q : SiteProfile) (hpos : 0 < profileAffinityLimit P Q)
+    (V : ℝ → (TowerHilbert P →L[ℂ] TowerHilbert P))
+    (hcont : ∀ v, ContinuousAt (fun a => V a v) 0)
+    (hzero : V 0 = 1)
+    (hnorm : ∀ a v, ‖V a v‖ = ‖v‖)
+    (hborchers : ∀ t a, profileFlowConjugation P Q hpos t (V a) =
+      V (Real.exp (-2 * Real.pi * t) * a)) :
+    ∀ a, V a = 1 := by
+  let e := profileGNSUnitary P Q hpos
+  let C := profileFactorConjugation P Q hpos
+  let W : ℝ → (TowerHilbert Q →L[ℂ] TowerHilbert Q) := fun a => C.symm (V a)
+  have hWcont (v : TowerHilbert Q) : ContinuousAt (fun a => W a v) 0 := by
+    change ContinuousAt (fun a => e.symm (V a (e v))) 0
+    exact e.symm.continuous.continuousAt.comp (hcont (e v))
+  have hWzero : W 0 = 1 := by
+    dsimp only [W]
+    rw [hzero, map_one]
+  have hWnorm (a : ℝ) (v : TowerHilbert Q) : ‖W a v‖ = ‖v‖ := by
+    change ‖e.symm (V a (e v))‖ = ‖v‖
+    rw [e.symm.norm_map, hnorm, e.norm_map]
+  have hWborchers (t a : ℝ) : modularConjugation Q t (W a) =
+      W (Real.exp (-2 * Real.pi * t) * a) := by
+    have h := congrArg C.symm (hborchers t a)
+    rw [profile_flow_conjugation_eq] at h
+    simpa only [W, C, StarAlgEquiv.symm_apply_apply] using h
+  have hW := product_borchers_trivial (P := Q) W hWcont hWzero hWnorm hWborchers
+  intro a
+  have h := congrArg C (hW a)
+  simpa only [W, StarAlgEquiv.apply_symm_apply, map_one] using h
+
+#print axioms profile_borchers_trivial
+
+end
+end ChatgptAudit.Geometry048
+''',
+    "TGLExt/FaithfulGeometricLocalization.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_048 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.StationaryModularPeriod
+import TGLExt.ThermalLimitControls
+import TGLExt.ApproximateBoostFlow
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Geometry048
+
+open TGLExt ChatgptAudit ChatgptAudit.Thermal025
+  ChatgptAudit.Optical036 ChatgptAudit.Optical043 ChatgptAudit.Boost044
+noncomputable section
+
+/-- Faithfulness transfers an algebraic period to the labels of a covariant family. -/
+theorem faithful_covariance_period_return {R X : Type*}
+    (localize : R → X) (hfaith : Function.Injective localize)
+    (Phi : ℝ → R → R) (sigma : ℝ → X → X) (T : ℝ)
+    (hperiod : ∀ x, sigma T x = x)
+    (hcov : ∀ s r, localize (Phi s r) = sigma s (localize r)) :
+    ∀ r, Phi T r = r := by
+  intro r
+  apply hfaith
+  exact (hcov T r).trans (hperiod (localize r))
+
+/-- A period of the modular unitary is a period on all bounded operators. -/
+theorem modular_period_conjugation_eq (P : SiteProfile) (T : ℝ)
+    (hperiod : modularFlow P T = id)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    modularConjugation P T A = A := by
+  have hU (v : TowerHilbert P) : modularFlow P T v = v := congrFun hperiod v
+  have hm (v : TowerHilbert P) : modularFlow P (-T) v = v := by
+    have h := modularFlow_inverse (P := P) T v
+    rwa [hU] at h
+  ext v
+  change modularFlow P T (A (modularFlow P (-T) v)) = A v
+  rw [hU, hm]
+
+/-- At a modular period, the image of every set of operators is unchanged. -/
+theorem modular_period_image_eq (P : SiteProfile) (T : ℝ)
+    (hperiod : modularFlow P T = id)
+    (C : Set (TowerHilbert P →L[ℂ] TowerHilbert P)) :
+    (modularConjugation P T) '' C = C := by
+  ext A
+  constructor
+  · rintro ⟨B, hB, rfl⟩
+    simpa only [modular_period_conjugation_eq P T hperiod] using hB
+  · intro hA
+    exact ⟨A, hA, modular_period_conjugation_eq P T hperiod A⟩
+
+/-- This conclusion needs faithfulness of the region family, not merely isotony. -/
+theorem modular_period_geometric_return {R : Type*} (P : SiteProfile)
+    (localize : R → Set (TowerHilbert P →L[ℂ] TowerHilbert P))
+    (hfaith : Function.Injective localize) (Phi : ℝ → R → R)
+    (T : ℝ) (hperiod : modularFlow P T = id)
+    (hcov : ∀ s r, (modularConjugation P s) '' localize r = localize (Phi s r)) :
+    ∀ r, Phi T r = r :=
+  faithful_covariance_period_return localize hfaith Phi
+    (fun s C => (modularConjugation P s) '' C) T
+    (modular_period_image_eq P T hperiod) (fun s r => (hcov s r).symm)
+
+/-- A global dilation-covariant family must identify these two labels at a period. -/
+theorem modular_period_dilation_return (P : SiteProfile) (T : ℝ)
+    (hperiod : modularFlow P T = id)
+    (A : ℝ → Set (TowerHilbert P →L[ℂ] TowerHilbert P)) (rate : ℝ)
+    (hcov : ∀ s r, (modularConjugation P s) '' A r =
+      A (Real.exp (-rate * s) * r)) (r : ℝ) :
+    A (Real.exp (-rate * T) * r) = A r := by
+  calc
+    A (Real.exp (-rate * T) * r) = (modularConjugation P T) '' A r :=
+      (hcov T r).symm
+    _ = A r := modular_period_image_eq P T hperiod (A r)
+
+/-- Separation of just one pair of labels suffices; no injective net is postulated. -/
+theorem modular_period_dilation_obstruction (P : SiteProfile) (T : ℝ)
+    (hperiod : modularFlow P T = id)
+    (A : ℝ → Set (TowerHilbert P →L[ℂ] TowerHilbert P)) (rate : ℝ)
+    (hseparates : A (Real.exp (-rate * T)) ≠ A 1) :
+    ¬ (∀ s r, (modularConjugation P s) '' A r =
+      A (Real.exp (-rate * s) * r)) := by
+  intro hcov
+  apply hseparates
+  simpa only [mul_one] using modular_period_dilation_return P T hperiod A rate hcov 1
+
+theorem dilation_factor_ne_one (rate T : ℝ) (hrate : rate ≠ 0) (hT : T ≠ 0) :
+    Real.exp (-rate * T) ≠ 1 := by
+  intro h
+  have hz : -rate * T = 0 := Real.exp_injective (by
+    simpa only [Real.exp_zero] using h)
+  exact (mul_ne_zero (neg_ne_zero.mpr hrate) hT) hz
+
+/-- A periodic modular flow cannot globally dilate a faithful family nontrivially. -/
+theorem faithful_modular_dilation_localization_impossible (P : SiteProfile)
+    (T : ℝ) (hT : 0 < T) (hperiod : modularFlow P T = id)
+    (A : ℝ → Set (TowerHilbert P →L[ℂ] TowerHilbert P))
+    (hfaith : Function.Injective A) (rate : ℝ) (hrate : rate ≠ 0) :
+    ¬ (∀ s r, (modularConjugation P s) '' A r =
+      A (Real.exp (-rate * s) * r)) := by
+  apply modular_period_dilation_obstruction P T hperiod A rate
+  intro h
+  exact dilation_factor_ne_one rate T hrate (ne_of_gt hT) (hfaith h)
+
+/-- The actual central null curve has an inverse coordinate on its image. -/
+theorem central_null_curve_injective : Function.Injective centralNullCurve := by
+  intro r t h
+  have hp := congrArg opticalPhaseCoordinate h
+  simpa only [optical_phase_coordinate_central] using hp
+
+/-- The geometric flow044 really fails to return at a nonzero central point. -/
+theorem central_boost_no_return (rate T r : ℝ)
+    (hrate : rate ≠ 0) (hT : T ≠ 0) (hr : r ≠ 0) :
+    boostFlow rate T (centralNullCurve r) ≠ centralNullCurve r := by
+  intro h
+  rw [boost_flow_central] at h
+  have hs := central_null_curve_injective h
+  apply dilation_factor_ne_one rate T hrate hT
+  apply mul_right_cancel₀ hr
+  simpa only [one_mul] using hs
+
+/-- Restricting the actual boost-covariant family to the ray gives the exact dilation. -/
+theorem central_boost_covariance_to_dilation (P : SiteProfile)
+    (localize : Coordinate4 → Set (TowerHilbert P →L[ℂ] TowerHilbert P))
+    (rate : ℝ)
+    (hcov : ∀ s x, (modularConjugation P s) '' localize x =
+      localize (boostFlow rate s x)) :
+    ∀ s r, (modularConjugation P s) '' localize (centralNullCurve r) =
+      localize (centralNullCurve (Real.exp (-rate * s) * r)) := by
+  intro s r
+  simpa only [boost_flow_central] using hcov s (centralNullCurve r)
+
+/-- Only faithfulness along the central ray is required, rather than across the chart. -/
+theorem faithful_central_boost_localization_impossible (P : SiteProfile)
+    (T : ℝ) (hT : 0 < T) (hperiod : modularFlow P T = id)
+    (localize : Coordinate4 → Set (TowerHilbert P →L[ℂ] TowerHilbert P))
+    (hfaith : Function.Injective (fun r : ℝ => localize (centralNullCurve r)))
+    (rate : ℝ) (hrate : rate ≠ 0) :
+    ¬ (∀ s x, (modularConjugation P s) '' localize x =
+      localize (boostFlow rate s x)) := by
+  intro hcov
+  exact faithful_modular_dilation_localization_impossible P T hT hperiod
+    (fun r => localize (centralNullCurve r)) hfaith rate hrate
+    (central_boost_covariance_to_dilation P localize rate hcov)
+
+/-- The previously constructed period of the nontracial reference profile. -/
+def thirdModularPeriod : ℝ :=
+  2 * Real.pi / |Real.log (1 / 3 : ℝ) - Real.log (1 - (1 / 3 : ℝ))|
+
+theorem third_modular_period_positive : 0 < thirdModularPeriod := by
+  apply div_pos (mul_pos (by norm_num : (0 : ℝ) < 2) Real.pi_pos)
+  apply abs_pos.mpr
+  exact stationary_log_gap_ne_zero (P := thirdThermalReference)
+    (p := (1 / 3 : ℝ)) (fun _ => rfl) (by norm_num)
+
+theorem third_modular_flow_period :
+    modularFlow thirdThermalReference thirdModularPeriod = id := by
+  exact lattice_modular_period
+    (stationary_log_gap_ne_zero (P := thirdThermalReference)
+      (p := (1 / 3 : ℝ)) (fun _ => rfl) (by norm_num))
+    (stationary_site_log_lattice (P := thirdThermalReference)
+      (p := (1 / 3 : ℝ)) (fun _ => rfl))
+
+theorem third_faithful_dilation_localization_impossible
+    (A : ℝ → Set (TowerHilbert thirdThermalReference →L[ℂ]
+      TowerHilbert thirdThermalReference))
+    (hfaith : Function.Injective A) (rate : ℝ) (hrate : rate ≠ 0) :
+    ¬ (∀ s r, (modularConjugation thirdThermalReference s) '' A r =
+      A (Real.exp (-rate * s) * r)) :=
+  faithful_modular_dilation_localization_impossible thirdThermalReference
+    thirdModularPeriod third_modular_period_positive third_modular_flow_period
+    A hfaith rate hrate
+
+theorem third_faithful_central_boost_localization_impossible
+    (localize : Coordinate4 → Set (TowerHilbert thirdThermalReference →L[ℂ]
+      TowerHilbert thirdThermalReference))
+    (hfaith : Function.Injective (fun r : ℝ => localize (centralNullCurve r)))
+    (rate : ℝ) (hrate : rate ≠ 0) :
+    ¬ (∀ s x, (modularConjugation thirdThermalReference s) '' localize x =
+      localize (boostFlow rate s x)) :=
+  faithful_central_boost_localization_impossible thirdThermalReference
+    thirdModularPeriod third_modular_period_positive third_modular_flow_period
+    localize hfaith rate hrate
+
+/-- A constant family equal to the actual factor is covariant: faithfulness matters. -/
+theorem constant_factor_localization_covariant (P : SiteProfile) (s : ℝ) :
+    (modularConjugation P s) '' (theFactorObject P :
+      Set (TowerHilbert P →L[ℂ] TowerHilbert P)) = theFactorObject P := by
+  ext A
+  constructor
+  · rintro ⟨B, hB, rfl⟩
+    exact (modularConjugation_preserves_factor P s B).mp hB
+  · intro hA
+    change A ∈ theFactorObject P at hA
+    refine ⟨(modularConjugation P s).symm A, ?_,
+      (modularConjugation P s).apply_symm_apply A⟩
+    apply (modularConjugation_preserves_factor P s _).mpr
+    rw [StarAlgEquiv.apply_symm_apply]
+    exact hA
+
+theorem constant_factor_localization_not_injective (P : SiteProfile) :
+    ¬ Function.Injective (fun _ : ℝ => (theFactorObject P :
+      Set (TowerHilbert P →L[ℂ] TowerHilbert P))) := by
+  intro h
+  have he : (0 : ℝ) = 1 := h rfl
+  norm_num at he
+
+#print axioms faithful_covariance_period_return
+#print axioms modular_period_conjugation_eq
+#print axioms modular_period_image_eq
+#print axioms modular_period_geometric_return
+#print axioms modular_period_dilation_return
+#print axioms modular_period_dilation_obstruction
+#print axioms dilation_factor_ne_one
+#print axioms faithful_modular_dilation_localization_impossible
+#print axioms central_null_curve_injective
+#print axioms central_boost_no_return
+#print axioms central_boost_covariance_to_dilation
+#print axioms faithful_central_boost_localization_impossible
+#print axioms thirdModularPeriod
+#print axioms third_modular_period_positive
+#print axioms third_modular_flow_period
+#print axioms third_faithful_dilation_localization_impossible
+#print axioms third_faithful_central_boost_localization_impossible
+#print axioms constant_factor_localization_covariant
+#print axioms constant_factor_localization_not_injective
+
+end
+end ChatgptAudit.Geometry048
+''',
+    "TGLExt/BoundedGraphOperator.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_049 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import Mathlib.Analysis.InnerProductSpace.LinearPMap
+import Mathlib.Algebra.Module.Submodule.Equiv
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Continuous049
+
+open Set
+noncomputable section
+
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℂ E]
+
+/-- The inverse of A on its range is linear; continuity is not assumed. -/
+def boundedGraphParameter (A : E →L[ℂ] E) (hAi : Function.Injective A) :
+    A.range →ₗ[ℂ] E :=
+  (LinearEquiv.ofInjective A.toLinearMap hAi).symm.toLinearMap
+
+theorem bounded_graph_parameter_apply (A : E →L[ℂ] E) (hAi : Function.Injective A)
+    (x : A.range) :
+    A (boundedGraphParameter A hAi x) = (x : E) :=
+  LinearEquiv.ofInjective_symm_apply A.toLinearMap x
+
+/-- The domain is exactly range A, which need not be the full Hilbert space. -/
+def boundedGraphOperator (A B : E →L[ℂ] E) (hAi : Function.Injective A) :
+    E →ₗ.[ℂ] E where
+  domain := A.range
+  toFun := B.toLinearMap.comp (boundedGraphParameter A hAi)
+
+theorem bounded_graph_domain_iff (A B : E →L[ℂ] E) (hAi : Function.Injective A)
+    (x : E) :
+    x ∈ (boundedGraphOperator A B hAi).domain ↔ ∃ h, A h = x := Iff.rfl
+
+theorem bounded_graph_apply (A B : E →L[ℂ] E) (hAi : Function.Injective A)
+    (x : (boundedGraphOperator A B hAi).domain) :
+    boundedGraphOperator A B hAi x = B (boundedGraphParameter A hAi x) := rfl
+
+def boundedGraphLift (A B : E →L[ℂ] E) (hAi : Function.Injective A) (h : E) :
+    (boundedGraphOperator A B hAi).domain :=
+  ⟨A h, ⟨h, rfl⟩⟩
+
+theorem bounded_graph_lift_coe (A B : E →L[ℂ] E) (hAi : Function.Injective A) (h : E) :
+    (boundedGraphLift A B hAi h : E) = A h := rfl
+
+theorem bounded_graph_parameter_lift (A B : E →L[ℂ] E)
+    (hAi : Function.Injective A) (h : E) :
+    boundedGraphParameter A hAi (boundedGraphLift A B hAi h) = h := by
+  apply hAi
+  rw [bounded_graph_parameter_apply]
+  rfl
+
+theorem bounded_graph_lift_apply (A B : E →L[ℂ] E) (hAi : Function.Injective A) (h : E) :
+    boundedGraphOperator A B hAi (boundedGraphLift A B hAi h) = B h := by
+  rw [bounded_graph_apply, bounded_graph_parameter_lift]
+
+theorem bounded_graph_param_iff (A B : E →L[ℂ] E) (hAi : Function.Injective A)
+    (x y : E) :
+    (x,y) ∈ (boundedGraphOperator A B hAi).graph ↔ ∃ h, A h = x ∧ B h = y := by
+  rw [LinearPMap.mem_graph_iff]
+  constructor
+  · rintro ⟨z, hx, hy⟩
+    refine ⟨boundedGraphParameter A hAi z, ?_, hy⟩
+    exact (bounded_graph_parameter_apply A hAi z).trans hx
+  · rintro ⟨h, hx, hy⟩
+    refine ⟨boundedGraphLift A B hAi h, hx, ?_⟩
+    rw [bounded_graph_lift_apply]
+    exact hy
+
+/-- The reverse implication constructs its parameter as Ax+By. -/
+theorem bounded_graph_equation_iff (A B : E →L[ℂ] E) (hAi : Function.Injective A)
+    (hcomm : A * B = B * A) (hsum : A * A + B * B = 1) (x y : E) :
+    (x,y) ∈ (boundedGraphOperator A B hAi).graph ↔ B x = A y := by
+  have hc (z : E) : A (B z) = B (A z) :=
+    congrArg (fun F : E →L[ℂ] E => F z) hcomm
+  have hs (z : E) : A (A z) + B (B z) = z :=
+    congrArg (fun F : E →L[ℂ] E => F z) hsum
+  rw [bounded_graph_param_iff]
+  constructor
+  · rintro ⟨h, rfl, rfl⟩
+    exact (hc h).symm
+  · intro hxy
+    refine ⟨A x + B y, ?_, ?_⟩
+    · rw [map_add, hc, ← hxy, hs]
+    · rw [map_add, ← hc, hxy, hs]
+
+/-- Density uses A*=A and injectivity, not a bounded inverse of A. -/
+theorem bounded_graph_domain_dense [CompleteSpace E] (A B : E →L[ℂ] E) (hAi : Function.Injective A)
+    (hA : IsSelfAdjoint A) :
+    Dense ((boundedGraphOperator A B hAi).domain : Set E) := by
+  have hsa : A.adjoint = A := hA.star_eq
+  have hk : A.ker = ⊥ := LinearMap.ker_eq_bot.mpr hAi
+  have hc : A.range.topologicalClosure = ⊤ := by
+    rw [Submodule.topologicalClosure_eq_top_iff, A.orthogonal_range, hsa, hk]
+  intro x
+  change x ∈ (A.range.topologicalClosure : Set E)
+  rw [hc]
+  trivial
+
+/-- Closedness is a closed relation in the ordinary product topology. -/
+theorem bounded_graph_closed (A B : E →L[ℂ] E) (hAi : Function.Injective A)
+    (hcomm : A * B = B * A) (hsum : A * A + B * B = 1) :
+    (boundedGraphOperator A B hAi).IsClosed := by
+  have hg : ((boundedGraphOperator A B hAi).graph : Set (E × E)) =
+      {p | B p.1 = A p.2} := by
+    ext p
+    exact bounded_graph_equation_iff A B hAi hcomm hsum p.1 p.2
+  change IsClosed ((boundedGraphOperator A B hAi).graph : Set (E × E))
+  rw [hg]
+  exact isClosed_eq (B.continuous.comp continuous_fst) (A.continuous.comp continuous_snd)
+
+theorem bounded_graph_selfadjoint_inner [CompleteSpace E] (A : E →L[ℂ] E)
+    (hA : IsSelfAdjoint A) (x y : E) :
+    inner ℂ (A x) y = inner ℂ x (A y) := by
+  have hs : A.adjoint = A := hA.star_eq
+  rw [← ContinuousLinearMap.adjoint_inner_right, hs]
+
+theorem bounded_graph_formal_adjoint [CompleteSpace E] (A B : E →L[ℂ] E) (hAi : Function.Injective A)
+    (hA : IsSelfAdjoint A) (hB : IsSelfAdjoint B) (hcomm : A * B = B * A) :
+    (boundedGraphOperator A B hAi).IsFormalAdjoint (boundedGraphOperator A B hAi) := by
+  intro x y
+  obtain ⟨h, hx, hTx⟩ := (bounded_graph_param_iff A B hAi _ _).mp
+    ((boundedGraphOperator A B hAi).mem_graph x)
+  obtain ⟨k, hy, hTy⟩ := (bounded_graph_param_iff A B hAi _ _).mp
+    ((boundedGraphOperator A B hAi).mem_graph y)
+  have hc : A (B k) = B (A k) :=
+    congrArg (fun F : E →L[ℂ] E => F k) hcomm
+  calc
+    inner ℂ (boundedGraphOperator A B hAi x) (y : E) = inner ℂ (B h) (A k) := by
+      rw [hTx, hy]
+    _ = inner ℂ h (B (A k)) := bounded_graph_selfadjoint_inner B hB h (A k)
+    _ = inner ℂ h (A (B k)) := by rw [hc]
+    _ = inner ℂ (A h) (B k) := (bounded_graph_selfadjoint_inner A hA h (B k)).symm
+    _ = inner ℂ (x : E) (boundedGraphOperator A B hAi y) := by rw [hx, hTy]
+
+/-- Maximality is proved using the actual densely defined Mathlib adjoint. -/
+theorem bounded_graph_selfadjoint [CompleteSpace E] (A B : E →L[ℂ] E) (hAi : Function.Injective A)
+    (hA : IsSelfAdjoint A) (hB : IsSelfAdjoint B)
+    (hcomm : A * B = B * A) (hsum : A * A + B * B = 1) :
+    IsSelfAdjoint (boundedGraphOperator A B hAi) := by
+  have hd := bounded_graph_domain_dense A B hAi hA
+  have hf := bounded_graph_formal_adjoint A B hAi hA hB hcomm
+  have ha : LinearPMap.adjoint (boundedGraphOperator A B hAi) ≤
+      boundedGraphOperator A B hAi := by
+    apply LinearPMap.le_of_le_graph
+    rintro ⟨x,y⟩ hp
+    rw [LinearPMap.mem_graph_iff] at hp
+    obtain ⟨u, hu, hv⟩ := hp
+    apply (bounded_graph_equation_iff A B hAi hcomm hsum x y).mpr
+    apply ext_inner_right ℂ
+    intro h
+    have hh := LinearPMap.adjoint_isFormalAdjoint
+      (T := boundedGraphOperator A B hAi) hd u (boundedGraphLift A B hAi h)
+    have hh' : inner ℂ y (A h) = inner ℂ x (B h) := by
+      simpa only [bounded_graph_lift_coe, bounded_graph_lift_apply, hu, hv] using hh
+    calc
+      inner ℂ (B x) h = inner ℂ x (B h) := bounded_graph_selfadjoint_inner B hB x h
+      _ = inner ℂ y (A h) := hh'.symm
+      _ = inner ℂ (A y) h := (bounded_graph_selfadjoint_inner A hA y h).symm
+  rw [LinearPMap.isSelfAdjoint_def]
+  exact le_antisymm ha (hf.le_adjoint hd)
+
+/-- The bounded-pair inequality yields positivity on the constructed domain. -/
+theorem bounded_graph_positive (A B : E →L[ℂ] E) (hAi : Function.Injective A)
+    (hpos : ∀ h : E, 0 ≤ (inner ℂ (A h) (B h)).re)
+    (x : (boundedGraphOperator A B hAi).domain) :
+    0 ≤ (inner ℂ (x : E) (boundedGraphOperator A B hAi x)).re := by
+  obtain ⟨h, hx, hy⟩ := (bounded_graph_param_iff A B hAi _ _).mp
+    ((boundedGraphOperator A B hAi).mem_graph x)
+  rw [← hx, ← hy]
+  exact hpos h
+
+#print axioms boundedGraphParameter
+#print axioms bounded_graph_parameter_apply
+#print axioms boundedGraphOperator
+#print axioms bounded_graph_domain_iff
+#print axioms bounded_graph_apply
+#print axioms boundedGraphLift
+#print axioms bounded_graph_lift_coe
+#print axioms bounded_graph_parameter_lift
+#print axioms bounded_graph_lift_apply
+#print axioms bounded_graph_param_iff
+#print axioms bounded_graph_equation_iff
+#print axioms bounded_graph_domain_dense
+#print axioms bounded_graph_closed
+#print axioms bounded_graph_selfadjoint_inner
+#print axioms bounded_graph_formal_adjoint
+#print axioms bounded_graph_selfadjoint
+#print axioms bounded_graph_positive
+
+end
+end ChatgptAudit.Continuous049
+''',
+    "TGLExt/ClosedAntilinearStandardSubspace.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_049 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import Mathlib.Analysis.InnerProductSpace.StandardSubspace
+import Mathlib.LinearAlgebra.LinearPMap
+import Mathlib.Tactic
+
+set_option autoImplicit false
+set_option maxHeartbeats 800000
+
+open Complex ClosedSubmodule
+open scoped ComplexInnerProductSpace
+
+namespace ChatgptAudit.Continuous049
+noncomputable section
+variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]
+variable (D : Submodule ℂ H) (S : D →ₛₗ[starRingEnd ℂ] H)
+
+/-- Fixed vectors of a partially defined antilinear map, as a real submodule. -/
+def fixedRealSubmodule : Submodule ℝ H where
+  carrier := {x | ∃ hx : x ∈ D, S ⟨x, hx⟩ = x}
+  zero_mem' := ⟨D.zero_mem, map_zero S⟩
+  add_mem' := by
+    rintro x y ⟨hx, hSx⟩ ⟨hy, hSy⟩
+    refine ⟨D.add_mem hx hy, ?_⟩
+    change S (⟨x, hx⟩ + ⟨y, hy⟩) = x + y
+    rw [map_add, hSx, hSy]
+  smul_mem' := by
+    rintro c x ⟨hx, hSx⟩
+    refine ⟨D.smul_mem (c : ℂ) hx, ?_⟩
+    change S ((c : ℂ) • (⟨x, hx⟩ : D)) = c • x
+    rw [map_smulₛₗ, hSx]
+    simp
+
+theorem mem_fixedRealSubmodule_iff (x : H) :
+    x ∈ fixedRealSubmodule D S ↔ ∃ hx : x ∈ D, S ⟨x, hx⟩ = x := Iff.rfl
+
+theorem fixedRealSubmodule_closed
+    (hclosed : IsClosed (Set.range (fun x : D => ((x : H), S x)))) :
+    IsClosed (fixedRealSubmodule D S : Set H) := by
+  have heq : (fixedRealSubmodule D S : Set H) =
+      (fun x : H => (x, x)) ⁻¹' Set.range (fun x : D => ((x : H), S x)) := by
+    ext x
+    constructor
+    · rintro ⟨hx, hSx⟩
+      exact ⟨⟨x, hx⟩, Prod.ext rfl hSx⟩
+    · rintro ⟨y, hy⟩
+      have hxy : (y : H) = x := congrArg Prod.fst hy
+      subst x
+      exact ⟨y.property, congrArg Prod.snd hy⟩
+  rw [heq]
+  exact hclosed.preimage (continuous_id.prodMk continuous_id)
+
+/-- Closed real fixed space; only closedness of the partial graph is used here. -/
+def fixedClosedSubmodule
+    (hclosed : IsClosed (Set.range (fun x : D => ((x : H), S x)))) :
+    ClosedSubmodule ℝ H :=
+  ⟨fixedRealSubmodule D S, fixedRealSubmodule_closed D S hclosed⟩
+
+/-- Regard S as a semilinear endomorphism of its invariant domain. -/
+def domainConjugation (hmaps : ∀ x : D, S x ∈ D) : D →ₛₗ[starRingEnd ℂ] D where
+  toFun x := ⟨S x, hmaps x⟩
+  map_add' x y := Subtype.ext (map_add S x y)
+  map_smul' c x := Subtype.ext (map_smulₛₗ S c x)
+
+theorem domainConjugation_involutive
+    (hmaps : ∀ x : D, S x ∈ D)
+    (hinv : ∀ x : D, S ⟨S x, hmaps x⟩ = (x : H)) :
+    Function.Involutive (domainConjugation D S hmaps) := by
+  intro x
+  exact Subtype.ext (hinv x)
+
+theorem domain_fixed_decomposition
+    (hmaps : ∀ x : D, S x ∈ D)
+    (hinv : ∀ x : D, S ⟨S x, hmaps x⟩ = (x : H)) (x : D) :
+    ∃ h k : H, h ∈ fixedRealSubmodule D S ∧ k ∈ fixedRealSubmodule D S ∧
+      (x : H) = h + I • k ∧ S x = h - I • k := by
+  let R := domainConjugation D S hmaps
+  have hRR : R (R x) = x := domainConjugation_involutive D S hmaps hinv x
+  let h : D := (1 / 2 : ℂ) • (x + R x)
+  let k : D := (-I / 2 : ℂ) • (x - R x)
+  have hRh : R h = h := by
+    dsimp [h]
+    rw [map_smulₛₗ, map_add, hRR]
+    simp only [map_div₀, map_one, map_ofNat]
+    module
+  have hRk : R k = k := by
+    dsimp [k]
+    rw [map_smulₛₗ, map_sub, hRR]
+    have hc : (starRingEnd ℂ) (-I / 2) = I / 2 := by
+      simp only [map_div₀, map_neg, map_ofNat, Complex.conj_I, neg_neg]
+    rw [hc]
+    module
+  refine ⟨h, k, ⟨h.property, congrArg Subtype.val hRh⟩,
+    ⟨k.property, congrArg Subtype.val hRk⟩, ?_, ?_⟩
+  · change (x : H) = (1 / 2 : ℂ) • ((x : H) + S x) +
+      I • ((-I / 2 : ℂ) • ((x : H) - S x))
+    rw [smul_smul]
+    have hc : (I : ℂ) * (-I / 2) = 1 / 2 := by
+      ring_nf
+      norm_num
+    rw [hc]
+    module
+  · change S x = (1 / 2 : ℂ) • ((x : H) + S x) -
+      I • ((-I / 2 : ℂ) • ((x : H) - S x))
+    rw [smul_smul]
+    have hc : (I : ℂ) * (-I / 2) = 1 / 2 := by
+      ring_nf
+      norm_num
+    rw [hc]
+    module
+
+theorem mem_domain_iff_fixed_sum
+    (hmaps : ∀ x : D, S x ∈ D)
+    (hinv : ∀ x : D, S ⟨S x, hmaps x⟩ = (x : H)) (x : H) :
+    x ∈ D ↔ ∃ h k : H, h ∈ fixedRealSubmodule D S ∧
+      k ∈ fixedRealSubmodule D S ∧ x = h + I • k := by
+  constructor
+  · intro hx
+    obtain ⟨h, k, hh, hk, hsum, _⟩ := domain_fixed_decomposition D S hmaps hinv ⟨x, hx⟩
+    exact ⟨h, k, hh, hk, hsum⟩
+  · rintro ⟨h, k, ⟨hh, _⟩, ⟨hk, _⟩, rfl⟩
+    exact D.add_mem hh (D.smul_mem I hk)
+
+theorem fixed_sum_tomita (h k : H)
+    (hh : h ∈ fixedRealSubmodule D S) (hk : k ∈ fixedRealSubmodule D S) :
+    S ⟨h + I • k, D.add_mem hh.choose (D.smul_mem I hk.choose)⟩ = h - I • k := by
+  change S ((⟨h, hh.choose⟩ : D) + I • (⟨k, hk.choose⟩ : D)) = h - I • k
+  rw [map_add, map_smulₛₗ, hh.choose_spec, hk.choose_spec]
+  simp [sub_eq_add_neg]
+
+theorem fixed_subspace_separating
+    (hclosed : IsClosed (Set.range (fun x : D => ((x : H), S x)))) :
+    fixedClosedSubmodule D S hclosed ⊓ (fixedClosedSubmodule D S hclosed).mulI = ⊥ := by
+  apply le_antisymm
+  · intro x hx
+    obtain ⟨hxK, hxI⟩ := hx
+    change ∃ hx : x ∈ D, S ⟨x, hx⟩ = x at hxK
+    change x ∈ (fixedClosedSubmodule D S hclosed).mulI at hxI
+    rw [ClosedSubmodule.mem_mapEquiv_iff] at hxI
+    change ∃ hy : (-I) • x ∈ D, S ⟨(-I) • x, hy⟩ = (-I) • x at hxI
+    obtain ⟨hxD, hSx⟩ := hxK
+    obtain ⟨hyD, hSy⟩ := hxI
+    have he : (I : ℂ) • x = (-I : ℂ) • x := by
+      calc
+        (I : ℂ) • x = S ((-I : ℂ) • (⟨x, hxD⟩ : D)) := by
+          rw [map_smulₛₗ, hSx]
+          simp
+        _ = (-I : ℂ) • x := hSy
+    have hxzero : x = 0 := by
+      have hz : (2 * I : ℂ) • x = 0 := by
+        rw [mul_smul]
+        have he' : I • x = -(I • x) := by simpa only [neg_smul] using he
+        simpa only [two_smul] using (eq_neg_iff_add_eq_zero.mp he')
+      exact (smul_eq_zero.mp hz).resolve_left (by norm_num)
+    simpa only [ClosedSubmodule.mem_bot] using hxzero
+  · exact bot_le
+
+theorem fixed_subspace_cyclic
+    (hclosed : IsClosed (Set.range (fun x : D => ((x : H), S x))))
+    (hmaps : ∀ x : D, S x ∈ D)
+    (hinv : ∀ x : D, S ⟨S x, hmaps x⟩ = (x : H))
+    (hdense : Dense (D : Set H)) :
+    fixedClosedSubmodule D S hclosed ⊔ (fixedClosedSubmodule D S hclosed).mulI = ⊤ := by
+  let K := fixedClosedSubmodule D S hclosed
+  let L : ClosedSubmodule ℝ H := K ⊔ K.mulI
+  have hD : (D : Set H) ⊆ (L : Set H) := by
+    intro x hx
+    obtain ⟨h, k, hh, hk, rfl⟩ := (mem_domain_iff_fixed_sum D S hmaps hinv x).mp hx
+    have hh' : h ∈ K ⊔ K.mulI := (show K ≤ K ⊔ K.mulI from le_sup_left) hh
+    change h + I • k ∈ K ⊔ K.mulI
+    change k ∈ K at hk
+    have hkI : I • k ∈ K.mulI := by
+      rw [ClosedSubmodule.mem_mapEquiv_iff]
+      simpa [scalarSMulCLE_symm_apply, Units.smul_def, smul_smul] using hk
+    exact (K ⊔ K.mulI).toSubmodule.add_mem hh'
+      ((show K.mulI ≤ K ⊔ K.mulI from le_sup_right) hkI)
+  have htop : (Set.univ : Set H) ⊆ (L : Set H) := by
+    rw [← hdense.closure_eq]
+    exact closure_minimal hD L.isClosed
+  apply top_unique
+  intro x _
+  exact htop (Set.mem_univ x)
+
+/-- A closed, densely defined antilinear involution determines its real standard subspace. -/
+def closedAntilinearStandardSubspace
+    (hclosed : IsClosed (Set.range (fun x : D => ((x : H), S x))))
+    (hmaps : ∀ x : D, S x ∈ D)
+    (hinv : ∀ x : D, S ⟨S x, hmaps x⟩ = (x : H))
+    (hdense : Dense (D : Set H)) : StandardSubspace H where
+  toClosedSubmodule := fixedClosedSubmodule D S hclosed
+  IsSeparating := fixed_subspace_separating D S hclosed
+  IsCyclic := fixed_subspace_cyclic D S hclosed hmaps hinv hdense
+
+#print axioms fixedRealSubmodule
+#print axioms mem_fixedRealSubmodule_iff
+#print axioms fixedRealSubmodule_closed
+#print axioms fixedClosedSubmodule
+#print axioms domainConjugation
+#print axioms domainConjugation_involutive
+#print axioms domain_fixed_decomposition
+#print axioms mem_domain_iff_fixed_sum
+#print axioms fixed_sum_tomita
+#print axioms fixed_subspace_separating
+#print axioms fixed_subspace_cyclic
+#print axioms closedAntilinearStandardSubspace
+
+end
+end ChatgptAudit.Continuous049
+''',
+    "TGLExt/ContinuousModularMultipliers.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_049 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import Mathlib.MeasureTheory.Function.Holder
+import Mathlib.MeasureTheory.Function.L2Space
+import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+import Mathlib.MeasureTheory.Measure.Haar.Unique
+import Mathlib.Analysis.InnerProductSpace.Adjoint
+import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.Tactic
+
+/-! Concrete bounded multipliers on Lebesgue L².
+No identification with a spacetime action or a functional-calculus modular phase is assumed. -/
+
+set_option autoImplicit false
+
+noncomputable section
+open MeasureTheory Filter
+open scoped ENNReal ComplexConjugate
+
+namespace ChatgptAudit.Continuous049
+
+abbrev SpectralHilbert := Lp ℂ 2 (volume : Measure ℝ)
+
+/-- The positive bounded graph coordinate. -/
+def spectralWeightA (c x : ℝ) : ℝ :=
+  Real.exp (c * x / 2) / Real.sqrt (Real.exp (c * x) + Real.exp (-c * x))
+
+/-- The second bounded graph coordinate. -/
+def spectralWeightB (c x : ℝ) : ℝ :=
+  Real.exp (-c * x / 2) / Real.sqrt (Real.exp (c * x) + Real.exp (-c * x))
+
+theorem spectral_weight_den_pos (c x : ℝ) :
+    0 < Real.sqrt (Real.exp (c * x) + Real.exp (-c * x)) :=
+  Real.sqrt_pos.2 (add_pos (Real.exp_pos _) (Real.exp_pos _))
+
+theorem spectral_weightA_pos (c x : ℝ) : 0 < spectralWeightA c x :=
+  div_pos (Real.exp_pos _) (spectral_weight_den_pos c x)
+
+theorem spectral_weightB_pos (c x : ℝ) : 0 < spectralWeightB c x :=
+  div_pos (Real.exp_pos _) (spectral_weight_den_pos c x)
+
+theorem spectral_weight_square_sum (c x : ℝ) :
+    spectralWeightA c x ^ 2 + spectralWeightB c x ^ 2 = 1 := by
+  have ha : Real.exp (c * x / 2) ^ 2 = Real.exp (c * x) := by
+    rw [pow_two, ← Real.exp_add]
+    congr 1
+    ring
+  have hb : Real.exp (-c * x / 2) ^ 2 = Real.exp (-c * x) := by
+    rw [pow_two, ← Real.exp_add]
+    congr 1
+    ring
+  have hd := Real.sq_sqrt (le_of_lt (add_pos (Real.exp_pos (c * x))
+    (Real.exp_pos (-c * x))))
+  unfold spectralWeightA spectralWeightB
+  rw [div_pow, div_pow, ← add_div, ha, hb, hd]
+  exact div_self (ne_of_gt (add_pos (Real.exp_pos _) (Real.exp_pos _)))
+
+theorem spectral_weightA_le_one (c x : ℝ) : spectralWeightA c x ≤ 1 := by
+  have := spectral_weight_square_sum c x
+  have := spectral_weightA_pos c x
+  nlinarith [sq_nonneg (spectralWeightB c x)]
+
+theorem spectral_weightB_le_one (c x : ℝ) : spectralWeightB c x ≤ 1 := by
+  have := spectral_weight_square_sum c x
+  have := spectral_weightB_pos c x
+  nlinarith [sq_nonneg (spectralWeightA c x)]
+
+theorem spectral_weightA_norm_le_one (c x : ℝ) : ‖spectralWeightA c x‖ ≤ 1 := by
+  simpa only [Real.norm_eq_abs, abs_of_pos (spectral_weightA_pos c x)] using
+    spectral_weightA_le_one c x
+
+theorem spectral_weightB_norm_le_one (c x : ℝ) : ‖spectralWeightB c x‖ ≤ 1 := by
+  simpa only [Real.norm_eq_abs, abs_of_pos (spectral_weightB_pos c x)] using
+    spectral_weightB_le_one c x
+
+theorem spectral_weightA_continuous (c : ℝ) : Continuous (spectralWeightA c) := by
+  unfold spectralWeightA
+  apply Continuous.div
+  · fun_prop
+  · fun_prop
+  · intro x
+    exact ne_of_gt (spectral_weight_den_pos c x)
+
+theorem spectral_weightB_continuous (c : ℝ) : Continuous (spectralWeightB c) := by
+  unfold spectralWeightB
+  apply Continuous.div
+  · fun_prop
+  · fun_prop
+  · intro x
+    exact ne_of_gt (spectral_weight_den_pos c x)
+
+theorem spectral_weight_reflection (c x : ℝ) :
+    spectralWeightA c (-x) = spectralWeightB c x := by
+  simp only [spectralWeightA, spectralWeightB, mul_neg, neg_mul, neg_neg, add_comm]
+
+theorem spectral_weightB_reflection (c x : ℝ) :
+    spectralWeightB c (-x) = spectralWeightA c x := by
+  simpa only [neg_neg] using (spectral_weight_reflection c (-x)).symm
+
+theorem spectral_weight_ratio (c x : ℝ) :
+    spectralWeightB c x = Real.exp (-c * x) * spectralWeightA c x := by
+  unfold spectralWeightA spectralWeightB
+  rw [← mul_div_assoc, ← Real.exp_add]
+  congr 2
+  ring
+
+/-- A bounded measurable weight regarded as an L∞ vector. -/
+def boundedSpectralWeight (w : ℝ → ℝ) (hw : Continuous w) (hb : ∀ x, ‖w x‖ ≤ 1) :
+    Lp ℂ ∞ (volume : Measure ℝ) :=
+  (memLp_top_of_bound (Complex.continuous_ofReal.comp hw).aestronglyMeasurable 1
+    (Eventually.of_forall fun x => by simpa only [Function.comp_apply, Complex.norm_real] using hb x)).toLp _
+
+theorem bounded_spectral_weight_ae (w : ℝ → ℝ) (hw : Continuous w)
+    (hb : ∀ x, ‖w x‖ ≤ 1) :
+    boundedSpectralWeight w hw hb =ᵐ[volume] fun x => (w x : ℂ) :=
+  MemLp.coeFn_toLp _
+
+/-- Multiplication is constructed through the L∞ × L² Hölder map. -/
+def boundedSpectralMultiplier (w : ℝ → ℝ) (hw : Continuous w)
+    (hb : ∀ x, ‖w x‖ ≤ 1) : SpectralHilbert →L[ℂ] SpectralHilbert :=
+  (ContinuousLinearMap.lsmul ℂ ℂ).holderL volume ∞ 2 2
+    (boundedSpectralWeight w hw hb)
+
+theorem bounded_spectral_multiplier_ae (w : ℝ → ℝ) (hw : Continuous w)
+    (hb : ∀ x, ‖w x‖ ≤ 1) (f : SpectralHilbert) :
+    boundedSpectralMultiplier w hw hb f =ᵐ[volume] fun x => (w x : ℂ) * f x := by
+  have h := (ContinuousLinearMap.lsmul ℂ ℂ).coeFn_holder
+    (r := 2) (boundedSpectralWeight w hw hb) f
+  filter_upwards [h, bounded_spectral_weight_ae w hw hb] with x hx hwx
+  simpa only [boundedSpectralMultiplier, ContinuousLinearMap.holderL_apply_apply,
+    ContinuousLinearMap.lsmul_apply, smul_eq_mul, hwx] using hx
+
+theorem bounded_spectral_multiplier_norm (w : ℝ → ℝ) (hw : Continuous w)
+    (hb : ∀ x, ‖w x‖ ≤ 1) (f : SpectralHilbert) :
+    ‖boundedSpectralMultiplier w hw hb f‖ ≤ ‖f‖ := by
+  apply Lp.norm_le_norm_of_ae_le
+  filter_upwards [bounded_spectral_multiplier_ae w hw hb f] with x hx
+  rw [hx, norm_mul, Complex.norm_real]
+  exact (mul_le_mul_of_nonneg_right (hb x) (norm_nonneg (f x))).trans_eq (one_mul _)
+
+theorem bounded_spectral_multiplier_selfadjoint (w : ℝ → ℝ) (hw : Continuous w)
+    (hb : ∀ x, ‖w x‖ ≤ 1) : IsSelfAdjoint (boundedSpectralMultiplier w hw hb) := by
+  apply ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric.2
+  intro f g
+  simp only [L2.inner_def]
+  apply integral_congr_ae
+  filter_upwards [bounded_spectral_multiplier_ae w hw hb f,
+    bounded_spectral_multiplier_ae w hw hb g] with x hf hg
+  change inner ℂ ((boundedSpectralMultiplier w hw hb f) x) (g x) =
+    inner ℂ (f x) ((boundedSpectralMultiplier w hw hb g) x)
+  rw [hf, hg]
+  simp [RCLike.inner_apply]
+  ring
+
+def spectralA (c : ℝ) : SpectralHilbert →L[ℂ] SpectralHilbert :=
+  boundedSpectralMultiplier (spectralWeightA c) (spectral_weightA_continuous c)
+    (spectral_weightA_norm_le_one c)
+
+def spectralB (c : ℝ) : SpectralHilbert →L[ℂ] SpectralHilbert :=
+  boundedSpectralMultiplier (spectralWeightB c) (spectral_weightB_continuous c)
+    (spectral_weightB_norm_le_one c)
+
+theorem spectralA_ae (c : ℝ) (f : SpectralHilbert) :
+    spectralA c f =ᵐ[volume] fun x => (spectralWeightA c x : ℂ) * f x :=
+  bounded_spectral_multiplier_ae _ _ _ f
+
+theorem spectralB_ae (c : ℝ) (f : SpectralHilbert) :
+    spectralB c f =ᵐ[volume] fun x => (spectralWeightB c x : ℂ) * f x :=
+  bounded_spectral_multiplier_ae _ _ _ f
+
+theorem spectralA_norm_le (c : ℝ) (f : SpectralHilbert) : ‖spectralA c f‖ ≤ ‖f‖ :=
+  bounded_spectral_multiplier_norm _ _ _ f
+
+theorem spectralB_norm_le (c : ℝ) (f : SpectralHilbert) : ‖spectralB c f‖ ≤ ‖f‖ :=
+  bounded_spectral_multiplier_norm _ _ _ f
+
+theorem spectralA_selfadjoint (c : ℝ) : IsSelfAdjoint (spectralA c) :=
+  bounded_spectral_multiplier_selfadjoint _ _ _
+
+theorem spectralB_selfadjoint (c : ℝ) : IsSelfAdjoint (spectralB c) :=
+  bounded_spectral_multiplier_selfadjoint _ _ _
+
+theorem spectralAB_commute (c : ℝ) : spectralA c * spectralB c = spectralB c * spectralA c := by
+  apply ContinuousLinearMap.ext
+  intro f
+  apply Lp.ext
+  filter_upwards [spectralA_ae c (spectralB c f), spectralB_ae c (spectralA c f),
+    spectralA_ae c f, spectralB_ae c f] with x hab hba ha hb
+  change (spectralA c (spectralB c f)) x = (spectralB c (spectralA c f)) x
+  rw [hab, hba, ha, hb]
+  ring
+
+theorem spectralAB_square_sum (c : ℝ) :
+    spectralA c * spectralA c + spectralB c * spectralB c = 1 := by
+  apply ContinuousLinearMap.ext
+  intro f
+  apply Lp.ext
+  filter_upwards [spectralA_ae c (spectralA c f), spectralB_ae c (spectralB c f),
+    spectralA_ae c f, spectralB_ae c f,
+    Lp.coeFn_add (spectralA c (spectralA c f)) (spectralB c (spectralB c f))]
+      with x haa hbb ha hb hadd
+  change (spectralA c (spectralA c f) + spectralB c (spectralB c f)) x = f x
+  rw [hadd]
+  change (spectralA c (spectralA c f)) x + (spectralB c (spectralB c f)) x = f x
+  rw [haa, hbb, ha, hb]
+  have hs : (spectralWeightA c x : ℂ) ^ 2 + (spectralWeightB c x : ℂ) ^ 2 = 1 := by
+    exact_mod_cast spectral_weight_square_sum c x
+  calc
+    _ = ((spectralWeightA c x : ℂ) ^ 2 + (spectralWeightB c x : ℂ) ^ 2) * f x := by ring
+    _ = f x := by rw [hs, one_mul]
+
+theorem spectralA_injective (c : ℝ) : Function.Injective (spectralA c) := by
+  intro f g hfg
+  apply Lp.ext
+  filter_upwards [spectralA_ae c f, spectralA_ae c g] with x hf hg
+  have he := congrArg (fun u : SpectralHilbert => u x) hfg
+  rw [hf, hg] at he
+  have hn : (spectralWeightA c x : ℂ) ≠ 0 := by
+    exact_mod_cast ne_of_gt (spectral_weightA_pos c x)
+  exact mul_left_cancel₀ hn he
+
+theorem spectralAB_quadratic_nonneg (c : ℝ) (h : SpectralHilbert) :
+    0 ≤ (inner ℂ (spectralA c h) (spectralB c h)).re := by
+  rw [L2.inner_def]
+  change 0 ≤ RCLike.re (∫ x : ℝ, inner ℂ ((spectralA c h) x) ((spectralB c h) x))
+  rw [← integral_re (L2.integrable_inner (𝕜 := ℂ) (spectralA c h) (spectralB c h))]
+  apply integral_nonneg_of_ae
+  filter_upwards [spectralA_ae c h, spectralB_ae c h] with x ha hb
+  rw [ha, hb]
+  change 0 ≤ (inner ℂ ((spectralWeightA c x : ℂ) * h x)
+    ((spectralWeightB c x : ℂ) * h x)).re
+  have he : (inner ℂ ((spectralWeightA c x : ℂ) * h x)
+      ((spectralWeightB c x : ℂ) * h x)).re =
+      spectralWeightA c x * spectralWeightB c x * ‖h x‖ ^ 2 := by
+    simp [RCLike.inner_apply, Complex.mul_re, Complex.normSq_apply,
+      Complex.sq_norm, mul_add]
+    ring
+  rw [he]
+  exact mul_nonneg (mul_nonneg (le_of_lt (spectral_weightA_pos c x))
+    (le_of_lt (spectral_weightB_pos c x))) (sq_nonneg ‖h x‖)
+
+/-- Scalar conjugation as a continuous semilinear map. -/
+def spectralScalarConjugation : ℂ →SL[starRingEnd ℂ] ℂ where
+  toFun := star
+  map_add' := star_add
+  map_smul' a z := by simp [smul_eq_mul]
+  cont := continuous_star
+
+/-- Reflection on the real spectral variable preserves Lebesgue measure. -/
+def spectralReflection : SpectralHilbert →ₗᵢ[ℂ] SpectralHilbert :=
+  Lp.compMeasurePreservingₗᵢ ℂ (fun x : ℝ => -x) (Measure.measurePreserving_neg volume)
+
+/-- Conjugation followed by reflection, before bundling its inverse. -/
+def spectralJMap : SpectralHilbert →SL[starRingEnd ℂ] SpectralHilbert :=
+  (spectralScalarConjugation.compLpL 2 volume).comp spectralReflection.toContinuousLinearMap
+
+theorem spectralJMap_ae (f : SpectralHilbert) :
+    spectralJMap f =ᵐ[volume] fun x => star (f (-x)) := by
+  have hc := spectralScalarConjugation.coeFn_compLpL (spectralReflection f)
+  have hr := Lp.coeFn_compMeasurePreserving f (Measure.measurePreserving_neg volume)
+  filter_upwards [hc, hr] with x hx hrx
+  change (spectralScalarConjugation.compLpL 2 volume (spectralReflection f)) x =
+    star (f (-x))
+  rw [hx]
+  change star ((spectralReflection f) x) = _
+  change (spectralReflection f) x = f (-x) at hrx
+  rw [hrx]
+
+theorem spectralJMap_involutive : Function.Involutive spectralJMap := by
+  intro f
+  apply Lp.ext
+  have hr := (Measure.measurePreserving_neg (volume : Measure ℝ)).quasiMeasurePreserving.ae
+    (spectralJMap_ae f)
+  filter_upwards [spectralJMap_ae (spectralJMap f), hr] with x hx hy
+  rw [hx, hy, neg_neg, star_star]
+
+theorem spectralJMap_norm (f : SpectralHilbert) : ‖spectralJMap f‖ = ‖f‖ := by
+  have hbound : ∀ g : SpectralHilbert, ‖spectralJMap g‖ ≤ ‖g‖ := by
+    intro g
+    calc
+      ‖spectralJMap g‖ ≤ ‖spectralReflection g‖ := by
+        apply Lp.norm_le_norm_of_ae_le
+        filter_upwards [spectralScalarConjugation.coeFn_compLpL (spectralReflection g)]
+          with x hx
+        change ‖(spectralScalarConjugation.compLpL 2 volume (spectralReflection g)) x‖ ≤ _
+        rw [hx]
+        change ‖star ((spectralReflection g) x)‖ ≤ _
+        simp
+      _ = ‖g‖ := spectralReflection.norm_map g
+  exact le_antisymm (hbound f) (by simpa only [spectralJMap_involutive f] using hbound (spectralJMap f))
+
+/-- The concrete antiunitary Jf(ξ)=conj(f(-ξ)). -/
+def spectralJ : SpectralHilbert ≃ₛₗᵢ[starRingEnd ℂ] SpectralHilbert where
+  toLinearEquiv :=
+    { spectralJMap.toLinearMap with
+      invFun := spectralJMap
+      left_inv := spectralJMap_involutive
+      right_inv := spectralJMap_involutive }
+  norm_map' := spectralJMap_norm
+
+theorem spectralJ_ae (f : SpectralHilbert) :
+    spectralJ f =ᵐ[volume] fun x => star (f (-x)) :=
+  spectralJMap_ae f
+
+theorem spectralJ_involutive : Function.Involutive spectralJ :=
+  spectralJMap_involutive
+
+theorem spectralJA_eq_BJ (c : ℝ) (f : SpectralHilbert) :
+    spectralJ (spectralA c f) = spectralB c (spectralJ f) := by
+  apply Lp.ext
+  have hr := (Measure.measurePreserving_neg (volume : Measure ℝ)).quasiMeasurePreserving.ae
+    (spectralA_ae c f)
+  filter_upwards [spectralJ_ae (spectralA c f), spectralB_ae c (spectralJ f),
+    spectralJ_ae f, hr] with x hj hb hf ha
+  rw [hj, hb, hf, ha, spectral_weight_reflection]
+  simp
+
+theorem spectralJB_eq_AJ (c : ℝ) (f : SpectralHilbert) :
+    spectralJ (spectralB c f) = spectralA c (spectralJ f) := by
+  have h := spectralJA_eq_BJ c (spectralJ f)
+  apply spectralJ.injective
+  simpa only [spectralJ_involutive f, spectralJ_involutive (spectralB c f)] using h.symm
+
+#print axioms SpectralHilbert
+#print axioms spectralWeightA
+#print axioms spectralWeightB
+#print axioms spectral_weight_den_pos
+#print axioms spectral_weightA_pos
+#print axioms spectral_weightB_pos
+#print axioms spectral_weight_square_sum
+#print axioms spectral_weightA_le_one
+#print axioms spectral_weightB_le_one
+#print axioms spectral_weightA_norm_le_one
+#print axioms spectral_weightB_norm_le_one
+#print axioms spectral_weightA_continuous
+#print axioms spectral_weightB_continuous
+#print axioms spectral_weight_reflection
+#print axioms spectral_weightB_reflection
+#print axioms spectral_weight_ratio
+#print axioms boundedSpectralWeight
+#print axioms bounded_spectral_weight_ae
+#print axioms boundedSpectralMultiplier
+#print axioms bounded_spectral_multiplier_ae
+#print axioms bounded_spectral_multiplier_norm
+#print axioms bounded_spectral_multiplier_selfadjoint
+#print axioms spectralA
+#print axioms spectralB
+#print axioms spectralA_ae
+#print axioms spectralB_ae
+#print axioms spectralA_norm_le
+#print axioms spectralB_norm_le
+#print axioms spectralA_selfadjoint
+#print axioms spectralB_selfadjoint
+#print axioms spectralAB_commute
+#print axioms spectralAB_square_sum
+#print axioms spectralA_injective
+#print axioms spectralAB_quadratic_nonneg
+#print axioms spectralScalarConjugation
+#print axioms spectralReflection
+#print axioms spectralJMap
+#print axioms spectralJMap_ae
+#print axioms spectralJMap_involutive
+#print axioms spectralJMap_norm
+#print axioms spectralJ
+#print axioms spectralJ_ae
+#print axioms spectralJ_involutive
+#print axioms spectralJA_eq_BJ
+#print axioms spectralJB_eq_AJ
+
+end ChatgptAudit.Continuous049
+''',
+    "TGLExt/BoundedGraphStandardSubspace.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_049 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.BoundedGraphOperator
+import TGLExt.ClosedAntilinearStandardSubspace
+
+set_option autoImplicit false
+set_option maxHeartbeats 800000
+
+namespace ChatgptAudit.Continuous049
+open Complex ClosedSubmodule
+noncomputable section
+variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]
+
+/-- The anti-linear operator JT on the exact domain of the graph operator T. -/
+def boundedGraphTomita (A B : H →L[ℂ] H) (hAi : Function.Injective A)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) :
+    (boundedGraphOperator A B hAi).domain →ₛₗ[starRingEnd ℂ] H :=
+  J.toLinearEquiv.toLinearMap.comp (boundedGraphOperator A B hAi).toFun
+
+theorem bounded_graph_tomita_apply (A B : H →L[ℂ] H) (hAi : Function.Injective A)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (x : (boundedGraphOperator A B hAi).domain) :
+    boundedGraphTomita A B hAi J x = J (B (boundedGraphParameter A hAi x)) := rfl
+
+theorem bounded_graph_tomita_lift (A B : H →L[ℂ] H) (hAi : Function.Injective A)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (hJB : ∀ h, J (B h) = A (J h)) (h : H) :
+    boundedGraphTomita A B hAi J (boundedGraphLift A B hAi h) = A (J h) := by
+  rw [bounded_graph_tomita_apply, bounded_graph_parameter_lift, hJB]
+
+theorem bounded_graph_tomita_maps_domain (A B : H →L[ℂ] H) (hAi : Function.Injective A)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (hJB : ∀ h, J (B h) = A (J h))
+    (x : (boundedGraphOperator A B hAi).domain) :
+    boundedGraphTomita A B hAi J x ∈ (boundedGraphOperator A B hAi).domain := by
+  refine ⟨J (boundedGraphParameter A hAi x), ?_⟩
+  rw [bounded_graph_tomita_apply, hJB]
+  rfl
+
+theorem bounded_graph_tomita_involutive (A B : H →L[ℂ] H) (hAi : Function.Injective A)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (hJ : Function.Involutive J)
+    (hJB : ∀ h, J (B h) = A (J h)) (x : (boundedGraphOperator A B hAi).domain) :
+    boundedGraphTomita A B hAi J
+      ⟨boundedGraphTomita A B hAi J x, bounded_graph_tomita_maps_domain A B hAi J hJB x⟩
+        = (x : H) := by
+  have hy : (⟨boundedGraphTomita A B hAi J x,
+      bounded_graph_tomita_maps_domain A B hAi J hJB x⟩ :
+      (boundedGraphOperator A B hAi).domain) =
+      boundedGraphLift A B hAi (J (boundedGraphParameter A hAi x)) := by
+    apply Subtype.ext
+    exact hJB (boundedGraphParameter A hAi x)
+  rw [hy, bounded_graph_tomita_lift A B hAi J hJB, hJ, bounded_graph_parameter_apply]
+
+theorem bounded_graph_tomita_closed (A B : H →L[ℂ] H) (hAi : Function.Injective A)
+    (hcomm : A * B = B * A) (hsum : A * A + B * B = 1)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (hJ : Function.Involutive J) :
+    IsClosed (Set.range (fun x : (boundedGraphOperator A B hAi).domain =>
+      ((x : H), boundedGraphTomita A B hAi J x))) := by
+  have heq : Set.range (fun x : (boundedGraphOperator A B hAi).domain =>
+      ((x : H), boundedGraphTomita A B hAi J x)) =
+      (fun p : H × H => (p.1, J p.2)) ⁻¹'
+        ((boundedGraphOperator A B hAi).graph : Set (H × H)) := by
+    ext p
+    constructor
+    · rintro ⟨x, rfl⟩
+      change ((x : H), J (J (boundedGraphOperator A B hAi x))) ∈
+        (boundedGraphOperator A B hAi).graph
+      rw [hJ]
+      exact (boundedGraphOperator A B hAi).mem_graph x
+    · intro hp
+      change (p.1, J p.2) ∈ (boundedGraphOperator A B hAi).graph at hp
+      rw [LinearPMap.mem_graph_iff] at hp
+      obtain ⟨x, hx, hy⟩ := hp
+      refine ⟨x, Prod.ext hx ?_⟩
+      change J (boundedGraphOperator A B hAi x) = p.2
+      rw [hy, hJ]
+  rw [heq]
+  exact (bounded_graph_closed A B hAi hcomm hsum).preimage
+    (continuous_fst.prodMk (J.continuous.comp continuous_snd))
+
+theorem bounded_graph_J_tomita (A B : H →L[ℂ] H) (hAi : Function.Injective A)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (hJ : Function.Involutive J)
+    (x : (boundedGraphOperator A B hAi).domain) :
+    J (boundedGraphTomita A B hAi J x) = boundedGraphOperator A B hAi x :=
+  hJ (boundedGraphOperator A B hAi x)
+
+/-- A concrete standard subspace obtained from the bounded graph data. -/
+def boundedGraphStandardSubspace [CompleteSpace H]
+    (A B : H →L[ℂ] H) (hAi : Function.Injective A) (hA : IsSelfAdjoint A)
+    (hcomm : A * B = B * A) (hsum : A * A + B * B = 1)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (hJ : Function.Involutive J)
+    (hJB : ∀ h, J (B h) = A (J h)) : StandardSubspace H :=
+  closedAntilinearStandardSubspace
+    (boundedGraphOperator A B hAi).domain (boundedGraphTomita A B hAi J)
+    (bounded_graph_tomita_closed A B hAi hcomm hsum J hJ)
+    (bounded_graph_tomita_maps_domain A B hAi J hJB)
+    (bounded_graph_tomita_involutive A B hAi J hJ hJB)
+    (bounded_graph_domain_dense A B hAi hA)
+
+#print axioms boundedGraphTomita
+#print axioms bounded_graph_tomita_apply
+#print axioms bounded_graph_tomita_lift
+#print axioms bounded_graph_tomita_maps_domain
+#print axioms bounded_graph_tomita_involutive
+#print axioms bounded_graph_tomita_closed
+#print axioms bounded_graph_J_tomita
+#print axioms boundedGraphStandardSubspace
+
+end
+end ChatgptAudit.Continuous049
+''',
+    "TGLExt/ContinuousModularDomain.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_049 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.BoundedGraphOperator
+import TGLExt.ContinuousModularMultipliers
+import Mathlib.MeasureTheory.Measure.Typeclasses.NoAtoms
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Continuous049
+
+open MeasureTheory Filter Set
+open scoped ENNReal
+noncomputable section
+
+/-- The very same partial operator defined by the bounded graph coordinates. -/
+def continuousModularOperator (c : ℝ) : SpectralHilbert →ₗ.[ℂ] SpectralHilbert :=
+  boundedGraphOperator (spectralA c) (spectralB c) (spectralA_injective c)
+
+theorem continuous_modular_domain_dense (c : ℝ) :
+    Dense ((continuousModularOperator c).domain : Set SpectralHilbert) :=
+  bounded_graph_domain_dense (spectralA c) (spectralB c) (spectralA_injective c)
+    (spectralA_selfadjoint c)
+
+theorem continuous_modular_closed (c : ℝ) : (continuousModularOperator c).IsClosed :=
+  bounded_graph_closed (spectralA c) (spectralB c) (spectralA_injective c)
+    (spectralAB_commute c) (spectralAB_square_sum c)
+
+theorem continuous_modular_selfadjoint (c : ℝ) : IsSelfAdjoint (continuousModularOperator c) :=
+  bounded_graph_selfadjoint (spectralA c) (spectralB c) (spectralA_injective c)
+    (spectralA_selfadjoint c) (spectralB_selfadjoint c)
+    (spectralAB_commute c) (spectralAB_square_sum c)
+
+theorem continuous_modular_positive (c : ℝ) (f : (continuousModularOperator c).domain) :
+    0 ≤ (inner ℂ (f : SpectralHilbert) (continuousModularOperator c f)).re :=
+  bounded_graph_positive (spectralA c) (spectralB c) (spectralA_injective c)
+    (spectralAB_quadratic_nonneg c) f
+
+/-- Equality of the graph with multiplication by exp(-cξ), in L² equivalence classes. -/
+theorem continuous_modular_graph_iff (c : ℝ) (f g : SpectralHilbert) :
+    (f,g) ∈ (continuousModularOperator c).graph ↔
+      g =ᵐ[volume] fun x => (Real.exp (-c * x) : ℂ) * f x := by
+  change (f,g) ∈ (boundedGraphOperator (spectralA c) (spectralB c)
+    (spectralA_injective c)).graph ↔ _
+  rw [bounded_graph_equation_iff (spectralA c) (spectralB c) (spectralA_injective c)
+    (spectralAB_commute c) (spectralAB_square_sum c)]
+  constructor
+  · intro hfg
+    filter_upwards [spectralB_ae c f, spectralA_ae c g] with x hb ha
+    have he := congrArg (fun u : SpectralHilbert => u x) hfg
+    rw [hb, ha] at he
+    have hn : (spectralWeightA c x : ℂ) ≠ 0 := by
+      exact_mod_cast ne_of_gt (spectral_weightA_pos c x)
+    have hr : (spectralWeightB c x : ℂ) =
+        (Real.exp (-c * x) : ℂ) * (spectralWeightA c x : ℂ) := by
+      exact_mod_cast spectral_weight_ratio c x
+    apply mul_left_cancel₀ hn
+    calc
+      (spectralWeightA c x : ℂ) * g x = (spectralWeightB c x : ℂ) * f x := he.symm
+      _ = (spectralWeightA c x : ℂ) * ((Real.exp (-c * x) : ℂ) * f x) := by
+        rw [hr]
+        ring
+  · intro hfg
+    apply Lp.ext
+    filter_upwards [spectralB_ae c f, spectralA_ae c g, hfg] with x hb ha hg
+    rw [hb, ha, hg]
+    have hr : (spectralWeightB c x : ℂ) =
+        (Real.exp (-c * x) : ℂ) * (spectralWeightA c x : ℂ) := by
+      exact_mod_cast spectral_weight_ratio c x
+    rw [hr]
+    ring
+
+theorem continuous_modular_apply_ae (c : ℝ) (f : (continuousModularOperator c).domain) :
+    continuousModularOperator c f =ᵐ[volume]
+      fun x => (Real.exp (-c * x) : ℂ) * (f : SpectralHilbert) x :=
+  (continuous_modular_graph_iff c _ _).mp ((continuousModularOperator c).mem_graph f)
+
+/-- Domain membership is proved equivalent to the integrability of the weighted function. -/
+theorem continuous_modular_domain_iff (c : ℝ) (f : SpectralHilbert) :
+    f ∈ (continuousModularOperator c).domain ↔
+      MemLp (fun x => (Real.exp (-c * x) : ℂ) * f x) 2 (volume : Measure ℝ) := by
+  constructor
+  · intro hf
+    exact (Lp.memLp (continuousModularOperator c ⟨f,hf⟩)).ae_eq
+      (continuous_modular_apply_ae c ⟨f,hf⟩)
+  · intro hf
+    have hg : (f, hf.toLp _) ∈ (continuousModularOperator c).graph :=
+      (continuous_modular_graph_iff c f (hf.toLp _)).mpr hf.coeFn_toLp
+    exact LinearPMap.mem_domain_of_mem_graph hg
+
+theorem continuous_weight_fiber_subsingleton (c : ℝ) (hc : c ≠ 0) (z : ℂ) :
+    ({x : ℝ | (Real.exp (-c * x) : ℂ) = z} : Set ℝ).Subsingleton := by
+  intro x hx y hy
+  have he : Real.exp (-c * x) = Real.exp (-c * y) :=
+    Complex.ofReal_injective (hx.trans hy.symm)
+  have hm : -c * x = -c * y := Real.exp_injective he
+  exact mul_left_cancel₀ (neg_ne_zero.mpr hc) hm
+
+/-- Every eigenvalue fiber is null, including for arbitrary complex candidate eigenvalues. -/
+theorem continuous_weight_fiber_null (c : ℝ) (hc : c ≠ 0) (z : ℂ) :
+    (volume : Measure ℝ) {x : ℝ | (Real.exp (-c * x) : ℂ) = z} = 0 :=
+  (continuous_weight_fiber_subsingleton c hc z).measure_zero volume
+
+theorem continuous_modular_no_eigen (c : ℝ) (hc : c ≠ 0) (z : ℂ)
+    (f : (continuousModularOperator c).domain)
+    (hf : continuousModularOperator c f = z • (f : SpectralHilbert)) :
+    (f : SpectralHilbert) = 0 := by
+  apply Lp.eq_zero_iff_ae_eq_zero.mpr
+  have hn : ∀ᵐ x : ℝ ∂volume, (Real.exp (-c * x) : ℂ) ≠ z :=
+    (continuous_weight_fiber_subsingleton c hc z).countable.ae_notMem volume
+  have he := continuous_modular_apply_ae c f
+  rw [hf] at he
+  filter_upwards [he, Lp.coeFn_smul z (f : SpectralHilbert), hn] with x hx hs hne
+  change (f : SpectralHilbert) x = 0
+  have hm : ((Real.exp (-c * x) : ℂ) - z) * (f : SpectralHilbert) x = 0 := by
+    rw [hs] at hx
+    change z * (f : SpectralHilbert) x =
+      (Real.exp (-c * x) : ℂ) * (f : SpectralHilbert) x at hx
+    rw [sub_mul, ← hx, sub_self]
+  exact (mul_eq_zero.mp hm).resolve_left (sub_ne_zero.mpr hne)
+
+/-- At c=0 the construction is the identity, with its full domain. -/
+theorem continuous_modular_zero_graph (f : SpectralHilbert) :
+    (f,f) ∈ (continuousModularOperator 0).graph := by
+  apply (continuous_modular_graph_iff 0 f f).mpr
+  filter_upwards [] with x
+  simp
+
+theorem continuous_modular_zero_domain : (continuousModularOperator 0).domain = ⊤ := by
+  apply top_unique
+  intro f _
+  exact LinearPMap.mem_domain_of_mem_graph (continuous_modular_zero_graph f)
+
+theorem continuous_modular_zero_apply (f : (continuousModularOperator 0).domain) :
+    continuousModularOperator 0 f = (f : SpectralHilbert) := by
+  apply Lp.ext
+  have h := continuous_modular_apply_ae 0 f
+  filter_upwards [h] with x hx
+  simpa using hx
+
+#print axioms continuousModularOperator
+#print axioms continuous_modular_domain_dense
+#print axioms continuous_modular_closed
+#print axioms continuous_modular_selfadjoint
+#print axioms continuous_modular_positive
+#print axioms continuous_modular_graph_iff
+#print axioms continuous_modular_apply_ae
+#print axioms continuous_modular_domain_iff
+#print axioms continuous_weight_fiber_subsingleton
+#print axioms continuous_weight_fiber_null
+#print axioms continuous_modular_no_eigen
+#print axioms continuous_modular_zero_graph
+#print axioms continuous_modular_zero_domain
+#print axioms continuous_modular_zero_apply
+
+end
+end ChatgptAudit.Continuous049
+''',
+    "TGLExt/ContinuousModularStandardSubspace.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_049 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.BoundedGraphStandardSubspace
+import TGLExt.ContinuousModularDomain
+
+set_option autoImplicit false
+set_option maxHeartbeats 800000
+
+namespace ChatgptAudit.Continuous049
+open Complex ClosedSubmodule MeasureTheory Filter
+noncomputable section
+
+/-- The concrete densely defined anti-linear Tomita map. -/
+def continuousModularTomita (c : ℝ) :
+    (continuousModularOperator c).domain →ₛₗ[starRingEnd ℂ] SpectralHilbert :=
+  boundedGraphTomita (spectralA c) (spectralB c) (spectralA_injective c) spectralJ
+
+/-- A standard real subspace of Lebesgue L² built from explicit multipliers. -/
+def continuousStandardSubspace (c : ℝ) : StandardSubspace SpectralHilbert :=
+  boundedGraphStandardSubspace (spectralA c) (spectralB c) (spectralA_injective c)
+    (spectralA_selfadjoint c) (spectralAB_commute c) (spectralAB_square_sum c)
+    spectralJ spectralJ_involutive (spectralJB_eq_AJ c)
+
+theorem continuous_tomita_domain_dense (c : ℝ) :
+    Dense ((continuousModularOperator c).domain : Set SpectralHilbert) :=
+  bounded_graph_domain_dense (spectralA c) (spectralB c) (spectralA_injective c)
+    (spectralA_selfadjoint c)
+
+theorem continuous_tomita_closed (c : ℝ) :
+    IsClosed (Set.range (fun f : (continuousModularOperator c).domain =>
+      ((f : SpectralHilbert), continuousModularTomita c f))) :=
+  bounded_graph_tomita_closed (spectralA c) (spectralB c) (spectralA_injective c)
+    (spectralAB_commute c) (spectralAB_square_sum c) spectralJ spectralJ_involutive
+
+theorem continuous_tomita_maps_domain (c : ℝ) (f : (continuousModularOperator c).domain) :
+    continuousModularTomita c f ∈ (continuousModularOperator c).domain :=
+  bounded_graph_tomita_maps_domain (spectralA c) (spectralB c) (spectralA_injective c)
+    spectralJ (spectralJB_eq_AJ c) f
+
+theorem continuous_tomita_involutive (c : ℝ) (f : (continuousModularOperator c).domain) :
+    continuousModularTomita c
+      ⟨continuousModularTomita c f, continuous_tomita_maps_domain c f⟩ = (f : SpectralHilbert) :=
+  bounded_graph_tomita_involutive (spectralA c) (spectralB c) (spectralA_injective c)
+    spectralJ spectralJ_involutive (spectralJB_eq_AJ c) f
+
+theorem continuous_J_tomita_eq_modular (c : ℝ) (f : (continuousModularOperator c).domain) :
+    spectralJ (continuousModularTomita c f) = continuousModularOperator c f :=
+  bounded_graph_J_tomita (spectralA c) (spectralB c) (spectralA_injective c)
+    spectralJ spectralJ_involutive f
+
+theorem continuous_standard_fixed_iff (c : ℝ) (f : SpectralHilbert) :
+    f ∈ (continuousStandardSubspace c).toClosedSubmodule ↔
+      ∃ hf : f ∈ (continuousModularOperator c).domain,
+        continuousModularTomita c ⟨f, hf⟩ = f := Iff.rfl
+
+theorem continuous_domain_iff_standard_sum (c : ℝ) (f : SpectralHilbert) :
+    f ∈ (continuousModularOperator c).domain ↔
+      ∃ h k : SpectralHilbert,
+        h ∈ (continuousStandardSubspace c).toClosedSubmodule ∧
+        k ∈ (continuousStandardSubspace c).toClosedSubmodule ∧ f = h + I • k :=
+  mem_domain_iff_fixed_sum (continuousModularOperator c).domain (continuousModularTomita c)
+    (continuous_tomita_maps_domain c) (continuous_tomita_involutive c) f
+
+theorem continuous_tomita_decomposition (c : ℝ) (f : (continuousModularOperator c).domain) :
+    ∃ h k : SpectralHilbert,
+      h ∈ (continuousStandardSubspace c).toClosedSubmodule ∧
+      k ∈ (continuousStandardSubspace c).toClosedSubmodule ∧
+      (f : SpectralHilbert) = h + I • k ∧ continuousModularTomita c f = h - I • k :=
+  domain_fixed_decomposition (continuousModularOperator c).domain (continuousModularTomita c)
+    (continuous_tomita_maps_domain c) (continuous_tomita_involutive c) f
+
+/-- The Tomita map is explicit almost everywhere on its weighted L² domain. -/
+theorem continuous_tomita_apply_ae (c : ℝ) (f : (continuousModularOperator c).domain) :
+    continuousModularTomita c f =ᵐ[volume]
+      fun x => (Real.exp (c * x) : ℂ) * star ((f : SpectralHilbert) (-x)) := by
+  have hr := (Measure.measurePreserving_neg (volume : Measure ℝ)).quasiMeasurePreserving.ae
+    (continuous_modular_apply_ae c f)
+  filter_upwards [spectralJ_ae (continuousModularOperator c f), hr] with x hx hy
+  change (spectralJ (continuousModularOperator c f)) x =
+    (Real.exp (c * x) : ℂ) * star ((f : SpectralHilbert) (-x))
+  rw [hx]
+  simpa only [star_mul, Complex.star_def, Complex.conj_ofReal, neg_mul_neg, mul_comm]
+    using congrArg star hy
+
+theorem continuous_tomita_zero_apply (f : (continuousModularOperator 0).domain) :
+    continuousModularTomita 0 f = spectralJ (f : SpectralHilbert) :=
+  congrArg spectralJ (continuous_modular_zero_apply f)
+
+#print axioms continuousModularTomita
+#print axioms continuousStandardSubspace
+#print axioms continuous_tomita_domain_dense
+#print axioms continuous_tomita_closed
+#print axioms continuous_tomita_maps_domain
+#print axioms continuous_tomita_involutive
+#print axioms continuous_J_tomita_eq_modular
+#print axioms continuous_standard_fixed_iff
+#print axioms continuous_domain_iff_standard_sum
+#print axioms continuous_tomita_decomposition
+#print axioms continuous_tomita_apply_ae
+#print axioms continuous_tomita_zero_apply
+
+end
+end ChatgptAudit.Continuous049
+''',
+    "TGLExt/GenericAntilinearAdjoint.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_050 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import Mathlib.Analysis.InnerProductSpace.LinearPMap
+import Mathlib.Analysis.InnerProductSpace.LinearMap
+import Mathlib.Tactic
+
+set_option autoImplicit false
+
+namespace ChatgptAudit.Continuous050
+open Complex
+noncomputable section
+
+variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]
+
+/-- The inner product identity follows from semilinearity and the norm, by polarization. -/
+theorem antiunitary_inner_conj (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (x y : H) :
+    inner ℂ (J x) (J y) = star (inner ℂ x y) := by
+  have hp : ‖J x + J y‖ = ‖x + y‖ := by
+    rw [← map_add, J.norm_map]
+  have hm : ‖J x - J y‖ = ‖x - y‖ := by
+    rw [← map_sub, J.norm_map]
+  have hip : ‖J x + I • J y‖ = ‖x - I • y‖ := by
+    conv_rhs => rw [← J.norm_map (x - I • y)]
+    rw [map_sub, map_smulₛₗ]
+    simp
+  have him : ‖J x - I • J y‖ = ‖x + I • y‖ := by
+    conv_rhs => rw [← J.norm_map (x + I • y)]
+    rw [map_add, map_smulₛₗ]
+    simp [sub_eq_add_neg]
+  rw [inner_eq_sum_norm_sq_div_four, inner_eq_sum_norm_sq_div_four]
+  simp only [RCLike.I_to_complex, hp, hm, hip, him]
+  simp
+  ring
+
+theorem antiunitary_pairing_flip (J : H ≃ₛₗᵢ[starRingEnd ℂ] H)
+    (hJ : Function.Involutive J) (x y : H) :
+    inner ℂ (J x) y = inner ℂ (J y) x := by
+  have h := antiunitary_inner_conj J x (J y)
+  rw [hJ y] at h
+  change inner ℂ (J x) y = (starRingEnd ℂ) (inner ℂ x (J y)) at h
+  simpa only [inner_conj_symm] using h
+
+/-- The antilinear partial map S=JT has exactly the domain of T. -/
+def genericTomita (T : H →ₗ.[ℂ] H) (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) :
+    H →ₛₗ.[starRingEnd ℂ] H where
+  domain := T.domain
+  toFun := J.toLinearEquiv.toLinearMap.comp T.toFun
+
+theorem generic_tomita_apply (T : H →ₗ.[ℂ] H)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (x : T.domain) :
+    genericTomita T J x = J (T x) := rfl
+
+/-- The candidate domain is later proved to equal the full adjoint domain. -/
+def genericAdjointDomain (T : H →ₗ.[ℂ] H)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) : Submodule ℂ H :=
+  T.domain.comap J.toLinearEquiv.toLinearMap
+
+def genericAdjointInput (T : H →ₗ.[ℂ] H)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) :
+    genericAdjointDomain T J →ₛₗ[starRingEnd ℂ] T.domain :=
+  ((J.toLinearEquiv.toLinearMap.domRestrict (genericAdjointDomain T J)).codRestrict
+    T.domain (fun y => y.property))
+
+theorem generic_adjoint_input_coe (T : H →ₗ.[ℂ] H)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (y : genericAdjointDomain T J) :
+    (genericAdjointInput T J y : H) = J (y : H) := rfl
+
+/-- This partial map is identified as the maximal antilinear adjoint when T is self-adjoint. -/
+def genericTomitaAdjoint (T : H →ₗ.[ℂ] H)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) : H →ₛₗ.[starRingEnd ℂ] H where
+  domain := genericAdjointDomain T J
+  toFun := T.toFun.comp (genericAdjointInput T J)
+
+theorem generic_tomita_adjoint_apply (T : H →ₗ.[ℂ] H)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (y : genericAdjointDomain T J) :
+    genericTomitaAdjoint T J y = T (genericAdjointInput T J y) := rfl
+
+theorem generic_pairing_with_J (T : H →ₗ.[ℂ] H)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (hJ : Function.Involutive J)
+    (x : T.domain) (y : H) :
+    inner ℂ (genericTomita T J x) y = inner ℂ (J y) (T x) :=
+  antiunitary_pairing_flip J hJ (T x) y
+
+/-- Adjoint convention: the representative lies in the first inner-product argument. -/
+theorem generic_adjoint_pairing [CompleteSpace H] (T : H →ₗ.[ℂ] H)
+    (hT : IsSelfAdjoint T) (J : H ≃ₛₗᵢ[starRingEnd ℂ] H)
+    (hJ : Function.Involutive J) (x : T.domain) (y : genericAdjointDomain T J) :
+    inner ℂ (genericTomita T J x) (y : H) =
+      inner ℂ (genericTomitaAdjoint T J y) (x : H) := by
+  have hs : T.IsFormalAdjoint T := by
+    have h := LinearPMap.adjoint_isFormalAdjoint (T := T) hT.dense_domain
+    simpa only [LinearPMap.isSelfAdjoint_def.mp hT] using h
+  rw [generic_pairing_with_J T J hJ]
+  exact (hs (genericAdjointInput T J y) x).symm
+
+/-- Maximality uses the actual Mathlib adjoint, not only the formal pairing identity. -/
+theorem generic_adjoint_maximal [CompleteSpace H] (T : H →ₗ.[ℂ] H)
+    (hT : IsSelfAdjoint T) (J : H ≃ₛₗᵢ[starRingEnd ℂ] H)
+    (hJ : Function.Involutive J) {y z : H}
+    (h : ∀ x : T.domain,
+      inner ℂ (genericTomita T J x) y = inner ℂ z (x : H)) :
+    ∃ hy : y ∈ genericAdjointDomain T J, genericTomitaAdjoint T J ⟨y, hy⟩ = z := by
+  have hadj : J y ∈ (LinearPMap.adjoint T).domain := by
+    apply LinearPMap.mem_adjoint_domain_of_exists
+    refine ⟨z, fun x => ?_⟩
+    rw [← h x, generic_pairing_with_J T J hJ]
+  have hy : y ∈ genericAdjointDomain T J := by
+    change J y ∈ T.domain
+    rwa [LinearPMap.isSelfAdjoint_def.mp hT] at hadj
+  refine ⟨hy, ?_⟩
+  apply hT.dense_domain.eq_of_inner_left ℂ
+  intro x hx
+  exact (generic_adjoint_pairing T hT J hJ ⟨x, hx⟩ ⟨y, hy⟩).symm.trans (h ⟨x, hx⟩)
+
+theorem generic_adjoint_domain_iff [CompleteSpace H] (T : H →ₗ.[ℂ] H)
+    (hT : IsSelfAdjoint T) (J : H ≃ₛₗᵢ[starRingEnd ℂ] H)
+    (hJ : Function.Involutive J) (y : H) :
+    y ∈ genericAdjointDomain T J ↔ ∃ z : H, ∀ x : T.domain,
+      inner ℂ (genericTomita T J x) y = inner ℂ z (x : H) := by
+  constructor
+  · intro hy
+    exact ⟨genericTomitaAdjoint T J ⟨y, hy⟩,
+      fun x => generic_adjoint_pairing T hT J hJ x ⟨y, hy⟩⟩
+  · rintro ⟨z, hz⟩
+    exact (generic_adjoint_maximal T hT J hJ hz).choose
+
+/-- The composition domain is paid explicitly; no invariance of all of D(T) is assumed. -/
+theorem generic_composition_domain (T : H →ₗ.[ℂ] H)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (hJ : Function.Involutive J) (x : T.domain) :
+    genericTomita T J x ∈ genericAdjointDomain T J ↔ T x ∈ T.domain := by
+  change J (J (T x)) ∈ T.domain ↔ T x ∈ T.domain
+  rw [hJ]
+
+theorem generic_adjoint_comp (T : H →ₗ.[ℂ] H)
+    (J : H ≃ₛₗᵢ[starRingEnd ℂ] H) (hJ : Function.Involutive J)
+    (x : T.domain) (hx : T x ∈ T.domain) :
+    genericTomitaAdjoint T J
+      ⟨genericTomita T J x, (generic_composition_domain T J hJ x).mpr hx⟩ =
+      T ⟨T x, hx⟩ := by
+  change T (genericAdjointInput T J
+    ⟨genericTomita T J x, (generic_composition_domain T J hJ x).mpr hx⟩) = T ⟨T x, hx⟩
+  congr 1
+  apply Subtype.ext
+  exact hJ (T x)
+
+#print axioms antiunitary_inner_conj
+#print axioms antiunitary_pairing_flip
+#print axioms genericTomita
+#print axioms generic_tomita_apply
+#print axioms genericAdjointDomain
+#print axioms genericAdjointInput
+#print axioms generic_adjoint_input_coe
+#print axioms genericTomitaAdjoint
+#print axioms generic_tomita_adjoint_apply
+#print axioms generic_pairing_with_J
+#print axioms generic_adjoint_pairing
+#print axioms generic_adjoint_maximal
+#print axioms generic_adjoint_domain_iff
+#print axioms generic_composition_domain
+#print axioms generic_adjoint_comp
+
+end
+end ChatgptAudit.Continuous050
+''',
+    "TGLExt/ContinuousModularSquare.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_050 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.ContinuousModularDomain
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Continuous050
+
+open MeasureTheory Filter Set
+open ChatgptAudit.Continuous049
+open scoped ENNReal
+noncomputable section
+
+/-- The actual domain of two successive applications, with no invariance assumption. -/
+def partialSquareDomain {H : Type*} [AddCommGroup H] [Module ℂ H]
+    (T : H →ₗ.[ℂ] H) : Submodule ℂ H where
+  carrier := {f | ∃ hf : f ∈ T.domain,
+    T ⟨f,hf⟩ ∈ T.domain}
+  zero_mem' := by
+    refine ⟨T.domain.zero_mem, ?_⟩
+    change T 0 ∈ T.domain
+    rw [LinearPMap.map_zero]
+    exact T.domain.zero_mem
+  add_mem' := by
+    rintro f g ⟨hf,hTf⟩ ⟨hg,hTg⟩
+    refine ⟨T.domain.add_mem hf hg, ?_⟩
+    change T
+      ((⟨f,hf⟩ : T.domain) + ⟨g,hg⟩) ∈ _
+    rw [LinearPMap.map_add]
+    exact T.domain.add_mem hTf hTg
+  smul_mem' := by
+    rintro z f ⟨hf,hTf⟩
+    refine ⟨T.domain.smul_mem z hf, ?_⟩
+    change T
+      (z • (⟨f,hf⟩ : T.domain)) ∈ _
+    rw [LinearPMap.map_smul]
+    exact T.domain.smul_mem z hTf
+
+/-- Specialization of the genuine composition domain to the continuous model. -/
+def continuousModularSquareDomain (c : ℝ) : Submodule ℂ SpectralHilbert :=
+  partialSquareDomain (continuousModularOperator c)
+
+/-- Inclusion of the composition domain into the domain of its first application. -/
+def continuousModularSquareInput (c : ℝ) :
+    continuousModularSquareDomain c →ₗ[ℂ] (continuousModularOperator c).domain :=
+  Submodule.inclusion (fun _ hf => hf.choose)
+
+/-- T_c composed with itself on the domain on which both applications exist. -/
+def continuousModularSquare (c : ℝ) : SpectralHilbert →ₗ.[ℂ] SpectralHilbert where
+  domain := continuousModularSquareDomain c
+  toFun := (continuousModularOperator c).toFun.comp
+    (((continuousModularOperator c).toFun.comp (continuousModularSquareInput c)).codRestrict
+      (continuousModularOperator c).domain (fun f => f.property.choose_spec))
+
+theorem continuous_modular_square_domain_iff (c : ℝ) (f : SpectralHilbert) :
+    f ∈ (continuousModularSquare c).domain ↔
+      ∃ hf : f ∈ (continuousModularOperator c).domain,
+        continuousModularOperator c ⟨f,hf⟩ ∈ (continuousModularOperator c).domain :=
+  Iff.rfl
+
+theorem continuous_modular_square_apply (c : ℝ)
+    (f : (continuousModularSquare c).domain) :
+    continuousModularSquare c f =
+      continuousModularOperator c
+        ⟨continuousModularOperator c ⟨(f : SpectralHilbert), f.property.choose⟩,
+          f.property.choose_spec⟩ := rfl
+
+theorem continuous_modular_square_graph_iff (c : ℝ) (f g : SpectralHilbert) :
+    (f,g) ∈ (continuousModularSquare c).graph ↔
+      ∃ h : SpectralHilbert, (f,h) ∈ (continuousModularOperator c).graph ∧
+        (h,g) ∈ (continuousModularOperator c).graph := by
+  rw [LinearPMap.mem_graph_iff]
+  constructor
+  · rintro ⟨x,hx,hy⟩
+    let u : (continuousModularOperator c).domain := ⟨x, x.property.choose⟩
+    let v : (continuousModularOperator c).domain :=
+      ⟨continuousModularOperator c u, x.property.choose_spec⟩
+    refine ⟨continuousModularOperator c u, ?_, ?_⟩
+    · rw [LinearPMap.mem_graph_iff]
+      exact ⟨u,hx,rfl⟩
+    · rw [LinearPMap.mem_graph_iff]
+      exact ⟨v,rfl,hy⟩
+  · rintro ⟨h,hfh,hhg⟩
+    rw [LinearPMap.mem_graph_iff] at hfh hhg
+    obtain ⟨u,hu,hTu⟩ := hfh
+    obtain ⟨v,hv,hTv⟩ := hhg
+    dsimp only [Prod.fst, Prod.snd] at hu hTu hv hTv
+    have hTuD : continuousModularOperator c u ∈ (continuousModularOperator c).domain := by
+      rw [hTu, ← hv]
+      exact v.property
+    let x : (continuousModularSquare c).domain :=
+      ⟨u, ⟨u.property,hTuD⟩⟩
+    refine ⟨x,hu,?_⟩
+    change continuousModularOperator c ⟨continuousModularOperator c u,hTuD⟩ = g
+    have he : (⟨continuousModularOperator c u,hTuD⟩ :
+        (continuousModularOperator c).domain) = v :=
+      Subtype.ext (hTu.trans hv.symm)
+    rw [he]
+    exact hTv
+
+theorem continuous_weight_double (c x : ℝ) :
+    Real.exp (-(2*c) * x) = Real.exp (-c * x) ^ 2 := by
+  rw [pow_two, ← Real.exp_add]
+  congr 1
+  ring
+
+theorem continuous_weight_double_complex (c x : ℝ) :
+    (Real.exp (-(2*c) * x) : ℂ) =
+      (Real.exp (-c * x) : ℂ) * (Real.exp (-c * x) : ℂ) := by
+  exact_mod_cast (continuous_weight_double c x).trans (pow_two _)
+
+/-- A pointwise bound that proves the missing inclusion of domains. -/
+theorem continuous_weight_half_norm_le (c x : ℝ) (z : ℂ) :
+    ‖(Real.exp (-c*x) : ℂ) * z‖ ≤
+      ‖z‖ + ‖(Real.exp (-(2*c)*x) : ℂ) * z‖ := by
+  simp only [norm_mul, Complex.norm_real, Real.norm_eq_abs, Real.abs_exp]
+  rw [continuous_weight_double]
+  have h : Real.exp (-c*x) ≤ 1 + Real.exp (-c*x)^2 := by
+    nlinarith [sq_nonneg (Real.exp (-c*x) - 1/2)]
+  calc
+    _ ≤ (1 + Real.exp (-c*x)^2) * ‖z‖ :=
+      mul_le_mul_of_nonneg_right h (norm_nonneg z)
+    _ = ‖z‖ + Real.exp (-c*x)^2 * ‖z‖ := by ring
+
+/-- The input is arbitrary in H; membership in D_c is a conclusion. -/
+theorem continuous_modular_double_domain_le (c : ℝ) :
+    (continuousModularOperator (2*c)).domain ≤ (continuousModularOperator c).domain := by
+  intro f hf
+  apply (continuous_modular_domain_iff c f).mpr
+  have h2 := (continuous_modular_domain_iff (2*c) f).mp hf
+  have hdom := (Lp.memLp f).norm.add h2.norm
+  have hw : AEStronglyMeasurable
+      (fun x : ℝ => (Real.exp (-c*x) : ℂ) * f x) (volume : Measure ℝ) := by
+    have hc : Continuous (fun x : ℝ => (Real.exp (-c*x) : ℂ)) := by fun_prop
+    exact hc.aestronglyMeasurable.mul (Lp.aestronglyMeasurable f)
+  apply hdom.mono' hw
+  exact Eventually.of_forall (fun x => continuous_weight_half_norm_le c x (f x))
+
+/-- Exact equality of partial operators, including their domains. -/
+theorem continuous_modular_square_eq (c : ℝ) :
+    continuousModularSquare c = continuousModularOperator (2*c) := by
+  apply LinearPMap.eq_of_eq_graph
+  ext p
+  rcases p with ⟨f,g⟩
+  rw [continuous_modular_square_graph_iff]
+  constructor
+  · rintro ⟨h,hfh,hhg⟩
+    apply (continuous_modular_graph_iff (2*c) f g).mpr
+    have h1 := (continuous_modular_graph_iff c f h).mp hfh
+    have h2 := (continuous_modular_graph_iff c h g).mp hhg
+    filter_upwards [h1,h2] with x hx hy
+    rw [hy,hx,continuous_weight_double_complex]
+    ring
+  · intro hfg
+    have hf2 := LinearPMap.mem_domain_of_mem_graph hfg
+    have hf := continuous_modular_double_domain_le c hf2
+    let h := continuousModularOperator c ⟨f,hf⟩
+    refine ⟨h,(continuousModularOperator c).mem_graph ⟨f,hf⟩,?_⟩
+    apply (continuous_modular_graph_iff c h g).mpr
+    have h1 := continuous_modular_apply_ae c ⟨f,hf⟩
+    have h2 := (continuous_modular_graph_iff (2*c) f g).mp hfg
+    filter_upwards [h1,h2] with x hx hy
+    change g x = (Real.exp (-c*x) : ℂ) * (continuousModularOperator c ⟨f,hf⟩) x
+    rw [hy,hx,continuous_weight_double_complex]
+    ring
+
+theorem continuous_modular_square_domain_eq (c : ℝ) :
+    (continuousModularSquare c).domain = (continuousModularOperator (2*c)).domain :=
+  congrArg LinearPMap.domain (continuous_modular_square_eq c)
+
+/-- Global composability criterion; no initial domain assumption is added. -/
+theorem continuous_modular_composable_iff (c : ℝ) (f : SpectralHilbert) :
+    (∃ hf : f ∈ (continuousModularOperator c).domain,
+      continuousModularOperator c ⟨f,hf⟩ ∈ (continuousModularOperator c).domain) ↔
+        f ∈ (continuousModularOperator (2*c)).domain := by
+  rw [← continuous_modular_square_domain_iff, continuous_modular_square_domain_eq]
+
+theorem continuous_modular_square_closed (c : ℝ) : (continuousModularSquare c).IsClosed := by
+  rw [continuous_modular_square_eq]
+  exact continuous_modular_closed (2*c)
+
+theorem continuous_modular_square_selfadjoint (c : ℝ) :
+    IsSelfAdjoint (continuousModularSquare c) := by
+  rw [continuous_modular_square_eq]
+  exact continuous_modular_selfadjoint (2*c)
+
+#print axioms partialSquareDomain
+#print axioms continuousModularSquareDomain
+#print axioms continuousModularSquareInput
+#print axioms continuousModularSquare
+#print axioms continuous_modular_square_domain_iff
+#print axioms continuous_modular_square_apply
+#print axioms continuous_modular_square_graph_iff
+#print axioms continuous_weight_double
+#print axioms continuous_weight_double_complex
+#print axioms continuous_weight_half_norm_le
+#print axioms continuous_modular_double_domain_le
+#print axioms continuous_modular_square_eq
+#print axioms continuous_modular_square_domain_eq
+#print axioms continuous_modular_composable_iff
+#print axioms continuous_modular_square_closed
+#print axioms continuous_modular_square_selfadjoint
+
+end
+end ChatgptAudit.Continuous050
+''',
+    "TGLExt/ContinuousModularReconstruction.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_050 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.GenericAntilinearAdjoint
+import TGLExt.ContinuousModularSquare
+import TGLExt.ContinuousModularStandardSubspace
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Continuous050
+open ChatgptAudit.Continuous049
+noncomputable section
+
+/-- The generic construction is the already constructed concrete Tomita operator. -/
+theorem continuous_tomita_eq_generic (c : ℝ) (x : (continuousModularOperator c).domain) :
+    continuousModularTomita c x =
+      genericTomita (continuousModularOperator c) spectralJ x := rfl
+
+def continuousTomitaAdjoint (c : ℝ) : SpectralHilbert →ₛₗ.[starRingEnd ℂ] SpectralHilbert :=
+  genericTomitaAdjoint (continuousModularOperator c) spectralJ
+
+theorem continuous_tomita_adjoint_pairing (c : ℝ)
+    (x : (continuousModularOperator c).domain) (y : (continuousTomitaAdjoint c).domain) :
+    inner ℂ (continuousModularTomita c x) (y : SpectralHilbert) =
+      inner ℂ (continuousTomitaAdjoint c y) (x : SpectralHilbert) :=
+  generic_adjoint_pairing (continuousModularOperator c) (continuous_modular_selfadjoint c)
+    spectralJ spectralJ_involutive x y
+
+theorem continuous_tomita_adjoint_maximal (c : ℝ) {y z : SpectralHilbert}
+    (h : ∀ x : (continuousModularOperator c).domain,
+      inner ℂ (continuousModularTomita c x) y = inner ℂ z (x : SpectralHilbert)) :
+    ∃ hy : y ∈ (continuousTomitaAdjoint c).domain,
+      continuousTomitaAdjoint c ⟨y, hy⟩ = z :=
+  generic_adjoint_maximal (continuousModularOperator c) (continuous_modular_selfadjoint c)
+    spectralJ spectralJ_involutive h
+
+theorem continuous_tomita_adjoint_domain_iff (c : ℝ) (y : SpectralHilbert) :
+    y ∈ (continuousTomitaAdjoint c).domain ↔
+      ∃ z : SpectralHilbert, ∀ x : (continuousModularOperator c).domain,
+        inner ℂ (continuousModularTomita c x) y = inner ℂ z (x : SpectralHilbert) :=
+  generic_adjoint_domain_iff (continuousModularOperator c) (continuous_modular_selfadjoint c)
+    spectralJ spectralJ_involutive y
+
+theorem continuous_tomita_composition_domain (c : ℝ)
+    (x : (continuousModularOperator c).domain) :
+    continuousModularTomita c x ∈ (continuousTomitaAdjoint c).domain ↔
+      continuousModularOperator c x ∈ (continuousModularOperator c).domain :=
+  generic_composition_domain (continuousModularOperator c) spectralJ spectralJ_involutive x
+
+theorem continuous_tomita_adjoint_comp (c : ℝ)
+    (x : (continuousModularOperator c).domain)
+    (hx : continuousModularOperator c x ∈ (continuousModularOperator c).domain) :
+    continuousTomitaAdjoint c
+      ⟨continuousModularTomita c x, (continuous_tomita_composition_domain c x).mpr hx⟩ =
+        continuousModularOperator c ⟨continuousModularOperator c x, hx⟩ :=
+  generic_adjoint_comp (continuousModularOperator c) spectralJ spectralJ_involutive x hx
+
+/-- The full graph characterization below identifies this operator as S†S. -/
+def continuousModularDelta (c : ℝ) : SpectralHilbert →ₗ.[ℂ] SpectralHilbert :=
+  continuousModularSquare c
+
+theorem continuous_delta_graph_iff_tomita_comp (c : ℝ) (f g : SpectralHilbert) :
+    (f, g) ∈ (continuousModularDelta c).graph ↔
+      ∃ hf : f ∈ (continuousModularOperator c).domain,
+        ∃ hSf : continuousModularTomita c ⟨f, hf⟩ ∈ (continuousTomitaAdjoint c).domain,
+          continuousTomitaAdjoint c ⟨continuousModularTomita c ⟨f, hf⟩, hSf⟩ = g := by
+  rw [LinearPMap.mem_graph_iff]
+  constructor
+  · rintro ⟨x, hx, hy⟩
+    dsimp only [Prod.fst, Prod.snd] at hx hy
+    subst f
+    have hSf := (continuous_tomita_composition_domain c
+      ⟨(x : SpectralHilbert), x.property.choose⟩).mpr x.property.choose_spec
+    refine ⟨x.property.choose, hSf, ?_⟩
+    rw [continuous_tomita_adjoint_comp]
+    exact hy
+  · rintro ⟨hf, hSf, hg⟩
+    have hTf := (continuous_tomita_composition_domain c ⟨f, hf⟩).mp hSf
+    let x : (continuousModularDelta c).domain := ⟨f, ⟨hf, hTf⟩⟩
+    refine ⟨x, rfl, ?_⟩
+    change continuousModularOperator c ⟨continuousModularOperator c ⟨f, hf⟩, hTf⟩ = g
+    rw [← continuous_tomita_adjoint_comp c ⟨f, hf⟩ hTf]
+    exact hg
+
+theorem continuous_delta_eq_double (c : ℝ) :
+    continuousModularDelta c = continuousModularOperator (2*c) :=
+  continuous_modular_square_eq c
+
+theorem continuous_delta_domain_iff (c : ℝ) (f : SpectralHilbert) :
+    f ∈ (continuousModularDelta c).domain ↔
+      ∃ hf : f ∈ (continuousModularOperator c).domain,
+        continuousModularTomita c ⟨f, hf⟩ ∈ (continuousTomitaAdjoint c).domain := by
+  change (∃ hf : f ∈ (continuousModularOperator c).domain,
+    continuousModularOperator c ⟨f, hf⟩ ∈ (continuousModularOperator c).domain) ↔ _
+  exact exists_congr (fun hf => (continuous_tomita_composition_domain c ⟨f, hf⟩).symm)
+
+theorem continuous_delta_selfadjoint (c : ℝ) : IsSelfAdjoint (continuousModularDelta c) :=
+  continuous_modular_square_selfadjoint c
+
+theorem continuous_delta_closed (c : ℝ) : (continuousModularDelta c).IsClosed :=
+  continuous_modular_square_closed c
+
+theorem continuous_delta_energy (c : ℝ) (x : (continuousModularDelta c).domain) :
+    (inner ℂ (continuousModularDelta c x) (x : SpectralHilbert)).re =
+      ‖continuousModularTomita c ⟨(x : SpectralHilbert), x.property.choose⟩‖ ^ 2 := by
+  let u : (continuousModularOperator c).domain := ⟨x, x.property.choose⟩
+  have hu : continuousModularOperator c u ∈ (continuousModularOperator c).domain :=
+    x.property.choose_spec
+  have h := continuous_tomita_adjoint_pairing c u
+    ⟨continuousModularTomita c u, (continuous_tomita_composition_domain c u).mpr hu⟩
+  rw [continuous_tomita_adjoint_comp c u hu] at h
+  change (inner ℂ (continuousModularOperator c
+    ⟨continuousModularOperator c u, hu⟩) (u : SpectralHilbert)).re = _
+  rw [← h]
+  exact (norm_sq_eq_re_inner (𝕜 := ℂ) (continuousModularTomita c u)).symm
+
+theorem continuous_delta_positive (c : ℝ) (x : (continuousModularDelta c).domain) :
+    0 ≤ (inner ℂ (x : SpectralHilbert) (continuousModularDelta c x)).re := by
+  have h := continuous_delta_energy c x
+  rw [← inner_conj_symm (𝕜 := ℂ) (x : SpectralHilbert) (continuousModularDelta c x)]
+  change 0 ≤ (inner ℂ (continuousModularDelta c x) (x : SpectralHilbert)).re
+  rw [h]
+  exact sq_nonneg _
+
+/-- A positive self-adjoint square root, with its exact composition domain proved above. -/
+theorem continuous_modular_positive_square_root (c : ℝ) :
+    IsSelfAdjoint (continuousModularOperator c) ∧
+      (∀ x : (continuousModularOperator c).domain,
+        0 ≤ (inner ℂ (x : SpectralHilbert) (continuousModularOperator c x)).re) ∧
+      continuousModularSquare c = continuousModularDelta c :=
+  ⟨continuous_modular_selfadjoint c, continuous_modular_positive c, rfl⟩
+
+#print axioms continuous_tomita_eq_generic
+#print axioms continuousTomitaAdjoint
+#print axioms continuous_tomita_adjoint_pairing
+#print axioms continuous_tomita_adjoint_maximal
+#print axioms continuous_tomita_adjoint_domain_iff
+#print axioms continuous_tomita_composition_domain
+#print axioms continuous_tomita_adjoint_comp
+#print axioms continuousModularDelta
+#print axioms continuous_delta_graph_iff_tomita_comp
+#print axioms continuous_delta_eq_double
+#print axioms continuous_delta_domain_iff
+#print axioms continuous_delta_selfadjoint
+#print axioms continuous_delta_closed
+#print axioms continuous_delta_energy
+#print axioms continuous_delta_positive
+#print axioms continuous_modular_positive_square_root
+
+end
+end ChatgptAudit.Continuous050
+''',
+    "TGLExt/ContinuousModularResolvent.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_050 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.ContinuousModularSquare
+import Mathlib.Analysis.InnerProductSpace.StarOrder
+import Mathlib.Analysis.CStarAlgebra.ContinuousFunctionalCalculus.Order
+import Mathlib.Analysis.SpecialFunctions.ContinuousFunctionalCalculus.Rpow.Basic
+
+set_option autoImplicit false
+set_option maxHeartbeats 1000000
+
+namespace ChatgptAudit.Continuous050
+open ChatgptAudit.Continuous049 MeasureTheory Filter
+open scoped ENNReal ComplexOrder
+noncomputable section
+
+/-- Use the real action induced by the complex action, avoiding the Lp instance diamond. -/
+local instance instSpectralOperatorRealModule :
+    Module ℝ (SpectralHilbert →L[ℂ] SpectralHilbert) :=
+  Module.restrictScalars ℝ ℂ (SpectralHilbert →L[ℂ] SpectralHilbert)
+
+/-- The compatible action is pointwise the ordinary real action on the Hilbert space. -/
+theorem spectral_operator_real_smul_apply (r : ℝ)
+    (A : SpectralHilbert →L[ℂ] SpectralHilbert) (f : SpectralHilbert) :
+    (r • A) f = r • (A f) := by
+  change ((r : ℂ) • A) f = r • (A f)
+  rw [smul_apply]
+  exact algebraMap_smul ℂ r (A f)
+
+/-- Nonnegative scalar weights produce positive bounded operators in the Loewner order. -/
+theorem bounded_spectral_multiplier_nonneg (w : ℝ → ℝ) (hw : Continuous w)
+    (hb : ∀ x, ‖w x‖ ≤ 1) (hn : ∀ x, 0 ≤ w x) :
+    0 ≤ boundedSpectralMultiplier w hw hb := by
+  apply (ContinuousLinearMap.nonneg_iff_isPositive _).mpr
+  apply ContinuousLinearMap.isPositive_def'.mpr
+  refine ⟨bounded_spectral_multiplier_selfadjoint w hw hb, ?_⟩
+  intro f
+  change 0 ≤ (inner ℂ (boundedSpectralMultiplier w hw hb f) f).re
+  rw [L2.inner_def]
+  change 0 ≤ RCLike.re (∫ x : ℝ,
+    inner ℂ ((boundedSpectralMultiplier w hw hb f) x) (f x))
+  rw [← integral_re (L2.integrable_inner (𝕜 := ℂ) (boundedSpectralMultiplier w hw hb f) f)]
+  apply integral_nonneg_of_ae
+  filter_upwards [bounded_spectral_multiplier_ae w hw hb f] with x hx
+  rw [hx]
+  change 0 ≤ (inner ℂ ((w x : ℂ) * f x) (f x)).re
+  have he : (inner ℂ ((w x : ℂ) * f x) (f x)).re = w x * ‖f x‖ ^ 2 := by
+    simp [RCLike.inner_apply, Complex.mul_re, Complex.normSq_apply, Complex.sq_norm, mul_add]
+    ring
+  rw [he]
+  exact mul_nonneg (hn x) (sq_nonneg _)
+
+theorem spectralA_nonneg (c : ℝ) : 0 ≤ spectralA c :=
+  bounded_spectral_multiplier_nonneg _ _ _ (fun x => le_of_lt (spectral_weightA_pos c x))
+
+theorem spectralB_nonneg (c : ℝ) : 0 ≤ spectralB c :=
+  bounded_spectral_multiplier_nonneg _ _ _ (fun x => le_of_lt (spectral_weightB_pos c x))
+
+/-- Its resolvent meaning is proved by the two domain identities below. -/
+def continuousResolvent (c : ℝ) : SpectralHilbert →L[ℂ] SpectralHilbert :=
+  spectralA c * spectralA c
+
+theorem continuous_resolvent_complement (c : ℝ) :
+    1 - continuousResolvent c = spectralB c * spectralB c := by
+  have h := spectralAB_square_sum c
+  unfold continuousResolvent
+  exact sub_eq_iff_eq_add.mpr (by simpa only [add_comm] using h.symm)
+
+theorem continuous_resolvent_sqrt (c : ℝ) :
+    CFC.sqrt (continuousResolvent c) = spectralA c :=
+  CFC.sqrt_unique rfl (spectralA_nonneg c)
+
+theorem continuous_resolvent_complement_sqrt (c : ℝ) :
+    CFC.sqrt (1 - continuousResolvent c) = spectralB c :=
+  CFC.sqrt_unique (continuous_resolvent_complement c).symm (spectralB_nonneg c)
+
+/-- The graph coordinates are genuine bounded CFC roots. -/
+theorem continuous_modular_graph_from_cfc (c : ℝ) (f g : SpectralHilbert) :
+    (f,g) ∈ (continuousModularOperator c).graph ↔
+      ∃ h : SpectralHilbert,
+        CFC.sqrt (continuousResolvent c) h = f ∧
+        CFC.sqrt (1 - continuousResolvent c) h = g := by
+  rw [continuous_resolvent_sqrt, continuous_resolvent_complement_sqrt]
+  exact bounded_graph_param_iff (spectralA c) (spectralB c) (spectralA_injective c) f g
+
+theorem continuous_modular_domain_from_cfc (c : ℝ) :
+    (continuousModularOperator c).domain =
+      (CFC.sqrt (continuousResolvent c)).range := by
+  rw [continuous_resolvent_sqrt]
+  rfl
+
+
+/-- Pointwise meaning of the bounded resolvent, independent of its inverse identities. -/
+theorem continuous_resolvent_ae (c : ℝ) (f : SpectralHilbert) :
+    continuousResolvent c f =ᵐ[volume]
+      fun x => (spectralWeightA c x : ℂ)^2 * f x := by
+  filter_upwards [spectralA_ae c (spectralA c f), spectralA_ae c f] with x haa ha
+  change (spectralA c (spectralA c f)) x = _
+  rw [haa,ha]
+  ring
+
+/-- The two bounded coordinates construct both successive domain witnesses. -/
+theorem continuous_resolvent_square_graph (c : ℝ) (f : SpectralHilbert) :
+    (continuousResolvent c f, spectralB c (spectralB c f)) ∈
+      (continuousModularSquare c).graph := by
+  rw [continuous_modular_square_graph_iff]
+  refine ⟨spectralA c (spectralB c f), ?_, ?_⟩
+  · apply (bounded_graph_param_iff (spectralA c) (spectralB c)
+      (spectralA_injective c) _ _).mpr
+    refine ⟨spectralA c f,rfl,?_⟩
+    exact congrArg (fun F : SpectralHilbert →L[ℂ] SpectralHilbert => F f)
+      (spectralAB_commute c).symm
+  · apply (bounded_graph_param_iff (spectralA c) (spectralB c)
+      (spectralA_injective c) _ _).mpr
+    exact ⟨spectralB c f,rfl,rfl⟩
+
+theorem continuous_resolvent_mem_square_domain (c : ℝ) (f : SpectralHilbert) :
+    continuousResolvent c f ∈ (continuousModularSquare c).domain :=
+  LinearPMap.mem_domain_of_mem_graph (continuous_resolvent_square_graph c f)
+
+theorem continuous_resolvent_square_apply (c : ℝ) (f : SpectralHilbert) :
+    continuousModularSquare c
+      ⟨continuousResolvent c f, continuous_resolvent_mem_square_domain c f⟩ =
+        spectralB c (spectralB c f) :=
+  ((LinearPMap.image_iff (continuous_resolvent_mem_square_domain c f)).mpr
+    (continuous_resolvent_square_graph c f)).symm
+
+/-- (I+T_c²) C_c f=f, with C_c f proved to lie in the full square domain. -/
+theorem continuous_resolvent_right_inverse (c : ℝ) (f : SpectralHilbert) :
+    continuousResolvent c f +
+      continuousModularSquare c
+        ⟨continuousResolvent c f, continuous_resolvent_mem_square_domain c f⟩ = f := by
+  rw [continuous_resolvent_square_apply]
+  exact congrArg (fun F : SpectralHilbert →L[ℂ] SpectralHilbert => F f)
+    (spectralAB_square_sum c)
+
+/-- C_c (x+T_c²x)=x for every x in the actual composition domain. -/
+theorem continuous_resolvent_left_inverse (c : ℝ)
+    (x : (continuousModularSquare c).domain) :
+    continuousResolvent c ((x : SpectralHilbert) + continuousModularSquare c x) =
+      (x : SpectralHilbert) := by
+  apply Lp.ext
+  have hg : ((x : SpectralHilbert), continuousModularSquare c x) ∈
+      (continuousModularOperator (2*c)).graph := by
+    rw [← continuous_modular_square_eq]
+    exact (continuousModularSquare c).mem_graph x
+  have hq := (continuous_modular_graph_iff (2*c) _ _).mp hg
+  filter_upwards [
+      continuous_resolvent_ae c ((x : SpectralHilbert) + continuousModularSquare c x),
+      Lp.coeFn_add (x : SpectralHilbert) (continuousModularSquare c x), hq]
+    with ξ hC hadd hQ
+  rw [hC,hadd,Pi.add_apply,hQ,continuous_weight_double_complex]
+  have hs : (spectralWeightA c ξ : ℂ)^2 + (spectralWeightB c ξ : ℂ)^2 = 1 := by
+    exact_mod_cast spectral_weight_square_sum c ξ
+  have hr : (spectralWeightB c ξ : ℂ) =
+      (Real.exp (-c*ξ) : ℂ) * (spectralWeightA c ξ : ℂ) := by
+    exact_mod_cast spectral_weight_ratio c ξ
+  calc
+    _ = ((spectralWeightA c ξ : ℂ)^2 +
+        ((Real.exp (-c*ξ) : ℂ) * (spectralWeightA c ξ : ℂ))^2) *
+          (x : SpectralHilbert) ξ := by ring
+    _ = (x : SpectralHilbert) ξ := by rw [← hr,hs,one_mul]
+
+/-- Uniqueness of the bounded resolvent among maps satisfying the right-inverse domain law. -/
+theorem continuous_resolvent_unique (c : ℝ)
+    (R : SpectralHilbert →L[ℂ] SpectralHilbert)
+    (hdom : ∀ f : SpectralHilbert, R f ∈ (continuousModularSquare c).domain)
+    (hinv : ∀ f : SpectralHilbert,
+      R f + continuousModularSquare c ⟨R f,hdom f⟩ = f) :
+    R = continuousResolvent c := by
+  apply ContinuousLinearMap.ext
+  intro f
+  have h := continuous_resolvent_left_inverse c ⟨R f,hdom f⟩
+  rw [hinv f] at h
+  exact h.symm
+
+#print axioms instSpectralOperatorRealModule
+#print axioms spectral_operator_real_smul_apply
+#print axioms bounded_spectral_multiplier_nonneg
+#print axioms spectralA_nonneg
+#print axioms spectralB_nonneg
+#print axioms continuousResolvent
+#print axioms continuous_resolvent_complement
+#print axioms continuous_resolvent_sqrt
+#print axioms continuous_resolvent_complement_sqrt
+#print axioms continuous_modular_graph_from_cfc
+#print axioms continuous_modular_domain_from_cfc
+
+#print axioms continuous_resolvent_ae
+#print axioms continuous_resolvent_square_graph
+#print axioms continuous_resolvent_mem_square_domain
+#print axioms continuous_resolvent_square_apply
+#print axioms continuous_resolvent_right_inverse
+#print axioms continuous_resolvent_left_inverse
+#print axioms continuous_resolvent_unique
+
+end
+end ChatgptAudit.Continuous050
+''',
+    "TGLExt/OpticalVolterraBalance.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_051 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+import Mathlib.Analysis.Convex.Basic
+import Mathlib.Analysis.Calculus.Deriv.Mul
+import Mathlib.Tactic
+
+set_option autoImplicit false
+
+namespace ChatgptAudit.Optical051
+open MeasureTheory Set
+noncomputable section
+
+/-- The oriented primitive with base point zero. -/
+def opticalPrimitive (f : ℝ → ℝ) (t : ℝ) : ℝ :=
+  ∫ s in 0..t, f s
+
+/-- The optical correction, defined independently of heat and entropy. -/
+def opticalVolterraCorrection (A F : ℝ → ℝ) (t : ℝ) : ℝ :=
+  ∫ s in 0..t, A s * opticalPrimitive F s
+
+/-- Ricci variation remaining even when matter agrees pointwise with Ricci. -/
+def opticalCurvatureDrift (R : ℝ → ℝ) (t : ℝ) : ℝ :=
+  opticalPrimitive R t - t * R t
+
+theorem optical_primitive_zero (f : ℝ → ℝ) : opticalPrimitive f 0 = 0 := by
+  simp [opticalPrimitive]
+
+theorem optical_primitive_const (r t : ℝ) :
+    opticalPrimitive (fun _ => r) t = t * r := by
+  simp [opticalPrimitive]
+
+theorem optical_primitive_intervalIntegrable (I : Set ℝ) (hI : Convex ℝ I)
+    (h0 : 0 ∈ I) (f : ℝ → ℝ) (hf : ContinuousOn f I) (t : ℝ) (ht : t ∈ I) :
+    IntervalIntegrable f volume 0 t :=
+  (hf.mono (hI.ordConnected.uIcc_subset h0 ht)).intervalIntegrable
+
+theorem optical_primitive_hasDerivAt (I : Set ℝ) (ho : IsOpen I) (hI : Convex ℝ I)
+    (h0 : 0 ∈ I) (f : ℝ → ℝ) (hf : ContinuousOn f I) (t : ℝ) (ht : t ∈ I) :
+    HasDerivAt (opticalPrimitive f) (f t) t := by
+  exact intervalIntegral.integral_hasDerivAt_right
+    (optical_primitive_intervalIntegrable I hI h0 f hf t ht)
+    (ContinuousOn.stronglyMeasurableAtFilter ho hf t ht)
+    ((hf t ht).continuousAt (ho.mem_nhds ht))
+
+theorem optical_primitive_continuousOn (I : Set ℝ) (ho : IsOpen I) (hI : Convex ℝ I)
+    (h0 : 0 ∈ I) (f : ℝ → ℝ) (hf : ContinuousOn f I) :
+    ContinuousOn (opticalPrimitive f) I := by
+  intro t ht
+  exact (optical_primitive_hasDerivAt I ho hI h0 f hf t ht).continuousAt.continuousWithinAt
+
+/-- Integrating Raychaudhuri with zero initial expansion, in either time direction. -/
+theorem optical_expansion_integral (I : Set ℝ) (hI : Convex ℝ I) (h0 : 0 ∈ I)
+    (theta R F : ℝ → ℝ) (hR : ContinuousOn R I) (hF : ContinuousOn F I)
+    (htheta : ∀ s ∈ I, HasDerivAt theta (-R s - F s) s)
+    (htheta0 : theta 0 = 0) (t : ℝ) (ht : t ∈ I) :
+    theta t = -opticalPrimitive R t - opticalPrimitive F t := by
+  have hRi := optical_primitive_intervalIntegrable I hI h0 R hR t ht
+  have hFi := optical_primitive_intervalIntegrable I hI h0 F hF t ht
+  have hFTC := intervalIntegral.integral_eq_sub_of_hasDerivAt
+    (fun s hs => htheta s (hI.ordConnected.uIcc_subset h0 ht hs)) (hRi.neg.sub hFi)
+  calc
+    theta t = ∫ s in 0..t, -R s - F s := by
+      simpa only [htheta0, sub_zero] using hFTC.symm
+    _ = -opticalPrimitive R t - opticalPrimitive F t := by
+      rw [intervalIntegral.integral_sub (f := fun s => -R s) (g := F) hRi.neg hFi,
+        intervalIntegral.integral_neg]
+      rfl
+
+/-- The exact finite balance, including variable Ricci and matter data. -/
+theorem optical_volterra_balance (I : Set ℝ) (ho : IsOpen I) (hI : Convex ℝ I)
+    (h0 : 0 ∈ I) (A theta R F M Q : ℝ → ℝ) (K : ℝ)
+    (hR : ContinuousOn R I) (hF : ContinuousOn F I) (hM : ContinuousOn M I)
+    (hA : ∀ s ∈ I, HasDerivAt A (A s * theta s) s)
+    (htheta : ∀ s ∈ I, HasDerivAt theta (-R s - F s) s)
+    (htheta0 : theta 0 = 0)
+    (hQ : ∀ s ∈ I, HasDerivAt Q (-K * s * M s * A s) s)
+    (hQ0 : Q 0 = 0) (t : ℝ) (ht : t ∈ I) :
+    Q t - K * (A t - A 0) =
+      K * ∫ s in 0..t, A s *
+        (opticalPrimitive F s + opticalPrimitive R s - s * M s) := by
+  have hAc : ContinuousOn A I := fun s hs =>
+    (hA s hs).continuousAt.continuousWithinAt
+  have hRc := optical_primitive_continuousOn I ho hI h0 R hR
+  have hFc := optical_primitive_continuousOn I ho hI h0 F hF
+  have hgc : ContinuousOn
+      (fun s => K * (A s * (opticalPrimitive F s + opticalPrimitive R s - s * M s))) I :=
+    continuousOn_const.mul (hAc.mul ((hFc.add hRc).sub (continuousOn_id.mul hM)))
+  have hd : ∀ s ∈ uIcc 0 t,
+      HasDerivAt (fun u => Q u - K * (A u - A 0))
+        (K * (A s * (opticalPrimitive F s + opticalPrimitive R s - s * M s))) s := by
+    intro s hs
+    have hsI := hI.ordConnected.uIcc_subset h0 ht hs
+    have he := (hQ s hsI).sub (((hA s hsI).sub_const (A 0)).const_mul K)
+    convert he using 1
+    all_goals first
+      | rfl
+      | (rw [optical_expansion_integral I hI h0 theta R F hR hF htheta htheta0 s hsI]; ring)
+  have hFTC := intervalIntegral.integral_eq_sub_of_hasDerivAt hd
+    ((hgc.mono (hI.ordConnected.uIcc_subset h0 ht)).intervalIntegrable)
+  rw [intervalIntegral.integral_const_mul] at hFTC
+  simpa only [hQ0, sub_self, mul_zero, sub_zero] using hFTC.symm
+
+/-- Pointwise Ricci--matter matching retains a curvature variation term. -/
+theorem optical_volterra_balance_matched (I : Set ℝ) (ho : IsOpen I) (hI : Convex ℝ I)
+    (h0 : 0 ∈ I) (A theta R F Q : ℝ → ℝ) (K : ℝ)
+    (hR : ContinuousOn R I) (hF : ContinuousOn F I)
+    (hA : ∀ s ∈ I, HasDerivAt A (A s * theta s) s)
+    (htheta : ∀ s ∈ I, HasDerivAt theta (-R s - F s) s)
+    (htheta0 : theta 0 = 0)
+    (hQ : ∀ s ∈ I, HasDerivAt Q (-K * s * R s * A s) s)
+    (hQ0 : Q 0 = 0) (t : ℝ) (ht : t ∈ I) :
+    Q t - K * (A t - A 0) =
+      K * ∫ s in 0..t, A s * (opticalPrimitive F s + opticalCurvatureDrift R s) := by
+  simpa only [opticalCurvatureDrift, add_sub_assoc] using
+    optical_volterra_balance I ho hI h0 A theta R F R Q K
+      hR hF hR hA htheta htheta0 hQ hQ0 t ht
+
+/-- Constant Ricci matching removes the drift, leaving the independently defined correction. -/
+theorem optical_volterra_balance_constant (I : Set ℝ) (ho : IsOpen I) (hI : Convex ℝ I)
+    (h0 : 0 ∈ I) (A theta F Q : ℝ → ℝ) (K r : ℝ)
+    (hF : ContinuousOn F I)
+    (hA : ∀ s ∈ I, HasDerivAt A (A s * theta s) s)
+    (htheta : ∀ s ∈ I, HasDerivAt theta (-r - F s) s)
+    (htheta0 : theta 0 = 0)
+    (hQ : ∀ s ∈ I, HasDerivAt Q (-K * s * r * A s) s)
+    (hQ0 : Q 0 = 0) (t : ℝ) (ht : t ∈ I) :
+    Q t - K * (A t - A 0) = K * opticalVolterraCorrection A F t := by
+  have h := optical_volterra_balance I ho hI h0 A theta (fun _ => r) F
+    (fun _ => r) Q K continuousOn_const hF continuousOn_const
+    hA htheta htheta0 hQ hQ0 t ht
+  simpa only [optical_primitive_const, add_sub_cancel_right, opticalVolterraCorrection] using h
+
+theorem optical_volterra_correction_zero (A F : ℝ → ℝ) :
+    opticalVolterraCorrection A F 0 = 0 := by
+  simp [opticalVolterraCorrection]
+
+/-- The double orientation makes the correction nonnegative on both sides of zero. -/
+theorem optical_volterra_correction_nonneg (I : Set ℝ) (hI : Convex ℝ I)
+    (h0 : 0 ∈ I) (A F : ℝ → ℝ)
+    (hA : ∀ s ∈ I, 0 ≤ A s) (hF : ∀ s ∈ I, 0 ≤ F s)
+    (t : ℝ) (ht : t ∈ I) : 0 ≤ opticalVolterraCorrection A F t := by
+  by_cases hpos : 0 ≤ t
+  · apply intervalIntegral.integral_nonneg hpos
+    intro s hs
+    have hsI : s ∈ I := hI.ordConnected.uIcc_subset h0 ht
+      (by simpa only [uIcc_of_le hpos] using hs)
+    apply mul_nonneg (hA s hsI)
+    apply intervalIntegral.integral_nonneg hs.1
+    intro u hu
+    exact hF u (hI.ordConnected.uIcc_subset h0 hsI
+      (by simpa only [uIcc_of_le hs.1] using hu))
+  · have hneg : t ≤ 0 := le_of_not_ge hpos
+    have hinner : ∀ s ∈ Icc t 0, opticalPrimitive F s ≤ 0 := by
+      intro s hs
+      have hsI : s ∈ I := hI.ordConnected.uIcc_subset ht h0
+        (by simpa only [uIcc_of_le hneg] using hs)
+      have hp : 0 ≤ ∫ u in s..0, F u := by
+        apply intervalIntegral.integral_nonneg hs.2
+        intro u hu
+        exact hF u (hI.ordConnected.uIcc_subset hsI h0
+          (by simpa only [uIcc_of_le hs.2] using hu))
+      unfold opticalPrimitive
+      rw [intervalIntegral.integral_symm]
+      exact neg_nonpos.mpr hp
+    have hout : 0 ≤ ∫ s in t..0, -(A s * opticalPrimitive F s) := by
+      apply intervalIntegral.integral_nonneg hneg
+      intro s hs
+      have hsI : s ∈ I := hI.ordConnected.uIcc_subset ht h0
+        (by simpa only [uIcc_of_le hneg] using hs)
+      exact neg_nonneg.mpr (mul_nonpos_of_nonneg_of_nonpos (hA s hsI) (hinner s hs))
+    unfold opticalVolterraCorrection
+    rw [intervalIntegral.integral_symm]
+    simpa only [intervalIntegral.integral_neg] using hout
+
+theorem optical_scaled_correction_nonneg (I : Set ℝ) (hI : Convex ℝ I)
+    (h0 : 0 ∈ I) (A F : ℝ → ℝ)
+    (hA : ∀ s ∈ I, 0 ≤ A s) (hF : ∀ s ∈ I, 0 ≤ F s)
+    (K : ℝ) (hK : 0 ≤ K) (t : ℝ) (ht : t ∈ I) :
+    0 ≤ K * opticalVolterraCorrection A F t :=
+  mul_nonneg hK (optical_volterra_correction_nonneg I hI h0 A F hA hF t ht)
+
+#print axioms opticalPrimitive
+#print axioms opticalVolterraCorrection
+#print axioms opticalCurvatureDrift
+#print axioms optical_primitive_zero
+#print axioms optical_primitive_const
+#print axioms optical_primitive_intervalIntegrable
+#print axioms optical_primitive_hasDerivAt
+#print axioms optical_primitive_continuousOn
+#print axioms optical_expansion_integral
+#print axioms optical_volterra_balance
+#print axioms optical_volterra_balance_matched
+#print axioms optical_volterra_balance_constant
+#print axioms optical_volterra_correction_zero
+#print axioms optical_volterra_correction_nonneg
+#print axioms optical_scaled_correction_nonneg
+
+end
+end ChatgptAudit.Optical051
+''',
+    "TGLExt/OpticalRiccatiInvariant.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_051 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import Mathlib.Analysis.Calculus.Deriv.Add
+import Mathlib.LinearAlgebra.Matrix.Trace
+import Mathlib.Tactic
+
+set_option autoImplicit false
+
+namespace ChatgptAudit.Optical051
+open Matrix
+noncomputable section
+
+/-- A symmetric optical endomorphism in an orthonormal two-dimensional screen. -/
+def opticalScreenMatrix (x z y : ℝ) : Matrix (Fin 2) (Fin 2) ℝ :=
+  !![x, z; z, y]
+
+def opticalScreenNormSq (x z y : ℝ) : ℝ := x ^ 2 + 2 * z ^ 2 + y ^ 2
+
+/-- Half the squared norm of the trace-free part, in the convention used here. -/
+def opticalShearNormSq (x z y : ℝ) : ℝ := ((x - y) / 2) ^ 2 + z ^ 2
+
+/-- All three independent components of the symmetric matrix Riccati equation. -/
+def opticalRiccatiSystem (x z y rxx rxy ryy : ℝ → ℝ) (t : ℝ) : Prop :=
+  HasDerivAt x (-(x t ^ 2 + z t ^ 2) - rxx t) t ∧
+  HasDerivAt z (-(x t * z t + z t * y t) - rxy t) t ∧
+  HasDerivAt y (-(z t ^ 2 + y t ^ 2) - ryy t) t
+
+theorem optical_screen_matrix_symmetric (x z y : ℝ) :
+    (opticalScreenMatrix x z y).transpose = opticalScreenMatrix x z y := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> rfl
+
+theorem optical_screen_matrix_trace (x z y : ℝ) :
+    Matrix.trace (opticalScreenMatrix x z y) = x + y := by
+  simp [opticalScreenMatrix, Matrix.trace, Fin.sum_univ_two]
+
+theorem optical_screen_matrix_square_trace (x z y : ℝ) :
+    Matrix.trace (opticalScreenMatrix x z y * opticalScreenMatrix x z y) =
+      opticalScreenNormSq x z y := by
+  simp [opticalScreenMatrix, Matrix.trace, Fin.sum_univ_two,
+    opticalScreenNormSq]
+  ring
+
+theorem optical_screen_raychaudhuri_decomposition (x z y : ℝ) :
+    opticalScreenNormSq x z y = (x + y) ^ 2 / 2 + 2 * opticalShearNormSq x z y := by
+  unfold opticalScreenNormSq opticalShearNormSq
+  ring
+
+theorem optical_screen_norm_nonneg (x z y : ℝ) : 0 ≤ opticalScreenNormSq x z y := by
+  unfold opticalScreenNormSq
+  positivity
+
+theorem optical_screen_shear_nonneg (x z y : ℝ) : 0 ≤ opticalShearNormSq x z y := by
+  unfold opticalShearNormSq
+  positivity
+
+theorem optical_screen_norm_eq_zero (x z y : ℝ) :
+    opticalScreenNormSq x z y = 0 ↔ x = 0 ∧ z = 0 ∧ y = 0 := by
+  constructor
+  · intro h
+    unfold opticalScreenNormSq at h
+    have hx := sq_nonneg x
+    have hz := sq_nonneg z
+    have hy := sq_nonneg y
+    have hx0 : x ^ 2 = 0 := by nlinarith
+    have hz0 : z ^ 2 = 0 := by nlinarith
+    have hy0 : y ^ 2 = 0 := by nlinarith
+    exact ⟨sq_eq_zero_iff.mp hx0, sq_eq_zero_iff.mp hz0, sq_eq_zero_iff.mp hy0⟩
+  · rintro ⟨rfl, rfl, rfl⟩
+    norm_num [opticalScreenNormSq]
+
+/-- Trace is unchanged by an orthonormal rotation of screen coordinates. -/
+theorem optical_rotated_trace (x z y c s : ℝ) (hcs : c ^ 2 + s ^ 2 = 1) :
+    (c ^ 2 * x + 2 * c * s * z + s ^ 2 * y) +
+      (s ^ 2 * x - 2 * c * s * z + c ^ 2 * y) = x + y := by
+  calc
+    _ = (c ^ 2 + s ^ 2) * (x + y) := by ring
+    _ = x + y := by rw [hcs, one_mul]
+
+theorem optical_rotated_norm (x z y c s : ℝ) (hcs : c ^ 2 + s ^ 2 = 1) :
+    opticalScreenNormSq
+      (c ^ 2 * x + 2 * c * s * z + s ^ 2 * y)
+      (c * s * (y - x) + (c ^ 2 - s ^ 2) * z)
+      (s ^ 2 * x - 2 * c * s * z + c ^ 2 * y) =
+      opticalScreenNormSq x z y := by
+  calc
+    _ = (c ^ 2 + s ^ 2) ^ 2 * opticalScreenNormSq x z y := by
+      unfold opticalScreenNormSq
+      ring
+    _ = opticalScreenNormSq x z y := by rw [hcs]; ring
+
+theorem optical_rotated_shear (x z y c s : ℝ) (hcs : c ^ 2 + s ^ 2 = 1) :
+    opticalShearNormSq
+      (c ^ 2 * x + 2 * c * s * z + s ^ 2 * y)
+      (c * s * (y - x) + (c ^ 2 - s ^ 2) * z)
+      (s ^ 2 * x - 2 * c * s * z + c ^ 2 * y) =
+      opticalShearNormSq x z y := by
+  have hn := optical_rotated_norm x z y c s hcs
+  rw [optical_screen_raychaudhuri_decomposition,
+    optical_screen_raychaudhuri_decomposition, optical_rotated_trace x z y c s hcs] at hn
+  linarith
+
+/-- Taking the trace of the optical Riccati system yields Raychaudhuri's ODE. -/
+theorem optical_riccati_trace (x z y rxx rxy ryy : ℝ → ℝ) (t : ℝ)
+    (h : opticalRiccatiSystem x z y rxx rxy ryy t) :
+    HasDerivAt (fun u => x u + y u)
+      (-(rxx t + ryy t) - opticalScreenNormSq (x t) (z t) (y t)) t := by
+  convert h.1.add h.2.2 using 1
+  all_goals first | rfl | (unfold opticalScreenNormSq; ring)
+
+theorem optical_riccati_raychaudhuri (x z y rxx rxy ryy : ℝ → ℝ) (t : ℝ)
+    (h : opticalRiccatiSystem x z y rxx rxy ryy t) :
+    HasDerivAt (fun u => x u + y u)
+      (-(rxx t + ryy t) - (x t + y t) ^ 2 / 2 -
+        2 * opticalShearNormSq (x t) (z t) (y t)) t := by
+  convert optical_riccati_trace x z y rxx rxy ryy t h using 1
+  all_goals first | rfl | (rw [optical_screen_raychaudhuri_decomposition]; ring)
+
+theorem optical_diagonal_distortion (x y : ℝ) :
+    opticalScreenNormSq x 0 y = x ^ 2 + y ^ 2 := by
+  simp [opticalScreenNormSq]
+
+#print axioms opticalScreenMatrix
+#print axioms opticalScreenNormSq
+#print axioms opticalShearNormSq
+#print axioms opticalRiccatiSystem
+#print axioms optical_screen_matrix_symmetric
+#print axioms optical_screen_matrix_trace
+#print axioms optical_screen_matrix_square_trace
+#print axioms optical_screen_raychaudhuri_decomposition
+#print axioms optical_screen_norm_nonneg
+#print axioms optical_screen_shear_nonneg
+#print axioms optical_screen_norm_eq_zero
+#print axioms optical_rotated_trace
+#print axioms optical_rotated_norm
+#print axioms optical_rotated_shear
+#print axioms optical_riccati_trace
+#print axioms optical_riccati_raychaudhuri
+#print axioms optical_diagonal_distortion
+
+end
+end ChatgptAudit.Optical051
+''',
+    "TGLExt/OpticalFiniteBalance.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_051 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.OpticalVolterraBalance
+import TGLExt.JacobiRiccatiProfile
+import TGLExt.OpticalHeatClausius
+import TGLExt.OpticalConstructedHeat
+import Mathlib.Analysis.Calculus.Deriv.Abs
+
+set_option autoImplicit false
+set_option maxHeartbeats 2500000
+
+namespace ChatgptAudit.Optical051
+open Filter Set ChatgptAudit.Optical036 ChatgptAudit.Optical043 ChatgptAudit.Heat041
+open scoped Topology
+noncomputable section
+
+/-- Expansion of the two existing logarithmic Jacobi rates. -/
+def opticalExpansion (a c t : ℝ) : ℝ :=
+  jacobiLogDerivative a t + jacobiLogDerivative c t
+
+/-- The quadratic optical distortion, defined without any heat or balance term. -/
+def opticalDistortionSquared (a c t : ℝ) : ℝ :=
+  (jacobiLogDerivative a t)^2 + (jacobiLogDerivative c t)^2
+
+/-- A Volterra integral built solely from the geometric Jacobi area and optical rates. -/
+def opticalAccumulatedCorrection (a c : ℝ) : ℝ → ℝ :=
+  opticalVolterraCorrection (geometricJacobiArea a c) (opticalDistortionSquared a c)
+
+theorem optical_distortion_nonneg (a c t : ℝ) : 0 ≤ opticalDistortionSquared a c t :=
+  add_nonneg (sq_nonneg _) (sq_nonneg _)
+
+theorem optical_expansion_zero (a c : ℝ) : opticalExpansion a c 0 = 0 := by
+  simp only [opticalExpansion, jacobi_log_derivative_zero, add_zero]
+
+theorem optical_expansion_derivative (a c : ℝ) (ha : 0≤a) (hc : 0≤c) (t : ℝ)
+    (hna : jacobiOscillator a t≠0) (hnc : jacobiOscillator c t≠0) :
+    HasDerivAt (opticalExpansion a c)
+      (-(a+c)-opticalDistortionSquared a c t) t := by
+  have h := (jacobi_log_derivative_hasDerivAt a ha t hna).add
+    (jacobi_log_derivative_hasDerivAt c hc t hnc)
+  apply h.congr_deriv
+  dsimp [opticalDistortionSquared]
+  ring
+
+theorem optical_distortion_continuousOn (a c : ℝ) (I : Set ℝ)
+    (hn : ∀ t∈I, jacobiOscillator a t≠0 ∧ jacobiOscillator c t≠0) :
+    ContinuousOn (opticalDistortionSquared a c) I := by
+  intro t ht
+  have hA := (jacobi_log_derivative_contDiffAt a t (hn t ht).1).continuousAt
+  have hC := (jacobi_log_derivative_contDiffAt c t (hn t ht).2).continuousAt
+  exact ((hA.pow 2).add (hC.pow 2)).continuousWithinAt
+
+theorem optical_area_positive (a c t : ℝ)
+    (hna : jacobiOscillator a t≠0) (hnc : jacobiOscillator c t≠0) :
+    0 < geometricJacobiArea a c t := by
+  rw [geometric_jacobi_area_abs, abs_pos]
+  exact mul_ne_zero hna hnc
+
+/-- The area derivative is valid for either sign of the oriented Jacobi product. -/
+theorem optical_area_derivative (a c t : ℝ)
+    (hna : jacobiOscillator a t≠0) (hnc : jacobiOscillator c t≠0) :
+    HasDerivAt (geometricJacobiArea a c)
+      (geometricJacobiArea a c t * opticalExpansion a c t) t := by
+  have hprod : HasDerivAt (opticalJacobiArea a c)
+      (opticalJacobiArea a c t * opticalExpansion a c t) t := by
+    have h := (jacobi_oscillator_hasDerivAt a t).mul
+      (jacobi_oscillator_hasDerivAt c t)
+    apply h.congr_deriv
+    change jacobiOscillatorVelocity a t * jacobiOscillator c t +
+      jacobiOscillator a t * jacobiOscillatorVelocity c t =
+      (jacobiOscillator a t * jacobiOscillator c t) *
+        (jacobiLogDerivative a t + jacobiLogDerivative c t)
+    rw [← jacobi_log_derivative_mul a t hna, ← jacobi_log_derivative_mul c t hnc]
+    ring
+  have hn : opticalJacobiArea a c t≠0 := mul_ne_zero hna hnc
+  rw [show geometricJacobiArea a c = (fun s => |opticalJacobiArea a c s|) from
+    funext (geometric_jacobi_area_abs a c)]
+  rcases hn.lt_or_gt with hneg | hpos
+  · have h := (hasDerivAt_abs_neg hneg).comp t hprod
+    apply h.congr_deriv
+    change (-1) * (opticalJacobiArea a c t * opticalExpansion a c t) =
+      |opticalJacobiArea a c t| * opticalExpansion a c t
+    rw [abs_of_neg hneg]
+    ring
+  · have h := (hasDerivAt_abs_pos hpos).comp t hprod
+    apply h.congr_deriv
+    change (1:ℝ) * (opticalJacobiArea a c t * opticalExpansion a c t) =
+      |opticalJacobiArea a c t| * opticalExpansion a c t
+    rw [abs_of_pos hpos]
+    ring
+
+/-- Exact finite identity on a connected interval before any oscillator zero.
+The matter-curvature matching is an explicit hypothesis. -/
+theorem optical_finite_balance (I : Set ℝ) (ho : IsOpen I)
+    (hI : Convex ℝ I) (h0 : (0:ℝ)∈I)
+    (a c : ℝ) (ha : 0≤a) (hc : 0≤c)
+    (hn : ∀ t∈I, jacobiOscillator a t≠0 ∧ jacobiOscillator c t≠0)
+    (rate mass eta : ℝ) (hmatch : eta*(a+c)=2*Real.pi*mass)
+    (t : ℝ) (ht : t∈I) :
+    opticalClausiusDefect a c rate mass eta t =
+      (rate/(2*Real.pi)*eta)*opticalAccumulatedCorrection a c t := by
+  have hk : (rate/(2*Real.pi)*eta)*(a+c)=rate*mass := by
+    calc
+      _ = rate*(eta*(a+c))/(2*Real.pi) := by ring
+      _ = rate*(2*Real.pi*mass)/(2*Real.pi) := by rw [hmatch]
+      _ = rate*mass := by field_simp [Real.pi_ne_zero]
+  have hQ : ∀ s∈I, HasDerivAt (opticalHeat a c rate mass)
+      (-(rate/(2*Real.pi)*eta)*s*(a+c)*geometricJacobiArea a c s) s := by
+    intro s _
+    apply (optical_heat_derivative a c rate mass s).congr_deriv
+    unfold opticalHeatFlux
+    calc
+      _ = -((rate/(2*Real.pi)*eta)*(a+c))*s*geometricJacobiArea a c s := by
+        rw [hk]
+        ring
+      _ = _ := by ring
+  have h := optical_volterra_balance_constant I ho hI h0
+    (geometricJacobiArea a c) (opticalExpansion a c)
+    (opticalDistortionSquared a c) (opticalHeat a c rate mass)
+    (rate/(2*Real.pi)*eta) (a+c)
+    (optical_distortion_continuousOn a c I hn)
+    (fun s hs => optical_area_derivative a c s (hn s hs).1 (hn s hs).2)
+    (fun s hs => optical_expansion_derivative a c ha hc s (hn s hs).1 (hn s hs).2)
+    (optical_expansion_zero a c) hQ (optical_heat_zero a c rate mass) t ht
+  simpa only [opticalClausiusDefect, geometric_jacobi_area_zero,
+    opticalAccumulatedCorrection] using h
+
+/-- Both orientations of the nested integral give a nonnegative optical correction. -/
+theorem optical_correction_nonneg (I : Set ℝ) (hI : Convex ℝ I)
+    (h0 : (0:ℝ)∈I) (a c t : ℝ) (ht : t∈I) :
+    0 ≤ opticalAccumulatedCorrection a c t := by
+  apply optical_volterra_correction_nonneg I hI h0
+    (geometricJacobiArea a c) (opticalDistortionSquared a c)
+    (fun s _ => ?_) (fun s _ => optical_distortion_nonneg a c s) t ht
+  rw [geometric_jacobi_area_abs]
+  exact abs_nonneg _
+
+/-- The finite identity holds on an actual neighbourhood, obtained from nonvanishing. -/
+theorem optical_finite_balance_near_zero (a c : ℝ) (ha : 0≤a) (hc : 0≤c)
+    (rate mass eta : ℝ) (hmatch : eta*(a+c)=2*Real.pi*mass) :
+    opticalClausiusDefect a c rate mass eta =ᶠ[𝓝 (0:ℝ)]
+      (fun t => (rate/(2*Real.pi)*eta)*opticalAccumulatedCorrection a c t) := by
+  have hn : ∀ᶠ t in 𝓝 (0:ℝ),
+      jacobiOscillator a t≠0 ∧ jacobiOscillator c t≠0 := by
+    filter_upwards [optical_congruence_domain_eventually a c] with t ht
+    exact (optical_congruence_domain_central_iff a c t).mp ht
+  obtain ⟨eps,heps,hsub⟩ := Metric.mem_nhds_iff.mp hn
+  have h0 : (0:ℝ)∈Metric.ball (0:ℝ) eps := by
+    simpa only [Metric.mem_ball, dist_self] using heps
+  filter_upwards [Metric.ball_mem_nhds (0:ℝ) heps] with t ht
+  exact optical_finite_balance (Metric.ball (0:ℝ) eps) Metric.isOpen_ball
+    (convex_ball (0:ℝ) eps) h0 a c ha hc (fun s hs => hsub hs)
+    rate mass eta hmatch t ht
+
+/-- Only the already proved past germ is asserted for constructedHeat043. -/
+theorem constructed_heat_finite_balance_germ (a c : ℝ) (ha : 0≤a) (hc : 0≤c)
+    (rate mass eta : ℝ) (hmatch : eta*(a+c)=2*Real.pi*mass) :
+    opticalScreenClausiusDefect a c ha hc rate mass eta =ᶠ[𝓝[<] (0:ℝ)]
+      (fun t => (rate/(2*Real.pi)*eta)*opticalAccumulatedCorrection a c t) :=
+  (optical_screen_clausius_germ a c ha hc rate mass eta).trans
+    ((optical_finite_balance_near_zero a c ha hc rate mass eta hmatch).filter_mono
+      nhdsWithin_le_nhds)
+
+/-- The fourth-order coefficient follows from the exact identity and the existing041 limit. -/
+theorem optical_correction_quartic_limit (a c : ℝ) (ha : 0≤a) (hc : 0≤c) :
+    Tendsto (fun t : ℝ => opticalAccumulatedCorrection a c t/t^4)
+      (𝓝[≠] (0:ℝ)) (𝓝 ((a^2+c^2)/12)) := by
+  have hm : (1:ℝ)*(a+c)=2*Real.pi*((a+c)/(2*Real.pi)) := by
+    field_simp [Real.pi_ne_zero]
+  have h := optical_clausius_quartic_limit a c (2*Real.pi)
+    ((a+c)/(2*Real.pi)) 1 ha hc hm
+  have hfactor : ((2*Real.pi)/(2*Real.pi))*1=(1:ℝ) := by
+    field_simp [Real.pi_ne_zero]
+  have hcoeff : (2*Real.pi)*1*(a^2+c^2)/(24*Real.pi)=(a^2+c^2)/12 := by
+    field_simp [Real.pi_ne_zero]; ring
+  rw [hcoeff] at h
+  have he : (fun t : ℝ => opticalAccumulatedCorrection a c t/t^4) =ᶠ[𝓝[≠] (0:ℝ)]
+      (fun t => opticalClausiusDefect a c (2*Real.pi) ((a+c)/(2*Real.pi)) 1 t/t^4) := by
+    filter_upwards [(optical_finite_balance_near_zero a c ha hc (2*Real.pi)
+      ((a+c)/(2*Real.pi)) 1 hm).filter_mono
+        (show 𝓝[≠] (0:ℝ) ≤ 𝓝 (0:ℝ) from nhdsWithin_le_nhds)] with t ht
+    rw [hfactor, one_mul] at ht
+    rw [← ht]
+  exact (tendsto_congr' he).2 h
+
+#print axioms opticalExpansion
+#print axioms opticalDistortionSquared
+#print axioms opticalAccumulatedCorrection
+#print axioms optical_distortion_nonneg
+#print axioms optical_expansion_zero
+#print axioms optical_expansion_derivative
+#print axioms optical_distortion_continuousOn
+#print axioms optical_area_positive
+#print axioms optical_area_derivative
+#print axioms optical_finite_balance
+#print axioms optical_correction_nonneg
+#print axioms optical_finite_balance_near_zero
+#print axioms constructed_heat_finite_balance_germ
+#print axioms optical_correction_quartic_limit
+
+end
+end ChatgptAudit.Optical051
+''',
+    "TGLExt/OpticalBalanceControls.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_051 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.OpticalVolterraBalance
+import TGLExt.OpticalRiccatiInvariant
+import Mathlib.Analysis.Calculus.Deriv.Pow
+
+set_option autoImplicit false
+
+namespace ChatgptAudit.Optical051
+open MeasureTheory Set
+noncomputable section
+
+/-- An exactly integrated variable-curvature control. -/
+theorem optical_affine_curvature_primitive (r v t : ℝ) :
+    opticalPrimitive (fun s => r + v * s) t = r * t + v * t ^ 2 / 2 := by
+  have hd : ∀ s ∈ uIcc 0 t,
+      HasDerivAt (fun u : ℝ => r * u + v * u ^ 2 / 2) (r + v * s) s := by
+    intro s _
+    convert ((hasDerivAt_id s).const_mul r).add
+      ((((hasDerivAt_id s).pow 2).const_mul v).div_const 2) using 1
+    all_goals first | rfl | (simp only [id_eq]; ring)
+  have hc : Continuous (fun s : ℝ => r + v * s) :=
+    continuous_const.add (continuous_const.mul continuous_id)
+  have h := intervalIntegral.integral_eq_sub_of_hasDerivAt hd (hc.intervalIntegrable 0 t)
+  simpa [opticalPrimitive] using h
+
+theorem optical_affine_curvature_drift (r v t : ℝ) :
+    opticalCurvatureDrift (fun s => r + v * s) t = -v * t ^ 2 / 2 := by
+  rw [opticalCurvatureDrift, optical_affine_curvature_primitive]
+  ring
+
+theorem optical_affine_drift_negative (r v t : ℝ) (hv : 0 < v) (ht : t ≠ 0) :
+    opticalCurvatureDrift (fun s => r + v * s) t < 0 := by
+  rw [optical_affine_curvature_drift]
+  have hp := sq_pos_of_ne_zero ht
+  nlinarith [mul_pos hv hp]
+
+theorem optical_affine_drift_positive (r v t : ℝ) (hv : v < 0) (ht : t ≠ 0) :
+    0 < opticalCurvatureDrift (fun s => r + v * s) t := by
+  rw [optical_affine_curvature_drift]
+  have hp := sq_pos_of_ne_zero ht
+  nlinarith [mul_pos (neg_pos.mpr hv) hp]
+
+/-- Riccati data feed the exact balance; optical equations and matching remain hypotheses. -/
+theorem optical_matrix_constant_balance
+    (I : Set ℝ) (ho : IsOpen I) (hI : Convex ℝ I) (h0 : 0 ∈ I)
+    (A x z y rxx rxy ryy Q : ℝ → ℝ) (K r : ℝ)
+    (hB : ∀ s ∈ I, opticalRiccatiSystem x z y rxx rxy ryy s)
+    (hR : ∀ s ∈ I, rxx s + ryy s = r)
+    (hA : ∀ s ∈ I, HasDerivAt A (A s * (x s + y s)) s)
+    (hzero : x 0 + y 0 = 0)
+    (hQ : ∀ s ∈ I, HasDerivAt Q (-K * s * r * A s) s)
+    (hQ0 : Q 0 = 0) (t : ℝ) (ht : t ∈ I) :
+    Q t - K * (A t - A 0) =
+      K * opticalVolterraCorrection A (fun s => opticalScreenNormSq (x s) (z s) (y s)) t := by
+  have hx : ContinuousOn x I :=
+    fun s hs => (hB s hs).1.continuousAt.continuousWithinAt
+  have hz : ContinuousOn z I :=
+    fun s hs => (hB s hs).2.1.continuousAt.continuousWithinAt
+  have hy : ContinuousOn y I :=
+    fun s hs => (hB s hs).2.2.continuousAt.continuousWithinAt
+  have hF : ContinuousOn (fun s => opticalScreenNormSq (x s) (z s) (y s)) I := by
+    unfold opticalScreenNormSq
+    exact ((hx.pow 2).add (continuousOn_const.mul (hz.pow 2))).add (hy.pow 2)
+  apply optical_volterra_balance_constant I ho hI h0 A (fun s => x s + y s)
+    (fun s => opticalScreenNormSq (x s) (z s) (y s)) Q K r hF hA
+    _ hzero hQ hQ0 t ht
+  intro s hs
+  simpa only [hR s hs] using optical_riccati_trace x z y rxx rxy ryy s (hB s hs)
+
+theorem optical_matrix_correction_nonneg
+    (I : Set ℝ) (hI : Convex ℝ I) (h0 : 0 ∈ I)
+    (A x z y : ℝ → ℝ) (hA : ∀ s ∈ I, 0 ≤ A s) (t : ℝ) (ht : t ∈ I) :
+    0 ≤ opticalVolterraCorrection A (fun s => opticalScreenNormSq (x s) (z s) (y s)) t :=
+  optical_volterra_correction_nonneg I hI h0 A _ hA
+    (fun s _ => optical_screen_norm_nonneg (x s) (z s) (y s)) t ht
+
+/-- Algebraic orientation for a segment from t to zero, with a nonzero thermal factor. -/
+theorem optical_past_entropy_orientation (Q A0 At temperature eta correction : ℝ)
+    (hT : temperature ≠ 0)
+    (hbalance : Q - temperature * eta * (At - A0) = temperature * eta * correction) :
+    eta * (A0 - At) = (-Q) / temperature + eta * correction := by
+  field_simp [hT]
+  nlinarith [hbalance]
+
+/-- At zero thermal factor, the scalar balance says only that the heat is zero. -/
+theorem optical_zero_temperature_control (Q A0 At eta correction : ℝ) :
+    (Q - (0 : ℝ) * eta * (At - A0) = (0 : ℝ) * eta * correction) ↔ Q = 0 := by
+  simp
+
+theorem optical_entropy_correction_nonneg (eta correction : ℝ)
+    (heta : 0 ≤ eta) (hc : 0 ≤ correction) : 0 ≤ eta * correction :=
+  mul_nonneg heta hc
+
+#print axioms optical_affine_curvature_primitive
+#print axioms optical_affine_curvature_drift
+#print axioms optical_affine_drift_negative
+#print axioms optical_affine_drift_positive
+#print axioms optical_matrix_constant_balance
+#print axioms optical_matrix_correction_nonneg
+#print axioms optical_past_entropy_orientation
+#print axioms optical_zero_temperature_control
+#print axioms optical_entropy_correction_nonneg
+
+end
+end ChatgptAudit.Optical051
+''',
+    "TGLExt/LocalHorizontalPauli.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_052 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.AperiodicCentralizerExpectation
+import TGLExt.ExpectationAlgebra
+import TGLExt.SitePauliObservables
+import TGLExt.UnitaryStateDerivative
+
+set_option autoImplicit false
+set_option maxHeartbeats 1800000
+
+namespace ChatgptAudit.Orbit052
+
+open TGLExt Matrix ChatgptAudit.Cocycle030 ChatgptAudit.Observable035
+  ChatgptAudit.Density033 ChatgptAudit.Aperiodic046 ChatgptAudit.Expectation047
+
+noncomputable section
+
+/-- Real generators in the first-site Pauli plane, inside the existing tower. -/
+def pauliHorizontal (P : SiteProfile) (v : Fin 2 → ℝ) :
+    TowerHilbert P →L[ℂ] TowerHilbert P :=
+  (v 0 : ℂ) • sitePauliX P 0 + (v 1 : ℂ) • sitePauliY P 0
+
+theorem pauli_horizontal_add (P : SiteProfile) (u v : Fin 2 → ℝ) :
+    pauliHorizontal P (u + v) = pauliHorizontal P u + pauliHorizontal P v := by
+  simp only [pauliHorizontal, Pi.add_apply, Complex.ofReal_add, add_smul]
+  abel
+
+theorem pauli_horizontal_smul (P : SiteProfile) (a : ℝ) (v : Fin 2 → ℝ) :
+    pauliHorizontal P (a • v) = (a : ℂ) • pauliHorizontal P v := by
+  simp only [pauliHorizontal, Pi.smul_apply, smul_eq_mul, Complex.ofReal_mul,
+    smul_add, smul_smul]
+
+theorem pauli_horizontal_basis_x (P : SiteProfile) :
+    pauliHorizontal P ![1, 0] = sitePauliX P 0 := by
+  simp [pauliHorizontal]
+
+theorem pauli_horizontal_basis_y (P : SiteProfile) :
+    pauliHorizontal P ![0, 1] = sitePauliY P 0 := by
+  simp [pauliHorizontal]
+
+theorem pauli_horizontal_mem_factor (P : SiteProfile) (v : Fin 2 → ℝ) :
+    pauliHorizontal P v ∈ theFactorObject P :=
+  add_mem
+    ((theFactorObject P).toStarSubalgebra.smul_mem (site_pauli_x_mem_factor P 0) _)
+    ((theFactorObject P).toStarSubalgebra.smul_mem (site_pauli_y_mem_factor P 0) _)
+
+theorem pauli_horizontal_selfadjoint (P : SiteProfile) (v : Fin 2 → ℝ) :
+    IsSelfAdjoint (pauliHorizontal P v) := by
+  change star (pauliHorizontal P v) = pauliHorizontal P v
+  simp only [pauliHorizontal, star_add, star_smul, Complex.star_def, Complex.conj_ofReal,
+    (site_pauli_x_selfadjoint P 0).star_eq, (site_pauli_y_selfadjoint P 0).star_eq]
+
+theorem pauli_horizontal_state (P : SiteProfile) (v : Fin 2 → ℝ) :
+    omegaState P (pauliHorizontal P v) = 0 := by
+  simp only [pauliHorizontal, omega_state_add, omega_state_smul,
+    site_pauli_x_state, site_pauli_y_state, mul_zero, add_zero]
+
+/-- The already constructed expectation agrees with local pinching by orthogonality. -/
+theorem aperiodic_expectation_local (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    (aperiodicExpectationInput P).E (towerPi P a) =
+      towerPi P (specExpect (towerW P N) a) := by
+  apply expectation_eq_of_ortho P (aperiodicExpectationInput P) _ _
+    (towerPi_mem_factor a) (pinching_into_global_centralizer N a)
+  intro B hB
+  exact pinching_global_ortho N a B hB
+
+/-- Pinching is the restriction of the constructed aperiodic expectation. -/
+theorem aperiodic_pauli_x_zero (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    (aperiodicExpectationInput P).E (sitePauliX P 0) = 0 := by
+  have h01 : P.w 0 ≠ 1 - P.w 0 := by intro h; apply hp; linarith
+  have h10 : 1 - P.w 0 ≠ P.w 0 := Ne.symm h01
+  change (aperiodicExpectationInput P).E (towerPi P (N := 0) pauliXMatrix) = 0
+  rw [aperiodic_expectation_local]
+  have hpin : specExpect (towerW P 0) pauliXMatrix = 0 := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [specExpect, towerW, siteW, pauliXMatrix, h01, h10]
+  rw [hpin]
+  exact (towerPiLinear P 0).map_zero
+
+theorem aperiodic_pauli_y_zero (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    (aperiodicExpectationInput P).E (sitePauliY P 0) = 0 := by
+  have h01 : P.w 0 ≠ 1 - P.w 0 := by intro h; apply hp; linarith
+  have h10 : 1 - P.w 0 ≠ P.w 0 := Ne.symm h01
+  change (aperiodicExpectationInput P).E (towerPi P (N := 0) pauliYMatrix) = 0
+  rw [aperiodic_expectation_local]
+  have hpin : specExpect (towerW P 0) pauliYMatrix = 0 := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [specExpect, towerW, siteW, pauliYMatrix, h01, h10]
+  rw [hpin]
+  exact (towerPiLinear P 0).map_zero
+
+theorem pauli_horizontal_expectation (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2)
+    (v : Fin 2 → ℝ) :
+    (aperiodicExpectationInput P).E (pauliHorizontal P v) = 0 := by
+  rw [pauliHorizontal, ChatgptAudit.Expectation047.expectation_add P (aperiodicExpectationInput P) _ _
+    ((theFactorObject P).toStarSubalgebra.smul_mem (site_pauli_x_mem_factor P 0) _)
+    ((theFactorObject P).toStarSubalgebra.smul_mem (site_pauli_y_mem_factor P 0) _),
+    ChatgptAudit.Expectation047.expectation_smul P (aperiodicExpectationInput P) _ _ (site_pauli_x_mem_factor P 0),
+    ChatgptAudit.Expectation047.expectation_smul P (aperiodicExpectationInput P) _ _ (site_pauli_y_mem_factor P 0),
+    aperiodic_pauli_x_zero P hp, aperiodic_pauli_y_zero P hp, smul_zero, smul_zero,
+    add_zero]
+
+/-- The full complex pairing retains its alternating imaginary component. -/
+theorem pauli_horizontal_pairing (P : SiteProfile) (u v : Fin 2 → ℝ) :
+    omegaState P (star (pauliHorizontal P u) * pauliHorizontal P v) =
+      ((u 0 * v 0 + u 1 * v 1 : ℝ) : ℂ) +
+        Complex.I * (((2 * P.w 0 - 1) * (u 0 * v 1 - u 1 * v 0) : ℝ) : ℂ) := by
+  have h1 : omegaState P (1 : TowerHilbert P →L[ℂ] TowerHilbert P) = 1 := by
+    exact hOmega_inner_self
+  rw [(pauli_horizontal_selfadjoint P u).star_eq]
+  simp only [pauliHorizontal, add_mul, mul_add, smul_mul_assoc, mul_smul_comm,
+    smul_smul, omega_state_add, omega_state_smul, site_pauli_x_square,
+    site_pauli_y_square, site_pauli_xy, site_pauli_yx, h1, site_pauli_z_state]
+  push_cast
+  ring
+
+theorem pauli_horizontal_re_pairing (P : SiteProfile) (u v : Fin 2 → ℝ) :
+    (omegaState P (star (pauliHorizontal P u) * pauliHorizontal P v)).re =
+      u 0 * v 0 + u 1 * v 1 := by
+  rw [pauli_horizontal_pairing]
+  simp
+
+theorem pauli_horizontal_im_pairing (P : SiteProfile) (u v : Fin 2 → ℝ) :
+    (omegaState P (star (pauliHorizontal P u) * pauliHorizontal P v)).im =
+      (2 * P.w 0 - 1) * (u 0 * v 1 - u 1 * v 0) := by
+  rw [pauli_horizontal_pairing]
+  simp
+
+theorem pauli_horizontal_gns_norm_sq (P : SiteProfile) (v : Fin 2 → ℝ) :
+    ‖pauliHorizontal P v (hOmega P)‖ ^ 2 = (v 0)^2 + (v 1)^2 := by
+  rw [norm_sq_eq_re_inner (𝕜 := ℂ)]
+  have h := pauli_horizontal_re_pairing P v v
+  rw [omega_product_inner, star_star] at h
+  simpa only [RCLike.re_eq_complex_re, pow_two] using h
+
+theorem pauli_x_gns_norm (P : SiteProfile) :
+    ‖sitePauliX P 0 (hOmega P)‖ = 1 := by
+  have h := pauli_horizontal_gns_norm_sq P ![1, 0]
+  rw [pauli_horizontal_basis_x] at h
+  norm_num at h
+  rcases h with h | h
+  · exact h
+  · have hn := norm_nonneg (sitePauliX P 0 (hOmega P))
+    linarith
+
+theorem pauli_y_gns_norm (P : SiteProfile) :
+    ‖sitePauliY P 0 (hOmega P)‖ = 1 := by
+  have h := pauli_horizontal_gns_norm_sq P ![0, 1]
+  rw [pauli_horizontal_basis_y] at h
+  norm_num at h
+  rcases h with h | h
+  · exact h
+  · have hn := norm_nonneg (sitePauliY P 0 (hOmega P))
+    linarith
+
+theorem pauli_xy_gns_pairing (P : SiteProfile) :
+    inner ℂ (sitePauliX P 0 (hOmega P)) (sitePauliY P 0 (hOmega P)) =
+      Complex.I * ((2 * P.w 0 - 1 : ℝ) : ℂ) := by
+  have h := pauli_horizontal_pairing P ![1, 0] ![0, 1]
+  rw [pauli_horizontal_basis_x, pauli_horizontal_basis_y,
+    omega_product_inner, star_star] at h
+  simpa using h
+
+/-- The real reading of an existing035 unitary state curve. -/
+def horizontalReading (P : SiteProfile) (v : Fin 2 → ℝ)
+    (B : TowerHilbert P →L[ℂ] TowerHilbert P) (t : ℝ) : ℝ :=
+  (orbitExpectation P (pauliHorizontal P v) 0 B t 0).re
+
+theorem horizontal_x_commutator (P : SiteProfile) (v : Fin 2 → ℝ) :
+    Complex.I * omegaState P
+      (sitePauliX P 0 * pauliHorizontal P v - pauliHorizontal P v * sitePauliX P 0) =
+      ((-2 * (2 * P.w 0 - 1) * v 1 : ℝ) : ℂ) := by
+  simp only [pauliHorizontal, mul_add, add_mul, mul_smul_comm, smul_mul_assoc,
+    omegaState_sub, omega_state_add, omega_state_smul,
+    site_pauli_xy, site_pauli_yx, site_pauli_z_state]
+  push_cast
+  ring_nf
+  simp only [Complex.I_sq]
+  ring
+
+theorem horizontal_y_commutator (P : SiteProfile) (v : Fin 2 → ℝ) :
+    Complex.I * omegaState P
+      (sitePauliY P 0 * pauliHorizontal P v - pauliHorizontal P v * sitePauliY P 0) =
+      ((2 * (2 * P.w 0 - 1) * v 0 : ℝ) : ℂ) := by
+  simp only [pauliHorizontal, mul_add, add_mul, mul_smul_comm, smul_mul_assoc,
+    omegaState_sub, omega_state_add, omega_state_smul,
+    site_pauli_xy, site_pauli_yx, site_pauli_z_state]
+  push_cast
+  ring_nf
+  simp only [Complex.I_sq]
+  ring
+
+theorem horizontal_x_reading_derivative (P : SiteProfile) (v : Fin 2 → ℝ) :
+    HasDerivAt (horizontalReading P v (sitePauliX P 0))
+      (-2 * (2 * P.w 0 - 1) * v 1) 0 := by
+  have hd := orbit_expectation_first_derivative P (pauliHorizontal P v) 0
+    (sitePauliX P 0) (pauli_horizontal_selfadjoint P v)
+  rw [horizontal_x_commutator] at hd
+  convert (Complex.reCLM.hasFDerivAt.comp_hasDerivAt 0 hd) using 1
+  all_goals rfl
+
+theorem horizontal_y_reading_derivative (P : SiteProfile) (v : Fin 2 → ℝ) :
+    HasDerivAt (horizontalReading P v (sitePauliY P 0))
+      (2 * (2 * P.w 0 - 1) * v 0) 0 := by
+  have hd := orbit_expectation_first_derivative P (pauliHorizontal P v) 0
+    (sitePauliY P 0) (pauli_horizontal_selfadjoint P v)
+  rw [horizontal_y_commutator] at hd
+  convert (Complex.reCLM.hasFDerivAt.comp_hasDerivAt 0 hd) using 1
+  all_goals rfl
+
+/-- Both components are actual derivatives, not an assigned response matrix. -/
+def horizontalResponse (P : SiteProfile) (v : Fin 2 → ℝ) : Fin 2 → ℝ :=
+  ![deriv (horizontalReading P v (sitePauliX P 0)) 0,
+    deriv (horizontalReading P v (sitePauliY P 0)) 0]
+
+theorem horizontal_response_formula (P : SiteProfile) (v : Fin 2 → ℝ) :
+    horizontalResponse P v =
+      ![-2 * (2 * P.w 0 - 1) * v 1, 2 * (2 * P.w 0 - 1) * v 0] := by
+  rw [horizontalResponse, (horizontal_x_reading_derivative P v).deriv,
+    (horizontal_y_reading_derivative P v).deriv]
+
+def horizontalResponseMatrix (P : SiteProfile) : Matrix (Fin 2) (Fin 2) ℝ :=
+  !![horizontalResponse P ![1, 0] 0, horizontalResponse P ![0, 1] 0;
+     horizontalResponse P ![1, 0] 1, horizontalResponse P ![0, 1] 1]
+
+theorem horizontal_response_matrix (P : SiteProfile) :
+    horizontalResponseMatrix P =
+      !![0, -2 * (2 * P.w 0 - 1); 2 * (2 * P.w 0 - 1), 0] := by
+  simp [horizontalResponseMatrix, horizontal_response_formula]
+
+theorem horizontal_response_determinant (P : SiteProfile) :
+    (horizontalResponseMatrix P).det = 4 * (2 * P.w 0 - 1)^2 := by
+  rw [horizontal_response_matrix, Matrix.det_fin_two]
+  simp
+  ring
+
+theorem horizontal_response_injective (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    Function.Injective (horizontalResponse P) := by
+  intro u v huv
+  have h0 := congrFun huv 0
+  have h1 := congrFun huv 1
+  rw [horizontal_response_formula, horizontal_response_formula] at h0 h1
+  norm_num at h0 h1
+  have hr : 2 * P.w 0 - 1 ≠ 0 := by intro h; apply hp; linarith
+  have hu : u 0 = v 0 := h1.resolve_right hr
+  have hv : u 1 = v 1 := h0.resolve_right hr
+  funext i
+  fin_cases i
+  · exact hu
+  · exact hv
+
+/-- Equality of all global state readings forces equality of these local orbit tangents. -/
+theorem horizontal_state_tangent_separates (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2)
+    (u v : Fin 2 → ℝ)
+    (h : ∀ B ∈ theFactorObject P,
+      deriv (horizontalReading P u B) 0 = deriv (horizontalReading P v B) 0) :
+    u = v := by
+  apply horizontal_response_injective P hp
+  simp only [horizontalResponse,
+    h (sitePauliX P 0) (site_pauli_x_mem_factor P 0),
+    h (sitePauliY P 0) (site_pauli_y_mem_factor P 0)]
+
+theorem horizontal_response_tracial (P : SiteProfile) (hp : P.w 0 = 1 / 2)
+    (v : Fin 2 → ℝ) : horizontalResponse P v = 0 := by
+  rw [horizontal_response_formula, hp]
+  ext i
+  fin_cases i <;> norm_num
+
+theorem aperiodic_pauli_x_tracial (P : SiteProfile) (hp : P.w 0 = 1 / 2) :
+    (aperiodicExpectationInput P).E (sitePauliX P 0) = sitePauliX P 0 := by
+  change (aperiodicExpectationInput P).E (towerPi P (N := 0) pauliXMatrix) =
+    towerPi P (N := 0) pauliXMatrix
+  rw [aperiodic_expectation_local]
+  congr 1
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num [specExpect, towerW, siteW, hp]
+
+theorem aperiodic_pauli_y_tracial (P : SiteProfile) (hp : P.w 0 = 1 / 2) :
+    (aperiodicExpectationInput P).E (sitePauliY P 0) = sitePauliY P 0 := by
+  change (aperiodicExpectationInput P).E (towerPi P (N := 0) pauliYMatrix) =
+    towerPi P (N := 0) pauliYMatrix
+  rw [aperiodic_expectation_local]
+  congr 1
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num [specExpect, towerW, siteW, hp]
+
+#print axioms pauliHorizontal
+#print axioms pauli_horizontal_add
+#print axioms pauli_horizontal_smul
+#print axioms pauli_horizontal_basis_x
+#print axioms pauli_horizontal_basis_y
+#print axioms pauli_horizontal_mem_factor
+#print axioms pauli_horizontal_selfadjoint
+#print axioms pauli_horizontal_state
+#print axioms aperiodic_expectation_local
+#print axioms aperiodic_pauli_x_zero
+#print axioms aperiodic_pauli_y_zero
+#print axioms pauli_horizontal_expectation
+#print axioms pauli_horizontal_pairing
+#print axioms pauli_horizontal_re_pairing
+#print axioms pauli_horizontal_im_pairing
+#print axioms pauli_horizontal_gns_norm_sq
+#print axioms pauli_x_gns_norm
+#print axioms pauli_y_gns_norm
+#print axioms pauli_xy_gns_pairing
+#print axioms horizontalReading
+#print axioms horizontal_x_commutator
+#print axioms horizontal_y_commutator
+#print axioms horizontal_x_reading_derivative
+#print axioms horizontal_y_reading_derivative
+#print axioms horizontalResponse
+#print axioms horizontal_response_formula
+#print axioms horizontalResponseMatrix
+#print axioms horizontal_response_matrix
+#print axioms horizontal_response_determinant
+#print axioms horizontal_response_injective
+#print axioms horizontal_state_tangent_separates
+#print axioms horizontal_response_tracial
+#print axioms aperiodic_pauli_x_tracial
+#print axioms aperiodic_pauli_y_tracial
+
+end
+end ChatgptAudit.Orbit052
+''',
+    "TGLExt/ModularHorizontalRotation.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_052 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.SitePauliObservables
+import TGLExt.TheModularFlowIsAHorizon
+import Mathlib.Data.Real.Sign
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+
+set_option autoImplicit false
+set_option maxHeartbeats 800000
+
+namespace ChatgptAudit.Orbit052
+open TGLExt ChatgptAudit ChatgptAudit.Observable035 Matrix
+noncomputable section
+
+def firstSiteModularGap (P : SiteProfile) : ℝ :=
+  Real.log (P.w 0) - Real.log (1 - P.w 0)
+
+def modularQuarterTurnTime (P : SiteProfile) : ℝ :=
+  -Real.pi / (2 * firstSiteModularGap P)
+
+def modularOrientedQuarterTime (P : SiteProfile) : ℝ :=
+  -Real.pi / (2 * |firstSiteModularGap P|)
+
+theorem first_site_modular_gap_ne_zero (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    firstSiteModularGap P ≠ 0 := by
+  intro h
+  have he := Real.log_injOn_pos (P.pos 0)
+    (show 0 < 1 - P.w 0 by linarith [P.lt_one 0])
+    (sub_eq_zero.mp h)
+  apply hp
+  linarith
+
+theorem first_site_modular_gap_pos_iff (P : SiteProfile) :
+    0 < firstSiteModularGap P ↔ 0 < 2 * P.w 0 - 1 := by
+  rw [firstSiteModularGap, sub_pos,
+    Real.log_lt_log_iff (show 0 < 1 - P.w 0 by linarith [P.lt_one 0]) (P.pos 0)]
+  constructor <;> intro h <;> linarith
+
+theorem first_site_modular_gap_neg_iff (P : SiteProfile) :
+    firstSiteModularGap P < 0 ↔ 2 * P.w 0 - 1 < 0 := by
+  rw [firstSiteModularGap, sub_neg,
+    Real.log_lt_log_iff (P.pos 0) (show 0 < 1 - P.w 0 by linarith [P.lt_one 0])]
+  constructor <;> intro h <;> linarith
+
+theorem first_site_modular_gap_sign (P : SiteProfile) :
+    Real.sign (firstSiteModularGap P) = Real.sign (2 * P.w 0 - 1) := by
+  rcases lt_trichotomy (firstSiteModularGap P) 0 with h | h | h
+  · rw [Real.sign_of_neg h,
+      Real.sign_of_neg ((first_site_modular_gap_neg_iff P).mp h)]
+  · have hr : 2 * P.w 0 - 1 = 0 := by
+      by_contra hr
+      rcases lt_or_gt_of_ne hr with hn | hp
+      · have hg := (first_site_modular_gap_neg_iff P).mpr hn
+        linarith
+      · have hg := (first_site_modular_gap_pos_iff P).mpr hp
+        linarith
+    rw [h, hr]
+  · rw [Real.sign_of_pos h,
+      Real.sign_of_pos ((first_site_modular_gap_pos_iff P).mp h)]
+
+theorem modular_phase_trigonometric (t r : ℝ) :
+    modularPhase t r =
+      (Real.cos (t * r) : ℂ) + (Real.sin (t * r) : ℂ) * Complex.I := by
+  simp only [modularPhase, Complex.exp_mul_I, Complex.ofReal_cos, Complex.ofReal_sin]
+
+theorem first_site_flow_x (P : SiteProfile) (t : ℝ) :
+    flowLevel P t 0 pauliXMatrix =
+      (Real.cos (t * firstSiteModularGap P) : ℂ) • pauliXMatrix -
+      (Real.sin (t * firstSiteModularGap P) : ℂ) • pauliYMatrix := by
+  have hgap : Real.log (P.w 0) - Real.log (1 - P.w 0) =
+      firstSiteModularGap P := rfl
+  have hneg : Real.log (1 - P.w 0) - Real.log (P.w 0) =
+      -(firstSiteModularGap P) := by
+    unfold firstSiteModularGap
+    ring
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [flowLevel, towerW, siteW, pauliXMatrix, pauliYMatrix,
+      modular_phase_trigonometric, hgap, hneg, mul_neg]
+  ring
+
+theorem first_site_flow_y (P : SiteProfile) (t : ℝ) :
+    flowLevel P t 0 pauliYMatrix =
+      (Real.sin (t * firstSiteModularGap P) : ℂ) • pauliXMatrix +
+      (Real.cos (t * firstSiteModularGap P) : ℂ) • pauliYMatrix := by
+  have hgap : Real.log (P.w 0) - Real.log (1 - P.w 0) =
+      firstSiteModularGap P := rfl
+  have hneg : Real.log (1 - P.w 0) - Real.log (P.w 0) =
+      -(firstSiteModularGap P) := by
+    unfold firstSiteModularGap
+    ring
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [flowLevel, towerW, siteW, pauliXMatrix, pauliYMatrix,
+      modular_phase_trigonometric, hgap, hneg, mul_neg] <;>
+    ring_nf <;> simp [Complex.I_sq]
+
+theorem modular_horizon_pauli_x (P : SiteProfile) (t : ℝ) :
+    adT (modularHorizon P t) (sitePauliX P 0) =
+      (Real.cos (t * firstSiteModularGap P) : ℂ) • sitePauliX P 0 -
+      (Real.sin (t * firstSiteModularGap P) : ℂ) • sitePauliY P 0 := by
+  rw [adT_modularHorizon]
+  change modularConjugation P t (towerPi P (N := 0) pauliXMatrix) = _
+  rw [modularConjugation_local, first_site_flow_x]
+  change (towerPiLinear P 0) (_ - _) = _
+  rw [map_sub, map_smul, map_smul]
+  rfl
+
+theorem modular_horizon_pauli_y (P : SiteProfile) (t : ℝ) :
+    adT (modularHorizon P t) (sitePauliY P 0) =
+      (Real.sin (t * firstSiteModularGap P) : ℂ) • sitePauliX P 0 +
+      (Real.cos (t * firstSiteModularGap P) : ℂ) • sitePauliY P 0 := by
+  rw [adT_modularHorizon]
+  change modularConjugation P t (towerPi P (N := 0) pauliYMatrix) = _
+  rw [modularConjugation_local, first_site_flow_y, towerPi_add, towerPi_smul,
+    towerPi_smul]
+  rfl
+
+theorem modular_quarter_turn_angle (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    modularQuarterTurnTime P * firstSiteModularGap P = -(Real.pi / 2) := by
+  unfold modularQuarterTurnTime
+  field_simp [first_site_modular_gap_ne_zero P hp]
+
+theorem modular_quarter_horizon_x (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    adT (modularHorizon P (modularQuarterTurnTime P)) (sitePauliX P 0) =
+      sitePauliY P 0 := by
+  rw [modular_horizon_pauli_x, modular_quarter_turn_angle P hp]
+  simp
+
+theorem modular_quarter_horizon_y (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    adT (modularHorizon P (modularQuarterTurnTime P)) (sitePauliY P 0) =
+      -sitePauliX P 0 := by
+  rw [modular_horizon_pauli_y, modular_quarter_turn_angle P hp]
+  simp
+
+theorem modular_oriented_quarter_time_neg (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    modularOrientedQuarterTime P < 0 := by
+  exact div_neg_of_neg_of_pos (neg_lt_zero.mpr Real.pi_pos)
+    (mul_pos (by norm_num) (abs_pos.mpr (first_site_modular_gap_ne_zero P hp)))
+
+theorem modular_oriented_angle_of_pos (P : SiteProfile)
+    (h : 0 < firstSiteModularGap P) :
+    modularOrientedQuarterTime P * firstSiteModularGap P = -(Real.pi / 2) := by
+  unfold modularOrientedQuarterTime
+  rw [abs_of_pos h]
+  field_simp [ne_of_gt h]
+
+theorem modular_oriented_angle_of_neg (P : SiteProfile)
+    (h : firstSiteModularGap P < 0) :
+    modularOrientedQuarterTime P * firstSiteModularGap P = Real.pi / 2 := by
+  unfold modularOrientedQuarterTime
+  rw [abs_of_neg h]
+  field_simp [ne_of_lt h]
+
+theorem modular_oriented_horizon_x (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    adT (modularHorizon P (modularOrientedQuarterTime P)) (sitePauliX P 0) =
+      (Real.sign (2 * P.w 0 - 1) : ℂ) • sitePauliY P 0 := by
+  rw [modular_horizon_pauli_x]
+  rcases lt_or_gt_of_ne (first_site_modular_gap_ne_zero P hp) with hn | hp
+  · rw [modular_oriented_angle_of_neg P hn,
+      Real.sign_of_neg ((first_site_modular_gap_neg_iff P).mp hn)]
+    simp
+  · rw [modular_oriented_angle_of_pos P hp,
+      Real.sign_of_pos ((first_site_modular_gap_pos_iff P).mp hp)]
+    simp
+
+theorem modular_oriented_horizon_y (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    adT (modularHorizon P (modularOrientedQuarterTime P)) (sitePauliY P 0) =
+      (-Real.sign (2 * P.w 0 - 1) : ℂ) • sitePauliX P 0 := by
+  rw [modular_horizon_pauli_y]
+  rcases lt_or_gt_of_ne (first_site_modular_gap_ne_zero P hp) with hn | hp
+  · rw [modular_oriented_angle_of_neg P hn,
+      Real.sign_of_neg ((first_site_modular_gap_neg_iff P).mp hn)]
+    simp
+  · rw [modular_oriented_angle_of_pos P hp,
+      Real.sign_of_pos ((first_site_modular_gap_pos_iff P).mp hp)]
+    simp
+
+theorem first_site_modular_gap_tracial (P : SiteProfile) (hp : P.w 0 = 1 / 2) :
+    firstSiteModularGap P = 0 := by
+  norm_num [firstSiteModularGap, hp]
+
+theorem modular_horizon_pauli_x_tracial (P : SiteProfile) (hp : P.w 0 = 1 / 2)
+    (t : ℝ) :
+    adT (modularHorizon P t) (sitePauliX P 0) = sitePauliX P 0 := by
+  rw [modular_horizon_pauli_x, first_site_modular_gap_tracial P hp]
+  simp
+
+theorem modular_horizon_pauli_y_tracial (P : SiteProfile) (hp : P.w 0 = 1 / 2)
+    (t : ℝ) :
+    adT (modularHorizon P t) (sitePauliY P 0) = sitePauliY P 0 := by
+  rw [modular_horizon_pauli_y, first_site_modular_gap_tracial P hp]
+  simp
+
+#print axioms firstSiteModularGap
+#print axioms modularQuarterTurnTime
+#print axioms modularOrientedQuarterTime
+#print axioms first_site_modular_gap_ne_zero
+#print axioms first_site_modular_gap_pos_iff
+#print axioms first_site_modular_gap_neg_iff
+#print axioms first_site_modular_gap_sign
+#print axioms modular_phase_trigonometric
+#print axioms first_site_flow_x
+#print axioms first_site_flow_y
+#print axioms modular_horizon_pauli_x
+#print axioms modular_horizon_pauli_y
+#print axioms modular_quarter_turn_angle
+#print axioms modular_quarter_horizon_x
+#print axioms modular_quarter_horizon_y
+#print axioms modular_oriented_quarter_time_neg
+#print axioms modular_oriented_angle_of_pos
+#print axioms modular_oriented_angle_of_neg
+#print axioms modular_oriented_horizon_x
+#print axioms modular_oriented_horizon_y
+#print axioms first_site_modular_gap_tracial
+#print axioms modular_horizon_pauli_x_tracial
+#print axioms modular_horizon_pauli_y_tracial
+
+end
+end ChatgptAudit.Orbit052
+''',
+    "TGLExt/HorizontalAreaSelection.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_052 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.HorizonAreaScale
+import Mathlib.Data.Real.Sign
+import Mathlib.Tactic
+
+set_option autoImplicit false
+
+namespace ChatgptAudit.Orbit052
+open Matrix ChatgptAudit ChatgptAudit.Area045
+noncomputable section
+
+abbrev OrbitPlane := Fin 2 → ℝ
+
+def orbitBasisX : OrbitPlane := ![1, 0]
+def orbitBasisY : OrbitPlane := ![0, 1]
+
+def orbitQuarterTurn : OrbitPlane →ₗ[ℝ] OrbitPlane where
+  toFun v := ![-v 1, v 0]
+  map_add' u v := by
+    ext i
+    fin_cases i
+    · simp
+      ring
+    · simp
+  map_smul' c v := by
+    ext i
+    fin_cases i <;> simp
+
+def orbitDotForm : OrbitPlane →ₗ[ℝ] OrbitPlane →ₗ[ℝ] ℝ where
+  toFun u :=
+    { toFun := fun v => u 0 * v 0 + u 1 * v 1
+      map_add' := by
+        intro v w
+        change u 0 * (v 0 + w 0) + u 1 * (v 1 + w 1) =
+          (u 0 * v 0 + u 1 * v 1) + (u 0 * w 0 + u 1 * w 1)
+        ring
+      map_smul' := by
+        intro c v
+        change u 0 * (c * v 0) + u 1 * (c * v 1) =
+          c * (u 0 * v 0 + u 1 * v 1)
+        ring }
+  map_add' := by
+    intro u v
+    apply LinearMap.ext
+    intro w
+    change (u 0 + v 0) * w 0 + (u 1 + v 1) * w 1 =
+      (u 0 * w 0 + u 1 * w 1) + (v 0 * w 0 + v 1 * w 1)
+    ring
+  map_smul' := by
+    intro c u
+    apply LinearMap.ext
+    intro v
+    change (c * u 0) * v 0 + (c * u 1) * v 1 =
+      c * (u 0 * v 0 + u 1 * v 1)
+    ring
+
+/-- Alternating form in the generator coordinates of one unitary orbit. -/
+def orbitSymplectic (r : ℝ) (u v : OrbitPlane) : ℝ :=
+  r * (u 0 * v 1 - u 1 * v 0)
+
+def orbitOrientedTurn (r : ℝ) : OrbitPlane →ₗ[ℝ] OrbitPlane :=
+  Real.sign r • orbitQuarterTurn
+
+/-- The chosen symplectic calibration, distinct from trace-one normalization. -/
+def orbitCalibratedForm (r : ℝ) : OrbitPlane →ₗ[ℝ] OrbitPlane →ₗ[ℝ] ℝ :=
+  |r| • orbitDotForm
+
+theorem orbit_basis_decomposition (u : OrbitPlane) :
+    u = u 0 • orbitBasisX + u 1 • orbitBasisY := by
+  ext i
+  fin_cases i <;> simp [orbitBasisX, orbitBasisY]
+
+theorem orbit_quarter_basis_x : orbitQuarterTurn orbitBasisX = orbitBasisY := by
+  ext i
+  fin_cases i <;> simp [orbitQuarterTurn, orbitBasisX, orbitBasisY]
+
+theorem orbit_quarter_basis_y : orbitQuarterTurn orbitBasisY = -orbitBasisX := by
+  ext i
+  fin_cases i <;> simp [orbitQuarterTurn, orbitBasisX, orbitBasisY]
+
+theorem orbit_quarter_square (u : OrbitPlane) :
+    orbitQuarterTurn (orbitQuarterTurn u) = -u := by
+  ext i
+  fin_cases i <;> simp [orbitQuarterTurn]
+
+theorem orbit_dot_apply (u v : OrbitPlane) :
+    orbitDotForm u v = u 0 * v 0 + u 1 * v 1 := rfl
+
+theorem orbit_bilinear_expansion
+    (b : OrbitPlane →ₗ[ℝ] OrbitPlane →ₗ[ℝ] ℝ) (u v : OrbitPlane) :
+    b u v =
+      u 0 * v 0 * b orbitBasisX orbitBasisX +
+      u 0 * v 1 * b orbitBasisX orbitBasisY +
+      u 1 * v 0 * b orbitBasisY orbitBasisX +
+      u 1 * v 1 * b orbitBasisY orbitBasisY := by
+  conv_lhs => rw [orbit_basis_decomposition u, orbit_basis_decomposition v]
+  simp only [map_add, map_smul, LinearMap.add_apply, LinearMap.smul_apply, smul_eq_mul]
+  ring
+
+/-- A real symmetric form invariant under this actual quarter turn is isotropic. -/
+theorem orbit_quarter_invariant_form
+    (b : OrbitPlane →ₗ[ℝ] OrbitPlane →ₗ[ℝ] ℝ)
+    (hsym : FormSymmetric b)
+    (hinv : ∀ u v, b (orbitQuarterTurn u) (orbitQuarterTurn v) = b u v) :
+    b = b orbitBasisX orbitBasisX • orbitDotForm := by
+  have hdiag : b orbitBasisY orbitBasisY = b orbitBasisX orbitBasisX := by
+    simpa only [orbit_quarter_basis_x] using hinv orbitBasisX orbitBasisX
+  have hc := hinv orbitBasisX orbitBasisY
+  rw [orbit_quarter_basis_x, orbit_quarter_basis_y, map_neg] at hc
+  have hcross : b orbitBasisX orbitBasisY = 0 := by
+    rw [hsym orbitBasisY orbitBasisX] at hc
+    linarith
+  apply LinearMap.ext
+  intro u
+  apply LinearMap.ext
+  intro v
+  rw [orbit_bilinear_expansion b u v]
+  change _ = b orbitBasisX orbitBasisX * (u 0 * v 0 + u 1 * v 1)
+  rw [hdiag, hsym orbitBasisY orbitBasisX, hcross]
+  ring
+
+theorem orbit_trace_one_selection
+    (b : OrbitPlane →ₗ[ℝ] OrbitPlane →ₗ[ℝ] ℝ)
+    (hsym : FormSymmetric b)
+    (hinv : ∀ u v, b (orbitQuarterTurn u) (orbitQuarterTurn v) = b u v)
+    (htrace : b orbitBasisX orbitBasisX + b orbitBasisY orbitBasisY = 1) :
+    b = (1 / 2 : ℝ) • orbitDotForm := by
+  have h := orbit_quarter_invariant_form b hsym hinv
+  have hdiag : b orbitBasisY orbitBasisY = b orbitBasisX orbitBasisX := by
+    simpa only [orbit_quarter_basis_x] using hinv orbitBasisX orbitBasisX
+  rw [hdiag] at htrace
+  have hc : b orbitBasisX orbitBasisX = (1 / 2 : ℝ) := by linarith
+  simpa only [hc] using h
+
+theorem orbit_scalar_gram (c : ℝ) :
+    formGram (c • orbitDotForm) orbitBasisX orbitBasisY = !![c, 0; 0, c] := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [formGram, orbitDotForm, orbitBasisX, orbitBasisY]
+
+theorem orbit_scalar_area (c : ℝ) (hc : 0 ≤ c) :
+    formArea (c • orbitDotForm) orbitBasisX orbitBasisY = c := by
+  rw [formArea, orbit_scalar_gram]
+  change Real.sqrt ((!![c, 0; 0, c] : ScreenMatrix).det) = c
+  rw [Matrix.det_fin_two]
+  change Real.sqrt (c * c - 0 * 0) = c
+  rw [mul_zero, sub_zero, ← pow_two, Real.sqrt_sq_eq_abs, abs_of_nonneg hc]
+
+theorem orbit_trace_one_area
+    (b : OrbitPlane →ₗ[ℝ] OrbitPlane →ₗ[ℝ] ℝ)
+    (hsym : FormSymmetric b)
+    (hinv : ∀ u v, b (orbitQuarterTurn u) (orbitQuarterTurn v) = b u v)
+    (htrace : b orbitBasisX orbitBasisX + b orbitBasisY orbitBasisY = 1) :
+    formArea b orbitBasisX orbitBasisY = 1 / 2 := by
+  rw [orbit_trace_one_selection b hsym hinv htrace]
+  exact orbit_scalar_area (1 / 2) (by norm_num)
+
+/-- The diagonal sum for unit vectors; in particular for every orthonormal basis. -/
+theorem orbit_selected_trace_in_orthonormal_pair (c : ℝ) (u v : OrbitPlane)
+    (hu : orbitDotForm u u = 1) (hv : orbitDotForm v v = 1) :
+    (c • orbitDotForm) u u + (c • orbitDotForm) v v = 2 * c := by
+  change c * orbitDotForm u u + c * orbitDotForm v v = 2 * c
+  rw [hu, hv]
+  ring
+
+theorem orbit_sign_times_self (r : ℝ) : Real.sign r * r = |r| := by
+  rcases lt_trichotomy r 0 with h | rfl | h
+  · rw [Real.sign_of_neg h, abs_of_neg h]
+    ring
+  · simp
+  · rw [Real.sign_of_pos h, abs_of_pos h, one_mul]
+
+theorem orbit_calibration_identity (r : ℝ) (u v : OrbitPlane) :
+    orbitSymplectic r u (orbitOrientedTurn r v) = orbitCalibratedForm r u v := by
+  change r * (u 0 * (Real.sign r * v 0) - u 1 * (Real.sign r * (-v 1))) =
+    |r| * (u 0 * v 0 + u 1 * v 1)
+  rw [← orbit_sign_times_self r]
+  ring
+
+theorem orbit_oriented_square (r : ℝ) (hr : r ≠ 0) (u : OrbitPlane) :
+    orbitOrientedTurn r (orbitOrientedTurn r u) = -u := by
+  rcases Real.sign_apply_eq_of_ne_zero r hr with hs | hs
+  · ext i
+    fin_cases i <;> simp [orbitOrientedTurn, orbitQuarterTurn, hs]
+  · ext i
+    fin_cases i <;> simp [orbitOrientedTurn, orbitQuarterTurn, hs]
+
+/-- With g(u,v)=Omega(u,Qv), compatibility has the negative sign on g(u,Qv). -/
+theorem orbit_calibration_compatibility (r : ℝ) (hr : r ≠ 0) (u v : OrbitPlane) :
+    orbitSymplectic r u v = -orbitCalibratedForm r u (orbitOrientedTurn r v) := by
+  rw [← orbit_calibration_identity, orbit_oriented_square r hr]
+  unfold orbitSymplectic
+  simp only [Pi.neg_apply]
+  ring
+
+theorem orbit_calibrated_symmetric (r : ℝ) : FormSymmetric (orbitCalibratedForm r) := by
+  intro u v
+  change |r| * (u 0 * v 0 + u 1 * v 1) = |r| * (v 0 * u 0 + v 1 * u 1)
+  ring
+
+theorem orbit_calibrated_positive (r : ℝ) (hr : r ≠ 0) :
+    FormPositive (orbitCalibratedForm r) := by
+  intro u hu
+  have hsum : 0 < u 0 ^ 2 + u 1 ^ 2 := by
+    have hx := sq_nonneg (u 0)
+    have hy := sq_nonneg (u 1)
+    by_contra hn
+    have hx0 : u 0 = 0 := sq_eq_zero_iff.mp (by nlinarith)
+    have hy0 : u 1 = 0 := sq_eq_zero_iff.mp (by nlinarith)
+    apply hu
+    ext i
+    fin_cases i <;> assumption
+  change 0 < |r| * (u 0 * u 0 + u 1 * u 1)
+  exact mul_pos (abs_pos.mpr hr) (by simpa only [pow_two] using hsum)
+
+theorem orbit_calibrated_area (r : ℝ) :
+    formArea (orbitCalibratedForm r) orbitBasisX orbitBasisY = |r| :=
+  orbit_scalar_area |r| (abs_nonneg r)
+
+theorem orbit_zero_calibration :
+    orbitCalibratedForm 0 = 0 ∧ orbitOrientedTurn 0 = 0 := by
+  simp [orbitCalibratedForm, orbitOrientedTurn]
+
+#print axioms OrbitPlane
+#print axioms orbitBasisX
+#print axioms orbitBasisY
+#print axioms orbitQuarterTurn
+#print axioms orbitDotForm
+#print axioms orbitSymplectic
+#print axioms orbitOrientedTurn
+#print axioms orbitCalibratedForm
+#print axioms orbit_basis_decomposition
+#print axioms orbit_quarter_basis_x
+#print axioms orbit_quarter_basis_y
+#print axioms orbit_quarter_square
+#print axioms orbit_dot_apply
+#print axioms orbit_bilinear_expansion
+#print axioms orbit_quarter_invariant_form
+#print axioms orbit_trace_one_selection
+#print axioms orbit_scalar_gram
+#print axioms orbit_scalar_area
+#print axioms orbit_trace_one_area
+#print axioms orbit_selected_trace_in_orthonormal_pair
+#print axioms orbit_sign_times_self
+#print axioms orbit_calibration_identity
+#print axioms orbit_oriented_square
+#print axioms orbit_calibration_compatibility
+#print axioms orbit_calibrated_symmetric
+#print axioms orbit_calibrated_positive
+#print axioms orbit_calibrated_area
+#print axioms orbit_zero_calibration
+
+end
+end ChatgptAudit.Orbit052
+''',
+    "TGLExt/QuantumOrbitArea.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_052 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.LocalHorizontalPauli
+import TGLExt.ModularHorizontalRotation
+import TGLExt.HorizontalAreaSelection
+
+set_option autoImplicit false
+set_option maxHeartbeats 1400000
+
+namespace ChatgptAudit.Orbit052
+open TGLExt ChatgptAudit ChatgptAudit.Observable035 ChatgptAudit.Area045
+noncomputable section
+
+theorem quantum_horizontal_re_pairing (P : SiteProfile) (u v : OrbitPlane) :
+    (omegaState P (star (pauliHorizontal P u) * pauliHorizontal P v)).re =
+      orbitDotForm u v :=
+  pauli_horizontal_re_pairing P u v
+
+theorem quantum_horizontal_im_pairing (P : SiteProfile) (u v : OrbitPlane) :
+    (omegaState P (star (pauliHorizontal P u) * pauliHorizontal P v)).im =
+      orbitSymplectic (2 * P.w 0 - 1) u v :=
+  pauli_horizontal_im_pairing P u v
+
+theorem quantum_horizontal_quarter_action (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2)
+    (v : OrbitPlane) :
+    adT (modularHorizon P (modularQuarterTurnTime P)) (pauliHorizontal P v) =
+      pauliHorizontal P (orbitQuarterTurn v) := by
+  have hx := modular_quarter_horizon_x P hp
+  have hy := modular_quarter_horizon_y P hp
+  rw [adT_modularHorizon] at hx hy ⊢
+  simp only [pauliHorizontal, map_add, map_smul, hx, hy]
+  simp [orbitQuarterTurn, neg_smul, smul_neg]
+  abel
+
+theorem quantum_horizontal_oriented_action (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2)
+    (v : OrbitPlane) :
+    adT (modularHorizon P (modularOrientedQuarterTime P)) (pauliHorizontal P v) =
+      pauliHorizontal P (orbitOrientedTurn (2 * P.w 0 - 1) v) := by
+  have hx := modular_oriented_horizon_x P hp
+  have hy := modular_oriented_horizon_y P hp
+  rw [adT_modularHorizon] at hx hy ⊢
+  simp only [pauliHorizontal, map_add, map_smul, hx, hy]
+  have hr : 2 * P.w 0 - 1 ≠ 0 := by intro h; apply hp; linarith
+  rcases Real.sign_apply_eq_of_ne_zero (2 * P.w 0 - 1) hr with hs | hs
+  · simp [hs, orbitOrientedTurn, orbitQuarterTurn, neg_smul, smul_neg]
+    abel
+  · simp [hs, orbitOrientedTurn, orbitQuarterTurn, neg_smul, smul_neg]
+    abel
+
+theorem quantum_horizontal_tracial_action (P : SiteProfile) (hp : P.w 0 = 1 / 2)
+    (t : ℝ) (v : OrbitPlane) :
+    adT (modularHorizon P t) (pauliHorizontal P v) = pauliHorizontal P v := by
+  have hx := modular_horizon_pauli_x_tracial P hp t
+  have hy := modular_horizon_pauli_y_tracial P hp t
+  rw [adT_modularHorizon] at hx hy ⊢
+  simp only [pauliHorizontal, map_add, map_smul, hx, hy]
+
+theorem quantum_orbit_asymmetry_ne_zero (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    2 * P.w 0 - 1 ≠ 0 := by
+  intro h
+  apply hp
+  linarith
+
+/-- The calibration is evaluated on the actual horizon and actual state of the tower. -/
+def quantumOrbitPairing (P : SiteProfile) (u v : OrbitPlane) : ℝ :=
+  (omegaState P (star (pauliHorizontal P u) *
+    adT (modularHorizon P (modularOrientedQuarterTime P)) (pauliHorizontal P v))).im
+
+theorem quantum_orbit_pairing_eq (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2)
+    (u v : OrbitPlane) :
+    quantumOrbitPairing P u v = orbitCalibratedForm (2 * P.w 0 - 1) u v := by
+  unfold quantumOrbitPairing
+  rw [quantum_horizontal_oriented_action P hp, quantum_horizontal_im_pairing,
+    orbit_calibration_identity]
+
+/-- Bilinearity is proved for the state-and-horizon expression, not postulated. -/
+def quantumOrbitForm (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    OrbitPlane →ₗ[ℝ] OrbitPlane →ₗ[ℝ] ℝ where
+  toFun u :=
+    { toFun := quantumOrbitPairing P u
+      map_add' := by
+        intro v w
+        simp only [quantum_orbit_pairing_eq P hp, map_add]
+      map_smul' := by
+        intro a v
+        simp only [quantum_orbit_pairing_eq P hp, map_smul, RingHom.id_apply] }
+  map_add' := by
+    intro u v
+    apply LinearMap.ext
+    intro w
+    change quantumOrbitPairing P (u + v) w =
+      quantumOrbitPairing P u w + quantumOrbitPairing P v w
+    simp only [quantum_orbit_pairing_eq P hp, map_add, LinearMap.add_apply]
+  map_smul' := by
+    intro a u
+    apply LinearMap.ext
+    intro v
+    change quantumOrbitPairing P (a • u) v = a • quantumOrbitPairing P u v
+    simp only [quantum_orbit_pairing_eq P hp, map_smul, LinearMap.smul_apply]
+
+theorem quantum_orbit_form_apply (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2)
+    (u v : OrbitPlane) :
+    quantumOrbitForm P hp u v =
+      (omegaState P (star (pauliHorizontal P u) *
+        adT (modularHorizon P (modularOrientedQuarterTime P))
+          (pauliHorizontal P v))).im := rfl
+
+theorem quantum_orbit_form_eq (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    quantumOrbitForm P hp = orbitCalibratedForm (2 * P.w 0 - 1) := by
+  apply LinearMap.ext
+  intro u
+  apply LinearMap.ext
+  intro v
+  exact quantum_orbit_pairing_eq P hp u v
+
+theorem quantum_orbit_form_symmetric (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    FormSymmetric (quantumOrbitForm P hp) := by
+  rw [quantum_orbit_form_eq]
+  exact orbit_calibrated_symmetric _
+
+theorem quantum_orbit_form_positive (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    FormPositive (quantumOrbitForm P hp) := by
+  rw [quantum_orbit_form_eq]
+  exact orbit_calibrated_positive _ (quantum_orbit_asymmetry_ne_zero P hp)
+
+theorem quantum_orbit_form_nondegenerate (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2)
+    (u : OrbitPlane) (h : ∀ v, quantumOrbitForm P hp u v = 0) : u = 0 := by
+  by_contra hu
+  have hpos := quantum_orbit_form_positive P hp u hu
+  rw [h u] at hpos
+  exact (lt_irrefl 0) hpos
+
+theorem quantum_orbit_form_area (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    formArea (quantumOrbitForm P hp) orbitBasisX orbitBasisY = |2 * P.w 0 - 1| := by
+  rw [quantum_orbit_form_eq]
+  exact orbit_calibrated_area _
+
+theorem quantum_orbit_form_trace (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2) :
+    quantumOrbitForm P hp orbitBasisX orbitBasisX +
+      quantumOrbitForm P hp orbitBasisY orbitBasisY = 2 * |2 * P.w 0 - 1| := by
+  rw [quantum_orbit_form_eq]
+  exact orbit_selected_trace_in_orthonormal_pair _ _ _
+    (by norm_num [orbitDotForm, orbitBasisX])
+    (by norm_num [orbitDotForm, orbitBasisY])
+
+/-- The local modular action is identity here; only its imaginary pairing degenerates. -/
+theorem quantum_orbit_pairing_tracial (P : SiteProfile) (hp : P.w 0 = 1 / 2)
+    (u v : OrbitPlane) : quantumOrbitPairing P u v = 0 := by
+  unfold quantumOrbitPairing
+  rw [quantum_horizontal_tracial_action P hp, quantum_horizontal_im_pairing]
+  simp [orbitSymplectic, hp]
+
+theorem quantum_orbit_directions_effective (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2)
+    (u : OrbitPlane) (hu : u ≠ 0) :
+    horizontalResponse P u ≠ horizontalResponse P 0 := by
+  intro h
+  exact hu (horizontal_response_injective P hp h)
+
+/-- Positive calibrated length is attached to distinguishable derivatives of state readings. -/
+theorem quantum_orbit_effective_positive (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2)
+    (u : OrbitPlane) (hu : u ≠ 0) :
+    0 < quantumOrbitForm P hp u u ∧
+      horizontalResponse P u ≠ horizontalResponse P 0 :=
+  ⟨quantum_orbit_form_positive P hp u hu, quantum_orbit_directions_effective P hp u hu⟩
+
+theorem quantum_centralizer_imaginary_zero (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ omegaCentralizer P) (hAsa : IsSelfAdjoint A)
+    (hB : B ∈ theFactorObject P) (hBsa : IsSelfAdjoint B) :
+    (omegaState P (star A * B)).im = 0 := by
+  rw [hAsa.star_eq]
+  apply Complex.conj_eq_iff_im.mp
+  change star (omegaState P (A * B)) = omegaState P (A * B)
+  rw [← ChatgptAudit.Expectation047.omega_state_star, star_mul,
+    hBsa.star_eq, hAsa.star_eq]
+  exact (hA.2 B hB).symm
+
+/-- This is the density on the normalized Pauli pair, not the area of another screen. -/
+theorem quantum_orbit_third_reference_area :
+    formArea (quantumOrbitForm ChatgptAudit.Thermal025.thirdThermalReference
+      (by norm_num [ChatgptAudit.Thermal025.thirdThermalReference]))
+      orbitBasisX orbitBasisY = 1 / 3 := by
+  rw [quantum_orbit_form_area]
+  norm_num [ChatgptAudit.Thermal025.thirdThermalReference]
+
+section Selection
+
+variable (P : SiteProfile) (hp : P.w 0 ≠ 1 / 2)
+variable (F : (TowerHilbert P →L[ℂ] TowerHilbert P) →
+  (TowerHilbert P →L[ℂ] TowerHilbert P) → ℝ)
+variable (b : OrbitPlane →ₗ[ℝ] OrbitPlane →ₗ[ℝ] ℝ)
+variable (hrepr : ∀ u v, b u v = F (pauliHorizontal P u) (pauliHorizontal P v))
+variable (hinv : ∀ u v,
+  F (adT (modularHorizon P (modularQuarterTurnTime P)) (pauliHorizontal P u))
+    (adT (modularHorizon P (modularQuarterTurnTime P)) (pauliHorizontal P v)) =
+  F (pauliHorizontal P u) (pauliHorizontal P v))
+
+include hp hrepr hinv
+
+/-- The invariance hypothesis mentions the actual horizon before passing to coordinates. -/
+theorem quantum_candidate_quarter_invariant :
+    ∀ u v, b (orbitQuarterTurn u) (orbitQuarterTurn v) = b u v := by
+  intro u v
+  rw [hrepr, hrepr, ← quantum_horizontal_quarter_action P hp u,
+    ← quantum_horizontal_quarter_action P hp v]
+  exact hinv u v
+
+theorem quantum_candidate_isotropic (hsym : FormSymmetric b) :
+    b = b orbitBasisX orbitBasisX • orbitDotForm :=
+  orbit_quarter_invariant_form b hsym
+    (quantum_candidate_quarter_invariant P hp F b hrepr hinv)
+
+/-- Isotropy is relative to the real GNS pairing of the same tower state. -/
+theorem quantum_candidate_gns_restriction (hsym : FormSymmetric b) (u v : OrbitPlane) :
+    F (pauliHorizontal P u) (pauliHorizontal P v) =
+      F (sitePauliX P 0) (sitePauliX P 0) *
+        (omegaState P (star (pauliHorizontal P u) * pauliHorizontal P v)).re := by
+  rw [quantum_horizontal_re_pairing]
+  have hc : b orbitBasisX orbitBasisX = F (sitePauliX P 0) (sitePauliX P 0) := by
+    simpa only [orbitBasisX, pauli_horizontal_basis_x] using hrepr orbitBasisX orbitBasisX
+  calc
+    F (pauliHorizontal P u) (pauliHorizontal P v) = b u v := (hrepr u v).symm
+    _ = (b orbitBasisX orbitBasisX • orbitDotForm) u v :=
+      congrArg (fun q : OrbitPlane →ₗ[ℝ] OrbitPlane →ₗ[ℝ] ℝ => q u v)
+        (quantum_candidate_isotropic P hp F b hrepr hinv hsym)
+    _ = F (sitePauliX P 0) (sitePauliX P 0) * orbitDotForm u v := by
+      change b orbitBasisX orbitBasisX * orbitDotForm u v = _
+      rw [hc]
+
+/-- Trace is measured on the existing GNS orthonormal Pauli pair. -/
+theorem quantum_candidate_trace_one (hsym : FormSymmetric b)
+    (htrace : F (sitePauliX P 0) (sitePauliX P 0) +
+      F (sitePauliY P 0) (sitePauliY P 0) = 1) :
+    b = (1 / 2 : ℝ) • orbitDotForm := by
+  apply orbit_trace_one_selection b hsym
+    (quantum_candidate_quarter_invariant P hp F b hrepr hinv)
+  simpa only [hrepr, orbitBasisX, orbitBasisY,
+    pauli_horizontal_basis_x, pauli_horizontal_basis_y] using htrace
+
+theorem quantum_candidate_trace_one_area (hsym : FormSymmetric b)
+    (htrace : F (sitePauliX P 0) (sitePauliX P 0) +
+      F (sitePauliY P 0) (sitePauliY P 0) = 1) :
+    formArea b orbitBasisX orbitBasisY = 1 / 2 := by
+  rw [quantum_candidate_trace_one P hp F b hrepr hinv hsym htrace]
+  exact orbit_scalar_area (1 / 2) (by norm_num)
+
+end Selection
+
+#print axioms quantum_horizontal_re_pairing
+#print axioms quantum_horizontal_im_pairing
+#print axioms quantum_horizontal_quarter_action
+#print axioms quantum_horizontal_oriented_action
+#print axioms quantum_horizontal_tracial_action
+#print axioms quantum_orbit_asymmetry_ne_zero
+#print axioms quantumOrbitPairing
+#print axioms quantum_orbit_pairing_eq
+#print axioms quantumOrbitForm
+#print axioms quantum_orbit_form_apply
+#print axioms quantum_orbit_form_eq
+#print axioms quantum_orbit_form_symmetric
+#print axioms quantum_orbit_form_positive
+#print axioms quantum_orbit_form_nondegenerate
+#print axioms quantum_orbit_form_area
+#print axioms quantum_orbit_form_trace
+#print axioms quantum_orbit_pairing_tracial
+#print axioms quantum_orbit_directions_effective
+#print axioms quantum_orbit_effective_positive
+#print axioms quantum_centralizer_imaginary_zero
+#print axioms quantum_orbit_third_reference_area
+#print axioms quantum_candidate_quarter_invariant
+#print axioms quantum_candidate_isotropic
+#print axioms quantum_candidate_gns_restriction
+#print axioms quantum_candidate_trace_one
+#print axioms quantum_candidate_trace_one_area
+
+end
+end ChatgptAudit.Orbit052
+''',
+    "TGLExt/HorizonGNSImplementation.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_053 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.ExpectationContinuity
+import Mathlib.Topology.Algebra.Module.Basic
+
+set_option autoImplicit false
+set_option maxHeartbeats 1600000
+
+namespace ChatgptAudit.Covariant053
+open TGLExt ChatgptAudit UniformSpace Filter
+open scoped Topology
+noncomputable section
+
+theorem horizon_ad_add (P : SiteProfile) (h : TowerHorizon P)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    adT h (A + B) = adT h A + adT h B := by
+  simp only [adT, mul_add, add_mul]
+
+theorem horizon_ad_smul (P : SiteProfile) (h : TowerHorizon P) (c : ℂ)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    adT h (c • A) = c • adT h A := by
+  simp only [adT, mul_smul_comm, smul_mul_assoc]
+
+theorem horizon_ad_one (P : SiteProfile) (h : TowerHorizon P) :
+    adT h (1 : TowerHilbert P →L[ℂ] TowerHilbert P) = 1 := by
+  simpa only [adT, mul_one] using h.unitary_right
+
+theorem horizon_gns_inner_factor (P : SiteProfile) (h : TowerHorizon P)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hB : B ∈ theFactorObject P) :
+    inner ℂ (adT h A (hOmega P)) (adT h B (hOmega P)) =
+      inner ℂ (A (hOmega P)) (B (hOmega P)) := by
+  have he := omega_adT h (mul_mem (star_mem hA) hB)
+  rw [adT_mul, adT_star, omega_product_inner, star_star,
+    omega_product_inner, star_star] at he
+  exact he
+
+theorem horizon_gns_norm_factor (P : SiteProfile) (h : TowerHorizon P)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    ‖adT h A (hOmega P)‖ = ‖A (hOmega P)‖ := by
+  have hs : ‖adT h A (hOmega P)‖ ^ 2 = ‖A (hOmega P)‖ ^ 2 := by
+    rw [norm_sq_eq_re_inner (𝕜 := ℂ), norm_sq_eq_re_inner (𝕜 := ℂ),
+      horizon_gns_inner_factor P h A A hA hA]
+  nlinarith [norm_nonneg (adT h A (hOmega P)), norm_nonneg (A (hOmega P))]
+
+theorem horizon_gns_dist_factor (P : SiteProfile) (h : TowerHorizon P)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hB : B ∈ theFactorObject P) :
+    dist (adT h A (hOmega P)) (adT h B (hOmega P)) =
+      dist (A (hOmega P)) (B (hOmega P)) := by
+  have hn := horizon_gns_norm_factor P h (A - B) (sub_mem hA hB)
+  simpa only [adT_sub, sub_apply, dist_eq_norm] using hn
+
+/-- The image of a local vector need not be local, so the codomain is the complete Hilbert space. -/
+def horizonGNSPre (P : SiteProfile) (h : TowerHorizon P) :
+    TowerPre P → TowerHilbert P :=
+  Quotient.lift
+    (fun x : TowerPt => adT h (towerPi P x.2) (hOmega P))
+    (by
+      rintro x y ⟨K, hx, hy, heq⟩
+      have he : towerPi P x.2 = towerPi P y.2 := by
+        calc
+          towerPi P x.2 = towerPi P (tPush hx x.2) := (towerPi_compat hx x.2).symm
+          _ = towerPi P (tPush hy y.2) := congrArg (fun a => towerPi P a) heq
+          _ = towerPi P y.2 := towerPi_compat hy y.2
+      rw [he])
+
+theorem horizon_gns_pre_tof (P : SiteProfile) (h : TowerHorizon P)
+    (N : ℕ) (A : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    horizonGNSPre P h (tof P N A) = adT h (towerPi P A) (hOmega P) := rfl
+
+theorem horizon_gns_pre_add (P : SiteProfile) (h : TowerHorizon P)
+    (x y : TowerPre P) :
+    horizonGNSPre P h (x + y) = horizonGNSPre P h x + horizonGNSPre P h y := by
+  obtain ⟨N, A, rfl⟩ := exists_tof x
+  obtain ⟨M, B, rfl⟩ := exists_tof y
+  rw [tof_add_hetero, horizon_gns_pre_tof, horizon_gns_pre_tof, horizon_gns_pre_tof,
+    towerPi_add, towerPi_compat, towerPi_compat, horizon_ad_add]
+  rfl
+
+theorem horizon_gns_pre_smul (P : SiteProfile) (h : TowerHorizon P)
+    (c : ℂ) (x : TowerPre P) :
+    horizonGNSPre P h (c • x) = c • horizonGNSPre P h x := by
+  obtain ⟨N, A, rfl⟩ := exists_tof x
+  rw [tof_smul, horizon_gns_pre_tof, horizon_gns_pre_tof,
+    towerPi_smul, horizon_ad_smul]
+  rfl
+
+def horizonGNSPreLinear (P : SiteProfile) (h : TowerHorizon P) :
+    TowerPre P →ₗ[ℂ] TowerHilbert P where
+  toFun := horizonGNSPre P h
+  map_add' := horizon_gns_pre_add P h
+  map_smul' := horizon_gns_pre_smul P h
+
+theorem horizon_gns_pre_norm (P : SiteProfile) (h : TowerHorizon P) (x : TowerPre P) :
+    ‖horizonGNSPre P h x‖ = ‖x‖ := by
+  obtain ⟨N, A, rfl⟩ := exists_tof x
+  rw [horizon_gns_pre_tof, horizon_gns_norm_factor P h _ (towerPi_mem_factor A),
+    towerPi_omega, Completion.norm_coe]
+
+theorem horizon_gns_pre_isometry (P : SiteProfile) (h : TowerHorizon P) :
+    Isometry (horizonGNSPre P h) := by
+  apply Isometry.of_dist_eq
+  intro x y
+  rw [dist_eq_norm, dist_eq_norm]
+  have hs := (horizonGNSPreLinear P h).map_sub x y
+  change horizonGNSPre P h (x - y) = horizonGNSPre P h x - horizonGNSPre P h y at hs
+  rw [← hs, horizon_gns_pre_norm]
+
+def horizonGNSMap (P : SiteProfile) (h : TowerHorizon P) :
+    TowerHilbert P → TowerHilbert P :=
+  Completion.extension (horizonGNSPre P h)
+
+theorem horizon_gns_map_continuous (P : SiteProfile) (h : TowerHorizon P) :
+    Continuous (horizonGNSMap P h) := Completion.continuous_extension
+
+theorem horizon_gns_map_coe (P : SiteProfile) (h : TowerHorizon P) (x : TowerPre P) :
+    horizonGNSMap P h (x : TowerHilbert P) = horizonGNSPre P h x :=
+  Completion.extension_coe (horizon_gns_pre_isometry P h).uniformContinuous x
+
+theorem horizon_gns_map_add (P : SiteProfile) (h : TowerHorizon P)
+    (x y : TowerHilbert P) :
+    horizonGNSMap P h (x + y) = horizonGNSMap P h x + horizonGNSMap P h y := by
+  refine Completion.induction_on₂ x y (isClosed_eq
+    ((horizon_gns_map_continuous P h).comp (continuous_fst.add continuous_snd))
+    (((horizon_gns_map_continuous P h).comp continuous_fst).add
+      ((horizon_gns_map_continuous P h).comp continuous_snd))) ?_
+  intro a b
+  rw [← Completion.coe_add, horizon_gns_map_coe, horizon_gns_pre_add,
+    horizon_gns_map_coe, horizon_gns_map_coe]
+
+theorem horizon_gns_map_smul (P : SiteProfile) (h : TowerHorizon P)
+    (c : ℂ) (x : TowerHilbert P) :
+    horizonGNSMap P h (c • x) = c • horizonGNSMap P h x := by
+  refine Completion.induction_on x (isClosed_eq
+    ((horizon_gns_map_continuous P h).comp (continuous_const.smul continuous_id))
+    (continuous_const.smul (horizon_gns_map_continuous P h))) ?_
+  intro a
+  rw [← Completion.coe_smul, horizon_gns_map_coe, horizon_gns_pre_smul, horizon_gns_map_coe]
+
+theorem horizon_gns_map_norm (P : SiteProfile) (h : TowerHorizon P) (x : TowerHilbert P) :
+    ‖horizonGNSMap P h x‖ = ‖x‖ := by
+  refine Completion.induction_on x (isClosed_eq
+    (continuous_norm.comp (horizon_gns_map_continuous P h)) continuous_norm) ?_
+  intro a
+  rw [horizon_gns_map_coe, horizon_gns_pre_norm, Completion.norm_coe]
+
+def horizonGNSIsometry (P : SiteProfile) (h : TowerHorizon P) :
+    TowerHilbert P →ₗᵢ[ℂ] TowerHilbert P where
+  toLinearMap :=
+    { toFun := horizonGNSMap P h
+      map_add' := horizon_gns_map_add P h
+      map_smul' := horizon_gns_map_smul P h }
+  norm_map' := horizon_gns_map_norm P h
+
+/-- Norm preservation of the state automorphism passes the local formula to every factor element. -/
+theorem horizon_gns_map_apply_factor (P : SiteProfile) (h : TowerHorizon P)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    horizonGNSMap P h (A (hOmega P)) = adT h A (hOmega P) := by
+  have hl := (horizon_gns_map_continuous P h).continuousAt.tendsto.comp
+    (expectation_omega_limit (P := P) A)
+  have hlocal (N : ℕ) :
+      horizonGNSMap P h (towerExpectation P N A (hOmega P)) =
+        adT h (towerExpectation P N A) (hOmega P) := by
+    rw [towerExpectation, towerPi_omega, horizon_gns_map_coe, horizon_gns_pre_tof]
+  have hr : Tendsto (fun N => adT h (towerExpectation P N A) (hOmega P))
+      atTop (𝓝 (adT h A (hOmega P))) := by
+    have ht := expectation_omega_limit (P := P) A
+    rw [Metric.tendsto_nhds] at ht ⊢
+    intro ε hε
+    filter_upwards [ht ε hε] with N hN
+    rwa [horizon_gns_dist_factor P h _ A (expectation_mem_factor N A) hA]
+  simp only [Function.comp_def, hlocal] at hl
+  exact tendsto_nhds_unique hl hr
+
+theorem horizon_gns_map_inverse (P : SiteProfile) (h : TowerHorizon P)
+    (x : TowerHilbert P) :
+    horizonGNSMap P h.inv (horizonGNSMap P h x) = x := by
+  refine Completion.induction_on x (isClosed_eq
+    ((horizon_gns_map_continuous P h.inv).comp (horizon_gns_map_continuous P h))
+    continuous_id) ?_
+  intro a
+  obtain ⟨N, A, rfl⟩ := exists_tof a
+  rw [horizon_gns_map_coe, horizon_gns_pre_tof,
+    horizon_gns_map_apply_factor P h.inv _ (adT_mem h (towerPi_mem_factor A)),
+    adT_inv_eq, adTinv_adT, towerPi_omega]
+
+theorem horizon_gns_map_right_inverse (P : SiteProfile) (h : TowerHorizon P)
+    (x : TowerHilbert P) :
+    horizonGNSMap P h (horizonGNSMap P h.inv x) = x := by
+  refine Completion.induction_on x (isClosed_eq
+    ((horizon_gns_map_continuous P h).comp (horizon_gns_map_continuous P h.inv))
+    continuous_id) ?_
+  intro a
+  obtain ⟨N, A, rfl⟩ := exists_tof a
+  rw [horizon_gns_map_coe, horizon_gns_pre_tof,
+    horizon_gns_map_apply_factor P h _ (adT_mem h.inv (towerPi_mem_factor A)),
+    adT_inv_eq, adT_adTinv, towerPi_omega]
+
+def horizonGNSUnitary (P : SiteProfile) (h : TowerHorizon P) :
+    TowerHilbert P ≃ₗᵢ[ℂ] TowerHilbert P :=
+  { horizonGNSIsometry P h with
+    invFun := horizonGNSMap P h.inv
+    left_inv := horizon_gns_map_inverse P h
+    right_inv := horizon_gns_map_right_inverse P h }
+
+theorem horizon_gns_apply_factor (P : SiteProfile) (h : TowerHorizon P)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    horizonGNSUnitary P h (A (hOmega P)) = adT h A (hOmega P) :=
+  horizon_gns_map_apply_factor P h A hA
+
+theorem horizon_gns_symm_apply (P : SiteProfile) (h : TowerHorizon P)
+    (x : TowerHilbert P) :
+    (horizonGNSUnitary P h).symm x = horizonGNSUnitary P h.inv x := rfl
+
+theorem horizon_gns_omega (P : SiteProfile) (h : TowerHorizon P) :
+    horizonGNSUnitary P h (hOmega P) = hOmega P := by
+  have he := horizon_gns_apply_factor P h
+    (1 : TowerHilbert P →L[ℂ] TowerHilbert P) (one_mem (theFactorObject P))
+  simpa only [one_apply_eq_self, horizon_ad_one] using he
+
+theorem horizon_gns_inner (P : SiteProfile) (h : TowerHorizon P)
+    (x y : TowerHilbert P) :
+    inner ℂ (horizonGNSUnitary P h x) (horizonGNSUnitary P h y) = inner ℂ x y :=
+  (horizonGNSUnitary P h).inner_map_map x y
+
+def realStateGenerators (P : SiteProfile) : Set (TowerHilbert P) :=
+  {v | ∃ A : TowerHilbert P →L[ℂ] TowerHilbert P,
+    A ∈ theFactorObject P ∧ IsSelfAdjoint A ∧ v = A (hOmega P)}
+
+/-- The one shared real state subspace; no finite-level or abstract replacement is used. -/
+def realStateSubspace (P : SiteProfile) : Submodule ℝ (TowerHilbert P) :=
+  (Submodule.span ℝ (realStateGenerators P)).topologicalClosure
+
+theorem real_state_generator_mem (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hsa : IsSelfAdjoint A) :
+    A (hOmega P) ∈ realStateSubspace P :=
+  (Submodule.le_topologicalClosure _) (Submodule.subset_span ⟨A, hA, hsa, rfl⟩)
+
+theorem real_state_subspace_closed (P : SiteProfile) :
+    IsClosed (realStateSubspace P : Set (TowerHilbert P)) :=
+  Submodule.isClosed_topologicalClosure _
+
+instance instCompleteSpaceRealStateSubspace (P : SiteProfile) :
+    CompleteSpace (realStateSubspace P) :=
+  (real_state_subspace_closed P).completeSpace_coe
+
+theorem horizon_gns_real_mem (P : SiteProfile) (h : TowerHorizon P)
+    (x : TowerHilbert P) (hx : x ∈ realStateSubspace P) :
+    horizonGNSUnitary P h x ∈ realStateSubspace P := by
+  let L : TowerHilbert P →ₗ[ℝ] TowerHilbert P :=
+    (horizonGNSUnitary P h).toLinearEquiv.toLinearMap.restrictScalars ℝ
+  have hs : Submodule.span ℝ (realStateGenerators P) ≤
+      (realStateSubspace P).comap L := by
+    apply Submodule.span_le.mpr
+    rintro v ⟨A, hA, hsa, rfl⟩
+    change horizonGNSUnitary P h (A (hOmega P)) ∈ realStateSubspace P
+    rw [horizon_gns_apply_factor P h A hA]
+    apply real_state_generator_mem P _ (adT_mem h hA)
+    change star (adT h A) = adT h A
+    rw [← adT_star, hsa.star_eq]
+  have hc : IsClosed ((realStateSubspace P).comap L : Set (TowerHilbert P)) :=
+    (real_state_subspace_closed P).preimage (horizonGNSUnitary P h).continuous
+  exact Submodule.topologicalClosure_minimal _ hs hc hx
+
+theorem horizon_gns_real_image (P : SiteProfile) (h : TowerHorizon P) :
+    (horizonGNSUnitary P h) '' (realStateSubspace P : Set (TowerHilbert P)) =
+      (realStateSubspace P : Set (TowerHilbert P)) := by
+  apply Set.Subset.antisymm
+  · rintro y ⟨x, hx, rfl⟩
+    exact horizon_gns_real_mem P h x hx
+  · intro x hx
+    refine ⟨horizonGNSUnitary P h.inv x, horizon_gns_real_mem P h.inv x hx, ?_⟩
+    exact horizon_gns_map_right_inverse P h x
+
+/-- The same implementer restricted to the real closed state subspace. -/
+def horizonGNSRealUnitary (P : SiteProfile) (h : TowerHorizon P) :
+    realStateSubspace P ≃ₗᵢ[ℝ] realStateSubspace P where
+  toFun x := ⟨horizonGNSUnitary P h x, horizon_gns_real_mem P h x x.property⟩
+  invFun x := ⟨horizonGNSUnitary P h.inv x, horizon_gns_real_mem P h.inv x x.property⟩
+  left_inv x := by
+    apply Subtype.ext
+    exact horizon_gns_map_inverse P h x
+  right_inv x := by
+    apply Subtype.ext
+    exact horizon_gns_map_right_inverse P h x
+  map_add' x y := by
+    apply Subtype.ext
+    exact map_add (horizonGNSUnitary P h) (x : TowerHilbert P) (y : TowerHilbert P)
+  map_smul' a x := by
+    apply Subtype.ext
+    exact ((horizonGNSUnitary P h).toLinearEquiv.toLinearMap.restrictScalars ℝ).map_smul a x
+  norm_map' x := (horizonGNSUnitary P h).norm_map x
+
+theorem horizon_gns_real_apply (P : SiteProfile) (h : TowerHorizon P)
+    (x : realStateSubspace P) :
+    (horizonGNSRealUnitary P h x : TowerHilbert P) =
+      horizonGNSUnitary P h (x : TowerHilbert P) := rfl
+
+#print axioms horizon_ad_add
+#print axioms horizon_ad_smul
+#print axioms horizon_ad_one
+#print axioms horizon_gns_inner_factor
+#print axioms horizon_gns_norm_factor
+#print axioms horizon_gns_dist_factor
+#print axioms horizonGNSPre
+#print axioms horizon_gns_pre_tof
+#print axioms horizon_gns_pre_add
+#print axioms horizon_gns_pre_smul
+#print axioms horizonGNSPreLinear
+#print axioms horizon_gns_pre_norm
+#print axioms horizon_gns_pre_isometry
+#print axioms horizonGNSMap
+#print axioms horizon_gns_map_continuous
+#print axioms horizon_gns_map_coe
+#print axioms horizon_gns_map_add
+#print axioms horizon_gns_map_smul
+#print axioms horizon_gns_map_norm
+#print axioms horizonGNSIsometry
+#print axioms horizon_gns_map_apply_factor
+#print axioms horizon_gns_map_inverse
+#print axioms horizon_gns_map_right_inverse
+#print axioms horizonGNSUnitary
+#print axioms horizon_gns_apply_factor
+#print axioms horizon_gns_symm_apply
+#print axioms horizon_gns_omega
+#print axioms horizon_gns_inner
+#print axioms realStateGenerators
+#print axioms realStateSubspace
+#print axioms real_state_generator_mem
+#print axioms real_state_subspace_closed
+#print axioms instCompleteSpaceRealStateSubspace
+#print axioms horizon_gns_real_mem
+#print axioms horizon_gns_real_image
+#print axioms horizonGNSRealUnitary
+#print axioms horizon_gns_real_apply
+
+end
+end ChatgptAudit.Covariant053
+''',
+    "TGLExt/SymplecticPolarizer.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_053 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import Mathlib.Analysis.InnerProductSpace.Projection.Basic
+import Mathlib.Analysis.InnerProductSpace.StandardSubspace
+import Mathlib.Tactic
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Covariant053
+
+open ClosedSubmodule
+
+noncomputable section
+
+variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]
+variable (R : Submodule ℝ H) [CompleteSpace R]
+
+/-- The ambient real polarizer is the actual compression P_R (-i) P_R.
+It is not a modular conjugation or a modular generator. -/
+def symplecticPolarizer : H →L[ℝ] H :=
+  R.starProjection.comp
+    ((((-Complex.I) • ContinuousLinearMap.id ℂ H).restrictScalars ℝ).comp
+      R.starProjection)
+
+theorem polarizer_apply (x : H) :
+    symplecticPolarizer R x =
+      R.starProjection ((-Complex.I) • R.starProjection x) := rfl
+
+theorem polarizer_mem (x : H) : symplecticPolarizer R x ∈ R := by
+  rw [polarizer_apply]
+  exact R.starProjection_apply_mem _
+
+/-- On the ambient space the imaginary pairing is compressed in both variables. -/
+theorem polarizer_pairing (x y : H) :
+    inner ℝ x (symplecticPolarizer R y) =
+      (inner ℂ (R.starProjection x) (R.starProjection y)).im := by
+  rw [polarizer_apply, ← R.inner_starProjection_left_eq_right,
+    ClosedSubmodule.inner_real_eq_re_inner, inner_smul_right]
+  simp [Complex.mul_re]
+
+theorem polarizer_duality {x y : H} (hx : x ∈ R) (hy : y ∈ R) :
+    (inner ℂ x (symplecticPolarizer R y)).re = (inner ℂ x y).im := by
+  rw [← ClosedSubmodule.inner_real_eq_re_inner, polarizer_pairing,
+    Submodule.starProjection_eq_self_iff.mpr hx,
+    Submodule.starProjection_eq_self_iff.mpr hy]
+
+theorem polarizer_norm_le (x : H) : ‖symplecticPolarizer R x‖ ≤ ‖x‖ := by
+  rw [polarizer_apply]
+  calc
+    ‖R.starProjection ((-Complex.I) • R.starProjection x)‖
+        ≤ ‖(-Complex.I) • R.starProjection x‖ := R.norm_starProjection_apply_le _
+    _ = ‖R.starProjection x‖ := by rw [norm_smul]; simp
+    _ ≤ ‖x‖ := R.norm_starProjection_apply_le _
+
+theorem polarizer_opNorm_le : ‖symplecticPolarizer R‖ ≤ 1 := by
+  apply ContinuousLinearMap.opNorm_le_bound _ zero_le_one
+  intro x
+  simpa only [one_mul] using polarizer_norm_le R x
+
+theorem polarizer_antisymmetric (x y : H) :
+    inner ℝ x (symplecticPolarizer R y) =
+      -inner ℝ (symplecticPolarizer R x) y := by
+  rw [real_inner_comm y (symplecticPolarizer R x),
+    polarizer_pairing, polarizer_pairing]
+  simpa only [RCLike.im_eq_complex_im] using
+    (inner_im_symm (𝕜 := ℂ) (R.starProjection x) (R.starProjection y))
+
+/-- Riesz uniqueness within the real subspace, with all domains explicit. -/
+theorem polarizer_eq_of_pairing {y z : H} (hy : y ∈ R) (hz : z ∈ R)
+    (hp : ∀ x ∈ R, (inner ℂ x z).re = (inner ℂ x y).im) :
+    symplecticPolarizer R y = z := by
+  have hd : symplecticPolarizer R y - z ∈ R :=
+    R.sub_mem (polarizer_mem R y) hz
+  have hh : inner ℝ (symplecticPolarizer R y - z)
+      (symplecticPolarizer R y - z) = 0 := by
+    rw [inner_sub_right, ClosedSubmodule.inner_real_eq_re_inner, ClosedSubmodule.inner_real_eq_re_inner,
+      polarizer_duality R hd hy, hp _ hd, sub_self]
+  exact sub_eq_zero.mp (inner_self_eq_zero.mp hh)
+
+theorem polarizer_kernel_iff {y : H} (hy : y ∈ R) :
+    symplecticPolarizer R y = 0 ↔
+      ∀ x ∈ R, (inner ℂ x y).im = 0 := by
+  constructor
+  · intro h x hx
+    rw [← polarizer_duality R hx hy, h, inner_zero_right]
+    rfl
+  · intro h
+    apply polarizer_eq_of_pairing R hy R.zero_mem
+    intro x hx
+    simp only [inner_zero_right, Complex.zero_re, h x hx]
+
+/-- A quadratic family on the real ambient space. It can have a nontrivial radical. -/
+def polarizerForm (epsilon : ℝ) (x y : H) : ℝ :=
+  inner ℝ (symplecticPolarizer R x) (symplecticPolarizer R y) +
+    epsilon * inner ℝ (symplecticPolarizer R (symplecticPolarizer R x))
+      (symplecticPolarizer R (symplecticPolarizer R y))
+
+theorem polarizer_form_re (epsilon : ℝ) (x y : H) :
+    polarizerForm R epsilon x y =
+      (inner ℂ (symplecticPolarizer R x) (symplecticPolarizer R y)).re +
+        epsilon * (inner ℂ (symplecticPolarizer R (symplecticPolarizer R x))
+          (symplecticPolarizer R (symplecticPolarizer R y))).re := by
+  simp only [polarizerForm, ClosedSubmodule.inner_real_eq_re_inner]
+
+/-- The bilinear bundle has the literal polarizer family as its evaluation. -/
+def polarizerFormBilin (epsilon : ℝ) : H →ₗ[ℝ] H →ₗ[ℝ] ℝ where
+  toFun x :=
+    { toFun := polarizerForm R epsilon x
+      map_add' := by
+        intro y z
+        simp only [polarizerForm, map_add, inner_add_right]
+        ring
+      map_smul' := by
+        intro c y
+        change polarizerForm R epsilon x (c • y) = c * polarizerForm R epsilon x y
+        simp only [polarizerForm, map_smul, real_inner_smul_right]
+        ring }
+  map_add' := by
+    intro x y
+    ext z
+    change polarizerForm R epsilon (x+y) z =
+      polarizerForm R epsilon x z + polarizerForm R epsilon y z
+    simp only [polarizerForm, map_add, inner_add_left]
+    ring
+  map_smul' := by
+    intro c x
+    ext y
+    change polarizerForm R epsilon (c • x) y = c * polarizerForm R epsilon x y
+    simp only [polarizerForm, map_smul, real_inner_smul_left]
+    ring
+
+theorem polarizer_form_apply (epsilon : ℝ) (x y : H) :
+    polarizerFormBilin R epsilon x y = polarizerForm R epsilon x y := rfl
+
+theorem polarizer_form_symmetric (epsilon : ℝ) (x y : H) :
+    polarizerForm R epsilon x y = polarizerForm R epsilon y x := by
+  simp only [polarizerForm, real_inner_comm]
+
+theorem polarizer_form_diagonal (epsilon : ℝ) (x : H) :
+    polarizerForm R epsilon x x =
+      ‖symplecticPolarizer R x‖^2 +
+        epsilon * ‖symplecticPolarizer R (symplecticPolarizer R x)‖^2 := by
+  simp only [polarizerForm, real_inner_self_eq_norm_sq]
+
+theorem polarizer_form_nonneg (epsilon : ℝ) (he : 0 ≤ epsilon) (x : H) :
+    0 ≤ polarizerForm R epsilon x x := by
+  rw [polarizer_form_diagonal]
+  exact add_nonneg (sq_nonneg _) (mul_nonneg he (sq_nonneg _))
+
+theorem polarizer_form_zero_iff (epsilon : ℝ) (he : 0 ≤ epsilon) (x : H) :
+    polarizerForm R epsilon x x = 0 ↔ symplecticPolarizer R x = 0 := by
+  rw [polarizer_form_diagonal]
+  constructor
+  · intro h
+    have ht : 0 ≤ epsilon * ‖symplecticPolarizer R (symplecticPolarizer R x)‖^2 :=
+      mul_nonneg he (sq_nonneg _)
+    have hn : ‖symplecticPolarizer R x‖ = 0 := by nlinarith
+    exact norm_eq_zero.mp hn
+  · intro h
+    simp [h]
+
+/-- An ambient complex isometry preserving R also preserves its real projection. -/
+theorem real_projection_covariant (W : H ≃ₗᵢ[ℂ] H)
+    (hWR : ∀ x : H, x ∈ R ↔ W x ∈ R) (x : H) :
+    R.starProjection (W x) = W (R.starProjection x) := by
+  apply Submodule.eq_starProjection_of_mem_of_inner_eq_zero
+    ((hWR _).mp (R.starProjection_apply_mem x))
+  intro y hy
+  have hy' : W.symm y ∈ R := (hWR _).mpr (by simpa only [W.apply_symm_apply] using hy)
+  calc
+    inner ℝ (W x - W (R.starProjection x)) y =
+        inner ℝ (W (x - R.starProjection x)) (W (W.symm y)) := by
+      rw [map_sub, W.apply_symm_apply]
+    _ = inner ℝ (x - R.starProjection x) (W.symm y) := by
+      simp only [ClosedSubmodule.inner_real_eq_re_inner, W.inner_map_map]
+    _ = 0 := Submodule.starProjection_inner_eq_zero x (W.symm y) hy'
+
+theorem polarizer_covariant (W : H ≃ₗᵢ[ℂ] H)
+    (hWR : ∀ x : H, x ∈ R ↔ W x ∈ R) (x : H) :
+    symplecticPolarizer R (W x) = W (symplecticPolarizer R x) := by
+  rw [polarizer_apply, real_projection_covariant R W hWR,
+    ← W.map_smul (-Complex.I) (R.starProjection x),
+    real_projection_covariant R W hWR]
+  rfl
+
+theorem polarizer_square_covariant (W : H ≃ₗᵢ[ℂ] H)
+    (hWR : ∀ x : H, x ∈ R ↔ W x ∈ R) (x : H) :
+    symplecticPolarizer R (symplecticPolarizer R (W x)) =
+      W (symplecticPolarizer R (symplecticPolarizer R x)) := by
+  rw [polarizer_covariant R W hWR, polarizer_covariant R W hWR]
+
+/-- Covariance requires a genuine complex isometry carrying R onto itself. -/
+theorem polarizer_form_covariant (epsilon : ℝ) (W : H ≃ₗᵢ[ℂ] H)
+    (hWR : ∀ x : H, x ∈ R ↔ W x ∈ R) (x y : H) :
+    polarizerForm R epsilon (W x) (W y) = polarizerForm R epsilon x y := by
+  simp only [polarizerForm, polarizer_covariant R W hWR,
+    ClosedSubmodule.inner_real_eq_re_inner, W.inner_map_map]
+
+#print axioms symplecticPolarizer
+#print axioms polarizer_apply
+#print axioms polarizer_mem
+#print axioms polarizer_pairing
+#print axioms polarizer_duality
+#print axioms polarizer_norm_le
+#print axioms polarizer_opNorm_le
+#print axioms polarizer_antisymmetric
+#print axioms polarizer_eq_of_pairing
+#print axioms polarizer_kernel_iff
+#print axioms polarizerForm
+#print axioms polarizer_form_re
+#print axioms polarizerFormBilin
+#print axioms polarizer_form_apply
+#print axioms polarizer_form_symmetric
+#print axioms polarizer_form_diagonal
+#print axioms polarizer_form_nonneg
+#print axioms polarizer_form_zero_iff
+#print axioms real_projection_covariant
+#print axioms polarizer_covariant
+#print axioms polarizer_square_covariant
+#print axioms polarizer_form_covariant
+
+end
+end ChatgptAudit.Covariant053
+''',
+    "TGLExt/TowerStatePolarizer.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_053 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.HorizonGNSImplementation
+import TGLExt.SymplecticPolarizer
+import TGLExt.QuantumOrbitArea
+
+set_option autoImplicit false
+set_option maxHeartbeats 1600000
+
+namespace ChatgptAudit.Covariant053
+open TGLExt ChatgptAudit ChatgptAudit.Density033 ChatgptAudit.Expectation047
+  ChatgptAudit.Observable035 ChatgptAudit.Orbit052 ClosedSubmodule
+noncomputable section
+
+/-- Real self-adjoint factor vectors separate the real closed state subspace. -/
+theorem real_state_pairing_ext (P : SiteProfile) (u v : TowerHilbert P)
+    (hu : u ∈ realStateSubspace P) (hv : v ∈ realStateSubspace P)
+    (h : ∀ B : TowerHilbert P →L[ℂ] TowerHilbert P,
+      B ∈ theFactorObject P → IsSelfAdjoint B →
+      (inner ℂ (B (hOmega P)) u).re = (inner ℂ (B (hOmega P)) v).re) :
+    u = v := by
+  let F : TowerHilbert P →L[ℝ] ℝ := innerSL ℝ (u-v)
+  have hs : Submodule.span ℝ (realStateGenerators P) ≤ F.ker := by
+    apply Submodule.span_le.mpr
+    rintro x ⟨B, hB, hsa, rfl⟩
+    change inner ℝ (u-v) (B (hOmega P)) = 0
+    rw [real_inner_comm, inner_sub_right,
+      ClosedSubmodule.inner_real_eq_re_inner, ClosedSubmodule.inner_real_eq_re_inner,
+      h B hB hsa, sub_self]
+  have hc : realStateSubspace P ≤ F.ker :=
+    Submodule.topologicalClosure_minimal _ hs F.isClosed_ker
+  have hz := hc ((realStateSubspace P).sub_mem hu hv)
+  change inner ℝ (u-v) (u-v) = 0 at hz
+  exact sub_eq_zero.mp (inner_self_eq_zero.mp hz)
+
+/-- The tower uses the previously constructed real compression, without a second operator. -/
+def statePolarizer (P : SiteProfile) : TowerHilbert P →L[ℝ] TowerHilbert P :=
+  symplecticPolarizer (realStateSubspace P)
+
+theorem state_polarizer_pairing (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hAsa : IsSelfAdjoint A)
+    (hB : B ∈ theFactorObject P) (hBsa : IsSelfAdjoint B) :
+    (inner ℂ (A (hOmega P)) (statePolarizer P (B (hOmega P)))).re =
+      (omegaState P (star A * B)).im := by
+  rw [omega_product_inner, star_star]
+  exact polarizer_duality (realStateSubspace P)
+    (real_state_generator_mem P A hA hAsa) (real_state_generator_mem P B hB hBsa)
+
+theorem tower_polarizer_eq_of_pairing (P : SiteProfile)
+    (A C : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hAsa : IsSelfAdjoint A)
+    (hC : C ∈ theFactorObject P) (hCsa : IsSelfAdjoint C)
+    (h : ∀ B : TowerHilbert P →L[ℂ] TowerHilbert P,
+      B ∈ theFactorObject P → IsSelfAdjoint B →
+      (omegaState P (star B * C)).re = (omegaState P (star B * A)).im) :
+    statePolarizer P (A (hOmega P)) = C (hOmega P) := by
+  apply real_state_pairing_ext P _ _
+    (polarizer_mem (realStateSubspace P) _) (real_state_generator_mem P C hC hCsa)
+  intro B hB hBsa
+  change (inner ℂ (B (hOmega P)) (statePolarizer P (A (hOmega P)))).re =
+    (inner ℂ (B (hOmega P)) (C (hOmega P))).re
+  rw [state_polarizer_pairing P B A hB hBsa hA hAsa, ← h B hB hBsa,
+    omega_product_inner, star_star]
+
+/-- Testing both self-adjoint parts pays the full complex centralizer condition. -/
+theorem state_centralizer_iff_imaginary (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hAsa : IsSelfAdjoint A) :
+    A ∈ omegaCentralizer P ↔
+      ∀ B : TowerHilbert P →L[ℂ] TowerHilbert P,
+        B ∈ theFactorObject P → IsSelfAdjoint B → (omegaState P (B*A)).im = 0 := by
+  constructor
+  · intro hc B hB hBsa
+    have hz := quantum_centralizer_imaginary_zero P A B hc hAsa hB hBsa
+    rw [hAsa.star_eq, hc.2 B hB] at hz
+    exact hz
+  · intro ht
+    refine ⟨hA, ?_⟩
+    intro B hB
+    have hC : IsSelfAdjoint (B + star B) := by
+      change star (B + star B) = B + star B
+      simp only [star_add, star_star]
+      exact add_comm _ _
+    have hF : IsSelfAdjoint (Complex.I • (B - star B)) := by
+      change star (Complex.I • (B - star B)) = Complex.I • (B - star B)
+      simp only [star_smul, Complex.star_def, Complex.conj_I, star_sub, star_star]
+      rw [← neg_sub B (star B), smul_neg, neg_smul, neg_neg]
+    have hBm : star B ∈ theFactorObject P := star_mem hB
+    have hc := ht (B + star B) ((theFactorObject P).add_mem hB hBm) hC
+    have hf := ht (Complex.I • (B - star B))
+      ((theFactorObject P).toStarSubalgebra.smul_mem
+        ((theFactorObject P).sub_mem hB hBm) Complex.I) hF
+    have hconj : omegaState P (star B*A) = star (omegaState P (A*B)) := by
+      rw [← omega_state_star, star_mul, hAsa.star_eq]
+    simp only [add_mul, omega_state_add, hconj, Complex.add_im,
+      Complex.star_def, Complex.conj_im] at hc
+    simp only [smul_mul_assoc, sub_mul, omega_state_smul, omegaState_sub, hconj,
+      Complex.star_def, Complex.mul_im, Complex.I_re, Complex.I_im,
+      Complex.sub_re, Complex.conj_re, zero_mul, one_mul, zero_add] at hf
+    apply Complex.ext
+    · linarith
+    · linarith
+
+/-- The exact radical is the centralizer, including its converse. -/
+theorem state_polarizer_zero_iff (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hAsa : IsSelfAdjoint A) :
+    statePolarizer P (A (hOmega P)) = 0 ↔ A ∈ omegaCentralizer P := by
+  rw [state_centralizer_iff_imaginary P A hA hAsa]
+  constructor
+  · intro hz B hB hBsa
+    have hp := state_polarizer_pairing P B A hB hBsa hA hAsa
+    rw [hz, inner_zero_right, hBsa.star_eq] at hp
+    exact hp.symm
+  · intro hz
+    apply real_state_pairing_ext P _ _
+      (polarizer_mem (realStateSubspace P) _) (realStateSubspace P).zero_mem
+    intro B hB hBsa
+    change (inner ℂ (B (hOmega P)) (statePolarizer P (A (hOmega P)))).re =
+      (inner ℂ (B (hOmega P)) 0).re
+    rw [state_polarizer_pairing P B A hB hBsa hA hAsa, hBsa.star_eq,
+      hz B hB hBsa, inner_zero_right]
+    rfl
+
+def stateVectorReal (P : SiteProfile) :
+    (TowerHilbert P →L[ℂ] TowerHilbert P) →ₗ[ℝ] TowerHilbert P where
+  toFun A := A (hOmega P)
+  map_add' _ _ := rfl
+  map_smul' _ _ := rfl
+
+/-- A global real bilinear form on bounded generators, prior to taking the radical quotient. -/
+def stateCovariantBilinear (P : SiteProfile) (epsilon : ℝ) :
+    (TowerHilbert P →L[ℂ] TowerHilbert P) →ₗ[ℝ]
+      (TowerHilbert P →L[ℂ] TowerHilbert P) →ₗ[ℝ] ℝ where
+  toFun A := (polarizerFormBilin (realStateSubspace P) epsilon
+    (stateVectorReal P A)).comp (stateVectorReal P)
+  map_add' A B := by
+    ext C
+    exact (polarizerFormBilin (realStateSubspace P) epsilon).map_add
+      (stateVectorReal P A) (stateVectorReal P B) |> congrArg (fun L => L (stateVectorReal P C))
+  map_smul' c A := by
+    ext B
+    exact (polarizerFormBilin (realStateSubspace P) epsilon).map_smul c
+      (stateVectorReal P A) |> congrArg (fun L => L (stateVectorReal P B))
+
+theorem state_covariant_apply (P : SiteProfile) (epsilon : ℝ)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    stateCovariantBilinear P epsilon A B =
+      (inner ℂ (statePolarizer P (A (hOmega P)))
+        (statePolarizer P (B (hOmega P)))).re +
+      epsilon * (inner ℂ (statePolarizer P (statePolarizer P (A (hOmega P))))
+        (statePolarizer P (statePolarizer P (B (hOmega P))))).re :=
+  polarizer_form_re (realStateSubspace P) epsilon _ _
+
+theorem state_covariant_symmetric (P : SiteProfile) (epsilon : ℝ)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    stateCovariantBilinear P epsilon A B = stateCovariantBilinear P epsilon B A :=
+  polarizer_form_symmetric (realStateSubspace P) epsilon _ _
+
+theorem state_covariant_nonneg (P : SiteProfile) (epsilon : ℝ) (he : 0 ≤ epsilon)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    0 ≤ stateCovariantBilinear P epsilon A A :=
+  polarizer_form_nonneg (realStateSubspace P) epsilon he _
+
+theorem state_covariant_kernel (P : SiteProfile) (epsilon : ℝ) (he : 0 ≤ epsilon)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hAsa : IsSelfAdjoint A) :
+    stateCovariantBilinear P epsilon A A = 0 ↔ A ∈ omegaCentralizer P :=
+  (polarizer_form_zero_iff (realStateSubspace P) epsilon he _).trans
+    (state_polarizer_zero_iff P A hA hAsa)
+
+theorem state_covariant_positive_iff (P : SiteProfile) (epsilon : ℝ) (he : 0 ≤ epsilon)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hAsa : IsSelfAdjoint A) :
+    0 < stateCovariantBilinear P epsilon A A ↔ A ∉ omegaCentralizer P := by
+  have hn := state_covariant_nonneg P epsilon he A
+  have hk := state_covariant_kernel P epsilon he A hA hAsa
+  constructor
+  · intro hp hc
+    rw [hk.mpr hc] at hp
+    exact (lt_irrefl 0) hp
+  · intro hc
+    exact lt_of_le_of_ne hn (Ne.symm (mt hk.mp hc))
+
+theorem horizon_gns_real_iff (P : SiteProfile) (h : TowerHorizon P) (x : TowerHilbert P) :
+    x ∈ realStateSubspace P ↔ horizonGNSUnitary P h x ∈ realStateSubspace P := by
+  constructor
+  · exact horizon_gns_real_mem P h x
+  · intro hx
+    have hr := horizon_gns_real_mem P h.inv (horizonGNSUnitary P h x) hx
+    simpa only [← horizon_gns_symm_apply, LinearIsometryEquiv.symm_apply_apply] using hr
+
+theorem state_polarizer_covariant (P : SiteProfile) (h : TowerHorizon P)
+    (x : TowerHilbert P) :
+    statePolarizer P (horizonGNSUnitary P h x) =
+      horizonGNSUnitary P h (statePolarizer P x) :=
+  polarizer_covariant (realStateSubspace P) (horizonGNSUnitary P h)
+    (horizon_gns_real_iff P h) x
+
+/-- Covariance holds for every specified horizon and every bounded factor generator. -/
+theorem state_covariant_factor_invariant (P : SiteProfile) (epsilon : ℝ) (h : TowerHorizon P)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hB : B ∈ theFactorObject P) :
+    stateCovariantBilinear P epsilon (adT h A) (adT h B) =
+      stateCovariantBilinear P epsilon A B := by
+  have hf := polarizer_form_covariant (realStateSubspace P) epsilon
+    (horizonGNSUnitary P h) (horizon_gns_real_iff P h) (A (hOmega P)) (B (hOmega P))
+  rw [horizon_gns_apply_factor P h A hA, horizon_gns_apply_factor P h B hB] at hf
+  exact hf
+
+theorem state_covariant_invariant (P : SiteProfile) (epsilon : ℝ) (h : TowerHorizon P)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (_hAsa : IsSelfAdjoint A)
+    (hB : B ∈ theFactorObject P) (_hBsa : IsSelfAdjoint B) :
+    stateCovariantBilinear P epsilon (adT h A) (adT h B) =
+      stateCovariantBilinear P epsilon A B :=
+  state_covariant_factor_invariant P epsilon h A B hA hB
+
+/-- Centralizing additions do not change the form; this pays descent in the first slot. -/
+theorem state_covariant_add_centralizer (P : SiteProfile) (epsilon : ℝ)
+    (A B C : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hC : C ∈ omegaCentralizer P) (hCsa : IsSelfAdjoint C) :
+    stateCovariantBilinear P epsilon (A+C) B = stateCovariantBilinear P epsilon A B := by
+  have hz := (state_polarizer_zero_iff P C hC.1 hCsa).mpr hC
+  rw [state_covariant_apply, state_covariant_apply]
+  simp only [_root_.add_apply, map_add, hz, add_zero]
+
+theorem state_covariant_add_centralizer_right (P : SiteProfile) (epsilon : ℝ)
+    (A B C : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hC : C ∈ omegaCentralizer P) (hCsa : IsSelfAdjoint C) :
+    stateCovariantBilinear P epsilon A (B+C) = stateCovariantBilinear P epsilon A B := by
+  rw [state_covariant_symmetric P epsilon A (B+C),
+    state_covariant_add_centralizer P epsilon B A C hC hCsa,
+    state_covariant_symmetric P epsilon B A]
+
+/-- The response is the actual derivative of real state readings under bounded unitary motion. -/
+def realStateResponse (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) : ℝ :=
+  deriv (fun t : ℝ => (omegaState P (unitaryConjugation P A B t)).re) 0
+
+theorem state_reading_real_hasDerivAt (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : IsSelfAdjoint A) (hB : IsSelfAdjoint B) :
+    HasDerivAt (fun t : ℝ => (omegaState P (unitaryConjugation P A B t)).re)
+      (-2 * (omegaState P (B * A)).im) 0 := by
+  have hs : omegaState P (A * B) = star (omegaState P (B * A)) := by
+    simpa only [star_mul, hA.star_eq, hB.star_eq] using
+      omega_state_star P (B * A)
+  have hc : (Complex.I * omegaState P (B * A - A * B)).re =
+      -2 * (omegaState P (B * A)).im := by
+    rw [omegaState_sub, hs]
+    simp only [Complex.mul_re, Complex.I_re, Complex.I_im,
+      Complex.sub_im, Complex.star_def, Complex.conj_im,
+      zero_mul, one_mul, zero_sub]
+    ring
+  have hd := unitary_expectation_derivative_zero P A B hA
+  have hr : HasDerivAt (fun t : ℝ =>
+      (omegaState P (unitaryConjugation P A B t)).re)
+      (Complex.I * omegaState P (B * A - A * B)).re 0 := by
+    convert (Complex.reCLM.hasFDerivAt.comp_hasDerivAt 0 hd) using 1
+    all_goals rfl
+  rwa [hc] at hr
+
+theorem state_response_formula (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : IsSelfAdjoint A) (hB : IsSelfAdjoint B) :
+    realStateResponse P A B = -2 * (omegaState P (B*A)).im :=
+  (state_reading_real_hasDerivAt P A B hA hB).deriv
+
+theorem state_response_kernel (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hAsa : IsSelfAdjoint A) :
+    (∀ B : TowerHilbert P →L[ℂ] TowerHilbert P,
+      B ∈ theFactorObject P → IsSelfAdjoint B → realStateResponse P A B = 0) ↔
+      A ∈ omegaCentralizer P := by
+  rw [state_centralizer_iff_imaginary P A hA hAsa]
+  constructor
+  · intro hr B hB hBsa
+    have hz := hr B hB hBsa
+    rw [state_response_formula P A B hAsa hBsa] at hz
+    linarith
+  · intro hr B hB hBsa
+    rw [state_response_formula P A B hAsa hBsa, hr B hB hBsa, mul_zero]
+
+theorem state_covariant_response_kernel (P : SiteProfile) (epsilon : ℝ) (he : 0 ≤ epsilon)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hAsa : IsSelfAdjoint A) :
+    stateCovariantBilinear P epsilon A A = 0 ↔
+      ∀ B : TowerHilbert P →L[ℂ] TowerHilbert P,
+        B ∈ theFactorObject P → IsSelfAdjoint B → realStateResponse P A B = 0 :=
+  (state_covariant_kernel P epsilon he A hA hAsa).trans
+    (state_response_kernel P A hA hAsa).symm
+
+#print axioms real_state_pairing_ext
+#print axioms statePolarizer
+#print axioms state_polarizer_pairing
+#print axioms tower_polarizer_eq_of_pairing
+#print axioms state_centralizer_iff_imaginary
+#print axioms state_polarizer_zero_iff
+#print axioms stateVectorReal
+#print axioms stateCovariantBilinear
+#print axioms state_covariant_apply
+#print axioms state_covariant_symmetric
+#print axioms state_covariant_nonneg
+#print axioms state_covariant_kernel
+#print axioms state_covariant_positive_iff
+#print axioms horizon_gns_real_iff
+#print axioms state_polarizer_covariant
+#print axioms state_covariant_factor_invariant
+#print axioms state_covariant_invariant
+#print axioms state_covariant_add_centralizer
+#print axioms state_covariant_add_centralizer_right
+#print axioms realStateResponse
+#print axioms state_reading_real_hasDerivAt
+#print axioms state_response_formula
+#print axioms state_response_kernel
+#print axioms state_covariant_response_kernel
+
+end
+end ChatgptAudit.Covariant053
+''',
+    "TGLExt/LocalPolarizerWitness.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_053 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.TowerStatePolarizer
+import TGLExt.LocalHorizontalPauli
+import TGLExt.HorizontalAreaSelection
+
+set_option autoImplicit false
+set_option maxHeartbeats 2400000
+
+namespace ChatgptAudit.Covariant053
+open Matrix TGLExt ChatgptAudit ChatgptAudit.Thermal025
+  ChatgptAudit.Observable035 ChatgptAudit.Orbit052 ChatgptAudit.Aperiodic046 ChatgptAudit.Density033
+noncomputable section
+
+/-- The local representative of the real state polarizer. -/
+def localPolarizerMatrix (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) : Matrix (chainIdx N) (chainIdx N) ℂ :=
+  fun i j => Complex.I * (((towerW P N i - towerW P N j) /
+    (towerW P N i + towerW P N j) : ℝ) : ℂ) * a i j
+
+theorem local_polarizer_hermitian (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    (localPolarizerMatrix P N a).IsHermitian := by
+  ext i j
+  have hij : star (a j i) = a i j := congrFun (congrFun ha i) j
+  have hr : (towerW P N j - towerW P N i) / (towerW P N j + towerW P N i) =
+      -((towerW P N i - towerW P N j) / (towerW P N i + towerW P N j)) := by
+    rw [add_comm (towerW P N j) (towerW P N i)]
+    ring
+  change star (Complex.I * (((towerW P N j - towerW P N i) /
+      (towerW P N j + towerW P N i) : ℝ) : ℂ) * a j i) = _
+  simp only [star_mul, Complex.star_def, Complex.conj_I, Complex.conj_ofReal]
+  change star (a j i) * (_ * -Complex.I) = _
+  rw [hij, hr]
+  simp only [localPolarizerMatrix, Complex.ofReal_neg]
+  ring
+
+theorem local_polarizer_sylvester (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    (diagonal fun i => (towerW P N i : ℂ)) * localPolarizerMatrix P N a +
+      localPolarizerMatrix P N a * (diagonal fun i => (towerW P N i : ℂ)) =
+    Complex.I • ((diagonal fun i => (towerW P N i : ℂ)) * a -
+      a * (diagonal fun i => (towerW P N i : ℂ))) := by
+  ext i j
+  have hd : ((towerW P N i + towerW P N j : ℝ) : ℂ) ≠ 0 :=
+    Complex.ofReal_ne_zero.mpr (ne_of_gt (add_pos (towerW_pos P N i) (towerW_pos P N j)))
+  simp only [Matrix.add_apply, Matrix.sub_apply, Matrix.smul_apply, Matrix.diagonal_mul,
+    Matrix.mul_diagonal, localPolarizerMatrix, smul_eq_mul]
+  push_cast at hd ⊢
+  field_simp [hd]
+
+theorem local_state_star (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    star (tState P N a) = tState P N aᴴ := by
+  have hd : (diagonal fun i => (towerW P N i : ℂ))ᴴ =
+      diagonal fun i => (towerW P N i : ℂ) := by
+    ext i j
+    by_cases h : i = j
+    · subst j
+      simp [Matrix.diagonal]
+    · simp [Matrix.diagonal, h, Ne.symm h]
+  rw [tState_eq_trace, ← Matrix.trace_conjTranspose]
+  rw [Matrix.conjTranspose_mul, hd, Matrix.trace_mul_comm, tState_eq_trace]
+
+theorem local_polarizer_pairing (P : SiteProfile) (N : ℕ)
+    (a x : Matrix (chainIdx N) (chainIdx N) ℂ)
+    (ha : a.IsHermitian) (hx : x.IsHermitian) :
+    (tState P N (x * localPolarizerMatrix P N a)).re = (tState P N (x * a)).im := by
+  let rho : Matrix (chainIdx N) (chainIdx N) ℂ := diagonal fun i => (towerW P N i : ℂ)
+  have hl (b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+      (x * (rho * b)).trace = tState P N (b * x) := by
+    rw [Matrix.trace_mul_comm x (rho * b), Matrix.mul_assoc, tState_eq_trace]
+  have hr (b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+      (x * (b * rho)).trace = tState P N (x * b) := by
+    rw [← Matrix.mul_assoc, Matrix.trace_mul_comm (x * b) rho, tState_eq_trace]
+  have h := congrArg (fun z : Matrix (chainIdx N) (chainIdx N) ℂ => (x * z).trace)
+    (local_polarizer_sylvester P N a)
+  change (x * (rho * localPolarizerMatrix P N a + localPolarizerMatrix P N a * rho)).trace =
+    (x * (Complex.I • (rho * a - a * rho))).trace at h
+  simp only [Matrix.mul_add, Matrix.mul_sub, Matrix.mul_smul, Matrix.trace_add,
+    Matrix.trace_sub, Matrix.trace_smul, smul_eq_mul] at h
+  rw [hl, hr, hl, hr] at h
+  have hc (b : Matrix (chainIdx N) (chainIdx N) ℂ) (hb : b.IsHermitian) :
+      tState P N (b * x) = star (tState P N (x * b)) := by
+    rw [local_state_star, Matrix.conjTranspose_mul, hb, hx]
+  rw [hc _ (local_polarizer_hermitian P N a ha), hc _ ha] at h
+  have he := congrArg Complex.re h
+  simp only [Complex.add_re, Complex.mul_re, Complex.I_re, Complex.I_im, zero_mul,
+    one_mul, zero_sub, Complex.sub_im, Complex.star_def, Complex.conj_re,
+    Complex.conj_im] at he
+  linarith
+
+theorem tower_local_selfadjoint (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    IsSelfAdjoint (towerPi P a) := by
+  change star (towerPi P a) = towerPi P a
+  rw [ContinuousLinearMap.star_eq_adjoint, ← towerPi_star, ha]
+
+/-- Equality with the global operator is tested against every self-adjoint factor element. -/
+theorem state_polarizer_local (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    statePolarizer P (towerPi P a (hOmega P)) =
+      towerPi P (localPolarizerMatrix P N a) (hOmega P) := by
+  apply tower_polarizer_eq_of_pairing P (towerPi P a)
+    (towerPi P (localPolarizerMatrix P N a))
+    (towerPi_mem_factor a) (tower_local_selfadjoint P N a ha)
+    (towerPi_mem_factor _) (tower_local_selfadjoint P N _ (local_polarizer_hermitian P N a ha))
+  intro B hB hBsa
+  rw [hBsa.star_eq, state_local_right, state_local_right]
+  exact local_polarizer_pairing P N a (expectationMatrix P N B) ha
+    (expectationMatrix_hermitian N B hB hBsa)
+  all_goals assumption
+
+theorem local_operator_pairing (P : SiteProfile) (N : ℕ)
+    (a b : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    inner ℂ (towerPi P a (hOmega P)) (towerPi P b (hOmega P)) =
+      tState P N (aᴴ * b) := by
+  have he := omega_product_inner (P := P) (star (towerPi P a)) (towerPi P b)
+  rw [star_star] at he
+  rw [← he, ContinuousLinearMap.star_eq_adjoint, ← towerPi_star, ← towerPi_mul, omegaState_pi]
+
+/-- The second test is the raw 00-to-11 flip, with GNS square norm 5/9. -/
+def doubleFlipXMatrix : Matrix (chainIdx 1) (chainIdx 1) ℂ :=
+  Matrix.single (0, 0) (1, 1) 1 + Matrix.single (1, 1) (0, 0) 1
+
+def doubleFlipYMatrix : Matrix (chainIdx 1) (chainIdx 1) ℂ :=
+  (-Complex.I) • Matrix.single (0, 0) (1, 1) 1 +
+    Complex.I • Matrix.single (1, 1) (0, 0) 1
+
+def doubleFlipX : TowerHilbert thirdThermalReference →L[ℂ] TowerHilbert thirdThermalReference :=
+  towerPi thirdThermalReference doubleFlipXMatrix
+
+def doubleFlipY : TowerHilbert thirdThermalReference →L[ℂ] TowerHilbert thirdThermalReference :=
+  towerPi thirdThermalReference doubleFlipYMatrix
+
+theorem double_flip_x_hermitian : doubleFlipXMatrix.IsHermitian := by
+  ext ⟨i, j⟩ ⟨k, l⟩
+  fin_cases i <;> fin_cases j <;> fin_cases k <;> fin_cases l <;>
+    norm_num [doubleFlipXMatrix, Matrix.single_apply, Matrix.conjTranspose_apply]
+
+theorem double_flip_y_hermitian : doubleFlipYMatrix.IsHermitian := by
+  ext ⟨i, j⟩ ⟨k, l⟩
+  fin_cases i <;> fin_cases j <;> fin_cases k <;> fin_cases l <;>
+    norm_num [doubleFlipYMatrix, Matrix.single_apply, Matrix.conjTranspose_apply,
+      Complex.star_def]
+
+theorem double_flip_x_mem_factor : doubleFlipX ∈ theFactorObject thirdThermalReference :=
+  towerPi_mem_factor doubleFlipXMatrix
+
+theorem double_flip_y_mem_factor : doubleFlipY ∈ theFactorObject thirdThermalReference :=
+  towerPi_mem_factor doubleFlipYMatrix
+
+theorem double_flip_x_selfadjoint : IsSelfAdjoint doubleFlipX :=
+  tower_local_selfadjoint _ _ _ double_flip_x_hermitian
+
+theorem double_flip_y_selfadjoint : IsSelfAdjoint doubleFlipY :=
+  tower_local_selfadjoint _ _ _ double_flip_y_hermitian
+
+theorem local_real_smul_action (P : SiteProfile) (N : ℕ) (c : ℝ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    towerPi P ((c : ℂ) • a) (hOmega P) = c • towerPi P a (hOmega P) := by
+  change ((towerPiLinear P N) ((c : ℂ) • a)) (hOmega P) = _
+  rw [map_smul]
+  rfl
+
+theorem first_pauli_polarizer_x :
+    statePolarizer thirdThermalReference (sitePauliX thirdThermalReference 0 (hOmega _)) =
+      (1 / 3 : ℝ) • sitePauliY thirdThermalReference 0 (hOmega _) := by
+  change statePolarizer thirdThermalReference
+    (towerPi thirdThermalReference (N := 0) pauliXMatrix (hOmega _)) = _
+  rw [state_polarizer_local thirdThermalReference 0 pauliXMatrix pauli_x_conjTranspose]
+  have hm : localPolarizerMatrix thirdThermalReference 0 pauliXMatrix =
+      ((1 / 3 : ℝ) : ℂ) • pauliYMatrix := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [localPolarizerMatrix, towerW, siteW, thirdThermalReference,
+        pauliXMatrix, pauliYMatrix, Complex.ext_iff, Complex.mul_re, Complex.mul_im]
+  rw [hm]
+  exact local_real_smul_action thirdThermalReference 0 (1 / 3) pauliYMatrix
+
+theorem first_pauli_polarizer_y :
+    statePolarizer thirdThermalReference (sitePauliY thirdThermalReference 0 (hOmega _)) =
+      (-1 / 3 : ℝ) • sitePauliX thirdThermalReference 0 (hOmega _) := by
+  change statePolarizer thirdThermalReference
+    (towerPi thirdThermalReference (N := 0) pauliYMatrix (hOmega _)) = _
+  rw [state_polarizer_local thirdThermalReference 0 pauliYMatrix pauli_y_conjTranspose]
+  have hm : localPolarizerMatrix thirdThermalReference 0 pauliYMatrix =
+      ((-1 / 3 : ℝ) : ℂ) • pauliXMatrix := by
+    ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [localPolarizerMatrix, towerW, siteW, thirdThermalReference,
+        pauliXMatrix, pauliYMatrix, Complex.ext_iff, Complex.mul_re, Complex.mul_im]
+  rw [hm]
+  exact local_real_smul_action thirdThermalReference 0 (-1 / 3) pauliXMatrix
+
+theorem double_flip_polarizer_x :
+    statePolarizer thirdThermalReference (doubleFlipX (hOmega _)) =
+      (3 / 5 : ℝ) • doubleFlipY (hOmega _) := by
+  rw [doubleFlipX, state_polarizer_local _ _ _ double_flip_x_hermitian]
+  have hm : localPolarizerMatrix thirdThermalReference 1 doubleFlipXMatrix =
+      ((3 / 5 : ℝ) : ℂ) • doubleFlipYMatrix := by
+    ext ⟨i, j⟩ ⟨k, l⟩
+    fin_cases i <;> fin_cases j <;> fin_cases k <;> fin_cases l <;>
+      norm_num [localPolarizerMatrix, towerW, siteW, thirdThermalReference,
+        doubleFlipXMatrix, doubleFlipYMatrix, Matrix.single_apply,
+        Complex.ext_iff, Complex.mul_re, Complex.mul_im]
+  rw [hm]
+  exact local_real_smul_action thirdThermalReference 1 (3 / 5) doubleFlipYMatrix
+
+theorem double_flip_polarizer_y :
+    statePolarizer thirdThermalReference (doubleFlipY (hOmega _)) =
+      (-3 / 5 : ℝ) • doubleFlipX (hOmega _) := by
+  rw [doubleFlipY, state_polarizer_local _ _ _ double_flip_y_hermitian]
+  have hm : localPolarizerMatrix thirdThermalReference 1 doubleFlipYMatrix =
+      ((-3 / 5 : ℝ) : ℂ) • doubleFlipXMatrix := by
+    ext ⟨i, j⟩ ⟨k, l⟩
+    fin_cases i <;> fin_cases j <;> fin_cases k <;> fin_cases l <;>
+      norm_num [localPolarizerMatrix, towerW, siteW, thirdThermalReference,
+        doubleFlipXMatrix, doubleFlipYMatrix, Matrix.single_apply,
+        Complex.ext_iff, Complex.mul_re, Complex.mul_im]
+  rw [hm]
+  exact local_real_smul_action thirdThermalReference 1 (-3 / 5) doubleFlipXMatrix
+
+theorem double_flip_x_expectation :
+    (aperiodicExpectationInput thirdThermalReference).E doubleFlipX = 0 := by
+  rw [doubleFlipX, aperiodic_expectation_local]
+  have hm : specExpect (towerW thirdThermalReference 1) doubleFlipXMatrix = 0 := by
+    ext ⟨i, j⟩ ⟨k, l⟩
+    fin_cases i <;> fin_cases j <;> fin_cases k <;> fin_cases l <;>
+      norm_num [specExpect, towerW, siteW, thirdThermalReference,
+        doubleFlipXMatrix, Matrix.single_apply]
+  rw [hm]
+  exact (towerPiLinear thirdThermalReference 1).map_zero
+
+theorem double_flip_y_expectation :
+    (aperiodicExpectationInput thirdThermalReference).E doubleFlipY = 0 := by
+  rw [doubleFlipY, aperiodic_expectation_local]
+  have hm : specExpect (towerW thirdThermalReference 1) doubleFlipYMatrix = 0 := by
+    ext ⟨i, j⟩ ⟨k, l⟩
+    fin_cases i <;> fin_cases j <;> fin_cases k <;> fin_cases l <;>
+      norm_num [specExpect, towerW, siteW, thirdThermalReference,
+        doubleFlipYMatrix, Matrix.single_apply]
+  rw [hm]
+  exact (towerPiLinear thirdThermalReference 1).map_zero
+
+theorem double_flip_state_products :
+    omegaState thirdThermalReference (doubleFlipX * doubleFlipX) = (5 / 9 : ℂ) ∧
+    omegaState thirdThermalReference (doubleFlipY * doubleFlipY) = (5 / 9 : ℂ) ∧
+    omegaState thirdThermalReference (doubleFlipX * doubleFlipY) = -Complex.I / 3 ∧
+    omegaState thirdThermalReference (doubleFlipY * doubleFlipX) = Complex.I / 3 := by
+  refine ⟨?_, ?_, ?_, ?_⟩ <;>
+    simp only [doubleFlipX, doubleFlipY, ← towerPi_mul, omegaState_pi] <;>
+    norm_num [tState, towerW, siteW, thirdThermalReference, doubleFlipXMatrix,
+      doubleFlipYMatrix, Matrix.mul_apply, Matrix.single_apply,
+      Fintype.sum_prod_type, Fin.sum_univ_two, Complex.ext_iff,
+      Complex.mul_re, Complex.mul_im]
+
+theorem double_flip_real_gram :
+    (inner ℂ (doubleFlipX (hOmega _)) (doubleFlipX (hOmega _))).re = 5 / 9 ∧
+    (inner ℂ (doubleFlipY (hOmega _)) (doubleFlipY (hOmega _))).re = 5 / 9 ∧
+    (inner ℂ (doubleFlipX (hOmega _)) (doubleFlipY (hOmega _))).re = 0 ∧
+    (inner ℂ (doubleFlipY (hOmega _)) (doubleFlipX (hOmega _))).re = 0 := by
+  rcases double_flip_state_products with ⟨hxx, hyy, hxy, hyx⟩
+  rw [omega_product_inner, double_flip_x_selfadjoint.star_eq] at hxx hxy
+  rw [omega_product_inner, double_flip_y_selfadjoint.star_eq] at hyy hyx
+  rw [hxx, hyy, hxy, hyx]
+  norm_num
+
+theorem double_flip_norm_squares :
+    ‖doubleFlipX (hOmega thirdThermalReference)‖ ^ 2 = 5 / 9 ∧
+    ‖doubleFlipY (hOmega thirdThermalReference)‖ ^ 2 = 5 / 9 := by
+  simpa only [norm_sq_eq_re_inner (𝕜 := ℂ), RCLike.re_eq_complex_re] using
+    And.intro double_flip_real_gram.1 double_flip_real_gram.2.1
+
+/-- Two parameters in actual unitary state curves, with fixed measured observables. -/
+def doubleFlipHorizontal (u : Fin 2 → ℝ) :
+    TowerHilbert thirdThermalReference →L[ℂ] TowerHilbert thirdThermalReference :=
+  (u 0 : ℂ) • doubleFlipX + (u 1 : ℂ) • doubleFlipY
+
+theorem double_flip_horizontal_mem_factor (u : Fin 2 → ℝ) :
+    doubleFlipHorizontal u ∈ theFactorObject thirdThermalReference :=
+  add_mem
+    ((theFactorObject thirdThermalReference).toStarSubalgebra.smul_mem double_flip_x_mem_factor _)
+    ((theFactorObject thirdThermalReference).toStarSubalgebra.smul_mem double_flip_y_mem_factor _)
+
+theorem double_flip_horizontal_selfadjoint (u : Fin 2 → ℝ) :
+    IsSelfAdjoint (doubleFlipHorizontal u) := by
+  change star (doubleFlipHorizontal u) = doubleFlipHorizontal u
+  simp only [doubleFlipHorizontal, star_add, star_smul, Complex.star_def, Complex.conj_ofReal,
+    double_flip_x_selfadjoint.star_eq, double_flip_y_selfadjoint.star_eq]
+
+theorem double_flip_horizontal_expectation (u : Fin 2 → ℝ) :
+    (aperiodicExpectationInput thirdThermalReference).E (doubleFlipHorizontal u) = 0 := by
+  rw [doubleFlipHorizontal,
+    ChatgptAudit.Expectation047.expectation_add _ _ _ _
+      ((theFactorObject thirdThermalReference).toStarSubalgebra.smul_mem double_flip_x_mem_factor _)
+      ((theFactorObject thirdThermalReference).toStarSubalgebra.smul_mem double_flip_y_mem_factor _),
+    ChatgptAudit.Expectation047.expectation_smul _ _ _ _ double_flip_x_mem_factor,
+    ChatgptAudit.Expectation047.expectation_smul _ _ _ _ double_flip_y_mem_factor,
+    double_flip_x_expectation, double_flip_y_expectation, smul_zero, smul_zero, add_zero]
+
+def doubleFlipReading (u : Fin 2 → ℝ)
+    (B : TowerHilbert thirdThermalReference →L[ℂ] TowerHilbert thirdThermalReference)
+    (t : ℝ) : ℝ := (orbitExpectation thirdThermalReference (doubleFlipHorizontal u) 0 B t 0).re
+
+theorem double_flip_x_commutator (u : Fin 2 → ℝ) :
+    Complex.I * omegaState thirdThermalReference
+      (doubleFlipX * doubleFlipHorizontal u - doubleFlipHorizontal u * doubleFlipX) =
+      ((2 * u 1 / 3 : ℝ) : ℂ) := by
+  rcases double_flip_state_products with ⟨hxx, _, hxy, hyx⟩
+  simp only [doubleFlipHorizontal, mul_add, add_mul, mul_smul_comm, smul_mul_assoc,
+    omegaState_sub, omega_state_add, omega_state_smul, hxx, hxy, hyx]
+  push_cast
+  ring_nf
+  simp only [Complex.I_sq]
+  ring
+
+theorem double_flip_y_commutator (u : Fin 2 → ℝ) :
+    Complex.I * omegaState thirdThermalReference
+      (doubleFlipY * doubleFlipHorizontal u - doubleFlipHorizontal u * doubleFlipY) =
+      ((-2 * u 0 / 3 : ℝ) : ℂ) := by
+  rcases double_flip_state_products with ⟨_, hyy, hxy, hyx⟩
+  simp only [doubleFlipHorizontal, mul_add, add_mul, mul_smul_comm, smul_mul_assoc,
+    omegaState_sub, omega_state_add, omega_state_smul, hyy, hxy, hyx]
+  push_cast
+  ring_nf
+  simp only [Complex.I_sq]
+  ring
+
+theorem double_flip_x_reading_derivative (u : Fin 2 → ℝ) :
+    HasDerivAt (doubleFlipReading u doubleFlipX) (2 * u 1 / 3) 0 := by
+  have hd := orbit_expectation_first_derivative thirdThermalReference
+    (doubleFlipHorizontal u) 0 doubleFlipX (double_flip_horizontal_selfadjoint u)
+  rw [double_flip_x_commutator] at hd
+  convert (Complex.reCLM.hasFDerivAt.comp_hasDerivAt 0 hd) using 1
+  all_goals rfl
+
+theorem double_flip_y_reading_derivative (u : Fin 2 → ℝ) :
+    HasDerivAt (doubleFlipReading u doubleFlipY) (-2 * u 0 / 3) 0 := by
+  have hd := orbit_expectation_first_derivative thirdThermalReference
+    (doubleFlipHorizontal u) 0 doubleFlipY (double_flip_horizontal_selfadjoint u)
+  rw [double_flip_y_commutator] at hd
+  convert (Complex.reCLM.hasFDerivAt.comp_hasDerivAt 0 hd) using 1
+  all_goals rfl
+
+def doubleFlipResponse (u : Fin 2 → ℝ) : Fin 2 → ℝ :=
+  ![deriv (doubleFlipReading u doubleFlipX) 0, deriv (doubleFlipReading u doubleFlipY) 0]
+
+theorem double_flip_response_formula (u : Fin 2 → ℝ) :
+    doubleFlipResponse u = ![2 * u 1 / 3, -2 * u 0 / 3] := by
+  rw [doubleFlipResponse, (double_flip_x_reading_derivative u).deriv,
+    (double_flip_y_reading_derivative u).deriv]
+
+theorem double_flip_response_injective : Function.Injective doubleFlipResponse := by
+  intro u v h
+  have h0 := congrFun h 0
+  have h1 := congrFun h 1
+  simp only [double_flip_response_formula, Matrix.cons_val_zero, Matrix.cons_val_one] at h0 h1
+  funext i
+  fin_cases i
+  · change u 0 = v 0
+    linarith
+  · change u 1 = v 1
+    linarith
+
+/-- Zero response in all self-adjoint measurements forces a zero parameter direction. -/
+theorem double_flip_effective_directions (u v : Fin 2 → ℝ)
+    (h : ∀ B ∈ theFactorObject thirdThermalReference, IsSelfAdjoint B →
+      deriv (doubleFlipReading u B) 0 = deriv (doubleFlipReading v B) 0) : u = v := by
+  apply double_flip_response_injective
+  have hx := h doubleFlipX double_flip_x_mem_factor double_flip_x_selfadjoint
+  have hy := h doubleFlipY double_flip_y_mem_factor double_flip_y_selfadjoint
+  simp only [doubleFlipResponse, hx, hy]
+
+#print axioms localPolarizerMatrix
+#print axioms local_polarizer_hermitian
+#print axioms local_polarizer_sylvester
+#print axioms local_state_star
+#print axioms local_polarizer_pairing
+#print axioms tower_local_selfadjoint
+#print axioms state_polarizer_local
+#print axioms local_operator_pairing
+#print axioms doubleFlipXMatrix
+#print axioms doubleFlipYMatrix
+#print axioms doubleFlipX
+#print axioms doubleFlipY
+#print axioms double_flip_x_hermitian
+#print axioms double_flip_y_hermitian
+#print axioms double_flip_x_mem_factor
+#print axioms double_flip_y_mem_factor
+#print axioms double_flip_x_selfadjoint
+#print axioms double_flip_y_selfadjoint
+#print axioms local_real_smul_action
+#print axioms first_pauli_polarizer_x
+#print axioms first_pauli_polarizer_y
+#print axioms double_flip_polarizer_x
+#print axioms double_flip_polarizer_y
+#print axioms double_flip_x_expectation
+#print axioms double_flip_y_expectation
+#print axioms double_flip_state_products
+#print axioms double_flip_real_gram
+#print axioms double_flip_norm_squares
+#print axioms doubleFlipHorizontal
+#print axioms double_flip_horizontal_mem_factor
+#print axioms double_flip_horizontal_selfadjoint
+#print axioms double_flip_horizontal_expectation
+#print axioms doubleFlipReading
+#print axioms double_flip_x_commutator
+#print axioms double_flip_y_commutator
+#print axioms double_flip_x_reading_derivative
+#print axioms double_flip_y_reading_derivative
+#print axioms doubleFlipResponse
+#print axioms double_flip_response_formula
+#print axioms double_flip_response_injective
+#print axioms double_flip_effective_directions
+end
+end ChatgptAudit.Covariant053
+''',
+    "TGLExt/CovariantAreaCounterexample.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_053 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.LocalPolarizerWitness
+
+set_option autoImplicit false
+set_option maxHeartbeats 1800000
+
+namespace ChatgptAudit.Covariant053
+open Matrix TGLExt ChatgptAudit ChatgptAudit.Thermal025 ChatgptAudit.Observable035
+  ChatgptAudit.Orbit052 ChatgptAudit.Area045 ChatgptAudit.Angular034 ClosedSubmodule
+noncomputable section
+
+abbrev ReferenceOperator :=
+  TowerHilbert thirdThermalReference →L[ℂ] TowerHilbert thirdThermalReference
+
+/-- Both forms are normalized on the same first-site GNS orthonormal pair. -/
+def normalizedCovariantForm (epsilon : ℝ) :
+    ReferenceOperator →ₗ[ℝ] ReferenceOperator →ₗ[ℝ] ℝ :=
+  (2 * (1 / 9 + epsilon / 81))⁻¹ • stateCovariantBilinear thirdThermalReference epsilon
+
+theorem normalized_covariant_apply (epsilon : ℝ) (A B : ReferenceOperator) :
+    normalizedCovariantForm epsilon A B =
+      (2 * (1 / 9 + epsilon / 81))⁻¹ *
+        stateCovariantBilinear thirdThermalReference epsilon A B := rfl
+
+theorem normalization_positive (epsilon : ℝ) (he : 0 ≤ epsilon) :
+    0 < (2 * (1 / 9 + epsilon / 81))⁻¹ := by
+  apply inv_pos.mpr
+  linarith
+
+theorem normalized_covariant_symmetric (epsilon : ℝ) (A B : ReferenceOperator) :
+    normalizedCovariantForm epsilon A B = normalizedCovariantForm epsilon B A := by
+  rw [normalized_covariant_apply, normalized_covariant_apply,
+    state_covariant_symmetric]
+
+theorem normalized_covariant_nonneg (epsilon : ℝ) (he : 0 ≤ epsilon)
+    (A : ReferenceOperator) : 0 ≤ normalizedCovariantForm epsilon A A := by
+  rw [normalized_covariant_apply]
+  exact mul_nonneg (normalization_positive epsilon he).le (state_covariant_nonneg _ _ he A)
+
+/-- Covariance quantifies over every actual tower horizon, with the original adjoint action. -/
+theorem normalized_covariant_invariant (epsilon : ℝ) (h : TowerHorizon thirdThermalReference)
+    (A B : ReferenceOperator) (hA : A ∈ theFactorObject thirdThermalReference)
+    (hAsa : IsSelfAdjoint A) (hB : B ∈ theFactorObject thirdThermalReference)
+    (hBsa : IsSelfAdjoint B) :
+    normalizedCovariantForm epsilon (adT h A) (adT h B) =
+      normalizedCovariantForm epsilon A B := by
+  rw [normalized_covariant_apply, normalized_covariant_apply,
+    state_covariant_invariant _ _ h A B hA hAsa hB hBsa]
+
+theorem normalized_covariant_kernel (epsilon : ℝ) (he : 0 ≤ epsilon)
+    (A : ReferenceOperator) (hA : A ∈ theFactorObject thirdThermalReference)
+    (hAsa : IsSelfAdjoint A) :
+    normalizedCovariantForm epsilon A A = 0 ↔ A ∈ omegaCentralizer thirdThermalReference := by
+  rw [normalized_covariant_apply, mul_eq_zero]
+  have hn := ne_of_gt (normalization_positive epsilon he)
+  simp only [hn, false_or]
+  exact state_covariant_kernel _ _ he A hA hAsa
+
+theorem normalized_covariant_positive_iff (epsilon : ℝ) (he : 0 ≤ epsilon)
+    (A : ReferenceOperator) (hA : A ∈ theFactorObject thirdThermalReference)
+    (hAsa : IsSelfAdjoint A) :
+    0 < normalizedCovariantForm epsilon A A ↔
+      A ∉ omegaCentralizer thirdThermalReference := by
+  have hn := normalized_covariant_nonneg epsilon he A
+  have hk := normalized_covariant_kernel epsilon he A hA hAsa
+  constructor
+  · intro hp hc
+    rw [hk.mpr hc] at hp
+    exact (lt_irrefl 0) hp
+  · intro hc
+    exact lt_of_le_of_ne hn (Ne.symm (mt hk.mp hc))
+
+/-- A calculation for any two vectors on which D acts as a real rotation times k. -/
+theorem state_covariant_rotating_pair_gram (P : SiteProfile) (epsilon k n : ℝ)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hDA : statePolarizer P (A (hOmega P)) = k • B (hOmega P))
+    (hDB : statePolarizer P (B (hOmega P)) = (-k) • A (hOmega P))
+    (hAA : inner ℝ (A (hOmega P)) (A (hOmega P)) = n)
+    (hBB : inner ℝ (B (hOmega P)) (B (hOmega P)) = n)
+    (hAB : inner ℝ (A (hOmega P)) (B (hOmega P)) = 0)
+    (hBA : inner ℝ (B (hOmega P)) (A (hOmega P)) = 0) :
+    formGram (stateCovariantBilinear P epsilon) A B =
+      !![(k^2 + epsilon * k^4) * n, 0; 0, (k^2 + epsilon * k^4) * n] := by
+  have haa : stateCovariantBilinear P epsilon A A = (k^2 + epsilon * k^4) * n := by
+    simp only [state_covariant_apply, hDA, hDB, map_smul,
+      ← ClosedSubmodule.inner_real_eq_re_inner, real_inner_smul_left,
+      real_inner_smul_right, hAA, hBB]
+    ring
+  have hbb : stateCovariantBilinear P epsilon B B = (k^2 + epsilon * k^4) * n := by
+    simp only [state_covariant_apply, hDA, hDB, map_smul,
+      ← ClosedSubmodule.inner_real_eq_re_inner, real_inner_smul_left,
+      real_inner_smul_right, hAA, hBB]
+    ring
+  have hab : stateCovariantBilinear P epsilon A B = 0 := by
+    simp only [state_covariant_apply, hDA, hDB, map_smul,
+      ← ClosedSubmodule.inner_real_eq_re_inner, real_inner_smul_left,
+      real_inner_smul_right, hAB, hBA]
+    ring
+  have hba : stateCovariantBilinear P epsilon B A = 0 := by
+    simp only [state_covariant_apply, hDA, hDB, map_smul,
+      ← ClosedSubmodule.inner_real_eq_re_inner, real_inner_smul_left,
+      real_inner_smul_right, hAB, hBA]
+    ring
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num [formGram, haa, hbb, hab, hba]
+
+theorem first_pair_real_gram :
+    inner ℝ (sitePauliX thirdThermalReference 0 (hOmega _))
+      (sitePauliX thirdThermalReference 0 (hOmega _)) = 1 ∧
+    inner ℝ (sitePauliY thirdThermalReference 0 (hOmega _))
+      (sitePauliY thirdThermalReference 0 (hOmega _)) = 1 ∧
+    inner ℝ (sitePauliX thirdThermalReference 0 (hOmega _))
+      (sitePauliY thirdThermalReference 0 (hOmega _)) = 0 ∧
+    inner ℝ (sitePauliY thirdThermalReference 0 (hOmega _))
+      (sitePauliX thirdThermalReference 0 (hOmega _)) = 0 := by
+  have hc : inner ℝ (sitePauliX thirdThermalReference 0 (hOmega _))
+      (sitePauliY thirdThermalReference 0 (hOmega _)) = 0 := by
+    rw [ClosedSubmodule.inner_real_eq_re_inner, pauli_xy_gns_pairing]
+    norm_num [thirdThermalReference]
+  refine ⟨?_, ?_, hc, ?_⟩
+  · rw [real_inner_self_eq_norm_sq, pauli_x_gns_norm, one_pow]
+  · rw [real_inner_self_eq_norm_sq, pauli_y_gns_norm, one_pow]
+  · rw [real_inner_comm]
+    exact hc
+
+theorem first_pair_unnormalized_gram (epsilon : ℝ) :
+    formGram (stateCovariantBilinear thirdThermalReference epsilon)
+      (sitePauliX thirdThermalReference 0) (sitePauliY thirdThermalReference 0) =
+      !![1 / 9 + epsilon / 81, 0; 0, 1 / 9 + epsilon / 81] := by
+  rcases first_pair_real_gram with ⟨hxx, hyy, hxy, hyx⟩
+  have h := state_covariant_rotating_pair_gram thirdThermalReference epsilon (1 / 3) 1
+    (sitePauliX _ 0) (sitePauliY _ 0) first_pauli_polarizer_x
+    (by simpa only [neg_div] using first_pauli_polarizer_y) hxx hyy hxy hyx
+  convert h using 1
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num <;> ring
+
+theorem double_pair_unnormalized_gram (epsilon : ℝ) :
+    formGram (stateCovariantBilinear thirdThermalReference epsilon) doubleFlipX doubleFlipY =
+      !![1 / 5 + 9 * epsilon / 125, 0; 0, 1 / 5 + 9 * epsilon / 125] := by
+  rcases double_flip_real_gram with ⟨hxx, hyy, hxy, hyx⟩
+  have h := state_covariant_rotating_pair_gram thirdThermalReference epsilon (3 / 5) (5 / 9)
+    doubleFlipX doubleFlipY double_flip_polarizer_x
+    (by simpa only [neg_div] using double_flip_polarizer_y)
+    (by simpa only [ClosedSubmodule.inner_real_eq_re_inner] using hxx)
+    (by simpa only [ClosedSubmodule.inner_real_eq_re_inner] using hyy)
+    (by simpa only [ClosedSubmodule.inner_real_eq_re_inner] using hxy)
+    (by simpa only [ClosedSubmodule.inner_real_eq_re_inner] using hyx)
+  convert h using 1
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num <;> ring
+
+/-- This fixed trace-one calibration is shared by the entire epsilon family. -/
+theorem normalized_first_pair_gram (epsilon : ℝ) (he : 0 ≤ epsilon) :
+    formGram (normalizedCovariantForm epsilon)
+      (sitePauliX thirdThermalReference 0) (sitePauliY thirdThermalReference 0) =
+      !![1 / 2, 0; 0, 1 / 2] := by
+  rw [normalizedCovariantForm, form_gram_scale, first_pair_unnormalized_gram]
+  have hd : 2 * (1 / 9 + epsilon / 81) ≠ 0 := by
+    have hp : 0 < 2 * (1 / 9 + epsilon / 81) := by linarith
+    exact ne_of_gt hp
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num [Matrix.smul_apply] <;>
+    field_simp [hd]
+
+theorem normalized_double_pair_gram_zero :
+    formGram (normalizedCovariantForm 0) doubleFlipX doubleFlipY =
+      !![9 / 10, 0; 0, 9 / 10] := by
+  rw [normalizedCovariantForm, form_gram_scale, double_pair_unnormalized_gram]
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num
+
+theorem normalized_double_pair_gram_one :
+    formGram (normalizedCovariantForm 1) doubleFlipX doubleFlipY =
+      !![1377 / 1250, 0; 0, 1377 / 1250] := by
+  rw [normalizedCovariantForm, form_gram_scale, double_pair_unnormalized_gram]
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num
+
+theorem normalized_double_pair_area_zero :
+    formArea (normalizedCovariantForm 0) doubleFlipX doubleFlipY = 9 / 10 := by
+  rw [formArea, normalized_double_pair_gram_zero]
+  change Real.sqrt ((!![(9 / 10 : ℝ), 0; 0, 9 / 10] : ScreenMatrix).det) = 9 / 10
+  rw [Matrix.det_fin_two]
+  change Real.sqrt ((9 / 10 : ℝ) * (9 / 10) - 0 * 0) = 9 / 10
+  rw [mul_zero, sub_zero, ← pow_two, Real.sqrt_sq_eq_abs]
+  norm_num
+
+theorem normalized_double_pair_area_one :
+    formArea (normalizedCovariantForm 1) doubleFlipX doubleFlipY = 1377 / 1250 := by
+  rw [formArea, normalized_double_pair_gram_one]
+  change Real.sqrt ((!![(1377 / 1250 : ℝ), 0; 0, 1377 / 1250] : ScreenMatrix).det) = 1377 / 1250
+  rw [Matrix.det_fin_two]
+  change Real.sqrt ((1377 / 1250 : ℝ) * (1377 / 1250) - 0 * 0) = 1377 / 1250
+  rw [mul_zero, sub_zero, ← pow_two, Real.sqrt_sq_eq_abs]
+  norm_num
+
+theorem normalized_area_gap :
+    formArea (normalizedCovariantForm 1) doubleFlipX doubleFlipY -
+      formArea (normalizedCovariantForm 0) doubleFlipX doubleFlipY = 126 / 625 := by
+  rw [normalized_double_pair_area_one, normalized_double_pair_area_zero]
+  norm_num
+
+theorem normalized_forms_distinct : normalizedCovariantForm 0 ≠ normalizedCovariantForm 1 := by
+  intro h
+  have he := congrArg (fun F => formArea F doubleFlipX doubleFlipY) h
+  rw [normalized_double_pair_area_zero, normalized_double_pair_area_one] at he
+  norm_num at he
+
+/-- The same calibration cannot make these two global forms scalar multiples. -/
+theorem normalized_forms_not_global_rescaling (c : ℝ) :
+    normalizedCovariantForm 1 ≠ c • normalizedCovariantForm 0 := by
+  intro h
+  have hg := congrArg (fun F => formGram F (sitePauliX thirdThermalReference 0)
+    (sitePauliY thirdThermalReference 0)) h
+  rw [form_gram_scale, normalized_first_pair_gram 1 (by norm_num),
+    normalized_first_pair_gram 0 (by norm_num)] at hg
+  have he := congrArg (fun G : ScreenMatrix => G 0 0) hg
+  norm_num at he
+  have hc : c = 1 := by linarith
+  rw [hc, one_smul] at h
+  exact normalized_forms_distinct h.symm
+
+/-- Fixed state, factor, action, calibration and effective directions; two different areas. -/
+theorem two_global_covariant_calibrated_forms :
+    ∃ F G : ReferenceOperator →ₗ[ℝ] ReferenceOperator →ₗ[ℝ] ℝ,
+      F ≠ G ∧
+      (∀ A B, F A B = F B A ∧ G A B = G B A) ∧
+      (∀ A, 0 ≤ F A A ∧ 0 ≤ G A A) ∧
+      (∀ h : TowerHorizon thirdThermalReference, ∀ A B,
+        A ∈ theFactorObject thirdThermalReference → IsSelfAdjoint A →
+        B ∈ theFactorObject thirdThermalReference → IsSelfAdjoint B →
+        F (adT h A) (adT h B) = F A B ∧ G (adT h A) (adT h B) = G A B) ∧
+      (∀ A, A ∈ theFactorObject thirdThermalReference → IsSelfAdjoint A →
+        (F A A = 0 ↔ A ∈ omegaCentralizer thirdThermalReference) ∧
+        (G A A = 0 ↔ A ∈ omegaCentralizer thirdThermalReference)) ∧
+      formGram F (sitePauliX thirdThermalReference 0) (sitePauliY thirdThermalReference 0) =
+        !![1 / 2, 0; 0, 1 / 2] ∧
+      formGram G (sitePauliX thirdThermalReference 0) (sitePauliY thirdThermalReference 0) =
+        !![1 / 2, 0; 0, 1 / 2] ∧
+      formArea F doubleFlipX doubleFlipY = 9 / 10 ∧
+      formArea G doubleFlipX doubleFlipY = 1377 / 1250 ∧
+      Function.Injective doubleFlipResponse := by
+  refine ⟨normalizedCovariantForm 0, normalizedCovariantForm 1,
+    normalized_forms_distinct, ?_, ?_, ?_, ?_,
+    normalized_first_pair_gram 0 (by norm_num), normalized_first_pair_gram 1 (by norm_num),
+    normalized_double_pair_area_zero, normalized_double_pair_area_one,
+    double_flip_response_injective⟩
+  · intro A B
+    exact ⟨normalized_covariant_symmetric 0 A B, normalized_covariant_symmetric 1 A B⟩
+  · intro A
+    exact ⟨normalized_covariant_nonneg 0 (by norm_num) A,
+      normalized_covariant_nonneg 1 (by norm_num) A⟩
+  · intro h A B hA hAsa hB hBsa
+    exact ⟨normalized_covariant_invariant 0 h A B hA hAsa hB hBsa,
+      normalized_covariant_invariant 1 h A B hA hAsa hB hBsa⟩
+  · intro A hA hAsa
+    exact ⟨normalized_covariant_kernel 0 (by norm_num) A hA hAsa,
+      normalized_covariant_kernel 1 (by norm_num) A hA hAsa⟩
+
+/-- Adding a self-adjoint stationary direction changes neither argument of the form. -/
+theorem normalized_covariant_add_centralizer_left (epsilon : ℝ)
+    (A B C : ReferenceOperator) (hC : C ∈ omegaCentralizer thirdThermalReference)
+    (hCsa : IsSelfAdjoint C) :
+    normalizedCovariantForm epsilon (A + C) B = normalizedCovariantForm epsilon A B := by
+  rw [normalized_covariant_apply, normalized_covariant_apply,
+    state_covariant_add_centralizer _ epsilon A B C hC hCsa]
+
+theorem normalized_covariant_add_centralizer_right (epsilon : ℝ)
+    (A B C : ReferenceOperator) (hC : C ∈ omegaCentralizer thirdThermalReference)
+    (hCsa : IsSelfAdjoint C) :
+    normalizedCovariantForm epsilon A (B + C) = normalizedCovariantForm epsilon A B := by
+  rw [normalized_covariant_symmetric epsilon A (B + C),
+    normalized_covariant_add_centralizer_left epsilon B A C hC hCsa,
+    normalized_covariant_symmetric epsilon B A]
+
+/-- The radical is exactly the kernel of the already defined actual state response. -/
+theorem normalized_covariant_response_kernel (epsilon : ℝ) (he : 0 ≤ epsilon)
+    (A : ReferenceOperator) (hA : A ∈ theFactorObject thirdThermalReference)
+    (hAsa : IsSelfAdjoint A) :
+    normalizedCovariantForm epsilon A A = 0 ↔
+      ∀ B : ReferenceOperator, B ∈ theFactorObject thirdThermalReference →
+        IsSelfAdjoint B → realStateResponse thirdThermalReference A B = 0 :=
+  (normalized_covariant_kernel epsilon he A hA hAsa).trans
+    (state_response_kernel thirdThermalReference A hA hAsa).symm
+
+#print axioms ReferenceOperator
+#print axioms normalizedCovariantForm
+#print axioms normalized_covariant_apply
+#print axioms normalization_positive
+#print axioms normalized_covariant_symmetric
+#print axioms normalized_covariant_nonneg
+#print axioms normalized_covariant_invariant
+#print axioms normalized_covariant_kernel
+#print axioms normalized_covariant_positive_iff
+#print axioms state_covariant_rotating_pair_gram
+#print axioms first_pair_real_gram
+#print axioms first_pair_unnormalized_gram
+#print axioms double_pair_unnormalized_gram
+#print axioms normalized_first_pair_gram
+#print axioms normalized_double_pair_gram_zero
+#print axioms normalized_double_pair_gram_one
+#print axioms normalized_double_pair_area_zero
+#print axioms normalized_double_pair_area_one
+#print axioms normalized_area_gap
+#print axioms normalized_forms_distinct
+#print axioms normalized_forms_not_global_rescaling
+#print axioms two_global_covariant_calibrated_forms
+#print axioms normalized_covariant_add_centralizer_left
+#print axioms normalized_covariant_add_centralizer_right
+#print axioms normalized_covariant_response_kernel
+end
+end ChatgptAudit.Covariant053
+''',
+    "TGLExt/PolarizerModularCost.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_054 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import Mathlib.Analysis.InnerProductSpace.Basic
+import Mathlib.Analysis.Normed.Operator.ContinuousLinearMap
+import Mathlib.Topology.Semicontinuity.Basic
+
+set_option autoImplicit false
+set_option maxHeartbeats 1200000
+
+namespace ChatgptAudit.Cost054
+
+open scoped ENNReal NNReal
+noncomputable section
+
+variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℝ H]
+
+/-- The positive coefficients of the modular-cost series. -/
+def polarizerCostWeight (n : ℕ) : ℝ := 2 / (2 * (n : ℝ) + 1)
+
+theorem polarizer_cost_weight_pos (n : ℕ) : 0 < polarizerCostWeight n := by
+  unfold polarizerCostWeight
+  positivity
+
+/-- Every summand is finite, even when the full cost is infinite. -/
+def polarizerCostTerm (D : H →L[ℝ] H) (x : H) (n : ℕ) : ℝ≥0∞ :=
+  ENNReal.ofReal (polarizerCostWeight n * ‖(D ^ (n + 1)) x‖ ^ 2)
+
+/-- An extended cost: divergence is retained as infinity. -/
+def polarizerModularCost (D : H →L[ℝ] H) (x : H) : ℝ≥0∞ :=
+  ∑' n : ℕ, polarizerCostTerm D x n
+
+theorem polarizer_modular_cost_eq_tsum (D : H →L[ℝ] H) (x : H) :
+    polarizerModularCost D x =
+      ∑' n : ℕ, ENNReal.ofReal ((2 : ℝ) / (2 * (n : ℝ) + 1) *
+        ‖(D ^ (n + 1)) x‖ ^ 2) := rfl
+
+theorem polarizer_cost_term_zero (D : H →L[ℝ] H) (n : ℕ) :
+    polarizerCostTerm D 0 n = 0 := by
+  simp [polarizerCostTerm]
+
+theorem polarizer_modular_cost_zero (D : H →L[ℝ] H) :
+    polarizerModularCost D 0 = 0 := by
+  simp [polarizerModularCost, polarizer_cost_term_zero]
+
+theorem polarizer_cost_term_smul (D : H →L[ℝ] H) (a : ℝ) (x : H) (n : ℕ) :
+    polarizerCostTerm D (a • x) n =
+      ENNReal.ofReal (a ^ 2) * polarizerCostTerm D x n := by
+  unfold polarizerCostTerm
+  rw [map_smul, norm_smul, mul_pow, Real.norm_eq_abs, sq_abs,
+    ← ENNReal.ofReal_mul (sq_nonneg a)]
+  congr 1
+  ring
+
+theorem polarizer_modular_cost_smul (D : H →L[ℝ] H) (a : ℝ) (x : H) :
+    polarizerModularCost D (a • x) =
+      ENNReal.ofReal (a ^ 2) * polarizerModularCost D x := by
+  simp only [polarizerModularCost, polarizer_cost_term_smul, ENNReal.tsum_mul_left]
+
+theorem polarizer_cost_term_add_le (D : H →L[ℝ] H) (x y : H) (n : ℕ) :
+    polarizerCostTerm D (x + y) n ≤
+      2 * polarizerCostTerm D x n + 2 * polarizerCostTerm D y n := by
+  have hn : ‖(D ^ (n + 1)) x + (D ^ (n + 1)) y‖ ^ 2 ≤
+      2 * ‖(D ^ (n + 1)) x‖ ^ 2 + 2 * ‖(D ^ (n + 1)) y‖ ^ 2 := by
+    have hp := parallelogram_law_with_norm ℝ ((D ^ (n + 1)) x) ((D ^ (n + 1)) y)
+    nlinarith [sq_nonneg ‖(D ^ (n + 1)) x - (D ^ (n + 1)) y‖]
+  have hw := (polarizer_cost_weight_pos n).le
+  unfold polarizerCostTerm
+  rw [map_add]
+  calc
+    ENNReal.ofReal (polarizerCostWeight n *
+        ‖(D ^ (n + 1)) x + (D ^ (n + 1)) y‖ ^ 2) ≤
+      ENNReal.ofReal (2 * (polarizerCostWeight n * ‖(D ^ (n + 1)) x‖ ^ 2) +
+        2 * (polarizerCostWeight n * ‖(D ^ (n + 1)) y‖ ^ 2)) := by
+      apply ENNReal.ofReal_le_ofReal
+      nlinarith [mul_le_mul_of_nonneg_left hn hw]
+    _ = _ := by
+      rw [ENNReal.ofReal_add (by positivity) (by positivity),
+        ENNReal.ofReal_mul (by norm_num : (0 : ℝ) ≤ 2),
+        ENNReal.ofReal_mul (by norm_num : (0 : ℝ) ≤ 2)]
+      norm_num
+
+theorem polarizer_modular_cost_add_le (D : H →L[ℝ] H) (x y : H) :
+    polarizerModularCost D (x + y) ≤
+      2 * polarizerModularCost D x + 2 * polarizerModularCost D y := by
+  unfold polarizerModularCost
+  calc
+    (∑' n : ℕ, polarizerCostTerm D (x + y) n) ≤
+        ∑' n : ℕ, (2 * polarizerCostTerm D x n + 2 * polarizerCostTerm D y n) :=
+      ENNReal.tsum_le_tsum (polarizer_cost_term_add_le D x y)
+    _ = _ := by rw [ENNReal.tsum_add, ENNReal.tsum_mul_left, ENNReal.tsum_mul_left]
+
+/-- The first positive summand detects the entire radical. -/
+theorem polarizer_modular_cost_first_le (D : H →L[ℝ] H) (x : H) :
+    ENNReal.ofReal (2 * ‖D x‖ ^ 2) ≤ polarizerModularCost D x := by
+  simpa only [polarizerModularCost, polarizerCostTerm, polarizerCostWeight, Nat.cast_zero, mul_zero,
+    zero_add, div_one, pow_one] using
+      (ENNReal.le_tsum (f := polarizerCostTerm D x) 0)
+
+theorem polarizer_modular_cost_zero_iff (D : H →L[ℝ] H) (x : H) :
+    polarizerModularCost D x = 0 ↔ D x = 0 := by
+  constructor
+  · intro hz
+    have ht : ENNReal.ofReal (2 * ‖D x‖ ^ 2) = 0 :=
+      le_antisymm (hz ▸ polarizer_modular_cost_first_le D x) bot_le
+    have hr := ENNReal.ofReal_eq_zero.mp ht
+    apply norm_eq_zero.mp
+    nlinarith [norm_nonneg (D x), sq_nonneg ‖D x‖]
+  · intro hx
+    have hp (n : ℕ) : (D ^ (n + 1)) x = 0 := by
+      rw [pow_succ]
+      change (D ^ n) (D x) = 0
+      rw [hx, map_zero]
+    simp [polarizerModularCost, polarizerCostTerm, hp]
+
+/-- The domain consists exactly of vectors with finite extended cost. -/
+def polarizerCostDomain (D : H →L[ℝ] H) : Submodule ℝ H where
+  carrier := {x | polarizerModularCost D x < ∞}
+  zero_mem' := by
+    change polarizerModularCost D 0 < ∞
+    rw [polarizer_modular_cost_zero]
+    exact bot_lt_top
+  add_mem' := by
+    intro x y hx hy
+    exact lt_of_le_of_lt (polarizer_modular_cost_add_le D x y)
+      (ENNReal.add_lt_top.mpr
+        ⟨ENNReal.mul_lt_top (by norm_num) hx, ENNReal.mul_lt_top (by norm_num) hy⟩)
+  smul_mem' := by
+    intro a x hx
+    change polarizerModularCost D (a • x) < ∞
+    rw [polarizer_modular_cost_smul]
+    exact ENNReal.mul_lt_top ENNReal.ofReal_lt_top hx
+
+theorem mem_polarizerCostDomain (D : H →L[ℝ] H) (x : H) :
+    x ∈ polarizerCostDomain D ↔ polarizerModularCost D x < ∞ := Iff.rfl
+
+theorem polarizer_cost_kernel_mem_domain (D : H →L[ℝ] H) (x : H) (hx : D x = 0) :
+    x ∈ polarizerCostDomain D := by
+  rw [mem_polarizerCostDomain, (polarizer_modular_cost_zero_iff D x).mpr hx]
+  exact bot_lt_top
+
+theorem polarizer_power_covariant (D : H →L[ℝ] H) (W : H ≃ₗᵢ[ℝ] H)
+    (hW : ∀ x : H, D (W x) = W (D x)) (n : ℕ) (x : H) :
+    (D ^ n) (W x) = W ((D ^ n) x) := by
+  induction n with
+  | zero => simp
+  | succ n ih =>
+    rw [pow_succ', mul_apply_eq_comp, mul_apply_eq_comp, ih, hW]
+
+theorem polarizer_cost_term_covariant (D : H →L[ℝ] H) (W : H ≃ₗᵢ[ℝ] H)
+    (hW : ∀ x : H, D (W x) = W (D x)) (x : H) (n : ℕ) :
+    polarizerCostTerm D (W x) n = polarizerCostTerm D x n := by
+  unfold polarizerCostTerm
+  rw [polarizer_power_covariant D W hW, W.norm_map]
+
+theorem polarizer_modular_cost_covariant (D : H →L[ℝ] H) (W : H ≃ₗᵢ[ℝ] H)
+    (hW : ∀ x : H, D (W x) = W (D x)) (x : H) :
+    polarizerModularCost D (W x) = polarizerModularCost D x := by
+  simp only [polarizerModularCost, polarizer_cost_term_covariant D W hW]
+
+theorem polarizer_cost_domain_covariant (D : H →L[ℝ] H) (W : H ≃ₗᵢ[ℝ] H)
+    (hW : ∀ x : H, D (W x) = W (D x)) (x : H) :
+    W x ∈ polarizerCostDomain D ↔ x ∈ polarizerCostDomain D := by
+  rw [mem_polarizerCostDomain, mem_polarizerCostDomain,
+    polarizer_modular_cost_covariant D W hW]
+
+/-- A convergent real series can be transferred to the extended cost without losing divergence. -/
+theorem polarizer_modular_cost_eq_of_hasSum (D : H →L[ℝ] H) (x : H) (c : ℝ)
+    (hs : HasSum (fun n : ℕ =>
+      (2 : ℝ) / (2 * (n : ℝ) + 1) * ‖(D ^ (n + 1)) x‖ ^ 2) c) :
+    polarizerModularCost D x = ENNReal.ofReal c := by
+  rw [polarizer_modular_cost_eq_tsum,
+    ← ENNReal.ofReal_tsum_of_nonneg (fun n : ℕ => by positivity) hs.summable,
+    hs.tsum_eq]
+
+theorem polarizer_cost_mem_domain_of_hasSum (D : H →L[ℝ] H) (x : H) (c : ℝ)
+    (hs : HasSum (fun n : ℕ =>
+      (2 : ℝ) / (2 * (n : ℝ) + 1) * ‖(D ^ (n + 1)) x‖ ^ 2) c) :
+    x ∈ polarizerCostDomain D := by
+  rw [mem_polarizerCostDomain, polarizer_modular_cost_eq_of_hasSum D x c hs]
+  exact ENNReal.ofReal_lt_top
+
+/-- The extended cost is lower semicontinuous, including at its infinite values. -/
+theorem polarizer_modular_cost_lowerSemicontinuous (D : H →L[ℝ] H) :
+    LowerSemicontinuous (polarizerModularCost D) := by
+  unfold polarizerModularCost polarizerCostTerm
+  apply lowerSemicontinuous_tsum
+  intro n
+  exact (ENNReal.continuous_ofReal.comp
+    (continuous_const.mul (((D ^ (n + 1)).continuous.norm).pow 2))).lowerSemicontinuous
+
+#print axioms polarizerCostWeight
+#print axioms polarizer_cost_weight_pos
+#print axioms polarizerCostTerm
+#print axioms polarizerModularCost
+#print axioms polarizer_modular_cost_eq_tsum
+#print axioms polarizer_cost_term_zero
+#print axioms polarizer_modular_cost_zero
+#print axioms polarizer_cost_term_smul
+#print axioms polarizer_modular_cost_smul
+#print axioms polarizer_cost_term_add_le
+#print axioms polarizer_modular_cost_add_le
+#print axioms polarizer_modular_cost_first_le
+#print axioms polarizer_modular_cost_zero_iff
+#print axioms polarizerCostDomain
+#print axioms mem_polarizerCostDomain
+#print axioms polarizer_cost_kernel_mem_domain
+#print axioms polarizer_power_covariant
+#print axioms polarizer_cost_term_covariant
+#print axioms polarizer_modular_cost_covariant
+#print axioms polarizer_cost_domain_covariant
+#print axioms polarizer_modular_cost_eq_of_hasSum
+#print axioms polarizer_cost_mem_domain_of_hasSum
+#print axioms polarizer_modular_cost_lowerSemicontinuous
+
+end
+end ChatgptAudit.Cost054
+''',
+    "TGLExt/PolarizerCostSeries.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_054 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.PolarizerModularCost
+import Mathlib.Analysis.SpecialFunctions.Log.Deriv
+import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
+import Mathlib.Tactic
+
+set_option autoImplicit false
+
+namespace ChatgptAudit.Cost054
+
+noncomputable section
+
+/-- Every term is nonnegative, including for a negative transition ratio. -/
+theorem polarizer_cost_series_term_nonneg (d : ℝ) (n : ℕ) :
+    0 ≤ (2 : ℝ) / (2 * (n : ℝ) + 1) * d ^ (2 * (n + 1)) := by
+  apply mul_nonneg
+  · positivity
+  · rw [pow_mul]
+    positivity
+
+/-- The scalar series gives the quadratic coefficient, not the second derivative. -/
+theorem polarizer_cost_hasSum (d : ℝ) (hd : |d| < 1) :
+    HasSum (fun n : ℕ =>
+      (2 : ℝ) / (2 * (n : ℝ) + 1) * d ^ (2 * (n + 1)))
+      (d * (Real.log (1 + d) - Real.log (1 - d))) := by
+  have hs := (Real.hasSum_log_sub_log_of_abs_lt_one hd).mul_left d
+  apply hs.congr_fun
+  intro n
+  rw [show 2 * (n + 1) = 2 * n + 1 + 1 by omega, pow_succ]
+  ring
+
+theorem polarizer_cost_log_ratio_hasSum (d : ℝ) (hd : |d| < 1) :
+    HasSum (fun n : ℕ =>
+      (2 : ℝ) / (2 * (n : ℝ) + 1) * d ^ (2 * (n + 1)))
+      (d * Real.log ((1 + d) / (1 - d))) := by
+  have hp : 0 < 1 + d := by
+    have hh := (abs_lt.mp hd).1
+    linarith
+  have hm : 0 < 1 - d := by
+    have hh := (abs_lt.mp hd).2
+    linarith
+  simpa only [Real.log_div (ne_of_gt hp) (ne_of_gt hm)] using
+    polarizer_cost_hasSum d hd
+
+theorem polarizer_weight_ratio_abs_lt_one (wi wj : ℝ)
+    (hi : 0 < wi) (hj : 0 < wj) :
+    |(wi - wj) / (wi + wj)| < 1 := by
+  rw [abs_lt]
+  constructor
+  · apply (lt_div_iff₀ (add_pos hi hj)).2
+    linarith
+  · apply (div_lt_iff₀ (add_pos hi hj)).2
+    linarith
+
+/-- This identity does not divide by the signed ratio, so equal weights are included. -/
+theorem polarizer_weight_ratio_identity (wi wj : ℝ)
+    (hi : 0 < wi) (hj : 0 < wj) :
+    (1 + (wi - wj) / (wi + wj)) /
+      (1 - (wi - wj) / (wi + wj)) = wi / wj := by
+  have hsum : wi + wj ≠ 0 := ne_of_gt (add_pos hi hj)
+  have hden : 1 - (wi - wj) / (wi + wj) ≠ 0 := by
+    have hh := (abs_lt.mp (polarizer_weight_ratio_abs_lt_one wi wj hi hj)).2
+    linarith
+  field_simp [hsum, hden, ne_of_gt hj]
+  ring
+
+theorem polarizer_cost_weights_hasSum (wi wj : ℝ)
+    (hi : 0 < wi) (hj : 0 < wj) :
+    HasSum (fun n : ℕ =>
+      (2 : ℝ) / (2 * (n : ℝ) + 1) *
+        ((wi - wj) / (wi + wj)) ^ (2 * (n + 1)))
+      (((wi - wj) / (wi + wj)) * (Real.log wi - Real.log wj)) := by
+  have hs := polarizer_cost_log_ratio_hasSum ((wi - wj) / (wi + wj))
+    (polarizer_weight_ratio_abs_lt_one wi wj hi hj)
+  simpa only [polarizer_weight_ratio_identity wi wj hi hj,
+    Real.log_div (ne_of_gt hi) (ne_of_gt hj)] using hs
+
+theorem polarizer_cost_scalar_nonneg (d : ℝ) (hd : |d| < 1) :
+    0 ≤ d * (Real.log (1 + d) - Real.log (1 - d)) := by
+  rw [← (polarizer_cost_hasSum d hd).tsum_eq]
+  exact tsum_nonneg (polarizer_cost_series_term_nonneg d)
+
+/-- The extended sum is identified only after real summability has been proved. -/
+theorem polarizer_cost_scalar_ennreal (d : ℝ) (hd : |d| < 1) :
+    (∑' n : ℕ, ENNReal.ofReal
+      ((2 : ℝ) / (2 * (n : ℝ) + 1) * d ^ (2 * (n + 1)))) =
+      ENNReal.ofReal (d * (Real.log (1 + d) - Real.log (1 - d))) := by
+  have hs := polarizer_cost_hasSum d hd
+  rw [← ENNReal.ofReal_tsum_of_nonneg
+    (polarizer_cost_series_term_nonneg d) hs.summable, hs.tsum_eq]
+
+theorem polarizer_cost_weights_ennreal (wi wj : ℝ)
+    (hi : 0 < wi) (hj : 0 < wj) :
+    (∑' n : ℕ, ENNReal.ofReal
+      ((2 : ℝ) / (2 * (n : ℝ) + 1) *
+        ((wi - wj) / (wi + wj)) ^ (2 * (n + 1)))) =
+      ENNReal.ofReal (((wi - wj) / (wi + wj)) *
+        (Real.log wi - Real.log wj)) := by
+  have hs := polarizer_cost_weights_hasSum wi wj hi hj
+  rw [← ENNReal.ofReal_tsum_of_nonneg
+    (polarizer_cost_series_term_nonneg ((wi - wj) / (wi + wj)))
+    hs.summable, hs.tsum_eq]
+
+section NormPowers
+
+variable {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℝ H]
+
+/-- A proved norm law evaluates the existing extended cost; no spectral law is assumed
+for arbitrary vectors. -/
+theorem polarizer_cost_of_norm_powers (D : H →L[ℝ] H) (x : H)
+    (d : ℝ) (hd : |d| < 1)
+    (hnorm : ∀ n : ℕ,
+      ‖(D ^ (n + 1)) x‖ ^ 2 = d ^ (2 * (n + 1)) * ‖x‖ ^ 2) :
+    polarizerModularCost D x =
+      ENNReal.ofReal (d * (Real.log (1 + d) - Real.log (1 - d)) * ‖x‖ ^ 2) := by
+  apply polarizer_modular_cost_eq_of_hasSum
+  have hs := (polarizer_cost_hasSum d hd).mul_right (‖x‖ ^ 2)
+  apply hs.congr_fun
+  intro n
+  rw [hnorm n]
+  ring
+
+theorem polarizer_cost_of_weight_norm_powers (D : H →L[ℝ] H) (x : H)
+    (wi wj : ℝ) (hi : 0 < wi) (hj : 0 < wj)
+    (hnorm : ∀ n : ℕ, ‖(D ^ (n + 1)) x‖ ^ 2 =
+      ((wi - wj) / (wi + wj)) ^ (2 * (n + 1)) * ‖x‖ ^ 2) :
+    polarizerModularCost D x =
+      ENNReal.ofReal (((wi - wj) / (wi + wj)) *
+        (Real.log wi - Real.log wj) * ‖x‖ ^ 2) := by
+  apply polarizer_modular_cost_eq_of_hasSum
+  have hs := (polarizer_cost_weights_hasSum wi wj hi hj).mul_right (‖x‖ ^ 2)
+  apply hs.congr_fun
+  intro n
+  rw [hnorm n]
+  ring
+
+theorem polarizer_cost_norm_powers_lt_top (D : H →L[ℝ] H) (x : H)
+    (d : ℝ) (hd : |d| < 1)
+    (hnorm : ∀ n : ℕ,
+      ‖(D ^ (n + 1)) x‖ ^ 2 = d ^ (2 * (n + 1)) * ‖x‖ ^ 2) :
+    polarizerModularCost D x < ⊤ := by
+  rw [polarizer_cost_of_norm_powers D x d hd hnorm]
+  exact ENNReal.ofReal_lt_top
+
+end NormPowers
+
+#print axioms polarizer_cost_series_term_nonneg
+#print axioms polarizer_cost_hasSum
+#print axioms polarizer_cost_log_ratio_hasSum
+#print axioms polarizer_weight_ratio_abs_lt_one
+#print axioms polarizer_weight_ratio_identity
+#print axioms polarizer_cost_weights_hasSum
+#print axioms polarizer_cost_scalar_nonneg
+#print axioms polarizer_cost_scalar_ennreal
+#print axioms polarizer_cost_weights_ennreal
+#print axioms polarizer_cost_of_norm_powers
+#print axioms polarizer_cost_of_weight_norm_powers
+#print axioms polarizer_cost_norm_powers_lt_top
+
+end
+end ChatgptAudit.Cost054
+''',
+    "TGLExt/TowerModularCost.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_054 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.PolarizerCostSeries
+import TGLExt.CovariantAreaCounterexample
+
+set_option autoImplicit false
+set_option maxHeartbeats 3200000
+
+namespace ChatgptAudit.Cost054
+open TGLExt Matrix Filter Topology Set ClosedSubmodule
+open scoped ENNReal NNReal
+open ChatgptAudit ChatgptAudit.Covariant053 ChatgptAudit.Observable035
+  ChatgptAudit.Orbit052 ChatgptAudit.Density033 ChatgptAudit.Thermal025
+noncomputable section
+
+/-- The extended cost of the actual global state polarizer, with no spectral gap assumed. -/
+def towerModularCost (P : SiteProfile) (x : TowerHilbert P) : ℝ≥0∞ :=
+  polarizerModularCost (statePolarizer P) x
+
+def towerModularCostDomain (P : SiteProfile) : Submodule ℝ (TowerHilbert P) :=
+  polarizerCostDomain (statePolarizer P)
+
+theorem tower_modular_cost_domain (P : SiteProfile) (x : TowerHilbert P) :
+    x ∈ towerModularCostDomain P ↔ towerModularCost P x < ⊤ :=
+  mem_polarizerCostDomain (statePolarizer P) x
+
+theorem tower_modular_cost_zero_iff (P : SiteProfile) (x : TowerHilbert P) :
+    towerModularCost P x = 0 ↔ statePolarizer P x = 0 :=
+  polarizer_modular_cost_zero_iff (statePolarizer P) x
+
+theorem tower_modular_cost_centralizer (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hsa : IsSelfAdjoint A) :
+    towerModularCost P (A (hOmega P)) = 0 ↔ A ∈ omegaCentralizer P :=
+  (tower_modular_cost_zero_iff P _).trans (state_polarizer_zero_iff P A hA hsa)
+
+theorem tower_modular_cost_response_kernel (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P)
+    (hA : A ∈ theFactorObject P) (hsa : IsSelfAdjoint A) :
+    towerModularCost P (A (hOmega P)) = 0 ↔
+      ∀ B ∈ theFactorObject P, IsSelfAdjoint B → realStateResponse P A B = 0 := by
+  rw [tower_modular_cost_centralizer P A hA hsa]
+  exact (state_response_kernel P A hA hsa).symm
+
+/-- Scalar restriction of the existing GNS implementation, not a new horizon. -/
+def horizonCostIsometry (P : SiteProfile) (h : TowerHorizon P) :
+    TowerHilbert P ≃ₗᵢ[ℝ] TowerHilbert P :=
+  { (horizonGNSUnitary P h).toLinearEquiv.restrictScalars ℝ with
+    norm_map' := (horizonGNSUnitary P h).norm_map }
+
+theorem tower_modular_cost_covariant (P : SiteProfile) (h : TowerHorizon P)
+    (x : TowerHilbert P) :
+    towerModularCost P (horizonGNSUnitary P h x) = towerModularCost P x :=
+  polarizer_modular_cost_covariant (statePolarizer P) (horizonCostIsometry P h)
+    (state_polarizer_covariant P h) x
+
+theorem tower_modular_domain_covariant (P : SiteProfile) (h : TowerHorizon P)
+    (x : TowerHilbert P) :
+    horizonGNSUnitary P h x ∈ towerModularCostDomain P ↔
+      x ∈ towerModularCostDomain P := by
+  rw [tower_modular_cost_domain, tower_modular_cost_domain, tower_modular_cost_covariant]
+
+theorem tower_modular_cost_factor_invariant (P : SiteProfile) (h : TowerHorizon P)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : A ∈ theFactorObject P) :
+    towerModularCost P (adT h A (hOmega P)) = towerModularCost P (A (hOmega P)) := by
+  rw [← horizon_gns_apply_factor P h A hA]
+  exact tower_modular_cost_covariant P h _
+
+theorem tower_modular_cost_lowerSemicontinuous (P : SiteProfile) :
+    LowerSemicontinuous (towerModularCost P) :=
+  polarizer_modular_cost_lowerSemicontinuous (statePolarizer P)
+
+/-- Iteration takes place in the same finite matrix algebra and represents powers of global D. -/
+def localPolarizerIterate (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) : ℕ → Matrix (chainIdx N) (chainIdx N) ℂ
+  | 0 => a
+  | n + 1 => localPolarizerMatrix P N (localPolarizerIterate P N a n)
+
+theorem local_polarizer_iterate_hermitian (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) (n : ℕ) :
+    (localPolarizerIterate P N a n).IsHermitian := by
+  induction n with
+  | zero => exact ha
+  | succ n ih => exact local_polarizer_hermitian P N _ ih
+
+theorem local_polarizer_iterate_entry (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (n : ℕ) (i j : chainIdx N) :
+    localPolarizerIterate P N a n i j =
+      (Complex.I * (((towerW P N i - towerW P N j) /
+        (towerW P N i + towerW P N j) : ℝ) : ℂ)) ^ n * a i j := by
+  induction n with
+  | zero => simp [localPolarizerIterate]
+  | succ n ih =>
+    simp only [localPolarizerIterate, localPolarizerMatrix, ih, pow_succ]
+    ring
+
+theorem state_polarizer_local_power (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) (n : ℕ) :
+    (statePolarizer P ^ n) (towerPi P a (hOmega P)) =
+      towerPi P (localPolarizerIterate P N a n) (hOmega P) := by
+  induction n with
+  | zero => simp [localPolarizerIterate]
+  | succ n ih =>
+    rw [pow_succ', mul_apply_eq_comp, ih,
+      state_polarizer_local P N _ (local_polarizer_iterate_hermitian P N a ha n)]
+    rfl
+
+theorem local_iterate_normSq (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (n : ℕ) (i j : chainIdx N) :
+    Complex.normSq (localPolarizerIterate P N a n i j) =
+      ((towerW P N i - towerW P N j) / (towerW P N i + towerW P N j)) ^ (2 * n) *
+        Complex.normSq (a i j) := by
+  rw [local_polarizer_iterate_entry, Complex.normSq_mul, map_pow,
+    Complex.normSq_mul, Complex.normSq_I, Complex.normSq_ofReal, one_mul]
+  rw [← pow_two, ← pow_mul]
+
+theorem state_polarizer_local_power_norm (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) (n : ℕ) :
+    ‖(statePolarizer P ^ n) (towerPi P a (hOmega P))‖ ^ 2 =
+      ∑ j, ∑ i, towerW P N j *
+        (((towerW P N i - towerW P N j) / (towerW P N i + towerW P N j)) ^ (2 * n) *
+          Complex.normSq (a i j)) := by
+  rw [state_polarizer_local_power P N a ha n, norm_sq_eq_re_inner (𝕜 := ℂ),
+    local_operator_pairing]
+  change (tInner P N (localPolarizerIterate P N a n) (localPolarizerIterate P N a n)).re = _
+  rw [tInner_self_eq, Complex.ofReal_re]
+  simp only [Finset.mul_sum, local_iterate_normSq]
+
+/-- A finite column-weighted expression, before symmetrizing the ordered pairs. -/
+def localModularCost (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) : ℝ :=
+  ∑ j, ∑ i, towerW P N j *
+    (((towerW P N i - towerW P N j) / (towerW P N i + towerW P N j)) *
+      (Real.log (towerW P N i) - Real.log (towerW P N j))) * Complex.normSq (a i j)
+
+theorem tower_local_cost_hasSum (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    HasSum (fun n : ℕ => (2 : ℝ) / (2 * (n : ℝ) + 1) *
+      ‖(statePolarizer P ^ (n + 1)) (towerPi P a (hOmega P))‖ ^ 2)
+      (localModularCost P N a) := by
+  have hs (j i : chainIdx N) :=
+    ((polarizer_cost_weights_hasSum (towerW P N i) (towerW P N j)
+      (towerW_pos P N i) (towerW_pos P N j)).mul_left (towerW P N j)).mul_right
+        (Complex.normSq (a i j))
+  have hall := hasSum_sum (s := Finset.univ) (fun j _ =>
+    hasSum_sum (s := Finset.univ) (fun i _ => hs j i))
+  change HasSum _ (localModularCost P N a) at hall
+  apply hall.congr_fun
+  intro n
+  rw [state_polarizer_local_power_norm P N a ha (n + 1)]
+  simp only [Finset.mul_sum]
+  apply Finset.sum_congr rfl
+  intro j _
+  apply Finset.sum_congr rfl
+  intro i _
+  ring
+
+theorem tower_local_cost_formula (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    towerModularCost P (towerPi P a (hOmega P)) = ENNReal.ofReal (localModularCost P N a) :=
+  polarizer_modular_cost_eq_of_hasSum (statePolarizer P) _ _
+    (tower_local_cost_hasSum P N a ha)
+
+theorem tower_local_mem_cost_domain (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    towerPi P a (hOmega P) ∈ towerModularCostDomain P := by
+  rw [tower_modular_cost_domain, tower_local_cost_formula P N a ha]
+  exact ENNReal.ofReal_lt_top
+
+/-- Local self-adjoint vectors form a Hilbert-dense subset of the real state sector.
+This does not claim that they are a core for the cost form. -/
+theorem tower_cost_domain_dense_real (P : SiteProfile) :
+    (towerModularCostDomain P ⊓ realStateSubspace P).topologicalClosure =
+      realStateSubspace P := by
+  apply le_antisymm
+  · exact Submodule.topologicalClosure_minimal _ inf_le_right (real_state_subspace_closed P)
+  · change (Submodule.span ℝ (realStateGenerators P)).topologicalClosure ≤ _
+    apply Submodule.topologicalClosure_minimal _ ?_ (Submodule.isClosed_topologicalClosure _)
+    apply Submodule.span_le.mpr
+    rintro x ⟨A, hA, hsa, hx⟩
+    rw [hx]
+    apply (Submodule.isClosed_topologicalClosure _).mem_of_tendsto
+      (expectation_omega_limit (P := P) A)
+    apply Filter.Eventually.of_forall
+    intro N
+    apply Submodule.le_topologicalClosure
+    change towerPi P (expectationMatrix P N A) (hOmega P) ∈
+      towerModularCostDomain P ⊓ realStateSubspace P
+    have hmat := expectationMatrix_hermitian N A hA hsa
+    exact ⟨tower_local_mem_cost_domain P N _ hmat,
+      real_state_generator_mem P _ (towerPi_mem_factor _)
+        (tower_local_selfadjoint P N _ hmat)⟩
+
+/-- The ordered-pair formula has a factor one half. No choice of ordering on chainIdx is used. -/
+theorem local_modular_cost_symmetric (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    localModularCost P N a = (1 / 2 : ℝ) *
+      ∑ i, ∑ j, (towerW P N i - towerW P N j) *
+        (Real.log (towerW P N i) - Real.log (towerW P N j)) * Complex.normSq (a i j) := by
+  let f : chainIdx N → chainIdx N → ℝ := fun i j =>
+    towerW P N j * (((towerW P N i - towerW P N j) /
+      (towerW P N i + towerW P N j)) *
+      (Real.log (towerW P N i) - Real.log (towerW P N j))) * Complex.normSq (a i j)
+  have hp (i j : chainIdx N) : f i j + f j i =
+      (towerW P N i - towerW P N j) *
+        (Real.log (towerW P N i) - Real.log (towerW P N j)) * Complex.normSq (a i j) := by
+    have hij : star (a j i) = a i j := congrFun (congrFun ha i) j
+    have hn : Complex.normSq (a j i) = Complex.normSq (a i j) := by
+      simpa only [Complex.star_def, Complex.normSq_conj] using congrArg Complex.normSq hij
+    have hd : towerW P N i + towerW P N j ≠ 0 :=
+      ne_of_gt (add_pos (towerW_pos P N i) (towerW_pos P N j))
+    dsimp only [f]
+    rw [hn, add_comm (towerW P N j) (towerW P N i)]
+    field_simp [hd]
+    ring
+  have hswap : (∑ i, ∑ j, f j i) = ∑ i, ∑ j, f i j := Finset.sum_comm
+  have hdef : localModularCost P N a = ∑ i, ∑ j, f i j := by
+    unfold localModularCost
+    exact Finset.sum_comm
+  rw [hdef]
+  calc
+    (∑ i, ∑ j, f i j) = (1 / 2 : ℝ) *
+        ((∑ i, ∑ j, f i j) + (∑ i, ∑ j, f j i)) := by rw [hswap]; ring
+    _ = (1 / 2 : ℝ) * ∑ i, ∑ j, (f i j + f j i) := by
+      simp only [Finset.sum_add_distrib]
+    _ = _ := by simp only [hp]
+
+theorem tower_local_cost_symmetric_formula (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    towerModularCost P (towerPi P a (hOmega P)) = ENNReal.ofReal ((1 / 2 : ℝ) *
+      ∑ i, ∑ j, (towerW P N i - towerW P N j) *
+        (Real.log (towerW P N i) - Real.log (towerW P N j)) * Complex.normSq (a i j)) := by
+  rw [tower_local_cost_formula P N a ha, local_modular_cost_symmetric P N a ha]
+
+section RotatingPair
+variable {H : Type*} [NormedAddCommGroup H] [NormedSpace ℝ H]
+
+theorem rotating_pair_norm_powers (D : H →L[ℝ] H) (x y : H) (k : ℝ)
+    (hx : D x = k • y) (hy : D y = (-k) • x) (hn : ‖y‖ ^ 2 = ‖x‖ ^ 2) (n : ℕ) :
+    ‖(D ^ n) x‖ ^ 2 = k ^ (2 * n) * ‖x‖ ^ 2 ∧
+      ‖(D ^ n) y‖ ^ 2 = k ^ (2 * n) * ‖x‖ ^ 2 := by
+  induction n with
+  | zero => simp [hn]
+  | succ n ih =>
+    have hp : 2 * (n + 1) = 2 * n + 2 := by omega
+    constructor
+    · rw [pow_succ D n, mul_apply_eq_comp, hx, map_smul, norm_smul, mul_pow,
+        Real.norm_eq_abs, sq_abs, ih.2, hp, pow_add]
+      ring
+    · rw [pow_succ D n, mul_apply_eq_comp, hy, map_smul, norm_smul, mul_pow,
+        Real.norm_eq_abs, abs_neg, sq_abs, ih.1, hp, pow_add]
+      ring
+
+end RotatingPair
+
+theorem first_pauli_cost_norm_powers (n : ℕ) :
+    ‖(statePolarizer thirdThermalReference ^ n)
+      (sitePauliX thirdThermalReference 0 (hOmega _))‖ ^ 2 = (1 / 3 : ℝ) ^ (2 * n) := by
+  have hn := first_pair_real_gram
+  have hxx : ‖sitePauliX thirdThermalReference 0 (hOmega _)‖ ^ 2 = 1 := by
+    simpa only [real_inner_self_eq_norm_sq] using hn.1
+  have hyy : ‖sitePauliY thirdThermalReference 0 (hOmega _)‖ ^ 2 = 1 := by
+    simpa only [real_inner_self_eq_norm_sq] using hn.2.1
+  have h := (rotating_pair_norm_powers (statePolarizer thirdThermalReference) _ _ (1 / 3)
+    first_pauli_polarizer_x (by simpa only [neg_div] using first_pauli_polarizer_y)
+    (by rw [hxx, hyy]) n).1
+  simpa only [hxx, mul_one] using h
+
+theorem double_flip_cost_norm_powers (n : ℕ) :
+    ‖(statePolarizer thirdThermalReference ^ n) (doubleFlipX (hOmega _))‖ ^ 2 =
+      (3 / 5 : ℝ) ^ (2 * n) * (5 / 9) := by
+  have h := (rotating_pair_norm_powers (statePolarizer thirdThermalReference) _ _ (3 / 5)
+    double_flip_polarizer_x (by simpa only [neg_div] using double_flip_polarizer_y)
+    (by rw [double_flip_norm_squares.1, double_flip_norm_squares.2]) n).1
+  simpa only [double_flip_norm_squares.1] using h
+
+/-- The first reference vector is unchanged from the previous construction. -/
+theorem first_pauli_modular_cost :
+    towerModularCost thirdThermalReference (sitePauliX thirdThermalReference 0 (hOmega _)) =
+      ENNReal.ofReal (Real.log 2 / 3) := by
+  have hn : ‖sitePauliX thirdThermalReference 0 (hOmega _)‖ ^ 2 = 1 := by
+    simpa using first_pauli_cost_norm_powers 0
+  have h := polarizer_cost_of_weight_norm_powers (statePolarizer thirdThermalReference)
+    (sitePauliX thirdThermalReference 0 (hOmega _)) 2 1 (by norm_num) (by norm_num)
+    (fun n => by rw [first_pauli_cost_norm_powers, hn]; norm_num)
+  change towerModularCost thirdThermalReference _ = _ at h
+  rw [hn] at h
+  convert h using 1
+  congr 1
+  norm_num [Real.log_one]
+  ring
+
+/-- The second vector is raw: its squared GNS norm is five ninths, not one. -/
+theorem double_flip_modular_cost :
+    towerModularCost thirdThermalReference (doubleFlipX (hOmega _)) =
+      ENNReal.ofReal (2 * Real.log 2 / 3) := by
+  have h := polarizer_cost_of_weight_norm_powers (statePolarizer thirdThermalReference)
+    (doubleFlipX (hOmega _)) 4 1 (by norm_num) (by norm_num)
+    (fun n => by rw [double_flip_cost_norm_powers, double_flip_norm_squares.1]; norm_num)
+  have hlog : Real.log (4 : ℝ) = 2 * Real.log 2 := by
+    have he : (4 : ℝ) = 2 ^ 2 := by norm_num
+    rw [he, Real.log_pow]
+    norm_num
+  change towerModularCost thirdThermalReference _ = _ at h
+  rw [double_flip_norm_squares.1] at h
+  convert h using 1
+  congr 1
+  norm_num [Real.log_one, hlog]
+  ring
+
+#print axioms towerModularCost
+#print axioms towerModularCostDomain
+#print axioms tower_modular_cost_domain
+#print axioms tower_modular_cost_zero_iff
+#print axioms tower_modular_cost_centralizer
+#print axioms tower_modular_cost_response_kernel
+#print axioms horizonCostIsometry
+#print axioms tower_modular_cost_covariant
+#print axioms tower_modular_domain_covariant
+#print axioms tower_modular_cost_factor_invariant
+#print axioms tower_modular_cost_lowerSemicontinuous
+#print axioms localPolarizerIterate
+#print axioms local_polarizer_iterate_hermitian
+#print axioms local_polarizer_iterate_entry
+#print axioms state_polarizer_local_power
+#print axioms local_iterate_normSq
+#print axioms state_polarizer_local_power_norm
+#print axioms localModularCost
+#print axioms tower_local_cost_hasSum
+#print axioms tower_local_cost_formula
+#print axioms tower_local_mem_cost_domain
+#print axioms tower_cost_domain_dense_real
+#print axioms local_modular_cost_symmetric
+#print axioms tower_local_cost_symmetric_formula
+#print axioms rotating_pair_norm_powers
+#print axioms first_pauli_cost_norm_powers
+#print axioms double_flip_cost_norm_powers
+#print axioms first_pauli_modular_cost
+#print axioms double_flip_modular_cost
+
+end
+end ChatgptAudit.Cost054
+''',
+    "TGLExt/ModularCostDerivative.lean":
+r'''-- ---------------------------------------------------------------------
+-- PEDRA DA BANCADA CHATGPT — ENTREGA_054 (06-07/09/2026), transposta em 07/09/2026
+-- Lote 046..054 (ORDEM_008 cumprida; «tudo o que a bancada podia», 9 entregas, 43 modulos).
+--   046: a ESPERANCA APERIODICA — aperiodicExpectationInput P : ExpectationInput P para TODO perfil da torre
+--     (media de Cesaro do fluxo modular; limite forte; into/fixes/ortho); o levantamento do Lema 3 dispara para
+--     todo perfil e todo horizonte (the_lift_fires_on_the_aperiodic_tower); unicidade; E comuta com sigma_t.
+--   047: propriedades da esperanca — linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador,
+--     COMPLETAMENTE POSITIVA (CompletelyPositiveMap da mathlib), contracao GNS, NORMAL (supremos positivos dirigidos).
+--   048: obstrucoes da identificacao modular/geometrica — Borchers trivial sobrevive ao transporte de estado (027);
+--     periodo do fluxo forca retorno de rotulos em localizacao fiel covariante; ligado ao boost 044 (negativos tipados).
+--   049-050: SUBESPACO PADRAO CONTINUO em L^2 — T_c = M_exp(-c xi) positivo auto-adjunto (grafo limitado), J
+--     antiunitaria, S_c = J T_c involucao fechada, K_c = Fix S_c subespaco padrao; adjunto S_c^dagger = T_c J,
+--     Delta_c = S_c^dagger S_c = T_c^2 = T_{2c} com igualdade de dominios, resolvente (I + Delta_c)^{-1}.
+--     Identificacao T_c = Delta_c^{1/2} e BW seguem OPEN.
+--   051: balanco optico finito — Q - K DeltaA = K E com E >= 0 (integral optica), E/t^4 -> (a^2 + c^2)/12; Riccati;
+--     no caso variavel o drift Z_R(s) - s R(s) persiste (controles).
+--   052: setor horizontal (plano de Pauli X,Y do 1o sitio) — a esperanca centralizante zera as duas direcoes;
+--     o horizonte modular faz o quarto de volta; forma invariante = c x produto GNS real; [INPUT] traco relativo = 1
+--     fixa c = 1/2 (densidade de area 1/2); forma efetiva de densidade |2p - 1|. Escala livre sem calibracao por Omega.
+--   053: polarizador D = P_R(-i)P_R no Hilbert real; acao GNS de todo TowerHorizon preserva Omega e entrelaca D;
+--     radical = centralizador (setor auto-adjunto); CONTRAEXEMPLO: covariancia + calibracao comum NAO da unicidade
+--     da area (9/10 vs 1377/1250 no 2o par).
+--   054: custo modular do polarizador C_D(x) = sum 2||D^(n+1)x||^2/(2n+1): l.s.c., preservado por todo TowerHorizon,
+--     custo zero <=> centralizador; f(0)=0, f(0)=2 localModularCost; C_D(X_1 Omega) = log2/3 na referencia p = 1/3.
+--   Estatuto: [REAL] o que esta compilado; [INPUT] calibracao por Omega, traco relativo = 1; [OPEN] H3, selecao
+--   fisica da area, escala dimensional, regiao <-> algebra, BW/identificacao T_c = Delta^{1/2}, reconstrucao geral.
+-- Auditoria da gerencia (sessao d554e796, 07/09/2026): hashes 185/185 (9 entregas); 9/9 auditores exit 0;
+--   recompilacao INDEPENDENTE 43/43, axiomas no trio; guarda de colisao; enunciados lidos.
+--   Transposicao: cabecalho + prefixo TGLExt. (+ regra 3).
+-- NAO move gate; nao e fisica; NOT_FALSIFIED nunca e CONFIRMED; CONFIRMADA proibido.
+-- ---------------------------------------------------------------------
+import TGLExt.TowerModularCost
+import Mathlib.Analysis.Calculus.LHopital
+
+set_option autoImplicit false
+set_option maxHeartbeats 3600000
+
+namespace ChatgptAudit.Cost054
+open TGLExt Matrix Filter Topology Set
+open ChatgptAudit ChatgptAudit.Observable035 ChatgptAudit.Angular034
+  ChatgptAudit.Covariant053 ChatgptAudit.Cocycle030 ChatgptAudit.Density033
+noncomputable section
+
+/-- The real expectation is a continuous real-linear functional. -/
+def omegaRealContinuous (P : SiteProfile) :
+    (TowerHilbert P →L[ℂ] TowerHilbert P) →L[ℝ] ℝ :=
+  Complex.reCLM.comp ((omegaContinuous P).restrictScalars ℝ)
+
+theorem omega_real_continuous_apply (P : SiteProfile)
+    (B : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    omegaRealContinuous P B = (omegaState P B).re := rfl
+
+theorem bounded_phase_negative_generator (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (t : ℝ) :
+    boundedPhase P (-A) t = boundedPhase P A (-t) := by
+  simp only [boundedPhase, Complex.ofReal_neg, neg_mul, neg_smul, smul_neg]
+
+theorem negative_phase_derivative (P : SiteProfile)
+    (A : TowerHilbert P →L[ℂ] TowerHilbert P) (t : ℝ) :
+    HasDerivAt (fun s : ℝ => boundedPhase P A (-s))
+      (-(boundedPhase P A (-t) * (Complex.I • A))) t := by
+  have h := bounded_phase_derivative P (-A) t
+  change HasDerivAt (fun s : ℝ => boundedPhase P (-A) s) _ t at h
+  simpa only [bounded_phase_negative_generator, smul_neg, mul_neg] using h
+
+/-- Product-rule velocity; no derivative is taken as a definition of the cost. -/
+def unitaryConjugationVelocity (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) (t : ℝ) :
+    TowerHilbert P →L[ℂ] TowerHilbert P :=
+  -(boundedPhase P A (-t) * (Complex.I • A) * B * boundedPhase P A t) +
+    boundedPhase P A (-t) * B * boundedPhase P A t * (Complex.I • A)
+
+theorem unitary_conjugation_has_derivative (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : IsSelfAdjoint A) (t : ℝ) :
+    HasDerivAt (unitaryConjugation P A B) (unitaryConjugationVelocity P A B t) t := by
+  have h := ((negative_phase_derivative P A t).mul_const B).mul
+    (bounded_phase_derivative P A t)
+  have hf : (fun s : ℝ => boundedPhase P A (-s) * B * boundedPhase P A s) =
+      unitaryConjugation P A B := by
+    funext s
+    simp only [unitaryConjugation, bounded_phase_star P A hA]
+  change HasDerivAt (fun s : ℝ => boundedPhase P A (-s) * B * boundedPhase P A s) _ t at h
+  rw [hf] at h
+  simpa only [unitaryConjugationVelocity, neg_mul, mul_assoc] using h
+
+/-- Minus the double commutator [A,[A,B]]. -/
+def doubleModularCommutator (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    TowerHilbert P →L[ℂ] TowerHilbert P :=
+  -(A * A * B) + A * B * A + A * B * A - B * (A * A)
+
+theorem unitary_velocity_derivative_zero (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    HasDerivAt (unitaryConjugationVelocity P A B) (doubleModularCommutator P A B) 0 := by
+  let C := Complex.I • A
+  have hn := negative_phase_derivative P A 0
+  have hp := bounded_phase_derivative P A 0
+  have hleft := (((hn.mul_const C).mul_const B).mul hp).neg
+  have hright := ((hn.mul_const B).mul hp).mul_const C
+  have h := hleft.add hright
+  change HasDerivAt (unitaryConjugationVelocity P A B) _ 0 at h
+  have hsq : C * C = -(A * A) := by
+    simp only [C, smul_mul_assoc, mul_smul_comm, smul_smul,
+      Complex.I_mul_I, neg_one_smul]
+  have hmid : C * B * C = -(A * B * A) := by
+    simp only [C, smul_mul_assoc, mul_smul_comm, smul_smul,
+      Complex.I_mul_I, neg_one_smul]
+  convert h using 1
+  simp only [neg_zero, bounded_phase_zero, one_mul, mul_one]
+  change doubleModularCommutator P A B =
+    -(-C * C * B + C * B * C) + (-C * B + B * C) * C
+  calc
+    doubleModularCommutator P A B =
+        C * C * B - C * B * C - C * B * C + B * (C * C) := by
+      rw [hsq, hmid]
+      simp only [doubleModularCommutator]
+      noncomm_ring
+    _ = _ := by noncomm_ring
+
+def unitaryEnergy (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) (t : ℝ) : ℝ :=
+  (omegaState P (unitaryConjugation P A B t)).re
+
+def unitaryEnergyVelocity (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) (t : ℝ) : ℝ :=
+  (omegaState P (unitaryConjugationVelocity P A B t)).re
+
+theorem unitary_energy_derivative (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : IsSelfAdjoint A) (t : ℝ) :
+    HasDerivAt (unitaryEnergy P A B) (unitaryEnergyVelocity P A B t) t := by
+  have h := (omegaRealContinuous P).hasFDerivAt.comp_hasDerivAt t
+    (unitary_conjugation_has_derivative P A B hA t)
+  convert h using 1
+  all_goals rfl
+
+theorem unitary_energy_velocity_zero (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    unitaryEnergyVelocity P A B 0 = (Complex.I * omegaState P (B*A-A*B)).re := by
+  have h : unitaryConjugationVelocity P A B 0 = Complex.I • (B*A-A*B) := by
+    simp only [unitaryConjugationVelocity, neg_zero, bounded_phase_zero, one_mul, mul_one,
+      smul_mul_assoc, mul_smul_comm, smul_sub]
+    module
+  rw [unitaryEnergyVelocity, h, omega_state_smul]
+
+theorem unitary_energy_velocity_derivative (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) :
+    HasDerivAt (unitaryEnergyVelocity P A B)
+      (omegaState P (doubleModularCommutator P A B)).re 0 := by
+  have h := (omegaRealContinuous P).hasFDerivAt.comp_hasDerivAt 0
+    (unitary_velocity_derivative_zero P A B)
+  convert h using 1
+  all_goals rfl
+
+theorem unitary_energy_second_derivative (P : SiteProfile)
+    (A B : TowerHilbert P →L[ℂ] TowerHilbert P) (hA : IsSelfAdjoint A) :
+    HasDerivAt (deriv (unitaryEnergy P A B))
+      (omegaState P (doubleModularCommutator P A B)).re 0 := by
+  have he : deriv (unitaryEnergy P A B) = unitaryEnergyVelocity P A B := by
+    funext t
+    exact (unitary_energy_derivative P A B hA t).deriv
+  rw [he]
+  exact unitary_energy_velocity_derivative P A B
+
+/-- Second-order response from actual derivatives, with the factor one half explicit. -/
+theorem quadratic_response_from_velocity (f v : ℝ → ℝ) (c : ℝ)
+    (hf : ∀ t, HasDerivAt f (v t) t) (hv : HasDerivAt v c 0) (hv0 : v 0=0) :
+    Tendsto (fun t => (f t-f 0)/t^2) (𝓝[≠] 0) (𝓝 (c/2)) := by
+  have hvs : Tendsto (fun t => v t/t) (𝓝[≠] 0) (𝓝 c) := by
+    simpa only [zero_add, hv0, sub_zero, smul_eq_mul, div_eq_mul_inv, mul_comm]
+      using hv.tendsto_slope_zero
+  have hderiv : ∀ᶠ t in 𝓝[≠] (0:ℝ), HasDerivAt (fun s => f s-f 0) (v t) t :=
+    Filter.Eventually.of_forall (fun t => (hf t).sub_const (f 0))
+  have hg : ∀ᶠ t in 𝓝[≠] (0:ℝ),
+      HasDerivAt (fun s : ℝ => s^2) (2*t) t :=
+    Filter.Eventually.of_forall (fun t => by
+      convert (hasDerivAt_id t).pow 2 using 1
+      all_goals norm_num
+      all_goals rfl)
+  have hgn : ∀ᶠ t in 𝓝[≠] (0:ℝ), 2*t≠0 := by
+    filter_upwards [self_mem_nhdsWithin] with t ht
+    exact mul_ne_zero (by norm_num) ht
+  have hfzero : Tendsto (fun t => f t-f 0) (𝓝[≠] 0) (𝓝 0) := by
+    simpa only [sub_self] using ((hf 0).continuousAt.sub_const (f 0)).mono_left
+      nhdsWithin_le_nhds
+  have hgzero : Tendsto (fun t : ℝ => t^2) (𝓝[≠] 0) (𝓝 0) := by
+    simpa using ((continuousAt_id : ContinuousAt (fun t : ℝ => t) 0).pow 2).tendsto.mono_left
+      nhdsWithin_le_nhds
+  have hratio : Tendsto (fun t => v t/(2*t)) (𝓝[≠] 0) (𝓝 (c/2)) := by
+    simpa only [mul_comm (2:ℝ), div_mul_eq_div_div] using hvs.div_const (2:ℝ)
+  exact HasDerivAt.lhopital_zero_nhdsNE hderiv hg hgn hfzero hgzero hratio
+
+def localModularMatrix (P : SiteProfile) (N : ℕ) :
+    Matrix (chainIdx N) (chainIdx N) ℂ :=
+  Matrix.diagonal (fun i => ((-Real.log (towerW P N i) : ℝ) : ℂ))
+
+def localModularObservable (P : SiteProfile) (N : ℕ) :
+    TowerHilbert P →L[ℂ] TowerHilbert P :=
+  towerPi P (localModularMatrix P N)
+
+def finiteModularEnergy (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) : ℝ → ℝ :=
+  unitaryEnergy P (towerPi P a) (localModularObservable P N)
+
+theorem local_modular_matrix_hermitian (P : SiteProfile) (N : ℕ) :
+    (localModularMatrix P N).IsHermitian := by
+  ext i j
+  by_cases h : i=j
+  · subst j
+    simp [localModularMatrix]
+  · simp [localModularMatrix, Matrix.diagonal, h, Ne.symm h]
+
+theorem local_modular_commutator_state (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) :
+    omegaState P (localModularObservable P N * towerPi P a -
+      towerPi P a * localModularObservable P N)=0 := by
+  have hm : towerPi P (localModularMatrix P N*a-a*localModularMatrix P N) =
+      localModularObservable P N*towerPi P a-towerPi P a*localModularObservable P N := by
+    change (towerPiAlgHom P N) (_-_) = _
+    simp only [map_sub, map_mul]
+    rfl
+  rw [← hm, omegaState_pi]
+  simp [tState, localModularMatrix, Matrix.sub_apply, Matrix.diagonal_mul,
+    Matrix.mul_diagonal, mul_comm]
+
+theorem finite_modular_energy_first_zero (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    HasDerivAt (finiteModularEnergy P N a) 0 0 := by
+  have h := unitary_energy_derivative P (towerPi P a) (localModularObservable P N)
+    (tower_local_selfadjoint P N a ha) 0
+  simpa only [unitary_energy_velocity_zero, local_modular_commutator_state,
+    mul_zero, Complex.zero_re, finiteModularEnergy] using h
+
+theorem local_modular_double_coefficient (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    (omegaState P (doubleModularCommutator P (towerPi P a)
+      (localModularObservable P N))).re = 2 * localModularCost P N a := by
+  let k := localModularMatrix P N
+  have hm : towerPi P (-(a*a*k)+a*k*a+a*k*a-k*(a*a)) =
+      doubleModularCommutator P (towerPi P a) (localModularObservable P N) := by
+    change (towerPiAlgHom P N) (-(a*a*k)+a*k*a+a*k*a-k*(a*a)) = _
+    simp only [map_sub, map_add, map_neg, map_mul]
+    rfl
+  rw [← hm, omegaState_pi]
+  have hright (b : Matrix (chainIdx N) (chainIdx N) ℂ) (i j : chainIdx N) :
+      (b*k) i j = b i j * ((-Real.log (towerW P N j) : ℝ) : ℂ) := by
+    change (b * Matrix.diagonal (fun j =>
+      ((-Real.log (towerW P N j) : ℝ) : ℂ))) i j = _
+    exact Matrix.mul_diagonal _ _ _ _
+  have hleft (b : Matrix (chainIdx N) (chainIdx N) ℂ) (i j : chainIdx N) :
+      (k*b) i j = ((-Real.log (towerW P N i) : ℝ) : ℂ) * b i j := by
+    change (Matrix.diagonal (fun i =>
+      ((-Real.log (towerW P N i) : ℝ) : ℂ)) * b) i j = _
+    exact Matrix.diagonal_mul _ _ _ _
+  have hmiddle (i : chainIdx N) :
+      (a*k*a) i i = ∑ j,
+        (a i j * ((-Real.log (towerW P N j) : ℝ) : ℂ)) * a j i := by
+    rw [Matrix.mul_apply]
+    apply Finset.sum_congr rfl
+    intro j _
+    rw [hright]
+  have hd (i : chainIdx N) :
+      (-(a*a*k)+a*k*a+a*k*a-k*(a*a)) i i =
+        ∑ j, ((2*(Real.log (towerW P N i)-Real.log (towerW P N j)) : ℝ) : ℂ) *
+          (Complex.normSq (a i j) : ℂ) := by
+    simp only [Matrix.sub_apply, Matrix.add_apply, Matrix.neg_apply]
+    rw [hright, hleft]
+    simp only [hmiddle]
+    simp only [Matrix.mul_apply]
+    rw [Finset.sum_mul, Finset.mul_sum]
+    rw [← Finset.sum_neg_distrib, ← Finset.sum_add_distrib,
+      ← Finset.sum_add_distrib, ← Finset.sum_sub_distrib]
+    apply Finset.sum_congr rfl
+    intro j _
+    have hji : a j i = star (a i j) := by
+      simpa only [Matrix.conjTranspose_apply] using
+        (congrFun (congrFun ha j) i).symm
+    have hprod : a i j * a j i = (Complex.normSq (a i j) : ℂ) := by
+      rw [hji, Complex.star_def, Complex.mul_conj]
+    calc
+      _ = ((2*(Real.log (towerW P N i)-Real.log (towerW P N j)) : ℝ) : ℂ) *
+          (a i j * a j i) := by
+        push_cast
+        ring
+      _ = _ := by rw [hprod]
+  have hn (i j : chainIdx N) : Complex.normSq (a j i)=Complex.normSq (a i j) := by
+    simpa only [Matrix.conjTranspose_apply, Complex.star_def, Complex.normSq_conj] using
+      congrArg Complex.normSq (congrFun (congrFun ha i) j)
+  have hswap :
+      (∑ i, ∑ j, towerW P N j *
+        (Real.log (towerW P N i)-Real.log (towerW P N j))*Complex.normSq (a i j)) =
+      -(∑ i, ∑ j, towerW P N i *
+        (Real.log (towerW P N i)-Real.log (towerW P N j))*Complex.normSq (a i j)) := by
+    rw [Finset.sum_comm]
+    simp only [← Finset.sum_neg_distrib]
+    apply Finset.sum_congr rfl
+    intro i _
+    apply Finset.sum_congr rfl
+    intro j _
+    rw [hn]
+    ring
+  have he :
+      (∑ i, ∑ j, (towerW P N i-towerW P N j) *
+        (Real.log (towerW P N i)-Real.log (towerW P N j))*Complex.normSq (a i j)) =
+      2 * ∑ i, ∑ j, towerW P N i *
+        (Real.log (towerW P N i)-Real.log (towerW P N j))*Complex.normSq (a i j) := by
+    simp only [sub_mul, Finset.sum_sub_distrib]
+    rw [hswap]
+    ring
+  have hre (f : chainIdx N → ℂ) : (∑ i, f i).re = ∑ i, (f i).re :=
+    map_sum Complex.reAddGroupHom f Finset.univ
+  have htrace :
+      (tState P N (-(a*a*k)+a*k*a+a*k*a-k*(a*a))).re =
+      2 * ∑ i, ∑ j, towerW P N i *
+        (Real.log (towerW P N i)-Real.log (towerW P N j))*Complex.normSq (a i j) := by
+    simp only [tState, hd, Finset.mul_sum]
+    simp only [hre]
+    apply Finset.sum_congr rfl
+    intro i _
+    apply Finset.sum_congr rfl
+    intro j _
+    rw [← Complex.ofReal_mul, ← Complex.ofReal_mul, Complex.ofReal_re]
+    ring
+  rw [htrace, local_modular_cost_symmetric P N a ha, he]
+  ring
+
+theorem finite_modular_energy_second (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    HasDerivAt (deriv (finiteModularEnergy P N a)) (2*localModularCost P N a) 0 := by
+  simpa only [finiteModularEnergy, local_modular_double_coefficient P N a ha] using
+    unitary_energy_second_derivative P (towerPi P a) (localModularObservable P N)
+      (tower_local_selfadjoint P N a ha)
+
+theorem finite_modular_energy_quadratic_limit (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    Tendsto (fun t => (finiteModularEnergy P N a t-finiteModularEnergy P N a 0)/t^2)
+      (𝓝[≠] 0) (𝓝 (localModularCost P N a)) := by
+  have hv := unitary_energy_velocity_derivative P (towerPi P a) (localModularObservable P N)
+  rw [local_modular_double_coefficient P N a ha] at hv
+  have hv0 : unitaryEnergyVelocity P (towerPi P a) (localModularObservable P N) 0=0 := by
+    rw [unitary_energy_velocity_zero, local_modular_commutator_state, mul_zero, Complex.zero_re]
+  have h := quadratic_response_from_velocity _ _ _
+    (unitary_energy_derivative P (towerPi P a) (localModularObservable P N)
+      (tower_local_selfadjoint P N a ha)) hv hv0
+  have he : 2*localModularCost P N a/2=localModularCost P N a := by ring
+  rw [he] at h
+  exact h
+
+/-- The extended global cost equals half the actual local energy second derivative. -/
+theorem global_cost_is_modular_response (P : SiteProfile) (N : ℕ)
+    (a : Matrix (chainIdx N) (chainIdx N) ℂ) (ha : a.IsHermitian) :
+    towerModularCost P (towerPi P a (hOmega P)) =
+      ENNReal.ofReal (deriv (deriv (finiteModularEnergy P N a)) 0/2) := by
+  rw [(finite_modular_energy_second P N a ha).deriv, tower_local_cost_formula P N a ha]
+  congr 1
+  ring
+
+#print axioms omegaRealContinuous
+#print axioms omega_real_continuous_apply
+#print axioms bounded_phase_negative_generator
+#print axioms negative_phase_derivative
+#print axioms unitaryConjugationVelocity
+#print axioms unitary_conjugation_has_derivative
+#print axioms doubleModularCommutator
+#print axioms unitary_velocity_derivative_zero
+#print axioms unitaryEnergy
+#print axioms unitaryEnergyVelocity
+#print axioms unitary_energy_derivative
+#print axioms unitary_energy_velocity_zero
+#print axioms unitary_energy_velocity_derivative
+#print axioms unitary_energy_second_derivative
+#print axioms quadratic_response_from_velocity
+#print axioms localModularMatrix
+#print axioms localModularObservable
+#print axioms finiteModularEnergy
+#print axioms local_modular_matrix_hermitian
+#print axioms local_modular_commutator_state
+#print axioms finite_modular_energy_first_zero
+#print axioms local_modular_double_coefficient
+#print axioms finite_modular_energy_second
+#print axioms finite_modular_energy_quadratic_limit
+#print axioms global_cost_is_modular_response
+end
+end ChatgptAudit.Cost054
 ''',
     # ===== v330: ENTREGAS 044..045 DA BANCADA CHATGPT (06/09/2026) — 8 pedras =====
     # 044: boost aproximado (chi = -kappa u d_u + kappa v d_v; defeito de Lie -2kappa(aX^2+cY^2)du^2; nao-Killing) e
@@ -54045,6 +64316,623 @@ end TGL.Audit
 #print axioms ChatgptAudit.Area045.invariance_does_not_fix_area
 #print axioms ChatgptAudit.Area045.scaled_reference_angular_area
 #print axioms ChatgptAudit.Area045.reference_angular_scales_distinct
+
+-- ===== v331: ENTREGAS 046..054 DA BANCADA (07/09/2026) — esperanca aperiodica; CP/normal; subespaco padrao continuo; polarizador =====
+#print axioms ChatgptAudit.Aperiodic046.phase_average_zero
+#print axioms ChatgptAudit.Aperiodic046.integral_phase_nonzero
+#print axioms ChatgptAudit.Aperiodic046.phase_average_norm_le
+#print axioms ChatgptAudit.Aperiodic046.phase_average_nonzero_limit
+#print axioms ChatgptAudit.Aperiodic046.phase_average_limit
+#print axioms ChatgptAudit.Aperiodic046.flow_average_entry
+#print axioms ChatgptAudit.Aperiodic046.flow_average_limit
+#print axioms ChatgptAudit.Aperiodic046.local_average_eq_embedding
+#print axioms ChatgptAudit.Aperiodic046.local_average_limit
+#print axioms ChatgptAudit.Aperiodic046.omega_limit_on_local
+#print axioms ChatgptAudit.Aperiodic046.bounded_local_cauchy
+#print axioms ChatgptAudit.Aperiodic046.strong_limit_commutes
+#print axioms ChatgptAudit.Aperiodic046.factor_mem_of_strong_limit
+#print axioms ChatgptAudit.Aperiodic046.bounded_omega_limit_lift
+#print axioms ChatgptAudit.Aperiodic046.omega_lift_unique
+#print axioms ChatgptAudit.Aperiodic046.modular_average_vector_add
+#print axioms ChatgptAudit.Aperiodic046.modular_average_vector_smul
+#print axioms ChatgptAudit.Aperiodic046.modular_average_vector_bound
+#print axioms ChatgptAudit.Aperiodic046.modular_vector_average_apply
+#print axioms ChatgptAudit.Aperiodic046.modular_vector_average_norm_le_one
+#print axioms ChatgptAudit.Aperiodic046.modular_vector_average_local_limit
+#print axioms ChatgptAudit.Aperiodic046.modular_vector_average_cauchy
+#print axioms ChatgptAudit.Aperiodic046.modular_vector_average_limit_exists
+#print axioms ChatgptAudit.Aperiodic046.period_average_omega_eq_vector_average
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_average_omega_limit
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_average_operator
+#print axioms ChatgptAudit.Aperiodic046.period_average_prefix_vector
+#print axioms ChatgptAudit.Aperiodic046.period_average_prefix_omega_limit
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_average_prefix_of_limit
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_expectation_spec
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_expectation_prefix
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_expectation_into
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_expectation_fixes
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_expectation_ortho
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_contract_inhabited
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_expectation_contractive
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_expectation_idempotent
+#print axioms ChatgptAudit.Aperiodic046.the_lift_fires_on_the_aperiodic_tower
+#print axioms ChatgptAudit.Aperiodic046.every_expectation_on_the_general_tower_is_covariant
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_expectation_agrees_periodic
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_expectation_agrees_tracial
+#print axioms ChatgptAudit.Aperiodic046.aperiodic_expectation_commutes_with_modular_flow
+#print axioms ChatgptAudit.Aperiodic046.response_covariant_on_the_general_tower
+#print axioms ChatgptAudit.Expectation047.omega_state_star
+#print axioms ChatgptAudit.Expectation047.omega_centralizer_star
+#print axioms ChatgptAudit.Expectation047.expectation_eq_of_ortho
+#print axioms ChatgptAudit.Expectation047.expectation_zero
+#print axioms ChatgptAudit.Expectation047.expectation_one
+#print axioms ChatgptAudit.Expectation047.expectation_add
+#print axioms ChatgptAudit.Expectation047.expectation_smul
+#print axioms ChatgptAudit.Expectation047.expectation_sub
+#print axioms ChatgptAudit.Expectation047.expectation_preserves_omega
+#print axioms ChatgptAudit.Expectation047.expectation_star
+#print axioms ChatgptAudit.Expectation047.expectation_mul_left
+#print axioms ChatgptAudit.Expectation047.expectation_mul_right
+#print axioms ChatgptAudit.Expectation047.expectation_bimodular
+#print axioms ChatgptAudit.Expectation047.expectation_norm_le
+#print axioms ChatgptAudit.Expectation047.expectation_linear_map_apply
+#print axioms ChatgptAudit.Expectation047.expectation_continuous_linear_map_apply
+#print axioms ChatgptAudit.Expectation047.expectation_continuous_linear_map_norm_le_one
+#print axioms ChatgptAudit.Expectation047.modular_conjugation_inner
+#print axioms ChatgptAudit.Expectation047.modular_conjugation_inner_continuous
+#print axioms ChatgptAudit.Expectation047.period_average_inner
+#print axioms ChatgptAudit.Expectation047.period_average_re_inner
+#print axioms ChatgptAudit.Expectation047.period_average_re_inner_nonneg
+#print axioms ChatgptAudit.Expectation047.expectation_re_inner_nonneg
+#print axioms ChatgptAudit.Expectation047.general_expectation_isPositive
+#print axioms ChatgptAudit.Expectation047.general_expectation_nonnegative
+#print axioms ChatgptAudit.Expectation047.operator_block_apply
+#print axioms ChatgptAudit.Expectation047.operator_block_entry_apply
+#print axioms ChatgptAudit.Expectation047.operator_block_entry_recover
+#print axioms ChatgptAudit.Expectation047.operator_block_injective
+#print axioms ChatgptAudit.Expectation047.operator_block_sum_single
+#print axioms ChatgptAudit.Expectation047.operator_block_surjective
+#print axioms ChatgptAudit.Expectation047.operator_block_add
+#print axioms ChatgptAudit.Expectation047.operator_block_smul
+#print axioms ChatgptAudit.Expectation047.operator_block_mul
+#print axioms ChatgptAudit.Expectation047.operator_block_star
+#print axioms ChatgptAudit.Expectation047.operator_block_representation_apply
+#print axioms ChatgptAudit.Expectation047.operator_block_nonneg_representation_iff
+#print axioms ChatgptAudit.Expectation047.operator_block_inner
+#print axioms ChatgptAudit.Expectation047.operator_block_nonneg_iff
+#print axioms ChatgptAudit.Expectation047.block_modular_quadratic
+#print axioms ChatgptAudit.Expectation047.block_period_average_quadratic
+#print axioms ChatgptAudit.Expectation047.block_period_average_nonnegative
+#print axioms ChatgptAudit.Expectation047.block_average_quadratic_tendsto
+#print axioms ChatgptAudit.Expectation047.general_expectation_block_positive
+#print axioms ChatgptAudit.Expectation047.gram_block_quadratic
+#print axioms ChatgptAudit.Expectation047.gram_block_positive
+#print axioms ChatgptAudit.Expectation047.factor_positive_sqrt_mem
+#print axioms ChatgptAudit.Expectation047.factor_nonnegative_iff_star_square
+#print axioms ChatgptAudit.Expectation047.expectation_cstarMatrix_nonnegative
+#print axioms ChatgptAudit.Expectation047.general_expectation_cp_apply
+#print axioms ChatgptAudit.Expectation047.general_expectation_cp_toLinearMap
+#print axioms ChatgptAudit.Expectation047.expectation_gns_norm_le
+#print axioms ChatgptAudit.Expectation047.expectation_gns_dist_le
+#print axioms ChatgptAudit.Expectation047.expectation_omega_tendsto
+#print axioms ChatgptAudit.Expectation047.bounded_local_tendsto
+#print axioms ChatgptAudit.Expectation047.bounded_omega_tendsto
+#print axioms ChatgptAudit.Expectation047.expectation_strong_tendsto_of_omega
+#print axioms ChatgptAudit.Expectation047.positive_square_le_norm_smul
+#print axioms ChatgptAudit.Expectation047.positive_apply_norm_sq_le
+#print axioms ChatgptAudit.Expectation047.positive_increment_norm_sq_le
+#print axioms ChatgptAudit.Expectation047.positive_of_strong_limit
+#print axioms ChatgptAudit.Expectation047.monotone_quadratic_limit
+#print axioms ChatgptAudit.Expectation047.monotone_operator_vector_cauchy
+#print axioms ChatgptAudit.Expectation047.monotone_strong_limit_isLUB
+#print axioms ChatgptAudit.Expectation047.monotone_operator_limit
+#print axioms ChatgptAudit.Expectation047.strong_net_limit_commutes
+#print axioms ChatgptAudit.Expectation047.factor_mem_of_net_strong_limit
+#print axioms ChatgptAudit.Expectation047.expectation_order_preserving
+#print axioms ChatgptAudit.Expectation047.factor_monotone_supremum_and_expectation
+#print axioms ChatgptAudit.Expectation047.expectation_preserves_order_bounded_nets
+#print axioms ChatgptAudit.Expectation047.general_expectation_normal_order
+#print axioms ChatgptAudit.Expectation047.aperiodic_expectation_normal_order
+#print axioms ChatgptAudit.Geometry048.profile_borchers_trivial
+#print axioms ChatgptAudit.Geometry048.faithful_covariance_period_return
+#print axioms ChatgptAudit.Geometry048.modular_period_conjugation_eq
+#print axioms ChatgptAudit.Geometry048.modular_period_image_eq
+#print axioms ChatgptAudit.Geometry048.modular_period_geometric_return
+#print axioms ChatgptAudit.Geometry048.modular_period_dilation_return
+#print axioms ChatgptAudit.Geometry048.modular_period_dilation_obstruction
+#print axioms ChatgptAudit.Geometry048.dilation_factor_ne_one
+#print axioms ChatgptAudit.Geometry048.faithful_modular_dilation_localization_impossible
+#print axioms ChatgptAudit.Geometry048.central_null_curve_injective
+#print axioms ChatgptAudit.Geometry048.central_boost_no_return
+#print axioms ChatgptAudit.Geometry048.central_boost_covariance_to_dilation
+#print axioms ChatgptAudit.Geometry048.faithful_central_boost_localization_impossible
+#print axioms ChatgptAudit.Geometry048.third_modular_period_positive
+#print axioms ChatgptAudit.Geometry048.third_modular_flow_period
+#print axioms ChatgptAudit.Geometry048.third_faithful_dilation_localization_impossible
+#print axioms ChatgptAudit.Geometry048.third_faithful_central_boost_localization_impossible
+#print axioms ChatgptAudit.Geometry048.constant_factor_localization_covariant
+#print axioms ChatgptAudit.Geometry048.constant_factor_localization_not_injective
+#print axioms ChatgptAudit.Continuous049.bounded_graph_parameter_apply
+#print axioms ChatgptAudit.Continuous049.bounded_graph_domain_iff
+#print axioms ChatgptAudit.Continuous049.bounded_graph_apply
+#print axioms ChatgptAudit.Continuous049.bounded_graph_lift_coe
+#print axioms ChatgptAudit.Continuous049.bounded_graph_parameter_lift
+#print axioms ChatgptAudit.Continuous049.bounded_graph_lift_apply
+#print axioms ChatgptAudit.Continuous049.bounded_graph_param_iff
+#print axioms ChatgptAudit.Continuous049.bounded_graph_equation_iff
+#print axioms ChatgptAudit.Continuous049.bounded_graph_domain_dense
+#print axioms ChatgptAudit.Continuous049.bounded_graph_closed
+#print axioms ChatgptAudit.Continuous049.bounded_graph_selfadjoint_inner
+#print axioms ChatgptAudit.Continuous049.bounded_graph_formal_adjoint
+#print axioms ChatgptAudit.Continuous049.bounded_graph_selfadjoint
+#print axioms ChatgptAudit.Continuous049.bounded_graph_positive
+#print axioms ChatgptAudit.Continuous049.mem_fixedRealSubmodule_iff
+#print axioms ChatgptAudit.Continuous049.fixedRealSubmodule_closed
+#print axioms ChatgptAudit.Continuous049.domainConjugation_involutive
+#print axioms ChatgptAudit.Continuous049.domain_fixed_decomposition
+#print axioms ChatgptAudit.Continuous049.mem_domain_iff_fixed_sum
+#print axioms ChatgptAudit.Continuous049.fixed_sum_tomita
+#print axioms ChatgptAudit.Continuous049.fixed_subspace_separating
+#print axioms ChatgptAudit.Continuous049.fixed_subspace_cyclic
+#print axioms ChatgptAudit.Continuous049.spectral_weight_den_pos
+#print axioms ChatgptAudit.Continuous049.spectral_weightA_pos
+#print axioms ChatgptAudit.Continuous049.spectral_weightB_pos
+#print axioms ChatgptAudit.Continuous049.spectral_weight_square_sum
+#print axioms ChatgptAudit.Continuous049.spectral_weightA_le_one
+#print axioms ChatgptAudit.Continuous049.spectral_weightB_le_one
+#print axioms ChatgptAudit.Continuous049.spectral_weightA_norm_le_one
+#print axioms ChatgptAudit.Continuous049.spectral_weightB_norm_le_one
+#print axioms ChatgptAudit.Continuous049.spectral_weightA_continuous
+#print axioms ChatgptAudit.Continuous049.spectral_weightB_continuous
+#print axioms ChatgptAudit.Continuous049.spectral_weight_reflection
+#print axioms ChatgptAudit.Continuous049.spectral_weightB_reflection
+#print axioms ChatgptAudit.Continuous049.spectral_weight_ratio
+#print axioms ChatgptAudit.Continuous049.bounded_spectral_weight_ae
+#print axioms ChatgptAudit.Continuous049.bounded_spectral_multiplier_ae
+#print axioms ChatgptAudit.Continuous049.bounded_spectral_multiplier_norm
+#print axioms ChatgptAudit.Continuous049.bounded_spectral_multiplier_selfadjoint
+#print axioms ChatgptAudit.Continuous049.spectralA_ae
+#print axioms ChatgptAudit.Continuous049.spectralB_ae
+#print axioms ChatgptAudit.Continuous049.spectralA_norm_le
+#print axioms ChatgptAudit.Continuous049.spectralB_norm_le
+#print axioms ChatgptAudit.Continuous049.spectralA_selfadjoint
+#print axioms ChatgptAudit.Continuous049.spectralB_selfadjoint
+#print axioms ChatgptAudit.Continuous049.spectralAB_commute
+#print axioms ChatgptAudit.Continuous049.spectralAB_square_sum
+#print axioms ChatgptAudit.Continuous049.spectralA_injective
+#print axioms ChatgptAudit.Continuous049.spectralAB_quadratic_nonneg
+#print axioms ChatgptAudit.Continuous049.spectralJMap_ae
+#print axioms ChatgptAudit.Continuous049.spectralJMap_involutive
+#print axioms ChatgptAudit.Continuous049.spectralJMap_norm
+#print axioms ChatgptAudit.Continuous049.spectralJ_ae
+#print axioms ChatgptAudit.Continuous049.spectralJ_involutive
+#print axioms ChatgptAudit.Continuous049.spectralJA_eq_BJ
+#print axioms ChatgptAudit.Continuous049.spectralJB_eq_AJ
+#print axioms ChatgptAudit.Continuous049.bounded_graph_tomita_apply
+#print axioms ChatgptAudit.Continuous049.bounded_graph_tomita_lift
+#print axioms ChatgptAudit.Continuous049.bounded_graph_tomita_maps_domain
+#print axioms ChatgptAudit.Continuous049.bounded_graph_tomita_involutive
+#print axioms ChatgptAudit.Continuous049.bounded_graph_tomita_closed
+#print axioms ChatgptAudit.Continuous049.bounded_graph_J_tomita
+#print axioms ChatgptAudit.Continuous049.continuous_modular_domain_dense
+#print axioms ChatgptAudit.Continuous049.continuous_modular_closed
+#print axioms ChatgptAudit.Continuous049.continuous_modular_selfadjoint
+#print axioms ChatgptAudit.Continuous049.continuous_modular_positive
+#print axioms ChatgptAudit.Continuous049.continuous_modular_graph_iff
+#print axioms ChatgptAudit.Continuous049.continuous_modular_apply_ae
+#print axioms ChatgptAudit.Continuous049.continuous_modular_domain_iff
+#print axioms ChatgptAudit.Continuous049.continuous_weight_fiber_subsingleton
+#print axioms ChatgptAudit.Continuous049.continuous_weight_fiber_null
+#print axioms ChatgptAudit.Continuous049.continuous_modular_no_eigen
+#print axioms ChatgptAudit.Continuous049.continuous_modular_zero_graph
+#print axioms ChatgptAudit.Continuous049.continuous_modular_zero_domain
+#print axioms ChatgptAudit.Continuous049.continuous_modular_zero_apply
+#print axioms ChatgptAudit.Continuous049.continuous_tomita_domain_dense
+#print axioms ChatgptAudit.Continuous049.continuous_tomita_closed
+#print axioms ChatgptAudit.Continuous049.continuous_tomita_maps_domain
+#print axioms ChatgptAudit.Continuous049.continuous_tomita_involutive
+#print axioms ChatgptAudit.Continuous049.continuous_J_tomita_eq_modular
+#print axioms ChatgptAudit.Continuous049.continuous_standard_fixed_iff
+#print axioms ChatgptAudit.Continuous049.continuous_domain_iff_standard_sum
+#print axioms ChatgptAudit.Continuous049.continuous_tomita_decomposition
+#print axioms ChatgptAudit.Continuous049.continuous_tomita_apply_ae
+#print axioms ChatgptAudit.Continuous049.continuous_tomita_zero_apply
+#print axioms ChatgptAudit.Continuous050.antiunitary_inner_conj
+#print axioms ChatgptAudit.Continuous050.antiunitary_pairing_flip
+#print axioms ChatgptAudit.Continuous050.generic_tomita_apply
+#print axioms ChatgptAudit.Continuous050.generic_adjoint_input_coe
+#print axioms ChatgptAudit.Continuous050.generic_tomita_adjoint_apply
+#print axioms ChatgptAudit.Continuous050.generic_pairing_with_J
+#print axioms ChatgptAudit.Continuous050.generic_adjoint_pairing
+#print axioms ChatgptAudit.Continuous050.generic_adjoint_maximal
+#print axioms ChatgptAudit.Continuous050.generic_adjoint_domain_iff
+#print axioms ChatgptAudit.Continuous050.generic_composition_domain
+#print axioms ChatgptAudit.Continuous050.generic_adjoint_comp
+#print axioms ChatgptAudit.Continuous050.continuous_modular_square_domain_iff
+#print axioms ChatgptAudit.Continuous050.continuous_modular_square_apply
+#print axioms ChatgptAudit.Continuous050.continuous_modular_square_graph_iff
+#print axioms ChatgptAudit.Continuous050.continuous_weight_double
+#print axioms ChatgptAudit.Continuous050.continuous_weight_double_complex
+#print axioms ChatgptAudit.Continuous050.continuous_weight_half_norm_le
+#print axioms ChatgptAudit.Continuous050.continuous_modular_double_domain_le
+#print axioms ChatgptAudit.Continuous050.continuous_modular_square_eq
+#print axioms ChatgptAudit.Continuous050.continuous_modular_square_domain_eq
+#print axioms ChatgptAudit.Continuous050.continuous_modular_composable_iff
+#print axioms ChatgptAudit.Continuous050.continuous_modular_square_closed
+#print axioms ChatgptAudit.Continuous050.continuous_modular_square_selfadjoint
+#print axioms ChatgptAudit.Continuous050.continuous_tomita_eq_generic
+#print axioms ChatgptAudit.Continuous050.continuous_tomita_adjoint_pairing
+#print axioms ChatgptAudit.Continuous050.continuous_tomita_adjoint_maximal
+#print axioms ChatgptAudit.Continuous050.continuous_tomita_adjoint_domain_iff
+#print axioms ChatgptAudit.Continuous050.continuous_tomita_composition_domain
+#print axioms ChatgptAudit.Continuous050.continuous_tomita_adjoint_comp
+#print axioms ChatgptAudit.Continuous050.continuous_delta_graph_iff_tomita_comp
+#print axioms ChatgptAudit.Continuous050.continuous_delta_eq_double
+#print axioms ChatgptAudit.Continuous050.continuous_delta_domain_iff
+#print axioms ChatgptAudit.Continuous050.continuous_delta_selfadjoint
+#print axioms ChatgptAudit.Continuous050.continuous_delta_closed
+#print axioms ChatgptAudit.Continuous050.continuous_delta_energy
+#print axioms ChatgptAudit.Continuous050.continuous_delta_positive
+#print axioms ChatgptAudit.Continuous050.continuous_modular_positive_square_root
+#print axioms ChatgptAudit.Continuous050.spectral_operator_real_smul_apply
+#print axioms ChatgptAudit.Continuous050.bounded_spectral_multiplier_nonneg
+#print axioms ChatgptAudit.Continuous050.spectralA_nonneg
+#print axioms ChatgptAudit.Continuous050.spectralB_nonneg
+#print axioms ChatgptAudit.Continuous050.continuous_resolvent_complement
+#print axioms ChatgptAudit.Continuous050.continuous_resolvent_sqrt
+#print axioms ChatgptAudit.Continuous050.continuous_resolvent_complement_sqrt
+#print axioms ChatgptAudit.Continuous050.continuous_modular_graph_from_cfc
+#print axioms ChatgptAudit.Continuous050.continuous_modular_domain_from_cfc
+#print axioms ChatgptAudit.Continuous050.continuous_resolvent_ae
+#print axioms ChatgptAudit.Continuous050.continuous_resolvent_square_graph
+#print axioms ChatgptAudit.Continuous050.continuous_resolvent_mem_square_domain
+#print axioms ChatgptAudit.Continuous050.continuous_resolvent_square_apply
+#print axioms ChatgptAudit.Continuous050.continuous_resolvent_right_inverse
+#print axioms ChatgptAudit.Continuous050.continuous_resolvent_left_inverse
+#print axioms ChatgptAudit.Continuous050.continuous_resolvent_unique
+#print axioms ChatgptAudit.Optical051.optical_primitive_zero
+#print axioms ChatgptAudit.Optical051.optical_primitive_const
+#print axioms ChatgptAudit.Optical051.optical_primitive_intervalIntegrable
+#print axioms ChatgptAudit.Optical051.optical_primitive_hasDerivAt
+#print axioms ChatgptAudit.Optical051.optical_primitive_continuousOn
+#print axioms ChatgptAudit.Optical051.optical_expansion_integral
+#print axioms ChatgptAudit.Optical051.optical_volterra_balance
+#print axioms ChatgptAudit.Optical051.optical_volterra_balance_matched
+#print axioms ChatgptAudit.Optical051.optical_volterra_balance_constant
+#print axioms ChatgptAudit.Optical051.optical_volterra_correction_zero
+#print axioms ChatgptAudit.Optical051.optical_volterra_correction_nonneg
+#print axioms ChatgptAudit.Optical051.optical_scaled_correction_nonneg
+#print axioms ChatgptAudit.Optical051.optical_screen_matrix_symmetric
+#print axioms ChatgptAudit.Optical051.optical_screen_matrix_trace
+#print axioms ChatgptAudit.Optical051.optical_screen_matrix_square_trace
+#print axioms ChatgptAudit.Optical051.optical_screen_raychaudhuri_decomposition
+#print axioms ChatgptAudit.Optical051.optical_screen_norm_nonneg
+#print axioms ChatgptAudit.Optical051.optical_screen_shear_nonneg
+#print axioms ChatgptAudit.Optical051.optical_screen_norm_eq_zero
+#print axioms ChatgptAudit.Optical051.optical_rotated_trace
+#print axioms ChatgptAudit.Optical051.optical_rotated_norm
+#print axioms ChatgptAudit.Optical051.optical_rotated_shear
+#print axioms ChatgptAudit.Optical051.optical_riccati_trace
+#print axioms ChatgptAudit.Optical051.optical_riccati_raychaudhuri
+#print axioms ChatgptAudit.Optical051.optical_diagonal_distortion
+#print axioms ChatgptAudit.Optical051.optical_distortion_nonneg
+#print axioms ChatgptAudit.Optical051.optical_expansion_zero
+#print axioms ChatgptAudit.Optical051.optical_expansion_derivative
+#print axioms ChatgptAudit.Optical051.optical_distortion_continuousOn
+#print axioms ChatgptAudit.Optical051.optical_area_positive
+#print axioms ChatgptAudit.Optical051.optical_area_derivative
+#print axioms ChatgptAudit.Optical051.optical_finite_balance
+#print axioms ChatgptAudit.Optical051.optical_correction_nonneg
+#print axioms ChatgptAudit.Optical051.optical_finite_balance_near_zero
+#print axioms ChatgptAudit.Optical051.constructed_heat_finite_balance_germ
+#print axioms ChatgptAudit.Optical051.optical_correction_quartic_limit
+#print axioms ChatgptAudit.Optical051.optical_affine_curvature_primitive
+#print axioms ChatgptAudit.Optical051.optical_affine_curvature_drift
+#print axioms ChatgptAudit.Optical051.optical_affine_drift_negative
+#print axioms ChatgptAudit.Optical051.optical_affine_drift_positive
+#print axioms ChatgptAudit.Optical051.optical_matrix_constant_balance
+#print axioms ChatgptAudit.Optical051.optical_matrix_correction_nonneg
+#print axioms ChatgptAudit.Optical051.optical_past_entropy_orientation
+#print axioms ChatgptAudit.Optical051.optical_zero_temperature_control
+#print axioms ChatgptAudit.Optical051.optical_entropy_correction_nonneg
+#print axioms ChatgptAudit.Orbit052.pauli_horizontal_add
+#print axioms ChatgptAudit.Orbit052.pauli_horizontal_smul
+#print axioms ChatgptAudit.Orbit052.pauli_horizontal_basis_x
+#print axioms ChatgptAudit.Orbit052.pauli_horizontal_basis_y
+#print axioms ChatgptAudit.Orbit052.pauli_horizontal_mem_factor
+#print axioms ChatgptAudit.Orbit052.pauli_horizontal_selfadjoint
+#print axioms ChatgptAudit.Orbit052.pauli_horizontal_state
+#print axioms ChatgptAudit.Orbit052.aperiodic_expectation_local
+#print axioms ChatgptAudit.Orbit052.aperiodic_pauli_x_zero
+#print axioms ChatgptAudit.Orbit052.aperiodic_pauli_y_zero
+#print axioms ChatgptAudit.Orbit052.pauli_horizontal_expectation
+#print axioms ChatgptAudit.Orbit052.pauli_horizontal_pairing
+#print axioms ChatgptAudit.Orbit052.pauli_horizontal_re_pairing
+#print axioms ChatgptAudit.Orbit052.pauli_horizontal_im_pairing
+#print axioms ChatgptAudit.Orbit052.pauli_horizontal_gns_norm_sq
+#print axioms ChatgptAudit.Orbit052.pauli_x_gns_norm
+#print axioms ChatgptAudit.Orbit052.pauli_y_gns_norm
+#print axioms ChatgptAudit.Orbit052.pauli_xy_gns_pairing
+#print axioms ChatgptAudit.Orbit052.horizontal_x_commutator
+#print axioms ChatgptAudit.Orbit052.horizontal_y_commutator
+#print axioms ChatgptAudit.Orbit052.horizontal_x_reading_derivative
+#print axioms ChatgptAudit.Orbit052.horizontal_y_reading_derivative
+#print axioms ChatgptAudit.Orbit052.horizontal_response_formula
+#print axioms ChatgptAudit.Orbit052.horizontal_response_matrix
+#print axioms ChatgptAudit.Orbit052.horizontal_response_determinant
+#print axioms ChatgptAudit.Orbit052.horizontal_response_injective
+#print axioms ChatgptAudit.Orbit052.horizontal_state_tangent_separates
+#print axioms ChatgptAudit.Orbit052.horizontal_response_tracial
+#print axioms ChatgptAudit.Orbit052.aperiodic_pauli_x_tracial
+#print axioms ChatgptAudit.Orbit052.aperiodic_pauli_y_tracial
+#print axioms ChatgptAudit.Orbit052.first_site_modular_gap_ne_zero
+#print axioms ChatgptAudit.Orbit052.first_site_modular_gap_pos_iff
+#print axioms ChatgptAudit.Orbit052.first_site_modular_gap_neg_iff
+#print axioms ChatgptAudit.Orbit052.first_site_modular_gap_sign
+#print axioms ChatgptAudit.Orbit052.modular_phase_trigonometric
+#print axioms ChatgptAudit.Orbit052.first_site_flow_x
+#print axioms ChatgptAudit.Orbit052.first_site_flow_y
+#print axioms ChatgptAudit.Orbit052.modular_horizon_pauli_x
+#print axioms ChatgptAudit.Orbit052.modular_horizon_pauli_y
+#print axioms ChatgptAudit.Orbit052.modular_quarter_turn_angle
+#print axioms ChatgptAudit.Orbit052.modular_quarter_horizon_x
+#print axioms ChatgptAudit.Orbit052.modular_quarter_horizon_y
+#print axioms ChatgptAudit.Orbit052.modular_oriented_quarter_time_neg
+#print axioms ChatgptAudit.Orbit052.modular_oriented_angle_of_pos
+#print axioms ChatgptAudit.Orbit052.modular_oriented_angle_of_neg
+#print axioms ChatgptAudit.Orbit052.modular_oriented_horizon_x
+#print axioms ChatgptAudit.Orbit052.modular_oriented_horizon_y
+#print axioms ChatgptAudit.Orbit052.first_site_modular_gap_tracial
+#print axioms ChatgptAudit.Orbit052.modular_horizon_pauli_x_tracial
+#print axioms ChatgptAudit.Orbit052.modular_horizon_pauli_y_tracial
+#print axioms ChatgptAudit.Orbit052.orbit_basis_decomposition
+#print axioms ChatgptAudit.Orbit052.orbit_quarter_basis_x
+#print axioms ChatgptAudit.Orbit052.orbit_quarter_basis_y
+#print axioms ChatgptAudit.Orbit052.orbit_quarter_square
+#print axioms ChatgptAudit.Orbit052.orbit_dot_apply
+#print axioms ChatgptAudit.Orbit052.orbit_bilinear_expansion
+#print axioms ChatgptAudit.Orbit052.orbit_quarter_invariant_form
+#print axioms ChatgptAudit.Orbit052.orbit_trace_one_selection
+#print axioms ChatgptAudit.Orbit052.orbit_scalar_gram
+#print axioms ChatgptAudit.Orbit052.orbit_scalar_area
+#print axioms ChatgptAudit.Orbit052.orbit_trace_one_area
+#print axioms ChatgptAudit.Orbit052.orbit_selected_trace_in_orthonormal_pair
+#print axioms ChatgptAudit.Orbit052.orbit_sign_times_self
+#print axioms ChatgptAudit.Orbit052.orbit_calibration_identity
+#print axioms ChatgptAudit.Orbit052.orbit_oriented_square
+#print axioms ChatgptAudit.Orbit052.orbit_calibration_compatibility
+#print axioms ChatgptAudit.Orbit052.orbit_calibrated_symmetric
+#print axioms ChatgptAudit.Orbit052.orbit_calibrated_positive
+#print axioms ChatgptAudit.Orbit052.orbit_calibrated_area
+#print axioms ChatgptAudit.Orbit052.orbit_zero_calibration
+#print axioms ChatgptAudit.Orbit052.quantum_horizontal_re_pairing
+#print axioms ChatgptAudit.Orbit052.quantum_horizontal_im_pairing
+#print axioms ChatgptAudit.Orbit052.quantum_horizontal_quarter_action
+#print axioms ChatgptAudit.Orbit052.quantum_horizontal_oriented_action
+#print axioms ChatgptAudit.Orbit052.quantum_horizontal_tracial_action
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_asymmetry_ne_zero
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_pairing_eq
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_form_apply
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_form_eq
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_form_symmetric
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_form_positive
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_form_nondegenerate
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_form_area
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_form_trace
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_pairing_tracial
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_directions_effective
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_effective_positive
+#print axioms ChatgptAudit.Orbit052.quantum_centralizer_imaginary_zero
+#print axioms ChatgptAudit.Orbit052.quantum_orbit_third_reference_area
+#print axioms ChatgptAudit.Orbit052.quantum_candidate_quarter_invariant
+#print axioms ChatgptAudit.Orbit052.quantum_candidate_isotropic
+#print axioms ChatgptAudit.Orbit052.quantum_candidate_gns_restriction
+#print axioms ChatgptAudit.Orbit052.quantum_candidate_trace_one
+#print axioms ChatgptAudit.Orbit052.quantum_candidate_trace_one_area
+#print axioms ChatgptAudit.Covariant053.horizon_ad_add
+#print axioms ChatgptAudit.Covariant053.horizon_ad_smul
+#print axioms ChatgptAudit.Covariant053.horizon_ad_one
+#print axioms ChatgptAudit.Covariant053.horizon_gns_inner_factor
+#print axioms ChatgptAudit.Covariant053.horizon_gns_norm_factor
+#print axioms ChatgptAudit.Covariant053.horizon_gns_dist_factor
+#print axioms ChatgptAudit.Covariant053.horizon_gns_pre_tof
+#print axioms ChatgptAudit.Covariant053.horizon_gns_pre_add
+#print axioms ChatgptAudit.Covariant053.horizon_gns_pre_smul
+#print axioms ChatgptAudit.Covariant053.horizon_gns_pre_norm
+#print axioms ChatgptAudit.Covariant053.horizon_gns_pre_isometry
+#print axioms ChatgptAudit.Covariant053.horizon_gns_map_continuous
+#print axioms ChatgptAudit.Covariant053.horizon_gns_map_coe
+#print axioms ChatgptAudit.Covariant053.horizon_gns_map_add
+#print axioms ChatgptAudit.Covariant053.horizon_gns_map_smul
+#print axioms ChatgptAudit.Covariant053.horizon_gns_map_norm
+#print axioms ChatgptAudit.Covariant053.horizon_gns_map_apply_factor
+#print axioms ChatgptAudit.Covariant053.horizon_gns_map_inverse
+#print axioms ChatgptAudit.Covariant053.horizon_gns_map_right_inverse
+#print axioms ChatgptAudit.Covariant053.horizon_gns_apply_factor
+#print axioms ChatgptAudit.Covariant053.horizon_gns_symm_apply
+#print axioms ChatgptAudit.Covariant053.horizon_gns_omega
+#print axioms ChatgptAudit.Covariant053.horizon_gns_inner
+#print axioms ChatgptAudit.Covariant053.real_state_generator_mem
+#print axioms ChatgptAudit.Covariant053.real_state_subspace_closed
+#print axioms ChatgptAudit.Covariant053.horizon_gns_real_mem
+#print axioms ChatgptAudit.Covariant053.horizon_gns_real_image
+#print axioms ChatgptAudit.Covariant053.horizon_gns_real_apply
+#print axioms ChatgptAudit.Covariant053.polarizer_apply
+#print axioms ChatgptAudit.Covariant053.polarizer_mem
+#print axioms ChatgptAudit.Covariant053.polarizer_pairing
+#print axioms ChatgptAudit.Covariant053.polarizer_duality
+#print axioms ChatgptAudit.Covariant053.polarizer_norm_le
+#print axioms ChatgptAudit.Covariant053.polarizer_opNorm_le
+#print axioms ChatgptAudit.Covariant053.polarizer_antisymmetric
+#print axioms ChatgptAudit.Covariant053.polarizer_eq_of_pairing
+#print axioms ChatgptAudit.Covariant053.polarizer_kernel_iff
+#print axioms ChatgptAudit.Covariant053.polarizer_form_re
+#print axioms ChatgptAudit.Covariant053.polarizer_form_apply
+#print axioms ChatgptAudit.Covariant053.polarizer_form_symmetric
+#print axioms ChatgptAudit.Covariant053.polarizer_form_diagonal
+#print axioms ChatgptAudit.Covariant053.polarizer_form_nonneg
+#print axioms ChatgptAudit.Covariant053.polarizer_form_zero_iff
+#print axioms ChatgptAudit.Covariant053.real_projection_covariant
+#print axioms ChatgptAudit.Covariant053.polarizer_covariant
+#print axioms ChatgptAudit.Covariant053.polarizer_square_covariant
+#print axioms ChatgptAudit.Covariant053.polarizer_form_covariant
+#print axioms ChatgptAudit.Covariant053.real_state_pairing_ext
+#print axioms ChatgptAudit.Covariant053.state_polarizer_pairing
+#print axioms ChatgptAudit.Covariant053.tower_polarizer_eq_of_pairing
+#print axioms ChatgptAudit.Covariant053.state_centralizer_iff_imaginary
+#print axioms ChatgptAudit.Covariant053.state_polarizer_zero_iff
+#print axioms ChatgptAudit.Covariant053.state_covariant_apply
+#print axioms ChatgptAudit.Covariant053.state_covariant_symmetric
+#print axioms ChatgptAudit.Covariant053.state_covariant_nonneg
+#print axioms ChatgptAudit.Covariant053.state_covariant_kernel
+#print axioms ChatgptAudit.Covariant053.state_covariant_positive_iff
+#print axioms ChatgptAudit.Covariant053.horizon_gns_real_iff
+#print axioms ChatgptAudit.Covariant053.state_polarizer_covariant
+#print axioms ChatgptAudit.Covariant053.state_covariant_factor_invariant
+#print axioms ChatgptAudit.Covariant053.state_covariant_invariant
+#print axioms ChatgptAudit.Covariant053.state_covariant_add_centralizer
+#print axioms ChatgptAudit.Covariant053.state_covariant_add_centralizer_right
+#print axioms ChatgptAudit.Covariant053.state_reading_real_hasDerivAt
+#print axioms ChatgptAudit.Covariant053.state_response_formula
+#print axioms ChatgptAudit.Covariant053.state_response_kernel
+#print axioms ChatgptAudit.Covariant053.state_covariant_response_kernel
+#print axioms ChatgptAudit.Covariant053.local_polarizer_hermitian
+#print axioms ChatgptAudit.Covariant053.local_polarizer_sylvester
+#print axioms ChatgptAudit.Covariant053.local_state_star
+#print axioms ChatgptAudit.Covariant053.local_polarizer_pairing
+#print axioms ChatgptAudit.Covariant053.tower_local_selfadjoint
+#print axioms ChatgptAudit.Covariant053.state_polarizer_local
+#print axioms ChatgptAudit.Covariant053.local_operator_pairing
+#print axioms ChatgptAudit.Covariant053.double_flip_x_hermitian
+#print axioms ChatgptAudit.Covariant053.double_flip_y_hermitian
+#print axioms ChatgptAudit.Covariant053.double_flip_x_mem_factor
+#print axioms ChatgptAudit.Covariant053.double_flip_y_mem_factor
+#print axioms ChatgptAudit.Covariant053.double_flip_x_selfadjoint
+#print axioms ChatgptAudit.Covariant053.double_flip_y_selfadjoint
+#print axioms ChatgptAudit.Covariant053.local_real_smul_action
+#print axioms ChatgptAudit.Covariant053.first_pauli_polarizer_x
+#print axioms ChatgptAudit.Covariant053.first_pauli_polarizer_y
+#print axioms ChatgptAudit.Covariant053.double_flip_polarizer_x
+#print axioms ChatgptAudit.Covariant053.double_flip_polarizer_y
+#print axioms ChatgptAudit.Covariant053.double_flip_x_expectation
+#print axioms ChatgptAudit.Covariant053.double_flip_y_expectation
+#print axioms ChatgptAudit.Covariant053.double_flip_state_products
+#print axioms ChatgptAudit.Covariant053.double_flip_real_gram
+#print axioms ChatgptAudit.Covariant053.double_flip_norm_squares
+#print axioms ChatgptAudit.Covariant053.double_flip_horizontal_mem_factor
+#print axioms ChatgptAudit.Covariant053.double_flip_horizontal_selfadjoint
+#print axioms ChatgptAudit.Covariant053.double_flip_horizontal_expectation
+#print axioms ChatgptAudit.Covariant053.double_flip_x_commutator
+#print axioms ChatgptAudit.Covariant053.double_flip_y_commutator
+#print axioms ChatgptAudit.Covariant053.double_flip_x_reading_derivative
+#print axioms ChatgptAudit.Covariant053.double_flip_y_reading_derivative
+#print axioms ChatgptAudit.Covariant053.double_flip_response_formula
+#print axioms ChatgptAudit.Covariant053.double_flip_response_injective
+#print axioms ChatgptAudit.Covariant053.double_flip_effective_directions
+#print axioms ChatgptAudit.Covariant053.normalized_covariant_apply
+#print axioms ChatgptAudit.Covariant053.normalization_positive
+#print axioms ChatgptAudit.Covariant053.normalized_covariant_symmetric
+#print axioms ChatgptAudit.Covariant053.normalized_covariant_nonneg
+#print axioms ChatgptAudit.Covariant053.normalized_covariant_invariant
+#print axioms ChatgptAudit.Covariant053.normalized_covariant_kernel
+#print axioms ChatgptAudit.Covariant053.normalized_covariant_positive_iff
+#print axioms ChatgptAudit.Covariant053.state_covariant_rotating_pair_gram
+#print axioms ChatgptAudit.Covariant053.first_pair_real_gram
+#print axioms ChatgptAudit.Covariant053.first_pair_unnormalized_gram
+#print axioms ChatgptAudit.Covariant053.double_pair_unnormalized_gram
+#print axioms ChatgptAudit.Covariant053.normalized_first_pair_gram
+#print axioms ChatgptAudit.Covariant053.normalized_double_pair_gram_zero
+#print axioms ChatgptAudit.Covariant053.normalized_double_pair_gram_one
+#print axioms ChatgptAudit.Covariant053.normalized_double_pair_area_zero
+#print axioms ChatgptAudit.Covariant053.normalized_double_pair_area_one
+#print axioms ChatgptAudit.Covariant053.normalized_area_gap
+#print axioms ChatgptAudit.Covariant053.normalized_forms_distinct
+#print axioms ChatgptAudit.Covariant053.normalized_forms_not_global_rescaling
+#print axioms ChatgptAudit.Covariant053.two_global_covariant_calibrated_forms
+#print axioms ChatgptAudit.Covariant053.normalized_covariant_add_centralizer_left
+#print axioms ChatgptAudit.Covariant053.normalized_covariant_add_centralizer_right
+#print axioms ChatgptAudit.Covariant053.normalized_covariant_response_kernel
+#print axioms ChatgptAudit.Cost054.polarizer_cost_weight_pos
+#print axioms ChatgptAudit.Cost054.polarizer_modular_cost_eq_tsum
+#print axioms ChatgptAudit.Cost054.polarizer_cost_term_zero
+#print axioms ChatgptAudit.Cost054.polarizer_modular_cost_zero
+#print axioms ChatgptAudit.Cost054.polarizer_cost_term_smul
+#print axioms ChatgptAudit.Cost054.polarizer_modular_cost_smul
+#print axioms ChatgptAudit.Cost054.polarizer_cost_term_add_le
+#print axioms ChatgptAudit.Cost054.polarizer_modular_cost_add_le
+#print axioms ChatgptAudit.Cost054.polarizer_modular_cost_first_le
+#print axioms ChatgptAudit.Cost054.polarizer_modular_cost_zero_iff
+#print axioms ChatgptAudit.Cost054.mem_polarizerCostDomain
+#print axioms ChatgptAudit.Cost054.polarizer_cost_kernel_mem_domain
+#print axioms ChatgptAudit.Cost054.polarizer_power_covariant
+#print axioms ChatgptAudit.Cost054.polarizer_cost_term_covariant
+#print axioms ChatgptAudit.Cost054.polarizer_modular_cost_covariant
+#print axioms ChatgptAudit.Cost054.polarizer_cost_domain_covariant
+#print axioms ChatgptAudit.Cost054.polarizer_modular_cost_eq_of_hasSum
+#print axioms ChatgptAudit.Cost054.polarizer_cost_mem_domain_of_hasSum
+#print axioms ChatgptAudit.Cost054.polarizer_modular_cost_lowerSemicontinuous
+#print axioms ChatgptAudit.Cost054.polarizer_cost_series_term_nonneg
+#print axioms ChatgptAudit.Cost054.polarizer_cost_hasSum
+#print axioms ChatgptAudit.Cost054.polarizer_cost_log_ratio_hasSum
+#print axioms ChatgptAudit.Cost054.polarizer_weight_ratio_abs_lt_one
+#print axioms ChatgptAudit.Cost054.polarizer_weight_ratio_identity
+#print axioms ChatgptAudit.Cost054.polarizer_cost_weights_hasSum
+#print axioms ChatgptAudit.Cost054.polarizer_cost_scalar_nonneg
+#print axioms ChatgptAudit.Cost054.polarizer_cost_scalar_ennreal
+#print axioms ChatgptAudit.Cost054.polarizer_cost_weights_ennreal
+#print axioms ChatgptAudit.Cost054.polarizer_cost_of_norm_powers
+#print axioms ChatgptAudit.Cost054.polarizer_cost_of_weight_norm_powers
+#print axioms ChatgptAudit.Cost054.polarizer_cost_norm_powers_lt_top
+#print axioms ChatgptAudit.Cost054.tower_modular_cost_domain
+#print axioms ChatgptAudit.Cost054.tower_modular_cost_zero_iff
+#print axioms ChatgptAudit.Cost054.tower_modular_cost_centralizer
+#print axioms ChatgptAudit.Cost054.tower_modular_cost_response_kernel
+#print axioms ChatgptAudit.Cost054.tower_modular_cost_covariant
+#print axioms ChatgptAudit.Cost054.tower_modular_domain_covariant
+#print axioms ChatgptAudit.Cost054.tower_modular_cost_factor_invariant
+#print axioms ChatgptAudit.Cost054.tower_modular_cost_lowerSemicontinuous
+#print axioms ChatgptAudit.Cost054.local_polarizer_iterate_hermitian
+#print axioms ChatgptAudit.Cost054.local_polarizer_iterate_entry
+#print axioms ChatgptAudit.Cost054.state_polarizer_local_power
+#print axioms ChatgptAudit.Cost054.local_iterate_normSq
+#print axioms ChatgptAudit.Cost054.state_polarizer_local_power_norm
+#print axioms ChatgptAudit.Cost054.tower_local_cost_hasSum
+#print axioms ChatgptAudit.Cost054.tower_local_cost_formula
+#print axioms ChatgptAudit.Cost054.tower_local_mem_cost_domain
+#print axioms ChatgptAudit.Cost054.tower_cost_domain_dense_real
+#print axioms ChatgptAudit.Cost054.local_modular_cost_symmetric
+#print axioms ChatgptAudit.Cost054.tower_local_cost_symmetric_formula
+#print axioms ChatgptAudit.Cost054.rotating_pair_norm_powers
+#print axioms ChatgptAudit.Cost054.first_pauli_cost_norm_powers
+#print axioms ChatgptAudit.Cost054.double_flip_cost_norm_powers
+#print axioms ChatgptAudit.Cost054.first_pauli_modular_cost
+#print axioms ChatgptAudit.Cost054.double_flip_modular_cost
+#print axioms ChatgptAudit.Cost054.omega_real_continuous_apply
+#print axioms ChatgptAudit.Cost054.bounded_phase_negative_generator
+#print axioms ChatgptAudit.Cost054.negative_phase_derivative
+#print axioms ChatgptAudit.Cost054.unitary_conjugation_has_derivative
+#print axioms ChatgptAudit.Cost054.unitary_velocity_derivative_zero
+#print axioms ChatgptAudit.Cost054.unitary_energy_derivative
+#print axioms ChatgptAudit.Cost054.unitary_energy_velocity_zero
+#print axioms ChatgptAudit.Cost054.unitary_energy_velocity_derivative
+#print axioms ChatgptAudit.Cost054.unitary_energy_second_derivative
+#print axioms ChatgptAudit.Cost054.quadratic_response_from_velocity
+#print axioms ChatgptAudit.Cost054.local_modular_matrix_hermitian
+#print axioms ChatgptAudit.Cost054.local_modular_commutator_state
+#print axioms ChatgptAudit.Cost054.finite_modular_energy_first_zero
+#print axioms ChatgptAudit.Cost054.local_modular_double_coefficient
+#print axioms ChatgptAudit.Cost054.finite_modular_energy_second
+#print axioms ChatgptAudit.Cost054.finite_modular_energy_quadratic_limit
+#print axioms ChatgptAudit.Cost054.global_cost_is_modular_response
+
+-- ===== v331: PEDRA DA GERENCIA (07/09/2026) — a raiz da arvore da prova; o grupo dos horizontes =====
+#print axioms TGLExt.adT_comp
+#print axioms TGLExt.adT_inv_adT
+#print axioms TGLExt.adT_adT_inv
+#print axioms TGLExt.expectation_covariant_under_horizon_composition
+#print axioms TGLExt.aperiodic_expectation_covariant_under_inverse
+#print axioms TGLExt.the_root_of_the_proof_tree
+#print axioms TGLExt.the_aperiodic_antecedent_is_now_a_term
 ''',
     "TGL/Basic.lean":
 r'''import Mathlib
@@ -100464,6 +111352,621 @@ _LEAN_THEOREM_FLAGS = {
     "ext_flow_automorphism_kernel_proved": "TGLExt.sigma_mul",
     "ext_jones_scalar_kernel_proved": "TGLExt.eTr_Lmul_eTr",
     # v34 (Degrau 2: o indice de Pimsner-Popa COMPUTADO): informativos
+    # v331 (GERENCIA 07/09/2026): os 7 teoremas da raiz da arvore da prova e do grupo dos horizontes
+    "ext_v331_adt_comp_kernel_proved": "TGLExt.adT_comp",
+    "ext_v331_adt_inv_adt_kernel_proved": "TGLExt.adT_inv_adT",
+    "ext_v331_adt_adt_inv_kernel_proved": "TGLExt.adT_adT_inv",
+    "ext_v331_expectation_covariant_under_horizon_composition_kernel_proved": "TGLExt.expectation_covariant_under_horizon_composition",
+    "ext_v331_aperiodic_expectation_covariant_under_inverse_kernel_proved": "TGLExt.aperiodic_expectation_covariant_under_inverse",
+    "ext_v331_the_root_of_the_proof_tree_kernel_proved": "TGLExt.the_root_of_the_proof_tree",
+    "ext_v331_the_aperiodic_antecedent_is_now_a_term_kernel_proved": "TGLExt.the_aperiodic_antecedent_is_now_a_term",
+    # v331 (ENTREGAS 046..054 07/09/2026): os 606 teoremas da esperanca aperiodica / CP-normal / subespaco padrao continuo / polarizador
+    "ext_v331_aperiodic046_phase_average_zero_kernel_proved": "ChatgptAudit.Aperiodic046.phase_average_zero",
+    "ext_v331_aperiodic046_integral_phase_nonzero_kernel_proved": "ChatgptAudit.Aperiodic046.integral_phase_nonzero",
+    "ext_v331_aperiodic046_phase_average_norm_le_kernel_proved": "ChatgptAudit.Aperiodic046.phase_average_norm_le",
+    "ext_v331_aperiodic046_phase_average_nonzero_limit_kernel_proved": "ChatgptAudit.Aperiodic046.phase_average_nonzero_limit",
+    "ext_v331_aperiodic046_phase_average_limit_kernel_proved": "ChatgptAudit.Aperiodic046.phase_average_limit",
+    "ext_v331_aperiodic046_flow_average_entry_kernel_proved": "ChatgptAudit.Aperiodic046.flow_average_entry",
+    "ext_v331_aperiodic046_flow_average_limit_kernel_proved": "ChatgptAudit.Aperiodic046.flow_average_limit",
+    "ext_v331_aperiodic046_local_average_eq_embedding_kernel_proved": "ChatgptAudit.Aperiodic046.local_average_eq_embedding",
+    "ext_v331_aperiodic046_local_average_limit_kernel_proved": "ChatgptAudit.Aperiodic046.local_average_limit",
+    "ext_v331_aperiodic046_omega_limit_on_local_kernel_proved": "ChatgptAudit.Aperiodic046.omega_limit_on_local",
+    "ext_v331_aperiodic046_bounded_local_cauchy_kernel_proved": "ChatgptAudit.Aperiodic046.bounded_local_cauchy",
+    "ext_v331_aperiodic046_strong_limit_commutes_kernel_proved": "ChatgptAudit.Aperiodic046.strong_limit_commutes",
+    "ext_v331_aperiodic046_factor_mem_of_strong_limit_kernel_proved": "ChatgptAudit.Aperiodic046.factor_mem_of_strong_limit",
+    "ext_v331_aperiodic046_bounded_omega_limit_lift_kernel_proved": "ChatgptAudit.Aperiodic046.bounded_omega_limit_lift",
+    "ext_v331_aperiodic046_omega_lift_unique_kernel_proved": "ChatgptAudit.Aperiodic046.omega_lift_unique",
+    "ext_v331_aperiodic046_modular_average_vector_add_kernel_proved": "ChatgptAudit.Aperiodic046.modular_average_vector_add",
+    "ext_v331_aperiodic046_modular_average_vector_smul_kernel_proved": "ChatgptAudit.Aperiodic046.modular_average_vector_smul",
+    "ext_v331_aperiodic046_modular_average_vector_bound_kernel_proved": "ChatgptAudit.Aperiodic046.modular_average_vector_bound",
+    "ext_v331_aperiodic046_modular_vector_average_apply_kernel_proved": "ChatgptAudit.Aperiodic046.modular_vector_average_apply",
+    "ext_v331_aperiodic046_modular_vector_average_norm_le_one_kernel_proved": "ChatgptAudit.Aperiodic046.modular_vector_average_norm_le_one",
+    "ext_v331_aperiodic046_modular_vector_average_local_limit_kernel_proved": "ChatgptAudit.Aperiodic046.modular_vector_average_local_limit",
+    "ext_v331_aperiodic046_modular_vector_average_cauchy_kernel_proved": "ChatgptAudit.Aperiodic046.modular_vector_average_cauchy",
+    "ext_v331_aperiodic046_modular_vector_average_limit_exists_kernel_proved": "ChatgptAudit.Aperiodic046.modular_vector_average_limit_exists",
+    "ext_v331_aperiodic046_period_average_omega_eq_vector_average_kernel_proved": "ChatgptAudit.Aperiodic046.period_average_omega_eq_vector_average",
+    "ext_v331_aperiodic046_aperiodic_average_omega_limit_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_average_omega_limit",
+    "ext_v331_aperiodic046_aperiodic_average_operator_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_average_operator",
+    "ext_v331_aperiodic046_period_average_prefix_vector_kernel_proved": "ChatgptAudit.Aperiodic046.period_average_prefix_vector",
+    "ext_v331_aperiodic046_period_average_prefix_omega_limit_kernel_proved": "ChatgptAudit.Aperiodic046.period_average_prefix_omega_limit",
+    "ext_v331_aperiodic046_aperiodic_average_prefix_of_limit_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_average_prefix_of_limit",
+    "ext_v331_aperiodic046_aperiodic_expectation_spec_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_expectation_spec",
+    "ext_v331_aperiodic046_aperiodic_expectation_prefix_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_expectation_prefix",
+    "ext_v331_aperiodic046_aperiodic_expectation_into_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_expectation_into",
+    "ext_v331_aperiodic046_aperiodic_expectation_fixes_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_expectation_fixes",
+    "ext_v331_aperiodic046_aperiodic_expectation_ortho_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_expectation_ortho",
+    "ext_v331_aperiodic046_aperiodic_contract_inhabited_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_contract_inhabited",
+    "ext_v331_aperiodic046_aperiodic_expectation_contractive_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_expectation_contractive",
+    "ext_v331_aperiodic046_aperiodic_expectation_idempotent_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_expectation_idempotent",
+    "ext_v331_aperiodic046_the_lift_fires_on_the_aperiodic_tower_kernel_proved": "ChatgptAudit.Aperiodic046.the_lift_fires_on_the_aperiodic_tower",
+    "ext_v331_aperiodic046_every_expectation_on_the_general_tower_is_covariant_kernel_proved": "ChatgptAudit.Aperiodic046.every_expectation_on_the_general_tower_is_covariant",
+    "ext_v331_aperiodic046_aperiodic_expectation_agrees_periodic_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_expectation_agrees_periodic",
+    "ext_v331_aperiodic046_aperiodic_expectation_agrees_tracial_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_expectation_agrees_tracial",
+    "ext_v331_aperiodic046_aperiodic_expectation_commutes_with_modular_flow_kernel_proved": "ChatgptAudit.Aperiodic046.aperiodic_expectation_commutes_with_modular_flow",
+    "ext_v331_aperiodic046_response_covariant_on_the_general_tower_kernel_proved": "ChatgptAudit.Aperiodic046.response_covariant_on_the_general_tower",
+    "ext_v331_expectation047_omega_state_star_kernel_proved": "ChatgptAudit.Expectation047.omega_state_star",
+    "ext_v331_expectation047_omega_centralizer_star_kernel_proved": "ChatgptAudit.Expectation047.omega_centralizer_star",
+    "ext_v331_expectation047_expectation_eq_of_ortho_kernel_proved": "ChatgptAudit.Expectation047.expectation_eq_of_ortho",
+    "ext_v331_expectation047_expectation_zero_kernel_proved": "ChatgptAudit.Expectation047.expectation_zero",
+    "ext_v331_expectation047_expectation_one_kernel_proved": "ChatgptAudit.Expectation047.expectation_one",
+    "ext_v331_expectation047_expectation_add_kernel_proved": "ChatgptAudit.Expectation047.expectation_add",
+    "ext_v331_expectation047_expectation_smul_kernel_proved": "ChatgptAudit.Expectation047.expectation_smul",
+    "ext_v331_expectation047_expectation_sub_kernel_proved": "ChatgptAudit.Expectation047.expectation_sub",
+    "ext_v331_expectation047_expectation_preserves_omega_kernel_proved": "ChatgptAudit.Expectation047.expectation_preserves_omega",
+    "ext_v331_expectation047_expectation_star_kernel_proved": "ChatgptAudit.Expectation047.expectation_star",
+    "ext_v331_expectation047_expectation_mul_left_kernel_proved": "ChatgptAudit.Expectation047.expectation_mul_left",
+    "ext_v331_expectation047_expectation_mul_right_kernel_proved": "ChatgptAudit.Expectation047.expectation_mul_right",
+    "ext_v331_expectation047_expectation_bimodular_kernel_proved": "ChatgptAudit.Expectation047.expectation_bimodular",
+    "ext_v331_expectation047_expectation_norm_le_kernel_proved": "ChatgptAudit.Expectation047.expectation_norm_le",
+    "ext_v331_expectation047_expectation_linear_map_apply_kernel_proved": "ChatgptAudit.Expectation047.expectation_linear_map_apply",
+    "ext_v331_expectation047_expectation_continuous_linear_map_apply_kernel_proved": "ChatgptAudit.Expectation047.expectation_continuous_linear_map_apply",
+    "ext_v331_expectation047_expectation_continuous_linear_map_norm_le_one_kernel_proved": "ChatgptAudit.Expectation047.expectation_continuous_linear_map_norm_le_one",
+    "ext_v331_expectation047_modular_conjugation_inner_kernel_proved": "ChatgptAudit.Expectation047.modular_conjugation_inner",
+    "ext_v331_expectation047_modular_conjugation_inner_continuous_kernel_proved": "ChatgptAudit.Expectation047.modular_conjugation_inner_continuous",
+    "ext_v331_expectation047_period_average_inner_kernel_proved": "ChatgptAudit.Expectation047.period_average_inner",
+    "ext_v331_expectation047_period_average_re_inner_kernel_proved": "ChatgptAudit.Expectation047.period_average_re_inner",
+    "ext_v331_expectation047_period_average_re_inner_nonneg_kernel_proved": "ChatgptAudit.Expectation047.period_average_re_inner_nonneg",
+    "ext_v331_expectation047_expectation_re_inner_nonneg_kernel_proved": "ChatgptAudit.Expectation047.expectation_re_inner_nonneg",
+    "ext_v331_expectation047_general_expectation_ispositive_kernel_proved": "ChatgptAudit.Expectation047.general_expectation_isPositive",
+    "ext_v331_expectation047_general_expectation_nonnegative_kernel_proved": "ChatgptAudit.Expectation047.general_expectation_nonnegative",
+    "ext_v331_expectation047_operator_block_apply_kernel_proved": "ChatgptAudit.Expectation047.operator_block_apply",
+    "ext_v331_expectation047_operator_block_entry_apply_kernel_proved": "ChatgptAudit.Expectation047.operator_block_entry_apply",
+    "ext_v331_expectation047_operator_block_entry_recover_kernel_proved": "ChatgptAudit.Expectation047.operator_block_entry_recover",
+    "ext_v331_expectation047_operator_block_injective_kernel_proved": "ChatgptAudit.Expectation047.operator_block_injective",
+    "ext_v331_expectation047_operator_block_sum_single_kernel_proved": "ChatgptAudit.Expectation047.operator_block_sum_single",
+    "ext_v331_expectation047_operator_block_surjective_kernel_proved": "ChatgptAudit.Expectation047.operator_block_surjective",
+    "ext_v331_expectation047_operator_block_add_kernel_proved": "ChatgptAudit.Expectation047.operator_block_add",
+    "ext_v331_expectation047_operator_block_smul_kernel_proved": "ChatgptAudit.Expectation047.operator_block_smul",
+    "ext_v331_expectation047_operator_block_mul_kernel_proved": "ChatgptAudit.Expectation047.operator_block_mul",
+    "ext_v331_expectation047_operator_block_star_kernel_proved": "ChatgptAudit.Expectation047.operator_block_star",
+    "ext_v331_expectation047_operator_block_representation_apply_kernel_proved": "ChatgptAudit.Expectation047.operator_block_representation_apply",
+    "ext_v331_expectation047_operator_block_nonneg_representation_iff_kernel_proved": "ChatgptAudit.Expectation047.operator_block_nonneg_representation_iff",
+    "ext_v331_expectation047_operator_block_inner_kernel_proved": "ChatgptAudit.Expectation047.operator_block_inner",
+    "ext_v331_expectation047_operator_block_nonneg_iff_kernel_proved": "ChatgptAudit.Expectation047.operator_block_nonneg_iff",
+    "ext_v331_expectation047_block_modular_quadratic_kernel_proved": "ChatgptAudit.Expectation047.block_modular_quadratic",
+    "ext_v331_expectation047_block_period_average_quadratic_kernel_proved": "ChatgptAudit.Expectation047.block_period_average_quadratic",
+    "ext_v331_expectation047_block_period_average_nonnegative_kernel_proved": "ChatgptAudit.Expectation047.block_period_average_nonnegative",
+    "ext_v331_expectation047_block_average_quadratic_tendsto_kernel_proved": "ChatgptAudit.Expectation047.block_average_quadratic_tendsto",
+    "ext_v331_expectation047_general_expectation_block_positive_kernel_proved": "ChatgptAudit.Expectation047.general_expectation_block_positive",
+    "ext_v331_expectation047_gram_block_quadratic_kernel_proved": "ChatgptAudit.Expectation047.gram_block_quadratic",
+    "ext_v331_expectation047_gram_block_positive_kernel_proved": "ChatgptAudit.Expectation047.gram_block_positive",
+    "ext_v331_expectation047_factor_positive_sqrt_mem_kernel_proved": "ChatgptAudit.Expectation047.factor_positive_sqrt_mem",
+    "ext_v331_expectation047_factor_nonnegative_iff_star_square_kernel_proved": "ChatgptAudit.Expectation047.factor_nonnegative_iff_star_square",
+    "ext_v331_expectation047_expectation_cstarmatrix_nonnegative_kernel_proved": "ChatgptAudit.Expectation047.expectation_cstarMatrix_nonnegative",
+    "ext_v331_expectation047_general_expectation_cp_apply_kernel_proved": "ChatgptAudit.Expectation047.general_expectation_cp_apply",
+    "ext_v331_expectation047_general_expectation_cp_tolinearmap_kernel_proved": "ChatgptAudit.Expectation047.general_expectation_cp_toLinearMap",
+    "ext_v331_expectation047_expectation_gns_norm_le_kernel_proved": "ChatgptAudit.Expectation047.expectation_gns_norm_le",
+    "ext_v331_expectation047_expectation_gns_dist_le_kernel_proved": "ChatgptAudit.Expectation047.expectation_gns_dist_le",
+    "ext_v331_expectation047_expectation_omega_tendsto_kernel_proved": "ChatgptAudit.Expectation047.expectation_omega_tendsto",
+    "ext_v331_expectation047_bounded_local_tendsto_kernel_proved": "ChatgptAudit.Expectation047.bounded_local_tendsto",
+    "ext_v331_expectation047_bounded_omega_tendsto_kernel_proved": "ChatgptAudit.Expectation047.bounded_omega_tendsto",
+    "ext_v331_expectation047_expectation_strong_tendsto_of_omega_kernel_proved": "ChatgptAudit.Expectation047.expectation_strong_tendsto_of_omega",
+    "ext_v331_expectation047_positive_square_le_norm_smul_kernel_proved": "ChatgptAudit.Expectation047.positive_square_le_norm_smul",
+    "ext_v331_expectation047_positive_apply_norm_sq_le_kernel_proved": "ChatgptAudit.Expectation047.positive_apply_norm_sq_le",
+    "ext_v331_expectation047_positive_increment_norm_sq_le_kernel_proved": "ChatgptAudit.Expectation047.positive_increment_norm_sq_le",
+    "ext_v331_expectation047_positive_of_strong_limit_kernel_proved": "ChatgptAudit.Expectation047.positive_of_strong_limit",
+    "ext_v331_expectation047_monotone_quadratic_limit_kernel_proved": "ChatgptAudit.Expectation047.monotone_quadratic_limit",
+    "ext_v331_expectation047_monotone_operator_vector_cauchy_kernel_proved": "ChatgptAudit.Expectation047.monotone_operator_vector_cauchy",
+    "ext_v331_expectation047_monotone_strong_limit_islub_kernel_proved": "ChatgptAudit.Expectation047.monotone_strong_limit_isLUB",
+    "ext_v331_expectation047_monotone_operator_limit_kernel_proved": "ChatgptAudit.Expectation047.monotone_operator_limit",
+    "ext_v331_expectation047_strong_net_limit_commutes_kernel_proved": "ChatgptAudit.Expectation047.strong_net_limit_commutes",
+    "ext_v331_expectation047_factor_mem_of_net_strong_limit_kernel_proved": "ChatgptAudit.Expectation047.factor_mem_of_net_strong_limit",
+    "ext_v331_expectation047_expectation_order_preserving_kernel_proved": "ChatgptAudit.Expectation047.expectation_order_preserving",
+    "ext_v331_expectation047_factor_monotone_supremum_and_expectation_kernel_proved": "ChatgptAudit.Expectation047.factor_monotone_supremum_and_expectation",
+    "ext_v331_expectation047_expectation_preserves_order_bounded_nets_kernel_proved": "ChatgptAudit.Expectation047.expectation_preserves_order_bounded_nets",
+    "ext_v331_expectation047_general_expectation_normal_order_kernel_proved": "ChatgptAudit.Expectation047.general_expectation_normal_order",
+    "ext_v331_expectation047_aperiodic_expectation_normal_order_kernel_proved": "ChatgptAudit.Expectation047.aperiodic_expectation_normal_order",
+    "ext_v331_geometry048_profile_borchers_trivial_kernel_proved": "ChatgptAudit.Geometry048.profile_borchers_trivial",
+    "ext_v331_geometry048_faithful_covariance_period_return_kernel_proved": "ChatgptAudit.Geometry048.faithful_covariance_period_return",
+    "ext_v331_geometry048_modular_period_conjugation_eq_kernel_proved": "ChatgptAudit.Geometry048.modular_period_conjugation_eq",
+    "ext_v331_geometry048_modular_period_image_eq_kernel_proved": "ChatgptAudit.Geometry048.modular_period_image_eq",
+    "ext_v331_geometry048_modular_period_geometric_return_kernel_proved": "ChatgptAudit.Geometry048.modular_period_geometric_return",
+    "ext_v331_geometry048_modular_period_dilation_return_kernel_proved": "ChatgptAudit.Geometry048.modular_period_dilation_return",
+    "ext_v331_geometry048_modular_period_dilation_obstruction_kernel_proved": "ChatgptAudit.Geometry048.modular_period_dilation_obstruction",
+    "ext_v331_geometry048_dilation_factor_ne_one_kernel_proved": "ChatgptAudit.Geometry048.dilation_factor_ne_one",
+    "ext_v331_geometry048_faithful_modular_dilation_localization_impossible_kernel_proved": "ChatgptAudit.Geometry048.faithful_modular_dilation_localization_impossible",
+    "ext_v331_geometry048_central_null_curve_injective_kernel_proved": "ChatgptAudit.Geometry048.central_null_curve_injective",
+    "ext_v331_geometry048_central_boost_no_return_kernel_proved": "ChatgptAudit.Geometry048.central_boost_no_return",
+    "ext_v331_geometry048_central_boost_covariance_to_dilation_kernel_proved": "ChatgptAudit.Geometry048.central_boost_covariance_to_dilation",
+    "ext_v331_geometry048_faithful_central_boost_localization_impossible_kernel_proved": "ChatgptAudit.Geometry048.faithful_central_boost_localization_impossible",
+    "ext_v331_geometry048_third_modular_period_positive_kernel_proved": "ChatgptAudit.Geometry048.third_modular_period_positive",
+    "ext_v331_geometry048_third_modular_flow_period_kernel_proved": "ChatgptAudit.Geometry048.third_modular_flow_period",
+    "ext_v331_geometry048_third_faithful_dilation_localization_impossible_kernel_proved": "ChatgptAudit.Geometry048.third_faithful_dilation_localization_impossible",
+    "ext_v331_geometry048_third_faithful_central_boost_localization_impossible_kernel_proved": "ChatgptAudit.Geometry048.third_faithful_central_boost_localization_impossible",
+    "ext_v331_geometry048_constant_factor_localization_covariant_kernel_proved": "ChatgptAudit.Geometry048.constant_factor_localization_covariant",
+    "ext_v331_geometry048_constant_factor_localization_not_injective_kernel_proved": "ChatgptAudit.Geometry048.constant_factor_localization_not_injective",
+    "ext_v331_continuous049_bounded_graph_parameter_apply_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_parameter_apply",
+    "ext_v331_continuous049_bounded_graph_domain_iff_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_domain_iff",
+    "ext_v331_continuous049_bounded_graph_apply_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_apply",
+    "ext_v331_continuous049_bounded_graph_lift_coe_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_lift_coe",
+    "ext_v331_continuous049_bounded_graph_parameter_lift_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_parameter_lift",
+    "ext_v331_continuous049_bounded_graph_lift_apply_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_lift_apply",
+    "ext_v331_continuous049_bounded_graph_param_iff_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_param_iff",
+    "ext_v331_continuous049_bounded_graph_equation_iff_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_equation_iff",
+    "ext_v331_continuous049_bounded_graph_domain_dense_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_domain_dense",
+    "ext_v331_continuous049_bounded_graph_closed_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_closed",
+    "ext_v331_continuous049_bounded_graph_selfadjoint_inner_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_selfadjoint_inner",
+    "ext_v331_continuous049_bounded_graph_formal_adjoint_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_formal_adjoint",
+    "ext_v331_continuous049_bounded_graph_selfadjoint_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_selfadjoint",
+    "ext_v331_continuous049_bounded_graph_positive_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_positive",
+    "ext_v331_continuous049_mem_fixedrealsubmodule_iff_kernel_proved": "ChatgptAudit.Continuous049.mem_fixedRealSubmodule_iff",
+    "ext_v331_continuous049_fixedrealsubmodule_closed_kernel_proved": "ChatgptAudit.Continuous049.fixedRealSubmodule_closed",
+    "ext_v331_continuous049_domainconjugation_involutive_kernel_proved": "ChatgptAudit.Continuous049.domainConjugation_involutive",
+    "ext_v331_continuous049_domain_fixed_decomposition_kernel_proved": "ChatgptAudit.Continuous049.domain_fixed_decomposition",
+    "ext_v331_continuous049_mem_domain_iff_fixed_sum_kernel_proved": "ChatgptAudit.Continuous049.mem_domain_iff_fixed_sum",
+    "ext_v331_continuous049_fixed_sum_tomita_kernel_proved": "ChatgptAudit.Continuous049.fixed_sum_tomita",
+    "ext_v331_continuous049_fixed_subspace_separating_kernel_proved": "ChatgptAudit.Continuous049.fixed_subspace_separating",
+    "ext_v331_continuous049_fixed_subspace_cyclic_kernel_proved": "ChatgptAudit.Continuous049.fixed_subspace_cyclic",
+    "ext_v331_continuous049_spectral_weight_den_pos_kernel_proved": "ChatgptAudit.Continuous049.spectral_weight_den_pos",
+    "ext_v331_continuous049_spectral_weighta_pos_kernel_proved": "ChatgptAudit.Continuous049.spectral_weightA_pos",
+    "ext_v331_continuous049_spectral_weightb_pos_kernel_proved": "ChatgptAudit.Continuous049.spectral_weightB_pos",
+    "ext_v331_continuous049_spectral_weight_square_sum_kernel_proved": "ChatgptAudit.Continuous049.spectral_weight_square_sum",
+    "ext_v331_continuous049_spectral_weighta_le_one_kernel_proved": "ChatgptAudit.Continuous049.spectral_weightA_le_one",
+    "ext_v331_continuous049_spectral_weightb_le_one_kernel_proved": "ChatgptAudit.Continuous049.spectral_weightB_le_one",
+    "ext_v331_continuous049_spectral_weighta_norm_le_one_kernel_proved": "ChatgptAudit.Continuous049.spectral_weightA_norm_le_one",
+    "ext_v331_continuous049_spectral_weightb_norm_le_one_kernel_proved": "ChatgptAudit.Continuous049.spectral_weightB_norm_le_one",
+    "ext_v331_continuous049_spectral_weighta_continuous_kernel_proved": "ChatgptAudit.Continuous049.spectral_weightA_continuous",
+    "ext_v331_continuous049_spectral_weightb_continuous_kernel_proved": "ChatgptAudit.Continuous049.spectral_weightB_continuous",
+    "ext_v331_continuous049_spectral_weight_reflection_kernel_proved": "ChatgptAudit.Continuous049.spectral_weight_reflection",
+    "ext_v331_continuous049_spectral_weightb_reflection_kernel_proved": "ChatgptAudit.Continuous049.spectral_weightB_reflection",
+    "ext_v331_continuous049_spectral_weight_ratio_kernel_proved": "ChatgptAudit.Continuous049.spectral_weight_ratio",
+    "ext_v331_continuous049_bounded_spectral_weight_ae_kernel_proved": "ChatgptAudit.Continuous049.bounded_spectral_weight_ae",
+    "ext_v331_continuous049_bounded_spectral_multiplier_ae_kernel_proved": "ChatgptAudit.Continuous049.bounded_spectral_multiplier_ae",
+    "ext_v331_continuous049_bounded_spectral_multiplier_norm_kernel_proved": "ChatgptAudit.Continuous049.bounded_spectral_multiplier_norm",
+    "ext_v331_continuous049_bounded_spectral_multiplier_selfadjoint_kernel_proved": "ChatgptAudit.Continuous049.bounded_spectral_multiplier_selfadjoint",
+    "ext_v331_continuous049_spectrala_ae_kernel_proved": "ChatgptAudit.Continuous049.spectralA_ae",
+    "ext_v331_continuous049_spectralb_ae_kernel_proved": "ChatgptAudit.Continuous049.spectralB_ae",
+    "ext_v331_continuous049_spectrala_norm_le_kernel_proved": "ChatgptAudit.Continuous049.spectralA_norm_le",
+    "ext_v331_continuous049_spectralb_norm_le_kernel_proved": "ChatgptAudit.Continuous049.spectralB_norm_le",
+    "ext_v331_continuous049_spectrala_selfadjoint_kernel_proved": "ChatgptAudit.Continuous049.spectralA_selfadjoint",
+    "ext_v331_continuous049_spectralb_selfadjoint_kernel_proved": "ChatgptAudit.Continuous049.spectralB_selfadjoint",
+    "ext_v331_continuous049_spectralab_commute_kernel_proved": "ChatgptAudit.Continuous049.spectralAB_commute",
+    "ext_v331_continuous049_spectralab_square_sum_kernel_proved": "ChatgptAudit.Continuous049.spectralAB_square_sum",
+    "ext_v331_continuous049_spectrala_injective_kernel_proved": "ChatgptAudit.Continuous049.spectralA_injective",
+    "ext_v331_continuous049_spectralab_quadratic_nonneg_kernel_proved": "ChatgptAudit.Continuous049.spectralAB_quadratic_nonneg",
+    "ext_v331_continuous049_spectraljmap_ae_kernel_proved": "ChatgptAudit.Continuous049.spectralJMap_ae",
+    "ext_v331_continuous049_spectraljmap_involutive_kernel_proved": "ChatgptAudit.Continuous049.spectralJMap_involutive",
+    "ext_v331_continuous049_spectraljmap_norm_kernel_proved": "ChatgptAudit.Continuous049.spectralJMap_norm",
+    "ext_v331_continuous049_spectralj_ae_kernel_proved": "ChatgptAudit.Continuous049.spectralJ_ae",
+    "ext_v331_continuous049_spectralj_involutive_kernel_proved": "ChatgptAudit.Continuous049.spectralJ_involutive",
+    "ext_v331_continuous049_spectralja_eq_bj_kernel_proved": "ChatgptAudit.Continuous049.spectralJA_eq_BJ",
+    "ext_v331_continuous049_spectraljb_eq_aj_kernel_proved": "ChatgptAudit.Continuous049.spectralJB_eq_AJ",
+    "ext_v331_continuous049_bounded_graph_tomita_apply_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_tomita_apply",
+    "ext_v331_continuous049_bounded_graph_tomita_lift_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_tomita_lift",
+    "ext_v331_continuous049_bounded_graph_tomita_maps_domain_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_tomita_maps_domain",
+    "ext_v331_continuous049_bounded_graph_tomita_involutive_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_tomita_involutive",
+    "ext_v331_continuous049_bounded_graph_tomita_closed_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_tomita_closed",
+    "ext_v331_continuous049_bounded_graph_j_tomita_kernel_proved": "ChatgptAudit.Continuous049.bounded_graph_J_tomita",
+    "ext_v331_continuous049_continuous_modular_domain_dense_kernel_proved": "ChatgptAudit.Continuous049.continuous_modular_domain_dense",
+    "ext_v331_continuous049_continuous_modular_closed_kernel_proved": "ChatgptAudit.Continuous049.continuous_modular_closed",
+    "ext_v331_continuous049_continuous_modular_selfadjoint_kernel_proved": "ChatgptAudit.Continuous049.continuous_modular_selfadjoint",
+    "ext_v331_continuous049_continuous_modular_positive_kernel_proved": "ChatgptAudit.Continuous049.continuous_modular_positive",
+    "ext_v331_continuous049_continuous_modular_graph_iff_kernel_proved": "ChatgptAudit.Continuous049.continuous_modular_graph_iff",
+    "ext_v331_continuous049_continuous_modular_apply_ae_kernel_proved": "ChatgptAudit.Continuous049.continuous_modular_apply_ae",
+    "ext_v331_continuous049_continuous_modular_domain_iff_kernel_proved": "ChatgptAudit.Continuous049.continuous_modular_domain_iff",
+    "ext_v331_continuous049_continuous_weight_fiber_subsingleton_kernel_proved": "ChatgptAudit.Continuous049.continuous_weight_fiber_subsingleton",
+    "ext_v331_continuous049_continuous_weight_fiber_null_kernel_proved": "ChatgptAudit.Continuous049.continuous_weight_fiber_null",
+    "ext_v331_continuous049_continuous_modular_no_eigen_kernel_proved": "ChatgptAudit.Continuous049.continuous_modular_no_eigen",
+    "ext_v331_continuous049_continuous_modular_zero_graph_kernel_proved": "ChatgptAudit.Continuous049.continuous_modular_zero_graph",
+    "ext_v331_continuous049_continuous_modular_zero_domain_kernel_proved": "ChatgptAudit.Continuous049.continuous_modular_zero_domain",
+    "ext_v331_continuous049_continuous_modular_zero_apply_kernel_proved": "ChatgptAudit.Continuous049.continuous_modular_zero_apply",
+    "ext_v331_continuous049_continuous_tomita_domain_dense_kernel_proved": "ChatgptAudit.Continuous049.continuous_tomita_domain_dense",
+    "ext_v331_continuous049_continuous_tomita_closed_kernel_proved": "ChatgptAudit.Continuous049.continuous_tomita_closed",
+    "ext_v331_continuous049_continuous_tomita_maps_domain_kernel_proved": "ChatgptAudit.Continuous049.continuous_tomita_maps_domain",
+    "ext_v331_continuous049_continuous_tomita_involutive_kernel_proved": "ChatgptAudit.Continuous049.continuous_tomita_involutive",
+    "ext_v331_continuous049_continuous_j_tomita_eq_modular_kernel_proved": "ChatgptAudit.Continuous049.continuous_J_tomita_eq_modular",
+    "ext_v331_continuous049_continuous_standard_fixed_iff_kernel_proved": "ChatgptAudit.Continuous049.continuous_standard_fixed_iff",
+    "ext_v331_continuous049_continuous_domain_iff_standard_sum_kernel_proved": "ChatgptAudit.Continuous049.continuous_domain_iff_standard_sum",
+    "ext_v331_continuous049_continuous_tomita_decomposition_kernel_proved": "ChatgptAudit.Continuous049.continuous_tomita_decomposition",
+    "ext_v331_continuous049_continuous_tomita_apply_ae_kernel_proved": "ChatgptAudit.Continuous049.continuous_tomita_apply_ae",
+    "ext_v331_continuous049_continuous_tomita_zero_apply_kernel_proved": "ChatgptAudit.Continuous049.continuous_tomita_zero_apply",
+    "ext_v331_continuous050_antiunitary_inner_conj_kernel_proved": "ChatgptAudit.Continuous050.antiunitary_inner_conj",
+    "ext_v331_continuous050_antiunitary_pairing_flip_kernel_proved": "ChatgptAudit.Continuous050.antiunitary_pairing_flip",
+    "ext_v331_continuous050_generic_tomita_apply_kernel_proved": "ChatgptAudit.Continuous050.generic_tomita_apply",
+    "ext_v331_continuous050_generic_adjoint_input_coe_kernel_proved": "ChatgptAudit.Continuous050.generic_adjoint_input_coe",
+    "ext_v331_continuous050_generic_tomita_adjoint_apply_kernel_proved": "ChatgptAudit.Continuous050.generic_tomita_adjoint_apply",
+    "ext_v331_continuous050_generic_pairing_with_j_kernel_proved": "ChatgptAudit.Continuous050.generic_pairing_with_J",
+    "ext_v331_continuous050_generic_adjoint_pairing_kernel_proved": "ChatgptAudit.Continuous050.generic_adjoint_pairing",
+    "ext_v331_continuous050_generic_adjoint_maximal_kernel_proved": "ChatgptAudit.Continuous050.generic_adjoint_maximal",
+    "ext_v331_continuous050_generic_adjoint_domain_iff_kernel_proved": "ChatgptAudit.Continuous050.generic_adjoint_domain_iff",
+    "ext_v331_continuous050_generic_composition_domain_kernel_proved": "ChatgptAudit.Continuous050.generic_composition_domain",
+    "ext_v331_continuous050_generic_adjoint_comp_kernel_proved": "ChatgptAudit.Continuous050.generic_adjoint_comp",
+    "ext_v331_continuous050_continuous_modular_square_domain_iff_kernel_proved": "ChatgptAudit.Continuous050.continuous_modular_square_domain_iff",
+    "ext_v331_continuous050_continuous_modular_square_apply_kernel_proved": "ChatgptAudit.Continuous050.continuous_modular_square_apply",
+    "ext_v331_continuous050_continuous_modular_square_graph_iff_kernel_proved": "ChatgptAudit.Continuous050.continuous_modular_square_graph_iff",
+    "ext_v331_continuous050_continuous_weight_double_kernel_proved": "ChatgptAudit.Continuous050.continuous_weight_double",
+    "ext_v331_continuous050_continuous_weight_double_complex_kernel_proved": "ChatgptAudit.Continuous050.continuous_weight_double_complex",
+    "ext_v331_continuous050_continuous_weight_half_norm_le_kernel_proved": "ChatgptAudit.Continuous050.continuous_weight_half_norm_le",
+    "ext_v331_continuous050_continuous_modular_double_domain_le_kernel_proved": "ChatgptAudit.Continuous050.continuous_modular_double_domain_le",
+    "ext_v331_continuous050_continuous_modular_square_eq_kernel_proved": "ChatgptAudit.Continuous050.continuous_modular_square_eq",
+    "ext_v331_continuous050_continuous_modular_square_domain_eq_kernel_proved": "ChatgptAudit.Continuous050.continuous_modular_square_domain_eq",
+    "ext_v331_continuous050_continuous_modular_composable_iff_kernel_proved": "ChatgptAudit.Continuous050.continuous_modular_composable_iff",
+    "ext_v331_continuous050_continuous_modular_square_closed_kernel_proved": "ChatgptAudit.Continuous050.continuous_modular_square_closed",
+    "ext_v331_continuous050_continuous_modular_square_selfadjoint_kernel_proved": "ChatgptAudit.Continuous050.continuous_modular_square_selfadjoint",
+    "ext_v331_continuous050_continuous_tomita_eq_generic_kernel_proved": "ChatgptAudit.Continuous050.continuous_tomita_eq_generic",
+    "ext_v331_continuous050_continuous_tomita_adjoint_pairing_kernel_proved": "ChatgptAudit.Continuous050.continuous_tomita_adjoint_pairing",
+    "ext_v331_continuous050_continuous_tomita_adjoint_maximal_kernel_proved": "ChatgptAudit.Continuous050.continuous_tomita_adjoint_maximal",
+    "ext_v331_continuous050_continuous_tomita_adjoint_domain_iff_kernel_proved": "ChatgptAudit.Continuous050.continuous_tomita_adjoint_domain_iff",
+    "ext_v331_continuous050_continuous_tomita_composition_domain_kernel_proved": "ChatgptAudit.Continuous050.continuous_tomita_composition_domain",
+    "ext_v331_continuous050_continuous_tomita_adjoint_comp_kernel_proved": "ChatgptAudit.Continuous050.continuous_tomita_adjoint_comp",
+    "ext_v331_continuous050_continuous_delta_graph_iff_tomita_comp_kernel_proved": "ChatgptAudit.Continuous050.continuous_delta_graph_iff_tomita_comp",
+    "ext_v331_continuous050_continuous_delta_eq_double_kernel_proved": "ChatgptAudit.Continuous050.continuous_delta_eq_double",
+    "ext_v331_continuous050_continuous_delta_domain_iff_kernel_proved": "ChatgptAudit.Continuous050.continuous_delta_domain_iff",
+    "ext_v331_continuous050_continuous_delta_selfadjoint_kernel_proved": "ChatgptAudit.Continuous050.continuous_delta_selfadjoint",
+    "ext_v331_continuous050_continuous_delta_closed_kernel_proved": "ChatgptAudit.Continuous050.continuous_delta_closed",
+    "ext_v331_continuous050_continuous_delta_energy_kernel_proved": "ChatgptAudit.Continuous050.continuous_delta_energy",
+    "ext_v331_continuous050_continuous_delta_positive_kernel_proved": "ChatgptAudit.Continuous050.continuous_delta_positive",
+    "ext_v331_continuous050_continuous_modular_positive_square_root_kernel_proved": "ChatgptAudit.Continuous050.continuous_modular_positive_square_root",
+    "ext_v331_continuous050_spectral_operator_real_smul_apply_kernel_proved": "ChatgptAudit.Continuous050.spectral_operator_real_smul_apply",
+    "ext_v331_continuous050_bounded_spectral_multiplier_nonneg_kernel_proved": "ChatgptAudit.Continuous050.bounded_spectral_multiplier_nonneg",
+    "ext_v331_continuous050_spectrala_nonneg_kernel_proved": "ChatgptAudit.Continuous050.spectralA_nonneg",
+    "ext_v331_continuous050_spectralb_nonneg_kernel_proved": "ChatgptAudit.Continuous050.spectralB_nonneg",
+    "ext_v331_continuous050_continuous_resolvent_complement_kernel_proved": "ChatgptAudit.Continuous050.continuous_resolvent_complement",
+    "ext_v331_continuous050_continuous_resolvent_sqrt_kernel_proved": "ChatgptAudit.Continuous050.continuous_resolvent_sqrt",
+    "ext_v331_continuous050_continuous_resolvent_complement_sqrt_kernel_proved": "ChatgptAudit.Continuous050.continuous_resolvent_complement_sqrt",
+    "ext_v331_continuous050_continuous_modular_graph_from_cfc_kernel_proved": "ChatgptAudit.Continuous050.continuous_modular_graph_from_cfc",
+    "ext_v331_continuous050_continuous_modular_domain_from_cfc_kernel_proved": "ChatgptAudit.Continuous050.continuous_modular_domain_from_cfc",
+    "ext_v331_continuous050_continuous_resolvent_ae_kernel_proved": "ChatgptAudit.Continuous050.continuous_resolvent_ae",
+    "ext_v331_continuous050_continuous_resolvent_square_graph_kernel_proved": "ChatgptAudit.Continuous050.continuous_resolvent_square_graph",
+    "ext_v331_continuous050_continuous_resolvent_mem_square_domain_kernel_proved": "ChatgptAudit.Continuous050.continuous_resolvent_mem_square_domain",
+    "ext_v331_continuous050_continuous_resolvent_square_apply_kernel_proved": "ChatgptAudit.Continuous050.continuous_resolvent_square_apply",
+    "ext_v331_continuous050_continuous_resolvent_right_inverse_kernel_proved": "ChatgptAudit.Continuous050.continuous_resolvent_right_inverse",
+    "ext_v331_continuous050_continuous_resolvent_left_inverse_kernel_proved": "ChatgptAudit.Continuous050.continuous_resolvent_left_inverse",
+    "ext_v331_continuous050_continuous_resolvent_unique_kernel_proved": "ChatgptAudit.Continuous050.continuous_resolvent_unique",
+    "ext_v331_optical051_optical_primitive_zero_kernel_proved": "ChatgptAudit.Optical051.optical_primitive_zero",
+    "ext_v331_optical051_optical_primitive_const_kernel_proved": "ChatgptAudit.Optical051.optical_primitive_const",
+    "ext_v331_optical051_optical_primitive_intervalintegrable_kernel_proved": "ChatgptAudit.Optical051.optical_primitive_intervalIntegrable",
+    "ext_v331_optical051_optical_primitive_hasderivat_kernel_proved": "ChatgptAudit.Optical051.optical_primitive_hasDerivAt",
+    "ext_v331_optical051_optical_primitive_continuouson_kernel_proved": "ChatgptAudit.Optical051.optical_primitive_continuousOn",
+    "ext_v331_optical051_optical_expansion_integral_kernel_proved": "ChatgptAudit.Optical051.optical_expansion_integral",
+    "ext_v331_optical051_optical_volterra_balance_kernel_proved": "ChatgptAudit.Optical051.optical_volterra_balance",
+    "ext_v331_optical051_optical_volterra_balance_matched_kernel_proved": "ChatgptAudit.Optical051.optical_volterra_balance_matched",
+    "ext_v331_optical051_optical_volterra_balance_constant_kernel_proved": "ChatgptAudit.Optical051.optical_volterra_balance_constant",
+    "ext_v331_optical051_optical_volterra_correction_zero_kernel_proved": "ChatgptAudit.Optical051.optical_volterra_correction_zero",
+    "ext_v331_optical051_optical_volterra_correction_nonneg_kernel_proved": "ChatgptAudit.Optical051.optical_volterra_correction_nonneg",
+    "ext_v331_optical051_optical_scaled_correction_nonneg_kernel_proved": "ChatgptAudit.Optical051.optical_scaled_correction_nonneg",
+    "ext_v331_optical051_optical_screen_matrix_symmetric_kernel_proved": "ChatgptAudit.Optical051.optical_screen_matrix_symmetric",
+    "ext_v331_optical051_optical_screen_matrix_trace_kernel_proved": "ChatgptAudit.Optical051.optical_screen_matrix_trace",
+    "ext_v331_optical051_optical_screen_matrix_square_trace_kernel_proved": "ChatgptAudit.Optical051.optical_screen_matrix_square_trace",
+    "ext_v331_optical051_optical_screen_raychaudhuri_decomposition_kernel_proved": "ChatgptAudit.Optical051.optical_screen_raychaudhuri_decomposition",
+    "ext_v331_optical051_optical_screen_norm_nonneg_kernel_proved": "ChatgptAudit.Optical051.optical_screen_norm_nonneg",
+    "ext_v331_optical051_optical_screen_shear_nonneg_kernel_proved": "ChatgptAudit.Optical051.optical_screen_shear_nonneg",
+    "ext_v331_optical051_optical_screen_norm_eq_zero_kernel_proved": "ChatgptAudit.Optical051.optical_screen_norm_eq_zero",
+    "ext_v331_optical051_optical_rotated_trace_kernel_proved": "ChatgptAudit.Optical051.optical_rotated_trace",
+    "ext_v331_optical051_optical_rotated_norm_kernel_proved": "ChatgptAudit.Optical051.optical_rotated_norm",
+    "ext_v331_optical051_optical_rotated_shear_kernel_proved": "ChatgptAudit.Optical051.optical_rotated_shear",
+    "ext_v331_optical051_optical_riccati_trace_kernel_proved": "ChatgptAudit.Optical051.optical_riccati_trace",
+    "ext_v331_optical051_optical_riccati_raychaudhuri_kernel_proved": "ChatgptAudit.Optical051.optical_riccati_raychaudhuri",
+    "ext_v331_optical051_optical_diagonal_distortion_kernel_proved": "ChatgptAudit.Optical051.optical_diagonal_distortion",
+    "ext_v331_optical051_optical_distortion_nonneg_kernel_proved": "ChatgptAudit.Optical051.optical_distortion_nonneg",
+    "ext_v331_optical051_optical_expansion_zero_kernel_proved": "ChatgptAudit.Optical051.optical_expansion_zero",
+    "ext_v331_optical051_optical_expansion_derivative_kernel_proved": "ChatgptAudit.Optical051.optical_expansion_derivative",
+    "ext_v331_optical051_optical_distortion_continuouson_kernel_proved": "ChatgptAudit.Optical051.optical_distortion_continuousOn",
+    "ext_v331_optical051_optical_area_positive_kernel_proved": "ChatgptAudit.Optical051.optical_area_positive",
+    "ext_v331_optical051_optical_area_derivative_kernel_proved": "ChatgptAudit.Optical051.optical_area_derivative",
+    "ext_v331_optical051_optical_finite_balance_kernel_proved": "ChatgptAudit.Optical051.optical_finite_balance",
+    "ext_v331_optical051_optical_correction_nonneg_kernel_proved": "ChatgptAudit.Optical051.optical_correction_nonneg",
+    "ext_v331_optical051_optical_finite_balance_near_zero_kernel_proved": "ChatgptAudit.Optical051.optical_finite_balance_near_zero",
+    "ext_v331_optical051_constructed_heat_finite_balance_germ_kernel_proved": "ChatgptAudit.Optical051.constructed_heat_finite_balance_germ",
+    "ext_v331_optical051_optical_correction_quartic_limit_kernel_proved": "ChatgptAudit.Optical051.optical_correction_quartic_limit",
+    "ext_v331_optical051_optical_affine_curvature_primitive_kernel_proved": "ChatgptAudit.Optical051.optical_affine_curvature_primitive",
+    "ext_v331_optical051_optical_affine_curvature_drift_kernel_proved": "ChatgptAudit.Optical051.optical_affine_curvature_drift",
+    "ext_v331_optical051_optical_affine_drift_negative_kernel_proved": "ChatgptAudit.Optical051.optical_affine_drift_negative",
+    "ext_v331_optical051_optical_affine_drift_positive_kernel_proved": "ChatgptAudit.Optical051.optical_affine_drift_positive",
+    "ext_v331_optical051_optical_matrix_constant_balance_kernel_proved": "ChatgptAudit.Optical051.optical_matrix_constant_balance",
+    "ext_v331_optical051_optical_matrix_correction_nonneg_kernel_proved": "ChatgptAudit.Optical051.optical_matrix_correction_nonneg",
+    "ext_v331_optical051_optical_past_entropy_orientation_kernel_proved": "ChatgptAudit.Optical051.optical_past_entropy_orientation",
+    "ext_v331_optical051_optical_zero_temperature_control_kernel_proved": "ChatgptAudit.Optical051.optical_zero_temperature_control",
+    "ext_v331_optical051_optical_entropy_correction_nonneg_kernel_proved": "ChatgptAudit.Optical051.optical_entropy_correction_nonneg",
+    "ext_v331_orbit052_pauli_horizontal_add_kernel_proved": "ChatgptAudit.Orbit052.pauli_horizontal_add",
+    "ext_v331_orbit052_pauli_horizontal_smul_kernel_proved": "ChatgptAudit.Orbit052.pauli_horizontal_smul",
+    "ext_v331_orbit052_pauli_horizontal_basis_x_kernel_proved": "ChatgptAudit.Orbit052.pauli_horizontal_basis_x",
+    "ext_v331_orbit052_pauli_horizontal_basis_y_kernel_proved": "ChatgptAudit.Orbit052.pauli_horizontal_basis_y",
+    "ext_v331_orbit052_pauli_horizontal_mem_factor_kernel_proved": "ChatgptAudit.Orbit052.pauli_horizontal_mem_factor",
+    "ext_v331_orbit052_pauli_horizontal_selfadjoint_kernel_proved": "ChatgptAudit.Orbit052.pauli_horizontal_selfadjoint",
+    "ext_v331_orbit052_pauli_horizontal_state_kernel_proved": "ChatgptAudit.Orbit052.pauli_horizontal_state",
+    "ext_v331_orbit052_aperiodic_expectation_local_kernel_proved": "ChatgptAudit.Orbit052.aperiodic_expectation_local",
+    "ext_v331_orbit052_aperiodic_pauli_x_zero_kernel_proved": "ChatgptAudit.Orbit052.aperiodic_pauli_x_zero",
+    "ext_v331_orbit052_aperiodic_pauli_y_zero_kernel_proved": "ChatgptAudit.Orbit052.aperiodic_pauli_y_zero",
+    "ext_v331_orbit052_pauli_horizontal_expectation_kernel_proved": "ChatgptAudit.Orbit052.pauli_horizontal_expectation",
+    "ext_v331_orbit052_pauli_horizontal_pairing_kernel_proved": "ChatgptAudit.Orbit052.pauli_horizontal_pairing",
+    "ext_v331_orbit052_pauli_horizontal_re_pairing_kernel_proved": "ChatgptAudit.Orbit052.pauli_horizontal_re_pairing",
+    "ext_v331_orbit052_pauli_horizontal_im_pairing_kernel_proved": "ChatgptAudit.Orbit052.pauli_horizontal_im_pairing",
+    "ext_v331_orbit052_pauli_horizontal_gns_norm_sq_kernel_proved": "ChatgptAudit.Orbit052.pauli_horizontal_gns_norm_sq",
+    "ext_v331_orbit052_pauli_x_gns_norm_kernel_proved": "ChatgptAudit.Orbit052.pauli_x_gns_norm",
+    "ext_v331_orbit052_pauli_y_gns_norm_kernel_proved": "ChatgptAudit.Orbit052.pauli_y_gns_norm",
+    "ext_v331_orbit052_pauli_xy_gns_pairing_kernel_proved": "ChatgptAudit.Orbit052.pauli_xy_gns_pairing",
+    "ext_v331_orbit052_horizontal_x_commutator_kernel_proved": "ChatgptAudit.Orbit052.horizontal_x_commutator",
+    "ext_v331_orbit052_horizontal_y_commutator_kernel_proved": "ChatgptAudit.Orbit052.horizontal_y_commutator",
+    "ext_v331_orbit052_horizontal_x_reading_derivative_kernel_proved": "ChatgptAudit.Orbit052.horizontal_x_reading_derivative",
+    "ext_v331_orbit052_horizontal_y_reading_derivative_kernel_proved": "ChatgptAudit.Orbit052.horizontal_y_reading_derivative",
+    "ext_v331_orbit052_horizontal_response_formula_kernel_proved": "ChatgptAudit.Orbit052.horizontal_response_formula",
+    "ext_v331_orbit052_horizontal_response_matrix_kernel_proved": "ChatgptAudit.Orbit052.horizontal_response_matrix",
+    "ext_v331_orbit052_horizontal_response_determinant_kernel_proved": "ChatgptAudit.Orbit052.horizontal_response_determinant",
+    "ext_v331_orbit052_horizontal_response_injective_kernel_proved": "ChatgptAudit.Orbit052.horizontal_response_injective",
+    "ext_v331_orbit052_horizontal_state_tangent_separates_kernel_proved": "ChatgptAudit.Orbit052.horizontal_state_tangent_separates",
+    "ext_v331_orbit052_horizontal_response_tracial_kernel_proved": "ChatgptAudit.Orbit052.horizontal_response_tracial",
+    "ext_v331_orbit052_aperiodic_pauli_x_tracial_kernel_proved": "ChatgptAudit.Orbit052.aperiodic_pauli_x_tracial",
+    "ext_v331_orbit052_aperiodic_pauli_y_tracial_kernel_proved": "ChatgptAudit.Orbit052.aperiodic_pauli_y_tracial",
+    "ext_v331_orbit052_first_site_modular_gap_ne_zero_kernel_proved": "ChatgptAudit.Orbit052.first_site_modular_gap_ne_zero",
+    "ext_v331_orbit052_first_site_modular_gap_pos_iff_kernel_proved": "ChatgptAudit.Orbit052.first_site_modular_gap_pos_iff",
+    "ext_v331_orbit052_first_site_modular_gap_neg_iff_kernel_proved": "ChatgptAudit.Orbit052.first_site_modular_gap_neg_iff",
+    "ext_v331_orbit052_first_site_modular_gap_sign_kernel_proved": "ChatgptAudit.Orbit052.first_site_modular_gap_sign",
+    "ext_v331_orbit052_modular_phase_trigonometric_kernel_proved": "ChatgptAudit.Orbit052.modular_phase_trigonometric",
+    "ext_v331_orbit052_first_site_flow_x_kernel_proved": "ChatgptAudit.Orbit052.first_site_flow_x",
+    "ext_v331_orbit052_first_site_flow_y_kernel_proved": "ChatgptAudit.Orbit052.first_site_flow_y",
+    "ext_v331_orbit052_modular_horizon_pauli_x_kernel_proved": "ChatgptAudit.Orbit052.modular_horizon_pauli_x",
+    "ext_v331_orbit052_modular_horizon_pauli_y_kernel_proved": "ChatgptAudit.Orbit052.modular_horizon_pauli_y",
+    "ext_v331_orbit052_modular_quarter_turn_angle_kernel_proved": "ChatgptAudit.Orbit052.modular_quarter_turn_angle",
+    "ext_v331_orbit052_modular_quarter_horizon_x_kernel_proved": "ChatgptAudit.Orbit052.modular_quarter_horizon_x",
+    "ext_v331_orbit052_modular_quarter_horizon_y_kernel_proved": "ChatgptAudit.Orbit052.modular_quarter_horizon_y",
+    "ext_v331_orbit052_modular_oriented_quarter_time_neg_kernel_proved": "ChatgptAudit.Orbit052.modular_oriented_quarter_time_neg",
+    "ext_v331_orbit052_modular_oriented_angle_of_pos_kernel_proved": "ChatgptAudit.Orbit052.modular_oriented_angle_of_pos",
+    "ext_v331_orbit052_modular_oriented_angle_of_neg_kernel_proved": "ChatgptAudit.Orbit052.modular_oriented_angle_of_neg",
+    "ext_v331_orbit052_modular_oriented_horizon_x_kernel_proved": "ChatgptAudit.Orbit052.modular_oriented_horizon_x",
+    "ext_v331_orbit052_modular_oriented_horizon_y_kernel_proved": "ChatgptAudit.Orbit052.modular_oriented_horizon_y",
+    "ext_v331_orbit052_first_site_modular_gap_tracial_kernel_proved": "ChatgptAudit.Orbit052.first_site_modular_gap_tracial",
+    "ext_v331_orbit052_modular_horizon_pauli_x_tracial_kernel_proved": "ChatgptAudit.Orbit052.modular_horizon_pauli_x_tracial",
+    "ext_v331_orbit052_modular_horizon_pauli_y_tracial_kernel_proved": "ChatgptAudit.Orbit052.modular_horizon_pauli_y_tracial",
+    "ext_v331_orbit052_orbit_basis_decomposition_kernel_proved": "ChatgptAudit.Orbit052.orbit_basis_decomposition",
+    "ext_v331_orbit052_orbit_quarter_basis_x_kernel_proved": "ChatgptAudit.Orbit052.orbit_quarter_basis_x",
+    "ext_v331_orbit052_orbit_quarter_basis_y_kernel_proved": "ChatgptAudit.Orbit052.orbit_quarter_basis_y",
+    "ext_v331_orbit052_orbit_quarter_square_kernel_proved": "ChatgptAudit.Orbit052.orbit_quarter_square",
+    "ext_v331_orbit052_orbit_dot_apply_kernel_proved": "ChatgptAudit.Orbit052.orbit_dot_apply",
+    "ext_v331_orbit052_orbit_bilinear_expansion_kernel_proved": "ChatgptAudit.Orbit052.orbit_bilinear_expansion",
+    "ext_v331_orbit052_orbit_quarter_invariant_form_kernel_proved": "ChatgptAudit.Orbit052.orbit_quarter_invariant_form",
+    "ext_v331_orbit052_orbit_trace_one_selection_kernel_proved": "ChatgptAudit.Orbit052.orbit_trace_one_selection",
+    "ext_v331_orbit052_orbit_scalar_gram_kernel_proved": "ChatgptAudit.Orbit052.orbit_scalar_gram",
+    "ext_v331_orbit052_orbit_scalar_area_kernel_proved": "ChatgptAudit.Orbit052.orbit_scalar_area",
+    "ext_v331_orbit052_orbit_trace_one_area_kernel_proved": "ChatgptAudit.Orbit052.orbit_trace_one_area",
+    "ext_v331_orbit052_orbit_selected_trace_in_orthonormal_pair_kernel_proved": "ChatgptAudit.Orbit052.orbit_selected_trace_in_orthonormal_pair",
+    "ext_v331_orbit052_orbit_sign_times_self_kernel_proved": "ChatgptAudit.Orbit052.orbit_sign_times_self",
+    "ext_v331_orbit052_orbit_calibration_identity_kernel_proved": "ChatgptAudit.Orbit052.orbit_calibration_identity",
+    "ext_v331_orbit052_orbit_oriented_square_kernel_proved": "ChatgptAudit.Orbit052.orbit_oriented_square",
+    "ext_v331_orbit052_orbit_calibration_compatibility_kernel_proved": "ChatgptAudit.Orbit052.orbit_calibration_compatibility",
+    "ext_v331_orbit052_orbit_calibrated_symmetric_kernel_proved": "ChatgptAudit.Orbit052.orbit_calibrated_symmetric",
+    "ext_v331_orbit052_orbit_calibrated_positive_kernel_proved": "ChatgptAudit.Orbit052.orbit_calibrated_positive",
+    "ext_v331_orbit052_orbit_calibrated_area_kernel_proved": "ChatgptAudit.Orbit052.orbit_calibrated_area",
+    "ext_v331_orbit052_orbit_zero_calibration_kernel_proved": "ChatgptAudit.Orbit052.orbit_zero_calibration",
+    "ext_v331_orbit052_quantum_horizontal_re_pairing_kernel_proved": "ChatgptAudit.Orbit052.quantum_horizontal_re_pairing",
+    "ext_v331_orbit052_quantum_horizontal_im_pairing_kernel_proved": "ChatgptAudit.Orbit052.quantum_horizontal_im_pairing",
+    "ext_v331_orbit052_quantum_horizontal_quarter_action_kernel_proved": "ChatgptAudit.Orbit052.quantum_horizontal_quarter_action",
+    "ext_v331_orbit052_quantum_horizontal_oriented_action_kernel_proved": "ChatgptAudit.Orbit052.quantum_horizontal_oriented_action",
+    "ext_v331_orbit052_quantum_horizontal_tracial_action_kernel_proved": "ChatgptAudit.Orbit052.quantum_horizontal_tracial_action",
+    "ext_v331_orbit052_quantum_orbit_asymmetry_ne_zero_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_asymmetry_ne_zero",
+    "ext_v331_orbit052_quantum_orbit_pairing_eq_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_pairing_eq",
+    "ext_v331_orbit052_quantum_orbit_form_apply_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_form_apply",
+    "ext_v331_orbit052_quantum_orbit_form_eq_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_form_eq",
+    "ext_v331_orbit052_quantum_orbit_form_symmetric_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_form_symmetric",
+    "ext_v331_orbit052_quantum_orbit_form_positive_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_form_positive",
+    "ext_v331_orbit052_quantum_orbit_form_nondegenerate_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_form_nondegenerate",
+    "ext_v331_orbit052_quantum_orbit_form_area_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_form_area",
+    "ext_v331_orbit052_quantum_orbit_form_trace_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_form_trace",
+    "ext_v331_orbit052_quantum_orbit_pairing_tracial_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_pairing_tracial",
+    "ext_v331_orbit052_quantum_orbit_directions_effective_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_directions_effective",
+    "ext_v331_orbit052_quantum_orbit_effective_positive_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_effective_positive",
+    "ext_v331_orbit052_quantum_centralizer_imaginary_zero_kernel_proved": "ChatgptAudit.Orbit052.quantum_centralizer_imaginary_zero",
+    "ext_v331_orbit052_quantum_orbit_third_reference_area_kernel_proved": "ChatgptAudit.Orbit052.quantum_orbit_third_reference_area",
+    "ext_v331_orbit052_quantum_candidate_quarter_invariant_kernel_proved": "ChatgptAudit.Orbit052.quantum_candidate_quarter_invariant",
+    "ext_v331_orbit052_quantum_candidate_isotropic_kernel_proved": "ChatgptAudit.Orbit052.quantum_candidate_isotropic",
+    "ext_v331_orbit052_quantum_candidate_gns_restriction_kernel_proved": "ChatgptAudit.Orbit052.quantum_candidate_gns_restriction",
+    "ext_v331_orbit052_quantum_candidate_trace_one_kernel_proved": "ChatgptAudit.Orbit052.quantum_candidate_trace_one",
+    "ext_v331_orbit052_quantum_candidate_trace_one_area_kernel_proved": "ChatgptAudit.Orbit052.quantum_candidate_trace_one_area",
+    "ext_v331_covariant053_horizon_ad_add_kernel_proved": "ChatgptAudit.Covariant053.horizon_ad_add",
+    "ext_v331_covariant053_horizon_ad_smul_kernel_proved": "ChatgptAudit.Covariant053.horizon_ad_smul",
+    "ext_v331_covariant053_horizon_ad_one_kernel_proved": "ChatgptAudit.Covariant053.horizon_ad_one",
+    "ext_v331_covariant053_horizon_gns_inner_factor_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_inner_factor",
+    "ext_v331_covariant053_horizon_gns_norm_factor_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_norm_factor",
+    "ext_v331_covariant053_horizon_gns_dist_factor_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_dist_factor",
+    "ext_v331_covariant053_horizon_gns_pre_tof_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_pre_tof",
+    "ext_v331_covariant053_horizon_gns_pre_add_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_pre_add",
+    "ext_v331_covariant053_horizon_gns_pre_smul_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_pre_smul",
+    "ext_v331_covariant053_horizon_gns_pre_norm_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_pre_norm",
+    "ext_v331_covariant053_horizon_gns_pre_isometry_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_pre_isometry",
+    "ext_v331_covariant053_horizon_gns_map_continuous_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_map_continuous",
+    "ext_v331_covariant053_horizon_gns_map_coe_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_map_coe",
+    "ext_v331_covariant053_horizon_gns_map_add_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_map_add",
+    "ext_v331_covariant053_horizon_gns_map_smul_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_map_smul",
+    "ext_v331_covariant053_horizon_gns_map_norm_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_map_norm",
+    "ext_v331_covariant053_horizon_gns_map_apply_factor_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_map_apply_factor",
+    "ext_v331_covariant053_horizon_gns_map_inverse_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_map_inverse",
+    "ext_v331_covariant053_horizon_gns_map_right_inverse_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_map_right_inverse",
+    "ext_v331_covariant053_horizon_gns_apply_factor_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_apply_factor",
+    "ext_v331_covariant053_horizon_gns_symm_apply_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_symm_apply",
+    "ext_v331_covariant053_horizon_gns_omega_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_omega",
+    "ext_v331_covariant053_horizon_gns_inner_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_inner",
+    "ext_v331_covariant053_real_state_generator_mem_kernel_proved": "ChatgptAudit.Covariant053.real_state_generator_mem",
+    "ext_v331_covariant053_real_state_subspace_closed_kernel_proved": "ChatgptAudit.Covariant053.real_state_subspace_closed",
+    "ext_v331_covariant053_horizon_gns_real_mem_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_real_mem",
+    "ext_v331_covariant053_horizon_gns_real_image_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_real_image",
+    "ext_v331_covariant053_horizon_gns_real_apply_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_real_apply",
+    "ext_v331_covariant053_polarizer_apply_kernel_proved": "ChatgptAudit.Covariant053.polarizer_apply",
+    "ext_v331_covariant053_polarizer_mem_kernel_proved": "ChatgptAudit.Covariant053.polarizer_mem",
+    "ext_v331_covariant053_polarizer_pairing_kernel_proved": "ChatgptAudit.Covariant053.polarizer_pairing",
+    "ext_v331_covariant053_polarizer_duality_kernel_proved": "ChatgptAudit.Covariant053.polarizer_duality",
+    "ext_v331_covariant053_polarizer_norm_le_kernel_proved": "ChatgptAudit.Covariant053.polarizer_norm_le",
+    "ext_v331_covariant053_polarizer_opnorm_le_kernel_proved": "ChatgptAudit.Covariant053.polarizer_opNorm_le",
+    "ext_v331_covariant053_polarizer_antisymmetric_kernel_proved": "ChatgptAudit.Covariant053.polarizer_antisymmetric",
+    "ext_v331_covariant053_polarizer_eq_of_pairing_kernel_proved": "ChatgptAudit.Covariant053.polarizer_eq_of_pairing",
+    "ext_v331_covariant053_polarizer_kernel_iff_kernel_proved": "ChatgptAudit.Covariant053.polarizer_kernel_iff",
+    "ext_v331_covariant053_polarizer_form_re_kernel_proved": "ChatgptAudit.Covariant053.polarizer_form_re",
+    "ext_v331_covariant053_polarizer_form_apply_kernel_proved": "ChatgptAudit.Covariant053.polarizer_form_apply",
+    "ext_v331_covariant053_polarizer_form_symmetric_kernel_proved": "ChatgptAudit.Covariant053.polarizer_form_symmetric",
+    "ext_v331_covariant053_polarizer_form_diagonal_kernel_proved": "ChatgptAudit.Covariant053.polarizer_form_diagonal",
+    "ext_v331_covariant053_polarizer_form_nonneg_kernel_proved": "ChatgptAudit.Covariant053.polarizer_form_nonneg",
+    "ext_v331_covariant053_polarizer_form_zero_iff_kernel_proved": "ChatgptAudit.Covariant053.polarizer_form_zero_iff",
+    "ext_v331_covariant053_real_projection_covariant_kernel_proved": "ChatgptAudit.Covariant053.real_projection_covariant",
+    "ext_v331_covariant053_polarizer_covariant_kernel_proved": "ChatgptAudit.Covariant053.polarizer_covariant",
+    "ext_v331_covariant053_polarizer_square_covariant_kernel_proved": "ChatgptAudit.Covariant053.polarizer_square_covariant",
+    "ext_v331_covariant053_polarizer_form_covariant_kernel_proved": "ChatgptAudit.Covariant053.polarizer_form_covariant",
+    "ext_v331_covariant053_real_state_pairing_ext_kernel_proved": "ChatgptAudit.Covariant053.real_state_pairing_ext",
+    "ext_v331_covariant053_state_polarizer_pairing_kernel_proved": "ChatgptAudit.Covariant053.state_polarizer_pairing",
+    "ext_v331_covariant053_tower_polarizer_eq_of_pairing_kernel_proved": "ChatgptAudit.Covariant053.tower_polarizer_eq_of_pairing",
+    "ext_v331_covariant053_state_centralizer_iff_imaginary_kernel_proved": "ChatgptAudit.Covariant053.state_centralizer_iff_imaginary",
+    "ext_v331_covariant053_state_polarizer_zero_iff_kernel_proved": "ChatgptAudit.Covariant053.state_polarizer_zero_iff",
+    "ext_v331_covariant053_state_covariant_apply_kernel_proved": "ChatgptAudit.Covariant053.state_covariant_apply",
+    "ext_v331_covariant053_state_covariant_symmetric_kernel_proved": "ChatgptAudit.Covariant053.state_covariant_symmetric",
+    "ext_v331_covariant053_state_covariant_nonneg_kernel_proved": "ChatgptAudit.Covariant053.state_covariant_nonneg",
+    "ext_v331_covariant053_state_covariant_kernel_kernel_proved": "ChatgptAudit.Covariant053.state_covariant_kernel",
+    "ext_v331_covariant053_state_covariant_positive_iff_kernel_proved": "ChatgptAudit.Covariant053.state_covariant_positive_iff",
+    "ext_v331_covariant053_horizon_gns_real_iff_kernel_proved": "ChatgptAudit.Covariant053.horizon_gns_real_iff",
+    "ext_v331_covariant053_state_polarizer_covariant_kernel_proved": "ChatgptAudit.Covariant053.state_polarizer_covariant",
+    "ext_v331_covariant053_state_covariant_factor_invariant_kernel_proved": "ChatgptAudit.Covariant053.state_covariant_factor_invariant",
+    "ext_v331_covariant053_state_covariant_invariant_kernel_proved": "ChatgptAudit.Covariant053.state_covariant_invariant",
+    "ext_v331_covariant053_state_covariant_add_centralizer_kernel_proved": "ChatgptAudit.Covariant053.state_covariant_add_centralizer",
+    "ext_v331_covariant053_state_covariant_add_centralizer_right_kernel_proved": "ChatgptAudit.Covariant053.state_covariant_add_centralizer_right",
+    "ext_v331_covariant053_state_reading_real_hasderivat_kernel_proved": "ChatgptAudit.Covariant053.state_reading_real_hasDerivAt",
+    "ext_v331_covariant053_state_response_formula_kernel_proved": "ChatgptAudit.Covariant053.state_response_formula",
+    "ext_v331_covariant053_state_response_kernel_kernel_proved": "ChatgptAudit.Covariant053.state_response_kernel",
+    "ext_v331_covariant053_state_covariant_response_kernel_kernel_proved": "ChatgptAudit.Covariant053.state_covariant_response_kernel",
+    "ext_v331_covariant053_local_polarizer_hermitian_kernel_proved": "ChatgptAudit.Covariant053.local_polarizer_hermitian",
+    "ext_v331_covariant053_local_polarizer_sylvester_kernel_proved": "ChatgptAudit.Covariant053.local_polarizer_sylvester",
+    "ext_v331_covariant053_local_state_star_kernel_proved": "ChatgptAudit.Covariant053.local_state_star",
+    "ext_v331_covariant053_local_polarizer_pairing_kernel_proved": "ChatgptAudit.Covariant053.local_polarizer_pairing",
+    "ext_v331_covariant053_tower_local_selfadjoint_kernel_proved": "ChatgptAudit.Covariant053.tower_local_selfadjoint",
+    "ext_v331_covariant053_state_polarizer_local_kernel_proved": "ChatgptAudit.Covariant053.state_polarizer_local",
+    "ext_v331_covariant053_local_operator_pairing_kernel_proved": "ChatgptAudit.Covariant053.local_operator_pairing",
+    "ext_v331_covariant053_double_flip_x_hermitian_kernel_proved": "ChatgptAudit.Covariant053.double_flip_x_hermitian",
+    "ext_v331_covariant053_double_flip_y_hermitian_kernel_proved": "ChatgptAudit.Covariant053.double_flip_y_hermitian",
+    "ext_v331_covariant053_double_flip_x_mem_factor_kernel_proved": "ChatgptAudit.Covariant053.double_flip_x_mem_factor",
+    "ext_v331_covariant053_double_flip_y_mem_factor_kernel_proved": "ChatgptAudit.Covariant053.double_flip_y_mem_factor",
+    "ext_v331_covariant053_double_flip_x_selfadjoint_kernel_proved": "ChatgptAudit.Covariant053.double_flip_x_selfadjoint",
+    "ext_v331_covariant053_double_flip_y_selfadjoint_kernel_proved": "ChatgptAudit.Covariant053.double_flip_y_selfadjoint",
+    "ext_v331_covariant053_local_real_smul_action_kernel_proved": "ChatgptAudit.Covariant053.local_real_smul_action",
+    "ext_v331_covariant053_first_pauli_polarizer_x_kernel_proved": "ChatgptAudit.Covariant053.first_pauli_polarizer_x",
+    "ext_v331_covariant053_first_pauli_polarizer_y_kernel_proved": "ChatgptAudit.Covariant053.first_pauli_polarizer_y",
+    "ext_v331_covariant053_double_flip_polarizer_x_kernel_proved": "ChatgptAudit.Covariant053.double_flip_polarizer_x",
+    "ext_v331_covariant053_double_flip_polarizer_y_kernel_proved": "ChatgptAudit.Covariant053.double_flip_polarizer_y",
+    "ext_v331_covariant053_double_flip_x_expectation_kernel_proved": "ChatgptAudit.Covariant053.double_flip_x_expectation",
+    "ext_v331_covariant053_double_flip_y_expectation_kernel_proved": "ChatgptAudit.Covariant053.double_flip_y_expectation",
+    "ext_v331_covariant053_double_flip_state_products_kernel_proved": "ChatgptAudit.Covariant053.double_flip_state_products",
+    "ext_v331_covariant053_double_flip_real_gram_kernel_proved": "ChatgptAudit.Covariant053.double_flip_real_gram",
+    "ext_v331_covariant053_double_flip_norm_squares_kernel_proved": "ChatgptAudit.Covariant053.double_flip_norm_squares",
+    "ext_v331_covariant053_double_flip_horizontal_mem_factor_kernel_proved": "ChatgptAudit.Covariant053.double_flip_horizontal_mem_factor",
+    "ext_v331_covariant053_double_flip_horizontal_selfadjoint_kernel_proved": "ChatgptAudit.Covariant053.double_flip_horizontal_selfadjoint",
+    "ext_v331_covariant053_double_flip_horizontal_expectation_kernel_proved": "ChatgptAudit.Covariant053.double_flip_horizontal_expectation",
+    "ext_v331_covariant053_double_flip_x_commutator_kernel_proved": "ChatgptAudit.Covariant053.double_flip_x_commutator",
+    "ext_v331_covariant053_double_flip_y_commutator_kernel_proved": "ChatgptAudit.Covariant053.double_flip_y_commutator",
+    "ext_v331_covariant053_double_flip_x_reading_derivative_kernel_proved": "ChatgptAudit.Covariant053.double_flip_x_reading_derivative",
+    "ext_v331_covariant053_double_flip_y_reading_derivative_kernel_proved": "ChatgptAudit.Covariant053.double_flip_y_reading_derivative",
+    "ext_v331_covariant053_double_flip_response_formula_kernel_proved": "ChatgptAudit.Covariant053.double_flip_response_formula",
+    "ext_v331_covariant053_double_flip_response_injective_kernel_proved": "ChatgptAudit.Covariant053.double_flip_response_injective",
+    "ext_v331_covariant053_double_flip_effective_directions_kernel_proved": "ChatgptAudit.Covariant053.double_flip_effective_directions",
+    "ext_v331_covariant053_normalized_covariant_apply_kernel_proved": "ChatgptAudit.Covariant053.normalized_covariant_apply",
+    "ext_v331_covariant053_normalization_positive_kernel_proved": "ChatgptAudit.Covariant053.normalization_positive",
+    "ext_v331_covariant053_normalized_covariant_symmetric_kernel_proved": "ChatgptAudit.Covariant053.normalized_covariant_symmetric",
+    "ext_v331_covariant053_normalized_covariant_nonneg_kernel_proved": "ChatgptAudit.Covariant053.normalized_covariant_nonneg",
+    "ext_v331_covariant053_normalized_covariant_invariant_kernel_proved": "ChatgptAudit.Covariant053.normalized_covariant_invariant",
+    "ext_v331_covariant053_normalized_covariant_kernel_kernel_proved": "ChatgptAudit.Covariant053.normalized_covariant_kernel",
+    "ext_v331_covariant053_normalized_covariant_positive_iff_kernel_proved": "ChatgptAudit.Covariant053.normalized_covariant_positive_iff",
+    "ext_v331_covariant053_state_covariant_rotating_pair_gram_kernel_proved": "ChatgptAudit.Covariant053.state_covariant_rotating_pair_gram",
+    "ext_v331_covariant053_first_pair_real_gram_kernel_proved": "ChatgptAudit.Covariant053.first_pair_real_gram",
+    "ext_v331_covariant053_first_pair_unnormalized_gram_kernel_proved": "ChatgptAudit.Covariant053.first_pair_unnormalized_gram",
+    "ext_v331_covariant053_double_pair_unnormalized_gram_kernel_proved": "ChatgptAudit.Covariant053.double_pair_unnormalized_gram",
+    "ext_v331_covariant053_normalized_first_pair_gram_kernel_proved": "ChatgptAudit.Covariant053.normalized_first_pair_gram",
+    "ext_v331_covariant053_normalized_double_pair_gram_zero_kernel_proved": "ChatgptAudit.Covariant053.normalized_double_pair_gram_zero",
+    "ext_v331_covariant053_normalized_double_pair_gram_one_kernel_proved": "ChatgptAudit.Covariant053.normalized_double_pair_gram_one",
+    "ext_v331_covariant053_normalized_double_pair_area_zero_kernel_proved": "ChatgptAudit.Covariant053.normalized_double_pair_area_zero",
+    "ext_v331_covariant053_normalized_double_pair_area_one_kernel_proved": "ChatgptAudit.Covariant053.normalized_double_pair_area_one",
+    "ext_v331_covariant053_normalized_area_gap_kernel_proved": "ChatgptAudit.Covariant053.normalized_area_gap",
+    "ext_v331_covariant053_normalized_forms_distinct_kernel_proved": "ChatgptAudit.Covariant053.normalized_forms_distinct",
+    "ext_v331_covariant053_normalized_forms_not_global_rescaling_kernel_proved": "ChatgptAudit.Covariant053.normalized_forms_not_global_rescaling",
+    "ext_v331_covariant053_two_global_covariant_calibrated_forms_kernel_proved": "ChatgptAudit.Covariant053.two_global_covariant_calibrated_forms",
+    "ext_v331_covariant053_normalized_covariant_add_centralizer_left_kernel_proved": "ChatgptAudit.Covariant053.normalized_covariant_add_centralizer_left",
+    "ext_v331_covariant053_normalized_covariant_add_centralizer_right_kernel_proved": "ChatgptAudit.Covariant053.normalized_covariant_add_centralizer_right",
+    "ext_v331_covariant053_normalized_covariant_response_kernel_kernel_proved": "ChatgptAudit.Covariant053.normalized_covariant_response_kernel",
+    "ext_v331_cost054_polarizer_cost_weight_pos_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_weight_pos",
+    "ext_v331_cost054_polarizer_modular_cost_eq_tsum_kernel_proved": "ChatgptAudit.Cost054.polarizer_modular_cost_eq_tsum",
+    "ext_v331_cost054_polarizer_cost_term_zero_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_term_zero",
+    "ext_v331_cost054_polarizer_modular_cost_zero_kernel_proved": "ChatgptAudit.Cost054.polarizer_modular_cost_zero",
+    "ext_v331_cost054_polarizer_cost_term_smul_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_term_smul",
+    "ext_v331_cost054_polarizer_modular_cost_smul_kernel_proved": "ChatgptAudit.Cost054.polarizer_modular_cost_smul",
+    "ext_v331_cost054_polarizer_cost_term_add_le_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_term_add_le",
+    "ext_v331_cost054_polarizer_modular_cost_add_le_kernel_proved": "ChatgptAudit.Cost054.polarizer_modular_cost_add_le",
+    "ext_v331_cost054_polarizer_modular_cost_first_le_kernel_proved": "ChatgptAudit.Cost054.polarizer_modular_cost_first_le",
+    "ext_v331_cost054_polarizer_modular_cost_zero_iff_kernel_proved": "ChatgptAudit.Cost054.polarizer_modular_cost_zero_iff",
+    "ext_v331_cost054_mem_polarizercostdomain_kernel_proved": "ChatgptAudit.Cost054.mem_polarizerCostDomain",
+    "ext_v331_cost054_polarizer_cost_kernel_mem_domain_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_kernel_mem_domain",
+    "ext_v331_cost054_polarizer_power_covariant_kernel_proved": "ChatgptAudit.Cost054.polarizer_power_covariant",
+    "ext_v331_cost054_polarizer_cost_term_covariant_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_term_covariant",
+    "ext_v331_cost054_polarizer_modular_cost_covariant_kernel_proved": "ChatgptAudit.Cost054.polarizer_modular_cost_covariant",
+    "ext_v331_cost054_polarizer_cost_domain_covariant_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_domain_covariant",
+    "ext_v331_cost054_polarizer_modular_cost_eq_of_hassum_kernel_proved": "ChatgptAudit.Cost054.polarizer_modular_cost_eq_of_hasSum",
+    "ext_v331_cost054_polarizer_cost_mem_domain_of_hassum_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_mem_domain_of_hasSum",
+    "ext_v331_cost054_polarizer_modular_cost_lowersemicontinuous_kernel_proved": "ChatgptAudit.Cost054.polarizer_modular_cost_lowerSemicontinuous",
+    "ext_v331_cost054_polarizer_cost_series_term_nonneg_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_series_term_nonneg",
+    "ext_v331_cost054_polarizer_cost_hassum_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_hasSum",
+    "ext_v331_cost054_polarizer_cost_log_ratio_hassum_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_log_ratio_hasSum",
+    "ext_v331_cost054_polarizer_weight_ratio_abs_lt_one_kernel_proved": "ChatgptAudit.Cost054.polarizer_weight_ratio_abs_lt_one",
+    "ext_v331_cost054_polarizer_weight_ratio_identity_kernel_proved": "ChatgptAudit.Cost054.polarizer_weight_ratio_identity",
+    "ext_v331_cost054_polarizer_cost_weights_hassum_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_weights_hasSum",
+    "ext_v331_cost054_polarizer_cost_scalar_nonneg_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_scalar_nonneg",
+    "ext_v331_cost054_polarizer_cost_scalar_ennreal_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_scalar_ennreal",
+    "ext_v331_cost054_polarizer_cost_weights_ennreal_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_weights_ennreal",
+    "ext_v331_cost054_polarizer_cost_of_norm_powers_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_of_norm_powers",
+    "ext_v331_cost054_polarizer_cost_of_weight_norm_powers_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_of_weight_norm_powers",
+    "ext_v331_cost054_polarizer_cost_norm_powers_lt_top_kernel_proved": "ChatgptAudit.Cost054.polarizer_cost_norm_powers_lt_top",
+    "ext_v331_cost054_tower_modular_cost_domain_kernel_proved": "ChatgptAudit.Cost054.tower_modular_cost_domain",
+    "ext_v331_cost054_tower_modular_cost_zero_iff_kernel_proved": "ChatgptAudit.Cost054.tower_modular_cost_zero_iff",
+    "ext_v331_cost054_tower_modular_cost_centralizer_kernel_proved": "ChatgptAudit.Cost054.tower_modular_cost_centralizer",
+    "ext_v331_cost054_tower_modular_cost_response_kernel_kernel_proved": "ChatgptAudit.Cost054.tower_modular_cost_response_kernel",
+    "ext_v331_cost054_tower_modular_cost_covariant_kernel_proved": "ChatgptAudit.Cost054.tower_modular_cost_covariant",
+    "ext_v331_cost054_tower_modular_domain_covariant_kernel_proved": "ChatgptAudit.Cost054.tower_modular_domain_covariant",
+    "ext_v331_cost054_tower_modular_cost_factor_invariant_kernel_proved": "ChatgptAudit.Cost054.tower_modular_cost_factor_invariant",
+    "ext_v331_cost054_tower_modular_cost_lowersemicontinuous_kernel_proved": "ChatgptAudit.Cost054.tower_modular_cost_lowerSemicontinuous",
+    "ext_v331_cost054_local_polarizer_iterate_hermitian_kernel_proved": "ChatgptAudit.Cost054.local_polarizer_iterate_hermitian",
+    "ext_v331_cost054_local_polarizer_iterate_entry_kernel_proved": "ChatgptAudit.Cost054.local_polarizer_iterate_entry",
+    "ext_v331_cost054_state_polarizer_local_power_kernel_proved": "ChatgptAudit.Cost054.state_polarizer_local_power",
+    "ext_v331_cost054_local_iterate_normsq_kernel_proved": "ChatgptAudit.Cost054.local_iterate_normSq",
+    "ext_v331_cost054_state_polarizer_local_power_norm_kernel_proved": "ChatgptAudit.Cost054.state_polarizer_local_power_norm",
+    "ext_v331_cost054_tower_local_cost_hassum_kernel_proved": "ChatgptAudit.Cost054.tower_local_cost_hasSum",
+    "ext_v331_cost054_tower_local_cost_formula_kernel_proved": "ChatgptAudit.Cost054.tower_local_cost_formula",
+    "ext_v331_cost054_tower_local_mem_cost_domain_kernel_proved": "ChatgptAudit.Cost054.tower_local_mem_cost_domain",
+    "ext_v331_cost054_tower_cost_domain_dense_real_kernel_proved": "ChatgptAudit.Cost054.tower_cost_domain_dense_real",
+    "ext_v331_cost054_local_modular_cost_symmetric_kernel_proved": "ChatgptAudit.Cost054.local_modular_cost_symmetric",
+    "ext_v331_cost054_tower_local_cost_symmetric_formula_kernel_proved": "ChatgptAudit.Cost054.tower_local_cost_symmetric_formula",
+    "ext_v331_cost054_rotating_pair_norm_powers_kernel_proved": "ChatgptAudit.Cost054.rotating_pair_norm_powers",
+    "ext_v331_cost054_first_pauli_cost_norm_powers_kernel_proved": "ChatgptAudit.Cost054.first_pauli_cost_norm_powers",
+    "ext_v331_cost054_double_flip_cost_norm_powers_kernel_proved": "ChatgptAudit.Cost054.double_flip_cost_norm_powers",
+    "ext_v331_cost054_first_pauli_modular_cost_kernel_proved": "ChatgptAudit.Cost054.first_pauli_modular_cost",
+    "ext_v331_cost054_double_flip_modular_cost_kernel_proved": "ChatgptAudit.Cost054.double_flip_modular_cost",
+    "ext_v331_cost054_omega_real_continuous_apply_kernel_proved": "ChatgptAudit.Cost054.omega_real_continuous_apply",
+    "ext_v331_cost054_bounded_phase_negative_generator_kernel_proved": "ChatgptAudit.Cost054.bounded_phase_negative_generator",
+    "ext_v331_cost054_negative_phase_derivative_kernel_proved": "ChatgptAudit.Cost054.negative_phase_derivative",
+    "ext_v331_cost054_unitary_conjugation_has_derivative_kernel_proved": "ChatgptAudit.Cost054.unitary_conjugation_has_derivative",
+    "ext_v331_cost054_unitary_velocity_derivative_zero_kernel_proved": "ChatgptAudit.Cost054.unitary_velocity_derivative_zero",
+    "ext_v331_cost054_unitary_energy_derivative_kernel_proved": "ChatgptAudit.Cost054.unitary_energy_derivative",
+    "ext_v331_cost054_unitary_energy_velocity_zero_kernel_proved": "ChatgptAudit.Cost054.unitary_energy_velocity_zero",
+    "ext_v331_cost054_unitary_energy_velocity_derivative_kernel_proved": "ChatgptAudit.Cost054.unitary_energy_velocity_derivative",
+    "ext_v331_cost054_unitary_energy_second_derivative_kernel_proved": "ChatgptAudit.Cost054.unitary_energy_second_derivative",
+    "ext_v331_cost054_quadratic_response_from_velocity_kernel_proved": "ChatgptAudit.Cost054.quadratic_response_from_velocity",
+    "ext_v331_cost054_local_modular_matrix_hermitian_kernel_proved": "ChatgptAudit.Cost054.local_modular_matrix_hermitian",
+    "ext_v331_cost054_local_modular_commutator_state_kernel_proved": "ChatgptAudit.Cost054.local_modular_commutator_state",
+    "ext_v331_cost054_finite_modular_energy_first_zero_kernel_proved": "ChatgptAudit.Cost054.finite_modular_energy_first_zero",
+    "ext_v331_cost054_local_modular_double_coefficient_kernel_proved": "ChatgptAudit.Cost054.local_modular_double_coefficient",
+    "ext_v331_cost054_finite_modular_energy_second_kernel_proved": "ChatgptAudit.Cost054.finite_modular_energy_second",
+    "ext_v331_cost054_finite_modular_energy_quadratic_limit_kernel_proved": "ChatgptAudit.Cost054.finite_modular_energy_quadratic_limit",
+    "ext_v331_cost054_global_cost_is_modular_response_kernel_proved": "ChatgptAudit.Cost054.global_cost_is_modular_response",
     # v330 (ENTREGAS 044..045 06/09/2026): os 159 teoremas do boost aproximado / permutacoes / dicotomia
     "ext_v330_boost044_boost_matrix_action_apply_kernel_proved": "ChatgptAudit.Boost044.boost_matrix_action_apply",
     "ext_v330_boost044_boost_even_add_odd_kernel_proved": "ChatgptAudit.Boost044.boost_even_add_odd",
@@ -109038,6 +120541,621 @@ def prove_external_ladder(ONE, kernel_formalization=None):
         "ext_v330_area045_invariance_does_not_fix_area_kernel_proved",
         "ext_v330_area045_scaled_reference_angular_area_kernel_proved",
         "ext_v330_area045_reference_angular_scales_distinct_kernel_proved",
+        # v331 (ENTREGAS 046..054): +606 — esperanca aperiodica / CP-normal / subespaco padrao continuo / polarizador no contador
+        "ext_v331_aperiodic046_phase_average_zero_kernel_proved",
+        "ext_v331_aperiodic046_integral_phase_nonzero_kernel_proved",
+        "ext_v331_aperiodic046_phase_average_norm_le_kernel_proved",
+        "ext_v331_aperiodic046_phase_average_nonzero_limit_kernel_proved",
+        "ext_v331_aperiodic046_phase_average_limit_kernel_proved",
+        "ext_v331_aperiodic046_flow_average_entry_kernel_proved",
+        "ext_v331_aperiodic046_flow_average_limit_kernel_proved",
+        "ext_v331_aperiodic046_local_average_eq_embedding_kernel_proved",
+        "ext_v331_aperiodic046_local_average_limit_kernel_proved",
+        "ext_v331_aperiodic046_omega_limit_on_local_kernel_proved",
+        "ext_v331_aperiodic046_bounded_local_cauchy_kernel_proved",
+        "ext_v331_aperiodic046_strong_limit_commutes_kernel_proved",
+        "ext_v331_aperiodic046_factor_mem_of_strong_limit_kernel_proved",
+        "ext_v331_aperiodic046_bounded_omega_limit_lift_kernel_proved",
+        "ext_v331_aperiodic046_omega_lift_unique_kernel_proved",
+        "ext_v331_aperiodic046_modular_average_vector_add_kernel_proved",
+        "ext_v331_aperiodic046_modular_average_vector_smul_kernel_proved",
+        "ext_v331_aperiodic046_modular_average_vector_bound_kernel_proved",
+        "ext_v331_aperiodic046_modular_vector_average_apply_kernel_proved",
+        "ext_v331_aperiodic046_modular_vector_average_norm_le_one_kernel_proved",
+        "ext_v331_aperiodic046_modular_vector_average_local_limit_kernel_proved",
+        "ext_v331_aperiodic046_modular_vector_average_cauchy_kernel_proved",
+        "ext_v331_aperiodic046_modular_vector_average_limit_exists_kernel_proved",
+        "ext_v331_aperiodic046_period_average_omega_eq_vector_average_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_average_omega_limit_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_average_operator_kernel_proved",
+        "ext_v331_aperiodic046_period_average_prefix_vector_kernel_proved",
+        "ext_v331_aperiodic046_period_average_prefix_omega_limit_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_average_prefix_of_limit_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_expectation_spec_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_expectation_prefix_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_expectation_into_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_expectation_fixes_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_expectation_ortho_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_contract_inhabited_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_expectation_contractive_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_expectation_idempotent_kernel_proved",
+        "ext_v331_aperiodic046_the_lift_fires_on_the_aperiodic_tower_kernel_proved",
+        "ext_v331_aperiodic046_every_expectation_on_the_general_tower_is_covariant_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_expectation_agrees_periodic_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_expectation_agrees_tracial_kernel_proved",
+        "ext_v331_aperiodic046_aperiodic_expectation_commutes_with_modular_flow_kernel_proved",
+        "ext_v331_aperiodic046_response_covariant_on_the_general_tower_kernel_proved",
+        "ext_v331_expectation047_omega_state_star_kernel_proved",
+        "ext_v331_expectation047_omega_centralizer_star_kernel_proved",
+        "ext_v331_expectation047_expectation_eq_of_ortho_kernel_proved",
+        "ext_v331_expectation047_expectation_zero_kernel_proved",
+        "ext_v331_expectation047_expectation_one_kernel_proved",
+        "ext_v331_expectation047_expectation_add_kernel_proved",
+        "ext_v331_expectation047_expectation_smul_kernel_proved",
+        "ext_v331_expectation047_expectation_sub_kernel_proved",
+        "ext_v331_expectation047_expectation_preserves_omega_kernel_proved",
+        "ext_v331_expectation047_expectation_star_kernel_proved",
+        "ext_v331_expectation047_expectation_mul_left_kernel_proved",
+        "ext_v331_expectation047_expectation_mul_right_kernel_proved",
+        "ext_v331_expectation047_expectation_bimodular_kernel_proved",
+        "ext_v331_expectation047_expectation_norm_le_kernel_proved",
+        "ext_v331_expectation047_expectation_linear_map_apply_kernel_proved",
+        "ext_v331_expectation047_expectation_continuous_linear_map_apply_kernel_proved",
+        "ext_v331_expectation047_expectation_continuous_linear_map_norm_le_one_kernel_proved",
+        "ext_v331_expectation047_modular_conjugation_inner_kernel_proved",
+        "ext_v331_expectation047_modular_conjugation_inner_continuous_kernel_proved",
+        "ext_v331_expectation047_period_average_inner_kernel_proved",
+        "ext_v331_expectation047_period_average_re_inner_kernel_proved",
+        "ext_v331_expectation047_period_average_re_inner_nonneg_kernel_proved",
+        "ext_v331_expectation047_expectation_re_inner_nonneg_kernel_proved",
+        "ext_v331_expectation047_general_expectation_ispositive_kernel_proved",
+        "ext_v331_expectation047_general_expectation_nonnegative_kernel_proved",
+        "ext_v331_expectation047_operator_block_apply_kernel_proved",
+        "ext_v331_expectation047_operator_block_entry_apply_kernel_proved",
+        "ext_v331_expectation047_operator_block_entry_recover_kernel_proved",
+        "ext_v331_expectation047_operator_block_injective_kernel_proved",
+        "ext_v331_expectation047_operator_block_sum_single_kernel_proved",
+        "ext_v331_expectation047_operator_block_surjective_kernel_proved",
+        "ext_v331_expectation047_operator_block_add_kernel_proved",
+        "ext_v331_expectation047_operator_block_smul_kernel_proved",
+        "ext_v331_expectation047_operator_block_mul_kernel_proved",
+        "ext_v331_expectation047_operator_block_star_kernel_proved",
+        "ext_v331_expectation047_operator_block_representation_apply_kernel_proved",
+        "ext_v331_expectation047_operator_block_nonneg_representation_iff_kernel_proved",
+        "ext_v331_expectation047_operator_block_inner_kernel_proved",
+        "ext_v331_expectation047_operator_block_nonneg_iff_kernel_proved",
+        "ext_v331_expectation047_block_modular_quadratic_kernel_proved",
+        "ext_v331_expectation047_block_period_average_quadratic_kernel_proved",
+        "ext_v331_expectation047_block_period_average_nonnegative_kernel_proved",
+        "ext_v331_expectation047_block_average_quadratic_tendsto_kernel_proved",
+        "ext_v331_expectation047_general_expectation_block_positive_kernel_proved",
+        "ext_v331_expectation047_gram_block_quadratic_kernel_proved",
+        "ext_v331_expectation047_gram_block_positive_kernel_proved",
+        "ext_v331_expectation047_factor_positive_sqrt_mem_kernel_proved",
+        "ext_v331_expectation047_factor_nonnegative_iff_star_square_kernel_proved",
+        "ext_v331_expectation047_expectation_cstarmatrix_nonnegative_kernel_proved",
+        "ext_v331_expectation047_general_expectation_cp_apply_kernel_proved",
+        "ext_v331_expectation047_general_expectation_cp_tolinearmap_kernel_proved",
+        "ext_v331_expectation047_expectation_gns_norm_le_kernel_proved",
+        "ext_v331_expectation047_expectation_gns_dist_le_kernel_proved",
+        "ext_v331_expectation047_expectation_omega_tendsto_kernel_proved",
+        "ext_v331_expectation047_bounded_local_tendsto_kernel_proved",
+        "ext_v331_expectation047_bounded_omega_tendsto_kernel_proved",
+        "ext_v331_expectation047_expectation_strong_tendsto_of_omega_kernel_proved",
+        "ext_v331_expectation047_positive_square_le_norm_smul_kernel_proved",
+        "ext_v331_expectation047_positive_apply_norm_sq_le_kernel_proved",
+        "ext_v331_expectation047_positive_increment_norm_sq_le_kernel_proved",
+        "ext_v331_expectation047_positive_of_strong_limit_kernel_proved",
+        "ext_v331_expectation047_monotone_quadratic_limit_kernel_proved",
+        "ext_v331_expectation047_monotone_operator_vector_cauchy_kernel_proved",
+        "ext_v331_expectation047_monotone_strong_limit_islub_kernel_proved",
+        "ext_v331_expectation047_monotone_operator_limit_kernel_proved",
+        "ext_v331_expectation047_strong_net_limit_commutes_kernel_proved",
+        "ext_v331_expectation047_factor_mem_of_net_strong_limit_kernel_proved",
+        "ext_v331_expectation047_expectation_order_preserving_kernel_proved",
+        "ext_v331_expectation047_factor_monotone_supremum_and_expectation_kernel_proved",
+        "ext_v331_expectation047_expectation_preserves_order_bounded_nets_kernel_proved",
+        "ext_v331_expectation047_general_expectation_normal_order_kernel_proved",
+        "ext_v331_expectation047_aperiodic_expectation_normal_order_kernel_proved",
+        "ext_v331_geometry048_profile_borchers_trivial_kernel_proved",
+        "ext_v331_geometry048_faithful_covariance_period_return_kernel_proved",
+        "ext_v331_geometry048_modular_period_conjugation_eq_kernel_proved",
+        "ext_v331_geometry048_modular_period_image_eq_kernel_proved",
+        "ext_v331_geometry048_modular_period_geometric_return_kernel_proved",
+        "ext_v331_geometry048_modular_period_dilation_return_kernel_proved",
+        "ext_v331_geometry048_modular_period_dilation_obstruction_kernel_proved",
+        "ext_v331_geometry048_dilation_factor_ne_one_kernel_proved",
+        "ext_v331_geometry048_faithful_modular_dilation_localization_impossible_kernel_proved",
+        "ext_v331_geometry048_central_null_curve_injective_kernel_proved",
+        "ext_v331_geometry048_central_boost_no_return_kernel_proved",
+        "ext_v331_geometry048_central_boost_covariance_to_dilation_kernel_proved",
+        "ext_v331_geometry048_faithful_central_boost_localization_impossible_kernel_proved",
+        "ext_v331_geometry048_third_modular_period_positive_kernel_proved",
+        "ext_v331_geometry048_third_modular_flow_period_kernel_proved",
+        "ext_v331_geometry048_third_faithful_dilation_localization_impossible_kernel_proved",
+        "ext_v331_geometry048_third_faithful_central_boost_localization_impossible_kernel_proved",
+        "ext_v331_geometry048_constant_factor_localization_covariant_kernel_proved",
+        "ext_v331_geometry048_constant_factor_localization_not_injective_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_parameter_apply_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_domain_iff_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_apply_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_lift_coe_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_parameter_lift_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_lift_apply_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_param_iff_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_equation_iff_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_domain_dense_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_closed_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_selfadjoint_inner_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_formal_adjoint_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_selfadjoint_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_positive_kernel_proved",
+        "ext_v331_continuous049_mem_fixedrealsubmodule_iff_kernel_proved",
+        "ext_v331_continuous049_fixedrealsubmodule_closed_kernel_proved",
+        "ext_v331_continuous049_domainconjugation_involutive_kernel_proved",
+        "ext_v331_continuous049_domain_fixed_decomposition_kernel_proved",
+        "ext_v331_continuous049_mem_domain_iff_fixed_sum_kernel_proved",
+        "ext_v331_continuous049_fixed_sum_tomita_kernel_proved",
+        "ext_v331_continuous049_fixed_subspace_separating_kernel_proved",
+        "ext_v331_continuous049_fixed_subspace_cyclic_kernel_proved",
+        "ext_v331_continuous049_spectral_weight_den_pos_kernel_proved",
+        "ext_v331_continuous049_spectral_weighta_pos_kernel_proved",
+        "ext_v331_continuous049_spectral_weightb_pos_kernel_proved",
+        "ext_v331_continuous049_spectral_weight_square_sum_kernel_proved",
+        "ext_v331_continuous049_spectral_weighta_le_one_kernel_proved",
+        "ext_v331_continuous049_spectral_weightb_le_one_kernel_proved",
+        "ext_v331_continuous049_spectral_weighta_norm_le_one_kernel_proved",
+        "ext_v331_continuous049_spectral_weightb_norm_le_one_kernel_proved",
+        "ext_v331_continuous049_spectral_weighta_continuous_kernel_proved",
+        "ext_v331_continuous049_spectral_weightb_continuous_kernel_proved",
+        "ext_v331_continuous049_spectral_weight_reflection_kernel_proved",
+        "ext_v331_continuous049_spectral_weightb_reflection_kernel_proved",
+        "ext_v331_continuous049_spectral_weight_ratio_kernel_proved",
+        "ext_v331_continuous049_bounded_spectral_weight_ae_kernel_proved",
+        "ext_v331_continuous049_bounded_spectral_multiplier_ae_kernel_proved",
+        "ext_v331_continuous049_bounded_spectral_multiplier_norm_kernel_proved",
+        "ext_v331_continuous049_bounded_spectral_multiplier_selfadjoint_kernel_proved",
+        "ext_v331_continuous049_spectrala_ae_kernel_proved",
+        "ext_v331_continuous049_spectralb_ae_kernel_proved",
+        "ext_v331_continuous049_spectrala_norm_le_kernel_proved",
+        "ext_v331_continuous049_spectralb_norm_le_kernel_proved",
+        "ext_v331_continuous049_spectrala_selfadjoint_kernel_proved",
+        "ext_v331_continuous049_spectralb_selfadjoint_kernel_proved",
+        "ext_v331_continuous049_spectralab_commute_kernel_proved",
+        "ext_v331_continuous049_spectralab_square_sum_kernel_proved",
+        "ext_v331_continuous049_spectrala_injective_kernel_proved",
+        "ext_v331_continuous049_spectralab_quadratic_nonneg_kernel_proved",
+        "ext_v331_continuous049_spectraljmap_ae_kernel_proved",
+        "ext_v331_continuous049_spectraljmap_involutive_kernel_proved",
+        "ext_v331_continuous049_spectraljmap_norm_kernel_proved",
+        "ext_v331_continuous049_spectralj_ae_kernel_proved",
+        "ext_v331_continuous049_spectralj_involutive_kernel_proved",
+        "ext_v331_continuous049_spectralja_eq_bj_kernel_proved",
+        "ext_v331_continuous049_spectraljb_eq_aj_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_tomita_apply_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_tomita_lift_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_tomita_maps_domain_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_tomita_involutive_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_tomita_closed_kernel_proved",
+        "ext_v331_continuous049_bounded_graph_j_tomita_kernel_proved",
+        "ext_v331_continuous049_continuous_modular_domain_dense_kernel_proved",
+        "ext_v331_continuous049_continuous_modular_closed_kernel_proved",
+        "ext_v331_continuous049_continuous_modular_selfadjoint_kernel_proved",
+        "ext_v331_continuous049_continuous_modular_positive_kernel_proved",
+        "ext_v331_continuous049_continuous_modular_graph_iff_kernel_proved",
+        "ext_v331_continuous049_continuous_modular_apply_ae_kernel_proved",
+        "ext_v331_continuous049_continuous_modular_domain_iff_kernel_proved",
+        "ext_v331_continuous049_continuous_weight_fiber_subsingleton_kernel_proved",
+        "ext_v331_continuous049_continuous_weight_fiber_null_kernel_proved",
+        "ext_v331_continuous049_continuous_modular_no_eigen_kernel_proved",
+        "ext_v331_continuous049_continuous_modular_zero_graph_kernel_proved",
+        "ext_v331_continuous049_continuous_modular_zero_domain_kernel_proved",
+        "ext_v331_continuous049_continuous_modular_zero_apply_kernel_proved",
+        "ext_v331_continuous049_continuous_tomita_domain_dense_kernel_proved",
+        "ext_v331_continuous049_continuous_tomita_closed_kernel_proved",
+        "ext_v331_continuous049_continuous_tomita_maps_domain_kernel_proved",
+        "ext_v331_continuous049_continuous_tomita_involutive_kernel_proved",
+        "ext_v331_continuous049_continuous_j_tomita_eq_modular_kernel_proved",
+        "ext_v331_continuous049_continuous_standard_fixed_iff_kernel_proved",
+        "ext_v331_continuous049_continuous_domain_iff_standard_sum_kernel_proved",
+        "ext_v331_continuous049_continuous_tomita_decomposition_kernel_proved",
+        "ext_v331_continuous049_continuous_tomita_apply_ae_kernel_proved",
+        "ext_v331_continuous049_continuous_tomita_zero_apply_kernel_proved",
+        "ext_v331_continuous050_antiunitary_inner_conj_kernel_proved",
+        "ext_v331_continuous050_antiunitary_pairing_flip_kernel_proved",
+        "ext_v331_continuous050_generic_tomita_apply_kernel_proved",
+        "ext_v331_continuous050_generic_adjoint_input_coe_kernel_proved",
+        "ext_v331_continuous050_generic_tomita_adjoint_apply_kernel_proved",
+        "ext_v331_continuous050_generic_pairing_with_j_kernel_proved",
+        "ext_v331_continuous050_generic_adjoint_pairing_kernel_proved",
+        "ext_v331_continuous050_generic_adjoint_maximal_kernel_proved",
+        "ext_v331_continuous050_generic_adjoint_domain_iff_kernel_proved",
+        "ext_v331_continuous050_generic_composition_domain_kernel_proved",
+        "ext_v331_continuous050_generic_adjoint_comp_kernel_proved",
+        "ext_v331_continuous050_continuous_modular_square_domain_iff_kernel_proved",
+        "ext_v331_continuous050_continuous_modular_square_apply_kernel_proved",
+        "ext_v331_continuous050_continuous_modular_square_graph_iff_kernel_proved",
+        "ext_v331_continuous050_continuous_weight_double_kernel_proved",
+        "ext_v331_continuous050_continuous_weight_double_complex_kernel_proved",
+        "ext_v331_continuous050_continuous_weight_half_norm_le_kernel_proved",
+        "ext_v331_continuous050_continuous_modular_double_domain_le_kernel_proved",
+        "ext_v331_continuous050_continuous_modular_square_eq_kernel_proved",
+        "ext_v331_continuous050_continuous_modular_square_domain_eq_kernel_proved",
+        "ext_v331_continuous050_continuous_modular_composable_iff_kernel_proved",
+        "ext_v331_continuous050_continuous_modular_square_closed_kernel_proved",
+        "ext_v331_continuous050_continuous_modular_square_selfadjoint_kernel_proved",
+        "ext_v331_continuous050_continuous_tomita_eq_generic_kernel_proved",
+        "ext_v331_continuous050_continuous_tomita_adjoint_pairing_kernel_proved",
+        "ext_v331_continuous050_continuous_tomita_adjoint_maximal_kernel_proved",
+        "ext_v331_continuous050_continuous_tomita_adjoint_domain_iff_kernel_proved",
+        "ext_v331_continuous050_continuous_tomita_composition_domain_kernel_proved",
+        "ext_v331_continuous050_continuous_tomita_adjoint_comp_kernel_proved",
+        "ext_v331_continuous050_continuous_delta_graph_iff_tomita_comp_kernel_proved",
+        "ext_v331_continuous050_continuous_delta_eq_double_kernel_proved",
+        "ext_v331_continuous050_continuous_delta_domain_iff_kernel_proved",
+        "ext_v331_continuous050_continuous_delta_selfadjoint_kernel_proved",
+        "ext_v331_continuous050_continuous_delta_closed_kernel_proved",
+        "ext_v331_continuous050_continuous_delta_energy_kernel_proved",
+        "ext_v331_continuous050_continuous_delta_positive_kernel_proved",
+        "ext_v331_continuous050_continuous_modular_positive_square_root_kernel_proved",
+        "ext_v331_continuous050_spectral_operator_real_smul_apply_kernel_proved",
+        "ext_v331_continuous050_bounded_spectral_multiplier_nonneg_kernel_proved",
+        "ext_v331_continuous050_spectrala_nonneg_kernel_proved",
+        "ext_v331_continuous050_spectralb_nonneg_kernel_proved",
+        "ext_v331_continuous050_continuous_resolvent_complement_kernel_proved",
+        "ext_v331_continuous050_continuous_resolvent_sqrt_kernel_proved",
+        "ext_v331_continuous050_continuous_resolvent_complement_sqrt_kernel_proved",
+        "ext_v331_continuous050_continuous_modular_graph_from_cfc_kernel_proved",
+        "ext_v331_continuous050_continuous_modular_domain_from_cfc_kernel_proved",
+        "ext_v331_continuous050_continuous_resolvent_ae_kernel_proved",
+        "ext_v331_continuous050_continuous_resolvent_square_graph_kernel_proved",
+        "ext_v331_continuous050_continuous_resolvent_mem_square_domain_kernel_proved",
+        "ext_v331_continuous050_continuous_resolvent_square_apply_kernel_proved",
+        "ext_v331_continuous050_continuous_resolvent_right_inverse_kernel_proved",
+        "ext_v331_continuous050_continuous_resolvent_left_inverse_kernel_proved",
+        "ext_v331_continuous050_continuous_resolvent_unique_kernel_proved",
+        "ext_v331_optical051_optical_primitive_zero_kernel_proved",
+        "ext_v331_optical051_optical_primitive_const_kernel_proved",
+        "ext_v331_optical051_optical_primitive_intervalintegrable_kernel_proved",
+        "ext_v331_optical051_optical_primitive_hasderivat_kernel_proved",
+        "ext_v331_optical051_optical_primitive_continuouson_kernel_proved",
+        "ext_v331_optical051_optical_expansion_integral_kernel_proved",
+        "ext_v331_optical051_optical_volterra_balance_kernel_proved",
+        "ext_v331_optical051_optical_volterra_balance_matched_kernel_proved",
+        "ext_v331_optical051_optical_volterra_balance_constant_kernel_proved",
+        "ext_v331_optical051_optical_volterra_correction_zero_kernel_proved",
+        "ext_v331_optical051_optical_volterra_correction_nonneg_kernel_proved",
+        "ext_v331_optical051_optical_scaled_correction_nonneg_kernel_proved",
+        "ext_v331_optical051_optical_screen_matrix_symmetric_kernel_proved",
+        "ext_v331_optical051_optical_screen_matrix_trace_kernel_proved",
+        "ext_v331_optical051_optical_screen_matrix_square_trace_kernel_proved",
+        "ext_v331_optical051_optical_screen_raychaudhuri_decomposition_kernel_proved",
+        "ext_v331_optical051_optical_screen_norm_nonneg_kernel_proved",
+        "ext_v331_optical051_optical_screen_shear_nonneg_kernel_proved",
+        "ext_v331_optical051_optical_screen_norm_eq_zero_kernel_proved",
+        "ext_v331_optical051_optical_rotated_trace_kernel_proved",
+        "ext_v331_optical051_optical_rotated_norm_kernel_proved",
+        "ext_v331_optical051_optical_rotated_shear_kernel_proved",
+        "ext_v331_optical051_optical_riccati_trace_kernel_proved",
+        "ext_v331_optical051_optical_riccati_raychaudhuri_kernel_proved",
+        "ext_v331_optical051_optical_diagonal_distortion_kernel_proved",
+        "ext_v331_optical051_optical_distortion_nonneg_kernel_proved",
+        "ext_v331_optical051_optical_expansion_zero_kernel_proved",
+        "ext_v331_optical051_optical_expansion_derivative_kernel_proved",
+        "ext_v331_optical051_optical_distortion_continuouson_kernel_proved",
+        "ext_v331_optical051_optical_area_positive_kernel_proved",
+        "ext_v331_optical051_optical_area_derivative_kernel_proved",
+        "ext_v331_optical051_optical_finite_balance_kernel_proved",
+        "ext_v331_optical051_optical_correction_nonneg_kernel_proved",
+        "ext_v331_optical051_optical_finite_balance_near_zero_kernel_proved",
+        "ext_v331_optical051_constructed_heat_finite_balance_germ_kernel_proved",
+        "ext_v331_optical051_optical_correction_quartic_limit_kernel_proved",
+        "ext_v331_optical051_optical_affine_curvature_primitive_kernel_proved",
+        "ext_v331_optical051_optical_affine_curvature_drift_kernel_proved",
+        "ext_v331_optical051_optical_affine_drift_negative_kernel_proved",
+        "ext_v331_optical051_optical_affine_drift_positive_kernel_proved",
+        "ext_v331_optical051_optical_matrix_constant_balance_kernel_proved",
+        "ext_v331_optical051_optical_matrix_correction_nonneg_kernel_proved",
+        "ext_v331_optical051_optical_past_entropy_orientation_kernel_proved",
+        "ext_v331_optical051_optical_zero_temperature_control_kernel_proved",
+        "ext_v331_optical051_optical_entropy_correction_nonneg_kernel_proved",
+        "ext_v331_orbit052_pauli_horizontal_add_kernel_proved",
+        "ext_v331_orbit052_pauli_horizontal_smul_kernel_proved",
+        "ext_v331_orbit052_pauli_horizontal_basis_x_kernel_proved",
+        "ext_v331_orbit052_pauli_horizontal_basis_y_kernel_proved",
+        "ext_v331_orbit052_pauli_horizontal_mem_factor_kernel_proved",
+        "ext_v331_orbit052_pauli_horizontal_selfadjoint_kernel_proved",
+        "ext_v331_orbit052_pauli_horizontal_state_kernel_proved",
+        "ext_v331_orbit052_aperiodic_expectation_local_kernel_proved",
+        "ext_v331_orbit052_aperiodic_pauli_x_zero_kernel_proved",
+        "ext_v331_orbit052_aperiodic_pauli_y_zero_kernel_proved",
+        "ext_v331_orbit052_pauli_horizontal_expectation_kernel_proved",
+        "ext_v331_orbit052_pauli_horizontal_pairing_kernel_proved",
+        "ext_v331_orbit052_pauli_horizontal_re_pairing_kernel_proved",
+        "ext_v331_orbit052_pauli_horizontal_im_pairing_kernel_proved",
+        "ext_v331_orbit052_pauli_horizontal_gns_norm_sq_kernel_proved",
+        "ext_v331_orbit052_pauli_x_gns_norm_kernel_proved",
+        "ext_v331_orbit052_pauli_y_gns_norm_kernel_proved",
+        "ext_v331_orbit052_pauli_xy_gns_pairing_kernel_proved",
+        "ext_v331_orbit052_horizontal_x_commutator_kernel_proved",
+        "ext_v331_orbit052_horizontal_y_commutator_kernel_proved",
+        "ext_v331_orbit052_horizontal_x_reading_derivative_kernel_proved",
+        "ext_v331_orbit052_horizontal_y_reading_derivative_kernel_proved",
+        "ext_v331_orbit052_horizontal_response_formula_kernel_proved",
+        "ext_v331_orbit052_horizontal_response_matrix_kernel_proved",
+        "ext_v331_orbit052_horizontal_response_determinant_kernel_proved",
+        "ext_v331_orbit052_horizontal_response_injective_kernel_proved",
+        "ext_v331_orbit052_horizontal_state_tangent_separates_kernel_proved",
+        "ext_v331_orbit052_horizontal_response_tracial_kernel_proved",
+        "ext_v331_orbit052_aperiodic_pauli_x_tracial_kernel_proved",
+        "ext_v331_orbit052_aperiodic_pauli_y_tracial_kernel_proved",
+        "ext_v331_orbit052_first_site_modular_gap_ne_zero_kernel_proved",
+        "ext_v331_orbit052_first_site_modular_gap_pos_iff_kernel_proved",
+        "ext_v331_orbit052_first_site_modular_gap_neg_iff_kernel_proved",
+        "ext_v331_orbit052_first_site_modular_gap_sign_kernel_proved",
+        "ext_v331_orbit052_modular_phase_trigonometric_kernel_proved",
+        "ext_v331_orbit052_first_site_flow_x_kernel_proved",
+        "ext_v331_orbit052_first_site_flow_y_kernel_proved",
+        "ext_v331_orbit052_modular_horizon_pauli_x_kernel_proved",
+        "ext_v331_orbit052_modular_horizon_pauli_y_kernel_proved",
+        "ext_v331_orbit052_modular_quarter_turn_angle_kernel_proved",
+        "ext_v331_orbit052_modular_quarter_horizon_x_kernel_proved",
+        "ext_v331_orbit052_modular_quarter_horizon_y_kernel_proved",
+        "ext_v331_orbit052_modular_oriented_quarter_time_neg_kernel_proved",
+        "ext_v331_orbit052_modular_oriented_angle_of_pos_kernel_proved",
+        "ext_v331_orbit052_modular_oriented_angle_of_neg_kernel_proved",
+        "ext_v331_orbit052_modular_oriented_horizon_x_kernel_proved",
+        "ext_v331_orbit052_modular_oriented_horizon_y_kernel_proved",
+        "ext_v331_orbit052_first_site_modular_gap_tracial_kernel_proved",
+        "ext_v331_orbit052_modular_horizon_pauli_x_tracial_kernel_proved",
+        "ext_v331_orbit052_modular_horizon_pauli_y_tracial_kernel_proved",
+        "ext_v331_orbit052_orbit_basis_decomposition_kernel_proved",
+        "ext_v331_orbit052_orbit_quarter_basis_x_kernel_proved",
+        "ext_v331_orbit052_orbit_quarter_basis_y_kernel_proved",
+        "ext_v331_orbit052_orbit_quarter_square_kernel_proved",
+        "ext_v331_orbit052_orbit_dot_apply_kernel_proved",
+        "ext_v331_orbit052_orbit_bilinear_expansion_kernel_proved",
+        "ext_v331_orbit052_orbit_quarter_invariant_form_kernel_proved",
+        "ext_v331_orbit052_orbit_trace_one_selection_kernel_proved",
+        "ext_v331_orbit052_orbit_scalar_gram_kernel_proved",
+        "ext_v331_orbit052_orbit_scalar_area_kernel_proved",
+        "ext_v331_orbit052_orbit_trace_one_area_kernel_proved",
+        "ext_v331_orbit052_orbit_selected_trace_in_orthonormal_pair_kernel_proved",
+        "ext_v331_orbit052_orbit_sign_times_self_kernel_proved",
+        "ext_v331_orbit052_orbit_calibration_identity_kernel_proved",
+        "ext_v331_orbit052_orbit_oriented_square_kernel_proved",
+        "ext_v331_orbit052_orbit_calibration_compatibility_kernel_proved",
+        "ext_v331_orbit052_orbit_calibrated_symmetric_kernel_proved",
+        "ext_v331_orbit052_orbit_calibrated_positive_kernel_proved",
+        "ext_v331_orbit052_orbit_calibrated_area_kernel_proved",
+        "ext_v331_orbit052_orbit_zero_calibration_kernel_proved",
+        "ext_v331_orbit052_quantum_horizontal_re_pairing_kernel_proved",
+        "ext_v331_orbit052_quantum_horizontal_im_pairing_kernel_proved",
+        "ext_v331_orbit052_quantum_horizontal_quarter_action_kernel_proved",
+        "ext_v331_orbit052_quantum_horizontal_oriented_action_kernel_proved",
+        "ext_v331_orbit052_quantum_horizontal_tracial_action_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_asymmetry_ne_zero_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_pairing_eq_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_form_apply_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_form_eq_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_form_symmetric_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_form_positive_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_form_nondegenerate_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_form_area_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_form_trace_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_pairing_tracial_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_directions_effective_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_effective_positive_kernel_proved",
+        "ext_v331_orbit052_quantum_centralizer_imaginary_zero_kernel_proved",
+        "ext_v331_orbit052_quantum_orbit_third_reference_area_kernel_proved",
+        "ext_v331_orbit052_quantum_candidate_quarter_invariant_kernel_proved",
+        "ext_v331_orbit052_quantum_candidate_isotropic_kernel_proved",
+        "ext_v331_orbit052_quantum_candidate_gns_restriction_kernel_proved",
+        "ext_v331_orbit052_quantum_candidate_trace_one_kernel_proved",
+        "ext_v331_orbit052_quantum_candidate_trace_one_area_kernel_proved",
+        "ext_v331_covariant053_horizon_ad_add_kernel_proved",
+        "ext_v331_covariant053_horizon_ad_smul_kernel_proved",
+        "ext_v331_covariant053_horizon_ad_one_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_inner_factor_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_norm_factor_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_dist_factor_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_pre_tof_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_pre_add_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_pre_smul_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_pre_norm_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_pre_isometry_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_map_continuous_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_map_coe_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_map_add_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_map_smul_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_map_norm_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_map_apply_factor_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_map_inverse_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_map_right_inverse_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_apply_factor_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_symm_apply_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_omega_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_inner_kernel_proved",
+        "ext_v331_covariant053_real_state_generator_mem_kernel_proved",
+        "ext_v331_covariant053_real_state_subspace_closed_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_real_mem_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_real_image_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_real_apply_kernel_proved",
+        "ext_v331_covariant053_polarizer_apply_kernel_proved",
+        "ext_v331_covariant053_polarizer_mem_kernel_proved",
+        "ext_v331_covariant053_polarizer_pairing_kernel_proved",
+        "ext_v331_covariant053_polarizer_duality_kernel_proved",
+        "ext_v331_covariant053_polarizer_norm_le_kernel_proved",
+        "ext_v331_covariant053_polarizer_opnorm_le_kernel_proved",
+        "ext_v331_covariant053_polarizer_antisymmetric_kernel_proved",
+        "ext_v331_covariant053_polarizer_eq_of_pairing_kernel_proved",
+        "ext_v331_covariant053_polarizer_kernel_iff_kernel_proved",
+        "ext_v331_covariant053_polarizer_form_re_kernel_proved",
+        "ext_v331_covariant053_polarizer_form_apply_kernel_proved",
+        "ext_v331_covariant053_polarizer_form_symmetric_kernel_proved",
+        "ext_v331_covariant053_polarizer_form_diagonal_kernel_proved",
+        "ext_v331_covariant053_polarizer_form_nonneg_kernel_proved",
+        "ext_v331_covariant053_polarizer_form_zero_iff_kernel_proved",
+        "ext_v331_covariant053_real_projection_covariant_kernel_proved",
+        "ext_v331_covariant053_polarizer_covariant_kernel_proved",
+        "ext_v331_covariant053_polarizer_square_covariant_kernel_proved",
+        "ext_v331_covariant053_polarizer_form_covariant_kernel_proved",
+        "ext_v331_covariant053_real_state_pairing_ext_kernel_proved",
+        "ext_v331_covariant053_state_polarizer_pairing_kernel_proved",
+        "ext_v331_covariant053_tower_polarizer_eq_of_pairing_kernel_proved",
+        "ext_v331_covariant053_state_centralizer_iff_imaginary_kernel_proved",
+        "ext_v331_covariant053_state_polarizer_zero_iff_kernel_proved",
+        "ext_v331_covariant053_state_covariant_apply_kernel_proved",
+        "ext_v331_covariant053_state_covariant_symmetric_kernel_proved",
+        "ext_v331_covariant053_state_covariant_nonneg_kernel_proved",
+        "ext_v331_covariant053_state_covariant_kernel_kernel_proved",
+        "ext_v331_covariant053_state_covariant_positive_iff_kernel_proved",
+        "ext_v331_covariant053_horizon_gns_real_iff_kernel_proved",
+        "ext_v331_covariant053_state_polarizer_covariant_kernel_proved",
+        "ext_v331_covariant053_state_covariant_factor_invariant_kernel_proved",
+        "ext_v331_covariant053_state_covariant_invariant_kernel_proved",
+        "ext_v331_covariant053_state_covariant_add_centralizer_kernel_proved",
+        "ext_v331_covariant053_state_covariant_add_centralizer_right_kernel_proved",
+        "ext_v331_covariant053_state_reading_real_hasderivat_kernel_proved",
+        "ext_v331_covariant053_state_response_formula_kernel_proved",
+        "ext_v331_covariant053_state_response_kernel_kernel_proved",
+        "ext_v331_covariant053_state_covariant_response_kernel_kernel_proved",
+        "ext_v331_covariant053_local_polarizer_hermitian_kernel_proved",
+        "ext_v331_covariant053_local_polarizer_sylvester_kernel_proved",
+        "ext_v331_covariant053_local_state_star_kernel_proved",
+        "ext_v331_covariant053_local_polarizer_pairing_kernel_proved",
+        "ext_v331_covariant053_tower_local_selfadjoint_kernel_proved",
+        "ext_v331_covariant053_state_polarizer_local_kernel_proved",
+        "ext_v331_covariant053_local_operator_pairing_kernel_proved",
+        "ext_v331_covariant053_double_flip_x_hermitian_kernel_proved",
+        "ext_v331_covariant053_double_flip_y_hermitian_kernel_proved",
+        "ext_v331_covariant053_double_flip_x_mem_factor_kernel_proved",
+        "ext_v331_covariant053_double_flip_y_mem_factor_kernel_proved",
+        "ext_v331_covariant053_double_flip_x_selfadjoint_kernel_proved",
+        "ext_v331_covariant053_double_flip_y_selfadjoint_kernel_proved",
+        "ext_v331_covariant053_local_real_smul_action_kernel_proved",
+        "ext_v331_covariant053_first_pauli_polarizer_x_kernel_proved",
+        "ext_v331_covariant053_first_pauli_polarizer_y_kernel_proved",
+        "ext_v331_covariant053_double_flip_polarizer_x_kernel_proved",
+        "ext_v331_covariant053_double_flip_polarizer_y_kernel_proved",
+        "ext_v331_covariant053_double_flip_x_expectation_kernel_proved",
+        "ext_v331_covariant053_double_flip_y_expectation_kernel_proved",
+        "ext_v331_covariant053_double_flip_state_products_kernel_proved",
+        "ext_v331_covariant053_double_flip_real_gram_kernel_proved",
+        "ext_v331_covariant053_double_flip_norm_squares_kernel_proved",
+        "ext_v331_covariant053_double_flip_horizontal_mem_factor_kernel_proved",
+        "ext_v331_covariant053_double_flip_horizontal_selfadjoint_kernel_proved",
+        "ext_v331_covariant053_double_flip_horizontal_expectation_kernel_proved",
+        "ext_v331_covariant053_double_flip_x_commutator_kernel_proved",
+        "ext_v331_covariant053_double_flip_y_commutator_kernel_proved",
+        "ext_v331_covariant053_double_flip_x_reading_derivative_kernel_proved",
+        "ext_v331_covariant053_double_flip_y_reading_derivative_kernel_proved",
+        "ext_v331_covariant053_double_flip_response_formula_kernel_proved",
+        "ext_v331_covariant053_double_flip_response_injective_kernel_proved",
+        "ext_v331_covariant053_double_flip_effective_directions_kernel_proved",
+        "ext_v331_covariant053_normalized_covariant_apply_kernel_proved",
+        "ext_v331_covariant053_normalization_positive_kernel_proved",
+        "ext_v331_covariant053_normalized_covariant_symmetric_kernel_proved",
+        "ext_v331_covariant053_normalized_covariant_nonneg_kernel_proved",
+        "ext_v331_covariant053_normalized_covariant_invariant_kernel_proved",
+        "ext_v331_covariant053_normalized_covariant_kernel_kernel_proved",
+        "ext_v331_covariant053_normalized_covariant_positive_iff_kernel_proved",
+        "ext_v331_covariant053_state_covariant_rotating_pair_gram_kernel_proved",
+        "ext_v331_covariant053_first_pair_real_gram_kernel_proved",
+        "ext_v331_covariant053_first_pair_unnormalized_gram_kernel_proved",
+        "ext_v331_covariant053_double_pair_unnormalized_gram_kernel_proved",
+        "ext_v331_covariant053_normalized_first_pair_gram_kernel_proved",
+        "ext_v331_covariant053_normalized_double_pair_gram_zero_kernel_proved",
+        "ext_v331_covariant053_normalized_double_pair_gram_one_kernel_proved",
+        "ext_v331_covariant053_normalized_double_pair_area_zero_kernel_proved",
+        "ext_v331_covariant053_normalized_double_pair_area_one_kernel_proved",
+        "ext_v331_covariant053_normalized_area_gap_kernel_proved",
+        "ext_v331_covariant053_normalized_forms_distinct_kernel_proved",
+        "ext_v331_covariant053_normalized_forms_not_global_rescaling_kernel_proved",
+        "ext_v331_covariant053_two_global_covariant_calibrated_forms_kernel_proved",
+        "ext_v331_covariant053_normalized_covariant_add_centralizer_left_kernel_proved",
+        "ext_v331_covariant053_normalized_covariant_add_centralizer_right_kernel_proved",
+        "ext_v331_covariant053_normalized_covariant_response_kernel_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_weight_pos_kernel_proved",
+        "ext_v331_cost054_polarizer_modular_cost_eq_tsum_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_term_zero_kernel_proved",
+        "ext_v331_cost054_polarizer_modular_cost_zero_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_term_smul_kernel_proved",
+        "ext_v331_cost054_polarizer_modular_cost_smul_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_term_add_le_kernel_proved",
+        "ext_v331_cost054_polarizer_modular_cost_add_le_kernel_proved",
+        "ext_v331_cost054_polarizer_modular_cost_first_le_kernel_proved",
+        "ext_v331_cost054_polarizer_modular_cost_zero_iff_kernel_proved",
+        "ext_v331_cost054_mem_polarizercostdomain_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_kernel_mem_domain_kernel_proved",
+        "ext_v331_cost054_polarizer_power_covariant_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_term_covariant_kernel_proved",
+        "ext_v331_cost054_polarizer_modular_cost_covariant_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_domain_covariant_kernel_proved",
+        "ext_v331_cost054_polarizer_modular_cost_eq_of_hassum_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_mem_domain_of_hassum_kernel_proved",
+        "ext_v331_cost054_polarizer_modular_cost_lowersemicontinuous_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_series_term_nonneg_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_hassum_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_log_ratio_hassum_kernel_proved",
+        "ext_v331_cost054_polarizer_weight_ratio_abs_lt_one_kernel_proved",
+        "ext_v331_cost054_polarizer_weight_ratio_identity_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_weights_hassum_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_scalar_nonneg_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_scalar_ennreal_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_weights_ennreal_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_of_norm_powers_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_of_weight_norm_powers_kernel_proved",
+        "ext_v331_cost054_polarizer_cost_norm_powers_lt_top_kernel_proved",
+        "ext_v331_cost054_tower_modular_cost_domain_kernel_proved",
+        "ext_v331_cost054_tower_modular_cost_zero_iff_kernel_proved",
+        "ext_v331_cost054_tower_modular_cost_centralizer_kernel_proved",
+        "ext_v331_cost054_tower_modular_cost_response_kernel_kernel_proved",
+        "ext_v331_cost054_tower_modular_cost_covariant_kernel_proved",
+        "ext_v331_cost054_tower_modular_domain_covariant_kernel_proved",
+        "ext_v331_cost054_tower_modular_cost_factor_invariant_kernel_proved",
+        "ext_v331_cost054_tower_modular_cost_lowersemicontinuous_kernel_proved",
+        "ext_v331_cost054_local_polarizer_iterate_hermitian_kernel_proved",
+        "ext_v331_cost054_local_polarizer_iterate_entry_kernel_proved",
+        "ext_v331_cost054_state_polarizer_local_power_kernel_proved",
+        "ext_v331_cost054_local_iterate_normsq_kernel_proved",
+        "ext_v331_cost054_state_polarizer_local_power_norm_kernel_proved",
+        "ext_v331_cost054_tower_local_cost_hassum_kernel_proved",
+        "ext_v331_cost054_tower_local_cost_formula_kernel_proved",
+        "ext_v331_cost054_tower_local_mem_cost_domain_kernel_proved",
+        "ext_v331_cost054_tower_cost_domain_dense_real_kernel_proved",
+        "ext_v331_cost054_local_modular_cost_symmetric_kernel_proved",
+        "ext_v331_cost054_tower_local_cost_symmetric_formula_kernel_proved",
+        "ext_v331_cost054_rotating_pair_norm_powers_kernel_proved",
+        "ext_v331_cost054_first_pauli_cost_norm_powers_kernel_proved",
+        "ext_v331_cost054_double_flip_cost_norm_powers_kernel_proved",
+        "ext_v331_cost054_first_pauli_modular_cost_kernel_proved",
+        "ext_v331_cost054_double_flip_modular_cost_kernel_proved",
+        "ext_v331_cost054_omega_real_continuous_apply_kernel_proved",
+        "ext_v331_cost054_bounded_phase_negative_generator_kernel_proved",
+        "ext_v331_cost054_negative_phase_derivative_kernel_proved",
+        "ext_v331_cost054_unitary_conjugation_has_derivative_kernel_proved",
+        "ext_v331_cost054_unitary_velocity_derivative_zero_kernel_proved",
+        "ext_v331_cost054_unitary_energy_derivative_kernel_proved",
+        "ext_v331_cost054_unitary_energy_velocity_zero_kernel_proved",
+        "ext_v331_cost054_unitary_energy_velocity_derivative_kernel_proved",
+        "ext_v331_cost054_unitary_energy_second_derivative_kernel_proved",
+        "ext_v331_cost054_quadratic_response_from_velocity_kernel_proved",
+        "ext_v331_cost054_local_modular_matrix_hermitian_kernel_proved",
+        "ext_v331_cost054_local_modular_commutator_state_kernel_proved",
+        "ext_v331_cost054_finite_modular_energy_first_zero_kernel_proved",
+        "ext_v331_cost054_local_modular_double_coefficient_kernel_proved",
+        "ext_v331_cost054_finite_modular_energy_second_kernel_proved",
+        "ext_v331_cost054_finite_modular_energy_quadratic_limit_kernel_proved",
+        "ext_v331_cost054_global_cost_is_modular_response_kernel_proved",
+        # v331 (GERENCIA): +7 — a raiz da arvore da prova / grupo dos horizontes no contador
+        "ext_v331_adt_comp_kernel_proved",
+        "ext_v331_adt_inv_adt_kernel_proved",
+        "ext_v331_adt_adt_inv_kernel_proved",
+        "ext_v331_expectation_covariant_under_horizon_composition_kernel_proved",
+        "ext_v331_aperiodic_expectation_covariant_under_inverse_kernel_proved",
+        "ext_v331_the_root_of_the_proof_tree_kernel_proved",
+        "ext_v331_the_aperiodic_antecedent_is_now_a_term_kernel_proved",
     ]
     per_theorem = {k: bool(kf.get(k) is True) for k in ext_flags}
     n_ok = sum(1 for v in per_theorem.values() if v)
@@ -137220,6 +149338,54 @@ _ESQUELETO_STONES = [
     # v300: o ledger parara na v284 enquanto o arquivo foi a' v297 -- por isso o
     # rotulo publico (llms.txt, PORTA, TUNEL, README) anunciava "v284/TheAtermation".
     # Os HASHES publicados estavam todos CERTOS; o defeito era so' de rotulo.
+    # v331: PEDRA DA GERENCIA (07/09/2026) — A RAIZ DA ARVORE DA PROVA: um termo, sete conjuntos (mestre; Lema 3 na torre
+    # para todo perfil; unicidade; fluxo modular; trocas; parede de H3; a forma nao fixa o valor) + o grupo dos horizontes.
+    ("v331", "TheRootOfTheProofTree", "TGLExt/TheRootOfTheProofTree.lean", None, None),
+    # v331: ENTREGAS 046..054 (07/09/2026) — esperanca APERIODICA para todo perfil (o Lema 3 dispara em toda torre); E linear/CP/normal;
+    # obstrucoes; subespaco padrao continuo; balanco optico; polarizador e custo modular; 17o ciclo do TUNEL (9 entregas, 43 pedras).
+    ("v331", "ModularCostDerivative", "TGLExt/ModularCostDerivative.lean", None, None),
+    ("v331", "TowerModularCost", "TGLExt/TowerModularCost.lean", None, None),
+    ("v331", "PolarizerCostSeries", "TGLExt/PolarizerCostSeries.lean", None, None),
+    ("v331", "PolarizerModularCost", "TGLExt/PolarizerModularCost.lean", None, None),
+    ("v331", "CovariantAreaCounterexample", "TGLExt/CovariantAreaCounterexample.lean", None, None),
+    ("v331", "LocalPolarizerWitness", "TGLExt/LocalPolarizerWitness.lean", None, None),
+    ("v331", "TowerStatePolarizer", "TGLExt/TowerStatePolarizer.lean", None, None),
+    ("v331", "SymplecticPolarizer", "TGLExt/SymplecticPolarizer.lean", None, None),
+    ("v331", "HorizonGNSImplementation", "TGLExt/HorizonGNSImplementation.lean", None, None),
+    ("v331", "QuantumOrbitArea", "TGLExt/QuantumOrbitArea.lean", None, None),
+    ("v331", "HorizontalAreaSelection", "TGLExt/HorizontalAreaSelection.lean", None, None),
+    ("v331", "ModularHorizontalRotation", "TGLExt/ModularHorizontalRotation.lean", None, None),
+    ("v331", "LocalHorizontalPauli", "TGLExt/LocalHorizontalPauli.lean", None, None),
+    ("v331", "OpticalBalanceControls", "TGLExt/OpticalBalanceControls.lean", None, None),
+    ("v331", "OpticalFiniteBalance", "TGLExt/OpticalFiniteBalance.lean", None, None),
+    ("v331", "OpticalRiccatiInvariant", "TGLExt/OpticalRiccatiInvariant.lean", None, None),
+    ("v331", "OpticalVolterraBalance", "TGLExt/OpticalVolterraBalance.lean", None, None),
+    ("v331", "ContinuousModularResolvent", "TGLExt/ContinuousModularResolvent.lean", None, None),
+    ("v331", "ContinuousModularReconstruction", "TGLExt/ContinuousModularReconstruction.lean", None, None),
+    ("v331", "ContinuousModularSquare", "TGLExt/ContinuousModularSquare.lean", None, None),
+    ("v331", "GenericAntilinearAdjoint", "TGLExt/GenericAntilinearAdjoint.lean", None, None),
+    ("v331", "ContinuousModularStandardSubspace", "TGLExt/ContinuousModularStandardSubspace.lean", None, None),
+    ("v331", "ContinuousModularDomain", "TGLExt/ContinuousModularDomain.lean", None, None),
+    ("v331", "BoundedGraphStandardSubspace", "TGLExt/BoundedGraphStandardSubspace.lean", None, None),
+    ("v331", "ContinuousModularMultipliers", "TGLExt/ContinuousModularMultipliers.lean", None, None),
+    ("v331", "ClosedAntilinearStandardSubspace", "TGLExt/ClosedAntilinearStandardSubspace.lean", None, None),
+    ("v331", "BoundedGraphOperator", "TGLExt/BoundedGraphOperator.lean", None, None),
+    ("v331", "FaithfulGeometricLocalization", "TGLExt/FaithfulGeometricLocalization.lean", None, None),
+    ("v331", "TransportedBorchersObstruction", "TGLExt/TransportedBorchersObstruction.lean", None, None),
+    ("v331", "ExpectationNormality", "TGLExt/ExpectationNormality.lean", None, None),
+    ("v331", "MonotoneOperatorLimit", "TGLExt/MonotoneOperatorLimit.lean", None, None),
+    ("v331", "ExpectationContinuity", "TGLExt/ExpectationContinuity.lean", None, None),
+    ("v331", "GeneralExpectationCP", "TGLExt/GeneralExpectationCP.lean", None, None),
+    ("v331", "ExpectationBlockPositive", "TGLExt/ExpectationBlockPositive.lean", None, None),
+    ("v331", "OperatorBlockRepresentation", "TGLExt/OperatorBlockRepresentation.lean", None, None),
+    ("v331", "GeneralExpectationPositive", "TGLExt/GeneralExpectationPositive.lean", None, None),
+    ("v331", "ExpectationAlgebra", "TGLExt/ExpectationAlgebra.lean", None, None),
+    ("v331", "AperiodicTowerLift", "TGLExt/AperiodicTowerLift.lean", None, None),
+    ("v331", "AperiodicCentralizerExpectation", "TGLExt/AperiodicCentralizerExpectation.lean", None, None),
+    ("v331", "AperiodicAveragePrefix", "TGLExt/AperiodicAveragePrefix.lean", None, None),
+    ("v331", "AperiodicVectorAverage", "TGLExt/AperiodicVectorAverage.lean", None, None),
+    ("v331", "BoundedOmegaLimit", "TGLExt/BoundedOmegaLimit.lean", None, None),
+    ("v331", "AperiodicPhaseAverage", "TGLExt/AperiodicPhaseAverage.lean", None, None),
     # v330: ENTREGAS 044..045 (06/09/2026) — boost aproximado e orientacao do calor; horizontes de permutacao (swap),
     # dicotomia do relogio, escala da area (ORDEM_010); 16o ciclo do TUNEL (2 entregas, 8 pedras). RODADA COMPLETA.
     ("v330", "HorizonAreaScale", "TGLExt/HorizonAreaScale.lean", None, None),

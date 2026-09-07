@@ -1390,3 +1390,17 @@ geometria distinta (045: gap eta r²/96), a igualdade finita falha (041/043) —
 relogio. Logo H3 dinamico = uma LEI que escolha a geometria — a ponte regiao–algebra, cuja normalizacao a
 covariancia por horizontes NAO fixa (045 C). No Lema 3: `swapHorizon` e as permutacoes finitas sao horizontes
 concretos com covariancia das esperancas; o shift e o aperiodico seguem OPEN. 3442/3442 teoremas; gate INTOCADO.
+
+---
+
+## ADENDO — 07/09/2026 (madrugada) · v331 (COMPLETA): o Lema 3 PAGO NA TORRE para todo perfil; a raiz da arvore como um termo so
+
+A ENTREGA_046 construiu a esperanca de Takesaki para TODO perfil (Cesaro do fluxo modular) e o levantamento do Lema 3
+dispara em toda torre; a 047 provou-a CP e normal; a gerencia fechou o GRUPO dos horizontes e cunhou
+`the_root_of_the_proof_tree` — um termo que enuncia e prova, em conjuncao, o mestre, o Lema 3 na torre, a unicidade,
+o fluxo modular, as trocas, a PAREDE de H3 e «a forma nao fixa o valor». **O caminho critico depois disto:** o que
+resta nao e teorema interno da torre — (1) H3 = uma lei que escolha a geometria (INPUT por teorema: dicotomia 045;
+area nao fixada por covariancia + calibracao, 053); (2) a ponte andares → regioes e a escala fisica da area; (3)
+BW: o subespaco padrao continuo esta construido (049-050), a identificacao T_c = Δ_c^(1/2) e o fluxo fisico seguem
+OPEN; (4) a passagem da torre a algebra de von Neumann geral [KNOWN, Takesaki]. Assinatura e O QUATRO inalterados.
+4055/4055 teoremas; gate INTOCADO; CONFIRMADA proibido.

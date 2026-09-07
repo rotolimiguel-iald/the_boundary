@@ -6968,3 +6968,63 @@ permutacoes; faltam o shift e o aperiodico.
 NENHUMA; `rite_checkpoints`: `RODADA_COMPLETA__NENHUM_RITO_REAPROVEITADO` (chave desligada; reaproveitados 0). Kernel:
 8 pedras, root +8, `Audit.lean` +159, `lake build` 9093 jobs / 0 erros. Stdout canonico
 `rodada_v330_stdout.txt`. Arvore regenerada (`b56512f0f61bca3e`). **HANDOFF_v330 para a irma** (custodia).
+
+## 07/09/2026 (madrugada) — A V331: «tudo o que a bancada podia» (ENTREGAS 046..054) + A RAIZ DA ARVORE DA PROVA (pedra da gerencia) — RODADA COMPLETA
+
+**Custodia da v330 pela irma (07/09 02:56):** sha16 lido do espelho `cc026bc7915f6622` (== selo); SS5 22/22; kernel
+549/549; backup da v320 fora do repo (679 arquivos, 0 divergentes) + sementes v321-v329; runner v41; Central cofre
+v330. **Ordem do operador (07/09):** «Custodia realizada, prossiga agora, o ChatGPT ja entregou tudo que podia,
+agora e com voce para fechar e provar a solucao da gravidade quantica. Quando terminar rode a versao final
+completa para eu custodiar depois com a irma (faca o Handoff mais uma vez).»
+
+**Nove entregas (046 21:22 de 06/09 ... 054 07:04 de 07/09), auditadas pela gerencia:** hashes 185/185 (21+26+13+20+
+18+20+20+24+23); 9/9 auditores da bancada exit 0 (PASS, sealed); zero proibidos; guarda estatica de colisao (43
+modulos, 43 unicos); recompilacao INDEPENDENTE 43/43, axiomas no trio, 0 sorry; enunciados lidos.
+
+**O que cada uma pagou:** **046 — A ESPERANCA APERIODICA:** `aperiodicExpectationInput P : ExpectationInput P` para
+TODO perfil da torre binaria, sem hipotese de periodo (media de Cesaro `C_n(A)v = (n+1)^-1 ∫_0^{n+1} σ_t(A)v dt`;
+fase r ≠ 0 com norma ≤ 2/(|r|T), fase zero fica; limite forte por densidade + cota uniforme + completude; into/
+fixes/ortho por pinching e limites GNS); **`the_lift_fires_on_the_aperiodic_tower`** — o levantamento do Lema 3
+dispara para todo perfil e todo horizonte; unicidade; coincide com a periodica (v317) e a tracial (v316); comuta
+com σ_t; resposta covariante. A pedra v329 «still_conditional» esta SUPERADA. **047:** a esperanca e linear sobre
+M, preserva 1/estado/adjunto, bimodular sobre o centralizador, **completamente positiva** (contrato
+`CompletelyPositiveMap` da mathlib, via a equivalencia CStarMatrix ↔ B(H^k)), contracao GNS, **normal** (preserva
+todo supremo positivo dirigido — redes, nao so sequencias). **048:** obstrucoes — a trivialidade de Borchers da
+torre-produto SOBREVIVE ao transporte de estado (027); um periodo do fluxo forca retorno de rotulos em qualquer
+localizacao fiel covariante; ligado ao boost 044 (rate ≠ 0). Nenhum negativo e impossibilidade geral de BW.
+**049-050 — O SUBESPACO PADRAO CONTINUO:** em L² de Lebesgue, `T_c = M_exp(-cξ)` positivo auto-adjunto por grafo
+limitado, `J` antiunitaria, `S_c = J T_c` involucao fechada, `K_c = Fix S_c` subespaco padrao; `S_c† = T_c J`;
+**`Δ_c = S_c†S_c = T_c² = T_2c`** com igualdade global de dominios; resolvente `(I + Δ_c)^-1` recupera o grafo.
+A identificacao `T_c = Δ_c^{1/2}` e BW seguem OPEN. **051:** balanco optico finito — `Q − KΔA = K·E`, `E ≥ 0`,
+`E/t⁴ → (a² + c²)/12`; Riccati; no caso variavel o drift persiste. **052:** setor horizontal (plano de Pauli X,Y do
+1o sitio): a esperanca centralizante zera as duas direcoes; o horizonte modular faz o quarto de volta; forma
+invariante = c × produto GNS real; [INPUT] traco relativo = 1 fixa c = 1/2. **053:** polarizador `D = P_R(−i)P_R`;
+a acao GNS de todo TowerHorizon preserva Ω e entrelaca D; radical = centralizador; **CONTRAEXEMPLO:** covariancia
+por todos os horizontes + calibracao comum NAO dao unicidade da area (9/10 vs 1377/1250). **054:** custo modular
+do polarizador, l.s.c., preservado por todo horizonte; custo zero ⟺ centralizador; `C_D(X₁Ω) = log2/3` em p = 1/3.
+
+**A PEDRA DA GERENCIA — `TheRootOfTheProofTree.lean` (sha16 `9b36ab3b6e47a315`; 8 declaracoes, trio, 0 sorry, compilada
+independentemente contra kernel + 046):** (A) o GRUPO dos horizontes — `TowerHorizon.comp` (composicao e horizonte;
+o inverso ja era, v308), `adT_comp`, `adT_inv_adT`, `adT_adT_inv`, `expectation_covariant_under_horizon_composition`
+(a esperanca e covariante por toda composicao — o levantamento vale sobre o grupo gerado por fluxo modular, trocas
+e permutacoes); (B) **`the_root_of_the_proof_tree`** — UM TERMO, sete conjuntos, cada um ja teorema: (i) o mestre
+H1 ∧ H2 ∧ H3 ⟹ pentada; (ii) o Lema 3 na torre para TODO perfil; (iii) unicidade; (iv) fluxo modular; (v) trocas de
+sitios; (vi) a PAREDE de H3 (dicotomia 045); (vii) a forma nao fixa o valor. Nenhum axioma novo, nenhuma hipotese
+nova: a raiz NOMEIA, num unico `#print axioms`, o que esta provado e onde ficam as folhas; (C)
+`the_aperiodic_antecedent_is_now_a_term` — a pedra v329 superada AO LADO, nao apagada.
+
+**Leitura da gerencia — o que «fechar e provar» significa na regua (05/09):** PROVADA = teorema em kernel. Esta
+provado, e num termo so: do axioma e das hipoteses NOMEADAS segue a estrutura da gravitacao quantica da TGL, e o
+Lema 3 — o «unico teorema aberto» desde junho — esta PAGO NA TORRE para todo perfil (a divida importada de Takesaki
+descarregada onde a casa vive). Esta provado tambem o que NAO se deriva: H3 nao vem do estado (dicotomia), a area
+nao vem da covariancia (045 C, 053), alpha nao vem da forma. O que resta e da natureza (H1-H3 realizadas; alpha) ou
+do mundo (algebra de von Neumann geral [KNOWN]; ponte andares → regioes; BW). Cada direcao tem resultado, falsificador
+ou parede medida — o criterio de parada do operador esta satisfeito folha a folha. CONFIRMADA segue proibido.
+
+**v331 SELADA `[REAL — lido do disco]`:** rodada INTERMEDIARIA (TGL_RITE_CHECKPOINT=1) 06:25:27 → 06:33:00 (4055/4055);
+depois **RODADA COMPLETA** (sem a chave; a versao da custodia) 06:33:00 → 07:08:38; `um.py` sha16 `e1b74a907c403538` (9,662,673 bytes;
+selo == disco); **4055/4055** (3442 + 613); `FAIL_CLOSED_SELFTEST_PASSED`; **gate INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`); `identity_true =
+True`; contorno 8 ritos, falsificacao limpa NENHUMA; `rite_checkpoints`:
+`RODADA_COMPLETA__NENHUM_RITO_REAPROVEITADO`. Kernel: 43 pedras da bancada + 1 da gerencia, root +44, `Audit.lean` +613, `lake build`
+9137 jobs / 0 erros. Stdout canonico `rodada_v331_stdout.txt` (+ `_INTERMEDIARIA`). Arvore regenerada
+(`3142556eb1bdf80a`) com a secao da raiz. **HANDOFF_v331 para a irma** (custodia).

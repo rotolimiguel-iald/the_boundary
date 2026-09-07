@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-06 21:36:45",
-  "result_hash": "772e12c26492670dec437b9c079d57e01cce621f26a3b07d80db4afadfc890aa",
+  "timestamp": "2026-09-07 07:05:41",
+  "result_hash": "afc52b7d3ca70f3060db162061a1d68cd8adf9fae86a9161ab02eb59288dea02",
   "identity": "1=1=VERDADEIRO=HAJA_LUZ",
   "formal_kernel_stage1_verified": true,
   "specific_AQFT_witness_constructed": true,
@@ -47,7 +47,7 @@
   "interface_is_light_verdict": "INTERFACE_IS_LIGHT_VERIFIED",
   "form_equals_content_status": "VERIFIED",
   "canonical_markers_status": "VERIFIED",
-  "formal_source_hash": "9bef679ca1b4cd948217c8da761266ed13f136c1aaec5db64665f42ca6a4626e",
+  "formal_source_hash": "1244e5b9a7fe47327985474f94797cc8d77848b7cd3d90f909e145f034ac180e",
   "coma_external_falsification": {
     "verdict": "COMA_BLIND_DISTANCE_NOT_IDENTIFIABLE",
     "mode": "report",
@@ -63,7 +63,7 @@
   "coma_dephasing": {
     "verdict": "COMA_DEPHASING_PREDICTION_LOCKED_AWAITING_REVEAL",
     "D_L_TGL_Mpc": 101.90278629474811,
-    "prediction_hash": "61d5383807b7e45779b8a3fa8c4044c94dad58044b2bd75f17bb04358b8edb2a",
+    "prediction_hash": "f1e476e24dc58aed58bb5c3ff642802cce20ca8ea88b705507fdc96bb86e5293",
     "does_not_gate_core": true
   },
   "final_verdict_machine": {
@@ -190,7 +190,7 @@
   "the_trio_is_a_pair": "MODE_OF_DISCHARGE_NOT_SEALED_THIS_RUN",
   "the_trio_is_a_pair_v253_reading": "GIVEN_THE_MASTER_THEOREM_AND_THE_IMPORTED_IMPLICATION_THE_REQUIREMENT_OF_THREE_NAMED_HYPOTHESES_REDUCES_TO_TWO__NO_ONE_PAYS_TWICE_FOR_WHAT_WAS_PAID_BEFORE_THEM__AND_THE_KERNEL_FLAG_OF_THAT_ITEM_STAYS_DARK_BECAUSE_A_BRIDGE_IS_NOT_A_PROOF_OF_THE_FAR_SIDE",
   "price_of_the_gravity_proof": "THE_GRAVITY_IDENTIFICATION_IS_A_PRICED_DEBT_CLAIMED_BY_NO_ONE__FOUR_ITEMS_RESERVED_IN_KERNEL__ABSENCE_READS_OPEN__MASTER_IMPLICATION_ALREADY_PROVED__WHAT_IS_OWED_ARE_THE_HYPOTHESES__FLAGS_LIGHT_BY_MEASURE_NEVER_BY_DECLARATION",
-  "the_iald_index": "THE_IALD_INDEX_IS_BUILT_AS_A_SEVENTH_DERIVED_READ_ONLY_STRUCTURE__ONE_QUERY_REPLACES_FOUR__THE_MODE_PREFIXES_SURVIVE__AND_THE_NAMED_DEBTS_APPEAR_AS_ABSENT_BY_CONSTRUCTION_NOT_AS_UNKNOWN",
+  "the_iald_index": "THE_IALD_INDEX_NOT_SEALED_THIS_RUN",
   "the_atlas_and_the_index": "TGL_ATLAS_AND_THE_INDEX__ALL_CHECKS_VERIFIED",
   "the_name_and_its_referent": "TGL_NAME_AND_ITS_REFERENT__ALL_CHECKS_VERIFIED",
   "the_name_is_the_generating_group": "TGL_NAME_IS_THE_GENERATING_GROUP__ALL_CHECKS_VERIFIED",
@@ -205,24 +205,25 @@
   "the_alpha_and_the_omega": "TGL_PAIR_MEASURED__ONE_EQUALS_ONE_TRUE_BY_OMEGA_AND_ALPHA__ONE_EQUALS_ZERO_FALSE_BY_NOMINAL_CATEGORY__ZERO_NOMINAL_WITHOUT_PROJECTION__BETA_IS_THE_COST_OF_THE_DISTINCTION__PAIR_EQUALS_TGL_IS_A_DECLARED_ONTO_READING",
   "amplitude_defect": 0.10902544754078644,
   "sha256": {
-    "um.py": "cc026bc7915f6622c3bb2715aa767d0ab52faccdf26a3d3be6493116cb318b70",
-    "um_absoluto_manifest.md": "edfa29ebdd2ef7eff0a818812d4e8ef5c8f8b73916405d7f325c2e2517b6db82",
-    "um_absoluto.json": "41fb87074ca8889883d9b184e600a0fd4f9f1fb839cae77385e8d7a3c547333c",
-    "um_absoluto_forma_canonica.md": "89d11ea9ed553a6ef92f4ee957e6a89d4106a3c2a40fb3220cd6c548c727c9bd",
-    "um_absoluto_pt.tex": "e79c48e3cd71ddd4193976c9a4be7aa1236556d8d89365538aba1bc7cc3d7815",
-    "um_absoluto_en.tex": "dd74a005cc8eecdd9545c436c4c5a1dfa5f40a6e17fca252840e90dd1894ad0b",
-    "um_absoluto_pt.pdf": "71ccda51f1902f1e3af8ebbbcb4b0a80084fd30f0cf6a55d70cfa0da58e59790",
-    "um_absoluto_en.pdf": "2d06da5ad56fae8e50810fbed8828e83a7a348453d3caf017a0a0b5e61a8e3e5",
+    "um.py": "e1b74a907c403538ba1910ea68ff6a0a112502581cce13d64897042bbcfedb7c",
+    "um_absoluto_manifest.md": "aa6315d3e9902f5c984f9d1323246f324d8b0d56b73169cffb039ff771bc3b9b",
+    "um_absoluto.json": "b06604442b65933d95e2570dff8d1bd5aa3b16b3750d4d858a802aed88188ac6",
+    "um_absoluto_forma_canonica.md": "ee815d7637984b8ec49eac5357f81ef04081886368978743b7ab3161af84e0d3",
+    "um_absoluto_pt.tex": "09c690eaaf1f0f3bb7c573535d0b6bbf8c5c6e4186d5854b0150953d3a7cc7af",
+    "um_absoluto_en.tex": "ce46f7474c428786eba1824928a68a27ba291499e202f73272f06f9b151c3ccc",
+    "um_absoluto_pt.pdf": "797ca4f0c9f6e9f533a8d03273eee611aa0f8b3910ca8a783bf203a70d00cf55",
+    "um_absoluto_en.pdf": "6331a55fb593e6f5c9d31d7add72722cd509064a590ad609471541647888a46d",
     "fig_escada_qg.pdf": "bfbe30776b05c9cce2886f7f268db09b7e4d0812409a199f84d3ee94d00b2c8d",
     "fig_banda_beta.pdf": "dd953f1e75f445a112963fc9b036299f63ed6dcdf4a16d8c0382b490fd6fad1b",
     "fig_piso_vazios.pdf": "c6e8260ceff24114d2a9248889fa87832009ef6390f5f8a6dceb3ed3bf155be1",
     "fig_cadeia_inscricao.pdf": "7ccc2c0a41da34a2442e1c853b4778d174329ec9d8dd739e4f41cb999883d068",
-    "tgl_kernel_proof_manifest.json": "86a035c6988a9d75d9f75acf2412c79a458d79224bc8ae0184e0c98717b25269"
+    "tgl_kernel_proof_manifest.json": "744d2aa2753d026b64c6ff89bddc9b215ae01fc3cb25de8d1e735de2af229a7c"
   },
   "not_sealed_this_run": {
     "formais": [
       "nivel2_rite",
       "the_first_commutant_clause",
+      "the_iald_index",
       "the_mode_of_discharge"
     ],
     "recusas_de_dado": [

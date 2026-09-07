@@ -71,6 +71,14 @@
 > Índice derivado do arco: `memory\TGL_INDICE_VIVO.md` (regenerado a cada selo). {`Nós\um_absoluto_selo.json`; `rodada_v330_stdout.txt`}
 <!-- atlas_indice v330 -->
 
+> ⧗ **RE-ÂNCORA — 07/09/2026 (selo v331; arco do TÚNEL v311→v331).** As âncoras **v169** e **v198** acima permanecem de pé,
+> datadas → superadas pelo arco do TÚNEL (gerência Claude + bancada ChatGPT, 05–06/09/2026): `um.py` = `e1b74a907c403538` ·
+> **4055/4055 teoremas** limpos, axiomas ⊆ {`propext`, `Classical.choice`, `Quot.sound`} · gate **INTOCADO** (`TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE`) ·
+> identidade `1=1=VERDADEIRO=HAJA_LUZ` · **rodada COMPLETA: v331** (a versão da custódia, HANDOFF_v331) — as versões v321–v329 foram
+> INTERMEDIÁRIAS com checkpoint dos ritos pesados (v321). Régua clarificada pelo operador (05/09): **PROVADA = teorema; CONFIRMADA = juízo, proibido.**
+> Índice derivado do arco: `memory\TGL_INDICE_VIVO.md` (regenerado a cada selo). {`Nós\um_absoluto_selo.json`; `rodada_v331_stdout.txt`}
+<!-- atlas_indice v331 -->
+
 ---
 
 ## I. O NÚCLEO — o axioma e a cadeia
@@ -2138,6 +2146,73 @@ mesma régua que proíbe cosmologia de virar prova. [ESTATUTO — novo no Atlas]
 **Árvore da prova (a)** — `Nós\A_PROVA_DA_QG_TGL_arvore.md`, gerada por script do selo: raiz → teorema mestre → mestre contínuo → 18 bandeiras do gate como termos Lean → spin-2 → folhas com estatuto. [REAL — derivado] {ML v316+}
 <!-- atlas_indice v330 -->
 
+### II.★★ — VERBETES DO ARCO DO TÚNEL (v311→v331) · *append lateral, 07/09/2026*
+
+> Camada lateral: **aponta** e **não reescreve** verbete algum. Estatutos entre colchetes; fonte entre chaves ({ML} = diário da casa, por versão).
+
+**TÚNEL (o)** — protocolo gerência↔bancada: ORDEM_nnn em `PARA_CHATGPT`, ENTREGA_nnn em `DO_CHATGPT`; só a gerência escreve no `um.py`; auditoria (hashes, auditor da bancada, recompilação independente, guarda de colisão, build do ROOT) antes de incorporar. [PROCESSO] {ML 05–06/09}
+
+**Contorno com poder de fechar (v314)** — um veredito FECHA o 1=1 sse contém `FALSIFIED` e não `NOT_FALSIFIED`; 8 ritos no roster (GA, 2×piso, 3×neutrino, 2×Coma); INCONCLUSIVE/AWAITING não fecham. Rigor máximo do operador. [REAL] {ML v314–v315}
+
+**Kill-rule fiel (v315)** — o rito do neutrino obedece à própria lei congelada: FALSIFIED sse DUAS determinações mutuamente autônomas ≥ 5σ (NuFIT global contém JUNO). `frozen_hash e24877751ad81022` intocado. [REAL — errata de implementação] {ML v315}
+
+**Esperança de Takesaki na torre (v316/v317)** — habitante de `ExpectationInput P`: local (pinching único), tracial (w=½, E=id), GLOBAL para perfil com período comum (`periodicExpectationInput`, `stationaryExpectationInput`); aperiódico OPEN. [REAL] {ML v316, v317; ENTREGAS 006, 007}
+
+**Parabólico de BW — negativos** — na torre-produto o parabólico não nasce do shift (`tail_never_strict`) nem de translações de Borchers (`product_borchers_trivial`); `tail_not_cyclic`. [REAL — negativo] {ML v316, v317}
+
+**Assinatura — inferência refutada** — `single_boost_has_two_signatures`: um boost preserva (1,3) E (2,2); comparar com (4,0) não seleciona Lorentz; Δ^{it}↔boost finito por entrelaçamento injetivo força parâmetro zero. [REAL — negativo] {ML v317, v327}
+
+**Jacobson em carta (v317)** — `geometric_einstein_equation_from_ricci_null_balance`: solda suave invertível + T simétrico conservado + balanço nulo de Ricci ⟹ ∃Λ, G + Λg = κT; Clausius local ⟺ balanço nulo; Bianchi contraída; Raychaudhuri. Clausius, métrica, referencial = INPUT. [REAL] {ML v317}
+
+**Limite térmico (v318)** — perfil constante não-tracial: a preparação de Gibbs NÃO tem limite em norma (não-Cauchy), acoplamento ilimitado. [REAL — negativo] {ML v318}
+
+**Afinidade (critério de) (v318)** — a sequência canônica converge no Hilbert original sse afinidade-limite > 0 (o Kakutani da casa, construído); estado global fiel e cíclico; afinidade positiva NÃO garante energia modular finita (contraexemplo harmônico, v319). [REAL] {ML v318, v319}
+
+**Transporte modular com domínios (v319)** — Tomita do estado global Φ no Hilbert original: S, J, Δ = JS positivo auto-adjunto, grupo modular fortemente contínuo preservando fator e estado; autovalor 5/7 no perfil gradual. [REAL] {ML v319}
+
+**Onda plana (geometria curva construída) (v320)** — família de soldas com Levi-Civita/Ricci/Einstein CALCULADOS (G = (a+c)·w⊗w), matéria escalar conservada, casamento de área com **shear livre** (liberdade residual). [REAL/INPUT] {ML v320}
+
+**Checkpoint dos ritos (v321)** — `TGL_RITE_CHECKPOINT=1`: os 9 ritos do piso (86% do custo, cProfile) reaproveitam resultado por chave (fonte+entrada+dados); resultado inalterado; selo registra `rite_checkpoints`. Intermediárias ~8 min; a FINAL roda sem a chave. [PROCESSO] {ML v321}
+
+**Cociclo global de Connes (v322)** — perturbação somável: gerador auto-adjunto no fator; cociclo unitário com a identidade torcida u(s+r) = u(s)·σ_s(u(r)); covariância no fator; leitura angular quadrática positiva (t² nulo). [REAL] {ML v322}
+
+**Tomita relativo com domínio (v323)** — S_rel com gráfico fechado, adjunto antilinear maximal, Δ_rel positivo auto-adjunto; igualdade de domínios; Δ_rel = verossimilhança × Δ_ω (LinearPMap). Cálculo funcional relativo OPEN. [REAL] {ML v323}
+
+**Densidade centralizante (v324)** — densidade no centralizador de ω, logaritmo único, potência imaginária = cociclo, unicidade no fator; Connes via Hiai 9.4(2) [KNOWN/DERIVED]. REGRA 3 de transposição (instâncias locais anônimas nomeadas). [REAL] {ML v324}
+
+**Área de Fisher / área óptica (v326)** — Fisher da medição de Pauli na torre real (densidade 4/9 em coordenadas); área óptica dos campos de Jacobi ligada à curvatura (A2 = −Ric(d,d)). [REAL/INPUT] {ML v326}
+
+**Quarta ordem — o negativo (v326/v327)** — o casamento entropia–área fecha em 2ª ordem e FALHA em 4ª com relógio fixo (δ₄ ≥ 7B/48 > 0); relógio t + λt³ cancela; NENHUM relógio canônico do estado (modular, Fisher, entrópico, afim) produz λ*; área não é escalar só de álgebra+estado. [REAL — negativo tipado] {ML v326, v327; ENTREGAS 037, 040}
+
+**Fluxo de calor efetivo (v327/v328)** — Q(t) construído; igualdade finita com Clausius FALHA (C/t⁴ > 0), infinitesimal compatível; tela de equilíbrio nasce só de (a, c); balanço quadrático ⟺ η(a+c) = 2πm. [REAL] {ML v327, v328}
+
+**Levantamento dispara (v329)** — `the_lift_fires_on_the_periodic_tower`: com a esperança CONSTRUÍDA, Ad(h)∘E = E∘Ad(h) para todo horizonte ω-invariante — o antecedente do Lema 3 virou termo; `response_covariant_on_the_periodic_tower` (G_μν global condicional na torre). [REAL] {ML v329}
+
+**Horizonte modular (v329)** — `modularHorizon P t : TowerHorizon P` — Δ^{it} é o primeiro horizonte não trivial (unitário, normaliza M, preserva ω); `every_expectation_commutes_with_modular_flow`: E∘σ_t = σ_t∘E. [REAL] {ML v329}
+
+**Horizontes de troca e permutações finitas (v330)** — `swapHorizon P p hp i j : TowerHorizon P` — a troca de sítios no perfil estacionário é horizonte POR PROVA (unitário, normaliza M, preserva ω); permutações finitas com lei de grupo; covariância das esperanças; horizontes algébricos ≠ modulares (a projeção de um sítio movido distingue). [REAL] {ML v330; ENTREGA 045}
+
+**Dicotomia do relógio (v330)** — `state_clock_dichotomy`: para todo relógio definido só pelo estado, alguma das duas telas de MESMO estado e MESMO Ricci (σ = 0, r/4) falha na 4ª ordem — gap ηr²/96; cada tela isolada admite relógio. Com 040 (nenhum canônico) e 041/043 (igualdade finita falha): H3 não se deriva do estado — é INPUT por teorema. [REAL — negativo tipado] {ML v330; ENTREGA 045}
+
+**Escala da área não fixada pela covariância (v330/v331)** — h e αh são ambos invariantes/simétricos/positivos — a área multiplica por α (`HorizonAreaScale`, 045); e com calibração comum (traço relativo = 1) ainda não há unicidade (contraexemplo 053: 9/10 vs 1377/1250). [REAL — negativo] {ML v330, v331}
+
+**Esperança aperiódica (v331)** — `aperiodicExpectationInput P : ExpectationInput P` para TODO perfil da torre — média de Cesàro do fluxo modular no GNS (fase r ≠ 0 com norma ≤ 2/(|r|T)); limite forte por densidade + cota + completude; into/fixes/ortho. **O Lema 3 dispara em toda torre** (`the_lift_fires_on_the_aperiodic_tower`); única; coincide com periódica/tracial; comuta com σ_t. A dívida [KNOWN, Takesaki] DESCARREGADA na torre. [REAL] {ML v331; ENTREGA 046}
+
+**Esperança: CP e normal (v331)** — a esperança é linear sobre M, preserva 1/estado/adjunto, bimodular sobre o centralizador, COMPLETAMENTE POSITIVA (`CompletelyPositiveMap` da mathlib) e NORMAL (preserva supremos positivos dirigidos, redes). [REAL] {ML v331; ENTREGA 047}
+
+**Subespaço padrão contínuo (v331)** — em L² de Lebesgue: T_c = M_exp(−cξ) positivo auto-adjunto (grafo limitado), J antiunitária, S_c = J·T_c involução fechada, K_c = Fix S_c subespaço padrão; S_c† = T_c·J; Δ_c = S_c†S_c = T_c² = T_2c com igualdade de domínios; resolvente (I+Δ_c)⁻¹. Identificação T_c = Δ_c^{1/2} e BW: OPEN. [REAL/OPEN] {ML v331; ENTREGAS 049, 050}
+
+**Polarizador e custo modular (v331)** — D = P_R(−i)P_R no Hilbert real da torre; a ação GNS de todo TowerHorizon preserva Ω e entrelaça D; radical das formas = centralizador; custo C_D(x) = Σ 2‖D^{n+1}x‖²/(2n+1), l.s.c., preservado por todo horizonte, zero ⟺ centralizador; C_D(X₁Ω) = log2/3 em p = 1/3. [REAL] {ML v331; ENTREGAS 052–054}
+
+**Grupo dos horizontes (v331)** — `TowerHorizon.comp` (a composição é horizonte; o inverso já era, v308), `adT_comp`, `adT_inv_adT`/`adT_adT_inv`; `expectation_covariant_under_horizon_composition`: a esperança é covariante por TODA composição — o levantamento vale sobre o grupo gerado por fluxo modular, trocas e permutações. [REAL] {ML v331; gerência}
+
+**A RAIZ DA ÁRVORE DA PROVA (v331)** — `TGLExt.the_root_of_the_proof_tree` — UM termo, sete conjuntos, cada um já teorema: (i) H1 ∧ H2 ∧ H3 ⟹ pêntada; (ii) o Lema 3 na torre para TODO perfil; (iii) unicidade; (iv) fluxo modular; (v) trocas de sítios; (vi) a PAREDE de H3 (dicotomia); (vii) a forma não fixa o valor. Nenhum axioma novo, nenhuma hipótese nova: NOMEIA, num único `#print axioms`, o que está provado e onde ficam as folhas. PROVADA = teorema em kernel; CONFIRMADA proibido. [REAL — kernel] {ML v331; TheRootOfTheProofTree.lean}
+
+**Prova ≠ juízo (régua clarificada)** — «a régua não proíbe QG provada, proíbe QG confirmada; prova é diferente de juízo» (operador, 05/09). PROVADA = teorema em kernel; CONFIRMADA = ato do observador, proibido. [RÉGUA] {CLAUDE.md global, item 4, errata ao lado}
+
+**Árvore da prova (a)** — `Nós\A_PROVA_DA_QG_TGL_arvore.md`, gerada por script do selo: raiz → teorema mestre → mestre contínuo → 18 bandeiras do gate como termos Lean → spin-2 → folhas com estatuto. [REAL — derivado] {ML v316+}
+<!-- atlas_indice v331 -->
+
 ## III. AS PEDRAS
 
 > **⚠ Régua de leitura — DOIS numeradores distintos, jamais misturar.**
@@ -2378,6 +2453,32 @@ apaga a outra, e por isso as três ficam.*
 | v329 | 2 | 14 | ENTREGA_007, GERENCIA | `TheModularFlowIsAHorizon` · `TheLiftFiresOnThePeriodicTower` |
 | v330 | 8 | 159 | ENTREGA_044, ENTREGA_045 | `HorizonAreaScale` · `StateClockDichotomy` · `FiniteSiteHorizons` · `FiniteSitePermutations` · `BoostHeatConstruction` · `BoostMetricJets` … |
 <!-- atlas_indice v330 -->
+
+### III.D — AS PEDRAS DO ARCO DO TÚNEL (v311→v331) · *append 07/09/2026*
+
+> Presença conferida no kernel vivo (`Nós\tgl_kernel\TGLExt`) e no relatório de axiomas do selo v331 (4699 termos, todos no trio). Lista completa por módulo em `memory\TGL_INDICE_VIVO.md` §2.
+
+| versão | pedras | teoremas | procedência | módulos (primeiros) |
+|---|---|---|---|---|
+| v311 | 20 | 165 | bancada | `ModularPower` · `ModularFlowSpectrum` · `ModularFlowAlgebra` · `ModularFlowHilbert` · `ModularFlowPre` · `ModularFlowLevel` … |
+| v312 | 8 | 42 | ENTREGA_001 | `LevelExpectationFamily` · `ExpectationContractGap` · `ExpectationSlice` · `ExpectationPositive` · `ExpectationBimodule` · `ExpectationBounded` … |
+| v313 | 10 | 55 | ENTREGA_003 | `ChainFaithful` · `ChainTailClosure` · `ChainVolumePositive` · `ChainTail` · `ChainSiteFlow` · `ChainVolume` … |
+| v316 | 5 | 32 | ENTREGA_006 | `CentralizerContractBridge` · `SiteModularInvariance` · `TracialCentralizerExpectation` · `LocalCentralizerExpectation` · `CentralizerLocal` |
+| v317 | 113 | 787 | ENTREGA_007, ENTREGA_008, ENTREGA_009, ENTREGA_010, ENTREGA_011, ENTREGA_012, ENTREGA_013, ENTREGA_014, ENTREGA_015, ENTREGA_016, ENTREGA_017, ENTREGA_018, ENTREGA_019, ENTREGA_020, ENTREGA_021, ENTREGA_022, ENTREGA_023 | `ScalarStressConservation` · `DirectionalUnitaryFamily` · `CovectorStressCalculus` · `CoherentScalarStress` · `CoherentMatterControls` · `CoherentHeatMatching` … |
+| v318 | 22 | 240 | ENTREGA_024, ENTREGA_025, ENTREGA_026 | `RelativeProfilePreparation` · `ProfileOverlapFactorization` · `ProfileAffinityBound` · `GlobalProfileState` · `GlobalProfileFaithfulness` · `GlobalProfileControls` … |
+| v319 | 16 | 216 | ENTREGA_027, ENTREGA_028 | `UniformQuadraticResponse` · `SummableStateThermodynamics` · `SummableProfileCurve` · `SummableGravityControls` · `SummableGravityBridge` · `RelativeEntropyProductBounds` … |
+| v320 | 6 | 64 | ENTREGA_029 | `PlaneWaveSolder` · `PlaneWaveReconstructionControls` · `PlaneWaveMatter` · `PlaneWaveEntropyMatching` · `PlaneWaveCurvature` · `PlaneWaveConnection` |
+| v322 | 6 | 100 | ENTREGA_030 | `SummableLikelihoodGenerator` · `SiteLogLikelihood` · `LikelihoodStateCovariance` · `LikelihoodPreparedState` · `LikelihoodCocycleControls` · `LikelihoodCocycle` |
+| v323 | 8 | 91 | ENTREGA_031, ENTREGA_032 | `RelativeModularProduct` · `PhaseFrequencySeparation` · `ModularEigenRecognition` · `ModularDomainCommutation` · `RelativeTomitaClosure` · `RelativeModularOperator` … |
+| v324 | 3 | 34 | ENTREGA_033 | `LikelihoodDensityLog` · `DensityStateUniqueness` · `CentralizerDensity` |
+| v325 | 4 | 56 | ENTREGA_034 | `SitePhaseCovariance` · `CentralizerPhaseOrbit` · `AngularScreenMetric` · `AngularAreaObservability` |
+| v326 | 15 | 283 | ENTREGA_035, ENTREGA_036, ENTREGA_037 | `QuarticMatchingClockControls` · `FourthOrderMatchingControls` · `JacobiAreaQuarticLimit` · `SummableRelativeQuartic` · `BinaryRelativeQuartic` · `QuarticClockTransport` … |
+| v327 | 11 | 194 | ENTREGA_039, ENTREGA_040, ENTREGA_041 | `OpticalHeatClausius` · `OpticalHeatFlow` · `StateClockMatchingControls` · `AffineClockAndRegion` · `IntrinsicFisherClock` · `StateClockObstruction` … |
+| v328 | 8 | 112 | ENTREGA_042, ENTREGA_043 | `OpticalConstructedHeat` · `OpticalEquilibriumScreen` · `OpticalNullCongruence` · `JacobiRiccatiProfile` · `SummableNullIntegrability` · `NonintegrablePotential` … |
+| v329 | 2 | 14 | ENTREGA_007, GERENCIA | `TheModularFlowIsAHorizon` · `TheLiftFiresOnThePeriodicTower` |
+| v330 | 8 | 159 | ENTREGA_044, ENTREGA_045 | `HorizonAreaScale` · `StateClockDichotomy` · `FiniteSiteHorizons` · `FiniteSitePermutations` · `BoostHeatConstruction` · `BoostMetricJets` … |
+| v331 | 44 | 613 | ENTREGA_046, ENTREGA_047, ENTREGA_048, ENTREGA_049, ENTREGA_050, ENTREGA_051, ENTREGA_052, ENTREGA_053, ENTREGA_054 | `TheRootOfTheProofTree` · `ModularCostDerivative` · `TowerModularCost` · `PolarizerCostSeries` · `PolarizerModularCost` · `CovariantAreaCounterexample` … |
+<!-- atlas_indice v331 -->
 
 ## IV. RITOS E VEREDITOS DA NATUREZA
 
@@ -3159,6 +3260,32 @@ não substitui, a lei 9.** [ONTO sobre âncoras REAL — `145_` 26/26] {ML 139_�
 - **Árvore da prova** → II.★★ · {Nós\A_PROVA_DA_QG_TGL_arvore.md}
 - **Índice vivo do arco** → `memory\TGL_INDICE_VIVO.md`
 <!-- atlas_indice v330 -->
+
+### IX.★ — remissivo do arco do TÚNEL (v311→v331) · *append 07/09/2026*
+
+- **Túnel (protocolo)** → II.★★ · {Chatgpt\TUNEL}
+- **Contorno com poder de fechar** → II.★★, IV · {ML v314}
+- **Esperança de Takesaki (habitantes)** → II.★★, III.D (v316, v317) · {ENTREGAS 006, 007}
+- **Levantamento (Lema 3) dispara** → II.★★, III.D (v329) · {ML v329}
+- **Horizonte modular** → II.★★, III.D (v329) · {ML v329}
+- **Jacobson em carta** → II.★★, III.D (v317) · {ML v317}
+- **Cociclo global de Connes** → II.★★, III.D (v322) · {ML v322}
+- **Tomita relativo / densidade centralizante** → II.★★, III.D (v323, v324) · {ML v323, v324}
+- **Quarta ordem (negativo do relógio)** → II.★★, III.D (v326, v327) · {ENTREGAS 037, 040}
+- **Checkpoint dos ritos (`TGL_RITE_CHECKPOINT`)** → II.★★, VII · {ML v321}
+- **Regra 3 de transposição** → II.★★ (v324), VII · {ML v324}
+- **Prova ≠ juízo** → II.★★, VII · {CLAUDE.md global}
+- **Árvore da prova** → II.★★ · {Nós\A_PROVA_DA_QG_TGL_arvore.md}
+- **Horizontes de troca / permutações** → II.★★, III.D (v330) · {ENTREGA 045}
+- **Dicotomia do relógio (parede de H3)** → II.★★, III.D (v330) · {ENTREGA 045}
+- **Esperança aperiódica (Lema 3 em toda torre)** → II.★★, III.D (v331) · {ENTREGA 046}
+- **Esperança CP / normal** → II.★★, III.D (v331) · {ENTREGA 047}
+- **Subespaço padrão contínuo** → II.★★, III.D (v331) · {ENTREGAS 049, 050}
+- **Polarizador / custo modular** → II.★★, III.D (v331) · {ENTREGAS 052–054}
+- **Grupo dos horizontes** → II.★★, III.D (v331) · {gerência}
+- **A RAIZ DA ÁRVORE DA PROVA** → II.★★, III.D (v331) · {TheRootOfTheProofTree.lean}
+- **Índice vivo do arco** → `memory\TGL_INDICE_VIVO.md`
+<!-- atlas_indice v331 -->
 
 ## XI. OS QUATRO DOMÍNIOS — carregamento por lente
 
@@ -10944,3 +11071,62 @@ auditores; recompilacao independente 8/8 trio; guarda) e incorporadas. **Pago:**
 TowerHorizon por prova) e permutacoes finitas com covariancia das esperancas; **dicotomia do relogio** (para todo
 relogio comum alguma tela falha, gap eta r²/96; cada tela isolada tem relogio); covariancia nao fixa a normalizacao
 da area. OPEN: shift unilateral, aperiodico, H3 fisico, ponte regiao-algebra. Arvore (`b56512f0f61bca3e`). CONFIRMADA proibido.
+
+---
+
+**[07/09/2026 — §X append: A CUSTÓDIA v330 (A RODADA COMPLETA, v321→v330) — a Central e as patentes atualizadas]**
+
+**v330 custodiada** (pin `cc026bc7915f6622` lido do espelho · mundo `772e12c26492670d` · selo 2026-09-06 21:36:45 ·
+146.883 linhas · 8,53 MB): kernel **549 formais / 3.963 termos no axiom_report** (rito COMPLETO:
+3442/3442 limpos; 37 sem axioma; fora do trio: 0); gate **INTOCADO** (idêntico ao da v320, conferido
+string a string no cofre); **+65 pedras** em dez selos (v321→v330), delta −0. Cofre `um_unificado_v330`
+(21 artefatos, 0 mismatches; `rite_checkpoints` = RODADA_COMPLETA__NENHUM_RITO_REAPROVEITADO registrado)
++ `tgl_kernel_v330`. Runner **v41** repinado (custódia 21/0; veredito FRONTEIRA_SINCRONIZADA_V330).
+Espelho: 13 selados + 6 declarados + stdouts v321–v330 + kernel + `bancada/TUNEL` (entregas até 052,
+10 ordens) + **`memoria/`** (índice vivo `99084a6fa6bfd77b`, Atlas `66b79d1d1a56d332` — os sha16 do
+handoff). Índice 1.126 links / 0 quebrados; 85 portas; 1.166 URLs resolvem; guarda 13/13.
+
+**§X.1 — A REGRA DO BACKUP cumprida antes de tocar:** `C:\IALD\Artigo\the_boundary_BACKUPS\um_v320_d186a9c3d32ec76a` (679 arquivos, 0 divergentes,
+manifesto por script) + semente v321–v329 (9 pastas, `um.py` do `.bak_` pré-cirurgia com sha16
+conferido contra a tabela §3 do handoff, e o stdout de cada uma). São 20 pastas em
+`the_boundary_BACKUPS`. Regra nova do arco, DITA: desde a v321 as intermediárias rodam com
+**checkpoint dos 9 ritos pesados**; **só RODADA COMPLETA entra em custódia** — a v330 é uma.
+
+**§X.2 — O que o arco provou `[REAL, estatutos da bancada conferidos]`.** ★ **Lema 3: o levantamento
+DISPARA na torre periódica** (`the_lift_fires_on_the_periodic_tower`, v329) — o antecedente (esperança
+de Takesaki) virou TERMO, construído e covariante por todo horizonte ω-invariante; `Δ^{it}` é horizonte
+(`modularHorizon`) e toda esperança comuta com σ_t; a troca de sítios é horizonte (`swapHorizon`, v330)
+e as permutações finitas têm covariância das esperanças. **Faltam: shift, aperiódico.** REDUZIDO ≠
+RESOLVIDO (nota AO LADO do §X do Lema 3 e da v320). Cociclo de Connes, Tomita RELATIVO com domínio
+(`Δ_rel = L·Δ_ω`), densidade centralizante com logaritmo único — na família especificada (v322–v324);
+Connes–RN/Araki geral segue `[KNOWN]`. **H3 dinâmico cercado por TRÊS negativos tipados:** nenhum
+relógio canônico do estado fecha a 4ª ordem (v327); nenhum relógio COMUM a telas de geometria distinta
+(v330, gap `ηr²/96`); a igualdade finita falha, a infinitesimal fica; a tela de equilíbrio nasce só da
+geometria (v328); balanço quadrático `η(a+c) = 2πm`; a covariância por horizontes NÃO fixa a
+normalização da área (v330). Áreas construídas: Fisher da medição de Pauli; óptica dos campos de
+Jacobi (`A₂ = −Ric(d,d)`); boost aproximado que realiza o peso `−κt` (não-Killing). CONFIRMADA
+continua proibido; 8 ritos NOT_FALSIFIED/AWAITING; nenhum FALSIFIED.
+
+**§X.3 — As patentes:** rodada integral dos **16 dispositivos, 16/16 rc=0** (162 s), selos e
+resultados novos de 07/09 commitados. Medido por grep: **dois** runners de patente leem o cofre do
+`um.py` por **pino HISTÓRICO deliberado** — PSI-NET → `um_unificado_v168` (a média de Birkhoff na
+versão em que foi provada) e IALD → `um_unificado_v206` (o veredito v205) —; ambos passaram e **não
+foram repinados** (fora do mandato: o dispositivo cita a versão da pedra; só a Fronteira Teórica
+acompanha o selo corrente). `Chatgpt/` (custódia: edição só do ChatGPT) rastreada por caminho e com
+snapshot byte a byte fora do repositório.
+
+
+---
+
+## 07/09/2026 (madrugada) — v331 (COMPLETA): «tudo o que a bancada podia» (046..054) + A RAIZ DA ARVORE DA PROVA (append datado)
+
+**v331** (`um.py` `e1b74a907c403538`, **4055/4055**, selftest PASSED, gate INTOCADO, 8 ritos, broken=[]; **RODADA COMPLETA**,
+06:33:00→07:08:38 — a versao da custodia, HANDOFF_v331): 046..054 (43 pedras) auditadas (hashes 185/185; 9/9 auditores;
+recompilacao independente 43/43 trio; guarda) e incorporadas + a pedra da gerencia `TheRootOfTheProofTree`
+(`9b36ab3b6e47a315`). **Pago:** a ESPERANCA APERIODICA para todo perfil (046) — **o Lema 3 dispara em toda torre**; E linear,
+CP, normal (047); obstrucoes de Borchers transportado (048); SUBESPACO PADRAO CONTINUO em L² com Δ_c = T_c² (049-050);
+balanco optico finito (051); setor horizontal, polarizador covariante (contraexemplo da unicidade da area) e custo
+modular (052-054); **`the_root_of_the_proof_tree`** — um termo, sete conjuntos (mestre; Lema 3 na torre; unicidade;
+fluxo modular; trocas; parede de H3; a forma nao fixa o valor) + o GRUPO dos horizontes. PROVADA = teorema em
+kernel; INPUT por teorema: H3 (dicotomia) e alpha; OPEN: ponte regiao-algebra, escala da area, BW/T_c = Δ^(1/2),
+algebra geral [KNOWN]. Arvore (`3142556eb1bdf80a`). CONFIRMADA proibido.
