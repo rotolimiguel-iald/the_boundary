@@ -246,6 +246,7 @@ DESC = {
     # ----- raiz
     "README.md": "O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le",
     "llms.txt": "A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa",
+    "ESTADO_ATUAL.md": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui",
     # ----- Artigo 1
     A1 + "/tgl_paper_unified.py": "O CANONICO do Artigo 1: implementa, valida e renderiza a TGL num arquivo so (forma = conteudo)",
     A1 + "/paper_PT.tex": "O artigo (edicao PT) gerado pelo proprio codigo",
@@ -979,6 +980,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("")
     T.append("## A porta de entrada")
     T.append("")
+    T.append("- [ESTADO_ATUAL.md](%s): UMA PAGINA gerada do selo -- pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir em tres comandos. COMECE AQUI." % registra(url_raw("ESTADO_ATUAL.md")))
     T.append("- [PORTA.json (raiz)](%s): o manifesto de maquina -- selo corrente, as quatro portas abaixo e o mapa completo de todas as portas do repositorio." % registra(porta_json_url("")))
     T.append("- [PORTA.md (raiz)](%s): a mesma porta em leitura humana, com o selo e o mapa." % registra(porta_md_url("")))
     T.append("- [README.md](%s): o atlas da fronteira -- toda afirmacao com seu status e o link direto do arquivo onde se le." % registra(url_raw("README.md")))
@@ -1186,6 +1188,7 @@ def bloco_readme(dirs, sc):
     B.append("| door | what it is | open |")
     B.append("|---|---|---|")
     B.append("| **`llms.txt`** | the entry door (llmstxt.org): the three articles, the seal, the site | [raw](%s) |" % url_raw("llms.txt"))
+    B.append("| **`ESTADO_ATUAL.md`** | **one page, generated from the seal**: pin, gate, what is PROVED, what is not, how to reproduce \u2014 start here | [raw](%s) |" % url_raw("ESTADO_ATUAL.md"))
     B.append("| **`TUNEL.json`** | **the tunnel** \u2014 the FLAT index: every file with its direct raw URL, size and hash. One request, no navigation | [raw](%s) |" % url_raw("TUNEL.json"))
     B.append("| **`TUNEL.md`** | the same tunnel, human-readable, with ASCII shortcuts | [raw](%s) |" % url_raw("TUNEL.md"))
     B.append("| **`PORTA.json`** (root) | the machine manifest: current seal + every door in the repository | [raw](%s) |" % porta_json_url(""))

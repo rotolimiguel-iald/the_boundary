@@ -20,7 +20,7 @@
   "versao_da_pedra": "v331"
  },
  "regra": "NOT_FALSIFIED nunca e CONFIRMED. Fechar a arquitetura matematica interna nao e gravidade quantica confirmada. beta_TGL = alpha*sqrt(e) e CONSTANTE, nunca literal no codigo: e computada em runtime.",
- "n_arquivos": 1091,
+ "n_arquivos": 1096,
  "aliases_ausentes": [],
  "aliases": {
   "um.py": {
@@ -111,8 +111,8 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "o_que_e": "O atlas da fronteira",
-   "sha256_16": "473e82d5c4677c83",
-   "bytes": 472859
+   "sha256_16": "71eb955c832b95be",
+   "bytes": 474098
   },
   "llms": {
    "path": "llms.txt",
@@ -134,8 +134,15 @@
   {
    "path": ".gitattributes",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes",
-   "bytes": 66,
-   "sha256_16": "1a1dbe176bc233b4",
+   "bytes": 401,
+   "sha256_16": "d6905ee1bb826252",
+   "papel": "outros"
+  },
+  {
+   "path": ".github/workflows/kernel.yml",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/workflows/kernel.yml",
+   "bytes": 4378,
+   "sha256_16": "9b12f08ef8a5b65a",
    "papel": "outros"
   },
   {
@@ -424,6 +431,13 @@
    "bytes": 2754,
    "sha256_16": "07c4273b227b1193",
    "papel": "resultado selado"
+  },
+  {
+   "path": "ESTADO_ATUAL.md",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
+   "bytes": 7103,
+   "sha256_16": "4f2f9367123f6c3c",
+   "papel": "documento"
   },
   {
    "path": "Genesis da Unificação/ACOM/Acom_v17_mirror.py",
@@ -1289,8 +1303,8 @@
   {
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-   "bytes": 472859,
-   "sha256_16": "473e82d5c4677c83",
+   "bytes": 474098,
+   "sha256_16": "71eb955c832b95be",
    "papel": "documento"
   },
   {
@@ -7748,24 +7762,45 @@
    "papel": "resultado selado"
   },
   {
+   "path": "tools/gerar_estado_atual.py",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
+   "bytes": 9479,
+   "sha256_16": "e80c391a96812ab6",
+   "papel": "codigo"
+  },
+  {
    "path": "tools/gerar_portas.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py",
-   "bytes": 80001,
-   "sha256_16": "690b988984649506",
+   "bytes": 80549,
+   "sha256_16": "3e9cfdf38ec7e595",
    "papel": "codigo"
   },
   {
    "path": "tools/guarda_do_selo.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/guarda_do_selo.py",
-   "bytes": 3432,
-   "sha256_16": "bfca90638e331d45",
+   "bytes": 5053,
+   "sha256_16": "6931e6ce9d888f06",
+   "papel": "codigo"
+  },
+  {
+   "path": "tools/guarda_do_site.py",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/guarda_do_site.py",
+   "bytes": 3612,
+   "sha256_16": "66798d7d180a59a0",
+   "papel": "codigo"
+  },
+  {
+   "path": "tools/pos_push.py",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/pos_push.py",
+   "bytes": 4584,
+   "sha256_16": "c19a1f37a2e7d77c",
    "papel": "codigo"
   },
   {
    "path": "tools/verificar_portas.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/verificar_portas.py",
-   "bytes": 8202,
-   "sha256_16": "9d20bbdd0b67e9c5",
+   "bytes": 9539,
+   "sha256_16": "202c48315be32566",
    "papel": "codigo"
   }
  ]

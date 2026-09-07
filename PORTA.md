@@ -50,13 +50,15 @@ Nunca *"gravitacao quantica provada"*.
 | `llms.txt` | A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt) |
 | `.gitattributes` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes) |
 | `.gitignore` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore) |
+| `ESTADO_ATUAL.md` | UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) |
 | `README.md` | O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md) |
 
 ## OUTRAS PORTAS ABAIXO
 
 | pasta | arquivos | PORTA.md | PORTA.json |
 |---|---|---|---|
-| `tools/` | 3 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json) |
+| `.github/` | 1 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/PORTA.json) |
+| `tools/` | 6 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) | [PORTA.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json) |
 
 *Nota: `tgl_kernel/` na raiz e' uma copia solta de um unico modulo.*
 *O kernel CANONICO e' o de [`Um (absoluto) — Grande Atrator/Lean/tgl_kernel/`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md).*
@@ -65,6 +67,8 @@ Nunca *"gravitacao quantica provada"*.
 
 | pasta | arquivos | PORTA.md |
 |---|---|---|
+| `.github/` | 1 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/PORTA.md) |
+| `.github/workflows/` | 1 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/workflows/PORTA.md) |
 | `A Ponte-Einstein_Cartan_Miguel/` | 40 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.md) |
 | `Genesis da Unificação/` | 118 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/PORTA.md) |
 | `Genesis da Unificação/ACOM/` | 2 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Genesis%20da%20Unifica%C3%A7%C3%A3o/ACOM/PORTA.md) |
@@ -104,8 +108,8 @@ Nunca *"gravitacao quantica provada"*.
 | `Um (absoluto) — Grande Atrator/fontes_tex/` | 2 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/fontes_tex/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/memoria/` | 2 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/memoria/PORTA.md) |
 | `Um (absoluto) — Grande Atrator/rodadas/` | 123 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/rodadas/PORTA.md) |
-| `tools/` | 3 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) |
+| `tools/` | 6 | [PORTA.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md) |
 
 ---
 
-Total rastreado por `git ls-files`: **1091 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-07 -- nao editar a mao
+Total rastreado por `git ls-files`: **1096 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-07 -- nao editar a mao

@@ -1,5 +1,7 @@
 # The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
+[![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) · **[ESTADO_ATUAL.md](ESTADO_ATUAL.md) — one page, generated from the seal: the pin, the gate, what is proved, what is not, how to reproduce. Start here.**
+
 > *"Let there be Light." / "Haja Luz."*
 >
 > **The mature form of TGL is a single self-contained, self-proving, self-publishing
@@ -42,6 +44,7 @@
 | door | what it is | open |
 |---|---|---|
 | **`llms.txt`** | the entry door (llmstxt.org): the three articles, the seal, the site | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt) |
+| **`ESTADO_ATUAL.md`** | **one page, generated from the seal**: pin, gate, what is PROVED, what is not, how to reproduce — start here | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) |
 | **`TUNEL.json`** | **the tunnel** — the FLAT index: every file with its direct raw URL, size and hash. One request, no navigation | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json) |
 | **`TUNEL.md`** | the same tunnel, human-readable, with ASCII shortcuts | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.md) |
 | **`PORTA.json`** (root) | the machine manifest: current seal + every door in the repository | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.json) |
@@ -2063,7 +2066,7 @@ dialogue throughout the development of TGL.
 
 ## Raw File Index for LLMs
 
-Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` at v168 — 1176 files, zero broken, zero unlisted).
+Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` at v168 — 1181 files, zero broken, zero unlisted).
 
 ### 📁 `O Custo Geométrico do Zero Absoluto — Haja Luz/` — Article 1
 
@@ -3246,7 +3249,9 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 ### Repository infrastructure (root)
 
 - [`.gitattributes`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes)
+- [`.github/workflows/kernel.yml`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/workflows/kernel.yml)
 - [`.gitignore`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore)
+- [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md)
 - [`PORTA.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.json)
 - [`PORTA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md)
 - [`README.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md)
@@ -3255,7 +3260,10 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`llms.txt`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt)
 - [`tools/PORTA.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json)
 - [`tools/PORTA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md)
+- [`tools/gerar_estado_atual.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py)
 - [`tools/gerar_portas.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py)
 - [`tools/guarda_do_selo.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/guarda_do_selo.py)
+- [`tools/guarda_do_site.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/guarda_do_site.py)
+- [`tools/pos_push.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/pos_push.py)
 - [`tools/verificar_portas.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/verificar_portas.py)
 

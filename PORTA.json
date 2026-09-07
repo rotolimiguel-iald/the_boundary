@@ -4,7 +4,7 @@
   "repo_raw_base": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/",
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
-  "gerado_utc": "2026-09-07T11:09:40Z",
+  "gerado_utc": "2026-09-07T12:40:05Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v331",
@@ -95,6 +95,16 @@
       "total_arquivos": 118
     },
     {
+      "nome": ".github",
+      "id": ".github",
+      "titulo": ".github",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/PORTA.json",
+      "canonico_url": null,
+      "comando": null,
+      "total_arquivos": 1
+    },
+    {
       "nome": "tools",
       "id": "tools",
       "titulo": "tools",
@@ -102,7 +112,7 @@
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json",
       "canonico_url": null,
       "comando": null,
-      "total_arquivos": 3
+      "total_arquivos": 6
     }
   ],
   "arquivos_raiz": [
@@ -123,8 +133,8 @@
       "papel": "outros",
       "descricao": "Arquivo de infraestrutura",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes",
-      "sha256_16": "1a1dbe176bc233b4",
-      "bytes": 66
+      "sha256_16": "d6905ee1bb826252",
+      "bytes": 401
     },
     {
       "nome": ".gitignore",
@@ -135,15 +145,35 @@
       "bytes": 676
     },
     {
+      "nome": "ESTADO_ATUAL.md",
+      "papel": "documento",
+      "descricao": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
+      "sha256_16": "4f2f9367123f6c3c",
+      "bytes": 7103
+    },
+    {
       "nome": "README.md",
       "papel": "documento",
       "descricao": "O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-      "sha256_16": "473e82d5c4677c83",
-      "bytes": 472859
+      "sha256_16": "71eb955c832b95be",
+      "bytes": 474098
     }
   ],
   "portas_todas": [
+    {
+      "pasta": ".github",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/PORTA.json",
+      "total_arquivos": 1
+    },
+    {
+      "pasta": ".github/workflows",
+      "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/workflows/PORTA.md",
+      "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/workflows/PORTA.json",
+      "total_arquivos": 1
+    },
     {
       "pasta": "A Ponte-Einstein_Cartan_Miguel",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/A%20Ponte-Einstein_Cartan_Miguel/PORTA.md",
@@ -382,9 +412,9 @@
       "pasta": "tools",
       "porta_md_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.md",
       "porta_json_url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/PORTA.json",
-      "total_arquivos": 3
+      "total_arquivos": 6
     }
   ],
-  "total_arquivos": 1091,
+  "total_arquivos": 1096,
   "rodape": "gerado por script de git ls-files em 2026-09-07 -- nao editar a mao"
 }

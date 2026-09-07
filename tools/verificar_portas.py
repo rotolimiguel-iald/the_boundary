@@ -150,6 +150,7 @@ for k, v in (("pin_um_py", selo["sha256"]["um.py"]),
 
 # --- (8) sha256[:16] de cada arquivo listado confere com o disco
 n_hash = 0
+pendentes_blob = []  # (rel, cam, h) — v2 (07/09): o BLOB do git tambem tem de conferir
 for rel in sorted(portas_json):
     j = json.load(io.open(os.path.join(REPO, rel.replace("/", os.sep)), encoding="utf-8"))
     lista = j.get("arquivos") or j.get("arquivos_raiz") or []
@@ -169,6 +170,32 @@ for rel in sorted(portas_json):
         n_hash += 1
         if d.hexdigest()[:16] != h:
             erros.append("sha256 divergente em %s: %s" % (rel, cam))
+        else:
+            pendentes_blob.append((rel, cam, h))
+
+# --- (9) v2, a licao de 07/09/2026: o BLOB do git (o que o raw serve) == a porta.
+# Com '* text=auto' o disco conferia e o raw servia LF: 229 arquivos com outro sha256.
+# `git cat-file --batch` le do INDICE (':caminho') em lote; ausencia no indice e' erro.
+n_blob = 0
+if pendentes_blob:
+    entrada = "".join(":%s\n" % cam for _, cam, _ in pendentes_blob).encode("utf-8")
+    cf = subprocess.run(["git", "cat-file", "--batch"], cwd=REPO, input=entrada, capture_output=True)
+    saida = cf.stdout
+    pos = 0
+    for rel, cam, h in pendentes_blob:
+        nl = saida.find(b"\n", pos)
+        cab = saida[pos:nl].decode("utf-8", "replace")
+        pos = nl + 1
+        if cab.endswith(" missing"):
+            erros.append("NAO RASTREADO no git (o raw nao o serve): %s" % cam)
+            continue
+        partes = cab.split()
+        tam = int(partes[2])
+        conteudo = saida[pos:pos + tam]
+        pos += tam + 1
+        n_blob += 1
+        if hashlib.sha256(conteudo).hexdigest()[:16] != h:
+            erros.append("BLOB do git divergente (o raw serviria outro byte; exige '* -text'): %s" % cam)
 
 print("pastas rastreadas ............ %d" % len(pastas))
 print("PORTA.md em disco ............ %d" % len(portas_md))
@@ -181,6 +208,7 @@ print("  tree (pasta) ............... %d" % n_tree)
 print("alvos raw distintos .......... %d" % len(alvos_raw))
 print("arquivos rastreados .......... %d" % len(tracked))
 print("hashes reconferidos .......... %d" % n_hash)
+print("blobs do git conferidos ...... %d" % n_blob)
 print("avisos ....................... %d" % len(avisos))
 print("ERROS ........................ %d" % len(erros))
 for e in erros[:40]:

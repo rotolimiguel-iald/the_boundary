@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 3 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 6 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -21,14 +21,17 @@ Pasta do repositorio the_boundary com 3 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-3 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools
+6 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools
 
 **CODIGO**
 
 | arquivo | papel | link raw direto |
 |---|---|---|
+| `gerar_estado_atual.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py) |
 | `gerar_portas.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py) |
 | `guarda_do_selo.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/guarda_do_selo.py) |
+| `guarda_do_site.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/guarda_do_site.py) |
+| `pos_push.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/pos_push.py) |
 | `verificar_portas.py` | Codigo executavel | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/verificar_portas.py) |
 
 ---
