@@ -11,10 +11,17 @@ Esta guarda fecha o buraco: toda pasta que contiver `um_grande_atrator_selo.json
 tem TODOS os artefatos do mapa `sha256` do selo re-hasheados contra o disco.
 Fail-closed: divergiu, sai com codigo 1.
 
+v2 (07/09/2026) — a segunda licao: o disco conferia 13/13 e o raw do GitHub servia
+OUTROS bytes. Com `* text=auto` + core.autocrlf=true o git guardava LF enquanto o
+disco e o selo tinham CRLF: o blob de um.py era 9a3becab15f1f011, o selo dizia
+e1b74a907c403538. O que o leitor recebe e o BLOB, nao o disco. A guarda agora
+confere TAMBEM o blob do indice (`git cat-file -p :caminho`) contra o selo.
+
 Uso:  python tools/guarda_do_selo.py
 """
 import hashlib
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -27,6 +34,16 @@ def sha256(p: Path) -> str:
         for c in iter(lambda: f.read(1 << 20), b""):
             h.update(c)
     return h.hexdigest()
+
+
+def sha256_blob(rel_posix: str):
+    """sha256 dos bytes que o git guarda para o caminho (indice) — o que o raw serve.
+    None se o caminho nao esta no indice (fail-closed: ausencia e erro, nunca 'ok')."""
+    r = subprocess.run(["git", "-C", str(RAIZ), "cat-file", "-p", ":" + rel_posix],
+                       capture_output=True)
+    if r.returncode != 0:
+        return None
+    return hashlib.sha256(r.stdout).hexdigest()
 
 
 def main() -> int:
@@ -72,9 +89,22 @@ def main() -> int:
                 print(f"      selo  {esperado[:32]}")
                 erros += 1
                 continue
+            # v2: o BLOB do git (o que o raw serve) tambem tem de ser o do selo
+            blob = sha256_blob(alvo.relative_to(RAIZ).as_posix())
+            if blob is None:
+                print(f"  ! NAO RASTREADO NO GIT (o raw nao o serve): {rel}/{nome}")
+                erros += 1
+                continue
+            if blob != esperado:
+                print(f"  ! O BLOB DO GIT DIVERGE DO SELO (o raw serviria outro byte): {rel}/{nome}")
+                print(f"      blob  {blob[:32]}")
+                print(f"      selo  {esperado[:32]}")
+                print("      causa provavel: normalizacao de fim de linha — exige '* -text' no .gitattributes")
+                erros += 1
+                continue
             conferidos += 1
         versao = selo.get("timestamp", "?")
-        print(f"[selo {versao}] {rel}: {conferidos}/{len(mapa)} artefatos conferem")
+        print(f"[selo {versao}] {rel}: {conferidos}/{len(mapa)} artefatos conferem (disco E blob do git)")
 
     print()
     print(f"selos verificados ............ {len(selos)}")
