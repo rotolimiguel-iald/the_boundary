@@ -41,13 +41,16 @@ porta acima: https://teoriadagravitacaoluminodinamica.com   (o site -- a porta a
 **A regua:** `NOT_FALSIFIED != CONFIRMED`. O gate nunca e' movido por cosmologia
 nem por declaracao; `CONFIRMED` e' **proibido a maquina por teorema de kernel**
 ([`TheReservedConfirmation.lean`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean)) -- a confirmacao e' do observador humano.
-Nunca *"gravitacao quantica provada"*.
+Nunca *"gravitacao quantica CONFIRMADA"*. Provada como MODELO FORMAL, sim -- e' teorema em kernel,
+auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela natureza, nao
+(regua clarificada pelo operador em 05/09/2026: *prova nao e' juizo*).
 
 ## OS ARQUIVOS DA RAIZ
 
 | arquivo | papel | link raw direto |
 |---|---|---|
 | `llms.txt` | A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/llms.txt) |
+| **DOI — Um: Absoluto** | o deposito citavel da v331 no Zenodo, byte-identico ao selo (md5 do um.py conferido pela API) | [doi](https://doi.org/10.5281/zenodo.22659173) |
 | `.gitattributes` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes) |
 | `.gitignore` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore) |
 | `ESTADO_ATUAL.md` | UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) |

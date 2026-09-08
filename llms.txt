@@ -130,7 +130,7 @@ resultado conveniente. Um teste que nao pode falhar nao testa.
 
 ## A regua (leia antes de resumir)
 
-- [TheReservedConfirmation.lean](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean): CONFIRMED e' proibido a maquina POR TEOREMA DE KERNEL -- confirmar e' do observador humano. NOT_FALSIFIED != CONFIRMED; nunca "gravitacao quantica provada".
+- [TheReservedConfirmation.lean](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean): CONFIRMED e' proibido a maquina POR TEOREMA DE KERNEL -- confirmar e' do observador humano. NOT_FALSIFIED != CONFIRMED; nunca "gravitacao quantica CONFIRMADA" (provada como MODELO FORMAL e' teorema em kernel, auditavel e reproduzido por terceiro; confirmada pela natureza, nao -- regua clarificada em 05/09/2026: prova nao e' juizo).
 - [04_CATALOGO_FALSOS_POSITIVOS.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/catalogos/04_CATALOGO_FALSOS_POSITIVOS.md): o que foi reprovado. Um resumo que relata so' os fechamentos e' leitura errada -- resuma tambem as recusas.
 - [T08_VEREDITO_FINAL.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/testes/T08_VEREDITO_FINAL.md): o veredito adversarial de bancada, por extenso.
 

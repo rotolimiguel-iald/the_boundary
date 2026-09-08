@@ -9,6 +9,7 @@
   "5. O um.py tem mais de 5 MB e o GitHub NAO o renderiza na pagina do blob: a pagina abre e parece vazia. Isso e limite de visualizador, nao arquivo faltando -- baixe pelo raw.",
   "6. Depois de baixar, confira o sha256 contra o alias 'selo'."
  ],
+ "doi_um_absoluto": "https://doi.org/10.5281/zenodo.22659173",
  "selo": {
   "pin_um_py": "e1b74a907c403538ba1910ea68ff6a0a112502581cce13d64897042bbcfedb7c",
   "pin_um_py_16": "e1b74a907c403538",
@@ -7771,8 +7772,8 @@
   {
    "path": "tools/gerar_portas.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py",
-   "bytes": 81324,
-   "sha256_16": "f037c7079d301038",
+   "bytes": 82111,
+   "sha256_16": "749a366f388d7ce4",
    "papel": "codigo"
   },
   {

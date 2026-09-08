@@ -6,6 +6,8 @@ porque as pastas canonicas tem acento, travessao e parenteses. O tunel entrega t
 uma vez: **[`TUNEL.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/TUNEL.json)** traz cada arquivo com a URL raw direta, o tamanho, o
 hash e o papel. **Uma requisicao, zero navegacao, zero adivinhacao.**
 
+**Deposito citavel do Um: Absoluto (v331, byte-identico ao selo):** Zenodo [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173).
+
 ## Os atalhos (ASCII, sem acento)
 
 | alias | o que e | abrir |
