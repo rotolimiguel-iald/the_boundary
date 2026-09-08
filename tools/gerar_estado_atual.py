@@ -131,6 +131,8 @@ def main() -> int:
     L.append("Many fetchers cut a document after a few hundred KB. Sizes measured now, smallest first; each file stands on its own:")
     L.append("")
     def _kb(rel):
+        if rel == "ESTADO_ATUAL.md":
+            return "about 12 KB"   # this page: its size is only known after it is written
         return "%.0f KB" % ((RAIZ / rel).stat().st_size / 1024.0)
     ORDEM = [("ESTADO_ATUAL.md", "this page"), (A3 + "/um_absoluto_selo.json", "the seal: every sha256, the world hash, the gate"),
              (A3 + "/A_PROVA_DA_QG_TGL_arvore.md", "the proof tree, term by term"),

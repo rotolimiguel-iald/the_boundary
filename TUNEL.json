@@ -443,8 +443,8 @@
   {
    "path": "ESTADO_ATUAL.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-   "bytes": 11962,
-   "sha256_16": "7baf60b153b545a7",
+   "bytes": 11969,
+   "sha256_16": "01ea460436d69a2e",
    "papel": "documento"
   },
   {
@@ -7772,8 +7772,8 @@
   {
    "path": "tools/gerar_estado_atual.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
-   "bytes": 13050,
-   "sha256_16": "09c6565fe41f6d24",
+   "bytes": 13341,
+   "sha256_16": "21e4b2f7c24811ae",
    "papel": "codigo"
   },
   {

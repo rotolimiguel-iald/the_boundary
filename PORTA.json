@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.22659173",
-  "gerado_utc": "2026-09-08T18:06:03Z",
+  "gerado_utc": "2026-09-08T18:07:33Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v331",
@@ -158,8 +158,8 @@
       "papel": "documento",
       "descricao": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-      "sha256_16": "7baf60b153b545a7",
-      "bytes": 11962
+      "sha256_16": "01ea460436d69a2e",
+      "bytes": 11969
     },
     {
       "nome": "README.md",
