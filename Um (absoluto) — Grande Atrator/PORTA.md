@@ -15,6 +15,8 @@ kernel Lean 4 + mathlib EMBUTIDO no proprio .py (materializado em runtime,
 fail-closed), roda os ritos de natureza pre-registrados e GERA seu proprio artigo
 bilingue (PT/EN, cada um em PDF e TXT). Nao ha segundo arquivo.
 
+**Deposito independente (Zenodo):** https://doi.org/10.5281/zenodo.22659173
+
 ## O SELO CORRENTE
 
 Lido de [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) e de [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json)
@@ -114,4 +116,4 @@ Dependencias: Python 3 + numpy (obrigatorio) | elan/Lean 4 v4.31.0 + lake (para 
 
 ---
 
-gerado por script de git ls-files em 2026-09-07 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-08 -- nao editar a mao

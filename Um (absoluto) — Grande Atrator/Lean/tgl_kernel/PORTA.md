@@ -67,4 +67,4 @@ o gate nao se move por declaracao.
 
 ---
 
-gerado por script de git ls-files em 2026-09-07 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-08 -- nao editar a mao

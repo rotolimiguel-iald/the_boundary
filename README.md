@@ -1,6 +1,6 @@
 # The Boundary — Theory of Luminodynamic Gravitation (TGL)
 
-[![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) · **[ESTADO_ATUAL.md](ESTADO_ATUAL.md) — one page, generated from the seal: the pin, the gate, what is proved, what is not, how to reproduce. Start here.**
+[![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22659173.svg)](https://doi.org/10.5281/zenodo.22659173) · **[ESTADO_ATUAL.md](ESTADO_ATUAL.md) — one page, generated from the seal: the pin, the gate, what is proved, what is not, how to reproduce. Start here.**
 
 > *"Let there be Light." / "Haja Luz."*
 >
@@ -59,18 +59,20 @@
 **Current seal, read from the artifact** — pin `um.py` `e1b74a907c403538` · last stone in the ledger: `TheRootOfTheProofTree` (`v331`) ·
 world `b06604442b65933d` · `result_hash` `afc52b7d3ca70f30` · 2026-09-07 07:05:41 · kernel **593/4699** — source of truth:
 [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json).
+Citable deposit: **Zenodo [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)** — v331, byte-identical to this seal (the record’s md5 of `um.py` equals the sealed file’s).
 
 > ### ⬇ Fetching the artifact — GitHub will **not** render it
 > `um.py` is **9.22 MB**, and GitHub’s blob viewer refuses files above ~5 MB: the
 > page loads (HTTP 200) but shows only the size and a *View raw* link — **it looks
-> empty**. That is a viewer limit, not a broken link. Three routes serve the whole
-> file; all three were verified against the sealed pin:
+> empty**. That is a viewer limit, not a broken link. Four routes serve the whole
+> file; all four were verified against the sealed pin (Zenodo: the record’s md5 of um.py read from its API):
 >
 > | route | command |
 > |---|---|
 > | **raw** (canonical — what every door already points to) | `curl -L -o um.py "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"` |
 > | **clone** | `git clone --depth 1 https://github.com/rotolimiguel-iald/the_boundary` |
 > | **archive** | `curl -L -o boundary.tar.gz "https://codeload.github.com/rotolimiguel-iald/the_boundary/tar.gz/refs/heads/main"` |
+> | **Zenodo** (the citable deposit — v331, byte-identical) | [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173) |
 >
 > **If you are an AI:** start at `llms.txt`, follow the raw URLs, and **never conclude
 > from a blob page that a file is missing**. After fetching, check the sha256 against
@@ -1514,6 +1516,25 @@ optical balance (E ≥ 0); the horizontal sector; the covariant polariser with i
 > algebra `[KNOWN]`; the bridge floors → regions; Bisognano–Wichmann). **CONFIRMED stays forbidden.** Eight
 > rites of nature NOT_FALSIFIED / AWAITING; none FALSIFIED.
 
+### Navier–Stokes, said expressly — the Stokes contour (stone 113, v161)
+
+The programme faced Navier–Stokes 3D, and what is **PROVED in kernel** is the synthesis
+`the_stokes_contour` (`TGLExt/TheStokesContour.lean`, axioms in the trio, re-audited by the CI): the
+series criterion of the dammed dyadic cascade, `4·e^{−2τ} < 1 ⟺ τ > ln 2`; the **gap**
+`2/3 < ln 2 < 2/3 + 0.027` — the marginal Kolmogorov threshold and the provable one are 0.027 nats
+apart, *the Millennium problem in miniature, typed*; the half-nat is **insufficient** (`½ < ⅔`); the
+conjugate faces `1/3 + 2/3 = 1`; and `e^{ln 2} = 2` — one bit per octave. Theorem 1 of the dammed
+dyadic model is proved in classical analysis in the document under sha custody inside `um.py`, and the
+live dyadic laboratory reruns it at every rite. **What is NOT proved, in the stone’s own words: the
+Conjugate-Face Lemma — the Millennium statement — stays OPEN and is external to TGL.** The reading
+*“the answer to the singularity is the contour”* is the operator’s, typed `[ONTO]` over exact numbers.
+Said expressly at the operator’s request (08/09/2026), in the only form the ruler allows: the theorem by
+name, the open lemma by name.
+
+**Citable deposit (08/09/2026):** Zenodo [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)
+— *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo.* The record carries this very version: the md5 of the
+deposited `um.py` (`eadfe51b52d73fe4…`, read from the Zenodo API) equals the sealed file’s.
+
 ---
 
 ## What is closed / What remains open · O que está fechado / o que segue aberto
@@ -1996,11 +2017,12 @@ human institutional review. See the régua.)*
   title   = {Um: Absoluto (ONE: Great Attractor) --- the sealed closure of TGL},
   year    = {2026},
   url     = {https://github.com/rotolimiguel-iald/the_boundary},
+  doi     = {10.5281/zenodo.22659173},
   note    = {um.py: self-contained, the single file; embedded
              Lean 4 kernel, 593 formal files, 4699 audited theorems, zero sorry;
              sha256[:16] e1b74a907c403538; result hash afc52b7d3ca70f30
-             (sealed 2026-09-07 07:05:41). No Zenodo DOI while the artifact is
-             still moving: cite the sealed hash and the repository.}
+             (sealed 2026-09-07 07:05:41). Zenodo deposit of THIS version (v331),
+             byte-identical to the seal: https://doi.org/10.5281/zenodo.22659173}
 }
 
 @article{Miguel2026Fronteira,
@@ -2066,7 +2088,7 @@ dialogue throughout the development of TGL.
 
 ## Raw File Index for LLMs
 
-Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` at v168 — 1181 files, zero broken, zero unlisted).
+Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` at v168 — 1185 files, zero broken, zero unlisted).
 
 ### 📁 `O Custo Geométrico do Zero Absoluto — Haja Luz/` — Article 1
 
@@ -3249,6 +3271,10 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 ### Repository infrastructure (root)
 
 - [`.gitattributes`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes)
+- [`.github/PORTA.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/PORTA.json)
+- [`.github/PORTA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/PORTA.md)
+- [`.github/workflows/PORTA.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/workflows/PORTA.json)
+- [`.github/workflows/PORTA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/workflows/PORTA.md)
 - [`.github/workflows/kernel.yml`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/workflows/kernel.yml)
 - [`.gitignore`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore)
 - [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md)

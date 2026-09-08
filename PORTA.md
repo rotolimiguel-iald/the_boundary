@@ -112,4 +112,4 @@ Nunca *"gravitacao quantica provada"*.
 
 ---
 
-Total rastreado por `git ls-files`: **1096 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-07 -- nao editar a mao
+Total rastreado por `git ls-files`: **1096 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-08 -- nao editar a mao

@@ -111,8 +111,8 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "o_que_e": "O atlas da fronteira",
-   "sha256_16": "71eb955c832b95be",
-   "bytes": 474098
+   "sha256_16": "31bbf2c09e456fa7",
+   "bytes": 476671
   },
   "llms": {
    "path": "llms.txt",
@@ -141,8 +141,8 @@
   {
    "path": ".github/workflows/kernel.yml",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/workflows/kernel.yml",
-   "bytes": 4378,
-   "sha256_16": "9b12f08ef8a5b65a",
+   "bytes": 5011,
+   "sha256_16": "270dfdd1d975acde",
    "papel": "outros"
   },
   {
@@ -435,8 +435,8 @@
   {
    "path": "ESTADO_ATUAL.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-   "bytes": 7103,
-   "sha256_16": "4f2f9367123f6c3c",
+   "bytes": 8280,
+   "sha256_16": "3c5f26de5b9a1772",
    "papel": "documento"
   },
   {
@@ -1303,8 +1303,8 @@
   {
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-   "bytes": 474098,
-   "sha256_16": "71eb955c832b95be",
+   "bytes": 476671,
+   "sha256_16": "31bbf2c09e456fa7",
    "papel": "documento"
   },
   {
@@ -7764,15 +7764,15 @@
   {
    "path": "tools/gerar_estado_atual.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
-   "bytes": 9479,
-   "sha256_16": "e80c391a96812ab6",
+   "bytes": 10737,
+   "sha256_16": "361707f3bfa6d12f",
    "papel": "codigo"
   },
   {
    "path": "tools/gerar_portas.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py",
-   "bytes": 80549,
-   "sha256_16": "3e9cfdf38ec7e595",
+   "bytes": 81324,
+   "sha256_16": "f037c7079d301038",
    "papel": "codigo"
   },
   {
@@ -7785,8 +7785,8 @@
   {
    "path": "tools/guarda_do_site.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/guarda_do_site.py",
-   "bytes": 3612,
-   "sha256_16": "66798d7d180a59a0",
+   "bytes": 3694,
+   "sha256_16": "7eb298073c8310d7",
    "papel": "codigo"
   },
   {

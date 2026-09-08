@@ -4,7 +4,7 @@
   "titulo": ".github/workflows",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-07T12:40:05Z",
+  "gerado_utc": "2026-09-08T12:03:25Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": ".github",
@@ -27,12 +27,12 @@
       "descricao": "Arquivo de infraestrutura",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/workflows/kernel.yml",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/.github/workflows/kernel.yml",
-      "sha256_16": "9b12f08ef8a5b65a",
-      "bytes": 4378
+      "sha256_16": "270dfdd1d975acde",
+      "bytes": 5011
     }
   ],
   "total_arquivos_nesta_pasta": 1,
   "total_arquivos_com_subpastas": 1,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/.github/workflows",
-  "rodape": "gerado por script de git ls-files em 2026-09-07 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-08 -- nao editar a mao"
 }

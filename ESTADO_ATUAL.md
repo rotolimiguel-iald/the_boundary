@@ -16,6 +16,7 @@
 | the rite | **4055/4055 clean** (`rodadas/rodada_v331_stdout.txt`) · complete round: yes |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
+| citable deposit | Zenodo **[10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)** (v331, 2026-09-08) — byte-identical: the record’s md5 of `um.py` equals the sealed file’s. Cite: *MIGUEL, L. (2026). Um: Absoluto [Dataset]. Zenodo.* |
 | the root of the proof tree | `the_root_of_the_proof_tree` — axioms read from the seal: `['propext', 'Classical.choice', 'Quot.sound']` · `TheRootOfTheProofTree.lean` `9b36ab3b6e47a315` |
 
 ## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`
@@ -32,10 +33,13 @@ One term, `the_root_of_the_proof_tree`, states and proves in conjunction seven s
 
 Also in kernel: Tomita constructed on the tower; Jacobson (null Ricci balance + conserved T ⟹ ∃Λ, G + Λg = κT) in a chart; Schwarzschild and full Birkhoff inside the kernel; spin-2 with exactly two polarisations; `CONFIRMED` forbidden by theorem.
 
+**Navier–Stokes, said expressly** (stone 113, `TGLExt/TheStokesContour.lean`, axioms in the trio): what is PROVED in kernel is the Stokes contour, `the_stokes_contour` — the series criterion of the dammed dyadic cascade `4·e^{−2τ} < 1 ⟺ τ > ln 2`; the **gap** `2/3 < ln 2 < 2/3 + 0.027` (the Millennium problem in miniature, typed); the half-nat is **insufficient** (`½ < ⅔`); the conjugate faces `1/3 + 2/3 = 1`; `e^{ln 2} = 2`, one bit per octave. Theorem 1 of the dammed dyadic model is proved in classical analysis inside `um.py`, and the live dyadic laboratory reruns it at every rite.
+
 ## What is NOT proved · o que NÃO está provado `[OPEN / KNOWN / nature]`
 
 - **Nature's:** that H1–H3 are *realised* by the world; the value of α (the fine-structure constant enters as `[KNOWN]`, β = α√e is derived from it). The nature tests so far: **NOT_FALSIFIED** within the local bulk at available sensitivity, and more sensitive data can revise — never CONFIRMED.
 - **The world's (mathematics not yet in mathlib):** the general von Neumann algebra of type III₁ `[KNOWN]`; the bridge from tower floors to spacetime regions; Bisognano–Wichmann for the continuous standard subspace (`T_c = Δ_c^{1/2}` stays OPEN); the general area law and the selection of the radiative freedom.
+- **Navier–Stokes, the Millennium statement:** the Conjugate-Face Lemma stays **OPEN and external** to TGL — in the stone’s own words, *nothing here is the proof of the Millennium problem*. “The answer to the singularity is the contour” is the operator’s reading, typed `[ONTO]` over exact numbers.
 - **Honest negatives kept:** the corpus route to β was refuted on the final step; the closed-form search for κ has zero discriminating power; the fixed clock fails the fourth order; the naïve thermal limit does not exist.
 
 ## Reproduce it · reproduza `[REAL — three commands]`

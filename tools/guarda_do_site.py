@@ -52,8 +52,10 @@ def main() -> int:
     porta = None
     ll = LOCAL_SITE / "llms.txt"
     if ll.is_file():
-        mm = re.search(r"^https?://\S+$", ll.read_text(encoding="utf-8", errors="replace"), re.M)
-        porta = mm.group(0) if mm else None
+        txt = ll.read_text(encoding="utf-8", errors="replace")
+        i = txt.find("A porta acima")
+        mm = re.search(r"\((https?://[^)\s]+)\)", txt[i:]) if i >= 0 else None
+        porta = mm.group(1) if mm else None
     porta_ok = None
     if porta:
         try:

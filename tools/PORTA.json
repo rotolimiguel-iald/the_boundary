@@ -4,7 +4,7 @@
   "titulo": "tools",
   "repo": "https://github.com/rotolimiguel-iald/the_boundary",
   "site": "https://teoriadagravitacaoluminodinamica.com",
-  "gerado_utc": "2026-09-07T12:40:05Z",
+  "gerado_utc": "2026-09-08T12:03:25Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "porta_acima": {
     "pasta": "raiz",
@@ -27,8 +27,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_estado_atual.py",
-      "sha256_16": "e80c391a96812ab6",
-      "bytes": 9479
+      "sha256_16": "361707f3bfa6d12f",
+      "bytes": 10737
     },
     {
       "nome": "gerar_portas.py",
@@ -37,8 +37,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/gerar_portas.py",
-      "sha256_16": "3e9cfdf38ec7e595",
-      "bytes": 80549
+      "sha256_16": "f037c7079d301038",
+      "bytes": 81324
     },
     {
       "nome": "guarda_do_selo.py",
@@ -57,8 +57,8 @@
       "descricao": "Codigo executavel",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/guarda_do_site.py",
       "url_blob": "https://github.com/rotolimiguel-iald/the_boundary/blob/main/tools/guarda_do_site.py",
-      "sha256_16": "66798d7d180a59a0",
-      "bytes": 3612
+      "sha256_16": "7eb298073c8310d7",
+      "bytes": 3694
     },
     {
       "nome": "pos_push.py",
@@ -84,5 +84,5 @@
   "total_arquivos_nesta_pasta": 6,
   "total_arquivos_com_subpastas": 6,
   "url_pasta_github": "https://github.com/rotolimiguel-iald/the_boundary/tree/main/tools",
-  "rodape": "gerado por script de git ls-files em 2026-09-07 -- nao editar a mao"
+  "rodape": "gerado por script de git ls-files em 2026-09-08 -- nao editar a mao"
 }

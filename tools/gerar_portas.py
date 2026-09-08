@@ -41,6 +41,7 @@ TREE = GH + "/tree/main/"
 BLOB = GH + "/blob/main/"
 SITE = "https://teoriadagravitacaoluminodinamica.com"
 DOI_REPO = "https://doi.org/10.5281/zenodo.18674475"
+DOI_UM = "https://doi.org/10.5281/zenodo.22659173"   # Um: Absoluto, v331 (08/09/2026): um.py byte-identico ao selo (md5 conferido pela API do Zenodo)
 
 REGRA = ("toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta "
          "para cima e para baixo")
@@ -404,7 +405,7 @@ PASTAS = {
         titulo="Artigo 3 -- Um: Absoluto (o programa terminal)",
         subtitulo="ONE: Great Attractor -- o fechamento canonico; entrada humana unica: o digito 1",
         canonico=A3 + "/um.py",
-        doi=None,
+        doi=DOI_UM,
         comando=[
             'cd "Um (absoluto) \u2014 Grande Atrator"',
             "echo 1 | python um.py          # o rito pede a inscricao do Um; responda 1",
@@ -922,6 +923,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
         "repo_raw_base": RAW,
         "site": SITE,
         "doi": DOI_REPO,
+        "doi_um_absoluto": DOI_UM,
         "gerado_utc": AGORA,
         "regra": REGRA,
         "selo_corrente": sc,
@@ -986,6 +988,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("- [README.md](%s): o atlas da fronteira -- toda afirmacao com seu status e o link direto do arquivo onde se le." % registra(url_raw("README.md")))
     T.append("- [site oficial](%s): a face publica da teoria; a porta acima da raiz." % SITE)
     T.append("- [repositorio](%s): a arvore no GitHub." % GH)
+    T.append("- [Zenodo DOI 10.5281/zenodo.22659173](%s): o deposito CITAVEL do Um: Absoluto (v331, 08/09/2026) -- um.py byte-identico ao selo (md5 eadfe51b52d73fe4..., conferido pela API do Zenodo)." % DOI_UM)
     T.append("")
     T.append("## Artigo 1 -- O Custo Geometrico do Zero Absoluto: haja luz")
     T.append("")
@@ -1206,19 +1209,21 @@ def bloco_readme(dirs, sc):
              % (sc["mundo_16"], sc["result_hash_16"], sc["data"],
                 sc["kernel_arquivos_formais"], sc["kernel_teoremas_auditados"]))
     B.append("[`um_absoluto_selo.json`](%s)." % url_raw(A3 + "/um_absoluto_selo.json"))
+    B.append("Citable deposit: **Zenodo [10.5281/zenodo.22659173](%s)** \u2014 v331, byte-identical to this seal (the record\u2019s md5 of `um.py` equals the sealed file\u2019s)." % DOI_UM)
     B.append("")
     mb_um = os.path.getsize(os.path.join(REPO, A3, "um.py")) / 1048576.0
     B.append("> ### \u2b07 Fetching the artifact \u2014 GitHub will **not** render it")
     B.append("> `um.py` is **%.2f MB**, and GitHub\u2019s blob viewer refuses files above ~5 MB: the" % mb_um)
     B.append("> page loads (HTTP 200) but shows only the size and a *View raw* link \u2014 **it looks")
-    B.append("> empty**. That is a viewer limit, not a broken link. Three routes serve the whole")
-    B.append("> file; all three were verified against the sealed pin:")
+    B.append("> empty**. That is a viewer limit, not a broken link. Four routes serve the whole")
+    B.append("> file; all four were verified against the sealed pin (Zenodo: the record\u2019s md5 of um.py read from its API):")
     B.append(">")
     B.append("> | route | command |")
     B.append("> |---|---|")
     B.append("> | **raw** (canonical \u2014 what every door already points to) | `curl -L -o um.py \"%s\"` |" % url_raw(A3 + "/um.py"))
     B.append("> | **clone** | `git clone --depth 1 https://github.com/rotolimiguel-iald/the_boundary` |")
     B.append("> | **archive** | `curl -L -o boundary.tar.gz \"https://codeload.github.com/rotolimiguel-iald/the_boundary/tar.gz/refs/heads/main\"` |")
+    B.append("> | **Zenodo** (the citable deposit \u2014 v331, byte-identical) | [10.5281/zenodo.22659173](%s) |" % DOI_UM)
     B.append(">")
     B.append("> **If you are an AI:** start at `llms.txt`, follow the raw URLs, and **never conclude")
     B.append("> from a blob page that a file is missing**. After fetching, check the sha256 against")

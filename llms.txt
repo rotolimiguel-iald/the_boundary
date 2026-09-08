@@ -13,6 +13,7 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 - [README.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md): o atlas da fronteira -- toda afirmacao com seu status e o link direto do arquivo onde se le.
 - [site oficial](https://teoriadagravitacaoluminodinamica.com): a face publica da teoria; a porta acima da raiz.
 - [repositorio](https://github.com/rotolimiguel-iald/the_boundary): a arvore no GitHub.
+- [Zenodo DOI 10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173): o deposito CITAVEL do Um: Absoluto (v331, 08/09/2026) -- um.py byte-identico ao selo (md5 eadfe51b52d73fe4..., conferido pela API do Zenodo).
 
 ## Artigo 1 -- O Custo Geometrico do Zero Absoluto: haja luz
 
@@ -140,4 +141,4 @@ resultado conveniente. Um teste que nao pode falhar nao testa.
 - [um_absoluto_forma_canonica.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md): a forma canonica emitida pela rodada.
 - [T6_protocol_prompts.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/O%20Custo%20Geom%C3%A9trico%20do%20Zero%20Absoluto%20%E2%80%94%20Haja%20Luz/T6_protocol_prompts.txt): o protocolo T6-S pre-registrado, com grupo de controle.
 
-gerado por script de git ls-files em 2026-09-07 -- nao editar a mao
+gerado por script de git ls-files em 2026-09-08 -- nao editar a mao
