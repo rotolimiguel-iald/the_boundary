@@ -248,6 +248,7 @@ DESC = {
     "README.md": "O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le",
     "llms.txt": "A porta de entrada para IA (convencao llmstxt.org): as URLs raw diretas de tudo que importa",
     "ESTADO_ATUAL.md": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui",
+    "CITATION.cff": "Como citar: DOI 10.5281/zenodo.22659173 (v331), autor, versao, e as URLs diretas do um.py e do selo",
     # ----- Artigo 1
     A1 + "/tgl_paper_unified.py": "O CANONICO do Artigo 1: implementa, valida e renderiza a TGL num arquivo so (forma = conteudo)",
     A1 + "/paper_PT.tex": "O artigo (edicao PT) gerado pelo proprio codigo",
@@ -1015,6 +1016,23 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
     T.append("- [PORTA.json do Artigo 3](%s): a mesma porta em estrutura de maquina, com o selo corrente completo." % registra(porta_json_url(A3)))
     T.append("- [um.py](%s): O CANONICO TERMINAL -- kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue; roda com `echo 1 | python um.py`. Nao ha segundo arquivo." % registra(url_raw(A3 + "/um.py")))
     T.append("- [um_absoluto_selo.json](%s): O SELO -- versao %s, pin %s, result %s, %s." % (registra(url_raw(A3 + "/um_absoluto_selo.json")), sc["versao"], sc["pin_um_py_16"], sc["result_hash_16"], sc["data"]))
+    T.append("")
+    T.append("## Ordem de leitura -- para leitores que truncam documentos grandes")
+    T.append("")
+    T.append("Do menor para o maior; cada arquivo se sustenta sozinho (tamanhos lidos agora):")
+    T.append("")
+    for _rel, _what in (("ESTADO_ATUAL.md", "uma pagina: pin, gate, o que esta provado, o que nao esta"),
+                        (A3 + "/um_absoluto_selo.json", "o selo: todo sha256, o hash do mundo, o gate"),
+                        (A3 + "/A_PROVA_DA_QG_TGL_arvore.md", "a arvore da prova, termo a termo"),
+                        (A3 + "/um_absoluto_forma_canonica.md", "a forma canonica"),
+                        (A3 + "/um_absoluto_pt.txt", "o artigo em texto puro (PT); a versao EN esta ao lado"),
+                        (A3 + "/Lean/tgl_kernel_proof_manifest.json", "o manifesto do kernel: cada teorema com seus axiomas"),
+                        (A3 + "/um_absoluto.json", "o mundo: todos os numeros computados"),
+                        (A3 + "/um.py", "o artefato inteiro (kernel Lean e artigos embutidos)")):
+        T.append("- %s   (%.0f KB) -- %s" % (registra(url_raw(_rel)), os.path.getsize(os.path.join(REPO, _rel.replace("/", os.sep))) / 1024.0, _what))
+    T.append("")
+    T.append("Download em pedacos: o raw do GitHub e o Zenodo honram HTTP Range (206 Partial Content, byte-exato):")
+    T.append("  curl -L -r 0-999999 -o um.py.part1 \"%s\"   (depois -r 1000000-1999999, e assim por diante)" % url_raw(A3 + "/um.py"))
     T.append("")
     T.append("## O TUNEL -- se voce e um bot, comece por aqui")
     T.append("")

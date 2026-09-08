@@ -53,6 +53,7 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 | **DOI — Um: Absoluto** | o deposito citavel da v331 no Zenodo, byte-identico ao selo (md5 do um.py conferido pela API) | [doi](https://doi.org/10.5281/zenodo.22659173) |
 | `.gitattributes` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitattributes) |
 | `.gitignore` | Arquivo de infraestrutura | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore) |
+| `CITATION.cff` | Como citar: DOI 10.5281/zenodo.22659173 (v331), autor, versao, e as URLs diretas do um.py e do selo | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff) |
 | `ESTADO_ATUAL.md` | UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md) |
 | `README.md` | O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md) |
 
@@ -115,4 +116,4 @@ auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela n
 
 ---
 
-Total rastreado por `git ls-files`: **1096 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-08 -- nao editar a mao
+Total rastreado por `git ls-files`: **1097 arquivos** (antes das portas). gerado por script de git ls-files em 2026-09-08 -- nao editar a mao

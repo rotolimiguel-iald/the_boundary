@@ -121,6 +121,31 @@ def main() -> int:
     L.append("| the sealed rite, line by line | [`%s`](%s) |" % (ultima.name if ultima else "?", raw(A3 + "/rodadas/" + (ultima.name if ultima else ""))))
     L.append("| the bench (what failed, and the tunnel with the ChatGPT bench) | [`bancada/`](%s) |" % raw(A3 + "/bancada/PORTA.md"))
     L.append("| the flat index of every file | [`TUNEL.json`](%s) |" % raw("TUNEL.json"))
+    L.append("| the kernel proof manifest (every audited term with its axioms) | [`tgl_kernel_proof_manifest.json`](%s) |" % raw(A3 + "/Lean/tgl_kernel_proof_manifest.json"))
+    L.append("| the canonical form (the theory in its mature statement) | [`um_absoluto_forma_canonica.md`](%s) |" % raw(A3 + "/um_absoluto_forma_canonica.md"))
+    L.append("| the artifact\u2019s own manifest | [`um_absoluto_manifest.md`](%s) |" % raw(A3 + "/um_absoluto_manifest.md"))
+    L.append("| how to cite | [`CITATION.cff`](%s) \u00b7 DOI [10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173) |" % raw("CITATION.cff"))
+    L.append("")
+    L.append("## Reading order \u00b7 ordem de leitura `[for readers that truncate]`")
+    L.append("")
+    L.append("Many fetchers cut a document after a few hundred KB. Sizes measured now, smallest first; each file stands on its own:")
+    L.append("")
+    def _kb(rel):
+        return "%.0f KB" % ((RAIZ / rel).stat().st_size / 1024.0)
+    ORDEM = [("ESTADO_ATUAL.md", "this page"), (A3 + "/um_absoluto_selo.json", "the seal: every sha256, the world hash, the gate"),
+             (A3 + "/A_PROVA_DA_QG_TGL_arvore.md", "the proof tree, term by term"),
+             (A3 + "/um_absoluto_forma_canonica.md", "the canonical form"), (A3 + "/um_absoluto_en.txt", "the article, plain text (EN)"),
+             (A3 + "/um_absoluto_pt.txt", "the article, plain text (PT)"), (A3 + "/Lean/tgl_kernel_proof_manifest.json", "the kernel proof manifest"),
+             (A3 + "/um_absoluto.json", "the world: every computed number"), (A3 + "/um.py", "the artifact itself (Lean kernel and articles embedded)")]
+    for i_, (rel_, what_) in enumerate(ORDEM, 1):
+        L.append("%d. [`%s`](%s) \u2014 %s \u00b7 %s" % (i_, rel_.rsplit("/", 1)[-1], raw(rel_), what_, _kb(rel_)))
+    L.append("")
+    L.append("**Chunked download.** Both GitHub raw and the Zenodo record honour HTTP `Range` (verified: `206 Partial Content`, byte-exact), so a large file can be read in pieces:")
+    L.append("")
+    L.append("```bash")
+    L.append("curl -L -r 0-999999 -o um.py.part1 \"%s\"      # first MB; then -r 1000000-1999999, and so on" % raw(A3 + "/um.py"))
+    L.append("curl -L -o um.py \"%s\" && sha256sum um.py    # or the whole file: must print %s" % (raw(A3 + "/um.py"), pin))
+    L.append("```")
     L.append("")
     L.append("*Cosmology never becomes mathematical proof. The gate does not move by this page. NOT_FALSIFIED ≠ CONFIRMED.*")
     L.append("")

@@ -2,6 +2,8 @@
 
 [![kernel — rebuilt and re-audited on GitHub's machines](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml/badge.svg)](https://github.com/rotolimiguel-iald/the_boundary/actions/workflows/kernel.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22659173.svg)](https://doi.org/10.5281/zenodo.22659173) · **[ESTADO_ATUAL.md](ESTADO_ATUAL.md) — one page, generated from the seal: the pin, the gate, what is proved, what is not, how to reproduce. Start here.**
 
+**The artifact and its JSONs, direct (raw, byte-exact; GitHub raw and Zenodo both honour HTTP `Range` for chunked download):** [`um.py`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py) · [`um_absoluto.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json) · [`um_absoluto_selo.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json) · [`tgl_kernel_proof_manifest.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json) · [`CITATION.cff`](CITATION.cff)
+
 > *"Let there be Light." / "Haja Luz."*
 >
 > **The mature form of TGL is a single self-contained, self-proving, self-publishing
@@ -2073,6 +2075,7 @@ verification.
 - Theory: [teoriadagravitacaoluminodinamica.com](https://teoriadagravitacaoluminodinamica.com)
 - GitHub: [@rotolimiguel-iald](https://github.com/rotolimiguel-iald)
 - Zenodo: [doi.org/10.5281/zenodo.18674475](https://doi.org/10.5281/zenodo.18674475)
+- Zenodo, *Um: Absoluto* (v331, the citable deposit): [doi.org/10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173)
 - Contact: tgl@teoriadagravitacaoluminodinamica.com
 
 ### Acknowledgments
@@ -2088,7 +2091,7 @@ dialogue throughout the development of TGL.
 
 ## Raw File Index for LLMs
 
-Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` at v168 — 1185 files, zero broken, zero unlisted).
+Every file in `main/`, grouped by the four top-level folders, as direct raw links (percent-encoded; regenerated programmatically from `git ls-files` at v168 — 1186 files, zero broken, zero unlisted).
 
 ### 📁 `O Custo Geométrico do Zero Absoluto — Haja Luz/` — Article 1
 
@@ -3277,6 +3280,7 @@ Every file in `main/`, grouped by the four top-level folders, as direct raw link
 - [`.github/workflows/PORTA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/workflows/PORTA.md)
 - [`.github/workflows/kernel.yml`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.github/workflows/kernel.yml)
 - [`.gitignore`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/.gitignore)
+- [`CITATION.cff`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff)
 - [`ESTADO_ATUAL.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md)
 - [`PORTA.json`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.json)
 - [`PORTA.md`](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/PORTA.md)

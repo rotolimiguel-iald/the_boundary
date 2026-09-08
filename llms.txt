@@ -38,6 +38,22 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 - [um.py](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py): O CANONICO TERMINAL -- kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue; roda com `echo 1 | python um.py`. Nao ha segundo arquivo.
 - [um_absoluto_selo.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json): O SELO -- versao v331, pin e1b74a907c403538, result afc52b7d3ca70f30, 2026-09-07 07:05:41.
 
+## Ordem de leitura -- para leitores que truncam documentos grandes
+
+Do menor para o maior; cada arquivo se sustenta sozinho (tamanhos lidos agora):
+
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md   (12 KB) -- uma pagina: pin, gate, o que esta provado, o que nao esta
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json   (34 KB) -- o selo: todo sha256, o hash do mundo, o gate
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md   (22 KB) -- a arvore da prova, termo a termo
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md   (142 KB) -- a forma canonica
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt   (496 KB) -- o artigo em texto puro (PT); a versao EN esta ao lado
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json   (656 KB) -- o manifesto do kernel: cada teorema com seus axiomas
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json   (2165 KB) -- o mundo: todos os numeros computados
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py   (9436 KB) -- o artefato inteiro (kernel Lean e artigos embutidos)
+
+Download em pedacos: o raw do GitHub e o Zenodo honram HTTP Range (206 Partial Content, byte-exato):
+  curl -L -r 0-999999 -o um.py.part1 "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"   (depois -r 1000000-1999999, e assim por diante)
+
 ## O TUNEL -- se voce e um bot, comece por aqui
 
 As PORTAS sao hierarquicas (raiz -> pasta -> arquivo) e voce pode errar o nome no

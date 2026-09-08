@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this artifact, cite the sealed version by its DOI and its sha256 pin."
+title: "Um: Absoluto — the sealed closure of the Theory of Luminodynamic Gravitation (TGL); um.py, one self-contained file"
+type: dataset
+authors:
+  - family-names: "Miguel"
+    given-names: "Luiz Antonio Rotoli"
+    orcid: "https://orcid.org/0009-0005-1114-6106"
+version: "v331"
+date-released: "2026-09-08"
+doi: "10.5281/zenodo.22659173"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22659173"
+    description: "Zenodo deposit of v331 (byte-identical to the seal: um.py sha256 e1b74a907c403538…)"
+  - type: doi
+    value: "10.5281/zenodo.20999494"
+    description: "Zenodo concept DOI (all versions of Um: Absoluto)"
+  - type: url
+    value: "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"
+    description: "um.py, direct raw URL (GitHub refuses to render files above 5 MB; the raw route serves it whole, byte-exact)"
+  - type: url
+    value: "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json"
+    description: "the seal — sha256 of every sealed artifact, the result hash of the world, the gate"
+repository-code: "https://github.com/rotolimiguel-iald/the_boundary"
+url: "https://teoriadagravitacaoluminodinamica.com/"
+keywords:
+  - "Theory of Luminodynamic Gravitation"
+  - "TGL"
+  - "quantum gravity"
+  - "Lean 4"
+  - "mathlib"
+  - "self-proving artifact"
+  - "modular theory"
+  - "Tomita-Takesaki"
+  - "beta = alpha sqrt e"
+abstract: >
+  One self-contained Python file, um.py, whose only runtime input is the digit 1. It derives the
+  chain beta = alpha*sqrt(e), materializes and builds an embedded Lean 4 + mathlib kernel (593 formal
+  files, 4699 audited theorems, axioms in {propext, Classical.choice, Quot.sound}, zero sorry), runs the
+  pre-registered rites of nature, and emits its own bilingual article (PT/EN, PDF and TXT). Quantum
+  gravity is PROVED as a formal model (the root of the proof tree, the_root_of_the_proof_tree) and NOT
+  confirmed by nature (NOT_FALSIFIED within the local bulk at available sensitivity). The seal
+  (um_absoluto_selo.json) is the truth of the repository.

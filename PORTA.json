@@ -5,7 +5,7 @@
   "site": "https://teoriadagravitacaoluminodinamica.com",
   "doi": "https://doi.org/10.5281/zenodo.18674475",
   "doi_um_absoluto": "https://doi.org/10.5281/zenodo.22659173",
-  "gerado_utc": "2026-09-08T12:05:34Z",
+  "gerado_utc": "2026-09-08T18:06:03Z",
   "regra": "toda pasta canonica tem PORTA.md + PORTA.json; toda porta aponta para cima e para baixo",
   "selo_corrente": {
     "versao": "v331",
@@ -146,20 +146,28 @@
       "bytes": 676
     },
     {
+      "nome": "CITATION.cff",
+      "papel": "outros",
+      "descricao": "Como citar: DOI 10.5281/zenodo.22659173 (v331), autor, versao, e as URLs diretas do um.py e do selo",
+      "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff",
+      "sha256_16": "6bf5ae4631eddca0",
+      "bytes": 2299
+    },
+    {
       "nome": "ESTADO_ATUAL.md",
       "papel": "documento",
       "descricao": "UMA PAGINA, gerada do selo por script: pin, gate, o que esta PROVADO, o que NAO esta, como reproduzir -- comece aqui",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-      "sha256_16": "3c5f26de5b9a1772",
-      "bytes": 8280
+      "sha256_16": "7baf60b153b545a7",
+      "bytes": 11962
     },
     {
       "nome": "README.md",
       "papel": "documento",
       "descricao": "O atlas da fronteira: toda afirmacao com seu status e o link direto do arquivo onde se le",
       "url_raw": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-      "sha256_16": "31bbf2c09e456fa7",
-      "bytes": 476671
+      "sha256_16": "37be440346191788",
+      "bytes": 477735
     }
   ],
   "portas_todas": [
@@ -416,6 +424,6 @@
       "total_arquivos": 6
     }
   ],
-  "total_arquivos": 1096,
+  "total_arquivos": 1097,
   "rodape": "gerado por script de git ls-files em 2026-09-08 -- nao editar a mao"
 }

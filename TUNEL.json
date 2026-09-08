@@ -21,7 +21,7 @@
   "versao_da_pedra": "v331"
  },
  "regra": "NOT_FALSIFIED nunca e CONFIRMED. Fechar a arquitetura matematica interna nao e gravidade quantica confirmada. beta_TGL = alpha*sqrt(e) e CONSTANTE, nunca literal no codigo: e computada em runtime.",
- "n_arquivos": 1096,
+ "n_arquivos": 1097,
  "aliases_ausentes": [],
  "aliases": {
   "um.py": {
@@ -112,8 +112,8 @@
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
    "o_que_e": "O atlas da fronteira",
-   "sha256_16": "31bbf2c09e456fa7",
-   "bytes": 476671
+   "sha256_16": "37be440346191788",
+   "bytes": 477735
   },
   "llms": {
    "path": "llms.txt",
@@ -434,10 +434,17 @@
    "papel": "resultado selado"
   },
   {
+   "path": "CITATION.cff",
+   "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/CITATION.cff",
+   "bytes": 2299,
+   "sha256_16": "6bf5ae4631eddca0",
+   "papel": "outros"
+  },
+  {
    "path": "ESTADO_ATUAL.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md",
-   "bytes": 8280,
-   "sha256_16": "3c5f26de5b9a1772",
+   "bytes": 11962,
+   "sha256_16": "7baf60b153b545a7",
    "papel": "documento"
   },
   {
@@ -1304,8 +1311,8 @@
   {
    "path": "README.md",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md",
-   "bytes": 476671,
-   "sha256_16": "31bbf2c09e456fa7",
+   "bytes": 477735,
+   "sha256_16": "37be440346191788",
    "papel": "documento"
   },
   {
@@ -7765,15 +7772,15 @@
   {
    "path": "tools/gerar_estado_atual.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_estado_atual.py",
-   "bytes": 10737,
-   "sha256_16": "361707f3bfa6d12f",
+   "bytes": 13050,
+   "sha256_16": "09c6565fe41f6d24",
    "papel": "codigo"
   },
   {
    "path": "tools/gerar_portas.py",
    "url": "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/tools/gerar_portas.py",
-   "bytes": 82111,
-   "sha256_16": "749a366f388d7ce4",
+   "bytes": 83726,
+   "sha256_16": "d702eb82f449a272",
    "papel": "codigo"
   },
   {
