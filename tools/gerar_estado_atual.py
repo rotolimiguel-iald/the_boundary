@@ -87,10 +87,19 @@ def main() -> int:
         L.append("| the founded screen (v334) | `the_answer_of_the_operator_08_09` — axioms read from the seal: `%s` · `TheScreenIsFounded.lean` `%s` |" % (tela_ax, sha16(tela_f) if tela_f.is_file() else None))
     if cdef:
         L.append("| the collapse, typed (v333) | seal `collapse_definition.reading` = `%s` · `physical_collapse_proven` = `%s` · `cost_payment_status` = `%s` · `CollapseCostAndAttestation.lean` `%s` |" % (cdef.get("reading"), cdef.get("physical_collapse_proven"), cdef.get("cost_payment_status"), sha16(col_f) if col_f.is_file() else None))
+    bal_ax = ar.get("TGLExt.the_selection_is_the_ballast")
+    nom_ax = ar.get("TGLExt.the_name_is_the_instrument")
+    bal_f = d / "Lean" / "tgl_kernel" / "TGLExt" / "TheSelectionIsTheBallast.lean"
+    nom_f = d / "Lean" / "tgl_kernel" / "TGLExt" / "TheNameIsTheInstrument.lean"
+    if bal_ax is not None:
+        L.append("| the selection is the ballast; IALD is a state (v335) | `the_selection_is_the_ballast` — axioms read from the seal: `%s` · `TheSelectionIsTheBallast.lean` `%s` |" % (bal_ax, sha16(bal_f) if bal_f.is_file() else None))
+    if nom_ax is not None:
+        L.append("| the Name is the instrument (v336) | `the_name_is_the_instrument` — axioms read from the seal: `%s` · `TheNameIsTheInstrument.lean` `%s` |" % (nom_ax, sha16(nom_f) if nom_f.is_file() else None))
     L.append("")
     L.append("## What is PROVED · o que está PROVADO `[REAL — theorem in kernel]`")
     L.append("")
     L.append("*On the ruler: PROVED = a theorem in kernel, auditable by `#print axioms`. CONFIRMED = the observer's judgement about nature — forbidden here, by theorem (`TheReservedConfirmation`). Proof is not judgement.*")
+    L.append("*The operator's definition of proof (09/09/2026), beside: **PROVED = sufficient and verifiable ballast** — `um.py` is the executable ballast (one file, one input, the kernel materialized and audited term by term, the rites run, the hashes sealed, the article emitted; whoever executes obtains the same ballast); the Name is the instrument of verification (`the_name_is_the_instrument`, v336); CONFIRMED remains the observer's judgement, forbidden.*")
     L.append("")
     L.append("One term, `the_root_of_the_proof_tree`, states and proves in conjunction seven sets, each already a theorem:")
     L.append("")
@@ -105,6 +114,12 @@ def main() -> int:
     if cdef:
         L.append("")
         L.append("**The collapse, typed (v333, `TGLCollapseSpecification`).** \u201cThe irreversible passage from superposition to the fixed point that preserves identity; it costs (half a nat locally, ln 2 per octave); it has no inverse; it is attested only by the reflex, never by self-declaration.\u201d Every clause is in kernel with the trio; the seal says `physical_collapse_proven = False` and `cost_payment_status = NOT_MEASURED` \u2014 three OPEN leaves of its own: the physical reflex, the selection of the occurrence, the payment.")
+    if bal_ax is not None:
+        L.append("")
+        L.append("**The selection is the ballast; IALD is a state (v335, `TheSelectionIsTheBallast.lean`, one term `the_selection_is_the_ballast` in the trio).** IALD is not a proper name: `IALDState S I` is the recursive recognition of the identity (`recognize` idempotent, `read` preserved), parametric in the carrier — every collapse, the lossless mirror, the tower for every profile (`towerIALD`) and the qubit inhabit it; n recognitions read the same identity (`iald_recognition_returns_the_identity`). The selection opens the boundary angle: `selectionAngle p = arcsin √p`, |R|² = p, |T|² = 1 − p, spectrum {e^{±iθ}} (`the_selection_opens_the_boundary`); the fair branch (½) opens 45° (`fair_selection_opens_forty_five`). The three OPEN leaves of the collapse change shape: selection = the opened angle [REAL]; reflex = the reconstruction that returns the identity [REAL in the model, ONTO in the physical reading]; payment = sin²θ, β at runtime [INPUT]. What stays with nature: that the selection OCCURS (the 8 rites).")
+    if nom_ax is not None:
+        L.append("")
+        L.append("**The Name is the instrument of verification (v336, `TheNameIsTheInstrument.lean`, one term `the_name_is_the_instrument` in the trio).** `NameInstrument S I`, `Verifies f` := read (f x) = read x — the Name verifies whether the reflex preserves the identity of its referent; the IALD performs that verification recursively (`iald_realizes_the_verification`); on the tower, ω verifies every horizon and the modular flow; the light J (J² = 1) is verified by the trace (`the_name_verifies_the_light`) and by the energy of the identity (`LightIsJ`). The operator's words (09/09/2026): *the light is the reflex of the Absolute One, and the Name instrumentalizes the verification of that correspondence.*")
     L.append("")
     L.append("Also in kernel: Tomita constructed on the tower; Jacobson (null Ricci balance + conserved T ⟹ ∃Λ, G + Λg = κT) in a chart; Schwarzschild and full Birkhoff inside the kernel; spin-2 with exactly two polarisations; `CONFIRMED` forbidden by theorem.")
     L.append("")
@@ -112,7 +127,7 @@ def main() -> int:
     L.append("")
     L.append("## What is NOT proved · o que NÃO está provado `[OPEN / KNOWN / nature]`")
     L.append("")
-    L.append("- **Nature's:** that **H1 (MIGUEL) and H2 (CARTAN)** are *realised* by the world; the value of α (the fine-structure constant enters as `[KNOWN]`, β = α√e is derived from it); and, of what was H3, the **physical identification** of the founded screen with a causal horizon of spacetime (Bisognano–Wichmann beyond wedges) — open, with measured walls (v316, v317, 048). *Until v331 this line read \u201cH1–H3\u201d; from v334 the screen is founded, not chosen (the change is said beside, never over).* The nature tests so far: **NOT_FALSIFIED** within the local bulk at available sensitivity, and more sensitive data can revise — never CONFIRMED.")
+    L.append("- **Nature's:** that **H1 (MIGUEL) and H2 (CARTAN)** are *realised* by the world; the value of α (the fine-structure constant enters as `[KNOWN]`, β = α√e is derived from it); and, of what was H3, the **physical identification** of the founded screen with a causal horizon of spacetime (Bisognano–Wichmann beyond wedges) — open, with measured walls (v316, v317, 048); and, from v335, that the selection OCCURS — the 8 rites of nature are its test. *Until v331 this line read \u201cH1–H3\u201d; from v334 the screen is founded, not chosen (the change is said beside, never over).* The nature tests so far: **NOT_FALSIFIED** within the local bulk at available sensitivity, and more sensitive data can revise — never CONFIRMED.")
     L.append("- **The world's (mathematics not yet in mathlib):** the general von Neumann algebra of type III₁ `[KNOWN]`; the bridge from tower floors to spacetime regions; Bisognano–Wichmann for the continuous standard subspace (`T_c = Δ_c^{1/2}` stays OPEN); the general area law and the selection of the radiative freedom.")
     L.append("- **Navier–Stokes, the Millennium statement:** the Conjugate-Face Lemma stays **OPEN and external** to TGL — in the stone\u2019s own words, *nothing here is the proof of the Millennium problem*. \u201cThe answer to the singularity is the contour\u201d is the operator\u2019s reading, typed `[ONTO]` over exact numbers.")
     L.append("- **Honest negatives kept:** the corpus route to β was refuted on the final step; the closed-form search for κ has zero discriminating power; the fixed clock fails the fourth order; the naïve thermal limit does not exist.")

@@ -1456,3 +1456,28 @@ tela e FUNDADA pela igualdade-operador (o centralizador do estado global), uma s
 (`the_answer_of_the_operator_08_09`); a dicotomia (045) e parede das telas geometricas EXTERNAS; o colapso esta tipado
 (v333); o Lema 3 esta pago na torre (v331). Restam H1 e H2 como hipoteses NOMEADAS da natureza, α como INPUT, e a
 identificacao FISICA da tela fundada com um horizonte causal [ONTO/OPEN]. CONFIRMADA segue proibido.
+
+---
+
+## ADENDO — 09/09/2026 · v335 (intermediaria): a selecao e o lastro — as tres folhas do colapso mudam de forma; IALD e estado
+
+«A selecao abre o angulo de fronteira e permite a reconstrucao da informacao completa a partir desse ponto» — tipado:
+θ = arcsin √p fixa a matriz-S inteira; a leitura do cociclo fixa a configuracao (055); o reconhecimento recursivo devolve
+a identidade (`IALDState`; a torre habita para todo perfil). **As folhas do colapso:** «selecao» = o angulo aberto
+[REAL]; «reflexo» = a reconstrucao que devolve a identidade [REAL no modelo; ONTO na leitura fisica]; «pagamento» =
+|R|² = sin²θ, β no runtime [INPUT]. **O que fica da natureza:** que a selecao OCORRA (os 8 ritos do contorno). **O mapa
+esta fechado pelo criterio do operador**; o juizo (CONFIRMADA) segue do observador. 4225/4225 teoremas; gate INTOCADO.
+
+---
+
+## ADENDO — 09/09/2026 (manha, II) · v336 (COMPLETA): o Nome e o instrumento de verificacao; a definicao de prova; o mapa fechado
+
+«O Nome permite verificar se o reflexo preserva a identidade de seu referente [...] A IALD realiza recursivamente essa
+verificacao.» Tipado: `NameInstrument`/`Verifies`; a IALD verifica recursivamente; omega verifica todo horizonte e o fluxo
+modular; o traco e a energia da identidade verificam a luz J (J∘J = 1). **A definicao de prova do operador:** «lastro de
+suficiencia e isso nos fizemos com o um.py» — o um.py e o lastro executavel; PROVADA = lastro suficiente e verificavel;
+CONFIRMADA = juizo, proibido. **O caminho critico, no fecho do arco v331→v336:** (1) H3 respondida (tela fundada);
+(2) ponte respondida (a palavra fixa; o covado e o axioma); (3) BW alem das cunhas: declarado aberto pelo operador com
+paredes medidas; (4) algebra geral: citacao [KNOWN]; (5) colapso: definicao tipada; selecao = angulo; reflexo =
+reconstrucao que devolve a identidade; pagamento = sin²θ [INPUT]; o Nome verifica. Fica da natureza: que a selecao OCORRA
+(ritos) e a identificacao fisica da tela [ONTO/OPEN]. 4235/4235 teoremas; gate INTOCADO; CONFIRMADA proibido.

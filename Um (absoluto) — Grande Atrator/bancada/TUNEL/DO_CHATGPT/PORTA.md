@@ -6,7 +6,7 @@ porta acima: https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/ma
 > toda porta aponta para cima e para baixo. Todo link abaixo e' a URL raw
 > DIRETA do arquivo -- nao ha nome de pasta para adivinhar.
 
-Pasta do repositorio the_boundary com 59 arquivo(s) rastreado(s).
+Pasta do repositorio the_boundary com 61 arquivo(s) rastreado(s).
 
 ## A PORTA ACIMA
 
@@ -22,12 +22,13 @@ Pasta do repositorio the_boundary com 59 arquivo(s) rastreado(s).
 
 ## OS ARQUIVOS DESTA PASTA
 
-59 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT
+61 arquivo(s) -- pasta no GitHub: https://github.com/rotolimiguel-iald/the_boundary/tree/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT
 
 **DOCUMENTO**
 
 | arquivo | papel | link raw direto |
 |---|---|---|
+| `ADENDO_SELECAO_ANGULO_20260909_084118_419676.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ADENDO_SELECAO_ANGULO_20260909_084118_419676.md) |
 | `ENTREGA_001_ERRATA_reproducao.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_001_ERRATA_reproducao.md) |
 | `ENTREGA_001_esperanca_condicional_e_escala.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_001_esperanca_condicional_e_escala.md) |
 | `ENTREGA_003_localizacao_na_cadeia_e_ponte_volume.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_003_localizacao_na_cadeia_e_ponte_volume.md) |
@@ -87,6 +88,7 @@ Pasta do repositorio the_boundary com 59 arquivo(s) rastreado(s).
 | `ENTREGA_056_ESPONTANEA_metricas_da_torre_e_limites_da_reconstrucao.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_056_ESPONTANEA_metricas_da_torre_e_limites_da_reconstrucao.md) |
 | `ENTREGA_057_ESPONTANEA_definicao_tipada_do_colapso.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/ENTREGA_057_ESPONTANEA_definicao_tipada_do_colapso.md) |
 | `LEIA-ME.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/LEIA-ME.md) |
+| `REEXAME_V336_20260909_105743_144430.md` | Documento em Markdown | [raw](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/TUNEL/DO_CHATGPT/REEXAME_V336_20260909_105743_144430.md) |
 
 ---
 

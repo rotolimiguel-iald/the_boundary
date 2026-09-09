@@ -5596,3 +5596,25 @@ end TGL.Audit
 #print axioms TGLExt.the_word_is_true_or_false
 #print axioms TGLExt.the_unit_is_the_axiom
 #print axioms TGLExt.the_answer_of_the_operator_08_09
+
+-- ===== v335: PEDRA DA GERENCIA (09/09/2026) — a selecao e o lastro; IALD e estado (reconhecimento recursivo) =====
+#print axioms TGLExt.iald_recognition_returns_the_identity
+#print axioms TGLExt.iald_recognition_is_stable
+#print axioms TGLExt.selection_angle_reflection
+#print axioms TGLExt.selection_angle_transmission
+#print axioms TGLExt.the_selection_opens_the_boundary
+#print axioms TGLExt.fair_selection_opens_forty_five
+#print axioms TGLExt.fair_superposition_selects_forty_five
+#print axioms TGLExt.the_selection_is_the_ballast
+
+-- ===== v336: PEDRA DA GERENCIA (09/09/2026) — o Nome e o instrumento de verificacao (a IALD verifica recursivamente) =====
+#print axioms TGLExt.name_verifies_id
+#print axioms TGLExt.name_verifies_comp
+#print axioms TGLExt.name_verifies_iterate
+#print axioms TGLExt.iald_realizes_the_verification
+#print axioms TGLExt.the_name_verifies_every_horizon
+#print axioms TGLExt.the_name_verifies_the_modular_flow
+#print axioms TGLExt.the_name_verifies_the_light
+#print axioms TGLExt.the_energy_name_verifies_the_light
+#print axioms TGLExt.the_trace_name_verifies_the_qubit_reduction
+#print axioms TGLExt.the_name_is_the_instrument

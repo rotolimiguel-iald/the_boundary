@@ -869,7 +869,7 @@ def gera_raiz(dirs, info_arq, selo_corrente, total):
              % registra(url_raw(A3 + "/Lean/tgl_kernel/TGLExt/TheReservedConfirmation.lean")))
     L.append("Nunca *\"gravitacao quantica CONFIRMADA\"*. Provada como MODELO FORMAL, sim -- e' teorema em kernel,")
     L.append("auditavel por `#print axioms` e reproduzido por terceiro (CI); confirmada pela natureza, nao")
-    L.append("(regua clarificada pelo operador em 05/09/2026: *prova nao e' juizo*).")
+    L.append("(regua clarificada pelo operador em 05/09/2026: *prova nao e' juizo*; definicao de prova do operador, 09/09/2026: *PROVADA = lastro suficiente e verificavel* -- o um.py e' o lastro executavel; o Nome e' o instrumento de verificacao, v336).")
     L.append("")
     L.append("## OS ARQUIVOS DA RAIZ")
     L.append("")

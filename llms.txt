@@ -13,7 +13,7 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 - [README.md](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/README.md): o atlas da fronteira -- toda afirmacao com seu status e o link direto do arquivo onde se le.
 - [site oficial](https://teoriadagravitacaoluminodinamica.com): a face publica da teoria; a porta acima da raiz.
 - [repositorio](https://github.com/rotolimiguel-iald/the_boundary): a arvore no GitHub.
-- [Zenodo DOI 10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173): o deposito CITAVEL do Um: Absoluto -- guarda a v331 (08/09/2026; um.py e1b74a907c403538, md5 eadfe51b52d73fe4... conferido pela API). ATENCAO: o selo corrente deste repositorio e' v334, MAIS NOVO que o deposito; versao nova no Zenodo e' ato do operador.
+- [Zenodo DOI 10.5281/zenodo.22659173](https://doi.org/10.5281/zenodo.22659173): o deposito CITAVEL do Um: Absoluto -- guarda a v331 (08/09/2026; um.py e1b74a907c403538, md5 eadfe51b52d73fe4... conferido pela API). ATENCAO: o selo corrente deste repositorio e' v336, MAIS NOVO que o deposito; versao nova no Zenodo e' ato do operador.
 
 ## Artigo 1 -- O Custo Geometrico do Zero Absoluto: haja luz
 
@@ -36,20 +36,20 @@ A REGRA DA PORTA: toda pasta canonica tem PORTA.md + PORTA.json; toda porta apon
 - [PORTA.md do Artigo 3](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.md): a porta da pasta -- o selo corrente, o comando de execucao e todos os arquivos.
 - [PORTA.json do Artigo 3](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/PORTA.json): a mesma porta em estrutura de maquina, com o selo corrente completo.
 - [um.py](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py): O CANONICO TERMINAL -- kernel Lean 4 embutido, ritos pre-registrados, artigo bilingue; roda com `echo 1 | python um.py`. Nao ha segundo arquivo.
-- [um_absoluto_selo.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json): O SELO -- versao v334, pin b18bbaa0433ddd5a, result 1220777e0843ffb1, 2026-09-08 22:06:33.
+- [um_absoluto_selo.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json): O SELO -- versao v336, pin f1f330e24120f9be, result 95f8a271ef4f2ae7, 2026-09-09 10:42:14.
 
 ## Ordem de leitura -- para leitores que truncam documentos grandes
 
 Do menor para o maior; cada arquivo se sustenta sozinho (tamanhos lidos agora):
 
-- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md   (14 KB) -- uma pagina: pin, gate, o que esta provado, o que nao esta
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/ESTADO_ATUAL.md   (17 KB) -- uma pagina: pin, gate, o que esta provado, o que nao esta
 - https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_selo.json   (39 KB) -- o selo: todo sha256, o hash do mundo, o gate
-- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md   (25 KB) -- a arvore da prova, termo a termo
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/A_PROVA_DA_QG_TGL_arvore.md   (27 KB) -- a arvore da prova, termo a termo
 - https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_forma_canonica.md   (142 KB) -- a forma canonica
 - https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt   (497 KB) -- o artigo em texto puro (PT); a versao EN esta ao lado
-- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json   (684 KB) -- o manifesto do kernel: cada teorema com seus axiomas
-- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json   (2222 KB) -- o mundo: todos os numeros computados
-- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py   (9597 KB) -- o artefato inteiro (kernel Lean e artigos embutidos)
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json   (686 KB) -- o manifesto do kernel: cada teorema com seus axiomas
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto.json   (2227 KB) -- o mundo: todos os numeros computados
+- https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py   (9621 KB) -- o artefato inteiro (kernel Lean e artigos embutidos)
 
 Download em pedacos: o raw do GitHub e o Zenodo honram HTTP Range (206 Partial Content, byte-exato):
   curl -L -r 0-999999 -o um.py.part1 "https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um.py"   (depois -r 1000000-1999999, e assim por diante)
@@ -75,13 +75,13 @@ sumiu. Tres rotas servem o arquivo inteiro:
 
 Depois de baixar, confira o sha256 contra o um_absoluto_selo.json -- o selo e a
 verdade do repositorio. Rodar: echo 1 | python um.py
-- [tgl_kernel_proof_manifest.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json): o manifesto do kernel formal -- 604 arquivos .lean, 4907 teoremas auditados por #print axioms.
+- [tgl_kernel_proof_manifest.json](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel_proof_manifest.json): o manifesto do kernel formal -- 606 arquivos .lean, 4925 teoremas auditados por #print axioms.
   (nota de escopo, v306: os DOIS numeros do kernel sao da MESMA rodada e
   medem coisas diferentes -- o manifesto audita ~1000 NOMES por #print axioms
   (~953 theorem + ~47 def), enquanto o artigo cita as bandeiras da escada
   externa verificadas (n_theorems_clean, p.ex. 798/798): o subconjunto que o
   gate consome. Nenhum dos dois esta errado; sem esta frase, pareciam.
-- [PORTA.md do kernel Lean](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md): a porta do kernel materializado por um.py -- 604 arquivos na arvore, dos quais 604 hasheados no manifesto formal (600 .lean), 4907 teoremas auditados.
+- [PORTA.md do kernel Lean](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/Lean/tgl_kernel/PORTA.md): a porta do kernel materializado por um.py -- 606 arquivos na arvore, dos quais 606 hasheados no manifesto formal (602 .lean), 4925 teoremas auditados.
 - [PORTA.md da bancada](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/bancada/PORTA.md): a porta do que foi tentado, rebaixado e reprovado -- pre-registros hasheados antes do dado.
 - [um_absoluto_pt.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_pt.txt): o artigo (PT) em texto puro, leitura direta por maquina.
 - [um_absoluto_en.txt](https://raw.githubusercontent.com/rotolimiguel-iald/the_boundary/main/Um%20%28absoluto%29%20%E2%80%94%20Grande%20Atrator/um_absoluto_en.txt): o artigo (EN) em texto puro, leitura direta por maquina.

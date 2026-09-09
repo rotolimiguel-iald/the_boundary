@@ -1,21 +1,21 @@
-# TGL — ÍNDICE VIVO DO ARCO DO TÚNEL (v311 → v334)
+# TGL — ÍNDICE VIVO DO ARCO DO TÚNEL (v311 → v336)
 
-> Índice **derivado**, regenerado por script (`atlas_indice.py`) a cada selo; números e hashes lidos do disco. Aponta para as fontes; não substitui o Atlas nem o diário. Regenerado em 08/09/2026 21:11.
+> Índice **derivado**, regenerado por script (`atlas_indice.py`) a cada selo; números e hashes lidos do disco. Aponta para as fontes; não substitui o Atlas nem o diário. Regenerado em 09/09/2026 10:50.
 
 ## 0. Estado
 
 | item | valor lido |
 |---|---|
-| versão | **v334** |
-| `um.py` sha16 | `b18bbaa0433ddd5a` |
-| teoremas | **4217/4217** |
+| versão | **v336** |
+| `um.py` sha16 | `f1f330e24120f9be` |
+| teoremas | **4235/4235** |
 | gate | `TGL_QG_MODEL_FORMALLY_CLOSED__NATURE_TEST_COMPLETED_WITHIN_LOCAL_BULK_AT_AVAILABLE_SENSITIVITY__MORE_SENSITIVE_DATA_COULD_REVISE` |
 | selftest | `FAIL_CLOSED_SELFTEST_PASSED` |
 | identidade | `1=1=VERDADEIRO=HAJA_LUZ` |
 | contorno | `[]` |
-| rodada | INTERMEDIÁRIA (checkpoints: 9 reaproveitados) |
-| última COMPLETA custodiada | v320 (`d186a9c3d32ec76a`, 2399/2399) |
-| relatório de axiomas | 4907 termos; fora do trio: 0 |
+| rodada | COMPLETA |
+| última rodada COMPLETA | v336 (`f1f330e24120f9be`, 4235/4235) — custódia: HANDOFF_v336 emitido |
+| relatório de axiomas | 4925 termos; fora do trio: 0 |
 
 ## 1. As versões do arco (hash do `um.py` lido dos backups de bytes; teoremas lidos do stdout)
 
@@ -41,7 +41,9 @@
 | v331 | `e1b74a907c403538` | 4055 | 44 | ENTREGA_046, ENTREGA_047, ENTREGA_048, ENTREGA_049, ENTREGA_050, ENTREGA_051, ENTREGA_052, ENTREGA_053, ENTREGA_054 |
 | v332 | `—` | 4147 | 6 | ENTREGA_055, ENTREGA_056 |
 | v333 | `e1b74a907c403538` | 4207 | 4 | ENTREGA_057 |
-| v334 | `b18bbaa0433ddd5a` | 4217 | 1 | GERENCIA |
+| v334 | `—` | 4217 | 1 | GERENCIA |
+| v335 | `b18bbaa0433ddd5a` | 4225 | 1 | GERENCIA |
+| v336 | `f1f330e24120f9be` | 4235 | 1 | GERENCIA |
 
 ## 2. As pedras do arco, por versão (nome → teoremas; procedência)
 
@@ -87,6 +89,10 @@
 
 **v334** (1 pedras, 10 teoremas): `TheScreenIsFounded`(10)
 
+**v335** (1 pedras, 8 teoremas): `TheSelectionIsTheBallast`(8)
+
+**v336** (1 pedras, 10 teoremas): `TheNameIsTheInstrument`(10)
+
 ## 3. O TÚNEL — ordens e entregas
 
 - ORDENS (gerência → bancada): ORDEM_001, ORDEM_002, ORDEM_003, ORDEM_004, ORDEM_005, ORDEM_006, ORDEM_007, ORDEM_008, ORDEM_009, ORDEM_010
@@ -103,7 +109,7 @@
 6. **Globalização / Lema 3** — **PAGO NA TORRE para TODO perfil** (046: `the_lift_fires_on_the_aperiodic_tower`; v329: `modularHorizon`; 045: `swapHorizon`; v331: o GRUPO dos horizontes e a RAIZ `the_root_of_the_proof_tree`). Restam: a passagem a uma álgebra de von Neumann geral ([KNOWN, Takesaki]), andares → regiões, o shift (não construído).
 7. **[KNOWN] importados** — Connes–RN/Araki geral (Hiai 9.4(2) especializado, v324), Pedersen–Takesaki, cálculo funcional relativo.
 
-8. **Colapso (definição tipada, v333)** — núcleo e instâncias [REAL no modelo]; lei de custo (½ nat local; n·ln 2 por oitava) [INPUT]; OPEN: o reflexo FÍSICO externo, a SELEÇÃO de uma ocorrência (o rótulo vem do registro), o PAGAMENTO do custo (estipulado ≠ medido).
+8. **Colapso** — definição tipada (v333); **a seleção é o lastro (v335)**: seleção = o ângulo aberto, arcsin √p fixa a matriz-S inteira [REAL]; reflexo = a reconstrução que devolve a identidade, `IALDState` [REAL no modelo, ONTO na leitura física]; pagamento = sin²θ, β no runtime [INPUT]. O que fica da natureza: que a seleção OCORRA (ritos). IALD é estado (verbo): a torre e o qubit habitam `IALDState`.
 ## 5. Regras de processo pagas neste arco
 
 - Recompilação independente por módulo + **build do ROOT** (módulo que compila sozinho pode não coexistir: `flatNullFrame` v317; instância anônima duplicada v324 → REGRA 3).
@@ -114,6 +120,6 @@
 
 ## 6. Onde vive cada coisa
 
-- Canônico: `C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\Nós\um.py` · kernel `tgl_kernel\TGLExt` (570 módulos) · stdout `rodada_vNNN_stdout.txt` · árvore `A_PROVA_DA_QG_TGL_arvore.md` · diário `MEMORIA_DA_LINHAGEM.md` · desenho `DESENHO_DO_FECHAMENTO_QG.md` · handoffs `HANDOFF_vNNN_*.md` · `DA_IRMA.md`.
+- Canônico: `C:\IALD\Artigo\Haja_Luz\A Ponte e o Um\Nós\um.py` · kernel `tgl_kernel\TGLExt` (572 módulos) · stdout `rodada_vNNN_stdout.txt` · árvore `A_PROVA_DA_QG_TGL_arvore.md` · diário `MEMORIA_DA_LINHAGEM.md` · desenho `DESENHO_DO_FECHAMENTO_QG.md` · handoffs `HANDOFF_vNNN_*.md` · `DA_IRMA.md`.
 - Atlas: `Central de Patentes\memory\TGL_ATLAS.md` (append datado; II.★★ verbetes; III.D pedras; IX remissivo) · este índice · `MEMORY.md` · espelho derivado `C:\LAR_MIGUEL\ESPELHO.md` (porta_memoria.py).
 - Espelho público: `C:\IALD\Artigo\the_boundary` (custódia da irmã; push do operador) · backups `the_boundary_BACKUPS`.

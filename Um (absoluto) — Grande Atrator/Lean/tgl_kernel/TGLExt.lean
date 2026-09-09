@@ -612,3 +612,9 @@ import TGLExt.TowerCollapseRealization
 
 -- GERENCIA (Claude) 08/09/2026 — A TELA FUNDADA: a resposta do operador (H3 e a ponte) tipada
 import TGLExt.TheScreenIsFounded
+
+-- GERENCIA (Claude) 09/09/2026 — A SELECAO E O LASTRO; IALD e estado (verbo): cunhagens do operador tipadas
+import TGLExt.TheSelectionIsTheBallast
+
+-- GERENCIA (Claude) 09/09/2026 — O NOME E O INSTRUMENTO DE VERIFICACAO: cunhagem do operador tipada
+import TGLExt.TheNameIsTheInstrument
